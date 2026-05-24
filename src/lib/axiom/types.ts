@@ -20,6 +20,19 @@ export interface OpcionPregunta {
   texto: string;        // puede contener $...$ KaTeX
 }
 
+export type TipoPregunta =
+  | "seleccion_simple"      // A/B/C/D, 1 correcta (clasica)
+  | "seleccion_multiple"    // varias correctas
+  | "verdadero_falso"       // V/F
+  | "emparejamiento"        // par A-X, B-Y
+  | "completar"             // espacios en blanco
+  | "abierta";              // respuesta libre (para banco didactico)
+
+export interface OpcionEmparejamiento {
+  izquierda: string;
+  derecha: string;
+}
+
 export interface PreguntaBanco {
   id: string;                       // umss-economicas-2024-001
   universidad: string;              // UMSS
@@ -31,9 +44,16 @@ export interface PreguntaBanco {
   dificultad: Dificultad;
   enunciado: string;                // texto con $...$ y $$...$$ inline
   opciones: OpcionPregunta[];
-  respuesta_correcta: string;       // "A" | "B" | "C" | "D"
+  respuesta_correcta: string;       // "A" | "B" | "C" | "D" — o "A,C" para multi
   explicacion?: string;
   tags?: string[];
+  // Campos opcionales para nuevos tipos:
+  tipo?: TipoPregunta;              // por defecto "seleccion_simple" (retrocompatible)
+  pares_emparejamiento?: OpcionEmparejamiento[];
+  espacios_completar?: string[];    // respuestas para cada espacio
+  fecha_creacion?: string;
+  creado_por?: string;
+  materia_id?: string;              // referencia a materias.json
 }
 
 export interface ExamenBanco {
