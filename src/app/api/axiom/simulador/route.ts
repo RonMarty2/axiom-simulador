@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { construirSimulador } from "@/lib/axiom/simulador-builder";
 import { axiomDB } from "@/lib/axiom/db";
-import { getCurrentUser } from "@/lib/session-mock";
+import { getCurrentUser } from "@/lib/session";
 import type { ConfiguracionSimulacion } from "@/lib/axiom/types";
 
 export async function POST(req: Request) {

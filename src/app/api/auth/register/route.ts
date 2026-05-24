@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crearUsuario, getUsuarioByEmail, type FacultadId } from "@/lib/data-store";
-import { setUserSession, clearSession } from "@/lib/session-mock";
+import { setUserSession, clearSession } from "@/lib/session";
 
 const COLORES = ["#a855f7", "#3b82f6", "#ef4444", "#10b981", "#f59e0b", "#06b6d4", "#ec4899", "#8b5cf6"];
 

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { actualizarPago, getUsuario } from "@/lib/data-store";
-import { isAdmin } from "@/lib/session-mock";
+import { isAdmin } from "@/lib/session";
 
 export async function PATCH(req: NextRequest, ctx: { params: Promise<{ id: string }> }) {
   if (!(await isAdmin())) {

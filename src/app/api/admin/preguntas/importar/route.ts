@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { importarBulk } from "@/lib/axiom/preguntas-store";
 import { parsearImport, type FormatoImport, type DefaultsImport } from "@/lib/axiom/import-parsers";
-import { isAdmin } from "@/lib/session-mock";
+import { isAdmin } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
   if (!(await isAdmin())) {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { actualizarPregunta, eliminarPregunta, obtenerPregunta } from "@/lib/axiom/preguntas-store";
-import { isAdmin } from "@/lib/session-mock";
+import { isAdmin } from "@/lib/session";
 
 export async function GET(_req: NextRequest, ctx: { params: Promise<{ id: string }> }) {
   if (!(await isAdmin())) {

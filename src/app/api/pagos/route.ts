@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crearPago, getPagos, getPagosUsuario } from "@/lib/data-store";
-import { getCurrentUser, isAdmin } from "@/lib/session-mock";
+import { getCurrentUser, isAdmin } from "@/lib/session";
 
 export async function GET() {
   if (await isAdmin()) {

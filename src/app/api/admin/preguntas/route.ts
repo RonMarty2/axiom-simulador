@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crearPregunta, estadisticasBanco, listarPreguntas } from "@/lib/axiom/preguntas-store";
-import { isAdmin } from "@/lib/session-mock";
+import { isAdmin } from "@/lib/session";
 
 export async function GET(req: NextRequest) {
   if (!(await isAdmin())) {

@@ -17,6 +17,7 @@ export default function AppHeader() {
   const pathname = usePathname();
   const [usuario, setUsuario] = useState<UsuarioMini | null>(null);
   const [admin, setAdmin] = useState(false);
+  const [picture, setPicture] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export default function AppHeader() {
       .then((d) => {
         setUsuario(d.usuario ?? null);
         setAdmin(!!d.admin);
+        setPicture(d.picture ?? null);
       })
       .catch(() => null);
   }, [pathname]);
@@ -87,16 +89,21 @@ export default function AppHeader() {
                   background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer",
                 }}
               >
-                <div style={{
-                  width: 30, height: 30, borderRadius: "50%",
-                  background: usuario?.avatar_color ?? "#6366F1",
-                  color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-                  fontWeight: 700, fontSize: 12,
-                }}>
-                  {admin ? "⚡" : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                </div>
+                {picture ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={picture} alt="" style={{ width: 30, height: 30, borderRadius: "50%", objectFit: "cover" }} />
+                ) : (
+                  <div style={{
+                    width: 30, height: 30, borderRadius: "50%",
+                    background: usuario?.avatar_color ?? "#6366F1",
+                    color: "white", display: "flex", alignItems: "center", justifyContent: "center",
+                    fontWeight: 700, fontSize: 12,
+                  }}>
+                    {admin ? "⚡" : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                  </div>
+                )}
                 <span style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
-                  {admin ? "Admin" : usuario?.nombre.split(" ")[0]}
+                  {admin ? (usuario ? `${usuario.nombre.split(" ")[0]} · Docente` : "Admin") : usuario?.nombre.split(" ")[0]}
                 </span>
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>

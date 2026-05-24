@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getEstadisticasGlobales } from "@/lib/data-store";
-import { isAdmin } from "@/lib/session-mock";
+import { isAdmin } from "@/lib/session";
 
 export async function GET() {
   if (!(await isAdmin())) {

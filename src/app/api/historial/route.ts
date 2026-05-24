@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getHistorialUsuario } from "@/lib/data-store";
-import { getCurrentUser } from "@/lib/session-mock";
+import { getCurrentUser } from "@/lib/session";
 
 export async function GET() {
   const u = await getCurrentUser();
