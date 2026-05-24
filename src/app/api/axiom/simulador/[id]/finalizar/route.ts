@@ -3,13 +3,27 @@ import { axiomDB } from "@/lib/axiom/db";
 import { cargarExamen } from "@/lib/axiom/banco-loader";
 import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
 import { agregarHistorial, getUsuario, getHistorialUsuario, type FacultadId } from "@/lib/data-store";
+import type { Simulador } from "@/lib/axiom/types";
 
 export async function POST(
-  _req: Request,
+  req: Request,
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const simulador = await axiomDB.getSimulador(id);
+
+  // Intentar leer del store. Si la lambda no lo tiene (serverless), aceptar
+  // el simulador completo desde el body (cliente lo manda desde localStorage).
+  let simulador = await axiomDB.getSimulador(id);
+  let bodyCliente: { simulador?: Simulador } = {};
+  try {
+    bodyCliente = await req.json();
+  } catch {
+    // body opcional
+  }
+  if (!simulador && bodyCliente.simulador) {
+    simulador = bodyCliente.simulador;
+    await axiomDB.createSimulador(simulador);
+  }
   if (!simulador) {
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }

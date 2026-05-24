@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
 import type { Simulador, PreguntaBanco } from "@/lib/axiom/types";
+import { leerSimulador, guardarSimulador } from "@/lib/sim-storage";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
@@ -28,13 +29,21 @@ export default function SimuladorActivoPage() {
   const [confirmFinalizar, setConfirmFinalizar] = useState(false);
   const [sidebarAbierto, setSidebarAbierto] = useState(false);
 
-  // Cargar simulador
+  // Cargar simulador: primero de localStorage (sobrevive a serverless),
+  // luego del servidor como fallback.
   useEffect(() => {
+    const local = leerSimulador(simId);
+    if (local) {
+      setSimulador(local);
+      setCargando(false);
+      return;
+    }
     fetch(`/api/axiom/simulador/${simId}`)
       .then(async (r) => {
         const data = await r.json();
         if (!r.ok) throw new Error(data.error ?? "Error");
         setSimulador(data.simulador);
+        guardarSimulador(data.simulador);
       })
       .catch((e) => setError(e instanceof Error ? e.message : String(e)))
       .finally(() => setCargando(false));
@@ -48,7 +57,12 @@ export default function SimuladorActivoPage() {
   const finalizar = useCallback(async () => {
     setFinalizando(true);
     try {
-      await fetch(`/api/axiom/simulador/${simId}/finalizar`, { method: "POST" });
+      const local = leerSimulador(simId);
+      await fetch(`/api/axiom/simulador/${simId}/finalizar`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ simulador: local }),
+      });
       router.push(`/simulador/${simId}/resultados`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -87,22 +101,18 @@ export default function SimuladorActivoPage() {
 
   const elegirOpcion = async (preguntaId: string, letra: string) => {
     if (!simulador) return;
-    const prevRespuestas = simulador.respuestas_usuario;
-    // Optimistic update
-    setSimulador({
+    const nuevo = {
       ...simulador,
-      respuestas_usuario: { ...prevRespuestas, [preguntaId]: letra },
-    });
-    try {
-      await fetch(`/api/axiom/simulador/${simId}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pregunta_id: preguntaId, respuesta: letra }),
-      });
-    } catch {
-      // revert on error
-      setSimulador({ ...simulador, respuestas_usuario: prevRespuestas });
-    }
+      respuestas_usuario: { ...simulador.respuestas_usuario, [preguntaId]: letra },
+    };
+    setSimulador(nuevo);
+    guardarSimulador(nuevo);
+    // Best effort: actualizar servidor (puede fallar entre lambdas frias)
+    fetch(`/api/axiom/simulador/${simId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pregunta_id: preguntaId, respuesta: letra, simulador: nuevo }),
+    }).catch(() => {});
   };
 
   const toggleMarcada = async (preguntaId: string) => {
@@ -110,12 +120,14 @@ export default function SimuladorActivoPage() {
     const marcadas = new Set(simulador.marcadas ?? []);
     if (marcadas.has(preguntaId)) marcadas.delete(preguntaId);
     else marcadas.add(preguntaId);
-    setSimulador({ ...simulador, marcadas: Array.from(marcadas) });
-    await fetch(`/api/axiom/simulador/${simId}`, {
+    const nuevo = { ...simulador, marcadas: Array.from(marcadas) };
+    setSimulador(nuevo);
+    guardarSimulador(nuevo);
+    fetch(`/api/axiom/simulador/${simId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ toggle_marcada: preguntaId }),
-    });
+      body: JSON.stringify({ toggle_marcada: preguntaId, simulador: nuevo }),
+    }).catch(() => {});
   };
 
   if (cargando) {

@@ -8,6 +8,7 @@ import {
   contarErrores,
   obtenerTemasReforzar,
 } from "@/lib/axiom/errores-storage";
+import { guardarSimulador } from "@/lib/sim-storage";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
 import type {
   ConfiguracionSimulacion,
@@ -93,6 +94,7 @@ function PracticarInner() {
       });
       const data = await r.json();
       if (!r.ok) throw new Error(data.error ?? "Error");
+      guardarSimulador(data.simulador);
       router.push(`/simulador/${data.simulador.id}`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));

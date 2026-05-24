@@ -18,7 +18,15 @@ export async function PATCH(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const simulador = await axiomDB.getSimulador(id);
+  const body = await req.json();
+
+  // En serverless puede no estar en memoria. Si viene body.simulador, lo
+  // recreamos para que el PATCH no falle entre lambdas.
+  let simulador = await axiomDB.getSimulador(id);
+  if (!simulador && body.simulador) {
+    simulador = body.simulador;
+    await axiomDB.createSimulador(simulador!);
+  }
   if (!simulador) {
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }
@@ -28,8 +36,6 @@ export async function PATCH(
       { status: 400 }
     );
   }
-
-  const body = await req.json();
 
   // Registrar respuesta
   if (typeof body.pregunta_id === "string" && typeof body.respuesta === "string") {

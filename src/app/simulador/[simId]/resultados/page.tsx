@@ -37,12 +37,24 @@ export default function ResultadosPage() {
   const [errorPlan, setErrorPlan] = useState<string | null>(null);
 
   useEffect(() => {
+    // Intentar primero del servidor (que tiene la nota final calculada).
+    // Si la lambda se durmio, hacemos fallback a localStorage (sin nota).
     fetch(`/api/axiom/simulador/${simId}`)
       .then(async (r) => {
         const data = await r.json();
-        if (!r.ok) throw new Error(data.error ?? "Error");
+        if (!r.ok) {
+          // Fallback: leer del navegador
+          if (typeof window !== "undefined") {
+            const raw = localStorage.getItem(`axiom_sim_${simId}`);
+            if (raw) {
+              const local = JSON.parse(raw);
+              setSimulador(local);
+              return;
+            }
+          }
+          throw new Error(data.error ?? "Error");
+        }
         setSimulador(data.simulador);
-        // Persistir errores en localStorage para alimentar el modo "mis_errores"
         if (data.simulador?.preguntas?.length) {
           guardarErroresDeSimulador(
             data.simulador.preguntas,
