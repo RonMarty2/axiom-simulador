@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { construirSimulador } from "@/lib/axiom/simulador-builder";
 import { axiomDB } from "@/lib/axiom/db";
-import { verifySessionToken, SESSION_COOKIE } from "@/lib/auth";
+import { getCurrentUser } from "@/lib/session-mock";
 import type { ConfiguracionSimulacion } from "@/lib/axiom/types";
 
 export async function POST(req: Request) {
@@ -17,12 +16,8 @@ export async function POST(req: Request) {
       );
     }
 
-    // Resolver usuario: auth real o demo anónimo
-    const cookieStore = await cookies();
-    const token = cookieStore.get(SESSION_COOKIE)?.value;
-    const user = token ? await verifySessionToken(token) : null;
-    const usuarioId =
-      user?.id ?? `anon-${Math.random().toString(36).slice(2, 12)}`;
+    const user = await getCurrentUser();
+    const usuarioId = user?.id ?? `anon-${Math.random().toString(36).slice(2, 12)}`;
 
     const { simulador } = await construirSimulador(config, usuarioId);
     await axiomDB.createSimulador(simulador);

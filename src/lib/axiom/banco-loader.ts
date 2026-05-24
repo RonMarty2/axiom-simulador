@@ -121,3 +121,4 @@ export function invalidarCache(): void {
   cacheExamenes = null;
   cacheTimestamp = 0;
 }
+
