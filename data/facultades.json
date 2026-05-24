@@ -1,0 +1,58 @@
+[
+  {
+    "id": "economicas",
+    "nombre": "Ciencias Económicas y Administrativas",
+    "nombre_corto": "Económicas",
+    "color": "#10b981",
+    "color_secundario": "#34d399",
+    "emoji": "📊",
+    "descripcion": "Carreras: Economía, Administración de Empresas, Contaduría Pública, Ingeniería Comercial.",
+    "areas": ["matematicas", "economicas", "verbal", "razonamiento"],
+    "ponderacion": { "matematicas": 0.40, "economicas": 0.35, "verbal": 0.15, "razonamiento": 0.10 },
+    "duracion_minutos": 180,
+    "preguntas_examen": 100,
+    "ano_inicio_banco": 2020
+  },
+  {
+    "id": "ingenieria",
+    "nombre": "Facultad de Ciencias y Tecnología",
+    "nombre_corto": "Ingeniería",
+    "color": "#3b82f6",
+    "color_secundario": "#60a5fa",
+    "emoji": "⚙️",
+    "descripcion": "Carreras: Ingeniería Civil, Industrial, de Sistemas, Eléctrica, Electrónica, Mecánica, Química, Matemáticas, Física.",
+    "areas": ["matematicas", "fisica", "quimica", "razonamiento"],
+    "ponderacion": { "matematicas": 0.40, "fisica": 0.30, "quimica": 0.20, "razonamiento": 0.10 },
+    "duracion_minutos": 180,
+    "preguntas_examen": 100,
+    "ano_inicio_banco": 2020
+  },
+  {
+    "id": "medicina",
+    "nombre": "Facultad de Medicina",
+    "nombre_corto": "Medicina",
+    "color": "#ef4444",
+    "color_secundario": "#f87171",
+    "emoji": "⚕️",
+    "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia.",
+    "areas": ["biologia", "quimica", "fisica", "verbal"],
+    "ponderacion": { "biologia": 0.40, "quimica": 0.30, "fisica": 0.20, "verbal": 0.10 },
+    "duracion_minutos": 180,
+    "preguntas_examen": 100,
+    "ano_inicio_banco": 2020
+  },
+  {
+    "id": "derecho",
+    "nombre": "Facultad de Derecho y Ciencias Políticas",
+    "nombre_corto": "Derecho",
+    "color": "#a855f7",
+    "color_secundario": "#c084fc",
+    "emoji": "⚖️",
+    "descripcion": "Carreras: Derecho, Ciencias Políticas, Administración Pública, Relaciones Internacionales.",
+    "areas": ["civica", "historia", "verbal", "razonamiento"],
+    "ponderacion": { "civica": 0.35, "historia": 0.30, "verbal": 0.25, "razonamiento": 0.10 },
+    "duracion_minutos": 180,
+    "preguntas_examen": 100,
+    "ano_inicio_banco": 2021
+  }
+]

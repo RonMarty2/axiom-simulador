@@ -22,17 +22,16 @@ interface PreguntaIA {
   explicacion: string;
 }
 
-const DISTRIBUCION_DEFAULT_ECONOMICAS: Record<Area, number> = {
+const DISTRIBUCION_DEFAULT_ECONOMICAS: Partial<Record<Area, number>> = {
   matematicas: 0.40,
   economicas: 0.35,
   verbal: 0.15,
   razonamiento: 0.10,
-  general: 0,
 };
 
 function distribuirCantidad(
   cantidad: number,
-  ponderacion: Record<Area, number>
+  ponderacion: Partial<Record<Area, number>>
 ): Partial<Record<Area, number>> {
   const out: Partial<Record<Area, number>> = {};
   let acumulado = 0;

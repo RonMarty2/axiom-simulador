@@ -2,7 +2,17 @@
 // Banco de exámenes (contenido estático curado offline)
 // ─────────────────────────────────────────────────────────────
 
-export type Area = "matematicas" | "economicas" | "verbal" | "razonamiento" | "general";
+export type Area =
+  | "matematicas"
+  | "economicas"
+  | "verbal"
+  | "razonamiento"
+  | "general"
+  | "fisica"
+  | "quimica"
+  | "biologia"
+  | "civica"
+  | "historia";
 export type Dificultad = "facil" | "medio" | "dificil";
 
 export interface OpcionPregunta {

@@ -1,0 +1,14 @@
+[
+  { "id": "p-001", "usuario_id": "u-001", "plan": "premium", "monto": 100, "moneda": "BOB", "metodo": "tigo_money", "estado": "aprobado", "fecha": "2026-05-01", "referencia": "TM-89472341", "valido_hasta": "2026-06-01" },
+  { "id": "p-002", "usuario_id": "u-002", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "qr_bancario", "estado": "aprobado", "fecha": "2026-05-03", "referencia": "QR-77231189", "valido_hasta": "2026-06-03" },
+  { "id": "p-003", "usuario_id": "u-003", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "transferencia", "estado": "aprobado", "fecha": "2026-05-05", "referencia": "BG-99812234", "valido_hasta": "2026-06-05" },
+  { "id": "p-004", "usuario_id": "u-004", "plan": "premium", "monto": 100, "moneda": "BOB", "metodo": "tigo_money", "estado": "aprobado", "fecha": "2026-05-08", "referencia": "TM-83721998", "valido_hasta": "2026-06-08" },
+  { "id": "p-005", "usuario_id": "u-006", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "qr_bancario", "estado": "aprobado", "fecha": "2026-05-10", "referencia": "QR-66554433", "valido_hasta": "2026-06-10" },
+  { "id": "p-006", "usuario_id": "u-008", "plan": "premium", "monto": 100, "moneda": "BOB", "metodo": "transferencia", "estado": "aprobado", "fecha": "2026-05-12", "referencia": "BU-11223344", "valido_hasta": "2026-06-12" },
+  { "id": "p-007", "usuario_id": "u-009", "plan": "premium", "monto": 100, "moneda": "BOB", "metodo": "tigo_money", "estado": "aprobado", "fecha": "2026-05-15", "referencia": "TM-77882211", "valido_hasta": "2026-06-15" },
+  { "id": "p-008", "usuario_id": "u-010", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "qr_bancario", "estado": "aprobado", "fecha": "2026-05-18", "referencia": "QR-44556677", "valido_hasta": "2026-06-18" },
+  { "id": "p-009", "usuario_id": "u-011", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "transferencia", "estado": "aprobado", "fecha": "2026-05-20", "referencia": "BM-88991122", "valido_hasta": "2026-06-20" },
+  { "id": "p-010", "usuario_id": "u-013", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "tigo_money", "estado": "pendiente", "fecha": "2026-05-23", "referencia": "TM-99887766", "valido_hasta": null },
+  { "id": "p-011", "usuario_id": "u-015", "plan": "premium", "monto": 100, "moneda": "BOB", "metodo": "qr_bancario", "estado": "aprobado", "fecha": "2026-05-23", "referencia": "QR-33445566", "valido_hasta": "2026-06-23" },
+  { "id": "p-012", "usuario_id": "u-005", "plan": "pro", "monto": 50, "moneda": "BOB", "metodo": "transferencia", "estado": "rechazado", "fecha": "2026-05-22", "referencia": "BG-22334455", "valido_hasta": null, "motivo_rechazo": "Comprobante no legible. Reintentar." }
+]

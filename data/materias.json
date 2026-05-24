@@ -1,0 +1,36 @@
+{
+  "economicas": [
+    { "id": "alg-economicas", "nombre": "Álgebra y Funciones", "area": "matematicas", "libros_referencia": ["Algebra Baldor", "Calculo Stewart"] },
+    { "id": "calc-economicas", "nombre": "Cálculo Diferencial e Integral", "area": "matematicas", "libros_referencia": ["Cálculo Larson", "Cálculo Leithold"] },
+    { "id": "microeconomia", "nombre": "Microeconomía", "area": "economicas", "libros_referencia": ["Mankiw - Principios", "Pindyck"] },
+    { "id": "macroeconomia", "nombre": "Macroeconomía", "area": "economicas", "libros_referencia": ["Mankiw - Macroeconomía", "Blanchard"] },
+    { "id": "verbal-economicas", "nombre": "Comprensión Lectora", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] },
+    { "id": "logica-economicas", "nombre": "Razonamiento Lógico Matemático", "area": "razonamiento", "libros_referencia": ["Razonamiento Lógico Cuanto"] }
+  ],
+  "ingenieria": [
+    { "id": "alg-ing", "nombre": "Álgebra y Trigonometría", "area": "matematicas", "libros_referencia": ["Algebra Baldor", "Trigonometría Sullivan"] },
+    { "id": "geom-ing", "nombre": "Geometría Analítica", "area": "matematicas", "libros_referencia": ["Lehmann", "Charles Lehmann"] },
+    { "id": "calc-ing", "nombre": "Cálculo I", "area": "matematicas", "libros_referencia": ["Stewart", "Leithold"] },
+    { "id": "mec-fisica", "nombre": "Mecánica Clásica", "area": "fisica", "libros_referencia": ["Sears Zemansky", "Serway Vol. 1"] },
+    { "id": "term-fisica", "nombre": "Termodinámica y Ondas", "area": "fisica", "libros_referencia": ["Serway Vol. 2"] },
+    { "id": "quim-gen", "nombre": "Química General", "area": "quimica", "libros_referencia": ["Chang", "Whitten"] },
+    { "id": "razon-ing", "nombre": "Razonamiento Lógico", "area": "razonamiento", "libros_referencia": ["Razonamiento Lógico Cuanto"] }
+  ],
+  "medicina": [
+    { "id": "biocelular", "nombre": "Biología Celular y Molecular", "area": "biologia", "libros_referencia": ["Curtis - Biología", "Alberts - Bio Celular"] },
+    { "id": "anatomia-basica", "nombre": "Anatomía Humana Básica", "area": "biologia", "libros_referencia": ["Tortora", "Rouvière"] },
+    { "id": "genetica", "nombre": "Genética Básica", "area": "biologia", "libros_referencia": ["Curtis Cap. Genética"] },
+    { "id": "quim-organica", "nombre": "Química Orgánica", "area": "quimica", "libros_referencia": ["Wade", "McMurry"] },
+    { "id": "quim-inorg", "nombre": "Química Inorgánica", "area": "quimica", "libros_referencia": ["Chang", "Petrucci"] },
+    { "id": "fisica-med", "nombre": "Física Aplicada a la Medicina", "area": "fisica", "libros_referencia": ["Cromer - Física Vida"] },
+    { "id": "verbal-med", "nombre": "Comprensión Lectora", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] }
+  ],
+  "derecho": [
+    { "id": "const-politica", "nombre": "Constitución Política del Estado", "area": "civica", "libros_referencia": ["CPE 2009 Bolivia"] },
+    { "id": "civica-general", "nombre": "Educación Cívica", "area": "civica", "libros_referencia": ["Cívica 4to Secundaria"] },
+    { "id": "hist-bolivia", "nombre": "Historia de Bolivia", "area": "historia", "libros_referencia": ["Mesa Gisbert - Historia Bolivia", "Querejazu"] },
+    { "id": "hist-universal", "nombre": "Historia Universal", "area": "historia", "libros_referencia": ["Lozano - Historia Universal"] },
+    { "id": "filosofia", "nombre": "Filosofía y Ética", "area": "verbal", "libros_referencia": ["Gaarder - Sofía", "Savater - Ética"] },
+    { "id": "verbal-der", "nombre": "Comprensión Lectora Jurídica", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] }
+  ]
+}
