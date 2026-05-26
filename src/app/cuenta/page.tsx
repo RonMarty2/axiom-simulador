@@ -28,20 +28,10 @@ export default function CuentaPage() {
     });
   }, [router]);
 
-  const cambiarFacultad = async (nuevaId: string) => {
+  const irACambiarFacultad = (nuevaId: string) => {
     if (!usuario || nuevaId === usuario.facultad_objetivo) return;
-    if (!confirm("¿Cambiar tu facultad? Tus prácticas pasadas se mantienen pero los simulacros futuros serán de la nueva carrera.")) return;
-    setCambiandoFacultad(true);
-    const r = await fetch("/api/perfil/facultad", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ facultad: nuevaId }),
-    });
-    if (r.ok) {
-      const data = await r.json();
-      setUsuario(data.usuario);
-    }
-    setCambiandoFacultad(false);
+    // Cualquier cambio requiere pago — independiente del plan.
+    router.push(`/cambiar-facultad?destino=${nuevaId}`);
   };
 
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
@@ -71,37 +61,63 @@ export default function CuentaPage() {
           </div>
         </div>
 
-        {/* Facultad objetivo (cambiable) */}
+        {/* Facultad objetivo */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
-          <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>🎓 Tu facultad objetivo</h3>
-          <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 14 }}>
-            La plataforma se enfoca en esta carrera. Cambiarla afecta tus simulacros futuros (no los pasados).
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}>🎓 Tu facultad objetivo</h3>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "#d97706", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
+              🔒 CAMBIO PAGADO
+            </span>
+          </div>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 16 }}>
+            Cada facultad es un producto separado con su propio temario y precio. Cambiar de carrera requiere comprar el acceso a la nueva. Tu progreso de la carrera actual se mantiene siempre.
           </p>
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
             {facultades.map((f) => {
               const activa = usuario.facultad_objetivo === f.id;
               return (
                 <button
                   key={f.id}
-                  onClick={() => cambiarFacultad(f.id)}
+                  onClick={() => irACambiarFacultad(f.id)}
                   disabled={cambiandoFacultad || activa}
                   style={{
+                    position: "relative",
                     display: "flex", alignItems: "center", gap: 10, padding: 14,
                     border: activa ? `2px solid ${f.color}` : "1px solid var(--border)",
                     background: activa ? `${f.color}10` : "transparent",
                     borderRadius: 10, textAlign: "left",
                     cursor: activa ? "default" : "pointer",
-                    opacity: cambiandoFacultad && !activa ? 0.5 : 1,
                   }}
                 >
-                  <span style={{ fontSize: 26 }}>{f.emoji}</span>
+                  <span style={{ fontSize: 26, filter: activa ? "none" : "grayscale(0.4)" }}>{f.emoji}</span>
                   <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{f.nombre_corto}</div>
-                    {activa && <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera</div>}
+                    <div style={{ fontSize: 14, fontWeight: 700, color: activa ? "var(--fg-primary)" : "var(--fg-muted)" }}>{f.nombre_corto}</div>
+                    {activa
+                      ? <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera actual</div>
+                      : <div style={{ fontSize: 10, fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}>🔒 Cambiar (pago)</div>}
                   </div>
                 </button>
               );
             })}
+          </div>
+
+          <div style={{ marginTop: 16, padding: 14, background: "linear-gradient(135deg, #fbbf24, #f59e0b)", borderRadius: 12, color: "#1e1b4b" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+              <div style={{ flex: 1, minWidth: 200 }}>
+                <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 4 }}>¿Te equivocaste de carrera o quieres cambiar?</div>
+                <div style={{ fontSize: 12.5, opacity: 0.85 }}>
+                  Compras el acceso a la nueva facultad por una sola vez. Tu progreso actual se conserva.
+                </div>
+              </div>
+              <Link href="/cambiar-facultad" style={{
+                padding: "10px 20px", background: "#1e1b4b", color: "#fbbf24",
+                textDecoration: "none", borderRadius: 10, fontWeight: 800, fontSize: 13,
+                whiteSpace: "nowrap",
+              }}>
+                Ver opciones de cambio →
+              </Link>
+            </div>
           </div>
         </div>
 

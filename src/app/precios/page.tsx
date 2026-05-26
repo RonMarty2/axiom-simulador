@@ -1,8 +1,24 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+
+const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
+  "cambiar-facultad": {
+    titulo: "🔓 Desbloquea el cambio de facultad",
+    texto: "Con Plan Pro o Premium puedes cambiar de carrera cuando quieras y prepararte para otra facultad sin perder tu progreso.",
+  },
+  "ia-infinita": {
+    titulo: "🤖 Activa la IA infinita",
+    texto: "Con Plan Premium, una IA genera preguntas únicas para ti según el temario UMSS, ilimitadas.",
+  },
+  "limite": {
+    titulo: "📈 Pasa a ilimitado",
+    texto: "Llegaste al límite del Plan Gratis. Mejora para simulacros ilimitados todos los meses.",
+  },
+};
 
 const PLANES = [
   {
@@ -55,7 +71,11 @@ const PLANES = [
   },
 ];
 
-export default function PreciosPage() {
+function PreciosInner() {
+  const params = useSearchParams();
+  const motivo = params.get("motivo");
+  const banner = motivo ? MOTIVOS[motivo] : null;
+
   const [planActual, setPlanActual] = useState<string | null>(null);
 
   useEffect(() => {
@@ -66,6 +86,19 @@ export default function PreciosPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "40px 24px 80px" }}>
+        {banner && (
+          <div style={{
+            marginBottom: 32, padding: "20px 24px",
+            background: "linear-gradient(135deg, #fbbf24, #f59e0b)",
+            borderRadius: 14, color: "#1e1b4b",
+            display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap",
+          }}>
+            <div style={{ flex: 1, minWidth: 240 }}>
+              <h3 style={{ fontSize: 20, fontWeight: 800, marginBottom: 4 }}>{banner.titulo}</h3>
+              <p style={{ fontSize: 14, opacity: 0.9 }}>{banner.texto}</p>
+            </div>
+          </div>
+        )}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
           <h1 className="font-crimson" style={{ fontSize: 44, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}>
             Elige tu plan
@@ -133,5 +166,13 @@ export default function PreciosPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function PreciosPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>}>
+      <PreciosInner />
+    </Suspense>
   );
 }

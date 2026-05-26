@@ -138,8 +138,11 @@ function PracticarInner() {
                 <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estás postulando a</div>
                 <div style={{ fontSize: 20, fontWeight: 800 }}>{fac.nombre_corto}</div>
               </div>
-              <Link href="/cuenta" style={{ padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "white", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}>
-                Cambiar
+              <Link
+                href="/cambiar-facultad"
+                style={{ padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "white", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}
+              >
+                🔒 Cambiar
               </Link>
             </div>
           );
