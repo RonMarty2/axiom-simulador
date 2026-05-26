@@ -164,6 +164,31 @@ export async function eliminarPregunta(id: string): Promise<boolean> {
   return true;
 }
 
+export async function eliminarPreguntasPorTag(tag: string): Promise<number> {
+  if (supabaseConfigurado()) {
+    // Filtra por tag dentro del array JSONB `tags`.
+    const { data, error } = await db().from("preguntas").select("id,tags");
+    if (error) throw error;
+    const ids = (data ?? [])
+      .filter((p) => Array.isArray((p as { tags?: string[] }).tags) && (p as { tags: string[] }).tags.includes(tag))
+      .map((p) => (p as { id: string }).id);
+    if (ids.length === 0) return 0;
+    const { error: delErr } = await db().from("preguntas").delete().in("id", ids);
+    if (delErr) throw delErr;
+    return ids.length;
+  }
+  const todas = await cargarFallback();
+  const quedan = todas.filter((p) => !(p.tags ?? []).includes(tag));
+  const borradas = todas.length - quedan.length;
+  if (borradas > 0) await guardarFallback(quedan);
+  return borradas;
+}
+
+export async function contarPreguntasPorTag(tag: string): Promise<number> {
+  const todas = await listarPreguntas();
+  return todas.filter((p) => (p.tags ?? []).includes(tag)).length;
+}
+
 export async function importarBulk(preguntas: Omit<PreguntaBanco, "id" | "numero">[]): Promise<{ creadas: number; errores: string[] }> {
   const errores: string[] = [];
   let creadas = 0;

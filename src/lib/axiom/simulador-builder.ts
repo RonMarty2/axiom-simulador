@@ -1,6 +1,7 @@
 import crypto from "crypto";
 import { getFacultad } from "@/lib/data-store";
 import { cargarBanco } from "./banco-loader";
+import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
 import { esRespuestaCorrecta } from "./respuestas";
 import type {
@@ -73,9 +74,21 @@ export async function construirSimulador(
       e.facultad.toLowerCase() === facL
   );
 
-  if (examenesFacultad.length === 0) {
+  // Preguntas sueltas del banco del admin (cualquier tipo: opción múltiple,
+  // V/F, llenado…). Antes el simulador SOLO leía los exámenes .md; ahora también
+  // usa el banco, así que las preguntas creadas en el panel aparecen en los
+  // simulacros agrupados (mixto, predictivo, por tema).
+  const bancoIndividual = await listarPreguntas({ facultad: facL });
+
+  // Pool combinado para los modos que arman set desde varias fuentes.
+  const poolFacultad: PreguntaBanco[] = [
+    ...examenesFacultad.flatMap((e) => e.preguntas),
+    ...bancoIndividual,
+  ];
+
+  if (examenesFacultad.length === 0 && bancoIndividual.length === 0) {
     throw new Error(
-      `No hay exámenes cargados para ${config.universidad} / ${config.facultad}`
+      `No hay preguntas cargadas para ${config.universidad} / ${config.facultad}`
     );
   }
 
@@ -99,7 +112,7 @@ export async function construirSimulador(
     }
 
     case "mixto": {
-      const pool = examenesFacultad.flatMap((e) => e.preguntas);
+      const pool = poolFacultad;
       const cantidad = Math.min(config.cantidad_preguntas ?? 20, pool.length);
       preguntas = mezclar(pool).slice(0, cantidad);
       break;
@@ -109,9 +122,7 @@ export async function construirSimulador(
       if (!config.tema) {
         throw new Error("Modo 'por_tema' requiere 'tema'");
       }
-      const pool = examenesFacultad
-        .flatMap((e) => e.preguntas)
-        .filter((p) => p.tema === config.tema);
+      const pool = poolFacultad.filter((p) => p.tema === config.tema);
       if (pool.length === 0) {
         throw new Error(`No hay preguntas del tema '${config.tema}'`);
       }
@@ -124,7 +135,7 @@ export async function construirSimulador(
 
     case "predictivo": {
       // Predictivo estadístico: pondera temas por frecuencia histórica
-      const pool = examenesFacultad.flatMap((e) => e.preguntas);
+      const pool = poolFacultad;
       const frecuencia = new Map<string, number>();
       for (const p of pool) {
         frecuencia.set(p.tema, (frecuencia.get(p.tema) ?? 0) + 1);

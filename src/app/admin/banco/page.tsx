@@ -31,6 +31,34 @@ export default function AdminBancoPage() {
   const [loading, setLoading] = useState(true);
   const [filtros, setFiltros] = useState({ facultad: "", area: "", dificultad: "", q: "" });
   const [eliminando, setEliminando] = useState<string | null>(null);
+  const [demoCount, setDemoCount] = useState(0);
+  const [demoTrabajando, setDemoTrabajando] = useState(false);
+
+  const cargarDemoCount = async () => {
+    const r = await fetch("/api/admin/banco/demo");
+    if (r.ok) { const d = await r.json(); setDemoCount(d.total ?? 0); }
+  };
+
+  const cargarDatosPrueba = async () => {
+    setDemoTrabajando(true);
+    const r = await fetch("/api/admin/banco/demo", { method: "POST" });
+    const d = await r.json();
+    if (r.ok) alert(`✓ Se cargaron ${d.creadas} preguntas de prueba en las 4 facultades.`);
+    else alert("⚠️ " + (d.error ?? "Error"));
+    await Promise.all([cargar(), cargarDemoCount()]);
+    setDemoTrabajando(false);
+  };
+
+  const borrarDatosPrueba = async () => {
+    if (!confirm("¿Borrar TODAS las preguntas de prueba? Esto no afecta tus preguntas reales.")) return;
+    setDemoTrabajando(true);
+    const r = await fetch("/api/admin/banco/demo", { method: "DELETE" });
+    const d = await r.json();
+    if (r.ok) alert(`✓ Se borraron ${d.borradas} preguntas de prueba.`);
+    else alert("⚠️ " + (d.error ?? "Error"));
+    await Promise.all([cargar(), cargarDemoCount()]);
+    setDemoTrabajando(false);
+  };
 
   const cargar = async () => {
     const sp = new URLSearchParams();
@@ -49,6 +77,7 @@ export default function AdminBancoPage() {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
       if (!d.admin) { router.push("/login"); return; }
       fetch("/api/facultades").then((r) => r.json()).then((f) => setFacultades(f.facultades ?? []));
+      cargarDemoCount();
       cargar().finally(() => setLoading(false));
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,6 +113,19 @@ export default function AdminBancoPage() {
             <Link href="/admin/banco/importar" style={btnSecondary()}>📥 Importar lote</Link>
             <Link href="/admin/banco/nueva" style={btnPrimary()}>+ Nueva pregunta</Link>
           </div>
+        </div>
+
+        {/* Datos de prueba: cargar/borrar de un clic */}
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 20, padding: "12px 16px", background: "rgba(99,102,241,0.06)", border: "1px dashed var(--accent)", borderRadius: 12 }}>
+          <span style={{ fontSize: 13, color: "var(--fg-primary)", flex: 1, minWidth: 220 }}>
+            🧪 <strong>Datos de prueba</strong> (todos los tipos, 4 facultades) — {demoCount} cargadas. Úsalos para probar el flujo y bórralos cuando quieras.
+          </span>
+          <button onClick={cargarDatosPrueba} disabled={demoTrabajando} style={{ ...btnSecondary(), cursor: demoTrabajando ? "wait" : "pointer", opacity: demoTrabajando ? 0.6 : 1 }}>
+            {demoTrabajando ? "Trabajando…" : "⬇️ Cargar datos de prueba"}
+          </button>
+          <button onClick={borrarDatosPrueba} disabled={demoTrabajando || demoCount === 0} style={{ padding: "8px 14px", background: "transparent", border: "1px solid #ef4444", color: "#dc2626", borderRadius: 10, fontWeight: 700, fontSize: 13, cursor: demoTrabajando || demoCount === 0 ? "not-allowed" : "pointer", opacity: demoCount === 0 ? 0.45 : 1 }}>
+            🗑️ Borrar datos de prueba
+          </button>
         </div>
 
         {/* Cards de stats */}
