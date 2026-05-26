@@ -85,7 +85,7 @@ export default function AdminPagos() {
                 <tr style={{ background: "var(--bg-subtle)" }}>
                   <th style={th()}>Fecha</th>
                   <th style={th()}>Usuario</th>
-                  <th style={th()}>Plan</th>
+                  <th style={th()}>Concepto</th>
                   <th style={th()}>Método</th>
                   <th style={th()}>Comprobante</th>
                   <th style={th()}>Monto</th>
@@ -102,7 +102,16 @@ export default function AdminPagos() {
                       <td style={td()}>
                         {u ? <div><div style={{ fontWeight: 600 }}>{u.nombre}</div><div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{u.email}</div></div> : p.usuario_id}
                       </td>
-                      <td style={td()}><span style={{ textTransform: "capitalize", fontWeight: 700, color: p.plan === "premium" ? "#d97706" : "#7c3aed" }}>{p.plan}</span></td>
+                      <td style={td()}>
+                        {p.tipo === "cambio_facultad" ? (
+                          <div>
+                            <span style={{ padding: "2px 8px", background: "#fbbf2415", color: "#d97706", borderRadius: 999, fontSize: 10, fontWeight: 800, textTransform: "uppercase" }}>🔄 Cambio facultad</span>
+                            <div style={{ fontSize: 11, color: "var(--fg-muted)", marginTop: 4, textTransform: "capitalize" }}>→ {p.destino_facultad ?? "-"}</div>
+                          </div>
+                        ) : (
+                          <span style={{ textTransform: "capitalize", fontWeight: 700, color: p.plan === "premium" ? "#d97706" : "#7c3aed" }}>Plan {p.plan}</span>
+                        )}
+                      </td>
                       <td style={td()}>{p.metodo.replace("_", " ")}</td>
                       <td style={td()}><code style={{ fontSize: 12, background: "var(--bg-subtle)", padding: "2px 6px", borderRadius: 4 }}>{p.referencia}</code></td>
                       <td style={{ ...td(), fontWeight: 700 }}>Bs. {p.monto}</td>

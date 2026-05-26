@@ -56,10 +56,14 @@ export interface Usuario {
   avatar_color: string;
 }
 
+export type TipoPago = "plan" | "cambio_facultad";
+
 export interface Pago {
   id: string;
   usuario_id: string;
-  plan: PlanId;
+  tipo: TipoPago;
+  plan: PlanId | null;            // null cuando tipo=cambio_facultad
+  destino_facultad?: FacultadId | null;
   monto: number;
   moneda: "BOB";
   metodo: MetodoPago;
@@ -273,6 +277,7 @@ export async function getPagosUsuario(usuarioId: string): Promise<Pago[]> {
 export async function crearPago(data: Omit<Pago, "id" | "fecha" | "estado" | "valido_hasta">): Promise<Pago> {
   const nuevo: Pago = {
     ...data,
+    tipo: data.tipo ?? "plan",
     id: `p-${Date.now().toString(36)}`,
     fecha: new Date().toISOString().slice(0, 10),
     estado: "pendiente",

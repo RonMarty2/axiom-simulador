@@ -4,34 +4,57 @@ import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import type { Facultad } from "@/lib/data-store";
 
 type Metodo = "tigo_money" | "qr_bancario" | "transferencia";
+type TipoPago = "plan" | "cambio_facultad";
 
 function PagarInner() {
   const router = useRouter();
   const params = useSearchParams();
+  const tipo = (params.get("tipo") ?? "plan") as TipoPago;
   const plan = (params.get("plan") ?? "pro") as "pro" | "premium";
-  const monto = plan === "premium" ? 100 : 50;
+  const destinoFacultadId = params.get("destino") ?? "";
+
+  const [facultades, setFacultades] = useState<Facultad[]>([]);
+  const [destinoFac, setDestinoFac] = useState<Facultad | null>(null);
   const [metodo, setMetodo] = useState<Metodo>("tigo_money");
   const [referencia, setReferencia] = useState("");
   const [enviando, setEnviando] = useState(false);
   const [exito, setExito] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const monto = tipo === "cambio_facultad" ? 50 : (plan === "premium" ? 100 : 50);
+
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
       if (!d.usuario) router.push("/login");
     });
-  }, [router]);
+    if (tipo === "cambio_facultad" && destinoFacultadId) {
+      fetch("/api/facultades").then((r) => r.json()).then((d) => {
+        const list = (d.facultades ?? []) as Facultad[];
+        setFacultades(list);
+        setDestinoFac(list.find((f) => f.id === destinoFacultadId) ?? null);
+      });
+    }
+  }, [router, tipo, destinoFacultadId]);
 
   const enviar = async () => {
     setEnviando(true);
     setError(null);
     try {
+      const body: Record<string, unknown> = {
+        tipo,
+        metodo,
+        referencia: referencia || `${metodo.toUpperCase()}-${Date.now().toString().slice(-8)}`,
+      };
+      if (tipo === "plan") body.plan = plan;
+      if (tipo === "cambio_facultad") body.destino_facultad = destinoFacultadId;
+
       const res = await fetch("/api/pagos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ plan, metodo, referencia: referencia || `${metodo.toUpperCase()}-${Date.now().toString().slice(-8)}` }),
+        body: JSON.stringify(body),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Error");
@@ -41,6 +64,21 @@ function PagarInner() {
       setEnviando(false);
     }
   };
+
+  // Validación: si es cambio_facultad pero no llegó destino, error
+  if (tipo === "cambio_facultad" && !destinoFacultadId) {
+    return (
+      <div style={{ minHeight: "100vh" }}>
+        <AppHeader />
+        <div style={{ maxWidth: 540, margin: "60px auto", padding: 24, textAlign: "center" }}>
+          <p style={{ color: "var(--fg-muted)" }}>Falta indicar a qué facultad cambiar.</p>
+          <Link href="/cambiar-facultad" style={{ marginTop: 16, display: "inline-block", color: "var(--accent)", fontWeight: 700 }}>
+            ← Elegir facultad
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   if (exito) {
     return (
@@ -53,7 +91,11 @@ function PagarInner() {
               Pago registrado
             </h1>
             <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>
-              Tu pago está pendiente de aprobación. El admin revisará tu comprobante en las próximas 24 horas y activará tu plan {plan} automáticamente.
+              Tu pago está pendiente de aprobación. El admin revisará tu comprobante en las próximas 24 horas y
+              {tipo === "cambio_facultad"
+                ? <> moverá tu cuenta a <strong>{destinoFac?.nombre_corto ?? "la nueva facultad"}</strong>.</>
+                : <> activará tu plan <strong>{plan}</strong>.</>
+              }
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
               <Link href="/cuenta" style={{ padding: "12px 24px", background: "var(--accent)", color: "white", borderRadius: 10, textDecoration: "none", fontWeight: 700 }}>Ver mi cuenta</Link>
@@ -65,17 +107,41 @@ function PagarInner() {
     );
   }
 
+  // ─── Titular y subtítulo según tipo ───────────────────────────────────────
+  const titulo = tipo === "cambio_facultad"
+    ? `Cambiar a ${destinoFac?.nombre_corto ?? "nueva facultad"}`
+    : `Pagar plan ${plan}`;
+  const linkAtras = tipo === "cambio_facultad" ? "/cambiar-facultad" : "/precios";
+  const linkAtrasTexto = tipo === "cambio_facultad" ? "← Volver a elegir facultad" : "← Volver a planes";
+
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 720, margin: "30px auto", padding: 24 }}>
         <div style={{ marginBottom: 24 }}>
-          <Link href="/precios" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver a planes</Link>
+          <Link href={linkAtras} style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>{linkAtrasTexto}</Link>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 6 }}>
-            Pagar plan {plan}
+            {titulo}
           </h1>
           <p style={{ color: "var(--fg-muted)" }}>Total a pagar: <strong style={{ color: "var(--fg-primary)", fontSize: 22 }}>Bs. {monto}</strong></p>
         </div>
+
+        {/* Resumen para cambio de facultad */}
+        {tipo === "cambio_facultad" && destinoFac && (
+          <div style={{
+            padding: 18, marginBottom: 18,
+            background: `linear-gradient(135deg, ${destinoFac.color}, ${destinoFac.color_secundario})`,
+            color: "white", borderRadius: 14,
+            display: "flex", alignItems: "center", gap: 14,
+          }}>
+            <div style={{ fontSize: 40 }}>{destinoFac.emoji}</div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Te cambias a</div>
+              <div style={{ fontSize: 22, fontWeight: 800 }}>{destinoFac.nombre_corto}</div>
+              <div style={{ fontSize: 12.5, opacity: 0.9 }}>{destinoFac.descripcion.slice(0, 90)}{destinoFac.descripcion.length > 90 ? "…" : ""}</div>
+            </div>
+          </div>
+        )}
 
         {/* Seleccionar método */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
@@ -144,7 +210,9 @@ function PagarInner() {
             placeholder="Ej. TM-89472341 (opcional)"
             style={{ width: "100%", padding: "12px 14px", borderRadius: 10, border: "1px solid var(--border)", fontSize: 14 }}
           />
-          <p style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 6 }}>El admin verificará este código para aprobar tu plan.</p>
+          <p style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 6 }}>
+            El admin verificará este código para {tipo === "cambio_facultad" ? "aplicar el cambio de facultad" : "aprobar tu plan"}.
+          </p>
         </div>
 
         {error && (

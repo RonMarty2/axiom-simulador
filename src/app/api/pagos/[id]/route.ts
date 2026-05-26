@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { actualizarPago, getUsuario } from "@/lib/data-store";
+import { actualizarPago, actualizarUsuario, getUsuario } from "@/lib/data-store";
 import { isAdmin } from "@/lib/session";
 
 export async function PATCH(req: NextRequest, ctx: { params: Promise<{ id: string }> }) {
@@ -19,9 +19,17 @@ export async function PATCH(req: NextRequest, ctx: { params: Promise<{ id: strin
     });
     if (!pago) return NextResponse.json({ error: "Pago no encontrado" }, { status: 404 });
 
-    // Upgrade plan del usuario
+    // Aplicar el efecto del pago según su tipo
     const usuario = await getUsuario(pago.usuario_id);
-    if (usuario) usuario.plan = pago.plan;
+    if (usuario) {
+      if (pago.tipo === "cambio_facultad" && pago.destino_facultad) {
+        // Cambio de facultad: actualizar facultad_objetivo del usuario
+        await actualizarUsuario(usuario.id, { facultad_objetivo: pago.destino_facultad });
+      } else if (pago.tipo === "plan" && pago.plan) {
+        // Compra de plan (pro/premium): actualizar plan del usuario
+        await actualizarUsuario(usuario.id, { plan: pago.plan });
+      }
+    }
 
     return NextResponse.json({ pago });
   }
