@@ -4,25 +4,45 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
-import type { Usuario, Pago } from "@/lib/data-store";
+import type { Usuario, Pago, Facultad } from "@/lib/data-store";
 
 export default function CuentaPage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [pagos, setPagos] = useState<Pago[]>([]);
+  const [facultades, setFacultades] = useState<Facultad[]>([]);
   const [loading, setLoading] = useState(true);
+  const [cambiandoFacultad, setCambiandoFacultad] = useState(false);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/auth/me").then((r) => r.json()),
       fetch("/api/pagos").then((r) => r.json()).catch(() => ({ pagos: [] })),
-    ]).then(([me, p]) => {
+      fetch("/api/facultades").then((r) => r.json()),
+    ]).then(([me, p, f]) => {
       if (!me.usuario) { router.push("/login"); return; }
       setUsuario(me.usuario);
       setPagos(p.pagos ?? []);
+      setFacultades(f.facultades ?? []);
       setLoading(false);
     });
   }, [router]);
+
+  const cambiarFacultad = async (nuevaId: string) => {
+    if (!usuario || nuevaId === usuario.facultad_objetivo) return;
+    if (!confirm("¿Cambiar tu facultad? Tus prácticas pasadas se mantienen pero los simulacros futuros serán de la nueva carrera.")) return;
+    setCambiandoFacultad(true);
+    const r = await fetch("/api/perfil/facultad", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ facultad: nuevaId }),
+    });
+    if (r.ok) {
+      const data = await r.json();
+      setUsuario(data.usuario);
+    }
+    setCambiandoFacultad(false);
+  };
 
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
 
@@ -48,6 +68,40 @@ export default function CuentaPage() {
                 {usuario.plan === "premium" ? "Tu plan actual" : "Mejorar plan →"}
               </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Facultad objetivo (cambiable) */}
+        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>🎓 Tu facultad objetivo</h3>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 14 }}>
+            La plataforma se enfoca en esta carrera. Cambiarla afecta tus simulacros futuros (no los pasados).
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 10 }}>
+            {facultades.map((f) => {
+              const activa = usuario.facultad_objetivo === f.id;
+              return (
+                <button
+                  key={f.id}
+                  onClick={() => cambiarFacultad(f.id)}
+                  disabled={cambiandoFacultad || activa}
+                  style={{
+                    display: "flex", alignItems: "center", gap: 10, padding: 14,
+                    border: activa ? `2px solid ${f.color}` : "1px solid var(--border)",
+                    background: activa ? `${f.color}10` : "transparent",
+                    borderRadius: 10, textAlign: "left",
+                    cursor: activa ? "default" : "pointer",
+                    opacity: cambiandoFacultad && !activa ? 0.5 : 1,
+                  }}
+                >
+                  <span style={{ fontSize: 26 }}>{f.emoji}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{f.nombre_corto}</div>
+                    {activa && <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera</div>}
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
 

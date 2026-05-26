@@ -47,7 +47,7 @@ export interface Usuario {
   id: string;
   email: string;
   nombre: string;
-  facultad_objetivo: FacultadId;
+  facultad_objetivo: FacultadId | null;
   plan: PlanId;
   fecha_registro: string;
   examenes_completados: number;

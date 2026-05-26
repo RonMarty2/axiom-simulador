@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { intercambiarCodeGoogle, setSessionCookie, esAdminEmail, clearAllSessions } from "@/lib/session";
-import { crearUsuario, getUsuarioByEmail, type FacultadId } from "@/lib/data-store";
+import { crearUsuario, getUsuarioByEmail } from "@/lib/data-store";
 
 const COLORES = ["#a855f7", "#3b82f6", "#ef4444", "#10b981", "#f59e0b", "#06b6d4", "#ec4899", "#8b5cf6"];
 
@@ -26,26 +26,25 @@ export async function GET(req: NextRequest) {
       return NextResponse.redirect(`${baseUrl}/login?error=perfil_invalido`);
     }
 
-    // Buscar o crear usuario en el store
+    // Buscar o crear usuario en el store. Si es nuevo, NO asignamos facultad —
+    // el primer login lo manda a /onboarding para elegir.
     let usuario = await getUsuarioByEmail(perfil.email);
+    let esNuevo = false;
     if (!usuario) {
       usuario = await crearUsuario({
         nombre: perfil.name,
         email: perfil.email,
-        facultad_objetivo: "economicas" as FacultadId,
+        facultad_objetivo: null,
         plan: "gratis",
         fecha_registro: new Date().toISOString().slice(0, 10),
         avatar_color: COLORES[Math.floor(Math.random() * COLORES.length)],
       });
+      esNuevo = true;
     }
 
-    // Determinar rol
     const esAdmin = esAdminEmail(perfil.email);
 
-    // Limpiar sesiones anteriores
     await clearAllSessions();
-
-    // Crear sesión JWT
     await setSessionCookie({
       id: usuario.id,
       email: usuario.email,
@@ -54,8 +53,15 @@ export async function GET(req: NextRequest) {
       rol: esAdmin ? "admin" : "estudiante",
     });
 
-    // Redirigir según rol
-    return NextResponse.redirect(`${baseUrl}${esAdmin ? "/admin" : "/dashboard"}`);
+    // Redirección:
+    //  - Admin → siempre al panel admin
+    //  - Estudiante sin facultad → onboarding
+    //  - Estudiante con facultad → dashboard
+    let destino = "/dashboard";
+    if (esAdmin) destino = "/admin";
+    else if (esNuevo || !usuario.facultad_objetivo) destino = "/onboarding";
+
+    return NextResponse.redirect(`${baseUrl}${destino}`);
   } catch (e) {
     const msg = e instanceof Error ? e.message : "error";
     return NextResponse.redirect(`${baseUrl}/login?error=${encodeURIComponent(msg)}`);

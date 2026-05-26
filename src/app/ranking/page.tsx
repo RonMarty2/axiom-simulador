@@ -22,6 +22,10 @@ export default function RankingPage() {
   const [orden, setOrden] = useState<"mejor" | "promedio">("mejor");
 
   useEffect(() => {
+    fetch("/api/auth/me").then((r) => r.json()).then((d) => {
+      // Si el usuario tiene facultad, filtrar a esa por defecto (su carrera)
+      if (d.usuario?.facultad_objetivo) setFiltroFacultad(d.usuario.facultad_objetivo);
+    });
     fetch("/api/usuarios").then((r) => r.json()).then((d) => setUsuarios(d.usuarios ?? []));
   }, []);
 

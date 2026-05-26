@@ -52,8 +52,14 @@ function PracticarInner() {
         router.push("/login");
         return;
       }
+      if (!me.usuario.facultad_objetivo) {
+        router.push("/onboarding");
+        return;
+      }
       setUsuario(me.usuario);
-      setFacultades(f.facultades ?? []);
+      // Solo la facultad del usuario — no contaminamos con otras carreras
+      const propia = (f.facultades ?? []).filter((x: Facultad) => x.id === me.usuario.facultad_objetivo);
+      setFacultades(propia);
       setFacultadSeleccionada(me.usuario.facultad_objetivo);
       setLoading(false);
     });
@@ -117,39 +123,31 @@ function PracticarInner() {
           <p style={{ color: "var(--fg-muted)" }}>Configura tu examen de práctica</p>
         </div>
 
-        {/* PASO 1: Facultad */}
-        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, marginBottom: 16, border: "1px solid var(--border)" }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 1 · FACULTAD</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 8 }}>
-            {facultades.map((f) => {
-              const bloqueada = !planPermiteTodas && f.id !== usuario?.facultad_objetivo;
-              return (
-                <button
-                  key={f.id}
-                  onClick={() => !bloqueada && setFacultadSeleccionada(f.id)}
-                  disabled={bloqueada}
-                  style={{
-                    display: "flex", alignItems: "center", gap: 10, padding: 14, cursor: bloqueada ? "not-allowed" : "pointer",
-                    border: facultadSeleccionada === f.id ? `2px solid ${f.color}` : "1px solid var(--border)",
-                    background: facultadSeleccionada === f.id ? `${f.color}10` : (bloqueada ? "var(--bg-subtle)" : "transparent"),
-                    opacity: bloqueada ? 0.5 : 1,
-                    borderRadius: 10, textAlign: "left",
-                  }}
-                >
-                  <span style={{ fontSize: 24 }}>{f.emoji}</span>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{f.nombre_corto}</div>
-                    {bloqueada && <div style={{ fontSize: 10, color: "var(--fg-muted)" }}>🔒 Solo Pro</div>}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
+        {/* FACULTAD ACTUAL (no editable aquí; se cambia en /cuenta) */}
+        {(() => {
+          const fac = facultades.find((x) => x.id === usuario?.facultad_objetivo);
+          if (!fac) return null;
+          return (
+            <div style={{
+              background: `linear-gradient(135deg, ${fac.color}, ${fac.color_secundario})`,
+              color: "white", borderRadius: 14, padding: "16px 20px", marginBottom: 16,
+              display: "flex", alignItems: "center", gap: 14,
+            }}>
+              <div style={{ fontSize: 36 }}>{fac.emoji}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estás postulando a</div>
+                <div style={{ fontSize: 20, fontWeight: 800 }}>{fac.nombre_corto}</div>
+              </div>
+              <Link href="/cuenta" style={{ padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "white", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}>
+                Cambiar
+              </Link>
+            </div>
+          );
+        })()}
 
-        {/* PASO 2: Modo */}
+        {/* PASO 1: Modo */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, marginBottom: 16, border: "1px solid var(--border)" }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 2 · TIPO DE PRÁCTICA</div>
+          <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 1 · TIPO DE PRÁCTICA</div>
           <div style={{ display: "grid", gap: 8 }}>
             {[
               { v: "examen_real" as const, emoji: "📜", t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado" },
@@ -181,10 +179,10 @@ function PracticarInner() {
           </div>
         </div>
 
-        {/* PASO 3: Detalles según modo */}
+        {/* PASO 2: Detalles según modo */}
         {modo && (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, marginBottom: 16, border: "1px solid var(--border)" }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 3 · DETALLES</div>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 2 · DETALLES</div>
 
             {modo === "examen_real" && (
               <div>

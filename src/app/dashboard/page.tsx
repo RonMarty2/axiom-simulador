@@ -23,6 +23,11 @@ export default function DashboardPage() {
         router.push("/login");
         return;
       }
+      // Si el usuario no eligió facultad todavía, mandarlo a onboarding
+      if (!me.usuario.facultad_objetivo) {
+        router.push("/onboarding");
+        return;
+      }
       setUsuario(me.usuario);
       setHistorial(hist.historial ?? []);
       const f = (fac.facultades ?? []).find((x: Facultad) => x.id === me.usuario.facultad_objetivo);
