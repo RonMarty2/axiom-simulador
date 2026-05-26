@@ -135,6 +135,22 @@ export async function getFacultad(id: string): Promise<Facultad | null> {
   return fs.find((f) => f.id === id) ?? null;
 }
 
+export async function actualizarFacultad(id: string, updates: Partial<Facultad>): Promise<Facultad | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("facultades").update(updates).eq("id", id).select().maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Facultad | null;
+  }
+  // Modo dev sin Supabase: persistir en facultades.json para que el cambio sobreviva.
+  const todas = await getFacultades();
+  const idx = todas.findIndex((f) => f.id === id);
+  if (idx === -1) return null;
+  todas[idx] = { ...todas[idx], ...updates };
+  _facultades = todas;
+  await fs.writeFile(path.join(DATA_DIR, "facultades.json"), JSON.stringify(todas, null, 2), "utf-8");
+  return todas[idx];
+}
+
 // ─────────────────────────────────────────────────────────────
 // MATERIAS
 // ─────────────────────────────────────────────────────────────

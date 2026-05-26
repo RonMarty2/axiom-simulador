@@ -8,8 +8,6 @@ import MathText from "../../../components/MathText";
 import type { Facultad, Materia } from "@/lib/data-store";
 import type { Dificultad, TipoPregunta, Area } from "@/lib/axiom/types";
 
-const AREAS: Area[] = ["matematicas", "economicas", "verbal", "razonamiento", "fisica", "quimica", "biologia", "civica", "historia", "general"];
-
 export default function NuevaPreguntaPage() {
   const router = useRouter();
   const [facultades, setFacultades] = useState<Facultad[]>([]);
@@ -48,10 +46,20 @@ export default function NuevaPreguntaPage() {
     });
   }, [router]);
 
+  // Secciones de la facultad elegida (Económicas: matematicas…; Medicina: libro_1…).
+  const facActual = facultades.find((f) => f.id === form.facultad);
+  const secciones = facActual?.areas ?? [];
+
   useEffect(() => {
     if (!form.facultad) return;
     fetch(`/api/materias?facultad=${form.facultad}`).then((r) => r.json()).then((d) => setMaterias(d.materias ?? []));
-  }, [form.facultad]);
+    // Ajusta la sección seleccionada a una válida para esta facultad.
+    const fac = facultades.find((f) => f.id === form.facultad);
+    const secs = fac?.areas ?? [];
+    if (secs.length > 0) {
+      setForm((p) => (secs.includes(p.area) ? p : { ...p, area: secs[0] as Area }));
+    }
+  }, [form.facultad, facultades]);
 
   // Si cambia tipo a V/F, ajustar opciones
   useEffect(() => {
@@ -157,9 +165,11 @@ export default function NuevaPreguntaPage() {
               </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-                <Campo label="Área">
+                <Campo label="Sección">
                   <select value={form.area} onChange={(e) => setForm({ ...form, area: e.target.value as Area })} style={inp()}>
-                    {AREAS.map((a) => <option key={a} value={a}>{a}</option>)}
+                    {secciones.length === 0
+                      ? <option value="general">general</option>
+                      : secciones.map((a) => <option key={a} value={a}>{a}</option>)}
                   </select>
                 </Campo>
                 <Campo label="Tema">

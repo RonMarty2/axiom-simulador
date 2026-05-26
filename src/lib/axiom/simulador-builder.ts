@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import { getFacultad } from "@/lib/data-store";
 import { cargarBanco } from "./banco-loader";
 import { generarPreguntasIA } from "./generador-ia";
 import type {
@@ -31,9 +32,15 @@ export async function construirSimulador(
     }
 
     const cantidad = config.cantidad_preguntas ?? 20;
+    // Cargamos la facultad para que la IA genere según SUS secciones (no las de
+    // Economía). Cada facultad define sus propias secciones y pesos.
+    const fac = await getFacultad(config.facultad);
     const preguntasIA = await generarPreguntasIA({
       universidad: config.universidad,
       facultad: config.facultad,
+      facultad_nombre: fac?.nombre,
+      secciones: fac?.areas,
+      ponderacion: fac?.ponderacion,
       cantidad,
       dificultad: config.dificultad,
       temas_reforzar: config.temas_reforzar,

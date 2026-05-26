@@ -53,7 +53,10 @@ function detectarAreaDebil(
 ): string {
   const desglose = simulador.desglose ?? {};
   const entries = Object.entries(desglose);
-  if (entries.length === 0) return "matematicas";
+  if (entries.length === 0) {
+    // Sin desglose: usa la primera sección de las preguntas, o "general".
+    return simulador.preguntas?.[0]?.area ?? "general";
+  }
   return entries.sort(([, a], [, b]) => (a as number) - (b as number))[0][0];
 }
 
@@ -116,8 +119,11 @@ async function generarPlanConIA(
     })
     .join("\n");
 
+  const facLabel = simulador.config?.facultad
+    ? `la UMSS (facultad: ${simulador.config.facultad})`
+    : "la UMSS";
   const system = [
-    "Eres un tutor académico boliviano experto en preparación para el examen de ingreso a la UMSS Facultad de Ciencias Económicas.",
+    `Eres un tutor académico boliviano experto en preparación para el examen de ingreso a ${facLabel}.`,
     "Tu trabajo es analizar los errores específicos del estudiante y crear un plan de estudio de exactamente 3 días, MUY personalizado a sus fallos reales.",
     "",
     "REGLAS:",

@@ -8,8 +8,6 @@ import MathText from "../../../../components/MathText";
 import type { Facultad, Materia } from "@/lib/data-store";
 import type { Dificultad, TipoPregunta, Area, PreguntaBanco } from "@/lib/axiom/types";
 
-const AREAS: Area[] = ["matematicas", "economicas", "verbal", "razonamiento", "fisica", "quimica", "biologia", "civica", "historia", "general"];
-
 export default function EditarPreguntaPage() {
   const router = useRouter();
   const params = useParams();
@@ -126,9 +124,14 @@ export default function EditarPreguntaPage() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                 <label>
-                  <div style={lbl()}>Área</div>
+                  <div style={lbl()}>Sección</div>
                   <select value={pregunta.area} onChange={(e) => update("area", e.target.value as Area)} style={inp()}>
-                    {AREAS.map((a) => <option key={a} value={a}>{a}</option>)}
+                    {(() => {
+                      const fac = facultades.find((f) => f.id === pregunta.facultad);
+                      const secs = fac?.areas ?? [];
+                      const opts = secs.includes(pregunta.area) ? secs : [pregunta.area, ...secs];
+                      return opts.filter(Boolean).map((a) => <option key={a} value={a}>{a}</option>);
+                    })()}
                   </select>
                 </label>
                 <label>

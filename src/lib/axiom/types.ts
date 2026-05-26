@@ -2,17 +2,26 @@
 // Banco de exámenes (contenido estático curado offline)
 // ─────────────────────────────────────────────────────────────
 
-export type Area =
-  | "matematicas"
-  | "economicas"
-  | "verbal"
-  | "razonamiento"
-  | "general"
-  | "fisica"
-  | "quimica"
-  | "biologia"
-  | "civica"
-  | "historia";
+// Una "sección" del examen. Cada facultad define las suyas con el nombre que
+// quiera (Económicas usa "matematicas", "economicas"…; Medicina usa "libro_1",
+// "libro_2"…). Por eso es un string libre, no una lista cerrada: el catálogo
+// real vive en cada facultad (facultades.json / tabla facultades).
+export type Area = string;
+
+// Secciones de ejemplo (sólo sugerencias para autocompletar; NO limitan nada).
+export const AREAS_SUGERIDAS = [
+  "matematicas",
+  "economicas",
+  "verbal",
+  "razonamiento",
+  "general",
+  "fisica",
+  "quimica",
+  "biologia",
+  "civica",
+  "historia",
+] as const;
+
 export type Dificultad = "facil" | "medio" | "dificil";
 
 export interface OpcionPregunta {

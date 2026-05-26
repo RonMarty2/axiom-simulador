@@ -4,9 +4,11 @@ import type { Area, Dificultad, PreguntaBanco } from "./types";
 
 export interface ConfigGeneracionIA {
   universidad: string;             // "UMSS"
-  facultad: string;                // "economicas"
+  facultad: string;                // id de la facultad: "economicas", "medicina"…
+  facultad_nombre?: string;        // nombre legible: "Facultad de Medicina"
   cantidad: number;                // total de preguntas (10..50 razonable)
-  areas?: Partial<Record<Area, number>>; // cuántas por área. Si no se da, distribuye automático
+  secciones?: string[];            // secciones reales de la facultad (libro_1, matematicas…)
+  ponderacion?: Record<string, number>; // peso de cada sección (fracción 0..1)
   dificultad?: Dificultad;         // por defecto "medio"
   temas_evitar?: string[];         // ids/temas que el estudiante ya dominó
   temas_reforzar?: string[];       // temas donde el estudiante falló
@@ -22,87 +24,66 @@ interface PreguntaIA {
   explicacion: string;
 }
 
-const DISTRIBUCION_DEFAULT_ECONOMICAS: Partial<Record<Area, number>> = {
-  matematicas: 0.40,
-  economicas: 0.35,
-  verbal: 0.15,
-  razonamiento: 0.10,
-};
-
+// Reparte `cantidad` preguntas entre las secciones según su peso.
 function distribuirCantidad(
   cantidad: number,
-  ponderacion: Partial<Record<Area, number>>
-): Partial<Record<Area, number>> {
-  const out: Partial<Record<Area, number>> = {};
+  secciones: string[],
+  ponderacion: Record<string, number>
+): Record<string, number> {
+  const out: Record<string, number> = {};
+  if (secciones.length === 0) return { general: cantidad };
+
+  // Pesos: usa ponderacion si existe, sino reparte parejo entre secciones.
+  const pesos = secciones.map((s) => ponderacion[s] ?? 1 / secciones.length);
+  const sumaPesos = pesos.reduce((a, b) => a + b, 0) || 1;
+
   let acumulado = 0;
-  const entries = Object.entries(ponderacion) as [Area, number][];
-  for (let i = 0; i < entries.length; i++) {
-    const [area, peso] = entries[i];
-    if (peso === 0) continue;
-    if (i === entries.length - 1) {
-      out[area] = cantidad - acumulado;
+  for (let i = 0; i < secciones.length; i++) {
+    if (i === secciones.length - 1) {
+      out[secciones[i]] = Math.max(0, cantidad - acumulado);
     } else {
-      const n = Math.round(cantidad * peso);
-      out[area] = n;
+      const n = Math.round((cantidad * pesos[i]) / sumaPesos);
+      out[secciones[i]] = n;
       acumulado += n;
     }
   }
   return out;
 }
 
-function promptSistemaUMSSEconomia(): string {
+function promptSistema(facultadNombre: string, secciones: string[]): string {
+  const listaSecciones = secciones.length > 0 ? secciones.join(", ") : "general";
   return [
-    "Eres un profesor universitario boliviano experto en el examen de ingreso a la Facultad de Ciencias Económicas de la UMSS (Universidad Mayor de San Simón, Cochabamba).",
+    `Eres un profesor universitario boliviano experto en el examen de ingreso a ${facultadNombre} de la UMSS (Universidad Mayor de San Simón, Cochabamba).`,
     "",
-    "Tu tarea es generar preguntas REALISTAS, de nivel y estilo IDÉNTICO al examen oficial UMSS. NUNCA inventes contenido fuera del temario.",
+    "Tu tarea es generar preguntas REALISTAS, de nivel y estilo IDÉNTICO al examen oficial UMSS de esta facultad. NUNCA inventes contenido fuera del temario propio de la carrera.",
     "",
-    "TEMARIO OFICIAL UMSS - INGRESO ECONOMÍA:",
-    "",
-    "ÁREA MATEMÁTICAS (40%):",
-    "- Álgebra: ecuaciones lineales y cuadráticas, sistemas, factorización, productos notables",
-    "- Funciones: lineal, cuadrática, exponencial, logarítmica",
-    "- Cálculo básico: límites simples, derivadas de polinomios, integrales definidas simples",
-    "- Probabilidad y estadística básica: media, mediana, moda, eventos simples",
-    "- Geometría analítica: recta, distancia, pendiente",
-    "",
-    "ÁREA ECONOMÍA (35%):",
-    "- Microeconomía: oferta, demanda, elasticidad, equilibrio de mercado, costos",
-    "- Macroeconomía: PIB nominal vs real, inflación, desempleo, balanza comercial",
-    "- Economía boliviana: bolivianos, INE, exportaciones, hidrocarburos, minería",
-    "- Conceptos básicos: escasez, costo de oportunidad, factores de producción",
-    "",
-    "ÁREA VERBAL (15%):",
-    "- Sinónimos, antónimos, analogías",
-    "- Comprensión lectora de textos cortos",
-    "- Significado en contexto",
-    "",
-    "ÁREA RAZONAMIENTO (10%):",
-    "- Series numéricas, series de letras",
-    "- Lógica proposicional simple",
-    "- Razonamiento aritmético: regla de tres, porcentajes, proporciones",
+    `Este examen se divide en estas secciones: ${listaSecciones}.`,
+    "Cada pregunta debe pertenecer a UNA de esas secciones (usa exactamente ese nombre en el campo \"area\").",
+    "El contenido de cada pregunta debe corresponder al temario real de la facultad y de esa sección.",
     "",
     "FORMATO OBLIGATORIO:",
-    "- Cada pregunta tiene EXACTAMENTE 4 opciones (A, B, C, D)",
-    "- Solo UNA respuesta correcta",
-    "- Las opciones incorrectas deben ser plausibles (distractores realistas), no obviamente absurdas",
-    "- En matemáticas, usa LaTeX con $...$ inline o $$...$$ en bloque",
-    "- En economía Bolivia, usa Bs. (bolivianos) cuando aplique",
-    "- Explicación BREVE (1-3 líneas) que enseñe el concepto, no solo dé la respuesta",
-    "- Enunciados claros, sin ambigüedad, sin errores de redacción",
+    "- Cada pregunta tiene EXACTAMENTE 4 opciones (A, B, C, D).",
+    "- Solo UNA respuesta correcta.",
+    "- Las opciones incorrectas deben ser plausibles (distractores realistas), no obviamente absurdas.",
+    "- En matemáticas/física/química, usa LaTeX con $...$ inline o $$...$$ en bloque.",
+    "- Si aplica dinero boliviano, usa Bs. (bolivianos).",
+    "- Explicación BREVE (1-3 líneas) que enseñe el concepto, no solo dé la respuesta.",
+    "- Enunciados claros, sin ambigüedad, sin errores de redacción.",
     "",
     "ANTI-ALUCINACIÓN:",
-    "- NO inventes datos económicos específicos de Bolivia que no estén bien verificados",
-    "- Si usas un dato (ej. PIB Bolivia), usa hechos generales que sean estables (concepto, no cifra exacta)",
-    "- NO uses fechas posteriores a 2025",
-    "- NO uses nombres de personas reales bolivianas en contextos sensibles",
+    "- NO inventes datos específicos que no estén bien verificados.",
+    "- Usa hechos generales estables (conceptos), no cifras exactas dudosas.",
+    "- NO uses fechas posteriores a 2025.",
+    "- NO uses nombres de personas reales bolivianas en contextos sensibles.",
     "",
     "Devuelve SOLO JSON válido, sin texto antes ni después, sin markdown ni triple backtick.",
   ].join("\n");
 }
 
 function promptUsuario(
+  facultadNombre: string,
   config: ConfigGeneracionIA,
-  distribucion: Partial<Record<Area, number>>
+  distribucion: Record<string, number>
 ): string {
   const dif = config.dificultad ?? "medio";
   const refuerzo = config.temas_reforzar?.length
@@ -112,13 +93,14 @@ function promptUsuario(
     ? `\n\nEvita estos temas (ya los domina): ${config.temas_evitar.join(", ")}.`
     : "";
 
+  const primeraSeccion = Object.keys(distribucion)[0] ?? "general";
   const lineas: string[] = [
-    `Genera ${config.cantidad} preguntas para el examen de ingreso UMSS Facultad de Ciencias Económicas.`,
+    `Genera ${config.cantidad} preguntas para el examen de ingreso UMSS ${facultadNombre}.`,
     "",
-    `Distribución por área:`,
+    `Distribución por sección:`,
   ];
-  for (const [area, n] of Object.entries(distribucion)) {
-    if (n && n > 0) lineas.push(`- ${area}: ${n} preguntas`);
+  for (const [seccion, n] of Object.entries(distribucion)) {
+    if (n && n > 0) lineas.push(`- ${seccion}: ${n} preguntas`);
   }
   lineas.push("");
   lineas.push(`Dificultad general: ${dif}.${refuerzo}${evitar}`);
@@ -128,8 +110,8 @@ function promptUsuario(
   lineas.push("{");
   lineas.push('  "preguntas": [');
   lineas.push("    {");
-  lineas.push('      "area": "matematicas",');
-  lineas.push('      "tema": "ecuaciones_lineales",');
+  lineas.push(`      "area": "${primeraSeccion}",`);
+  lineas.push('      "tema": "nombre_del_tema",');
   lineas.push('      "dificultad": "medio",');
   lineas.push('      "enunciado": "Texto de la pregunta con $LaTeX$ si aplica",');
   lineas.push('      "opciones": [');
@@ -150,19 +132,19 @@ function validarYNormalizar(
   raw: PreguntaIA,
   universidad: string,
   facultad: string,
-  numero: number
+  numero: number,
+  seccionesValidas: string[]
 ): PreguntaBanco | null {
   if (!raw || typeof raw !== "object") return null;
   if (!raw.enunciado || !raw.respuesta_correcta || !raw.opciones) return null;
   if (!Array.isArray(raw.opciones) || raw.opciones.length !== 4) return null;
 
-  const areaNorm = (raw.area ?? "general").toLowerCase().trim();
-  const areaValida: Area =
-    ["matematicas", "economicas", "verbal", "razonamiento", "general"].includes(
-      areaNorm
-    )
-      ? (areaNorm as Area)
-      : "general";
+  const areaNorm = (raw.area ?? "general").toLowerCase().trim().replace(/\s+/g, "_");
+  // Si la IA respeta una de las secciones de la facultad, la usamos; si no,
+  // caemos a la primera sección válida (o "general"). NUNCA descartamos por sección.
+  const areaValida: Area = seccionesValidas.includes(areaNorm)
+    ? areaNorm
+    : (seccionesValidas[0] ?? "general");
 
   const difNorm = (raw.dificultad ?? "medio").toLowerCase().trim();
   const dificultad: Dificultad =
@@ -197,14 +179,14 @@ export async function generarPreguntasIA(
   config: ConfigGeneracionIA
 ): Promise<PreguntaBanco[]> {
   const cantidad = Math.max(5, Math.min(50, config.cantidad));
+  const facultadNombre = config.facultad_nombre || `la Facultad de ${config.facultad}`;
+  const secciones = (config.secciones ?? []).filter(Boolean);
+  const ponderacion = config.ponderacion ?? {};
 
-  let distribucion = config.areas;
-  if (!distribucion || Object.keys(distribucion).length === 0) {
-    distribucion = distribuirCantidad(cantidad, DISTRIBUCION_DEFAULT_ECONOMICAS);
-  }
+  const distribucion = distribuirCantidad(cantidad, secciones, ponderacion);
 
-  const system = promptSistemaUMSSEconomia();
-  const user = promptUsuario({ ...config, cantidad }, distribucion);
+  const system = promptSistema(facultadNombre, secciones);
+  const user = promptUsuario(facultadNombre, { ...config, cantidad }, distribucion);
 
   const { text } = await llamarIA(system, user, 8000);
   const json = extraerJSON(text);
@@ -219,7 +201,7 @@ export async function generarPreguntasIA(
   const preguntas: PreguntaBanco[] = [];
   let numero = 1;
   for (const raw of preguntasRaw) {
-    const p = validarYNormalizar(raw, config.universidad, config.facultad, numero);
+    const p = validarYNormalizar(raw, config.universidad, config.facultad, numero, secciones);
     if (p) {
       preguntas.push(p);
       numero++;

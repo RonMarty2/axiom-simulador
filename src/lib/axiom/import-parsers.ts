@@ -372,9 +372,9 @@ function normalizar(item: Record<string, unknown>, defaults: DefaultsImport, idx
 }
 
 function normalizarArea(s: string): Area {
-  const a = s.toLowerCase().trim();
-  const validas: Area[] = ["matematicas", "economicas", "verbal", "razonamiento", "general", "fisica", "quimica", "biologia", "civica", "historia"];
-  return (validas.includes(a as Area) ? a : "general") as Area;
+  // Cualquier sección es válida: cada facultad define las suyas (libro_1, etc.).
+  const a = (s ?? "").toLowerCase().trim().replace(/\s+/g, "_");
+  return (a || "general") as Area;
 }
 
 function normalizarDificultad(s: string): Dificultad {
