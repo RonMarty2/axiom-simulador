@@ -4,7 +4,19 @@
 
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
-import { getUsuario, getUsuarioByEmail, crearUsuario, type Usuario, type FacultadId } from "@/lib/data-store";
+import { getUsuario, getUsuarioByEmail, crearUsuario, actualizarUsuario, type Usuario, type FacultadId } from "@/lib/data-store";
+
+// Si el plan de pago ya venció, devuelve al usuario a "gratis" (y lo guarda).
+// Centralizado aquí para que todo el sistema lea siempre el plan vigente.
+async function aplicarVencimientoPlan(usuario: Usuario): Promise<Usuario> {
+  if (usuario.plan === "gratis") return usuario;
+  const vence = usuario.plan_vence;
+  if (!vence) return usuario; // sin fecha: se trata como acceso permanente
+  const hoy = new Date().toISOString().slice(0, 10);
+  if (vence >= hoy) return usuario; // todavía vigente
+  const actualizado = await actualizarUsuario(usuario.id, { plan: "gratis", plan_vence: null });
+  return actualizado ?? { ...usuario, plan: "gratis", plan_vence: null };
+}
 
 export const SESSION_COOKIE = "axiom_session";
 export const LEGACY_COOKIE = "axiom_uid";
@@ -85,13 +97,16 @@ export async function getCurrentUser(): Promise<Usuario | null> {
           avatar_color: "#6366f1",
         });
       }
-      return usuario;
+      return aplicarVencimientoPlan(usuario);
     }
   }
 
   // Modo demo: cookie legacy axiom_uid (compatibilidad con login mock)
   const legacy = store.get(LEGACY_COOKIE)?.value;
-  if (legacy) return getUsuario(legacy);
+  if (legacy) {
+    const u = await getUsuario(legacy);
+    return u ? aplicarVencimientoPlan(u) : null;
+  }
 
   return null;
 }

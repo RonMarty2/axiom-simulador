@@ -26,8 +26,8 @@ export async function PATCH(req: NextRequest, ctx: { params: Promise<{ id: strin
         // Cambio de facultad: actualizar facultad_objetivo del usuario
         await actualizarUsuario(usuario.id, { facultad_objetivo: pago.destino_facultad });
       } else if (pago.tipo === "plan" && pago.plan) {
-        // Compra de plan (pro/premium): actualizar plan del usuario
-        await actualizarUsuario(usuario.id, { plan: pago.plan });
+        // Compra de plan: subir al usuario y guardar hasta cuándo está activo.
+        await actualizarUsuario(usuario.id, { plan: pago.plan, plan_vence: pago.valido_hasta });
       }
     }
 

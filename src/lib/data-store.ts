@@ -54,6 +54,7 @@ export interface Usuario {
   mejor_nota: number;
   nota_promedio: number;
   avatar_color: string;
+  plan_vence?: string | null;   // fecha (YYYY-MM-DD) hasta la que el plan de pago está activo
 }
 
 export type TipoPago = "plan" | "cambio_facultad";
