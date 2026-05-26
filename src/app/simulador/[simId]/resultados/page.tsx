@@ -168,6 +168,17 @@ export default function ResultadosPage() {
   const nivel = nivelDeNota(nota);
   const mostrar = verSoloFalladas ? falladas : preguntas;
 
+  // Feedback personalizado (sin IA): punto débil/fuerte y qué hacer ahora.
+  const ordenadasFb = Object.entries(desglose).sort((a, b) => a[1] - b[1]);
+  const peor = ordenadasFb[0];
+  const mejor = ordenadasFb[ordenadasFb.length - 1];
+  const tituloFb = nota >= 70 ? "¡Buen trabajo! 🎉" : nota >= 50 ? "Vas por buen camino 💪" : "A reforzar — tú puedes 🔥";
+  const textoFb = nota >= 70
+    ? "Dominas la mayoría del examen. Pule los detalles y mantén el ritmo."
+    : nota >= 50
+      ? "Tienes una buena base. Enfócate en tu punto más débil y subirás rápido."
+      : "No te desanimes: identificamos exactamente dónde reforzar. Un paso a la vez.";
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
       {/* Hero con nota */}
@@ -203,6 +214,41 @@ export default function ResultadosPage() {
       </motion.div>
 
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
+        {/* Feedback personalizado */}
+        <section className="mb-10">
+          <div className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-indigo-50 p-6">
+            <h2 className="text-xl font-bold text-violet-900">{tituloFb}</h2>
+            <p className="mt-1 text-sm text-violet-800">{textoFb}</p>
+
+            {peor && mejor && (
+              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-red-200 bg-white p-3">
+                  <div className="text-xs font-bold uppercase tracking-wider text-red-600">Reforzar</div>
+                  <div className="mt-0.5 text-sm font-semibold text-neutral-900">
+                    {ETIQUETAS_AREA[peor[0]] ?? peor[0]} — {peor[1]}%
+                  </div>
+                </div>
+                <div className="rounded-xl border border-emerald-200 bg-white p-3">
+                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">Tu fortaleza</div>
+                  <div className="mt-0.5 text-sm font-semibold text-neutral-900">
+                    {ETIQUETAS_AREA[mejor[0]] ?? mejor[0]} — {mejor[1]}%
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="mt-4 rounded-xl bg-white/70 p-3 text-sm text-neutral-700">
+              <span className="font-semibold">Qué hacer ahora: </span>
+              {falladas.length > 0
+                ? `Repasa las ${falladas.length} preguntas que fallaste (abajo) y vuelve a practicar tu punto débil.`
+                : "¡Sin errores! Sube la dificultad o prueba otra sección para seguir mejorando."}
+              {!pagado && (
+                <span> Con <Link href="/precios" className="font-bold text-violet-700 underline">Premium</Link> desbloqueas el plan de estudio que ataca justo tus fallos.</span>
+              )}
+            </div>
+          </div>
+        </section>
+
         {/* Desglose por área */}
         <section className="mb-10">
           <h2 className="mb-4 text-xl font-bold text-neutral-900">
@@ -217,7 +263,7 @@ export default function ResultadosPage() {
 
         {/* CTA principal: reforzar con IA + secundarios */}
         <section className="mb-10 space-y-3">
-          {falladas.length > 0 && (
+          {falladas.length > 0 && pagado && (
             <button
               type="button"
               onClick={reforzarMisErrores}
@@ -238,6 +284,14 @@ export default function ResultadosPage() {
                 </>
               )}
             </button>
+          )}
+          {falladas.length > 0 && !pagado && (
+            <Link
+              href="/precios"
+              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 px-6 py-5 font-bold text-white shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+            >
+              🔒 Reforzar lo que fallé con la IA — Premium
+            </Link>
           )}
           {errorReforzar && (
             <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
