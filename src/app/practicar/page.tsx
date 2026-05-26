@@ -9,6 +9,7 @@ import {
   obtenerTemasReforzar,
 } from "@/lib/axiom/errores-storage";
 import { guardarSimulador } from "@/lib/sim-storage";
+import { esPago } from "@/lib/plan";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
 import type {
   ConfiguracionSimulacion,
@@ -41,6 +42,7 @@ function PracticarInner() {
   const [loading, setLoading] = useState(true);
   const [creando, setCreando] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [mostrarUpgrade, setMostrarUpgrade] = useState(false);
 
   useEffect(() => {
     setErrores(contarErrores());
@@ -81,6 +83,7 @@ function PracticarInner() {
     if (!modo) return;
     setCreando(true);
     setError(null);
+    setMostrarUpgrade(false);
     try {
       const temasReforzar = modo === "mis_errores" ? obtenerTemasReforzar(8) : undefined;
       const config: ConfiguracionSimulacion = {
@@ -99,7 +102,10 @@ function PracticarInner() {
         body: JSON.stringify({ config }),
       });
       const data = await r.json();
-      if (!r.ok) throw new Error(data.error ?? "Error");
+      if (!r.ok) {
+        if (data.upgrade) setMostrarUpgrade(true);
+        throw new Error(data.error ?? "Error");
+      }
       guardarSimulador(data.simulador);
       router.push(`/simulador/${data.simulador.id}`);
     } catch (e) {
@@ -110,9 +116,7 @@ function PracticarInner() {
 
   if (loading) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
 
-  const planPermiteTodas = usuario?.plan === "pro" || usuario?.plan === "premium";
-  const requierePremium = modo === "ia_generado";
-  const planPermiteIA = usuario?.plan === "premium";
+  const esPagoUser = esPago(usuario?.plan);
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -157,8 +161,8 @@ function PracticarInner() {
               { v: "mixto" as const, emoji: "🎲", t: "Mixto", d: "Preguntas aleatorias de varios años" },
               { v: "predictivo" as const, emoji: "🔮", t: "Predictivo", d: "Pondera los temas por frecuencia histórica" },
               { v: "por_tema" as const, emoji: "🎯", t: "Por tema", d: "Solo preguntas de un tema específico" },
-              { v: "mis_errores" as const, emoji: "🔥", t: "Mis errores", d: `Repasa donde fallaste (${errores} guardados)`, disabled: errores === 0 },
-              { v: "ia_generado" as const, emoji: "⚡", t: "IA infinita (Premium)", d: "Preguntas frescas creadas en el momento", disabled: !planPermiteIA, premium: true },
+              { v: "mis_errores" as const, emoji: "🔥", t: "Mis errores (Premium)", d: errores === 0 ? "Completa un examen para guardar errores" : `Repasa donde fallaste (${errores} guardados)`, disabled: errores === 0 || !esPagoUser, premium: true },
+              { v: "ia_generado" as const, emoji: "⚡", t: "IA infinita (Premium)", d: "Preguntas frescas creadas en el momento", disabled: !esPagoUser, premium: true },
             ].map((m) => (
               <button
                 key={m.v}
@@ -174,7 +178,7 @@ function PracticarInner() {
               >
                 <span style={{ fontSize: 24 }}>{m.emoji}</span>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{m.t} {m.premium && !planPermiteIA && <span style={{ color: "#f59e0b" }}>🔒</span>}</div>
+                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{m.t} {m.premium && !esPagoUser && <span style={{ color: "#f59e0b" }}>🔒</span>}</div>
                   <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{m.d}</div>
                 </div>
               </button>
@@ -240,7 +244,14 @@ function PracticarInner() {
         )}
 
         {error && (
-          <div style={{ padding: 14, background: "rgba(239,68,68,0.1)", borderRadius: 10, color: "#b91c1c", fontSize: 14, marginBottom: 14 }}>⚠️ {error}</div>
+          <div style={{ padding: 14, background: mostrarUpgrade ? "rgba(245,158,11,0.1)" : "rgba(239,68,68,0.1)", borderRadius: 10, color: mostrarUpgrade ? "#b45309" : "#b91c1c", fontSize: 14, marginBottom: 14 }}>
+            <div>{mostrarUpgrade ? "🔒" : "⚠️"} {error}</div>
+            {mostrarUpgrade && (
+              <Link href="/precios" style={{ display: "inline-block", marginTop: 10, padding: "8px 18px", background: "#f59e0b", color: "white", borderRadius: 10, fontWeight: 800, fontSize: 13, textDecoration: "none" }}>
+                Ver planes Premium →
+              </Link>
+            )}
+          </div>
         )}
 
         <button

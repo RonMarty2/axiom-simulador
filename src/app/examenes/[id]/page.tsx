@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
+import { esPago } from "@/lib/plan";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
@@ -23,8 +24,10 @@ export default function ExamenDetallePage() {
   const [error, setError] = useState<string | null>(null);
   const [revelar, setRevelar] = useState<Record<string, boolean>>({});
   const [seleccion, setSeleccion] = useState<Record<string, string>>({});
+  const [pagado, setPagado] = useState(false);
 
   useEffect(() => {
+    fetch("/api/auth/me").then((r) => r.json()).then((me) => setPagado(esPago(me?.usuario?.plan))).catch(() => {});
     fetch(`/api/axiom/examenes/${id}`)
       .then(async (r) => {
         const data = await r.json();
@@ -103,6 +106,7 @@ export default function ExamenDetallePage() {
               revelada={!!revelar[p.id]}
               onElegir={(letra) => elegir(p.id, letra)}
               onRevelar={() => toggleRevelar(p.id)}
+              pagado={pagado}
             />
           ))}
         </div>
@@ -118,6 +122,7 @@ interface PreguntaCardProps {
   revelada: boolean;
   onElegir: (letra: string) => void;
   onRevelar: () => void;
+  pagado: boolean;
 }
 
 function PreguntaCard({
@@ -127,6 +132,7 @@ function PreguntaCard({
   revelada,
   onElegir,
   onRevelar,
+  pagado,
 }: PreguntaCardProps) {
   return (
     <motion.div
@@ -212,7 +218,7 @@ function PreguntaCard({
         )}
       </div>
 
-      {revelada && pregunta.explicacion && (
+      {revelada && pregunta.explicacion && pagado && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
@@ -225,6 +231,14 @@ function PreguntaCard({
             <MathText block>{pregunta.explicacion}</MathText>
           </div>
         </motion.div>
+      )}
+      {revelada && pregunta.explicacion && !pagado && (
+        <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50 p-4 text-center">
+          <div className="text-sm text-neutral-800">🔒 La explicación paso a paso es parte de <strong>Premium</strong>.</div>
+          <Link href="/precios" className="mt-2 inline-block rounded-lg bg-violet-600 px-4 py-2 text-sm font-bold text-white">
+            Ver planes →
+          </Link>
+        </div>
       )}
     </motion.div>
   );

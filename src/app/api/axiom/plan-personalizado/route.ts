@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
 import { axiomPDF } from "@/lib/axiom/pdf-builder";
 import { llamarIA, extraerJSON } from "@/lib/aiProvider";
+import { getCurrentUser } from "@/lib/session";
+import { esPago } from "@/lib/plan";
 import type { PlanPersonalizado, PreguntaBanco, Simulador } from "@/lib/axiom/types";
 
 interface DiaPlan {
@@ -191,6 +193,15 @@ async function generarPlanConIA(
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   try {
+    // Candado: el programa de aprendizaje personalizado es exclusivo de pago.
+    const user = await getCurrentUser();
+    if (!esPago(user?.plan)) {
+      return NextResponse.json(
+        { error: "El programa de aprendizaje personalizado es parte del plan Premium.", upgrade: true },
+        { status: 402 }
+      );
+    }
+
     const body: CreatePlanRequest = await req.json();
     const { simuladorId, usuarioId } = body;
 

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
+import { esPago, inicioSemanaISO } from "@/lib/plan";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -39,9 +40,13 @@ export default function DashboardPage() {
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
 
   const ultimos = historial.slice(0, 5);
-  const limiteGratis = 2;
-  const examenesEsteMes = historial.filter((h) => h.fecha.startsWith(new Date().toISOString().slice(0, 7))).length;
-  const limiteAlcanzado = usuario.plan === "gratis" && examenesEsteMes >= limiteGratis;
+  // Plan gratis: 2 simulacros pasados + 2 predictivos por semana (4 en total).
+  const limiteSemanal = 4;
+  const desdeSemana = inicioSemanaISO();
+  const examenesEstaSemana = historial.filter((h) => h.fecha >= desdeSemana).length;
+  const esGratis = !esPago(usuario.plan);
+  const limiteAlcanzado = esGratis && examenesEstaSemana >= limiteSemanal;
+  const restantes = Math.max(0, limiteSemanal - examenesEstaSemana);
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -62,7 +67,7 @@ export default function DashboardPage() {
           <StatBox icon="📝" label="Exámenes hechos" valor={usuario.examenes_completados} color="#6366f1" />
           <StatBox icon="🏆" label="Mejor nota" valor={`${usuario.mejor_nota}/100`} color="#10b981" />
           <StatBox icon="📊" label="Nota promedio" valor={`${usuario.nota_promedio}/100`} color="#f59e0b" />
-          <StatBox icon="🔥" label="Este mes" valor={examenesEsteMes} color="#ef4444" />
+          <StatBox icon="🔥" label="Esta semana" valor={examenesEstaSemana} color="#ef4444" />
         </div>
 
         {/* CTA grande */}
@@ -72,12 +77,12 @@ export default function DashboardPage() {
         }}>
           <div style={{ flex: 1, minWidth: 240 }}>
             <h2 className="font-crimson" style={{ fontSize: 24, fontWeight: 700, marginBottom: 6 }}>
-              {limiteAlcanzado ? "Llegaste al límite del plan gratis 🎯" : "Listo para tu siguiente simulacro?"}
+              {limiteAlcanzado ? "Llegaste al límite semanal del plan gratis 🎯" : "¿Listo para tu siguiente simulacro?"}
             </h2>
             <p style={{ fontSize: 14, opacity: 0.92 }}>
               {limiteAlcanzado
-                ? `Hiciste ${examenesEsteMes} exámenes este mes. Mejora a Pro para ilimitados.`
-                : `Tienes ${usuario.plan === "gratis" ? `${limiteGratis - examenesEsteMes} exámenes gratis` : "exámenes ilimitados"} este mes.`}
+                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Pásate a Premium para ilimitados.`
+                : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana.`}
             </p>
           </div>
           <Link href={limiteAlcanzado ? "/precios" : "/practicar"} style={{

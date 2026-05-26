@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import MathText from "../../../components/MathText";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
+import { esPago } from "@/lib/plan";
 import {
   guardarErroresDeSimulador,
   obtenerTemasReforzar,
@@ -36,6 +37,11 @@ export default function ResultadosPage() {
     dias: { dia: number; tema: string; tiempo_minutos: number; ejercicios: number; descripcion: string }[];
   } | null>(null);
   const [errorPlan, setErrorPlan] = useState<string | null>(null);
+  const [pagado, setPagado] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/auth/me").then((r) => r.json()).then((me) => setPagado(esPago(me?.usuario?.plan))).catch(() => {});
+  }, []);
 
   useEffect(() => {
     // Intentar primero del servidor (que tiene la nota final calculada).
@@ -102,8 +108,8 @@ export default function ResultadosPage() {
       }
       const config = {
         modo: "mis_errores" as const,
-        universidad: "UMSS",
-        facultad: "economicas",
+        universidad: simulador?.config?.universidad ?? "UMSS",
+        facultad: simulador?.config?.facultad ?? "economicas",
         cantidad_preguntas: 10,
         dificultad: "medio" as const,
         temas_reforzar: temas,
@@ -268,21 +274,30 @@ export default function ResultadosPage() {
                     enfocado en lo que más te costó.
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={generarPlanIA}
-                  disabled={generandoPlan}
-                  className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 font-bold text-white shadow-lg transition-all hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  {generandoPlan ? (
-                    <>
-                      <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                      Generando...
-                    </>
-                  ) : (
-                    "Generar mi plan IA"
-                  )}
-                </button>
+                {pagado ? (
+                  <button
+                    type="button"
+                    onClick={generarPlanIA}
+                    disabled={generandoPlan}
+                    className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 font-bold text-white shadow-lg transition-all hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {generandoPlan ? (
+                      <>
+                        <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+                        Generando...
+                      </>
+                    ) : (
+                      "Generar mi plan IA"
+                    )}
+                  </button>
+                ) : (
+                  <Link
+                    href="/precios"
+                    className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 font-bold text-white shadow-lg transition-all hover:bg-amber-700"
+                  >
+                    🔒 Desbloquear con Premium →
+                  </Link>
+                )}
               </div>
               {errorPlan && (
                 <div className="mt-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
