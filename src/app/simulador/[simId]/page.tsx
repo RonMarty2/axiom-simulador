@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
 import type { Simulador, PreguntaBanco } from "@/lib/axiom/types";
 import { leerSimulador, guardarSimulador } from "@/lib/sim-storage";
+import { SEP_LLENADO, cantidadEspacios } from "@/lib/axiom/respuestas";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
@@ -155,6 +156,27 @@ export default function SimuladorActivoPage() {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pregunta_id: preguntaId, respuesta: letra, simulador: nuevo }),
+    }).catch(() => {});
+  };
+
+  // Guarda lo que el alumno escribe en preguntas de llenado. Para varias
+  // casillas, las une con SEP_LLENADO en un solo string.
+  const responderTexto = async (preguntaId: string, indiceCasilla: number, valor: string, totalCasillas: number) => {
+    if (!simulador) return;
+    const actual = (simulador.respuestas_usuario[preguntaId] ?? "").split(SEP_LLENADO);
+    const partes = Array.from({ length: totalCasillas }, (_, i) => actual[i] ?? "");
+    partes[indiceCasilla] = valor;
+    const unido = partes.some((p) => p.trim() !== "") ? partes.join(SEP_LLENADO) : "";
+    const nuevo = {
+      ...simulador,
+      respuestas_usuario: { ...simulador.respuestas_usuario, [preguntaId]: unido },
+    };
+    setSimulador(nuevo);
+    guardarSimulador(nuevo);
+    fetch(`/api/axiom/simulador/${simId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pregunta_id: preguntaId, respuesta: unido, simulador: nuevo }),
     }).catch(() => {});
   };
 
@@ -318,36 +340,60 @@ export default function SimuladorActivoPage() {
             <div className="mb-6 text-base leading-relaxed text-neutral-900 sm:text-lg">
               <MathText block>{pregunta.enunciado}</MathText>
             </div>
-            <div className="space-y-2">
-              {pregunta.opciones.map((op) => {
-                const elegida = seleccion === op.letra;
-                return (
-                  <button
-                    key={op.letra}
-                    type="button"
-                    onClick={() => elegirOpcion(pregunta.id, op.letra)}
-                    className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left transition-all ${
-                      elegida
-                        ? "border-violet-500 bg-violet-50"
-                        : "border-neutral-200 bg-white hover:border-violet-300 hover:bg-violet-50/30"
-                    }`}
-                  >
-                    <span
-                      className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+            {(pregunta.tipo ?? "seleccion_simple") === "completar" ? (
+              <div className="space-y-3">
+                <p className="text-sm text-neutral-500">Escribe tu respuesta:</p>
+                {Array.from({ length: cantidadEspacios(pregunta) }, (_, i) => {
+                  const partes = (seleccion ?? "").split(SEP_LLENADO);
+                  const total = cantidadEspacios(pregunta);
+                  return (
+                    <div key={i} className="flex items-center gap-2">
+                      {total > 1 && (
+                        <span className="text-sm font-semibold text-neutral-500">{i + 1}.</span>
+                      )}
+                      <input
+                        type="text"
+                        value={partes[i] ?? ""}
+                        onChange={(e) => responderTexto(pregunta.id, i, e.target.value, total)}
+                        placeholder="Tu respuesta…"
+                        className="w-full rounded-xl border border-neutral-300 p-3 text-sm focus:border-violet-500 focus:outline-none sm:text-base"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="space-y-2">
+                {pregunta.opciones.map((op) => {
+                  const elegida = seleccion === op.letra;
+                  return (
+                    <button
+                      key={op.letra}
+                      type="button"
+                      onClick={() => elegirOpcion(pregunta.id, op.letra)}
+                      className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left transition-all ${
                         elegida
-                          ? "bg-violet-600 text-white"
-                          : "border border-neutral-400 text-neutral-700"
+                          ? "border-violet-500 bg-violet-50"
+                          : "border-neutral-200 bg-white hover:border-violet-300 hover:bg-violet-50/30"
                       }`}
                     >
-                      {op.letra}
-                    </span>
-                    <span className="flex-1 text-sm sm:text-base">
-                      <MathText>{op.texto}</MathText>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+                      <span
+                        className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                          elegida
+                            ? "bg-violet-600 text-white"
+                            : "border border-neutral-400 text-neutral-700"
+                        }`}
+                      >
+                        {op.letra}
+                      </span>
+                      <span className="flex-1 text-sm sm:text-base">
+                        <MathText>{op.texto}</MathText>
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            )}
           </motion.div>
 
           {/* Navegación */}
@@ -452,6 +498,24 @@ export default function SimuladorActivoPage() {
                             {marc ? "★" : "☆"}
                           </button>
                         </div>
+                        {(p.tipo ?? "seleccion_simple") === "completar" ? (
+                          <div className="ml-10 space-y-2">
+                            {Array.from({ length: cantidadEspacios(p) }, (_, ci) => {
+                              const partes = (sel ?? "").split(SEP_LLENADO);
+                              const total = cantidadEspacios(p);
+                              return (
+                                <input
+                                  key={ci}
+                                  type="text"
+                                  value={partes[ci] ?? ""}
+                                  onChange={(e) => responderTexto(p.id, ci, e.target.value, total)}
+                                  placeholder={total > 1 ? `Respuesta ${ci + 1}…` : "Tu respuesta…"}
+                                  className="w-full rounded-lg border border-neutral-300 p-2.5 text-sm focus:border-violet-500 focus:outline-none"
+                                />
+                              );
+                            })}
+                          </div>
+                        ) : (
                         <div className="ml-10 grid gap-2 sm:grid-cols-2">
                           {p.opciones.map((op) => {
                             const elegida = sel === op.letra;
@@ -478,6 +542,7 @@ export default function SimuladorActivoPage() {
                             );
                           })}
                         </div>
+                        )}
                       </div>
                     );
                   })}

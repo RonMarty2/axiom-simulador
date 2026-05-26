@@ -31,6 +31,7 @@ export default function NuevaPreguntaPage() {
       { letra: "D", texto: "" },
     ],
     respuesta_correcta: "A",
+    espacios_completar: [""] as string[],
     explicacion: "",
     tags: "",
   });
@@ -102,6 +103,11 @@ export default function NuevaPreguntaPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...form,
+          // En llenado no van opciones; van los espacios. En el resto, al revés.
+          opciones: form.tipo === "completar" ? [] : form.opciones,
+          espacios_completar: form.tipo === "completar"
+            ? form.espacios_completar.map((e) => e.trim()).filter(Boolean)
+            : undefined,
           tags: form.tags ? form.tags.split(",").map((t) => t.trim()) : undefined,
         }),
       });
@@ -152,6 +158,7 @@ export default function NuevaPreguntaPage() {
                     <option value="seleccion_simple">Opción múltiple (1 correcta)</option>
                     <option value="verdadero_falso">Verdadero / Falso</option>
                     <option value="seleccion_multiple">Multi-respuesta</option>
+                    <option value="completar">Completar / llenado (escribir)</option>
                     <option value="abierta">Abierta</option>
                   </select>
                 </Campo>
@@ -190,7 +197,38 @@ export default function NuevaPreguntaPage() {
                 />
               </Campo>
 
-              {form.tipo !== "abierta" && (
+              {form.tipo === "completar" && (
+                <div>
+                  <label style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-primary)", display: "block", marginBottom: 4 }}>
+                    Respuestas correctas (lo que el alumno debe escribir)
+                  </label>
+                  <p style={{ fontSize: 11, color: "var(--fg-muted)", marginBottom: 8 }}>
+                    Escribe los espacios en el enunciado con <code>___</code> (tres guiones bajos). Aquí pon la respuesta de cada uno, en orden. No distingue mayúsculas ni tildes.
+                  </p>
+                  {form.espacios_completar.map((esp, i) => (
+                    <div key={i} style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6 }}>
+                      <span style={{ width: 24, textAlign: "center", fontWeight: 800, color: "var(--accent)" }}>{i + 1}.</span>
+                      <input
+                        type="text"
+                        value={esp}
+                        onChange={(e) => {
+                          const nuevas = [...form.espacios_completar];
+                          nuevas[i] = e.target.value;
+                          setForm({ ...form, espacios_completar: nuevas });
+                        }}
+                        placeholder={`Respuesta del espacio ${i + 1}`}
+                        style={{ ...inp(), flex: 1 }}
+                      />
+                      {form.espacios_completar.length > 1 && (
+                        <button onClick={() => setForm({ ...form, espacios_completar: form.espacios_completar.filter((_, idx) => idx !== i) })} style={btnSm()}>✕</button>
+                      )}
+                    </div>
+                  ))}
+                  <button onClick={() => setForm({ ...form, espacios_completar: [...form.espacios_completar, ""] })} style={btnSm()}>+ Agregar espacio</button>
+                </div>
+              )}
+
+              {form.tipo !== "abierta" && form.tipo !== "completar" && (
                 <div>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                     <label style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>Opciones</label>

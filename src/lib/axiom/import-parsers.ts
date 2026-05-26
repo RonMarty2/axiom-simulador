@@ -356,6 +356,13 @@ function normalizar(item: Record<string, unknown>, defaults: DefaultsImport, idx
       texto: oo.texto ?? "",
     };
   });
+  const espacios = Array.isArray(item.espacios_completar)
+    ? (item.espacios_completar as unknown[]).map((x) => String(x))
+    : undefined;
+  const tags = Array.isArray(item.tags)
+    ? (item.tags as unknown[]).map((x) => String(x))
+    : undefined;
+
   return {
     universidad: (item.universidad as string) ?? defaults.universidad,
     facultad: (item.facultad as string) ?? defaults.facultad,
@@ -368,6 +375,8 @@ function normalizar(item: Record<string, unknown>, defaults: DefaultsImport, idx
     respuesta_correcta: (item.respuesta_correcta as string) ?? "A",
     explicacion: (item.explicacion as string) ?? undefined,
     tipo: ((item.tipo as TipoPregunta) ?? "seleccion_simple") as TipoPregunta,
+    espacios_completar: espacios,
+    tags,
   };
 }
 

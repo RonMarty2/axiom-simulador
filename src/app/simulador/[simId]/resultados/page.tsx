@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../../components/MathText";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
+import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import {
   guardarErroresDeSimulador,
   obtenerTemasReforzar,
@@ -128,10 +129,7 @@ export default function ResultadosPage() {
 
   const falladas = useMemo(() => {
     if (!simulador) return [];
-    return preguntas.filter((p) => {
-      const r = simulador.respuestas_usuario[p.id];
-      return r !== p.respuesta_correcta;
-    });
+    return preguntas.filter((p) => !esRespuestaCorrecta(p, simulador.respuestas_usuario[p.id]));
   }, [simulador, preguntas]);
 
   if (cargando) {
@@ -154,7 +152,7 @@ export default function ResultadosPage() {
   const secs = tiempo % 60;
 
   const correctas = preguntas.filter(
-    (p) => simulador.respuestas_usuario[p.id] === p.respuesta_correcta
+    (p) => esRespuestaCorrecta(p, simulador.respuestas_usuario[p.id])
   ).length;
   const sinResponder = preguntas.filter(
     (p) => !simulador.respuestas_usuario[p.id]
@@ -483,8 +481,9 @@ function PreguntaRevision({
   respuesta?: string;
   totalMostrados: number;
 }) {
-  const correcta = respuesta === pregunta.respuesta_correcta;
+  const correcta = esRespuestaCorrecta(pregunta, respuesta);
   const sinResponder = !respuesta;
+  const esLlenado = (pregunta.tipo ?? "seleccion_simple") === "completar";
 
   return (
     <motion.div
@@ -528,6 +527,18 @@ function PreguntaRevision({
         <MathText block>{pregunta.enunciado}</MathText>
       </div>
 
+      {esLlenado ? (
+        <div className="space-y-2 text-sm">
+          <div className={`rounded-lg border p-2.5 ${correcta ? "border-emerald-400 bg-emerald-50 text-emerald-900" : "border-red-400 bg-red-50 text-red-900"}`}>
+            <span className="font-semibold">Tu respuesta: </span>
+            {sinResponder ? <em className="text-neutral-500">(sin responder)</em> : (respuesta ?? "").split("|||").join(", ")}
+          </div>
+          <div className="rounded-lg border border-emerald-400 bg-emerald-50 p-2.5 text-emerald-900">
+            <span className="font-semibold">Respuesta correcta: </span>
+            {(pregunta.espacios_completar ?? []).join(", ")}
+          </div>
+        </div>
+      ) : (
       <div className="space-y-2">
         {pregunta.opciones.map((op) => {
           const esCorrecta = op.letra === pregunta.respuesta_correcta;
@@ -552,6 +563,7 @@ function PreguntaRevision({
           );
         })}
       </div>
+      )}
 
       {pregunta.explicacion && (
         <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50 p-4">

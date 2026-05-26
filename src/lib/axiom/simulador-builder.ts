@@ -2,6 +2,7 @@ import crypto from "crypto";
 import { getFacultad } from "@/lib/data-store";
 import { cargarBanco } from "./banco-loader";
 import { generarPreguntasIA } from "./generador-ia";
+import { esRespuestaCorrecta } from "./respuestas";
 import type {
   ConfiguracionSimulacion,
   ExamenBanco,
@@ -206,7 +207,7 @@ export function evaluarSimulador(
     desgloseStats[p.area].total++;
     if (!elegida) {
       sinResponder++;
-    } else if (elegida === p.respuesta_correcta) {
+    } else if (esRespuestaCorrecta(p, elegida)) {
       desgloseStats[p.area].correctas++;
       correctas++;
     } else {
