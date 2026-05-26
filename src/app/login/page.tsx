@@ -1,272 +1,72 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 import Link from "next/link";
-import type { Usuario } from "@/lib/data-store";
+import { useSearchParams } from "next/navigation";
 
-export default function LoginPage() {
-  const router = useRouter();
-  const [usuarios, setUsuarios] = useState<Usuario[]>([]);
-  const [modo, setModo] = useState<"usuario" | "admin">("usuario");
-  const [seleccionado, setSeleccionado] = useState<string>("");
-  const [emailLibre, setEmailLibre] = useState("");
-  const [adminPassword, setAdminPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch("/api/usuarios")
-      .then((r) => r.json())
-      .then((d) => setUsuarios(d.usuarios ?? []))
-      .catch(() => setUsuarios([]));
-  }, []);
-
-  const entrarComoUsuario = async (idOEmail: string, esEmail = false) => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(esEmail ? { email: idOEmail } : { userId: idOEmail }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Error");
-      router.push("/dashboard");
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-      setLoading(false);
-    }
-  };
-
-  const entrarComoAdmin = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ adminPassword }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Error");
-      router.push("/admin");
-    } catch (e) {
-      setError(e instanceof Error ? e.message : String(e));
-      setLoading(false);
-    }
-  };
+function LoginContent() {
+  const params = useSearchParams();
+  const error = params.get("error");
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-      <div style={{ width: "100%", maxWidth: 480, background: "var(--bg-card)", borderRadius: 20, padding: 32, boxShadow: "var(--shadow-lg)" }}>
-        <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <div style={{ fontSize: 40, marginBottom: 8 }}>⚡</div>
-          <h1 className="font-crimson" style={{ fontSize: 28, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>
+      <div style={{ width: "100%", maxWidth: 440, background: "var(--bg-card)", borderRadius: 20, padding: 40, boxShadow: "var(--shadow-lg)" }}>
+        <div style={{ textAlign: "center", marginBottom: 28 }}>
+          <div style={{ fontSize: 48, marginBottom: 12 }}>⚡</div>
+          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 8 }}>
             Entrar a Axiom
           </h1>
-          <p style={{ color: "var(--fg-muted)", fontSize: 14 }}>Simulador de exámenes UMSS</p>
+          <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
+            Simulador de exámenes UMSS
+          </p>
         </div>
 
-        {/* GOOGLE LOGIN - el principal */}
         <a
           href="/api/auth/google"
           style={{
-            display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
-            width: "100%", padding: "14px 18px", marginBottom: 18,
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 12,
+            width: "100%", padding: "16px 20px",
             background: "white", color: "#1f2937",
-            border: "1px solid var(--border)", borderRadius: 12,
-            textDecoration: "none", fontWeight: 700, fontSize: 15,
+            border: "1px solid var(--border)", borderRadius: 14,
+            textDecoration: "none", fontWeight: 700, fontSize: 16,
             boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+            transition: "transform 0.15s ease, box-shadow 0.15s ease",
           }}
         >
-          <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
           Continuar con Google
         </a>
 
-        <div style={{ position: "relative", textAlign: "center", margin: "0 0 18px" }}>
-          <hr style={{ border: 0, borderTop: "1px solid var(--border)" }} />
-          <span style={{ position: "absolute", top: -10, left: "50%", transform: "translateX(-50%)", background: "var(--bg-card)", padding: "0 12px", fontSize: 11, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em" }}>
-            o modo demo
-          </span>
-        </div>
-
-        {/* Tabs */}
-        <div style={{ display: "flex", gap: 8, marginBottom: 24, background: "var(--bg-subtle)", padding: 4, borderRadius: 10 }}>
-          <button
-            onClick={() => setModo("usuario")}
-            style={{
-              flex: 1,
-              padding: "10px 12px",
-              border: "none",
-              borderRadius: 8,
-              background: modo === "usuario" ? "var(--accent)" : "transparent",
-              color: modo === "usuario" ? "white" : "var(--fg-primary)",
-              fontWeight: 600,
-              fontSize: 14,
-              cursor: "pointer",
-            }}
-          >
-            👨‍🎓 Estudiante
-          </button>
-          <button
-            onClick={() => setModo("admin")}
-            style={{
-              flex: 1,
-              padding: "10px 12px",
-              border: "none",
-              borderRadius: 8,
-              background: modo === "admin" ? "var(--accent)" : "transparent",
-              color: modo === "admin" ? "white" : "var(--fg-primary)",
-              fontWeight: 600,
-              fontSize: 14,
-              cursor: "pointer",
-            }}
-          >
-            ⚡ Admin
-          </button>
-        </div>
-
-        {modo === "usuario" && (
-          <div>
-            <div style={{ marginBottom: 20 }}>
-              <label style={{ display: "block", fontSize: 13, fontWeight: 600, marginBottom: 8, color: "var(--fg-primary)" }}>
-                Entrar con email
-              </label>
-              <div style={{ display: "flex", gap: 8 }}>
-                <input
-                  type="email"
-                  value={emailLibre}
-                  onChange={(e) => setEmailLibre(e.target.value)}
-                  placeholder="tu@email.com"
-                  style={{
-                    flex: 1,
-                    padding: "10px 12px",
-                    borderRadius: 8,
-                    border: "1px solid var(--border)",
-                    fontSize: 14,
-                  }}
-                />
-                <button
-                  onClick={() => entrarComoUsuario(emailLibre, true)}
-                  disabled={!emailLibre || loading}
-                  style={{
-                    padding: "10px 20px",
-                    background: "var(--accent)",
-                    color: "white",
-                    border: "none",
-                    borderRadius: 8,
-                    fontWeight: 600,
-                    cursor: "pointer",
-                  }}
-                >
-                  Entrar
-                </button>
-              </div>
-            </div>
-
-            <div style={{ position: "relative", textAlign: "center", margin: "20px 0" }}>
-              <hr style={{ border: 0, borderTop: "1px solid var(--border)" }} />
-              <span style={{ position: "absolute", top: -10, left: "50%", transform: "translateX(-50%)", background: "var(--bg-card)", padding: "0 12px", fontSize: 12, color: "var(--fg-muted)" }}>
-                o entra rápido con un usuario de prueba
-              </span>
-            </div>
-
-            <div style={{ maxHeight: 240, overflowY: "auto", display: "grid", gap: 6 }}>
-              {usuarios.slice(0, 8).map((u) => (
-                <button
-                  key={u.id}
-                  onClick={() => entrarComoUsuario(u.id)}
-                  disabled={loading}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 12,
-                    padding: 10,
-                    background: "transparent",
-                    border: "1px solid var(--border)",
-                    borderRadius: 10,
-                    cursor: "pointer",
-                    textAlign: "left",
-                  }}
-                >
-                  <div style={{
-                    width: 36, height: 36, borderRadius: "50%", background: u.avatar_color,
-                    color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-                    fontWeight: 700, fontSize: 14,
-                  }}>
-                    {u.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
-                  </div>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <div style={{ fontSize: 14, fontWeight: 600, color: "var(--fg-primary)" }}>{u.nombre}</div>
-                    <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{u.facultad_objetivo} · {u.plan}</div>
-                  </div>
-                </button>
-              ))}
-            </div>
-
-            <div style={{ marginTop: 20, textAlign: "center", fontSize: 13, color: "var(--fg-muted)" }}>
-              ¿No tienes cuenta? <Link href="/register" style={{ color: "var(--accent)", fontWeight: 600 }}>Crea una</Link>
-            </div>
-          </div>
-        )}
-
-        {modo === "admin" && (
-          <div>
-            <label style={{ display: "block", fontSize: 13, fontWeight: 600, marginBottom: 8, color: "var(--fg-primary)" }}>
-              Contraseña de administrador
-            </label>
-            <input
-              type="password"
-              value={adminPassword}
-              onChange={(e) => setAdminPassword(e.target.value)}
-              placeholder="••••••••"
-              onKeyDown={(e) => e.key === "Enter" && entrarComoAdmin()}
-              style={{
-                width: "100%",
-                padding: "12px 14px",
-                borderRadius: 8,
-                border: "1px solid var(--border)",
-                fontSize: 14,
-                marginBottom: 12,
-              }}
-            />
-            <button
-              onClick={entrarComoAdmin}
-              disabled={!adminPassword || loading}
-              style={{
-                width: "100%",
-                padding: "12px",
-                background: "var(--accent)",
-                color: "white",
-                border: "none",
-                borderRadius: 8,
-                fontWeight: 700,
-                fontSize: 14,
-                cursor: "pointer",
-              }}
-            >
-              Entrar al panel admin
-            </button>
-            <p style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 10, textAlign: "center" }}>
-              💡 Tip de prueba: la contraseña por defecto es <code style={{ background: "var(--bg-subtle)", padding: "2px 6px", borderRadius: 4 }}>admin1234</code>
-            </p>
-          </div>
-        )}
-
         {error && (
-          <div style={{ marginTop: 16, padding: 10, background: "rgba(239,68,68,0.1)", borderRadius: 8, color: "#b91c1c", fontSize: 13 }}>
-            ⚠️ {error}
+          <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.08)", borderRadius: 10, color: "#b91c1c", fontSize: 13, textAlign: "center" }}>
+            ⚠️ No se pudo iniciar sesión: {error}
           </div>
         )}
 
-        <div style={{ marginTop: 24, textAlign: "center" }}>
+        <p style={{ marginTop: 22, textAlign: "center", fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5 }}>
+          Al entrar se crea tu cuenta automáticamente.<br/>
+          Empiezas con plan <strong>Gratis</strong> (2 simulacros al mes).
+        </p>
+
+        <div style={{ marginTop: 28, textAlign: "center" }}>
           <Link href="/" style={{ color: "var(--fg-muted)", fontSize: 13, textDecoration: "none" }}>
             ← Volver al inicio
           </Link>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

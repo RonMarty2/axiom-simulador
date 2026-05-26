@@ -115,7 +115,7 @@ export default function PreciosPage() {
                   Tu plan actual
                 </div>
               ) : (
-                <Link href={p.id === "gratis" ? "/register" : `/pagar?plan=${p.id}`} style={{
+                <Link href={p.id === "gratis" ? "/login" : `/pagar?plan=${p.id}`} style={{
                   display: "block", padding: 14, background: p.id === "gratis" ? "var(--bg-subtle)" : p.color,
                   color: p.id === "gratis" ? "var(--fg-primary)" : (p.id === "premium" ? "#1e1b4b" : "white"),
                   borderRadius: 10, textAlign: "center", textDecoration: "none", fontWeight: 800, fontSize: 15,

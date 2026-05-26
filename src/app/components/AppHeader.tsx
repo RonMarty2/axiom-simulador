@@ -77,7 +77,7 @@ export default function AppHeader() {
           {!usuario && !admin && (
             <>
               <Link href="/login" style={{ padding: "8px 16px", color: "var(--fg-primary)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Entrar</Link>
-              <Link href="/register" style={{ padding: "8px 18px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 8, fontSize: 14, fontWeight: 700 }}>Crear cuenta</Link>
+              <Link href="/login" style={{ padding: "8px 18px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 8, fontSize: 14, fontWeight: 700 }}>Crear cuenta</Link>
             </>
           )}
           {(usuario || admin) && (

@@ -36,7 +36,7 @@ export default function LandingPage() {
             Exámenes reales de años anteriores, simulacros barajados por tema y un plan personalizado de IA. Para Económicas, Ingeniería, Medicina y Derecho.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/register" style={{ padding: "14px 28px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 12, fontSize: 16, fontWeight: 700, boxShadow: "0 8px 24px rgba(99,102,241,0.30)" }}>
+            <Link href="/login" style={{ padding: "14px 28px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 12, fontSize: 16, fontWeight: 700, boxShadow: "0 8px 24px rgba(99,102,241,0.30)" }}>
               🚀 Empezar gratis
             </Link>
             <Link href="/precios" style={{ padding: "14px 28px", background: "var(--bg-card)", color: "var(--fg-primary)", textDecoration: "none", borderRadius: 12, fontSize: 16, fontWeight: 600, border: "1px solid var(--border)" }}>
@@ -66,7 +66,7 @@ export default function LandingPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 18 }}>
             {facultades.map((f) => (
-              <Link key={f.id} href={`/register?facultad=${f.id}`} style={{
+              <Link key={f.id} href={`/login?facultad=${f.id}`} style={{
                 background: "var(--bg-card)", borderRadius: 18, padding: 24, textDecoration: "none",
                 border: `1px solid ${f.color}30`, boxShadow: "var(--shadow-sm)", display: "block",
                 transition: "transform 0.2s, box-shadow 0.2s",
@@ -128,7 +128,7 @@ export default function LandingPage() {
           <p style={{ fontSize: 17, opacity: 0.9, marginBottom: 30 }}>
             Crea tu cuenta y haz tu primer simulacro. Sin tarjeta de crédito.
           </p>
-          <Link href="/register" style={{ display: "inline-block", padding: "16px 36px", background: "white", color: "var(--accent)", textDecoration: "none", borderRadius: 12, fontSize: 17, fontWeight: 800, boxShadow: "0 12px 32px rgba(0,0,0,0.18)" }}>
+          <Link href="/login" style={{ display: "inline-block", padding: "16px 36px", background: "white", color: "var(--accent)", textDecoration: "none", borderRadius: 12, fontSize: 17, fontWeight: 800, boxShadow: "0 12px 32px rgba(0,0,0,0.18)" }}>
             🚀 Crear cuenta gratis
           </Link>
         </div>
