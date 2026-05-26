@@ -1,10 +1,13 @@
-// Capa de datos para Axiom standalone.
-// Lee los JSON de /data y los expone con tipos. Reemplaza axiomDB para
-// los nuevos datos (usuarios, pagos, historial, facultades, materias).
-// Cuando se conecte BD real (Supabase), reescribir solo este archivo.
+// Capa de datos para Axiom — Supabase backend
+//
+// Estrategia:
+//   - Si Supabase está configurado (env vars presentes), usa Supabase.
+//   - Si no, fallback a JSON files (modo dev sin BD).
+// La API publica de este modulo NO cambia: el resto del codigo no se entera.
 
 import fs from "fs/promises";
 import path from "path";
+import { supabaseAdmin, supabaseConfigurado } from "@/lib/supabase";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const SEED_DIR = path.join(DATA_DIR, "seed");
@@ -84,7 +87,7 @@ export interface HistorialExamen {
 }
 
 // ─────────────────────────────────────────────────────────────
-// CACHE EN MEMORIA (se hidrata en el primer GET)
+// FALLBACK CACHE (solo si NO hay Supabase)
 // ─────────────────────────────────────────────────────────────
 
 let _facultades: Facultad[] | null = null;
@@ -98,11 +101,20 @@ async function loadJson<T>(file: string): Promise<T> {
   return JSON.parse(raw) as T;
 }
 
+function db() {
+  return supabaseAdmin();
+}
+
 // ─────────────────────────────────────────────────────────────
-// FACULTADES Y MATERIAS
+// FACULTADES
 // ─────────────────────────────────────────────────────────────
 
 export async function getFacultades(): Promise<Facultad[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("facultades").select("*").order("nombre_corto");
+    if (error) throw error;
+    return (data ?? []) as Facultad[];
+  }
   if (!_facultades) {
     _facultades = await loadJson<Facultad[]>(path.join(DATA_DIR, "facultades.json"));
   }
@@ -110,11 +122,35 @@ export async function getFacultades(): Promise<Facultad[]> {
 }
 
 export async function getFacultad(id: string): Promise<Facultad | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("facultades").select("*").eq("id", id).maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Facultad | null;
+  }
   const fs = await getFacultades();
   return fs.find((f) => f.id === id) ?? null;
 }
 
+// ─────────────────────────────────────────────────────────────
+// MATERIAS
+// ─────────────────────────────────────────────────────────────
+
 export async function getMaterias(): Promise<Record<string, Materia[]>> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("materias").select("*").order("nombre");
+    if (error) throw error;
+    const out: Record<string, Materia[]> = {};
+    for (const m of data ?? []) {
+      const facId = (m as { facultad_id: string }).facultad_id;
+      (out[facId] ??= []).push({
+        id: m.id,
+        nombre: m.nombre,
+        area: m.area,
+        libros_referencia: m.libros_referencia ?? [],
+      });
+    }
+    return out;
+  }
   if (!_materias) {
     _materias = await loadJson<Record<string, Materia[]>>(path.join(DATA_DIR, "materias.json"));
   }
@@ -122,6 +158,20 @@ export async function getMaterias(): Promise<Record<string, Materia[]>> {
 }
 
 export async function getMateriasFacultad(facultadId: string): Promise<Materia[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db()
+      .from("materias")
+      .select("id,nombre,area,libros_referencia")
+      .eq("facultad_id", facultadId)
+      .order("nombre");
+    if (error) throw error;
+    return (data ?? []).map((m) => ({
+      id: m.id,
+      nombre: m.nombre,
+      area: m.area,
+      libros_referencia: m.libros_referencia ?? [],
+    }));
+  }
   const m = await getMaterias();
   return m[facultadId] ?? [];
 }
@@ -131,6 +181,11 @@ export async function getMateriasFacultad(facultadId: string): Promise<Materia[]
 // ─────────────────────────────────────────────────────────────
 
 export async function getUsuarios(): Promise<Usuario[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("usuarios").select("*").order("creado_en", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Usuario[];
+  }
   if (!_usuarios) {
     _usuarios = await loadJson<Usuario[]>(path.join(SEED_DIR, "users.json"));
   }
@@ -138,26 +193,55 @@ export async function getUsuarios(): Promise<Usuario[]> {
 }
 
 export async function getUsuario(id: string): Promise<Usuario | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("usuarios").select("*").eq("id", id).maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Usuario | null;
+  }
   const u = await getUsuarios();
   return u.find((x) => x.id === id) ?? null;
 }
 
 export async function getUsuarioByEmail(email: string): Promise<Usuario | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("usuarios").select("*").ilike("email", email).maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Usuario | null;
+  }
   const u = await getUsuarios();
   return u.find((x) => x.email.toLowerCase() === email.toLowerCase()) ?? null;
 }
 
 export async function crearUsuario(data: Omit<Usuario, "id" | "examenes_completados" | "mejor_nota" | "nota_promedio">): Promise<Usuario> {
-  const u = await getUsuarios();
+  const id = `u-${Date.now().toString(36)}`;
   const nuevo: Usuario = {
     ...data,
-    id: `u-${Date.now().toString(36)}`,
+    id,
     examenes_completados: 0,
     mejor_nota: 0,
     nota_promedio: 0,
   };
+  if (supabaseConfigurado()) {
+    const { data: inserted, error } = await db().from("usuarios").insert(nuevo).select().single();
+    if (error) throw error;
+    return inserted as Usuario;
+  }
+  const u = await getUsuarios();
   u.push(nuevo);
   return nuevo;
+}
+
+export async function actualizarUsuario(id: string, updates: Partial<Usuario>): Promise<Usuario | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("usuarios").update(updates).eq("id", id).select().maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Usuario | null;
+  }
+  const u = await getUsuarios();
+  const idx = u.findIndex((x) => x.id === id);
+  if (idx === -1) return null;
+  u[idx] = { ...u[idx], ...updates };
+  return u[idx];
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -165,6 +249,11 @@ export async function crearUsuario(data: Omit<Usuario, "id" | "examenes_completa
 // ─────────────────────────────────────────────────────────────
 
 export async function getPagos(): Promise<Pago[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("pagos").select("*").order("fecha", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Pago[];
+  }
   if (!_pagos) {
     _pagos = await loadJson<Pago[]>(path.join(SEED_DIR, "payments.json"));
   }
@@ -172,24 +261,39 @@ export async function getPagos(): Promise<Pago[]> {
 }
 
 export async function getPagosUsuario(usuarioId: string): Promise<Pago[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("pagos").select("*").eq("usuario_id", usuarioId).order("fecha", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Pago[];
+  }
   const p = await getPagos();
   return p.filter((x) => x.usuario_id === usuarioId);
 }
 
 export async function crearPago(data: Omit<Pago, "id" | "fecha" | "estado" | "valido_hasta">): Promise<Pago> {
-  const p = await getPagos();
   const nuevo: Pago = {
     ...data,
     id: `p-${Date.now().toString(36)}`,
-    fecha: new Date().toISOString(),
+    fecha: new Date().toISOString().slice(0, 10),
     estado: "pendiente",
     valido_hasta: null,
   };
+  if (supabaseConfigurado()) {
+    const { data: inserted, error } = await db().from("pagos").insert(nuevo).select().single();
+    if (error) throw error;
+    return inserted as Pago;
+  }
+  const p = await getPagos();
   p.push(nuevo);
   return nuevo;
 }
 
 export async function actualizarPago(id: string, updates: Partial<Pago>): Promise<Pago | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("pagos").update(updates).eq("id", id).select().maybeSingle();
+    if (error) throw error;
+    return (data ?? null) as Pago | null;
+  }
   const p = await getPagos();
   const idx = p.findIndex((x) => x.id === id);
   if (idx === -1) return null;
@@ -202,6 +306,11 @@ export async function actualizarPago(id: string, updates: Partial<Pago>): Promis
 // ─────────────────────────────────────────────────────────────
 
 export async function getHistorial(): Promise<HistorialExamen[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("historial").select("*").order("fecha", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as HistorialExamen[];
+  }
   if (!_historial) {
     _historial = await loadJson<HistorialExamen[]>(path.join(SEED_DIR, "historial.json"));
   }
@@ -209,17 +318,27 @@ export async function getHistorial(): Promise<HistorialExamen[]> {
 }
 
 export async function getHistorialUsuario(usuarioId: string): Promise<HistorialExamen[]> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("historial").select("*").eq("usuario_id", usuarioId).order("fecha", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as HistorialExamen[];
+  }
   const h = await getHistorial();
   return h.filter((x) => x.usuario_id === usuarioId).sort((a, b) => b.fecha.localeCompare(a.fecha));
 }
 
 export async function agregarHistorial(item: Omit<HistorialExamen, "id" | "fecha">): Promise<HistorialExamen> {
-  const h = await getHistorial();
   const nuevo: HistorialExamen = {
     ...item,
     id: `h-${Date.now().toString(36)}`,
     fecha: new Date().toISOString(),
   };
+  if (supabaseConfigurado()) {
+    const { data: inserted, error } = await db().from("historial").insert(nuevo).select().single();
+    if (error) throw error;
+    return inserted as HistorialExamen;
+  }
+  const h = await getHistorial();
   h.push(nuevo);
   return nuevo;
 }
@@ -236,7 +355,7 @@ export async function getEstadisticasGlobales() {
     getFacultades(),
   ]);
 
-  const ingresoTotal = pagos.filter((p) => p.estado === "aprobado").reduce((s, p) => s + p.monto, 0);
+  const ingresoTotal = pagos.filter((p) => p.estado === "aprobado").reduce((s, p) => s + Number(p.monto), 0);
   const pagosPendientes = pagos.filter((p) => p.estado === "pendiente").length;
   const usuariosPremium = usuarios.filter((u) => u.plan === "premium").length;
   const usuariosPro = usuarios.filter((u) => u.plan === "pro").length;
@@ -249,7 +368,6 @@ export async function getEstadisticasGlobales() {
     ? Math.round(historial.reduce((s, h) => s + h.nota, 0) / historial.length)
     : 0;
 
-  // Distribución por facultad
   const porFacultad = facultades.map((f) => ({
     id: f.id,
     nombre: f.nombre_corto,
