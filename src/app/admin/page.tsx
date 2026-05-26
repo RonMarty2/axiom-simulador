@@ -79,6 +79,7 @@ export default function AdminDashboard() {
           <AccesoRapido href="/admin/facultades" emoji="🏛️" titulo="Facultades y materias" descripcion="Gestionar carreras y temas" />
           <AccesoRapido href="/admin/usuarios" emoji="👥" titulo="Usuarios" descripcion="Ver, editar, suspender cuentas" />
           <AccesoRapido href="/admin/pagos" emoji="💳" titulo="Pagos pendientes" descripcion={`${stats.pagos_pendientes} esperan aprobación`} alerta={stats.pagos_pendientes > 0} />
+          <AccesoRapido href="/admin/estado" emoji="🩺" titulo="Estado del sistema" descripcion="¿Supabase e IA conectados?" />
         </div>
       </div>
     </div>
