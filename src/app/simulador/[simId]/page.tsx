@@ -29,34 +29,12 @@ export default function SimuladorActivoPage() {
   const [tiempoRestante, setTiempoRestante] = useState<number | null>(null);
   const [confirmFinalizar, setConfirmFinalizar] = useState(false);
   const [sidebarAbierto, setSidebarAbierto] = useState(false);
-  // Vista del examen: "hoja" (estilo UMSS: hoja por área, DEFAULT) | "una" (clásica: una pregunta)
-  const [vista, setVista] = useState<"una" | "hoja">("hoja");
+  // Durante el simulacro NO hay opción de cambiar la modalidad: siempre es
+  // "hoja por área" (estilo examen real UMSS). El toggle y el tip se quitan
+  // para no contaminar la experiencia de practicar como si fuera el examen.
+  // Cuando el usuario revise sus errores o resultados, ahí sí podrá navegar libre.
+  const vista = "hoja" as "una" | "hoja";
   const [areaActualIdx, setAreaActualIdx] = useState(0);
-  const [tipVisible, setTipVisible] = useState(false);
-
-  // Cargar preferencia de vista guardada (si no hay, queda en "hoja" por default)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const v = localStorage.getItem("axiom_vista_simulador_v2");
-    if (v === "hoja" || v === "una") setVista(v);
-    // Mostrar tip si nunca lo ha visto
-    const tipVisto = localStorage.getItem("axiom_tip_hoja_visto_v2");
-    if (!tipVisto) setTipVisible(true);
-  }, []);
-
-  const cambiarVista = (v: "una" | "hoja") => {
-    setVista(v);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("axiom_vista_simulador_v2", v);
-      localStorage.setItem("axiom_tip_hoja_visto_v2", "1");
-      setTipVisible(false);
-    }
-  };
-
-  const cerrarTip = () => {
-    setTipVisible(false);
-    if (typeof window !== "undefined") localStorage.setItem("axiom_tip_hoja_visto_v2", "1");
-  };
 
   // Cargar simulador: primero de localStorage (sobrevive a serverless),
   // luego del servidor como fallback.
@@ -236,61 +214,10 @@ export default function SimuladorActivoPage() {
             </p>
           </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            {/* Toggle de vista */}
-            <div className="hidden sm:flex items-center gap-1 rounded-full border border-neutral-300 bg-neutral-50 p-1">
-              <button
-                type="button"
-                onClick={() => cambiarVista("una")}
-                title="Una pregunta a la vez"
-                className={`rounded-full px-3 py-1 text-xs font-bold transition-colors ${vista === "una" ? "bg-white text-violet-700 shadow-sm" : "text-neutral-500 hover:text-neutral-700"}`}
-              >
-                📝 Una por una
-              </button>
-              <button
-                type="button"
-                onClick={() => cambiarVista("hoja")}
-                title="Hoja completa por área (estilo examen real UMSS)"
-                className={`rounded-full px-3 py-1 text-xs font-bold transition-colors ${vista === "hoja" ? "bg-white text-violet-700 shadow-sm" : "text-neutral-500 hover:text-neutral-700"}`}
-              >
-                📄 Hoja por área
-              </button>
-            </div>
             <Cronometro segundos={tiempoRestante} />
           </div>
         </div>
-        {/* Toggle móvil */}
-        <div className="flex sm:hidden items-center justify-center gap-1 border-t border-neutral-100 px-4 py-2">
-          <div className="flex items-center gap-1 rounded-full border border-neutral-300 bg-neutral-50 p-1">
-            <button
-              type="button"
-              onClick={() => cambiarVista("una")}
-              className={`rounded-full px-3 py-1 text-xs font-bold transition-colors ${vista === "una" ? "bg-white text-violet-700 shadow-sm" : "text-neutral-500"}`}
-            >
-              📝 Una por una
-            </button>
-            <button
-              type="button"
-              onClick={() => cambiarVista("hoja")}
-              className={`rounded-full px-3 py-1 text-xs font-bold transition-colors ${vista === "hoja" ? "bg-white text-violet-700 shadow-sm" : "text-neutral-500"}`}
-            >
-              📄 Hoja por área
-            </button>
-          </div>
-        </div>
       </div>
-
-      {/* Tip flotante explicando el formato hoja por área */}
-      {tipVisible && (
-        <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
-          <div className="flex items-start gap-3 rounded-2xl border border-violet-200 bg-violet-50/70 p-4">
-            <div className="text-2xl">💡</div>
-            <div className="flex-1 text-sm text-violet-900">
-              <strong>Estás en modo &ldquo;Hoja por área&rdquo;:</strong> así es el examen real UMSS. Cada hoja tiene todas las preguntas de un área (Matemáticas, Económicas, etc.) y respondes en el orden que prefieras. Si prefieres ver una pregunta a la vez, usa el toggle arriba.
-            </div>
-            <button onClick={cerrarTip} className="text-xl text-violet-500 hover:text-violet-700" aria-label="Cerrar tip">×</button>
-          </div>
-        </div>
-      )}
 
       <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
         {/* Pregunta principal */}
