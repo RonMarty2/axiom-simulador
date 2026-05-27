@@ -37,25 +37,25 @@ export default function SimuladorActivoPage() {
   // Cargar preferencia de vista guardada (si no hay, queda en "hoja" por default)
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const v = localStorage.getItem("axiom_vista_simulador");
+    const v = localStorage.getItem("axiom_vista_simulador_v2");
     if (v === "hoja" || v === "una") setVista(v);
     // Mostrar tip si nunca lo ha visto
-    const tipVisto = localStorage.getItem("axiom_tip_hoja_visto");
+    const tipVisto = localStorage.getItem("axiom_tip_hoja_visto_v2");
     if (!tipVisto) setTipVisible(true);
   }, []);
 
   const cambiarVista = (v: "una" | "hoja") => {
     setVista(v);
     if (typeof window !== "undefined") {
-      localStorage.setItem("axiom_vista_simulador", v);
-      localStorage.setItem("axiom_tip_hoja_visto", "1");
+      localStorage.setItem("axiom_vista_simulador_v2", v);
+      localStorage.setItem("axiom_tip_hoja_visto_v2", "1");
       setTipVisible(false);
     }
   };
 
   const cerrarTip = () => {
     setTipVisible(false);
-    if (typeof window !== "undefined") localStorage.setItem("axiom_tip_hoja_visto", "1");
+    if (typeof window !== "undefined") localStorage.setItem("axiom_tip_hoja_visto_v2", "1");
   };
 
   // Cargar simulador: primero de localStorage (sobrevive a serverless),
