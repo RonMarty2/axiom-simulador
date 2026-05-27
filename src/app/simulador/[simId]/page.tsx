@@ -29,12 +29,12 @@ export default function SimuladorActivoPage() {
   const [tiempoRestante, setTiempoRestante] = useState<number | null>(null);
   const [confirmFinalizar, setConfirmFinalizar] = useState(false);
   const [sidebarAbierto, setSidebarAbierto] = useState(false);
-  // Vista del examen: "una" (clásica: una pregunta) | "hoja" (estilo UMSS: hoja por área)
-  const [vista, setVista] = useState<"una" | "hoja">("una");
+  // Vista del examen: "hoja" (estilo UMSS: hoja por área, DEFAULT) | "una" (clásica: una pregunta)
+  const [vista, setVista] = useState<"una" | "hoja">("hoja");
   const [areaActualIdx, setAreaActualIdx] = useState(0);
   const [tipVisible, setTipVisible] = useState(false);
 
-  // Cargar preferencia de vista guardada
+  // Cargar preferencia de vista guardada (si no hay, queda en "hoja" por default)
   useEffect(() => {
     if (typeof window === "undefined") return;
     const v = localStorage.getItem("axiom_vista_simulador");
@@ -286,18 +286,13 @@ export default function SimuladorActivoPage() {
         </div>
       </div>
 
-      {/* Tip flotante recomendando modo hoja */}
-      {tipVisible && vista === "una" && (
+      {/* Tip flotante explicando el formato hoja por área */}
+      {tipVisible && (
         <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6">
           <div className="flex items-start gap-3 rounded-2xl border border-violet-200 bg-violet-50/70 p-4">
             <div className="text-2xl">💡</div>
             <div className="flex-1 text-sm text-violet-900">
-              <strong>Tip pedagógico:</strong> en el examen real UMSS recibes una hoja con todas las preguntas de cada área para responder en el orden que prefieras.
-              {" "}
-              <button onClick={() => cambiarVista("hoja")} className="font-bold underline hover:no-underline">
-                Probar modo &ldquo;Hoja por área&rdquo;
-              </button>{" "}
-              para acostumbrarte al formato.
+              <strong>Estás en modo &ldquo;Hoja por área&rdquo;:</strong> así es el examen real UMSS. Cada hoja tiene todas las preguntas de un área (Matemáticas, Económicas, etc.) y respondes en el orden que prefieras. Si prefieres ver una pregunta a la vez, usa el toggle arriba.
             </div>
             <button onClick={cerrarTip} className="text-xl text-violet-500 hover:text-violet-700" aria-label="Cerrar tip">×</button>
           </div>
