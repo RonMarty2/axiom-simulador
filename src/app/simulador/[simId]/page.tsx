@@ -35,6 +35,7 @@ export default function SimuladorActivoPage() {
   // Cuando el usuario revise sus errores o resultados, ahí sí podrá navegar libre.
   const vista = "hoja" as "una" | "hoja";
   const [areaActualIdx, setAreaActualIdx] = useState(0);
+  const [confirmarSiguienteHoja, setConfirmarSiguienteHoja] = useState(false);
 
   // Cargar simulador: primero de localStorage (sobrevive a serverless),
   // luego del servidor como fallback.
@@ -486,11 +487,7 @@ export default function SimuladorActivoPage() {
                 return (
                   <button
                     type="button"
-                    onClick={() => {
-                      if (!confirm("¿Pasar a la siguiente hoja? Una vez avanzas, no podrás volver a esta sección (igual que el examen real).")) return;
-                      setAreaActualIdx((i) => Math.min(grupos.length - 1, i + 1));
-                      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                    onClick={() => setConfirmarSiguienteHoja(true)}
                     className="rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-lg hover:bg-violet-700"
                   >
                     Continuar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area} →
@@ -514,6 +511,58 @@ export default function SimuladorActivoPage() {
         )}
 
       </div>
+
+      {/* Modal confirmación pasar a siguiente hoja */}
+      {confirmarSiguienteHoja && (() => {
+        const siguiente = grupos[areaActualIdx + 1];
+        const actual = grupos[areaActualIdx];
+        if (!siguiente || !actual) return null;
+        const respondidasActual = actual.indices.filter((i) => !!simulador.respuestas_usuario[preguntas[i].id]).length;
+        const sinResponder = actual.preguntas.length - respondidasActual;
+        return (
+          <div className="fixed inset-0 z-30 flex items-center justify-center bg-black/50 p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="max-w-md rounded-2xl bg-white p-6 shadow-2xl"
+            >
+              <div className="mb-3 flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-xl">⚠️</div>
+                <h3 className="text-xl font-bold text-neutral-900">
+                  ¿Pasar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area}?
+                </h3>
+              </div>
+              <p className="text-sm text-neutral-600">
+                En {ETIQUETAS_AREA[actual.area] ?? actual.area} respondiste <b>{respondidasActual}</b> de <b>{actual.preguntas.length}</b>
+                {sinResponder > 0 && <> · te quedan <b>{sinResponder}</b> sin responder</>}.
+              </p>
+              <p className="mt-2 text-sm text-neutral-600">
+                Una vez avanzas, <b>no podrás volver</b> a esta hoja (igual que el examen real UMSS).
+              </p>
+              <div className="mt-6 flex gap-3">
+                <button
+                  type="button"
+                  onClick={() => setConfirmarSiguienteHoja(false)}
+                  className="flex-1 rounded-xl border border-neutral-300 py-2.5 font-semibold text-neutral-700 hover:bg-neutral-50"
+                >
+                  Seguir respondiendo
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAreaActualIdx((i) => Math.min(grupos.length - 1, i + 1));
+                    setConfirmarSiguienteHoja(false);
+                    if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className="flex-1 rounded-xl bg-violet-600 py-2.5 font-bold text-white hover:bg-violet-700"
+                >
+                  Sí, continuar →
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        );
+      })()}
 
       {/* Modal confirmación finalizar */}
       {confirmFinalizar && (
