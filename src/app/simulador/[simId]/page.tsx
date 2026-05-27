@@ -256,13 +256,6 @@ export default function SimuladorActivoPage() {
               </button>
             </div>
             <Cronometro segundos={tiempoRestante} />
-            <button
-              type="button"
-              onClick={() => setSidebarAbierto((v) => !v)}
-              className="rounded-lg border border-neutral-300 px-3 py-1.5 text-sm font-medium text-neutral-700 hover:bg-neutral-50 lg:hidden"
-            >
-              {sidebarAbierto ? "Cerrar" : "Mapa"}
-            </button>
           </div>
         </div>
         {/* Toggle móvil */}
@@ -299,7 +292,7 @@ export default function SimuladorActivoPage() {
         </div>
       )}
 
-      <div className="mx-auto max-w-6xl px-4 py-6 sm:px-6 lg:grid lg:grid-cols-[1fr_280px] lg:gap-8">
+      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
         {/* Pregunta principal */}
         {vista === "una" && (
         <main>
@@ -425,31 +418,43 @@ export default function SimuladorActivoPage() {
         {/* MODO HOJA — todas las preguntas del área seleccionada */}
         {vista === "hoja" && grupos.length > 0 && (
         <main>
-          {/* Tabs de áreas */}
-          <div className="mb-4 flex flex-wrap gap-2 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm">
-            {grupos.map((g, gi) => {
-              const respondidasArea = g.indices.filter((i) => !!simulador.respuestas_usuario[preguntas[i].id]).length;
-              const activo = gi === areaActualIdx;
-              return (
-                <button
-                  key={g.area}
-                  type="button"
-                  onClick={() => setAreaActualIdx(gi)}
-                  className={`flex flex-col items-start gap-0.5 rounded-xl border px-3 py-2 text-left transition-all ${
-                    activo
-                      ? "border-violet-500 bg-violet-50"
-                      : "border-neutral-200 bg-white hover:border-violet-300 hover:bg-violet-50/30"
-                  }`}
-                >
-                  <span className={`text-xs font-bold uppercase tracking-wide ${activo ? "text-violet-700" : "text-neutral-600"}`}>
-                    {ETIQUETAS_AREA[g.area] ?? g.area}
-                  </span>
-                  <span className="text-[10px] text-neutral-500">
-                    {respondidasArea}/{g.preguntas.length} respondidas
-                  </span>
-                </button>
-              );
-            })}
+          {/* Indicador de progreso secuencial (no clickeable, como examen real) */}
+          <div className="mb-4 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
+            <div className="mb-3 flex items-center justify-between gap-2 flex-wrap">
+              <div className="text-xs font-bold uppercase tracking-wide text-neutral-500">
+                Progreso del examen
+              </div>
+              <div className="text-xs text-neutral-500">
+                Hoja {areaActualIdx + 1} de {grupos.length}
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5">
+              {grupos.map((g, gi) => {
+                const respondidasArea = g.indices.filter((i) => !!simulador.respuestas_usuario[preguntas[i].id]).length;
+                const completa = respondidasArea === g.preguntas.length;
+                const actual = gi === areaActualIdx;
+                const pasada = gi < areaActualIdx;
+                return (
+                  <div key={g.area} className="flex-1 flex flex-col items-center gap-1 min-w-0">
+                    <div className={`h-2 w-full rounded-full transition-all ${
+                      actual ? "bg-violet-500" :
+                      pasada ? "bg-emerald-500" :
+                      "bg-neutral-200"
+                    }`} />
+                    <div className={`text-[10px] font-bold uppercase tracking-wide truncate w-full text-center ${
+                      actual ? "text-violet-700" :
+                      pasada ? "text-emerald-700" :
+                      "text-neutral-400"
+                    }`}>
+                      {ETIQUETAS_AREA[g.area] ?? g.area}
+                    </div>
+                    <div className="text-[10px] text-neutral-500">
+                      {pasada ? "✓ completada" : actual ? `${respondidasArea}/${g.preguntas.length}` : `${g.preguntas.length} preg.`}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* Hoja del área actual */}
@@ -546,108 +551,41 @@ export default function SimuladorActivoPage() {
             );
           })()}
 
-          {/* Navegación entre hojas */}
-          <div className="mt-6 flex items-center justify-between gap-3">
-            <button
-              type="button"
-              disabled={areaActualIdx === 0}
-              onClick={() => setAreaActualIdx((i) => Math.max(0, i - 1))}
-              className="rounded-xl border border-neutral-300 px-5 py-2.5 font-semibold text-neutral-700 hover:bg-neutral-50 disabled:opacity-40"
-            >
-              ← Hoja anterior
-            </button>
+          {/* Navegación: solo avanzar (no se puede volver, como examen real UMSS) */}
+          <div className="mt-6 flex items-center justify-end gap-3">
             {areaActualIdx < grupos.length - 1 ? (
-              <button
-                type="button"
-                onClick={() => {
-                  setAreaActualIdx((i) => Math.min(grupos.length - 1, i + 1));
-                  if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
-                }}
-                className="rounded-xl bg-violet-600 px-5 py-2.5 font-semibold text-white hover:bg-violet-700"
-              >
-                Hoja siguiente →
-              </button>
+              (() => {
+                const siguiente = grupos[areaActualIdx + 1];
+                return (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (!confirm("¿Pasar a la siguiente hoja? Una vez avanzas, no podrás volver a esta sección (igual que el examen real).")) return;
+                      setAreaActualIdx((i) => Math.min(grupos.length - 1, i + 1));
+                      if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className="rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-lg hover:bg-violet-700"
+                  >
+                    Continuar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area} →
+                  </button>
+                );
+              })()
             ) : (
               <button
                 type="button"
                 onClick={() => setConfirmFinalizar(true)}
-                className="rounded-xl bg-emerald-600 px-5 py-2.5 font-bold text-white shadow-lg hover:bg-emerald-700"
+                className="rounded-xl bg-emerald-600 px-6 py-3 font-bold text-white shadow-lg hover:bg-emerald-700"
               >
-                Finalizar examen
+                ✓ Finalizar examen
               </button>
             )}
           </div>
+          <p className="mt-2 text-right text-xs text-neutral-500">
+            ⚠️ Avanzar es irreversible. Asegúrate de responder todas las preguntas antes de pasar.
+          </p>
         </main>
         )}
 
-        {/* Sidebar: mapa de preguntas */}
-        <aside
-          className={`mt-6 lg:mt-0 ${
-            sidebarAbierto ? "block" : "hidden lg:block"
-          }`}
-        >
-          <div className="lg:sticky lg:top-24 rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
-            <div className="mb-3 flex items-center justify-between">
-              <h3 className="text-sm font-bold text-neutral-900">
-                Mapa de preguntas
-              </h3>
-              <span className="text-xs text-neutral-500">
-                {respondidas}/{preguntas.length}
-              </span>
-            </div>
-            <div className="mb-4 grid grid-cols-8 gap-1.5 sm:grid-cols-10 lg:grid-cols-6">
-              {preguntas.map((p, i) => {
-                const resp = !!simulador.respuestas_usuario[p.id];
-                const mark = marcadas.has(p.id);
-                const actual = i === indice;
-                let cls =
-                  "border-neutral-300 bg-white text-neutral-700 hover:bg-neutral-50";
-                if (resp)
-                  cls =
-                    "border-violet-500 bg-violet-500 text-white hover:bg-violet-600";
-                if (mark)
-                  cls =
-                    "border-amber-500 bg-amber-50 text-amber-700 hover:bg-amber-100";
-                if (actual)
-                  cls = `${cls} ring-2 ring-violet-400 ring-offset-1`;
-                return (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => {
-                      setIndice(i);
-                      setSidebarAbierto(false);
-                    }}
-                    className={`flex h-8 w-8 items-center justify-center rounded-md border text-xs font-bold transition-all ${cls}`}
-                  >
-                    {i + 1}
-                  </button>
-                );
-              })}
-            </div>
-            <div className="space-y-1.5 text-xs text-neutral-500">
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-sm border border-violet-500 bg-violet-500" />
-                Respondida
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-sm border border-amber-500 bg-amber-50" />
-                Marcada
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-sm border border-neutral-300 bg-white" />
-                Sin responder
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={() => setConfirmFinalizar(true)}
-              className="mt-4 w-full rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-bold text-white hover:bg-emerald-700"
-            >
-              Finalizar examen
-            </button>
-          </div>
-        </aside>
       </div>
 
       {/* Modal confirmación finalizar */}
