@@ -68,6 +68,11 @@ export async function construirSimulador(
   const uniL = config.universidad.toLowerCase();
   const facL = config.facultad.toLowerCase();
 
+  // Formato oficial de la facultad: la cantidad de preguntas la define la
+  // facultad (preguntas_examen), NO el usuario.
+  const facData = await getFacultad(config.facultad);
+  const cantidadFormato = facData?.preguntas_examen ?? 20;
+
   const examenesFacultad = banco.filter(
     (e) =>
       e.universidad.toLowerCase() === uniL &&
@@ -113,7 +118,7 @@ export async function construirSimulador(
 
     case "mixto": {
       const pool = poolFacultad;
-      const cantidad = Math.min(config.cantidad_preguntas ?? 20, pool.length);
+      const cantidad = Math.min(config.cantidad_preguntas ?? cantidadFormato, pool.length);
       preguntas = mezclar(pool).slice(0, cantidad);
       break;
     }
@@ -141,7 +146,7 @@ export async function construirSimulador(
         frecuencia.set(p.tema, (frecuencia.get(p.tema) ?? 0) + 1);
       }
       // Selecciona pesando por frecuencia (los temas más comunes aparecen más)
-      const cantidad = config.cantidad_preguntas ?? 20;
+      const cantidad = config.cantidad_preguntas ?? cantidadFormato;
       preguntas = seleccionarPonderado(pool, frecuencia, cantidad);
       break;
     }

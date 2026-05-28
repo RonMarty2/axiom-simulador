@@ -36,7 +36,6 @@ function PracticarInner() {
   const [examenes, setExamenes] = useState<ExamenMini[]>([]);
   const [anio, setAnio] = useState<number | null>(null);
   const [tema, setTema] = useState<string>("");
-  const [cantidad, setCantidad] = useState(20);
   const [dificultad, setDificultad] = useState<Dificultad>("medio");
   const [errores, setErrores] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -92,7 +91,7 @@ function PracticarInner() {
         facultad: facultadSeleccionada,
         ...(anio ? { anio } : {}),
         ...(tema ? { tema } : {}),
-        ...(modo !== "examen_real" ? { cantidad_preguntas: cantidad } : {}),
+        // La cantidad de preguntas la define el formato de la facultad, no el usuario.
         ...(modo === "ia_generado" || modo === "mis_errores" ? { dificultad } : {}),
         ...(temasReforzar?.length ? { temas_reforzar: temasReforzar } : {}),
       };
@@ -217,14 +216,14 @@ function PracticarInner() {
               </div>
             )}
 
-            {(modo === "mixto" || modo === "predictivo" || modo === "por_tema" || modo === "ia_generado" || modo === "mis_errores") && (
-              <div style={{ marginTop: 14 }}>
-                <label style={lbl()}>Cantidad de preguntas</label>
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  {[10, 15, 20, 30, 50].map((n) => (
-                    <button key={n} onClick={() => setCantidad(n)} style={pill(cantidad === n)}>{n}</button>
-                  ))}
-                </div>
+            {(modo === "mixto" || modo === "predictivo") && (
+              <div style={{ marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
+                📋 Este simulacro seguirá el <strong>formato oficial de {facultadObj?.nombre_corto ?? "tu facultad"}</strong>: {facultadObj?.preguntas_examen ?? "—"} preguntas en {facultadObj?.duracion_minutos ?? "—"} minutos.
+              </div>
+            )}
+            {modo === "por_tema" && (
+              <div style={{ marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
+                📋 Incluye todas las preguntas disponibles de ese tema.
               </div>
             )}
 
