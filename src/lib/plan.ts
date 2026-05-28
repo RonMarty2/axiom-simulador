@@ -56,3 +56,21 @@ export function inicioSemanaISO(ahora: Date = new Date()): string {
   d.setHours(0, 0, 0, 0);
   return d.toISOString();
 }
+
+// Próximo lunes a las 00:00. Útil para decirle al usuario cuándo se renueva
+// su cupo semanal del plan gratis.
+export function proximoLunes(ahora: Date = new Date()): Date {
+  const d = new Date(ahora);
+  const dia = d.getDay(); // 0=domingo, 1=lunes…
+  const diasParaLunes = ((8 - dia) % 7) || 7; // siempre el próximo lunes (no hoy)
+  d.setDate(d.getDate() + diasParaLunes);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+// Texto amigable: "el lunes 2 de junio".
+export function textoProximaRenovacion(ahora: Date = new Date()): string {
+  const lunes = proximoLunes(ahora);
+  const fecha = new Intl.DateTimeFormat("es-BO", { weekday: "long", day: "numeric", month: "long" }).format(lunes);
+  return `el ${fecha}`;
+}

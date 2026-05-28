@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
-import { esPago, inicioSemanaISO } from "@/lib/plan";
+import { esPago, inicioSemanaISO, textoProximaRenovacion } from "@/lib/plan";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -81,8 +81,8 @@ export default function DashboardPage() {
             </h2>
             <p style={{ fontSize: 14, opacity: 0.92 }}>
               {limiteAlcanzado
-                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Pásate a Premium para ilimitados.`
-                : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana.`}
+                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para ilimitados.`
+                : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
             </p>
           </div>
           <Link href={limiteAlcanzado ? "/precios" : "/practicar"} style={{

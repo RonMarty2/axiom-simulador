@@ -7,6 +7,7 @@ import {
   esPago,
   categoriaModo,
   inicioSemanaISO,
+  textoProximaRenovacion,
   LIMITE_SEMANAL_PASADAS,
   LIMITE_SEMANAL_PRONOSTICADAS,
 } from "@/lib/plan";
@@ -58,7 +59,7 @@ export async function POST(req: Request) {
         if (cat === "pasada" && usadasPasadas >= LIMITE_SEMANAL_PASADAS) {
           return NextResponse.json(
             {
-              error: `Ya usaste tus ${LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados de esta semana. Pásate a Premium para simulacros ilimitados.`,
+              error: `Ya usaste tus ${LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados de esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para simulacros ilimitados.`,
               upgrade: true,
             },
             { status: 402 }
@@ -67,7 +68,7 @@ export async function POST(req: Request) {
         if (cat === "pronosticada" && usadasPron >= LIMITE_SEMANAL_PRONOSTICADAS) {
           return NextResponse.json(
             {
-              error: `Ya usaste tus ${LIMITE_SEMANAL_PRONOSTICADAS} simulacros inteligentes de esta semana. Pásate a Premium para simulacros ilimitados.`,
+              error: `Ya usaste tus ${LIMITE_SEMANAL_PRONOSTICADAS} simulacros inteligentes de esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para simulacros ilimitados.`,
               upgrade: true,
             },
             { status: 402 }
