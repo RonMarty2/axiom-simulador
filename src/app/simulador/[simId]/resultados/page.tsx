@@ -18,8 +18,35 @@ const ETIQUETAS_AREA: Record<string, string> = {
   economicas: "Económicas",
   verbal: "Verbal",
   razonamiento: "Razonamiento",
+  fisica: "Física",
+  quimica: "Química",
+  biologia: "Biología",
+  civica: "Cívica",
+  historia: "Historia",
   general: "General",
 };
+
+// Nombre lindo de la sección. Para secciones propias de cada facultad
+// (ej. "libro_1") devuelve "Libro 1".
+function etiquetaSeccion(area: string): string {
+  if (ETIQUETAS_AREA[area]) return ETIQUETAS_AREA[area];
+  return (area || "general")
+    .split("_")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+// Agrupa preguntas por sección, conservando el orden de aparición.
+function agruparPorSeccion(preguntas: PreguntaBanco[]): { seccion: string; items: PreguntaBanco[] }[] {
+  const orden: string[] = [];
+  const mapa = new Map<string, PreguntaBanco[]>();
+  for (const p of preguntas) {
+    const s = p.area || "general";
+    if (!mapa.has(s)) { mapa.set(s, []); orden.push(s); }
+    mapa.get(s)!.push(p);
+  }
+  return orden.map((s) => ({ seccion: s, items: mapa.get(s)! }));
+}
 
 export default function ResultadosPage() {
   const params = useParams();
@@ -225,13 +252,13 @@ export default function ResultadosPage() {
                 <div className="rounded-xl border border-red-200 bg-white p-3">
                   <div className="text-xs font-bold uppercase tracking-wider text-red-600">Reforzar</div>
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
-                    {ETIQUETAS_AREA[peor[0]] ?? peor[0]} — {peor[1]}%
+                    {etiquetaSeccion(peor[0])} — {peor[1]}%
                   </div>
                 </div>
                 <div className="rounded-xl border border-emerald-200 bg-white p-3">
                   <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">Tu fortaleza</div>
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
-                    {ETIQUETAS_AREA[mejor[0]] ?? mejor[0]} — {mejor[1]}%
+                    {etiquetaSeccion(mejor[0])} — {mejor[1]}%
                   </div>
                 </div>
               </div>
@@ -442,15 +469,29 @@ export default function ResultadosPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-4">
-              {mostrar.map((p, i) => (
-                <PreguntaRevision
-                  key={p.id}
-                  pregunta={p}
-                  indice={preguntas.indexOf(p)}
-                  respuesta={simulador.respuestas_usuario[p.id]}
-                  totalMostrados={i}
-                />
+            <div className="space-y-8">
+              {agruparPorSeccion(mostrar).map(({ seccion, items }) => (
+                <div key={seccion}>
+                  <div className="mb-3 flex items-center gap-2 border-b border-neutral-200 pb-2">
+                    <span className="rounded-lg bg-neutral-900 px-3 py-1 text-sm font-bold text-white">
+                      {etiquetaSeccion(seccion)}
+                    </span>
+                    <span className="text-sm text-neutral-500">
+                      {items.length} pregunta{items.length !== 1 ? "s" : ""}
+                    </span>
+                  </div>
+                  <div className="space-y-4">
+                    {items.map((p, i) => (
+                      <PreguntaRevision
+                        key={p.id}
+                        pregunta={p}
+                        indice={preguntas.indexOf(p)}
+                        respuesta={simulador.respuestas_usuario[p.id]}
+                        totalMostrados={i}
+                      />
+                    ))}
+                  </div>
+                </div>
               ))}
             </div>
           )}
@@ -524,7 +565,7 @@ function DesgloseArea({ area, porcentaje }: { area: string; porcentaje: number }
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
       <div className="mb-1 text-xs uppercase tracking-wider text-neutral-500">
-        {ETIQUETAS_AREA[area] ?? area}
+        {etiquetaSeccion(area)}
       </div>
       <div className="text-3xl font-black text-neutral-900">{porcentaje}%</div>
       <div className="mt-2 h-2 overflow-hidden rounded-full bg-neutral-100">
@@ -569,7 +610,7 @@ function PreguntaRevision({
           {indice + 1}
         </span>
         <span className="rounded bg-violet-50 px-2 py-0.5 text-violet-700">
-          {ETIQUETAS_AREA[pregunta.area] ?? pregunta.area}
+          {etiquetaSeccion(pregunta.area)}
         </span>
         <span className="text-neutral-400">·</span>
         <span className="text-neutral-600">{pregunta.tema}</span>
