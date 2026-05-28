@@ -193,6 +193,26 @@ export default function AppHeader() {
                       </div>
                       <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
                       <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
+                      {admin && (
+                        <button
+                          onClick={async () => {
+                            const r = await fetch("/api/admin/toggle-plan", { method: "POST" });
+                            const d = await r.json();
+                            if (r.ok) {
+                              setOpen(false);
+                              alert(`✓ Ahora estás en plan ${d.plan.toUpperCase()} para esta facultad.`);
+                              const me = await fetch("/api/auth/me").then((x) => x.json());
+                              setUsuario(me.usuario ?? null);
+                              router.refresh();
+                            } else {
+                              alert("⚠️ " + (d.error ?? "Error"));
+                            }
+                          }}
+                          style={{ ...menuItem(), display: "block", width: "100%", textAlign: "left", background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", color: "#d97706", fontWeight: 700, cursor: "pointer", marginTop: 4 }}
+                        >
+                          🧪 Cambiar plan (test)
+                        </button>
+                      )}
                     </>
                   )}
                   <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "#ef4444", cursor: "pointer" }}>

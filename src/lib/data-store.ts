@@ -346,6 +346,20 @@ export async function agregarOExtenderSuscripcion(
   return { facultad, vence };
 }
 
+export async function eliminarSuscripcion(usuarioId: string, facultad: FacultadId): Promise<void> {
+  if (supabaseConfigurado()) {
+    const { error } = await db()
+      .from("suscripciones")
+      .delete()
+      .eq("usuario_id", usuarioId)
+      .eq("facultad", facultad);
+    if (error) throw error;
+    return;
+  }
+  const idx = _suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
+  if (idx !== -1) _suscripciones.splice(idx, 1);
+}
+
 // ─────────────────────────────────────────────────────────────
 // PAGOS
 // ─────────────────────────────────────────────────────────────
