@@ -35,8 +35,9 @@ export default function HistorialPage() {
       <AppHeader />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>Mi historial</h1>
-          <p style={{ color: "var(--fg-muted)" }}>{historial.length} exámenes completados · Promedio este mes: {promedioMes}/100</p>
+          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>📚 Mis exámenes</h1>
+          <p style={{ color: "var(--fg-muted)" }}>Todos los simulacros que has hecho. Toca cualquiera para volver a ver la resolución.</p>
+          <p style={{ color: "var(--fg-muted)", fontSize: 13, marginTop: 4 }}>{historial.length} exámenes completados · Promedio este mes: {promedioMes}/100</p>
         </div>
 
         {historial.length === 0 ? (
@@ -59,6 +60,7 @@ export default function HistorialPage() {
                   <th style={th()}>Nota</th>
                   <th style={th()}>Correctas</th>
                   <th style={th()}>Tiempo</th>
+                  <th style={th()}></th>
                 </tr>
               </thead>
               <tbody>
@@ -70,6 +72,15 @@ export default function HistorialPage() {
                     <td style={{ ...td(), fontWeight: 800, color: h.nota >= 70 ? "#059669" : h.nota >= 50 ? "#d97706" : "#dc2626" }}>{h.nota}</td>
                     <td style={td()}>{h.correctas} / {h.correctas + h.incorrectas + h.sin_responder}</td>
                     <td style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
+                    <td style={{ ...td(), textAlign: "right" }}>
+                      {h.simulador_id ? (
+                        <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ padding: "6px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
+                          Ver resolución →
+                        </Link>
+                      ) : (
+                        <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>—</span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -88,5 +99,5 @@ function td(): React.CSSProperties {
   return { padding: "12px 16px", color: "var(--fg-primary)" };
 }
 function modoLabel(modo: string): string {
-  return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Predictivo", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "IA infinita" } as Record<string, string>)[modo] ?? modo;
+  return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Simulacro inteligente", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;
 }

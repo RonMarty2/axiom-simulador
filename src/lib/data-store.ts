@@ -97,6 +97,7 @@ export interface HistorialExamen {
   sin_responder: number;
   tiempo_segundos: number;
   desglose: Record<string, number>;
+  simulador_id?: string;            // para volver a abrir la resolución
 }
 
 // ─────────────────────────────────────────────────────────────

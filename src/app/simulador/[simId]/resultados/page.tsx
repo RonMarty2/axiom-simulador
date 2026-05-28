@@ -61,7 +61,10 @@ export default function ResultadosPage() {
   } | null>(null);
   const [errorPlan, setErrorPlan] = useState<string | null>(null);
   const [pagado, setPagado] = useState(false);
+  // Las secciones de errores arrancan ABIERTAS para que el alumno vea sus fallos
+  // de inmediato al terminar. Luego puede cerrarlas si quiere.
   const [seccionesAbiertas, setSeccionesAbiertas] = useState<Set<string>>(new Set());
+  const [seccionesAutoabiertas, setSeccionesAutoabiertas] = useState(false);
   const [historialPrev, setHistorialPrev] = useState<{ anterior: number | null; mejor: number; total: number }>({ anterior: null, mejor: 0, total: 0 });
   const [practicandoArea, setPracticandoArea] = useState<string | null>(null);
   const toggleSeccion = (s: string) => {
@@ -231,6 +234,13 @@ export default function ResultadosPage() {
 
   const nivel = nivelDeNota(nota);
   const mostrar = verSoloFalladas ? falladas : preguntas;
+
+  // Auto-abrir todas las secciones la primera vez (para ver errores al instante).
+  if (!seccionesAutoabiertas && mostrar.length > 0) {
+    const todas = new Set(mostrar.map((p) => p.area || "general"));
+    setSeccionesAbiertas(todas);
+    setSeccionesAutoabiertas(true);
+  }
 
   // Feedback personalizado (sin IA): punto débil/fuerte y qué hacer ahora.
   const ordenadasFb = Object.entries(desglose).sort((a, b) => a[1] - b[1]);
@@ -741,7 +751,8 @@ function PreguntaRevision({
 }
 
 function ExplicacionExpandible({ texto }: { texto: string }) {
-  const [abierta, setAbierta] = useState(false);
+  // Por defecto abierta: queremos que el alumno vea cómo se resolvía sin clic.
+  const [abierta, setAbierta] = useState(true);
   return (
     <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50">
       <button

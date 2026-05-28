@@ -85,6 +85,7 @@ export async function POST(
         sin_responder: resultado.sin_responder,
         tiempo_segundos: resultado.tiempo_usado_segundos,
         desglose: resultado.desglose,
+        simulador_id: simulador.id,
       });
 
       // Actualizar stats del usuario (y PERSISTIRLAS en la base).
