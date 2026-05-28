@@ -36,6 +36,7 @@ export default function SimuladorActivoPage() {
   const vista = "hoja" as "una" | "hoja";
   const [areaActualIdx, setAreaActualIdx] = useState(0);
   const [confirmarSiguienteHoja, setConfirmarSiguienteHoja] = useState(false);
+  const [avisoFaltan, setAvisoFaltan] = useState<number | null>(null);
 
   // Cargar simulador: primero de localStorage (sobrevive a serverless),
   // luego del servidor como fallback.
@@ -124,6 +125,7 @@ export default function SimuladorActivoPage() {
 
   const elegirOpcion = async (preguntaId: string, letra: string) => {
     if (!simulador) return;
+    setAvisoFaltan(null);
     const nuevo = {
       ...simulador,
       respuestas_usuario: { ...simulador.respuestas_usuario, [preguntaId]: letra },
@@ -142,6 +144,7 @@ export default function SimuladorActivoPage() {
   // casillas, las une con SEP_LLENADO en un solo string.
   const responderTexto = async (preguntaId: string, indiceCasilla: number, valor: string, totalCasillas: number) => {
     if (!simulador) return;
+    setAvisoFaltan(null);
     const actual = (simulador.respuestas_usuario[preguntaId] ?? "").split(SEP_LLENADO);
     const partes = Array.from({ length: totalCasillas }, (_, i) => actual[i] ?? "");
     partes[indiceCasilla] = valor;
@@ -479,15 +482,43 @@ export default function SimuladorActivoPage() {
             );
           })()}
 
+          {/* Aviso si quedan preguntas sin responder en la hoja actual */}
+          {avisoFaltan !== null && avisoFaltan > 0 && (
+            <div className="mt-6 rounded-xl border-2 border-amber-400 bg-amber-50 p-4 text-center">
+              <div className="text-base font-bold text-amber-900">
+                ⚠️ Te {avisoFaltan === 1 ? "falta" : "faltan"} {avisoFaltan} pregunta{avisoFaltan === 1 ? "" : "s"} sin responder en esta hoja
+              </div>
+              <div className="mt-1 text-sm text-amber-800">
+                Te llevamos a la primera. Respóndela antes de pasar a la siguiente hoja.
+              </div>
+            </div>
+          )}
+
           {/* Navegación: solo avanzar (no se puede volver, como examen real UMSS) */}
           <div className="mt-6 flex items-center justify-end gap-3">
             {areaActualIdx < grupos.length - 1 ? (
               (() => {
                 const siguiente = grupos[areaActualIdx + 1];
+                const actual = grupos[areaActualIdx];
+                const idxSinResponder = actual.indices.find((i) => !simulador.respuestas_usuario[preguntas[i].id]);
+                const cantFaltan = actual.indices.filter((i) => !simulador.respuestas_usuario[preguntas[i].id]).length;
                 return (
                   <button
                     type="button"
-                    onClick={() => setConfirmarSiguienteHoja(true)}
+                    onClick={() => {
+                      if (cantFaltan > 0) {
+                        setAvisoFaltan(cantFaltan);
+                        // Lleva al alumno a la primera pregunta sin responder
+                        if (idxSinResponder !== undefined) {
+                          const id = preguntas[idxSinResponder].id;
+                          const el = document.getElementById(`pregunta-${id}`);
+                          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+                        }
+                        return;
+                      }
+                      setAvisoFaltan(null);
+                      setConfirmarSiguienteHoja(true);
+                    }}
                     className="rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-lg hover:bg-violet-700"
                   >
                     Continuar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area} →
@@ -505,7 +536,7 @@ export default function SimuladorActivoPage() {
             )}
           </div>
           <p className="mt-2 text-right text-xs text-neutral-500">
-            ⚠️ Avanzar es irreversible. Asegúrate de responder todas las preguntas antes de pasar.
+            ⚠️ Pasar de hoja es irreversible. Asegúrate de responder todas las preguntas antes.
           </p>
         </main>
         )}
