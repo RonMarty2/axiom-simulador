@@ -184,6 +184,6 @@ function modoLabel(modo: string): string {
     predictivo: "Simulacro inteligente",
     por_tema: "Por tema",
     mis_errores: "Mis errores",
-    ia_generado: "IA infinita",
+    ia_generado: "Simulacro inteligente",
   } as Record<string, string>)[modo] ?? modo;
 }

@@ -29,13 +29,12 @@ const PLANES = [
     descripcion: "Para empezar a prepararte",
     features: [
       "Todos los exámenes pasados con sus respuestas",
-      "2 simulacros de exámenes pasados por semana",
-      "2 simulacros inteligentes por semana",
-      "Resolución paso a paso de tus simulacros",
+      "2 simulacros por semana (con resolución paso a paso)",
       "Ver en qué fallaste",
     ],
     contras: [
       "Sin paso a paso en la biblioteca de exámenes",
+      "Sin Simulacro inteligente con IA",
       "Sin simulacros ilimitados",
       "Sin programa de aprendizaje personalizado",
       "Sin práctica enfocada en tus errores",
@@ -52,8 +51,8 @@ const PLANES = [
     features: [
       "Todo lo del plan Gratis",
       "Todos los exámenes pasados resueltos paso a paso",
-      "Simulacros de exámenes pasados ilimitados",
-      "Simulacros inteligentes e IA ilimitados",
+      "Simulacros ilimitados",
+      "✨ Simulacro inteligente con IA: arma exámenes nuevos según el temario",
       "Programa de aprendizaje que refuerza tus puntos débiles",
       "Práctica enfocada en donde fallas",
       "Cambio de facultad cuando quieras",

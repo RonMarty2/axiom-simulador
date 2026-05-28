@@ -36,7 +36,7 @@ export async function POST(req: Request) {
       // Funciones exclusivas de pago.
       if (cat === "ia") {
         return NextResponse.json(
-          { error: "Los simulacros generados con IA son parte del plan Premium.", upgrade: true },
+          { error: "El Simulacro inteligente con IA es parte del plan Premium.", upgrade: true },
           { status: 402 }
         );
       }
