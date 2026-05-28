@@ -689,15 +689,29 @@ function PreguntaRevision({
       )}
 
       {pregunta.explicacion && (
-        <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50 p-4">
-          <div className="mb-1 text-xs font-bold uppercase tracking-wider text-violet-700">
-            Explicación
-          </div>
-          <div className="text-sm leading-relaxed text-neutral-800">
-            <MathText block>{pregunta.explicacion}</MathText>
-          </div>
-        </div>
+        <ExplicacionExpandible texto={pregunta.explicacion} />
       )}
     </motion.div>
+  );
+}
+
+function ExplicacionExpandible({ texto }: { texto: string }) {
+  const [abierta, setAbierta] = useState(false);
+  return (
+    <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50">
+      <button
+        type="button"
+        onClick={() => setAbierta(!abierta)}
+        className="flex w-full items-center gap-2 px-4 py-3 text-left text-violet-700 hover:bg-violet-100/40 rounded-xl"
+      >
+        <span className="text-lg">{abierta ? "▾" : "▸"}</span>
+        <span className="text-xs font-bold uppercase tracking-wider">💡 Ver explicación paso a paso</span>
+      </button>
+      {abierta && (
+        <div className="px-4 pb-4 text-sm leading-relaxed text-neutral-800">
+          <MathText block>{texto}</MathText>
+        </div>
+      )}
+    </div>
   );
 }
