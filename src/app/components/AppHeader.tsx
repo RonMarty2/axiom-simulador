@@ -86,6 +86,7 @@ export default function AppHeader() {
             <>
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
+              <Link href="/debilidades" style={navLink(pathname === "/debilidades")}>Mis debilidades</Link>
               <Link href="/resueltos" style={navLink(pathname?.startsWith("/resueltos"))}>Resueltos</Link>
               <Link href="/precios" style={navLink(pathname === "/precios")}>Planes</Link>
             </>
