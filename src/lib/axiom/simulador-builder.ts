@@ -117,7 +117,13 @@ export async function construirSimulador(
     }
 
     case "mixto": {
-      const pool = poolFacultad;
+      // Si el cliente pasa un filtro por área, restringimos el pool.
+      const pool = config.area
+        ? poolFacultad.filter((p) => p.area === config.area)
+        : poolFacultad;
+      if (pool.length === 0) {
+        throw new Error(`No hay preguntas disponibles${config.area ? ` para ${config.area}` : ""}`);
+      }
       const cantidad = Math.min(config.cantidad_preguntas ?? cantidadFormato, pool.length);
       preguntas = mezclar(pool).slice(0, cantidad);
       break;

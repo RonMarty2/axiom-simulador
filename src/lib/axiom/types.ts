@@ -106,6 +106,7 @@ export interface ConfiguracionSimulacion {
   facultad: string;
   anio?: number;                    // requerido para modo "examen_real"
   tema?: string;                    // requerido para modo "por_tema"
+  area?: string;                    // filtro por sección (área/libro) para mixto y por_tema
   cantidad_preguntas?: number;      // override opcional para mixto/predictivo/ia_generado
   dificultad?: Dificultad;          // override opcional para ia_generado
   temas_reforzar?: string[];        // para ia_generado: temas a priorizar (debilidades del usuario)

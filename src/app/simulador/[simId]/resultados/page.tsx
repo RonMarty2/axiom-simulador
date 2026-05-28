@@ -62,6 +62,8 @@ export default function ResultadosPage() {
   const [errorPlan, setErrorPlan] = useState<string | null>(null);
   const [pagado, setPagado] = useState(false);
   const [seccionesAbiertas, setSeccionesAbiertas] = useState<Set<string>>(new Set());
+  const [historialPrev, setHistorialPrev] = useState<{ anterior: number | null; mejor: number; total: number }>({ anterior: null, mejor: 0, total: 0 });
+  const [practicandoArea, setPracticandoArea] = useState<string | null>(null);
   const toggleSeccion = (s: string) => {
     setSeccionesAbiertas((prev) => {
       const next = new Set(prev);
@@ -72,7 +74,16 @@ export default function ResultadosPage() {
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => setPagado(esPago(me?.usuario?.plan))).catch(() => {});
-  }, []);
+    fetch("/api/historial").then((r) => r.json()).then((d) => {
+      const hist = (d.historial ?? []) as { id: string; nota: number; fecha: string }[];
+      const ordenados = [...hist].sort((a, b) => b.fecha.localeCompare(a.fecha));
+      // Excluye el simulacro actual para encontrar "el anterior".
+      const otros = ordenados.filter((h) => h.id !== simId);
+      const anterior = otros[0]?.nota ?? null;
+      const mejor = hist.length ? Math.max(...hist.map((h) => h.nota)) : 0;
+      setHistorialPrev({ anterior, mejor, total: hist.length });
+    }).catch(() => {});
+  }, [simId]);
 
   useEffect(() => {
     // Intentar primero del servidor (que tiene la nota final calculada).
@@ -119,6 +130,32 @@ export default function ResultadosPage() {
       setErrorPlan(e instanceof Error ? e.message : String(e));
     } finally {
       setGenerandoPlan(false);
+    }
+  };
+
+  const practicarArea = async (area: string) => {
+    if (practicandoArea) return;
+    setPracticandoArea(area);
+    try {
+      const r = await fetch("/api/axiom/simulador", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          config: {
+            modo: "mixto",
+            universidad: simulador?.config?.universidad ?? "UMSS",
+            facultad: simulador?.config?.facultad ?? "economicas",
+            area,
+            cantidad_preguntas: 10,
+          },
+        }),
+      });
+      const data = await r.json();
+      if (!r.ok) throw new Error(data.error ?? "Error");
+      router.push(`/simulador/${data.simulador.id}`);
+    } catch (e) {
+      alert("⚠️ " + (e instanceof Error ? e.message : String(e)));
+      setPracticandoArea(null);
     }
   };
 
@@ -237,6 +274,19 @@ export default function ResultadosPage() {
             {sinResponder > 0 && <Badge color="neutral">○ {sinResponder} sin responder</Badge>}
             <Badge color="neutral">⏱ {mins}m {secs}s</Badge>
           </div>
+          {historialPrev.total >= 1 && historialPrev.anterior !== null && (
+            <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+              {(() => {
+                const diff = nota - (historialPrev.anterior ?? 0);
+                const txt = diff > 0 ? `▲ +${diff} pts vs tu último examen` : diff < 0 ? `▼ ${diff} pts vs tu último` : "= mismo puntaje que el anterior";
+                const color = diff > 0 ? "text-emerald-700 bg-emerald-50 border-emerald-200" : diff < 0 ? "text-red-700 bg-red-50 border-red-200" : "text-neutral-600 bg-neutral-100 border-neutral-200";
+                return <span className={`rounded-full border px-3 py-1 font-bold ${color}`}>{txt}</span>;
+              })()}
+              <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 font-bold text-violet-700">
+                🏆 Tu mejor nota: {historialPrev.mejor}/100
+              </span>
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -283,108 +333,71 @@ export default function ResultadosPage() {
           </h2>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {Object.entries(desglose).map(([area, porc]) => (
-              <DesgloseArea key={area} area={area} porcentaje={porc} />
+              <DesgloseArea key={area} area={area} porcentaje={porc as number} onPracticar={() => practicarArea(area)} cargando={practicandoArea === area} disabled={practicandoArea !== null} />
             ))}
           </div>
         </section>
 
-        {/* CTA principal: reforzar con IA + secundarios */}
-        <section className="mb-10 space-y-3">
-          {falladas.length > 0 && pagado && (
-            <button
-              type="button"
-              onClick={reforzarMisErrores}
-              disabled={reforzando}
-              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 px-6 py-5 font-bold text-white shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {reforzando ? (
-                <>
-                  <span className="inline-block h-5 w-5 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                  La IA está creando 10 preguntas sobre lo que fallaste...
-                </>
-              ) : (
-                <>
-                  🎯 Reforzar lo que fallé con la IA
-                  <span className="rounded-full bg-white/20 px-2.5 py-0.5 text-xs font-semibold uppercase tracking-wider">
-                    Recomendado
-                  </span>
-                </>
-              )}
-            </button>
-          )}
-          {falladas.length > 0 && !pagado && (
-            <Link
-              href="/precios"
-              className="flex w-full items-center justify-center gap-3 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 px-6 py-5 font-bold text-white shadow-xl transition-all hover:-translate-y-0.5 hover:shadow-2xl"
-            >
-              🔒 Reforzar lo que fallé con la IA — Premium
-            </Link>
-          )}
-          {errorReforzar && (
-            <div className="rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-              ⚠️ {errorReforzar}
-            </div>
-          )}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <Link
-              href="/practicar"
-              className="flex items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3.5 font-semibold text-neutral-700 hover:bg-neutral-50"
-            >
-              Practicar otro examen
-            </Link>
-            <Link
-              href="/"
-              className="flex items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3.5 font-semibold text-neutral-700 hover:bg-neutral-50"
-            >
-              Volver a Axiom
-            </Link>
-          </div>
-        </section>
-
-        {/* Plan personalizado IA */}
+        {/* Tu próximo paso (CTAs consolidados) */}
         <section className="mb-10">
-          {!plan && (
-            <div className="rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-6">
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-amber-900">
-                    📋 ¿Quieres un plan de estudio personalizado?
-                  </h3>
-                  <p className="mt-1 text-sm text-amber-800">
-                    La IA analiza tus errores reales y arma un plan de 3 días
-                    enfocado en lo que más te costó.
-                  </p>
+          <h2 className="mb-4 text-xl font-bold text-neutral-900">Tu próximo paso</h2>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {/* Acción rápida: reforzar 10 con IA */}
+            {pagado ? (
+              <button
+                type="button"
+                onClick={reforzarMisErrores}
+                disabled={reforzando || falladas.length === 0}
+                className="rounded-2xl border-2 border-violet-300 bg-gradient-to-br from-violet-50 to-indigo-50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-violet-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-2xl">🎯</span>
+                  <span className="rounded-full bg-violet-600 px-2 py-0.5 text-[10px] font-bold text-white">RECOMENDADO</span>
                 </div>
-                {pagado ? (
-                  <button
-                    type="button"
-                    onClick={generarPlanIA}
-                    disabled={generandoPlan}
-                    className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 font-bold text-white shadow-lg transition-all hover:bg-amber-700 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    {generandoPlan ? (
-                      <>
-                        <span className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
-                        Generando...
-                      </>
-                    ) : (
-                      "Generar mi plan IA"
-                    )}
-                  </button>
-                ) : (
-                  <Link
-                    href="/precios"
-                    className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 font-bold text-white shadow-lg transition-all hover:bg-amber-700"
-                  >
-                    🔒 Desbloquear con Premium →
-                  </Link>
-                )}
-              </div>
-              {errorPlan && (
-                <div className="mt-3 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-                  ⚠️ {errorPlan}
+                <div className="text-base font-bold text-violet-900">{reforzando ? "Preparando..." : "Reforzar 10 con la IA"}</div>
+                <div className="mt-1 text-xs text-violet-700">10 preguntas IA sobre lo que más fallaste. Al instante.</div>
+              </button>
+            ) : (
+              <Link href="/precios" className="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-2xl">🎯</span>
+                  <span className="rounded-full bg-amber-600 px-2 py-0.5 text-[10px] font-bold text-white">PREMIUM</span>
                 </div>
-              )}
+                <div className="text-base font-bold text-amber-900">🔒 Reforzar 10 con la IA</div>
+                <div className="mt-1 text-xs text-amber-700">Desbloquéalo con Premium →</div>
+              </Link>
+            )}
+
+            {/* Acción larga: plan de 3 días */}
+            {pagado ? (
+              <button
+                type="button"
+                onClick={generarPlanIA}
+                disabled={generandoPlan || !!plan}
+                className="rounded-2xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-teal-50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-2xl">📋</span>
+                  <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">3 DÍAS</span>
+                </div>
+                <div className="text-base font-bold text-emerald-900">{generandoPlan ? "Generando..." : plan ? "Plan listo ↓" : "Plan de estudio de 3 días"}</div>
+                <div className="mt-1 text-xs text-emerald-700">La IA arma un plan personalizado según tus errores.</div>
+              </button>
+            ) : (
+              <Link href="/precios" className="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-2xl">📋</span>
+                  <span className="rounded-full bg-amber-600 px-2 py-0.5 text-[10px] font-bold text-white">PREMIUM</span>
+                </div>
+                <div className="text-base font-bold text-amber-900">🔒 Plan de estudio de 3 días</div>
+                <div className="mt-1 text-xs text-amber-700">Desbloquéalo con Premium →</div>
+              </Link>
+            )}
+          </div>
+
+          {(errorReforzar || errorPlan) && (
+            <div className="mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              ⚠️ {errorReforzar || errorPlan}
             </div>
           )}
 
@@ -509,6 +522,28 @@ export default function ResultadosPage() {
             </div>
           )}
         </section>
+
+        {/* Navegación final */}
+        <section className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <Link
+            href="/debilidades"
+            className="flex items-center justify-center gap-2 rounded-xl border-2 border-violet-300 bg-violet-50 px-6 py-3.5 font-bold text-violet-700 hover:bg-violet-100"
+          >
+            📈 Ver mis debilidades
+          </Link>
+          <Link
+            href="/practicar"
+            className="flex items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3.5 font-semibold text-neutral-700 hover:bg-neutral-50"
+          >
+            Practicar otro examen
+          </Link>
+          <Link
+            href="/dashboard"
+            className="flex items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-6 py-3.5 font-semibold text-neutral-700 hover:bg-neutral-50"
+          >
+            Volver al inicio
+          </Link>
+        </section>
       </div>
     </div>
   );
@@ -566,7 +601,7 @@ function Badge({
   );
 }
 
-function DesgloseArea({ area, porcentaje }: { area: string; porcentaje: number }) {
+function DesgloseArea({ area, porcentaje, onPracticar, cargando, disabled }: { area: string; porcentaje: number; onPracticar?: () => void; cargando?: boolean; disabled?: boolean }) {
   const color =
     porcentaje >= 80
       ? "from-emerald-500 to-emerald-600"
@@ -576,7 +611,7 @@ function DesgloseArea({ area, porcentaje }: { area: string; porcentaje: number }
       ? "from-amber-500 to-amber-600"
       : "from-red-500 to-red-600";
   return (
-    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm flex flex-col">
       <div className="mb-1 text-xs uppercase tracking-wider text-neutral-500">
         {etiquetaSeccion(area)}
       </div>
@@ -589,6 +624,16 @@ function DesgloseArea({ area, porcentaje }: { area: string; porcentaje: number }
           className={`h-full rounded-full bg-gradient-to-r ${color}`}
         />
       </div>
+      {onPracticar && (
+        <button
+          type="button"
+          onClick={onPracticar}
+          disabled={disabled}
+          className="mt-3 w-full rounded-lg border border-violet-300 bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700 hover:bg-violet-100 disabled:cursor-wait disabled:opacity-60"
+        >
+          {cargando ? "Preparando..." : "Practicar 10 →"}
+        </button>
+      )}
     </div>
   );
 }
