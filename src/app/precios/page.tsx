@@ -30,7 +30,7 @@ const PLANES = [
     features: [
       "Todos los exámenes pasados con sus respuestas",
       "2 simulacros de exámenes pasados por semana",
-      "2 simulacros predictivos por semana",
+      "2 simulacros inteligentes por semana",
       "Resolución paso a paso de tus simulacros",
       "Ver en qué fallaste",
     ],
@@ -53,7 +53,7 @@ const PLANES = [
       "Todo lo del plan Gratis",
       "Todos los exámenes pasados resueltos paso a paso",
       "Simulacros de exámenes pasados ilimitados",
-      "Simulacros predictivos e IA ilimitados",
+      "Simulacros inteligentes e IA ilimitados",
       "Programa de aprendizaje que refuerza tus puntos débiles",
       "Práctica enfocada en donde fallas",
       "Cambio de facultad cuando quieras",

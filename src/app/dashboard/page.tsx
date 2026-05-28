@@ -181,7 +181,7 @@ function modoLabel(modo: string): string {
   return ({
     examen_real: "Examen real",
     mixto: "Simulacro mixto",
-    predictivo: "Predictivo",
+    predictivo: "Simulacro inteligente",
     por_tema: "Por tema",
     mis_errores: "Mis errores",
     ia_generado: "IA infinita",

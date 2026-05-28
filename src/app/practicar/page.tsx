@@ -158,7 +158,7 @@ function PracticarInner() {
             {[
               { v: "examen_real" as const, emoji: "📜", t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado" },
               { v: "mixto" as const, emoji: "🎲", t: "Mixto", d: "Preguntas aleatorias de varios años" },
-              { v: "predictivo" as const, emoji: "🔮", t: "Predictivo", d: "Pondera los temas por frecuencia histórica" },
+              { v: "predictivo" as const, emoji: "✨", t: "Simulacro inteligente", d: "Arma tu examen como los reales, con los temas que más se repiten año tras año." },
               { v: "por_tema" as const, emoji: "🎯", t: "Por tema", d: "Solo preguntas de un tema específico" },
               { v: "mis_errores" as const, emoji: "🔥", t: "Mis errores (Premium)", d: errores === 0 ? "Completa un examen para guardar errores" : `Repasa donde fallaste (${errores} guardados)`, disabled: errores === 0 || !esPagoUser, premium: true },
               { v: "ia_generado" as const, emoji: "⚡", t: "IA infinita (Premium)", d: "Preguntas frescas creadas en el momento", disabled: !esPagoUser, premium: true },

@@ -67,7 +67,7 @@ export async function POST(req: Request) {
         if (cat === "pronosticada" && usadasPron >= LIMITE_SEMANAL_PRONOSTICADAS) {
           return NextResponse.json(
             {
-              error: `Ya usaste tus ${LIMITE_SEMANAL_PRONOSTICADAS} simulacros predictivos de esta semana. Pásate a Premium para simulacros ilimitados.`,
+              error: `Ya usaste tus ${LIMITE_SEMANAL_PRONOSTICADAS} simulacros inteligentes de esta semana. Pásate a Premium para simulacros ilimitados.`,
               upgrade: true,
             },
             { status: 402 }
