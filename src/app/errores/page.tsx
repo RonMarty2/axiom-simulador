@@ -20,27 +20,22 @@ export default function ErroresPage() {
   const [errores, setErrores] = useState<ErrorGuardado[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const [porArea, setPorArea] = useState<Record<string, number>>({});
+
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
       if (!d.usuario) { router.push("/login"); return; }
-      // Leer de localStorage (sistema existente de errores-storage)
-      try {
-        const raw = localStorage.getItem("axiom_errores");
-        if (raw) {
-          const data = JSON.parse(raw);
-          setErrores(Array.isArray(data) ? data : []);
-        }
-      } catch (e) {
-        console.error(e);
-      }
-      setLoading(false);
+      // Errores guardados en la base de datos, atados a la cuenta del usuario.
+      fetch("/api/axiom/errores")
+        .then((r) => r.json())
+        .then((data) => {
+          setErrores(Array.isArray(data.errores) ? data.errores : []);
+          setPorArea(data.por_area ?? {});
+        })
+        .catch(() => {})
+        .finally(() => setLoading(false));
     });
   }, [router]);
-
-  const porArea = errores.reduce((acc, e) => {
-    acc[e.area] = (acc[e.area] ?? 0) + 1;
-    return acc;
-  }, {} as Record<string, number>);
 
   return (
     <div style={{ minHeight: "100vh" }}>

@@ -8,10 +8,6 @@ import MathText from "../../../components/MathText";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
-import {
-  guardarErroresDeSimulador,
-  obtenerTemasReforzar,
-} from "@/lib/axiom/errores-storage";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
@@ -89,13 +85,8 @@ export default function ResultadosPage() {
           throw new Error(data.error ?? "Error");
         }
         setSimulador(data.simulador);
-        if (data.simulador?.preguntas?.length) {
-          guardarErroresDeSimulador(
-            data.simulador.preguntas,
-            data.simulador.respuestas_usuario ?? {},
-            data.simulador.id
-          );
-        }
+        // Los errores ya se guardan en la base de datos al finalizar el examen
+        // (server-side), atados a la cuenta del usuario.
       })
       .catch((e) => setError(e instanceof Error ? e.message : String(e)))
       .finally(() => setCargando(false));
@@ -127,7 +118,8 @@ export default function ResultadosPage() {
     setReforzando(true);
     setErrorReforzar(null);
     try {
-      const temas = obtenerTemasReforzar(8);
+      const errData = await fetch("/api/axiom/errores").then((r) => r.json()).catch(() => ({}));
+      const temas: string[] = errData.temas_reforzar ?? [];
       if (temas.length === 0) {
         setErrorReforzar("No hay temas a reforzar todavía. Termina otro examen.");
         setReforzando(false);

@@ -4,10 +4,6 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppHeader from "../components/AppHeader";
-import {
-  contarErrores,
-  obtenerTemasReforzar,
-} from "@/lib/axiom/errores-storage";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago } from "@/lib/plan";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
@@ -38,13 +34,17 @@ function PracticarInner() {
   const [tema, setTema] = useState<string>("");
   const [dificultad, setDificultad] = useState<Dificultad>("medio");
   const [errores, setErrores] = useState(0);
+  const [temasReforzar, setTemasReforzar] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [creando, setCreando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [mostrarUpgrade, setMostrarUpgrade] = useState(false);
 
   useEffect(() => {
-    setErrores(contarErrores());
+    fetch("/api/axiom/errores").then((r) => r.json()).then((d) => {
+      setErrores(d.total ?? 0);
+      setTemasReforzar(d.temas_reforzar ?? []);
+    }).catch(() => {});
     Promise.all([
       fetch("/api/auth/me").then((r) => r.json()),
       fetch("/api/facultades").then((r) => r.json()),
@@ -84,7 +84,7 @@ function PracticarInner() {
     setError(null);
     setMostrarUpgrade(false);
     try {
-      const temasReforzar = modo === "mis_errores" ? obtenerTemasReforzar(8) : undefined;
+      const temasParaReforzar = modo === "mis_errores" ? temasReforzar : undefined;
       const config: ConfiguracionSimulacion = {
         modo: modo as ModoSimulacion,
         universidad: "UMSS",
@@ -93,7 +93,7 @@ function PracticarInner() {
         ...(tema ? { tema } : {}),
         // La cantidad de preguntas la define el formato de la facultad, no el usuario.
         ...(modo === "ia_generado" || modo === "mis_errores" ? { dificultad } : {}),
-        ...(temasReforzar?.length ? { temas_reforzar: temasReforzar } : {}),
+        ...(temasParaReforzar?.length ? { temas_reforzar: temasParaReforzar } : {}),
       };
       const r = await fetch("/api/axiom/simulador", {
         method: "POST",

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
 import { cargarExamen } from "@/lib/axiom/banco-loader";
 import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
+import { guardarErroresFallados } from "@/lib/axiom/errores-db";
 import { agregarHistorial, getUsuario, getHistorialUsuario, type FacultadId } from "@/lib/data-store";
 import type { Simulador } from "@/lib/axiom/types";
 
@@ -53,8 +54,22 @@ export async function POST(
     tiempo_usado_segundos: resultado.tiempo_usado_segundos,
   });
 
-  // Agregar al historial del usuario si está logueado
+  // Guardar los errores del usuario (para "Mis errores" y práctica enfocada).
   const usuarioId = simulador.usuario_id;
+  if (usuarioId && !usuarioId.startsWith("anon-")) {
+    try {
+      await guardarErroresFallados(
+        usuarioId,
+        simulador.preguntas ?? [],
+        simulador.respuestas_usuario ?? {},
+        simulador.id
+      );
+    } catch (e) {
+      console.warn("[finalizar] no se pudieron guardar errores:", e);
+    }
+  }
+
+  // Agregar al historial del usuario si está logueado
   if (usuarioId && !usuarioId.startsWith("anon-")) {
     const usuario = await getUsuario(usuarioId);
     if (usuario && simulador.config) {
