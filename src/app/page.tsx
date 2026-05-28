@@ -7,15 +7,9 @@ import type { Facultad } from "@/lib/data-store";
 
 export default function LandingPage() {
   const [facultades, setFacultades] = useState<Facultad[]>([]);
-  const [stats, setStats] = useState({ usuarios: 0, examenes: 0, preguntas: 0 });
 
   useEffect(() => {
     fetch("/api/facultades").then((r) => r.json()).then((d) => setFacultades(d.facultades ?? []));
-    fetch("/api/usuarios").then((r) => r.json()).then((d) => {
-      const usuarios = d.usuarios ?? [];
-      const examenes = usuarios.reduce((s: number, u: { examenes_completados: number }) => s + u.examenes_completados, 0);
-      setStats({ usuarios: usuarios.length, examenes, preguntas: 94 });
-    });
   }, []);
 
   return (
@@ -44,12 +38,12 @@ export default function LandingPage() {
             </Link>
           </div>
 
-          {/* STATS bar */}
+          {/* Propuesta de valor (no depende de tener tráfico todavía) */}
           <div style={{ display: "flex", justifyContent: "center", gap: 40, marginTop: 56, flexWrap: "wrap" }}>
-            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>{stats.usuarios}+</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>estudiantes activos</div></div>
-            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>{stats.examenes}</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>exámenes realizados</div></div>
-            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>{stats.preguntas}+</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>preguntas en banco</div></div>
-            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>4</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>facultades cubiertas</div></div>
+            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>📚</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>Exámenes reales UMSS</div></div>
+            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>✨</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>Simulacros con IA</div></div>
+            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>📈</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>Detecta tus debilidades</div></div>
+            <div><div style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)" }}>{facultades.length || 4}</div><div style={{ fontSize: 13, color: "var(--fg-muted)" }}>facultades cubiertas</div></div>
           </div>
         </div>
       </section>
