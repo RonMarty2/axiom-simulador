@@ -61,6 +61,14 @@ export default function ResultadosPage() {
   } | null>(null);
   const [errorPlan, setErrorPlan] = useState<string | null>(null);
   const [pagado, setPagado] = useState(false);
+  const [seccionesAbiertas, setSeccionesAbiertas] = useState<Set<string>>(new Set());
+  const toggleSeccion = (s: string) => {
+    setSeccionesAbiertas((prev) => {
+      const next = new Set(prev);
+      if (next.has(s)) next.delete(s); else next.add(s);
+      return next;
+    });
+  };
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => setPagado(esPago(me?.usuario?.plan))).catch(() => {});
@@ -461,30 +469,43 @@ export default function ResultadosPage() {
               </p>
             </div>
           ) : (
-            <div className="space-y-8">
-              {agruparPorSeccion(mostrar).map(({ seccion, items }) => (
-                <div key={seccion}>
-                  <div className="mb-3 flex items-center gap-2 border-b border-neutral-200 pb-2">
-                    <span className="rounded-lg bg-neutral-900 px-3 py-1 text-sm font-bold text-white">
-                      {etiquetaSeccion(seccion)}
-                    </span>
-                    <span className="text-sm text-neutral-500">
-                      {items.length} pregunta{items.length !== 1 ? "s" : ""}
-                    </span>
+            <div className="space-y-4">
+              {agruparPorSeccion(mostrar).map(({ seccion, items }) => {
+                const abierta = seccionesAbiertas.has(seccion);
+                return (
+                  <div key={seccion} className="rounded-2xl border border-neutral-200 bg-white">
+                    <button
+                      type="button"
+                      onClick={() => toggleSeccion(seccion)}
+                      className="flex w-full items-center gap-3 rounded-t-2xl bg-neutral-50 px-4 py-3 text-left hover:bg-neutral-100"
+                    >
+                      <span className="text-neutral-500 text-lg w-5 inline-block">{abierta ? "▾" : "▸"}</span>
+                      <span className="rounded-lg bg-neutral-900 px-3 py-1 text-sm font-bold text-white">
+                        {etiquetaSeccion(seccion)}
+                      </span>
+                      <span className="text-sm text-neutral-500">
+                        {items.length} pregunta{items.length !== 1 ? "s" : ""}
+                      </span>
+                      <span className="ml-auto text-xs font-semibold text-neutral-500">
+                        {abierta ? "Ocultar" : "Ver detalle"}
+                      </span>
+                    </button>
+                    {abierta && (
+                      <div className="space-y-4 p-4">
+                        {items.map((p, i) => (
+                          <PreguntaRevision
+                            key={p.id}
+                            pregunta={p}
+                            indice={preguntas.indexOf(p)}
+                            respuesta={simulador.respuestas_usuario[p.id]}
+                            totalMostrados={i}
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <div className="space-y-4">
-                    {items.map((p, i) => (
-                      <PreguntaRevision
-                        key={p.id}
-                        pregunta={p}
-                        indice={preguntas.indexOf(p)}
-                        respuesta={simulador.respuestas_usuario[p.id]}
-                        totalMostrados={i}
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </section>
