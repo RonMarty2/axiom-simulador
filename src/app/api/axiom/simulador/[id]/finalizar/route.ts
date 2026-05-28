@@ -3,7 +3,7 @@ import { axiomDB } from "@/lib/axiom/db";
 import { cargarExamen } from "@/lib/axiom/banco-loader";
 import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
 import { guardarErroresFallados } from "@/lib/axiom/errores-db";
-import { agregarHistorial, getUsuario, getHistorialUsuario, type FacultadId } from "@/lib/data-store";
+import { agregarHistorial, getUsuario, getHistorialUsuario, actualizarUsuario, type FacultadId } from "@/lib/data-store";
 import type { Simulador } from "@/lib/axiom/types";
 
 export async function POST(
@@ -87,11 +87,15 @@ export async function POST(
         desglose: resultado.desglose,
       });
 
-      // Actualizar stats del usuario
+      // Actualizar stats del usuario (y PERSISTIRLAS en la base).
       const historial = await getHistorialUsuario(usuarioId);
-      usuario.examenes_completados = historial.length;
-      usuario.mejor_nota = Math.max(...historial.map((h) => h.nota));
-      usuario.nota_promedio = Math.round(historial.reduce((s, h) => s + h.nota, 0) / historial.length);
+      await actualizarUsuario(usuarioId, {
+        examenes_completados: historial.length,
+        mejor_nota: historial.length ? Math.max(...historial.map((h) => h.nota)) : 0,
+        nota_promedio: historial.length
+          ? Math.round(historial.reduce((s, h) => s + h.nota, 0) / historial.length)
+          : 0,
+      });
     }
   }
 
