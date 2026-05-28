@@ -4,18 +4,19 @@
 
 import { cookies } from "next/headers";
 import { SignJWT, jwtVerify } from "jose";
-import { getUsuario, getUsuarioByEmail, crearUsuario, actualizarUsuario, type Usuario, type FacultadId } from "@/lib/data-store";
+import { getUsuario, getUsuarioByEmail, crearUsuario, getSuscripcionesActivas, type Usuario, type FacultadId } from "@/lib/data-store";
 
-// Si el plan de pago ya venció, devuelve al usuario a "gratis" (y lo guarda).
-// Centralizado aquí para que todo el sistema lea siempre el plan vigente.
-async function aplicarVencimientoPlan(usuario: Usuario): Promise<Usuario> {
-  if (usuario.plan === "gratis") return usuario;
-  const vence = usuario.plan_vence;
-  if (!vence) return usuario; // sin fecha: se trata como acceso permanente
-  const hoy = new Date().toISOString().slice(0, 10);
-  if (vence >= hoy) return usuario; // todavía vigente
-  const actualizado = await actualizarUsuario(usuario.id, { plan: "gratis", plan_vence: null });
-  return actualizado ?? { ...usuario, plan: "gratis", plan_vence: null };
+// El plan se DERIVA de las suscripciones: el usuario es "premium" si tiene una
+// suscripción activa para la facultad que tiene seleccionada (facultad_objetivo).
+// Cada facultad es un producto mensual independiente. Se adjuntan también todas
+// las suscripciones activas para el selector del header.
+async function aplicarSuscripciones(usuario: Usuario): Promise<Usuario> {
+  const subs = await getSuscripcionesActivas(usuario.id);
+  usuario.suscripciones = subs;
+  const activa = subs.find((s) => s.facultad === usuario.facultad_objetivo);
+  usuario.plan = activa ? "premium" : "gratis";
+  usuario.plan_vence = activa?.vence ?? null;
+  return usuario;
 }
 
 export const SESSION_COOKIE = "axiom_session";
@@ -97,7 +98,7 @@ export async function getCurrentUser(): Promise<Usuario | null> {
           avatar_color: "#6366f1",
         });
       }
-      return aplicarVencimientoPlan(usuario);
+      return aplicarSuscripciones(usuario);
     }
   }
 
@@ -105,7 +106,7 @@ export async function getCurrentUser(): Promise<Usuario | null> {
   const legacy = store.get(LEGACY_COOKIE)?.value;
   if (legacy) {
     const u = await getUsuario(legacy);
-    return u ? aplicarVencimientoPlan(u) : null;
+    return u ? aplicarSuscripciones(u) : null;
   }
 
   return null;

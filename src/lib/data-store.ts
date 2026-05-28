@@ -54,7 +54,15 @@ export interface Usuario {
   mejor_nota: number;
   nota_promedio: number;
   avatar_color: string;
-  plan_vence?: string | null;   // fecha (YYYY-MM-DD) hasta la que el plan de pago está activo
+  plan_vence?: string | null;   // fecha (YYYY-MM-DD) hasta la que la facultad activa está pagada (derivado)
+  suscripciones?: SuscripcionActiva[];  // suscripciones activas del usuario (derivado en getCurrentUser)
+}
+
+// Suscripción a una facultad. Cada facultad es un producto mensual independiente
+// con su propia fecha de vencimiento. Un usuario puede tener varias activas.
+export interface SuscripcionActiva {
+  facultad: FacultadId;
+  vence: string;   // YYYY-MM-DD
 }
 
 export type TipoPago = "plan" | "cambio_facultad";
@@ -263,6 +271,79 @@ export async function actualizarUsuario(id: string, updates: Partial<Usuario>): 
   if (idx === -1) return null;
   u[idx] = { ...u[idx], ...updates };
   return u[idx];
+}
+
+// ─────────────────────────────────────────────────────────────
+// SUSCRIPCIONES (una por facultad, vencimiento independiente)
+// ─────────────────────────────────────────────────────────────
+
+interface SuscripcionRow {
+  usuario_id: string;
+  facultad: FacultadId;
+  vence: string; // YYYY-MM-DD
+}
+
+// Fallback en memoria (dev sin Supabase).
+const _suscripciones: SuscripcionRow[] = [];
+
+function hoyISO(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function sumarMeses(fechaISO: string, meses: number): string {
+  const d = new Date(fechaISO + "T00:00:00");
+  d.setMonth(d.getMonth() + meses);
+  return d.toISOString().slice(0, 10);
+}
+
+export async function getSuscripcionesActivas(usuarioId: string): Promise<SuscripcionActiva[]> {
+  const hoy = hoyISO();
+  if (supabaseConfigurado()) {
+    const { data, error } = await db()
+      .from("suscripciones")
+      .select("facultad,vence")
+      .eq("usuario_id", usuarioId)
+      .gte("vence", hoy)
+      .order("vence", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as SuscripcionActiva[];
+  }
+  return _suscripciones
+    .filter((s) => s.usuario_id === usuarioId && s.vence >= hoy)
+    .map((s) => ({ facultad: s.facultad, vence: s.vence }));
+}
+
+// Crea o extiende la suscripción a una facultad. Si ya está activa, suma los
+// meses a partir de su vencimiento actual; si está vencida o no existe, desde hoy.
+export async function agregarOExtenderSuscripcion(
+  usuarioId: string,
+  facultad: FacultadId,
+  meses = 1
+): Promise<SuscripcionActiva> {
+  const hoy = hoyISO();
+  if (supabaseConfigurado()) {
+    const { data: existente } = await db()
+      .from("suscripciones")
+      .select("vence")
+      .eq("usuario_id", usuarioId)
+      .eq("facultad", facultad)
+      .maybeSingle();
+    const base = existente && (existente as { vence: string }).vence >= hoy
+      ? (existente as { vence: string }).vence
+      : hoy;
+    const vence = sumarMeses(base, meses);
+    const { error } = await db()
+      .from("suscripciones")
+      .upsert({ usuario_id: usuarioId, facultad, vence }, { onConflict: "usuario_id,facultad" });
+    if (error) throw error;
+    return { facultad, vence };
+  }
+  const idx = _suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
+  const base = idx !== -1 && _suscripciones[idx].vence >= hoy ? _suscripciones[idx].vence : hoy;
+  const vence = sumarMeses(base, meses);
+  if (idx !== -1) _suscripciones[idx].vence = vence;
+  else _suscripciones.push({ usuario_id: usuarioId, facultad, vence });
+  return { facultad, vence };
 }
 
 // ─────────────────────────────────────────────────────────────

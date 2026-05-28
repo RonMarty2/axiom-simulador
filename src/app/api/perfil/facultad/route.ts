@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { actualizarUsuario, getFacultad, getUsuario, type FacultadId } from "@/lib/data-store";
+import { actualizarUsuario, getFacultad, getUsuario, getSuscripcionesActivas, type FacultadId } from "@/lib/data-store";
 import { getCurrentUser } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
@@ -23,15 +23,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Usuario no encontrado" }, { status: 404 });
   }
 
-  // Solo permitimos asignar facultad SI el usuario aún no tiene una (primer login).
-  // Cualquier cambio posterior requiere pago — independiente del plan,
-  // porque cada facultad es un producto separado con su propio precio.
+  // Cambiar entre facultades a las que YA estás suscrito es gratis (es el
+  // selector del header). Asignar la primera facultad también es gratis. Solo
+  // se exige pago para activar una facultad nueva sin suscripción.
   const yaTeniaFacultad = !!usuarioCompleto.facultad_objetivo;
-  const cambioReal = yaTeniaFacultad && usuarioCompleto.facultad_objetivo !== facultad;
+  const esLaMisma = usuarioCompleto.facultad_objetivo === facultad;
+  const subs = await getSuscripcionesActivas(userSession.id);
+  const tieneSuscripcion = subs.some((s) => s.facultad === facultad);
 
-  if (cambioReal) {
+  if (yaTeniaFacultad && !esLaMisma && !tieneSuscripcion) {
     return NextResponse.json({
-      error: "Cambiar de facultad requiere comprar el acceso a la nueva carrera",
+      error: "Activar una facultad nueva requiere comprar su acceso",
       codigo: "REQUIERE_PAGO",
     }, { status: 403 });
   }

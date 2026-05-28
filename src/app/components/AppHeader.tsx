@@ -4,13 +4,19 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
+interface SuscripcionMini { facultad: string; vence: string }
+
 interface UsuarioMini {
   id: string;
   nombre: string;
   email: string;
   plan: string;
   avatar_color: string;
+  facultad_objetivo?: string | null;
+  suscripciones?: SuscripcionMini[];
 }
+
+interface FacultadMini { id: string; nombre_corto: string; emoji: string; color: string }
 
 export default function AppHeader() {
   const router = useRouter();
@@ -19,6 +25,9 @@ export default function AppHeader() {
   const [admin, setAdmin] = useState(false);
   const [picture, setPicture] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
+  const [facultades, setFacultades] = useState<FacultadMini[]>([]);
+  const [selOpen, setSelOpen] = useState(false);
+  const [cambiando, setCambiando] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -30,6 +39,32 @@ export default function AppHeader() {
       })
       .catch(() => null);
   }, [pathname]);
+
+  useEffect(() => {
+    fetch("/api/facultades").then((r) => r.json()).then((d) => setFacultades(d.facultades ?? [])).catch(() => {});
+  }, []);
+
+  const facInfo = (id?: string | null) => facultades.find((f) => f.id === id);
+
+  const cambiarFacultad = async (facultad: string) => {
+    if (cambiando || facultad === usuario?.facultad_objetivo) { setSelOpen(false); return; }
+    setCambiando(true);
+    try {
+      const r = await fetch("/api/perfil/facultad", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ facultad }),
+      });
+      if (r.ok) {
+        setSelOpen(false);
+        router.refresh();
+        const me = await fetch("/api/auth/me").then((x) => x.json());
+        setUsuario(me.usuario ?? null);
+      }
+    } finally {
+      setCambiando(false);
+    }
+  };
 
   const cerrarSesion = async () => {
     await fetch("/api/auth/logout", { method: "POST" });
@@ -75,6 +110,46 @@ export default function AppHeader() {
         </nav>
 
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {/* Selector de suscripciones: solo si el usuario tiene 2+ facultades activas */}
+          {usuario && !admin && (usuario.suscripciones?.length ?? 0) >= 2 && (
+            <div style={{ position: "relative" }}>
+              <button
+                onClick={() => setSelOpen(!selOpen)}
+                disabled={cambiando}
+                style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
+              >
+                <span>{facInfo(usuario.facultad_objetivo)?.emoji ?? "🎓"}</span>
+                <span>{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
+                <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
+              </button>
+              {selOpen && (
+                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
+                  <div style={{ padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>Tus suscripciones</div>
+                  {usuario.suscripciones?.map((s) => {
+                    const fi = facInfo(s.facultad);
+                    const activa = s.facultad === usuario.facultad_objetivo;
+                    return (
+                      <button
+                        key={s.facultad}
+                        onClick={() => cambiarFacultad(s.facultad)}
+                        style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", textAlign: "left", padding: "8px 10px", background: activa ? "rgba(99,102,241,0.08)" : "transparent", border: "none", borderRadius: 6, cursor: "pointer" }}
+                      >
+                        <span style={{ fontSize: 18 }}>{fi?.emoji ?? "🎓"}</span>
+                        <span style={{ flex: 1 }}>
+                          <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{fi?.nombre_corto ?? s.facultad}</span>
+                          <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>Activa hasta {s.vence}</span>
+                        </span>
+                        {activa && <span style={{ color: "var(--accent)", fontWeight: 800 }}>✓</span>}
+                      </button>
+                    );
+                  })}
+                  <Link href="/precios" onClick={() => setSelOpen(false)} style={{ display: "block", padding: "8px 10px", marginTop: 4, borderTop: "1px solid var(--border)", fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
+                    ➕ Agregar otra facultad
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
           {!usuario && !admin && (
             <>
               <Link href="/login" style={{ padding: "8px 16px", color: "var(--fg-primary)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Entrar</Link>
