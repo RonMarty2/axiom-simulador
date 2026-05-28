@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { getCurrentUser, isAdmin, SESSION_COOKIE, verificarTokenSesion } from "@/lib/session";
+import { getCurrentUser, isAdmin, isTester, SESSION_COOKIE, verificarTokenSesion } from "@/lib/session";
 
 export async function GET() {
   const usuario = await getCurrentUser();
   const admin = await isAdmin();
+  const tester = await isTester();
 
   // Si hay JWT real, incluir picture y rol
   let session = null;
@@ -14,6 +15,7 @@ export async function GET() {
   return NextResponse.json({
     usuario,
     admin,
+    tester,
     rol: admin ? "docente" : "estudiante",
     picture: session?.picture,
     autenticado_google: !!session,

@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-import { getCurrentUser, isAdmin } from "@/lib/session";
+import { getCurrentUser, isAdmin, isTester } from "@/lib/session";
 import { agregarOExtenderSuscripcion, eliminarSuscripcion, getSuscripcionesActivas } from "@/lib/data-store";
 
-// Solo para administradores (cuentas de prueba): alterna entre Premium y Gratis
-// en la facultad que tienes seleccionada. Sirve para probar el flujo libremente
-// sin tener que hacer pagos reales.
+// Para cuentas de prueba (admin o tester): alterna entre Premium y Gratis en la
+// facultad que tienes seleccionada. Sirve para probar el flujo libremente sin
+// tener que hacer pagos reales.
 export async function POST() {
-  if (!(await isAdmin())) {
-    return NextResponse.json({ error: "Solo admin" }, { status: 403 });
+  const permitido = (await isAdmin()) || (await isTester());
+  if (!permitido) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 403 });
   }
   const user = await getCurrentUser();
   if (!user || !user.facultad_objetivo) {

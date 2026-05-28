@@ -23,6 +23,7 @@ export default function AppHeader() {
   const pathname = usePathname();
   const [usuario, setUsuario] = useState<UsuarioMini | null>(null);
   const [admin, setAdmin] = useState(false);
+  const [tester, setTester] = useState(false);
   const [picture, setPicture] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [facultades, setFacultades] = useState<FacultadMini[]>([]);
@@ -35,6 +36,7 @@ export default function AppHeader() {
       .then((d) => {
         setUsuario(d.usuario ?? null);
         setAdmin(!!d.admin);
+        setTester(!!d.tester);
         setPicture(d.picture ?? null);
       })
       .catch(() => null);
@@ -193,7 +195,7 @@ export default function AppHeader() {
                       </div>
                       <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
                       <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
-                      {admin && (
+                      {(admin || tester) && (
                         <button
                           onClick={async () => {
                             const r = await fetch("/api/admin/toggle-plan", { method: "POST" });

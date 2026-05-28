@@ -53,6 +53,28 @@ export function esAdminEmail(email: string): boolean {
   return obtenerAdminEmails().includes(email.toLowerCase());
 }
 
+// Cuentas de prueba: usuarios normales (no admin) que tienen permiso para
+// alternar su plan entre Gratis y Premium para probar el flujo libremente.
+// Se definen en la variable de entorno TESTER_EMAILS (separadas por coma).
+function obtenerTesterEmails(): string[] {
+  return (process.env.TESTER_EMAILS ?? "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+export function esTesterEmail(email: string): boolean {
+  return obtenerTesterEmails().includes(email.toLowerCase());
+}
+
+export async function isTester(): Promise<boolean> {
+  const store = await cookies();
+  const token = store.get(SESSION_COOKIE)?.value;
+  if (!token) return false;
+  const session = await verificarTokenSesion(token);
+  return !!(session && esTesterEmail(session.email));
+}
+
 // ─────────────────────────────────────────────────────────────
 // JWT firma / verifica
 // ─────────────────────────────────────────────────────────────
