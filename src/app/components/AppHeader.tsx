@@ -87,8 +87,6 @@ export default function AppHeader() {
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
               <Link href="/resueltos" style={navLink(pathname?.startsWith("/resueltos"))}>Resueltos</Link>
-              <Link href="/historial" style={navLink(pathname === "/historial")}>Historial</Link>
-              <Link href="/ranking" style={navLink(pathname === "/ranking")}>Ranking</Link>
               <Link href="/precios" style={navLink(pathname === "/precios")}>Planes</Link>
             </>
           )}
@@ -194,7 +192,6 @@ export default function AppHeader() {
                       </div>
                       <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
                       <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
-                      <Link href="/precios" onClick={() => setOpen(false)} style={menuItem()}>Mejorar plan</Link>
                     </>
                   )}
                   <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "#ef4444", cursor: "pointer" }}>
