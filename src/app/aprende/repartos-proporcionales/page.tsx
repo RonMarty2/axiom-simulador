@@ -1,12 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
+  cajaAnim, Stage,
 } from "../_components/atoms";
+import {
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -14,406 +18,266 @@ export default function Page() {
       unidad="02"
       tituloUnidad="Repartos proporcionales"
       escenas={[
-        { titulo: "El problema del reparto", componente: EscenaIntro },
-        { titulo: "Reparto directo: paso a paso", componente: EscenaDirecto },
-        { titulo: "Reparto inverso", componente: EscenaInverso },
-        { titulo: "Regla de compañía", componente: EscenaCompania },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Qué es repartir proporcionalmente?", componente: Esc01_Intro },
+        { titulo: "Reparto directo: paso a paso", componente: Esc02_Directo },
+        { titulo: "Aplicación con personas", componente: Esc03_App },
+        { titulo: "Reparto inverso", componente: Esc04_Inverso },
+        { titulo: "Regla de compañía", componente: Esc05_Compania },
+        { titulo: "Errores comunes", componente: Esc06_Errores },
+        { titulo: "Práctica final", componente: Esc07_Practica },
       ]}
     />
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 1 — El problema del reparto justo
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaIntro() {
-  const [paso, setPaso] = useState(0);
-
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Repartir 600 Bs entre 3 personas — pero <strong>no en partes iguales</strong>:</p>
-
-      <div onClick={() => setPaso((p) => p >= 1 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={170}>
-
-          {/* Bolsa central */}
-          <motion.div
-            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}
-            style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 50 }}
-          >
-            💰
-            <div style={{ fontSize: 22, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif", marginTop: 4 }}>
-              600 Bs
-            </div>
-          </motion.div>
-
-          {/* Tres personas con sus "partes" */}
-          {[
-            { emoji: "🧑", nombre: "A", partes: 2, color: "#3b82f6" },
-            { emoji: "👩", nombre: "B", partes: 3, color: "#10b981" },
-            { emoji: "🧓", nombre: "C", partes: 5, color: "#f59e0b" },
-          ].map((p, k) => (
-            <motion.div key={k}
-              initial={{ opacity: 0, y: 20 }}
-              animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: k * 0.15, type: "spring" }}
-              style={{
-                position: "absolute", left: 30 + k * 130, top: 130,
-                width: 110, textAlign: "center",
-              }}
-            >
-              <div style={{ fontSize: 30 }}>{p.emoji}</div>
-              <div style={{ fontSize: 13, color: p.color, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
-                {p.nombre}: {p.partes} partes
-              </div>
-            </motion.div>
-          ))}
-        </Stage>
-
-        <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            💡 Cada uno recibe <strong>proporcional</strong> a su número de partes
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Tenés 600 Bs para repartir entre 3 personas"}
-        {paso === 1 && "Pero A merece 2 partes, B merece 3 y C merece 5. ¿Cuánto recibe cada uno?"}
-      </p>
-    </div>
+    <EscenaRica>
+      <Titulo>Repartir proporcionalmente</Titulo>
+      <Parrafo>
+        Cuando tenés algo para repartir (dinero, premio, herencia, ganancia) pero
+        <strong> no en partes iguales</strong> sino en proporción a algo (capital aportado,
+        tiempo dedicado, méritos, etc.), eso es un <strong>reparto proporcional</strong>.
+      </Parrafo>
+      <Resumen>
+        🎯 Casos reales: <br />
+        • Repartir una ganancia entre socios según el capital que pusieron.<br />
+        • Repartir una herencia según parentesco.<br />
+        • Distribuir un premio entre integrantes de un equipo según horas trabajadas.<br />
+        • Repartir un costo entre grupos según consumo.
+      </Resumen>
+    </EscenaRica>
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 2 — REPARTO DIRECTO
-// 600 entre 2:3:5 → suma=10 → "valor de cada parte" = 600/10 = 60
-// Luego: 2·60 = 120, 3·60 = 180, 5·60 = 300
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaDirecto() {
-  const [paso, setPaso] = useState(0);
-
+function Esc02_Directo() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>La técnica: sumar las partes y dividir el total entre esa suma:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Reparto DIRECTO: el método</Titulo>
+      <Parrafo>
+        Para repartir un total <strong>T</strong> entre cantidades <strong>a, b, c, ...</strong>
+        directamente proporcionales:
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
+      <Resumen>
+        <Paso n={1}>Sumá las partes: <strong>S = a + b + c + ...</strong></Paso>
+        <Paso n={2}>Calculá el <strong>valor unitario</strong>: <strong>v = T / S</strong></Paso>
+        <Paso n={3}>Cada uno recibe su parte: <strong>a·v, b·v, c·v, ...</strong></Paso>
+        <Paso n={4}>Verificá que la suma da el total.</Paso>
+      </Resumen>
+
+      <Ejemplo titulo="Ejemplo: repartir 600 Bs entre 3 personas en partes 2, 3 y 5">
+        <Paso n={1}>S = 2 + 3 + 5 = <strong>10</strong></Paso>
+        <Paso n={2}>v = 600 / 10 = <strong>60 Bs por parte</strong></Paso>
+        <Paso n={3}>Persona 1: 2·60 = <strong>120 Bs</strong></Paso>
+        <Paso n={4}>Persona 2: 3·60 = <strong>180 Bs</strong></Paso>
+        <Paso n={5}>Persona 3: 5·60 = <strong>300 Bs</strong></Paso>
+        <Paso n={6}>Verificación: 120 + 180 + 300 = 600 ✓</Paso>
+      </Ejemplo>
+
+      <PorQue>
+        El "valor unitario" representa cuánto vale UNA parte de las que estamos
+        repartiendo. Una vez que lo sabés, asignar a cada uno es multiplicar.
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc03_App() {
+  const [paso, setPaso] = useState(0);
+  return (
+    <EscenaRica>
+      <Titulo>Aplicación visual</Titulo>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
+        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
+          👆 REPARTIR 600 Bs ENTRE A (2 partes), B (3 partes), C (5 partes)
+        </div>
         <Stage w={420} h={200}>
-
-          {/* Paso 1: sumar partes */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={paso >= 0 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center" }}
-          >
-            Total partes: <span style={{ color: "#3b82f6" }}>2</span> + <span style={{ color: "#10b981" }}>3</span> + <span style={{ color: "#f59e0b" }}>5</span>
-            {paso >= 1 && (
-              <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ marginLeft: 8, color: COLOR_OK, fontSize: 22 }}>
-                = 10
-              </motion.span>
-            )}
+          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}
+            style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 50 }}>
+            💰
+          </motion.div>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+            style={{ position: "absolute", left: 0, top: 70, width: "100%", textAlign: "center", fontSize: 24, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
+            600 Bs
           </motion.div>
 
-          {/* Paso 2: valor de cada parte */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={paso >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-            style={{ position: "absolute", left: 0, top: 50, width: "100%", textAlign: "center", fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}
-          >
-            Valor de cada parte: 600 ÷ 10 = <span style={{ color: COLOR_OK, fontSize: 22 }}>60 Bs</span>
-          </motion.div>
-
-          {/* Paso 3+: cuánto recibe cada uno */}
           {[
-            { nombre: "A", partes: 2, monto: 120, color: "#3b82f6" },
-            { nombre: "B", partes: 3, monto: 180, color: "#10b981" },
-            { nombre: "C", partes: 5, monto: 300, color: "#f59e0b" },
-          ].map((p, k) => (
+            { e: "🧑", n: "A", p: 2, m: 120, c: "#3b82f6", x: 50 },
+            { e: "👩", n: "B", p: 3, m: 180, c: "#10b981", x: 175 },
+            { e: "🧓", n: "C", p: 5, m: 300, c: "#f59e0b", x: 300 },
+          ].map((per, k) => (
             <motion.div key={k}
-              initial={{ opacity: 0, x: -10 }}
-              animate={paso >= 3 ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-              transition={{ delay: k * 0.15 }}
-              style={{
-                position: "absolute", left: 30 + k * 130, top: 110,
-                width: 120, textAlign: "center",
-              }}
-            >
-              <div style={{ fontSize: 14, color: p.color, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
-                {p.nombre}: {p.partes} × 60 =
+              initial={{ opacity: 0, y: 20 }} animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: k * 0.15, type: "spring" }}
+              style={{ position: "absolute", left: per.x, top: 130, width: 70, textAlign: "center" }}>
+              <div style={{ fontSize: 24 }}>{per.e}</div>
+              <div style={{ fontSize: 12, color: per.c, fontWeight: 800 }}>
+                {per.n}: {per.p} partes
               </div>
-              <div style={{ fontSize: 22, color: p.color, fontWeight: 800, fontFamily: "var(--font-crimson), serif", marginTop: 4 }}>
-                {p.monto} Bs
-              </div>
+              <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                transition={{ delay: k * 0.15, type: "spring" }}
+                style={{ fontSize: 16, color: per.c, fontWeight: 800, fontFamily: "var(--font-crimson), serif", marginTop: 2 }}>
+                {per.m} Bs
+              </motion.div>
             </motion.div>
           ))}
-
-          {/* Verificación al final */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={paso >= 4 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ position: "absolute", left: 0, bottom: -10, width: "100%", textAlign: "center", fontSize: 13, color: "var(--fg-muted)", fontStyle: "italic" }}
-          >
-            ✓ Verificación: 120 + 180 + 300 = 600
-          </motion.div>
         </Stage>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Empezamos sumando las partes: 2+3+5"}
-        {paso === 1 && "Total = 10 partes"}
-        {paso === 2 && "Cada parte vale: 600 ÷ 10 = 60 Bs"}
-        {paso === 3 && "Multiplicamos las partes de cada uno por 60"}
-        {paso === 4 && "Y la suma da 600 Bs ✓"}
-      </p>
-    </div>
-  );
-}
-
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 3 — REPARTO INVERSO
-// Repartir 220 inversamente a 2, 3, 5 → primero invertir: 1/2, 1/3, 1/5
-// MCM(2,3,5)=30 → equivalente a 15, 10, 6 (multiplicado por 30) → suma=31
-// 220/31 ≈ no entero. Cambio de ejemplo: repartir 310 inversamente a 2, 3, 5
-// 1/2 = 15/30, 1/3 = 10/30, 1/5 = 6/30. Suma = 31/30. Valor = 310/31 = 10.
-// Entonces 10·15 = 150, 10·10 = 100, 10·6 = 60. Verifica: 310 ✓
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaInverso() {
-  const [paso, setPaso] = useState(0);
-
-  return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>En el <strong>inverso</strong>: invertimos los números y luego repartimos directo:</p>
-
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ width: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
-
-          <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center" }}>
-            Repartir <span style={{ color: COLOR_OK }}>310 Bs</span> inversamente a 2, 3, 5
-          </div>
-
-          {/* Paso 1: invertir */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center" }}
-          >
-            Invertimos: <span style={{ color: COLOR_EXP }}>1/2, 1/3, 1/5</span>
-          </motion.div>
-
-          {/* Paso 2: pasar al MCM(2,3,5) = 30 → 15, 10, 6 */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={paso >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center", lineHeight: 1.5 }}
-          >
-            Llevamos al mismo denominador (30):<br />
-            <span style={{ color: COLOR_OK }}>15/30, 10/30, 6/30</span>
-            <span style={{ color: "var(--fg-muted)", fontSize: 14, fontStyle: "italic" }}> → repartimos como 15 : 10 : 6</span>
-          </motion.div>
-
-          {/* Paso 3: cada uno recibe */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={paso >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8, marginTop: 4, fontFamily: "var(--font-crimson), serif" }}
-          >
-            {[
-              { nombre: "A", monto: 150, color: "#3b82f6" },
-              { nombre: "B", monto: 100, color: "#10b981" },
-              { nombre: "C", monto: 60, color: "#f59e0b" },
-            ].map((p, k) => (
-              <div key={k} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 14, color: p.color, fontWeight: 700 }}>{p.nombre}</div>
-                <div style={{ fontSize: 22, color: p.color, fontWeight: 800 }}>{p.monto} Bs</div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 13, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            💡 Reparto inverso = reparto directo de los <strong>recíprocos</strong>
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Vamos a repartir 310 inversamente"}
-        {paso === 1 && "Primero invertimos cada número (recíproco)"}
-        {paso === 2 && "Las llevamos al MCM 30 → quedan 15:10:6"}
-        {paso === 3 && "Aplicamos reparto directo con esos números"}
-      </p>
-    </div>
-  );
-}
-
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 4 — Regla de compañía: capital × tiempo
-// Socios A (1000, 6 meses) y B (1500, 4 meses) reparten 2400 de ganancia
-// A: 1000·6 = 6000; B: 1500·4 = 6000 → 1:1 → 1200 cada uno
-// Mejor ejemplo: A (1000, 6) → 6000;  B (2000, 3) → 6000 → empate (no muestra nada)
-// Cambio: A (1000, 6) → 6000;  B (3000, 4) → 12000 → razón 1:2.
-// Total partes = 3. 2400/3 = 800. A=800, B=1600.
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaCompania() {
-  const [paso, setPaso] = useState(0);
-
-  return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>En una sociedad: el reparto considera <strong>capital × tiempo</strong>:</p>
-
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ width: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 10, alignItems: "center" }}>
-
-          <div style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>
-            Ganancia <strong style={{ color: COLOR_OK }}>2400 Bs</strong> a repartir entre:<br />
-            <span style={{ color: "#3b82f6" }}>A: 1000 Bs por 6 meses</span>{" · "}
-            <span style={{ color: "#f59e0b" }}>B: 3000 Bs por 4 meses</span>
-          </div>
-
-          {/* Paso 1: calcular capital × tiempo */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ display: "flex", gap: 30, marginTop: 4, fontFamily: "var(--font-crimson), serif" }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 14, color: "#3b82f6", fontWeight: 700 }}>A: 1000 × 6</div>
-              <div style={{ fontSize: 22, color: "#3b82f6", fontWeight: 800 }}>= 6 000</div>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 14, color: "#f59e0b", fontWeight: 700 }}>B: 3000 × 4</div>
-              <div style={{ fontSize: 22, color: "#f59e0b", fontWeight: 800 }}>= 12 000</div>
-            </div>
-          </motion.div>
-
-          {/* Paso 2: razón 1:2 */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}
-          >
-            Razón <span style={{ color: "#3b82f6" }}>6000</span> : <span style={{ color: "#f59e0b" }}>12000</span> = <strong>1 : 2</strong> (3 partes)
-          </motion.div>
-
-          {/* Paso 3: reparto final */}
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={paso >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ display: "flex", gap: 30, marginTop: 6, fontFamily: "var(--font-crimson), serif" }}
-          >
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 13, color: "#3b82f6", fontWeight: 700 }}>A (1 parte)</div>
-              <div style={{ fontSize: 24, color: "#3b82f6", fontWeight: 800 }}>800 Bs</div>
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 13, color: "#f59e0b", fontWeight: 700 }}>B (2 partes)</div>
-              <div style={{ fontSize: 24, color: "#f59e0b", fontWeight: 800 }}>1600 Bs</div>
-            </div>
-          </motion.div>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
+          {paso === 0 && "Tenemos 600 Bs"}
+          {paso === 1 && "Repartimos entre 3 con 2, 3 y 5 partes respectivamente"}
+          {paso === 2 && "Sumo: 2+3+5 = 10. Cada parte vale 600/10 = 60 Bs"}
+          {paso === 3 && "A→120, B→180, C→300 (suma 600 ✓)"}
         </div>
       </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Dos socios, distinto capital y distinto tiempo"}
-        {paso === 1 && "Calculamos capital × tiempo de cada uno"}
-        {paso === 2 && "La razón entre esos productos es 1:2 (3 partes total)"}
-        {paso === 3 && "2400/3 = 800. A recibe 1×800, B recibe 2×800"}
-      </p>
-    </div>
+    </EscenaRica>
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 6 — Mini-reto
-// Repartir 480 entre tres niños proporcionalmente a 1, 3, 4 → suma=8, parte=60
-// Niño 3 recibe 4·60 = 240
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaReto() {
-  const opciones = useMemo(() => [
-    { label: "240 Bs", correcta: true },
-    { label: "120 Bs", correcta: false },
-    { label: "192 Bs", correcta: false },
-    { label: "60 Bs", correcta: false },
+function Esc04_Inverso() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Reparto INVERSO</Titulo>
+      <Parrafo>
+        En el reparto <strong>inverso</strong>, queremos que <strong>quien tenga la
+        cantidad más alta reciba LA MENOR parte</strong>. Por ejemplo: repartir un
+        bono inversamente proporcional a los días faltados (el que faltó menos, gana más).
+      </Parrafo>
+
+      <Resumen>
+        <Paso n={1}>Invertí cada cantidad: si las cantidades son a, b, c → trabajá con 1/a, 1/b, 1/c.</Paso>
+        <Paso n={2}>Reducí esas fracciones a común denominador (MCM).</Paso>
+        <Paso n={3}>Las nuevas "partes" son los numeradores.</Paso>
+        <Paso n={4}>Aplicá el reparto directo con esas nuevas partes.</Paso>
+      </Resumen>
+
+      <Ejemplo titulo="Ejemplo: repartir 310 Bs inversamente a 2, 3 y 5">
+        <Paso n={1}>Invertí: 1/2, 1/3, 1/5.</Paso>
+        <Paso n={2}>MCM(2,3,5) = 30. Equivalen a 15/30, 10/30, 6/30.</Paso>
+        <Paso n={3}>Nuevas partes: 15, 10, 6.</Paso>
+        <Paso n={4}>Suma: 15+10+6 = 31. Valor unitario: 310/31 = 10.</Paso>
+        <Paso n={5}>Resultado: <strong>150 Bs, 100 Bs, 60 Bs</strong>.</Paso>
+        <Paso n={6}>Verificación: 150+100+60 = 310 ✓. Y a quien tiene 2 (el menor) le toca más (150). ✓</Paso>
+      </Ejemplo>
+    </EscenaRica>
+  );
+}
+
+function Esc05_Compania() {
+  return (
+    <EscenaRica>
+      <Titulo>Regla de compañía</Titulo>
+      <Parrafo>
+        Es un reparto especial usado en <strong>sociedades comerciales</strong>: cuando
+        los socios aportan distinto capital DURANTE distinto tiempo, la ganancia se
+        reparte proporcional al <strong>producto capital × tiempo</strong>.
+      </Parrafo>
+
+      <Resumen>
+        Para cada socio i: <strong>partes_i = capital_i × tiempo_i</strong>. Luego
+        aplicás reparto directo con esas partes.
+      </Resumen>
+
+      <Ejemplo titulo="Dos socios. Ganancia: 2400 Bs">
+        <Paso n={1}>Socio A: 1000 Bs durante 6 meses → 1000·6 = <strong>6000</strong></Paso>
+        <Paso n={2}>Socio B: 3000 Bs durante 4 meses → 3000·4 = <strong>12000</strong></Paso>
+        <Paso n={3}>Razón A:B = 6000:12000 = 1:2 (3 partes total).</Paso>
+        <Paso n={4}>Valor unitario: 2400/3 = 800.</Paso>
+        <Paso n={5}>A recibe 1·800 = <strong>800 Bs</strong>. B recibe 2·800 = <strong>1600 Bs</strong>.</Paso>
+      </Ejemplo>
+
+      <PorQue>
+        Tiene sentido: si A pone menos dinero durante menos tiempo, su "contribución
+        efectiva" es menor. La fórmula capital × tiempo refleja eso.
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc06_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> Olvidar verificar que las partes suman el total. <br />
+        <span style={{ fontSize: 13 }}>
+          Siempre sumá las partes que repartís y debe dar exactamente el total inicial.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> En el inverso, no invertir las cantidades. <br />
+        <span style={{ fontSize: 13 }}>
+          Si te piden "inversamente proporcional a 2, 3, 5" y aplicás reparto directo
+          a 2, 3, 5 — está MAL. Tenés que trabajar con 1/2, 1/3, 1/5.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> En compañía, olvidar multiplicar por el tiempo. <br />
+        <span style={{ fontSize: 13 }}>
+          Si solo usás los capitales, ignorás que un socio pudo aportar más tiempo. Capital × Tiempo.
+        </span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc07_Practica() {
+  const ejs = useMemo(() => [
+    { p: "Repartir 480 Bs proporcionalmente a 1, 3 y 4. ¿Cuánto recibe el de 4 partes?", o: ["240 Bs", "120 Bs", "192 Bs", "60 Bs"], c: 0, ex: "Suma: 1+3+4=8. Unitario: 480/8=60. El de 4 recibe 4·60=240." },
+    { p: "Repartir 900 entre A, B, C en partes 1:2:3. ¿Cuánto le toca a B?", o: ["150", "300", "450", "100"], c: 1, ex: "Suma: 6. Unitario: 150. B (2 partes) = 2·150 = 300." },
+    { p: "Inverso de 1000 a 2 y 3. ¿Cuánto recibe el de 2?", o: ["600", "400", "500", "200"], c: 0, ex: "Invierto: 1/2, 1/3 = 3/6, 2/6. Partes: 3 y 2. Suma 5. Unitario 200. El de '2' inverso = 3·200 = 600." },
+    { p: "Socio A: 2000Bs · 3 meses. Socio B: 1000Bs · 6 meses. Ganancia 1200. A recibe:", o: ["600", "800", "400", "1000"], c: 0, ex: "A: 2000·3=6000. B: 1000·6=6000. Razón 1:1. Mitad y mitad: 600 cada uno." },
+    { p: "Si en un reparto directo cada parte vale 25 y al primero le tocan 75 Bs, ¿cuántas partes tenía?", o: ["3", "5", "25", "75"], c: 0, ex: "75/25 = 3 partes." },
   ], []);
-
-  const [elegida, setElegida] = useState<number | null>(null);
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
 
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Repartí 480 Bs proporcionalmente a 1, 3 y 4. ¿Cuánto recibe el tercero (4)?</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "20px 30px", background: "var(--bg-card)", borderRadius: 20,
-          border: "1px solid var(--border)", display: "flex", justifyContent: "space-around",
-          fontFamily: "var(--font-crimson), serif",
-        }}
-      >
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 13, color: "#3b82f6", fontWeight: 700 }}>Niño 1</div>
-          <div style={{ fontSize: 28, color: "#3b82f6", fontWeight: 800 }}>1</div>
-        </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 13, color: "#10b981", fontWeight: 700 }}>Niño 2</div>
-          <div style={{ fontSize: 28, color: "#10b981", fontWeight: 800 }}>3</div>
-        </div>
-        <div style={{ textAlign: "center" }}>
-          <div style={{ fontSize: 13, color: "#f59e0b", fontWeight: 700 }}>Niño 3</div>
-          <div style={{ fontSize: 28, color: "#f59e0b", fontWeight: 800 }}>4</div>
-        </div>
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "18px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 22, fontWeight: 700, color: COLOR_BASE,
-                fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> Suma de partes: 1+3+4 = 8. Cada parte vale 480/8 = 60. El tercero recibe 4·60 = <strong>240 Bs</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Suma de partes = 8. Valor de cada parte = 480/8 = 60. El tercero (4 partes) recibe 4·60 = <strong>240 Bs</strong>.</>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios sobre repartos:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i];
+        const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 15, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c;
+                const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{
+                      padding: "10px 14px",
+                      background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)",
+                      border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`,
+                      borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer",
+                      fontFamily: "var(--font-crimson), serif", textAlign: "left",
+                    }}>{op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}</button>
+                );
+              })}
+            </div>
+            {rev && (
+              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+                <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+              </div>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás repartos proporcionales."}
+            {ok >= 3 && ok < ejs.length && "Bien. El método de las 4 etapas no falla."}
+            {ok < 3 && "Volvé a la escena 2 (el método paso a paso)."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }
