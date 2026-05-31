@@ -1,17 +1,16 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
+  cajaAnim, Stage,
 } from "../_components/atoms";
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Lección: Operaciones con radicales (Unidad 01)
-// Semejantes, suma/resta, multiplicación, división.
-// ─────────────────────────────────────────────────────────────────────────────
+import {
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -19,545 +18,557 @@ export default function Page() {
       unidad="01"
       tituloUnidad="Operaciones con radicales"
       escenas={[
-        { titulo: "Radicales semejantes", componente: EscenaSemejantes },
-        { titulo: "Suma y resta de radicales", componente: EscenaSumaResta },
-        { titulo: "Multiplicación de radicales", componente: EscenaMultiplicacion },
-        { titulo: "División de radicales", componente: EscenaDivision },
-        { titulo: "Simplificar antes de operar", componente: EscenaSimplificar },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Para qué este tema?", componente: Esc01_Intro },
+        { titulo: "Radicales semejantes", componente: Esc02_Semejantes },
+        { titulo: "Identificar semejantes (ejercicios)", componente: Esc03_IdentSem },
+        { titulo: "Suma y resta de radicales", componente: Esc04_SumaResta },
+        { titulo: "Cuando hay que simplificar primero", componente: Esc05_SimpAntes },
+        { titulo: "Multiplicación de radicales", componente: Esc06_Mult },
+        { titulo: "Multiplicación con coeficientes", componente: Esc07_MultCoef },
+        { titulo: "División de radicales", componente: Esc08_Div },
+        { titulo: "Errores comunes", componente: Esc09_Errores },
+        { titulo: "Práctica final", componente: Esc10_Practica },
       ]}
     />
   );
 }
 
-// Componente reutilizable: radical √a con índice opcional
-function Rad({ idx, rad, size = 36, color = COLOR_BASE, colorIdx = COLOR_EXP }: { idx?: string; rad: string; size?: number; color?: string; colorIdx?: string }) {
+function Esc01_Intro() {
   return (
-    <span style={{ display: "inline-flex", alignItems: "flex-start", marginRight: 4 }}>
-      {idx && (
-        <span style={{
-          fontSize: Math.round(size * 0.42), color: colorIdx, fontWeight: 700,
-          fontFamily: "var(--font-crimson), serif", marginRight: -3, marginTop: 2,
-        }}>{idx}</span>
-      )}
-      <span style={{ fontSize: Math.round(size * 1.55), color, fontWeight: 400, lineHeight: 0.9 }}>√</span>
-      <span style={{
-        borderTop: `2px solid ${color}`, paddingTop: 3, marginTop: 4, marginLeft: -2,
-      }}>
-        <span style={{ fontSize: size, color, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>{rad}</span>
-      </span>
-    </span>
+    <EscenaRica>
+      <Titulo>Operar con radicales: ¿para qué?</Titulo>
+      <Parrafo>
+        En la lección anterior viste qué es un radical y cómo simplificarlo. Acá
+        aprendés a <strong>sumarlos, restarlos, multiplicarlos y dividirlos</strong>{" "}
+        — todas operaciones que vas a usar en álgebra, ecuaciones y geometría.
+      </Parrafo>
+      <Resumen>
+        🎯 <strong>Lo que vas a poder hacer al terminar:</strong> sumar/restar radicales
+        semejantes, simplificar antes de operar, multiplicar y dividir bajo el mismo
+        índice, y evitar los errores típicos.
+      </Resumen>
+      <PorQue>
+        ¿Por qué importa? Aparece en CADA fórmula que tenga raíz cuadrada — fórmula
+        cuadrática, teorema de Pitágoras, distancia entre puntos, estadística, etc.
+      </PorQue>
+    </EscenaRica>
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 1 — Radicales semejantes
-// Mismo índice + mismo radicando = semejantes
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaSemejantes() {
-  const [paso, setPaso] = useState(0);
-  const ejemplos = [
-    { a: "3√2", b: "5√2", semejantes: true, motivo: "Mismo índice (2) y mismo radicando (2). ✓" },
-    { a: "2√3", b: "2√5", semejantes: false, motivo: "Mismo índice pero distinto radicando (3 vs 5). ✗" },
-    { a: "√7", b: "³√7", semejantes: false, motivo: "Mismo radicando pero distinto índice (2 vs 3). ✗" },
+function Esc02_Semejantes() {
+  return (
+    <EscenaRica>
+      <Titulo accent="#3b82f6">Radicales semejantes</Titulo>
+      <Parrafo>
+        Para poder <strong>sumar o restar</strong> dos radicales, primero necesitamos
+        que sean <em>semejantes</em>. Es un concepto análogo a los "términos semejantes"
+        en álgebra.
+      </Parrafo>
+
+      <Definicion termino="radicales semejantes">
+        Dos radicales son semejantes si tienen el <strong>mismo índice</strong> y
+        el <strong>mismo radicando</strong>. Los coeficientes pueden ser distintos.
+      </Definicion>
+
+      <Ejemplo titulo="Ejemplos de semejantes">
+        <Paso n={1}><strong>3√2</strong> y <strong>5√2</strong> — mismo índice (2) y mismo radicando (2). ✓</Paso>
+        <Paso n={2}><strong>−√7</strong> y <strong>4√7</strong> — el coeficiente puede ser cualquiera. ✓</Paso>
+        <Paso n={3}><strong>2³√5</strong> y <strong>9³√5</strong> — mismo índice (3) y mismo radicando (5). ✓</Paso>
+      </Ejemplo>
+
+      <Ejemplo titulo="NO semejantes">
+        <Paso n={1}><strong>√3</strong> y <strong>√5</strong> — distinto radicando (3 vs 5). ✗</Paso>
+        <Paso n={2}><strong>√2</strong> y <strong>³√2</strong> — distinto índice (2 vs 3). ✗</Paso>
+      </Ejemplo>
+
+      <Cuidado>
+        Algunos radicales parecen no semejantes pero LO SON después de simplificarlos.
+        Ej: <strong>√8 = 2√2</strong>, entonces <strong>√8 y √2</strong> SÍ son
+        semejantes (los dos terminan teniendo radicando 2). Más sobre esto en 2 escenas.
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc03_IdentSem() {
+  const [i, setI] = useState(0);
+  const casos = [
+    { a: "3√2", b: "5√2", si: true, motivo: "Mismo radicando (2) y mismo índice (2). ✓" },
+    { a: "2√3", b: "2√5", si: false, motivo: "Distinto radicando (3 vs 5). El coeficiente NO importa para esto. ✗" },
+    { a: "4√7", b: "√7", si: true, motivo: "Mismo radicando (7), índice 2 ambos. El coef de la 2da es 1 implícito. ✓" },
+    { a: "√2", b: "³√2", si: false, motivo: "Distinto índice (2 vs 3). El radicando coincide pero el índice no. ✗" },
+    { a: "5√x", b: "−2√x", si: true, motivo: "Misma raíz cuadrada de x. Los signos / coeficientes son libres. ✓" },
   ];
-  const i = Math.min(paso, ejemplos.length - 1);
-  const ej = ejemplos[i];
+  const c = casos[i];
 
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Dos radicales son <strong>semejantes</strong> si tienen el mismo índice y el mismo radicando:</p>
+    <EscenaRica>
+      <Titulo accent="#3b82f6">¿Reconocés cuáles son semejantes?</Titulo>
+      <Parrafo>
+        Practiquemos identificarlos. Tocá para ver el siguiente caso (loopea):
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, ejemplos.length - 1))} style={cajaAnim()}>
-        <div style={{ minHeight: 140, display: "flex", alignItems: "center", justifyContent: "center", gap: 24, fontFamily: "var(--font-crimson), serif", flexWrap: "wrap" }}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.3 }}
-              style={{ display: "flex", alignItems: "center", gap: 18 }}
-            >
-              <RenderRadical expr={ej.a} />
-              <span style={{ fontSize: 30, color: COLOR_EXP, fontWeight: 700 }}>y</span>
-              <RenderRadical expr={ej.b} />
-            </motion.div>
-          </AnimatePresence>
+      <div onClick={() => setI((p) => (p + 1) % casos.length)} style={cajaAnim()}>
+        <Stage w={420} h={120}>
+          <div style={{ position: "absolute", left: 0, top: 25, width: "100%", textAlign: "center", fontSize: 32, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}>
+            <span>{c.a}</span>
+            <span style={{ color: COLOR_EXP, fontSize: 22, margin: "0 14px" }}>y</span>
+            <span>{c.b}</span>
+          </div>
+          <motion.div
+            key={`b-${i}`} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}
+            style={{
+              position: "absolute", left: 0, top: 75, width: "100%", textAlign: "center",
+              padding: "0 10px",
+            }}>
+            <span style={{
+              display: "inline-block", padding: "8px 16px", borderRadius: 12,
+              background: c.si ? "linear-gradient(135deg, #d1fae5, #a7f3d0)" : "linear-gradient(135deg, #fee2e2, #fecaca)",
+              border: `1.5px solid ${c.si ? COLOR_OK : COLOR_BAD}`,
+              fontSize: 13, fontWeight: 800, color: c.si ? "#065f46" : "#7f1d1d",
+            }}>
+              {c.si ? "✓ SEMEJANTES" : "✗ NO SEMEJANTES"}
+            </span>
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5, textAlign: "center", maxWidth: 400, marginTop: 6 }}>
+          {c.motivo}
         </div>
-
-        <motion.div
-          key={i + "_box"}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          style={{
-            padding: "10px 18px", borderRadius: 12, marginTop: 8,
-            background: ej.semejantes ? "linear-gradient(135deg, #d1fae5, #a7f3d0)" : "linear-gradient(135deg, #fee2e2, #fecaca)",
-            border: `1px solid ${ej.semejantes ? COLOR_OK : COLOR_BAD}`,
-            fontSize: 15, fontWeight: 700, color: ej.semejantes ? "#065f46" : "#7f1d1d",
-          }}
-        >
-          {ej.semejantes ? "✓ Semejantes" : "✗ No semejantes"} — <span style={{ fontWeight: 500 }}>{ej.motivo}</span>
-        </motion.div>
       </div>
-
-      <p style={hint()}>
-        {i < ejemplos.length - 1 ? "👆 Tocá para ver otro ejemplo" : "Solo radicales semejantes se pueden sumar/restar"}
-      </p>
-    </div>
+      <div style={{ fontSize: 13, color: COLOR_EXP, textAlign: "center", fontWeight: 700 }}>
+        Caso {i + 1} de {casos.length} · 👆 Tocá para ver el siguiente
+      </div>
+    </EscenaRica>
   );
 }
 
-// Helper: renderizar una expresión del tipo "3√2" o "²√5" o "³√7"
-function RenderRadical({ expr }: { expr: string }) {
-  const m = expr.match(/^(\d*)(?:([²³⁴⁵])?√)(.+)$/);
-  if (!m) return <span>{expr}</span>;
-  const coef = m[1] || "";
-  const idxMap: Record<string, string> = { "²": "2", "³": "3", "⁴": "4", "⁵": "5" };
-  const idx = m[2] ? idxMap[m[2]] : undefined;
-  const rad = m[3];
-  return (
-    <span style={{ display: "inline-flex", alignItems: "flex-start", fontSize: 30, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}>
-      {coef && <span style={{ marginRight: 4 }}>{coef}</span>}
-      <Rad idx={idx} rad={rad} size={30} />
-    </span>
-  );
-}
-
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 2 — Suma y resta de radicales semejantes
-// 3√2 + 5√2 = 8√2 (se suman los coeficientes, el radical queda igual)
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaSumaResta() {
+function Esc04_SumaResta() {
   const [paso, setPaso] = useState(0);
-
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Si son semejantes, se suman los <strong>coeficientes</strong> y el radical no cambia:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Sumar y restar radicales</Titulo>
+      <Parrafo>
+        Si dos radicales son semejantes, se suman/restan <strong>los coeficientes</strong>
+        y el radical queda igual. Idéntico a sumar términos semejantes en álgebra.
+      </Parrafo>
 
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a·√x + b·√x = (a + b)·√x
+        </span>
+      </Resumen>
+
+      {/* ANIMACIÓN: 3√5 + 7√5 = 10√5 */}
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={150}>
-
-          {/* Coef 3 izq */}
-          <motion.span
-            style={{ position: "absolute", ...numGrande(COLOR_BASE, 50) }}
+        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
+          👆 TOCÁ PARA VER LA SUMA
+        </div>
+        <Stage w={420} h={140}>
+          {/* 3√5 */}
+          <motion.span style={{ position: "absolute", fontFamily: "var(--font-crimson), serif", fontWeight: 800, fontSize: 50, color: "#3b82f6" }}
             initial={{ left: 60, top: 50 }}
             animate={
               paso === 0 ? { left: 60, top: 50, opacity: 1, scale: 1 } :
-              paso === 1 ? { left: 160, top: 10, opacity: 1, scale: 1.2 } :
-              paso === 2 ? { left: 200, top: 50, opacity: 0, scale: 1.4 } :
-              paso >= 3 ? { left: 200, top: 50, opacity: 0, scale: 0 } : {}
-            }
-            transition={{ type: "spring", stiffness: 180, damping: 16 }}
-          >3</motion.span>
-
-          {/* √2 izq */}
-          <motion.div
-            style={{ position: "absolute", left: 95, top: 55 }}
-            animate={paso >= 3 ? { left: 240, top: 55 } : { left: 95, top: 55 }}
-            transition={{ type: "spring", stiffness: 180, damping: 16 }}
-          >
-            <Rad rad="2" size={36} />
-          </motion.div>
-
-          {/* + */}
-          <motion.span
-            style={{ position: "absolute", left: 165, top: 65, fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
-            animate={paso >= 2 ? { left: 215, top: 10, opacity: 1 } : { left: 165, top: 65, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 180 }}
-          >+</motion.span>
-
-          {/* Coef 5 der */}
-          <motion.span
-            style={{ position: "absolute", ...numGrande(COLOR_BASE, 50) }}
-            initial={{ left: 210, top: 50 }}
-            animate={
-              paso === 0 ? { left: 210, top: 50, opacity: 1, scale: 1 } :
-              paso === 1 ? { left: 245, top: 10, opacity: 1, scale: 1.2 } :
-              paso === 2 ? { left: 200, top: 50, opacity: 0, scale: 1.4 } :
-              paso >= 3 ? { left: 200, top: 50, opacity: 0, scale: 0 } : {}
-            }
-            transition={{ type: "spring", stiffness: 180, damping: 16, delay: 0.05 }}
-          >5</motion.span>
-
-          {/* √2 der */}
-          <motion.div
-            style={{ position: "absolute", left: 245, top: 55 }}
-            animate={paso >= 3 ? { left: 240, top: 55, opacity: 0, scale: 0 } : { left: 245, top: 55, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 180, damping: 16 }}
-          >
-            <Rad rad="2" size={36} />
-          </motion.div>
-
-          {/* Resultado 8 (suma de coef) */}
-          <motion.span
-            style={{ position: "absolute", ...numGrande(COLOR_OK, 50) }}
-            initial={{ left: 200, top: 10, opacity: 0, scale: 0 }}
-            animate={
-              paso === 2 ? { left: 200, top: 10, opacity: 1, scale: [0, 1.4, 1] } :
-              paso >= 3 ? { left: 200, top: 50, opacity: 1, scale: 1, color: COLOR_BASE } :
-              { left: 200, top: 10, opacity: 0, scale: 0 }
-            }
-            transition={{ type: "spring", stiffness: 180, delay: paso === 2 ? 0.3 : 0 }}
-          >8</motion.span>
-        </Stage>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            a√x + b√x = (a + b)√x — la raíz no se toca
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Sumar 3√2 + 5√2"}
-        {paso === 1 && "Los coeficientes 3 y 5 se preparan para sumarse…"}
-        {paso === 2 && "3 + 5 = 8 ✓"}
-        {paso === 3 && "El radical √2 queda igual → 8√2"}
-      </p>
-    </div>
-  );
-}
-
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 3 — Multiplicación de radicales
-// √a · √b = √(a·b) — los radicandos se juntan bajo una sola raíz
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaMultiplicacion() {
-  const [paso, setPaso] = useState(0);
-
-  return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Multiplicar radicales del mismo índice: los radicandos se <strong>juntan</strong>:</p>
-
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={140}>
-
-          {/* √3 izq */}
-          <motion.div
-            style={{ position: "absolute", left: 70, top: 50 }}
-            animate={paso >= 2 ? { left: 200, top: 50, opacity: 0, scale: 0.8 } : { left: 70, top: 50, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 180 }}
-          >
-            <Rad rad="3" size={40} />
-          </motion.div>
-
-          {/* · */}
-          <motion.span
-            style={{ position: "absolute", left: 130, top: 70, fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
-            animate={paso >= 2 ? { opacity: 0, scale: 0 } : { opacity: 1, scale: 1 }}
-          >·</motion.span>
-
-          {/* √5 der */}
-          <motion.div
-            style={{ position: "absolute", left: 160, top: 50 }}
-            animate={paso >= 2 ? { left: 200, top: 50, opacity: 0, scale: 0.8 } : { left: 160, top: 50, opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 180 }}
-          >
-            <Rad rad="5" size={40} />
-          </motion.div>
-
-          {/* "=" */}
-          <motion.span
-            style={{ position: "absolute", left: 230, top: 70, fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
-            animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-          >=</motion.span>
-
-          {/* √(3·5) intermedio */}
-          <motion.div
-            style={{ position: "absolute", left: 270, top: 50 }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={
-              paso === 1 ? { left: 270, top: 50, opacity: 1, scale: 1 } :
-              paso === 2 ? { left: 270, top: 50, opacity: 1, scale: 1.1 } :
-              paso >= 3 ? { left: 270, top: 50, opacity: 0, scale: 0 } :
+              paso === 1 ? { left: 160, top: 5, opacity: 1, scale: 1.2 } :
+              paso === 2 ? { left: 200, top: 40, opacity: 0, scale: 1.4 } :
               { opacity: 0, scale: 0 }
             }
-            transition={{ type: "spring", stiffness: 180, delay: paso === 1 ? 0.3 : 0 }}
-          >
-            <Rad rad="3·5" size={36} colorIdx={COLOR_OK} />
-          </motion.div>
-
-          {/* √15 final */}
-          <motion.div
-            style={{ position: "absolute", left: 280, top: 50 }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={paso >= 3 ? { opacity: 1, scale: [0, 1.3, 1] } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Rad rad="15" size={40} color={COLOR_OK} />
-          </motion.div>
-        </Stage>
-
-        <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            <Rad rad="a" size={18} /> · <Rad rad="b" size={18} /> = <Rad rad="a · b" size={18} color={COLOR_OK} />
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Multiplicar √3 · √5"}
-        {paso === 1 && "Los radicandos se juntan bajo una sola raíz: √(3·5)"}
-        {paso === 2 && "Operamos adentro: 3·5 = 15"}
-        {paso === 3 && "Resultado: √15"}
-      </p>
-    </div>
-  );
-}
-
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 4 — División de radicales
-// √a / √b = √(a/b)  — análoga al producto pero con fracción
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaDivision() {
-  const [paso, setPaso] = useState(0);
-
-  return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Dividir radicales del mismo índice: queda <strong>una sola raíz</strong> con la fracción adentro:</p>
-
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", width: "100%", maxWidth: 420, height: 160, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
-
-          {/* Fracción √20 / √5 */}
-          <motion.div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-            animate={paso >= 1 ? { opacity: 0, x: -30, scale: 0.8 } : { opacity: 1 }}
-          >
-            <Rad rad="20" size={36} />
-            <div style={{ borderTop: `2.5px solid ${COLOR_EXP}`, width: 80, margin: "6px 0" }} />
-            <Rad rad="5" size={36} />
-          </motion.div>
-
-          {/* = */}
-          <motion.span
-            style={{ fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
-            animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-          >=</motion.span>
-
-          {/* √(20/5) intermedio */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={
-              paso === 1 ? { opacity: 1, scale: 1 } :
-              paso >= 2 ? { opacity: 0, scale: 0 } :
-              { opacity: 0, scale: 0 }
-            }
-            transition={{ type: "spring", stiffness: 180, delay: paso === 1 ? 0.3 : 0 }}
-            style={{ display: "inline-flex", alignItems: "flex-start" }}
-          >
-            <span style={{ fontSize: 80, color: COLOR_OK, fontWeight: 400, lineHeight: 0.6 }}>√</span>
-            <div style={{ borderTop: `2.5px solid ${COLOR_OK}`, paddingTop: 6, marginTop: 4, marginLeft: -3 }}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <span style={{ ...numGrande(COLOR_OK, 26) }}>20</span>
-                <div style={{ borderTop: `1.5px solid ${COLOR_OK}`, width: "100%", margin: "2px 0" }} />
-                <span style={{ ...numGrande(COLOR_OK, 26) }}>5</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* √4 final */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            animate={paso >= 2 ? { opacity: 1, scale: [0, 1.3, 1] } : { opacity: 0, scale: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Rad rad="4" size={40} color={COLOR_OK} />
-          </motion.div>
-
-          {/* "= 2" final */}
-          <motion.span
-            initial={{ opacity: 0, x: -10 }}
-            animate={paso >= 2 ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-            transition={{ delay: 0.5 }}
-            style={{ fontSize: 30, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}
-          >
-            = 2
+            transition={{ type: "spring" }}>3</motion.span>
+          <motion.span style={{ position: "absolute", left: 100, top: 50, fontSize: 36, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}
+            animate={paso >= 3 ? { left: 240, top: 50 } : { left: 100, top: 50 }}>
+            √5
           </motion.span>
-        </div>
 
-        <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            <Rad rad="a" size={18} /> / <Rad rad="b" size={18} /> = <Rad rad="a / b" size={18} color={COLOR_OK} />
-          </span>
-        </motion.div>
+          <motion.span style={{ position: "absolute", left: 155, top: 65, fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
+            animate={paso === 2 ? { left: 215, top: 5, opacity: 1 } : paso < 2 ? { left: 155, top: 65, opacity: 1 } : { opacity: 0 }}>
+            +
+          </motion.span>
+
+          {/* 7√5 */}
+          <motion.span style={{ position: "absolute", fontFamily: "var(--font-crimson), serif", fontWeight: 800, fontSize: 50, color: "#3b82f6" }}
+            initial={{ left: 200, top: 50 }}
+            animate={
+              paso === 0 ? { left: 200, top: 50, opacity: 1, scale: 1 } :
+              paso === 1 ? { left: 250, top: 5, opacity: 1, scale: 1.2 } :
+              paso === 2 ? { left: 200, top: 40, opacity: 0, scale: 1.4 } :
+              { opacity: 0, scale: 0 }
+            }
+            transition={{ type: "spring", delay: 0.05 }}>7</motion.span>
+          <motion.span style={{ position: "absolute", left: 240, top: 50, fontSize: 36, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}
+            animate={paso >= 3 ? { left: 240, top: 50, opacity: 0, scale: 0 } : { left: 240, top: 50, opacity: 1 }}>
+            √5
+          </motion.span>
+
+          {/* Resultado: 10 */}
+          <motion.span style={{ position: "absolute", fontFamily: "var(--font-crimson), serif", fontWeight: 800, fontSize: 50, color: COLOR_OK }}
+            initial={{ left: 200, top: 5, opacity: 0, scale: 0 }}
+            animate={
+              paso === 2 ? { left: 200, top: 5, opacity: 1, scale: [0, 1.4, 1] } :
+              paso >= 3 ? { left: 195, top: 50, opacity: 1, scale: 1, color: "#3b82f6" } :
+              { opacity: 0, scale: 0 }
+            }
+            transition={{ type: "spring", delay: paso === 2 ? 0.3 : 0 }}>10</motion.span>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
+          {paso === 0 && "3√5 + 7√5"}
+          {paso === 1 && "Los coeficientes 3 y 5 se preparan para sumarse…"}
+          {paso === 2 && "3 + 7 = 10"}
+          {paso === 3 && "Resultado: 10√5 ✓"}
+        </div>
       </div>
 
-      <p style={hint()}>
-        {paso === 0 && "👆 Dividir √20 / √5"}
-        {paso === 1 && "Los radicandos van bajo una sola raíz: √(20/5)"}
-        {paso === 2 && "20/5 = 4, y √4 = 2 ✓"}
-      </p>
-    </div>
+      <Ejemplo titulo="Más ejemplos">
+        <Paso n={1}>2√3 + 5√3 − √3 = (2 + 5 − 1)√3 = <strong>6√3</strong></Paso>
+        <Paso n={2}>4√7 − 9√7 = (4 − 9)√7 = <strong>−5√7</strong></Paso>
+        <Paso n={3}>√11 + √11 = 2√11 (1+1 = 2)</Paso>
+      </Ejemplo>
+
+      <Cuidado>
+        Si los radicales <strong>NO</strong> son semejantes, la suma se deja indicada. <br />
+        Ej: <strong>√2 + √3</strong> NO se puede simplificar más. NUNCA escribas √2 + √3 = √5 — eso está MAL.
+      </Cuidado>
+
+      <AutoCheck
+        pregunta="Calculá: 6√2 − 2√2"
+        opciones={["4", "4√2", "8√2", "√0"]}
+        correctaIdx={1}
+        explicacion="Son semejantes. (6−2)√2 = 4√2. La raíz queda igual."
+      />
+    </EscenaRica>
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 5 — Simplificar antes de operar
-// √8 + √2 → simplificamos √8 = 2√2 → 2√2 + √2 = 3√2
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaSimplificar() {
+function Esc05_SimpAntes() {
   const [paso, setPaso] = useState(0);
-
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>A veces parecen NO semejantes pero al simplificar SÍ lo son:</p>
+    <EscenaRica>
+      <Titulo>Simplificar ANTES de sumar</Titulo>
+      <Parrafo>
+        A veces te dan radicales que <em>parecen</em> distintos pero después de
+        simplificar resultan semejantes. <strong>Regla: SIEMPRE simplificá primero</strong>.
+      </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", minHeight: 160, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center" }}>
-
-          {/* Línea 1: √8 + √2 */}
-          <motion.div
-            animate={paso >= 1 ? { opacity: 0.4, scale: 0.85 } : { opacity: 1, scale: 1 }}
-            style={{ display: "flex", alignItems: "center", gap: 10 }}
-          >
-            <Rad rad="8" size={34} />
-            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700 }}>+</span>
-            <Rad rad="2" size={34} />
+        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
+          👆 EJEMPLO: √8 + √2
+        </div>
+        <Stage w={420} h={160}>
+          {/* Línea original */}
+          <motion.div style={{ position: "absolute", left: 0, top: 10, width: "100%", textAlign: "center", fontSize: 24, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}
+            animate={paso >= 1 ? { opacity: 0.35, scale: 0.9 } : { opacity: 1, scale: 1 }}>
+            √8 + √2
           </motion.div>
-
-          {/* Línea 2: 2√2 + √2 (simplificado) */}
-          <motion.div
-            initial={{ opacity: 0, y: 5 }}
-            animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 5 }}
-            style={{ display: "flex", alignItems: "center", gap: 10 }}
-          >
-            <span style={{ ...numGrande(COLOR_OK, 30) }}>2</span>
-            <Rad rad="2" size={30} color={COLOR_BASE} />
-            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700 }}>+</span>
-            <Rad rad="2" size={30} />
+          {/* Línea simplificada */}
+          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
+            style={{ position: "absolute", left: 0, top: 60, width: "100%", textAlign: "center", fontSize: 24, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}>
+            <span style={{ color: COLOR_OK }}>2√2</span> + √2
           </motion.div>
-
-          {/* Anotación de "√8 = 2√2" */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={paso === 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}
-          >
+          {/* Anotación */}
+          <motion.div initial={{ opacity: 0 }} animate={paso === 1 ? { opacity: 1 } : { opacity: 0 }}
+            style={{ position: "absolute", left: 0, top: 90, width: "100%", textAlign: "center", fontSize: 11, color: "var(--fg-muted)", fontStyle: "italic" }}>
             (porque √8 = √(4·2) = 2√2)
           </motion.div>
-
-          {/* Línea 3: 3√2 final */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ type: "spring", stiffness: 180 }}
-            style={{ display: "flex", alignItems: "center", gap: 8 }}
-          >
-            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700, marginRight: 6 }}>=</span>
-            <span style={{ ...numGrande(COLOR_OK, 36) }}>3</span>
-            <Rad rad="2" size={36} color={COLOR_OK} />
+          {/* Resultado */}
+          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring" }}
+            style={{ position: "absolute", left: 0, top: 115, width: "100%", textAlign: "center", fontSize: 28, fontFamily: "var(--font-crimson), serif", fontWeight: 800, color: COLOR_OK }}>
+            = 3√2 ✓
           </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
+          {paso === 0 && "¿√8 y √2 son semejantes? Parece que no…"}
+          {paso === 1 && "Pero √8 = 2√2. Ahora SÍ son semejantes"}
+          {paso === 2 && "Sumamos coeficientes: 2 + 1 = 3"}
+          {paso === 3 && "Resultado: 3√2"}
         </div>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            💡 <strong>Siempre simplificá</strong> los radicales antes de sumar/restar
-          </span>
-        </motion.div>
       </div>
 
-      <p style={hint()}>
-        {paso === 0 && "👆 ¿√8 y √2 son semejantes? No parecen…"}
-        {paso === 1 && "Pero √8 = √(4·2) = 2√2 (sale el 2 de la raíz)"}
-        {paso === 2 && "Ahora SÍ son semejantes: 2√2 + √2"}
-        {paso === 3 && "Sumamos coeficientes: 2 + 1 = 3 → 3√2 ✓"}
-      </p>
-    </div>
+      <Ejemplo titulo="Otro caso: √12 + √27">
+        <Paso n={1}>Simplifico √12 = √(4·3) = <strong>2√3</strong></Paso>
+        <Paso n={2}>Simplifico √27 = √(9·3) = <strong>3√3</strong></Paso>
+        <Paso n={3}>Ahora son semejantes: 2√3 + 3√3 = <strong>5√3</strong></Paso>
+      </Ejemplo>
+
+      <AutoCheck
+        pregunta="Calculá: √18 + √50"
+        opciones={["√68", "8√2", "2√17", "no se puede"]}
+        correctaIdx={1}
+        explicacion="√18 = 3√2 y √50 = 5√2. Suma: (3+5)√2 = 8√2."
+      />
+    </EscenaRica>
   );
 }
 
-// ═════════════════════════════════════════════════════════════════════════════
-// ESCENA 6 — Mini-reto
-// √12 + √27 — simplificar: 2√3 + 3√3 = 5√3
-// ═════════════════════════════════════════════════════════════════════════════
-function EscenaReto() {
-  const opciones = useMemo(() => [
-    { label: "5√3", correcta: true },
-    { label: "√39", correcta: false },
-    { label: "5√6", correcta: false },
-    { label: "√12 + √27", correcta: false },
-  ], []);
-
-  const [elegida, setElegida] = useState<number | null>(null);
-
+function Esc06_Mult() {
+  const [paso, setPaso] = useState(0);
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Simplificá la suma:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Multiplicar radicales del mismo índice</Titulo>
 
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        style={{
-          padding: "30px 40px", background: "var(--bg-card)",
-          borderRadius: 20, border: "1px solid var(--border)",
-          display: "flex", alignItems: "center", justifyContent: "center", gap: 14,
-        }}
-      >
-        <Rad rad="12" size={36} />
-        <span style={{ fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}>+</span>
-        <Rad rad="27" size={36} />
-        <span style={{ fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}>=</span>
-        <span style={{ fontSize: 36, color: "var(--fg-muted)", fontWeight: 700 }}>?</span>
-      </motion.div>
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          ⁿ√a · ⁿ√b = ⁿ√(a · b)
+        </span>
+      </Resumen>
+      <Parrafo>
+        Los radicandos se <strong>juntan bajo una sola raíz</strong>. Es la propiedad
+        inversa de la "raíz de un producto" que viste antes.
+      </Parrafo>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "20px 16px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 24, fontWeight: 700, color: COLOR_BASE,
-                fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 10, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 10, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
+        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
+          👆 √3 · √5
+        </div>
+        <Stage w={420} h={140}>
+          <motion.div style={{ position: "absolute", left: 50, top: 40, fontSize: 36, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}
+            animate={paso >= 2 ? { opacity: 0, x: -20 } : { opacity: 1 }}>
+            √3
+          </motion.div>
+          <motion.span style={{ position: "absolute", left: 100, top: 50, fontSize: 30, color: COLOR_EXP, fontWeight: 700 }}
+            animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}>·</motion.span>
+          <motion.div style={{ position: "absolute", left: 130, top: 40, fontSize: 36, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}
+            animate={paso >= 2 ? { opacity: 0, x: 20 } : { opacity: 1 }}>
+            √5
+          </motion.div>
+          <motion.span style={{ position: "absolute", left: 195, top: 50, fontSize: 30, color: COLOR_EXP, fontWeight: 700 }}
+            animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}>=</motion.span>
+
+          <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso >= 1 && paso < 3 ? { opacity: 1, scale: 1 } : paso >= 3 ? { opacity: 0, scale: 0 } : { opacity: 0, scale: 0 }}
+            transition={{ type: "spring", delay: paso === 1 ? 0.3 : 0 }}
+            style={{ position: "absolute", left: 230, top: 40, fontSize: 32, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_OK }}>
+            √(3·5)
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso >= 3 ? { opacity: 1, scale: [0, 1.3, 1] } : { opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ position: "absolute", left: 250, top: 40, fontSize: 40, fontFamily: "var(--font-crimson), serif", fontWeight: 800, color: COLOR_OK }}>
+            √15
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
+          {paso === 0 && "Tenemos √3 multiplicado por √5"}
+          {paso === 1 && "Los radicandos se juntan bajo una sola raíz: √(3·5)"}
+          {paso === 2 && "Operamos adentro: 3·5 = 15"}
+          {paso === 3 && "Resultado: √15"}
+        </div>
       </div>
 
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <>
-                <strong style={{ color: COLOR_OK }}>¡Exacto!</strong> Simplificá primero: √12 = √(4·3) = 2√3 y √27 = √(9·3) = 3√3. Ahora son semejantes: 2√3 + 3√3 = <strong>5√3</strong>.
-              </>
-            ) : (
-              <>
-                <strong style={{ color: COLOR_BAD }}>No.</strong> Simplificá primero cada raíz: √12 = 2√3, √27 = 3√3. Después sumás coeficientes: 2+3=5 → <strong>5√3</strong>.
-              </>
-            )}
+      <Cuidado>
+        <strong>Importante</strong>: deben tener el <em>mismo índice</em>. <br />
+        ✗ √2 · ³√5 NO se puede juntar directamente (índices distintos).
+      </Cuidado>
+
+      <PorQue>
+        Por la propiedad de potencias: √a · √b = a^(1/2) · b^(1/2) = (a·b)^(1/2) = √(a·b).
+        Las raíces son potencias disfrazadas.
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc07_MultCoef() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Multiplicación con coeficientes</Titulo>
+      <Parrafo>
+        Cuando hay <strong>coeficientes</strong> adelante, los coeficientes se multiplican
+        entre sí, y las raíces se multiplican entre sí — por separado.
+      </Parrafo>
+
+      <Resumen>
+        <span style={{ fontSize: 16, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a√x · b√y = (a · b) √(x · y)
+        </span>
+      </Resumen>
+
+      <Ejemplo titulo="Ejemplo: 3√2 · 4√5">
+        <Paso n={1}>Coeficientes: 3 · 4 = <strong>12</strong></Paso>
+        <Paso n={2}>Raíces: √2 · √5 = <strong>√10</strong></Paso>
+        <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>12√10</strong></Paso>
+      </Ejemplo>
+
+      <Ejemplo titulo="Otro: 2√6 · 5√3">
+        <Paso n={1}>Coeficientes: 2 · 5 = 10</Paso>
+        <Paso n={2}>Raíces: √6 · √3 = √18</Paso>
+        <Paso n={3}>Pero √18 se simplifica: √18 = 3√2</Paso>
+        <Paso n={4}>Total: 10 · 3√2 = <strong style={{ color: COLOR_OK }}>30√2</strong></Paso>
+      </Ejemplo>
+
+      <Cuidado>
+        Recordá <strong>SIEMPRE simplificar</strong> el radical resultante. Si te queda
+        √18 en una respuesta, escribilo como 3√2.
+      </Cuidado>
+
+      <AutoCheck
+        pregunta="Calculá: 5√3 · 2√7"
+        opciones={["10√21", "10√10", "7√21", "70"]}
+        correctaIdx={0}
+        explicacion="Coef: 5·2 = 10. Raíces: √3·√7 = √21 (no se simplifica). Total: 10√21."
+      />
+    </EscenaRica>
+  );
+}
+
+function Esc08_Div() {
+  const [paso, setPaso] = useState(0);
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Dividir radicales</Titulo>
+
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          ⁿ√a / ⁿ√b = ⁿ√(a / b)
+        </span>
+      </Resumen>
+      <Parrafo>
+        Análogo a la multiplicación: los radicandos se juntan bajo una raíz, esta
+        vez como cociente.
+      </Parrafo>
+
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
+        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
+          👆 √20 / √5
+        </div>
+        <Stage w={420} h={160}>
+          <motion.div style={{ position: "absolute", left: 50, top: 25, display: "flex", flexDirection: "column", alignItems: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}
+            animate={paso >= 1 ? { opacity: 0, x: -20 } : { opacity: 1 }}>
+            <span style={{ fontSize: 32, color: COLOR_BASE }}>√20</span>
+            <div style={{ borderTop: `2.5px solid ${COLOR_EXP}`, width: 70, margin: "5px 0" }} />
+            <span style={{ fontSize: 32, color: COLOR_BASE }}>√5</span>
           </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          <motion.span style={{ position: "absolute", left: 145, top: 55, fontSize: 30, color: COLOR_EXP, fontWeight: 700 }}
+            animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}>=</motion.span>
+
+          <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso === 1 ? { opacity: 1, scale: 1 } : paso >= 2 ? { opacity: 0, scale: 0 } : { opacity: 0, scale: 0 }}
+            transition={{ type: "spring", delay: paso === 1 ? 0.3 : 0 }}
+            style={{ position: "absolute", left: 180, top: 50, fontSize: 28, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_OK }}>
+            √(20/5)
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso >= 2 ? { opacity: 1, scale: [0, 1.3, 1] } : { opacity: 0, scale: 0 }}
+            transition={{ duration: 0.5 }}
+            style={{ position: "absolute", left: 200, top: 50, display: "flex", alignItems: "baseline", gap: 8 }}>
+            <span style={{ fontSize: 40, fontFamily: "var(--font-crimson), serif", fontWeight: 800, color: COLOR_OK }}>√4</span>
+            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700 }}>=</span>
+            <span style={{ fontSize: 40, fontFamily: "var(--font-crimson), serif", fontWeight: 800, color: COLOR_OK }}>2</span>
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
+          {paso === 0 && "Cociente de raíces"}
+          {paso === 1 && "Se juntan bajo una raíz: √(20/5)"}
+          {paso === 2 && "20/5 = 4 → √4 = 2 ✓"}
+        </div>
+      </div>
+
+      <Ejemplo titulo="Con coeficientes: (6√15) / (2√3)">
+        <Paso n={1}>Coeficientes: 6 / 2 = 3</Paso>
+        <Paso n={2}>Raíces: √15 / √3 = √(15/3) = √5</Paso>
+        <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>3√5</strong></Paso>
+      </Ejemplo>
+
+      <AutoCheck
+        pregunta="Calculá: √48 / √3"
+        opciones={["√45", "4", "√16 = 4", "16"]}
+        correctaIdx={2}
+        explicacion="√48/√3 = √(48/3) = √16 = 4. Ambas opciones a y c llevan al mismo lugar pero c es la forma completa."
+      />
+    </EscenaRica>
+  );
+}
+
+function Esc09_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Los 4 errores más comunes</Titulo>
+
+      <Cuidado>
+        <strong>Error 1:</strong> Sumar radicales no semejantes. <br />
+        <span style={{ fontSize: 13 }}>
+          ❌ √2 + √3 = √5. <strong>FALSO</strong>. Verificación: √5 ≈ 2.24, pero √2+√3 ≈ 3.15.
+        </span>
+      </Cuidado>
+
+      <Cuidado>
+        <strong>Error 2:</strong> Olvidar simplificar antes de sumar. <br />
+        <span style={{ fontSize: 13 }}>
+          √8 y √2 PARECEN no semejantes, pero √8 = 2√2 sí lo es. Siempre simplificá primero.
+        </span>
+      </Cuidado>
+
+      <Cuidado>
+        <strong>Error 3:</strong> Multiplicar radicandos sin que coincidan los índices. <br />
+        <span style={{ fontSize: 13 }}>
+          ❌ √2 · ³√5 = ⁵√10 ó √10. <strong>FALSO</strong>. Distintos índices → no se pueden combinar directamente.
+        </span>
+      </Cuidado>
+
+      <Cuidado>
+        <strong>Error 4:</strong> No simplificar el resultado de una multiplicación. <br />
+        <span style={{ fontSize: 13 }}>
+          Si te queda √50 en una respuesta, no está terminado. <strong>√50 = 5√2</strong>.
+        </span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc10_Practica() {
+  const ejs = useMemo(() => [
+    { p: "Simplificá: 7√3 − 2√3", o: ["5√3", "5", "5√0", "5√6"], c: 0, ex: "Son semejantes. (7−2)√3 = 5√3." },
+    { p: "Calculá: √12 + √48", o: ["√60", "6√3", "2√15", "12√3"], c: 1, ex: "√12=2√3, √48=4√3. Suma: 6√3." },
+    { p: "Multiplicá: 2√3 · 3√2", o: ["6√6", "5√5", "6√5", "5√6"], c: 0, ex: "Coef: 2·3=6. Raíces: √3·√2=√6. Total: 6√6." },
+    { p: "Dividí: √32 / √8", o: ["√24", "4", "2", "1/4"], c: 2, ex: "√32/√8 = √(32/8) = √4 = 2." },
+    { p: "Simplificá: √8 · √2", o: ["√10", "4", "2√4", "8"], c: 1, ex: "√8·√2 = √16 = 4. (También 2√2·√2 = 2·2 = 4)." },
+  ], []);
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
+
+  return (
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios sobre todo lo que viste:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i];
+        const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c;
+                const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{
+                      padding: "10px 14px",
+                      background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)",
+                      border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`,
+                      borderRadius: 10, fontSize: 16, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer",
+                      fontFamily: "var(--font-crimson), serif",
+                    }}>{op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}</button>
+                );
+              })}
+            </div>
+            {rev && (
+              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+                <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás las operaciones con radicales."}
+            {ok >= 3 && ok < ejs.length && "Bien. Repasá los que fallaste."}
+            {ok < 3 && "Vale la pena volver a las escenas 4 (semejantes) y 5 (simplificar antes)."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }
