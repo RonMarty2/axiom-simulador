@@ -513,44 +513,74 @@ function EscenaPotenciaDePotencia() {
       <p style={subtitulo()}>Una potencia elevada a otra potencia… los exponentes se multiplican:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", height: 140, display: "flex", justifyContent: "center", alignItems: "center" }}>
-          <span style={{ fontSize: 60, color: COLOR_BASE, fontWeight: 700 }}>(</span>
-          <span style={{ ...numGrande(COLOR_BASE), fontSize: 70 }}>2</span>
+        {/* Layout posicional absoluto para control fino */}
+        <div style={{ position: "relative", width: 360, height: 160 }}>
+          {/* Paréntesis izq */}
           <motion.span
-            style={{ ...numGrande(COLOR_EXP), fontSize: 40, alignSelf: "flex-start", marginTop: 6 }}
-            animate={paso >= 1 ? { y: -40, x: -20, scale: 1.3 } : {}}
-            transition={{ type: "spring", stiffness: 200 }}
-          >3</motion.span>
-          <span style={{ fontSize: 60, color: COLOR_BASE, fontWeight: 700 }}>)</span>
+            style={{ position: "absolute", left: 60, top: 50, fontSize: 70, color: COLOR_BASE, fontWeight: 700, lineHeight: 1 }}
+            animate={{ opacity: paso < 3 ? 1 : 0 }}
+          >(</motion.span>
+
+          {/* Base 2 interna */}
           <motion.span
-            style={{ ...numGrande(COLOR_EXP), fontSize: 40, alignSelf: "flex-start", marginTop: 6 }}
-            animate={paso >= 1 ? { y: -40, x: 20, scale: 1.3 } : {}}
-            transition={{ type: "spring", stiffness: 200, delay: 0.1 }}
+            style={{ position: "absolute", left: 90, top: 50, ...numGrande(COLOR_BASE), fontSize: 70 }}
+            animate={{
+              left: paso < 3 ? 90 : 150,
+              opacity: paso < 3 ? 1 : 1,
+            }}
+            transition={{ type: "spring", stiffness: 180, damping: 18 }}
           >2</motion.span>
 
-          {/* Signo × */}
+          {/* Exponente 3 (interno) — vuela arriba en paso 1 */}
           <motion.span
+            style={{ position: "absolute", ...numGrande(COLOR_EXP), fontSize: 40 }}
+            initial={{ left: 138, top: 42 }}
+            animate={
+              paso === 0 ? { left: 138, top: 42, scale: 1, opacity: 1 } :
+              paso === 1 ? { left: 150, top: -10, scale: 1.2, opacity: 1 } :
+              paso === 2 ? { left: 150, top: -10, scale: 1.2, opacity: 1 } :
+                           { left: 220, top: 30, scale: 0, opacity: 0 }
+            }
+            transition={{ type: "spring", stiffness: 180, damping: 14 }}
+          >3</motion.span>
+
+          {/* Paréntesis der */}
+          <motion.span
+            style={{ position: "absolute", left: 170, top: 50, fontSize: 70, color: COLOR_BASE, fontWeight: 700, lineHeight: 1 }}
+            animate={{ opacity: paso < 3 ? 1 : 0 }}
+          >)</motion.span>
+
+          {/* Exponente 2 (externo) — vuela arriba en paso 1 */}
+          <motion.span
+            style={{ position: "absolute", ...numGrande(COLOR_EXP), fontSize: 40 }}
+            initial={{ left: 205, top: 42 }}
+            animate={
+              paso === 0 ? { left: 205, top: 42, scale: 1, opacity: 1 } :
+              paso === 1 ? { left: 220, top: -10, scale: 1.2, opacity: 1 } :
+              paso === 2 ? { left: 220, top: -10, scale: 1.2, opacity: 1 } :
+                           { left: 220, top: -10, scale: 0, opacity: 0 }
+            }
+            transition={{ type: "spring", stiffness: 180, damping: 14, delay: paso === 1 ? 0.1 : 0 }}
+          >2</motion.span>
+
+          {/* Signo × entre los dos exponentes (aparece paso 2) */}
+          <motion.span
+            style={{ position: "absolute", left: 188, top: -2, fontSize: 32, color: COLOR_EXP, fontWeight: 700 }}
             initial={{ opacity: 0, scale: 0 }}
-            animate={paso >= 2 ? { opacity: 1, scale: 1 } : {}}
-            transition={{ type: "spring", stiffness: 200 }}
-            style={{ position: "absolute", top: 4, left: "50%", marginLeft: -8, fontSize: 32, color: COLOR_EXP, fontWeight: 700 }}
+            animate={paso === 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 14 }}
           >×</motion.span>
 
-          {/* Resultado */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={paso >= 3 ? { opacity: 1, x: 0 } : {}}
-            style={{ display: "flex", alignItems: "flex-start", marginLeft: 20 }}
-          >
-            <span style={{ fontSize: 50, color: COLOR_EXP, fontWeight: 700, marginRight: 12 }}>=</span>
-            <span style={{ ...numGrande(COLOR_BASE), fontSize: 70 }}>2</span>
-            <motion.span
-              initial={{ scale: 0 }}
-              animate={paso >= 3 ? { scale: [0, 1.5, 1] } : {}}
-              transition={{ duration: 0.5 }}
-              style={{ ...numGrande(COLOR_OK), fontSize: 40 }}
-            >6</motion.span>
-          </motion.div>
+          {/* Resultado: 6 baja como nuevo exponente */}
+          <motion.span
+            style={{ position: "absolute", ...numGrande(COLOR_OK), fontSize: 50 }}
+            initial={{ left: 195, top: -10, scale: 0, opacity: 0 }}
+            animate={
+              paso === 3 ? { left: 200, top: 30, scale: 1.2, opacity: 1 } :
+                           { left: 195, top: -10, scale: 0, opacity: 0 }
+            }
+            transition={{ type: "spring", stiffness: 160, damping: 12 }}
+          >6</motion.span>
         </div>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
