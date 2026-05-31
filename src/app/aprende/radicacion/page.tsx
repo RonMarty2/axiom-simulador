@@ -92,7 +92,7 @@ function Esc02_RaizCuad() {
       </Definicion>
 
       {/* VISUAL: √9 → cuadrado de 3×3 */}
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 6 }}>
           ¿CUÁNTO ES √9 ?
         </div>
@@ -385,7 +385,7 @@ function Esc07_Producto() {
       </Parrafo>
 
       {/* VISUAL: √36 = √(4·9) → √4 · √9 → 2·3 → 6 */}
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <Stage w={420} h={170}>
           {/* √(4·9) inicial */}
           <motion.div style={{ position: "absolute", left: 30, top: 50, display: "flex", alignItems: "flex-start" }}
@@ -602,7 +602,7 @@ function Esc11_Racionalizacion() {
       </Parrafo>
 
       {/* VISUAL: 1/√2 → multiplicar por √2/√2 → √2/2 */}
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <Stage w={420} h={180}>
           {/* 1/√2 inicial */}
           <motion.div style={{ position: "absolute", left: 30, top: 40, display: "flex", flexDirection: "column", alignItems: "center" }}

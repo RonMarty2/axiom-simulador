@@ -220,7 +220,7 @@ function EscenaSignificado() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>2³ paso a paso. Mirá de dónde sale cada número:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={400} h={150}>
 
           {/* === 2³ INICIAL === */}
@@ -386,7 +386,7 @@ function EscenaProducto() {
       <p style={subtitulo()}>Cuando multiplicás potencias de igual base… los exponentes se suman:</p>
 
       <div
-        onClick={() => setPaso((p) => Math.min(p + 1, 4))}
+        onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)}
         style={cajaAnim()}
       >
         {/* Bases y exponentes son posicionados absolutamente para poder animarlos */}
@@ -515,7 +515,7 @@ function EscenaCociente() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Cuando dividís potencias de igual base… los exponentes se restan:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ display: "flex", alignItems: "center", gap: 18, position: "relative", minHeight: 140 }}>
           {/* Numerador 2⁵ */}
           <div style={{ display: "flex", alignItems: "flex-start" }}>
@@ -594,7 +594,7 @@ function EscenaPotenciaDePotencia() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Una potencia elevada a otra potencia… los exponentes se multiplican:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         {/* Layout posicional absoluto para control fino */}
         <Stage w={360} h={160}>
           {/* Paréntesis izq */}
@@ -777,7 +777,7 @@ function EscenaExponenteNegativo() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Un exponente <em>negativo</em> manda la potencia al denominador:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", minHeight: 160, display: "flex", justifyContent: "center", alignItems: "center", width: 360 }}>
           {/* 2⁻³ inicial */}
           <motion.div
@@ -849,7 +849,7 @@ function EscenaProductoElevado() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si tenés un <strong>producto</strong> elevado a una potencia… el exponente se reparte a cada factor:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={160}>
           {/* ( */}
           <motion.span style={{ position: "absolute", left: 80, top: 50, fontSize: 70, color: COLOR_BASE, fontWeight: 700, lineHeight: 1 }}
@@ -950,7 +950,7 @@ function EscenaFraccionElevada() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Lo mismo pasa con <strong>fracciones</strong>: el exponente baja al numerador <em>y</em> al denominador:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={180}>
           {/* ( */}
           <motion.span style={{ position: "absolute", left: 80, top: 50, fontSize: 100, color: COLOR_BASE, fontWeight: 400, lineHeight: 1 }}
@@ -1051,7 +1051,7 @@ function EscenaRadicales() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Los <strong>radicales</strong> son potencias disfrazadas. La raíz se convierte en exponente fraccionario:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={160}>
           {/* Índice del radical "3" (de ³√) — vuela a la posición del denominador del exponente */}
           <motion.span style={{ position: "absolute", color: COLOR_EXP, fontWeight: 700, fontFamily: "var(--font-crimson), serif", lineHeight: 1, fontSize: 22 }}

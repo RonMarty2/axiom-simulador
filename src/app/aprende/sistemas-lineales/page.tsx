@@ -65,7 +65,7 @@ function EscenaSustitucion() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Despejá una variable en una ecuación y la <strong>sustituís</strong> en la otra:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 8, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 18, color: COLOR_BASE }}>Sistema: x + y = 10  ·  x − y = 2</div>
           <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
@@ -127,7 +127,7 @@ function EscenaReduccion() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El más rápido: <strong>sumá</strong> las ecuaciones de modo que una variable desaparezca:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 6, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 20, color: COLOR_BASE }}>x + <span style={{ color: COLOR_OK }}>y</span> = 10</div>
           <div style={{ fontSize: 20, color: COLOR_BASE }}>x <span style={{ color: COLOR_OK }}>− y</span> = 2</div>

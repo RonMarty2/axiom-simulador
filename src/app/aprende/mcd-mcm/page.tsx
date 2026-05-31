@@ -213,7 +213,7 @@ function Esc03_BuscarDiv() {
       </div>
 
       <Ejemplo titulo="Probemos uno por uno (divisores de 12)">
-        <div onClick={() => setPaso((p) => Math.min(p + 1, 6))} style={{ cursor: "pointer", padding: 6 }}>
+        <div onClick={() => setPaso((p) => p >= 6 ? 0 : p + 1)} style={{ cursor: "pointer", padding: 6 }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             {[
               { d: 1, ok: true, txt: "12 ÷ 1 = 12 ✓" },
@@ -513,7 +513,7 @@ function Esc08_Factorizar() {
       </div>
 
       <Ejemplo titulo="Algoritmo paso a paso: factorizar 60">
-        <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={{ cursor: "pointer" }}>
+        <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={{ cursor: "pointer" }}>
           <Paso n={1}>Empezamos con 60. ¿Es divisible por el primo más chico (2)? <strong>Sí</strong>: 60 ÷ 2 = 30.</Paso>
           {paso >= 1 && <Paso n={2}>30 ÷ 2 = 15.</Paso>}
           {paso >= 2 && <Paso n={3}>¿15 es divisible por 2? No. Pasamos a 3: 15 ÷ 3 = 5.</Paso>}
@@ -575,7 +575,7 @@ function Esc09_MCDFact() {
       </Resumen>
 
       {/* VISUALIZACIÓN ANIMADA */}
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
           MCD(12, 18)
         </div>
@@ -695,7 +695,7 @@ function Esc11_MCMFact() {
       </Resumen>
 
       {/* VISUALIZACIÓN ANIMADA */}
-      <div onClick={() => setPasoMCM((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+      <div onClick={() => setPasoMCM((p) => p >= 3 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
           MCM(12, 18)
         </div>

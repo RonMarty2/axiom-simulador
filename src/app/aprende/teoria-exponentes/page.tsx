@@ -65,7 +65,7 @@ function EscenaFraccionario() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Un exponente <strong>fraccionario</strong> es un radical disfrazado:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={160}>
           <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             a<sup style={{ fontSize: 18, color: COLOR_EXP }}>m/n</sup>
@@ -104,7 +104,7 @@ function EscenaEcExpSimple() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Para resolver 2<sup>x</sup> = 8: <strong>llevá a la misma base</strong> en ambos lados:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 28, color: COLOR_BASE }}>2<sup style={{ fontSize: 18, color: COLOR_EXP }}>x</sup> = 8</div>
 

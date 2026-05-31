@@ -63,7 +63,7 @@ function EscenaLineal() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Igual que una ecuación: pasamos términos y despejamos:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 24, color: COLOR_BASE }}>2x + 3 &lt; 11</div>
 
@@ -102,7 +102,7 @@ function EscenaSigno() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>⚠️ Cuando multiplicás o dividís por un <strong>número negativo</strong>… el signo se INVIERTE:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 24, color: COLOR_BASE }}>−2x &lt; 6</div>
 

@@ -66,7 +66,7 @@ function EscenaFactorizacion() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si podemos <strong>factorizar</strong>: cada factor igualado a 0 da una solución:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           <div style={{ fontSize: 24, color: COLOR_BASE }}>x² − 5x + 6 = 0</div>
 
@@ -106,7 +106,7 @@ function EscenaFormula() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>La <strong>fórmula cuadrática</strong> sirve SIEMPRE:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={180}>
           {/* Fórmula */}
           <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>

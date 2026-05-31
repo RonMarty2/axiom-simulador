@@ -34,7 +34,7 @@ function EscenaIntro() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Repartir 600 Bs entre 3 personas — pero <strong>no en partes iguales</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 1))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 1 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={170}>
 
           {/* Bolsa central */}
@@ -98,7 +98,7 @@ function EscenaDirecto() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>La técnica: sumar las partes y dividir el total entre esa suma:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={200}>
 
           {/* Paso 1: sumar partes */}
@@ -183,7 +183,7 @@ function EscenaInverso() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>En el <strong>inverso</strong>: invertimos los números y luego repartimos directo:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 12, alignItems: "center" }}>
 
           <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center" }}>
@@ -261,7 +261,7 @@ function EscenaCompania() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>En una sociedad: el reparto considera <strong>capital × tiempo</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 10, alignItems: "center" }}>
 
           <div style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>

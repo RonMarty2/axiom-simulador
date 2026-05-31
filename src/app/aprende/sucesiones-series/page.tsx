@@ -31,7 +31,7 @@ function EscenaAritmetica() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>En una <strong>aritmética</strong> sumamos siempre la misma cantidad (la razón d):</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={170}>
           {/* Sucesión 3, 7, 11, 15, 19 con d=4 */}
           {[3, 7, 11, 15, 19].map((n, k) => (
@@ -101,7 +101,7 @@ function EscenaGeometrica() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>En una <strong>geométrica</strong> multiplicamos por la misma razón (r) cada vez:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={170}>
           {[2, 6, 18, 54, 162].map((n, k) => (
             <motion.div key={k}

@@ -36,7 +36,7 @@ function EscenaRazon() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Una <strong>razón</strong> compara dos cantidades:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={170}>
 
           {/* 3 manzanas rojas */}
@@ -110,7 +110,7 @@ function EscenaEquivalentes() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Distintas razones pueden valer <strong>lo mismo</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 20, flexWrap: "wrap", minHeight: 140 }}>
           {/* 1/2 */}
           <FraccionVisual num="1" den="2" colorNum={COLOR_BASE} colorDen={COLOR_BASE} />
@@ -221,7 +221,7 @@ function EscenaPropiedad() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>La <strong>propiedad fundamental</strong>: producto de extremos = producto de medios</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={170}>
 
           {/* Proporción 1/2 = 3/6 */}
@@ -286,7 +286,7 @@ function EscenaDespejar() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si falta un término, la propiedad fundamental lo despeja:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={180}>
 
           {/* 4/x = 2/3 */}

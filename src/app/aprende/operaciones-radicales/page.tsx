@@ -135,7 +135,7 @@ function EscenaSumaResta() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si son semejantes, se suman los <strong>coeficientes</strong> y el radical no cambia:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={150}>
 
           {/* Coef 3 izq */}
@@ -230,7 +230,7 @@ function EscenaMultiplicacion() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Multiplicar radicales del mismo índice: los radicandos se <strong>juntan</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={140}>
 
           {/* √3 izq */}
@@ -317,7 +317,7 @@ function EscenaDivision() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Dividir radicales del mismo índice: queda <strong>una sola raíz</strong> con la fracción adentro:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, height: 160, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           {/* Fracción √20 / √5 */}
@@ -403,7 +403,7 @@ function EscenaSimplificar() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>A veces parecen NO semejantes pero al simplificar SÍ lo son:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", minHeight: 160, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center" }}>
 
           {/* Línea 1: √8 + √2 */}

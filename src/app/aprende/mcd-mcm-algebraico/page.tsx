@@ -68,7 +68,7 @@ function EscenaMCD() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El <strong>MCD</strong>: factores <strong>comunes</strong> con el <strong>MENOR</strong> exponente:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 10, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
 
           <div style={{ fontSize: 22, color: COLOR_BASE }}>
@@ -109,7 +109,7 @@ function EscenaMCM() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El <strong>MCM</strong>: <em>todos</em> los factores con el <strong>MAYOR</strong> exponente:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 10, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
 
           <div style={{ fontSize: 22, color: COLOR_BASE }}>
@@ -150,7 +150,7 @@ function EscenaAplicacion() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El MCM sirve para sumar <strong>fracciones algebraicas</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
 
           <div style={{ fontSize: 16, color: "var(--fg-muted)" }}>Sumar: 1/x + 1/(x+1)</div>

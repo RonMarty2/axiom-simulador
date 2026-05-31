@@ -124,7 +124,7 @@ function EscenaSumaResta() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Sumar/restar términos semejantes: se suman los <strong>coeficientes</strong>, la parte literal queda:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={140}>
 
           {/* 3x */}
@@ -193,7 +193,7 @@ function EscenaFOIL() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Para multiplicar <strong>(x+2)(x+3)</strong>, usamos FOIL: cada término del primero × cada uno del segundo:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={180}>
           {/* (x+2)(x+3) */}
           <div style={{ position: "absolute", left: 0, top: 0, width: "100%", textAlign: "center", fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
@@ -250,7 +250,7 @@ function EscenaNotables() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El <strong>cuadrado de un binomio</strong> tiene un patrón fijo:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={170}>
           <div style={{ position: "absolute", left: 0, top: 0, width: "100%", textAlign: "center", fontSize: 30, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
             <span>(a + b)</span>

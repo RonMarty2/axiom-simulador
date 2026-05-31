@@ -72,7 +72,7 @@ function EscenaFactorComun() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si hay un <strong>factor común</strong>, lo sacamos afuera de un paréntesis:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
 
           {/* 6x + 9 */}
@@ -121,7 +121,7 @@ function EscenaDifCuadrados() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Una <strong>diferencia de cuadrados</strong> se factoriza con un patrón mágico:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           {/* Patrón general */}
@@ -168,7 +168,7 @@ function EscenaTCP() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Si el término del medio es <strong>el doble del producto</strong>, es un TCP:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -216,7 +216,7 @@ function EscenaTrinomio() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Para x² + bx + c: buscamos dos números que <strong>sumen b</strong> y <strong>multipliquen c</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           <div style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>

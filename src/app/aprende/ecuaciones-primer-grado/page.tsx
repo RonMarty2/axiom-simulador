@@ -116,7 +116,7 @@ function EscenaPasarTerminos() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Para despejar x, pasamos lo que sobra al otro lado. <strong>El término cambia de signo</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={140}>
           <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             x + <span style={{ color: COLOR_EXP }}>3</span> = 7
@@ -155,7 +155,7 @@ function EscenaCoef() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Y un número que <strong>multiplica</strong>… pasa al otro lado <strong>dividiendo</strong>:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={420} h={140}>
           <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             <span style={{ color: COLOR_EXP }}>3</span>x = 12
@@ -192,7 +192,7 @@ function EscenaProblema() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Traducí un problema en palabras a una ecuación:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ width: "100%", maxWidth: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
           <div style={{ fontSize: 14, color: COLOR_BASE, textAlign: "center", maxWidth: 380, lineHeight: 1.5, fontStyle: "italic" }}>
             &ldquo;El doble de un número, más 5, es igual a 17. ¿Cuál es el número?&rdquo;

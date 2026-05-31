@@ -37,7 +37,7 @@ function EscenaDirecta() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Cuando una cantidad crece, la otra también: <strong>directa</strong></p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={180}>
 
           {/* Tabla de la regla de 3 */}
@@ -114,7 +114,7 @@ function EscenaInversa() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>Cuando una crece y la otra decrece: <strong>inversa</strong></p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={180}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 12, columnGap: 30, padding: "10px 30px", textAlign: "center", fontFamily: "var(--font-crimson), serif" }}>
             <div style={{ fontSize: 14, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1 }}>OBREROS</div>
@@ -236,7 +236,7 @@ function EscenaInteresIntro() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>El <strong>interés simple</strong>: lo que un capital genera con el tiempo:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
         <Stage w={380} h={160}>
 
           {/* Barra de capital */}
@@ -301,7 +301,7 @@ function EscenaInteresFormula() {
     <div style={escenaWrap()}>
       <p style={subtitulo()}>La fórmula del interés simple:</p>
 
-      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
+      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 170, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
 
           {/* Fórmula simbólica */}
