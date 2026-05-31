@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 export default function Page() {
@@ -37,7 +37,7 @@ function EscenaRazon() {
       <p style={subtitulo()}>Una <strong>razón</strong> compara dos cantidades:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* 3 manzanas rojas */}
           {[0, 1, 2].map((k) => (
@@ -82,7 +82,7 @@ function EscenaRazon() {
               </motion.span>
             )}
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 2 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -174,7 +174,7 @@ function EscenaProporcion() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 180 }}
-          style={{ position: "relative", width: 360, minHeight: 130, display: "flex", alignItems: "center", justifyContent: "center", gap: 24 }}
+          style={{ position: "relative", width: "100%", maxWidth: 360, minHeight: 130, display: "flex", alignItems: "center", justifyContent: "center", gap: 24 }}
         >
           <FraccionVisual num="a" den="b" colorNum={COLOR_BASE} colorDen={COLOR_BASE} sizeNum={36} />
           <span style={{ fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}>=</span>
@@ -222,7 +222,7 @@ function EscenaPropiedad() {
       <p style={subtitulo()}>La <strong>propiedad fundamental</strong>: producto de extremos = producto de medios</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, height: 170 }}>
+        <Stage w={380} h={170}>
 
           {/* Proporción 1/2 = 3/6 */}
           <div style={{ position: "absolute", left: 0, top: 30, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 24 }}>
@@ -256,7 +256,7 @@ function EscenaPropiedad() {
           >
             1 · 6 = 2 · 3 → 6 = 6 ✓
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -287,7 +287,7 @@ function EscenaDespejar() {
       <p style={subtitulo()}>Si falta un término, la propiedad fundamental lo despeja:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, height: 180 }}>
+        <Stage w={380} h={180}>
 
           {/* 4/x = 2/3 */}
           <div style={{ position: "absolute", left: 0, top: 10, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 24 }}>
@@ -332,7 +332,7 @@ function EscenaDespejar() {
           >
             x = 6 ✓
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>

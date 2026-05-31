@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 export default function Page() {
@@ -35,7 +35,7 @@ function EscenaIntro() {
       <p style={subtitulo()}>Repartir 600 Bs entre 3 personas — pero <strong>no en partes iguales</strong>:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 1))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* Bolsa central */}
           <motion.div
@@ -69,7 +69,7 @@ function EscenaIntro() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -99,7 +99,7 @@ function EscenaDirecto() {
       <p style={subtitulo()}>La técnica: sumar las partes y dividir el total entre esa suma:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 200 }}>
+        <Stage w={420} h={200}>
 
           {/* Paso 1: sumar partes */}
           <motion.div
@@ -154,7 +154,7 @@ function EscenaDirecto() {
           >
             ✓ Verificación: 120 + 180 + 300 = 600
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -41,7 +41,7 @@ function EscenaIntro() {
       <p style={subtitulo()}>La <strong>raíz cuadrada</strong> es la operación opuesta al cuadrado:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
 
           {/* √9 inicial */}
           <motion.span
@@ -90,7 +90,7 @@ function EscenaIntro() {
               porque 3 · 3 = 9
             </div>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -121,7 +121,7 @@ function EscenaNEsima() {
       <p style={subtitulo()}>Una raíz puede tener cualquier <strong>índice</strong>. El índice dice cuántas veces se multiplica:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
 
           {/* Índice del radical "3" arriba-izquierda */}
           <motion.span
@@ -164,7 +164,7 @@ function EscenaNEsima() {
               porque 2 · 2 · 2 = 8
             </div>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -195,7 +195,7 @@ function EscenaProducto() {
       <p style={subtitulo()}>La raíz <strong>se distribuye</strong> en una multiplicación:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* √(4·9) inicial */}
           <motion.div style={{ position: "absolute", left: 50, top: 50, display: "flex", alignItems: "flex-start" }}
@@ -250,7 +250,7 @@ function EscenaProducto() {
           >
             = 2 · 3 = 6 ✓
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 2 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -281,7 +281,7 @@ function EscenaCociente() {
       <p style={subtitulo()}>Y también <strong>se distribuye</strong> en una división:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* √(49/4) inicial */}
           <motion.div style={{ position: "absolute", left: 50, top: 30, display: "flex", alignItems: "flex-start" }}
@@ -340,7 +340,7 @@ function EscenaCociente() {
           >
             = 7 / 2 = 3,5 ✓
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -370,7 +370,7 @@ function EscenaRacionalizacion() {
       <p style={subtitulo()}>¿Y si la raíz queda en el denominador? Hay que <strong>racionalizar</strong>:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 180 }}>
+        <Stage w={420} h={180}>
 
           {/* 1 / √2 inicial */}
           <motion.div
@@ -440,7 +440,7 @@ function EscenaRacionalizacion() {
               <span style={{ ...numGrande(COLOR_OK, 36) }}>2</span>
             </div>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>

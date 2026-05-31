@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -52,7 +52,7 @@ function EscenaIntro() {
       <p style={subtitulo()}>Un <strong>divisor</strong> de un número es un valor que lo reparte en grupos exactos:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, repartos.length - 1))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
           {/* 12 bolitas distribuidas según el divisor actual */}
           {Array.from({ length: 12 }).map((_, k) => {
             const grupo = Math.floor(k / porGrupo);
@@ -100,7 +100,7 @@ function EscenaIntro() {
               12 ÷ <span style={{ color: COLOR_OK }}>{divisor}</span> = {porGrupo}
             </motion.span>
           </div>
-        </div>
+        </Stage>
 
         <div style={{ fontSize: 14, color: "var(--fg-muted)", textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>
           Los <strong style={{ color: COLOR_OK }}>divisores de 12</strong> son:{" "}
@@ -227,7 +227,7 @@ function EscenaFactorizacion() {
       <p style={subtitulo()}>Todo número se descompone en <strong>primos</strong>. Mirá el árbol:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 360, height: 240 }}>
+        <Stage w={360} h={240}>
 
           {/* Raíz: 12 */}
           <motion.span style={{ position: "absolute", left: 160, top: 0, ...numGrande(COLOR_BASE, 50) }}
@@ -291,7 +291,7 @@ function EscenaFactorizacion() {
             animate={paso >= 2 ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 200, delay: 0.5 }}
           >3</motion.span>
-        </div>
+        </Stage>
 
         {/* Conclusión: 12 = 2² × 3 */}
         <motion.div
@@ -339,7 +339,7 @@ function EscenaMCDFact() {
       <p style={subtitulo()}>Para el <strong>MCD</strong>: primos <strong>comunes</strong> con el <strong>menor</strong> exponente:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 180 }}>
+        <Stage w={420} h={180}>
 
           {/* Línea 12 = 2² · 3 */}
           <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 24, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
@@ -361,7 +361,7 @@ function EscenaMCDFact() {
           >
             MCD = 2<sup style={{ fontSize: 16 }}>1</sup> · 3<sup style={{ fontSize: 16 }}>1</sup> = 6
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -392,7 +392,7 @@ function EscenaMCMFact() {
       <p style={subtitulo()}>Para el <strong>MCM</strong>: <em>todos</em> los primos con el <strong>mayor</strong> exponente:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 180 }}>
+        <Stage w={420} h={180}>
 
           <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 24, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
             12 = 2<sup style={{ fontSize: 14, color: paso >= 2 ? COLOR_OK : COLOR_EXP }}>2</sup>
@@ -411,7 +411,7 @@ function EscenaMCMFact() {
           >
             MCM = 2<sup style={{ fontSize: 16 }}>2</sup> · 3<sup style={{ fontSize: 16 }}>2</sup> = 36
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>

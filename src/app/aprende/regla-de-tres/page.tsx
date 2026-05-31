@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 export default function Page() {
@@ -38,7 +38,7 @@ function EscenaDirecta() {
       <p style={subtitulo()}>Cuando una cantidad crece, la otra también: <strong>directa</strong></p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, minHeight: 180 }}>
+        <Stage w={380} h={180}>
 
           {/* Tabla de la regla de 3 */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 12, columnGap: 30, padding: "10px 30px", textAlign: "center", fontFamily: "var(--font-crimson), serif" }}>
@@ -64,7 +64,7 @@ function EscenaDirecta() {
             transition={{ delay: 0.2 }}
             style={{ position: "absolute", right: 10, top: 50, fontSize: 22, color: COLOR_OK }}
           >↓</motion.div>
-        </div>
+        </Stage>
 
         {/* Despeje */}
         <motion.div
@@ -115,7 +115,7 @@ function EscenaInversa() {
       <p style={subtitulo()}>Cuando una crece y la otra decrece: <strong>inversa</strong></p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, minHeight: 180 }}>
+        <Stage w={380} h={180}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 12, columnGap: 30, padding: "10px 30px", textAlign: "center", fontFamily: "var(--font-crimson), serif" }}>
             <div style={{ fontSize: 14, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1 }}>OBREROS</div>
             <div style={{ fontSize: 14, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1 }}>DÍAS</div>
@@ -137,7 +137,7 @@ function EscenaInversa() {
             transition={{ delay: 0.2 }}
             style={{ position: "absolute", right: 10, top: 50, fontSize: 22, color: COLOR_BAD }}
           >↑</motion.div>
-        </div>
+        </Stage>
 
         {/* Despeje: 4·12 = 6·x */}
         <motion.div
@@ -237,7 +237,7 @@ function EscenaInteresIntro() {
       <p style={subtitulo()}>El <strong>interés simple</strong>: lo que un capital genera con el tiempo:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, minHeight: 160 }}>
+        <Stage w={380} h={160}>
 
           {/* Barra de capital */}
           <motion.div
@@ -278,7 +278,7 @@ function EscenaInteresIntro() {
               Monto = Capital + Interés = 1200
             </span>
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>
@@ -302,7 +302,7 @@ function EscenaInteresFormula() {
       <p style={subtitulo()}>La fórmula del interés simple:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 170, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 170, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
 
           {/* Fórmula simbólica */}
           <motion.div

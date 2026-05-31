@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 export default function Page() {
@@ -32,7 +32,7 @@ function EscenaIntro() {
       <p style={subtitulo()}>Factorizar es el <strong>camino inverso</strong> de multiplicar:</p>
 
       <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <div style={{ position: "relative", width: 420, minHeight: 160 }}>
+        <Stage w={420} h={160}>
           {/* DESARROLLAR (de izq a der) */}
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
             style={{ position: "absolute", left: 0, top: 20, width: "100%", display: "flex", justifyContent: "center", alignItems: "center", gap: 16, fontSize: 24, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
@@ -56,7 +56,7 @@ function EscenaIntro() {
             style={{ position: "absolute", left: 0, top: 135, width: "100%", textAlign: "center", fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 2 }}>
             FACTORIZAR
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>Factorizar es escribir un polinomio como producto de factores</p>
@@ -73,7 +73,7 @@ function EscenaFactorComun() {
       <p style={subtitulo()}>Si hay un <strong>factor común</strong>, lo sacamos afuera de un paréntesis:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
 
           {/* 6x + 9 */}
           <motion.div animate={paso >= 1 ? { opacity: 0.4, scale: 0.85 } : { opacity: 1, scale: 1 }}
@@ -122,7 +122,7 @@ function EscenaDifCuadrados() {
       <p style={subtitulo()}>Una <strong>diferencia de cuadrados</strong> se factoriza con un patrón mágico:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           {/* Patrón general */}
           <motion.div initial={{ opacity: 0 }} animate={paso >= 0 ? { opacity: 1 } : { opacity: 0 }}
@@ -169,7 +169,7 @@ function EscenaTCP() {
       <p style={subtitulo()}>Si el término del medio es <strong>el doble del producto</strong>, es un TCP:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
             style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
@@ -217,7 +217,7 @@ function EscenaTrinomio() {
       <p style={subtitulo()}>Para x² + bx + c: buscamos dos números que <strong>sumen b</strong> y <strong>multipliquen c</strong>:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           <div style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 16, color: COLOR_EXP }}>2</sup> + <span style={{ color: "#3b82f6" }}>5</span>x + <span style={{ color: "#10b981" }}>6</span>

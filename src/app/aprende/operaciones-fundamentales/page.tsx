@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -42,7 +42,7 @@ function EscenaSuma() {
       <p style={subtitulo()}>Sumar es <strong>juntar</strong> cantidades. Mirá cómo:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
 
           {/* GRUPO IZQUIERDA: 3 bolitas */}
           {[0, 1, 2].map((k) => (
@@ -90,7 +90,7 @@ function EscenaSuma() {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div
           animate={{ opacity: paso >= 3 ? 1 : 0 }}
@@ -124,7 +124,7 @@ function EscenaResta() {
       <p style={subtitulo()}>Restar es <strong>quitar</strong> una cantidad de un total:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
 
           {/* 7 bolitas — las 3 últimas se van */}
           {[0, 1, 2, 3, 4, 5, 6].map((k) => {
@@ -168,7 +168,7 @@ function EscenaResta() {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 2 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -198,7 +198,7 @@ function EscenaMultiplicacion() {
       <p style={subtitulo()}>Multiplicar es <strong>sumar el mismo número varias veces</strong>:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* Grilla 3×4 de bolitas */}
           {[0, 1, 2].map((fila) =>
@@ -251,7 +251,7 @@ function EscenaMultiplicacion() {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -288,7 +288,7 @@ function EscenaDivision() {
       <p style={subtitulo()}>Dividir es <strong>repartir</strong> en partes iguales:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 170 }}>
+        <Stage w={420} h={170}>
 
           {/* 12 bolitas — empiezan amontonadas, se reparten en 3 grupos */}
           {Array.from({ length: 12 }).map((_, k) => {
@@ -344,7 +344,7 @@ function EscenaDivision() {
               )}
             </AnimatePresence>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 2 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -374,7 +374,7 @@ function EscenaJerarquia() {
       <p style={subtitulo()}>¿En qué orden se resuelve una expresión con varias operaciones?</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
 
           {/* Expresión: 2 + 3 × 4 */}
           <motion.span style={{ position: "absolute", left: 80, top: 50, ...numGrande(COLOR_BASE, 60) }}
@@ -437,7 +437,7 @@ function EscenaJerarquia() {
             initial={{ opacity: 0 }}
             animate={paso === 1 ? { opacity: 1 } : { opacity: 0 }}
           />
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>

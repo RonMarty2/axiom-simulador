@@ -1,6 +1,56 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
+
 // Átomos visuales y tokens compartidos por todas las lecciones animadas.
+
+// ─────────────────────────────────────────────────────────────────────────────
+// <Stage> — Escena con coordenadas absolutas que SE ESCALA al ancho disponible.
+// Reemplaza al div `position: relative, width: W, height: H` que envuelve las
+// animaciones. Si la pantalla es más angosta que W, todo el contenido se
+// escala manteniendo proporciones — clave para que las lecciones se vean
+// bien en celular.
+// ─────────────────────────────────────────────────────────────────────────────
+export function Stage({ w, h, children }: { w: number; h: number; children: React.ReactNode }) {
+  const outerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    function update() {
+      const el = outerRef.current;
+      if (!el || !el.parentElement) return;
+      const parentWidth = el.parentElement.clientWidth;
+      const s = Math.min(1, (parentWidth - 4) / w);
+      setScale(s);
+    }
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [w]);
+
+  return (
+    <div
+      ref={outerRef}
+      style={{
+        position: "relative",
+        width: w * scale,
+        height: h * scale,
+        flexShrink: 0,
+      }}
+    >
+      <div
+        style={{
+          position: "absolute", top: 0, left: 0,
+          width: w, height: h,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
 
 export const COLOR_BASE = "#1E1B4B";
 export const COLOR_EXP = "#8b5cf6";
@@ -32,9 +82,10 @@ export const numGrande = (color: string, fontSize: number = 100): React.CSSPrope
 export const cajaAnim = (): React.CSSProperties => ({
   minHeight: 240, display: "flex", flexDirection: "column",
   alignItems: "center", justifyContent: "center", gap: 20,
-  background: "var(--bg-card)", borderRadius: 20, padding: "30px 40px",
+  background: "var(--bg-card)", borderRadius: 20, padding: "24px 14px",
   border: "1px solid var(--border)", cursor: "pointer", width: "100%", maxWidth: 560,
   boxShadow: "var(--shadow-sm)",
+  overflow: "hidden",
 });
 
 export const cajitaFormula = (): React.CSSProperties => ({

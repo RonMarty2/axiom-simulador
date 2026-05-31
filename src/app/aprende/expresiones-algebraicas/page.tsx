@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 export default function Page() {
@@ -32,7 +32,7 @@ function EscenaTermino() {
       <p style={subtitulo()}>Cada <strong>término</strong> tiene un coeficiente, una parte literal y un exponente:</p>
 
       <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <div style={{ position: "relative", width: 380, height: 200 }}>
+        <Stage w={380} h={200}>
           {/* 5x² central */}
           <div style={{ position: "absolute", left: 0, top: 50, width: "100%", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
@@ -56,7 +56,7 @@ function EscenaTermino() {
             style={{ position: "absolute", right: 60, top: 0, fontSize: 11, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1 }}>
             EXPONENTE ↓
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>El coeficiente multiplica, la parte literal es la variable, el exponente la potencia</p>
@@ -125,7 +125,7 @@ function EscenaSumaResta() {
       <p style={subtitulo()}>Sumar/restar términos semejantes: se suman los <strong>coeficientes</strong>, la parte literal queda:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, height: 140 }}>
+        <Stage w={380} h={140}>
 
           {/* 3x */}
           <motion.span style={{ position: "absolute", ...numGrande("#3b82f6", 50) }}
@@ -166,7 +166,7 @@ function EscenaSumaResta() {
               { opacity: 0, scale: 0 }
             }
             transition={{ type: "spring", stiffness: 180, delay: paso === 2 ? 0.3 : 0 }}>8</motion.span>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -194,7 +194,7 @@ function EscenaFOIL() {
       <p style={subtitulo()}>Para multiplicar <strong>(x+2)(x+3)</strong>, usamos FOIL: cada término del primero × cada uno del segundo:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 180 }}>
+        <Stage w={420} h={180}>
           {/* (x+2)(x+3) */}
           <div style={{ position: "absolute", left: 0, top: 0, width: "100%", textAlign: "center", fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             (<span style={{ fontStyle: "italic" }}>x</span>+2)(<span style={{ fontStyle: "italic" }}>x</span>+3)
@@ -227,7 +227,7 @@ function EscenaFOIL() {
           >
             = x² + 5x + 6
           </motion.div>
-        </div>
+        </Stage>
       </div>
 
       <p style={hint()}>
@@ -251,7 +251,7 @@ function EscenaNotables() {
       <p style={subtitulo()}>El <strong>cuadrado de un binomio</strong> tiene un patrón fijo:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, minHeight: 170 }}>
+        <Stage w={420} h={170}>
           <div style={{ position: "absolute", left: 0, top: 0, width: "100%", textAlign: "center", fontSize: 30, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
             <span>(a + b)</span>
             <span style={{ fontSize: 20, color: COLOR_EXP }}>2</span>
@@ -285,7 +285,7 @@ function EscenaNotables() {
           >
             + b<sup style={{ fontSize: 18, color: COLOR_EXP }}>2</sup>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 13, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>

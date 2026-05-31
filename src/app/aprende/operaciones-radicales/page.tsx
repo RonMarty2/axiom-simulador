@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula,
+  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -136,7 +136,7 @@ function EscenaSumaResta() {
       <p style={subtitulo()}>Si son semejantes, se suman los <strong>coeficientes</strong> y el radical no cambia:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 150 }}>
+        <Stage w={420} h={150}>
 
           {/* Coef 3 izq */}
           <motion.span
@@ -200,7 +200,7 @@ function EscenaSumaResta() {
             }
             transition={{ type: "spring", stiffness: 180, delay: paso === 2 ? 0.3 : 0 }}
           >8</motion.span>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -231,7 +231,7 @@ function EscenaMultiplicacion() {
       <p style={subtitulo()}>Multiplicar radicales del mismo índice: los radicandos se <strong>juntan</strong>:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 140 }}>
+        <Stage w={420} h={140}>
 
           {/* √3 izq */}
           <motion.div
@@ -287,7 +287,7 @@ function EscenaMultiplicacion() {
           >
             <Rad rad="15" size={40} color={COLOR_OK} />
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 1 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -318,7 +318,7 @@ function EscenaDivision() {
       <p style={subtitulo()}>Dividir radicales del mismo índice: queda <strong>una sola raíz</strong> con la fracción adentro:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
+        <div style={{ position: "relative", width: "100%", maxWidth: 420, height: 160, display: "flex", alignItems: "center", justifyContent: "center", gap: 14 }}>
 
           {/* Fracción √20 / √5 */}
           <motion.div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}

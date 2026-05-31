@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Stage } from "../_components/atoms";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Lección: Potenciación y sus propiedades (Unidad 01 — FCE-UMSS)
@@ -220,7 +221,7 @@ function EscenaSignificado() {
       <p style={subtitulo()}>2³ paso a paso. Mirá de dónde sale cada número:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 400, height: 150 }}>
+        <Stage w={400} h={150}>
 
           {/* === 2³ INICIAL === */}
           <motion.span
@@ -348,7 +349,7 @@ function EscenaSignificado() {
             }
             transition={{ duration: 0.5, delay: paso === 3 ? 0.4 : 0, type: "spring", stiffness: 180 }}
           >8</motion.span>
-        </div>
+        </Stage>
 
         {/* Etiqueta de paso actual */}
         <motion.div
@@ -389,7 +390,7 @@ function EscenaProducto() {
         style={cajaAnim()}
       >
         {/* Bases y exponentes son posicionados absolutamente para poder animarlos */}
-        <div style={{ position: "relative", width: 360, height: 140 }}>
+        <Stage w={360} h={140}>
           {/* Base izquierda */}
           <motion.span
             layout
@@ -478,7 +479,7 @@ function EscenaProducto() {
             }
             transition={{ type: "spring", stiffness: 160, damping: 12 }}
           >5</motion.span>
-        </div>
+        </Stage>
 
         {/* Línea de fórmula general (aparece al final) */}
         <motion.div
@@ -595,7 +596,7 @@ function EscenaPotenciaDePotencia() {
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
         {/* Layout posicional absoluto para control fino */}
-        <div style={{ position: "relative", width: 360, height: 160 }}>
+        <Stage w={360} h={160}>
           {/* Paréntesis izq */}
           <motion.span
             style={{ position: "absolute", left: 60, top: 50, fontSize: 70, color: COLOR_BASE, fontWeight: 700, lineHeight: 1 }}
@@ -662,7 +663,7 @@ function EscenaPotenciaDePotencia() {
             }
             transition={{ type: "spring", stiffness: 160, damping: 12 }}
           >6</motion.span>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -849,7 +850,7 @@ function EscenaProductoElevado() {
       <p style={subtitulo()}>Si tenés un <strong>producto</strong> elevado a una potencia… el exponente se reparte a cada factor:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 420, height: 160 }}>
+        <Stage w={420} h={160}>
           {/* ( */}
           <motion.span style={{ position: "absolute", left: 80, top: 50, fontSize: 70, color: COLOR_BASE, fontWeight: 700, lineHeight: 1 }}
             animate={{ opacity: paso < 3 ? 1 : 0, x: paso < 3 ? 0 : -30 }}
@@ -918,7 +919,7 @@ function EscenaProductoElevado() {
           >
             = 16 · 81 = 1296
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 4 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
@@ -950,7 +951,7 @@ function EscenaFraccionElevada() {
       <p style={subtitulo()}>Lo mismo pasa con <strong>fracciones</strong>: el exponente baja al numerador <em>y</em> al denominador:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, height: 180 }}>
+        <Stage w={380} h={180}>
           {/* ( */}
           <motion.span style={{ position: "absolute", left: 80, top: 50, fontSize: 100, color: COLOR_BASE, fontWeight: 400, lineHeight: 1 }}
             animate={{ opacity: paso < 2 ? 1 : 0, x: paso < 2 ? 0 : -30 }}>(</motion.span>
@@ -1003,7 +1004,7 @@ function EscenaFraccionElevada() {
               <span style={{ color: COLOR_OK, fontWeight: 800 }}>16</span>
             </div>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", display: "inline-flex", alignItems: "center", gap: 3 }}>
@@ -1051,7 +1052,7 @@ function EscenaRadicales() {
       <p style={subtitulo()}>Los <strong>radicales</strong> son potencias disfrazadas. La raíz se convierte en exponente fraccionario:</p>
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
-        <div style={{ position: "relative", width: 380, height: 160 }}>
+        <Stage w={380} h={160}>
           {/* Índice del radical "3" (de ³√) — vuela a la posición del denominador del exponente */}
           <motion.span style={{ position: "absolute", color: COLOR_EXP, fontWeight: 700, fontFamily: "var(--font-crimson), serif", lineHeight: 1, fontSize: 22 }}
             initial={{ left: 90, top: 30 }}
@@ -1113,7 +1114,7 @@ function EscenaRadicales() {
             <span style={{ fontSize: 40, color: COLOR_EXP, fontWeight: 700 }}>=</span>
             <span style={{ ...numGrande(COLOR_OK), fontSize: 60 }}>2</span>
           </motion.div>
-        </div>
+        </Stage>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
           <span style={{ fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
