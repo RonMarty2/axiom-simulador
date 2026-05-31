@@ -78,6 +78,7 @@ function Esc01_Intro() {
 // 02 — RAÍZ CUADRADA: concepto
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc02_RaizCuad() {
+  const [paso, setPaso] = useState(0);
   return (
     <EscenaRica>
       <Titulo accent="#3b82f6">La raíz cuadrada</Titulo>
@@ -89,6 +90,59 @@ function Esc02_RaizCuad() {
         <strong>√a = b</strong> significa que <strong>b² = a</strong>. <br />
         Es decir, √a busca el número que, multiplicado por sí mismo, da a.
       </Definicion>
+
+      {/* VISUAL: √9 → cuadrado de 3×3 */}
+      <div onClick={() => setPaso((p) => Math.min(p + 1, 2))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+        <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 6 }}>
+          ¿CUÁNTO ES √9 ?
+        </div>
+        <Stage w={400} h={200}>
+          {/* Símbolo radical y radicando */}
+          <motion.div style={{ position: "absolute", left: 60, top: 60, display: "flex", alignItems: "flex-start" }}
+            animate={paso >= 2 ? { opacity: 0.3 } : { opacity: 1 }}>
+            <span style={{ fontSize: 80, color: COLOR_BASE, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+            <div style={{ borderTop: `3px solid ${COLOR_BASE}`, paddingTop: 8, marginTop: 6, marginLeft: -3 }}>
+              <span style={{ fontSize: 56, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>9</span>
+            </div>
+          </motion.div>
+
+          {/* Grilla 3x3 de cuadraditos */}
+          {[0, 1, 2].map((fila) =>
+            [0, 1, 2].map((col) => {
+              const k = fila * 3 + col;
+              return (
+                <motion.div key={k}
+                  style={{ position: "absolute", left: 240 + col * 38, top: 60 + fila * 38, width: 30, height: 30, borderRadius: 5, background: COLOR_OK }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={paso >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ delay: k * 0.08, type: "spring" }}
+                />
+              );
+            })
+          )}
+          {/* Etiqueta 3×3 = 9 */}
+          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ delay: 0.8 }}
+            style={{ position: "absolute", left: 240, top: 180, fontSize: 13, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
+            3 × 3 = 9 cuadraditos
+          </motion.div>
+
+          {/* Resultado: √9 = 3 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring" }}
+            style={{ position: "absolute", left: 60, top: 60, fontSize: 50, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}
+          >
+            √9 = 3
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
+          {paso === 0 && "👆 Tocá para visualizar"}
+          {paso === 1 && "Un cuadrado con 9 cuadraditos tiene LADO 3"}
+          {paso === 2 && "Por eso √9 = 3 (el lado del cuadrado de área 9)"}
+        </div>
+      </div>
 
       <Ejemplo titulo="Ejemplos directos">
         <Paso n={1}>√<strong>9</strong> = 3, porque 3² = 9.</Paso>
@@ -314,6 +368,7 @@ function Esc06_Equiv() {
 // 07 — RAÍZ DE UN PRODUCTO
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc07_Producto() {
+  const [paso, setPaso] = useState(0);
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Raíz de un producto</Titulo>
@@ -328,6 +383,58 @@ function Esc07_Producto() {
         La raíz <strong>se distribuye</strong> en una multiplicación. Es decir: la raíz
         de un producto es el producto de las raíces.
       </Parrafo>
+
+      {/* VISUAL: √36 = √(4·9) → √4 · √9 → 2·3 → 6 */}
+      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+        <Stage w={420} h={170}>
+          {/* √(4·9) inicial */}
+          <motion.div style={{ position: "absolute", left: 30, top: 50, display: "flex", alignItems: "flex-start" }}
+            animate={paso >= 2 ? { opacity: 0, x: -30 } : { opacity: 1 }}>
+            <span style={{ fontSize: 70, color: COLOR_BASE, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+            <div style={{ borderTop: `3px solid ${COLOR_BASE}`, paddingTop: 7, marginTop: 6, marginLeft: -3, paddingLeft: 4, paddingRight: 4 }}>
+              <span style={{ fontSize: 36, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>4 · 9</span>
+            </div>
+          </motion.div>
+
+          {/* = */}
+          <motion.div style={{ position: "absolute", left: 195, top: 75, fontSize: 32, color: COLOR_EXP, fontWeight: 700 }}
+            animate={{ opacity: paso >= 1 ? 1 : 0 }}>
+            =
+          </motion.div>
+
+          {/* √4 · √9 distribuido */}
+          <motion.div style={{ position: "absolute", left: 230, top: 50, display: "flex", alignItems: "center", gap: 8 }}
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={paso >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.7 }}
+            transition={{ type: "spring", delay: 0.3 }}>
+            <div style={{ display: "flex", alignItems: "flex-start" }}>
+              <span style={{ fontSize: 50, color: COLOR_OK, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+              <div style={{ borderTop: `2px solid ${COLOR_OK}`, paddingTop: 4, marginTop: 4, marginLeft: -2 }}>
+                <span style={{ fontSize: 32, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>4</span>
+              </div>
+            </div>
+            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700 }}>·</span>
+            <div style={{ display: "flex", alignItems: "flex-start" }}>
+              <span style={{ fontSize: 50, color: COLOR_OK, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+              <div style={{ borderTop: `2px solid ${COLOR_OK}`, paddingTop: 4, marginTop: 4, marginLeft: -2 }}>
+                <span style={{ fontSize: 32, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>9</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Resultado: 2 · 3 = 6 */}
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={paso >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            style={{ position: "absolute", left: 0, top: 130, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
+            = 2 · 3 = 6 ✓
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
+          {paso === 0 && "👆 Calculemos √36 escribiéndolo como √(4·9)"}
+          {paso === 1 && "La raíz se REPARTE: √4 · √9"}
+          {paso === 2 && "Calculamos cada una"}
+          {paso === 3 && "2 · 3 = 6 ✓"}
+        </div>
+      </div>
 
       <Ejemplo titulo="Verificación numérica">
         √36 = √(4 · 9) = √4 · √9 = 2 · 3 = <strong>6</strong>. ✓
@@ -484,6 +591,7 @@ function Esc10_SumaResta() {
 // 11 — RACIONALIZACIÓN
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc11_Racionalizacion() {
+  const [paso, setPaso] = useState(0);
   return (
     <EscenaRica>
       <Titulo>Racionalizar el denominador</Titulo>
@@ -492,6 +600,78 @@ function Esc11_Racionalizacion() {
         raíz en el denominador</strong> de una fracción. El proceso de quitarla se llama
         <strong> racionalizar</strong>.
       </Parrafo>
+
+      {/* VISUAL: 1/√2 → multiplicar por √2/√2 → √2/2 */}
+      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+        <Stage w={420} h={180}>
+          {/* 1/√2 inicial */}
+          <motion.div style={{ position: "absolute", left: 30, top: 40, display: "flex", flexDirection: "column", alignItems: "center" }}
+            animate={paso >= 3 ? { opacity: 0.3 } : { opacity: 1 }}>
+            <span style={{ fontSize: 38, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>1</span>
+            <div style={{ borderTop: `2.5px solid ${COLOR_BASE}`, width: 70, margin: "4px 0" }} />
+            <div style={{ display: "flex", alignItems: "flex-start" }}>
+              <span style={{ fontSize: 36, color: COLOR_BASE, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+              <div style={{ borderTop: `2px solid ${COLOR_BASE}`, paddingTop: 3, marginTop: 3, marginLeft: -2 }}>
+                <span style={{ fontSize: 28, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>2</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* × √2/√2 */}
+          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ type: "spring" }}
+            style={{ position: "absolute", left: 130, top: 40, display: "flex", alignItems: "center", gap: 8 }}>
+            <span style={{ fontSize: 28, color: COLOR_EXP, fontWeight: 700 }}>×</span>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "flex-start" }}>
+                <span style={{ fontSize: 32, color: COLOR_OK, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+                <div style={{ borderTop: `2px solid ${COLOR_OK}`, paddingTop: 3, marginTop: 3, marginLeft: -2 }}>
+                  <span style={{ fontSize: 24, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>2</span>
+                </div>
+              </div>
+              <div style={{ borderTop: `2.5px solid ${COLOR_OK}`, width: 50, margin: "4px 0" }} />
+              <div style={{ display: "flex", alignItems: "flex-start" }}>
+                <span style={{ fontSize: 32, color: COLOR_OK, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+                <div style={{ borderTop: `2px solid ${COLOR_OK}`, paddingTop: 3, marginTop: 3, marginLeft: -2 }}>
+                  <span style={{ fontSize: 24, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>2</span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* "vale 1" tag */}
+          <motion.div initial={{ opacity: 0 }} animate={paso === 1 ? { opacity: 1 } : { opacity: 0 }}
+            style={{ position: "absolute", left: 145, top: 150, fontSize: 11, color: "var(--fg-muted)", fontStyle: "italic" }}>
+            (vale 1, no cambia nada)
+          </motion.div>
+
+          {/* = */}
+          <motion.div initial={{ opacity: 0 }} animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
+            style={{ position: "absolute", left: 240, top: 55, fontSize: 32, color: COLOR_EXP, fontWeight: 700 }}>
+            =
+          </motion.div>
+
+          {/* Resultado √2/2 */}
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={paso >= 2 ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+            transition={{ type: "spring", delay: 0.2 }}
+            style={{ position: "absolute", left: 290, top: 40, display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <div style={{ display: "flex", alignItems: "flex-start" }}>
+              <span style={{ fontSize: 40, color: COLOR_OK, fontWeight: 400, lineHeight: 0.9 }}>√</span>
+              <div style={{ borderTop: `2px solid ${COLOR_OK}`, paddingTop: 3, marginTop: 3, marginLeft: -2 }}>
+                <span style={{ fontSize: 30, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>2</span>
+              </div>
+            </div>
+            <div style={{ borderTop: `2.5px solid ${COLOR_OK}`, width: 60, margin: "4px 0" }} />
+            <span style={{ fontSize: 36, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>2</span>
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
+          {paso === 0 && "👆 1/√2 tiene una raíz fea abajo"}
+          {paso === 1 && "Multiplicamos arriba y abajo por √2 (que vale 1)"}
+          {paso === 2 && "Arriba queda √2. Abajo: √2·√2 = 2 (¡sin raíz!)"}
+          {paso === 3 && "Resultado: √2/2 — ya no hay raíz en el denominador ✓"}
+        </div>
+      </div>
 
       <Ejemplo titulo="Caso simple: 1/√2">
         <Paso n={1}>Multiplico arriba y abajo por √2 (es lo mismo que multiplicar por 1).</Paso>

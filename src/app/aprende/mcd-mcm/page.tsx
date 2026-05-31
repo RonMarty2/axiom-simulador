@@ -133,6 +133,17 @@ function Esc02_Divisor() {
 function Esc03_BuscarDiv() {
   const [paso, setPaso] = useState(0);
 
+  // El visual de bolitas se reorganiza según el divisor probado
+  const reparto = (() => {
+    if (paso === 0) return { grupos: 1, porGrupo: 12, divisor: 1, funciona: true };
+    if (paso === 1) return { grupos: 2, porGrupo: 6, divisor: 2, funciona: true };
+    if (paso === 2) return { grupos: 3, porGrupo: 4, divisor: 3, funciona: true };
+    if (paso === 3) return { grupos: 4, porGrupo: 3, divisor: 4, funciona: true };
+    if (paso === 4) return { grupos: 0, porGrupo: 0, divisor: 5, funciona: false };
+    if (paso === 5) return { grupos: 6, porGrupo: 2, divisor: 6, funciona: true };
+    return { grupos: 12, porGrupo: 1, divisor: 12, funciona: true };
+  })();
+
   return (
     <EscenaRica>
       <Titulo accent="#3b82f6">Buscar TODOS los divisores</Titulo>
@@ -142,7 +153,66 @@ function Esc03_BuscarDiv() {
         dan resto 0.
       </Parrafo>
 
-      <Ejemplo titulo="Divisores de 12">
+      {/* VISUAL: 12 bolitas reorganizándose según el divisor */}
+      <div style={{ ...cajaAnim(), cursor: "default", padding: "20px 14px" }}>
+        <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1, marginBottom: 6 }}>
+          PROBANDO DIVISOR: <span style={{ color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontSize: 18 }}>{reparto.divisor}</span>
+        </div>
+        <Stage w={400} h={140}>
+          {/* 12 bolitas */}
+          {Array.from({ length: 12 }).map((_, k) => {
+            let left = 30 + k * 30; // posición por defecto (fila única)
+            let top = 100;
+            if (reparto.funciona && reparto.grupos > 0) {
+              const grupo = Math.floor(k / reparto.porGrupo);
+              const dentro = k % reparto.porGrupo;
+              const anchoGrupo = 340 / reparto.grupos;
+              left = 30 + grupo * anchoGrupo + dentro * 24;
+              top = 50;
+            } else {
+              // No funciona: distribuir desordenado
+              const fila = Math.floor(k / 5);
+              left = 30 + (k % 5) * 60;
+              top = 30 + fila * 35;
+            }
+            const colorPorGrupo = reparto.funciona && reparto.grupos > 0
+              ? (Math.floor(k / reparto.porGrupo) % 2 === 0 ? COLOR_BASE : COLOR_EXP)
+              : COLOR_BAD;
+            return (
+              <motion.div key={k}
+                style={{ position: "absolute", width: 20, height: 20, borderRadius: "50%" }}
+                animate={{ left, top, background: colorPorGrupo }}
+                transition={{ type: "spring", stiffness: 200, damping: 18, delay: k * 0.015 }}
+              />
+            );
+          })}
+
+          {/* Cajas grupos */}
+          {reparto.funciona && reparto.grupos > 1 && Array.from({ length: reparto.grupos }).map((_, g) => {
+            const anchoGrupo = 340 / reparto.grupos;
+            return (
+              <motion.div key={`g${g}`}
+                initial={{ opacity: 0 }} animate={{ opacity: 0.6 }}
+                style={{
+                  position: "absolute",
+                  left: 30 + g * anchoGrupo - 4,
+                  top: 42,
+                  width: reparto.porGrupo * 24 + 2,
+                  height: 36,
+                  border: `1.5px dashed ${COLOR_EXP}`, borderRadius: 8,
+                }}
+              />
+            );
+          })}
+        </Stage>
+        <div style={{ fontSize: 14, color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontWeight: 700, fontFamily: "var(--font-crimson), serif", textAlign: "center", marginTop: 4 }}>
+          {reparto.funciona
+            ? `12 ÷ ${reparto.divisor} = ${reparto.porGrupo} (exacto) ✓ — es divisor`
+            : `12 ÷ ${reparto.divisor} = 2 r 2 ✗ — NO es divisor`}
+        </div>
+      </div>
+
+      <Ejemplo titulo="Probemos uno por uno (divisores de 12)">
         <div onClick={() => setPaso((p) => Math.min(p + 1, 6))} style={{ cursor: "pointer", padding: 6 }}>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             {[
@@ -168,7 +238,7 @@ function Esc03_BuscarDiv() {
             ))}
           </div>
           <div style={{ marginTop: 10, fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}>
-            {paso < 6 ? "👆 Tocá para probar el siguiente" : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
+            {paso < 6 ? "👆 Tocá para probar el siguiente (mirá cómo se reorganizan las bolitas arriba)" : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
           </div>
         </div>
       </Ejemplo>
@@ -383,6 +453,65 @@ function Esc08_Factorizar() {
         sus factores primos. Es la herramienta que vuelve fáciles el MCD y el MCM.
       </Parrafo>
 
+      {/* ÁRBOL DE FACTORIZACIÓN ANIMADO */}
+      <div style={{ ...cajaAnim(), cursor: "default", padding: "20px 14px" }}>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1.2, marginBottom: 6 }}>
+          ÁRBOL DE FACTORIZACIÓN DE 60
+        </div>
+        <Stage w={400} h={260}>
+          <motion.svg style={{ position: "absolute", left: 0, top: 0, width: 400, height: 260, pointerEvents: "none" }}>
+            {/* Líneas */}
+            <motion.line x1={200} y1={50} x2={140} y2={100}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 1 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+            <motion.line x1={200} y1={50} x2={260} y2={100}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 1 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+            <motion.line x1={260} y1={130} x2={210} y2={180}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 2 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+            <motion.line x1={260} y1={130} x2={310} y2={180}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 2 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+            <motion.line x1={310} y1={210} x2={280} y2={250}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 3 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+            <motion.line x1={310} y1={210} x2={340} y2={250}
+              stroke={COLOR_EXP} strokeWidth={2}
+              initial={{ pathLength: 0 }} animate={{ pathLength: paso >= 3 ? 1 : 0 }} transition={{ duration: 0.4 }} />
+          </motion.svg>
+
+          {/* Nodos */}
+          <motion.div style={{ position: "absolute", left: 180, top: 10, fontSize: 38, fontWeight: 800, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}>60</motion.div>
+
+          {/* 2 (primo, verde) */}
+          <motion.div style={{ position: "absolute", left: 120, top: 100, fontSize: 32, fontWeight: 800, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 1 ? { scale: 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.3 }}>2</motion.div>
+
+          {/* 30 (compuesto) */}
+          <motion.div style={{ position: "absolute", left: 235, top: 100, fontSize: 32, fontWeight: 800, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 1 ? { scale: 1, opacity: paso >= 2 ? 0.4 : 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.3 }}>30</motion.div>
+
+          {/* 2 (primo) */}
+          <motion.div style={{ position: "absolute", left: 195, top: 180, fontSize: 30, fontWeight: 800, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 2 ? { scale: 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.3 }}>2</motion.div>
+
+          {/* 15 (compuesto) */}
+          <motion.div style={{ position: "absolute", left: 295, top: 180, fontSize: 30, fontWeight: 800, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 2 ? { scale: 1, opacity: paso >= 3 ? 0.4 : 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.4 }}>15</motion.div>
+
+          {/* 3 y 5 (ambos primos) */}
+          <motion.div style={{ position: "absolute", left: 270, top: 250, fontSize: 28, fontWeight: 800, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 3 ? { scale: 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.3 }}>3</motion.div>
+          <motion.div style={{ position: "absolute", left: 330, top: 250, fontSize: 28, fontWeight: 800, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}
+            initial={{ scale: 0 }} animate={paso >= 3 ? { scale: 1 } : { scale: 0 }} transition={{ type: "spring", delay: 0.4 }}>5</motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, textAlign: "center" }}>
+          (los <strong style={{ color: COLOR_OK }}>verdes</strong> son primos: no se siguen descomponiendo)
+        </div>
+      </div>
+
       <Ejemplo titulo="Algoritmo paso a paso: factorizar 60">
         <div onClick={() => setPaso((p) => Math.min(p + 1, 4))} style={{ cursor: "pointer" }}>
           <Paso n={1}>Empezamos con 60. ¿Es divisible por el primo más chico (2)? <strong>Sí</strong>: 60 ÷ 2 = 30.</Paso>
@@ -432,6 +561,7 @@ function Esc08_Factorizar() {
 // 09 — MCD POR FACTORIZACIÓN
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc09_MCDFact() {
+  const [paso, setPaso] = useState(0);
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>MCD por factorización (el método rápido)</Titulo>
@@ -443,6 +573,39 @@ function Esc09_MCDFact() {
       <Resumen>
         <strong>MCD = primos COMUNES elevados al MENOR exponente</strong>
       </Resumen>
+
+      {/* VISUALIZACIÓN ANIMADA */}
+      <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+        <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
+          MCD(12, 18)
+        </div>
+        <Stage w={420} h={180}>
+          {/* Línea 12 */}
+          <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
+            12 = <span style={{ color: paso >= 1 ? COLOR_OK : COLOR_BASE }}>2<sup style={{ fontSize: 14, color: paso >= 2 ? COLOR_BAD : COLOR_EXP }}>2</sup></span>
+            {" · "}<span style={{ color: paso >= 1 ? COLOR_OK : COLOR_BASE }}>3<sup style={{ fontSize: 14, color: paso >= 2 ? COLOR_OK : COLOR_EXP }}>1</sup></span>
+          </div>
+          {/* Línea 18 */}
+          <div style={{ position: "absolute", left: 0, top: 70, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
+            18 = <span style={{ color: paso >= 1 ? COLOR_OK : COLOR_BASE }}>2<sup style={{ fontSize: 14, color: paso >= 2 ? COLOR_OK : COLOR_EXP }}>1</sup></span>
+            {" · "}<span style={{ color: paso >= 1 ? COLOR_OK : COLOR_BASE }}>3<sup style={{ fontSize: 14, color: paso >= 2 ? COLOR_BAD : COLOR_EXP }}>2</sup></span>
+          </div>
+          {/* Resultado */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={paso >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            style={{ position: "absolute", left: 0, top: 130, width: "100%", textAlign: "center", fontSize: 30, fontWeight: 800, fontFamily: "var(--font-crimson), serif", color: COLOR_OK }}
+          >
+            MCD = 2 · 3 = 6
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
+          {paso === 0 && "👆 Tocá para ver paso a paso"}
+          {paso === 1 && "Resaltamos primos COMUNES (2 y 3)"}
+          {paso === 2 && "Tomamos el MENOR exponente de cada uno (verde) — descartamos el otro (rojo)"}
+          {paso === 3 && "Multiplicamos: 2¹ · 3¹ = 6"}
+        </div>
+      </div>
 
       <Ejemplo titulo="MCD(12, 18) con factorización">
         <Paso n={1}>Factorizo cada uno: <strong>12 = 2² · 3</strong> y <strong>18 = 2 · 3²</strong>.</Paso>
@@ -518,6 +681,7 @@ function Esc10_MCMDef() {
 // 11 — MCM POR FACTORIZACIÓN
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc11_MCMFact() {
+  const [pasoMCM, setPasoMCM] = useState(0);
   return (
     <EscenaRica>
       <Titulo accent={COLOR_EXP}>MCM por factorización</Titulo>
@@ -529,6 +693,36 @@ function Esc11_MCMFact() {
       <Resumen>
         <strong>MCM = TODOS los primos (que aparezcan en alguno) elevados al MAYOR exponente</strong>
       </Resumen>
+
+      {/* VISUALIZACIÓN ANIMADA */}
+      <div onClick={() => setPasoMCM((p) => Math.min(p + 1, 3))} style={{ ...cajaAnim(), padding: "20px 14px" }}>
+        <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
+          MCM(12, 18)
+        </div>
+        <Stage w={420} h={180}>
+          <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
+            12 = 2<sup style={{ fontSize: 14, color: pasoMCM >= 2 ? COLOR_OK : COLOR_EXP }}>2</sup>
+            {" · "}3<sup style={{ fontSize: 14, color: pasoMCM >= 2 ? COLOR_BAD : COLOR_EXP }}>1</sup>
+          </div>
+          <div style={{ position: "absolute", left: 0, top: 70, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
+            18 = 2<sup style={{ fontSize: 14, color: pasoMCM >= 2 ? COLOR_BAD : COLOR_EXP }}>1</sup>
+            {" · "}3<sup style={{ fontSize: 14, color: pasoMCM >= 2 ? COLOR_OK : COLOR_EXP }}>2</sup>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={pasoMCM >= 3 ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+            style={{ position: "absolute", left: 0, top: 130, width: "100%", textAlign: "center", fontSize: 30, fontWeight: 800, fontFamily: "var(--font-crimson), serif", color: COLOR_OK }}
+          >
+            MCM = 2² · 3² = 36
+          </motion.div>
+        </Stage>
+        <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
+          {pasoMCM === 0 && "👆 Tocá para ver paso a paso"}
+          {pasoMCM === 1 && "Esta vez NO descartamos primos"}
+          {pasoMCM === 2 && "Tomamos el MAYOR exponente de cada uno (verde)"}
+          {pasoMCM === 3 && "Multiplicamos: 4 · 9 = 36"}
+        </div>
+      </div>
 
       <Ejemplo titulo="MCM(12, 18) con factorización">
         <Paso n={1}>12 = 2² · 3 &nbsp;y&nbsp; 18 = 2 · 3².</Paso>
