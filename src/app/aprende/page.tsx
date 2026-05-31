@@ -1,46 +1,94 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { esPago } from "@/lib/plan";
+import type { Usuario } from "@/lib/data-store";
 
-type Unidad = {
-  numero: string;
-  titulo: string;
-  lecciones: { slug?: string; titulo: string; tags?: string[] }[];
-};
+// ─────────────────────────────────────────────────────────────────────────────
+// Estructura del examen de admisión FCE-UMSS — dos áreas:
+//
+//  1. Fundamentos de las ciencias económicas, contables y administrativas
+//  2. Razonamiento verbal-lógico y matemáticas
+//
+// Por ahora solo tenemos contenido en el área 2 (Unidades 01-11). El área 1
+// aparece como "próximamente".
+// ─────────────────────────────────────────────────────────────────────────────
 
-const UNIDADES: Unidad[] = [
+type Leccion = { slug?: string; titulo: string; tags?: string[] };
+type Unidad = { numero: string; titulo: string; lecciones: Leccion[] };
+type Bloque = { id: string; titulo: string; descripcion: string; unidades: Unidad[] };
+
+const MATEMATICAS_UNIDADES: Unidad[] = [
   {
     numero: "01", titulo: "Los números naturales, enteros, racionales y reales",
     lecciones: [
-      { titulo: "Operaciones fundamentales" },
-      { titulo: "MCD y MCM" },
+      { slug: "operaciones-fundamentales", titulo: "Operaciones fundamentales", tags: ["✨ Animada"] },
+      { slug: "mcd-mcm", titulo: "MCD y MCM", tags: ["✨ Animada"] },
       { slug: "potenciacion", titulo: "Potenciación y sus propiedades", tags: ["✨ Animada"] },
-      { titulo: "Radicación y propiedades" },
-      { titulo: "Operaciones con radicales" },
+      { slug: "radicacion", titulo: "Radicación y propiedades", tags: ["✨ Animada"] },
+      { slug: "operaciones-radicales", titulo: "Operaciones con radicales", tags: ["✨ Animada"] },
     ],
   },
   { numero: "02", titulo: "La proporcionalidad", lecciones: [
-    { titulo: "Razones y proporciones" },
-    { titulo: "Regla de tres · Interés simple" },
-    { titulo: "Repartos proporcionales" },
+    { slug: "razones-proporciones", titulo: "Razones y proporciones" },
+    { slug: "regla-de-tres", titulo: "Regla de tres · Interés simple" },
+    { slug: "repartos-proporcionales", titulo: "Repartos proporcionales" },
   ] },
   { numero: "03", titulo: "Conceptos fundamentales de Álgebra", lecciones: [
-    { titulo: "Expresiones algebraicas" },
-    { titulo: "Factorización" },
-    { titulo: "MCD y MCM algebraicos" },
+    { slug: "expresiones-algebraicas", titulo: "Expresiones algebraicas" },
+    { slug: "factorizacion", titulo: "Factorización" },
+    { slug: "mcd-mcm-algebraico", titulo: "MCD y MCM algebraicos" },
   ] },
   { numero: "04", titulo: "Funciones y gráficas", lecciones: [
-    { titulo: "Función lineal y cuadrática" },
-    { titulo: "Dominio, rango y gráfica" },
+    { slug: "funcion-lineal-cuadratica", titulo: "Función lineal y cuadrática" },
+    { slug: "dominio-rango", titulo: "Dominio, rango y gráfica" },
   ] },
-  { numero: "05", titulo: "Ecuaciones de primer grado", lecciones: [{ titulo: "Resolución y problemas" }] },
-  { numero: "06", titulo: "Sistemas de ecuaciones lineales", lecciones: [{ titulo: "Sistemas 2×2 y 3×3" }] },
-  { numero: "07", titulo: "Potenciación y radicación", lecciones: [{ titulo: "Teoría de exponentes" }] },
-  { numero: "08", titulo: "Ecuaciones de segundo grado", lecciones: [{ titulo: "Métodos de resolución" }] },
-  { numero: "09", titulo: "Desigualdades", lecciones: [{ titulo: "Inecuaciones lineales y cuadráticas" }] },
-  { numero: "10", titulo: "Logaritmación", lecciones: [{ titulo: "Propiedades y ecuaciones" }] },
-  { numero: "11", titulo: "Sucesiones y series", lecciones: [{ titulo: "Progresiones aritméticas y geométricas" }] },
+  { numero: "05", titulo: "Ecuaciones de primer grado", lecciones: [{ slug: "ecuaciones-primer-grado", titulo: "Resolución y problemas" }] },
+  { numero: "06", titulo: "Sistemas de ecuaciones lineales", lecciones: [{ slug: "sistemas-lineales", titulo: "Sistemas 2×2 y 3×3" }] },
+  { numero: "07", titulo: "Potenciación y radicación (profundo)", lecciones: [{ slug: "teoria-exponentes", titulo: "Teoría de exponentes" }] },
+  { numero: "08", titulo: "Ecuaciones de segundo grado", lecciones: [{ slug: "ecuaciones-segundo-grado", titulo: "Métodos de resolución" }] },
+  { numero: "09", titulo: "Desigualdades", lecciones: [{ slug: "desigualdades", titulo: "Inecuaciones lineales y cuadráticas" }] },
+  { numero: "10", titulo: "Logaritmación", lecciones: [{ slug: "logaritmacion", titulo: "Propiedades y ecuaciones" }] },
+  { numero: "11", titulo: "Sucesiones y series", lecciones: [{ slug: "sucesiones-series", titulo: "Progresiones aritméticas y geométricas" }] },
+];
+
+const BLOQUES: Bloque[] = [
+  {
+    id: "fundamentos",
+    titulo: "Fundamentos de las ciencias económicas, contables y administrativas",
+    descripcion: "Conceptos clave de economía, contabilidad y administración que toma el examen.",
+    unidades: [],
+  },
+  {
+    id: "razonamiento-matematicas",
+    titulo: "Razonamiento verbal-lógico y matemáticas",
+    descripcion: "Operaciones, álgebra, funciones, ecuaciones y razonamiento que mide el examen.",
+    unidades: MATEMATICAS_UNIDADES,
+  },
 ];
 
 export default function AprendePage() {
+  const router = useRouter();
+  const [usuario, setUsuario] = useState<Usuario | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((me) => {
+        if (!me.usuario) { router.push("/login"); return; }
+        setUsuario(me.usuario);
+        setLoading(false);
+      });
+  }, [router]);
+
+  if (loading) return <div style={{ padding: 40, textAlign: "center", color: "var(--fg-muted)" }}>Cargando…</div>;
+
+  const usuarioEsPremium = esPago(usuario?.plan);
+
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-base)" }}>
       <header style={{
@@ -58,67 +106,192 @@ export default function AprendePage() {
             Aprende paso a paso
           </h1>
           <p style={{ color: "var(--fg-muted)", fontSize: 16 }}>
-            Contenido mínimo de matemáticas · FCE-UMSS
+            Las dos áreas del examen de admisión · FCE-UMSS
           </p>
+
+          {!usuarioEsPremium && (
+            <div style={{
+              marginTop: 14, padding: "12px 16px",
+              background: "linear-gradient(135deg, #fef3c7, #fde68a)",
+              borderRadius: 12, border: "1px solid #fbbf24",
+              display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap",
+            }}>
+              <span style={{ fontSize: 20 }}>🔓</span>
+              <div style={{ flex: 1, minWidth: 200 }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "#78350f" }}>
+                  Plan gratis: Unidad 01 de matemáticas desbloqueada
+                </div>
+                <div style={{ fontSize: 13, color: "#92400e" }}>
+                  Hacete Premium para acceder al resto del contenido.
+                </div>
+              </div>
+              <Link href="/precios" style={{
+                padding: "8px 16px", background: "#f59e0b", color: "white",
+                borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 14,
+              }}>
+                Ver planes →
+              </Link>
+            </div>
+          )}
         </div>
       </header>
 
       <main style={{ maxWidth: 920, margin: "0 auto", padding: "28px 24px" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          {UNIDADES.map((u) => (
-            <section key={u.numero} style={{
-              background: "var(--bg-card)", borderRadius: 16,
-              border: "1px solid var(--border)", padding: 20,
-              boxShadow: "var(--shadow-sm)",
-            }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 12 }}>
-                <span style={{
-                  fontSize: 12, fontWeight: 800, color: "var(--accent)",
-                  background: "var(--bg-subtle)", padding: "4px 10px", borderRadius: 8,
-                  letterSpacing: 1,
-                }}>UNIDAD {u.numero}</span>
-                <h2 className="font-crimson" style={{
-                  fontSize: 20, fontWeight: 700, color: "var(--fg-primary)", margin: 0,
-                }}>{u.titulo}</h2>
-              </div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
-                {u.lecciones.map((l, i) => (
-                  <li key={i}>
-                    {l.slug ? (
-                      <Link href={`/aprende/${l.slug}`} style={leccionEstilo(true)}>
-                        <span>{l.titulo}</span>
-                        <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                          {l.tags?.map((t) => (
-                            <span key={t} style={tagEstilo}>{t}</span>
-                          ))}
-                          <span style={{ color: "var(--accent)", fontWeight: 700 }}>→</span>
-                        </span>
-                      </Link>
-                    ) : (
-                      <div style={leccionEstilo(false)}>
-                        <span>{l.titulo}</span>
-                        <span style={{ fontSize: 12, color: "var(--border)", fontWeight: 600 }}>próximamente</span>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
+        {BLOQUES.map((b, bi) => (
+          <BloqueArea key={b.id} bloque={b} indice={bi + 1} esPremium={usuarioEsPremium} />
+        ))}
       </main>
     </div>
   );
 }
 
-const leccionEstilo = (activa: boolean): React.CSSProperties => ({
+function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: number; esPremium: boolean }) {
+  const tieneContenido = bloque.unidades.length > 0;
+  const color = indice === 1 ? "#0ea5e9" : "var(--accent)";
+
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: indice * 0.1 }}
+      style={{ marginBottom: 32 }}
+    >
+      {/* Cabecera del área */}
+      <div style={{
+        padding: "20px 24px",
+        background: `linear-gradient(135deg, ${color}, ${indice === 1 ? "#38bdf8" : "#8b5cf6"})`,
+        borderRadius: 18, color: "white",
+        boxShadow: "var(--shadow-md)", marginBottom: 16,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <span style={{
+            fontSize: 11, fontWeight: 800, background: "rgba(255,255,255,0.25)",
+            padding: "3px 10px", borderRadius: 8, letterSpacing: 1.2,
+          }}>ÁREA {indice}</span>
+        </div>
+        <h2 className="font-crimson" style={{ fontSize: 22, fontWeight: 700, margin: 0, lineHeight: 1.3 }}>
+          {bloque.titulo}
+        </h2>
+        <p style={{ fontSize: 14, opacity: 0.92, marginTop: 6, marginBottom: 0 }}>
+          {bloque.descripcion}
+        </p>
+      </div>
+
+      {/* Cuerpo del área */}
+      {!tieneContenido ? (
+        <div style={{
+          padding: "30px 24px", background: "var(--bg-card)",
+          borderRadius: 14, border: "1px dashed var(--border)",
+          textAlign: "center", color: "var(--fg-muted)",
+        }}>
+          <div style={{ fontSize: 28, marginBottom: 8 }}>🚧</div>
+          <div style={{ fontSize: 15, fontWeight: 600 }}>Contenido en desarrollo</div>
+          <div style={{ fontSize: 13, marginTop: 4 }}>
+            Estamos preparando las lecciones de esta área. Mientras tanto, podés practicar con los simulacros.
+          </div>
+        </div>
+      ) : (
+        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+          {bloque.unidades.map((u) => (
+            <UnidadCard key={u.numero} unidad={u} esPremium={esPremium} />
+          ))}
+        </div>
+      )}
+    </motion.section>
+  );
+}
+
+function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean }) {
+  const esGratis = unidad.numero === "01";
+  const accesible = esGratis || esPremium;
+
+  return (
+    <section style={{
+      background: "var(--bg-card)", borderRadius: 14,
+      border: "1px solid var(--border)", padding: 18,
+      boxShadow: "var(--shadow-sm)", opacity: accesible ? 1 : 0.7,
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12, flexWrap: "wrap" }}>
+        <span style={{
+          fontSize: 11, fontWeight: 800, color: accesible ? "var(--accent)" : "var(--fg-muted)",
+          background: "var(--bg-subtle)", padding: "4px 10px", borderRadius: 8, letterSpacing: 1,
+        }}>UNIDAD {unidad.numero}</span>
+        <h3 className="font-crimson" style={{
+          fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", margin: 0, flex: 1, minWidth: 180,
+        }}>{unidad.titulo}</h3>
+        {!accesible && (
+          <span style={{
+            fontSize: 11, fontWeight: 800, color: "#92400e",
+            background: "linear-gradient(135deg, #fde68a, #fcd34d)",
+            padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
+          }}>🔒 SOLO PREMIUM</span>
+        )}
+        {esGratis && (
+          <span style={{
+            fontSize: 11, fontWeight: 800, color: "#065f46",
+            background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+            padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
+          }}>GRATIS</span>
+        )}
+      </div>
+      <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
+        {unidad.lecciones.map((l, i) => {
+          if (accesible && l.slug) {
+            return (
+              <li key={i}>
+                <Link href={`/aprende/${l.slug}`} style={leccionEstilo("activa")}>
+                  <span>{l.titulo}</span>
+                  <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                    {l.tags?.map((t) => (<span key={t} style={tagEstilo}>{t}</span>))}
+                    <span style={{ color: "var(--accent)", fontWeight: 700 }}>→</span>
+                  </span>
+                </Link>
+              </li>
+            );
+          }
+          if (!accesible) {
+            return (
+              <li key={i}>
+                <Link href="/precios" style={leccionEstilo("bloqueada")}>
+                  <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <span style={{ opacity: 0.6 }}>🔒</span>
+                    {l.titulo}
+                  </span>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#92400e", letterSpacing: 0.5 }}>
+                    DESBLOQUEAR →
+                  </span>
+                </Link>
+              </li>
+            );
+          }
+          return (
+            <li key={i}>
+              <div style={leccionEstilo("proximamente")}>
+                <span>{l.titulo}</span>
+                <span style={{ fontSize: 12, color: "var(--border)", fontWeight: 600 }}>próximamente</span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+const leccionEstilo = (variante: "activa" | "bloqueada" | "proximamente"): React.CSSProperties => ({
   display: "flex", justifyContent: "space-between", alignItems: "center",
   padding: "12px 14px", borderRadius: 10,
-  background: activa ? "var(--bg-base)" : "transparent",
-  border: activa ? "1px solid var(--border)" : "1px dashed transparent",
-  color: activa ? "var(--fg-primary)" : "var(--fg-muted)",
+  background: variante === "activa" ? "var(--bg-base)" :
+              variante === "bloqueada" ? "#fffbeb" :
+              "transparent",
+  border: variante === "activa" ? "1px solid var(--border)" :
+          variante === "bloqueada" ? "1px solid #fde68a" :
+          "1px dashed transparent",
+  color: variante === "activa" ? "var(--fg-primary)" :
+         variante === "bloqueada" ? "#78350f" :
+         "var(--fg-muted)",
   textDecoration: "none", fontSize: 15, fontWeight: 600,
-  cursor: activa ? "pointer" : "default",
+  cursor: variante === "proximamente" ? "default" : "pointer",
   transition: "background 0.2s",
 });
 
