@@ -154,9 +154,10 @@ function Esc03_BuscarDiv() {
       </Parrafo>
 
       {/* VISUAL: 12 bolitas reorganizándose según el divisor */}
-      <div style={{ ...cajaAnim(), cursor: "default", padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 6 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1, marginBottom: 6 }}>
           PROBANDO DIVISOR: <span style={{ color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontSize: 18 }}>{reparto.divisor}</span>
+          <span style={{ color: COLOR_EXP, marginLeft: 6, fontSize: 12 }}>👆 tocá para avanzar</span>
         </div>
         <Stage w={400} h={140}>
           {/* 12 bolitas */}
@@ -454,9 +455,10 @@ function Esc08_Factorizar() {
       </Parrafo>
 
       {/* ÁRBOL DE FACTORIZACIÓN ANIMADO */}
-      <div style={{ ...cajaAnim(), cursor: "default", padding: "20px 14px" }}>
+      <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1.2, marginBottom: 6 }}>
-          ÁRBOL DE FACTORIZACIÓN DE 60
+          ÁRBOL DE FACTORIZACIÓN DE 60{" "}
+          <span style={{ color: COLOR_EXP, marginLeft: 6 }}>👆 tocá para avanzar</span>
         </div>
         <Stage w={400} h={260}>
           <motion.svg style={{ position: "absolute", left: 0, top: 0, width: 400, height: 260, pointerEvents: "none" }}>
