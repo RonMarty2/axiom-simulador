@@ -312,17 +312,17 @@ function EscenaSignificado() {
             transition={{ duration: 0.6, times: [0, 0.5, 1] }}
           />
 
-          {/* === EL "4" surge de la fusión === */}
+          {/* === EL "4" surge de la fusión (paso 2), luego se fusiona en el 8 (paso 3) === */}
           <motion.span
             style={{ position: "absolute", ...numGrande(COLOR_OK), fontSize: 80 }}
             initial={{ left: XF1, top: Y_NUM, opacity: 0, scale: 0 }}
             animate={
-              paso === 2 ? { left: XF1, top: Y_NUM, opacity: 1, scale: [0, 1.3, 1] } :
-              paso === 3 ? { left: XF2 - 30, top: Y_NUM, opacity: 1, scale: 1, color: COLOR_BASE } :
-              paso >= 4  ? { left: XF2, top: Y_NUM, opacity: 0, scale: 1.4, color: COLOR_BASE } :
+              paso === 2 ? { left: XF1, top: Y_NUM, opacity: 1, scale: [0, 1.3, 1], color: COLOR_OK } :
+              paso === 3 ? { left: XF2, top: Y_NUM, opacity: 0, scale: 1.4, color: COLOR_BASE } :
+              paso >= 4  ? { left: XF2, top: Y_NUM, opacity: 0, scale: 0, color: COLOR_BASE } :
                            { left: XF1, top: Y_NUM, opacity: 0, scale: 0 }
             }
-            transition={{ duration: 0.5, delay: paso === 2 ? 0.4 : 0, type: "spring", stiffness: 180 }}
+            transition={{ duration: 0.4, delay: paso === 2 ? 0.4 : 0, type: "spring", stiffness: 180, damping: 16 }}
           >4</motion.span>
 
           {/* === FLASH de fusión 2 (paso 3) === */}
@@ -1006,15 +1006,24 @@ function EscenaFraccionElevada() {
         </div>
 
         <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            <span style={{ display: "inline-flex", flexDirection: "column", verticalAlign: "middle" }}>
-              <span style={{ fontSize: 14 }}>(a</span>
-              <span style={{ borderTop: "2px solid currentColor", padding: "0 4px", fontSize: 14 }}>b)</span>
+          <span style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", display: "inline-flex", alignItems: "center", gap: 3 }}>
+            <span style={{ fontSize: 28, fontWeight: 400 }}>(</span>
+            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1.1 }}>
+              <span style={{ padding: "0 6px" }}>a</span>
+              <span style={{ borderTop: "1.5px solid currentColor", width: "100%", marginTop: 2 }} />
+              <span style={{ padding: "0 6px", marginTop: 2 }}>b</span>
             </span>
-            <sup style={{ color: COLOR_EXP }}>n</sup> ={" "}
-            <span style={{ display: "inline-flex", flexDirection: "column", verticalAlign: "middle" }}>
-              <span style={{ fontSize: 14 }}>a<sup style={{ color: COLOR_OK }}>n</sup></span>
-              <span style={{ borderTop: "2px solid currentColor", padding: "0 4px", fontSize: 14 }}>b<sup style={{ color: COLOR_OK }}>n</sup></span>
+            <span style={{ fontSize: 28, fontWeight: 400 }}>)</span>
+            <span style={{ fontSize: 12, color: COLOR_EXP, alignSelf: "flex-start", marginTop: 2, marginLeft: -2 }}>n</span>
+            <span style={{ margin: "0 8px" }}>=</span>
+            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1.1 }}>
+              <span style={{ padding: "0 6px" }}>
+                a<span style={{ fontSize: 11, color: COLOR_OK, verticalAlign: "super" }}>n</span>
+              </span>
+              <span style={{ borderTop: "1.5px solid currentColor", width: "100%", marginTop: 2 }} />
+              <span style={{ padding: "0 6px", marginTop: 2 }}>
+                b<span style={{ fontSize: 11, color: COLOR_OK, verticalAlign: "super" }}>n</span>
+              </span>
             </span>
           </span>
         </motion.div>
@@ -1043,14 +1052,13 @@ function EscenaRadicales() {
 
       <div onClick={() => setPaso((p) => Math.min(p + 1, 3))} style={cajaAnim()}>
         <div style={{ position: "relative", width: 380, height: 160 }}>
-          {/* Índice del radical "3" (de ³√) */}
-          <motion.span style={{ position: "absolute", ...numGrande(COLOR_EXP), fontSize: 28 }}
+          {/* Índice del radical "3" (de ³√) — vuela a la posición del denominador del exponente */}
+          <motion.span style={{ position: "absolute", color: COLOR_EXP, fontWeight: 700, fontFamily: "var(--font-crimson), serif", lineHeight: 1, fontSize: 22 }}
             initial={{ left: 90, top: 30 }}
             animate={
-              paso === 0 ? { left: 90, top: 30, opacity: 1, scale: 1 } :
-              paso === 1 ? { left: 90, top: 30, opacity: 1, scale: [1, 1.3, 1.2] } :
-              paso === 2 ? { left: 245, top: 100, opacity: 1, scale: 1, color: COLOR_OK } :
-                           { left: 245, top: 100, opacity: 1, scale: 1, color: COLOR_OK }
+              paso === 0 ? { left: 90, top: 30, opacity: 1, scale: 1.3 } :
+              paso === 1 ? { left: 90, top: 30, opacity: 1, scale: [1.3, 1.6, 1.5] } :
+                           { left: 252, top: 60, opacity: 1, scale: 1, color: COLOR_OK }
             }
             transition={{ type: "spring", stiffness: 160, damping: 14, duration: 0.6 }}
           >3</motion.span>
@@ -1075,33 +1083,32 @@ function EscenaRadicales() {
             initial={{ left: 170, top: 55 }}
             animate={
               paso < 2 ? { left: 170, top: 55, opacity: 1, scale: 1 } :
-              paso === 2 ? { left: 180, top: 55, opacity: 1, scale: 1 } :
-                           { left: 180, top: 55, opacity: 1, scale: 1 }
+                         { left: 200, top: 55, opacity: 1, scale: 1 }
             }
             transition={{ type: "spring", stiffness: 180 }}
           >8</motion.span>
 
-          {/* "1" del exponente fraccionario (aparece en paso 2) */}
-          <motion.span style={{ position: "absolute", ...numGrande(COLOR_OK), fontSize: 22 }}
+          {/* "1" del exponente fraccionario — POSICIONADO COMO SUPERÍNDICE arriba-derecha del 8 */}
+          <motion.span style={{ position: "absolute", color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif", lineHeight: 1, fontSize: 22 }}
             initial={{ opacity: 0, scale: 0 }}
             animate={
-              paso >= 2 ? { left: 245, top: 50, opacity: 1, scale: 1 } :
-                           { left: 235, top: 60, opacity: 0, scale: 0 }
+              paso >= 2 ? { left: 252, top: 30, opacity: 1, scale: 1 } :
+                           { left: 252, top: 30, opacity: 0, scale: 0 }
             }
             transition={{ type: "spring", stiffness: 200, delay: paso === 2 ? 0.4 : 0 }}
           >1</motion.span>
 
-          {/* Línea de fracción */}
-          <motion.div style={{ position: "absolute", left: 240, top: 82, width: 22, height: 2, background: COLOR_OK, borderRadius: 1 }}
+          {/* Línea de fracción del exponente — justo encima del 8 */}
+          <motion.div style={{ position: "absolute", left: 248, top: 55, width: 20, height: 2, background: COLOR_OK, borderRadius: 1, transformOrigin: "left" }}
             initial={{ opacity: 0, scaleX: 0 }}
             animate={paso >= 2 ? { opacity: 1, scaleX: 1 } : { opacity: 0, scaleX: 0 }}
             transition={{ delay: paso === 2 ? 0.5 : 0 }}
           />
 
-          {/* "= 2" final (paso 3) */}
+          {/* "= 2" final (paso 3) — alineado con el 8 */}
           <motion.div
             animate={paso === 3 ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            style={{ position: "absolute", left: 290, top: 65, display: "flex", alignItems: "center", gap: 8 }}
+            style={{ position: "absolute", left: 285, top: 65, display: "flex", alignItems: "center", gap: 8 }}
           >
             <span style={{ fontSize: 40, color: COLOR_EXP, fontWeight: 700 }}>=</span>
             <span style={{ ...numGrande(COLOR_OK), fontSize: 60 }}>2</span>
