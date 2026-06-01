@@ -1,5 +1,18 @@
 import { NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
+import { getCurrentUser } from "@/lib/session";
+
+// Si hay usuario logueado, solo puede acceder a SUS simuladores.
+// Los anónimos (id "anon-*") quedan accesibles como antes — no rompe ese flujo.
+async function bloqueoCruzado(simuladorUsuarioId: string | undefined): Promise<NextResponse | null> {
+  if (!simuladorUsuarioId || simuladorUsuarioId.startsWith("anon-")) return null;
+  const user = await getCurrentUser();
+  if (!user) return null; // sin sesión, mantenemos comportamiento previo
+  if (user.id !== simuladorUsuarioId) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 403 });
+  }
+  return null;
+}
 
 export async function GET(
   _req: Request,
@@ -10,6 +23,8 @@ export async function GET(
   if (!simulador) {
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }
+  const bloqueo = await bloqueoCruzado(simulador.usuario_id);
+  if (bloqueo) return bloqueo;
   return NextResponse.json({ simulador });
 }
 
@@ -30,6 +45,8 @@ export async function PATCH(
   if (!simulador) {
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }
+  const bloqueo = await bloqueoCruzado(simulador.usuario_id);
+  if (bloqueo) return bloqueo;
   if (simulador.estado !== "activo") {
     return NextResponse.json(
       { error: "El simulador ya fue finalizado" },

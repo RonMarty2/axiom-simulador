@@ -4,6 +4,7 @@ import { cargarExamen } from "@/lib/axiom/banco-loader";
 import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
 import { guardarErroresFallados } from "@/lib/axiom/errores-db";
 import { agregarHistorial, getUsuario, getHistorialUsuario, actualizarUsuario, type FacultadId } from "@/lib/data-store";
+import { getCurrentUser } from "@/lib/session";
 import type { Simulador } from "@/lib/axiom/types";
 
 export async function POST(
@@ -28,6 +29,16 @@ export async function POST(
   if (!simulador) {
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }
+
+  // Bloqueo cruzado: si hay sesión, solo puede finalizar SU simulador.
+  // No tocamos a anónimos (usuario_id "anon-*") para no romper ese flujo.
+  if (simulador.usuario_id && !simulador.usuario_id.startsWith("anon-")) {
+    const user = await getCurrentUser();
+    if (user && user.id !== simulador.usuario_id) {
+      return NextResponse.json({ error: "No autorizado" }, { status: 403 });
+    }
+  }
+
   if (simulador.estado === "calificado") {
     return NextResponse.json({ simulador });
   }

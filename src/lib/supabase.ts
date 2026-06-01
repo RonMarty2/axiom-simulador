@@ -48,3 +48,13 @@ export function supabasePublic(): SupabaseClient {
 export function supabaseConfigurado(): boolean {
   return !!(URL && SERVICE_KEY);
 }
+
+// Aviso defensivo: si en producción falta Supabase, la app caería en modo
+// memoria y perdería usuarios/pagos silenciosamente. Gritamos en los logs
+// para que el deploy quede marcado como ROTO en Vercel y no pase desapercibido.
+if (process.env.NODE_ENV === "production" && !(URL && SERVICE_KEY)) {
+  console.error(
+    "[AXIOM] ⚠️ FALTA SUPABASE EN PRODUCCIÓN — los datos NO se guardan. " +
+      "Configurá NEXT_PUBLIC_SUPABASE_URL y SUPABASE_SERVICE_ROLE_KEY en Vercel."
+  );
+}
