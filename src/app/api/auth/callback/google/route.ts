@@ -3,10 +3,12 @@ import { intercambiarCodeGoogle, setSessionCookie, esAdminEmail, clearAllSession
 import { crearUsuario, getUsuarioByEmail } from "@/lib/data-store";
 
 const COLORES = ["#a855f7", "#3b82f6", "#ef4444", "#10b981", "#f59e0b", "#06b6d4", "#ec4899", "#8b5cf6"];
+const OAUTH_STATE_COOKIE = "axiom_oauth_state";
 
 export async function GET(req: NextRequest) {
   const url = new URL(req.url);
   const code = url.searchParams.get("code");
+  const state = url.searchParams.get("state");
   const error = url.searchParams.get("error");
   const proto = req.headers.get("x-forwarded-proto") ?? url.protocol.replace(":", "");
   const host = req.headers.get("host") ?? url.host;
@@ -18,6 +20,16 @@ export async function GET(req: NextRequest) {
   }
   if (!code) {
     return NextResponse.redirect(`${baseUrl}/login?error=falta_code`);
+  }
+
+  // Validación anti-CSRF: comparar state de la URL contra el guardado en cookie
+  // por el endpoint /api/auth/google. Si no matchea, alguien intentó completar
+  // un login en nombre de otro (login CSRF / session fixation).
+  const cookieState = req.cookies.get(OAUTH_STATE_COOKIE)?.value;
+  if (!state || !cookieState || state !== cookieState) {
+    const res = NextResponse.redirect(`${baseUrl}/login?error=state_invalido`);
+    res.cookies.delete(OAUTH_STATE_COOKIE);
+    return res;
   }
 
   try {

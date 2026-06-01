@@ -206,7 +206,7 @@ export const AXIOM_ADMIN_COOKIE = LEGACY_ADMIN_COOKIE;
 // Google OAuth helpers
 // ─────────────────────────────────────────────────────────────
 
-export function urlAuthGoogle(redirectUri: string): string {
+export function urlAuthGoogle(redirectUri: string, state?: string): string {
   const params = new URLSearchParams({
     client_id: process.env.GOOGLE_CLIENT_ID ?? "",
     redirect_uri: redirectUri,
@@ -215,6 +215,10 @@ export function urlAuthGoogle(redirectUri: string): string {
     access_type: "offline",
     prompt: "select_account",
   });
+  // state: token anti-CSRF. El cliente lo genera y lo guarda en cookie httpOnly;
+  // al volver del callback debe matchear. Sin esto, un atacante podría inducir
+  // al usuario a loguearse con OTRA cuenta Google (login CSRF / session fixation).
+  if (state) params.set("state", state);
   return `https://accounts.google.com/o/oauth2/v2/auth?${params}`;
 }
 
@@ -248,6 +252,13 @@ export async function intercambiarCodeGoogle(
   });
   if (!profileRes.ok) return null;
   const profile = await profileRes.json();
+
+  // Google nos dice si el email está verificado. Rechazar emails no verificados
+  // evita un caso teórico: alguien crea una cuenta Google con email de admin
+  // ajeno sin verificarlo y entra como admin (esAdminEmail compara por email).
+  if (!profile.email || profile.verified_email === false) {
+    return null;
+  }
 
   return {
     id: profile.id,
