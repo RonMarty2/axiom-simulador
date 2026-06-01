@@ -8,6 +8,29 @@
   .axiom-nav-hamburger { display: flex !important; }
 }
 
+/* ═══ MODO PWA — cuando la app corre standalone, forzar comportamiento app ═══
+   La clase .axiom-pwa la inyecta PWARegister.tsx cuando detecta standalone.
+   Estas reglas se aplican ÚNICAMENTE en modo PWA, no en navegador normal. */
+html.axiom-pwa {
+  /* Forzar siempre layout mobile-first, sin importar settings raros del UA */
+  overscroll-behavior-y: contain;       /* No "pull to refresh" del nav */
+  -webkit-text-size-adjust: 100%;        /* iOS Safari: no agrandar fuente */
+  text-size-adjust: 100%;
+  -webkit-touch-callout: none;           /* Sin menú "guardar imagen" en long-press */
+  -webkit-tap-highlight-color: transparent;
+}
+html.axiom-pwa body {
+  /* Respetar safe-area en iPhones con notch */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+/* En PWA, si el usuario tenía "Desktop site" en el navegador antes de instalar,
+   forzamos siempre el menú hamburguesa, sin importar lo que diga el viewport. */
+html.axiom-pwa .axiom-nav-desktop { display: none !important; }
+html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
+
 /* ═══ DESIGN TOKENS — Antigravity Light Theme ════════════════════════════════ */
 
 :root {

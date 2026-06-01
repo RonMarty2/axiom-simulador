@@ -2,26 +2,54 @@
 
 import { useEffect } from "react";
 
-// Componente que registra el service worker del PWA al cargar la app.
-// No renderiza nada visualmente.
+// Componente cliente que:
+//  1. Registra el service worker (offline + instalable).
+//  2. Detecta si la app está corriendo como PWA standalone y aplica
+//     una clase al <html> para que el CSS pueda forzar vista app.
+//
+// El paso 2 es un cinturón de seguridad: aunque el manifest define
+// display:standalone, algunos navegadores (Chrome viejo, Android viejo,
+// o usuarios con "Solicitar versión escritorio" forzado) pueden
+// inyectar comportamiento de vista escritorio. Con la clase axiom-pwa
+// el CSS puede forzar lo que necesitamos.
 
 export default function PWARegister() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!("serviceWorker" in navigator)) return;
-    if (process.env.NODE_ENV !== "production") return; // solo en producción
 
-    const onLoad = () => {
-      navigator.serviceWorker
-        .register("/sw.js")
-        .catch((err) => {
-          // Silenciar — si falla el SW, la app sigue funcionando como web normal.
-          console.warn("[PWA] Service worker no registrado:", err);
-        });
+    // 1. Detectar y marcar modo PWA standalone (no depende del SW)
+    const aplicarClase = () => {
+      const isStandalone =
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.matchMedia("(display-mode: fullscreen)").matches ||
+        window.matchMedia("(display-mode: minimal-ui)").matches ||
+        // iOS Safari: usa propiedad propietaria
+        (window.navigator as unknown as { standalone?: boolean }).standalone === true;
+
+      document.documentElement.classList.toggle("axiom-pwa", isStandalone);
     };
 
-    window.addEventListener("load", onLoad);
-    return () => window.removeEventListener("load", onLoad);
+    aplicarClase();
+    // Si el usuario alterna entre PWA y navegador, mantener clase sincronizada
+    const mq = window.matchMedia("(display-mode: standalone)");
+    mq.addEventListener?.("change", aplicarClase);
+
+    // 2. Registrar service worker (solo producción)
+    let cleanup: (() => void) | undefined;
+    if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
+      const onLoad = () => {
+        navigator.serviceWorker.register("/sw.js").catch((err) => {
+          console.warn("[PWA] Service worker no registrado:", err);
+        });
+      };
+      window.addEventListener("load", onLoad);
+      cleanup = () => window.removeEventListener("load", onLoad);
+    }
+
+    return () => {
+      mq.removeEventListener?.("change", aplicarClase);
+      cleanup?.();
+    };
   }, []);
 
   return null;

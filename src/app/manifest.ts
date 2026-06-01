@@ -11,6 +11,9 @@ export default function manifest(): MetadataRoute.Manifest {
       "Simulador de exámenes y lecciones animadas para preparación de admisión universitaria en Bolivia (UMSS).",
     start_url: "/dashboard",
     display: "standalone",
+    // display_override: si el navegador soporta el primero, lo usa; si no, va al siguiente.
+    // Esto fuerza explícitamente vista app y evita heredar settings raros del navegador.
+    display_override: ["standalone", "minimal-ui"],
     orientation: "portrait",
     background_color: "#f2f2f0",
     theme_color: "#6366f1",
