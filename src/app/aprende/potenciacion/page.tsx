@@ -4,10 +4,15 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Stage } from "../_components/atoms";
+import {
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  AutoCheck,
+} from "../_components/pedagogia";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Lección: Potenciación y sus propiedades (Unidad 01 — FCE-UMSS)
-// Cada "escena" es un componente con animación propia.
+// Cada "escena" combina animación premium + bloques pedagógicos:
+// definición, ¿por qué funciona?, ejemplos, errores, auto-check.
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Escena = {
@@ -16,18 +21,33 @@ type Escena = {
 };
 
 const ESCENAS: Escena[] = [
-  { titulo: "¿Qué es una potencia?", componente: EscenaIntro },
-  { titulo: "El significado, paso a paso", componente: EscenaSignificado },
-  { titulo: "Producto de potencias", componente: EscenaProducto },
-  { titulo: "Cociente de potencias", componente: EscenaCociente },
-  { titulo: "Potencia de potencia", componente: EscenaPotenciaDePotencia },
-  { titulo: "Exponente cero", componente: EscenaExponenteCero },
-  { titulo: "Exponente negativo", componente: EscenaExponenteNegativo },
-  { titulo: "Producto elevado a una potencia", componente: EscenaProductoElevado },
-  { titulo: "Fracción elevada a una potencia", componente: EscenaFraccionElevada },
-  { titulo: "Radicales como exponentes", componente: EscenaRadicales },
-  { titulo: "Tu turno", componente: EscenaReto },
+  { titulo: "¿Qué es una potencia?", componente: RichEscIntro },
+  { titulo: "El significado, paso a paso", componente: RichEscSignificado },
+  { titulo: "Producto de potencias", componente: RichEscProducto },
+  { titulo: "Cociente de potencias", componente: RichEscCociente },
+  { titulo: "Potencia de potencia", componente: RichEscPotenciaDePotencia },
+  { titulo: "Exponente cero", componente: RichEscExponenteCero },
+  { titulo: "Exponente negativo", componente: RichEscExponenteNegativo },
+  { titulo: "Producto elevado a una potencia", componente: RichEscProductoElevado },
+  { titulo: "Fracción elevada a una potencia", componente: RichEscFraccionElevada },
+  { titulo: "Radicales como exponentes", componente: RichEscRadicales },
+  { titulo: "Errores comunes", componente: RichEscErrores },
+  { titulo: "Práctica final", componente: RichEscPractica },
 ];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Wrapper que se usa en cada escena rica: stack vertical con buen espacio
+// ─────────────────────────────────────────────────────────────────────────────
+function RichWrap({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{
+      display: "flex", flexDirection: "column", alignItems: "center", gap: 14,
+      width: "100%", maxWidth: 620, margin: "0 auto", padding: "8px 4px",
+    }}>
+      {children}
+    </div>
+  );
+}
 
 export default function LeccionPotenciacionPage() {
   const [i, setI] = useState(0);
@@ -1285,3 +1305,388 @@ const cajitaFormula = (): React.CSSProperties => ({
   background: "var(--bg-subtle)", borderRadius: 12,
   border: "1px dashed var(--border)",
 });
+
+// ═════════════════════════════════════════════════════════════════════════════
+// ESCENAS RICAS — cada una envuelve la animación original con bloques pedagógicos
+// ═════════════════════════════════════════════════════════════════════════════
+
+function RichEscIntro() {
+  return (
+    <RichWrap>
+      <Titulo>¿Qué es una potencia?</Titulo>
+      <Parrafo>
+        Una <strong>potencia</strong> es una forma corta de escribir una multiplicación
+        donde el MISMO número se multiplica varias veces. En lugar de escribir
+        2·2·2·2·2 (cinco veces el 2), escribimos <strong>2⁵</strong>.
+      </Parrafo>
+      <Definicion termino="potencia">
+        <strong>aⁿ</strong> significa: el número <strong>a</strong> multiplicado por sí
+        mismo <strong>n</strong> veces. <br />
+        <strong>a</strong> = base. <strong>n</strong> = exponente.
+      </Definicion>
+      <EscenaIntro />
+      <Ejemplo titulo="Cómo se lee">
+        <Paso n={1}><strong>2³</strong> = "dos al cubo" o "dos elevado a la tres".</Paso>
+        <Paso n={2}><strong>5²</strong> = "cinco al cuadrado" o "cinco elevado a la dos".</Paso>
+        <Paso n={3}><strong>10⁴</strong> = "diez a la cuarta" o "diez elevado a la cuarta".</Paso>
+      </Ejemplo>
+      <PorQue>
+        ¿Por qué "cuadrado" y "cubo"? Porque <strong>2²</strong> es el área de un cuadrado
+        de lado 2, y <strong>2³</strong> es el volumen de un cubo de arista 2. Histórico
+        y geométrico.
+      </PorQue>
+      <Resumen>
+        Casos especiales útiles: <strong>a¹ = a</strong> (cualquier número a la 1 es él mismo).
+        <strong>1ⁿ = 1</strong> para cualquier n. <strong>0ⁿ = 0</strong> (con n &gt; 0).
+      </Resumen>
+      <AutoCheck
+        pregunta="¿Cómo se escribe 3·3·3·3·3·3 como potencia?"
+        opciones={["3⁵", "3⁶", "6³", "18"]}
+        correctaIdx={1}
+        explicacion="Hay 6 treses multiplicándose → 3⁶."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscSignificado() {
+  return (
+    <RichWrap>
+      <Titulo>De potencia a multiplicación: ¿cómo se calcula?</Titulo>
+      <Parrafo>
+        Para calcular una potencia, la "expandís": <strong>2³ = 2·2·2 = 8</strong>.
+        El exponente te dice cuántas copias multiplicar.
+      </Parrafo>
+      <EscenaSignificado />
+      <Ejemplo titulo="Más cálculos para tener a mano">
+        <Paso n={1}>2⁴ = 2·2·2·2 = <strong>16</strong></Paso>
+        <Paso n={2}>3³ = 3·3·3 = <strong>27</strong></Paso>
+        <Paso n={3}>5² = 5·5 = <strong>25</strong></Paso>
+        <Paso n={4}>10³ = 1000 (potencias de 10 son fáciles: 10ⁿ = 1 seguido de n ceros).</Paso>
+      </Ejemplo>
+      <Cuidado>
+        Cuidado con la <strong>base negativa</strong>: <br />
+        <strong>(−2)² = +4</strong> (negativo × negativo = positivo). <br />
+        <strong>(−2)³ = −8</strong> (multiplicar 3 negativos da negativo).<br />
+        Regla: si el exponente es PAR, resultado positivo. Si es IMPAR, mantiene el signo.
+      </Cuidado>
+      <AutoCheck
+        pregunta="¿Cuánto vale (−3)⁴?"
+        opciones={["−81", "81", "−12", "12"]}
+        correctaIdx={1}
+        explicacion="Exponente PAR (4) → resultado positivo. 3⁴ = 81."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscProducto() {
+  return (
+    <RichWrap>
+      <Titulo accent="#10b981">Propiedad 1: Producto de potencias de igual base</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          aᵐ · aⁿ = aᵐ⁺ⁿ
+        </span>
+      </Resumen>
+      <Parrafo>
+        Cuando multiplicás dos potencias <strong>con la misma base</strong>, los exponentes se SUMAN.
+      </Parrafo>
+      <EscenaProducto />
+      <PorQue>
+        Sale de la definición: 2² · 2³ = (2·2)·(2·2·2) = 2·2·2·2·2 = 2⁵. Los 2 y 3 son "cuántos dos" multiplicaban a cada lado, así que se suman.
+      </PorQue>
+      <Ejemplo titulo="Casos para fijar">
+        <Paso n={1}>3⁴ · 3² = 3⁶ (4+2)</Paso>
+        <Paso n={2}>x⁵ · x³ = x⁸ (vale también con variables)</Paso>
+        <Paso n={3}>2 · 2⁵ = 2⁶ (el 2 solo equivale a 2¹)</Paso>
+      </Ejemplo>
+      <Cuidado>
+        Para sumar exponentes, las bases tienen que ser <strong>idénticas</strong>.<br />
+        ❌ 2³ · 5⁴ ≠ 10⁷ (bases distintas, no se suman exponentes).
+      </Cuidado>
+      <AutoCheck
+        pregunta="Simplificá: 7³ · 7²"
+        opciones={["7⁵", "7⁶", "49⁵", "14⁵"]}
+        correctaIdx={0}
+        explicacion="Misma base 7, sumar exponentes: 3+2 = 5 → 7⁵."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscCociente() {
+  return (
+    <RichWrap>
+      <Titulo accent="#10b981">Propiedad 2: Cociente de potencias de igual base</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          aᵐ / aⁿ = aᵐ⁻ⁿ
+        </span>
+      </Resumen>
+      <Parrafo>
+        Al DIVIDIR potencias de la misma base, los exponentes se RESTAN. Es la propiedad
+        espejo de la anterior.
+      </Parrafo>
+      <EscenaCociente />
+      <PorQue>
+        Otra vez la definición: 2⁵/2² = (2·2·2·2·2)/(2·2). Se cancelan dos pares de doses
+        arriba y abajo, quedando 2·2·2 = 2³. La resta de exponentes es porque CANCELAS
+        n factores entre los m de arriba.
+      </PorQue>
+      <Ejemplo titulo="Ejemplos">
+        <Paso n={1}>x⁷ / x⁴ = x³</Paso>
+        <Paso n={2}>10⁸ / 10⁵ = 10³ = 1000</Paso>
+        <Paso n={3}>3⁵ / 3⁵ = 3⁰ = 1 (cualquier número entre sí mismo es 1)</Paso>
+      </Ejemplo>
+      <AutoCheck
+        pregunta="Simplificá: 5⁹ / 5⁴"
+        opciones={["5⁵", "5¹³", "5⁻⁵", "1⁵"]}
+        correctaIdx={0}
+        explicacion="Misma base, restar exponentes: 9 − 4 = 5 → 5⁵."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscPotenciaDePotencia() {
+  return (
+    <RichWrap>
+      <Titulo accent="#10b981">Propiedad 3: Potencia de potencia</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          (aᵐ)ⁿ = aᵐ·ⁿ
+        </span>
+      </Resumen>
+      <Parrafo>
+        Cuando elevás una potencia a otra potencia, los exponentes se MULTIPLICAN.
+      </Parrafo>
+      <EscenaPotenciaDePotencia />
+      <PorQue>
+        (2³)² significa "2³ multiplicado por sí mismo 2 veces": 2³·2³. Por la propiedad
+        del producto, eso es 2³⁺³ = 2⁶. En general, mⁿ veces el factor a.
+      </PorQue>
+      <Ejemplo>
+        (x²)⁵ = x¹⁰ &nbsp;·&nbsp; (3⁴)² = 3⁸ = 6561.
+      </Ejemplo>
+      <Cuidado>
+        ❌ ¡No confundas (aᵐ)ⁿ con aᵐ·aⁿ!<br />
+        (2³)² = 2⁶ &nbsp;(multiplicar exponentes)<br />
+        2³·2² = 2⁵ &nbsp;(sumar exponentes)
+      </Cuidado>
+      <AutoCheck
+        pregunta="(x³)⁴ es lo mismo que:"
+        opciones={["x⁷", "x¹²", "x⁻¹", "x"]}
+        correctaIdx={1}
+        explicacion="Multiplicar exponentes: 3·4 = 12 → x¹²."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscExponenteCero() {
+  return (
+    <RichWrap>
+      <Titulo accent="#f59e0b">Caso especial: exponente cero</Titulo>
+      <Resumen>
+        <strong>a⁰ = 1</strong> &nbsp;(para cualquier a ≠ 0)
+      </Resumen>
+      <EscenaExponenteCero />
+      <PorQue>
+        Por la propiedad del cociente: aⁿ/aⁿ = aⁿ⁻ⁿ = a⁰. Pero también aⁿ/aⁿ = 1
+        (cualquier cosa entre sí misma). Por lo tanto a⁰ = 1.
+      </PorQue>
+      <Cuidado>
+        <strong>0⁰ es indefinido.</strong> No tiene valor — por eso la regla pide a ≠ 0.
+      </Cuidado>
+      <Ejemplo>
+        5⁰ = 1, &nbsp; (−7)⁰ = 1, &nbsp; (1000)⁰ = 1, &nbsp; (x+2)⁰ = 1.
+      </Ejemplo>
+    </RichWrap>
+  );
+}
+
+function RichEscExponenteNegativo() {
+  return (
+    <RichWrap>
+      <Titulo accent="#f59e0b">Caso especial: exponente negativo</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a⁻ⁿ = 1/aⁿ
+        </span>
+      </Resumen>
+      <Parrafo>
+        Un exponente negativo "invierte": pasa la base al denominador.
+      </Parrafo>
+      <EscenaExponenteNegativo />
+      <PorQue>
+        Igualando con la propiedad del cociente: a⁰/aⁿ = a⁰⁻ⁿ = a⁻ⁿ. Pero a⁰/aⁿ = 1/aⁿ.
+        ⟹ a⁻ⁿ = 1/aⁿ.
+      </PorQue>
+      <Ejemplo>
+        2⁻³ = 1/2³ = 1/8 &nbsp;·&nbsp; 5⁻¹ = 1/5 = 0.2 &nbsp;·&nbsp; (3/4)⁻² = (4/3)² = 16/9.
+      </Ejemplo>
+      <AutoCheck
+        pregunta="¿Cuánto es 4⁻²?"
+        opciones={["−16", "−8", "1/16", "−1/16"]}
+        correctaIdx={2}
+        explicacion="4⁻² = 1/4² = 1/16. El signo negativo INVIERTE, no hace negativo el resultado."
+      />
+    </RichWrap>
+  );
+}
+
+function RichEscProductoElevado() {
+  return (
+    <RichWrap>
+      <Titulo accent="#10b981">Propiedad 4: Producto elevado</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          (a · b)ⁿ = aⁿ · bⁿ
+        </span>
+      </Resumen>
+      <Parrafo>
+        El exponente se distribuye a cada factor del producto.
+      </Parrafo>
+      <EscenaProductoElevado />
+      <Ejemplo>
+        (2·3)⁴ = 2⁴·3⁴ = 16·81 = 1296 &nbsp;·&nbsp; (xy)³ = x³y³ &nbsp;·&nbsp; (2x)² = 4x².
+      </Ejemplo>
+      <Cuidado>
+        ❌ Esta propiedad NO funciona con SUMAS: <strong>(a+b)ⁿ ≠ aⁿ + bⁿ</strong>. <br />
+        Es el error más común. Para sumas tenés que usar otras técnicas (binomio).
+      </Cuidado>
+    </RichWrap>
+  );
+}
+
+function RichEscFraccionElevada() {
+  return (
+    <RichWrap>
+      <Titulo accent="#10b981">Propiedad 5: Fracción elevada</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          (a / b)ⁿ = aⁿ / bⁿ
+        </span>
+      </Resumen>
+      <EscenaFraccionElevada />
+      <Ejemplo>
+        (3/4)² = 9/16 &nbsp;·&nbsp; (2/x)³ = 8/x³ &nbsp;·&nbsp; (5/2)⁻² = (2/5)² = 4/25.
+      </Ejemplo>
+      <PorQue>
+        Sale de combinar la propiedad del producto con el exponente negativo:
+        (a/b)ⁿ = (a · b⁻¹)ⁿ = aⁿ · b⁻ⁿ = aⁿ/bⁿ.
+      </PorQue>
+    </RichWrap>
+  );
+}
+
+function RichEscRadicales() {
+  return (
+    <RichWrap>
+      <Titulo>Bonus: radicales como exponentes fraccionarios</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          ⁿ√a = a^(1/n)
+        </span><br />
+        Y más en general: <strong>ⁿ√(aᵐ) = a^(m/n)</strong>.
+      </Resumen>
+      <Parrafo>
+        Esto es <strong>la conexión más importante</strong> entre potencias y radicales.
+        Significa que CUALQUIER raíz se puede escribir como potencia con exponente
+        fraccionario — y aplicar todas las propiedades que aprendiste.
+      </Parrafo>
+      <EscenaRadicales />
+      <Ejemplo>
+        ⁴√16 = 16^(1/4) = 2 (porque 2⁴ = 16) &nbsp;·&nbsp; 8^(2/3) = (³√8)² = 2² = 4.
+      </Ejemplo>
+      <PorQue>
+        ¿Por qué a^(1/n) = ⁿ√a? Porque elevando ambos lados a la n: [a^(1/n)]ⁿ = a^(1/n·n) = a¹ = a.
+        Y eso es la definición de raíz n-ésima: el número que elevado a n da a.
+      </PorQue>
+    </RichWrap>
+  );
+}
+
+function RichEscErrores() {
+  return (
+    <RichWrap>
+      <Titulo accent="#ef4444">Errores comunes (¡evitalos!)</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> <strong>(a+b)ⁿ = aⁿ + bⁿ</strong>. <br />
+        ❌ FALSO. Verificá: (1+1)² = 4, pero 1²+1² = 2. Solo (a·b)ⁿ se distribuye.
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> Sumar exponentes con bases distintas. <br />
+        ❌ 2³ · 5² ≠ 10⁵. Solo se suman si las bases son IDÉNTICAS.
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> Confundir <strong>−3²</strong> con <strong>(−3)²</strong>. <br />
+        −3² = −(3·3) = −9 (sin paréntesis, el exponente solo afecta al 3, no al menos).<br />
+        (−3)² = (−3)·(−3) = +9 (el paréntesis incluye el signo).
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 4:</strong> Pensar que a⁻ⁿ es negativo. <br />
+        ❌ 4⁻² ≠ −16. Es <strong>1/16</strong>. El menos INVIERTE, no hace negativo.
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 5:</strong> Confundir suma de exponentes (mismo base, producto) con multiplicación de exponentes (potencia de potencia). <br />
+        2³ · 2² = 2⁵ &nbsp; vs &nbsp; (2³)² = 2⁶. Dos cosas distintas.
+      </Cuidado>
+    </RichWrap>
+  );
+}
+
+function RichEscPractica() {
+  const ejs = useMemo(() => [
+    { p: "2³ · 2⁴ = ?", o: ["2⁷", "2¹²", "4⁷", "8"], c: 0, ex: "Misma base, sumar exp: 3+4 = 7 → 2⁷." },
+    { p: "(x²)⁵ = ?", o: ["x⁷", "x¹⁰", "x²·⁵", "2x⁵"], c: 1, ex: "Multiplicar exp: 2·5 = 10 → x¹⁰." },
+    { p: "5⁰ = ?", o: ["0", "1", "5", "Indefinido"], c: 1, ex: "Cualquier número ≠ 0 a la 0 es 1." },
+    { p: "3⁻² = ?", o: ["−9", "−6", "1/9", "1/6"], c: 2, ex: "3⁻² = 1/3² = 1/9." },
+    { p: "(2x)³ = ?", o: ["2x³", "6x³", "8x³", "8x"], c: 2, ex: "(2x)³ = 2³·x³ = 8x³." },
+    { p: "8^(1/3) = ?", o: ["2", "3", "4", "8/3"], c: 0, ex: "8^(1/3) = ³√8 = 2." },
+    { p: "10⁶ / 10² = ?", o: ["10³", "10⁴", "10⁸", "10¹²"], c: 1, ex: "Restar exp: 6−2 = 4 → 10⁴." },
+  ], []);
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
+  return (
+    <RichWrap>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>7 ejercicios cubriendo todas las propiedades:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12, textAlign: "center" }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c; const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? "#ef4444" : "var(--border)"}`, borderRadius: 10, fontSize: 16, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif" }}>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <strong style={{ color: sel === e.c ? COLOR_OK : "#ef4444" }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+            </div>}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás potencias y todas sus propiedades."}
+            {ok >= 4 && ok < ejs.length && "Muy bien. Los que fallaste releé las propiedades correspondientes."}
+            {ok < 4 && "Repasá las 5 propiedades principales y los errores comunes."}
+          </div>
+        </motion.div>
+      )}
+    </RichWrap>
+  );
+}
