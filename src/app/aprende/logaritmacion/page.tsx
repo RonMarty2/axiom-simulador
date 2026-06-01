@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
+import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
-  COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, cajaAnim, cajitaFormula, Stage,
-} from "../_components/atoms";
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -14,225 +15,265 @@ export default function Page() {
       unidad="10"
       tituloUnidad="Logaritmación"
       escenas={[
-        { titulo: "¿Qué es un logaritmo?", componente: EscenaIntro },
-        { titulo: "Propiedades clave", componente: EscenaProps },
-        { titulo: "Cambio de base", componente: EscenaCambioBase },
-        { titulo: "Ecuación logarítmica", componente: EscenaEcuacion },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Qué es un logaritmo?", componente: Esc01_Intro },
+        { titulo: "Definición y notación", componente: Esc02_Def },
+        { titulo: "Logaritmos básicos a saber", componente: Esc03_Basicos },
+        { titulo: "Propiedad: producto → suma", componente: Esc04_Prod },
+        { titulo: "Propiedad: cociente → resta", componente: Esc05_Coc },
+        { titulo: "Propiedad: potencia → producto", componente: Esc06_Pot },
+        { titulo: "Cambio de base", componente: Esc07_Cambio },
+        { titulo: "Ecuaciones logarítmicas y exponenciales", componente: Esc08_Ec },
+        { titulo: "Errores comunes", componente: Esc09_Errores },
+        { titulo: "Práctica final", componente: Esc10_Practica },
       ]}
     />
   );
 }
 
-function EscenaIntro() {
-  const [paso, setPaso] = useState(0);
-
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Un <strong>logaritmo</strong> pregunta: ¿a qué exponente elevo la base para obtener el número?</p>
-
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={160}>
-          <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            log<sub style={{ fontSize: 18, color: "#3b82f6" }}>2</sub>(8) = ?
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ position: "absolute", left: 0, top: 80, width: "100%", textAlign: "center", fontSize: 18, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontStyle: "italic" }}>
-            ¿A qué exponente elevo 2 para obtener 8?
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring" }}
-            style={{ position: "absolute", left: 0, top: 120, width: "100%", textAlign: "center", fontSize: 22, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-            log₂(8) = 3 (porque 2³ = 8)
-          </motion.div>
-        </Stage>
-
-        <motion.div animate={{ opacity: paso >= 2 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            <strong>log<sub>a</sub>(b) = c</strong> ⟺ <strong>a<sup>c</sup> = b</strong>
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 log₂(8) — ¿qué exponente?"}
-        {paso === 1 && "Pensamos: 2 elevado a... ¿qué da 8?"}
-        {paso === 2 && "2³ = 8, entonces log₂(8) = 3"}
-      </p>
-    </div>
+    <EscenaRica>
+      <Titulo>Logaritmos: la operación inversa de la exponencial</Titulo>
+      <Parrafo>
+        Un logaritmo responde la pregunta: <strong>"¿a qué exponente elevo la base para
+        obtener este número?"</strong>
+      </Parrafo>
+      <Ejemplo>
+        log₂(8) = 3, porque 2³ = 8.<br />
+        log₁₀(100) = 2, porque 10² = 100.<br />
+        log₅(125) = 3, porque 5³ = 125.
+      </Ejemplo>
+      <Resumen>
+        🎯 ¿Para qué sirven? <br />
+        • <strong>Interés compuesto</strong>: ¿cuántos años para que mi dinero se duplique?<br />
+        • <strong>pH, magnitud de terremotos, decibeles</strong>: escalas logarítmicas.<br />
+        • <strong>Algoritmos</strong> (complejidad O(log n)).<br />
+        • <strong>Despejar exponentes</strong> en ecuaciones tipo 2ˣ = 10.
+      </Resumen>
+    </EscenaRica>
   );
 }
 
-function EscenaProps() {
-  const props = [
-    { f: "log(a · b) = log a + log b", color: COLOR_OK },
-    { f: "log(a / b) = log a − log b", color: COLOR_EXP },
-    { f: "log(a^n) = n · log a", color: "#3b82f6" },
-    { f: "log_a(a) = 1   ·   log_a(1) = 0", color: "#f59e0b" },
-  ];
-
+function Esc02_Def() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Las 4 propiedades que hay que dominar:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 10 }}>
-          {props.map((p, k) => (
-            <motion.div key={k}
-              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: k * 0.2 }}
-              style={{
-                padding: "12px 18px", borderRadius: 12,
-                background: "var(--bg-subtle)", border: `2px solid ${p.color}`,
-                fontFamily: "var(--font-crimson), serif", fontWeight: 700, fontSize: 16, color: COLOR_BASE,
-                textAlign: "center",
-              }}>
-              {p.f}
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      <p style={hint()}>El producto se convierte en suma, el cociente en resta — clave para simplificar</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent="#3b82f6">Definición formal</Titulo>
+      <Definicion termino="logaritmo">
+        <strong>log<sub>a</sub>(b) = c</strong> ⟺ <strong>aᶜ = b</strong> <br />
+        <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>
+          (con a &gt; 0, a ≠ 1 y b &gt; 0)
+        </span>
+      </Definicion>
+      <Resumen>
+        • a se llama <strong>base</strong>.<br />
+        • b se llama <strong>argumento</strong>.<br />
+        • c es el <strong>logaritmo</strong> (el resultado).
+      </Resumen>
+      <Ejemplo>
+        log₃(81) = 4 porque 3⁴ = 81.
+      </Ejemplo>
+      <Cuidado>
+        El argumento <strong>siempre debe ser positivo</strong>. log(0) y log(número negativo) NO existen.
+      </Cuidado>
+      <PorQue>
+        Pensá así: log y potencia son operaciones inversas, como suma/resta o mult/div.
+        Si "elevar a base a" es ir hacia adelante, "log base a" es ir hacia atrás.
+      </PorQue>
+    </EscenaRica>
   );
 }
 
-function EscenaCambioBase() {
+function Esc03_Basicos() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Si la calculadora solo tiene log base 10, podés cambiar de base:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={160}>
-          <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            log<sub style={{ fontSize: 16, color: COLOR_EXP }}>a</sub>(b) =
-            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1, verticalAlign: "middle", marginLeft: 8 }}>
-              <span style={{ padding: "0 8px" }}>log b</span>
-              <span style={{ borderTop: "2px solid currentColor", width: "100%", marginTop: 3 }} />
-              <span style={{ padding: "0 8px", marginTop: 3 }}>log a</span>
-            </span>
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-            style={{ position: "absolute", left: 0, top: 120, width: "100%", textAlign: "center", fontSize: 14, color: "var(--fg-muted)" }}>
-            Ej: log₂(7) = log(7) / log(2) ≈ 0.845 / 0.301 ≈ 2.807
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>Funciona también con ln (logaritmo natural)</p>
-    </div>
+    <EscenaRica>
+      <Titulo>Logaritmos que conviene memorizar</Titulo>
+      <Resumen>
+        • <strong>log<sub>a</sub>(1) = 0</strong> (porque a⁰ = 1).<br />
+        • <strong>log<sub>a</sub>(a) = 1</strong> (porque a¹ = a).<br />
+        • <strong>log<sub>a</sub>(aⁿ) = n</strong> (porque aⁿ = aⁿ).<br />
+        • Notación especial: <strong>log = log₁₀</strong> (base 10). <strong>ln = log<sub>e</sub></strong> (base e ≈ 2.71).
+      </Resumen>
+      <Ejemplo>
+        log(1000) = 3 (porque 10³ = 1000).<br />
+        log₂(16) = 4 (porque 2⁴ = 16).<br />
+        ln(e) = 1.
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-function EscenaEcuacion() {
-  const [paso, setPaso] = useState(0);
-
+function Esc04_Prod() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Para resolver una ecuación logarítmica: <strong>llevá ambos lados a la forma log</strong>:</p>
-
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-          <div style={{ fontSize: 22, color: COLOR_BASE }}>log₃(x) = 4</div>
-
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 16, color: COLOR_OK }}>
-            Aplicamos la definición: x = 3⁴
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring" }}
-            style={{ fontSize: 26, color: COLOR_OK, fontWeight: 800 }}>
-            x = 81 ✓
-          </motion.div>
-        </div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 log₃(x) = 4 — ¿cuál es x?"}
-        {paso === 1 && "Usamos la definición: 3⁴ = x"}
-        {paso === 2 && "x = 81"}
-      </p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Propiedad 1: Producto → Suma</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          log<sub>a</sub>(x · y) = log<sub>a</sub>(x) + log<sub>a</sub>(y)
+        </span>
+      </Resumen>
+      <Ejemplo>
+        log(6) = log(2·3) = log(2) + log(3) ≈ 0.301 + 0.477 = 0.778.
+      </Ejemplo>
+      <PorQue>
+        Sale de las propiedades de potencias: si aᵐ·aⁿ = aᵐ⁺ⁿ, entonces multiplicar números
+        equivale a sumar sus exponentes (= sus logaritmos).
+      </PorQue>
+    </EscenaRica>
   );
 }
 
-function EscenaReto() {
-  // log₅(125) = 3
-  const opciones = useMemo(() => [
-    { label: "3", correcta: true },
-    { label: "25", correcta: false },
-    { label: "5", correcta: false },
-    { label: "120", correcta: false },
+function Esc05_Coc() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Propiedad 2: Cociente → Resta</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          log<sub>a</sub>(x / y) = log<sub>a</sub>(x) − log<sub>a</sub>(y)
+        </span>
+      </Resumen>
+      <Ejemplo>
+        log(1000/100) = log(1000) − log(100) = 3 − 2 = 1.<br />
+        Verificación: 1000/100 = 10 → log(10) = 1 ✓.
+      </Ejemplo>
+    </EscenaRica>
+  );
+}
+
+function Esc06_Pot() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Propiedad 3: Potencia → Producto</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          log<sub>a</sub>(xⁿ) = n · log<sub>a</sub>(x)
+        </span>
+      </Resumen>
+      <Parrafo>
+        Esta es la propiedad <strong>más útil para despejar exponentes</strong>. El exponente
+        "baja" y se vuelve un factor.
+      </Parrafo>
+      <Ejemplo>
+        log(8) = log(2³) = 3·log(2) ≈ 3·0.301 = 0.903.
+      </Ejemplo>
+      <AutoCheck
+        pregunta="Reescribí log(x⁵)"
+        opciones={["5·log(x)", "log(5x)", "log(5) + log(x)", "x·log(5)"]}
+        correctaIdx={0}
+        explicacion="El exponente baja como factor: log(x⁵) = 5·log(x)."
+      />
+    </EscenaRica>
+  );
+}
+
+function Esc07_Cambio() {
+  return (
+    <EscenaRica>
+      <Titulo>Cambio de base</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          log<sub>a</sub>(b) = log<sub>c</sub>(b) / log<sub>c</sub>(a)
+        </span>
+      </Resumen>
+      <Parrafo>
+        Útil para calcular logaritmos en cualquier base usando solo log₁₀ o ln (que tu calculadora tiene).
+      </Parrafo>
+      <Ejemplo>
+        log₂(7) = log(7) / log(2) ≈ 0.845 / 0.301 ≈ 2.807.
+      </Ejemplo>
+    </EscenaRica>
+  );
+}
+
+function Esc08_Ec() {
+  return (
+    <EscenaRica>
+      <Titulo>Ecuaciones exponenciales y logarítmicas</Titulo>
+      <Ejemplo titulo="Ecuación exponencial: 2ˣ = 10">
+        <Paso n={1}>Aplicá log a ambos lados: log(2ˣ) = log(10).</Paso>
+        <Paso n={2}>Por propiedad: x·log(2) = log(10) = 1.</Paso>
+        <Paso n={3}>x = 1/log(2) ≈ 3.322.</Paso>
+      </Ejemplo>
+      <Ejemplo titulo="Ecuación logarítmica: log₃(x) = 4">
+        <Paso n={1}>Aplicá la definición: x = 3⁴.</Paso>
+        <Paso n={2}>x = <strong style={{ color: COLOR_OK }}>81</strong>.</Paso>
+      </Ejemplo>
+      <Ejemplo titulo="Combinada: log(x) + log(x − 3) = 1">
+        <Paso n={1}>Producto en log: log(x(x−3)) = 1.</Paso>
+        <Paso n={2}>Definición (base 10): x(x−3) = 10¹ = 10.</Paso>
+        <Paso n={3}>x² − 3x − 10 = 0 → (x−5)(x+2) = 0 → x = 5 ó x = −2.</Paso>
+        <Paso n={4}>x = −2 lo descartamos (log de negativo no existe). Solución: x = 5.</Paso>
+      </Ejemplo>
+    </EscenaRica>
+  );
+}
+
+function Esc09_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> log(a+b) NO es log(a) + log(b). <br />
+        <span style={{ fontSize: 13 }}>Eso es para PRODUCTO, no para suma. Suma → no se simplifica.</span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> Olvidar verificar el dominio. <br />
+        <span style={{ fontSize: 13 }}>El argumento del log debe ser &gt; 0. Si tu solución vuelve un log negativo o cero, descártala.</span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> (log x)² ≠ log(x²). <br />
+        <span style={{ fontSize: 13 }}>Ojo a los paréntesis. log(x²) = 2·log(x). (log x)² es el cuadrado del logaritmo.</span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc10_Practica() {
+  const ejs = useMemo(() => [
+    { p: "log₅(125) = ?", o: ["3", "25", "5", "120"], c: 0, ex: "5³ = 125 → log₅(125) = 3." },
+    { p: "log(1000) = ?", o: ["10", "100", "3", "1000"], c: 2, ex: "10³ = 1000 → log(1000) = 3." },
+    { p: "log(x · y) = ?", o: ["log(x) · log(y)", "log(x) + log(y)", "log(x) − log(y)", "log(x+y)"], c: 1, ex: "Producto se vuelve suma." },
+    { p: "Si log(x) = 2, entonces x =", o: ["10", "100", "20", "1000"], c: 1, ex: "Base 10 por defecto: 10² = 100." },
+    { p: "log(8) usando log(2)≈0.301:", o: ["0.602", "0.903", "0.301", "1.204"], c: 1, ex: "log(8) = log(2³) = 3·log(2) ≈ 0.903." },
   ], []);
-  const [elegida, setElegida] = useState<number | null>(null);
-
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>¿Cuánto vale el logaritmo?</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "30px 20px", background: "var(--bg-card)", borderRadius: 20, border: "1px solid var(--border)",
-          fontSize: 32, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", textAlign: "center",
-        }}
-      >
-        log<sub style={{ fontSize: 22, color: COLOR_EXP }}>5</sub>(125) = ?
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "18px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 22, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> ¿A qué exponente elevo 5 para obtener 125? 5³ = 125, entonces log₅(125) = <strong>3</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Buscamos el exponente: 5? = 125. Como 5³ = 125 → log₅(125) = <strong>3</strong>.</>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c; const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+            </div>}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás logaritmos."}
+            {ok < ejs.length && "Memorizá las 3 propiedades + cambio de base."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }

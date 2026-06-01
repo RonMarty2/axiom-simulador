@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
+import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
-  COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, cajaAnim, cajitaFormula, Stage,
-} from "../_components/atoms";
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -14,245 +15,272 @@ export default function Page() {
       unidad="08"
       tituloUnidad="Ecuaciones de segundo grado"
       escenas={[
-        { titulo: "Forma estándar", componente: EscenaForma },
-        { titulo: "Método: factorización", componente: EscenaFactorizacion },
-        { titulo: "Fórmula cuadrática", componente: EscenaFormula },
-        { titulo: "El discriminante", componente: EscenaDiscriminante },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Qué es de 2do grado?", componente: Esc01_Intro },
+        { titulo: "Forma estándar", componente: Esc02_Forma },
+        { titulo: "Método 1: Factorización", componente: Esc03_Fact },
+        { titulo: "Método 2: Fórmula cuadrática", componente: Esc04_Formula },
+        { titulo: "El discriminante", componente: Esc05_Discrim },
+        { titulo: "Casos especiales", componente: Esc06_Casos },
+        { titulo: "Suma y producto de raíces (Vieta)", componente: Esc07_Vieta },
+        { titulo: "Errores comunes", componente: Esc08_Errores },
+        { titulo: "Práctica final", componente: Esc09_Practica },
       ]}
     />
   );
 }
 
-function EscenaForma() {
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Una ecuación de segundo grado tiene la forma:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={170}>
-          <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 36, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span style={{ color: "#3b82f6" }}>a</span>
-            <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 22, color: COLOR_EXP }}>2</sup>
-            <span> + </span>
-            <span style={{ color: "#10b981" }}>b</span>
-            <span style={{ fontStyle: "italic" }}>x</span>
-            <span> + </span>
-            <span style={{ color: "#f59e0b" }}>c</span>
-            <span> = 0</span>
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-            style={{ position: "absolute", left: 0, top: 90, width: "100%", textAlign: "center", fontSize: 14, color: "var(--fg-muted)" }}>
-            <strong style={{ color: "#3b82f6" }}>a</strong> ≠ 0 (si no, no es cuadrática)
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}
-            style={{ position: "absolute", left: 0, top: 120, width: "100%", textAlign: "center", fontSize: 16, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
-            Ej: 2x² + 5x − 3 = 0
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>Vamos a ver 2 métodos para resolverlas: factorización y la fórmula</p>
-    </div>
+    <EscenaRica>
+      <Titulo>Ecuaciones de segundo grado</Titulo>
+      <Definicion termino="ecuación cuadrática">
+        Una ecuación es de <strong>segundo grado</strong> si la incógnita aparece elevada
+        al cuadrado (y a lo sumo) como mayor potencia. Forma general: <strong>ax² + bx + c = 0</strong>, con a ≠ 0.
+      </Definicion>
+      <Ejemplo>
+        x² − 5x + 6 = 0 &nbsp;·&nbsp; 2x² + 7x − 4 = 0 &nbsp;·&nbsp; x² − 9 = 0.
+      </Ejemplo>
+      <Resumen>
+        🎯 Aparece en: trayectorias parabólicas (física), maximizar ganancias (economía),
+        cálculo de áreas, raíces de funciones, problemas geométricos. Una de las
+        ecuaciones más comunes.
+      </Resumen>
+      <PorQue>
+        A diferencia de las de 1er grado (1 solución única), las cuadráticas pueden tener
+        <strong> 0, 1 o 2 soluciones</strong>. Ya vamos a ver por qué.
+      </PorQue>
+    </EscenaRica>
   );
 }
 
-function EscenaFactorizacion() {
-  const [paso, setPaso] = useState(0);
-
+function Esc02_Forma() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Si podemos <strong>factorizar</strong>: cada factor igualado a 0 da una solución:</p>
+    <EscenaRica>
+      <Titulo accent="#3b82f6">La forma estándar: ax² + bx + c = 0</Titulo>
+      <Parrafo>
+        Antes de aplicar cualquier método, conviene <strong>llevar la ecuación a la
+        forma estándar</strong>: todo igualado a 0, con los términos en orden de potencia.
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ width: "100%", maxWidth: 420, minHeight: 200, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-          <div style={{ fontSize: 24, color: COLOR_BASE }}>x² − 5x + 6 = 0</div>
+      <Ejemplo titulo="Identificar a, b, c">
+        En <strong>3x² − 7x + 2 = 0</strong>: a = 3, b = −7, c = 2.<br />
+        En <strong>x² + 5 = 4x</strong>: pasamos: x² − 4x + 5 = 0. a = 1, b = −4, c = 5.
+      </Ejemplo>
 
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 24, color: COLOR_OK }}>
-            (x − 2)(x − 3) = 0
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 18, color: COLOR_BASE, textAlign: "center" }}>
-            Un producto vale 0 si UNO de los factores es 0
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring" }}
-            style={{ fontSize: 22, color: COLOR_OK, fontWeight: 800, textAlign: "center" }}>
-            x − 2 = 0 → x = 2<br />
-            x − 3 = 0 → x = 3
-          </motion.div>
-        </div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Factorizamos: dos números que sumen −5 y multipliquen 6 → −2 y −3"}
-        {paso === 1 && "(x − 2)(x − 3) = 0"}
-        {paso === 2 && "Si el producto es 0, alguno de los dos debe ser 0"}
-        {paso === 3 && "Dos soluciones: x = 2 y x = 3"}
-      </p>
-    </div>
+      <Cuidado>
+        Atención al signo de b. Si en el enunciado aparece "− 4x", entonces b = −4 (NO 4).
+      </Cuidado>
+    </EscenaRica>
   );
 }
 
-function EscenaFormula() {
-  const [paso, setPaso] = useState(0);
-
+function Esc03_Fact() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>La <strong>fórmula cuadrática</strong> sirve SIEMPRE:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Método 1: Factorización</Titulo>
+      <Parrafo>
+        Si podés <strong>factorizar</strong> el polinomio, cada factor igualado a 0 te da
+        una solución. Es el método más rápido cuando se puede.
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={180}>
-          {/* Fórmula */}
-          <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            x = <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1, verticalAlign: "middle" }}>
-              <span style={{ padding: "0 8px" }}>−b ± √(b² − 4ac)</span>
-              <span style={{ borderTop: `2px solid currentColor`, width: "100%", marginTop: 4 }} />
-              <span style={{ padding: "0 8px", marginTop: 4 }}>2a</span>
-            </span>
-          </div>
+      <Resumen>
+        Si a·b = 0, entonces <strong>a = 0 ó b = 0</strong>. (Propiedad clave de los reales.)
+      </Resumen>
 
-          {/* Aplicación */}
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ position: "absolute", left: 0, top: 120, width: "100%", textAlign: "center", fontSize: 15, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            Para x² − 5x + 6: a=1, b=−5, c=6 → x = (5 ± 1)/2
-          </motion.div>
+      <Ejemplo titulo="x² − 5x + 6 = 0">
+        <Paso n={1}>Factorizo: (x − 2)(x − 3) = 0.</Paso>
+        <Paso n={2}>Por la propiedad: x − 2 = 0 ó x − 3 = 0.</Paso>
+        <Paso n={3}>Soluciones: <strong style={{ color: COLOR_OK }}>x = 2 ó x = 3</strong>.</Paso>
+      </Ejemplo>
 
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring" }}
-            style={{ position: "absolute", left: 0, top: 150, width: "100%", textAlign: "center", fontSize: 18, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-            x = 3 o x = 2 ✓
-          </motion.div>
-        </Stage>
-      </div>
+      <Ejemplo titulo="x² − 9 = 0">
+        <Paso n={1}>Diferencia de cuadrados: (x + 3)(x − 3) = 0.</Paso>
+        <Paso n={2}>x = −3 ó x = 3.</Paso>
+      </Ejemplo>
 
-      <p style={hint()}>
-        {paso === 0 && "👆 Identificamos a, b, c y sustituimos"}
-        {paso === 1 && "(5+1)/2 = 3, (5−1)/2 = 2"}
-        {paso === 2 && "Las mismas soluciones que por factorización ✓"}
-      </p>
-    </div>
+      <Ejemplo titulo="x² − 6x = 0 (sin término independiente)">
+        <Paso n={1}>Factor común x: x(x − 6) = 0.</Paso>
+        <Paso n={2}>x = 0 ó x = 6.</Paso>
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-function EscenaDiscriminante() {
-  const [i, setI] = useState(0);
-  const casos = [
-    { d: "Δ > 0", txt: "Dos soluciones reales distintas", color: COLOR_OK, ej: "x² − 5x + 6 = 0 (Δ = 1)" },
-    { d: "Δ = 0", txt: "Una solución (doble)", color: "#f59e0b", ej: "x² − 4x + 4 = 0 (Δ = 0)" },
-    { d: "Δ < 0", txt: "Sin solución real", color: COLOR_BAD, ej: "x² + 1 = 0 (Δ = −4)" },
-  ];
-  const c = casos[i];
-
+function Esc04_Formula() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>El <strong>discriminante</strong> Δ = b² − 4ac dice cuántas soluciones hay:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Método 2: Fórmula cuadrática (resuelve TODAS)</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          x = (−b ± √(b² − 4ac)) / 2a
+        </span>
+      </Resumen>
+      <Parrafo>
+        Funciona <strong>siempre</strong>, factorice o no. Memorizala — la vas a usar muchísimo.
+      </Parrafo>
 
-      <div onClick={() => setI((p) => (p + 1) % casos.length)} style={cajaAnim()}>
-        <div style={{ minHeight: 160, display: "flex", flexDirection: "column", gap: 12, alignItems: "center", justifyContent: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-          <AnimatePresence mode="wait">
-            <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ type: "spring" }}
-              style={{
-                padding: "12px 24px", borderRadius: 14,
-                background: `linear-gradient(135deg, ${c.color}33, ${c.color}66)`,
-                border: `2px solid ${c.color}`, fontSize: 24, color: c.color, fontWeight: 800,
-              }}>
-              {c.d}: {c.txt}
-            </motion.div>
-          </AnimatePresence>
-          <AnimatePresence mode="wait">
-            <motion.div key={`e-${i}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              style={{ fontSize: 14, color: "var(--fg-muted)" }}>
-              {c.ej}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
+      <Ejemplo titulo="Aplicarla a 2x² − 7x + 3 = 0">
+        <Paso n={1}>a = 2, b = −7, c = 3.</Paso>
+        <Paso n={2}>Discriminante b²−4ac = 49 − 24 = 25.</Paso>
+        <Paso n={3}>x = (7 ± √25) / 4 = (7 ± 5) / 4.</Paso>
+        <Paso n={4}>x₁ = 12/4 = 3, x₂ = 2/4 = 1/2.</Paso>
+        <Paso n={5}>Soluciones: <strong style={{ color: COLOR_OK }}>x = 3 ó x = 1/2</strong>.</Paso>
+      </Ejemplo>
 
-      <p style={hint()}>👆 Tocá para ver otro caso ({i + 1}/{casos.length})</p>
-    </div>
+      <Cuidado>
+        Ojo a los signos: <strong>−b</strong>. Si b ya es negativo, −b queda positivo.
+        Ej: si b = −7, entonces −b = +7.
+      </Cuidado>
+    </EscenaRica>
   );
 }
 
-function EscenaReto() {
-  // x² + 3x - 10 = 0 → (x+5)(x-2)=0 → x=-5 o x=2
-  const opciones = useMemo(() => [
-    { label: "x = 2 ó x = −5", correcta: true },
-    { label: "x = −2 ó x = 5", correcta: false },
-    { label: "x = 10 ó x = −3", correcta: false },
-    { label: "x = 1 ó x = −10", correcta: false },
+function Esc05_Discrim() {
+  return (
+    <EscenaRica>
+      <Titulo>El discriminante Δ = b² − 4ac</Titulo>
+      <Parrafo>
+        El número adentro de la raíz se llama <strong>discriminante</strong>. Su signo
+        te dice cuántas soluciones hay <em>antes</em> de calcular.
+      </Parrafo>
+
+      <Resumen>
+        🟢 <strong>Δ &gt; 0</strong>: <strong>2 soluciones reales</strong> distintas.<br />
+        🟡 <strong>Δ = 0</strong>: <strong>1 solución</strong> (raíz doble).<br />
+        🔴 <strong>Δ &lt; 0</strong>: <strong>NO hay soluciones reales</strong>.
+      </Resumen>
+
+      <Ejemplo>
+        x² − 5x + 6 = 0 → Δ = 25 − 24 = 1 &gt; 0 → 2 soluciones.<br />
+        x² − 4x + 4 = 0 → Δ = 16 − 16 = 0 → 1 solución (doble).<br />
+        x² + x + 1 = 0 → Δ = 1 − 4 = −3 &lt; 0 → NO tiene soluciones reales.
+      </Ejemplo>
+
+      <PorQue>
+        Geométricamente: <strong>Δ &gt; 0</strong> la parábola cruza al eje x en 2 puntos;
+        <strong> Δ = 0</strong> apenas lo toca en uno; <strong>Δ &lt; 0</strong> no lo toca.
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc06_Casos() {
+  return (
+    <EscenaRica>
+      <Titulo>Casos especiales: cuadráticas sin b o sin c</Titulo>
+
+      <Ejemplo titulo="Sin b (de la forma ax² + c = 0)">
+        Despejá directamente: x² = −c/a, después raíz.<br />
+        Ej: x² − 16 = 0 → x² = 16 → x = ±4.
+      </Ejemplo>
+
+      <Ejemplo titulo="Sin c (de la forma ax² + bx = 0)">
+        Factor común x: x(ax + b) = 0 → x = 0 ó x = −b/a.<br />
+        Ej: 3x² − 12x = 0 → 3x(x − 4) = 0 → x = 0 ó x = 4.
+      </Ejemplo>
+
+      <Resumen>
+        Estos casos NO requieren fórmula cuadrática — son más rápidos por factorización o despeje directo.
+      </Resumen>
+    </EscenaRica>
+  );
+}
+
+function Esc07_Vieta() {
+  return (
+    <EscenaRica>
+      <Titulo>Suma y producto de raíces (Vieta)</Titulo>
+      <Parrafo>
+        Si x₁ y x₂ son las dos soluciones de <strong>ax² + bx + c = 0</strong>:
+      </Parrafo>
+      <Resumen>
+        <strong>Suma</strong>: x₁ + x₂ = <strong>−b/a</strong><br />
+        <strong>Producto</strong>: x₁ · x₂ = <strong>c/a</strong>
+      </Resumen>
+      <Ejemplo titulo="x² − 5x + 6 = 0">
+        Suma: −(−5)/1 = 5 ✓ (2 + 3 = 5). Producto: 6/1 = 6 ✓ (2 · 3 = 6).
+      </Ejemplo>
+      <PorQue>
+        Es útil para <strong>verificar</strong> tus soluciones rápido. Si encontraste x = 2 y
+        x = 3, sumá y multiplicá — deben dar −b/a y c/a.
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc08_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores típicos</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> Olvidar la solución negativa. <br />
+        <span style={{ fontSize: 13 }}>
+          x² = 4 NO da solo x = 2. También x = −2. Siempre ±√.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> Mal manejo de signos en la fórmula. <br />
+        <span style={{ fontSize: 13 }}>
+          Si b = −5, entonces −b = +5 (no −5). Cuidado.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> Saltar al uso de la fórmula sin intentar factorizar. <br />
+        <span style={{ fontSize: 13 }}>
+          Factorización es más rápida cuando se puede. Probala primero.
+        </span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc09_Practica() {
+  const ejs = useMemo(() => [
+    { p: "Resolvé: x² − 7x + 12 = 0", o: ["3 y 4", "2 y 6", "5 y 7", "1 y 12"], c: 0, ex: "Factorización: (x−3)(x−4)=0 → x = 3 ó x = 4." },
+    { p: "Resolvé: x² − 16 = 0", o: ["±4", "4", "±16", "8"], c: 0, ex: "x² = 16 → x = ±4." },
+    { p: "Discriminante de x² + 3x − 10 = 0:", o: ["49", "−40", "−31", "9"], c: 0, ex: "b²−4ac = 9 + 40 = 49." },
+    { p: "x² + x + 1 = 0 tiene:", o: ["2 soluciones reales", "1 sol real", "Sin sol reales", "Infinitas"], c: 2, ex: "Δ = 1 − 4 = −3 < 0 → sin soluciones reales." },
+    { p: "Si x₁ y x₂ son raíces de x² − 6x + 5 = 0, ¿cuánto suman?", o: ["5", "6", "−6", "11"], c: 1, ex: "Por Vieta: suma = −b/a = 6." },
   ], []);
-  const [elegida, setElegida] = useState<number | null>(null);
-
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Resolvé la ecuación cuadrática:</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "30px 20px", background: "var(--bg-card)", borderRadius: 20, border: "1px solid var(--border)",
-          fontSize: 30, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", textAlign: "center",
-        }}
-      >
-        x² + 3x − 10 = 0
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.02, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.98 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "16px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 20, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> Factorizamos: (x+5)(x−2) = 0. Soluciones: <strong>x = 2 ó x = −5</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Buscamos dos números que sumen 3 y multipliquen −10: 5 y −2. Factorización: (x+5)(x−2) = 0 → x = −5 ó x = 2.</>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c; const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+            </div>}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás cuadráticas."}
+            {ok < ejs.length && "Memorizá la fórmula y el discriminante."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }

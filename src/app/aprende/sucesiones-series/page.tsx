@@ -1,241 +1,238 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
+import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
-  COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, cajaAnim, cajitaFormula, Stage,
-} from "../_components/atoms";
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
     <LeccionShell
       unidad="11"
-      tituloUnidad="Progresiones aritméticas y geométricas"
+      tituloUnidad="Sucesiones y series"
       escenas={[
-        { titulo: "Sucesión aritmética", componente: EscenaAritmetica },
-        { titulo: "Suma de Gauss", componente: EscenaGauss },
-        { titulo: "Sucesión geométrica", componente: EscenaGeometrica },
-        { titulo: "Suma geométrica finita", componente: EscenaSumaGeom },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Qué es una sucesión?", componente: Esc01_Intro },
+        { titulo: "Progresión aritmética (PA)", componente: Esc02_PA },
+        { titulo: "Suma de una PA (Gauss)", componente: Esc03_SumaPA },
+        { titulo: "Progresión geométrica (PG)", componente: Esc04_PG },
+        { titulo: "Suma de una PG", componente: Esc05_SumaPG },
+        { titulo: "Aplicaciones (interés, crecimiento)", componente: Esc06_App },
+        { titulo: "Errores comunes", componente: Esc07_Errores },
+        { titulo: "Práctica final", componente: Esc08_Practica },
       ]}
     />
   );
 }
 
-function EscenaAritmetica() {
-  const [paso, setPaso] = useState(0);
-
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>En una <strong>aritmética</strong> sumamos siempre la misma cantidad (la razón d):</p>
-
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={170}>
-          {/* Sucesión 3, 7, 11, 15, 19 con d=4 */}
-          {[3, 7, 11, 15, 19].map((n, k) => (
-            <motion.div key={k}
-              initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: k * 0.15, type: "spring" }}
-              style={{ position: "absolute", left: 30 + k * 75, top: 30, width: 50, height: 50, borderRadius: 12, background: COLOR_BASE, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-              {n}
-            </motion.div>
-          ))}
-          {/* +d arrows */}
-          {[0, 1, 2, 3].map((k) => (
-            <motion.div key={`a${k}`}
-              initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }} transition={{ delay: k * 0.1 }}
-              style={{ position: "absolute", left: 90 + k * 75, top: 90, fontSize: 14, color: COLOR_OK, fontWeight: 700 }}>
-              +4
-            </motion.div>
-          ))}
-
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ position: "absolute", left: 0, top: 130, width: "100%", textAlign: "center", fontSize: 18, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            Término n: a<sub style={{ fontSize: 12 }}>n</sub> = a<sub style={{ fontSize: 12 }}>1</sub> + (n−1)·d
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Sucesión: 3, 7, 11, 15, 19…"}
-        {paso === 1 && "Entre cada par se suma 4 (la razón d = 4)"}
-        {paso === 2 && "El n-ésimo término: a_n = a_1 + (n−1)d"}
-      </p>
-    </div>
+    <EscenaRica>
+      <Titulo>Sucesiones y series</Titulo>
+      <Definicion termino="sucesión">
+        Una <strong>sucesión</strong> es una lista ordenada de números, donde cada
+        número se llama <strong>término</strong>. Suelen seguir un patrón.
+      </Definicion>
+      <Ejemplo>
+        2, 4, 6, 8, 10, … (cada término suma 2)<br />
+        1, 3, 9, 27, 81, … (cada término multiplica por 3)<br />
+        1, 1, 2, 3, 5, 8, 13, … (Fibonacci)
+      </Ejemplo>
+      <Definicion termino="serie">
+        Una <strong>serie</strong> es la SUMA de los términos de una sucesión. Ej: 2 + 4 + 6 + 8 + 10 = 30.
+      </Definicion>
+      <Resumen>
+        🎯 En esta lección verás las dos sucesiones más importantes: aritmética (PA)
+        y geométrica (PG). Y cómo sumar los primeros n términos de cada una.
+      </Resumen>
+    </EscenaRica>
   );
 }
 
-function EscenaGauss() {
+function Esc02_PA() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Truco de Gauss: para sumar todos los términos, multiplicá el promedio por la cantidad:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={170}>
-          <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            S<sub style={{ fontSize: 14 }}>n</sub> =
-            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1, verticalAlign: "middle", marginLeft: 8 }}>
-              <span style={{ padding: "0 8px" }}>(a<sub style={{ fontSize: 12 }}>1</sub> + a<sub style={{ fontSize: 12 }}>n</sub>) · n</span>
-              <span style={{ borderTop: "2px solid currentColor", width: "100%", marginTop: 3 }} />
-              <span style={{ padding: "0 8px", marginTop: 3 }}>2</span>
-            </span>
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-            style={{ position: "absolute", left: 0, top: 110, width: "100%", textAlign: "center", fontSize: 14, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}>
-            Ej: 1+2+3+…+100 = (1+100)·100/2 = 5050
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>Gauss niño resolvió esto en segundos en la escuela 🤓</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Progresión Aritmética (PA)</Titulo>
+      <Definicion termino="PA">
+        Una sucesión es <strong>aritmética</strong> si entre cada término y el siguiente
+        se suma la MISMA cantidad, llamada <strong>razón d</strong>.
+      </Definicion>
+      <Ejemplo>
+        3, 7, 11, 15, 19 — d = 4 (siempre se suma 4).<br />
+        10, 7, 4, 1, −2 — d = −3 (se RESTA 3, también es PA).
+      </Ejemplo>
+      <Resumen>
+        Fórmula del n-ésimo término: <br />
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a<sub>n</sub> = a<sub>1</sub> + (n − 1)·d
+        </span>
+      </Resumen>
+      <Ejemplo titulo="Encontrar el término 10 de 3, 7, 11, …">
+        <Paso n={1}>a₁ = 3, d = 4, n = 10.</Paso>
+        <Paso n={2}>a₁₀ = 3 + (10 − 1)·4 = 3 + 36 = <strong style={{ color: COLOR_OK }}>39</strong>.</Paso>
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-function EscenaGeometrica() {
-  const [paso, setPaso] = useState(0);
-
+function Esc03_SumaPA() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>En una <strong>geométrica</strong> multiplicamos por la misma razón (r) cada vez:</p>
-
-      <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <Stage w={420} h={170}>
-          {[2, 6, 18, 54, 162].map((n, k) => (
-            <motion.div key={k}
-              initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: k * 0.15, type: "spring" }}
-              style={{ position: "absolute", left: 20 + k * 78, top: 30, minWidth: 60, padding: "8px 10px", borderRadius: 12, background: COLOR_EXP, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: n > 100 ? 16 : 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-              {n}
-            </motion.div>
-          ))}
-          {[0, 1, 2, 3].map((k) => (
-            <motion.div key={`a${k}`}
-              initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }} transition={{ delay: k * 0.1 }}
-              style={{ position: "absolute", left: 90 + k * 78, top: 90, fontSize: 14, color: COLOR_OK, fontWeight: 700 }}>
-              ×3
-            </motion.div>
-          ))}
-
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ position: "absolute", left: 0, top: 130, width: "100%", textAlign: "center", fontSize: 18, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            Término n: a<sub style={{ fontSize: 12 }}>n</sub> = a<sub style={{ fontSize: 12 }}>1</sub> · r<sup style={{ fontSize: 12 }}>(n−1)</sup>
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Sucesión: 2, 6, 18, 54, 162…"}
-        {paso === 1 && "Cada término es el anterior × 3 (razón r = 3)"}
-        {paso === 2 && "El n-ésimo: a_n = a_1 · r^(n−1)"}
-      </p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Suma de una PA (truco de Gauss)</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          S<sub>n</sub> = (a<sub>1</sub> + a<sub>n</sub>) · n / 2
+        </span>
+      </Resumen>
+      <PorQue>
+        Gauss niño descubrió esto: si sumás los términos en pares (primero + último,
+        segundo + penúltimo, …), cada par da lo mismo: a₁+aₙ. Y hay n/2 pares. Por eso
+        Sn = (a₁+aₙ)·n/2.
+      </PorQue>
+      <Ejemplo titulo="Suma 1 + 2 + 3 + … + 100">
+        S = (1 + 100)·100/2 = 101·50 = <strong style={{ color: COLOR_OK }}>5050</strong>.
+      </Ejemplo>
+      <Ejemplo titulo="Suma 5 + 10 + 15 + … + 95">
+        Es PA con a₁=5, aₙ=95, d=5. Cantidad de términos: n = (95−5)/5 + 1 = 19. <br />
+        S = (5 + 95)·19/2 = 100·9.5 = <strong style={{ color: COLOR_OK }}>950</strong>.
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-function EscenaSumaGeom() {
+function Esc04_PG() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>La suma de los primeros n términos de una geométrica:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={170}>
-          <div style={{ position: "absolute", left: 0, top: 30, width: "100%", textAlign: "center", fontSize: 22, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            S<sub style={{ fontSize: 14 }}>n</sub> = a<sub style={{ fontSize: 12 }}>1</sub> ·
-            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1, verticalAlign: "middle", marginLeft: 8 }}>
-              <span style={{ padding: "0 8px" }}>r<sup style={{ fontSize: 12 }}>n</sup> − 1</span>
-              <span style={{ borderTop: "2px solid currentColor", width: "100%", marginTop: 3 }} />
-              <span style={{ padding: "0 8px", marginTop: 3 }}>r − 1</span>
-            </span>
-          </div>
-
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-            style={{ position: "absolute", left: 0, top: 110, width: "100%", textAlign: "center", fontSize: 14, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}>
-            Ej: 2 + 6 + 18 + 54 + 162 = 2·(3⁵ − 1)/(3 − 1) = 242
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>Cuando |r| &lt; 1 y n→∞ la suma converge a a₁/(1−r)</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_EXP}>Progresión Geométrica (PG)</Titulo>
+      <Definicion termino="PG">
+        Una sucesión es <strong>geométrica</strong> si entre cada término y el siguiente
+        se MULTIPLICA por la misma cantidad, llamada <strong>razón r</strong>.
+      </Definicion>
+      <Ejemplo>
+        2, 6, 18, 54, 162 — r = 3 (cada uno es el anterior por 3).<br />
+        80, 40, 20, 10, 5 — r = 1/2.
+      </Ejemplo>
+      <Resumen>
+        Fórmula del n-ésimo:<br />
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a<sub>n</sub> = a<sub>1</sub> · r<sup>(n−1)</sup>
+        </span>
+      </Resumen>
+      <Ejemplo titulo="Término 6 de 2, 6, 18, …">
+        a₆ = 2 · 3⁵ = 2 · 243 = <strong style={{ color: COLOR_OK }}>486</strong>.
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-function EscenaReto() {
-  // Sucesión 5, 8, 11... cuál es el a_10? a_n = 5 + 3(n-1) → a_10 = 5 + 27 = 32
-  const opciones = useMemo(() => [
-    { label: "32", correcta: true },
-    { label: "35", correcta: false },
-    { label: "30", correcta: false },
-    { label: "27", correcta: false },
+function Esc05_SumaPG() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_EXP}>Suma de una PG</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          S<sub>n</sub> = a<sub>1</sub> · (r<sup>n</sup> − 1) / (r − 1) &nbsp; (si r ≠ 1)
+        </span>
+      </Resumen>
+      <Ejemplo titulo="Suma 2 + 6 + 18 + 54 + 162">
+        a₁=2, r=3, n=5. S = 2·(3⁵ − 1)/(3−1) = 2·(243−1)/2 = <strong style={{ color: COLOR_OK }}>242</strong>.
+      </Ejemplo>
+      <Cuidado>
+        Si <strong>|r| &lt; 1</strong> y la PG es infinita, la suma <strong>converge</strong>:
+        S<sub>∞</sub> = a₁ / (1 − r).
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc06_App() {
+  return (
+    <EscenaRica>
+      <Titulo>Aplicaciones reales</Titulo>
+      <Ejemplo titulo="Interés simple (PA)">
+        Capital 1000, gana 80 Bs por año. Tras n años: 1000, 1080, 1160, 1240, … es PA con d=80.
+      </Ejemplo>
+      <Ejemplo titulo="Interés compuesto (PG)">
+        Capital 1000 al 5% anual: 1000, 1050, 1102.5, 1157.6, … es PG con r=1.05.<br />
+        Después de n años: capital = 1000·1.05ⁿ.
+      </Ejemplo>
+      <Ejemplo titulo="Población creciente">
+        Una población crece 2% por año. Si hoy son N, en 10 años: N·1.02¹⁰ ≈ 1.22·N.
+      </Ejemplo>
+    </EscenaRica>
+  );
+}
+
+function Esc07_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> Confundir PA con PG. <br />
+        <span style={{ fontSize: 13 }}>PA suma siempre lo mismo, PG multiplica. Verificá comparando dos diferencias o dos cocientes consecutivos.</span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> En aₙ usar (n−1)·d como n·d. <br />
+        <span style={{ fontSize: 13 }}>El a₁ es el primero, después aplica n−1 veces la razón. No n.</span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> Olvidar contar la cantidad correcta de términos en una suma. <br />
+        <span style={{ fontSize: 13 }}>Si sumás 5 + 10 + … + 95, son 19 términos, no 19 − 5 = 14.</span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc08_Practica() {
+  const ejs = useMemo(() => [
+    { p: "PA con a₁=5, d=3. ¿a₁₀?", o: ["32", "30", "35", "27"], c: 0, ex: "a₁₀ = 5 + 9·3 = 32." },
+    { p: "Suma de 1+2+…+50:", o: ["1275", "2550", "1250", "1300"], c: 0, ex: "S = 51·50/2 = 1275." },
+    { p: "PG con a₁=3, r=2. ¿a₅?", o: ["48", "32", "24", "96"], c: 0, ex: "a₅ = 3·2⁴ = 48." },
+    { p: "Suma 1+3+9+27+81:", o: ["121", "243", "80", "100"], c: 0, ex: "PG: 1·(3⁵−1)/(3−1) = 242/2 = 121." },
+    { p: "¿2, 5, 8, 11 es PA o PG?", o: ["PA d=3", "PG r=3", "Ambas", "Ninguna"], c: 0, ex: "Suma siempre 3 → PA con d=3." },
   ], []);
-  const [elegida, setElegida] = useState<number | null>(null);
-
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>En la sucesión 5, 8, 11, 14, … ¿cuál es el término 10?</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "30px 20px", background: "var(--bg-card)", borderRadius: 20, border: "1px solid var(--border)",
-          fontSize: 28, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", textAlign: "center",
-        }}
-      >
-        5, 8, 11, 14, …<br />
-        <span style={{ fontSize: 18, color: "var(--fg-muted)" }}>a₁₀ = ?</span>
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "18px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 22, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> Es aritmética con d=3. a₁₀ = 5 + 9·3 = <strong>32</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Aritmética con razón d=3. Fórmula: a_n = a_1 + (n−1)d → a₁₀ = 5 + 9·3 = <strong>32</strong>.</>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c; const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+            </div>}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás sucesiones y series."}
+            {ok < ejs.length && "Memorizá las 2 fórmulas de aₙ y las 2 de suma."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }

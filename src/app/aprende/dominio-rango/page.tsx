@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
+import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
-  COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, cajaAnim, cajitaFormula, Stage,
-} from "../_components/atoms";
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -14,238 +15,198 @@ export default function Page() {
       unidad="04"
       tituloUnidad="Dominio, rango y gráfica"
       escenas={[
-        { titulo: "¿Qué es el dominio?", componente: EscenaDominio },
-        { titulo: "¿Qué es el rango?", componente: EscenaRango },
-        { titulo: "Restricciones por división", componente: EscenaDivision },
-        { titulo: "Restricciones por raíz par", componente: EscenaRaiz },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "Dominio y rango: qué son", componente: Esc01_Intro },
+        { titulo: "Dominio: restricciones típicas", componente: Esc02_Restricciones },
+        { titulo: "División por cero", componente: Esc03_Div },
+        { titulo: "Raíz par", componente: Esc04_Raiz },
+        { titulo: "Logaritmo", componente: Esc05_Log },
+        { titulo: "Rango: leerlo del gráfico", componente: Esc06_Rango },
+        { titulo: "Errores comunes", componente: Esc07_Errores },
+        { titulo: "Práctica final", componente: Esc08_Practica },
       ]}
     />
   );
 }
 
-// ESCENA 1 — Dominio: valores que x puede tomar
-function EscenaDominio() {
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>El <strong>dominio</strong> son todos los valores que <strong>x puede tomar</strong>:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={180}>
-          <svg width={420} height={180}>
-            <line x1={20} y1={90} x2={400} y2={90} stroke="var(--border)" strokeWidth={1} />
-            <line x1={210} y1={20} x2={210} y2={170} stroke="var(--border)" strokeWidth={1} />
-
-            {/* Función: recta f(x) = x */}
-            <motion.line x1={60} y1={140} x2={360} y2={40}
-              stroke={COLOR_OK} strokeWidth={3} strokeLinecap="round"
-              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1 }}
-            />
-
-            {/* Resaltado del dominio (eje x) */}
-            <motion.line x1={60} y1={90} x2={360} y2={90}
-              stroke={COLOR_EXP} strokeWidth={6}
-              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 1.2 }}
-            />
-
-            <motion.text x={310} y={75} fontSize={12} fill={COLOR_EXP} fontWeight={800}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
-              DOMINIO →
-            </motion.text>
-          </svg>
-        </Stage>
-
-        <div style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            Para f(x) = x: el dominio es <strong>todos los reales</strong> (cualquier x funciona) → Dom = ℝ
-          </span>
-        </div>
-      </div>
-
-      <p style={hint()}>El dominio se mira en el eje horizontal (los x que la función "acepta")</p>
-    </div>
+    <EscenaRica>
+      <Titulo>Dominio y rango</Titulo>
+      <Definicion termino="dominio">
+        Conjunto de TODOS los valores que x puede tomar — los inputs válidos.
+      </Definicion>
+      <Definicion termino="rango (o imagen)">
+        Conjunto de TODOS los valores que f(x) puede dar — los outputs posibles.
+      </Definicion>
+      <Ejemplo>
+        f(x) = x²: Dominio = ℝ (cualquier x). Rango = [0, +∞) (los y son no-negativos).
+      </Ejemplo>
+      <Resumen>
+        Dominio se lee en el <strong>eje X</strong>. Rango se lee en el <strong>eje Y</strong>.
+      </Resumen>
+    </EscenaRica>
   );
 }
 
-// ESCENA 2 — Rango: valores que f(x) puede dar
-function EscenaRango() {
+function Esc02_Restricciones() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>El <strong>rango</strong> son todos los valores que <strong>f(x) genera</strong>:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={200}>
-          <svg width={420} height={200}>
-            <line x1={20} y1={170} x2={400} y2={170} stroke="var(--border)" strokeWidth={1} />
-            <line x1={210} y1={20} x2={210} y2={180} stroke="var(--border)" strokeWidth={1} />
-
-            {/* Parábola y = x² (siempre ≥ 0) */}
-            <motion.path d="M 90 30 Q 210 250 330 30"
-              fill="none" stroke={COLOR_OK} strokeWidth={3} strokeLinecap="round"
-              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1 }}
-            />
-
-            {/* Resaltado del rango (eje y, solo desde 170 para arriba) */}
-            <motion.line x1={210} y1={30} x2={210} y2={170}
-              stroke={COLOR_EXP} strokeWidth={6}
-              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1, delay: 1.2 }}
-            />
-
-            <motion.text x={180} y={20} fontSize={12} fill={COLOR_EXP} fontWeight={800}
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2 }}>
-              ↑ RANGO
-            </motion.text>
-          </svg>
-        </Stage>
-
-        <div style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            Para f(x) = x²: el rango es <strong>y ≥ 0</strong> (la parábola nunca baja debajo de 0)
-          </span>
-        </div>
-      </div>
-
-      <p style={hint()}>El rango se mira en el eje vertical (los y que la función "produce")</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent="#3b82f6">¿Qué reduce el dominio?</Titulo>
+      <Resumen>
+        Tres situaciones típicas que excluyen valores de x:<br />
+        🚫 <strong>División por cero</strong>: el denominador no puede ser 0.<br />
+        🚫 <strong>Raíz de índice par</strong>: el radicando debe ser ≥ 0.<br />
+        🚫 <strong>Logaritmo</strong>: el argumento debe ser &gt; 0.
+      </Resumen>
+      <Parrafo>
+        Si tu función NO tiene ninguna de estas, el dominio es <strong>todos los reales</strong>.
+      </Parrafo>
+    </EscenaRica>
   );
 }
 
-// ESCENA 3 — División: el denominador no puede ser 0
-function EscenaDivision() {
+function Esc03_Div() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Cuidado con la <strong>división</strong>: el denominador <em>nunca</em> puede ser 0:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <div style={{ width: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            f(x) = 1 / (x − 3)
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            style={{ fontSize: 14, color: "var(--fg-muted)", textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>
-            Si x = 3, el denominador es 0. ¡División por cero <strong style={{ color: COLOR_BAD }}>imposible</strong>!
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, type: "spring" }}
-            style={{ fontSize: 20, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-            Dom = ℝ − {`{3}`}
-          </motion.div>
-        </div>
-      </div>
-
-      <p style={hint()}>El dominio incluye todos los reales EXCEPTO los que anulan el denominador</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Restricción 1: división por cero</Titulo>
+      <Parrafo>
+        Si tu función tiene la forma f(x) = N(x)/D(x), buscás los valores de x que
+        anulan D(x) y los EXCLUÍS del dominio.
+      </Parrafo>
+      <Ejemplo titulo="f(x) = 1 / (x − 3)">
+        <Paso n={1}>D(x) = x − 3 se anula en x = 3.</Paso>
+        <Paso n={2}>Dominio: <strong style={{ color: COLOR_OK }}>x ≠ 3</strong>, o ℝ − {`{3}`}.</Paso>
+      </Ejemplo>
+      <Ejemplo titulo="f(x) = (x+1)/(x² − 9)">
+        <Paso n={1}>x² − 9 = (x−3)(x+3) = 0 cuando x = 3 ó x = −3.</Paso>
+        <Paso n={2}>Dominio: ℝ − {`{−3, 3}`}.</Paso>
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-// ESCENA 4 — Raíz par: el radicando no puede ser negativo
-function EscenaRaiz() {
+function Esc04_Raiz() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Una <strong>raíz par</strong> no acepta números negativos adentro:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <div style={{ width: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
-            style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, display: "flex", alignItems: "flex-start" }}>
-            f(x) = <span style={{ fontSize: 40, fontWeight: 400 }}>√</span>
-            <span style={{ borderTop: `2px solid ${COLOR_BASE}`, paddingTop: 4, marginTop: 3, marginLeft: -2 }}>x − 2</span>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            style={{ fontSize: 14, color: "var(--fg-muted)", textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>
-            Necesitamos que x − 2 ≥ 0 → <strong style={{ color: COLOR_OK }}>x ≥ 2</strong>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.4, type: "spring" }}
-            style={{ fontSize: 20, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-            Dom = [2, +∞)
-          </motion.div>
-        </div>
-      </div>
-
-      <p style={hint()}>El radicando debe ser ≥ 0 — eso define el dominio</p>
-    </div>
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Restricción 2: raíz de índice par</Titulo>
+      <Parrafo>
+        Para √, ⁴√, ⁶√, … el radicando DEBE ser ≥ 0. Para índices impares (³√, ⁵√…) no hay restricción.
+      </Parrafo>
+      <Ejemplo titulo="f(x) = √(x − 5)">
+        <Paso n={1}>x − 5 ≥ 0 → x ≥ 5.</Paso>
+        <Paso n={2}>Dominio: <strong style={{ color: COLOR_OK }}>[5, +∞)</strong>.</Paso>
+      </Ejemplo>
+      <Ejemplo titulo="f(x) = √(9 − x²)">
+        <Paso n={1}>9 − x² ≥ 0 → x² ≤ 9 → −3 ≤ x ≤ 3.</Paso>
+        <Paso n={2}>Dominio: <strong style={{ color: COLOR_OK }}>[−3, 3]</strong>.</Paso>
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-// ESCENA 5 — Mini-reto
-// Dominio de f(x) = 1/(x+5) → x ≠ −5
-function EscenaReto() {
-  const opciones = useMemo(() => [
-    { label: "x ≠ −5", correcta: true },
-    { label: "x ≠ 5", correcta: false },
-    { label: "x ≥ −5", correcta: false },
-    { label: "Todos los reales", correcta: false },
+function Esc05_Log() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Restricción 3: logaritmo</Titulo>
+      <Parrafo>
+        El argumento de un log debe ser <strong>positivo</strong> (estrictamente &gt; 0, NO ≥).
+      </Parrafo>
+      <Ejemplo titulo="f(x) = log(x − 2)">
+        <Paso n={1}>x − 2 &gt; 0 → x &gt; 2.</Paso>
+        <Paso n={2}>Dominio: <strong style={{ color: COLOR_OK }}>(2, +∞)</strong>.</Paso>
+      </Ejemplo>
+      <Cuidado>
+        El log NO incluye el valor donde el argumento es 0. Por eso paréntesis ( y no corchete [.
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc06_Rango() {
+  return (
+    <EscenaRica>
+      <Titulo>Encontrar el rango</Titulo>
+      <Parrafo>
+        El rango se mira en el eje y. Truco: leé la gráfica de izquierda a derecha y
+        anotá los valores de y que aparecen.
+      </Parrafo>
+      <Ejemplo>
+        <strong>f(x) = x²</strong>: y nunca es negativo. Rango = [0, +∞).<br />
+        <strong>f(x) = mx + b</strong> con m ≠ 0: la recta cubre todos los y. Rango = ℝ.<br />
+        <strong>f(x) = √x</strong>: y ≥ 0. Rango = [0, +∞).<br />
+        <strong>f(x) = 1/x</strong>: y ≠ 0. Rango = ℝ − {`{0}`}.
+      </Ejemplo>
+      <PorQue>
+        Para funciones cuadráticas: si abre arriba, rango = [y<sub>v</sub>, +∞). Si abre
+        abajo, rango = (−∞, y<sub>v</sub>].
+      </PorQue>
+    </EscenaRica>
+  );
+}
+
+function Esc07_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
+      <Cuidado>
+        Olvidar revisar que el denominador no se anule.
+      </Cuidado>
+      <Cuidado>
+        Pensar que √ acepta cualquier x. NO: el radicando debe ser ≥ 0.
+      </Cuidado>
+      <Cuidado>
+        Confundir dominio con rango. Dominio = X. Rango = Y.
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc08_Practica() {
+  const ejs = useMemo(() => [
+    { p: "Dominio de f(x) = 1/(x+5):", o: ["ℝ", "x ≠ −5", "x ≠ 5", "x ≥ −5"], c: 1, ex: "x+5 ≠ 0 → x ≠ −5." },
+    { p: "Dominio de f(x) = √(x − 4):", o: ["x &gt; 4", "x ≥ 4", "x &lt; 4", "ℝ"], c: 1, ex: "x − 4 ≥ 0 → x ≥ 4." },
+    { p: "Dominio de log(x + 1):", o: ["x &gt; −1", "x ≥ −1", "x ≠ −1", "ℝ"], c: 0, ex: "x+1 > 0 → x > −1." },
+    { p: "Rango de f(x) = x² + 2:", o: ["[2, ∞)", "ℝ", "(−∞, 2]", "[0, ∞)"], c: 0, ex: "Mínimo en y=2 (vértice). Abre arriba: [2, ∞)." },
+    { p: "Dominio de f(x) = 1/(x² − 1):", o: ["ℝ", "x ≠ 1", "x ≠ ±1", "x ≥ 1"], c: 2, ex: "x²−1 = 0 → x = ±1. Excluyo ambos." },
   ], []);
-  const [elegida, setElegida] = useState<number | null>(null);
-
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>¿Cuál es el dominio de f(x) = 1 / (x + 5)?</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "30px 40px", background: "var(--bg-card)", borderRadius: 20, border: "1px solid var(--border)",
-          fontSize: 32, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", textAlign: "center",
-        }}
-      >
-        f(x) = 1 / (x + 5)
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "18px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 20, fontWeight: 700, color: COLOR_BASE,
-                fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> El denominador x+5 se anula cuando x = −5. Hay que excluir ese valor: <strong>x ≠ −5</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Buscá qué valor anula el denominador: x+5 = 0 → x = −5. Se excluye → dominio = <strong>x ≠ −5</strong>.</>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }} dangerouslySetInnerHTML={{ __html: e.p }} />
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c; const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}
+                    dangerouslySetInnerHTML={{ __html: op + (rev && isOk ? " ✓" : "") + (rev && isSel && !isOk ? " ✗" : "") }} />
+                );
+              })}
+            </div>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+            </div>}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Dominás dominio y rango."}
+            {ok < ejs.length && "Releé las 3 restricciones (div, raíz par, log)."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }
