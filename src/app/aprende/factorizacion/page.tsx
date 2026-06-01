@@ -1,12 +1,15 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  escenaWrap, subtitulo, hint, numGrande, cajaAnim, cajitaFormula, Stage,
 } from "../_components/atoms";
+import {
+  Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
+  EscenaRica, AutoCheck,
+} from "../_components/pedagogia";
 
 export default function Page() {
   return (
@@ -14,319 +17,351 @@ export default function Page() {
       unidad="03"
       tituloUnidad="Factorización"
       escenas={[
-        { titulo: "¿Qué es factorizar?", componente: EscenaIntro },
-        { titulo: "Factor común", componente: EscenaFactorComun },
-        { titulo: "Diferencia de cuadrados", componente: EscenaDifCuadrados },
-        { titulo: "Trinomio cuadrado perfecto", componente: EscenaTCP },
-        { titulo: "Trinomio x² + bx + c", componente: EscenaTrinomio },
-        { titulo: "Tu turno", componente: EscenaReto },
+        { titulo: "¿Qué es factorizar?", componente: Esc01_Intro },
+        { titulo: "Factor común", componente: Esc02_FactorComun },
+        { titulo: "Factor común por grupos", componente: Esc03_Grupos },
+        { titulo: "Diferencia de cuadrados", componente: Esc04_DifCuad },
+        { titulo: "Trinomio cuadrado perfecto", componente: Esc05_TCP },
+        { titulo: "Trinomio general x² + bx + c", componente: Esc06_Trinomio },
+        { titulo: "Estrategia: ¿cuál uso?", componente: Esc07_Cual },
+        { titulo: "Errores comunes", componente: Esc08_Errores },
+        { titulo: "Práctica final", componente: Esc09_Practica },
       ]}
     />
   );
 }
 
-// ESCENA 1 — ¿Qué es factorizar? (lo opuesto a desarrollar)
-function EscenaIntro() {
+function Esc01_Intro() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Factorizar es el <strong>camino inverso</strong> de multiplicar:</p>
-
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={160}>
-          {/* DESARROLLAR (de izq a der) */}
-          <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
-            style={{ position: "absolute", left: 0, top: 20, width: "100%", display: "flex", justifyContent: "center", alignItems: "center", gap: 16, fontSize: 24, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span>(x + 2)(x + 3)</span>
-            <span style={{ color: COLOR_OK, fontSize: 30 }}>→</span>
-            <span>x² + 5x + 6</span>
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
-            style={{ position: "absolute", left: 0, top: 55, width: "100%", textAlign: "center", fontSize: 12, color: COLOR_OK, fontWeight: 800, letterSpacing: 2 }}>
-            DESARROLLAR
-          </motion.div>
-
-          {/* FACTORIZAR (de der a izq) */}
-          <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.0 }}
-            style={{ position: "absolute", left: 0, top: 100, width: "100%", display: "flex", justifyContent: "center", alignItems: "center", gap: 16, fontSize: 24, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span>x² + 5x + 6</span>
-            <span style={{ color: COLOR_EXP, fontSize: 30 }}>→</span>
-            <span>(x + 2)(x + 3)</span>
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}
-            style={{ position: "absolute", left: 0, top: 135, width: "100%", textAlign: "center", fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 2 }}>
-            FACTORIZAR
-          </motion.div>
-        </Stage>
-      </div>
-
-      <p style={hint()}>Factorizar es escribir un polinomio como producto de factores</p>
-    </div>
+    <EscenaRica>
+      <Titulo>Factorizar: lo opuesto de desarrollar</Titulo>
+      <Definicion termino="factorizar">
+        <strong>Factorizar</strong> un polinomio es escribirlo como un <strong>producto
+        de factores</strong> (que ya no se pueden descomponer más).
+      </Definicion>
+      <Parrafo>
+        Es lo opuesto de <strong>desarrollar</strong>. Si desarrollar va de
+        (x+2)(x+3) hacia x²+5x+6, factorizar va al revés: de x²+5x+6 hacia (x+2)(x+3).
+      </Parrafo>
+      <Resumen>
+        🎯 ¿Para qué sirve?<br />
+        • <strong>Resolver ecuaciones</strong>: si (x−3)(x+5) = 0, entonces x=3 ó x=−5.<br />
+        • <strong>Simplificar fracciones algebraicas</strong>: cancelar factores comunes.<br />
+        • <strong>Encontrar raíces</strong>: cada factor da una raíz.<br />
+        • <strong>Análisis de funciones</strong>: dominio, ceros, signos.
+      </Resumen>
+      <PorQue>
+        Factorizar es esencial porque <strong>los productos son más fáciles de analizar
+        que las sumas</strong>. "Algo·algo = 0" es trivial (uno de los dos es 0). "Algo + algo = 0" no.
+      </PorQue>
+    </EscenaRica>
   );
 }
 
-// ESCENA 2 — Factor común: 6x + 9 = 3(2x + 3)
-function EscenaFactorComun() {
-  const [paso, setPaso] = useState(0);
-
+function Esc02_FactorComun() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Si hay un <strong>factor común</strong>, lo sacamos afuera de un paréntesis:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Caso 1: Factor común</Titulo>
+      <Parrafo>
+        Es el método <strong>más simple y siempre el primero a probar</strong>. Buscás
+        algo que se repite en todos los términos y lo "sacás afuera".
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 160, display: "flex", flexDirection: "column", gap: 14, alignItems: "center", justifyContent: "center" }}>
+      <Ejemplo titulo="Factorizar 6x + 9">
+        <Paso n={1}>¿Qué número divide a 6 y a 9? El <strong>3</strong>.</Paso>
+        <Paso n={2}>6x = 3·2x · 9 = 3·3</Paso>
+        <Paso n={3}>Saco el 3: <strong style={{ color: COLOR_OK }}>3(2x + 3)</strong></Paso>
+        <Paso n={4}>Verificación: distribuyo y vuelve: 3·2x + 3·3 = 6x + 9 ✓</Paso>
+      </Ejemplo>
 
-          {/* 6x + 9 */}
-          <motion.div animate={paso >= 1 ? { opacity: 0.4, scale: 0.85 } : { opacity: 1, scale: 1 }}
-            style={{ fontSize: 30, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
-            6x + 9
-          </motion.div>
+      <Ejemplo titulo="Con letras: 4x³ − 8x²">
+        <Paso n={1}>Coeficientes: MCD(4, 8) = 4.</Paso>
+        <Paso n={2}>Letras: en ambos hay x. La menor potencia es x² (la repetida en ambos).</Paso>
+        <Paso n={3}>Factor común: 4x².</Paso>
+        <Paso n={4}>Saco: <strong style={{ color: COLOR_OK }}>4x²(x − 2)</strong>.</Paso>
+      </Ejemplo>
 
-          {/* Paso 1: ver el factor 3 */}
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 22, color: COLOR_BASE, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
-            = <span style={{ color: COLOR_OK }}>3</span>·<span style={{ fontStyle: "italic" }}>2x</span> + <span style={{ color: COLOR_OK }}>3</span>·3
-          </motion.div>
+      <Resumen>
+        Receta: <strong>MCD de los coeficientes</strong> × <strong>menor potencia común de cada letra</strong>.
+      </Resumen>
 
-          {/* Paso 2: sacar el 3 */}
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring", stiffness: 180 }}
-            style={{ fontSize: 28, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
-            = 3(2x + 3)
-          </motion.div>
-        </div>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 13, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            💡 Verificá distribuyendo: 3·2x + 3·3 = 6x + 9 ✓
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 6x + 9 — ¿hay algo común a los dos términos?"}
-        {paso === 1 && "Sí: 6 = 3·2 y 9 = 3·3. Ambos tienen el 3"}
-        {paso === 2 && "Sacamos el 3 común: 3·(2x + 3)"}
-        {paso === 3 && "Listo: 6x + 9 = 3(2x + 3)"}
-      </p>
-    </div>
+      <AutoCheck
+        pregunta="Factorizá: 10x² + 15x"
+        opciones={["5(2x² + 3x)", "5x(2x + 3)", "x(10x + 15)", "10x(x + 1.5)"]}
+        correctaIdx={1}
+        explicacion="MCD(10,15)=5. Menor x común = x. Factor común: 5x. Resultado: 5x(2x + 3)."
+      />
+    </EscenaRica>
   );
 }
 
-// ESCENA 3 — Diferencia de cuadrados: a² − b² = (a+b)(a−b)
-// Ejemplo: x² − 9 = (x+3)(x−3)
-function EscenaDifCuadrados() {
-  const [paso, setPaso] = useState(0);
-
+function Esc03_Grupos() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Una <strong>diferencia de cuadrados</strong> se factoriza con un patrón mágico:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Caso 2: Factor común por grupos</Titulo>
+      <Parrafo>
+        Cuando hay <strong>4 términos</strong> y no hay un factor común a todos,
+        se agrupan de a dos y se factoriza cada grupo.
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
+      <Ejemplo titulo="Factorizar ax + ay + bx + by">
+        <Paso n={1}>Agrupo: (ax + ay) + (bx + by)</Paso>
+        <Paso n={2}>En el primero, saco a: a(x + y). En el segundo, b: b(x + y).</Paso>
+        <Paso n={3}>Ahora a(x+y) + b(x+y) tiene (x+y) común.</Paso>
+        <Paso n={4}>Saco (x+y): <strong style={{ color: COLOR_OK }}>(x + y)(a + b)</strong>.</Paso>
+      </Ejemplo>
 
-          {/* Patrón general */}
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 0 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            a<sup style={{ fontSize: 16, color: COLOR_EXP }}>2</sup> − b<sup style={{ fontSize: 16, color: COLOR_EXP }}>2</sup>
-            <motion.span animate={paso >= 1 ? { opacity: 1, marginLeft: 14 } : { opacity: 0, marginLeft: 0 }}>
-              = (a + b)(a − b)
-            </motion.span>
-          </motion.div>
+      <Cuidado>
+        Para que funcione, después de agrupar debe quedar un <strong>paréntesis idéntico</strong>
+        en los dos grupos. Si no, hay que reagrupar de otra forma o probar otro método.
+      </Cuidado>
 
-          {/* Ejemplo: x² − 9 */}
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 2 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 26, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 16 }}>2</sup> − 9
-            <motion.span animate={paso >= 3 ? { opacity: 1, marginLeft: 14 } : { opacity: 0, marginLeft: 0 }}>
-              = (x + 3)(x − 3)
-            </motion.span>
-          </motion.div>
-        </div>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 13, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            💡 9 = 3² → b = 3. El término del medio (2ab) se cancela.
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 a² − b²"}
-        {paso === 1 && "Patrón fijo: (suma)(diferencia)"}
-        {paso === 2 && "Aplicado a x² − 9 (donde 9 = 3²)"}
-        {paso === 3 && "Resultado: (x+3)(x−3) ✓"}
-      </p>
-    </div>
+      <Ejemplo titulo="Más complejo: 6x³ + 4x² − 9x − 6">
+        <Paso n={1}>Agrupo: (6x³ + 4x²) + (−9x − 6).</Paso>
+        <Paso n={2}>Primero: 2x²(3x + 2). Segundo: −3(3x + 2).</Paso>
+        <Paso n={3}>Ambos tienen (3x + 2). Saco: <strong style={{ color: COLOR_OK }}>(3x + 2)(2x² − 3)</strong>.</Paso>
+      </Ejemplo>
+    </EscenaRica>
   );
 }
 
-// ESCENA 4 — Trinomio cuadrado perfecto: x² + 6x + 9 = (x+3)²
-function EscenaTCP() {
-  const [paso, setPaso] = useState(0);
-
+function Esc04_DifCuad() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Si el término del medio es <strong>el doble del producto</strong>, es un TCP:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Caso 3: Diferencia de cuadrados</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a² − b² = (a + b)(a − b)
+        </span>
+      </Resumen>
+      <Parrafo>
+        Reconocés este patrón cuando hay <strong>dos cuadrados restándose</strong> (NO hay
+        término del medio).
+      </Parrafo>
 
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 12 }}>
+      <Ejemplo titulo="Ejemplos directos">
+        <Paso n={1}>x² − 9 = (x + 3)(x − 3) (porque 9 = 3²)</Paso>
+        <Paso n={2}>x² − 25 = (x + 5)(x − 5)</Paso>
+        <Paso n={3}>4x² − 49 = (2x + 7)(2x − 7) (porque 4x² = (2x)² y 49 = 7²)</Paso>
+      </Ejemplo>
 
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 16, color: COLOR_EXP }}>2</sup> + 6x + 9
-          </motion.div>
+      <Cuidado>
+        Funciona SOLO con <strong>diferencia</strong>. <br />
+        x² + 9 NO se factoriza en reales (no hay (x+a)(x+b) con coeficientes reales).
+      </Cuidado>
 
-          {/* Verificación: √x² = x, √9 = 3, 2·x·3 = 6x ✓ */}
-          <motion.div initial={{ opacity: 0, y: 6 }} animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ fontSize: 14, color: "var(--fg-muted)", textAlign: "center", maxWidth: 380, lineHeight: 1.5 }}>
-            √x² = x &nbsp;·&nbsp; √9 = 3 &nbsp;·&nbsp; 2·x·3 = <span style={{ color: COLOR_OK, fontWeight: 800 }}>6x</span> coincide con el término del medio ✓
-          </motion.div>
+      <PorQue>
+        Sale de FOIL al revés: (a+b)(a−b) = a² − ab + ab − b² = a² − b². Los términos
+        del medio se cancelan.
+      </PorQue>
 
-          {/* Paso 2: forma factorizada (x+3)² */}
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 2 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring", stiffness: 180 }}
-            style={{ fontSize: 30, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800, display: "flex", alignItems: "flex-start" }}>
-            = (x + 3)<span style={{ fontSize: 20, color: COLOR_EXP, marginLeft: 2 }}>2</span>
-          </motion.div>
-        </div>
-
-        <motion.div animate={{ opacity: paso >= 3 ? 1 : 0 }} style={cajitaFormula()}>
-          <span style={{ fontSize: 14, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif" }}>
-            a² + 2ab + b² = (a + b)²  &nbsp;·&nbsp;  a² − 2ab + b² = (a − b)²
-          </span>
-        </motion.div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 x² + 6x + 9 — ¿será TCP?"}
-        {paso === 1 && "Verificamos: 2·√x²·√9 = 6x ✓"}
-        {paso === 2 && "Sí lo es: (x+3)²"}
-        {paso === 3 && "Patrón clave para reconocer trinomios cuadrados"}
-      </p>
-    </div>
+      <AutoCheck
+        pregunta="Factorizá: x² − 16"
+        opciones={["(x − 4)²", "(x + 4)(x − 4)", "(x + 8)(x − 2)", "x(x − 16)"]}
+        correctaIdx={1}
+        explicacion="16 = 4². Patrón a²−b²: (x+4)(x−4)."
+      />
+    </EscenaRica>
   );
 }
 
-// ESCENA 5 — Trinomio x² + bx + c (búsqueda de números)
-// x² + 5x + 6 → buscar dos números que: suman 5 y multiplican 6 → 2 y 3 → (x+2)(x+3)
-function EscenaTrinomio() {
-  const [paso, setPaso] = useState(0);
-
+function Esc05_TCP() {
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Para x² + bx + c: buscamos dos números que <strong>sumen b</strong> y <strong>multipliquen c</strong>:</p>
+    <EscenaRica>
+      <Titulo accent={COLOR_OK}>Caso 4: Trinomio cuadrado perfecto (TCP)</Titulo>
+      <Resumen>
+        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
+          a² + 2ab + b² = (a + b)²<br />
+          a² − 2ab + b² = (a − b)²
+        </span>
+      </Resumen>
 
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ position: "relative", width: "100%", maxWidth: 420, minHeight: 180, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
+      <Parrafo>
+        Reconocés un TCP cuando el trinomio es del cuadrado de un binomio. Verificación:
+      </Parrafo>
 
-          <div style={{ fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 16, color: COLOR_EXP }}>2</sup> + <span style={{ color: "#3b82f6" }}>5</span>x + <span style={{ color: "#10b981" }}>6</span>
-          </div>
+      <Resumen>
+        ✓ El primer y último término son <strong>cuadrados perfectos</strong>.<br />
+        ✓ El término del medio es <strong>2 veces el producto de sus raíces</strong>.
+      </Resumen>
 
-          {/* Búsqueda de pares */}
-          <motion.div initial={{ opacity: 0 }} animate={paso >= 1 ? { opacity: 1 } : { opacity: 0 }}
-            style={{ fontSize: 14, color: "var(--fg-muted)", textAlign: "center", maxWidth: 380, lineHeight: 1.6 }}>
-            ¿Dos números que multiplicados den <strong style={{ color: "#10b981" }}>6</strong> y sumados den <strong style={{ color: "#3b82f6" }}>5</strong>?
-          </motion.div>
+      <Ejemplo titulo="¿x² + 6x + 9 es TCP?">
+        <Paso n={1}>√x² = x. √9 = 3. Doble producto: 2·x·3 = 6x. ✓ Coincide.</Paso>
+        <Paso n={2}>Factorización: <strong style={{ color: COLOR_OK }}>(x + 3)²</strong></Paso>
+      </Ejemplo>
 
-          <motion.div initial={{ opacity: 0, y: 6 }} animate={paso >= 2 ? { opacity: 1, y: 0 } : { opacity: 0, y: 6 }}
-            style={{ display: "flex", gap: 20, fontSize: 16, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-            <span style={{ color: "var(--fg-muted)" }}>1 y 6 → suman 7 ✗</span>
-            <span style={{ color: COLOR_OK }}>2 y 3 → suman 5 ✓</span>
-          </motion.div>
+      <Ejemplo titulo="¿x² − 10x + 25 es TCP?">
+        <Paso n={1}>√x² = x. √25 = 5. Doble: 2·x·5 = 10x. ✓ Coincide.</Paso>
+        <Paso n={2}>El signo del medio es −, entonces es <strong style={{ color: COLOR_OK }}>(x − 5)²</strong>.</Paso>
+      </Ejemplo>
 
-          <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
-            transition={{ type: "spring", stiffness: 180 }}
-            style={{ fontSize: 28, color: COLOR_OK, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-            = (x + 2)(x + 3)
-          </motion.div>
-        </div>
-      </div>
-
-      <p style={hint()}>
-        {paso === 0 && "👆 Factorizar x² + 5x + 6"}
-        {paso === 1 && "Buscamos dos números que sumen 5 y multipliquen 6"}
-        {paso === 2 && "Probamos pares: 2 y 3 funcionan (2+3=5 y 2·3=6)"}
-        {paso === 3 && "Resultado: (x+2)(x+3) ✓"}
-      </p>
-    </div>
+      <Cuidado>
+        Si el doble producto NO coincide, NO es TCP. Por ejemplo, x² + 5x + 9 NO es TCP
+        (doble producto sería 6x, no 5x).
+      </Cuidado>
+    </EscenaRica>
   );
 }
 
-// ESCENA 6 — Mini-reto: factorizar x² − 16
-function EscenaReto() {
-  const opciones = useMemo(() => [
-    { label: "(x+4)(x−4)", correcta: true },
-    { label: "(x−4)²", correcta: false },
-    { label: "(x+8)(x−2)", correcta: false },
-    { label: "x(x−16)", correcta: false },
+function Esc06_Trinomio() {
+  return (
+    <EscenaRica>
+      <Titulo>Caso 5: Trinomio general x² + bx + c</Titulo>
+      <Parrafo>
+        Para factorizar <strong>x² + bx + c</strong>, buscás dos números que:
+      </Parrafo>
+      <Resumen>
+        ✓ <strong>SUMEN</strong> b (el coeficiente del medio)<br />
+        ✓ <strong>MULTIPLIQUEN</strong> c (el término independiente)
+      </Resumen>
+
+      <Ejemplo titulo="x² + 5x + 6">
+        <Paso n={1}>Necesito 2 números que sumen 5 y multipliquen 6.</Paso>
+        <Paso n={2}>Pruebo: 2 y 3 (suman 5 ✓, multiplican 6 ✓).</Paso>
+        <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>(x + 2)(x + 3)</strong>.</Paso>
+      </Ejemplo>
+
+      <Ejemplo titulo="x² − 7x + 12">
+        <Paso n={1}>Sumen −7, multipliquen 12. Pruebo: −3 y −4.</Paso>
+        <Paso n={2}>−3 + −4 = −7 ✓. (−3)·(−4) = 12 ✓.</Paso>
+        <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>(x − 3)(x − 4)</strong>.</Paso>
+      </Ejemplo>
+
+      <Ejemplo titulo="x² + 2x − 15">
+        <Paso n={1}>Sumen 2, multipliquen −15. Pruebo signos: 5 y −3.</Paso>
+        <Paso n={2}>5 + (−3) = 2 ✓. 5·(−3) = −15 ✓.</Paso>
+        <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>(x + 5)(x − 3)</strong>.</Paso>
+      </Ejemplo>
+
+      <Resumen>
+        Regla de signos:<br />
+        • c &gt; 0 → los dos números tienen el mismo signo (el de b).<br />
+        • c &lt; 0 → los dos tienen signos distintos.
+      </Resumen>
+
+      <AutoCheck
+        pregunta="Factorizá: x² + 8x + 15"
+        opciones={["(x + 3)(x + 5)", "(x + 15)(x + 1)", "(x − 3)(x − 5)", "(x + 8)(x + 7)"]}
+        correctaIdx={0}
+        explicacion="Dos números que sumen 8 y multipliquen 15: 3 y 5. Total: (x+3)(x+5)."
+      />
+    </EscenaRica>
+  );
+}
+
+function Esc07_Cual() {
+  return (
+    <EscenaRica>
+      <Titulo>Estrategia: ¿qué método uso?</Titulo>
+      <Parrafo>
+        Frente a un polinomio para factorizar, el orden recomendado de prueba es:
+      </Parrafo>
+
+      <Resumen>
+        <Paso n={1}><strong>¿Hay factor común?</strong> → sacalo SIEMPRE primero.</Paso>
+        <Paso n={2}><strong>¿Cuántos términos hay?</strong></Paso>
+        <Paso n={3}>2 términos → ¿es diferencia de cuadrados (a²−b²)?</Paso>
+        <Paso n={4}>3 términos → ¿es TCP? Si no, ¿trinomio x²+bx+c?</Paso>
+        <Paso n={5}>4 términos → factor común por grupos.</Paso>
+      </Resumen>
+
+      <Ejemplo titulo="Aplicar la estrategia: 2x² − 18">
+        <Paso n={1}>¿Factor común? Sí: 2. Saco: 2(x² − 9).</Paso>
+        <Paso n={2}>¿x² − 9 es diferencia de cuadrados? Sí.</Paso>
+        <Paso n={3}>Resultado final: <strong style={{ color: COLOR_OK }}>2(x + 3)(x − 3)</strong>.</Paso>
+      </Ejemplo>
+
+      <Cuidado>
+        <strong>SIEMPRE</strong> probá factor común primero. Si lo salteás, te complicás
+        la vida y a veces no podés terminar.
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc08_Errores() {
+  return (
+    <EscenaRica>
+      <Titulo accent={COLOR_BAD}>Errores típicos</Titulo>
+      <Cuidado>
+        <strong>Error 1:</strong> "Factorizar" pero olvidar verificar. <br />
+        <span style={{ fontSize: 13 }}>
+          Siempre desarrollá tu factorización mentalmente para comprobar que vuelve al original.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 2:</strong> Querer factorizar x² + 9 (suma de cuadrados). <br />
+        <span style={{ fontSize: 13 }}>
+          x² + 9 NO se factoriza en los reales. Solo la DIFERENCIA es factorizable.
+        </span>
+      </Cuidado>
+      <Cuidado>
+        <strong>Error 3:</strong> No sacar el factor común primero. <br />
+        <span style={{ fontSize: 13 }}>
+          Si te complicás factorizando 4x² − 16 sin sacar el 4 antes, mal. Hacé 4(x²−4) = 4(x+2)(x−2).
+        </span>
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function Esc09_Practica() {
+  const ejs = useMemo(() => [
+    { p: "Factorizá: 8x − 12", o: ["4(2x − 3)", "2(4x − 6)", "4(2x − 12)", "8(x − 1.5)"], c: 0, ex: "MCD(8,12)=4. Saco 4: 4(2x − 3)." },
+    { p: "Factorizá: x² − 49", o: ["(x − 7)²", "(x + 7)(x − 7)", "(x − 49)(x + 1)", "no se puede"], c: 1, ex: "Diferencia de cuadrados: 49=7². Resultado: (x+7)(x−7)." },
+    { p: "Factorizá: x² − 8x + 16", o: ["(x − 4)²", "(x + 4)²", "(x − 8)(x − 2)", "(x − 4)(x + 4)"], c: 0, ex: "TCP: √x²=x, √16=4, 2·x·4=8x ✓. Signo −: (x−4)²." },
+    { p: "Factorizá: x² + 5x − 14", o: ["(x + 7)(x − 2)", "(x − 7)(x + 2)", "(x + 7)(x + 2)", "(x − 14)(x + 1)"], c: 0, ex: "Sumen 5, multipliquen −14: 7 y −2. → (x+7)(x−2)." },
+    { p: "Factorizá: 3x² − 27", o: ["3(x² − 9)", "3(x + 3)(x − 3)", "(3x + 3)(x − 9)", "(x + 9)(3x − 3)"], c: 1, ex: "Primero factor común 3: 3(x²−9). Después dif. cuadrados: 3(x+3)(x−3)." },
   ], []);
-  const [elegida, setElegida] = useState<number | null>(null);
+  const [resp, setResp] = useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
 
   return (
-    <div style={escenaWrap()}>
-      <p style={subtitulo()}>Factorizá:</p>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring" }}
-        style={{
-          padding: "30px 40px", background: "var(--bg-card)", borderRadius: 20, border: "1px solid var(--border)",
-          fontSize: 34, fontWeight: 700, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", textAlign: "center",
-        }}
-      >
-        <span style={{ fontStyle: "italic" }}>x</span><sup style={{ fontSize: 20, color: COLOR_EXP }}>2</sup> − 16 = ?
-      </motion.div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginTop: 8 }}>
-        {opciones.map((op, idx) => {
-          const sel = elegida === idx;
-          const reveal = elegida !== null;
-          const isCorrecta = op.correcta;
-          return (
-            <motion.button key={idx}
-              whileHover={!reveal ? { scale: 1.03, y: -2 } : {}}
-              whileTap={!reveal ? { scale: 0.97 } : {}}
-              onClick={() => elegida === null && setElegida(idx)}
-              disabled={reveal}
-              style={{
-                padding: "18px 14px",
-                background: !reveal ? "var(--bg-card)"
-                  : isCorrecta ? "linear-gradient(135deg, #d1fae5, #a7f3d0)"
-                  : sel ? "linear-gradient(135deg, #fee2e2, #fecaca)"
-                  : "var(--bg-card)",
-                border: `2px solid ${!reveal ? "var(--border)" : isCorrecta ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
-                borderRadius: 14, cursor: reveal ? "default" : "pointer",
-                fontSize: 22, fontWeight: 700, color: COLOR_BASE,
-                fontFamily: "var(--font-crimson), serif",
-              }}
-            >
-              {op.label}
-              {reveal && isCorrecta && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !isCorrecta && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
-            </motion.button>
-          );
-        })}
-      </div>
-
-      <AnimatePresence>
-        {elegida !== null && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-            style={{
-              padding: 16, borderRadius: 14, marginTop: 6,
-              background: opciones[elegida].correcta ? "#ecfdf5" : "#fef2f2",
-              border: `1px solid ${opciones[elegida].correcta ? COLOR_OK : "#fca5a5"}`,
-              fontSize: 14, color: "var(--fg-primary)",
-            }}
-          >
-            {opciones[elegida].correcta ? (
-              <><strong style={{ color: COLOR_OK }}>¡Exacto!</strong> x² − 16 es una diferencia de cuadrados (16 = 4²). Patrón a²−b² = (a+b)(a−b) → <strong>(x+4)(x−4)</strong>.</>
-            ) : (
-              <><strong style={{ color: COLOR_BAD }}>No.</strong> Es una diferencia de cuadrados: x² − 16 = x² − 4². Patrón: (a+b)(a−b) → <strong>(x+4)(x−4)</strong>.</>
+    <EscenaRica>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>5 ejercicios — combiná los 5 casos:</Parrafo>
+      {ejs.map((e, i) => {
+        const sel = resp[i];
+        const rev = sel !== undefined;
+        return (
+          <div key={i} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 14, padding: 16, maxWidth: 580, width: "100%" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>EJERCICIO {i + 1}</div>
+            <div style={{ fontSize: 16, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c;
+                const isSel = sel === j;
+                return (
+                  <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
+                    style={{
+                      padding: "10px 14px",
+                      background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)",
+                      border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`,
+                      borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer",
+                      fontFamily: "var(--font-crimson), serif", textAlign: "left",
+                    }}>{op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}</button>
+                );
+              })}
+            </div>
+            {rev && (
+              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+                <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+              </div>
             )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejs.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+            {ok === ejs.length && "🎉 Sos máquina factorizando."}
+            {ok >= 3 && ok < ejs.length && "Bien. Releí la estrategia (escena 7) para elegir mejor el método."}
+            {ok < 3 && "Volvé a la estrategia (escena 7). Es la clave: probar primero factor común."}
+          </div>
+        </motion.div>
+      )}
+    </EscenaRica>
   );
 }
