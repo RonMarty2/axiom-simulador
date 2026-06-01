@@ -124,12 +124,9 @@ export async function getCurrentUser(): Promise<Usuario | null> {
     }
   }
 
-  // Modo demo: cookie legacy axiom_uid (compatibilidad con login mock)
-  const legacy = store.get(LEGACY_COOKIE)?.value;
-  if (legacy) {
-    const u = await getUsuario(legacy);
-    return u ? aplicarSuscripciones(u) : null;
-  }
+  // Cookies legacy (axiom_uid) ya NO se aceptan: permitían suplantar a cualquier
+  // usuario poniendo su id en la cookie. El login real usa JWT (axiom_session).
+  // Si el usuario tenía una cookie residual, se ignora y queda como no logueado.
 
   return null;
 }
@@ -144,8 +141,9 @@ export async function isAdmin(): Promise<boolean> {
     if (session && esAdminEmail(session.email)) return true;
   }
 
-  // Modo demo: cookie axiom_admin
-  if (store.get(LEGACY_ADMIN_COOKIE)?.value === "1") return true;
+  // Cookie axiom_admin=1 (legacy) ya NO se acepta: era una escalada directa a
+  // admin con setear una cookie. Hoy admin se valida solo por JWT + email en
+  // ADMIN_EMAILS. Las cookies residuales se borran al hacer clearAllSessions.
 
   return false;
 }
@@ -169,38 +167,15 @@ export async function clearAllSessions(): Promise<void> {
   store.delete(LEGACY_ADMIN_COOKIE);
 }
 
-// ─────────────────────────────────────────────────────────────
-// Legacy / modo DEMO (login mock con cookies simples)
-// Se mantienen para no romper el login mock existente.
-// ─────────────────────────────────────────────────────────────
-
-export async function setUserSession(userId: string): Promise<void> {
-  const store = await cookies();
-  store.set(LEGACY_COOKIE, userId, {
-    httpOnly: true,
-    sameSite: "lax",
-    path: "/",
-    maxAge: COOKIE_MAX_AGE,
-  });
-}
-
-export async function setAdminSession(): Promise<void> {
-  const store = await cookies();
-  store.set(LEGACY_ADMIN_COOKIE, "1", {
-    httpOnly: true,
-    sameSite: "lax",
-    path: "/",
-    maxAge: COOKIE_MAX_AGE,
-  });
-}
+// Las funciones setUserSession / setAdminSession y los aliases AXIOM_COOKIE /
+// AXIOM_ADMIN_COOKIE fueron ELIMINADOS. Permitían crear sesiones legacy sin
+// firma criptográfica, que eran un bypass de auth (cualquiera podía setear
+// la cookie con un id ajeno). Hoy la única forma de loguearse es vía Google
+// OAuth con JWT firmado (setSessionCookie).
 
 export async function clearSession(): Promise<void> {
   await clearAllSessions();
 }
-
-// Alias para retrocompatibilidad con código antiguo
-export const AXIOM_COOKIE = LEGACY_COOKIE;
-export const AXIOM_ADMIN_COOKIE = LEGACY_ADMIN_COOKIE;
 
 // ─────────────────────────────────────────────────────────────
 // Google OAuth helpers
