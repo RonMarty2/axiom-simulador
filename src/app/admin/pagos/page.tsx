@@ -21,7 +21,7 @@ export default function AdminPagos() {
   const cargar = () => {
     Promise.all([
       fetch("/api/pagos").then((r) => r.json()),
-      fetch("/api/usuarios").then((r) => r.json()),
+      fetch("/api/admin/usuarios").then((r) => r.json()),
     ]).then(([p, u]) => {
       setPagos(p.pagos ?? []);
       const map: Record<string, UsuarioMini> = {};

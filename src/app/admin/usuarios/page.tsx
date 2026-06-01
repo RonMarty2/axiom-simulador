@@ -25,7 +25,7 @@ export default function AdminUsuarios() {
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
       if (!d.admin) { router.push("/login"); return; }
-      fetch("/api/usuarios").then((r) => r.json()).then((u) => setUsuarios(u.usuarios ?? []));
+      fetch("/api/admin/usuarios").then((r) => r.json()).then((u) => setUsuarios(u.usuarios ?? []));
     });
   }, [router]);
 

@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
 import { getUsuarios } from "@/lib/data-store";
+import { isAdmin } from "@/lib/session";
 
-// Endpoint público (lo consume el ranking). Devuelve solo datos NO sensibles.
-// Para el listado admin con email, usar /api/admin/usuarios (protegido).
+// Endpoint admin: devuelve usuarios CON email (necesario para identificar
+// usuarios desde el panel de admin y pagos). Protegido con isAdmin.
 export async function GET() {
+  if (!(await isAdmin())) {
+    return NextResponse.json({ error: "Solo admin" }, { status: 403 });
+  }
   const usuarios = await getUsuarios();
   return NextResponse.json({
     usuarios: usuarios.map((u) => ({
       id: u.id,
       nombre: u.nombre,
-      // email: REMOVIDO — antes quedaba expuesto sin auth. Admin usa /api/admin/usuarios.
+      email: u.email,
       facultad_objetivo: u.facultad_objetivo,
       plan: u.plan,
       avatar_color: u.avatar_color,
