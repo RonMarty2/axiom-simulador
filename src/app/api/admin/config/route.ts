@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
+import { isAdmin } from "@/lib/session";
 import type { ExamenConfig } from "@/lib/axiom/types";
 
 export async function GET() {
@@ -27,6 +28,9 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   try {
+    if (!(await isAdmin())) {
+      return NextResponse.json({ error: "Solo admin" }, { status: 403 });
+    }
     const body = await req.json();
     const config = await axiomDB.createConfig(body);
     return NextResponse.json({ config }, { status: 201 });
@@ -40,6 +44,9 @@ export async function POST(req: NextRequest) {
 
 export async function PUT(req: NextRequest) {
   try {
+    if (!(await isAdmin())) {
+      return NextResponse.json({ error: "Solo admin" }, { status: 403 });
+    }
     const body = await req.json();
     const { id, ...updates } = body;
     const config = await axiomDB.updateConfig(id, updates);

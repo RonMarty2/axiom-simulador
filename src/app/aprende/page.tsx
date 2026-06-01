@@ -82,6 +82,11 @@ export default function AprendePage() {
         if (!me.usuario) { router.push("/login"); return; }
         setUsuario(me.usuario);
         setLoading(false);
+      })
+      .catch(() => {
+        // Si falla la red, igual mostramos el contenido gratis (no colgamos la pantalla).
+        // El usuario queda como "no premium" hasta que /api/auth/me responda.
+        setLoading(false);
       });
   }, [router]);
 

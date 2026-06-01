@@ -127,9 +127,9 @@ function Esc03_Equiv() {
 
       <AutoCheck
         pregunta="¿Cuál de estas NO es equivalente a 4:6?"
-        opciones={["2:3", "8:12", "20:30", "6:9"]}
+        opciones={["2:3", "8:12", "20:30", "4:8"]}
         correctaIdx={3}
-        explicacion="4:6 = 2:3 (dividiendo por 2). 6:9 = 2:3 también. Hmm — ¡todas son equivalentes! Releo… 6:9 = 2:3, 4:6 = 2:3. ¡Sí son equivalentes! Pregunta mal planteada — todas valen 2:3."
+        explicacion="4:6 simplificado es 2:3. Las equivalentes valen 2:3 (= 0.666…): 2:3 ✓, 8:12 = 2:3 ✓, 20:30 = 2:3 ✓. Pero 4:8 = 1:2 = 0.5, que es DISTINTO. Esa es la que NO equivale."
       />
     </EscenaRica>
   );

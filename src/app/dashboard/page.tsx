@@ -13,12 +13,13 @@ export default function DashboardPage() {
   const [facultad, setFacultad] = useState<Facultad | null>(null);
   const [historial, setHistorial] = useState<HistorialExamen[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     Promise.all([
       fetch("/api/auth/me").then((r) => r.json()),
       fetch("/api/historial").then((r) => r.json()).catch(() => ({ historial: [] })),
-      fetch("/api/facultades").then((r) => r.json()),
+      fetch("/api/facultades").then((r) => r.json()).catch(() => ({ facultades: [] })),
     ]).then(([me, hist, fac]) => {
       if (!me.usuario) {
         router.push("/login");
@@ -34,8 +35,24 @@ export default function DashboardPage() {
       const f = (fac.facultades ?? []).find((x: Facultad) => x.id === me.usuario.facultad_objetivo);
       setFacultad(f ?? null);
       setLoading(false);
+    }).catch(() => {
+      // Si /api/auth/me falla por red, evitamos dejar la pantalla colgada en "Cargando..."
+      setError(true);
+      setLoading(false);
     });
   }, [router]);
+
+  if (error) {
+    return (
+      <div style={{ padding: 40, minHeight: "70vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center" }}>
+        <div style={{ fontSize: 44 }}>📡</div>
+        <p style={{ color: "var(--fg-muted)", fontSize: 16, maxWidth: 320 }}>No pudimos conectar con el servidor. Revisá tu conexión a internet.</p>
+        <button onClick={() => window.location.reload()} style={{ padding: "10px 24px", background: "var(--accent)", color: "white", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: "pointer" }}>
+          Reintentar
+        </button>
+      </div>
+    );
+  }
 
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
 

@@ -1,9 +1,9 @@
-// Stub minimo para Axiom standalone.
-// En este MVP el admin no tiene login todavia; las rutas /api/admin/*
-// quedan accesibles. Cuando se agregue login real, reescribir requireAdmin
-// para validar la cookie de sesion admin.
+// Helpers de autorización para rutas API.
+// requireAdmin valida la sesión real (JWT con email en ADMIN_EMAILS, o cookie
+// demo axiom_admin). Si no hay admin, lanza AuthError(403) y la ruta responde 403.
 
 import type { SessionUser } from "@/lib/auth";
+import { isAdmin, getCurrentUser } from "@/lib/session";
 
 export class AuthError extends Error {
   status: number;
@@ -19,12 +19,15 @@ export interface AuthResult {
 }
 
 export async function requireAuth(): Promise<AuthResult> {
-  // En MVP standalone: usuario anonimo permitido
+  const user = await getCurrentUser();
+  if (!user) {
+    throw new AuthError(401, "No autenticado");
+  }
   return {
     user: {
-      id: "anon",
-      email: "anon@axiom.local",
-      name: "Anonimo",
+      id: user.id,
+      email: user.email,
+      name: user.nombre,
       role: "estudiante",
       active: true,
     },
@@ -32,12 +35,14 @@ export async function requireAuth(): Promise<AuthResult> {
 }
 
 export async function requireAdmin(): Promise<AuthResult> {
-  // TODO: implementar verificacion real de cookie admin_session
+  if (!(await isAdmin())) {
+    throw new AuthError(403, "Se requiere acceso de administrador");
+  }
   return {
     user: {
-      id: "admin-local",
+      id: "admin",
       email: "admin@axiom.local",
-      name: "Admin Local",
+      name: "Admin",
       role: "admin",
       active: true,
     },
