@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* ═══ HEADER RESPONSIVE — desktop muestra nav inline; mobile usa hamburguesa ═ */
+.axiom-nav-desktop { display: flex; gap: 18px; flex: 1; align-items: center; margin-left: 16px; flex-wrap: wrap; }
+.axiom-nav-hamburger { display: none; }
+@media (max-width: 880px) {
+  .axiom-nav-desktop { display: none !important; }
+  .axiom-nav-hamburger { display: flex !important; }
+}
+
 /* ═══ DESIGN TOKENS — Antigravity Light Theme ════════════════════════════════ */
 
 :root {

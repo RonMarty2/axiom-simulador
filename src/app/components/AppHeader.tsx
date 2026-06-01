@@ -29,6 +29,10 @@ export default function AppHeader() {
   const [facultades, setFacultades] = useState<FacultadMini[]>([]);
   const [selOpen, setSelOpen] = useState(false);
   const [cambiando, setCambiando] = useState(false);
+  const [menuMovil, setMenuMovil] = useState(false);
+
+  // Cerrar menú móvil al navegar
+  useEffect(() => { setMenuMovil(false); }, [pathname]);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -83,10 +87,12 @@ export default function AppHeader() {
           <span className="font-crimson" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)" }}>AXIOM</span>
         </Link>
 
-        <nav style={{ display: "flex", gap: 18, flex: 1, alignItems: "center", marginLeft: 16 }}>
+        {/* Nav inline (desktop) — se oculta en móvil vía CSS */}
+        <nav className="axiom-nav-desktop">
           {usuario && !admin && (
             <>
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
+              <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>📚 Aprende</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
               <Link href="/historial" style={navLink(pathname === "/historial")}>Mis exámenes</Link>
               <Link href="/debilidades" style={navLink(pathname === "/debilidades")}>Mis debilidades</Link>
@@ -110,6 +116,33 @@ export default function AppHeader() {
             </>
           )}
         </nav>
+
+        {/* Botón hamburguesa — solo visible en móvil */}
+        <button
+          className="axiom-nav-hamburger"
+          onClick={() => setMenuMovil(!menuMovil)}
+          aria-label="Menú"
+          style={{
+            marginLeft: "auto", marginRight: 8,
+            background: "transparent", border: "none", cursor: "pointer",
+            padding: 8, color: "var(--fg-primary)",
+          }}
+        >
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            {menuMovil ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </>
+            )}
+          </svg>
+        </button>
 
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {/* Selector de suscripciones: solo si el usuario tiene 2+ facultades activas */}
@@ -227,8 +260,62 @@ export default function AppHeader() {
           )}
         </div>
       </div>
+
+      {/* MENÚ MÓVIL — drawer que se abre con la hamburguesa */}
+      {menuMovil && (
+        <div
+          className="axiom-nav-hamburger"
+          style={{
+            flexDirection: "column",
+            padding: "8px 16px 16px",
+            background: "var(--bg-card)",
+            borderTop: "1px solid var(--border)",
+            gap: 2,
+          }}
+        >
+          {usuario && !admin && (
+            <>
+              <Link href="/dashboard" style={menuMovilItem(pathname === "/dashboard")} onClick={() => setMenuMovil(false)}>🏠 Inicio</Link>
+              <Link href="/aprende" style={menuMovilItem(pathname?.startsWith("/aprende"))} onClick={() => setMenuMovil(false)}>📚 Aprende</Link>
+              <Link href="/practicar" style={menuMovilItem(pathname?.startsWith("/practicar"))} onClick={() => setMenuMovil(false)}>📝 Practicar</Link>
+              <Link href="/historial" style={menuMovilItem(pathname === "/historial")} onClick={() => setMenuMovil(false)}>📊 Mis exámenes</Link>
+              <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>🎯 Mis debilidades</Link>
+              <Link href="/resueltos" style={menuMovilItem(pathname?.startsWith("/resueltos"))} onClick={() => setMenuMovil(false)}>📖 Resueltos</Link>
+              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>💎 Planes</Link>
+            </>
+          )}
+          {admin && (
+            <>
+              <Link href="/admin" style={menuMovilItem(pathname === "/admin")} onClick={() => setMenuMovil(false)}>Dashboard</Link>
+              <Link href="/admin/facultades" style={menuMovilItem(pathname?.startsWith("/admin/facultades"))} onClick={() => setMenuMovil(false)}>Facultades</Link>
+              <Link href="/admin/banco" style={menuMovilItem(pathname?.startsWith("/admin/banco"))} onClick={() => setMenuMovil(false)}>Banco</Link>
+              <Link href="/admin/usuarios" style={menuMovilItem(pathname === "/admin/usuarios")} onClick={() => setMenuMovil(false)}>Usuarios</Link>
+              <Link href="/admin/pagos" style={menuMovilItem(pathname === "/admin/pagos")} onClick={() => setMenuMovil(false)}>Pagos</Link>
+            </>
+          )}
+          {!usuario && !admin && (
+            <>
+              <Link href="/#facultades" style={menuMovilItem(false)} onClick={() => setMenuMovil(false)}>Facultades</Link>
+              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>Precios</Link>
+            </>
+          )}
+        </div>
+      )}
     </header>
   );
+}
+
+function menuMovilItem(active?: boolean | null): React.CSSProperties {
+  return {
+    display: "block",
+    padding: "12px 14px",
+    color: active ? "var(--accent)" : "var(--fg-primary)",
+    textDecoration: "none",
+    fontSize: 16,
+    fontWeight: active ? 700 : 600,
+    borderRadius: 10,
+    background: active ? "rgba(99,102,241,0.10)" : "transparent",
+  };
 }
 
 function navLink(active?: boolean | null): React.CSSProperties {
