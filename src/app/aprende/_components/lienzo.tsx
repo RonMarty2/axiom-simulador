@@ -143,6 +143,8 @@ export function Pizarra({
         margin: "8px 0",
         cursor: onClick ? "pointer" : "default",
         userSelect: "none",
+        outline: "none",
+        WebkitTapHighlightColor: "transparent",
       }}
     >
       {children}
