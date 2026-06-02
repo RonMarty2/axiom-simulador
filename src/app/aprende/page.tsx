@@ -55,12 +55,34 @@ const MATEMATICAS_UNIDADES: Unidad[] = [
   { numero: "11", titulo: "Sucesiones y series", lecciones: [{ slug: "sucesiones-series", titulo: "Progresiones aritméticas y geométricas" }] },
 ];
 
+const FUNDAMENTOS_UNIDADES: Unidad[] = [
+  {
+    numero: "01", titulo: "Introducción a la economía",
+    lecciones: [
+      { slug: "que-es-economia", titulo: "¿Qué es la economía? Necesidades y escasez", tags: ["✨ Animada"] },
+      { slug: "oferta-demanda", titulo: "Oferta, demanda y equilibrio", tags: ["✨ Animada"] },
+    ],
+  },
+  { numero: "02", titulo: "Microeconomía", lecciones: [
+    { slug: "elasticidad", titulo: "Elasticidad de la demanda", tags: ["✨ Animada"] },
+  ] },
+  { numero: "03", titulo: "Macroeconomía", lecciones: [
+    { slug: "pib-cuentas", titulo: "PIB e inflación · cuentas nacionales", tags: ["✨ Animada"] },
+  ] },
+  { numero: "04", titulo: "Contabilidad básica", lecciones: [
+    { slug: "ecuacion-contable", titulo: "La ecuación contable fundamental", tags: ["✨ Animada"] },
+  ] },
+  { numero: "05", titulo: "Administración", lecciones: [
+    { slug: "proceso-administrativo", titulo: "El proceso administrativo (PODC)" },
+  ] },
+];
+
 const BLOQUES: Bloque[] = [
   {
     id: "fundamentos",
     titulo: "Fundamentos de las ciencias económicas, contables y administrativas",
     descripcion: "Conceptos clave de economía, contabilidad y administración que toma el examen.",
-    unidades: [],
+    unidades: FUNDAMENTOS_UNIDADES,
   },
   {
     id: "razonamiento-matematicas",
