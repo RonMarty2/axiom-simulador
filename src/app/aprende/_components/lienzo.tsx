@@ -117,9 +117,22 @@ export function FormulaHero({ children }: { children: React.ReactNode }) {
 }
 
 // Contenedor de una animación. Centra, aire vertical, no decora.
-export function Pizarra({ alto = 240, children }: { alto?: number; children: React.ReactNode }) {
+// Si recibe onClick, el área entera avanza el paso al tocar.
+export function Pizarra({
+  alto = 240,
+  onClick,
+  children,
+}: {
+  alto?: number;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
   return (
     <div
+      onClick={onClick}
+      role={onClick ? "button" : undefined}
+      tabIndex={onClick ? 0 : undefined}
+      onKeyDown={onClick ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } } : undefined}
       style={{
         position: "relative",
         width: "100%",
@@ -128,6 +141,8 @@ export function Pizarra({ alto = 240, children }: { alto?: number; children: Rea
         alignItems: "center",
         justifyContent: "center",
         margin: "8px 0",
+        cursor: onClick ? "pointer" : "default",
+        userSelect: "none",
       }}
     >
       {children}

@@ -152,6 +152,40 @@ export default function LeccionPotenciacionPage() {
 // HELPERS visuales reutilizables dentro de las escenas
 // ─────────────────────────────────────────────────────────────────────────────
 
+// Ecuación final grande con tipografía HTML real (sup) — se ve como matemática.
+// Usar al paso final de cada escena de regla para que el signo "=" sea explícito.
+function EcuacionFinal({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.15 }}
+      style={{
+        textAlign: "center",
+        fontFamily: "var(--font-crimson), serif",
+        fontSize: "clamp(28px, 5vw, 42px)",
+        fontWeight: 500,
+        letterSpacing: "0.01em",
+        color: LIENZO.fg,
+        margin: "8px 0 4px",
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Helper inline para potencias dentro de EcuacionFinal: base con sup tipográfico real.
+function Pot({ b, e, c = "accent" }: { b: React.ReactNode; e: React.ReactNode; c?: "accent" | "ok" | "bad" | "fg" }) {
+  const col = c === "ok" ? LIENZO.ok : c === "bad" ? LIENZO.bad : c === "fg" ? LIENZO.fg : LIENZO.accent;
+  return (
+    <span>
+      {b}
+      <sup style={{ fontSize: "0.55em", color: col, marginLeft: 1 }}>{e}</sup>
+    </span>
+  );
+}
+
 // Botón "repetir animación"
 function Repetir({ onClick }: { onClick: () => void }) {
   return (
@@ -188,7 +222,7 @@ function Esc01_Intro() {
         La potencia es la <Enf>notación corta</Enf>.
       </Decir>
 
-      <Pizarra alto={180}>
+      <Pizarra alto={180} onClick={() => setPaso(paso < 1 ? paso + 1 : 0)}>
         <AnimatePresence mode="wait">
           {paso === 0 && (
             <motion.div
@@ -277,7 +311,7 @@ function Esc02_Significado() {
         El exponente te dice <Enf>cuántas copias</Enf> de la base hay que multiplicar.
       </Decir>
 
-      <Pizarra alto={200}>
+      <Pizarra alto={200} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <AnimatePresence mode="wait">
           {paso === 0 && (
             <motion.div key="p0"
@@ -371,7 +405,7 @@ function Esc03_Producto() {
       <Pregunta>Multiplicar potencias con la <Enf>misma base</Enf>.</Pregunta>
       <Decir>Mirá qué pasa con los exponentes.</Decir>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 240"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
@@ -448,6 +482,14 @@ function Esc03_Producto() {
         </svg>
       </Pizarra>
 
+      {paso === 3 && (
+        <EcuacionFinal>
+          <Pot b="2" e="2" /> · <Pot b="2" e="3" />
+          <span style={{ color: LIENZO.fgDim, margin: "0 0.35em" }}>=</span>
+          <Pot b="2" e="5" c="ok" />
+        </EcuacionFinal>
+      )}
+
       <div style={{ minHeight: 60 }}>
         <Decir>
           {paso === 0 && <>Tenemos <Enf color="fg">2² · 2³</Enf>. Toca "Siguiente" y mirá los exponentes.</>}
@@ -474,7 +516,7 @@ function Esc04_Cociente() {
       <Pregunta>Dividir potencias con la <Enf>misma base</Enf>.</Pregunta>
       <Decir>Espejo de la regla anterior: ahora los exponentes se <Enf>restan</Enf>.</Decir>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 240"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
@@ -542,6 +584,14 @@ function Esc04_Cociente() {
         </svg>
       </Pizarra>
 
+      {paso === 3 && (
+        <EcuacionFinal>
+          <Pot b="2" e="5" /> ÷ <Pot b="2" e="2" />
+          <span style={{ color: LIENZO.fgDim, margin: "0 0.35em" }}>=</span>
+          <Pot b="2" e="3" c="ok" />
+        </EcuacionFinal>
+      )}
+
       <div style={{ minHeight: 60 }}>
         <Decir>
           {paso === 0 && <>Tenemos <Enf color="fg">2⁵ ÷ 2²</Enf>.</>}
@@ -568,7 +618,7 @@ function Esc05_PotPot() {
       <Pregunta>Una potencia <Enf>elevada a otra potencia</Enf>.</Pregunta>
       <Decir>Acá los exponentes se <Enf>multiplican</Enf>.</Decir>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 240"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
@@ -638,6 +688,14 @@ function Esc05_PotPot() {
         </svg>
       </Pizarra>
 
+      {paso === 3 && (
+        <EcuacionFinal>
+          (<Pot b="2" e="3" />)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>2</sup>
+          <span style={{ color: LIENZO.fgDim, margin: "0 0.35em" }}>=</span>
+          <Pot b="2" e="6" c="ok" />
+        </EcuacionFinal>
+      )}
+
       <div style={{ minHeight: 60 }}>
         <Decir>
           {paso === 0 && <>Tenemos <Enf color="fg">(2³)²</Enf>.</>}
@@ -664,7 +722,7 @@ function Esc06_Cero() {
       <Pregunta>¿Cuánto vale <Enf color="fg">cualquier número</Enf> elevado a cero?</Pregunta>
       <Decir>La respuesta es <Enf>1</Enf>. Y tiene una razón hermosa.</Decir>
 
-      <Pizarra alto={220}>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <AnimatePresence mode="wait">
           {paso === 0 && (
             <motion.div key="p0"
@@ -748,7 +806,7 @@ function Esc07_Negativo() {
       <Pregunta>Un exponente <Enf>negativo</Enf>.</Pregunta>
       <Decir>El signo menos invierte: la base baja al denominador.</Decir>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 1 ? 1 : 0)}>
         <AnimatePresence mode="wait">
           {paso === 0 && (
             <motion.div key="p0"
@@ -813,7 +871,7 @@ function Esc08_ProdElevado() {
       <Pregunta>Un <Enf>producto</Enf> elevado a una potencia.</Pregunta>
       <Decir>El exponente se reparte: cae sobre cada factor.</Decir>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 240"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
@@ -875,6 +933,16 @@ function Esc08_ProdElevado() {
         </svg>
       </Pizarra>
 
+      {paso === 2 && (
+        <EcuacionFinal>
+          (a · b)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>n</sup>
+          <span style={{ color: LIENZO.fgDim, margin: "0 0.35em" }}>=</span>
+          <span style={{ color: LIENZO.ok }}>
+            <Pot b="a" e="n" c="ok" /> · <Pot b="b" e="n" c="ok" />
+          </span>
+        </EcuacionFinal>
+      )}
+
       <div style={{ minHeight: 60 }}>
         <Decir>
           {paso === 0 && <>Tenemos <Enf color="fg">(a · b)ⁿ</Enf>.</>}
@@ -900,7 +968,7 @@ function Esc09_FracElevada() {
       <Pregunta>Una <Enf>fracción</Enf> elevada a una potencia.</Pregunta>
       <Decir>Mismo principio que el producto: el exponente cae sobre numerador y denominador.</Decir>
 
-      <Pizarra alto={260}>
+      <Pizarra alto={260} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 260"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
@@ -948,6 +1016,20 @@ function Esc09_FracElevada() {
         </svg>
       </Pizarra>
 
+      {paso === 2 && (
+        <EcuacionFinal>
+          (a/b)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>n</sup>
+          <span style={{ color: LIENZO.fgDim, margin: "0 0.35em" }}>=</span>
+          <span style={{ display: "inline-flex", alignItems: "center", color: LIENZO.ok }}>
+            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: "0.85em", lineHeight: 1 }}>
+              <span><Pot b="a" e="n" c="ok" /></span>
+              <span style={{ width: "100%", borderTop: `2px solid ${LIENZO.ok}`, margin: "2px 0" }} />
+              <span><Pot b="b" e="n" c="ok" /></span>
+            </span>
+          </span>
+        </EcuacionFinal>
+      )}
+
       <div style={{ minHeight: 60 }}>
         <Decir>
           {paso === 0 && <>Tenemos <Enf color="fg">(a/b)ⁿ</Enf>.</>}
@@ -973,7 +1055,7 @@ function Esc10_Radical() {
       <Pregunta>Las <Enf>raíces</Enf> son potencias disfrazadas.</Pregunta>
       <Decir>El índice de la raíz se convierte en el <Enf>denominador</Enf> del exponente.</Decir>
 
-      <Pizarra alto={220}>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 1 ? 1 : 0)}>
         <AnimatePresence mode="wait">
           {paso === 0 && (
             <motion.div key="p0"
