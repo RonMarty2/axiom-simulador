@@ -160,6 +160,17 @@ const BLOQUES: Bloque[] = [
   },
 ];
 
+// Chevron (flecha) hacia abajo, dibujada en SVG para que se vea nítida y NO
+// parezca un exponente como el carácter "⌃". Rota 180° al abrir la sección.
+function Chevron({ size = 18, color = "currentColor" }: { size?: number; color?: string }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M6 9l6 6 6-6" stroke={color} strokeWidth="2.4"
+        strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function AprendePage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
@@ -291,8 +302,10 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
           <motion.span
             animate={{ rotate: abierto ? 180 : 0 }}
             transition={{ duration: 0.25 }}
-            style={{ fontSize: 22, lineHeight: 1, flexShrink: 0, opacity: 0.9 }}
-          >⌃</motion.span>
+            style={{ flexShrink: 0, opacity: 0.9, display: "flex" }}
+          >
+            <Chevron size={22} color="white" />
+          </motion.span>
         </div>
       </button>
 
@@ -379,14 +392,21 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
           )}
           <span style={{
             fontSize: 12, color: "var(--fg-muted)", fontWeight: 600,
-            display: "flex", alignItems: "center", gap: 6,
+            display: "flex", alignItems: "center", gap: 8, flexShrink: 0,
           }}>
-            {unidad.lecciones.length}
+            <span style={{
+              background: "var(--bg-subtle)", borderRadius: 999,
+              padding: "3px 9px", whiteSpace: "nowrap",
+            }}>
+              {unidad.lecciones.length} {unidad.lecciones.length === 1 ? "lección" : "lecciones"}
+            </span>
             <motion.span
               animate={{ rotate: abierto ? 180 : 0 }}
               transition={{ duration: 0.25 }}
-              style={{ display: "inline-block", fontSize: 14, lineHeight: 1 }}
-            >⌃</motion.span>
+              style={{ display: "flex" }}
+            >
+              <Chevron size={16} color="var(--fg-muted)" />
+            </motion.span>
           </span>
         </div>
       </button>
