@@ -207,30 +207,28 @@ function Frac({ n, d, c }: { n: React.ReactNode; d: React.ReactNode; c?: string 
   );
 }
 
-// Raíz n-ésima dibujada con SVG inline: el trazo y la línea superior siempre
-// quedan conectados (nada de bordes desalineados). El radicando va dentro.
+// Raíz n-ésima inline. El trazo (check) lo dibuja un SVG chico; la línea
+// superior (vínculo) es UN solo borde sobre el radicando — no se duplica.
 function Raiz({ n, r }: { n?: React.ReactNode; r: React.ReactNode }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "stretch", whiteSpace: "nowrap", verticalAlign: "middle" }}>
+    <span style={{ display: "inline-flex", alignItems: "flex-start", whiteSpace: "nowrap", verticalAlign: "middle" }}>
       {n && (
         <span style={{
           fontSize: "0.42em", color: LIENZO.accent, fontWeight: 600,
-          alignSelf: "flex-start", marginRight: "-0.18em", marginTop: "0.15em",
+          marginRight: "-0.12em", marginTop: "0.1em",
           position: "relative", zIndex: 1,
         }}>
           {n}
         </span>
       )}
-      <span style={{ display: "inline-flex", alignItems: "flex-end", height: "1em", marginRight: 1 }}>
-        <svg viewBox="0 0 24 32" width="0.62em" height="0.95em" style={{ overflow: "visible" }} aria-hidden>
-          <path d="M 1 19 L 7 30 L 15 3 L 60 3" fill="none"
-            stroke={LIENZO.fg} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
+      <svg viewBox="0 0 16 30" width="0.5em" height="1.1em" aria-hidden style={{ display: "block" }}>
+        <path d="M 1 18 L 6 28 L 13 2" fill="none"
+          stroke={LIENZO.fg} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
       <span style={{
         borderTop: `2px solid ${LIENZO.fg}`,
-        padding: "0.12em 0.2em 0 0.05em",
-        marginLeft: "-0.05em",
+        padding: "0.1em 0.25em 0 0.1em",
+        marginLeft: "-0.06em",
       }}>{r}</span>
     </span>
   );
@@ -1161,9 +1159,15 @@ function Esc10_Radical() {
           {paso === 1 && <>
             El índice <Enf>n</Enf> pasa abajo y se vuelve el denominador del exponente: <Enf color="ok">a elevado a 1/n</Enf>.
             <br />
-            <span style={{ color: LIENZO.fgDim }}>
-              Ejemplos: <Raiz r={<em style={{ fontStyle: "italic" }}>a</em>} /> <Igual /> <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e={<Frac n="1" d="2" c={LIENZO.accent} />} />
-              {"  ·  "} <Raiz n="3" r="8" /> <Igual /> <Pot b="8" e={<Frac n="1" d="3" c={LIENZO.accent} />} /> <Igual /> <span style={{ color: LIENZO.ok, fontWeight: 600 }}>2</span>
+            <span style={{ color: LIENZO.fgDim, display: "inline-flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                <span style={{ color: LIENZO.fgFaint, fontSize: "0.85em" }}>Ejemplo 1:</span>
+                <Raiz r={<em style={{ fontStyle: "italic" }}>a</em>} /> <Igual /> <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e={<Frac n="1" d="2" c={LIENZO.accent} />} />
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
+                <span style={{ color: LIENZO.fgFaint, fontSize: "0.85em" }}>Ejemplo 2:</span>
+                <Raiz n="3" r="8" /> <Igual /> <Pot b="8" e={<Frac n="1" d="3" c={LIENZO.accent} />} /> <Igual /> <span style={{ color: LIENZO.ok, fontWeight: 600 }}>2</span>
+              </span>
             </span>
           </>}
         </Decir>
