@@ -114,28 +114,28 @@ const RAZONAMIENTO_VERBAL_UNIDADES: Unidad[] = [
     { slug: "denotacion-connotacion", titulo: "Significado literal, figurado y homónimos" },
   ] },
   { numero: "03", titulo: "Léxico contextual", lecciones: [
-    { titulo: "Significado de palabras según el contexto" },
+    { slug: "lexico-contextual", titulo: "Significado de palabras según el contexto" },
   ] },
   { numero: "04", titulo: "Cohesión", lecciones: [
-    { titulo: "Conectores y fluidez del texto" },
+    { slug: "cohesion-textual", titulo: "Conectores y fluidez del texto" },
   ] },
   { numero: "05", titulo: "Plan de redacción", lecciones: [
-    { titulo: "Ordenar oraciones lógicamente" },
+    { slug: "plan-redaccion", titulo: "Ordenar oraciones lógicamente" },
   ] },
   { numero: "06", titulo: "Expresión correcta de la oración", lecciones: [
-    { titulo: "Gramática, concordancia y puntuación" },
+    { slug: "expresion-oracion", titulo: "Gramática, concordancia y puntuación" },
   ] },
   { numero: "07", titulo: "Analogías verbales", lecciones: [
-    { titulo: "Relaciones entre conceptos" },
+    { slug: "analogias-verbales", titulo: "Relaciones entre conceptos" },
   ] },
   { numero: "08", titulo: "Aseveraciones y cuantificadores", lecciones: [
-    { titulo: "Diagramas de Venn y razonamiento" },
+    { slug: "aseveraciones-cuantificadores", titulo: "Diagramas de Venn y razonamiento" },
   ] },
   { numero: "09", titulo: "Silogismos como argumento", lecciones: [
-    { titulo: "Razonamiento deductivo" },
+    { slug: "silogismos", titulo: "Razonamiento deductivo" },
   ] },
   { numero: "10", titulo: "Secuencias numéricas y literales", lecciones: [
-    { titulo: "Reconocimiento de patrones" },
+    { slug: "secuencias-logicas", titulo: "Reconocimiento de patrones" },
   ] },
 ];
 
