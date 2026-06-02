@@ -441,19 +441,79 @@ function Esc03_Producto() {
       <Pregunta>Multiplicar potencias con la <Enf>misma base</Enf>.</Pregunta>
       <Decir>Mirá qué pasa con los exponentes.</Decir>
 
-      <Pizarra alto={200} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
-        <EcuacionFinal>
-          <Pot b="2" e="2" /> · <Pot b="2" e="3" />
-          {paso === 0 && <> <Igual /><span style={{ color: LIENZO.fgFaint }}>?</span></>}
-          {paso === 1 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>2+3</span>} /></>}
-          {paso === 2 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>2+3</span>} /> <Igual /><Pot b="2" e="5" c="ok" /></>}
-          {paso === 3 && <> <Igual /><Pot b="2" e="5" c="ok" /></>}
-        </EcuacionFinal>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 220"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* Base izquierda */}
+          <motion.text
+            fontSize="96" fill={LIENZO.fg} fontWeight="500" textAnchor="middle"
+            initial={{ x: 130, y: 150 }}
+            animate={paso >= 3 ? { x: 205, y: 150, opacity: 1 } : { x: 130, y: 150, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >2</motion.text>
+          {/* Exponente izq (2) vuela arriba en paso 1, se desvanece en paso 2 */}
+          <motion.text
+            fontSize="56" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 168, y: 100, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 168, y: 100, opacity: 1 } :
+              paso === 1 ? { x: 215, y: 70, opacity: 1 } :
+                           { x: 240, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55 }}
+          >2</motion.text>
+          {/* Punto de multiplicación */}
+          <motion.circle cx="240" cy="148" r="5" fill={LIENZO.fgFaint}
+            animate={paso >= 3 ? { opacity: 0 } : { opacity: paso === 0 ? 1 : 0.3 }} />
+          {/* Base derecha */}
+          <motion.text
+            fontSize="96" fill={LIENZO.fg} fontWeight="500" textAnchor="middle"
+            initial={{ x: 350, y: 150 }}
+            animate={paso >= 3 ? { x: 205, y: 150, opacity: 0 } : { x: 350, y: 150, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >2</motion.text>
+          {/* Exponente der (3) */}
+          <motion.text
+            fontSize="56" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 388, y: 100, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 388, y: 100, opacity: 1 } :
+              paso === 1 ? { x: 305, y: 70, opacity: 1 } :
+                           { x: 270, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55, delay: paso === 1 ? 0.05 : 0 }}
+          >3</motion.text>
+          {/* Signo + (paso 1) */}
+          <motion.text
+            x="260" y="70" textAnchor="middle" fontSize="44" fill={LIENZO.accent} fontWeight="500"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={paso === 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ delay: paso === 1 ? 0.4 : 0, duration: 0.3 }}
+          >+</motion.text>
+          {/* Resultado 5: se forma al centro (paso 2) y aterriza pegado a la base (paso 3) */}
+          <motion.text
+            textAnchor="middle" fontSize="56" fill={LIENZO.ok} fontWeight="500"
+            initial={{ opacity: 0, scale: 0, x: 260, y: 70 }}
+            animate={
+              paso === 2 ? { opacity: 1, scale: 1, x: 260, y: 70 } :
+              paso === 3 ? { opacity: 1, scale: 1, x: 248, y: 98 } :
+                           { opacity: 0, scale: 0, x: 260, y: 70 }
+            }
+            transition={{ duration: 0.5 }}
+          >5</motion.text>
+        </svg>
       </Pizarra>
+
+      <EcuacionFinal>
+        <Pot b="2" e="2" /> · <Pot b="2" e="3" />
+        {paso >= 2 && <> <Igual /><Pot b="2" e="5" c="ok" /></>}
+      </EcuacionFinal>
 
       <div style={{ minHeight: 60 }}>
         <Decir>
-          {paso === 0 && <>Tenemos <Enf color="fg">2² · 2³</Enf>. Toca "Siguiente" y mirá los exponentes.</>}
+          {paso === 0 && <>Tenemos <Enf color="fg">2² · 2³</Enf>. Tocá la animación (o "Siguiente") y mirá los exponentes.</>}
           {paso === 1 && <>Los exponentes se separan de sus bases. Entre ellos aparece un <Enf>+</Enf>.</>}
           {paso === 2 && <><Enf color="fg">2 + 3 = 5</Enf>. El resultado se vuelve el nuevo exponente.</>}
           {paso === 3 && <>Y la base sigue siendo la misma. Resultado: <Enf color="ok">2⁵</Enf>.<br /><span style={{ color: LIENZO.fgFaint }}>Regla: <em>aᵐ · aⁿ = aᵐ⁺ⁿ</em></span></>}
@@ -477,15 +537,76 @@ function Esc04_Cociente() {
       <Pregunta>Dividir potencias con la <Enf>misma base</Enf>.</Pregunta>
       <Decir>Espejo de la regla anterior: ahora los exponentes se <Enf>restan</Enf>.</Decir>
 
-      <Pizarra alto={200} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
-        <EcuacionFinal>
-          <Pot b="2" e="5" /> ÷ <Pot b="2" e="2" />
-          {paso === 0 && <> <Igual /><span style={{ color: LIENZO.fgFaint }}>?</span></>}
-          {paso === 1 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>5−2</span>} /></>}
-          {paso === 2 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>5−2</span>} /> <Igual /><Pot b="2" e="3" c="ok" /></>}
-          {paso === 3 && <> <Igual /><Pot b="2" e="3" c="ok" /></>}
-        </EcuacionFinal>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 220"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* Base izquierda */}
+          <motion.text
+            fontSize="96" fill={LIENZO.fg} fontWeight="500" textAnchor="middle"
+            initial={{ x: 130, y: 150 }}
+            animate={paso >= 3 ? { x: 205, y: 150, opacity: 1 } : { x: 130, y: 150, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >2</motion.text>
+          {/* Exponente izq (5) */}
+          <motion.text
+            fontSize="56" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 168, y: 100, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 168, y: 100, opacity: 1 } :
+              paso === 1 ? { x: 215, y: 70, opacity: 1 } :
+                           { x: 240, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55 }}
+          >5</motion.text>
+          {/* Signo de división */}
+          <motion.text x="240" y="160" textAnchor="middle" fontSize="50"
+            fill={LIENZO.fgFaint} fontWeight="500"
+            animate={paso >= 3 ? { opacity: 0 } : { opacity: paso === 0 ? 1 : 0.3 }}>÷</motion.text>
+          {/* Base derecha */}
+          <motion.text
+            fontSize="96" fill={LIENZO.fg} fontWeight="500" textAnchor="middle"
+            initial={{ x: 350, y: 150 }}
+            animate={paso >= 3 ? { x: 205, y: 150, opacity: 0 } : { x: 350, y: 150, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >2</motion.text>
+          {/* Exponente der (2) */}
+          <motion.text
+            fontSize="56" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 388, y: 100, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 388, y: 100, opacity: 1 } :
+              paso === 1 ? { x: 305, y: 70, opacity: 1 } :
+                           { x: 270, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55, delay: paso === 1 ? 0.05 : 0 }}
+          >2</motion.text>
+          {/* Signo − (paso 1) */}
+          <motion.text
+            x="260" y="70" textAnchor="middle" fontSize="44" fill={LIENZO.accent} fontWeight="500"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={paso === 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ delay: paso === 1 ? 0.4 : 0, duration: 0.3 }}
+          >−</motion.text>
+          {/* Resultado 3 */}
+          <motion.text
+            textAnchor="middle" fontSize="56" fill={LIENZO.ok} fontWeight="500"
+            initial={{ opacity: 0, scale: 0, x: 260, y: 70 }}
+            animate={
+              paso === 2 ? { opacity: 1, scale: 1, x: 260, y: 70 } :
+              paso === 3 ? { opacity: 1, scale: 1, x: 248, y: 98 } :
+                           { opacity: 0, scale: 0, x: 260, y: 70 }
+            }
+            transition={{ duration: 0.5 }}
+          >3</motion.text>
+        </svg>
       </Pizarra>
+
+      <EcuacionFinal>
+        <Pot b="2" e="5" /> ÷ <Pot b="2" e="2" />
+        {paso >= 2 && <> <Igual /><Pot b="2" e="3" c="ok" /></>}
+      </EcuacionFinal>
 
       <div style={{ minHeight: 60 }}>
         <Decir>
@@ -513,15 +634,73 @@ function Esc05_PotPot() {
       <Pregunta>Una potencia <Enf>elevada a otra potencia</Enf>.</Pregunta>
       <Decir>Acá los exponentes se <Enf>multiplican</Enf>.</Decir>
 
-      <Pizarra alto={200} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
-        <EcuacionFinal>
-          (<Pot b="2" e="3" />)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>2</sup>
-          {paso === 0 && <> <Igual /><span style={{ color: LIENZO.fgFaint }}>?</span></>}
-          {paso === 1 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>3×2</span>} /></>}
-          {paso === 2 && <> <Igual /><Pot b="2" e={<span style={{ whiteSpace: "nowrap" }}>3×2</span>} /> <Igual /><Pot b="2" e="6" c="ok" /></>}
-          {paso === 3 && <> <Igual /><Pot b="2" e="6" c="ok" /></>}
-        </EcuacionFinal>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 220"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* ( */}
+          <motion.text x="118" y="150" textAnchor="middle" fontSize="100"
+            fill={LIENZO.fgFaint} fontWeight="400"
+            animate={paso >= 3 ? { opacity: 0 } : { opacity: 1 }}>(</motion.text>
+          {/* Base 2 */}
+          <motion.text
+            fontSize="96" fill={LIENZO.fg} fontWeight="500" textAnchor="middle"
+            initial={{ x: 170, y: 150 }}
+            animate={paso >= 3 ? { x: 205, y: 150 } : { x: 170, y: 150 }}
+            transition={{ duration: 0.5 }}
+          >2</motion.text>
+          {/* Exponente interno (3) */}
+          <motion.text
+            fontSize="50" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 206, y: 105, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 206, y: 105, opacity: 1 } :
+              paso === 1 ? { x: 218, y: 70, opacity: 1 } :
+                           { x: 240, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55 }}
+          >3</motion.text>
+          {/* ) */}
+          <motion.text x="240" y="150" textAnchor="middle" fontSize="100"
+            fill={LIENZO.fgFaint} fontWeight="400"
+            animate={paso >= 3 ? { opacity: 0 } : { opacity: 1 }}>)</motion.text>
+          {/* Exponente externo (2) */}
+          <motion.text
+            fontSize="50" fontWeight="500" textAnchor="middle" fill={LIENZO.accent}
+            initial={{ x: 286, y: 105, opacity: 1 }}
+            animate={
+              paso === 0 ? { x: 286, y: 105, opacity: 1 } :
+              paso === 1 ? { x: 302, y: 70, opacity: 1 } :
+                           { x: 270, y: 70, opacity: 0 }
+            }
+            transition={{ duration: 0.55, delay: paso === 1 ? 0.05 : 0 }}
+          >2</motion.text>
+          {/* × (paso 1) */}
+          <motion.text
+            x="260" y="70" textAnchor="middle" fontSize="38" fill={LIENZO.accent} fontWeight="500"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={paso === 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+            transition={{ delay: paso === 1 ? 0.4 : 0, duration: 0.3 }}
+          >×</motion.text>
+          {/* Resultado 6 */}
+          <motion.text
+            textAnchor="middle" fontSize="56" fill={LIENZO.ok} fontWeight="500"
+            initial={{ opacity: 0, scale: 0, x: 260, y: 70 }}
+            animate={
+              paso === 2 ? { opacity: 1, scale: 1, x: 260, y: 70 } :
+              paso === 3 ? { opacity: 1, scale: 1, x: 248, y: 98 } :
+                           { opacity: 0, scale: 0, x: 260, y: 70 }
+            }
+            transition={{ duration: 0.5 }}
+          >6</motion.text>
+        </svg>
       </Pizarra>
+
+      <EcuacionFinal>
+        (<Pot b="2" e="3" />)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>2</sup>
+        {paso >= 2 && <> <Igual /><Pot b="2" e="6" c="ok" /></>}
+      </EcuacionFinal>
 
       <div style={{ minHeight: 60 }}>
         <Decir>
@@ -698,18 +877,63 @@ function Esc08_ProdElevado() {
       <Pregunta>Un <Enf>producto</Enf> elevado a una potencia.</Pregunta>
       <Decir>El exponente se reparte: cae sobre cada factor.</Decir>
 
-      <Pizarra alto={180} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
-        <EcuacionFinal>
-          (<em style={{ fontStyle: "italic" }}>a</em> · <em style={{ fontStyle: "italic" }}>b</em>)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>n</sup>
-          {paso === 0 && <> <Igual /><span style={{ color: LIENZO.fgFaint }}>?</span></>}
-          {paso === 1 && <> <Igual /><span style={{ color: LIENZO.fgDim, fontSize: "0.7em" }}>el <em>n</em> se reparte…</span></>}
-          {paso === 2 && (
-            <> <Igual /><span style={{ color: LIENZO.ok }}>
-              <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e="n" c="ok" /> · <Pot b={<em style={{ fontStyle: "italic" }}>b</em>} e="n" c="ok" />
-            </span></>
-          )}
-        </EcuacionFinal>
+      <Pizarra alto={220} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 220"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* ( */}
+          <motion.text x="105" y="150" textAnchor="middle" fontSize="100"
+            fill={LIENZO.fgFaint} fontWeight="400"
+            animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}>(</motion.text>
+          {/* a */}
+          <motion.text x="160" y="150" textAnchor="middle" fontSize="88"
+            fill={LIENZO.fg} fontWeight="500" fontStyle="italic">a</motion.text>
+          {/* · */}
+          <motion.circle cx="220" cy="145" r="5" fill={LIENZO.fgFaint} />
+          {/* b */}
+          <motion.text x="280" y="150" textAnchor="middle" fontSize="88"
+            fill={LIENZO.fg} fontWeight="500" fontStyle="italic">b</motion.text>
+          {/* ) */}
+          <motion.text x="335" y="150" textAnchor="middle" fontSize="100"
+            fill={LIENZO.fgFaint} fontWeight="400"
+            animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}>)</motion.text>
+          {/* exponente n original (se agranda en paso 1, desaparece en paso 2) */}
+          <motion.text
+            fontSize="54" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 375, y: 105 }}
+            animate={
+              paso === 0 ? { x: 375, y: 105, opacity: 1, scale: 1 } :
+              paso === 1 ? { x: 375, y: 105, opacity: 1, scale: 1.35 } :
+                           { x: 375, y: 105, opacity: 0, scale: 0 }
+            }
+            transition={{ duration: 0.5 }}
+          >n</motion.text>
+          {/* Copia 1 del exponente vuela sobre la a */}
+          <motion.text
+            fontSize="48" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 375, y: 105, opacity: 0 }}
+            animate={paso >= 2 ? { x: 198, y: 105, opacity: 1 } : { x: 375, y: 105, opacity: 0 }}
+            transition={{ duration: 0.6, delay: paso === 2 ? 0.1 : 0 }}
+          >n</motion.text>
+          {/* Copia 2 del exponente vuela sobre la b */}
+          <motion.text
+            fontSize="48" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 375, y: 105, opacity: 0 }}
+            animate={paso >= 2 ? { x: 318, y: 105, opacity: 1 } : { x: 375, y: 105, opacity: 0 }}
+            transition={{ duration: 0.6, delay: paso === 2 ? 0.2 : 0 }}
+          >n</motion.text>
+        </svg>
       </Pizarra>
+
+      <EcuacionFinal>
+        (<em style={{ fontStyle: "italic" }}>a</em> · <em style={{ fontStyle: "italic" }}>b</em>)<sup style={{ fontSize: "0.55em", color: LIENZO.accent }}>n</sup>
+        {paso >= 2 && (
+          <> <Igual /><span style={{ color: LIENZO.ok }}>
+            <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e="n" c="ok" /> · <Pot b={<em style={{ fontStyle: "italic" }}>b</em>} e="n" c="ok" />
+          </span></>
+        )}
+      </EcuacionFinal>
 
       <div style={{ minHeight: 60 }}>
         <Decir>
@@ -736,23 +960,68 @@ function Esc09_FracElevada() {
       <Pregunta>Una <Enf>fracción</Enf> elevada a una potencia.</Pregunta>
       <Decir>Mismo principio que el producto: el exponente cae sobre numerador y denominador.</Decir>
 
-      <Pizarra alto={200} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
-        <EcuacionFinal>
-          <span style={{ display: "inline-flex", alignItems: "center" }}>
-            (<Frac n={<em style={{ fontStyle: "italic" }}>a</em>} d={<em style={{ fontStyle: "italic" }}>b</em>} />)
-            <sup style={{ fontSize: "0.55em", color: LIENZO.accent, alignSelf: "flex-start" }}>n</sup>
-          </span>
-          {paso === 0 && <> <Igual /><span style={{ color: LIENZO.fgFaint }}>?</span></>}
-          {paso === 1 && <> <Igual /><span style={{ color: LIENZO.fgDim, fontSize: "0.7em" }}>el <em>n</em> se parte en dos…</span></>}
-          {paso === 2 && (
-            <> <Igual /><Frac
-              n={<Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e="n" c="ok" />}
-              d={<Pot b={<em style={{ fontStyle: "italic" }}>b</em>} e="n" c="ok" />}
-              c={LIENZO.ok}
-            /></>
-          )}
-        </EcuacionFinal>
+      <Pizarra alto={240} onClick={() => setPaso(paso < 2 ? paso + 1 : 0)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 240"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* ( */}
+          <motion.text x="95" y="135" textAnchor="middle" fontSize="150"
+            fill={LIENZO.fgFaint} fontWeight="300"
+            animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}>(</motion.text>
+          {/* a (numerador) */}
+          <motion.text x="180" y="100" textAnchor="middle" fontSize="64"
+            fill={LIENZO.fg} fontWeight="500" fontStyle="italic">a</motion.text>
+          {/* línea de fracción */}
+          <motion.line x1="148" y1="120" x2="212" y2="120" stroke={LIENZO.fg} strokeWidth="3" />
+          {/* b (denominador) */}
+          <motion.text x="180" y="180" textAnchor="middle" fontSize="64"
+            fill={LIENZO.fg} fontWeight="500" fontStyle="italic">b</motion.text>
+          {/* ) */}
+          <motion.text x="265" y="135" textAnchor="middle" fontSize="150"
+            fill={LIENZO.fgFaint} fontWeight="300"
+            animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}>)</motion.text>
+          {/* exponente n original */}
+          <motion.text
+            fontSize="54" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 305, y: 90 }}
+            animate={
+              paso === 0 ? { x: 305, y: 90, opacity: 1, scale: 1 } :
+              paso === 1 ? { x: 305, y: 90, opacity: 1, scale: 1.35 } :
+                           { x: 305, y: 90, opacity: 0, scale: 0 }
+            }
+            transition={{ duration: 0.5 }}
+          >n</motion.text>
+          {/* Copia 1 (sube al numerador a) */}
+          <motion.text
+            fontSize="42" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 305, y: 90, opacity: 0 }}
+            animate={paso >= 2 ? { x: 212, y: 78, opacity: 1 } : { x: 305, y: 90, opacity: 0 }}
+            transition={{ duration: 0.6, delay: paso === 2 ? 0.1 : 0 }}
+          >n</motion.text>
+          {/* Copia 2 (baja al denominador b) */}
+          <motion.text
+            fontSize="42" fill={LIENZO.accent} fontWeight="500" textAnchor="middle"
+            initial={{ x: 305, y: 90, opacity: 0 }}
+            animate={paso >= 2 ? { x: 212, y: 158, opacity: 1 } : { x: 305, y: 90, opacity: 0 }}
+            transition={{ duration: 0.6, delay: paso === 2 ? 0.2 : 0 }}
+          >n</motion.text>
+        </svg>
       </Pizarra>
+
+      <EcuacionFinal>
+        <span style={{ display: "inline-flex", alignItems: "center" }}>
+          (<Frac n={<em style={{ fontStyle: "italic" }}>a</em>} d={<em style={{ fontStyle: "italic" }}>b</em>} />)
+          <sup style={{ fontSize: "0.55em", color: LIENZO.accent, alignSelf: "flex-start" }}>n</sup>
+        </span>
+        {paso >= 2 && (
+          <> <Igual /><Frac
+            n={<Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e="n" c="ok" />}
+            d={<Pot b={<em style={{ fontStyle: "italic" }}>b</em>} e="n" c="ok" />}
+            c={LIENZO.ok}
+          /></>
+        )}
+      </EcuacionFinal>
 
       <div style={{ minHeight: 60 }}>
         <Decir>
