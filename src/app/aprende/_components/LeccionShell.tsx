@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { LIENZO } from "./lienzo";
 
 export type Escena = {
   titulo: string;
@@ -15,45 +16,49 @@ export type LeccionShellProps = {
   escenas: Escena[];
 };
 
+// Shell de lección en estética LIENZO (idéntica a Potenciación): fondo claro,
+// header/footer sticky con blur, barra de progreso violeta.
 export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionShellProps) {
   const [i, setI] = useState(0);
   const EscenaComp = escenas[i].componente;
   const progreso = ((i + 1) / escenas.length) * 100;
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg-base)", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", background: LIENZO.bg, display: "flex", flexDirection: "column", color: LIENZO.fg }}>
       <header style={{
-        padding: "14px 20px", borderBottom: "1px solid var(--border)",
-        background: "var(--bg-glass)", backdropFilter: "blur(8px)",
+        padding: "14px 20px",
+        borderBottom: `1px solid ${LIENZO.fgFaint}55`,
+        background: "rgba(250,250,247,0.85)", backdropFilter: "blur(12px)",
+        position: "sticky", top: 0, zIndex: 10,
         display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
       }}>
-        <Link href="/aprende" style={{ color: "var(--fg-muted)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
+        <Link href="/aprende" style={{ color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
           ← Lecciones
         </Link>
         <div style={{ flex: 1, minWidth: 180 }}>
-          <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: 1.2, color: "var(--fg-muted)", marginBottom: 2 }}>
+          <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 1.5, color: LIENZO.fgFaint, marginBottom: 2 }}>
             Unidad {unidad} · {tituloUnidad}
           </div>
-          <div className="font-crimson" style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)" }}>
+          <div className="font-crimson" style={{ fontSize: 17, fontWeight: 500, color: LIENZO.fg, letterSpacing: "-0.01em" }}>
             {escenas[i].titulo}
           </div>
         </div>
-        <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 600 }}>
+        <div style={{ fontSize: 12, color: LIENZO.fgFaint, fontWeight: 500 }}>
           {i + 1} / {escenas.length}
         </div>
       </header>
 
-      <div style={{ height: 4, background: "var(--bg-subtle)", position: "relative" }}>
+      <div style={{ height: 2, background: `${LIENZO.fgFaint}33` }}>
         <motion.div
-          style={{ height: "100%", background: "linear-gradient(90deg, var(--accent), #8b5cf6)" }}
+          style={{ height: "100%", background: LIENZO.accent }}
           animate={{ width: `${progreso}%` }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         />
       </div>
 
       <main style={{
-        flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
-        padding: "20px", overflow: "hidden",
+        flex: 1, display: "flex", alignItems: "flex-start", justifyContent: "center",
+        padding: "40px 20px 120px",
       }}>
         <AnimatePresence mode="wait">
           <motion.div
@@ -61,7 +66,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.35 }}
+            transition={{ duration: 0.3 }}
             style={{ width: "100%", maxWidth: 720 }}
           >
             <EscenaComp />
@@ -70,40 +75,45 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
       </main>
 
       <footer style={{
-        padding: "16px 20px", borderTop: "1px solid var(--border)",
-        background: "var(--bg-card)", display: "flex", gap: 12, justifyContent: "space-between",
+        padding: "14px 20px",
+        borderTop: `1px solid ${LIENZO.fgFaint}55`,
+        background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)",
+        display: "flex", gap: 12, justifyContent: "space-between",
+        position: "sticky", bottom: 0,
       }}>
         <button
           onClick={() => setI((v) => Math.max(0, v - 1))}
           disabled={i === 0}
-          style={btnSecundario(i === 0)}
+          style={{
+            padding: "10px 18px", background: "transparent",
+            border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 999,
+            color: i === 0 ? LIENZO.fgFaint : LIENZO.fg,
+            fontSize: 14, fontWeight: 500,
+            cursor: i === 0 ? "not-allowed" : "pointer", opacity: i === 0 ? 0.5 : 1,
+          }}
         >
           ← Anterior
         </button>
         {i < escenas.length - 1 ? (
-          <button onClick={() => setI((v) => v + 1)} style={btnPrincipal}>
+          <button
+            onClick={() => setI((v) => v + 1)}
+            style={{
+              padding: "10px 24px", background: LIENZO.accent,
+              border: "none", borderRadius: 999, color: "#fff",
+              fontSize: 14, fontWeight: 700, cursor: "pointer",
+            }}
+          >
             Siguiente →
           </button>
         ) : (
-          <Link href="/aprende" style={{ ...btnPrincipal, textDecoration: "none", textAlign: "center" }}>
-            ✓ Terminar lección
+          <Link href="/aprende" style={{
+            padding: "10px 24px", background: LIENZO.ok, borderRadius: 999,
+            color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none",
+          }}>
+            ✓ Terminar
           </Link>
         )}
       </footer>
     </div>
   );
 }
-
-const btnPrincipal: React.CSSProperties = {
-  padding: "12px 24px", background: "var(--accent)", color: "var(--accent-fg)",
-  border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: "pointer",
-  boxShadow: "var(--shadow-sm)",
-};
-
-const btnSecundario = (disabled: boolean): React.CSSProperties => ({
-  padding: "12px 24px", background: "transparent",
-  color: disabled ? "var(--border)" : "var(--fg-muted)",
-  border: "1px solid " + (disabled ? "var(--bg-subtle)" : "var(--border)"),
-  borderRadius: 12, fontWeight: 700, fontSize: 15,
-  cursor: disabled ? "not-allowed" : "pointer",
-});

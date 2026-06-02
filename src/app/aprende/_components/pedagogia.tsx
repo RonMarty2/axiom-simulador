@@ -2,19 +2,55 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "./atoms";
+import { LIENZO } from "./lienzo";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Bloques de contenido pedagógico — para construir escenas RICAS
-// (explicación detallada + por qué funciona + ejemplos resueltos + errores
-// comunes + auto-check), no solo una animación con un texto corto.
+// Bloques de contenido pedagógico — estética LIENZO (3Blue1Brown):
+//   · Fondo claro, texto navy, acento violeta. UNA idea por bloque.
+//   · Sin tarjetas de colores chillones ni emojis decorativos.
+//   · Etiquetas tipográficas finas en lugar de banners.
+//   · Tipografía matemática (Crimson) para fórmulas y ejemplos.
+//
+// La API (nombres y props) se mantiene IGUAL que la versión anterior para que
+// las ~19 lecciones que ya la usan no se rompan: solo cambia cómo se ve.
 // ─────────────────────────────────────────────────────────────────────────────
+
+// Etiqueta pequeña en mayúsculas que encabeza un bloque, sin banner de color.
+function Etiqueta({ children, color = LIENZO.accent }: { children: React.ReactNode; color?: string }) {
+  return (
+    <div style={{
+      fontSize: 11, letterSpacing: 1.4, textTransform: "uppercase",
+      fontWeight: 700, color, marginBottom: 6,
+    }}>
+      {children}
+    </div>
+  );
+}
+
+// Bloque base: barra fina a la izquierda + contenido. Reemplaza las cards.
+function Bloque({
+  acento, fondo, children,
+}: { acento: string; fondo?: string; children: React.ReactNode }) {
+  return (
+    <div style={{
+      width: "100%", maxWidth: 620,
+      borderLeft: `3px solid ${acento}`,
+      background: fondo ?? "transparent",
+      borderRadius: fondo ? 8 : 0,
+      padding: fondo ? "12px 16px" : "2px 0 2px 16px",
+      color: LIENZO.fg,
+    }}>
+      {children}
+    </div>
+  );
+}
 
 export function Titulo({ children, accent }: { children: React.ReactNode; accent?: string }) {
   return (
     <h2 className="font-crimson" style={{
-      fontSize: 26, fontWeight: 800, color: accent ?? COLOR_BASE,
-      margin: "0 0 8px", lineHeight: 1.2, textAlign: "center",
+      fontSize: "clamp(24px, 4.5vw, 34px)", fontWeight: 600,
+      color: accent ?? LIENZO.fg, margin: "0 0 4px",
+      lineHeight: 1.18, letterSpacing: "-0.01em", textAlign: "left",
     }}>
       {children}
     </h2>
@@ -24,8 +60,8 @@ export function Titulo({ children, accent }: { children: React.ReactNode; accent
 export function Parrafo({ children }: { children: React.ReactNode }) {
   return (
     <p style={{
-      fontSize: 16, lineHeight: 1.65, color: "var(--fg-secondary)",
-      margin: "0 0 10px", maxWidth: 580,
+      fontSize: "clamp(16px, 2.1vw, 18px)", lineHeight: 1.6,
+      color: LIENZO.fgDim, margin: 0, maxWidth: 600,
     }}>
       {children}
     </p>
@@ -34,48 +70,32 @@ export function Parrafo({ children }: { children: React.ReactNode }) {
 
 export function Definicion({ termino, children }: { termino: string; children: React.ReactNode }) {
   return (
-    <div style={{
-      background: "linear-gradient(135deg, #eff6ff, #dbeafe)",
-      borderLeft: `4px solid #3b82f6`,
-      borderRadius: 10, padding: "12px 16px", maxWidth: 580,
-      fontSize: 15, lineHeight: 1.6, color: COLOR_BASE,
-    }}>
-      <strong style={{ color: "#1e40af", textTransform: "uppercase", fontSize: 11, letterSpacing: 1.2, display: "block", marginBottom: 4 }}>
-        DEFINICIÓN · {termino}
-      </strong>
-      {children}
-    </div>
+    <Bloque acento={LIENZO.accent} fondo={LIENZO.bgSoft}>
+      <Etiqueta>Definición · {termino}</Etiqueta>
+      <div style={{ fontSize: 16, lineHeight: 1.6, color: LIENZO.fg }}>{children}</div>
+    </Bloque>
   );
 }
 
 export function PorQue({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{
-      background: "linear-gradient(135deg, #fef3c7, #fde68a)",
-      borderLeft: `4px solid #f59e0b`,
-      borderRadius: 10, padding: "12px 16px", maxWidth: 580,
-      fontSize: 14, lineHeight: 1.6, color: "#78350f",
-    }}>
-      <strong style={{ display: "block", marginBottom: 4, fontSize: 12, letterSpacing: 1, textTransform: "uppercase" }}>
-        💡 ¿Por qué funciona?
-      </strong>
-      {children}
-    </div>
+    <Bloque acento={LIENZO.warn} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.warn}>¿Por qué funciona?</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fgDim }}>{children}</div>
+    </Bloque>
   );
 }
 
 export function Ejemplo({ titulo = "Ejemplo", children }: { titulo?: string; children: React.ReactNode }) {
   return (
     <div style={{
-      background: "var(--bg-card)",
-      border: "1px solid var(--border)",
-      borderRadius: 12, padding: "14px 18px", maxWidth: 580,
-      fontFamily: "var(--font-crimson), serif", color: COLOR_BASE,
+      width: "100%", maxWidth: 620,
+      border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 12,
+      padding: "14px 18px", background: "transparent",
+      fontFamily: "var(--font-crimson), serif", color: LIENZO.fg,
     }}>
-      <div style={{ fontSize: 11, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, textTransform: "uppercase", marginBottom: 8 }}>
-        {titulo}
-      </div>
-      <div style={{ fontSize: 16, lineHeight: 1.7 }}>{children}</div>
+      <Etiqueta>{titulo}</Etiqueta>
+      <div style={{ fontSize: 17, lineHeight: 1.7 }}>{children}</div>
     </div>
   );
 }
@@ -85,57 +105,44 @@ export function Paso({ n, children }: { n: number; children: React.ReactNode }) 
     <div style={{ display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 8 }}>
       <span style={{
         flexShrink: 0, width: 24, height: 24, borderRadius: "50%",
-        background: COLOR_EXP, color: "white", fontSize: 13, fontWeight: 800,
+        background: LIENZO.accent, color: "#fff", fontSize: 13, fontWeight: 700,
         display: "flex", alignItems: "center", justifyContent: "center",
         fontFamily: "var(--font-atkinson), sans-serif",
       }}>{n}</span>
-      <div style={{ flex: 1, fontSize: 15, lineHeight: 1.6 }}>{children}</div>
+      <div style={{ flex: 1, fontSize: 15, lineHeight: 1.6, color: LIENZO.fg }}>{children}</div>
     </div>
   );
 }
 
 export function Cuidado({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{
-      background: "linear-gradient(135deg, #fee2e2, #fecaca)",
-      borderLeft: `4px solid ${COLOR_BAD}`,
-      borderRadius: 10, padding: "12px 16px", maxWidth: 580,
-      fontSize: 14, lineHeight: 1.6, color: "#7f1d1d",
-    }}>
-      <strong style={{ display: "block", marginBottom: 4, fontSize: 12, letterSpacing: 1, textTransform: "uppercase" }}>
-        ⚠️ Cuidado / error común
-      </strong>
-      {children}
-    </div>
+    <Bloque acento={LIENZO.bad} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.bad}>Cuidado · error común</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fgDim }}>{children}</div>
+    </Bloque>
   );
 }
 
 export function Resumen({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{
-      background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
-      border: `2px solid ${COLOR_OK}`,
-      borderRadius: 12, padding: "14px 18px", maxWidth: 580,
-      fontSize: 15, lineHeight: 1.6, color: "#065f46",
-    }}>
-      <strong style={{ display: "block", marginBottom: 4, fontSize: 12, letterSpacing: 1, textTransform: "uppercase" }}>
-        ✓ Para recordar
-      </strong>
-      {children}
-    </div>
+    <Bloque acento={LIENZO.ok} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.ok}>Para recordar</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.65, color: LIENZO.fg }}>{children}</div>
+    </Bloque>
   );
 }
 
-// Wrapper de una escena rica: pila vertical de bloques con buen espaciado.
+// Wrapper de una escena: pila vertical alineada a la izquierda, con aire.
 export function EscenaRica({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
       style={{
-        display: "flex", flexDirection: "column", alignItems: "center", gap: 14,
-        width: "100%", maxWidth: 620, margin: "0 auto",
-        padding: "8px 4px",
+        display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 18,
+        width: "100%", maxWidth: 660, margin: "0 auto",
+        padding: "8px 4px", color: LIENZO.fg,
       }}
     >
       {children}
@@ -143,7 +150,7 @@ export function EscenaRica({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Mini-check: pregunta al final de una escena, instantánea
+// Mini-check interactivo al final de una escena.
 export function AutoCheck({
   pregunta, opciones, correctaIdx, explicacion,
 }: {
@@ -156,14 +163,12 @@ export function AutoCheck({
 
   return (
     <div style={{
-      background: "var(--bg-subtle)",
-      borderRadius: 14, padding: 16, maxWidth: 580, width: "100%",
-      border: "1px dashed var(--border)",
+      width: "100%", maxWidth: 620,
+      background: LIENZO.bgSoft, borderRadius: 14, padding: 16,
+      border: `1px solid ${LIENZO.fgFaint}`,
     }}>
-      <div style={{ fontSize: 12, letterSpacing: 1.2, color: COLOR_EXP, fontWeight: 800, marginBottom: 8 }}>
-        🎯 ¿LO ENTENDISTE?
-      </div>
-      <div style={{ fontSize: 15, color: COLOR_BASE, fontWeight: 600, marginBottom: 12 }}>
+      <Etiqueta>¿Lo entendiste?</Etiqueta>
+      <div style={{ fontSize: 16, color: LIENZO.fg, fontWeight: 600, marginBottom: 12 }}>
         {pregunta}
       </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
@@ -171,24 +176,23 @@ export function AutoCheck({
           const sel = elegida === i;
           const reveal = elegida !== null;
           const ok = i === correctaIdx;
+          const borde = !reveal ? LIENZO.fgFaint : ok ? LIENZO.ok : sel ? LIENZO.bad : LIENZO.fgFaint;
           return (
             <button key={i}
               onClick={() => elegida === null && setElegida(i)}
               disabled={reveal}
               style={{
                 padding: "10px 14px", textAlign: "left",
-                background: !reveal ? "var(--bg-card)"
-                  : ok ? "#d1fae5"
-                  : sel ? "#fee2e2"
-                  : "var(--bg-card)",
-                border: `1.5px solid ${!reveal ? "var(--border)" : ok ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
+                background: !reveal ? "#fff" : ok ? "#ecfdf5" : sel ? "#fef2f2" : "#fff",
+                border: `1.5px solid ${borde}`,
                 borderRadius: 10, fontSize: 14, fontWeight: 600,
-                color: COLOR_BASE, cursor: reveal ? "default" : "pointer",
+                color: LIENZO.fg, cursor: reveal ? "default" : "pointer",
+                transition: "all 0.15s",
               }}
             >
               {op}
-              {reveal && ok && <span style={{ marginLeft: 8, color: COLOR_OK }}>✓</span>}
-              {reveal && sel && !ok && <span style={{ marginLeft: 8, color: COLOR_BAD }}>✗</span>}
+              {reveal && ok && <span style={{ marginLeft: 8, color: LIENZO.ok }}>✓</span>}
+              {reveal && sel && !ok && <span style={{ marginLeft: 8, color: LIENZO.bad }}>✗</span>}
             </button>
           );
         })}
@@ -197,9 +201,9 @@ export function AutoCheck({
         <div style={{
           marginTop: 10, padding: "10px 12px",
           background: elegida === correctaIdx ? "#ecfdf5" : "#fef2f2",
-          borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5,
+          borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.5,
         }}>
-          <strong style={{ color: elegida === correctaIdx ? COLOR_OK : COLOR_BAD }}>
+          <strong style={{ color: elegida === correctaIdx ? LIENZO.ok : LIENZO.bad }}>
             {elegida === correctaIdx ? "¡Correcto!" : "No es esa."}
           </strong>{" "}
           {explicacion}

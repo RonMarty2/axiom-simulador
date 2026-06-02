@@ -244,3 +244,119 @@ export function Exp({ children }: { children: React.ReactNode }) {
     </sup>
   );
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PRIMITIVAS DE MATEMÁTICA — probadas en Potenciación, compartidas para todas
+// las lecciones. Reglas aprendidas (NO romper):
+//   · Potencia: base + <sup> tipográfico real (no SVG suelto).
+//   · Fracción: numerador / línea / denominador en un inline-flex.
+//   · Raíz: TODO en un solo <svg> (check + vínculo + radicando en un path),
+//     nunca como borde HTML separado — se desconecta.
+//   · En animaciones SVG con motion.text NO mezclar el atributo x/y con el
+//     x/y de animate (este último es un translate y duplica la posición).
+// ─────────────────────────────────────────────────────────────────────────────
+
+type MathColor = "accent" | "ok" | "bad" | "warn" | "fg" | "dim";
+function resolverColor(c?: MathColor): string {
+  switch (c) {
+    case "ok": return LIENZO.ok;
+    case "bad": return LIENZO.bad;
+    case "warn": return LIENZO.warn;
+    case "fg": return LIENZO.fg;
+    case "dim": return LIENZO.fgDim;
+    default: return LIENZO.accent;
+  }
+}
+
+// Ecuación grande centrada, tipografía matemática. Aparece con un fade suave.
+export function EcuacionFinal({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: 0.1 }}
+      style={{
+        textAlign: "center",
+        fontFamily: "var(--font-crimson), serif",
+        fontSize: "clamp(32px, 6vw, 50px)",
+        fontWeight: 500,
+        letterSpacing: "0.005em",
+        color: LIENZO.fg,
+        margin: "12px 0 8px",
+        lineHeight: 1.25,
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// Potencia: base con exponente como superíndice real.
+export function Pot({ b, e, c = "accent" }: { b: React.ReactNode; e: React.ReactNode; c?: MathColor }) {
+  return (
+    <span style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+      {b}
+      <sup style={{ fontSize: "0.55em", color: resolverColor(c), marginLeft: 1, verticalAlign: "super" }}>{e}</sup>
+    </span>
+  );
+}
+
+// Signo "=" con buen espaciado tipográfico.
+export function Igual() {
+  return <span style={{ color: LIENZO.fgDim, margin: "0 0.45em", fontWeight: 400 }}>=</span>;
+}
+
+// Operador genérico (+, −, ×, ÷, ·) con espaciado.
+export function Op({ children }: { children: React.ReactNode }) {
+  return <span style={{ color: LIENZO.fgDim, margin: "0 0.35em", fontWeight: 400 }}>{children}</span>;
+}
+
+// Fracción real (numerador / línea / denominador).
+export function Frac({ n, d, c }: { n: React.ReactNode; d: React.ReactNode; c?: string }) {
+  const col = c ?? LIENZO.fg;
+  return (
+    <span style={{
+      display: "inline-flex", flexDirection: "column", alignItems: "center",
+      verticalAlign: "middle", fontSize: "0.78em", lineHeight: 1, margin: "0 0.1em",
+    }}>
+      <span style={{ color: col, padding: "0 0.25em" }}>{n}</span>
+      <span style={{ width: "100%", borderTop: `2px solid ${col}`, margin: "2px 0" }} />
+      <span style={{ color: col, padding: "0 0.25em" }}>{d}</span>
+    </span>
+  );
+}
+
+// Raíz n-ésima TODA en un solo SVG (check + vínculo + radicando en un path).
+export function Raiz({ n, r, italic = true }: { n?: string; r: string; italic?: boolean }) {
+  return (
+    <svg viewBox="0 0 64 42" height="1.3em" width="2em"
+      style={{ verticalAlign: "middle", overflow: "visible" }} aria-hidden>
+      {n && (
+        <text x="7" y="15" fontSize="15" fill={LIENZO.accent} fontWeight="600"
+          fontFamily="var(--font-crimson), serif">{n}</text>
+      )}
+      <path d="M 12 25 L 21 39 L 33 5 L 60 5" fill="none"
+        stroke={LIENZO.fg} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      <text x="46" y="33" textAnchor="middle" fontSize="28" fill={LIENZO.fg}
+        fontWeight="500" fontStyle={italic ? "italic" : "normal"}
+        fontFamily="var(--font-crimson), serif">{r}</text>
+    </svg>
+  );
+}
+
+// Botón "Repetir animación" minimalista.
+export function Repetir({ onClick, texto = "Repetir" }: { onClick: () => void; texto?: string }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        alignSelf: "flex-start", background: "transparent",
+        border: `1px solid ${LIENZO.fgFaint}`, color: LIENZO.fgDim,
+        padding: "8px 18px", fontSize: 13, fontWeight: 500,
+        borderRadius: 999, cursor: "pointer",
+      }}
+    >
+      ↻ {texto}
+    </button>
+  );
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LIENZO } from "./lienzo";
 
 // Átomos visuales y tokens compartidos por todas las lecciones animadas.
 
@@ -52,27 +53,29 @@ export function Stage({ w, h, children }: { w: number; h: number; children: Reac
   );
 }
 
-export const COLOR_BASE = "#1E1B4B";
-export const COLOR_EXP = "#8b5cf6";
-export const COLOR_OK = "#10b981";
-export const COLOR_BAD = "#ef4444";
+// Colores alineados a la paleta LIENZO (tema claro) para que las lecciones
+// animadas se vean igual que Potenciación.
+export const COLOR_BASE = LIENZO.fg;     // navy
+export const COLOR_EXP = LIENZO.accent;  // violeta
+export const COLOR_OK = LIENZO.ok;       // verde
+export const COLOR_BAD = LIENZO.bad;     // coral
 
 export const escenaWrap = (): React.CSSProperties => ({
   display: "flex", flexDirection: "column", alignItems: "center", gap: 18,
 });
 
 export const subtitulo = (): React.CSSProperties => ({
-  fontSize: 17, color: "var(--fg-secondary)", textAlign: "center", maxWidth: 560,
+  fontSize: 17, color: LIENZO.fgDim, textAlign: "center", maxWidth: 560,
   lineHeight: 1.5,
 });
 
 export const parrafo = (): React.CSSProperties => ({
-  fontSize: 16, color: "var(--fg-secondary)", textAlign: "center", maxWidth: 520,
+  fontSize: 16, color: LIENZO.fgDim, textAlign: "center", maxWidth: 520,
   lineHeight: 1.6,
 });
 
 export const hint = (): React.CSSProperties => ({
-  fontSize: 14, color: "var(--fg-muted)", fontWeight: 600, textAlign: "center", minHeight: 22,
+  fontSize: 14, color: LIENZO.fgFaint, fontWeight: 600, textAlign: "center", minHeight: 22,
 });
 
 export const numGrande = (color: string, fontSize: number = 100): React.CSSProperties => ({
@@ -82,16 +85,14 @@ export const numGrande = (color: string, fontSize: number = 100): React.CSSPrope
 export const cajaAnim = (): React.CSSProperties => ({
   minHeight: 240, display: "flex", flexDirection: "column",
   alignItems: "center", justifyContent: "center", gap: 20,
-  background: "var(--bg-card)", borderRadius: 20, padding: "24px 14px",
-  border: "1px solid var(--border)", cursor: "pointer", width: "100%", maxWidth: 560,
-  boxShadow: "var(--shadow-sm)",
+  background: "transparent", borderRadius: 20, padding: "24px 14px",
+  cursor: "pointer", width: "100%", maxWidth: 580,
   overflow: "hidden",
 });
 
 export const cajitaFormula = (): React.CSSProperties => ({
   marginTop: 10, padding: "10px 18px",
-  background: "var(--bg-subtle)", borderRadius: 12,
-  border: "1px dashed var(--border)",
+  background: LIENZO.bgSoft, borderRadius: 12,
 });
 
 export function ExpInline({ base, exp, colorBase = COLOR_BASE, colorExp = COLOR_EXP, sizeBase = 40 }: {
