@@ -29,49 +29,103 @@ export default function Page() {
 }
 
 // Flujo circular: familias y empresas en dos mercados (bienes y factores).
+// Cada mercado tiene DOS flujos en sentidos opuestos: BIENES/FACTORES por un
+// lado (violeta arriba / verde abajo) y DINERO por el otro (gris). Esa es la
+// idea de "circular": todo lo que va, vuelve por el otro carril.
 function FlujoCircular() {
   return (
     <div style={{ width: "100%", maxWidth: 620 }}>
-      <Pizarra alto={320}>
-        <svg width="100%" height="100%" viewBox="0 0 480 320"
+      <Pizarra alto={360}>
+        <svg width="100%" height="100%" viewBox="0 0 480 360"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}>
-          {/* Empresas */}
-          <rect x="40" y="120" width="120" height="80" rx="10"
+          <defs>
+            <marker id="ar-acc" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.accent} />
+            </marker>
+            <marker id="ar-ok" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.ok} />
+            </marker>
+            <marker id="ar-dim" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fgDim} />
+            </marker>
+          </defs>
+
+          {/* Empresas (izquierda) */}
+          <rect x="30" y="150" width="120" height="80" rx="10"
             fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
-          <text x="100" y="155" textAnchor="middle" fontSize="14" fill={LIENZO.fg} fontWeight="700">Empresas</text>
-          <text x="100" y="175" textAnchor="middle" fontSize="10" fill={LIENZO.fgDim}>producen</text>
-          {/* Familias */}
-          <rect x="320" y="120" width="120" height="80" rx="10"
+          <text x="90" y="185" textAnchor="middle" fontSize="14" fill={LIENZO.fg} fontWeight="700">Empresas</text>
+          <text x="90" y="205" textAnchor="middle" fontSize="10" fill={LIENZO.fgDim}>producen</text>
+
+          {/* Familias (derecha) */}
+          <rect x="330" y="150" width="120" height="80" rx="10"
             fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
-          <text x="380" y="155" textAnchor="middle" fontSize="14" fill={LIENZO.fg} fontWeight="700">Familias</text>
-          <text x="380" y="175" textAnchor="middle" fontSize="10" fill={LIENZO.fgDim}>consumen</text>
-          {/* Mercado de bienes y servicios (arriba) */}
-          <rect x="180" y="30" width="120" height="50" rx="10"
+          <text x="390" y="185" textAnchor="middle" fontSize="14" fill={LIENZO.fg} fontWeight="700">Familias</text>
+          <text x="390" y="205" textAnchor="middle" fontSize="10" fill={LIENZO.fgDim}>consumen</text>
+
+          {/* Mercado de bienes (arriba) */}
+          <rect x="180" y="20" width="120" height="50" rx="10"
             fill={LIENZO.accent} fillOpacity="0.12" stroke={LIENZO.accent} strokeWidth="2" />
-          <text x="240" y="50" textAnchor="middle" fontSize="11" fill={LIENZO.accent} fontWeight="700">Mercado de</text>
-          <text x="240" y="65" textAnchor="middle" fontSize="11" fill={LIENZO.accent} fontWeight="700">bienes y servicios</text>
+          <text x="240" y="40" textAnchor="middle" fontSize="11" fill={LIENZO.accent} fontWeight="700">Mercado de</text>
+          <text x="240" y="55" textAnchor="middle" fontSize="11" fill={LIENZO.accent} fontWeight="700">bienes y servicios</text>
+
           {/* Mercado de factores (abajo) */}
-          <rect x="180" y="240" width="120" height="50" rx="10"
+          <rect x="180" y="290" width="120" height="50" rx="10"
             fill={LIENZO.ok} fillOpacity="0.12" stroke={LIENZO.ok} strokeWidth="2" />
-          <text x="240" y="260" textAnchor="middle" fontSize="11" fill={LIENZO.ok} fontWeight="700">Mercado de</text>
-          <text x="240" y="275" textAnchor="middle" fontSize="11" fill={LIENZO.ok} fontWeight="700">factores de producción</text>
-          {/* Flechas arriba */}
-          <motion.path d="M 160 130 Q 180 70 200 60" stroke={LIENZO.accent} strokeWidth="2" fill="none"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8 }} />
-          <motion.path d="M 280 60 Q 300 70 320 130" stroke={LIENZO.accent} strokeWidth="2" fill="none"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8, delay: 0.2 }} />
-          <text x="180" y="100" textAnchor="middle" fontSize="9" fill={LIENZO.accent}>bienes vendidos</text>
-          <text x="300" y="100" textAnchor="middle" fontSize="9" fill={LIENZO.accent}>$ pagados</text>
-          {/* Flechas abajo */}
-          <motion.path d="M 320 190 Q 300 250 280 260" stroke={LIENZO.ok} strokeWidth="2" fill="none"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8, delay: 0.4 }} />
-          <motion.path d="M 200 260 Q 180 250 160 190" stroke={LIENZO.ok} strokeWidth="2" fill="none"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8, delay: 0.6 }} />
-          <text x="300" y="220" textAnchor="middle" fontSize="9" fill={LIENZO.ok}>trabajo, tierra, capital</text>
-          <text x="180" y="220" textAnchor="middle" fontSize="9" fill={LIENZO.ok}>$ sueldos, alquileres</text>
+          <text x="240" y="310" textAnchor="middle" fontSize="11" fill={LIENZO.ok} fontWeight="700">Mercado de</text>
+          <text x="240" y="325" textAnchor="middle" fontSize="11" fill={LIENZO.ok} fontWeight="700">factores de producción</text>
+
+          {/* ──── ARRIBA · Mercado de bienes (2 flujos opuestos) ──── */}
+          {/* Flujo BIENES: Empresas → Mercado → Familias (violeta) */}
+          <motion.path d="M 150 158 Q 165 110 195 75" stroke={LIENZO.accent} strokeWidth="2" fill="none"
+            markerEnd="url(#ar-acc)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7 }} />
+          <motion.path d="M 285 75 Q 315 110 330 158" stroke={LIENZO.accent} strokeWidth="2" fill="none"
+            markerEnd="url(#ar-acc)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.2 }} />
+          <text x="155" y="100" textAnchor="middle" fontSize="9" fill={LIENZO.accent} fontWeight="600">bienes vendidos →</text>
+          <text x="325" y="100" textAnchor="middle" fontSize="9" fill={LIENZO.accent} fontWeight="600">→ bienes comprados</text>
+
+          {/* Flujo $ : Familias → Mercado → Empresas (gris, sentido opuesto) */}
+          <motion.path d="M 340 168 Q 320 130 295 95" stroke={LIENZO.fgDim} strokeWidth="1.5" fill="none"
+            strokeDasharray="4 4" markerEnd="url(#ar-dim)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.4 }} />
+          <motion.path d="M 185 95 Q 160 130 140 168" stroke={LIENZO.fgDim} strokeWidth="1.5" fill="none"
+            strokeDasharray="4 4" markerEnd="url(#ar-dim)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.55 }} />
+          <text x="350" y="135" textAnchor="middle" fontSize="9" fill={LIENZO.fgDim}>← $ pagados</text>
+          <text x="130" y="135" textAnchor="middle" fontSize="9" fill={LIENZO.fgDim}>$ ingreso ←</text>
+
+          {/* ──── ABAJO · Mercado de factores (2 flujos opuestos) ──── */}
+          {/* Flujo FACTORES: Familias → Mercado → Empresas (verde) */}
+          <motion.path d="M 330 222 Q 315 270 285 305" stroke={LIENZO.ok} strokeWidth="2" fill="none"
+            markerEnd="url(#ar-ok)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.7 }} />
+          <motion.path d="M 195 305 Q 165 270 150 222" stroke={LIENZO.ok} strokeWidth="2" fill="none"
+            markerEnd="url(#ar-ok)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 0.85 }} />
+          <text x="325" y="285" textAnchor="middle" fontSize="9" fill={LIENZO.ok} fontWeight="600">trabajo, tierra →</text>
+          <text x="155" y="285" textAnchor="middle" fontSize="9" fill={LIENZO.ok} fontWeight="600">→ insumos para producir</text>
+
+          {/* Flujo $ : Empresas → Mercado → Familias (gris, sentido opuesto) */}
+          <motion.path d="M 140 212 Q 160 250 185 285" stroke={LIENZO.fgDim} strokeWidth="1.5" fill="none"
+            strokeDasharray="4 4" markerEnd="url(#ar-dim)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 1.0 }} />
+          <motion.path d="M 295 285 Q 320 250 340 212" stroke={LIENZO.fgDim} strokeWidth="1.5" fill="none"
+            strokeDasharray="4 4" markerEnd="url(#ar-dim)"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.7, delay: 1.15 }} />
+          <text x="130" y="255" textAnchor="middle" fontSize="9" fill={LIENZO.fgDim}>$ sueldos →</text>
+          <text x="350" y="255" textAnchor="middle" fontSize="9" fill={LIENZO.fgDim}>→ ingreso familiar</text>
         </svg>
       </Pizarra>
+      <div style={{ fontSize: 12, color: LIENZO.fgDim, textAlign: "center", marginTop: 6 }}>
+        <span style={{ color: LIENZO.accent, fontWeight: 600 }}>—</span> bienes/factores
+        {" · "}
+        <span style={{ color: LIENZO.fgDim, fontWeight: 600 }}>┄</span> dinero (sentido opuesto)
+      </div>
     </div>
   );
 }
