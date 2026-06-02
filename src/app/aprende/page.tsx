@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
 import type { Usuario } from "@/lib/data-store";
 
@@ -175,6 +175,9 @@ export default function AprendePage() {
 function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: number; esPremium: boolean }) {
   const tieneContenido = bloque.unidades.length > 0;
   const color = indice === 1 ? "#0ea5e9" : "var(--accent)";
+  const colorGradient = indice === 1 ? "#38bdf8" : "#8b5cf6";
+  const [abierto, setAbierto] = useState(true);
+  const totalLecciones = bloque.unidades.reduce((acc, u) => acc + u.lecciones.length, 0);
 
   return (
     <motion.section
@@ -183,47 +186,82 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
       transition={{ delay: indice * 0.1 }}
       style={{ marginBottom: 32 }}
     >
-      {/* Cabecera del área */}
-      <div style={{
-        padding: "20px 24px",
-        background: `linear-gradient(135deg, ${color}, ${indice === 1 ? "#38bdf8" : "#8b5cf6"})`,
-        borderRadius: 18, color: "white",
-        boxShadow: "var(--shadow-md)", marginBottom: 16,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-          <span style={{
-            fontSize: 11, fontWeight: 800, background: "rgba(255,255,255,0.25)",
-            padding: "3px 10px", borderRadius: 8, letterSpacing: 1.2,
-          }}>ÁREA {indice}</span>
+      {/* Cabecera del área (clickeable) */}
+      <button
+        onClick={() => setAbierto((v) => !v)}
+        style={{
+          all: "unset", cursor: "pointer", display: "block", width: "100%",
+          padding: "20px 24px",
+          background: `linear-gradient(135deg, ${color}, ${colorGradient})`,
+          borderRadius: abierto ? "18px 18px 18px 18px" : 18, color: "white",
+          boxShadow: "var(--shadow-md)", marginBottom: abierto ? 16 : 0,
+          boxSizing: "border-box",
+        }}
+        aria-expanded={abierto}
+      >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, flexWrap: "wrap" }}>
+              <span style={{
+                fontSize: 11, fontWeight: 800, background: "rgba(255,255,255,0.25)",
+                padding: "3px 10px", borderRadius: 8, letterSpacing: 1.2,
+              }}>ÁREA {indice}</span>
+              {tieneContenido && (
+                <span style={{
+                  fontSize: 11, fontWeight: 700, background: "rgba(255,255,255,0.15)",
+                  padding: "3px 10px", borderRadius: 8, letterSpacing: 0.6,
+                }}>{bloque.unidades.length} unidades · {totalLecciones} lecciones</span>
+              )}
+            </div>
+            <h2 className="font-crimson" style={{ fontSize: 22, fontWeight: 700, margin: 0, lineHeight: 1.3 }}>
+              {bloque.titulo}
+            </h2>
+            <p style={{ fontSize: 14, opacity: 0.92, marginTop: 6, marginBottom: 0 }}>
+              {bloque.descripcion}
+            </p>
+          </div>
+          <motion.span
+            animate={{ rotate: abierto ? 180 : 0 }}
+            transition={{ duration: 0.25 }}
+            style={{ fontSize: 22, lineHeight: 1, flexShrink: 0, opacity: 0.9 }}
+          >⌃</motion.span>
         </div>
-        <h2 className="font-crimson" style={{ fontSize: 22, fontWeight: 700, margin: 0, lineHeight: 1.3 }}>
-          {bloque.titulo}
-        </h2>
-        <p style={{ fontSize: 14, opacity: 0.92, marginTop: 6, marginBottom: 0 }}>
-          {bloque.descripcion}
-        </p>
-      </div>
+      </button>
 
       {/* Cuerpo del área */}
-      {!tieneContenido ? (
-        <div style={{
-          padding: "30px 24px", background: "var(--bg-card)",
-          borderRadius: 14, border: "1px dashed var(--border)",
-          textAlign: "center", color: "var(--fg-muted)",
-        }}>
-          <div style={{ fontSize: 28, marginBottom: 8 }}>🚧</div>
-          <div style={{ fontSize: 15, fontWeight: 600 }}>Contenido en desarrollo</div>
-          <div style={{ fontSize: 13, marginTop: 4 }}>
-            Estamos preparando las lecciones de esta área. Mientras tanto, podés practicar con los simulacros.
-          </div>
-        </div>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-          {bloque.unidades.map((u) => (
-            <UnidadCard key={u.numero} unidad={u} esPremium={esPremium} />
-          ))}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {abierto && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: "hidden" }}
+          >
+            <div style={{ paddingTop: 16 }}>
+              {!tieneContenido ? (
+                <div style={{
+                  padding: "30px 24px", background: "var(--bg-card)",
+                  borderRadius: 14, border: "1px dashed var(--border)",
+                  textAlign: "center", color: "var(--fg-muted)",
+                }}>
+                  <div style={{ fontSize: 28, marginBottom: 8 }}>🚧</div>
+                  <div style={{ fontSize: 15, fontWeight: 600 }}>Contenido en desarrollo</div>
+                  <div style={{ fontSize: 13, marginTop: 4 }}>
+                    Estamos preparando las lecciones de esta área. Mientras tanto, podés practicar con los simulacros.
+                  </div>
+                </div>
+              ) : (
+                <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                  {bloque.unidades.map((u) => (
+                    <UnidadCard key={u.numero} unidad={u} esPremium={esPremium} />
+                  ))}
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.section>
   );
 }
@@ -231,76 +269,116 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
 function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean }) {
   const esGratis = unidad.numero === "01";
   const accesible = esGratis || esPremium;
+  // Unidades accesibles abiertas por defecto; bloqueadas cerradas (menos scroll
+  // para usuarios gratis, pero pueden abrirlas para ver qué hay).
+  const [abierto, setAbierto] = useState(accesible);
 
   return (
     <section style={{
       background: "var(--bg-card)", borderRadius: 14,
-      border: "1px solid var(--border)", padding: 18,
-      boxShadow: "var(--shadow-sm)", opacity: accesible ? 1 : 0.7,
+      border: "1px solid var(--border)",
+      boxShadow: "var(--shadow-sm)", opacity: accesible ? 1 : 0.85,
+      overflow: "hidden",
     }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12, flexWrap: "wrap" }}>
-        <span style={{
-          fontSize: 11, fontWeight: 800, color: accesible ? "var(--accent)" : "var(--fg-muted)",
-          background: "var(--bg-subtle)", padding: "4px 10px", borderRadius: 8, letterSpacing: 1,
-        }}>UNIDAD {unidad.numero}</span>
-        <h3 className="font-crimson" style={{
-          fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", margin: 0, flex: 1, minWidth: 180,
-        }}>{unidad.titulo}</h3>
-        {!accesible && (
+      <button
+        onClick={() => setAbierto((v) => !v)}
+        style={{
+          all: "unset", cursor: "pointer", display: "block", width: "100%",
+          padding: 18, boxSizing: "border-box",
+        }}
+        aria-expanded={abierto}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <span style={{
-            fontSize: 11, fontWeight: 800, color: "#92400e",
-            background: "linear-gradient(135deg, #fde68a, #fcd34d)",
-            padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
-          }}>🔒 SOLO PREMIUM</span>
-        )}
-        {esGratis && (
+            fontSize: 11, fontWeight: 800, color: accesible ? "var(--accent)" : "var(--fg-muted)",
+            background: "var(--bg-subtle)", padding: "4px 10px", borderRadius: 8, letterSpacing: 1,
+          }}>UNIDAD {unidad.numero}</span>
+          <h3 className="font-crimson" style={{
+            fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", margin: 0, flex: 1, minWidth: 180,
+          }}>{unidad.titulo}</h3>
+          {!accesible && (
+            <span style={{
+              fontSize: 11, fontWeight: 800, color: "#92400e",
+              background: "linear-gradient(135deg, #fde68a, #fcd34d)",
+              padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
+            }}>🔒 SOLO PREMIUM</span>
+          )}
+          {esGratis && (
+            <span style={{
+              fontSize: 11, fontWeight: 800, color: "#065f46",
+              background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+              padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
+            }}>GRATIS</span>
+          )}
           <span style={{
-            fontSize: 11, fontWeight: 800, color: "#065f46",
-            background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
-            padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
-          }}>GRATIS</span>
+            fontSize: 12, color: "var(--fg-muted)", fontWeight: 600,
+            display: "flex", alignItems: "center", gap: 6,
+          }}>
+            {unidad.lecciones.length}
+            <motion.span
+              animate={{ rotate: abierto ? 180 : 0 }}
+              transition={{ duration: 0.25 }}
+              style={{ display: "inline-block", fontSize: 14, lineHeight: 1 }}
+            >⌃</motion.span>
+          </span>
+        </div>
+      </button>
+
+      <AnimatePresence initial={false}>
+        {abierto && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{ overflow: "hidden" }}
+          >
+            <ul style={{
+              listStyle: "none", padding: "0 18px 18px", margin: 0,
+              display: "flex", flexDirection: "column", gap: 6,
+            }}>
+              {unidad.lecciones.map((l, i) => {
+                if (accesible && l.slug) {
+                  return (
+                    <li key={i}>
+                      <Link href={`/aprende/${l.slug}`} style={leccionEstilo("activa")}>
+                        <span>{l.titulo}</span>
+                        <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                          {l.tags?.map((t) => (<span key={t} style={tagEstilo}>{t}</span>))}
+                          <span style={{ color: "var(--accent)", fontWeight: 700 }}>→</span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+                if (!accesible) {
+                  return (
+                    <li key={i}>
+                      <Link href="/precios" style={leccionEstilo("bloqueada")}>
+                        <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                          <span style={{ opacity: 0.6 }}>🔒</span>
+                          {l.titulo}
+                        </span>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: "#92400e", letterSpacing: 0.5 }}>
+                          DESBLOQUEAR →
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                }
+                return (
+                  <li key={i}>
+                    <div style={leccionEstilo("proximamente")}>
+                      <span>{l.titulo}</span>
+                      <span style={{ fontSize: 12, color: "var(--border)", fontWeight: 600 }}>próximamente</span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </motion.div>
         )}
-      </div>
-      <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 6 }}>
-        {unidad.lecciones.map((l, i) => {
-          if (accesible && l.slug) {
-            return (
-              <li key={i}>
-                <Link href={`/aprende/${l.slug}`} style={leccionEstilo("activa")}>
-                  <span>{l.titulo}</span>
-                  <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                    {l.tags?.map((t) => (<span key={t} style={tagEstilo}>{t}</span>))}
-                    <span style={{ color: "var(--accent)", fontWeight: 700 }}>→</span>
-                  </span>
-                </Link>
-              </li>
-            );
-          }
-          if (!accesible) {
-            return (
-              <li key={i}>
-                <Link href="/precios" style={leccionEstilo("bloqueada")}>
-                  <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                    <span style={{ opacity: 0.6 }}>🔒</span>
-                    {l.titulo}
-                  </span>
-                  <span style={{ fontSize: 11, fontWeight: 700, color: "#92400e", letterSpacing: 0.5 }}>
-                    DESBLOQUEAR →
-                  </span>
-                </Link>
-              </li>
-            );
-          }
-          return (
-            <li key={i}>
-              <div style={leccionEstilo("proximamente")}>
-                <span>{l.titulo}</span>
-                <span style={{ fontSize: 12, color: "var(--border)", fontWeight: 600 }}>próximamente</span>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      </AnimatePresence>
     </section>
   );
 }
