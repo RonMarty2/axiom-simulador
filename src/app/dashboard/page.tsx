@@ -110,8 +110,9 @@ export default function DashboardPage() {
           </Link>
         </div>
 
-        {/* Últimos exámenes + Acciones rápidas */}
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 20 }}>
+        {/* Últimos exámenes + Acciones rápidas. En móvil apila ambas (1 columna);
+            en pantallas >= 720px va lado a lado (2 columnas). */}
+        <div className="ax-dash-grid" style={{ display: "grid", gap: 20 }}>
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 20, border: "1px solid var(--border)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
               <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)" }}>Últimos exámenes</h3>

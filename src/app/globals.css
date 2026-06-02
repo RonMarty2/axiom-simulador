@@ -8,6 +8,14 @@
   .axiom-nav-hamburger { display: flex !important; }
 }
 
+/* ═══ DASHBOARD · grid de "Últimos exámenes + Acciones rápidas" ═══════════════
+   En móvil (≤720px) se apila en una sola columna, evitando que la columna
+   derecha quede aplastada y haga wrapping feo del texto. En desktop, 2 cols. */
+.ax-dash-grid { grid-template-columns: 1fr; }
+@media (min-width: 720px) {
+  .ax-dash-grid { grid-template-columns: 2fr 1fr; }
+}
+
 /* ═══ MODO PWA — cuando la app corre standalone, forzar comportamiento app ═══
    La clase .axiom-pwa la inyecta PWARegister.tsx cuando detecta standalone.
    Estas reglas se aplican ÚNICAMENTE en modo PWA, no en navegador normal. */
