@@ -30,24 +30,18 @@ export const LIENZO = {
 export function Lienzo({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35 }}
       style={{
         width: "100%",
-        maxWidth: 760,
+        maxWidth: 700,
         margin: "0 auto",
-        padding: "56px 36px 64px",
+        padding: "8px 4px",
         display: "flex",
         flexDirection: "column",
-        gap: 36,
+        gap: 28,
         color: LIENZO.fg,
-        background: `radial-gradient(ellipse at top, ${LIENZO.bgSoft}, ${LIENZO.bg} 60%)`,
-        borderRadius: 20,
-        boxShadow:
-          "0 1px 0 rgba(167,139,250,0.10) inset, 0 30px 80px -20px rgba(0,0,0,0.5)",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
       {children}
