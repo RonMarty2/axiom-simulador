@@ -207,30 +207,30 @@ function Frac({ n, d, c }: { n: React.ReactNode; d: React.ReactNode; c?: string 
   );
 }
 
-// Raíz n-ésima inline. El trazo (check) lo dibuja un SVG chico; la línea
-// superior (vínculo) es UN solo borde sobre el radicando — no se duplica.
-function Raiz({ n, r }: { n?: React.ReactNode; r: React.ReactNode }) {
+// Raíz n-ésima TODA en un solo SVG: índice + check + línea superior +
+// radicando en el mismo dibujo. Al ser un único path, el check y la línea
+// de arriba NUNCA se desconectan. El radicando va como texto SVG dentro.
+function Raiz({ n, r, italic = true }: { n?: string; r: string; italic?: boolean }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "flex-start", whiteSpace: "nowrap", verticalAlign: "middle" }}>
+    <svg
+      viewBox="0 0 64 42"
+      height="1.3em"
+      width="2em"
+      style={{ verticalAlign: "middle", overflow: "visible" }}
+      aria-hidden
+    >
       {n && (
-        <span style={{
-          fontSize: "0.42em", color: LIENZO.accent, fontWeight: 600,
-          marginRight: "-0.12em", marginTop: "0.1em",
-          position: "relative", zIndex: 1,
-        }}>
-          {n}
-        </span>
+        <text x="7" y="15" fontSize="15" fill={LIENZO.accent} fontWeight="600"
+          fontFamily="var(--font-crimson), serif">{n}</text>
       )}
-      <svg viewBox="0 0 16 30" width="0.5em" height="1.1em" aria-hidden style={{ display: "block" }}>
-        <path d="M 1 18 L 6 28 L 13 2" fill="none"
-          stroke={LIENZO.fg} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-      <span style={{
-        borderTop: `2px solid ${LIENZO.fg}`,
-        padding: "0.1em 0.25em 0 0.1em",
-        marginLeft: "-0.06em",
-      }}>{r}</span>
-    </span>
+      {/* check + vínculo en un solo trazo */}
+      <path d="M 12 25 L 21 39 L 33 5 L 60 5" fill="none"
+        stroke={LIENZO.fg} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+      {/* radicando bajo el vínculo */}
+      <text x="46" y="33" textAnchor="middle" fontSize="28" fill={LIENZO.fg}
+        fontWeight="500" fontStyle={italic ? "italic" : "normal"}
+        fontFamily="var(--font-crimson), serif">{r}</text>
+    </svg>
   );
 }
 
@@ -1149,7 +1149,7 @@ function Esc10_Radical() {
       </Pizarra>
 
       <EcuacionFinal>
-        <Raiz n="n" r={<em style={{ fontStyle: "italic" }}>a</em>} />
+        <Raiz n="n" r="a" />
         {paso >= 1 && <> <Igual /><Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e={<Frac n="1" d="n" c={LIENZO.accent} />} /></>}
       </EcuacionFinal>
 
@@ -1162,11 +1162,11 @@ function Esc10_Radical() {
             <span style={{ color: LIENZO.fgDim, display: "inline-flex", flexDirection: "column", gap: 6, marginTop: 8 }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
                 <span style={{ color: LIENZO.fgFaint, fontSize: "0.85em" }}>Ejemplo 1:</span>
-                <Raiz r={<em style={{ fontStyle: "italic" }}>a</em>} /> <Igual /> <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e={<Frac n="1" d="2" c={LIENZO.accent} />} />
+                <Raiz r="a" /> <Igual /> <Pot b={<em style={{ fontStyle: "italic" }}>a</em>} e={<Frac n="1" d="2" c={LIENZO.accent} />} />
               </span>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 4 }}>
                 <span style={{ color: LIENZO.fgFaint, fontSize: "0.85em" }}>Ejemplo 2:</span>
-                <Raiz n="3" r="8" /> <Igual /> <Pot b="8" e={<Frac n="1" d="3" c={LIENZO.accent} />} /> <Igual /> <span style={{ color: LIENZO.ok, fontWeight: 600 }}>2</span>
+                <Raiz n="3" r="8" italic={false} /> <Igual /> <Pot b="8" e={<Frac n="1" d="3" c={LIENZO.accent} />} /> <Igual /> <span style={{ color: LIENZO.ok, fontWeight: 600 }}>2</span>
               </span>
             </span>
           </>}
