@@ -16,15 +16,15 @@ import React from "react";
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const LIENZO = {
-  bg: "#0b0b14",          // fondo casi negro con tinte violáceo
-  bgSoft: "#16162a",      // contraste sutil para áreas elevadas
-  fg: "#f5f5fa",          // texto principal
-  fgDim: "#9696b0",       // texto secundario / hints
-  fgFaint: "#5c5c78",     // borders / lineas / cosas que casi no se ven
-  accent: "#a78bfa",      // violeta neón — acento UNO
-  ok: "#34d399",          // verde menta
-  warn: "#fbbf24",        // ámbar
-  bad: "#fb7185",         // coral
+  bg: "#fafaf7",          // off-white cálido, menos agresivo que blanco puro
+  bgSoft: "#f1f0eb",      // contraste sutil para áreas elevadas
+  fg: "#1a1a2e",          // navy muy oscuro (no negro puro: menos duro a la vista)
+  fgDim: "#5a5a6e",       // texto secundario / hints
+  fgFaint: "#b8b8c4",     // borders / lineas / cosas que casi no se ven
+  accent: "#6d28d9",      // violeta profundo — alta legibilidad sobre blanco
+  ok: "#059669",          // verde bosque
+  warn: "#d97706",        // ámbar quemado
+  bad: "#dc2626",         // rojo claro
 };
 
 export function Lienzo({ children }: { children: React.ReactNode }) {

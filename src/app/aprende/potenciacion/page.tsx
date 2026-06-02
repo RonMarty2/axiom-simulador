@@ -47,7 +47,7 @@ export default function LeccionPotenciacionPage() {
       <header style={{
         padding: "14px 20px",
         borderBottom: `1px solid ${LIENZO.fgFaint}33`,
-        background: "rgba(11,11,20,0.85)",
+        background: "rgba(250,250,247,0.85)",
         backdropFilter: "blur(12px)",
         position: "sticky", top: 0, zIndex: 10,
         display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
@@ -100,7 +100,7 @@ export default function LeccionPotenciacionPage() {
       <footer style={{
         padding: "14px 20px",
         borderTop: `1px solid ${LIENZO.fgFaint}33`,
-        background: "rgba(11,11,20,0.92)",
+        background: "rgba(250,250,247,0.92)",
         backdropFilter: "blur(12px)",
         display: "flex", gap: 12, justifyContent: "space-between",
         position: "sticky", bottom: 0,
