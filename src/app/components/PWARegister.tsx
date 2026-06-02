@@ -17,6 +17,22 @@ export default function PWARegister() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // 0. Ocultar el banner de instalación de la PWA en escritorio.
+    //    El banner "Instalar app" lo dispara el propio navegador (Chrome/Edge)
+    //    mediante el evento beforeinstallprompt. En PC/Mac lo prevenimos para
+    //    que no aparezca; en móvil (Android e iOS) NO hacemos nada, así el
+    //    navegador lo muestra igual que antes.
+    //    (Nota: iOS Safari no dispara este evento — su "Agregar a inicio" es
+    //    manual desde el menú Compartir y no se ve afectado.)
+    const onBeforeInstallPrompt = (e: Event) => {
+      const ua = window.navigator.userAgent;
+      const isMobile = /Mobi|Mobile|Android|iPhone|iPad|iPod/.test(ua);
+      if (!isMobile) {
+        e.preventDefault(); // No mostrar el banner en PC/Mac
+      }
+    };
+    window.addEventListener("beforeinstallprompt", onBeforeInstallPrompt);
+
     // 1. Detectar y marcar modo PWA standalone (no depende del SW)
     const aplicarClase = () => {
       const isStandalone =
@@ -47,6 +63,7 @@ export default function PWARegister() {
     }
 
     return () => {
+      window.removeEventListener("beforeinstallprompt", onBeforeInstallPrompt);
       mq.removeEventListener?.("change", aplicarClase);
       cleanup?.();
     };
