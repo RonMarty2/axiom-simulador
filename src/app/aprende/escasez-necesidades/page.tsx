@@ -40,7 +40,7 @@ function BalanzaEscasez() {
           <line x1="210" x2="270" y1="160" y2="160" stroke={LIENZO.fg} strokeWidth="2" />
           <motion.g
             initial={{ rotate: 0 }}
-            animate={{ rotate: on ? 16 : 0 }}
+            animate={{ rotate: on ? -16 : 0 }}
             transition={{ duration: 0.7, type: "spring" }}
             style={{ transformOrigin: "240px 50px" }}>
             <line x1="100" x2="380" y1="50" y2="50" stroke={LIENZO.fg} strokeWidth="3" strokeLinecap="round" />
