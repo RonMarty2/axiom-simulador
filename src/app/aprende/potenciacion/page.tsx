@@ -8,6 +8,10 @@ import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   AutoCheck,
 } from "../_components/pedagogia";
+import {
+  Lienzo, Pregunta, Decir, Enf, Pizarra, Continuar, Hint, Aire, Num,
+  LIENZO,
+} from "../_components/lienzo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Lección: Potenciación y sus propiedades (Unidad 01 — FCE-UMSS)
@@ -1311,41 +1315,105 @@ const cajitaFormula = (): React.CSSProperties => ({
 // ═════════════════════════════════════════════════════════════════════════════
 
 function RichEscIntro() {
+  const [paso, setPaso] = useState(0);
   return (
-    <RichWrap>
-      <Titulo>¿Qué es una potencia?</Titulo>
-      <Parrafo>
-        Una <strong>potencia</strong> es una forma corta de escribir una multiplicación
-        donde el MISMO número se multiplica varias veces. En lugar de escribir
-        2·2·2·2·2 (cinco veces el 2), escribimos <strong>2⁵</strong>.
-      </Parrafo>
-      <Definicion termino="potencia">
-        <strong>aⁿ</strong> significa: el número <strong>a</strong> multiplicado por sí
-        mismo <strong>n</strong> veces. <br />
-        <strong>a</strong> = base. <strong>n</strong> = exponente.
-      </Definicion>
-      <EscenaIntro />
-      <Ejemplo titulo="Cómo se lee">
-        <Paso n={1}><strong>2³</strong> = "dos al cubo" o "dos elevado a la tres".</Paso>
-        <Paso n={2}><strong>5²</strong> = "cinco al cuadrado" o "cinco elevado a la dos".</Paso>
-        <Paso n={3}><strong>10⁴</strong> = "diez a la cuarta" o "diez elevado a la cuarta".</Paso>
-      </Ejemplo>
-      <PorQue>
-        ¿Por qué "cuadrado" y "cubo"? Porque <strong>2²</strong> es el área de un cuadrado
-        de lado 2, y <strong>2³</strong> es el volumen de un cubo de arista 2. Histórico
-        y geométrico.
-      </PorQue>
-      <Resumen>
-        Casos especiales útiles: <strong>a¹ = a</strong> (cualquier número a la 1 es él mismo).
-        <strong>1ⁿ = 1</strong> para cualquier n. <strong>0ⁿ = 0</strong> (con n &gt; 0).
-      </Resumen>
-      <AutoCheck
-        pregunta="¿Cómo se escribe 3·3·3·3·3·3 como potencia?"
-        opciones={["3⁵", "3⁶", "6³", "18"]}
-        correctaIdx={1}
-        explicacion="Hay 6 treses multiplicándose → 3⁶."
-      />
-    </RichWrap>
+    <Lienzo>
+      <Pregunta>¿Qué es una potencia?</Pregunta>
+
+      <Decir>
+        Cuando multiplicás el <Enf color="fg">mismo número</Enf> muchas veces, escribirlo se vuelve tedioso. La potencia es la <Enf>notación corta</Enf>.
+      </Decir>
+
+      {/* Animación: 2·2·2·2·2 colapsa en 2⁵ */}
+      <Pizarra alto={180}>
+        {paso === 0 && (
+          <motion.div
+            key="largo"
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.85 }}
+            style={{
+              fontSize: "clamp(34px, 7vw, 56px)",
+              fontFamily: "var(--font-crimson), serif",
+              letterSpacing: "0.04em",
+              color: LIENZO.fg,
+              fontWeight: 500,
+            }}
+          >
+            <Num color={LIENZO.fg}>2</Num>
+            <span style={{ color: LIENZO.fgFaint, margin: "0 0.3em" }}>·</span>
+            <Num color={LIENZO.fg}>2</Num>
+            <span style={{ color: LIENZO.fgFaint, margin: "0 0.3em" }}>·</span>
+            <Num color={LIENZO.fg}>2</Num>
+            <span style={{ color: LIENZO.fgFaint, margin: "0 0.3em" }}>·</span>
+            <Num color={LIENZO.fg}>2</Num>
+            <span style={{ color: LIENZO.fgFaint, margin: "0 0.3em" }}>·</span>
+            <Num color={LIENZO.fg}>2</Num>
+          </motion.div>
+        )}
+        {paso >= 1 && (
+          <motion.div
+            key="potencia"
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.55, ease: [0.22, 0.61, 0.36, 1] }}
+            style={{ display: "flex", alignItems: "flex-start", gap: 0 }}
+          >
+            <span
+              style={{
+                fontSize: "clamp(96px, 18vw, 160px)",
+                fontFamily: "var(--font-crimson), serif",
+                fontWeight: 500,
+                color: LIENZO.fg,
+                lineHeight: 0.9,
+              }}
+            >
+              2
+            </span>
+            <motion.span
+              initial={{ opacity: 0, y: -20, scale: 0.5 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.35, type: "spring", stiffness: 240, damping: 18 }}
+              style={{
+                fontSize: "clamp(48px, 9vw, 80px)",
+                fontFamily: "var(--font-crimson), serif",
+                fontWeight: 500,
+                color: LIENZO.accent,
+                lineHeight: 1,
+                marginTop: "0.05em",
+                marginLeft: 4,
+              }}
+            >
+              5
+            </motion.span>
+          </motion.div>
+        )}
+      </Pizarra>
+
+      {paso >= 1 && (
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          style={{ display: "flex", flexDirection: "column", gap: 16 }}
+        >
+          <Decir>
+            El <Enf color="fg">2</Enf> es la <Enf>base</Enf> — el número que se multiplica. El <Enf color="fg">5</Enf> es el <Enf>exponente</Enf> — cuántas veces.
+          </Decir>
+          <Decir>
+            Se lee <em>dos a la quinta</em>.
+          </Decir>
+        </motion.div>
+      )}
+
+      <Aire />
+
+      {paso === 0 ? (
+        <Continuar onClick={() => setPaso(1)} texto="Colapsar a potencia" />
+      ) : (
+        <Hint>↓ Seguí abajo para el siguiente paso</Hint>
+      )}
+    </Lienzo>
   );
 }
 
@@ -1381,37 +1449,202 @@ function RichEscSignificado() {
 }
 
 function RichEscProducto() {
+  const [paso, setPaso] = useState(0);
+  // Tamaños tipográficos
+  const tBase = "clamp(56px, 11vw, 96px)";
+  const tExp = "clamp(28px, 5.5vw, 48px)";
+
   return (
-    <RichWrap>
-      <Titulo accent="#10b981">Propiedad 1: Producto de potencias de igual base</Titulo>
-      <Resumen>
-        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-          aᵐ · aⁿ = aᵐ⁺ⁿ
-        </span>
-      </Resumen>
-      <Parrafo>
-        Cuando multiplicás dos potencias <strong>con la misma base</strong>, los exponentes se SUMAN.
-      </Parrafo>
-      <EscenaProducto />
-      <PorQue>
-        Sale de la definición: 2² · 2³ = (2·2)·(2·2·2) = 2·2·2·2·2 = 2⁵. Los 2 y 3 son "cuántos dos" multiplicaban a cada lado, así que se suman.
-      </PorQue>
-      <Ejemplo titulo="Casos para fijar">
-        <Paso n={1}>3⁴ · 3² = 3⁶ (4+2)</Paso>
-        <Paso n={2}>x⁵ · x³ = x⁸ (vale también con variables)</Paso>
-        <Paso n={3}>2 · 2⁵ = 2⁶ (el 2 solo equivale a 2¹)</Paso>
-      </Ejemplo>
-      <Cuidado>
-        Para sumar exponentes, las bases tienen que ser <strong>idénticas</strong>.<br />
-        ❌ 2³ · 5⁴ ≠ 10⁷ (bases distintas, no se suman exponentes).
-      </Cuidado>
-      <AutoCheck
-        pregunta="Simplificá: 7³ · 7²"
-        opciones={["7⁵", "7⁶", "49⁵", "14⁵"]}
-        correctaIdx={0}
-        explicacion="Misma base 7, sumar exponentes: 3+2 = 5 → 7⁵."
-      />
-    </RichWrap>
+    <Lienzo>
+      <Pregunta>
+        Multiplicar potencias con la <Enf>misma base</Enf>.
+      </Pregunta>
+
+      <Decir>
+        Mirá qué pasa con los exponentes cuando multiplicás.
+      </Decir>
+
+      <Pizarra alto={260}>
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 480 260"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* 2² · 2³ */}
+          <g>
+            {/* Base izquierda */}
+            <text
+              x="120"
+              y="160"
+              textAnchor="middle"
+              fontSize="96"
+              fill={LIENZO.fg}
+              fontWeight="500"
+            >
+              2
+            </text>
+            {/* Exponente izquierdo (2) — vuela arriba al center cuando paso ≥ 1 */}
+            <motion.text
+              fontSize="56"
+              fill={LIENZO.accent}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ x: 162, y: 106 }}
+              animate={
+                paso >= 1
+                  ? { x: 215, y: 70, scale: 1.05 }
+                  : { x: 162, y: 106, scale: 1 }
+              }
+              transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+            >
+              2
+            </motion.text>
+
+            {/* Punto · de multiplicación */}
+            <motion.circle
+              cx="225"
+              cy="160"
+              r="5"
+              fill={LIENZO.fgFaint}
+              animate={paso >= 2 ? { opacity: 0 } : { opacity: 1 }}
+              transition={{ duration: 0.3 }}
+            />
+
+            {/* Base derecha */}
+            <text
+              x="330"
+              y="160"
+              textAnchor="middle"
+              fontSize="96"
+              fill={LIENZO.fg}
+              fontWeight="500"
+            >
+              2
+            </text>
+            {/* Exponente derecho (3) — vuela arriba */}
+            <motion.text
+              fontSize="56"
+              fill={LIENZO.accent}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ x: 372, y: 106 }}
+              animate={
+                paso >= 1
+                  ? { x: 305, y: 70, scale: 1.05 }
+                  : { x: 372, y: 106, scale: 1 }
+              }
+              transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+            >
+              3
+            </motion.text>
+
+            {/* Signo + que aparece entre los exponentes en el aire */}
+            <motion.text
+              x="260"
+              y="70"
+              textAnchor="middle"
+              fontSize="44"
+              fill={LIENZO.accent}
+              fontWeight="500"
+              initial={{ opacity: 0, scale: 0.6 }}
+              animate={paso === 1 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.6 }}
+              transition={{ delay: paso === 1 ? 0.5 : 0, duration: 0.35 }}
+            >
+              +
+            </motion.text>
+
+            {/* 5 final (resultado de 2+3) */}
+            <motion.text
+              fontSize="56"
+              fill={LIENZO.ok}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={paso >= 2 ? { opacity: 1, scale: 1, x: 260, y: 70 } : { opacity: 0, scale: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+            >
+              5
+            </motion.text>
+
+            {/* Cuando paso === 3, las dos bases colapsan en una sola */}
+            <motion.text
+              fontSize="96"
+              fill={LIENZO.fg}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ opacity: 0 }}
+              animate={paso >= 3 ? { opacity: 1, x: 225, y: 160 } : { opacity: 0 }}
+              transition={{ duration: 0.35 }}
+            >
+              2
+            </motion.text>
+            {/* Ocultar las dos bases originales en paso 3 */}
+            <motion.rect
+              x="0"
+              y="100"
+              width="480"
+              height="100"
+              fill={LIENZO.bg}
+              initial={{ opacity: 0 }}
+              animate={paso >= 3 ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+            {/* Re-dibujar el 5 sobre el rect (porque está SVG order) */}
+            <motion.text
+              fontSize="56"
+              fill={LIENZO.ok}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ opacity: 0 }}
+              animate={paso >= 3 ? { opacity: 1, x: 273, y: 110 } : { opacity: 0 }}
+              transition={{ delay: 0.25, duration: 0.3 }}
+            >
+              5
+            </motion.text>
+            {/* Re-dibujar el 2 final */}
+            <motion.text
+              fontSize="96"
+              fill={LIENZO.fg}
+              fontWeight="500"
+              textAnchor="middle"
+              initial={{ opacity: 0 }}
+              animate={paso >= 3 ? { opacity: 1, x: 225, y: 160 } : { opacity: 0 }}
+              transition={{ delay: 0.15, duration: 0.3 }}
+            >
+              2
+            </motion.text>
+          </g>
+        </svg>
+      </Pizarra>
+
+      {/* Texto adaptado a cada paso */}
+      <div style={{ minHeight: 60 }}>
+        {paso === 0 && (
+          <Decir>Tenemos <Enf color="fg">2² · 2³</Enf>. ¿A dónde van los exponentes cuando se multiplican?</Decir>
+        )}
+        {paso === 1 && (
+          <Decir>Los exponentes <Enf>se separan</Enf> de sus bases. ¿Qué hacen entre ellos? Un <Enf>+</Enf>.</Decir>
+        )}
+        {paso === 2 && (
+          <Decir><Enf color="fg">2 + 3 = 5</Enf>. El resultado se vuelve el nuevo exponente.</Decir>
+        )}
+        {paso === 3 && (
+          <Decir>
+            Y la base es la misma: nos queda <Enf color="ok">2⁵</Enf>.
+            <br />
+            <span style={{ color: LIENZO.fgFaint }}>Regla general: <em>aᵐ · aⁿ = aᵐ⁺ⁿ</em></span>
+          </Decir>
+        )}
+      </div>
+
+      {paso < 3 ? (
+        <Continuar onClick={() => setPaso(paso + 1)} />
+      ) : (
+        <Continuar onClick={() => setPaso(0)} texto="Repetir" />
+      )}
+    </Lienzo>
   );
 }
 
