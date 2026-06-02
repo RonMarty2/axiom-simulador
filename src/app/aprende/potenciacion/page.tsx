@@ -207,17 +207,31 @@ function Frac({ n, d, c }: { n: React.ReactNode; d: React.ReactNode; c?: string 
   );
 }
 
-// Raíz n-ésima HTML real (índice + radical + radicando).
+// Raíz n-ésima dibujada con SVG inline: el trazo y la línea superior siempre
+// quedan conectados (nada de bordes desalineados). El radicando va dentro.
 function Raiz({ n, r }: { n?: React.ReactNode; r: React.ReactNode }) {
   return (
-    <span style={{ display: "inline-flex", alignItems: "flex-start", whiteSpace: "nowrap" }}>
+    <span style={{ display: "inline-flex", alignItems: "stretch", whiteSpace: "nowrap", verticalAlign: "middle" }}>
       {n && (
-        <span style={{ fontSize: "0.5em", color: LIENZO.accent, marginRight: "-0.15em", marginTop: "0.1em" }}>
+        <span style={{
+          fontSize: "0.42em", color: LIENZO.accent, fontWeight: 600,
+          alignSelf: "flex-start", marginRight: "-0.18em", marginTop: "0.15em",
+          position: "relative", zIndex: 1,
+        }}>
           {n}
         </span>
       )}
-      <span style={{ fontSize: "1.15em", lineHeight: 0.85, color: LIENZO.fg }}>√</span>
-      <span style={{ borderTop: `2px solid ${LIENZO.fg}`, padding: "0.15em 0.25em 0 0.1em" }}>{r}</span>
+      <span style={{ display: "inline-flex", alignItems: "flex-end", height: "1em", marginRight: 1 }}>
+        <svg viewBox="0 0 24 32" width="0.62em" height="0.95em" style={{ overflow: "visible" }} aria-hidden>
+          <path d="M 1 19 L 7 30 L 15 3 L 60 3" fill="none"
+            stroke={LIENZO.fg} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+      <span style={{
+        borderTop: `2px solid ${LIENZO.fg}`,
+        padding: "0.12em 0.2em 0 0.05em",
+        marginLeft: "-0.05em",
+      }}>{r}</span>
     </span>
   );
 }
@@ -844,14 +858,14 @@ function Esc07_Negativo() {
         >
           {/* "1" del numerador: aparece cuando la base baja */}
           <motion.text
-            x="230" y="100" textAnchor="middle" fontSize="72" fill={LIENZO.ok} fontWeight="500"
-            initial={{ opacity: 0, y: 80 }}
-            animate={paso >= 1 ? { opacity: 1, y: 100 } : { opacity: 0, y: 80 }}
+            textAnchor="middle" fontSize="72" fill={LIENZO.ok} fontWeight="500"
+            initial={{ opacity: 0, x: 230, y: 118, scale: 0.6 }}
+            animate={paso >= 1 ? { opacity: 1, x: 230, y: 105, scale: 1 } : { opacity: 0, x: 230, y: 118, scale: 0.6 }}
             transition={{ duration: 0.5, delay: paso === 1 ? 0.25 : 0 }}
           >1</motion.text>
           {/* Línea de fracción: se dibuja en paso 1 */}
           <motion.line
-            x1="180" x2="280" y1="130" y2="130" stroke={LIENZO.fg} strokeWidth="4"
+            x1="180" x2="280" y1="128" y2="128" stroke={LIENZO.fg} strokeWidth="4"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={paso >= 1 ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
             transition={{ duration: 0.4, delay: paso === 1 ? 0.15 : 0 }}
@@ -882,7 +896,7 @@ function Esc07_Negativo() {
             textAnchor="middle" fill={LIENZO.accent} fontWeight="500" fontSize="48"
             initial={{ x: 304, y: 92 }}
             animate={
-              paso >= 1 ? { x: 272, y: 168, fontSize: 40 } : { x: 304, y: 92, fontSize: 48 }
+              paso >= 1 ? { x: 260, y: 162, fontSize: 40 } : { x: 304, y: 92, fontSize: 48 }
             }
             transition={{ duration: 0.55 }}
           >3</motion.text>
@@ -1097,9 +1111,9 @@ function Esc10_Radical() {
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
         >
-          {/* Símbolo de raíz √ : se desvanece en paso 1 */}
+          {/* Símbolo de raíz √ (checkmark + línea superior): se desvanece en paso 1 */}
           <motion.path
-            d="M 150 120 L 165 150 L 185 70 L 270 70"
+            d="M 156 112 L 170 134 L 188 64 L 256 64"
             stroke={LIENZO.fg} strokeWidth="5" fill="none"
             strokeLinecap="round" strokeLinejoin="round"
             animate={paso >= 1 ? { opacity: 0 } : { opacity: 1 }}
@@ -1108,27 +1122,27 @@ function Esc10_Radical() {
           {/* Radicando a : pasa a ser la base */}
           <motion.text
             textAnchor="middle" fill={LIENZO.fg} fontWeight="500" fontStyle="italic"
-            initial={{ x: 222, y: 130, fontSize: 90 }}
-            animate={paso >= 1 ? { x: 195, y: 145, fontSize: 96 } : { x: 222, y: 130, fontSize: 90 }}
+            initial={{ x: 222, y: 128, fontSize: 88 }}
+            animate={paso >= 1 ? { x: 198, y: 150, fontSize: 96 } : { x: 222, y: 128, fontSize: 88 }}
             transition={{ duration: 0.55 }}
           >a</motion.text>
           {/* Índice n : vuela a ser el denominador del exponente */}
           <motion.text
             textAnchor="middle" fill={LIENZO.accent} fontWeight="500"
-            initial={{ x: 132, y: 95, fontSize: 36 }}
-            animate={paso >= 1 ? { x: 258, y: 118, fontSize: 34 } : { x: 132, y: 95, fontSize: 36 }}
+            initial={{ x: 138, y: 92, fontSize: 34 }}
+            animate={paso >= 1 ? { x: 262, y: 122, fontSize: 32 } : { x: 138, y: 92, fontSize: 34 }}
             transition={{ duration: 0.6 }}
           >n</motion.text>
           {/* "1" numerador del exponente : aparece en paso 1 */}
           <motion.text
-            x="258" y="78" textAnchor="middle" fontSize="34" fill={LIENZO.accent} fontWeight="500"
-            initial={{ opacity: 0, y: 60 }}
-            animate={paso >= 1 ? { opacity: 1, y: 78 } : { opacity: 0, y: 60 }}
+            textAnchor="middle" fontSize="32" fill={LIENZO.accent} fontWeight="500"
+            initial={{ opacity: 0, x: 262, y: 105, scale: 0.6 }}
+            animate={paso >= 1 ? { opacity: 1, x: 262, y: 90, scale: 1 } : { opacity: 0, x: 262, y: 105, scale: 0.6 }}
             transition={{ duration: 0.45, delay: paso === 1 ? 0.25 : 0 }}
           >1</motion.text>
           {/* Línea de fracción del exponente */}
           <motion.line
-            x1="244" x2="272" y1="88" y2="88" stroke={LIENZO.accent} strokeWidth="3"
+            x1="248" x2="276" y1="100" y2="100" stroke={LIENZO.accent} strokeWidth="3"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={paso >= 1 ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
             transition={{ duration: 0.4, delay: paso === 1 ? 0.2 : 0 }}
