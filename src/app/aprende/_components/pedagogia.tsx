@@ -150,6 +150,77 @@ export function EscenaRica({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Bloque de "Práctica final" con N preguntas estilo opción múltiple.
+// Reutilizable para todas las lecciones (evita ~70 líneas duplicadas).
+export function PracticaFinal({ ejercicios }: {
+  ejercicios: { p: string; o: string[]; c: number; ex: string }[];
+}) {
+  const [resp, setResp] = React.useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => ejercicios[+k].c === v).length;
+  return (
+    <>
+      <Titulo>Práctica final</Titulo>
+      <Parrafo>{ejercicios.length} preguntas para fijar lo visto:</Parrafo>
+      {ejercicios.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{
+            background: "transparent", border: `1px solid ${LIENZO.fgFaint}`,
+            borderRadius: 14, padding: 16, maxWidth: 620, width: "100%",
+          }}>
+            <div style={{ fontSize: 11, letterSpacing: 1.4, color: LIENZO.accent, fontWeight: 700, marginBottom: 8 }}>
+              PREGUNTA {i + 1}
+            </div>
+            <div style={{ fontSize: 15, color: LIENZO.fg, fontWeight: 600, marginBottom: 12 }}>{e.p}</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c, isSel = sel === j;
+                const borde = !rev ? LIENZO.fgFaint : isOk ? LIENZO.ok : isSel ? LIENZO.bad : LIENZO.fgFaint;
+                return (
+                  <button key={j}
+                    onClick={() => !rev && setResp({ ...resp, [i]: j })}
+                    disabled={rev}
+                    style={{
+                      padding: "10px 14px", textAlign: "left",
+                      background: !rev ? "#fff" : isOk ? "#ecfdf5" : isSel ? "#fef2f2" : "#fff",
+                      border: `1.5px solid ${borde}`, borderRadius: 10,
+                      fontSize: 14, fontWeight: 600, color: LIENZO.fg,
+                      cursor: rev ? "default" : "pointer", transition: "all 0.15s",
+                    }}>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && (
+              <div style={{
+                marginTop: 10, padding: "10px 12px",
+                background: sel === e.c ? "#ecfdf5" : "#fef2f2",
+                borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.5,
+              }}>
+                <strong style={{ color: sel === e.c ? LIENZO.ok : LIENZO.bad }}>
+                  {sel === e.c ? "¡Correcto!" : "Veamos:"}
+                </strong>{" "}{e.ex}
+              </div>
+            )}
+          </div>
+        );
+      })}
+      {Object.keys(resp).length === ejercicios.length && (
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          style={{
+            padding: 18, background: LIENZO.bgSoft, border: `2px solid ${LIENZO.ok}`,
+            borderRadius: 14, maxWidth: 620, width: "100%", textAlign: "center",
+          }}>
+          <div style={{ fontSize: 22, color: LIENZO.ok, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
+            {ok} / {ejercicios.length} correctas
+          </div>
+        </motion.div>
+      )}
+    </>
+  );
+}
+
 // Mini-check interactivo al final de una escena.
 export function AutoCheck({
   pregunta, opciones, correctaIdx, explicacion,

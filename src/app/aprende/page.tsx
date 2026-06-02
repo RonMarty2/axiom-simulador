@@ -55,26 +55,49 @@ const MATEMATICAS_UNIDADES: Unidad[] = [
   { numero: "11", titulo: "Sucesiones y series", lecciones: [{ slug: "sucesiones-series", titulo: "Progresiones aritméticas y geométricas" }] },
 ];
 
+// Estructura alineada con la guía oficial FCE-UMSS "Fundamentos de las
+// Ciencias Económicas, Contables y Administrativas" (Oficina Educativa,
+// gestión 2024). Respeta sus 4 unidades y todos sus subpuntos.
 const FUNDAMENTOS_UNIDADES: Unidad[] = [
   {
-    numero: "01", titulo: "Introducción a la economía",
+    numero: "01", titulo: "Introducción general a la ciencia económica",
     lecciones: [
-      { slug: "que-es-economia", titulo: "¿Qué es la economía? Necesidades y escasez", tags: ["✨ Animada"] },
-      { slug: "oferta-demanda", titulo: "Oferta, demanda y equilibrio", tags: ["✨ Animada"] },
+      { slug: "perspectiva-historica-economia", titulo: "1.1 · Definiciones de la economía: perspectiva histórica" },
+      { slug: "metodologia-leyes", titulo: "1.2 · 1.3 · Metodología y leyes económicas (ceteris paribus)" },
+      { slug: "divisiones-economia", titulo: "1.4 · Divisiones de la economía" },
+      { slug: "escasez-necesidades", titulo: "1.5 · Escasez de recursos y necesidades ilimitadas", tags: ["✨ Animada"] },
+      { slug: "diez-principios", titulo: "1.6 · Los diez principios de la economía", tags: ["✨ Animada"] },
+      { slug: "modelos-economicos", titulo: "1.7 · Modelos económicos · flujo circular y FPP", tags: ["✨ Animada"] },
     ],
   },
-  { numero: "02", titulo: "Microeconomía", lecciones: [
-    { slug: "elasticidad", titulo: "Elasticidad de la demanda", tags: ["✨ Animada"] },
-  ] },
-  { numero: "03", titulo: "Macroeconomía", lecciones: [
-    { slug: "pib-cuentas", titulo: "PIB e inflación · cuentas nacionales", tags: ["✨ Animada"] },
-  ] },
-  { numero: "04", titulo: "Contabilidad básica", lecciones: [
-    { slug: "ecuacion-contable", titulo: "La ecuación contable fundamental", tags: ["✨ Animada"] },
-  ] },
-  { numero: "05", titulo: "Administración", lecciones: [
-    { slug: "proceso-administrativo", titulo: "El proceso administrativo (PODC)" },
-  ] },
+  {
+    numero: "02", titulo: "Introducción a la contabilidad",
+    lecciones: [
+      { slug: "contabilidad-intro", titulo: "2.1–2.4 · Concepto, historia, objetivos e importancia" },
+      { slug: "usuarios-pcga", titulo: "2.5 · 2.6 · Usuarios de la información y PCGA" },
+      { slug: "clasificacion-estados", titulo: "2.7 · 2.8 · Clasificación y estados financieros", tags: ["✨ Animada"] },
+      { slug: "ciclo-contable", titulo: "2.9 · El ciclo contable", tags: ["✨ Animada"] },
+    ],
+  },
+  {
+    numero: "03", titulo: "Conceptos fundamentales de la administración",
+    lecciones: [
+      { slug: "naturaleza-admin", titulo: "3.1 · 3.2 · Naturaleza de la administración y la empresa como sistema" },
+      { slug: "objetivos-funciones-admin", titulo: "3.3 · Objetivos y funciones de la administración" },
+      { slug: "evolucion-escuelas", titulo: "3.4 · Evolución histórica y escuelas (Taylor, Fayol, Mayo)", tags: ["✨ Animada"] },
+      { slug: "rol-retos-admin", titulo: "3.5 · 3.6 · 3.7 · Rol del administrador, retos y funciones gerenciales" },
+    ],
+  },
+  {
+    numero: "04", titulo: "Proceso administrativo",
+    lecciones: [
+      { slug: "planeacion", titulo: "4.1 · Planeación" },
+      { slug: "organizacion-admin", titulo: "4.2 · Organización", tags: ["✨ Animada"] },
+      { slug: "integracion-personal", titulo: "4.3 · Integración de personal" },
+      { slug: "direccion-admin", titulo: "4.4 · Dirección" },
+      { slug: "control-admin", titulo: "4.5 · Control" },
+    ],
+  },
 ];
 
 const BLOQUES: Bloque[] = [
@@ -176,7 +199,7 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
   const tieneContenido = bloque.unidades.length > 0;
   const color = indice === 1 ? "#0ea5e9" : "var(--accent)";
   const colorGradient = indice === 1 ? "#38bdf8" : "#8b5cf6";
-  const [abierto, setAbierto] = useState(true);
+  const [abierto, setAbierto] = useState(false);
   const totalLecciones = bloque.unidades.reduce((acc, u) => acc + u.lecciones.length, 0);
 
   return (
@@ -269,9 +292,8 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
 function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean }) {
   const esGratis = unidad.numero === "01";
   const accesible = esGratis || esPremium;
-  // Unidades accesibles abiertas por defecto; bloqueadas cerradas (menos scroll
-  // para usuarios gratis, pero pueden abrirlas para ver qué hay).
-  const [abierto, setAbierto] = useState(accesible);
+  // Default: TODAS cerradas. El usuario abre solo lo que le interesa.
+  const [abierto, setAbierto] = useState(false);
 
   return (
     <section style={{
