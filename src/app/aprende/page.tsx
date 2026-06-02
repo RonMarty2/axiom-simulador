@@ -111,7 +111,7 @@ const RAZONAMIENTO_VERBAL_UNIDADES: Unidad[] = [
     ],
   },
   { numero: "02", titulo: "Denotación, connotación y homonimia", lecciones: [
-    { titulo: "Significado literal y figurado" },
+    { slug: "denotacion-connotacion", titulo: "Significado literal, figurado y homónimos" },
   ] },
   { numero: "03", titulo: "Léxico contextual", lecciones: [
     { titulo: "Significado de palabras según el contexto" },
