@@ -50,16 +50,55 @@ export default function PWARegister() {
     const mq = window.matchMedia("(display-mode: standalone)");
     mq.addEventListener?.("change", aplicarClase);
 
-    // 2. Registrar service worker (solo producción)
+    // 2. Registrar service worker (solo producción) + actualización OTA.
+    //    Cuando se publica una versión nueva, el navegador descarga el SW
+    //    nuevo en segundo plano. Acá detectamos ese momento, lo activamos y
+    //    recargamos la página UNA sola vez — el usuario recibe lo último sin
+    //    reinstalar ni cerrar la app a mano.
     let cleanup: (() => void) | undefined;
     if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
+      let recargando = false;
+
+      // Cuando el SW nuevo toma control, recargamos una única vez.
+      const onControllerChange = () => {
+        if (recargando) return;
+        recargando = true;
+        window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener("controllerchange", onControllerChange);
+
       const onLoad = () => {
-        navigator.serviceWorker.register("/sw.js").catch((err) => {
-          console.warn("[PWA] Service worker no registrado:", err);
-        });
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((reg) => {
+            // Buscar actualizaciones cada vez que se abre la app.
+            reg.update().catch(() => {});
+
+            // Si aparece un SW nuevo "esperando", pedirle que se active ya.
+            const promoverSiEspera = () => {
+              if (reg.waiting && navigator.serviceWorker.controller) {
+                reg.waiting.postMessage("SKIP_WAITING");
+              }
+            };
+            promoverSiEspera();
+
+            reg.addEventListener("updatefound", () => {
+              const nuevo = reg.installing;
+              if (!nuevo) return;
+              nuevo.addEventListener("statechange", () => {
+                if (nuevo.state === "installed") promoverSiEspera();
+              });
+            });
+          })
+          .catch((err) => {
+            console.warn("[PWA] Service worker no registrado:", err);
+          });
       };
       window.addEventListener("load", onLoad);
-      cleanup = () => window.removeEventListener("load", onLoad);
+      cleanup = () => {
+        window.removeEventListener("load", onLoad);
+        navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
+      };
     }
 
     return () => {

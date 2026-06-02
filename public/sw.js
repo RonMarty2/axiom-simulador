@@ -1,7 +1,7 @@
 // AXIOM Service Worker — caching mínimo para que la app sea instalable
-// y funcione (parcialmente) sin conexión.
+// y funcione (parcialmente) sin conexión, con actualización OTA automática.
 
-const CACHE_NAME = "axiom-v1";
+const CACHE_NAME = "axiom-v2";
 
 // Recursos que cacheamos al instalar (los esenciales del shell).
 const PRECACHE_URLS = [
@@ -10,7 +10,7 @@ const PRECACHE_URLS = [
   "/aprende",
 ];
 
-// Al instalar el SW: precachea los recursos del shell.
+// Al instalar el SW: precachea los recursos del shell y se activa enseguida.
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS)).catch(() => {})
@@ -18,14 +18,24 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// Al activarse: borra caches viejas de versiones anteriores.
+// Al activarse: borra caches viejas y toma control de las pestañas abiertas.
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
-    )
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+      )
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
+});
+
+// Permite que la página fuerce la activación inmediata del SW nuevo
+// (lo usa PWARegister para la actualización OTA con recarga automática).
+self.addEventListener("message", (event) => {
+  if (event.data === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 // Estrategia: network-first con fallback a cache.
