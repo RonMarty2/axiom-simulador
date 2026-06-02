@@ -4,10 +4,105 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Secuencia de términos con arcos que muestran la operación entre cada par
+// (PA: "+d", PG: "×r"). Tocar revela los arcos en cascada.
+// (Etiquetas de operación animan solo opacidad/escala — sin conflicto x/y.)
+function SecuenciaArcos({ terminos, op, color }: { terminos: string[]; op: string; color: string }) {
+  const [on, setOn] = useState(false);
+  const n = terminos.length;
+  const W = 480, alto = 170, margin = 46;
+  const step = (W - 2 * margin) / (n - 1);
+  const xs = terminos.map((_, i) => margin + i * step);
+  const yTerm = 128;
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto} onClick={() => setOn((v) => !v)}>
+        <svg width="100%" height="100%" viewBox={`0 0 ${W} ${alto}`}
+          preserveAspectRatio="xMidYMid meet" style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {terminos.map((t, i) => (
+            <text key={i} x={xs[i]} y={yTerm} textAnchor="middle" fontSize="38"
+              fill={LIENZO.fg} fontWeight="500">{t}</text>
+          ))}
+          {xs.slice(0, -1).map((_, i) => {
+            const x1 = xs[i] + 16, x2 = xs[i + 1] - 16, mid = (x1 + x2) / 2;
+            const d = `M ${x1} 100 Q ${mid} 56 ${x2} 100`;
+            return (
+              <g key={i}>
+                <motion.path d={d} fill="none" stroke={color} strokeWidth="2.5"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={on ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, delay: on ? i * 0.22 : 0 }} />
+                <motion.text x={mid} y="50" textAnchor="middle" fontSize="22"
+                  fill={color} fontWeight="600"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={on ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.3, delay: on ? i * 0.22 + 0.2 : 0 }}>{op}</motion.text>
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        {on ? "Cada paso aplica la misma razón" : "Tocá para ver el patrón"}
+      </div>
+    </div>
+  );
+}
+
+// Truco de Gauss: empareja extremos (1+6, 2+5, 3+4) y muestra que cada par
+// suma lo mismo. Tocar dibuja los pares en cascada.
+function GaussPairing() {
+  const [on, setOn] = useState(false);
+  const terminos = [1, 2, 3, 4, 5, 6];
+  const W = 480, alto = 200, margin = 52;
+  const step = (W - 2 * margin) / (terminos.length - 1);
+  const xs = terminos.map((_, i) => margin + i * step);
+  const pares = [[0, 5], [1, 4], [2, 3]];
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto} onClick={() => setOn((v) => !v)}>
+        <svg width="100%" height="100%" viewBox={`0 0 ${W} ${alto}`}
+          preserveAspectRatio="xMidYMid meet" style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {terminos.map((t, i) => (
+            <text key={i} x={xs[i]} y={80} textAnchor="middle" fontSize="38"
+              fill={LIENZO.fg} fontWeight="500">{t}</text>
+          ))}
+          {pares.map(([a, b], i) => {
+            const x1 = xs[a], x2 = xs[b], mid = (x1 + x2) / 2;
+            const depth = 100 + i * 26;
+            const d = `M ${x1} 96 Q ${mid} ${depth + 24} ${x2} 96`;
+            return (
+              <g key={i}>
+                <motion.path d={d} fill="none" stroke={LIENZO.accent} strokeWidth="2.5"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={on ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }}
+                  transition={{ duration: 0.45, delay: on ? i * 0.3 : 0 }} />
+                <motion.text x={mid} y={depth + 14} textAnchor="middle" fontSize="20"
+                  fill={LIENZO.accent} fontWeight="600"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={on ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.3, delay: on ? i * 0.3 + 0.25 : 0 }}>= 7</motion.text>
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint }}>
+        {on
+          ? <span><b style={{ color: LIENZO.accent }}>3 pares</b> × <b style={{ color: LIENZO.accent }}>7</b> = <b style={{ color: LIENZO.ok }}>21</b> · (esa es la fórmula de Gauss)</span>
+          : <span style={{ fontStyle: "italic" }}>Tocá para emparejar los extremos</span>}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -60,6 +155,7 @@ function Esc02_PA() {
         Una sucesión es <strong>aritmética</strong> si entre cada término y el siguiente
         se suma la MISMA cantidad, llamada <strong>razón d</strong>.
       </Definicion>
+      <SecuenciaArcos terminos={["3", "7", "11", "15", "19"]} op="+4" color={COLOR_OK} />
       <Ejemplo>
         3, 7, 11, 15, 19 — d = 4 (siempre se suma 4).<br />
         10, 7, 4, 1, −2 — d = −3 (se RESTA 3, también es PA).
@@ -87,6 +183,7 @@ function Esc03_SumaPA() {
           S<sub>n</sub> = (a<sub>1</sub> + a<sub>n</sub>) · n / 2
         </span>
       </Resumen>
+      <GaussPairing />
       <PorQue>
         Gauss niño descubrió esto: si sumás los términos en pares (primero + último,
         segundo + penúltimo, …), cada par da lo mismo: a₁+aₙ. Y hay n/2 pares. Por eso
@@ -111,6 +208,7 @@ function Esc04_PG() {
         Una sucesión es <strong>geométrica</strong> si entre cada término y el siguiente
         se MULTIPLICA por la misma cantidad, llamada <strong>razón r</strong>.
       </Definicion>
+      <SecuenciaArcos terminos={["2", "6", "18", "54", "162"]} op="×3" color={COLOR_EXP} />
       <Ejemplo>
         2, 6, 18, 54, 162 — r = 3 (cada uno es el anterior por 3).<br />
         80, 40, 20, 10, 5 — r = 1/2.

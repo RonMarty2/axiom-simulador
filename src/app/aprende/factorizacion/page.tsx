@@ -6,10 +6,90 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
 } from "../_components/atoms";
+import { Pizarra, Repetir, Pot, Igual, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Animación "factor común sale afuera": 6x + 9 → 3·2x + 3·3 → 3(2x + 3).
+// Todo HTML animado (sin coordenadas SVG) → robusto.
+function FactorComunAnim() {
+  const [paso, setPaso] = useState(0);
+  const v = LIENZO.accent;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={150} onClick={() => setPaso((p) => (p < 2 ? p + 1 : 0))}>
+        <div style={{
+          fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+          fontSize: "clamp(30px, 6vw, 48px)", color: LIENZO.fg, textAlign: "center",
+        }}>
+          {paso === 0 && <span>6x + 9</span>}
+          {paso === 1 && (
+            <span>
+              <span style={{ color: v }}>3</span>·2x <span style={{ color: LIENZO.fgDim, margin: "0 0.3em" }}>+</span> <span style={{ color: v }}>3</span>·3
+            </span>
+          )}
+          {paso === 2 && (
+            <span>
+              <span style={{ color: v }}>3</span>
+              <span style={{ color: LIENZO.fg }}>(2x + 3)</span>
+            </span>
+          )}
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 20 }}>
+        {paso === 0 && "Tocá: ¿qué número está en los dos términos?"}
+        {paso === 1 && "El 3 se repite en ambos…"}
+        {paso === 2 && "…y sale afuera. Eso es factorizar."}
+      </div>
+      {paso === 2 && <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} /></div>}
+    </div>
+  );
+}
+
+// Diferencia de cuadrados por cancelación FOIL: (a+b)(a−b) = a²−ab+ab−b² = a²−b².
+// Los términos del medio se tachan y desvanecen.
+function DifCuadradosAnim() {
+  const [paso, setPaso] = useState(0);
+  const cancelado = paso >= 2;
+  const medioStyle = {
+    color: cancelado ? LIENZO.fgFaint : LIENZO.accent,
+    textDecoration: cancelado ? "line-through" : "none",
+    transition: "all 0.5s",
+  } as React.CSSProperties;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={170} onClick={() => setPaso((p) => (p < 2 ? p + 1 : 0))}>
+        <div style={{
+          fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+          fontSize: "clamp(24px, 4.6vw, 40px)", color: LIENZO.fg, textAlign: "center", lineHeight: 1.5,
+        }}>
+          <div>(a + b)(a − b)</div>
+          {paso >= 1 && (
+            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+              <Igual /> <Pot b="a" e="2" c="fg" />{" "}
+              <span style={medioStyle}>− ab</span>{" "}
+              <span style={medioStyle}>+ ab</span>{" "}
+              − <Pot b="b" e="2" c="fg" />
+            </motion.div>
+          )}
+          {paso >= 2 && (
+            <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} style={{ color: LIENZO.ok }}>
+              <Igual /> <Pot b="a" e="2" c="ok" /> − <Pot b="b" e="2" c="ok" />
+            </motion.div>
+          )}
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 20 }}>
+        {paso === 0 && "Tocá para desarrollar el producto"}
+        {paso === 1 && "Mirá los dos términos del medio: −ab y +ab…"}
+        {paso === 2 && "…se cancelan. Por eso queda solo a² − b²."}
+      </div>
+      {paso === 2 && <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} /></div>}
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -66,6 +146,8 @@ function Esc02_FactorComun() {
         Es el método <strong>más simple y siempre el primero a probar</strong>. Buscás
         algo que se repite en todos los términos y lo "sacás afuera".
       </Parrafo>
+
+      <FactorComunAnim />
 
       <Ejemplo titulo="Factorizar 6x + 9">
         <Paso n={1}>¿Qué número divide a 6 y a 9? El <strong>3</strong>.</Paso>
@@ -138,6 +220,8 @@ function Esc04_DifCuad() {
         Reconocés este patrón cuando hay <strong>dos cuadrados restándose</strong> (NO hay
         término del medio).
       </Parrafo>
+
+      <DifCuadradosAnim />
 
       <Ejemplo titulo="Ejemplos directos">
         <Paso n={1}>x² − 9 = (x + 3)(x − 3) (porque 9 = 3²)</Paso>

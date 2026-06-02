@@ -4,10 +4,80 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, Repetir, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Animación clave de logaritmos: el intercambio de roles entre la forma
+// exponencial (2³ = 8) y la logarítmica (log₂ 8 = 3). El exponente 3 vuela a
+// ser la "respuesta" del log, y el resultado 8 vuela a ser el "argumento".
+// (Posiciones SOLO en initial/animate — sin atributos x/y en conflicto.)
+function HeroLogExp() {
+  const [paso, setPaso] = useState(0);
+  const log = paso >= 1;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={190} onClick={() => setPaso(log ? 0 : 1)}>
+        <svg width="100%" height="100%" viewBox="0 0 480 190"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}
+        >
+          {/* "log" — solo en forma logarítmica */}
+          <motion.text
+            textAnchor="middle" fill={LIENZO.fg} fontWeight="500" fontSize="44"
+            initial={{ x: 120, y: 110, opacity: 0 }}
+            animate={log ? { x: 120, y: 110, opacity: 1 } : { x: 120, y: 110, opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          >log</motion.text>
+
+          {/* Base 2: pasa de número grande a subíndice de log */}
+          <motion.text
+            textAnchor="middle" fill={LIENZO.fg} fontWeight="500"
+            initial={{ x: 150, y: 115, fontSize: 70 }}
+            animate={log ? { x: 178, y: 124, fontSize: 30 } : { x: 150, y: 115, fontSize: 70 }}
+            transition={{ duration: 0.6 }}
+          >2</motion.text>
+
+          {/* Exponente 3 → respuesta del log (vuela a la derecha) */}
+          <motion.text
+            textAnchor="middle" fill={LIENZO.accent} fontWeight="500"
+            initial={{ x: 192, y: 78, fontSize: 42 }}
+            animate={log ? { x: 350, y: 112, fontSize: 60 } : { x: 192, y: 78, fontSize: 42 }}
+            transition={{ duration: 0.65 }}
+          >3</motion.text>
+
+          {/* Resultado 8 → argumento del log (vuela a la izquierda) */}
+          <motion.text
+            textAnchor="middle" fill={LIENZO.ok} fontWeight="500"
+            initial={{ x: 300, y: 115, fontSize: 70 }}
+            animate={log ? { x: 225, y: 112, fontSize: 58 } : { x: 300, y: 115, fontSize: 70 }}
+            transition={{ duration: 0.65 }}
+          >8</motion.text>
+
+          {/* Signo = */}
+          <motion.text
+            textAnchor="middle" fill={LIENZO.fgDim} fontWeight="400" fontSize="44"
+            initial={{ x: 245, y: 112 }}
+            animate={log ? { x: 292, y: 112 } : { x: 245, y: 112 }}
+            transition={{ duration: 0.6 }}
+          >=</motion.text>
+        </svg>
+      </Pizarra>
+
+      <div style={{ display: "flex", justifyContent: "center", gap: 10, fontSize: 13, color: LIENZO.fgFaint, fontWeight: 600 }}>
+        <span style={{ color: !log ? LIENZO.accent : LIENZO.fgFaint }}>forma exponencial</span>
+        <span>⇄</span>
+        <span style={{ color: log ? LIENZO.accent : LIENZO.fgFaint }}>forma logarítmica</span>
+      </div>
+
+      {!log
+        ? <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>Tocá para ver la forma logarítmica</div>
+        : <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} texto="Volver a exponencial" /></div>}
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -37,6 +107,12 @@ function Esc01_Intro() {
       <Parrafo>
         Un logaritmo responde la pregunta: <strong>"¿a qué exponente elevo la base para
         obtener este número?"</strong>
+      </Parrafo>
+      <HeroLogExp />
+      <Parrafo>
+        Mirá cómo es la <strong>misma información</strong> escrita de dos formas: el
+        exponente <span style={{ color: COLOR_EXP, fontWeight: 700 }}>3</span> es la respuesta del
+        logaritmo, y el resultado <span style={{ color: COLOR_OK, fontWeight: 700 }}>8</span> es su argumento.
       </Parrafo>
       <Ejemplo>
         log₂(8) = 3, porque 2³ = 8.<br />
