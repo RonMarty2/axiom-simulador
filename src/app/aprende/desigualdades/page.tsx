@@ -4,10 +4,98 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Recta numérica que sombrea la solución de una inecuación. extremo abierto
+// (cículo) o cerrado (relleno) según < / ≤.
+function RectaInecuacion({
+  valor, sentido, cerrado, etiqueta, xMin = -6, xMax = 6,
+}: {
+  valor: number; sentido: "menor" | "mayor"; cerrado: boolean; etiqueta: string;
+  xMin?: number; xMax?: number;
+}) {
+  const W = 480, H = 100, padL = 32, padR = 32, padT = 30, padB = 30;
+  const sx = (x: number) => padL + ((x - xMin) / (xMax - xMin)) * (W - padL - padR);
+  const yLinea = 56;
+  const xV = sx(valor);
+  const shadeX1 = sentido === "menor" ? padL : xV;
+  const shadeX2 = sentido === "menor" ? xV : W - padR;
+  const ticks: number[] = [];
+  for (let i = Math.ceil(xMin); i <= Math.floor(xMax); i++) ticks.push(i);
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={H}>
+        <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`}
+          preserveAspectRatio="xMidYMid meet" style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {/* Sombreado solución */}
+          <motion.line
+            x1={shadeX1} x2={shadeX2} y1={yLinea} y2={yLinea}
+            stroke={LIENZO.ok} strokeWidth="6" strokeLinecap="round"
+            initial={false} animate={{ x1: shadeX1, x2: shadeX2 }} transition={{ duration: 0.4 }} />
+          {/* Línea base con flechas */}
+          <line x1={padL - 6} x2={W - padR + 6} y1={yLinea} y2={yLinea} stroke={LIENZO.fg} strokeWidth="1.5" />
+          <polygon points={`${padL - 6},${yLinea} ${padL + 4},${yLinea - 5} ${padL + 4},${yLinea + 5}`} fill={LIENZO.fg} />
+          <polygon points={`${W - padR + 6},${yLinea} ${W - padR - 4},${yLinea - 5} ${W - padR - 4},${yLinea + 5}`} fill={LIENZO.fg} />
+          {/* Ticks */}
+          {ticks.map((t) => (
+            <g key={t}>
+              <line x1={sx(t)} x2={sx(t)} y1={yLinea - 4} y2={yLinea + 4} stroke={LIENZO.fgFaint} />
+              <text x={sx(t)} y={yLinea + 18} textAnchor="middle" fontSize="11" fill={LIENZO.fgFaint}>{t}</text>
+            </g>
+          ))}
+          {/* Punto del valor */}
+          <motion.circle cx={xV} cy={yLinea} r="7"
+            fill={cerrado ? LIENZO.ok : "#fff"}
+            stroke={LIENZO.ok} strokeWidth="2"
+            initial={false} animate={{ cx: xV }} transition={{ duration: 0.4 }} />
+        </svg>
+      </Pizarra>
+      <div style={{
+        textAlign: "center", fontSize: 16, color: LIENZO.fg,
+        fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+      }}>
+        Solución: <span style={{ color: LIENZO.ok }}>{etiqueta}</span>
+      </div>
+    </div>
+  );
+}
+
+// Animación del "truco": −2x < 6 → x > −3. El sentido se invierte al dividir
+// por negativo; lo mostramos con un giro visual del operador y de la sombra.
+function TrucoInversionAnim() {
+  const [div, setDiv] = useState(false);
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={120} onClick={() => setDiv((v) => !v)}>
+        <div style={{
+          fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+          fontSize: "clamp(30px, 5.5vw, 44px)", color: LIENZO.fg, textAlign: "center",
+        }}>
+          {!div ? (
+            <span>−2x <span style={{ color: LIENZO.accent, margin: "0 0.3em" }}>&lt;</span> 6</span>
+          ) : (
+            <span>
+              x{" "}
+              <motion.span
+                style={{ display: "inline-block", color: LIENZO.bad, margin: "0 0.3em" }}
+                initial={{ rotate: 0, scale: 1 }} animate={{ rotate: 180, scale: 1.15 }}
+                transition={{ duration: 0.5 }}
+              >&lt;</motion.span>{" "}
+              −3
+            </span>
+          )}
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        {!div ? "Tocá: dividimos ambos lados por −2 (negativo)" : "Al dividir por negativo el signo gira (< se vuelve >)"}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -78,10 +166,12 @@ function Esc03_Lineal() {
         <Paso n={2}>Divido por 2 (positivo, no afecta): x &lt; 4.</Paso>
         <Paso n={3}>Solución: <strong style={{ color: COLOR_OK }}>x &lt; 4</strong> (todo número menor que 4).</Paso>
       </Ejemplo>
+      <RectaInecuacion valor={4} sentido="menor" cerrado={false} etiqueta="x < 4" />
       <Ejemplo titulo="Resolvé: 3x − 5 ≥ 7">
         <Paso n={1}>3x ≥ 12 → x ≥ 4.</Paso>
         <Paso n={2}>Solución: <strong style={{ color: COLOR_OK }}>x ≥ 4</strong> (4 inclusive).</Paso>
       </Ejemplo>
+      <RectaInecuacion valor={4} sentido="mayor" cerrado={true} etiqueta="x ≥ 4" />
     </EscenaRica>
   );
 }
@@ -89,10 +179,11 @@ function Esc03_Lineal() {
 function Esc04_Negativo() {
   return (
     <EscenaRica>
-      <Titulo accent={COLOR_BAD}>⚠️ EL TRUCO: signo negativo invierte la desigualdad</Titulo>
+      <Titulo accent={COLOR_BAD}>El truco: signo negativo invierte la desigualdad</Titulo>
       <Resumen>
         Cuando <strong>multiplicás o dividís por un número NEGATIVO</strong>, el sentido de la desigualdad se INVIERTE: &lt; pasa a &gt; y al revés.
       </Resumen>
+      <TrucoInversionAnim />
 
       <Ejemplo titulo="Resolvé: −2x &lt; 6">
         <Paso n={1}>Divido por <strong>−2</strong>. Esto INVIERTE el signo.</Paso>

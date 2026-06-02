@@ -6,10 +6,87 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
 } from "../_components/atoms";
+import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Venn de factores: dos polinomios, sus factores y el cruce común. Al tocar
+// se resaltan los factores compartidos (MCD).
+function VennFactores() {
+  const [on, setOn] = useState(false);
+  // P = x²(x+3) = x · x · (x+3)
+  // Q = x(x+3)² = x · (x+3) · (x+3)
+  // Comunes (MCD) = x · (x+3)
+  // Solo P: x
+  // Solo Q: (x+3)
+  const fade = on ? 1 : 0.5;
+  const common = (etiq: string) => (
+    <motion.div
+      initial={{ scale: 1, color: LIENZO.fg }}
+      animate={on ? { scale: 1.08, color: LIENZO.ok } : { scale: 1, color: LIENZO.fg }}
+      transition={{ duration: 0.4 }}
+      style={{ padding: "4px 10px", borderRadius: 8, fontWeight: 600 }}
+    >
+      {etiq}
+    </motion.div>
+  );
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={210} onClick={() => setOn((v) => !v)}>
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 16, width: "100%",
+          fontFamily: "var(--font-crimson), serif", fontSize: 18,
+          alignItems: "center",
+        }}>
+          {/* Lado P */}
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.4, color: LIENZO.fgFaint, marginBottom: 6 }}>P = x²(x + 3)</div>
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 6, opacity: fade }}>
+              {common("x")}
+              {common("x + 3")}
+              <div style={{ padding: "4px 10px", color: LIENZO.fgDim }}>x</div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0.4 }} animate={{ opacity: on ? 1 : 0.4 }}
+            style={{ fontSize: 32, color: LIENZO.fgFaint }}
+          >∩</motion.div>
+
+          {/* Lado Q */}
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: 12, letterSpacing: 1.4, color: LIENZO.fgFaint, marginBottom: 6 }}>Q = x(x + 3)²</div>
+            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 6, opacity: fade }}>
+              {common("x")}
+              {common("x + 3")}
+              <div style={{ padding: "4px 10px", color: LIENZO.fgDim }}>x + 3</div>
+            </div>
+          </div>
+
+          {/* MCD destacado */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={on ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            style={{
+              gridColumn: "1 / -1", textAlign: "center", marginTop: 12,
+              fontSize: 22, fontWeight: 600,
+            }}
+          >
+            MCD = <span style={{ color: LIENZO.ok }}>x · (x + 3)</span>
+          </motion.div>
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        {on
+          ? <>Los factores en <b style={{ color: LIENZO.ok }}>verde</b> aparecen en AMBOS — su producto es el MCD.</>
+          : "Tocá para resaltar los factores comunes"}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -91,6 +168,7 @@ function Esc03_MCD() {
         <Paso n={2}>Factor común (x+3): aparece en ambos. Menor exponente: (x+3)¹.</Paso>
         <Paso n={3}>MCD = <strong style={{ color: COLOR_OK }}>x(x+3)</strong>.</Paso>
       </Ejemplo>
+      <VennFactores />
 
       <Ejemplo titulo="MCD de (x+3)²(x−1) y (x+3)(x−1)³">
         <Paso n={1}>Comunes: (x+3) y (x−1).</Paso>

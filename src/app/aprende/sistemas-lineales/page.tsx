@@ -6,10 +6,76 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
 } from "../_components/atoms";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Intersección de rectas: dos rectas se dibujan y aparece el punto de
+// intersección. Tocar para alternar entre los 3 casos: única / sin solución
+// (paralelas) / infinitas (coincidentes).
+function InterseccionRectas() {
+  const casos = [
+    { titulo: "Única solución", color: LIENZO.ok, m1: 1, b1: 4, m2: -1, b2: 8, sol: "(2, 6)" },
+    { titulo: "Sin solución · paralelas", color: LIENZO.bad, m1: 1, b1: 1, m2: 1, b2: 4, sol: "∅" },
+    { titulo: "Infinitas · coincidentes", color: LIENZO.warn, m1: 0.5, b1: 2, m2: 0.5, b2: 2, sol: "∞" },
+  ];
+  const [i, setI] = useState(0);
+  const { titulo, color, m1, b1, m2, b2, sol } = casos[i];
+  const xMin = -4, xMax = 8, yMin = -2, yMax = 10, alto = 280;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  // Intersección
+  const tieneInt = Math.abs(m1 - m2) > 1e-6;
+  const xi = tieneInt ? (b2 - b1) / (m1 - m2) : 0;
+  const yi = m1 * xi + b1;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto} onClick={() => setI((v) => (v + 1) % casos.length)}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <motion.line
+            x1={sx(xMin)} y1={sy(m1 * xMin + b1)} x2={sx(xMax)} y2={sy(m1 * xMax + b1)}
+            stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round"
+            initial={false} animate={{
+              x1: sx(xMin), y1: sy(m1 * xMin + b1),
+              x2: sx(xMax), y2: sy(m1 * xMax + b1),
+            }} transition={{ duration: 0.3 }} />
+          <motion.line
+            x1={sx(xMin)} y1={sy(m2 * xMin + b2)} x2={sx(xMax)} y2={sy(m2 * xMax + b2)}
+            stroke={LIENZO.ok} strokeWidth="3" strokeLinecap="round"
+            initial={false} animate={{
+              x1: sx(xMin), y1: sy(m2 * xMin + b2),
+              x2: sx(xMax), y2: sy(m2 * xMax + b2),
+            }} transition={{ duration: 0.3 }} />
+          {tieneInt && xi > xMin && xi < xMax && yi > yMin && yi < yMax && (
+            <motion.circle cx={sx(xi)} cy={sy(yi)} r="7" fill={color}
+              initial={{ scale: 0 }} animate={{ scale: 1 }}
+              transition={{ delay: 0.3, type: "spring" }} />
+          )}
+        </Ejes>
+      </Pizarra>
+      <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
+        {casos.map((_, k) => (
+          <button key={k} onClick={() => setI(k)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%", border: "none", padding: 0, cursor: "pointer",
+              background: i === k ? LIENZO.fg : LIENZO.fgFaint,
+            }} aria-label={`Caso ${k + 1}`} />
+        ))}
+      </div>
+      <div style={{
+        fontFamily: "var(--font-crimson), serif", textAlign: "center",
+        fontSize: 18, color: LIENZO.fg, fontWeight: 500,
+      }}>
+        <span style={{ color }}>{titulo}</span> · solución: <strong>{sol}</strong>
+      </div>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        Tocá la imagen para alternar entre los 3 casos posibles
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -44,6 +110,11 @@ function Esc01_Intro() {
         <strong>{`{ x + y = 10, x − y = 2 }`}</strong> → Solución: x = 6, y = 4.<br />
         Verificación: 6+4 = 10 ✓ y 6−4 = 2 ✓.
       </Ejemplo>
+      <Parrafo>
+        Geométricamente: cada ecuación es una recta. La solución es el
+        <strong> punto de intersección</strong>. Pueden pasar 3 cosas:
+      </Parrafo>
+      <InterseccionRectas />
       <Resumen>
         🎯 Aparece en problemas reales: <br />
         • Compré 2 productos por X total, conozco otra restricción → 2 ecs.<br />

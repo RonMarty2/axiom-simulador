@@ -4,10 +4,137 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Recta animada: f(x) = mx + b. Slider de m y b para probar.
+function RectaInteractiva() {
+  const [m, setM] = useState(2);
+  const [b, setB] = useState(1);
+  const xMin = -6, xMax = 6, yMin = -4, yMax = 6, alto = 280;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const x1 = xMin, x2 = xMax;
+  const y1 = m * x1 + b, y2 = m * x2 + b;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <motion.line
+            x1={sx(x1)} y1={sy(y1)} x2={sx(x2)} y2={sy(y2)}
+            stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round"
+            initial={false} animate={{ x1: sx(x1), y1: sy(y1), x2: sx(x2), y2: sy(y2) }}
+            transition={{ duration: 0.3 }}
+          />
+          {/* Punto donde corta el eje y (0, b) */}
+          <motion.circle cx={sx(0)} cy={sy(b)} r="5" fill={LIENZO.ok}
+            animate={{ cx: sx(0), cy: sy(b) }} transition={{ duration: 0.3 }} />
+        </Ejes>
+      </Pizarra>
+      <div style={{
+        fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+        fontSize: 22, color: LIENZO.fg, textAlign: "center",
+      }}>
+        f(x) = <span style={{ color: LIENZO.accent }}>{m}</span>x {b >= 0 ? "+" : "−"} <span style={{ color: LIENZO.ok }}>{Math.abs(b)}</span>
+      </div>
+      <div style={{ display: "grid", gap: 8 }}>
+        <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+          Pendiente m = <strong style={{ color: LIENZO.accent }}>{m}</strong>
+          <input type="range" min={-3} max={3} step={0.5} value={m}
+            onChange={(e) => setM(parseFloat(e.target.value))}
+            style={{ width: "100%", accentColor: LIENZO.accent }} />
+        </label>
+        <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+          Ordenada al origen b = <strong style={{ color: LIENZO.ok }}>{b}</strong>
+          <input type="range" min={-3} max={4} step={0.5} value={b}
+            onChange={(e) => setB(parseFloat(e.target.value))}
+            style={{ width: "100%", accentColor: LIENZO.ok }} />
+        </label>
+      </div>
+    </div>
+  );
+}
+
+// Parábola interactiva: vértice marcado, ejes de simetría, abre arriba/abajo.
+function ParabolaInteractiva() {
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(-4);
+  const [c, setC] = useState(3);
+  const xMin = -2, xMax = 6, yMin = -2, yMax = 6, alto = 280;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  // Vértice
+  const xv = a !== 0 ? -b / (2 * a) : 0;
+  const yv = a * xv * xv + b * xv + c;
+  // Puntos de la curva
+  const N = 80;
+  const puntos: string[] = [];
+  for (let i = 0; i <= N; i++) {
+    const x = xMin + (i / N) * (xMax - xMin);
+    const y = a * x * x + b * x + c;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    puntos.push(`${sx(x)},${sy(y)}`);
+  }
+  const path = puntos.join(" ");
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          {/* Eje de simetría */}
+          <motion.line
+            x1={sx(xv)} x2={sx(xv)} y1={16} y2={alto - 24}
+            stroke={LIENZO.fgFaint} strokeWidth="1" strokeDasharray="3 4"
+            animate={{ x1: sx(xv), x2: sx(xv) }} transition={{ duration: 0.3 }}
+          />
+          {/* Curva */}
+          <motion.polyline
+            points={path} fill="none" stroke={LIENZO.accent} strokeWidth="3"
+            strokeLinejoin="round" strokeLinecap="round"
+            initial={false} animate={{ points: path }} transition={{ duration: 0.3 }}
+          />
+          {/* Vértice */}
+          <motion.circle cx={sx(xv)} cy={sy(yv)} r="6" fill={LIENZO.ok}
+            animate={{ cx: sx(xv), cy: sy(yv) }} transition={{ duration: 0.3 }} />
+          <motion.text fontSize="11" fill={LIENZO.ok} fontWeight="600"
+            animate={{ x: sx(xv) + 9, y: sy(yv) - 6 }} transition={{ duration: 0.3 }}>
+            ({xv.toFixed(1)}, {yv.toFixed(1)})
+          </motion.text>
+        </Ejes>
+      </Pizarra>
+      <div style={{
+        fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+        fontSize: 22, color: LIENZO.fg, textAlign: "center",
+      }}>
+        f(x) = <span style={{ color: a > 0 ? LIENZO.accent : LIENZO.bad }}>{a}</span>x²
+        {" "}{b >= 0 ? "+" : "−"} {Math.abs(b)}x
+        {" "}{c >= 0 ? "+" : "−"} {Math.abs(c)}
+      </div>
+      <div style={{ display: "grid", gap: 6 }}>
+        <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+          a = <strong>{a}</strong> {a > 0 ? "(abre ↑, tiene mínimo)" : a < 0 ? "(abre ↓, tiene máximo)" : ""}
+          <input type="range" min={-2} max={2} step={0.5} value={a}
+            onChange={(e) => setA(parseFloat(e.target.value) || 0.01)}
+            style={{ width: "100%", accentColor: LIENZO.accent }} />
+        </label>
+        <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+          b = <strong>{b}</strong>
+          <input type="range" min={-6} max={6} step={1} value={b}
+            onChange={(e) => setB(parseFloat(e.target.value))}
+            style={{ width: "100%", accentColor: LIENZO.accent }} />
+        </label>
+        <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+          c = <strong>{c}</strong>
+          <input type="range" min={-4} max={6} step={1} value={c}
+            onChange={(e) => setC(parseFloat(e.target.value))}
+            style={{ width: "100%", accentColor: LIENZO.accent }} />
+        </label>
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -59,6 +186,11 @@ function Esc02_Lineal() {
         f(x) = 2x + 3 — recta de pendiente 2, corta el eje y en (0, 3).<br />
         f(x) = −x + 5 — pendiente negativa (baja), corta en (0, 5).
       </Ejemplo>
+      <RectaInteractiva />
+      <Parrafo>
+        Movés <strong>m</strong> y la recta cambia su inclinación; movés <strong>b</strong> y sube o baja
+        manteniendo la inclinación. El punto verde es donde corta al eje y.
+      </Parrafo>
       <Resumen>
         Solo necesitás <strong>2 puntos</strong> para graficar una recta. Tabla:
         elegís 2 valores de x, calculás los y, marcás y unís.
@@ -109,6 +241,11 @@ function Esc04_Cuad() {
         f(x) = x² es la parábola "base", con vértice en (0,0), abre arriba.<br />
         f(x) = −2x² + 4x − 1 abre abajo.
       </Ejemplo>
+      <ParabolaInteractiva />
+      <Parrafo>
+        Probá cambiar <strong>a, b, c</strong>: cambia la abertura, se mueve y el vértice (punto verde)
+        se reubica solo. La línea punteada es el eje de simetría.
+      </Parrafo>
     </EscenaRica>
   );
 }

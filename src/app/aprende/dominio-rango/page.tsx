@@ -4,10 +4,76 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Proyección dominio/rango: dibuja y = x², luego "proyecta" verticalmente a x
+// (dominio = todos los reales) y horizontalmente a y (rango = y ≥ 0).
+function ProyeccionDomRango() {
+  const [paso, setPaso] = useState(0);
+  const xMin = -4, xMax = 4, yMin = -1.5, yMax = 5, alto = 300;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  // curva y = x²
+  const N = 60, pts: string[] = [];
+  for (let i = 0; i <= N; i++) {
+    const x = xMin + (i / N) * (xMax - xMin);
+    const y = x * x;
+    if (y > yMax + 0.5) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  const muestrasX = [-3, -2, -1, 1, 2, 3];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto} onClick={() => setPaso((p) => (p < 2 ? p + 1 : 0))}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          {/* Curva */}
+          <polyline points={pts.join(" ")} fill="none" stroke={LIENZO.accent} strokeWidth="3" strokeLinejoin="round" />
+          {/* Sombras de proyección al eje X (dominio) */}
+          {paso >= 1 && muestrasX.map((x) => {
+            const y = x * x;
+            return (
+              <motion.line key={`px${x}`}
+                x1={sx(x)} y1={sy(y)} x2={sx(x)} y2={sy(0)}
+                stroke={LIENZO.ok} strokeWidth="1" strokeDasharray="3 3"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 * Math.abs(x) }} />
+            );
+          })}
+          {paso >= 1 && (
+            <motion.line
+              x1={sx(xMin)} x2={sx(xMax)} y1={sy(0)} y2={sy(0)}
+              stroke={LIENZO.ok} strokeWidth="4" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6 }} />
+          )}
+          {/* Sombras de proyección al eje Y (rango) */}
+          {paso >= 2 && [0.5, 1, 2, 3, 4].map((y) => {
+            const x = Math.sqrt(y);
+            return (
+              <motion.line key={`py${y}`}
+                x1={sx(x)} y1={sy(y)} x2={sx(0)} y2={sy(y)}
+                stroke={LIENZO.bad} strokeWidth="1" strokeDasharray="3 3"
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.05 * y }} />
+            );
+          })}
+          {paso >= 2 && (
+            <motion.line
+              x1={sx(0)} x2={sx(0)} y1={sy(0)} y2={sy(yMax)}
+              stroke={LIENZO.bad} strokeWidth="4" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.6, delay: 0.4 }} />
+          )}
+        </Ejes>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim, minHeight: 22 }}>
+        {paso === 0 && <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Tocá: proyectamos la curva a los ejes</span>}
+        {paso === 1 && <span>Sombra sobre <b style={{ color: LIENZO.ok }}>eje X</b>: <b style={{ color: LIENZO.ok }}>dominio = ℝ</b> (todos los x sirven)</span>}
+        {paso === 2 && <span>Sombra sobre <b style={{ color: LIENZO.bad }}>eje Y</b>: <b style={{ color: LIENZO.bad }}>rango = [0, ∞)</b> (los y son ≥ 0)</span>}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -41,6 +107,7 @@ function Esc01_Intro() {
       <Ejemplo>
         f(x) = x²: Dominio = ℝ (cualquier x). Rango = [0, +∞) (los y son no-negativos).
       </Ejemplo>
+      <ProyeccionDomRango />
       <Resumen>
         Dominio se lee en el <strong>eje X</strong>. Rango se lee en el <strong>eje Y</strong>.
       </Resumen>

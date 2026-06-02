@@ -4,10 +4,60 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Crecimiento exponencial: barras + curva 1000·1.08^t durante 10 años.
+// Tocar muestra los valores de cada año cayendo en cascada.
+function CrecimientoExpAnim() {
+  const [on, setOn] = useState(false);
+  const P0 = 1000, r = 0.08, anos = 10;
+  const datos = Array.from({ length: anos + 1 }, (_, t) => ({ t, v: P0 * Math.pow(1 + r, t) }));
+  const xMin = 0, xMax = anos, yMin = 0, yMax = Math.ceil(datos[anos].v / 500) * 500, alto = 240;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const ancho = (sx(1) - sx(0)) * 0.7;
+  // Curva
+  const pts: string[] = [];
+  for (let k = 0; k <= 60; k++) {
+    const t = xMin + (k / 60) * (xMax - xMin);
+    pts.push(`${sx(t)},${sy(P0 * Math.pow(1 + r, t))}`);
+  }
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto} onClick={() => setOn((v) => !v)}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          {datos.map((d, k) => {
+            const x = sx(d.t), y = sy(d.v), y0 = sy(0);
+            return (
+              <motion.rect key={k}
+                x={x - ancho / 2} width={ancho} y={y} height={y0 - y}
+                fill={LIENZO.accent} fillOpacity={0.25}
+                initial={{ height: 0, y: y0 }}
+                animate={on ? { height: y0 - y, y } : { height: 0, y: y0 }}
+                transition={{ duration: 0.4, delay: on ? k * 0.08 : 0 }} />
+            );
+          })}
+          {on && (
+            <motion.polyline points={pts.join(" ")} fill="none" stroke={LIENZO.accent}
+              strokeWidth="3" strokeLinejoin="round" strokeLinecap="round"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ duration: 1.2, delay: 0.4 }} />
+          )}
+        </Ejes>
+      </Pizarra>
+      <div style={{
+        textAlign: "center", fontFamily: "var(--font-crimson), serif",
+        fontSize: 17, color: LIENZO.fg, fontWeight: 500,
+      }}>
+        1000 · 1.08<sup>t</sup> · {on ? <span style={{ color: LIENZO.ok }}>tras {anos} años: {Math.round(datos[anos].v)} Bs</span> : "tocá para simular"}
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -145,6 +195,7 @@ function Esc06_Crec() {
       <Resumen>
         Modelo: <strong>P(t) = P₀ · (1 + r)ᵗ</strong>. Si decrece: usás (1 − r).
       </Resumen>
+      <CrecimientoExpAnim />
       <Ejemplo titulo="Inversión al 8% anual durante 5 años">
         Inversión inicial 1000 Bs. Final = 1000 · 1.08⁵ ≈ 1469 Bs.
       </Ejemplo>

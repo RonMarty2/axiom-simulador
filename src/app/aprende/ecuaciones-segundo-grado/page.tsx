@@ -4,10 +4,72 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
 } from "../_components/pedagogia";
+
+// Discriminante visual: alternar entre 3 casos típicos. Cada caso muestra una
+// parábola con sus raíces (o sin) y el valor de Δ = b² − 4ac.
+function DiscriminanteVisual() {
+  const casos = [
+    { titulo: "Δ > 0 · 2 raíces reales", a: 1, b: -2, c: -3, color: LIENZO.ok },
+    { titulo: "Δ = 0 · 1 raíz doble", a: 1, b: -4, c: 4, color: LIENZO.warn },
+    { titulo: "Δ < 0 · sin raíces reales", a: 1, b: 0, c: 2, color: LIENZO.bad },
+  ];
+  const [i, setI] = useState(0);
+  const { a, b, c, color, titulo } = casos[i];
+  const D = b * b - 4 * a * c;
+  const xMin = -4, xMax = 5, yMin = -4.5, yMax = 5, alto = 260;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const N = 80, pts: string[] = [];
+  for (let k = 0; k <= N; k++) {
+    const x = xMin + (k / N) * (xMax - xMin);
+    const y = a * x * x + b * x + c;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  const raices = D > 0
+    ? [(-b - Math.sqrt(D)) / (2 * a), (-b + Math.sqrt(D)) / (2 * a)]
+    : D === 0 ? [-b / (2 * a)] : [];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto} onClick={() => setI((v) => (v + 1) % casos.length)}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <motion.polyline points={pts.join(" ")} fill="none" stroke={color} strokeWidth="3"
+            strokeLinejoin="round" initial={false} animate={{ points: pts.join(" ") }} transition={{ duration: 0.3 }} />
+          {raices.map((r, k) => (
+            <motion.circle key={k} cx={sx(r)} cy={sy(0)} r="6" fill={color}
+              initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.2 + k * 0.1, type: "spring" }} />
+          ))}
+        </Ejes>
+      </Pizarra>
+      <div style={{ display: "flex", justifyContent: "center", gap: 6 }}>
+        {casos.map((_, k) => (
+          <button key={k} onClick={() => setI(k)}
+            style={{
+              width: 8, height: 8, borderRadius: "50%", border: "none", padding: 0, cursor: "pointer",
+              background: i === k ? LIENZO.fg : LIENZO.fgFaint,
+            }} aria-label={`Caso ${k + 1}`} />
+        ))}
+      </div>
+      <div style={{
+        fontFamily: "var(--font-crimson), serif", textAlign: "center",
+        fontSize: 18, color: LIENZO.fg, fontWeight: 500,
+      }}>
+        <span style={{ color }}>{titulo}</span>
+        <div style={{ fontSize: 15, color: LIENZO.fgDim, marginTop: 4 }}>
+          Δ = {b}² − 4·{a}·{c} = <strong style={{ color }}>{D}</strong>
+        </div>
+      </div>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        Tocá la parábola para alternar entre los 3 casos
+      </div>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -145,10 +207,12 @@ function Esc05_Discrim() {
       </Parrafo>
 
       <Resumen>
-        🟢 <strong>Δ &gt; 0</strong>: <strong>2 soluciones reales</strong> distintas.<br />
-        🟡 <strong>Δ = 0</strong>: <strong>1 solución</strong> (raíz doble).<br />
-        🔴 <strong>Δ &lt; 0</strong>: <strong>NO hay soluciones reales</strong>.
+        <strong>Δ &gt; 0</strong>: <strong>2 soluciones reales</strong> distintas.<br />
+        <strong>Δ = 0</strong>: <strong>1 solución</strong> (raíz doble).<br />
+        <strong>Δ &lt; 0</strong>: <strong>NO hay soluciones reales</strong>.
       </Resumen>
+
+      <DiscriminanteVisual />
 
       <Ejemplo>
         x² − 5x + 6 = 0 → Δ = 25 − 24 = 1 &gt; 0 → 2 soluciones.<br />

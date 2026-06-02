@@ -360,3 +360,72 @@ export function Repetir({ onClick, texto = "Repetir" }: { onClick: () => void; t
     </button>
   );
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// PLANO CARTESIANO compartido — ejes con flechas, rejilla suave, etiquetas.
+// Reusable en funciones, desigualdades, sistemas. Acepta children con motion
+// para dibujar curvas/rectas/puntos animados encima.
+// ─────────────────────────────────────────────────────────────────────────────
+export type EjesProps = {
+  xMin?: number;
+  xMax?: number;
+  yMin?: number;
+  yMax?: number;
+  alto?: number;
+  rejilla?: boolean;
+  labels?: boolean;
+  children?: React.ReactNode;
+};
+
+export function Ejes({
+  xMin = -6, xMax = 6, yMin = -4, yMax = 6, alto = 280,
+  rejilla = true, labels = true, children,
+}: EjesProps) {
+  const W = 480, H = alto;
+  const padL = 32, padR = 16, padT = 16, padB = 24;
+  const sx = (x: number) => padL + ((x - xMin) / (xMax - xMin)) * (W - padL - padR);
+  const sy = (y: number) => padT + ((yMax - y) / (yMax - yMin)) * (H - padT - padB);
+  const x0 = sx(0), y0 = sy(0);
+  const ticksX = []; for (let i = Math.ceil(xMin); i <= Math.floor(xMax); i++) if (i !== 0) ticksX.push(i);
+  const ticksY = []; for (let i = Math.ceil(yMin); i <= Math.floor(yMax); i++) if (i !== 0) ticksY.push(i);
+  return (
+    <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet"
+      style={{ fontFamily: "var(--font-crimson), serif" }}>
+      {rejilla && (
+        <g stroke={LIENZO.fgFaint} strokeOpacity="0.25" strokeWidth="1">
+          {ticksX.map((i) => <line key={`gx${i}`} x1={sx(i)} x2={sx(i)} y1={padT} y2={H - padB} />)}
+          {ticksY.map((i) => <line key={`gy${i}`} x1={padL} x2={W - padR} y1={sy(i)} y2={sy(i)} />)}
+        </g>
+      )}
+      {/* eje X con flecha */}
+      <line x1={padL} x2={W - padR + 4} y1={y0} y2={y0} stroke={LIENZO.fg} strokeWidth="1.5" />
+      <polygon points={`${W - padR + 4},${y0} ${W - padR - 4},${y0 - 5} ${W - padR - 4},${y0 + 5}`} fill={LIENZO.fg} />
+      {/* eje Y con flecha */}
+      <line x1={x0} x2={x0} y1={H - padB} y2={padT - 4} stroke={LIENZO.fg} strokeWidth="1.5" />
+      <polygon points={`${x0},${padT - 4} ${x0 - 5},${padT + 4} ${x0 + 5},${padT + 4}`} fill={LIENZO.fg} />
+      {labels && (
+        <>
+          <text x={W - padR + 4} y={y0 + 18} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">x</text>
+          <text x={x0 - 14} y={padT - 4} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">y</text>
+          <text x={x0 - 6} y={y0 + 14} fontSize="11" fill={LIENZO.fgFaint}>0</text>
+          {ticksX.map((i) => (
+            <text key={`lx${i}`} x={sx(i)} y={y0 + 14} fontSize="10" fill={LIENZO.fgFaint} textAnchor="middle">{i}</text>
+          ))}
+          {ticksY.map((i) => (
+            <text key={`ly${i}`} x={x0 - 8} y={sy(i) + 3} fontSize="10" fill={LIENZO.fgFaint} textAnchor="end">{i}</text>
+          ))}
+        </>
+      )}
+      {children}
+    </svg>
+  );
+}
+
+// Convierten coordenadas matemáticas (x,y) a px del SVG arriba. Útiles para
+// hijos de <Ejes>. Reciben los mismos límites que el componente.
+export function scalerX(xMin: number, xMax: number, W = 480, padL = 32, padR = 16) {
+  return (x: number) => padL + ((x - xMin) / (xMax - xMin)) * (W - padL - padR);
+}
+export function scalerY(yMin: number, yMax: number, alto: number, padT = 16, padB = 24) {
+  return (y: number) => padT + ((yMax - y) / (yMax - yMin)) * (alto - padT - padB);
+}
