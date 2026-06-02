@@ -132,6 +132,48 @@ function Esc02_Restricciones() {
   );
 }
 
+// Hipérbola y = 1/(x-3) con asíntota vertical en x=3. El gráfico se rompe
+// justo donde el denominador se anula → ese valor sale del dominio.
+function AsintotaAnim() {
+  const xMin = -3, xMax = 9, yMin = -4, yMax = 4, alto = 240;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const corte = 3;
+  const left: string[] = [];
+  const right: string[] = [];
+  for (let k = 0; k <= 80; k++) {
+    const x = xMin + (k / 80) * (corte - 0.1 - xMin);
+    const y = 1 / (x - corte);
+    if (y > yMin && y < yMax) left.push(`${sx(x)},${sy(y)}`);
+  }
+  for (let k = 0; k <= 80; k++) {
+    const x = corte + 0.1 + (k / 80) * (xMax - corte - 0.1);
+    const y = 1 / (x - corte);
+    if (y > yMin && y < yMax) right.push(`${sx(x)},${sy(y)}`);
+  }
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <motion.line x1={sx(corte)} x2={sx(corte)} y1={16} y2={alto - 24}
+            stroke={LIENZO.bad} strokeWidth="2" strokeDasharray="5 5"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5, duration: 0.4 }} />
+          <polyline points={left.join(" ")} fill="none" stroke={LIENZO.accent} strokeWidth="3" strokeLinejoin="round" />
+          <polyline points={right.join(" ")} fill="none" stroke={LIENZO.accent} strokeWidth="3" strokeLinejoin="round" />
+          {/* circulito hueco en x=3 sobre el eje x */}
+          <motion.circle cx={sx(corte)} cy={sy(0)} r="6" fill="#fff"
+            stroke={LIENZO.bad} strokeWidth="2.5"
+            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.7, type: "spring" }} />
+          <text x={sx(corte) + 8} y={sy(0) + 18} fontSize="12" fill={LIENZO.bad} fontWeight="600">x ≠ 3</text>
+        </Ejes>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim }}>
+        f(x) = 1 / (x − 3) — la línea punteada es la <b style={{ color: LIENZO.bad }}>asíntota</b>: el dominio EXCLUYE x = 3.
+      </div>
+    </div>
+  );
+}
+
 function Esc03_Div() {
   return (
     <EscenaRica>
@@ -144,6 +186,7 @@ function Esc03_Div() {
         <Paso n={1}>D(x) = x − 3 se anula en x = 3.</Paso>
         <Paso n={2}>Dominio: <strong style={{ color: COLOR_OK }}>x ≠ 3</strong>, o ℝ − {`{3}`}.</Paso>
       </Ejemplo>
+      <AsintotaAnim />
       <Ejemplo titulo="f(x) = (x+1)/(x² − 9)">
         <Paso n={1}>x² − 9 = (x−3)(x+3) = 0 cuando x = 3 ó x = −3.</Paso>
         <Paso n={2}>Dominio: ℝ − {`{−3, 3}`}.</Paso>

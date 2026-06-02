@@ -249,6 +249,64 @@ function Esc04_DifCuad() {
   );
 }
 
+// TCP geométrico: cuadrado (a+b)² descompuesto en 4 áreas:
+//   a²  |  ab
+//   ab  |  b²
+// Tocar revela las 4 áreas y muestra que la suma = (a+b)² = a² + 2ab + b².
+function TCPGeometrico() {
+  const [on, setOn] = useState(false);
+  const W = 360, H = 200, ax = 100, bx = 70;
+  const L = 50, T = 18;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={220}>
+        <svg width="100%" height="100%" viewBox={`0 0 ${W + L + 40} ${H + T + 40}`}
+          preserveAspectRatio="xMidYMid meet"
+          onClick={() => setOn((v) => !v)}
+          style={{ fontFamily: "var(--font-crimson), serif", cursor: "pointer" }}>
+          {/* a² (verde) */}
+          <motion.rect x={L} y={T} width={ax} height={ax}
+            fill={LIENZO.ok} fillOpacity={0.18} stroke={LIENZO.ok} strokeWidth="2"
+            initial={false} animate={{ opacity: 1 }} />
+          <text x={L + ax / 2} y={T + ax / 2 + 6} textAnchor="middle"
+            fontSize="24" fill={LIENZO.ok} fontWeight="600">a²</text>
+          {/* ab arriba (violeta) */}
+          <motion.rect x={L + ax} y={T} width={bx} height={ax}
+            fill={LIENZO.accent} fillOpacity={on ? 0.18 : 0.06} stroke={LIENZO.accent} strokeWidth="2"
+            animate={{ fillOpacity: on ? 0.18 : 0.06 }} transition={{ duration: 0.4 }} />
+          <text x={L + ax + bx / 2} y={T + ax / 2 + 6} textAnchor="middle"
+            fontSize="22" fill={LIENZO.accent} fontWeight="600">ab</text>
+          {/* ab izq (violeta) */}
+          <motion.rect x={L} y={T + ax} width={ax} height={bx}
+            fill={LIENZO.accent} fillOpacity={on ? 0.18 : 0.06} stroke={LIENZO.accent} strokeWidth="2"
+            animate={{ fillOpacity: on ? 0.18 : 0.06 }} transition={{ duration: 0.4, delay: 0.1 }} />
+          <text x={L + ax / 2} y={T + ax + bx / 2 + 6} textAnchor="middle"
+            fontSize="22" fill={LIENZO.accent} fontWeight="600">ab</text>
+          {/* b² (verde) */}
+          <motion.rect x={L + ax} y={T + ax} width={bx} height={bx}
+            fill={LIENZO.ok} fillOpacity={0.18} stroke={LIENZO.ok} strokeWidth="2" />
+          <text x={L + ax + bx / 2} y={T + ax + bx / 2 + 6} textAnchor="middle"
+            fontSize="20" fill={LIENZO.ok} fontWeight="600">b²</text>
+          {/* etiquetas a, b en bordes */}
+          <text x={L + ax / 2} y={T - 4} textAnchor="middle" fontSize="14"
+            fill={LIENZO.fgDim} fontStyle="italic">a</text>
+          <text x={L + ax + bx / 2} y={T - 4} textAnchor="middle" fontSize="14"
+            fill={LIENZO.fgDim} fontStyle="italic">b</text>
+          <text x={L - 8} y={T + ax / 2 + 4} textAnchor="end" fontSize="14"
+            fill={LIENZO.fgDim} fontStyle="italic">a</text>
+          <text x={L - 8} y={T + ax + bx / 2 + 4} textAnchor="end" fontSize="14"
+            fill={LIENZO.fgDim} fontStyle="italic">b</text>
+        </svg>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim, minHeight: 22 }}>
+        {on
+          ? <>Área total = <b style={{ color: LIENZO.ok }}>a²</b> + <b style={{ color: LIENZO.accent }}>2·ab</b> + <b style={{ color: LIENZO.ok }}>b²</b> = (a + b)²</>
+          : <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Tocá: por qué el 2ab del medio</span>}
+      </div>
+    </div>
+  );
+}
+
 function Esc05_TCP() {
   return (
     <EscenaRica>
@@ -268,6 +326,8 @@ function Esc05_TCP() {
         ✓ El primer y último término son <strong>cuadrados perfectos</strong>.<br />
         ✓ El término del medio es <strong>2 veces el producto de sus raíces</strong>.
       </Resumen>
+
+      <TCPGeometrico />
 
       <Ejemplo titulo="¿x² + 6x + 9 es TCP?">
         <Paso n={1}>√x² = x. √9 = 3. Doble producto: 2·x·3 = 6x. ✓ Coincide.</Paso>

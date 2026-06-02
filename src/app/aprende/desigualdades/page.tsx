@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
-import { Pizarra, LIENZO } from "../_components/lienzo";
+import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -230,6 +230,67 @@ function Esc05_Intervalos() {
   );
 }
 
+// Inecuación cuadrática: parábola con regiones positivas/negativas sombreadas
+// según el signo. Las raíces parten el eje x; vemos qué intervalos cumplen
+// > 0 o < 0.
+function InecCuadAnim() {
+  const [signo, setSigno] = useState<">" | "<">(">");
+  const xMin = -4, xMax = 5, yMin = -7, yMax = 6, alto = 240;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const r1 = -2, r2 = 3;
+  const pts: string[] = [];
+  for (let k = 0; k <= 80; k++) {
+    const x = xMin + (k / 80) * (xMax - xMin);
+    const y = x * x - x - 6;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  // Sombreado del eje x en los intervalos solución
+  const grueso = signo === ">"
+    ? [{ x1: xMin, x2: r1 }, { x1: r2, x2: xMax }]
+    : [{ x1: r1, x2: r2 }];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <polyline points={pts.join(" ")} fill="none" stroke={LIENZO.accent} strokeWidth="3" strokeLinejoin="round" />
+          {[r1, r2].map((r) => (
+            <circle key={r} cx={sx(r)} cy={sy(0)} r="5" fill={LIENZO.fg} />
+          ))}
+          {grueso.map((g, i) => (
+            <motion.line key={`${signo}-${i}`}
+              x1={sx(g.x1)} x2={sx(g.x2)} y1={sy(0)} y2={sy(0)}
+              stroke={LIENZO.ok} strokeWidth="6" strokeLinecap="round"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }} />
+          ))}
+        </Ejes>
+      </Pizarra>
+      <div style={{ display: "flex", justifyContent: "center", gap: 8 }}>
+        {(["<", ">"] as const).map((s) => (
+          <button key={s} onClick={() => setSigno(s)}
+            style={{
+              padding: "6px 16px", fontSize: 14, borderRadius: 999, cursor: "pointer",
+              fontFamily: "var(--font-crimson), serif", fontWeight: 600,
+              background: signo === s ? LIENZO.accent : "transparent",
+              color: signo === s ? "#fff" : LIENZO.fg,
+              border: `1.5px solid ${signo === s ? LIENZO.accent : LIENZO.fgFaint}`,
+            }}>
+            x² − x − 6 {s} 0
+          </button>
+        ))}
+      </div>
+      <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim }}>
+        Solución: <b style={{ color: LIENZO.ok }}>
+          {signo === ">" ? "(−∞, −2) ∪ (3, +∞)" : "(−2, 3)"}
+        </b>
+      </div>
+    </div>
+  );
+}
+
 function Esc06_Cuad() {
   return (
     <EscenaRica>
@@ -250,6 +311,7 @@ function Esc06_Cuad() {
         <Paso n={3}>Pruebo signo en cada uno. La parábola abre hacia ↑ (a&gt;0): es positiva FUERA de las raíces.</Paso>
         <Paso n={4}>Solución: <strong style={{ color: COLOR_OK }}>x &lt; −2 ó x &gt; 3</strong>, o sea (−∞, −2) ∪ (3, +∞).</Paso>
       </Ejemplo>
+      <InecCuadAnim />
 
       <PorQue>
         Si la parábola abre arriba: positiva fuera de raíces, negativa entre.<br />

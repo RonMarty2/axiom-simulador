@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
-import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
+import { Pizarra, Ejes, Raiz, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -121,6 +121,41 @@ function Esc02_CeroNeg() {
   );
 }
 
+// Equivalencia raíz ⇄ exponente fraccionario: 8^(1/3) ⇄ ³√8 = 2.
+// Tocar alterna entre las dos formas; el "1/n" del exponente baja a ser el
+// índice de la raíz y viceversa.
+function ExpFracEquivAnim() {
+  const [forma, setForma] = useState<"exp" | "raiz">("exp");
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={150} onClick={() => setForma((f) => f === "exp" ? "raiz" : "exp")}>
+        <div style={{
+          fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+          fontSize: "clamp(32px, 6.5vw, 56px)", color: LIENZO.fg,
+          display: "flex", alignItems: "center", gap: "0.5em",
+        }}>
+          {forma === "exp" ? (
+            <motion.span key="exp" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+              8<sup style={{ fontSize: "0.55em", color: LIENZO.accent, marginLeft: 2 }}>1/3</sup>
+            </motion.span>
+          ) : (
+            <motion.span key="raiz" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
+              <Raiz n="3" r="8" italic={false} />
+            </motion.span>
+          )}
+          <span style={{ color: LIENZO.fgDim }}>=</span>
+          <span style={{ color: LIENZO.ok, fontWeight: 600 }}>2</span>
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
+        {forma === "exp"
+          ? "Tocá: el 1/n del exponente baja a ser el índice de una raíz"
+          : "Tocá: el índice n de la raíz sube como 1/n al exponente"}
+      </div>
+    </div>
+  );
+}
+
 function Esc03_Frac() {
   return (
     <EscenaRica>
@@ -128,6 +163,7 @@ function Esc03_Frac() {
       <Resumen>
         <strong>a^(1/n) = ⁿ√a</strong>. Y en general: <strong>a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ</strong>.
       </Resumen>
+      <ExpFracEquivAnim />
       <Ejemplo>
         9^(1/2) = √9 = 3 &nbsp;·&nbsp; 8^(1/3) = ³√8 = 2 &nbsp;·&nbsp; 16^(3/4) = (⁴√16)³ = 2³ = 8.
       </Ejemplo>

@@ -178,6 +178,39 @@ function Esc03_Basicos() {
   );
 }
 
+// Producto → Suma: log(x·y) = log(x) + log(y). El log "se reparte" sobre la
+// multiplicación: x e y se separan y aparece un + entre dos logs.
+function ProductoSumaLog() {
+  const [paso, setPaso] = useState(0);
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={140} onClick={() => setPaso((p) => (p < 2 ? p + 1 : 0))}>
+        <div style={{
+          fontFamily: "var(--font-crimson), serif", fontWeight: 500,
+          fontSize: "clamp(28px, 5.5vw, 44px)", color: LIENZO.fg, textAlign: "center",
+        }}>
+          {paso === 0 && <span>log(<span style={{ color: LIENZO.accent }}>x · y</span>)</span>}
+          {paso === 1 && (
+            <motion.span initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }}>
+              log(<span style={{ color: LIENZO.accent }}>x</span>) <span style={{ color: LIENZO.fgDim }}>?</span> log(<span style={{ color: LIENZO.accent }}>y</span>)
+            </motion.span>
+          )}
+          {paso === 2 && (
+            <motion.span initial={{ opacity: 0, scale: 0.92 }} animate={{ opacity: 1, scale: 1 }}>
+              log(<span style={{ color: LIENZO.accent }}>x</span>) <span style={{ color: LIENZO.ok, fontWeight: 700 }}>+</span> log(<span style={{ color: LIENZO.accent }}>y</span>)
+            </motion.span>
+          )}
+        </div>
+      </Pizarra>
+      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 22 }}>
+        {paso === 0 && "Tocá: el log se reparte sobre la multiplicación"}
+        {paso === 1 && "x e y se separan en dos logs distintos…"}
+        {paso === 2 && "…unidos por un +. Producto adentro → suma afuera."}
+      </div>
+    </div>
+  );
+}
+
 function Esc04_Prod() {
   return (
     <EscenaRica>
@@ -187,6 +220,7 @@ function Esc04_Prod() {
           log<sub>a</sub>(x · y) = log<sub>a</sub>(x) + log<sub>a</sub>(y)
         </span>
       </Resumen>
+      <ProductoSumaLog />
       <Ejemplo>
         log(6) = log(2·3) = log(2) + log(3) ≈ 0.301 + 0.477 = 0.778.
       </Ejemplo>
