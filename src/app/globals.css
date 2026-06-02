@@ -13,7 +13,7 @@
    Estas reglas se aplican ÚNICAMENTE en modo PWA, no en navegador normal. */
 html.axiom-pwa {
   /* Forzar siempre layout mobile-first, sin importar settings raros del UA */
-  overscroll-behavior-y: contain;       /* No "pull to refresh" del nav */
+  overscroll-behavior-y: auto;           /* Permitir "pull to refresh" (jalar para actualizar) */
   -webkit-text-size-adjust: 100%;        /* iOS Safari: no agrandar fuente */
   text-size-adjust: 100%;
   -webkit-touch-callout: none;           /* Sin menú "guardar imagen" en long-press */
@@ -30,6 +30,22 @@ html.axiom-pwa body {
    forzamos siempre el menú hamburguesa, sin importar lo que diga el viewport. */
 html.axiom-pwa .axiom-nav-desktop { display: none !important; }
 html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
+
+/* ═══ FORZAR VISTA APP — refuerzo SIN depender de JavaScript ════════════════════
+   La clase .axiom-pwa la pone PWARegister.tsx, pero eso ocurre DESPUÉS de cargar
+   (puede tardar o fallar). Esta media query se aplica al instante cuando la app
+   corre instalada (standalone), garantizando siempre la vista app/móvil. */
+@media all and (display-mode: standalone), all and (display-mode: minimal-ui), all and (display-mode: fullscreen) {
+  html {
+    overscroll-behavior-y: auto;         /* Pull to refresh habilitado */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* Siempre menú hamburguesa (vista app), nunca nav de escritorio */
+  .axiom-nav-desktop { display: none !important; }
+  .axiom-nav-hamburger { display: flex !important; }
+}
 
 /* ═══ DESIGN TOKENS — Antigravity Light Theme ════════════════════════════════ */
 
