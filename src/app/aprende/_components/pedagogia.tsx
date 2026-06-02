@@ -221,6 +221,144 @@ export function PracticaFinal({ ejercicios }: {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// LecturaQuiz — específico para Razonamiento Verbal/Lógico
+//
+// Muestra un texto de lectura (a la izquierda o arriba) y un grupo de preguntas
+// (cada una con opciones múltiples). Al elegir, revela inmediatamente cuál es
+// la correcta y por qué (explicación pedagógica de cada respuesta).
+//
+// El alumno puede VOLVER A LEER el texto en cualquier momento mientras
+// contesta — clave en comprensión lectora.
+// ─────────────────────────────────────────────────────────────────────────────
+export type PreguntaLectura = {
+  p: string;
+  o: string[];
+  c: number;
+  ex: string;
+};
+
+export function LecturaQuiz({
+  titulo,
+  texto,
+  preguntas,
+  numero,
+}: {
+  titulo: string;
+  texto: React.ReactNode;
+  preguntas: PreguntaLectura[];
+  numero?: number;
+}) {
+  const [resp, setResp] = React.useState<Record<number, number>>({});
+  const ok = Object.entries(resp).filter(([k, v]) => preguntas[+k].c === v).length;
+  const completo = Object.keys(resp).length === preguntas.length;
+  return (
+    <div style={{
+      width: "100%", maxWidth: 720,
+      display: "flex", flexDirection: "column", gap: 18,
+    }}>
+      {/* Texto de la lectura */}
+      <div style={{
+        background: LIENZO.bgSoft,
+        border: `1px solid ${LIENZO.fgFaint}`,
+        borderRadius: 14, padding: "16px 20px",
+      }}>
+        {numero !== undefined && (
+          <div style={{ fontSize: 11, letterSpacing: 1.4, color: LIENZO.accent, fontWeight: 700, marginBottom: 4 }}>
+            LECTURA {numero}
+          </div>
+        )}
+        <div className="font-crimson" style={{
+          fontSize: 18, fontWeight: 600, color: LIENZO.fg, marginBottom: 10, lineHeight: 1.25,
+        }}>
+          {titulo}
+        </div>
+        <div style={{
+          fontSize: 15, color: LIENZO.fg, lineHeight: 1.7,
+          textAlign: "justify",
+        }}>
+          {texto}
+        </div>
+      </div>
+
+      {/* Preguntas */}
+      {preguntas.map((e, i) => {
+        const sel = resp[i]; const rev = sel !== undefined;
+        return (
+          <div key={i} style={{
+            border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 14,
+            padding: 16, width: "100%",
+          }}>
+            <div style={{
+              fontSize: 11, letterSpacing: 1.4, color: LIENZO.accent,
+              fontWeight: 700, marginBottom: 8,
+            }}>
+              PREGUNTA {i + 1}
+            </div>
+            <div style={{
+              fontSize: 15, color: LIENZO.fg, fontWeight: 600, marginBottom: 12, lineHeight: 1.4,
+            }}>
+              {e.p}
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              {e.o.map((op, j) => {
+                const isOk = j === e.c, isSel = sel === j;
+                const borde = !rev ? LIENZO.fgFaint : isOk ? LIENZO.ok : isSel ? LIENZO.bad : LIENZO.fgFaint;
+                return (
+                  <button key={j}
+                    onClick={() => !rev && setResp({ ...resp, [i]: j })}
+                    disabled={rev}
+                    style={{
+                      padding: "10px 14px", textAlign: "left",
+                      background: !rev ? "#fff" : isOk ? "#ecfdf5" : isSel ? "#fef2f2" : "#fff",
+                      border: `1.5px solid ${borde}`, borderRadius: 10,
+                      fontSize: 14, fontWeight: 500, color: LIENZO.fg,
+                      cursor: rev ? "default" : "pointer", transition: "all 0.15s",
+                      lineHeight: 1.4,
+                    }}>
+                    <span style={{ fontWeight: 700, color: borde, marginRight: 6 }}>
+                      {String.fromCharCode(97 + j)})
+                    </span>
+                    {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
+                  </button>
+                );
+              })}
+            </div>
+            {rev && (
+              <div style={{
+                marginTop: 10, padding: "10px 12px",
+                background: sel === e.c ? "#ecfdf5" : "#fef2f2",
+                borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.55,
+              }}>
+                <strong style={{ color: sel === e.c ? LIENZO.ok : LIENZO.bad }}>
+                  {sel === e.c ? "¡Correcto!" : "No es esa."}
+                </strong>{" "}{e.ex}
+              </div>
+            )}
+          </div>
+        );
+      })}
+
+      {completo && (
+        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }}
+          style={{
+            padding: 16, background: LIENZO.bgSoft,
+            border: `2px solid ${LIENZO.ok}`, borderRadius: 14, textAlign: "center",
+          }}>
+          <div style={{ fontSize: 20, color: LIENZO.ok, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
+            {ok} / {preguntas.length} correctas
+          </div>
+          <div style={{ fontSize: 13, color: LIENZO.fgDim, marginTop: 4 }}>
+            {ok === preguntas.length && "¡Excelente comprensión!"}
+            {ok < preguntas.length && ok >= preguntas.length * 0.6 && "Buen trabajo. Releé las que fallaste."}
+            {ok < preguntas.length * 0.6 && "Volvé a leer el texto con atención y revisá las explicaciones."}
+          </div>
+        </motion.div>
+      )}
+    </div>
+  );
+}
+
 // Mini-check interactivo al final de una escena.
 export function AutoCheck({
   pregunta, opciones, correctaIdx, explicacion,

@@ -100,6 +100,45 @@ const FUNDAMENTOS_UNIDADES: Unidad[] = [
   },
 ];
 
+// Razonamiento verbal-lógico (10 unidades, según guía oficial FCE-UMSS 2024).
+// Por ahora solo está poblada la Unidad 1; las demás aparecen como "próximamente"
+// con el orden y los títulos correctos para que se vea el roadmap completo.
+const RAZONAMIENTO_VERBAL_UNIDADES: Unidad[] = [
+  {
+    numero: "01", titulo: "Comprensión de lectura",
+    lecciones: [
+      { slug: "lectura-comprension", titulo: "Estrategia y prácticas guiadas" },
+    ],
+  },
+  { numero: "02", titulo: "Denotación, connotación y homonimia", lecciones: [
+    { titulo: "Significado literal y figurado" },
+  ] },
+  { numero: "03", titulo: "Léxico contextual", lecciones: [
+    { titulo: "Significado de palabras según el contexto" },
+  ] },
+  { numero: "04", titulo: "Cohesión", lecciones: [
+    { titulo: "Conectores y fluidez del texto" },
+  ] },
+  { numero: "05", titulo: "Plan de redacción", lecciones: [
+    { titulo: "Ordenar oraciones lógicamente" },
+  ] },
+  { numero: "06", titulo: "Expresión correcta de la oración", lecciones: [
+    { titulo: "Gramática, concordancia y puntuación" },
+  ] },
+  { numero: "07", titulo: "Analogías verbales", lecciones: [
+    { titulo: "Relaciones entre conceptos" },
+  ] },
+  { numero: "08", titulo: "Aseveraciones y cuantificadores", lecciones: [
+    { titulo: "Diagramas de Venn y razonamiento" },
+  ] },
+  { numero: "09", titulo: "Silogismos como argumento", lecciones: [
+    { titulo: "Razonamiento deductivo" },
+  ] },
+  { numero: "10", titulo: "Secuencias numéricas y literales", lecciones: [
+    { titulo: "Reconocimiento de patrones" },
+  ] },
+];
+
 const BLOQUES: Bloque[] = [
   {
     id: "fundamentos",
@@ -108,10 +147,16 @@ const BLOQUES: Bloque[] = [
     unidades: FUNDAMENTOS_UNIDADES,
   },
   {
-    id: "razonamiento-matematicas",
-    titulo: "Razonamiento verbal-lógico y matemáticas",
-    descripcion: "Operaciones, álgebra, funciones, ecuaciones y razonamiento que mide el examen.",
+    id: "razonamiento-matematico",
+    titulo: "Razonamiento matemático",
+    descripcion: "Operaciones, álgebra, funciones, ecuaciones, secuencias.",
     unidades: MATEMATICAS_UNIDADES,
+  },
+  {
+    id: "razonamiento-verbal-logico",
+    titulo: "Razonamiento verbal y lógico",
+    descripcion: "Comprensión de lectura, vocabulario, analogías, silogismos y secuencias lógicas.",
+    unidades: RAZONAMIENTO_VERBAL_UNIDADES,
   },
 ];
 
