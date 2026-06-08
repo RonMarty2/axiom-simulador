@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -76,6 +77,21 @@ function Esc01_Intro() {
         números, justificar por qué los métodos funcionan, y aplicarlos a problemas
         verbales y a fracciones.
       </Resumen>
+
+      <Hook>
+        En el examen UMSS aparecen 2-3 problemas con MCD/MCM (repartir, ciclos, fracciones).
+        La regla más útil: <em>factorización prima primero</em>. Una vez factorizados, el
+        MCD y MCM salen comparando factores comunes y no comunes.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"D = chico · M = grande"</strong>:<br />
+        — <strong>MCD</strong>: factores <strong>comunes</strong> con el menor exponente.
+        El MCD siempre es ≤ que cualquiera de los números originales.<br />
+        — <strong>MCM</strong>: <strong>TODOS</strong> los factores (de cualquier número)
+        con el mayor exponente. El MCM siempre es ≥ que cualquiera de los números originales.<br /><br />
+        Verificación: para cualquier par a, b: <strong>a × b = MCD(a,b) × MCM(a,b)</strong>.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -875,6 +891,23 @@ function Esc14_Errores() {
           Si no, hay un error en la factorización.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Test rápido · MCD ≤ menor número, MCM ≥ mayor número">
+        Si dos números son a = 12 y b = 18:<br />
+        — El MCD <strong>NO PUEDE</strong> ser mayor que 12 (el más chico). Si te da 24,
+        es error.<br />
+        — El MCM <strong>NO PUEDE</strong> ser menor que 18 (el más grande). Si te da 6,
+        es error.<br /><br />
+        Estos chequeos rápidos detectan el 90% de los errores de cálculo.
+      </Misconception>
+
+      <Conexion>
+        MCD/MCM numéricos conectan con: <strong>Fracciones</strong> (MCD para simplificar,
+        MCM para sumar/restar), <strong>MCD/MCM algebraicos</strong> (la misma idea con
+        polinomios), <strong>Repartos proporcionales</strong> (cuando usás 1/a, 1/b, 1/c
+        y necesitás común denominador), <strong>Problemas de ciclos</strong> (autobuses,
+        semáforos, etc).
+      </Conexion>
     </EscenaRica>
   );
 }
