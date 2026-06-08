@@ -8,6 +8,7 @@ import { Pizarra, Repetir, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Animación clave de logaritmos: el intercambio de roles entre la forma
@@ -126,6 +127,21 @@ function Esc01_Intro() {
         • <strong>Algoritmos</strong> (complejidad O(log n)).<br />
         • <strong>Despejar exponentes</strong> en ecuaciones tipo 2ˣ = 10.
       </Resumen>
+
+      <Hook>
+        Los logaritmos aparecen en <strong>2-3 preguntas del UMSS</strong> (definición,
+        propiedades, ecuaciones). El truco principal: <strong>log es la INVERSA del exponente</strong>.
+        Si dominás las 3 propiedades (producto→suma, cociente→resta, potencia→producto),
+        manejás todo el tema.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"P-C-Pot"</strong> · las 3 propiedades fundamentales del log:<br />
+        <strong>P</strong>roducto → suma · <strong>C</strong>ociente → resta ·
+        <strong> Pot</strong>encia → producto.<br /><br />
+        Cada operación "baja un nivel" cuando entra al log: el × se vuelve +, el ÷ se vuelve
+        −, el ^ se vuelve ×.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -290,6 +306,27 @@ function Esc07_Cambio() {
       <Ejemplo>
         log₂(7) = log(7) / log(2) ≈ 0.845 / 0.301 ≈ 2.807.
       </Ejemplo>
+
+      <WorkedExample titulo="¿Cuándo se duplica mi capital? · regla del 72">
+        Depositás 10.000 Bs al <strong>6% anual compuesto</strong>. ¿En cuántos años se
+        duplica?<br /><br />
+
+        <strong>Planteo:</strong> 10.000 · 1,06ⁿ = 20.000.<br />
+        Dividiendo: 1,06ⁿ = 2.<br /><br />
+
+        <strong>Aplicar log a ambos lados:</strong><br />
+        log(1,06ⁿ) = log(2).<br />
+        n · log(1,06) = log(2). (propiedad potencia→producto).<br />
+        n = log(2) / log(1,06) = 0,301 / 0,0253 ≈ <strong>11,9 años</strong>.<br /><br />
+
+        <strong>Aproximación rápida · "regla del 72":</strong><br />
+        n ≈ 72 / r% = 72 / 6 = <strong>12 años</strong>. ✓ (muy cerca del valor exacto).<br /><br />
+
+        <strong>Aplicación:</strong> con esa fórmula podés estimar al instante:<br />
+        Al 4% → 18 años. Al 8% → 9 años. Al 12% → 6 años. Al 24% → 3 años.<br />
+        Para cualquier objetivo (triplicar, cuadruplicar) usás log con el factor que
+        corresponda.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -333,6 +370,22 @@ function Esc09_Errores() {
         <strong>Error 3:</strong> (log x)² ≠ log(x²). <br />
         <span style={{ fontSize: 13 }}>Ojo a los paréntesis. log(x²) = 2·log(x). (log x)² es el cuadrado del logaritmo.</span>
       </Cuidado>
+
+      <Misconception titulo="log(a) / log(b) ≠ log(a/b)">
+        <strong>log(a/b) = log(a) − log(b)</strong> (resta, propiedad 2).<br />
+        <strong>log(a) / log(b)</strong> NO se simplifica directamente: es un cociente de
+        logs, usado para CAMBIO DE BASE: log_b(a).<br /><br />
+        Ej: log(8)/log(2) ≠ log(8/2) = log(4) = 0,602.<br />
+        log(8)/log(2) = log₂(8) = 3.<br /><br />
+        Son cosas distintas. Atención al paréntesis y al símbolo.
+      </Misconception>
+
+      <Conexion>
+        Logaritmación es la INVERSA de la <strong>Potenciación</strong>. Conecta también con:
+        <strong> Teoría de exponentes</strong> (todas las propiedades del log salen de las
+        de exponentes), <strong>Ecuaciones exponenciales</strong> (despejar x en aˣ = b),
+        <strong> Funciones logarítmicas</strong> (gráfico, dominio, asíntotas).
+      </Conexion>
     </EscenaRica>
   );
 }
