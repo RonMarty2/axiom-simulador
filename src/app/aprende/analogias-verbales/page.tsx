@@ -7,6 +7,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -87,6 +88,18 @@ function EscIntro() {
         Es uno de los ejercicios más usados para medir <strong>razonamiento inductivo</strong>: ver un
         patrón en un caso particular y trasladarlo a otro.
       </PorQue>
+
+      <Hook>
+        En el examen UMSS aparecen entre <strong>5 y 10 analogías</strong>. El truco: NO buscar
+        "qué palabra suena parecida", sino <strong>nombrar la relación</strong> antes de mirar las
+        opciones. Quien hace eso resuelve en 20 segundos; el resto adivina.
+      </Hook>
+
+      <Misconception titulo="Trampa común · 'me suena' no es relación">
+        Muchos eligen la opción que "se relaciona temáticamente" con el par original. ERROR. Lo que
+        importa es el <strong>TIPO</strong> de relación, no el tema. Si el par es <em>llave-abrir</em>
+        (función), la respuesta DEBE ser función, no algo con cerraduras.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -137,6 +150,49 @@ function EscProcedimiento() {
         <strong>4.</strong> Descartá las que NO siguen la misma relación (aunque parezcan plausibles).<br /><br />
         <strong>5.</strong> Verificá: ¿el TIPO de relación es idéntico? No solo "ambas son cosas".
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>Acrónimo "FPP-DV"</strong> · los 5 pasos:<br />
+        <strong>F</strong>rase puente · <strong>P</strong>robar en opciones ·
+        <strong> P</strong>recisar tipo · <strong>D</strong>escartar parecidas ·
+        <strong> V</strong>erificar simetría.<br /><br />
+        Atajo de bolsillo: <strong>"nombrá la relación con un verbo"</strong>. Si podés decir
+        "A <em>VERBO</em> B" (sirve para, produce, vive en, mide, es tipo de), tenés la frase
+        puente.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Procedimiento aplicado · 'martillo es a clavo como…'">
+        <strong>Pregunta:</strong> Martillo : clavo :: ?<br />
+        Opciones: (a) sierra : madera, (b) tornillo : destornillador, (c) destornillador : tornillo,
+        (d) cuchillo : pan, (e) hilo : aguja.<br /><br />
+
+        <strong>Paso 1 · Relación:</strong> el martillo GOLPEA al clavo (función + objeto sobre el
+        que actúa).<br /><br />
+
+        <strong>Paso 2 · Frase puente:</strong> "<em>la herramienta X actúa sobre el objeto Y para
+        fijarlo/transformarlo</em>".<br /><br />
+
+        <strong>Paso 3-4 · Probar:</strong><br />
+        (a) sierra-madera: la sierra CORTA madera. ¿Es lo mismo que martillo-clavo? La madera no
+        se "fija", se corta. Similar pero no idéntico. Dudoso.<br />
+        (b) tornillo-destornillador: INVERTIDA. El destornillador actúa sobre el tornillo, no al
+        revés. Descartada.<br />
+        (c) destornillador-tornillo: el destornillador HACE GIRAR al tornillo para fijarlo.
+        <strong> MISMA estructura</strong> que martillo-clavo (herramienta + pieza que se fija).<br />
+        (d) cuchillo-pan: corta, no fija. Como (a), similar pero no idéntico.<br />
+        (e) hilo-aguja: ambos son herramientas de coser, no hay relación herramienta-objeto.
+        Descartada.<br /><br />
+
+        <strong>Paso 5 · Verificación:</strong> ¿(c) tiene la MISMA simetría que martillo-clavo?
+        Sí: herramienta + pieza metálica que se fija en otro material por la acción de la
+        herramienta. <strong>Respuesta: (c)</strong>.
+      </WorkedExample>
+
+      <Misconception titulo="Trampa · pares invertidos">
+        Casi siempre hay una opción <strong>con el orden invertido</strong>: si el par es
+        martillo:clavo (herramienta:pieza), una opción será clavo:martillo (pieza:herramienta).
+        Parece correcta pero la DIRECCIÓN importa. Siempre chequeá el orden.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -380,6 +436,14 @@ function EscResumen() {
         <strong>5.</strong> Si dos opciones parecen igual de buenas, elegí la más SIMÉTRICA: la que
         comparte el mismo campo semántico que el par original (astronomía, animales, profesiones, etc).
       </Resumen>
+
+      <Misconception titulo="Las 3 trampas más comunes">
+        <strong>(a)</strong> Misma palabra, distinto tipo de relación (parece familiar pero no
+        sigue el patrón).<br />
+        <strong>(b)</strong> Orden invertido (cambia la dirección del puente).<br />
+        <strong>(c)</strong> Campo semántico distinto (los pares originales son astronómicos, la
+        opción "buena" es animal — descartá).
+      </Misconception>
     </EscenaRica>
   );
 }
