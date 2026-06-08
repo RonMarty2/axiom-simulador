@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -51,6 +52,13 @@ function Esc01_Intro() {
         • <strong>Tipo de cambio</strong>: 1 USD : 6.96 Bs es una razón.<br />
         • <strong>Mezclas y porcentajes</strong>: una solución al 30% es una razón 30:100.
       </Resumen>
+
+      <Hook>
+        Razones y proporciones son la <strong>base teórica de regla de tres, repartos,
+        porcentajes y escalas</strong>. Si entendés esta unidad, las próximas son aplicaciones
+        directas. El examen UMSS suele pedir identificar términos (extremos y medios) y
+        despejar valores faltantes.
+      </Hook>
     </EscenaRica>
   );
 }
@@ -203,6 +211,13 @@ function Esc05_Terminos() {
         Esta clasificación es la que nos lleva a la <strong>propiedad fundamental</strong>:
         próxima escena.
       </Parrafo>
+
+      <Mnemotecnia>
+        <strong>Truco para no confundir</strong>:<br />
+        Las palabras E<strong>X</strong>TREMOS comparten la "X" con las e<strong>X</strong>quinas
+        del símbolo "::": los de los <em>bordes</em>.<br />
+        Los MEDIOS son los del <em>medio</em>: pegados al "=".
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -332,6 +347,25 @@ function Esc08_Problemas() {
         Cuando armes la proporción, <strong>mantené las mismas unidades arriba y abajo</strong>:
         kg arriba con kg arriba, Bs con Bs. Si no lo hacés, te equivocás.
       </Cuidado>
+
+      <WorkedExample titulo="Proporción con cambio de moneda · Bs vs USD">
+        El tipo de cambio oficial Bolivia es <strong>6,96 Bs = 1 USD</strong>. Querés saber
+        cuántos dólares son <strong>1.500 Bs</strong>.<br /><br />
+
+        <strong>Planteo:</strong><br />
+        6,96 Bs / 1 USD = 1500 Bs / x USD.<br /><br />
+
+        <strong>Aplico propiedad fundamental:</strong><br />
+        6,96 · x = 1 · 1500.<br />
+        6,96 x = 1500.<br />
+        x = 1500 / 6,96 = <strong>215,52 USD</strong>.<br /><br />
+
+        <strong>Verificación:</strong> 215,52 × 6,96 ≈ 1500 ✓.<br /><br />
+
+        <strong>Cuidado con la trampa:</strong> si en el examen aparece "tipo de cambio paralelo
+        a 10 Bs por dólar", el mismo monto da:<br />
+        1500 / 10 = <strong>150 USD</strong> (mucho menos). El dato del enunciado importa.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -362,6 +396,19 @@ function Esc09_Errores() {
           a/b = c/d ⟹ a·d = b·c. <strong>NO</strong> es a·c = b·d. Multiplicás en cruz.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Razón 3:2 NO significa '3 enteros sobre 2 enteros'">
+        Si en una clase la razón mujeres:hombres es 3:2, NO quiere decir que sean exactamente
+        3 mujeres y 2 hombres. Significa que por <em>cada</em> 3 mujeres hay 2 hombres. Podrían
+        ser 6:4, 9:6, 30:20, etc. La razón habla de PROPORCIÓN, no de cantidades absolutas.
+      </Misconception>
+
+      <Conexion>
+        Esta unidad alimenta directamente: <strong>Regla de tres</strong> (proporción con un
+        valor faltante), <strong>Repartos proporcionales</strong> (sumar partes y aplicar
+        proporción), <strong>Porcentajes</strong> (razón sobre 100), <strong>Funciones
+        lineales</strong> (y = kx es proporcionalidad directa con k = razón constante).
+      </Conexion>
     </EscenaRica>
   );
 }
