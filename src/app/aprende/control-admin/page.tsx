@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -43,6 +44,18 @@ function Esc01() {
         Sin control, no se puede saber si lo planeado se está logrando. Es la última función del proceso
         administrativo, pero también la que <strong>cierra el ciclo</strong> hacia una nueva planeación.
       </PorQue>
+
+      <Hook>
+        La <strong>C</strong> de POIDC. Cerrás el ciclo. Es la función más matemática: estándares vs
+        realidad, desviaciones, métricas. <strong>"Lo que no se mide, no se mejora"</strong> (Peter
+        Drucker).
+      </Hook>
+
+      <Misconception titulo="Control ≠ vigilancia ni castigo">
+        El control administrativo NO es "vigilar para castigar". Es <strong>medir para corregir</strong>.
+        Si un control solo busca encontrar culpables, los empleados ocultan errores y el sistema
+        falla. Si busca aprender, se reportan a tiempo y se mejora.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -76,6 +89,34 @@ function Esc03() {
         <strong>4. Acciones correctivas</strong> — si las desviaciones son significativas, se toman
         medidas para corregirlas.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>"E-M-C-A"</strong> — las 4 fases del control:<br />
+        <strong>E</strong>stándares · <strong>M</strong>edición · <strong>C</strong>omparación ·
+        <strong> A</strong>cciones correctivas.<br /><br />
+        Frase: <em>"Estándares Miden, Comparan, Actúan"</em>.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Control en acción · tienda de electrodomésticos en Cochabamba">
+        Tienda con meta mensual de 200 ventas.<br /><br />
+
+        <strong>1. Estándar:</strong> 200 ventas/mes = ~7 ventas/día (con 28 días hábiles). Cada
+        vendedor: 70 ventas/mes.<br /><br />
+
+        <strong>2. Medición:</strong> al día 15, llevamos 80 ventas (40% del objetivo).
+        Vendedor A: 35. Vendedor B: 28. Vendedor C: 17.<br /><br />
+
+        <strong>3. Comparación:</strong> esperaríamos 100 ventas al día 15. Estamos 20 por debajo
+        (−10% del objetivo proyectado). El vendedor C está 50% bajo su meta.<br /><br />
+
+        <strong>4. Acciones correctivas:</strong><br />
+        — Capacitación express para vendedor C.<br />
+        — Promoción especial los próximos 5 días (descuento 10%).<br />
+        — Refuerzo de marketing en redes locales.<br /><br />
+
+        <strong>Sin las 4 fases, el dueño se enteraría al fin de mes que falló — sin tiempo de
+        corregir.</strong>
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -96,6 +137,24 @@ function Esc04() {
         En una línea de producción, sensores de calidad detectan errores en tiempo real (concurrente).
         Si una máquina falla, el supervisor detiene la línea para ajustarla, evitando pérdidas mayores.
       </Ejemplo>
+
+      <Mnemotecnia>
+        <strong>"ANTES-DURANTE-DESPUÉS"</strong> — los 3 tipos:<br />
+        <strong>P</strong>reventivo (ANTES) · <strong>C</strong>oncurrente (DURANTE) ·
+        <strong> C</strong>orrectivo (DESPUÉS).<br /><br />
+        En el examen suelen preguntar "¿cuál se aplica DURANTE la ejecución?" → siempre concurrente.
+      </Mnemotecnia>
+
+      <CasoBolivia>
+        <strong>Control en una salteñería de El Prado:</strong><br />
+        — <strong>Preventivo:</strong> capacitar al chef en proporciones para que cada salteña tenga
+        exactamente 8 gramos de carne. Comprar carne fresca cada mañana.<br />
+        — <strong>Concurrente:</strong> el dueño revisa cada bandeja al salir del horno: ¿buena
+        coloración? ¿no se reventaron?<br />
+        — <strong>Correctivo:</strong> al cierre, revisa ventas y feedback de clientes. ¿Hubo
+        quejas? Mañana ajusta la receta.<br /><br />
+        Los 3 tipos coexisten en una operación bien controlada.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -152,6 +211,19 @@ function Esc07() {
         Conocer las limitaciones permite diseñar sistemas de control <strong>proporcionados</strong>: ni
         tan laxos que no detecten nada, ni tan estrictos que asfixien a la organización.
       </PorQue>
+
+      <Misconception titulo="Más control NO siempre = mejor empresa">
+        Si una empresa tiene 10 niveles de aprobación para comprar un lapicero, no controla mejor:
+        se paraliza. El exceso de control mata la agilidad. El secreto: controlar lo CRÍTICO con
+        rigor y soltar lo trivial.
+      </Misconception>
+
+      <Conexion>
+        Con esta C cerramos las 5 funciones del proceso administrativo: <strong>P</strong>laneación,
+        <strong> O</strong>rganización, <strong>I</strong>ntegración de personal,
+        <strong> D</strong>irección, <strong>C</strong>ontrol. Pero el ciclo no termina: los
+        resultados del control alimentan la próxima planeación. Es un BUCLE continuo.
+      </Conexion>
     </EscenaRica>
   );
 }
