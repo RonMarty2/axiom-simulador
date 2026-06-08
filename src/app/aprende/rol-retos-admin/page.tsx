@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -46,6 +47,38 @@ function Esc01() {
         A medida que un administrador sube en la jerarquía, las habilidades técnicas pesan menos y las
         conceptuales pesan más. Las humanas son cruciales en todos los niveles.
       </PorQue>
+
+      <Hook>
+        <strong>Robert Katz</strong> publicó esta clasificación en 1955 (Harvard Business Review) y
+        sigue siendo la base de toda formación gerencial 70 años después. El examen UMSS la pregunta
+        explícitamente.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"T-H-C"</strong> — las 3 habilidades de Katz:<br />
+        <strong>T</strong>écnicas (saber HACER, pesa abajo) ·
+        <strong> H</strong>umanas (saber RELACIONARSE, pesa en todos) ·
+        <strong> C</strong>onceptuales (saber PENSAR sistémicamente, pesa arriba).<br /><br />
+        Truco: en la <strong>pirámide</strong>, las técnicas son la BASE y las conceptuales el TOPE.
+        Las humanas atraviesan los 3 niveles.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Las 3 habilidades en perfiles reales">
+        <strong>Operario (línea de embotellado CBN):</strong> 70% técnicas (manejar la máquina),
+        25% humanas (trabajar en turno con 3 compañeros), 5% conceptuales.<br /><br />
+
+        <strong>Supervisor de planta:</strong> 40% técnicas, 40% humanas (motivar al equipo de 12),
+        20% conceptuales (ajustar tiempos).<br /><br />
+
+        <strong>Gerente de operaciones:</strong> 20% técnicas, 40% humanas, 40% conceptuales
+        (decidir cambio de línea, negociar con proveedores).<br /><br />
+
+        <strong>CEO/Gerente General:</strong> 5% técnicas, 35% humanas, 60% conceptuales (estrategia
+        a 5 años, alianzas, fusiones).<br /><br />
+
+        <strong>Patrón:</strong> mientras subís, lo técnico baja y lo conceptual sube. Lo humano
+        nunca baja.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -85,6 +118,23 @@ function Esc03() {
         La RSE se ha vuelto <strong>crucial para construir reputación</strong> y generar confianza con
         los stakeholders (clientes, empleados, inversores, comunidad).
       </PorQue>
+
+      <CasoBolivia>
+        <strong>Ejemplos de RSE en Bolivia:</strong><br />
+        — <strong>SOBOCE</strong> tiene programas de educación en comunidades vecinas a sus
+        plantas y reforestación.<br />
+        — <strong>BCP Bolivia</strong> impulsa inclusión financiera con microcréditos a mujeres
+        emprendedoras.<br />
+        — <strong>Tigo Bolivia</strong> tiene la Fundación Reciduca: programa de retención escolar
+        en colegios de bajos recursos.<br /><br />
+        En Bolivia, la RSE no es obligación legal pero gana mercado: el consumidor joven la valora.
+      </CasoBolivia>
+
+      <Misconception titulo="RSE ≠ marketing disfrazado">
+        Muchas empresas hacen RSE solo "para la foto" (lo llaman <em>greenwashing</em> si es
+        ambiental). La RSE real cambia procesos internos: cómo se compra, cómo se trata al
+        proveedor, cómo se descarta. Sin cambio interno, es solo publicidad.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -172,6 +222,31 @@ function Esc07() {
         Una empresa puede ser <strong>eficaz e ineficiente</strong>: logra metas pero gastando de más.
         La buena administración busca ser eficaz Y eficiente.
       </Cuidado>
+
+      <WorkedExample titulo="Productividad numérica · zapatería Doña Edith en Cochabamba">
+        Equipo de 4 zapateros, producen 100 pares de zapatos al mes con un costo de 12.000 Bs en
+        materiales + sueldos.<br /><br />
+
+        <strong>Productividad actual:</strong> 100 pares / 12.000 Bs = <strong>0,0083 pares por
+        boliviano</strong>. O al revés: <strong>120 Bs de costo por par</strong>.<br /><br />
+
+        <strong>Camino 1 · subir producción:</strong> Doña Edith capacita a su equipo y suben a 120
+        pares con los mismos 12.000 Bs. Nueva productividad: 100 Bs/par. <strong>Mejora 16,6%</strong>.<br /><br />
+
+        <strong>Camino 2 · bajar insumos:</strong> Compra cuero al por mayor, baja costo a 10.000 Bs
+        manteniendo 100 pares. Nueva productividad: 100 Bs/par. <strong>Mejora 16,6%</strong>.<br /><br />
+
+        <strong>Camino 3 · ambos:</strong> 120 pares con 10.000 Bs = 83 Bs/par. <strong>Mejora 30,8%</strong>.<br /><br />
+
+        <strong>Pero cuidado:</strong> si Doña Edith baja la calidad del cuero (camino 2 mal hecho),
+        los clientes se quejan y vuelven menos. La fórmula también incluye CALIDAD.
+      </WorkedExample>
+
+      <Misconception titulo="Productividad ≠ trabajar más horas">
+        Muchos creen que "ser más productivo" es trabajar más. Falso. Productividad es
+        <strong> producir MÁS con lo MISMO</strong> (o con MENOS). Trabajar 12 horas en vez de 8
+        no aumenta productividad si producís proporcionalmente más; solo aumenta producción TOTAL.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -195,6 +270,13 @@ function Esc08() {
         <strong>Controlar</strong> — medir y corregir el desempeño para asegurar que los hechos se
         ajusten a los planes.
       </Resumen>
+
+      <Conexion>
+        Esta unidad es el cierre del Bloque 1 sobre administración. Te queda claro el QUÉ
+        (funciones, habilidades, ética). Las próximas unidades verán otras temáticas: contabilidad,
+        economía, razonamiento. Esta base te va a servir en cualquier carrera de Ciencias Económicas
+        Empresariales en la UMSS.
+      </Conexion>
     </EscenaRica>
   );
 }
