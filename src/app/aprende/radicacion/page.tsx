@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -70,6 +71,24 @@ function Esc01_Intro() {
         radicales, cómo sumar/restar/multiplicar/dividir radicales, y cómo "racionalizar"
         (sacar las raíces del denominador).
       </Resumen>
+
+      <Hook>
+        Radicación es la inversa de potenciación, exactamente como restar es la inversa de
+        sumar. Aparece en <strong>3-4 preguntas del UMSS</strong> (simplificar, racionalizar,
+        operar). Su clave: <em>las raíces son exponentes fraccionarios</em>, por lo que TODAS
+        las reglas de exponentes aplican.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Equivalencia clave · "raíz = exponente fraccionario"</strong>:<br />
+        <strong>ⁿ√(aᵐ) = a^(m/n)</strong>.<br /><br />
+        Ejemplos:<br />
+        — √x = x^(1/2). <br />
+        — ³√(x²) = x^(2/3).<br />
+        — ⁴√x = x^(1/4).<br /><br />
+        Con esto, cualquier problema con radicales se puede traducir a exponentes y resolver
+        con las 5 propiedades.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -745,6 +764,23 @@ function Esc12_Errores() {
           √(−16) no existe en reales. ⁴√(−1) tampoco. Pero ³√(−8) = −2 sí existe (índice impar).
         </span>
       </Cuidado>
+
+      <Misconception titulo="x² = 25 → x = ±5 · pero √25 = 5 SOLO">
+        <strong>Distinción crucial:</strong><br />
+        — Resolver la ECUACIÓN x² = 25 → soluciones x = +5 y x = −5 (ambas cumplen).<br />
+        — Calcular el VALOR de √25 → es solamente +5 (la raíz cuadrada principal es no negativa
+        por convención).<br /><br />
+        La diferencia es entre "encontrar x que cumple" (todas las raíces) vs "calcular un
+        número" (la raíz principal).
+      </Misconception>
+
+      <Conexion>
+        Radicación conecta con: <strong>Potenciación</strong> (operación inversa),
+        <strong> Teoría de exponentes</strong> (raíz = exponente fraccionario),
+        <strong> Logaritmación</strong> (también deshace potencias),
+        <strong> Operaciones con radicales</strong> (suma/resta/mult/div),
+        <strong> Ecuaciones cuadráticas</strong> (la fórmula incluye √Δ).
+      </Conexion>
     </EscenaRica>
   );
 }
