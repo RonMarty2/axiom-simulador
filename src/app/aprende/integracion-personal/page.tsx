@@ -5,6 +5,7 @@ import { COLOR_OK } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -44,6 +45,26 @@ function Esc01() {
         Las principales funciones de RRHH son: planificación de la mano de obra, reclutamiento,
         selección, capacitación, evaluación de desempeño, desarrollo de carreras y retención.
       </Resumen>
+
+      <Hook>
+        La <strong>I</strong> de POIDC. Después de planear (P) y organizar (O), hay que llenar los
+        puestos con personas. Es la función más HUMANA de la administración: la única donde el
+        "recurso" piensa, siente y puede renunciar.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"P-R-S-C-E-D-R"</strong> · las 7 funciones de RRHH en orden cronológico:<br />
+        <strong>P</strong>lanificación → <strong>R</strong>eclutamiento → <strong>S</strong>elección →
+        <strong> C</strong>apacitación → <strong>E</strong>valuación → <strong>D</strong>esarrollo →
+        <strong> R</strong>etención.<br /><br />
+        Mismo flujo que el ciclo de vida del empleado en la empresa.
+      </Mnemotecnia>
+
+      <Misconception titulo="RRHH ≠ solo contratar y despedir">
+        Mucha gente cree que RRHH es solo el área que contrata o "echa" personal. Esa visión cubre
+        el 20% del trabajo. El otro 80% es: capacitar, motivar, evaluar, planificar carreras,
+        manejar conflictos, retener talento.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -82,6 +103,16 @@ function Esc03() {
         <strong>Reclutamiento externo</strong> — agencias de empleo, instituciones educativas, publicidad,
         redes sociales. <em>Ventaja</em>: nuevas ideas. <em>Desventaja</em>: más costoso y lento.
       </Resumen>
+
+      <CasoBolivia>
+        En Bolivia, el reclutamiento se concentra en:<br />
+        — <strong>Internas:</strong> LinkedIn (gerencias), Jobs.bo, Trabajopolis, redes
+        Facebook/Instagram.<br />
+        — <strong>Bolsas universitarias:</strong> UMSS, UMSA, UPB, UCB tienen oficinas de
+        relaciones con empresas.<br />
+        — <strong>Headhunters</strong> para cargos directivos (Cerebros, Manpower, etc.).<br />
+        Para PyMEs, el "boca a boca" sigue siendo el canal #1.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -169,6 +200,40 @@ function Esc07() {
         <strong>Teoría X e Y de McGregor</strong> — distintos supuestos sobre cómo es el empleado y cómo
         debe ser dirigido.
       </Resumen>
+
+      <WorkedExample titulo="Maslow aplicado · qué motiva en cada nivel de la pirámide">
+        <strong>Nivel 1 · fisiológicas:</strong> salario que cubra comida, refugio.<br />
+        → Empleado de salario mínimo de la construcción: lo motiva el sueldo y horas extras pagadas.
+        <br /><br />
+
+        <strong>Nivel 2 · seguridad:</strong> contrato estable, seguro de salud, AFP.<br />
+        → Empleado con familia que busca trabajar en YPFB o el sector público.<br /><br />
+
+        <strong>Nivel 3 · sociales:</strong> pertenecer a un buen equipo, amigos en el trabajo.<br />
+        → Joven recién graduado que valora el clima y los after-office.<br /><br />
+
+        <strong>Nivel 4 · estima:</strong> reconocimiento, ascensos, premios.<br />
+        → Gerente medio que necesita su nombre en el organigrama y un cargo visible.<br /><br />
+
+        <strong>Nivel 5 · autorrealización:</strong> hacer algo significativo, dejar huella.<br />
+        → Profesional senior que quiere crear, enseñar, mentorear.<br /><br />
+
+        <strong>Insight:</strong> si tu equipo está en nivel 1-2, subirles el sueldo motiva. Si ya
+        están en nivel 4-5, lo que motiva es <em>responsabilidad y propósito</em>, no más plata.
+      </WorkedExample>
+
+      <Misconception titulo="Más sueldo NO siempre motiva más">
+        Subir el salario motiva mucho cuando alguien no llega a fin de mes. Pero a partir de cierto
+        nivel, motiva poco. Herzberg lo explicó: el dinero es factor higiénico, no motivador. Lo que
+        motiva sostenidamente: <strong>reconocimiento, autonomía, responsabilidad, propósito</strong>.
+      </Misconception>
+
+      <Mnemotecnia>
+        <strong>Maslow · pirámide</strong> de abajo arriba: <strong>"F-S-S-E-A"</strong> ·
+        <em>Fisio-Seguridad-Social-Estima-Autorrealización</em>.<br /><br />
+        En el examen, suelen mezclar el orden (poniendo Estima antes de Social, etc.). Si memorizás
+        F-S-S-E-A no te confunden.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -191,6 +256,12 @@ function Esc08() {
         Reemplazar a un empleado clave puede costar varias veces su salario anual (reclutamiento,
         formación, pérdida de productividad). Por eso retener vale tanto como contratar bien.
       </Cuidado>
+
+      <Conexion>
+        Esta es la <strong>I</strong> de POIDC. La siguiente función es <strong>D</strong>irección:
+        una vez integrado el personal, hay que liderarlo. Y luego viene <strong>C</strong>ontrol:
+        medir si los integrantes están cumpliendo objetivos.
+      </Conexion>
     </EscenaRica>
   );
 }
