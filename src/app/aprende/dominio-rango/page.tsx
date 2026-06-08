@@ -8,6 +8,7 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Proyección dominio/rango: dibuja y = x², luego "proyecta" verticalmente a x
@@ -111,6 +112,20 @@ function Esc01_Intro() {
       <Resumen>
         Dominio se lee en el <strong>eje X</strong>. Rango se lee en el <strong>eje Y</strong>.
       </Resumen>
+
+      <Hook>
+        Calcular el dominio aparece en <strong>2-3 preguntas del UMSS</strong>. Es una de las
+        preguntas con respuesta más rápida: si identificás las 3 restricciones típicas
+        (denominador, raíz par, log), resolvés cualquier dominio en 15 segundos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Truco de los ejes "X-Y"</strong>:<br />
+        <strong>D</strong>ominio → eje <strong>X</strong> ("D" tiene la "x" en el alfabeto
+        más cerca).<br />
+        <strong>R</strong>ango → eje <strong>Y</strong>.<br />
+        Otro: dominio = "entradas" (lo que pongo), rango = "salidas" (lo que sale).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -128,6 +143,15 @@ function Esc02_Restricciones() {
       <Parrafo>
         Si tu función NO tiene ninguna de estas, el dominio es <strong>todos los reales</strong>.
       </Parrafo>
+
+      <Mnemotecnia>
+        <strong>"D-R-L" · las 3 restricciones del dominio</strong>:<br />
+        <strong>D</strong>enominador (≠ 0) ·
+        <strong> R</strong>aíz par (radicando ≥ 0) ·
+        <strong> L</strong>og (argumento &gt; 0).<br /><br />
+        En el examen siempre escaneá la fórmula buscando estos 3 elementos. Si no hay
+        ninguno → dominio = ℝ. Si hay varios, intersecás las condiciones.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -267,6 +291,39 @@ function Esc07_Errores() {
       <Cuidado>
         Confundir dominio con rango. Dominio = X. Rango = Y.
       </Cuidado>
+
+      <WorkedExample titulo="Función con MÚLTIPLES restricciones · f(x) = √(x−2) / (x−5)">
+        Esta función tiene <strong>2 restricciones a la vez</strong>: raíz par y denominador.
+        Hay que aplicar ambas.<br /><br />
+
+        <strong>Restricción 1 · raíz:</strong> x − 2 ≥ 0 → <strong>x ≥ 2</strong>.<br /><br />
+
+        <strong>Restricción 2 · denominador:</strong> x − 5 ≠ 0 → <strong>x ≠ 5</strong>.<br /><br />
+
+        <strong>Intersección:</strong> ambas se deben cumplir simultáneamente:<br />
+        Dominio = <strong>{`{ x ∈ ℝ : x ≥ 2 y x ≠ 5 }`} = [2, 5) ∪ (5, +∞)</strong>.<br /><br />
+
+        <strong>Sentido gráfico:</strong> la función existe desde x = 2 hacia la derecha,
+        pero tiene un "hueco" en x = 5 (asíntota vertical).<br /><br />
+
+        <strong>Regla general:</strong> con múltiples restricciones, escribís cada una y
+        después <em>intersecás</em>. Nunca olvides la condición más restrictiva.
+      </WorkedExample>
+
+      <Misconception titulo="Raíz cúbica vs raíz cuadrada">
+        <strong>√(x − 4)</strong>: índice par → x − 4 ≥ 0 → x ≥ 4.<br />
+        <strong>³√(x − 4)</strong>: índice IMPAR → SIN restricción → dominio = ℝ.<br /><br />
+        Las raíces impares (³√, ⁵√, ⁷√…) aceptan números negativos. Solo las pares (√, ⁴√,
+        ⁶√…) requieren radicando ≥ 0.
+      </Misconception>
+
+      <Conexion>
+        Dominio y rango conectan con: <strong>Inecuaciones</strong> (para resolver las
+        restricciones), <strong>Funciones lineales/cuadráticas</strong> (cada una tiene su
+        dominio y rango característicos), <strong>Logaritmación y radicación</strong> (que
+        imponen restricciones), y <strong>Cálculo</strong> (donde el dominio define dónde la
+        función es derivable).
+      </Conexion>
     </EscenaRica>
   );
 }
