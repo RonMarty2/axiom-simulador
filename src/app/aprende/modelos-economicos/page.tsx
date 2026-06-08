@@ -8,6 +8,8 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion,
+  WorkedExample, MiniQuiz,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -18,10 +20,13 @@ export default function Page() {
       escenas={[
         { titulo: "¿Por qué usar modelos?", componente: Esc01 },
         { titulo: "Modelo 1 · Flujo circular", componente: Esc02 },
-        { titulo: "Recorrido de un billete", componente: Esc03 },
+        { titulo: "Recorrido de un billete · 50 Bs en Cocha", componente: Esc03 },
         { titulo: "Modelo 2 · Frontera de posibilidades (FPP)", componente: Esc04 },
+        { titulo: "Caso resuelto · FPP boliviana (gas vs alimentos)", componente: Esc04b },
         { titulo: "Costo de oportunidad creciente", componente: Esc05 },
-        { titulo: "Lo que la FPP nos muestra", componente: Esc06 },
+        { titulo: "Las 5 ideas que muestra la FPP", componente: Esc06 },
+        { titulo: "Crecimiento económico · cómo se mueve la FPP", componente: Esc06b },
+        { titulo: "Mnemotecnia + errores típicos", componente: EscMnemo },
         { titulo: "Práctica final", componente: Esc07 },
       ]}
     />
@@ -199,19 +204,25 @@ function Esc01() {
   return (
     <EscenaRica>
       <Titulo>¿Por qué los economistas usan modelos?</Titulo>
-      <Parrafo>
-        Los profesores de biología enseñan anatomía con réplicas plásticas del cuerpo: omiten detalles,
-        pero permiten ver lo importante. Los economistas hacen lo mismo, pero con <strong>diagramas y
-        ecuaciones</strong>.
-      </Parrafo>
+      <Hook>
+        Cuando alguien te muestra un mapa de Cochabamba, ese mapa NO incluye cada baldosa, cada
+        farol, cada perro. Igual sirve para llegar a destino.<br /><br />
+        <strong>Un modelo económico es un mapa así</strong>: omite los detalles para que veas el
+        camino general.
+      </Hook>
       <Definicion termino="modelo económico">
-        Representación simplificada de la realidad. Se basa en <strong>supuestos</strong> (como los físicos
-        suponen "sin fricción") para enfocarse en lo esencial.
+        Representación <strong>simplificada</strong> de la realidad. Se basa en supuestos (como los
+        físicos suponen "sin fricción") para enfocarse en lo esencial.
       </Definicion>
-      <PorQue>
-        La economía real es enormemente compleja. Los modelos permiten aprender el funcionamiento del
-        sistema sin perderse en infinitos detalles. Veremos los dos más clásicos.
-      </PorQue>
+      <Misconception>
+        <strong>"Si un modelo es simple, es malo."</strong> Al contrario: un modelo demasiado
+        complejo es inútil. La gracia del modelo es <em>simplificar</em> sin perder lo importante.
+        Un mapa con cada baldosa no te ayuda a llegar.
+      </Misconception>
+      <Parrafo>
+        Acá vas a ver los DOS modelos más usados en economía. Los dos caben en un sólo dibujo y
+        explican más de lo que parece.
+      </Parrafo>
     </EscenaRica>
   );
 }
@@ -221,16 +232,27 @@ function Esc02() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Modelo 1 · El diagrama de flujo circular</Titulo>
       <Parrafo>
-        La economía está formada por millones de personas. El flujo circular simplifica todo en dos
-        actores: <strong>familias</strong> y <strong>empresas</strong>, que interactúan en dos mercados.
+        La economía está formada por millones de personas. El flujo circular simplifica todo en
+        dos actores: <strong>familias</strong> y <strong>empresas</strong>, que interactúan en dos
+        mercados.
       </Parrafo>
       <FlujoCircular />
       <Resumen>
         <strong>Mercado de bienes y servicios</strong> (arriba): las empresas venden, las familias
-        compran.<br />
-        <strong>Mercado de factores de producción</strong> (abajo): las familias venden trabajo, tierra y
-        capital; las empresas pagan sueldos, alquileres y dividendos.
+        compran. El dinero va en sentido opuesto.<br /><br />
+        <strong>Mercado de factores de producción</strong> (abajo): las familias venden trabajo,
+        tierra y capital; las empresas pagan sueldos, alquileres y dividendos.
       </Resumen>
+      <Misconception>
+        <strong>"Solo el dinero circula."</strong> No. En el diagrama, los bienes y los factores
+        también circulan — en sentido OPUESTO al dinero. Lo que va por un carril, vuelve por el
+        otro. Eso es lo que hace "circular" al modelo.
+      </Misconception>
+      <Conexion>
+        El flujo circular es la base para entender el <strong>PIB</strong>: se puede medir sumando
+        gastos (carril del dinero arriba), ingresos (sueldos abajo) o producción (bienes). Los tres
+        métodos dan el mismo número, justamente porque es un circuito.
+      </Conexion>
     </EscenaRica>
   );
 }
@@ -238,17 +260,37 @@ function Esc02() {
 function Esc03() {
   return (
     <EscenaRica>
-      <Titulo>Recorrido de un billete</Titulo>
-      <Parrafo>
-        Imaginemos un billete que circula:
-      </Parrafo>
-      <Resumen>
-        <strong>1.</strong> Sale del bolsillo de una familia para comprar un café.<br />
-        <strong>2.</strong> Entra a la caja de la cafetería: se vuelve <strong>ingreso</strong>.<br />
-        <strong>3.</strong> La cafetería paga el alquiler del local o el sueldo de sus empleados.<br />
-        <strong>4.</strong> El billete vuelve al bolsillo de una familia.<br /><br />
-        Y el ciclo empieza otra vez.
-      </Resumen>
+      <Titulo>Recorrido de un billete · 50 Bs en La Cancha</Titulo>
+      <Hook>
+        Tenés un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), comprás una
+        marraqueta y un trozo de queso. <strong>¿Dónde termina ese billete?</strong> Seguilo:
+      </Hook>
+      <WorkedExample titulo="El recorrido del billete de 50 Bs">
+        <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14, lineHeight: 1.7 }}>
+          <li><strong>Paso 1.</strong> Salís de casa (familia) con 50 Bs. Llegás a La Cancha.</li>
+          <li>
+            <strong>Paso 2.</strong> Comprás la marraqueta y queso a doña María (empresa pequeña).
+            Le diste 50 Bs. → <em>ingreso de la empresa</em>.
+          </li>
+          <li>
+            <strong>Paso 3.</strong> Doña María paga a su sobrina que la ayuda en el puesto: 20 Bs.
+            El resto: 15 Bs son insumos (compró harina al panadero), 10 Bs ganancia, 5 Bs alquiler
+            del puesto.
+          </li>
+          <li>
+            <strong>Paso 4.</strong> La sobrina (otra familia) recibe los 20 Bs como sueldo.
+          </li>
+          <li>
+            <strong>Paso 5.</strong> La sobrina al día siguiente compra arroz en otro puesto. El
+            billete sigue circulando.
+          </li>
+        </ul>
+        <p style={{ marginTop: 8, marginBottom: 0 }}>
+          <strong>Lección:</strong> tu billete fue al menos 2 ingresos distintos (doña María y su
+          sobrina). El dinero <strong>no desaparece</strong>, simplemente cambia de mano. Por eso
+          gastar dinero crea actividad económica.
+        </p>
+      </WorkedExample>
       <PorQue>
         Por eso el diagrama se llama <em>circular</em>: el dinero y los bienes/factores circulan
         continuamente entre familias y empresas, a través de los dos mercados.
@@ -260,21 +302,68 @@ function Esc03() {
 function Esc04() {
   return (
     <EscenaRica>
-      <Titulo>Modelo 2 · Frontera de posibilidades de producción (FPP)</Titulo>
+      <Titulo>Modelo 2 · Frontera de Posibilidades de Producción (FPP)</Titulo>
+      <Hook>
+        Bolivia tiene una cantidad limitada de tierra, trabajadores, fábricas y tiempo. Si dedica
+        TODO a producir gas, no le queda nada para producir alimentos. Si dedica todo a alimentos,
+        no produce gas. <strong>¿Cuál es la combinación máxima posible?</strong> La FPP te lo
+        muestra.
+      </Hook>
       <Definicion termino="FPP">
         Gráfica que muestra las distintas combinaciones de producción que la economía puede lograr,
-        dados los recursos y la tecnología disponibles.
+        dados los <strong>recursos y la tecnología disponibles</strong>.
       </Definicion>
       <Parrafo>
-        Supongamos que una economía produce solo dos bienes: <strong>autos</strong> y <strong>computadoras</strong>.
-        Tocá los botones para ver qué significa cada punto.
+        El ejemplo clásico: una economía que solo produce <strong>autos</strong> y{" "}
+        <strong>computadoras</strong>. Tocá los botones para ver qué significa cada punto.
       </Parrafo>
       <FPP />
       <Resumen>
-        • Puntos <strong>sobre la curva</strong> = producción <strong>eficiente</strong> (A, B).<br />
-        • Puntos <strong>afuera</strong> = imposibles con los recursos actuales (C).<br />
-        • Puntos <strong>adentro</strong> = ineficientes — se podría producir más sin renunciar a nada (D).
+        Puntos <strong>sobre la curva</strong> (A, B) = producción <strong>eficiente</strong>.<br />
+        Punto <strong>fuera</strong> (C) = imposible con los recursos actuales.<br />
+        Punto <strong>adentro</strong> (D) = ineficiente — se podría producir más sin renunciar a nada.
       </Resumen>
+    </EscenaRica>
+  );
+}
+
+function Esc04b() {
+  return (
+    <EscenaRica>
+      <Titulo>Caso resuelto · FPP boliviana (gas vs alimentos)</Titulo>
+      <Parrafo>
+        Apliquemos la FPP a Bolivia con datos simplificados:
+      </Parrafo>
+      <WorkedExample titulo="Bolivia entre gas natural y alimentos">
+        <p style={{ margin: "0 0 8px" }}>
+          Supongamos que Bolivia, con todos sus recursos disponibles, puede producir como máximo:
+        </p>
+        <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14 }}>
+          <li><strong>Si dedica TODO a gas:</strong> 60 millones de m³/día · 0 toneladas de alimentos.</li>
+          <li><strong>Si dedica TODO a alimentos:</strong> 0 m³ de gas · 5 millones de toneladas.</li>
+          <li><strong>Combinaciones intermedias</strong> (ejemplo): 40 m³ + 2,5 millones t; 20 m³ + 4 millones t.</li>
+        </ul>
+        <p style={{ marginTop: 8 }}>
+          <strong>¿Por qué es cóncava (no recta)?</strong>
+        </p>
+        <p style={{ margin: "0 0 8px" }}>
+          Los recursos NO son intercambiables al 100%. Los trabajadores del Chaco (que entienden de
+          gas) NO son tan productivos plantando soja. Los agricultores de Santa Cruz (que entienden
+          de soja) NO son tan productivos manejando pozos de gas. Mientras la economía empuja todos
+          los recursos a UN solo bien, el costo de oportunidad CRECE.
+        </p>
+        <p style={{ marginBottom: 0 }}>
+          <strong>Ejemplo numérico:</strong> pasar de 0 a 20 millones de m³ de gas cuesta 1 millón de
+          toneladas de alimentos (los primeros pozos usan recursos especializados en energía). Pero
+          pasar de 40 a 60 millones de m³ cuesta 2,5 millones de toneladas (los últimos pozos exigen
+          tomar gente del agro). <em>El costo de oportunidad NO es constante: crece.</em>
+        </p>
+      </WorkedExample>
+      <CasoBolivia>
+        Este es el motivo por el que Bolivia exporta gas e importa alimentos procesados: dedicar
+        TODO a alimentos no sería eficiente. La economía busca el <strong>punto óptimo en la
+        frontera</strong>, no en los extremos.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -284,19 +373,32 @@ function Esc05() {
     <EscenaRica>
       <Titulo>¿Por qué la FPP es cóncava?</Titulo>
       <Parrafo>
-        Si la economía está produciendo muchas computadoras (punto F en la guía), los recursos especiales
-        para fabricar autos están subutilizados. Pasarse a producir un auto extra cuesta <strong>poco
-        sacrificio</strong> de computadoras.
-      </Parrafo>
-      <Parrafo>
-        En el otro extremo (punto E), si ya producimos muchos autos, todavía hay técnicos buenos
-        especialistas en computadoras que estamos forzando a fabricar autos. Pasar uno más a autos cuesta
-        <strong> mucho sacrificio</strong>.
+        Es la pregunta clave. Si los recursos fueran perfectamente intercambiables, la FPP sería
+        una RECTA (costo de oportunidad constante). Pero los recursos NO son intercambiables.
       </Parrafo>
       <Resumen>
-        Por eso la curva es cóncava: el <strong>costo de oportunidad NO es constante</strong>. Crece a
-        medida que nos especializamos en uno de los dos bienes.
+        <strong>Lado izquierdo de la curva</strong> (mayoría de recursos a computadoras): si pasamos
+        un auto extra, sacrificamos POCAS computadoras (los pocos trabajadores que ya estaban en
+        autos eran los menos buenos para computadoras).<br /><br />
+        <strong>Lado derecho de la curva</strong> (mayoría de recursos a autos): si pasamos un auto
+        más, sacrificamos MUCHAS computadoras (estamos sacando a los mejores técnicos de
+        computación).
       </Resumen>
+      <PorQue>
+        Por eso la curva es cóncava: el <strong>costo de oportunidad CRECE</strong> a medida que la
+        economía se especializa en un solo bien. Esto es válido para cualquier par de bienes — no
+        solo autos y computadoras.
+      </PorQue>
+      <MiniQuiz
+        pregunta="Una economía produce solo trigo y maíz. Si su FPP fuera una recta (no cóncava), eso significaría que:"
+        opciones={[
+          "los recursos son perfectamente intercambiables entre los dos cultivos.",
+          "la economía es muy pobre.",
+          "hay un error en el modelo.",
+        ]}
+        correctaIdx={0}
+        explicacion="Una FPP RECTA implica costo de oportunidad constante: cada unidad de trigo cuesta siempre la misma cantidad de maíz. Eso pasaría si los recursos fueran iguales para los dos cultivos. En la realidad casi nunca lo son, por eso la FPP es cóncava."
+      />
     </EscenaRica>
   );
 }
@@ -304,18 +406,102 @@ function Esc05() {
 function Esc06() {
   return (
     <EscenaRica>
-      <Titulo>Las cinco ideas que muestra la FPP</Titulo>
+      <Titulo>Las 5 ideas que muestra la FPP en un solo gráfico</Titulo>
       <Resumen>
-        <strong>1. Escasez</strong> — puntos fuera de la curva son inalcanzables.<br />
-        <strong>2. Disyuntivas</strong> — para producir más de un bien hay que producir menos del otro.<br />
-        <strong>3. Costo de oportunidad</strong> — la pendiente de la frontera en cada punto.<br />
-        <strong>4. Eficiencia</strong> — solo los puntos sobre la frontera son eficientes.<br />
-        <strong>5. Crecimiento económico</strong> — un avance tecnológico desplaza la curva hacia afuera.
+        <strong>1. Escasez</strong> — puntos fuera de la curva son inalcanzables (los recursos no
+        dan).<br /><br />
+        <strong>2. Disyuntivas</strong> — para producir más de un bien hay que producir menos del
+        otro (te movés sobre la curva).<br /><br />
+        <strong>3. Costo de oportunidad</strong> — la pendiente de la frontera en cada punto te
+        dice cuánto sacrificás de un bien al producir uno más del otro.<br /><br />
+        <strong>4. Eficiencia</strong> — solo los puntos SOBRE la frontera son eficientes. Adentro
+        hay desperdicio.<br /><br />
+        <strong>5. Crecimiento económico</strong> — un avance tecnológico o más recursos desplazan
+        la curva hacia AFUERA.
       </Resumen>
       <PorQue>
-        La FPP es un modelo simple pero potentísimo: en un solo gráfico cabe casi toda la introducción a
-        la ciencia económica.
+        En un solo gráfico está casi toda la introducción a la ciencia económica. Por eso es el
+        modelo más enseñado del mundo: <strong>5 conceptos centrales en una curva</strong>.
       </PorQue>
+      <Conexion>
+        Los puntos 1, 2 y 3 que acabás de ver son justamente los 3 primeros principios de Mankiw que
+        viste en la lección anterior (escasez, disyuntivas, costo de oportunidad).
+      </Conexion>
+    </EscenaRica>
+  );
+}
+
+function Esc06b() {
+  return (
+    <EscenaRica>
+      <Titulo>Crecimiento económico · cómo se mueve la FPP</Titulo>
+      <Hook>
+        La FPP NO es para siempre. Una economía puede MOVERLA hacia afuera (crecer) o hacia adentro
+        (encogerse). <strong>¿Cómo se logra?</strong>
+      </Hook>
+      <Resumen>
+        <strong>Hacia AFUERA</strong> (la economía crece, ahora puede producir más de TODO):<br />
+        • Más capital físico (más fábricas, más infraestructura).<br />
+        • Más capital humano (más educación, más habilidades).<br />
+        • Avance tecnológico (mejores procesos, automatización).<br />
+        • Más recursos naturales (nuevos yacimientos, tierras cultivables).<br /><br />
+        <strong>Hacia ADENTRO</strong> (la economía encoge):<br />
+        • Desastres naturales que destruyen recursos.<br />
+        • Guerras o conflictos prolongados.<br />
+        • Emigración masiva (pierde mano de obra).<br />
+        • Destrucción de capital físico (terremoto, inundación, sequía).
+      </Resumen>
+      <CasoBolivia>
+        Cuando Bolivia descubrió y desarrolló los grandes campos de gas del Chaco en los 2000s, su
+        FPP se desplazó hacia afuera: <em>más gas Y más alimentos posibles al mismo tiempo</em>.
+        Cuando una sequía golpea Santa Cruz y reduce la cosecha de soja, la FPP retrocede
+        temporalmente del lado de los alimentos.
+      </CasoBolivia>
+      <Misconception>
+        <strong>"Si producir más de un bien siempre cuesta producir menos del otro, una economía
+        nunca puede crecer."</strong> Falso. Esa lógica vale CON LA FPP DADA. Si la FPP se
+        desplaza hacia afuera, podés producir más de TODO al mismo tiempo. Eso es crecimiento
+        económico.
+      </Misconception>
+    </EscenaRica>
+  );
+}
+
+function EscMnemo() {
+  return (
+    <EscenaRica>
+      <Titulo>Mnemotecnia + errores típicos del examen</Titulo>
+      <Mnemotecnia>
+        Para no confundir los 2 modelos, recordá <strong>una imagen + una palabra para cada uno</strong>:
+        <div style={{ marginTop: 14, padding: 14, background: "#fff", borderRadius: 10, border: `1px solid ${LIENZO.fgFaint}` }}>
+          <div style={{ fontSize: 15, fontWeight: 700, color: LIENZO.accent }}>
+            FLUJO CIRCULAR → <em>"el billete da vueltas"</em>
+          </div>
+          <div style={{ fontSize: 13, color: LIENZO.fgDim, marginBottom: 10 }}>
+            Familias ↔ Empresas. 2 mercados. Sentidos opuestos. Es el mapa del DINERO en la economía.
+          </div>
+          <div style={{ fontSize: 15, fontWeight: 700, color: LIENZO.ok }}>
+            FPP → <em>"la curva del sacrificio"</em>
+          </div>
+          <div style={{ fontSize: 13, color: LIENZO.fgDim }}>
+            Combinaciones máximas posibles de 2 bienes. Cóncava porque los recursos no son iguales.
+            Es el mapa de la PRODUCCIÓN.
+          </div>
+        </div>
+      </Mnemotecnia>
+      <Misconception titulo="Error típico 1 · confundir FUERA con ADENTRO">
+        Punto <strong>FUERA</strong> de la FPP = imposible (no alcanzan recursos).<br />
+        Punto <strong>ADENTRO</strong> = posible pero ineficiente (sobran recursos).<br />
+        El examen suele preguntar "¿qué representa un punto X?" — leé bien si está adentro o afuera.
+      </Misconception>
+      <Misconception titulo="Error típico 2 · pensar que la FPP es la curva de demanda">
+        Son COSAS DISTINTAS. La FPP es sobre OFERTA (qué puede producir la economía). La curva de
+        demanda es sobre los CONSUMIDORES (qué quieren comprar a cada precio).
+      </Misconception>
+      <Misconception titulo="Error típico 3 · creer que la FPP nunca cambia">
+        Cambia constantemente. Hacia afuera con crecimiento (tecnología, educación, capital). Hacia
+        adentro con destrucción (desastres, guerras). Es una foto, no una verdad eterna.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -336,6 +522,12 @@ function Esc07() {
           "el gobierno fija los precios",
           "no circula dinero",
         ], c: 1, ex: "Las familias son las VENDEDORAS de factores; las empresas, las compradoras." },
+        { p: "En el flujo circular, los bienes y el dinero:", o: [
+          "circulan en el mismo sentido",
+          "circulan en sentidos OPUESTOS",
+          "el dinero no circula, solo los bienes",
+          "solo circula el dinero",
+        ], c: 1, ex: "Esa es la idea de 'circular': lo que va en un sentido (bienes), vuelve en el opuesto (dinero)." },
         { p: "Un punto FUERA de la FPP representa:", o: [
           "eficiencia máxima",
           "una situación inalcanzable hoy",
@@ -344,16 +536,28 @@ function Esc07() {
         ], c: 1, ex: "Los recursos actuales no alcanzan: imposible con la tecnología vigente." },
         { p: "Un punto ADENTRO de la FPP indica:", o: [
           "imposibilidad",
-          "ineficiencia (se podría producir más)",
+          "ineficiencia (se podría producir más sin renunciar a otra cosa)",
           "el óptimo",
           "el punto de equilibrio del mercado",
-        ], c: 1, ex: "Hay recursos ociosos: se puede producir más sin renunciar a otra cosa." },
+        ], c: 1, ex: "Hay recursos ociosos: se puede producir más de un bien sin renunciar al otro." },
         { p: "La FPP es cóncava (curva, no recta) porque:", o: [
           "es una convención gráfica",
           "los recursos no son igualmente productivos en ambos usos",
           "siempre hay desempleo",
           "el costo de oportunidad es fijo",
-        ], c: 1, ex: "El costo de oportunidad aumenta a medida que especializamos en un bien." },
+        ], c: 1, ex: "Costo de oportunidad CRECIENTE: cuanto más nos especializamos en un bien, más sacrificamos del otro por cada unidad adicional." },
+        { p: "Un avance tecnológico en Bolivia que mejora la productividad agrícola:", o: [
+          "no afecta la FPP",
+          "desplaza la FPP hacia AFUERA (crecimiento)",
+          "desplaza la FPP hacia ADENTRO",
+          "vuelve la FPP una recta",
+        ], c: 1, ex: "Más tecnología = más bienes posibles con los mismos recursos. La frontera se expande." },
+        { p: "Si Bolivia dedica TODA su tierra a gas natural y NADA a alimentos, está:", o: [
+          "en el centro de la FPP",
+          "en un extremo de la FPP",
+          "fuera de la FPP",
+          "adentro de la FPP",
+        ], c: 1, ex: "Los extremos de la FPP son las soluciones especializadas (100% un bien, 0% el otro). En general las economías eligen puntos intermedios." },
       ]} />
     </EscenaRica>
   );
