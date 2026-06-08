@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -43,6 +44,21 @@ function Esc01() {
         A Aristóteles se lo considera el primer analista económico. En su época la economía era apenas
         la "administración de la comunidad doméstica" — muy lejos de la escala global de hoy.
       </PorQue>
+
+      <Hook>
+        En el examen UMSS hay 2-4 preguntas sobre <em>autores</em>, <em>fechas clave</em> y la
+        <em> definición de Robbins</em>. Memorizar 4 nombres y 4 obras te da esos puntos casi
+        gratis.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>4 hitos · "Q-S-M-R"</strong>:<br />
+        <strong>Q</strong>uesnay (1758) — Tableau Économique → primer flujo económico.<br />
+        <strong>S</strong>mith (1776) — Riqueza de las Naciones → economía clásica.<br />
+        <strong>M</strong>arshall (1890) — Principles of Economics → síntesis neoclásica.<br />
+        <strong>R</strong>obbins (1932) — Naturaleza y Significación → definición moderna.<br /><br />
+        Diferencia entre fechas: 18 años (Q→S), 114 años (S→M), 42 años (M→R).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -158,6 +174,14 @@ function Esc06() {
         ciencia que estudia cómo la conducta humana elige entre fines posibles y medios escasos con usos
         alternativos.
       </Definicion>
+
+      <Mnemotecnia>
+        <strong>"F-I-M-A" · 4 puntos de Robbins</strong>:<br />
+        <strong>F</strong>ines múltiples · <strong>I</strong>mportancia diversa ·
+        <strong> M</strong>edios limitados · <strong>A</strong>lternativos.<br /><br />
+        Frase: <em>"Fines Importantes con Medios Alternativos"</em>. Esta es la definición más
+        preguntada del bloque de economía.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -179,6 +203,16 @@ function Esc07() {
         cómo la sociedad <strong>elige</strong> entre fines alternativos cuando los <strong>recursos son
         escasos</strong>.
       </Parrafo>
+
+      <Misconception titulo="Las 3 perspectivas no se 'sustituyen' una a la otra">
+        Es un error pensar que Robbins "superó" a Marshall y éste a Smith. NO. Cada perspectiva
+        responde una pregunta distinta:<br />
+        — <strong>Clásica</strong>: ¿cómo se produce y distribuye la riqueza? (relaciones
+        productivas).<br />
+        — <strong>Neoclásica</strong>: ¿qué hace falta para el bienestar? (riqueza + hombre).<br />
+        — <strong>Robbins</strong>: ¿cómo decide la sociedad entre opciones? (escasez).<br /><br />
+        Las 3 se complementan. Los economistas modernos usan herramientas de las tres.
+      </Misconception>
     </EscenaRica>
   );
 }
