@@ -8,6 +8,7 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Recta numérica que sombrea la solución de una inecuación. extremo abierto
@@ -132,6 +133,20 @@ function Esc01_Intro() {
         🎯 Aplicaciones: restricciones de presupuesto ("gasto menor que X"), rangos de
         validez de fórmulas (dominio), problemas con cotas, optimización.
       </Resumen>
+
+      <Hook>
+        En el examen UMSS aparecen <strong>2-3 inecuaciones</strong> (lineales y cuadráticas).
+        El truco de signo negativo (que invierte el sentido) es la <em>trampa #1</em>: te van
+        a probar exactamente eso. Si lo recordás, sumás puntos seguros.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Regla de oro · "÷ (−) → invertir"</strong><br />
+        Cada vez que multiplicás o dividís POR negativo, el signo de la desigualdad gira:<br />
+        — &lt; pasa a &gt;.<br />
+        — ≤ pasa a ≥.<br />
+        Si solo sumás/restás o multiplicás por positivo: NO se invierte.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -317,6 +332,40 @@ function Esc06_Cuad() {
         Si la parábola abre arriba: positiva fuera de raíces, negativa entre.<br />
         Si abre abajo: al revés.
       </PorQue>
+
+      <Mnemotecnia>
+        <strong>Truco de signos · "+ − +" (parábola que abre arriba)</strong><br />
+        Las raíces dividen al eje x en 3 intervalos. El signo del polinomio cuadrático
+        ax² + bx + c (con a &gt; 0) en ellos es:<br />
+        <strong>(−∞, r₁) → +</strong>, <strong>(r₁, r₂) → −</strong>, <strong>(r₂, +∞) → +</strong>.<br /><br />
+        Para a &lt; 0 (parábola abre abajo): es "− + −".<br /><br />
+        Receta: para inecuación &gt; 0, tomá los intervalos con signo + (en este caso los
+        extremos). Para &lt; 0, tomá los del medio.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Presupuesto familiar · cuánto puedo gastar">
+        Tu familia tiene un presupuesto mensual de <strong>5.000 Bs</strong>. Ya tenés gastos
+        fijos por <strong>3.200 Bs</strong> (alquiler, servicios, escuelas). Querés ahorrar al
+        menos <strong>800 Bs</strong> al mes. ¿Cuánto te queda para gastos variables?<br /><br />
+
+        <strong>Paso 1 · Definir incógnita:</strong> x = gastos variables (alimentación,
+        transporte, ocio).<br /><br />
+
+        <strong>Paso 2 · Plantear inecuación:</strong> presupuesto total ≥ fijos + variables
+        + ahorro.<br />
+        5.000 ≥ 3.200 + x + 800.<br /><br />
+
+        <strong>Paso 3 · Resolver:</strong><br />
+        5.000 ≥ 4.000 + x.<br />
+        x ≤ 1.000.<br /><br />
+
+        <strong>Paso 4 · Sentido real:</strong> y obvio: x ≥ 0 (no podés tener gastos
+        negativos). Combinando:<br />
+        <strong>0 ≤ x ≤ 1.000 Bs</strong>.<br /><br />
+
+        En notación de intervalos: <strong>[0, 1.000]</strong> Bs. Si gastás más de 1.000
+        Bs en variables, no llegás a la meta de ahorro de 800.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -337,6 +386,21 @@ function Esc07_Errores() {
         <strong>Error 3:</strong> En cuadráticas, no probar signos. <br />
         <span style={{ fontSize: 13 }}>Tener las raíces no es la solución. Tenés que probar el signo del polinomio en cada intervalo.</span>
       </Cuidado>
+
+      <Misconception titulo="Trampa · 'x² &lt; 4' NO da '|x| &lt; 4'">
+        Una desigualdad cuadrática NO se "saca raíz directo". <br />
+        x² &lt; 4 NO es x &lt; 2. La solución correcta es <strong>−2 &lt; x &lt; 2</strong>
+        (es decir, |x| &lt; 2).<br /><br />
+        Pensalo: x = −3 cumple x² = 9 &gt; 4 (no entra). x = 0 cumple x² = 0 &lt; 4 (entra).
+        Por eso la solución es un intervalo simétrico al cero, no un rayo.
+      </Misconception>
+
+      <Conexion>
+        Inecuaciones conectan con: <strong>Ecuaciones</strong> (mismas reglas con un truco
+        extra), <strong>Dominio de funciones</strong> (raíces cuadradas requieren radicando
+        ≥ 0, logaritmos requieren argumento &gt; 0), <strong>Programación lineal</strong>
+        (sistemas de inecuaciones en optimización).
+      </Conexion>
     </EscenaRica>
   );
 }
