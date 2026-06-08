@@ -4,6 +4,7 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -38,6 +39,12 @@ function EscIntro() {
         frases que enlazan oraciones y párrafos. Elegir el conector correcto cambia el sentido entero del
         texto.
       </Parrafo>
+
+      <Hook>
+        En el examen UMSS suelen aparecer <strong>3-6 preguntas</strong> con espacios en blanco
+        para conectores. La trampa: las 4 opciones se ven parecidas pero solo una sigue la
+        lógica del texto. Quien identifica la FAMILIA del conector resuelve sin esfuerzo.
+      </Hook>
     </EscenaRica>
   );
 }
@@ -59,6 +66,16 @@ function EscFamilias() {
         pesar de) que indican un cambio de dirección en el argumento. Si el texto NO cambia de dirección,
         no van.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>4 familias "C-A-O-C"</strong>:<br />
+        <strong>C</strong>ausa (porque, ya que, dado que).<br />
+        <strong>A</strong>dición (además, también, asimismo).<br />
+        <strong>O</strong>posición (pero, sin embargo, aunque).<br />
+        <strong>C</strong>onclusión (por eso, por lo tanto, en consecuencia).<br /><br />
+        En el examen, primero clasificá cada opción dentro de una familia. Eso descarta el 60% de
+        las trampas.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -76,6 +93,37 @@ function EscEstrategia() {
         <strong>3. Eliminá las opciones que NO encajan</strong> con la relación. Si dos quedan posibles,
         probá leer en voz alta y elegí la más natural.
       </Resumen>
+
+      <WorkedExample titulo="Aplicación · texto sobre Bolivia">
+        <strong>Texto:</strong> "Bolivia tiene gran diversidad cultural, ___ cuenta con 36 lenguas
+        oficiales. ___, esto puede generar desafíos de integración. ___, la diversidad es una
+        riqueza que hay que valorar."<br /><br />
+
+        <strong>Paso 1 · Relación entre oraciones:</strong><br />
+        Oración 1 → 2: la segunda EXPLICA POR QUÉ hay diversidad (36 lenguas). Familia:
+        <strong> causa</strong>.<br />
+        Oración 2 → 3: la tercera AGREGA un matiz negativo. Familia: <strong>oposición</strong>
+        (cambio de dirección).<br />
+        Oración 3 → 4: la cuarta CONCLUYE valorando la diversidad. Familia: <strong>conclusión
+        / cierre</strong>.<br /><br />
+
+        <strong>Paso 2 · Sin mirar opciones, predicción:</strong><br />
+        <em>"ya que / Sin embargo / Por lo tanto"</em>.<br /><br />
+
+        <strong>Paso 3 · Comparar con las opciones del examen:</strong> la que coincida con tu
+        predicción es la respuesta. Esto es mucho más rápido que probar cada opción.<br /><br />
+
+        <strong>Truco final:</strong> PREDECÍ antes de leer las opciones. El que predice acierta
+        en 5 segundos.
+      </WorkedExample>
+
+      <Misconception titulo="No todos los conectores 'similares' son intercambiables">
+        "Aunque" y "sin embargo" son ambos de oposición, pero <strong>no son intercambiables</strong>:
+        — "Aunque" se usa al PRINCIPIO de una oración con cláusula concesiva ("Aunque llueva, voy").<br />
+        — "Sin embargo" va DESPUÉS de coma o punto, conectando dos ideas opuestas ("Llueve. Sin
+        embargo, voy").<br />
+        Si el espacio está al inicio de la oración nueva, va "Sin embargo", no "aunque".
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -313,6 +361,14 @@ function EscResumen() {
         <strong>5.</strong> Eliminá opciones que tienen "sin embargo" o "aunque" si el texto NO cambia de
         rumbo en ningún momento.
       </Resumen>
+
+      <Misconception titulo="Las 3 trampas más comunes">
+        <strong>(a)</strong> "Sin embargo" o "aunque" colocados donde NO hay oposición.<br />
+        <strong>(b)</strong> "Porque" / "ya que" al INICIO de oración (cuando va dentro de
+        oración compleja).<br />
+        <strong>(c)</strong> Mezcla de familias incompatibles: ej. "ya que (causa) - Sin embargo
+        (oposición) - A pesar de (oposición)" no encaja en un texto que SUMA razones.
+      </Misconception>
     </EscenaRica>
   );
 }
