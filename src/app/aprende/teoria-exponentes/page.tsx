@@ -8,6 +8,7 @@ import { Pizarra, Ejes, Raiz, scalerX, scalerY, LIENZO } from "../_components/li
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Crecimiento exponencial: barras + curva 1000·1.08^t durante 10 años.
@@ -96,6 +97,20 @@ function Esc01_Basicas() {
         Si ya hiciste Potenciación (Unidad 01), esto es repaso. Acá vamos más profundo a
         cómo se usan EN ECUACIONES.
       </PorQue>
+
+      <Hook>
+        Las 5 propiedades de exponentes aparecen en <strong>casi todo cálculo algebraico</strong>:
+        radicales, logaritmos, ecuaciones exponenciales, derivadas. Si las dominás, te
+        ahorrás horas en todas las demás unidades.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Las 5 reglas en frase única</strong>:<br />
+        <em>"<strong>S</strong>uma al multiplicar, <strong>R</strong>esta al dividir,
+        <strong> M</strong>ultiplica al elevar, <strong>D</strong>istribuye a producto y cociente"</em>.<br /><br />
+        Letras: <strong>S-R-M-D-D</strong>. Si querés acordarte de cuál hacés primero, mirá
+        el SIGNO de la operación: × → sumar exponentes; ÷ → restar.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -216,6 +231,26 @@ function Esc05_Eq() {
       <Ejemplo titulo="2ˣ = 10 (no se puede igualar bases)">
         <Paso n={1}>Aplicá logaritmo: x = log(10)/log(2) = 1/0.301 ≈ 3.322.</Paso>
       </Ejemplo>
+
+      <WorkedExample titulo="Ecuación exponencial · 9^(x+1) = 27^(2x−1)">
+        <strong>Paso 1 · Misma base:</strong> 9 = 3² y 27 = 3³. Reescribo:<br />
+        (3²)^(x+1) = (3³)^(2x−1).<br /><br />
+
+        <strong>Paso 2 · Aplicar (aᵐ)ⁿ = a^(m·n):</strong><br />
+        3^(2(x+1)) = 3^(3(2x−1)).<br />
+        3^(2x+2) = 3^(6x−3).<br /><br />
+
+        <strong>Paso 3 · Igualar exponentes:</strong> 2x + 2 = 6x − 3.<br /><br />
+
+        <strong>Paso 4 · Despejar:</strong> 5 = 4x → x = 5/4.<br /><br />
+
+        <strong>Verificación:</strong> 9^(5/4 + 1) = 9^(9/4) = (3²)^(9/4) = 3^(9/2).<br />
+        Y 27^(2·5/4 − 1) = 27^(3/2) = (3³)^(3/2) = 3^(9/2). ✓<br /><br />
+
+        <strong>Truco:</strong> en exponenciales, el primer paso siempre es buscar la BASE COMÚN.
+        Si las dos bases son potencias de un mismo número (9, 27 → ambos potencias de 3), está
+        garantizado que sale por igualación de exponentes.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -255,6 +290,27 @@ function Esc07_Errores() {
       <Cuidado>
         <strong>a⁰ = 1 (con a ≠ 0).</strong> 0⁰ es indefinido.
       </Cuidado>
+
+      <Misconception titulo="Trampa de signos · −aⁿ vs (−a)ⁿ">
+        <strong>−3² = −9</strong> (el cuadrado solo afecta al 3, no al signo).<br />
+        <strong>(−3)² = 9</strong> (el cuadrado afecta TODO el paréntesis).<br /><br />
+        Regla: el exponente solo se aplica a lo que está pegado a él. Sin paréntesis, el menos
+        queda afuera y conserva el signo.
+      </Misconception>
+
+      <Misconception titulo="Error #1 en ecuaciones · perder soluciones por raíz par">
+        Si tenés x² = 16, no es solo x = 4: TAMBIÉN x = −4 cumple (porque (−4)² = 16). Las
+        raíces de índice PAR siempre dan ± dos soluciones. En las raíces de índice IMPAR (³, ⁵)
+        hay una sola.
+      </Misconception>
+
+      <Conexion>
+        Las propiedades de exponentes son la base de:
+        <strong> Radicación</strong> (a^(1/n) = ⁿ√a),
+        <strong> Logaritmación</strong> (logₐ(x·y) = logₐx + logₐy nace de aᵐ·aⁿ = a^(m+n)),
+        y <strong>Funciones exponenciales</strong>. Dominar esto es desbloquear las 3 unidades
+        siguientes.
+      </Conexion>
     </EscenaRica>
   );
 }
