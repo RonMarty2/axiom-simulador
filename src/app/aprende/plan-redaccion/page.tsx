@@ -4,6 +4,7 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -40,6 +41,20 @@ function EscIntro() {
         Prestá especial atención al <strong>título</strong> del ejercicio: te orienta sobre el tema y
         ayuda a identificar la primera oración (la que introduce el tema general).
       </Cuidado>
+
+      <Hook>
+        En el examen UMSS aparecen <strong>4-6 planes de redacción</strong>. La técnica del
+        "primera y última" (identificar la oración que abre y la que cierra) resuelve la mayoría
+        en 30 segundos sin necesidad de probar todas las combinaciones.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Estrategia "P-U-M"</strong>:<br />
+        <strong>P</strong>rimera (la más general → introduce el tema).<br />
+        <strong>U</strong>ltima (la que concluye o llama a la acción).<br />
+        <strong>M</strong>edio (entre primera y última, ordená por cronología/causa-efecto/general-particular).<br /><br />
+        Con primera y última fijas, las opciones se reducen drásticamente.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -61,6 +76,32 @@ function EscPatrones() {
         Afirmación general → 2-3 razones → llamado a la acción.<br />
         Ej: "La sostenibilidad es clave → razón 1 → razón 2 → debemos cambiar."
       </Resumen>
+
+      <WorkedExample titulo="Cómo identificar la PRIMERA oración">
+        Pistas para detectar la primera oración:<br /><br />
+
+        <strong>(a) Definición</strong>: "El X es…" / "X se refiere a…" / "X es un proceso…".<br />
+        <strong>(b) Tema en grande</strong>: usa el sustantivo del título sin antecedentes
+        ("Bolivia es…", "El ADN es…").<br />
+        <strong>(c) Sin pronombres anafóricos</strong>: no comienza con "este", "esto", "él",
+        "esa molécula" — porque esos remiten a algo mencionado ANTES.<br /><br />
+
+        <strong>Pistas para detectar la ÚLTIMA oración:</strong><br />
+        (a) Llamado a la acción: "debemos…", "es fundamental…", "hay que…".<br />
+        (b) Consecuencia o cierre: "por eso…", "por todo lo anterior…".<br />
+        (c) Fecha tardía en una secuencia cronológica.<br /><br />
+
+        <strong>Práctica mental:</strong> mirá las 4 oraciones y SIN leer las opciones, decidí
+        cuál sería la 1ra y cuál la última. Después comparás con las opciones — el 80% se
+        descarta automáticamente.
+      </WorkedExample>
+
+      <Misconception titulo="Trampa · 'el orden natural 1-2-3-4 siempre gana'">
+        En muchos ejercicios fáciles, las oraciones ya vienen casi en orden y la respuesta es
+        1-2-3-4. Pero NO siempre: en cronología histórica, la oración 3 (la del nacimiento) suele
+        ir primero aunque esté listada como tercera. Nunca elijas 1-2-3-4 por reflejo: verificá
+        el orden lógico.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -213,6 +254,15 @@ function EscResumen() {
         <strong>5.</strong> Si tenés dudas entre 2 opciones, releé el texto reconstruido en voz alta. La
         opción correcta "suena" como un párrafo natural; la incorrecta tiene saltos lógicos.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>4 patrones de orden ("D-C-C-T")</strong>:<br />
+        <strong>D</strong>e general a específico (definición → ejemplo).<br />
+        <strong>C</strong>ronológico (fecha de inicio → eventos).<br />
+        <strong>C</strong>ausa-efecto (problema → consecuencia → solución).<br />
+        <strong>T</strong>esis-razones (afirmación → razones → llamado).<br /><br />
+        Identificá el patrón primero, después el orden surge solo.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
