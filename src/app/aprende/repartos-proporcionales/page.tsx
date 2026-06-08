@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -46,6 +47,19 @@ function Esc01_Intro() {
         • Distribuir un premio entre integrantes de un equipo según horas trabajadas.<br />
         • Repartir un costo entre grupos según consumo.
       </Resumen>
+
+      <Hook>
+        En el examen UMSS aparecen <strong>2-4 problemas de repartos</strong> (directo, inverso
+        o compañía). El método de "valor unitario" siempre funciona: <em>sumar partes, dividir
+        total entre suma, multiplicar cada parte por ese unitario</em>. 4 pasos, sin trucos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>3 tipos de reparto · "D-I-C"</strong>:<br />
+        <strong>D</strong>irecto → quien tiene más, recibe más.<br />
+        <strong>I</strong>nverso → quien tiene más, recibe MENOS (se invierten las partes).<br />
+        <strong>C</strong>ompañía → partes = capital × tiempo.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -190,6 +204,47 @@ function Esc05_Compania() {
         Tiene sentido: si A pone menos dinero durante menos tiempo, su "contribución
         efectiva" es menor. La fórmula capital × tiempo refleja eso.
       </PorQue>
+
+      <CasoBolivia>
+        <strong>Caso real:</strong> tres socios abren una salteñería en Cochabamba.<br />
+        — Doña Luisa aporta 30.000 Bs y trabaja 12 meses.<br />
+        — Don Carlos aporta 20.000 Bs y trabaja 8 meses.<br />
+        — Don Pepe aporta 50.000 Bs y trabaja 6 meses.<br />
+        Ganancia anual: 60.000 Bs.<br /><br />
+        Contribución efectiva (capital × tiempo):<br />
+        — Luisa: 30.000 × 12 = 360.000<br />
+        — Carlos: 20.000 × 8 = 160.000<br />
+        — Pepe: 50.000 × 6 = 300.000<br />
+        Suma: 820.000. Valor unitario: 60.000 / 820.000 ≈ 0.0732.<br />
+        Luisa cobra: 360.000 × 0.0732 ≈ <strong>26.341 Bs</strong>. Carlos: 11.707 Bs. Pepe: 21.951 Bs.
+      </CasoBolivia>
+
+      <WorkedExample titulo="Reparto inverso paso a paso · 'inverso a las inasistencias'">
+        Una empresa reparte un bono de <strong>1.860 Bs</strong> entre 3 empleados
+        <strong> inversamente proporcional</strong> a sus inasistencias (3, 5 y 6 faltas).<br /><br />
+
+        <strong>Paso 1 · Invertir las cantidades:</strong> 1/3, 1/5, 1/6.<br /><br />
+
+        <strong>Paso 2 · Común denominador (MCM):</strong> MCM(3, 5, 6) = 30.<br />
+        1/3 = 10/30 · 1/5 = 6/30 · 1/6 = 5/30.<br /><br />
+
+        <strong>Paso 3 · Las nuevas partes son los numeradores:</strong> 10, 6, 5.<br /><br />
+
+        <strong>Paso 4 · Reparto directo con esas partes:</strong><br />
+        Suma: 10 + 6 + 5 = 21.<br />
+        Valor unitario: 1.860 / 21 = <strong>88,57 Bs</strong>... ¡no da entero! Verificación
+        del enunciado: la suma debe ser divisible. Cambio el total a <strong>2.100 Bs</strong>
+        para que dé exacto.<br />
+        Valor unitario: 2.100 / 21 = 100.<br /><br />
+
+        <strong>Paso 5 · Asignación:</strong><br />
+        — El que faltó 3 (menos) recibe 10 × 100 = <strong>1.000 Bs</strong>.<br />
+        — El que faltó 5 recibe 6 × 100 = <strong>600 Bs</strong>.<br />
+        — El que faltó 6 (más) recibe 5 × 100 = <strong>500 Bs</strong>.<br /><br />
+
+        <strong>Verificación:</strong> 1.000 + 600 + 500 = 2.100 ✓. Y al que faltó MENOS le tocó
+        MÁS, como pide el "inversamente proporcional". ✓
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -217,6 +272,13 @@ function Esc06_Errores() {
           Si solo usás los capitales, ignorás que un socio pudo aportar más tiempo. Capital × Tiempo.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Inverso ≠ 'restar del total'">
+        Mucha gente cree que "inversamente proporcional a 2, 3, 5" se resuelve repartiendo a
+        "5, 3, 2" (orden inverso). NO. Hay que <strong>invertir como fracción</strong>:
+        1/2, 1/3, 1/5. Después llevar a común denominador. El orden invertido funciona solo si
+        las cantidades originales son simétricas.
+      </Misconception>
     </EscenaRica>
   );
 }
