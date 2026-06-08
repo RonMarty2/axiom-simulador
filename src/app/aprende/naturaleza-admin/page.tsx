@@ -5,6 +5,7 @@ import { COLOR_OK } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -31,6 +32,11 @@ function Esc01() {
   return (
     <EscenaRica>
       <Titulo>¿Qué es la administración?</Titulo>
+      <Hook>
+        Toda <strong>organización con más de 2 personas</strong> necesita administración. Una
+        cancha de fútbol callejero, una junta vecinal, un emprendimiento de saltañas, la UMSS, el
+        Banco Mundial — todas administran. No es solo "para empresas grandes".
+      </Hook>
       <Definicion termino="administración">
         Proceso que implica <strong>planificar, organizar, integrar personal, dirigir y controlar</strong>
         los recursos de una organización para alcanzar objetivos específicos de manera <strong>eficiente
@@ -41,6 +47,22 @@ function Esc01() {
         técnicas para gestionar organizaciones de cualquier sector: empresas, ONG, instituciones
         públicas, equipos deportivos, hospitales.
       </Parrafo>
+
+      <Mnemotecnia>
+        <strong>"POIDC"</strong> — las 5 funciones administrativas en orden:<br />
+        <strong>P</strong>laneación · <strong>O</strong>rganización ·
+        <strong> I</strong>ntegración de personal · <strong>D</strong>irección ·
+        <strong> C</strong>ontrol.<br /><br />
+        Cada función será una unidad completa en el Bloque 1 Unidad 4. Memorizá la secuencia: el
+        examen UMSS suele pedir "qué función NO es parte de la administración".
+      </Mnemotecnia>
+
+      <Misconception titulo="Eficiente ≠ eficaz">
+        <strong>Eficaz</strong> = lograr el objetivo (hacer lo correcto).<br />
+        <strong>Eficiente</strong> = lograrlo con el mínimo de recursos (hacerlo bien).<br />
+        Una empresa puede ser eficaz pero ineficiente (logra metas gastando mucho), o eficiente pero
+        ineficaz (ahorra mucho pero no llega). Lo ideal: ambas.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -83,6 +105,16 @@ function Esc03() {
         Gestión: "Pedro coordina la apertura, María contrata al personal, el equipo de marketing lanza la
         campaña".
       </Ejemplo>
+
+      <CasoBolivia>
+        Empresa boliviana <strong>Cervecería Boliviana Nacional (CBN)</strong>:<br />
+        — <strong>Administración:</strong> "el directorio decide entrar al mercado de bebidas sin
+        alcohol con la marca Maltín".<br />
+        — <strong>Gestión:</strong> los gerentes de producción y ventas en La Paz/Santa Cruz
+        ejecutan el plan: contratan distribuidores, organizan campañas, ajustan logística.<br /><br />
+        En el examen, "administración" suele asociarse a directorio/CEO y "gestión" a
+        gerentes/coordinadores.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -103,6 +135,30 @@ function Esc04() {
         Los tres niveles trabajan en cascada: lo estratégico decide a dónde vamos, lo táctico decide
         cómo llegamos en concreto, lo operativo lo hace.
       </PorQue>
+
+      <WorkedExample titulo="Los 3 niveles en una salteñería de La Paz">
+        Salteñería "Doña Pancha", 4 locales.<br /><br />
+
+        <strong>Nivel estratégico</strong> (Doña Pancha + 1 socio, horizonte 3-5 años):<br />
+        "Queremos ser la cadena #1 de salteñas en Bolivia. Abrir 10 locales en 3 años. Vender por
+        delivery en Cochabamba".<br /><br />
+
+        <strong>Nivel táctico</strong> (gerentes de operaciones y marketing, horizonte 6-18 meses):<br />
+        "Este año abrimos 3 locales en Cochabamba. Contratamos a 2 nuevos chefs. Lanzamos app móvil.
+        Renegociamos contrato con proveedor de carne".<br /><br />
+
+        <strong>Nivel operativo</strong> (encargados de local, horizonte día/semana):<br />
+        "Hoy se hacen 600 salteñas. Juana arma, Pedro hornea, Luis atiende caja. A las 8 AM se
+        abren puertas".<br /><br />
+
+        <strong>En cascada:</strong> sin el operativo no se venden salteñas hoy; sin el táctico
+        no se abre nuevo local este año; sin el estratégico no se sabe a dónde va la cadena en 5 años.
+      </WorkedExample>
+
+      <Conexion>
+        Estos 3 niveles van a reaparecer en la unidad de <em>Planeación</em>: la planeación
+        estratégica, táctica y operativa se corresponden exactamente con estos niveles.
+      </Conexion>
     </EscenaRica>
   );
 }
@@ -177,6 +233,20 @@ function Esc08() {
         Una gestión efectiva implica <strong>monitorear</strong> estos factores, <strong>anticipar</strong>
         cambios y <strong>adaptar</strong> estrategias para minimizar riesgos y aprovechar oportunidades.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>"PESTEL"</strong> es el marco más usado para analizar el entorno empresarial:<br />
+        <strong>P</strong>olítico · <strong>E</strong>conómico · <strong>S</strong>ocial ·
+        <strong> T</strong>ecnológico · <strong>E</strong>cológico · <strong>L</strong>egal.<br /><br />
+        En Bolivia, "Político" y "Legal" pesan mucho (cambios de gobierno, normativa SIN). Memorizá
+        las 6 letras: el examen suele preguntar "¿cuál NO es un factor del entorno?".
+      </Mnemotecnia>
+
+      <Misconception titulo="Entorno ≠ solo competidores">
+        Muchos creen que "entorno" es solo la competencia. NO. El entorno incluye factores que la
+        empresa no controla pero que la afectan: política, economía, regulación, tecnología, cultura
+        y medio ambiente. La competencia es solo uno de varios elementos.
+      </Misconception>
     </EscenaRica>
   );
 }
