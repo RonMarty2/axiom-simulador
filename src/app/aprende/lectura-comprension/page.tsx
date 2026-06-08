@@ -4,6 +4,7 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Resumen,
   EscenaRica, LecturaQuiz,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -34,10 +35,14 @@ function EscEstrategia() {
   return (
     <EscenaRica>
       <Titulo>Comprensión de lectura · la habilidad central del examen</Titulo>
+      <Hook>
+        De las 100 preguntas del examen UMSS, <strong>comprensión de lectura representa entre 15 y
+        20</strong>. Si dominás esta unidad, ya tenés casi un quinto del examen ganado.
+        Si no la dominás, te cuesta caro.
+      </Hook>
       <Parrafo>
-        Es la unidad más importante de razonamiento verbal. Mide algo más que "entender palabras":
-        evalúa si podés <strong>extraer la idea principal</strong>, <strong>inferir intenciones</strong> y
-        <strong> conectar partes</strong> del texto.
+        Mide algo más que "entender palabras": evalúa si podés <strong>extraer la idea principal</strong>,
+        <strong> inferir intenciones</strong> y <strong>conectar partes</strong> del texto.
       </Parrafo>
 
       <Definicion termino="comprensión lectora">
@@ -57,11 +62,29 @@ function EscEstrategia() {
         verificá. Si dos opciones parecen buenas, la correcta es la <strong>más completa o más exacta</strong>.
       </Resumen>
 
-      <PorQue>
-        Las opciones incorrectas suelen ser: <em>verdaderas pero parciales</em> (cubren solo una parte
-        del texto), <em>falsas con palabras del texto</em> (suenan al texto pero dicen lo opuesto) o
-        <em> verdaderas pero ajenas</em> (verdaderas en la vida real, pero el texto no las menciona).
-      </PorQue>
+      <Mnemotecnia>
+        <strong>Acrónimo para recordar la estrategia: "RDPC"</strong>:<br />
+        <strong>R</strong>ápida · <strong>D</strong>etallada · <strong>P</strong>regunta ·
+        <strong> C</strong>ontrastar con el texto.
+      </Mnemotecnia>
+
+      <Misconception titulo="Trampa 1 · la opción 'verdadera pero parcial'">
+        Una opción dice algo CIERTO del texto pero solo de UN párrafo. Si la pregunta pide la IDEA
+        PRINCIPAL, esa opción es trampa: es verdadera pero no abarca el texto entero. Buscá la más
+        COMPLETA.
+      </Misconception>
+
+      <Misconception titulo="Trampa 2 · la opción 'mismas palabras, sentido opuesto'">
+        Opción que reusa palabras del texto pero las usa al revés. Ej: el texto dice "las
+        importaciones BAJARON", la opción dice "las importaciones AUMENTARON". Suena familiar pero
+        miente.
+      </Misconception>
+
+      <Misconception titulo="Trampa 3 · 'verdadera pero ajena'">
+        Opción que dice algo VERDADERO en la vida real, pero el texto NO lo menciona. Ej: el texto
+        habla de la inflación; la opción dice "el desempleo afecta a los jóvenes" (cierto, pero no
+        está en el texto). Si no está en el texto, NO es la respuesta.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -816,6 +839,47 @@ function EscResumen() {
         <strong>5.</strong> Las opciones que dicen <em>lo contrario</em> de lo que afirma el texto son
         el segundo tipo de trampa (mismas palabras, sentido invertido).
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>Acrónimo "RDPC" — los 4 pasos en orden</strong>:<br />
+        <strong>R</strong>ápida (¿de qué trata?) · <strong>D</strong>etallada (idea de cada párrafo) ·
+        <strong> P</strong>regunta (subrayar palabras clave: "según el texto", "principalmente",
+        "se deduce") · <strong>C</strong>ontrastar (volver al texto antes de marcar).
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Estrategia aplicada · cómo descartar en 4 opciones plausibles">
+        <strong>Pregunta tipo:</strong> "El texto trata fundamentalmente acerca de..."<br />
+        <strong>Opciones:</strong><br />
+        (a) La importancia de las tasas de interés en la economía global.<br />
+        (b) El impacto de las políticas monetarias y fiscales en la estabilidad económica.<br />
+        (c) Cómo las decisiones económicas de un país afectan a los mercados internacionales.<br />
+        (d) La interrelación entre la inflación y las tasas de interés.<br />
+        (e) El funcionamiento del mercado basado en la oferta y la demanda.<br /><br />
+
+        <strong>Paso R (rápida):</strong> el texto habla del Estado interviniendo para corregir
+        fallas del mercado. Eje: política monetaria/fiscal y estabilidad.<br /><br />
+
+        <strong>Paso D (detallada):</strong><br />
+        — Párrafo 1: introduce el rol del Estado y políticas.<br />
+        — Párrafo 2: tasas de interés.<br />
+        — Párrafo 3: inflación y bancos centrales.<br />
+        — Párrafo 4: efectos globales.<br /><br />
+
+        <strong>Paso P (pregunta):</strong> "fundamentalmente" = idea central, no detalle.<br /><br />
+
+        <strong>Paso C (contrastar):</strong><br />
+        — (a) tasas: solo párrafo 2 → PARCIAL. Descartada.<br />
+        — (c) efectos globales: solo párrafo 4 → PARCIAL. Descartada.<br />
+        — (d) inflación + tasas: solo párrafos 2 y 3 → PARCIAL. Descartada.<br />
+        — (e) oferta y demanda: solo se menciona al inicio para contextualizar → PARCIAL.
+        Descartada.<br />
+        — (b) políticas monetarias y fiscales para estabilidad: <strong>articula TODO el
+        texto</strong>. Es la más COMPLETA.<br /><br />
+
+        <strong>Respuesta: (b)</strong>. La estrategia no fue "adivinar la mejor": fue eliminar
+        las parciales aplicando el filtro "¿abarca todo el texto?".
+      </WorkedExample>
+
       <PorQue>
         En el examen tendrás presión de tiempo. Pero perder 30 segundos releyendo el párrafo correcto
         antes de marcar te ahorra puntos. La velocidad sin precisión no sirve.
