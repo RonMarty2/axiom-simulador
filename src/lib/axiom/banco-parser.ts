@@ -157,10 +157,11 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
   }
   const enunciado = enunciadoLineas.join("\n").trim();
 
-  // Opciones: "- A) texto"
+  // Opciones: "- A) texto" (acepta A-E para soportar el formato real del
+  // examen UMSS que incluye la opción E "Ninguno").
   const opciones: OpcionPregunta[] = [];
   while (i < lineas.length) {
-    const m = lineas[i].match(/^-\s+([A-D])\)\s*(.+)$/);
+    const m = lineas[i].match(/^-\s+([A-E])\)\s*(.+)$/);
     if (!m) break;
     opciones.push({ letra: m[1], texto: m[2].trim() });
     i++;
@@ -173,7 +174,7 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
   let explicacion: string | undefined;
   while (i < lineas.length) {
     const linea = lineas[i].trim();
-    const respM = linea.match(/^\*\*respuesta:\*\*\s*([A-D])/i);
+    const respM = linea.match(/^\*\*respuesta:\*\*\s*([A-E])/i);
     if (respM) {
       respuesta = respM[1].toUpperCase();
       i++;
@@ -194,11 +195,11 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
   }
 
   if (!respuesta) {
-    throw new Error(`Pregunta ${numero}: falta '**respuesta:** [A-D]'`);
+    throw new Error(`Pregunta ${numero}: falta '**respuesta:** [A-E]'`);
   }
-  if (opciones.length !== 4) {
+  if (opciones.length < 4 || opciones.length > 5) {
     throw new Error(
-      `Pregunta ${numero}: debe tener exactamente 4 opciones (A,B,C,D), tiene ${opciones.length}`
+      `Pregunta ${numero}: debe tener 4 ó 5 opciones (A-E), tiene ${opciones.length}`
     );
   }
 
