@@ -8,6 +8,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -88,11 +89,22 @@ function Esc01() {
         para alcanzar los objetivos de la empresa. Implica definir <strong>funciones, jerarquías y
         relaciones</strong> entre unidades de trabajo.
       </Definicion>
+      <Hook>
+        Es la <strong>O</strong> de POIDC. Sin organización, una empresa con 10 personas es un caos:
+        nadie sabe a quién reportar, hay tareas duplicadas y otras sin dueño. Una buena estructura
+        convierte 10 individuos en un equipo.
+      </Hook>
       <Parrafo>
         Organizar no es solo "dividir tareas". También es <strong>alinear esfuerzos</strong> y optimizar
         recursos humanos, financieros y materiales en un marco colaborativo.
       </Parrafo>
       <OrganigramaSVG />
+      <Misconception titulo="Organizar ≠ hacer un organigrama bonito">
+        Mucha gente cree que "organizar" termina cuando dibujás el organigrama. Falso. El organigrama
+        es el resultado <em>visible</em>, pero organizar implica definir <strong>qué hace cada
+        puesto, con qué autoridad y con qué recursos</strong>. Un organigrama sin descripciones de
+        puesto no organiza nada.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -111,6 +123,30 @@ function Esc02() {
         <strong>4. Amplitud de control</strong> — cuántos subordinados puede supervisar eficazmente un
         gerente.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>"U-E-J-A"</strong> — los 4 principios en orden:<br />
+        <strong>U</strong>nidad de mando · <strong>E</strong>specialización ·
+        <strong> J</strong>erarquía · <strong>A</strong>mplitud de control.<br /><br />
+        Frase: <em>"Una Estructura Justa Aclara"</em>.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Amplitud de control · ¿cuántos pueden depender de un jefe?">
+        Un jefe puede supervisar bien a entre <strong>5 y 15 personas</strong> según el tipo de trabajo:<br /><br />
+        — Trabajo <strong>rutinario</strong> (línea de producción, call center): hasta 20-30 personas
+        por supervisor.<br />
+        — Trabajo <strong>complejo</strong> (desarrollo de software, investigación): solo 4-6 personas
+        por supervisor.<br /><br />
+
+        <strong>Ejemplo numérico:</strong> empresa de 100 personas.<br />
+        — Si la amplitud es 5 → necesitás <em>100/5 = 20 supervisores</em>, más 4 gerentes
+        (20/5), más 1 director. Total: ~125 personas. <strong>Estructura ALTA</strong>.<br />
+        — Si la amplitud es 10 → necesitás <em>100/10 = 10 supervisores</em>, más 1 director. Total:
+        ~111 personas. <strong>Estructura PLANA</strong>.<br /><br />
+
+        Las estructuras planas son más ágiles pero exigen empleados autónomos. Las altas dan más
+        control pero generan burocracia.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -164,6 +200,22 @@ function Esc05() {
         La descentralización <strong>no se aplica igual en todas las organizaciones</strong>. Su grado
         depende de la naturaleza de la empresa, su tamaño y la capacidad de los empleados.
       </Cuidado>
+
+      <Misconception titulo="Delegar ≠ tirar el problema y desentenderse">
+        Delegar no es "yo no quiero hacer esto, hacelo vos". El jefe que delega <strong>conserva la
+        responsabilidad final</strong>: si el subordinado falla, el jefe responde. Por eso delegás
+        autoridad junto con la responsabilidad — y mantenés seguimiento.
+      </Misconception>
+
+      <CasoBolivia>
+        <strong>Tigo Bolivia</strong> es una empresa con alta descentralización: los gerentes
+        regionales de La Paz, Cochabamba y Santa Cruz tienen autoridad para promociones locales,
+        contratación, ajustes de precio.<br /><br />
+        En cambio, <strong>YPFB Refinación</strong> es muy centralizada: las decisiones de precio,
+        producción y contratación se toman desde la matriz en La Paz. La diferencia tiene sentido:
+        comercializar internet exige respuestas rápidas locales; refinar combustibles exige
+        estandarización absoluta.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -184,6 +236,18 @@ function Esc06() {
         Un buen administrador <strong>conoce la estructura informal</strong> y la considera al tomar
         decisiones. Ignorarla es trabajar contra ella.
       </PorQue>
+
+      <Misconception titulo="La estructura informal NO es 'mala'">
+        Algunos creen que la estructura informal (amistades, redes de chisme, alianzas) es algo
+        negativo que hay que eliminar. Es IMPOSIBLE de eliminar — surge sola siempre. Lo que hay
+        que hacer es entenderla y aprovechar sus líderes naturales para difundir cambios.
+      </Misconception>
+
+      <Conexion>
+        Esta unidad es la <strong>O</strong> de POIDC. Sin estructura definida acá, la siguiente
+        función (<strong>I</strong>ntegración de personal) no sabe qué puestos llenar, y la
+        <strong> D</strong>irección no sabe a quién dirigir.
+      </Conexion>
     </EscenaRica>
   );
 }
