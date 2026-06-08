@@ -10,6 +10,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Venn de factores: dos polinomios, sus factores y el cruce común. Al tocar
@@ -125,6 +126,19 @@ function Esc01_Intro() {
         La idea es <em>idéntica</em> al MCD/MCM numérico. La única diferencia es que ahora
         los "primos" son factores algebraicos (como (x−2), (x+3), x², etc).
       </PorQue>
+
+      <Hook>
+        En el examen UMSS aparece como <strong>preparación para fracciones algebraicas</strong>:
+        sin MCM no podés sumarlas, sin MCD no podés simplificarlas. Es paso obligado.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"MeNOR vs MaYOR"</strong><br />
+        <strong>MCD</strong> → factores <strong>comunes</strong> con el menor exponente.<br />
+        <strong>MCM</strong> → <strong>TODOS</strong> los factores con el mayor exponente.<br /><br />
+        Atajo: "<strong>D</strong>ivisor" → chico (cabe en ambos).
+        "<strong>M</strong>últiplo" → grande (es múltiplo de ambos).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -247,6 +261,30 @@ function Esc05_Fracciones() {
       <Resumen>
         Regla mnemónica: <strong>MCD → simplificar; MCM → sumar/restar</strong>.
       </Resumen>
+
+      <WorkedExample titulo="Resta de fracciones algebraicas · paso a paso">
+        Resolvé: <strong>(2x)/(x²−1) − 1/(x+1)</strong>.<br /><br />
+
+        <strong>Paso 1 · Factorizar denominadores:</strong><br />
+        x² − 1 = (x+1)(x−1) (diferencia de cuadrados).<br />
+        El otro denominador es (x+1).<br /><br />
+
+        <strong>Paso 2 · MCM de denominadores:</strong><br />
+        Factores: (x+1) y (x−1). Mayor exponente de cada: 1. → MCM = <strong>(x+1)(x−1)</strong>.<br /><br />
+
+        <strong>Paso 3 · Reescribir con denominador común:</strong><br />
+        Primera: (2x) / [(x+1)(x−1)] (ya está).<br />
+        Segunda: 1/(x+1) → multiplico arriba y abajo por (x−1) → (x−1) / [(x+1)(x−1)].<br /><br />
+
+        <strong>Paso 4 · Restar numeradores:</strong><br />
+        2x − (x − 1) = 2x − x + 1 = <strong>x + 1</strong>.<br /><br />
+
+        <strong>Paso 5 · Resultado:</strong><br />
+        (x + 1) / [(x+1)(x−1)] = <strong>1 / (x − 1)</strong> (cancelo (x+1) arriba y abajo).<br /><br />
+
+        <strong>Aprendizaje:</strong> al final cancelamos un factor común. Eso es porque el
+        resultado se simplifica. Sin factorizar primero, no veríamos la simplificación.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -274,6 +312,21 @@ function Esc06_Errores() {
           ❌ (x+3)/(x+5) NO se simplifica cancelando x. Solo se cancelan factores MULTIPLICATIVOS, no sumados.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Trampa de cancelación · 'solo factores' (NUNCA sumandos)">
+        <strong>Correcto:</strong> (x+3)(x−2) / (x+3)(x+4) = (x−2)/(x+4). Cancelo (x+3)
+        que es factor.<br />
+        <strong>INCORRECTO:</strong> (x+3)/(x+5) → cancelar x: NO PODÉS. Acá x es SUMANDO,
+        no factor.<br /><br />
+        Regla: solo cancelás cuando algo está MULTIPLICANDO arriba y MULTIPLICANDO abajo.
+        Si está sumando o restando, queda atrapado.
+      </Misconception>
+
+      <Conexion>
+        MCD/MCM algebraicos son la herramienta de: <strong>Factorización</strong> (paso previo
+        obligatorio), <strong>Fracciones algebraicas</strong> (suma, resta, simplificación) y
+        <strong> Ecuaciones racionales</strong> (multiplicar por MCM para eliminar denominadores).
+      </Conexion>
     </EscenaRica>
   );
 }
