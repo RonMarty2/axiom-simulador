@@ -8,6 +8,7 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Recta animada: f(x) = mx + b. Slider de m y b para probar.
@@ -171,6 +172,20 @@ function Esc01_Intro() {
         En esta lección vas a ver las DOS funciones más importantes: <strong>lineal</strong>
         (recta) y <strong>cuadrática</strong> (parábola).
       </Resumen>
+
+      <Hook>
+        Funciones lineales y cuadráticas aparecen en <strong>3-5 preguntas del UMSS</strong>
+        (calcular pendiente, vértice, raíces, optimización). Conocer las fórmulas clave
+        (m = Δy/Δx, x_v = −b/2a) resuelve la mayoría.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"L vs Q" · diferencias clave</strong>:<br />
+        <strong>L</strong>ineal → recta · f(x) = mx + b · grado 1 · 1 parámetro de
+        inclinación (m).<br />
+        <strong>Q</strong>uadrática (cuadrática) → parábola · f(x) = ax²+bx+c · grado 2 ·
+        tiene vértice y simetría.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -306,6 +321,36 @@ function Esc07_Opt() {
         <Paso n={3}>G(50) = −2500 + 5000 − 1000 = 1500.</Paso>
         <Paso n={4}>Producir 50 unidades maximiza la ganancia en 1500.</Paso>
       </Ejemplo>
+
+      <CasoBolivia>
+        <strong>Caso real · empanadas en El Prado, Cochabamba:</strong><br />
+        Una vendedora estima su ganancia diaria en función del precio p (en Bs/unidad):<br />
+        G(p) = −20p² + 200p − 300 (ganancia en Bs).<br /><br />
+        ¿A qué precio gana más?<br />
+        p<sub>v</sub> = −200/(2·−20) = 5 Bs.<br />
+        G(5) = −500 + 1000 − 300 = <strong>200 Bs/día</strong>.<br /><br />
+        Si pone precio &gt; 5 Bs, vende menos (gana menos). Si pone &lt; 5 Bs, gana
+        poco por unidad. El óptimo es 5 Bs.
+      </CasoBolivia>
+
+      <WorkedExample titulo="Modelo lineal · alquiler de bicicletas">
+        Una bicicletería en Sopocachi cobra <strong>15 Bs fijos</strong> + <strong>8 Bs por
+        hora</strong>. Modelo lineal:<br />
+        f(x) = 8x + 15.<br /><br />
+
+        <strong>Análisis de los parámetros:</strong><br />
+        — <strong>Pendiente m = 8</strong>: cada hora extra agrega 8 Bs al costo (tasa de
+        cambio).<br />
+        — <strong>Ordenada b = 15</strong>: el costo MÍNIMO, aunque uses 0 horas (cargo fijo).<br /><br />
+
+        <strong>Preguntas típicas del UMSS:</strong><br />
+        (a) ¿Cuánto pago por 4 horas? → f(4) = 32 + 15 = <strong>47 Bs</strong>.<br />
+        (b) Si pagué 71 Bs, ¿cuántas horas usé? → 8x + 15 = 71 → x = 7 horas.<br />
+        (c) ¿Cuál es la tasa de cambio? → m = 8 Bs/hora.<br /><br />
+
+        <strong>Truco:</strong> identificá siempre los significados de m y b en el contexto
+        del problema antes de calcular. m = "por cada unidad", b = "lo fijo".
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -326,6 +371,22 @@ function Esc08_Errores() {
         <strong>Error 3:</strong> Olvidar verificar si la parábola tiene MAX o MIN. <br />
         <span style={{ fontSize: 13 }}>Si a &gt; 0 → mínimo en el vértice. Si a &lt; 0 → máximo.</span>
       </Cuidado>
+
+      <Misconception titulo="Tasa de cambio ≠ ordenada al origen">
+        En problemas verbales, mucha gente confunde m y b:<br />
+        — <strong>m</strong> = lo que se suma POR UNIDAD (Bs por hora, kg por día).<br />
+        — <strong>b</strong> = lo FIJO (cargo de entrada, valor inicial, costo base).<br /><br />
+        Si la fórmula es "30 Bs de envío + 5 Bs por kg" → f(x) = 5x + 30. NO 30x + 5.
+        El cargo fijo es b, no el factor variable.
+      </Misconception>
+
+      <Conexion>
+        Funciones lineales y cuadráticas conectan con: <strong>Ecuaciones de 1er y 2do
+        grado</strong> (las raíces son donde f(x) = 0), <strong>Sistemas lineales</strong>
+        (intersección de 2 rectas), <strong>Dominio y rango</strong> (cada función tiene su
+        propio comportamiento), y <strong>Razones y proporciones</strong> (la pendiente
+        es una razón constante).
+      </Conexion>
     </EscenaRica>
   );
 }
