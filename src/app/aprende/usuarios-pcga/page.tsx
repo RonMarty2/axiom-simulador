@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -38,6 +39,20 @@ function Esc01() {
         <strong>Externos</strong> — están <em>fuera</em>: inversionistas, proveedores, gobierno,
         acreedores.
       </Resumen>
+
+      <Hook>
+        Esta unidad responde a "<strong>¿para quién contabilizo?</strong>". El examen UMSS suele
+        pedir clasificar un agente como interno o externo. Si entendés que la prueba es
+        "<em>¿está dentro de la organización o fuera?</em>", aciertas todas.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"GED vs IPGA" · 2 grupos de usuarios</strong>:<br />
+        <strong>Internos: G-E-D</strong> → <strong>G</strong>erentes, <strong>E</strong>mpleados,
+        <strong> D</strong>irectivos.<br />
+        <strong>Externos: I-P-G-A</strong> → <strong>I</strong>nversionistas,
+        <strong> P</strong>roveedores, <strong>G</strong>obierno, <strong>A</strong>creedores.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -94,6 +109,14 @@ function Esc04() {
         puede mirar dos empresas distintas y saber que están midiendo las mismas cosas de forma
         consistente.
       </PorQue>
+
+      <CasoBolivia>
+        En Bolivia, los PCGA están regulados por el <strong>Colegio de Auditores y Contadores
+        Públicos</strong> y se complementan con las <strong>Normas Internacionales de Información
+        Financiera (NIIF)</strong> para empresas grandes. El SIN exige aplicar PCGA en
+        declaraciones tributarias. No es opcional: una empresa que ignora los PCGA puede recibir
+        sanciones tributarias.
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -118,6 +141,21 @@ function Esc05() {
         Si firmo un contrato en diciembre por un servicio que cobraré en enero, lo registro en
         diciembre (cuando se devengó), no en enero (cuando me pagan).
       </Ejemplo>
+
+      <Mnemotecnia>
+        <strong>"E-U-P-P-D"</strong> · los 5 principios PCGA:<br />
+        <strong>E</strong>ntidad económica · <strong>U</strong>nidad monetaria ·
+        <strong> P</strong>eriodo contable · <strong>P</strong>artida doble ·
+        <strong> D</strong>evengado.<br /><br />
+        Frase: <em>"Empresa Usa Plata Por Definición"</em>.
+      </Mnemotecnia>
+
+      <Misconception titulo="Devengado vs efectivo NO son lo mismo">
+        Mucha gente confunde "registrar" con "cobrar". El principio del devengado dice: registrá
+        cuando OCURRE el hecho económico (cuando entregué el servicio, cuando me obligué a
+        pagar), no cuando hay flujo de caja. Por eso una empresa puede tener UTILIDAD CONTABLE
+        sin tener PLATA en caja. Son dos cosas distintas.
+      </Misconception>
     </EscenaRica>
   );
 }
