@@ -7,6 +7,7 @@ import { LIENZO, Pizarra } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -180,6 +181,20 @@ function EscIntro() {
         En el examen vas a ver preguntas donde una palabra aparenta tener un sentido obvio pero el
         contexto te pide otro. Saber distinguir estas tres dimensiones es lo que te salva.
       </PorQue>
+
+      <Hook>
+        Esta unidad es la responsable de unas <strong>5-8 preguntas</strong> del examen UMSS sobre
+        expresiones figuradas ("le da la vuelta a la tortilla", "está en las nubes", etc). Si
+        confundís los 3 conceptos, perdés esos puntos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Regla de 3 letras "D-C-H"</strong>:<br />
+        <strong>D</strong>enotación → <em>Diccionario</em> (literal, objetivo).<br />
+        <strong>C</strong>onnotación → <em>Contexto</em> (figurado, depende de la frase).<br />
+        <strong>H</strong>omonimia → <em>Homogénea forma, distinta historia</em> (misma palabra,
+        significados sin relación).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -293,6 +308,15 @@ function EscHomo() {
         • Homonimia: los significados NO están relacionados entre sí (el banco-mueble y el banco-entidad
         financiera no tienen nada que ver).
       </Cuidado>
+
+      <Misconception titulo="No confundas connotación con homonimia">
+        Test rápido: ¿podés explicar el sentido B como <em>metáfora</em> del sentido A? Si SÍ →
+        connotación. Si NO (los dos son independientes históricamente) → homonimia.<br /><br />
+        <strong>Ejemplo:</strong> "vela" (cera para iluminar) y "vela" (de barco). ¿Una es metáfora
+        de la otra? NO. Son homónimos. En cambio "vela" de cera y "estar en vela" (estar despierto)
+        — el segundo viene del primero por uso (quien velaba a un muerto encendía una vela). Eso
+        es connotación.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -480,6 +504,34 @@ function EscResumen() {
         <strong> describa el sentido figurado en lenguaje neutro</strong>, no la que repita las palabras
         de la frase original.
       </Resumen>
+
+      <WorkedExample titulo="Estrategia aplicada · 'le pusiste el broche de oro'">
+        <strong>Pregunta:</strong> ¿Qué significa la expresión?<br />
+        Opciones: (a) le regaló un broche caro, (b) terminó algo de manera excelente, (c) cerró
+        una caja con un broche, (d) usó joyas para vestir, (e) le dio un golpe final.<br /><br />
+
+        <strong>Paso 1 · ¿Literal o figurado?</strong> "Broche de oro" en contexto NO suele ser un
+        objeto real. Sentido figurado.<br /><br />
+
+        <strong>Paso 2 · Descartá las literales:</strong> (a), (c), (d) toman la frase al pie de
+        la letra. Trampa típica.<br /><br />
+
+        <strong>Paso 3 · Distinguí entre las figuradas:</strong><br />
+        (b) "terminó algo de manera excelente" → coincide con la metáfora: un broche es lo que
+        cierra/adorna un evento, "de oro" da el valor superlativo. ✓<br />
+        (e) "le dio un golpe final" → es figurada pero NEGATIVA. La expresión "broche de oro" es
+        positiva. ✗<br /><br />
+
+        <strong>Respuesta: (b)</strong>. La estrategia fue: descartar literales primero, después
+        evaluar el TONO (positivo/negativo) de las figuradas que quedan.
+      </WorkedExample>
+
+      <Misconception titulo="Trampa #1 del examen · la opción literal">
+        Casi siempre, una de las 4-5 opciones repite literalmente las palabras de la expresión
+        figurada (en el ejemplo: "le regaló un broche caro"). Es la trampa más obvia. Si la frase
+        suena figurada en contexto, la respuesta correcta NUNCA es la opción que la toma al pie de
+        la letra.
+      </Misconception>
     </EscenaRica>
   );
 }
