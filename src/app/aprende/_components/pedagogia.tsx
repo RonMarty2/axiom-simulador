@@ -359,6 +359,159 @@ export function LecturaQuiz({
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Componentes pedagógicos para "upgrade didáctico" de lecciones.
+// Pensados para que CUALQUIER lección pueda usarlos sin animaciones nuevas:
+// dan profundidad pedagógica reusable.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// HOOK · Abre una escena con una pregunta o escenario, no con una definición.
+// Atrapa la atención antes de soltar teoría.
+export function Hook({ children }: { children: React.ReactNode }) {
+  return (
+    <Bloque acento={LIENZO.warn} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.warn}>Pensá esto</Etiqueta>
+      <div style={{ fontSize: 17, lineHeight: 1.6, color: LIENZO.fg, fontStyle: "italic", fontFamily: "var(--font-crimson), serif" }}>
+        {children}
+      </div>
+    </Bloque>
+  );
+}
+
+// CASO BOLIVIA · Ejemplo concreto con datos del país (Bs, salario mínimo,
+// situaciones reales). Conecta la teoría con el mundo que el estudiante conoce.
+export function CasoBolivia({ titulo = "Caso Bolivia", children }: { titulo?: string; children: React.ReactNode }) {
+  return (
+    <Bloque acento="#0ea5e9" fondo={LIENZO.bgSoft}>
+      <Etiqueta color="#0ea5e9">{titulo}</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.65, color: LIENZO.fg }}>{children}</div>
+    </Bloque>
+  );
+}
+
+// MISCONCEPTION · Ataca errores típicos. "Muchos estudiantes creen X, pero en
+// realidad…" — invierte la confusión antes de que se forme.
+export function Misconception({ titulo = "Confusión común", children }: { titulo?: string; children: React.ReactNode }) {
+  return (
+    <Bloque acento={LIENZO.bad} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.bad}>{titulo}</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fgDim }}>{children}</div>
+    </Bloque>
+  );
+}
+
+// MNEMOTECNIA · Truco para memorizar (acrónimo, regla, asociación visual).
+export function Mnemotecnia({ children }: { children: React.ReactNode }) {
+  return (
+    <Bloque acento={LIENZO.accent} fondo={LIENZO.bgSoft}>
+      <Etiqueta>Truco para recordar</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fg }}>{children}</div>
+    </Bloque>
+  );
+}
+
+// CONEXION · Vínculo explícito con otra lección. "Esto te va a servir cuando…".
+export function Conexion({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{
+      width: "100%", maxWidth: 620,
+      padding: "10px 14px",
+      background: "transparent",
+      borderTop: `1px dashed ${LIENZO.fgFaint}`,
+      borderBottom: `1px dashed ${LIENZO.fgFaint}`,
+      fontSize: 13, color: LIENZO.fgDim, fontStyle: "italic",
+      display: "flex", gap: 8, alignItems: "center",
+    }}>
+      <span style={{ color: LIENZO.accent, fontWeight: 700 }}>→</span>
+      <span>{children}</span>
+    </div>
+  );
+}
+
+// WORKED EXAMPLE · Caso resuelto paso a paso. A diferencia de Ejemplo (que
+// solo muestra un caso), aquí se explicitan los pasos del razonamiento.
+export function WorkedExample({ titulo, children }: { titulo: string; children: React.ReactNode }) {
+  return (
+    <div style={{
+      width: "100%", maxWidth: 620,
+      border: `1.5px solid ${LIENZO.accent}`, borderRadius: 12,
+      padding: "14px 18px",
+      background: `${LIENZO.accent}08`,
+      fontFamily: "var(--font-crimson), serif", color: LIENZO.fg,
+    }}>
+      <div style={{
+        fontSize: 11, letterSpacing: 1.4, color: LIENZO.accent,
+        fontWeight: 700, marginBottom: 4,
+      }}>
+        Caso resuelto
+      </div>
+      <div style={{ fontSize: 16, color: LIENZO.fg, fontWeight: 600, marginBottom: 8 }}>
+        {titulo}
+      </div>
+      <div style={{ fontSize: 15, lineHeight: 1.7 }}>{children}</div>
+    </div>
+  );
+}
+
+// MiniQuiz inline · Una pregunta corta en medio de la escena, para chequear
+// comprensión antes de avanzar. Más liviano que AutoCheck, sin tantos adornos.
+export function MiniQuiz({
+  pregunta, opciones, correctaIdx, explicacion,
+}: {
+  pregunta: string;
+  opciones: string[];
+  correctaIdx: number;
+  explicacion: string;
+}) {
+  const [elegida, setElegida] = React.useState<number | null>(null);
+  return (
+    <div style={{
+      width: "100%", maxWidth: 620,
+      padding: "12px 16px",
+      background: LIENZO.bgSoft,
+      borderRadius: 10,
+      borderLeft: `3px solid ${LIENZO.warn}`,
+    }}>
+      <div style={{ fontSize: 11, letterSpacing: 1.4, color: LIENZO.warn, fontWeight: 700, marginBottom: 6 }}>
+        Mini-check rápido
+      </div>
+      <div style={{ fontSize: 14, color: LIENZO.fg, fontWeight: 600, marginBottom: 10 }}>{pregunta}</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+        {opciones.map((op, i) => {
+          const sel = elegida === i, reveal = elegida !== null, ok = i === correctaIdx;
+          const borde = !reveal ? LIENZO.fgFaint : ok ? LIENZO.ok : sel ? LIENZO.bad : LIENZO.fgFaint;
+          return (
+            <button key={i}
+              onClick={() => elegida === null && setElegida(i)}
+              disabled={reveal}
+              style={{
+                padding: "8px 12px", textAlign: "left",
+                background: !reveal ? "#fff" : ok ? "#ecfdf5" : sel ? "#fef2f2" : "#fff",
+                border: `1.5px solid ${borde}`, borderRadius: 8,
+                fontSize: 13, fontWeight: 500, color: LIENZO.fg,
+                cursor: reveal ? "default" : "pointer",
+              }}>
+              {op}{reveal && ok && " ✓"}{reveal && sel && !ok && " ✗"}
+            </button>
+          );
+        })}
+      </div>
+      {elegida !== null && (
+        <div style={{
+          marginTop: 8, padding: "8px 10px",
+          background: elegida === correctaIdx ? "#ecfdf5" : "#fef2f2",
+          borderRadius: 6, fontSize: 12, color: LIENZO.fgDim, lineHeight: 1.5,
+        }}>
+          {explicacion}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── importar las primitivas que usamos arriba (Bloque, Etiqueta) ────────────
+// (Las definiciones de Bloque y Etiqueta están al principio de este archivo.)
+
 // Mini-check interactivo al final de una escena.
 export function AutoCheck({
   pregunta, opciones, correctaIdx, explicacion,
