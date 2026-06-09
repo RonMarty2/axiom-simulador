@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-06-08 (sesión continuación · kit didáctico modular)
-**Versión de la bitácora:** v1.1
+**Última actualización:** 2026-06-09 (sprint FCyT completo + Medicina UMSS end-to-end + simuladores Medicina)
+**Versión de la bitácora:** v1.2
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -265,6 +265,32 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-06-09 (sprint FCyT-Medicina · cobertura completa Tecnología y Medicina UMSS)
+
+**Bloque Tecnología FCyT UMSS — cerrado (34 lecciones nuevas en el sprint):**
+- **Química (10 unidades):** nociones-quimica, nomenclatura-inorganica, estructura-atomica, enlace-quimico, leyes-fundamentales-quimica, reacciones-balanceo, estequiometria (simulador combustión CH4), gases-ideales (simulador PV=nRT 3 sliders), soluciones (simulador molaridad con 5 compuestos), propiedades-coligativas (simulador ΔTb/ΔTc/π con factor i).
+- **Biología (7 unidades):** componentes-materia-viva, bases-moleculares-vida, bases-celulares-vida, genetica-mendeliana (simulador Punnett interactivo), energia-celular, diversidad-seres-vivos, ecologia-medioambiente.
+- (Geometría-Trig 10 y Física 7 quedaron de un sprint previo dentro de la misma corrida.)
+
+**Bloque Medicina UMSS — completo end-to-end (18 lecciones):**
+- **Morfofunción (12):** morfofuncion-introduccion, sistema-tegumentario, sistema-esqueletico, sistema-muscular, sistema-nervioso, sistema-endocrino, sistema-cardiovascular, sistema-linfatico-inmune, sistema-respiratorio, sistema-digestivo, sistema-urinario, sistema-reproductor.
+- **Biología Celular y Molecular (3):** bcm-membrana-transporte, bcm-expresion-genica, bcm-bioenergetica-senalizacion.
+- **Educación en Salud e Investigación (3):** eds-determinantes-salud, eds-epidemiologia, eds-investigacion-bioetica.
+
+**Iteración de interactividad en Medicina:**
+- `sistema-cardiovascular`: simulador "corazón latiendo" (SVG corazón pulsa según ciclo cardíaco en tiempo real, FC ajustable bradi/normal/taqui) + simulador de gasto cardíaco (GC = FC × VS con sliders y feedback).
+- `sistema-nervioso`: simulador "potencial de acción" — botón "Disparar" que anima la curva de voltaje (−70 reposo → +30 pico → repolarización → hiperpolarización) graficada en SVG en tiempo real.
+
+**Patrón didáctico aplicado en todo el sprint:**
+- Cada lección sigue el esqueleto Hook → Definicion → Pizarra/SVG → WorkedExample → Mnemotecnia → Misconception → AutoCheck.
+- Los simuladores interactivos son uno por unidad cuando el tema lo amerita.
+- Contextualización Bolivia siempre presente (bocio yodo, altura/poliglobulia, megadiversidad, sistema sanitario boliviano, mortalidad materna).
+
+**Pendientes asumidos para iterar:**
+- Más simuladores en Medicina (urinario: filtración glomerular; respiratorio: mecánica ventilatoria; endocrino: glucemia).
+- Crear banco de preguntas reales para Medicina UMSS (no hay facsímil oficial todavía).
+- Atacar otras facultades UMSS (Derecho, Odontología, Bioquímica-Farmacia, Veterinaria, Agronomía, Arquitectura, Humanidades) y otras universidades públicas (UMSA, UAGRM, USFX, UAJMS, UTO, UATF, UPEA, UAB, UAP).
+
 ### 2026-06-08 (continuación · upgrade didáctico masivo)
 - **+** Kit didáctico modular agregado a `pedagogia.tsx` (Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample, MiniQuiz). Componentes reutilizables y consistentes.
 - **+** 45 lecciones upgradeadas con el kit, divididas por bloque:
@@ -297,4 +323,4 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 
 ---
 
-*Fin de la bitácora v1.0 — Crecé conmigo.*
+*Fin de la bitácora v1.2 — Crecé conmigo.*
