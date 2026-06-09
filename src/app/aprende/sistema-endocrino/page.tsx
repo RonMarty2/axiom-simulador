@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import LeccionShell from "../_components/LeccionShell";
 import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
@@ -18,11 +19,106 @@ export default function Page() {
         { titulo: "Hipotálamo e hipófisis · centro de control", componente: EscHipofisis },
         { titulo: "Tiroides y paratiroides", componente: EscTiroides },
         { titulo: "Páncreas · insulina y glucagón", componente: EscPancreas },
+        { titulo: "Simulador · regulación de glucemia", componente: EscSimGlucemia },
         { titulo: "Glándulas suprarrenales", componente: EscSuprarrenales },
         { titulo: "Gónadas · ovarios y testículos", componente: EscGonadas },
         { titulo: "Errores y práctica", componente: EscPractica },
       ]}
     />
+  );
+}
+
+function EscSimGlucemia() {
+  const [glucemia, setGlucemia] = useState(90);
+  const [historial, setHistorial] = useState<number[]>([90]);
+
+  const comer = () => {
+    setGlucemia((g) => Math.min(g + 50 + Math.random() * 20, 280));
+  };
+  const insulina = () => {
+    setGlucemia((g) => Math.max(g - 40, 40));
+  };
+  const ejercicio = () => {
+    setGlucemia((g) => Math.max(g - 25, 50));
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setGlucemia((g) => {
+        // homeostasis lenta hacia 90
+        const tendencia = (90 - g) * 0.05;
+        const nueva = g + tendencia;
+        setHistorial((prev) => [...prev.slice(-39), nueva]);
+        return nueva;
+      });
+    }, 800);
+    return () => clearInterval(id);
+  }, []);
+
+  const estado = glucemia < 70 ? "Hipoglucemia" : glucemia < 100 ? "Normal" : glucemia < 140 ? "Postprandial" : glucemia < 200 ? "Hiperglucemia" : "Crítica";
+  const colorEstado = glucemia < 70 ? "#06b6d4" : glucemia < 100 ? "#10b981" : glucemia < 140 ? "#84cc16" : glucemia < 200 ? "#f59e0b" : "#ef4444";
+
+  const ancho = 600;
+  const alto = 140;
+  const min = 40, max = 280;
+  const puntos = historial.map((v, i) => {
+    const x = (i / 39) * ancho;
+    const y = alto - ((v - min) / (max - min)) * alto;
+    return `${x},${y}`;
+  }).join(" ");
+
+  return (
+    <EscenaRica>
+      <Titulo>Simulador · regulación de la glucemia</Titulo>
+
+      <Parrafo>
+        Apretá los botones y mirá cómo cambia la glucosa en sangre.
+        El cuerpo tiende a volver a 90 mg/dL con insulina y glucagón.
+      </Parrafo>
+
+      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+        <div style={{ textAlign: "center", marginBottom: 12 }}>
+          <div style={{ fontSize: 12, opacity: 0.7 }}>Glucemia actual</div>
+          <div style={{ fontSize: 32, fontWeight: 700, color: colorEstado, fontFamily: "var(--font-crimson), serif" }}>
+            {glucemia.toFixed(0)} <span style={{ fontSize: 14 }}>mg/dL</span>
+          </div>
+          <div style={{ fontSize: 12, color: colorEstado, fontWeight: 600 }}>{estado}</div>
+        </div>
+
+        <svg viewBox={`0 0 ${ancho} ${alto + 30}`} width="100%" height="170">
+          <line x1={0} y1={alto - ((100 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((100 - min) / (max - min)) * alto} stroke="#10b981" strokeWidth={1} strokeDasharray="4 3" opacity={0.6} />
+          <text x={5} y={alto - ((100 - min) / (max - min)) * alto - 4} fill="#10b981" fontSize={10}>100</text>
+          <line x1={0} y1={alto - ((70 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((70 - min) / (max - min)) * alto} stroke="#06b6d4" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
+          <text x={5} y={alto - ((70 - min) / (max - min)) * alto - 4} fill="#06b6d4" fontSize={10}>70 (hipo)</text>
+          <line x1={0} y1={alto - ((140 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((140 - min) / (max - min)) * alto} stroke="#f59e0b" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
+          <text x={5} y={alto - ((140 - min) / (max - min)) * alto - 4} fill="#f59e0b" fontSize={10}>140 (hiper)</text>
+          {historial.length > 1 && (
+            <polyline points={puntos} fill="none" stroke="#60a5fa" strokeWidth={2.5} />
+          )}
+        </svg>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginTop: 10 }}>
+          <button onClick={comer} style={{
+            padding: "10px 6px", background: "#f59e0b", color: "#0f172a",
+            border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
+          }}>Comer (↑)</button>
+          <button onClick={insulina} style={{
+            padding: "10px 6px", background: "#3b82f6", color: "#fff",
+            border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
+          }}>Insulina (↓↓)</button>
+          <button onClick={ejercicio} style={{
+            padding: "10px 6px", background: "#10b981", color: "#fff",
+            border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
+          }}>Ejercicio (↓)</button>
+        </div>
+      </div>
+
+      <Cuidado>
+        En diabetes tipo 1, el botón "Insulina" no funciona (páncreas no
+        produce). Hay que pincharla externamente. Sin insulina, glucemia sube
+        sin freno → cetoacidosis → emergencia.
+      </Cuidado>
+    </EscenaRica>
   );
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import LeccionShell from "../_components/LeccionShell";
 import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
@@ -18,10 +19,94 @@ export default function Page() {
         { titulo: "Órganos del sistema urinario", componente: EscOrganos },
         { titulo: "Nefrona · unidad funcional", componente: EscNefrona },
         { titulo: "Formación de la orina · 3 procesos", componente: EscFormacion },
+        { titulo: "Simulador · filtración glomerular", componente: EscSimFiltracion },
         { titulo: "Composición de la orina", componente: EscComposicion },
         { titulo: "Errores y práctica", componente: EscPractica },
       ]}
     />
+  );
+}
+
+function EscSimFiltracion() {
+  const [tfg, setTfg] = useState(120);
+  const [reabsorcionPct, setReabsorcionPct] = useState(99);
+
+  const calc = useMemo(() => {
+    const filtradoDia = (tfg * 60 * 24) / 1000;
+    const fraccionExcretada = 1 - reabsorcionPct / 100;
+    const orinaDia = filtradoDia * fraccionExcretada;
+    return {
+      filtradoDia: filtradoDia.toFixed(1),
+      orinaDia: orinaDia.toFixed(2),
+      reabsorbido: (filtradoDia - orinaDia).toFixed(1),
+    };
+  }, [tfg, reabsorcionPct]);
+
+  const estado = tfg >= 90 ? "Normal" : tfg >= 60 ? "Leve daño" : tfg >= 30 ? "Moderado" : tfg >= 15 ? "Grave" : "Falla renal terminal";
+  const colorEstado = tfg >= 90 ? "#10b981" : tfg >= 60 ? "#84cc16" : tfg >= 30 ? "#f59e0b" : tfg >= 15 ? "#ef4444" : "#7f1d1d";
+
+  return (
+    <EscenaRica>
+      <Titulo>Simulador · filtración glomerular (TFG)</Titulo>
+
+      <Parrafo>
+        La <strong>TFG (Tasa de Filtración Glomerular)</strong> es el volumen
+        que el glomérulo filtra por minuto. Normal: ~120 mL/min. Es el principal
+        indicador de función renal.
+      </Parrafo>
+
+      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#60a5fa" }}>
+            TFG = {tfg} mL/min
+          </label>
+          <input type="range" min={5} max={150} step={1} value={tfg}
+            onChange={(e) => setTfg(Number(e.target.value))}
+            style={{ width: "100%", accentColor: "#60a5fa" }} />
+          <div style={{ marginTop: 4, fontSize: 11, color: colorEstado, fontWeight: 600, textAlign: "center" }}>
+            {estado}
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+            Reabsorción tubular = {reabsorcionPct}%
+          </label>
+          <input type="range" min={80} max={99.9} step={0.1} value={reabsorcionPct}
+            onChange={(e) => setReabsorcionPct(Number(e.target.value))}
+            style={{ width: "100%", accentColor: "#10b981" }} />
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>Filtrado / día</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "#60a5fa" }}>{calc.filtradoDia}</div>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
+          </div>
+          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #10b981" }}>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>Reabsorbido</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "#10b981" }}>{calc.reabsorbido}</div>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
+          </div>
+          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #f59e0b" }}>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>Orina final</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "#f59e0b" }}>{calc.orinaDia}</div>
+            <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
+          </div>
+        </div>
+      </div>
+
+      <Cuidado>
+        Caso real: si la reabsorción cae a 95%, la orina se cuadruplica (poliuria) →
+        riesgo de deshidratación. Diabetes mal controlada hace esto: la glucosa
+        en orina arrastra agua osmóticamente.
+      </Cuidado>
+
+      <Mnemotecnia>
+        <strong>"TFG &lt; 60 sostenida = enfermedad renal crónica."</strong>
+        Es uno de los criterios diagnósticos más usados.
+      </Mnemotecnia>
+    </EscenaRica>
   );
 }
 
