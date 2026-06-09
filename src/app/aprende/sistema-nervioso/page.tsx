@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import LeccionShell from "../_components/LeccionShell";
 import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
@@ -17,6 +18,7 @@ export default function Page() {
         { titulo: "Panorama del sistema nervioso", componente: EscIntro },
         { titulo: "La neurona · célula clave", componente: EscNeurona },
         { titulo: "Impulso nervioso y sinapsis", componente: EscImpulso },
+        { titulo: "Simulador · potencial de acción", componente: EscSimPotencial },
         { titulo: "SNC · cerebro y médula", componente: EscSNC },
         { titulo: "SNP · nervios y ganglios", componente: EscSNP },
         { titulo: "Sistema autónomo · simpático/parasimpático", componente: EscAutonomo },
@@ -24,6 +26,111 @@ export default function Page() {
         { titulo: "Errores y práctica", componente: EscPractica },
       ]}
     />
+  );
+}
+
+function EscSimPotencial() {
+  const [running, setRunning] = useState(false);
+  const [t, setT] = useState(0);
+
+  useEffect(() => {
+    if (!running) return;
+    const id = setInterval(() => {
+      setT((prev) => {
+        const next = prev + 0.5;
+        if (next > 100) {
+          setRunning(false);
+          return 0;
+        }
+        return next;
+      });
+    }, 50);
+    return () => clearInterval(id);
+  }, [running]);
+
+  const voltage = (time: number) => {
+    if (time < 20) return -70;
+    if (time < 30) return -70 + ((time - 20) / 10) * 100;
+    if (time < 45) return 30 - ((time - 30) / 15) * 110;
+    if (time < 60) return -80 + ((time - 45) / 15) * 10;
+    return -70;
+  };
+
+  const currentV = voltage(t);
+
+  const points: string[] = [];
+  for (let i = 0; i <= Math.floor(t); i += 0.5) {
+    const v = voltage(i);
+    const x = 60 + (i / 100) * 580;
+    const y = 100 - v * 0.8;
+    points.push(`${x},${y}`);
+  }
+
+  return (
+    <EscenaRica>
+      <Titulo>Simulador · potencial de acción</Titulo>
+
+      <Parrafo>
+        Andá apretando "Disparar" para ver cómo cambia el voltaje de membrana
+        en una neurona. Reposo: −70 mV. Despolarización: entra Na⁺. Pico: +30 mV.
+        Repolarización: sale K⁺. Hiperpolarización breve antes de volver al reposo.
+      </Parrafo>
+
+      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+        <button
+          onClick={() => { if (!running) { setT(0); setRunning(true); } }}
+          disabled={running}
+          style={{
+            padding: "10px 22px",
+            background: running ? "#475569" : "#6d28d9",
+            color: "#fff", border: "none", borderRadius: 8,
+            cursor: running ? "default" : "pointer",
+            fontWeight: 600, fontSize: 14, marginBottom: 12,
+          }}
+        >
+          {running ? "Disparando…" : "Disparar potencial"}
+        </button>
+
+        <svg viewBox="0 0 700 240" width="100%" height="240">
+          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - (-70 * 0.8) + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>-70 mV</text>
+          <line x1={60} y1={100 - 0 * 0.8} x2={640} y2={100 - 0 * 0.8} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - 0 * 0.8 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>0 mV</text>
+          <line x1={60} y1={100 - 30 * 0.8} x2={640} y2={100 - 30 * 0.8} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>+30 mV</text>
+
+          <line x1={60} y1={20} x2={60} y2={220} stroke="#94a3b8" strokeWidth={1.5} />
+          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="#94a3b8" strokeWidth={1.5} />
+
+          {points.length > 1 && (
+            <polyline
+              points={points.join(" ")}
+              fill="none"
+              stroke="#60a5fa"
+              strokeWidth={3}
+            />
+          )}
+
+          <text x={350} y={235} textAnchor="middle" fill="#94a3b8" fontSize={10}>tiempo (ms)</text>
+          <text x={20} y={120} textAnchor="middle" fill="#94a3b8" fontSize={10} transform="rotate(-90 20 120)">voltaje (mV)</text>
+        </svg>
+
+        <div style={{ padding: 10, background: "#1e293b", borderRadius: 8, marginTop: 10, textAlign: "center" }}>
+          <div style={{ fontSize: 12, opacity: 0.7 }}>Voltaje actual</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: currentV > 0 ? "#ef4444" : currentV < -75 ? "#06b6d4" : "#60a5fa" }}>
+            {currentV.toFixed(1)} mV
+          </div>
+          <div style={{ fontSize: 11, opacity: 0.7 }}>
+            {currentV < -75 ? "Hiperpolarización" : currentV < -55 ? "Reposo" : currentV < 0 ? "Despolarización" : currentV >= 0 && currentV < 25 ? "Pico de despolarización" : "Repolarización"}
+          </div>
+        </div>
+      </div>
+
+      <Mnemotecnia>
+        <strong>"Reposo (−70) → Umbral (−55) → Pico (+30) → Vuelve."</strong>
+        El secreto: Na⁺ entra rapidísimo, K⁺ sale más lento.
+      </Mnemotecnia>
+    </EscenaRica>
   );
 }
 

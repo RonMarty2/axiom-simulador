@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useMemo } from "react";
 import LeccionShell from "../_components/LeccionShell";
 import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
@@ -17,12 +18,148 @@ export default function Page() {
         { titulo: "Sangre · líquido vital", componente: EscSangre },
         { titulo: "Corazón · anatomía", componente: EscCorazon },
         { titulo: "Ciclo cardíaco", componente: EscCiclo },
+        { titulo: "Simulador · corazón latiendo", componente: EscSimCorazon },
         { titulo: "Vasos sanguíneos · arterias, venas, capilares", componente: EscVasos },
         { titulo: "Circulación mayor y menor", componente: EscCirculacion },
         { titulo: "Presión arterial", componente: EscPresion },
+        { titulo: "Simulador · gasto cardíaco", componente: EscSimGasto },
         { titulo: "Errores y práctica", componente: EscPractica },
       ]}
     />
+  );
+}
+
+function EscSimCorazon() {
+  const [fc, setFc] = useState(75);
+  const [t, setT] = useState(0);
+
+  useEffect(() => {
+    const period = 60000 / fc;
+    const id = setInterval(() => {
+      setT((prev) => (prev + 50) % period);
+    }, 50);
+    return () => clearInterval(id);
+  }, [fc]);
+
+  const period = 60000 / fc;
+  const phase = t / period;
+  const sistolePhase = phase < 0.35 ? phase / 0.35 : 0;
+  const scale = phase < 0.35 ? 1 - 0.15 * Math.sin(sistolePhase * Math.PI) : 1;
+  const fase = phase < 0.1 ? "Sístole auricular" : phase < 0.35 ? "Sístole ventricular" : "Diástole";
+  const colorFase = phase < 0.1 ? LIENZO.warn : phase < 0.35 ? LIENZO.bad : "#06b6d4";
+
+  return (
+    <EscenaRica>
+      <Titulo>Simulador · ver el corazón latiendo</Titulo>
+
+      <Parrafo>
+        Ajustá la frecuencia cardíaca y observá cómo cambia el ritmo de contracción.
+        Bradicardia (&lt;60), normal (60-100), taquicardia (&gt;100).
+      </Parrafo>
+
+      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: "block", marginBottom: 6, fontWeight: 600 }}>
+            Frecuencia cardíaca: <span style={{ color: "#60a5fa" }}>{fc} lpm</span>
+          </label>
+          <input
+            type="range" min={40} max={180} step={1} value={fc}
+            onChange={(e) => setFc(Number(e.target.value))}
+            style={{ width: "100%" }}
+          />
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, opacity: 0.7, marginTop: 4 }}>
+            <span style={{ color: fc < 60 ? "#06b6d4" : "#475569" }}>Bradicardia</span>
+            <span style={{ color: fc >= 60 && fc <= 100 ? "#10b981" : "#475569" }}>Normal</span>
+            <span style={{ color: fc > 100 ? "#ef4444" : "#475569" }}>Taquicardia</span>
+          </div>
+        </div>
+
+        <svg viewBox="0 0 400 200" width="100%" height="220">
+          <path
+            d={`M 200 90
+                C 200 60, 150 50, 130 80
+                C 110 110, 150 145, 200 175
+                C 250 145, 290 110, 270 80
+                C 250 50, 200 60, 200 90 Z`}
+            fill="#ef4444"
+            opacity={0.6}
+            stroke="#dc2626"
+            strokeWidth={2}
+            transform={`translate(200 115) scale(${scale}) translate(-200 -115)`}
+            style={{ transition: "transform 50ms linear" }}
+          />
+          <text x={200} y={125} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>♥</text>
+        </svg>
+
+        <div style={{ padding: 10, background: "#1e293b", borderRadius: 8, textAlign: "center" }}>
+          <div style={{ fontSize: 11, opacity: 0.7 }}>Fase actual</div>
+          <div style={{ fontSize: 16, fontWeight: 700, color: colorFase }}>{fase}</div>
+          <div style={{ fontSize: 10, opacity: 0.6, marginTop: 4 }}>
+            Período del ciclo: {(period / 1000).toFixed(2)} s
+          </div>
+        </div>
+      </div>
+
+      <Cuidado>
+        Probá fc=40: en deportistas entrenados es normal (corazón más eficiente).
+        Probá fc=180: en ejercicio intenso o emergencia. Sostener taquicardia
+        reduce el llenado ventricular y baja el gasto cardíaco.
+      </Cuidado>
+    </EscenaRica>
+  );
+}
+
+function EscSimGasto() {
+  const [fc, setFc] = useState(75);
+  const [vs, setVs] = useState(70);
+  const gc = useMemo(() => fc * vs, [fc, vs]);
+  const gcL = (gc / 1000).toFixed(2);
+
+  return (
+    <EscenaRica>
+      <Titulo>Simulador · gasto cardíaco</Titulo>
+
+      <Parrafo>
+        <strong>Gasto cardíaco (GC)</strong> = FC × Volumen sistólico.
+        Es el volumen de sangre que el corazón expulsa por minuto. Normal: ~5 L/min.
+      </Parrafo>
+
+      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+        <div style={{ marginBottom: 12 }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#f59e0b" }}>
+            Frecuencia cardíaca (FC) = {fc} lpm
+          </label>
+          <input type="range" min={40} max={200} step={1} value={fc}
+            onChange={(e) => setFc(Number(e.target.value))}
+            style={{ width: "100%", accentColor: "#f59e0b" }} />
+        </div>
+
+        <div style={{ marginBottom: 14 }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+            Volumen sistólico (VS) = {vs} mL
+          </label>
+          <input type="range" min={30} max={150} step={1} value={vs}
+            onChange={(e) => setVs(Number(e.target.value))}
+            style={{ width: "100%", accentColor: "#10b981" }} />
+        </div>
+
+        <div style={{ padding: 14, background: "#1e293b", borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+          <div style={{ fontSize: 12, opacity: 0.7 }}>GC = FC × VS</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: "#60a5fa", fontFamily: "var(--font-crimson), serif" }}>
+            {gc.toLocaleString()} mL/min = {gcL} L/min
+          </div>
+          <div style={{ fontSize: 11, marginTop: 6,
+            color: gc < 4000 ? "#06b6d4" : gc > 8000 ? "#ef4444" : "#10b981" }}>
+            {gc < 4000 ? "Bajo (shock?)" : gc > 8000 ? "Elevado (ejercicio)" : "Rango normal"}
+          </div>
+        </div>
+      </div>
+
+      <Mnemotecnia>
+        <strong>"GC = FC × VS."</strong> En ejercicio sube FC y VS; en shock cae uno o ambos.
+        El cuerpo compensa: si baja VS, sube FC para mantener GC.
+      </Mnemotecnia>
+    </EscenaRica>
   );
 }
 
