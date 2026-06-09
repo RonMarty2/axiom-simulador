@@ -75,6 +75,32 @@ export async function isTester(): Promise<boolean> {
   return !!(session && esTesterEmail(session.email));
 }
 
+// Cuentas con permiso de CAMBIO LIBRE DE FACULTAD: usuarios normales (no admin)
+// que pueden alternar su facultad_objetivo sin pasar por el checkout. Útil para
+// el dueño del producto que quiere recorrer cada facultad COMO ESTUDIANTE
+// (manteniendo plan gratis/premium real, banners, restricciones) pero sin
+// pagar varias veces. Se definen en la env var FREE_FACULTY_CHANGE_EMAILS.
+// IMPORTANTE: NO da poderes admin (panel admin, toggle plan test, etc.). Solo
+// saltea la verificación REQUIERE_PAGO al cambiar facultad.
+function obtenerCambioFacultadLibreEmails(): string[] {
+  return (process.env.FREE_FACULTY_CHANGE_EMAILS ?? "")
+    .split(",")
+    .map((e) => e.trim().toLowerCase())
+    .filter(Boolean);
+}
+
+export function esCambioFacultadLibreEmail(email: string): boolean {
+  return obtenerCambioFacultadLibreEmails().includes(email.toLowerCase());
+}
+
+export async function puedeCambiarFacultadLibre(): Promise<boolean> {
+  const store = await cookies();
+  const token = store.get(SESSION_COOKIE)?.value;
+  if (!token) return false;
+  const session = await verificarTokenSesion(token);
+  return !!(session && esCambioFacultadLibreEmail(session.email));
+}
+
 // ─────────────────────────────────────────────────────────────
 // JWT firma / verifica
 // ─────────────────────────────────────────────────────────────

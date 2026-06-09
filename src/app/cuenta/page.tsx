@@ -9,7 +9,7 @@ import type { Usuario, Pago, Facultad } from "@/lib/data-store";
 export default function CuentaPage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [esAdmin, setEsAdmin] = useState(false);
+  const [cambioFacultadLibre, setCambioFacultadLibre] = useState(false);
   const [pagos, setPagos] = useState<Pago[]>([]);
   const [facultades, setFacultades] = useState<Facultad[]>([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ export default function CuentaPage() {
     ]).then(([me, p, f]) => {
       if (!me.usuario) { router.push("/login"); return; }
       setUsuario(me.usuario);
-      setEsAdmin(!!me.admin);
+      setCambioFacultadLibre(!!me.cambio_facultad_libre);
       setPagos(p.pagos ?? []);
       setFacultades(f.facultades ?? []);
       setLoading(false);
@@ -32,8 +32,9 @@ export default function CuentaPage() {
 
   const irACambiarFacultad = async (nuevaId: string) => {
     if (!usuario || nuevaId === usuario.facultad_objetivo) return;
-    // Admins (ADMIN_EMAILS) cambian directo, sin pasar por checkout.
-    if (esAdmin) {
+    // Cuentas con FREE_FACULTY_CHANGE_EMAILS cambian directo, sin checkout.
+    // Siguen viendo todo como estudiante (plan gratis/premium real, banners).
+    if (cambioFacultadLibre) {
       setCambiandoFacultad(true);
       const r = await fetch("/api/perfil/facultad", {
         method: "POST",
@@ -111,8 +112,8 @@ export default function CuentaPage() {
                     <div style={{ fontSize: 14, fontWeight: 700, color: activa ? "var(--fg-primary)" : "var(--fg-muted)" }}>{f.nombre_corto}</div>
                     {activa
                       ? <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera actual</div>
-                      : esAdmin
-                        ? <div style={{ fontSize: 10, fontWeight: 700, color: "#059669", textTransform: "uppercase" }}>⚡ Cambiar (admin)</div>
+                      : cambioFacultadLibre
+                        ? <div style={{ fontSize: 10, fontWeight: 700, color: "#059669", textTransform: "uppercase" }}>Cambiar</div>
                         : <div style={{ fontSize: 10, fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}>🔒 Cambiar (pago)</div>}
                   </div>
                 </button>

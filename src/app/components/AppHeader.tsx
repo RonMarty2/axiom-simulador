@@ -145,54 +145,42 @@ export default function AppHeader() {
         </button>
 
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          {/* Selector de facultades:
-              - Usuarios normales: solo si tienen 2+ facultades activas (las suscriptas).
-              - Admins: SIEMPRE todas las facultades disponibles, sin restricciones. */}
-          {usuario && (admin || (usuario.suscripciones?.length ?? 0) >= 2) && (
+          {/* Selector de suscripciones: solo si el usuario tiene 2+ facultades activas */}
+          {usuario && !admin && (usuario.suscripciones?.length ?? 0) >= 2 && (
             <div style={{ position: "relative" }}>
               <button
                 onClick={() => setSelOpen(!selOpen)}
                 disabled={cambiando}
-                style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: admin ? "1px dashed #f59e0b" : "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
-                title={admin ? "Como admin podés cambiar entre todas las facultades" : undefined}
+                style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
               >
                 <span>{facInfo(usuario.facultad_objetivo)?.emoji ?? "🎓"}</span>
                 <span>{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
-                {admin && <span style={{ fontSize: 10, color: "#d97706" }}>⚡</span>}
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
               {selOpen && (
                 <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
-                  <div style={{ padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>
-                    {admin ? "Todas las facultades (admin)" : "Tus suscripciones"}
-                  </div>
-                  {(admin ? facultades : (usuario.suscripciones ?? []).map((s) => ({ id: s.facultad, vence: s.vence }))).map((item) => {
-                    const fid = "id" in item ? item.id : (item as { facultad: string }).facultad;
-                    const vence = "vence" in item ? (item as { vence?: string }).vence : undefined;
-                    const fi = facInfo(fid);
-                    const activa = fid === usuario.facultad_objetivo;
+                  <div style={{ padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>Tus suscripciones</div>
+                  {usuario.suscripciones?.map((s) => {
+                    const fi = facInfo(s.facultad);
+                    const activa = s.facultad === usuario.facultad_objetivo;
                     return (
                       <button
-                        key={fid}
-                        onClick={() => cambiarFacultad(fid)}
+                        key={s.facultad}
+                        onClick={() => cambiarFacultad(s.facultad)}
                         style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", textAlign: "left", padding: "8px 10px", background: activa ? "rgba(99,102,241,0.08)" : "transparent", border: "none", borderRadius: 6, cursor: "pointer" }}
                       >
                         <span style={{ fontSize: 18 }}>{fi?.emoji ?? "🎓"}</span>
                         <span style={{ flex: 1 }}>
-                          <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{fi?.nombre_corto ?? fid}</span>
-                          {vence
-                            ? <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>Activa hasta {vence}</span>
-                            : admin && <span style={{ fontSize: 11, color: "#d97706" }}>Acceso admin</span>}
+                          <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{fi?.nombre_corto ?? s.facultad}</span>
+                          <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>Activa hasta {s.vence}</span>
                         </span>
                         {activa && <span style={{ color: "var(--accent)", fontWeight: 800 }}>✓</span>}
                       </button>
                     );
                   })}
-                  {!admin && (
-                    <Link href="/precios" onClick={() => setSelOpen(false)} style={{ display: "block", padding: "8px 10px", marginTop: 4, borderTop: "1px solid var(--border)", fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
-                      ➕ Agregar otra facultad
-                    </Link>
-                  )}
+                  <Link href="/precios" onClick={() => setSelOpen(false)} style={{ display: "block", padding: "8px 10px", marginTop: 4, borderTop: "1px solid var(--border)", fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
+                    ➕ Agregar otra facultad
+                  </Link>
                 </div>
               )}
             </div>
