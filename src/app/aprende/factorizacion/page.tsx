@@ -10,6 +10,7 @@ import { Pizarra, Repetir, Pot, Igual, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Animación "factor común sale afuera": 6x + 9 → 3·2x + 3·3 → 3(2x + 3).
@@ -134,6 +135,22 @@ function Esc01_Intro() {
         Factorizar es esencial porque <strong>los productos son más fáciles de analizar
         que las sumas</strong>. "Algo·algo = 0" es trivial (uno de los dos es 0). "Algo + algo = 0" no.
       </PorQue>
+
+      <Hook>
+        Factorización es una de las habilidades <strong>más usadas</strong> en matemática.
+        Aparece adentro de: resolver cuadráticas, simplificar fracciones algebraicas,
+        encontrar raíces, MCD/MCM. En el UMSS aparece como tarea directa en 2-3 preguntas, y
+        como paso intermedio en muchas más.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"FC-G-DC-TCP-T" · 5 métodos en orden de prueba</strong>:<br />
+        <strong>FC</strong> = Factor Común (SIEMPRE primero).<br />
+        <strong>G</strong> = Grupos (4 términos).<br />
+        <strong>DC</strong> = Diferencia de Cuadrados (a² − b²).<br />
+        <strong>TCP</strong> = Trinomio Cuadrado Perfecto (a² ± 2ab + b²).<br />
+        <strong>T</strong> = Trinomio x² + bx + c (busca 2 nº que suman b y multiplican c).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -419,6 +436,26 @@ function Esc07_Cual() {
         <strong>SIEMPRE</strong> probá factor común primero. Si lo salteás, te complicás
         la vida y a veces no podés terminar.
       </Cuidado>
+
+      <WorkedExample titulo="Factorización completa · 'siempre hasta el fondo'">
+        Factorizá: <strong>3x³ − 12x</strong>.<br /><br />
+
+        <strong>Paso 1 · Factor común:</strong> MCD(3, 12) = 3. Letra común: x.<br />
+        Sacando: 3x(x² − 4).<br /><br />
+
+        <strong>Paso 2 · ¿Hay más para factorizar?</strong> Sí: x² − 4 es diferencia de
+        cuadrados.<br />
+        x² − 4 = (x + 2)(x − 2).<br /><br />
+
+        <strong>Resultado final:</strong> 3x · (x + 2)(x − 2) = <strong>3x(x+2)(x−2)</strong>.<br /><br />
+
+        <strong>Regla:</strong> después de aplicar UN método, volvé a mirar cada factor para
+        ver si se factoriza MÁS. La factorización está terminada cuando cada factor es
+        irreducible.<br /><br />
+
+        <strong>Verificación:</strong> desarrollando para atrás:<br />
+        3x(x+2)(x−2) = 3x(x² − 4) = 3x³ − 12x. ✓
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -445,6 +482,21 @@ function Esc08_Errores() {
           Si te complicás factorizando 4x² − 16 sin sacar el 4 antes, mal. Hacé 4(x²−4) = 4(x+2)(x−2).
         </span>
       </Cuidado>
+
+      <Misconception titulo="Diferencia de cuadrados sí, suma de cuadrados NO">
+        <strong>x² − 9 = (x+3)(x−3)</strong> ✓ Diferencia de cuadrados factoriza.<br />
+        <strong>x² + 9</strong> ❌ NO factoriza en los reales. Punto.<br /><br />
+        Las sumas de cuadrados solo factorizan en los complejos: x² + 9 = (x + 3i)(x − 3i),
+        que está fuera del UMSS. Si en el examen ves x² + (algo positivo) y te piden
+        factorizar, la respuesta correcta es "no es factorizable" o queda como está.
+      </Misconception>
+
+      <Conexion>
+        Factorización conecta con: <strong>Productos notables</strong> (la operación
+        inversa), <strong>Ecuaciones de 2do grado</strong> (factorizar es uno de los
+        métodos de resolución), <strong>MCD/MCM algebraicos</strong> (requieren factorización
+        previa), <strong>Fracciones algebraicas</strong> (para simplificar y sumar).
+      </Conexion>
     </EscenaRica>
   );
 }

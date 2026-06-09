@@ -5,6 +5,7 @@ import { COLOR_OK } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -45,6 +46,24 @@ function Esc01() {
         Las cinco funciones se cruzan e interactúan: no son una secuencia rígida, sino un sistema. Pero
         sí tienen un orden lógico.
       </PorQue>
+
+      <Hook>
+        Las 5 funciones POIDC son <strong>la pregunta más repetida del bloque de administración</strong>
+        en el examen UMSS. Memorizarlas en orden te garantiza varias respuestas correctas.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"POIDC"</strong>:<br />
+        <strong>P</strong>laneación · <strong>O</strong>rganización · <strong>I</strong>ntegrar
+        personal · <strong>D</strong>irección · <strong>C</strong>ontrol.<br /><br />
+        Frase mnemónica: <em>"Para Obtener Ingresos, Dirigí Controlando"</em>.
+      </Mnemotecnia>
+
+      <Misconception titulo="No son fases separadas en el tiempo">
+        Algunos creen que primero se planea TODO, luego se organiza TODO, etc. Falso: un gerente
+        planea de mañana y controla de tarde el mismo día. Las 5 funciones <strong>conviven en
+        simultáneo</strong>, no son etapas cronológicas.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -157,6 +176,30 @@ function Esc07() {
         gerente piensa en planificar mientras dirige, y mientras controla detecta que hay que
         reorganizar.
       </Resumen>
+
+      <WorkedExample titulo="Las 5 funciones en un solo día de un gerente">
+        Lucía dirige una empresa de software de 30 personas en Cochabamba.<br /><br />
+
+        <strong>8:00 AM (Planeación):</strong> revisa OKRs del trimestre con su equipo de
+        leadership.<br />
+        <strong>10:00 (Organización):</strong> firma cambio de organigrama: el equipo de QA pasa a
+        reportar a CTO en vez de a Operaciones.<br />
+        <strong>11:30 (Integración):</strong> entrevista a 2 candidatos para el puesto de Backend
+        Senior.<br />
+        <strong>14:00 (Dirección):</strong> reunión 1-on-1 con un líder que tiene conflictos con su
+        equipo: escucha, da feedback, decide acompañar.<br />
+        <strong>16:00 (Control):</strong> revisa dashboard de ventas, detecta que un cliente
+        importante atrasó pago — activa al área comercial.<br /><br />
+
+        <strong>En 8 horas Lucía aplicó las 5 funciones</strong>. No las hizo "una después de la
+        otra": las intercaló según lo que el día requería. Eso es la administración real.
+      </WorkedExample>
+
+      <Conexion>
+        Cada una de las 5 funciones tiene su propia unidad en el Bloque 1 Unidad 4. Esta lección
+        es solo el MAPA: las próximas son la profundización de cada función con teorías, técnicas
+        y casos.
+      </Conexion>
     </EscenaRica>
   );
 }

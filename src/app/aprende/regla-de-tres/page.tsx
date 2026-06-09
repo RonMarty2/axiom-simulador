@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -53,6 +54,19 @@ function Esc01_Intro() {
         La regla de tres no es magia: es <strong>la propiedad fundamental de las
         proporciones aplicada</strong>. Lo que ves como "atajo" es solo el despeje.
       </PorQue>
+
+      <Hook>
+        La regla de tres + porcentajes + interés simple suman <strong>6-10 preguntas</strong> en
+        el examen UMSS. Es la unidad de matemática con mejor rendimiento esfuerzo/puntos. Si
+        dominás identificar "directa vs inversa", resolvés todas en menos de 30 segundos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Test "↓↓ vs ↓↑"</strong> antes de hacer cualquier cálculo:<br />
+        Dibujá DOS FLECHAS al lado de las dos columnas.<br />
+        — Si las dos van hacia ABAJO → DIRECTA → multiplicás en CRUZ.<br />
+        — Si una va arriba y otra abajo → INVERSA → multiplicás EN LÍNEA.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -273,6 +287,32 @@ function Esc06_Porcent() {
         calcular qué % es un número de otro, o calcular el total dado un %. Los tres
         se resuelven con la misma regla de tres directa.
       </Resumen>
+
+      <WorkedExample titulo="Descuento + IVA · supermercado en La Paz">
+        Una compra original cuesta <strong>120 Bs</strong>. Te aplican <strong>15% de
+        descuento</strong>, y después agregan el <strong>13% de IVA</strong>. ¿Cuánto pagás
+        al final?<br /><br />
+
+        <strong>Paso 1 · Descuento:</strong> 15% de 120 = (15·120)/100 = 18 Bs.<br />
+        Precio con descuento: 120 − 18 = <strong>102 Bs</strong>.<br /><br />
+
+        <strong>Paso 2 · IVA sobre el descontado:</strong> 13% de 102 = (13·102)/100 = 13,26 Bs.<br />
+        Precio final: 102 + 13,26 = <strong>115,26 Bs</strong>.<br /><br />
+
+        <strong>Atajo · "factor único":</strong><br />
+        Aplicar 15% de descuento ≡ multiplicar por 0,85.<br />
+        Sumar 13% de IVA ≡ multiplicar por 1,13.<br />
+        Final = 120 × 0,85 × 1,13 = 120 × 0,9605 = <strong>115,26 Bs</strong>. ✓<br /><br />
+
+        <strong>Truco para el examen:</strong> cuando hay varios % en cadena, los factores se
+        multiplican. Más rápido que hacer cada paso por separado.
+      </WorkedExample>
+
+      <Misconception titulo="Trampa de los porcentajes en cadena">
+        Mucha gente piensa "15% descuento + 13% IVA → como +13% −15% = −2% neto, pago 117,60 Bs".
+        ERROR. Los porcentajes NO se suman ni se restan directamente. Aplicalos UNO A UNO sobre
+        la base que corresponde, o usá factores multiplicativos.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -342,6 +382,17 @@ function Esc08_IntFor() {
         correctaIdx={0}
         explicacion="I = (5000·6·2)/100 = 60000/100 = 600 Bs."
       />
+
+      <CasoBolivia>
+        <strong>Tasas reales en Bolivia (2024-2025):</strong><br />
+        — DPF (depósitos a plazo fijo) en bolivianos: <strong>3-5% anual</strong>.<br />
+        — Crédito de consumo (tarjeta): <strong>15-22% anual</strong>.<br />
+        — Microcrédito productivo: <strong>11-13% anual</strong>.<br />
+        — Crédito de vivienda social: <strong>5,5-6,5% anual</strong>.<br /><br />
+        Si pedís un préstamo de 50.000 Bs a 12% anual por 3 años (interés simple):<br />
+        I = (50.000 × 12 × 3) / 100 = <strong>18.000 Bs</strong> de interés.<br />
+        Pagás un total de 68.000 Bs (1.888 Bs por mes).
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -368,6 +419,13 @@ function Esc09_Errores() {
           I = interés ganado. M = capital + interés. Son cosas distintas.
         </span>
       </Cuidado>
+
+      <Conexion>
+        Regla de tres es la versión "atajo" de las <strong>proporciones</strong> de la unidad
+        anterior. Y conecta con <em>repartos proporcionales</em> (también basados en
+        proporciones) y con <em>funciones lineales</em> (la directa es y = kx, la inversa es
+        y = k/x).
+      </Conexion>
     </EscenaRica>
   );
 }

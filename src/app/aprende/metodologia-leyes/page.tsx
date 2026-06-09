@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -38,6 +39,20 @@ function Esc01() {
         <strong>2. Inducción</strong> — generalizar a partir de hechos particulares.<br />
         <strong>3. Deducción</strong> — extraer consecuencias a partir de principios o hipótesis.
       </Resumen>
+
+      <Hook>
+        En el examen UMSS aparecen 2-3 preguntas sobre <em>ceteris paribus</em>, inducción vs
+        deducción, y por qué la economía es ciencia social. Memorizar los 3 pilares (R-I-D) te
+        permite responder casi cualquier pregunta de metodología económica.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"R-I-D"</strong> · los 3 pilares en orden:<br />
+        <strong>R</strong>econocimiento (mirar la realidad) → <strong>I</strong>nducción
+        (generalizar) → <strong>D</strong>educción (predecir).<br /><br />
+        Truco: <em>"Reconozco, Induzco, Deduzco"</em>. Es el método científico estándar aplicado
+        a la economía.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -63,6 +78,13 @@ function Esc02() {
         bajo ciertas condiciones. Sus principios, teorías, leyes y modelos son <strong>representaciones
         simplificadas</strong> de una realidad compleja.
       </PorQue>
+
+      <Misconception titulo="Inducción ≠ adivinanza">
+        Inducción NO es "tirar una hipótesis al aire". Es generalizar a partir de MUCHOS casos
+        observados sistemáticamente. Si subís el precio del pan 100 veces en 100 mercados
+        distintos y en todos la demanda baja, esa observación masiva permite inducir la "ley
+        de demanda". Un solo caso no induce nada.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -126,6 +148,22 @@ function Esc05() {
         intensidad de la ley formulada. Por eso, en la economía las leyes están <strong>siempre sujetas
         a ceteris paribus</strong>.
       </Cuidado>
+
+      <CasoBolivia>
+        <strong>Ceteris paribus FALLA · Bolivia 2022-2023:</strong> la ley dice que si el dólar
+        oficial está fijo, el precio interno se estabiliza. Pero apareció un <em>factor
+        perturbador</em>: las reservas internacionales cayeron, surgió un dólar paralelo a casi
+        el doble del oficial. La "ley" del peg dejó de cumplirse porque el supuesto ceteris paribus
+        (reservas suficientes) cayó. Las leyes económicas no son leyes de la naturaleza —
+        dependen del contexto.
+      </CasoBolivia>
+
+      <Misconception titulo="'Ceteris paribus' NO significa 'siempre se cumple'">
+        Muchos creen que decir "por la ley de demanda baja el precio" es una verdad eterna. No:
+        es una predicción CONDICIONAL. Si junto con la baja de precio también baja el ingreso
+        de la gente, la demanda podría caer en vez de subir. La cláusula "ceteris paribus" es
+        un blindaje teórico, no una garantía en el mundo real.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -149,6 +187,12 @@ function Esc06() {
         precios de sustitutos, expectativas) se mantienen iguales. Si cambian, la ley puede invertirse o
         debilitarse.
       </PorQue>
+
+      <Conexion>
+        La ley de demanda C<sub>D</sub> = f(P) y la función de consumo C = f(Y) van a reaparecer en
+        toda la economía: equilibrio de mercado, política monetaria, modelos keynesianos. Si
+        entendés bien estas dos relaciones funcionales, tenés media economía resuelta.
+      </Conexion>
     </EscenaRica>
   );
 }

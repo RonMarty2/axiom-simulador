@@ -4,6 +4,7 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -35,6 +36,19 @@ function EscIntro() {
         Aunque mucha gente entiende oraciones mal escritas, el examen quiere verificar que reconocés{" "}
         <em>cuál es la versión más precisa</em>. Es una habilidad clave de la escritura universitaria.
       </PorQue>
+
+      <Hook>
+        Esta sección suele tener <strong>3-5 preguntas</strong> en el examen. Lo decisivo:
+        recordar que <strong>"Es correcta" es una opción válida</strong>. Mucha gente la descarta
+        por reflejo, pierde puntos al elegir una versión "reescrita" que en realidad empeora la
+        oración.
+      </Hook>
+
+      <Misconception titulo="Trampa #1 · 'tiene que haber algo mejor'">
+        Cuando la oración original ya está bien construida, las 4 reescrituras son distractoras:
+        agregan palabras, cambian orden, intercalan comas. Si nada está MAL en la original, la
+        respuesta correcta es <strong>"Es correcta"</strong>. Sin culpa.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -54,6 +68,33 @@ function EscReglas() {
         <strong>4. Conectores apropiados</strong> — "pero", "sin embargo", "aunque" señalan oposición.
         "Y" y "también" suman. Elegir el conector incorrecto cambia el sentido.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>Checklist "E-C-O-C"</strong> antes de elegir:<br />
+        <strong>E</strong>structura (sujeto-verbo-complemento claros).<br />
+        <strong>C</strong>oncordancia (verbo con sujeto, adjetivos con sustantivos).<br />
+        <strong>O</strong>rden de complementos (cerca de lo que modifican).<br />
+        <strong>C</strong>onector apropiado (familia correcta).<br /><br />
+        Si la original cumple las 4 → "Es correcta".
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Caso típico · 'detalladamente explicó'">
+        <strong>Original:</strong> "El profesor detalladamente explicó el tema antes de darnos la
+        tarea."<br /><br />
+
+        <strong>Análisis:</strong><br />
+        — Sujeto: "el profesor" ✓<br />
+        — Verbo: "explicó" ✓<br />
+        — Pero el adverbio "detalladamente" está ANTES del verbo, no después. En español natural,
+        los adverbios de modo van DESPUÉS del verbo: "explicó detalladamente".<br /><br />
+
+        <strong>Mejora:</strong> "El profesor explicó detalladamente el tema antes de darnos la
+        tarea."<br /><br />
+
+        <strong>Regla práctica:</strong> el adverbio modifica al verbo, así que va junto al verbo.
+        El orden natural en español es <em>sujeto + verbo + adverbio + objeto + complementos</em>.
+        Cualquier opción que rompa ese orden sin razón estilística clara, es peor.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -168,6 +209,15 @@ function EscResumen() {
         <strong>5.</strong> Si dudás entre dos opciones, leelas en voz alta. La buena fluye natural; la
         forzada se traba.
       </Resumen>
+
+      <Misconception titulo="3 errores frecuentes en las opciones reescritas">
+        <strong>(a)</strong> Coma entre sujeto y verbo: "El equipo, trabajó arduamente" — ERROR.
+        Sujeto y verbo NO se separan con coma.<br />
+        <strong>(b)</strong> Cambio de palabras con matiz diferente: original "completar" ↔ opción
+        "terminar". Cambian la nota fina del sentido.<br />
+        <strong>(c)</strong> Separación de palabras que se complementan: "rápido" lejos del verbo
+        que modifica, "concentración" lejos de "con gran".
+      </Misconception>
     </EscenaRica>
   );
 }

@@ -4,6 +4,7 @@ import LeccionShell from "../_components/LeccionShell";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, LecturaQuiz,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -43,6 +44,18 @@ function EscIntro() {
         En el examen aparecen ejercicios donde se subraya una palabra y te piden reemplazarla por su
         sinónimo en ESE contexto específico. Una mala elección altera el significado de la oración.
       </PorQue>
+
+      <Hook>
+        En el examen UMSS hay típicamente <strong>4-7 preguntas</strong> de léxico contextual.
+        Tiene rendimiento alto: con la estrategia de "sustitución" resolvés casi todas en 15
+        segundos sin necesitar saber sinónimos raros de memoria.
+      </Hook>
+
+      <Misconception titulo="Sinónimo de diccionario ≠ sinónimo del contexto">
+        Una palabra puede tener 5 sinónimos en el diccionario, pero solo UNO encaja en una oración
+        específica. Ejemplo: "obtener" y "robar" pueden compartir matiz ("obtener algo"), pero en
+        "obtuvo su título" → "robó su título" cambia totalmente el sentido. El contexto manda.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -65,6 +78,32 @@ function EscEstrategia() {
         Algunas opciones son <strong>antónimos</strong> disfrazados. Si te apurás y leés solo la palabra
         subrayada, podés elegir una palabra que dice lo contrario y arruinar la oración.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>Acrónimo "LSPV"</strong> · método de sustitución:<br />
+        <strong>L</strong>eer oración completa · <strong>S</strong>ustituir mentalmente cada
+        opción · <strong>P</strong>esar cuál mantiene el sentido ·
+        <strong> V</strong>erificar que no aparezca ya en el texto (sería trampa).
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Estrategia aplicada · 'La oferta SUPERA a la demanda'">
+        <strong>Pregunta:</strong> reemplazá "SUPERA".<br />
+        Opciones: (a) iguala, (b) excede, (c) reduce, (d) requiere, (e) supone.<br /><br />
+
+        <strong>Paso 1 · Leer oración completa:</strong> en economía, "oferta supera demanda"
+        significa que hay más de lo que se pide → exceso.<br /><br />
+
+        <strong>Paso 2 · Sustituir cada opción:</strong><br />
+        — "oferta IGUALA a la demanda" → cambia el sentido (ya no hay exceso). ✗<br />
+        — "oferta EXCEDE a la demanda" → mantiene el sentido. ✓<br />
+        — "oferta REDUCE a la demanda" → relación causal nueva, cambia sentido. ✗<br />
+        — "oferta REQUIERE a la demanda" → sin sentido económico. ✗<br />
+        — "oferta SUPONE a la demanda" → distinto significado. ✗<br /><br />
+
+        <strong>Paso 3 · Verificar:</strong> "excede" no aparece en el texto → válido.<br /><br />
+
+        <strong>Respuesta: (b) excede.</strong> En 15 segundos.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -242,6 +281,15 @@ function EscResumen() {
         <strong>5.</strong> Si dos opciones parecen igual de buenas, elegí la más natural en ese
         registro (formal/coloquial/técnico).
       </Resumen>
+
+      <Misconception titulo="Las 3 trampas típicas">
+        <strong>(a)</strong> El <strong>antónimo</strong> disfrazado (alto → bajo en vez de
+        elevado).<br />
+        <strong>(b)</strong> Una palabra que <strong>ya aparece en el texto</strong> (no podés
+        reemplazar X por X — descartá esa opción de entrada).<br />
+        <strong>(c)</strong> Un sinónimo de OTRO sentido de la palabra (válido en otro contexto
+        pero no en éste).
+      </Misconception>
     </EscenaRica>
   );
 }

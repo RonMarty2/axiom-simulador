@@ -7,6 +7,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -84,6 +85,18 @@ function EscIntro() {
         Es uno de los ejercicios más usados para medir <strong>razonamiento inductivo</strong>: ver casos
         particulares (los primeros términos) y deducir la regla general.
       </Parrafo>
+
+      <Hook>
+        En el examen UMSS aparecen entre <strong>5 y 10 secuencias</strong> (numéricas, alfabéticas,
+        mixtas). Es de los temas con mejor relación esfuerzo/puntos: con 5-6 patrones memorizados
+        resolvés casi todas en menos de 30 segundos cada una.
+      </Hook>
+
+      <Misconception titulo="Trampa · 'el primer patrón que vea es el bueno'">
+        Mucha gente ve "+2" entre los primeros dos términos y elige sin verificar el resto. ERROR.
+        Tenés que probar el patrón en TODAS las diferencias. Si "+2" funciona en t₂−t₁ pero no en
+        t₃−t₂, no es el patrón. Verificá siempre con un término más.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -129,6 +142,35 @@ function EscProcedimiento() {
         <strong>5. Verificá con un término más:</strong> aplicá tu regla y comprobá que el siguiente
         encaja.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>Orden de prueba "S-M-D-F"</strong>:<br />
+        <strong>S</strong>uma constante (lo más común) → <strong>M</strong>ultiplicación constante
+        → <strong>D</strong>iferencias crecientes (+1, +2, +3…) → <strong>F</strong>amilia especial
+        (cuadrados, Fibonacci, alternancia).<br /><br />
+        El 80% del examen se resuelve con S y M. Si fallan ambas, vas a D. Si falla, F.
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Procedimiento paso a paso · '2, 6, 12, 20, 30, ?'">
+        <strong>Paso 1 · Diferencias:</strong><br />
+        6−2 = 4, 12−6 = 6, 20−12 = 8, 30−20 = 10.<br />
+        <strong>NO constante</strong> (4, 6, 8, 10).<br /><br />
+
+        <strong>Paso 2 · Razón:</strong><br />
+        6/2 = 3, 12/6 = 2, 20/12 ≈ 1.67.<br />
+        <strong>NO constante</strong>.<br /><br />
+
+        <strong>Paso 3 · Diferencias de diferencias:</strong><br />
+        Las diferencias son 4, 6, 8, 10 → forman su propia secuencia con +2 constante.<br />
+        <strong>¡Encontrado!</strong> El patrón es "diferencias que crecen +2 cada vez".<br /><br />
+
+        <strong>Paso 4 · Siguiente diferencia:</strong> 10 + 2 = <strong>12</strong>.<br /><br />
+
+        <strong>Paso 5 · Resultado:</strong> 30 + 12 = <strong>42</strong>.<br /><br />
+
+        <strong>Verificación bonus:</strong> esta secuencia es n(n+1): 1·2=2, 2·3=6, 3·4=12, 4·5=20,
+        5·6=30, 6·7=42. ✓
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -149,6 +191,21 @@ function EscPatrones() {
         Cuando una secuencia no encaja con suma ni multiplicación constante, probá uno de los patrones
         avanzados antes de declararla "ninguna".
       </PorQue>
+
+      <Mnemotecnia>
+        <strong>Tabla de cuadrados y Fibonacci · memorizá estos números:</strong><br /><br />
+        <strong>Cuadrados:</strong> 1, 4, 9, 16, 25, 36, 49, 64, 81, 100.<br />
+        Si ves esos números → es n².<br /><br />
+        <strong>Fibonacci:</strong> 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.<br />
+        Si ves esos números → cada uno es la suma de los 2 anteriores.<br /><br />
+        Reconocerlos al toque te ahorra 30 segundos por pregunta.
+      </Mnemotecnia>
+
+      <Misconception titulo="Trampa de las alternancias">
+        Si la secuencia parece "saltar" (subir, bajar, subir, bajar), no es errática: es
+        <strong> alternancia</strong> (dos operaciones que se turnan). Mirá las posiciones IMPARES
+        por un lado y las PARES por otro. A veces son dos secuencias entrelazadas.
+      </Misconception>
     </EscenaRica>
   );
 }

@@ -6,6 +6,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -81,6 +82,11 @@ function EscIntro() {
   return (
     <EscenaRica>
       <Titulo>El silogismo · razonamiento deductivo</Titulo>
+      <Hook>
+        El examen UMSS suele traer entre <strong>3 y 5 silogismos</strong> y combinaciones similares
+        (analogías, secuencias). El que entiende la estructura los resuelve en 15 segundos. El que no,
+        los adivina. Esta unidad enseña la estructura.
+      </Hook>
       <Definicion termino="silogismo">
         Forma de <strong>razonamiento deductivo</strong> formalizado por Aristóteles. Consta de tres
         partes: <strong>dos premisas y una conclusión</strong> que se deriva necesariamente de ellas.
@@ -89,6 +95,11 @@ function EscIntro() {
         Si las premisas son verdaderas, la conclusión también lo será — siempre que la estructura sea
         válida. Es la base de toda la lógica clásica y del pensamiento riguroso.
       </PorQue>
+      <Conexion>
+        Esta unidad conecta con razonamiento jurídico (los abogados aplican silogismos todo el tiempo:
+        ley general + caso particular = veredicto), con la medicina (síntoma + diagnóstico = tratamiento)
+        y con la programación (todo <code>if</code> es un silogismo hipotético).
+      </Conexion>
     </EscenaRica>
   );
 }
@@ -112,6 +123,24 @@ function EscEstructura() {
         medio (humano) que los conecta. La premisa mayor relaciona el término medio con el mayor; la
         menor relaciona el término menor con el medio. La conclusión une el menor y el mayor.
       </PorQue>
+
+      <WorkedExample titulo="Mapa de términos · el silogismo de Sócrates pieza por pieza">
+        <strong>Premisa Mayor:</strong> <em>Todos los <u>humanos</u> son <u>mortales</u></em>.<br />
+        — Término medio: <strong>humanos</strong> (aparece en ambas premisas).<br />
+        — Término mayor: <strong>mortales</strong> (lo que se predica en la conclusión).<br /><br />
+
+        <strong>Premisa Menor:</strong> <em><u>Sócrates</u> es <u>humano</u></em>.<br />
+        — Término medio: <strong>humano</strong> (puente).<br />
+        — Término menor: <strong>Sócrates</strong> (el sujeto de la conclusión).<br /><br />
+
+        <strong>Conclusión:</strong> el término medio (humano) <strong>desaparece</strong> y
+        quedan unidos los extremos:<br />
+        <em>Sócrates (menor) → es mortal (mayor)</em>.<br /><br />
+
+        <strong>Regla práctica:</strong> el término medio es como un puente que conecta dos islas
+        (sujeto y predicado de la conclusión). Una vez que cruzaste, el puente desaparece de la
+        conclusión.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -147,6 +176,25 @@ function EscTipos() {
         María no viaja a Francia.<br />
         ∴ María viaja a España.
       </Ejemplo>
+
+      <Misconception titulo="Trampa del hipotético · afirmar el consecuente">
+        Si A entonces B. <strong>B es verdadero</strong>. ∴ A. <strong>FALSO</strong>.<br />
+        Ej: "Si llueve, la calle está mojada. La calle está mojada. ∴ llueve". NO. Pudo regarse, o
+        haberse derretido hielo. <strong>Solo podés concluir hacia adelante</strong> (de A a B), no
+        hacia atrás (de B a A).
+      </Misconception>
+
+      <Misconception titulo="Trampa del hipotético · negar el antecedente">
+        Si A entonces B. <strong>No A</strong>. ∴ no B. <strong>FALSO</strong>.<br />
+        Ej: "Si estudio, apruebo. No estudié. ∴ no aprobé". NO necesariamente — pudo aprobar por
+        suerte. Negar A no te dice nada sobre B.
+      </Misconception>
+
+      <Misconception titulo="Trampa del disyuntivo · 'o' inclusivo vs exclusivo">
+        En lógica, "A o B" normalmente significa <strong>al menos uno</strong> (inclusivo). En el
+        examen, leé el contexto: si dice "<em>o esto o lo otro</em>" en sentido excluyente, debe
+        haber pista de exclusión. Si no, podrían cumplirse ambos a la vez.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -170,6 +218,43 @@ function EscProcedimiento() {
         Falacia común: "Algunos A son B. Algunos B son C. Por tanto, algunos A son C". <strong>FALSO</strong>{" "}
         — el término medio (B) no garantiza el puente cuando es "algunos" en ambas premisas.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>Acrónimo "TME → C"</strong> para resolver cualquier silogismo:<br />
+        <strong>T</strong>érmino medio (lo identificás: aparece en las DOS premisas).<br />
+        <strong>M</strong>ayor (lo que se predica universalmente).<br />
+        <strong>E</strong>xtremos (sujeto particular).<br />
+        <strong>C</strong>onclusión: une los dos extremos, el término medio desaparece.
+      </Mnemotecnia>
+
+      <CasoBolivia>
+        Silogismo en el examen UMSS:<br />
+        <strong>PM:</strong> Todos los postulantes que aprueban el examen ingresan a la UMSS.<br />
+        <strong>Pm:</strong> Vos aprobaste el examen.<br />
+        <strong>∴</strong> Vos ingresás a la UMSS.<br /><br />
+        Identificá: término medio = "aprueba el examen", extremos = "vos" + "ingresa UMSS".
+        La conclusión NO es "todos los que ingresan aprobaron" (eso sería invertir la premisa).
+      </CasoBolivia>
+
+      <WorkedExample titulo="Aplicar el procedimiento paso a paso">
+        <strong>Silogismo:</strong><br />
+        — Todos los gatos son felinos.<br />
+        — Todos los felinos son carnívoros.<br />
+        — ∴ ?<br /><br />
+
+        <strong>Paso 1:</strong> ¿qué aparece en LAS DOS premisas? <em>Felinos</em>. Ese es el
+        término medio.<br /><br />
+
+        <strong>Paso 2:</strong> ¿qué quedan como extremos?<br />
+        — En la PM: "gatos" (extremo izquierdo).<br />
+        — En la Pm: "carnívoros" (extremo derecho).<br /><br />
+
+        <strong>Paso 3:</strong> uní los extremos, el término medio desaparece:<br />
+        <strong>∴ Todos los gatos son carnívoros.</strong><br /><br />
+
+        <strong>Verificá:</strong> no agregaste info ("todos" estaba en las premisas), no invertiste
+        ("gatos → carnívoros", no al revés), y el medio sí cumplió de puente.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -328,6 +413,19 @@ function EscResumen() {
         <strong>5.</strong> Si la conclusión incluye información NO contenida en las premisas, es
         inválida.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>"TME → C"</strong>: Término medio + extremos = conclusión. El medio aparece DOS
+        veces en premisas y CERO en la conclusión. Si lo ves en la conclusión, la opción es trampa.
+      </Mnemotecnia>
+
+      <Misconception titulo="Las 3 trampas más comunes en el examen">
+        <strong>(a)</strong> Invertir dirección: "todo A es B" ≠ "todo B es A".<br />
+        <strong>(b)</strong> Afirmar el consecuente en hipotéticos: "si A entonces B; B; ∴ A" es
+        FALSO.<br />
+        <strong>(c)</strong> Conclusión con información extra: si la opción agrega datos que las
+        premisas no mencionan, descártala — por más verdadera que suene.
+      </Misconception>
     </EscenaRica>
   );
 }

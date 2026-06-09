@@ -10,6 +10,7 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Intersección de rectas: dos rectas se dibujan y aparece el punto de
@@ -121,6 +122,20 @@ function Esc01_Intro() {
         • Edades, mezclas, intersección de rectas, sistemas de oferta y demanda.<br />
         Vamos a ver <strong>3 métodos</strong>: sustitución, igualación, reducción.
       </Resumen>
+
+      <Hook>
+        Sistemas de ecuaciones lineales aparecen en <strong>2-4 preguntas del examen UMSS</strong>
+        (problemas con 2 incógnitas: precios, edades, mezclas). Conocer los 3 métodos te
+        permite elegir el más rápido según el sistema.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"S-I-R" · los 3 métodos en orden de preferencia</strong>:<br />
+        <strong>R</strong>educción (sumar/restar ecuaciones) — la más rápida en el examen.<br />
+        <strong>S</strong>ustitución (despejar una y reemplazar) — la más versátil.<br />
+        <strong>I</strong>gualación (despejar la misma variable en ambas) — la más elegante.<br /><br />
+        Los 3 dan el mismo resultado. Elegí según el sistema.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -264,6 +279,36 @@ function Esc07_Verbal() {
         <Paso n={3}>De la 2ª: x = 21 − 4y. Sustituyo en 1ª: 3(21−4y) + 2y = 23 → 63 − 12y + 2y = 23 → −10y = −40 → y = 4.</Paso>
         <Paso n={4}>x = 21 − 16 = 5. Lápiz <strong style={{ color: COLOR_OK }}>5 Bs</strong>, cuaderno <strong style={{ color: COLOR_OK }}>4 Bs</strong>.</Paso>
       </Ejemplo>
+
+      <WorkedExample titulo="Problema de billetes · cobrador de micro La Paz">
+        Un cobrador termina el día con <strong>25 billetes</strong> en la mano (mezcla de
+        2 Bs y 5 Bs) por un total de <strong>92 Bs</strong>. ¿Cuántos billetes de cada tipo
+        tiene?<br /><br />
+
+        <strong>Paso 1 · Definir incógnitas:</strong><br />
+        x = nº de billetes de 2 Bs.<br />
+        y = nº de billetes de 5 Bs.<br /><br />
+
+        <strong>Paso 2 · Plantear el sistema:</strong><br />
+        — Ec.1 (cantidad): x + y = 25.<br />
+        — Ec.2 (monto): 2x + 5y = 92.<br /><br />
+
+        <strong>Paso 3 · Método de reducción:</strong><br />
+        Multiplico Ec.1 por −2: −2x − 2y = −50.<br />
+        Sumo con Ec.2: 3y = 42.<br />
+        y = <strong>14 billetes de 5 Bs</strong>.<br /><br />
+
+        <strong>Paso 4 · Calculo x:</strong><br />
+        x = 25 − 14 = <strong>11 billetes de 2 Bs</strong>.<br /><br />
+
+        <strong>Verificación:</strong><br />
+        Cantidad: 11 + 14 = 25 ✓.<br />
+        Monto: 11×2 + 14×5 = 22 + 70 = 92 Bs ✓.<br /><br />
+
+        <strong>Truco para mezclas de billetes/monedas:</strong> siempre van DOS ecuaciones:
+        una de CANTIDAD y otra de VALOR. Reducción es lo más rápido si los coeficientes
+        son chicos.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -290,6 +335,23 @@ function Esc08_Errores() {
           Sustituí TU SOLUCIÓN en LAS DOS ecuaciones. Si una no se cumple, hubo un error.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Test del 0=0 y 0=5 para detectar casos especiales">
+        Si aplicás cualquier método y llegás a:<br />
+        — <strong>"0 = 5"</strong> (o cualquier contradicción): el sistema NO TIENE
+        SOLUCIÓN. Las rectas son paralelas.<br />
+        — <strong>"0 = 0"</strong> (identidad): INFINITAS soluciones. Las rectas son la
+        misma.<br />
+        — Si despejás x y obtenés un número: <strong>solución única</strong>.<br /><br />
+        Mucha gente se asusta y piensa "me equivoqué" — no, ese es el resultado.
+      </Misconception>
+
+      <Conexion>
+        Sistemas lineales conectan con: <strong>Ecuaciones de 1er grado</strong> (cada
+        ecuación es de 1er grado), <strong>Funciones lineales</strong> (cada ecuación es
+        una recta y = mx + b), y <strong>Programación lineal / problemas de optimización</strong>
+        (en carreras de ingeniería y economía).
+      </Conexion>
     </EscenaRica>
   );
 }

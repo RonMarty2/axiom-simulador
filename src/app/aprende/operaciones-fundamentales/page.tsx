@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -76,6 +77,23 @@ function Esc01_Bienvenida() {
         Si te sentís perdido en algún punto, tocá <strong>← Anterior</strong> y volvé.
         Esta lección está pensada para que la repasés cuantas veces necesites.
       </Parrafo>
+
+      <Hook>
+        Las operaciones fundamentales son <strong>la base de TODO</strong>. Si fallás en
+        signos o en jerarquía, fallás en cualquier cuenta. En el examen UMSS los errores
+        de aritmética cuestan puntos en preguntas que ya estaban "ganadas". Repasalo bien
+        ahora — ahorra dolor después.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"PEMDAS" · jerarquía de operaciones</strong>:<br />
+        <strong>P</strong>aréntesis → <strong>E</strong>xponentes (y raíces) →
+        <strong> M</strong>ultiplicación y <strong>D</strong>ivisión (de izquierda a derecha) →
+        <strong> A</strong>dición y <strong>S</strong>ustracción (de izquierda a derecha).<br /><br />
+        Frase clave: "<em>Por Eso Mucha Diversión Antes de Sufrir</em>".<br />
+        Multiplicación y división tienen <strong>la misma jerarquía</strong>; se hacen en el
+        orden que aparecen. Igual para suma y resta.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -874,6 +892,22 @@ function Esc16_Errores() {
         <em> repasá la jerarquía mentalmente</em>: ¿hay paréntesis? ¿exponentes?
         ¿mult/div? ¿suma/resta? Te ahorra muchísimos errores.
       </Resumen>
+
+      <Misconception titulo="−3² ≠ (−3)² · el signo importa">
+        Estos dos NO son iguales:<br />
+        — <strong>−3² = −9</strong> (el cuadrado afecta solo al 3; el menos queda afuera).<br />
+        — <strong>(−3)² = 9</strong> (el cuadrado afecta TODO el paréntesis: −3 × −3 = 9).<br /><br />
+        Regla: <em>el exponente solo se aplica a lo PEGADO inmediatamente</em>. Sin paréntesis,
+        el menos queda como factor exterior y arrastra el signo final.
+      </Misconception>
+
+      <Conexion>
+        Las operaciones fundamentales son la base de:
+        <strong> Potenciación, Radicación, Logaritmación</strong> (todas son extensiones de
+        la multiplicación), <strong>Álgebra</strong> (los términos se operan con estas reglas),
+        <strong> Ecuaciones</strong> (cada despeje aplica operaciones inversas),
+        <strong> TODAS las demás unidades</strong> del bloque de matemáticas.
+      </Conexion>
     </EscenaRica>
   );
 }

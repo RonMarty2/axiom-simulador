@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -56,6 +57,12 @@ function Esc01_Intro() {
         manipular bien expresiones, te bloquean las ecuaciones, las funciones, los
         sistemas… todo.
       </PorQue>
+
+      <Hook>
+        El álgebra básica es la <strong>infraestructura del 80% del bloque de matemáticas</strong>
+        del UMSS. No aparece sola en muchas preguntas, pero está adentro de cada ecuación,
+        factorización y problema verbal. Dominarla ACÁ te ahorra problemas en TODO lo demás.
+      </Hook>
     </EscenaRica>
   );
 }
@@ -372,6 +379,33 @@ function Esc07_Notables() {
         ❌ (a + b)² <strong>NO</strong> es a² + b². ¡Te olvidás el 2ab! Es el error
         más común en álgebra.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>Los 3 productos notables · "C²-C²-D²"</strong><br />
+        <strong>C</strong>uadrado de suma → (a+b)² = a² + 2ab + b².<br />
+        <strong>C</strong>uadrado de resta → (a−b)² = a² − 2ab + b².<br />
+        <strong>D</strong>iferencia de cuadrados → (a+b)(a−b) = a² − b².<br /><br />
+        Para los 2 primeros: "<em>cuadrado del primero, MÁS/MENOS doble producto,
+        MÁS cuadrado del segundo</em>". Para el 3ro: "<em>cuadrado del primero MENOS cuadrado
+        del segundo</em>".
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Reconocer productos notables al revés (factorización)">
+        Mirá esta expresión: <strong>x² + 10x + 25</strong>. ¿Se puede simplificar?<br /><br />
+
+        <strong>Test rápido:</strong> ¿es un cuadrado perfecto?<br />
+        — Primer término: x² → "primer término al cuadrado" → primer término = x. ✓<br />
+        — Tercer término: 25 → "segundo término al cuadrado" → segundo término = 5. ✓<br />
+        — Término del medio: 10x → "doble producto" → 2·x·5 = 10x. ✓ ¡Cuadra!<br /><br />
+
+        <strong>Conclusión:</strong> x² + 10x + 25 = <strong>(x + 5)²</strong>.<br /><br />
+
+        <strong>Caso 2:</strong> x² − 49. ¿Es diferencia de cuadrados?<br />
+        — Sí: x² es cuadrado, 49 = 7² es cuadrado. → <strong>(x + 7)(x − 7)</strong>.<br /><br />
+
+        <strong>Truco:</strong> reconocer productos notables AL REVÉS es la mitad de la
+        factorización. Memorizar las 3 formas te da ventaja enorme.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -404,6 +438,24 @@ function Esc08_Errores() {
           ❌ x² + x³ = x⁵. <strong>FALSO</strong>. Solo se suman exponentes en PRODUCTOS (x²·x³ = x⁵).
         </span>
       </Cuidado>
+
+      <Misconception titulo="El error más caro · (a+b)² = a² + b²">
+        Este es el error <strong>#1 de todo el bloque de matemáticas</strong>. La operación de
+        elevar al cuadrado NO se distribuye sobre la suma:<br />
+        — <strong>(a+b)²</strong> = a² + 2ab + b² (correcto).<br />
+        — a² + b² → solo si a y b son ortogonales (Pitágoras), no en álgebra general.<br /><br />
+        Verificación numérica: (2+3)² = 25. Pero 2² + 3² = 4 + 9 = 13. ≠. La diferencia es
+        el 2·2·3 = 12.
+      </Misconception>
+
+      <Conexion>
+        Expresiones algebraicas son la base de:
+        <strong> Factorización</strong> (la operación INVERSA al desarrollo),
+        <strong> MCD/MCM algebraicos</strong>,
+        <strong> Ecuaciones de 1er y 2do grado</strong> (cada despeje usa estas reglas),
+        <strong> Fracciones algebraicas</strong>, y prácticamente toda la matemática
+        que viene después.
+      </Conexion>
     </EscenaRica>
   );
 }

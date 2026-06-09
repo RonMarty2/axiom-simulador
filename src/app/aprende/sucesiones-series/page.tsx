@@ -8,6 +8,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Secuencia de términos con arcos que muestran la operación entre cada par
@@ -143,6 +144,21 @@ function Esc01_Intro() {
         🎯 En esta lección verás las dos sucesiones más importantes: aritmética (PA)
         y geométrica (PG). Y cómo sumar los primeros n términos de cada una.
       </Resumen>
+
+      <Hook>
+        En el examen UMSS aparecen <strong>2-3 preguntas de sucesiones</strong> (identificar PA
+        vs PG, calcular el n-ésimo, sumar términos). Con 4 fórmulas memorizadas (aₙ de PA y PG,
+        Sₙ de PA y PG) cubrís todo.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"PA vs PG · S vs M"</strong>:<br />
+        <strong>P</strong>rogresión <strong>A</strong>ritmética → cada término <strong>SUMA</strong>
+        la razón d.<br />
+        <strong>P</strong>rogresión <strong>G</strong>eométrica → cada término
+        <strong> MULTIPLICA</strong> por la razón r.<br /><br />
+        Test rápido: diferencia constante → PA. Cociente constante → PG.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -260,6 +276,34 @@ function Esc06_App() {
       <Ejemplo titulo="Población creciente">
         Una población crece 2% por año. Si hoy son N, en 10 años: N·1.02¹⁰ ≈ 1.22·N.
       </Ejemplo>
+
+      <CasoBolivia>
+        <strong>Población de Cochabamba (proyección oficial INE):</strong><br />
+        1992: 407.825 habitantes.<br />
+        2001: 517.024 (×1.27 en 9 años).<br />
+        2012: 630.587 (×1.22 en 11 años).<br />
+        2022 (proyección): 720.000 aprox.<br /><br />
+        Es una PG aproximada con razón r ≈ 1.02-1.025 anual. Aplicando aₙ = a₁·rⁿ⁻¹:<br />
+        Para 2032: 720.000 × 1.02¹⁰ ≈ <strong>878.000 habitantes</strong>.
+      </CasoBolivia>
+
+      <WorkedExample titulo="Interés compuesto · ahorro a 5 años">
+        Depositás <strong>10.000 Bs</strong> a plazo fijo al <strong>5% anual</strong>
+        compuesto. ¿Cuánto tenés en 5 años?<br /><br />
+
+        <strong>Reconocer PG:</strong> capital año 0 = 10.000. Cada año se multiplica por
+        1.05 (capital + interés). Es PG con r = 1.05.<br /><br />
+
+        <strong>Fórmula:</strong> aₙ = a₁ · rⁿ⁻¹ (n = año + 1).<br />
+        Al final del año 5 (a₆): 10.000 × 1.05⁵ = 10.000 × 1.2763 = <strong>12.763 Bs</strong>.<br /><br />
+
+        <strong>Comparación con interés simple (PA):</strong> al simple, sumarías 500 Bs por
+        año → 10.000 + 5·500 = 12.500 Bs. <strong>El compuesto da 263 Bs MÁS</strong>.<br /><br />
+
+        <strong>Conclusión:</strong> a mayor plazo, mayor la diferencia. A 30 años, el
+        compuesto duplica al simple. Por eso las hipotecas y créditos largos usan PG (interés
+        compuesto), no PA.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -280,6 +324,21 @@ function Esc07_Errores() {
         <strong>Error 3:</strong> Olvidar contar la cantidad correcta de términos en una suma. <br />
         <span style={{ fontSize: 13 }}>Si sumás 5 + 10 + … + 95, son 19 términos, no 19 − 5 = 14.</span>
       </Cuidado>
+
+      <Misconception titulo="Cómo contar n en una PA · '+1' o 'el truco del cercado'">
+        Si necesitás contar términos entre a₁ y aₙ:<br />
+        n = (aₙ − a₁) / d + 1.<br /><br />
+        <strong>El +1 es clave.</strong> Pensalo como cercar un terreno: si ponés postes cada
+        5 m en un campo de 95 m de largo desde el poste 0... tenés 95/5 + 1 = 20 postes (no 19).<br />
+        El +1 cuenta el primer poste/término.
+      </Misconception>
+
+      <Conexion>
+        Sucesiones y series conectan con: <strong>Secuencias lógicas</strong> (la versión
+        "razonamiento", sin fórmula), <strong>Teoría de exponentes</strong> (la PG usa rⁿ),
+        <strong> Interés simple y compuesto</strong> (PA y PG respectivamente),
+        <strong> Cálculo integral</strong> (las series infinitas que convergen).
+      </Conexion>
     </EscenaRica>
   );
 }

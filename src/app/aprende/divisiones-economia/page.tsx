@@ -5,6 +5,7 @@ import { COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -45,6 +46,22 @@ function Esc01() {
         Las divisiones de la economía (descriptiva, teórica, política) se corresponden con estos tres
         campos. Lo verás en las próximas escenas.
       </PorQue>
+
+      <Hook>
+        Esta unidad es <strong>filosófica</strong> pero clave: te ayuda a distinguir
+        "<em>cómo SON los hechos</em>" (ciencia) de "<em>cómo DEBEN ser</em>" (ideología). Una
+        confusión muy común en debates económicos cotidianos. En el examen UMSS aparece pidiendo
+        clasificar enunciados positivos vs normativos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"SC-CI" · 3 etapas y 3 campos</strong>:<br />
+        <strong>S</strong>entido común → superficial, práctico.<br />
+        <strong>C</strong>iencia → coherente, consistente, objetiva.<br />
+        <strong>I</strong>deología → partidaria, justificadora, normativa.<br /><br />
+        <strong>Truco:</strong> "Sentido Común para vivir, Ciencia para entender, Ideología para
+        cambiar".
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -161,6 +178,14 @@ function Esc07() {
         Para frenar la inflación, un gobierno puede subir la tasa de interés, reducir el gasto o
         aumentar impuestos. Esas son decisiones de política económica, sostenidas en la teoría.
       </Ejemplo>
+
+      <CasoBolivia>
+        <strong>Política económica en Bolivia 2006-2020:</strong> nacionalización de
+        hidrocarburos (2006), bonos sociales (Juancito Pinto, Juana Azurduy), pegging del
+        boliviano al dólar (6,96 BOB/USD desde 2011), control de precios de combustibles.
+        Todas son decisiones <em>normativas</em> que combinan teoría económica (positiva) con
+        objetivos políticos (normativos).
+      </CasoBolivia>
     </EscenaRica>
   );
 }
@@ -188,6 +213,19 @@ function Esc08() {
         para los rusos y otra para los chinos." Hay concordancia en la economía positiva. En la
         normativa, los puntos de vista pueden ser <strong>conflictivos</strong>.
       </PorQue>
+
+      <Mnemotecnia>
+        <strong>Test rápido positiva vs normativa</strong>:<br />
+        ¿La oración contiene "<em>debería</em>", "<em>tiene que</em>", "<em>es bueno/malo</em>",
+        "<em>es justo/injusto</em>"? → <strong>NORMATIVA</strong>.<br />
+        ¿Solo describe hechos o relaciones causa-efecto sin valorar? → <strong>POSITIVA</strong>.
+      </Mnemotecnia>
+
+      <Misconception titulo="Una predicción ('si X entonces Y') NO es normativa">
+        Mucha gente cree que "si subimos impuestos, la inversión caerá" es normativo porque
+        suena a recomendación. FALSO. Es POSITIVO: describe una relación causal sin decir si es
+        bueno o malo. Solo se vuelve normativo si agregás "por eso NO debemos subir impuestos".
+      </Misconception>
     </EscenaRica>
   );
 }

@@ -5,6 +5,7 @@ import { COLOR_OK } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, CasoBolivia, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -28,6 +29,11 @@ function Esc01() {
   return (
     <EscenaRica>
       <Titulo>¿Qué es la contabilidad?</Titulo>
+      <Hook>
+        Imaginá un negocio sin contabilidad: el dueño no sabe si gana o pierde, no puede pagar
+        impuestos, no puede pedir un préstamo, no puede vender el negocio. Es como manejar de noche
+        sin luces. La contabilidad es <strong>el sistema nervioso</strong> de cualquier organización.
+      </Hook>
       <Definicion termino="contabilidad">
         Proceso de <strong>identificar, medir, registrar, clasificar, resumir, interpretar y comunicar</strong>
         la información financiera de una entidad económica. Es una disciplina que se encarga de
@@ -42,6 +48,20 @@ function Esc01() {
         La contabilidad lleva un registro <strong>detallado y sistemático</strong> de todas las
         operaciones que realiza una organización.
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>Acrónimo "IMRCRIC"</strong> — las 7 acciones de la contabilidad:<br />
+        <strong>I</strong>dentificar · <strong>M</strong>edir · <strong>R</strong>egistrar ·
+        <strong> C</strong>lasificar · <strong>R</strong>esumir · <strong>I</strong>nterpretar ·
+        <strong> C</strong>omunicar.<br /><br />
+        Truco mental: "Imrcric suena raro pero las 7 letras son las 7 acciones".
+      </Mnemotecnia>
+
+      <Misconception titulo="No es solo 'llevar las cuentas'">
+        Mucha gente cree que la contabilidad es solo <em>anotar gastos</em>. Eso es solo el paso
+        "registrar". Las otras 6 acciones (medir, clasificar, interpretar, etc.) son las que la
+        convierten en una herramienta de decisión.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -88,6 +108,32 @@ function Esc03() {
         Esa idea aparentemente simple le da a la contabilidad su <strong>autocoherencia</strong>: si los
         débitos no igualan a los créditos, hay un error. Es lo que hace posible verificar libros.
       </PorQue>
+
+      <WorkedExample titulo="Partida doble en acción · compra de mercadería en La Cancha">
+        Don Mario, comerciante de Cochabamba, compra mercadería por <strong>5.000 Bs en efectivo</strong>
+        en La Cancha.<br /><br />
+
+        <strong>Lado izquierdo (débito):</strong> aumenta lo que tiene → <em>Mercadería +5.000 Bs</em>.<br />
+        <strong>Lado derecho (crédito):</strong> disminuye lo que tenía → <em>Caja −5.000 Bs</em>.<br /><br />
+
+        <strong>Suma de débitos = Suma de créditos = 5.000 Bs.</strong> La transacción "cuadra".<br /><br />
+
+        Si Don Mario solo anotara "compré mercadería 5.000 Bs", perdería de vista que ya no tiene
+        ese dinero en caja. La partida doble obliga a registrar AMBAS caras: lo que entra Y de dónde
+        salió.
+      </WorkedExample>
+
+      <Misconception titulo="Partida doble ≠ contabilizar dos veces lo mismo">
+        Error frecuente: pensar que "partida doble" significa anotar la misma transacción dos veces
+        para no equivocarse. NO. Significa anotar <strong>las dos caras económicas</strong>: lo que
+        entra Y lo que sale. Es una sola transacción con dos efectos.
+      </Misconception>
+
+      <Conexion>
+        La partida doble inspiró el concepto de <strong>balance</strong>: lo que tenés (activos) =
+        lo que debés (pasivos) + lo que aportaste (patrimonio). Vas a ver esta ecuación en la unidad
+        de clasificación de estados.
+      </Conexion>
     </EscenaRica>
   );
 }
@@ -129,6 +175,14 @@ function Esc05() {
         Sin contabilidad, una organización está "ciega": no sabe cuánto gana, cuánto debe, ni cuánto
         vale. Es la base de cualquier decisión seria.
       </Cuidado>
+
+      <CasoBolivia>
+        En Bolivia, toda empresa registrada en FUNDEMPRESA está obligada por el <strong>Código de
+        Comercio</strong> a llevar contabilidad. Las microempresas del régimen simplificado (RTS) y
+        régimen tributario integrado (RTI) tienen exigencias mínimas, pero las del régimen general
+        deben presentar Estados Financieros anuales al SIN. Sin esos estados no podés acceder a
+        créditos bancarios ni licitaciones del Estado.
+      </CasoBolivia>
     </EscenaRica>
   );
 }

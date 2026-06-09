@@ -8,6 +8,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -107,6 +108,21 @@ function Esc01() {
         Lo nuevo en el siglo XX no es la práctica, sino su <strong>sistematización como teoría
         científica</strong>. Eso es lo que estudiarás aquí.
       </PorQue>
+
+      <Hook>
+        El examen UMSS pregunta MUCHO sobre los <strong>4 autores clave</strong> de esta unidad:
+        Taylor, Fayol, Mayo y la escuela contemporánea. Asociar cada nombre con su idea central
+        es lo único que necesitás.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"T-F-M-S-C" · 5 escuelas en orden cronológico</strong>:<br />
+        <strong>T</strong>aylor (1911) — <em>científica</em>: estandarización.<br />
+        <strong>F</strong>ayol (1916) — <em>clásica</em>: 14 principios + funciones.<br />
+        <strong>M</strong>ayo (1930s) — <em>relaciones humanas</em>: efecto Hawthorne.<br />
+        <strong>S</strong>istemas (1950s) — empresa como sistema abierto.<br />
+        <strong>C</strong>ontingencia/calidad/caos (1970+) — adaptación al contexto.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -149,6 +165,13 @@ function Esc03() {
         <strong>4.</strong> Trabajar para la máxima producción, más que producción restringida.<br />
         <strong>5.</strong> Desarrollar a todos los trabajadores al mayor grado posible.
       </Resumen>
+
+      <Misconception titulo="Taylor ≠ 'explotador de obreros'">
+        El cliché dice que Taylor era inhumano por cronometrar a los obreros. Es injusto: Taylor
+        buscaba <strong>aumentar el bienestar del obrero</strong> a través del aumento de
+        productividad. Su error fue NO considerar los factores sociales (eso vino con Mayo). Pero
+        la estandarización de procesos sigue vigente: la usás cada vez que hacés "checklist".
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -166,6 +189,19 @@ function Esc04() {
         Fayol también definió las funciones administrativas básicas: <strong>planificación, organización,
         dirección, coordinación y control</strong>. Es la base de lo que viste en la lección anterior.
       </PorQue>
+
+      <Conexion>
+        Las funciones administrativas que Fayol definió (planear, organizar, dirigir, controlar)
+        son exactamente las que estudiás en POIDC en las unidades de Bloque 1 Unidad 4. Fayol
+        es el padre del modelo POIDC que sigue vigente 100 años después.
+      </Conexion>
+
+      <Misconception titulo="Los 14 principios NO son una receta absoluta">
+        Fayol los llamó "principios flexibles", no leyes. Algunos pierden vigencia en
+        organizaciones modernas: "Unidad de mando" no encaja en estructuras matriciales donde
+        un empleado responde a 2 jefes (producto + función). En el examen, sin embargo, valen
+        como están enunciados.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -192,6 +228,13 @@ function Esc05() {
         satisfactorias entre los miembros del grupo</strong> (sentido de pertenencia) y administración
         atenta al comportamiento humano.
       </Resumen>
+
+      <Conexion>
+        El efecto Hawthorne conecta directamente con las <strong>teorías de motivación</strong>
+        que viste en Integración de Personal (Maslow, Herzberg, McGregor). Mayo fue el primero
+        que demostró científicamente que las personas no son máquinas — abrió el camino a toda
+        la psicología organizacional moderna.
+      </Conexion>
     </EscenaRica>
   );
 }

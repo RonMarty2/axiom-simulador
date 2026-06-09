@@ -8,6 +8,7 @@ import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 // Discriminante visual: alternar entre 3 casos típicos. Cada caso muestra una
@@ -111,6 +112,21 @@ function Esc01_Intro() {
         A diferencia de las de 1er grado (1 solución única), las cuadráticas pueden tener
         <strong> 0, 1 o 2 soluciones</strong>. Ya vamos a ver por qué.
       </PorQue>
+
+      <Hook>
+        Las cuadráticas aparecen en <strong>3-5 preguntas del examen UMSS</strong> (resolver,
+        identificar Δ, problemas geométricos). La fórmula <em>x = (−b ± √(b²−4ac))/2a</em> es
+        OBLIGATORIO memorizarla. Y conocer Vieta te ahorra ejercicios completos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Decisión 2x2 · ¿qué método uso?</strong><br />
+        — ¿Falta b (sin término lineal)? → <strong>despeje directo</strong>: x = ±√(−c/a).<br />
+        — ¿Falta c (sin independiente)? → <strong>factor común x</strong>: x(ax+b)=0.<br />
+        — ¿Coeficientes pequeños y enteros? → <strong>factorización mental</strong> (probá pares
+        cuyo producto sea c/a y suma sea −b/a).<br />
+        — Si nada anterior funciona → <strong>fórmula cuadrática</strong>.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -193,6 +209,36 @@ function Esc04_Formula() {
         Ojo a los signos: <strong>−b</strong>. Si b ya es negativo, −b queda positivo.
         Ej: si b = −7, entonces −b = +7.
       </Cuidado>
+
+      <WorkedExample titulo="Problema geométrico · jardín rectangular en Cochabamba">
+        Don Juan quiere cercar un jardín rectangular de <strong>60 m² de área</strong>.
+        El largo debe ser <strong>4 m más que el ancho</strong>. ¿Cuáles son las dimensiones?<br /><br />
+
+        <strong>Paso 1 · Definir incógnita:</strong> sea x = ancho. Entonces largo = x + 4.<br /><br />
+
+        <strong>Paso 2 · Plantear ecuación:</strong> área = ancho × largo:<br />
+        x · (x + 4) = 60.<br />
+        x² + 4x = 60.<br />
+        x² + 4x − 60 = 0. (forma estándar)<br /><br />
+
+        <strong>Paso 3 · Identificar coeficientes:</strong> a = 1, b = 4, c = −60.<br /><br />
+
+        <strong>Paso 4 · Discriminante:</strong> Δ = 4² − 4(1)(−60) = 16 + 240 = 256.<br />
+        √256 = 16. ¡Δ &gt; 0! → 2 soluciones reales.<br /><br />
+
+        <strong>Paso 5 · Aplicar fórmula:</strong><br />
+        x = (−4 ± 16) / 2.<br />
+        x₁ = 12/2 = 6 · x₂ = −20/2 = −10.<br /><br />
+
+        <strong>Paso 6 · Sentido físico:</strong> el ancho no puede ser negativo →
+        descartamos x = −10. Respuesta: <strong>ancho = 6 m, largo = 10 m</strong>.<br /><br />
+
+        <strong>Verificación:</strong> 6 × 10 = 60 m² ✓.<br /><br />
+
+        <strong>Truco clave:</strong> en problemas geométricos las cuadráticas dan a menudo
+        DOS soluciones, pero solo una tiene sentido físico (longitudes &gt; 0). Siempre
+        verificá el contexto.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -266,8 +312,17 @@ function Esc07_Vieta() {
       </Ejemplo>
       <PorQue>
         Es útil para <strong>verificar</strong> tus soluciones rápido. Si encontraste x = 2 y
-        x = 3, sumá y multiplicá — deben dar −b/a y c/a.
+        x = 3, sumá y multiplicá − deben dar −b/a y c/a.
       </PorQue>
+
+      <Mnemotecnia>
+        <strong>Vieta · "S = −b/a, P = c/a"</strong><br />
+        Truco: en <em>x² + Bx + C = 0</em> (con a = 1), buscás dos números cuya:<br />
+        — <strong>Suma = −B</strong> (opuesto del coeficiente lineal).<br />
+        — <strong>Producto = C</strong> (término independiente).<br /><br />
+        Ej: x² − 7x + 12 = 0 → buscar 2 nº que sumen 7 y multipliquen 12 → 3 y 4. Soluciones
+        directas sin fórmula.
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -294,6 +349,21 @@ function Esc08_Errores() {
           Factorización es más rápida cuando se puede. Probala primero.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Trampa · '−b' cuando b es negativo">
+        Ecuación: x² − 4x + 3 = 0. Aquí b = −4.<br />
+        Al aplicar la fórmula: −b = −(−4) = <strong>+4</strong>, no −4.<br />
+        Mucha gente escribe x = (−4 ± √...) / 2 — y arrastra el signo. La fórmula da
+        <em> (+4 ± √...) / 2</em>, que da las soluciones x = 1 y x = 3 (verificable). El
+        signo de −b es el OPUESTO del signo de b.
+      </Misconception>
+
+      <Conexion>
+        Las cuadráticas conectan con: <strong>Funciones cuadráticas</strong> (y = ax²+bx+c
+        es una parábola cuyas raíces son las soluciones), <strong>Factorización</strong>
+        (factor común, diferencia de cuadrados, trinomios) y <strong>Desigualdades
+        cuadráticas</strong> (resolver x² − 5x + 6 ≥ 0 usa las mismas raíces).
+      </Conexion>
     </EscenaRica>
   );
 }

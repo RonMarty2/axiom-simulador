@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -51,6 +52,21 @@ function Esc01_Intro() {
         ¿Por qué importa? Aparece en CADA fórmula que tenga raíz cuadrada — fórmula
         cuadrática, teorema de Pitágoras, distancia entre puntos, estadística, etc.
       </PorQue>
+
+      <Hook>
+        Las operaciones con radicales aparecen en <strong>2-3 preguntas del UMSS</strong>.
+        La habilidad clave: <strong>simplificar SIEMPRE primero</strong> antes de operar.
+        Eso convierte radicales "no semejantes" en semejantes y permite sumar/restar.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>Reglas básicas · "S vs M-D"</strong>:<br />
+        — <strong>Suma/resta</strong>: solo entre semejantes (mismo índice + mismo radicando).
+        Sumás los coeficientes, el radical queda igual.<br />
+        — <strong>Multiplicación/división</strong>: solo si mismo ÍNDICE (no hace falta
+        mismo radicando). El resultado lleva el mismo índice, y el radicando se multiplica
+        (o divide).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -508,6 +524,37 @@ function Esc09_Errores() {
           Si te queda √50 en una respuesta, no está terminado. <strong>√50 = 5√2</strong>.
         </span>
       </Cuidado>
+
+      <WorkedExample titulo="Simplificar y operar · 3√50 − √8 + 2√32">
+        <strong>Paso 1 · Simplificar CADA radical:</strong><br />
+        √50 = √(25·2) = 5√2.<br />
+        √8 = √(4·2) = 2√2.<br />
+        √32 = √(16·2) = 4√2.<br /><br />
+
+        <strong>Paso 2 · Sustituir en la expresión original:</strong><br />
+        3·(5√2) − 2√2 + 2·(4√2) = 15√2 − 2√2 + 8√2.<br /><br />
+
+        <strong>Paso 3 · Sumar coeficientes (ahora todos son √2):</strong><br />
+        (15 − 2 + 8)√2 = <strong>21√2</strong>.<br /><br />
+
+        <strong>Lección clave:</strong> sin simplificar, las √50, √8 y √32 PARECÍAN distintas
+        (no semejantes). Después de simplificar, las 3 son múltiplos de √2 y se pueden sumar.
+        El paso de simplificación es OBLIGATORIO antes de decidir si se pueden combinar.
+      </WorkedExample>
+
+      <Misconception titulo="√(a + b) ≠ √a + √b">
+        <strong>Error universal.</strong> La raíz NO se distribuye sobre la suma.<br />
+        Ej: √(9 + 16) = √25 = 5. Pero √9 + √16 = 3 + 4 = 7. ≠.<br /><br />
+        La raíz SÍ se distribuye sobre el producto: √(a·b) = √a · √b. Pero NUNCA sobre
+        sumas o restas dentro del radicando.
+      </Misconception>
+
+      <Conexion>
+        Operaciones con radicales conectan con: <strong>Radicación</strong> (la lección
+        previa), <strong>Teoría de exponentes</strong> (radical = exponente fraccionario:
+        √x = x^(1/2)), <strong>Ecuaciones cuadráticas</strong> (la fórmula tiene √Δ),
+        <strong> Pitágoras</strong> y todas las fórmulas con raíces.
+      </Conexion>
     </EscenaRica>
   );
 }

@@ -10,6 +10,7 @@ import {
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -51,6 +52,20 @@ function Esc01_Intro() {
         • Resolver problemas de mezclas, edades, distancias…<br />
         Si dominás esto, dominás el 70% de los problemas verbales del examen.
       </Resumen>
+
+      <Hook>
+        Las ecuaciones de primer grado aparecen en <strong>casi todo problema verbal del
+        examen UMSS</strong> (edades, mezclas, distancias, costos). El esquema es siempre:
+        <em> "leo el problema → defino x → escribo la ecuación → despejo"</em>. Sin atajos.
+      </Hook>
+
+      <Mnemotecnia>
+        <strong>"D-I-D-V" · 4 pasos para todo problema verbal</strong>:<br />
+        <strong>D</strong>etectar la incógnita ("¿qué me piden?").<br />
+        <strong>I</strong>nventariar las relaciones (traducir cada frase a una expresión).<br />
+        <strong>D</strong>espejar la ecuación.<br />
+        <strong>V</strong>erificar (sustituir y leer el problema con la respuesta).
+      </Mnemotecnia>
     </EscenaRica>
   );
 }
@@ -258,6 +273,30 @@ function Esc07_Verbal() {
         <Paso n={2}>x + (x + 3) = 27 → 2x + 3 = 27 → 2x = 24 → x = <strong style={{ color: COLOR_OK }}>12</strong>.</Paso>
         <Paso n={3}>Juan tiene 12, Pedro tiene 15. Verificación: 12+15=27 ✓.</Paso>
       </Ejemplo>
+
+      <WorkedExample titulo="Problema de mezclas · café en La Paz">
+        Un cafetero mezcla <strong>café arábica a 80 Bs/kg</strong> con <strong>café robusta a
+        50 Bs/kg</strong> para obtener <strong>10 kg de mezcla a 65 Bs/kg</strong>. ¿Cuánto de
+        cada uno usa?<br /><br />
+
+        <strong>Paso 1 · Detectar incógnita:</strong> sea x = kg de arábica.
+        Entonces (10 − x) = kg de robusta.<br /><br />
+
+        <strong>Paso 2 · Inventariar:</strong> el costo total de la mezcla =
+        costo arábica + costo robusta.<br />
+        Costo total: 10 kg × 65 Bs/kg = 650 Bs.<br />
+        Costo arábica: x × 80 = 80x.<br />
+        Costo robusta: (10 − x) × 50 = 500 − 50x.<br /><br />
+
+        <strong>Paso 3 · Despejar:</strong><br />
+        80x + 500 − 50x = 650.<br />
+        30x = 150.<br />
+        x = <strong>5 kg de arábica</strong> · y (10 − 5) = <strong>5 kg de robusta</strong>.<br /><br />
+
+        <strong>Paso 4 · Verificar:</strong> 5×80 + 5×50 = 400 + 250 = 650 ✓.<br />
+        Como ambos precios eran simétricos respecto al promedio (80 y 50 → media 65), la
+        mezcla 50/50 era predecible. Pero el método funciona con cualquier asimetría.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -284,6 +323,20 @@ function Esc08_Errores() {
           Siempre sustituí tu x en la ecuación original y comprobá. 30 segundos que evitan errores grandes.
         </span>
       </Cuidado>
+
+      <Misconception titulo="Trampa de los problemas verbales · 'lo que dice' ≠ 'lo que pide'">
+        Lectura mal hecha: "Pedro tiene 3 más que Juan, juntos suman 27, ¿edad de Pedro?".
+        Mucha gente plantea x = edad de Pedro y se hace lío. <strong>Truco:</strong> elegí
+        siempre como x al "más chico" o "más simple" (en este caso Juan). Después calculás los
+        otros con expresiones (x + 3). Al final, recordá qué pedía el problema (Pedro = x + 3).
+      </Misconception>
+
+      <Conexion>
+        Ecuaciones de 1er grado son la antesala de:
+        <strong> Ecuaciones de 2do grado</strong> (cuando la incógnita está al cuadrado),
+        <strong> Sistemas de ecuaciones lineales</strong> (cuando hay 2 incógnitas),
+        <strong> Funciones lineales</strong> (y = mx + b es una ecuación de 1er grado con 2 var).
+      </Conexion>
     </EscenaRica>
   );
 }

@@ -7,6 +7,7 @@ import { Pizarra, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Cuidado, Resumen,
   EscenaRica, PracticaFinal,
+  Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
 export default function Page() {
@@ -154,6 +155,19 @@ function EscIntro() {
         cualidad ("el fuego es caliente"), existencia ("los unicornios no existen") o causalidad
         ("el sol calienta la Tierra").
       </Parrafo>
+
+      <Hook>
+        Esta unidad es la <strong>base de TODA la lógica</strong>: silogismos, falacias,
+        razonamientos en derecho y matemática. En el examen UMSS aparecen pidiendo identificar
+        contradicciones y clasificar cuantificadores. Aprender bien las 4 formas básicas te
+        desbloquea un puñado de respuestas.
+      </Hook>
+
+      <Conexion>
+        Esta lección conecta directamente con <em>Silogismos</em>: cada premisa silogística es una
+        aseveración con un cuantificador. Si dominás las 4 formas (universal/particular ×
+        afirmativa/negativa), entendés cualquier silogismo en segundos.
+      </Conexion>
     </EscenaRica>
   );
 }
@@ -178,6 +192,20 @@ function EscCuantificadores() {
         El cuantificador es crítico. "Todos los X son Y" y "Algunos X son Y" no son la misma frase: la
         primera es una afirmación universal; la segunda es solo existencial.
       </PorQue>
+
+      <Mnemotecnia>
+        <strong>"U vs E"</strong>: las palabras que activan cada cuantificador.<br />
+        <strong>U</strong>niversal (TODOS) → "todo, cada, ninguno, jamás, siempre".<br />
+        <strong>E</strong>xistencial (ALGUNO) → "algún, alguien, existe, no todos, al menos uno".<br /><br />
+        Truco: <strong>"NINGÚN" es universal NEGATIVO</strong>, no existencial. Es la trampa más
+        común del examen.
+      </Mnemotecnia>
+
+      <Misconception titulo="'Algunos' NO significa 'solo unos pocos'">
+        En lógica, <strong>"algunos" = al menos uno</strong> (incluso todos). Si decís "algunos
+        estudiantes aprobaron" y resulta que aprobaron TODOS, la frase sigue siendo verdadera. Es
+        contraintuitivo respecto al uso cotidiano del español, pero es la definición lógica.
+      </Misconception>
     </EscenaRica>
   );
 }
@@ -226,6 +254,37 @@ function EscContradiccion() {
         opuesto correcto es "Algunos NO son". "Ninguno es" es la negación universal extrema, no la
         contradicción.
       </Cuidado>
+
+      <Mnemotecnia>
+        <strong>Regla de la "X"</strong> para encontrar la contradicción:<br />
+        Cruzá CANTIDAD y CUALIDAD en aspa.<br /><br />
+        Todos × <strong>NO</strong> → "Algunos NO" ↔ "Todos sí"<br />
+        Ninguno × <strong>SÍ</strong> → "Algunos SÍ" ↔ "Ninguno"<br /><br />
+        <strong>Recordá la X</strong>: las contradicciones se cruzan diagonalmente entre los 4
+        cuadros (Universal-Sí, Universal-No, Particular-Sí, Particular-No).
+      </Mnemotecnia>
+
+      <WorkedExample titulo="Cuadro lógico clásico · todas las relaciones">
+        Las 4 formas en un cuadrado:<br /><br />
+        <strong>Esquinas superiores (universales):</strong><br />
+        — A: "Todos los X son Y" (afirmativa).<br />
+        — E: "Ningún X es Y" (negativa).<br /><br />
+
+        <strong>Esquinas inferiores (particulares):</strong><br />
+        — I: "Algunos X son Y" (afirmativa).<br />
+        — O: "Algunos X no son Y" (negativa).<br /><br />
+
+        <strong>Relaciones (las diagonales son las contradictorias):</strong><br />
+        — A ⟷ O (cruz: "Todos son" vs "Algunos NO son").<br />
+        — E ⟷ I (cruz: "Ninguno es" vs "Algunos SÍ son").<br /><br />
+
+        <strong>Aplicación:</strong> aseveración "Todos los gatos cazan ratones".<br />
+        Para refutarla, NO necesitás probar "ningún gato caza" — basta encontrar UN gato que NO
+        cace (la contradictoria O).<br /><br />
+
+        <strong>Esto se llama "contraejemplo"</strong> y es el método más usado en lógica y
+        matemáticas para refutar afirmaciones universales.
+      </WorkedExample>
     </EscenaRica>
   );
 }
@@ -415,6 +474,21 @@ function EscResumen() {
         <strong>5.</strong> Para que una universal afirmativa ("Todos son X") sea falsa, basta UN
         contraejemplo. No hace falta probar "ninguno".
       </Resumen>
+
+      <Mnemotecnia>
+        <strong>"A-E-I-O"</strong> · las 4 formas en orden tradicional:<br />
+        <strong>A</strong>firma universal ("Todos son") · <strong>E</strong>xcluye universal
+        ("Ninguno es") · <strong>I</strong>ncluye particular ("Algunos sí son") ·
+        <strong> O</strong>mite particular ("Algunos no son").<br /><br />
+        Las contradicciones cruzan: A ↔ O · E ↔ I.
+      </Mnemotecnia>
+
+      <Misconception titulo="Las 2 trampas más caras en el examen">
+        <strong>(a)</strong> Confundir "ningún" (universal negativa) con "alguno no" (particular
+        negativa). "Ningún gato vuela" ≠ "Algún gato no vuela".<br />
+        <strong>(b)</strong> Pensar que para refutar "Todos son X" hay que probar "Ninguno es X".
+        FALSO: basta UN contraejemplo. Las universales se derrumban con un solo caso.
+      </Misconception>
     </EscenaRica>
   );
 }
