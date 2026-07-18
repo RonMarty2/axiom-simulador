@@ -75,7 +75,19 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.redirect(`${baseUrl}${destino}`);
   } catch (e) {
-    const msg = e instanceof Error ? e.message : "error";
+    // Los errores de Supabase (PostgrestError) NO son instancias de Error, así
+    // que e.message no existe: caían al genérico "error". Extraemos el mensaje
+    // real de cualquier forma de error (Error, PostgrestError {message}, string)
+    // para que /login muestre algo diagnosticable (ej. proyecto Supabase pausado).
+    let msg = "error";
+    if (e instanceof Error) {
+      msg = e.message;
+    } else if (e && typeof e === "object" && "message" in e && typeof (e as { message: unknown }).message === "string") {
+      msg = (e as { message: string }).message;
+    } else if (typeof e === "string") {
+      msg = e;
+    }
+    console.error("[AXIOM] Login callback falló:", e);
     return NextResponse.redirect(`${baseUrl}/login?error=${encodeURIComponent(msg)}`);
   }
 }
