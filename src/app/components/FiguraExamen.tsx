@@ -39,12 +39,12 @@ const FIGURAS: Record<string, () => JSX.Element> = {
       {/* vértice en m */}
       <line x1={210} y1={45} x2={130} y2={130} stroke={T} strokeWidth={1.6} />
       <line x1={210} y1={45} x2={300} y2={215} stroke={T} strokeWidth={1.6} />
-      <text x={190} y={70} fill={ACC} fontSize={13}>α</text>
-      <text x={214} y={78} fill={ACC} fontSize={13}>α</text>
-      {/* vértice 95° */}
-      <line x1={130} y1={130} x2={180} y2={210} stroke={T} strokeWidth={1.6} />
+      <text x={188} y={68} fill={ACC} fontSize={13}>α</text>
+      <text x={222} y={68} fill={ACC} fontSize={13}>α</text>
+      {/* vértice 95° -> baja y sigue hacia la IZQUIERDA hasta cruzar n (no hacia la derecha) */}
+      <line x1={130} y1={130} x2={95} y2={208} stroke={T} strokeWidth={1.6} />
       <text x={138} y={135} fill={BAD} fontSize={13} fontWeight={700}>95°</text>
-      {/* 40° en n */}
+      {/* 40° en n (justo donde el segmento anterior cruza n, ~x=99) */}
       <text x={112} y={192} fill={WARN} fontSize={13} fontWeight={700}>40°</text>
       {/* 2x abajo derecha + ángulo recto */}
       <rect x={296} y={198} width={9} height={9} fill="none" stroke={T} strokeWidth={1.4} />
