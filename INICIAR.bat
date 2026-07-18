@@ -7,10 +7,8 @@ echo ============================================================
 echo    INICIAR AXIOM
 echo ============================================================
 echo.
-echo    Esperando a que arranque el servidor...
-echo    Cuando veas la palabra "Ready", abri el navegador en:
-echo.
-echo        http://localhost:3001
+echo    Arrancando el servidor y abriendo el navegador solo...
+echo    Se va a abrir en:  http://localhost:3001
 echo.
 echo    Para entrar sin Google: en /login busca el panel
 echo    amarillo "Solo desarrollo local" y elegi un rol.
@@ -20,6 +18,10 @@ echo    Para apagar el servidor: apreta Ctrl + C aca.
 echo ============================================================
 echo.
 
+REM Abrir el navegador solo, despues de 7 segundos (cuando el server ya arranco).
+start "" cmd /c "timeout /t 7 >nul & start http://localhost:3001/login"
+
+REM Arrancar el servidor (esto queda corriendo).
 call npm run dev
 
 echo.
