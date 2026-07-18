@@ -36,8 +36,15 @@ export function parseExamenMD(contenido: string): ExamenBanco {
   if (!m) {
     throw new Error("Archivo MD invalido: falta frontmatter '--- ... ---'");
   }
-  const [, frontRaw, cuerpo] = m;
+  const [, frontRaw, cuerpoRaw] = m;
   const front = parseFrontmatter(frontRaw);
+  // Los archivos .md pueden traer un comentario HTML <!-- ... --> justo
+  // despues del frontmatter (notas del curador, ej. "banco consolidado de
+  // 4 facsimiles"). Si no se elimina antes de partir en preguntas, el bloque
+  // "## Pregunta 1" queda pegado al comentario y el parseo de ESA pregunta
+  // (y por lo tanto de TODO el archivo) falla silenciosamente: el examen
+  // completo desaparece del listado sin ningun error visible al usuario.
+  const cuerpo = cuerpoRaw.replace(/<!--[\s\S]*?-->/g, "");
   const preguntasCrudas = splitPreguntas(cuerpo).map(parsePreguntaBloque);
 
   const id = construirId(front.universidad, front.facultad, front.anio);
