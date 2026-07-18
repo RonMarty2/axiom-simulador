@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import MathText from "../../components/MathText";
 import FiguraExamen from "../../components/FiguraExamen";
+import SolucionPasos from "../../components/SolucionPasos";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
 
@@ -245,8 +246,9 @@ function PreguntaResuelta({
         </div>
       </div>
 
-      {/* Figura (si la pregunta tiene una) */}
-      {pregunta.figura && <FiguraExamen id={pregunta.figura} />}
+      {/* Figura del enunciado (cuando aún no revela; al revelar, la figura se
+          anima dentro del reproductor de pasos). */}
+      {pregunta.figura && !revelada && <FiguraExamen id={pregunta.figura} />}
 
       {/* Opciones */}
       <div style={{ display: "grid", gap: 6, marginBottom: 14 }}>
@@ -310,16 +312,21 @@ function PreguntaResuelta({
               Ocultar
             </button>
           </div>
-          <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.7 }}>
-            {pregunta.explicacion ? (
-              <MathText block>{pregunta.explicacion}</MathText>
-            ) : (
+          {pregunta.explicacion ? (
+            <SolucionPasos
+              explicacion={pregunta.explicacion}
+              figura={pregunta.figura}
+              colorFac={colorFac}
+            />
+          ) : (
+            <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.7 }}>
+              {pregunta.figura && <FiguraExamen id={pregunta.figura} />}
               <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>
                 Esta pregunta aún no tiene explicación detallada. La respuesta correcta es{" "}
                 <strong style={{ color: "#10b981" }}>{pregunta.respuesta_correcta}</strong>.
               </span>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
     </div>

@@ -28,30 +28,81 @@ function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNod
   );
 }
 
-const FIGURAS: Record<string, () => JSX.Element> = {
+// Figuras que se construyen por etapas (aceptan `paso`): 0/undef = enunciado,
+// 1..N van dibujando la solución. El reproductor de pasos les pasa el paso activo.
+export const FIGURAS_POR_ETAPAS: Record<string, number> = {
+  "g5-paralelas": 3,
+};
+
+const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
   // ── G5 · dos paralelas m//n con la poligonal (α, α, 95°, 40°, 2x) ──
-  "g5-paralelas": () => (
-    <Marco alto={240}>
-      <line x1={30} y1={45} x2={390} y2={45} stroke={T} strokeWidth={2} />
-      <text x={16} y={50} fill={DIM} fontSize={16} fontStyle="italic">m</text>
-      <line x1={30} y1={200} x2={390} y2={200} stroke={T} strokeWidth={2} />
-      <text x={16} y={205} fill={DIM} fontSize={16} fontStyle="italic">n</text>
-      {/* vértice en m */}
-      <line x1={210} y1={45} x2={130} y2={130} stroke={T} strokeWidth={1.6} />
-      <line x1={210} y1={45} x2={300} y2={215} stroke={T} strokeWidth={1.6} />
-      <text x={188} y={68} fill={ACC} fontSize={13}>α</text>
-      <text x={222} y={68} fill={ACC} fontSize={13}>α</text>
-      {/* vértice 95° -> baja y sigue hacia la IZQUIERDA hasta cruzar n (no hacia la derecha) */}
-      <line x1={130} y1={130} x2={95} y2={208} stroke={T} strokeWidth={1.6} />
-      <text x={138} y={135} fill={BAD} fontSize={13} fontWeight={700}>95°</text>
-      {/* 40° en n (justo donde el segmento anterior cruza n, ~x=99) */}
-      <text x={112} y={192} fill={WARN} fontSize={13} fontWeight={700}>40°</text>
-      {/* 2x abajo derecha + ángulo recto */}
-      <rect x={296} y={198} width={9} height={9} fill="none" stroke={T} strokeWidth={1.4} />
-      <line x1={305} y1={200} x2={360} y2={178} stroke={T} strokeWidth={1.6} />
-      <text x={312} y={196} fill={ACC} fontSize={13} fontWeight={700}>2x</text>
-    </Marco>
-  ),
+  // Etapas: 0 = figura del enunciado; 1 = recta auxiliar y 95°=40°+55°;
+  // 2 = α=55° por correspondientes; 3 = 2x=90−55=35 y x=17,5°.
+  "g5-paralelas": (paso) => {
+    const p = paso ?? 0;
+    const V = { x: 210, y: 45 };   // vértice sobre m
+    const W = { x: 130, y: 130 };  // vértice del ángulo de 95°
+    return (
+      <Marco alto={250}>
+        {/* rectas paralelas */}
+        <line x1={30} y1={45} x2={390} y2={45} stroke={T} strokeWidth={2} />
+        <text x={16} y={50} fill={DIM} fontSize={16} fontStyle="italic">m</text>
+        <line x1={30} y1={200} x2={390} y2={200} stroke={T} strokeWidth={2} />
+        <text x={16} y={205} fill={DIM} fontSize={16} fontStyle="italic">n</text>
+
+        {/* poligonal (siempre visible) */}
+        <line x1={V.x} y1={V.y} x2={W.x} y2={W.y} stroke={T} strokeWidth={1.6} />
+        <line x1={W.x} y1={W.y} x2={95} y2={208} stroke={T} strokeWidth={1.6} />
+        <line x1={V.x} y1={V.y} x2={300} y2={215} stroke={T} strokeWidth={1.6} />
+
+        {/* datos DADOS por el problema (siempre visibles) */}
+        <text x={188} y={68} fill={ACC} fontSize={13}>α</text>
+        <text x={222} y={68} fill={ACC} fontSize={13}>α</text>
+        <text x={138} y={135} fill={BAD} fontSize={13} fontWeight={700}>95°</text>
+        <text x={112} y={192} fill={WARN} fontSize={13} fontWeight={700}>40°</text>
+        <rect x={296} y={198} width={9} height={9} fill="none" stroke={T} strokeWidth={1.4} />
+        <line x1={305} y1={200} x2={360} y2={178} stroke={T} strokeWidth={1.6} />
+        <text x={312} y={196} fill={ACC} fontSize={13} fontWeight={700}>2x</text>
+
+        {/* Leyenda de ecuaciones derivadas (zona abierta arriba-derecha, apilada) */}
+        {p >= 1 && (
+          <g>
+            <text x={276} y={96} fill={T} fontSize={12} fontWeight={800}>95° = 40° + 55°</text>
+          </g>
+        )}
+        {p >= 2 && <text x={276} y={120} fill={ACC} fontSize={12} fontWeight={800}>α = 55°</text>}
+        {p >= 3 && (
+          <g>
+            <text x={276} y={144} fill={BAD} fontSize={12} fontWeight={800}>2x = 90°−55° = 35°</text>
+            <text x={276} y={168} fill={BAD} fontSize={12} fontWeight={800}>x = 17,5°</text>
+          </g>
+        )}
+
+        {/* PASO 1 · recta auxiliar por W y descomposición del 95° JUSTO en el vértice */}
+        {p >= 1 && (
+          <g>
+            <line x1={58} y1={W.y} x2={250} y2={W.y} stroke={OK} strokeWidth={1.4} strokeDasharray="5 4" />
+            <text x={44} y={W.y - 6} fill={OK} fontSize={10}>auxiliar ∥ m, n</text>
+            {/* resalta el segmento W -> n (alterno interno con el 40° de n) */}
+            <line x1={W.x} y1={W.y} x2={95} y2={208} stroke={OK} strokeWidth={3} opacity={0.45} />
+            {/* el 95° se parte: abajo 40° (alterno con n), arriba 55° */}
+            <text x={150} y={152} fill={OK} fontSize={11} fontWeight={700}>40°</text>
+            <text x={150} y={121} fill={ACC} fontSize={11} fontWeight={700}>55°</text>
+          </g>
+        )}
+
+        {/* PASO 2 · resalta el lado V-W (α correspondiente con el 55°) */}
+        {p >= 2 && (
+          <line x1={V.x} y1={V.y} x2={W.x} y2={W.y} stroke={ACC} strokeWidth={3} opacity={0.45} />
+        )}
+
+        {/* PASO 3 · resalta la transversal V-Q hasta el pie con el ángulo recto */}
+        {p >= 3 && (
+          <line x1={V.x} y1={V.y} x2={300} y2={215} stroke={ACC} strokeWidth={3} opacity={0.4} />
+        )}
+      </Marco>
+    );
+  },
 
   // ── G6 · triángulo isósceles con cadena BC=BF=FE=ED=DA ──
   "g6-isosceles": () => (
@@ -157,9 +208,9 @@ const FIGURAS: Record<string, () => JSX.Element> = {
   ),
 };
 
-export default function FiguraExamen({ id }: { id?: string }) {
+export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
   if (!id) return null;
   const Fig = FIGURAS[id];
   if (!Fig) return null;
-  return <Fig />;
+  return <Fig paso={paso} />;
 }
