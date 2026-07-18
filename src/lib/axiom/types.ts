@@ -55,6 +55,7 @@ export interface PreguntaBanco {
   opciones: OpcionPregunta[];
   respuesta_correcta: string;       // "A" | "B" | "C" | "D" — o "A,C" para multi
   explicacion?: string;
+  figura?: string;                  // id de figura SVG a mostrar (ej. "g6-isosceles")
   tags?: string[];
   // Campos opcionales para nuevos tipos:
   tipo?: TipoPregunta;              // por defecto "seleccion_simple" (retrocompatible)
@@ -66,7 +67,7 @@ export interface PreguntaBanco {
 }
 
 export interface ExamenBanco {
-  id: string;                       // umss-economicas-2024
+  id: string;                       // umss-ingenieria-2023-1ra-opcion
   universidad: string;
   facultad: string;
   anio: number;
@@ -74,6 +75,9 @@ export interface ExamenBanco {
   duracion_minutos: number;
   total_preguntas: number;
   ponderacion: Record<string, number>;
+  // Distingue examenes del MISMO año (la UMSS toma varias convocatorias):
+  opcion?: string;                  // "1ra Opción", "2da Opción", "3ra Opción"...
+  titulo?: string;                  // display explicito opcional, ej "Examen de Ingreso 1-2023 (1ra Opción)"
   preguntas: PreguntaBanco[];
 }
 
@@ -85,6 +89,8 @@ export interface ExamenMetadata {
   fecha_examen?: string;
   duracion_minutos: number;
   total_preguntas: number;
+  opcion?: string;
+  titulo?: string;
   areas_resumen: { area: string; cantidad: number }[];
 }
 
@@ -104,7 +110,8 @@ export interface ConfiguracionSimulacion {
   modo: ModoSimulacion;
   universidad: string;
   facultad: string;
-  anio?: number;                    // requerido para modo "examen_real"
+  anio?: number;                    // modo "examen_real": filtro por año (ambiguo si hay varias opciones ese año — preferir examen_id)
+  examen_id?: string;               // modo "examen_real": id EXACTO del examen (ej. umss-ingenieria-2025-2op-2-2025). Evita ambigüedad cuando hay varias convocatorias/opciones el mismo año.
   tema?: string;                    // requerido para modo "por_tema"
   area?: string;                    // filtro por sección (área/libro) para mixto y por_tema
   cantidad_preguntas?: number;      // override opcional para mixto/predictivo/ia_generado

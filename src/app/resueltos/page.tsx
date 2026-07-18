@@ -20,6 +20,14 @@ const ETIQUETAS_AREA: Record<string, string> = {
   general: "General",
 };
 
+// Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el listado).
+function formatearFecha(fechaISO: string): string {
+  const [anio, mes, dia] = fechaISO.split("-").map(Number);
+  if (!anio || !mes || !dia) return fechaISO;
+  const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dia} ${MESES[mes - 1]} ${anio}`;
+}
+
 export default function ResueltosPage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
@@ -72,7 +80,9 @@ export default function ResueltosPage() {
           </div>
         ) : (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
-            {examenes.sort((a, b) => b.anio - a.anio).map((ex) => (
+            {examenes
+              .sort((a, b) => (b.anio - a.anio) || (b.fecha_examen ?? "").localeCompare(a.fecha_examen ?? ""))
+              .map((ex) => (
               <Link
                 key={ex.id}
                 href={`/resueltos/${ex.id}`}
@@ -90,11 +100,16 @@ export default function ResueltosPage() {
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
                   <div>
                     <div style={{ fontSize: 11, fontWeight: 800, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                      Examen oficial
+                      Examen oficial · {ex.anio}
                     </div>
-                    <div className="font-crimson" style={{ fontSize: 28, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.1 }}>
-                      {ex.anio}
+                    <div className="font-crimson" style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.2 }}>
+                      {ex.opcion ?? "Examen"}
                     </div>
+                    {ex.fecha_examen && (
+                      <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 2 }}>
+                        📅 {formatearFecha(ex.fecha_examen)}
+                      </div>
+                    )}
                   </div>
                   <div style={{ fontSize: 32 }}>{facultad?.emoji ?? "📄"}</div>
                 </div>

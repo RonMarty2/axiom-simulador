@@ -34,19 +34,38 @@ export interface SessionUser {
   rol: Rol;
 }
 
+// En desarrollo local (npm run dev) permitimos correr sin configurar nada:
+// hay un secret fijo y emails de rol predefinidos. NADA de esto aplica en
+// producción (Vercel corre con NODE_ENV=production), donde se exigen las env
+// vars reales. Esto habilita el "login de desarrollo" sin Google ni Supabase.
+export const ES_DEV = process.env.NODE_ENV !== "production";
+
+// Emails canónicos del login de desarrollo. Cada uno mapea a un rol para poder
+// alternar entre Admin / Estudiante / etc. sin tocar variables de entorno.
+export const DEV_ADMIN_EMAIL = "admin@local.dev";
+export const DEV_TESTER_EMAIL = "tester@local.dev";
+export const DEV_ESTUDIANTE_EMAIL = "estudiante@local.dev";
+
 function getSecret(): Uint8Array {
   const value = process.env.AUTH_SECRET;
   if (!value || value.length < 16) {
+    if (ES_DEV) {
+      // Secret fijo SOLO para desarrollo local. Nunca se usa en producción.
+      return new TextEncoder().encode("axiom-dev-only-insecure-secret-no-usar-en-prod");
+    }
     throw new Error("AUTH_SECRET no configurada (mínimo 32 caracteres aleatorios)");
   }
   return new TextEncoder().encode(value);
 }
 
 function obtenerAdminEmails(): string[] {
-  return (process.env.ADMIN_EMAILS ?? "")
+  const base = (process.env.ADMIN_EMAILS ?? "")
     .split(",")
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
+  // En dev, el email de admin del login de desarrollo siempre es admin.
+  if (ES_DEV && !base.includes(DEV_ADMIN_EMAIL)) base.push(DEV_ADMIN_EMAIL);
+  return base;
 }
 
 export function esAdminEmail(email: string): boolean {
@@ -57,10 +76,13 @@ export function esAdminEmail(email: string): boolean {
 // alternar su plan entre Gratis y Premium para probar el flujo libremente.
 // Se definen en la variable de entorno TESTER_EMAILS (separadas por coma).
 function obtenerTesterEmails(): string[] {
-  return (process.env.TESTER_EMAILS ?? "")
+  const base = (process.env.TESTER_EMAILS ?? "")
     .split(",")
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
+  // En dev, el email "tester" del login de desarrollo siempre es tester.
+  if (ES_DEV && !base.includes(DEV_TESTER_EMAIL)) base.push(DEV_TESTER_EMAIL);
+  return base;
 }
 
 export function esTesterEmail(email: string): boolean {
@@ -83,14 +105,28 @@ export async function isTester(): Promise<boolean> {
 // IMPORTANTE: NO da poderes admin (panel admin, toggle plan test, etc.). Solo
 // saltea la verificación REQUIERE_PAGO al cambiar facultad.
 function obtenerCambioFacultadLibreEmails(): string[] {
-  return (process.env.FREE_FACULTY_CHANGE_EMAILS ?? "")
+  const base = (process.env.FREE_FACULTY_CHANGE_EMAILS ?? "")
     .split(",")
     .map((e) => e.trim().toLowerCase())
     .filter(Boolean);
+  // En dev, el email "tester" también puede cambiar de facultad libremente,
+  // para poder recorrer todas las carreras como estudiante.
+  if (ES_DEV && !base.includes(DEV_TESTER_EMAIL)) base.push(DEV_TESTER_EMAIL);
+  return base;
 }
 
 export function esCambioFacultadLibreEmail(email: string): boolean {
   return obtenerCambioFacultadLibreEmails().includes(email.toLowerCase());
+}
+
+// Quién puede cambiar de facultad SIN pagar (para probar el contenido):
+//   - los admins (ADMIN_EMAILS),
+//   - los testers (TESTER_EMAILS) — acá entra rnd261190@gmail.com,
+//   - y cualquier email extra en FREE_FACULTY_CHANGE_EMAILS.
+// Todos ellos siguen viendo la app como estudiante (plan real, banners, etc.);
+// solo se les levanta el cobro al cambiar de carrera. Nadie más.
+export function puedeCambiarFacultadLibreEmail(email: string): boolean {
+  return esAdminEmail(email) || esTesterEmail(email) || esCambioFacultadLibreEmail(email);
 }
 
 export async function puedeCambiarFacultadLibre(): Promise<boolean> {
@@ -98,7 +134,7 @@ export async function puedeCambiarFacultadLibre(): Promise<boolean> {
   const token = store.get(SESSION_COOKIE)?.value;
   if (!token) return false;
   const session = await verificarTokenSesion(token);
-  return !!(session && esCambioFacultadLibreEmail(session.email));
+  return !!(session && puedeCambiarFacultadLibreEmail(session.email));
 }
 
 // ─────────────────────────────────────────────────────────────

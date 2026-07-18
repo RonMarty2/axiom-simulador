@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import MathText from "../../components/MathText";
+import FiguraExamen from "../../components/FiguraExamen";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
 import { esPago } from "@/lib/plan";
@@ -21,6 +22,14 @@ const ETIQUETAS_AREA: Record<string, string> = {
   historia: "Historia",
   general: "General",
 };
+
+// Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el detalle).
+function formatearFecha(fechaISO: string): string {
+  const [anio, mes, dia] = fechaISO.split("-").map(Number);
+  if (!anio || !mes || !dia) return fechaISO;
+  const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dia} ${MESES[mes - 1]} ${anio}`;
+}
 
 export default function ExamenResueltoPage() {
   const router = useRouter();
@@ -104,12 +113,13 @@ export default function ExamenResueltoPage() {
             <div style={{ fontSize: 56 }}>{facultad?.emoji ?? "📄"}</div>
             <div style={{ flex: 1, minWidth: 240 }}>
               <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                Examen oficial · {examen.universidad}
+                Examen oficial · {examen.universidad} · {examen.anio}
               </div>
-              <h1 className="font-crimson" style={{ fontSize: 38, fontWeight: 800, marginTop: 2, lineHeight: 1.1 }}>
-                {facultad?.nombre_corto ?? examen.facultad} {examen.anio}
+              <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, marginTop: 2, lineHeight: 1.15 }}>
+                {examen.titulo ?? `${facultad?.nombre_corto ?? examen.facultad} ${examen.anio}${examen.opcion ? ` · ${examen.opcion}` : ""}`}
               </h1>
               <div style={{ fontSize: 14, opacity: 0.9, marginTop: 6 }}>
+                {examen.fecha_examen && <>📅 {formatearFecha(examen.fecha_examen)} · </>}
                 {examen.preguntas.length} preguntas · {examen.duracion_minutos} min · resuelto paso a paso
               </div>
             </div>
@@ -236,6 +246,9 @@ function PreguntaResuelta({
           </div>
         </div>
       </div>
+
+      {/* Figura (si la pregunta tiene una) */}
+      {pregunta.figura && <FiguraExamen id={pregunta.figura} />}
 
       {/* Opciones */}
       <div style={{ display: "grid", gap: 6, marginBottom: 14 }}>

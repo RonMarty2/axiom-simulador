@@ -17,6 +17,17 @@ interface ExamenMini {
   id: string;
   anio: number;
   total_preguntas: number;
+  opcion?: string;
+  titulo?: string;
+  fecha_examen?: string;
+}
+
+// Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el selector).
+function formatearFecha(fechaISO: string): string {
+  const [anio, mes, dia] = fechaISO.split("-").map(Number);
+  if (!anio || !mes || !dia) return fechaISO;
+  const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dia} ${MESES[mes - 1]} ${anio}`;
 }
 
 function PracticarInner() {
@@ -30,7 +41,7 @@ function PracticarInner() {
   const [facultadSeleccionada, setFacultadSeleccionada] = useState<string>("");
   const [modo, setModo] = useState<ModoSimulacion | "">(modoInicial ?? "");
   const [examenes, setExamenes] = useState<ExamenMini[]>([]);
-  const [anio, setAnio] = useState<number | null>(null);
+  const [examenId, setExamenId] = useState<string | null>(null);
   const [tema, setTema] = useState<string>("");
   const [dificultad, setDificultad] = useState<Dificultad>("medio");
   const [errores, setErrores] = useState(0);
@@ -89,7 +100,7 @@ function PracticarInner() {
         modo: modo as ModoSimulacion,
         universidad: "UMSS",
         facultad: facultadSeleccionada,
-        ...(anio ? { anio } : {}),
+        ...(examenId ? { examen_id: examenId } : {}),
         ...(tema ? { tema } : {}),
         // La cantidad de preguntas la define el formato de la facultad, no el usuario.
         ...(modo === "ia_generado" || modo === "mis_errores" ? { dificultad } : {}),
@@ -191,12 +202,28 @@ function PracticarInner() {
 
             {modo === "examen_real" && (
               <div>
-                <label style={lbl()}>Año del examen</label>
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                <label style={lbl()}>Elegí el examen exacto (año, opción y fecha)</label>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {examenes.length === 0 && <div style={{ color: "var(--fg-muted)", fontSize: 13 }}>No hay exámenes cargados para esta facultad.</div>}
-                  {examenes.map((e) => (
-                    <button key={e.anio} onClick={() => setAnio(e.anio)} style={pill(anio === e.anio)}>
-                      {e.anio} ({e.total_preguntas} preg)
+                  {examenes
+                    .slice()
+                    .sort((a, b) => (b.anio - a.anio) || (b.fecha_examen ?? "").localeCompare(a.fecha_examen ?? ""))
+                    .map((e) => (
+                    <button
+                      key={e.id}
+                      onClick={() => setExamenId(e.id)}
+                      style={{
+                        ...pill(examenId === e.id),
+                        display: "flex", flexDirection: "column", alignItems: "flex-start",
+                        textAlign: "left", padding: "10px 16px", gap: 2,
+                      }}
+                    >
+                      <span style={{ fontWeight: 800 }}>
+                        {e.anio} · {e.opcion ?? "Examen"}
+                      </span>
+                      <span style={{ fontSize: 11, opacity: 0.75, fontWeight: 500 }}>
+                        {e.fecha_examen ? formatearFecha(e.fecha_examen) : ""} · {e.total_preguntas} preguntas
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -254,7 +281,7 @@ function PracticarInner() {
 
         <button
           onClick={empezar}
-          disabled={!modo || creando || (modo === "examen_real" && !anio) || (modo === "por_tema" && !tema)}
+          disabled={!modo || creando || (modo === "examen_real" && !examenId) || (modo === "por_tema" && !tema)}
           style={{
             width: "100%", padding: 16, background: facultadObj?.color ?? "var(--accent)",
             color: "white", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 800,

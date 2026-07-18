@@ -20,6 +20,14 @@ const ETIQUETAS_FACULTAD: Record<string, string> = {
   derecho: "Derecho",
 };
 
+// Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el listado).
+function formatearFecha(fechaISO: string): string {
+  const [anio, mes, dia] = fechaISO.split("-").map(Number);
+  if (!anio || !mes || !dia) return fechaISO;
+  const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dia} ${MESES[mes - 1]} ${anio}`;
+}
+
 export default function ExamenesPage() {
   const [examenes, setExamenes] = useState<ExamenMetadata[]>([]);
   const [loading, setLoading] = useState(true);
@@ -103,12 +111,17 @@ export default function ExamenesPage() {
                         {ex.anio}
                       </span>
                     </div>
-                    <h3 className="mb-1 text-xl font-bold text-[#171545] group-hover:text-violet-600">
+                    <h3 className="mb-0.5 text-xl font-bold text-[#171545] group-hover:text-violet-600">
                       {ETIQUETAS_FACULTAD[ex.facultad] ?? ex.facultad}
                     </h3>
+                    {ex.opcion && (
+                      <p className="mb-1 text-sm font-semibold text-violet-500">
+                        {ex.opcion}
+                      </p>
+                    )}
                     {ex.fecha_examen && (
                       <p className="mb-4 text-xs text-neutral-500">
-                        Tomado el {ex.fecha_examen}
+                        Tomado el {formatearFecha(ex.fecha_examen)}
                       </p>
                     )}
                     <div className="mb-4 flex flex-wrap gap-2">

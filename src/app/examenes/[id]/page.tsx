@@ -16,6 +16,14 @@ const ETIQUETAS_AREA: Record<string, string> = {
   general: "General",
 };
 
+// Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el detalle).
+function formatearFecha(fechaISO: string): string {
+  const [anio, mes, dia] = fechaISO.split("-").map(Number);
+  if (!anio || !mes || !dia) return fechaISO;
+  const MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"];
+  return `${dia} ${MESES[mes - 1]} ${anio}`;
+}
+
 export default function ExamenDetallePage() {
   const params = useParams();
   const id = params.id as string;
@@ -88,11 +96,11 @@ export default function ExamenDetallePage() {
             <span className="text-sm text-neutral-500">· {examen.anio}</span>
           </div>
           <h1 className="text-3xl font-black text-[#171545]">
-            Examen {examen.anio} · {examen.universidad}
+            {examen.titulo ?? `Examen ${examen.anio}${examen.opcion ? ` · ${examen.opcion}` : ""} · ${examen.universidad}`}
           </h1>
           <p className="mt-1 text-sm text-neutral-600">
             {examen.preguntas.length} preguntas · {examen.duracion_minutos} min
-            {examen.fecha_examen ? ` · tomado el ${examen.fecha_examen}` : ""}
+            {examen.fecha_examen ? ` · tomado el ${formatearFecha(examen.fecha_examen)}` : ""}
           </p>
         </motion.div>
 

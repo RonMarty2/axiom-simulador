@@ -15,6 +15,7 @@ interface PreguntaCruda {
   opciones: OpcionPregunta[];
   respuesta_correcta: string;
   explicacion?: string;
+  figura?: string;
 }
 
 interface FrontmatterCrudo {
@@ -25,6 +26,11 @@ interface FrontmatterCrudo {
   duracion_minutos: number;
   total_preguntas: number;
   ponderacion: Record<string, number>;
+  // Distingue exámenes del MISMO año: la UMSS toma varias convocatorias por
+  // año (1ra opción, 2da opción, 3ra opción, versión A/B...). Sin esto, dos
+  // archivos del mismo año colisionan en el mismo id y se pisan entre si.
+  opcion?: string;      // ej: "1ra Opción", "2da Opción", "3ra Opción"
+  titulo?: string;       // ej: "Examen de Ingreso 1-2023 (1ra Opción)" — display explicito, opcional
 }
 
 const FRONTMATTER_REGEX = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
@@ -35,11 +41,18 @@ export function parseExamenMD(contenido: string): ExamenBanco {
   if (!m) {
     throw new Error("Archivo MD invalido: falta frontmatter '--- ... ---'");
   }
-  const [, frontRaw, cuerpo] = m;
+  const [, frontRaw, cuerpoRaw] = m;
   const front = parseFrontmatter(frontRaw);
+  // Los archivos .md pueden traer un comentario HTML <!-- ... --> justo
+  // despues del frontmatter (notas del curador, ej. "banco consolidado de
+  // 4 facsimiles"). Si no se elimina antes de partir en preguntas, el bloque
+  // "## Pregunta 1" queda pegado al comentario y el parseo de ESA pregunta
+  // (y por lo tanto de TODO el archivo) falla silenciosamente: el examen
+  // completo desaparece del listado sin ningun error visible al usuario.
+  const cuerpo = cuerpoRaw.replace(/<!--[\s\S]*?-->/g, "");
   const preguntasCrudas = splitPreguntas(cuerpo).map(parsePreguntaBloque);
 
-  const id = construirId(front.universidad, front.facultad, front.anio);
+  const id = construirId(front.universidad, front.facultad, front.anio, front.opcion);
 
   const preguntas: PreguntaBanco[] = preguntasCrudas.map((p) => ({
     id: `${id}-${String(p.numero).padStart(3, "0")}`,
@@ -54,6 +67,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     opciones: p.opciones,
     respuesta_correcta: p.respuesta_correcta,
     explicacion: p.explicacion,
+    figura: p.figura,
   }));
 
   return {
@@ -65,14 +79,28 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     duracion_minutos: front.duracion_minutos,
     total_preguntas: front.total_preguntas,
     ponderacion: front.ponderacion,
+    opcion: front.opcion,
+    titulo: front.titulo,
     preguntas,
   };
 }
 
-function construirId(universidad: string, facultad: string, anio: number): string {
-  return [universidad, facultad, anio]
-    .map((s) => String(s).toLowerCase().replace(/\s+/g, "-"))
-    .join("-");
+// Slug simple: minusculas, sin tildes, espacios -> guiones. Usado tanto para
+// el id del examen como para partes derivadas de "opcion".
+function slug(s: string): string {
+  return s
+    .normalize("NFD").replace(/[̀-ͯ]/g, "") // saca tildes
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
+function construirId(universidad: string, facultad: string, anio: number, opcion?: string): string {
+  const base = [universidad, facultad, String(anio)].map(slug).join("-");
+  // Si hay "opcion" (1ra/2da/3ra Opción, versión A/B...) se agrega al id para
+  // que dos examenes del MISMO año no colisionen ni se pisen entre si.
+  return opcion ? `${base}-${slug(opcion)}` : base;
 }
 
 function parseFrontmatter(raw: string): FrontmatterCrudo {
@@ -120,6 +148,8 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     duracion_minutos,
     total_preguntas,
     ponderacion,
+    opcion: out.opcion ? String(out.opcion) : undefined,
+    titulo: out.titulo ? String(out.titulo) : undefined,
   };
 }
 
@@ -212,5 +242,6 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
     opciones,
     respuesta_correcta: respuesta,
     explicacion,
+    figura: meta.figura,
   };
 }
