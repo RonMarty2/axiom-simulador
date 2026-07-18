@@ -71,6 +71,8 @@ export async function listarMetadata(): Promise<ExamenMetadata[]> {
     fecha_examen: e.fecha_examen,
     duracion_minutos: e.duracion_minutos,
     total_preguntas: e.preguntas.length,
+    opcion: e.opcion,
+    titulo: e.titulo,
     areas_resumen: resumirAreas(e.preguntas),
   }));
 }

@@ -102,14 +102,31 @@ export async function construirSimulador(
 
   switch (config.modo) {
     case "examen_real": {
-      if (!config.anio) {
-        throw new Error("Modo 'examen_real' requiere 'anio'");
-      }
-      const ex = examenesFacultad.find((e) => e.anio === config.anio);
-      if (!ex) {
-        throw new Error(
-          `No hay examen del año ${config.anio} para esa facultad`
-        );
+      // Preferir "examen_id" (exacto, sin ambigüedad): la UMSS toma varias
+      // convocatorias/opciones por año (1ra, 2da, 3ra Opción...), así que
+      // filtrar solo por "anio" puede matchear MAS de un examen y elegir
+      // el primero al azar (bug real detectado: con 4 examenes del año 2025,
+      // .find() siempre devolvía el mismo sin que el usuario supiera cuál).
+      let ex: ExamenBanco | undefined;
+      if (config.examen_id) {
+        ex = examenesFacultad.find((e) => e.id === config.examen_id);
+        if (!ex) {
+          throw new Error(`No existe el examen con id '${config.examen_id}'`);
+        }
+      } else if (config.anio) {
+        const candidatos = examenesFacultad.filter((e) => e.anio === config.anio);
+        if (candidatos.length > 1) {
+          throw new Error(
+            `Hay ${candidatos.length} examenes del año ${config.anio} (distintas opciones/convocatorias). ` +
+            `Especificá 'examen_id' para elegir uno: ${candidatos.map((c) => c.id).join(", ")}`
+          );
+        }
+        ex = candidatos[0];
+        if (!ex) {
+          throw new Error(`No hay examen del año ${config.anio} para esa facultad`);
+        }
+      } else {
+        throw new Error("Modo 'examen_real' requiere 'examen_id' (preferido) o 'anio'");
       }
       preguntas = ex.preguntas;
       examenOrigen = ex;
