@@ -16,7 +16,8 @@ interface Resp {
 }
 
 const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas", economicas: "Económicas", verbal: "Verbal",
+  matematicas: "Matemáticas", aritmetica_algebra: "Aritmética-Álgebra", geometria_trigonometria: "Geometría-Trigonometría",
+  economicas: "Económicas", verbal: "Verbal",
   razonamiento: "Razonamiento", fisica: "Física", quimica: "Química",
   biologia: "Biología", civica: "Cívica", historia: "Historia", general: "General",
 };

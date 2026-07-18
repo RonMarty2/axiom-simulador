@@ -10,6 +10,8 @@ import { SEP_LLENADO, cantidadEspacios } from "@/lib/axiom/respuestas";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
+  aritmetica_algebra: "Aritmética-Álgebra",
+  geometria_trigonometria: "Geometría-Trigonometría",
   economicas: "Económicas",
   verbal: "Verbal",
   razonamiento: "Razonamiento",

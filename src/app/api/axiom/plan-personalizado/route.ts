@@ -30,6 +30,8 @@ interface CreatePlanResponse {
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
+  aritmetica_algebra: "Aritmética-Álgebra",
+  geometria_trigonometria: "Geometría-Trigonometría",
   economicas: "Economía",
   verbal: "Verbal",
   razonamiento: "Razonamiento",

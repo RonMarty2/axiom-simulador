@@ -9,6 +9,8 @@ import type { ExamenMetadata } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
+  aritmetica_algebra: "Aritmética-Álgebra",
+  geometria_trigonometria: "Geometría-Trigonometría",
   economicas: "Económicas",
   verbal: "Verbal",
   razonamiento: "Razonamiento",
