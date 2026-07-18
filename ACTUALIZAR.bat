@@ -22,8 +22,11 @@ git checkout main >nul 2>&1
 git reset --hard origin/main
 if errorlevel 1 goto error
 
-echo [4/4] Instalando dependencias nuevas (si hay)...
+echo [4/5] Instalando dependencias nuevas (si hay)...
 call npm install
+
+echo [5/5] Borrando la cache de compilacion vieja (para que no se quede pegada)...
+if exist ".next" rmdir /s /q ".next"
 
 echo.
 echo ============================================================
