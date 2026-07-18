@@ -15,6 +15,7 @@ interface PreguntaCruda {
   opciones: OpcionPregunta[];
   respuesta_correcta: string;
   explicacion?: string;
+  figura?: string;
 }
 
 interface FrontmatterCrudo {
@@ -54,6 +55,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     opciones: p.opciones,
     respuesta_correcta: p.respuesta_correcta,
     explicacion: p.explicacion,
+    figura: p.figura,
   }));
 
   return {
@@ -212,5 +214,6 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
     opciones,
     respuesta_correcta: respuesta,
     explicacion,
+    figura: meta.figura,
   };
 }

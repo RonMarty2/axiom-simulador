@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import MathText from "../../components/MathText";
+import FiguraExamen from "../../components/FiguraExamen";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
 import { esPago } from "@/lib/plan";
@@ -236,6 +237,9 @@ function PreguntaResuelta({
           </div>
         </div>
       </div>
+
+      {/* Figura (si la pregunta tiene una) */}
+      {pregunta.figura && <FiguraExamen id={pregunta.figura} />}
 
       {/* Opciones */}
       <div style={{ display: "grid", gap: 6, marginBottom: 14 }}>
