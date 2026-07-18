@@ -8,7 +8,6 @@ import MathText from "../../components/MathText";
 import FiguraExamen from "../../components/FiguraExamen";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
-import { esPago } from "@/lib/plan";
 
 const ETIQUETAS_AREA: Record<string, string> = {
   matematicas: "Matemáticas",
@@ -43,12 +42,10 @@ export default function ExamenResueltoPage() {
   const [reveladas, setReveladas] = useState<Set<string>>(new Set());
   const [areaActiva, setAreaActiva] = useState<string>("__todas__");
   const [loading, setLoading] = useState(true);
-  const [pagado, setPagado] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => {
       if (!me.usuario) { router.push("/login"); return; }
-      setPagado(esPago(me.usuario.plan));
       Promise.all([
         fetch(`/api/axiom/examenes/${examenId}`).then((r) => r.json()),
         fetch("/api/facultades").then((r) => r.json()),
@@ -186,7 +183,7 @@ export default function ExamenResueltoPage() {
           {preguntasFiltradas.map((p, i) => {
             const numeroGlobal = examen.preguntas.findIndex((x) => x.id === p.id) + 1;
             const revelada = reveladas.has(p.id);
-            return <PreguntaResuelta key={p.id} pregunta={p} numero={numeroGlobal} revelada={revelada} onToggle={() => togglePregunta(p.id)} colorFac={color} pagado={pagado} />;
+            return <PreguntaResuelta key={p.id} pregunta={p} numero={numeroGlobal} revelada={revelada} onToggle={() => togglePregunta(p.id)} colorFac={color} />;
           })}
         </div>
 
@@ -201,14 +198,13 @@ export default function ExamenResueltoPage() {
 }
 
 function PreguntaResuelta({
-  pregunta, numero, revelada, onToggle, colorFac, pagado,
+  pregunta, numero, revelada, onToggle, colorFac,
 }: {
   pregunta: PreguntaBanco;
   numero: number;
   revelada: boolean;
   onToggle: () => void;
   colorFac: string;
-  pagado: boolean;
 }) {
   return (
     <div style={{
@@ -314,30 +310,16 @@ function PreguntaResuelta({
               Ocultar
             </button>
           </div>
-          {pagado ? (
-            <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.7 }}>
-              {pregunta.explicacion ? (
-                <MathText block>{pregunta.explicacion}</MathText>
-              ) : (
-                <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>
-                  Esta pregunta aún no tiene explicación detallada. La respuesta correcta es{" "}
-                  <strong style={{ color: "#10b981" }}>{pregunta.respuesta_correcta}</strong>.
-                </span>
-              )}
-            </div>
-          ) : (
-            <div style={{ textAlign: "center", padding: "8px 4px" }}>
-              <div style={{ fontSize: 13, color: "var(--fg-primary)", marginBottom: 4 }}>
-                🔒 La explicación paso a paso es parte de <strong>Premium</strong>.
-              </div>
-              <div style={{ fontSize: 12, color: "var(--fg-muted)", marginBottom: 10 }}>
-                Ya ves la respuesta correcta arriba. Desbloquea el razonamiento completo de todos los exámenes.
-              </div>
-              <Link href="/precios" style={{ display: "inline-block", padding: "8px 18px", background: colorFac, color: "white", borderRadius: 10, fontWeight: 800, fontSize: 13, textDecoration: "none" }}>
-                Ver planes →
-              </Link>
-            </div>
-          )}
+          <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.7 }}>
+            {pregunta.explicacion ? (
+              <MathText block>{pregunta.explicacion}</MathText>
+            ) : (
+              <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>
+                Esta pregunta aún no tiene explicación detallada. La respuesta correcta es{" "}
+                <strong style={{ color: "#10b981" }}>{pregunta.respuesta_correcta}</strong>.
+              </span>
+            )}
+          </div>
         </div>
       )}
     </div>
