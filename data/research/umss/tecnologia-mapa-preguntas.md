@@ -24,6 +24,55 @@
 
 ---
 
+## 0. Convención de notación matemática al cargar un examen nuevo
+
+> Lección aprendida (18-jul-2026): en el 1-2023 varias preguntas se cargaron
+> con fracciones/exponentes compuestos como texto plano ("3x³/y²", "b/(2√3)",
+> "[sen(2θ)−sen(4θ)]/[...]") y Ronald lo vio como texto plano feo, sin
+> parecido al examen real. El renderer (`MathText.tsx`) YA soporta LaTeX
+> real vía KaTeX — el problema no era el componente, era que el `.md` no lo
+> usaba. A partir de ahora, todo examen nuevo debe cargarse así:
+
+**Usar `$...$` (inline) o `$$...$$` (display) en el `.md` fuente cuando:**
+- Hay una **fracción algebraica** (con letras/paréntesis), no un número suelto:
+  `$\dfrac{3x^3}{y^2}$`, `$\dfrac{H-4}{H}$`. Mal: `3x³/y²` o `(H-4)/H` en texto plano.
+- Hay un **binomio o expresión elevada a una potencia con paréntesis**:
+  `$\left(\dfrac{3x^3}{y^2} + \dfrac{y^4}{9x^6}\right)^{12}$`.
+- Hay una **ecuación completa** con fracciones a ambos lados del "=" (identidades
+  trigonométricas, fórmulas físicas con despeje): `$E = \dfrac{B}{5a^2} + \dfrac{A\tan\theta}{a}$`.
+- Hay **notación con barra** para representar cifras/vectores: número de dos
+  cifras $\overline{ab}$ (NO "ab (número de dos cifras)" entre paréntesis).
+- Raíces con expresión adentro: `$\sqrt{3}$`, `$2\sqrt{3}+1$` (mejor que "2√3+1"
+  suelto si está dentro de una fracción o ecuación más grande).
+
+**Dejar como texto/unicode plano (no hace falta LaTeX) cuando:**
+- Es una **unidad** (g/mol, m/s², N/C, kN/C) — se lee bien tal cual.
+- Es una **división numérica de un solo paso** (738/41 = 18, 72/12 = 6) — no
+  es una fórmula, es una cuenta.
+- Es un **exponente simple sobre una sola letra/número** sin fracción ni
+  paréntesis alrededor (a², x³, 10⁻⁶, ML²T⁻²) — el superíndice unicode ya se
+  ve como exponente real.
+- Fórmulas de química con subíndices (C₆H₁₂O₆, Li₂S) — el unicode de
+  subíndice ya es legible.
+
+**Reglas técnicas del parser/renderer (para no romper nada):**
+- `MathText.tsx` separa segmentos con la regex `\$([^$\n]+)\$` para inline:
+  el contenido **no puede tener un salto de línea** dentro del mismo `$...$`.
+  Si una fórmula empieza en una línea del "Paso X" y termina en la siguiente,
+  hay que abrir y cerrar el `$...$` DENTRO de esa misma línea.
+- Verificar antes de subir que el archivo tiene la misma cantidad de `$` por
+  línea es par (ningún `$` suelto) — un one-liner rápido:
+  ```python
+  for i, l in enumerate(open("archivo.md", encoding="utf-8"), 1):
+      if l.count("$") % 2: print(i, l)
+  ```
+- KaTeX soporta `\text{...}` para palabras dentro de una fórmula (ej.
+  `\text{sen}`, ya que KaTeX no trae `\sen` como los paquetes en español) y
+  `\dfrac{}{}` para fracciones a tamaño completo (no `\frac`, que sale chico
+  en modo inline).
+
+---
+
 ## Índice de exámenes cubiertos
 
 | Examen | Archivo fuente | Preguntas | Estado |
