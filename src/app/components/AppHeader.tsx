@@ -251,6 +251,18 @@ export default function AppHeader() {
                       )}
                     </>
                   )}
+                  {/* Selector de rol — SOLO desarrollo local. En producción
+                      NODE_ENV es "production" y esto no se renderiza. */}
+                  {process.env.NODE_ENV !== "production" && (
+                    <div style={{ borderTop: "1px dashed #f59e0b", marginTop: 4, paddingTop: 8 }}>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
+                        🛠️ Cambiar de rol (dev)
+                      </div>
+                      <a href="/api/auth/dev-login?rol=estudiante" style={{ ...menuItem(), display: "block" }}>👤 Estudiante</a>
+                      <a href="/api/auth/dev-login?rol=tester" style={{ ...menuItem(), display: "block" }}>🎓 Ronald (tester)</a>
+                      <a href="/api/auth/dev-login?rol=admin" style={{ ...menuItem(), display: "block" }}>⚡ Super Admin</a>
+                    </div>
+                  )}
                   <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "#ef4444", cursor: "pointer" }}>
                     Cerrar sesión
                   </button>

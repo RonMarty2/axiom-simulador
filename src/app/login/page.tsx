@@ -1,8 +1,16 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, type CSSProperties } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+
+function devBtn(color: string): CSSProperties {
+  return {
+    display: "block", padding: "11px 14px", textAlign: "center",
+    background: `${color}15`, border: `1px solid ${color}`, borderRadius: 10,
+    color, textDecoration: "none", fontWeight: 700, fontSize: 13.5,
+  };
+}
 
 function LoginContent() {
   const params = useSearchParams();
@@ -45,6 +53,30 @@ function LoginContent() {
         {error && (
           <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.08)", borderRadius: 10, color: "#b91c1c", fontSize: 13, textAlign: "center" }}>
             ⚠️ No se pudo iniciar sesión: {error}
+          </div>
+        )}
+
+        {/* Panel de desarrollo: SOLO aparece en local (npm run dev). En Vercel
+            producción NODE_ENV es "production" y este bloque no se renderiza. */}
+        {process.env.NODE_ENV !== "production" && (
+          <div style={{ marginTop: 24, padding: 16, background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", borderRadius: 12 }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>
+              🛠️ Solo desarrollo local
+            </div>
+            <div style={{ fontSize: 12.5, color: "var(--fg-muted)", marginBottom: 12, lineHeight: 1.5 }}>
+              Entrá sin Google para previsualizar. No aparece en producción.
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+              <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("#3b82f6")}>
+                👤 Entrar como Estudiante (plan gratis)
+              </a>
+              <a href="/api/auth/dev-login?rol=tester" style={devBtn("#10b981")}>
+                🎓 Entrar como Ronald (tester + cambio libre)
+              </a>
+              <a href="/api/auth/dev-login?rol=admin" style={devBtn("#a855f7")}>
+                ⚡ Entrar como Super Admin
+              </a>
+            </div>
           </div>
         )}
 
