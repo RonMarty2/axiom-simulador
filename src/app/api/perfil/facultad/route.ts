@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { actualizarUsuario, getFacultad, getUsuario, getSuscripcionesActivas, type FacultadId } from "@/lib/data-store";
-import { getCurrentUser, esCambioFacultadLibreEmail } from "@/lib/session";
+import { getCurrentUser, puedeCambiarFacultadLibreEmail } from "@/lib/session";
 
 export async function POST(req: NextRequest) {
   const userSession = await getCurrentUser();
@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
   const esLaMisma = usuarioCompleto.facultad_objetivo === facultad;
   const subs = await getSuscripcionesActivas(userSession.id);
   const tieneSuscripcion = subs.some((s) => s.facultad === facultad);
-  const cambioLibre = esCambioFacultadLibreEmail(userSession.email);
+  const cambioLibre = puedeCambiarFacultadLibreEmail(userSession.email);
 
   if (yaTeniaFacultad && !esLaMisma && !tieneSuscripcion && !cambioLibre) {
     return NextResponse.json({

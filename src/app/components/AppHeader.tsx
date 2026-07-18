@@ -24,6 +24,7 @@ export default function AppHeader() {
   const [usuario, setUsuario] = useState<UsuarioMini | null>(null);
   const [admin, setAdmin] = useState(false);
   const [tester, setTester] = useState(false);
+  const [cambioFacLibre, setCambioFacLibre] = useState(false);
   const [picture, setPicture] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const [facultades, setFacultades] = useState<FacultadMini[]>([]);
@@ -41,6 +42,7 @@ export default function AppHeader() {
         setUsuario(d.usuario ?? null);
         setAdmin(!!d.admin);
         setTester(!!d.tester);
+        setCambioFacLibre(!!d.cambio_facultad_libre);
         setPicture(d.picture ?? null);
       })
       .catch(() => null);
@@ -251,6 +253,52 @@ export default function AppHeader() {
                       )}
                     </>
                   )}
+                  {/* Selector de FACULTAD para probar — visible solo para
+                      admins y testers (cambio_facultad_libre). Cambia de
+                      carrera sin pagar, para revisar el contenido. */}
+                  {cambioFacLibre && facultades.length > 0 && (
+                    <div style={{ borderTop: "1px dashed var(--border)", marginTop: 4, paddingTop: 8 }}>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
+                        🎓 Cambiar facultad (prueba)
+                      </div>
+                      {facultades.map((f) => {
+                        const activa = f.id === usuario?.facultad_objetivo;
+                        return (
+                          <button
+                            key={f.id}
+                            onClick={async () => {
+                              if (activa || cambiando) return;
+                              setCambiando(true);
+                              const r = await fetch("/api/perfil/facultad", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ facultad: f.id }),
+                              });
+                              if (r.ok) {
+                                const me = await fetch("/api/auth/me").then((x) => x.json());
+                                setUsuario(me.usuario ?? null);
+                                setOpen(false);
+                                router.refresh();
+                              }
+                              setCambiando(false);
+                            }}
+                            style={{
+                              ...menuItem(), display: "flex", alignItems: "center", gap: 8,
+                              width: "100%", textAlign: "left", background: "transparent",
+                              border: "none", cursor: activa ? "default" : "pointer",
+                              fontWeight: activa ? 800 : 500,
+                              color: activa ? "var(--accent)" : "var(--fg-primary)",
+                            }}
+                          >
+                            <span>{f.emoji}</span>
+                            <span style={{ flex: 1 }}>{f.nombre_corto}</span>
+                            {activa && <span style={{ color: "var(--accent)" }}>✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+
                   {/* Selector de rol — SOLO desarrollo local. En producción
                       NODE_ENV es "production" y esto no se renderiza. */}
                   {process.env.NODE_ENV !== "production" && (

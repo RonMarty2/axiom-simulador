@@ -119,12 +119,22 @@ export function esCambioFacultadLibreEmail(email: string): boolean {
   return obtenerCambioFacultadLibreEmails().includes(email.toLowerCase());
 }
 
+// Quién puede cambiar de facultad SIN pagar (para probar el contenido):
+//   - los admins (ADMIN_EMAILS),
+//   - los testers (TESTER_EMAILS) — acá entra rnd261190@gmail.com,
+//   - y cualquier email extra en FREE_FACULTY_CHANGE_EMAILS.
+// Todos ellos siguen viendo la app como estudiante (plan real, banners, etc.);
+// solo se les levanta el cobro al cambiar de carrera. Nadie más.
+export function puedeCambiarFacultadLibreEmail(email: string): boolean {
+  return esAdminEmail(email) || esTesterEmail(email) || esCambioFacultadLibreEmail(email);
+}
+
 export async function puedeCambiarFacultadLibre(): Promise<boolean> {
   const store = await cookies();
   const token = store.get(SESSION_COOKIE)?.value;
   if (!token) return false;
   const session = await verificarTokenSesion(token);
-  return !!(session && esCambioFacultadLibreEmail(session.email));
+  return !!(session && puedeCambiarFacultadLibreEmail(session.email));
 }
 
 // ─────────────────────────────────────────────────────────────
