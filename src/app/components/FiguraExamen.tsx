@@ -13,6 +13,45 @@ const OK = "#059669";     // verde
 const BAD = "#dc2626";    // rojo
 const WARN = "#d97706";   // ámbar
 
+// ── Geometría dirigida: reemplaza "línea hasta (x,y)" tipeado a mano ──
+// El bug real que motivó esto: en G5 escribí un punto de destino que iba
+// hacia la DERECHA cuando la figura necesitaba que fuera hacia la
+// IZQUIERDA — un error de signo invisible en las coordenadas crudas, que
+// solo se nota mirando el render (y ni así, a la primera).
+//
+// Con estas funciones el desplazamiento se declara por dirección
+// (arriba/abajo, izquierda/derecha) y el propio nombre exige el signo:
+// si escribís abajoIzquierda(origen, +30, 10) — con dx positivo, que va
+// hacia la derecha — explota en desarrollo en vez de dibujarse mal en
+// silencio. "Punto de p a distancia d en un ángulo" quedaría más prolijo
+// matemáticamente, pero estas figuras son esquemáticas (no a escala) y lo
+// que rompió la anterior no fue un ángulo mal calculado, sino un signo
+// tipeado al revés — esto ataca exactamente ese error.
+interface Pt { x: number; y: number }
+
+function chequearDireccion(nombre: string, dx: number, dy: number, dxOk: (n: number) => boolean, dyOk: (n: number) => boolean) {
+  if (process.env.NODE_ENV !== "production" && (!dxOk(dx) || !dyOk(dy))) {
+    throw new Error(`FiguraExamen: ${nombre}(origen, dx=${dx}, dy=${dy}) tiene un signo que contradice su propio nombre — revisar la dirección.`);
+  }
+}
+
+function abajoIzquierda(origen: Pt, dx: number, dy: number): Pt {
+  chequearDireccion("abajoIzquierda", dx, dy, (n) => n <= 0, (n) => n >= 0);
+  return { x: origen.x + dx, y: origen.y + dy };
+}
+function abajoDerecha(origen: Pt, dx: number, dy: number): Pt {
+  chequearDireccion("abajoDerecha", dx, dy, (n) => n >= 0, (n) => n >= 0);
+  return { x: origen.x + dx, y: origen.y + dy };
+}
+function arribaIzquierda(origen: Pt, dx: number, dy: number): Pt {
+  chequearDireccion("arribaIzquierda", dx, dy, (n) => n <= 0, (n) => n <= 0);
+  return { x: origen.x + dx, y: origen.y + dy };
+}
+function arribaDerecha(origen: Pt, dx: number, dy: number): Pt {
+  chequearDireccion("arribaDerecha", dx, dy, (n) => n >= 0, (n) => n <= 0);
+  return { x: origen.x + dx, y: origen.y + dy };
+}
+
 function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNode; alto?: number; ancho?: number }) {
   return (
     <div style={{
@@ -40,8 +79,10 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
   // 2 = α=55° por correspondientes; 3 = 2x=90−55=35 y x=17,5°.
   "g5-paralelas": (paso) => {
     const p = paso ?? 0;
-    const V = { x: 210, y: 45 };   // vértice sobre m
-    const W = { x: 130, y: 130 };  // vértice del ángulo de 95°
+    const V = { x: 210, y: 45 };                     // vértice sobre m (apex)
+    const W = abajoIzquierda(V, -80, 85);             // vértice del ángulo de 95° (abajo-IZQUIERDA del apex)
+    const P1 = abajoIzquierda(W, -35, 78);            // pie en n del tramo que viene de W (sigue hacia la izquierda, NO se da vuelta a la derecha — el bug original)
+    const P2 = abajoDerecha(V, 90, 170);              // pie en n del lado derecho (abajo-DERECHA del apex)
     return (
       <Marco alto={250}>
         {/* rectas paralelas */}
@@ -52,8 +93,8 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
 
         {/* poligonal (siempre visible) */}
         <line x1={V.x} y1={V.y} x2={W.x} y2={W.y} stroke={T} strokeWidth={1.6} />
-        <line x1={W.x} y1={W.y} x2={95} y2={208} stroke={T} strokeWidth={1.6} />
-        <line x1={V.x} y1={V.y} x2={300} y2={215} stroke={T} strokeWidth={1.6} />
+        <line x1={W.x} y1={W.y} x2={P1.x} y2={P1.y} stroke={T} strokeWidth={1.6} />
+        <line x1={V.x} y1={V.y} x2={P2.x} y2={P2.y} stroke={T} strokeWidth={1.6} />
 
         {/* datos DADOS por el problema (siempre visibles) */}
         <text x={188} y={68} fill={ACC} fontSize={13}>α</text>
@@ -84,7 +125,7 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
             <line x1={58} y1={W.y} x2={250} y2={W.y} stroke={OK} strokeWidth={1.4} strokeDasharray="5 4" />
             <text x={44} y={W.y - 6} fill={OK} fontSize={10}>auxiliar ∥ m, n</text>
             {/* resalta el segmento W -> n (alterno interno con el 40° de n) */}
-            <line x1={W.x} y1={W.y} x2={95} y2={208} stroke={OK} strokeWidth={3} opacity={0.45} />
+            <line x1={W.x} y1={W.y} x2={P1.x} y2={P1.y} stroke={OK} strokeWidth={3} opacity={0.45} />
             {/* el 95° se parte: abajo 40° (alterno con n), arriba 55° */}
             <text x={150} y={152} fill={OK} fontSize={11} fontWeight={700}>40°</text>
             <text x={150} y={121} fill={ACC} fontSize={11} fontWeight={700}>55°</text>
@@ -98,7 +139,7 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
 
         {/* PASO 3 · resalta la transversal V-Q hasta el pie con el ángulo recto */}
         {p >= 3 && (
-          <line x1={V.x} y1={V.y} x2={300} y2={215} stroke={ACC} strokeWidth={3} opacity={0.4} />
+          <line x1={V.x} y1={V.y} x2={P2.x} y2={P2.y} stroke={ACC} strokeWidth={3} opacity={0.4} />
         )}
       </Marco>
     );
