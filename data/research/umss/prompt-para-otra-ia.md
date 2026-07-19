@@ -93,8 +93,15 @@ REGLAS IMPORTANTES:
    ninguna opción, marcá "E) Ninguno" y explicá por qué en la explicación
    (no fuerces una respuesta que no cierra matemáticamente).
 3. Los pasos de la explicación tienen que ENSEÑAR, no solo mostrar la
-   cuenta — si hay un atajo o una técnica puntual para resolverlo más
-   rápido que "a lo bruto", mencionalo.
+   cuenta. Regla de oro: si un paso usa un teorema o propiedad (ángulos
+   alternos internos, correspondientes, suma de ángulos de un triángulo,
+   Pitágoras, regla de tres, ley de gases, etc.), recordá en UNA frase qué
+   dice esa propiedad ANTES de usarla — el alumno no tiene por qué tenerla
+   fresca. Ejemplo: en vez de "por alternos internos vale 40°", escribí
+   "recordá: cuando una recta corta a dos paralelas, los ángulos entre las
+   paralelas a lados opuestos son iguales (forman una Z); por eso este
+   ángulo también vale 40°". Si además hay un atajo o técnica que acorta
+   el camino frente al método "a lo bruto", mencionalo.
 4. Mantené el identificador de área EXACTO entre la pregunta y la
    ponderacion del frontmatter (si escribís "area: geometria_trigonometria"
    en una pregunta, tiene que existir esa misma clave en ponderacion).

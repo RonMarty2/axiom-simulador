@@ -60,7 +60,7 @@ Respuesta: [letra].
 REGLAS:
 1. NO inventes datos. Si algo no se lee bien en el PDF, escribí "VERIFICAR: [qué]" en la explicación en vez de adivinar.
 2. VERIFICÁ tu respuesta: resolvé la pregunta y confirmá que el resultado coincide con la letra que marcás. Si no coincide con ninguna opción, marcá E) Ninguno y explicá por qué.
-3. Los pasos deben ENSEÑAR: si hay un atajo o técnica que acorta el camino, mencionalo.
+3. Los pasos deben ENSEÑAR, no solo mostrar la cuenta. Regla de oro: si un paso usa un teorema o propiedad (ángulos alternos internos, correspondientes, suma de ángulos de un triángulo, teorema de Pitágoras, regla de tres, ley de gases, etc.), recordá en UNA frase qué dice esa propiedad ANTES de usarla — el alumno no tiene por qué tenerla fresca. Ejemplo: en vez de "por alternos internos vale 40°", escribí "recordá: cuando una recta corta a dos paralelas, los ángulos entre las paralelas a lados opuestos son iguales (forman una Z); por eso este ángulo también vale 40°". Si además hay un atajo que acorta el camino, mencionalo.
 4. El area de cada pregunta debe existir EXACTO como clave en ponderacion.
 5. Devolvé el archivo COMPLETO de una sola vez.`;
 
