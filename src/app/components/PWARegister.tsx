@@ -17,6 +17,32 @@ export default function PWARegister() {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
+    // -1. BLINDAJE DE DESARROLLO LOCAL.
+    //     Un service worker que se registró alguna vez en este origen sigue
+    //     vivo aunque el código ya no lo registre en dev, y sirve chunks viejos
+    //     -> ChunkLoadError -> la página no hidrata -> "sigue igual" aunque el
+    //     código sea nuevo. En dev matamos cualquier SW y caché para que el
+    //     navegador SIEMPRE cargue lo último del servidor de desarrollo.
+    if (process.env.NODE_ENV !== "production" && "serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations()
+        .then((regs) => {
+          if (regs.length > 0) {
+            regs.forEach((r) => r.unregister());
+            // Con un SW recién desregistrado, el bundle actual pudo venir de la
+            // caché vieja: recargamos una vez para traer los chunks frescos.
+            if (typeof caches !== "undefined") {
+              caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k))))
+                .finally(() => window.location.reload());
+            } else {
+              window.location.reload();
+            }
+          } else if (typeof caches !== "undefined") {
+            caches.keys().then((keys) => keys.forEach((k) => caches.delete(k))).catch(() => {});
+          }
+        })
+        .catch(() => {});
+    }
+
     // 0. Ocultar el banner de instalación de la PWA en escritorio.
     //    El banner "Instalar app" lo dispara el propio navegador (Chrome/Edge)
     //    mediante el evento beforeinstallprompt. En PC/Mac lo prevenimos para

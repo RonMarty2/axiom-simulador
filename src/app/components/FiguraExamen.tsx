@@ -210,7 +210,7 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
 
 export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
   if (!id) return null;
-  const Fig = FIGURAS[id];
-  if (!Fig) return null;
-  return <Fig paso={paso} />;
+  const fig = FIGURAS[id];
+  if (!fig) return null;
+  return fig(paso);
 }
