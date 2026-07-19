@@ -138,9 +138,11 @@
 - 🎯 Técnica: fórmula de aceleración neta en plano con fricción $a=g(\sin\theta-\mu\cos\theta)$, luego cinemática básica.
 - Sin atajo/trampa especial más allá de recordar bien la fórmula combinada (error común: olvidar el término de fricción o el signo).
 
-**F11 · Campo eléctrico mínimo para equilibrio en plano inclinado** (difícil)
-- 🎯 Técnica: equilibrio de fuerzas en plano inclinado, componente del peso paralela al plano igualada a la fuerza eléctrica $qE$.
-- ⚠️ Trampa: depende crucialmente de la ORIENTACIÓN de las líneas de campo en la figura (para el mínimo E, el campo debe ser paralelo al plano). La lectura correcta de la figura es tan importante como la física en sí.
+**F11 · Campo eléctrico MÍNIMO para equilibrio de un péndulo cargado** (difícil)
+- 🎯 Técnica: equilibrio de 3 fuerzas en un péndulo (peso, tensión del hilo, fuerza eléctrica). Descomponer el peso a lo largo del hilo (lo absorbe la tensión: mg·cos α) y perpendicular al hilo (mg·sen α, lo debe cubrir qE).
+- ⚡ Atajo clave (el corazón del "mínimo"): la fuerza mínima para sostener un péndulo desviado es SIEMPRE perpendicular al hilo — cualquier otra dirección desperdicia componente a lo largo del hilo (que la tensión ya cubre gratis) y exige un campo mayor. Con eso, E_min = mg·sen α / q, directo, sin plantear el sistema completo de equilibrio.
+- ⚠️ Trampa: quien no conoce el argumento del mínimo intenta plantear equilibrio general con dirección de E desconocida (dos ecuaciones, dos incógnitas) y pierde muchísimo tiempo. La figura ayuda: las líneas de campo están dibujadas perpendiculares al hilo.
+- 📝 Nota de curaduría (19-jul-2026): esta pregunta estuvo un tiempo mal transcripta como "partícula sobre plano inclinado" — el número final coincidía de casualidad (ambos setups dan mg·sen α/q) pero el enunciado, la figura y el razonamiento eran de OTRO problema. Corregida contra el PDF: es un péndulo colgando de un hilo. Lección: verificar el SETUP físico contra la figura del PDF, no solo el resultado numérico.
 
 **F12 · Circuito resistivo, resistencia equivalente A-B** (difícil)
 - 🎯 Técnica: reducción de resistencias en serie/paralelo por etapas.

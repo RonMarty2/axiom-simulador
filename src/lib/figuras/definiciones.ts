@@ -12,6 +12,7 @@ import {
   arcoAngulo,
   avanzar,
   bloqueSobre,
+  cabezaFlecha,
   cuadradoRecto,
   distancia,
   hastaY,
@@ -155,9 +156,68 @@ function f10(): Figura {
   return { ancho: 420, alto: 220, pasos: 0, elementos: el };
 }
 
+// ── F11 · péndulo cargado en equilibrio con campo E perpendicular al hilo ──
+// Fiel al PDF: soporte con rayitas en el techo, hilo desviado α = 37° de la
+// vertical (línea punteada vertical como referencia), bolita cargada al
+// final, y líneas de campo E paralelas entre sí, PERPENDICULARES al hilo
+// (esa perpendicularidad es la clave física del "mínimo E"). Un segundo α
+// marca el ángulo entre las líneas de campo y la horizontal punteada.
+function f11(): Figura {
+  const A: Pt = { x: 262, y: 36 };            // anclaje en el techo
+  const DIR_CUERDA = -53;                      // vertical (-90°) desviada 37° hacia la derecha
+  const B = avanzar(A, DIR_CUERDA, 132);       // bolita
+  const DIR_CAMPO = DIR_CUERDA + 90;           // 37°: perpendicular al hilo, hacia arriba-derecha
+  const bajoVertical = { x: A.x, y: A.y + 100 };
+
+  verificarAngulo("α hilo-vertical = 37°", 37, anguloEn(A, B, bajoVertical));
+  verificarAngulo("campo ⊥ hilo", 90, Math.abs(DIR_CAMPO - DIR_CUERDA));
+
+  const arcoAlfaHilo = arcoAngulo(A, -90, DIR_CUERDA, 34, 46);
+  const finHorizontal = { x: B.x + 78, y: B.y };
+  const arcoAlfaCampo = arcoAngulo(B, 0, DIR_CAMPO, 26, 38);
+
+  const el: Elemento[] = [
+    // techo: línea de soporte + rayitas
+    { tipo: "linea", de: { x: A.x - 30, y: A.y }, a: { x: A.x + 30, y: A.y }, rol: "trazo", grosor: 2 },
+  ];
+  for (let i = 0; i < 6; i++) {
+    const pie = { x: A.x - 25 + i * 10, y: A.y };
+    el.push({ tipo: "linea", de: pie, a: avanzar(pie, 120, 10), rol: "trazo", grosor: 1 });
+  }
+
+  el.push(
+    // referencia vertical punteada + α del hilo
+    { tipo: "linea", de: A, a: bajoVertical, rol: "trazo", punteada: true },
+    { tipo: "arco", d: arcoAlfaHilo.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAlfaHilo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+    // hilo y bolita cargada
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: B, rol: "incognita", r: 8 },
+    { tipo: "texto", en: { x: B.x - 16, y: B.y + 16 }, texto: "q₀", rol: "incognita", tam: 12, negrita: true },
+    // horizontal punteada por la bolita + α del campo
+    { tipo: "linea", de: B, a: finHorizontal, rol: "trazo", punteada: true },
+    { tipo: "arco", d: arcoAlfaCampo.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAlfaCampo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+  );
+
+  // líneas de campo E: paralelas, perpendiculares al hilo, con flecha
+  for (let i = 0; i < 5; i++) {
+    const inicio = { x: 64 + i * 52, y: 216 };
+    const fin = avanzar(inicio, DIR_CAMPO, 150 + (i % 2) * 16);
+    el.push(
+      { tipo: "linea", de: inicio, a: fin, rol: "aux", color: VERDE, grosor: 1.4 },
+      { tipo: "path", d: cabezaFlecha(fin, DIR_CAMPO), rol: "aux", color: VERDE, relleno: true },
+    );
+  }
+  el.push({ tipo: "texto", en: { x: 14, y: 240 }, texto: "líneas de campo E (⊥ al hilo)", rol: "aux", color: VERDE, tam: 10, ancla: "start" });
+
+  return { ancho: 420, alto: 252, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "g5-paralelas": g5,
   "f10-plano": f10,
+  "f11-campo": f11,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

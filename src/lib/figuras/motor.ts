@@ -87,7 +87,8 @@ export type Elemento =
   | (BaseElemento & { tipo: "poligono"; puntos: Pt[]; relleno?: boolean })
   | (BaseElemento & { tipo: "arco"; d: string })
   | (BaseElemento & { tipo: "cuadradoRecto"; d: string; relleno?: boolean })
-  | (BaseElemento & { tipo: "punto"; en: Pt })
+  | (BaseElemento & { tipo: "path"; d: string; relleno?: boolean })
+  | (BaseElemento & { tipo: "punto"; en: Pt; r?: number })
   | (BaseElemento & { tipo: "texto"; en: Pt; texto: string; tam?: number; cursiva?: boolean; negrita?: boolean; rot?: number; ancla?: "start" | "middle" | "end" });
 
 export function elementoVisible(e: Elemento, paso: number): boolean {
@@ -134,6 +135,14 @@ export function cuadradoRecto(vertice: Pt, a1: number, a2: number, lado = 9): st
   // cuarto vértice del cuadradito: paralelogramo v→p1→p2→p3
   const p2: Pt = { x: p1.x + (p3.x - vertice.x), y: p1.y + (p3.y - vertice.y) };
   return `M ${vertice.x.toFixed(2)} ${vertice.y.toFixed(2)} L ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} L ${p2.x.toFixed(2)} ${p2.y.toFixed(2)} L ${p3.x.toFixed(2)} ${p3.y.toFixed(2)} Z`;
+}
+
+// Punta de flecha (triángulo relleno) en `punta`, apuntando en la dirección
+// `anguloDireccion`. Se usa junto a una linea para dibujar vectores/campos.
+export function cabezaFlecha(punta: Pt, anguloDireccion: number, tam = 7): string {
+  const izq = avanzar(punta, anguloDireccion + 152, tam);
+  const der = avanzar(punta, anguloDireccion - 152, tam);
+  return `M ${punta.x.toFixed(2)} ${punta.y.toFixed(2)} L ${izq.x.toFixed(2)} ${izq.y.toFixed(2)} L ${der.x.toFixed(2)} ${der.y.toFixed(2)} Z`;
 }
 
 // Rectángulo apoyado sobre una superficie inclinada (ej: bloque sobre un

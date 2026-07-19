@@ -53,9 +53,10 @@ function ElementoSVG({ e, paso }: { e: Elemento; paso: number }) {
     case "arco":
       return <path d={e.d} fill="none" stroke={color} strokeWidth={1.3} />;
     case "cuadradoRecto":
+    case "path":
       return <path d={e.d} fill={e.relleno ? color : "none"} stroke={color} strokeWidth={1.3} />;
     case "punto":
-      return <circle cx={e.en.x} cy={e.en.y} r={3} fill={color} />;
+      return <circle cx={e.en.x} cy={e.en.y} r={e.r ?? 3} fill={e.r && e.r > 4 ? `${color}30` : color} stroke={color} strokeWidth={1.6} />;
     case "texto":
       return (
         <text
@@ -132,28 +133,6 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
       <text x={205} y={100} fill={ACC} fontSize={12}>4</text>
       <text x={250} y={148} fill={ACC} fontSize={12}>4</text>
       <text x={205} y={193} fill={DIM} fontSize={13} fontStyle="italic">b</text>
-    </Marco>
-  ),
-
-  // ── F11 · partícula sobre plano inclinado 37° con líneas de campo ──
-  "f11-campo": () => (
-    <Marco alto={210} ancho={420}>
-      <polygon points="60,175 360,175 360,70" fill={`${DIM}10`} stroke={T} strokeWidth={2} />
-      {/* partícula */}
-      <circle cx={250} cy={140} r={10} fill={`${ACC}30`} stroke={ACC} strokeWidth={1.8} />
-      <text x={240} y={128} fill={ACC} fontSize={11} fontWeight={700}>q</text>
-      {/* líneas de campo paralelas al plano (flechas subiendo) */}
-      {[0, 1, 2, 3].map((i) => (
-        <line key={i} x1={140 + i * 45} y1={175 - (i * 0) - 10} x2={175 + i * 45} y2={150 - 10}
-          stroke={OK} strokeWidth={1.4} markerEnd="url(#feArr)" />
-      ))}
-      <defs>
-        <marker id="feArr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-          <path d="M0 0 L10 5 L0 10 z" fill={OK} />
-        </marker>
-      </defs>
-      <text x={352} y={172} fill={WARN} fontSize={12} fontWeight={700}>37°</text>
-      <text x={150} y={200} fill={DIM} fontSize={11}>líneas de campo E</text>
     </Marco>
   ),
 
