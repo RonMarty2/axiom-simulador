@@ -91,51 +91,17 @@ function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNod
 }
 
 // Figuras que se construyen por etapas: 0/undef = enunciado, 1..N van
-// dibujando la solución. G5 y F10 viven en el motor de geometría
-// (src/lib/figuras/definiciones.ts); esta tabla informa al reproductor
-// cuántos pasos tiene cada una.
-export const FIGURAS_POR_ETAPAS: Record<string, number> = {
-  "g5-paralelas": construirFigura("g5-paralelas")?.pasos ?? 0,
-};
+// dibujando la solución. Las figuras del motor de geometría
+// (src/lib/figuras/definiciones.ts) declaran sus propios pasos; esta tabla
+// se los informa al reproductor de la solución.
+export const FIGURAS_POR_ETAPAS: Record<string, number> = Object.fromEntries(
+  ["g5-paralelas", "g6-isosceles", "g7-cuadrado", "f10-plano", "f11-campo"].map(
+    (id) => [id, construirFigura(id)?.pasos ?? 0]
+  )
+);
 
 // Figuras legacy dibujadas a mano (pendientes de migrar al motor).
 const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
-  // ── G6 · triángulo isósceles con cadena BC=BF=FE=ED=DA ──
-  "g6-isosceles": () => (
-    <Marco alto={210} ancho={420}>
-      {/* A derecha, B arriba-izq, C abajo-izq */}
-      <polygon points="70,40 55,150 380,120" fill="none" stroke={T} strokeWidth={2} />
-      <text x={58} y={34} fill={T} fontSize={14} fontWeight={700}>B</text>
-      <text x={40} y={158} fill={T} fontSize={14} fontWeight={700}>C</text>
-      <text x={386} y={122} fill={T} fontSize={14} fontWeight={700}>A</text>
-      {/* puntos y segmentos internos (zig-zag) */}
-      <line x1={55} y1={150} x2={160} y2={70} stroke={ACC} strokeWidth={1.5} />
-      <line x1={160} y1={70} x2={140} y2={130} stroke={ACC} strokeWidth={1.5} />
-      <line x1={140} y1={130} x2={250} y2={92} stroke={ACC} strokeWidth={1.5} />
-      <text x={162} y={64} fill={DIM} fontSize={12}>E</text>
-      <text x={245} y={104} fill={DIM} fontSize={12}>D</text>
-      <text x={132} y={144} fill={DIM} fontSize={12}>F</text>
-      <text x={200} y={30} fill={DIM} fontSize={12}>BC=BF=FE=ED=DA</text>
-    </Marco>
-  ),
-
-  // ── G7 · cuadrado lado 4 en triángulo isósceles apex 120° ──
-  "g7-cuadrado": () => (
-    <Marco alto={210} ancho={420}>
-      {/* triángulo: B arriba, A izq, C der */}
-      <polygon points="210,45 60,175 360,175" fill="none" stroke={T} strokeWidth={2} />
-      <text x={205} y={38} fill={T} fontSize={14} fontWeight={700}>B</text>
-      <text x={222} y={58} fill={BAD} fontSize={12} fontWeight={700}>120°</text>
-      <text x={48} y={190} fill={T} fontSize={14} fontWeight={700}>A</text>
-      <text x={364} y={190} fill={T} fontSize={14} fontWeight={700}>C</text>
-      {/* cuadrado apoyado en la base, centrado */}
-      <rect x={175} y={110} width={70} height={65} fill={`${ACC}12`} stroke={ACC} strokeWidth={1.8} />
-      <text x={205} y={100} fill={ACC} fontSize={12}>4</text>
-      <text x={250} y={148} fill={ACC} fontSize={12}>4</text>
-      <text x={205} y={193} fill={DIM} fontSize={13} fontStyle="italic">b</text>
-    </Marco>
-  ),
-
   // ── F12 · circuito con 15Ω, 5Ω y tres 10Ω entre A y B ──
   "f12-circuito": () => (
     <Marco alto={220} ancho={420}>

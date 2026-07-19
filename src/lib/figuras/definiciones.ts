@@ -17,6 +17,7 @@ import {
   distancia,
   hastaY,
   verificarAngulo,
+  verificarDistancia,
 } from "./motor";
 
 const ROJO = "#dc2626";
@@ -214,8 +215,158 @@ function f11(): Figura {
   return { ancho: 420, alto: 252, pasos: 0, elementos: el };
 }
 
+// ── G6 · triángulo isósceles con cadena BC = BF = FE = ED = DA ──
+// Construida con la solución real (θ = 20°): A a la derecha con el ángulo θ,
+// B arriba-izquierda, C abajo-izquierda; E sobre AB; D y F sobre AC. La
+// gracia: la cadena de 5 segmentos iguales SOLO cierra si θ = 20° — la
+// propia construcción valida la respuesta (verificamos las 4 distancias).
+function g6(): Figura {
+  const TH = 20;                                  // ∡BAC (la respuesta del problema)
+  const A: Pt = { x: 392, y: 122 };
+  const L = 330;                                  // AB = AC
+  const B = avanzar(A, 180 - TH / 2, L);          // arriba-izquierda
+  const C = avanzar(A, 180 + TH / 2, L);          // abajo-izquierda
+  const s = distancia(B, C);                      // BC = paso de la cadena
+
+  const dirAC = anguloHacia(A, C);
+  const dirAB = anguloHacia(A, B);
+  const D = avanzar(A, dirAC, s);                             // DA = s
+  const E = avanzar(A, dirAB, 2 * s * Math.cos(TH * Math.PI / 180));  // ED = s
+  const F = avanzar(A, dirAC, distancia(A, D) + 2 * s * Math.cos(2 * TH * Math.PI / 180)); // FE = s
+
+  // La cadena debe cerrar EXACTA con θ = 20°.
+  verificarAngulo("∡BAC = 20°", TH, anguloEn(A, B, C));
+  verificarDistancia("ED = BC", s, distancia(E, D));
+  verificarDistancia("FE = BC", s, distancia(F, E));
+  verificarDistancia("BF = BC", s, distancia(B, F));
+  // Ángulos de la cadena (2θ, 3θ, 4θ) que se van revelando en los pasos
+  verificarAngulo("∡EDC = 2θ", 2 * TH, anguloEn(D, E, C));
+  verificarAngulo("∡FEB = 3θ", 3 * TH, anguloEn(E, F, B));
+  verificarAngulo("∡BFC = 4θ", 4 * TH, anguloEn(F, B, C));
+  verificarAngulo("∡BCA = 4θ (base del isósceles)", 4 * TH, anguloEn(C, B, A));
+
+  // etiqueta a radio 62: el ángulo en A es tan agudo (20°) que más cerca
+  // queda pisada por los dos lados del triángulo
+  const arcoTheta = arcoAngulo(A, dirAB, dirAC, 30, 62);
+  const arco2t = arcoAngulo(D, anguloHacia(D, E), anguloHacia(D, C), 16, 28);
+  const arco3t = arcoAngulo(E, anguloHacia(E, F), anguloHacia(E, B), 14, 26);
+  const arco4t = arcoAngulo(F, anguloHacia(F, B), anguloHacia(F, C), 13, 26);
+
+  const el: Elemento[] = [
+    // triángulo
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: A, a: C, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: B, a: C, rol: "trazo", grosor: 1.8 },
+    // cadena interna
+    { tipo: "linea", de: D, a: E, rol: "incognita" },
+    { tipo: "linea", de: E, a: F, rol: "incognita" },
+    { tipo: "linea", de: F, a: B, rol: "incognita" },
+    // rótulos de vértices
+    { tipo: "texto", en: { x: B.x - 10, y: B.y - 8 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: C.x - 10, y: C.y + 12 }, texto: "C", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: A.x + 12, y: A.y }, texto: "A", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: E.x + 2, y: E.y - 12 }, texto: "E", rol: "trazo", tam: 12 },
+    { tipo: "texto", en: { x: D.x + 4, y: D.y + 14 }, texto: "D", rol: "trazo", tam: 12 },
+    { tipo: "texto", en: { x: F.x - 2, y: F.y + 15 }, texto: "F", rol: "trazo", tam: 12 },
+    // dato del problema + incógnita
+    { tipo: "texto", en: { x: 150, y: 22 }, texto: "BC = BF = FE = ED = DA", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arcoTheta.d, rol: "incognita" },
+    { tipo: "texto", en: arcoTheta.etiquetaEn, texto: "θ = ?", rol: "incognita", tam: 11, negrita: true },
+
+    // PASO 1 · triángulo ADE: base θ, exterior 2θ en D
+    { tipo: "linea", de: D, a: E, rol: "resalte", desdePaso: 1 },
+    { tipo: "arco", d: arco2t.d, rol: "resultado", desdePaso: 1 },
+    { tipo: "texto", en: arco2t.etiquetaEn, texto: "2θ", rol: "resultado", tam: 11, negrita: true, desdePaso: 1 },
+    { tipo: "texto", en: { x: 116, y: 226 }, texto: "en D: θ + θ = 2θ (ángulo exterior)", rol: "resultado", tam: 11, ancla: "start", desdePaso: 1, hastaPaso: 1 },
+
+    // PASO 2 · triángulo DEF: aparece 3θ en E
+    { tipo: "linea", de: E, a: F, rol: "resalte", desdePaso: 2 },
+    { tipo: "arco", d: arco3t.d, rol: "resultado", desdePaso: 2 },
+    { tipo: "texto", en: arco3t.etiquetaEn, texto: "3θ", rol: "resultado", tam: 11, negrita: true, desdePaso: 2 },
+    { tipo: "texto", en: { x: 116, y: 226 }, texto: "en E: 2θ + θ = 3θ", rol: "resultado", tam: 11, ancla: "start", desdePaso: 2, hastaPaso: 2 },
+
+    // PASO 3 · triángulo EFB: aparece 4θ en F
+    { tipo: "linea", de: F, a: B, rol: "resalte", desdePaso: 3 },
+    { tipo: "arco", d: arco4t.d, rol: "resultado", desdePaso: 3 },
+    { tipo: "texto", en: arco4t.etiquetaEn, texto: "4θ", rol: "resultado", tam: 11, negrita: true, desdePaso: 3 },
+    { tipo: "texto", en: { x: 116, y: 226 }, texto: "en F: 3θ + θ = 4θ", rol: "resultado", tam: 11, ancla: "start", desdePaso: 3, hastaPaso: 3 },
+
+    // PASO 4 · base del isósceles: 4θ = 90 − θ/2 → θ = 20°
+    { tipo: "linea", de: B, a: C, rol: "resalte", desdePaso: 4 },
+    { tipo: "texto", en: { x: 116, y: 226 }, texto: "4θ = 90° − θ/2  →  θ = 20°", rol: "resultado", tam: 12, negrita: true, ancla: "start", desdePaso: 4 },
+  ];
+
+  return { ancho: 420, alto: 240, pasos: 4, elementos: el };
+}
+
+// ── G7 · cuadrado de lado 4 inscrito en triángulo isósceles (ápice 120°) ──
+// Dibujada A ESCALA con la respuesta real: b = 4(2√3+1) ≈ 17,86. Los
+// vértices superiores del cuadrado se calculan como INTERSECCIÓN con los
+// lados del triángulo — tocan los lados por construcción, no a ojo.
+function g7(): Figura {
+  const Y_BASE = 196;
+  const bReal = 4 * (2 * Math.sqrt(3) + 1);      // ≈ 17,856 (la respuesta)
+  const escala = 320 / bReal;                     // px por unidad
+  const ladoPx = 4 * escala;                      // cuadrado de lado 4, a escala
+
+  const Aiz: Pt = { x: 50, y: Y_BASE };
+  const Cde: Pt = { x: 50 + bReal * escala, y: Y_BASE };
+  const M: Pt = { x: (Aiz.x + Cde.x) / 2, y: Y_BASE - (bReal / (2 * Math.sqrt(3))) * escala }; // ápice
+
+  // esquinas superiores del cuadrado: intersección de los lados con la altura del cuadrado
+  const yTope = Y_BASE - ladoPx;
+  const tl = hastaY(Aiz, anguloHacia(Aiz, M), yTope);
+  const tr = hastaY(Cde, anguloHacia(Cde, M), yTope);
+
+  verificarAngulo("ápice = 120°", 120, anguloEn(M, Aiz, Cde));
+  verificarAngulo("base = 30°", 30, anguloEn(Aiz, M, Cde));
+  verificarDistancia("el tope del cuadrado mide igual que su lado", ladoPx, distancia(tl, tr));
+
+  const arco120 = arcoAngulo(M, anguloHacia(M, Aiz), anguloHacia(M, Cde), 18, 32);
+  const arco30i = arcoAngulo(Aiz, anguloHacia(Aiz, M), 0, 24, 38);
+  const arco30d = arcoAngulo(Cde, 180, anguloHacia(Cde, M), 24, 38);
+
+  const el: Elemento[] = [
+    // triángulo
+    { tipo: "linea", de: Aiz, a: M, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: M, a: Cde, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: Aiz, a: Cde, rol: "trazo", grosor: 1.8 },
+    { tipo: "texto", en: { x: M.x, y: M.y - 12 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: Aiz.x - 12, y: Aiz.y + 4 }, texto: "A", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: Cde.x + 12, y: Cde.y + 4 }, texto: "C", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "arco", d: arco120.d, rol: "dato", color: ROJO },
+    { tipo: "texto", en: arco120.etiquetaEn, texto: "120°", rol: "dato", color: ROJO, tam: 11, negrita: true },
+    // cuadrado inscrito (las esquinas superiores TOCAN los lados por construcción)
+    { tipo: "poligono", puntos: [{ x: tl.x, y: Y_BASE }, tl, tr, { x: tr.x, y: Y_BASE }], rol: "incognita", relleno: true },
+    { tipo: "texto", en: { x: (tl.x + tr.x) / 2, y: yTope - 9 }, texto: "4", rol: "incognita", tam: 12, negrita: true },
+    { tipo: "texto", en: { x: tr.x + 11, y: (yTope + Y_BASE) / 2 }, texto: "4", rol: "incognita", tam: 12, negrita: true },
+    { tipo: "texto", en: { x: (Aiz.x + Cde.x) / 2, y: Y_BASE + 16 }, texto: "b = ?", rol: "resultado", tam: 13, cursiva: true, negrita: true },
+
+    // PASO 1 · ángulos de la base (30°) y la altura H
+    { tipo: "arco", d: arco30i.d, rol: "dato", color: AMBAR, desdePaso: 1 },
+    { tipo: "texto", en: arco30i.etiquetaEn, texto: "30°", rol: "dato", color: AMBAR, tam: 11, negrita: true, desdePaso: 1 },
+    { tipo: "arco", d: arco30d.d, rol: "dato", color: AMBAR, desdePaso: 1 },
+    { tipo: "texto", en: arco30d.etiquetaEn, texto: "30°", rol: "dato", color: AMBAR, tam: 11, negrita: true, desdePaso: 1 },
+    { tipo: "linea", de: M, a: { x: M.x, y: Y_BASE }, rol: "aux", punteada: true, desdePaso: 1 },
+    { tipo: "texto", en: { x: M.x + 14, y: (M.y + Y_BASE) / 2 + 14 }, texto: "H", rol: "aux", tam: 12, cursiva: true, desdePaso: 1 },
+
+    // PASO 2 · el triangulito de arriba es semejante al grande
+    { tipo: "linea", de: tl, a: M, rol: "resalte", desdePaso: 2 },
+    { tipo: "linea", de: M, a: tr, rol: "resalte", desdePaso: 2 },
+    { tipo: "linea", de: tl, a: tr, rol: "resalte", desdePaso: 2 },
+    { tipo: "texto", en: { x: 78, y: 40 }, texto: "triangulito ~ triángulo grande", rol: "resultado", tam: 11, ancla: "start", desdePaso: 2, hastaPaso: 2 },
+
+    // PASO 3 · la fórmula y el valor real de b
+    { tipo: "texto", en: { x: 78, y: 40 }, texto: "lado = b/(2√3 + 1)  →  b = 4(2√3+1) ≈ 17,86", rol: "resultado", tam: 12, negrita: true, ancla: "start", desdePaso: 3 },
+  ];
+
+  return { ancho: 420, alto: 236, pasos: 3, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "g5-paralelas": g5,
+  "g6-isosceles": g6,
+  "g7-cuadrado": g7,
   "f10-plano": f10,
   "f11-campo": f11,
 };

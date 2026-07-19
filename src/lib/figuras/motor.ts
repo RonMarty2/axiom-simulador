@@ -59,6 +59,12 @@ export function verificarAngulo(nombre: string, esperado: number, real: number, 
   }
 }
 
+export function verificarDistancia(nombre: string, esperado: number, real: number, tolerancia = 2): void {
+  if (Math.abs(esperado - real) > tolerancia) {
+    throw new Error(`Figura inconsistente: ${nombre} debería medir ${esperado.toFixed(1)} pero mide ${real.toFixed(1)}`);
+  }
+}
+
 // ── Escena declarativa ──
 // La figura es una lista de elementos; el renderer (React o el harness de
 // verificación) solo los pinta. `desdePaso` = a partir de qué paso de la
