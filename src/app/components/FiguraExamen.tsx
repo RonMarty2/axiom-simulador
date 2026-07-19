@@ -5,6 +5,8 @@
 // El objetivo es que el alumno VEA el diagrama (no solo lea el texto).
 
 import type { JSX } from "react";
+import { construirFigura } from "@/lib/figuras/definiciones";
+import { elementoVisible, type Elemento, type Rol } from "@/lib/figuras/motor";
 
 const T = "#1a1a2e";      // trazo principal (navy)
 const DIM = "#5a5a6e";    // secundario
@@ -13,43 +15,63 @@ const OK = "#059669";     // verde
 const BAD = "#dc2626";    // rojo
 const WARN = "#d97706";   // ámbar
 
-// ── Geometría dirigida: reemplaza "línea hasta (x,y)" tipeado a mano ──
-// El bug real que motivó esto: en G5 escribí un punto de destino que iba
-// hacia la DERECHA cuando la figura necesitaba que fuera hacia la
-// IZQUIERDA — un error de signo invisible en las coordenadas crudas, que
-// solo se nota mirando el render (y ni así, a la primera).
-//
-// Con estas funciones el desplazamiento se declara por dirección
-// (arriba/abajo, izquierda/derecha) y el propio nombre exige el signo:
-// si escribís abajoIzquierda(origen, +30, 10) — con dx positivo, que va
-// hacia la derecha — explota en desarrollo en vez de dibujarse mal en
-// silencio. "Punto de p a distancia d en un ángulo" quedaría más prolijo
-// matemáticamente, pero estas figuras son esquemáticas (no a escala) y lo
-// que rompió la anterior no fue un ángulo mal calculado, sino un signo
-// tipeado al revés — esto ataca exactamente ese error.
-interface Pt { x: number; y: number }
+// Colores por rol para las figuras del motor de geometría.
+const COLOR_ROL: Record<Rol, string> = {
+  trazo: T,
+  dato: WARN,
+  incognita: ACC,
+  aux: OK,
+  resalte: ACC,
+  resultado: BAD,
+};
 
-function chequearDireccion(nombre: string, dx: number, dy: number, dxOk: (n: number) => boolean, dyOk: (n: number) => boolean) {
-  if (process.env.NODE_ENV !== "production" && (!dxOk(dx) || !dyOk(dy))) {
-    throw new Error(`FiguraExamen: ${nombre}(origen, dx=${dx}, dy=${dy}) tiene un signo que contradice su propio nombre — revisar la dirección.`);
+// Renderer genérico: pinta la escena declarativa que construyó el motor.
+// No sabe nada de geometría — solo dibuja lo que la definición calculó.
+function ElementoSVG({ e, paso }: { e: Elemento; paso: number }) {
+  if (!elementoVisible(e, paso)) return null;
+  const color = e.color ?? COLOR_ROL[e.rol];
+  switch (e.tipo) {
+    case "linea":
+      return (
+        <line
+          x1={e.de.x} y1={e.de.y} x2={e.a.x} y2={e.a.y}
+          stroke={color}
+          strokeWidth={e.rol === "resalte" ? 4 : (e.grosor ?? 1.6)}
+          opacity={e.rol === "resalte" ? 0.4 : 1}
+          strokeDasharray={e.punteada ? "5 4" : undefined}
+          strokeLinecap="round"
+        />
+      );
+    case "poligono":
+      return (
+        <polygon
+          points={e.puntos.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ")}
+          fill={e.relleno ? `${color}25` : "none"}
+          stroke={color} strokeWidth={1.6}
+        />
+      );
+    case "arco":
+      return <path d={e.d} fill="none" stroke={color} strokeWidth={1.3} />;
+    case "cuadradoRecto":
+      return <path d={e.d} fill={e.relleno ? color : "none"} stroke={color} strokeWidth={1.3} />;
+    case "punto":
+      return <circle cx={e.en.x} cy={e.en.y} r={3} fill={color} />;
+    case "texto":
+      return (
+        <text
+          x={e.en.x} y={e.en.y}
+          fill={color}
+          fontSize={e.tam ?? 12}
+          fontStyle={e.cursiva ? "italic" : undefined}
+          fontWeight={e.negrita ? 800 : undefined}
+          textAnchor={e.ancla ?? "middle"}
+          dominantBaseline="middle"
+          transform={e.rot ? `rotate(${e.rot} ${e.en.x} ${e.en.y})` : undefined}
+        >
+          {e.texto}
+        </text>
+      );
   }
-}
-
-function abajoIzquierda(origen: Pt, dx: number, dy: number): Pt {
-  chequearDireccion("abajoIzquierda", dx, dy, (n) => n <= 0, (n) => n >= 0);
-  return { x: origen.x + dx, y: origen.y + dy };
-}
-function abajoDerecha(origen: Pt, dx: number, dy: number): Pt {
-  chequearDireccion("abajoDerecha", dx, dy, (n) => n >= 0, (n) => n >= 0);
-  return { x: origen.x + dx, y: origen.y + dy };
-}
-function arribaIzquierda(origen: Pt, dx: number, dy: number): Pt {
-  chequearDireccion("arribaIzquierda", dx, dy, (n) => n <= 0, (n) => n <= 0);
-  return { x: origen.x + dx, y: origen.y + dy };
-}
-function arribaDerecha(origen: Pt, dx: number, dy: number): Pt {
-  chequearDireccion("arribaDerecha", dx, dy, (n) => n >= 0, (n) => n <= 0);
-  return { x: origen.x + dx, y: origen.y + dy };
 }
 
 function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNode; alto?: number; ancho?: number }) {
@@ -67,84 +89,16 @@ function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNod
   );
 }
 
-// Figuras que se construyen por etapas (aceptan `paso`): 0/undef = enunciado,
-// 1..N van dibujando la solución. El reproductor de pasos les pasa el paso activo.
+// Figuras que se construyen por etapas: 0/undef = enunciado, 1..N van
+// dibujando la solución. G5 y F10 viven en el motor de geometría
+// (src/lib/figuras/definiciones.ts); esta tabla informa al reproductor
+// cuántos pasos tiene cada una.
 export const FIGURAS_POR_ETAPAS: Record<string, number> = {
-  "g5-paralelas": 3,
+  "g5-paralelas": construirFigura("g5-paralelas")?.pasos ?? 0,
 };
 
+// Figuras legacy dibujadas a mano (pendientes de migrar al motor).
 const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
-  // ── G5 · dos paralelas m//n con la poligonal (α, α, 95°, 40°, 2x) ──
-  // Etapas: 0 = figura del enunciado; 1 = recta auxiliar y 95°=40°+55°;
-  // 2 = α=55° por correspondientes; 3 = 2x=90−55=35 y x=17,5°.
-  "g5-paralelas": (paso) => {
-    const p = paso ?? 0;
-    const V = { x: 210, y: 45 };                     // vértice sobre m (apex)
-    const W = abajoIzquierda(V, -80, 85);             // vértice del ángulo de 95° (abajo-IZQUIERDA del apex)
-    const P1 = abajoIzquierda(W, -35, 78);            // pie en n del tramo que viene de W (sigue hacia la izquierda, NO se da vuelta a la derecha — el bug original)
-    const P2 = abajoDerecha(V, 90, 170);              // pie en n del lado derecho (abajo-DERECHA del apex)
-    return (
-      <Marco alto={250}>
-        {/* rectas paralelas */}
-        <line x1={30} y1={45} x2={390} y2={45} stroke={T} strokeWidth={2} />
-        <text x={16} y={50} fill={DIM} fontSize={16} fontStyle="italic">m</text>
-        <line x1={30} y1={200} x2={390} y2={200} stroke={T} strokeWidth={2} />
-        <text x={16} y={205} fill={DIM} fontSize={16} fontStyle="italic">n</text>
-
-        {/* poligonal (siempre visible) */}
-        <line x1={V.x} y1={V.y} x2={W.x} y2={W.y} stroke={T} strokeWidth={1.6} />
-        <line x1={W.x} y1={W.y} x2={P1.x} y2={P1.y} stroke={T} strokeWidth={1.6} />
-        <line x1={V.x} y1={V.y} x2={P2.x} y2={P2.y} stroke={T} strokeWidth={1.6} />
-
-        {/* datos DADOS por el problema (siempre visibles) */}
-        <text x={188} y={68} fill={ACC} fontSize={13}>α</text>
-        <text x={222} y={68} fill={ACC} fontSize={13}>α</text>
-        <text x={138} y={135} fill={BAD} fontSize={13} fontWeight={700}>95°</text>
-        <text x={112} y={192} fill={WARN} fontSize={13} fontWeight={700}>40°</text>
-        <rect x={296} y={198} width={9} height={9} fill="none" stroke={T} strokeWidth={1.4} />
-        <line x1={305} y1={200} x2={360} y2={178} stroke={T} strokeWidth={1.6} />
-        <text x={312} y={196} fill={ACC} fontSize={13} fontWeight={700}>2x</text>
-
-        {/* Leyenda de ecuaciones derivadas (zona abierta arriba-derecha, apilada) */}
-        {p >= 1 && (
-          <g>
-            <text x={276} y={96} fill={T} fontSize={12} fontWeight={800}>95° = 40° + 55°</text>
-          </g>
-        )}
-        {p >= 2 && <text x={276} y={120} fill={ACC} fontSize={12} fontWeight={800}>α = 55°</text>}
-        {p >= 3 && (
-          <g>
-            <text x={276} y={144} fill={BAD} fontSize={12} fontWeight={800}>2x = 90°−55° = 35°</text>
-            <text x={276} y={168} fill={BAD} fontSize={12} fontWeight={800}>x = 17,5°</text>
-          </g>
-        )}
-
-        {/* PASO 1 · recta auxiliar por W y descomposición del 95° JUSTO en el vértice */}
-        {p >= 1 && (
-          <g>
-            <line x1={58} y1={W.y} x2={250} y2={W.y} stroke={OK} strokeWidth={1.4} strokeDasharray="5 4" />
-            <text x={44} y={W.y - 6} fill={OK} fontSize={10}>auxiliar ∥ m, n</text>
-            {/* resalta el segmento W -> n (alterno interno con el 40° de n) */}
-            <line x1={W.x} y1={W.y} x2={P1.x} y2={P1.y} stroke={OK} strokeWidth={3} opacity={0.45} />
-            {/* el 95° se parte: abajo 40° (alterno con n), arriba 55° */}
-            <text x={150} y={152} fill={OK} fontSize={11} fontWeight={700}>40°</text>
-            <text x={150} y={121} fill={ACC} fontSize={11} fontWeight={700}>55°</text>
-          </g>
-        )}
-
-        {/* PASO 2 · resalta el lado V-W (α correspondiente con el 55°) */}
-        {p >= 2 && (
-          <line x1={V.x} y1={V.y} x2={W.x} y2={W.y} stroke={ACC} strokeWidth={3} opacity={0.45} />
-        )}
-
-        {/* PASO 3 · resalta la transversal V-Q hasta el pie con el ángulo recto */}
-        {p >= 3 && (
-          <line x1={V.x} y1={V.y} x2={P2.x} y2={P2.y} stroke={ACC} strokeWidth={3} opacity={0.4} />
-        )}
-      </Marco>
-    );
-  },
-
   // ── G6 · triángulo isósceles con cadena BC=BF=FE=ED=DA ──
   "g6-isosceles": () => (
     <Marco alto={210} ancho={420}>
@@ -178,23 +132,6 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
       <text x={205} y={100} fill={ACC} fontSize={12}>4</text>
       <text x={250} y={148} fill={ACC} fontSize={12}>4</text>
       <text x={205} y={193} fill={DIM} fontSize={13} fontStyle="italic">b</text>
-    </Marco>
-  ),
-
-  // ── F10 · bloque sobre plano inclinado 37°, 200 m ──
-  "f10-plano": () => (
-    <Marco alto={210} ancho={420}>
-      <polygon points="40,180 380,180 380,60" fill={`${DIM}10`} stroke={T} strokeWidth={2} />
-      {/* bloque arriba */}
-      <g transform="translate(350,66) rotate(37)">
-        <rect x={-16} y={-16} width={26} height={20} fill={`${ACC}25`} stroke={ACC} strokeWidth={1.6} />
-      </g>
-      <text x={300} y={120} fill={DIM} fontSize={13}>200 m</text>
-      <text x={352} y={176} fill={WARN} fontSize={12} fontWeight={700}>37°</text>
-      {/* P al pie */}
-      <circle cx={60} cy={180} r={3} fill={BAD} />
-      <text x={48} y={196} fill={BAD} fontSize={12} fontWeight={700}>P</text>
-      <text x={120} y={150} fill={DIM} fontSize={11}>μ = 0.25</text>
     </Marco>
   ),
 
@@ -251,6 +188,20 @@ const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
 
 export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
   if (!id) return null;
+
+  // Primero el motor de geometría (figuras calculadas y verificadas).
+  const escena = construirFigura(id);
+  if (escena) {
+    return (
+      <Marco alto={escena.alto} ancho={escena.ancho}>
+        {escena.elementos.map((e, i) => (
+          <ElementoSVG key={i} e={e} paso={paso ?? 0} />
+        ))}
+      </Marco>
+    );
+  }
+
+  // Después las figuras legacy dibujadas a mano.
   const fig = FIGURAS[id];
   if (!fig) return null;
   return fig(paso);
