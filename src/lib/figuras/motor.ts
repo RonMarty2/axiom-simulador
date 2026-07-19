@@ -143,6 +143,26 @@ export function cuadradoRecto(vertice: Pt, a1: number, a2: number, lado = 9): st
   return `M ${vertice.x.toFixed(2)} ${vertice.y.toFixed(2)} L ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} L ${p2.x.toFixed(2)} ${p2.y.toFixed(2)} L ${p3.x.toFixed(2)} ${p3.y.toFixed(2)} Z`;
 }
 
+// Resistor estilo zigzag entre dos puntos (para circuitos): tramo recto,
+// zigzag centrado, tramo recto. Devuelve el path completo de -de- hasta -a-.
+export function resistorZigzag(de: Pt, a: Pt, picos = 6, amplitud = 5): string {
+  const dir = anguloHacia(de, a);
+  const largo = distancia(de, a);
+  const zonaZig = Math.min(largo * 0.6, picos * 7);
+  const ini = avanzar(de, dir, (largo - zonaZig) / 2);
+  const paso = zonaZig / picos;
+  let d = `M ${de.x.toFixed(2)} ${de.y.toFixed(2)} L ${ini.x.toFixed(2)} ${ini.y.toFixed(2)}`;
+  for (let i = 0; i < picos; i++) {
+    const centro = avanzar(ini, dir, paso * (i + 0.5));
+    const lado = i % 2 === 0 ? 90 : -90;
+    const pico = avanzar(centro, dir + lado, amplitud);
+    d += ` L ${pico.x.toFixed(2)} ${pico.y.toFixed(2)}`;
+  }
+  const fin = avanzar(ini, dir, zonaZig);
+  d += ` L ${fin.x.toFixed(2)} ${fin.y.toFixed(2)} L ${a.x.toFixed(2)} ${a.y.toFixed(2)}`;
+  return d;
+}
+
 // Punta de flecha (triángulo relleno) en `punta`, apuntando en la dirección
 // `anguloDireccion`. Se usa junto a una linea para dibujar vectores/campos.
 export function cabezaFlecha(punta: Pt, anguloDireccion: number, tam = 7): string {

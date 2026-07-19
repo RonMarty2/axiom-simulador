@@ -16,6 +16,7 @@ import {
   cuadradoRecto,
   distancia,
   hastaY,
+  resistorZigzag,
   verificarAngulo,
   verificarDistancia,
 } from "./motor";
@@ -363,12 +364,72 @@ function g7(): Figura {
   return { ancho: 420, alto: 236, pasos: 3, elementos: el };
 }
 
+// ── F12 · circuito: Req entre A y B (15, 5 y tres de 10 Ω) ──
+// Fiel al recorte nítido del PDF (19-jul-2026): rectángulo exterior con
+// 10Ω en el borde izquierdo; 15Ω cuelga del riel superior y termina en A
+// (terminal); 5Ω en el borde derecho baja hasta el riel de B; del riel de
+// B bajan DOS 10Ω al riel inferior. A y B quedan enfrentados y abiertos.
+// Pasos: 1) 10∥10 = 5 entre B y D; 2) T→B: 5 ∥ (10+5) = 3,75;
+// 3) Req = 15 + 3,75 = 18,75 → E) Ninguno.
+function f12(): Figura {
+  const IZQ = 62, DER = 378, ARR = 30, ABA = 198;
+  const XM = 208;              // rama del 15Ω / A / B
+  const X1 = 262, X2 = 322;    // los dos 10Ω de abajo
+  const Y_RIEL_B = 132;        // riel de B
+
+  const A: Pt = { x: XM, y: 110 };
+  const B: Pt = { x: XM, y: Y_RIEL_B };
+
+  const el: Elemento[] = [
+    // rieles superior e inferior
+    { tipo: "linea", de: { x: IZQ, y: ARR }, a: { x: DER, y: ARR }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: IZQ, y: ABA }, a: { x: DER, y: ABA }, rol: "trazo", grosor: 1.8 },
+    // borde izquierdo con 10Ω
+    { tipo: "path", d: resistorZigzag({ x: IZQ, y: ARR }, { x: IZQ, y: ABA }), rol: "trazo" },
+    { tipo: "texto", en: { x: IZQ - 22, y: 114 }, texto: "10 Ω", rol: "trazo", tam: 11 },
+    // rama del 15Ω hasta A
+    { tipo: "path", d: resistorZigzag({ x: XM, y: ARR }, A), rol: "trazo" },
+    { tipo: "texto", en: { x: XM - 26, y: 68 }, texto: "15 Ω", rol: "trazo", tam: 11 },
+    { tipo: "punto", en: A, rol: "resultado" },
+    { tipo: "texto", en: { x: A.x - 14, y: A.y - 2 }, texto: "A", rol: "resultado", tam: 13, negrita: true },
+    // terminal B (abierto frente a A) y su riel hasta el borde derecho
+    { tipo: "punto", en: B, rol: "resultado" },
+    { tipo: "texto", en: { x: B.x - 14, y: B.y + 6 }, texto: "B", rol: "resultado", tam: 13, negrita: true },
+    { tipo: "linea", de: B, a: { x: DER, y: Y_RIEL_B }, rol: "trazo", grosor: 1.6 },
+    // 5Ω en el borde derecho, del riel superior al riel de B
+    { tipo: "path", d: resistorZigzag({ x: DER, y: ARR }, { x: DER, y: Y_RIEL_B }), rol: "trazo" },
+    { tipo: "texto", en: { x: DER + 20, y: 78 }, texto: "5 Ω", rol: "trazo", tam: 11 },
+    // los dos 10Ω del riel de B al riel inferior
+    { tipo: "path", d: resistorZigzag({ x: X1, y: Y_RIEL_B }, { x: X1, y: ABA }), rol: "trazo" },
+    { tipo: "texto", en: { x: X1 - 22, y: 168 }, texto: "10 Ω", rol: "trazo", tam: 11 },
+    { tipo: "path", d: resistorZigzag({ x: X2, y: Y_RIEL_B }, { x: X2, y: ABA }), rol: "trazo" },
+    { tipo: "texto", en: { x: X2 + 24, y: 168 }, texto: "10 Ω", rol: "trazo", tam: 11 },
+
+    // PASO 1 · los dos 10Ω en paralelo (B→D) = 5Ω
+    { tipo: "path", d: resistorZigzag({ x: X1, y: Y_RIEL_B }, { x: X1, y: ABA }), rol: "resalte", desdePaso: 1 },
+    { tipo: "path", d: resistorZigzag({ x: X2, y: Y_RIEL_B }, { x: X2, y: ABA }), rol: "resalte", desdePaso: 1 },
+    { tipo: "texto", en: { x: 90, y: 224 }, texto: "10 ∥ 10 = 5 Ω entre B y el riel de abajo", rol: "resultado", tam: 11, ancla: "start", desdePaso: 1, hastaPaso: 1 },
+
+    // PASO 2 · de T a B: 5 directo ∥ (10 + 5) = 3,75
+    { tipo: "path", d: resistorZigzag({ x: DER, y: ARR }, { x: DER, y: Y_RIEL_B }), rol: "resalte", desdePaso: 2 },
+    { tipo: "path", d: resistorZigzag({ x: IZQ, y: ARR }, { x: IZQ, y: ABA }), rol: "resalte", desdePaso: 2 },
+    { tipo: "texto", en: { x: 90, y: 224 }, texto: "arriba → B:  5 ∥ (10 + 5) = 3,75 Ω", rol: "resultado", tam: 11, ancla: "start", desdePaso: 2, hastaPaso: 2 },
+
+    // PASO 3 · el 15 está en serie obligada con A
+    { tipo: "path", d: resistorZigzag({ x: XM, y: ARR }, A), rol: "resalte", desdePaso: 3 },
+    { tipo: "texto", en: { x: 90, y: 224 }, texto: "Req = 15 + 3,75 = 18,75 Ω → no está: E) Ninguno", rol: "resultado", tam: 12, negrita: true, ancla: "start", desdePaso: 3 },
+  ];
+
+  return { ancho: 420, alto: 236, pasos: 3, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "g5-paralelas": g5,
   "g6-isosceles": g6,
   "g7-cuadrado": g7,
   "f10-plano": f10,
   "f11-campo": f11,
+  "f12-circuito": f12,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

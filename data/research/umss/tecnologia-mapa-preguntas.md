@@ -144,9 +144,11 @@
 - ⚠️ Trampa: quien no conoce el argumento del mínimo intenta plantear equilibrio general con dirección de E desconocida (dos ecuaciones, dos incógnitas) y pierde muchísimo tiempo. La figura ayuda: las líneas de campo están dibujadas perpendiculares al hilo.
 - 📝 Nota de curaduría (19-jul-2026): esta pregunta estuvo un tiempo mal transcripta como "partícula sobre plano inclinado" — el número final coincidía de casualidad (ambos setups dan mg·sen α/q) pero el enunciado, la figura y el razonamiento eran de OTRO problema. Corregida contra el PDF: es un péndulo colgando de un hilo. Lección: verificar el SETUP físico contra la figura del PDF, no solo el resultado numérico.
 
-**F12 · Circuito resistivo, resistencia equivalente A-B** (difícil)
-- 🎯 Técnica: reducción de resistencias en serie/paralelo por etapas.
-- ⚠️ Trampa/dificultad real: identificar CORRECTAMENTE la topología (qué está en serie/paralelo respecto a los nodos A y B) es la parte difícil, no el cálculo aritmético. Este tipo de pregunta es notoriamente sensible a errores de lectura del diagrama — de hecho quedó sin resolver con certeza total por falta de nitidez de la figura original.
+**F12 · Circuito resistivo, resistencia equivalente A-B** (difícil) — **respuesta real: E) Ninguno (Req = 18,75 Ω)**
+- 🎯 Técnica: reducción serie/paralelo por etapas, PERO empezando por nombrar los nodos (riel superior T, riel inferior D, riel de B). Reducción: 10∥10 = 5 entre B y D; de T a B dos caminos: 5 directo ∥ (10 izquierdo + 5) = 3,75; el 15 Ω en serie obligada (único cable a A): 15 + 3,75 = 18,75.
+- ⚠️ **Trampa fuerte** (tercer "Ninguno" real del examen, junto con G5 y G7): 18,75 no está entre las opciones (5, 10, 20, 15), todas "con pinta de correctas" (valores redondos de la lista de resistencias). El examen caza al que fuerza su resultado hacia la opción más parecida en vez de confiar en su cálculo.
+- ⚡ Atajo de chequeo: el 15 Ω en serie obligada implica Req > 15 al toque — eso ya descarta A, B y D en segundos, y solo queda verificar si es exactamente 20 o Ninguno.
+- 📝 Nota de curaduría (19-jul-2026): resuelta con certeza recién al recibir el recorte nítido del PDF. Con la lectura alternativa de la figura (5 Ω en serie solo con el 10 Ω derecho) daría 31 Ω — también Ninguno, así que la respuesta E es robusta a la ambigüedad. La respuesta "B) 10" que estuvo marcada antes (con VERIFICAR) era incorrecta.
 
 ### Química
 

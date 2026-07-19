@@ -4,12 +4,10 @@
 // Cada figura se referencia desde el banco con "figura: <id>" en la pregunta.
 // El objetivo es que el alumno VEA el diagrama (no solo lea el texto).
 
-import type { JSX } from "react";
 import { construirFigura } from "@/lib/figuras/definiciones";
 import { elementoVisible, type Elemento, type Rol } from "@/lib/figuras/motor";
 
 const T = "#1a1a2e";      // trazo principal (navy)
-const DIM = "#5a5a6e";    // secundario
 const ACC = "#6d28d9";    // acento violeta
 const OK = "#059669";     // verde
 const BAD = "#dc2626";    // rojo
@@ -95,59 +93,21 @@ function Marco({ children, alto = 240, ancho = 420 }: { children: React.ReactNod
 // (src/lib/figuras/definiciones.ts) declaran sus propios pasos; esta tabla
 // se los informa al reproductor de la solución.
 export const FIGURAS_POR_ETAPAS: Record<string, number> = Object.fromEntries(
-  ["g5-paralelas", "g6-isosceles", "g7-cuadrado", "f10-plano", "f11-campo"].map(
+  ["g5-paralelas", "g6-isosceles", "g7-cuadrado", "f10-plano", "f11-campo", "f12-circuito"].map(
     (id) => [id, construirFigura(id)?.pasos ?? 0]
   )
 );
 
-// Figuras legacy dibujadas a mano (pendientes de migrar al motor).
-const FIGURAS: Record<string, (paso?: number) => JSX.Element> = {
-  // ── F12 · circuito con 15Ω, 5Ω y tres 10Ω entre A y B ──
-  "f12-circuito": () => (
-    <Marco alto={220} ancho={420}>
-      {/* rectángulo exterior */}
-      <rect x={40} y={40} width={340} height={150} fill="none" stroke={T} strokeWidth={1.6} />
-      {/* 10Ω izquierda */}
-      <rect x={34} y={100} width={12} height={34} fill="var(--bg-card)" stroke={T} strokeWidth={1.4} />
-      <text x={10} y={122} fill={DIM} fontSize={11}>10Ω</text>
-      {/* 15Ω y 5Ω colgando de arriba */}
-      <rect x={175} y={55} width={12} height={34} fill="var(--bg-card)" stroke={T} strokeWidth={1.4} />
-      <text x={150} y={76} fill={DIM} fontSize={11}>15Ω</text>
-      <rect x={300} y={55} width={12} height={34} fill="var(--bg-card)" stroke={T} strokeWidth={1.4} />
-      <text x={318} y={76} fill={DIM} fontSize={11}>5Ω</text>
-      {/* nodos A y B */}
-      <circle cx={181} cy={110} r={3.5} fill={BAD} />
-      <text x={165} y={114} fill={BAD} fontSize={12} fontWeight={700}>A</text>
-      <circle cx={181} cy={150} r={3.5} fill={ACC} />
-      <text x={165} y={154} fill={ACC} fontSize={12} fontWeight={700}>B</text>
-      <line x1={181} y1={89} x2={181} y2={110} stroke={T} strokeWidth={1.4} />
-      {/* dos 10Ω abajo-derecha en paralelo */}
-      <rect x={280} y={130} width={12} height={30} fill="var(--bg-card)" stroke={T} strokeWidth={1.4} />
-      <rect x={330} y={130} width={12} height={30} fill="var(--bg-card)" stroke={T} strokeWidth={1.4} />
-      <text x={250} y={150} fill={DIM} fontSize={11}>10Ω</text>
-      <text x={344} y={150} fill={DIM} fontSize={11}>10Ω</text>
-      <text x={60} y={214} fill={WARN} fontSize={10} fontStyle="italic">Diagrama esquemático — verificar uniones con el original.</text>
-    </Marco>
-  ),
-};
-
 export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
   if (!id) return null;
-
-  // Primero el motor de geometría (figuras calculadas y verificadas).
+  // Todas las figuras viven en el motor de geometría (calculadas y verificadas).
   const escena = construirFigura(id);
-  if (escena) {
-    return (
-      <Marco alto={escena.alto} ancho={escena.ancho}>
-        {escena.elementos.map((e, i) => (
-          <ElementoSVG key={i} e={e} paso={paso ?? 0} />
-        ))}
-      </Marco>
-    );
-  }
-
-  // Después las figuras legacy dibujadas a mano.
-  const fig = FIGURAS[id];
-  if (!fig) return null;
-  return fig(paso);
+  if (!escena) return null;
+  return (
+    <Marco alto={escena.alto} ancho={escena.ancho}>
+      {escena.elementos.map((e, i) => (
+        <ElementoSVG key={i} e={e} paso={paso ?? 0} />
+      ))}
+    </Marco>
+  );
 }
