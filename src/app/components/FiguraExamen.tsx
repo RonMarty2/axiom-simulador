@@ -44,7 +44,7 @@ function ElementoSVG({ e, paso }: { e: Elemento; paso: number }) {
       return (
         <polygon
           points={e.puntos.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ")}
-          fill={e.relleno ? `${color}25` : "none"}
+          fill={e.relleno ? (e.rellenoColor ?? `${color}25`) : "none"}
           stroke={color} strokeWidth={1.6}
         />
       );

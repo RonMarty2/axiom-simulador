@@ -90,7 +90,7 @@ interface BaseElemento {
 
 export type Elemento =
   | (BaseElemento & { tipo: "linea"; de: Pt; a: Pt; punteada?: boolean; grosor?: number })
-  | (BaseElemento & { tipo: "poligono"; puntos: Pt[]; relleno?: boolean })
+  | (BaseElemento & { tipo: "poligono"; puntos: Pt[]; relleno?: boolean; rellenoColor?: string })
   | (BaseElemento & { tipo: "arco"; d: string })
   | (BaseElemento & { tipo: "cuadradoRecto"; d: string; relleno?: boolean })
   | (BaseElemento & { tipo: "path"; d: string; relleno?: boolean })

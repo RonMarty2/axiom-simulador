@@ -128,9 +128,14 @@ function f10(): Figura {
   const INCLINACION = 143;                      // 37° sobre la horizontal, subiendo a la izquierda
   const T = avanzar(C, INCLINACION, 250);       // tope del plano
   const E = avanzar(C, INCLINACION - 180, 18);  // el plano sigue un poco más abajo del cruce
-  const P = avanzar(C, INCLINACION, 26);        // punto P sobre el plano
+  const P = avanzar(C, INCLINACION, 34);        // punto P sobre el plano (rayita)
+  // La superficie es una BANDA con grosor, como el PDF (no una línea fina).
+  // El grosor se extiende hacia ABAJO de la línea de la superficie
+  // (dirección 143+90 = 233°, el lado contrario al bloque).
+  const ANCHO_BANDA = 8;
+  const banda = [T, E, avanzar(E, INCLINACION + 90, ANCHO_BANDA), avanzar(T, INCLINACION + 90, ANCHO_BANDA)];
   const bloque = bloqueSobre(avanzar(C, INCLINACION, 228), INCLINACION, 34, 26);
-  const M200 = avanzar(avanzar(C, INCLINACION, 132), INCLINACION - 90, 17); // etiqueta 200 m, lado de abajo
+  const M200 = avanzar(avanzar(C, INCLINACION, 132), INCLINACION + 90, 22); // etiqueta 200 m, bajo la banda
 
   verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x - 60, y: C.y }));
 
@@ -139,20 +144,18 @@ function f10(): Figura {
   const el: Elemento[] = [
     // horizontal punteada
     { tipo: "linea", de: { x: 296, y: C.y }, a: { x: 408, y: C.y }, rol: "trazo", punteada: true },
-    // plano inclinado
-    { tipo: "linea", de: T, a: E, rol: "trazo", grosor: 2 },
-    // bloque
-    { tipo: "poligono", puntos: bloque, rol: "incognita", relleno: true },
-    // P
-    { tipo: "punto", en: P, rol: "resultado" },
-    { tipo: "texto", en: { x: P.x + 14, y: P.y + 1 }, texto: "P", rol: "resultado", tam: 13, negrita: true },
+    // plano inclinado como banda gris
+    { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d5d5d0" },
+    // bloque gris (como el PDF)
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#9a9aa0" },
+    // P: rayita que cruza la banda + etiqueta a la derecha, altura de la punteada
+    { tipo: "linea", de: avanzar(P, INCLINACION - 90, 4), a: avanzar(P, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
+    { tipo: "texto", en: { x: C.x + 22, y: C.y - 14 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
     // 200 m a lo largo del plano
-    { tipo: "texto", en: M200, texto: "200 m", rol: "trazo", tam: 12, rot: 37 },
+    { tipo: "texto", en: M200, texto: "200 m", rol: "trazo", tam: 12, rot: 37, cursiva: true },
     // arco 37°
     { tipo: "arco", d: arco37.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arco37.etiquetaEn, texto: "37°", rol: "dato", color: AMBAR, tam: 12, negrita: true },
-    // μ del enunciado
-    { tipo: "texto", en: { x: 120, y: 130 }, texto: "μ = 0.25", rol: "trazo", tam: 11, cursiva: true },
   ];
 
   return { ancho: 420, alto: 220, pasos: 0, elementos: el };
@@ -165,53 +168,57 @@ function f10(): Figura {
 // (esa perpendicularidad es la clave física del "mínimo E"). Un segundo α
 // marca el ángulo entre las líneas de campo y la horizontal punteada.
 function f11(): Figura {
-  const A: Pt = { x: 262, y: 36 };            // anclaje en el techo
+  const G: Pt = { x: 232, y: 34 };             // centro del gancho en el techo
+  const A: Pt = { x: G.x, y: G.y + 12 };       // punta del gancho: de acá cuelga el hilo
   const DIR_CUERDA = -53;                      // vertical (-90°) desviada 37° hacia la derecha
-  const B = avanzar(A, DIR_CUERDA, 132);       // bolita
+  const B = avanzar(A, DIR_CUERDA, 138);       // bolita
   const DIR_CAMPO = DIR_CUERDA + 90;           // 37°: perpendicular al hilo, hacia arriba-derecha
-  const bajoVertical = { x: A.x, y: A.y + 100 };
+  const bajoVertical = { x: A.x, y: A.y + 130 };
+  const S = avanzar(A, DIR_CUERDA, 74);        // punto medio del hilo (ahí va el 2º α, como el PDF)
 
   verificarAngulo("α hilo-vertical = 37°", 37, anguloEn(A, B, bajoVertical));
   verificarAngulo("campo ⊥ hilo", 90, Math.abs(DIR_CAMPO - DIR_CUERDA));
 
-  const arcoAlfaHilo = arcoAngulo(A, -90, DIR_CUERDA, 34, 46);
-  const finHorizontal = { x: B.x + 78, y: B.y };
-  const arcoAlfaCampo = arcoAngulo(B, 0, DIR_CAMPO, 26, 38);
+  const arcoAlfaHilo = arcoAngulo(A, -90, DIR_CUERDA, 30, 42);
+  const arcoAlfaCampo = arcoAngulo(S, 0, DIR_CAMPO, 22, 34);
 
   const el: Elemento[] = [
-    // techo: línea de soporte + rayitas
-    { tipo: "linea", de: { x: A.x - 30, y: A.y }, a: { x: A.x + 30, y: A.y }, rol: "trazo", grosor: 2 },
+    // gancho del techo: rayitas + triangulito colgante (como el PDF)
+    { tipo: "linea", de: { x: G.x - 22, y: G.y }, a: { x: G.x + 22, y: G.y }, rol: "trazo", grosor: 1.8 },
   ];
-  for (let i = 0; i < 6; i++) {
-    const pie = { x: A.x - 25 + i * 10, y: A.y };
-    el.push({ tipo: "linea", de: pie, a: avanzar(pie, 120, 10), rol: "trazo", grosor: 1 });
+  for (let i = 0; i < 5; i++) {
+    const pie = { x: G.x - 18 + i * 9, y: G.y };
+    el.push({ tipo: "linea", de: pie, a: avanzar(pie, 120, 9), rol: "trazo", grosor: 1 });
   }
-
   el.push(
+    { tipo: "poligono", puntos: [{ x: G.x - 8, y: G.y }, { x: G.x + 8, y: G.y }, A], rol: "trazo" },
     // referencia vertical punteada + α del hilo
     { tipo: "linea", de: A, a: bajoVertical, rol: "trazo", punteada: true },
     { tipo: "arco", d: arcoAlfaHilo.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arcoAlfaHilo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
-    // hilo y bolita cargada
+    // hilo
     { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
-    { tipo: "punto", en: B, rol: "incognita", r: 8 },
-    { tipo: "texto", en: { x: B.x - 16, y: B.y + 16 }, texto: "q₀", rol: "incognita", tam: 12, negrita: true },
-    // horizontal punteada por la bolita + α del campo
-    { tipo: "linea", de: B, a: finHorizontal, rol: "trazo", punteada: true },
+    // 2º α: en el MEDIO del hilo, entre la horizontal punteada y las líneas
+    // de campo (como el PDF) — no en la bolita
+    { tipo: "linea", de: S, a: { x: S.x + 72, y: S.y }, rol: "trazo", punteada: true },
     { tipo: "arco", d: arcoAlfaCampo.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arcoAlfaCampo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
   );
 
-  // líneas de campo E: paralelas, perpendiculares al hilo, con flecha
-  for (let i = 0; i < 5; i++) {
-    const inicio = { x: 64 + i * 52, y: 216 };
-    const fin = avanzar(inicio, DIR_CAMPO, 150 + (i % 2) * 16);
+  // líneas de campo E: muchas, largas, cruzando toda la región (una pasa por
+  // la bolita), perpendiculares al hilo, con flecha en la punta
+  for (let i = 0; i < 7; i++) {
+    const inicio = { x: 26 + i * 54, y: 234 };
+    const fin = avanzar(inicio, DIR_CAMPO, 196 + (i % 2) * 14);
     el.push(
-      { tipo: "linea", de: inicio, a: fin, rol: "aux", color: VERDE, grosor: 1.4 },
-      { tipo: "path", d: cabezaFlecha(fin, DIR_CAMPO), rol: "aux", color: VERDE, relleno: true },
+      { tipo: "linea", de: inicio, a: fin, rol: "trazo", grosor: 1.2 },
+      { tipo: "path", d: cabezaFlecha(fin, DIR_CAMPO, 6), rol: "trazo", relleno: true },
     );
   }
-  el.push({ tipo: "texto", en: { x: 14, y: 240 }, texto: "líneas de campo E (⊥ al hilo)", rol: "aux", color: VERDE, tam: 10, ancla: "start" });
+
+  // bolita al final del hilo (sin etiqueta, como el PDF), dibujada al final
+  // para que quede por encima de la línea de campo que pasa por ahí
+  el.push({ tipo: "punto", en: B, rol: "trazo", r: 8 });
 
   return { ancho: 420, alto: 252, pasos: 0, elementos: el };
 }
@@ -332,16 +339,20 @@ function g7(): Figura {
     { tipo: "linea", de: Aiz, a: M, rol: "trazo", grosor: 1.8 },
     { tipo: "linea", de: M, a: Cde, rol: "trazo", grosor: 1.8 },
     { tipo: "linea", de: Aiz, a: Cde, rol: "trazo", grosor: 1.8 },
-    { tipo: "texto", en: { x: M.x, y: M.y - 12 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
-    { tipo: "texto", en: { x: Aiz.x - 12, y: Aiz.y + 4 }, texto: "A", rol: "trazo", tam: 14, negrita: true },
-    { tipo: "texto", en: { x: Cde.x + 12, y: Cde.y + 4 }, texto: "C", rol: "trazo", tam: 14, negrita: true },
+    // Composición calcada del PDF: B arriba del ápice, 120° AFUERA a la
+    // derecha del ápice, "4" adentro del cuadrado (arriba) y a la derecha,
+    // "b" simple sobre la base. El cuadrado va SIN relleno, como el PDF.
+    { tipo: "texto", en: { x: M.x - 6, y: M.y - 13 }, texto: "B", rol: "trazo", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: { x: Aiz.x - 12, y: Aiz.y + 4 }, texto: "A", rol: "trazo", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: { x: Cde.x + 12, y: Cde.y + 4 }, texto: "C", rol: "trazo", tam: 14, negrita: true, cursiva: true },
     { tipo: "arco", d: arco120.d, rol: "dato", color: ROJO },
-    { tipo: "texto", en: arco120.etiquetaEn, texto: "120°", rol: "dato", color: ROJO, tam: 11, negrita: true },
+    { tipo: "texto", en: { x: M.x + 42, y: M.y - 8 }, texto: "120°", rol: "dato", color: ROJO, tam: 11, negrita: true, cursiva: true },
+    { tipo: "linea", de: avanzar(M, -30, 18), a: { x: M.x + 27, y: M.y - 9 }, rol: "dato", color: ROJO, grosor: 1 },
     // cuadrado inscrito (las esquinas superiores TOCAN los lados por construcción)
-    { tipo: "poligono", puntos: [{ x: tl.x, y: Y_BASE }, tl, tr, { x: tr.x, y: Y_BASE }], rol: "incognita", relleno: true },
-    { tipo: "texto", en: { x: (tl.x + tr.x) / 2, y: yTope - 9 }, texto: "4", rol: "incognita", tam: 12, negrita: true },
-    { tipo: "texto", en: { x: tr.x + 11, y: (yTope + Y_BASE) / 2 }, texto: "4", rol: "incognita", tam: 12, negrita: true },
-    { tipo: "texto", en: { x: (Aiz.x + Cde.x) / 2, y: Y_BASE + 16 }, texto: "b = ?", rol: "resultado", tam: 13, cursiva: true, negrita: true },
+    { tipo: "poligono", puntos: [{ x: tl.x, y: Y_BASE }, tl, tr, { x: tr.x, y: Y_BASE }], rol: "trazo" },
+    { tipo: "texto", en: { x: (tl.x + tr.x) / 2, y: yTope + 12 }, texto: "4", rol: "trazo", tam: 12, cursiva: true },
+    { tipo: "texto", en: { x: tr.x + 11, y: (yTope + Y_BASE) / 2 }, texto: "4", rol: "trazo", tam: 12, cursiva: true },
+    { tipo: "texto", en: { x: (Aiz.x + Cde.x) / 2, y: Y_BASE + 14 }, texto: "b", rol: "trazo", tam: 13, cursiva: true },
 
     // PASO 1 · ángulos de la base (30°) y la altura H
     { tipo: "arco", d: arco30i.d, rol: "dato", color: AMBAR, desdePaso: 1 },
@@ -374,7 +385,8 @@ function g7(): Figura {
 function f12(): Figura {
   const IZQ = 62, DER = 378, ARR = 30, ABA = 198;
   const XM = 208;              // rama del 15Ω / A / B
-  const X1 = 262, X2 = 322;    // los dos 10Ω de abajo
+  const X1 = 282;              // 10Ω del medio (cuelga del riel de B)
+  const X2 = DER;              // 10Ω derecho: SOBRE el borde derecho, debajo del 5Ω (como el PDF)
   const Y_RIEL_B = 132;        // riel de B
 
   const A: Pt = { x: XM, y: 110 };
@@ -390,16 +402,17 @@ function f12(): Figura {
     // rama del 15Ω hasta A
     { tipo: "path", d: resistorZigzag({ x: XM, y: ARR }, A), rol: "trazo" },
     { tipo: "texto", en: { x: XM - 26, y: 68 }, texto: "15 Ω", rol: "trazo", tam: 11 },
-    { tipo: "punto", en: A, rol: "resultado" },
-    { tipo: "texto", en: { x: A.x - 14, y: A.y - 2 }, texto: "A", rol: "resultado", tam: 13, negrita: true },
+    { tipo: "punto", en: A, rol: "trazo" },
+    { tipo: "texto", en: { x: A.x - 14, y: A.y - 2 }, texto: "A", rol: "trazo", tam: 13, negrita: true },
     // terminal B (abierto frente a A) y su riel hasta el borde derecho
-    { tipo: "punto", en: B, rol: "resultado" },
-    { tipo: "texto", en: { x: B.x - 14, y: B.y + 6 }, texto: "B", rol: "resultado", tam: 13, negrita: true },
+    { tipo: "punto", en: B, rol: "trazo" },
+    { tipo: "texto", en: { x: B.x - 14, y: B.y + 6 }, texto: "B", rol: "trazo", tam: 13, negrita: true },
     { tipo: "linea", de: B, a: { x: DER, y: Y_RIEL_B }, rol: "trazo", grosor: 1.6 },
     // 5Ω en el borde derecho, del riel superior al riel de B
     { tipo: "path", d: resistorZigzag({ x: DER, y: ARR }, { x: DER, y: Y_RIEL_B }), rol: "trazo" },
     { tipo: "texto", en: { x: DER + 20, y: 78 }, texto: "5 Ω", rol: "trazo", tam: 11 },
-    // los dos 10Ω del riel de B al riel inferior
+    // los dos 10Ω del riel de B al riel inferior: uno cuelga del riel, el
+    // otro está sobre el borde derecho (continuación del 5Ω), como el PDF
     { tipo: "path", d: resistorZigzag({ x: X1, y: Y_RIEL_B }, { x: X1, y: ABA }), rol: "trazo" },
     { tipo: "texto", en: { x: X1 - 22, y: 168 }, texto: "10 Ω", rol: "trazo", tam: 11 },
     { tipo: "path", d: resistorZigzag({ x: X2, y: Y_RIEL_B }, { x: X2, y: ABA }), rol: "trazo" },

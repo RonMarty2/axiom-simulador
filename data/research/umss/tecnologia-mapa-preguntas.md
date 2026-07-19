@@ -55,6 +55,16 @@
 - Fórmulas de química con subíndices (C₆H₁₂O₆, Li₂S) — el unicode de
   subíndice ya es legible.
 
+**Fidelidad de figuras (lección del 19-jul-2026):** el motor de geometría
+garantiza los ÁNGULOS y direcciones, pero la COMPOSICIÓN es otra cosa: dónde
+va cada etiqueta, si el plano es banda o línea, si el cuadrado va relleno,
+qué textos NO están en el PDF (nada de agregar "μ = 0.25" o leyendas que el
+original no tiene). Al reconstruir una figura: (1) inventario elemento por
+elemento del recorte del PDF ANTES de dibujar (qué hay, dónde está, qué
+estilo tiene), (2) render y comparación lado a lado DESPUÉS, ítem por ítem.
+"Se parece" no alcanza: Ronald compara contra el PDF y tiene razón en
+exigir idéntico.
+
 **Reglas técnicas del parser/renderer (para no romper nada):**
 - `MathText.tsx` separa segmentos con la regex `\$([^$\n]+)\$` para inline:
   el contenido **no puede tener un salto de línea** dentro del mismo `$...$`.
