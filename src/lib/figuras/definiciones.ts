@@ -16,6 +16,7 @@ import {
   cuadradoRecto,
   distancia,
   hastaY,
+  incirculo,
   resistorZigzag,
   verificarAngulo,
   verificarDistancia,
@@ -532,20 +533,26 @@ function g5b(): Figura {
 // respeta la topología: diagonal PR, ángulo recto en Q y en S, un círculo
 // inscrito en cada triángulo con su radio rotulado.
 function g6b(): Figura {
-  // Q y S se calculan sobre la circunferencia de diámetro PR (teorema de
-  // Thales): CUALQUIER punto de esa circunferencia ve el segmento PR bajo
-  // un ángulo recto — así los 90° de Q y de S quedan exactos, no a ojo.
-  const P: Pt = { x: 60, y: 215 };
-  const R: Pt = { x: 360, y: 145 };
+  // Reconstruida contra el PDF real (19-jul-2026): S va PEGADO cerca de R
+  // (triángulo PRS angosto, no un cuadrilátero simétrico), y los círculos
+  // son INCÍRCULOS reales (tangentes a los 3 lados), no puestos a ojo.
+  // Q y S siguen sobre la circunferencia de diámetro PR (Thales): cualquier
+  // punto de esa circunferencia ve PR bajo ángulo recto, exacto.
+  const P: Pt = { x: 60, y: 225 };
+  const R: Pt = { x: 365, y: 150 };
   const M: Pt = { x: (P.x + R.x) / 2, y: (P.y + R.y) / 2 };
   const radio = distancia(P, R) / 2;
-  const dyEn = (x: number) => Math.sqrt(Math.max(0, radio * radio - (x - M.x) ** 2));
-  const Q: Pt = { x: 220, y: M.y - dyEn(220) };
-  const S: Pt = { x: 260, y: M.y + dyEn(260) };
+  const yEnCirculo = (x: number, arriba: boolean) => {
+    const dy = Math.sqrt(Math.max(0, radio * radio - (x - M.x) ** 2));
+    return arriba ? M.y - dy : M.y + dy;
+  };
+  const Q: Pt = { x: 180, y: yEnCirculo(180, true) };
+  const S: Pt = { x: 330, y: yEnCirculo(330, false) }; // cerca de R en x -> triángulo PRS angosto
   verificarAngulo("∡PQR = 90°", 90, anguloEn(Q, P, R));
   verificarAngulo("∡PSR = 90°", 90, anguloEn(S, P, R));
-  const centroPQR: Pt = { x: (P.x + Q.x + R.x) / 3, y: (P.y + Q.y + R.y) / 3 - 8 };
-  const centroPRS: Pt = { x: (P.x + R.x + S.x) / 3, y: (P.y + R.x + S.y) / 3 + 6 };
+
+  const { centro: centroPQR, radio: radioPQR } = incirculo(P, Q, R);
+  const { centro: centroPRS, radio: radioPRS } = incirculo(P, R, S);
 
   const el: Elemento[] = [
     { tipo: "linea", de: P, a: Q, rol: "trazo", grosor: 1.8 },
@@ -556,35 +563,57 @@ function g6b(): Figura {
     { tipo: "texto", en: { x: P.x - 16, y: P.y }, texto: "P", rol: "trazo", tam: 14, negrita: true },
     { tipo: "texto", en: { x: Q.x, y: Q.y - 12 }, texto: "Q", rol: "trazo", tam: 14, negrita: true },
     { tipo: "texto", en: { x: R.x + 16, y: R.y }, texto: "R", rol: "trazo", tam: 14, negrita: true },
-    { tipo: "texto", en: { x: S.x + 14, y: S.y + 10 }, texto: "S", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: S.x + 4, y: S.y + 16 }, texto: "S", rol: "trazo", tam: 14, negrita: true },
     { tipo: "cuadradoRecto", d: cuadradoRecto(Q, anguloHacia(Q, P), anguloHacia(Q, R), 10), rol: "dato", color: AMBAR },
-    { tipo: "cuadradoRecto", d: cuadradoRecto(S, anguloHacia(S, R), anguloHacia(S, P), 10), rol: "dato", color: AMBAR },
-    { tipo: "punto", en: centroPQR, rol: "incognita", r: 26 },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(S, anguloHacia(S, R), anguloHacia(S, P), 8), rol: "dato", color: AMBAR },
+    { tipo: "punto", en: centroPQR, rol: "incognita", r: radioPQR },
     { tipo: "texto", en: centroPQR, texto: "3", rol: "incognita", tam: 13, negrita: true },
-    { tipo: "punto", en: centroPRS, rol: "incognita", r: 20 },
-    { tipo: "texto", en: centroPRS, texto: "2", rol: "incognita", tam: 13, negrita: true },
+    { tipo: "punto", en: centroPRS, rol: "incognita", r: radioPRS },
+    { tipo: "texto", en: centroPRS, texto: "2", rol: "incognita", tam: 12, negrita: true },
   ];
-  return { ancho: 420, alto: 340, pasos: 0, elementos: el };
+  return { ancho: 420, alto: 320, pasos: 0, elementos: el };
 }
 
 // ── F9(2022) · móvil con velocidad constante, tres instantes ──
+// Arco puente (bezier cuadrático) entre dos puntos a la misma altura, usado
+// para el corchete de TIEMPO arriba de la pista (como en el PDF).
+function arcoPuente(de: Pt, a: Pt, altura: number): string {
+  const mx = (de.x + a.x) / 2;
+  return `M ${de.x} ${de.y} Q ${mx} ${de.y - altura} ${a.x} ${a.y}`;
+}
+
 function f9b(): Figura {
-  const Y = 90;
-  const X1 = 60, X2 = 230, X3 = 360;
+  const Y = 130;
+  const X1 = 70, X2 = 230, X3 = 360;
+  const GROSOR_PISTA = 9;
   const el: Elemento[] = [
-    { tipo: "linea", de: { x: 30, y: Y }, a: { x: 390, y: Y }, rol: "trazo", grosor: 3 },
-    { tipo: "punto", en: { x: X1, y: Y }, rol: "trazo", r: 6 },
-    { tipo: "punto", en: { x: X2, y: Y }, rol: "trazo", r: 6 },
-    { tipo: "punto", en: { x: X3, y: Y }, rol: "trazo", r: 6 },
-    { tipo: "linea", de: { x: X1, y: Y + 20 }, a: { x: X2, y: Y + 20 }, rol: "dato", color: AMBAR },
-    { tipo: "texto", en: { x: (X1 + X2) / 2, y: Y + 38 }, texto: "d + 5   ·   4 s", rol: "dato", color: AMBAR, tam: 12, negrita: true },
-    { tipo: "linea", de: { x: X2, y: Y + 20 }, a: { x: X3, y: Y + 20 }, rol: "resultado", color: ROJO },
-    { tipo: "texto", en: { x: (X2 + X3) / 2, y: Y + 38 }, texto: "d − 2   ·   2 s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
-    { tipo: "texto", en: { x: X1, y: Y - 16 }, texto: "t=0", rol: "trazo", tam: 10 },
-    { tipo: "texto", en: { x: X2, y: Y - 16 }, texto: "t=4s", rol: "trazo", tam: 10 },
-    { tipo: "texto", en: { x: X3, y: Y - 16 }, texto: "t=6s", rol: "trazo", tam: 10 },
+    // pista gruesa tipo camino (gris), no una línea fina
+    { tipo: "linea", de: { x: 30, y: Y }, a: { x: 400, y: Y }, rol: "trazo", grosor: GROSOR_PISTA, color: "#b9b9c2" },
+    { tipo: "linea", de: { x: 30, y: Y }, a: { x: 400, y: Y }, rol: "trazo", grosor: 1 },
+    // 3 bolitas grises
+    { tipo: "punto", en: { x: X1, y: Y }, rol: "trazo", r: 8, color: "#9a9aa5" },
+    { tipo: "punto", en: { x: X2, y: Y }, rol: "trazo", r: 8, color: "#9a9aa5" },
+    { tipo: "punto", en: { x: X3, y: Y }, rol: "trazo", r: 8, color: "#9a9aa5" },
+    // flechitas de dirección justo después de la 1ª y 2ª bolita
+    { tipo: "linea", de: { x: X1 + 10, y: Y }, a: { x: X1 + 26, y: Y }, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: X1 + 26, y: Y }, 0, 5), rol: "trazo", relleno: true },
+    { tipo: "linea", de: { x: X2 + 10, y: Y }, a: { x: X2 + 26, y: Y }, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: X2 + 26, y: Y }, 0, 5), rol: "trazo", relleno: true },
+    // TIEMPO arriba, como arco puente
+    { tipo: "path", d: arcoPuente({ x: X1, y: Y - 14 }, { x: X2, y: Y - 14 }, 26), rol: "dato", color: AMBAR },
+    { tipo: "texto", en: { x: (X1 + X2) / 2, y: Y - 44 }, texto: "4 s", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "path", d: arcoPuente({ x: X2, y: Y - 14 }, { x: X3, y: Y - 14 }, 22), rol: "resultado", color: ROJO },
+    { tipo: "texto", en: { x: (X2 + X3) / 2, y: Y - 40 }, texto: "2 s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
+    // DISTANCIA abajo, como cota con rayitas
+    { tipo: "linea", de: { x: X1, y: Y + 14 }, a: { x: X1, y: Y + 22 }, rol: "dato", color: AMBAR, grosor: 1.2 },
+    { tipo: "linea", de: { x: X2, y: Y + 14 }, a: { x: X2, y: Y + 22 }, rol: "dato", color: AMBAR, grosor: 1.2 },
+    { tipo: "linea", de: { x: X1, y: Y + 18 }, a: { x: X2, y: Y + 18 }, rol: "dato", color: AMBAR, grosor: 1.2 },
+    { tipo: "texto", en: { x: (X1 + X2) / 2, y: Y + 34 }, texto: "d + 5", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "linea", de: { x: X3, y: Y + 14 }, a: { x: X3, y: Y + 22 }, rol: "resultado", color: ROJO, grosor: 1.2 },
+    { tipo: "linea", de: { x: X2, y: Y + 18 }, a: { x: X3, y: Y + 18 }, rol: "resultado", color: ROJO, grosor: 1.2 },
+    { tipo: "texto", en: { x: (X2 + X3) / 2, y: Y + 34 }, texto: "d − 2", rol: "resultado", color: ROJO, tam: 12, negrita: true },
   ];
-  return { ancho: 420, alto: 160, pasos: 0, elementos: el };
+  return { ancho: 420, alto: 190, pasos: 0, elementos: el };
 }
 
 // ── F10(2022) · dos bloques en contacto, empujados por F ──
@@ -612,52 +641,66 @@ function f10b(): Figura {
 // Hipótesis usada en la resolución: misma altura, sentidos horizontales
 // opuestos (es la única lectura que da un número limpio y coincide exacto
 // con una opción). Marcada para confirmar contra el PDF original.
+// Reconstruida contra el PDF real (19-jul-2026): NO son sentidos horizontales
+// opuestos — es una esfera lanzada HORIZONTAL (30 m/s) y la otra lanzada
+// hacia ABAJO (20 m/s), ambas desde el mismo punto/altura, simultáneas.
 function f11b(): Figura {
-  const borde: Pt = { x: 210, y: 60 };
+  const borde: Pt = { x: 180, y: 70 };
+  const bola1: Pt = { x: 200, y: 70 };
+  const bola2: Pt = { x: 235, y: 70 };
   const el: Elemento[] = [
-    { tipo: "poligono", puntos: [{ x: 20, y: 60 }, borde, { x: 210, y: 260 }, { x: 20, y: 260 }], rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
-    { tipo: "punto", en: { x: 180, y: 60 }, rol: "trazo", r: 7 },
-    { tipo: "punto", en: { x: 240, y: 60 }, rol: "trazo", r: 7 },
-    { tipo: "linea", de: { x: 172, y: 60 }, a: { x: 110, y: 60 }, rol: "resultado", color: ROJO, grosor: 2 },
-    { tipo: "path", d: cabezaFlecha({ x: 110, y: 60 }, 180, 7), rol: "resultado", color: ROJO, relleno: true },
-    { tipo: "texto", en: { x: 140, y: 44 }, texto: "30 m/s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
-    { tipo: "linea", de: { x: 248, y: 60 }, a: { x: 320, y: 60 }, rol: "dato", color: AMBAR, grosor: 2 },
-    { tipo: "path", d: cabezaFlecha({ x: 320, y: 60 }, 0, 7), rol: "dato", color: AMBAR, relleno: true },
-    { tipo: "texto", en: { x: 285, y: 44 }, texto: "20 m/s", rol: "dato", color: AMBAR, tam: 12, negrita: true },
-    { tipo: "texto", en: { x: 210, y: 280 }, texto: "VERIFICAR: ¿misma altura y sentidos opuestos?", rol: "trazo", tam: 9, cursiva: true },
+    { tipo: "poligono", puntos: [{ x: 20, y: 70 }, borde, { x: 180, y: 270 }, { x: 20, y: 270 }], rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
+    { tipo: "punto", en: bola1, rol: "trazo", r: 7 },
+    { tipo: "punto", en: bola2, rol: "trazo", r: 7 },
+    // esfera 1: lanzamiento HORIZONTAL a 30 m/s
+    { tipo: "linea", de: avanzar(bola1, 0, 10), a: avanzar(bola1, 0, 80), rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(bola1, 0, 80), 0, 7), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: bola1.x + 40, y: bola1.y - 14 }, texto: "30 m/s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
+    // esfera 2: lanzamiento hacia ABAJO a 20 m/s
+    { tipo: "linea", de: avanzar(bola2, -90, 10), a: avanzar(bola2, -90, 80), rol: "dato", color: AMBAR, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(bola2, -90, 80), -90, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: bola2.x + 34, y: bola2.y + 44 }, texto: "20 m/s", rol: "dato", color: AMBAR, tam: 12, negrita: true },
   ];
   return { ancho: 420, alto: 300, pasos: 0, elementos: el };
 }
 
 // ── F12(2022) · bloque en plano 37° con fuerza F horizontal ──
 function f12b(): Figura {
-  const C: Pt = { x: 330, y: 195 };
-  const INCLINACION = 143;
+  // Espejada contra el PDF real: el plano sube hacia la DERECHA (no la
+  // izquierda), con el 37° marcado abajo-IZQUIERDA y F empujando hacia la
+  // derecha (horizontal, hacia la cuesta).
+  const C: Pt = { x: 90, y: 195 };
+  const INCLINACION = 37;
   const T = avanzar(C, INCLINACION, 258);
   const E = avanzar(C, INCLINACION - 180, 42);
-  const NORMAL = INCLINACION + 90;
-  const banda = [T, E, avanzar(E, NORMAL, 7), avanzar(T, NORMAL, 7)];
+  // bloqueSobre() elige SOLA el lado "hacia arriba" para el bloque; la banda
+  // (grosor de la rampa) tiene que ir del lado CONTRARIO — para inclinación
+  // 37° ese lado contrario es INCLINACION-90 (verificado: para la versión
+  // original de 143° el equivalente era INCLINACION+90, exactamente opuesto
+  // al lado que blockSobre elegía ahí).
+  const NORMAL_BANDA = INCLINACION - 90;
+  const banda = [T, E, avanzar(E, NORMAL_BANDA, 7), avanzar(T, NORMAL_BANDA, 7)];
   const bloque = bloqueSobre(avanzar(T, INCLINACION - 180, 30), INCLINACION, 40, 34);
   const centroBloque = avanzar(T, INCLINACION - 180, 30);
-  // La fuerza F es HORIZONTAL (ángulo 180°, empujando hacia la cuesta que
-  // sube a la izquierda) — NO perpendicular al plano. Flecha a la altura
-  // del bloque, apuntando hacia él desde la derecha.
-  const flechaFin: Pt = { x: centroBloque.x + 26, y: centroBloque.y };
-  const flechaIni: Pt = { x: centroBloque.x + 88, y: centroBloque.y };
+  // Fuerza F HORIZONTAL (ángulo 0°, empujando hacia la cuesta que sube a
+  // la derecha) — NO perpendicular al plano. Flecha a la altura del
+  // bloque, apuntando hacia él desde la izquierda.
+  const flechaFin: Pt = { x: centroBloque.x - 26, y: centroBloque.y };
+  const flechaIni: Pt = { x: centroBloque.x - 88, y: centroBloque.y };
 
-  verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x - 60, y: C.y }));
-  const arco37 = arcoAngulo(C, 0, INCLINACION - 180, 30, 46);
+  verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x + 60, y: C.y }));
+  const arco37 = arcoAngulo(C, 180, INCLINACION - 180, 30, 46);
 
   const el: Elemento[] = [
-    { tipo: "linea", de: { x: C.x - 4, y: C.y }, a: { x: C.x + 40, y: C.y }, rol: "trazo", punteada: true },
+    { tipo: "linea", de: { x: C.x - 40, y: C.y }, a: { x: C.x + 4, y: C.y }, rol: "trazo", punteada: true },
     { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d9d9d5" },
     { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#8c8c94" },
     { tipo: "linea", de: flechaIni, a: flechaFin, rol: "resultado", color: ROJO, grosor: 2 },
-    { tipo: "path", d: cabezaFlecha(flechaFin, 180, 8), rol: "resultado", color: ROJO, relleno: true },
-    { tipo: "texto", en: { x: flechaIni.x + 4, y: flechaIni.y - 12 }, texto: "F = 200 N", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "start" },
+    { tipo: "path", d: cabezaFlecha(flechaFin, 0, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: flechaIni.x - 4, y: flechaIni.y - 12 }, texto: "F = 200 N", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "end" },
     { tipo: "arco", d: arco37.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arco37.etiquetaEn, texto: "37°", rol: "dato", color: AMBAR, tam: 13, negrita: true },
-    { tipo: "texto", en: { x: 60, y: 120 }, texto: "μ = 0,2", rol: "trazo", tam: 11, cursiva: true, ancla: "start" },
+    { tipo: "texto", en: { x: 340, y: 120 }, texto: "μ = 0,2", rol: "trazo", tam: 11, cursiva: true, ancla: "start" },
   ];
   return { ancho: 420, alto: 260, pasos: 0, elementos: el };
 }

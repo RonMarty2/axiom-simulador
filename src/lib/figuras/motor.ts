@@ -65,6 +65,20 @@ export function verificarDistancia(nombre: string, esperado: number, real: numbe
   }
 }
 
+// Incírculo REAL de un triángulo (centro tangente a los 3 lados) — para que
+// un círculo "inscrito" en una figura quede genuinamente tangente, no solo
+// puesto a ojo cerca del centroide con un radio inventado.
+export function incirculo(A: Pt, B: Pt, C: Pt): { centro: Pt; radio: number } {
+  const a = distancia(B, C); // lado opuesto a A
+  const b = distancia(A, C); // lado opuesto a B
+  const c = distancia(A, B); // lado opuesto a C
+  const per = a + b + c;
+  const centro: Pt = { x: (a * A.x + b * B.x + c * C.x) / per, y: (a * A.y + b * B.y + c * C.y) / per };
+  const s = per / 2;
+  const area = Math.abs((B.x - A.x) * (C.y - A.y) - (C.x - A.x) * (B.y - A.y)) / 2;
+  return { centro, radio: area / s };
+}
+
 // ── Escena declarativa ──
 // La figura es una lista de elementos; el renderer (React o el harness de
 // verificación) solo los pinta. `desdePaso` = a partir de qué paso de la
