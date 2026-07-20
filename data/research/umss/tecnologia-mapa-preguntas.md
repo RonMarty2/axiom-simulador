@@ -94,8 +94,9 @@ exigir idéntico.
 | 1-2025 (3ra Opción), 20-feb-2025 | `2025-3op-1-2025.md` | 12 | ✅ Mapeado completo |
 | 2-2022 (1ra Opción), 31-may-2022 | `2022-1op-2-2022.md` | 20 | ✅ Mapeado — F11 con nota abierta (ver más abajo) |
 | 1-2023 (2da Opción), 19-ene-2023 | `2023-2op-1-2023.md` | 20 | ⚠️ 15/20 mapeadas — G5,G6,G7,F9,F12 marcadas VERIFICAR (sin figura) |
+| 2-2022 (2da Opción), 28-jun-2022 | `2022-2op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F9 marcadas VERIFICAR (sin figura nítida) |
 
-**Total preguntas mapeadas: 104** (99 resueltas con certeza + 5 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 124** (117 resueltas con certeza + 7 pendientes de figura, documentadas igual).
 
 ---
 
@@ -564,7 +565,99 @@ exigir idéntico.
 
 ---
 
-## 8. Patrones transversales detectados (entre exámenes)
+## 8. Examen 2-2022 (2da Opción) · 28-jun-2022
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 18/20 respuestas verificadas con cálculo numérico independiente (Python).
+> G7 (área sombreada entre dos cuadrados con arcos) y F9 (altura máxima de
+> tiro parabólico con puntos A/B intermedios) quedan marcadas VERIFICAR:
+> ambas dependen de una lectura exacta de la figura que no pude confirmar
+> con certeza — en ambos casos probé la lectura más directa/plausible y el
+> resultado no coincidió limpio con ninguna opción, señal de que la lectura
+> de la figura no es la correcta, no de un error de cálculo.
+
+### Aritmética-Álgebra
+
+**A1 · Trabajo con obreros, regla de tres inversa tras retirar personal** (fácil)
+- 🎯 Técnica: medir el trabajo en "obrero-días" (constante para una misma fracción de obra) — convierte el problema en una simple división, sin necesitar plantear una regla de tres compuesta explícita.
+- Sin trampa mayor más allá de no perder de vista que falta $\frac13$ de la obra (no la obra completa) para el segundo tramo.
+
+**A2 · Identidad logarítmica con cambio de base** (difícil)
+- 🎯 Técnica: mismo patrón que A1 del examen 1-2023 (1ra Opción) — usar variables auxiliares ($X=\log_ab$, $Y=\log_ac$) y la identidad de cambio de base $\log_ba=1/\log_ab$ para reescribir TODO el problema en términos de $X/Y$, sin necesitar valores numéricos concretos de $a,b,c$.
+- ⚡ Atajo: una vez que $X/Y=a$ (del dato), $E$ resulta ser exactamente $\log_a(Y/X)=\log_a(1/a)=-1$ — sale directo sin manipular logaritmos compuestos adicionales.
+
+**A3 · Progresión geométrica, razón desde relación entre sumas parciales** (medio)
+- 🎯 Técnica: plantear $S_6=9S_3$ con la fórmula de suma de PG, sustituir $u=r^3$ para reducir a una ecuación cuadrática simple en $u$.
+- ⚠️ Trampa: la ecuación factorizada da dos soluciones ($u=1$ o $u=8$) — $u=1$ corresponde a $r=1$, un caso degenerado (la fórmula de suma de PG no aplica con $r=1$, división por cero), hay que descartarlo y quedarse con $u=8\Rightarrow r=2$.
+
+**A4 · Descuentos sucesivos, factor multiplicativo** (fácil)
+- 🎯 Técnica: los descuentos sucesivos se combinan MULTIPLICANDO los factores "lo que queda" (no sumando los porcentajes) — error clásico sumar 25+40+20=85% en vez de multiplicar los factores complementarios.
+
+### Geometría-Trigonometría
+
+**G5 · Mediatriz de un lado, hallar segmento usando triángulos isósceles en cadena** (difícil)
+- 🎯 Técnica: la propiedad clave de la mediatriz (todo punto sobre ella equidista de los extremos del segmento) genera DOS triángulos isósceles encadenados — el primero ($EBC$) da el ángulo, el segundo ($ABE$) da el lado buscado, sin necesitar ley de cosenos ni coordenadas.
+- ⚡ Atajo: no hace falta calcular $BC$ ni $AC$ numéricamente para resolver — el argumento de ángulos (isósceles en cadena) da $EC=AB$ directamente en este caso particular. (Se verificó igual con ley de senos para confirmar: coincide exacto.)
+
+**G6 · Diagonales medias entre puntos medios de lados consecutivos** (difícil) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: mismo tipo de razonamiento que "diagonales trazadas desde $k$ vértices consecutivos de un polígono" pero aplicado a puntos medios de lados — tratar los $m$ puntos medios como una CADENA (no un ciclo cerrado), y las diagonales son los pares no-adyacentes: $\binom{m}{2}-(m-1)=\frac{(m-1)(m-2)}{2}$.
+- ⚠️ **Trampa fuerte**: resolviendo $(m-1)(m-2)=30$ da $m=7$ (exacto, sin resto) y por lo tanto $n=m+4=11$ — un valor que NO está entre las opciones (8,7,6,9), todas números "razonables" para un polígono. Incluso probando la lectura alternativa más simple (sin excluir los pares adyacentes, $\binom{m}{2}=15$) da $n=10$, tampoco en las opciones. Bajo cualquier interpretación razonable, la respuesta es Ninguno.
+
+**G7 · Área sombreada entre semicircunferencias y cuartas circunferencias en 2 cuadrados** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: reconstruí la figura con el arco pequeño (semicircunferencia, diámetro = lado) centrado en el punto medio del lado, y el arco grande (cuarta circunferencia, radio = lado completo) centrado en el vértice opuesto — el área de la región encerrada entre ambos da $18\pi\approx56{,}5$ por cuadrado, un valor CON $\pi$ que no coincide con ninguna opción (todas son enteros limpios). Esto indica que mi lectura de cuál es exactamente la región sombreada (o el centro/radio exacto de algún arco) no es la correcta.
+
+**G8 · Triángulo equilátero inscrito en circunferencia, área en función del radio** (medio)
+- 🎯 Técnica: fórmula directa lado-radio de un equilátero inscrito ($s=r\sqrt3$), sustituida en la fórmula de área de equilátero ($A=\frac{\sqrt3}{4}s^2$). Sin trampa, aplicación directa de dos fórmulas encadenadas.
+
+### Física
+
+**F9 · Tiro parabólico, altura máxima con puntos intermedios A y B** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: la lectura más directa (repartir el tiempo total $t_{AB}=2$s proporcionalmente a las distancias horizontales 30m y 45m, asumiendo que el punto de separación entre ambas ES la vertical del vértice) da una altura de ascenso desde A de apenas 3,2 m — absurdamente chico frente a las opciones (62 a 280 m). Esto sugiere que A y B son puntos intermedios de una trayectoria mucho más grande, y falta un dato (altura de A/B respecto al suelo, o el ángulo de lanzamiento) que no pude confirmar sin el recorte nítido.
+
+**F10 · Circuito serie con dos fuentes, diferencia de potencial entre 2 puntos** (difícil)
+- 🎯 Técnica: recorrer la rama sumando cada caída/subida de potencial en el orden en que aparecen los elementos — resistencias siempre CAEN en el sentido de la corriente asumida, las fuentes según su polaridad dibujada.
+- ⚡ Atajo de verificación: entre las 4 combinaciones posibles de signos de las 2 fuentes, solo UNA da un valor que coincide con alguna opción de respuesta (16V) — esto sirve como comprobación indirecta de la polaridad correcta cuando el texto extraído no preserva perfectamente los símbolos +/− del dibujo original.
+
+**F11 · Dos masas por polea, velocidad al encontrarse** (difícil)
+- 🎯 Técnica: cuando dos masas cuelgan de una misma cuerda por una polea separadas verticalmente por $h$, se "encuentran" cuando cada una se desplazó $h/2$ (la brecha se cierra al doble de lo que se mueve cada una individualmente) — no $h$ completo.
+- ⚡ Atajo de verificación cruzada: resolver por cinemática ($v^2=2ad$) Y por conservación de energía (diferencia de EP = EC total) da el MISMO resultado (12 m/s) — buena práctica para confirmar un resultado antes de darlo por bueno, sobre todo cuando hay dos interpretaciones posibles de qué representa $h$ en la figura (la opción D, $12\sqrt2$, es exactamente el resultado que se obtendría con la lectura alternativa "cada masa recorre $h$ completo" — un distractor bien diseñado para quien no distingue las dos lecturas).
+
+**F12 · Aceleración total en superficie esférica con rozamiento** (difícil) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: la aceleración total en movimiento circular con rozamiento combina DOS componentes perpendiculares (centrípeta $v^2/R$ y tangencial, por el peso menos la fricción) — el módulo final es la suma vectorial (Pitágoras) de ambas.
+- ⚠️ **Trampa fuerte**: calculando por separado da $a_c=4$ m/s² (que coincide EXACTO con la opción D) y $a_t=5$ m/s² — quien olvida sumar vectorialmente y solo reporta la componente centrípeta cae directo en el distractor D. El módulo real es $\sqrt{4^2+5^2}=\sqrt{41}\approx6{,}40$ m/s², que no está entre las opciones.
+
+### Química
+
+**Q13 · Estequiometría redox (Zn+HNO₃→NH₄NO₃), pureza + densidad** (difícil)
+- 🎯 Técnica: identificar que el nitrógeno se reduce hasta NH₄⁺ (de +5 a −3, salto de 8 electrones) en vez del NO habitual — cambia por completo el balanceo frente a la reacción "clásica" de Cu+HNO₃ vista en otros exámenes de este banco.
+- ⚡ Atajo de verificación: con masa molar de Zn=65 g/mol, los moles de Zn dan exactamente 1,00 — un número redondo que confirma que la masa molar usada en el diseño del problema es la simplificada (65, no 65,4).
+
+**Q14 · Balanceo redox (H₂S+Br₂→HBr+H₂SO₄), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: igual método que Q13 del examen 1-2023 (1ra Opción) — identificar oxidación (S: −2→+6, pierde 8e⁻) y reducción (Br₂: 0→−1×2, gana 2e⁻ por molécula), igualar por mínimo común múltiplo de electrones.
+
+**Q15 · Ley de difusión de Graham, masa molar de un gas desconocido** (medio)
+- 🎯 Técnica: aplicación directa de $v_1/v_2=\sqrt{M_2/M_1}$ — el gas MÁS RÁPIDO es el MÁS LIVIANO, cuidado con no invertir la razón (poner la masa molar mayor en el numerador equivocado).
+
+**Q16 · Presiones parciales con captura de vapor de agua** (medio)
+- 🎯 Técnica: una vez retirado un componente de la mezcla (el vapor de agua, capturado por el sólido), las fracciones molares de los gases RESTANTES deben sumar 1 ENTRE ELLOS SOLOS (no considerar la fracción molar original del agua) — error común es no "renormalizar" las fracciones tras quitar un componente.
+
+### Biología
+
+**B17 · Primer nivel trófico de una pirámide ecológica** (medio) — **respuesta real: E) Ninguna**
+- ⚠️ **Trampa fuerte**: el primer nivel trófico son los PRODUCTORES (autótrofos), no los consumidores primarios (que ocupan el SEGUNDO nivel) — "productores" no aparece entre las opciones, así que ninguna es correcta. Mismo patrón de trampa que B18 del examen anterior (2-2022 1ra Opción): opciones que pertenecen a una categoría VECINA pero incorrecta a la preguntada.
+
+**B18 · Función de la respiración celular** (fácil)
+- ⚠️ Trampa conceptual: las opciones A y B describen la FOTOSÍNTESIS (proceso opuesto: producir materia orgánica, liberar O₂), no la respiración celular (que consume O₂ y libera energía de los nutrientes) — hay que distinguir bien ambos procesos, que suelen confundirse por presentarse siempre "en pareja" en el temario.
+
+**B19 · Proteína con estructura cuaternaria** (medio)
+- 🎯 Técnica: la estructura cuaternaria requiere 2+ cadenas polipeptídicas independientes asociadas — la mioglobina es el ejemplo clásico de proteína de UNA sola cadena (solo terciaria, sin cuaternaria, típicamente contrastada con la hemoglobina de 4 cadenas); el colágeno es el ejemplo clásico de estructura cuaternaria real (triple hélice, 3 cadenas).
+
+**B20 · División celular que reduce el número de cromosomas** (fácil)
+- 🎯 Técnica: memorización directa — la mitosis MANTIENE el número de cromosomas, la MEIOSIS lo REDUCE a la mitad (genera gametos haploides).
+
+---
+
+## 9. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -632,9 +725,21 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
    respuesta hasta tener el recorte nítido — más vale una pregunta marcada
    pendiente que una respuesta falsa presentada como verificada.
 
+9. **Distractor de "componente parcial" en preguntas de vector/aceleración
+   total** — en F12 del examen 2-2022 (2da Opción), calcular SOLO la
+   componente centrípeta ($a_c=4$ m/s²) da un valor que coincide EXACTO con
+   una de las opciones (D), mientras que el módulo real (combinando
+   centrípeta + tangencial por Pitágoras) es $\sqrt{41}\approx6{,}40$ y no
+   está entre las opciones. Mismo patrón de fondo que el "distractor
+   directo" documentado en F11 del 2-2022 (1ra Opción): cuando una pregunta
+   pide una magnitud RESULTANTE de varias componentes, el banco casi
+   siempre incluye como opción el valor de una sola componente aislada —
+   hay que verificar explícitamente que se sumó TODO lo que pide el
+   enunciado antes de aceptar un resultado que "coincide" con una opción.
+
 ---
 
-## 9. Próximos pasos sugeridos
+## 10. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
