@@ -98,8 +98,9 @@ exigir idéntico.
 | 1-2023 (3ra Opción), 7-feb-2023 | `2023-3op-1-2023.md` | 20 | ⚠️ 19/20 mapeadas — G8 marcada VERIFICAR (sin figura nítida) |
 | 2-2022 (3ra Opción), 5-ago-2022 | `2022-3op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F10 marcadas VERIFICAR (sin figura nítida) |
 | 1-2005 (1ra Opción) | `2005-1op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — examen más antiguo del banco, sin sección de Biología |
+| 1-2005 (2da Opción) | `2005-2op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — Q13 (calcio en tejido óseo) es un "Ninguno" real, verificado |
 
-**Total preguntas mapeadas: 184** (174 resueltas con certeza + 10 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 204** (194 resueltas con certeza + 10 pendientes de figura, documentadas igual).
 
 ---
 
@@ -924,7 +925,83 @@ exigir idéntico.
 
 ---
 
-## 12. Patrones transversales detectados (entre exámenes)
+## 12. Examen 1-2005 (2da Opción)
+
+> Mismo formato histórico que 2005-1op-1-2005.md (Matemática 10, Química
+> 5, Física 5, sin Biología). 20/20 preguntas verificadas con cálculo
+> numérico independiente — Q13 dio un resultado (1,30 kg) que no coincide
+> con ninguna opción numérica: un "Ninguno" real, no una falla de cálculo.
+
+### Matemática
+
+**1 · Inecuación fraccionaria, análisis de signo sin multiplicar en cruz** (medio)
+- ⚠️ Trampa: multiplicar en cruz por $(x-5)$ sin saber su signo invierte la desigualdad en la mitad de los casos — la técnica segura es pasar todo a un lado y combinar en una sola fracción antes de analizar el signo del numerador y denominador por separado.
+
+**2 · Binomio de Newton, identificar $k$ por el exponente correcto** (medio)
+- ⚠️ Trampa: hay que igualar $k$ al exponente de la variable que aparece "en el lugar de $b$" en la fórmula general (acá $y$, con exponente 4), NO al exponente de $x$ — confundir cuál variable define $k$ da un término completamente distinto.
+
+**3 · MCM para encuentro periódico de tres ciclistas** (medio)
+- 🎯 Técnica: mismo patrón que A3 del examen 1-2023 (3ra Opción) — "vuelven a coincidir todos" es directamente el MCM de los periodos individuales.
+
+**4 · Trabajo combinado de dos grifos, tasas que se suman** (fácil)
+- 🎯 Técnica: las TASAS de trabajo (1/tiempo) se suman cuando dos agentes trabajan simultáneamente — sumar los TIEMPOS directamente es el error más común en este tipo de problema.
+
+**5 · División polinómica exacta, raíces del divisor como raíces del numerador** (difícil)
+- 🎯 Técnica: si la división es exacta, evaluar el numerador en cada raíz del divisor factorizado da un sistema de ecuaciones en los parámetros desconocidos — mucho más directo que hacer la división larga con coeficientes literales.
+
+**6 · Perímetro de polígono regular inscrito, fórmula lado-radio** (medio)
+- 🎯 Técnica: fórmula directa $\text{lado}=2R\,\text{sen}(180°/n)$ para un polígono regular de $n$ lados inscrito en circunferencia de radio $R$ — evita construir manualmente el triángulo isósceles central cada vez.
+
+**7 · Ecuación fraccionaria simétrica, reagrupar por denominadores afines** (difícil)
+- 🎯 Técnica: cuando una ecuación tiene 4 fracciones con denominadores en "pares simétricos" ($u\pm2$, $u\pm3$), reagrupar cada par a un mismo lado (en vez de sumar todo de entrada) genera una diferencia de cuadrados en cada denominador, mucho más simple de resolver.
+
+**8 · Velocidad-tiempo-distancia fija, tiempo reducido con velocidad aumentada** (difícil)
+- 🎯 Técnica: mismo patrón que A8 del examen 1-2005 (1ra Opción) — plantear velocidad=distancia/tiempo para ambos viajes con la MISMA distancia, relacionando tiempo y velocidad por las condiciones dadas, lleva a una ecuación cuadrática en $t$.
+
+**9 · Área de polígono regular inscrito, diferencia con el círculo** (difícil)
+- 🎯 Técnica: fórmula directa $A=\tfrac12nR^2\,\text{sen}(360°/n)$ para el área de un polígono regular inscrito — evita descomponerlo en $n$ triángulos manualmente.
+
+**10 · Número de tres cifras con tres condiciones encadenadas** (medio)
+- 🎯 Técnica: identificar cuál condición ya da un valor directo (acá, la cifra de las unidades) y sustituir en cadena desde ahí, en vez de armar un sistema simultáneo de 3 ecuaciones con 3 incógnitas.
+
+### Química
+
+**11 · Configuración electrónica de un ion, isótopos por número atómico** (difícil)
+- ⚠️ Trampa conceptual: "isótopo" significa mismo Z (protones), NO misma masa — quien confunde esto podría buscar la opción con el mismo número de masa (72) en vez de la misma Z. También hay que recordar restar/sumar el electrón de más/menos según la carga del ion antes de contar Z.
+
+**12 · Porcentaje de un elemento en una mezcla de dos compuestos** (difícil)
+- 🎯 Técnica: cuando solo UNO de los compuestos de una mezcla aporta el elemento de interés, la masa de ese elemento depende únicamente de la fracción de la mezcla que es ESE compuesto — el otro componente de la mezcla es simplemente ignorado en el cálculo.
+
+**13 · Porcentaje de un elemento dentro de un compuesto, dos pasos encadenados** (medio) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: dos pasos en cadena — masa del compuesto dentro de la muestra, luego fracción de ESE compuesto que es el elemento puro (usando la fórmula química para contar átomos).
+- ⚠️ **Nota de calidad de examen**: el cálculo riguroso (7 kg × 48% × (120/310)) da 1,30 kg, un valor que no aparece entre las 4 opciones numéricas (0,96; 1,86; 1,98; 0,67) — verificado con múltiples variantes de la fórmula sin encontrar coincidencia, confirma que es un "Ninguno" genuino del banco, no un error de cálculo del proyecto.
+
+**14 · Titulación con ácido diprótico, relación 1 mol ácido : 2 mol base** (medio)
+- 🎯 Técnica: mismo patrón que Q15 del examen 1-2005 (1ra Opción, ácido sulfúrico como diprótico) — recordar que $H_2SO_4$ neutraliza el DOBLE de moles de base por cada mol de ácido.
+
+**15 · Calorimetría, mezcla de dos masas de agua** (medio)
+- 🎯 Técnica: mismo patrón que Q12 del examen 1-2005 (1ra Opción) — balance de calor perdido/ganado con el calor específico cancelado (misma sustancia en ambos lados).
+
+### Física
+
+**16 · MRU, tiempo de retraso para llegada simultánea** (medio)
+- 🎯 Técnica: si ambos corredores llegan en el MISMO instante absoluto, el tiempo total del más lento (desde que arrancó) debe igualar el retraso del más rápido MÁS el tiempo que este último tarda corriendo — plantear esa igualdad da el retraso directo.
+
+**17 · Sistema de poleas con masas y fricción, hallar el coeficiente** (difícil)
+- 🎯 Técnica: plantear la segunda ley de Newton para el SISTEMA COMPLETO (todas las masas juntas) en vez de analizar cada masa por separado — la fuerza motriz es el peso de la parte colgante, la fricción actúa solo sobre la masa en la superficie horizontal.
+
+**18 · Colisión perfectamente inelástica, momento con signos opuestos** (medio)
+- 🎯 Técnica: conservación de momento lineal (no de energía cinética) en una colisión donde los cuerpos quedan unidos — sumar los momentos CON SIGNO según el sentido de cada uno (direcciones opuestas se restan).
+
+**19 · Energía con fricción como fracción constante del peso (no $\mu N$)** (difícil)
+- 🎯 Técnica: cuando el enunciado da la fricción como una fracción FIJA del peso ($0{,}1mg$, no $\mu mg\cos\theta$), el balance de energía se simplifica mucho — trabajar todo en términos de "energía dividida entre $mg$" (equivalente a una altura) evita cargar la masa por todas las ecuaciones.
+
+**20 · Circuito de tres resistencias en paralelo, corriente en una rama** (medio)
+- 🎯 Técnica: en resistencias en PARALELO, la tensión es la MISMA en las tres — hallar esa tensión común a partir de la corriente TOTAL y la resistencia equivalente ($1/R_{eq}=\sum1/R_i$) permite luego calcular la corriente de cualquier rama individual directamente.
+
+---
+
+## 13. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1042,7 +1119,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 13. Próximos pasos sugeridos
+## 14. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
