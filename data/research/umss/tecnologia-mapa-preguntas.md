@@ -95,8 +95,9 @@ exigir idéntico.
 | 2-2022 (1ra Opción), 31-may-2022 | `2022-1op-2-2022.md` | 20 | ✅ Mapeado — F11 con nota abierta (ver más abajo) |
 | 1-2023 (2da Opción), 19-ene-2023 | `2023-2op-1-2023.md` | 20 | ⚠️ 15/20 mapeadas — G5,G6,G7,F9,F12 marcadas VERIFICAR (sin figura) |
 | 2-2022 (2da Opción), 28-jun-2022 | `2022-2op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F9 marcadas VERIFICAR (sin figura nítida) |
+| 1-2023 (3ra Opción), 7-feb-2023 | `2023-3op-1-2023.md` | 20 | ⚠️ 19/20 mapeadas — G8 marcada VERIFICAR (sin figura nítida) |
 
-**Total preguntas mapeadas: 124** (117 resueltas con certeza + 7 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 144** (136 resueltas con certeza + 8 pendientes de figura, documentadas igual).
 
 ---
 
@@ -657,7 +658,101 @@ exigir idéntico.
 
 ---
 
-## 9. Patrones transversales detectados (entre exámenes)
+## 9. Examen 1-2023 (3ra Opción) · 7-feb-2023
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 19/20 respuestas verificadas con cálculo numérico independiente (Python)
+> — la mejor proporción de este proyecto hasta ahora. Solo G8 (ángulo entre
+> dos secantes a un octógono regular) queda marcada VERIFICAR: depende de
+> identificar con exactitud qué vértices toca cada recta en la figura, algo
+> que no pude confirmar con certeza desde el recorte disponible.
+
+### Aritmética-Álgebra
+
+**A1 · Número de divisores desde descomposición canónica con incógnita** (medio)
+- 🎯 Técnica: descomponer $15^n\times75$ en potencias primas ($3^{n+1}\cdot5^{n+2}$) y aplicar la fórmula del número de divisores $(a+1)(b+1)$ directamente sobre los exponentes.
+- ⚡ Atajo: al igualar $(n+2)(n+3)=17(n+2)$, se puede DIVIDIR ambos lados entre $(n+2)$ (válido porque $n+2\ne0$) en vez de expandir y resolver una cuadrática completa — reduce el problema a una ecuación lineal trivial.
+
+**A2 · Ecuación exponencial con radicales anidados, suma de raíces** (difícil)
+- 🎯 Técnica: reducir toda la expresión de la izquierda (una suma de 3 radicales aparentemente distintos) a una ÚNICA potencia de la misma base ($\sqrt3$) antes de comparar exponentes con el lado derecho.
+- ⚡ Atajo: los tres términos ($2\sqrt{12}$, $3\sqrt3$, $6\sqrt{1/3}$) son en realidad múltiplos de $\sqrt3$ disfrazados — sumarlos directamente evita tener que elevar a potencias fraccionarias términos separados.
+
+**A3 · MCM para encuentro periódico de tres viajeros** (medio)
+- 🎯 Técnica: "vuelven a coincidir todos" es directamente el MCM de los tres periodos — sin trampa ni atajo especial, aplicación directa una vez identificado que es un problema de MCM (no de MCD).
+
+**A4 · Número de dos cifras invertido, razón entre original e invertido** (difícil)
+- 🎯 Técnica: notación algebraica estándar $\overline{ab}=10a+b$, combinada con la condición de la razón (original/invertido=7/4) para armar un sistema de 2 ecuaciones lineales.
+- ⚠️ Trampa de dirección: hay que tener cuidado con CUÁL número (original o invertido) va en el numerador de la razón dada — invertir el orden lleva a una ecuación sin solución entera válida (se puede detectar rápido si el sistema da un dígito negativo, señal de haber invertido la razón).
+
+### Geometría-Trigonometría
+
+**G5 · Dos triángulos rectángulos superpuestos, base del triángulo de solapamiento** (difícil)
+- 🎯 Técnica: NO hace falta hallar el punto de cruce de las hipotenusas — el "triángulo negro" es simplemente la zona de SOLAPAMIENTO entre las bases de los dos triángulos grandes, calculable con solo tangentes y una resta.
+- ⚡ Atajo: calcular la base de cada triángulo grande por separado (con $\tan\alpha$ y $\tan\beta$), sumar ambas bases, y restar la base total dada — la diferencia ES directamente la respuesta, sin necesitar coordenadas ni sistemas de ecuaciones para hallar el punto de intersección de las diagonales.
+
+**G6 · Poste quebrado por rayo, ángulo entre las dos partes** (medio)
+- 🎯 Técnica: el punto de quiebre, el pie del poste y el punto de apoyo de la parte caída forman un triángulo RECTÁNGULO (poste vertical + suelo horizontal) — el ángulo dado (60°) es el ángulo interior en el vértice de quiebre, entre el cateto (parte que queda en pie) y la hipotenusa (parte caída).
+- ⚠️ Trampa: preguntan por la parte MÁS LARGA — hay que comparar $h$ contra $30-h$ al final, no asumir cuál es mayor de entrada.
+
+**G7 · Área sombreada bajo una diagonal en escalera de cuadrados crecientes** (difícil)
+- 🎯 Técnica: en vez de buscar una fórmula global, descomponer el problema en un trapecio por cada cuadrado (columna), usando la ecuación de la única diagonal que atraviesa toda la figura para hallar la altura de esa diagonal en cada borde de columna.
+- ⚡ Atajo de verificación: la suma de las áreas "por encima" de la diagonal en las 5 columnas da un número que coincide EXACTO con una opción (35/2); la suma "por debajo" (75/2) no está entre las opciones — confirma que la región sombreada es la de ARRIBA de la diagonal, no la de abajo.
+
+**G8 · Ángulo entre dos secantes a un octógono regular** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: este es el equivalente poligonal del teorema de "ángulo entre dos secantes externas a una circunferencia" (semidiferencia de arcos interceptados), pero acá cada "arco" entre vértices consecutivos del octógono vale $45°$ — el resultado depende EXACTAMENTE de cuántos vértices salta cada recta, algo que no pude contar con certeza en el recorte disponible.
+
+### Física
+
+**F9 · Campo eléctrico mínimo para equilibrio de partícula cargada (péndulo)** (difícil)
+- 🎯 Técnica: idéntica a F11 del examen 2-2022 (1ra Opción) — la fuerza eléctrica MÍNIMA para sostener un péndulo cargado desviado un ángulo $\alpha$ es siempre PERPENDICULAR al hilo, dando $E_{min}=mg\,\text{sen}\alpha/q$ directo, sin plantear el sistema completo de 3 fuerzas.
+- 📌 Nota de patrón: esta es la SEGUNDA vez que aparece esta plantilla exacta de pregunta en el banco (ver también F11, 2-2022 1ra Opción) — confirma que "campo/fuerza mínima perpendicular al hilo" es una plantilla recurrente que vale la pena dominar a fondo.
+
+**F10 · Campo eléctrico resultante de dos cargas puntuales en un punto entre ellas** (medio)
+- 🎯 Técnica: identificar el SENTIDO de cada campo individual antes de sumar — con el punto entre las dos cargas, el campo de la positiva apunta alejándose de ella (hacia la otra carga) y el de la negativa apunta hacia ella (también hacia la otra carga): AMBOS apuntan en el mismo sentido en este caso particular, así que se suman.
+- ⚠️ Trampa: la intuición de "cargas de signo opuesto → campos que se restan" NO aplica automáticamente — depende de la posición del punto respecto a ambas cargas; hay que analizar cada campo por separado antes de decidir si se suman o se restan.
+
+**F11 · Encuentro de dos vehículos con aceleraciones distintas y salida distanciada** (difícil)
+- 🎯 Técnica: mismo patrón que P6 (2-2025) y F11 (1-2023, 2da Opción) — plantear ambas posiciones desde un ORIGEN COMÚN, restando la distancia inicial al vehículo que arranca más atrás, en vez de plantear ecuaciones separadas con orígenes distintos.
+- ⚡ Atajo: no hace falta hallar $t$ numéricamente antes de hallar $d$ — se puede despejar $d=0{,}3t^2$ simbólicamente y sustituir $t^2=150$ (ya conocido por el dato del camión) directamente, sin sacar la raíz cuadrada de $t$ en ningún momento.
+
+**F12 · Caída libre con velocidad inicial no nula (paquete soltado desde globo ascendente)** (medio)
+- 🎯 Técnica: misma plantilla que P8 del examen 1-2025 (3ra Opción) — el paquete hereda la velocidad de ascenso del globo (+5 m/s) en el instante de soltarlo, no parte del reposo.
+- ⚠️ Trampa: la ecuación cuadrática da una raíz negativa (matemáticamente válida pero físicamente absurda, tiempo negativo) — hay que descartarla y quedarse solo con la raíz positiva.
+
+### Química
+
+**Q13 · Crioscopía "al revés": hallar masa de solvente desde $\Delta T_f$ conocido** (medio)
+- 🎯 Técnica: variante de la familia crioscópica ya vista en Q14/Q16 (1-2023, 2da Opción) pero invertida — acá se conoce $\Delta T_f$ y hay que despejar la masa de SOLVENTE (no la de soluto ni la temperatura final).
+
+**Q14 · Balanceo redox (KMnO₄+NH₃), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: identificar reducción del Mn ($+7\to+4$, gana 3e⁻) y oxidación del N ($-3\to+5$, pierde 8e⁻), igualar por mínimo común múltiplo (24), y balancear K, H, O por sustitución en ese orden.
+- ⚠️ Trampa: hay DOS productos que contienen K (KNO₃ y KOH) — no alcanza con balancear el K contra un solo producto, hay que dejar el coeficiente de KOH como incógnita hasta el final.
+
+**Q15 · Estequiometría con reactivos en proporción exacta (ninguno limitante)** (medio)
+- 🎯 Técnica: siempre convertir a moles antes de comparar cantidades — en este caso particular, ambos reactivos resultan estar en la proporción EXACTA que pide la reacción (1:1), así que ninguno sobra ni es limitante.
+- 📌 Nota de patrón: los números fueron diseñados para dar moles redondos (0,1 mol cada uno) — una señal de que el problema quiere que verifiques la proporción exacta, no que asumas de entrada cuál reactivo es limitante.
+
+**Q16 · Estequiometría con producto férrico (Fe³⁺), volumen de gas en CNPT** (medio)
+- 🎯 Técnica: cuando el producto es "cloruro FÉRRICO" (no ferroso), el hierro pierde 3 electrones (no 2) — cambia la proporción Fe:H₂ de la reacción "típica" (Fe+HCl→FeCl₂+H₂, 1:1) a esta variante (2Fe+6HCl→2FeCl₃+3H₂, 2:3).
+- ⚠️ Trampa de lectura: quien asume automáticamente la reacción "clásica" 1:1 (con cloruro ferroso) sin leer que el enunciado pide específicamente cloruro FÉRRICO obtiene una proporción y un resultado incorrectos.
+
+### Biología
+
+**B17 · Fotosíntesis en cloroplastos, transformación de energía** (fácil)
+- 🎯 Técnica: memorización directa — fotosíntesis transforma energía LUMINOSA en energía QUÍMICA. Las opciones que describen "liberar CO₂" o transformar energía química en otra forma corresponden a la respiración celular (proceso opuesto), no a la fotosíntesis.
+
+**B18 · Clasificación taxonómica, Reino Fungi** (fácil)
+- 🎯 Técnica: memorización directa — levaduras y mohos son hongos (Reino Fungi); algas y protozoos pertenecen a Protista, bacterias a Monera. Sin trampa mayor salvo confundir reinos vecinos.
+
+**B19 · Probabilidad genética dihíbrida, genes independientes** (medio)
+- 🎯 Técnica: cuando dos genes se heredan de forma independiente, la probabilidad conjunta es el PRODUCTO de las probabilidades individuales de cada gen por separado ($1/4\times1/4=1/16$) — no hace falta armar el cuadro de Punnett de 16 casillas completo si ya se conoce la probabilidad de cada gen aislado.
+
+**B20 · Estructura de doble hélice, ADN vs ARN** (fácil)
+- 🎯 Técnica: memorización directa — solo el ADN forma doble hélice (dos cadenas complementarias); todos los tipos de ARN listados son de cadena simple (aunque algunos se plieguen sobre sí mismos).
+
+---
+
+## 10. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -737,9 +832,20 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
    hay que verificar explícitamente que se sumó TODO lo que pide el
    enunciado antes de aceptar un resultado que "coincide" con una opción.
 
+10. **"Campo/fuerza mínima perpendicular al hilo" — plantilla recurrente de
+    péndulo cargado** — la MISMA pregunta (partícula cargada en equilibrio
+    sobre un péndulo desviado un ángulo $\alpha$, hallar el campo eléctrico
+    MÍNIMO) aparece dos veces en el banco con distintos números: F11 del
+    examen 2-2022 (1ra Opción) y F9 del examen 1-2023 (3ra Opción). En
+    ambos casos la clave es la misma: la fuerza/campo mínimo siempre es
+    PERPENDICULAR al hilo, dando $E_{min}=mg\,\text{sen}\alpha/q$ directo,
+    sin plantear el sistema completo de 3 fuerzas. Vale la pena que el
+    estudiante domine esta plantilla a fondo — tiene alta probabilidad de
+    reaparecer.
+
 ---
 
-## 10. Próximos pasos sugeridos
+## 11. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
