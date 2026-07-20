@@ -1,10 +1,16 @@
-# Megaprompt AXIOM v2 (canónico)
+# Megaprompt AXIOM v3 (canónico)
 
 > Este es el prompt que se le pega a cualquier otra IA (ChatGPT, Gemini,
 > DeepSeek, etc.) junto con el PDF o fotos de un examen de ingreso.
 > Está blindado con los errores reales que ya cometimos y arreglamos:
 > setup físico mal leído (péndulo vs plano), "Ninguno" forzado a otra
-> opción, figuras descritas a medias, LaTeX roto, áreas que no coinciden.
+> opción, figuras descritas a medias, LaTeX roto, áreas que no coinciden,
+> y (v3) toda la batería de errores de dibujo SVG que aparecieron al
+> reconstruir F10/F11 a mano: ángulo marcado en el par equivocado de un
+> cruce, arcos "flotando" sin una segunda línea real que los sostenga,
+> elementos que se salen del viewBox y se recortan, proporciones achicadas
+> respecto al original, y dirección de un campo/vector asumida por
+> "intuición física" en vez de mirar la imagen.
 > La copia que se muestra en /admin/banco/plantillas debe mantenerse
 > sincronizada con este archivo.
 >
@@ -78,6 +84,11 @@ FIGURA: descripción exhaustiva, elemento por elemento, como si se la dictaras a
 - LOS ÁNGULOS DIBUJADOS DEBEN MEDIR LO QUE DICEN. No pongas puntos "a ojo": calculá las coordenadas con seno y coseno del ángulo real. Ejemplo: una recta que sube a 37° sobre la horizontal y avanza 100 unidades va de (x, y) a (x + 100·cos37°, y − 100·sen37°) = (x + 80, y − 60), porque en SVG el eje y crece hacia ABAJO (subir = restar en y). Un ángulo de 37° que parece de 60° es un dibujo INCORRECTO.
 - Cada ángulo marcado lleva su arquito: <path d="M ... A r r 0 0 1 ..." fill="none"/>, y su etiqueta cerca del arco, SIN pisar otras líneas ni textos.
 - Las etiquetas no deben superponerse entre sí ni quedar cortadas por el borde del viewBox.
+- IDENTIFICÁ BIEN CUÁL ÁNGULO ES EL MARCADO. Donde se cruzan dos rectas se forman CUATRO ángulos (dos pares opuestos). Antes de codificar el arco, mirá con cuidado ENTRE QUÉ DOS RAYOS exactos va el arco en la imagen (¿arriba o abajo del cruce? ¿a la izquierda o a la derecha?) y anotalo así de preciso en tu propia descripción FIGURA antes de dibujar. Un arco puesto en el par de ángulos equivocado mide los grados correctos pero queda dibujado en el lugar incorrecto — error real que ya pasó.
+- NINGÚN ARCO FLOTANDO. Todo ángulo marcado necesita DOS lados realmente dibujados (con su propia <line> o <path>) que se toquen en el vértice del arco — nunca un arco con un solo lado visible y el otro "sobreentendido". Si el segundo lado es una línea de campo, un lado de una figura, u otra recta cualquiera, esa línea tiene que pasar EXACTAMENTE por ese vértice (coordenada calculada, no aproximada a ojo).
+- TODO DENTRO DEL VIEWBOX. Antes de terminar, repasá las coordenadas de cada punto que usaste: ninguna puede ser negativa ni superar el ancho/alto que declaraste, y dejá un margen de al menos 8-10 unidades en los bordes. Un elemento que se sale del viewBox se recorta o desaparece en el navegador del alumno.
+- PROPORCIONES FIELES AL ORIGINAL. Si algo en el PDF es GRANDE (un bloque, un ángulo bien abierto, una flecha larga), dibujalo grande de verdad — no lo encojas a un tamaño "prolijo" por defecto. Si un elemento casi toca el borde del dibujo en el PDF, que también casi toque el borde de tu viewBox.
+- NO ASUMAS UNA DIRECCIÓN POR "CÓMO SUELE SER" EL PROBLEMA. Si el problema es de física y tu intuición dice que un vector/campo "debería" apuntar de tal manera, IGUAL mirá la imagen y dibujá la dirección que REALMENTE se ve ahí, aunque te parezca rara. La imagen manda siempre sobre cualquier expectativa previa.
 - Repasá tu SVG contra tu propia descripción FIGURA punto por punto ((a) a (f)) antes de continuar.]
 
 - A) [opción tal cual el PDF]
@@ -111,5 +122,8 @@ ATENCIÓN a estos detalles del formato, que el programa valida:
 □ Ninguna explicación llega a un resultado distinto de la letra que marcaste.
 □ Toda pregunta con dibujo tiene: su línea "figura:", su bloque "FIGURA:" y su código <svg>...</svg> completo y cerrado.
 □ En cada SVG: los ángulos dibujados miden lo que sus etiquetas dicen (coordenadas calculadas con seno/coseno, no a ojo) y ninguna etiqueta pisa a otra.
+□ Cada arco de ángulo está en el PAR correcto (arriba/abajo, izquierda/derecha del cruce que corresponda) y tiene sus DOS lados realmente dibujados — ninguno "flotando" con un solo lado visible.
+□ Ningún punto/coordenada del SVG queda fuera del viewBox declarado (revisaste los extremos, con margen).
+□ Los tamaños relativos (grande/chico) coinciden con los del PDF, no con un default "prolijo".
 □ No usaste ``` ni agregaste texto fuera del formato.
 ```
