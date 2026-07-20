@@ -96,8 +96,9 @@ exigir idéntico.
 | 1-2023 (2da Opción), 19-ene-2023 | `2023-2op-1-2023.md` | 20 | ⚠️ 15/20 mapeadas — G5,G6,G7,F9,F12 marcadas VERIFICAR (sin figura) |
 | 2-2022 (2da Opción), 28-jun-2022 | `2022-2op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F9 marcadas VERIFICAR (sin figura nítida) |
 | 1-2023 (3ra Opción), 7-feb-2023 | `2023-3op-1-2023.md` | 20 | ⚠️ 19/20 mapeadas — G8 marcada VERIFICAR (sin figura nítida) |
+| 2-2022 (3ra Opción), 5-ago-2022 | `2022-3op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F10 marcadas VERIFICAR (sin figura nítida) |
 
-**Total preguntas mapeadas: 144** (136 resueltas con certeza + 8 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 164** (154 resueltas con certeza + 10 pendientes de figura, documentadas igual).
 
 ---
 
@@ -752,7 +753,98 @@ exigir idéntico.
 
 ---
 
-## 10. Patrones transversales detectados (entre exámenes)
+## 10. Examen 2-2022 (3ra Opción) · 5-ago-2022
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 18/20 respuestas verificadas con cálculo numérico independiente (Python).
+> F10 es LITERALMENTE la misma pregunta (mismo enunciado, misma figura,
+> mismas opciones) que F9 del examen 2-2022 (2da Opción) — la segunda vez
+> que aparece este problema en el banco, y sigue sin poderse resolver con
+> certeza por la misma ambigüedad de figura. G7 (distancia entre agentes,
+> ángulos 2α/α/2α) también queda VERIFICAR.
+
+### Aritmética-Álgebra
+
+**A1 · Divisibilidad de $x^4+4$, identidad de Sophie Germain** (difícil)
+- 🎯 Técnica: reconocer la factorización especial $x^4+4=(x^2-2x+2)(x^2+2x+2)$ (identidad de Sophie Germain) en vez de intentar división polinómica o tanteo de coeficientes.
+- ⚡ Atajo: de los dos factores posibles, la condición $a,b>0$ del enunciado descarta automáticamente uno de los dos sin necesitar verificar nada más.
+
+**A2 · Ecuación con raíces anidadas, verificación de dominio** (difícil)
+- 🎯 Técnica: elevar al cuadrado dos veces (agrupando el término con raíz restante entre paso y paso), y SIEMPRE verificar la solución final en la ecuación original — elevar al cuadrado puede introducir raíces falsas.
+- ⚠️ Trampa: la ecuación cuadrática final da DOS soluciones ($x=5$ y $x=6/5$), pero $x=5$ viola la condición de dominio intermedia ($5-3x\ge0$) — hay que descartarla explícitamente, no solo tomar "la solución que se ve más razonable".
+
+**A3 · Ecuación logarítmica con cambio de base, suma de dígitos** (difícil)
+- 🎯 Técnica: mismo patrón que A2 (2-2022, 2da Opción) — usar una variable auxiliar ($t=\log_2x$) y las identidades de cambio de base para reducir toda la ecuación a una sola incógnita, evitando manipular logaritmos de bases distintas por separado.
+- ⚠️ Trampa: la pregunta pide la suma de DÍGITOS de las soluciones (no la suma de las soluciones mismas) — fácil pasar por alto esta distinción y responder con la suma directa de $x$ (que sería 10 igual en este caso particular, pero no siempre coincide).
+
+**A4 · Problema de reparto con costo total fijo, dos condiciones** (difícil)
+- 🎯 Técnica: el costo TOTAL del bus es constante en los tres escenarios (original, +10 personas, −6 personas) — plantear esa igualdad para cada escenario da un sistema lineal de 2 ecuaciones con 2 incógnitas, sin necesitar ecuaciones cuadráticas.
+
+### Geometría-Trigonometría
+
+**G5 · Identidad trigonométrica con suma-producto de senos** (difícil)
+- 🎯 Técnica: convertir la suma y diferencia de senos ($\text{sen}2\theta\pm\text{sen}4\theta$) a producto usando las fórmulas de suma-a-producto — el resultado se simplifica exactamente al recíproco negativo del segundo término de la expresión, cancelándose todo.
+- ⚡ Atajo: no hace falta calcular ningún valor numérico de $\theta$ — la cancelación es simbólica y vale para cualquier $\theta$, dando 0 directamente.
+
+**G6 · Triángulo isósceles circunscrito a circunferencia, lado en función del radio inscrito** (difícil)
+- 🎯 Técnica: usar $r=\text{Área}/\text{semiperímetro}$ con el triángulo parametrizado por el lado igual $s$ y el ángulo entre ellos (120°), despejar $s$ en función de $R$, y recién ahí calcular el lado pedido con ley de cosenos.
+- ⚠️ Trampa algebraica: racionalizar el denominador (con $2\sqrt3-3$) requiere cuidado — un error de signo en ese paso cambia completamente la forma final de la respuesta.
+
+**G7 · Distancia entre agentes desde ángulos en un punto de observación** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: los tres ángulos marcados en el punto H (2α, α, 2α) sugieren que suman 180° (por estar D-H-C alineados), lo que fijaría $\alpha=36°$ como valor numérico — pero calculando $CD=(m+n)\cos(2\alpha)$ con ese ángulo da un factor que no coincide con ninguna opción, y esa derivación NUNCA usa la relación dada $\tan\alpha\cdot\tan2\alpha=m/n$ (señal fuerte de que la asignación de ángulos leída no es la correcta).
+
+**G8 · Razones trigonométricas de ángulo en cuadrante específico** (medio)
+- 🎯 Técnica: para un ángulo definido por "está en el cuadrante X, sobre la recta Y=mX", basta tomar UN punto cualquiera de esa recta CON EL SIGNO correcto para el cuadrante pedido — no hace falta trabajar con la ecuación de la recta de forma abstracta.
+- ⚠️ Trampa: si se toma un punto con signos incorrectos para el cuadrante (por ejemplo, del primer cuadrante en vez del tercero), el resultado de $\cos^2\theta$ no cambia (por el cuadrado) pero $\tan\theta$ sí puede cambiar de signo según qué par de signos se use — conviene verificar que el punto elegido realmente corresponda al cuadrante pedido.
+
+### Física
+
+**F9 · MRU en vías paralelas, distancia entre móviles en dos instantes** (difícil)
+- 🎯 Técnica: la distancia entre dos móviles en vías paralelas combina la separación horizontal (que varía con $t$) con la separación vertical FIJA (Pitágoras) — plantear $d(t)$ y resolver para el valor pedido da una ecuación cuadrática con DOS soluciones (la distancia se achica hasta un mínimo y luego vuelve a crecer).
+- ⚠️ Trampa: hay que identificar CUÁL de las dos soluciones es la "primera" y cuál la "segunda" vez que se cumple la condición — la menor corresponde al acercamiento, la mayor al alejamiento posterior al punto de máximo acercamiento.
+
+**F10 · Tiro parabólico, altura máxima con puntos A y B** (difícil) — **VERIFICAR (misma ambigüedad ya vista)**
+- ⚠️ Pregunta IDÉNTICA (mismo enunciado, misma figura, mismas opciones) a F9 del examen 2-2022 (2da Opción) — segunda aparición en el banco de este problema sin poder resolverlo con certeza. Ver la nota de esa pregunta para el detalle del intento de resolución y por qué no cuadra.
+
+**F11 · Bloque contra pared vertical de un carro acelerado, fuerza mínima** (difícil)
+- 🎯 Técnica: la fricción es la ÚNICA fuerza que sostiene verticalmente al bloque contra la cara del carro — como la fricción depende de la normal, y la normal depende de la aceleración horizontal, existe una aceleración MÍNIMA por debajo de la cual el bloque no puede sostenerse ($a_{min}=g/\mu_e$).
+- ⚡ Atajo: como el piso es liso, la fuerza $F$ debe acelerar el SISTEMA COMPLETO ($M+m$) con esa aceleración mínima — no hace falta analizar a $M$ por separado con una ecuación adicional.
+
+**F12 · Fuerza eléctrica con fricción, hallar masa desde la aceleración** (dificil)
+- 🎯 Técnica: plantear la segunda ley de Newton con TODAS las fuerzas horizontales (fuerza eléctrica empujando, fricción oponiéndose, dependiente del peso) y despejar la masa como incógnita — la fricción depende de la MISMA masa que se busca, así que queda una ecuación lineal en $m$.
+
+### Química
+
+**Q13 · Fracción molar de un componente capturado, usando presión constante del resto** (medio)
+- 🎯 Técnica: cuando un componente de una mezcla gaseosa se "captura" completamente sin afectar a los demás, la presión final es la presión PARCIAL del componente restante (que no cambió) — eso permite hallar la presión parcial inicial del componente capturado por diferencia.
+
+**Q14 · Balanceo redox (HNO₃+Zn→N₂+H₂O+Zn(NO₃)₂), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: identificar que el N se reduce hasta N₂ GASEOSO (no NO ni NH₄⁺ como en otras variantes de este banco) — cambia el número de electrones ganados por átomo (5, no 3 ni 8) y por lo tanto todo el balanceo.
+- 📌 Nota de patrón: esta es la TERCERA variante distinta de "HNO₃+Zn/Cu→producto nitrogenado" vista en el banco (compárese con Q13 del 2-2022 2da Opción, que reduce hasta NH₄NO₃) — el estudiante debe identificar CUÁL es el producto nitrogenado específico de cada enunciado antes de asumir un balanceo memorizado.
+
+**Q15 · Balanceo redox con cloro de doble papel (oxidado y espectador)** (difícil)
+- 🎯 Técnica: en reacciones donde el HCl es tanto reductor (parte se oxida a Cl₂) como fuente de los aniones cloruro de las sales (LiCl, CrCl₃), hay que CONTAR TODO el cloro de los productos (no solo el que participa en el redox) para saber el coeficiente total de HCl.
+
+**Q16 · Estequiometría redox, masa de reactivo desde masa de producto** (difícil)
+- 🎯 Técnica: balancear por electrones (I₂→HIO₃ pierde 10e⁻ por molécula, HNO₃→NO gana 3e⁻) antes de cualquier cálculo de masa — luego es una conversión estándar masa→moles→proporción→masa.
+
+### Biología
+
+**B17 · Composición estructural de las proteínas** (fácil)
+- 🎯 Técnica: memorización directa — la unidad repetitiva de las proteínas es el aminoácido (no nucleótidos ni fosfolípidos, que forman otras biomoléculas).
+
+**B18 · Amenazas a la biodiversidad vs herramientas de protección** (fácil)
+- ⚠️ Trampa conceptual: parques nacionales y reservas naturales son herramientas de PROTECCIÓN (lo opuesto de una amenaza) — quien lee rápido y asocia "naturaleza" con "positivo para la biodiversidad" sin pensar en la pregunta específica puede confundirse con las opciones distractoras.
+
+**B19 · Definición de virus como agentes acelulares** (fácil)
+- 🎯 Técnica: memorización directa — los virus son ACELULARES y parásitos intracelulares obligados; bacterias y hongos SÍ son organismos celulares capaces de replicarse por sí mismos.
+
+**B20 · Expresión fenotípica de alelos recesivos** (medio)
+- 🎯 Técnica: memorización directa — un alelo recesivo solo se expresa fenotípicamente en estado homocigótico recesivo (doble dosis); en heterocigosis o homocigosis dominante, el alelo dominante lo enmascara.
+
+---
+
+## 11. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -843,9 +935,21 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
     estudiante domine esta plantilla a fondo — tiene alta probabilidad de
     reaparecer.
 
+11. **Misma pregunta repetida LITERALMENTE (mismo enunciado y figura) entre
+    convocatorias distintas** — F10 del examen 2-2022 (3ra Opción) es
+    exactamente la misma pregunta que F9 del examen 2-2022 (2da Opción):
+    mismo enunciado, misma figura (Hmax, 30m, 45m, puntos A y B), mismas
+    5 opciones. A diferencia del patrón #10 (misma TÉCNICA con números
+    distintos), acá es la pregunta ENTERA sin cambios — sugiere que el
+    banco de la universidad a veces reutiliza el ítem completo entre
+    convocatorias del mismo año, no solo la plantilla. Consecuencia
+    práctica para este proyecto: cuando finalmente se consiga la figura
+    nítida de este problema (vía foto de Ronald), la solución resuelve
+    DOS preguntas del banco a la vez, no solo una.
+
 ---
 
-## 11. Próximos pasos sugeridos
+## 12. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
