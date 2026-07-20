@@ -119,7 +119,7 @@ export default function ResueltosPage() {
                   {ex.universidad} · {ex.total_preguntas} preguntas · {ex.duracion_minutos} min
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
-                  {ex.areas_resumen.slice(0, 4).map((a) => (
+                  {ex.areas_resumen.map((a) => (
                     <span key={a.area} style={{
                       fontSize: 10, padding: "3px 8px",
                       background: `${facultad?.color ?? "#6366F1"}15`,

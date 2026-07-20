@@ -11,60 +11,93 @@ type Formato = "csv" | "json" | "markdown" | "gift" | "aiken" | "texto";
 // de preguntas de practica por tema. Ambos modos devuelven el MISMO formato
 // Markdown AXIOM, con la regla de oro de ensenar (micro-recordatorios de cada
 // propiedad usada) y figuras descritas al detalle para el motor de geometria.
-const MEGAPROMPT = `Actuá como un profesor experto en exámenes de ingreso a la universidad (nivel preuniversitario boliviano, UMSS). Vas a generar contenido para AXIOM, un simulador de exámenes. Trabajás en uno de estos dos modos según lo que te pida:
+const MEGAPROMPT = `Actuá como un profesor experto en exámenes de ingreso a la universidad UMSS (nivel preuniversitario boliviano). Tu trabajo: transcribir y resolver COMPLETO el examen del PDF (o fotos) adjunto, produciendo un archivo de texto en el formato EXACTO que te doy abajo.
 
-MODO A — EXAMEN OFICIAL COMPLETO: si te adjunto un PDF o fotos de un examen de ingreso real, transcribilo FIEL y resolvelo COMPLETO.
-MODO B — PREGUNTAS DE PRÁCTICA: si te pido "N preguntas sobre [tema]", generá ese lote de preguntas nuevas, del estilo y nivel real del examen de ingreso.
+IMPORTANTE: ese archivo lo va a leer un PROGRAMA, no una persona. Si cambiás el nombre de un campo, un símbolo de la estructura o el orden de las partes, el programa lo rechaza. No inventes, no resumas, no "mejores" nada del original.
 
-En los DOS modos la salida es EXACTAMENTE este formato Markdown — no cambies la estructura ni los nombres de los campos, y devolvé el archivo COMPLETO de una sola vez:
+========== FICHA DEL EXAMEN (ya completada por el usuario — copiala TAL CUAL al encabezado, no la cambies) ==========
+anio: [COMPLETAR — ej: 2024]
+opcion: [COMPLETAR — ej: 1ra Opción / 2da Opción / 3ra Opción / Versión B]
+fecha_examen: [COMPLETAR si se conoce — formato AAAA-MM-DD; si no se conoce, escribir NO SE SABE]
+========== FIN DE LA FICHA ==========
+
+REGLAS INQUEBRANTABLES (leelas dos veces antes de empezar):
+
+1. FIDELIDAD TOTAL. Transcribí cada enunciado y cada opción EXACTAMENTE como aparece en el PDF. Sin sinónimos, sin redondeos, sin reordenar opciones. Si el PDF dice sen 37° = 3/5, escribí 3/5 (no 0,6). Si una opción dice "NINGUNO", escribí "Ninguno".
+
+2. NO ADIVINES NUNCA. Si un número, palabra o parte de una figura no se lee con claridad, escribí "VERIFICAR: [qué cosa no se lee]" dentro de la explicación de esa pregunta y seguí con la siguiente. Preferimos un hueco marcado a un dato inventado.
+
+3. EL PROBLEMA ES EL QUE MUESTRA LA FIGURA, NO EL QUE TE SUENA PARECIDO. Antes de resolver una pregunta con dibujo, mirá el dibujo y declarà qué es (¿una masa colgando de un hilo? ¿un bloque sobre un plano? ¿un circuito?). Error real que ya pasó: una IA resolvió "bloque sobre plano inclinado" cuando la figura mostraba un PÉNDULO colgando de un hilo; el número final coincidía de casualidad y el error casi queda. Enunciado, figura y solución tienen que contar EL MISMO problema.
+
+4. VERIFICÁ CADA RESPUESTA ANTES DE MARCARLA. Resolvé la pregunta paso a paso y confirmá que TU resultado coincide con la opción que marcás. Si no coincide con NINGUNA opción, la respuesta es E (Ninguno) — NO fuerces tu resultado hacia la opción "más parecida". En estos exámenes "Ninguno" es respuesta correcta REAL varias veces (en un solo examen nos pasó 3 veces): las demás opciones están elegidas a propósito "con pinta de correctas" para cazar al que no confía en su cálculo.
+
+5. LAS EXPLICACIONES ENSEÑAN, NO SOLO MUESTRAN LA CUENTA. Cada vez que un paso use un teorema o propiedad (ángulos alternos internos, correspondientes, ángulo exterior, suma de ángulos de un triángulo, Pitágoras, regla de tres, presión osmótica, balanceo redox, lo que sea), recordá en UNA frase qué dice esa propiedad ANTES de usarla — el alumno no tiene por qué tenerla fresca. Ejemplo: en vez de "por alternos internos vale 40°", escribí "recordá: cuando una recta corta a dos paralelas, los ángulos que quedan entre las paralelas a lados opuestos son iguales (forman una Z); por eso este ángulo también vale 40°". Si existe un atajo que ahorra tiempo frente al método largo, decilo explícitamente ("atajo: ...").
+
+6. Español boliviano neutro, claro, sin adornos.
+
+========== FORMATO EXACTO DEL ARCHIVO ==========
+El archivo empieza con este encabezado (entre las dos líneas de ---), usando los datos de la FICHA:
 
 ---
 universidad: UMSS
 facultad: ingenieria
-anio: [año del examen; en MODO B, el año actual]
-opcion: [MODO A: a qué convocatoria pertenece, ej "2da Opción" (si el PDF no lo dice, "1ra Opción"). MODO B: omití esta línea]
-titulo: [MODO A: ej "Examen de Ingreso 2-2024 (2da Opción)". MODO B: ej "Práctica · Ángulos entre paralelas"]
-fecha_examen: [MODO A: AAAA-MM-DD si aparece en el PDF. MODO B: omití esta línea]
-duracion_minutos: [MODO A: la del examen, normalmente 120. MODO B: 2 minutos por pregunta]
-total_preguntas: [cantidad total]
+anio: [el de la ficha]
+opcion: [el de la ficha]
+titulo: Examen de Ingreso [numero]-[anio] ([opcion])
+fecha_examen: [el de la ficha en AAAA-MM-DD; si la ficha dice NO SE SABE, NO escribas esta línea]
+duracion_minutos: [la del examen; si el PDF no la dice, 120]
+total_preguntas: [cantidad total de preguntas del examen]
 ponderacion:
   [area_1]: [peso decimal, ej 0.20]
   [area_2]: [peso decimal]
-(una línea por cada área. MODO A: mirá cómo divide REALMENTE el PDF — Aritmética-Álgebra y Geometría-Trigonometría suelen ser DOS áreas distintas, no una. MODO B: una sola área con peso 1.0)
 ---
 
-Después, cada pregunta así (separadas por una línea con solo "---"):
+Sobre "ponderacion": una línea por cada ÁREA/SECCIÓN que el PDF realmente tenga, con dos espacios de sangría. Mirá los títulos de sección del PDF: en la UMSS, Aritmética-Álgebra y Geometría-Trigonometría suelen ser DOS secciones distintas (no una sola "matemáticas"). Los nombres de área van en snake_case: aritmetica_algebra, geometria_trigonometria, fisica, quimica, biologia. Los pesos deben sumar 1.0 (si el PDF no indica pesos, repartí igual entre las áreas).
+
+Después del encabezado, CADA pregunta va así (separadas entre sí por una línea que contenga solo tres guiones: ---):
 
 ## Pregunta N
-area: [snake_case, ej: aritmetica_algebra, geometria_trigonometria, fisica, quimica, biologia — EXACTO igual a una clave de ponderacion]
-tema: [corto y específico, ej: promedios-digitos, binomio-newton, angulos-paralelas — NO algo genérico como "algebra"]
+area: [snake_case, EXACTAMENTE igual a una clave de ponderacion]
+tema: [específico y corto en kebab-case, ej: promedios-digitos, binomio-newton, angulos-paralelas — prohibido poner algo genérico como "algebra"]
 dificultad: facil | medio | dificil
-figura: [SOLO si la pregunta depende de un dibujo: un id corto tipo "g1-triangulo"; si no hay figura, no pongas esta línea]
+figura: [SOLO si la pregunta tiene dibujo: un id corto único, ej "g3-triangulo". Si NO tiene dibujo, NO escribas esta línea]
 
-[Enunciado. MODO A: transcripto fiel al PDF. Fórmulas complejas (fracciones, ecuaciones completas, identidades, números con barra) en LaTeX entre signos $: $\\dfrac{3x^3}{y^2}$, $\\overline{ab}$, $\\left(\\dfrac{a}{b}\\right)^{12}$. Exponentes simples sobre una sola letra (a², x³) pueden ir como texto normal.]
+[Enunciado transcripto fiel. Notación matemática: fórmulas complejas entre signos de dólar — fracciones $\\dfrac{3x^3}{y^2}$, número de dos cifras con barra $\\overline{ab}$, binomios con potencia $\\left(\\dfrac{a}{b}\\right)^{12}$, vectores $\\vec{E}$. Exponentes simples sobre una letra (a², x³) y subíndices químicos (C₆H₁₂O₆) pueden ir como texto normal. PROHIBIDO cortar una fórmula con un salto de línea: cada $...$ abre y cierra en la MISMA línea.]
 
-[SI la pregunta tiene figura, agregá antes de las opciones un párrafo:
-FIGURA: descripción PRECISA y exhaustiva en palabras de TODO lo que se ve — qué líneas hay, cuáles son paralelas, posición relativa de cada vértice (arriba/abajo/izquierda/derecha), hacia dónde sube o baja cada plano o segmento, qué ángulos están marcados y EN QUÉ vértice exacto, qué letras rotulan qué punto, si hay algún ángulo recto marcado y dónde. El dibujo se reconstruye con un motor de geometría a partir de tu descripción: si describís mal una posición relativa, el dibujo sale mal. Mejor que sobre detalle.]
+[SOLO si la pregunta tiene dibujo, agregá acá este bloque:
+FIGURA: descripción exhaustiva, elemento por elemento, como si se la dictaras a un dibujante ciego que nunca vio el PDF: (a) qué objeto es la escena (péndulo, plano inclinado, triángulo, circuito...); (b) cada línea o segmento y hacia dónde va (sube/baja, izquierda/derecha), y qué es paralelo a qué; (c) cada ángulo marcado: en QUÉ vértice exacto está y ENTRE QUÉ dos líneas; (d) marcas especiales: arcos, cuadraditos de ángulo recto (y dónde), líneas punteadas (y hacia qué lado se extienden), flechas (y hacia dónde apuntan), rayitas de soporte, bandas o zonas sombreadas; (e) cada letra o número rotulado y al lado de qué elemento está; (f) también lo que NO tiene: si la bolita no lleva etiqueta, decilo. El dibujo se va a reconstruir SOLO con tu texto: si describís mal una posición relativa, sale mal.]
 
-- A) [opción]
+- A) [opción tal cual el PDF]
 - B) [opción]
 - C) [opción]
 - D) [opción]
-- E) Ninguno
+- E) [opción — en estos exámenes suele ser "Ninguno"]
 
-**respuesta:** [letra A-E]
-**explicacion:** [primera oración: el planteo, la idea general para encarar el problema]
-Paso 1 · [primer paso concreto, con las cuentas mostradas]
+**respuesta:** [una letra A-E]
+**explicacion:** [primera oración: el planteo, la idea general para encarar]
+Paso 1 · [primer paso concreto con las cuentas mostradas, recordando la propiedad que usa (regla 5)]
 Paso 2 · [siguiente paso]
-Paso 3 · [los que hagan falta]
+Paso 3 · [los que hagan falta; numerá siempre "Paso N ·" con ese punto medio]
 Respuesta: [letra].
 
-REGLAS (valen para los dos modos):
-1. MODO A: NO inventes ni un solo dato del examen. Si algo no se lee con claridad en el PDF (un número borroso, una figura poco nítida), escribí "VERIFICAR: [qué no se lee]" en la explicación en vez de adivinar.
-2. VERIFICÁ tu propia respuesta antes de escribirla: resolvé la pregunta paso a paso y confirmá que el resultado coincide con la letra que marcás. Si tu cálculo no coincide con ninguna opción, marcá E) Ninguno y explicá por qué — no fuerces una respuesta que no cierra. (Los exámenes UMSS usan "Ninguno" como respuesta real varias veces, con opciones "con pinta de correctas" para cazar al que no calcula.)
-3. Los pasos deben ENSEÑAR, no solo mostrar la cuenta. REGLA DE ORO: si un paso usa un teorema o propiedad (ángulos alternos internos, correspondientes, suma de ángulos de un triángulo, Pitágoras, regla de tres, ley de gases, etc.), recordá en UNA frase qué dice esa propiedad ANTES de usarla — el alumno no tiene por qué tenerla fresca. Ejemplo: en vez de "por alternos internos vale 40°", escribí "recordá: cuando una recta corta a dos paralelas, los ángulos entre las paralelas a lados opuestos son iguales (forman una Z); por eso este ángulo también vale 40°". Si además hay un atajo o técnica que acorta el camino frente al método "a lo bruto", mencionalo.
-4. El area de cada pregunta debe existir EXACTO como clave en ponderacion.
-5. Español boliviano neutro, claro, sin adornos.`;
+ATENCIÓN a estos detalles del formato, que el programa valida:
+- El bloque de explicación va TODO en líneas consecutivas SIN líneas en blanco adentro (una línea en blanco corta la explicación).
+- "**respuesta:**" y "**explicacion:**" van en minúscula, con los asteriscos dobles exactamente así.
+- Las opciones empiezan con "- " (guión y espacio) y la letra con paréntesis: "- A) ".
+- NO envuelvas el archivo en \`\`\` ni agregues comentarios fuera del formato.
+
+========== ENTREGA ==========
+- Si podés, entregá el archivo COMPLETO en una sola respuesta.
+- Si el examen es demasiado largo para tu límite de respuesta: entregá primero el encabezado + las preguntas 1 a 5, y cuando el usuario escriba "seguí", continuá con las 5 siguientes SIN repetir el encabezado y manteniendo la numeración. Nunca cortes una pregunta por la mitad.
+
+========== AUTOCHEQUEO (verificalo ANTES de responder; si algo falla, corregilo) ==========
+□ La cantidad de bloques "## Pregunta" coincide con total_preguntas.
+□ Toda pregunta tiene 5 opciones (A-E), su **respuesta:** y su **explicacion:**.
+□ El "area" de cada pregunta existe EXACTO como clave dentro de ponderacion.
+□ En cada línea, la cantidad de signos $ es PAR (ninguna fórmula quedó abierta).
+□ Ninguna explicación llega a un resultado distinto de la letra que marcaste.
+□ Toda pregunta con dibujo tiene su línea "figura:" y su bloque "FIGURA:".
+□ No usaste \`\`\` ni agregaste texto fuera del formato.`;
 
 const FORMATOS: { id: Formato; nombre: string; ext: string }[] = [
   { id: "csv", nombre: "CSV (Excel)", ext: "csv" },
