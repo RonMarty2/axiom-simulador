@@ -3,9 +3,32 @@
 // Figuras SVG para las preguntas de examen que dependen de un dibujo.
 // Cada figura se referencia desde el banco con "figura: <id>" en la pregunta.
 // El objetivo es que el alumno VEA el diagrama (no solo lea el texto).
+//
+// Encima de lo que calcula el motor se aplican los AJUSTES del Editor de
+// Figuras (/admin/figuras): desplazamientos finos (dx/dy) u ocultado de
+// elementos puntuales, guardados en data/figuras-overrides.json.
 
+import { useEffect, useState } from "react";
 import { construirFigura } from "@/lib/figuras/definiciones";
 import { elementoVisible, type Elemento, type Rol } from "@/lib/figuras/motor";
+import { sanitizarSVG } from "@/lib/figuras/svg-sanitizar";
+
+export type AjusteElemento = { dx?: number; dy?: number; oculto?: boolean };
+export type AjustesFiguras = Record<string, Record<string, AjusteElemento>>;
+
+let ajustesCache: AjustesFiguras | null = null;
+
+export function useAjustesFiguras(): AjustesFiguras {
+  const [ajustes, setAjustes] = useState<AjustesFiguras>(ajustesCache ?? {});
+  useEffect(() => {
+    if (ajustesCache) return;
+    fetch("/api/figuras/overrides")
+      .then((r) => r.json())
+      .then((d) => { ajustesCache = d && typeof d === "object" ? d : {}; setAjustes(ajustesCache!); })
+      .catch(() => { ajustesCache = {}; });
+  }, []);
+  return ajustes;
+}
 
 const T = "#1a1a2e";      // trazo principal (navy)
 const ACC = "#6d28d9";    // acento violeta
@@ -25,7 +48,8 @@ const COLOR_ROL: Record<Rol, string> = {
 
 // Renderer genérico: pinta la escena declarativa que construyó el motor.
 // No sabe nada de geometría — solo dibuja lo que la definición calculó.
-function ElementoSVG({ e, paso }: { e: Elemento; paso: number }) {
+// (Exportado para que el Editor de Figuras reuse exactamente el mismo dibujo.)
+export function ElementoSVG({ e, paso }: { e: Elemento; paso: number }) {
   if (!elementoVisible(e, paso)) return null;
   const color = e.color ?? COLOR_ROL[e.rol];
   switch (e.tipo) {
@@ -98,16 +122,44 @@ export const FIGURAS_POR_ETAPAS: Record<string, number> = Object.fromEntries(
   )
 );
 
+// Figura en código SVG crudo (viene del .md del examen, generada por otra
+// IA vía el megaprompt). Se sanitiza y se muestra tal cual: es la vía
+// AUTOMÁTICA para exámenes en lote, sin dibujar nada a mano.
+export function FiguraSVGLibre({ svg }: { svg?: string }) {
+  const limpio = sanitizarSVG(svg);
+  if (!limpio) return null;
+  return (
+    <div
+      style={{
+        width: "100%", display: "flex", justifyContent: "center",
+        margin: "6px 0 12px", padding: 10,
+        background: "var(--bg-subtle)", borderRadius: 12, border: "1px solid var(--border)",
+      }}
+      dangerouslySetInnerHTML={{ __html: limpio }}
+    />
+  );
+}
+
 export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
+  const ajustes = useAjustesFiguras();
   if (!id) return null;
   // Todas las figuras viven en el motor de geometría (calculadas y verificadas).
   const escena = construirFigura(id);
   if (!escena) return null;
+  const deFigura = ajustes[id] ?? {};
   return (
     <Marco alto={escena.alto} ancho={escena.ancho}>
-      {escena.elementos.map((e, i) => (
-        <ElementoSVG key={i} e={e} paso={paso ?? 0} />
-      ))}
+      {escena.elementos.map((e, i) => {
+        const aj = deFigura[String(i)];
+        if (aj?.oculto) return null;
+        const mueve = aj && ((aj.dx ?? 0) !== 0 || (aj.dy ?? 0) !== 0);
+        const nodo = <ElementoSVG key={i} e={e} paso={paso ?? 0} />;
+        return mueve ? (
+          <g key={i} transform={`translate(${aj!.dx ?? 0} ${aj!.dy ?? 0})`}>{nodo}</g>
+        ) : (
+          nodo
+        );
+      })}
     </Marco>
   );
 }

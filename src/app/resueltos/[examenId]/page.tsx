@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import MathText from "../../components/MathText";
-import FiguraExamen from "../../components/FiguraExamen";
+import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import SolucionPasos from "../../components/SolucionPasos";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
@@ -246,9 +246,15 @@ function PreguntaResuelta({
         </div>
       </div>
 
-      {/* Figura del enunciado (cuando aún no revela; al revelar, la figura se
-          anima dentro del reproductor de pasos). */}
-      {pregunta.figura && !revelada && <FiguraExamen id={pregunta.figura} />}
+      {/* Figura del enunciado. Prioridad: SVG que vino en el propio .md
+          (exámenes generados en lote por otra IA) > figura del motor de
+          geometría (cuando aún no revela; al revelar, la del motor se anima
+          dentro del reproductor de pasos). */}
+      {pregunta.figura_svg ? (
+        <FiguraSVGLibre svg={pregunta.figura_svg} />
+      ) : (
+        pregunta.figura && !revelada && <FiguraExamen id={pregunta.figura} />
+      )}
 
       {/* Opciones */}
       <div style={{ display: "grid", gap: 6, marginBottom: 14 }}>
@@ -315,7 +321,7 @@ function PreguntaResuelta({
           {pregunta.explicacion ? (
             <SolucionPasos
               explicacion={pregunta.explicacion}
-              figura={pregunta.figura}
+              figura={pregunta.figura_svg ? undefined : pregunta.figura}
               colorFac={colorFac}
             />
           ) : (

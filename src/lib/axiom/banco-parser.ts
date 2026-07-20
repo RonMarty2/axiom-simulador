@@ -16,6 +16,8 @@ interface PreguntaCruda {
   respuesta_correcta: string;
   explicacion?: string;
   figura?: string;
+  figura_svg?: string;
+  figura_descripcion?: string;
 }
 
 interface FrontmatterCrudo {
@@ -68,6 +70,8 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     respuesta_correcta: p.respuesta_correcta,
     explicacion: p.explicacion,
     figura: p.figura,
+    figura_svg: p.figura_svg,
+    figura_descripcion: p.figura_descripcion,
   }));
 
   return {
@@ -161,7 +165,30 @@ function splitPreguntas(cuerpo: string): string[] {
   return partes;
 }
 
-function parsePreguntaBloque(bloque: string): PreguntaCruda {
+function parsePreguntaBloque(bloqueOriginal: string): PreguntaCruda {
+  // 1. Extraer el dibujo en código SVG (bloque ```svg ... ``` o un <svg>
+  //    suelto), si la pregunta lo trae — es la vía AUTOMÁTICA: otra IA
+  //    genera el examen CON sus figuras y acá se separan del texto.
+  let figuraSvg: string | undefined;
+  let bloque = bloqueOriginal.replace(/```svg\s*\r?\n([\s\S]*?)```/i, (_m, codigo: string) => {
+    figuraSvg = codigo.trim();
+    return "";
+  });
+  if (!figuraSvg) {
+    bloque = bloque.replace(/<svg[\s\S]*?<\/svg>/i, (m) => {
+      figuraSvg = m.trim();
+      return "";
+    });
+  }
+
+  // 2. Extraer la descripción "FIGURA: ..." (para curaduría; el alumno no
+  //    la ve — sin esto quedaría pegada dentro del enunciado).
+  let figuraDescripcion: string | undefined;
+  bloque = bloque.replace(/^\[?FIGURA:\s*([\s\S]*?)\]?\s*(?=\r?\n\s*\r?\n|\r?\n-\s+A\))/m, (_m, desc: string) => {
+    figuraDescripcion = desc.trim();
+    return "";
+  });
+
   const lineas = bloque.split(/\r?\n/);
   let i = 0;
 
@@ -243,5 +270,7 @@ function parsePreguntaBloque(bloque: string): PreguntaCruda {
     respuesta_correcta: respuesta,
     explicacion,
     figura: meta.figura,
+    figura_svg: figuraSvg,
+    figura_descripcion: figuraDescripcion,
   };
 }

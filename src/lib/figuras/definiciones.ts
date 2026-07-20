@@ -127,8 +127,9 @@ function f10(): Figura {
   const C: Pt = { x: 330, y: 175 };            // cruce plano-horizontal
   const INCLINACION = 143;                      // 37° sobre la horizontal, subiendo a la izquierda
   const T = avanzar(C, INCLINACION, 250);       // tope del plano
-  const E = avanzar(C, INCLINACION - 180, 18);  // el plano sigue un poco más abajo del cruce
+  const E = avanzar(C, INCLINACION - 180, 38);  // el plano sigue hasta cerca de la esquina (como el PDF)
   const P = avanzar(C, INCLINACION, 34);        // punto P sobre el plano (rayita)
+  const tick1 = avanzar(C, INCLINACION, 202);   // rayita superior del tramo de 200 m (bajo el bloque)
   // La superficie es una BANDA con grosor, como el PDF (no una línea fina).
   // El grosor se extiende hacia ABAJO de la línea de la superficie
   // (dirección 143+90 = 233°, el lado contrario al bloque).
@@ -139,21 +140,22 @@ function f10(): Figura {
 
   verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x - 60, y: C.y }));
 
-  const arco37 = arcoAngulo(C, INCLINACION, 180, 24, 40);
+  const arco37 = arcoAngulo(C, INCLINACION, 180, 22, 31);
 
   const el: Elemento[] = [
-    // horizontal punteada
-    { tipo: "linea", de: { x: 296, y: C.y }, a: { x: 408, y: C.y }, rol: "trazo", punteada: true },
+    // horizontal punteada: hacia la IZQUIERDA del cruce (como el PDF, no a la derecha)
+    { tipo: "linea", de: { x: C.x - 118, y: C.y }, a: { x: C.x + 8, y: C.y }, rol: "trazo", punteada: true },
     // plano inclinado como banda gris
     { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d5d5d0" },
     // bloque gris (como el PDF)
     { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#9a9aa0" },
-    // P: rayita que cruza la banda + etiqueta a la derecha, altura de la punteada
+    // las DOS rayitas que delimitan el tramo de 200 m (arriba bajo el bloque, abajo en P)
+    { tipo: "linea", de: avanzar(tick1, INCLINACION - 90, 4), a: avanzar(tick1, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
     { tipo: "linea", de: avanzar(P, INCLINACION - 90, 4), a: avanzar(P, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
-    { tipo: "texto", en: { x: C.x + 22, y: C.y - 14 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
-    // 200 m a lo largo del plano
+    { tipo: "texto", en: { x: P.x + 34, y: P.y + 6 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
+    // 200 m a lo largo del plano, entre las dos rayitas
     { tipo: "texto", en: M200, texto: "200 m", rol: "trazo", tam: 12, rot: 37, cursiva: true },
-    // arco 37°
+    // arco 37° con la etiqueta pegada al vértice (como el PDF)
     { tipo: "arco", d: arco37.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arco37.etiquetaEn, texto: "37°", rol: "dato", color: AMBAR, tam: 12, negrita: true },
   ];

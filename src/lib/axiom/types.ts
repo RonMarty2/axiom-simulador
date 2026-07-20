@@ -55,7 +55,9 @@ export interface PreguntaBanco {
   opciones: OpcionPregunta[];
   respuesta_correcta: string;       // "A" | "B" | "C" | "D" — o "A,C" para multi
   explicacion?: string;
-  figura?: string;                  // id de figura SVG a mostrar (ej. "g6-isosceles")
+  figura?: string;                  // id de figura del motor de geometría (ej. "g6-isosceles")
+  figura_svg?: string;              // dibujo en código SVG crudo (viene del .md, ej. generado por otra IA)
+  figura_descripcion?: string;      // descripción textual de la figura (curaduría, no se muestra al alumno)
   tags?: string[];
   // Campos opcionales para nuevos tipos:
   tipo?: TipoPregunta;              // por defecto "seleccion_simple" (retrocompatible)

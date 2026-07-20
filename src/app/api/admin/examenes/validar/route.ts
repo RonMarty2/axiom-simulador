@@ -59,6 +59,11 @@ export async function POST(req: NextRequest) {
     avisos.push(`Hay ${verificar} marca(s) "VERIFICAR" — la IA no pudo leer algo con certeza; revisar contra el PDF original`);
   }
   const conFigura = examen.preguntas.filter((p) => p.figura).map((p) => `${p.numero} (${p.figura})`);
+  const conSvg = examen.preguntas.filter((p) => p.figura_svg).length;
+  const sinSvg = examen.preguntas.filter((p) => p.figura && !p.figura_svg).map((p) => p.numero);
+  if (sinSvg.length > 0) {
+    avisos.push(`Preguntas con figura declarada pero SIN código SVG (no se verá ningún dibujo hasta que se agregue): ${sinSvg.join(", ")}`);
+  }
 
   const resumen = {
     id: examen.id,
@@ -68,6 +73,7 @@ export async function POST(req: NextRequest) {
     total_preguntas: examen.preguntas.length,
     por_area: porArea,
     preguntas_con_figura: conFigura,
+    preguntas_con_svg: conSvg,
     avisos,
   };
 

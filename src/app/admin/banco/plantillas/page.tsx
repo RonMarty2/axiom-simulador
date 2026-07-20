@@ -65,7 +65,16 @@ figura: [SOLO si la pregunta tiene dibujo: un id corto único, ej "g3-triangulo"
 [Enunciado transcripto fiel. Notación matemática: fórmulas complejas entre signos de dólar — fracciones $\\dfrac{3x^3}{y^2}$, número de dos cifras con barra $\\overline{ab}$, binomios con potencia $\\left(\\dfrac{a}{b}\\right)^{12}$, vectores $\\vec{E}$. Exponentes simples sobre una letra (a², x³) y subíndices químicos (C₆H₁₂O₆) pueden ir como texto normal. PROHIBIDO cortar una fórmula con un salto de línea: cada $...$ abre y cierra en la MISMA línea.]
 
 [SOLO si la pregunta tiene dibujo, agregá acá este bloque:
-FIGURA: descripción exhaustiva, elemento por elemento, como si se la dictaras a un dibujante ciego que nunca vio el PDF: (a) qué objeto es la escena (péndulo, plano inclinado, triángulo, circuito...); (b) cada línea o segmento y hacia dónde va (sube/baja, izquierda/derecha), y qué es paralelo a qué; (c) cada ángulo marcado: en QUÉ vértice exacto está y ENTRE QUÉ dos líneas; (d) marcas especiales: arcos, cuadraditos de ángulo recto (y dónde), líneas punteadas (y hacia qué lado se extienden), flechas (y hacia dónde apuntan), rayitas de soporte, bandas o zonas sombreadas; (e) cada letra o número rotulado y al lado de qué elemento está; (f) también lo que NO tiene: si la bolita no lleva etiqueta, decilo. El dibujo se va a reconstruir SOLO con tu texto: si describís mal una posición relativa, sale mal.]
+FIGURA: descripción exhaustiva, elemento por elemento, como si se la dictaras a un dibujante ciego que nunca vio el PDF: (a) qué objeto es la escena (péndulo, plano inclinado, triángulo, circuito...); (b) cada línea o segmento y hacia dónde va (sube/baja, izquierda/derecha), y qué es paralelo a qué; (c) cada ángulo marcado: en QUÉ vértice exacto está y ENTRE QUÉ dos líneas; (d) marcas especiales: arcos, cuadraditos de ángulo recto (y dónde), líneas punteadas (y hacia qué lado se extienden), flechas (y hacia dónde apuntan), rayitas de soporte, bandas o zonas sombreadas; (e) cada letra o número rotulado y al lado de qué elemento está; (f) también lo que NO tiene: si la bolita no lleva etiqueta, decilo.]
+
+[Y SIEMPRE que la pregunta tenga dibujo, inmediatamente después del bloque FIGURA agregá el DIBUJO EN CÓDIGO SVG: la etiqueta <svg ...> ... </svg> pegada directamente en el texto (sin envolverla en nada). Este SVG es lo que verá el alumno, así que dibujalo IDÉNTICO al del PDF. Reglas del SVG:
+- Empezá con <svg viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg"> y terminá con </svg>. Si la figura es más alta que ancha, usá viewBox="0 0 420 300".
+- Solo formas básicas: <line>, <path>, <polygon>, <polyline>, <circle>, <rect>, <text>. PROHIBIDO: <script>, <image>, <foreignObject>, <use>, atributos onclick/onload o cualquier on*, y referencias a archivos externos.
+- Estilo: trazos stroke="#1a1a2e" con stroke-width="1.6" (2 para las líneas principales); líneas punteadas con stroke-dasharray="5 4"; textos con font-size="12" a "14" y fill="#1a1a2e"; zonas grises con fill="#d5d5d0".
+- LOS ÁNGULOS DIBUJADOS DEBEN MEDIR LO QUE DICEN. No pongas puntos "a ojo": calculá las coordenadas con seno y coseno del ángulo real. Ejemplo: una recta que sube a 37° sobre la horizontal y avanza 100 unidades va de (x, y) a (x + 100·cos37°, y − 100·sen37°) = (x + 80, y − 60), porque en SVG el eje y crece hacia ABAJO (subir = restar en y). Un ángulo de 37° que parece de 60° es un dibujo INCORRECTO.
+- Cada ángulo marcado lleva su arquito: <path d="M ... A r r 0 0 1 ..." fill="none"/>, y su etiqueta cerca del arco, SIN pisar otras líneas ni textos.
+- Las etiquetas no deben superponerse entre sí ni quedar cortadas por el borde del viewBox.
+- Repasá tu SVG contra tu propia descripción FIGURA punto por punto ((a) a (f)) antes de continuar.]
 
 - A) [opción tal cual el PDF]
 - B) [opción]
@@ -96,7 +105,8 @@ ATENCIÓN a estos detalles del formato, que el programa valida:
 □ El "area" de cada pregunta existe EXACTO como clave dentro de ponderacion.
 □ En cada línea, la cantidad de signos $ es PAR (ninguna fórmula quedó abierta).
 □ Ninguna explicación llega a un resultado distinto de la letra que marcaste.
-□ Toda pregunta con dibujo tiene su línea "figura:" y su bloque "FIGURA:".
+□ Toda pregunta con dibujo tiene: su línea "figura:", su bloque "FIGURA:" y su código <svg>...</svg> completo y cerrado.
+□ En cada SVG: los ángulos dibujados miden lo que sus etiquetas dicen (coordenadas calculadas con seno/coseno, no a ojo) y ninguna etiqueta pisa a otra.
 □ No usaste \`\`\` ni agregaste texto fuera del formato.`;
 
 const FORMATOS: { id: Formato; nombre: string; ext: string }[] = [

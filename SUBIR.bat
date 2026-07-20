@@ -15,7 +15,7 @@ git pull --rebase origin main
 if errorlevel 1 goto error
 
 echo [2/4] Juntando tus cambios de contenido...
-git add data/examenes
+git add data/examenes data/figuras-overrides.json
 git diff --cached --quiet
 if not errorlevel 1 (
   echo.

@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
+import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
@@ -162,6 +163,13 @@ function PreguntaCard({
       <div className="mb-5 text-base leading-relaxed text-neutral-900">
         <MathText block>{pregunta.enunciado}</MathText>
       </div>
+
+      {/* Figura: SVG del propio .md (exámenes en lote) o figura del motor */}
+      {pregunta.figura_svg ? (
+        <FiguraSVGLibre svg={pregunta.figura_svg} />
+      ) : (
+        pregunta.figura && <FiguraExamen id={pregunta.figura} />
+      )}
 
       <div className="space-y-2">
         {pregunta.opciones.map((op) => {
