@@ -199,23 +199,38 @@ function f10(): Figura {
 // final, y líneas de campo E paralelas entre sí, PERPENDICULARES al hilo
 // (esa perpendicularidad es la clave física del "mínimo E"). Un segundo α
 // marca el ángulo entre las líneas de campo y la horizontal punteada.
+// F11 reconstruida contra la imagen LIMPIA de referencia (19-jul-2026,
+// segunda vuelta): la primera descripción dictada por texto decía que el
+// campo iba "casi horizontal, apenas hacia abajo" — al recibir la imagen
+// nítida se vio que en realidad va bien EMPINADO hacia arriba-derecha,
+// PERPENDICULAR al hilo (coincide con la física: E⊥hilo para el mínimo).
+// Lección: cuando el texto dictado y la imagen nítida no coinciden, manda
+// la imagen. Elementos confirmados contra la referencia:
+// 1. Soporte triangular con rayitas en el techo.
+// 2. Hilo desviado a la derecha, α=37° con la vertical punteada (1er α,
+//    arriba, junto al soporte).
+// 3. 2º α: a media cuerda, entre una horizontal punteada corta y la
+//    dirección del campo.
+// 4. Bolita: círculo VACÍO (sin punto adentro).
+// 5. 5-6 flechas paralelas, empinadas hacia arriba-derecha, perpendiculares
+//    al hilo, cruzando toda la región (una pasa cerca de la bolita).
 function f11(): Figura {
-  const G: Pt = { x: 232, y: 34 };             // centro del gancho en el techo
-  const A: Pt = { x: G.x, y: G.y + 12 };       // punta del gancho: de acá cuelga el hilo
+  const G: Pt = { x: 214, y: 34 };             // centro del soporte en el techo
+  const A: Pt = { x: G.x, y: G.y + 12 };       // punta del soporte: de acá cuelga el hilo
   const DIR_CUERDA = -53;                      // vertical (-90°) desviada 37° hacia la derecha
-  const B = avanzar(A, DIR_CUERDA, 138);       // bolita
-  const DIR_CAMPO = DIR_CUERDA + 90;           // 37°: perpendicular al hilo, hacia arriba-derecha
-  const bajoVertical = { x: A.x, y: A.y + 130 };
-  const S = avanzar(A, DIR_CUERDA, 74);        // punto medio del hilo (ahí va el 2º α, como el PDF)
+  const B = avanzar(A, DIR_CUERDA, 132);       // bolita
+  const DIR_CAMPO = DIR_CUERDA + 90;           // 37°: perpendicular al hilo, empinado arriba-derecha
+  const bajoVertical = { x: A.x, y: A.y + 128 };
+  const S = avanzar(A, DIR_CUERDA, 74);        // punto a media cuerda: ahí va el 2º α
 
   verificarAngulo("α hilo-vertical = 37°", 37, anguloEn(A, B, bajoVertical));
   verificarAngulo("campo ⊥ hilo", 90, Math.abs(DIR_CAMPO - DIR_CUERDA));
 
-  const arcoAlfaHilo = arcoAngulo(A, -90, DIR_CUERDA, 30, 42);
-  const arcoAlfaCampo = arcoAngulo(S, 0, DIR_CAMPO, 22, 34);
+  const arcoAlfaHilo = arcoAngulo(A, -90, DIR_CUERDA, 26, 38);
+  const arcoAlfaCampo = arcoAngulo(S, 0, DIR_CAMPO, 20, 30);
 
   const el: Elemento[] = [
-    // gancho del techo: rayitas + triangulito colgante (como el PDF)
+    // soporte del techo: rayitas + triangulito colgante
     { tipo: "linea", de: { x: G.x - 22, y: G.y }, a: { x: G.x + 22, y: G.y }, rol: "trazo", grosor: 1.8 },
   ];
   for (let i = 0; i < 5; i++) {
@@ -224,35 +239,41 @@ function f11(): Figura {
   }
   el.push(
     { tipo: "poligono", puntos: [{ x: G.x - 8, y: G.y }, { x: G.x + 8, y: G.y }, A], rol: "trazo" },
-    // referencia vertical punteada + α del hilo
+    // referencia vertical punteada + 1er α (hilo vs. vertical, junto al techo)
     { tipo: "linea", de: A, a: bajoVertical, rol: "trazo", punteada: true },
     { tipo: "arco", d: arcoAlfaHilo.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arcoAlfaHilo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
     // hilo
     { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
-    // 2º α: en el MEDIO del hilo, entre la horizontal punteada y las líneas
-    // de campo (como el PDF) — no en la bolita
-    { tipo: "linea", de: S, a: { x: S.x + 72, y: S.y }, rol: "trazo", punteada: true },
+    // 2º α: a media cuerda, horizontal punteada corta + arco hacia el campo
+    { tipo: "linea", de: S, a: { x: S.x + 64, y: S.y }, rol: "trazo", punteada: true },
     { tipo: "arco", d: arcoAlfaCampo.d, rol: "dato", color: AMBAR },
     { tipo: "texto", en: arcoAlfaCampo.etiquetaEn, texto: "α", rol: "dato", color: AMBAR, tam: 13, negrita: true },
   );
 
-  // líneas de campo E: muchas, largas, cruzando toda la región (una pasa por
-  // la bolita), perpendiculares al hilo, con flecha en la punta
-  for (let i = 0; i < 7; i++) {
-    const inicio = { x: 26 + i * 54, y: 234 };
-    const fin = avanzar(inicio, DIR_CAMPO, 196 + (i % 2) * 14);
+  // Líneas de campo: 6 flechas paralelas, empinadas arriba-derecha
+  // (perpendiculares al hilo), cruzando toda la región — una pasa cerca de
+  // la bolita. Se dibujan antes que la bolita para que quede por encima.
+  // Cada fila se desplaza desde S en la dirección PERPENDICULAR al campo
+  // (la dirección del propio hilo) — así quedan genuinamente paralelas Y,
+  // clave, la fila de desplazamiento 0 pasa EXACTO por S: esa es la línea
+  // real contra la que se mide el 2º α (no un arco flotando sin ningún
+  // trazo que lo sostenga, como pasó en el primer intento).
+  const OFFSETS = [-2, -1, 0, 1, 2, 3];
+  for (const o of OFFSETS) {
+    const filaS = avanzar(S, DIR_CUERDA, o * 32);
+    const inicio = avanzar(filaS, DIR_CAMPO + 180, 80);
+    const fin = avanzar(filaS, DIR_CAMPO, 88);
     el.push(
       { tipo: "linea", de: inicio, a: fin, rol: "trazo", grosor: 1.2 },
       { tipo: "path", d: cabezaFlecha(fin, DIR_CAMPO, 6), rol: "trazo", relleno: true },
     );
   }
 
-  // bolita al final del hilo (sin etiqueta, como el PDF), dibujada al final
-  // para que quede por encima de la línea de campo que pasa por ahí
-  el.push({ tipo: "punto", en: B, rol: "trazo", r: 8 });
+  // Bolita: círculo VACÍO, sin punto adentro (como la referencia).
+  el.push({ tipo: "punto", en: B, rol: "trazo", r: 9 });
 
-  return { ancho: 420, alto: 252, pasos: 0, elementos: el };
+  return { ancho: 420, alto: 330, pasos: 0, elementos: el };
 }
 
 // ── G6 · triángulo isósceles con cadena BC = BF = FE = ED = DA ──
