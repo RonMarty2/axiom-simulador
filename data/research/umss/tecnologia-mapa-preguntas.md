@@ -92,8 +92,9 @@ exigir idéntico.
 | 2-2025 (2da Opción), 30-jul-2025 | `2025-2op-2-2025.md` | 13 | ✅ Mapeado completo |
 | 2-2025 (2da Opción, Versión B), 30-jul-2025 | `2025-2op-2-2025-version-b.md` | 4 | ✅ Mapeado completo |
 | 1-2025 (3ra Opción), 20-feb-2025 | `2025-3op-1-2025.md` | 12 | ✅ Mapeado completo |
+| 2-2022 (1ra Opción), 31-may-2022 | `2022-1op-2-2022.md` | 20 | ✅ Mapeado — F11 con nota abierta (ver más abajo) |
 
-**Total preguntas mapeadas: 64.**
+**Total preguntas mapeadas: 84.**
 
 ---
 
@@ -384,7 +385,96 @@ exigir idéntico.
 
 ---
 
-## 6. Patrones transversales detectados (entre exámenes)
+## 6. Examen 2-2022 (1ra Opción) · 31-may-2022
+
+> Primer examen cargado por el pipeline "PDF adjuntado al chat → Claude
+> resuelve directamente" (sin pasar por otra IA/megaprompt). Las 20
+> respuestas se verificaron con cálculo numérico independiente (script
+> Python) antes de escribir el `.md`. Las 6 figuras se construyeron con el
+> motor de geometría — son un primer borrador esquemático (sin recorte
+> nítido del PDF por pregunta para comparar lado a lado como se hizo con
+> el examen 2023): pendiente de que Ronald las compare contra el original.
+
+### Aritmética-Álgebra
+
+**A1 · Suma de recíprocos de logaritmos, identidad $\log_{abc}$** (difícil)
+- 🎯 Técnica: meter el "1" de cada denominador DENTRO del logaritmo ($1=\log_a a$) para armar $\log_a(abc)$, $\log_b(abc)$, $\log_c(abc)$, y después aplicar cambio de base ($1/\log_a N=\log_N a$).
+- ⚡ Atajo: una vez que los tres términos son $\log_{abc}a+\log_{abc}b+\log_{abc}c$, la suma es directamente $\log_{abc}(abc)=1$ — no hace falta asumir valores numéricos de $a,b,c$ para nada, la identidad es general.
+- ⚠️ Trampa: quien no ve el truco de "meter el 1 adentro" intenta resolver con valores numéricos concretos de prueba, lo cual funciona pero es mucho más lento y no generaliza (funciona en este caso porque la respuesta es una constante).
+
+**A2 · Sistema exponencial-logarítmico, factorización en potencias de 2 y 3** (medio)
+- 🎯 Técnica: resolver primero la ecuación logarítmica (más simple) para expresar $y$ en términos de $x$, sustituir, y factorizar el número dado (576) en sus factores primos para igualar bases.
+- ⚡ Atajo: factorizar 576=2⁶·3² ANTES de sustituir hace que $(3\cdot2)^x\cdot2^4=2^6\cdot3^2$ se resuelva en un paso ($6^x=36$), en vez de tantear valores de $x$.
+
+**A3 · Teorema del resto, sin dividir de verdad** (medio)
+- 🎯 Técnica: teorema del resto — el resto de dividir $P(x)$ entre $(x-a)$ es simplemente $P(a)$. No hace falta hacer la división larga.
+- ⚠️ Trampa: quien no recuerda el teorema del resto pierde mucho tiempo hacienda la división polinómica completa dos veces.
+
+**A4 · Progresión aritmética, suma de términos centrales** (difícil)
+- 🎯 Técnica: en una PA, dos términos simétricos respecto al centro SIEMPRE suman lo mismo que los extremos — eso convierte "suma de 6 términos centrales" en "3 veces la suma de los extremos" sin necesidad de plantear 6 ecuaciones.
+- ⚡ Atajo: con $a_1+a_{16}$ y $a_1\cdot a_{16}$ conocidos, se arma una ecuación cuadrática de dos incógnitas resuelta por Vieta (raíces que suman y multiplican los valores dados) en vez de despejar un sistema lineal más largo.
+
+### Geometría-Trigonometría
+
+**G5 · Triángulo equilátero con equilátero inscrito, PQ⊥BC** (difícil)
+- 🎯 Técnica: plantear coordenadas, usar que P y Q comparten abscisa (por la perpendicularidad) y que R se obtiene rotando 60° — un problema de geometría sintética resuelto con álgebra de coordenadas en vez de trigonometría pura.
+- ⚡ Atajo: la razón de áreas es directamente el cuadrado de la razón de lados (semejanza) — no hace falta calcular las áreas por separado con fórmula de Herón o similar.
+- 📝 Resultado curioso: esta configuración (PQ⊥BC) da la razón MÍNIMA posible (3) entre un triángulo equilátero y uno inscrito — es la configuración "más apretada" de las infinitas posibles.
+
+**G6 · Cuadrilátero con dos incírculos, radio de triángulo rectángulo** (difícil)
+- 🎯 Técnica: fórmula directa del radio inscrito en un triángulo RECTÁNGULO, $r=\frac{a+b-c}{2}$ (con $c$ la hipotenusa) — mucho más rápida que área/semiperímetro para este caso particular.
+- ⚡ Atajo: sumar directamente las dos ecuaciones de perímetro parcial ($PQ+QR=PR+6$ y $PS+RS=PR+4$) da el perímetro total en función de una sola incógnita ($PR$), sin necesitar los 4 lados individuales.
+
+**G7 · Reducción al primer cuadrante con múltiplos de $\pi$** (medio)
+- 🎯 Técnica: usar que seno y coseno tienen período $2\pi$ para restar/sumar múltiplos completos ANTES de aplicar identidades de co-función o de simetría — reduce cada término a un ángulo simple ($\theta$, $\pi/2-\theta$, $\pi+\theta$) antes de tocar los datos del enunciado.
+- ⚠️ Trampa: el signo de $\text{sen}(\pi+\theta)=-\text{sen}\theta$ es fácil de olvidar; y ubicar bien el cuadrante (tercer cuadrante: seno y coseno AMBOS negativos) es la otra fuente típica de error de signo.
+
+**G8 · Identidad de ángulo múltiple, desarrollo de $\sin^4\theta$** (difícil)
+- ⚡ Atajo clave: en vez de "reconocer" la identidad a ojo, desarrollar $\sin^4\theta$ y $\cos^4\theta$ por separado con las fórmulas de ángulo doble aplicadas DOS veces (una para $\sin^2$, otra para $\cos^2(2\theta)$) y comparar signo del término del medio — el signo negativo de $-\frac12\cos2\theta$ es lo que distingue $\sin^4\theta$ de $\cos^4\theta$ (que da signo positivo ahí).
+
+### Física
+
+**F9 · MRU, ecuación de velocidad constante entre dos tramos** (medio)
+- 🎯 Técnica: en velocidad constante, el cociente distancia/tiempo da el MISMO valor en cualquier tramo — esa igualdad ES la ecuación a resolver, no hace falta ninguna fórmula de cinemática más compleja.
+
+**F10 · Bloques en contacto, fuerza de compresión** (medio)
+- 🎯 Técnica: primero el SISTEMA completo (para la aceleración común), después AISLAR un solo bloque (para la fuerza de contacto entre ellos) — es el patrón estándar de "bloques que se tocan y se mueven juntos".
+- ⚠️ Trampa: el rozamiento actúa SOLO sobre uno de los bloques (dato explícito del enunciado) — aplicarlo a los dos por costumbre da un resultado incorrecto.
+
+**F11 · Lanzamiento horizontal, separación entre dos proyectiles** (difícil) — ⚠️ **VERIFICAR figura**
+- 🎯 Técnica: en un lanzamiento horizontal, la caída vertical es INDEPENDIENTE de la velocidad horizontal — si las dos esferas parten de la misma altura, la separación vertical entre ellas es siempre cero, y toda la separación es horizontal.
+- 📝 Nota de curaduría (19-jul-2026): el texto del PDF no alcanza para confirmar si las esferas se lanzan en sentidos opuestos desde la misma altura, o desde dos alturas distintas de un escalón. La respuesta calculada (150 m) asume sentidos opuestos + misma altura — es la ÚNICA lectura que da un número limpio que coincide exacto con una opción, pero queda pendiente confirmar contra el PDF nítido.
+
+**F12 · Plano inclinado con fuerza aplicada HORIZONTAL (no a lo largo del plano)** (difícil)
+- 🎯 Técnica: cuando la fuerza aplicada NO es paralela al plano (acá es horizontal), hay que descomponerla en dos direcciones igual que al peso — es un paso extra que no aparece en los problemas típicos de plano inclinado con fuerza ya alineada.
+- ⚠️ Trampa fuerte: hay que verificar hacia dónde tiende a moverse el bloque ANTES de asumir la dirección de la fricción — acá $F\cos37°$ (160 N, hacia arriba) es MENOR que $mg\,\text{sen}37°$ (300 N, hacia abajo), así que el bloque desliza hacia abajo y la fricción actúa hacia ARRIBA (fácil de asumir al revés si no se verifica).
+- ⚡ Atajo de verificación: comparar las dos componentes SIN fricción primero define el sentido del movimiento en un paso, antes de calcular la normal y la fricción.
+
+### Química
+
+**Q13 · Estequiometría con reactivo limitante, moles desde gas y desde molaridad** (difícil)
+- 🎯 Técnica: hallar los moles de CADA reactivo por una vía distinta (ecuación de gases ideales para el Cl₂, molaridad×volumen para el NaOH) y comparar contra la proporción estequiométrica para identificar el limitante ANTES de calcular el producto.
+- ⚠️ Trampa: la opción "7450" (sin convertir a kg) es un distractor directo para quien calcula bien pero olvida la conversión de unidades del enunciado.
+
+**Q14 · Balanceo redox por ion-electrón, coeficientes de productos** (difícil)
+- 🎯 Técnica: identificar las dos semirreacciones (oxidación del Hg⁰→Hg²⁺, reducción de N⁺⁵→N⁺²) e igualar electrones por mínimo común múltiplo — método mucho más confiable que balancear por tanteo en una reacción con 3 reactivos y 4 productos.
+- ⚡ Atajo: como todo el nitrógeno del reactivo termina como NO (no hay otro producto nitrogenado), el coeficiente de LiNO₃ es IGUAL al de NO — evita tener que rastrear el nitrógeno por separado.
+
+**Q15 · Presión parcial desde fracción molar relativa** (medio)
+- 🎯 Técnica: plantear la fracción molar de un gas como múltiplo de la del otro, usar que las fracciones molares suman 1, y aplicar la ley de Dalton directamente.
+
+**Q16 · Descenso de presión de vapor (Raoult), masa molar de un soluto** (difícil)
+- 🎯 Técnica: la ley de Raoult da la fracción molar del SOLVENTE; de ahí se despeja la del soluto, y combinando con la composición en masa (% p/p) se arma una ecuación con una sola incógnita (los moles del soluto).
+- ⚠️ Trampa: mezclar "gramos de soluto" con "porcentaje de la solución total" en vez de la masa real (82 g de 100 g de solución, no 82 g sueltos) es el error más común en este tipo de problema.
+
+### Biología
+
+**B17-B20 · Preguntas de definición directa** (fáciles, sin trampa matemática)
+- 🎯 Técnica: memorización de conceptos base (estructura del nucleótido, funciones de lípidos/proteínas, jerarquía taxonómica). B19 es la más sutil de las 4: tanto "digestión" (enzimas=proteínas) como "defensa" (anticuerpos=proteínas) son funciones reales de las proteínas, pero el examen espera la respuesta más clásica del temario (defensa en la sangre); vale la pena reforzar en Aprende que la función enzimática TAMBIÉN es una función proteica, para que el alumno entienda por qué B es un distractor plausible y no un error del examen.
+
+---
+
+## 7. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -442,7 +532,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 7. Próximos pasos sugeridos
+## 8. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en

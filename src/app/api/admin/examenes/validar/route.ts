@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { parseExamenMD } from "@/lib/axiom/banco-parser";
+import { construirFigura } from "@/lib/figuras/definiciones";
 import { ES_DEV, isAdmin } from "@/lib/session";
 
 // Valida (y en local, guarda) un examen resuelto en formato Markdown AXIOM,
@@ -60,9 +61,15 @@ export async function POST(req: NextRequest) {
   }
   const conFigura = examen.preguntas.filter((p) => p.figura).map((p) => `${p.numero} (${p.figura})`);
   const conSvg = examen.preguntas.filter((p) => p.figura_svg).length;
-  const sinSvg = examen.preguntas.filter((p) => p.figura && !p.figura_svg).map((p) => p.numero);
-  if (sinSvg.length > 0) {
-    avisos.push(`Preguntas con figura declarada pero SIN código SVG (no se verá ningún dibujo hasta que se agregue): ${sinSvg.join(", ")}`);
+  // Sin dibujo real = ni trae SVG embebido NI el id está registrado en el
+  // motor de geometría (src/lib/figuras/definiciones.ts) — ese es el otro
+  // camino válido para que una figura se muestre (el que uso yo mismo al
+  // construir figuras a mano, sin pasar por otra IA).
+  const sinDibujo = examen.preguntas
+    .filter((p) => p.figura && !p.figura_svg && !construirFigura(p.figura))
+    .map((p) => p.numero);
+  if (sinDibujo.length > 0) {
+    avisos.push(`Preguntas con figura declarada pero SIN dibujo real (ni SVG embebido ni id registrado en el motor de geometría): ${sinDibujo.join(", ")}`);
   }
 
   const resumen = {
