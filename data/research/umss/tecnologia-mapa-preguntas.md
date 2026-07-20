@@ -93,8 +93,9 @@ exigir idéntico.
 | 2-2025 (2da Opción, Versión B), 30-jul-2025 | `2025-2op-2-2025-version-b.md` | 4 | ✅ Mapeado completo |
 | 1-2025 (3ra Opción), 20-feb-2025 | `2025-3op-1-2025.md` | 12 | ✅ Mapeado completo |
 | 2-2022 (1ra Opción), 31-may-2022 | `2022-1op-2-2022.md` | 20 | ✅ Mapeado — F11 con nota abierta (ver más abajo) |
+| 1-2023 (2da Opción), 19-ene-2023 | `2023-2op-1-2023.md` | 20 | ⚠️ 15/20 mapeadas — G5,G6,G7,F9,F12 marcadas VERIFICAR (sin figura) |
 
-**Total preguntas mapeadas: 84.**
+**Total preguntas mapeadas: 104** (99 resueltas con certeza + 5 pendientes de figura, documentadas igual).
 
 ---
 
@@ -475,7 +476,95 @@ exigir idéntico.
 
 ---
 
-## 7. Patrones transversales detectados (entre exámenes)
+## 7. Examen 1-2023 (2da Opción) · 19-ene-2023
+
+> Cargado bajo la directiva "agreguemos todos de una vez y después
+> arreglamos" (19-jul-2026): prioridad en CONTENIDO verificado, figuras
+> deferidas. 15/20 respuestas verificadas con cálculo numérico
+> independiente. Las 5 preguntas que dependen de una figura geométrica o
+> vectorial precisa (G5, G6, G7, F9, F12) NO se pudieron resolver con
+> certeza solo desde el texto — quedan marcadas `**respuesta:** E` como
+> placeholder explícito con `VERIFICAR` en la explicación, pendientes del
+> recorte nítido del PDF. Ninguna figura fue construida todavía para este
+> examen.
+
+### Aritmética-Álgebra
+
+**A1 · Edades proporcionales, condición futura** (medio)
+- 🎯 Técnica: "proporcional a" se traduce en escribir cada cantidad como $k\times$razón — convierte un reparto proporcional con condición futura en una sola ecuación lineal en $k$, igualando dos razones cualquiera.
+- Sin trampa mayor una vez planteada la ecuación — cuidado solo con no confundir a quién corresponde cada razón.
+
+**A2 · Binomio de Newton vía diferencia de potencias, término N-ésimo** (difícil)
+- 🎯 Técnica: reconocer $\dfrac{a^{10}-b^{10}}{a-b}$ como la suma de 10 términos de una progresión geométrica de exponentes (no como un binomio de Newton clásico) — factorización de diferencia de potencias iguales.
+- ⚠️ Trampa: contar bien el índice del "sexto término" ($k=5$ si el primero es $k=0$) — un desfase de índice cambia el exponente final.
+
+**A3 · Identidad logarítmica numérica** (difícil)
+- 🎯 Técnica: cuando bases y argumentos son múltiplos entre sí con una relación oculta (acá $12\times18=6^3$, $24\times54=6^4$), la expresión colapsa a una constante — la vía más rápida y confiable es verificar numéricamente con calculadora en vez de buscar la identidad algebraica exacta.
+- ⚡ Atajo: sustitución numérica directa (cambio de base) en vez de perseguir una demostración algebraica general.
+
+**A4 · Teorema del resto con divisor cuadrático (sistema de 3 ecuaciones)** (difícil)
+- 🎯 Técnica: teorema del resto generalizado — dividir por $x^2+5x+6=(x+2)(x+3)$ con resto lineal $(-11x+13)$ significa que $P(-2)$ y $P(-3)$ son ESE resto evaluado en cada raíz, dando 2 ecuaciones más (junto con $P(1)=2$) para un sistema de 3 incógnitas ($a,b,c$).
+- ⚠️ Trampa: factorizar bien el divisor cuadrático antes de evaluar — si no se factoriza correctamente, no se puede aplicar el teorema del resto a cada raíz por separado.
+
+### Geometría-Trigonometría
+
+**G5 · Cuatro semicircunferencias en un cuadrado, radio de circunferencia central** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: probé la lectura "obvia" (semicircunferencia con diámetro = lado completo, radio 2) y encontré una CONTRADICCIÓN geométrica real — con ese radio las 4 semicircunferencias se tocan exactamente en el centro del cuadrado, sin dejar lugar a una circunferencia central de radio positivo. Eso prueba que el radio/apoyo real de las semicircunferencias es otro, pero no se puede determinar sin ver la figura. Marcada E (Ninguno) como placeholder, no como respuesta verificada.
+
+**G6 · Tres cuadrados + triángulo equilátero, área del triángulo** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: la disposición de los 3 cuadrados de lado 12 (en fila, en escalera, u otra) y por qué vértices específicos pasan los 2 lados del triángulo determinan toda la geometría — sin verla, cualquier respuesta sería adivinada.
+
+**G7 · Cuadrado + triángulo equilátero, área sombreada** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: "el triángulo oscuro" es una región sombreada específica que cambia completamente de área según la posición relativa del triángulo equilátero respecto al cuadrado.
+
+**G8 · Suma de diagonales desde un vértice en hexágono regular** (medio)
+- 🎯 Técnica: memorizar las 3 distancias típicas desde un vértice de un hexágono regular de lado $L$: al adyacente $L$, a la diagonal corta (salta 1 vértice) $L\sqrt3$, al opuesto (diámetro) $2L$ — evita tener que recalcular cada distancia con ley de cosenos.
+- ⚡ Atajo: por simetría, $\overline{AE}$ (4 pasos) es igual a la diagonal corta del otro lado ($\sqrt3$) sin necesidad de recalcularla — no hace falta ley de cosenos para ninguna de las tres distancias si se memoriza el patrón.
+
+### Física
+
+**F9 · Suma de cuatro vectores en una circunferencia** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: la suma vectorial depende críticamente de la dirección exacta de cada uno de los 4 vectores (ángulos entre sí). Probé una lectura razonable de los 30° marcados y el resultado no coincidió limpio con ninguna opción — señal de lectura incorrecta, no de error de cálculo. Marcada VERIFICAR en vez de forzar una respuesta.
+
+**F10 · Vectores suma/resta con ángulo entre resultantes, hallar módulo de A** (difícil)
+- 🎯 Técnica: cuando dan $\vec P=\vec A+\vec B$ y $\vec Q=\vec A-\vec B$, sumar las dos ecuaciones cancela $\vec B$ directamente ($\vec P+\vec Q=2\vec A$) — no hace falta despejar $\vec B$ para nada.
+- ⚡ Atajo: aplicar la fórmula del módulo de una suma de vectores ($|\vec P+\vec Q|^2=P^2+Q^2+2PQ\cos\theta$) sobre $\vec P+\vec Q$ directamente, en vez de descomponer todo en componentes x/y.
+
+**F11 · MRU, hora de alcance con salida retrasada** (medio)
+- 🎯 Técnica: medir la posición de cada móvil como fracción de la distancia total en función del tiempo transcurrido desde un ORIGEN COMÚN, con el móvil que sale después usando $(t-\text{retraso})$ en su ecuación.
+- ⚠️ Trampa: mismo patrón que P6 del examen 2-2025 — olvidar el desfase de la hora de salida (usar $t$ en vez de $t-1$ para el auto) da una ecuación y una hora de encuentro incorrectas.
+
+**F12 · Circuito con dos fuentes ideales, lectura de amperímetro** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: resolver por mallas/nodos requiere saber la topología exacta (qué elemento está en qué rama, dónde está el amperímetro) — imposible de reconstruir con certeza sin el diagrama.
+
+### Química
+
+**Q13 · Estequiometría redox (NaMnO₄+HCl→Cl₂), pureza + rendimiento + gas** (difícil)
+- 🎯 Técnica multi-paso: balancear por electrones (Mn⁺⁷→Mn⁺² gana 5e⁻, 2Cl⁻¹→Cl₂ pierde 2e⁻, mcm=10) antes de tocar estequiometría, luego masa→pureza→moles→proporción→rendimiento→gases ideales.
+- ⚠️ Doble trampa: (1) pureza del ácido comercial (36,5%, no HCl puro), (2) rendimiento del 80% se aplica DESPUÉS del cálculo estequiométrico teórico, no antes.
+
+**Q14 · Descenso crioscópico, mezcla anticongelante+agua, temperatura de congelación** (difícil)
+- 🎯 Técnica: misma familia que Q14/Q16 del examen 1ra Opción 2023 — $\Delta T_f=K_c\cdot m$ con molalidad = moles de soluto / kg de SOLVENTE (agua), no de la mezcla total.
+- ⚠️ Trampa: convertir volumen a masa con la densidad de CADA sustancia por separado (el anticongelante y el agua tienen densidades distintas) antes de calcular moles y molalidad.
+
+**Q15 · Dilución de HCl concentrado a una solución menos concentrada** (medio)
+- 🎯 Técnica: lo que se conserva al diluir es la MASA del soluto puro (HCl), no el volumen ni la concentración — igualar masa de HCl en la solución concentrada (antes de diluir) con la masa de HCl en la solución final.
+- ⚠️ Trampa: usar densidades DISTINTAS para la solución concentrada (1,25 g/mL) y la final (1,00 g/mL) — mezclar cuál densidad va con cuál volumen es el error típico.
+
+**Q16 · Descomposición de KClO₃, moles desde volumen de O₂ en gases ideales** (medio)
+- 🎯 Técnica: primero hallar moles de gas con $PV=nRT$, RECIÉN después aplicar la proporción estequiométrica de la ecuación balanceada ($2\text{KClO}_3\rightarrow2\text{KCl}+3\text{O}_2$).
+- Sin trampa mayor más allá de balancear correctamente la ecuación y no invertir la proporción 2:3.
+
+### Biología
+
+**B17-B20 · Preguntas de definición directa** (fáciles/medias, sin trampa matemática)
+- 🎯 Técnica: memorización de conceptos base (virus como parásitos intracelulares obligados, nucleótidos como unidad de ácidos nucleicos, clasificación mono/di/polisacáridos por tamaño, esteroides como subclase de lípidos).
+- ⚠️ B17 repite el mismo patrón de trampa de vocabulario coloquial que B19 del examen 2-2022: "replicarse por sí mismos" suena a algo que un virus SÍ hace coloquialmente, pero técnicamente es justo lo que NO puede hacer sin una célula huésped.
+- ⚠️ B19 (disacáridos) tiene 2 distractores por categoría vecina: la opción A mezcla un polisacárido (celulosa) con un disacárido real (lactosa), y la opción C tiene dos monosacáridos — hay que verificar que AMBOS elementos de la opción pertenezcan a la categoría pedida, no solo uno.
+
+---
+
+## 8. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -531,9 +620,21 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
    de darse por bueno — no alcanza con que "se vea resuelto", hay que
    verificar que la conclusión y la etiqueta coincidan.
 
+8. **Preguntas geométricas/vectoriales sin figura = no resolubles con certeza
+   por texto solo** — el examen 1-2023 (2da Opción) confirma un patrón ya
+   visto en F11 del 2-2022: cuando el enunciado describe una figura
+   geométrica compleja (semicircunferencias, cuadrados superpuestos,
+   vectores en una circunferencia, topología de circuito) sin dar TODAS las
+   medidas/ángulos/conexiones en el texto, intentar resolver "a ojo" con la
+   lectura más plausible es alto riesgo de error silencioso (una respuesta
+   que "sale limpio" pero está mal). La política del proyecto es: marcar
+   `VERIFICAR` explícito en vez de adivinar, y NO fijar la letra de
+   respuesta hasta tener el recorte nítido — más vale una pregunta marcada
+   pendiente que una respuesta falsa presentada como verificada.
+
 ---
 
-## 8. Próximos pasos sugeridos
+## 9. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
