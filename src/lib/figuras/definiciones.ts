@@ -123,47 +123,74 @@ function g5(): Figura {
 // Fiel al PDF: el plano BAJA hacia la derecha; el bloque arriba a la
 // izquierda; P sobre el plano cerca del final; la horizontal punteada cruza
 // abajo a la derecha y el arco de 37° queda entre el plano y esa horizontal.
+// F10 reconstruida siguiendo AL PIE DE LA LETRA la descripción dictada por
+// Ronald sobre el recorte nítido del PDF (19-jul-2026) — no simplificar
+// ningún elemento de esta lista:
+// 1. Plano baja de izquierda a derecha; 37° con la horizontal.
+// 2. El 37° está marcado en la ESQUINA INFERIOR DERECHA (entre la colita
+//    del plano que sigue más allá del cruce y la horizontal hacia la
+//    derecha) con un arco GRANDE Y CLARO — notablemente más grande que el
+//    texto "37°" — y la etiqueta bien DENTRO de la cuña, separada de la
+//    hipotenusa (no pegada a la banda).
+// 3. Horizontal punteada CORTA que sale apenas a la derecha del vértice
+//    (dos rayitas nomás, no una línea larga hacia la izquierda).
+// 4. Bloque GRANDE, casi cuadrado, gris sólido, en el extremo superior
+//    izquierdo de la rampa, CASI TOCANDO el borde superior del dibujo.
+// 5. Debajo del bloque, sobre la rampa: cota con dos rayitas verticales
+//    cortas y "200 m" centrado.
+// 6. "P" pegada INMEDIATAMENTE a la derecha de la cota, AL MISMO NIVEL de
+//    la rampa (texto sin rotar, no flotando).
+// 7. La rampa tiene un grosor/sombra gris clara por debajo.
 function f10(): Figura {
-  const C: Pt = { x: 330, y: 175 };            // cruce plano-horizontal
-  const INCLINACION = 143;                      // 37° sobre la horizontal, subiendo a la izquierda
-  const T = avanzar(C, INCLINACION, 250);       // tope del plano
-  const E = avanzar(C, INCLINACION - 180, 38);  // el plano sigue hasta cerca de la esquina (como el PDF)
-  const P = avanzar(C, INCLINACION, 34);        // punto P sobre el plano (rayita)
-  const tick1 = avanzar(C, INCLINACION, 202);   // rayita superior del tramo de 200 m (bajo el bloque)
-  // La superficie es una BANDA con grosor, como el PDF (no una línea fina).
-  // El grosor se extiende hacia ABAJO de la línea de la superficie
-  // (dirección 143+90 = 233°, el lado contrario al bloque).
-  const ANCHO_BANDA = 8;
-  const banda = [T, E, avanzar(E, INCLINACION + 90, ANCHO_BANDA), avanzar(T, INCLINACION + 90, ANCHO_BANDA)];
-  // bloque GRANDE, casi cuadrado, al tope de la banda (como el PDF)
-  const bloque = bloqueSobre(avanzar(C, INCLINACION, 224), INCLINACION, 46, 38);
-  const M200 = avanzar(avanzar(C, INCLINACION, 128), INCLINACION + 90, 22); // etiqueta 200 m, bajo la banda
+  const C: Pt = { x: 330, y: 195 };             // cruce plano-horizontal (vértice del ángulo real)
+  const INCLINACION = 143;                       // 37° sobre la horizontal, subiendo a la izquierda
+  const T = avanzar(C, INCLINACION, 258);        // tope del plano (extremo superior izquierdo)
+  const E = avanzar(C, INCLINACION - 180, 42);   // colita del plano: sigue un poco MÁS ALLÁ del cruce
+  const NORMAL = INCLINACION + 90;               // grosor de la banda, hacia "abajo" de la rampa
+  const ANCHO_BANDA = 7;
+  const banda = [T, E, avanzar(E, NORMAL, ANCHO_BANDA), avanzar(T, NORMAL, ANCHO_BANDA)];
+
+  // Bloque GRANDE y casi cuadrado, pegado al extremo T (casi toca el borde
+  // superior del viewBox).
+  const bloque = bloqueSobre(avanzar(T, INCLINACION - 180, 21), INCLINACION, 48, 42);
+
+  // Cota "200 m": dos rayitas verticales sobre la rampa, una justo bajo el
+  // bloque y otra en P (cerca del cruce).
+  const tickArriba = avanzar(C, INCLINACION, 202);
+  const P = avanzar(C, INCLINACION, 32);
+  const M200 = avanzar(avanzar(C, INCLINACION, (202 + 32) / 2), NORMAL, 22);
 
   verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x - 60, y: C.y }));
 
-  // arco más amplio y etiqueta bien adentro de la cuña, separada de la banda
-  const arco37 = arcoAngulo(C, INCLINACION, 180, 27, 45);
+  // El ángulo que se MARCA es el de la esquina inferior derecha: entre la
+  // horizontal hacia la derecha (0°) y la colita del plano (E), que apunta
+  // a INCLINACION-180 = -37°. Arco GRANDE (radio 36, casi 3x el tamaño de
+  // fuente de "37°") y etiqueta bien adentro de la cuña, sesgada hacia el
+  // lado horizontal (ángulo -11° en vez del bisector -18.5°) para separarla
+  // claramente de la hipotenusa del plano.
+  const DIR_COLA = INCLINACION - 180;
+  const arco37 = arcoAngulo(C, 0, DIR_COLA, 36, 999);
+  const etiqueta37 = avanzar(C, -11, 60);
 
   const el: Elemento[] = [
-    // horizontal punteada: mayormente a la IZQUIERDA del cruce, asomando un poco a la derecha (como el PDF)
-    { tipo: "linea", de: { x: C.x - 118, y: C.y }, a: { x: C.x + 34, y: C.y }, rol: "trazo", punteada: true },
-    // plano inclinado como banda gris
-    { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d5d5d0" },
-    // bloque gris (como el PDF)
-    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#9a9aa0" },
-    // las DOS rayitas que delimitan el tramo de 200 m (arriba bajo el bloque, abajo en P)
-    { tipo: "linea", de: avanzar(tick1, INCLINACION - 90, 4), a: avanzar(tick1, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
-    { tipo: "linea", de: avanzar(P, INCLINACION - 90, 4), a: avanzar(P, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
-    // P pegada a su rayita, arriba-derecha (como el PDF)
-    { tipo: "texto", en: { x: P.x + 24, y: P.y - 8 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
-    // 200 m a lo largo del plano, entre las dos rayitas
+    // horizontal punteada CORTA, apenas a la derecha del vértice (2 rayitas)
+    { tipo: "linea", de: { x: C.x - 4, y: C.y }, a: { x: C.x + 44, y: C.y }, rol: "trazo", punteada: true },
+    // sombra/banda gris clara de la rampa
+    { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d9d9d5" },
+    // bloque gris sólido, grande y casi cuadrado
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#8c8c94" },
+    // las dos rayitas cortas de la cota "200 m"
+    { tipo: "linea", de: avanzar(tickArriba, INCLINACION - 90, 4), a: avanzar(tickArriba, NORMAL, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
+    { tipo: "linea", de: avanzar(P, INCLINACION - 90, 4), a: avanzar(P, NORMAL, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
     { tipo: "texto", en: M200, texto: "200 m", rol: "trazo", tam: 12, rot: 37, cursiva: true },
-    // arco 37° con la etiqueta pegada al vértice (como el PDF)
+    // "P": pegada a la cota, AL MISMO NIVEL de la rampa, sin rotar
+    { tipo: "texto", en: avanzar(P, 0, 24), texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
+    // arco 37° grande y claro, etiqueta bien adentro de la cuña
     { tipo: "arco", d: arco37.d, rol: "dato", color: AMBAR },
-    { tipo: "texto", en: arco37.etiquetaEn, texto: "37°", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: etiqueta37, texto: "37°", rol: "dato", color: AMBAR, tam: 13, negrita: true },
   ];
 
-  return { ancho: 420, alto: 220, pasos: 0, elementos: el };
+  return { ancho: 420, alto: 250, pasos: 0, elementos: el };
 }
 
 // ── F11 · péndulo cargado en equilibrio con campo E perpendicular al hilo ──
