@@ -1092,7 +1092,106 @@ exigir idéntico.
 
 ---
 
-## 14. Patrones transversales detectados (entre exámenes)
+## 14. Segundo, Tercer y Cuarto Parcial + Primer Parcial (2-2006) + Examen Única Opción 2-2006
+
+> **Mismo método que la sección 13**: 5 exámenes (172 preguntas) resueltos
+> en paralelo con un agente por examen, cada uno con verificación numérica
+> completa y política "no adivinar", y luego RE-VERIFICADOS por Claude con
+> Python antes de subir. Un agente (Cuarto Parcial) se cortó a mitad de
+> camino por límite de sesión de la cuenta orquestadora, después de haber
+> completado su razonamiento de verificación para las 38 preguntas pero
+> antes de emitir el bloque final formateado — se recuperó reconstruyendo
+> el archivo a mano con ese razonamiento ya producido más el texto original
+> del PDF, re-verificando las cuentas más delicadas con Python antes de
+> escribir el contenido final (no se re-lanzó un agente nuevo, para no
+> arriesgarse a pegar contra el mismo límite).
+
+> **Cobertura**: 165/172 preguntas con match exacto a una opción, 7
+> "Ninguno" reales confirmados con cálculo mostrado, 0 preguntas VERIFICAR
+> por figura faltante (a diferencia del lote anterior, este no tuvo
+> ninguna pregunta dependiente de una figura no incluida en el texto).
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **F5/Pregunta 26 (Segundo Parcial, física, piedra en un pozo)** — tiempo
+  de caída + eco del sonido; la profundidad rigurosa (~46,0 m) no coincide
+  con ninguna de las 4 opciones (22,05 / 30,0 / 44,1 / 49,7 m).
+- **A2/Pregunta 2 (Tercer Parcial, álgebra, ecuación irracional)**
+  — $\sqrt{2x+13}=\sqrt{x+3}+\sqrt{x+6}$: la única solución válida tras
+  descartar la raíz espuria es $x=-2$, que no figura entre las opciones
+  (la opción D, $-7$, es justamente la raíz espuria que hay que
+  descartar).
+- **Pregunta 7 (Examen Única Opción 2-2006, geometría, relaciones
+  métricas con doble altura)** — verificado por DOS métodos independientes
+  (relaciones $h^2=p \cdot q$ y geometría analítica con coordenadas), ambos
+  dan $EB=4$, que no coincide con ninguna de las 4 opciones
+  ($2\sqrt2$, $2+\sqrt2$, $2-\sqrt2$, $\sqrt2$).
+- **A2 (Primer Parcial 2-2006, aritmética, MCD/mcm)** — con MCD=12 y
+  mcm=240, el par coprimo (4,5) da los números 48 y 60; el MENOR (48) no
+  está entre las opciones (84, 60, 64, 80), aunque el MAYOR (60) sí
+  aparece — trampa clásica de pedir "el menor" cuando solo el mayor está
+  listado.
+- **Q21 (Primer Parcial 2-2006, química, combustión de benceno)** — masa
+  de CO2 calculada (~31,3 g) no coincide con ninguna opción (la más
+  cercana, 28,9 g, difiere ~8%).
+- **G1 (Cuarto Parcial, trigonometría, $\cos6x=1/2$)** — resolviendo para
+  $\cos3x=\pm\sqrt3/2$, ningún valor coincide con las opciones dadas.
+- **Q5 y Q7 (Cuarto Parcial, química — combustión de butano y mezcla
+  hielo+agua)** — masa de agua (~2387 g) y temperatura final (~6,67°C)
+  respectivamente, ninguno coincide con las opciones.
+
+### Datos probablemente incompletos o con error de tipeo en el banco original
+
+- **A4 (Primer Parcial 2-2006, aritmética, fiesta con niños/mujeres/
+  hombres)** — con los datos tal cual aparecen en el PDF, $M \approx 74{,}4$
+  (no entero), lo que sugiere que falta un dato sobre "hombres que
+  bailaban" en el enunciado original. Marcado E) Ninguno con nota
+  VERIFICAR explícita.
+- **Q20 (Primer Parcial 2-2006, química, átomos de Fe en 6L de sangre)**
+  — la mantisa calculada ($3{,}47\times10^{22}$) coincide EXACTO con la
+  opción A, pero el exponente impreso en esa opción es $10^{25}$
+  (físicamente imposible: implicaría >900g de hierro puro en 6L de
+  sangre). Se respondió A por ser el match intencionado, con nota
+  VERIFICAR flagueando el probable error de tipeo en el exponente.
+- **B36 (Primer Parcial 2-2006, biología, pentosa + base nitrogenada sin
+  fosfato)** — la respuesta rigurosa es "nucleósido", término que no
+  figura en ninguna opción (núcleo/nucleótido/ADN/todas/ninguna). Marcado
+  E) Ninguna con nota VERIFICAR sugiriendo que la opción A ("núcleo")
+  podría ser una corrupción de OCR de "nucleósido".
+- **Q6 (Cuarto Parcial, química, Ley de Hess para entalpía de formación
+  del acetileno)** — usando los valores del enunciado TAL CUAL (sin
+  conversión kcal↔kJ) se reproduce EXACTO el valor de la opción D
+  (226,3), mientras que una conversión de unidades "correcta"
+  dimensionalmente da un resultado que no coincide con ninguna opción.
+  Se respondió D basándose en el match numérico exacto, documentando la
+  inconsistencia de unidades del enunciado original en la explicación.
+
+### Técnicas y trampas más notables de este lote
+
+- **"Cañones idénticos" no significa misma velocidad** (Cuarto Parcial,
+  física) — dos proyectiles disparados con la MISMA energía (no la misma
+  velocidad) desde cañones idénticos alcanzan alturas distintas si tienen
+  masas distintas; hay que despejar velocidad a partir de la energía antes
+  de aplicar cinemática.
+- **$g=9{,}8$ vs $g=10$ importa para el match exacto** (Cuarto Parcial,
+  F6/Pregunta 27, energía mecánica de un helicóptero) — solo con
+  $g=9{,}8\ \text{m/s}^2$ (no $g=10$) se reproduce el valor exacto de la
+  opción D ($2{,}952\times10^7$).
+- **Factorización de Sophie Germain** ($4x^4+8x^2y^4+9y^8$) reaparece en
+  este lote, reforzando el patrón ya visto en secciones anteriores de que
+  esta factorización específica es recurrente en el banco UMSS.
+- **Genética con alelo letal** (Primer Parcial 2-2006, biología) — hay que
+  recalcular las proporciones SOLO entre los sobrevivientes, no sobre el
+  total de la progenie esperada por Mendel.
+- **Tangente-secante y secante-secante en circunferencias**
+  (semidiferencia de arcos) y **teorema de las cuerdas que se cortan**
+  reaparecen en varias preguntas de geometría de este lote — mismo
+  principio de "no memorices el atajo, rederivá desde el teorema del
+  ángulo inscrito" que ya se documentó en la sección 13.
+
+---
+
+## 15. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1210,7 +1309,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 15. Próximos pasos sugeridos
+## 16. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
