@@ -80,6 +80,11 @@ export interface ExamenBanco {
   // Distingue examenes del MISMO año (la UMSS toma varias convocatorias):
   opcion?: string;                  // "1ra Opción", "2da Opción", "3ra Opción"...
   titulo?: string;                  // display explicito opcional, ej "Examen de Ingreso 1-2023 (1ra Opción)"
+  // Distingue Examenes de Admision (el banco principal) de Parciales/Finales
+  // de Curso Propedeutico/Pre-Facultativo. Default "admision" si no se
+  // especifica en el frontmatter — retrocompatible. /resueltos usa este
+  // campo para mostrar un toggle entre ambas categorias.
+  categoria?: string;
   preguntas: PreguntaBanco[];
 }
 
@@ -93,6 +98,7 @@ export interface ExamenMetadata {
   total_preguntas: number;
   opcion?: string;
   titulo?: string;
+  categoria?: string;
   areas_resumen: { area: string; cantidad: number }[];
 }
 

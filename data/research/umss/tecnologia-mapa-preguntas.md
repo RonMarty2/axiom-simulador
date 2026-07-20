@@ -99,8 +99,13 @@ exigir idéntico.
 | 2-2022 (3ra Opción), 5-ago-2022 | `2022-3op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F10 marcadas VERIFICAR (sin figura nítida) |
 | 1-2005 (1ra Opción) | `2005-1op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — examen más antiguo del banco, sin sección de Biología |
 | 1-2005 (2da Opción) | `2005-2op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — Q13 (calcio en tejido óseo) es un "Ninguno" real, verificado |
+| 2-2005 (1ra Opción) | `2005-1op-2-2005.md` | 20 | ✅ Mapeado completo (100%) — Q12 (números cuánticos) es un "Ninguno" real |
+| 2-2005 (2da Opción) | `2005-2op-2-2005.md` | 20 | ✅ Mapeado completo (100%) — Q20 (potencial eléctrico) es un "Ninguno" demostrable algebraicamente |
+| 1-2006 (1ra Opción) | `2006-1op-1-2006.md` | 20 | ✅ Mapeado completo (100%) — primer examen viejo CON Biología; A4 es un "Ninguno" real |
+| 1-2006 (2da Opción) | `2006-2op-1-2006.md` | 20 | ⚠️ 19/20 mapeadas — F12 (circuito de 4 resistencias) marcada VERIFICAR (topología ambigua) |
+| Primer Parcial Propedéutico I-2006 | `2006-parcial1-1-2006.md` | 38 | ⚠️ 37/38 mapeadas — **categoría `parcial_curso`, separada de Admisión** — G12 es un "Ninguno" real |
 
-**Total preguntas mapeadas: 204** (194 resueltas con certeza + 10 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 322** (311 resueltas con certeza + 11 pendientes de figura, documentadas igual).
 
 ---
 
@@ -1001,7 +1006,93 @@ exigir idéntico.
 
 ---
 
-## 13. Patrones transversales detectados (entre exámenes)
+## 13. Exámenes 2-2005, 1-2006 y Primer Parcial Propedéutico I-2006
+
+> **Cambio de metodología**: estos 5 exámenes (118 preguntas en total) se
+> procesaron en PARALELO usando agentes independientes (uno por examen),
+> cada uno con instrucciones explícitas de la misma rigurosidad usada
+> manualmente en las secciones anteriores (verificación numérica completa
+> mostrada antes del contenido final, política "no adivinar" con marca
+> VERIFICAR para preguntas dependientes de figura, "Ninguno" cuando el
+> cálculo no matchea ninguna opción). Cada resultado fue luego
+> RE-VERIFICADO de forma independiente por Claude con Python antes de
+> subir el archivo — no se confió ciegamente en ningún agente. Resultado:
+> 116/118 preguntas resueltas con certeza total, 2 marcadas VERIFICAR por
+> ambigüedad genuina de figura no incluida en el texto del PDF.
+
+> **Categoría nueva**: el Primer Parcial Propedéutico I-2006 es el primer
+> contenido cargado con `categoria: parcial_curso` en el frontmatter — el
+> campo por defecto es `admision` (retrocompatible con todo lo cargado
+> antes). `/resueltos` ahora muestra un toggle "Exámenes de Admisión" /
+> "Parciales de Curso Propedéutico" cuando ambas categorías existen para
+> la facultad del usuario, para no mezclar ambos tipos de contenido.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Q12 (2-2005, 1ra Opción, química)** — un ion con números cuánticos
+  específicos, tras ganar 3 y perder 7 electrones, resulta ser Cloro
+  (Z=17) por reconstrucción de la configuración electrónica — ninguna de
+  las 4 opciones (Ca, Sc, Ti, V) es Cloro.
+- **Q20 (2-2005, 2da Opción, física)** — pedían el punto donde el
+  potencial eléctrico de DOS CARGAS POSITIVAS es cero; como $V=kq/r$ es
+  escalar y ambos términos son positivos para cualquier carga positiva,
+  la suma nunca puede ser cero en un punto finito — demostrable
+  puramente algebraicamente, sin necesitar ningún dato numérico extra.
+- **A4 (1-2006, 1ra Opción, aritmética)** — suma de progresión aritmética
+  filtrada por una condición ("mayores que 67"): el resultado riguroso
+  (410) no coincide con ninguna opción.
+- **G12 (Parcial Propedéutico, geometría)** — ángulos conjugados externos
+  con una condición de "triplicado", da dos valores posibles (55° y
+  125°) y ninguno coincide con las 4 opciones.
+
+### Preguntas VERIFICAR (figura no incluida en el texto)
+
+- **F12 (1-2006, 2da Opción, física)** — circuito de 4 resistencias
+  iguales entre los puntos "a" y "b". Se probaron 5 topologías serie/
+  paralelo razonables; DOS de ellas (distintas entre sí) dan resultados
+  "limpios" que coinciden con opciones DIFERENTES (3Ω y 2Ω) — ambigüedad
+  genuina que solo la figura real puede resolver.
+- La misma pregunta de circuito con 4 resistencias NO aparece en ningún
+  otro examen del banco — a diferencia del patrón de F9/F10 (tiro
+  parabólico con puntos A/B) que sí se repite exacto entre convocatorias.
+
+### Técnicas y trampas más notables de este lote
+
+- **Reconstrucción de datos truncados por OCR** (Parcial Propedéutico,
+  preguntas de segmentos consecutivos G11 y A7): el PDF original tenía
+  fórmulas parcialmente cortadas en la extracción de texto. En vez de
+  adivinar, el agente probó relaciones adicionales razonables y se quedó
+  con la que dio un resultado LIMPIO e INDEPENDIENTE de la variable libre
+  restante (ej. $\overline{AE}=48$ sin importar el valor de $q$) — una
+  señal fuerte de que la reconstrucción es correcta, documentada
+  explícitamente en la explicación de cada pregunta para que quede claro
+  que no es una lectura literal del PDF original.
+- **Masa atómica con símbolo mal impreso** (Parcial Propedéutico, Q16
+  química): el cálculo riguroso da masa atómica = 30,00 exacto, pero la
+  opción B lista "30 Sn" (Sn real = 118,7, no 30) — se priorizó el
+  VALOR NUMÉRICO verificado sobre el símbolo químico impreso, que
+  parece ser un error de tipeo del banco original.
+- **Sistema de ecuaciones con dos soluciones válidas, una sola en las
+  opciones** (2-2006 2da Opción, A8: raíz triple de otra): la ecuación
+  cuadrática en el parámetro $k$ da DOS soluciones matemáticamente
+  válidas ($k=4$ y $k=44/3$), pero solo una está entre las opciones —
+  recordatorio de verificar todas las raíces antes de descartar.
+- **"Vendió/compró con pérdidas en cascada"** (Parcial Propedéutico, A7
+  huevos): dos porcentajes de pérdida en cascada (rotura al comprar,
+  regalo al vender) que hay que aplicar en el ORDEN correcto y en la
+  dirección correcta (dividir para "deshacer" una pérdida, no restar el
+  porcentaje directamente).
+- **Ángulo entre bisectrices de la base de un triángulo isósceles**
+  (Parcial Propedéutico, G10): fórmula reutilizada del ángulo del
+  incentro ($90°+V/2$), la misma técnica de fondo que ya había aparecido
+  en el examen de geometría 2-2025 (2da Opción) con el ángulo entre
+  bisectrices de un cuadrilátero (patrón #4 de la sección de patrones
+  transversales) — confirma que "no memorices la fórmula rápida, rederivá
+  desde el incentro" es un principio recurrente en este banco.
+
+---
+
+## 14. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1119,7 +1210,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 14. Próximos pasos sugeridos
+## 15. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
