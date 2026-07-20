@@ -135,16 +135,18 @@ function f10(): Figura {
   // (dirección 143+90 = 233°, el lado contrario al bloque).
   const ANCHO_BANDA = 8;
   const banda = [T, E, avanzar(E, INCLINACION + 90, ANCHO_BANDA), avanzar(T, INCLINACION + 90, ANCHO_BANDA)];
-  const bloque = bloqueSobre(avanzar(C, INCLINACION, 228), INCLINACION, 34, 26);
-  const M200 = avanzar(avanzar(C, INCLINACION, 132), INCLINACION + 90, 22); // etiqueta 200 m, bajo la banda
+  // bloque GRANDE, casi cuadrado, al tope de la banda (como el PDF)
+  const bloque = bloqueSobre(avanzar(C, INCLINACION, 224), INCLINACION, 46, 38);
+  const M200 = avanzar(avanzar(C, INCLINACION, 128), INCLINACION + 90, 22); // etiqueta 200 m, bajo la banda
 
   verificarAngulo("37° entre plano y horizontal", 37, anguloEn(C, T, { x: C.x - 60, y: C.y }));
 
-  const arco37 = arcoAngulo(C, INCLINACION, 180, 22, 31);
+  // arco más amplio y etiqueta bien adentro de la cuña, separada de la banda
+  const arco37 = arcoAngulo(C, INCLINACION, 180, 27, 45);
 
   const el: Elemento[] = [
-    // horizontal punteada: hacia la IZQUIERDA del cruce (como el PDF, no a la derecha)
-    { tipo: "linea", de: { x: C.x - 118, y: C.y }, a: { x: C.x + 8, y: C.y }, rol: "trazo", punteada: true },
+    // horizontal punteada: mayormente a la IZQUIERDA del cruce, asomando un poco a la derecha (como el PDF)
+    { tipo: "linea", de: { x: C.x - 118, y: C.y }, a: { x: C.x + 34, y: C.y }, rol: "trazo", punteada: true },
     // plano inclinado como banda gris
     { tipo: "poligono", puntos: banda, rol: "trazo", relleno: true, rellenoColor: "#d5d5d0" },
     // bloque gris (como el PDF)
@@ -152,7 +154,8 @@ function f10(): Figura {
     // las DOS rayitas que delimitan el tramo de 200 m (arriba bajo el bloque, abajo en P)
     { tipo: "linea", de: avanzar(tick1, INCLINACION - 90, 4), a: avanzar(tick1, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
     { tipo: "linea", de: avanzar(P, INCLINACION - 90, 4), a: avanzar(P, INCLINACION + 90, ANCHO_BANDA + 4), rol: "trazo", grosor: 1.2 },
-    { tipo: "texto", en: { x: P.x + 34, y: P.y + 6 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
+    // P pegada a su rayita, arriba-derecha (como el PDF)
+    { tipo: "texto", en: { x: P.x + 24, y: P.y - 8 }, texto: "P", rol: "trazo", tam: 13, negrita: true, cursiva: true },
     // 200 m a lo largo del plano, entre las dos rayitas
     { tipo: "texto", en: M200, texto: "200 m", rol: "trazo", tam: 12, rot: 37, cursiva: true },
     // arco 37° con la etiqueta pegada al vértice (como el PDF)
