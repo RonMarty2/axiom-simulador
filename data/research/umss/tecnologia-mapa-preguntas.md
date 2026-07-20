@@ -97,8 +97,9 @@ exigir idéntico.
 | 2-2022 (2da Opción), 28-jun-2022 | `2022-2op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F9 marcadas VERIFICAR (sin figura nítida) |
 | 1-2023 (3ra Opción), 7-feb-2023 | `2023-3op-1-2023.md` | 20 | ⚠️ 19/20 mapeadas — G8 marcada VERIFICAR (sin figura nítida) |
 | 2-2022 (3ra Opción), 5-ago-2022 | `2022-3op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F10 marcadas VERIFICAR (sin figura nítida) |
+| 1-2005 (1ra Opción) | `2005-1op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — examen más antiguo del banco, sin sección de Biología |
 
-**Total preguntas mapeadas: 164** (154 resueltas con certeza + 10 pendientes de figura, documentadas igual).
+**Total preguntas mapeadas: 184** (174 resueltas con certeza + 10 pendientes de figura, documentadas igual).
 
 ---
 
@@ -844,7 +845,86 @@ exigir idéntico.
 
 ---
 
-## 11. Patrones transversales detectados (entre exámenes)
+## 11. Examen 1-2005 (1ra Opción)
+
+> Primer examen HISTÓRICO cargado (el más antiguo del banco hasta ahora).
+> Formato distinto a los exámenes modernos: sin sección de Biología (solo
+> Matemáticas 10 preguntas sin subdividir en el PDF, Química 5, Física 5),
+> y sin fecha exacta en el PDF (solo "GESTIÓN I-2005"). Las 20 preguntas se
+> verificaron con cálculo numérico independiente — 100% de este examen,
+> el primero en llegar a ese nivel de cobertura sin ninguna VERIFICAR.
+
+### Matemáticas (Aritmética-Álgebra + Trigonometría)
+
+**1 · Edades, tres personas con condición temporal retrospectiva** (difícil)
+- 🎯 Técnica: plantear una variable por persona y traducir CADA condición temporal (ahora / hace 8 años) en su propia ecuación lineal — con 3 incógnitas hacen falta 3 ecuaciones independientes, obtenidas sistemáticamente dato por dato.
+
+**2 · Ecuación fraccionaria, suma de raíces sin resolver la cuadrática completa** (difícil)
+- 🎯 Técnica: para una cuadrática $Ax^2+Bx+C=0$, la suma de raíces es directamente $-B/A$ — no hace falta resolver la ecuación completa (ni hallar $C$) para responder qué pide este tipo de pregunta.
+- ⚡ Atajo: alcanza con identificar los coeficientes $A$ y $B$ tras multiplicar en cruz y agrupar, sin necesitar $C$ en absoluto.
+
+**3 · Ecuación irracional, racionalización con conjugado** (difícil)
+- 🎯 Técnica: cuando una fracción tiene denominador irracional de la forma $\sqrt a-\sqrt b$, racionalizar multiplicando por el conjugado ANTES de intentar despejar — simplifica la ecuación a una forma directa en vez de manipular raíces anidadas.
+
+**4 · Progresión aritmética, medios interpolados desde la suma total** (medio)
+- 🎯 Técnica: la fórmula de suma de PA usando solo extremos ($S=\frac{a_1+a_n}{2}\times n$) permite plantear directamente una ecuación en el número de términos, sin necesitar conocer la razón.
+
+**5 · Identidad trigonométrica, suma de soluciones en un intervalo** (difícil)
+- 🎯 Técnica: expresar TODO en senos y cosenos con denominador común hace aparecer la identidad pitagórica ($\text{sen}^2+\cos^2=1$) casi automáticamente, colapsando la ecuación a una forma simple factorizable.
+- ⚠️ Trampa: una de las dos soluciones "candidatas" de la factorización ($\cos x=0$) hace indefinida la secante del enunciado original — hay que descartarla, no incluirla en la suma final.
+
+**6 · División euclidiana, número de dos cifras desde dos condiciones de cociente/resto** (medio)
+- 🎯 Técnica: cada condición de "dividendo=divisor×cociente+resto" se traduce directamente en una ecuación lineal — con dos condiciones (una por cada dígito como divisor) se arma un sistema de 2 ecuaciones con 2 incógnitas (las cifras).
+
+**7 · Relaciones de Vieta, suma de cuadrados de raíces** (medio)
+- 🎯 Técnica: la identidad $\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta$ conecta directamente con las relaciones de Vieta ($\alpha+\beta=p$, $\alpha\beta=q$) sin necesitar hallar las raíces individuales — aplicación directa una vez reconocido el patrón.
+
+**8 · Teorema del resto con divisor de coeficiente principal distinto de 1** (dificil)
+- 🎯 Técnica: el teorema del resto sigue aplicando aunque el divisor no sea exactamente $(x-a)$ sino un múltiplo, como $4x+4=4(x+1)$ — el resto es el mismo que dividiendo entre $(x+1)$ directamente ($P(-1)$), solo cambia el cociente.
+
+**9 · Sistema de ecuaciones con parámetro, usando una condición extra** (medio)
+- 🎯 Técnica: usar la condición adicional ($a+b=3$) junto con la ecuación SIN el parámetro para hallar los valores numéricos primero — recién con $a,b$ conocidos se despeja el parámetro de la segunda ecuación.
+
+**10 · Mezclas con reemplazo parcial por sustancia pura** (medio)
+- 🎯 Técnica: al sacar $x$ litros de una MEZCLA, se pierde soluto en la MISMA proporción que existe en la mezcla (no el 100%) — y al reponer con sustancia pura, esos mismos $x$ litros SÍ aportan el 100%. Confundir estas dos proporciones es el error más común en este tipo de problema.
+
+### Química
+
+**11 · Conversión de escalas de temperatura, diferencia entre valores en distintas unidades** (medio)
+- 🎯 Técnica: convertir AMBAS temperaturas a la misma escala antes de restar — mezclar unidades (restar directamente 134-30 sin convertir) es el error más común y da un resultado sin sentido físico.
+
+**12 · Calorimetría, mezcla de dos masas de la misma sustancia** (medio)
+- 🎯 Técnica: en un recipiente aislado, el calor perdido por la porción caliente iguala exactamente al calor ganado por la fría — como es la MISMA sustancia (agua), el calor específico se cancela en ambos lados, dejando una ecuación simple en masa y diferencia de temperatura.
+
+**13 · Molalidad, masa de soluto desde definición directa** (medio)
+- 🎯 Técnica: la molalidad usa KILOGRAMOS de solvente (no gramos ni masa de solución) — convertir unidades antes de despejar es el paso que más se pasa por alto.
+
+**14 · Estequiometría con agua como reactivo (no solo medio)** (difícil)
+- 🎯 Técnica: cuando el agua aparece como REACTIVO explícito en la ecuación (no solo como solvente), hay que balancearla como cualquier otra sustancia — contar bien H y O en ambos lados para no perder coeficientes.
+
+**15 · Fórmula empírica desde composición porcentual, verificación de nomenclatura** (difícil) — **respuesta real: E) Ninguno**
+- ⚠️ **Trampa fuerte**: el procedimiento estándar de fórmula empírica (moles por 100g, dividir entre el menor) da una proporción Cr:S:O=1:3:9 EXACTA (verificada al 0,01% contra los datos del enunciado) — pero esa proporción NO corresponde a ningún compuesto real con nomenclatura clásica "-oso/-ico" (que requeriría Cr²⁺ o Cr³⁺, dando proporciones Cr:S de 1:1 o 2:3, ninguna de las cuales es 1:3). Verificar los porcentajes de las opciones reales (ej. sulfito crómico real = 30,2% Cr) contra los datos del enunciado es la única forma de detectar que ninguna opción nombrada es correcta — quien solo identifica "sulfito" (por el O:S=3) y elige la opción con esa palabra sin verificar el Cr cae en el distractor.
+
+### Física
+
+**16 · Tiro parabólico simétrico horizontal, distancia total entre dos lanzamientos opuestos** (medio)
+- 🎯 Técnica: cuando dos proyectiles parten del MISMO punto en sentidos horizontales opuestos con la misma rapidez y ángulo, la distancia total entre ellos al aterrizar es el DOBLE del alcance horizontal de uno solo — no hace falta descomponer velocidades verticales si el tiempo de vuelo ya viene dado directamente.
+
+**17 · Coeficiente de restitución, altura tras el rebote** (medio)
+- ⚠️ Trampa: el coeficiente de restitución relaciona VELOCIDADES ($v_{rebote}=e\cdot v_{impacto}$), pero como la altura depende del CUADRADO de la velocidad, la altura tras el rebote es $e^2$ veces la original, NO $e$ veces — un error muy común es aplicar $e$ directamente a la altura.
+
+**18 · Rizo (loop) con fricción parcial, condición mínima en la cima** (difícil)
+- 🎯 Técnica: la condición mínima para completar un rizo es que en el punto más alto, el peso solo alcance para proveer la fuerza centrípeta exacta ($v_{top}^2=gR$) — combinado con conservación de energía en los tramos SIN fricción y pérdida de energía explícita solo en el tramo CON fricción, se arma una ecuación lineal en $R$.
+
+**19 · Campo eléctrico de dos cargas simétricas, cancelación de componentes** (difícil)
+- 🎯 Técnica: cuando dos cargas iguales están dispuestas simétricamente respecto a la línea que las conecta con el punto de interés, las componentes PERPENDICULARES a esa línea se cancelan automáticamente por simetría — solo hace falta sumar las componentes a lo largo del eje de simetría, evitando descomponer vectores innecesariamente.
+
+**20 · Capacitores, combinación serie dentro de paralelo** (medio)
+- ⚠️ Trampa: capacitores en serie se combinan como resistencias en PARALELO (inversos) y capacitores en paralelo se SUMAN directamente — es el patrón EXACTAMENTE INVERSO al de resistencias, y confundirlo es el error más común en circuitos con capacitores.
+
+---
+
+## 12. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -947,9 +1027,22 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
     nítida de este problema (vía foto de Ronald), la solución resuelve
     DOS preguntas del banco a la vez, no solo una.
 
+12. **Exámenes históricos (pre-2020) tienen un formato distinto al moderno**
+    — el examen 1-2005 confirma que las convocatorias antiguas de FCyT NO
+    siempre tienen las 5 áreas modernas (Aritmética-Álgebra, Geometría-
+    Trigonometría, Física, Química, Biología a 4 preguntas cada una): este
+    en particular tiene Matemáticas sin subdividir (10 preguntas), Química
+    (5) y Física (5), SIN Biología. Consecuencia práctica: al cargar
+    exámenes viejos, no asumir la estructura moderna de memoria — revisar
+    el PDF real, clasificar cada pregunta de Matemáticas por su técnica
+    real (álgebra vs trigonometría) para mantener la taxonomía del banco
+    consistente, y ajustar el `ponderacion` del frontmatter a la
+    composición REAL de ese examen específico (el campo es un
+    `Record<string, number>` flexible, no requiere las 5 áreas).
+
 ---
 
-## 12. Próximos pasos sugeridos
+## 13. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
