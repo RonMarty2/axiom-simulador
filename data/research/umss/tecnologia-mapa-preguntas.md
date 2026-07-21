@@ -1281,7 +1281,92 @@ exigir idéntico.
 
 ---
 
-## 16. Patrones transversales detectados (entre exámenes)
+## 16. Tres Parciales 1-2007 + Admisión Única Opción 2-2007 + Primer Parcial 2-2007
+
+> **Mismo método que las secciones 13-15**: 5 exámenes (176 preguntas)
+> resueltos en paralelo con un agente por examen, cada uno con
+> verificación numérica completa (uno de ellos, el Segundo Parcial
+> 1-2007, incluyó verificación simbólica propia con 22 usos de
+> herramientas) y política "no adivinar", luego RE-VERIFICADOS por
+> Claude con Python antes de subir.
+
+> **Estructura nueva detectada**: el Primer Parcial 2-2007 tiene una
+> distribución de preguntas por área DISTINTA a todos los parciales
+> anteriores del banco (Álgebra-Aritmética 5, Geometría-Trigonometría 5,
+> Química 8, Física 8, Biología 16 = 42 preguntas), pero cada área vale
+> 80 puntos (20% parejo) pese a la cantidad desigual de preguntas — la
+> `ponderacion` del frontmatter refleja el peso real en puntos, no la
+> proporción de preguntas por área, algo que hay que revisar caso por
+> caso en cada examen nuevo en vez de asumir siempre el patrón 7/7/7/7/10.
+
+> **Cobertura**: 161/176 preguntas con match exacto a una opción, 15
+> "Ninguno/Ninguna" reales confirmados con cálculo mostrado (concentrados
+> sobre todo en el Segundo Parcial 1-2007 y en la Física del Primer
+> Parcial 2-2007), 0 preguntas VERIFICAR por figura faltante en este
+> lote.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Pregunta 1 (Segundo Parcial 1-2007, aritmética, planteo de
+  ecuación con jornal diario)** — el jornal riguroso da $225/7\approx
+  32.14$ Bs., que no es entero y no coincide con ninguna opción.
+- **Pregunta 10 (Segundo Parcial 1-2007, geometría, rectángulo con
+  diagonales)** — resuelto por coordenadas: $MC\approx1.86$, no coincide
+  con ninguna opción (7, 2, 3, 5).
+- **Pregunta 17 (Segundo Parcial 1-2007, química, densidad de mezcla
+  He/O2)** — trampa clásica: la fracción MOLAR de He (≈66.7%) coincide
+  numéricamente con una de las opciones, pero la pregunta pide la
+  fracción en MASA (≈19.9%), que no coincide con ninguna. Recordatorio
+  de no confundir ambas magnitudes.
+- **Pregunta 19 (Segundo Parcial 1-2007, química, neutralización
+  H2SO4/NaOH)** — 180.7mL calculados rigurosamente vs. 179mL de la
+  opción más cercana, diferencia de ~1mL no redondeable con los datos
+  dados.
+- **Pregunta 26 (Segundo Parcial 1-2007, física, fuerza de resistencia
+  de una bala)** — 1875N calculados con el teorema trabajo-energía, no
+  coincide con ninguna de las 4 opciones (9375 a 13000N).
+- **Preguntas 22, 25, 26 (Primer Parcial 2-2007, física)** — tres
+  "Ninguno" consecutivos en el bloque de física: altura de caída libre
+  (~44.1m vs. opciones de 300-600m), ángulo de disparo por razón
+  alcance/altura (~33.7° vs. opciones de 53°-76°), y velocidad inicial
+  de un proyectil (ningún valor con $g=9.8$ o $g=10$ reproduce el
+  alcance de 4km dado).
+
+### Técnicas y trampas más notables de este lote
+
+- **Factorización ciclotómica de $x^{32}-1$** (Segundo Parcial 1-2007,
+  Pregunta 2) — aplicar diferencia de cuadrados repetidamente
+  ($x^{2^k}-1=(x^{2^{k-1}}-1)(x^{2^{k-1}}+1)$) da 6 factores
+  irreducibles sobre los racionales, cada uno de la forma
+  $x^{2^k}+1$.
+- **MCM de tres polinomios cúbicos/cuárticos** (Segundo Parcial 1-2007,
+  Pregunta 3) — factorización compartida $(x^2+x+1)$ entre los tres
+  polinomios, reforzando el patrón de "buscar factores comunes antes de
+  multiplicar todo".
+- **Triángulo de contacto del incentro** (Segundo Parcial 1-2007,
+  Pregunta 11) — fórmula $\angle DFE=90°-A/2$ para el ángulo en el punto
+  de tangencia del lado opuesto, verificada numéricamente con varios
+  triángulos distintos que comparten el mismo ángulo $A$.
+- **Segmentos consecutivos con múltiples variables enlazadas**
+  (Admisión Única Opción 2-2007, Pregunta 5, y Primer Parcial 2-2007,
+  Pregunta 6) — patrón recurrente de plantear los segmentos base y
+  usar sustitución algebraica en vez de intentar visualizar directamente
+  las relaciones dadas.
+- **Enunciado matemáticamente inconsistente pero resoluble** (Primer
+  Parcial 2-2007, Pregunta 2) — "dos números primos relativos" con
+  "MCD igual a 9" es una contradicción textual (coprimos implica
+  MCD=1); se interpretó razonablemente como que el MCD real es 9, dando
+  una respuesta consistente con las opciones.
+- **Notación de moneda boliviana con símbolo de dólar** (Segundo
+  Parcial 1-2007, Pregunta 1) — el PDF original usa "\$b." para
+  "Bolivianos" (heredado de una fuente tipográfica antigua), que se
+  transcribió como texto plano "Bs." en el .md para no chocar con los
+  delimitadores `$...$` de KaTeX — a tener en cuenta en futuros PDFs con
+  montos en bolivianos.
+
+---
+
+## 17. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1399,7 +1484,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 17. Próximos pasos sugeridos
+## 18. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
