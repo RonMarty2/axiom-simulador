@@ -36,6 +36,10 @@ export default function ResueltosPage() {
   const [facultad, setFacultad] = useState<Facultad | null>(null);
   const [examenes, setExamenes] = useState<ExamenMetadata[]>([]);
   const [loading, setLoading] = useState(true);
+  // "admision" = Exámenes de Ingreso (default). "parcial_curso" = Parciales/
+  // Finales del Curso Propedéutico/Pre-Facultativo — categoría separada a
+  // pedido explícito: no deben mezclarse en el mismo listado.
+  const [vista, setVista] = useState<"admision" | "parcial_curso">("admision");
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => {
@@ -58,6 +62,9 @@ export default function ResueltosPage() {
 
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
 
+  const examenesVista = examenes.filter((x) => (x.categoria ?? "admision") === vista);
+  const hayParciales = examenes.some((x) => x.categoria === "parcial_curso");
+
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
@@ -72,7 +79,30 @@ export default function ResueltosPage() {
           </p>
         </div>
 
-        {examenes.length === 0 ? (
+        {hayParciales && (
+          <div style={{ display: "flex", gap: 8, marginBottom: 20 }}>
+            {(["admision", "parcial_curso"] as const).map((v) => (
+              <button
+                key={v}
+                onClick={() => setVista(v)}
+                style={{
+                  padding: "8px 16px",
+                  borderRadius: 999,
+                  border: `1px solid ${vista === v ? (facultad?.color ?? "var(--accent)") : "var(--border)"}`,
+                  background: vista === v ? `${facultad?.color ?? "#6366F1"}15` : "transparent",
+                  color: vista === v ? (facultad?.color ?? "var(--accent)") : "var(--fg-muted)",
+                  fontWeight: 700,
+                  fontSize: 13,
+                  cursor: "pointer",
+                }}
+              >
+                {v === "admision" ? "🎓 Exámenes de Admisión" : "📝 Parciales de Curso Propedéutico"}
+              </button>
+            ))}
+          </div>
+        )}
+
+        {examenesVista.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
             <div style={{ fontSize: 60, marginBottom: 12 }}>📭</div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>Aún no hay exámenes resueltos</h3>
@@ -82,7 +112,7 @@ export default function ResueltosPage() {
           </div>
         ) : (
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
-            {examenes
+            {examenesVista
               .sort((a, b) => (b.anio - a.anio) || (b.fecha_examen ?? "").localeCompare(a.fecha_examen ?? ""))
               .map((ex) => (
               <Link

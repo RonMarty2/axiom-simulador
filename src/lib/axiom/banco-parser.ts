@@ -33,6 +33,7 @@ interface FrontmatterCrudo {
   // archivos del mismo año colisionan en el mismo id y se pisan entre si.
   opcion?: string;      // ej: "1ra Opción", "2da Opción", "3ra Opción"
   titulo?: string;       // ej: "Examen de Ingreso 1-2023 (1ra Opción)" — display explicito, opcional
+  categoria?: string;    // "admision" (default) | "parcial_curso" — separa Examenes de Admision de Parciales/Finales de Curso Propedeutico
 }
 
 const FRONTMATTER_REGEX = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
@@ -85,6 +86,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     ponderacion: front.ponderacion,
     opcion: front.opcion,
     titulo: front.titulo,
+    categoria: front.categoria ?? "admision",
     preguntas,
   };
 }
@@ -154,6 +156,7 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     ponderacion,
     opcion: out.opcion ? String(out.opcion) : undefined,
     titulo: out.titulo ? String(out.titulo) : undefined,
+    categoria: out.categoria ? String(out.categoria) : undefined,
   };
 }
 

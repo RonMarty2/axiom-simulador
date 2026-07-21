@@ -93,8 +93,19 @@ exigir idéntico.
 | 2-2025 (2da Opción, Versión B), 30-jul-2025 | `2025-2op-2-2025-version-b.md` | 4 | ✅ Mapeado completo |
 | 1-2025 (3ra Opción), 20-feb-2025 | `2025-3op-1-2025.md` | 12 | ✅ Mapeado completo |
 | 2-2022 (1ra Opción), 31-may-2022 | `2022-1op-2-2022.md` | 20 | ✅ Mapeado — F11 con nota abierta (ver más abajo) |
+| 1-2023 (2da Opción), 19-ene-2023 | `2023-2op-1-2023.md` | 20 | ⚠️ 15/20 mapeadas — G5,G6,G7,F9,F12 marcadas VERIFICAR (sin figura) |
+| 2-2022 (2da Opción), 28-jun-2022 | `2022-2op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F9 marcadas VERIFICAR (sin figura nítida) |
+| 1-2023 (3ra Opción), 7-feb-2023 | `2023-3op-1-2023.md` | 20 | ⚠️ 19/20 mapeadas — G8 marcada VERIFICAR (sin figura nítida) |
+| 2-2022 (3ra Opción), 5-ago-2022 | `2022-3op-2-2022.md` | 20 | ⚠️ 18/20 mapeadas — G7,F10 marcadas VERIFICAR (sin figura nítida) |
+| 1-2005 (1ra Opción) | `2005-1op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — examen más antiguo del banco, sin sección de Biología |
+| 1-2005 (2da Opción) | `2005-2op-1-2005.md` | 20 | ✅ Mapeado completo (100%) — Q13 (calcio en tejido óseo) es un "Ninguno" real, verificado |
+| 2-2005 (1ra Opción) | `2005-1op-2-2005.md` | 20 | ✅ Mapeado completo (100%) — Q12 (números cuánticos) es un "Ninguno" real |
+| 2-2005 (2da Opción) | `2005-2op-2-2005.md` | 20 | ✅ Mapeado completo (100%) — Q20 (potencial eléctrico) es un "Ninguno" demostrable algebraicamente |
+| 1-2006 (1ra Opción) | `2006-1op-1-2006.md` | 20 | ✅ Mapeado completo (100%) — primer examen viejo CON Biología; A4 es un "Ninguno" real |
+| 1-2006 (2da Opción) | `2006-2op-1-2006.md` | 20 | ⚠️ 19/20 mapeadas — F12 (circuito de 4 resistencias) marcada VERIFICAR (topología ambigua) |
+| Primer Parcial Propedéutico I-2006 | `2006-parcial1-1-2006.md` | 38 | ⚠️ 37/38 mapeadas — **categoría `parcial_curso`, separada de Admisión** — G12 es un "Ninguno" real |
 
-**Total preguntas mapeadas: 84.**
+**Total preguntas mapeadas: 322** (311 resueltas con certeza + 11 pendientes de figura, documentadas igual).
 
 ---
 
@@ -475,7 +486,887 @@ exigir idéntico.
 
 ---
 
-## 7. Patrones transversales detectados (entre exámenes)
+## 7. Examen 1-2023 (2da Opción) · 19-ene-2023
+
+> Cargado bajo la directiva "agreguemos todos de una vez y después
+> arreglamos" (19-jul-2026): prioridad en CONTENIDO verificado, figuras
+> deferidas. 15/20 respuestas verificadas con cálculo numérico
+> independiente. Las 5 preguntas que dependen de una figura geométrica o
+> vectorial precisa (G5, G6, G7, F9, F12) NO se pudieron resolver con
+> certeza solo desde el texto — quedan marcadas `**respuesta:** E` como
+> placeholder explícito con `VERIFICAR` en la explicación, pendientes del
+> recorte nítido del PDF. Ninguna figura fue construida todavía para este
+> examen.
+
+### Aritmética-Álgebra
+
+**A1 · Edades proporcionales, condición futura** (medio)
+- 🎯 Técnica: "proporcional a" se traduce en escribir cada cantidad como $k\times$razón — convierte un reparto proporcional con condición futura en una sola ecuación lineal en $k$, igualando dos razones cualquiera.
+- Sin trampa mayor una vez planteada la ecuación — cuidado solo con no confundir a quién corresponde cada razón.
+
+**A2 · Binomio de Newton vía diferencia de potencias, término N-ésimo** (difícil)
+- 🎯 Técnica: reconocer $\dfrac{a^{10}-b^{10}}{a-b}$ como la suma de 10 términos de una progresión geométrica de exponentes (no como un binomio de Newton clásico) — factorización de diferencia de potencias iguales.
+- ⚠️ Trampa: contar bien el índice del "sexto término" ($k=5$ si el primero es $k=0$) — un desfase de índice cambia el exponente final.
+
+**A3 · Identidad logarítmica numérica** (difícil)
+- 🎯 Técnica: cuando bases y argumentos son múltiplos entre sí con una relación oculta (acá $12\times18=6^3$, $24\times54=6^4$), la expresión colapsa a una constante — la vía más rápida y confiable es verificar numéricamente con calculadora en vez de buscar la identidad algebraica exacta.
+- ⚡ Atajo: sustitución numérica directa (cambio de base) en vez de perseguir una demostración algebraica general.
+
+**A4 · Teorema del resto con divisor cuadrático (sistema de 3 ecuaciones)** (difícil)
+- 🎯 Técnica: teorema del resto generalizado — dividir por $x^2+5x+6=(x+2)(x+3)$ con resto lineal $(-11x+13)$ significa que $P(-2)$ y $P(-3)$ son ESE resto evaluado en cada raíz, dando 2 ecuaciones más (junto con $P(1)=2$) para un sistema de 3 incógnitas ($a,b,c$).
+- ⚠️ Trampa: factorizar bien el divisor cuadrático antes de evaluar — si no se factoriza correctamente, no se puede aplicar el teorema del resto a cada raíz por separado.
+
+### Geometría-Trigonometría
+
+**G5 · Cuatro semicircunferencias en un cuadrado, radio de circunferencia central** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: probé la lectura "obvia" (semicircunferencia con diámetro = lado completo, radio 2) y encontré una CONTRADICCIÓN geométrica real — con ese radio las 4 semicircunferencias se tocan exactamente en el centro del cuadrado, sin dejar lugar a una circunferencia central de radio positivo. Eso prueba que el radio/apoyo real de las semicircunferencias es otro, pero no se puede determinar sin ver la figura. Marcada E (Ninguno) como placeholder, no como respuesta verificada.
+
+**G6 · Tres cuadrados + triángulo equilátero, área del triángulo** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: la disposición de los 3 cuadrados de lado 12 (en fila, en escalera, u otra) y por qué vértices específicos pasan los 2 lados del triángulo determinan toda la geometría — sin verla, cualquier respuesta sería adivinada.
+
+**G7 · Cuadrado + triángulo equilátero, área sombreada** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: "el triángulo oscuro" es una región sombreada específica que cambia completamente de área según la posición relativa del triángulo equilátero respecto al cuadrado.
+
+**G8 · Suma de diagonales desde un vértice en hexágono regular** (medio)
+- 🎯 Técnica: memorizar las 3 distancias típicas desde un vértice de un hexágono regular de lado $L$: al adyacente $L$, a la diagonal corta (salta 1 vértice) $L\sqrt3$, al opuesto (diámetro) $2L$ — evita tener que recalcular cada distancia con ley de cosenos.
+- ⚡ Atajo: por simetría, $\overline{AE}$ (4 pasos) es igual a la diagonal corta del otro lado ($\sqrt3$) sin necesidad de recalcularla — no hace falta ley de cosenos para ninguna de las tres distancias si se memoriza el patrón.
+
+### Física
+
+**F9 · Suma de cuatro vectores en una circunferencia** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: la suma vectorial depende críticamente de la dirección exacta de cada uno de los 4 vectores (ángulos entre sí). Probé una lectura razonable de los 30° marcados y el resultado no coincidió limpio con ninguna opción — señal de lectura incorrecta, no de error de cálculo. Marcada VERIFICAR en vez de forzar una respuesta.
+
+**F10 · Vectores suma/resta con ángulo entre resultantes, hallar módulo de A** (difícil)
+- 🎯 Técnica: cuando dan $\vec P=\vec A+\vec B$ y $\vec Q=\vec A-\vec B$, sumar las dos ecuaciones cancela $\vec B$ directamente ($\vec P+\vec Q=2\vec A$) — no hace falta despejar $\vec B$ para nada.
+- ⚡ Atajo: aplicar la fórmula del módulo de una suma de vectores ($|\vec P+\vec Q|^2=P^2+Q^2+2PQ\cos\theta$) sobre $\vec P+\vec Q$ directamente, en vez de descomponer todo en componentes x/y.
+
+**F11 · MRU, hora de alcance con salida retrasada** (medio)
+- 🎯 Técnica: medir la posición de cada móvil como fracción de la distancia total en función del tiempo transcurrido desde un ORIGEN COMÚN, con el móvil que sale después usando $(t-\text{retraso})$ en su ecuación.
+- ⚠️ Trampa: mismo patrón que P6 del examen 2-2025 — olvidar el desfase de la hora de salida (usar $t$ en vez de $t-1$ para el auto) da una ecuación y una hora de encuentro incorrectas.
+
+**F12 · Circuito con dos fuentes ideales, lectura de amperímetro** (difícil) — **VERIFICAR (sin figura)**
+- ⚠️ No resoluble desde el texto: resolver por mallas/nodos requiere saber la topología exacta (qué elemento está en qué rama, dónde está el amperímetro) — imposible de reconstruir con certeza sin el diagrama.
+
+### Química
+
+**Q13 · Estequiometría redox (NaMnO₄+HCl→Cl₂), pureza + rendimiento + gas** (difícil)
+- 🎯 Técnica multi-paso: balancear por electrones (Mn⁺⁷→Mn⁺² gana 5e⁻, 2Cl⁻¹→Cl₂ pierde 2e⁻, mcm=10) antes de tocar estequiometría, luego masa→pureza→moles→proporción→rendimiento→gases ideales.
+- ⚠️ Doble trampa: (1) pureza del ácido comercial (36,5%, no HCl puro), (2) rendimiento del 80% se aplica DESPUÉS del cálculo estequiométrico teórico, no antes.
+
+**Q14 · Descenso crioscópico, mezcla anticongelante+agua, temperatura de congelación** (difícil)
+- 🎯 Técnica: misma familia que Q14/Q16 del examen 1ra Opción 2023 — $\Delta T_f=K_c\cdot m$ con molalidad = moles de soluto / kg de SOLVENTE (agua), no de la mezcla total.
+- ⚠️ Trampa: convertir volumen a masa con la densidad de CADA sustancia por separado (el anticongelante y el agua tienen densidades distintas) antes de calcular moles y molalidad.
+
+**Q15 · Dilución de HCl concentrado a una solución menos concentrada** (medio)
+- 🎯 Técnica: lo que se conserva al diluir es la MASA del soluto puro (HCl), no el volumen ni la concentración — igualar masa de HCl en la solución concentrada (antes de diluir) con la masa de HCl en la solución final.
+- ⚠️ Trampa: usar densidades DISTINTAS para la solución concentrada (1,25 g/mL) y la final (1,00 g/mL) — mezclar cuál densidad va con cuál volumen es el error típico.
+
+**Q16 · Descomposición de KClO₃, moles desde volumen de O₂ en gases ideales** (medio)
+- 🎯 Técnica: primero hallar moles de gas con $PV=nRT$, RECIÉN después aplicar la proporción estequiométrica de la ecuación balanceada ($2\text{KClO}_3\rightarrow2\text{KCl}+3\text{O}_2$).
+- Sin trampa mayor más allá de balancear correctamente la ecuación y no invertir la proporción 2:3.
+
+### Biología
+
+**B17-B20 · Preguntas de definición directa** (fáciles/medias, sin trampa matemática)
+- 🎯 Técnica: memorización de conceptos base (virus como parásitos intracelulares obligados, nucleótidos como unidad de ácidos nucleicos, clasificación mono/di/polisacáridos por tamaño, esteroides como subclase de lípidos).
+- ⚠️ B17 repite el mismo patrón de trampa de vocabulario coloquial que B19 del examen 2-2022: "replicarse por sí mismos" suena a algo que un virus SÍ hace coloquialmente, pero técnicamente es justo lo que NO puede hacer sin una célula huésped.
+- ⚠️ B19 (disacáridos) tiene 2 distractores por categoría vecina: la opción A mezcla un polisacárido (celulosa) con un disacárido real (lactosa), y la opción C tiene dos monosacáridos — hay que verificar que AMBOS elementos de la opción pertenezcan a la categoría pedida, no solo uno.
+
+---
+
+## 8. Examen 2-2022 (2da Opción) · 28-jun-2022
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 18/20 respuestas verificadas con cálculo numérico independiente (Python).
+> G7 (área sombreada entre dos cuadrados con arcos) y F9 (altura máxima de
+> tiro parabólico con puntos A/B intermedios) quedan marcadas VERIFICAR:
+> ambas dependen de una lectura exacta de la figura que no pude confirmar
+> con certeza — en ambos casos probé la lectura más directa/plausible y el
+> resultado no coincidió limpio con ninguna opción, señal de que la lectura
+> de la figura no es la correcta, no de un error de cálculo.
+
+### Aritmética-Álgebra
+
+**A1 · Trabajo con obreros, regla de tres inversa tras retirar personal** (fácil)
+- 🎯 Técnica: medir el trabajo en "obrero-días" (constante para una misma fracción de obra) — convierte el problema en una simple división, sin necesitar plantear una regla de tres compuesta explícita.
+- Sin trampa mayor más allá de no perder de vista que falta $\frac13$ de la obra (no la obra completa) para el segundo tramo.
+
+**A2 · Identidad logarítmica con cambio de base** (difícil)
+- 🎯 Técnica: mismo patrón que A1 del examen 1-2023 (1ra Opción) — usar variables auxiliares ($X=\log_ab$, $Y=\log_ac$) y la identidad de cambio de base $\log_ba=1/\log_ab$ para reescribir TODO el problema en términos de $X/Y$, sin necesitar valores numéricos concretos de $a,b,c$.
+- ⚡ Atajo: una vez que $X/Y=a$ (del dato), $E$ resulta ser exactamente $\log_a(Y/X)=\log_a(1/a)=-1$ — sale directo sin manipular logaritmos compuestos adicionales.
+
+**A3 · Progresión geométrica, razón desde relación entre sumas parciales** (medio)
+- 🎯 Técnica: plantear $S_6=9S_3$ con la fórmula de suma de PG, sustituir $u=r^3$ para reducir a una ecuación cuadrática simple en $u$.
+- ⚠️ Trampa: la ecuación factorizada da dos soluciones ($u=1$ o $u=8$) — $u=1$ corresponde a $r=1$, un caso degenerado (la fórmula de suma de PG no aplica con $r=1$, división por cero), hay que descartarlo y quedarse con $u=8\Rightarrow r=2$.
+
+**A4 · Descuentos sucesivos, factor multiplicativo** (fácil)
+- 🎯 Técnica: los descuentos sucesivos se combinan MULTIPLICANDO los factores "lo que queda" (no sumando los porcentajes) — error clásico sumar 25+40+20=85% en vez de multiplicar los factores complementarios.
+
+### Geometría-Trigonometría
+
+**G5 · Mediatriz de un lado, hallar segmento usando triángulos isósceles en cadena** (difícil)
+- 🎯 Técnica: la propiedad clave de la mediatriz (todo punto sobre ella equidista de los extremos del segmento) genera DOS triángulos isósceles encadenados — el primero ($EBC$) da el ángulo, el segundo ($ABE$) da el lado buscado, sin necesitar ley de cosenos ni coordenadas.
+- ⚡ Atajo: no hace falta calcular $BC$ ni $AC$ numéricamente para resolver — el argumento de ángulos (isósceles en cadena) da $EC=AB$ directamente en este caso particular. (Se verificó igual con ley de senos para confirmar: coincide exacto.)
+
+**G6 · Diagonales medias entre puntos medios de lados consecutivos** (difícil) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: mismo tipo de razonamiento que "diagonales trazadas desde $k$ vértices consecutivos de un polígono" pero aplicado a puntos medios de lados — tratar los $m$ puntos medios como una CADENA (no un ciclo cerrado), y las diagonales son los pares no-adyacentes: $\binom{m}{2}-(m-1)=\frac{(m-1)(m-2)}{2}$.
+- ⚠️ **Trampa fuerte**: resolviendo $(m-1)(m-2)=30$ da $m=7$ (exacto, sin resto) y por lo tanto $n=m+4=11$ — un valor que NO está entre las opciones (8,7,6,9), todas números "razonables" para un polígono. Incluso probando la lectura alternativa más simple (sin excluir los pares adyacentes, $\binom{m}{2}=15$) da $n=10$, tampoco en las opciones. Bajo cualquier interpretación razonable, la respuesta es Ninguno.
+
+**G7 · Área sombreada entre semicircunferencias y cuartas circunferencias en 2 cuadrados** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: reconstruí la figura con el arco pequeño (semicircunferencia, diámetro = lado) centrado en el punto medio del lado, y el arco grande (cuarta circunferencia, radio = lado completo) centrado en el vértice opuesto — el área de la región encerrada entre ambos da $18\pi\approx56{,}5$ por cuadrado, un valor CON $\pi$ que no coincide con ninguna opción (todas son enteros limpios). Esto indica que mi lectura de cuál es exactamente la región sombreada (o el centro/radio exacto de algún arco) no es la correcta.
+
+**G8 · Triángulo equilátero inscrito en circunferencia, área en función del radio** (medio)
+- 🎯 Técnica: fórmula directa lado-radio de un equilátero inscrito ($s=r\sqrt3$), sustituida en la fórmula de área de equilátero ($A=\frac{\sqrt3}{4}s^2$). Sin trampa, aplicación directa de dos fórmulas encadenadas.
+
+### Física
+
+**F9 · Tiro parabólico, altura máxima con puntos intermedios A y B** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: la lectura más directa (repartir el tiempo total $t_{AB}=2$s proporcionalmente a las distancias horizontales 30m y 45m, asumiendo que el punto de separación entre ambas ES la vertical del vértice) da una altura de ascenso desde A de apenas 3,2 m — absurdamente chico frente a las opciones (62 a 280 m). Esto sugiere que A y B son puntos intermedios de una trayectoria mucho más grande, y falta un dato (altura de A/B respecto al suelo, o el ángulo de lanzamiento) que no pude confirmar sin el recorte nítido.
+
+**F10 · Circuito serie con dos fuentes, diferencia de potencial entre 2 puntos** (difícil)
+- 🎯 Técnica: recorrer la rama sumando cada caída/subida de potencial en el orden en que aparecen los elementos — resistencias siempre CAEN en el sentido de la corriente asumida, las fuentes según su polaridad dibujada.
+- ⚡ Atajo de verificación: entre las 4 combinaciones posibles de signos de las 2 fuentes, solo UNA da un valor que coincide con alguna opción de respuesta (16V) — esto sirve como comprobación indirecta de la polaridad correcta cuando el texto extraído no preserva perfectamente los símbolos +/− del dibujo original.
+
+**F11 · Dos masas por polea, velocidad al encontrarse** (difícil)
+- 🎯 Técnica: cuando dos masas cuelgan de una misma cuerda por una polea separadas verticalmente por $h$, se "encuentran" cuando cada una se desplazó $h/2$ (la brecha se cierra al doble de lo que se mueve cada una individualmente) — no $h$ completo.
+- ⚡ Atajo de verificación cruzada: resolver por cinemática ($v^2=2ad$) Y por conservación de energía (diferencia de EP = EC total) da el MISMO resultado (12 m/s) — buena práctica para confirmar un resultado antes de darlo por bueno, sobre todo cuando hay dos interpretaciones posibles de qué representa $h$ en la figura (la opción D, $12\sqrt2$, es exactamente el resultado que se obtendría con la lectura alternativa "cada masa recorre $h$ completo" — un distractor bien diseñado para quien no distingue las dos lecturas).
+
+**F12 · Aceleración total en superficie esférica con rozamiento** (difícil) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: la aceleración total en movimiento circular con rozamiento combina DOS componentes perpendiculares (centrípeta $v^2/R$ y tangencial, por el peso menos la fricción) — el módulo final es la suma vectorial (Pitágoras) de ambas.
+- ⚠️ **Trampa fuerte**: calculando por separado da $a_c=4$ m/s² (que coincide EXACTO con la opción D) y $a_t=5$ m/s² — quien olvida sumar vectorialmente y solo reporta la componente centrípeta cae directo en el distractor D. El módulo real es $\sqrt{4^2+5^2}=\sqrt{41}\approx6{,}40$ m/s², que no está entre las opciones.
+
+### Química
+
+**Q13 · Estequiometría redox (Zn+HNO₃→NH₄NO₃), pureza + densidad** (difícil)
+- 🎯 Técnica: identificar que el nitrógeno se reduce hasta NH₄⁺ (de +5 a −3, salto de 8 electrones) en vez del NO habitual — cambia por completo el balanceo frente a la reacción "clásica" de Cu+HNO₃ vista en otros exámenes de este banco.
+- ⚡ Atajo de verificación: con masa molar de Zn=65 g/mol, los moles de Zn dan exactamente 1,00 — un número redondo que confirma que la masa molar usada en el diseño del problema es la simplificada (65, no 65,4).
+
+**Q14 · Balanceo redox (H₂S+Br₂→HBr+H₂SO₄), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: igual método que Q13 del examen 1-2023 (1ra Opción) — identificar oxidación (S: −2→+6, pierde 8e⁻) y reducción (Br₂: 0→−1×2, gana 2e⁻ por molécula), igualar por mínimo común múltiplo de electrones.
+
+**Q15 · Ley de difusión de Graham, masa molar de un gas desconocido** (medio)
+- 🎯 Técnica: aplicación directa de $v_1/v_2=\sqrt{M_2/M_1}$ — el gas MÁS RÁPIDO es el MÁS LIVIANO, cuidado con no invertir la razón (poner la masa molar mayor en el numerador equivocado).
+
+**Q16 · Presiones parciales con captura de vapor de agua** (medio)
+- 🎯 Técnica: una vez retirado un componente de la mezcla (el vapor de agua, capturado por el sólido), las fracciones molares de los gases RESTANTES deben sumar 1 ENTRE ELLOS SOLOS (no considerar la fracción molar original del agua) — error común es no "renormalizar" las fracciones tras quitar un componente.
+
+### Biología
+
+**B17 · Primer nivel trófico de una pirámide ecológica** (medio) — **respuesta real: E) Ninguna**
+- ⚠️ **Trampa fuerte**: el primer nivel trófico son los PRODUCTORES (autótrofos), no los consumidores primarios (que ocupan el SEGUNDO nivel) — "productores" no aparece entre las opciones, así que ninguna es correcta. Mismo patrón de trampa que B18 del examen anterior (2-2022 1ra Opción): opciones que pertenecen a una categoría VECINA pero incorrecta a la preguntada.
+
+**B18 · Función de la respiración celular** (fácil)
+- ⚠️ Trampa conceptual: las opciones A y B describen la FOTOSÍNTESIS (proceso opuesto: producir materia orgánica, liberar O₂), no la respiración celular (que consume O₂ y libera energía de los nutrientes) — hay que distinguir bien ambos procesos, que suelen confundirse por presentarse siempre "en pareja" en el temario.
+
+**B19 · Proteína con estructura cuaternaria** (medio)
+- 🎯 Técnica: la estructura cuaternaria requiere 2+ cadenas polipeptídicas independientes asociadas — la mioglobina es el ejemplo clásico de proteína de UNA sola cadena (solo terciaria, sin cuaternaria, típicamente contrastada con la hemoglobina de 4 cadenas); el colágeno es el ejemplo clásico de estructura cuaternaria real (triple hélice, 3 cadenas).
+
+**B20 · División celular que reduce el número de cromosomas** (fácil)
+- 🎯 Técnica: memorización directa — la mitosis MANTIENE el número de cromosomas, la MEIOSIS lo REDUCE a la mitad (genera gametos haploides).
+
+---
+
+## 9. Examen 1-2023 (3ra Opción) · 7-feb-2023
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 19/20 respuestas verificadas con cálculo numérico independiente (Python)
+> — la mejor proporción de este proyecto hasta ahora. Solo G8 (ángulo entre
+> dos secantes a un octógono regular) queda marcada VERIFICAR: depende de
+> identificar con exactitud qué vértices toca cada recta en la figura, algo
+> que no pude confirmar con certeza desde el recorte disponible.
+
+### Aritmética-Álgebra
+
+**A1 · Número de divisores desde descomposición canónica con incógnita** (medio)
+- 🎯 Técnica: descomponer $15^n\times75$ en potencias primas ($3^{n+1}\cdot5^{n+2}$) y aplicar la fórmula del número de divisores $(a+1)(b+1)$ directamente sobre los exponentes.
+- ⚡ Atajo: al igualar $(n+2)(n+3)=17(n+2)$, se puede DIVIDIR ambos lados entre $(n+2)$ (válido porque $n+2\ne0$) en vez de expandir y resolver una cuadrática completa — reduce el problema a una ecuación lineal trivial.
+
+**A2 · Ecuación exponencial con radicales anidados, suma de raíces** (difícil)
+- 🎯 Técnica: reducir toda la expresión de la izquierda (una suma de 3 radicales aparentemente distintos) a una ÚNICA potencia de la misma base ($\sqrt3$) antes de comparar exponentes con el lado derecho.
+- ⚡ Atajo: los tres términos ($2\sqrt{12}$, $3\sqrt3$, $6\sqrt{1/3}$) son en realidad múltiplos de $\sqrt3$ disfrazados — sumarlos directamente evita tener que elevar a potencias fraccionarias términos separados.
+
+**A3 · MCM para encuentro periódico de tres viajeros** (medio)
+- 🎯 Técnica: "vuelven a coincidir todos" es directamente el MCM de los tres periodos — sin trampa ni atajo especial, aplicación directa una vez identificado que es un problema de MCM (no de MCD).
+
+**A4 · Número de dos cifras invertido, razón entre original e invertido** (difícil)
+- 🎯 Técnica: notación algebraica estándar $\overline{ab}=10a+b$, combinada con la condición de la razón (original/invertido=7/4) para armar un sistema de 2 ecuaciones lineales.
+- ⚠️ Trampa de dirección: hay que tener cuidado con CUÁL número (original o invertido) va en el numerador de la razón dada — invertir el orden lleva a una ecuación sin solución entera válida (se puede detectar rápido si el sistema da un dígito negativo, señal de haber invertido la razón).
+
+### Geometría-Trigonometría
+
+**G5 · Dos triángulos rectángulos superpuestos, base del triángulo de solapamiento** (difícil)
+- 🎯 Técnica: NO hace falta hallar el punto de cruce de las hipotenusas — el "triángulo negro" es simplemente la zona de SOLAPAMIENTO entre las bases de los dos triángulos grandes, calculable con solo tangentes y una resta.
+- ⚡ Atajo: calcular la base de cada triángulo grande por separado (con $\tan\alpha$ y $\tan\beta$), sumar ambas bases, y restar la base total dada — la diferencia ES directamente la respuesta, sin necesitar coordenadas ni sistemas de ecuaciones para hallar el punto de intersección de las diagonales.
+
+**G6 · Poste quebrado por rayo, ángulo entre las dos partes** (medio)
+- 🎯 Técnica: el punto de quiebre, el pie del poste y el punto de apoyo de la parte caída forman un triángulo RECTÁNGULO (poste vertical + suelo horizontal) — el ángulo dado (60°) es el ángulo interior en el vértice de quiebre, entre el cateto (parte que queda en pie) y la hipotenusa (parte caída).
+- ⚠️ Trampa: preguntan por la parte MÁS LARGA — hay que comparar $h$ contra $30-h$ al final, no asumir cuál es mayor de entrada.
+
+**G7 · Área sombreada bajo una diagonal en escalera de cuadrados crecientes** (difícil)
+- 🎯 Técnica: en vez de buscar una fórmula global, descomponer el problema en un trapecio por cada cuadrado (columna), usando la ecuación de la única diagonal que atraviesa toda la figura para hallar la altura de esa diagonal en cada borde de columna.
+- ⚡ Atajo de verificación: la suma de las áreas "por encima" de la diagonal en las 5 columnas da un número que coincide EXACTO con una opción (35/2); la suma "por debajo" (75/2) no está entre las opciones — confirma que la región sombreada es la de ARRIBA de la diagonal, no la de abajo.
+
+**G8 · Ángulo entre dos secantes a un octógono regular** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: este es el equivalente poligonal del teorema de "ángulo entre dos secantes externas a una circunferencia" (semidiferencia de arcos interceptados), pero acá cada "arco" entre vértices consecutivos del octógono vale $45°$ — el resultado depende EXACTAMENTE de cuántos vértices salta cada recta, algo que no pude contar con certeza en el recorte disponible.
+
+### Física
+
+**F9 · Campo eléctrico mínimo para equilibrio de partícula cargada (péndulo)** (difícil)
+- 🎯 Técnica: idéntica a F11 del examen 2-2022 (1ra Opción) — la fuerza eléctrica MÍNIMA para sostener un péndulo cargado desviado un ángulo $\alpha$ es siempre PERPENDICULAR al hilo, dando $E_{min}=mg\,\text{sen}\alpha/q$ directo, sin plantear el sistema completo de 3 fuerzas.
+- 📌 Nota de patrón: esta es la SEGUNDA vez que aparece esta plantilla exacta de pregunta en el banco (ver también F11, 2-2022 1ra Opción) — confirma que "campo/fuerza mínima perpendicular al hilo" es una plantilla recurrente que vale la pena dominar a fondo.
+
+**F10 · Campo eléctrico resultante de dos cargas puntuales en un punto entre ellas** (medio)
+- 🎯 Técnica: identificar el SENTIDO de cada campo individual antes de sumar — con el punto entre las dos cargas, el campo de la positiva apunta alejándose de ella (hacia la otra carga) y el de la negativa apunta hacia ella (también hacia la otra carga): AMBOS apuntan en el mismo sentido en este caso particular, así que se suman.
+- ⚠️ Trampa: la intuición de "cargas de signo opuesto → campos que se restan" NO aplica automáticamente — depende de la posición del punto respecto a ambas cargas; hay que analizar cada campo por separado antes de decidir si se suman o se restan.
+
+**F11 · Encuentro de dos vehículos con aceleraciones distintas y salida distanciada** (difícil)
+- 🎯 Técnica: mismo patrón que P6 (2-2025) y F11 (1-2023, 2da Opción) — plantear ambas posiciones desde un ORIGEN COMÚN, restando la distancia inicial al vehículo que arranca más atrás, en vez de plantear ecuaciones separadas con orígenes distintos.
+- ⚡ Atajo: no hace falta hallar $t$ numéricamente antes de hallar $d$ — se puede despejar $d=0{,}3t^2$ simbólicamente y sustituir $t^2=150$ (ya conocido por el dato del camión) directamente, sin sacar la raíz cuadrada de $t$ en ningún momento.
+
+**F12 · Caída libre con velocidad inicial no nula (paquete soltado desde globo ascendente)** (medio)
+- 🎯 Técnica: misma plantilla que P8 del examen 1-2025 (3ra Opción) — el paquete hereda la velocidad de ascenso del globo (+5 m/s) en el instante de soltarlo, no parte del reposo.
+- ⚠️ Trampa: la ecuación cuadrática da una raíz negativa (matemáticamente válida pero físicamente absurda, tiempo negativo) — hay que descartarla y quedarse solo con la raíz positiva.
+
+### Química
+
+**Q13 · Crioscopía "al revés": hallar masa de solvente desde $\Delta T_f$ conocido** (medio)
+- 🎯 Técnica: variante de la familia crioscópica ya vista en Q14/Q16 (1-2023, 2da Opción) pero invertida — acá se conoce $\Delta T_f$ y hay que despejar la masa de SOLVENTE (no la de soluto ni la temperatura final).
+
+**Q14 · Balanceo redox (KMnO₄+NH₃), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: identificar reducción del Mn ($+7\to+4$, gana 3e⁻) y oxidación del N ($-3\to+5$, pierde 8e⁻), igualar por mínimo común múltiplo (24), y balancear K, H, O por sustitución en ese orden.
+- ⚠️ Trampa: hay DOS productos que contienen K (KNO₃ y KOH) — no alcanza con balancear el K contra un solo producto, hay que dejar el coeficiente de KOH como incógnita hasta el final.
+
+**Q15 · Estequiometría con reactivos en proporción exacta (ninguno limitante)** (medio)
+- 🎯 Técnica: siempre convertir a moles antes de comparar cantidades — en este caso particular, ambos reactivos resultan estar en la proporción EXACTA que pide la reacción (1:1), así que ninguno sobra ni es limitante.
+- 📌 Nota de patrón: los números fueron diseñados para dar moles redondos (0,1 mol cada uno) — una señal de que el problema quiere que verifiques la proporción exacta, no que asumas de entrada cuál reactivo es limitante.
+
+**Q16 · Estequiometría con producto férrico (Fe³⁺), volumen de gas en CNPT** (medio)
+- 🎯 Técnica: cuando el producto es "cloruro FÉRRICO" (no ferroso), el hierro pierde 3 electrones (no 2) — cambia la proporción Fe:H₂ de la reacción "típica" (Fe+HCl→FeCl₂+H₂, 1:1) a esta variante (2Fe+6HCl→2FeCl₃+3H₂, 2:3).
+- ⚠️ Trampa de lectura: quien asume automáticamente la reacción "clásica" 1:1 (con cloruro ferroso) sin leer que el enunciado pide específicamente cloruro FÉRRICO obtiene una proporción y un resultado incorrectos.
+
+### Biología
+
+**B17 · Fotosíntesis en cloroplastos, transformación de energía** (fácil)
+- 🎯 Técnica: memorización directa — fotosíntesis transforma energía LUMINOSA en energía QUÍMICA. Las opciones que describen "liberar CO₂" o transformar energía química en otra forma corresponden a la respiración celular (proceso opuesto), no a la fotosíntesis.
+
+**B18 · Clasificación taxonómica, Reino Fungi** (fácil)
+- 🎯 Técnica: memorización directa — levaduras y mohos son hongos (Reino Fungi); algas y protozoos pertenecen a Protista, bacterias a Monera. Sin trampa mayor salvo confundir reinos vecinos.
+
+**B19 · Probabilidad genética dihíbrida, genes independientes** (medio)
+- 🎯 Técnica: cuando dos genes se heredan de forma independiente, la probabilidad conjunta es el PRODUCTO de las probabilidades individuales de cada gen por separado ($1/4\times1/4=1/16$) — no hace falta armar el cuadro de Punnett de 16 casillas completo si ya se conoce la probabilidad de cada gen aislado.
+
+**B20 · Estructura de doble hélice, ADN vs ARN** (fácil)
+- 🎯 Técnica: memorización directa — solo el ADN forma doble hélice (dos cadenas complementarias); todos los tipos de ARN listados son de cadena simple (aunque algunos se plieguen sobre sí mismos).
+
+---
+
+## 10. Examen 2-2022 (3ra Opción) · 5-ago-2022
+
+> Mismo pipeline "PDF adjuntado al chat → Claude resuelve directamente".
+> 18/20 respuestas verificadas con cálculo numérico independiente (Python).
+> F10 es LITERALMENTE la misma pregunta (mismo enunciado, misma figura,
+> mismas opciones) que F9 del examen 2-2022 (2da Opción) — la segunda vez
+> que aparece este problema en el banco, y sigue sin poderse resolver con
+> certeza por la misma ambigüedad de figura. G7 (distancia entre agentes,
+> ángulos 2α/α/2α) también queda VERIFICAR.
+
+### Aritmética-Álgebra
+
+**A1 · Divisibilidad de $x^4+4$, identidad de Sophie Germain** (difícil)
+- 🎯 Técnica: reconocer la factorización especial $x^4+4=(x^2-2x+2)(x^2+2x+2)$ (identidad de Sophie Germain) en vez de intentar división polinómica o tanteo de coeficientes.
+- ⚡ Atajo: de los dos factores posibles, la condición $a,b>0$ del enunciado descarta automáticamente uno de los dos sin necesitar verificar nada más.
+
+**A2 · Ecuación con raíces anidadas, verificación de dominio** (difícil)
+- 🎯 Técnica: elevar al cuadrado dos veces (agrupando el término con raíz restante entre paso y paso), y SIEMPRE verificar la solución final en la ecuación original — elevar al cuadrado puede introducir raíces falsas.
+- ⚠️ Trampa: la ecuación cuadrática final da DOS soluciones ($x=5$ y $x=6/5$), pero $x=5$ viola la condición de dominio intermedia ($5-3x\ge0$) — hay que descartarla explícitamente, no solo tomar "la solución que se ve más razonable".
+
+**A3 · Ecuación logarítmica con cambio de base, suma de dígitos** (difícil)
+- 🎯 Técnica: mismo patrón que A2 (2-2022, 2da Opción) — usar una variable auxiliar ($t=\log_2x$) y las identidades de cambio de base para reducir toda la ecuación a una sola incógnita, evitando manipular logaritmos de bases distintas por separado.
+- ⚠️ Trampa: la pregunta pide la suma de DÍGITOS de las soluciones (no la suma de las soluciones mismas) — fácil pasar por alto esta distinción y responder con la suma directa de $x$ (que sería 10 igual en este caso particular, pero no siempre coincide).
+
+**A4 · Problema de reparto con costo total fijo, dos condiciones** (difícil)
+- 🎯 Técnica: el costo TOTAL del bus es constante en los tres escenarios (original, +10 personas, −6 personas) — plantear esa igualdad para cada escenario da un sistema lineal de 2 ecuaciones con 2 incógnitas, sin necesitar ecuaciones cuadráticas.
+
+### Geometría-Trigonometría
+
+**G5 · Identidad trigonométrica con suma-producto de senos** (difícil)
+- 🎯 Técnica: convertir la suma y diferencia de senos ($\text{sen}2\theta\pm\text{sen}4\theta$) a producto usando las fórmulas de suma-a-producto — el resultado se simplifica exactamente al recíproco negativo del segundo término de la expresión, cancelándose todo.
+- ⚡ Atajo: no hace falta calcular ningún valor numérico de $\theta$ — la cancelación es simbólica y vale para cualquier $\theta$, dando 0 directamente.
+
+**G6 · Triángulo isósceles circunscrito a circunferencia, lado en función del radio inscrito** (difícil)
+- 🎯 Técnica: usar $r=\text{Área}/\text{semiperímetro}$ con el triángulo parametrizado por el lado igual $s$ y el ángulo entre ellos (120°), despejar $s$ en función de $R$, y recién ahí calcular el lado pedido con ley de cosenos.
+- ⚠️ Trampa algebraica: racionalizar el denominador (con $2\sqrt3-3$) requiere cuidado — un error de signo en ese paso cambia completamente la forma final de la respuesta.
+
+**G7 · Distancia entre agentes desde ángulos en un punto de observación** (difícil) — **VERIFICAR (sin figura confirmada)**
+- ⚠️ No resoluble con certeza desde el texto+imagen disponible: los tres ángulos marcados en el punto H (2α, α, 2α) sugieren que suman 180° (por estar D-H-C alineados), lo que fijaría $\alpha=36°$ como valor numérico — pero calculando $CD=(m+n)\cos(2\alpha)$ con ese ángulo da un factor que no coincide con ninguna opción, y esa derivación NUNCA usa la relación dada $\tan\alpha\cdot\tan2\alpha=m/n$ (señal fuerte de que la asignación de ángulos leída no es la correcta).
+
+**G8 · Razones trigonométricas de ángulo en cuadrante específico** (medio)
+- 🎯 Técnica: para un ángulo definido por "está en el cuadrante X, sobre la recta Y=mX", basta tomar UN punto cualquiera de esa recta CON EL SIGNO correcto para el cuadrante pedido — no hace falta trabajar con la ecuación de la recta de forma abstracta.
+- ⚠️ Trampa: si se toma un punto con signos incorrectos para el cuadrante (por ejemplo, del primer cuadrante en vez del tercero), el resultado de $\cos^2\theta$ no cambia (por el cuadrado) pero $\tan\theta$ sí puede cambiar de signo según qué par de signos se use — conviene verificar que el punto elegido realmente corresponda al cuadrante pedido.
+
+### Física
+
+**F9 · MRU en vías paralelas, distancia entre móviles en dos instantes** (difícil)
+- 🎯 Técnica: la distancia entre dos móviles en vías paralelas combina la separación horizontal (que varía con $t$) con la separación vertical FIJA (Pitágoras) — plantear $d(t)$ y resolver para el valor pedido da una ecuación cuadrática con DOS soluciones (la distancia se achica hasta un mínimo y luego vuelve a crecer).
+- ⚠️ Trampa: hay que identificar CUÁL de las dos soluciones es la "primera" y cuál la "segunda" vez que se cumple la condición — la menor corresponde al acercamiento, la mayor al alejamiento posterior al punto de máximo acercamiento.
+
+**F10 · Tiro parabólico, altura máxima con puntos A y B** (difícil) — **VERIFICAR (misma ambigüedad ya vista)**
+- ⚠️ Pregunta IDÉNTICA (mismo enunciado, misma figura, mismas opciones) a F9 del examen 2-2022 (2da Opción) — segunda aparición en el banco de este problema sin poder resolverlo con certeza. Ver la nota de esa pregunta para el detalle del intento de resolución y por qué no cuadra.
+
+**F11 · Bloque contra pared vertical de un carro acelerado, fuerza mínima** (difícil)
+- 🎯 Técnica: la fricción es la ÚNICA fuerza que sostiene verticalmente al bloque contra la cara del carro — como la fricción depende de la normal, y la normal depende de la aceleración horizontal, existe una aceleración MÍNIMA por debajo de la cual el bloque no puede sostenerse ($a_{min}=g/\mu_e$).
+- ⚡ Atajo: como el piso es liso, la fuerza $F$ debe acelerar el SISTEMA COMPLETO ($M+m$) con esa aceleración mínima — no hace falta analizar a $M$ por separado con una ecuación adicional.
+
+**F12 · Fuerza eléctrica con fricción, hallar masa desde la aceleración** (dificil)
+- 🎯 Técnica: plantear la segunda ley de Newton con TODAS las fuerzas horizontales (fuerza eléctrica empujando, fricción oponiéndose, dependiente del peso) y despejar la masa como incógnita — la fricción depende de la MISMA masa que se busca, así que queda una ecuación lineal en $m$.
+
+### Química
+
+**Q13 · Fracción molar de un componente capturado, usando presión constante del resto** (medio)
+- 🎯 Técnica: cuando un componente de una mezcla gaseosa se "captura" completamente sin afectar a los demás, la presión final es la presión PARCIAL del componente restante (que no cambió) — eso permite hallar la presión parcial inicial del componente capturado por diferencia.
+
+**Q14 · Balanceo redox (HNO₃+Zn→N₂+H₂O+Zn(NO₃)₂), suma de coeficientes de productos** (difícil)
+- 🎯 Técnica: identificar que el N se reduce hasta N₂ GASEOSO (no NO ni NH₄⁺ como en otras variantes de este banco) — cambia el número de electrones ganados por átomo (5, no 3 ni 8) y por lo tanto todo el balanceo.
+- 📌 Nota de patrón: esta es la TERCERA variante distinta de "HNO₃+Zn/Cu→producto nitrogenado" vista en el banco (compárese con Q13 del 2-2022 2da Opción, que reduce hasta NH₄NO₃) — el estudiante debe identificar CUÁL es el producto nitrogenado específico de cada enunciado antes de asumir un balanceo memorizado.
+
+**Q15 · Balanceo redox con cloro de doble papel (oxidado y espectador)** (difícil)
+- 🎯 Técnica: en reacciones donde el HCl es tanto reductor (parte se oxida a Cl₂) como fuente de los aniones cloruro de las sales (LiCl, CrCl₃), hay que CONTAR TODO el cloro de los productos (no solo el que participa en el redox) para saber el coeficiente total de HCl.
+
+**Q16 · Estequiometría redox, masa de reactivo desde masa de producto** (difícil)
+- 🎯 Técnica: balancear por electrones (I₂→HIO₃ pierde 10e⁻ por molécula, HNO₃→NO gana 3e⁻) antes de cualquier cálculo de masa — luego es una conversión estándar masa→moles→proporción→masa.
+
+### Biología
+
+**B17 · Composición estructural de las proteínas** (fácil)
+- 🎯 Técnica: memorización directa — la unidad repetitiva de las proteínas es el aminoácido (no nucleótidos ni fosfolípidos, que forman otras biomoléculas).
+
+**B18 · Amenazas a la biodiversidad vs herramientas de protección** (fácil)
+- ⚠️ Trampa conceptual: parques nacionales y reservas naturales son herramientas de PROTECCIÓN (lo opuesto de una amenaza) — quien lee rápido y asocia "naturaleza" con "positivo para la biodiversidad" sin pensar en la pregunta específica puede confundirse con las opciones distractoras.
+
+**B19 · Definición de virus como agentes acelulares** (fácil)
+- 🎯 Técnica: memorización directa — los virus son ACELULARES y parásitos intracelulares obligados; bacterias y hongos SÍ son organismos celulares capaces de replicarse por sí mismos.
+
+**B20 · Expresión fenotípica de alelos recesivos** (medio)
+- 🎯 Técnica: memorización directa — un alelo recesivo solo se expresa fenotípicamente en estado homocigótico recesivo (doble dosis); en heterocigosis o homocigosis dominante, el alelo dominante lo enmascara.
+
+---
+
+## 11. Examen 1-2005 (1ra Opción)
+
+> Primer examen HISTÓRICO cargado (el más antiguo del banco hasta ahora).
+> Formato distinto a los exámenes modernos: sin sección de Biología (solo
+> Matemáticas 10 preguntas sin subdividir en el PDF, Química 5, Física 5),
+> y sin fecha exacta en el PDF (solo "GESTIÓN I-2005"). Las 20 preguntas se
+> verificaron con cálculo numérico independiente — 100% de este examen,
+> el primero en llegar a ese nivel de cobertura sin ninguna VERIFICAR.
+
+### Matemáticas (Aritmética-Álgebra + Trigonometría)
+
+**1 · Edades, tres personas con condición temporal retrospectiva** (difícil)
+- 🎯 Técnica: plantear una variable por persona y traducir CADA condición temporal (ahora / hace 8 años) en su propia ecuación lineal — con 3 incógnitas hacen falta 3 ecuaciones independientes, obtenidas sistemáticamente dato por dato.
+
+**2 · Ecuación fraccionaria, suma de raíces sin resolver la cuadrática completa** (difícil)
+- 🎯 Técnica: para una cuadrática $Ax^2+Bx+C=0$, la suma de raíces es directamente $-B/A$ — no hace falta resolver la ecuación completa (ni hallar $C$) para responder qué pide este tipo de pregunta.
+- ⚡ Atajo: alcanza con identificar los coeficientes $A$ y $B$ tras multiplicar en cruz y agrupar, sin necesitar $C$ en absoluto.
+
+**3 · Ecuación irracional, racionalización con conjugado** (difícil)
+- 🎯 Técnica: cuando una fracción tiene denominador irracional de la forma $\sqrt a-\sqrt b$, racionalizar multiplicando por el conjugado ANTES de intentar despejar — simplifica la ecuación a una forma directa en vez de manipular raíces anidadas.
+
+**4 · Progresión aritmética, medios interpolados desde la suma total** (medio)
+- 🎯 Técnica: la fórmula de suma de PA usando solo extremos ($S=\frac{a_1+a_n}{2}\times n$) permite plantear directamente una ecuación en el número de términos, sin necesitar conocer la razón.
+
+**5 · Identidad trigonométrica, suma de soluciones en un intervalo** (difícil)
+- 🎯 Técnica: expresar TODO en senos y cosenos con denominador común hace aparecer la identidad pitagórica ($\text{sen}^2+\cos^2=1$) casi automáticamente, colapsando la ecuación a una forma simple factorizable.
+- ⚠️ Trampa: una de las dos soluciones "candidatas" de la factorización ($\cos x=0$) hace indefinida la secante del enunciado original — hay que descartarla, no incluirla en la suma final.
+
+**6 · División euclidiana, número de dos cifras desde dos condiciones de cociente/resto** (medio)
+- 🎯 Técnica: cada condición de "dividendo=divisor×cociente+resto" se traduce directamente en una ecuación lineal — con dos condiciones (una por cada dígito como divisor) se arma un sistema de 2 ecuaciones con 2 incógnitas (las cifras).
+
+**7 · Relaciones de Vieta, suma de cuadrados de raíces** (medio)
+- 🎯 Técnica: la identidad $\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta$ conecta directamente con las relaciones de Vieta ($\alpha+\beta=p$, $\alpha\beta=q$) sin necesitar hallar las raíces individuales — aplicación directa una vez reconocido el patrón.
+
+**8 · Teorema del resto con divisor de coeficiente principal distinto de 1** (dificil)
+- 🎯 Técnica: el teorema del resto sigue aplicando aunque el divisor no sea exactamente $(x-a)$ sino un múltiplo, como $4x+4=4(x+1)$ — el resto es el mismo que dividiendo entre $(x+1)$ directamente ($P(-1)$), solo cambia el cociente.
+
+**9 · Sistema de ecuaciones con parámetro, usando una condición extra** (medio)
+- 🎯 Técnica: usar la condición adicional ($a+b=3$) junto con la ecuación SIN el parámetro para hallar los valores numéricos primero — recién con $a,b$ conocidos se despeja el parámetro de la segunda ecuación.
+
+**10 · Mezclas con reemplazo parcial por sustancia pura** (medio)
+- 🎯 Técnica: al sacar $x$ litros de una MEZCLA, se pierde soluto en la MISMA proporción que existe en la mezcla (no el 100%) — y al reponer con sustancia pura, esos mismos $x$ litros SÍ aportan el 100%. Confundir estas dos proporciones es el error más común en este tipo de problema.
+
+### Química
+
+**11 · Conversión de escalas de temperatura, diferencia entre valores en distintas unidades** (medio)
+- 🎯 Técnica: convertir AMBAS temperaturas a la misma escala antes de restar — mezclar unidades (restar directamente 134-30 sin convertir) es el error más común y da un resultado sin sentido físico.
+
+**12 · Calorimetría, mezcla de dos masas de la misma sustancia** (medio)
+- 🎯 Técnica: en un recipiente aislado, el calor perdido por la porción caliente iguala exactamente al calor ganado por la fría — como es la MISMA sustancia (agua), el calor específico se cancela en ambos lados, dejando una ecuación simple en masa y diferencia de temperatura.
+
+**13 · Molalidad, masa de soluto desde definición directa** (medio)
+- 🎯 Técnica: la molalidad usa KILOGRAMOS de solvente (no gramos ni masa de solución) — convertir unidades antes de despejar es el paso que más se pasa por alto.
+
+**14 · Estequiometría con agua como reactivo (no solo medio)** (difícil)
+- 🎯 Técnica: cuando el agua aparece como REACTIVO explícito en la ecuación (no solo como solvente), hay que balancearla como cualquier otra sustancia — contar bien H y O en ambos lados para no perder coeficientes.
+
+**15 · Fórmula empírica desde composición porcentual, verificación de nomenclatura** (difícil) — **respuesta real: E) Ninguno**
+- ⚠️ **Trampa fuerte**: el procedimiento estándar de fórmula empírica (moles por 100g, dividir entre el menor) da una proporción Cr:S:O=1:3:9 EXACTA (verificada al 0,01% contra los datos del enunciado) — pero esa proporción NO corresponde a ningún compuesto real con nomenclatura clásica "-oso/-ico" (que requeriría Cr²⁺ o Cr³⁺, dando proporciones Cr:S de 1:1 o 2:3, ninguna de las cuales es 1:3). Verificar los porcentajes de las opciones reales (ej. sulfito crómico real = 30,2% Cr) contra los datos del enunciado es la única forma de detectar que ninguna opción nombrada es correcta — quien solo identifica "sulfito" (por el O:S=3) y elige la opción con esa palabra sin verificar el Cr cae en el distractor.
+
+### Física
+
+**16 · Tiro parabólico simétrico horizontal, distancia total entre dos lanzamientos opuestos** (medio)
+- 🎯 Técnica: cuando dos proyectiles parten del MISMO punto en sentidos horizontales opuestos con la misma rapidez y ángulo, la distancia total entre ellos al aterrizar es el DOBLE del alcance horizontal de uno solo — no hace falta descomponer velocidades verticales si el tiempo de vuelo ya viene dado directamente.
+
+**17 · Coeficiente de restitución, altura tras el rebote** (medio)
+- ⚠️ Trampa: el coeficiente de restitución relaciona VELOCIDADES ($v_{rebote}=e\cdot v_{impacto}$), pero como la altura depende del CUADRADO de la velocidad, la altura tras el rebote es $e^2$ veces la original, NO $e$ veces — un error muy común es aplicar $e$ directamente a la altura.
+
+**18 · Rizo (loop) con fricción parcial, condición mínima en la cima** (difícil)
+- 🎯 Técnica: la condición mínima para completar un rizo es que en el punto más alto, el peso solo alcance para proveer la fuerza centrípeta exacta ($v_{top}^2=gR$) — combinado con conservación de energía en los tramos SIN fricción y pérdida de energía explícita solo en el tramo CON fricción, se arma una ecuación lineal en $R$.
+
+**19 · Campo eléctrico de dos cargas simétricas, cancelación de componentes** (difícil)
+- 🎯 Técnica: cuando dos cargas iguales están dispuestas simétricamente respecto a la línea que las conecta con el punto de interés, las componentes PERPENDICULARES a esa línea se cancelan automáticamente por simetría — solo hace falta sumar las componentes a lo largo del eje de simetría, evitando descomponer vectores innecesariamente.
+
+**20 · Capacitores, combinación serie dentro de paralelo** (medio)
+- ⚠️ Trampa: capacitores en serie se combinan como resistencias en PARALELO (inversos) y capacitores en paralelo se SUMAN directamente — es el patrón EXACTAMENTE INVERSO al de resistencias, y confundirlo es el error más común en circuitos con capacitores.
+
+---
+
+## 12. Examen 1-2005 (2da Opción)
+
+> Mismo formato histórico que 2005-1op-1-2005.md (Matemática 10, Química
+> 5, Física 5, sin Biología). 20/20 preguntas verificadas con cálculo
+> numérico independiente — Q13 dio un resultado (1,30 kg) que no coincide
+> con ninguna opción numérica: un "Ninguno" real, no una falla de cálculo.
+
+### Matemática
+
+**1 · Inecuación fraccionaria, análisis de signo sin multiplicar en cruz** (medio)
+- ⚠️ Trampa: multiplicar en cruz por $(x-5)$ sin saber su signo invierte la desigualdad en la mitad de los casos — la técnica segura es pasar todo a un lado y combinar en una sola fracción antes de analizar el signo del numerador y denominador por separado.
+
+**2 · Binomio de Newton, identificar $k$ por el exponente correcto** (medio)
+- ⚠️ Trampa: hay que igualar $k$ al exponente de la variable que aparece "en el lugar de $b$" en la fórmula general (acá $y$, con exponente 4), NO al exponente de $x$ — confundir cuál variable define $k$ da un término completamente distinto.
+
+**3 · MCM para encuentro periódico de tres ciclistas** (medio)
+- 🎯 Técnica: mismo patrón que A3 del examen 1-2023 (3ra Opción) — "vuelven a coincidir todos" es directamente el MCM de los periodos individuales.
+
+**4 · Trabajo combinado de dos grifos, tasas que se suman** (fácil)
+- 🎯 Técnica: las TASAS de trabajo (1/tiempo) se suman cuando dos agentes trabajan simultáneamente — sumar los TIEMPOS directamente es el error más común en este tipo de problema.
+
+**5 · División polinómica exacta, raíces del divisor como raíces del numerador** (difícil)
+- 🎯 Técnica: si la división es exacta, evaluar el numerador en cada raíz del divisor factorizado da un sistema de ecuaciones en los parámetros desconocidos — mucho más directo que hacer la división larga con coeficientes literales.
+
+**6 · Perímetro de polígono regular inscrito, fórmula lado-radio** (medio)
+- 🎯 Técnica: fórmula directa $\text{lado}=2R\,\text{sen}(180°/n)$ para un polígono regular de $n$ lados inscrito en circunferencia de radio $R$ — evita construir manualmente el triángulo isósceles central cada vez.
+
+**7 · Ecuación fraccionaria simétrica, reagrupar por denominadores afines** (difícil)
+- 🎯 Técnica: cuando una ecuación tiene 4 fracciones con denominadores en "pares simétricos" ($u\pm2$, $u\pm3$), reagrupar cada par a un mismo lado (en vez de sumar todo de entrada) genera una diferencia de cuadrados en cada denominador, mucho más simple de resolver.
+
+**8 · Velocidad-tiempo-distancia fija, tiempo reducido con velocidad aumentada** (difícil)
+- 🎯 Técnica: mismo patrón que A8 del examen 1-2005 (1ra Opción) — plantear velocidad=distancia/tiempo para ambos viajes con la MISMA distancia, relacionando tiempo y velocidad por las condiciones dadas, lleva a una ecuación cuadrática en $t$.
+
+**9 · Área de polígono regular inscrito, diferencia con el círculo** (difícil)
+- 🎯 Técnica: fórmula directa $A=\tfrac12nR^2\,\text{sen}(360°/n)$ para el área de un polígono regular inscrito — evita descomponerlo en $n$ triángulos manualmente.
+
+**10 · Número de tres cifras con tres condiciones encadenadas** (medio)
+- 🎯 Técnica: identificar cuál condición ya da un valor directo (acá, la cifra de las unidades) y sustituir en cadena desde ahí, en vez de armar un sistema simultáneo de 3 ecuaciones con 3 incógnitas.
+
+### Química
+
+**11 · Configuración electrónica de un ion, isótopos por número atómico** (difícil)
+- ⚠️ Trampa conceptual: "isótopo" significa mismo Z (protones), NO misma masa — quien confunde esto podría buscar la opción con el mismo número de masa (72) en vez de la misma Z. También hay que recordar restar/sumar el electrón de más/menos según la carga del ion antes de contar Z.
+
+**12 · Porcentaje de un elemento en una mezcla de dos compuestos** (difícil)
+- 🎯 Técnica: cuando solo UNO de los compuestos de una mezcla aporta el elemento de interés, la masa de ese elemento depende únicamente de la fracción de la mezcla que es ESE compuesto — el otro componente de la mezcla es simplemente ignorado en el cálculo.
+
+**13 · Porcentaje de un elemento dentro de un compuesto, dos pasos encadenados** (medio) — **respuesta real: E) Ninguno**
+- 🎯 Técnica: dos pasos en cadena — masa del compuesto dentro de la muestra, luego fracción de ESE compuesto que es el elemento puro (usando la fórmula química para contar átomos).
+- ⚠️ **Nota de calidad de examen**: el cálculo riguroso (7 kg × 48% × (120/310)) da 1,30 kg, un valor que no aparece entre las 4 opciones numéricas (0,96; 1,86; 1,98; 0,67) — verificado con múltiples variantes de la fórmula sin encontrar coincidencia, confirma que es un "Ninguno" genuino del banco, no un error de cálculo del proyecto.
+
+**14 · Titulación con ácido diprótico, relación 1 mol ácido : 2 mol base** (medio)
+- 🎯 Técnica: mismo patrón que Q15 del examen 1-2005 (1ra Opción, ácido sulfúrico como diprótico) — recordar que $H_2SO_4$ neutraliza el DOBLE de moles de base por cada mol de ácido.
+
+**15 · Calorimetría, mezcla de dos masas de agua** (medio)
+- 🎯 Técnica: mismo patrón que Q12 del examen 1-2005 (1ra Opción) — balance de calor perdido/ganado con el calor específico cancelado (misma sustancia en ambos lados).
+
+### Física
+
+**16 · MRU, tiempo de retraso para llegada simultánea** (medio)
+- 🎯 Técnica: si ambos corredores llegan en el MISMO instante absoluto, el tiempo total del más lento (desde que arrancó) debe igualar el retraso del más rápido MÁS el tiempo que este último tarda corriendo — plantear esa igualdad da el retraso directo.
+
+**17 · Sistema de poleas con masas y fricción, hallar el coeficiente** (difícil)
+- 🎯 Técnica: plantear la segunda ley de Newton para el SISTEMA COMPLETO (todas las masas juntas) en vez de analizar cada masa por separado — la fuerza motriz es el peso de la parte colgante, la fricción actúa solo sobre la masa en la superficie horizontal.
+
+**18 · Colisión perfectamente inelástica, momento con signos opuestos** (medio)
+- 🎯 Técnica: conservación de momento lineal (no de energía cinética) en una colisión donde los cuerpos quedan unidos — sumar los momentos CON SIGNO según el sentido de cada uno (direcciones opuestas se restan).
+
+**19 · Energía con fricción como fracción constante del peso (no $\mu N$)** (difícil)
+- 🎯 Técnica: cuando el enunciado da la fricción como una fracción FIJA del peso ($0{,}1mg$, no $\mu mg\cos\theta$), el balance de energía se simplifica mucho — trabajar todo en términos de "energía dividida entre $mg$" (equivalente a una altura) evita cargar la masa por todas las ecuaciones.
+
+**20 · Circuito de tres resistencias en paralelo, corriente en una rama** (medio)
+- 🎯 Técnica: en resistencias en PARALELO, la tensión es la MISMA en las tres — hallar esa tensión común a partir de la corriente TOTAL y la resistencia equivalente ($1/R_{eq}=\sum1/R_i$) permite luego calcular la corriente de cualquier rama individual directamente.
+
+---
+
+## 13. Exámenes 2-2005, 1-2006 y Primer Parcial Propedéutico I-2006
+
+> **Cambio de metodología**: estos 5 exámenes (118 preguntas en total) se
+> procesaron en PARALELO usando agentes independientes (uno por examen),
+> cada uno con instrucciones explícitas de la misma rigurosidad usada
+> manualmente en las secciones anteriores (verificación numérica completa
+> mostrada antes del contenido final, política "no adivinar" con marca
+> VERIFICAR para preguntas dependientes de figura, "Ninguno" cuando el
+> cálculo no matchea ninguna opción). Cada resultado fue luego
+> RE-VERIFICADO de forma independiente por Claude con Python antes de
+> subir el archivo — no se confió ciegamente en ningún agente. Resultado:
+> 116/118 preguntas resueltas con certeza total, 2 marcadas VERIFICAR por
+> ambigüedad genuina de figura no incluida en el texto del PDF.
+
+> **Categoría nueva**: el Primer Parcial Propedéutico I-2006 es el primer
+> contenido cargado con `categoria: parcial_curso` en el frontmatter — el
+> campo por defecto es `admision` (retrocompatible con todo lo cargado
+> antes). `/resueltos` ahora muestra un toggle "Exámenes de Admisión" /
+> "Parciales de Curso Propedéutico" cuando ambas categorías existen para
+> la facultad del usuario, para no mezclar ambos tipos de contenido.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Q12 (2-2005, 1ra Opción, química)** — un ion con números cuánticos
+  específicos, tras ganar 3 y perder 7 electrones, resulta ser Cloro
+  (Z=17) por reconstrucción de la configuración electrónica — ninguna de
+  las 4 opciones (Ca, Sc, Ti, V) es Cloro.
+- **Q20 (2-2005, 2da Opción, física)** — pedían el punto donde el
+  potencial eléctrico de DOS CARGAS POSITIVAS es cero; como $V=kq/r$ es
+  escalar y ambos términos son positivos para cualquier carga positiva,
+  la suma nunca puede ser cero en un punto finito — demostrable
+  puramente algebraicamente, sin necesitar ningún dato numérico extra.
+- **A4 (1-2006, 1ra Opción, aritmética)** — suma de progresión aritmética
+  filtrada por una condición ("mayores que 67"): el resultado riguroso
+  (410) no coincide con ninguna opción.
+- **G12 (Parcial Propedéutico, geometría)** — ángulos conjugados externos
+  con una condición de "triplicado", da dos valores posibles (55° y
+  125°) y ninguno coincide con las 4 opciones.
+
+### Preguntas VERIFICAR (figura no incluida en el texto)
+
+- **F12 (1-2006, 2da Opción, física)** — circuito de 4 resistencias
+  iguales entre los puntos "a" y "b". Se probaron 5 topologías serie/
+  paralelo razonables; DOS de ellas (distintas entre sí) dan resultados
+  "limpios" que coinciden con opciones DIFERENTES (3Ω y 2Ω) — ambigüedad
+  genuina que solo la figura real puede resolver.
+- La misma pregunta de circuito con 4 resistencias NO aparece en ningún
+  otro examen del banco — a diferencia del patrón de F9/F10 (tiro
+  parabólico con puntos A/B) que sí se repite exacto entre convocatorias.
+
+### Técnicas y trampas más notables de este lote
+
+- **Reconstrucción de datos truncados por OCR** (Parcial Propedéutico,
+  preguntas de segmentos consecutivos G11 y A7): el PDF original tenía
+  fórmulas parcialmente cortadas en la extracción de texto. En vez de
+  adivinar, el agente probó relaciones adicionales razonables y se quedó
+  con la que dio un resultado LIMPIO e INDEPENDIENTE de la variable libre
+  restante (ej. $\overline{AE}=48$ sin importar el valor de $q$) — una
+  señal fuerte de que la reconstrucción es correcta, documentada
+  explícitamente en la explicación de cada pregunta para que quede claro
+  que no es una lectura literal del PDF original.
+- **Masa atómica con símbolo mal impreso** (Parcial Propedéutico, Q16
+  química): el cálculo riguroso da masa atómica = 30,00 exacto, pero la
+  opción B lista "30 Sn" (Sn real = 118,7, no 30) — se priorizó el
+  VALOR NUMÉRICO verificado sobre el símbolo químico impreso, que
+  parece ser un error de tipeo del banco original.
+- **Sistema de ecuaciones con dos soluciones válidas, una sola en las
+  opciones** (2-2006 2da Opción, A8: raíz triple de otra): la ecuación
+  cuadrática en el parámetro $k$ da DOS soluciones matemáticamente
+  válidas ($k=4$ y $k=44/3$), pero solo una está entre las opciones —
+  recordatorio de verificar todas las raíces antes de descartar.
+- **"Vendió/compró con pérdidas en cascada"** (Parcial Propedéutico, A7
+  huevos): dos porcentajes de pérdida en cascada (rotura al comprar,
+  regalo al vender) que hay que aplicar en el ORDEN correcto y en la
+  dirección correcta (dividir para "deshacer" una pérdida, no restar el
+  porcentaje directamente).
+- **Ángulo entre bisectrices de la base de un triángulo isósceles**
+  (Parcial Propedéutico, G10): fórmula reutilizada del ángulo del
+  incentro ($90°+V/2$), la misma técnica de fondo que ya había aparecido
+  en el examen de geometría 2-2025 (2da Opción) con el ángulo entre
+  bisectrices de un cuadrilátero (patrón #4 de la sección de patrones
+  transversales) — confirma que "no memorices la fórmula rápida, rederivá
+  desde el incentro" es un principio recurrente en este banco.
+
+---
+
+## 14. Segundo, Tercer y Cuarto Parcial + Primer Parcial (2-2006) + Examen Única Opción 2-2006
+
+> **Mismo método que la sección 13**: 5 exámenes (172 preguntas) resueltos
+> en paralelo con un agente por examen, cada uno con verificación numérica
+> completa y política "no adivinar", y luego RE-VERIFICADOS por Claude con
+> Python antes de subir. Un agente (Cuarto Parcial) se cortó a mitad de
+> camino por límite de sesión de la cuenta orquestadora, después de haber
+> completado su razonamiento de verificación para las 38 preguntas pero
+> antes de emitir el bloque final formateado — se recuperó reconstruyendo
+> el archivo a mano con ese razonamiento ya producido más el texto original
+> del PDF, re-verificando las cuentas más delicadas con Python antes de
+> escribir el contenido final (no se re-lanzó un agente nuevo, para no
+> arriesgarse a pegar contra el mismo límite).
+
+> **Cobertura**: 165/172 preguntas con match exacto a una opción, 7
+> "Ninguno" reales confirmados con cálculo mostrado, 0 preguntas VERIFICAR
+> por figura faltante (a diferencia del lote anterior, este no tuvo
+> ninguna pregunta dependiente de una figura no incluida en el texto).
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **F5/Pregunta 26 (Segundo Parcial, física, piedra en un pozo)** — tiempo
+  de caída + eco del sonido; la profundidad rigurosa (~46,0 m) no coincide
+  con ninguna de las 4 opciones (22,05 / 30,0 / 44,1 / 49,7 m).
+- **A2/Pregunta 2 (Tercer Parcial, álgebra, ecuación irracional)**
+  — $\sqrt{2x+13}=\sqrt{x+3}+\sqrt{x+6}$: la única solución válida tras
+  descartar la raíz espuria es $x=-2$, que no figura entre las opciones
+  (la opción D, $-7$, es justamente la raíz espuria que hay que
+  descartar).
+- **Pregunta 7 (Examen Única Opción 2-2006, geometría, relaciones
+  métricas con doble altura)** — verificado por DOS métodos independientes
+  (relaciones $h^2=p \cdot q$ y geometría analítica con coordenadas), ambos
+  dan $EB=4$, que no coincide con ninguna de las 4 opciones
+  ($2\sqrt2$, $2+\sqrt2$, $2-\sqrt2$, $\sqrt2$).
+- **A2 (Primer Parcial 2-2006, aritmética, MCD/mcm)** — con MCD=12 y
+  mcm=240, el par coprimo (4,5) da los números 48 y 60; el MENOR (48) no
+  está entre las opciones (84, 60, 64, 80), aunque el MAYOR (60) sí
+  aparece — trampa clásica de pedir "el menor" cuando solo el mayor está
+  listado.
+- **Q21 (Primer Parcial 2-2006, química, combustión de benceno)** — masa
+  de CO2 calculada (~31,3 g) no coincide con ninguna opción (la más
+  cercana, 28,9 g, difiere ~8%).
+- **G1 (Cuarto Parcial, trigonometría, $\cos6x=1/2$)** — resolviendo para
+  $\cos3x=\pm\sqrt3/2$, ningún valor coincide con las opciones dadas.
+- **Q5 y Q7 (Cuarto Parcial, química — combustión de butano y mezcla
+  hielo+agua)** — masa de agua (~2387 g) y temperatura final (~6,67°C)
+  respectivamente, ninguno coincide con las opciones.
+
+### Datos probablemente incompletos o con error de tipeo en el banco original
+
+- **A4 (Primer Parcial 2-2006, aritmética, fiesta con niños/mujeres/
+  hombres)** — con los datos tal cual aparecen en el PDF, $M \approx 74{,}4$
+  (no entero), lo que sugiere que falta un dato sobre "hombres que
+  bailaban" en el enunciado original. Marcado E) Ninguno con nota
+  VERIFICAR explícita.
+- **Q20 (Primer Parcial 2-2006, química, átomos de Fe en 6L de sangre)**
+  — la mantisa calculada ($3{,}47\times10^{22}$) coincide EXACTO con la
+  opción A, pero el exponente impreso en esa opción es $10^{25}$
+  (físicamente imposible: implicaría >900g de hierro puro en 6L de
+  sangre). Se respondió A por ser el match intencionado, con nota
+  VERIFICAR flagueando el probable error de tipeo en el exponente.
+- **B36 (Primer Parcial 2-2006, biología, pentosa + base nitrogenada sin
+  fosfato)** — la respuesta rigurosa es "nucleósido", término que no
+  figura en ninguna opción (núcleo/nucleótido/ADN/todas/ninguna). Marcado
+  E) Ninguna con nota VERIFICAR sugiriendo que la opción A ("núcleo")
+  podría ser una corrupción de OCR de "nucleósido".
+- **Q6 (Cuarto Parcial, química, Ley de Hess para entalpía de formación
+  del acetileno)** — usando los valores del enunciado TAL CUAL (sin
+  conversión kcal↔kJ) se reproduce EXACTO el valor de la opción D
+  (226,3), mientras que una conversión de unidades "correcta"
+  dimensionalmente da un resultado que no coincide con ninguna opción.
+  Se respondió D basándose en el match numérico exacto, documentando la
+  inconsistencia de unidades del enunciado original en la explicación.
+
+### Técnicas y trampas más notables de este lote
+
+- **"Cañones idénticos" no significa misma velocidad** (Cuarto Parcial,
+  física) — dos proyectiles disparados con la MISMA energía (no la misma
+  velocidad) desde cañones idénticos alcanzan alturas distintas si tienen
+  masas distintas; hay que despejar velocidad a partir de la energía antes
+  de aplicar cinemática.
+- **$g=9{,}8$ vs $g=10$ importa para el match exacto** (Cuarto Parcial,
+  F6/Pregunta 27, energía mecánica de un helicóptero) — solo con
+  $g=9{,}8\ \text{m/s}^2$ (no $g=10$) se reproduce el valor exacto de la
+  opción D ($2{,}952\times10^7$).
+- **Factorización de Sophie Germain** ($4x^4+8x^2y^4+9y^8$) reaparece en
+  este lote, reforzando el patrón ya visto en secciones anteriores de que
+  esta factorización específica es recurrente en el banco UMSS.
+- **Genética con alelo letal** (Primer Parcial 2-2006, biología) — hay que
+  recalcular las proporciones SOLO entre los sobrevivientes, no sobre el
+  total de la progenie esperada por Mendel.
+- **Tangente-secante y secante-secante en circunferencias**
+  (semidiferencia de arcos) y **teorema de las cuerdas que se cortan**
+  reaparecen en varias preguntas de geometría de este lote — mismo
+  principio de "no memorices el atajo, rederivá desde el teorema del
+  ángulo inscrito" que ya se documentó en la sección 13.
+
+---
+
+## 15. Segundo, Tercer y Cuarto Parcial 2-2006 + Admisión 1ra y 2da Opción 1-2007
+
+> **Mismo método que las secciones 13 y 14**: 5 exámenes (154 preguntas)
+> resueltos en paralelo con un agente por examen, cada uno con
+> verificación numérica completa y política "no adivinar", y luego
+> RE-VERIFICADOS por Claude con Python antes de subir. Un agente (Tercer
+> Parcial 2-2006) devolvió su respuesta cortada por límite de longitud de
+> salida a mitad de la Pregunta 28; se recuperó pidiéndole por
+> `SendMessage` que reenviara únicamente las Preguntas 1-27 en dos
+> bloques, sin volver a lanzar un agente nuevo.
+
+> **Cobertura**: 150/154 preguntas con match exacto a una opción, 4
+> "Ninguno" reales confirmados con cálculo mostrado, 0 preguntas
+> VERIFICAR por figura faltante en este lote.
+
+> **Acuerdo con Ronald (21-jul-2026)**: de acá en adelante, cuando una
+> pregunta dependa de una figura/imagen (circuitos, diagramas
+> geométricos, gráficos) que no se pueda resolver solo con el texto, hay
+> que adjuntar el recorte del PDF original al lado de la pregunta
+> digitalizada, para que la figura real esté a la vista al resolver o
+> verificar. No aplica a preguntas sin figura (esas se verifican solo
+> con cálculo, como siempre). Este lote no tuvo ninguna pregunta con
+> figura, así que no fue necesario todavía.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Los dos exámenes de Admisión 1-2007 (1ra y 2da Opción) no tuvieron
+  ningún "Ninguno"** — las 40 preguntas combinadas (20+20) resolvieron
+  con match exacto a una opción; todos los "Ninguno" de este lote
+  vinieron del Tercer Parcial 2-2006.
+- **Pregunta 5 (Tercer Parcial 2-2006, álgebra, ecuación irracional con
+  triple radical)** — $\sqrt{2x+3}+\sqrt{3x+2}-\sqrt{2x+5}=\sqrt{3x}$: la
+  única solución real tras verificar en la ecuación original es $x=3$,
+  que no figura entre las 4 opciones dadas.
+- **Pregunta 24 (Tercer Parcial 2-2006, física, constante de resorte
+  para frenar un automóvil)** — con $a_{max}=5g$ (el dato tal cual
+  aparece en el enunciado), $k=5762.4$ N/m no coincide con ninguna
+  opción; usando $a_{max}=10g$ en cambio se reproduce EXACTO el valor de
+  la opción C (23049.6), lo que sugiere una probable errata en el "5g"
+  del banco original.
+- **Pregunta 15 (Tercer Parcial 2-2006, química, mezcla de HCl
+  concentrado y diluido para normalidad objetivo)** — el balance de masa
+  riguroso da 93.9 mL y 406.1 mL, cercano pero no idéntico a la opción A
+  (95.2 y 404.8 mL, que da ≈4.02N en vez de 4.00N exacto).
+- **Pregunta 28 (Tercer Parcial 2-2006, física, potencia de una bomba de
+  agua)** — la potencia real (~1396.5 W) está tres órdenes de magnitud
+  por encima de las 4 opciones dadas (1.45 a 2.34), que parecen
+  truncadas o con un factor de $10^3$ faltante en el banco original.
+
+### Técnicas y trampas más notables de este lote
+
+- **Ángulo entre cuerdas EF y CD con puntos medios de arco** (Admisión
+  1ra Opción 1-2007, Pregunta 1) — mismo principio de semisuma/
+  semidiferencia de arcos que ya apareció en la sección 13, pero
+  aplicado con dos puntos medios de arco simultáneos; el resultado
+  final no depende de los valores individuales de los arcos menores,
+  solo de su diferencia dada.
+- **Reducción trigonométrica con ángulos $540°+\alpha$ y $450°+\alpha$**
+  (repetida IDÉNTICA en ambos exámenes de Admisión 1-2007, Pregunta 2) —
+  primera vez que se detecta la MISMA pregunta trigonométrica palabra
+  por palabra en dos convocatorias distintas del mismo año, reforzando
+  que ciertos ítems se reciclan entre "1ra" y "2da" opción de un mismo
+  proceso de admisión.
+- **Resorte + rizo vertical con opciones duplicadas en el banco**
+  (ambos exámenes de Admisión 1-2007, Pregunta 9) — las opciones B y D
+  del PDF original aparecen literalmente idénticas ($\sqrt2$ ambas), un
+  error de tipeo del banco que no afecta la respuesta (coincide exacto
+  con la opción A, $\sqrt2/2$) pero se documentó explícitamente.
+- **Genética con heterocigoto obligado por ascendencia** (ambos
+  exámenes de Admisión 1-2007, Pregunta 20) — mismo problema exacto
+  (poliposis + huesos frágiles) repetido en las dos opciones; la clave
+  es deducir el genotipo de un progenitor con fenotipo dominante a
+  partir de que SU padre era homocigoto recesivo.
+- **Factorización de polinomio recíproco** (Segundo Parcial 2-2006,
+  Pregunta 1) — coeficientes simétricos $2,1,4,1,2$ se resuelven
+  dividiendo entre $x^2$ y sustituyendo $y=x+1/x$, la misma técnica de
+  "recíprocos" que ya había aparecido en exámenes anteriores del banco.
+- **Trapecio rectangular con perpendicularidad no evidente** (Segundo
+  Parcial 2-2006, Pregunta 9) — el ángulo $\angle BEF=90°$ no sale de
+  ningún teorema de nombre corto; se confirmó por geometría analítica
+  con coordenadas, probando dos configuraciones numéricas distintas
+  para asegurar que el resultado es independiente de las dimensiones
+  del trapecio.
+- **Inconsistencia de unidades en Ley de Hess** (Cuarto Parcial 2-2006,
+  Pregunta 21, vaporización de agua) — mismo patrón ya documentado en
+  la sección 14: usar los datos del enunciado tal cual (sin conversión
+  extra) reproduce el valor exacto de una opción.
+
+---
+
+## 16. Tres Parciales 1-2007 + Admisión Única Opción 2-2007 + Primer Parcial 2-2007
+
+> **Mismo método que las secciones 13-15**: 5 exámenes (176 preguntas)
+> resueltos en paralelo con un agente por examen, cada uno con
+> verificación numérica completa (uno de ellos, el Segundo Parcial
+> 1-2007, incluyó verificación simbólica propia con 22 usos de
+> herramientas) y política "no adivinar", luego RE-VERIFICADOS por
+> Claude con Python antes de subir.
+
+> **Estructura nueva detectada**: el Primer Parcial 2-2007 tiene una
+> distribución de preguntas por área DISTINTA a todos los parciales
+> anteriores del banco (Álgebra-Aritmética 5, Geometría-Trigonometría 5,
+> Química 8, Física 8, Biología 16 = 42 preguntas), pero cada área vale
+> 80 puntos (20% parejo) pese a la cantidad desigual de preguntas — la
+> `ponderacion` del frontmatter refleja el peso real en puntos, no la
+> proporción de preguntas por área, algo que hay que revisar caso por
+> caso en cada examen nuevo en vez de asumir siempre el patrón 7/7/7/7/10.
+
+> **Cobertura**: 161/176 preguntas con match exacto a una opción, 15
+> "Ninguno/Ninguna" reales confirmados con cálculo mostrado (concentrados
+> sobre todo en el Segundo Parcial 1-2007 y en la Física del Primer
+> Parcial 2-2007), 0 preguntas VERIFICAR por figura faltante en este
+> lote.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Pregunta 1 (Segundo Parcial 1-2007, aritmética, planteo de
+  ecuación con jornal diario)** — el jornal riguroso da $225/7\approx
+  32.14$ Bs., que no es entero y no coincide con ninguna opción.
+- **Pregunta 10 (Segundo Parcial 1-2007, geometría, rectángulo con
+  diagonales)** — resuelto por coordenadas: $MC\approx1.86$, no coincide
+  con ninguna opción (7, 2, 3, 5).
+- **Pregunta 17 (Segundo Parcial 1-2007, química, densidad de mezcla
+  He/O2)** — trampa clásica: la fracción MOLAR de He (≈66.7%) coincide
+  numéricamente con una de las opciones, pero la pregunta pide la
+  fracción en MASA (≈19.9%), que no coincide con ninguna. Recordatorio
+  de no confundir ambas magnitudes.
+- **Pregunta 19 (Segundo Parcial 1-2007, química, neutralización
+  H2SO4/NaOH)** — 180.7mL calculados rigurosamente vs. 179mL de la
+  opción más cercana, diferencia de ~1mL no redondeable con los datos
+  dados.
+- **Pregunta 26 (Segundo Parcial 1-2007, física, fuerza de resistencia
+  de una bala)** — 1875N calculados con el teorema trabajo-energía, no
+  coincide con ninguna de las 4 opciones (9375 a 13000N).
+- **Preguntas 22, 25, 26 (Primer Parcial 2-2007, física)** — tres
+  "Ninguno" consecutivos en el bloque de física: altura de caída libre
+  (~44.1m vs. opciones de 300-600m), ángulo de disparo por razón
+  alcance/altura (~33.7° vs. opciones de 53°-76°), y velocidad inicial
+  de un proyectil (ningún valor con $g=9.8$ o $g=10$ reproduce el
+  alcance de 4km dado).
+
+### Técnicas y trampas más notables de este lote
+
+- **Factorización ciclotómica de $x^{32}-1$** (Segundo Parcial 1-2007,
+  Pregunta 2) — aplicar diferencia de cuadrados repetidamente
+  ($x^{2^k}-1=(x^{2^{k-1}}-1)(x^{2^{k-1}}+1)$) da 6 factores
+  irreducibles sobre los racionales, cada uno de la forma
+  $x^{2^k}+1$.
+- **MCM de tres polinomios cúbicos/cuárticos** (Segundo Parcial 1-2007,
+  Pregunta 3) — factorización compartida $(x^2+x+1)$ entre los tres
+  polinomios, reforzando el patrón de "buscar factores comunes antes de
+  multiplicar todo".
+- **Triángulo de contacto del incentro** (Segundo Parcial 1-2007,
+  Pregunta 11) — fórmula $\angle DFE=90°-A/2$ para el ángulo en el punto
+  de tangencia del lado opuesto, verificada numéricamente con varios
+  triángulos distintos que comparten el mismo ángulo $A$.
+- **Segmentos consecutivos con múltiples variables enlazadas**
+  (Admisión Única Opción 2-2007, Pregunta 5, y Primer Parcial 2-2007,
+  Pregunta 6) — patrón recurrente de plantear los segmentos base y
+  usar sustitución algebraica en vez de intentar visualizar directamente
+  las relaciones dadas.
+- **Enunciado matemáticamente inconsistente pero resoluble** (Primer
+  Parcial 2-2007, Pregunta 2) — "dos números primos relativos" con
+  "MCD igual a 9" es una contradicción textual (coprimos implica
+  MCD=1); se interpretó razonablemente como que el MCD real es 9, dando
+  una respuesta consistente con las opciones.
+- **Notación de moneda boliviana con símbolo de dólar** (Segundo
+  Parcial 1-2007, Pregunta 1) — el PDF original usa "\$b." para
+  "Bolivianos" (heredado de una fuente tipográfica antigua), que se
+  transcribió como texto plano "Bs." en el .md para no chocar con los
+  delimitadores `$...$` de KaTeX — a tener en cuenta en futuros PDFs con
+  montos en bolivianos.
+
+---
+
+## 17. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -531,9 +1422,69 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
    de darse por bueno — no alcanza con que "se vea resuelto", hay que
    verificar que la conclusión y la etiqueta coincidan.
 
+8. **Preguntas geométricas/vectoriales sin figura = no resolubles con certeza
+   por texto solo** — el examen 1-2023 (2da Opción) confirma un patrón ya
+   visto en F11 del 2-2022: cuando el enunciado describe una figura
+   geométrica compleja (semicircunferencias, cuadrados superpuestos,
+   vectores en una circunferencia, topología de circuito) sin dar TODAS las
+   medidas/ángulos/conexiones en el texto, intentar resolver "a ojo" con la
+   lectura más plausible es alto riesgo de error silencioso (una respuesta
+   que "sale limpio" pero está mal). La política del proyecto es: marcar
+   `VERIFICAR` explícito en vez de adivinar, y NO fijar la letra de
+   respuesta hasta tener el recorte nítido — más vale una pregunta marcada
+   pendiente que una respuesta falsa presentada como verificada.
+
+9. **Distractor de "componente parcial" en preguntas de vector/aceleración
+   total** — en F12 del examen 2-2022 (2da Opción), calcular SOLO la
+   componente centrípeta ($a_c=4$ m/s²) da un valor que coincide EXACTO con
+   una de las opciones (D), mientras que el módulo real (combinando
+   centrípeta + tangencial por Pitágoras) es $\sqrt{41}\approx6{,}40$ y no
+   está entre las opciones. Mismo patrón de fondo que el "distractor
+   directo" documentado en F11 del 2-2022 (1ra Opción): cuando una pregunta
+   pide una magnitud RESULTANTE de varias componentes, el banco casi
+   siempre incluye como opción el valor de una sola componente aislada —
+   hay que verificar explícitamente que se sumó TODO lo que pide el
+   enunciado antes de aceptar un resultado que "coincide" con una opción.
+
+10. **"Campo/fuerza mínima perpendicular al hilo" — plantilla recurrente de
+    péndulo cargado** — la MISMA pregunta (partícula cargada en equilibrio
+    sobre un péndulo desviado un ángulo $\alpha$, hallar el campo eléctrico
+    MÍNIMO) aparece dos veces en el banco con distintos números: F11 del
+    examen 2-2022 (1ra Opción) y F9 del examen 1-2023 (3ra Opción). En
+    ambos casos la clave es la misma: la fuerza/campo mínimo siempre es
+    PERPENDICULAR al hilo, dando $E_{min}=mg\,\text{sen}\alpha/q$ directo,
+    sin plantear el sistema completo de 3 fuerzas. Vale la pena que el
+    estudiante domine esta plantilla a fondo — tiene alta probabilidad de
+    reaparecer.
+
+11. **Misma pregunta repetida LITERALMENTE (mismo enunciado y figura) entre
+    convocatorias distintas** — F10 del examen 2-2022 (3ra Opción) es
+    exactamente la misma pregunta que F9 del examen 2-2022 (2da Opción):
+    mismo enunciado, misma figura (Hmax, 30m, 45m, puntos A y B), mismas
+    5 opciones. A diferencia del patrón #10 (misma TÉCNICA con números
+    distintos), acá es la pregunta ENTERA sin cambios — sugiere que el
+    banco de la universidad a veces reutiliza el ítem completo entre
+    convocatorias del mismo año, no solo la plantilla. Consecuencia
+    práctica para este proyecto: cuando finalmente se consiga la figura
+    nítida de este problema (vía foto de Ronald), la solución resuelve
+    DOS preguntas del banco a la vez, no solo una.
+
+12. **Exámenes históricos (pre-2020) tienen un formato distinto al moderno**
+    — el examen 1-2005 confirma que las convocatorias antiguas de FCyT NO
+    siempre tienen las 5 áreas modernas (Aritmética-Álgebra, Geometría-
+    Trigonometría, Física, Química, Biología a 4 preguntas cada una): este
+    en particular tiene Matemáticas sin subdividir (10 preguntas), Química
+    (5) y Física (5), SIN Biología. Consecuencia práctica: al cargar
+    exámenes viejos, no asumir la estructura moderna de memoria — revisar
+    el PDF real, clasificar cada pregunta de Matemáticas por su técnica
+    real (álgebra vs trigonometría) para mantener la taxonomía del banco
+    consistente, y ajustar el `ponderacion` del frontmatter a la
+    composición REAL de ese examen específico (el campo es un
+    `Record<string, number>` flexible, no requiere las 5 áreas).
+
 ---
 
-## 8. Próximos pasos sugeridos
+## 18. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
