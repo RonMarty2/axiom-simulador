@@ -1191,7 +1191,97 @@ exigir idéntico.
 
 ---
 
-## 15. Patrones transversales detectados (entre exámenes)
+## 15. Segundo, Tercer y Cuarto Parcial 2-2006 + Admisión 1ra y 2da Opción 1-2007
+
+> **Mismo método que las secciones 13 y 14**: 5 exámenes (154 preguntas)
+> resueltos en paralelo con un agente por examen, cada uno con
+> verificación numérica completa y política "no adivinar", y luego
+> RE-VERIFICADOS por Claude con Python antes de subir. Un agente (Tercer
+> Parcial 2-2006) devolvió su respuesta cortada por límite de longitud de
+> salida a mitad de la Pregunta 28; se recuperó pidiéndole por
+> `SendMessage` que reenviara únicamente las Preguntas 1-27 en dos
+> bloques, sin volver a lanzar un agente nuevo.
+
+> **Cobertura**: 150/154 preguntas con match exacto a una opción, 4
+> "Ninguno" reales confirmados con cálculo mostrado, 0 preguntas
+> VERIFICAR por figura faltante en este lote.
+
+> **Acuerdo con Ronald (21-jul-2026)**: de acá en adelante, cuando una
+> pregunta dependa de una figura/imagen (circuitos, diagramas
+> geométricos, gráficos) que no se pueda resolver solo con el texto, hay
+> que adjuntar el recorte del PDF original al lado de la pregunta
+> digitalizada, para que la figura real esté a la vista al resolver o
+> verificar. No aplica a preguntas sin figura (esas se verifican solo
+> con cálculo, como siempre). Este lote no tuvo ninguna pregunta con
+> figura, así que no fue necesario todavía.
+
+### Hallazgos "Ninguno" verificados en este lote
+
+- **Los dos exámenes de Admisión 1-2007 (1ra y 2da Opción) no tuvieron
+  ningún "Ninguno"** — las 40 preguntas combinadas (20+20) resolvieron
+  con match exacto a una opción; todos los "Ninguno" de este lote
+  vinieron del Tercer Parcial 2-2006.
+- **Pregunta 5 (Tercer Parcial 2-2006, álgebra, ecuación irracional con
+  triple radical)** — $\sqrt{2x+3}+\sqrt{3x+2}-\sqrt{2x+5}=\sqrt{3x}$: la
+  única solución real tras verificar en la ecuación original es $x=3$,
+  que no figura entre las 4 opciones dadas.
+- **Pregunta 24 (Tercer Parcial 2-2006, física, constante de resorte
+  para frenar un automóvil)** — con $a_{max}=5g$ (el dato tal cual
+  aparece en el enunciado), $k=5762.4$ N/m no coincide con ninguna
+  opción; usando $a_{max}=10g$ en cambio se reproduce EXACTO el valor de
+  la opción C (23049.6), lo que sugiere una probable errata en el "5g"
+  del banco original.
+- **Pregunta 15 (Tercer Parcial 2-2006, química, mezcla de HCl
+  concentrado y diluido para normalidad objetivo)** — el balance de masa
+  riguroso da 93.9 mL y 406.1 mL, cercano pero no idéntico a la opción A
+  (95.2 y 404.8 mL, que da ≈4.02N en vez de 4.00N exacto).
+- **Pregunta 28 (Tercer Parcial 2-2006, física, potencia de una bomba de
+  agua)** — la potencia real (~1396.5 W) está tres órdenes de magnitud
+  por encima de las 4 opciones dadas (1.45 a 2.34), que parecen
+  truncadas o con un factor de $10^3$ faltante en el banco original.
+
+### Técnicas y trampas más notables de este lote
+
+- **Ángulo entre cuerdas EF y CD con puntos medios de arco** (Admisión
+  1ra Opción 1-2007, Pregunta 1) — mismo principio de semisuma/
+  semidiferencia de arcos que ya apareció en la sección 13, pero
+  aplicado con dos puntos medios de arco simultáneos; el resultado
+  final no depende de los valores individuales de los arcos menores,
+  solo de su diferencia dada.
+- **Reducción trigonométrica con ángulos $540°+\alpha$ y $450°+\alpha$**
+  (repetida IDÉNTICA en ambos exámenes de Admisión 1-2007, Pregunta 2) —
+  primera vez que se detecta la MISMA pregunta trigonométrica palabra
+  por palabra en dos convocatorias distintas del mismo año, reforzando
+  que ciertos ítems se reciclan entre "1ra" y "2da" opción de un mismo
+  proceso de admisión.
+- **Resorte + rizo vertical con opciones duplicadas en el banco**
+  (ambos exámenes de Admisión 1-2007, Pregunta 9) — las opciones B y D
+  del PDF original aparecen literalmente idénticas ($\sqrt2$ ambas), un
+  error de tipeo del banco que no afecta la respuesta (coincide exacto
+  con la opción A, $\sqrt2/2$) pero se documentó explícitamente.
+- **Genética con heterocigoto obligado por ascendencia** (ambos
+  exámenes de Admisión 1-2007, Pregunta 20) — mismo problema exacto
+  (poliposis + huesos frágiles) repetido en las dos opciones; la clave
+  es deducir el genotipo de un progenitor con fenotipo dominante a
+  partir de que SU padre era homocigoto recesivo.
+- **Factorización de polinomio recíproco** (Segundo Parcial 2-2006,
+  Pregunta 1) — coeficientes simétricos $2,1,4,1,2$ se resuelven
+  dividiendo entre $x^2$ y sustituyendo $y=x+1/x$, la misma técnica de
+  "recíprocos" que ya había aparecido en exámenes anteriores del banco.
+- **Trapecio rectangular con perpendicularidad no evidente** (Segundo
+  Parcial 2-2006, Pregunta 9) — el ángulo $\angle BEF=90°$ no sale de
+  ningún teorema de nombre corto; se confirmó por geometría analítica
+  con coordenadas, probando dos configuraciones numéricas distintas
+  para asegurar que el resultado es independiente de las dimensiones
+  del trapecio.
+- **Inconsistencia de unidades en Ley de Hess** (Cuarto Parcial 2-2006,
+  Pregunta 21, vaporización de agua) — mismo patrón ya documentado en
+  la sección 14: usar los datos del enunciado tal cual (sin conversión
+  extra) reproduce el valor exacto de una opción.
+
+---
+
+## 16. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1309,7 +1399,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 16. Próximos pasos sugeridos
+## 17. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
