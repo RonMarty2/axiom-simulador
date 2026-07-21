@@ -69,7 +69,7 @@ export interface PreguntaBanco {
 }
 
 export interface ExamenBanco {
-  id: string;                       // umss-ingenieria-2023-1ra-opcion
+  id: string;                       // umss-ingenieria-2023-segundo-parcial-curso-propedeutico-gestion-2-2006 (sufijo = slug(titulo), o slug(opcion) si no hay titulo)
   universidad: string;
   facultad: string;
   anio: number;
@@ -79,7 +79,7 @@ export interface ExamenBanco {
   ponderacion: Record<string, number>;
   // Distingue examenes del MISMO año (la UMSS toma varias convocatorias):
   opcion?: string;                  // "1ra Opción", "2da Opción", "3ra Opción"...
-  titulo?: string;                  // display explicito opcional, ej "Examen de Ingreso 1-2023 (1ra Opción)"
+  titulo?: string;                  // display explicito, ej "Examen de Ingreso 1-2023 (1ra Opción)" — tambien se usa para el sufijo del id (ver banco-parser.ts:construirId), porque "anio"+"opcion" solo no alcanza para distinguir convocatorias del mismo año calendario
   // Distingue Examenes de Admision (el banco principal) de Parciales/Finales
   // de Curso Propedeutico/Pre-Facultativo. Default "admision" si no se
   // especifica en el frontmatter — retrocompatible. /resueltos usa este

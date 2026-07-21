@@ -55,7 +55,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
   const cuerpo = cuerpoRaw.replace(/<!--[\s\S]*?-->/g, "");
   const preguntasCrudas = splitPreguntas(cuerpo).map(parsePreguntaBloque);
 
-  const id = construirId(front.universidad, front.facultad, front.anio, front.opcion);
+  const id = construirId(front.universidad, front.facultad, front.anio, front.opcion, front.titulo);
 
   const preguntas: PreguntaBanco[] = preguntasCrudas.map((p) => ({
     id: `${id}-${String(p.numero).padStart(3, "0")}`,
@@ -102,11 +102,18 @@ function slug(s: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-function construirId(universidad: string, facultad: string, anio: number, opcion?: string): string {
+function construirId(universidad: string, facultad: string, anio: number, opcion?: string, titulo?: string): string {
   const base = [universidad, facultad, String(anio)].map(slug).join("-");
-  // Si hay "opcion" (1ra/2da/3ra Opción, versión A/B...) se agrega al id para
-  // que dos examenes del MISMO año no colisionen ni se pisen entre si.
-  return opcion ? `${base}-${slug(opcion)}` : base;
+  // "anio" + "opcion" NO alcanza para distinguir examenes: la UMSS toma
+  // varias convocatorias por año calendario (ej. "Examen de Ingreso 1-2005"
+  // y "Examen de Ingreso 2-2005" son AMBOS "1ra Opción" del mismo anio:2005;
+  // los 8 Parciales de Curso Propedeutico 2006 ni siquiera tienen "opcion").
+  // "titulo" es el unico campo que en la practica es unico por archivo (lo
+  // arma quien carga el examen incluyendo convocatoria/parcial/gestion), asi
+  // que se prioriza sobre "opcion" para el sufijo del id y evitar que dos
+  // archivos del mismo (universidad, facultad, anio) se pisen con el mismo id.
+  const sufijo = titulo ?? opcion;
+  return sufijo ? `${base}-${slug(sufijo)}` : base;
 }
 
 function parseFrontmatter(raw: string): FrontmatterCrudo {
