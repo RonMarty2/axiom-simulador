@@ -1366,7 +1366,92 @@ exigir idéntico.
 
 ---
 
-## 17. Patrones transversales detectados (entre exámenes)
+## 17. Segundo y Tercer Parcial 2-2007 + Admisión 1ra/2da Opción 1-2008 + Primer Parcial 1-2008
+
+> **Mismo método que las secciones 13-16**: 5 exámenes (154 preguntas)
+> resueltos en paralelo con un agente por examen, cada uno con
+> verificación numérica completa y política "no adivinar", luego
+> RE-VERIFICADOS por Claude con Python antes de subir. Uno de los
+> agentes (Tercer Parcial 2-2007) escribió el archivo `.md` directamente
+> en disco en vez de devolver el contenido como texto — primera vez que
+> pasa en el banco; se verificaron sus cálculos más delicados con Python
+> igual que a los demás antes de confiar en el archivo.
+
+> **Primer manejo explícito de "figura no disponible, no adivinar"**:
+> el Primer Parcial 1-2008 tenía 3 preguntas de geometría con figura
+> ("figura 1", "figura 2", "figura 3" en el PDF original). Dos de ellas
+> (excentro con bisectrices exteriores, y polígono cóncavo con vértice
+> reflejo) se resolvieron igual con teoremas estándar que no dependen
+> del dibujo exacto. La tercera (dos paralelas con ángulos 1/2/3 en un
+> cruce de transversales tipo "zigzag") SÍ requería ver la figura real
+> para saber la relación angular exacta — se marcó **E) Ninguno con nota
+> VERIFICAR explícita** en vez de arriesgarse a adivinar la
+> configuración, cumpliendo el acuerdo con Ronald (21-jul-2026) de
+> reservar el recorte del PDF original para estos casos.
+
+> **Cobertura**: 152/154 preguntas con match exacto a una opción o con
+> razonamiento conceptual verificado, 1 "Ninguno" numérico real, 1
+> VERIFICAR genuino por figura faltante (la primera de la sesión que
+> realmente lo necesitaba, a diferencia de lotes anteriores donde
+> siempre se pudo resolver por texto).
+
+### Hallazgo VERIFICAR (figura faltante)
+
+- **Pregunta 7 (Primer Parcial 1-2008, geometría, "figura 1")** — dos
+  rectas paralelas $AB\parallel CD$ con ángulos 1 (30°), 2 (125°) y 3
+  marcados en un cruce de transversales. La configuración exacta
+  (zigzag, cuántas transversales, dónde está cada ángulo) no se puede
+  determinar de forma unívoca a partir del texto extraído del PDF —
+  distinto de casos anteriores como el excentro o el polígono cóncavo,
+  donde un teorema general resuelve la pregunta sin necesitar ver el
+  dibujo. Documentado como el primer caso real de esta sesión que
+  necesita el recorte lado a lado acordado con Ronald.
+
+### Técnicas y trampas más notables de este lote
+
+- **Factorización por agrupación en 3 variables con distinto grado**
+  (Segundo Parcial 2-2007, Pregunta 3) — agrupar por potencias de una
+  variable (acá $a$) para revelar un factor común $(4x^2-1)$ escondido
+  en los 6 términos del polinomio, dando 5 factores finales (con
+  repetición) en vez de asumir una factorización directa.
+- **Ecuación con probable error de OCR resuelta por consistencia
+  interna** (Segundo Parcial 2-2007, Pregunta 5) — el PDF mostraba
+  "2/x" en el lugar de lo que casi seguro era "$2\sqrt{x}$"; se
+  documentó explícitamente la reinterpretación y se verificó que la
+  solución obtenida cumple la ecuación reinterpretada Y calza con la
+  pista del enunciado ("múltiplo de"), como doble confirmación de que
+  la lectura corregida es la correcta.
+- **Trapecio con ángulos complementarios en la base → fórmula de
+  semidiferencia** (Segundo Parcial 2-2007, Pregunta 8) — cuando los
+  ángulos adyacentes a una base de un trapecio suman 90°, el segmento
+  que une los puntos medios de las bases es $(B-b)/2$; se verificó esta
+  fórmula por dos caminos (geometría vectorial completa y la fórmula
+  directa), reforzando el patrón de "no memorices el atajo, rederivalo"
+  ya documentado en secciones anteriores.
+- **Tangente-secante con semejanza de triángulos en cascada** (Segundo
+  Parcial 2-2007, Pregunta 9) — cuando dos tangentes y una secante
+  desde el mismo punto externo generan 4 segmentos con datos parciales,
+  plantear DOS pares de triángulos semejantes (tangente-cuerda) y
+  cancelar la tangente común (PA=PC) da una relación directa entre los
+  4 segmentos sin necesitar hallar PA o PD explícitamente.
+- **Configuración estándar "excentro" reconocida sin ver la figura**
+  (Primer Parcial 1-2008, Pregunta 8) — el teorema $\angle BPC=90°-A/2$
+  para bisectrices exteriores en B y C es independiente del dibujo
+  específico, permitiendo resolver con confianza aun sin la imagen —
+  a diferencia de la Pregunta 7 del mismo examen, donde no existe un
+  teorema general aplicable sin conocer la disposición exacta de la
+  figura.
+- **Polígono cóncavo: ángulo "visible" vs. ángulo interior real**
+  (Primer Parcial 1-2008, Pregunta 9) — en un vértice reflejo (cóncavo)
+  de un polígono, el ángulo que se ve dibujado en la figura (agudo,
+  menor a 180°) es el EXTERIOR al polígono desde ese vértice; el ángulo
+  interior real que hay que usar en la fórmula $(n-2)\times180°$ es su
+  reflejo, $360°$ menos ese valor. Confundir ambos es un error común al
+  resolver estos ejercicios sin prestar atención a la concavidad.
+
+---
+
+## 18. Patrones transversales detectados (entre exámenes)
 
 Observaciones que se repiten en MÁS DE UN examen — útiles para diseñar
 lecciones que ataquen el patrón, no solo el ejercicio puntual:
@@ -1484,7 +1569,7 @@ lecciones que ataquen el patrón, no solo el ejercicio puntual:
 
 ---
 
-## 18. Próximos pasos sugeridos
+## 19. Próximos pasos sugeridos
 
 - [ ] Mapear con el mismo nivel de detalle los exámenes de Química/Física/
       Matemática que se carguen de OTRAS facultades (Medicina, Derecho) en
