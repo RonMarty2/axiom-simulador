@@ -135,7 +135,7 @@ export default function ResueltosPage() {
                       Examen oficial · {ex.anio}
                     </div>
                     <div className="font-crimson" style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.2 }}>
-                      {ex.opcion ?? "Examen"}
+                      {ex.titulo ?? ex.opcion ?? "Examen"}
                     </div>
                     {ex.fecha_examen && (
                       <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 2 }}>
