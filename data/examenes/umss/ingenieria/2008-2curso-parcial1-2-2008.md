@@ -485,11 +485,11 @@ dificultad: facil
 
 Las purinas (bases nitrogenadas) son:
 
-- a) Adenina y Timina
-- b) Citosina y Timina
-- c) Adenina y Guanina
-- d) Todas
-- e) Ninguna
+- A) Adenina y Timina
+- B) Citosina y Timina
+- C) Adenina y Guanina
+- D) Todas
+- E) Ninguna
 
 **respuesta:** c
 **explicacion:** Las purinas son las bases nitrogenadas de estructura bicíclica.
@@ -505,11 +505,11 @@ dificultad: facil
 
 Al conjunto de todos los cromosomas de un individuo ordenados según su forma y tamaño se denomina:
 
-- a) Genoma
-- b) Pedigrí
-- c) Cariotipo
-- d) Todas
-- e) Ninguna
+- A) Genoma
+- B) Pedigrí
+- C) Cariotipo
+- D) Todas
+- E) Ninguna
 
 **respuesta:** c
 **explicacion:** Definición directa del término.
@@ -525,11 +525,11 @@ dificultad: facil
 
 Las funciones de los lípidos son:
 
-- a) Cumplen funciones de regulación hormonal
-- b) Forman parte de la estructura de la membrana celular
-- c) Son utilizados como 2da fuente de energía celular
-- d) Todas
-- e) Ninguna
+- A) Cumplen funciones de regulación hormonal
+- B) Forman parte de la estructura de la membrana celular
+- C) Son utilizados como 2da fuente de energía celular
+- D) Todas
+- E) Ninguna
 
 **respuesta:** d
 **explicacion:** Evaluá cada afirmación por separado.
@@ -547,11 +547,11 @@ dificultad: facil
 
 Las biomoléculas son:
 
-- a) Ácidos nucleicos
-- b) Carbohidratos
-- c) Lípidos
-- d) Todas
-- e) Ninguna
+- A) Ácidos nucleicos
+- B) Carbohidratos
+- C) Lípidos
+- D) Todas
+- E) Ninguna
 
 **respuesta:** d
 **explicacion:** Las tres son categorías reconocidas de biomoléculas orgánicas.
@@ -567,11 +567,11 @@ dificultad: medio
 
 Las proteínas que cumplen función de transporte son:
 
-- a) Colágeno y queratina
-- b) Cromoproteínas
-- c) Hemoglobina
-- d) Todas
-- e) Ninguna
+- A) Colágeno y queratina
+- B) Cromoproteínas
+- C) Hemoglobina
+- D) Todas
+- E) Ninguna
 
 **respuesta:** c
 **explicacion:** Compará la función real de cada proteína listada.
@@ -590,11 +590,11 @@ dificultad: medio
 
 La ley de la transmisión o segregación independiente de los caracteres indica que las frecuencias son:
 
-- a) 3:1
-- b) 1:2:1
-- c) 9:3:3:1
-- d) Todas
-- e) Ninguna
+- A) 3:1
+- B) 1:2:1
+- C) 9:3:3:1
+- D) Todas
+- E) Ninguna
 
 **respuesta:** c
 **explicacion:** Distinguí la 1ª ley de Mendel (segregación, monohíbrida) de la 2ª ley (distribución o segregación independiente, dihíbrida).
@@ -611,11 +611,11 @@ dificultad: facil
 
 Son ejemplos de carbohidratos:
 
-- a) Monosacáridos
-- b) Disacáridos
-- c) Polisacáridos
-- d) Todas
-- e) Ninguna
+- A) Monosacáridos
+- B) Disacáridos
+- C) Polisacáridos
+- D) Todas
+- E) Ninguna
 
 **respuesta:** d
 **explicacion:** Las tres son clasificaciones de carbohidratos según su grado de polimerización.
@@ -631,11 +631,11 @@ dificultad: facil
 
 La proteína más abundante encontrada en la piel, tendones, cartílagos es:
 
-- a) Queratina
-- b) Colágeno
-- c) Fibrinógeno
-- d) Todas
-- e) Ninguna
+- A) Queratina
+- B) Colágeno
+- C) Fibrinógeno
+- D) Todas
+- E) Ninguna
 
 **respuesta:** b
 **explicacion:** Compará la ubicación característica de cada proteína.
@@ -653,11 +653,11 @@ dificultad: facil
 
 El polisacárido de reserva en los animales es:
 
-- a) Glucógeno
-- b) Quitina
-- c) Celulosa
-- d) Todas
-- e) Ninguna
+- A) Glucógeno
+- B) Quitina
+- C) Celulosa
+- D) Todas
+- E) Ninguna
 
 **respuesta:** a
 **explicacion:** Distinguí polisacáridos de reserva de polisacáridos estructurales.
@@ -674,11 +674,11 @@ dificultad: facil
 
 En relación a las biomoléculas orgánicas las siguientes premisas son correctas:
 
-- a) Son compuestos de carbono
-- b) Están compuestos por C-H-O-N-P-S
-- c) Están compuestos por la combinación de bioelementos
-- d) Todas
-- e) Ninguna
+- A) Son compuestos de carbono
+- B) Están compuestos por C-H-O-N-P-S
+- C) Están compuestos por la combinación de bioelementos
+- D) Todas
+- E) Ninguna
 
 **respuesta:** d
 **explicacion:** Evaluá cada afirmación sobre la composición química de las biomoléculas.
