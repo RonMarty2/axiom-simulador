@@ -224,3 +224,73 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* ═══ RESUELTOS — lista agrupada por año (acordeón) ═══════════════════════════
+   Sin overflow:hidden en .resueltos-wrap: position:sticky necesita que ningun
+   ancestro recorte el scroll, si no el header del año no queda "pegado". El
+   redondeo de esquinas se resuelve con :first-child/:last-child en vez de
+   overflow:hidden en el contenedor. */
+.resueltos-wrap { border: 1px solid var(--border); border-radius: 14px; background: var(--bg-card); box-shadow: var(--shadow-sm); }
+
+.resueltos-grupo:first-child .resueltos-anio-header { border-radius: 14px 14px 0 0; }
+.resueltos-grupo:last-child:not(.abierto) .resueltos-anio-header { border-radius: 0 0 14px 14px; }
+
+.resueltos-anio-header {
+  position: sticky;
+  top: 57px; /* alto real del AppHeader (sticky, top:0) para no quedar tapado */
+  z-index: 3;
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; border: none; cursor: pointer;
+  padding: 12px 18px;
+  font-family: inherit; text-align: left;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 0 var(--bg-card), 0 6px 10px -8px rgba(0, 0, 0, 0.18);
+}
+.resueltos-anio-header:hover { background: var(--bg-subtle); }
+.resueltos-anio-header-izq { display: flex; align-items: baseline; gap: 12px; }
+.resueltos-anio-num {
+  font-weight: 700; font-size: 26px; line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+}
+.resueltos-anio-count { font-size: 12px; color: var(--fg-muted); font-variant-numeric: tabular-nums; }
+.resueltos-anio-chev { color: var(--fg-muted); font-size: 13px; transition: transform 0.2s ease; flex-shrink: 0; }
+.resueltos-grupo.abierto .resueltos-anio-chev { transform: rotate(90deg); color: var(--accent); }
+
+.resueltos-anio-body { padding: 8px 10px; display: flex; flex-direction: column; gap: 6px; }
+.resueltos-grupo:not(:last-child) .resueltos-anio-body { border-bottom: 1px solid var(--border); }
+
+.resueltos-fila {
+  display: block; border-radius: 9px; text-decoration: none; color: inherit;
+  border: 1px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.resueltos-fila:hover { border-color: var(--border); background: var(--bg-subtle); }
+.resueltos-fila:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.resueltos-fila-linea {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) auto auto 16px;
+  align-items: center;
+  gap: 14px;
+  padding: 9px 10px;
+}
+.resueltos-fila-titulo-col { min-width: 0; display: flex; align-items: baseline; gap: 8px; }
+.resueltos-fila-titulo {
+  font-size: 14.5px; font-weight: 600; color: var(--fg-primary);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.resueltos-fila-meta { font-size: 12.5px; color: var(--fg-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.resueltos-fila-chips { display: flex; gap: 5px; flex-wrap: nowrap; overflow: hidden; }
+.resueltos-chip {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 999px; white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.resueltos-fila-flecha { color: var(--fg-muted); font-size: 15px; transition: transform 0.15s ease, color 0.15s ease; }
+.resueltos-fila:hover .resueltos-fila-flecha { color: var(--accent); transform: translateX(2px); }
+
+@media (max-width: 640px) {
+  .resueltos-fila-linea { grid-template-columns: 1fr auto; row-gap: 6px; }
+  .resueltos-fila-chips, .resueltos-fila-meta { grid-column: 1 / -1; }
+  .resueltos-fila-flecha { display: none; }
+}

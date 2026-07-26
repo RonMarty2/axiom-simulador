@@ -40,6 +40,10 @@ export default function ResueltosPage() {
   // Finales del Curso Propedéutico/Pre-Facultativo — categoría separada a
   // pedido explícito: no deben mezclarse en el mismo listado.
   const [vista, setVista] = useState<"admision" | "parcial_curso">("admision");
+  // Años plegados/abiertos del acordeón. Por defecto solo el año mas reciente
+  // de la vista actual queda abierto (evita una lista km de larga cuando el
+  // banco crezca a 150+ examenes).
+  const [aniosAbiertos, setAniosAbiertos] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => {
@@ -60,10 +64,36 @@ export default function ResueltosPage() {
     });
   }, [router]);
 
+  useEffect(() => {
+    const anios = examenes.filter((x) => (x.categoria ?? "admision") === vista).map((x) => x.anio);
+    if (anios.length > 0) setAniosAbiertos(new Set([Math.max(...anios)]));
+  }, [vista, examenes]);
+
   if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
 
   const examenesVista = examenes.filter((x) => (x.categoria ?? "admision") === vista);
   const hayParciales = examenes.some((x) => x.categoria === "parcial_curso");
+
+  const gruposPorAnio = Array.from(
+    examenesVista.reduce((mapa, ex) => {
+      if (!mapa.has(ex.anio)) mapa.set(ex.anio, []);
+      mapa.get(ex.anio)!.push(ex);
+      return mapa;
+    }, new Map<number, ExamenMetadata[]>())
+  )
+    .sort((a, b) => b[0] - a[0])
+    .map(([anio, exs]) => [
+      anio,
+      exs.sort((a, b) => (b.fecha_examen ?? "").localeCompare(a.fecha_examen ?? "")),
+    ] as [number, ExamenMetadata[]]);
+
+  function toggleAnio(anio: number) {
+    setAniosAbiertos((prev) => {
+      const next = new Set(prev);
+      if (next.has(anio)) next.delete(anio); else next.add(anio);
+      return next;
+    });
+  }
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -111,63 +141,57 @@ export default function ResueltosPage() {
             </p>
           </div>
         ) : (
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 16 }}>
-            {examenesVista
-              .sort((a, b) => (b.anio - a.anio) || (b.fecha_examen ?? "").localeCompare(a.fecha_examen ?? ""))
-              .map((ex) => (
-              <Link
-                key={ex.id}
-                href={`/resueltos/${ex.id}`}
-                style={{
-                  display: "block",
-                  background: "var(--bg-card)",
-                  borderRadius: 16,
-                  padding: 22,
-                  textDecoration: "none",
-                  border: `1px solid ${facultad?.color ?? "var(--border)"}30`,
-                  boxShadow: "var(--shadow-sm)",
-                  transition: "transform 0.15s, box-shadow 0.15s",
-                }}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
-                  <div>
-                    <div style={{ fontSize: 11, fontWeight: 800, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                      Examen oficial · {ex.anio}
-                    </div>
-                    <div className="font-crimson" style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.2 }}>
-                      {ex.titulo ?? ex.opcion ?? "Examen"}
-                    </div>
-                    {ex.fecha_examen && (
-                      <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 2 }}>
-                        📅 {formatearFecha(ex.fecha_examen)}
-                      </div>
-                    )}
-                  </div>
-                  <div style={{ fontSize: 32 }}>{facultad?.emoji ?? "📄"}</div>
-                </div>
-                <div style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 14 }}>
-                  {ex.universidad} · {ex.total_preguntas} preguntas · {ex.duracion_minutos} min
-                </div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 14 }}>
-                  {ex.areas_resumen.map((a) => (
-                    <span key={a.area} style={{
-                      fontSize: 10, padding: "3px 8px",
-                      background: `${facultad?.color ?? "#6366F1"}15`,
-                      color: facultad?.color ?? "var(--accent)",
-                      borderRadius: 999, fontWeight: 700, textTransform: "uppercase",
-                    }}>
-                      {ETIQUETAS_AREA[a.area] ?? a.area} · {a.cantidad}
+          <div className="resueltos-wrap">
+            {gruposPorAnio.map(([anio, exs]) => {
+              const abierto = aniosAbiertos.has(anio);
+              return (
+                <div key={anio} className={`resueltos-grupo${abierto ? " abierto" : ""}`}>
+                  <button type="button" className="resueltos-anio-header" onClick={() => toggleAnio(anio)}>
+                    <span className="resueltos-anio-header-izq">
+                      <span className="font-crimson resueltos-anio-num">{anio}</span>
+                      <span className="resueltos-anio-count">{exs.length} examen{exs.length === 1 ? "" : "es"}</span>
                     </span>
-                  ))}
+                    <span className="resueltos-anio-chev">▸</span>
+                  </button>
+                  {abierto && (
+                    <div className="resueltos-anio-body">
+                      {exs.map((ex) => (
+                        <Link key={ex.id} href={`/resueltos/${ex.id}`} className="resueltos-fila">
+                          <div className="resueltos-fila-linea">
+                            <div className="resueltos-fila-titulo-col">
+                              <span className="resueltos-fila-titulo">{ex.titulo ?? ex.opcion ?? "Examen"}</span>
+                            </div>
+                            <div className="resueltos-fila-meta">
+                              {ex.fecha_examen ? `${formatearFecha(ex.fecha_examen)} · ` : ""}{ex.total_preguntas} preg · {ex.duracion_minutos} min
+                            </div>
+                            <div className="resueltos-fila-chips">
+                              {ex.areas_resumen.slice(0, 4).map((a) => (
+                                <span
+                                  key={a.area}
+                                  className="resueltos-chip"
+                                  style={{ background: `${facultad?.color ?? "#6366F1"}15`, color: facultad?.color ?? "var(--accent)" }}
+                                >
+                                  {ETIQUETAS_AREA[a.area] ?? a.area} · {a.cantidad}
+                                </span>
+                              ))}
+                              {ex.areas_resumen.length > 4 && (
+                                <span
+                                  className="resueltos-chip"
+                                  style={{ background: `${facultad?.color ?? "#6366F1"}15`, color: facultad?.color ?? "var(--accent)" }}
+                                >
+                                  +{ex.areas_resumen.length - 4}
+                                </span>
+                              )}
+                            </div>
+                            <div className="resueltos-fila-flecha">→</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div style={{
-                  display: "flex", alignItems: "center", gap: 6,
-                  fontSize: 13, fontWeight: 700, color: facultad?.color ?? "var(--accent)",
-                }}>
-                  Ver solución paso a paso →
-                </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         )}
 
