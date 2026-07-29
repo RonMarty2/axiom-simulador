@@ -15,6 +15,10 @@ const ETIQUETAS_AREA: Record<string, string> = {
   economicas: "Económicas",
   verbal: "Verbal",
   razonamiento: "Razonamiento",
+  fisica: "Física",
+  quimica: "Química",
+  biologia: "Biología",
+  estrategias_aprendizaje: "Estrategias de Aprendizaje",
   general: "General",
 };
 
