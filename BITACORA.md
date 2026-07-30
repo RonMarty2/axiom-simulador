@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-07-28 (banco de exámenes Ingeniería UMSS completo, 2005-2025)
-**Versión de la bitácora:** v1.3
+**Última actualización:** 2026-07-30 (banco de Ingeniería ampliado a 139 exámenes + categoría PRE-U 2024-2025)
+**Versión de la bitácora:** v1.4
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -219,7 +219,7 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ### Crítico
 - [ ] Reescribir **examen 2024** UMSS Económicas con preguntas multi-paso (paralelo a lo que se hizo con 2023).
 - [ ] Verificar respuesta de Pregunta 1 del examen 2023 (fracciones anidadas). Mi cálculo discrepa del oficial; revisar a mano o con sympy.
-- [x] Banco de Ingeniería: 126 exámenes reales 2005-2025 (ver §11, entrada 2026-07-28).
+- [x] Banco de Ingeniería: 139 exámenes reales 2005-2025, incluye categoría PRE-U 2024-2025 (ver §11).
 - [ ] Crear bancos serios para Medicina, Derecho (mismo patrón que Ingeniería, ver §11).
 
 ### Importante
@@ -265,6 +265,22 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-07-30 (banco de Ingeniería a 139 exámenes · categoría PRE-U 2024-2025 + materia nueva)
+
+**Qué se cargó:** 13 exámenes más, después de que Ronald revisó su carpeta local y detectó que faltaban gestiones que no se habían mandado todavía. Con esto el banco de Ingeniería pasa de 126 a **139 exámenes**.
+
+- **4 Exámenes de Ingreso estándar** (20 preguntas, 4 áreas × 5): 1-2024 Tercera Opción, 2-2024 Única Opción (primer archivo de esa gestión), 1-2025 Primera y Segunda Opción.
+- **9 parciales/finales de una categoría nueva: "PRE-U"** — es el nombre que la UMSS le puso a partir de 2024 al mismo curso que antes se llamaba "Curso Pre-Facultativo"/"Curso Propedéutico" (misma `categoria: parcial_curso` del banco, no se creó una categoría nueva). Vienen en PDFs que bundlean 3 exámenes cada uno (Primer Parcial + Segundo Parcial + Final) en un solo archivo de hasta 18 páginas — hubo que Leer el PDF por rangos de página (`pages: "1-6"`, `"7-12"`, etc.) y despachar un agente por examen, no por PDF.
+  - PRE-U 1-2024 (3 exámenes, 40 preguntas c/u: Aritmética 5, Geometría 5, Química 5, Física 5, Biología 10, **Estrategias de Aprendizaje 10**).
+  - PRE-U 2-2024 (3 exámenes: el Primer Parcial tiene 38 preguntas —Biología y Estrategias con 9 c/u, no 10—, Segundo Parcial y Final tienen 30 —Biología y Estrategias con 5 c/u—. La estructura NO es uniforme entre gestiones ni entre parciales de la misma gestión; hay que leer cada PDF real, nunca asumir por patrón).
+  - PRE-U 1-2025 (3 exámenes, 20 preguntas c/u: Aritmética 5, Geometría 5, Química 5, Física 5 — esta gestión NO tiene Biología ni Estrategias de Aprendizaje, volvió a la estructura de 4 áreas).
+
+**Materia nueva: "Estrategias de Aprendizaje"** (`area: estrategias_aprendizaje`) — no es matemática/ciencia, son preguntas de técnicas de estudio (aprendizaje significativo, metacognición, ABP, etc.). No existía en el banco antes de 2024. Se agregó su etiqueta ("Estrategias de Aprendizaje") a los 3 mapas `ETIQUETAS_AREA` de la UI (`examenes/page.tsx`, `simulador/[simId]/page.tsx`, `simulador/[simId]/resultados/page.tsx`) — de paso se completaron ahí mismo `fisica`/`quimica`/`biologia`, que llevaban 87+ exámenes del banco mostrándose en texto crudo sin formatear porque nunca se habían agregado esas 3 etiquetas.
+
+**Ponderación en exámenes de 6 áreas:** cuando un examen tiene Biología/Estrategias con el doble (o casi) de preguntas que las demás áreas, la ponderación sigue repartiéndose EN PARTES IGUALES entre las áreas presentes (16.67% × 6, o 25% × 4 en los PRE-U 1-2025 sin Bio/Estrategias) — es el mismo criterio de "área pesa igual sin importar cuántas preguntas tenga" que ya se usaba en el resto del banco. Decisión confirmada explícitamente por Ronald antes de cargar.
+
+**Detección de duplicados:** de los 7 archivos originalmente identificados como "faltantes", 3 resultaron ser el mismo contenido que exámenes ya cargados en una tanda anterior de la sesión (con nombre de archivo distinto pero texto idéntico) — se descartaron sin re-procesar, comparando contra el repo antes de dispatchear agentes.
 
 ### 2026-07-28 (banco de exámenes Ingeniería UMSS completo · 126 exámenes, 2005-2025)
 
