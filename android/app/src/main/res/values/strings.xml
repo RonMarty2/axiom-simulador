@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AXIOM</string>
+
+    <!-- Digital Asset Links — le dice a Android "este dominio y esta app son
+         del mismo dueño", así la app abre sin barra de navegador (ver README
+         de esta carpeta: hay que completar el sha256Fingerprint real acá Y en
+         public/.well-known/assetlinks.json antes de compilar el release firmado). -->
+    <string name="asset_statements">
+        [{
+          \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+          \"target\": {
+            \"namespace\": \"web\",
+            \"site\": \"https://axiom-simulador.vercel.app\"
+          }
+        }]
+    </string>
+</resources>
