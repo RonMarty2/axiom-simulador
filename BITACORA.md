@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-07-31 (sistema de "Láminas de Repaso" — reglas de diseño didáctico, §4.5)
-**Versión de la bitácora:** v1.5
+**Última actualización:** 2026-08-03 (Láminas de Repaso: estructura módulo → láminas atómicas + mapa de 64 láminas para Aritmética-Álgebra, §4.5)
+**Versión de la bitácora:** v1.6
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -182,8 +182,13 @@ Se iteró un mockup 4 veces (artifact, no código de producción todavía) hasta
 6. **El banco de exámenes es mapa, no guion.** Usar `data/examenes/umss/ingenieria/*.md` (campo `tema:`) para saber qué está cubierto y con qué frecuencia — pero cada lámina debe enseñar la familia de conceptos completa (ej. "medidas de tendencia central" en general, no solo "media aritmética" porque fue lo que preguntó un examen puntual). El etiquetado `tema:` del banco es muy granular (para Aritmética-Álgebra de Ingeniería: 653 preguntas en 496 tags distintos, con bastante redundancia semántica entre tags parecidos) — hace falta agruparlos en familias de temas reales antes de mapear 1 lámina = 1 tema.
 7. **Figuras (geometría, gráficos): SIEMPRE con coordenadas calculadas, nunca a mano.** Cuando una lámina necesita una figura (triángulos, circunferencias, ángulos, tangentes, gráficos de función), construirla con geometría/trigonometría real (coordenadas exactas calculadas, no aproximadas ni "dibujadas a ojo") y renderizarla como SVG a partir de esas coordenadas — igual que ya se exige para las animaciones de lección (`Ejes`, `scalerX`/`scalerY` en `lienzo.tsx`). Un dibujo que "se ve más o menos como" la figura pero no es geométricamente exacto es peor que no tener figura, porque enseña mal. Nada de aproximaciones visuales sueltas.
 8. **Reutilizar `src/app/aprende/_components/pedagogia.tsx` y `lienzo.tsx`** para la versión de producción (colores, tipografía, componentes `WorkedExample`/`Misconception`/`Resumen` ya existen y cubren casi 1:1 los bloques de la lámina) — el mockup en HTML/CSS standalone fue solo para iterar el diseño rápido con Ronald, no es el código final.
+9. **Altamente didáctico, visual y con ejemplos — no negociable.** No alcanza con prosa bien escrita: cada lámina necesita al menos un ejemplo numérico completo trabajado paso a paso (no solo el resultado) y, cuando el tema lo permite, apoyo visual real (figura con coordenadas calculadas —regla 7— o un esquema simple del tipo "puente" como el 17÷5). Ronald lo remarcó explícitamente después de ver la lista de 64 láminas: el objetivo es que se sienta una clase bien dada, no una hoja de fórmulas prolija.
 
-**Pendiente:** decidir el proceso de rollout (cuántas láminas por tanda, con qué nivel de revisión de Ronald en cada una) y armar la lista real de "familias de temas" de Aritmética-Álgebra de Ingeniería agrupando los 496 tags crudos del banco.
+**Estructura confirmada — familias como módulos, no como láminas:** una familia de temas grande (ej. "Logaritmos", 101 preguntas en el banco) NO es una lámina — es un **módulo** que se abre en varias **láminas atómicas**, cada una enseñando un solo concepto concreto de cero, encadenadas entre sí con el pie "Necesitás antes / Te abre la puerta a" (regla 5). Ejemplo real (módulo Logaritmos): ¿Qué es un logaritmo? → Propiedades → Cambio de base → Ecuaciones exponenciales → Ecuaciones logarítmicas simples → Ecuaciones logarítmicas complejas → Dominio de func. logarítmicas → Aplicaciones (crecimiento/decaimiento). Mismo criterio aplicado a las 24 familias de Aritmética-Álgebra de Ingeniería da **64 láminas atómicas** (65 si se suma Números Complejos, familia de 1 sola pregunta histórica — pendiente decidir si vale la pena o queda para después). Lista completa de módulos y su desglose en láminas: `/tmp/claude-0/-home-user-axiom-simulador/53c85eee-7bad-5b14-bd8c-7a119b7647f2/scratchpad/agrupar_temas.py` (script de agrupación) — mover a un lugar permanente del repo cuando se arranque a picar código de producción.
+
+**Rollout confirmado:** una lámina a la vez, con revisión de Ronald antes de pasar a la siguiente (no por tandas). El piloto "Teorema del Resto" (mockup v4, sección arriba) es la primera de las 5 láminas del módulo "Teorema del Resto y división de polinomios".
+
+**Pendiente:** decidir si Números Complejos entra como módulo de 1 lámina o se pospone; empezar a portar el mockup a código de producción real (`pedagogia.tsx`/`lienzo.tsx`) para la primera lámina.
 
 ---
 
@@ -291,6 +296,10 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-08-03 (Láminas de Repaso: mapa completo de módulos para Aritmética-Álgebra Ingeniería)
+
+Se agrupó el banco de 653 preguntas de Aritmética-Álgebra de Ingeniería (496 tags `tema:` crudos) en **24 familias temáticas**. Ronald corrigió el enfoque inicial: una familia grande (ej. Logaritmos, 101 preguntas) NO debe convertirse en 1-2 láminas gigantes — cada familia es un **módulo** que se abre en varias **láminas atómicas**, una por concepto concreto, encadenadas con "Necesitás antes / Te abre la puerta a". Resultado: **64 láminas atómicas** planificadas (65 con Números Complejos, pendiente de confirmar por ser una familia de 1 sola pregunta). Se confirmó también el ritmo de producción: una lámina a la vez, con revisión de Ronald antes de la siguiente. Reforzado en §4.5 regla 9: cada lámina debe ser fuertemente visual y con ejemplos trabajados completos, no solo prosa. Todavía sin código de producción — sigue pendiente portar el mockup aprobado a `pedagogia.tsx`/`lienzo.tsx`.
 
 ### 2026-07-31 (diseño del sistema de "Láminas de Repaso" — sin código de producción todavía)
 
