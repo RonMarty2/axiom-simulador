@@ -95,6 +95,7 @@ export default function AppHeader() {
             <>
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
               <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>📚 Aprende</Link>
+              <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>💎 Láminas</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
               <Link href="/historial" style={navLink(pathname === "/historial")}>Mis exámenes</Link>
               <Link href="/debilidades" style={navLink(pathname === "/debilidades")}>Mis debilidades</Link>
@@ -337,6 +338,7 @@ export default function AppHeader() {
             <>
               <Link href="/dashboard" style={menuMovilItem(pathname === "/dashboard")} onClick={() => setMenuMovil(false)}>🏠 Inicio</Link>
               <Link href="/aprende" style={menuMovilItem(pathname?.startsWith("/aprende"))} onClick={() => setMenuMovil(false)}>📚 Aprende</Link>
+              <Link href="/laminas" style={menuMovilItem(pathname?.startsWith("/laminas"))} onClick={() => setMenuMovil(false)}>💎 Láminas</Link>
               <Link href="/practicar" style={menuMovilItem(pathname?.startsWith("/practicar"))} onClick={() => setMenuMovil(false)}>📝 Practicar</Link>
               <Link href="/historial" style={menuMovilItem(pathname === "/historial")} onClick={() => setMenuMovil(false)}>📊 Mis exámenes</Link>
               <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>🎯 Mis debilidades</Link>

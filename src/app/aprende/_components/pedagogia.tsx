@@ -77,6 +77,18 @@ export function Definicion({ termino, children }: { termino: string; children: R
   );
 }
 
+// PUENTE · Conexión obligatoria con algo que el lector ya sabe 100% de
+// memoria, antes de meter notación nueva. Ver BITÁCORA §4.5 regla 1 — todas
+// las Láminas de Repaso arrancan con esto.
+export function Puente({ children }: { children: React.ReactNode }) {
+  return (
+    <Bloque acento={LIENZO.fgDim} fondo={LIENZO.bgSoft}>
+      <Etiqueta color={LIENZO.fgDim}>Arrancamos de algo que ya sabés</Etiqueta>
+      <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fg }}>{children}</div>
+    </Bloque>
+  );
+}
+
 export function PorQue({ children }: { children: React.ReactNode }) {
   return (
     <Bloque acento={LIENZO.warn} fondo={LIENZO.bgSoft}>
