@@ -106,8 +106,18 @@ export default function ExamenResueltoPage() {
         padding: "28px clamp(14px, 5vw, 24px)",
       }}>
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
-          <Link href="/resueltos" style={{ color: "rgba(255,255,255,0.85)", fontSize: 13, textDecoration: "none" }}>
-            ← Volver a exámenes resueltos
+          <Link
+            href="/resueltos"
+            aria-label="Volver a exámenes resueltos"
+            style={{
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              width: 36, height: 36, borderRadius: "50%",
+              background: "rgba(255,255,255,0.15)", color: "white",
+            }}
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
           </Link>
           <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 18px)", marginTop: 10, flexWrap: "wrap" }}>
             <div style={{ fontSize: "clamp(32px, 9vw, 56px)" }}>{facultad?.emoji ?? "📄"}</div>
