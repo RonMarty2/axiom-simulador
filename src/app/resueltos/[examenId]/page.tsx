@@ -103,19 +103,19 @@ export default function ExamenResueltoPage() {
       <div style={{
         background: `linear-gradient(135deg, ${color}, ${facultad?.color_secundario ?? color})`,
         color: "white",
-        padding: "28px 24px",
+        padding: "28px clamp(14px, 5vw, 24px)",
       }}>
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
           <Link href="/resueltos" style={{ color: "rgba(255,255,255,0.85)", fontSize: 13, textDecoration: "none" }}>
             ← Volver a exámenes resueltos
           </Link>
-          <div style={{ display: "flex", alignItems: "center", gap: 18, marginTop: 10, flexWrap: "wrap" }}>
-            <div style={{ fontSize: 56 }}>{facultad?.emoji ?? "📄"}</div>
-            <div style={{ flex: 1, minWidth: 240 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 18px)", marginTop: 10, flexWrap: "wrap" }}>
+            <div style={{ fontSize: "clamp(32px, 9vw, 56px)" }}>{facultad?.emoji ?? "📄"}</div>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 Examen oficial · {examen.universidad} · {examen.anio}
               </div>
-              <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, marginTop: 2, lineHeight: 1.15 }}>
+              <h1 className="font-crimson" style={{ fontSize: "clamp(22px, 6vw, 32px)", fontWeight: 800, marginTop: 2, lineHeight: 1.15, textWrap: "balance" }}>
                 {examen.titulo ?? `${facultad?.nombre_corto ?? examen.facultad} ${examen.anio}${examen.opcion ? ` · ${examen.opcion}` : ""}`}
               </h1>
               <div style={{ fontSize: 14, opacity: 0.9, marginTop: 6 }}>
