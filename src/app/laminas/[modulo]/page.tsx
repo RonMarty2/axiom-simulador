@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
+import BackLink from "../../components/BackLink";
 import type { Usuario } from "@/lib/data-store";
 import { obtenerFacultadLaminas, obtenerModulo } from "@/lib/axiom/laminas";
 import { LIENZO } from "../../aprende/_components/lienzo";
@@ -33,8 +34,8 @@ export default function ModuloLaminasPage() {
       <div style={{ minHeight: "100vh", background: LIENZO.bg }}>
         <AppHeader />
         <main style={{ maxWidth: 700, margin: "0 auto", padding: "40px 20px", textAlign: "center" }}>
-          <p style={{ color: LIENZO.fgDim }}>No encontramos este módulo.</p>
-          <Link href="/laminas" style={{ color: LIENZO.accent }}>← Volver a Láminas</Link>
+          <p style={{ color: LIENZO.fgDim, marginBottom: 12 }}>No encontramos este módulo.</p>
+          <BackLink href="/laminas" label="Volver a Láminas" />
         </main>
       </div>
     );
@@ -44,8 +45,11 @@ export default function ModuloLaminasPage() {
     <div style={{ minHeight: "100vh", background: LIENZO.bg }}>
       <AppHeader />
       <main style={{ maxWidth: 700, margin: "0 auto", padding: "32px 20px 60px" }}>
-        <Link href="/laminas" style={{ color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
-          ← Láminas
+        <Link href="/laminas" style={{ display: "inline-flex", alignItems: "center", gap: 5, color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+          Láminas
         </Link>
         <div style={{ fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: LIENZO.fgFaint, fontWeight: 700, margin: "16px 0 6px" }}>
           {facultadLaminas.areaLabel}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
+import BackLink from "../components/BackLink";
 import type { Usuario } from "@/lib/data-store";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -202,9 +203,7 @@ export default function AprendePage() {
         background: "var(--bg-glass)", backdropFilter: "blur(8px)",
       }}>
         <div style={{ maxWidth: 920, margin: "0 auto" }}>
-          <Link href="/dashboard" style={{ color: "var(--fg-muted)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>
-            ← Volver
-          </Link>
+          <BackLink href="/dashboard" label="Volver" />
           <h1 className="font-crimson" style={{
             fontSize: 36, fontWeight: 800, color: "var(--fg-primary)",
             margin: "8px 0 4px",

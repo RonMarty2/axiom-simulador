@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../../components/AppHeader";
+import BackLink from "../../../components/BackLink";
 
 type Formato = "csv" | "json" | "markdown" | "gift" | "aiken" | "texto";
 
@@ -150,7 +151,7 @@ export default function PlantillasPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px" }}>
-        <Link href="/admin/banco" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al banco</Link>
+        <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>🧠 Megaprompt para crear contenido con IA</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>
           Un solo prompt para todo: copialo, pegalo en ChatGPT / Claude / Gemini, y adjuntá el PDF del examen (o pedile N preguntas de un tema). Lo que devuelva se importa acá con un click.

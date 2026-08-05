@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppHeader from "../components/AppHeader";
+import BackLink from "../components/BackLink";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago } from "@/lib/plan";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
@@ -292,7 +293,7 @@ function PracticarInner() {
         </button>
 
         <div style={{ textAlign: "center", marginTop: 16 }}>
-          <Link href="/dashboard" style={{ color: "var(--fg-muted)", fontSize: 13, textDecoration: "none" }}>← Volver al inicio</Link>
+          <BackLink href="/dashboard" label="Volver al inicio" />
         </div>
       </div>
     </div>

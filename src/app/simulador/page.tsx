@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import BackLink from "../components/BackLink";
 
 type Modo = "ia_generado" | "examen_real";
 type Dificultad = "facil" | "medio" | "dificil";
@@ -353,16 +353,7 @@ export default function SimuladorCreatePage() {
         </p>
 
         <div style={{ textAlign: "center", marginTop: 24 }}>
-          <Link
-            href="/"
-            style={{
-              color: "var(--fg-muted)",
-              textDecoration: "none",
-              fontSize: 14,
-            }}
-          >
-            ← Volver al inicio
-          </Link>
+          <BackLink href="/" label="Volver al inicio" />
         </div>
       </div>
 

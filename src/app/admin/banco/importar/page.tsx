@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../../components/AppHeader";
+import BackLink from "../../../components/BackLink";
 import type { Facultad } from "@/lib/data-store";
 
 type Formato = "csv" | "json" | "markdown" | "gift" | "aiken" | "texto";
@@ -76,7 +77,7 @@ export default function ImportarPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px" }}>
-        <Link href="/admin/banco" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al banco</Link>
+        <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>📥 Importar preguntas en lote</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>Pega tu archivo o copia el texto. Soporta 6 formatos distintos.</p>
 

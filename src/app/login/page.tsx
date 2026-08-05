@@ -3,6 +3,7 @@
 import { Suspense, type CSSProperties } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import BackLink from "../components/BackLink";
 
 function devBtn(color: string): CSSProperties {
   return {
@@ -86,9 +87,7 @@ function LoginContent() {
         </p>
 
         <div style={{ marginTop: 28, textAlign: "center" }}>
-          <Link href="/" style={{ color: "var(--fg-muted)", fontSize: 13, textDecoration: "none" }}>
-            ← Volver al inicio
-          </Link>
+          <BackLink href="/" label="Volver al inicio" />
         </div>
 
         {/* Link discreto al acceso directo (/login/master) — necesario porque

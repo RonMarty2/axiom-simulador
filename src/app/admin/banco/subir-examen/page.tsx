@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../../components/AppHeader";
+import BackLink from "../../../components/BackLink";
 
 interface Resumen {
   id: string;
@@ -62,7 +63,7 @@ export default function SubirExamenPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px" }}>
-        <Link href="/admin/banco" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al banco</Link>
+        <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>📥 Subir examen resuelto</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 20, lineHeight: 1.6 }}>
           Pegá acá lo que te devolvió la IA con el <Link href="/admin/banco/plantillas" style={{ color: "var(--accent)", fontWeight: 700 }}>megaprompt</Link>.

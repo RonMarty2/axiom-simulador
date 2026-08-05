@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
+import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import SolucionPasos from "../../components/SolucionPasos";
@@ -69,7 +70,7 @@ export default function ExamenResueltoPage() {
         <AppHeader />
         <div style={{ maxWidth: 600, margin: "40px auto", padding: 24, textAlign: "center" }}>
           <h2>Examen no encontrado</h2>
-          <Link href="/resueltos" style={{ color: "var(--accent)" }}>← Volver al listado</Link>
+          <BackLink href="/resueltos" label="Volver al listado" />
         </div>
       </div>
     );
@@ -106,19 +107,7 @@ export default function ExamenResueltoPage() {
         padding: "28px clamp(14px, 5vw, 24px)",
       }}>
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
-          <Link
-            href="/resueltos"
-            aria-label="Volver a exámenes resueltos"
-            style={{
-              display: "inline-flex", alignItems: "center", justifyContent: "center",
-              width: 36, height: 36, borderRadius: "50%",
-              background: "rgba(255,255,255,0.15)", color: "white",
-            }}
-          >
-            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </Link>
+          <BackLink href="/resueltos" label="Volver a exámenes resueltos" variant="dark" />
           <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 18px)", marginTop: 10, flexWrap: "wrap" }}>
             <div style={{ fontSize: "clamp(32px, 9vw, 56px)" }}>{facultad?.emoji ?? "📄"}</div>
             <div style={{ flex: 1, minWidth: 0 }}>

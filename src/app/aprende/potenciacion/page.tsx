@@ -53,8 +53,14 @@ export default function LeccionPotenciacionPage() {
         display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
       }}>
         <Link href="/aprende" style={{
+          display: "inline-flex", alignItems: "center", gap: 5,
           color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500,
-        }}>← Lecciones</Link>
+        }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+          Lecciones
+        </Link>
         <div style={{ flex: 1, minWidth: 180 }}>
           <div style={{ fontSize: 10, textTransform: "uppercase", letterSpacing: 1.5, color: LIENZO.fgFaint, marginBottom: 2 }}>
             Unidad 01 · Potenciación

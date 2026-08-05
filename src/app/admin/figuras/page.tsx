@@ -7,9 +7,9 @@
 // data/figuras-overrides.json y viajan a GitHub con SUBIR.
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
+import BackLink from "../../components/BackLink";
 import { ElementoSVG, type AjustesFiguras, type AjusteElemento } from "../../components/FiguraExamen";
 import { construirFigura } from "@/lib/figuras/definiciones";
 import { elementoVisible, type Elemento } from "@/lib/figuras/motor";
@@ -91,7 +91,7 @@ export default function EditorFigurasPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px" }}>
-        <Link href="/admin/banco" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al banco</Link>
+        <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 30, fontWeight: 800, color: "var(--fg-primary)", marginTop: 8, marginBottom: 4 }}>🎨 Editor de figuras</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 18, fontSize: 14 }}>
           Arrastrá cualquier elemento con el mouse hasta que quede igual al PDF. Cargá el recorte del PDF para compararlo al lado o superpuesto. Al guardar, los ajustes valen para todos los alumnos (subilos con SUBIR).

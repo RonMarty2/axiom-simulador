@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import BackLink from "../components/BackLink";
 import type { Facultad, Usuario } from "@/lib/data-store";
 
 // Precio del cambio de facultad. Por ahora fijo; si en el futuro
@@ -47,7 +47,7 @@ function CambiarFacultadInner() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 880, margin: "0 auto", padding: "32px 24px" }}>
-        <Link href="/cuenta" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver a mi cuenta</Link>
+        <BackLink href="/cuenta" label="Volver a mi cuenta" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>
           🔄 Cambiar de facultad
         </h1>

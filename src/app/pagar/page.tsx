@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import BackLink from "../components/BackLink";
 import type { Facultad } from "@/lib/data-store";
 
 type Metodo = "tigo_money" | "qr_bancario" | "transferencia";
@@ -71,10 +72,8 @@ function PagarInner() {
       <div style={{ minHeight: "100vh" }}>
         <AppHeader />
         <div style={{ maxWidth: 540, margin: "60px auto", padding: 24, textAlign: "center" }}>
-          <p style={{ color: "var(--fg-muted)" }}>Falta indicar a qué facultad cambiar.</p>
-          <Link href="/cambiar-facultad" style={{ marginTop: 16, display: "inline-block", color: "var(--accent)", fontWeight: 700 }}>
-            ← Elegir facultad
-          </Link>
+          <p style={{ color: "var(--fg-muted)", marginBottom: 12 }}>Falta indicar a qué facultad cambiar.</p>
+          <BackLink href="/cambiar-facultad" label="Elegir facultad" />
         </div>
       </div>
     );
@@ -112,14 +111,14 @@ function PagarInner() {
     ? `Cambiar a ${destinoFac?.nombre_corto ?? "nueva facultad"}`
     : `Pagar plan ${plan}`;
   const linkAtras = tipo === "cambio_facultad" ? "/cambiar-facultad" : "/precios";
-  const linkAtrasTexto = tipo === "cambio_facultad" ? "← Volver a elegir facultad" : "← Volver a planes";
+  const linkAtrasTexto = tipo === "cambio_facultad" ? "Volver a elegir facultad" : "Volver a planes";
 
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 720, margin: "30px auto", padding: 24 }}>
         <div style={{ marginBottom: 24 }}>
-          <Link href={linkAtras} style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>{linkAtrasTexto}</Link>
+          <BackLink href={linkAtras} label={linkAtrasTexto} />
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 6 }}>
             {titulo}
           </h1>

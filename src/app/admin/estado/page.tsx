@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
+import BackLink from "../../components/BackLink";
 
 interface Estado {
   supabase_conectado: boolean;
@@ -79,7 +79,7 @@ export default function AdminEstadoPage() {
 
             <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
               <button onClick={cargar} style={{ padding: "10px 18px", background: "var(--accent)", color: "white", border: "none", borderRadius: 10, fontWeight: 700, cursor: "pointer" }}>↻ Revisar de nuevo</button>
-              <Link href="/admin" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al admin</Link>
+              <BackLink href="/admin" label="Volver al admin" />
             </div>
           </div>
         )}

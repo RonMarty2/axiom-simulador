@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import BackLink from "../components/BackLink";
 import type { ExamenMetadata } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
@@ -59,12 +60,9 @@ export default function ExamenesPage() {
           transition={{ duration: 0.5 }}
           className="mb-10"
         >
-          <Link
-            href="/"
-            className="mb-4 inline-flex items-center gap-1 text-sm text-violet-600 hover:underline"
-          >
-            ← Volver a Axiom
-          </Link>
+          <div className="mb-4">
+            <BackLink href="/" label="Volver a Axiom" />
+          </div>
           <h1 className="text-4xl font-black text-[#171545] sm:text-5xl">
             Base de exámenes UMSS
           </h1>

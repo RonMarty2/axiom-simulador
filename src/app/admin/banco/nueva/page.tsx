@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../../components/AppHeader";
+import BackLink from "../../../components/BackLink";
 import MathText from "../../../components/MathText";
 import type { Facultad, Materia } from "@/lib/data-store";
 import type { Dificultad, TipoPregunta, Area } from "@/lib/axiom/types";
@@ -125,7 +126,7 @@ export default function NuevaPreguntaPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
-        <Link href="/admin/banco" style={{ color: "var(--fg-muted)", fontSize: 14, textDecoration: "none" }}>← Volver al banco</Link>
+        <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>+ Nueva pregunta</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>Crea una pregunta y se guardará en tu banco para usarla en simulacros.</p>
 

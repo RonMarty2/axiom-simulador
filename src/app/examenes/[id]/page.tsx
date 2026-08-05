@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Link from "next/link";
 import { motion } from "framer-motion";
+import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
@@ -73,12 +73,9 @@ export default function ExamenDetallePage() {
   return (
     <div className="min-h-screen bg-transparent">
       <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-        <Link
-          href="/examenes"
-          className="mb-4 inline-flex items-center gap-1 text-sm text-violet-600 hover:underline"
-        >
-          ← Volver al banco
-        </Link>
+        <div className="mb-4">
+          <BackLink href="/examenes" label="Volver al banco" />
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
