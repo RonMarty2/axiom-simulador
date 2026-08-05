@@ -27,25 +27,38 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Contraseña incorrecta" }, { status: 401 });
   }
 
-  let usuario = await getUsuarioByEmail(DUENO_EMAIL);
-  if (!usuario) {
-    usuario = await crearUsuario({
-      nombre: "Ronald",
-      email: DUENO_EMAIL,
-      facultad_objetivo: "ingenieria",
-      plan: "gratis",
-      fecha_registro: new Date().toISOString().slice(0, 10),
-      avatar_color: "#6366f1",
+  try {
+    let usuario = await getUsuarioByEmail(DUENO_EMAIL);
+    if (!usuario) {
+      usuario = await crearUsuario({
+        nombre: "Ronald",
+        email: DUENO_EMAIL,
+        facultad_objetivo: "ingenieria",
+        plan: "gratis",
+        fecha_registro: new Date().toISOString().slice(0, 10),
+        avatar_color: "#6366f1",
+      });
+    }
+
+    await clearAllSessions();
+    await setSessionCookie({
+      id: usuario.id,
+      email: usuario.email,
+      nombre: usuario.nombre,
+      rol: esAdminEmail(usuario.email) ? "admin" : "estudiante",
     });
+
+    return NextResponse.json({ ok: true });
+  } catch (e) {
+    // Los errores de Supabase (PostgrestError) no son instancias de Error —
+    // e.message no existe ahí. Mismo problema ya resuelto en el callback de
+    // Google (ver ese archivo); acá faltaba el mismo manejo.
+    let msg = "error desconocido";
+    if (e instanceof Error) msg = e.message;
+    else if (e && typeof e === "object" && "message" in e && typeof (e as { message: unknown }).message === "string") {
+      msg = (e as { message: string }).message;
+    } else if (typeof e === "string") msg = e;
+    console.error("[AXIOM] master-login falló:", e);
+    return NextResponse.json({ error: `No se pudo entrar: ${msg}` }, { status: 500 });
   }
-
-  await clearAllSessions();
-  await setSessionCookie({
-    id: usuario.id,
-    email: usuario.email,
-    nombre: usuario.nombre,
-    rol: esAdminEmail(usuario.email) ? "admin" : "estudiante",
-  });
-
-  return NextResponse.json({ ok: true });
 }
