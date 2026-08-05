@@ -40,7 +40,7 @@ export default function TeoremaDelRestoPage() {
               <span style={{ color: LIENZO.fgDim, fontSize: 14 }}>resto</span>
               <PartePuente valor="2" etiqueta="resto" color={LIENZO.accent} />
             </div>
-            <div style={{ marginTop: 14, paddingTop: 14, borderTop: `1px dashed ${LIENZO.fgFaint}`, fontSize: 13.5, textAlign: "center", color: LIENZO.fgDim, lineHeight: 1.6 }}>
+            <div style={{ marginTop: 14, paddingTop: 14, borderTop: `1px dashed ${LIENZO.fgFaint}`, fontSize: 13.5, color: LIENZO.fgDim, lineHeight: 1.6 }}>
               O escrito de otra forma: <b style={{ color: LIENZO.fg }}>17 = 5 × 3 + 2</b>. Un <b style={{ color: LIENZO.fg }}>polinomio P(x)</b> es lo mismo que 17, un <b style={{ color: LIENZO.fg }}>Q(x)</b> es lo mismo que el 3, y dividir entre <b style={{ color: LIENZO.fg }}>(x − a)</b> es lo mismo que dividir entre 5.
             </div>
           </div>

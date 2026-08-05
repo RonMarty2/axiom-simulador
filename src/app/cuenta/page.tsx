@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import type { Usuario, Pago, Facultad } from "@/lib/data-store";
 
 export default function CuentaPage() {
@@ -51,7 +52,7 @@ export default function CuentaPage() {
     router.push(`/cambiar-facultad?destino=${nuevaId}`);
   };
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
+  if (loading || !usuario) return <Cargando />;
 
   return (
     <div style={{ minHeight: "100vh" }}>

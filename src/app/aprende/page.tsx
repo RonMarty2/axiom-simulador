@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 import type { Usuario } from "@/lib/data-store";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -192,7 +193,7 @@ export default function AprendePage() {
       });
   }, [router]);
 
-  if (loading) return <div style={{ padding: 40, textAlign: "center", color: "var(--fg-muted)" }}>Cargando…</div>;
+  if (loading) return <Cargando />;
 
   const usuarioEsPremium = esPago(usuario?.plan);
 

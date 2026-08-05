@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, ReactNode } from "react";
+import Cargando from "../components/Cargando";
 
 interface ProgresoData {
   total_simulaciones: number;
@@ -41,7 +42,7 @@ export default function ProgresoDashboardPage(): ReactNode {
   }, []);
 
   if (loading) {
-    return <div style={{ padding: "24px" }}>Cargando...</div>;
+    return <Cargando />;
   }
 
   if (!progreso) {

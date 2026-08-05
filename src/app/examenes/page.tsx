@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 import type { ExamenMetadata } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
@@ -72,11 +73,7 @@ export default function ExamenesPage() {
           </p>
         </motion.div>
 
-        {loading && (
-          <div className="rounded-2xl border border-neutral-200 bg-white/70 p-8 text-center text-neutral-500 backdrop-blur">
-            Cargando banco de exámenes…
-          </div>
-        )}
+        {loading && <Cargando texto="Cargando banco de exámenes…" />}
 
         {error && (
           <div className="rounded-2xl border border-red-200 bg-red-50 p-6 text-red-700">

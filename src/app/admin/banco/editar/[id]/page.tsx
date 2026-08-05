@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../../../components/AppHeader";
 import BackLink from "../../../../components/BackLink";
 import MathText from "../../../../components/MathText";
+import Cargando from "@/app/components/Cargando";
 import type { Facultad, Materia } from "@/lib/data-store";
 import type { Dificultad, TipoPregunta, Area, PreguntaBanco } from "@/lib/axiom/types";
 
@@ -42,7 +43,7 @@ export default function EditarPreguntaPage() {
   if (!pregunta) return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ padding: 40, textAlign: "center" }}>Cargando pregunta...</div>
+      <Cargando texto="Cargando pregunta…" />
     </div>
   );
 

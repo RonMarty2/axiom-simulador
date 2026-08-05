@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 import type { Facultad } from "@/lib/data-store";
 
 type Metodo = "tigo_money" | "qr_bancario" | "transferencia";
@@ -231,7 +232,7 @@ function PagarInner() {
 
 export default function PagarPage() {
   return (
-    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>}>
+    <Suspense fallback={<Cargando />}>
       <PagarInner />
     </Suspense>
   );

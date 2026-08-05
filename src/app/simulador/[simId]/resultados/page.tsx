@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../../components/MathText";
+import Cargando from "../../../components/Cargando";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
@@ -209,7 +210,7 @@ export default function ResultadosPage() {
   }, [simulador, preguntas]);
 
   if (cargando) {
-    return <div className="p-8 text-center text-neutral-500">Cargando resultados…</div>;
+    return <Cargando texto="Cargando resultados…" />;
   }
   if (error || !simulador) {
     return (

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import BackLink from "../../components/BackLink";
+import Cargando from "../../components/Cargando";
 import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import SolucionPasos from "../../components/SolucionPasos";
@@ -63,7 +64,7 @@ export default function ExamenResueltoPage() {
     });
   }, [examenId, router]);
 
-  if (loading) return <div style={{ padding: 40, textAlign: "center" }}>Cargando examen…</div>;
+  if (loading) return <Cargando texto="Cargando examen…" />;
   if (!examen) {
     return (
       <div style={{ minHeight: "100vh" }}>

@@ -4,6 +4,7 @@ import { Suspense, type CSSProperties } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 
 function devBtn(color: string): CSSProperties {
   return {
@@ -106,7 +107,7 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>}>
+    <Suspense fallback={<Cargando />}>
       <LoginContent />
     </Suspense>
   );

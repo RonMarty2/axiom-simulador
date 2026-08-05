@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 
 interface Stats {
   total_usuarios: number;
@@ -34,7 +35,7 @@ export default function AdminDashboard() {
     });
   }, [router]);
 
-  if (loading || !stats) return <div style={{ padding: 40, textAlign: "center" }}>Cargando dashboard...</div>;
+  if (loading || !stats) return <Cargando texto="Cargando dashboard…" />;
 
   return (
     <div style={{ minHeight: "100vh" }}>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
+import Cargando from "@/app/components/Cargando";
 import type { PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
 
@@ -168,7 +169,7 @@ export default function AdminBancoPage() {
 
         {/* Tabla / Empty state */}
         {loading ? (
-          <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>
+          <Cargando />
         ) : preguntas.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
             <div style={{ fontSize: 60, marginBottom: 12 }}>📭</div>

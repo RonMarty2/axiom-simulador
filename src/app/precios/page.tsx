@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 
 const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   "cambiar-facultad": {
@@ -161,7 +162,7 @@ function PreciosInner() {
 
 export default function PreciosPage() {
   return (
-    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>}>
+    <Suspense fallback={<Cargando />}>
       <PreciosInner />
     </Suspense>
   );

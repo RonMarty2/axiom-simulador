@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import BackLink from "../../components/BackLink";
+import Cargando from "../../components/Cargando";
 import type { Usuario } from "@/lib/data-store";
 import { obtenerFacultadLaminas, obtenerModulo } from "@/lib/axiom/laminas";
 import { LIENZO } from "../../aprende/_components/lienzo";
@@ -24,7 +25,7 @@ export default function ModuloLaminasPage() {
     });
   }, [router]);
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
+  if (loading || !usuario) return <Cargando />;
 
   const facultadLaminas = usuario.facultad_objetivo ? obtenerFacultadLaminas(usuario.facultad_objetivo) : undefined;
   const modulo = usuario.facultad_objetivo ? obtenerModulo(usuario.facultad_objetivo, params.modulo) : undefined;

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
+import Cargando from "../../components/Cargando";
 import type { Simulador, PreguntaBanco } from "@/lib/axiom/types";
 import { leerSimulador, guardarSimulador } from "@/lib/sim-storage";
 import { SEP_LLENADO, cantidadEspacios } from "@/lib/axiom/respuestas";
@@ -184,7 +185,7 @@ export default function SimuladorActivoPage() {
   };
 
   if (cargando) {
-    return <div className="p-8 text-center text-neutral-500">Cargando simulador…</div>;
+    return <Cargando texto="Cargando simulador…" />;
   }
   if (error || !simulador) {
     return (

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import type { Facultad, Usuario } from "@/lib/data-store";
 import { LAMINAS, obtenerFacultadLaminas } from "@/lib/axiom/laminas";
 import { LIENZO } from "../aprende/_components/lienzo";
@@ -27,7 +28,7 @@ export default function LaminasPage() {
     });
   }, [router]);
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
+  if (loading || !usuario) return <Cargando />;
 
   const facultadLaminas = usuario.facultad_objetivo ? obtenerFacultadLaminas(usuario.facultad_objetivo) : undefined;
 

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import type { Facultad, Usuario } from "@/lib/data-store";
 import type { ExamenMetadata } from "@/lib/axiom/types";
 
@@ -69,7 +70,7 @@ export default function ResueltosPage() {
     if (anios.length > 0) setAniosAbiertos(new Set([Math.max(...anios)]));
   }, [vista, examenes]);
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
+  if (loading || !usuario) return <Cargando />;
 
   const examenesVista = examenes.filter((x) => (x.categoria ?? "admision") === vista);
   const hayParciales = examenes.some((x) => x.categoria === "parcial_curso");

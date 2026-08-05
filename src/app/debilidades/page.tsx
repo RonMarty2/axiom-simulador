@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 
 interface Seccion { seccion: string; promedio: number; intentos: number }
@@ -70,7 +71,7 @@ export default function DebilidadesPage() {
     }
   };
 
-  if (loading) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
+  if (loading) return <Cargando />;
 
   const debiles = (data?.secciones ?? []).filter((s) => s.promedio < 70).slice(0, 5);
   const fuertes = (data?.secciones ?? []).filter((s) => s.promedio >= 70).slice(0, 3);

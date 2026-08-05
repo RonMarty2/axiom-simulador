@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
 import { esPago, inicioSemanaISO, textoProximaRenovacion } from "@/lib/plan";
 
@@ -54,7 +55,7 @@ export default function DashboardPage() {
     );
   }
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
+  if (loading || !usuario) return <Cargando />;
 
   const ultimos = historial.slice(0, 5);
   // Plan gratis: 2 simulacros pasados + 2 predictivos por semana (4 en total).

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { ExamenConfig } from "@/lib/axiom/types";
+import Cargando from "@/app/components/Cargando";
 
 export default function AdminConfigPage() {
   const [config, setConfig] = useState<ExamenConfig | null>(null);
@@ -31,7 +32,7 @@ export default function AdminConfigPage() {
     alert("Config guardado");
   };
 
-  if (loading) return <div>Cargando...</div>;
+  if (loading) return <Cargando />;
   if (!config) return <div>Error cargando config</div>;
 
   return (

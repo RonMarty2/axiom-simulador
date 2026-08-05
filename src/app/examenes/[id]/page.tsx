@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
+import Cargando from "../../components/Cargando";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
@@ -53,11 +54,7 @@ export default function ExamenDetallePage() {
     setSeleccion((prev) => ({ ...prev, [pid]: letra }));
 
   if (loading) {
-    return (
-      <div className="mx-auto max-w-3xl px-4 py-12 text-center text-neutral-500">
-        Cargando examen…
-      </div>
-    );
+    return <Cargando texto="Cargando examen…" />;
   }
 
   if (error || !examen) {

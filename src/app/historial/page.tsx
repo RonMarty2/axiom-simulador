@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 import type { HistorialExamen } from "@/lib/data-store";
 
 export default function HistorialPage() {
@@ -21,7 +22,7 @@ export default function HistorialPage() {
     });
   }, [router]);
 
-  if (loading) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
+  if (loading) return <Cargando />;
 
   const promedioMes = (() => {
     const mes = new Date().toISOString().slice(0, 7);

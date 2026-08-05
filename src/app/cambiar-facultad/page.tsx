@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 import type { Facultad, Usuario } from "@/lib/data-store";
 
 // Precio del cambio de facultad. Por ahora fijo; si en el futuro
@@ -33,7 +34,7 @@ function CambiarFacultadInner() {
     });
   }, [router]);
 
-  if (loading || !usuario) return <div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>;
+  if (loading || !usuario) return <Cargando />;
 
   const actual = facultades.find((x) => x.id === usuario.facultad_objetivo);
   const destinoObj = facultades.find((x) => x.id === destino);
@@ -144,7 +145,7 @@ function CambiarFacultadInner() {
 
 export default function CambiarFacultadPage() {
   return (
-    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando…</div>}>
+    <Suspense fallback={<Cargando />}>
       <CambiarFacultadInner />
     </Suspense>
   );

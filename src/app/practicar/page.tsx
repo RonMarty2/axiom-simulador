@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
+import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago } from "@/lib/plan";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
@@ -125,7 +126,7 @@ function PracticarInner() {
     }
   };
 
-  if (loading) return <div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>;
+  if (loading) return <Cargando />;
 
   const esPagoUser = esPago(usuario?.plan);
 
@@ -313,7 +314,7 @@ function pill(active: boolean): React.CSSProperties {
 
 export default function PracticarPage() {
   return (
-    <Suspense fallback={<div style={{ padding: 40, textAlign: "center" }}>Cargando...</div>}>
+    <Suspense fallback={<Cargando />}>
       <PracticarInner />
     </Suspense>
   );

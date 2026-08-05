@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
 
 interface ErrorGuardado {
   pregunta_id: string;
@@ -44,7 +45,7 @@ export default function ErroresPage() {
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>🎯 Mis errores</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>Las preguntas que has fallado, agrupadas para repasar.</p>
 
-        {loading ? <div>Cargando...</div> : errores.length === 0 ? (
+        {loading ? <Cargando /> : errores.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
             <div style={{ fontSize: 60, marginBottom: 12 }}>🎉</div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>¡No tienes errores aún!</h3>
