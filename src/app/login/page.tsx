@@ -90,6 +90,16 @@ function LoginContent() {
             ← Volver al inicio
           </Link>
         </div>
+
+        {/* Link discreto al acceso directo (/login/master) — necesario porque
+            dentro de la app Android (Custom Tab, sin dirección editable) no
+            hay otra forma de llegar ahí tocando la pantalla. Chico y apagado
+            a propósito: no es para promocionar, es para que vos lo encuentres. */}
+        <div style={{ marginTop: 14, textAlign: "center" }}>
+          <Link href="/login/master" style={{ color: "var(--fg-muted)", fontSize: 11, textDecoration: "none", opacity: 0.4, padding: 8, display: "inline-block" }}>
+            acceso interno
+          </Link>
+        </div>
       </div>
     </div>
   );
