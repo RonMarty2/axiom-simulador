@@ -46,6 +46,12 @@ export const DEV_ADMIN_EMAIL = "admin@local.dev";
 export const DEV_TESTER_EMAIL = "tester@local.dev";
 export const DEV_ESTUDIANTE_EMAIL = "estudiante@local.dev";
 
+// Cuenta del dueño del producto: admin + tester SIEMPRE, sin depender de que
+// ADMIN_EMAILS/TESTER_EMAILS estén bien configuradas en Vercel — es un
+// respaldo fijo en código para no quedar afuera de tu propia app. Se usa
+// tanto acá como en /api/auth/master-login.
+export const DUENO_EMAIL = "rnd261190@gmail.com";
+
 function getSecret(): Uint8Array {
   const value = process.env.AUTH_SECRET;
   if (!value || value.length < 16) {
@@ -69,7 +75,8 @@ function obtenerAdminEmails(): string[] {
 }
 
 export function esAdminEmail(email: string): boolean {
-  return obtenerAdminEmails().includes(email.toLowerCase());
+  const e = email.toLowerCase();
+  return e === DUENO_EMAIL || obtenerAdminEmails().includes(e);
 }
 
 // Cuentas de prueba: usuarios normales (no admin) que tienen permiso para
@@ -86,7 +93,8 @@ function obtenerTesterEmails(): string[] {
 }
 
 export function esTesterEmail(email: string): boolean {
-  return obtenerTesterEmails().includes(email.toLowerCase());
+  const e = email.toLowerCase();
+  return e === DUENO_EMAIL || obtenerTesterEmails().includes(e);
 }
 
 export async function isTester(): Promise<boolean> {
