@@ -64,10 +64,12 @@ export default function AppHeader() {
         body: JSON.stringify({ facultad }),
       });
       if (r.ok) {
-        setSelOpen(false);
-        router.refresh();
-        const me = await fetch("/api/auth/me").then((x) => x.json());
-        setUsuario(me.usuario ?? null);
+        // Recarga dura: la mayoría de las páginas son "use client" con su
+        // propio fetch en useEffect — router.refresh() no las re-dispara,
+        // solo re-renderiza partes de servidor. Sin esto quedaban con datos
+        // de la facultad vieja hasta cerrar y volver a abrir la pestaña.
+        window.location.reload();
+        return;
       }
     } finally {
       setCambiando(false);
@@ -238,11 +240,8 @@ export default function AppHeader() {
                             const r = await fetch("/api/admin/toggle-plan", { method: "POST" });
                             const d = await r.json();
                             if (r.ok) {
-                              setOpen(false);
                               alert(`✓ Ahora estás en plan ${d.plan.toUpperCase()} para esta facultad.`);
-                              const me = await fetch("/api/auth/me").then((x) => x.json());
-                              setUsuario(me.usuario ?? null);
-                              router.refresh();
+                              window.location.reload();
                             } else {
                               alert("⚠️ " + (d.error ?? "Error"));
                             }
@@ -276,10 +275,8 @@ export default function AppHeader() {
                                 body: JSON.stringify({ facultad: f.id }),
                               });
                               if (r.ok) {
-                                const me = await fetch("/api/auth/me").then((x) => x.json());
-                                setUsuario(me.usuario ?? null);
-                                setOpen(false);
-                                router.refresh();
+                                window.location.reload();
+                                return;
                               }
                               setCambiando(false);
                             }}
