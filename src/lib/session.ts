@@ -46,10 +46,12 @@ export const DEV_ADMIN_EMAIL = "admin@local.dev";
 export const DEV_TESTER_EMAIL = "tester@local.dev";
 export const DEV_ESTUDIANTE_EMAIL = "estudiante@local.dev";
 
-// Cuenta del dueño del producto: admin + tester SIEMPRE, sin depender de que
-// ADMIN_EMAILS/TESTER_EMAILS estén bien configuradas en Vercel — es un
-// respaldo fijo en código para no quedar afuera de tu propia app. Se usa
-// tanto acá como en /api/auth/master-login.
+// Cuenta del dueño del producto: SIEMPRE tester (nunca admin por defecto —
+// el objetivo es ver la app tal cual la ve un cliente real, con el extra de
+// poder cambiar de facultad y de plan sin pagar), sin depender de que
+// TESTER_EMAILS esté bien configurada en Vercel. Se usa acá y en
+// /api/auth/master-login. El acceso admin de verdad sigue yendo solo por
+// ADMIN_EMAILS — si en algún momento hace falta, se agrega ahí a propósito.
 export const DUENO_EMAIL = "rnd261190@gmail.com";
 
 function getSecret(): Uint8Array {
@@ -75,8 +77,7 @@ function obtenerAdminEmails(): string[] {
 }
 
 export function esAdminEmail(email: string): boolean {
-  const e = email.toLowerCase();
-  return e === DUENO_EMAIL || obtenerAdminEmails().includes(e);
+  return obtenerAdminEmails().includes(email.toLowerCase());
 }
 
 // Cuentas de prueba: usuarios normales (no admin) que tienen permiso para
@@ -178,19 +179,40 @@ export async function getCurrentUser(): Promise<Usuario | null> {
   if (token) {
     const session = await verificarTokenSesion(token);
     if (session) {
-      // Buscar/crear usuario en el store
-      let usuario = await getUsuarioByEmail(session.email);
-      if (!usuario) {
-        usuario = await crearUsuario({
-          nombre: session.nombre,
+      // Si Supabase tiene un hipo transitorio (ej. recién salió de pausa),
+      // esto lanzaba sin capturar y el usuario parecía deslogueado en CADA
+      // página que visitaba, aunque su cookie siguiera siendo válida. Con la
+      // sesión ya verificada por JWT, ante un fallo de base de datos se
+      // arma un usuario mínimo en vez de tirar todo abajo.
+      try {
+        let usuario = await getUsuarioByEmail(session.email);
+        if (!usuario) {
+          usuario = await crearUsuario({
+            nombre: session.nombre,
+            email: session.email,
+            facultad_objetivo: "economicas" as FacultadId,
+            plan: "gratis",
+            fecha_registro: new Date().toISOString().slice(0, 10),
+            avatar_color: "#6366f1",
+          });
+        }
+        return await aplicarSuscripciones(usuario);
+      } catch (e) {
+        console.error("[AXIOM] getCurrentUser: fallo la base de datos, devolviendo sesión mínima:", e);
+        return {
+          id: session.id,
           email: session.email,
-          facultad_objetivo: "economicas" as FacultadId,
+          nombre: session.nombre,
+          facultad_objetivo: null,
           plan: "gratis",
-          fecha_registro: new Date().toISOString().slice(0, 10),
+          fecha_registro: "",
+          examenes_completados: 0,
+          mejor_nota: 0,
+          nota_promedio: 0,
           avatar_color: "#6366f1",
-        });
+          suscripciones: [],
+        };
       }
-      return aplicarSuscripciones(usuario);
     }
   }
 

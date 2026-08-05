@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { DUENO_EMAIL, esAdminEmail, setSessionCookie, clearAllSessions } from "@/lib/session";
+import { DUENO_EMAIL, setSessionCookie, clearAllSessions } from "@/lib/session";
 import { crearUsuario, getUsuarioByEmail } from "@/lib/data-store";
 
 // ─────────────────────────────────────────────────────────────
 // LOGIN MAESTRO — acceso directo con contraseña, sin pasar por Google.
 //
 // Pensado para Ronald (dueño del producto): funciona en producción (a
-// diferencia de /api/auth/dev-login, que solo existe en local), da acceso
-// admin + tester completo (cambio libre de facultad y de plan), y no
+// diferencia de /api/auth/dev-login, que solo existe en local), y no
 // depende de que el flujo de OAuth de Google ande bien en el celular/app.
+// Entra SIEMPRE como estudiante con permisos de tester — ve la app tal cual
+// la ve un cliente real (Aprende, Láminas, Practicar, exámenes), con el
+// extra de poder cambiar de facultad y de plan libremente desde su menú. No
+// entra como admin — el panel de backend es otra cosa, se accede aparte.
 //
 // Requiere la env var MASTER_LOGIN_PASSWORD configurada en Vercel. Si no
 // está configurada, este endpoint queda inutilizable (falla siempre) —
@@ -45,7 +48,7 @@ export async function POST(req: NextRequest) {
       id: usuario.id,
       email: usuario.email,
       nombre: usuario.nombre,
-      rol: esAdminEmail(usuario.email) ? "admin" : "estudiante",
+      rol: "estudiante",
     });
 
     return NextResponse.json({ ok: true });
