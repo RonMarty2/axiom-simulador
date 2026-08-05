@@ -78,9 +78,13 @@ export default function ModuloLaminasPage() {
               <div style={{ flex: 1, fontSize: 15, fontWeight: 500, color: LIENZO.fg }}>
                 {lamina.titulo}
               </div>
-              <span style={{ fontSize: 12, color: LIENZO.fgFaint, flexShrink: 0 }}>
-                {lamina.publicada ? "→" : "Próximamente"}
-              </span>
+              {lamina.publicada ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={LIENZO.accent} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              ) : (
+                <span style={{ fontSize: 12, color: LIENZO.fgFaint, flexShrink: 0 }}>Próximamente</span>
+              )}
             </>
           );
           return lamina.publicada ? (

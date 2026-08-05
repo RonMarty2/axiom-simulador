@@ -65,7 +65,11 @@ export default function LaminasPage() {
                   {disponible ? ` · ${publicadas} disponible${publicadas === 1 ? "" : "s"}` : " · próximamente"}
                 </div>
               </div>
-              <span style={{ color: disponible ? LIENZO.accent : LIENZO.fgFaint, fontSize: 18 }}>→</span>
+              {disponible && (
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={LIENZO.accent} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              )}
             </>
           );
           const estiloFila: React.CSSProperties = {
