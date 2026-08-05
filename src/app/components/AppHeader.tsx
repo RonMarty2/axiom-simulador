@@ -35,6 +35,25 @@ export default function AppHeader() {
   // Cerrar menú móvil al navegar
   useEffect(() => { setMenuMovil(false); }, [pathname]);
 
+  // Cerrar los desplegables al tocar/clickear afuera — antes se quedaban
+  // abiertos para siempre hasta volver a tocar el mismo botón, y si abrías
+  // el segundo con el primero todavía abierto, quedaban los dos superpuestos.
+  useEffect(() => {
+    if (!open && !selOpen) return;
+    const cerrarSiEsAfuera = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest("[data-axiom-dropdown]")) return;
+      setOpen(false);
+      setSelOpen(false);
+    };
+    document.addEventListener("mousedown", cerrarSiEsAfuera);
+    document.addEventListener("touchstart", cerrarSiEsAfuera);
+    return () => {
+      document.removeEventListener("mousedown", cerrarSiEsAfuera);
+      document.removeEventListener("touchstart", cerrarSiEsAfuera);
+    };
+  }, [open, selOpen]);
+
   useEffect(() => {
     fetch("/api/auth/me")
       .then((r) => r.json())
@@ -85,7 +104,7 @@ export default function AppHeader() {
 
   return (
     <header style={{ background: "var(--bg-glass)", borderBottom: "1px solid var(--border)", position: "sticky", top: 0, zIndex: 50, backdropFilter: "blur(8px)" }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", gap: 24 }}>
+      <div className="axiom-header-row" style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", gap: 24 }}>
         <Link href={admin ? "/admin" : usuario ? "/dashboard" : "/"} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ fontSize: 24 }}>⚡</span>
           <span className="font-crimson" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)" }}>AXIOM</span>
@@ -152,18 +171,18 @@ export default function AppHeader() {
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {/* Selector de suscripciones: solo si el usuario tiene 2+ facultades activas */}
           {usuario && !admin && (usuario.suscripciones?.length ?? 0) >= 2 && (
-            <div style={{ position: "relative" }}>
+            <div data-axiom-dropdown style={{ position: "relative" }}>
               <button
-                onClick={() => setSelOpen(!selOpen)}
+                onClick={() => { setSelOpen(!selOpen); setOpen(false); }}
                 disabled={cambiando}
                 style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
               >
                 <span>{facInfo(usuario.facultad_objetivo)?.emoji ?? "🎓"}</span>
-                <span>{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
+                <span className="axiom-fac-selector-text">{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
               {selOpen && (
-                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
+                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
                   <div style={{ padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>Tus suscripciones</div>
                   {usuario.suscripciones?.map((s) => {
                     const fi = facInfo(s.facultad);
@@ -197,9 +216,9 @@ export default function AppHeader() {
             </>
           )}
           {(usuario || admin) && (
-            <div style={{ position: "relative" }}>
+            <div data-axiom-dropdown style={{ position: "relative" }}>
               <button
-                onClick={() => setOpen(!open)}
+                onClick={() => { setOpen(!open); setSelOpen(false); }}
                 style={{
                   display: "flex", alignItems: "center", gap: 8, padding: "6px 12px 6px 6px",
                   background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer",
@@ -224,7 +243,7 @@ export default function AppHeader() {
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
               {open && (
-                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 200, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
+                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 200, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
                   {usuario && !admin && (
                     <>
                       <div style={{ padding: "10px 12px", borderBottom: "1px solid var(--border)", marginBottom: 4 }}>
