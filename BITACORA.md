@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-08-03 (Láminas de Repaso: estructura módulo → láminas atómicas + mapa de 64 láminas para Aritmética-Álgebra, §4.5)
-**Versión de la bitácora:** v1.6
+**Última actualización:** 2026-08-05 (Láminas de Repaso: pivote a formato de tarjetas/diapositivas, obligatorio para todas las facultades, §4.5)
+**Versión de la bitácora:** v1.7
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -188,7 +188,22 @@ Se iteró un mockup 4 veces (artifact, no código de producción todavía) hasta
 
 **Rollout confirmado:** una lámina a la vez, con revisión de Ronald antes de pasar a la siguiente (no por tandas). El piloto "Teorema del Resto" (mockup v4, sección arriba) es la primera de las 5 láminas del módulo "Teorema del Resto y división de polinomios".
 
-**Pendiente:** decidir si Números Complejos entra como módulo de 1 lámina o se pospone; empezar a portar el mockup a código de producción real (`pedagogia.tsx`/`lienzo.tsx`) para la primera lámina.
+### Pivote de formato: de scroll único a tarjetas (v5 — FORMATO FINAL)
+
+El v4 de arriba (aprobado, portado a producción, probado en `axiom-simulador.vercel.app/laminas/teorema-del-resto/teorema-del-resto`) se armó como **una sola página con scroll continuo**. Ronald lo probó en el celular real (no solo en la compu) y lo rechazó — no por el contenido, sino por el formato contenedor: *"no me gusta la idea de aprender mientras haces scroll, soy más de aprendo, next, aprendo, next, me perdí de algo regreso, pero no quiero que esté horrible con siguiente o atrás, algo más visual."*
+
+Se iteró un mockup v5 (artifact) con formato de **tarjetas/diapositivas** — aprobado sin cambios: *"Me gusta, está genial."* **Este es ahora el formato final y obligatorio para TODAS las láminas de TODAS las facultades/carreras** — no es una variante opcional, es la base sobre la que se construye cada lámina nueva de acá en adelante. Cualquier lámina que se agregue para otra carrera tiene que usar este mismo contenedor, no un scroll largo ni ningún otro formato.
+
+**Qué cambia respecto a v4 (contenedor/navegación):**
+- Cada sección de la estructura de la regla 5 (Gancho, Puente, cada Paso de la demostración por separado, Aplicándolo, Ojo, Generalización, Practicalo vos) es **una tarjeta propia**, no un bloque más en un scroll. Una idea por tarjeta — esto en realidad refuerza la regla 2 (un salto lógico por paso), porque ahora cada paso literalmente ocupa toda la pantalla y no compite visualmente con el resto.
+- **Navegación SOLO con íconos, nunca texto.** Nada de botones "Siguiente" / "Anterior" escritos (eso es justo lo que LeccionShell —el wizard de `/aprende`— hace y que Ronald marcó como "horrible"). Dos círculos con flecha (◀ / ▶), el de avanzar resaltado en violeta.
+- **Puntitos de progreso arriba, tocables.** No es solo un indicador visual — tocar cualquier punto salta directo a esa tarjeta. Es la respuesta concreta a "me perdí de algo, regreso": no hace falta retroceder tarjeta por tarjeta.
+- **Swipe (deslizar) además de tocar.** Gesto táctil izquierda/derecha para pasar de tarjeta, más los botones y los costados de la pantalla tocables — varias formas de hacer lo mismo, todas sin texto.
+- Mockup de referencia (artifact, congelar como snapshot visual — no es código de producción): contenido exacto de Teorema del Resto re-cortado en 10 tarjetas.
+
+**Qué NO cambia (sigue aplicando igual, es contenido, no contenedor):** reglas 1, 2, 3, 6, 7, 9 completas, y el orden de la regla 5 (Gancho→Puente→Por qué funciona→Aplicándolo→Ojo→Generalización→Practicalo vos) — sigue siendo la secuencia correcta, ahora repartida en tarjetas en vez de un solo scroll. La regla 4 ("menos cajas, más prosa corrida") sigue valiendo DENTRO de cada tarjeta — la tarjeta llena la pantalla y adentro sigue siendo prosa fluida con acentos puntuales, no un grid de mini-tarjetas de colores como v1 (esa seguía siendo la razón de que v1 fallara: v1 era una grilla de MUCHAS cajas chicas visibles a la vez, compitiendo entre sí; v5 es UNA tarjeta grande a pantalla completa por idea, todas las demás ocultas hasta que avanzás — son cosas distintas, no una contradicción).
+
+**Pendiente:** decidir si Números Complejos entra como módulo de 1 lámina o se pospone; reescribir `LaminaShell.tsx` para el formato de tarjetas (reemplaza el shell de scroll único) y re-portar Teorema del Resto como primera lámina en el formato final.
 
 ---
 
@@ -296,6 +311,10 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-08-05 (Láminas de Repaso: pivote a formato de tarjetas — probado en celular real)
+
+Ronald probó la primera lámina de producción (Teorema del Resto, formato v4 de scroll único) en su celular real por primera vez — hasta ahora solo se había revisado en PC. Rechazó el formato contenedor (no el contenido): quiere "aprendo, next, aprendo, next" con navegación 100% visual (íconos, sin texto "Siguiente/Anterior") y una forma de saltar hacia atrás cuando "se pierde" en el material. Se iteró un mockup v5 con formato de tarjetas/diapositivas (una idea por tarjeta, puntos de progreso tocables para saltar, swipe táctil) — aprobado sin cambios: "Me gusta, está genial". Documentado en §4.5 como el **formato final y obligatorio para todas las láminas de todas las facultades/carreras**, no solo el piloto de Ingeniería. Pendiente: reescribir `LaminaShell.tsx` para este formato y re-portar Teorema del Resto.
 
 ### 2026-08-03 (Láminas de Repaso: mapa completo de módulos para Aritmética-Álgebra Ingeniería)
 
