@@ -234,6 +234,12 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* Usado por Cargando.tsx: las 4 opciones A-B-C-D "se contestan" en bucle */
+@keyframes ax-opcion-carga {
+  0%, 100% { border-color: var(--border); color: var(--fg-muted); background: transparent; transform: scale(1); }
+  30% { border-color: var(--accent); color: white; background: var(--accent); transform: scale(1.12); }
+}
+
 /* ═══ RESUELTOS — lista agrupada por año (acordeón) ═══════════════════════════
    Sin overflow:hidden en .resueltos-wrap: position:sticky necesita que ningun
    ancestro recorte el scroll, si no el header del año no queda "pegado". El

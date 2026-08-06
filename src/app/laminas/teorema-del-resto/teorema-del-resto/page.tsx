@@ -37,7 +37,7 @@ export default function TeoremaDelRestoPage() {
               <PartePuente valor="5" etiqueta="divisor" />
               <span className="font-crimson" style={{ fontSize: 21 }}>=</span>
               <PartePuente valor="3" etiqueta="cociente" />
-              <span style={{ color: LIENZO.fgDim, fontSize: 14 }}>resto</span>
+              <span className="font-crimson" style={{ fontSize: 21, color: LIENZO.fgFaint }}>,</span>
               <PartePuente valor="2" etiqueta="resto" color={LIENZO.accent} />
             </div>
             <div style={{ marginTop: 14, paddingTop: 14, borderTop: `1px dashed ${LIENZO.fgFaint}`, fontSize: 13.5, color: LIENZO.fgDim, lineHeight: 1.6 }}>
