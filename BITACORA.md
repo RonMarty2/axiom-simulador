@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-08-05 (Láminas de Repaso: pivote a formato de tarjetas/diapositivas, obligatorio para todas las facultades, §4.5)
-**Versión de la bitácora:** v1.7
+**Última actualización:** 2026-08-05 (Láminas de Repaso: reglas de diagramas por tarjeta, guiones y matemática en texto plano, §4.5)
+**Versión de la bitácora:** v1.8
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -203,7 +203,21 @@ Se iteró un mockup v5 (artifact) con formato de **tarjetas/diapositivas** — a
 
 **Qué NO cambia (sigue aplicando igual, es contenido, no contenedor):** reglas 1, 2, 3, 6, 7, 9 completas, y el orden de la regla 5 (Gancho→Puente→Por qué funciona→Aplicándolo→Ojo→Generalización→Practicalo vos) — sigue siendo la secuencia correcta, ahora repartida en tarjetas en vez de un solo scroll. La regla 4 ("menos cajas, más prosa corrida") sigue valiendo DENTRO de cada tarjeta — la tarjeta llena la pantalla y adentro sigue siendo prosa fluida con acentos puntuales, no un grid de mini-tarjetas de colores como v1 (esa seguía siendo la razón de que v1 fallara: v1 era una grilla de MUCHAS cajas chicas visibles a la vez, compitiendo entre sí; v5 es UNA tarjeta grande a pantalla completa por idea, todas las demás ocultas hasta que avanzás — son cosas distintas, no una contradicción).
 
-**Pendiente:** decidir si Números Complejos entra como módulo de 1 lámina o se pospone; reescribir `LaminaShell.tsx` para el formato de tarjetas (reemplaza el shell de scroll único) y re-portar Teorema del Resto como primera lámina en el formato final.
+`LaminaShell.tsx` ya está reescrito para tarjetas y Teorema del Resto ya está re-portada al formato final (10 tarjetas) — ver reglas 10-12 abajo, agregadas después de rondas de feedback sobre esa misma lámina ya en tarjetas.
+
+### Reglas 10-12: encontradas probando la lámina ya en tarjetas
+
+10. **Cada tarjeta necesita un diagrama propio, no solo prosa con formato.** El formato tarjetas (v5) resuelve la navegación, pero no resuelve solo por existir que una tarjeta "enseñe visualmente" — Ronald probó las primeras 2 tarjetas (Gancho y Puente) y eran básicamente texto con una etiqueta de color arriba: *"no veo ahí una lámina, no veo diseños, no veo enseñanza visual, guiada, didáctica, veo simplemente texto y que me dice que está haciendo en lugar de enseñarme."* Cada tarjeta necesita su propio dispositivo visual — no decorativo, uno que **haga ver** la idea en vez de solo describirla en palabras. Ejemplos ya construidos y reutilizables como plantilla:
+    - Comparación tachado→resaltado (expresión vieja tachada, flecha, resultado nuevo destacado) — para el Gancho.
+    - Traducción por rol: lista de filas "papel conocido → papel nuevo" (ej. 17→P(x), 5→(x−a)) en vez de una oración declarando la equivalencia — para el Puente.
+    - Ecuación conocida (atenuada) apilada sobre la nueva (flecha entre ambas) — para conectar un paso de la demostración con el hecho numérico que lo respalda.
+    - Chips de verificación (ej. "x=1 ✓ x=7 ✓ x=a ✓") — para concretar una afirmación de "vale para cualquier valor" en vez de solo enunciarla.
+    - Cadena vertical de sustitución (valor → flecha → resultado → flecha → resultado final) — para mostrar un reemplazo paso a paso, no solo el resultado.
+    - Comparación lado a lado en dos colores (verde=caso correcto, rojo=trampa común) — para un "Ojo"/error típico.
+11. **Nada de guiones largos ("—") como separador de frases, en ningún lado de la lámina.** En una app de matemática se confunden con el signo menos, sobre todo si hay números o variables cerca (ej. "no depende de nada — 2x−1=0" se lee ambiguo). Usar punto, coma o dos puntos para separar cláusulas — nunca el guion largo como recurso de estilo.
+12. **Toda expresión matemática se renderiza con `MathText`, nunca como texto plano.** Ni siquiera cosas cortas como "x=1/2" o un polinomio con superíndices unicode (x⁴) sueltos en un string — si es matemática, va entre `$...$` y pasa por `MathText`, sin excepción. Y cuando se resalta/tacha una parte de una ecuación (ej. el término que "desaparece" en una demostración), la ecuación mostrada tiene que quedar **completa** (con su lado izquierdo y todo) — mostrar solo un fragmento tachado sin el resto de la ecuación se lee como una ecuación cortada a medias, no como una ecuación completa con una parte resaltada.
+
+**Pendiente:** decidir si Números Complejos entra como módulo de 1 lámina o se pospone; aplicar las reglas 10-12 como checklist al portar cada una de las 63 láminas restantes (no solo a Teorema del Resto).
 
 ---
 
@@ -311,6 +325,15 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-08-05 (Láminas de Repaso: diagramas por tarjeta + reglas de escritura, ya con el formato de tarjetas)
+
+Con el formato de tarjetas (v5) ya construido, Ronald probó las 10 tarjetas de Teorema del Resto y encontró 2 problemas nuevos, distintos al pivote de formato:
+
+1. **Faltaba enseñanza visual de verdad.** Las tarjetas tenían navegación resuelta pero contenido que seguía siendo básicamente texto con una etiqueta arriba — "no veo diseños, no veo enseñanza visual, guiada, didáctica". Se rediseñaron las 10 tarjetas con un diagrama propio en cada una (comparación tachado→resaltado, traducción por rol, ecuaciones apiladas con flecha, chips de verificación, cadena de sustitución vertical, comparación lado a lado en dos colores) — documentado como regla 10 en §4.5.
+2. **Guiones largos confundibles con el signo menos, y matemática en texto plano.** El texto usaba "—" como separador de frases (a veces pegado a expresiones con números), y algunas expresiones matemáticas cortas (como "x=1/2" o un polinomio con superíndices unicode) estaban sueltas como texto en vez de renderizadas con `MathText`. Una ecuación tachada además empezaba a mitad de camino, sin su lado izquierdo, y se leía cortada. Las tres cosas arregladas en las 10 tarjetas y documentadas como reglas 11-12.
+
+Confirmado con Ronald que estas reglas (10-12) aplican como checklist para las 63 láminas restantes, no solo para esta.
 
 ### 2026-08-05 (Láminas de Repaso: pivote a formato de tarjetas — probado en celular real)
 
