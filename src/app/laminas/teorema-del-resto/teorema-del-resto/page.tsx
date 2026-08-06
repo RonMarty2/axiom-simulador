@@ -194,19 +194,66 @@ export default function TeoremaDelRestoPage() {
       ),
     },
     {
-      etiqueta: "La misma idea, en otras formas",
+      etiqueta: "También funciona con coeficiente",
       colorEtiqueta: LIENZO.ok,
       contenido: (
         <div>
-          <CasoLista nombre="Divisor con coeficiente" eq={"$P(x) \\div (2x - 1)$"}>
-            Mismo razonamiento: igualá a cero y despejá, <MathText>{"$2x - 1 = 0 \\rightarrow x = \\tfrac{1}{2}$"}</MathText>, y evaluá <MathText>{"$P(\\tfrac{1}{2})$"}</MathText>.
-          </CasoLista>
-          <CasoLista nombre="Divisibilidad exacta" eq="$P(a) = 0$">
-            Si el resto da cero, <MathText>{"$(x-a)$"}</MathText> divide exacto a <MathText>{"$P(x)$"}</MathText>, igual que 15÷5 da resto 0. Es el mismo teorema: se llama Teorema del Factor.
-          </CasoLista>
-          <CasoLista nombre="Dato disfrazado" eq={'"da resto 4"'} ultimo>
-            Un enunciado que dice esto ya te está regalando la ecuación <MathText>{"$P(a) = 4$"}</MathText>, aunque no lo diga con esas palabras.
-          </CasoLista>
+          <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
+            La idea de siempre no cambia: buscá el valor que anula al divisor. Si el divisor tiene un coeficiente, lo buscás igual.
+          </p>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, marginBottom: 10 }}>
+            <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 15 }}>
+              <MathText>{"$(x - a) = 0 \\rightarrow x = a$"}</MathText>
+            </div>
+            <FlechaMini abajo />
+            <div style={{ fontSize: 9, color: LIENZO.fgDim, textTransform: "uppercase", marginBottom: 2 }}>mismo truco, con coeficiente</div>
+            <div style={{ padding: "8px 14px", borderRadius: 10, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}`, fontSize: 15 }}>
+              <MathText>{"$2x - 1 = 0 \\rightarrow x = \\tfrac{1}{2}$"}</MathText>
+            </div>
+          </div>
+          <p style={{ margin: 0, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
+            Para hallar el resto de <MathText>{"$P(x) \\div (2x-1)$"}</MathText>, evaluás <MathText>{"$P(\\tfrac{1}{2})$"}</MathText>. Mismo teorema, un paso extra al principio.
+          </p>
+        </div>
+      ),
+    },
+    {
+      etiqueta: "Cuando el resto da exactamente cero",
+      colorEtiqueta: LIENZO.ok,
+      contenido: (
+        <div>
+          <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
+            Así como 15÷5 da resto 0 (división exacta), a veces R también da cero:
+          </p>
+          <div style={{ textAlign: "center", padding: "14px 0", background: LIENZO.bgSoft, borderRadius: 12, marginBottom: 10, fontSize: 20 }}>
+            <MathText>{"$P(a) = 0$"}</MathText>
+          </div>
+          <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6 }}>
+            Ahí <MathText>{"$(x-a)$"}</MathText> divide exacto a <MathText>{"$P(x)$"}</MathText>, sin sobrar nada. Es el mismo teorema, con nombre propio para este caso: <b>Teorema del Factor</b>.
+          </p>
+        </div>
+      ),
+    },
+    {
+      etiqueta: "Un dato escondido en palabras",
+      colorEtiqueta: LIENZO.ok,
+      contenido: (
+        <div>
+          <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
+            A veces el examen no te da la ecuación armada. Te la esconde en una frase:
+          </p>
+          <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 16px", marginBottom: 10 }}>
+            <p className="font-crimson" style={{ margin: "0 0 8px", fontSize: 14, fontStyle: "italic", color: LIENZO.fgDim, textAlign: "center" }}>
+              &quot;Al dividir P(x) entre (x−3), el resto da 4.&quot;
+            </p>
+            <FlechaMini abajo />
+            <div style={{ textAlign: "center", marginTop: 4, fontSize: 17 }}>
+              <MathText>{"$P(3) = 4$"}</MathText>
+            </div>
+          </div>
+          <p style={{ margin: 0, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
+            Es la misma idea del Teorema del Resto (<MathText>{"$R = P(a)$"}</MathText>): el enunciado te regala el valor de R, disfrazado de oración.
+          </p>
         </div>
       ),
     },
@@ -366,16 +413,3 @@ function LineaEjemplo({ glosa, eq }: { glosa: string; eq: string }) {
   );
 }
 
-function CasoLista({ nombre, eq, children, ultimo }: { nombre: string; eq: string; children: React.ReactNode; ultimo?: boolean }) {
-  return (
-    <div style={{ padding: "12px 0", borderTop: `1px solid ${LIENZO.fgFaint}55`, borderBottom: ultimo ? `1px solid ${LIENZO.fgFaint}55` : undefined }}>
-      <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 10, marginBottom: 4, flexWrap: "wrap" }}>
-        <span style={{ fontWeight: 700, fontSize: 14.5 }}>{nombre}</span>
-        <span style={{ fontSize: 14.5, color: LIENZO.fgDim }}>
-          <MathText>{eq}</MathText>
-        </span>
-      </div>
-      <p style={{ fontSize: 13.5, color: LIENZO.fgDim, margin: 0 }}>{children}</p>
-    </div>
-  );
-}
