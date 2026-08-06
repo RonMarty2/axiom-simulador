@@ -43,7 +43,11 @@ export default function MathText({ children, className, block }: MathTextProps) 
             dangerouslySetInnerHTML={{ __html: html }}
           />
         ) : (
-          <span key={i} dangerouslySetInnerHTML={{ __html: html }} />
+          // whiteSpace:nowrap — sin esto, KaTeX arma la fórmula con varios
+          // <span> internos (uno por token) y el navegador podía cortar la
+          // línea A MITAD de una expresión ("x + 1" partido en "x +" / "1"),
+          // se leía como una fórmula incompleta.
+          <span key={i} style={{ whiteSpace: "nowrap", display: "inline-block" }} dangerouslySetInnerHTML={{ __html: html }} />
         );
       })}
     </Wrapper>

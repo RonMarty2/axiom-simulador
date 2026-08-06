@@ -359,8 +359,8 @@ function PartePuente({ valor, etiqueta, color }: { valor: string; etiqueta: stri
 
 function LineaEjemplo({ glosa, eq }: { glosa: string; eq: string }) {
   return (
-    <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 6, fontSize: 14.5 }}>
-      <span style={{ color: LIENZO.fgDim, fontSize: 12.5, flexShrink: 0, width: 130 }}>{glosa}</span>
+    <div style={{ marginBottom: 8, fontSize: 15, overflowX: "auto" }}>
+      {glosa && <div style={{ color: LIENZO.fgDim, fontSize: 12.5, marginBottom: 2 }}>{glosa}</div>}
       <MathText>{eq}</MathText>
     </div>
   );
