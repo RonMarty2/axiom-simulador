@@ -17,9 +17,12 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Pensá esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
-        <p className="font-crimson" style={{ fontSize: 20, fontStyle: "italic", lineHeight: 1.5, margin: 0 }}>
-          ¿Sabías que podés saber el resto de una división de polinomios sin dividir? Basta con reemplazar un número.
-        </p>
+        <div>
+          <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
+            ¿Sabías que podés saber el resto de una división de polinomios sin dividir?
+          </p>
+          <FlujoGancho />
+        </div>
       ),
     },
     {
@@ -27,23 +30,32 @@ export default function TeoremaDelRestoPage() {
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
-          <p style={{ margin: "0 0 14px", fontSize: 15.5, lineHeight: 1.6 }}>
-            Esto no es un tema nuevo — es la división con resto que aprendiste en la primaria, aplicada a polinomios en vez de números.
+          <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
+            Esto ya lo sabés hacer — es la división con resto de la primaria:
           </p>
-          <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "16px 18px" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, flexWrap: "wrap" }}>
+          <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 18px" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
               <PartePuente valor="17" etiqueta="dividendo" />
-              <span className="font-crimson" style={{ fontSize: 21 }}>÷</span>
+              <span className="font-crimson" style={{ fontSize: 20 }}>÷</span>
               <PartePuente valor="5" etiqueta="divisor" />
-              <span className="font-crimson" style={{ fontSize: 21 }}>=</span>
+              <span className="font-crimson" style={{ fontSize: 20 }}>=</span>
               <PartePuente valor="3" etiqueta="cociente" />
-              <span className="font-crimson" style={{ fontSize: 21, color: LIENZO.fgFaint }}>,</span>
+              <span className="font-crimson" style={{ fontSize: 20, color: LIENZO.fgFaint }}>,</span>
               <PartePuente valor="2" etiqueta="resto" color={LIENZO.accent} />
             </div>
-            <div style={{ marginTop: 14, paddingTop: 14, borderTop: `1px dashed ${LIENZO.fgFaint}`, fontSize: 13.5, color: LIENZO.fgDim, lineHeight: 1.6 }}>
-              O escrito de otra forma: <b style={{ color: LIENZO.fg }}>17 = 5 × 3 + 2</b>. Un <b style={{ color: LIENZO.fg }}>polinomio P(x)</b> es lo mismo que 17, un <b style={{ color: LIENZO.fg }}>Q(x)</b> es lo mismo que el 3, y dividir entre <b style={{ color: LIENZO.fg }}>(x − a)</b> es lo mismo que dividir entre 5.
-            </div>
           </div>
+          <p style={{ margin: "14px 0 4px", fontSize: 12.5, color: LIENZO.fgDim, textTransform: "uppercase", letterSpacing: 0.5, fontWeight: 700 }}>
+            Ahora ponele nombre nuevo a cada papel:
+          </p>
+          <div>
+            <FilaRol rol="Lo que se divide" conocido="17" nuevo="P(x)" />
+            <FilaRol rol="Entre qué se divide" conocido="5" nuevo="(x − a)" />
+            <FilaRol rol="El resultado entero" conocido="3" nuevo="Q(x)" />
+            <FilaRol rol="Lo que sobra" conocido="2" nuevo="R" ultimo />
+          </div>
+          <p style={{ margin: "12px 0 0", fontSize: 12.5, color: LIENZO.fgDim, lineHeight: 1.5 }}>
+            Nada cambia salvo el nombre — por eso <MathText>{"$P(x)$"}</MathText> hace el mismo papel que el 17: es lo que se está dividiendo, ni más ni menos.
+          </p>
         </div>
       ),
     },
@@ -230,6 +242,55 @@ function PasoCard({ n, children }: { n: number; children: React.ReactNode }) {
         {n}
       </span>
       <div style={{ flex: 1 }}>{children}</div>
+    </div>
+  );
+}
+
+function FlechaMini() {
+  return (
+    <svg width="18" height="14" viewBox="0 0 24 16" fill="none" stroke={LIENZO.fgFaint} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2 8h18M14 2l6 6-6 6" />
+    </svg>
+  );
+}
+
+// Visual del gancho: muestra la idea completa de un vistazo — dividir se
+// tacha, evaluar en un punto queda resaltado — antes de explicar nada.
+function FlujoGancho() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+        <div style={{ position: "relative", padding: "10px 16px", borderRadius: 12, border: `1.5px solid ${LIENZO.fgFaint}`, opacity: 0.55 }}>
+          <MathText>{"$P(x) \\div (x-a)$"}</MathText>
+          <div style={{ position: "absolute", left: -4, right: -4, top: "50%", height: 2, background: LIENZO.bad, transform: "rotate(-8deg)" }} />
+        </div>
+        <FlechaMini />
+        <div style={{ padding: "10px 18px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}` }}>
+          <MathText>{"$P(a)$"}</MathText>
+        </div>
+      </div>
+      <div style={{ display: "flex", gap: 24, fontSize: 10.5, color: LIENZO.fgDim, textTransform: "uppercase", letterSpacing: 0.4 }}>
+        <span>sin dividir nada</span>
+        <span>con un solo cálculo</span>
+      </div>
+    </div>
+  );
+}
+
+// Fila de "traducción por rol" del Puente — en vez de declarar "P(x) es lo
+// mismo que 17", muestra el papel que cumple cada uno y deja que la
+// correspondencia se vea, no que se declare.
+function FilaRol({ rol, conocido, nuevo, ultimo }: { rol: string; conocido: string; nuevo: string; ultimo?: boolean }) {
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 10, padding: "9px 0",
+      borderTop: `1px solid ${LIENZO.fgFaint}33`,
+      borderBottom: ultimo ? `1px solid ${LIENZO.fgFaint}33` : undefined,
+    }}>
+      <div style={{ flex: 1, fontSize: 12.5, color: LIENZO.fgDim }}>{rol}</div>
+      <div className="font-crimson" style={{ fontSize: 16, minWidth: 44, textAlign: "center", color: LIENZO.fg }}>{conocido}</div>
+      <FlechaMini />
+      <div className="font-crimson" style={{ fontSize: 16, minWidth: 56, textAlign: "center", color: LIENZO.accent, fontWeight: 700 }}>{nuevo}</div>
     </div>
   );
 }

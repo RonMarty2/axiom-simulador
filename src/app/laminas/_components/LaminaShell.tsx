@@ -144,7 +144,7 @@ export default function LaminaShell({
                 position: "absolute", inset: 0,
                 background: LIENZO.bg, border: `1px solid ${LIENZO.fgFaint}55`, borderRadius: 20,
                 padding: "28px 24px", overflowY: "auto",
-                display: "flex", flexDirection: "column", justifyContent: "center", gap: 16,
+                display: "flex", flexDirection: "column", justifyContent: "flex-start", gap: 16,
                 boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
               }}
             >
