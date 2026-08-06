@@ -63,13 +63,14 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Por qué funciona · Paso 1 de 4",
       contenido: (
         <PasoCard n={1}>
-          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6 }}>
-            Traducido a polinomios, &quot;P(x) dividido entre (x−a) da cociente Q(x) y resto R&quot; se escribe así:
+          <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
+            Traducido a polinomios, la misma frase de siempre — dividendo = divisor × cociente + resto:
           </p>
-          <div style={{ margin: "8px 0 4px", fontSize: 19, textAlign: "center" }}>
-            <MathText block>{"$P(x) = (x - a) \\cdot Q(x) + R$"}</MathText>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+            <div style={{ opacity: 0.5, fontSize: 15 }}><MathText>{"$17 = 5 \\times 3 + 2$"}</MathText></div>
+            <FlechaMini abajo />
+            <div style={{ fontSize: 19 }}><MathText>{"$P(x) = (x - a) \\cdot Q(x) + R$"}</MathText></div>
           </div>
-          <div style={{ fontSize: 13, color: LIENZO.fgDim }}>Es la misma frase que 17 = 5 × 3 + 2, con letras en vez de números.</div>
         </PasoCard>
       ),
     },
@@ -77,9 +78,21 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Por qué funciona · Paso 2 de 4",
       contenido: (
         <PasoCard n={2}>
-          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6 }}>
-            Ojo con esto, porque es la clave de todo: esa igualdad no es algo que resolvés una sola vez para un x en particular. Es cierta <b>para cualquier x que se te ocurra</b> — siempre, sin excepción. Es un hecho fijo, como 17 = 5×3+2 es un hecho fijo que no depende de nada.
+          <p style={{ margin: "0 0 14px", fontSize: 15, lineHeight: 1.6 }}>
+            Ojo, es la clave de todo: esa igualdad no es de un x en particular — <b>vale para cualquier x</b>, siempre. Un hecho fijo, como 17=5×3+2 no depende de nada.
           </p>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
+            {["x = 1", "x = 7", "x = a", "x = cualquiera"].map((v) => (
+              <span key={v} style={{
+                display: "inline-flex", alignItems: "center", gap: 5,
+                padding: "6px 10px", borderRadius: 999, background: `${LIENZO.ok}15`, border: `1px solid ${LIENZO.ok}55`,
+                fontSize: 12.5, color: LIENZO.fg,
+              }}>
+                <MathText>{`$${v}$`}</MathText>
+                <span style={{ color: LIENZO.ok, fontWeight: 700 }}>✓</span>
+              </span>
+            ))}
+          </div>
         </PasoCard>
       ),
     },
@@ -87,10 +100,20 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Por qué funciona · Paso 3 de 4",
       contenido: (
         <PasoCard n={3}>
-          <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6 }}>
-            Como vale para cualquier x, también tiene que valer si elegís meter, a propósito, x = a. ¿Por qué justo ese número y no otro? Porque es el único que hace que (x − a) se vuelva cero:
+          <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
+            Como vale para cualquier x, también vale si elegís meter, a propósito, <MathText>{"$x=a$"}</MathText> — es el único valor que hace cero al paréntesis:
           </p>
-          <div style={{ margin: "8px 0 0", fontSize: 19, textAlign: "center" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, marginBottom: 10 }}>
+            <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 16 }}><MathText>{"$(x - a)$"}</MathText></div>
+            <FlechaMini abajo />
+            <div style={{ fontSize: 9, color: LIENZO.fgDim, textTransform: "uppercase", marginBottom: 2 }}>metés x = a</div>
+            <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 16 }}><MathText>{"$(a - a)$"}</MathText></div>
+            <FlechaMini abajo />
+            <div style={{ padding: "8px 16px", borderRadius: 10, background: `${LIENZO.accent}15`, border: `1.5px solid ${LIENZO.accent}`, fontWeight: 700, fontSize: 16 }}>
+              <MathText>{"$0$"}</MathText>
+            </div>
+          </div>
+          <div style={{ fontSize: 19, textAlign: "center" }}>
             <MathText block>{"$P(a) = (a - a) \\cdot Q(a) + R$"}</MathText>
           </div>
         </PasoCard>
@@ -101,11 +124,15 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <PasoCard n={4}>
-            <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6 }}>
-              Y cero por cualquier cosa es cero, así que ese pedazo entero desaparece de la cuenta, sin importar cómo sea Q(x):
+            <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
+              Cero por cualquier cosa es cero — ese pedazo entero desaparece, sin importar cómo sea Q(x):
             </p>
-            <div style={{ margin: "8px 0 0", fontSize: 19, textAlign: "center" }}>
-              <MathText block>{"$P(a) = 0 + R$"}</MathText>
+            <div style={{ fontSize: 19, textAlign: "center" }}>
+              <span style={{ position: "relative", display: "inline-block" }}>
+                <span style={{ opacity: 0.35 }}><MathText>{"$(a - a) \\cdot Q(a)$"}</MathText></span>
+                <span style={{ position: "absolute", left: -4, right: -4, top: "50%", height: 2, background: LIENZO.bad, transform: "rotate(-6deg)" }} />
+              </span>
+              <MathText>{"$\\ + R$"}</MathText>
             </div>
           </PasoCard>
           <div style={{
@@ -124,14 +151,20 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Aplicándolo",
       contenido: (
         <div>
-          <p style={{ marginBottom: 12, fontSize: 15, lineHeight: 1.6 }}>
+          <p style={{ marginBottom: 12, fontSize: 14.5, lineHeight: 1.6 }}>
             Hallar el resto de dividir <MathText>{"$P(x) = x^3 + 2x^2 - 5x + 3$"}</MathText> entre <MathText>{"$(x - 2)$"}</MathText>.
           </p>
-          <LineaEjemplo glosa="¿Qué valor anula al divisor?" eq={"$x - 2 = 0 \\rightarrow x = 2$"} />
-          <LineaEjemplo glosa="Evaluá P ahí" eq="$P(2) = (2)^3 + 2(2)^2 - 5(2) + 3$" />
-          <LineaEjemplo glosa="" eq="$P(2) = 8 + 8 - 10 + 3$" />
-          <div style={{ marginTop: 12, paddingTop: 12, borderTop: `1px dashed ${LIENZO.fgFaint}`, fontSize: 16, color: LIENZO.ok }}>
-            Resto = 9 — sin dividir nada, igual que sabíamos que 17÷5 da resto 2 sin necesitar el cociente 3.
+          <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
+            <LineaEjemplo glosa="¿Qué valor anula al divisor?" eq={"$x - 2 = 0 \\rightarrow x = 2$"} />
+            <LineaEjemplo glosa="Evaluá P ahí" eq="$P(2) = (2)^3 + 2(2)^2 - 5(2) + 3$" />
+            <LineaEjemplo glosa="" eq="$P(2) = 8 + 8 - 10 + 3$" />
+          </div>
+          <div style={{
+            marginTop: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+            padding: "10px 16px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}`,
+          }}>
+            <span style={{ fontSize: 20, fontWeight: 700, color: LIENZO.ok }}><MathText>{"$R = 9$"}</MathText></span>
+            <span style={{ fontSize: 12, color: LIENZO.fgDim }}>sin dividir nada</span>
           </div>
         </div>
       ),
@@ -140,9 +173,23 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Ojo · error común",
       colorEtiqueta: LIENZO.bad,
       contenido: (
-        <p style={{ margin: 0, fontSize: 15.5, lineHeight: 1.6 }}>
-          Si el divisor es <b>(x + a)</b>, el número que lo anula es <b>x = −a</b>, no +a. Dividir entre (x + 3) es evaluar en x = −3. No memorices &quot;evaluá en el número de al lado&quot; — preguntate siempre &quot;¿qué valor hace cero al paréntesis?&quot;, como en el Paso 3.
-        </p>
+        <div>
+          <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
+            El signo de adentro del paréntesis cambia el valor que anula. No memorices &quot;el de al lado&quot; — preguntate siempre &quot;¿qué valor hace cero esto?&quot;.
+          </p>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
+            <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}55`, textAlign: "center" }}>
+              <div style={{ fontSize: 16 }}><MathText>{"$(x - 2)$"}</MathText></div>
+              <FlechaMini abajo />
+              <div style={{ fontSize: 16, color: LIENZO.ok, fontWeight: 700 }}><MathText>{"$x = 2$"}</MathText></div>
+            </div>
+            <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.bad}12`, border: `1.5px solid ${LIENZO.bad}55`, textAlign: "center" }}>
+              <div style={{ fontSize: 16 }}><MathText>{"$(x + 3)$"}</MathText></div>
+              <FlechaMini abajo />
+              <div style={{ fontSize: 16, color: LIENZO.bad, fontWeight: 700 }}><MathText>{"$x = -3$"}</MathText></div>
+            </div>
+          </div>
+        </div>
       ),
     },
     {
@@ -246,9 +293,12 @@ function PasoCard({ n, children }: { n: number; children: React.ReactNode }) {
   );
 }
 
-function FlechaMini() {
+function FlechaMini({ abajo }: { abajo?: boolean }) {
   return (
-    <svg width="18" height="14" viewBox="0 0 24 16" fill="none" stroke={LIENZO.fgFaint} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="18" height="14" viewBox="0 0 24 16" fill="none" stroke={LIENZO.fgFaint} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+      style={abajo ? { transform: "rotate(90deg)", display: "block", margin: "2px auto" } : undefined}
+    >
       <path d="M2 8h18M14 2l6 6-6 6" />
     </svg>
   );
