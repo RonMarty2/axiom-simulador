@@ -31,7 +31,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Esto ya lo sabés hacer — es la división con resto de la primaria:
+            Esto ya lo sabés hacer: es la división con resto de la primaria.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 18px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
@@ -54,7 +54,7 @@ export default function TeoremaDelRestoPage() {
             <FilaRol rol="Lo que sobra" conocido="2" nuevo="R" ultimo />
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 12.5, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Nada cambia salvo el nombre — por eso <MathText>{"$P(x)$"}</MathText> hace el mismo papel que el 17: es lo que se está dividiendo, ni más ni menos.
+            Nada cambia salvo el nombre. Por eso <MathText>{"$P(x)$"}</MathText> hace el mismo papel que el 17: es lo que se está dividiendo, ni más ni menos.
           </p>
         </div>
       ),
@@ -64,7 +64,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <PasoCard n={1}>
           <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
-            Traducido a polinomios, la misma frase de siempre — dividendo = divisor × cociente + resto:
+            Traducido a polinomios, la misma frase de siempre: dividendo = divisor × cociente + resto.
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
             <div style={{ opacity: 0.5, fontSize: 15 }}><MathText>{"$17 = 5 \\times 3 + 2$"}</MathText></div>
@@ -79,7 +79,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <PasoCard n={2}>
           <p style={{ margin: "0 0 14px", fontSize: 15, lineHeight: 1.6 }}>
-            Ojo, es la clave de todo: esa igualdad no es de un x en particular — <b>vale para cualquier x</b>, siempre. Un hecho fijo, como 17=5×3+2 no depende de nada.
+            Ojo, es la clave de todo: esa igualdad no es de un x en particular. <b>Vale para cualquier x</b>, siempre. Es un hecho fijo, tal como <MathText>{"$17 = 5 \\times 3 + 2$"}</MathText> no depende de nada.
           </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             {["x = 1", "x = 7", "x = a", "x = cualquiera"].map((v) => (
@@ -101,7 +101,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <PasoCard n={3}>
           <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
-            Como vale para cualquier x, también vale si elegís meter, a propósito, <MathText>{"$x=a$"}</MathText> — es el único valor que hace cero al paréntesis:
+            Como vale para cualquier x, también vale si elegís meter, a propósito, <MathText>{"$x=a$"}</MathText>. Es el único valor que hace cero al paréntesis:
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, marginBottom: 10 }}>
             <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 16 }}><MathText>{"$(x - a)$"}</MathText></div>
@@ -125,9 +125,10 @@ export default function TeoremaDelRestoPage() {
         <div>
           <PasoCard n={4}>
             <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-              Cero por cualquier cosa es cero — ese pedazo entero desaparece, sin importar cómo sea Q(x):
+              Cero por cualquier cosa es cero, así que ese pedazo entero desaparece, sin importar cómo sea Q(x):
             </p>
             <div style={{ fontSize: 19, textAlign: "center" }}>
+              <MathText>{"$P(a) =$"}</MathText>
               <span style={{ position: "relative", display: "inline-block" }}>
                 <span style={{ opacity: 0.35 }}><MathText>{"$(a - a) \\cdot Q(a)$"}</MathText></span>
                 <span style={{ position: "absolute", left: -4, right: -4, top: "50%", height: 2, background: LIENZO.bad, transform: "rotate(-6deg)" }} />
@@ -175,7 +176,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
-            El signo de adentro del paréntesis cambia el valor que anula. No memorices &quot;el de al lado&quot; — preguntate siempre &quot;¿qué valor hace cero esto?&quot;.
+            El signo de adentro del paréntesis cambia el valor que anula. No memorices &quot;el de al lado&quot;. Preguntate siempre: &quot;¿qué valor hace cero esto?&quot;.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}55`, textAlign: "center" }}>
@@ -198,13 +199,13 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <CasoLista nombre="Divisor con coeficiente" eq={"$P(x) \\div (2x - 1)$"}>
-            Mismo razonamiento: igualá a cero y despejá — 2x−1=0 → x=1/2 — y evaluá P(1/2).
+            Mismo razonamiento: igualá a cero y despejá, <MathText>{"$2x - 1 = 0 \\rightarrow x = \\tfrac{1}{2}$"}</MathText>, y evaluá <MathText>{"$P(\\tfrac{1}{2})$"}</MathText>.
           </CasoLista>
           <CasoLista nombre="Divisibilidad exacta" eq="$P(a) = 0$">
-            Si el resto da cero, (x−a) divide exacto a P(x) — igual que 15÷5 da resto 0. Es el mismo teorema, se llama Teorema del Factor.
+            Si el resto da cero, <MathText>{"$(x-a)$"}</MathText> divide exacto a <MathText>{"$P(x)$"}</MathText>, igual que 15÷5 da resto 0. Es el mismo teorema: se llama Teorema del Factor.
           </CasoLista>
           <CasoLista nombre="Dato disfrazado" eq={'"da resto 4"'} ultimo>
-            Un enunciado que dice esto ya te está regalando la ecuación P(a) = 4, aunque no lo diga con esas palabras.
+            Un enunciado que dice esto ya te está regalando la ecuación <MathText>{"$P(a) = 4$"}</MathText>, aunque no lo diga con esas palabras.
           </CasoLista>
         </div>
       ),
@@ -213,10 +214,10 @@ export default function TeoremaDelRestoPage() {
       etiqueta: "Practicalo vos",
       contenido: (
         <TarjetaPractica
-          pregunta="Hallar el residuo de dividir el polinomio f(x) = x⁴ + 2x³ − 7x² − 8x + 12, entre x + 1."
+          pregunta={"Hallar el residuo de dividir el polinomio $f(x) = x^4 + 2x^3 - 7x^2 - 8x + 12$, entre $x + 1$."}
           opciones={["4", "8", "12", "16", "Ninguno"]}
           correcta={2}
-          explicacion={'El divisor es (x + 1) → anula en x = −1 (no +1, por el "Ojo"). f(−1) = 1 − 2 − 7 + 8 + 12 = 12.'}
+          explicacion={"El divisor es $(x + 1)$, anula en $x = -1$ (no +1, por el \"Ojo\"). $f(-1) = 1 - 2 - 7 + 8 + 12 = 12$."}
         />
       ),
     },
@@ -246,7 +247,7 @@ function TarjetaPractica({
   const rev = sel !== null;
   return (
     <div>
-      <p style={{ fontSize: 15, fontWeight: 600, color: LIENZO.fg, margin: "0 0 14px", lineHeight: 1.5 }}>{pregunta}</p>
+      <p style={{ fontSize: 15, fontWeight: 600, color: LIENZO.fg, margin: "0 0 14px", lineHeight: 1.5 }}><MathText>{pregunta}</MathText></p>
       <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         {opciones.map((op, j) => {
           const isOk = j === correcta, isSel = sel === j;
@@ -271,7 +272,7 @@ function TarjetaPractica({
       </div>
       {rev && (
         <div style={{ marginTop: 12, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-          {explicacion}
+          <MathText>{explicacion}</MathText>
         </div>
       )}
     </div>
