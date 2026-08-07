@@ -239,21 +239,23 @@ export default function TeoremaDelRestoPage() {
       colorEtiqueta: LIENZO.ok,
       contenido: (
         <div>
-          <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            A veces el examen no te da la ecuación armada. Te la esconde en una frase:
+          <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
+            A veces falta un número en el polinomio, y el enunciado te lo da escondido en una frase, no como ecuación. Es la misma idea del Teorema del Resto (<MathText>{"$R = P(a)$"}</MathText>) usada al revés: ya sabés R, te falta un dato de P(x).
           </p>
-          <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 16px", marginBottom: 10 }}>
-            <p className="font-crimson" style={{ margin: "0 0 8px", fontSize: 14, fontStyle: "italic", color: LIENZO.fgDim, textAlign: "center" }}>
-              &quot;Al dividir P(x) entre (x−3), el resto da 4.&quot;
-            </p>
-            <FlechaMini abajo />
-            <div style={{ textAlign: "center", marginTop: 4, fontSize: 17 }}>
-              <MathText>{"$P(3) = 4$"}</MathText>
-            </div>
+          <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
+            <MathText>{"$P(x) = x^2 + kx + 1$"}</MathText>. Si al dividirlo entre <MathText>{"$(x - 2)$"}</MathText> el resto es 7, hallar <MathText>{"$k$"}</MathText>.
+          </p>
+          <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
+            <LineaEjemplo glosa="La frase esconde" eq="$P(2) = 7$" />
+            <LineaEjemplo glosa="Reemplazá x = 2 en P(x)" eq="$(2)^2 + k(2) + 1 = 7$" />
+            <LineaEjemplo glosa="" eq="$4 + 2k + 1 = 7$" />
           </div>
-          <p style={{ margin: 0, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Es la misma idea del Teorema del Resto (<MathText>{"$R = P(a)$"}</MathText>): el enunciado te regala el valor de R, disfrazado de oración.
-          </p>
+          <div style={{
+            marginTop: 12, display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+            padding: "10px 16px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}`,
+          }}>
+            <span style={{ fontSize: 20, fontWeight: 700, color: LIENZO.ok }}><MathText>{"$k = 1$"}</MathText></span>
+          </div>
         </div>
       ),
     },
