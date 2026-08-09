@@ -107,7 +107,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "ecuaciones-irracionales",
         titulo: "Ecuaciones e inecuaciones irracionales",
         laminas: [
-          { slug: "ecuacion-irracional-y-raices-extranas", titulo: "Ecuación irracional y raíces extrañas", publicada: false },
+          { slug: "ecuacion-irracional-y-raices-extranas", titulo: "Ecuación irracional y raíces extrañas", publicada: true },
           { slug: "racionalizacion", titulo: "Racionalización", publicada: false },
           { slug: "irracionales-complejas", titulo: "Irracionales complejas (radicales anidados)", publicada: false },
         ],
