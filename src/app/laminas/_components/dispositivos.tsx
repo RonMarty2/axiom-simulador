@@ -145,6 +145,61 @@ export function ComparacionOjo({
   );
 }
 
+// Esquema de Ruffini (división sintética): fila de coeficientes, fila de
+// productos parciales, línea, fila de sumas (el último valor es el resto).
+// coeficientes.length === productos.length === sumas.length; productos[0]
+// va vacío ("") porque no hay producto antes del primer coeficiente.
+export function TablaRuffini({
+  a, coeficientes, productos, sumas,
+}: {
+  a: string; coeficientes: string[]; productos: string[]; sumas: string[];
+}) {
+  const cols = coeficientes.length;
+  return (
+    <div style={{ display: "flex", justifyContent: "center", overflowX: "auto" }}>
+      <div style={{
+        display: "grid", gridTemplateColumns: `52px repeat(${cols}, minmax(38px, 1fr))`,
+        rowGap: 6, columnGap: 4, alignItems: "center", minWidth: 240,
+      }}>
+        <div />
+        {coeficientes.map((c, i) => (
+          <div key={`c${i}`} style={{ textAlign: "center", fontSize: 16 }}><MathText>{c}</MathText></div>
+        ))}
+
+        <div style={{
+          display: "flex", alignItems: "center", justifyContent: "center",
+          fontSize: 13, fontWeight: 700, color: LIENZO.accent,
+        }}>
+          <MathText>{a}</MathText>
+        </div>
+        {productos.map((p, i) => (
+          <div key={`p${i}`} style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim }}>
+            {p ? <MathText>{p}</MathText> : ""}
+          </div>
+        ))}
+
+        <div style={{ borderTop: `1.5px solid ${LIENZO.fgFaint}` }} />
+        {coeficientes.map((_, i) => (
+          <div key={`l${i}`} style={{ borderTop: `1.5px solid ${LIENZO.fgFaint}` }} />
+        ))}
+
+        <div />
+        {sumas.map((s, i) => {
+          const esResto = i === sumas.length - 1;
+          return (
+            <div key={`s${i}`} style={{
+              textAlign: "center", fontSize: 17, fontWeight: 700,
+              color: esResto ? LIENZO.accent : LIENZO.fg,
+            }}>
+              <MathText>{s}</MathText>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // Chips de verificación (ej. "x=1 ✓ x=7 ✓") — para concretar una afirmación
 // de "vale siempre / en varios casos" en vez de solo enunciarla.
 export function ChipsVerificacion({ valores }: { valores: string[] }) {
