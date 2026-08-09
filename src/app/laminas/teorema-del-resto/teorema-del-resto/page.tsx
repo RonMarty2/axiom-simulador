@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import LaminaShell, { type LaminaDiapositiva } from "../../_components/LaminaShell";
 import MathText from "../../../components/MathText";
 import { LIENZO } from "../../../aprende/_components/lienzo";
+import {
+  TarjetaPractica, PasoCard, FlechaMini, FilaRol, PartePuente, LineaEjemplo,
+  ComparacionOjo, ChipsVerificacion,
+} from "../../_components/dispositivos";
 
 // Lámina "Teorema del Resto" — módulo "Teorema del Resto y división de
 // polinomios", 3ra de 5. Formato de tarjetas (v5) — ver BITÁCORA §4.5.
@@ -81,18 +84,7 @@ export default function TeoremaDelRestoPage() {
           <p style={{ margin: "0 0 14px", fontSize: 15, lineHeight: 1.6 }}>
             Ojo, es la clave de todo: esa igualdad no es de un x en particular. <b>Vale para cualquier x</b>, siempre. Es un hecho fijo, tal como <MathText>{"$17 = 5 \\times 3 + 2$"}</MathText> no depende de nada.
           </p>
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
-            {["x = 1", "x = 7", "x = a", "x = cualquiera"].map((v) => (
-              <span key={v} style={{
-                display: "inline-flex", alignItems: "center", gap: 5,
-                padding: "6px 10px", borderRadius: 999, background: `${LIENZO.ok}15`, border: `1px solid ${LIENZO.ok}55`,
-                fontSize: 12.5, color: LIENZO.fg,
-              }}>
-                <MathText>{`$${v}$`}</MathText>
-                <span style={{ color: LIENZO.ok, fontWeight: 700 }}>✓</span>
-              </span>
-            ))}
-          </div>
+          <ChipsVerificacion valores={["$x = 1$", "$x = 7$", "$x = a$", "$x = \\text{cualquiera}$"]} />
         </PasoCard>
       ),
     },
@@ -178,18 +170,10 @@ export default function TeoremaDelRestoPage() {
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
             El signo de adentro del paréntesis cambia el valor que anula. No memorices &quot;el de al lado&quot;. Preguntate siempre: &quot;¿qué valor hace cero esto?&quot;.
           </p>
-          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
-            <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}55`, textAlign: "center" }}>
-              <div style={{ fontSize: 16 }}><MathText>{"$(x - 2)$"}</MathText></div>
-              <FlechaMini abajo />
-              <div style={{ fontSize: 16, color: LIENZO.ok, fontWeight: 700 }}><MathText>{"$x = 2$"}</MathText></div>
-            </div>
-            <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.bad}12`, border: `1.5px solid ${LIENZO.bad}55`, textAlign: "center" }}>
-              <div style={{ fontSize: 16 }}><MathText>{"$(x + 3)$"}</MathText></div>
-              <FlechaMini abajo />
-              <div style={{ fontSize: 16, color: LIENZO.bad, fontWeight: 700 }}><MathText>{"$x = -3$"}</MathText></div>
-            </div>
-          </div>
+          <ComparacionOjo
+            correcto={{ arriba: "$(x - 2)$", abajo: "$x = 2$" }}
+            incorrecto={{ arriba: "$(x + 3)$", abajo: "$x = -3$" }}
+          />
         </div>
       ),
     },
@@ -287,73 +271,6 @@ export default function TeoremaDelRestoPage() {
   );
 }
 
-function TarjetaPractica({
-  pregunta, opciones, correcta, explicacion,
-}: {
-  pregunta: string; opciones: string[]; correcta: number; explicacion: string;
-}) {
-  const [sel, setSel] = useState<number | null>(null);
-  const rev = sel !== null;
-  return (
-    <div>
-      <p style={{ fontSize: 15, fontWeight: 600, color: LIENZO.fg, margin: "0 0 14px", lineHeight: 1.5 }}><MathText>{pregunta}</MathText></p>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {opciones.map((op, j) => {
-          const isOk = j === correcta, isSel = sel === j;
-          const borde = !rev ? LIENZO.fgFaint : isOk ? LIENZO.ok : isSel ? LIENZO.bad : LIENZO.fgFaint;
-          return (
-            <button
-              key={j}
-              onClick={() => !rev && setSel(j)}
-              disabled={rev}
-              style={{
-                padding: "10px 14px", textAlign: "left",
-                background: !rev ? "transparent" : isOk ? `${LIENZO.ok}18` : isSel ? `${LIENZO.bad}18` : "transparent",
-                border: `1.5px solid ${borde}`, borderRadius: 10,
-                fontSize: 14, fontWeight: 600, color: LIENZO.fg,
-                cursor: rev ? "default" : "pointer",
-              }}
-            >
-              {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
-            </button>
-          );
-        })}
-      </div>
-      {rev && (
-        <div style={{ marginTop: 12, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-          <MathText>{explicacion}</MathText>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function PasoCard({ n, children }: { n: number; children: React.ReactNode }) {
-  return (
-    <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-      <span style={{
-        flexShrink: 0, width: 28, height: 28, borderRadius: "50%",
-        background: LIENZO.accent, color: "#fff", fontSize: 12, fontWeight: 700,
-        display: "flex", alignItems: "center", justifyContent: "center",
-      }}>
-        {n}
-      </span>
-      <div style={{ flex: 1 }}>{children}</div>
-    </div>
-  );
-}
-
-function FlechaMini({ abajo }: { abajo?: boolean }) {
-  return (
-    <svg
-      width="18" height="14" viewBox="0 0 24 16" fill="none" stroke={LIENZO.fgFaint} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-      style={abajo ? { transform: "rotate(90deg)", display: "block", margin: "2px auto" } : undefined}
-    >
-      <path d="M2 8h18M14 2l6 6-6 6" />
-    </svg>
-  );
-}
-
 // Visual del gancho: muestra la idea completa de un vistazo — dividir se
 // tacha, evaluar en un punto queda resaltado — antes de explicar nada.
 function FlujoGancho() {
@@ -377,41 +294,4 @@ function FlujoGancho() {
   );
 }
 
-// Fila de "traducción por rol" del Puente — en vez de declarar "P(x) es lo
-// mismo que 17", muestra el papel que cumple cada uno y deja que la
-// correspondencia se vea, no que se declare.
-function FilaRol({ rol, conocido, nuevo, ultimo }: { rol: string; conocido: string; nuevo: string; ultimo?: boolean }) {
-  return (
-    <div style={{
-      display: "flex", alignItems: "center", gap: 10, padding: "9px 0",
-      borderTop: `1px solid ${LIENZO.fgFaint}33`,
-      borderBottom: ultimo ? `1px solid ${LIENZO.fgFaint}33` : undefined,
-    }}>
-      <div style={{ flex: 1, fontSize: 12.5, color: LIENZO.fgDim }}>{rol}</div>
-      <div className="font-crimson" style={{ fontSize: 16, minWidth: 44, textAlign: "center", color: LIENZO.fg }}>{conocido}</div>
-      <FlechaMini />
-      <div className="font-crimson" style={{ fontSize: 16, minWidth: 56, textAlign: "center", color: LIENZO.accent, fontWeight: 700 }}>{nuevo}</div>
-    </div>
-  );
-}
-
-function PartePuente({ valor, etiqueta, color }: { valor: string; etiqueta: string; color?: string }) {
-  return (
-    <span className="font-crimson" style={{ textAlign: "center", color: color ?? LIENZO.fg, fontSize: 21 }}>
-      {valor}
-      <span style={{ display: "block", fontFamily: "var(--font-atkinson), sans-serif", fontSize: 9.5, textTransform: "uppercase", letterSpacing: 0.5, color: LIENZO.fgDim, marginTop: 3 }}>
-        {etiqueta}
-      </span>
-    </span>
-  );
-}
-
-function LineaEjemplo({ glosa, eq }: { glosa: string; eq: string }) {
-  return (
-    <div style={{ marginBottom: 8, fontSize: 15, overflowX: "auto" }}>
-      {glosa && <div style={{ color: LIENZO.fgDim, fontSize: 12.5, marginBottom: 2 }}>{glosa}</div>}
-      <MathText>{eq}</MathText>
-    </div>
-  );
-}
 
