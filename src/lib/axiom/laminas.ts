@@ -97,7 +97,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "ecuaciones-racionales",
         titulo: "Ecuaciones y expresiones racionales",
         laminas: [
-          { slug: "expresion-racional-y-simplificacion", titulo: "Qué es una expresión racional y cómo simplificarla", publicada: false },
+          { slug: "expresion-racional-y-simplificacion", titulo: "Qué es una expresión racional y cómo simplificarla", publicada: true },
           { slug: "ecuaciones-racionales", titulo: "Ecuaciones racionales", publicada: false },
           { slug: "ecuaciones-literales", titulo: "Ecuaciones literales (despeje)", publicada: false },
           { slug: "fracciones-parciales", titulo: "Fracciones parciales", publicada: false },
