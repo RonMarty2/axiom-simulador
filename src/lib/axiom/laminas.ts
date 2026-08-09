@@ -87,7 +87,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "sistemas-de-ecuaciones",
         titulo: "Sistemas de ecuaciones",
         laminas: [
-          { slug: "sistemas-lineales-2x2", titulo: "Sistemas lineales 2×2", publicada: false },
+          { slug: "sistemas-lineales-2x2", titulo: "Sistemas lineales 2×2", publicada: true },
           { slug: "sistemas-lineales-3x3", titulo: "Sistemas lineales 3×3 y más", publicada: false },
           { slug: "sistemas-no-lineales", titulo: "Sistemas no lineales", publicada: false },
           { slug: "sistemas-aplicados-a-planteo", titulo: "Sistemas aplicados a problemas de planteo", publicada: false },
