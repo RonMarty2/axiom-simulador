@@ -60,7 +60,11 @@ export function PasoCard({ n, children }: { n: number; children: React.ReactNode
       }}>
         {n}
       </span>
-      <div style={{ flex: 1 }}>{children}</div>
+      {/* minWidth:0 — sin esto, un hijo ancho (ej. una ecuación larga con
+          overflowX:auto) fuerza el flex item a no encogerse por debajo de su
+          ancho de contenido, y el párrafo de al lado se corta en vez de
+          hacer word-wrap normal. */}
+      <div style={{ flex: 1, minWidth: 0 }}>{children}</div>
     </div>
   );
 }

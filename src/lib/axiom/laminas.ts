@@ -65,7 +65,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "teorema-del-resto",
         titulo: "Teorema del Resto y división de polinomios",
         laminas: [
-          { slug: "division-de-polinomios", titulo: "División de polinomios", publicada: false },
+          { slug: "division-de-polinomios", titulo: "División de polinomios", publicada: true },
           { slug: "division-sintetica", titulo: "División sintética (Ruffini)", publicada: false },
           { slug: "teorema-del-resto", titulo: "Teorema del Resto", publicada: true },
           { slug: "teorema-del-factor", titulo: "Teorema del Factor", publicada: true },

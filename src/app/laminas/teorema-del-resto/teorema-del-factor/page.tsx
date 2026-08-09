@@ -234,7 +234,7 @@ export default function TeoremaDelFactorPage() {
       posicion="Lámina 4 de 5"
       diapositivas={diapositivas}
       necesitasAntes={{ href: "/laminas/teorema-del-resto/teorema-del-resto", titulo: "Teorema del Resto" }}
-      teAbrePuertaA={{ href: "/laminas/teorema-del-resto/aplicaciones-teorema-resto", titulo: "Aplicaciones combinadas" }}
+      teAbrePuertaA={{ href: "/laminas/teorema-del-resto", titulo: "Aplicaciones combinadas" }}
     />
   );
 }
