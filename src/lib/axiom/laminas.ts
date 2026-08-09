@@ -79,7 +79,7 @@ export const LAMINAS: FacultadLaminas[] = [
           { slug: "ecuacion-cuadratica-discriminante", titulo: "Ecuación cuadrática y discriminante", publicada: true },
           { slug: "relaciones-de-vieta", titulo: "Relaciones de Vieta", publicada: true },
           { slug: "ecuaciones-desde-raices-transformadas", titulo: "Construir ecuaciones desde raíces transformadas", publicada: true },
-          { slug: "naturaleza-de-las-raices", titulo: "Naturaleza de las raíces", publicada: false },
+          { slug: "naturaleza-de-las-raices", titulo: "Naturaleza de las raíces", publicada: true },
           { slug: "ecuaciones-cubicas-vieta", titulo: "Ecuaciones cúbicas (Vieta extendido)", publicada: false },
         ],
       },
