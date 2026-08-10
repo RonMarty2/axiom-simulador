@@ -185,7 +185,7 @@ export const LAMINAS: FacultadLaminas[] = [
         titulo: "Inecuaciones",
         laminas: [
           { slug: "inecuaciones-lineales-y-cuadraticas", titulo: "Inecuaciones lineales y cuadráticas", publicada: true },
-          { slug: "inecuaciones-racionales", titulo: "Inecuaciones racionales", publicada: false },
+          { slug: "inecuaciones-racionales", titulo: "Inecuaciones racionales", publicada: true },
         ],
       },
       {
