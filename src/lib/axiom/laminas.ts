@@ -227,7 +227,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "combinatoria-basica",
         titulo: "Combinatoria básica",
         laminas: [
-          { slug: "permutaciones-y-conteo", titulo: "Permutaciones y conteo", publicada: false },
+          { slug: "permutaciones-y-conteo", titulo: "Permutaciones y conteo", publicada: true },
         ],
       },
       {
