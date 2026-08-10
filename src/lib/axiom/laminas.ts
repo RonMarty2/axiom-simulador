@@ -160,7 +160,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "factorizacion-productos-notables",
         titulo: "Factorización y productos notables",
         laminas: [
-          { slug: "productos-notables", titulo: "Productos notables", publicada: false },
+          { slug: "productos-notables", titulo: "Productos notables", publicada: true },
           { slug: "factorizacion-basica", titulo: "Factorización: casos básicos", publicada: false },
           { slug: "factorizacion-casos-especiales", titulo: "Factorización: casos especiales", publicada: false },
         ],
