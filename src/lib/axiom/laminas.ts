@@ -42,7 +42,7 @@ export const LAMINAS: FacultadLaminas[] = [
           { slug: "que-es-un-logaritmo", titulo: "¿Qué es un logaritmo?", publicada: true },
           { slug: "propiedades-de-logaritmos", titulo: "Propiedades de los logaritmos", publicada: true },
           { slug: "cambio-de-base", titulo: "Cambio de base", publicada: true },
-          { slug: "ecuaciones-exponenciales", titulo: "Ecuaciones exponenciales", publicada: false },
+          { slug: "ecuaciones-exponenciales", titulo: "Ecuaciones exponenciales", publicada: true },
           { slug: "ecuaciones-logaritmicas-simples", titulo: "Ecuaciones logarítmicas simples", publicada: false },
           { slug: "ecuaciones-logaritmicas-complejas", titulo: "Ecuaciones logarítmicas complejas", publicada: false },
           { slug: "dominio-funcion-logaritmica", titulo: "Dominio de funciones logarítmicas", publicada: false },
