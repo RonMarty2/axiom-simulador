@@ -128,7 +128,7 @@ export default function AplicacionesMcdMcmPage() {
       posicion="Lámina 3 de 3"
       diapositivas={diapositivas}
       necesitasAntes={{ href: "/laminas/divisores-mcd-mcm/mcd-y-mcm", titulo: "MCD y MCM" }}
-      teAbrePuertaA={{ href: "/laminas/regla-de-tres-y-reparto", titulo: "Regla de tres y reparto proporcional" }}
+      teAbrePuertaA={{ href: "/laminas/regla-de-tres-y-reparto/regla-de-tres-simple", titulo: "Regla de tres simple" }}
     />
   );
 }
