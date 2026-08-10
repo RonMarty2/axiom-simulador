@@ -169,7 +169,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "funciones-cuadraticas-optimizacion",
         titulo: "Funciones cuadráticas: optimización",
         laminas: [
-          { slug: "la-parabola-vertice", titulo: "La parábola: vértice y eje de simetría", publicada: false },
+          { slug: "la-parabola-vertice", titulo: "La parábola: vértice y eje de simetría", publicada: true },
           { slug: "optimizacion-aplicada", titulo: "Optimización aplicada", publicada: false },
         ],
       },
