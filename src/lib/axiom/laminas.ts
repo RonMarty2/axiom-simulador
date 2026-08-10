@@ -126,7 +126,7 @@ export const LAMINAS: FacultadLaminas[] = [
         titulo: "Regla de tres y reparto proporcional",
         laminas: [
           { slug: "regla-de-tres-simple", titulo: "Regla de tres simple", publicada: true },
-          { slug: "regla-de-tres-compuesta", titulo: "Regla de tres compuesta", publicada: false },
+          { slug: "regla-de-tres-compuesta", titulo: "Regla de tres compuesta", publicada: true },
           { slug: "reparto-proporcional", titulo: "Reparto proporcional", publicada: false },
         ],
       },
