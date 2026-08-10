@@ -44,7 +44,7 @@ export const LAMINAS: FacultadLaminas[] = [
           { slug: "cambio-de-base", titulo: "Cambio de base", publicada: true },
           { slug: "ecuaciones-exponenciales", titulo: "Ecuaciones exponenciales", publicada: true },
           { slug: "ecuaciones-logaritmicas-simples", titulo: "Ecuaciones logarítmicas simples", publicada: true },
-          { slug: "ecuaciones-logaritmicas-complejas", titulo: "Ecuaciones logarítmicas complejas", publicada: false },
+          { slug: "ecuaciones-logaritmicas-complejas", titulo: "Ecuaciones logarítmicas complejas", publicada: true },
           { slug: "dominio-funcion-logaritmica", titulo: "Dominio de funciones logarítmicas", publicada: false },
           { slug: "crecimiento-y-decaimiento", titulo: "Aplicaciones: crecimiento y decaimiento", publicada: false },
         ],
