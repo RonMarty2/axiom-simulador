@@ -117,7 +117,7 @@ export const LAMINAS: FacultadLaminas[] = [
         titulo: "Divisores, MCD y MCM",
         laminas: [
           { slug: "factorizacion-prima-y-divisores", titulo: "Factorización prima y número de divisores", publicada: true },
-          { slug: "mcd-y-mcm", titulo: "MCD y MCM", publicada: false },
+          { slug: "mcd-y-mcm", titulo: "MCD y MCM", publicada: true },
           { slug: "aplicaciones-mcd-mcm", titulo: "Aplicaciones (reparto, encuentros periódicos)", publicada: false },
         ],
       },
