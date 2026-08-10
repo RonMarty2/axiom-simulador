@@ -153,7 +153,7 @@ export const LAMINAS: FacultadLaminas[] = [
         laminas: [
           { slug: "porcentajes", titulo: "Porcentajes", publicada: true },
           { slug: "mezclas", titulo: "Problemas de mezclas", publicada: true },
-          { slug: "interes-simple-y-compuesto", titulo: "Interés simple y compuesto", publicada: false },
+          { slug: "interes-simple-y-compuesto", titulo: "Interés simple y compuesto", publicada: true },
         ],
       },
       {
