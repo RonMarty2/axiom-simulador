@@ -234,7 +234,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "problemas-de-edades",
         titulo: "Problemas de edades",
         laminas: [
-          { slug: "planteo-de-problemas-de-edades", titulo: "Planteo de problemas de edades", publicada: false },
+          { slug: "planteo-de-problemas-de-edades", titulo: "Planteo de problemas de edades", publicada: true },
         ],
       },
     ],
