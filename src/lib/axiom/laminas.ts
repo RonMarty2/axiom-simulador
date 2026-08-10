@@ -54,7 +54,7 @@ export const LAMINAS: FacultadLaminas[] = [
         titulo: "Progresiones",
         laminas: [
           { slug: "progresion-aritmetica", titulo: "Progresión aritmética", publicada: true },
-          { slug: "suma-progresion-aritmetica", titulo: "Suma de una progresión aritmética", publicada: false },
+          { slug: "suma-progresion-aritmetica", titulo: "Suma de una progresión aritmética", publicada: true },
           { slug: "progresion-geometrica", titulo: "Progresión geométrica", publicada: false },
           { slug: "suma-progresion-geometrica-finita", titulo: "Suma de una progresión geométrica finita", publicada: false },
           { slug: "suma-progresion-geometrica-infinita", titulo: "Suma de una progresión geométrica infinita", publicada: false },
