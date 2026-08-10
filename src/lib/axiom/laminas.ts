@@ -40,7 +40,7 @@ export const LAMINAS: FacultadLaminas[] = [
         titulo: "Logaritmos y exponenciales",
         laminas: [
           { slug: "que-es-un-logaritmo", titulo: "¿Qué es un logaritmo?", publicada: true },
-          { slug: "propiedades-de-logaritmos", titulo: "Propiedades de los logaritmos", publicada: false },
+          { slug: "propiedades-de-logaritmos", titulo: "Propiedades de los logaritmos", publicada: true },
           { slug: "cambio-de-base", titulo: "Cambio de base", publicada: false },
           { slug: "ecuaciones-exponenciales", titulo: "Ecuaciones exponenciales", publicada: false },
           { slug: "ecuaciones-logaritmicas-simples", titulo: "Ecuaciones logarítmicas simples", publicada: false },
