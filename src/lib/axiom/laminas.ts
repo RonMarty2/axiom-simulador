@@ -192,7 +192,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "planteo-verbal-general",
         titulo: "Planteo verbal general",
         laminas: [
-          { slug: "traducir-palabras-a-ecuaciones", titulo: "Traducir un problema verbal a ecuaciones", publicada: false },
+          { slug: "traducir-palabras-a-ecuaciones", titulo: "Traducir un problema verbal a ecuaciones", publicada: true },
         ],
       },
       {
