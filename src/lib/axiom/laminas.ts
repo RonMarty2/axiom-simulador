@@ -220,7 +220,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "problemas-de-moviles",
         titulo: "Problemas de móviles",
         laminas: [
-          { slug: "movimiento-encuentro-y-alcance", titulo: "Movimiento, encuentro y alcance (MRU)", publicada: false },
+          { slug: "movimiento-encuentro-y-alcance", titulo: "Movimiento, encuentro y alcance (MRU)", publicada: true },
         ],
       },
       {
