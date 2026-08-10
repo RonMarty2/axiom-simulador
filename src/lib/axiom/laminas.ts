@@ -136,7 +136,7 @@ export const LAMINAS: FacultadLaminas[] = [
         laminas: [
           { slug: "que-es-el-binomio-de-newton", titulo: "Qué es y coeficientes binomiales", publicada: true },
           { slug: "termino-general", titulo: "Término general", publicada: true },
-          { slug: "termino-independiente-o-central", titulo: "Término independiente / central", publicada: false },
+          { slug: "termino-independiente-o-central", titulo: "Término independiente / central", publicada: true },
         ],
       },
       {
