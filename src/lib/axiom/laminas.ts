@@ -206,7 +206,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "problemas-de-cifras",
         titulo: "Problemas de cifras y dígitos",
         laminas: [
-          { slug: "problemas-de-cifras", titulo: "Problemas de cifras (notación posicional)", publicada: false },
+          { slug: "problemas-de-cifras", titulo: "Problemas de cifras (notación posicional)", publicada: true },
         ],
       },
       {
