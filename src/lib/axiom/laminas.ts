@@ -213,7 +213,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "exponentes-y-radicales",
         titulo: "Exponentes y radicales: simplificación",
         laminas: [
-          { slug: "leyes-de-exponentes-y-radicales", titulo: "Leyes de exponentes y simplificación de radicales", publicada: false },
+          { slug: "leyes-de-exponentes-y-radicales", titulo: "Leyes de exponentes y simplificación de radicales", publicada: true },
         ],
       },
       {
