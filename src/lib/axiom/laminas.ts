@@ -143,7 +143,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "funciones-racionales",
         titulo: "Funciones racionales",
         laminas: [
-          { slug: "dominio-funcion-racional", titulo: "Dominio de funciones racionales", publicada: false },
+          { slug: "dominio-funcion-racional", titulo: "Dominio de funciones racionales", publicada: true },
           { slug: "asintotas", titulo: "Asíntotas", publicada: false },
         ],
       },
