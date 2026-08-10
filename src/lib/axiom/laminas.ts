@@ -199,7 +199,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "polinomios-grado",
         titulo: "Polinomios: grado y definiciones",
         laminas: [
-          { slug: "que-es-un-polinomio", titulo: "Qué es un polinomio: grado absoluto y relativo", publicada: false },
+          { slug: "que-es-un-polinomio", titulo: "Qué es un polinomio: grado absoluto y relativo", publicada: true },
         ],
       },
       {
