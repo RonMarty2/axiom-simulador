@@ -177,7 +177,7 @@ export const LAMINAS: FacultadLaminas[] = [
         slug: "trabajo-combinado",
         titulo: "Trabajo combinado",
         laminas: [
-          { slug: "problemas-de-trabajo-combinado", titulo: "Problemas de trabajo combinado", publicada: false },
+          { slug: "problemas-de-trabajo-combinado", titulo: "Problemas de trabajo combinado", publicada: true },
         ],
       },
       {
