@@ -14,7 +14,7 @@ import {
 } from "../_components/pedagogia";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Operaciones fundamentales — VERSIÓN COMPLETA Y AUTOCONTENIDA
+// Operaciones fundamentales: VERSIÓN COMPLETA Y AUTOCONTENIDA
 // Un estudiante que empieza desde cero puede dominar todo el tema solo con
 // esta lección. Cada escena tiene: definición clara, justificación del POR
 // QUÉ, ejemplos resueltos paso a paso, errores comunes y auto-check.
@@ -49,7 +49,7 @@ export default function Page() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 01 — BIENVENIDA
+// 01: BIENVENIDA
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc01_Bienvenida() {
   return (
@@ -82,7 +82,7 @@ function Esc01_Bienvenida() {
         Las operaciones fundamentales son <strong>la base de TODO</strong>. Si fallás en
         signos o en jerarquía, fallás en cualquier cuenta. En el examen UMSS los errores
         de aritmética cuestan puntos en preguntas que ya estaban "ganadas". Repasalo bien
-        ahora — ahorra dolor después.
+        ahora: ahorra dolor después.
       </Hook>
 
       <Mnemotecnia>
@@ -99,7 +99,7 @@ function Esc01_Bienvenida() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 02 — Los números (recta numérica)
+// 02: Los números (recta numérica)
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc02_Numeros() {
   return (
@@ -155,12 +155,12 @@ function Esc02_Numeros() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 03 — SUMA: concepto
+// 03: SUMA: concepto
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc03_SumaConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#10b981">Suma — combinar cantidades</Titulo>
+      <Titulo accent="#10b981">Suma: combinar cantidades</Titulo>
 
       <Parrafo>
         <strong>Sumar</strong> es la operación más básica: juntás dos (o más) cantidades
@@ -225,14 +225,14 @@ function Esc03_SumaConcepto() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 04 — SUMA: propiedades
+// 04: SUMA: propiedades
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc04_SumaProps() {
   return (
     <EscenaRica>
       <Titulo accent="#10b981">Las 3 propiedades de la suma</Titulo>
       <Parrafo>
-        La suma tiene 3 propiedades importantes. No son trucos de memoria —
+        La suma tiene 3 propiedades importantes. No son trucos de memoria:
         son cosas que <em>siempre</em> valen y que vas a usar en todo lo siguiente.
       </Parrafo>
 
@@ -285,12 +285,12 @@ function Esc04_SumaProps() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 05 — RESTA: concepto
+// 05: RESTA: concepto
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc05_RestaConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#f59e0b">Resta — quitar de un total</Titulo>
+      <Titulo accent="#f59e0b">Resta: quitar de un total</Titulo>
 
       <Parrafo>
         <strong>Restar</strong> es lo opuesto a sumar: quitás una cantidad de otra.
@@ -327,7 +327,7 @@ function Esc05_RestaConcepto() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 06 — RESTA y NEGATIVOS
+// 06: RESTA y NEGATIVOS
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc06_RestaNeg() {
   return (
@@ -390,12 +390,12 @@ function Esc06_RestaNeg() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 07 — MULTIPLICACIÓN: concepto
+// 07: MULTIPLICACIÓN: concepto
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc07_MultConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Multiplicación — suma repetida</Titulo>
+      <Titulo accent="#3b82f6">Multiplicación: suma repetida</Titulo>
 
       <Parrafo>
         <strong>Multiplicar</strong> es una forma corta de escribir una suma del mismo
@@ -450,7 +450,7 @@ function Esc07_MultConcepto() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 08 — MULTIPLICACIÓN: propiedades
+// 08: MULTIPLICACIÓN: propiedades
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc08_MultProps() {
   return (
@@ -506,7 +506,7 @@ function Esc08_MultProps() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 09 — MULTIPLICACIÓN con NEGATIVOS
+// 09: MULTIPLICACIÓN con NEGATIVOS
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc09_MultNeg() {
   return (
@@ -567,12 +567,12 @@ function Esc09_MultNeg() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 10 — DIVISIÓN: concepto
+// 10: DIVISIÓN: concepto
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc10_DivConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">División — repartir en partes iguales</Titulo>
+      <Titulo accent="#8b5cf6">División: repartir en partes iguales</Titulo>
 
       <Parrafo>
         <strong>Dividir</strong> es lo opuesto a multiplicar. Hay dos formas de
@@ -610,7 +610,7 @@ function Esc10_DivConcepto() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 11 — DIVISIÓN CON RESTO
+// 11: DIVISIÓN CON RESTO
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc11_DivResto() {
   return (
@@ -651,7 +651,7 @@ function Esc11_DivResto() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 12 — DIVISIÓN POR CERO
+// 12: DIVISIÓN POR CERO
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc12_DivCero() {
   return (
@@ -660,7 +660,7 @@ function Esc12_DivCero() {
 
       <Parrafo>
         En toda matemática vas a ver esto: <strong>la división por 0 está prohibida</strong>.
-        No es un capricho — hay una razón profunda. Veamos.
+        No es un capricho: hay una razón profunda. Veamos.
       </Parrafo>
 
       <Ejemplo titulo="Intento: ¿cuánto vale 6 ÷ 0?">
@@ -672,7 +672,7 @@ function Esc12_DivCero() {
 
       <Ejemplo titulo="¿Y 0 ÷ 0?">
         Sería un x tal que <strong>x · 0 = 0</strong>. ¡Pero <em>cualquier</em> x cumple
-        eso! El resultado no sería único — y en matemáticas las operaciones tienen
+        eso! El resultado no sería único, y en matemáticas las operaciones tienen
         que tener UN resultado. Por eso también está prohibido.
       </Ejemplo>
 
@@ -691,7 +691,7 @@ function Esc12_DivCero() {
 }
 
 // ═════════════════════════════════════════════════════════════════════════════
-// 13 — JERARQUÍA: introducción
+// 13: JERARQUÍA: introducción
 // ═════════════════════════════════════════════════════════════════════════════
 function Esc13_JerIntro() {
   return (
@@ -779,7 +779,7 @@ function Esc14_PEMDAS() {
       </div>
 
       <Cuidado>
-        Multiplicación y división tienen el <strong>mismo rango</strong> — no es que mult. va siempre
+        Multiplicación y división tienen el <strong>mismo rango</strong>: no es que mult. va siempre
         antes que div. <strong>Se hacen en el orden en que aparecen</strong>, de izquierda a derecha.<br />
         Lo mismo para suma y resta.
       </Cuidado>
@@ -799,7 +799,7 @@ function Esc15_Ejemplos() {
     <EscenaRica>
       <Titulo>Ejemplos completos, paso a paso</Titulo>
 
-      <Ejemplo titulo="Ejemplo 1 — Mult antes que suma">
+      <Ejemplo titulo="Ejemplo 1: Mult antes que suma">
         <strong>5 + 2 × 3</strong>
         <Paso n={1}>Identifico operaciones: hay una suma y una multiplicación.</Paso>
         <Paso n={2}>Por PEMDAS, multiplicación primero: <strong>2 × 3 = 6</strong>.</Paso>
@@ -807,14 +807,14 @@ function Esc15_Ejemplos() {
         <Paso n={4}>Resultado: <strong style={{ color: COLOR_OK }}>11</strong></Paso>
       </Ejemplo>
 
-      <Ejemplo titulo="Ejemplo 2 — Con paréntesis">
+      <Ejemplo titulo="Ejemplo 2: Con paréntesis">
         <strong>(5 + 2) × 3</strong>
         <Paso n={1}>El paréntesis va primero: <strong>5 + 2 = 7</strong>.</Paso>
         <Paso n={2}>Después la multiplicación: <strong>7 × 3 = 21</strong>.</Paso>
         <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>21</strong> (¡distinto al ejemplo 1!).</Paso>
       </Ejemplo>
 
-      <Ejemplo titulo="Ejemplo 3 — Mezcla más larga">
+      <Ejemplo titulo="Ejemplo 3: Mezcla más larga">
         <strong>20 ÷ 4 + 3 × 2 − 1</strong>
         <Paso n={1}>No hay paréntesis ni exponentes. Voy con mult/div, de izq a der:</Paso>
         <Paso n={2}><strong>20 ÷ 4 = 5</strong>, y <strong>3 × 2 = 6</strong>. Queda: <strong>5 + 6 − 1</strong></Paso>
@@ -822,7 +822,7 @@ function Esc15_Ejemplos() {
         <Paso n={4}>Resultado: <strong style={{ color: COLOR_OK }}>10</strong></Paso>
       </Ejemplo>
 
-      <Ejemplo titulo="Ejemplo 4 — Con exponente y negativos">
+      <Ejemplo titulo="Ejemplo 4: Con exponente y negativos">
         <strong>3² − (4 − 7) × 2</strong>
         <Paso n={1}>Paréntesis primero: <strong>4 − 7 = −3</strong>. Queda: <strong>3² − (−3) × 2</strong></Paso>
         <Paso n={2}>Exponente: <strong>3² = 9</strong>. Queda: <strong>9 − (−3) × 2</strong></Paso>
@@ -875,7 +875,7 @@ function Esc16_Errores() {
         <strong>Error 4:</strong> No invertir el signo al restar un negativo. <br />
         <span style={{ fontSize: 13 }}>
           ❌ 5 − (−3) = 2 (mal) <br />
-          ✅ 5 − (−3) = 5 + 3 = 8 (bien — menos por menos es más)
+          ✅ 5 − (−3) = 5 + 3 = 8 (bien: menos por menos es más)
         </span>
       </Cuidado>
 
@@ -895,8 +895,8 @@ function Esc16_Errores() {
 
       <Misconception titulo="−3² ≠ (−3)² · el signo importa">
         Estos dos NO son iguales:<br />
-        — <strong>−3² = −9</strong> (el cuadrado afecta solo al 3; el menos queda afuera).<br />
-        — <strong>(−3)² = 9</strong> (el cuadrado afecta TODO el paréntesis: −3 × −3 = 9).<br /><br />
+        • <strong>−3² = −9</strong> (el cuadrado afecta solo al 3; el menos queda afuera).<br />
+        • <strong>(−3)² = 9</strong> (el cuadrado afecta TODO el paréntesis: −3 × −3 = 9).<br /><br />
         Regla: <em>el exponente solo se aplica a lo PEGADO inmediatamente</em>. Sin paréntesis,
         el menos queda como factor exterior y arrastra el signo final.
       </Misconception>
@@ -958,7 +958,7 @@ function Esc17_Practica() {
       <Parrafo>
         Resolvé estos 5 ejercicios sin mirar las páginas anteriores. Si alguno te cuesta,
         volvé al ejemplo correspondiente y leelo de nuevo. <strong>El objetivo no es
-        acertar todo de una — es darte cuenta de qué te falta repasar.</strong>
+        acertar todo de una: es darte cuenta de qué te falta repasar.</strong>
       </Parrafo>
 
       {ejercicios.map((ej, i) => {

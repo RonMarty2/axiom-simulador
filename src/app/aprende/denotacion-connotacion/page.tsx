@@ -170,12 +170,12 @@ function EscIntro() {
         constantemente en cualquier texto:
       </Parrafo>
       <Resumen>
-        <strong>1. Denotación</strong> — el significado <strong>literal</strong> de la palabra (el que está
+        <strong>1. Denotación</strong>: el significado <strong>literal</strong> de la palabra (el que está
         en el diccionario).<br /><br />
-        <strong>2. Connotación</strong> — el significado <strong>figurado</strong> o emocional que tiene en
+        <strong>2. Connotación</strong>: el significado <strong>figurado</strong> o emocional que tiene en
         un contexto particular.<br /><br />
-        <strong>3. Homonimia</strong> — cuando la <strong>misma palabra</strong> tiene <strong>significados
-        completamente distintos</strong> (no figurados — distintos).
+        <strong>3. Homonimia</strong>: cuando la <strong>misma palabra</strong> tiene <strong>significados
+        completamente distintos</strong> (no figurados, distintos).
       </Resumen>
       <PorQue>
         En el examen vas a ver preguntas donde una palabra aparenta tener un sentido obvio pero el
@@ -275,7 +275,7 @@ function EscHomo() {
       <Titulo>Homonimia · misma palabra, distinto significado</Titulo>
       <Definicion termino="homonimia (RAE)">
         Ocurre cuando dos palabras se <strong>pronuncian o escriben igual</strong> pero tienen{" "}
-        <strong>significados completamente diferentes</strong>. NO son figurados — son significados
+        <strong>significados completamente diferentes</strong>. NO son figurados: son significados
         distintos que comparten la misma forma.
       </Definicion>
       <Parrafo>
@@ -314,7 +314,7 @@ function EscHomo() {
         connotación. Si NO (los dos son independientes históricamente) → homonimia.<br /><br />
         <strong>Ejemplo:</strong> "vela" (cera para iluminar) y "vela" (de barco). ¿Una es metáfora
         de la otra? NO. Son homónimos. En cambio "vela" de cera y "estar en vela" (estar despierto)
-        — el segundo viene del primero por uso (quien velaba a un muerto encendía una vela). Eso
+        . El segundo viene del primero por uso (quien velaba a un muerto encendía una vela). Eso
         es connotación.
       </Misconception>
     </EscenaRica>
@@ -351,7 +351,7 @@ function EscPesado() {
   );
 }
 
-// Práctica parte A — primeros 5 ejercicios (de la guía oficial)
+// Práctica parte A: primeros 5 ejercicios (de la guía oficial)
 function EscPracticaA() {
   return (
     <EscenaRica>
@@ -420,7 +420,7 @@ function EscPracticaA() {
   );
 }
 
-// Práctica parte B — últimos 5 ejercicios
+// Práctica parte B: últimos 5 ejercicios
 function EscPracticaB() {
   return (
     <EscenaRica>
@@ -496,7 +496,7 @@ function EscResumen() {
         <strong>2.</strong> Si una palabra parece tener un sentido raro o desproporcionado, probablemente
         sea <strong>connotativa</strong>. "Una montaña de trabajo" no es literalmente una montaña.<br /><br />
         <strong>3.</strong> Las expresiones figuradas <strong>cambian de significado según el contexto</strong>.
-        "En las nubes" puede ser distracción o euforia — depende.<br /><br />
+        "En las nubes" puede ser distracción o euforia, depende.<br /><br />
         <strong>4.</strong> Si dos significados de una palabra <strong>no tienen NADA que ver entre sí</strong>
         (banco-entidad vs banco-mueble), es <strong>homonimia</strong>. Si están relacionados por una
         metáfora (estrella-celeste vs estrella-famoso), es <strong>connotación</strong>.<br /><br />

@@ -119,8 +119,8 @@ function EscEstrategia() {
 
       <Misconception titulo="No todos los conectores 'similares' son intercambiables">
         "Aunque" y "sin embargo" son ambos de oposición, pero <strong>no son intercambiables</strong>:
-        — "Aunque" se usa al PRINCIPIO de una oración con cláusula concesiva ("Aunque llueva, voy").<br />
-        — "Sin embargo" va DESPUÉS de coma o punto, conectando dos ideas opuestas ("Llueve. Sin
+        • "Aunque" se usa al PRINCIPIO de una oración con cláusula concesiva ("Aunque llueva, voy").<br />
+        • "Sin embargo" va DESPUÉS de coma o punto, conectando dos ideas opuestas ("Llueve. Sin
         embargo, voy").<br />
         Si el espacio está al inicio de la oración nueva, va "Sin embargo", no "aunque".
       </Misconception>
@@ -253,7 +253,7 @@ function EscPB() {
             "de hecho - En consecuencia - Así que",
           ],
           c: 1,
-          ex: "Causa + adición + conclusión. Las tres oraciones suman ideas positivas — sin oposición.",
+          ex: "Causa + adición + conclusión. Las tres oraciones suman ideas positivas: sin oposición.",
         },
         {
           p: "\"La música tiene impacto en nuestras emociones, ____ puede alegrar el día. ____, también puede ser consuelo en momentos difíciles. ____, es un lenguaje universal.\"",

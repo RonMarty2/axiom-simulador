@@ -114,18 +114,18 @@ function Esc02() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Los 4 principios esenciales</Titulo>
       <Resumen>
-        <strong>1. Unidad de mando</strong> — cada subordinado recibe órdenes de UN solo superior. Evita
+        <strong>1. Unidad de mando</strong>: cada subordinado recibe órdenes de UN solo superior. Evita
         confusión y duplicidad.<br /><br />
-        <strong>2. Especialización</strong> — la división del trabajo permite que los empleados se
+        <strong>2. Especialización</strong>: la división del trabajo permite que los empleados se
         concentren en tareas específicas. Aumenta eficiencia y productividad.<br /><br />
-        <strong>3. Jerarquía</strong> — cadena de mando clara, asegurando que las decisiones fluyan
+        <strong>3. Jerarquía</strong>: cadena de mando clara, asegurando que las decisiones fluyan
         desde la dirección hacia los niveles operativos.<br /><br />
-        <strong>4. Amplitud de control</strong> — cuántos subordinados puede supervisar eficazmente un
+        <strong>4. Amplitud de control</strong>: cuántos subordinados puede supervisar eficazmente un
         gerente.
       </Resumen>
 
       <Mnemotecnia>
-        <strong>"U-E-J-A"</strong> — los 4 principios en orden:<br />
+        <strong>"U-E-J-A"</strong>: los 4 principios en orden:<br />
         <strong>U</strong>nidad de mando · <strong>E</strong>specialización ·
         <strong> J</strong>erarquía · <strong>A</strong>mplitud de control.<br /><br />
         Frase: <em>"Una Estructura Justa Aclara"</em>.
@@ -133,15 +133,15 @@ function Esc02() {
 
       <WorkedExample titulo="Amplitud de control · ¿cuántos pueden depender de un jefe?">
         Un jefe puede supervisar bien a entre <strong>5 y 15 personas</strong> según el tipo de trabajo:<br /><br />
-        — Trabajo <strong>rutinario</strong> (línea de producción, call center): hasta 20-30 personas
+        • Trabajo <strong>rutinario</strong> (línea de producción, call center): hasta 20-30 personas
         por supervisor.<br />
-        — Trabajo <strong>complejo</strong> (desarrollo de software, investigación): solo 4-6 personas
+        • Trabajo <strong>complejo</strong> (desarrollo de software, investigación): solo 4-6 personas
         por supervisor.<br /><br />
 
         <strong>Ejemplo numérico:</strong> empresa de 100 personas.<br />
-        — Si la amplitud es 5 → necesitás <em>100/5 = 20 supervisores</em>, más 4 gerentes
+        • Si la amplitud es 5 → necesitás <em>100/5 = 20 supervisores</em>, más 4 gerentes
         (20/5), más 1 director. Total: ~125 personas. <strong>Estructura ALTA</strong>.<br />
-        — Si la amplitud es 10 → necesitás <em>100/10 = 10 supervisores</em>, más 1 director. Total:
+        • Si la amplitud es 10 → necesitás <em>100/10 = 10 supervisores</em>, más 1 director. Total:
         ~111 personas. <strong>Estructura PLANA</strong>.<br /><br />
 
         Las estructuras planas son más ágiles pero exigen empleados autónomos. Las altas dan más
@@ -156,11 +156,11 @@ function Esc03() {
     <EscenaRica>
       <Titulo>Tipos de organización</Titulo>
       <Resumen>
-        <strong>Funcional</strong> — agrupa tareas por funciones específicas (ventas, finanzas,
+        <strong>Funcional</strong>: agrupa tareas por funciones específicas (ventas, finanzas,
         producción). La más común.<br /><br />
-        <strong>Por productos</strong> — divide la empresa según las líneas de productos o servicios.<br /><br />
-        <strong>Geográfica</strong> — basada en la ubicación geográfica. Común en multinacionales.<br /><br />
-        <strong>Matricial</strong> — combina funcional con organización por proyectos. Da flexibilidad
+        <strong>Por productos</strong>: divide la empresa según las líneas de productos o servicios.<br /><br />
+        <strong>Geográfica</strong>: basada en la ubicación geográfica. Común en multinacionales.<br /><br />
+        <strong>Matricial</strong>: combina funcional con organización por proyectos. Da flexibilidad
         pero crea desafíos de coordinación (dos jefes a la vez).
       </Resumen>
     </EscenaRica>
@@ -176,10 +176,10 @@ function Esc04() {
       </Definicion>
       <Resumen>
         Criterios típicos:<br />
-        • <strong>Por función</strong> — cada departamento, una actividad (producción, ventas).<br />
-        • <strong>Por producto</strong> — según la línea ofrecida.<br />
-        • <strong>Por clientes</strong> — orientada a tipos de cliente o mercado.<br />
-        • <strong>Por zona geográfica</strong> — según la región donde opera.
+        • <strong>Por función</strong>: cada departamento, una actividad (producción, ventas).<br />
+        • <strong>Por producto</strong>: según la línea ofrecida.<br />
+        • <strong>Por clientes</strong>: orientada a tipos de cliente o mercado.<br />
+        • <strong>Por zona geográfica</strong>: según la región donde opera.
       </Resumen>
     </EscenaRica>
   );
@@ -204,7 +204,7 @@ function Esc05() {
       <Misconception titulo="Delegar ≠ tirar el problema y desentenderse">
         Delegar no es "yo no quiero hacer esto, hacelo vos". El jefe que delega <strong>conserva la
         responsabilidad final</strong>: si el subordinado falla, el jefe responde. Por eso delegás
-        autoridad junto con la responsabilidad — y mantenés seguimiento.
+        autoridad junto con la responsabilidad: y mantenés seguimiento.
       </Misconception>
 
       <CasoBolivia>
@@ -239,7 +239,7 @@ function Esc06() {
 
       <Misconception titulo="La estructura informal NO es 'mala'">
         Algunos creen que la estructura informal (amistades, redes de chisme, alianzas) es algo
-        negativo que hay que eliminar. Es IMPOSIBLE de eliminar — surge sola siempre. Lo que hay
+        negativo que hay que eliminar. Es IMPOSIBLE de eliminar: surge sola siempre. Lo que hay
         que hacer es entenderla y aprovechar sus líderes naturales para difundir cambios.
       </Misconception>
 
@@ -257,11 +257,11 @@ function Esc07() {
     <EscenaRica>
       <Titulo>Coordinación, control y adaptación</Titulo>
       <Resumen>
-        <strong>Coordinación de actividades</strong> — asegurar que los departamentos trabajen
+        <strong>Coordinación de actividades</strong>: asegurar que los departamentos trabajen
         alineados. Se logra con reuniones, sistemas de comunicación y tecnología adecuada.<br /><br />
-        <strong>Control organizacional</strong> — mecanismos para verificar que las actividades se
+        <strong>Control organizacional</strong>: mecanismos para verificar que las actividades se
         realicen según los planes. Detección de desviaciones en tiempo real.<br /><br />
-        <strong>Adaptación y cambio</strong> — las organizaciones deben ser <strong>flexibles</strong> para
+        <strong>Adaptación y cambio</strong>: las organizaciones deben ser <strong>flexibles</strong> para
         responder a nuevas tecnologías o cambios del mercado. La capacidad de innovar y adaptarse rápido
         es clave para el éxito.
       </Resumen>

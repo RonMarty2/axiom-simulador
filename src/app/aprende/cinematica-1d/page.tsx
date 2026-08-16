@@ -37,7 +37,7 @@ function EscConceptos() {
 
       <Hook>
         Cinemática 1D es lo más preguntado en el examen FCyT (4-5 preguntas
-        de física típicas). MRU, MRUA, caída libre — todas se resuelven con
+        de física típicas). MRU, MRUA, caída libre, todas se resuelven con
         4 ecuaciones que vas a memorizar acá.
       </Hook>
 
@@ -57,8 +57,8 @@ function EscConceptos() {
 
       <WorkedExample titulo="Diferencia clave">
         Un auto va de A (posición 0) a B (posición 100 m) y vuelve a A:<br />
-        — Distancia recorrida: 100 + 100 = 200 m.<br />
-        — Desplazamiento: 0 − 0 = 0 m (volvió al punto de partida).<br /><br />
+        • Distancia recorrida: 100 + 100 = 200 m.<br />
+        • Desplazamiento: 0 − 0 = 0 m (volvió al punto de partida).<br /><br />
         Por eso son cantidades distintas.
       </WorkedExample>
     </EscenaRica>
@@ -85,8 +85,8 @@ function EscVelocidad() {
       </Definicion>
 
       <Definicion termino="Velocidad media vs instantánea">
-        — <strong>Media</strong>: v_m = Δx / Δt (cambio total / tiempo total).<br />
-        — <strong>Instantánea</strong>: la velocidad en un momento dado
+        • <strong>Media</strong>: v_m = Δx / Δt (cambio total / tiempo total).<br />
+        • <strong>Instantánea</strong>: la velocidad en un momento dado
         específico. En MRU son iguales; en otros movimientos varían.
       </Definicion>
 
@@ -114,9 +114,9 @@ function EscAceleracion() {
 
       <Resumen>
         <strong>Interpretación del signo</strong>:<br />
-        — Si v y a tienen el mismo signo: el objeto ACELERA (va más rápido).<br />
-        — Si v y a tienen signos opuestos: el objeto DESACELERA (frena).<br />
-        — Si a = 0: velocidad constante (MRU).
+        • Si v y a tienen el mismo signo: el objeto ACELERA (va más rápido).<br />
+        • Si v y a tienen signos opuestos: el objeto DESACELERA (frena).<br />
+        • Si a = 0: velocidad constante (MRU).
       </Resumen>
 
       <Cuidado>
@@ -143,10 +143,10 @@ function EscMRU() {
         <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           x = x₀ + v · t
         </span><br /><br />
-        — x: posición al tiempo t.<br />
-        — x₀: posición inicial.<br />
-        — v: velocidad constante.<br />
-        — t: tiempo transcurrido.
+        • x: posición al tiempo t.<br />
+        • x₀: posición inicial.<br />
+        • v: velocidad constante.<br />
+        • t: tiempo transcurrido.
       </Resumen>
 
       <PorQue>
@@ -197,10 +197,10 @@ function EscMRUA() {
 
       <Mnemotecnia>
         <strong>Cuándo usar cada ecuación</strong>:<br />
-        — Si conocés t y querés v: ec. 1.<br />
-        — Si conocés t y querés x: ec. 2.<br />
-        — Si NO conocés t pero conocés x: ec. 3.<br />
-        — Si conocés v₀ y v final y querés x: ec. 4.<br /><br />
+        • Si conocés t y querés v: ec. 1.<br />
+        • Si conocés t y querés x: ec. 2.<br />
+        • Si NO conocés t pero conocés x: ec. 3.<br />
+        • Si conocés v₀ y v final y querés x: ec. 4.<br /><br />
         Es importante identificar primero los datos para elegir la ecuación.
       </Mnemotecnia>
     </EscenaRica>
@@ -251,9 +251,9 @@ function EscCaidaLibre() {
       <Resumen>
         <strong>Adaptación de las ecuaciones</strong>:<br />
         Si y es vertical (positivo hacia arriba), la aceleración es a = −g.<br />
-        — v = v₀ − g·t.<br />
-        — y = y₀ + v₀·t − (1/2)·g·t².<br />
-        — v² = v₀² − 2g(y − y₀).
+        • v = v₀ − g·t.<br />
+        • y = y₀ + v₀·t − (1/2)·g·t².<br />
+        • v² = v₀² − 2g(y − y₀).
       </Resumen>
 
       <WorkedExample titulo="Lanzamiento vertical hacia arriba">

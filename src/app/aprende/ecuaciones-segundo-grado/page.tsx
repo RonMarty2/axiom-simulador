@@ -121,11 +121,11 @@ function Esc01_Intro() {
 
       <Mnemotecnia>
         <strong>Decisión 2x2 · ¿qué método uso?</strong><br />
-        — ¿Falta b (sin término lineal)? → <strong>despeje directo</strong>: x = ±√(−c/a).<br />
-        — ¿Falta c (sin independiente)? → <strong>factor común x</strong>: x(ax+b)=0.<br />
-        — ¿Coeficientes pequeños y enteros? → <strong>factorización mental</strong> (probá pares
+        • ¿Falta b (sin término lineal)? → <strong>despeje directo</strong>: x = ±√(−c/a).<br />
+        • ¿Falta c (sin independiente)? → <strong>factor común x</strong>: x(ax+b)=0.<br />
+        • ¿Coeficientes pequeños y enteros? → <strong>factorización mental</strong> (probá pares
         cuyo producto sea c/a y suma sea −b/a).<br />
-        — Si nada anterior funciona → <strong>fórmula cuadrática</strong>.
+        • Si nada anterior funciona → <strong>fórmula cuadrática</strong>.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -194,7 +194,7 @@ function Esc04_Formula() {
         </span>
       </Resumen>
       <Parrafo>
-        Funciona <strong>siempre</strong>, factorice o no. Memorizala — la vas a usar muchísimo.
+        Funciona <strong>siempre</strong>, factorice o no. Memorizala: la vas a usar muchísimo.
       </Parrafo>
 
       <Ejemplo titulo="Aplicarla a 2x² − 7x + 3 = 0">
@@ -290,7 +290,7 @@ function Esc06_Casos() {
       </Ejemplo>
 
       <Resumen>
-        Estos casos NO requieren fórmula cuadrática — son más rápidos por factorización o despeje directo.
+        Estos casos NO requieren fórmula cuadrática: son más rápidos por factorización o despeje directo.
       </Resumen>
     </EscenaRica>
   );
@@ -318,8 +318,8 @@ function Esc07_Vieta() {
       <Mnemotecnia>
         <strong>Vieta · "S = −b/a, P = c/a"</strong><br />
         Truco: en <em>x² + Bx + C = 0</em> (con a = 1), buscás dos números cuya:<br />
-        — <strong>Suma = −B</strong> (opuesto del coeficiente lineal).<br />
-        — <strong>Producto = C</strong> (término independiente).<br /><br />
+        • <strong>Suma = −B</strong> (opuesto del coeficiente lineal).<br />
+        • <strong>Producto = C</strong> (término independiente).<br /><br />
         Ej: x² − 7x + 12 = 0 → buscar 2 nº que sumen 7 y multipliquen 12 → 3 y 4. Soluciones
         directas sin fórmula.
       </Mnemotecnia>
@@ -353,7 +353,7 @@ function Esc08_Errores() {
       <Misconception titulo="Trampa · '−b' cuando b es negativo">
         Ecuación: x² − 4x + 3 = 0. Aquí b = −4.<br />
         Al aplicar la fórmula: −b = −(−4) = <strong>+4</strong>, no −4.<br />
-        Mucha gente escribe x = (−4 ± √...) / 2 — y arrastra el signo. La fórmula da
+        Mucha gente escribe x = (−4 ± √...) / 2: y arrastra el signo. La fórmula da
         <em> (+4 ± √...) / 2</em>, que da las soluciones x = 1 y x = 3 (verificable). El
         signo de −b es el OPUESTO del signo de b.
       </Misconception>

@@ -63,7 +63,7 @@ function EscIntro() {
       </Mnemotecnia>
 
       <Conexion>
-        Conectá con: estequiometría (Unidad 7) — los gases en CN ocupan 22.4
+        Conectá con: estequiometría (Unidad 7): los gases en CN ocupan 22.4
         L/mol; presión atmosférica que ya viste en Física.
       </Conexion>
     </EscenaRica>

@@ -111,14 +111,14 @@ function EscOxidacion() {
 
       <Resumen>
         <strong>Reglas básicas</strong>:<br />
-        — Elemento puro (Fe, O₂, H₂): número de oxidación = 0.<br />
-        — Ion monoatómico (Na⁺, Cl⁻): igual a su carga.<br />
-        — Hidrógeno: +1 (excepto en hidruros metálicos: −1).<br />
-        — Oxígeno: −2 (excepto en peróxidos: −1, en OF₂: +2).<br />
-        — Metales alcalinos (Li, Na, K…): +1 siempre.<br />
-        — Metales alcalinotérreos (Mg, Ca…): +2 siempre.<br />
-        — En un compuesto neutro: suma de oxidaciones = 0.<br />
-        — En un ion poliatómico: suma = carga del ion.
+        • Elemento puro (Fe, O₂, H₂): número de oxidación = 0.<br />
+        • Ion monoatómico (Na⁺, Cl⁻): igual a su carga.<br />
+        • Hidrógeno: +1 (excepto en hidruros metálicos: −1).<br />
+        • Oxígeno: −2 (excepto en peróxidos: −1, en OF₂: +2).<br />
+        • Metales alcalinos (Li, Na, K…): +1 siempre.<br />
+        • Metales alcalinotérreos (Mg, Ca…): +2 siempre.<br />
+        • En un compuesto neutro: suma de oxidaciones = 0.<br />
+        • En un ion poliatómico: suma = carga del ion.
       </Resumen>
 
       <WorkedExample titulo="Determinar oxidación de S en H₂SO₄">
@@ -132,13 +132,13 @@ function EscOxidacion() {
 
       <Mnemotecnia>
         <strong>Oxidaciones más comunes a memorizar</strong>:<br />
-        — Grupo IA: +1.<br />
-        — Grupo IIA: +2.<br />
-        — Grupo IIIA: +3 (Al, B, Ga).<br />
-        — Grupo IVA: ±4 (C, Si).<br />
-        — Grupo VA: ±3, +5 (N, P).<br />
-        — Grupo VIA: −2, +4, +6 (S, Se).<br />
-        — Grupo VIIA: −1, +1, +3, +5, +7 (Cl, Br, I).
+        • Grupo IA: +1.<br />
+        • Grupo IIA: +2.<br />
+        • Grupo IIIA: +3 (Al, B, Ga).<br />
+        • Grupo IVA: ±4 (C, Si).<br />
+        • Grupo VA: ±3, +5 (N, P).<br />
+        • Grupo VIA: −2, +4, +6 (S, Se).<br />
+        • Grupo VIIA: −1, +1, +3, +5, +7 (Cl, Br, I).
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -166,16 +166,16 @@ function EscOxidosM() {
 
       <Ejemplo titulo="Ejemplos">
         <strong>Na₂O</strong> (Na con oxidación +1):<br />
-        — Stock: óxido de sodio.<br />
-        — Tradicional: óxido de sodio.<br /><br />
+        • Stock: óxido de sodio.<br />
+        • Tradicional: óxido de sodio.<br /><br />
 
         <strong>FeO</strong> (Fe con oxidación +2):<br />
-        — Stock: óxido de hierro(II).<br />
-        — Tradicional: óxido ferroso (sufijo -oso = oxidación menor).<br /><br />
+        • Stock: óxido de hierro(II).<br />
+        • Tradicional: óxido ferroso (sufijo -oso = oxidación menor).<br /><br />
 
         <strong>Fe₂O₃</strong> (Fe con oxidación +3):<br />
-        — Stock: óxido de hierro(III).<br />
-        — Tradicional: óxido férrico (sufijo -ico = oxidación mayor).
+        • Stock: óxido de hierro(III).<br />
+        • Tradicional: óxido férrico (sufijo -ico = oxidación mayor).
       </Ejemplo>
 
       <Mnemotecnia>
@@ -204,23 +204,23 @@ function EscOxidosNM() {
 
       <Ejemplo titulo="Ejemplos">
         <strong>CO₂</strong> (C con +4):<br />
-        — Tradicional: anhídrido carbónico.<br />
-        — Sistemática: dióxido de carbono.<br /><br />
+        • Tradicional: anhídrido carbónico.<br />
+        • Sistemática: dióxido de carbono.<br /><br />
 
         <strong>SO₃</strong> (S con +6):<br />
-        — Tradicional: anhídrido sulfúrico.<br />
-        — Sistemática: trióxido de azufre.<br /><br />
+        • Tradicional: anhídrido sulfúrico.<br />
+        • Sistemática: trióxido de azufre.<br /><br />
 
         <strong>SO₂</strong> (S con +4):<br />
-        — Tradicional: anhídrido sulfuroso (sufijo -oso, oxidación menor).
+        • Tradicional: anhídrido sulfuroso (sufijo -oso, oxidación menor).
       </Ejemplo>
 
       <Resumen>
         <strong>Para no metales con muchas oxidaciones (Cl, Br, I)</strong>:<br />
-        — +1: hipo-[NM]-oso.<br />
-        — +3: [NM]-oso.<br />
-        — +5: [NM]-ico.<br />
-        — +7: per-[NM]-ico.<br /><br />
+        • +1: hipo-[NM]-oso.<br />
+        • +3: [NM]-oso.<br />
+        • +5: [NM]-ico.<br />
+        • +7: per-[NM]-ico.<br /><br />
 
         Ej (Cloro): Cl₂O (hipocloroso), Cl₂O₃ (cloroso), Cl₂O₅ (clórico),
         Cl₂O₇ (perclórico).
@@ -245,10 +245,10 @@ function EscHidroxidos() {
       </Resumen>
 
       <Ejemplo titulo="Ejemplos">
-        — <strong>NaOH</strong>: hidróxido de sodio (soda cáustica).<br />
-        — <strong>Ca(OH)₂</strong>: hidróxido de calcio (cal apagada).<br />
-        — <strong>Fe(OH)₃</strong>: hidróxido de hierro(III) o férrico.<br />
-        — <strong>Al(OH)₃</strong>: hidróxido de aluminio.
+        • <strong>NaOH</strong>: hidróxido de sodio (soda cáustica).<br />
+        • <strong>Ca(OH)₂</strong>: hidróxido de calcio (cal apagada).<br />
+        • <strong>Fe(OH)₃</strong>: hidróxido de hierro(III) o férrico.<br />
+        • <strong>Al(OH)₃</strong>: hidróxido de aluminio.
       </Ejemplo>
 
       <PorQue>
@@ -273,11 +273,11 @@ function EscAcidos() {
       </Definicion>
 
       <Ejemplo titulo="Hidrácidos típicos">
-        — HCl: ácido clorhídrico (o cloruro de hidrógeno).<br />
-        — H₂S: ácido sulfhídrico (o sulfuro de hidrógeno).<br />
-        — HF: ácido fluorhídrico.<br />
-        — HBr: ácido bromhídrico.<br />
-        — HI: ácido yodhídrico.
+        • HCl: ácido clorhídrico (o cloruro de hidrógeno).<br />
+        • H₂S: ácido sulfhídrico (o sulfuro de hidrógeno).<br />
+        • HF: ácido fluorhídrico.<br />
+        • HBr: ácido bromhídrico.<br />
+        • HI: ácido yodhídrico.
       </Ejemplo>
 
       <Definicion termino="Oxácido (oxoácido)">
@@ -288,12 +288,12 @@ function EscAcidos() {
       </Definicion>
 
       <Ejemplo titulo="Oxácidos típicos">
-        — H₂SO₄: ácido sulfúrico (S con +6).<br />
-        — H₂SO₃: ácido sulfuroso (S con +4).<br />
-        — HNO₃: ácido nítrico (N con +5).<br />
-        — HNO₂: ácido nitroso (N con +3).<br />
-        — H₂CO₃: ácido carbónico.<br />
-        — HClO: ácido hipocloroso. HClO₂: cloroso. HClO₃: clórico. HClO₄: perclórico.
+        • H₂SO₄: ácido sulfúrico (S con +6).<br />
+        • H₂SO₃: ácido sulfuroso (S con +4).<br />
+        • HNO₃: ácido nítrico (N con +5).<br />
+        • HNO₂: ácido nitroso (N con +3).<br />
+        • H₂CO₃: ácido carbónico.<br />
+        • HClO: ácido hipocloroso. HClO₂: cloroso. HClO₃: clórico. HClO₄: perclórico.
       </Ejemplo>
 
       <Mnemotecnia>
@@ -327,10 +327,10 @@ function EscSales() {
       <Mnemotecnia>
         <strong>Sufijos de sales (tabla)</strong>:<br />
         Ácido → Sal:<br />
-        — hipo-NM-oso → hipo-NM-ito.<br />
-        — NM-oso → NM-ito.<br />
-        — NM-ico → NM-ato.<br />
-        — per-NM-ico → per-NM-ato.<br /><br />
+        • hipo-NM-oso → hipo-NM-ito.<br />
+        • NM-oso → NM-ito.<br />
+        • NM-ico → NM-ato.<br />
+        • per-NM-ico → per-NM-ato.<br /><br />
 
         Ej: HClO (hipocloroso) → ClO⁻ (hipoclorito) → NaClO (hipoclorito de
         sodio, lavandina).
@@ -391,19 +391,19 @@ function EscPractica() {
       <Titulo>Errores y práctica</Titulo>
 
       <Misconception titulo="Error 1 · confundir -oso e -ico">
-        — -OSO: oxidación MENOR.<br />
-        — -ICO: oxidación MAYOR.<br />
+        • -OSO: oxidación MENOR.<br />
+        • -ICO: oxidación MAYOR.<br />
         Ej: Fe²⁺ ferroso, Fe³⁺ férrico.
       </Misconception>
 
       <Misconception titulo="Error 2 · confundir hidróxido con hidrácido">
-        — Hidróxido: contiene OH (Ca(OH)₂). Es una BASE.<br />
-        — Hidrácido: H + no metal (HCl). Es un ÁCIDO.
+        • Hidróxido: contiene OH (Ca(OH)₂). Es una BASE.<br />
+        • Hidrácido: H + no metal (HCl). Es un ÁCIDO.
       </Misconception>
 
       <Misconception titulo="Error 3 · sufijos de sales">
-        — -ito viene de -oso (ácido sulfuroso → sulfito).<br />
-        — -ato viene de -ico (ácido sulfúrico → sulfato).
+        • -ito viene de -oso (ácido sulfuroso → sulfito).<br />
+        • -ato viene de -ico (ácido sulfúrico → sulfato).
       </Misconception>
 
       <Titulo>Práctica · 5 ejercicios</Titulo>

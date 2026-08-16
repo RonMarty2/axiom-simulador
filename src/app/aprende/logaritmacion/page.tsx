@@ -25,7 +25,7 @@ function HeroLogExp() {
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}
         >
-          {/* "log" — solo en forma logarítmica */}
+          {/* "log": solo en forma logarítmica */}
           <motion.text
             textAnchor="middle" fill={LIENZO.fg} fontWeight="500" fontSize="44"
             initial={{ x: 120, y: 110, opacity: 0 }}

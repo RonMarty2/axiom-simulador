@@ -36,11 +36,11 @@ function Esc01() {
         dorsal del proceso administrativo:
       </Parrafo>
       <Resumen>
-        <strong>1. Planificación</strong> — definir objetivos y estrategias.<br />
-        <strong>2. Organización</strong> — estructurar recursos y actividades.<br />
-        <strong>3. Integrar personal</strong> — cubrir y mantener cubiertos los puestos.<br />
-        <strong>4. Dirección</strong> — motivar y liderar a las personas.<br />
-        <strong>5. Control</strong> — monitorear y corregir el desempeño.
+        <strong>1. Planificación</strong>: definir objetivos y estrategias.<br />
+        <strong>2. Organización</strong>: estructurar recursos y actividades.<br />
+        <strong>3. Integrar personal</strong>: cubrir y mantener cubiertos los puestos.<br />
+        <strong>4. Dirección</strong>: motivar y liderar a las personas.<br />
+        <strong>5. Control</strong>: monitorear y corregir el desempeño.
       </Resumen>
       <PorQue>
         Las cinco funciones se cruzan e interactúan: no son una secuencia rígida, sino un sistema. Pero
@@ -137,7 +137,7 @@ function Esc05() {
       </Parrafo>
       <Ejemplo>
         Un gerente de ventas planifica cuotas (planeación), organiza al equipo en territorios
-        (organización), cubre vacantes (integración) — y entonces dirige: reúne al equipo, comunica las
+        (organización), cubre vacantes (integración), y entonces dirige: reúne al equipo, comunica las
         metas, motiva y resuelve los conflictos del día a día.
       </Ejemplo>
     </EscenaRica>
@@ -189,7 +189,7 @@ function Esc07() {
         <strong>14:00 (Dirección):</strong> reunión 1-on-1 con un líder que tiene conflictos con su
         equipo: escucha, da feedback, decide acompañar.<br />
         <strong>16:00 (Control):</strong> revisa dashboard de ventas, detecta que un cliente
-        importante atrasó pago — activa al área comercial.<br /><br />
+        importante atrasó pago, activa al área comercial.<br /><br />
 
         <strong>En 8 horas Lucía aplicó las 5 funciones</strong>. No las hizo "una después de la
         otra": las intercaló según lo que el día requería. Eso es la administración real.

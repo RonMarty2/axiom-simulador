@@ -100,8 +100,8 @@ function Esc01() {
         siglo XX:
       </Parrafo>
       <Resumen>
-        <strong>Egipto</strong> — organización de obras públicas (pirámides) y gestión de cultivos.<br /><br />
-        <strong>Grecia y Roma</strong> — conceptos de liderazgo, organización militar y administración
+        <strong>Egipto</strong>: organización de obras públicas (pirámides) y gestión de cultivos.<br /><br />
+        <strong>Grecia y Roma</strong>: conceptos de liderazgo, organización militar y administración
         pública que sentaron las bases.
       </Resumen>
       <PorQue>
@@ -117,11 +117,11 @@ function Esc01() {
 
       <Mnemotecnia>
         <strong>"T-F-M-S-C" · 5 escuelas en orden cronológico</strong>:<br />
-        <strong>T</strong>aylor (1911) — <em>científica</em>: estandarización.<br />
-        <strong>F</strong>ayol (1916) — <em>clásica</em>: 14 principios + funciones.<br />
-        <strong>M</strong>ayo (1930s) — <em>relaciones humanas</em>: efecto Hawthorne.<br />
-        <strong>S</strong>istemas (1950s) — empresa como sistema abierto.<br />
-        <strong>C</strong>ontingencia/calidad/caos (1970+) — adaptación al contexto.
+        <strong>T</strong>aylor (1911): <em>científica</em>: estandarización.<br />
+        <strong>F</strong>ayol (1916): <em>clásica</em>: 14 principios + funciones.<br />
+        <strong>M</strong>ayo (1930s): <em>relaciones humanas</em>: efecto Hawthorne.<br />
+        <strong>S</strong>istemas (1950s): empresa como sistema abierto.<br />
+        <strong>C</strong>ontingencia/calidad/caos (1970+): adaptación al contexto.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -133,8 +133,7 @@ function Esc02() {
       <Titulo>La Revolución Industrial</Titulo>
       <Parrafo>
         La Revolución Industrial (siglos XVIII–XIX) transformó la producción y la economía: la
-        producción <strong>masiva</strong> y las grandes organizaciones impusieron una nueva necesidad —
-        métodos eficientes de gestión.
+        producción <strong>masiva</strong> y las grandes organizaciones impusieron una nueva necesidad:         métodos eficientes de gestión.
       </Parrafo>
       <Resumen>
         De ahí surgen las teorías y escuelas administrativas, todas tratando de responder: <strong>¿cómo
@@ -232,7 +231,7 @@ function Esc05() {
       <Conexion>
         El efecto Hawthorne conecta directamente con las <strong>teorías de motivación</strong>
         que viste en Integración de Personal (Maslow, Herzberg, McGregor). Mayo fue el primero
-        que demostró científicamente que las personas no son máquinas — abrió el camino a toda
+        que demostró científicamente que las personas no son máquinas: abrió el camino a toda
         la psicología organizacional moderna.
       </Conexion>
     </EscenaRica>
@@ -268,10 +267,10 @@ function Esc07() {
         Incluye diversas teorías que abordan la complejidad de las organizaciones modernas:
       </Parrafo>
       <Resumen>
-        • <strong>Teoría del caos</strong> — pequeñas variaciones generan grandes efectos.<br />
-        • <strong>Teoría de la contingencia</strong> — no hay receta única; depende del contexto.<br />
-        • <strong>Calidad total</strong> — mejora continua centrada en el cliente.<br />
-        • <strong>Gestión del conocimiento</strong> — el saber como activo estratégico.
+        • <strong>Teoría del caos</strong>: pequeñas variaciones generan grandes efectos.<br />
+        • <strong>Teoría de la contingencia</strong>: no hay receta única; depende del contexto.<br />
+        • <strong>Calidad total</strong>: mejora continua centrada en el cliente.<br />
+        • <strong>Gestión del conocimiento</strong>: el saber como activo estratégico.
       </Resumen>
       <Cuidado>
         Estos enfoques reconocen la <strong>dinámica y la incertidumbre</strong> del entorno empresarial

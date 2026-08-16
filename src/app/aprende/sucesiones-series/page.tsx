@@ -173,8 +173,8 @@ function Esc02_PA() {
       </Definicion>
       <SecuenciaArcos terminos={["3", "7", "11", "15", "19"]} op="+4" color={COLOR_OK} />
       <Ejemplo>
-        3, 7, 11, 15, 19 — d = 4 (siempre se suma 4).<br />
-        10, 7, 4, 1, −2 — d = −3 (se RESTA 3, también es PA).
+        3, 7, 11, 15, 19: d = 4 (siempre se suma 4).<br />
+        10, 7, 4, 1, −2: d = −3 (se RESTA 3, también es PA).
       </Ejemplo>
       <Resumen>
         Fórmula del n-ésimo término: <br />
@@ -226,8 +226,8 @@ function Esc04_PG() {
       </Definicion>
       <SecuenciaArcos terminos={["2", "6", "18", "54", "162"]} op="×3" color={COLOR_EXP} />
       <Ejemplo>
-        2, 6, 18, 54, 162 — r = 3 (cada uno es el anterior por 3).<br />
-        80, 40, 20, 10, 5 — r = 1/2.
+        2, 6, 18, 54, 162: r = 3 (cada uno es el anterior por 3).<br />
+        80, 40, 20, 10, 5: r = 1/2.
       </Ejemplo>
       <Resumen>
         Fórmula del n-ésimo:<br />

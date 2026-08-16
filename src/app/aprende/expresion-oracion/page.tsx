@@ -29,7 +29,7 @@ function EscIntro() {
       <Titulo>Expresión correcta de la oración</Titulo>
       <Definicion termino="expresión correcta">
         Habilidad gramatical de construir oraciones <strong>claras, bien ordenadas y sin ambigüedad</strong>.
-        El examen presenta una oración y te pide elegir la versión que la mejora — o confirmar que ya
+        El examen presenta una oración y te pide elegir la versión que la mejora: o confirmar que ya
         está bien.
       </Definicion>
       <PorQue>
@@ -58,14 +58,14 @@ function EscReglas() {
     <EscenaRica>
       <Titulo>Las 4 reglas que el examen mide</Titulo>
       <Resumen>
-        <strong>1. Estructura clara</strong> — sujeto, verbo y complemento bien ubicados. Lo principal va
+        <strong>1. Estructura clara</strong>: sujeto, verbo y complemento bien ubicados. Lo principal va
         cerca del verbo; los modificadores cerca de lo que modifican.<br /><br />
-        <strong>2. Concordancia</strong> — el verbo concuerda en número con el sujeto. Los adjetivos
+        <strong>2. Concordancia</strong>: el verbo concuerda en número con el sujeto. Los adjetivos
         concuerdan en género y número con el sustantivo.<br /><br />
-        <strong>3. Orden lógico de complementos</strong> — los complementos van junto a lo que
+        <strong>3. Orden lógico de complementos</strong>: los complementos van junto a lo que
         complementan. Si separás un sustantivo de su complemento por una frase larga, la oración pierde
         claridad.<br /><br />
-        <strong>4. Conectores apropiados</strong> — "pero", "sin embargo", "aunque" señalan oposición.
+        <strong>4. Conectores apropiados</strong>: "pero", "sin embargo", "aunque" señalan oposición.
         "Y" y "también" suman. Elegir el conector incorrecto cambia el sentido.
       </Resumen>
 
@@ -83,9 +83,9 @@ function EscReglas() {
         tarea."<br /><br />
 
         <strong>Análisis:</strong><br />
-        — Sujeto: "el profesor" ✓<br />
-        — Verbo: "explicó" ✓<br />
-        — Pero el adverbio "detalladamente" está ANTES del verbo, no después. En español natural,
+        • Sujeto: "el profesor" ✓<br />
+        • Verbo: "explicó" ✓<br />
+        • Pero el adverbio "detalladamente" está ANTES del verbo, no después. En español natural,
         los adverbios de modo van DESPUÉS del verbo: "explicó detalladamente".<br /><br />
 
         <strong>Mejora:</strong> "El profesor explicó detalladamente el tema antes de darnos la
@@ -211,7 +211,7 @@ function EscResumen() {
       </Resumen>
 
       <Misconception titulo="3 errores frecuentes en las opciones reescritas">
-        <strong>(a)</strong> Coma entre sujeto y verbo: "El equipo, trabajó arduamente" — ERROR.
+        <strong>(a)</strong> Coma entre sujeto y verbo: "El equipo, trabajó arduamente": ERROR.
         Sujeto y verbo NO se separan con coma.<br />
         <strong>(b)</strong> Cambio de palabras con matiz diferente: original "completar" ↔ opción
         "terminar". Cambian la nota fina del sentido.<br />

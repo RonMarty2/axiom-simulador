@@ -35,9 +35,9 @@ function Esc01() {
         objetivamente. La metodología descansa sobre <strong>tres pilares</strong>:
       </Parrafo>
       <Resumen>
-        <strong>1. Reconocimiento</strong> — describir y clasificar los hechos reales.<br />
-        <strong>2. Inducción</strong> — generalizar a partir de hechos particulares.<br />
-        <strong>3. Deducción</strong> — extraer consecuencias a partir de principios o hipótesis.
+        <strong>1. Reconocimiento</strong>: describir y clasificar los hechos reales.<br />
+        <strong>2. Inducción</strong>: generalizar a partir de hechos particulares.<br />
+        <strong>3. Deducción</strong>: extraer consecuencias a partir de principios o hipótesis.
       </Resumen>
 
       <Hook>
@@ -154,7 +154,7 @@ function Esc05() {
         oficial está fijo, el precio interno se estabiliza. Pero apareció un <em>factor
         perturbador</em>: las reservas internacionales cayeron, surgió un dólar paralelo a casi
         el doble del oficial. La "ley" del peg dejó de cumplirse porque el supuesto ceteris paribus
-        (reservas suficientes) cayó. Las leyes económicas no son leyes de la naturaleza —
+        (reservas suficientes) cayó. Las leyes económicas no son leyes de la naturaleza:
         dependen del contexto.
       </CasoBolivia>
 
@@ -175,12 +175,12 @@ function Esc06() {
       <Ejemplo titulo="Ley de la demanda">
         <strong>Ceteris paribus</strong>, cuando los precios bajan, las cantidades demandadas tienden a
         aumentar.<br />
-        Función: <strong>C<sub>D</sub> = f(P)</strong> — relación funcional <em>decreciente</em>.
+        Función: <strong>C<sub>D</sub> = f(P)</strong>: relación funcional <em>decreciente</em>.
       </Ejemplo>
       <Ejemplo titulo="Función de consumo">
         <strong>Ceteris paribus</strong>, cuando el ingreso personal disponible se eleva, el consumo
         agregado también tiende a aumentar (aunque no en la misma proporción).<br />
-        Función: <strong>C = f(Y)</strong> — relación funcional <em>creciente</em>.
+        Función: <strong>C = f(Y)</strong>: relación funcional <em>creciente</em>.
       </Ejemplo>
       <PorQue>
         En ambos casos, la regla <em>solo se cumple</em> si los demás factores (ingreso, gustos,

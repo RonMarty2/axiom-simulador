@@ -36,11 +36,11 @@ function Esc01() {
         Robert Katz identificó tres habilidades clave que todo administrador necesita:
       </Parrafo>
       <Resumen>
-        <strong>Técnicas</strong> — conocimientos específicos de tareas particulares (herramientas
+        <strong>Técnicas</strong>: conocimientos específicos de tareas particulares (herramientas
         tecnológicas, procesos productivos, software).<br /><br />
-        <strong>Humanas</strong> — interactuar eficazmente con otras personas: comunicación, empatía,
+        <strong>Humanas</strong>: interactuar eficazmente con otras personas: comunicación, empatía,
         negociación, trabajo en equipo.<br /><br />
-        <strong>Conceptuales</strong> — comprender situaciones complejas, ver el panorama general y
+        <strong>Conceptuales</strong>: comprender situaciones complejas, ver el panorama general y
         formular estrategias.
       </Resumen>
       <PorQue>
@@ -55,7 +55,7 @@ function Esc01() {
       </Hook>
 
       <Mnemotecnia>
-        <strong>"T-H-C"</strong> — las 3 habilidades de Katz:<br />
+        <strong>"T-H-C"</strong>: las 3 habilidades de Katz:<br />
         <strong>T</strong>écnicas (saber HACER, pesa abajo) ·
         <strong> H</strong>umanas (saber RELACIONARSE, pesa en todos) ·
         <strong> C</strong>onceptuales (saber PENSAR sistémicamente, pesa arriba).<br /><br />
@@ -121,11 +121,11 @@ function Esc03() {
 
       <CasoBolivia>
         <strong>Ejemplos de RSE en Bolivia:</strong><br />
-        — <strong>SOBOCE</strong> tiene programas de educación en comunidades vecinas a sus
+        • <strong>SOBOCE</strong> tiene programas de educación en comunidades vecinas a sus
         plantas y reforestación.<br />
-        — <strong>BCP Bolivia</strong> impulsa inclusión financiera con microcréditos a mujeres
+        • <strong>BCP Bolivia</strong> impulsa inclusión financiera con microcréditos a mujeres
         emprendedoras.<br />
-        — <strong>Tigo Bolivia</strong> tiene la Fundación Reciduca: programa de retención escolar
+        • <strong>Tigo Bolivia</strong> tiene la Fundación Reciduca: programa de retención escolar
         en colegios de bajos recursos.<br /><br />
         En Bolivia, la RSE no es obligación legal pero gana mercado: el consumidor joven la valora.
       </CasoBolivia>
@@ -170,10 +170,10 @@ function Esc05() {
         Dos retos enormes que enfrenta la administración hoy:
       </Parrafo>
       <Resumen>
-        <strong>Globalización</strong> — más oportunidades de negocio, pero también más complejidad:
+        <strong>Globalización</strong>: más oportunidades de negocio, pero también más complejidad:
         diversidad cultural, diferencias legales, competencia global. Requiere habilidades
         interculturales.<br /><br />
-        <strong>Tecnología y digitalización</strong> — exige adoptar nuevas herramientas y procesos
+        <strong>Tecnología y digitalización</strong>: exige adoptar nuevas herramientas y procesos
         digitales para mantener la competitividad. Afecta todas las áreas: datos, comunicación,
         marketing.
       </Resumen>
@@ -186,9 +186,9 @@ function Esc06() {
     <EscenaRica>
       <Titulo>Sostenibilidad e innovación</Titulo>
       <Resumen>
-        <strong>Sostenibilidad y gestión ambiental</strong> — integrar la sostenibilidad en la
+        <strong>Sostenibilidad y gestión ambiental</strong>: integrar la sostenibilidad en la
         estrategia, gestionar el impacto ambiental, cumplir regulaciones ecológicas.<br /><br />
-        <strong>Innovación y emprendimiento</strong> — fomentar una cultura de creatividad, apoyar
+        <strong>Innovación y emprendimiento</strong>: fomentar una cultura de creatividad, apoyar
         iniciativas emprendedoras y gestionar el desarrollo de nuevos productos y servicios.
       </Resumen>
       <PorQue>
@@ -259,15 +259,15 @@ function Esc08() {
         Toda nueva idea o técnica de administración cabe en una de las 5 funciones gerenciales:
       </Parrafo>
       <Resumen>
-        <strong>Planear</strong> — elegir misiones, objetivos y acciones. Un plan REAL existe solo
+        <strong>Planear</strong>: elegir misiones, objetivos y acciones. Un plan REAL existe solo
         cuando se toma una decisión y se comprometen recursos.<br /><br />
-        <strong>Organizar</strong> — establecer una <strong>estructura intencional de funciones</strong>.
+        <strong>Organizar</strong>: establecer una <strong>estructura intencional de funciones</strong>.
         Que cada persona aporte algo específico al esfuerzo del grupo.<br /><br />
-        <strong>Integrar personal</strong> — cubrir y mantener cubiertos los puestos. Reclutar,
+        <strong>Integrar personal</strong>: cubrir y mantener cubiertos los puestos. Reclutar,
         seleccionar, evaluar, capacitar.<br /><br />
-        <strong>Dirigir</strong> — influir en las personas para que contribuyan a las metas. Liderazgo,
+        <strong>Dirigir</strong>: influir en las personas para que contribuyan a las metas. Liderazgo,
         motivación y comunicación.<br /><br />
-        <strong>Controlar</strong> — medir y corregir el desempeño para asegurar que los hechos se
+        <strong>Controlar</strong>: medir y corregir el desempeño para asegurar que los hechos se
         ajusten a los planes.
       </Resumen>
 

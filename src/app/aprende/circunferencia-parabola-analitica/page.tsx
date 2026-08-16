@@ -106,9 +106,9 @@ function EscCircCanonica() {
       <CircSVG h={2} k={1} r={3} />
 
       <Ejemplo titulo="Circunferencias típicas">
-        — Centro (0, 0), radio 5: x² + y² = 25.<br />
-        — Centro (3, −2), radio 4: (x − 3)² + (y + 2)² = 16.<br />
-        — Centro (h, k) genérico: (x − h)² + (y − k)² = R².
+        • Centro (0, 0), radio 5: x² + y² = 25.<br />
+        • Centro (3, −2), radio 4: (x − 3)² + (y + 2)² = 16.<br />
+        • Centro (h, k) genérico: (x − h)² + (y − k)² = R².
       </Ejemplo>
 
       <PorQue>
@@ -206,19 +206,19 @@ function EscParabolaIntro() {
 
       <Resumen>
         <strong>Elementos</strong>:<br />
-        — <strong>Foco (F)</strong>: punto fijo.<br />
-        — <strong>Directriz (d)</strong>: recta fija.<br />
-        — <strong>Vértice (V)</strong>: punto medio entre el foco y la
+        • <strong>Foco (F)</strong>: punto fijo.<br />
+        • <strong>Directriz (d)</strong>: recta fija.<br />
+        • <strong>Vértice (V)</strong>: punto medio entre el foco y la
         directriz.<br />
-        — <strong>Eje</strong>: recta perpendicular a la directriz que pasa por
+        • <strong>Eje</strong>: recta perpendicular a la directriz que pasa por
         el foco y el vértice.
       </Resumen>
 
       <PorQue>
         Las parábolas aparecen en física (trayectorias parabólicas),
         ingeniería (antenas parabólicas, faros), y matemática
-        (gráficas de y = ax² + bx + c). Su propiedad "óptica" — que todos los
-        rayos paralelos al eje rebotan al foco — la hace ideal para concentrar
+        (gráficas de y = ax² + bx + c). Su propiedad "óptica", que todos los
+        rayos paralelos al eje rebotan al foco, la hace ideal para concentrar
         ondas.
       </PorQue>
     </EscenaRica>
@@ -245,19 +245,19 @@ function EscParabolaVertical() {
 
       <Resumen>
         <strong>Orientación</strong>:<br />
-        — Si <strong>a &gt; 0</strong>: la parábola abre hacia ARRIBA. Vértice
+        • Si <strong>a &gt; 0</strong>: la parábola abre hacia ARRIBA. Vértice
         es MÍNIMO.<br />
-        — Si <strong>a &lt; 0</strong>: abre hacia ABAJO. Vértice es MÁXIMO.<br /><br />
-        — |a| grande: parábola "angosta".<br />
-        — |a| chico: parábola "ancha".
+        • Si <strong>a &lt; 0</strong>: abre hacia ABAJO. Vértice es MÁXIMO.<br /><br />
+        • |a| grande: parábola "angosta".<br />
+        • |a| chico: parábola "ancha".
       </Resumen>
 
       <Resumen>
         <strong>Parábola con foco vertical (eje vertical)</strong>:<br />
         Si vértice está en (h, k) y la distancia foco-vértice = p:<br />
-        — Foco: (h, k + p).<br />
-        — Directriz: y = k − p.<br />
-        — Ecuación: (x − h)² = 4p(y − k).
+        • Foco: (h, k + p).<br />
+        • Directriz: y = k − p.<br />
+        • Ecuación: (x − h)² = 4p(y − k).
       </Resumen>
     </EscenaRica>
   );

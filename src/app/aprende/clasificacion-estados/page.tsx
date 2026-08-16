@@ -112,7 +112,7 @@ function EscHook() {
       </Parrafo>
       <CasoBolivia>
         En Bolivia, las microempresas representan ~85% del empleo total. Muchas no llevan
-        contabilidad formal — y por eso muchas quiebran sin entender por qué. Saber estos conceptos
+        contabilidad formal: y por eso muchas quiebran sin entender por qué. Saber estos conceptos
         es la diferencia entre administrar a ciegas o con información.
       </CasoBolivia>
     </EscenaRica>
@@ -128,13 +128,13 @@ function Esc01() {
         propósito distinto:
       </Parrafo>
       <Resumen>
-        <strong>Contabilidad financiera</strong> — para usuarios <em>EXTERNOS</em>: socios, bancos,
-        inversores, fisco (SIN — Servicio de Impuestos Nacionales).<br /><br />
-        <strong>Contabilidad administrativa</strong> — para uso <em>INTERNO</em>: el gerente decide
+        <strong>Contabilidad financiera</strong>: para usuarios <em>EXTERNOS</em>: socios, bancos,
+        inversores, fisco (SIN: Servicio de Impuestos Nacionales).<br /><br />
+        <strong>Contabilidad administrativa</strong>: para uso <em>INTERNO</em>: el gerente decide
         precios, costos, expansión.<br /><br />
-        <strong>Contabilidad de costos</strong> — desglosa cuánto cuesta REALMENTE producir cada
+        <strong>Contabilidad de costos</strong>: desglosa cuánto cuesta REALMENTE producir cada
         bien o servicio.<br /><br />
-        <strong>Contabilidad fiscal o tributaria</strong> — calcula los impuestos a pagar (IT, IVA,
+        <strong>Contabilidad fiscal o tributaria</strong>: calcula los impuestos a pagar (IT, IVA,
         IUE en Bolivia).
       </Resumen>
       <Misconception>
@@ -166,13 +166,13 @@ function Esc02() {
         información para todos los usuarios. Son <strong>cuatro</strong>:
       </Definicion>
       <Resumen>
-        <strong>1. Balance General</strong> — la <em>FOTO</em>: Activo, Pasivo, Patrimonio a una
+        <strong>1. Balance General</strong>: la <em>FOTO</em>: Activo, Pasivo, Patrimonio a una
         fecha.<br /><br />
-        <strong>2. Estado de Resultados</strong> — la <em>PELÍCULA</em>: ingresos, gastos, resultado
+        <strong>2. Estado de Resultados</strong>: la <em>PELÍCULA</em>: ingresos, gastos, resultado
         durante un período.<br /><br />
-        <strong>3. Estado de Flujos de Efectivo</strong> — la plata que <em>ENTRA Y SALE</em> en
+        <strong>3. Estado de Flujos de Efectivo</strong>: la plata que <em>ENTRA Y SALE</em> en
         efectivo durante el período.<br /><br />
-        <strong>4. Estado de Cambios en el Patrimonio</strong> — cómo cambió la <em>PARTE DE LOS
+        <strong>4. Estado de Cambios en el Patrimonio</strong>: cómo cambió la <em>PARTE DE LOS
         DUEÑOS</em> durante el período.
       </Resumen>
       <PorQue>
@@ -202,7 +202,7 @@ function Esc03() {
       </Definicion>
       <Misconception>
         <strong>"El Patrimonio (Pn) es la plata en caja."</strong> No. El Patrimonio es la parte que
-        corresponde a los dueños del negocio — incluye su aporte inicial + utilidades acumuladas.
+        corresponde a los dueños del negocio: incluye su aporte inicial + utilidades acumuladas.
         Puede estar invertido en máquinas, en mercadería, en cuentas por cobrar… NO solo en efectivo.
       </Misconception>
       <Misconception>
@@ -212,7 +212,7 @@ function Esc03() {
       </Misconception>
       <Conexion>
         La ecuación A = P + Pn es la consecuencia directa del <em>principio de partida doble</em>
-        (Pacioli, 1494). Cada transacción mueve por lo menos 2 cuentas — por eso la ecuación NUNCA
+        (Pacioli, 1494). Cada transacción mueve por lo menos 2 cuentas: por eso la ecuación NUNCA
         se rompe.
       </Conexion>
     </EscenaRica>
@@ -315,11 +315,11 @@ function Esc05() {
         agrupados en tres actividades:
       </Definicion>
       <Resumen>
-        <strong>Operativas</strong> — efectivo de la actividad principal (ventas cobradas, sueldos
+        <strong>Operativas</strong>: efectivo de la actividad principal (ventas cobradas, sueldos
         pagados, compras de insumos).<br /><br />
-        <strong>Inversión</strong> — compra/venta de activos de largo plazo (horno, vehículo,
+        <strong>Inversión</strong>: compra/venta de activos de largo plazo (horno, vehículo,
         local).<br /><br />
-        <strong>Financiamiento</strong> — préstamos recibidos o pagados, aportes de socios, pagos
+        <strong>Financiamiento</strong>: préstamos recibidos o pagados, aportes de socios, pagos
         de dividendos.
       </Resumen>
       <Misconception>

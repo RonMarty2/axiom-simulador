@@ -89,11 +89,11 @@ function EscIntro() {
 
       <Resumen>
         <strong>Elementos del polígono</strong>:<br />
-        — <strong>Lados</strong>: los segmentos.<br />
-        — <strong>Vértices</strong>: puntos donde se cortan los lados.<br />
-        — <strong>Ángulos interiores</strong>: dentro del polígono.<br />
-        — <strong>Ángulos exteriores</strong>: suplementarios de los interiores.<br />
-        — <strong>Diagonales</strong>: segmentos que unen vértices NO consecutivos.
+        • <strong>Lados</strong>: los segmentos.<br />
+        • <strong>Vértices</strong>: puntos donde se cortan los lados.<br />
+        • <strong>Ángulos interiores</strong>: dentro del polígono.<br />
+        • <strong>Ángulos exteriores</strong>: suplementarios de los interiores.<br />
+        • <strong>Diagonales</strong>: segmentos que unen vértices NO consecutivos.
       </Resumen>
 
       <Definicion termino="Polígono regular">
@@ -155,7 +155,7 @@ function EscRegulares() {
       </div>
 
       <PorQue>
-        A medida que n crece, el polígono se "redondea" — en el límite, se
+        A medida que n crece, el polígono se "redondea": en el límite, se
         convierte en una circunferencia. Por eso un decágono se ve "casi
         circular".
       </PorQue>
@@ -185,11 +185,11 @@ function EscSumaAng() {
       </PorQue>
 
       <Ejemplo titulo="Aplicaciones rápidas">
-        — Triángulo: (3−2)·180 = <strong>180°</strong>.<br />
-        — Cuadrilátero: (4−2)·180 = <strong>360°</strong>.<br />
-        — Pentágono: (5−2)·180 = <strong>540°</strong>.<br />
-        — Hexágono: (6−2)·180 = <strong>720°</strong>.<br />
-        — Octógono: (8−2)·180 = <strong>1080°</strong>.
+        • Triángulo: (3−2)·180 = <strong>180°</strong>.<br />
+        • Cuadrilátero: (4−2)·180 = <strong>360°</strong>.<br />
+        • Pentágono: (5−2)·180 = <strong>540°</strong>.<br />
+        • Hexágono: (6−2)·180 = <strong>720°</strong>.<br />
+        • Octógono: (8−2)·180 = <strong>1080°</strong>.
       </Ejemplo>
 
       <Resumen>
@@ -200,11 +200,11 @@ function EscSumaAng() {
       </Resumen>
 
       <Ejemplo titulo="Ángulo interior de cada polígono regular">
-        — Triángulo equilátero: 180/3 = <strong>60°</strong>.<br />
-        — Cuadrado: 360/4 = <strong>90°</strong>.<br />
-        — Pentágono regular: 540/5 = <strong>108°</strong>.<br />
-        — Hexágono regular: 720/6 = <strong>120°</strong>.<br />
-        — Octógono regular: 1080/8 = <strong>135°</strong>.
+        • Triángulo equilátero: 180/3 = <strong>60°</strong>.<br />
+        • Cuadrado: 360/4 = <strong>90°</strong>.<br />
+        • Pentágono regular: 540/5 = <strong>108°</strong>.<br />
+        • Hexágono regular: 720/6 = <strong>120°</strong>.<br />
+        • Octógono regular: 1080/8 = <strong>135°</strong>.
       </Ejemplo>
 
       <WorkedExample titulo="Problema típico · encontrar n">
@@ -276,10 +276,10 @@ function EscArea() {
 
       <Mnemotecnia>
         <strong>Tabla de áreas memorizable</strong>:<br />
-        — Cuadrado de lado L: A = L².<br />
-        — Triángulo equilátero de lado L: A = L²√3 / 4.<br />
-        — Hexágono regular de lado L: A = 3L²√3 / 2.<br />
-        — Círculo de radio R: A = πR².
+        • Cuadrado de lado L: A = L².<br />
+        • Triángulo equilátero de lado L: A = L²√3 / 4.<br />
+        • Hexágono regular de lado L: A = 3L²√3 / 2.<br />
+        • Círculo de radio R: A = πR².
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -307,8 +307,8 @@ function EscCuadrilateros() {
         <strong>Paralelogramo</strong> → 2 pares de lados paralelos.<br />
         ↓<br />
         Se divide en dos ramas:<br />
-        — <strong>Rombo</strong> (4 lados iguales) → diamante.<br />
-        — <strong>Rectángulo</strong> (4 ángulos rectos).<br />
+        • <strong>Rombo</strong> (4 lados iguales) → diamante.<br />
+        • <strong>Rectángulo</strong> (4 ángulos rectos).<br />
         ↓<br />
         <strong>Cuadrado</strong> → es a la vez rombo Y rectángulo.
       </Resumen>
@@ -322,8 +322,8 @@ function EscCuadrilateros() {
       </Mnemotecnia>
 
       <Definicion termino="Propiedades comunes a todos los cuadriláteros">
-        — Suma de ángulos interiores: 360°.<br />
-        — Tienen exactamente 2 diagonales.
+        • Suma de ángulos interiores: 360°.<br />
+        • Tienen exactamente 2 diagonales.
       </Definicion>
     </EscenaRica>
   );
@@ -350,20 +350,20 @@ function EscParalelogramos() {
       </Resumen>
 
       <Definicion termino="Tipos especiales">
-        — <strong>Rectángulo</strong>: paralelogramo con 4 ángulos rectos. Las
+        • <strong>Rectángulo</strong>: paralelogramo con 4 ángulos rectos. Las
         diagonales son iguales entre sí.<br />
-        — <strong>Rombo</strong>: paralelogramo con 4 lados iguales. Las
+        • <strong>Rombo</strong>: paralelogramo con 4 lados iguales. Las
         diagonales son perpendiculares entre sí y bisecan los ángulos.<br />
-        — <strong>Cuadrado</strong>: paralelogramo con 4 lados iguales Y 4
+        • <strong>Cuadrado</strong>: paralelogramo con 4 lados iguales Y 4
         ángulos rectos. Tiene las propiedades del rombo Y del rectángulo.
       </Definicion>
 
       <Resumen>
         <strong>Áreas de paralelogramos</strong>:<br />
-        — <strong>Paralelogramo general</strong>: A = base × altura.<br />
-        — <strong>Rectángulo</strong>: A = largo × ancho.<br />
-        — <strong>Rombo</strong>: A = (diagonal mayor × diagonal menor) / 2.<br />
-        — <strong>Cuadrado</strong>: A = L² (o también A = d²/2 con d = diagonal).
+        • <strong>Paralelogramo general</strong>: A = base × altura.<br />
+        • <strong>Rectángulo</strong>: A = largo × ancho.<br />
+        • <strong>Rombo</strong>: A = (diagonal mayor × diagonal menor) / 2.<br />
+        • <strong>Cuadrado</strong>: A = L² (o también A = d²/2 con d = diagonal).
       </Resumen>
 
       <WorkedExample titulo="Área de un rombo">
@@ -398,11 +398,11 @@ function EscTrapecios() {
       </Definicion>
 
       <Definicion termino="Tipos de trapecio">
-        — <strong>Trapecio isósceles</strong>: los dos lados no paralelos son
+        • <strong>Trapecio isósceles</strong>: los dos lados no paralelos son
         iguales. Tiene un eje de simetría perpendicular a las bases.<br />
-        — <strong>Trapecio rectángulo</strong>: tiene 2 ángulos rectos
+        • <strong>Trapecio rectángulo</strong>: tiene 2 ángulos rectos
         consecutivos (un lado no paralelo es perpendicular a las bases).<br />
-        — <strong>Trapecio escaleno</strong>: los lados no paralelos son
+        • <strong>Trapecio escaleno</strong>: los lados no paralelos son
         distintos.
       </Definicion>
 

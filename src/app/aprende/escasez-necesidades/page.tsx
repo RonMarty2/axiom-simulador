@@ -189,8 +189,7 @@ function Esc02_Concepto() {
       </Misconception>
       <Parrafo>
         Como observa Richardson: <em>"la teoría económica se ocupa de la forma en que son utilizados
-        los recursos escasos"</em>. Si no hubiera escasez, NO existiría la economía como ciencia —
-        nadie tendría que elegir.
+        los recursos escasos"</em>. Si no hubiera escasez, NO existiría la economía como ciencia:         nadie tendría que elegir.
       </Parrafo>
       <MiniQuiz
         pregunta="Tu vecino tiene mucho dinero. ¿Enfrenta escasez?"
@@ -250,7 +249,7 @@ function Esc04_Aladino() {
       </Ejemplo>
       <Parrafo>
         Pero la realidad es muy distinta. <strong>Solo el aire es un bien libre.</strong> Incluso el
-        agua, en las sociedades modernas, se transformó en un bien económico — su obtención y
+        agua, en las sociedades modernas, se transformó en un bien económico: su obtención y
         distribución requieren trabajo.
       </Parrafo>
       <Mnemotecnia>
@@ -333,7 +332,7 @@ function Esc06_Ilimitadas() {
       </Ejemplo>
       <PorQue>
         Por eso ninguna economía, por más rica que sea, llega a saturar a sus habitantes. La industria
-        publicitaria existe precisamente para CREAR nuevas necesidades — y mantener el problema económico
+        publicitaria existe precisamente para CREAR nuevas necesidades: y mantener el problema económico
         siempre activo.
       </PorQue>
       <MiniQuiz
@@ -344,7 +343,7 @@ function Esc06_Ilimitadas() {
           "Los precios serían cero y todo sería gratis.",
         ]}
         correctaIdx={1}
-        explicacion="Históricamente, cada vez que una sociedad alcanza la abundancia en algo, descubre nuevas necesidades. La escasez no desaparece — cambia de cara."
+        explicacion="Históricamente, cada vez que una sociedad alcanza la abundancia en algo, descubre nuevas necesidades. La escasez no desaparece: cambia de cara."
       />
     </EscenaRica>
   );
@@ -369,13 +368,12 @@ function Esc07_Bienes() {
       <Misconception>
         <strong>"El agua es un bien libre."</strong> Esto era cierto hace 200 años en una aldea con
         río. Hoy NO. El agua potable que sale de tu canilla pasó por captación, tratamiento,
-        bombeo, distribución y mantenimiento — todo eso cuesta. Por eso pagás factura cada mes. El
+        bombeo, distribución y mantenimiento: todo eso cuesta. Por eso pagás factura cada mes. El
         agua de lluvia que cae sí es libre. El agua tratada NO.
       </Misconception>
       <CasoBolivia>
         En zonas rurales bolivianas donde no llega la red de SeLA o SeMAPA, las familias caminan hasta
-        2 horas al día para traer agua de un pozo. El agua "libre" allí cuesta <strong>tiempo</strong> —
-        que también es un recurso económico.
+        2 horas al día para traer agua de un pozo. El agua "libre" allí cuesta <strong>tiempo</strong>:         que también es un recurso económico.
       </CasoBolivia>
       <AutoCheck
         pregunta="¿Cuál de estos es un bien económico?"

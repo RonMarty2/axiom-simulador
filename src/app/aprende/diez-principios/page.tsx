@@ -76,11 +76,11 @@ function EscIntroA() {
         Mankiw los organizó en tres grandes bloques:
       </Parrafo>
       <Resumen>
-        <strong>Cómo toman decisiones las personas</strong> — Principios 1 a 4 (decisiones
+        <strong>Cómo toman decisiones las personas</strong>: Principios 1 a 4 (decisiones
         individuales).<br /><br />
-        <strong>Cómo se interrelacionan las personas</strong> — Principios 5 a 7 (mercados,
+        <strong>Cómo se interrelacionan las personas</strong>: Principios 5 a 7 (mercados,
         comercio, rol del Estado).<br /><br />
-        <strong>Cómo funciona la economía en conjunto</strong> — Principios 8 a 10 (productividad,
+        <strong>Cómo funciona la economía en conjunto</strong>: Principios 8 a 10 (productividad,
         inflación, desempleo a nivel país).
       </Resumen>
       <Conexion>
@@ -124,7 +124,7 @@ function P1() {
         Bolivia destina recursos a defensa, a salud y a educación. <strong>Cada Boliviano gastado en
         un avión militar es un Boliviano menos para hospitales o universidades.</strong> Esa es la
         disyuntiva nacional clásica ("pan vs armas"). En el presupuesto 2024, salud llevó ~14% y
-        defensa ~6% — esos números reflejan elecciones.
+        defensa ~6%: esos números reflejan elecciones.
       </CasoBolivia>
       <MiniQuiz
         pregunta="Si el gobierno boliviano sube las jubilaciones pero recauda lo mismo, ¿qué pasa?"
@@ -397,17 +397,17 @@ function P7() {
         intervenga:
       </Parrafo>
       <Resumen>
-        <strong>1. Hacer cumplir reglas e instituciones</strong> — un campesino no siembra si le
+        <strong>1. Hacer cumplir reglas e instituciones</strong>: un campesino no siembra si le
         van a robar la cosecha. Sin policía, justicia y derechos de propiedad, NO hay mercado posible.<br /><br />
-        <strong>2. Corregir fallas de mercado</strong> — promover eficiencia y equidad cuando el
+        <strong>2. Corregir fallas de mercado</strong>: promover eficiencia y equidad cuando el
         mercado solo no las logra.
       </Resumen>
       <Definicion termino="falla de mercado">
         Situación en la que el mercado por sí solo NO asigna eficientemente los recursos. Hay 2
         causas principales:<br /><br />
-        • <strong>Externalidades</strong> — el impacto de las acciones de uno sobre el bienestar de
+        • <strong>Externalidades</strong>: el impacto de las acciones de uno sobre el bienestar de
         otro (ejemplo clásico: contaminación).<br />
-        • <strong>Poder de mercado</strong> — capacidad de una persona o empresa de influir
+        • <strong>Poder de mercado</strong>: capacidad de una persona o empresa de influir
         indebidamente en los precios (monopolio).
       </Definicion>
       <CasoBolivia>
@@ -499,7 +499,7 @@ function P9() {
         Incremento del <strong>nivel general de precios</strong> en la economía. Cuando es muy alta
         y rápida, se llama <em>hiperinflación</em>.
       </Definicion>
-      <WorkedExample titulo="Hiperinflación boliviana 1984-1985 — el caso clásico de A. Latina">
+      <WorkedExample titulo="Hiperinflación boliviana 1984-1985: el caso clásico de A. Latina">
         <p style={{ margin: "0 0 8px" }}>
           <strong>El contexto:</strong> el gobierno enfrentaba déficit fiscal grande y NO podía
           recaudar más. Decidió cubrir el déficit <strong>imprimiendo más bolivianos</strong>.
@@ -568,7 +568,7 @@ function P10() {
       </Misconception>
       <Cuidado>
         Esta disyuntiva es SOLO de corto plazo. A largo plazo, una alta inflación NO baja el
-        desempleo de manera sostenida — solo genera inflación. Por eso las políticas
+        desempleo de manera sostenida: solo genera inflación. Por eso las políticas
         "antidesempleo" basadas solo en emitir dinero fracasan a la larga.
       </Cuidado>
     </EscenaRica>

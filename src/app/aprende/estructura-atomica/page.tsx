@@ -67,8 +67,8 @@ function EscParticulas() {
 
       <Definicion termino="Ion">
         Átomo o molécula con carga eléctrica:<br />
-        — <strong>Catión</strong> (positivo): perdió electrones.<br />
-        — <strong>Anión</strong> (negativo): ganó electrones.
+        • <strong>Catión</strong> (positivo): perdió electrones.<br />
+        • <strong>Anión</strong> (negativo): ganó electrones.
       </Definicion>
     </EscenaRica>
   );
@@ -99,11 +99,11 @@ function EscNumeros() {
 
       <Resumen>
         <strong>Tipos de átomos relacionados</strong>:<br />
-        — <strong>Isótopos</strong>: mismo Z, distinto A (mismo elemento,
+        • <strong>Isótopos</strong>: mismo Z, distinto A (mismo elemento,
         distinto número de neutrones). Ej: ¹²C, ¹³C, ¹⁴C.<br />
-        — <strong>Isóbaros</strong>: mismo A, distinto Z (elementos distintos
+        • <strong>Isóbaros</strong>: mismo A, distinto Z (elementos distintos
         con misma masa). Ej: ⁴⁰K, ⁴⁰Ar.<br />
-        — <strong>Isótonos</strong>: mismo número de neutrones.
+        • <strong>Isótonos</strong>: mismo número de neutrones.
       </Resumen>
 
       <WorkedExample titulo="Caso del facsímil Q11 segunda opción 2005">
@@ -132,12 +132,12 @@ function EscCuanticosSim() {
 
       <Definicion termino="Los 4 números cuánticos">
         Describen completamente un electrón en un átomo:<br /><br />
-        — <strong>n (principal)</strong>: nivel de energía. Valores: 1, 2, 3, ...<br />
-        — <strong>l (azimutal)</strong>: subnivel/forma del orbital. Valores:
+        • <strong>n (principal)</strong>: nivel de energía. Valores: 1, 2, 3, ...<br />
+        • <strong>l (azimutal)</strong>: subnivel/forma del orbital. Valores:
         0 (s), 1 (p), 2 (d), 3 (f).<br />
-        — <strong>m_l (magnético)</strong>: orientación del orbital. Valores:
+        • <strong>m_l (magnético)</strong>: orientación del orbital. Valores:
         −l hasta +l.<br />
-        — <strong>m_s (espín)</strong>: giro del electrón. Valores: +1/2 o −1/2.
+        • <strong>m_s (espín)</strong>: giro del electrón. Valores: +1/2 o −1/2.
       </Definicion>
 
       <Pizarra alto={180}>
@@ -173,10 +173,10 @@ function EscCuanticosSim() {
 
       <Mnemotecnia>
         <strong>Capacidad máxima de cada subnivel</strong>:<br />
-        — s: 2 electrones (1 orbital × 2).<br />
-        — p: 6 electrones (3 orbitales × 2).<br />
-        — d: 10 electrones (5 orbitales × 2).<br />
-        — f: 14 electrones (7 orbitales × 2).<br /><br />
+        • s: 2 electrones (1 orbital × 2).<br />
+        • p: 6 electrones (3 orbitales × 2).<br />
+        • d: 10 electrones (5 orbitales × 2).<br />
+        • f: 14 electrones (7 orbitales × 2).<br /><br />
         <strong>Principio de exclusión de Pauli</strong>: 2 electrones en el
         mismo orbital tienen espines opuestos. No pueden existir 2 electrones
         con los 4 números cuánticos iguales.
@@ -248,11 +248,11 @@ function EscConfigSim() {
 
       <Mnemotecnia>
         <strong>Probá estos casos clásicos del examen</strong>:<br />
-        — Z = 8 (O): 1s² 2s² 2p⁴.<br />
-        — Z = 11 (Na): 1s² 2s² 2p⁶ 3s¹.<br />
-        — Z = 14 (Si): 1s² 2s² 2p⁶ 3s² 3p². Electrones en s = 6.<br />
-        — Z = 27 (Co): termina en 3d⁷ (caso del facsímil Q17 1op-2-2025).<br />
-        — Z = 35 (Br): termina en 4p⁵.
+        • Z = 8 (O): 1s² 2s² 2p⁴.<br />
+        • Z = 11 (Na): 1s² 2s² 2p⁶ 3s¹.<br />
+        • Z = 14 (Si): 1s² 2s² 2p⁶ 3s² 3p². Electrones en s = 6.<br />
+        • Z = 27 (Co): termina en 3d⁷ (caso del facsímil Q17 1op-2-2025).<br />
+        • Z = 35 (Br): termina en 4p⁵.
       </Mnemotecnia>
 
       <WorkedExample titulo="Q17 1op-2-2025">
@@ -329,15 +329,15 @@ function EscPeriodicas() {
 
       <Definicion termino="Radio atómico">
         Tamaño del átomo.<br />
-        — Aumenta al BAJAR en un grupo (más capas).<br />
-        — Disminuye al ir hacia la DERECHA en un periodo (más protones atraen
+        • Aumenta al BAJAR en un grupo (más capas).<br />
+        • Disminuye al ir hacia la DERECHA en un periodo (más protones atraen
         más fuerte).
       </Definicion>
 
       <Definicion termino="Energía de ionización">
         Energía para arrancar un electrón. Tendencia OPUESTA al radio.<br />
-        — Aumenta al ir a la DERECHA.<br />
-        — Disminuye al BAJAR.<br />
+        • Aumenta al ir a la DERECHA.<br />
+        • Disminuye al BAJAR.<br />
         Los gases nobles tienen la más alta (no quieren perder e⁻).
       </Definicion>
 
@@ -354,8 +354,8 @@ function EscPeriodicas() {
 
       <Mnemotecnia>
         <strong>Resumen visual</strong>:<br />
-        — Radio: ↓ grupos, ← periodos.<br />
-        — Otras 3: ↑ grupos, → periodos.<br /><br />
+        • Radio: ↓ grupos, ← periodos.<br />
+        • Otras 3: ↑ grupos, → periodos.<br /><br />
         Es decir, el radio aumenta hacia abajo-izquierda. Las otras 3 aumentan
         hacia arriba-derecha.
       </Mnemotecnia>
@@ -438,8 +438,8 @@ function EscPractica() {
       </Misconception>
 
       <Misconception titulo="Error 2 · confundir isótopos con isóbaros">
-        — Isótopos: mismo Z (mismo elemento), distinto A.<br />
-        — Isóbaros: mismo A, distinto Z (elementos distintos).
+        • Isótopos: mismo Z (mismo elemento), distinto A.<br />
+        • Isóbaros: mismo A, distinto Z (elementos distintos).
       </Misconception>
 
       <Misconception titulo="Error 3 · saltarse Hund">

@@ -87,9 +87,9 @@ function EscIntro() {
       <TrigSVG angulo={30} />
 
       <Definicion termino="Las 3 razones fundamentales (respecto al ángulo θ)">
-        — <strong>sen θ = cateto opuesto / hipotenusa</strong>.<br />
-        — <strong>cos θ = cateto adyacente / hipotenusa</strong>.<br />
-        — <strong>tan θ = cateto opuesto / cateto adyacente</strong>.<br /><br />
+        • <strong>sen θ = cateto opuesto / hipotenusa</strong>.<br />
+        • <strong>cos θ = cateto adyacente / hipotenusa</strong>.<br />
+        • <strong>tan θ = cateto opuesto / cateto adyacente</strong>.<br /><br />
         El "cateto opuesto" es el que NO toca al ángulo θ. El "cateto adyacente"
         es el que SÍ toca al ángulo θ (sin ser la hipotenusa).
       </Definicion>
@@ -114,9 +114,9 @@ function EscSohCahToa() {
 
       <Mnemotecnia>
         <strong>SOH-CAH-TOA</strong> resume las 3 razones:<br /><br />
-        — <strong>S</strong>en θ = <strong>O</strong>puesto / <strong>H</strong>ipotenusa.<br />
-        — <strong>C</strong>os θ = <strong>A</strong>dyacente / <strong>H</strong>ipotenusa.<br />
-        — <strong>T</strong>an θ = <strong>O</strong>puesto / <strong>A</strong>dyacente.<br /><br />
+        • <strong>S</strong>en θ = <strong>O</strong>puesto / <strong>H</strong>ipotenusa.<br />
+        • <strong>C</strong>os θ = <strong>A</strong>dyacente / <strong>H</strong>ipotenusa.<br />
+        • <strong>T</strong>an θ = <strong>O</strong>puesto / <strong>A</strong>dyacente.<br /><br />
         Se lee "<em>sojcajtoa</em>". Memorízalo: lo vas a usar TODA la
         trigonometría.
       </Mnemotecnia>
@@ -129,9 +129,9 @@ function EscSohCahToa() {
         13² = 5² + b² → b² = 144 → b = 12.<br /><br />
 
         <strong>Paso 2 · Aplicar SOH-CAH-TOA:</strong><br />
-        — sen θ = 5/13.<br />
-        — cos θ = 12/13.<br />
-        — tan θ = 5/12.<br /><br />
+        • sen θ = 5/13.<br />
+        • cos θ = 12/13.<br />
+        • tan θ = 5/12.<br /><br />
 
         <strong>Verificación:</strong> sen² + cos² = (25/169) + (144/169) =
         169/169 = 1 ✓ (identidad fundamental).
@@ -139,10 +139,10 @@ function EscSohCahToa() {
 
       <Resumen>
         <strong>Recordá quién es opuesto, adyacente, hipotenusa</strong>:<br />
-        — La hipotenusa es siempre la misma (lado más largo, opuesto al ángulo
+        • La hipotenusa es siempre la misma (lado más largo, opuesto al ángulo
         recto).<br />
-        — El opuesto y adyacente CAMBIAN según qué ángulo agudo mires.<br />
-        — Si mirás el otro ángulo agudo (90° − θ), opuesto y adyacente se
+        • El opuesto y adyacente CAMBIAN según qué ángulo agudo mires.<br />
+        • Si mirás el otro ángulo agudo (90° − θ), opuesto y adyacente se
         intercambian.
       </Resumen>
     </EscenaRica>
@@ -155,32 +155,32 @@ function EscReciprocas() {
       <Titulo>Razones recíprocas · csc, sec, cot</Titulo>
 
       <Definicion termino="Las 3 recíprocas">
-        — <strong>cosecante</strong>: csc θ = 1 / sen θ = hipotenusa / opuesto.<br />
-        — <strong>secante</strong>: sec θ = 1 / cos θ = hipotenusa / adyacente.<br />
-        — <strong>cotangente</strong>: cot θ = 1 / tan θ = adyacente / opuesto.
+        • <strong>cosecante</strong>: csc θ = 1 / sen θ = hipotenusa / opuesto.<br />
+        • <strong>secante</strong>: sec θ = 1 / cos θ = hipotenusa / adyacente.<br />
+        • <strong>cotangente</strong>: cot θ = 1 / tan θ = adyacente / opuesto.
       </Definicion>
 
       <Mnemotecnia>
         <strong>Truco para no confundir las recíprocas</strong>:<br />
-        — Las que empiezan con "c" en pareja: <strong>c</strong>os ↔ <strong>s</strong>ec
+        • Las que empiezan con "c" en pareja: <strong>c</strong>os ↔ <strong>s</strong>ec
         (NO confundir: cos NO es recíproca de csc).<br />
-        — sen ↔ <strong>c</strong>sc.<br />
-        — cos ↔ <strong>s</strong>ec.<br />
-        — tan ↔ <strong>c</strong>ot.<br /><br />
+        • sen ↔ <strong>c</strong>sc.<br />
+        • cos ↔ <strong>s</strong>ec.<br />
+        • tan ↔ <strong>c</strong>ot.<br /><br />
         Regla: la recíproca de una "directa" (sen, cos, tan) lleva una "c"
         cruzada (cos↔sec lleva la c en sec; sen↔csc lleva la c en csc).
       </Mnemotecnia>
 
       <Resumen>
         <strong>Relaciones útiles</strong>:<br />
-        — tan θ = sen θ / cos θ.<br />
-        — cot θ = cos θ / sen θ.<br />
-        — sec θ = 1 / cos θ.<br />
-        — csc θ = 1 / sen θ.<br /><br />
+        • tan θ = sen θ / cos θ.<br />
+        • cot θ = cos θ / sen θ.<br />
+        • sec θ = 1 / cos θ.<br />
+        • csc θ = 1 / sen θ.<br /><br />
         <strong>Identidades fundamentales</strong>:<br />
-        — sen²θ + cos²θ = 1 (Pitágoras trigonométrico).<br />
-        — 1 + tan²θ = sec²θ.<br />
-        — 1 + cot²θ = csc²θ.
+        • sen²θ + cos²θ = 1 (Pitágoras trigonométrico).<br />
+        • 1 + tan²θ = sec²θ.<br />
+        • 1 + cot²θ = csc²θ.
       </Resumen>
     </EscenaRica>
   );
@@ -225,8 +225,8 @@ function EscNotables() {
 
       <Resumen>
         <strong>Valores especiales en los extremos</strong>:<br />
-        — sen 0° = 0, cos 0° = 1, tan 0° = 0.<br />
-        — sen 90° = 1, cos 90° = 0, tan 90° = ∞ (no definida).
+        • sen 0° = 0, cos 0° = 1, tan 0° = 0.<br />
+        • sen 90° = 1, cos 90° = 0, tan 90° = ∞ (no definida).
       </Resumen>
 
       <PorQue>

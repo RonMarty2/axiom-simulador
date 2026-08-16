@@ -34,9 +34,9 @@ function Esc01() {
         según su relación con la organización:
       </Parrafo>
       <Resumen>
-        <strong>Internos</strong> — están <em>dentro</em> de la organización: gerentes, directivos,
+        <strong>Internos</strong>: están <em>dentro</em> de la organización: gerentes, directivos,
         empleados.<br /><br />
-        <strong>Externos</strong> — están <em>fuera</em>: inversionistas, proveedores, gobierno,
+        <strong>Externos</strong>: están <em>fuera</em>: inversionistas, proveedores, gobierno,
         acreedores.
       </Resumen>
 
@@ -85,11 +85,11 @@ function Esc03() {
         evaluar la situación financiera de la empresa.
       </Parrafo>
       <Resumen>
-        <strong>Inversionistas</strong> — necesitan conocer la rentabilidad de sus inversiones.<br /><br />
-        <strong>Proveedores</strong> — evalúan la capacidad de la empresa para cumplir con sus pagos.<br /><br />
-        <strong>Gobierno y entidades fiscales</strong> — aseguran que la empresa cumpla con sus
+        <strong>Inversionistas</strong>: necesitan conocer la rentabilidad de sus inversiones.<br /><br />
+        <strong>Proveedores</strong>: evalúan la capacidad de la empresa para cumplir con sus pagos.<br /><br />
+        <strong>Gobierno y entidades fiscales</strong>: aseguran que la empresa cumpla con sus
         obligaciones tributarias.<br /><br />
-        <strong>Acreedores</strong> — evalúan la solvencia y capacidad de pago de deudas.
+        <strong>Acreedores</strong>: evalúan la solvencia y capacidad de pago de deudas.
       </Resumen>
     </EscenaRica>
   );
@@ -126,15 +126,15 @@ function Esc05() {
     <EscenaRica>
       <Titulo>Los 5 principios fundamentales</Titulo>
       <Resumen>
-        <strong>1. Entidad económica</strong> — los registros se limitan a la empresa, sin mezclarlos
+        <strong>1. Entidad económica</strong>: los registros se limitan a la empresa, sin mezclarlos
         con las cuentas personales de sus propietarios.<br /><br />
-        <strong>2. Unidad monetaria</strong> — toda transacción se expresa en una unidad de medida común
+        <strong>2. Unidad monetaria</strong>: toda transacción se expresa en una unidad de medida común
         (la moneda del país).<br /><br />
-        <strong>3. Periodo contable</strong> — la información se presenta en períodos regulares
+        <strong>3. Periodo contable</strong>: la información se presenta en períodos regulares
         (anualmente, trimestralmente, etc.).<br /><br />
-        <strong>4. Partida doble</strong> — cada transacción afecta al menos dos cuentas (un débito y un
+        <strong>4. Partida doble</strong>: cada transacción afecta al menos dos cuentas (un débito y un
         crédito), manteniendo el equilibrio.<br /><br />
-        <strong>5. Devengado</strong> — las operaciones se registran cuando se genera la obligación o el
+        <strong>5. Devengado</strong>: las operaciones se registran cuando se genera la obligación o el
         derecho, NO cuando ocurre el pago.
       </Resumen>
       <Ejemplo titulo="Principio del devengado">

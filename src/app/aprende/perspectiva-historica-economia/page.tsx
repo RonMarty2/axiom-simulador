@@ -42,7 +42,7 @@ function Esc01() {
       </Definicion>
       <PorQue>
         A Aristóteles se lo considera el primer analista económico. En su época la economía era apenas
-        la "administración de la comunidad doméstica" — muy lejos de la escala global de hoy.
+        la "administración de la comunidad doméstica", muy lejos de la escala global de hoy.
       </PorQue>
 
       <Hook>
@@ -53,10 +53,10 @@ function Esc01() {
 
       <Mnemotecnia>
         <strong>4 hitos · "Q-S-M-R"</strong>:<br />
-        <strong>Q</strong>uesnay (1758) — Tableau Économique → primer flujo económico.<br />
-        <strong>S</strong>mith (1776) — Riqueza de las Naciones → economía clásica.<br />
-        <strong>M</strong>arshall (1890) — Principles of Economics → síntesis neoclásica.<br />
-        <strong>R</strong>obbins (1932) — Naturaleza y Significación → definición moderna.<br /><br />
+        <strong>Q</strong>uesnay (1758): Tableau Économique → primer flujo económico.<br />
+        <strong>S</strong>mith (1776): Riqueza de las Naciones → economía clásica.<br />
+        <strong>M</strong>arshall (1890): Principles of Economics → síntesis neoclásica.<br />
+        <strong>R</strong>obbins (1932): Naturaleza y Significación → definición moderna.<br /><br />
         Diferencia entre fechas: 18 años (Q→S), 114 años (S→M), 42 años (M→R).
       </Mnemotecnia>
     </EscenaRica>
@@ -90,7 +90,7 @@ function Esc03() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Los clásicos: Smith y Quesnay</Titulo>
       <Parrafo>
-        El siglo XVIII —la Edad de la Razón— fue la fase científica de la economía. Dos obras la fundaron:
+        El siglo XVIII, la Edad de la Razón, fue la fase científica de la economía. Dos obras la fundaron:
       </Parrafo>
       <Ejemplo titulo="François Quesnay (1758)">
         <strong>Tableau Économique</strong>. Primer intento de describir el flujo de la economía como un
@@ -207,10 +207,10 @@ function Esc07() {
       <Misconception titulo="Las 3 perspectivas no se 'sustituyen' una a la otra">
         Es un error pensar que Robbins "superó" a Marshall y éste a Smith. NO. Cada perspectiva
         responde una pregunta distinta:<br />
-        — <strong>Clásica</strong>: ¿cómo se produce y distribuye la riqueza? (relaciones
+        • <strong>Clásica</strong>: ¿cómo se produce y distribuye la riqueza? (relaciones
         productivas).<br />
-        — <strong>Neoclásica</strong>: ¿qué hace falta para el bienestar? (riqueza + hombre).<br />
-        — <strong>Robbins</strong>: ¿cómo decide la sociedad entre opciones? (escasez).<br /><br />
+        • <strong>Neoclásica</strong>: ¿qué hace falta para el bienestar? (riqueza + hombre).<br />
+        • <strong>Robbins</strong>: ¿cómo decide la sociedad entre opciones? (escasez).<br /><br />
         Las 3 se complementan. Los economistas modernos usan herramientas de las tres.
       </Misconception>
     </EscenaRica>

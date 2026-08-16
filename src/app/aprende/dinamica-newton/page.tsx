@@ -48,11 +48,11 @@ function EscFuerza() {
 
       <Resumen>
         <strong>Tipos comunes de fuerzas</strong>:<br />
-        — <strong>Peso</strong>: la fuerza con la que la Tierra atrae al cuerpo.<br />
-        — <strong>Normal</strong>: la superficie ejerce perpendicular al cuerpo.<br />
-        — <strong>Tensión</strong>: en cuerdas.<br />
-        — <strong>Fricción</strong>: opuesta al movimiento.<br />
-        — <strong>Elástica</strong>: en resortes (Hooke).
+        • <strong>Peso</strong>: la fuerza con la que la Tierra atrae al cuerpo.<br />
+        • <strong>Normal</strong>: la superficie ejerce perpendicular al cuerpo.<br />
+        • <strong>Tensión</strong>: en cuerdas.<br />
+        • <strong>Fricción</strong>: opuesta al movimiento.<br />
+        • <strong>Elástica</strong>: en resortes (Hooke).
       </Resumen>
     </EscenaRica>
   );
@@ -72,8 +72,8 @@ function EscPrimera() {
       <Resumen>
         <strong>Equilibrio</strong>: cuando la fuerza neta es cero. Hay dos
         casos:<br />
-        — Equilibrio estático: cuerpo en reposo.<br />
-        — Equilibrio dinámico: cuerpo en MRU.
+        • Equilibrio estático: cuerpo en reposo.<br />
+        • Equilibrio dinámico: cuerpo en MRU.
       </Resumen>
 
       <Mnemotecnia>
@@ -129,10 +129,10 @@ function EscTercera() {
       </Cuidado>
 
       <Ejemplo titulo="Ejemplos">
-        — Caminás: empujás el piso hacia atrás, el piso te empuja hacia
+        • Caminás: empujás el piso hacia atrás, el piso te empuja hacia
         adelante.<br />
-        — Cohete: expulsa gas hacia abajo, el gas lo empuja hacia arriba.<br />
-        — Saltás: empujás el piso, el piso te empuja a vos.
+        • Cohete: expulsa gas hacia abajo, el gas lo empuja hacia arriba.<br />
+        • Saltás: empujás el piso, el piso te empuja a vos.
       </Ejemplo>
     </EscenaRica>
   );
@@ -182,9 +182,9 @@ function EscFriccion() {
 
       <Resumen>
         <strong>Fórmulas</strong>:<br />
-        — <strong>Fricción cinética</strong>: f_k = μ_k · N (donde N es la
+        • <strong>Fricción cinética</strong>: f_k = μ_k · N (donde N es la
         normal).<br />
-        — <strong>Fricción estática máxima</strong>: f_s_max = μ_s · N.<br /><br />
+        • <strong>Fricción estática máxima</strong>: f_s_max = μ_s · N.<br /><br />
         Generalmente μ_s &gt; μ_k (cuesta más empezar a mover que mantener el
         movimiento).
       </Resumen>
@@ -206,9 +206,9 @@ function EscPlano() {
 
       <Parrafo>
         Sobre un plano inclinado un ángulo θ, el peso se descompone en:<br />
-        — Componente paralela al plano (que tiende a deslizar el cuerpo hacia
+        • Componente paralela al plano (que tiende a deslizar el cuerpo hacia
         abajo): P_x = m·g·sen θ.<br />
-        — Componente perpendicular al plano (presiona la superficie):
+        • Componente perpendicular al plano (presiona la superficie):
         P_y = m·g·cos θ.
       </Parrafo>
 

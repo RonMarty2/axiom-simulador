@@ -223,7 +223,7 @@ function Esc04_SumaResta() {
 
       <Cuidado>
         Las constantes (3, 7…) son semejantes entre ellas (mismo "tipo de término").
-        x y x² NO son semejantes — distinto exponente.
+        x y x² NO son semejantes: distinto exponente.
       </Cuidado>
 
       <AutoCheck
@@ -394,14 +394,14 @@ function Esc07_Notables() {
         Mirá esta expresión: <strong>x² + 10x + 25</strong>. ¿Se puede simplificar?<br /><br />
 
         <strong>Test rápido:</strong> ¿es un cuadrado perfecto?<br />
-        — Primer término: x² → "primer término al cuadrado" → primer término = x. ✓<br />
-        — Tercer término: 25 → "segundo término al cuadrado" → segundo término = 5. ✓<br />
-        — Término del medio: 10x → "doble producto" → 2·x·5 = 10x. ✓ ¡Cuadra!<br /><br />
+        • Primer término: x² → "primer término al cuadrado" → primer término = x. ✓<br />
+        • Tercer término: 25 → "segundo término al cuadrado" → segundo término = 5. ✓<br />
+        • Término del medio: 10x → "doble producto" → 2·x·5 = 10x. ✓ ¡Cuadra!<br /><br />
 
         <strong>Conclusión:</strong> x² + 10x + 25 = <strong>(x + 5)²</strong>.<br /><br />
 
         <strong>Caso 2:</strong> x² − 49. ¿Es diferencia de cuadrados?<br />
-        — Sí: x² es cuadrado, 49 = 7² es cuadrado. → <strong>(x + 7)(x − 7)</strong>.<br /><br />
+        • Sí: x² es cuadrado, 49 = 7² es cuadrado. → <strong>(x + 7)(x − 7)</strong>.<br /><br />
 
         <strong>Truco:</strong> reconocer productos notables AL REVÉS es la mitad de la
         factorización. Memorizar las 3 formas te da ventaja enorme.
@@ -442,8 +442,8 @@ function Esc08_Errores() {
       <Misconception titulo="El error más caro · (a+b)² = a² + b²">
         Este es el error <strong>#1 de todo el bloque de matemáticas</strong>. La operación de
         elevar al cuadrado NO se distribuye sobre la suma:<br />
-        — <strong>(a+b)²</strong> = a² + 2ab + b² (correcto).<br />
-        — a² + b² → solo si a y b son ortogonales (Pitágoras), no en álgebra general.<br /><br />
+        • <strong>(a+b)²</strong> = a² + 2ab + b² (correcto).<br />
+        • a² + b² → solo si a y b son ortogonales (Pitágoras), no en álgebra general.<br /><br />
         Verificación numérica: (2+3)² = 25. Pero 2² + 3² = 4 + 9 = 13. ≠. La diferencia es
         el 2·2·3 = 12.
       </Misconception>

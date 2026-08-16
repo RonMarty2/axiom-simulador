@@ -111,18 +111,18 @@ function EscIntro() {
 
       <Resumen>
         <strong>Elementos del triángulo</strong>:<br />
-        — <strong>3 vértices</strong>: nombrados con letras mayúsculas A, B, C.<br />
-        — <strong>3 lados</strong>: nombrados con la letra minúscula del vértice
+        • <strong>3 vértices</strong>: nombrados con letras mayúsculas A, B, C.<br />
+        • <strong>3 lados</strong>: nombrados con la letra minúscula del vértice
         OPUESTO. El lado a está enfrente del vértice A.<br />
-        — <strong>3 ángulos interiores</strong>: ∠A, ∠B, ∠C (o α, β, γ).
+        • <strong>3 ángulos interiores</strong>: ∠A, ∠B, ∠C (o α, β, γ).
       </Resumen>
 
       <Mnemotecnia>
         <strong>Convención universal</strong>: el lado se nombra con la letra
         minúscula del vértice <em>opuesto</em>.<br />
-        — Lado <strong>a</strong> ↔ enfrenta al vértice <strong>A</strong>.<br />
-        — Lado <strong>b</strong> ↔ enfrenta al vértice <strong>B</strong>.<br />
-        — Lado <strong>c</strong> ↔ enfrenta al vértice <strong>C</strong>.<br /><br />
+        • Lado <strong>a</strong> ↔ enfrenta al vértice <strong>A</strong>.<br />
+        • Lado <strong>b</strong> ↔ enfrenta al vértice <strong>B</strong>.<br />
+        • Lado <strong>c</strong> ↔ enfrenta al vértice <strong>C</strong>.<br /><br />
         Esto es CLAVE para ley de senos, ley de cosenos y trigonometría en
         general. Memorízalo desde ya.
       </Mnemotecnia>
@@ -175,9 +175,9 @@ function EscPorLados() {
 
       <Mnemotecnia>
         <strong>Truco mnemotécnico</strong>:<br />
-        — <strong>EQUI</strong>látero = TODO IGUAL (3 lados iguales).<br />
-        — <strong>ISÓS</strong>celes = "<em>iso</em>" significa IGUAL en griego → al menos 2 iguales.<br />
-        — <strong>Escaleno</strong> = "<em>escalera</em>" con peldaños desiguales → TODOS distintos.
+        • <strong>EQUI</strong>látero = TODO IGUAL (3 lados iguales).<br />
+        • <strong>ISÓS</strong>celes = "<em>iso</em>" significa IGUAL en griego → al menos 2 iguales.<br />
+        • <strong>Escaleno</strong> = "<em>escalera</em>" con peldaños desiguales → TODOS distintos.
       </Mnemotecnia>
 
       <PorQue>
@@ -215,19 +215,19 @@ function EscPorAngulos() {
 
       <Mnemotecnia>
         <strong>"A-R-O · 3 tipos"</strong>:<br />
-        — <strong>A</strong>cutángulo: <em>todos agudos</em>.<br />
-        — <strong>R</strong>ectángulo: <em>uno recto</em>.<br />
-        — <strong>O</strong>btusángulo: <em>uno obtuso</em>.<br /><br />
+        • <strong>A</strong>cutángulo: <em>todos agudos</em>.<br />
+        • <strong>R</strong>ectángulo: <em>uno recto</em>.<br />
+        • <strong>O</strong>btusángulo: <em>uno obtuso</em>.<br /><br />
         Un triángulo SOLO puede tener UN ángulo recto u obtuso (porque si tuviera
         dos, la suma ya pasaría de 180°).
       </Mnemotecnia>
 
       <Cuidado>
         <strong>Combinaciones permitidas:</strong><br />
-        — Equilátero → siempre acutángulo (todos 60°).<br />
-        — Isósceles → puede ser acutángulo, rectángulo u obtusángulo.<br />
-        — Escaleno → puede ser cualquiera de los 3.<br />
-        — NO existen equiláteros rectángulos ni obtusángulos.
+        • Equilátero → siempre acutángulo (todos 60°).<br />
+        • Isósceles → puede ser acutángulo, rectángulo u obtusángulo.<br />
+        • Escaleno → puede ser cualquiera de los 3.<br />
+        • NO existen equiláteros rectángulos ni obtusángulos.
       </Cuidado>
     </EscenaRica>
   );
@@ -277,12 +277,12 @@ function EscSuma180() {
         k = 18.<br /><br />
 
         <strong>Paso 3 · Calcular cada uno:</strong><br />
-        — 2k = 36°<br />
-        — 3k = 54°<br />
-        — 5k = <strong>90°</strong> (el mayor).<br /><br />
+        • 2k = 36°<br />
+        • 3k = 54°<br />
+        • 5k = <strong>90°</strong> (el mayor).<br /><br />
 
         <strong>Observación:</strong> el triángulo resulta ser RECTÁNGULO (el
-        mayor es 90°). Las proporciones 2:3:5 no son arbitrarias — la suma 10k
+        mayor es 90°). Las proporciones 2:3:5 no son arbitrarias: la suma 10k
         tiene que dar 180°.
       </WorkedExample>
 
@@ -393,10 +393,10 @@ function EscPitagoras() {
       <Definicion termino="Ternas pitagóricas">
         Conjuntos de 3 enteros (a, b, c) que cumplen Pitágoras. Las más usadas
         en exámenes:<br />
-        — <strong>(3, 4, 5)</strong> · y sus múltiplos (6, 8, 10), (9, 12, 15)…<br />
-        — <strong>(5, 12, 13)</strong> · y sus múltiplos.<br />
-        — <strong>(8, 15, 17)</strong>.<br />
-        — <strong>(7, 24, 25)</strong>.
+        • <strong>(3, 4, 5)</strong> · y sus múltiplos (6, 8, 10), (9, 12, 15)…<br />
+        • <strong>(5, 12, 13)</strong> · y sus múltiplos.<br />
+        • <strong>(8, 15, 17)</strong>.<br />
+        • <strong>(7, 24, 25)</strong>.
       </Definicion>
 
       <Cuidado>
@@ -456,11 +456,11 @@ function EscPitAplic() {
 
       <Conexion>
         Pitágoras es la base de:<br />
-        — <strong>Distancia entre dos puntos</strong> en geometría analítica:
+        • <strong>Distancia entre dos puntos</strong> en geometría analítica:
         d = √((x₂−x₁)² + (y₂−y₁)²).<br />
-        — <strong>Razones trigonométricas</strong> (sen, cos, tan) en triángulos
+        • <strong>Razones trigonométricas</strong> (sen, cos, tan) en triángulos
         rectángulos.<br />
-        — <strong>Identidad fundamental:</strong> sen²x + cos²x = 1 (es Pitágoras
+        • <strong>Identidad fundamental:</strong> sen²x + cos²x = 1 (es Pitágoras
         disfrazado).
       </Conexion>
 
@@ -516,9 +516,9 @@ function EscPerimArea() {
 
       <Mnemotecnia>
         <strong>Tabla rápida de áreas especiales</strong>:<br />
-        — <strong>Equilátero de lado L</strong>: A = (L²√3) / 4.<br />
-        — <strong>Rectángulo isósceles</strong> (catetos iguales = L): A = L²/2.<br />
-        — <strong>Rectángulo de catetos a y b</strong>: A = ab/2.<br /><br />
+        • <strong>Equilátero de lado L</strong>: A = (L²√3) / 4.<br />
+        • <strong>Rectángulo isósceles</strong> (catetos iguales = L): A = L²/2.<br />
+        • <strong>Rectángulo de catetos a y b</strong>: A = ab/2.<br /><br />
         Estos atajos aparecen MUCHO en el examen.
       </Mnemotecnia>
 
@@ -571,10 +571,10 @@ function EscNotables() {
 
       <Mnemotecnia>
         <strong>"M-A-M-B → B-O-C-I"</strong>:<br />
-        — <strong>M</strong>ediana → <strong>B</strong>aricentro.<br />
-        — <strong>A</strong>ltura → <strong>O</strong>rtocentro.<br />
-        — <strong>M</strong>ediatriz → <strong>C</strong>ircuncentro.<br />
-        — <strong>B</strong>isectriz → <strong>I</strong>ncentro.<br /><br />
+        • <strong>M</strong>ediana → <strong>B</strong>aricentro.<br />
+        • <strong>A</strong>ltura → <strong>O</strong>rtocentro.<br />
+        • <strong>M</strong>ediatriz → <strong>C</strong>ircuncentro.<br />
+        • <strong>B</strong>isectriz → <strong>I</strong>ncentro.<br /><br />
         Frase: "<em>las Medianas Bajan al Baricentro, las Alturas al Ortocentro,
         las Mediatrices Cierran el Circuncentro, las Bisectrices Inscriben el
         Incentro</em>".
@@ -582,12 +582,12 @@ function EscNotables() {
 
       <PorQue>
         <strong>¿Para qué sirve cada centro?</strong><br />
-        — <strong>Baricentro</strong>: centro físico de gravedad. Equilibrio.<br />
-        — <strong>Ortocentro</strong>: aparece en problemas avanzados de
+        • <strong>Baricentro</strong>: centro físico de gravedad. Equilibrio.<br />
+        • <strong>Ortocentro</strong>: aparece en problemas avanzados de
         geometría (poco frecuente en examen).<br />
-        — <strong>Circuncentro</strong>: para inscribir/circunscribir
+        • <strong>Circuncentro</strong>: para inscribir/circunscribir
         circunferencias.<br />
-        — <strong>Incentro</strong>: equidista de los 3 lados.
+        • <strong>Incentro</strong>: equidista de los 3 lados.
       </PorQue>
     </EscenaRica>
   );

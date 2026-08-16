@@ -38,9 +38,9 @@ function Esc01() {
         con un campo distinto del saber humano:
       </Parrafo>
       <Resumen>
-        <strong>Sentido común</strong> — superficialidad, credulidad, destreza.<br />
-        <strong>Ciencia</strong> — coherencia, consistencia, objetividad.<br />
-        <strong>Ideología</strong> — justificación, partidismo, normatividad.
+        <strong>Sentido común</strong>: superficialidad, credulidad, destreza.<br />
+        <strong>Ciencia</strong>: coherencia, consistencia, objetividad.<br />
+        <strong>Ideología</strong>: justificación, partidismo, normatividad.
       </Resumen>
       <PorQue>
         Las divisiones de la economía (descriptiva, teórica, política) se corresponden con estos tres
@@ -92,9 +92,9 @@ function Esc03() {
         construcción busca tres criterios:
       </Parrafo>
       <Resumen>
-        <strong>1. Coherencia</strong> — argumentación estructurada, sin contradicciones.<br />
-        <strong>2. Consistencia</strong> — resistencia a la argumentación contraria.<br />
-        <strong>3. Objetividad</strong> — reproducción de la realidad como ES, no como uno quisiera que fuera.
+        <strong>1. Coherencia</strong>: argumentación estructurada, sin contradicciones.<br />
+        <strong>2. Consistencia</strong>: resistencia a la argumentación contraria.<br />
+        <strong>3. Objetividad</strong>: reproducción de la realidad como ES, no como uno quisiera que fuera.
       </Resumen>
       <Ejemplo>
         Las prácticas agrícolas rudimentarias dieron lugar a la agronomía experimental, la investigación
@@ -120,7 +120,7 @@ function Esc04() {
       <PorQue>
         La ideología generalmente está movilizada por grupos dominantes (o aspirantes al poder). Frente a
         ella aparecen ideologías <strong>alternativas o emergentes</strong>. Cada una propone normas
-        diferentes para reordenar la sociedad — incluida la economía.
+        diferentes para reordenar la sociedad, incluida la economía.
       </PorQue>
     </EscenaRica>
   );
@@ -197,7 +197,7 @@ function Esc08() {
       <Resumen>
         Las dos primeras divisiones forman la <strong>economía positiva</strong> (describe y teoriza:
         cómo SON los hechos).<br /><br />
-        La tercera —política económica— forma la <strong>economía normativa</strong> (juzga y propone:
+        La tercera, política económica, forma la <strong>economía normativa</strong> (juzga y propone:
         cómo DEBEN ser los hechos).
       </Resumen>
       <Ejemplo titulo="Positiva">

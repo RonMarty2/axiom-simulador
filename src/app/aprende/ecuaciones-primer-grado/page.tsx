@@ -43,7 +43,7 @@ function Esc01_Intro() {
         que la incógnita aparece elevada a la 1 (sin x², √x, etc).
       </Definicion>
       <Ejemplo>
-        2x + 3 = 11, &nbsp; x − 5 = 0, &nbsp; 3(y + 2) = 18 — todas son de primer grado.
+        2x + 3 = 11, &nbsp; x − 5 = 0, &nbsp; 3(y + 2) = 18. Todas son de primer grado.
       </Ejemplo>
       <Resumen>
         🎯 Aplicaciones reales:<br />
@@ -250,7 +250,7 @@ function Esc07_Verbal() {
     <EscenaRica>
       <Titulo>Problema verbal: pasar palabras a ecuación</Titulo>
       <Parrafo>
-        El paso más difícil del examen NO es resolver — es TRADUCIR el problema
+        El paso más difícil del examen NO es resolver, es TRADUCIR el problema
         a una ecuación. Receta:
       </Parrafo>
 
@@ -385,7 +385,7 @@ function Esc09_Practica() {
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominás ecuaciones de primer grado."}
             {ok >= 3 && ok < ejs.length && "Bien. Repasá los que fallaste."}
-            {ok < 3 && "Volvé a la balanza (escena 3) — es el corazón del método."}
+            {ok < 3 && "Volvé a la balanza (escena 3): es el corazón del método."}
           </div>
         </motion.div>
       )}

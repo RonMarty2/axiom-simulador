@@ -64,7 +64,7 @@ function Esc01_Intro() {
         ⏰ <strong>Calcular cuándo coinciden eventos cíclicos</strong>: dos colectivos pasan cada 12
         y 18 minutos; el MCM me dice cada cuánto coinciden.<br /><br />
         ➗ <strong>Simplificar y sumar fracciones</strong>: para sumar 1/12 + 1/18 necesito un
-        común denominador — ¡el MCM!
+        común denominador: ¡el MCM!
       </div>
 
       <Parrafo>
@@ -86,9 +86,9 @@ function Esc01_Intro() {
 
       <Mnemotecnia>
         <strong>"D = chico · M = grande"</strong>:<br />
-        — <strong>MCD</strong>: factores <strong>comunes</strong> con el menor exponente.
+        • <strong>MCD</strong>: factores <strong>comunes</strong> con el menor exponente.
         El MCD siempre es ≤ que cualquiera de los números originales.<br />
-        — <strong>MCM</strong>: <strong>TODOS</strong> los factores (de cualquier número)
+        • <strong>MCM</strong>: <strong>TODOS</strong> los factores (de cualquier número)
         con el mayor exponente. El MCM siempre es ≥ que cualquiera de los números originales.<br /><br />
         Verificación: para cualquier par a, b: <strong>a × b = MCD(a,b) × MCM(a,b)</strong>.
       </Mnemotecnia>
@@ -224,8 +224,8 @@ function Esc03_BuscarDiv() {
         </Stage>
         <div style={{ fontSize: 14, color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontWeight: 700, fontFamily: "var(--font-crimson), serif", textAlign: "center", marginTop: 4 }}>
           {reparto.funciona
-            ? `12 ÷ ${reparto.divisor} = ${reparto.porGrupo} (exacto) ✓ — es divisor`
-            : `12 ÷ ${reparto.divisor} = 2 r 2 ✗ — NO es divisor`}
+            ? `12 ÷ ${reparto.divisor} = ${reparto.porGrupo} (exacto) ✓: es divisor`
+            : `12 ÷ ${reparto.divisor} = 2 r 2 ✗: NO es divisor`}
         </div>
       </div>
 
@@ -387,7 +387,7 @@ function Esc06_MCDDef() {
 
       <PorQue>
         ¿Por qué siempre existe? Porque <strong>1 es divisor común de cualquier par</strong>
-        — así que el conjunto de divisores comunes nunca está vacío. Y como es finito,
+        • así que el conjunto de divisores comunes nunca está vacío. Y como es finito,
         siempre tiene un máximo.
       </PorQue>
 
@@ -620,7 +620,7 @@ function Esc09_MCDFact() {
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
           {paso === 0 && "👆 Tocá para ver paso a paso"}
           {paso === 1 && "Resaltamos primos COMUNES (2 y 3)"}
-          {paso === 2 && "Tomamos el MENOR exponente de cada uno (verde) — descartamos el otro (rojo)"}
+          {paso === 2 && "Tomamos el MENOR exponente de cada uno (verde): descartamos el otro (rojo)"}
           {paso === 3 && "Multiplicamos: 2¹ · 3¹ = 6"}
         </div>
       </div>
@@ -894,9 +894,9 @@ function Esc14_Errores() {
 
       <Misconception titulo="Test rápido · MCD ≤ menor número, MCM ≥ mayor número">
         Si dos números son a = 12 y b = 18:<br />
-        — El MCD <strong>NO PUEDE</strong> ser mayor que 12 (el más chico). Si te da 24,
+        • El MCD <strong>NO PUEDE</strong> ser mayor que 12 (el más chico). Si te da 24,
         es error.<br />
-        — El MCM <strong>NO PUEDE</strong> ser menor que 18 (el más grande). Si te da 6,
+        • El MCM <strong>NO PUEDE</strong> ser menor que 18 (el más grande). Si te da 6,
         es error.<br /><br />
         Estos chequeos rápidos detectan el 90% de los errores de cálculo.
       </Misconception>

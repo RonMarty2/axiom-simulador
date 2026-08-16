@@ -54,7 +54,7 @@ function Esc01() {
       </Hook>
 
       <Mnemotecnia>
-        <strong>"M-C-L-S-C"</strong> — los 5 pilares de la dirección:<br />
+        <strong>"M-C-L-S-C"</strong>: los 5 pilares de la dirección:<br />
         <strong>M</strong>otivación · <strong>C</strong>omunicación · <strong>L</strong>iderazgo ·
         <strong> S</strong>upervisión · <strong>C</strong>oordinación.<br /><br />
         Frase: <em>"Motivá, Comunicá, Liderá, Supervisá, Coordiná"</em>.
@@ -74,14 +74,14 @@ function Esc02() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Motivación</Titulo>
       <Parrafo>
-        Un trabajador motivado no solo cumple con sus responsabilidades — también <strong>aporta ideas
+        Un trabajador motivado no solo cumple con sus responsabilidades: también <strong>aporta ideas
         y mejoras</strong>. La motivación es fundamental.
       </Parrafo>
       <Resumen>
         Dos tipos de factores motivacionales:<br /><br />
-        <strong>Intrínsecos</strong> — impulsos internos: satisfacción personal, deseo de superación,
+        <strong>Intrínsecos</strong>: impulsos internos: satisfacción personal, deseo de superación,
         propósito.<br /><br />
-        <strong>Extrínsecos</strong> — recompensas externas: incentivos económicos, ascensos,
+        <strong>Extrínsecos</strong>: recompensas externas: incentivos económicos, ascensos,
         reconocimientos.
       </Resumen>
       <PorQue>
@@ -102,9 +102,9 @@ function Esc03() {
       </Parrafo>
       <Resumen>
         Tipos:<br /><br />
-        <strong>Comunicación formal</strong> — instrucciones escritas, reuniones, memos. Sigue la
+        <strong>Comunicación formal</strong>: instrucciones escritas, reuniones, memos. Sigue la
         estructura jerárquica.<br /><br />
-        <strong>Comunicación informal</strong> — interacciones casuales, pasillos, chats. Surge
+        <strong>Comunicación informal</strong>: interacciones casuales, pasillos, chats. Surge
         espontáneamente.
       </Resumen>
       <Parrafo>
@@ -125,11 +125,11 @@ function Esc04() {
         hacia la consecución de las metas.
       </Definicion>
       <Resumen>
-        <strong>Liderazgo autocrático</strong> — el líder decide solo, sin consultar. Útil en
+        <strong>Liderazgo autocrático</strong>: el líder decide solo, sin consultar. Útil en
         <em> emergencias</em>: la rapidez es vital.<br /><br />
-        <strong>Liderazgo democrático</strong> — el líder fomenta la participación activa del equipo en
+        <strong>Liderazgo democrático</strong>: el líder fomenta la participación activa del equipo en
         las decisiones. Genera mayor compromiso y motivación.<br /><br />
-        <strong>Liderazgo laissez-faire</strong> — libertad total al equipo. Útil cuando el equipo está
+        <strong>Liderazgo laissez-faire</strong>: libertad total al equipo. Útil cuando el equipo está
         altamente capacitado y es autónomo.
       </Resumen>
       <PorQue>
@@ -189,7 +189,7 @@ function Esc05() {
       </Parrafo>
       <Resumen>
         Una buena supervisión:<br />
-        • <strong>Evita el microgestionamiento</strong> — promueve la autonomía.<br />
+        • <strong>Evita el microgestionamiento</strong>: promueve la autonomía.<br />
         • Es fuente constante de <strong>retroalimentación</strong>.<br />
         • Alimenta el proceso de control y la mejora continua.
       </Resumen>
@@ -220,13 +220,13 @@ function Esc07() {
     <EscenaRica>
       <Titulo>Relación con las otras funciones</Titulo>
       <Resumen>
-        <strong>Con la planeación</strong> — la dirección ejecuta los planes establecidos, alineando
+        <strong>Con la planeación</strong>: la dirección ejecuta los planes establecidos, alineando
         esfuerzos con los objetivos.<br /><br />
-        <strong>Con la organización</strong> — la dirección se basa en la estructura para delegar
+        <strong>Con la organización</strong>: la dirección se basa en la estructura para delegar
         tareas y asignar responsabilidades.<br /><br />
-        <strong>Con la integración de personal</strong> — reclutar bien facilita el proceso de
+        <strong>Con la integración de personal</strong>: reclutar bien facilita el proceso de
         dirección. Un equipo competente es más fácil de gestionar.<br /><br />
-        <strong>Con el control</strong> — la dirección proporciona retroalimentación constante al proceso
+        <strong>Con el control</strong>: la dirección proporciona retroalimentación constante al proceso
         de control y aplica las correcciones en tiempo real.
       </Resumen>
 

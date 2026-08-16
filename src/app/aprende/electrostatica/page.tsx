@@ -56,9 +56,9 @@ function EscCarga() {
       </Resumen>
 
       <Definicion termino="Conductores vs aislantes">
-        — <strong>Conductores</strong>: los electrones se mueven libremente
+        • <strong>Conductores</strong>: los electrones se mueven libremente
         (metales).<br />
-        — <strong>Aislantes</strong>: los electrones están fijos (plástico,
+        • <strong>Aislantes</strong>: los electrones están fijos (plástico,
         vidrio).
       </Definicion>
     </EscenaRica>
@@ -87,9 +87,9 @@ function EscCoulomb() {
       <PorQue>
         Comparación con gravitación: ambas son leyes de fuerza con 1/r² (cuadrado
         inverso). Diferencias clave:<br />
-        — Coulomb depende del signo de q (atractiva o repulsiva).<br />
-        — Gravitación SIEMPRE es atractiva.<br />
-        — k es enormemente mayor que G, por eso las fuerzas eléctricas dominan
+        • Coulomb depende del signo de q (atractiva o repulsiva).<br />
+        • Gravitación SIEMPRE es atractiva.<br />
+        • k es enormemente mayor que G, por eso las fuerzas eléctricas dominan
         en escala atómica.
       </PorQue>
 

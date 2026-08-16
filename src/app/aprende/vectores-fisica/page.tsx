@@ -89,8 +89,8 @@ function EscIntro() {
 
       <Mnemotecnia>
         <strong>Test rápido</strong>: ¿se puede sumar como simple aritmética?<br />
-        — Si SÍ (5 kg + 3 kg = 8 kg): es ESCALAR.<br />
-        — Si NO (5 m/s norte + 3 m/s este ≠ 8 m/s): es VECTORIAL.<br /><br />
+        • Si SÍ (5 kg + 3 kg = 8 kg): es ESCALAR.<br />
+        • Si NO (5 m/s norte + 3 m/s este ≠ 8 m/s): es VECTORIAL.<br /><br />
         Las direcciones importan en los vectores.
       </Mnemotecnia>
     </EscenaRica>
@@ -104,11 +104,11 @@ function EscRep() {
 
       <Resumen>
         Un vector se representa como una <strong>flecha</strong> con:<br />
-        — <strong>Módulo (magnitud)</strong>: la longitud de la flecha. Es el
+        • <strong>Módulo (magnitud)</strong>: la longitud de la flecha. Es el
         valor numérico, siempre positivo. Notación: |v| o simplemente v.<br />
-        — <strong>Dirección</strong>: la línea recta sobre la cual está el
+        • <strong>Dirección</strong>: la línea recta sobre la cual está el
         vector.<br />
-        — <strong>Sentido</strong>: hacia dónde apunta la flecha (las 2
+        • <strong>Sentido</strong>: hacia dónde apunta la flecha (las 2
         posibilidades sobre una dirección).
       </Resumen>
 
@@ -141,11 +141,11 @@ function EscComponentes() {
       <Resumen>
         <strong>Relaciones útiles · si conoces módulo |v| y ángulo θ con el eje
         x</strong>:<br />
-        — vx = |v| · cos θ.<br />
-        — vy = |v| · sen θ.<br /><br />
+        • vx = |v| · cos θ.<br />
+        • vy = |v| · sen θ.<br /><br />
         <strong>Si conoces componentes vx, vy</strong>:<br />
-        — Módulo: |v| = √(vx² + vy²) (Pitágoras).<br />
-        — Ángulo: θ = arctan(vy / vx).
+        • Módulo: |v| = √(vx² + vy²) (Pitágoras).<br />
+        • Ángulo: θ = arctan(vy / vx).
       </Resumen>
 
       <WorkedExample titulo="Caso típico del facsímil">
@@ -214,9 +214,9 @@ function EscEscalar() {
 
       <Resumen>
         <strong>Propiedades</strong>:<br />
-        — Si A⃗ ⊥ B⃗ (perpendiculares): A⃗ · B⃗ = 0 (cos 90° = 0).<br />
-        — Si A⃗ ∥ B⃗ mismo sentido: A⃗ · B⃗ = |A|·|B| (cos 0° = 1).<br />
-        — Si A⃗ ∥ B⃗ sentidos opuestos: A⃗ · B⃗ = −|A|·|B| (cos 180° = −1).
+        • Si A⃗ ⊥ B⃗ (perpendiculares): A⃗ · B⃗ = 0 (cos 90° = 0).<br />
+        • Si A⃗ ∥ B⃗ mismo sentido: A⃗ · B⃗ = |A|·|B| (cos 0° = 1).<br />
+        • Si A⃗ ∥ B⃗ sentidos opuestos: A⃗ · B⃗ = −|A|·|B| (cos 180° = −1).
       </Resumen>
 
       <WorkedExample titulo="Cálculo">
@@ -254,9 +254,9 @@ function EscVectorial() {
 
       <Resumen>
         <strong>Propiedades</strong>:<br />
-        — Si A⃗ ∥ B⃗ (paralelos): A⃗ × B⃗ = 0⃗ (sen 0° = 0).<br />
-        — Si A⃗ ⊥ B⃗: |A⃗ × B⃗| = |A|·|B| (sen 90° = 1).<br />
-        — <strong>NO conmutativo</strong>: A⃗ × B⃗ = −(B⃗ × A⃗).
+        • Si A⃗ ∥ B⃗ (paralelos): A⃗ × B⃗ = 0⃗ (sen 0° = 0).<br />
+        • Si A⃗ ⊥ B⃗: |A⃗ × B⃗| = |A|·|B| (sen 90° = 1).<br />
+        • <strong>NO conmutativo</strong>: A⃗ × B⃗ = −(B⃗ × A⃗).
       </Resumen>
 
       <WorkedExample titulo="Aplicación del facsímil F2 PREU 2025">

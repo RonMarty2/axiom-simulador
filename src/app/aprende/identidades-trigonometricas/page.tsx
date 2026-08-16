@@ -48,25 +48,25 @@ function EscFundamentales() {
 
       <Resumen>
         <strong>Identidades pitagóricas (las 3 más importantes)</strong>:<br /><br />
-        — <strong>sen²θ + cos²θ = 1</strong> (la fundamental, sale de Pitágoras).<br />
-        — 1 + tan²θ = sec²θ (dividí la anterior por cos²θ).<br />
-        — 1 + cot²θ = csc²θ (dividí por sen²θ).
+        • <strong>sen²θ + cos²θ = 1</strong> (la fundamental, sale de Pitágoras).<br />
+        • 1 + tan²θ = sec²θ (dividí la anterior por cos²θ).<br />
+        • 1 + cot²θ = csc²θ (dividí por sen²θ).
       </Resumen>
 
       <Resumen>
         <strong>Identidades de cociente</strong>:<br />
-        — tan θ = sen θ / cos θ.<br />
-        — cot θ = cos θ / sen θ.<br /><br />
+        • tan θ = sen θ / cos θ.<br />
+        • cot θ = cos θ / sen θ.<br /><br />
         <strong>Identidades recíprocas</strong>:<br />
-        — csc θ = 1 / sen θ.<br />
-        — sec θ = 1 / cos θ.<br />
-        — cot θ = 1 / tan θ.
+        • csc θ = 1 / sen θ.<br />
+        • sec θ = 1 / cos θ.<br />
+        • cot θ = 1 / tan θ.
       </Resumen>
 
       <Mnemotecnia>
         <strong>De la identidad fundamental podés despejar</strong>:<br />
-        — sen²θ = 1 − cos²θ → sen θ = ±√(1 − cos²θ).<br />
-        — cos²θ = 1 − sen²θ → cos θ = ±√(1 − sen²θ).<br /><br />
+        • sen²θ = 1 − cos²θ → sen θ = ±√(1 − cos²θ).<br />
+        • cos²θ = 1 − sen²θ → cos θ = ±√(1 − sen²θ).<br /><br />
         Estas son ULTRA útiles cuando te dan una razón y te piden otra.
       </Mnemotecnia>
 
@@ -91,42 +91,42 @@ function EscReduccion() {
 
       <Resumen>
         <strong>Ángulos opuestos (función PAR vs IMPAR)</strong>:<br />
-        — sen(−θ) = −sen θ (impar).<br />
-        — cos(−θ) = cos θ (par).<br />
-        — tan(−θ) = −tan θ (impar).
+        • sen(−θ) = −sen θ (impar).<br />
+        • cos(−θ) = cos θ (par).<br />
+        • tan(−θ) = −tan θ (impar).
       </Resumen>
 
       <Resumen>
         <strong>Ángulos complementarios (90° − θ)</strong>:<br />
-        — sen(90° − θ) = cos θ.<br />
-        — cos(90° − θ) = sen θ.<br />
-        — tan(90° − θ) = cot θ.<br /><br />
+        • sen(90° − θ) = cos θ.<br />
+        • cos(90° − θ) = sen θ.<br />
+        • tan(90° − θ) = cot θ.<br /><br />
         Cofunción: "co-seno" es seno del complemento. Por eso se llaman así.
       </Resumen>
 
       <Resumen>
         <strong>Ángulos suplementarios (180° − θ)</strong>:<br />
-        — sen(180° − θ) = sen θ.<br />
-        — cos(180° − θ) = −cos θ.<br />
-        — tan(180° − θ) = −tan θ.
+        • sen(180° − θ) = sen θ.<br />
+        • cos(180° − θ) = −cos θ.<br />
+        • tan(180° − θ) = −tan θ.
       </Resumen>
 
       <Resumen>
         <strong>Ángulos a 180° + θ</strong>:<br />
-        — sen(180° + θ) = −sen θ.<br />
-        — cos(180° + θ) = −cos θ.<br />
-        — tan(180° + θ) = tan θ.<br /><br />
+        • sen(180° + θ) = −sen θ.<br />
+        • cos(180° + θ) = −cos θ.<br />
+        • tan(180° + θ) = tan θ.<br /><br />
         <strong>Ángulos a 360° − θ</strong>:<br />
-        — sen(360° − θ) = −sen θ.<br />
-        — cos(360° − θ) = cos θ.
+        • sen(360° − θ) = −sen θ.<br />
+        • cos(360° − θ) = cos θ.
       </Resumen>
 
       <Mnemotecnia>
         <strong>Regla mnemónica · cuadrante</strong>:<br />
-        — Cuadrante I (0-90°): TODO positivo.<br />
-        — Cuadrante II (90-180°): solo SEN positivo.<br />
-        — Cuadrante III (180-270°): solo TAN positivo.<br />
-        — Cuadrante IV (270-360°): solo COS positivo.<br /><br />
+        • Cuadrante I (0-90°): TODO positivo.<br />
+        • Cuadrante II (90-180°): solo SEN positivo.<br />
+        • Cuadrante III (180-270°): solo TAN positivo.<br />
+        • Cuadrante IV (270-360°): solo COS positivo.<br /><br />
         Frase: "<em>Todos Saben Tomar Café</em>" (Todos, Seno, Tangente, Coseno).
       </Mnemotecnia>
     </EscenaRica>
@@ -140,19 +140,19 @@ function EscSumaDiferencia() {
 
       <Resumen>
         <strong>Suma de ángulos</strong>:<br />
-        — sen(A + B) = sen A cos B + cos A sen B.<br />
-        — cos(A + B) = cos A cos B − sen A sen B.<br />
-        — tan(A + B) = (tan A + tan B) / (1 − tan A tan B).<br /><br />
+        • sen(A + B) = sen A cos B + cos A sen B.<br />
+        • cos(A + B) = cos A cos B − sen A sen B.<br />
+        • tan(A + B) = (tan A + tan B) / (1 − tan A tan B).<br /><br />
         <strong>Diferencia</strong>:<br />
-        — sen(A − B) = sen A cos B − cos A sen B.<br />
-        — cos(A − B) = cos A cos B + sen A sen B.<br />
-        — tan(A − B) = (tan A − tan B) / (1 + tan A tan B).
+        • sen(A − B) = sen A cos B − cos A sen B.<br />
+        • cos(A − B) = cos A cos B + sen A sen B.<br />
+        • tan(A − B) = (tan A − tan B) / (1 + tan A tan B).
       </Resumen>
 
       <Mnemotecnia>
         <strong>Truco · "S de seno · C de coseno"</strong>:<br />
-        — sen suma: "S-C + C-S" (sen·cos + cos·sen). <em>Mismo orden, suma</em>.<br />
-        — cos suma: "C-C − S-S" (cos·cos − sen·sen). <em>Cambian de signo</em>.<br /><br />
+        • sen suma: "S-C + C-S" (sen·cos + cos·sen). <em>Mismo orden, suma</em>.<br />
+        • cos suma: "C-C − S-S" (cos·cos − sen·sen). <em>Cambian de signo</em>.<br /><br />
         Para la diferencia: cambiá el signo del medio.
       </Mnemotecnia>
 
@@ -177,10 +177,10 @@ function EscDoble() {
 
       <Resumen>
         <strong>Ángulo doble</strong>:<br />
-        — sen(2θ) = 2 sen θ cos θ.<br />
-        — cos(2θ) = cos²θ − sen²θ = 2cos²θ − 1 = 1 − 2sen²θ (3 formas
+        • sen(2θ) = 2 sen θ cos θ.<br />
+        • cos(2θ) = cos²θ − sen²θ = 2cos²θ − 1 = 1 − 2sen²θ (3 formas
         equivalentes).<br />
-        — tan(2θ) = 2 tan θ / (1 − tan²θ).
+        • tan(2θ) = 2 tan θ / (1 − tan²θ).
       </Resumen>
 
       <PorQue>
@@ -192,17 +192,17 @@ function EscDoble() {
 
       <Mnemotecnia>
         <strong>Cuándo elegir cuál forma de cos(2θ) usar</strong>:<br />
-        — Si te dan cos θ y querés cos(2θ): usá 2cos²θ − 1.<br />
-        — Si te dan sen θ y querés cos(2θ): usá 1 − 2sen²θ.<br />
-        — Si te dan tan θ: usá la fórmula con tangente.<br /><br />
+        • Si te dan cos θ y querés cos(2θ): usá 2cos²θ − 1.<br />
+        • Si te dan sen θ y querés cos(2θ): usá 1 − 2sen²θ.<br />
+        • Si te dan tan θ: usá la fórmula con tangente.<br /><br />
         Elegir la forma correcta ahorra cuentas.
       </Mnemotecnia>
 
       <Resumen>
         <strong>Ángulo mitad</strong> (derivadas del doble):<br />
-        — sen²(θ/2) = (1 − cos θ) / 2.<br />
-        — cos²(θ/2) = (1 + cos θ) / 2.<br />
-        — tan²(θ/2) = (1 − cos θ) / (1 + cos θ).
+        • sen²(θ/2) = (1 − cos θ) / 2.<br />
+        • cos²(θ/2) = (1 + cos θ) / 2.<br />
+        • tan²(θ/2) = (1 − cos θ) / (1 + cos θ).
       </Resumen>
     </EscenaRica>
   );
@@ -224,12 +224,12 @@ function EscSimplificacion() {
         E = cos²(3π − x) · cos²(3π/2 − x) · sen(3π − x) / [cos(π − x) · cos²(5π/2 − x) · sen²(3π/2 − x)].<br /><br />
 
         <strong>Paso 1 · Aplicar reducciones</strong>:<br />
-        — cos(3π − x) = cos(π − x) = −cos x. Entonces cos²(3π − x) = cos²x.<br />
-        — cos(3π/2 − x) = −sen x. Entonces cos²(3π/2 − x) = sen²x.<br />
-        — sen(3π − x) = sen(π − x) = sen x.<br />
-        — cos(π − x) = −cos x.<br />
-        — cos(5π/2 − x) = cos(π/2 − x) = sen x. Entonces cos²(5π/2 − x) = sen²x.<br />
-        — sen(3π/2 − x) = −cos x. Entonces sen²(3π/2 − x) = cos²x.<br /><br />
+        • cos(3π − x) = cos(π − x) = −cos x. Entonces cos²(3π − x) = cos²x.<br />
+        • cos(3π/2 − x) = −sen x. Entonces cos²(3π/2 − x) = sen²x.<br />
+        • sen(3π − x) = sen(π − x) = sen x.<br />
+        • cos(π − x) = −cos x.<br />
+        • cos(5π/2 − x) = cos(π/2 − x) = sen x. Entonces cos²(5π/2 − x) = sen²x.<br />
+        • sen(3π/2 − x) = −cos x. Entonces sen²(3π/2 − x) = cos²x.<br /><br />
 
         <strong>Paso 2 · Sustituir</strong>:<br />
         E = (cos²x)(sen²x)(sen x) / [(−cos x)(sen²x)(cos²x)]<br />
@@ -286,9 +286,9 @@ function EscEcuacionesBasicas() {
 
       <Resumen>
         <strong>Soluciones generales</strong> (todos los reales):<br />
-        — sen x = a → x = arcsen(a) + 360°k, o x = 180° − arcsen(a) + 360°k.<br />
-        — cos x = a → x = ±arccos(a) + 360°k.<br />
-        — tan x = a → x = arctan(a) + 180°k.<br /><br />
+        • sen x = a → x = arcsen(a) + 360°k, o x = 180° − arcsen(a) + 360°k.<br />
+        • cos x = a → x = ±arccos(a) + 360°k.<br />
+        • tan x = a → x = arctan(a) + 180°k.<br /><br />
         donde k es cualquier entero.
       </Resumen>
     </EscenaRica>
@@ -310,8 +310,8 @@ function EscEcuacionesAvanzadas() {
         (2u − 1)(u + 1) = 0 → u = 1/2 o u = −1.<br /><br />
 
         <strong>Paso 3 · Resolver cada caso:</strong><br />
-        — sen x = 1/2 → x = 30° o 150°.<br />
-        — sen x = −1 → x = 270°.<br /><br />
+        • sen x = 1/2 → x = 30° o 150°.<br />
+        • sen x = −1 → x = 270°.<br /><br />
 
         Soluciones: 30°, 150°, 270°.
       </WorkedExample>
@@ -327,8 +327,8 @@ function EscEcuacionesAvanzadas() {
         2 sen x (cos²x − 3 sen²x) = 0.<br /><br />
 
         <strong>Paso 3 · Casos:</strong><br />
-        — sen x = 0 → x = 0° o 180°.<br />
-        — cos²x = 3 sen²x → tan²x = 1/3 → tan x = ±1/√3 → x = 30° (o 150° pero
+        • sen x = 0 → x = 0° o 180°.<br />
+        • cos²x = 3 sen²x → tan²x = 1/3 → tan x = ±1/√3 → x = 30° (o 150° pero
         está fuera del intervalo si restringimos).<br /><br />
 
         Este tipo de ejercicio apareció en el facsímil 2do parcial PREU 2025 G2.

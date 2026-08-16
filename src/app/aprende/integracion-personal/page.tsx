@@ -79,9 +79,9 @@ function Esc02() {
       </Definicion>
       <Resumen>
         Herramientas fundamentales:<br /><br />
-        <strong>Auditoría de RRHH</strong> — evaluación del inventario de habilidades y capacidades de
+        <strong>Auditoría de RRHH</strong>: evaluación del inventario de habilidades y capacidades de
         los empleados existentes.<br /><br />
-        <strong>Análisis de puestos</strong> — describe responsabilidades y habilidades requeridas para
+        <strong>Análisis de puestos</strong>: describe responsabilidades y habilidades requeridas para
         un puesto determinado. Base para las descripciones de trabajo.
       </Resumen>
     </EscenaRica>
@@ -97,20 +97,20 @@ function Esc03() {
         o externo</strong>:
       </Parrafo>
       <Resumen>
-        <strong>Reclutamiento interno</strong> — promover empleados actuales a través de ascensos o
+        <strong>Reclutamiento interno</strong>: promover empleados actuales a través de ascensos o
         transferencias. <em>Ventaja</em>: motiva al equipo. <em>Riesgo</em>: puede generar resentimiento
         si no se maneja bien.<br /><br />
-        <strong>Reclutamiento externo</strong> — agencias de empleo, instituciones educativas, publicidad,
+        <strong>Reclutamiento externo</strong>: agencias de empleo, instituciones educativas, publicidad,
         redes sociales. <em>Ventaja</em>: nuevas ideas. <em>Desventaja</em>: más costoso y lento.
       </Resumen>
 
       <CasoBolivia>
         En Bolivia, el reclutamiento se concentra en:<br />
-        — <strong>Internas:</strong> LinkedIn (gerencias), Jobs.bo, Trabajopolis, redes
+        • <strong>Internas:</strong> LinkedIn (gerencias), Jobs.bo, Trabajopolis, redes
         Facebook/Instagram.<br />
-        — <strong>Bolsas universitarias:</strong> UMSS, UMSA, UPB, UCB tienen oficinas de
+        • <strong>Bolsas universitarias:</strong> UMSS, UMSA, UPB, UCB tienen oficinas de
         relaciones con empresas.<br />
-        — <strong>Headhunters</strong> para cargos directivos (Cerebros, Manpower, etc.).<br />
+        • <strong>Headhunters</strong> para cargos directivos (Cerebros, Manpower, etc.).<br />
         Para PyMEs, el "boca a boca" sigue siendo el canal #1.
       </CasoBolivia>
     </EscenaRica>
@@ -127,10 +127,10 @@ function Esc04() {
       </Definicion>
       <Resumen>
         Métodos comunes:<br /><br />
-        <strong>Entrevistas</strong> — método más utilizado. Evalúa habilidades y compatibilidad cultural.<br /><br />
-        <strong>Pruebas de habilidades y competencias</strong> — miden conocimientos técnicos, aptitudes
+        <strong>Entrevistas</strong>: método más utilizado. Evalúa habilidades y compatibilidad cultural.<br /><br />
+        <strong>Pruebas de habilidades y competencias</strong>: miden conocimientos técnicos, aptitudes
         específicas o psicológicas. Deben ser objetivas y alineadas con el puesto.<br /><br />
-        <strong>Referencias laborales</strong> — confirman información y aportan datos sobre el
+        <strong>Referencias laborales</strong>: confirman información y aportan datos sobre el
         rendimiento anterior.
       </Resumen>
     </EscenaRica>
@@ -145,9 +145,9 @@ function Esc05() {
         Una vez seleccionados, los empleados deben ser capacitados <strong>continuamente</strong>:
       </Parrafo>
       <Resumen>
-        <strong>Capacitación inicial o de inducción</strong> — el empleado conoce los procesos y la
+        <strong>Capacitación inicial o de inducción</strong>: el empleado conoce los procesos y la
         cultura desde el comienzo.<br /><br />
-        <strong>Desarrollo continuo</strong> — programas de formación durante toda la carrera del
+        <strong>Desarrollo continuo</strong>: programas de formación durante toda la carrera del
         empleado. Promueve crecimiento profesional y retención de talento.
       </Resumen>
       <PorQue>
@@ -172,9 +172,9 @@ function Esc06() {
       </Parrafo>
       <Resumen>
         Métodos comunes:<br />
-        • <strong>Evaluación por objetivos</strong> — ¿cumplió las metas pactadas?<br />
-        • <strong>Evaluación 360°</strong> — retroalimentación de superiores, pares y subordinados.<br />
-        • <strong>Autoevaluación</strong> — el propio empleado se valora.
+        • <strong>Evaluación por objetivos</strong>: ¿cumplió las metas pactadas?<br />
+        • <strong>Evaluación 360°</strong>: retroalimentación de superiores, pares y subordinados.<br />
+        • <strong>Autoevaluación</strong>: el propio empleado se valora.
       </Resumen>
     </EscenaRica>
   );
@@ -189,15 +189,15 @@ function Esc07() {
         teorías clásicas de motivación:
       </Parrafo>
       <Resumen>
-        <strong>Jerarquía de necesidades de Maslow</strong> — las personas buscan satisfacer
+        <strong>Jerarquía de necesidades de Maslow</strong>: las personas buscan satisfacer
         necesidades en un orden ascendente: fisiológicas → seguridad → sociales → estima →
         autorrealización.<br /><br />
-        <strong>Teoría de los dos factores de Herzberg</strong> — distingue:<br />
-        • <em>Factores higiénicos</em> (salario, condiciones físicas) — su ausencia desmotiva, su
+        <strong>Teoría de los dos factores de Herzberg</strong>: distingue:<br />
+        • <em>Factores higiénicos</em> (salario, condiciones físicas): su ausencia desmotiva, su
         presencia no motiva.<br />
-        • <em>Factores motivadores</em> (responsabilidad, logro, reconocimiento) — son los que motivan
+        • <em>Factores motivadores</em> (responsabilidad, logro, reconocimiento): son los que motivan
         de verdad.<br /><br />
-        <strong>Teoría X e Y de McGregor</strong> — distintos supuestos sobre cómo es el empleado y cómo
+        <strong>Teoría X e Y de McGregor</strong>: distintos supuestos sobre cómo es el empleado y cómo
         debe ser dirigido.
       </Resumen>
 

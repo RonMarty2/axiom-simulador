@@ -336,8 +336,8 @@ function Esc01_Intro() {
           style={{ display: "flex", flexDirection: "column", gap: 12 }}
         >
           <Decir>
-            El <Enf color="fg">2</Enf> es la <Enf>base</Enf> — el número que se multiplica.
-            El <Enf color="fg">5</Enf> es el <Enf>exponente</Enf> — cuántas veces.
+            El <Enf color="fg">2</Enf> es la <Enf>base</Enf>: el número que se multiplica.
+            El <Enf color="fg">5</Enf> es el <Enf>exponente</Enf>: cuántas veces.
           </Decir>
           <Decir>Se lee <em>dos a la quinta</em>.</Decir>
         </motion.div>
@@ -1199,7 +1199,7 @@ const TRAMPAS: Trampa[] = [
   {
     afirmacion: "(a + b)² = a² + b²",
     esCorrecta: false,
-    explica: "Es trampa. Verificá: (1+1)² = 4, pero 1² + 1² = 2. La distribución del exponente NO funciona con sumas — solo con productos: (a·b)ⁿ = aⁿ·bⁿ.",
+    explica: "Es trampa. Verificá: (1+1)² = 4, pero 1² + 1² = 2. La distribución del exponente NO funciona con sumas: solo con productos: (a·b)ⁿ = aⁿ·bⁿ.",
   },
   {
     afirmacion: "2³ · 5² = 10⁵",

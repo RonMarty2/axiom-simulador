@@ -94,11 +94,11 @@ function EscEstrategia() {
         significa que hay más de lo que se pide → exceso.<br /><br />
 
         <strong>Paso 2 · Sustituir cada opción:</strong><br />
-        — "oferta IGUALA a la demanda" → cambia el sentido (ya no hay exceso). ✗<br />
-        — "oferta EXCEDE a la demanda" → mantiene el sentido. ✓<br />
-        — "oferta REDUCE a la demanda" → relación causal nueva, cambia sentido. ✗<br />
-        — "oferta REQUIERE a la demanda" → sin sentido económico. ✗<br />
-        — "oferta SUPONE a la demanda" → distinto significado. ✗<br /><br />
+        • "oferta IGUALA a la demanda" → cambia el sentido (ya no hay exceso). ✗<br />
+        • "oferta EXCEDE a la demanda" → mantiene el sentido. ✓<br />
+        • "oferta REDUCE a la demanda" → relación causal nueva, cambia sentido. ✗<br />
+        • "oferta REQUIERE a la demanda" → sin sentido económico. ✗<br />
+        • "oferta SUPONE a la demanda" → distinto significado. ✗<br /><br />
 
         <strong>Paso 3 · Verificar:</strong> "excede" no aparece en el texto → válido.<br /><br />
 
@@ -286,7 +286,7 @@ function EscResumen() {
         <strong>(a)</strong> El <strong>antónimo</strong> disfrazado (alto → bajo en vez de
         elevado).<br />
         <strong>(b)</strong> Una palabra que <strong>ya aparece en el texto</strong> (no podés
-        reemplazar X por X — descartá esa opción de entrada).<br />
+        reemplazar X por X: descartá esa opción de entrada).<br />
         <strong>(c)</strong> Un sinónimo de OTRO sentido de la palabra (válido en otro contexto
         pero no en éste).
       </Misconception>

@@ -162,7 +162,7 @@ function Esc04_Prop() {
 
       <PorQue>
         Las proporciones aparecen siempre que dos cantidades varían "al mismo ritmo"
-        — eso se llama <strong>proporcionalidad directa</strong>. Si una sube al doble,
+        • eso se llama <strong>proporcionalidad directa</strong>. Si una sube al doble,
         la otra también. Si baja a la mitad, la otra también.
       </PorQue>
 
@@ -194,10 +194,10 @@ function Esc05_Terminos() {
             <span style={{ color: COLOR_OK }}>d</span>
           </div>
           <div style={{ position: "absolute", left: 0, top: 90, width: "100%", textAlign: "center", fontSize: 13, color: COLOR_OK, fontWeight: 800, letterSpacing: 1 }}>
-            ↑ EXTREMOS (verde) — a y d
+            ↑ EXTREMOS (verde): a y d
           </div>
           <div style={{ position: "absolute", left: 0, top: 110, width: "100%", textAlign: "center", fontSize: 13, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1 }}>
-            ↑ MEDIOS (violeta) — b y c
+            ↑ MEDIOS (violeta): b y c
           </div>
         </Stage>
       </div>
@@ -386,7 +386,7 @@ function Esc09_Errores() {
         <strong>Error 2:</strong> Confundir proporcionalidad directa con inversa. <br />
         <span style={{ fontSize: 13 }}>
           Esta lección trata DIRECTA (las dos suben juntas). Si una sube y la otra baja
-          (ej: más trabajadores → menos tiempo), es INVERSA — tema de la próxima lección.
+          (ej: más trabajadores → menos tiempo), es INVERSA: tema de la próxima lección.
         </span>
       </Cuidado>
 
@@ -465,7 +465,7 @@ function Esc10_Practica() {
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominás razones y proporciones."}
-            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste — la propiedad fundamental es clave."}
+            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste: la propiedad fundamental es clave."}
             {ok < 3 && "Volvé a la escena 6 (propiedad fundamental). Es la base de todo."}
           </div>
         </motion.div>

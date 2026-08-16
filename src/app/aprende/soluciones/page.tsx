@@ -74,7 +74,7 @@ function EscIntro() {
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás dominar: moles (Unidad 5) — toda la unidad gira alrededor de
+        Necesitás dominar: moles (Unidad 5): toda la unidad gira alrededor de
         moles y masa.
       </Conexion>
     </EscenaRica>
@@ -354,7 +354,7 @@ function EscMolalidad() {
       <Cuidado>
         <strong>Molaridad ≠ Molalidad.</strong> M usa volumen de solución;
         m usa MASA de solvente. La molalidad se usa cuando hay cambios de
-        temperatura (propiedades coligativas — próxima unidad).
+        temperatura (propiedades coligativas, próxima unidad).
       </Cuidado>
 
       <Pizarra alto={170}>

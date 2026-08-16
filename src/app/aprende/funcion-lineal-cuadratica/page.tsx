@@ -198,8 +198,8 @@ function Esc02_Lineal() {
         Forma general: <strong>f(x) = mx + b</strong>. Su gráfica es una <strong>recta</strong>.
       </Definicion>
       <Ejemplo>
-        f(x) = 2x + 3 — recta de pendiente 2, corta el eje y en (0, 3).<br />
-        f(x) = −x + 5 — pendiente negativa (baja), corta en (0, 5).
+        f(x) = 2x + 3: recta de pendiente 2, corta el eje y en (0, 3).<br />
+        f(x) = −x + 5: pendiente negativa (baja), corta en (0, 5).
       </Ejemplo>
       <RectaInteractiva />
       <Parrafo>
@@ -339,9 +339,9 @@ function Esc07_Opt() {
         f(x) = 8x + 15.<br /><br />
 
         <strong>Análisis de los parámetros:</strong><br />
-        — <strong>Pendiente m = 8</strong>: cada hora extra agrega 8 Bs al costo (tasa de
+        • <strong>Pendiente m = 8</strong>: cada hora extra agrega 8 Bs al costo (tasa de
         cambio).<br />
-        — <strong>Ordenada b = 15</strong>: el costo MÍNIMO, aunque uses 0 horas (cargo fijo).<br /><br />
+        • <strong>Ordenada b = 15</strong>: el costo MÍNIMO, aunque uses 0 horas (cargo fijo).<br /><br />
 
         <strong>Preguntas típicas del UMSS:</strong><br />
         (a) ¿Cuánto pago por 4 horas? → f(4) = 32 + 15 = <strong>47 Bs</strong>.<br />
@@ -374,8 +374,8 @@ function Esc08_Errores() {
 
       <Misconception titulo="Tasa de cambio ≠ ordenada al origen">
         En problemas verbales, mucha gente confunde m y b:<br />
-        — <strong>m</strong> = lo que se suma POR UNIDAD (Bs por hora, kg por día).<br />
-        — <strong>b</strong> = lo FIJO (cargo de entrada, valor inicial, costo base).<br /><br />
+        • <strong>m</strong> = lo que se suma POR UNIDAD (Bs por hora, kg por día).<br />
+        • <strong>b</strong> = lo FIJO (cargo de entrada, valor inicial, costo base).<br /><br />
         Si la fórmula es "30 Bs de envío + 5 Bs por kg" → f(x) = 5x + 30. NO 30x + 5.
         El cargo fijo es b, no el factor variable.
       </Misconception>

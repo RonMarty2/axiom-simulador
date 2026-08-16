@@ -60,7 +60,7 @@ function EscCartesiano() {
         Geometría analítica = álgebra aplicada a la geometría. Cada figura
         geométrica se vuelve una ecuación. En el examen FCyT aparece la
         ecuación de la recta, distancia punto-recta, ecuación de la
-        circunferencia tangente a una recta — todas vienen de aquí.
+        circunferencia tangente a una recta. Todas vienen de aquí.
       </Hook>
 
       <Definicion termino="Distancia entre dos puntos">
@@ -105,10 +105,10 @@ function EscPendiente() {
 
       <Resumen>
         <strong>Significado geométrico</strong>:<br />
-        — m &gt; 0: la recta sube (de izquierda a derecha).<br />
-        — m &lt; 0: la recta baja.<br />
-        — m = 0: recta horizontal.<br />
-        — m no definida (denominador 0): recta vertical (x = constante).
+        • m &gt; 0: la recta sube (de izquierda a derecha).<br />
+        • m &lt; 0: la recta baja.<br />
+        • m = 0: recta horizontal.<br />
+        • m no definida (denominador 0): recta vertical (x = constante).
       </Resumen>
 
       <RectaSVG m={2} b={1} />
@@ -127,8 +127,8 @@ function EscPendiente() {
 
       <Mnemotecnia>
         <strong>Truco para no confundir Δy / Δx</strong>:<br />
-        — Arriba va la <em>diferencia de y</em> (vertical).<br />
-        — Abajo va la <em>diferencia de x</em> (horizontal).<br /><br />
+        • Arriba va la <em>diferencia de y</em> (vertical).<br />
+        • Abajo va la <em>diferencia de x</em> (horizontal).<br /><br />
         Pendiente = "subida / corrida" en inglés (rise / run). En español:
         "subida sobre corrida".
       </Mnemotecnia>
@@ -176,8 +176,8 @@ function EscPendOrd() {
         <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           y = mx + b
         </span><br /><br />
-        — <strong>m</strong>: pendiente.<br />
-        — <strong>b</strong>: ordenada al origen (donde la recta corta al eje y).
+        • <strong>m</strong>: pendiente.<br />
+        • <strong>b</strong>: ordenada al origen (donde la recta corta al eje y).
       </Resumen>
 
       <PorQue>
@@ -187,9 +187,9 @@ function EscPendOrd() {
       </PorQue>
 
       <Ejemplo titulo="Identificar m y b">
-        — y = 3x − 4: m = 3, b = −4.<br />
-        — y = −x/2 + 7: m = −1/2, b = 7.<br />
-        — y = 5: m = 0, b = 5 (recta horizontal).
+        • y = 3x − 4: m = 3, b = −4.<br />
+        • y = −x/2 + 7: m = −1/2, b = 7.<br />
+        • y = 5: m = 0, b = 5 (recta horizontal).
       </Ejemplo>
 
       <Cuidado>
@@ -244,9 +244,9 @@ function EscDistancia() {
         <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           d = |A·x₀ + B·y₀ + C| / √(A² + B²)
         </span><br /><br />
-        — El numerador es el valor absoluto de "sustituir el punto en la
+        • El numerador es el valor absoluto de "sustituir el punto en la
         ecuación".<br />
-        — El denominador es la raíz cuadrada de los cuadrados de los
+        • El denominador es la raíz cuadrada de los cuadrados de los
         coeficientes (sin C).
       </Resumen>
 

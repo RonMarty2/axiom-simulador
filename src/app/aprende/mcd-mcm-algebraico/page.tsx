@@ -82,7 +82,7 @@ function VennFactores() {
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
         {on
-          ? <>Los factores en <b style={{ color: LIENZO.ok }}>verde</b> aparecen en AMBOS — su producto es el MCD.</>
+          ? <>Los factores en <b style={{ color: LIENZO.ok }}>verde</b> aparecen en AMBOS: su producto es el MCD.</>
           : "Tocá para resaltar los factores comunes"}
       </div>
     </div>
@@ -345,7 +345,7 @@ function Esc07_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios — combiná factorización con MCD/MCM:</Parrafo>
+      <Parrafo>5 ejercicios, combiná factorización con MCD/MCM:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;

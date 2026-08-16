@@ -84,8 +84,8 @@ function EscRedox() {
 
       <Mnemotecnia>
         <strong>"LEO el GER" (en inglés)</strong>:<br />
-        — <strong>LEO</strong>: Lose Electrons = Oxidation (perder e⁻ es oxidarse).<br />
-        — <strong>GER</strong>: Gain Electrons = Reduction (ganar e⁻ es reducirse).<br /><br />
+        • <strong>LEO</strong>: Lose Electrons = Oxidation (perder e⁻ es oxidarse).<br />
+        • <strong>GER</strong>: Gain Electrons = Reduction (ganar e⁻ es reducirse).<br /><br />
 
         En español: <strong>"PROD"</strong> (Perder = Oxidación, Recibir =
         Reducción).
@@ -97,8 +97,8 @@ function EscRedox() {
       </Resumen>
 
       <Ejemplo titulo="Ejemplo: Zn + Cu²⁺ → Zn²⁺ + Cu">
-        — Zn (0) → Zn²⁺ (+2): perdió 2 e⁻ → OXIDACIÓN.<br />
-        — Cu²⁺ (+2) → Cu (0): ganó 2 e⁻ → REDUCCIÓN.
+        • Zn (0) → Zn²⁺ (+2): perdió 2 e⁻ → OXIDACIÓN.<br />
+        • Cu²⁺ (+2) → Cu (0): ganó 2 e⁻ → REDUCCIÓN.
       </Ejemplo>
     </EscenaRica>
   );
@@ -160,8 +160,8 @@ function EscIonElectron() {
         Cu + HNO₃ → Cu(NO₃)₂ + NO + H₂O.<br /><br />
 
         Oxidaciones:<br />
-        — Cu: 0 → +2 (perdió 2 e⁻, OXIDACIÓN).<br />
-        — N: +5 → +2 (ganó 3 e⁻, REDUCCIÓN).<br /><br />
+        • Cu: 0 → +2 (perdió 2 e⁻, OXIDACIÓN).<br />
+        • N: +5 → +2 (ganó 3 e⁻, REDUCCIÓN).<br /><br />
 
         Semirreacciones:<br />
         Cu → Cu²⁺ + 2e⁻ (× 3 para igualar e⁻)<br />
@@ -204,8 +204,8 @@ function EscAgentes() {
       </Mnemotecnia>
 
       <Ejemplo titulo="En la reacción Cu + HNO₃">
-        — Cu (s) → Cu²⁺: se oxidó. Por tanto Cu es AGENTE REDUCTOR.<br />
-        — HNO₃ (N⁺⁵) → NO (N⁺²): se redujo. Por tanto HNO₃ es AGENTE OXIDANTE.
+        • Cu (s) → Cu²⁺: se oxidó. Por tanto Cu es AGENTE REDUCTOR.<br />
+        • HNO₃ (N⁺⁵) → NO (N⁺²): se redujo. Por tanto HNO₃ es AGENTE OXIDANTE.
       </Ejemplo>
     </EscenaRica>
   );

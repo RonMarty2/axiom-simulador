@@ -70,15 +70,15 @@ function EscParabolico() {
       <Resumen>
         <strong>Si v₀ es la velocidad inicial y θ el ángulo con la
         horizontal</strong>:<br />
-        — Componente horizontal: v_x = v₀ · cos θ (constante).<br />
-        — Componente vertical: v_y = v₀ · sen θ (varía con el tiempo).
+        • Componente horizontal: v_x = v₀ · cos θ (constante).<br />
+        • Componente vertical: v_y = v₀ · sen θ (varía con el tiempo).
       </Resumen>
 
       <Resumen>
         <strong>Ecuaciones del movimiento</strong>:<br />
-        — Horizontal (MRU): x = v₀ cos θ · t.<br />
-        — Vertical (MRUA con −g): y = v₀ sen θ · t − (1/2) g t².<br />
-        — Velocidad vertical: v_y = v₀ sen θ − g·t.
+        • Horizontal (MRU): x = v₀ cos θ · t.<br />
+        • Vertical (MRUA con −g): y = v₀ sen θ · t − (1/2) g t².<br />
+        • Velocidad vertical: v_y = v₀ sen θ − g·t.
       </Resumen>
 
       <Mnemotecnia>
@@ -98,11 +98,11 @@ function EscFormulas() {
       <Resumen>
         <strong>Para lanzamiento desde el suelo y aterrizaje al suelo
         (misma altura)</strong>:<br /><br />
-        — <strong>Tiempo de vuelo total</strong>: T = 2·v₀·sen θ / g.<br />
-        — <strong>Alcance horizontal máximo (en θ=45°)</strong>: R = v₀² / g.<br />
-        — <strong>Alcance general</strong>: R = v₀² · sen(2θ) / g.<br />
-        — <strong>Altura máxima</strong>: H = v₀² · sen²θ / (2g).<br />
-        — <strong>Tiempo a altura máxima</strong>: t_h = v₀·sen θ / g (mitad
+        • <strong>Tiempo de vuelo total</strong>: T = 2·v₀·sen θ / g.<br />
+        • <strong>Alcance horizontal máximo (en θ=45°)</strong>: R = v₀² / g.<br />
+        • <strong>Alcance general</strong>: R = v₀² · sen(2θ) / g.<br />
+        • <strong>Altura máxima</strong>: H = v₀² · sen²θ / (2g).<br />
+        • <strong>Tiempo a altura máxima</strong>: t_h = v₀·sen θ / g (mitad
         del tiempo total).
       </Resumen>
 
@@ -173,12 +173,12 @@ function EscMCU() {
 
       <Resumen>
         <strong>Magnitudes</strong>:<br />
-        — <strong>Periodo (T)</strong>: tiempo en dar una vuelta. Unidad: s.<br />
-        — <strong>Frecuencia (f)</strong>: número de vueltas por segundo.
+        • <strong>Periodo (T)</strong>: tiempo en dar una vuelta. Unidad: s.<br />
+        • <strong>Frecuencia (f)</strong>: número de vueltas por segundo.
         f = 1/T. Unidad: Hz.<br />
-        — <strong>Velocidad angular (ω)</strong>: ángulo barrido por unidad de
+        • <strong>Velocidad angular (ω)</strong>: ángulo barrido por unidad de
         tiempo. ω = 2π/T = 2πf. Unidad: rad/s.<br />
-        — <strong>Velocidad tangencial (v)</strong>: rapidez lineal sobre la
+        • <strong>Velocidad tangencial (v)</strong>: rapidez lineal sobre la
         circunferencia. v = ω·R = 2πR/T.
       </Resumen>
 
@@ -213,9 +213,9 @@ function EscMCA() {
 
       <Resumen>
         <strong>Ecuaciones análogas a MRUA (sustituyendo x→θ, v→ω, a→α)</strong>:<br />
-        — ω = ω₀ + α·t.<br />
-        — θ = θ₀ + ω₀·t + (1/2)·α·t².<br />
-        — ω² = ω₀² + 2·α·(θ − θ₀).
+        • ω = ω₀ + α·t.<br />
+        • θ = θ₀ + ω₀·t + (1/2)·α·t².<br />
+        • ω² = ω₀² + 2·α·(θ − θ₀).
       </Resumen>
 
       <WorkedExample titulo="Ventilador frenando · F11 3op-2-2025">

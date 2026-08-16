@@ -35,7 +35,7 @@ function Esc01() {
       <Hook>
         Toda <strong>organización con más de 2 personas</strong> necesita administración. Una
         cancha de fútbol callejero, una junta vecinal, un emprendimiento de saltañas, la UMSS, el
-        Banco Mundial — todas administran. No es solo "para empresas grandes".
+        Banco Mundial: todas administran. No es solo "para empresas grandes".
       </Hook>
       <Definicion termino="administración">
         Proceso que implica <strong>planificar, organizar, integrar personal, dirigir y controlar</strong>
@@ -49,7 +49,7 @@ function Esc01() {
       </Parrafo>
 
       <Mnemotecnia>
-        <strong>"POIDC"</strong> — las 5 funciones administrativas en orden:<br />
+        <strong>"POIDC"</strong>: las 5 funciones administrativas en orden:<br />
         <strong>P</strong>laneación · <strong>O</strong>rganización ·
         <strong> I</strong>ntegración de personal · <strong>D</strong>irección ·
         <strong> C</strong>ontrol.<br /><br />
@@ -96,9 +96,9 @@ function Esc03() {
         Aunque a menudo se usan como sinónimos, son conceptualmente distintas:
       </Parrafo>
       <Resumen>
-        <strong>Administración</strong> — diseña y planifica las estrategias. Define el <strong>QUÉ</strong> y
+        <strong>Administración</strong>: diseña y planifica las estrategias. Define el <strong>QUÉ</strong> y
         el <strong>POR QUÉ</strong>.<br /><br />
-        <strong>Gestión</strong> — implementa y ejecuta esas estrategias. Define el <strong>CÓMO</strong>.
+        <strong>Gestión</strong>: implementa y ejecuta esas estrategias. Define el <strong>CÓMO</strong>.
       </Resumen>
       <Ejemplo>
         Administración: "este año queremos abrir 3 nuevas sucursales para captar el mercado del sur".<br />
@@ -108,9 +108,9 @@ function Esc03() {
 
       <CasoBolivia>
         Empresa boliviana <strong>Cervecería Boliviana Nacional (CBN)</strong>:<br />
-        — <strong>Administración:</strong> "el directorio decide entrar al mercado de bebidas sin
+        • <strong>Administración:</strong> "el directorio decide entrar al mercado de bebidas sin
         alcohol con la marca Maltín".<br />
-        — <strong>Gestión:</strong> los gerentes de producción y ventas en La Paz/Santa Cruz
+        • <strong>Gestión:</strong> los gerentes de producción y ventas en La Paz/Santa Cruz
         ejecutan el plan: contratan distribuidores, organizan campañas, ajustan logística.<br /><br />
         En el examen, "administración" suele asociarse a directorio/CEO y "gestión" a
         gerentes/coordinadores.
@@ -124,11 +124,11 @@ function Esc04() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Los 3 niveles de administración</Titulo>
       <Resumen>
-        <strong>1. Administración estratégica</strong> — largo plazo. Define visión, misión y objetivos
+        <strong>1. Administración estratégica</strong>: largo plazo. Define visión, misión y objetivos
         generales. Analiza entorno externo e interno. La hace la alta dirección.<br /><br />
-        <strong>2. Administración táctica</strong> — corto y mediano plazo. Implementa las estrategias
+        <strong>2. Administración táctica</strong>: corto y mediano plazo. Implementa las estrategias
         del nivel anterior. Coordina recursos. La hacen gerencias de nivel medio.<br /><br />
-        <strong>3. Administración operativa</strong> — actividades diarias y tareas rutinarias. Garantiza
+        <strong>3. Administración operativa</strong>: actividades diarias y tareas rutinarias. Garantiza
         la eficiencia en la producción de bienes y servicios.
       </Resumen>
       <PorQue>
@@ -173,10 +173,10 @@ function Esc05() {
       </Definicion>
       <Resumen>
         <strong>Tipos de empresas:</strong><br /><br />
-        • <strong>Públicas</strong> — propiedad del Estado, orientadas al servicio público.<br />
-        • <strong>Privadas</strong> — propiedad de individuos o grupos privados con fines de lucro.<br />
-        • <strong>Mixtas</strong> — combinan capital público y privado.<br />
-        • <strong>Multinacionales</strong> — operan en múltiples países, aprovechando ventajas globales.
+        • <strong>Públicas</strong>: propiedad del Estado, orientadas al servicio público.<br />
+        • <strong>Privadas</strong>: propiedad de individuos o grupos privados con fines de lucro.<br />
+        • <strong>Mixtas</strong>: combinan capital público y privado.<br />
+        • <strong>Multinacionales</strong>: operan en múltiples países, aprovechando ventajas globales.
       </Resumen>
     </EscenaRica>
   );
@@ -203,10 +203,10 @@ function Esc07() {
     <EscenaRica>
       <Titulo>Recursos del sistema empresarial</Titulo>
       <Resumen>
-        <strong>Recursos humanos</strong> — el personal. Su gestión eficaz es crucial.<br /><br />
-        <strong>Recursos financieros</strong> — capital para operar, invertir y expandirse.<br /><br />
-        <strong>Recursos tecnológicos</strong> — herramientas y tecnologías que mejoran la productividad.<br /><br />
-        <strong>Recursos materiales</strong> — insumos físicos utilizados en la producción.
+        <strong>Recursos humanos</strong>: el personal. Su gestión eficaz es crucial.<br /><br />
+        <strong>Recursos financieros</strong>: capital para operar, invertir y expandirse.<br /><br />
+        <strong>Recursos tecnológicos</strong>: herramientas y tecnologías que mejoran la productividad.<br /><br />
+        <strong>Recursos materiales</strong>: insumos físicos utilizados en la producción.
       </Resumen>
       <PorQue>
         La <strong>interrelación</strong> entre estos cuatro componentes determina la capacidad de la

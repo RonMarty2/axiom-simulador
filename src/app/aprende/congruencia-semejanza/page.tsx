@@ -59,16 +59,16 @@ function EscIntro() {
 
       <Resumen>
         <strong>Comparación rápida</strong>:<br />
-        — Congruentes: copia idéntica. Una cabe perfecto sobre la otra.<br />
-        — Semejantes: una es una versión "ampliada" o "reducida" de la otra.
+        • Congruentes: copia idéntica. Una cabe perfecto sobre la otra.<br />
+        • Semejantes: una es una versión "ampliada" o "reducida" de la otra.
         Misma forma, distinto tamaño.<br /><br />
         Toda congruencia es un caso particular de semejanza (con razón 1:1).
       </Resumen>
 
       <Mnemotecnia>
         <strong>Símbolos</strong>:<br />
-        — Congruencia: <strong>≅</strong> (igual + ondulado).<br />
-        — Semejanza: <strong>∼</strong> (solo ondulado, "casi pero no igual").<br /><br />
+        • Congruencia: <strong>≅</strong> (igual + ondulado).<br />
+        • Semejanza: <strong>∼</strong> (solo ondulado, "casi pero no igual").<br /><br />
         Truco: el símbolo de congruencia tiene el "=" arriba porque las medidas
         son EXACTAMENTE iguales. El de semejanza no.
       </Mnemotecnia>
@@ -108,16 +108,16 @@ function EscCriterios() {
 
       <Mnemotecnia>
         <strong>"3 criterios = 3 letras"</strong>:<br />
-        — <strong>LLL</strong>: los 3 lados.<br />
-        — <strong>LAL</strong>: lado, ángulo entre ellos, lado.<br />
-        — <strong>ALA</strong>: ángulo, lado entre ellos, ángulo.<br /><br />
+        • <strong>LLL</strong>: los 3 lados.<br />
+        • <strong>LAL</strong>: lado, ángulo entre ellos, lado.<br />
+        • <strong>ALA</strong>: ángulo, lado entre ellos, ángulo.<br /><br />
         En todos los casos, los 3 elementos deben estar "consecutivos" alrededor
         del triángulo. No vale L-A-L con el ángulo en cualquier lugar.
       </Mnemotecnia>
 
       <Cuidado>
         <strong>NO existe criterio "AAA"</strong> para congruencia. Tener los
-        3 ángulos iguales NO garantiza congruencia — garantiza SEMEJANZA, pero
+        3 ángulos iguales NO garantiza congruencia. Garantiza SEMEJANZA, pero
         los triángulos pueden tener distinto tamaño.<br /><br />
         Lo mismo con "ALL" o "LLA" (lado, lado, ángulo NO comprendido): no es
         criterio suficiente.
@@ -191,9 +191,9 @@ function EscRazon() {
 
       <Resumen>
         <strong>Si la razón de lados es k</strong>:<br />
-        — La razón de perímetros también es k.<br />
-        — La razón de áreas es <strong>k²</strong>.<br />
-        — La razón de volúmenes (en 3D) es k³.
+        • La razón de perímetros también es k.<br />
+        • La razón de áreas es <strong>k²</strong>.<br />
+        • La razón de volúmenes (en 3D) es k³.
       </Resumen>
 
       <PorQue>

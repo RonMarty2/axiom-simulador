@@ -36,7 +36,7 @@ function EscIntro() {
       <Titulo>Química · la ciencia de la materia</Titulo>
 
       <Hook>
-        La Química tiene 10 unidades en el programa oficial UMSS FCyT — es la
+        La Química tiene 10 unidades en el programa oficial UMSS FCyT: es la
         materia MÁS EXTENSA del examen junto con Física. El texto guía oficial
         es Chang & Overby (13ª ed). Empezamos por las bases: qué es la materia
         y cómo medirla.
@@ -51,22 +51,22 @@ function EscIntro() {
         <strong>Clasificación de la materia</strong>:<br /><br />
 
         <strong>Sustancias puras</strong> (composición fija):<br />
-        — <strong>Elementos</strong>: una sola clase de átomo (Fe, O₂, Au).<br />
-        — <strong>Compuestos</strong>: dos o más elementos combinados
+        • <strong>Elementos</strong>: una sola clase de átomo (Fe, O₂, Au).<br />
+        • <strong>Compuestos</strong>: dos o más elementos combinados
         químicamente (H₂O, NaCl, C₆H₁₂O₆).<br /><br />
 
         <strong>Mezclas</strong> (composición variable):<br />
-        — <strong>Homogéneas</strong> (soluciones): una sola fase visible
+        • <strong>Homogéneas</strong> (soluciones): una sola fase visible
         (agua salada, aire).<br />
-        — <strong>Heterogéneas</strong>: fases distinguibles (agua + aceite,
+        • <strong>Heterogéneas</strong>: fases distinguibles (agua + aceite,
         ensalada).
       </Resumen>
 
       <Mnemotecnia>
         <strong>Test rápido</strong>: ¿podés separar los componentes por
         métodos físicos (filtración, destilación, decantación)?<br />
-        — Si SÍ → es una mezcla.<br />
-        — Si NO → es una sustancia pura (necesitarías una reacción química).
+        • Si SÍ → es una mezcla.<br />
+        • Si NO → es una sustancia pura (necesitarías una reacción química).
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -172,12 +172,12 @@ function EscEstadosSim() {
 
       <Resumen>
         <strong>Cambios de estado</strong> (transiciones entre fases):<br />
-        — Sólido → Líquido: FUSIÓN.<br />
-        — Líquido → Gas: VAPORIZACIÓN (evaporación o ebullición).<br />
-        — Gas → Líquido: CONDENSACIÓN.<br />
-        — Líquido → Sólido: SOLIDIFICACIÓN.<br />
-        — Sólido → Gas: SUBLIMACIÓN (saltar la fase líquida).<br />
-        — Gas → Sólido: DEPOSICIÓN.
+        • Sólido → Líquido: FUSIÓN.<br />
+        • Líquido → Gas: VAPORIZACIÓN (evaporación o ebullición).<br />
+        • Gas → Líquido: CONDENSACIÓN.<br />
+        • Líquido → Sólido: SOLIDIFICACIÓN.<br />
+        • Sólido → Gas: SUBLIMACIÓN (saltar la fase líquida).<br />
+        • Gas → Sólido: DEPOSICIÓN.
       </Resumen>
     </EscenaRica>
   );
@@ -201,20 +201,20 @@ function EscPropiedades() {
       <Mnemotecnia>
         <strong>Test</strong>: ¿después de medir esta propiedad, sigue siendo
         la misma sustancia?<br />
-        — Si SÍ (puedo recuperar la sustancia) → física.<br />
-        — Si NO (la sustancia se transformó) → química.
+        • Si SÍ (puedo recuperar la sustancia) → física.<br />
+        • Si NO (la sustancia se transformó) → química.
       </Mnemotecnia>
 
       <Ejemplo titulo="Cambios físicos vs químicos">
         <strong>Físicos</strong> (NO cambia la identidad):<br />
-        — Hielo derritiéndose (sigue siendo H₂O).<br />
-        — Azúcar disuelto en agua (sigue siendo azúcar).<br />
-        — Papel arrugado.<br /><br />
+        • Hielo derritiéndose (sigue siendo H₂O).<br />
+        • Azúcar disuelto en agua (sigue siendo azúcar).<br />
+        • Papel arrugado.<br /><br />
 
         <strong>Químicos</strong> (SÍ cambia la identidad):<br />
-        — Hierro oxidándose (Fe → Fe₂O₃).<br />
-        — Papel quemándose (combustión).<br />
-        — Comida digiriéndose.
+        • Hierro oxidándose (Fe → Fe₂O₃).<br />
+        • Papel quemándose (combustión).<br />
+        • Comida digiriéndose.
       </Ejemplo>
     </EscenaRica>
   );
@@ -232,11 +232,11 @@ function EscDimensional() {
 
       <Resumen>
         <strong>Prefijos SI más usados</strong>:<br />
-        — kilo (k) = 10³<br />
-        — centi (c) = 10⁻²<br />
-        — mili (m) = 10⁻³<br />
-        — micro (μ) = 10⁻⁶<br />
-        — nano (n) = 10⁻⁹
+        • kilo (k) = 10³<br />
+        • centi (c) = 10⁻²<br />
+        • mili (m) = 10⁻³<br />
+        • micro (μ) = 10⁻⁶<br />
+        • nano (n) = 10⁻⁹
       </Resumen>
 
       <WorkedExample titulo="Conversión paso a paso · 5 km a cm">
@@ -275,16 +275,16 @@ function EscNotacion() {
       </Definicion>
 
       <Ejemplo titulo="Conversión a notación científica">
-        — 6,500,000 = 6.5 × 10⁶.<br />
-        — 0.00042 = 4.2 × 10⁻⁴.<br />
-        — Número de Avogadro: 602,214,076,000,000,000,000,000 = 6.022 × 10²³.
+        • 6,500,000 = 6.5 × 10⁶.<br />
+        • 0.00042 = 4.2 × 10⁻⁴.<br />
+        • Número de Avogadro: 602,214,076,000,000,000,000,000 = 6.022 × 10²³.
       </Ejemplo>
 
       <Resumen>
         <strong>Operaciones</strong>:<br />
-        — Multiplicación: (a × 10ⁿ)·(b × 10ᵐ) = ab × 10ⁿ⁺ᵐ.<br />
-        — División: (a × 10ⁿ)/(b × 10ᵐ) = (a/b) × 10ⁿ⁻ᵐ.<br />
-        — Suma/resta: hay que igualar primero los exponentes.
+        • Multiplicación: (a × 10ⁿ)·(b × 10ᵐ) = ab × 10ⁿ⁺ᵐ.<br />
+        • División: (a × 10ⁿ)/(b × 10ᵐ) = (a/b) × 10ⁿ⁻ᵐ.<br />
+        • Suma/resta: hay que igualar primero los exponentes.
       </Resumen>
 
       <WorkedExample titulo="Operación típica">
@@ -313,18 +313,18 @@ function EscTemp() {
 
       <Resumen>
         <strong>3 escalas principales</strong>:<br />
-        — <strong>Celsius (°C)</strong>: 0° agua congela, 100° agua hierve (al
+        • <strong>Celsius (°C)</strong>: 0° agua congela, 100° agua hierve (al
         nivel del mar). Usada cotidianamente.<br />
-        — <strong>Fahrenheit (°F)</strong>: 32° congela, 212° hierve. Usada en EEUU.<br />
-        — <strong>Kelvin (K)</strong>: 0 K es el CERO ABSOLUTO (no hay
+        • <strong>Fahrenheit (°F)</strong>: 32° congela, 212° hierve. Usada en EEUU.<br />
+        • <strong>Kelvin (K)</strong>: 0 K es el CERO ABSOLUTO (no hay
         temperatura más baja). Escala SI.
       </Resumen>
 
       <Resumen>
         <strong>Conversiones</strong>:<br />
-        — °F = (9/5) °C + 32.<br />
-        — °C = (5/9)(°F − 32).<br />
-        — K = °C + 273.15.
+        • °F = (9/5) °C + 32.<br />
+        • °C = (5/9)(°F − 32).<br />
+        • K = °C + 273.15.
       </Resumen>
 
       <div style={{ maxWidth: 480, padding: 14, background: "var(--bg-card)", borderRadius: 10, margin: "14px 0" }}>
@@ -384,12 +384,12 @@ function EscDensidad() {
 
       <Resumen>
         <strong>Densidades a recordar</strong>:<br />
-        — Agua pura: 1.00 g/cm³ (a 4°C).<br />
-        — Hielo: 0.92 g/cm³ (por eso flota).<br />
-        — Mercurio: 13.6 g/cm³.<br />
-        — Aluminio: 2.70 g/cm³.<br />
-        — Hierro: 7.87 g/cm³.<br />
-        — Oro: 19.3 g/cm³.
+        • Agua pura: 1.00 g/cm³ (a 4°C).<br />
+        • Hielo: 0.92 g/cm³ (por eso flota).<br />
+        • Mercurio: 13.6 g/cm³.<br />
+        • Aluminio: 2.70 g/cm³.<br />
+        • Hierro: 7.87 g/cm³.<br />
+        • Oro: 19.3 g/cm³.
       </Resumen>
 
       <Definicion termino="Gravedad específica (densidad relativa)">

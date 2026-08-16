@@ -45,8 +45,8 @@ function EscIntro() {
       <Resumen>
         <strong>Notación estándar</strong>:<br />
         En un triángulo ABC:<br />
-        — Los <strong>ángulos</strong> se nombran con letras MAYÚSCULAS: A, B, C.<br />
-        — Los <strong>lados</strong> opuestos se nombran con letras minúsculas:
+        • Los <strong>ángulos</strong> se nombran con letras MAYÚSCULAS: A, B, C.<br />
+        • Los <strong>lados</strong> opuestos se nombran con letras minúsculas:
         a (opuesto a A), b (opuesto a B), c (opuesto a C).
       </Resumen>
 
@@ -86,7 +86,7 @@ function EscLeySenos() {
 
       <Mnemotecnia>
         <strong>Cuándo usar ley de senos</strong> · necesitás:<br />
-        — Un lado y su ángulo opuesto, MÁS otro elemento (otro ángulo u otro
+        • Un lado y su ángulo opuesto, MÁS otro elemento (otro ángulo u otro
         lado opuesto a otro ángulo conocido).<br /><br />
         Casos típicos:<br />
         1. <strong>ALA</strong> (Ángulo-Lado-Ángulo): te dan 2 ángulos y el
@@ -140,8 +140,8 @@ function EscLeyCosenos() {
           a² = b² + c² − 2bc · cos A
         </span><br /><br />
         Equivalentemente para los otros lados:<br />
-        — b² = a² + c² − 2ac · cos B.<br />
-        — c² = a² + b² − 2ab · cos C.
+        • b² = a² + c² − 2ac · cos B.<br />
+        • c² = a² + b² − 2ab · cos C.
       </Resumen>
 
       <PorQue>
@@ -201,18 +201,18 @@ function EscCualUsar() {
 
       <Resumen>
         <strong>Tabla rápida</strong>:<br /><br />
-        — <strong>ALA</strong> (2 ángulos y lado entre ellos) → Ley de senos.<br />
-        — <strong>AAL</strong> (2 ángulos y lado NO entre ellos) → Ley de senos.<br />
-        — <strong>LAL</strong> (2 lados y ángulo entre ellos) → Ley de cosenos.<br />
-        — <strong>LLL</strong> (3 lados) → Ley de cosenos.<br />
-        — <strong>LLA</strong> (2 lados y ángulo NO entre ellos) → Ley de senos
+        • <strong>ALA</strong> (2 ángulos y lado entre ellos) → Ley de senos.<br />
+        • <strong>AAL</strong> (2 ángulos y lado NO entre ellos) → Ley de senos.<br />
+        • <strong>LAL</strong> (2 lados y ángulo entre ellos) → Ley de cosenos.<br />
+        • <strong>LLL</strong> (3 lados) → Ley de cosenos.<br />
+        • <strong>LLA</strong> (2 lados y ángulo NO entre ellos) → Ley de senos
         (caso ambiguo).
       </Resumen>
 
       <Mnemotecnia>
         <strong>Regla práctica</strong>:<br />
-        — Si tenés un ÁNGULO opuesto a un LADO conocido → senos.<br />
-        — Si NO tenés esa pareja (ángulo opuesto a lado), o si te dan 3 lados
+        • Si tenés un ÁNGULO opuesto a un LADO conocido → senos.<br />
+        • Si NO tenés esa pareja (ángulo opuesto a lado), o si te dan 3 lados
         → cosenos.
       </Mnemotecnia>
     </EscenaRica>

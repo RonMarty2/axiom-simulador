@@ -350,7 +350,7 @@ function EscSimulador() {
   const calc = useMemo(() => {
     const dTb = Kb * m * i;
     const dTc = Kc * m * i;
-    // π = M·R·T·i — aproximación M ≈ m para diluidas en agua
+    // π = M·R·T·i, aproximación M ≈ m para diluidas en agua
     const pi = m * R * T * i;
     return {
       Teb: (100 + dTb).toFixed(2),

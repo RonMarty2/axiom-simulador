@@ -54,23 +54,23 @@ function EscOcteto() {
       </Definicion>
 
       <Ejemplo titulo="Estructuras de Lewis típicas">
-        — H· (1 electrón valencia)<br />
-        — :Ö: con 2 puntos arriba abajo izquierda derecha (6 electrones).<br />
-        — H−H (enlace simple, 2 electrones compartidos).<br />
-        — O=O (enlace doble, 4 electrones).<br />
-        — N≡N (enlace triple, 6 electrones).
+        • H· (1 electrón valencia)<br />
+        • :Ö: con 2 puntos arriba abajo izquierda derecha (6 electrones).<br />
+        • H−H (enlace simple, 2 electrones compartidos).<br />
+        • O=O (enlace doble, 4 electrones).<br />
+        • N≡N (enlace triple, 6 electrones).
       </Ejemplo>
 
       <Mnemotecnia>
         <strong>Electrones de valencia por grupo</strong>:<br />
-        — Grupo IA: 1 (H, Li, Na...)<br />
-        — Grupo IIA: 2 (Be, Mg, Ca...)<br />
-        — Grupo IIIA: 3 (B, Al...)<br />
-        — Grupo IVA: 4 (C, Si...)<br />
-        — Grupo VA: 5 (N, P...)<br />
-        — Grupo VIA: 6 (O, S...)<br />
-        — Grupo VIIA: 7 (F, Cl, Br, I...)<br />
-        — Gases nobles: 8 (excepto He: 2).
+        • Grupo IA: 1 (H, Li, Na...)<br />
+        • Grupo IIA: 2 (Be, Mg, Ca...)<br />
+        • Grupo IIIA: 3 (B, Al...)<br />
+        • Grupo IVA: 4 (C, Si...)<br />
+        • Grupo VA: 5 (N, P...)<br />
+        • Grupo VIA: 6 (O, S...)<br />
+        • Grupo VIIA: 7 (F, Cl, Br, I...)<br />
+        • Gases nobles: 8 (excepto He: 2).
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -89,13 +89,13 @@ function EscIonico() {
 
       <Resumen>
         <strong>Características</strong>:<br />
-        — Ocurre entre METAL y NO METAL (mucha diferencia de
+        • Ocurre entre METAL y NO METAL (mucha diferencia de
         electronegatividad: ΔEN &gt; 1.7).<br />
-        — Forma redes cristalinas (NaCl, KBr).<br />
-        — Sólidos a temperatura ambiente.<br />
-        — Altos puntos de fusión.<br />
-        — Conducen electricidad cuando están disueltos en agua o fundidos.<br />
-        — Muchos son solubles en agua.
+        • Forma redes cristalinas (NaCl, KBr).<br />
+        • Sólidos a temperatura ambiente.<br />
+        • Altos puntos de fusión.<br />
+        • Conducen electricidad cuando están disueltos en agua o fundidos.<br />
+        • Muchos son solubles en agua.
       </Resumen>
 
       <WorkedExample titulo="Formación de NaCl">
@@ -124,17 +124,17 @@ function EscCovalente() {
 
       <Resumen>
         <strong>Características</strong>:<br />
-        — Forma moléculas (H₂O, CO₂, NH₃).<br />
-        — Puntos de fusión y ebullición más bajos que iónicos.<br />
-        — No conducen electricidad (excepción: ácidos en agua).<br />
-        — Pueden ser sólidos, líquidos o gases a temperatura ambiente.
+        • Forma moléculas (H₂O, CO₂, NH₃).<br />
+        • Puntos de fusión y ebullición más bajos que iónicos.<br />
+        • No conducen electricidad (excepción: ácidos en agua).<br />
+        • Pueden ser sólidos, líquidos o gases a temperatura ambiente.
       </Resumen>
 
       <Ejemplo titulo="Ejemplos">
-        — H₂: H−H (1 par compartido).<br />
-        — Cl₂: Cl−Cl (1 par compartido).<br />
-        — H₂O: H−O−H (O comparte 1 par con cada H, total 2 pares).<br />
-        — CH₄: C compartido con 4 H (4 enlaces simples).
+        • H₂: H−H (1 par compartido).<br />
+        • Cl₂: Cl−Cl (1 par compartido).<br />
+        • H₂O: H−O−H (O comparte 1 par con cada H, total 2 pares).<br />
+        • CH₄: C compartido con 4 H (4 enlaces simples).
       </Ejemplo>
     </EscenaRica>
   );
@@ -147,18 +147,18 @@ function EscTiposCov() {
 
       <Resumen>
         Según cuántos pares de electrones se comparten:<br />
-        — <strong>Simple</strong>: 1 par compartido (línea simple). Ej: H−Cl.<br />
-        — <strong>Doble</strong>: 2 pares (línea doble). Ej: O=C=O.<br />
-        — <strong>Triple</strong>: 3 pares (línea triple). Ej: N≡N.<br />
-        — <strong>Coordinado (dativo)</strong>: ambos electrones los aporta UN
+        • <strong>Simple</strong>: 1 par compartido (línea simple). Ej: H−Cl.<br />
+        • <strong>Doble</strong>: 2 pares (línea doble). Ej: O=C=O.<br />
+        • <strong>Triple</strong>: 3 pares (línea triple). Ej: N≡N.<br />
+        • <strong>Coordinado (dativo)</strong>: ambos electrones los aporta UN
         solo átomo. Notación: flecha. Ej: H₃N→BF₃.
       </Resumen>
 
       <Mnemotecnia>
         <strong>A más pares compartidos:</strong><br />
-        — Más corto el enlace.<br />
-        — Más fuerte el enlace (más energía para romper).<br />
-        — Más rígida la molécula.
+        • Más corto el enlace.<br />
+        • Más fuerte el enlace (más energía para romper).<br />
+        • Más rígida la molécula.
       </Mnemotecnia>
 
       <WorkedExample titulo="Q4 PREU 2025 · identificar enlace iónico">
@@ -188,17 +188,17 @@ function EscPolaridad() {
 
       <Resumen>
         <strong>Clasificación según ΔEN</strong>:<br />
-        — ΔEN = 0: covalente NO polar (entre átomos iguales: H₂, Cl₂).<br />
-        — 0 &lt; ΔEN &lt; 0.4: covalente NO polar.<br />
-        — 0.4 ≤ ΔEN ≤ 1.7: covalente POLAR.<br />
-        — ΔEN &gt; 1.7: predominantemente IÓNICO.
+        • ΔEN = 0: covalente NO polar (entre átomos iguales: H₂, Cl₂).<br />
+        • 0 &lt; ΔEN &lt; 0.4: covalente NO polar.<br />
+        • 0.4 ≤ ΔEN ≤ 1.7: covalente POLAR.<br />
+        • ΔEN &gt; 1.7: predominantemente IÓNICO.
       </Resumen>
 
       <Definicion termino="Molécula polar vs no polar">
         Una molécula es polar si los dipolos NO se cancelan por geometría:<br />
-        — H₂O: polar (forma de "V", momentos no se cancelan).<br />
-        — CO₂: NO polar (lineal, los 2 dipolos C=O se cancelan).<br />
-        — CCl₄: NO polar (tetraédrica, 4 dipolos simétricos se cancelan).
+        • H₂O: polar (forma de "V", momentos no se cancelan).<br />
+        • CO₂: NO polar (lineal, los 2 dipolos C=O se cancelan).<br />
+        • CCl₄: NO polar (tetraédrica, 4 dipolos simétricos se cancelan).
       </Definicion>
 
       <PorQue>
@@ -227,10 +227,10 @@ function EscOtros() {
         <strong>Fuerzas intermoleculares</strong> (atraen moléculas entre sí,
         más débiles que los enlaces):<br /><br />
 
-        — <strong>London (dispersión)</strong>: las más débiles. Existen en
+        • <strong>London (dispersión)</strong>: las más débiles. Existen en
         TODAS las moléculas. Crecen con el tamaño molecular.<br />
-        — <strong>Dipolo-dipolo</strong>: entre moléculas polares.<br />
-        — <strong>Puentes de hidrógeno</strong>: las más fuertes. Cuando H está
+        • <strong>Dipolo-dipolo</strong>: entre moléculas polares.<br />
+        • <strong>Puentes de hidrógeno</strong>: las más fuertes. Cuando H está
         unido a F, O o N (FON). Por eso el agua tiene punto de ebullición tan
         alto.
       </Resumen>

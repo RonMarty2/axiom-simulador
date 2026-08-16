@@ -40,7 +40,7 @@ function Esc01() {
       </Parrafo>
       <PorQue>
         La planeación no es solo "hacer un plan". Es <strong>anticipar cambios y adaptar estrategias</strong>
-        en un entorno dinámico — ser proactivo en lugar de reactivo.
+        en un entorno dinámico: ser proactivo en lugar de reactivo.
       </PorQue>
 
       <Hook>
@@ -52,7 +52,7 @@ function Esc01() {
       <Misconception titulo="Planificar ≠ adivinar el futuro">
         Algunos creen que planificar es predecir QUÉ va a pasar. Falso. Es <strong>decidir QUÉ
         vamos a hacer</strong> ante distintos escenarios posibles. Un buen plan tiene plan B, C y
-        D — no apuesta a una sola predicción.
+        D: no apuesta a una sola predicción.
       </Misconception>
     </EscenaRica>
   );
@@ -63,12 +63,12 @@ function Esc02() {
     <EscenaRica>
       <Titulo>¿Por qué es importante planificar?</Titulo>
       <Resumen>
-        <strong>1. Prevenir crisis</strong> — al anticipar problemas, evitar crisis y estar preparados
+        <strong>1. Prevenir crisis</strong>: al anticipar problemas, evitar crisis y estar preparados
         para cambios inesperados.<br /><br />
-        <strong>2. Optimizar recursos</strong> — mejor utilización → ahorro de costos y aumento de
+        <strong>2. Optimizar recursos</strong>: mejor utilización → ahorro de costos y aumento de
         productividad.<br /><br />
-        <strong>3. Establecer metas claras</strong> — medibles, lo que facilita el seguimiento.<br /><br />
-        <strong>4. Coordinar esfuerzos</strong> — entre departamentos y niveles, asegurando que todos
+        <strong>3. Establecer metas claras</strong>: medibles, lo que facilita el seguimiento.<br /><br />
+        <strong>4. Coordinar esfuerzos</strong>: entre departamentos y niveles, asegurando que todos
         trabajen en la misma dirección.
       </Resumen>
     </EscenaRica>
@@ -80,11 +80,11 @@ function Esc03() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Los 3 tipos de planeación</Titulo>
       <Resumen>
-        <strong>1. Planeación estratégica</strong> — <em>largo plazo</em>. Afecta la dirección general
+        <strong>1. Planeación estratégica</strong>: <em>largo plazo</em>. Afecta la dirección general
         de la organización. Identifica metas a largo plazo y desarrolla estrategias amplias.<br /><br />
-        <strong>2. Planeación táctica</strong> — <em>mediano plazo</em>. Se enfoca en cómo se llevarán a
+        <strong>2. Planeación táctica</strong>: <em>mediano plazo</em>. Se enfoca en cómo se llevarán a
         cabo las estrategias estratégicas. La hacen gerentes de nivel medio.<br /><br />
-        <strong>3. Planeación operativa</strong> — <em>corto plazo</em>. Operaciones diarias. Programación
+        <strong>3. Planeación operativa</strong>: <em>corto plazo</em>. Operaciones diarias. Programación
         de actividades específicas y asignación de recursos.
       </Resumen>
       <Ejemplo>
@@ -103,11 +103,11 @@ function Esc03() {
 
       <CasoBolivia>
         <strong>YPFB</strong> (Yacimientos Petrolíferos Fiscales Bolivianos):<br />
-        — <strong>Estratégica:</strong> "industrializar el gas natural y reducir importación de
+        • <strong>Estratégica:</strong> "industrializar el gas natural y reducir importación de
         combustibles 2025-2030" (Plan Estratégico Corporativo).<br />
-        — <strong>Táctica:</strong> "este año, ampliar la planta de urea de Bulo Bulo a 90% de
+        • <strong>Táctica:</strong> "este año, ampliar la planta de urea de Bulo Bulo a 90% de
         capacidad".<br />
-        — <strong>Operativa:</strong> "el turno de hoy carga 12 cisternas con destino a La Paz".
+        • <strong>Operativa:</strong> "el turno de hoy carga 12 cisternas con destino a La Paz".
       </CasoBolivia>
     </EscenaRica>
   );
@@ -118,19 +118,19 @@ function Esc04() {
     <EscenaRica>
       <Titulo>El proceso de planeación · 5 etapas</Titulo>
       <Resumen>
-        <strong>1. Establecimiento de objetivos</strong> — identificar lo que la organización quiere
+        <strong>1. Establecimiento de objetivos</strong>: identificar lo que la organización quiere
         alcanzar.<br /><br />
-        <strong>2. Evaluación de situaciones</strong> — análisis del entorno interno y externo:
+        <strong>2. Evaluación de situaciones</strong>: análisis del entorno interno y externo:
         recursos, capacidades, limitaciones.<br /><br />
-        <strong>3. Desarrollo de estrategias</strong> — generar alternativas y elegir las más apropiadas.<br /><br />
-        <strong>4. Implementación</strong> — poner en práctica: asignación de recursos y comunicación
+        <strong>3. Desarrollo de estrategias</strong>: generar alternativas y elegir las más apropiadas.<br /><br />
+        <strong>4. Implementación</strong>: poner en práctica: asignación de recursos y comunicación
         de los planes.<br /><br />
-        <strong>5. Control y evaluación</strong> — mecanismos para evaluar el progreso y realizar
+        <strong>5. Control y evaluación</strong>: mecanismos para evaluar el progreso y realizar
         ajustes.
       </Resumen>
 
       <Mnemotecnia>
-        <strong>"O-E-E-I-C"</strong> — secuencia de la planeación:<br />
+        <strong>"O-E-E-I-C"</strong>: secuencia de la planeación:<br />
         <strong>O</strong>bjetivos · <strong>E</strong>valuación · <strong>E</strong>strategias ·
         <strong> I</strong>mplementación · <strong>C</strong>ontrol.<br /><br />
         Frase clave: <em>"Obtener Estrategias Exige Implementar Controles"</em>.
@@ -143,14 +143,14 @@ function Esc04() {
         equilibrio a 6 meses de operación.<br /><br />
 
         <strong>2. Evaluación:</strong><br />
-        — Interno: tiene 80.000 Bs ahorrados, sabe barismo, no tiene experiencia en compras.<br />
-        — Externo: hay 4 cafeterías similares a 3 cuadras (competencia alta), oferta de local de
+        • Interno: tiene 80.000 Bs ahorrados, sabe barismo, no tiene experiencia en compras.<br />
+        • Externo: hay 4 cafeterías similares a 3 cuadras (competencia alta), oferta de local de
         50 m² a 3.500 Bs/mes, demanda creciente entre universitarios.<br /><br />
 
         <strong>3. Estrategias:</strong><br />
-        — Diferenciación: café orgánico boliviano (Yungas), wifi rápido para estudiar.<br />
-        — Precios: 12 Bs el espresso (justo abajo de los 15 Bs de la competencia).<br />
-        — Marketing: Instagram + alianzas con la UMSS.<br /><br />
+        • Diferenciación: café orgánico boliviano (Yungas), wifi rápido para estudiar.<br />
+        • Precios: 12 Bs el espresso (justo abajo de los 15 Bs de la competencia).<br />
+        • Marketing: Instagram + alianzas con la UMSS.<br /><br />
 
         <strong>4. Implementación:</strong> firma alquiler mes 1, compra equipos mes 2, contrata 2
         baristas mes 3, apertura suave mes 4, apertura oficial mes 5.<br /><br />
@@ -172,11 +172,11 @@ function Esc05() {
         La planeación no opera aislada. Su relación con las otras funciones gerenciales es esencial:
       </Parrafo>
       <Resumen>
-        <strong>Con la organización</strong> — la planeación define <em>qué</em> hacer; la organización
+        <strong>Con la organización</strong>: la planeación define <em>qué</em> hacer; la organización
         asigna recursos y diseña la estructura para hacerlo.<br /><br />
-        <strong>Con la dirección</strong> — los objetivos planeados guían a líderes y empleados. La
+        <strong>Con la dirección</strong>: los objetivos planeados guían a líderes y empleados. La
         dirección motiva al equipo a perseguirlos.<br /><br />
-        <strong>Con el control</strong> — sin planeación, no hay estándares contra qué comparar. La
+        <strong>Con el control</strong>: sin planeación, no hay estándares contra qué comparar. La
         retroalimentación del control mejora la siguiente planeación.
       </Resumen>
       <PorQue>

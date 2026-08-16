@@ -84,11 +84,11 @@ function Esc01_Basicas() {
     <EscenaRica>
       <Titulo>Las 5 propiedades fundamentales</Titulo>
       <Resumen>
-        <strong>1.</strong> aᵐ · aⁿ = a^(m+n) — al multiplicar, sumás exponentes.<br />
-        <strong>2.</strong> aᵐ / aⁿ = a^(m−n) — al dividir, restás.<br />
-        <strong>3.</strong> (aᵐ)ⁿ = a^(m·n) — al elevar potencia, multiplicás.<br />
-        <strong>4.</strong> (a·b)ⁿ = aⁿ · bⁿ — el exponente se distribuye al producto.<br />
-        <strong>5.</strong> (a/b)ⁿ = aⁿ/bⁿ — y a la división.
+        <strong>1.</strong> aᵐ · aⁿ = a^(m+n): al multiplicar, sumás exponentes.<br />
+        <strong>2.</strong> aᵐ / aⁿ = a^(m−n): al dividir, restás.<br />
+        <strong>3.</strong> (aᵐ)ⁿ = a^(m·n): al elevar potencia, multiplicás.<br />
+        <strong>4.</strong> (a·b)ⁿ = aⁿ · bⁿ: el exponente se distribuye al producto.<br />
+        <strong>5.</strong> (a/b)ⁿ = aⁿ/bⁿ: y a la división.
       </Resumen>
       <Ejemplo>
         2³ · 2⁴ = 2⁷ = 128 &nbsp;·&nbsp; (3²)³ = 3⁶ = 729 &nbsp;·&nbsp; (2·5)² = 100.

@@ -207,14 +207,14 @@ function Esc05_Compania() {
 
       <CasoBolivia>
         <strong>Caso real:</strong> tres socios abren una salteñería en Cochabamba.<br />
-        — Doña Luisa aporta 30.000 Bs y trabaja 12 meses.<br />
-        — Don Carlos aporta 20.000 Bs y trabaja 8 meses.<br />
-        — Don Pepe aporta 50.000 Bs y trabaja 6 meses.<br />
+        • Doña Luisa aporta 30.000 Bs y trabaja 12 meses.<br />
+        • Don Carlos aporta 20.000 Bs y trabaja 8 meses.<br />
+        • Don Pepe aporta 50.000 Bs y trabaja 6 meses.<br />
         Ganancia anual: 60.000 Bs.<br /><br />
         Contribución efectiva (capital × tiempo):<br />
-        — Luisa: 30.000 × 12 = 360.000<br />
-        — Carlos: 20.000 × 8 = 160.000<br />
-        — Pepe: 50.000 × 6 = 300.000<br />
+        • Luisa: 30.000 × 12 = 360.000<br />
+        • Carlos: 20.000 × 8 = 160.000<br />
+        • Pepe: 50.000 × 6 = 300.000<br />
         Suma: 820.000. Valor unitario: 60.000 / 820.000 ≈ 0.0732.<br />
         Luisa cobra: 360.000 × 0.0732 ≈ <strong>26.341 Bs</strong>. Carlos: 11.707 Bs. Pepe: 21.951 Bs.
       </CasoBolivia>
@@ -238,9 +238,9 @@ function Esc05_Compania() {
         Valor unitario: 2.100 / 21 = 100.<br /><br />
 
         <strong>Paso 5 · Asignación:</strong><br />
-        — El que faltó 3 (menos) recibe 10 × 100 = <strong>1.000 Bs</strong>.<br />
-        — El que faltó 5 recibe 6 × 100 = <strong>600 Bs</strong>.<br />
-        — El que faltó 6 (más) recibe 5 × 100 = <strong>500 Bs</strong>.<br /><br />
+        • El que faltó 3 (menos) recibe 10 × 100 = <strong>1.000 Bs</strong>.<br />
+        • El que faltó 5 recibe 6 × 100 = <strong>600 Bs</strong>.<br />
+        • El que faltó 6 (más) recibe 5 × 100 = <strong>500 Bs</strong>.<br /><br />
 
         <strong>Verificación:</strong> 1.000 + 600 + 500 = 2.100 ✓. Y al que faltó MENOS le tocó
         MÁS, como pide el "inversamente proporcional". ✓
@@ -263,7 +263,7 @@ function Esc06_Errores() {
         <strong>Error 2:</strong> En el inverso, no invertir las cantidades. <br />
         <span style={{ fontSize: 13 }}>
           Si te piden "inversamente proporcional a 2, 3, 5" y aplicás reparto directo
-          a 2, 3, 5 — está MAL. Tenés que trabajar con 1/2, 1/3, 1/5.
+          a 2, 3, 5: está MAL. Tenés que trabajar con 1/2, 1/3, 1/5.
         </span>
       </Cuidado>
       <Cuidado>

@@ -88,8 +88,8 @@ function EscIntro() {
       </Definicion>
 
       <Definicion termino="Círculo vs Circunferencia">
-        — <strong>Circunferencia</strong>: solo la línea curva (1D).<br />
-        — <strong>Círculo</strong>: el área ENCERRADA por la circunferencia (2D).<br /><br />
+        • <strong>Circunferencia</strong>: solo la línea curva (1D).<br />
+        • <strong>Círculo</strong>: el área ENCERRADA por la circunferencia (2D).<br /><br />
         En la práctica, mucha gente usa "círculo" para ambos. Pero
         matemáticamente, la circunferencia tiene LONGITUD; el círculo tiene
         ÁREA.
@@ -99,14 +99,14 @@ function EscIntro() {
 
       <Resumen>
         <strong>Elementos</strong>:<br />
-        — <strong>Centro (O)</strong>: punto fijo.<br />
-        — <strong>Radio (r)</strong>: distancia del centro a cualquier punto de
+        • <strong>Centro (O)</strong>: punto fijo.<br />
+        • <strong>Radio (r)</strong>: distancia del centro a cualquier punto de
         la circunferencia.<br />
-        — <strong>Diámetro (d)</strong>: cuerda que pasa por el centro. d = 2r.<br />
-        — <strong>Cuerda</strong>: segmento que une dos puntos de la
+        • <strong>Diámetro (d)</strong>: cuerda que pasa por el centro. d = 2r.<br />
+        • <strong>Cuerda</strong>: segmento que une dos puntos de la
         circunferencia.<br />
-        — <strong>Arco</strong>: parte de la circunferencia entre dos puntos.<br />
-        — <strong>Semicircunferencia</strong>: arco que vale la mitad (180°).
+        • <strong>Arco</strong>: parte de la circunferencia entre dos puntos.<br />
+        • <strong>Semicircunferencia</strong>: arco que vale la mitad (180°).
       </Resumen>
 
       <Mnemotecnia>
@@ -126,9 +126,9 @@ function EscPosicionesRecta() {
         Una recta puede estar en 3 posiciones respecto de una circunferencia
         de centro O y radio r. Sea d = distancia del centro a la recta:<br /><br />
 
-        — <strong>d &gt; r</strong>: recta EXTERIOR. No la corta.<br />
-        — <strong>d = r</strong>: recta TANGENTE. La toca en UN solo punto.<br />
-        — <strong>d &lt; r</strong>: recta SECANTE. La corta en DOS puntos.
+        • <strong>d &gt; r</strong>: recta EXTERIOR. No la corta.<br />
+        • <strong>d = r</strong>: recta TANGENTE. La toca en UN solo punto.<br />
+        • <strong>d &lt; r</strong>: recta SECANTE. La corta en DOS puntos.
       </Resumen>
 
       <Definicion termino="Recta tangente">
@@ -179,9 +179,9 @@ function EscDosCircs() {
         y C₂. Calcular la distancia del centro de C₃ a T.<br /><br />
 
         <strong>Paso 1 · Distancias entre centros:</strong><br />
-        — Centros de C₁ y C₂: separados por R + R = 10.<br />
-        — T es el punto medio del segmento C₁C₂ (porque tienen igual radio).<br />
-        — Centros C₁ y C₃: separados por R + r = 5 + 3 = 8.<br /><br />
+        • Centros de C₁ y C₂: separados por R + R = 10.<br />
+        • T es el punto medio del segmento C₁C₂ (porque tienen igual radio).<br />
+        • Centros C₁ y C₃: separados por R + r = 5 + 3 = 8.<br /><br />
 
         <strong>Paso 2 · Triángulo en juego:</strong><br />
         C₃ está a distancia 8 de C₁ y a distancia 8 de C₂ (simétrico). C₁T = 5.
@@ -255,9 +255,9 @@ function EscPotencia() {
         <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           Pot(P) = |OP|² − r²
         </span><br /><br />
-        — Si P es exterior: Pot &gt; 0.<br />
-        — Si P está en la circunferencia: Pot = 0.<br />
-        — Si P es interior: Pot &lt; 0.
+        • Si P es exterior: Pot &gt; 0.<br />
+        • Si P está en la circunferencia: Pot = 0.<br />
+        • Si P es interior: Pot &lt; 0.
       </Definicion>
 
       <Resumen>
@@ -356,8 +356,8 @@ function EscArea() {
 
       <Definicion termino="Área de un sector circular">
         Si el sector tiene ángulo central θ:<br />
-        — En radianes: A = (1/2) · r² · θ.<br />
-        — En grados: A = πr² · (θ/360°).
+        • En radianes: A = (1/2) · r² · θ.<br />
+        • En grados: A = πr² · (θ/360°).
       </Definicion>
 
       <WorkedExample titulo="Sector circular">

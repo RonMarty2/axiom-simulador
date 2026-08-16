@@ -41,7 +41,7 @@ function Esc01_Intro() {
       <Parrafo>
         En la lección anterior viste qué es un radical y cómo simplificarlo. Acá
         aprendés a <strong>sumarlos, restarlos, multiplicarlos y dividirlos</strong>{" "}
-        — todas operaciones que vas a usar en álgebra, ecuaciones y geometría.
+        • todas operaciones que vas a usar en álgebra, ecuaciones y geometría.
       </Parrafo>
       <Resumen>
         🎯 <strong>Lo que vas a poder hacer al terminar:</strong> sumar/restar radicales
@@ -49,7 +49,7 @@ function Esc01_Intro() {
         índice, y evitar los errores típicos.
       </Resumen>
       <PorQue>
-        ¿Por qué importa? Aparece en CADA fórmula que tenga raíz cuadrada — fórmula
+        ¿Por qué importa? Aparece en CADA fórmula que tenga raíz cuadrada: fórmula
         cuadrática, teorema de Pitágoras, distancia entre puntos, estadística, etc.
       </PorQue>
 
@@ -61,9 +61,9 @@ function Esc01_Intro() {
 
       <Mnemotecnia>
         <strong>Reglas básicas · "S vs M-D"</strong>:<br />
-        — <strong>Suma/resta</strong>: solo entre semejantes (mismo índice + mismo radicando).
+        • <strong>Suma/resta</strong>: solo entre semejantes (mismo índice + mismo radicando).
         Sumás los coeficientes, el radical queda igual.<br />
-        — <strong>Multiplicación/división</strong>: solo si mismo ÍNDICE (no hace falta
+        • <strong>Multiplicación/división</strong>: solo si mismo ÍNDICE (no hace falta
         mismo radicando). El resultado lleva el mismo índice, y el radicando se multiplica
         (o divide).
       </Mnemotecnia>
@@ -87,14 +87,14 @@ function Esc02_Semejantes() {
       </Definicion>
 
       <Ejemplo titulo="Ejemplos de semejantes">
-        <Paso n={1}><strong>3√2</strong> y <strong>5√2</strong> — mismo índice (2) y mismo radicando (2). ✓</Paso>
-        <Paso n={2}><strong>−√7</strong> y <strong>4√7</strong> — el coeficiente puede ser cualquiera. ✓</Paso>
-        <Paso n={3}><strong>2³√5</strong> y <strong>9³√5</strong> — mismo índice (3) y mismo radicando (5). ✓</Paso>
+        <Paso n={1}><strong>3√2</strong> y <strong>5√2</strong>: mismo índice (2) y mismo radicando (2). ✓</Paso>
+        <Paso n={2}><strong>−√7</strong> y <strong>4√7</strong>: el coeficiente puede ser cualquiera. ✓</Paso>
+        <Paso n={3}><strong>2³√5</strong> y <strong>9³√5</strong>: mismo índice (3) y mismo radicando (5). ✓</Paso>
       </Ejemplo>
 
       <Ejemplo titulo="NO semejantes">
-        <Paso n={1}><strong>√3</strong> y <strong>√5</strong> — distinto radicando (3 vs 5). ✗</Paso>
-        <Paso n={2}><strong>√2</strong> y <strong>³√2</strong> — distinto índice (2 vs 3). ✗</Paso>
+        <Paso n={1}><strong>√3</strong> y <strong>√5</strong>: distinto radicando (3 vs 5). ✗</Paso>
+        <Paso n={2}><strong>√2</strong> y <strong>³√2</strong>: distinto índice (2 vs 3). ✗</Paso>
       </Ejemplo>
 
       <Cuidado>
@@ -241,7 +241,7 @@ function Esc04_SumaResta() {
 
       <Cuidado>
         Si los radicales <strong>NO</strong> son semejantes, la suma se deja indicada. <br />
-        Ej: <strong>√2 + √3</strong> NO se puede simplificar más. NUNCA escribas √2 + √3 = √5 — eso está MAL.
+        Ej: <strong>√2 + √3</strong> NO se puede simplificar más. NUNCA escribas √2 + √3 = √5: eso está MAL.
       </Cuidado>
 
       <AutoCheck
@@ -388,7 +388,7 @@ function Esc07_MultCoef() {
       <Titulo accent={COLOR_OK}>Multiplicación con coeficientes</Titulo>
       <Parrafo>
         Cuando hay <strong>coeficientes</strong> adelante, los coeficientes se multiplican
-        entre sí, y las raíces se multiplican entre sí — por separado.
+        entre sí, y las raíces se multiplican entre sí: por separado.
       </Parrafo>
 
       <Resumen>

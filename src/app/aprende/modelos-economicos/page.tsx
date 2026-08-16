@@ -245,7 +245,7 @@ function Esc02() {
       </Resumen>
       <Misconception>
         <strong>"Solo el dinero circula."</strong> No. En el diagrama, los bienes y los factores
-        también circulan — en sentido OPUESTO al dinero. Lo que va por un carril, vuelve por el
+        también circulan: en sentido OPUESTO al dinero. Lo que va por un carril, vuelve por el
         otro. Eso es lo que hace "circular" al modelo.
       </Misconception>
       <Conexion>
@@ -321,7 +321,7 @@ function Esc04() {
       <Resumen>
         Puntos <strong>sobre la curva</strong> (A, B) = producción <strong>eficiente</strong>.<br />
         Punto <strong>fuera</strong> (C) = imposible con los recursos actuales.<br />
-        Punto <strong>adentro</strong> (D) = ineficiente — se podría producir más sin renunciar a nada.
+        Punto <strong>adentro</strong> (D) = ineficiente: se podría producir más sin renunciar a nada.
       </Resumen>
     </EscenaRica>
   );
@@ -386,7 +386,7 @@ function Esc05() {
       </Resumen>
       <PorQue>
         Por eso la curva es cóncava: el <strong>costo de oportunidad CRECE</strong> a medida que la
-        economía se especializa en un solo bien. Esto es válido para cualquier par de bienes — no
+        economía se especializa en un solo bien. Esto es válido para cualquier par de bienes: no
         solo autos y computadoras.
       </PorQue>
       <MiniQuiz
@@ -408,15 +408,15 @@ function Esc06() {
     <EscenaRica>
       <Titulo>Las 5 ideas que muestra la FPP en un solo gráfico</Titulo>
       <Resumen>
-        <strong>1. Escasez</strong> — puntos fuera de la curva son inalcanzables (los recursos no
+        <strong>1. Escasez</strong>: puntos fuera de la curva son inalcanzables (los recursos no
         dan).<br /><br />
-        <strong>2. Disyuntivas</strong> — para producir más de un bien hay que producir menos del
+        <strong>2. Disyuntivas</strong>: para producir más de un bien hay que producir menos del
         otro (te movés sobre la curva).<br /><br />
-        <strong>3. Costo de oportunidad</strong> — la pendiente de la frontera en cada punto te
+        <strong>3. Costo de oportunidad</strong>: la pendiente de la frontera en cada punto te
         dice cuánto sacrificás de un bien al producir uno más del otro.<br /><br />
-        <strong>4. Eficiencia</strong> — solo los puntos SOBRE la frontera son eficientes. Adentro
+        <strong>4. Eficiencia</strong>: solo los puntos SOBRE la frontera son eficientes. Adentro
         hay desperdicio.<br /><br />
-        <strong>5. Crecimiento económico</strong> — un avance tecnológico o más recursos desplazan
+        <strong>5. Crecimiento económico</strong>: un avance tecnológico o más recursos desplazan
         la curva hacia AFUERA.
       </Resumen>
       <PorQue>
@@ -492,7 +492,7 @@ function EscMnemo() {
       <Misconception titulo="Error típico 1 · confundir FUERA con ADENTRO">
         Punto <strong>FUERA</strong> de la FPP = imposible (no alcanzan recursos).<br />
         Punto <strong>ADENTRO</strong> = posible pero ineficiente (sobran recursos).<br />
-        El examen suele preguntar "¿qué representa un punto X?" — leé bien si está adentro o afuera.
+        El examen suele preguntar "¿qué representa un punto X?": leé bien si está adentro o afuera.
       </Misconception>
       <Misconception titulo="Error típico 2 · pensar que la FPP es la curva de demanda">
         Son COSAS DISTINTAS. La FPP es sobre OFERTA (qué puede producir la economía). La curva de

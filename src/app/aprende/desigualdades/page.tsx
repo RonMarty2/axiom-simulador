@@ -127,7 +127,7 @@ function Esc01_Intro() {
         infinito</strong> de valores.
       </Definicion>
       <Ejemplo>
-        2x + 3 &lt; 11 — su solución es <strong>x &lt; 4</strong> (infinitos números).
+        2x + 3 &lt; 11: su solución es <strong>x &lt; 4</strong> (infinitos números).
       </Ejemplo>
       <Resumen>
         🎯 Aplicaciones: restricciones de presupuesto ("gasto menor que X"), rangos de
@@ -143,8 +143,8 @@ function Esc01_Intro() {
       <Mnemotecnia>
         <strong>Regla de oro · "÷ (−) → invertir"</strong><br />
         Cada vez que multiplicás o dividís POR negativo, el signo de la desigualdad gira:<br />
-        — &lt; pasa a &gt;.<br />
-        — ≤ pasa a ≥.<br />
+        • &lt; pasa a &gt;.<br />
+        • ≤ pasa a ≥.<br />
         Si solo sumás/restás o multiplicás por positivo: NO se invierte.
       </Mnemotecnia>
     </EscenaRica>
@@ -232,8 +232,8 @@ function Esc05_Intervalos() {
       <Titulo>Notación de intervalos</Titulo>
       <Parrafo>La solución de una inecuación se puede escribir como intervalo:</Parrafo>
       <Resumen>
-        x &lt; 4 → (−∞, 4) — paréntesis significa "no incluye".<br />
-        x ≤ 4 → (−∞, 4] — corchete significa "incluye".<br />
+        x &lt; 4 → (−∞, 4): paréntesis significa "no incluye".<br />
+        x ≤ 4 → (−∞, 4]: corchete significa "incluye".<br />
         x &gt; 3 → (3, +∞).<br />
         2 ≤ x &lt; 5 → [2, 5).
       </Resumen>

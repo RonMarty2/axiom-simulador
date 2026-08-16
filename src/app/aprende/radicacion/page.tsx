@@ -83,9 +83,9 @@ function Esc01_Intro() {
         <strong>Equivalencia clave · "raíz = exponente fraccionario"</strong>:<br />
         <strong>ⁿ√(aᵐ) = a^(m/n)</strong>.<br /><br />
         Ejemplos:<br />
-        — √x = x^(1/2). <br />
-        — ³√(x²) = x^(2/3).<br />
-        — ⁴√x = x^(1/4).<br /><br />
+        • √x = x^(1/2). <br />
+        • ³√(x²) = x^(2/3).<br />
+        • ⁴√x = x^(1/4).<br /><br />
         Con esto, cualquier problema con radicales se puede traducir a exponentes y resolver
         con las 5 propiedades.
       </Mnemotecnia>
@@ -462,7 +462,7 @@ function Esc07_Producto() {
       <Ejemplo titulo="Útil para simplificar">
         √72 = √(36 · 2) = √36 · √2 = <strong>6√2</strong><br />
         <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>
-          (Buscamos en 72 un cuadrado perfecto que lo divida — 36 — y lo sacamos afuera.)
+          (Buscamos en 72 un cuadrado perfecto que lo divida: 36: y lo sacamos afuera.)
         </span>
       </Ejemplo>
 
@@ -582,7 +582,7 @@ function Esc10_SumaResta() {
       </Ejemplo>
 
       <Ejemplo titulo="Cuando parecen distintos, simplificá primero">
-        √8 + √2 — ¿son semejantes? √8 = 2√2. Ahora: 2√2 + √2 = <strong>3√2</strong>. ✓
+        √8 + √2: ¿son semejantes? √8 = 2√2. Ahora: 2√2 + √2 = <strong>3√2</strong>. ✓
       </Ejemplo>
 
       <Ejemplo titulo="Suma con tres radicales">
@@ -688,7 +688,7 @@ function Esc11_Racionalizacion() {
           {paso === 0 && "👆 1/√2 tiene una raíz fea abajo"}
           {paso === 1 && "Multiplicamos arriba y abajo por √2 (que vale 1)"}
           {paso === 2 && "Arriba queda √2. Abajo: √2·√2 = 2 (¡sin raíz!)"}
-          {paso === 3 && "Resultado: √2/2 — ya no hay raíz en el denominador ✓"}
+          {paso === 3 && "Resultado: √2/2: ya no hay raíz en el denominador ✓"}
         </div>
       </div>
 
@@ -767,8 +767,8 @@ function Esc12_Errores() {
 
       <Misconception titulo="x² = 25 → x = ±5 · pero √25 = 5 SOLO">
         <strong>Distinción crucial:</strong><br />
-        — Resolver la ECUACIÓN x² = 25 → soluciones x = +5 y x = −5 (ambas cumplen).<br />
-        — Calcular el VALOR de √25 → es solamente +5 (la raíz cuadrada principal es no negativa
+        • Resolver la ECUACIÓN x² = 25 → soluciones x = +5 y x = −5 (ambas cumplen).<br />
+        • Calcular el VALOR de √25 → es solamente +5 (la raíz cuadrada principal es no negativa
         por convención).<br /><br />
         La diferencia es entre "encontrar x que cumple" (todas las raíces) vs "calcular un
         número" (la raíz principal).

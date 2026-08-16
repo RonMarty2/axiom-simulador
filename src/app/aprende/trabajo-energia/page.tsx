@@ -51,18 +51,18 @@ function EscTrabajo() {
 
       <Resumen>
         <strong>Casos especiales</strong>:<br />
-        — Si F está en la misma dirección que el movimiento (θ = 0): W = F·d.
+        • Si F está en la misma dirección que el movimiento (θ = 0): W = F·d.
         Máximo trabajo.<br />
-        — Si F es perpendicular al movimiento (θ = 90°): W = 0.<br />
-        — Si F está en sentido OPUESTO al movimiento (θ = 180°): W = −F·d.
+        • Si F es perpendicular al movimiento (θ = 90°): W = 0.<br />
+        • Si F está en sentido OPUESTO al movimiento (θ = 180°): W = −F·d.
         Trabajo negativo (frena).
       </Resumen>
 
       <Ejemplo titulo="Trabajo positivo, negativo y nulo">
-        — Empujar una caja en dirección del movimiento → W positivo.<br />
-        — Llevar una caja horizontalmente: la gravedad NO hace trabajo (W = 0
+        • Empujar una caja en dirección del movimiento → W positivo.<br />
+        • Llevar una caja horizontalmente: la gravedad NO hace trabajo (W = 0
         porque F es vertical y el movimiento horizontal).<br />
-        — Fricción siempre hace trabajo NEGATIVO (se opone al movimiento).
+        • Fricción siempre hace trabajo NEGATIVO (se opone al movimiento).
       </Ejemplo>
     </EscenaRica>
   );
@@ -82,8 +82,8 @@ function EscCinetica() {
       </Definicion>
 
       <Ejemplo titulo="Ejemplos">
-        — Auto de 1000 kg a 20 m/s: E_c = (1/2)(1000)(400) = 200,000 J = 200 kJ.<br />
-        — Bala de 10 g a 300 m/s: E_c = (1/2)(0.01)(90000) = 450 J.
+        • Auto de 1000 kg a 20 m/s: E_c = (1/2)(1000)(400) = 200,000 J = 200 kJ.<br />
+        • Bala de 10 g a 300 m/s: E_c = (1/2)(0.01)(90000) = 450 J.
       </Ejemplo>
 
       <Cuidado>
@@ -142,10 +142,10 @@ function EscPotencial() {
 
       <Resumen>
         <strong>Propiedades clave</strong>:<br />
-        — La E_p depende del marco de referencia (la "altura cero" la elegís
+        • La E_p depende del marco de referencia (la "altura cero" la elegís
         tú).<br />
-        — Lo que importa es el CAMBIO de energía potencial entre dos puntos.<br />
-        — A mayor altura, mayor E_p.
+        • Lo que importa es el CAMBIO de energía potencial entre dos puntos.<br />
+        • A mayor altura, mayor E_p.
       </Resumen>
 
       <Ejemplo titulo="Ejemplos">

@@ -64,8 +64,8 @@ function Esc01_Intro() {
       <Mnemotecnia>
         <strong>Test "↓↓ vs ↓↑"</strong> antes de hacer cualquier cálculo:<br />
         Dibujá DOS FLECHAS al lado de las dos columnas.<br />
-        — Si las dos van hacia ABAJO → DIRECTA → multiplicás en CRUZ.<br />
-        — Si una va arriba y otra abajo → INVERSA → multiplicás EN LÍNEA.
+        • Si las dos van hacia ABAJO → DIRECTA → multiplicás en CRUZ.<br />
+        • Si una va arriba y otra abajo → INVERSA → multiplicás EN LÍNEA.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -204,7 +204,7 @@ function Esc04_Inversa() {
           {paso === 0 && "4 obreros → 12 días. Con 6 obreros: ¿?"}
           {paso === 1 && "Flechas opuestas: más obreros, menos días (INVERSA)"}
           {paso === 2 && "Acá multiplico EN LÍNEA: 4·12, divido por 6"}
-          {paso === 3 && "x = 8 días (menos, lógico — más manos terminan antes)"}
+          {paso === 3 && "x = 8 días (menos, lógico: más manos terminan antes)"}
         </div>
       </div>
 
@@ -385,10 +385,10 @@ function Esc08_IntFor() {
 
       <CasoBolivia>
         <strong>Tasas reales en Bolivia (2024-2025):</strong><br />
-        — DPF (depósitos a plazo fijo) en bolivianos: <strong>3-5% anual</strong>.<br />
-        — Crédito de consumo (tarjeta): <strong>15-22% anual</strong>.<br />
-        — Microcrédito productivo: <strong>11-13% anual</strong>.<br />
-        — Crédito de vivienda social: <strong>5,5-6,5% anual</strong>.<br /><br />
+        • DPF (depósitos a plazo fijo) en bolivianos: <strong>3-5% anual</strong>.<br />
+        • Crédito de consumo (tarjeta): <strong>15-22% anual</strong>.<br />
+        • Microcrédito productivo: <strong>11-13% anual</strong>.<br />
+        • Crédito de vivienda social: <strong>5,5-6,5% anual</strong>.<br /><br />
         Si pedís un préstamo de 50.000 Bs a 12% anual por 3 años (interés simple):<br />
         I = (50.000 × 12 × 3) / 100 = <strong>18.000 Bs</strong> de interés.<br />
         Pagás un total de 68.000 Bs (1.888 Bs por mes).
@@ -444,7 +444,7 @@ function Esc10_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios — mezclá directa, inversa, porcentaje e interés:</Parrafo>
+      <Parrafo>5 ejercicios: mezclá directa, inversa, porcentaje e interés:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;
@@ -482,7 +482,7 @@ function Esc10_Practica() {
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominás regla de tres e interés simple."}
-            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste — identificar el tipo es lo más importante."}
+            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste: identificar el tipo es lo más importante."}
             {ok < 3 && "Volvé a la escena 2 (directa vs inversa). Es la base de todo."}
           </div>
         </motion.div>

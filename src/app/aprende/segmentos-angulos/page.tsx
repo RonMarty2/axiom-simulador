@@ -41,7 +41,7 @@ function EscIntro() {
       <Parrafo>
         La geometría euclidiana se construye sobre tres conceptos
         <strong> indefinidos</strong>: punto, recta y plano. No se "definen"
-        porque son los ladrillos primarios — toda la geometría sale de combinarlos.
+        porque son los ladrillos primarios. Toda la geometría sale de combinarlos.
       </Parrafo>
 
       <Hook>
@@ -129,17 +129,17 @@ function EscSegmento() {
 
       <Resumen>
         <strong>Notación · 3 variantes</strong>:<br />
-        — <strong>AB</strong> (con barra arriba): el segmento como objeto geométrico.<br />
-        — <strong>|AB|</strong> o <strong>m(AB)</strong>: la longitud (un número).<br />
-        — Cuando el contexto es claro, se escribe <strong>AB = 6 cm</strong>.
+        • <strong>AB</strong> (con barra arriba): el segmento como objeto geométrico.<br />
+        • <strong>|AB|</strong> o <strong>m(AB)</strong>: la longitud (un número).<br />
+        • Cuando el contexto es claro, se escribe <strong>AB = 6 cm</strong>.
       </Resumen>
 
       <Mnemotecnia>
         <strong>Recta vs Semirrecta vs Segmento</strong>:<br />
-        — <strong>Recta</strong>: infinita en ambos sentidos. Sin extremos.<br />
-        — <strong>Semirrecta</strong> (o rayo): infinita en UN sentido. Tiene 1 extremo
+        • <strong>Recta</strong>: infinita en ambos sentidos. Sin extremos.<br />
+        • <strong>Semirrecta</strong> (o rayo): infinita en UN sentido. Tiene 1 extremo
         (el origen) y se extiende sin fin hacia el otro lado.<br />
-        — <strong>Segmento</strong>: finito. Tiene 2 extremos.<br /><br />
+        • <strong>Segmento</strong>: finito. Tiene 2 extremos.<br /><br />
         Truco: el segmento es el único que se puede medir con regla.
       </Mnemotecnia>
 
@@ -271,15 +271,15 @@ function EscAnguloConcepto() {
 
       <Resumen>
         <strong>Notación</strong>:<br />
-        — Por el vértice: <strong>∠O</strong>.<br />
-        — Por 3 puntos (vértice en el medio): <strong>∠AOB</strong>.<br />
-        — Por una letra griega: <strong>∠α</strong> (alfa), <strong>∠β</strong> (beta), <strong>∠θ</strong> (theta).
+        • Por el vértice: <strong>∠O</strong>.<br />
+        • Por 3 puntos (vértice en el medio): <strong>∠AOB</strong>.<br />
+        • Por una letra griega: <strong>∠α</strong> (alfa), <strong>∠β</strong> (beta), <strong>∠θ</strong> (theta).
       </Resumen>
 
       <Definicion termino="Unidades de medida angular">
-        — <strong>Grado sexagesimal (°)</strong>: la vuelta completa son 360°.
+        • <strong>Grado sexagesimal (°)</strong>: la vuelta completa son 360°.
         1° = 60 minutos ('), 1' = 60 segundos ("). El sistema más usado en bachillerato.<br /><br />
-        — <strong>Radián (rad)</strong>: la vuelta completa son 2π radianes. Se usa
+        • <strong>Radián (rad)</strong>: la vuelta completa son 2π radianes. Se usa
         en cálculo y física avanzada.
       </Definicion>
 
@@ -292,10 +292,10 @@ function EscAnguloConcepto() {
       </Mnemotecnia>
 
       <Ejemplo titulo="Ejemplos de conversión">
-        — 90° = 90 · π/180 = π/2 rad<br />
-        — 60° = 60 · π/180 = π/3 rad<br />
-        — 45° = 45 · π/180 = π/4 rad<br />
-        — π/6 rad = (π/6) · (180/π) = 30°
+        • 90° = 90 · π/180 = π/2 rad<br />
+        • 60° = 60 · π/180 = π/3 rad<br />
+        • 45° = 45 · π/180 = π/4 rad<br />
+        • π/6 rad = (π/6) · (180/π) = 30°
       </Ejemplo>
     </EscenaRica>
   );
@@ -362,10 +362,10 @@ function EscClasificacion() {
 
       <Mnemotecnia>
         <strong>Truco visual</strong>:<br />
-        — Si "cabe" dentro de la esquina de una hoja → <strong>Agudo</strong> (menor a 90°).<br />
-        — Si "llena exactamente" la esquina → <strong>Recto</strong> (= 90°).<br />
-        — Si "sobresale" la esquina pero NO es una línea → <strong>Obtuso</strong> (entre 90 y 180).<br />
-        — Si es una <em>línea recta</em> exacta → <strong>Llano</strong>.
+        • Si "cabe" dentro de la esquina de una hoja → <strong>Agudo</strong> (menor a 90°).<br />
+        • Si "llena exactamente" la esquina → <strong>Recto</strong> (= 90°).<br />
+        • Si "sobresale" la esquina pero NO es una línea → <strong>Obtuso</strong> (entre 90 y 180).<br />
+        • Si es una <em>línea recta</em> exacta → <strong>Llano</strong>.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -390,9 +390,9 @@ function EscPares() {
       </Definicion>
 
       <Ejemplo titulo="Complementarios">
-        — 30° y 60° son complementarios (30 + 60 = 90).<br />
-        — 45° y 45° son complementarios entre sí.<br />
-        — El complemento de 25° es 90 − 25 = 65°.
+        • 30° y 60° son complementarios (30 + 60 = 90).<br />
+        • 45° y 45° son complementarios entre sí.<br />
+        • El complemento de 25° es 90 − 25 = 65°.
       </Ejemplo>
 
       <Definicion termino="Ángulos suplementarios">
@@ -401,9 +401,9 @@ function EscPares() {
       </Definicion>
 
       <Ejemplo titulo="Suplementarios">
-        — 60° y 120° son suplementarios.<br />
-        — 90° y 90° son suplementarios entre sí.<br />
-        — El suplemento de 75° es 180 − 75 = 105°.
+        • 60° y 120° son suplementarios.<br />
+        • 90° y 90° son suplementarios entre sí.<br />
+        • El suplemento de 75° es 180 − 75 = 105°.
       </Ejemplo>
 
       <Definicion termino="Ángulos opuestos por el vértice">
@@ -486,8 +486,8 @@ function EscParalelas() {
 
       <Mnemotecnia>
         <strong>Regla práctica · "alterno = igual, conjugado = suplemento"</strong>:<br />
-        — Si dos ángulos están en lados <strong>opuestos</strong> de la transversal → IGUALES.<br />
-        — Si están en el <strong>mismo lado</strong> de la transversal → SUMAN 180°.<br /><br />
+        • Si dos ángulos están en lados <strong>opuestos</strong> de la transversal → IGUALES.<br />
+        • Si están en el <strong>mismo lado</strong> de la transversal → SUMAN 180°.<br /><br />
         Esto vale tanto para los internos como para los externos.
       </Mnemotecnia>
 
@@ -502,9 +502,9 @@ function EscParalelas() {
         Suplemento de 75° = 180 − 75 = <strong>105°</strong>.<br /><br />
 
         Entonces:<br />
-        — 4 ángulos miden <strong>75°</strong> (el original + sus correspondientes,
+        • 4 ángulos miden <strong>75°</strong> (el original + sus correspondientes,
         opuestos por el vértice, alternos).<br />
-        — 4 ángulos miden <strong>105°</strong> (los suplementarios).<br /><br />
+        • 4 ángulos miden <strong>105°</strong> (los suplementarios).<br /><br />
 
         <strong>Verificación:</strong> 4(75) + 4(105) = 300 + 420 = 720 = 8 · 90 ✓
         (la suma total de los 8 ángulos siempre es 4 vueltas completas / 2 = 720°).
@@ -532,7 +532,7 @@ function EscErrores() {
         Un ángulo agudo es MENOR a 90°, no "pequeño". 89° es agudo, 91° es
         obtuso. El umbral exacto es 90°.<br /><br />
         En el examen, muchas opciones aprovechan que la gente clasifica de
-        "ojo" — si ves 88°, no es recto, es agudo.
+        "ojo": si ves 88°, no es recto, es agudo.
       </Misconception>
 
       <Misconception titulo="Error 2 · complementario vs suplementario">

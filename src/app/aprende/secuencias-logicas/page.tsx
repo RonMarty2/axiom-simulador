@@ -106,19 +106,19 @@ function EscTipos() {
     <EscenaRica>
       <Titulo>Los 3 tipos de secuencia</Titulo>
       <Resumen>
-        <strong>1. Numéricas</strong> — los términos son números. Patrones: suma, resta, multiplicación,
+        <strong>1. Numéricas</strong>: los términos son números. Patrones: suma, resta, multiplicación,
         división, cuadrados, Fibonacci.<br />
         Ej: 2, 4, 6, 8, __ → +2 → 10
       </Resumen>
       <SecuenciaConPatron terminos={["2", "4", "6", "8", "10"]} patron="+2" />
       <Resumen>
-        <strong>2. Alfabéticas</strong> — los términos son letras. Patrones: avanzar/retroceder N
+        <strong>2. Alfabéticas</strong>: los términos son letras. Patrones: avanzar/retroceder N
         posiciones en el abecedario.<br />
         Ej: A, C, E, G, __ → +2 letras → I
       </Resumen>
       <SecuenciaConPatron terminos={["A", "C", "E", "G", "I"]} patron="+2" color={LIENZO.ok} />
       <Resumen>
-        <strong>3. Mixtas</strong> — combinan número y letra. Patrones paralelos: el número sigue una
+        <strong>3. Mixtas</strong>: combinan número y letra. Patrones paralelos: el número sigue una
         regla y la letra otra.<br />
         Ej: 1A, 2B, 3C, 4D, __ → +1 y +1 → 5E
       </Resumen>

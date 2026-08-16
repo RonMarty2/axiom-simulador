@@ -52,13 +52,13 @@ function EscEstrategia() {
 
       <Resumen>
         <strong>Estrategia en 4 pasos</strong> (probada en exámenes de admisión):<br /><br />
-        <strong>1. Lectura rápida primera</strong> — para captar de qué trata el texto (¿de qué tema
+        <strong>1. Lectura rápida primera</strong>: para captar de qué trata el texto (¿de qué tema
         habla?, ¿qué postura toma el autor?).<br /><br />
-        <strong>2. Lectura detallada después</strong> — identificá la <strong>idea principal de cada
+        <strong>2. Lectura detallada después</strong>: identificá la <strong>idea principal de cada
         párrafo</strong> (es lo que el autor más repite o lo que articula al párrafo).<br /><br />
-        <strong>3. Leé la pregunta CON ATENCIÓN</strong> — palabras como "según el texto", "se puede
+        <strong>3. Leé la pregunta CON ATENCIÓN</strong>: palabras como "según el texto", "se puede
         deducir" o "principalmente" cambian todo. Subrayalas mentalmente.<br /><br />
-        <strong>4. Volvé al texto antes de elegir</strong> — nunca contestes solo "porque sí". Volvé y
+        <strong>4. Volvé al texto antes de elegir</strong>: nunca contestes solo "porque sí". Volvé y
         verificá. Si dos opciones parecen buenas, la correcta es la <strong>más completa o más exacta</strong>.
       </Resumen>
 
@@ -90,7 +90,7 @@ function EscEstrategia() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 1 — ejemplo guiado tomado de la práctica resuelta de la guía.
+// Lectura 1: ejemplo guiado tomado de la práctica resuelta de la guía.
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura1() {
   return (
@@ -136,7 +136,7 @@ function EscLectura1() {
               "El funcionamiento del mercado basado en la oferta y la demanda.",
             ],
             c: 1,
-            ex: "El texto NO trata solo de tasas de interés (a) ni solo de inflación (d), aunque las menciona. Su eje es cómo el Estado interviene con políticas monetarias y fiscales para estabilizar la economía. Las opciones a, c, d y e son verdaderas según el texto pero PARCIALES — cubren solo un párrafo, no la idea central.",
+            ex: "El texto NO trata solo de tasas de interés (a) ni solo de inflación (d), aunque las menciona. Su eje es cómo el Estado interviene con políticas monetarias y fiscales para estabilizar la economía. Las opciones a, c, d y e son verdaderas según el texto pero PARCIALES: cubren solo un párrafo, no la idea central.",
           },
           {
             p: "Según el texto, ¿cuál es el efecto de un aumento en las tasas de interés?",
@@ -181,7 +181,7 @@ function EscLectura1() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 2 — crecimiento económico y desigualdad social
+// Lectura 2: crecimiento económico y desigualdad social
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura2() {
   return (
@@ -276,7 +276,7 @@ function EscLectura2() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 3 — inflación
+// Lectura 3: inflación
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura3() {
   return (
@@ -366,7 +366,7 @@ function EscLectura3() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 4 — globalización
+// Lectura 4: globalización
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura4() {
   return (
@@ -457,7 +457,7 @@ function EscLectura4() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 5 — comercio electrónico
+// Lectura 5: comercio electrónico
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura5() {
   return (
@@ -549,7 +549,7 @@ function EscLectura5() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 6 — Inversión Extranjera Directa (IED)
+// Lectura 6: Inversión Extranjera Directa (IED)
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura6() {
   return (
@@ -639,7 +639,7 @@ function EscLectura6() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 7 — impuestos progresivos
+// Lectura 7: impuestos progresivos
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura7() {
   return (
@@ -730,7 +730,7 @@ function EscLectura7() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Lectura 8 — remesas
+// Lectura 8: remesas
 // ─────────────────────────────────────────────────────────────────────────────
 function EscLectura8() {
   return (
@@ -841,7 +841,7 @@ function EscResumen() {
       </Resumen>
 
       <Mnemotecnia>
-        <strong>Acrónimo "RDPC" — los 4 pasos en orden</strong>:<br />
+        <strong>Acrónimo "RDPC", los 4 pasos en orden</strong>:<br />
         <strong>R</strong>ápida (¿de qué trata?) · <strong>D</strong>etallada (idea de cada párrafo) ·
         <strong> P</strong>regunta (subrayar palabras clave: "según el texto", "principalmente",
         "se deduce") · <strong>C</strong>ontrastar (volver al texto antes de marcar).
@@ -860,20 +860,20 @@ function EscResumen() {
         fallas del mercado. Eje: política monetaria/fiscal y estabilidad.<br /><br />
 
         <strong>Paso D (detallada):</strong><br />
-        — Párrafo 1: introduce el rol del Estado y políticas.<br />
-        — Párrafo 2: tasas de interés.<br />
-        — Párrafo 3: inflación y bancos centrales.<br />
-        — Párrafo 4: efectos globales.<br /><br />
+        • Párrafo 1: introduce el rol del Estado y políticas.<br />
+        • Párrafo 2: tasas de interés.<br />
+        • Párrafo 3: inflación y bancos centrales.<br />
+        • Párrafo 4: efectos globales.<br /><br />
 
         <strong>Paso P (pregunta):</strong> "fundamentalmente" = idea central, no detalle.<br /><br />
 
         <strong>Paso C (contrastar):</strong><br />
-        — (a) tasas: solo párrafo 2 → PARCIAL. Descartada.<br />
-        — (c) efectos globales: solo párrafo 4 → PARCIAL. Descartada.<br />
-        — (d) inflación + tasas: solo párrafos 2 y 3 → PARCIAL. Descartada.<br />
-        — (e) oferta y demanda: solo se menciona al inicio para contextualizar → PARCIAL.
+        • (a) tasas: solo párrafo 2 → PARCIAL. Descartada.<br />
+        • (c) efectos globales: solo párrafo 4 → PARCIAL. Descartada.<br />
+        • (d) inflación + tasas: solo párrafos 2 y 3 → PARCIAL. Descartada.<br />
+        • (e) oferta y demanda: solo se menciona al inicio para contextualizar → PARCIAL.
         Descartada.<br />
-        — (b) políticas monetarias y fiscales para estabilidad: <strong>articula TODO el
+        • (b) políticas monetarias y fiscales para estabilidad: <strong>articula TODO el
         texto</strong>. Es la más COMPLETA.<br /><br />
 
         <strong>Respuesta: (b)</strong>. La estrategia no fue "adivinar la mejor": fue eliminar

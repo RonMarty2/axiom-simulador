@@ -109,27 +109,27 @@ function EscTipos() {
     <EscenaRica>
       <Titulo>10 tipos de relación analógica</Titulo>
       <Resumen>
-        <strong>1. Sinonimia</strong> — palabras de significado equivalente.<br />
+        <strong>1. Sinonimia</strong>: palabras de significado equivalente.<br />
         <em>valiente : intrépido</em><br /><br />
-        <strong>2. Antonimia</strong> — palabras de significado opuesto.<br />
+        <strong>2. Antonimia</strong>: palabras de significado opuesto.<br />
         <em>día : noche</em><br /><br />
-        <strong>3. Parte-todo (inclusión)</strong> — la primera es parte de la segunda.<br />
+        <strong>3. Parte-todo (inclusión)</strong>: la primera es parte de la segunda.<br />
         <em>pétalo : flor</em><br /><br />
-        <strong>4. Causa-efecto</strong> — la primera produce a la segunda.<br />
+        <strong>4. Causa-efecto</strong>: la primera produce a la segunda.<br />
         <em>fuego : calor</em><br /><br />
-        <strong>5. Función</strong> — la primera sirve para hacer la segunda.<br />
+        <strong>5. Función</strong>: la primera sirve para hacer la segunda.<br />
         <em>llave : abrir · cuchillo : cortar</em>
       </Resumen>
       <Resumen>
-        <strong>6. Categoría o clasificación</strong> — la primera es un tipo de la segunda.<br />
+        <strong>6. Categoría o clasificación</strong>: la primera es un tipo de la segunda.<br />
         <em>manzana : fruta</em><br /><br />
-        <strong>7. Característica o cualidad</strong> — la segunda describe a la primera.<br />
+        <strong>7. Característica o cualidad</strong>: la segunda describe a la primera.<br />
         <em>oro : brillante</em><br /><br />
-        <strong>8. Secuencia</strong> — paso primero y paso siguiente de un proceso.<br />
+        <strong>8. Secuencia</strong>: paso primero y paso siguiente de un proceso.<br />
         <em>siembra : cosecha</em><br /><br />
-        <strong>9. Objeto-lugar</strong> — objeto y su ubicación habitual.<br />
+        <strong>9. Objeto-lugar</strong>: objeto y su ubicación habitual.<br />
         <em>libro : biblioteca</em><br /><br />
-        <strong>10. Materia-producto</strong> — la primera es materia prima de la segunda.<br />
+        <strong>10. Materia-producto</strong>: la primera es materia prima de la segunda.<br />
         <em>madera : mesa</em>
       </Resumen>
     </EscenaRica>
@@ -215,7 +215,7 @@ function EscGuiado() {
           "Agua - Líquido",
         ],
         c: 2,
-        ex: "Sol es UN TIPO de estrella. Venus es UN TIPO de planeta — misma relación de categoría dentro del campo astronómico. La luna NO es un planeta (a es falsa). Rosa-Flor sí es categoría, pero fuera del campo astronómico (b está bien gramaticalmente pero rompe el contexto). Agua-Líquido también es categoría, pero más débil.",
+        ex: "Sol es UN TIPO de estrella. Venus es UN TIPO de planeta: misma relación de categoría dentro del campo astronómico. La luna NO es un planeta (a es falsa). Rosa-Flor sí es categoría, pero fuera del campo astronómico (b está bien gramaticalmente pero rompe el contexto). Agua-Líquido también es categoría, pero más débil.",
       }]} />
     </EscenaRica>
   );
@@ -442,7 +442,7 @@ function EscResumen() {
         sigue el patrón).<br />
         <strong>(b)</strong> Orden invertido (cambia la dirección del puente).<br />
         <strong>(c)</strong> Campo semántico distinto (los pares originales son astronómicos, la
-        opción "buena" es animal — descartá).
+        opción "buena" es animal: descartá).
       </Misconception>
     </EscenaRica>
   );

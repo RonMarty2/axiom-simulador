@@ -515,7 +515,7 @@ function Esc09_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios — combiná los 5 casos:</Parrafo>
+      <Parrafo>5 ejercicios: combiná los 5 casos:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;

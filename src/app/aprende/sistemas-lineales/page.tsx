@@ -131,9 +131,9 @@ function Esc01_Intro() {
 
       <Mnemotecnia>
         <strong>"S-I-R" · los 3 métodos en orden de preferencia</strong>:<br />
-        <strong>R</strong>educción (sumar/restar ecuaciones) — la más rápida en el examen.<br />
-        <strong>S</strong>ustitución (despejar una y reemplazar) — la más versátil.<br />
-        <strong>I</strong>gualación (despejar la misma variable en ambas) — la más elegante.<br /><br />
+        <strong>R</strong>educción (sumar/restar ecuaciones): la más rápida en el examen.<br />
+        <strong>S</strong>ustitución (despejar una y reemplazar): la más versátil.<br />
+        <strong>I</strong>gualación (despejar la misma variable en ambas): la más elegante.<br /><br />
         Los 3 dan el mismo resultado. Elegí según el sistema.
       </Mnemotecnia>
     </EscenaRica>
@@ -227,7 +227,7 @@ function Esc05_Cual() {
         • Si una variable ya está despejada (o se despeja fácil) → <strong>SUSTITUCIÓN</strong>.<br />
         • Si las dos ecuaciones tienen coef parecidos → <strong>REDUCCIÓN</strong>.<br />
         • Si las dos son simétricas/fáciles para la misma variable → <strong>IGUALACIÓN</strong>.<br />
-        Cualquier método te da el mismo resultado — usá el que veas más cómodo.
+        Cualquier método te da el mismo resultado. Usá el que veas más cómodo.
       </Resumen>
       <Cuidado>
         En un examen, <strong>reducción suele ser la más rápida</strong> cuando los coeficientes
@@ -247,11 +247,11 @@ function Esc06_Casos() {
       </Ejemplo>
 
       <Ejemplo titulo="2. Sin solución (rectas paralelas)">
-        <strong>{`{ x + y = 5, x + y = 9 }`}</strong> — contradicción (5 ≠ 9). NO hay (x,y) que cumpla ambas. Sistema <strong>incompatible</strong>.
+        <strong>{`{ x + y = 5, x + y = 9 }`}</strong>: contradicción (5 ≠ 9). NO hay (x,y) que cumpla ambas. Sistema <strong>incompatible</strong>.
       </Ejemplo>
 
       <Ejemplo titulo="3. Infinitas soluciones (la misma recta)">
-        <strong>{`{ x + y = 5, 2x + 2y = 10 }`}</strong> — la 2ª es solo la 1ª multiplicada por 2. Cualquier (x, y) que cumpla x+y=5 vale. Sistema <strong>compatible indeterminado</strong>.
+        <strong>{`{ x + y = 5, 2x + 2y = 10 }`}</strong>: la 2ª es solo la 1ª multiplicada por 2. Cualquier (x, y) que cumpla x+y=5 vale. Sistema <strong>compatible indeterminado</strong>.
       </Ejemplo>
 
       <PorQue>
@@ -290,8 +290,8 @@ function Esc07_Verbal() {
         y = nº de billetes de 5 Bs.<br /><br />
 
         <strong>Paso 2 · Plantear el sistema:</strong><br />
-        — Ec.1 (cantidad): x + y = 25.<br />
-        — Ec.2 (monto): 2x + 5y = 92.<br /><br />
+        • Ec.1 (cantidad): x + y = 25.<br />
+        • Ec.2 (monto): 2x + 5y = 92.<br /><br />
 
         <strong>Paso 3 · Método de reducción:</strong><br />
         Multiplico Ec.1 por −2: −2x − 2y = −50.<br />
@@ -338,12 +338,12 @@ function Esc08_Errores() {
 
       <Misconception titulo="Test del 0=0 y 0=5 para detectar casos especiales">
         Si aplicás cualquier método y llegás a:<br />
-        — <strong>"0 = 5"</strong> (o cualquier contradicción): el sistema NO TIENE
+        • <strong>"0 = 5"</strong> (o cualquier contradicción): el sistema NO TIENE
         SOLUCIÓN. Las rectas son paralelas.<br />
-        — <strong>"0 = 0"</strong> (identidad): INFINITAS soluciones. Las rectas son la
+        • <strong>"0 = 0"</strong> (identidad): INFINITAS soluciones. Las rectas son la
         misma.<br />
-        — Si despejás x y obtenés un número: <strong>solución única</strong>.<br /><br />
-        Mucha gente se asusta y piensa "me equivoqué" — no, ese es el resultado.
+        • Si despejás x y obtenés un número: <strong>solución única</strong>.<br /><br />
+        Mucha gente se asusta y piensa "me equivoqué". No, ese es el resultado.
       </Misconception>
 
       <Conexion>

@@ -84,7 +84,7 @@ function EscPatrones() {
         <strong>(b) Tema en grande</strong>: usa el sustantivo del título sin antecedentes
         ("Bolivia es…", "El ADN es…").<br />
         <strong>(c) Sin pronombres anafóricos</strong>: no comienza con "este", "esto", "él",
-        "esa molécula" — porque esos remiten a algo mencionado ANTES.<br /><br />
+        "esa molécula": porque esos remiten a algo mencionado ANTES.<br /><br />
 
         <strong>Pistas para detectar la ÚLTIMA oración:</strong><br />
         (a) Llamado a la acción: "debemos…", "es fundamental…", "hay que…".<br />
@@ -92,7 +92,7 @@ function EscPatrones() {
         (c) Fecha tardía en una secuencia cronológica.<br /><br />
 
         <strong>Práctica mental:</strong> mirá las 4 oraciones y SIN leer las opciones, decidí
-        cuál sería la 1ra y cuál la última. Después comparás con las opciones — el 80% se
+        cuál sería la 1ra y cuál la última. Después comparás con las opciones: el 80% se
         descarta automáticamente.
       </WorkedExample>
 

@@ -64,7 +64,7 @@ function DiagramaVenn4Formas() {
         <svg width="100%" height="100%" viewBox="0 0 480 240"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}>
-          {/* "Todos A son B" — A dentro de B */}
+          {/* "Todos A son B": A dentro de B */}
           {f.tipo === "incluido" && (
             <g>
               <motion.circle cx="220" cy="120" r="90"
@@ -78,7 +78,7 @@ function DiagramaVenn4Formas() {
             </g>
           )}
 
-          {/* "Ningún A es B" — disjuntos */}
+          {/* "Ningún A es B": disjuntos */}
           {f.tipo === "disjuntos" && (
             <g>
               <motion.circle cx="160" cy="120" r="60"
@@ -92,7 +92,7 @@ function DiagramaVenn4Formas() {
             </g>
           )}
 
-          {/* "Algunos A son B" — intersección */}
+          {/* "Algunos A son B": intersección */}
           {(f.tipo === "interseccion" || f.tipo === "interseccion-fuera") && (
             <g>
               <motion.circle cx="190" cy="120" r="65"
@@ -181,10 +181,10 @@ function EscCuantificadores() {
         conjunto se aplica.
       </Definicion>
       <Resumen>
-        <strong>Cuantificador universal</strong> — se aplica a TODOS los elementos del conjunto.<br />
+        <strong>Cuantificador universal</strong>: se aplica a TODOS los elementos del conjunto.<br />
         Palabras: <em>todos, cada, ninguno</em>.<br />
         Ejemplo: "Todos los mamíferos respiran aire".<br /><br />
-        <strong>Cuantificador existencial</strong> — se aplica a AL MENOS UNO del conjunto.<br />
+        <strong>Cuantificador existencial</strong>: se aplica a AL MENOS UNO del conjunto.<br />
         Palabras: <em>algún, algunos, existe, no todos</em>.<br />
         Ejemplo: "Algunos pájaros no vuelan".
       </Resumen>
@@ -267,19 +267,19 @@ function EscContradiccion() {
       <WorkedExample titulo="Cuadro lógico clásico · todas las relaciones">
         Las 4 formas en un cuadrado:<br /><br />
         <strong>Esquinas superiores (universales):</strong><br />
-        — A: "Todos los X son Y" (afirmativa).<br />
-        — E: "Ningún X es Y" (negativa).<br /><br />
+        • A: "Todos los X son Y" (afirmativa).<br />
+        • E: "Ningún X es Y" (negativa).<br /><br />
 
         <strong>Esquinas inferiores (particulares):</strong><br />
-        — I: "Algunos X son Y" (afirmativa).<br />
-        — O: "Algunos X no son Y" (negativa).<br /><br />
+        • I: "Algunos X son Y" (afirmativa).<br />
+        • O: "Algunos X no son Y" (negativa).<br /><br />
 
         <strong>Relaciones (las diagonales son las contradictorias):</strong><br />
-        — A ⟷ O (cruz: "Todos son" vs "Algunos NO son").<br />
-        — E ⟷ I (cruz: "Ninguno es" vs "Algunos SÍ son").<br /><br />
+        • A ⟷ O (cruz: "Todos son" vs "Algunos NO son").<br />
+        • E ⟷ I (cruz: "Ninguno es" vs "Algunos SÍ son").<br /><br />
 
         <strong>Aplicación:</strong> aseveración "Todos los gatos cazan ratones".<br />
-        Para refutarla, NO necesitás probar "ningún gato caza" — basta encontrar UN gato que NO
+        Para refutarla, NO necesitás probar "ningún gato caza": basta encontrar UN gato que NO
         cace (la contradictoria O).<br /><br />
 
         <strong>Esto se llama "contraejemplo"</strong> y es el método más usado en lógica y
@@ -470,7 +470,7 @@ function EscResumen() {
         Universal negativa, Particular afirmativa, Particular negativa.<br /><br />
         <strong>2.</strong> Para visualizar usá diagramas de Venn: incluido, disjunto, intersección.<br /><br />
         <strong>3.</strong> La contradicción cruza CANTIDAD + CUALIDAD: "Todos son" ↔ "Algunos NO son"; "Ninguno es" ↔ "Algunos SÍ son".<br /><br />
-        <strong>4.</strong> "Ninguno es" NO es contradicción de "Todos son" — es otra universal.<br /><br />
+        <strong>4.</strong> "Ninguno es" NO es contradicción de "Todos son": es otra universal.<br /><br />
         <strong>5.</strong> Para que una universal afirmativa ("Todos son X") sea falsa, basta UN
         contraejemplo. No hace falta probar "ninguno".
       </Resumen>

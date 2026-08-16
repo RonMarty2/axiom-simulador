@@ -54,10 +54,10 @@ function EscMol() {
       </Mnemotecnia>
 
       <Ejemplo titulo="Comparaciones para dimensionar el mol">
-        — 1 mol de granos de arroz cubriría toda la Tierra con una capa de
+        • 1 mol de granos de arroz cubriría toda la Tierra con una capa de
         varios metros.<br />
-        — 1 mol de segundos = mucho más que la edad del universo.<br />
-        — Pero 1 mol de átomos de hierro cabe en unos pocos gramos.
+        • 1 mol de segundos = mucho más que la edad del universo.<br />
+        • Pero 1 mol de átomos de hierro cabe en unos pocos gramos.
       </Ejemplo>
     </EscenaRica>
   );
@@ -78,8 +78,8 @@ function EscAvogadro() {
 
       <Resumen>
         <strong>Conversiones clave</strong>:<br />
-        — Número de moléculas = moles × N_A.<br />
-        — Moles = número de moléculas / N_A.
+        • Número de moléculas = moles × N_A.<br />
+        • Moles = número de moléculas / N_A.
       </Resumen>
 
       <WorkedExample titulo="Q16 2op-2-2025 · átomos de oxígeno en NO">
@@ -124,11 +124,11 @@ function EscMasaMolar() {
       </Definicion>
 
       <Ejemplo titulo="Cálculo de masa molar">
-        — H₂O: 2(1) + 16 = <strong>18 g/mol</strong>.<br />
-        — CO₂: 12 + 2(16) = <strong>44 g/mol</strong>.<br />
-        — H₂SO₄: 2(1) + 32 + 4(16) = <strong>98 g/mol</strong>.<br />
-        — Na₂CO₃: 2(23) + 12 + 3(16) = <strong>106 g/mol</strong>.<br />
-        — Ca(OH)₂: 40 + 2(16 + 1) = 40 + 34 = <strong>74 g/mol</strong>.
+        • H₂O: 2(1) + 16 = <strong>18 g/mol</strong>.<br />
+        • CO₂: 12 + 2(16) = <strong>44 g/mol</strong>.<br />
+        • H₂SO₄: 2(1) + 32 + 4(16) = <strong>98 g/mol</strong>.<br />
+        • Na₂CO₃: 2(23) + 12 + 3(16) = <strong>106 g/mol</strong>.<br />
+        • Ca(OH)₂: 40 + 2(16 + 1) = 40 + 34 = <strong>74 g/mol</strong>.
       </Ejemplo>
     </EscenaRica>
   );

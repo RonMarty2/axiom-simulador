@@ -142,9 +142,9 @@ function EscOhmSim() {
 
       <Mnemotecnia>
         <strong>Probá estos casos</strong>:<br />
-        — Subí V, ¿qué pasa con I? (sube proporcional).<br />
-        — Subí R, ¿qué pasa con I? (baja inversa).<br />
-        — ¿Para qué V y R obtenés exactamente 1 A?
+        • Subí V, ¿qué pasa con I? (sube proporcional).<br />
+        • Subí R, ¿qué pasa con I? (baja inversa).<br />
+        • ¿Para qué V y R obtenés exactamente 1 A?
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -295,7 +295,7 @@ function EscParaleloSim() {
 
       <PorQue>
         En paralelo, agregar más caminos REDUCE la resistencia total. Es como
-        abrir más carriles en una autopista — más autos pueden pasar.
+        abrir más carriles en una autopista: más autos pueden pasar.
       </PorQue>
     </EscenaRica>
   );
@@ -363,10 +363,10 @@ function EscKirchhoff() {
 
       <Resumen>
         <strong>Convención de signos en LVK</strong>:<br />
-        — Si recorrés la batería de − a +: ΔV = +ε.<br />
-        — Si la recorrés de + a −: ΔV = −ε.<br />
-        — Si atravesás un resistor en el sentido de la corriente: ΔV = −IR.<br />
-        — Si lo atravesás en sentido contrario: ΔV = +IR.
+        • Si recorrés la batería de − a +: ΔV = +ε.<br />
+        • Si la recorrés de + a −: ΔV = −ε.<br />
+        • Si atravesás un resistor en el sentido de la corriente: ΔV = −IR.<br />
+        • Si lo atravesás en sentido contrario: ΔV = +IR.
       </Resumen>
     </EscenaRica>
   );

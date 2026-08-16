@@ -50,7 +50,7 @@ function Esc01() {
       </Resumen>
 
       <Mnemotecnia>
-        <strong>Acrónimo "IMRCRIC"</strong> — las 7 acciones de la contabilidad:<br />
+        <strong>Acrónimo "IMRCRIC"</strong>: las 7 acciones de la contabilidad:<br />
         <strong>I</strong>dentificar · <strong>M</strong>edir · <strong>R</strong>egistrar ·
         <strong> C</strong>lasificar · <strong>R</strong>esumir · <strong>I</strong>nterpretar ·
         <strong> C</strong>omunicar.<br /><br />
@@ -143,14 +143,14 @@ function Esc04() {
     <EscenaRica>
       <Titulo>Los 5 objetivos de la contabilidad</Titulo>
       <Resumen>
-        <strong>1. Registro sistemático de operaciones</strong> — toda transacción queda documentada
+        <strong>1. Registro sistemático de operaciones</strong>: toda transacción queda documentada
         para permitir control.<br /><br />
-        <strong>2. Información financiera clara y precisa</strong> — datos útiles para directivos,
+        <strong>2. Información financiera clara y precisa</strong>: datos útiles para directivos,
         empleados, inversionistas y otros tomadores de decisiones.<br /><br />
-        <strong>3. Evaluación financiera</strong> — permite conocer rentabilidad, solvencia y liquidez.<br /><br />
-        <strong>4. Cumplimiento de normativas legales</strong> — facilita pagos de impuestos y otras
+        <strong>3. Evaluación financiera</strong>: permite conocer rentabilidad, solvencia y liquidez.<br /><br />
+        <strong>4. Cumplimiento de normativas legales</strong>: facilita pagos de impuestos y otras
         obligaciones legales.<br /><br />
-        <strong>5. Control interno</strong> — actúa como sistema de control, permite detectar errores y
+        <strong>5. Control interno</strong>: actúa como sistema de control, permite detectar errores y
         posibles fraudes.
       </Resumen>
     </EscenaRica>
@@ -162,13 +162,13 @@ function Esc05() {
     <EscenaRica>
       <Titulo>¿Por qué es tan importante?</Titulo>
       <Resumen>
-        <strong>Facilita la toma de decisiones</strong> — los gerentes usan la información contable para
+        <strong>Facilita la toma de decisiones</strong>: los gerentes usan la información contable para
         planificar, identificar riesgos y ajustar estrategias.<br /><br />
-        <strong>Permite el control financiero</strong> — mantiene un registro exacto de ingresos y gastos
+        <strong>Permite el control financiero</strong>: mantiene un registro exacto de ingresos y gastos
         que ayuda al equilibrio financiero.<br /><br />
-        <strong>Es una herramienta de transparencia</strong> — proporciona datos verificables que
+        <strong>Es una herramienta de transparencia</strong>: proporciona datos verificables que
         generan confianza entre inversores, socios y autoridades.<br /><br />
-        <strong>Es base para la planificación</strong> — ayuda a proyectar y planificar a largo plazo,
+        <strong>Es base para la planificación</strong>: ayuda a proyectar y planificar a largo plazo,
         previendo futuros escenarios financieros.
       </Resumen>
       <Cuidado>

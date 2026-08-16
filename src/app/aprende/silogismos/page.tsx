@@ -92,7 +92,7 @@ function EscIntro() {
         partes: <strong>dos premisas y una conclusión</strong> que se deriva necesariamente de ellas.
       </Definicion>
       <PorQue>
-        Si las premisas son verdaderas, la conclusión también lo será — siempre que la estructura sea
+        Si las premisas son verdaderas, la conclusión también lo será: siempre que la estructura sea
         válida. Es la base de toda la lógica clásica y del pensamiento riguroso.
       </PorQue>
       <Conexion>
@@ -109,9 +109,9 @@ function EscEstructura() {
     <EscenaRica>
       <Titulo>La estructura clásica · 3 partes</Titulo>
       <Resumen>
-        <strong>Premisa Mayor</strong> — afirmación general (con términos universales).<br /><br />
-        <strong>Premisa Menor</strong> — afirmación particular (caso específico).<br /><br />
-        <strong>Conclusión</strong> — se deriva lógicamente conectando ambas.
+        <strong>Premisa Mayor</strong>: afirmación general (con términos universales).<br /><br />
+        <strong>Premisa Menor</strong>: afirmación particular (caso específico).<br /><br />
+        <strong>Conclusión</strong>: se deriva lógicamente conectando ambas.
       </Resumen>
       <SilogismoVisual
         pm="Todos los humanos son mortales."
@@ -126,12 +126,12 @@ function EscEstructura() {
 
       <WorkedExample titulo="Mapa de términos · el silogismo de Sócrates pieza por pieza">
         <strong>Premisa Mayor:</strong> <em>Todos los <u>humanos</u> son <u>mortales</u></em>.<br />
-        — Término medio: <strong>humanos</strong> (aparece en ambas premisas).<br />
-        — Término mayor: <strong>mortales</strong> (lo que se predica en la conclusión).<br /><br />
+        • Término medio: <strong>humanos</strong> (aparece en ambas premisas).<br />
+        • Término mayor: <strong>mortales</strong> (lo que se predica en la conclusión).<br /><br />
 
         <strong>Premisa Menor:</strong> <em><u>Sócrates</u> es <u>humano</u></em>.<br />
-        — Término medio: <strong>humano</strong> (puente).<br />
-        — Término menor: <strong>Sócrates</strong> (el sujeto de la conclusión).<br /><br />
+        • Término medio: <strong>humano</strong> (puente).<br />
+        • Término menor: <strong>Sócrates</strong> (el sujeto de la conclusión).<br /><br />
 
         <strong>Conclusión:</strong> el término medio (humano) <strong>desaparece</strong> y
         quedan unidos los extremos:<br />
@@ -150,7 +150,7 @@ function EscTipos() {
     <EscenaRica>
       <Titulo>Los 3 tipos</Titulo>
       <Resumen>
-        <strong>1. Silogismo categórico</strong> — basado en categorías de objetos.<br />
+        <strong>1. Silogismo categórico</strong>: basado en categorías de objetos.<br />
         Forma: "Todos los X son Y. Z es X. Por tanto, Z es Y".
       </Resumen>
       <Ejemplo>
@@ -159,7 +159,7 @@ function EscTipos() {
         ∴ Los perros tienen corazón.
       </Ejemplo>
       <Resumen>
-        <strong>2. Silogismo hipotético</strong> — basado en relaciones condicionales (si-entonces).<br />
+        <strong>2. Silogismo hipotético</strong>: basado en relaciones condicionales (si-entonces).<br />
         Forma: "Si A, entonces B. A. Por tanto, B".
       </Resumen>
       <Ejemplo>
@@ -168,7 +168,7 @@ function EscTipos() {
         ∴ La calle está mojada.
       </Ejemplo>
       <Resumen>
-        <strong>3. Silogismo disyuntivo</strong> — basado en alternativas excluyentes.<br />
+        <strong>3. Silogismo disyuntivo</strong>: basado en alternativas excluyentes.<br />
         Forma: "O A o B. No A. Por tanto, B".
       </Resumen>
       <Ejemplo>
@@ -186,7 +186,7 @@ function EscTipos() {
 
       <Misconception titulo="Trampa del hipotético · negar el antecedente">
         Si A entonces B. <strong>No A</strong>. ∴ no B. <strong>FALSO</strong>.<br />
-        Ej: "Si estudio, apruebo. No estudié. ∴ no aprobé". NO necesariamente — pudo aprobar por
+        Ej: "Si estudio, apruebo. No estudié. ∴ no aprobé". NO necesariamente: pudo aprobar por
         suerte. Negar A no te dice nada sobre B.
       </Misconception>
 
@@ -216,7 +216,7 @@ function EscProcedimiento() {
       </Resumen>
       <Cuidado>
         Falacia común: "Algunos A son B. Algunos B son C. Por tanto, algunos A son C". <strong>FALSO</strong>{" "}
-        — el término medio (B) no garantiza el puente cuando es "algunos" en ambas premisas.
+        • el término medio (B) no garantiza el puente cuando es "algunos" en ambas premisas.
       </Cuidado>
 
       <Mnemotecnia>
@@ -238,16 +238,16 @@ function EscProcedimiento() {
 
       <WorkedExample titulo="Aplicar el procedimiento paso a paso">
         <strong>Silogismo:</strong><br />
-        — Todos los gatos son felinos.<br />
-        — Todos los felinos son carnívoros.<br />
-        — ∴ ?<br /><br />
+        • Todos los gatos son felinos.<br />
+        • Todos los felinos son carnívoros.<br />
+        • ∴ ?<br /><br />
 
         <strong>Paso 1:</strong> ¿qué aparece en LAS DOS premisas? <em>Felinos</em>. Ese es el
         término medio.<br /><br />
 
         <strong>Paso 2:</strong> ¿qué quedan como extremos?<br />
-        — En la PM: "gatos" (extremo izquierdo).<br />
-        — En la Pm: "carnívoros" (extremo derecho).<br /><br />
+        • En la PM: "gatos" (extremo izquierdo).<br />
+        • En la Pm: "carnívoros" (extremo derecho).<br /><br />
 
         <strong>Paso 3:</strong> uní los extremos, el término medio desaparece:<br />
         <strong>∴ Todos los gatos son carnívoros.</strong><br /><br />
@@ -298,7 +298,7 @@ function EscPA() {
             "Algunos mamíferos no tienen corazón.",
           ],
           c: 2,
-          ex: "Universal aplicada al caso particular. 'Todos los gatos son mamíferos' es VERDADERO pero no es la conclusión del silogismo — es una premisa adicional.",
+          ex: "Universal aplicada al caso particular. 'Todos los gatos son mamíferos' es VERDADERO pero no es la conclusión del silogismo: es una premisa adicional.",
         },
         {
           p: "Todos los estudiantes de bachillerato deben presentar un proyecto final. Juan es estudiante de bachillerato. ∴ ?",
@@ -424,7 +424,7 @@ function EscResumen() {
         <strong>(b)</strong> Afirmar el consecuente en hipotéticos: "si A entonces B; B; ∴ A" es
         FALSO.<br />
         <strong>(c)</strong> Conclusión con información extra: si la opción agrega datos que las
-        premisas no mencionan, descártala — por más verdadera que suene.
+        premisas no mencionan, descártala: por más verdadera que suene.
       </Misconception>
     </EscenaRica>
   );

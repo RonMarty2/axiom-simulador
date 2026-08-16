@@ -100,10 +100,10 @@ function Esc01_Intro() {
     <EscenaRica>
       <Titulo>Dominio y rango</Titulo>
       <Definicion termino="dominio">
-        Conjunto de TODOS los valores que x puede tomar — los inputs válidos.
+        Conjunto de TODOS los valores que x puede tomar: los inputs válidos.
       </Definicion>
       <Definicion termino="rango (o imagen)">
-        Conjunto de TODOS los valores que f(x) puede dar — los outputs posibles.
+        Conjunto de TODOS los valores que f(x) puede dar: los outputs posibles.
       </Definicion>
       <Ejemplo>
         f(x) = x²: Dominio = ℝ (cualquier x). Rango = [0, +∞) (los y son no-negativos).
@@ -192,7 +192,7 @@ function AsintotaAnim() {
         </Ejes>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim }}>
-        f(x) = 1 / (x − 3) — la línea punteada es la <b style={{ color: LIENZO.bad }}>asíntota</b>: el dominio EXCLUYE x = 3.
+        f(x) = 1 / (x − 3). La línea punteada es la <b style={{ color: LIENZO.bad }}>asíntota</b>: el dominio EXCLUYE x = 3.
       </div>
     </div>
   );
