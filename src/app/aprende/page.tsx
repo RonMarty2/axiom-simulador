@@ -7,16 +7,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
-import type { Usuario } from "@/lib/data-store";
+import type { Facultad, Usuario } from "@/lib/data-store";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Estructura del examen de admisión FCE-UMSS — dos áreas:
-//
-//  1. Fundamentos de las ciencias económicas, contables y administrativas
-//  2. Razonamiento verbal-lógico y matemáticas
-//
-// Por ahora solo tenemos contenido en el área 2 (Unidades 01-11). El área 1
-// aparece como "próximamente".
+// El catálogo de "Aprende paso a paso" es distinto por facultad (cada una
+// tiene su propio examen de admisión con áreas distintas). Ver
+// BLOQUES_POR_FACULTAD más abajo. Las lecciones de Física, Química y
+// Geometría-Trigonometría (módulos FIS-*/QUI-*/GT-*) ya estaban escritas
+// desde antes pero nunca habían sido conectadas a ningún índice — un
+// usuario de Ingeniería veía el catálogo de Económicas en su lugar. Se
+// detectó y corrigió en esta sesión.
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Leccion = { slug?: string; titulo: string; tags?: string[] };
@@ -55,6 +55,49 @@ const MATEMATICAS_UNIDADES: Unidad[] = [
   { numero: "09", titulo: "Desigualdades", lecciones: [{ slug: "desigualdades", titulo: "Inecuaciones lineales y cuadráticas" }] },
   { numero: "10", titulo: "Logaritmación", lecciones: [{ slug: "logaritmacion", titulo: "Propiedades y ecuaciones" }] },
   { numero: "11", titulo: "Sucesiones y series", lecciones: [{ slug: "sucesiones-series", titulo: "Progresiones aritméticas y geométricas" }] },
+];
+
+// Geometría y trigonometría — área propia del banco de exámenes de
+// Ingeniería (tag `geometria_trigonometria`, separado de aritmética-álgebra).
+// Códigos de unidad en cada page.tsx: GT-01 a GT-10.
+const GEOMETRIA_TRIGONOMETRIA_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Segmentos y ángulos", lecciones: [{ slug: "segmentos-angulos", titulo: "Punto, recta y plano · los 3 indefinidos", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Triángulos", lecciones: [{ slug: "triangulos", titulo: "Elementos y propiedades base", tags: ["✨ Animada"] }] },
+  { numero: "03", titulo: "Congruencia y semejanza", lecciones: [{ slug: "congruencia-semejanza", titulo: "Diferencia clave entre ambas", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Polígonos y cuadriláteros", lecciones: [{ slug: "poligonos-cuadrilateros", titulo: "Concepto y elementos", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Circunferencia", lecciones: [{ slug: "circunferencia", titulo: "Elementos de la circunferencia", tags: ["✨ Animada"] }] },
+  { numero: "06", titulo: "Razones trigonométricas", lecciones: [{ slug: "razones-trigonometricas", titulo: "Las 3 razones fundamentales: sen, cos, tan", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Identidades y ecuaciones trigonométricas", lecciones: [{ slug: "identidades-trigonometricas", titulo: "Identidades fundamentales", tags: ["✨ Animada"] }] },
+  { numero: "08", titulo: "Ley de senos y cosenos", lecciones: [{ slug: "ley-senos-cosenos", titulo: "Cuando el triángulo no es rectángulo", tags: ["✨ Animada"] }] },
+  { numero: "09", titulo: "Ecuación analítica de la recta", lecciones: [{ slug: "ecuacion-recta", titulo: "Sistema cartesiano · distancia y punto medio", tags: ["✨ Animada"] }] },
+  { numero: "10", titulo: "Geometría analítica: circunferencia y parábola", lecciones: [{ slug: "circunferencia-parabola-analitica", titulo: "Ecuación canónica", tags: ["✨ Animada"] }] },
+];
+
+// Física — área propia del banco de exámenes de Ingeniería. Códigos de
+// unidad en cada page.tsx: FIS-01 a FIS-07.
+const FISICA_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Vectores", lecciones: [{ slug: "vectores-fisica", titulo: "Magnitudes escalares vs vectoriales", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Cinemática en una dimensión", lecciones: [{ slug: "cinematica-1d", titulo: "Posición, velocidad, aceleración, MRU y MRUA", tags: ["✨ Animada"] }] },
+  { numero: "03", titulo: "Cinemática en dos dimensiones", lecciones: [{ slug: "cinematica-2d", titulo: "Independencia de ejes, tiro parabólico", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Dinámica · Leyes de Newton", lecciones: [{ slug: "dinamica-newton", titulo: "Fuerza, masa y aceleración", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Trabajo y energía", lecciones: [{ slug: "trabajo-energia", titulo: "Trabajo · concepto y fórmula", tags: ["✨ Animada"] }] },
+  { numero: "06", titulo: "Electrostática", lecciones: [{ slug: "electrostatica", titulo: "Carga eléctrica · conceptos básicos", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Circuitos de corriente continua", lecciones: [{ slug: "circuitos-dc", titulo: "Corriente eléctrica · concepto", tags: ["✨ Animada"] }] },
+];
+
+// Química — área propia del banco de exámenes de Ingeniería. Códigos de
+// unidad en cada page.tsx: QUI-01 a QUI-10.
+const QUIMICA_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Nociones fundamentales de química", lecciones: [{ slug: "nociones-quimica", titulo: "¿Qué es la química? Clasificación de la materia", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Nomenclatura inorgánica", lecciones: [{ slug: "nomenclatura-inorganica", titulo: "Mapa de compuestos inorgánicos", tags: ["✨ Animada"] }] },
+  { numero: "03", titulo: "Estructura atómica", lecciones: [{ slug: "estructura-atomica", titulo: "Partículas subatómicas", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Enlace químico", lecciones: [{ slug: "enlace-quimico", titulo: "Regla del octeto · estructura de Lewis", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Leyes fundamentales de la química", lecciones: [{ slug: "leyes-fundamentales-quimica", titulo: "El mol · concepto clave de la química", tags: ["✨ Animada"] }] },
+  { numero: "06", titulo: "Reacciones químicas y balanceo", lecciones: [{ slug: "reacciones-balanceo", titulo: "Tipos de reacciones", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Estequiometría", lecciones: [{ slug: "estequiometria", titulo: "Cálculos con reactivos y productos" }] },
+  { numero: "08", titulo: "Gases ideales", lecciones: [{ slug: "gases-ideales", titulo: "Leyes y ecuación de estado" }] },
+  { numero: "09", titulo: "Soluciones", lecciones: [{ slug: "soluciones", titulo: "Unidades de concentración" }] },
+  { numero: "10", titulo: "Propiedades coligativas", lecciones: [{ slug: "propiedades-coligativas", titulo: "Cambios por soluto" }] },
 ];
 
 // Estructura alineada con la guía oficial FCE-UMSS "Fundamentos de las
@@ -141,7 +184,7 @@ const RAZONAMIENTO_VERBAL_UNIDADES: Unidad[] = [
   ] },
 ];
 
-const BLOQUES: Bloque[] = [
+const BLOQUES_ECONOMICAS: Bloque[] = [
   {
     id: "fundamentos",
     titulo: "Fundamentos de las ciencias económicas, contables y administrativas",
@@ -162,6 +205,53 @@ const BLOQUES: Bloque[] = [
   },
 ];
 
+// Estructura del examen de admisión FCyT-UMSS (Ingeniería): matemáticas,
+// física, química y razonamiento (ver data/facultades.json). Matemáticas
+// y razonamiento reutilizan las mismas unidades que Económicas (contenido
+// genérico, no específico de ninguna carrera); Geometría-Trigonometría,
+// Física y Química son propias de Ingeniería.
+const BLOQUES_INGENIERIA: Bloque[] = [
+  {
+    id: "matematicas",
+    titulo: "Matemáticas: aritmética y álgebra",
+    descripcion: "Operaciones, álgebra, funciones, ecuaciones, secuencias.",
+    unidades: MATEMATICAS_UNIDADES,
+  },
+  {
+    id: "geometria-trigonometria",
+    titulo: "Geometría y trigonometría",
+    descripcion: "Figuras planas, triángulos, circunferencia, razones trigonométricas y geometría analítica.",
+    unidades: GEOMETRIA_TRIGONOMETRIA_UNIDADES,
+  },
+  {
+    id: "fisica",
+    titulo: "Física",
+    descripcion: "Vectores, cinemática, dinámica, trabajo y energía, electricidad.",
+    unidades: FISICA_UNIDADES,
+  },
+  {
+    id: "quimica",
+    titulo: "Química",
+    descripcion: "Estructura atómica, enlace químico, nomenclatura, reacciones y estequiometría.",
+    unidades: QUIMICA_UNIDADES,
+  },
+  {
+    id: "razonamiento-verbal-logico",
+    titulo: "Razonamiento verbal y lógico",
+    descripcion: "Comprensión de lectura, vocabulario, analogías, silogismos y secuencias lógicas.",
+    unidades: RAZONAMIENTO_VERBAL_UNIDADES,
+  },
+];
+
+// Facultades sin catálogo propio todavía (ej. Medicina, Derecho) no deben
+// heredar el contenido de otra facultad — mejor mostrar el estado vacío
+// (ver "Todavía no hay lecciones para tu facultad" en AprendePage) que
+// mezclar carreras.
+const BLOQUES_POR_FACULTAD: Record<string, Bloque[]> = {
+  economicas: BLOQUES_ECONOMICAS,
+  ingenieria: BLOQUES_INGENIERIA,
+};
+
 // Chevron (flecha) hacia abajo, dibujada en SVG para que se vea nítida y NO
 // parezca un exponente como el carácter "⌃". Rota 180° al abrir la sección.
 function Chevron({ size = 18, color = "currentColor" }: { size?: number; color?: string }) {
@@ -176,6 +266,7 @@ function Chevron({ size = 18, color = "currentColor" }: { size?: number; color?:
 export default function AprendePage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
+  const [facultad, setFacultad] = useState<Facultad | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -183,8 +274,16 @@ export default function AprendePage() {
       .then((r) => r.json())
       .then((me) => {
         if (!me.usuario) { router.push("/login"); return; }
+        if (!me.usuario.facultad_objetivo) { router.push("/onboarding"); return; }
         setUsuario(me.usuario);
-        setLoading(false);
+        fetch("/api/facultades")
+          .then((r) => r.json())
+          .then((f) => {
+            const fac = (f.facultades ?? []).find((x: Facultad) => x.id === me.usuario.facultad_objetivo);
+            setFacultad(fac ?? null);
+            setLoading(false);
+          })
+          .catch(() => setLoading(false));
       })
       .catch(() => {
         // Si falla la red, igual mostramos el contenido gratis (no colgamos la pantalla).
@@ -196,6 +295,7 @@ export default function AprendePage() {
   if (loading) return <Cargando />;
 
   const usuarioEsPremium = esPago(usuario?.plan);
+  const bloques = usuario?.facultad_objetivo ? BLOQUES_POR_FACULTAD[usuario.facultad_objetivo] : undefined;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-base)" }}>
@@ -212,10 +312,10 @@ export default function AprendePage() {
             Aprende paso a paso
           </h1>
           <p style={{ color: "var(--fg-muted)", fontSize: 16 }}>
-            Las dos áreas del examen de admisión · FCE-UMSS
+            Las áreas del examen de admisión · {facultad?.nombre_corto ?? "tu facultad"}
           </p>
 
-          {!usuarioEsPremium && (
+          {!usuarioEsPremium && bloques && (
             <div style={{
               marginTop: 14, padding: "12px 16px",
               background: "linear-gradient(135deg, #fef3c7, #fde68a)",
@@ -225,7 +325,7 @@ export default function AprendePage() {
               <span style={{ fontSize: 20 }}>🔓</span>
               <div style={{ flex: 1, minWidth: 200 }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: "#78350f" }}>
-                  Plan gratis: Unidad 01 de matemáticas desbloqueada
+                  Plan gratis: Unidad 01 de cada área desbloqueada
                 </div>
                 <div style={{ fontSize: 13, color: "#92400e" }}>
                   Hacete Premium para acceder al resto del contenido.
@@ -243,7 +343,16 @@ export default function AprendePage() {
       </header>
 
       <main style={{ maxWidth: 920, margin: "0 auto", padding: "28px 24px" }}>
-        {BLOQUES.map((b, bi) => (
+        {!bloques && (
+          <div style={{
+            padding: "30px 24px", background: "var(--bg-card)",
+            borderRadius: 14, border: "1px dashed var(--border)",
+            textAlign: "center", color: "var(--fg-muted)",
+          }}>
+            Todavía no hay lecciones para tu facultad. Arrancamos por Ingeniería y Economía, el resto viene después.
+          </div>
+        )}
+        {bloques?.map((b, bi) => (
           <BloqueArea key={b.id} bloque={b} indice={bi + 1} esPremium={usuarioEsPremium} />
         ))}
       </main>
