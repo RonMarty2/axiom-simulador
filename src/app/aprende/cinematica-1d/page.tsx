@@ -481,7 +481,7 @@ function EscCaidaLibre() {
         Una pelota se lanza hacia arriba con v₀ = 20 m/s. ¿Cuánto tarda en
         alcanzar la altura máxima? (g = 10)<br /><br />
 
-        En la altura máxima v = 0. Usando <MathText>{"$v = v_0 - gt$"}</MathText>:
+        En la altura máxima v = 0. Usando <MathText>{"$v = v_0 - gt$"}</MathText>:{" "}
         <MathText>{"$0 = 20 - 10t \\ \\Rightarrow\\ t = 2\\text{ s}$"}</MathText><br /><br />
 
         Altura máxima: <MathText>{"$y = 40 - 20 = 20\\text{ m}$"}</MathText>
