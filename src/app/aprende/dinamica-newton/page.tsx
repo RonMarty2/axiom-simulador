@@ -9,6 +9,8 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { Pizarra, LIENZO } from "../_components/lienzo";
+import MathText from "../../components/MathText";
 
 export default function Page() {
   return (
@@ -30,6 +32,41 @@ export default function Page() {
   );
 }
 
+function Flecha({ x1, y1, x2, y2, color, id }: { x1: number; y1: number; x2: number; y2: number; color: string; id: string }) {
+  return (
+    <>
+      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="3" markerEnd={`url(#${id})`} />
+      <marker id={id} markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={color} /></marker>
+    </>
+  );
+}
+
+// ─── Diagrama de cuerpo libre genérico: los 4 tipos de fuerza ───
+function DCLGenerico() {
+  const cx = 240, cy = 130, box = 50;
+  return (
+    <Pizarra alto={240}>
+      <svg width="100%" height="100%" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid meet">
+        <rect x={cx - box / 2} y={cy - box / 2} width={box} height={box} rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <defs>
+          <marker id="mN" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.ok} /></marker>
+          <marker id="mP" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.warn} /></marker>
+          <marker id="mT" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.accent} /></marker>
+          <marker id="mF" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.bad} /></marker>
+        </defs>
+        <line x1={cx} y1={cy - box / 2} x2={cx} y2={cy - box / 2 - 60} stroke={LIENZO.ok} strokeWidth="3" markerEnd="url(#mN)" />
+        <text x={cx + 8} y={cy - box / 2 - 40} fontSize="12" fontWeight="700" fill={LIENZO.ok}>Normal</text>
+        <line x1={cx} y1={cy + box / 2} x2={cx} y2={cy + box / 2 + 60} stroke={LIENZO.warn} strokeWidth="3" markerEnd="url(#mP)" />
+        <text x={cx + 8} y={cy + box / 2 + 46} fontSize="12" fontWeight="700" fill={LIENZO.warn}>Peso</text>
+        <line x1={cx - box / 2} y1={cy} x2={cx - box / 2 - 70} y2={cy - 25} stroke={LIENZO.accent} strokeWidth="3" markerEnd="url(#mT)" />
+        <text x={cx - box / 2 - 90} y={cy - 30} fontSize="12" fontWeight="700" fill={LIENZO.accent} textAnchor="middle">Tensión</text>
+        <line x1={cx + box / 2} y1={cy} x2={cx + box / 2 + 65} y2={cy} stroke={LIENZO.bad} strokeWidth="3" markerEnd="url(#mF)" />
+        <text x={cx + box / 2 + 70} y={cy + 4} fontSize="12" fontWeight="700" fill={LIENZO.bad}>Fricción</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscFuerza() {
   return (
     <EscenaRica>
@@ -46,6 +83,8 @@ function EscFuerza() {
         deformación de un cuerpo. Es VECTORIAL. Unidad SI: newton (N) = kg·m/s².
       </Definicion>
 
+      <DCLGenerico />
+
       <Resumen>
         <strong>Tipos comunes de fuerzas</strong>:<br />
         • <strong>Peso</strong>: la fuerza con la que la Tierra atrae al cuerpo.<br />
@@ -55,6 +94,31 @@ function EscFuerza() {
         • <strong>Elástica</strong>: en resortes (Hooke).
       </Resumen>
     </EscenaRica>
+  );
+}
+
+// ─── Inercia: pasajero en un auto que frena ───
+function DiagramaInercia() {
+  const [frenando, setFrenando] = useState(false);
+  return (
+    <div style={{ width: "100%", maxWidth: 500, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={180}>
+        <svg width="100%" height="100%" viewBox="0 0 480 180" preserveAspectRatio="xMidYMid meet">
+          <rect x="40" y="90" width="220" height="60" rx="10" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+          <circle cx="90" cy="155" r="12" fill={LIENZO.fgDim} />
+          <circle cx="220" cy="155" r="12" fill={LIENZO.fgDim} />
+          <motion.circle cx="150" cy="95" r="14" fill={LIENZO.accent}
+            animate={{ cx: frenando ? 210 : 150 }} transition={{ duration: 0.5 }} />
+          <line x1="10" y1="150" x2="460" y2="150" stroke={LIENZO.fgFaint} strokeWidth="2" />
+          {frenando && <text x="330" y="100" fontSize="12" fontWeight="700" fill={LIENZO.warn}>el pasajero "sigue de largo" (inercia)</text>}
+          {!frenando && <text x="330" y="100" fontSize="12" fill={LIENZO.fgDim}>auto y pasajero a velocidad constante</text>}
+        </svg>
+      </Pizarra>
+      <button onClick={() => setFrenando((v) => !v)} style={{
+        padding: "8px 16px", borderRadius: 999, border: `1px solid ${LIENZO.accent}`,
+        background: "transparent", color: LIENZO.accent, fontWeight: 700, fontSize: 13, cursor: "pointer", alignSelf: "center",
+      }}>{frenando ? "Volver a velocidad constante" : "El auto frena de golpe"}</button>
+    </div>
   );
 }
 
@@ -69,9 +133,10 @@ function EscPrimera() {
         equilibran).
       </Definicion>
 
+      <DiagramaInercia />
+
       <Resumen>
-        <strong>Equilibrio</strong>: cuando la fuerza neta es cero. Hay dos
-        casos:<br />
+        <strong>Equilibrio</strong>: cuando la fuerza neta es cero. Hay dos casos:<br />
         • Equilibrio estático: cuerpo en reposo.<br />
         • Equilibrio dinámico: cuerpo en MRU.
       </Resumen>
@@ -85,19 +150,50 @@ function EscPrimera() {
   );
 }
 
+// ─── Misma fuerza, distinta masa → distinta aceleración (flechas a escala) ───
+function ComparacionMasas() {
+  const F = 10, mA = 2, mB = 5;
+  const aA = F / mA, aB = F / mB;
+  const escala = 10;
+  return (
+    <Pizarra alto={200}>
+      <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+        <rect x="60" y="80" width="60" height="60" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <text x="90" y="115" textAnchor="middle" fontSize="13" fontWeight="700" fill={LIENZO.fg}>{mA} kg</text>
+        <Flecha x1={120} y1={110} x2={120 + F * 3} y2={110} color={LIENZO.accent} id="fA" />
+        <text x={120 + F * 3 + 6} y={106} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
+        <Flecha x1={90} y1={78} x2={90} y2={78 - aA * escala} color={LIENZO.ok} id="aA" />
+        <text x="95" y={78 - aA * escala - 6} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=5 m/s²</text>
+
+        <rect x="300" y="80" width="60" height="60" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <text x="330" y="115" textAnchor="middle" fontSize="13" fontWeight="700" fill={LIENZO.fg}>{mB} kg</text>
+        <Flecha x1={360} y1={110} x2={360 + F * 3} y2={110} color={LIENZO.accent} id="fB" />
+        <text x={360 + F * 3 + 6} y={106} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
+        <Flecha x1={330} y1={78} x2={330} y2={78 - aB * escala} color={LIENZO.ok} id="aB" />
+        <text x="335" y={78 - aB * escala - 6} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=2 m/s²</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscSegunda() {
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>2ª Ley · F = m·a</Titulo>
 
       <Resumen>
-        <span style={{ fontSize: 22, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-          F⃗_neta = m · a⃗
-        </span><br /><br />
+        <div style={{ textAlign: "center", padding: "6px 0" }}>
+          <MathText>{"$\\vec{F}_{neta} = m\\vec{a}$"}</MathText>
+        </div>
         La fuerza neta produce una aceleración proporcional a su magnitud e
         inversamente proporcional a la masa. La aceleración tiene la misma
         DIRECCIÓN que la fuerza neta.
       </Resumen>
+
+      <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+        Misma fuerza, el doble y medio de masa: la aceleración se reparte al revés
+      </p>
+      <ComparacionMasas />
 
       <PorQue>
         Esta ley conecta DINÁMICA (fuerzas) con CINEMÁTICA (aceleraciones).
@@ -107,9 +203,28 @@ function EscSegunda() {
 
       <WorkedExample titulo="Aplicación simple">
         Una fuerza de 50 N actúa sobre un bloque de 10 kg. ¿Aceleración?<br />
-        a = F/m = 50/10 = 5 m/s².
+        <MathText>{"$a = \\dfrac{F}{m} = \\dfrac{50}{10} = 5$"}</MathText> m/s².
       </WorkedExample>
     </EscenaRica>
+  );
+}
+
+// ─── Acción-reacción: persona empuja pared, dos cuerpos distintos ───
+function DiagramaAccionReaccion() {
+  return (
+    <Pizarra alto={190}>
+      <svg width="100%" height="100%" viewBox="0 0 480 190" preserveAspectRatio="xMidYMid meet">
+        <rect x="330" y="20" width="20" height="150" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <text x="340" y="15" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>pared</text>
+        <circle cx="220" cy="80" r="16" fill={LIENZO.accent} />
+        <rect x="200" y="96" width="40" height="55" rx="8" fill={LIENZO.accent} opacity="0.8" />
+        <text x="220" y="168" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>persona</text>
+        <Flecha x1={240} y1={120} x2={325} y2={120} color={LIENZO.ok} id="accion" />
+        <text x={282} y={112} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.ok}>acción (sobre la pared)</text>
+        <Flecha x1={325} y1={140} x2={240} y2={140} color={LIENZO.warn} id="reaccion" />
+        <text x={282} y={158} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.warn}>reacción (sobre la persona)</text>
+      </svg>
+    </Pizarra>
   );
 }
 
@@ -123,9 +238,12 @@ function EscTercera() {
         A una fuerza igual en módulo y de sentido opuesto (reacción).
       </Definicion>
 
+      <DiagramaAccionReaccion />
+
       <Cuidado>
-        Las fuerzas de acción y reacción actúan sobre cuerpos DISTINTOS. Por
-        eso NO se anulan entre sí (no son fuerzas equilibrantes).
+        Las fuerzas de acción y reacción actúan sobre cuerpos DISTINTOS (acá:
+        la persona y la pared). Por eso NO se anulan entre sí (no son fuerzas
+        equilibrantes).
       </Cuidado>
 
       <Ejemplo titulo="Ejemplos">
@@ -135,6 +253,29 @@ function EscTercera() {
         • Saltás: empujás el piso, el piso te empuja a vos.
       </Ejemplo>
     </EscenaRica>
+  );
+}
+
+// ─── Peso vs masa: Tierra vs Luna, mismo objeto ───
+function TierraVsLuna() {
+  const g_T = 9.8, g_L = 1.6, m = 70;
+  const escala = 5;
+  return (
+    <Pizarra alto={220}>
+      <svg width="100%" height="100%" viewBox="0 0 480 220" preserveAspectRatio="xMidYMid meet">
+        <rect x="90" y="60" width="50" height="50" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <text x="115" y="90" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.fg}>70 kg</text>
+        <Flecha x1={115} y1={112} x2={115} y2={112 + m * g_T * (escala / 40)} color={LIENZO.warn} id="pesoT" />
+        <text x="115" y="200" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.warn}>P = 686 N</text>
+        <text x="115" y="30" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>Tierra (g=9.8)</text>
+
+        <rect x="340" y="60" width="50" height="50" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <text x="365" y="90" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.fg}>70 kg</text>
+        <Flecha x1={365} y1={112} x2={365} y2={112 + m * g_L * (escala / 40)} color={LIENZO.warn} id="pesoL" />
+        <text x="365" y={112 + m * g_L * (escala / 40) + 18} textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.warn}>P ≈ 112 N</text>
+        <text x="365" y="30" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>Luna (g=1.6)</text>
+      </svg>
+    </Pizarra>
   );
 }
 
@@ -149,11 +290,13 @@ function EscPeso() {
 
       <Definicion termino="Peso (P)">
         Fuerza con que la Tierra (o cualquier planeta) atrae al cuerpo.
-        Depende de la gravedad local. Unidad: N.<br />
-        <span style={{ fontSize: 16, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-          P = m · g
-        </span>
+        Depende de la gravedad local. Unidad: N.
+        <div style={{ textAlign: "center", padding: "6px 0" }}>
+          <MathText>{"$P = mg$"}</MathText>
+        </div>
       </Definicion>
+
+      <TierraVsLuna />
 
       <Mnemotecnia>
         Tu masa es la misma en la Tierra que en la Luna (60 kg en ambos sitios).
@@ -161,11 +304,31 @@ function EscPeso() {
       </Mnemotecnia>
 
       <Ejemplo titulo="Cálculo de peso">
-        Persona de 70 kg en la Tierra: P = 70 · 9.8 = 686 N.<br />
-        Misma persona en la Luna: P = 70 · 1.6 ≈ 112 N.<br />
+        Persona de 70 kg en la Tierra: <MathText>{"$P = 70(9.8) = 686$"}</MathText> N.<br />
+        Misma persona en la Luna: <MathText>{"$P = 70(1.6) \\approx 112$"}</MathText> N.<br />
         Su masa: 70 kg en ambos lugares.
       </Ejemplo>
     </EscenaRica>
+  );
+}
+
+// ─── DCL de bloque con fricción oponiéndose al movimiento ───
+function DCLFriccion() {
+  return (
+    <Pizarra alto={220}>
+      <svg width="100%" height="100%" viewBox="0 0 480 220" preserveAspectRatio="xMidYMid meet">
+        <line x1="60" y1="170" x2="420" y2="170" stroke={LIENZO.fg} strokeWidth="2" />
+        <rect x="200" y="120" width="60" height="50" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <Flecha x1={230} y1={118} x2={230} y2={68} color={LIENZO.ok} id="Nfric" />
+        <text x={236} y={90} fontSize="11" fontWeight="700" fill={LIENZO.ok}>Normal</text>
+        <Flecha x1={230} y1={172} x2={230} y2={210} color={LIENZO.warn} id="Pfric" />
+        <text x={236} y={202} fontSize="11" fontWeight="700" fill={LIENZO.warn}>Peso</text>
+        <Flecha x1={262} y1={145} x2={340} y2={145} color={LIENZO.accent} id="Faplic" />
+        <text x={344} y={140} fontSize="11" fontWeight="700" fill={LIENZO.accent}>F aplicada</text>
+        <Flecha x1={198} y1={145} x2={150} y2={145} color={LIENZO.bad} id="Ffric" />
+        <text x={90} y={140} fontSize="11" fontWeight="700" fill={LIENZO.bad}>fricción</text>
+      </svg>
+    </Pizarra>
   );
 }
 
@@ -180,22 +343,71 @@ function EscFriccion() {
         cinética (cuando hay movimiento).
       </Definicion>
 
+      <DCLFriccion />
+
       <Resumen>
         <strong>Fórmulas</strong>:<br />
-        • <strong>Fricción cinética</strong>: f_k = μ_k · N (donde N es la
-        normal).<br />
-        • <strong>Fricción estática máxima</strong>: f_s_max = μ_s · N.<br /><br />
-        Generalmente μ_s &gt; μ_k (cuesta más empezar a mover que mantener el
-        movimiento).
+        • <strong>Fricción cinética</strong>: <MathText>{"$f_k = \\mu_k N$"}</MathText> (donde N es la normal).<br />
+        • <strong>Fricción estática máxima</strong>: <MathText>{"$f_{s,max} = \\mu_s N$"}</MathText><br /><br />
+        Generalmente μ_s &gt; μ_k (cuesta más empezar a mover que mantener el movimiento).
       </Resumen>
 
       <WorkedExample titulo="Frenado de auto · F14 1op-2-2025">
         μ_k = 0.80, v₀ = 28.7 m/s. ¿Distancia para detenerse? (g = 9.8)<br /><br />
 
-        Desaceleración: a = μ_k · g = 0.80 · 9.8 = 7.84 m/s².<br />
-        Distancia: d = v₀²/(2a) = (28.7)²/15.68 = <strong>52.53 m</strong>.
+        Desaceleración: <MathText>{"$a = \\mu_k g = 0.80(9.8) = 7.84$"}</MathText> m/s².<br />
+        Distancia: <MathText>{"$d = \\dfrac{v_0^2}{2a} = \\dfrac{823.69}{15.68}$"}</MathText> = <strong>52.53 m</strong>
       </WorkedExample>
     </EscenaRica>
+  );
+}
+
+// ─── Plano inclinado: descomposición real del peso ───
+function DCLPlanoInclinado() {
+  const anguloDeg = 30;
+  const ang = (anguloDeg * Math.PI) / 180;
+  const W = 480, H = 260;
+  const baseX = 60, baseY = 220, largo = 300;
+  const puntaX = baseX + largo * Math.cos(ang), puntaY = baseY - largo * Math.sin(ang);
+  // bloque a mitad del plano
+  const t = 0.55;
+  const bx = baseX + largo * t * Math.cos(ang), by = baseY - largo * t * Math.sin(ang);
+  const offsetPerp = 22;
+  const cx = bx - offsetPerp * Math.sin(ang), cy = by - offsetPerp * Math.cos(ang);
+  // Peso hacia abajo
+  const pesoLen = 70;
+  // Componentes reales del peso (sin alargar artificialmente: nunca deben verse
+  // más largas que el propio peso, del que son proyección).
+  const paraLen = pesoLen * Math.sin(ang), perpLen = pesoLen * Math.cos(ang);
+  // Paralela al plano, HACIA LA BASE (sentido en que desliza el cuerpo): x negativo, y positivo.
+  const dirParaX = -Math.cos(ang), dirParaY = Math.sin(ang);
+  // Perpendicular al plano, saliente (misma dirección que la Normal).
+  const dirPerpX = -Math.sin(ang), dirPerpY = -Math.cos(ang);
+  const pxEndX = bx + dirParaX * paraLen, pxEndY = by + dirParaY * paraLen;
+  const pyEndX = bx - dirPerpX * perpLen, pyEndY = by - dirPerpY * perpLen;
+  const nEndX = bx + dirPerpX * 65, nEndY = by + dirPerpY * 65;
+  return (
+    <Pizarra alto={H}>
+      <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+        <polygon points={`${baseX},${baseY} ${puntaX},${puntaY} ${puntaX},${baseY}`} fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
+        <path d={`M ${baseX + 30} ${baseY} A 30 30 0 0 1 ${baseX + 30 * Math.cos(ang)} ${baseY - 30 * Math.sin(ang)}`} fill="none" stroke={LIENZO.fgDim} strokeWidth="1.5" />
+        <text x={baseX + 42} y={baseY - 10} fontSize="12" fill={LIENZO.fgDim}>θ=30°</text>
+        <rect x={cx - 18} y={cy - 14} width="36" height="28" rx="5" fill={LIENZO.accent} opacity="0.85"
+          transform={`rotate(${-anguloDeg}, ${cx}, ${cy})`} />
+        {/* Peso (vertical hacia abajo) */}
+        <Flecha x1={bx} y1={by} x2={bx} y2={by + pesoLen} color={LIENZO.warn} id="pesoPlano" />
+        <text x={bx + 8} y={by + pesoLen + 14} fontSize="11" fontWeight="700" fill={LIENZO.warn}>Peso (mg)</text>
+        {/* Componente paralela al plano, hacia la base (desliza el cuerpo) */}
+        <Flecha x1={bx} y1={by} x2={pxEndX} y2={pxEndY} color={LIENZO.bad} id="px" />
+        <text x={pxEndX - 8} y={pxEndY + 16} fontSize="11" fontWeight="700" fill={LIENZO.bad} textAnchor="end">Pₓ=mg·senθ</text>
+        {/* Componente perpendicular al plano, hacia adentro (opuesta a la Normal) */}
+        <Flecha x1={bx} y1={by} x2={pyEndX} y2={pyEndY} color={LIENZO.accent} id="py" />
+        <text x={pyEndX + 8} y={pyEndY - 2} fontSize="11" fontWeight="700" fill={LIENZO.accent}>Pᵧ=mg·cosθ</text>
+        {/* Normal (perpendicular al plano, saliente) */}
+        <Flecha x1={bx} y1={by} x2={nEndX} y2={nEndY} color={LIENZO.ok} id="normalPlano" />
+        <text x={nEndX - 6} y={nEndY - 6} fontSize="11" fontWeight="700" fill={LIENZO.ok} textAnchor="end">Normal</text>
+      </svg>
+    </Pizarra>
   );
 }
 
@@ -205,27 +417,32 @@ function EscPlano() {
       <Titulo>Plano inclinado</Titulo>
 
       <Parrafo>
-        Sobre un plano inclinado un ángulo θ, el peso se descompone en:<br />
-        • Componente paralela al plano (que tiende a deslizar el cuerpo hacia
-        abajo): P_x = m·g·sen θ.<br />
-        • Componente perpendicular al plano (presiona la superficie):
-        P_y = m·g·cos θ.
+        Sobre un plano inclinado un ángulo θ, el peso se descompone en dos
+        componentes perpendiculares entre sí:
       </Parrafo>
 
+      <DCLPlanoInclinado />
+
       <Resumen>
-        <strong>Si no hay fricción</strong>:<br />
-        Aceleración del cuerpo bajando: a = g·sen θ.<br /><br />
+        • Componente paralela al plano (desliza el cuerpo hacia abajo): <MathText>{"$P_x = mg\\sin\\theta$"}</MathText><br />
+        • Componente perpendicular al plano (presiona la superficie): <MathText>{"$P_y = mg\\cos\\theta$"}</MathText>
+      </Resumen>
+
+      <Resumen>
+        <strong>Si no hay fricción</strong>: aceleración bajando <MathText>{"$a = g\\sin\\theta$"}</MathText><br /><br />
         <strong>Si hay fricción</strong> con coeficiente μ_k:<br />
-        Normal: N = m·g·cos θ.<br />
-        Fricción: f = μ_k · m·g·cos θ (opuesta al movimiento).<br />
-        Aceleración bajando: a = g·(sen θ − μ_k · cos θ).
+        Normal: <MathText>{"$N = mg\\cos\\theta$"}</MathText><br />
+        Fricción: <MathText>{"$f = \\mu_k mg\\cos\\theta$"}</MathText> (opuesta al movimiento)<br />
+        Aceleración bajando: <MathText>{"$a = g(\\sin\\theta - \\mu_k\\cos\\theta)$"}</MathText>
       </Resumen>
 
       <WorkedExample titulo="Cuándo está a punto de deslizar">
         Si el cuerpo está en reposo y aumentás el ángulo hasta que JUSTO
-        empieza a deslizar, tenés:<br />
-        μ_s = tan θ_crítico.<br /><br />
-        Por eso el ángulo límite es atan(μ_s).
+        empieza a deslizar, tenés:
+        <div style={{ textAlign: "center", padding: "6px 0" }}>
+          <MathText>{"$\\mu_s = \\tan\\theta_{crítico}$"}</MathText>
+        </div>
+        Por eso el ángulo límite es <MathText>{"$\\arctan(\\mu_s)$"}</MathText>
       </WorkedExample>
     </EscenaRica>
   );
@@ -240,21 +457,25 @@ function EscProblemas() {
         Bloque de 10 kg cae desde 3 m, fricción solo entre B y C (6 m), choca
         resorte k=100 N/m, lo comprime √2 m. ¿μ_k entre B y C? (g=10)<br /><br />
 
-        Energía inicial: E_A = mgh = 10·10·3 = 300 J.<br />
-        Energía elástica: E_r = (1/2)k·x² = (1/2)(100)(2) = 100 J.<br />
-        Energía disipada por fricción: 300 − 100 = 200 J.<br />
-        W_fricción = f · d = (μ·m·g) · 6 = 600μ = 200 → μ = <strong>1/3</strong>.
+        Energía inicial: <MathText>{"$E_A = mgh = 10(10)(3) = 300$"}</MathText> J.<br />
+        Energía elástica: <MathText>{"$E_r = \\tfrac12 kx^2 = \\tfrac12(100)(2) = 100$"}</MathText> J.<br />
+        Energía disipada por fricción: 300 − 100 = 200 J.
+        <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
+          <MathText>{"$W_{fricción} = f\\cdot d = (\\mu mg)\\cdot 6 = 600\\mu = 200 \\ \\Rightarrow\\ \\mu = \\dfrac13$"}</MathText>
+        </div>
       </WorkedExample>
 
       <WorkedExample titulo="Elevador con motor · F15 2op-2-2025">
         Elevador 600 kg sube 20 m en 16 s con motor 40 hp. ¿Pasajeros máx?
         (65 kg c/u, g=9.8, 1 hp=746 W)<br /><br />
 
-        Velocidad: v = 20/16 = 1.25 m/s.<br />
-        Potencia disponible: P = 40·746 = 29840 W.<br />
-        Fuerza max = P/v = 23872 N.<br />
-        F = (600 + 65n)·g → 23872 = 9.8(600+65n) → 600+65n = 2436<br />
-        65n = 1836 → n = <strong>28 pasajeros</strong>.
+        Velocidad: <MathText>{"$v = \\dfrac{20}{16} = 1.25$"}</MathText> m/s.<br />
+        Potencia disponible: <MathText>{"$P = 40(746) = 29840$"}</MathText> W.<br />
+        Fuerza máx = <MathText>{"$\\dfrac{P}{v} = 23872$"}</MathText> N.
+        <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
+          <MathText>{"$F = (600+65n)g \\ \\Rightarrow\\ 23872 = 9.8(600+65n) \\ \\Rightarrow\\ 600+65n=2436$"}</MathText>
+        </div>
+        <MathText>{"$65n = 1836 \\ \\Rightarrow\\ n = 28$"}</MathText> pasajeros
       </WorkedExample>
     </EscenaRica>
   );
@@ -266,25 +487,25 @@ function EscPractica() {
       p: "Fuerza neta para que 5 kg acelere a 3 m/s²:",
       o: ["15 N", "1.67 N", "8 N", "0 N"],
       c: 0,
-      ex: "F = ma = 5·3 = 15 N.",
+      ex: "$F = ma = 5(3) = 15$ N.",
     },
     {
       p: "Peso de 10 kg en la Tierra (g=9.8):",
       o: ["98 N", "10 N", "9.8 N", "100 kg"],
       c: 0,
-      ex: "P = mg = 10·9.8 = 98 N.",
+      ex: "$P = mg = 10(9.8) = 98$ N.",
     },
     {
       p: "Si μ=0.4 y N=50 N, fricción cinética:",
       o: ["20 N", "50 N", "0.4 N", "125 N"],
       c: 0,
-      ex: "f = μN = 0.4·50 = 20 N.",
+      ex: "$f = \\mu N = 0.4(50) = 20$ N.",
     },
     {
       p: "Bloque en plano sin fricción de 30°. Aceleración bajando (g=10):",
       o: ["5 m/s²", "10 m/s²", "8.66 m/s²", "2.5 m/s²"],
       c: 0,
-      ex: "a = g sen θ = 10·0.5 = 5 m/s².",
+      ex: "$a = g\\sin\\theta = 10(0.5) = 5$ m/s².",
     },
     {
       p: "Acción y reacción están sobre:",
@@ -343,7 +564,7 @@ function EscPractica() {
             </div>
             {rev && (
               <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
-                <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
+                <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}<MathText>{e.ex}</MathText>
               </div>
             )}
           </div>
