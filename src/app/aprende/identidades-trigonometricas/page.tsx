@@ -9,6 +9,8 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { Pizarra, LIENZO } from "../_components/lienzo";
+import MathText from "../../components/MathText";
 
 export default function Page() {
   return (
@@ -30,6 +32,113 @@ export default function Page() {
   );
 }
 
+// ─── Círculo unitario interactivo: sen²θ + cos²θ = 1 se VE como Pitágoras ───
+function CirculoUnitario() {
+  const [ang, setAng] = useState(37);
+  const rad = (ang * Math.PI) / 180;
+  const R = 105, cx = 240, cy = 145;
+  const px = cx + R * Math.cos(rad), py = cy - R * Math.sin(rad);
+  const s = Math.sin(rad), co = Math.cos(rad);
+  const cuadrante = ang < 90 ? "I" : ang < 180 ? "II" : ang < 270 ? "III" : "IV";
+  return (
+    <div style={{ width: "100%", maxWidth: 520, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={270}>
+        <svg width="100%" height="100%" viewBox="0 0 480 270" preserveAspectRatio="xMidYMid meet">
+          <circle cx={cx} cy={cy} r={R} fill="none" stroke={LIENZO.fgFaint} strokeWidth="1.5" />
+          <line x1={cx - R - 18} y1={cy} x2={cx + R + 18} y2={cy} stroke={LIENZO.fgDim} strokeWidth="1.2" />
+          <line x1={cx} y1={cy + R + 18} x2={cx} y2={cy - R - 18} stroke={LIENZO.fgDim} strokeWidth="1.2" />
+          {/* triángulo rectángulo formado por cos y sen */}
+          <polygon points={`${cx},${cy} ${px},${cy} ${px},${py}`} fill={LIENZO.accent} opacity="0.12" />
+          <line x1={cx} y1={cy} x2={px} y2={cy} stroke={LIENZO.warn} strokeWidth="3" />
+          <line x1={px} y1={cy} x2={px} y2={py} stroke={LIENZO.ok} strokeWidth="3" />
+          <line x1={cx} y1={cy} x2={px} y2={py} stroke={LIENZO.accent} strokeWidth="2.5" />
+          <circle cx={px} cy={py} r="6" fill={LIENZO.accent} />
+          <text x={(cx + px) / 2} y={cy + 17} textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.warn}>cos θ = {co.toFixed(3)}</text>
+          <text x={px + (co >= 0 ? 8 : -8)} y={(cy + py) / 2} textAnchor={co >= 0 ? "start" : "end"} fontSize="12" fontWeight="700" fill={LIENZO.ok}>sen θ = {s.toFixed(3)}</text>
+          <text x={cx - 12} y={cy - 8} fontSize="11" fontWeight="700" fill={LIENZO.accent}>1</text>
+          <text x="26" y="26" fontSize="12" fontWeight="700" fill={LIENZO.fgDim}>cuadrante {cuadrante}</text>
+          <text x="26" y="46" fontSize="12" fontWeight="700" fill={LIENZO.accent}>
+            {(s * s).toFixed(3)} + {(co * co).toFixed(3)} = {(s * s + co * co).toFixed(3)}
+          </text>
+        </svg>
+      </Pizarra>
+      <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+        Ángulo θ = <strong style={{ color: LIENZO.accent }}>{ang}°</strong>
+        <input type="range" min={0} max={359} step={1} value={ang}
+          onChange={(e) => setAng(parseFloat(e.target.value))}
+          style={{ width: "100%", accentColor: LIENZO.accent }} />
+      </label>
+    </div>
+  );
+}
+
+// ─── Signos por cuadrante: "Todos Saben Tomar Café" ───
+function SignosCuadrantes() {
+  const cuads = [
+    { q: "I", pos: "TODOS +", dx: 1, dy: -1, col: LIENZO.ok },
+    { q: "II", pos: "solo SEN +", dx: -1, dy: -1, col: LIENZO.accent },
+    { q: "III", pos: "solo TAN +", dx: -1, dy: 1, col: LIENZO.warn },
+    { q: "IV", pos: "solo COS +", dx: 1, dy: 1, col: LIENZO.bad },
+  ];
+  const cx = 240, cy = 120, R = 92;
+  return (
+    <Pizarra alto={245}>
+      <svg width="100%" height="100%" viewBox="0 0 480 245" preserveAspectRatio="xMidYMid meet">
+        <circle cx={cx} cy={cy} r={R} fill="none" stroke={LIENZO.fgFaint} strokeWidth="1.5" />
+        <line x1={cx - R - 20} y1={cy} x2={cx + R + 20} y2={cy} stroke={LIENZO.fgDim} strokeWidth="1.2" />
+        <line x1={cx} y1={cy + R + 20} x2={cx} y2={cy - R - 20} stroke={LIENZO.fgDim} strokeWidth="1.2" />
+        {cuads.map((c, i) => (
+          <g key={i}>
+            <text x={cx + c.dx * 52} y={cy + c.dy * 52 - 6} textAnchor="middle" fontSize="15" fontWeight="800" fill={c.col}>{c.q}</text>
+            <text x={cx + c.dx * 52} y={cy + c.dy * 52 + 12} textAnchor="middle" fontSize="11" fontWeight="700" fill={c.col}>{c.pos}</text>
+          </g>
+        ))}
+        <text x="240" y="232" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>"Todos Saben Tomar Café" · I: Todos, II: Seno, III: Tangente, IV: Coseno</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
+// ─── sen(2θ) = 2senθcosθ verificado numéricamente en vivo ───
+function AnguloDoble() {
+  const [ang, setAng] = useState(30);
+  const r = (ang * Math.PI) / 180;
+  const izq = Math.sin(2 * r);
+  const der = 2 * Math.sin(r) * Math.cos(r);
+  const cosDoble = Math.cos(2 * r);
+  const f1 = Math.cos(r) ** 2 - Math.sin(r) ** 2;
+  const f2 = 2 * Math.cos(r) ** 2 - 1;
+  const f3 = 1 - 2 * Math.sin(r) ** 2;
+  const fila = (label: string, val: number, y: number, col: string) => (
+    <g>
+      <text x="40" y={y} fontSize="12" fill={LIENZO.fgDim}>{label}</text>
+      <text x="430" y={y} textAnchor="end" fontSize="13" fontWeight="700" fill={col}>{val.toFixed(5)}</text>
+    </g>
+  );
+  return (
+    <div style={{ width: "100%", maxWidth: 520, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={200}>
+        <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+          <text x="240" y="26" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.accent}>θ = {ang}° · 2θ = {2 * ang}°</text>
+          {fila("sen(2θ)", izq, 56, LIENZO.ok)}
+          {fila("2·senθ·cosθ", der, 76, LIENZO.ok)}
+          <line x1="40" y1="88" x2="430" y2="88" stroke={LIENZO.fgFaint} strokeWidth="1" />
+          {fila("cos(2θ)", cosDoble, 112, LIENZO.warn)}
+          {fila("cos²θ − sen²θ", f1, 132, LIENZO.warn)}
+          {fila("2cos²θ − 1", f2, 152, LIENZO.warn)}
+          {fila("1 − 2sen²θ", f3, 172, LIENZO.warn)}
+        </svg>
+      </Pizarra>
+      <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
+        Movés θ y las tres formas de cos(2θ) siguen dando lo mismo
+        <input type="range" min={0} max={90} step={1} value={ang}
+          onChange={(e) => setAng(parseFloat(e.target.value))}
+          style={{ width: "100%", accentColor: LIENZO.accent }} />
+      </label>
+    </div>
+  );
+}
+
 function EscFundamentales() {
   return (
     <EscenaRica>
@@ -48,19 +157,24 @@ function EscFundamentales() {
 
       <Resumen>
         <strong>Identidades pitagóricas (las 3 más importantes)</strong>:<br /><br />
-        • <strong>sen²θ + cos²θ = 1</strong> (la fundamental, sale de Pitágoras).<br />
-        • 1 + tan²θ = sec²θ (dividí la anterior por cos²θ).<br />
-        • 1 + cot²θ = csc²θ (dividí por sen²θ).
+        • <MathText>{"$\\sin^2\\theta + \\cos^2\\theta = 1$"}</MathText> (la fundamental, sale de Pitágoras).<br />
+        • <MathText>{"$1 + \\tan^2\\theta = \\sec^2\\theta$"}</MathText> (dividí la anterior por cos²θ).<br />
+        • <MathText>{"$1 + \\cot^2\\theta = \\csc^2\\theta$"}</MathText> (dividí por sen²θ).
       </Resumen>
+
+      <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+        En el círculo unitario, cos y sen son los catetos y el radio vale 1: por Pitágoras, sen²+cos²=1 siempre
+      </p>
+      <CirculoUnitario />
 
       <Resumen>
         <strong>Identidades de cociente</strong>:<br />
-        • tan θ = sen θ / cos θ.<br />
-        • cot θ = cos θ / sen θ.<br /><br />
+        • <MathText>{"$\\tan\\theta = \\dfrac{\\sin\\theta}{\\cos\\theta}$"}</MathText><br />
+        • <MathText>{"$\\cot\\theta = \\dfrac{\\cos\\theta}{\\sin\\theta}$"}</MathText><br /><br />
         <strong>Identidades recíprocas</strong>:<br />
-        • csc θ = 1 / sen θ.<br />
-        • sec θ = 1 / cos θ.<br />
-        • cot θ = 1 / tan θ.
+        • <MathText>{"$\\csc\\theta = \\dfrac1{\\sin\\theta}$"}</MathText><br />
+        • <MathText>{"$\\sec\\theta = \\dfrac1{\\cos\\theta}$"}</MathText><br />
+        • <MathText>{"$\\cot\\theta = \\dfrac1{\\tan\\theta}$"}</MathText>
       </Resumen>
 
       <Mnemotecnia>
@@ -121,6 +235,8 @@ function EscReduccion() {
         • cos(360° − θ) = cos θ.
       </Resumen>
 
+      <SignosCuadrantes />
+
       <Mnemotecnia>
         <strong>Regla mnemónica · cuadrante</strong>:<br />
         • Cuadrante I (0-90°): TODO positivo.<br />
@@ -140,13 +256,13 @@ function EscSumaDiferencia() {
 
       <Resumen>
         <strong>Suma de ángulos</strong>:<br />
-        • sen(A + B) = sen A cos B + cos A sen B.<br />
-        • cos(A + B) = cos A cos B − sen A sen B.<br />
-        • tan(A + B) = (tan A + tan B) / (1 − tan A tan B).<br /><br />
+        • <MathText>{"$\\sin(A+B) = \\sin A\\cos B + \\cos A\\sin B$"}</MathText><br />
+        • <MathText>{"$\\cos(A+B) = \\cos A\\cos B - \\sin A\\sin B$"}</MathText><br />
+        • <MathText>{"$\\tan(A+B) = \\dfrac{\\tan A+\\tan B}{1-\\tan A\\tan B}$"}</MathText><br /><br />
         <strong>Diferencia</strong>:<br />
-        • sen(A − B) = sen A cos B − cos A sen B.<br />
-        • cos(A − B) = cos A cos B + sen A sen B.<br />
-        • tan(A − B) = (tan A − tan B) / (1 + tan A tan B).
+        • <MathText>{"$\\sin(A-B) = \\sin A\\cos B - \\cos A\\sin B$"}</MathText><br />
+        • <MathText>{"$\\cos(A-B) = \\cos A\\cos B + \\sin A\\sin B$"}</MathText><br />
+        • <MathText>{"$\\tan(A-B) = \\dfrac{\\tan A-\\tan B}{1+\\tan A\\tan B}$"}</MathText>
       </Resumen>
 
       <Mnemotecnia>
@@ -177,11 +293,16 @@ function EscDoble() {
 
       <Resumen>
         <strong>Ángulo doble</strong>:<br />
-        • sen(2θ) = 2 sen θ cos θ.<br />
-        • cos(2θ) = cos²θ − sen²θ = 2cos²θ − 1 = 1 − 2sen²θ (3 formas
-        equivalentes).<br />
-        • tan(2θ) = 2 tan θ / (1 − tan²θ).
+        • <MathText>{"$\\sin 2\\theta = 2\\sin\\theta\\cos\\theta$"}</MathText><br />
+        • <MathText>{"$\\cos 2\\theta = \\cos^2\\theta - \\sin^2\\theta$"}</MathText><br />
+        <span style={{ paddingLeft: 14 }}><MathText>{"$= 2\\cos^2\\theta - 1 = 1 - 2\\sin^2\\theta$"}</MathText></span><br />
+        • <MathText>{"$\\tan 2\\theta = \\dfrac{2\\tan\\theta}{1-\\tan^2\\theta}$"}</MathText>
       </Resumen>
+
+      <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+        Las 3 formas de cos(2θ) dan SIEMPRE el mismo número: movés θ y lo verificás
+      </p>
+      <AnguloDoble />
 
       <PorQue>
         <strong>¿De dónde sale sen(2θ)?</strong><br />
@@ -200,9 +321,9 @@ function EscDoble() {
 
       <Resumen>
         <strong>Ángulo mitad</strong> (derivadas del doble):<br />
-        • sen²(θ/2) = (1 − cos θ) / 2.<br />
-        • cos²(θ/2) = (1 + cos θ) / 2.<br />
-        • tan²(θ/2) = (1 − cos θ) / (1 + cos θ).
+        • <MathText>{"$\\sin^2\\tfrac\\theta2 = \\dfrac{1-\\cos\\theta}{2}$"}</MathText><br />
+        • <MathText>{"$\\cos^2\\tfrac\\theta2 = \\dfrac{1+\\cos\\theta}{2}$"}</MathText><br />
+        • <MathText>{"$\\tan^2\\tfrac\\theta2 = \\dfrac{1-\\cos\\theta}{1+\\cos\\theta}$"}</MathText>
       </Resumen>
     </EscenaRica>
   );
