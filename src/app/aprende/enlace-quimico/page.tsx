@@ -10,6 +10,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import MathText from "../../components/MathText";
 
 export default function Page() {
   return (
@@ -27,6 +28,67 @@ export default function Page() {
         { titulo: "Errores y práctica", componente: EscPractica },
       ]}
     />
+  );
+}
+
+// ─── Átomo de Lewis: símbolo + electrones de valencia en las 4 posiciones ───
+// Los puntos se reparten como en la convención real: uno por lado (arriba,
+// derecha, abajo, izquierda) y recién al 5º se empiezan a aparear.
+function AtomoLewis({ cx, cy, simbolo, valencia, color }: { cx: number; cy: number; simbolo: string; valencia: number; color?: string }) {
+  const col = color ?? LIENZO.fg;
+  const r = 17;
+  const lados = [
+    { dx: 0, dy: -1 },   // arriba
+    { dx: 1, dy: 0 },    // derecha
+    { dx: 0, dy: 1 },    // abajo
+    { dx: -1, dy: 0 },   // izquierda
+  ];
+  const puntos: { x: number; y: number }[] = [];
+  for (let i = 0; i < valencia; i++) {
+    const lado = lados[i % 4];
+    const par = Math.floor(i / 4); // 0 = primer electrón del lado, 1 = el que aparea
+    // desplazamiento perpendicular para separar el par
+    const perpX = lado.dy, perpY = -lado.dx;
+    const sep = par === 0 ? -3.5 : 3.5;
+    puntos.push({
+      x: cx + lado.dx * r + perpX * sep,
+      y: cy + lado.dy * r + perpY * sep,
+    });
+  }
+  return (
+    <g>
+      <text x={cx} y={cy + 6} textAnchor="middle" fontSize="19" fontWeight="700" fill={col}
+        fontFamily="var(--font-crimson), serif">{simbolo}</text>
+      {puntos.map((p, i) => (
+        <circle key={i} cx={p.x} cy={p.y} r="2.6" fill={col} />
+      ))}
+    </g>
+  );
+}
+
+function DiagramaLewis() {
+  const atomos = [
+    { simbolo: "H", valencia: 1, grupo: "IA" },
+    { simbolo: "C", valencia: 4, grupo: "IVA" },
+    { simbolo: "N", valencia: 5, grupo: "VA" },
+    { simbolo: "O", valencia: 6, grupo: "VIA" },
+    { simbolo: "Cl", valencia: 7, grupo: "VIIA" },
+  ];
+  return (
+    <Pizarra alto={170}>
+      <svg width="100%" height="100%" viewBox="0 0 480 170" preserveAspectRatio="xMidYMid meet">
+        {atomos.map((a, i) => {
+          const cx = 60 + i * 90, cy = 80;
+          return (
+            <g key={i}>
+              <AtomoLewis cx={cx} cy={cy} simbolo={a.simbolo} valencia={a.valencia} color={LIENZO.accent} />
+              <text x={cx} y={135} textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>{a.grupo}</text>
+              <text x={cx} y={150} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.fgDim}>{a.valencia} e⁻</text>
+            </g>
+          );
+        })}
+      </svg>
+    </Pizarra>
   );
 }
 
@@ -53,13 +115,10 @@ function EscOcteto() {
         líneas (cada línea = 2 electrones).
       </Definicion>
 
-      <Ejemplo titulo="Estructuras de Lewis típicas">
-        • H· (1 electrón valencia)<br />
-        • :Ö: con 2 puntos arriba abajo izquierda derecha (6 electrones).<br />
-        • H−H (enlace simple, 2 electrones compartidos).<br />
-        • O=O (enlace doble, 4 electrones).<br />
-        • N≡N (enlace triple, 6 electrones).
-      </Ejemplo>
+      <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+        Los electrones se ubican de a uno por lado, y recién desde el 5º se aparean
+      </p>
+      <DiagramaLewis />
 
       <Mnemotecnia>
         <strong>Electrones de valencia por grupo</strong>:<br />
@@ -76,6 +135,39 @@ function EscOcteto() {
   );
 }
 
+// ─── Transferencia de electrón Na → Cl, con botón para animar ───
+function TransferenciaIonica() {
+  const [transferido, setTransferido] = useState(false);
+  return (
+    <div style={{ width: "100%", maxWidth: 500, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={200}>
+        <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+          <AtomoLewis cx={140} cy={95} simbolo={transferido ? "Na⁺" : "Na"} valencia={transferido ? 0 : 1} color={LIENZO.accent} />
+          <AtomoLewis cx={330} cy={95} simbolo={transferido ? "Cl⁻" : "Cl"} valencia={transferido ? 8 : 7} color={LIENZO.ok} />
+          {!transferido && (
+            <>
+              <motion.path d="M 175 78 Q 235 45 300 78" fill="none" stroke={LIENZO.warn} strokeWidth="2" strokeDasharray="4 3" markerEnd="url(#transf)" />
+              <marker id="transf" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.warn} /></marker>
+              <text x="235" y="38" textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.warn}>cede 1 e⁻</text>
+            </>
+          )}
+          {transferido && (
+            <>
+              <text x="140" y="150" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.accent}>catión (+)</text>
+              <text x="330" y="150" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.ok}>anión (−) · octeto ✓</text>
+              <text x="235" y="180" textAnchor="middle" fontSize="13" fontWeight="700" fill={LIENZO.fg}>se atraen → NaCl</text>
+            </>
+          )}
+        </svg>
+      </Pizarra>
+      <button onClick={() => setTransferido((v) => !v)} style={{
+        padding: "8px 16px", borderRadius: 999, border: `1px solid ${LIENZO.accent}`,
+        background: "transparent", color: LIENZO.accent, fontWeight: 700, fontSize: 13, cursor: "pointer", alignSelf: "center",
+      }}>{transferido ? "Volver al inicio" : "Transferir el electrón"}</button>
+    </div>
+  );
+}
+
 function EscIonico() {
   return (
     <EscenaRica>
@@ -86,6 +178,8 @@ function EscIonico() {
         átomo que pierde queda como catión (+), el que gana como anión (−).
         La atracción electrostática mantiene unidos a los iones.
       </Definicion>
+
+      <TransferenciaIonica />
 
       <Resumen>
         <strong>Características</strong>:<br />
@@ -111,6 +205,38 @@ function EscIonico() {
   );
 }
 
+// ─── Par compartido entre dos átomos (H₂ y H₂O) ───
+function DiagramaCovalente() {
+  return (
+    <Pizarra alto={200}>
+      <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+        {/* H2 */}
+        <text x="110" y="35" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.accent}>H₂ · 1 par compartido</text>
+        <text x="80" y="105" textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <text x="140" y="105" textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <circle cx="105" cy="94" r="3" fill={LIENZO.warn} />
+        <circle cx="115" cy="94" r="3" fill={LIENZO.ok} />
+        <ellipse cx="110" cy="94" rx="16" ry="11" fill="none" stroke={LIENZO.fgFaint} strokeWidth="1.5" strokeDasharray="3 2" />
+        <text x="110" y="140" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>H−H</text>
+
+        {/* H2O */}
+        <text x="340" y="35" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.accent}>H₂O · 2 pares compartidos</text>
+        <text x="340" y="90" textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">O</text>
+        <text x="295" y="130" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <text x="385" y="130" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <line x1="328" y1="97" x2="303" y2="118" stroke={LIENZO.fg} strokeWidth="2" />
+        <line x1="352" y1="97" x2="377" y2="118" stroke={LIENZO.fg} strokeWidth="2" />
+        {/* pares libres del O */}
+        <circle cx="332" cy="66" r="2.6" fill={LIENZO.bad} />
+        <circle cx="348" cy="66" r="2.6" fill={LIENZO.bad} />
+        <circle cx="362" cy="80" r="2.6" fill={LIENZO.bad} />
+        <circle cx="362" cy="90" r="2.6" fill={LIENZO.bad} />
+        <text x="340" y="165" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>pares libres en rojo</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscCovalente() {
   return (
     <EscenaRica>
@@ -121,6 +247,8 @@ function EscCovalente() {
         enlazante. Típico entre NO METALES (poca diferencia de
         electronegatividad: ΔEN ≤ 1.7).
       </Definicion>
+
+      <DiagramaCovalente />
 
       <Resumen>
         <strong>Características</strong>:<br />
@@ -140,10 +268,44 @@ function EscCovalente() {
   );
 }
 
+// ─── Simple, doble, triple: líneas reales entre átomos ───
+function DiagramaTiposEnlace() {
+  const tipos = [
+    { izq: "H", der: "Cl", n: 1, label: "simple", sub: "H−Cl" },
+    { izq: "O", der: "O", n: 2, label: "doble", sub: "O=O" },
+    { izq: "N", der: "N", n: 3, label: "triple", sub: "N≡N" },
+  ];
+  return (
+    <Pizarra alto={200}>
+      <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+        {tipos.map((t, i) => {
+          const cx = 90 + i * 150, cy = 90;
+          const sep = 22;
+          return (
+            <g key={i}>
+              <text x={cx - 38} y={cy + 6} textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">{t.izq}</text>
+              <text x={cx + 38} y={cy + 6} textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">{t.der}</text>
+              {Array.from({ length: t.n }, (_, k) => {
+                const offset = (k - (t.n - 1) / 2) * 7;
+                return <line key={k} x1={cx - 20} y1={cy + offset} x2={cx + 20} y2={cy + offset} stroke={LIENZO.accent} strokeWidth="2.5" />;
+              })}
+              <text x={cx} y={cy + 45} textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.accent}>{t.label}</text>
+              <text x={cx} y={cy + 62} textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>{t.n} par{t.n > 1 ? "es" : ""} · {t.sub}</text>
+            </g>
+          );
+        })}
+        <text x="240" y="180" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>más pares = enlace más corto y más fuerte</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscTiposCov() {
   return (
     <EscenaRica>
       <Titulo>Tipos de enlace covalente</Titulo>
+
+      <DiagramaTiposEnlace />
 
       <Resumen>
         Según cuántos pares de electrones se comparten:<br />
@@ -175,6 +337,50 @@ function EscTiposCov() {
   );
 }
 
+// ─── Geometría molecular: por qué H2O es polar y CO2/CCl4 no ───
+function GeometriaPolaridad() {
+  return (
+    <Pizarra alto={230}>
+      <svg width="100%" height="100%" viewBox="0 0 480 230" preserveAspectRatio="xMidYMid meet">
+        {/* H2O angular → polar */}
+        <text x="90" y="30" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.bad}>H₂O · angular → POLAR</text>
+        <text x="90" y="80" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">O</text>
+        <text x="52" y="126" textAnchor="middle" fontSize="15" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <text x="128" y="126" textAnchor="middle" fontSize="15" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">H</text>
+        <line x1="80" y1="88" x2="58" y2="114" stroke={LIENZO.fg} strokeWidth="2" />
+        <line x1="100" y1="88" x2="122" y2="114" stroke={LIENZO.fg} strokeWidth="2" />
+        {/* dipolos apuntando al O, no se cancelan → resultante hacia arriba */}
+        <line x1="58" y1="114" x2="76" y2="92" stroke={LIENZO.warn} strokeWidth="2" markerEnd="url(#dip1)" />
+        <line x1="122" y1="114" x2="104" y2="92" stroke={LIENZO.warn} strokeWidth="2" markerEnd="url(#dip2)" />
+        <line x1="90" y1="98" x2="90" y2="55" stroke={LIENZO.bad} strokeWidth="3" markerEnd="url(#dipR)" />
+        <text x="90" y="180" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>los dipolos NO se cancelan</text>
+
+        {/* CO2 lineal → no polar */}
+        <text x="330" y="30" textAnchor="middle" fontSize="12" fontWeight="700" fill={LIENZO.ok}>CO₂ · lineal → NO POLAR</text>
+        <text x="255" y="105" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">O</text>
+        <text x="330" y="105" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">C</text>
+        <text x="405" y="105" textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg} fontFamily="var(--font-crimson), serif">O</text>
+        <line x1="270" y1="96" x2="315" y2="96" stroke={LIENZO.fg} strokeWidth="2" />
+        <line x1="270" y1="103" x2="315" y2="103" stroke={LIENZO.fg} strokeWidth="2" />
+        <line x1="345" y1="96" x2="390" y2="96" stroke={LIENZO.fg} strokeWidth="2" />
+        <line x1="345" y1="103" x2="390" y2="103" stroke={LIENZO.fg} strokeWidth="2" />
+        {/* dipolos opuestos, se cancelan */}
+        <line x1="320" y1="130" x2="272" y2="130" stroke={LIENZO.warn} strokeWidth="2.5" markerEnd="url(#dipL)" />
+        <line x1="340" y1="130" x2="388" y2="130" stroke={LIENZO.warn} strokeWidth="2.5" markerEnd="url(#dipRr)" />
+        <text x="330" y="180" textAnchor="middle" fontSize="11" fill={LIENZO.fgDim}>iguales y opuestos: se CANCELAN</text>
+
+        <defs>
+          <marker id="dip1" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill={LIENZO.warn} /></marker>
+          <marker id="dip2" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill={LIENZO.warn} /></marker>
+          <marker id="dipR" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill={LIENZO.bad} /></marker>
+          <marker id="dipL" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill={LIENZO.warn} /></marker>
+          <marker id="dipRr" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill={LIENZO.warn} /></marker>
+        </defs>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscPolaridad() {
   return (
     <EscenaRica>
@@ -194,6 +400,11 @@ function EscPolaridad() {
         • ΔEN &gt; 1.7: predominantemente IÓNICO.
       </Resumen>
 
+      <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+        La GEOMETRÍA decide si los dipolos se cancelan o no
+      </p>
+      <GeometriaPolaridad />
+
       <Definicion termino="Molécula polar vs no polar">
         Una molécula es polar si los dipolos NO se cancelan por geometría:<br />
         • H₂O: polar (forma de "V", momentos no se cancelan).<br />
@@ -210,6 +421,49 @@ function EscPolaridad() {
   );
 }
 
+// ─── Mar de electrones en una red de cationes metálicos ───
+function MarDeElectrones() {
+  const filas = 3, cols = 6;
+  const cationes = useMemo(() => {
+    const arr: { x: number; y: number }[] = [];
+    for (let f = 0; f < filas; f++) {
+      for (let c = 0; c < cols; c++) {
+        arr.push({ x: 110 + c * 45, y: 55 + f * 45 });
+      }
+    }
+    return arr;
+  }, []);
+  const electrones = useMemo(() => {
+    const arr: { x: number; y: number; d: number }[] = [];
+    for (let i = 0; i < 14; i++) {
+      arr.push({
+        x: 95 + ((i * 37) % 260),
+        y: 42 + ((i * 53) % 110),
+        d: (i % 5) * 0.3,
+      });
+    }
+    return arr;
+  }, []);
+  return (
+    <Pizarra alto={200}>
+      <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
+        {cationes.map((c, i) => (
+          <g key={i}>
+            <circle cx={c.x} cy={c.y} r="13" fill={LIENZO.accent} opacity="0.85" />
+            <text x={c.x} y={c.y + 4} textAnchor="middle" fontSize="10" fontWeight="700" fill="white">+</text>
+          </g>
+        ))}
+        {electrones.map((e, i) => (
+          <motion.circle key={i} cx={e.x} cy={e.y} r="3.5" fill={LIENZO.warn}
+            animate={{ cx: [e.x, e.x + 30, e.x - 20, e.x], cy: [e.y, e.y + 18, e.y - 12, e.y] }}
+            transition={{ duration: 4 + e.d, repeat: Infinity, ease: "linear" }} />
+        ))}
+        <text x="240" y="185" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>cationes fijos (violeta) + electrones libres (ámbar) = conduce</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscOtros() {
   return (
     <EscenaRica>
@@ -222,6 +476,8 @@ function EscOtros() {
         Esto explica las propiedades de los metales: conductores, dúctiles,
         maleables, brillantes.
       </Definicion>
+
+      <MarDeElectrones />
 
       <Resumen>
         <strong>Fuerzas intermoleculares</strong> (atraen moléculas entre sí,
@@ -251,23 +507,25 @@ function EscComparacion() {
       <Titulo>Comparación de tipos de enlace</Titulo>
 
       <Resumen>
-        <table style={{ fontFamily: "var(--font-crimson), serif", margin: "0 auto", fontSize: 13 }}>
-          <thead>
-            <tr style={{ borderBottom: "1px solid var(--border)" }}>
-              <th style={{ padding: "6px 10px" }}>Propiedad</th>
-              <th style={{ padding: "6px 10px" }}>Iónico</th>
-              <th style={{ padding: "6px 10px" }}>Covalente</th>
-              <th style={{ padding: "6px 10px" }}>Metálico</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td style={{ padding: "6px 10px" }}>Estado a 25°C</td><td>Sólido</td><td>Varios</td><td>Sólido</td></tr>
-            <tr><td style={{ padding: "6px 10px" }}>Punto fusión</td><td>Alto</td><td>Bajo</td><td>Medio-alto</td></tr>
-            <tr><td style={{ padding: "6px 10px" }}>Solubilidad agua</td><td>Sí (sales)</td><td>Variable</td><td>No</td></tr>
-            <tr><td style={{ padding: "6px 10px" }}>Conductividad</td><td>En solución</td><td>No</td><td>Sí</td></tr>
-            <tr><td style={{ padding: "6px 10px" }}>Maleabilidad</td><td>Frágil</td><td>Variable</td><td>Sí</td></tr>
-          </tbody>
-        </table>
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ fontFamily: "var(--font-crimson), serif", margin: "0 auto", fontSize: 13 }}>
+            <thead>
+              <tr style={{ borderBottom: "1px solid var(--border)" }}>
+                <th style={{ padding: "6px 10px" }}>Propiedad</th>
+                <th style={{ padding: "6px 10px" }}>Iónico</th>
+                <th style={{ padding: "6px 10px" }}>Covalente</th>
+                <th style={{ padding: "6px 10px" }}>Metálico</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style={{ padding: "6px 10px" }}>Estado a 25°C</td><td>Sólido</td><td>Varios</td><td>Sólido</td></tr>
+              <tr><td style={{ padding: "6px 10px" }}>Punto fusión</td><td>Alto</td><td>Bajo</td><td>Medio-alto</td></tr>
+              <tr><td style={{ padding: "6px 10px" }}>Solubilidad agua</td><td>Sí (sales)</td><td>Variable</td><td>No</td></tr>
+              <tr><td style={{ padding: "6px 10px" }}>Conductividad</td><td>En solución</td><td>No</td><td>Sí</td></tr>
+              <tr><td style={{ padding: "6px 10px" }}>Maleabilidad</td><td>Frágil</td><td>Variable</td><td>Sí</td></tr>
+            </tbody>
+          </table>
+        </div>
       </Resumen>
     </EscenaRica>
   );
