@@ -9,6 +9,8 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { Pizarra, LIENZO } from "../_components/lienzo";
+import MathText from "../../components/MathText";
 
 export default function Page() {
   return (
@@ -30,6 +32,79 @@ export default function Page() {
   );
 }
 
+// ─── Triángulo dibujado con geometría REAL (regla 7 de la bitácora) ───
+// Se ubica A en el origen, B sobre el eje x a distancia c, y C se calcula
+// con la ley de cosenos: C = (b·cos A, b·sen A). Nada está "dibujado a ojo".
+function TrianguloSVG({
+  b, c, angA, etiquetas, destacar, alto = 230,
+}: {
+  b: number; c: number; angA: number;
+  etiquetas?: { A?: string; B?: string; C?: string; a?: string; b?: string; c?: string };
+  destacar?: "a" | "b" | "c" | "A" | "B" | "C";
+  alto?: number;
+}) {
+  const rad = (angA * Math.PI) / 180;
+  // vértices en coordenadas matemáticas
+  const A = { x: 0, y: 0 };
+  const B = { x: c, y: 0 };
+  const C = { x: b * Math.cos(rad), y: b * Math.sin(rad) };
+  // lado a (opuesto a A) por ley de cosenos, para etiquetar
+  const aLen = Math.sqrt(b * b + c * c - 2 * b * c * Math.cos(rad));
+  // ángulos B y C por ley de senos/cosenos
+  const angB = (Math.acos((aLen * aLen + c * c - b * b) / (2 * aLen * c)) * 180) / Math.PI;
+  const angC = 180 - angA - angB;
+
+  // escalar al viewBox
+  const W = 480, H = alto, pad = 46;
+  const xs = [A.x, B.x, C.x], ys = [A.y, B.y, C.y];
+  const minX = Math.min(...xs), maxX = Math.max(...xs);
+  const minY = Math.min(...ys), maxY = Math.max(...ys);
+  const escala = Math.min((W - 2 * pad) / (maxX - minX || 1), (H - 2 * pad) / (maxY - minY || 1));
+  const offX = (W - (maxX - minX) * escala) / 2 - minX * escala;
+  const offY = H - pad;
+  const px = (p: { x: number; y: number }) => ({ x: offX + p.x * escala, y: offY - p.y * escala });
+  const pA = px(A), pB = px(B), pC = px(C);
+
+  const col = (id: string) => (destacar === id ? LIENZO.accent : LIENZO.fg);
+  const grosor = (id: string) => (destacar === id ? 3.5 : 2);
+  const medio = (p: { x: number; y: number }, q: { x: number; y: number }) => ({ x: (p.x + q.x) / 2, y: (p.y + q.y) / 2 });
+  // arco de ángulo en un vértice
+  const arco = (v: { x: number; y: number }, p1: { x: number; y: number }, p2: { x: number; y: number }, r: number) => {
+    const a1 = Math.atan2(p1.y - v.y, p1.x - v.x);
+    const a2 = Math.atan2(p2.y - v.y, p2.x - v.x);
+    const s = { x: v.x + r * Math.cos(a1), y: v.y + r * Math.sin(a1) };
+    const e = { x: v.x + r * Math.cos(a2), y: v.y + r * Math.sin(a2) };
+    let d = a2 - a1;
+    while (d < -Math.PI) d += 2 * Math.PI;
+    while (d > Math.PI) d -= 2 * Math.PI;
+    return `M ${s.x} ${s.y} A ${r} ${r} 0 0 ${d > 0 ? 1 : 0} ${e.x} ${e.y}`;
+  };
+
+  const mAB = medio(pA, pB), mBC = medio(pB, pC), mAC = medio(pA, pC);
+  return (
+    <Pizarra alto={alto}>
+      <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet">
+        <polygon points={`${pA.x},${pA.y} ${pB.x},${pB.y} ${pC.x},${pC.y}`} fill={LIENZO.accent} opacity="0.07" />
+        <line x1={pA.x} y1={pA.y} x2={pB.x} y2={pB.y} stroke={col("c")} strokeWidth={grosor("c")} />
+        <line x1={pB.x} y1={pB.y} x2={pC.x} y2={pC.y} stroke={col("a")} strokeWidth={grosor("a")} />
+        <line x1={pA.x} y1={pA.y} x2={pC.x} y2={pC.y} stroke={col("b")} strokeWidth={grosor("b")} />
+
+        <path d={arco(pA, pB, pC, 26)} fill="none" stroke={destacar === "A" ? LIENZO.accent : LIENZO.warn} strokeWidth="2" />
+        <path d={arco(pB, pC, pA, 24)} fill="none" stroke={destacar === "B" ? LIENZO.accent : LIENZO.warn} strokeWidth="2" />
+        <path d={arco(pC, pA, pB, 22)} fill="none" stroke={destacar === "C" ? LIENZO.accent : LIENZO.warn} strokeWidth="2" />
+
+        <text x={pA.x - 16} y={pA.y + 16} fontSize="13" fontWeight="700" fill={LIENZO.fg}>{etiquetas?.A ?? `A=${angA.toFixed(0)}°`}</text>
+        <text x={pB.x + 6} y={pB.y + 16} fontSize="13" fontWeight="700" fill={LIENZO.fg}>{etiquetas?.B ?? `B=${angB.toFixed(1)}°`}</text>
+        <text x={pC.x - 8} y={pC.y - 12} fontSize="13" fontWeight="700" fill={LIENZO.fg}>{etiquetas?.C ?? `C=${angC.toFixed(1)}°`}</text>
+
+        <text x={mAB.x} y={mAB.y + 20} textAnchor="middle" fontSize="12" fontWeight="700" fill={col("c")}>{etiquetas?.c ?? `c=${c}`}</text>
+        <text x={mBC.x + 14} y={mBC.y} textAnchor="middle" fontSize="12" fontWeight="700" fill={col("a")}>{etiquetas?.a ?? `a=${aLen.toFixed(2)}`}</text>
+        <text x={mAC.x - 20} y={mAC.y} textAnchor="middle" fontSize="12" fontWeight="700" fill={col("b")}>{etiquetas?.b ?? `b=${b}`}</text>
+      </svg>
+    </Pizarra>
+  );
+}
+
 function EscIntro() {
   return (
     <EscenaRica>
@@ -41,6 +116,9 @@ function EscIntro() {
         recto. Ley de senos y cosenos generalizan la trigonometría a CUALQUIER
         triángulo.
       </Hook>
+
+      <TrianguloSVG b={9} c={12} angA={52}
+        etiquetas={{ A: "A", B: "B", C: "C", a: "a", b: "b", c: "c" }} />
 
       <Resumen>
         <strong>Notación estándar</strong>:<br />
@@ -66,10 +144,13 @@ function EscLeySenos() {
       <Titulo accent={COLOR_OK}>Ley de senos</Titulo>
 
       <Resumen>
-        <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-          a / sen A = b / sen B = c / sen C
-        </span>
+        <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
+          <MathText>{"$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} = \\dfrac{c}{\\sin C}$"}</MathText>
+        </div>
       </Resumen>
+
+      <TrianguloSVG b={9} c={12} angA={52}
+        etiquetas={{ A: "A", B: "B", C: "C", a: "a", b: "b", c: "c" }} />
 
       <Parrafo>
         La razón entre un lado y el seno del ángulo opuesto es CONSTANTE para
@@ -108,10 +189,13 @@ function EscAplicSenos() {
       <WorkedExample titulo="Encontrar un lado">
         En un triángulo, A = 40°, B = 60°, a = 12. Encontrar b.<br /><br />
 
-        <strong>Aplicar:</strong> a/sen A = b/sen B.<br />
-        12/sen 40° = b/sen 60°.<br />
-        b = 12 · sen 60° / sen 40° = 12 · 0.866 / 0.643 ≈ <strong>16.17</strong>.
+        <strong>Aplicar:</strong>
+        <div style={{ textAlign: "center", padding: "6px 0", overflowX: "auto" }}>
+          <MathText>{"$\\dfrac{a}{\\sin A} = \\dfrac{b}{\\sin B} \\ \\Rightarrow\\ b = \\dfrac{12\\sin 60^\\circ}{\\sin 40^\\circ} \\approx 16.17$"}</MathText>
+        </div>
       </WorkedExample>
+      <TrianguloSVG b={16.17} c={18.385} angA={40}
+        etiquetas={{ A: "A=40°", B: "B=60°", C: "C=80°", a: "a=12", b: "b=16.17", c: "c" }} destacar="b" />
 
       <WorkedExample titulo="Encontrar un ángulo">
         Lado a = 8, lado b = 10, ángulo A = 30°. Encontrar el ángulo B.<br /><br />
@@ -135,14 +219,17 @@ function EscLeyCosenos() {
       <Titulo accent={COLOR_OK}>Ley de cosenos</Titulo>
 
       <Resumen>
-        <strong>Para el lado a (frente al ángulo A)</strong>:<br />
-        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-          a² = b² + c² − 2bc · cos A
-        </span><br /><br />
+        <strong>Para el lado a (frente al ángulo A)</strong>:
+        <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
+          <MathText>{"$a^2 = b^2 + c^2 - 2bc\\cos A$"}</MathText>
+        </div>
         Equivalentemente para los otros lados:<br />
-        • b² = a² + c² − 2ac · cos B.<br />
-        • c² = a² + b² − 2ab · cos C.
+        • <MathText>{"$b^2 = a^2 + c^2 - 2ac\\cos B$"}</MathText><br />
+        • <MathText>{"$c^2 = a^2 + b^2 - 2ab\\cos C$"}</MathText>
       </Resumen>
+
+      <TrianguloSVG b={9} c={12} angA={52}
+        etiquetas={{ A: "A", B: "B", C: "C", a: "a (buscado)", b: "b", c: "c" }} destacar="A" />
 
       <PorQue>
         <strong>Ley de cosenos es la generalización de Pitágoras</strong>.
@@ -158,10 +245,10 @@ function EscLeyCosenos() {
         ENTRE ellos. Querés el 3er lado.<br />
         2. <strong>LLL</strong> (Lado-Lado-Lado): te dan los 3 lados. Querés un
         ángulo.<br /><br />
-        Si despejás el coseno:<br />
-        <span style={{ fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
-          cos A = (b² + c² − a²) / (2bc)
-        </span>
+        Si despejás el coseno:
+        <div style={{ textAlign: "center", padding: "6px 0", overflowX: "auto" }}>
+          <MathText>{"$\\cos A = \\dfrac{b^2+c^2-a^2}{2bc}$"}</MathText>
+        </div>
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -182,6 +269,8 @@ function EscAplicCosenos() {
         c² = 89 − 40 = 49<br />
         c = <strong>7</strong>.
       </WorkedExample>
+      <TrianguloSVG b={5} c={8} angA={60}
+        etiquetas={{ A: "60°", B: "B", C: "C", a: "a=7", b: "5", c: "8" }} destacar="a" />
 
       <WorkedExample titulo="Caso LLL · encontrar un ángulo">
         Triángulo con lados a=6, b=7, c=8. Encontrar el ángulo C (opuesto al
@@ -225,12 +314,15 @@ function EscAreaSeno() {
       <Titulo>Área del triángulo con seno</Titulo>
 
       <Resumen>
-        Si conocés 2 lados y el ángulo entre ellos:<br />
-        <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
-          A = (1/2) · a · b · sen C
-        </span><br /><br />
+        Si conocés 2 lados y el ángulo entre ellos:
+        <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
+          <MathText>{"$\\text{Área} = \\tfrac12 ab\\sin C$"}</MathText>
+        </div>
         donde a y b son dos lados, y C es el ángulo ENTRE ellos.
       </Resumen>
+
+      <TrianguloSVG b={7} c={10} angA={60}
+        etiquetas={{ A: "60°", B: "B", C: "C", a: "a", b: "7", c: "10" }} destacar="A" />
 
       <PorQue>
         La altura desde el vértice opuesto al lado a es b · sen C. Por tanto
@@ -261,6 +353,8 @@ function EscPracticos() {
         BC² = 32500 − 22980 = 9520<br />
         BC ≈ <strong>97.57 m</strong>.
       </WorkedExample>
+      <TrianguloSVG b={150} c={100} angA={40}
+        etiquetas={{ A: "A=40°", B: "B", C: "C", a: "BC≈97.57", b: "AC=150", c: "AB=100" }} destacar="a" />
 
       <WorkedExample titulo="Navegación">
         Un barco navega 30 km al noreste (rumbo 045°), luego cambia y navega
