@@ -4,12 +4,13 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
-import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
+import { Pizarra, Ejes, Hint, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import MathText from "../../components/MathText";
 
 // Discriminante visual: alternar entre 3 casos típicos. Cada caso muestra una
 // parábola con sus raíces (o sin) y el valor de Δ = b² − 4ac.
@@ -72,6 +73,314 @@ function DiscriminanteVisual() {
   );
 }
 
+// ─── Recta vs parábola: por qué una cuadrática puede tener 0, 1 o 2 soluciones ───
+function RectaVsParabola() {
+  const xMin = -4, xMax = 4, yMin = -3, yMax = 6, alto = 230;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const puntos = (f: (x: number) => number) => {
+    const out: string[] = [];
+    for (let k = 0; k <= 80; k++) {
+      const x = xMin + (k / 80) * (xMax - xMin);
+      const y = f(x);
+      if (y < yMin - 1 || y > yMax + 1) continue;
+      out.push(`${sx(x)},${sy(y)}`);
+    }
+    return out.join(" ");
+  };
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          {/* recta y = 2x − 1: cruza el eje x una sola vez, siempre */}
+          <polyline points={puntos((x) => 2 * x - 1)} fill="none"
+            stroke={LIENZO.fgDim} strokeWidth="2.5" strokeDasharray="6 4" />
+          <circle cx={sx(0.5)} cy={sy(0)} r="5" fill={LIENZO.fgDim} />
+          {/* parábola y = x² − 2: cruza dos veces, en ±√2 */}
+          <polyline points={puntos((x) => x * x - 2)} fill="none"
+            stroke={LIENZO.accent} strokeWidth="3" strokeLinejoin="round" />
+          <circle cx={sx(-Math.SQRT2)} cy={sy(0)} r="5.5" fill={LIENZO.accent} />
+          <circle cx={sx(Math.SQRT2)} cy={sy(0)} r="5.5" fill={LIENZO.accent} />
+          <text x={sx(-3.7)} y={sy(2.6)} fontSize="13" fill={LIENZO.accent} fontWeight="700">x² − 2</text>
+          <text x={sx(1.3)} y={sy(4.8)} fontSize="13" fill={LIENZO.fgDim} fontWeight="700">2x − 1</text>
+        </Ejes>
+      </Pizarra>
+      <Hint>La recta corta el eje una vez. La parábola se curva: puede cortarlo dos veces, una o ninguna</Hint>
+    </div>
+  );
+}
+
+// ─── a, b, c: de dónde sale cada coeficiente, con su signo ───
+function CoeficientesVisual() {
+  const [i, setI] = useState(0);
+  const casos = [
+    { ec: "3x² − 7x + 2 = 0", a: "3", b: "−7", c: "2", nota: "tal cual viene" },
+    { ec: "x² − 4x + 5 = 0", a: "1", b: "−4", c: "5", nota: "de x² + 5 = 4x, pasando todo a un lado" },
+    { ec: "2x² + 7x − 4 = 0", a: "2", b: "7", c: "−4", nota: "el signo va pegado al número" },
+  ];
+  const { ec, a, b, c, nota } = casos[i];
+  const chips = [
+    { label: "a", valor: a, color: LIENZO.accent },
+    { label: "b", valor: b, color: LIENZO.warn },
+    { label: "c", valor: c, color: LIENZO.ok },
+  ];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 12 }}>
+      <div onClick={() => setI((v) => (v + 1) % casos.length)}
+        role="button" tabIndex={0}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setI((v) => (v + 1) % casos.length); } }}
+        style={{
+          cursor: "pointer", textAlign: "center", fontFamily: "var(--font-crimson), serif",
+          fontSize: 30, fontWeight: 600, color: LIENZO.fg, padding: "6px 0",
+        }}>
+        {ec}
+      </div>
+      <div style={{ display: "flex", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
+        {chips.map((ch) => (
+          <motion.div key={ch.label} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{
+              minWidth: 92, padding: "10px 16px", borderRadius: 12,
+              border: `2px solid ${ch.color}`, textAlign: "center",
+              fontFamily: "var(--font-crimson), serif",
+            }}>
+            <div style={{ fontSize: 12, color: ch.color, fontWeight: 800, letterSpacing: 1 }}>{ch.label}</div>
+            <div style={{ fontSize: 26, fontWeight: 700, color: LIENZO.fg }}>{ch.valor}</div>
+          </motion.div>
+        ))}
+      </div>
+      <Hint>{nota} · tocá la ecuación para ver otro caso</Hint>
+    </div>
+  );
+}
+
+// ─── Factor cero: cada factor apaga la parábola en su propia raíz ───
+function FactorizacionVisual() {
+  const xMin = -1, xMax = 5, yMin = -1.6, yMax = 3, alto = 240;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const pts: string[] = [];
+  for (let k = 0; k <= 90; k++) {
+    const x = xMin + (k / 90) * (xMax - xMin);
+    const y = x * x - 5 * x + 6;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  const raices = [
+    { r: 2, factor: "x − 2 = 0", color: LIENZO.ok },
+    { r: 3, factor: "x − 3 = 0", color: LIENZO.accent },
+  ];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <polyline points={pts.join(" ")} fill="none" stroke={LIENZO.fg} strokeWidth="3" strokeLinejoin="round" />
+          {raices.map((r) => (
+            <g key={r.r}>
+              <line x1={sx(r.r)} y1={sy(0)} x2={sx(r.r)} y2={sy(yMin + 0.35)}
+                stroke={r.color} strokeWidth="1.5" strokeDasharray="4 3" />
+              <circle cx={sx(r.r)} cy={sy(0)} r="6" fill={r.color} />
+              <text x={sx(r.r)} y={sy(yMin + 0.1)} textAnchor="middle" fontSize="13"
+                fontWeight="700" fill={r.color}>{r.factor}</text>
+            </g>
+          ))}
+        </Ejes>
+      </Pizarra>
+      <div style={{ textAlign: "center" }}>
+        <MathText>{"$(x-2)(x-3)=0 \\;\\Rightarrow\\; x=2 \\;\\text{ó}\\; x=3$"}</MathText>
+      </div>
+      <Hint>Un producto da cero solo si alguno de los factores es cero: ahí corta la parábola</Hint>
+    </div>
+  );
+}
+
+// ─── Anatomía de la fórmula: −b/2a es el eje, √Δ/2a es cuánto te alejás ───
+function AnatomiaFormula() {
+  const a = 2, b = -7, c = 3;
+  const D = b * b - 4 * a * c;
+  const eje = -b / (2 * a);
+  const salto = Math.sqrt(D) / (2 * a);
+  const xMin = -0.5, xMax = 4, yMin = -2.5, yMax = 4, alto = 250;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const pts: string[] = [];
+  for (let k = 0; k <= 90; k++) {
+    const x = xMin + (k / 90) * (xMax - xMin);
+    const y = a * x * x + b * x + c;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  const yVertice = a * eje * eje + b * eje + c;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <polyline points={pts.join(" ")} fill="none" stroke={LIENZO.fg} strokeWidth="3" strokeLinejoin="round" />
+          {/* eje de simetría: x = −b/2a */}
+          <line x1={sx(eje)} y1={sy(yMax - 0.3)} x2={sx(eje)} y2={sy(yVertice)}
+            stroke={LIENZO.accent} strokeWidth="2" strokeDasharray="5 4" />
+          <text x={sx(eje)} y={sy(yMax - 0.05)} textAnchor="middle" fontSize="13"
+            fontWeight="700" fill={LIENZO.accent}>−b/2a = {eje}</text>
+          {/* el ± como salto simétrico a cada lado del eje */}
+          {[-1, 1].map((s) => (
+            <g key={s}>
+              <line x1={sx(eje)} y1={sy(0)} x2={sx(eje + s * salto)} y2={sy(0)}
+                stroke={LIENZO.warn} strokeWidth="2.5" />
+              <circle cx={sx(eje + s * salto)} cy={sy(0)} r="6" fill={LIENZO.ok} />
+              <text x={sx(eje + s * salto)} y={sy(0) + 24} textAnchor="middle" fontSize="14"
+                fontWeight="700" fill={LIENZO.ok}>{eje + s * salto}</text>
+            </g>
+          ))}
+          <text x={sx(eje)} y={sy(0) - 22} textAnchor="middle" fontSize="12"
+            fontWeight="700" fill={LIENZO.warn}>±√Δ/2a = ±{salto}</text>
+        </Ejes>
+      </Pizarra>
+      <div style={{ textAlign: "center" }}>
+        <MathText>{"$x = \\dfrac{-b}{2a} \\pm \\dfrac{\\sqrt{\\Delta}}{2a}$"}</MathText>
+      </div>
+      <Hint>
+        La fórmula es eso: parate en el eje de simetría y saltá lo mismo para los dos lados
+      </Hint>
+    </div>
+  );
+}
+
+// ─── Casos especiales: falta b (simétrica) o falta c (pasa por el origen) ───
+function CasosEspecialesVisual() {
+  const casos = [
+    {
+      titulo: "Sin b · x² − 16 = 0", a: 1, b: 0, c: -16,
+      raices: [-4, 4], nota: "Simétrica respecto al eje y",
+      color: LIENZO.accent,
+    },
+    {
+      titulo: "Sin c · x² − 4x = 0", a: 1, b: -4, c: 0,
+      raices: [0, 4], nota: "Siempre pasa por el origen",
+      color: LIENZO.ok,
+    },
+  ];
+  const xMin = -6, xMax = 6, yMin = -20, yMax = 12, alto = 200;
+  return (
+    <div style={{
+      width: "100%", maxWidth: 620, display: "flex", gap: 14,
+      justifyContent: "center", flexWrap: "wrap",
+    }}>
+      {casos.map((cs) => {
+        const sx = scalerX(xMin, xMax, 240, 20, 12);
+        const sy = scalerY(yMin, yMax, alto);
+        const pts: string[] = [];
+        for (let k = 0; k <= 90; k++) {
+          const x = xMin + (k / 90) * (xMax - xMin);
+          const y = cs.a * x * x + cs.b * x + cs.c;
+          if (y < yMin - 2 || y > yMax + 2) continue;
+          pts.push(`${sx(x)},${sy(y)}`);
+        }
+        return (
+          <div key={cs.titulo} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+            <div style={{
+              fontFamily: "var(--font-crimson), serif", fontSize: 16,
+              fontWeight: 700, color: cs.color,
+            }}>{cs.titulo}</div>
+            <svg width={240} height={alto} viewBox={`0 0 240 ${alto}`}>
+              <line x1={sx(xMin)} y1={sy(0)} x2={sx(xMax)} y2={sy(0)} stroke={LIENZO.fgFaint} strokeWidth="1" />
+              <line x1={sx(0)} y1={sy(yMin)} x2={sx(0)} y2={sy(yMax)} stroke={LIENZO.fgFaint} strokeWidth="1" />
+              <polyline points={pts.join(" ")} fill="none" stroke={cs.color} strokeWidth="2.5" strokeLinejoin="round" />
+              {cs.raices.map((r) => (
+                <g key={r}>
+                  <circle cx={sx(r)} cy={sy(0)} r="5" fill={cs.color} />
+                  <text x={sx(r)} y={sy(0) + 20} textAnchor="middle" fontSize="12"
+                    fontWeight="700" fill={LIENZO.fgDim}>{r}</text>
+                </g>
+              ))}
+            </svg>
+            <div style={{ fontSize: 12, color: LIENZO.fgDim }}>{cs.nota}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Vieta: la suma es el doble del eje, el producto sale del corte en y ───
+function VietaVisual() {
+  const a = 1, b = -5, c = 6;
+  const r1 = 2, r2 = 3;
+  const eje = -b / (2 * a);
+  const xMin = -0.6, xMax = 4.4, yMin = -1.2, yMax = 8, alto = 240;
+  const sx = scalerX(xMin, xMax);
+  const sy = scalerY(yMin, yMax, alto);
+  const pts: string[] = [];
+  for (let k = 0; k <= 90; k++) {
+    const x = xMin + (k / 90) * (xMax - xMin);
+    const y = a * x * x + b * x + c;
+    if (y < yMin - 1 || y > yMax + 1) continue;
+    pts.push(`${sx(x)},${sy(y)}`);
+  }
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+          <polyline points={pts.join(" ")} fill="none" stroke={LIENZO.fg} strokeWidth="3" strokeLinejoin="round" />
+          {/* corte en y: vale c, que es el producto de las raíces cuando a = 1 */}
+          <circle cx={sx(0)} cy={sy(c)} r="6" fill={LIENZO.warn} />
+          <text x={sx(0) + 10} y={sy(c) + 5} fontSize="13" fontWeight="700" fill={LIENZO.warn}>
+            c = 6 = 2 · 3
+          </text>
+          {[r1, r2].map((r) => (
+            <g key={r}>
+              <circle cx={sx(r)} cy={sy(0)} r="6" fill={LIENZO.ok} />
+              <text x={sx(r)} y={sy(0) + 22} textAnchor="middle" fontSize="14"
+                fontWeight="700" fill={LIENZO.ok}>{r}</text>
+            </g>
+          ))}
+          {/* el eje de simetría cae justo en el medio de las dos raíces */}
+          <line x1={sx(eje)} y1={sy(0)} x2={sx(eje)} y2={sy(yMax - 0.6)}
+            stroke={LIENZO.accent} strokeWidth="2" strokeDasharray="5 4" />
+          <text x={sx(eje)} y={sy(yMax - 0.3)} textAnchor="middle" fontSize="13"
+            fontWeight="700" fill={LIENZO.accent}>punto medio = {eje}</text>
+        </Ejes>
+      </Pizarra>
+      <div style={{ textAlign: "center" }}>
+        <MathText>{"$x_1 + x_2 = 5 = -\\dfrac{b}{a} \\qquad x_1 \\cdot x_2 = 6 = \\dfrac{c}{a}$"}</MathText>
+      </div>
+      <Hint>Las dos raíces caen simétricas alrededor del eje: por eso su suma es −b/a</Hint>
+    </div>
+  );
+}
+
+// ─── La trampa del −b cuando b ya es negativo ───
+function SignoBVisual() {
+  const alto = 190;
+  const filas = [
+    { etiqueta: "MAL", expr: "x = (−4 ± √…) / 2", detalle: "arrastró el signo de b", color: LIENZO.bad },
+    { etiqueta: "BIEN", expr: "x = (+4 ± √…) / 2", detalle: "−b = −(−4) = +4", color: LIENZO.ok },
+  ];
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="240" y="26" textAnchor="middle" fontSize="15" fontWeight="700" fill={LIENZO.fg}>
+            x² − 4x + 3 = 0 → b = −4
+          </text>
+          {filas.map((f, i) => {
+            const y = 74 + i * 62;
+            return (
+              <g key={f.etiqueta}>
+                <rect x="52" y={y - 32} width="376" height="54" rx="10"
+                  fill={f.color} fillOpacity="0.08" stroke={f.color} strokeWidth="1.5" />
+                <text x="76" y={y - 2} fontSize="12" fontWeight="800" fill={f.color} letterSpacing="0.8">{f.etiqueta}</text>
+                <text x="140" y={y - 4} fontSize="20" fontWeight="600" fill={LIENZO.fg}>{f.expr}</text>
+                <text x="140" y={y + 15} fontSize="11" fill={LIENZO.fgDim}>{f.detalle}</text>
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+    </div>
+  );
+}
+
 export default function Page() {
   return (
     <LeccionShell
@@ -113,6 +422,8 @@ function Esc01_Intro() {
         <strong> 0, 1 o 2 soluciones</strong>. Ya vamos a ver por qué.
       </PorQue>
 
+      <RectaVsParabola />
+
       <Hook>
         Las cuadráticas aparecen en <strong>3-5 preguntas del examen UMSS</strong> (resolver,
         identificar Δ, problemas geométricos). La fórmula <em>x = (−b ± √(b²−4ac))/2a</em> es
@@ -140,6 +451,8 @@ function Esc02_Forma() {
         forma estándar</strong>: todo igualado a 0, con los términos en orden de potencia.
       </Parrafo>
 
+      <CoeficientesVisual />
+
       <Ejemplo titulo="Identificar a, b, c">
         En <strong>3x² − 7x + 2 = 0</strong>: a = 3, b = −7, c = 2.<br />
         En <strong>x² + 5 = 4x</strong>: pasamos: x² − 4x + 5 = 0. a = 1, b = −4, c = 5.
@@ -164,6 +477,8 @@ function Esc03_Fact() {
       <Resumen>
         Si a·b = 0, entonces <strong>a = 0 ó b = 0</strong>. (Propiedad clave de los reales.)
       </Resumen>
+
+      <FactorizacionVisual />
 
       <Ejemplo titulo="x² − 5x + 6 = 0">
         <Paso n={1}>Factorizo: (x − 2)(x − 3) = 0.</Paso>
@@ -196,6 +511,8 @@ function Esc04_Formula() {
       <Parrafo>
         Funciona <strong>siempre</strong>, factorice o no. Memorizala: la vas a usar muchísimo.
       </Parrafo>
+
+      <AnatomiaFormula />
 
       <Ejemplo titulo="Aplicarla a 2x² − 7x + 3 = 0">
         <Paso n={1}>a = 2, b = −7, c = 3.</Paso>
@@ -279,6 +596,8 @@ function Esc06_Casos() {
     <EscenaRica>
       <Titulo>Casos especiales: cuadráticas sin b o sin c</Titulo>
 
+      <CasosEspecialesVisual />
+
       <Ejemplo titulo="Sin b (de la forma ax² + c = 0)">
         Despejá directamente: x² = −c/a, después raíz.<br />
         Ej: x² − 16 = 0 → x² = 16 → x = ±4.
@@ -307,6 +626,8 @@ function Esc07_Vieta() {
         <strong>Suma</strong>: x₁ + x₂ = <strong>−b/a</strong><br />
         <strong>Producto</strong>: x₁ · x₂ = <strong>c/a</strong>
       </Resumen>
+      <VietaVisual />
+
       <Ejemplo titulo="x² − 5x + 6 = 0">
         Suma: −(−5)/1 = 5 ✓ (2 + 3 = 5). Producto: 6/1 = 6 ✓ (2 · 3 = 6).
       </Ejemplo>
@@ -349,6 +670,8 @@ function Esc08_Errores() {
           Factorización es más rápida cuando se puede. Probala primero.
         </span>
       </Cuidado>
+
+      <SignoBVisual />
 
       <Misconception titulo="Trampa · '−b' cuando b es negativo">
         Ecuación: x² − 4x + 3 = 0. Aquí b = −4.<br />
