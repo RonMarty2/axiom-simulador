@@ -1,90 +1,261 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useId } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
 } from "../_components/atoms";
-import { Pizarra, LIENZO } from "../_components/lienzo";
+import { Pizarra, Hint, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
-// Venn de factores: dos polinomios, sus factores y el cruce común. Al tocar
-// se resaltan los factores compartidos (MCD).
-function VennFactores() {
-  const [on, setOn] = useState(false);
-  // P = x²(x+3) = x · x · (x+3)
-  // Q = x(x+3)² = x · (x+3) · (x+3)
-  // Comunes (MCD) = x · (x+3)
-  // Solo P: x
-  // Solo Q: (x+3)
-  const fade = on ? 1 : 0.5;
-  const common = (etiq: string) => (
-    <motion.div
-      initial={{ scale: 1, color: LIENZO.fg }}
-      animate={on ? { scale: 1.08, color: LIENZO.ok } : { scale: 1, color: LIENZO.fg }}
-      transition={{ duration: 0.4 }}
-      style={{ padding: "4px 10px", borderRadius: 8, fontWeight: 600 }}
-    >
-      {etiq}
-    </motion.div>
-  );
+// ─── Venn real de factores. La MISMA figura contesta las dos preguntas:
+// la intersección es el MCD, la unión completa es el MCM.
+// P = x²(x+3) = x · x · (x+3)   ·   Q = x(x+3)² = x · (x+3) · (x+3)
+function VennFactores({ modo = "mcd" }: { modo?: "mcd" | "mcm" }) {
+  const uid = useId();
+  const clipLente = `lente-${uid}`;
+  const alto = 250;
+  const cA = 182, cB = 298, cy = 126, r = 96;
+  const esMcd = modo === "mcd";
+  const color = esMcd ? LIENZO.ok : LIENZO.accent;
+
   return (
-    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
-      <Pizarra alto={210} onClick={() => setOn((v) => !v)}>
-        <div style={{
-          display: "grid", gridTemplateColumns: "1fr auto 1fr", gap: 16, width: "100%",
-          fontFamily: "var(--font-crimson), serif", fontSize: 18,
-          alignItems: "center",
-        }}>
-          {/* Lado P */}
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 12, letterSpacing: 1.4, color: LIENZO.fgFaint, marginBottom: 6 }}>P = x²(x + 3)</div>
-            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 6, opacity: fade }}>
-              {common("x")}
-              {common("x + 3")}
-              <div style={{ padding: "4px 10px", color: LIENZO.fgDim }}>x</div>
-            </div>
-          </div>
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <defs>
+            <clipPath id={clipLente}>
+              <circle cx={cA} cy={cy} r={r} />
+            </clipPath>
+          </defs>
 
-          <motion.div
-            initial={{ opacity: 0.4 }} animate={{ opacity: on ? 1 : 0.4 }}
-            style={{ fontSize: 32, color: LIENZO.fgFaint }}
-          >∩</motion.div>
+          {/* en MCM se pinta la unión entera; en MCD solo la lente del cruce */}
+          {!esMcd && (
+            <>
+              <circle cx={cA} cy={cy} r={r} fill={color} fillOpacity="0.12" />
+              <circle cx={cB} cy={cy} r={r} fill={color} fillOpacity="0.12" />
+            </>
+          )}
+          {esMcd && (
+            <g clipPath={`url(#${clipLente})`}>
+              <circle cx={cB} cy={cy} r={r} fill={color} fillOpacity="0.22" />
+            </g>
+          )}
 
-          {/* Lado Q */}
-          <div style={{ textAlign: "center" }}>
-            <div style={{ fontSize: 12, letterSpacing: 1.4, color: LIENZO.fgFaint, marginBottom: 6 }}>Q = x(x + 3)²</div>
-            <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 6, opacity: fade }}>
-              {common("x")}
-              {common("x + 3")}
-              <div style={{ padding: "4px 10px", color: LIENZO.fgDim }}>x + 3</div>
-            </div>
-          </div>
+          <circle cx={cA} cy={cy} r={r} fill="none" stroke={LIENZO.fgDim} strokeWidth="2" />
+          <circle cx={cB} cy={cy} r={r} fill="none" stroke={LIENZO.fgDim} strokeWidth="2" />
 
-          {/* MCD destacado */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={on ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            style={{
-              gridColumn: "1 / -1", textAlign: "center", marginTop: 12,
-              fontSize: 22, fontWeight: 600,
-            }}
-          >
-            MCD = <span style={{ color: LIENZO.ok }}>x · (x + 3)</span>
-          </motion.div>
-        </div>
+          <text x="96" y="20" textAnchor="middle" fontSize="14" fontWeight="700" fill={LIENZO.fgDim}>
+            P = x²(x + 3)
+          </text>
+          <text x="384" y="20" textAnchor="middle" fontSize="14" fontWeight="700" fill={LIENZO.fgDim}>
+            Q = x(x + 3)²
+          </text>
+
+          {/* solo P */}
+          <text x="136" y={cy + 6} textAnchor="middle" fontSize="19" fontWeight="600"
+            fill={LIENZO.fg} opacity={esMcd ? 0.35 : 1}>x</text>
+          {/* comunes: viven en la lente */}
+          <text x="240" y={cy - 8} textAnchor="middle" fontSize="18" fontWeight="700" fill={color}>x</text>
+          <text x="240" y={cy + 20} textAnchor="middle" fontSize="18" fontWeight="700" fill={color}>x + 3</text>
+          {/* solo Q */}
+          <text x="346" y={cy + 6} textAnchor="middle" fontSize="19" fontWeight="600"
+            fill={LIENZO.fg} opacity={esMcd ? 0.35 : 1}>x + 3</text>
+
+          <text x="240" y={alto - 12} textAnchor="middle" fontSize="21" fontWeight="700" fill={LIENZO.fg}>
+            {esMcd ? "MCD = " : "MCM = "}
+            <tspan fill={color}>{esMcd ? "x (x + 3)" : "x² (x + 3)²"}</tspan>
+          </text>
+        </svg>
       </Pizarra>
-      <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
-        {on
-          ? <>Los factores en <b style={{ color: LIENZO.ok }}>verde</b> aparecen en AMBOS: su producto es el MCD.</>
-          : "Tocá para resaltar los factores comunes"}
-      </div>
+      <Hint>
+        {esMcd
+          ? "Solo lo del cruce: los factores que aparecen en los dos"
+          : "Todo el dibujo: los comunes una vez, más lo propio de cada uno"}
+      </Hint>
+    </div>
+  );
+}
+
+// ─── Divisibilidad: el MCD cabe adentro de los dos, el MCM los contiene ───
+function EscaleraDivisibilidad() {
+  const alto = 175;
+  const nodos = [
+    { x: 74, y: 90, t: "x (x + 3)", sub: "MCD", color: LIENZO.ok },
+    { x: 240, y: 46, t: "P = x²(x + 3)", sub: "", color: LIENZO.fg },
+    { x: 240, y: 134, t: "Q = x (x + 3)²", sub: "", color: LIENZO.fg },
+    { x: 406, y: 90, t: "x² (x + 3)²", sub: "MCM", color: LIENZO.accent },
+  ];
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <defs>
+            <marker id="flecha-div" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+              <path d="M0,0 L9,4.5 L0,9 Z" fill={LIENZO.fgFaint} />
+            </marker>
+          </defs>
+          {[[0, 1], [0, 2], [1, 3], [2, 3]].map(([a, b], i) => (
+            <line key={i} x1={nodos[a].x + 46} y1={nodos[a].y} x2={nodos[b].x - 50} y2={nodos[b].y}
+              stroke={LIENZO.fgFaint} strokeWidth="1.5" markerEnd="url(#flecha-div)" />
+          ))}
+          {nodos.map((n) => (
+            <g key={n.t}>
+              {n.sub && (
+                <text x={n.x} y={n.y - 22} textAnchor="middle" fontSize="11" fontWeight="800"
+                  letterSpacing="1" fill={n.color}>{n.sub}</text>
+              )}
+              <text x={n.x} y={n.y + 6} textAnchor="middle" fontSize="16" fontWeight="700"
+                fill={n.color}>{n.t}</text>
+            </g>
+          ))}
+          <text x="240" y={alto - 6} textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>
+            cada flecha se lee &quot;divide a&quot;
+          </text>
+        </svg>
+      </Pizarra>
+      <Hint>El MCD entra en los dos; los dos entran en el MCM. Por eso uno es el chico y el otro el grande</Hint>
+    </div>
+  );
+}
+
+// ─── Factorizar es partir cada polinomio en ladrillos comparables ───
+function FactorizarBloques() {
+  const alto = 190;
+  const filas = [
+    { expandido: "x² − 9", bloques: ["x + 3", "x − 3"], y: 62 },
+    { expandido: "x² + 6x + 9", bloques: ["x + 3", "x + 3"], y: 134 },
+  ];
+  const X0 = 176, W = 116, H = 40;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="82" y="28" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>sin factorizar</text>
+          <text x={X0 + W + 5} y="28" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>en ladrillos</text>
+          {filas.map((f) => (
+            <g key={f.expandido}>
+              <text x="82" y={f.y + 6} textAnchor="middle" fontSize="19" fontWeight="600"
+                fill={LIENZO.fg}>{f.expandido}</text>
+              <text x="146" y={f.y + 6} textAnchor="middle" fontSize="18" fill={LIENZO.fgFaint}>→</text>
+              {f.bloques.map((b, i) => {
+                const comun = b === "x + 3";
+                const color = comun ? LIENZO.ok : LIENZO.fgDim;
+                return (
+                  <g key={i}>
+                    <rect x={X0 + i * (W + 10)} y={f.y - 20} width={W} height={H} rx="8"
+                      fill={color} fillOpacity={comun ? 0.14 : 0.05}
+                      stroke={color} strokeWidth={comun ? 2 : 1.5} />
+                    <text x={X0 + i * (W + 10) + W / 2} y={f.y + 6} textAnchor="middle"
+                      fontSize="18" fontWeight="700" fill={comun ? LIENZO.ok : LIENZO.fg}>{b}</text>
+                  </g>
+                );
+              })}
+            </g>
+          ))}
+        </svg>
+      </Pizarra>
+      <Hint>Recién partidos en ladrillos se ve que los dos comparten (x + 3)</Hint>
+    </div>
+  );
+}
+
+// ─── Simplificar es tachar el mismo ladrillo arriba y abajo ───
+function CancelarFactores() {
+  const [tachado, setTachado] = useState(false);
+  const alto = 200;
+  const cx = 240, yNum = 70, linea = 104, yDen = 142;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto} onClick={() => setTachado((v) => !v)}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="240" y="26" textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}>
+            (x² − 9) / (x² + 6x + 9), ya factorizado
+          </text>
+
+          <text x={cx - 62} y={yNum} textAnchor="middle" fontSize="21" fontWeight="700"
+            fill={LIENZO.ok} opacity={tachado ? 0.4 : 1}>(x + 3)</text>
+          <text x={cx + 62} y={yNum} textAnchor="middle" fontSize="21" fontWeight="700"
+            fill={LIENZO.fg}>(x − 3)</text>
+
+          <line x1={cx - 130} y1={linea} x2={cx + 130} y2={linea} stroke={LIENZO.fg} strokeWidth="2" />
+
+          <text x={cx - 62} y={yDen} textAnchor="middle" fontSize="21" fontWeight="700"
+            fill={LIENZO.ok} opacity={tachado ? 0.4 : 1}>(x + 3)</text>
+          <text x={cx + 62} y={yDen} textAnchor="middle" fontSize="21" fontWeight="700"
+            fill={LIENZO.fg}>(x + 3)</text>
+
+          {tachado && (
+            <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }}>
+              <line x1={cx - 102} y1={yNum - 17} x2={cx - 22} y2={yNum + 7}
+                stroke={LIENZO.bad} strokeWidth="2.5" strokeLinecap="round" />
+              <line x1={cx - 102} y1={yDen - 17} x2={cx - 22} y2={yDen + 7}
+                stroke={LIENZO.bad} strokeWidth="2.5" strokeLinecap="round" />
+              <text x="240" y={alto - 10} textAnchor="middle" fontSize="21" fontWeight="700"
+                fill={LIENZO.ok}>= (x − 3) / (x + 3)</text>
+            </motion.g>
+          )}
+        </svg>
+      </Pizarra>
+      <Hint>{tachado ? "El (x + 3) que estaba arriba y abajo se fue" : "Tocá para cancelar el factor común"}</Hint>
+    </div>
+  );
+}
+
+// ─── Se cancelan factores, nunca sumandos ───
+function CancelarTrampa() {
+  const alto = 205;
+  const casos = [
+    {
+      cx: 128, titulo: "SÍ SE PUEDE", color: LIENZO.ok,
+      num: "(x+3)(x−2)", den: "(x+3)(x+4)",
+      nota: "(x+3) multiplica: es factor",
+    },
+    {
+      cx: 352, titulo: "NO SE PUEDE", color: LIENZO.bad,
+      num: "x + 3", den: "x + 5",
+      nota: "acá la x suma: queda atrapada",
+    },
+  ];
+  const yNum = 88, linea = 110, yDen = 142;
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <line x1="240" y1="32" x2="240" y2={alto - 22} stroke={LIENZO.fgFaint}
+            strokeOpacity="0.5" strokeWidth="1" />
+          {casos.map((c) => (
+            <g key={c.titulo}>
+              <text x={c.cx} y="46" textAnchor="middle" fontSize="12" fontWeight="800"
+                letterSpacing="0.8" fill={c.color}>{c.titulo}</text>
+              <text x={c.cx} y={yNum} textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg}>{c.num}</text>
+              <line x1={c.cx - 78} y1={linea} x2={c.cx + 78} y2={linea} stroke={LIENZO.fg} strokeWidth="2" />
+              <text x={c.cx} y={yDen} textAnchor="middle" fontSize="19" fontWeight="700" fill={LIENZO.fg}>{c.den}</text>
+              <text x={c.cx} y={alto - 26} textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>{c.nota}</text>
+            </g>
+          ))}
+          {/* tachado válido sobre el factor común de la izquierda */}
+          <line x1={casos[0].cx - 76} y1={yNum - 16} x2={casos[0].cx - 4} y2={yNum + 6}
+            stroke={LIENZO.ok} strokeWidth="2.5" strokeLinecap="round" />
+          <line x1={casos[0].cx - 76} y1={yDen - 16} x2={casos[0].cx - 4} y2={yDen + 6}
+            stroke={LIENZO.ok} strokeWidth="2.5" strokeLinecap="round" />
+          {/* cruz sobre el intento inválido de la derecha */}
+          <g stroke={LIENZO.bad} strokeWidth="3" strokeLinecap="round">
+            <line x1={casos[1].cx - 40} y1={yNum - 18} x2={casos[1].cx - 12} y2={yNum + 8} />
+            <line x1={casos[1].cx - 12} y1={yNum - 18} x2={casos[1].cx - 40} y2={yNum + 8} />
+          </g>
+        </svg>
+      </Pizarra>
     </div>
   );
 }
@@ -122,6 +293,8 @@ function Esc01_Intro() {
         • <strong>Sumar fracciones algebraicas</strong>: necesitás un común denominador (MCM).<br />
         • <strong>Resolver ecuaciones racionales</strong>: multiplicar ambos lados por el MCM.
       </Resumen>
+      <EscaleraDivisibilidad />
+
       <PorQue>
         La idea es <em>idéntica</em> al MCD/MCM numérico. La única diferencia es que ahora
         los "primos" son factores algebraicos (como (x−2), (x+3), x², etc).
@@ -151,6 +324,8 @@ function Esc02_Factorizar() {
         Antes de hablar de MCD o MCM, tenés que tener cada polinomio
         <strong> totalmente factorizado</strong>. Si no, no podés comparar.
       </Parrafo>
+
+      <FactorizarBloques />
 
       <Ejemplo titulo="Factorizar para comparar">
         <Paso n={1}>x² − 9 = (x + 3)(x − 3)</Paso>
@@ -182,7 +357,7 @@ function Esc03_MCD() {
         <Paso n={2}>Factor común (x+3): aparece en ambos. Menor exponente: (x+3)¹.</Paso>
         <Paso n={3}>MCD = <strong style={{ color: COLOR_OK }}>x(x+3)</strong>.</Paso>
       </Ejemplo>
-      <VennFactores />
+      <VennFactores modo="mcd" />
 
       <Ejemplo titulo="MCD de (x+3)²(x−1) y (x+3)(x−1)³">
         <Paso n={1}>Comunes: (x+3) y (x−1).</Paso>
@@ -212,6 +387,8 @@ function Esc04_MCM() {
       <Resumen>
         <strong>MCM = TODOS los factores (de cualquiera) elevados al MAYOR exponente</strong>
       </Resumen>
+
+      <VennFactores modo="mcm" />
 
       <Ejemplo titulo="MCM de (x+3)²(x−1) y (x+3)(x−1)³">
         <Paso n={1}>Factores presentes: (x+3) y (x−1).</Paso>
@@ -251,6 +428,8 @@ function Esc05_Fracciones() {
         <Paso n={4}>Sumo numeradores: (x+1) + x = 2x + 1</Paso>
         <Paso n={5}>Resultado: <strong style={{ color: COLOR_OK }}>(2x + 1) / [x(x+1)]</strong></Paso>
       </Ejemplo>
+
+      <CancelarFactores />
 
       <Ejemplo titulo="Simplificar (x² − 9)/(x² + 6x + 9)">
         <Paso n={1}>Factorizo: arriba (x+3)(x−3), abajo (x+3)².</Paso>
@@ -312,6 +491,8 @@ function Esc06_Errores() {
           ❌ (x+3)/(x+5) NO se simplifica cancelando x. Solo se cancelan factores MULTIPLICATIVOS, no sumados.
         </span>
       </Cuidado>
+
+      <CancelarTrampa />
 
       <Misconception titulo="Trampa de cancelación · 'solo factores' (NUNCA sumandos)">
         <strong>Correcto:</strong> (x+3)(x−2) / (x+3)(x+4) = (x−2)/(x+4). Cancelo (x+3)
