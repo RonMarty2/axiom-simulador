@@ -7,11 +7,101 @@ import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
   cajaAnim, Stage,
 } from "../_components/atoms";
+import { Pizarra, Hint, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+
+// ─── Balanza que de verdad se inclina. Con "a los dos lados" queda derecha;
+// tocando un solo platillo se desequilibra, que es justo lo que la regla prohíbe.
+function BalanzaEcuacion() {
+  const [restado, setRestado] = useState(0);   // cuánto saqué de la izquierda
+  const [aLosDos, setALosDos] = useState(true);
+  // x + 3 = 7, con x = 4 para que los platillos tengan peso real
+  const X = 4;
+  const izq = X + 3 - restado;
+  const der = 7 - (aLosDos ? restado : 0);
+  const desbalance = izq - der;
+  const angulo = Math.max(-12, Math.min(12, -desbalance * 4));
+
+  const alto = 260;
+  const cx = 240, cyBarra = 108, brazo = 132, largoCuerda = 34;
+
+  const rad = (angulo * Math.PI) / 180;
+  const px = (signo: number) => cx + signo * brazo * Math.cos(rad);
+  const py = (signo: number) => cyBarra + signo * brazo * Math.sin(rad);
+
+  const platillo = (signo: number, texto: string, color: string) => {
+    const x = px(signo), y = py(signo) + largoCuerda;
+    return (
+      <g>
+        <line x1={px(signo)} y1={py(signo)} x2={x} y2={y} stroke={LIENZO.fgDim} strokeWidth="1.5" />
+        <rect x={x - 52} y={y} width="104" height="42" rx="8"
+          fill={color} fillOpacity="0.14" stroke={color} strokeWidth="2" />
+        <text x={x} y={y + 28} textAnchor="middle" fontSize="20" fontWeight="700" fill={color}>{texto}</text>
+      </g>
+    );
+  };
+
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 10 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {/* pie */}
+          <polygon points={`${cx},${cyBarra} ${cx - 26},${alto - 42} ${cx + 26},${alto - 42}`}
+            fill={LIENZO.fgFaint} fillOpacity="0.35" />
+          <line x1={cx - 46} y1={alto - 42} x2={cx + 46} y2={alto - 42}
+            stroke={LIENZO.fgDim} strokeWidth="3" strokeLinecap="round" />
+
+          {/* barra que gira según el desbalance real */}
+          <line x1={px(-1)} y1={py(-1)} x2={px(1)} y2={py(1)}
+            stroke={LIENZO.fg} strokeWidth="4" strokeLinecap="round" />
+          <circle cx={cx} cy={cyBarra} r="6" fill={LIENZO.fg} />
+
+          {platillo(-1, 3 - restado === 0 ? "x" : `x + ${3 - restado}`, LIENZO.accent)}
+          {platillo(1, String(der), LIENZO.ok)}
+
+          <text x="240" y="28" textAnchor="middle" fontSize="14" fontWeight="700"
+            fill={desbalance === 0 ? LIENZO.ok : LIENZO.bad}>
+            {desbalance === 0 ? "en equilibrio: sigue siendo la misma ecuación" : "se rompió la igualdad"}
+          </text>
+        </svg>
+      </Pizarra>
+
+      <div style={{ display: "flex", gap: 8, justifyContent: "center", flexWrap: "wrap" }}>
+        <button
+          onClick={() => { setALosDos(true); setRestado((r) => (r === 3 ? 0 : 3)); }}
+          style={{
+            padding: "9px 16px", borderRadius: 999, cursor: "pointer",
+            border: `1.5px solid ${LIENZO.ok}`, background: "transparent",
+            color: LIENZO.ok, fontWeight: 700, fontSize: 13,
+          }}>
+          restar 3 a los dos lados
+        </button>
+        <button
+          onClick={() => { setALosDos(false); setRestado((r) => (r === 3 ? 0 : 3)); }}
+          style={{
+            padding: "9px 16px", borderRadius: 999, cursor: "pointer",
+            border: `1.5px solid ${LIENZO.bad}`, background: "transparent",
+            color: LIENZO.bad, fontWeight: 700, fontSize: 13,
+          }}>
+          restar 3 a uno solo
+        </button>
+      </div>
+
+      <Hint>
+        {restado === 0
+          ? "x + 3 = 7. Probá sacarle 3 a los dos platillos, y después a uno solo"
+          : aLosDos
+          ? "Quedó x = 4 y la balanza sigue derecha: por eso se puede"
+          : "Sacándole solo a la izquierda, la balanza se cae: la igualdad ya es falsa"}
+      </Hint>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -100,26 +190,7 @@ function Esc03_Balanza() {
         un lado <strong>debe hacerse al otro</strong> para mantener la igualdad.
       </Parrafo>
 
-      <div style={{ ...cajaAnim(), cursor: "default" }}>
-        <Stage w={420} h={180}>
-          <motion.div initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
-            style={{ position: "absolute", left: 50, top: 30, padding: "10px 22px", background: COLOR_BASE, color: "white", borderRadius: 10, fontFamily: "var(--font-crimson), serif", fontSize: 22, fontWeight: 700 }}>
-            x + 3
-          </motion.div>
-          <motion.div initial={{ y: -10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }}
-            style={{ position: "absolute", right: 50, top: 30, padding: "10px 22px", background: COLOR_OK, color: "white", borderRadius: 10, fontFamily: "var(--font-crimson), serif", fontSize: 22, fontWeight: 700 }}>
-            7
-          </motion.div>
-          <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ delay: 0.6 }}
-            style={{ position: "absolute", left: 20, right: 20, top: 85, height: 4, background: "var(--fg-muted)", transformOrigin: "center" }} />
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-            style={{ position: "absolute", left: "50%", marginLeft: -30, top: 95, width: 0, height: 0, borderLeft: "30px solid transparent", borderRight: "30px solid transparent", borderTop: `55px solid ${COLOR_EXP}` }} />
-          <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.2 }}
-            style={{ position: "absolute", left: "50%", marginLeft: -15, top: 50, fontSize: 36, color: COLOR_EXP, fontWeight: 800 }}>
-            =
-          </motion.div>
-        </Stage>
-      </div>
+      <BalanzaEcuacion />
 
       <Resumen>
         🔑 <strong>3 movimientos legales</strong>:<br />
