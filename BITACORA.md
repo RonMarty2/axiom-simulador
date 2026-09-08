@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-08-05 (Láminas de Repaso: reglas de diagramas por tarjeta, guiones y matemática en texto plano, §4.5)
-**Versión de la bitácora:** v1.8
+**Última actualización:** 2026-09-08 (se documentan los 83 commits de agosto: 64 láminas terminadas + rediseño de Física, Química y Trigonometría)
+**Versión de la bitácora:** v1.9
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -284,6 +284,8 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 - [ ] Crear bancos serios para Medicina, Derecho (mismo patrón que Ingeniería, ver §11).
 
 ### Importante
+- [x] Láminas de Repaso: las 64 de Aritmética-Álgebra Ingeniería en producción, 23 módulos (ver §11).
+- [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
 - [ ] Animar las lecciones que aún son solo cards (revisar `grep -c "motion\." | sort` para identificarlas).
 - [ ] Sistema real de auth + DB persistente (hoy es memoryStore).
 - [ ] Stripe/pagos: hoy precios es placeholder.
@@ -326,6 +328,55 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-08-26 / 08-27 (rediseño de Física, Química y Trigonometría con notación matemática real)
+
+Nueve lecciones de `aprende/` reescritas para que la matemática se vea como matemática y no como texto plano, y para que cada concepto tenga su diagrama en vez de solo prosa. Es la misma lección aprendida produciendo láminas (reglas 10-12 de §4.5) aplicada ahora al contenido de lecciones.
+
+- **Física (5):** cinemática en una dimensión, cinemática en dos dimensiones, dinámica de Newton (con diagramas de cuerpo libre), trabajo y energía, electrostática.
+- **Química (2):** enlace químico (estructuras de Lewis dibujadas, no descriptas en texto) y reacciones y balanceo (con contador de átomos interactivo).
+- **Trigonometría (2):** ley de senos y cosenos (triángulos dibujados con geometría real, no aproximada) e identidades trigonométricas (círculo unitario interactivo).
+
+Bug encontrado en el camino: en `cinematica-1d` faltaba un espacio antes de una fórmula porque **JSX colapsa el espacio entre un texto y un `<MathText>` adyacente**. Ojo con eso al escribir lecciones nuevas.
+
+### 2026-08-16 (dos fixes transversales sobre las 74 lecciones)
+
+- **El índice de lecciones estaba hardcodeado a Económicas.** Cualquier alumno de otra facultad veía el índice equivocado. Ahora se arma según la facultad.
+- **Se eliminó el guion largo (—) como separador y viñeta en todas las lecciones.** Es la regla 11 de §4.5, que hasta ahora solo se aplicaba a láminas nuevas; se aplicó retroactivamente al contenido viejo. El motivo es el mismo: cerca de números se confunde con el signo menos.
+
+### 2026-08-09 / 08-10 (producción completa de las 64 láminas de Aritmética-Álgebra Ingeniería)
+
+**El plan trazado el 2026-08-03 se terminó.** Las 64 láminas atómicas planificadas están en producción, repartidas en 23 módulos bajo `src/app/laminas/`. Fueron 63 commits en dos días.
+
+| Módulo | Láminas | | Módulo | Láminas |
+|---|---|---|---|---|
+| logaritmos-y-exponenciales | 8 | | factorizacion-productos-notables | 3 |
+| progresiones | 6 | | funciones-cuadraticas-optimizacion | 2 |
+| teorema-del-resto | 5 | | funciones-racionales | 2 |
+| cuadraticas-y-vieta | 5 | | inecuaciones | 2 |
+| sistemas-de-ecuaciones | 4 | | combinatoria-basica | 1 |
+| ecuaciones-racionales | 4 | | exponentes-y-radicales | 1 |
+| ecuaciones-irracionales | 3 | | planteo-verbal-general | 1 |
+| divisores-mcd-mcm | 3 | | polinomios-grado | 1 |
+| regla-de-tres-y-reparto | 3 | | problemas-de-cifras | 1 |
+| binomio-de-newton | 3 | | problemas-de-edades | 1 |
+| porcentajes-mezclas-interes | 3 | | problemas-de-moviles | 1 |
+| | | | trabajo-combinado | 1 |
+
+Dos cosas que salieron de producir en volumen:
+
+- **Se extrajo `laminas/_components/dispositivos.tsx`.** Los dispositivos visuales que se repetían entre láminas (esquema de Ruffini, comparaciones lado a lado, cadenas de sustitución) viven ahí en vez de copiarse en cada página. Es la decisión D3 aplicada a láminas.
+- **Tres bugs reales aparecieron produciendo la lámina de división de polinomios** y se arreglaron ahí mismo. Producir en volumen encuentra cosas que revisar una sola lámina no encuentra.
+
+### 2026-08-06 / 08-07 (cierre del piloto Teorema del Resto, antes de escalar)
+
+Últimos retoques a la primera lámina antes de largarse a producir las 63 restantes:
+
+- Se rediseñaron con enseñanza visual las 6 tarjetas restantes (el 2026-08-05 se habían hecho las primeras, faltaban estas).
+- Se sacaron los guiones cerca de matemática y se matemizó el texto plano que quedaba suelto.
+- Se partió la tarjeta de Generalización en 3, separando razonamiento de ejemplo.
+- Se reescribió "Un dato escondido en palabras" con un ejemplo concreto resuelto.
+- **Fix:** las fórmulas inline de `MathText` se cortaban a mitad de línea. La causa era CSS y quedó documentada como regla 12 en §4.5.
 
 ### 2026-08-05 (Láminas de Repaso: diagramas por tarjeta + reglas de escritura, ya con el formato de tarjetas)
 
@@ -438,4 +489,4 @@ Se definió y validó con Ronald (4 iteraciones de mockup) el formato de una nue
 
 ---
 
-*Fin de la bitácora v1.2 — Crecé conmigo.*
+*Fin de la bitácora v1.9 — Crecé conmigo.*
