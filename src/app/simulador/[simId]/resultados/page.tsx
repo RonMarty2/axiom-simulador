@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../../components/MathText";
+import Icono from "../../../components/Icono";
 import Cargando from "../../../components/Cargando";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
@@ -161,7 +162,7 @@ export default function ResultadosPage() {
       if (!r.ok) throw new Error(data.error ?? "Error");
       router.push(`/simulador/${data.simulador.id}`);
     } catch (e) {
-      alert("⚠️ " + (e instanceof Error ? e.message : String(e)));
+      alert(e instanceof Error ? e.message : String(e));
       setPracticandoArea(null);
     }
   };
@@ -250,7 +251,7 @@ export default function ResultadosPage() {
   const ordenadasFb = Object.entries(desglose).sort((a, b) => a[1] - b[1]);
   const peor = ordenadasFb[0];
   const mejor = ordenadasFb[ordenadasFb.length - 1];
-  const tituloFb = nota >= 70 ? "¡Buen trabajo! 🎉" : nota >= 50 ? "Vas por buen camino 💪" : "A reforzar — tú puedes 🔥";
+  const tituloFb = nota >= 70 ? "¡Buen trabajo!" : nota >= 50 ? "Vas por buen camino" : "A reforzar — vos podés";
   const textoFb = nota >= 70
     ? "Dominas la mayoría del examen. Pule los detalles y mantén el ritmo."
     : nota >= 50
@@ -286,7 +287,7 @@ export default function ResultadosPage() {
             <Badge color="emerald">✓ {correctas} correctas</Badge>
             {incorrectas > 0 && <Badge color="red">✗ {incorrectas} incorrectas</Badge>}
             {sinResponder > 0 && <Badge color="neutral">○ {sinResponder} sin responder</Badge>}
-            <Badge color="neutral">⏱ {mins}m {secs}s</Badge>
+            <Badge color="neutral"><span className="inline-flex items-center gap-1.5"><Icono nombre="reloj" tamano={13} /> {mins}m {secs}s</span></Badge>
           </div>
           {historialPrev.total >= 1 && historialPrev.anterior !== null && (
             <div className="mt-4 flex flex-wrap justify-center gap-2 text-xs">
@@ -296,8 +297,11 @@ export default function ResultadosPage() {
                 const color = diff > 0 ? "text-emerald-700 bg-emerald-50 border-emerald-200" : diff < 0 ? "text-red-700 bg-red-50 border-red-200" : "text-neutral-600 bg-neutral-100 border-neutral-200";
                 return <span className={`rounded-full border px-3 py-1 font-bold ${color}`}>{txt}</span>;
               })()}
-              <span className="rounded-full border border-violet-200 bg-violet-50 px-3 py-1 font-bold text-violet-700">
-                🏆 Tu mejor nota: {historialPrev.mejor}/100
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 font-bold"
+                style={{ borderColor: "var(--border)", background: "var(--accent-soft)", color: "var(--accent)" }}
+              >
+                <Icono nombre="ranking" tamano={13} /> Tu mejor nota: {historialPrev.mejor}/100
               </span>
             </div>
           )}
@@ -365,7 +369,7 @@ export default function ResultadosPage() {
                 className="rounded-2xl border-2 border-violet-300 bg-gradient-to-br from-violet-50 to-indigo-50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-violet-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-2xl">🎯</span>
+                  <Icono nombre="errores" tamano={24} />
                   <span className="rounded-full bg-violet-600 px-2 py-0.5 text-[10px] font-bold text-white">RECOMENDADO</span>
                 </div>
                 <div className="text-base font-bold text-violet-900">{reforzando ? "Preparando..." : "Reforzar 10 con la IA"}</div>
@@ -374,10 +378,10 @@ export default function ResultadosPage() {
             ) : (
               <Link href="/precios" className="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-2xl">🎯</span>
+                  <Icono nombre="errores" tamano={24} />
                   <span className="rounded-full bg-amber-600 px-2 py-0.5 text-[10px] font-bold text-white">PREMIUM</span>
                 </div>
-                <div className="text-base font-bold text-amber-900">🔒 Reforzar 10 con la IA</div>
+                <div className="flex items-center gap-1.5 text-base font-bold text-amber-900"><Icono nombre="candado" tamano={15} /> Reforzar 10 con la IA</div>
                 <div className="mt-1 text-xs text-amber-700">Desbloquéalo con Premium →</div>
               </Link>
             )}
@@ -391,7 +395,7 @@ export default function ResultadosPage() {
                 className="rounded-2xl border-2 border-emerald-300 bg-gradient-to-br from-emerald-50 to-teal-50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-emerald-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-2xl">📋</span>
+                  <Icono nombre="documento" tamano={24} />
                   <span className="rounded-full bg-emerald-600 px-2 py-0.5 text-[10px] font-bold text-white">3 DÍAS</span>
                 </div>
                 <div className="text-base font-bold text-emerald-900">{generandoPlan ? "Generando..." : plan ? "Plan listo ↓" : "Plan de estudio de 3 días"}</div>
@@ -400,25 +404,25 @@ export default function ResultadosPage() {
             ) : (
               <Link href="/precios" className="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-2xl">📋</span>
+                  <Icono nombre="documento" tamano={24} />
                   <span className="rounded-full bg-amber-600 px-2 py-0.5 text-[10px] font-bold text-white">PREMIUM</span>
                 </div>
-                <div className="text-base font-bold text-amber-900">🔒 Plan de estudio de 3 días</div>
+                <div className="flex items-center gap-1.5 text-base font-bold text-amber-900"><Icono nombre="candado" tamano={15} /> Plan de estudio de 3 días</div>
                 <div className="mt-1 text-xs text-amber-700">Desbloquéalo con Premium →</div>
               </Link>
             )}
           </div>
 
           {(errorReforzar || errorPlan) && (
-            <div className="mt-3 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
-              ⚠️ {errorReforzar || errorPlan}
+            <div className="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+              <Icono nombre="alerta" tamano={15} /> {errorReforzar || errorPlan}
             </div>
           )}
 
           {plan && (
             <div className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-indigo-50 p-6">
               <div className="mb-4 flex items-center gap-2">
-                <span className="text-2xl">📋</span>
+                <Icono nombre="documento" tamano={24} />
                 <div>
                   <h3 className="text-lg font-bold text-violet-900">
                     Tu plan de estudio personalizado
@@ -441,8 +445,8 @@ export default function ResultadosPage() {
                       {d.tema}
                     </div>
                     <div className="mb-2 flex gap-3 text-xs text-neutral-600">
-                      <span>⏱ {d.tiempo_minutos} min</span>
-                      <span>📝 {d.ejercicios} ejercicios</span>
+                      <span className="inline-flex items-center gap-1"><Icono nombre="reloj" tamano={12} /> {d.tiempo_minutos} min</span>
+                      <span className="inline-flex items-center gap-1"><Icono nombre="practicar" tamano={12} /> {d.ejercicios} ejercicios</span>
                     </div>
                     <p className="text-sm text-neutral-700">{d.descripcion}</p>
                   </div>
@@ -489,7 +493,7 @@ export default function ResultadosPage() {
           {mostrar.length === 0 ? (
             <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-10 text-center">
               <p className="text-2xl font-bold text-emerald-700">
-                🎉 ¡Sin errores!
+                ¡Sin errores!
               </p>
               <p className="mt-1 text-emerald-600">
                 Lograste un puntaje perfecto. Sigue así.
@@ -541,9 +545,10 @@ export default function ResultadosPage() {
         <section className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
           <Link
             href="/debilidades"
-            className="flex items-center justify-center gap-2 rounded-xl border-2 border-violet-300 bg-violet-50 px-6 py-3.5 font-bold text-violet-700 hover:bg-violet-100"
+            className="flex items-center justify-center gap-2 rounded-xl border-2 px-6 py-3.5 font-bold"
+            style={{ borderColor: "var(--border-hover)", background: "var(--accent-soft)", color: "var(--accent)" }}
           >
-            📈 Ver mis debilidades
+            <Icono nombre="grafico" tamano={17} /> Ver mis debilidades
           </Link>
           <Link
             href="/practicar"
@@ -765,10 +770,14 @@ function ExplicacionExpandible({ texto }: { texto: string }) {
         className="flex w-full items-center gap-2 px-4 py-3 text-left text-violet-700 hover:bg-violet-100/40 rounded-xl"
       >
         <span className="text-lg">{abierta ? "▾" : "▸"}</span>
-        <span className="text-xs font-bold uppercase tracking-wider">💡 Ver explicación paso a paso</span>
+        <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider">
+          <Icono nombre="idea" tamano={13} /> Ver explicación paso a paso
+        </span>
       </button>
       {abierta && (
-        <div className="px-4 pb-4 text-sm leading-relaxed text-neutral-800">
+        // line-height holgado: las fracciones \dfrac en línea miden ~35px
+        // contra los ~23px de un renglón normal y se montan entre sí.
+        <div className="px-4 pb-4 text-sm text-neutral-800" style={{ lineHeight: 2.9 }}>
           <MathText block>{texto}</MathText>
         </div>
       )}

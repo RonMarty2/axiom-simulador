@@ -12,7 +12,8 @@ export type NombreIcono =
   // consistente y no dependa de un dato editable desde la base.
   | "economicas" | "ingenieria" | "medicina" | "derecho"
   | "documento" | "chispa" | "grafico" | "birrete"
-  | "mas" | "probeta" | "herramienta";
+  | "mas" | "probeta" | "herramienta"
+  | "mezclar" | "etiqueta" | "info" | "reloj" | "idea";
 
 const TRAZOS: Record<NombreIcono, React.ReactNode> = {
   inicio: <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />,
@@ -121,6 +122,37 @@ const TRAZOS: Record<NombreIcono, React.ReactNode> = {
     </>
   ),
   herramienta: <path d="M14.5 6.2a4.6 4.6 0 0 0 6 6l-8.4 8.4a2.4 2.4 0 0 1-3.4-3.4z" />,
+  mezclar: (
+    <>
+      <path d="M16.4 3.6 20 7.2l-3.6 3.6M16.4 13.2 20 16.8l-3.6 3.6" />
+      <path d="M20 7.2h-3.6c-2.4 0-3.8 1.6-5.2 4s-2.8 4-5.2 4H4" />
+      <path d="M4 7.2h2c1.5 0 2.7.6 3.7 1.8M14.4 15c1 1.2 2.2 1.8 3.7 1.8h1.9" />
+    </>
+  ),
+  etiqueta: (
+    <>
+      <path d="M11.6 2.8H4a1.2 1.2 0 0 0-1.2 1.2v7.6a1.2 1.2 0 0 0 .35.85l8.2 8.2a1.2 1.2 0 0 0 1.7 0l7.6-7.6a1.2 1.2 0 0 0 0-1.7l-8.2-8.2a1.2 1.2 0 0 0-.85-.35z" />
+      <circle cx="7.2" cy="7.2" r="1.3" />
+    </>
+  ),
+  info: (
+    <>
+      <circle cx="12" cy="12" r="9.2" />
+      <path d="M12 11.2v5M12 7.9h.01" />
+    </>
+  ),
+  reloj: (
+    <>
+      <circle cx="12" cy="12" r="9.2" />
+      <path d="M12 6.6V12l3.4 2" />
+    </>
+  ),
+  idea: (
+    <>
+      <path d="M9.2 18.4h5.6M10 21.2h4" />
+      <path d="M12 2.8a6 6 0 0 0-3.6 10.8c.6.45.96 1.1.96 1.8v.6h5.28v-.6c0-.7.36-1.35.96-1.8A6 6 0 0 0 12 2.8z" />
+    </>
+  ),
 };
 
 // Cada facultad a su ícono. Antes se leía facultad.emoji de Supabase, que es

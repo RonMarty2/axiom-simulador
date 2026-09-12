@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import AppHeader from "../components/AppHeader";
+import Icono, { iconoFacultad } from "../components/Icono";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
@@ -135,7 +136,7 @@ function PracticarInner() {
       <AppHeader />
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
         <div style={{ marginBottom: 28 }}>
-          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>📝 Nuevo simulacro</h1>
+          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>Nuevo simulacro</h1>
           <p style={{ color: "var(--fg-muted)" }}>Configura tu examen de práctica</p>
         </div>
 
@@ -145,20 +146,20 @@ function PracticarInner() {
           if (!fac) return null;
           return (
             <div style={{
-              background: `linear-gradient(135deg, ${fac.color}, ${fac.color_secundario})`,
-              color: "white", borderRadius: 14, padding: "16px 20px", marginBottom: 16,
+              background: `linear-gradient(135deg, var(--accent), var(--accent-hover))`,
+              color: "var(--accent-fg)", borderRadius: 14, padding: "16px 20px", marginBottom: 16,
               display: "flex", alignItems: "center", gap: 14,
             }}>
-              <div style={{ fontSize: 36 }}>{fac.emoji}</div>
+              <span style={{ display: "flex" }}><Icono nombre={iconoFacultad(fac.id)} tamano={32} grosor={1.7} /></span>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estás postulando a</div>
                 <div style={{ fontSize: 20, fontWeight: 800 }}>{fac.nombre_corto}</div>
               </div>
               <Link
                 href="/cambiar-facultad"
-                style={{ padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "white", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "var(--accent-fg)", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}
               >
-                🔒 Cambiar
+                <Icono nombre="candado" tamano={12} /> Cambiar
               </Link>
             </div>
           );
@@ -169,11 +170,11 @@ function PracticarInner() {
           <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", marginBottom: 10, letterSpacing: "0.08em" }}>PASO 1 · TIPO DE PRÁCTICA</div>
           <div style={{ display: "grid", gap: 8 }}>
             {[
-              { v: "examen_real" as const, emoji: "📜", t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado" },
-              { v: "mixto" as const, emoji: "🎲", t: "Mixto", d: "Preguntas aleatorias de varios años" },
-              { v: "por_tema" as const, emoji: "🎯", t: "Por tema", d: "Solo preguntas de un tema específico" },
-              { v: "mis_errores" as const, emoji: "🔥", t: "Mis errores (Premium)", d: errores === 0 ? "Completa un examen para guardar errores" : `Repasa donde fallaste (${errores} guardados)`, disabled: errores === 0 || !esPagoUser, premium: true },
-              { v: "ia_generado" as const, emoji: "✨", t: "Simulacro inteligente (Premium)", d: "La IA arma un examen nuevo, parecido al que probablemente caiga este año, basado en los pasados.", disabled: !esPagoUser, premium: true },
+              { v: "examen_real" as const, icono: "documento" as const, t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado" },
+              { v: "mixto" as const, icono: "mezclar" as const, t: "Mixto", d: "Preguntas aleatorias de varios años" },
+              { v: "por_tema" as const, icono: "etiqueta" as const, t: "Por tema", d: "Solo preguntas de un tema específico" },
+              { v: "mis_errores" as const, icono: "errores" as const, t: "Mis errores (Premium)", d: errores === 0 ? "Completa un examen para guardar errores" : `Repasa donde fallaste (${errores} guardados)`, disabled: errores === 0 || !esPagoUser, premium: true },
+              { v: "ia_generado" as const, icono: "chispa" as const, t: "Simulacro inteligente (Premium)", d: "La IA arma un examen nuevo, parecido al que probablemente caiga este año, basado en los pasados.", disabled: !esPagoUser, premium: true },
             ].map((m) => (
               <button
                 key={m.v}
@@ -182,14 +183,19 @@ function PracticarInner() {
                 style={{
                   display: "flex", alignItems: "center", gap: 12, padding: 14, cursor: m.disabled ? "not-allowed" : "pointer",
                   border: modo === m.v ? `2px solid var(--accent)` : "1px solid var(--border)",
-                  background: modo === m.v ? `rgba(99,102,241,0.06)` : "transparent",
+                  background: modo === m.v ? "var(--accent-soft)" : "transparent",
                   opacity: m.disabled ? 0.4 : 1,
                   borderRadius: 10, textAlign: "left",
                 }}
               >
-                <span style={{ fontSize: 24 }}>{m.emoji}</span>
+                <span style={{ display: "flex", color: modo === m.v ? "var(--accent)" : "var(--fg-muted)" }}>
+                  <Icono nombre={m.icono} tamano={22} />
+                </span>
                 <div style={{ flex: 1 }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{m.t} {m.premium && !esPagoUser && <span style={{ color: "#f59e0b" }}>🔒</span>}</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>
+                    {m.t}
+                    {m.premium && !esPagoUser && <span style={{ display: "flex", color: "var(--fg-muted)" }}><Icono nombre="candado" tamano={13} /></span>}
+                  </div>
                   <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{m.d}</div>
                 </div>
               </button>
@@ -245,13 +251,15 @@ function PracticarInner() {
             )}
 
             {(modo === "mixto" || modo === "predictivo") && (
-              <div style={{ marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
-                📋 Este simulacro seguirá el <strong>formato oficial de {facultadObj?.nombre_corto ?? "tu facultad"}</strong>: {facultadObj?.preguntas_examen ?? "—"} preguntas en {facultadObj?.duracion_minutos ?? "—"} minutos.
+              <div style={{ display: "flex", gap: 8, marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
+                <span style={{ display: "flex", paddingTop: 1 }}><Icono nombre="info" tamano={15} /></span>
+                <span>Este simulacro seguirá el <strong>formato oficial de {facultadObj?.nombre_corto ?? "tu facultad"}</strong>: {facultadObj?.preguntas_examen ?? "—"} preguntas en {facultadObj?.duracion_minutos ?? "—"} minutos.</span>
               </div>
             )}
             {modo === "por_tema" && (
-              <div style={{ marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
-                📋 Incluye todas las preguntas disponibles de ese tema.
+              <div style={{ display: "flex", gap: 8, marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
+                <span style={{ display: "flex", paddingTop: 1 }}><Icono nombre="info" tamano={15} /></span>
+                <span>Incluye todas las preguntas disponibles de ese tema.</span>
               </div>
             )}
 
@@ -272,10 +280,12 @@ function PracticarInner() {
 
         {error && (
           <div style={{ padding: 14, background: mostrarUpgrade ? "rgba(245,158,11,0.1)" : "rgba(239,68,68,0.1)", borderRadius: 10, color: mostrarUpgrade ? "#b45309" : "#b91c1c", fontSize: 14, marginBottom: 14 }}>
-            <div>{mostrarUpgrade ? "🔒" : "⚠️"} {error}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
+              <Icono nombre={mostrarUpgrade ? "candado" : "alerta"} tamano={15} /> {error}
+            </div>
             {mostrarUpgrade && (
-              <Link href="/precios" style={{ display: "inline-block", marginTop: 10, padding: "8px 18px", background: "#f59e0b", color: "white", borderRadius: 10, fontWeight: 800, fontSize: 13, textDecoration: "none" }}>
-                Ver planes Premium →
+              <Link href="/precios" style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 10, padding: "8px 18px", background: "var(--accent)", color: "var(--accent-fg)", borderRadius: 10, fontWeight: 800, fontSize: 13, textDecoration: "none" }}>
+                Ver planes Premium <Icono nombre="flecha" tamano={14} />
               </Link>
             )}
           </div>
@@ -285,12 +295,13 @@ function PracticarInner() {
           onClick={empezar}
           disabled={!modo || creando || (modo === "examen_real" && !examenId) || (modo === "por_tema" && !tema)}
           style={{
-            width: "100%", padding: 16, background: facultadObj?.color ?? "var(--accent)",
-            color: "white", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 800,
+            width: "100%", padding: 16, background: "var(--accent)",
+            color: "var(--accent-fg)", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 800,
             cursor: "pointer", opacity: (!modo || creando) ? 0.5 : 1,
+            display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
           }}
         >
-          {creando ? "Preparando examen..." : `🚀 Empezar simulacro de ${facultadObj?.nombre_corto ?? ""}`}
+          {creando ? "Preparando examen..." : <>Empezar simulacro de {facultadObj?.nombre_corto ?? ""} <Icono nombre="flecha" tamano={18} /></>}
         </button>
 
         <div style={{ textAlign: "center", marginTop: 16 }}>
