@@ -32,7 +32,7 @@ ponderacion:
   la Pregunta 13 pide la frecuencia explícitamente en MHz (no en Hz),
   lo que descarta la opción "obvia" en Hz; la Pregunta 15 depende de
   contar bien cuántos enlaces S=O tiene el sulfato (dos) vs. cuántos
-  Si=O tiene el silicato (uno), para no confundir K2SO4 con K2SiO3.
+  Si=O tiene el silicato (uno), para no confundir $\mathrm{K_{2}SO_{4}}$ con K2SiO3.
   Las 5 preguntas de Geometría se resolvieron con álgebra/vectores desde
   cero y coinciden con las lecturas ya validadas por Ronald (en particular,
   Pregunta 6: la lectura correcta es CD=4·AC, no AC=CD/4 al revés, que
@@ -357,17 +357,17 @@ dificultad: dificil
 
 De las siguientes especies, indique la molécula que tiene un enlace covalente doble y dos enlaces iónicos entre sus distintos enlaces.
 
-- A) CH4
-- B) CH3CH3
-- C) K2SO4
-- D) K2SiO3
+- A) $\mathrm{CH_{4}}$
+- B) $\mathrm{CH_{3}CH_{3}}$
+- C) $\mathrm{K_{2}SO_{4}}$
+- D) $\mathrm{K_{2}SiO_{3}}$
 - E) Ninguno
 
 **respuesta:** D
 **explicacion:** Contá los enlaces de la estructura de Lewis de cada especie, distinguiendo enlaces covalentes (dentro del anión) de enlaces iónicos (entre el catión y el anión).
-Paso 1 · CH4 y CH3CH3: solo tienen enlaces covalentes simples C-H (y C-C en el segundo caso); no hay enlaces dobles ni iónicos.
-Paso 2 · K2SO4: el anión sulfato (SO4²⁻) se representa habitualmente con **dos** enlaces dobles S=O y dos enlaces simples S-O⁻, más 2 enlaces iónicos K⁺-O⁻. Tiene dos enlaces dobles, no uno solo.
-Paso 3 · K2SiO3: el anión metasilicato (SiO3²⁻) se representa con **un** enlace doble Si=O y dos enlaces simples Si-O⁻ (cada uno con carga -1), y esos dos oxígenos cargados se unen iónicamente a los 2 K⁺. Esto da exactamente 1 enlace covalente doble y 2 enlaces iónicos.
+Paso 1 · $\mathrm{CH_{4}}$ y $\mathrm{CH_{3}CH_{3}}$: solo tienen enlaces covalentes simples C-H (y C-C en el segundo caso); no hay enlaces dobles ni iónicos.
+Paso 2 · $\mathrm{K_{2}SO_{4}}$: el anión sulfato ($\mathrm{SO_{4}^{2-}}$) se representa habitualmente con **dos** enlaces dobles S=O y dos enlaces simples S-O⁻, más 2 enlaces iónicos K⁺-O⁻. Tiene dos enlaces dobles, no uno solo.
+Paso 3 · $\mathrm{K_{2}SiO_{3}}$: el anión metasilicato ($\mathrm{SiO_{3}^{2-}}$) se representa con **un** enlace doble Si=O y dos enlaces simples Si-O⁻ (cada uno con carga -1), y esos dos oxígenos cargados se unen iónicamente a los 2 K⁺. Esto da exactamente 1 enlace covalente doble y 2 enlaces iónicos.
 Respuesta: D.
 
 ---
@@ -577,7 +577,7 @@ Las proteínas que cumplen función de transporte son:
 **explicacion:** Compará la función real de cada proteína listada.
 Paso 1 · Colágeno y queratina son proteínas estructurales (tejido conectivo, piel/uñas/cabello), no de transporte — descarta a).
 Paso 2 · "Cromoproteínas" es una clasificación estructural (proteína + grupo prostético coloreado) que incluye ejemplos con funciones muy diversas (citocromos en la cadena de transporte de electrones, flavoproteínas enzimáticas), no todas de transporte de sustancias — no es la respuesta más precisa.
-Paso 3 · La hemoglobina es el ejemplo clásico y preciso de proteína de transporte (de O2 y CO2 en sangre).
+Paso 3 · La hemoglobina es el ejemplo clásico y preciso de proteína de transporte (de $\mathrm{O_{2}}$ y $\mathrm{CO_{2}}$ en sangre).
 Paso 4 · Como a) es falso, "Todas" (d) no puede ser correcta.
 Respuesta: c.
 

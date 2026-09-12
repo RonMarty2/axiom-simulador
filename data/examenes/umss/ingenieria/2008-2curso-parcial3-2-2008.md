@@ -286,7 +286,7 @@ El aluminio reacciona con ácido sulfúrico para formar sulfato de aluminio $Al_
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Balanceá primero, calculá el H2 teórico, aplicá el rendimiento y usá la ley de Dalton para descontar el vapor de agua antes de aplicar la ley de gases ideales.
+**explicacion:** Balanceá primero, calculá el $\mathrm{H_{2}}$ teórico, aplicá el rendimiento y usá la ley de Dalton para descontar el vapor de agua antes de aplicar la ley de gases ideales.
 Paso 1 · Ecuación balanceada: $2Al+3H_2SO_4\rightarrow Al_2(SO_4)_3+3H_2$.
 Paso 2 · Moles de Al $=\frac{2.50}{27}=0.0926$ mol. Moles de $H_2$ teóricos $=\frac32\times0.0926=0.1389$ mol.
 Paso 3 · Con 65% de rendimiento: moles reales de $H_2=0.1389\times0.65=0.0903$ mol.

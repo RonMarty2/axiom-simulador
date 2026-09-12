@@ -215,9 +215,9 @@ x ángulo del 4to cuadrante, $\sec(x)=5/4$. Hallar $\tan(2x)$.
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Obtené $\cos(x)$, $\sen(x)$ y $\tan(x)$ según el signo del 4to cuadrante, y aplicá la fórmula del ángulo doble.
-Paso 1 · $\cos(x)=4/5$. En el 4to cuadrante, $\sen(x)<0$: $\sen(x)=-\sqrt{1-16/25}=-3/5$.
-Paso 2 · $\tan(x)=\sen(x)/\cos(x)=-3/4$.
+**explicacion:** Obtené $\cos(x)$, $\text{sen}(x)$ y $\tan(x)$ según el signo del 4to cuadrante, y aplicá la fórmula del ángulo doble.
+Paso 1 · $\cos(x)=4/5$. En el 4to cuadrante, $\text{sen}(x)<0$: $\text{sen}(x)=-\sqrt{1-16/25}=-3/5$.
+Paso 2 · $\tan(x)=\text{sen}(x)/\cos(x)=-3/4$.
 Paso 3 · $\tan(2x)=\frac{2\tan(x)}{1-\tan^2(x)}=\frac{2(-3/4)}{1-9/16}=\frac{-3/2}{7/16}=-\frac{48}{14}=-\frac{24}{7}$.
 Respuesta: B.
 
@@ -228,7 +228,7 @@ area: geometria_trigonometria
 tema: reduccion-al-primer-cuadrante
 dificultad: dificil
 
-x ángulo del primer cuadrante, $\sen(x)=\sqrt2/2$ (es decir $x=45°$). Hallar $E=\dfrac{\sen(3\pi/2-x)\cdot\sen(\pi+x)}{\sec(\pi+x)\cdot\csc(\pi+x)}$
+x ángulo del primer cuadrante, $\text{sen}(x)=\sqrt2/2$ (es decir $x=45°$). Hallar $E=\dfrac{\text{sen}(3\pi/2-x)\cdot\text{sen}(\pi+x)}{\sec(\pi+x)\cdot\csc(\pi+x)}$
 
 - A) 1/4
 - B) 1/8
@@ -238,11 +238,11 @@ x ángulo del primer cuadrante, $\sen(x)=\sqrt2/2$ (es decir $x=45°$). Hallar $
 
 **respuesta:** A
 **explicacion:** Reducí cada término al primer cuadrante y evaluá con $x=45°$.
-Paso 1 · $\sen(3\pi/2-x)=-\cos(x)$; $\sen(\pi+x)=-\sen(x)$. Numerador $=\cos(x)\sen(x)$.
-Paso 2 · $\sec(\pi+x)=-\sec(x)$; $\csc(\pi+x)=-\csc(x)$. Denominador $=\sec(x)\csc(x)=\dfrac{1}{\cos(x)\sen(x)}$.
-Paso 3 · $E=\dfrac{\cos(x)\sen(x)}{1/[\cos(x)\sen(x)]}=[\cos(x)\sen(x)]^2$.
-Paso 4 · Con $x=45°$: $\cos(x)\sen(x)=\frac{\sqrt2}{2}\times\frac{\sqrt2}{2}=\frac12$. Entonces $E=\left(\frac12\right)^2=\frac14$.
-Paso 5 · Verificación numérica directa: $\sen(225°)=-0.7071$, numerador$=(-0.7071)(-0.7071)=0.5$; $\sec(225°)=\csc(225°)=-1.4142$, denominador$=2$; $E=0.5/2=0.25$ ✓.
+Paso 1 · $\text{sen}(3\pi/2-x)=-\cos(x)$; $\text{sen}(\pi+x)=-\text{sen}(x)$. Numerador $=\cos(x)\text{sen}(x)$.
+Paso 2 · $\sec(\pi+x)=-\sec(x)$; $\csc(\pi+x)=-\csc(x)$. Denominador $=\sec(x)\csc(x)=\dfrac{1}{\cos(x)\text{sen}(x)}$.
+Paso 3 · $E=\dfrac{\cos(x)\text{sen}(x)}{1/[\cos(x)\text{sen}(x)]}=[\cos(x)\text{sen}(x)]^2$.
+Paso 4 · Con $x=45°$: $\cos(x)\text{sen}(x)=\frac{\sqrt2}{2}\times\frac{\sqrt2}{2}=\frac12$. Entonces $E=\left(\frac12\right)^2=\frac14$.
+Paso 5 · Verificación numérica directa: $\text{sen}(225°)=-0.7071$, numerador$=(-0.7071)(-0.7071)=0.5$; $\sec(225°)=\csc(225°)=-1.4142$, denominador$=2$; $E=0.5/2=0.25$ ✓.
 Respuesta: A.
 
 ---
@@ -252,7 +252,7 @@ area: geometria_trigonometria
 tema: diferencia-angulos-iguales
 dificultad: medio
 
-$\csc(y)=2$ (es decir $\sen(y)=1/2$), $\sen(x)=1/2$. Hallar $\sen(x-y)$.
+$\csc(y)=2$ (es decir $\text{sen}(y)=1/2$), $\text{sen}(x)=1/2$. Hallar $\text{sen}(x-y)$.
 
 - A) 0
 - B) 1
@@ -261,9 +261,9 @@ $\csc(y)=2$ (es decir $\sen(y)=1/2$), $\sen(x)=1/2$. Hallar $\sen(x-y)$.
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Si $\sen(x)=\sen(y)=1/2$, tomando la solución más simple (ambos ángulos agudos de 30°), $x=y$.
+**explicacion:** Si $\text{sen}(x)=\text{sen}(y)=1/2$, tomando la solución más simple (ambos ángulos agudos de 30°), $x=y$.
 Paso 1 · $x=y=30°\Rightarrow x-y=0°$.
-Paso 2 · $\sen(x-y)=\sen(0°)=0$.
+Paso 2 · $\text{sen}(x-y)=\text{sen}(0°)=0$.
 Respuesta: A.
 
 ---
@@ -297,7 +297,7 @@ area: quimica
 tema: estequiometria-rendimiento
 dificultad: medio
 
-¿Qué volumen de PH3 (L, c.n.) se forma por reacción de 150g de Ca3P2 con exceso de agua? Rendimiento 76%. $Ca_3P_2(s)+6H_2O(l)\rightarrow3Ca(OH)_2(s)+2PH_3(g)$
+¿Qué volumen de $\mathrm{PH_{3}}$ (L, c.n.) se forma por reacción de 150g de $\mathrm{Ca_{3}P_{2}}$ con exceso de agua? Rendimiento 76%. $Ca_3P_2(s)+6H_2O(l)\rightarrow3Ca(OH)_2(s)+2PH_3(g)$
 
 - A) 61
 - B) 28
@@ -320,7 +320,7 @@ area: quimica
 tema: mezcla-soluciones-normalidad
 dificultad: dificil
 
-¿Qué volúmenes (mL) de dos soluciones H2SO4 (15% pureza, densidad 1.19; 55% pureza, densidad 1.25) deben mezclarse para preparar 250mL de solución 7N de H2SO4?
+¿Qué volúmenes (mL) de dos soluciones $\mathrm{H_{2}SO_{4}}$ (15% pureza, densidad 1.19; 55% pureza, densidad 1.25) deben mezclarse para preparar 250mL de solución 7N de $\mathrm{H_{2}SO_{4}}$?
 
 - A) 169 y 81
 - B) 125 y 125
@@ -329,7 +329,7 @@ dificultad: dificil
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Convertí cada solución a Normalidad (peso equivalente H2SO4=49) y planteá el balance de equivalentes.
+**explicacion:** Convertí cada solución a Normalidad (peso equivalente $\mathrm{H_{2}SO_{4}}$=49) y planteá el balance de equivalentes.
 Paso 1 · Solución 1: $g/mL=1.19\times0.15=0.1785$; $N_1=\dfrac{0.1785\times1000}{49}=3.643\ N$.
 Paso 2 · Solución 2: $g/mL=1.25\times0.55=0.6875$; $N_2=\dfrac{0.6875\times1000}{49}=14.031\ N$.
 Paso 3 · Balance: $N_1V_1+N_2(250-V_1)=7\times250=1750$.
@@ -356,7 +356,7 @@ $Cu+HNO_3\rightarrow Cu(NO_3)_2+NO+H_2O$ (balanceá por ion-electrón). $x=\dfra
 **explicacion:** Balanceá la ecuación completa e identificá los coeficientes pedidos.
 Paso 1 · Ecuación balanceada: $3Cu+8HNO_3\rightarrow3Cu(NO_3)_2+2NO+4H_2O$ (verificado: Cu 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
 Paso 2 · Sustancia oxidada = Cu (pierde electrones, $Cu^0\rightarrow Cu^{2+}$), coeficiente = 3.
-Paso 3 · Agente oxidante = HNO3 (coeficiente total en la ecuación = 8); agente reductor = Cu, coeficiente = 3.
+Paso 3 · Agente oxidante = $\mathrm{HNO_{3}}$ (coeficiente total en la ecuación = 8); agente reductor = Cu, coeficiente = 3.
 Paso 4 · $x=\dfrac{3}{8-3}=\dfrac{3}{5}$.
 Respuesta: D.
 
@@ -367,7 +367,7 @@ area: quimica
 tema: titulacion-acido-base
 dificultad: medio
 
-Calcular el volumen (mL) de HCl 0.2N para titular 0.35g de una muestra al 70% en masa de Na2CO3. $Na_2CO_3+2HCl\rightarrow2NaCl+CO_2+H_2O$
+Calcular el volumen (mL) de HCl 0.2N para titular 0.35g de una muestra al 70% en masa de $\mathrm{Na_{2}CO_{3}}$. $Na_2CO_3+2HCl\rightarrow2NaCl+CO_2+H_2O$
 
 - A) 23
 - B) 14
@@ -376,8 +376,8 @@ Calcular el volumen (mL) de HCl 0.2N para titular 0.35g de una muestra al 70% en
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Hallá la masa pura de Na2CO3, convertí a equivalentes y usá $N\times V=eq$.
-Paso 1 · Masa Na2CO3 $=0.35\times0.70=0.245\ g$.
+**explicacion:** Hallá la masa pura de $\mathrm{Na_{2}CO_{3}}$, convertí a equivalentes y usá $N\times V=eq$.
+Paso 1 · Masa $\mathrm{Na_{2}CO_{3}}$ $=0.35\times0.70=0.245\ g$.
 Paso 2 · $M(Na_2CO_3)=2(22.99)+12.01+3(16)=105.99\approx106\ g/mol$; peso equivalente $=106/2=53\ g/eq$ (2 H+ por fórmula).
 Paso 3 · $eq=\dfrac{0.245}{53}=0.0046226\ eq$.
 Paso 4 · $V=\dfrac{eq}{N}=\dfrac{0.0046226}{0.2}=0.023113\ L=23.1\ mL\approx23\ mL$.
@@ -446,8 +446,8 @@ Hallar la reacción normal de una pared vertical sobre una esfera cargada Q1 en 
 **explicacion:** La esfera Q1 está en equilibrio bajo su peso, la tensión del hilo (a 45°) y la fuerza de Coulomb de Q2 (que la empuja contra la pared); la pared reacciona con una normal horizontal.
 Paso 1 · Fuerza de Coulomb: $F=\dfrac{kQ_1Q_2}{r^2}=\dfrac{(9\times10^9)(10\times10^{-6})(40\times10^{-6})}{(0.2)^2}=\dfrac{3.6}{0.04}=90\ N$.
 Paso 2 · Equilibrio vertical del hilo (45° con la vertical): $T\cos45°=W\Rightarrow T=\dfrac{10}{\cos45°}=10\sqrt2\approx14.14\ N$.
-Paso 3 · Componente horizontal de la tensión (por ser 45°, igual a la componente vertical): $T\sen45°=10\ N$, dirigida hacia afuera de la pared.
-Paso 4 · Equilibrio horizontal: $F$ empuja la esfera contra la pared, y la normal $N$ junto con la componente horizontal del hilo se oponen: $N=F-T\sen45°=90-10=80\ N$.
+Paso 3 · Componente horizontal de la tensión (por ser 45°, igual a la componente vertical): $T\text{sen}45°=10\ N$, dirigida hacia afuera de la pared.
+Paso 4 · Equilibrio horizontal: $F$ empuja la esfera contra la pared, y la normal $N$ junto con la componente horizontal del hilo se oponen: $N=F-T\text{sen}45°=90-10=80\ N$.
 Respuesta: D.
 
 ---

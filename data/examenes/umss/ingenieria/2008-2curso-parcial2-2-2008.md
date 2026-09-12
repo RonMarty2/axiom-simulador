@@ -295,12 +295,12 @@ area: quimica
 tema: formula-molecular-combustion
 dificultad: dificil
 
-Por combustión de 0,6678 g de un compuesto orgánico se obtuvieron 0,9795 g de CO2 y 0,2609 g de H2O. Si 0,5866 g del compuesto orgánico en c.n. desplazan 74,66 mL de H2O, ¿cuál es la fórmula molecular del compuesto?
+Por combustión de 0,6678 g de un compuesto orgánico se obtuvieron 0,9795 g de $\mathrm{CO_{2}}$ y 0,2609 g de $\mathrm{H_{2}O}$. Si 0,5866 g del compuesto orgánico en c.n. desplazan 74,66 mL de $\mathrm{H_{2}O}$, ¿cuál es la fórmula molecular del compuesto?
 
 - A) CHO
-- B) C3H4O3
-- C) C6H8O6
-- D) C9H12O9
+- B) $\mathrm{C_{3}H_{4}O_{3}}$
+- C) $\mathrm{C_{6}H_{8}O_{6}}$
+- D) $\mathrm{C_{9}H_{12}O_{9}}$
 - E) Ninguno
 
 **respuesta:** C
@@ -319,7 +319,7 @@ area: quimica
 tema: redox-semireacciones
 dificultad: dificil
 
-Reacción: Cu + HNO3 → Cu(NO3)2 + NO + H2O (balanceá primero por semirreacciones redox). ¿Cuál de las siguientes afirmaciones es V o F? a) HNO3 es el agente reductor; b) Cu sufre reducción; c) El coeficiente de H2O es 8; d) El número total de electrones ganados en la reducción son 3.
+Reacción: $\mathrm{Cu + HNO_{3} \rightarrow Cu(NO_{3})_{2} + NO + H_{2}O}$ (balanceá primero por semirreacciones redox). ¿Cuál de las siguientes afirmaciones es V o F? a) $\mathrm{HNO_{3}}$ es el agente reductor; b) Cu sufre reducción; c) El coeficiente de $\mathrm{H_{2}O}$ es 8; d) El número total de electrones ganados en la reducción son 3.
 
 - A) FFFF
 - B) VFVF
@@ -331,9 +331,9 @@ Reacción: Cu + HNO3 → Cu(NO3)2 + NO + H2O (balanceá primero por semirreaccio
 **explicacion:** Balanceá por semirreacciones y contrastá cada afirmación con la ecuación balanceada.
 Paso 1 · Oxidación: $Cu \to Cu^{2+}+2e^-$ (×3). Reducción: $NO_3^-+4H^++3e^- \to NO+2H_2O$ (×2).
 Paso 2 · Sumando y agregando los nitratos espectadores para formar $Cu(NO_3)_2$: $3Cu+8HNO_3 \to 3Cu(NO_3)_2+2NO+4H_2O$ (balanceado: Cu 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
-Paso 3 · a) FALSO: HNO3 (la parte reducida a NO) es el agente oxidante, no el reductor (el reductor es Cu).
+Paso 3 · a) FALSO: $\mathrm{HNO_{3}}$ (la parte reducida a NO) es el agente oxidante, no el reductor (el reductor es Cu).
 Paso 4 · b) FALSO: Cu sufre oxidación ($Cu^0\to Cu^{2+}$), no reducción.
-Paso 5 · c) FALSO: el coeficiente de H2O en la ecuación balanceada es 4, no 8.
+Paso 5 · c) FALSO: el coeficiente de $\mathrm{H_{2}O}$ en la ecuación balanceada es 4, no 8.
 Paso 6 · d) VERDADERO: en la semirreacción de reducción, cada átomo de N gana 3 electrones ($N^{5+}+3e^-\to N^{2+}$), tal como queda escrita antes de multiplicarla por 2 para igualar los 6 electrones cedidos por el Cu.
 Respuesta: D (FFFV).
 
@@ -366,7 +366,7 @@ area: quimica
 tema: estequiometria-reactivo-limitante
 dificultad: dificil
 
-Reacción: NiS + HNO3 → Ni(NO3)2 + NO + S + H2O (balanceá primero). Determinar la cantidad de Ni(NO3)2 (Kg) al 80% de pureza en masa que se puede obtener a partir de la reacción de 30 Kg de mineral que contiene 50% en masa de NiS con 25 dm³ de una solución de ácido nítrico al 56% en masa de HNO3 (densidad 1,87 g/mL). Rendimiento de la reacción: 90%.
+Reacción: $\mathrm{NiS + HNO_{3} \rightarrow Ni(NO_{3})_{2} + NO + S + H_{2}O}$ (balanceá primero). Determinar la cantidad de $\mathrm{Ni(NO_{3})_{2}}$ (Kg) al 80% de pureza en masa que se puede obtener a partir de la reacción de 30 Kg de mineral que contiene 50% en masa de NiS con 25 dm³ de una solución de ácido nítrico al 56% en masa de $\mathrm{HNO_{3}}$ (densidad 1,87 g/mL). Rendimiento de la reacción: 90%.
 
 - A) 72
 - B) 82
@@ -376,10 +376,10 @@ Reacción: NiS + HNO3 → Ni(NO3)2 + NO + S + H2O (balanceá primero). Determina
 
 **respuesta:** C
 **explicacion:** Balanceá la ecuación, identificá el reactivo limitante y aplicá rendimiento y pureza al final.
-Paso 1 · Balance redox: S²⁻→S (pierde 2e⁻, ×3) y N⁺⁵→N⁺² (gana 3e⁻, ×2), más los nitratos espectadores de Ni(NO3)2: $3NiS+8HNO_3 \to 3Ni(NO_3)_2+2NO+3S+4H_2O$ (verificado: Ni 3=3, S 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
+Paso 1 · Balance redox: S²⁻→S (pierde 2e⁻, ×3) y N⁺⁵→N⁺² (gana 3e⁻, ×2), más los nitratos espectadores de $\mathrm{Ni(NO_{3})_{2}}$: $3NiS+8HNO_3 \to 3Ni(NO_3)_2+2NO+3S+4H_2O$ (verificado: Ni 3=3, S 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
 Paso 2 · Masa NiS $=0{,}5\times30\,000=15\,000$ g $\Rightarrow n_{NiS}=15\,000/90{,}76=165{,}27$ mol.
-Paso 3 · Masa solución $=25\,000\,\text{mL}\times1{,}87=46\,750$ g $\Rightarrow$ masa HNO3 $=0{,}56\times46\,750=26\,180$ g $\Rightarrow n_{HNO_3}=26\,180/63{,}0=415{,}46$ mol.
-Paso 4 · Relación estequiométrica 3:8. HNO3 necesario para todo el NiS $=165{,}27\times8/3=440{,}7$ mol $>415{,}46$ disponibles $\Rightarrow$ HNO3 es el reactivo limitante.
+Paso 3 · Masa solución $=25\,000\,\text{mL}\times1{,}87=46\,750$ g $\Rightarrow$ masa $\mathrm{HNO_{3}}$ $=0{,}56\times46\,750=26\,180$ g $\Rightarrow n_{HNO_3}=26\,180/63{,}0=415{,}46$ mol.
+Paso 4 · Relación estequiométrica 3:8. $\mathrm{HNO_{3}}$ necesario para todo el NiS $=165{,}27\times8/3=440{,}7$ mol $>415{,}46$ disponibles $\Rightarrow$ $\mathrm{HNO_{3}}$ es el reactivo limitante.
 Paso 5 · $n_{Ni(NO_3)_2}$ teórico $=415{,}46\times3/8=155{,}80$ mol. Con 90% de rendimiento: $155{,}80\times0{,}9=140{,}22$ mol.
 Paso 6 · Masa pura $=140{,}22\times182{,}7\approx25\,618$ g. Al 80% de pureza: masa total $=25\,618/0{,}80\approx32\,023$ g $\approx32$ Kg.
 Respuesta: C.

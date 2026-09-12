@@ -44,7 +44,7 @@ ponderacion:
   - Química #1: la escala nueva da exactamente 354 (no aproximado) al usar
     los dos puntos de referencia dados de forma lineal.
   - Química #4: se descartó KNO3 (solo 1 K+, no puede dar "dos" enlaces
-    iónicos) y Na2CO3 (el carbono no necesita enlaces coordinados para
+    iónicos) y $\mathrm{Na_{2}CO_{3}}$ (el carbono no necesita enlaces coordinados para
     completar sus 4 enlaces); Li2SO4 es el único que encaja con la
     estructura de Lewis del sulfato sin octeto expandido.
   - Física #1 y #2: sistemas de ecuaciones y promedios ponderados por tiempo
@@ -294,12 +294,12 @@ area: quimica
 tema: formula-molecular-combustion
 dificultad: dificil
 
-Combustión de 0.685g de compuesto orgánico (C,H,O) formó 1.882g CO2 y 0.514g H2O. Hallar la fórmula molecular, si 3.857g de vapor del compuesto ocupa 450mL en c.n.
+Combustión de 0.685g de compuesto orgánico (C,H,O) formó 1.882g $\mathrm{CO_{2}}$ y 0.514g $\mathrm{H_{2}O}$. Hallar la fórmula molecular, si 3.857g de vapor del compuesto ocupa 450mL en c.n.
 
-- A) C12H16O2
-- B) C6H8O
-- C) C16H14O2
-- D) C6H2O
+- A) $\mathrm{C_{12}H_{16}O_{2}}$
+- B) $\mathrm{C_{6}H_{8}O}$
+- C) $\mathrm{C_{16}H_{14}O_{2}}$
+- D) $\mathrm{C_{6}H_{2}O}$
 - E) Ninguno
 
 **respuesta:** A
@@ -345,18 +345,18 @@ dificultad: dificil
 
 Representar por Lewis y barras: ¿cuál molécula tiene dos enlaces covalentes simples, dos enlaces iónicos y dos enlaces covalentes coordinados?
 
-- A) KNO3
-- B) Na2CO3
-- C) Li2SO4
+- A) $\mathrm{KNO_{3}}$
+- B) $\mathrm{Na_{2}CO_{3}}$
+- C) $\mathrm{Li_{2}SO_{4}}$
 - D) Los incisos B y C
 - E) Ninguno
 
 **respuesta:** C
 **explicacion:** Contá los enlaces de cada especie considerando cuántos iones metálicos hay (número de enlaces iónicos) y la estructura de Lewis del anión (enlaces covalentes normales vs. coordinados).
-Paso 1 · KNO3: solo hay 1 K⁺, por lo tanto como máximo 1 enlace iónico — no puede cumplir "dos enlaces iónicos", queda descartado sin importar la estructura del NO3⁻ (que de hecho tiene 1 doble, 1 simple y 1 coordinado por los 5 electrones de valencia del N).
-Paso 2 · Na2CO3: hay 2 Na⁺ (2 enlaces iónicos, correcto), pero el carbono tiene exactamente 4 electrones de valencia que alcanzan para formar 1 enlace doble C=O y 2 enlaces simples C-O de forma normal (1 electrón de C por cada enlace simple, 2 electrones de C para el doble), sin electrones sobrantes que requieran donar un par completo. Por eso CO3²⁻ no tiene enlaces coordinados.
-Paso 3 · Li2SO4: hay 2 Li⁺ (2 enlaces iónicos, correcto). El azufre tiene 6 electrones de valencia y debe unirse a 4 oxígenos; usando la estructura de Lewis que respeta el octeto (sin expandirlo), S forma 2 enlaces simples normales (aportando 1 electrón a cada uno) y agota sus 2 pares libres restantes donando ambos electrones en 2 enlaces coordinados adicionales. Esto da exactamente 2 enlaces covalentes simples + 2 enlaces covalentes coordinados dentro del ion sulfato, más los 2 enlaces iónicos de los Li⁺.
-Paso 4 · Solo Li2SO4 cumple simultáneamente los tres conteos pedidos (2 simples, 2 iónicos, 2 coordinados); por eso la opción D ("B y C") es incorrecta, ya que B no aporta enlaces coordinados.
+Paso 1 · $\mathrm{KNO_{3}}$: solo hay 1 K⁺, por lo tanto como máximo 1 enlace iónico — no puede cumplir "dos enlaces iónicos", queda descartado sin importar la estructura del $\mathrm{NO_{3}^{-}}$ (que de hecho tiene 1 doble, 1 simple y 1 coordinado por los 5 electrones de valencia del N).
+Paso 2 · $\mathrm{Na_{2}CO_{3}}$: hay 2 Na⁺ (2 enlaces iónicos, correcto), pero el carbono tiene exactamente 4 electrones de valencia que alcanzan para formar 1 enlace doble C=O y 2 enlaces simples C-O de forma normal (1 electrón de C por cada enlace simple, 2 electrones de C para el doble), sin electrones sobrantes que requieran donar un par completo. Por eso $\mathrm{CO_{3}^{2-}}$ no tiene enlaces coordinados.
+Paso 3 · $\mathrm{Li_{2}SO_{4}}$: hay 2 Li⁺ (2 enlaces iónicos, correcto). El azufre tiene 6 electrones de valencia y debe unirse a 4 oxígenos; usando la estructura de Lewis que respeta el octeto (sin expandirlo), S forma 2 enlaces simples normales (aportando 1 electrón a cada uno) y agota sus 2 pares libres restantes donando ambos electrones en 2 enlaces coordinados adicionales. Esto da exactamente 2 enlaces covalentes simples + 2 enlaces covalentes coordinados dentro del ion sulfato, más los 2 enlaces iónicos de los Li⁺.
+Paso 4 · Solo $\mathrm{Li_{2}SO_{4}}$ cumple simultáneamente los tres conteos pedidos (2 simples, 2 iónicos, 2 coordinados); por eso la opción D ("B y C") es incorrecta, ya que B no aporta enlaces coordinados.
 Respuesta: C.
 
 ---

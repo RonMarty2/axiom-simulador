@@ -326,10 +326,10 @@ dificultad: dificil
 
 Combustión de 0.3082 g de hexametilenodiamina produjo 0.7003 g de $CO_2$ y 0.3821 g de $H_2O$. Análisis de N: 1.270 g de la muestra dieron 0.3723 g de $NH_3$. Densidad en estado vapor en c.n.=5.19 g/L. Hallar la fórmula molecular.
 
-- A) C3H8N
+- A) $\mathrm{C_{3}H_{8}N}$
 - B) CHNO
-- C) C6H7ON
-- D) C6H16N2
+- C) $\mathrm{C_{6}H_{7}ON}$
+- D) $\mathrm{C_{6}H_{16}N_{2}}$
 - E) Ninguno
 
 **respuesta:** D

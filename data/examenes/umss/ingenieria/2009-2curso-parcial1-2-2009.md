@@ -387,20 +387,20 @@ dificultad: medio
 
 Realizar los enlaces (Lewis y Barras) e indicar cuál de las siguientes especies tiene la mayor cantidad de enlaces covalentes simples:
 
-- A) Cl2O7
-- B) CCl2FNH2
-- C) H3SbO4
-- D) C2H6
-- E) H2SO4
+- A) $\mathrm{Cl_{2}O_{7}}$
+- B) $\mathrm{CCl_{2}FNH_{2}}$
+- C) $\mathrm{H_{3}SbO_{4}}$
+- D) $\mathrm{C_{2}H_{6}}$
+- E) $\mathrm{H_{2}SO_{4}}$
 
 **respuesta:** D
 **explicacion:** Construí la estructura de Lewis de cada especie y contá únicamente los enlaces simples (no los dobles).
-Paso 1 · Cl2O7 (O3Cl-O-ClO3): 2 enlaces simples Cl-O-Cl (puente) + 6 enlaces dobles Cl=O (3 por cada Cl) → 2 enlaces simples.
-Paso 2 · CCl2FNH2: C central con 2 enlaces C-Cl, 1 C-F, 1 C-N (4 simples), más 2 enlaces N-H (2 simples) → 6 enlaces simples.
-Paso 3 · H3SbO4 (análogo a H3PO4): Sb con 3 enlaces Sb-O simples (a los OH) + 1 enlace Sb=O doble; más 3 enlaces O-H simples → 3+3=6 enlaces simples.
-Paso 4 · C2H6 (etano, H3C-CH3): 1 enlace C-C simple + 6 enlaces C-H simples (3 por cada carbono) → 7 enlaces simples, todos simples (no hay dobles ni triples).
-Paso 5 · H2SO4: 2 enlaces S-O simples (a los OH) + 2 enlaces O-H simples + 2 enlaces S=O dobles → 4 enlaces simples.
-Paso 6 · Comparando: Cl2O7=2, CCl2FNH2=6, H3SbO4=6, C2H6=7, H2SO4=4. El máximo es C2H6 con 7.
+Paso 1 · $\mathrm{Cl_{2}O_{7}}$ ($\mathrm{O_{3}Cl-O-ClO_{3}}$): 2 enlaces simples Cl-O-Cl (puente) + 6 enlaces dobles Cl=O (3 por cada Cl) → 2 enlaces simples.
+Paso 2 · $\mathrm{CCl_{2}FNH_{2}}$: C central con 2 enlaces C-Cl, 1 C-F, 1 C-N (4 simples), más 2 enlaces N-H (2 simples) → 6 enlaces simples.
+Paso 3 · $\mathrm{H_{3}SbO_{4}}$ (análogo a $\mathrm{H_{3}PO_{4}}$): Sb con 3 enlaces Sb-O simples (a los OH) + 1 enlace Sb=O doble; más 3 enlaces O-H simples → 3+3=6 enlaces simples.
+Paso 4 · $\mathrm{C_{2}H_{6}}$ (etano, $\mathrm{H_{3}C-CH_{3}}$): 1 enlace C-C simple + 6 enlaces C-H simples (3 por cada carbono) → 7 enlaces simples, todos simples (no hay dobles ni triples).
+Paso 5 · $\mathrm{H_{2}SO_{4}}$: 2 enlaces S-O simples (a los OH) + 2 enlaces O-H simples + 2 enlaces S=O dobles → 4 enlaces simples.
+Paso 6 · Comparando: $\mathrm{Cl_{2}O_{7}}$=2, $\mathrm{CCl_{2}FNH_{2}}$=6, $\mathrm{H_{3}SbO_{4}}$=6, $\mathrm{C_{2}H_{6}}$=7, $\mathrm{H_{2}SO_{4}}$=4. El máximo es $\mathrm{C_{2}H_{6}}$ con 7.
 Respuesta: D.
 
 ---
@@ -587,7 +587,7 @@ area: biologia
 tema: leyes-mendel-proporcion-fenotipica
 dificultad: medio
 
-La frecuencia fenotípica 9:3:3:1 en la F2 corresponde a:
+La frecuencia fenotípica 9:3:3:1 en la $\mathrm{F_{2}}$ corresponde a:
 
 - A) La primera Ley de Mendel
 - B) La segunda Ley de Mendel
