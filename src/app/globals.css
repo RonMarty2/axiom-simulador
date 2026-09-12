@@ -107,6 +107,7 @@ html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
   --accent:       #9c3d1c;
   --accent-hover: #7d2f13;
   --accent-fg:    #faf7f0;
+  --accent-soft:  rgba(156, 61, 28, 0.10);
 
   --green:        #1e5f4f;
   --green-bg:     #eef5f1;
