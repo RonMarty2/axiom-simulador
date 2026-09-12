@@ -228,12 +228,19 @@ function PreguntaCard({
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="mt-4 overflow-hidden rounded-xl border border-violet-100 bg-violet-50/50 p-4"
+          className="mt-4 overflow-hidden rounded-xl border p-4"
+          style={{ borderColor: "var(--border)", background: "var(--bg-subtle)" }}
         >
-          <div className="mb-1 text-xs font-bold uppercase tracking-wider text-violet-700">
+          <div className="mb-1 text-xs font-bold uppercase tracking-wider" style={{ color: "var(--accent)" }}>
             Explicación
           </div>
-          <div className="text-sm leading-relaxed text-neutral-800">
+          {/* line-height holgado a propósito: las explicaciones llevan
+              fracciones \dfrac en línea, que miden ~34px contra los ~23px de
+              un renglón normal (leading-relaxed). El renglón tiene que ser
+              al menos tan alto como la fórmula más alta o se montan entre sí,
+              y con algo de aire encima: 2.9 × 14px ≈ 41px contra los ~35px
+              que mide una fracción. */}
+          <div className="text-sm" style={{ color: "var(--fg-secondary)", lineHeight: 2.9 }}>
             <MathText block>{pregunta.explicacion}</MathText>
           </div>
         </motion.div>
