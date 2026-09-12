@@ -112,10 +112,19 @@ export function PartePuente({ valor, etiqueta, color }: { valor: string; etiquet
 // Una línea de una cadena vertical de sustitución: glosa arriba (opcional),
 // ecuación abajo con todo el ancho disponible — evita que fórmulas largas se
 // corten al costado de una etiqueta (BITÁCORA regla 12).
+// La glosa también pasa por MathText: antes se renderizaba como texto plano y
+// cualquier expresión que el autor escribiera ahí ("16=4²", "x=1 ó x=-4") salía
+// en la tipografía de párrafo, con superíndices unicode, al lado de la misma
+// matemática bien compuesta en `eq`. Como MathText devuelve el texto intacto
+// cuando no encuentra "$...$", las glosas sin fórmulas no cambian.
 export function LineaEjemplo({ glosa, eq }: { glosa: string; eq: string }) {
   return (
     <div style={{ marginBottom: 8, fontSize: 15, overflowX: "auto" }}>
-      {glosa && <div style={{ color: LIENZO.fgDim, fontSize: 12.5, marginBottom: 2 }}>{glosa}</div>}
+      {glosa && (
+        <div style={{ color: LIENZO.fgDim, fontSize: 12.5, marginBottom: 2 }}>
+          <MathText>{glosa}</MathText>
+        </div>
+      )}
       <MathText>{eq}</MathText>
     </div>
   );
