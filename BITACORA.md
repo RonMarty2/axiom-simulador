@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-08 (se documentan los 83 commits de agosto: 64 láminas terminadas + rediseño de Física, Química y Trigonometría)
-**Versión de la bitácora:** v1.9
+**Última actualización:** 2026-09-12 (notación química del banco de Ingeniería, landing pública migrada al rediseño, y la Pregunta 1 del 2023 resuelta)
+**Versión de la bitácora:** v2.0
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -54,7 +54,7 @@
 | Estilos | Tailwind CSS v4 + CSS módulos | — |
 | PWA | Service Worker manual + manifest | — |
 | Hosting | Vercel | — |
-| Auth/DB | API routes + memoryStore (no DB persistente en MVP) | — |
+| Auth/DB | Supabase (Postgres) + sesión por cookie firmada | — |
 | IA (futuro) | Anthropic Claude (provider configurable) | — |
 
 **Convenciones de código:**
@@ -272,6 +272,9 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 | 2026-06 | Layout 2fr/1fr aplastaba columna derecha del dashboard en móvil | Ronald al revisar móvil | Grid responsivo con media query |
 | 2026-06 | `motion.text` SVG con `y=` atributo + `y` en animate duplicaba posición | Múltiples animaciones rotas | Usar solo animate (translate) o solo atributo, no ambos |
 | 2026-06 | Raíz `√` dibujada como trazo SVG + borde HTML separado, se desconectaba | Lección Potenciación | Un solo SVG con todo el dibujo |
+| 2026-09-12 | Pregunta marcada D con una explicación que calculaba $-23/55$ y terminaba en "…revisar" | Ítem del roadmap §8 | Un "revisar" escrito en el texto se publica igual que el resto: o se resuelve antes de subir, o no se sube |
+| 2026-09-12 | Un regex de fórmulas químicas convirtió "Física #2 (F2)" en flúor gaseoso y "Aritmética P4" en fósforo | Barrido con lista de elementos reales | Para tocar el banco en masa hace falta lista blanca de compuestos, no un patrón genérico: las etiquetas de pregunta parecen fórmulas |
+| 2026-09-12 | `\sen` (seno en español) no existe en KaTeX: 22 expresiones se veían en rojo | Renderizar todo el banco con `throwOnError:true` | El resto del banco ya usaba `\text{sen}`; validar el LaTeX entero, no confiar en que "se ve bien" |
 
 ---
 
@@ -279,7 +282,7 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 
 ### Crítico
 - [ ] Reescribir **examen 2024** UMSS Económicas con preguntas multi-paso (paralelo a lo que se hizo con 2023).
-- [ ] Verificar respuesta de Pregunta 1 del examen 2023 (fracciones anidadas). Mi cálculo discrepa del oficial; revisar a mano o con sympy.
+- [x] Pregunta 1 del examen 2023 (fracciones anidadas): resuelta con aritmética racional exacta, da $-23/55$ y ninguna opción coincide → **E) Ninguno** (ver §11).
 - [x] Banco de Ingeniería: 139 exámenes reales 2005-2025, incluye categoría PRE-U 2024-2025 (ver §11).
 - [ ] Crear bancos serios para Medicina, Derecho (mismo patrón que Ingeniería, ver §11).
 
@@ -287,9 +290,11 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 - [x] Láminas de Repaso: las 64 de Aritmética-Álgebra Ingeniería en producción, 23 módulos (ver §11).
 - [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
 - [ ] Animar las lecciones que aún son solo cards (revisar `grep -c "motion\." | sort` para identificarlas).
-- [ ] Sistema real de auth + DB persistente (hoy es memoryStore).
+- [x] Sistema real de auth + DB persistente: Supabase (Postgres), con cron diario para que no se pause por inactividad.
 - [ ] Stripe/pagos: hoy precios es placeholder.
 - [ ] Auditoría visual sistemática en móvil: probar cada pantalla en device toolbar.
+- [ ] Terminar de sacar los emojis usados como iconografía: quedan 25 en componentes compartidos, 98 en pantallas del alumno, 189 en lecciones y 77 en admin. La landing ya está migrada a `Icono.tsx` (ver §11).
+- [ ] Banco de Económicas: hay **un solo examen** (2023) contra los 139 de Ingeniería.
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -328,6 +333,25 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-12 (notación química del banco · landing al rediseño · Pregunta 1 del 2023)
+
+**Banco de Ingeniería, notación química completa.** Una pasada anterior había envuelto fórmulas en `$\mathrm{}$` con un regex que solo tomaba símbolos en mayúscula: agarraba `HNO3`, `NH3` o `H2SO4`, pero dejaba crudo todo lo que tuviera una minúscula en el símbolo (`CCl4`, `CaSO3`, `FeS2`, `MgCO3`). Quedaban renglones a dos estilos, textual del banco: *"El benceno ($\mathrm{C_6H_6}$) y el tolueno (C7H8)"*. Se completó sobre los 139 exámenes: 212 fórmulas en 50 archivos, 11 ecuaciones de reacción envueltas enteras a mano (token por token quedaban como un mosaico de fragmentos compuestos y crudos), y las cargas plegadas dentro del LaTeX (`CO3²⁻` → `$\mathrm{CO_{3}^{2-}}$`).
+
+**Tres cosas que salieron de ahí y conviene no olvidar:**
+- El mismo regex había hecho 6 conversiones **al revés**: etiquetas de pregunta del PDF ("Física #2 (F2)", "Aritmética P4") convertidas en flúor gaseoso y fósforo blanco. Estaban dentro de bloques `<!-- -->`, así que no las veía el estudiante, pero confundían a cualquiera que leyera las notas. Los bloques de notas internas ahora se saltan a propósito.
+- `\sen` no existe en KaTeX (el resto del banco usa `\text{sen}`, en 787 lugares): 22 expresiones de trigonometría se le mostraban **en rojo** al alumno, y ya estaban así en `main`. Arreglado.
+- Lo que **no** se tocó: ~1.000 fórmulas que ya están en `$...$` pero en itálica en vez de recta. Se ven bien y con subíndices correctos; tocar 128 archivos por eso arriesga romper variables de física (`T₁`, `R₂`) que **deben** ir en itálica. Costo alto, beneficio bajo.
+
+**Verificación usada (sirve para la próxima).** Se renderizaron las 27.421 expresiones LaTeX del banco con KaTeX en `throwOnError:true` — 0 fallan, contra 22 antes. Más los 139 exámenes y 3.569 preguntas parseados con los regex reales de `banco-parser.ts`, `tsc`, `next build` y chequeo en el navegador.
+
+**Landing pública migrada al rediseño.** Era lo que había quedado pendiente en el commit del rediseño (`5785054` lo dice explícito). Seguía con emojis como iconografía y con el índigo de Tailwind hardcodeado (`rgba(99,102,241)`, `#4f46e5`) — el degradé del CTA final iba de terracota a índigo. Ahora usa `Icono.tsx`, que sumó 11 trazos (las cuatro facultades, documento, chispa, gráfico, birrete, más, probeta, herramienta) y un token `--accent-soft`.
+
+**El emoji de cada facultad salía de Supabase.** El campo `facultad.emoji` es editable desde la base: alcanzaba con que alguien cargara otro emoji para que la iconografía del producto cambiara sola. Ahora se mapea por `id` en código con `iconoFacultad()`. Las cuatro tarjetas además pasaron a un solo acento: antes cada facultad pintaba su `f.color` (verde, azul, rojo, violeta), que es justo el problema que el rediseño vino a resolver.
+
+**Pregunta 1 del examen 2023 (pendiente crítico de §8).** Lo que se publicaba era peor que una respuesta equivocada: estaba marcada **D**, y la explicación calculaba $-23/55$ y terminaba diciendo *"…revisar; la respuesta marcada por la oficina es D"*. El alumno leía las dos cosas. Resuelta con aritmética racional exacta: $-23/55$, que no es ninguna de las cuatro opciones; se probaron además 7 lecturas alternativas del enunciado y ninguna da $\pm31/11$ ni $\pm11/31$. Por la política "no adivinar" queda **E) Ninguno** con la derivación en 6 pasos. **No se pudo contrastar contra el facsímil**: no hay PDF de Económicas en `examenes pasados/` (los 2023 de esa carpeta son de Ingeniería). Queda anotado en el archivo por si aparece.
+
+**De paso, en el bloque de explicación de `/examenes/[id]`:** las fracciones `\dfrac` en línea miden ~35px contra los ~23px de un renglón con `leading-relaxed`, así que se montaban sobre la línea de arriba — pasa en toda explicación con fracciones, no solo en esa. Y salieron los `violet-*` de Tailwind, que eran de la paleta anterior al rediseño.
 
 ### 2026-08-26 / 08-27 (rediseño de Física, Química y Trigonometría con notación matemática real)
 
