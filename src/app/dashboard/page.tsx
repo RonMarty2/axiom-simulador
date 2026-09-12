@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
+import Icono, { type NombreIcono } from "../components/Icono";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
 import { esPago, inicioSemanaISO, textoProximaRenovacion } from "@/lib/plan";
 
@@ -46,9 +47,9 @@ export default function DashboardPage() {
   if (error) {
     return (
       <div style={{ padding: 40, minHeight: "70vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center" }}>
-        <div style={{ fontSize: 44 }}>📡</div>
+        <span style={{ color: "var(--accent)" }}><Icono nombre="alerta" tamano={40} grosor={1.6} /></span>
         <p style={{ color: "var(--fg-muted)", fontSize: 16, maxWidth: 320 }}>No pudimos conectar con el servidor. Revisá tu conexión a internet.</p>
-        <button onClick={() => window.location.reload()} style={{ padding: "10px 24px", background: "var(--accent)", color: "white", border: "none", borderRadius: 12, fontWeight: 700, fontSize: 15, cursor: "pointer" }}>
+        <button onClick={() => window.location.reload()} style={{ padding: "11px 26px", background: "var(--accent)", color: "var(--accent-fg)", border: "none", borderRadius: 4, fontWeight: 700, fontSize: 15, cursor: "pointer" }}>
           Reintentar
         </button>
       </div>
@@ -70,44 +71,53 @@ export default function DashboardPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 1180, margin: "0 auto", padding: "32px 24px" }}>
-        {/* Saludo */}
-        <div style={{ marginBottom: 28 }}>
-          <h1 className="font-crimson" style={{ fontSize: 36, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>
-            Hola, {usuario.nombre.split(" ")[0]} 👋
-          </h1>
-          <p style={{ color: "var(--fg-muted)", fontSize: 16 }}>
-            Postulas a <strong style={{ color: facultad?.color ?? "var(--accent)" }}>{facultad?.nombre_corto}</strong>. Sigue practicando.
-          </p>
+        {/* Saludo + números de un vistazo. Antes eran cuatro tarjetas grandes
+            apiladas que en móvil ocupaban media pantalla para mostrar cuatro
+            cifras; ahora van en una sola fila separada por líneas. */}
+        <div className="ax-dash-cabecera" style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 24 }}>
+          <div>
+            <h1 className="font-crimson" style={{ fontSize: 34, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 4 }}>
+              Buenas, {usuario.nombre.split(" ")[0]}
+            </h1>
+            <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
+              Postulás a <strong style={{ color: "var(--fg-primary)" }}>{facultad?.nombre_corto}</strong>. Seguí practicando.
+            </p>
+          </div>
+
+          <div className="ax-cifras" style={{ display: "flex", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 6 }}>
+            <Cifra label="Exámenes" valor={usuario.examenes_completados} />
+            <Cifra label="Mejor nota" valor={usuario.mejor_nota} color="var(--green)" />
+            <Cifra label="Promedio" valor={usuario.nota_promedio} />
+            <Cifra label="Esta semana" valor={examenesEstaSemana} />
+          </div>
         </div>
 
-        {/* Stats principales */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 14, marginBottom: 28 }}>
-          <StatBox icon="📝" label="Exámenes hechos" valor={usuario.examenes_completados} color="#6366f1" />
-          <StatBox icon="🏆" label="Mejor nota" valor={`${usuario.mejor_nota}/100`} color="#10b981" />
-          <StatBox icon="📊" label="Nota promedio" valor={`${usuario.nota_promedio}/100`} color="#f59e0b" />
-          <StatBox icon="🔥" label="Esta semana" valor={examenesEstaSemana} color="#ef4444" />
-        </div>
-
-        {/* CTA grande */}
+        {/* Pieza dominante: una sola acción clara, en tinta sólida */}
         <div style={{
-          background: limiteAlcanzado ? "linear-gradient(135deg, #fbbf24, #f59e0b)" : "linear-gradient(135deg, var(--accent), #4f46e5)",
-          borderRadius: 18, padding: 28, color: "white", marginBottom: 28, display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap",
+          background: limiteAlcanzado ? "#7d4a12" : "var(--fg-primary)",
+          borderRadius: 8, padding: "28px 30px", color: "var(--bg-base)", marginBottom: 20,
+          display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap",
         }}>
           <div style={{ flex: 1, minWidth: 240 }}>
-            <h2 className="font-crimson" style={{ fontSize: 24, fontWeight: 700, marginBottom: 6 }}>
-              {limiteAlcanzado ? "Llegaste al límite semanal del plan gratis 🎯" : "¿Listo para tu siguiente simulacro?"}
+            <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", color: "#c98a63", marginBottom: 10 }}>
+              {limiteAlcanzado ? "Límite semanal alcanzado" : "Tu próximo paso"}
+            </div>
+            <h2 className="font-crimson" style={{ fontSize: 28, fontWeight: 700, marginBottom: 8, lineHeight: 1.2 }}>
+              {limiteAlcanzado ? "Llegaste al límite del plan gratis" : "¿Listo para tu siguiente simulacro?"}
             </h2>
-            <p style={{ fontSize: 14, opacity: 0.92 }}>
+            <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "rgba(250,247,240,0.75)" }}>
               {limiteAlcanzado
-                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para ilimitados.`
-                : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
+                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pasate a Premium para tenerlos ilimitados.`
+                : `Tenés ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
             </p>
           </div>
           <Link href={limiteAlcanzado ? "/precios" : "/practicar"} style={{
-            padding: "13px 26px", background: "white", color: limiteAlcanzado ? "#f59e0b" : "var(--accent)",
-            borderRadius: 10, textDecoration: "none", fontWeight: 800, fontSize: 15,
+            display: "inline-flex", alignItems: "center", gap: 9,
+            padding: "13px 26px", background: "var(--accent)", color: "var(--accent-fg)",
+            borderRadius: 4, textDecoration: "none", fontWeight: 700, fontSize: 15,
           }}>
-            {limiteAlcanzado ? "Mejorar plan →" : "Empezar simulacro →"}
+            {limiteAlcanzado ? "Mejorar plan" : "Empezar simulacro"}
+            <Icono nombre="flecha" tamano={16} grosor={2.4} />
           </Link>
         </div>
 
@@ -125,8 +135,8 @@ export default function DashboardPage() {
               </div>
             )}
             {ultimos.map((h) => (
-              <div key={h.id} style={{ display: "flex", alignItems: "center", padding: "10px 0", borderBottom: "1px solid var(--border)" }}>
-                <div style={{ width: 44, height: 44, borderRadius: 10, background: h.nota >= 70 ? "#10b98115" : h.nota >= 50 ? "#f59e0b15" : "#ef444415", color: h.nota >= 70 ? "#059669" : h.nota >= 50 ? "#d97706" : "#dc2626", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, marginRight: 12 }}>
+              <div key={h.id} style={{ display: "flex", alignItems: "center", padding: "12px 0", borderBottom: "1px solid var(--border)" }}>
+                <div className="font-crimson" style={{ width: 46, fontSize: 24, fontWeight: 700, marginRight: 12, color: h.nota >= 70 ? "var(--green)" : h.nota >= 50 ? "#c07a2a" : "#b3341f" }}>
                   {h.nota}
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
@@ -141,35 +151,11 @@ export default function DashboardPage() {
             ))}
           </div>
 
-          <div style={{ display: "grid", gap: 12 }}>
-            <Link href="/practicar" style={cardLink("#6366f1")}>
-              <div style={{ fontSize: 28 }}>📝</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>Practicar</div>
-                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>6 modos disponibles</div>
-              </div>
-            </Link>
-            <Link href="/errores" style={cardLink("#ef4444")}>
-              <div style={{ fontSize: 28 }}>🎯</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>Mis errores</div>
-                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Repasa lo que fallaste</div>
-              </div>
-            </Link>
-            <Link href="/ranking" style={cardLink("#f59e0b")}>
-              <div style={{ fontSize: 28 }}>🏆</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>Ranking</div>
-                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Top 10 global</div>
-              </div>
-            </Link>
-            <Link href="/cuenta" style={cardLink("#10b981")}>
-              <div style={{ fontSize: 28 }}>👤</div>
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>Mi cuenta</div>
-                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Plan {usuario.plan}</div>
-              </div>
-            </Link>
+          <div style={{ display: "grid", gap: 10, alignContent: "start" }}>
+            <Acceso href="/practicar" icono="practicar" titulo="Practicar" detalle="6 modos disponibles" />
+            <Acceso href="/errores" icono="errores" titulo="Mis errores" detalle="Repasá lo que fallaste" />
+            <Acceso href="/ranking" icono="ranking" titulo="Ranking" detalle="Top 10 global" />
+            <Acceso href="/cuenta" icono="cuenta" titulo="Mi cuenta" detalle={`Plan ${usuario.plan}`} />
           </div>
         </div>
       </div>
@@ -177,23 +163,38 @@ export default function DashboardPage() {
   );
 }
 
-function StatBox({ icon, label, valor, color }: { icon: string; label: string; valor: string | number; color: string }) {
+// El número va pegado al fondo de la columna: así las etiquetas de dos
+// palabras pueden partirse en móvil sin desalinear las cifras entre sí.
+function Cifra({ label, valor, color }: { label: string; valor: string | number; color?: string }) {
   return (
-    <div style={{ background: "var(--bg-card)", borderRadius: 12, padding: 16, border: "1px solid var(--border)" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-        <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</div>
-        <div style={{ fontSize: 18 }}>{icon}</div>
-      </div>
-      <div style={{ fontSize: 28, fontWeight: 800, color }}>{valor}</div>
+    <div style={{ padding: "12px 22px", borderLeft: "1px solid var(--border)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 6 }}>
+      <div style={{ fontSize: 10.5, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.09em", lineHeight: 1.25 }}>{label}</div>
+      <div className="font-crimson" style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, color: color ?? "var(--fg-primary)" }}>{valor}</div>
     </div>
   );
 }
 
-function cardLink(_color: string): React.CSSProperties {
-  return {
-    background: "var(--bg-card)", borderRadius: 12, padding: 14, textDecoration: "none",
-    display: "flex", alignItems: "center", gap: 12, border: "1px solid var(--border)",
-  };
+function Acceso({ href, icono, titulo, detalle }: { href: string; icono: NombreIcono; titulo: string; detalle: string }) {
+  return (
+    <Link
+      href={href}
+      style={{
+        background: "var(--bg-card)", borderRadius: 6, padding: "14px 16px", textDecoration: "none",
+        display: "flex", alignItems: "center", gap: 13, border: "1px solid var(--border)",
+      }}
+    >
+      <span style={{ color: "var(--accent)", display: "flex" }}>
+        <Icono nombre={icono} tamano={20} />
+      </span>
+      <span style={{ flex: 1 }}>
+        <span style={{ display: "block", fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{titulo}</span>
+        <span style={{ display: "block", fontSize: 12.5, color: "var(--fg-muted)", marginTop: 1 }}>{detalle}</span>
+      </span>
+      <span style={{ color: "var(--border-hover)", display: "flex" }}>
+        <Icono nombre="chevron" tamano={16} grosor={2} />
+      </span>
+    </Link>
+  );
 }
 
 function modoLabel(modo: string): string {

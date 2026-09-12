@@ -15,8 +15,8 @@ export default function manifest(): MetadataRoute.Manifest {
     // Esto fuerza explícitamente vista app y evita heredar settings raros del navegador.
     display_override: ["standalone", "minimal-ui"],
     orientation: "portrait",
-    background_color: "#f2f2f0",
-    theme_color: "#6366f1",
+    background_color: "#faf7f0",
+    theme_color: "#1a1f2e",
     lang: "es",
     icons: [
       {

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Crimson_Pro, Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
 import PWARegister from "./components/PWARegister";
+import BottomNav from "./components/BottomNav";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -36,8 +37,8 @@ export const viewport: Viewport = {
   userScalable: false,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#6366f1" },
-    { media: "(prefers-color-scheme: dark)", color: "#4f46e5" },
+    { media: "(prefers-color-scheme: light)", color: "#1a1f2e" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1f2e" },
   ],
 };
 
@@ -51,6 +52,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <section className="axiom-shell flex-1">{children}</section>
+        <BottomNav />
         <PWARegister />
       </body>
     </html>

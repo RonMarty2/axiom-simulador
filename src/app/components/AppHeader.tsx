@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Icono from "./Icono";
 
 interface SuscripcionMini { facultad: string; vence: string }
 
@@ -106,22 +107,22 @@ export default function AppHeader() {
     <header style={{ background: "var(--bg-glass)", borderBottom: "1px solid var(--border)", position: "sticky", top: 0, zIndex: 50, backdropFilter: "blur(8px)" }}>
       <div className="axiom-header-row" style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", gap: 24 }}>
         <Link href={admin ? "/admin" : usuario ? "/dashboard" : "/"} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontSize: 24 }}>⚡</span>
-          <span className="font-crimson" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)" }}>AXIOM</span>
+          <span style={{ color: "var(--accent)", display: "flex" }}><Icono nombre="rayo" tamano={21} grosor={2.2} /></span>
+          <span className="font-crimson" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)", letterSpacing: "0.06em" }}>AXIOM</span>
         </Link>
 
         {/* Nav inline (desktop) — se oculta en móvil vía CSS */}
         <nav className="axiom-nav-desktop">
           {usuario && !admin && (
             <>
+              {/* Cinco links como máximo: con ocho el nav se partía en dos
+                  líneas en cualquier pantalla menor a ~1200px. El resto vive
+                  en el menú del avatar. */}
               <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
-              <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>📚 Aprende</Link>
-              <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>💎 Láminas</Link>
+              <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>Aprende</Link>
+              <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>Láminas</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
-              <Link href="/historial" style={navLink(pathname === "/historial")}>Mis exámenes</Link>
-              <Link href="/debilidades" style={navLink(pathname === "/debilidades")}>Mis debilidades</Link>
-              <Link href="/resueltos" style={navLink(pathname?.startsWith("/resueltos"))}>Resueltos</Link>
-              <Link href="/precios" style={navLink(pathname === "/precios")}>Planes</Link>
+              <Link href="/historial" style={navLink(pathname === "/historial")}>Exámenes</Link>
             </>
           )}
           {admin && (
@@ -230,11 +231,11 @@ export default function AppHeader() {
                 ) : (
                   <div style={{
                     width: 30, height: 30, borderRadius: "50%",
-                    background: usuario?.avatar_color ?? "#6366F1",
-                    color: "white", display: "flex", alignItems: "center", justifyContent: "center",
-                    fontWeight: 700, fontSize: 12,
+                    background: "var(--fg-primary)",
+                    color: "var(--bg-base)", display: "flex", alignItems: "center", justifyContent: "center",
+                    fontWeight: 700, fontSize: 11.5,
                   }}>
-                    {admin ? "⚡" : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                    {admin ? <Icono nombre="rayo" tamano={15} grosor={2.2} /> : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                   </div>
                 )}
                 <span style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
@@ -251,8 +252,11 @@ export default function AppHeader() {
                         <div style={{ fontSize: 11, color: "var(--fg-muted)" }}>{usuario.email}</div>
                         <div style={{ marginTop: 6, display: "inline-block", padding: "2px 8px", background: usuario.plan === "premium" ? "#fbbf24" : usuario.plan === "pro" ? "#a78bfa" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "#1e1b4b", borderRadius: 999, fontSize: 10, fontWeight: 700, textTransform: "uppercase" }}>{usuario.plan}</div>
                       </div>
-                      <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
+                      <Link href="/debilidades" onClick={() => setOpen(false)} style={menuItem()}>Mis debilidades</Link>
+                      <Link href="/resueltos" onClick={() => setOpen(false)} style={menuItem()}>Resueltos</Link>
                       <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
+                      <Link href="/precios" onClick={() => setOpen(false)} style={menuItem()}>Planes</Link>
+                      <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
                       {(admin || tester) && (
                         <button
                           onClick={async () => {
@@ -352,14 +356,14 @@ export default function AppHeader() {
         >
           {usuario && !admin && (
             <>
-              <Link href="/dashboard" style={menuMovilItem(pathname === "/dashboard")} onClick={() => setMenuMovil(false)}>🏠 Inicio</Link>
-              <Link href="/aprende" style={menuMovilItem(pathname?.startsWith("/aprende"))} onClick={() => setMenuMovil(false)}>📚 Aprende</Link>
-              <Link href="/laminas" style={menuMovilItem(pathname?.startsWith("/laminas"))} onClick={() => setMenuMovil(false)}>💎 Láminas</Link>
-              <Link href="/practicar" style={menuMovilItem(pathname?.startsWith("/practicar"))} onClick={() => setMenuMovil(false)}>📝 Practicar</Link>
-              <Link href="/historial" style={menuMovilItem(pathname === "/historial")} onClick={() => setMenuMovil(false)}>📊 Mis exámenes</Link>
-              <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>🎯 Mis debilidades</Link>
-              <Link href="/resueltos" style={menuMovilItem(pathname?.startsWith("/resueltos"))} onClick={() => setMenuMovil(false)}>📖 Resueltos</Link>
-              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>💎 Planes</Link>
+              {/* En móvil, Inicio/Aprende/Láminas/Practicar/Exámenes ya están
+                  en la barra inferior: acá van solo los secundarios. */}
+              <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>Mis debilidades</Link>
+              <Link href="/resueltos" style={menuMovilItem(pathname?.startsWith("/resueltos"))} onClick={() => setMenuMovil(false)}>Resueltos</Link>
+              <Link href="/errores" style={menuMovilItem(pathname === "/errores")} onClick={() => setMenuMovil(false)}>Mis errores</Link>
+              <Link href="/ranking" style={menuMovilItem(pathname === "/ranking")} onClick={() => setMenuMovil(false)}>Ranking</Link>
+              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>Planes</Link>
+              <Link href="/cuenta" style={menuMovilItem(pathname === "/cuenta")} onClick={() => setMenuMovil(false)}>Mi cuenta</Link>
             </>
           )}
           {admin && (

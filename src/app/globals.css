@@ -8,6 +8,19 @@
   .axiom-nav-hamburger { display: flex !important; }
 }
 
+/* ═══ BARRA DE NAVEGACIÓN INFERIOR — solo móvil y app instalada ══════════════
+   Es el patrón de navegación nativo de Android; en escritorio sobra porque ahí
+   está el nav inline del header. Se muestra con el mismo criterio que la
+   hamburguesa (≤880px o standalone) para que nunca convivan dos navegaciones.
+   El padding al shell evita que la barra tape el final del contenido. */
+.axiom-bottomnav { display: none; }
+@media (max-width: 880px) {
+  .axiom-bottomnav { display: block; }
+}
+@media all and (display-mode: standalone), all and (display-mode: minimal-ui), all and (display-mode: fullscreen) {
+  .axiom-bottomnav { display: block; }
+}
+
 /* En celulares angostos, logo + selector de facultad + avatar no entran en
    una sola fila y el navegador (o el WebView de la app Android) recorta lo
    que sobra en vez de hacer scroll — el selector de "Ingeniería ▼" pierde el
@@ -23,6 +36,15 @@
 .ax-dash-grid { grid-template-columns: 1fr; }
 @media (min-width: 720px) {
   .ax-dash-grid { grid-template-columns: 2fr 1fr; }
+}
+
+/* La fila de cifras del dashboard: en escritorio se agrupa a la derecha del
+   saludo; en móvil ocupa todo el ancho y reparte las cuatro en partes iguales,
+   porque con el padding de escritorio no entran en 375px. */
+@media (max-width: 720px) {
+  .ax-cifras { width: 100%; }
+  .ax-cifras > * { flex: 1; padding-left: 10px !important; padding-right: 10px !important; }
+  .ax-cifras > *:first-child { border-left: none !important; }
 }
 
 /* ═══ MODO PWA — cuando la app corre standalone, forzar comportamiento app ═══
@@ -64,32 +86,35 @@ html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
   .axiom-nav-hamburger { display: flex !important; }
 }
 
-/* ═══ DESIGN TOKENS — Antigravity Light Theme ════════════════════════════════ */
+/* ═══ DESIGN TOKENS — Editorial académico ════════════════════════════════════
+   Papel cálido + tinta navy + un solo acento terracota. Reemplaza la paleta
+   anterior, que eran los colores por defecto de Tailwind (indigo-500 y
+   compañía) y hacían que la app se viera como cualquier plantilla. */
 
 :root {
-  --bg-base:   #f2f2f0;
-  --bg-subtle: #e8e8e6;
-  --bg-card:   #fafafa;
-  --bg-glass:  rgba(250, 250, 250, 0.98);
+  --bg-base:   #faf7f0;
+  --bg-subtle: #f2ece0;
+  --bg-card:   #ffffff;
+  --bg-glass:  rgba(255, 255, 255, 0.97);
 
-  --fg-primary:   #1E1B4B;
-  --fg-secondary: #312E81;
-  --fg-muted:     #4F46E5;
+  --fg-primary:   #1a1f2e;
+  --fg-secondary: #3f4557;
+  --fg-muted:     #5a6072;
 
-  --border:       #9e9e9a;
-  --border-hover: #7a7a76;
+  --border:       #e3dac8;
+  --border-hover: #c9bda3;
 
-  --accent:       #6366F1;
-  --accent-hover: #4F46E5;
-  --accent-fg:    #ffffff;
+  --accent:       #9c3d1c;
+  --accent-hover: #7d2f13;
+  --accent-fg:    #faf7f0;
 
-  --green:        #10B981;
-  --green-bg:     #D1FAE5;
-  --green-border: #34D399;
+  --green:        #1e5f4f;
+  --green-bg:     #eef5f1;
+  --green-border: #9dc4b4;
 
-  --shadow-sm: 0 1px 3px rgba(20,20,20,0.07), 0 6px 18px rgba(20,20,20,0.07);
-  --shadow-md: 0 10px 32px rgba(20,20,20,0.11);
-  --shadow-lg: 0 18px 60px rgba(20,20,20,0.14);
+  --shadow-sm: 0 1px 3px rgba(26,31,46,0.06), 0 6px 18px rgba(26,31,46,0.06);
+  --shadow-md: 0 10px 32px rgba(26,31,46,0.10);
+  --shadow-lg: 0 18px 60px rgba(26,31,46,0.13);
 }
 
 html,
@@ -109,25 +134,27 @@ body {
 /* ═══ AXIOM SHELL ═════════════════════════════════════════════════════════════ */
 
 .axiom-shell {
-  --primary: rgb(139, 92, 246);
-  --primary-light: rgb(168, 126, 255);
-  --primary-dark: rgb(109, 40, 217);
-  --success: #10b981;
-  --success-light: #d1fae5;
-  --error: #ef4444;
-  --error-light: #fee2e2;
-  --warning: #f59e0b;
-  --warning-light: #fef3c7;
-  --neutral-50: #f9fafb;
-  --neutral-100: #f3f4f6;
-  --neutral-200: #e5e7eb;
-  --neutral-300: #d1d5db;
-  --neutral-400: #9ca3af;
-  --neutral-500: #6b7280;
-  --neutral-600: #4b5563;
-  --neutral-700: #374151;
-  --neutral-800: #1f2937;
-  --neutral-900: #111827;
+  --primary: #9c3d1c;
+  --primary-light: #c2603c;
+  --primary-dark: #7d2f13;
+  --success: #1e5f4f;
+  --success-light: #eef5f1;
+  --error: #b3341f;
+  --error-light: #f8ebe6;
+  --warning: #c07a2a;
+  --warning-light: #f8f0e2;
+  /* Escala de neutros cálida: arranca en el papel y termina en la tinta navy,
+     para que los grises no se vean fríos sobre el fondo crema. */
+  --neutral-50: #faf7f0;
+  --neutral-100: #f2ece0;
+  --neutral-200: #e3dac8;
+  --neutral-300: #c9bda3;
+  --neutral-400: #9b917e;
+  --neutral-500: #6f6a5e;
+  --neutral-600: #5a6072;
+  --neutral-700: #3f4557;
+  --neutral-800: #2a3042;
+  --neutral-900: #1a1f2e;
   min-height: 100vh;
   width: 100%;
   display: block;
