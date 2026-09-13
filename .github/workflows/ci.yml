@@ -13,9 +13,9 @@ jobs:
   verificar:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           # Node 24: los tests corren con `node --test` sobre TypeScript
           # directo, que necesita el type stripping de 22.6 en adelante.
