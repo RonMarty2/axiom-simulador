@@ -275,12 +275,27 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 | 2026-09-12 | Pregunta marcada D con una explicación que calculaba $-23/55$ y terminaba en "…revisar" | Ítem del roadmap §8 | Un "revisar" escrito en el texto se publica igual que el resto: o se resuelve antes de subir, o no se sube |
 | 2026-09-12 | Un regex de fórmulas químicas convirtió "Física #2 (F2)" en flúor gaseoso y "Aritmética P4" en fósforo | Barrido con lista de elementos reales | Para tocar el banco en masa hace falta lista blanca de compuestos, no un patrón genérico: las etiquetas de pregunta parecen fórmulas |
 | 2026-09-12 | `\sen` (seno en español) no existe en KaTeX: 22 expresiones se veían en rojo | Renderizar todo el banco con `throwOnError:true` | El resto del banco ya usaba `\text{sen}`; validar el LaTeX entero, no confiar en que "se ve bien" |
+| 2026-09-13 | 29 preguntas con `figura:` sin dibujo mostraban solo el enunciado, como si estuvieran completas | Test nuevo que cuenta figuras faltantes | Cuando falta un pedazo de contenido hay que DECIRLO en pantalla: "no renderizar nada" se lee como "no hacía falta nada" |
+| 2026-09-13 | ESLint estaba apagado: `FlatCompat` producía una config vacía y `npm run lint` pasaba sin correr una sola regla | Sospecha al ver que nunca fallaba | Un linter que nunca falla no está pasando, está apagado. Al prenderlo, lo primero que encontró fue un bug real de hidratación |
+| 2026-09-13 | El login maestro aceptaba intentos ilimitados | Revisión de seguridad | Toda ruta que compara un secreto necesita rate limit y comparación en tiempo constante |
+| 2026-09-13 | 10 preguntas marcadas "E (provisorio)" porque el transcriptor no podía leer la figura del escaneo | Abrir el PDF original en alta resolución | Los facsímiles están en `examenes pasados/`: antes de publicar un "no se puede determinar", abrir el PDF. Ninguna de las 10 era E |
 
 ---
 
 ## 8. Roadmap / pendientes
 
-### Crítico
+### Crítico — bloqueantes para salir a producción y cobrar
+
+Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual declarado por el alumno → admin aprueba en `/admin/pagos` → `agregarOExtenderSuscripcion` da un mes de esa facultad; el plan se deriva de las suscripciones vigentes y vence solo). Lo que falta no es la plomería, es esto:
+
+- [ ] **Datos de cobro reales en `/pagar`.** Hoy son de demostración y lo dicen en pantalla: Tigo Money `+591 6 7000-0000`, un "QR" que es un damero CSS con la leyenda QR DEMO, y banco `Axiom SRL · Banco Unión · 10000123456789`. Nadie puede pagar. Deberían salir de config/DB, no estar hardcodeados.
+- [ ] **El contenido pago no está protegido.** Las ~110 lecciones de `/aprende/*` y las 64 láminas de `/laminas/*` son páginas cliente sin ningún chequeo de plan: el candado se ve en la lista, pero entrando por URL directa se abren enteras. Lo mismo `/laminas/[modulo]`, que solo valida login y facultad. Mínimo: un `layout.tsx` server que redirija a `/precios` si no hay suscripción activa. (El gateo de simulacros e IA sí está en el servidor, en `api/axiom/simulador` y `api/axiom/plan-personalizado`.)
+- [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
+- [ ] **No hay Términos y Condiciones ni Política de Privacidad.** Para cobrar y para guardar datos de menores de edad hacen falta, y la PWA las va a pedir si alguna vez va a una store.
+- [ ] Los precios están escritos dos veces: `api/pagos/route.ts` (servidor, el que vale) y `pagar/page.tsx:30` (cliente). Hoy coinciden en 100 / 50 / 50, pero es cuestión de tiempo.
+- [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
+
+### Crítico — contenido
 - [ ] Reescribir **examen 2024** UMSS Económicas con preguntas multi-paso (paralelo a lo que se hizo con 2023).
 - [x] Pregunta 1 del examen 2023 (fracciones anidadas): resuelta con aritmética racional exacta, da $-23/55$ y ninguna opción coincide → **E) Ninguno** (ver §11).
 - [x] Banco de Ingeniería: 139 exámenes reales 2005-2025, incluye categoría PRE-U 2024-2025 (ver §11).
@@ -291,9 +306,12 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 - [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
 - [ ] Animar las lecciones que aún son solo cards (revisar `grep -c "motion\." | sort` para identificarlas).
 - [x] Sistema real de auth + DB persistente: Supabase (Postgres), con cron diario para que no se pause por inactividad.
-- [ ] Stripe/pagos: hoy precios es placeholder.
+- [x] Tests automatizados: 16 con `node --test`, el de banco corre sobre los 139 exámenes reales con el parser real (ver §11).
+- [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
+- [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
+- [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
 - [ ] Auditoría visual sistemática en móvil: probar cada pantalla en device toolbar.
-- [ ] Terminar de sacar los emojis usados como iconografía: quedan 25 en componentes compartidos, 98 en pantallas del alumno, 189 en lecciones y 77 en admin. La landing ya está migrada a `Icono.tsx` (ver §11).
+- [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
 - [ ] Banco de Económicas: hay **un solo examen** (2023) contra los 139 de Ingeniería.
 
 ### Nice-to-have
@@ -333,6 +351,39 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-13 (las 17 figuras que faltaban · 11 respuestas corregidas · linter, tests y CI)
+
+**Las preguntas con figura mostraban solo el enunciado.** 29 preguntas del banco de Ingeniería declaran `figura: <id>` pero ese id no tenía constructor en `definiciones.ts`. `FiguraExamen` devolvía `null`, así que el alumno veía el texto *"en la figura adjunta…"* y abajo nada — y nada se lee como *"no hacía falta ningún dibujo"*, no como *"acá falta algo"*. Ahora devuelve `<FiguraPendiente />`, un recuadro punteado que lo dice. De ahí salió el trabajo de dibujarlas.
+
+**Se dibujaron las 17 que faltaban de verdad** (las otras 12 del conteo original traían su propio `<svg>` en el enunciado o eran duplicados entre exámenes). El trinquete del test arrancó en 34, se fue bajando commit a commit y **hoy está en 0**. Entre ellas: tres circuitos, polea, proyectil, esfera pendular, moscas y sombras, carrito acelerado, ángulo de visión de un cuadro, cadena, pentágono, cuadrilátero, tres cargas simétricas.
+
+**Y de paso se corrigieron 11 respuestas.** Diez estaban marcadas *"E (provisorio — pendiente de la figura real)"* porque el transcriptor no podía fijar la geometría desde el escaneo de baja resolución; una (2006 2da opción) estaba en E con una nota que decía *"encontré DOS topologías que dan resultados limpios pero diferentes"*. Los PDF originales están en `examenes pasados/` y se pueden leer directo. Leyéndolos en alta resolución se resolvieron las once, y **ninguna era E**:
+
+| Pregunta | Era | Es | Lo que no se veía en el escaneo |
+|---|---|---|---|
+| f12 circuito 4 resistencias (2006) | E | B | Tres ramas en paralelo, no la topología que se supuso |
+| g7 dos cuadrados con arcos (2-2022) | E | B | Hay una **diagonal** además de los dos arcos; las tres regiones suman 36 y los π se cancelan |
+| f9 y f10 tiro parabólico (2-2022, 3-2022) | E | D | **A es el vértice**, no un punto cualquiera de la trayectoria |
+| g7 cámaras de seguridad (3-2022) | E | B | 5α = 180 fija α = 36°, y `(tanα·tan2α + 1)·cos2α = 1` es identidad |
+| g5 cuatro semicircunferencias (2-2023) | E | A | El diámetro es **medio lado**, no el lado entero |
+| g6 triángulo sobre tres cuadrados (2-2023) | E | D | El lado pasa por el vértice externo del cuadrado |
+| g7 triángulo oscuro (2-2023) | E | A | Base 4, altura 2 |
+| f9 cuatro vectores (2-2023) | E | C | Los dos ángulos son 30° (el escaneo hacía ver 50°), y D sale de la punta de C |
+| g8 octógono y secantes (3-2023) | E | A | La diagonal forma 22,5° con la horizontal |
+| g5 semicírculo + cuarto (1-2024) | E | A | La **tangencia** fija el alto que "no estaba dado" |
+
+**El motor de figuras solo sabía dibujar arcos por el lado corto.** `arcoAngulo` barre siempre el menor de los dos caminos, que sirve para marcar un ángulo pero no para una semicircunferencia ni una cuarta de circunferencia. Se sumaron `arcoDe` (el signo de `a2 - a1` elige por dónde va, así que es imposible equivocarse de lado en silencio), `sigueArco` para encadenar dentro de un path, `circuloPath` y `cota` (línea acotada con topes, las "30 m" de los PDF). Cada figura nueva se autoverifica con `verificarAngulo`/`verificarDistancia`: las 41 del banco construyen sin tirar error.
+
+**El linter estaba apagado.** `eslint.config.mjs` usaba `FlatCompat` para cargar `eslint-config-next`, que desde la 15.3 ya trae config flat nativa: el resultado era una config vacía y `npm run lint` pasaba siempre porque no corría ninguna regla. Reescrito a `eslint-config-next/core-web-vitals` + `/typescript`. Lo primero que encontró al prenderse fue **un bug real de hidratación**. Dos reglas quedan relajadas a propósito: `react/no-unescaped-entities` (1.925 hits sobre prosa en español, apóstrofes y comillas legítimas) y `react-hooks/set-state-in-effect` a warning (5 patrones que están bien).
+
+**Primeros tests del proyecto y CI.** 16 tests con `node --test` sobre TypeScript directo. El de banco corre contra los **139 exámenes reales con el parser real**: que todos parseen, que cada `respuesta` tenga una opción que le corresponda, que no haya ids repetidos, que ninguna pregunta quede sin opciones, el trinquete de figuras, y que las ~27.400 expresiones LaTeX rendericen en KaTeX con `throwOnError: true`. Se verificó que los tests **pueden fallar**: se inyectó a mano un `\sen` roto, se borró una línea de opción y se agregó una figura inventada — cada uno falló con archivo, línea y detalle. GitHub Actions corre tipos, lint, tests y build en cada push.
+
+**Login maestro con rate limit.** Aceptaba intentos ilimitados. Ahora 5 cada 15 minutos por IP y comparación con `timingSafeEqual`. El limitador es en memoria: en Vercel eso es **por instancia**, así que frena el ataque desde una IP pero no es una barrera global — está documentado en el propio archivo.
+
+**Facultades sin banco: "Próximamente".** Se ofrecían las cuatro facultades por Bs. 50 y tres estaban vacías. `/api/facultades` ahora devuelve `examenes` contando el banco real, y el onboarding muestra las vacías como no disponibles. Se autocorrige solo: cuando se cargue el banco, dejan de aparecer así.
+
+**Se terminó de sacar el emoji usado como iconografía** en el chrome del alumno (Practicar, Resultados, Ranking, Debilidades, Login, la señal de "esto se toca" de las lecciones) y el índigo que quedaba del tema anterior. `Icono.tsx` pasó de 13 a ~35 trazos. Detalle que costó encontrar: Tailwind preflight pone `svg { display: block }`, así que cada icono inline se iba a su propio renglón; se arregla con `display: inline-block` + `vertical-align: -0.18em` en el componente.
 
 ### 2026-09-12 (notación química del banco · landing al rediseño · Pregunta 1 del 2023)
 
