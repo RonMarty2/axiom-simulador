@@ -7,6 +7,7 @@ import {
   type Elemento,
   type Figura,
   type Pt,
+  type Rol,
   anguloEn,
   anguloHacia,
   arcoAngulo,
@@ -1551,7 +1552,547 @@ function f12cuatroR(): Figura {
   return { ancho: 420, alto: 214, pasos: 0, elementos: el };
 }
 
+// ── Helpers de arcos y cotas (comunes a las figuras de geometría) ──
+
+// Arco de circunferencia de `centro` y `radio`, del ángulo a1 al a2. A
+// diferencia de arcoAngulo, NO se limita al lado corto: el signo de (a2-a1)
+// elige por dónde va, así que una semicircunferencia que pandea hacia abajo
+// se escribe arcoDe(c, r, 180, 360) y la que pandea hacia arriba
+// arcoDe(c, r, 180, 0). Imposible equivocarse de lado en silencio.
+function arcoDe(centro: Pt, radio: number, a1: number, a2: number): string {
+  const p1 = avanzar(centro, a1, radio);
+  const p2 = avanzar(centro, a2, radio);
+  const barrido = a2 - a1;
+  const largo = Math.abs(barrido) > 180 ? 1 : 0;
+  const sweep = barrido > 0 ? 0 : 1;
+  return `M ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} A ${radio.toFixed(2)} ${radio.toFixed(2)} 0 ${largo} ${sweep} ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`;
+}
+
+// Solo el tramo de arco, para encadenarlo dentro de un path que ya arrancó.
+function sigueArco(centro: Pt, radio: number, a1: number, a2: number): string {
+  const p2 = avanzar(centro, a2, radio);
+  const barrido = a2 - a1;
+  return ` A ${radio.toFixed(2)} ${radio.toFixed(2)} 0 ${Math.abs(barrido) > 180 ? 1 : 0} ${barrido > 0 ? 0 : 1} ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}`;
+}
+
+function circuloPath(centro: Pt, radio: number): string {
+  return arcoDe(centro, radio, 0, 180) + sigueArco(centro, radio, 180, 360) + " Z";
+}
+
+// Cota con topes en las puntas (las "30 m" del PDF).
+function cota(a: Pt, b: Pt, etiqueta: string, desplazamiento = 13): Elemento[] {
+  const dir = anguloHacia(a, b);
+  const medio: Pt = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+  const tope = (p: Pt): Elemento => ({
+    tipo: "linea", de: avanzar(p, dir + 90, 5), a: avanzar(p, dir - 90, 5), rol: "dato",
+  });
+  return [
+    { tipo: "linea", de: a, a: b, rol: "dato" },
+    tope(a), tope(b),
+    { tipo: "texto", en: avanzar(medio, dir + 90, desplazamiento), texto: etiqueta, rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+}
+
+function rotulo(en: Pt, texto: string, rol: Rol = "trazo", tam = 13): Elemento {
+  return { tipo: "texto", en, texto, rol, tam, negrita: true, ancla: "middle" };
+}
+
+// ── G7(2-2022) · dos cuadrados de lado 12 con semicircunferencias y cuartas ──
+// El transcriptor había marcado E porque su lectura daba 18π. Con el PDF
+// nítido (2-op-2-2022, pág. 1) cada cuadrado tiene TRES trazos: la
+// semicircunferencia de diámetro el lado izquierdo, la cuarta circunferencia
+// centrada en el vértice inferior izquierdo (radio = lado) y la diagonal
+// desde ese mismo vértice. Las tres regiones grises suman
+// (9π-18) + (9π-18) + (144-18π) = 36 por cuadrado: los π se cancelan.
+// Dos cuadrados dan 72, que es la opción b).
+function g7dosCuadrados(): Figura {
+  const L = 148;
+  const Y0 = 42;
+  const GRIS = "#9aa0ad";
+
+  function bloque(x0: number, nSupIzq: string, nSupDer: string, nInfIzq: string, nInfDer: string, nApex: string, nCruce: string): Elemento[] {
+    const supIzq: Pt = { x: x0, y: Y0 };
+    const supDer: Pt = { x: x0 + L, y: Y0 };
+    const infIzq: Pt = { x: x0, y: Y0 + L };
+    const infDer: Pt = { x: x0 + L, y: Y0 + L };
+    const cen: Pt = { x: x0, y: Y0 + L / 2 };
+    const r = L / 2;
+
+    const apex = avanzar(cen, 0, r);            // tope de la semicircunferencia
+    const cruce = avanzar(infIzq, 45, L);       // diagonal ∩ cuarta circunferencia
+
+    verificarDistancia("apex sobre la semi", r, distancia(cen, apex));
+    verificarDistancia("cruce a radio del cuarto", L, distancia(infIzq, cruce));
+    verificarAngulo("cruce sobre la diagonal", 0, anguloEn(infIzq, cruce, supDer), 0.2);
+
+    // Región 1: entre el arco supIzq→cruce, el tramo de diagonal y el arco de vuelta.
+    const r1 = `M ${supIzq.x} ${supIzq.y}` + sigueArco(infIzq, L, 90, 45) +
+      ` L ${apex.x.toFixed(2)} ${apex.y.toFixed(2)}` + sigueArco(cen, r, 0, 90) + " Z";
+    // Región 2: la luna entre la diagonal y la semicircunferencia.
+    const r2 = `M ${infIzq.x} ${infIzq.y} L ${apex.x.toFixed(2)} ${apex.y.toFixed(2)}` +
+      sigueArco(cen, r, 0, -90) + " Z";
+    // Región 3: el triángulo curvo contra el lado derecho del cuadrado.
+    const r3 = `M ${cruce.x.toFixed(2)} ${cruce.y.toFixed(2)} L ${supDer.x} ${supDer.y} L ${infDer.x} ${infDer.y}` +
+      sigueArco(infIzq, L, 0, 45) + " Z";
+
+    const el: Elemento[] = [
+      { tipo: "path", d: r1, rol: "trazo", relleno: true, color: GRIS },
+      { tipo: "path", d: r2, rol: "trazo", relleno: true, color: GRIS },
+      { tipo: "path", d: r3, rol: "trazo", relleno: true, color: GRIS },
+      { tipo: "poligono", puntos: [supIzq, supDer, infDer, infIzq], rol: "trazo" },
+      { tipo: "path", d: arcoDe(cen, r, 90, -90), rol: "trazo" },
+      { tipo: "path", d: arcoDe(infIzq, L, 90, 0), rol: "trazo" },
+      { tipo: "linea", de: infIzq, a: supDer, rol: "trazo" },
+      rotulo({ x: supDer.x + 14, y: supDer.y - 10 }, nSupDer),
+      rotulo({ x: infDer.x + 14, y: infDer.y + 14 }, nInfDer),
+      rotulo({ x: cruce.x - 6, y: cruce.y - 18 }, nCruce, "incognita", 12),
+      rotulo({ x: apex.x + 15, y: apex.y + 13 }, nApex, "incognita", 12),
+      { tipo: "texto", en: { x: x0 + L / 2, y: Y0 - 13 }, texto: "12", rol: "dato", tam: 12, negrita: true, ancla: "middle" },
+      { tipo: "texto", en: { x: x0 + L / 2, y: Y0 + L + 15 }, texto: "12", rol: "dato", tam: 12, negrita: true, ancla: "middle" },
+    ];
+    if (nSupIzq) el.push(rotulo({ x: supIzq.x - 14, y: supIzq.y - 10 }, nSupIzq));
+    if (nInfIzq) el.push(rotulo({ x: infIzq.x - 14, y: infIzq.y + 14 }, nInfIzq));
+    return el;
+  }
+
+  const el: Elemento[] = [
+    ...bloque(44, "A", "D", "B", "C", "O", "E"),
+    ...bloque(44 + L, "", "G", "", "F", "M", "N"),
+    { tipo: "texto", en: { x: 44 - 17, y: Y0 + L / 2 }, texto: "12", rol: "dato", tam: 12, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 44 + 2 * L + 44, alto: Y0 + L + 40, pasos: 0, elementos: el };
+}
+
+// ── F9(2-2022) y F10(3-2022) · tiro parabólico con Hmax ──
+// Misma figura y mismos datos en los dos exámenes. La clave que faltaba: A
+// NO es un punto cualquiera, es el VÉRTICE (de ahí baja la vertical de
+// Hmax). Entonces v_x = 30/2 = 15 m/s, del vértice al piso hay 30+45 = 75 m
+// y son 5 s de caída: Hmax = ½·10·5² = 125 m (opción d).
+function f9parabolico(): Figura {
+  const SUELO = 236;
+  const X_SALIDA = 46, X_CAIDA = 376;      // 150 m de alcance total
+  const ALTO = 168;
+  const PX = (X_CAIDA - X_SALIDA) / 150;   // px por metro, horizontal
+  const vertice: Pt = { x: (X_SALIDA + X_CAIDA) / 2, y: SUELO - ALTO };
+  const enX = (metrosDesdeVertice: number): Pt => {
+    const t = metrosDesdeVertice / 75;
+    return { x: vertice.x + metrosDesdeVertice * PX, y: SUELO - ALTO * (1 - t * t) };
+  };
+  const B = enX(30);
+  const caida: Pt = { x: X_CAIDA, y: SUELO };
+
+  verificarDistancia("A→B horizontal = 30 m", 30 * PX, B.x - vertice.x);
+  verificarDistancia("B→caída horizontal = 45 m", 45 * PX, caida.x - B.x);
+
+  const puntos: Pt[] = [];
+  for (let i = 0; i <= 72; i++) puntos.push(enX(-75 + (150 * i) / 72));
+  const trayecto = "M " + puntos.map((p) => `${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(" L ");
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 24, y: SUELO }, a: { x: 400, y: SUELO }, rol: "trazo", grosor: 2.6 },
+    { tipo: "path", d: trayecto, rol: "trazo" },
+    { tipo: "punto", en: { x: X_SALIDA, y: SUELO - 4 }, r: 5, rol: "trazo" },
+    { tipo: "punto", en: vertice, r: 5, rol: "dato" },
+    { tipo: "punto", en: B, r: 5, rol: "dato" },
+    rotulo({ x: vertice.x - 15, y: vertice.y - 14 }, "A", "dato"),
+    rotulo({ x: B.x + 15, y: B.y - 14 }, "B", "dato"),
+    { tipo: "linea", de: vertice, a: { x: vertice.x, y: SUELO }, rol: "incognita", punteada: true },
+    { tipo: "linea", de: B, a: { x: B.x, y: SUELO }, rol: "dato", punteada: true },
+    { tipo: "texto", en: { x: vertice.x - 34, y: vertice.y + 64 }, texto: "Hmax", rol: "incognita", tam: 13, negrita: true, ancla: "middle" },
+    ...cota({ x: vertice.x, y: SUELO + 30 }, { x: B.x, y: SUELO + 30 }, "30 m"),
+    ...cota({ x: B.x, y: SUELO + 30 }, { x: caida.x, y: SUELO + 30 }, "45 m"),
+    { tipo: "texto", en: { x: (vertice.x + B.x) / 2, y: vertice.y - 28 }, texto: "t = 2 s", rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: 292, pasos: 0, elementos: el };
+}
+
+// ── G7(3-2022) · cámaras A y B, agentes en D y C ──
+// Los tres ángulos en H llenan la recta D-H-C: 2α + α + 2α = 180°, o sea
+// α = 36°. Con AH = m y BH = n: CD = DH + HC = (m+n)·cos2α, y como el
+// enunciado da m/n = tanα·tan2α, resulta CD = n·(tanα·tan2α + 1)·cos2α = n.
+// Ese factor vale 1 para CUALQUIER α — por eso el dato del enunciado es el
+// que cierra el problema, y la respuesta es la opción b).
+function g7camaras(): Figura {
+  const ALFA = 36;
+  const RAD = Math.PI / 180;
+  const SUELO = 266;
+  const n = 116;
+  const m = n * Math.tan(ALFA * RAD) * Math.tan(2 * ALFA * RAD);
+  const H: Pt = { x: 212, y: SUELO };
+  const A = avanzar(H, 180 - 2 * ALFA, m);
+  const B = avanzar(H, 2 * ALFA, n);
+  const D: Pt = { x: A.x, y: SUELO };
+  const C: Pt = { x: B.x, y: SUELO };
+
+  verificarAngulo("∡AHD = 2α", 2 * ALFA, anguloEn(H, A, { x: 0, y: SUELO }));
+  verificarAngulo("∡AHB = α", ALFA, anguloEn(H, A, B));
+  verificarAngulo("∡BHC = 2α", 2 * ALFA, anguloEn(H, B, { x: 420, y: SUELO }));
+  verificarDistancia("CD = n", n, distancia(C, D));
+
+  const aIzq = arcoAngulo(H, 180, 180 - 2 * ALFA, 40, 58);
+  const aMed = arcoAngulo(H, 180 - 2 * ALFA, 2 * ALFA, 62, 80);
+  const aDer = arcoAngulo(H, 2 * ALFA, 0, 40, 58);
+  verificarAngulo("arco 2α izquierdo", 2 * ALFA, aIzq.medida);
+  verificarAngulo("arco α", ALFA, aMed.medida);
+  verificarAngulo("arco 2α derecho", 2 * ALFA, aDer.medida);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 34, y: SUELO }, a: { x: 392, y: SUELO }, rol: "trazo", grosor: 2.2 },
+    { tipo: "linea", de: D, a: A, rol: "trazo", punteada: true },
+    { tipo: "linea", de: C, a: B, rol: "trazo", punteada: true },
+    { tipo: "linea", de: H, a: A, rol: "trazo" },
+    { tipo: "linea", de: H, a: B, rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(D, 0, 90, 9), rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(C, 180, 90, 9), rol: "trazo" },
+    { tipo: "arco", d: aIzq.d, rol: "dato" },
+    { tipo: "arco", d: aMed.d, rol: "dato" },
+    { tipo: "arco", d: aDer.d, rol: "dato" },
+    rotulo(aIzq.etiquetaEn, "2α", "dato", 12),
+    rotulo(aMed.etiquetaEn, "α", "dato", 12),
+    rotulo(aDer.etiquetaEn, "2α", "dato", 12),
+    rotulo({ x: A.x - 16, y: A.y - 7 }, "A"),
+    rotulo({ x: B.x + 16, y: B.y - 7 }, "B"),
+    rotulo({ x: D.x - 7, y: SUELO + 18 }, "D"),
+    rotulo({ x: H.x + 5, y: SUELO + 18 }, "H"),
+    rotulo({ x: C.x + 13, y: SUELO + 18 }, "C"),
+    rotulo(avanzar({ x: (H.x + A.x) / 2, y: (H.y + A.y) / 2 }, 180 - 2 * ALFA + 90, 16), "m", "dato", 12),
+    rotulo(avanzar(avanzar(H, 2 * ALFA, n * 0.78), 2 * ALFA - 90, 19), "n", "dato", 12),
+    ...cota({ x: D.x, y: SUELO + 42 }, { x: C.x, y: SUELO + 42 }, "CD", -14),
+  ];
+  return { ancho: 420, alto: 344, pasos: 0, elementos: el };
+}
+
+// ── G5(2-2023) · cuadrado de lado 4 con cuatro semicircunferencias ──
+// Lo que trababa la lectura: las semicircunferencias NO tienen por diámetro
+// un lado entero, sino MEDIO lado (radio 1), dos por el lado de arriba y dos
+// por el de abajo. El círculo central es tangente a las cuatro, así que su
+// centro está a 1 + r del centro de cualquiera: √(1² + 2²) = r + 1, o sea
+// r = √5 - 1 (opción a).
+function g5semisCuadrado(): Figura {
+  const U = 60;                 // px por unidad (lado = 4)
+  const X0 = 52, Y0 = 34;
+  const lado = 4 * U;
+  const r = (Math.sqrt(5) - 1) * U;
+  const centro: Pt = { x: X0 + lado / 2, y: Y0 + lado / 2 };
+  const centrosSemi: Pt[] = [
+    { x: X0 + U, y: Y0 }, { x: X0 + 3 * U, y: Y0 },
+    { x: X0 + U, y: Y0 + lado }, { x: X0 + 3 * U, y: Y0 + lado },
+  ];
+  for (const c of centrosSemi) {
+    verificarDistancia("círculo central tangente a la semi", r + U, distancia(centro, c));
+  }
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [
+      { x: X0, y: Y0 }, { x: X0 + lado, y: Y0 }, { x: X0 + lado, y: Y0 + lado }, { x: X0, y: Y0 + lado },
+    ], rol: "trazo" },
+    { tipo: "path", d: arcoDe(centrosSemi[0], U, 180, 360), rol: "trazo" },
+    { tipo: "path", d: arcoDe(centrosSemi[1], U, 180, 360), rol: "trazo" },
+    { tipo: "path", d: arcoDe(centrosSemi[2], U, 180, 0), rol: "trazo" },
+    { tipo: "path", d: arcoDe(centrosSemi[3], U, 180, 0), rol: "trazo" },
+    { tipo: "path", d: circuloPath(centro, r), rol: "incognita" },
+    { tipo: "linea", de: centro, a: avanzar(centro, 205, r), rol: "incognita" },
+    rotulo(avanzar(avanzar(centro, 205, r / 2), 295, 12), "r", "incognita", 12),
+    { tipo: "texto", en: { x: X0 + lado / 2, y: Y0 - 14 }, texto: "4", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: X0 - 17, y: Y0 + lado / 2 }, texto: "4", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: X0 + lado + 52, alto: Y0 + lado + 34, pasos: 0, elementos: el };
+}
+
+// ── G6(2-2023) · triángulo equilátero sobre tres cuadrados de lado 12 ──
+// Dos cuadrados apoyados en la base separados por un hueco de 12 y el
+// tercero encima del hueco. Cada lado oblicuo pasa por el vértice superior
+// EXTERNO del cuadrado de su lado. Con la base sobre y=0 y el centro en
+// x=0, el vértice (-18, 12) manda: -18 = -b + 12/√3, o sea b = 18 + 4√3, y
+// el área es b²√3 = 372√3 + 432 (opción d).
+function g6tresCuadrados(): Figura {
+  const U = 6.4;                       // px por unidad
+  const a = 12 * U;                    // lado del cuadrado
+  const b = (18 + 4 * Math.sqrt(3)) * U;
+  const CX = 212, BASE = 300;
+  const izq: Pt = { x: CX - b, y: BASE };
+  const der: Pt = { x: CX + b, y: BASE };
+  const apex: Pt = { x: CX, y: BASE - b * Math.sqrt(3) };
+
+  const cuadrado = (x: number, y: number): Pt[] => [
+    { x, y }, { x: x + a, y }, { x: x + a, y: y + a }, { x, y: y + a },
+  ];
+  const abajoIzq = cuadrado(CX - 18 * U, BASE - a);
+  const abajoDer = cuadrado(CX + 6 * U, BASE - a);
+  const arriba = cuadrado(CX - 6 * U, BASE - 2 * a);
+
+  verificarAngulo("equilátero: ángulo en la base", 60, anguloEn(izq, der, apex));
+  verificarAngulo("equilátero: ángulo en el ápice", 60, anguloEn(apex, izq, der));
+  verificarAngulo("el lado izquierdo pasa por el vértice", 0, anguloEn(izq, abajoIzq[0], apex), 0.2);
+  verificarAngulo("el lado derecho pasa por el vértice", 0, anguloEn(der, abajoDer[1], apex), 0.2);
+  verificarDistancia("lado del cuadrado", a, distancia(abajoIzq[0], abajoIzq[1]));
+
+  const GRIS = "#c4c8d0";
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [izq, der, apex], rol: "trazo" },
+    { tipo: "poligono", puntos: abajoIzq, rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "poligono", puntos: abajoDer, rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "poligono", puntos: arriba, rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "texto", en: { x: abajoIzq[0].x + a / 2, y: BASE - a / 2 }, texto: "12", rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: arriba[0].x + a / 2, y: BASE - 1.5 * a }, texto: "12", rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: abajoDer[0].x + a / 2, y: BASE - a / 2 }, texto: "12", rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 424, alto: 330, pasos: 0, elementos: el };
+}
+
+// ── G7(2-2023) · triángulo oscuro en el cuadrado de lado 4 ──
+// El equilátero se apoya en el lado inferior del cuadrado, así que su ápice
+// queda en (2, 2√3). La región oscura es el triángulo ápice–esquina superior
+// derecha–esquina inferior derecha: base = el lado derecho (4) y altura = la
+// distancia horizontal del ápice a ese lado (2), o sea área 4 (opción a).
+function g7trianguloOscuro(): Figura {
+  const U = 62;
+  const X0 = 62, Y0 = 30;
+  const lado = 4 * U;
+  const si: Pt = { x: X0, y: Y0 };
+  const sd: Pt = { x: X0 + lado, y: Y0 };
+  const ii: Pt = { x: X0, y: Y0 + lado };
+  const id: Pt = { x: X0 + lado, y: Y0 + lado };
+  const apex: Pt = { x: X0 + lado / 2, y: Y0 + lado - (lado * Math.sqrt(3)) / 2 };
+
+  verificarDistancia("equilátero: lado izquierdo", lado, distancia(ii, apex));
+  verificarDistancia("equilátero: lado derecho", lado, distancia(id, apex));
+  verificarAngulo("equilátero: ángulo en el ápice", 60, anguloEn(apex, ii, id));
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [apex, sd, id], rol: "trazo", relleno: true, rellenoColor: "#2b2b35" },
+    { tipo: "poligono", puntos: [si, sd, id, ii], rol: "trazo" },
+    { tipo: "poligono", puntos: [ii, id, apex], rol: "trazo" },
+    { tipo: "texto", en: { x: X0 + lado / 2, y: Y0 - 14 }, texto: "4", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: X0 - 17, y: Y0 + lado / 2 }, texto: "4", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: X0 + lado + 62, alto: Y0 + lado + 34, pasos: 0, elementos: el };
+}
+
+// ── F9(2-2023) · cuatro vectores sobre la circunferencia ──
+// En el escaneo de baja resolución el ángulo de la izquierda parecía 50°;
+// en el PDF nítido los dos miden 30°. A, B y C salen del centro y su punta
+// cae en la circunferencia (módulo R = |A| = √3). D NO sale del centro: va
+// de la punta de C al extremo derecho, o sea D = (R, R). Sumando,
+// A+B+C+D = (R, R) y el módulo es R√2 = √6 (opción c).
+function f9vectores(): Figura {
+  const O: Pt = { x: 208, y: 166 };
+  const R = 112;
+  const A = avanzar(O, 150, R);
+  const B = avanzar(O, 30, R);
+  const C = avanzar(O, 270, R);
+  const D = avanzar(O, 0, R);
+
+  verificarDistancia("|A| = R", R, distancia(O, A));
+  verificarDistancia("|B| = R", R, distancia(O, B));
+  verificarDistancia("|C| = R", R, distancia(O, C));
+  verificarDistancia("|D| = R√2", R * Math.SQRT2, distancia(C, D));
+  verificarAngulo("A a 30° de la horizontal", 30, anguloEn(O, A, avanzar(O, 180, R)));
+  verificarAngulo("B a 30° de la horizontal", 30, anguloEn(O, B, D));
+
+  const arcoA = arcoAngulo(O, 180, 150, 52, 72);
+  const arcoB = arcoAngulo(O, 0, 30, 52, 72);
+  verificarAngulo("arco izquierdo", 30, arcoA.medida);
+  verificarAngulo("arco derecho", 30, arcoB.medida);
+
+  const vector = (de: Pt, a: Pt, etiqueta: string, desplazamiento: number): Elemento[] => {
+    const dir = anguloHacia(de, a);
+    return [
+      { tipo: "linea", de, a, rol: "trazo", grosor: 2 },
+      { tipo: "path", d: cabezaFlecha(a, dir, 9), rol: "trazo", relleno: true },
+      rotulo(avanzar(a, dir, desplazamiento), etiqueta, "trazo", 13),
+    ];
+  };
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "aux" },
+    { tipo: "linea", de: { x: O.x - R - 42, y: O.y }, a: { x: O.x + R + 42, y: O.y }, rol: "aux" },
+    { tipo: "linea", de: { x: O.x, y: O.y - R - 42 }, a: { x: O.x, y: O.y + R + 42 }, rol: "aux" },
+    { tipo: "arco", d: arcoA.d, rol: "dato" },
+    { tipo: "arco", d: arcoB.d, rol: "dato" },
+    rotulo(arcoA.etiquetaEn, "30°", "dato", 11.5),
+    rotulo(arcoB.etiquetaEn, "30°", "dato", 11.5),
+    ...vector(O, A, "A", 16),
+    ...vector(O, B, "B", 16),
+    ...vector(C, D, "D", 17),
+    ...vector(O, C, "C", 16),
+  ];
+  return { ancho: 420, alto: 340, pasos: 0, elementos: el };
+}
+
+// ── G8(3-2023) · octógono regular y las dos rectas secantes ──
+// Una recta es la prolongación del lado de abajo; la otra pasa por dos
+// vértices (el de la izquierda-arriba y el de arriba-derecha). Esa diagonal
+// forma 22,5° con la horizontal, así que x = 22,5° = π/8 (opción a).
+function g8octogono(): Figura {
+  const LADO = 46;
+  const R = LADO / (2 * Math.sin((22.5 * Math.PI) / 180));
+  const C: Pt = { x: 300, y: 118 };
+  const V = (k: number): Pt => avanzar(C, 22.5 + 45 * k, R);
+  const vertices = [0, 1, 2, 3, 4, 5, 6, 7].map(V);
+  const abajoIzq = V(5), abajoDer = V(6);
+  const izqArriba = V(3), arribaDer = V(1);
+
+  verificarDistancia("arista = 1 (escala)", LADO, distancia(abajoIzq, abajoDer));
+  verificarDistancia("el lado de abajo es horizontal", 0, abajoIzq.y - abajoDer.y, 0.01);
+
+  const SUELO = abajoIzq.y;
+  const dirDiagonal = anguloHacia(izqArriba, arribaDer);
+  verificarAngulo("la diagonal sube 22,5°", 22.5, Math.abs(dirDiagonal));
+
+  const corte = hastaY(izqArriba, dirDiagonal + 180, SUELO);
+  const fin = avanzar(arribaDer, dirDiagonal, 26);
+  const arco = arcoAngulo(corte, 0, 22.5, 50, 70);
+  verificarAngulo("arco x", 22.5, arco.medida);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 46, y: SUELO }, a: { x: 400, y: SUELO }, rol: "trazo" },
+    { tipo: "linea", de: corte, a: fin, rol: "trazo" },
+    { tipo: "poligono", puntos: vertices, rol: "trazo" },
+    { tipo: "arco", d: arco.d, rol: "incognita" },
+    rotulo(arco.etiquetaEn, "x", "incognita", 14),
+    rotulo({ x: V(0).x + 17, y: (V(0).y + V(7).y) / 2 }, "1", "dato", 12),
+  ];
+  return { ancho: 424, alto: SUELO + 44, pasos: 0, elementos: el };
+}
+
+// ── G5(1-2024) · rectángulo con semicircunferencia y cuarta circunferencia ──
+// El alto no viene dado, pero la figura muestra las dos curvas TANGENTES y
+// eso lo fija: con AD = 4, AE = EB = y y DC = 2y, la tangencia externa pide
+// EC = 3y, o sea √(16 + y²) = 3y y por lo tanto y = √2. El área sombreada
+// es medio círculo de radio y más un cuarto de círculo de radio 2y:
+// ½π·2 + ¼π·8 = 3π (opción a).
+function g5rectArcos(): Figura {
+  const U = 68;
+  const y = Math.SQRT2 * U;
+  const ancho = 4 * U, alto = 2 * y;
+  const X0 = 56, Y0 = 40;
+  const A: Pt = { x: X0, y: Y0 };
+  const D: Pt = { x: X0 + ancho, y: Y0 };
+  const Bv: Pt = { x: X0, y: Y0 + alto };
+  const Cv: Pt = { x: X0 + ancho, y: Y0 + alto };
+  const E: Pt = { x: X0, y: Y0 + y };
+
+  verificarDistancia("tangencia: EC = 3y", 3 * y, distancia(E, Cv));
+  verificarDistancia("E es el punto medio de AB", y, distancia(A, E));
+  verificarDistancia("el cuarto de círculo tiene radio DC", alto, distancia(Cv, D));
+
+  const GRIS = "#9aa0ad";
+  const semi = `M ${A.x} ${A.y}` + sigueArco(E, y, 90, -90) + " Z";
+  const cuarto = `M ${Cv.x} ${Cv.y} L ${D.x} ${D.y}` + sigueArco(Cv, alto, 90, 180) + " Z";
+
+  const el: Elemento[] = [
+    { tipo: "path", d: semi, rol: "trazo", relleno: true, color: GRIS },
+    { tipo: "path", d: cuarto, rol: "trazo", relleno: true, color: GRIS },
+    { tipo: "poligono", puntos: [A, D, Cv, Bv], rol: "trazo" },
+    { tipo: "path", d: arcoDe(E, y, 90, -90), rol: "trazo" },
+    { tipo: "path", d: arcoDe(Cv, alto, 90, 180), rol: "trazo" },
+    { tipo: "punto", en: E, r: 3.5, rol: "trazo" },
+    rotulo({ x: A.x - 15, y: A.y - 11 }, "A"),
+    rotulo({ x: D.x + 15, y: D.y - 11 }, "D"),
+    rotulo({ x: Bv.x - 15, y: Bv.y + 14 }, "B"),
+    rotulo({ x: Cv.x + 15, y: Cv.y + 14 }, "C"),
+    rotulo({ x: E.x - 17, y: E.y }, "E"),
+    { tipo: "texto", en: { x: X0 + ancho / 2, y: Y0 - 14 }, texto: "4", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: X0 - 34, y: Y0 + y / 2 }, texto: "y", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: X0 - 34, y: Y0 + 1.5 * y }, texto: "y", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: D.x + 18, y: Y0 + alto / 2 }, texto: "x", rol: "dato", tam: 12.5, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: X0 + ancho + 56, alto: Y0 + alto + 40, pasos: 0, elementos: el };
+}
+
+// ── G7(3-2024) · círculo inscrito en el semicírculo de diámetro 10 ──
+// El círculo es tangente al diámetro, a la cuerda que sale a 30° del extremo
+// izquierdo y por dentro al semicírculo. Su centro está sobre la bisectriz
+// (15°), así que r = 10(tan15° - tan²15°) = 10√a y el área es 100πa
+// (opción c), usando el dato tan²15° - tan15° = -√a.
+function g7semiInscrito(): Figura {
+  const U = 35;
+  const R = 5 * U;
+  const O: Pt = { x: 210, y: 248 };
+  const izq = avanzar(O, 180, R);
+  const der = avanzar(O, 0, R);
+  const t15 = Math.tan((15 * Math.PI) / 180);
+  const r = 10 * (t15 - t15 * t15) * U;
+  const centro = avanzar(izq, 15, r / Math.sin((15 * Math.PI) / 180));
+  const cuerdaFin = avanzar(izq, 30, 2 * R * Math.cos((30 * Math.PI) / 180));
+
+  verificarDistancia("tangente interior al semicírculo", R - r, distancia(O, centro));
+  verificarDistancia("tangente al diámetro", r, O.y - centro.y);
+  verificarDistancia("la cuerda termina en el arco", R, distancia(O, cuerdaFin));
+  verificarAngulo("la cuerda sale a 30°", 30, anguloEn(izq, cuerdaFin, der));
+
+  const arco30 = arcoAngulo(izq, 0, 30, 46, 64);
+  verificarAngulo("arco 30°", 30, arco30.medida);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: arcoDe(O, R, 180, 0), rol: "trazo" },
+    { tipo: "linea", de: izq, a: der, rol: "trazo" },
+    { tipo: "linea", de: izq, a: cuerdaFin, rol: "trazo" },
+    { tipo: "path", d: circuloPath(centro, r), rol: "incognita", relleno: true, color: "#b9b2d6" },
+    { tipo: "path", d: circuloPath(centro, r), rol: "incognita" },
+    { tipo: "arco", d: arco30.d, rol: "dato" },
+    rotulo(arco30.etiquetaEn, "30°", "dato", 11.5),
+    ...cota({ x: izq.x, y: O.y + 26 }, { x: der.x, y: O.y + 26 }, "10"),
+  ];
+  return { ancho: 420, alto: 300, pasos: 0, elementos: el };
+}
+
+// ── F11(2-2025) · rizo circular liso ──
+// "Llega solo hasta B" en una pista lisa quiere decir que ahí se le acaba la
+// rapidez. La altura de B sobre el piso es R + R·senα, y por conservación
+// v₀²/2 = g·h, o sea h = 1600/20 = 80 m = 50(1 + senα): senα = 0,6 y
+// α = 37° (opción b).
+function f11rizo(): Figura {
+  const R = 96;
+  const C: Pt = { x: 258, y: 176 };
+  const SUELO = C.y + R;
+  const ALFA = 37;
+  const B = avanzar(C, ALFA, R);
+  const derecha = avanzar(C, 0, R);
+
+  verificarDistancia("el rizo apoya en el piso", R, SUELO - C.y);
+  verificarAngulo("B a α sobre la horizontal del centro", ALFA, anguloEn(C, B, derecha));
+
+  const arcoAlfa = arcoAngulo(C, 0, ALFA, 46, 64);
+  verificarAngulo("arco α", ALFA, arcoAlfa.medida);
+
+  const pelota: Pt = { x: 118, y: SUELO - 8 };
+  const puntaV: Pt = { x: pelota.x + 36, y: pelota.y - 32 };
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 26, y: SUELO }, a: { x: 398, y: SUELO }, rol: "trazo", grosor: 2.6 },
+    { tipo: "path", d: arcoDe(C, R, 268, 268 + 344), rol: "trazo" },
+    { tipo: "linea", de: C, a: derecha, rol: "aux", punteada: true },
+    { tipo: "linea", de: C, a: B, rol: "aux", punteada: true },
+    { tipo: "linea", de: C, a: { x: C.x, y: SUELO }, rol: "dato", punteada: true },
+    { tipo: "arco", d: arcoAlfa.d, rol: "incognita" },
+    rotulo(arcoAlfa.etiquetaEn, "α", "incognita", 13),
+    rotulo({ x: C.x - 21, y: C.y + R / 2 }, "R", "dato", 13),
+    rotulo(avanzar(B, ALFA, 18), "B", "trazo", 13),
+    { tipo: "punto", en: pelota, r: 7, rol: "trazo" },
+    { tipo: "linea", de: { x: pelota.x - 26, y: puntaV.y }, a: puntaV, rol: "dato" },
+    { tipo: "path", d: cabezaFlecha(puntaV, 0, 7), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: pelota.x + 4, y: puntaV.y - 15 }, texto: "V = 40 m/s", rol: "dato", tam: 12, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: 58, y: SUELO - 20 }, texto: "liso", rol: "dato", tam: 12, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: SUELO + 34, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  // El mismo dibujo sirve para F9 de 2-2022 y F10 de 3-2022: enunciado,
+  // datos y figura son identicos entre los dos examenes.
+  "g7-dos-cuadrados-arcos": g7dosCuadrados,
+  "f9-parabolico-hmax": f9parabolico,
+  "f10-parabolico-hmax": f9parabolico,
+  "g7-camaras-angulos-2a-a-2a": g7camaras,
+  "g5-semicircunferencias-cuadrado": g5semisCuadrado,
+  "g6-triangulo-tres-cuadrados": g6tresCuadrados,
+  "g7-triangulo-cuadrado-sombreado": g7trianguloOscuro,
+  "f9-cuatro-vectores-circulo": f9vectores,
+  "g8-octogono-secantes": g8octogono,
+  "g5-semicirculo-cuartocirculo": g5rectArcos,
+  "g7-semicirculo-circulo-inscrito-30-grados": g7semiInscrito,
+  "f11-rizo-circular": f11rizo,
   "f12-circuito-cuatro-resistencias-r": f12cuatroR,
   "f10-circuito-4r-10v-3r-5v": f10ramal,
   "f10-polea": f10polea,

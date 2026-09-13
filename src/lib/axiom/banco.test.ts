@@ -90,16 +90,16 @@ describe("banco de exámenes", () => {
   });
 
   // Trinquete: preguntas donde el alumno ve el cartel de "figura en
-  // preparación" en vez del dibujo. Este test NO exige arreglarlas de golpe;
-  // exige que el número no crezca. Cada figura que se dibuje, se baja el tope.
-  // Si alguien agrega una pregunta nueva con figura sin implementarla, el test
-  // lo frena en el acto.
+  // preparación" en vez del dibujo. Nació como tope que solo podía bajar, y
+  // llegó a CERO: hoy todas las preguntas con `figura:` tienen su dibujo. El
+  // tope queda en 0 para que agregar una pregunta con figura sin implementar
+  // frene el test en el acto.
   //
   // Se descuentan las que traen su propio <svg> en el enunciado: el render
   // prioriza figura_svg sobre figura (ver examenes/[id] y resueltos/[examenId]),
   // así que esas nunca llegan a FiguraExamen y se ven perfectas. El `figura:`
   // que arrastran es un resto muerto. Contarlas inflaba el problema.
-  const FIGURAS_PENDIENTES_TOPE = 12;
+  const FIGURAS_PENDIENTES_TOPE = 0;
 
   test("el banco no pide figuras nuevas sin dibujar", () => {
     // Los ids implementados se leen del propio definiciones.ts en vez de
