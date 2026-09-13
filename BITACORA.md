@@ -279,6 +279,8 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 | 2026-09-13 | ESLint estaba apagado: `FlatCompat` producía una config vacía y `npm run lint` pasaba sin correr una sola regla | Sospecha al ver que nunca fallaba | Un linter que nunca falla no está pasando, está apagado. Al prenderlo, lo primero que encontró fue un bug real de hidratación |
 | 2026-09-13 | El login maestro aceptaba intentos ilimitados | Revisión de seguridad | Toda ruta que compara un secreto necesita rate limit y comparación en tiempo constante |
 | 2026-09-13 | 10 preguntas marcadas "E (provisorio)" porque el transcriptor no podía leer la figura del escaneo | Abrir el PDF original en alta resolución | Los facsímiles están en `examenes pasados/`: antes de publicar un "no se puede determinar", abrir el PDF. Ninguna de las 10 era E |
+| 2026-09-13 | Todo el contenido pago (110 lecciones, 64 láminas) se abría escribiendo la URL: el candado era solo un dibujo en el índice | Relevamiento de qué faltaba para cobrar | Un candado que no se verifica en el servidor no es un candado. El gateo tiene que estar donde se sirve el contenido, no donde se lista |
+| 2026-09-13 | En `next dev`, un usuario premium se veía bloqueado: el toggle de plan escribía en una copia del cache en memoria y el guard leía otra | Log en el layout contra `/api/auth/me` | Route handlers y componentes de servidor son bundles distintos con su propia instancia de cada módulo. El estado global de dev va en `globalThis` o el local miente |
 
 ---
 
@@ -289,7 +291,7 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual declarado por el alumno → admin aprueba en `/admin/pagos` → `agregarOExtenderSuscripcion` da un mes de esa facultad; el plan se deriva de las suscripciones vigentes y vence solo). Lo que falta no es la plomería, es esto:
 
 - [ ] **Datos de cobro reales en `/pagar`.** Hoy son de demostración y lo dicen en pantalla: Tigo Money `+591 6 7000-0000`, un "QR" que es un damero CSS con la leyenda QR DEMO, y banco `Axiom SRL · Banco Unión · 10000123456789`. Nadie puede pagar. Deberían salir de config/DB, no estar hardcodeados.
-- [ ] **El contenido pago no está protegido.** Las ~110 lecciones de `/aprende/*` y las 64 láminas de `/laminas/*` son páginas cliente sin ningún chequeo de plan: el candado se ve en la lista, pero entrando por URL directa se abren enteras. Lo mismo `/laminas/[modulo]`, que solo valida login y facultad. Mínimo: un `layout.tsx` server que redirija a `/precios` si no hay suscripción activa. (El gateo de simulacros e IA sí está en el servidor, en `api/axiom/simulador` y `api/axiom/plan-personalizado`.)
+- [x] ~~El contenido pago no está protegido.~~ Resuelto: guard de servidor en `aprende/layout.tsx` y `laminas/layout.tsx`, con la lógica en `src/lib/acceso-contenido.ts` (ver §11). Frena el acceso por URL, que es el problema real; **no** esconde el contenido de quien lea el bundle de JavaScript — para eso habría que mover las lecciones a datos pedidos al servidor.
 - [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
 - [ ] **No hay Términos y Condiciones ni Política de Privacidad.** Para cobrar y para guardar datos de menores de edad hacen falta, y la PWA las va a pedir si alguna vez va a una store.
 - [ ] Los precios están escritos dos veces: `api/pagos/route.ts` (servidor, el que vale) y `pagar/page.tsx:30` (cliente). Hoy coinciden en 100 / 50 / 50, pero es cuestión de tiempo.
@@ -351,6 +353,20 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-13 (bis) (el paywall no existía: guard de servidor para lecciones y láminas)
+
+**El contenido pago se abría escribiendo la URL.** Las ~110 lecciones de `/aprende` y las 64 láminas de `/laminas` son componentes cliente sin ningún chequeo de plan: el candado se veía en el índice, pero `/laminas/teorema-del-resto/teorema-del-resto` tipeado a mano se abría entero. Un link compartido en un grupo de WhatsApp y el paywall dejaba de existir. Los simulacros y la IA sí estaban protegidos en el servidor; las lecciones y láminas, no.
+
+**Cómo quedó.** Un `layout.tsx` de servidor en cada una llama a `src/lib/acceso-contenido.ts`, que mira el plan (que ya se deriva de las suscripciones vigentes) y redirige antes de renderizar nada: sin sesión a `/login`, sin facultad a `/onboarding`, sin suscripción a `/precios?motivo=...` — con motivo, para que la pantalla explique *por qué* lo mandaron ahí en vez de aparecer de la nada con la lista de planes. Los índices `/aprende` y `/laminas` quedan abiertos a propósito: son el catálogo, y es donde se ve qué hay adentro.
+
+**El plan gratis no cambió:** sigue teniendo la Unidad 01 de cada bloque (decisión D2), que son 15 lecciones. Para poder decidir eso en el servidor sin cargar la pantalla entera, el catálogo salió de `aprende/page.tsx` (cliente) a `src/lib/axiom/catalogo-aprende.ts`, que exporta además `SLUGS_GRATIS`.
+
+**Por qué hay un `middleware.ts` y qué NO hace.** Un layout de App Router no recibe el pathname por ningún lado, y el guard necesita saber qué lección se está abriendo. El middleware lo único que hace es pasarlo en una cabecera. La verificación **no** puede ir ahí: el middleware corre en el Edge Runtime y `data-store.ts` importa `fs/promises`.
+
+**Alcance honesto** (anotado también en el propio archivo): esto frena el acceso por URL, que es el problema real. No esconde el contenido de alguien que se ponga a leer el bundle de JavaScript — las lecciones son componentes estáticos y viajan compiladas al cliente. Esconderlas de verdad pide moverlas a datos que se pidan al servidor, y eso es refactorizar las 110 páginas.
+
+**Bug de dev que salió de acá.** El cache en memoria de `data-store.ts` (el fallback cuando no hay Supabase) era una variable de módulo. En `next dev`, los route handlers y los componentes de servidor se cargan en bundles distintos, **cada uno con su propia instancia del módulo**: el toggle de plan escribía en una copia y el guard leía otra, así que en local un usuario premium se veía bloqueado y parecía un bug del guard. Ahora el cache cuelga de `globalThis`. En producción hay Supabase y nada de esto corre, pero el dev tiene que comportarse igual que producción o las pruebas locales mienten.
 
 ### 2026-09-13 (las 17 figuras que faltaban · 11 respuestas corregidas · linter, tests y CI)
 
