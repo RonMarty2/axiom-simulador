@@ -1,6 +1,19 @@
+import { timingSafeEqual } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { DUENO_EMAIL, setSessionCookie, clearAllSessions } from "@/lib/session";
 import { crearUsuario, getUsuarioByEmail } from "@/lib/data-store";
+import { consultarLimite, registrarFallo, limpiarLimite, ipDe } from "@/lib/rate-limit";
+
+// Compara sin filtrar por tiempo. Con === la comparación corta en el primer
+// carácter distinto, y medir esa diferencia permite adivinar la contraseña
+// carácter por carácter en vez de probar todas las combinaciones.
+function igualSinFiltrarTiempo(a: string, b: string): boolean {
+  const ba = Buffer.from(a, "utf8");
+  const bb = Buffer.from(b, "utf8");
+  // timingSafeEqual exige el mismo largo; comparar largos no filtra nada útil.
+  if (ba.length !== bb.length) return false;
+  return timingSafeEqual(ba, bb);
+}
 
 // ─────────────────────────────────────────────────────────────
 // LOGIN MAESTRO — acceso directo con contraseña, sin pasar por Google.
@@ -24,11 +37,32 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Login maestro no configurado" }, { status: 503 });
   }
 
+  // Antes este endpoint aceptaba intentos ilimitados: era cuestión de tiempo
+  // sentarse a probar contraseñas contra la cuenta del dueño.
+  const clave = `master:${ipDe(req)}`;
+  const limite = consultarLimite(clave);
+  if (!limite.permitido) {
+    return NextResponse.json(
+      { error: `Demasiados intentos. Probá de nuevo en ${Math.ceil(limite.esperaSegundos / 60)} minutos.` },
+      { status: 429, headers: { "Retry-After": String(limite.esperaSegundos) } },
+    );
+  }
+
   const body = await req.json().catch(() => null);
   const password = body?.password;
-  if (typeof password !== "string" || password !== configurada) {
-    return NextResponse.json({ error: "Contraseña incorrecta" }, { status: 401 });
+  if (typeof password !== "string" || !igualSinFiltrarTiempo(password, configurada)) {
+    const tras = registrarFallo(clave);
+    return NextResponse.json(
+      {
+        error: tras.permitido
+          ? `Contraseña incorrecta. Te quedan ${tras.restantes} intentos.`
+          : `Demasiados intentos. Probá de nuevo en ${Math.ceil(tras.esperaSegundos / 60)} minutos.`,
+      },
+      { status: tras.permitido ? 401 : 429 },
+    );
   }
+
+  limpiarLimite(clave);
 
   try {
     let usuario = await getUsuarioByEmail(DUENO_EMAIL);

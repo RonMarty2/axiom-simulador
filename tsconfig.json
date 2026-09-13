@@ -15,6 +15,10 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    // Los tests corren con `node --test`, que ejecuta TypeScript directo
+    // (Node 22.6+) y para eso exige la extensión .ts explícita en el import.
+    // Es seguro acá porque noEmit está en true: quien compila es Next.
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
