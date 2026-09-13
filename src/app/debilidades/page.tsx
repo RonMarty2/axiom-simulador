@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
+import Icono from "../components/Icono";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 
@@ -80,14 +81,14 @@ export default function DebilidadesPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
-        <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>📈 Mis debilidades</h1>
+        <h1 className="font-crimson" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}><Icono nombre="grafico" tamano={27} /> Mis debilidades</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>
           Aquí ves dónde estás fallando más, según tus simulacros. Practica directo lo que necesitas.
         </p>
 
         {data && data.total_examenes === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 50, textAlign: "center", border: "1px solid var(--border)" }}>
-            <div style={{ fontSize: 50, marginBottom: 10 }}>🎯</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 10, color: "var(--fg-muted)" }}><Icono nombre="errores" tamano={46} grosor={1.5} /></div>
             <h3 style={{ fontSize: 18, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>Todavía no tenemos datos tuyos</h3>
             <p style={{ color: "var(--fg-muted)", fontSize: 14, marginBottom: 18 }}>Haz al menos un simulacro para que descubramos tus puntos débiles y te armemos práctica enfocada.</p>
             <Link href="/practicar" style={{ display: "inline-block", padding: "12px 22px", background: "var(--accent)", color: "white", borderRadius: 10, textDecoration: "none", fontWeight: 700 }}>
@@ -99,7 +100,7 @@ export default function DebilidadesPage() {
             {/* Secciones débiles */}
             {debiles.length > 0 && (
               <section>
-                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}>🔴 Tus secciones más débiles</h2>
+                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><Icono nombre="alerta" tamano={15} /> Tus secciones más débiles</span></h2>
                 <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
                   {debiles.map((s, i) => (
                     <div key={s.seccion} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 12 }}>
@@ -119,7 +120,7 @@ export default function DebilidadesPage() {
             {/* Temas con más errores */}
             {data && data.temas.length > 0 && (
               <section>
-                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>🎯 Temas que más has fallado</h2>
+                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><Icono nombre="errores" tamano={15} /> Temas que más has fallado</span></h2>
                 <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 10 }}>Practica 10 preguntas enfocadas en cada tema.</p>
                 <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
                   {data.temas.slice(0, 8).map((t, i) => (
@@ -146,7 +147,7 @@ export default function DebilidadesPage() {
             {/* Fortalezas */}
             {fuertes.length > 0 && (
               <section>
-                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}>🟢 Lo que ya dominas</h2>
+                <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><Icono nombre="check" tamano={15} /> Lo que ya dominas</span></h2>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   {fuertes.map((s) => (
                     <span key={s.seccion} style={{ padding: "8px 14px", background: "rgba(16,185,129,0.1)", color: "#059669", borderRadius: 999, fontSize: 13, fontWeight: 700 }}>
@@ -160,7 +161,7 @@ export default function DebilidadesPage() {
             {/* CTA al plan IA Premium */}
             <section>
               <div style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", borderRadius: 14, padding: 20, color: "white", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-                <div style={{ fontSize: 36 }}>📋</div>
+                <div style={{ display: "flex", color: "var(--fg-muted)" }}><Icono nombre="documento" tamano={32} /></div>
                 <div style={{ flex: 1, minWidth: 220 }}>
                   <div style={{ fontSize: 16, fontWeight: 800 }}>Plan de estudio personalizado con IA</div>
                   <div style={{ fontSize: 13, opacity: 0.9 }}>Después de un simulacro, la IA te arma un plan de 3 días enfocado en lo que más te costó.</div>
@@ -174,7 +175,7 @@ export default function DebilidadesPage() {
         )}
 
         {error && (
-          <div style={{ marginTop: 16, padding: 14, background: "rgba(239,68,68,0.1)", color: "#b91c1c", borderRadius: 10, fontSize: 14 }}>⚠️ {error}</div>
+          <div style={{ marginTop: 16, padding: 14, background: "rgba(239,68,68,0.1)", color: "#b91c1c", borderRadius: 10, fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="alerta" tamano={15} /> {error}</div>
         )}
       </div>
     </div>

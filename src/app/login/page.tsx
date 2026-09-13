@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, type CSSProperties } from "react";
+import Icono from "../components/Icono";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import BackLink from "../components/BackLink";
@@ -8,7 +9,8 @@ import Cargando from "../components/Cargando";
 
 function devBtn(color: string): CSSProperties {
   return {
-    display: "block", padding: "11px 14px", textAlign: "center",
+    display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+    padding: "11px 14px", textAlign: "center",
     background: `${color}15`, border: `1px solid ${color}`, borderRadius: 10,
     color, textDecoration: "none", fontWeight: 700, fontSize: 13.5,
   };
@@ -22,7 +24,7 @@ function LoginContent() {
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <div style={{ width: "100%", maxWidth: 440, background: "var(--bg-card)", borderRadius: 20, padding: 40, boxShadow: "var(--shadow-lg)" }}>
         <div style={{ textAlign: "center", marginBottom: 28 }}>
-          <div style={{ fontSize: 48, marginBottom: 12 }}>⚡</div>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre="rayo" tamano={44} grosor={1.6} /></div>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 8 }}>
             Entrar a Axiom
           </h1>
@@ -54,7 +56,7 @@ function LoginContent() {
 
         {error && (
           <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.08)", borderRadius: 10, color: "#b91c1c", fontSize: 13, textAlign: "center" }}>
-            ⚠️ No se pudo iniciar sesión: {error}
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 7, justifyContent: "center" }}><Icono nombre="alerta" tamano={14} /> No se pudo iniciar sesión: {error}</span>
           </div>
         )}
 
@@ -63,20 +65,20 @@ function LoginContent() {
         {process.env.NODE_ENV !== "production" && (
           <div style={{ marginTop: 24, padding: 16, background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", borderRadius: 12 }}>
             <div style={{ fontSize: 11, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>
-              🛠️ Solo desarrollo local
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Icono nombre="herramienta" tamano={12} /> Solo desarrollo local</span>
             </div>
             <div style={{ fontSize: 12.5, color: "var(--fg-muted)", marginBottom: 12, lineHeight: 1.5 }}>
               Entrá sin Google para previsualizar. No aparece en producción.
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("#3b82f6")}>
-                👤 Entrar como Estudiante (plan gratis)
+                <Icono nombre="cuenta" tamano={15} /> Entrar como Estudiante (plan gratis)
               </a>
               <a href="/api/auth/dev-login?rol=tester" style={devBtn("#10b981")}>
-                🎓 Entrar como Ronald (tester + cambio libre)
+                <Icono nombre="birrete" tamano={15} /> Entrar como Ronald (tester + cambio libre)
               </a>
               <a href="/api/auth/dev-login?rol=admin" style={devBtn("#a855f7")}>
-                ⚡ Entrar como Super Admin
+                <Icono nombre="rayo" tamano={15} /> Entrar como Super Admin
               </a>
             </div>
           </div>

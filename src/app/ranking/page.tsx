@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AppHeader from "../components/AppHeader";
+import Icono, { iconoFacultad } from "../components/Icono";
 
 interface UsuarioRanking {
   id: string;
@@ -14,7 +15,15 @@ interface UsuarioRanking {
   examenes_completados: number;
 }
 
-const FAC_EMOJI: Record<string, string> = { economicas: "📊", ingenieria: "⚙️", medicina: "⚕️", derecho: "⚖️" };
+// Etiqueta "ícono + facultad", que se repite en el filtro, en la lista y en el
+// podio. El ícono sale de iconoFacultad(), no del campo emoji de Supabase.
+function Facultad({ id }: { id: string }) {
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
+      <Icono nombre={iconoFacultad(id)} tamano={13} /> {id}
+    </span>
+  );
+}
 
 export default function RankingPage() {
   const [usuarios, setUsuarios] = useState<UsuarioRanking[]>([]);
@@ -41,7 +50,9 @@ export default function RankingPage() {
       <AppHeader />
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
         <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <h1 className="font-crimson" style={{ fontSize: 36, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>🏆 Ranking</h1>
+          <h1 className="font-crimson" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 36, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>
+            <Icono nombre="ranking" tamano={30} /> Ranking
+          </h1>
           <p style={{ color: "var(--fg-muted)" }}>Los mejores postulantes de la plataforma</p>
         </div>
 
@@ -53,7 +64,7 @@ export default function RankingPage() {
               background: filtroFacultad === f ? "var(--accent)" : "transparent", color: filtroFacultad === f ? "white" : "var(--fg-primary)",
               fontWeight: 600, fontSize: 13, cursor: "pointer", textTransform: "capitalize",
             }}>
-              {f === "todas" ? "Todas" : `${FAC_EMOJI[f]} ${f}`}
+              {f === "todas" ? "Todas" : <Facultad id={f} />}
             </button>
           ))}
           <div style={{ width: 1, background: "var(--border)" }} />
@@ -65,9 +76,9 @@ export default function RankingPage() {
         {/* Podios Top 3 */}
         {top3.length >= 3 && (
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, alignItems: "flex-end", marginBottom: 28 }}>
-            <PodioCard usuario={top3[1]} pos={2} altura={180} medalla="🥈" orden={orden} />
-            <PodioCard usuario={top3[0]} pos={1} altura={220} medalla="🥇" orden={orden} />
-            <PodioCard usuario={top3[2]} pos={3} altura={140} medalla="🥉" orden={orden} />
+            <PodioCard usuario={top3[1]} pos={2} altura={180} orden={orden} />
+            <PodioCard usuario={top3[0]} pos={1} altura={220} orden={orden} />
+            <PodioCard usuario={top3[2]} pos={3} altura={140} orden={orden} />
           </div>
         )}
 
@@ -82,7 +93,7 @@ export default function RankingPage() {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{u.nombre}</div>
                 <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>
-                  {FAC_EMOJI[u.facultad_objetivo]} {u.facultad_objetivo} · {u.examenes_completados} exámenes
+                  <Facultad id={u.facultad_objetivo} /> · {u.examenes_completados} exámenes
                 </div>
               </div>
               <div style={{ fontSize: 22, fontWeight: 800, color: orden === "mejor" ? "#10b981" : "#6366f1" }}>
@@ -96,16 +107,23 @@ export default function RankingPage() {
   );
 }
 
-function PodioCard({ usuario, pos, altura, medalla, orden }: { usuario: UsuarioRanking; pos: number; altura: number; medalla: string; orden: "mejor" | "promedio" }) {
+// Oro / plata / bronce: son los mismos tres colores con los que ya se pinta el
+// bloque del podio más abajo. Es la excepción al acento único — en un podio el
+// color ES el dato, no decoración.
+const COLOR_MEDALLA = ["#d99c1a", "#8d8d8d", "#b3702c"];
+
+function PodioCard({ usuario, pos, altura, orden }: { usuario: UsuarioRanking; pos: number; altura: number; orden: "mejor" | "promedio" }) {
   const nota = orden === "mejor" ? usuario.mejor_nota : usuario.nota_promedio;
   return (
     <div style={{ textAlign: "center" }}>
-      <div style={{ fontSize: 32, marginBottom: 6 }}>{medalla}</div>
+      <div style={{ display: "flex", justifyContent: "center", marginBottom: 6, color: COLOR_MEDALLA[pos - 1] }}>
+        <Icono nombre="medalla" tamano={30} grosor={1.7} />
+      </div>
       <div style={{ width: 70, height: 70, margin: "0 auto", borderRadius: "50%", background: usuario.avatar_color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 22, marginBottom: 8, border: pos === 1 ? "3px solid #fbbf24" : "none" }}>
         {usuario.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
       </div>
       <div style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 2 }}>{usuario.nombre}</div>
-      <div style={{ fontSize: 11, color: "var(--fg-muted)", marginBottom: 6 }}>{FAC_EMOJI[usuario.facultad_objetivo]} {usuario.facultad_objetivo}</div>
+      <div style={{ fontSize: 11, color: "var(--fg-muted)", marginBottom: 6 }}><Facultad id={usuario.facultad_objetivo} /></div>
       <div style={{
         background: `linear-gradient(180deg, ${pos === 1 ? "#fbbf24" : pos === 2 ? "#a3a3a3" : "#cd7f32"}, ${pos === 1 ? "#d97706" : pos === 2 ? "#737373" : "#92400e"})`,
         height: altura, borderRadius: "12px 12px 0 0", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", color: "white",

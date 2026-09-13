@@ -13,7 +13,8 @@ export type NombreIcono =
   | "economicas" | "ingenieria" | "medicina" | "derecho"
   | "documento" | "chispa" | "grafico" | "birrete"
   | "mas" | "probeta" | "herramienta"
-  | "mezclar" | "etiqueta" | "info" | "reloj" | "idea";
+  | "mezclar" | "etiqueta" | "info" | "reloj" | "idea"
+  | "medalla" | "check";
 
 const TRAZOS: Record<NombreIcono, React.ReactNode> = {
   inicio: <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />,
@@ -153,6 +154,13 @@ const TRAZOS: Record<NombreIcono, React.ReactNode> = {
       <path d="M12 2.8a6 6 0 0 0-3.6 10.8c.6.45.96 1.1.96 1.8v.6h5.28v-.6c0-.7.36-1.35.96-1.8A6 6 0 0 0 12 2.8z" />
     </>
   ),
+  medalla: (
+    <>
+      <circle cx="12" cy="15.2" r="6.2" />
+      <path d="M8.6 9.9 5.4 2.8M15.4 9.9l3.2-7.1M9.2 2.8h5.6" />
+    </>
+  ),
+  check: <path d="M20 6.5 9.4 17.1l-5.4-5.4" />,
 };
 
 // Cada facultad a su ícono. Antes se leía facultad.emoji de Supabase, que es
