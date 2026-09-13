@@ -89,6 +89,45 @@ describe("banco de exámenes", () => {
     assert.deepEqual(fallos, [], `preguntas sin opciones suficientes:\n${fallos.join("\n")}`);
   });
 
+  // Trinquete: hoy hay 34 preguntas que piden una figura que nadie dibujó, y
+  // el alumno ve un cartel de "figura en preparación" en vez del dibujo. Este
+  // test NO exige arreglarlas de golpe; exige que el número no crezca. Cada
+  // figura que se dibuje, se baja el tope. Si alguien agrega una pregunta
+  // nueva con figura sin implementarla, el test lo frena en el acto.
+  const FIGURAS_PENDIENTES_TOPE = 34;
+
+  test("el banco no pide figuras nuevas sin dibujar", () => {
+    // Los ids implementados se leen del propio definiciones.ts en vez de
+    // importarlo: ese módulo importa "./motor" sin extensión, y node --test
+    // ejecuta ESM, donde la extensión es obligatoria. Cambiar los imports de
+    // la app para acomodar un test sería la cola moviendo al perro.
+    const fuente = readFileSync(join(process.cwd(), "src", "lib", "figuras", "definiciones.ts"), "utf8");
+    const mapa = fuente.slice(fuente.indexOf("CONSTRUCTORES"));
+    const implementadas = new Set([...mapa.matchAll(/"([a-z0-9][a-z0-9-]*)"\s*:/g)].map((m) => m[1]));
+    // Cordura: si el formato del archivo cambia y el regex deja de matchear,
+    // esto avisa en vez de dar por "faltante" absolutamente todo.
+    assert.ok(implementadas.size >= 10, `no se pudieron leer los ids de definiciones.ts (${implementadas.size})`);
+
+    const faltantes = new Map<string, string[]>();
+    for (const e of TODOS) {
+      for (const m of e.contenido.matchAll(/^figura:\s*([a-z0-9][a-z0-9-]*)\s*$/gim)) {
+        const id = m[1];
+        if (implementadas.has(id)) continue;
+        if (!faltantes.has(id)) faltantes.set(id, []);
+        faltantes.get(id)!.push(e.nombre);
+      }
+    }
+    const total = [...faltantes.values()].reduce((n, xs) => n + xs.length, 0);
+    assert.ok(
+      total <= FIGURAS_PENDIENTES_TOPE,
+      `Subió la cantidad de preguntas con figura sin dibujar: ${total} (tope ${FIGURAS_PENDIENTES_TOPE}).\n` +
+        `Ids sin figura:\n${[...faltantes.keys()].sort().join("\n")}`,
+    );
+    if (total < FIGURAS_PENDIENTES_TOPE) {
+      console.log(`  ℹ figuras pendientes: ${total} (el tope está en ${FIGURAS_PENDIENTES_TOPE}, se puede bajar)`);
+    }
+  });
+
   test("toda la matemática se renderiza en KaTeX", () => {
     // Este es el que habría cachado \sen: no existe en KaTeX, y las 22
     // expresiones que lo usaban se le mostraban al alumno en rojo.

@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { construirFigura } from "@/lib/figuras/definiciones";
 import { elementoVisible, type Elemento, type Rol } from "@/lib/figuras/motor";
 import { sanitizarSVG } from "@/lib/figuras/svg-sanitizar";
+import Icono from "./Icono";
 
 export type AjusteElemento = { dx?: number; dy?: number; oculto?: boolean };
 export type AjustesFiguras = Record<string, Record<string, AjusteElemento>>;
@@ -140,12 +141,36 @@ export function FiguraSVGLibre({ svg }: { svg?: string }) {
   );
 }
 
+// Cuando la pregunta pide una figura que todavía no está dibujada.
+//
+// Antes acá se devolvía null: el alumno leía "según la figura", miraba, y no
+// había nada — la pregunta parecía rota o mal cargada, sin forma de saber que
+// el problema era nuestro y no de él. Decirlo no la vuelve resoluble, pero al
+// menos deja de hacerle perder tiempo buscando algo que no existe.
+function FiguraPendiente() {
+  return (
+    <div style={{
+      width: "100%", margin: "6px 0 12px", padding: "18px 16px",
+      background: "var(--bg-subtle)", borderRadius: 12,
+      border: "1px dashed var(--border-hover)",
+      display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+      color: "var(--fg-muted)", textAlign: "center",
+    }}>
+      <Icono nombre="herramienta" tamano={16} />
+      <span style={{ fontSize: 13.5 }}>
+        <strong style={{ color: "var(--fg-secondary)" }}>Figura en preparación.</strong>{" "}
+        Esta pregunta necesita un dibujo que todavía no está listo.
+      </span>
+    </div>
+  );
+}
+
 export default function FiguraExamen({ id, paso }: { id?: string; paso?: number }) {
   const ajustes = useAjustesFiguras();
   if (!id) return null;
   // Todas las figuras viven en el motor de geometría (calculadas y verificadas).
   const escena = construirFigura(id);
-  if (!escena) return null;
+  if (!escena) return <FiguraPendiente />;
   const deFigura = ajustes[id] ?? {};
   return (
     <Marco alto={escena.alto} ancho={escena.ancho}>
