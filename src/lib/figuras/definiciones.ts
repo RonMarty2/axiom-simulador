@@ -759,8 +759,152 @@ function f19cargas(): Figura {
   return { ancho: 420, alto: 272, pasos: 0, elementos: el };
 }
 
+// Triángulo acutángulo ABC con D y E sobre AC (en el orden A, D, E, C) y los
+// segmentos BD y BE. El enunciado solo da ∠BDA = 80° y que los tres
+// triángulos son isósceles; la configuración real (∠A = 80°, ∠ABC = 80°,
+// ∠C = 20°) sale de la solución y es la única que deja ABC acutángulo.
+//
+// Se marca SOLO el 80° en D. Poner las marcas de qué lados son iguales
+// regalaría el paso decisivo del problema, que es justamente descubrir cuál
+// de las tres formas de ser isósceles da un triángulo acutángulo.
+function g5cadena(): Figura {
+  const rad = (g: number) => (g * Math.PI) / 180;
+  const A: Pt = { x: 42, y: 218 };
+  const AC = 344;
+  const C: Pt = avanzar(A, 0, AC);
+
+  // Ley de senos con ∠A = 80°, ∠B = 80°, ∠C = 20°.
+  const AB = (AC * Math.sin(rad(20))) / Math.sin(rad(80));
+  const B = avanzar(A, 80, AB);
+  // Triángulo ABD: ∠A = 80°, ∠BDA = 80°, ∠ABD = 20°.
+  const AD = (AB * Math.sin(rad(20))) / Math.sin(rad(80));
+  const D = avanzar(A, 0, AD);
+  // Triángulo BDE isósceles con DE = DB.
+  const E = avanzar(D, 0, distancia(D, B));
+
+  verificarAngulo("∠BDA = 80°", 80, anguloEn(D, B, A));
+  verificarAngulo("∠A = 80°", 80, anguloEn(A, B, C));
+  verificarAngulo("∠C = 20°", 20, anguloEn(C, B, A));
+  verificarAngulo("∠ABC = 80°", 80, anguloEn(B, A, C));
+  verificarAngulo("∠DEB = 40°", 40, anguloEn(E, D, B));
+  verificarDistancia("AB = BD", distancia(A, B), distancia(B, D));
+  verificarDistancia("DB = DE", distancia(D, B), distancia(D, E));
+  if (!(A.x < D.x && D.x < E.x && E.x < C.x)) throw new Error("A, D, E, C no quedan en ese orden");
+
+  // El arco va con radio de etiqueta generoso: con ∠A = 80° el triángulo es
+  // achatado y AD queda corto, así que la etiqueta se monta sobre BD si se la
+  // deja cerca del vértice.
+  const arco80 = arcoAngulo(D, 180, anguloHacia(D, B), 30, 54);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C], rol: "trazo" },
+    { tipo: "linea", de: B, a: D, rol: "trazo" },
+    { tipo: "linea", de: B, a: E, rol: "trazo" },
+
+    { tipo: "arco", d: arco80.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco80.etiquetaEn, texto: "80°", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "middle" },
+
+    { tipo: "punto", en: A, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: B, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: C, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: D, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: E, r: 3.2, rol: "trazo" },
+
+    { tipo: "texto", en: { x: A.x - 9, y: A.y + 16 }, texto: "A", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: B.x - 4, y: B.y - 10 }, texto: "B", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: C.x + 10, y: C.y + 6 }, texto: "C", rol: "trazo", tam: 13, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: D.x, y: D.y + 19 }, texto: "D", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: E.x, y: E.y + 19 }, texto: "E", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: 254, pasos: 0, elementos: el };
+}
+
+// Pentágono convexo con los cinco ángulos exteriores marcados como
+// expresiones en x. El enunciado NO da los lados, así que se recorre el
+// perímetro girando en cada vértice el ángulo exterior real (x = 35°) y se
+// resuelven los dos últimos lados para que el recorrido CIERRE. Dibujarlo a
+// ojo daría un pentágono cuyos ángulos no miden lo que dicen sus etiquetas.
+function g6pentagono(): Figura {
+  const rad = (g: number) => (g * Math.PI) / 180;
+  // Ángulos exteriores en A, B, C, D, E (con x = 35°, suman 360°).
+  const EXT = [70, 75, 110, 50, 55];
+  const suma = EXT.reduce((a, b) => a + b, 0);
+  if (Math.abs(suma - 360) > 0.01) throw new Error(`los exteriores suman ${suma}, no 360`);
+
+  // Rumbo de cada lado: al llegar a un vértice se gira su ángulo exterior.
+  const rumbo = [0, EXT[1], EXT[1] + EXT[2], EXT[1] + EXT[2] + EXT[3], EXT[1] + EXT[2] + EXT[3] + EXT[4]];
+  const u = (g: number) => ({ x: Math.cos(rad(g)), y: Math.sin(rad(g)) });
+
+  // Tres lados fijos; los otros dos salen de exigir que el polígono cierre.
+  const [s1, s2, s3] = [104, 104, 104];
+  const acum = { x: 0, y: 0 };
+  [s1, s2, s3].forEach((s, i) => { acum.x += s * u(rumbo[i]).x; acum.y += s * u(rumbo[i]).y; });
+  const u4 = u(rumbo[3]), u5 = u(rumbo[4]);
+  const det = u4.x * u5.y - u5.x * u4.y;
+  const s4 = (-acum.x * u5.y + acum.y * u5.x) / det;
+  const s5 = (-u4.x * acum.y + u4.y * acum.x) / det;
+  if (s4 <= 0 || s5 <= 0) throw new Error("el pentágono no cierra con lados positivos");
+
+  const lados = [s1, s2, s3, s4, s5];
+  const crudos: Pt[] = [{ x: 0, y: 0 }];
+  lados.forEach((s, i) => {
+    const p = crudos[i];
+    crudos.push({ x: p.x + s * u(rumbo[i]).x, y: p.y - s * u(rumbo[i]).y }); // y invertida: SVG crece hacia abajo
+  });
+  crudos.pop();                                   // el 6º punto es A otra vez
+
+  // Escalar y centrar. Los lados salen del cierre del polígono, así que su
+  // tamaño es el que es: sin escalar, el pentágono ocupaba un tercio del
+  // lienzo y las cinco etiquetas quedaban ilegibles encimadas.
+  const xs = crudos.map((p) => p.x), ys = crudos.map((p) => p.y);
+  const ancho = Math.max(...xs) - Math.min(...xs);
+  const alto = Math.max(...ys) - Math.min(...ys);
+  const k = Math.min(250 / ancho, 150 / alto);   // deja margen para arcos y rótulos
+  const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+  const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+  const V = crudos.map((p) => ({ x: 210 + (p.x - cx) * k, y: 134 + (p.y - cy) * k }));
+  const [A, B, C, D, E] = V;
+
+  // Cada ángulo INTERIOR tiene que ser el suplemento de su exterior.
+  const nombres = ["A", "B", "C", "D", "E"];
+  V.forEach((v, i) => {
+    const prev = V[(i + 4) % 5], sig = V[(i + 1) % 5];
+    verificarAngulo(`interior en ${nombres[i]}`, 180 - EXT[i], anguloEn(v, prev, sig));
+  });
+
+  const ETIQUETAS = ["2x", "2x + 5°", "3x + 5°", "x + 15°", "x + 20°"];
+  const el: Elemento[] = [{ tipo: "poligono", puntos: V, rol: "trazo" }];
+
+  V.forEach((v, i) => {
+    const sig = V[(i + 1) % 5];
+    const prev = V[(i + 4) % 5];
+    // Prolongación del lado que entra: contra ella se mide el ángulo exterior.
+    const dirEntra = anguloHacia(prev, v);
+    const fuera = avanzar(v, dirEntra, 34);
+    const arco = arcoAngulo(v, dirEntra, anguloHacia(v, sig), 19, 31);
+    el.push(
+      { tipo: "linea", de: v, a: fuera, rol: "trazo", punteada: true },
+      { tipo: "arco", d: arco.d, rol: "dato", color: AMBAR },
+      { tipo: "texto", en: arco.etiquetaEn, texto: ETIQUETAS[i], rol: "dato", color: AMBAR, tam: 11, negrita: true, ancla: "middle" },
+      { tipo: "punto", en: v, r: 3.2, rol: "trazo" },
+    );
+  });
+
+  const rotulo = (p: Pt, centroX: number, centroY: number, t: string): Elemento => ({
+    tipo: "texto",
+    en: { x: p.x + (p.x > centroX ? 13 : -13), y: p.y + (p.y > centroY ? 16 : -8) },
+    texto: t, rol: "trazo", tam: 13, negrita: true,
+    ancla: p.x > centroX ? "start" : "end",
+  });
+  [A, B, C, D, E].forEach((p, i) => el.push(rotulo(p, 210, 132, nombres[i])));
+
+  return { ancho: 420, alto: 268, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f19-tres-cargas-simetricas": f19cargas,
+  "g5-cadena": g5cadena,
+  "g6-pentagono-angulos-exteriores": g6pentagono,
   "g5-paralelas": g5,
   "g6-isosceles": g6,
   "g7-cuadrado": g7,
