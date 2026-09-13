@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -139,9 +138,7 @@ function Esc03_Semejantes() {
         semejantes, la suma queda indicada.
       </Parrafo>
       <div onClick={() => setI((p) => (p + 1) % casos.length)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 CASO {i + 1} de {casos.length}
-        </div>
+        <EtiquetaToque>CASO {i + 1} de {casos.length}</EtiquetaToque>
         <Stage w={400} h={100}>
           <div style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 32, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             <span>{c.a}</span>
@@ -184,9 +181,7 @@ function Esc04_SumaResta() {
       </Resumen>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 SUMAR 3x + 5x
-        </div>
+        <EtiquetaToque>SUMAR 3x + 5x</EtiquetaToque>
         <Stage w={400} h={140}>
           <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: "#3b82f6", fontFamily: "var(--font-crimson), serif" }}
             initial={{ left: 60, top: 50 }}
@@ -296,9 +291,7 @@ function Esc06_FOIL() {
       </Resumen>
 
       <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 (x + 2)(x + 3)
-        </div>
+        <EtiquetaToque>(x + 2)(x + 3)</EtiquetaToque>
         <Stage w={420} h={180}>
           <div style={{ position: "absolute", left: 0, top: 0, width: "100%", textAlign: "center", fontSize: 26, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
             (<span style={{ fontStyle: "italic" }}>x</span> + 2)(<span style={{ fontStyle: "italic" }}>x</span> + 3)

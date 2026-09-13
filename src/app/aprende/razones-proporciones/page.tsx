@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -240,9 +239,7 @@ function Esc06_Fundamental() {
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 EN LA PROPORCIÓN 1/2 = 3/6
-        </div>
+        <EtiquetaToque>EN LA PROPORCIÓN 1/2 = 3/6</EtiquetaToque>
         <Stage w={400} h={180}>
           {/* Proporción */}
           <div style={{ position: "absolute", left: 0, top: 40, width: "100%", textAlign: "center", fontSize: 28, color: COLOR_BASE, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>

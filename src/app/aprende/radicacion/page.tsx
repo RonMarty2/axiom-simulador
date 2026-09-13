@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, IconoToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -157,7 +156,7 @@ function Esc02_RaizCuad() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && "👆 Tocá para visualizar"}
+          {paso === 0 && <><IconoToque /> Tocá para visualizar</>}
           {paso === 1 && "Un cuadrado con 9 cuadraditos tiene LADO 3"}
           {paso === 2 && "Por eso √9 = 3 (el lado del cuadrado de área 9)"}
         </div>
@@ -448,7 +447,7 @@ function Esc07_Producto() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && "👆 Calculemos √36 escribiéndolo como √(4·9)"}
+          {paso === 0 && <><IconoToque /> Calculemos √36 escribiéndolo como √(4·9)</>}
           {paso === 1 && "La raíz se REPARTE: √4 · √9"}
           {paso === 2 && "Calculamos cada una"}
           {paso === 3 && "2 · 3 = 6 ✓"}
@@ -685,7 +684,7 @@ function Esc11_Racionalizacion() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && "👆 1/√2 tiene una raíz fea abajo"}
+          {paso === 0 && <><IconoToque /> 1/√2 tiene una raíz fea abajo</>}
           {paso === 1 && "Multiplicamos arriba y abajo por √2 (que vale 1)"}
           {paso === 2 && "Arriba queda √2. Abajo: √2·√2 = 2 (¡sin raíz!)"}
           {paso === 3 && "Resultado: √2/2: ya no hay raíz en el denominador ✓"}

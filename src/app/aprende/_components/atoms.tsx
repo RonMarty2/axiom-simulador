@@ -95,6 +95,47 @@ export const cajitaFormula = (): React.CSSProperties => ({
   background: LIENZO.bgSoft, borderRadius: 12,
 });
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Señal de "esto se toca". Las cajas con onClick (ver cajaAnim) avisaban que
+// eran interactivas con el emoji 👆. Dos problemas: cada sistema operativo lo
+// dibuja distinto —en Windows sale plano y amarillo— y traía su propio color,
+// que peleaba con el de la lección. Este hereda COLOR_EXP como el resto de la
+// etiqueta.
+//
+// Es una señal de interacción, no decoración: si se saca, el alumno no tiene
+// cómo saber que la animación avanza al tocarla.
+// ─────────────────────────────────────────────────────────────────────────────
+export function IconoToque({ tamano = 14 }: { tamano?: number }) {
+  return (
+    <svg
+      width={tamano} height={tamano} viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+      aria-hidden
+      // verticalAlign: en los condicionales de paso el ícono queda inline con
+      // el texto, y un SVG se apoya en la línea base — sin esto se ve hundido.
+      // En <EtiquetaToque> el contenedor es flex y la propiedad no aplica.
+      style={{ flexShrink: 0, verticalAlign: "-0.18em" }}
+    >
+      <path d="M11.2 11.6V5.9a1.8 1.8 0 1 1 3.6 0v7.5" />
+      <path d="M14.8 12.6a1.7 1.7 0 0 1 3.4 0v2.6a6 6 0 0 1-6 6h-1.3a5 5 0 0 1-3.54-1.47l-2.9-2.9a1.8 1.8 0 0 1 2.55-2.55l1.55 1.55" />
+    </svg>
+  );
+}
+
+// La etiqueta que encabeza una caja interactiva. El estilo estaba repetido
+// tal cual en 8 lecciones (decisión D3: compartir antes que copiar).
+export function EtiquetaToque({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 6,
+      fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2,
+    }}>
+      <IconoToque />
+      <span>{children}</span>
+    </div>
+  );
+}
+
 export function ExpInline({ base, exp, colorBase = COLOR_BASE, colorExp = COLOR_EXP, sizeBase = 40 }: {
   base: string; exp: string;
   colorBase?: string; colorExp?: string;

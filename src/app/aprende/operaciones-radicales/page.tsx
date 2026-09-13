@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, IconoToque, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -152,7 +151,7 @@ function Esc03_IdentSem() {
         </div>
       </div>
       <div style={{ fontSize: 13, color: COLOR_EXP, textAlign: "center", fontWeight: 700 }}>
-        Caso {i + 1} de {casos.length} · 👆 Tocá para ver el siguiente
+        Caso {i + 1} de {casos.length} · <IconoToque /> Tocá para ver el siguiente
       </div>
     </EscenaRica>
   );
@@ -177,7 +176,7 @@ function Esc04_SumaResta() {
       {/* ANIMACIÓN: 3√5 + 7√5 = 10√5 */}
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
-          👆 TOCÁ PARA VER LA SUMA
+          <IconoToque /> TOCÁ PARA VER LA SUMA
         </div>
         <Stage w={420} h={140}>
           {/* 3√5 */}
@@ -265,9 +264,7 @@ function Esc05_SimpAntes() {
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 EJEMPLO: √8 + √2
-        </div>
+        <EtiquetaToque>EJEMPLO: √8 + √2</EtiquetaToque>
         <Stage w={420} h={160}>
           {/* Línea original */}
           <motion.div style={{ position: "absolute", left: 0, top: 10, width: "100%", textAlign: "center", fontSize: 24, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}
@@ -332,9 +329,7 @@ function Esc06_Mult() {
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 √3 · √5
-        </div>
+        <EtiquetaToque>√3 · √5</EtiquetaToque>
         <Stage w={420} h={140}>
           <motion.div style={{ position: "absolute", left: 50, top: 40, fontSize: 36, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}
             animate={paso >= 2 ? { opacity: 0, x: -20 } : { opacity: 1 }}>
@@ -442,9 +437,7 @@ function Esc08_Div() {
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 2 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 √20 / √5
-        </div>
+        <EtiquetaToque>√20 / √5</EtiquetaToque>
         <Stage w={420} h={160}>
           <motion.div style={{ position: "absolute", left: 50, top: 25, display: "flex", flexDirection: "column", alignItems: "center", fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}
             animate={paso >= 1 ? { opacity: 0, x: -20 } : { opacity: 1 }}>

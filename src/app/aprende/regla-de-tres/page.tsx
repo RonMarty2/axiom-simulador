@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, IconoToque, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -120,9 +119,7 @@ function Esc03_Directa() {
       </Resumen>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 SI 3 kg CUESTAN 60 Bs, ¿CUÁNTO CUESTAN 5 kg?
-        </div>
+        <EtiquetaToque>SI 3 kg CUESTAN 60 Bs, ¿CUÁNTO CUESTAN 5 kg?</EtiquetaToque>
         <Stage w={380} h={180}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 12, columnGap: 30, padding: "10px 30px", textAlign: "center", fontFamily: "var(--font-crimson), serif" }}>
             <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1 }}>KG</div>
@@ -174,9 +171,7 @@ function Esc04_Inversa() {
       </Resumen>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 4 OBREROS TARDAN 12 DÍAS. ¿CUÁNTO TARDAN 6 OBREROS?
-        </div>
+        <EtiquetaToque>4 OBREROS TARDAN 12 DÍAS. ¿CUÁNTO TARDAN 6 OBREROS?</EtiquetaToque>
         <Stage w={380} h={180}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", rowGap: 12, columnGap: 30, padding: "10px 30px", textAlign: "center", fontFamily: "var(--font-crimson), serif" }}>
             <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1 }}>OBREROS</div>
@@ -252,7 +247,7 @@ function Esc05_Identificar() {
         </div>
       </div>
       <div style={{ fontSize: 13, color: COLOR_EXP, textAlign: "center", fontWeight: 700 }}>
-        Caso {i + 1} de {casos.length} · 👆 Tocá para el siguiente
+        Caso {i + 1} de {casos.length} · <IconoToque /> Tocá para el siguiente
       </div>
     </EscenaRica>
   );

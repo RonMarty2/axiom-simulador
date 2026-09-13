@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -103,9 +102,7 @@ function Esc03_App() {
     <EscenaRica>
       <Titulo>Aplicación visual</Titulo>
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 REPARTIR 600 Bs ENTRE A (2 partes), B (3 partes), C (5 partes)
-        </div>
+        <EtiquetaToque>REPARTIR 600 Bs ENTRE A (2 partes), B (3 partes), C (5 partes)</EtiquetaToque>
         <Stage w={420} h={200}>
           <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}
             style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 50 }}>

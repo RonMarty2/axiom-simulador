@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, IconoToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -173,7 +172,7 @@ function Esc03_BuscarDiv() {
       <div onClick={() => setPaso((p) => p >= 6 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1, marginBottom: 6 }}>
           PROBANDO DIVISOR: <span style={{ color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontSize: 18 }}>{reparto.divisor}</span>
-          <span style={{ color: COLOR_EXP, marginLeft: 6, fontSize: 12 }}>👆 tocá para avanzar</span>
+          <span style={{ color: COLOR_EXP, marginLeft: 6, fontSize: 12 }}><IconoToque /> tocá para avanzar</span>
         </div>
         <Stage w={400} h={140}>
           {/* 12 bolitas */}
@@ -255,7 +254,7 @@ function Esc03_BuscarDiv() {
             ))}
           </div>
           <div style={{ marginTop: 10, fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}>
-            {paso < 6 ? "👆 Tocá para probar el siguiente (mirá cómo se reorganizan las bolitas arriba)" : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
+            {paso < 6 ? <><IconoToque /> Tocá para probar el siguiente (mirá cómo se reorganizan las bolitas arriba)</> : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
           </div>
         </div>
       </Ejemplo>
@@ -474,7 +473,7 @@ function Esc08_Factorizar() {
       <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1.2, marginBottom: 6 }}>
           ÁRBOL DE FACTORIZACIÓN DE 60{" "}
-          <span style={{ color: COLOR_EXP, marginLeft: 6 }}>👆 tocá para avanzar</span>
+          <span style={{ color: COLOR_EXP, marginLeft: 6 }}><IconoToque /> tocá para avanzar</span>
         </div>
         <Stage w={400} h={260}>
           <motion.svg style={{ position: "absolute", left: 0, top: 0, width: 400, height: 260, pointerEvents: "none" }}>
@@ -543,7 +542,7 @@ function Esc08_Factorizar() {
           )}
           {paso < 4 && (
             <div style={{ marginTop: 8, fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}>
-              👆 Tocá para continuar
+              <IconoToque /> Tocá para continuar
             </div>
           )}
         </div>
@@ -618,7 +617,7 @@ function Esc09_MCDFact() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && "👆 Tocá para ver paso a paso"}
+          {paso === 0 && <><IconoToque /> Tocá para ver paso a paso</>}
           {paso === 1 && "Resaltamos primos COMUNES (2 y 3)"}
           {paso === 2 && "Tomamos el MENOR exponente de cada uno (verde): descartamos el otro (rojo)"}
           {paso === 3 && "Multiplicamos: 2¹ · 3¹ = 6"}
@@ -735,7 +734,7 @@ function Esc11_MCMFact() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {pasoMCM === 0 && "👆 Tocá para ver paso a paso"}
+          {pasoMCM === 0 && <><IconoToque /> Tocá para ver paso a paso</>}
           {pasoMCM === 1 && "Esta vez NO descartamos primos"}
           {pasoMCM === 2 && "Tomamos el MAYOR exponente de cada uno (verde)"}
           {pasoMCM === 3 && "Multiplicamos: 4 · 9 = 36"}

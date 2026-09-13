@@ -5,8 +5,7 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage,
-} from "../_components/atoms";
+  cajaAnim, Stage, EtiquetaToque } from "../_components/atoms";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -147,9 +146,7 @@ function Esc04_Despejar() {
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2 }}>
-          👆 RESOLVER: 3x + 5 = 17
-        </div>
+        <EtiquetaToque>RESOLVER: 3x + 5 = 17</EtiquetaToque>
         <Stage w={400} h={180}>
           <div style={{ position: "absolute", left: 0, top: 10, width: "100%", textAlign: "center", fontSize: 26, fontFamily: "var(--font-crimson), serif", fontWeight: 700, color: COLOR_BASE }}>
             3x + 5 = 17
