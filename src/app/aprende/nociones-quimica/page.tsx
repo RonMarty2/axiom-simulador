@@ -11,6 +11,14 @@ import {
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
 
+// Pseudo-aleatorio determinístico a partir de una semilla: da el mismo valor
+// en el servidor y en el cliente, que es lo que Math.random() no puede
+// garantizar. Sirve para "desordenar" posiciones sin romper la hidratación.
+function ruido(semilla: number) {
+  const x = Math.sin(semilla * 12.9898) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 export default function Page() {
   return (
     <LeccionShell
@@ -96,24 +104,31 @@ function EscEstadosSim() {
   };
   const e = estados[estado];
 
-  // Partículas para cada estado
-  const particulas = {
+  // Partículas para cada estado.
+  //
+  // Acá había Math.random() llamado durante el render, y traía dos problemas:
+  // el servidor dibujaba una posición y el cliente otra al hidratar (mismatch,
+  // React vuelve a renderizar y avisa por consola), y además se recalculaba en
+  // cada re-render, así que las partículas se recolocaban solas cada vez que
+  // tocabas un botón. Con un pseudo-aleatorio sembrado el desorden se ve igual
+  // pero es el mismo en los dos lados y estable entre renders.
+  const particulas = useMemo(() => ({
     solido: Array.from({ length: 25 }, (_, i) => ({
       x: 100 + (i % 5) * 40,
       y: 60 + Math.floor(i / 5) * 30,
       mov: 1,
     })),
     liquido: Array.from({ length: 25 }, (_, i) => ({
-      x: 100 + (i % 5) * 38 + Math.random() * 12,
-      y: 60 + Math.floor(i / 5) * 28 + Math.random() * 10,
+      x: 100 + (i % 5) * 38 + ruido(i + 1) * 12,
+      y: 60 + Math.floor(i / 5) * 28 + ruido(i + 101) * 10,
       mov: 8,
     })),
-    gas: Array.from({ length: 18 }, () => ({
-      x: 80 + Math.random() * 240,
-      y: 40 + Math.random() * 140,
+    gas: Array.from({ length: 18 }, (_, i) => ({
+      x: 80 + ruido(i + 201) * 240,
+      y: 40 + ruido(i + 301) * 140,
       mov: 30,
     })),
-  };
+  }), []);
 
   return (
     <EscenaRica>
@@ -136,8 +151,8 @@ function EscEstadosSim() {
             <motion.circle key={i} r="6"
               fill={e.color}
               animate={{
-                cx: [p.x, p.x + (Math.random() - 0.5) * p.mov, p.x],
-                cy: [p.y, p.y + (Math.random() - 0.5) * p.mov, p.y],
+                cx: [p.x, p.x + (ruido(i + 401) - 0.5) * p.mov, p.x],
+                cy: [p.y, p.y + (ruido(i + 501) - 0.5) * p.mov, p.y],
               }}
               transition={{
                 duration: estado === "gas" ? 0.5 : estado === "liquido" ? 1 : 0.3,

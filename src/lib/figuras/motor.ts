@@ -134,7 +134,7 @@ export function arcoAngulo(
   radioEtiqueta?: number
 ): { d: string; etiquetaEn: Pt; medida: number } {
   // normalizar diferencia a (-180, 180] para barrer por el lado corto
-  let delta = (((a2 - a1) % 360) + 540) % 360 - 180;
+  const delta = (((a2 - a1) % 360) + 540) % 360 - 180;
   const medida = Math.abs(delta);
   const p1 = avanzar(vertice, a1, radio);
   const p2 = avanzar(vertice, a1 + delta, radio);
