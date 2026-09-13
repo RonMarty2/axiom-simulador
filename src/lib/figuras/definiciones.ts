@@ -1490,7 +1490,70 @@ function f10polea(): Figura {
   return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
 }
 
+// Ramal en serie entre A y B: 4 Ω, fuente de 10 V, 3 Ω y fuente de 5 V, con
+// 3 A circulando. Del facsímil (examen 2-2022, 2da opción, F10), que lo dibuja
+// como una única rama horizontal y no como un circuito cerrado.
+function f10ramal(): Figura {
+  const Y = 112;
+  const A: Pt = { x: 48, y: Y };
+  const B: Pt = { x: 372, y: Y };
+  const paso = (B.x - A.x) / 4;
+  const n = (i: number) => ({ x: A.x + paso * i, y: Y });
+
+  const el: Elemento[] = [
+    ...resistencia(n(0), n(1), "4 Ω", -1),
+    ...pila(n(1), n(2), "10 V"),
+    ...resistencia(n(2), n(3), "3 Ω", -1),
+    ...pila(n(3), n(4), "5 V"),
+
+    { tipo: "punto", en: A, r: 3.4, rol: "trazo" },
+    { tipo: "punto", en: B, r: 3.4, rol: "trazo" },
+    { tipo: "texto", en: { x: A.x, y: A.y + 22 }, texto: "A", rol: "incognita", color: VIOLETA, tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: B.x, y: B.y + 22 }, texto: "B", rol: "incognita", color: VIOLETA, tam: 13, negrita: true, ancla: "middle" },
+
+    // sentido de la corriente
+    { tipo: "linea", de: { x: n(1).x + 6, y: Y - 40 }, a: { x: n(2).x - 6, y: Y - 40 }, rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha({ x: n(2).x - 6, y: Y - 40 }, 0, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: (n(1).x + n(2).x) / 2, y: Y - 46 }, texto: "3 A", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: 160, pasos: 0, elementos: el };
+}
+
+// Cuatro resistencias iguales entre a y b. Del facsímil (examen 1-2006, 2da
+// opción, F12): son TRES ramas en paralelo — una R arriba, dos R en serie al
+// medio, una R abajo. Esa topología da Req = 2R/5 = 2 Ω con R = 5 Ω.
+function f12cuatroR(): Figura {
+  const IZQ = 96, DER = 330;
+  const ARRIBA = 54, MEDIO = 112, ABAJO = 170;
+  const a: Pt = { x: IZQ - 34, y: MEDIO };
+  const b: Pt = { x: DER + 34, y: MEDIO };
+
+  const el: Elemento[] = [
+    // verticales que unen las tres ramas
+    { tipo: "linea", de: { x: IZQ, y: ARRIBA }, a: { x: IZQ, y: ABAJO }, rol: "trazo" },
+    { tipo: "linea", de: { x: DER, y: ARRIBA }, a: { x: DER, y: ABAJO }, rol: "trazo" },
+    { tipo: "linea", de: a, a: { x: IZQ, y: MEDIO }, rol: "trazo" },
+    { tipo: "linea", de: { x: DER, y: MEDIO }, a: b, rol: "trazo" },
+
+    // rama de arriba: una R
+    ...resistencia({ x: IZQ, y: ARRIBA }, { x: DER, y: ARRIBA }, "R", -1),
+    // rama del medio: dos R en serie
+    ...resistencia({ x: IZQ, y: MEDIO }, { x: (IZQ + DER) / 2, y: MEDIO }, "R", -1),
+    ...resistencia({ x: (IZQ + DER) / 2, y: MEDIO }, { x: DER, y: MEDIO }, "R", -1),
+    // rama de abajo: una R
+    ...resistencia({ x: IZQ, y: ABAJO }, { x: DER, y: ABAJO }, "R", 1),
+
+    { tipo: "punto", en: a, r: 3.4, rol: "trazo" },
+    { tipo: "punto", en: b, r: 3.4, rol: "trazo" },
+    { tipo: "texto", en: { x: a.x - 10, y: a.y + 5 }, texto: "a", rol: "incognita", color: VIOLETA, tam: 13, cursiva: true, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: b.x + 10, y: b.y + 5 }, texto: "b", rol: "incognita", color: VIOLETA, tam: 13, cursiva: true, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 420, alto: 214, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f12-circuito-cuatro-resistencias-r": f12cuatroR,
+  "f10-circuito-4r-10v-3r-5v": f10ramal,
   "f10-polea": f10polea,
   "f9-circuito-puente": f9puente,
   "f12-circuito-dos-fuentes": f12dosFuentes,

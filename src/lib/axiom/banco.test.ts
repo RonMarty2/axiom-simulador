@@ -99,7 +99,7 @@ describe("banco de exámenes", () => {
   // prioriza figura_svg sobre figura (ver examenes/[id] y resueltos/[examenId]),
   // así que esas nunca llegan a FiguraExamen y se ven perfectas. El `figura:`
   // que arrastran es un resto muerto. Contarlas inflaba el problema.
-  const FIGURAS_PENDIENTES_TOPE = 14;
+  const FIGURAS_PENDIENTES_TOPE = 12;
 
   test("el banco no pide figuras nuevas sin dibujar", () => {
     // Los ids implementados se leen del propio definiciones.ts en vez de
