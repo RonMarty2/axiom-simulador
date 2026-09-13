@@ -36,6 +36,14 @@ export interface Facultad {
   ano_inicio_banco: number;
 }
 
+/**
+ * Lo que devuelve /api/facultades: la facultad más cuántos exámenes tiene
+ * cargados. Con 0 la UI la muestra como "Próximamente" y no deja elegirla —
+ * la landing anuncia las cuatro, pero Medicina y Derecho todavía no tienen
+ * banco, y el alumno caía en un simulador vacío.
+ */
+export type FacultadConBanco = Facultad & { examenes: number };
+
 export interface Materia {
   id: string;
   nombre: string;

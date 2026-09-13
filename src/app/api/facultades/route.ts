@@ -1,10 +1,30 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getFacultades, actualizarFacultad } from "@/lib/data-store";
+import { listarMetadata } from "@/lib/axiom/banco-loader";
 import { isAdmin } from "@/lib/session";
 
 export async function GET() {
   const facultades = await getFacultades();
-  return NextResponse.json({ facultades });
+
+  // Cuántos exámenes tiene cada una. La landing anuncia las cuatro facultades,
+  // pero hoy Medicina y Derecho no tienen ninguno: el alumno elegía su
+  // facultad y caía en un simulador vacío, sin ningún aviso. Con este dato la
+  // UI puede marcarlas como "Próximamente" — y se corrige solo el día que se
+  // carguen exámenes, sin tocar código.
+  let porFacultad: Record<string, number> = {};
+  try {
+    for (const e of await listarMetadata()) {
+      porFacultad[e.facultad] = (porFacultad[e.facultad] ?? 0) + 1;
+    }
+  } catch {
+    // Si el banco no se puede leer, se prefiere no marcar nada como pendiente
+    // antes que marcar todo por error.
+    porFacultad = {};
+  }
+
+  return NextResponse.json({
+    facultades: facultades.map((f) => ({ ...f, examenes: porFacultad[f.id] ?? 0 })),
+  });
 }
 
 // Editar las secciones (áreas) y sus pesos de una facultad. Solo admin.

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import AppHeader from "./components/AppHeader";
 import Icono, { iconoFacultad } from "./components/Icono";
-import type { Facultad } from "@/lib/data-store";
+import type { FacultadConBanco } from "@/lib/data-store";
 
 export default function LandingPage() {
-  const [facultades, setFacultades] = useState<Facultad[]>([]);
+  const [facultades, setFacultades] = useState<FacultadConBanco[]>([]);
 
   useEffect(() => {
     fetch("/api/facultades").then((r) => r.json()).then((d) => setFacultades(d.facultades ?? []));
@@ -77,31 +77,58 @@ export default function LandingPage() {
             {/* Un solo acento para las cuatro. Antes cada facultad pintaba su
                 propio color (f.color, editable en Supabase): cuatro paletas
                 distintas compitiendo en la misma fila. */}
-            {facultades.map((f) => (
-              <Link key={f.id} href={`/login?facultad=${f.id}`} style={{
+            {facultades.map((f) => {
+              // Sin exámenes no hay producto que entregar: la tarjeta deja de
+              // ser un link y se marca "Próximamente", en vez de mandar al
+              // alumno a un simulador vacío.
+              const lista = f.examenes > 0;
+              const cuerpo = (
+                <>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                    <span style={{ color: lista ? "var(--accent)" : "var(--fg-muted)", display: "inline-flex" }}>
+                      <Icono nombre={iconoFacultad(f.id)} tamano={36} grosor={1.6} />
+                    </span>
+                    {!lista && (
+                      <span style={{
+                        fontSize: 10, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase",
+                        padding: "4px 10px", borderRadius: 999,
+                        background: "var(--bg-subtle)", color: "var(--fg-muted)", border: "1px solid var(--border)",
+                      }}>
+                        Próximamente
+                      </span>
+                    )}
+                  </div>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, color: lista ? "var(--fg-primary)" : "var(--fg-muted)", marginBottom: 6 }}>
+                    {f.nombre_corto}
+                  </h3>
+                  <p style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5, marginBottom: 14, minHeight: 60 }}>
+                    {f.descripcion}
+                  </p>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
+                    {f.areas.map((a) => (
+                      <span key={a} style={{ fontSize: 10, padding: "3px 8px", background: "var(--bg-subtle)", color: "var(--fg-secondary)", borderRadius: 999, fontWeight: 700, textTransform: "uppercase" }}>{a}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 700, color: lista ? "var(--accent)" : "var(--fg-muted)" }}>
+                    {lista
+                      ? <>Practicar ahora <Icono nombre="flecha" tamano={15} /></>
+                      : <>Estamos armando el banco de exámenes</>}
+                  </div>
+                </>
+              );
+
+              const estilo: React.CSSProperties = {
                 background: "var(--bg-card)", borderRadius: 18, padding: 24, textDecoration: "none",
                 border: "1px solid var(--border)", boxShadow: "var(--shadow-sm)", display: "block",
                 transition: "transform 0.2s, box-shadow 0.2s",
-              }}>
-                <span style={{ color: "var(--accent)", display: "inline-flex", marginBottom: 14 }}>
-                  <Icono nombre={iconoFacultad(f.id)} tamano={36} grosor={1.6} />
-                </span>
-                <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>
-                  {f.nombre_corto}
-                </h3>
-                <p style={{ fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5, marginBottom: 14, minHeight: 60 }}>
-                  {f.descripcion}
-                </p>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
-                  {f.areas.map((a) => (
-                    <span key={a} style={{ fontSize: 10, padding: "3px 8px", background: "var(--bg-subtle)", color: "var(--fg-secondary)", borderRadius: 999, fontWeight: 700, textTransform: "uppercase" }}>{a}</span>
-                  ))}
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 13, fontWeight: 700, color: "var(--accent)" }}>
-                  Practicar ahora <Icono nombre="flecha" tamano={15} />
-                </div>
-              </Link>
-            ))}
+              };
+
+              return lista ? (
+                <Link key={f.id} href={`/login?facultad=${f.id}`} style={estilo}>{cuerpo}</Link>
+              ) : (
+                <div key={f.id} style={{ ...estilo, opacity: 0.75 }}>{cuerpo}</div>
+              );
+            })}
           </div>
         </div>
       </section>

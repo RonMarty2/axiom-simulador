@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
-import type { Facultad, Usuario } from "@/lib/data-store";
+import type { FacultadConBanco, Usuario } from "@/lib/data-store";
 
 // Precio del cambio de facultad. Por ahora fijo; si en el futuro
 // quieres precios distintos por facultad, este valor sale del objeto Facultad.
@@ -18,7 +18,7 @@ function CambiarFacultadInner() {
   const destinoInicial = params.get("destino");
 
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [facultades, setFacultades] = useState<Facultad[]>([]);
+  const [facultades, setFacultades] = useState<FacultadConBanco[]>([]);
   const [destino, setDestino] = useState<string>(destinoInicial ?? "");
   const [loading, setLoading] = useState(true);
 
@@ -74,31 +74,54 @@ function CambiarFacultadInner() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 12, marginBottom: 24 }}>
           {facultades.filter((f) => f.id !== usuario.facultad_objetivo).map((f) => {
             const selected = destino === f.id;
+            // Sin exámenes no se puede cobrar el cambio: seria venderle al
+            // alumno el pase a una facultad vacia.
+            const lista = f.examenes > 0;
             return (
               <button
                 key={f.id}
-                onClick={() => setDestino(f.id)}
+                onClick={() => lista && setDestino(f.id)}
+                disabled={!lista}
+                title={lista ? undefined : "Todavía no tenemos exámenes de esta facultad"}
                 style={{
-                  textAlign: "left", padding: 18, cursor: "pointer",
-                  border: selected ? `3px solid ${f.color}` : "1px solid var(--border)",
-                  background: selected ? `${f.color}10` : "var(--bg-card)",
+                  textAlign: "left", padding: 18,
+                  cursor: lista ? "pointer" : "not-allowed",
+                  opacity: lista ? 1 : 0.65,
+                  border: selected ? "3px solid var(--accent)" : "1px solid var(--border)",
+                  background: selected ? "var(--accent-soft)" : "var(--bg-card)",
                   borderRadius: 14, position: "relative",
-                  boxShadow: selected ? `0 8px 20px ${f.color}30` : "none",
+                  boxShadow: selected ? "var(--shadow-md)" : "none",
                   transition: "transform 0.15s, box-shadow 0.15s",
                   transform: selected ? "translateY(-2px)" : "none",
                 }}
               >
                 {selected && (
-                  <div style={{ position: "absolute", top: 10, right: 10, width: 24, height: 24, borderRadius: "50%", background: f.color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800 }}>✓</div>
+                  <div style={{ position: "absolute", top: 10, right: 10, width: 24, height: 24, borderRadius: "50%", background: "var(--accent)", color: "var(--accent-fg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Icono nombre="check" tamano={13} grosor={2.6} />
+                  </div>
                 )}
-                <div style={{ display: "flex", marginBottom: 10, color: "var(--accent)" }}><Icono nombre={iconoFacultad(f.id)} tamano={32} grosor={1.7} /></div>
-                <div style={{ fontSize: 18, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>{f.nombre_corto}</div>
+                {!lista && (
+                  <div style={{
+                    position: "absolute", top: 10, right: 10,
+                    fontSize: 9.5, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase",
+                    padding: "4px 9px", borderRadius: 999,
+                    background: "var(--bg-subtle)", color: "var(--fg-muted)", border: "1px solid var(--border)",
+                  }}>
+                    Próximamente
+                  </div>
+                )}
+                <div style={{ display: "flex", marginBottom: 10, color: lista ? "var(--accent)" : "var(--fg-muted)" }}><Icono nombre={iconoFacultad(f.id)} tamano={32} grosor={1.7} /></div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: lista ? "var(--fg-primary)" : "var(--fg-muted)", marginBottom: 4 }}>{f.nombre_corto}</div>
                 <div style={{ fontSize: 12, color: "var(--fg-muted)", lineHeight: 1.4, minHeight: 48 }}>
                   {f.descripcion.slice(0, 90)}{f.descripcion.length > 90 ? "…" : ""}
                 </div>
                 <div style={{ marginTop: 12, paddingTop: 12, borderTop: "1px solid var(--border)" }}>
-                  <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase" }}>Costo del cambio</div>
-                  <div style={{ fontSize: 22, fontWeight: 900, color: f.color }}>Bs. {PRECIO_CAMBIO_BOB}</div>
+                  <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase" }}>
+                    {lista ? "Costo del cambio" : "Banco en preparación"}
+                  </div>
+                  <div style={{ fontSize: 22, fontWeight: 900, color: lista ? "var(--accent)" : "var(--fg-muted)" }}>
+                    {lista ? `Bs. ${PRECIO_CAMBIO_BOB}` : "—"}
+                  </div>
                 </div>
               </button>
             );
@@ -109,7 +132,7 @@ function CambiarFacultadInner() {
         {destinoObj && (
           <div style={{
             padding: 20, background: "var(--bg-card)",
-            borderRadius: 14, border: `2px solid ${destinoObj.color}`,
+            borderRadius: 14, border: "2px solid var(--accent)",
             marginBottom: 16,
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 14, flexWrap: "wrap" }}>
@@ -126,9 +149,9 @@ function CambiarFacultadInner() {
                 <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Pago único · Tigo Money / QR / Transferencia</div>
               </div>
               <button onClick={procederPago} style={{
-                padding: "14px 28px", background: destinoObj.color, color: "white",
+                padding: "14px 28px", background: "var(--accent)", color: "var(--accent-fg)",
                 border: "none", borderRadius: 12, fontWeight: 800, fontSize: 15, cursor: "pointer",
-                boxShadow: `0 10px 24px ${destinoObj.color}50`,
+                boxShadow: "var(--shadow-md)",
               }}>
                 Continuar al pago →
               </button>

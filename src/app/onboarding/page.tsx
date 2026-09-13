@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Icono, { iconoFacultad } from "../components/Icono";
 import { useRouter } from "next/navigation";
-import type { Facultad } from "@/lib/data-store";
+import type { FacultadConBanco } from "@/lib/data-store";
 
 export default function OnboardingPage() {
   const router = useRouter();
-  const [facultades, setFacultades] = useState<Facultad[]>([]);
+  const [facultades, setFacultades] = useState<FacultadConBanco[]>([]);
   const [seleccionada, setSeleccionada] = useState<string>("");
   const [guardando, setGuardando] = useState(false);
   const [nombreUsuario, setNombreUsuario] = useState<string>("");
@@ -63,17 +63,24 @@ export default function OnboardingPage() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 16, marginBottom: 28 }}>
           {facultades.map((f) => {
             const activa = seleccionada === f.id;
+            // Acá es donde más duele elegir una facultad vacía: el alumno se
+            // registra, elige, y cae en un producto sin contenido. Si no tiene
+            // exámenes no se puede seleccionar.
+            const lista = f.examenes > 0;
             return (
               <button
                 key={f.id}
-                onClick={() => setSeleccionada(f.id)}
+                onClick={() => lista && setSeleccionada(f.id)}
+                disabled={!lista}
+                title={lista ? undefined : "Todavía no tenemos exámenes de esta facultad"}
                 style={{
                   background: "var(--bg-card)",
                   borderRadius: 18,
                   padding: 22,
-                  border: activa ? `3px solid ${f.color}` : "1px solid var(--border)",
-                  boxShadow: activa ? `0 14px 32px ${f.color}30` : "var(--shadow-sm)",
-                  cursor: "pointer",
+                  border: activa ? "3px solid var(--accent)" : "1px solid var(--border)",
+                  boxShadow: activa ? "var(--shadow-md)" : "var(--shadow-sm)",
+                  cursor: lista ? "pointer" : "not-allowed",
+                  opacity: lista ? 1 : 0.65,
                   textAlign: "left",
                   position: "relative",
                   transition: "transform 0.15s, box-shadow 0.15s",
@@ -81,16 +88,28 @@ export default function OnboardingPage() {
                 }}
               >
                 {activa && (
-                  <div style={{ position: "absolute", top: 10, right: 10, width: 26, height: 26, borderRadius: "50%", background: f.color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800 }}>✓</div>
+                  <div style={{ position: "absolute", top: 10, right: 10, width: 26, height: 26, borderRadius: "50%", background: "var(--accent)", color: "var(--accent-fg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <Icono nombre="check" tamano={14} grosor={2.6} />
+                  </div>
                 )}
-                <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre={iconoFacultad(f.id)} tamano={40} grosor={1.6} /></div>
-                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>{f.nombre_corto}</h3>
+                {!lista && (
+                  <div style={{
+                    position: "absolute", top: 10, right: 10,
+                    fontSize: 9.5, fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase",
+                    padding: "4px 9px", borderRadius: 999,
+                    background: "var(--bg-subtle)", color: "var(--fg-muted)", border: "1px solid var(--border)",
+                  }}>
+                    Próximamente
+                  </div>
+                )}
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: lista ? "var(--accent)" : "var(--fg-muted)" }}><Icono nombre={iconoFacultad(f.id)} tamano={40} grosor={1.6} /></div>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: lista ? "var(--fg-primary)" : "var(--fg-muted)", marginBottom: 6 }}>{f.nombre_corto}</h3>
                 <p style={{ fontSize: 12.5, color: "var(--fg-muted)", lineHeight: 1.45, marginBottom: 14, minHeight: 54 }}>
                   {f.descripcion}
                 </p>
                 <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
                   {f.areas.map((a) => (
-                    <span key={a} style={{ fontSize: 9.5, padding: "2px 7px", background: `${f.color}15`, color: f.color, borderRadius: 999, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.04em" }}>{a}</span>
+                    <span key={a} style={{ fontSize: 9.5, padding: "2px 7px", background: "var(--bg-subtle)", color: "var(--fg-secondary)", borderRadius: 999, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.04em" }}>{a}</span>
                   ))}
                 </div>
               </button>
