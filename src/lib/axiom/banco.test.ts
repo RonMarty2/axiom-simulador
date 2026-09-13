@@ -94,7 +94,7 @@ describe("banco de exámenes", () => {
   // test NO exige arreglarlas de golpe; exige que el número no crezca. Cada
   // figura que se dibuje, se baja el tope. Si alguien agrega una pregunta
   // nueva con figura sin implementarla, el test lo frena en el acto.
-  const FIGURAS_PENDIENTES_TOPE = 34;
+  const FIGURAS_PENDIENTES_TOPE = 33;
 
   test("el banco no pide figuras nuevas sin dibujar", () => {
     // Los ids implementados se leen del propio definiciones.ts en vez de

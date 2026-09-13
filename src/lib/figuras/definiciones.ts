@@ -705,7 +705,62 @@ function f12b(): Figura {
   return { ancho: 420, alto: 260, pasos: 0, elementos: el };
 }
 
+// Tres cargas puntuales: q en P, y q1/q2 simétricas respecto de la horizontal
+// que pasa por P. El enunciado da r = 2 m y 1 m de separación horizontal, así
+// que la componente vertical es √3 por Pitágoras y la dirección P→q1 queda a
+// 120° (60° sobre la horizontal, medido desde el oeste).
+//
+// A propósito NO se dibuja la fuerza resultante: la pregunta es justamente
+// calcularla, y dibujarla sería regalar la respuesta.
+function f19cargas(): Figura {
+  const M = 56;                                   // escala: 1 m = 56 px
+  const P: Pt = { x: 296, y: 132 };
+  const q1 = avanzar(P, 120, 2 * M);              // arriba-izquierda
+  const q2 = avanzar(P, -120, 2 * M);             // abajo-izquierda
+
+  verificarDistancia("q1 a P = 2 m", 2 * M, distancia(q1, P));
+  verificarDistancia("q2 a P = 2 m", 2 * M, distancia(q2, P));
+  verificarDistancia("separación horizontal = 1 m", M, P.x - q1.x);
+  verificarDistancia("q1 y q2 alineadas en vertical", 0, Math.abs(q1.x - q2.x));
+  verificarAngulo("60° sobre la horizontal", 60, anguloEn(P, q1, { x: P.x - 60, y: P.y }));
+
+  // Las etiquetas "2 m" se corren PERPENDICULAR a su propio trazo y hacia
+  // afuera de la cuña que forman los dos radios. Puestas con un offset fijo
+  // arriba/abajo quedaban montadas sobre la línea.
+  const medioArriba = avanzar({ x: (P.x + q1.x) / 2, y: (P.y + q1.y) / 2 }, 30, 17);
+  const medioAbajo = avanzar({ x: (P.x + q2.x) / 2, y: (P.y + q2.y) / 2 }, -30, 17);
+
+  const el: Elemento[] = [
+    // eje de simetría: la horizontal que pasa por P
+    { tipo: "linea", de: { x: q1.x - 46, y: P.y }, a: { x: P.x + 54, y: P.y }, rol: "trazo", punteada: true },
+    // vertical que une q1 y q2, para que se vea que están alineadas
+    { tipo: "linea", de: q1, a: q2, rol: "trazo", punteada: true },
+
+    // los dos radios de 2 m
+    { tipo: "linea", de: q1, a: P, rol: "trazo", grosor: 1.7 },
+    { tipo: "linea", de: q2, a: P, rol: "trazo", grosor: 1.7 },
+    { tipo: "texto", en: medioArriba, texto: "2 m", rol: "dato", color: AMBAR, tam: 12, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: medioAbajo, texto: "2 m", rol: "dato", color: AMBAR, tam: 12, negrita: true, ancla: "middle" },
+
+    // el metro horizontal, marcado sobre el eje de simetría
+    { tipo: "linea", de: { x: q1.x, y: P.y - 7 }, a: { x: q1.x, y: P.y + 7 }, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: { x: (q1.x + P.x) / 2, y: P.y - 11 }, texto: "1 m", rol: "dato", color: AMBAR, tam: 12, negrita: true, ancla: "middle" },
+
+    // las cargas
+    { tipo: "punto", en: q1, r: 6, rol: "trazo", color: ROJO },
+    { tipo: "punto", en: q2, r: 6, rol: "trazo", color: ROJO },
+    { tipo: "punto", en: P, r: 6, rol: "incognita", color: VIOLETA },
+
+    { tipo: "texto", en: { x: q1.x - 10, y: q1.y - 8 }, texto: "q₁ = 8 μC", rol: "dato", color: ROJO, tam: 12.5, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: q2.x - 10, y: q2.y + 14 }, texto: "q₂ = 8 μC", rol: "dato", color: ROJO, tam: 12.5, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: P.x + 13, y: P.y - 8 }, texto: "P", rol: "incognita", color: VIOLETA, tam: 13, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: P.x + 13, y: P.y + 12 }, texto: "q = 2 μC", rol: "incognita", color: VIOLETA, tam: 12.5, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 420, alto: 272, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f19-tres-cargas-simetricas": f19cargas,
   "g5-paralelas": g5,
   "g6-isosceles": g6,
   "g7-cuadrado": g7,
