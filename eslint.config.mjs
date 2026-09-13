@@ -24,6 +24,13 @@ const eslintConfig = [
       // que React renderiza bien. Con la regla prendida tapaba los 16 avisos
       // de hooks, que sí eran bugs reales.
       "react/no-unescaped-entities": "off",
+
+      // Baja de error a aviso. Los 5 casos que marca hoy son patrones válidos,
+      // no bugs: cerrar el menú al navegar, reabrir el acordeón al cambiar de
+      // pestaña, y leer localStorage — que no existe durante el SSR, así que
+      // ahí el efecto es la única opción. Como error frenaba el CI y empujaba
+      // a reescribir código que anda. Queda visible como aviso.
+      "react-hooks/set-state-in-effect": "warn",
     },
   },
 ];
