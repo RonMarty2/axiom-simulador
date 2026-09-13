@@ -89,12 +89,17 @@ describe("banco de exámenes", () => {
     assert.deepEqual(fallos, [], `preguntas sin opciones suficientes:\n${fallos.join("\n")}`);
   });
 
-  // Trinquete: hoy hay 34 preguntas que piden una figura que nadie dibujó, y
-  // el alumno ve un cartel de "figura en preparación" en vez del dibujo. Este
-  // test NO exige arreglarlas de golpe; exige que el número no crezca. Cada
-  // figura que se dibuje, se baja el tope. Si alguien agrega una pregunta
-  // nueva con figura sin implementarla, el test lo frena en el acto.
-  const FIGURAS_PENDIENTES_TOPE = 33;
+  // Trinquete: preguntas donde el alumno ve el cartel de "figura en
+  // preparación" en vez del dibujo. Este test NO exige arreglarlas de golpe;
+  // exige que el número no crezca. Cada figura que se dibuje, se baja el tope.
+  // Si alguien agrega una pregunta nueva con figura sin implementarla, el test
+  // lo frena en el acto.
+  //
+  // Se descuentan las que traen su propio <svg> en el enunciado: el render
+  // prioriza figura_svg sobre figura (ver examenes/[id] y resueltos/[examenId]),
+  // así que esas nunca llegan a FiguraExamen y se ven perfectas. El `figura:`
+  // que arrastran es un resto muerto. Contarlas inflaba el problema.
+  const FIGURAS_PENDIENTES_TOPE = 28;
 
   test("el banco no pide figuras nuevas sin dibujar", () => {
     // Los ids implementados se leen del propio definiciones.ts en vez de
@@ -110,9 +115,13 @@ describe("banco de exámenes", () => {
 
     const faltantes = new Map<string, string[]>();
     for (const e of TODOS) {
-      for (const m of e.contenido.matchAll(/^figura:\s*([a-z0-9][a-z0-9-]*)\s*$/gim)) {
+      // Por bloque de pregunta, no por archivo: el <svg> de una no cubre a otra.
+      for (const bloque of e.contenido.split(/^---\s*$/m)) {
+        const m = bloque.match(/^figura:\s*([a-z0-9][a-z0-9-]*)\s*$/im);
+        if (!m) continue;
         const id = m[1];
         if (implementadas.has(id)) continue;
+        if (/<svg[\s>]/i.test(bloque)) continue;   // ya trae su propio dibujo
         if (!faltantes.has(id)) faltantes.set(id, []);
         faltantes.get(id)!.push(e.nombre);
       }
