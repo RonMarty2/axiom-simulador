@@ -1077,8 +1077,134 @@ function f12disco(): Figura {
   return { ancho: 420, alto: 214, pasos: 0, elementos: el };
 }
 
+// A, C, D alineados en la base (AC = 2, CD = 1); B arriba a la derecha; P es
+// el punto medio de CB y DP ⊥ CB en P. Dibujada mirando el facsímil (examen
+// 2-2023, 2da opción, G5): B queda a la derecha de D, no entre C y D.
+//
+// La condición DP ⊥ CB con P punto medio deja UN grado de libertad: para cada
+// inclinación β de CB hay una configuración válida (sale CB = 2·cos β). Se
+// elige β = 30° porque reproduce la disposición del original. El resultado del
+// problema (R = 1/2) no depende de esa elección — se comprobó con β = 45° y
+// β = 60°, que dan la misma R.
+function g5trianguloCP(): Figura {
+  const rad = (g: number) => (g * Math.PI) / 180;
+  const U = 92;                                    // una unidad del enunciado
+  const BETA = 30;
+  const C: Pt = { x: 218, y: 182 };
+  const A = avanzar(C, 180, 2 * U);
+  const D = avanzar(C, 0, U);
+  const B = avanzar(C, BETA, 2 * Math.cos(rad(BETA)) * U);
+  const P = { x: (C.x + B.x) / 2, y: (C.y + B.y) / 2 };
+
+  verificarDistancia("AC = 2", 2 * U, distancia(A, C));
+  verificarDistancia("CD = 1", U, distancia(C, D));
+  verificarDistancia("CP = PB", distancia(C, P), distancia(P, B));
+  verificarAngulo("DP ⊥ CB en P", 90, anguloEn(P, D, B));
+  verificarAngulo("A, C, D alineados", 180, anguloEn(C, A, D));
+
+  const arcoTheta = arcoAngulo(B, anguloHacia(B, A), anguloHacia(B, C), 30, 44);
+  const arcoPhi = arcoAngulo(D, anguloHacia(D, C), anguloHacia(D, P), 26, 40);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: A, a: D, rol: "trazo", grosor: 1.7 },
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.7 },
+    { tipo: "linea", de: C, a: B, rol: "trazo", grosor: 1.7 },
+    { tipo: "linea", de: D, a: P, rol: "trazo", grosor: 1.7 },
+
+    { tipo: "path", d: cuadradoRecto(P, anguloHacia(P, D), anguloHacia(P, B), 10), rol: "dato", color: AMBAR },
+    { tipo: "arco", d: arcoTheta.d, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: arcoTheta.etiquetaEn, texto: "θ", rol: "incognita", color: VIOLETA, tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "arco", d: arcoPhi.d, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: arcoPhi.etiquetaEn, texto: "φ", rol: "incognita", color: VIOLETA, tam: 13, negrita: true, ancla: "middle" },
+
+    // las dos medidas de la base
+    { tipo: "texto", en: { x: (A.x + C.x) / 2, y: A.y + 19 }, texto: "2", rol: "dato", color: AMBAR, tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: (C.x + D.x) / 2, y: A.y + 19 }, texto: "1", rol: "dato", color: AMBAR, tam: 13, negrita: true, ancla: "middle" },
+
+    { tipo: "punto", en: A, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: C, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: D, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: B, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: P, r: 4.4, rol: "trazo" },
+
+    { tipo: "texto", en: { x: A.x - 6, y: A.y + 19 }, texto: "A", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: C.x, y: C.y + 19 }, texto: "C", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: D.x + 6, y: D.y + 19 }, texto: "D", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: B.x + 6, y: B.y - 10 }, texto: "B", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: P.x - 14, y: P.y - 6 }, texto: "P", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: 226, pasos: 0, elementos: el };
+}
+
+// Lámpara arriba y dos moscas en la misma vertical, cada una 1 m debajo de la
+// anterior, y el piso 1 m debajo de la segunda. Dibujada mirando el facsímil
+// (examen 2-2023, 2da opción, F11): la de arriba va hacia la DERECHA a
+// 0,3 m/s y la de abajo hacia la IZQUIERDA a 0,5 m/s. Las dos parten justo
+// debajo de la lámpara, que es lo que hace que el dibujo muestre un instante
+// y no el caso general.
+function f11moscas(): Figura {
+  const EJE = 214;
+  const LAMPARA: Pt = { x: EJE, y: 38 };
+  const METRO = 44;
+  const MOSCA1 = { x: EJE, y: LAMPARA.y + METRO };
+  const MOSCA2 = { x: EJE, y: MOSCA1.y + METRO };
+  const PISO = MOSCA2.y + METRO;
+
+  verificarDistancia("lámpara a mosca 1 = 1 m", METRO, distancia(LAMPARA, MOSCA1));
+  verificarDistancia("mosca 1 a mosca 2 = 1 m", METRO, distancia(MOSCA1, MOSCA2));
+  verificarDistancia("mosca 2 al piso = 1 m", METRO, PISO - MOSCA2.y);
+
+  const cota = (y1: number, y2: number, texto: string): Elemento[] => {
+    const x = EJE + 34;
+    return [
+      { tipo: "linea", de: { x, y: y1 }, a: { x, y: y2 }, rol: "dato", color: AMBAR },
+      { tipo: "linea", de: { x: x - 5, y: y1 }, a: { x: x + 5, y: y1 }, rol: "dato", color: AMBAR },
+      { tipo: "linea", de: { x: x - 5, y: y2 }, a: { x: x + 5, y: y2 }, rol: "dato", color: AMBAR },
+      { tipo: "texto", en: { x: x + 10, y: (y1 + y2) / 2 + 4 }, texto: texto, rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "start" },
+    ];
+  };
+
+  const flecha = (desde: Pt, haciaDerecha: boolean, texto: string): Elemento[] => {
+    const largo = 52;
+    const fin = { x: desde.x + (haciaDerecha ? largo : -largo), y: desde.y };
+    return [
+      { tipo: "linea", de: desde, a: fin, rol: "resultado", color: ROJO, grosor: 2 },
+      { tipo: "path", d: cabezaFlecha(fin, haciaDerecha ? 0 : 180, 7), rol: "resultado", color: ROJO, relleno: true },
+      { tipo: "texto", en: { x: fin.x + (haciaDerecha ? 6 : -6), y: fin.y - 7 }, texto: texto, rol: "resultado", color: ROJO, tam: 11.5, negrita: true, ancla: haciaDerecha ? "start" : "end" },
+    ];
+  };
+
+  const el: Elemento[] = [
+    // lámpara
+    { tipo: "punto", en: LAMPARA, r: 11, rol: "trazo", color: AMBAR },
+    { tipo: "linea", de: { x: LAMPARA.x, y: LAMPARA.y - 20 }, a: { x: LAMPARA.x, y: LAMPARA.y - 11 }, rol: "trazo" },
+    // vertical de referencia
+    { tipo: "linea", de: { x: EJE, y: LAMPARA.y + 12 }, a: { x: EJE, y: PISO }, rol: "trazo", punteada: true },
+    // piso
+    { tipo: "linea", de: { x: 58, y: PISO }, a: { x: 372, y: PISO }, rol: "trazo", grosor: 1.8 },
+  ];
+  for (let i = 0; i < 17; i++) {
+    const x = 62 + i * 19;
+    el.push({ tipo: "linea", de: { x, y: PISO }, a: { x: x - 8, y: PISO + 9 }, rol: "trazo", grosor: 1 });
+  }
+
+  el.push(
+    { tipo: "punto", en: MOSCA1, r: 4.6, rol: "trazo" },
+    { tipo: "punto", en: MOSCA2, r: 4.6, rol: "trazo" },
+    ...flecha(MOSCA1, true, "0,3 m/s"),
+    ...flecha(MOSCA2, false, "0,5 m/s"),
+    ...cota(LAMPARA.y + 12, MOSCA1.y, "1 m"),
+    ...cota(MOSCA1.y, MOSCA2.y, "1 m"),
+    ...cota(MOSCA2.y, PISO, "1 m"),
+  );
+
+  return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f11-carrito-acelerado-resorte": f11carrito,
+  "f11-moscas-sombras": f11moscas,
+  "g5-triangulo-cp-pb": g5trianguloCP,
   "f12-disco-piso-aspero-mu": f12disco,
   "f19-tres-cargas-simetricas": f19cargas,
   "g5-cadena": g5cadena,
