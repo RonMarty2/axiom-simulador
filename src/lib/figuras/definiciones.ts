@@ -950,7 +950,136 @@ function g7cuadrilatero(): Figura {
   return { ancho: 420, alto: 250, pasos: 0, elementos: el };
 }
 
+// Carrito acelerado con una masa colgando de un resorte anclado al techo.
+// Dibujada mirando el facsímil (examen 2-2024, única opción, F11): el resorte
+// sale del techo hacia abajo-IZQUIERDA porque el carrito acelera a la derecha
+// y la masa queda atrás. El 60° va entre el resorte y la vertical punteada,
+// medido en el anclaje, igual que en el original.
+function f11carrito(): Figura {
+  const IZQ = 112, DER = 352, TECHO = 58, PISO = 176;
+  const anclaje: Pt = { x: 300, y: TECHO + 8 };
+  const masa = avanzar(anclaje, -150, 108);            // 60° a la izquierda de la vertical
+  const bajoAnclaje = { x: anclaje.x, y: anclaje.y + 92 };
+
+  verificarAngulo("60° con la vertical", 60, anguloEn(anclaje, masa, bajoAnclaje));
+
+  const arco60 = arcoAngulo(anclaje, -90, anguloHacia(anclaje, masa), 30, 45);
+
+  const el: Elemento[] = [
+    // caja del carrito
+    { tipo: "poligono", puntos: [{ x: IZQ, y: TECHO }, { x: DER, y: TECHO }, { x: DER, y: PISO }, { x: IZQ, y: PISO }], rol: "trazo" },
+  ];
+
+  // rayado de la pared izquierda, como en el facsímil
+  for (let i = 0; i < 5; i++) {
+    const y = TECHO + 16 + i * 18;
+    el.push({ tipo: "linea", de: { x: IZQ - 13, y: y + 9 }, a: { x: IZQ, y }, rol: "trazo", grosor: 1 });
+  }
+
+  // ruedas y suelo
+  const RUEDA = 11;
+  for (const cx of [IZQ + 42, DER - 42]) {
+    el.push({ tipo: "punto", en: { x: cx, y: PISO + RUEDA }, r: RUEDA, rol: "trazo" });
+  }
+  el.push({ tipo: "linea", de: { x: IZQ - 24, y: PISO + 2 * RUEDA }, a: { x: DER + 24, y: PISO + 2 * RUEDA }, rol: "trazo", grosor: 1.8 });
+  for (let i = 0; i < 14; i++) {
+    const x = IZQ - 18 + i * 20;
+    el.push({ tipo: "linea", de: { x, y: PISO + 2 * RUEDA }, a: { x: x - 8, y: PISO + 2 * RUEDA + 8 }, rol: "trazo", grosor: 1 });
+  }
+
+  el.push(
+    // vertical de referencia + ángulo
+    { tipo: "linea", de: anclaje, a: bajoAnclaje, rol: "trazo", punteada: true },
+    { tipo: "arco", d: arco60.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco60.etiquetaEn, texto: "60°", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "middle" },
+
+    // resorte y masa
+    { tipo: "path", d: resistorZigzag(anclaje, masa, 9, 6), rol: "trazo" },
+    { tipo: "punto", en: masa, r: 8, rol: "trazo" },
+    { tipo: "texto", en: { x: masa.x - 15, y: masa.y + 5 }, texto: "m", rol: "dato", color: AMBAR, tam: 13, cursiva: true, negrita: true, ancla: "end" },
+
+    // aceleración del carrito
+    { tipo: "linea", de: { x: DER + 8, y: TECHO - 16 }, a: { x: DER + 52, y: TECHO - 16 }, rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha({ x: DER + 52, y: TECHO - 16 }, 0, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: DER + 30, y: TECHO - 22 }, texto: "a", rol: "resultado", color: ROJO, tam: 13, cursiva: true, negrita: true, ancla: "middle" },
+  );
+
+  return { ancho: 420, alto: 214, pasos: 0, elementos: el };
+}
+
+// Disco lanzado sobre piso áspero que se detiene tras recorrer d. Dibujada
+// mirando el facsímil (examen 2-2024, única opción, F12): bloque macizo en la
+// posición inicial con la flecha de velocidad, bloque punteado donde se
+// detiene, el arco "t" entre ambos y la distancia d acotada abajo.
+function f12disco(): Figura {
+  const PISO = 158;
+  const INI: Pt = { x: 96, y: PISO };
+  const FIN: Pt = { x: 300, y: PISO };
+  const ANCHO = 46, ALTO = 30;
+
+  const caja = (base: Pt): Pt[] => [
+    { x: base.x, y: base.y },
+    { x: base.x + ANCHO, y: base.y },
+    { x: base.x + ANCHO, y: base.y - ALTO },
+    { x: base.x, y: base.y - ALTO },
+  ];
+
+  const medioIni = { x: INI.x + ANCHO / 2, y: INI.y - ALTO };
+  const medioFin = { x: FIN.x + ANCHO / 2, y: FIN.y - ALTO };
+  const cima = { x: (medioIni.x + medioFin.x) / 2, y: medioIni.y - 46 };
+
+  const el: Elemento[] = [
+    // piso con rayado
+    { tipo: "linea", de: { x: 54, y: PISO }, a: { x: 382, y: PISO }, rol: "trazo", grosor: 1.8 },
+  ];
+  for (let i = 0; i < 18; i++) {
+    const x = 58 + i * 19;
+    el.push({ tipo: "linea", de: { x, y: PISO }, a: { x: x - 8, y: PISO + 9 }, rol: "trazo", grosor: 1 });
+  }
+
+  // Trayectoria punteada. Se arma con segmentos porque `punteada` solo existe
+  // en el elemento "linea"; un path no la soporta.
+  const bezier = (t: number): Pt => ({
+    x: (1 - t) ** 2 * medioIni.x + 2 * (1 - t) * t * cima.x + t ** 2 * medioFin.x,
+    y: (1 - t) ** 2 * medioIni.y + 2 * (1 - t) * t * (cima.y - 20) + t ** 2 * medioFin.y,
+  });
+  for (let i = 0; i < 24; i += 2) {
+    el.push({ tipo: "linea", de: bezier(i / 24), a: bezier((i + 1) / 24), rol: "trazo" });
+  }
+
+  el.push(
+    { tipo: "texto", en: { x: cima.x, y: cima.y - 6 }, texto: "t", rol: "dato", color: AMBAR, tam: 13, cursiva: true, negrita: true, ancla: "middle" },
+
+    // bloque inicial (macizo) y final (punteado)
+    { tipo: "poligono", puntos: caja(INI), rol: "trazo" },
+    { tipo: "texto", en: { x: INI.x + ANCHO / 2, y: INI.y - ALTO / 2 + 5 }, texto: "m", rol: "trazo", tam: 13, cursiva: true, ancla: "middle" },
+    { tipo: "linea", de: caja(FIN)[0], a: caja(FIN)[1], rol: "trazo", punteada: true },
+    { tipo: "linea", de: caja(FIN)[1], a: caja(FIN)[2], rol: "trazo", punteada: true },
+    { tipo: "linea", de: caja(FIN)[2], a: caja(FIN)[3], rol: "trazo", punteada: true },
+    { tipo: "linea", de: caja(FIN)[3], a: caja(FIN)[0], rol: "trazo", punteada: true },
+
+    // velocidad inicial
+    { tipo: "linea", de: { x: INI.x - 4, y: INI.y - ALTO - 16 }, a: { x: INI.x + ANCHO + 6, y: INI.y - ALTO - 16 }, rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha({ x: INI.x + ANCHO + 6, y: INI.y - ALTO - 16 }, 0, 8), rol: "resultado", color: ROJO, relleno: true },
+
+    // distancia recorrida
+    { tipo: "linea", de: { x: INI.x, y: PISO + 26 }, a: { x: FIN.x + ANCHO, y: PISO + 26 }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x: INI.x, y: PISO + 26 }, 180, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: FIN.x + ANCHO, y: PISO + 26 }, 0, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: (INI.x + FIN.x + ANCHO) / 2, y: PISO + 42 }, texto: "d", rol: "dato", color: AMBAR, tam: 13, cursiva: true, negrita: true, ancla: "middle" },
+
+    // coeficiente de rozamiento, apuntando al piso
+    { tipo: "linea", de: { x: 392, y: PISO - 34 }, a: { x: 356, y: PISO + 4 }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x: 356, y: PISO + 4 }, -134, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: 394, y: PISO - 40 }, texto: "μ = 0,25", rol: "dato", color: AMBAR, tam: 12, negrita: true, ancla: "end" },
+  );
+
+  return { ancho: 420, alto: 214, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f11-carrito-acelerado-resorte": f11carrito,
+  "f12-disco-piso-aspero-mu": f12disco,
   "f19-tres-cargas-simetricas": f19cargas,
   "g5-cadena": g5cadena,
   "g6-pentagono-angulos-exteriores": g6pentagono,
