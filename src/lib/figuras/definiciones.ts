@@ -1201,7 +1201,162 @@ function f11moscas(): Figura {
   return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
 }
 
+// Esfera lanzada HORIZONTALMENTE a 10 m/s desde 10 m de altura. Dibujada
+// mirando el facsímil (examen 2-2023, 2da opción, F10): la velocidad inicial
+// sale horizontal hacia la derecha desde el borde de una plataforma, con la
+// vertical punteada marcando la altura y la flecha de g apuntando abajo.
+//
+// No se dibuja la parábola completa ni la altura que se pide: eso es lo que
+// el alumno tiene que hallar.
+function f10proyectil(): Figura {
+  const SUELO = 196;
+  const ALTURA = 130;                               // los 10 m
+  const SALIDA: Pt = { x: 148, y: SUELO - ALTURA };
+
+  const el: Elemento[] = [
+    // plataforma de lanzamiento
+    { tipo: "linea", de: { x: 74, y: SALIDA.y }, a: SALIDA, rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: SALIDA, r: 6, rol: "trazo" },
+
+    // velocidad inicial, horizontal
+    { tipo: "linea", de: { x: SALIDA.x + 8, y: SALIDA.y }, a: { x: SALIDA.x + 66, y: SALIDA.y }, rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha({ x: SALIDA.x + 66, y: SALIDA.y }, 0, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: SALIDA.x + 37, y: SALIDA.y - 9 }, texto: "10 m/s", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "middle" },
+
+    // vertical y cota de los 10 m
+    { tipo: "linea", de: SALIDA, a: { x: SALIDA.x, y: SUELO }, rol: "trazo", punteada: true },
+    { tipo: "linea", de: { x: SALIDA.x + 96, y: SALIDA.y }, a: { x: SALIDA.x + 96, y: SUELO }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x: SALIDA.x + 96, y: SALIDA.y }, 90, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: SALIDA.x + 96, y: SUELO }, -90, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: SALIDA.x + 104, y: SUELO - ALTURA / 2 + 4 }, texto: "10 m", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "start" },
+
+    // gravedad
+    { tipo: "linea", de: { x: SALIDA.x + 20, y: SALIDA.y + 22 }, a: { x: SALIDA.x + 20, y: SALIDA.y + 62 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: cabezaFlecha({ x: SALIDA.x + 20, y: SALIDA.y + 62 }, -90, 7), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: SALIDA.x + 26, y: SALIDA.y + 46 }, texto: "g", rol: "trazo", tam: 12.5, cursiva: true, negrita: true, ancla: "start" },
+
+    // suelo
+    { tipo: "linea", de: { x: 74, y: SUELO }, a: { x: 358, y: SUELO }, rol: "trazo", grosor: 2.4 },
+  ];
+  for (let i = 0; i < 15; i++) {
+    const x = 78 + i * 19;
+    el.push({ tipo: "linea", de: { x, y: SUELO }, a: { x: x - 8, y: SUELO + 9 }, rol: "trazo", grosor: 1 });
+  }
+
+  return { ancho: 420, alto: SUELO + 26, pasos: 0, elementos: el };
+}
+
+// Persona mirando un cuadro, con ángulo de visión de 45°. El facsímil lo
+// dibuja en perspectiva 3D, pero la geometría que importa es el corte
+// lateral: ojo a 1,2 m del piso, cuadro de 1,5 m de alto apoyado a 1 m del
+// piso, y la distancia d que se busca.
+//
+// Se dibuja con d = 1,657 m, que es la solución exacta de la ecuación del
+// ángulo (d² − 1,5d − 0,26 = 0). Así los 45° del dibujo son los 45° de
+// verdad y no una aproximación a ojo — y de paso confirma la opción 1,66.
+function g8cuadro(): Figura {
+  const M = 62;                                    // 1 metro
+  const PISO = 224;
+  const PARED = 336;
+  const D = 1.657;
+  const ojo: Pt = { x: PARED - D * M, y: PISO - 1.2 * M };
+  const abajo: Pt = { x: PARED, y: PISO - 1.0 * M };
+  const arriba: Pt = { x: PARED, y: PISO - 2.5 * M };
+
+  verificarAngulo("ángulo de visión = 45°", 45, anguloEn(ojo, arriba, abajo));
+  verificarDistancia("cuadro mide 1,5 m", 1.5 * M, distancia(arriba, abajo));
+
+  const arco45 = arcoAngulo(ojo, anguloHacia(ojo, abajo), anguloHacia(ojo, arriba), 34, 50);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 62, y: PISO }, a: { x: PARED, y: PISO }, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: { x: PARED, y: PISO }, a: { x: PARED, y: 40 }, rol: "trazo", grosor: 2 },
+
+    // el cuadro
+    { tipo: "linea", de: arriba, a: abajo, rol: "trazo", grosor: 4 },
+
+    // líneas de visión y el ángulo
+    { tipo: "linea", de: ojo, a: arriba, rol: "trazo" },
+    { tipo: "linea", de: ojo, a: abajo, rol: "trazo" },
+    { tipo: "arco", d: arco45.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco45.etiquetaEn, texto: "45°", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "middle" },
+
+    // la persona: el ojo y una vertical hasta el piso
+    { tipo: "punto", en: ojo, r: 5, rol: "trazo" },
+    { tipo: "linea", de: ojo, a: { x: ojo.x, y: PISO }, rol: "trazo", punteada: true },
+
+    // cotas
+    { tipo: "linea", de: { x: ojo.x - 30, y: ojo.y }, a: { x: ojo.x - 30, y: PISO }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x: ojo.x - 30, y: ojo.y }, 90, 6), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: ojo.x - 30, y: PISO }, -90, 6), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: ojo.x - 36, y: (ojo.y + PISO) / 2 + 4 }, texto: "1,2 m", rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "end" },
+
+    { tipo: "linea", de: { x: PARED + 26, y: arriba.y }, a: { x: PARED + 26, y: abajo.y }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x: PARED + 26, y: arriba.y }, 90, 6), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: PARED + 26, y: abajo.y }, -90, 6), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: PARED + 32, y: (arriba.y + abajo.y) / 2 + 4 }, texto: "1,5 m", rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "start" },
+
+    { tipo: "linea", de: { x: PARED + 26, y: abajo.y }, a: { x: PARED + 26, y: PISO }, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: { x: PARED + 32, y: (abajo.y + PISO) / 2 + 4 }, texto: "1 m", rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "start" },
+
+    { tipo: "linea", de: { x: ojo.x, y: PISO + 24 }, a: { x: PARED, y: PISO + 24 }, rol: "incognita", color: VIOLETA },
+    { tipo: "path", d: cabezaFlecha({ x: ojo.x, y: PISO + 24 }, 180, 6), rol: "incognita", color: VIOLETA, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: PARED, y: PISO + 24 }, 0, 6), rol: "incognita", color: VIOLETA, relleno: true },
+    { tipo: "texto", en: { x: (ojo.x + PARED) / 2, y: PISO + 40 }, texto: "d", rol: "incognita", color: VIOLETA, tam: 13, cursiva: true, negrita: true, ancla: "middle" },
+  ];
+  return { ancho: 420, alto: PISO + 50, pasos: 0, elementos: el };
+}
+
+// Esfera colgada de una cuerda, soltada desde la horizontal, que baja por una
+// trayectoria semicircular. Del facsímil (examen 1-2025, 1ra opción, F12): el
+// soporte va arriba a la izquierda, la cuerda sale HORIZONTAL hacia la
+// derecha con la esfera en la punta, y el arco punteado baja hasta el punto
+// más bajo, justo debajo del soporte.
+function f12esfera(): Figura {
+  const pivote: Pt = { x: 158, y: 62 };
+  const L = 136;
+  const esfera = avanzar(pivote, 0, L);              // cuerda horizontal
+  const masBajo = avanzar(pivote, -90, L);           // punto más bajo
+
+  verificarDistancia("cuerda horizontal = radio", L, distancia(pivote, esfera));
+  verificarDistancia("el punto más bajo está a la misma distancia", L, distancia(pivote, masBajo));
+  verificarAngulo("cuarto de vuelta", 90, anguloEn(pivote, esfera, masBajo));
+
+  const el: Elemento[] = [
+    // soporte del techo
+    { tipo: "linea", de: { x: pivote.x - 34, y: pivote.y }, a: { x: pivote.x + 16, y: pivote.y }, rol: "trazo", grosor: 2.4 },
+  ];
+  for (let i = 0; i < 5; i++) {
+    const pie = { x: pivote.x - 30 + i * 10, y: pivote.y };
+    el.push({ tipo: "linea", de: pie, a: avanzar(pie, 120, 9), rol: "trazo", grosor: 1 });
+  }
+
+  // arco punteado: de la esfera al punto más bajo, con segmentos alternados
+  for (let i = 0; i < 20; i += 2) {
+    const a = avanzar(pivote, -(i / 20) * 90, L);
+    const b = avanzar(pivote, -((i + 1) / 20) * 90, L);
+    el.push({ tipo: "linea", de: a, a: b, rol: "trazo" });
+  }
+
+  el.push(
+    { tipo: "linea", de: pivote, a: esfera, rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: esfera, r: 11, rol: "trazo" },
+    { tipo: "texto", en: { x: esfera.x + 20, y: esfera.y + 5 }, texto: "10 N", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "start" },
+    { tipo: "punto", en: masBajo, r: 3, rol: "trazo", color: VIOLETA },
+    { tipo: "texto", en: { x: masBajo.x, y: masBajo.y + 22 }, texto: "posición más baja", rol: "incognita", color: VIOLETA, tam: 11.5, negrita: true, ancla: "middle" },
+  );
+
+  return { ancho: 420, alto: 246, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f10-proyectil-energia": f10proyectil,
+  "f12-esfera-trayectoria-semicircular": f12esfera,
+  // El mismo problema aparece en los exámenes 1-2025 (1ra opción, G8) y
+  // 2-2025 (1ra opción, G5) con datos idénticos, así que comparten figura.
+  // Las opciones difieren solo en el redondeo (1,66 y 1,65 de d = 1,6569).
+  "g8-angulo-vision-cuadro": g8cuadro,
+  "g5-angulo-vision-cuadro": g8cuadro,
   "f11-carrito-acelerado-resorte": f11carrito,
   "f11-moscas-sombras": f11moscas,
   "g5-triangulo-cp-pb": g5trianguloCP,
