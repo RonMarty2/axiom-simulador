@@ -61,16 +61,20 @@ export default function CuentaPage() {
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 28 }}>Mi cuenta</h1>
 
-        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20, display: "flex", alignItems: "center", gap: 18 }}>
-          <div style={{ width: 80, height: 80, borderRadius: "50%", background: usuario.avatar_color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 28 }}>
+        {/* flexWrap + flexShrink:0 — en 375px el avatar se aplastaba a elipse
+            y "Mejorar plan" se partía en dos renglones. */}
+        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20, display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
+          <div style={{ width: 80, height: 80, flexShrink: 0, borderRadius: "50%", background: usuario.avatar_color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 28 }}>
             {usuario.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
           </div>
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: 1, minWidth: 150 }}>
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)" }}>{usuario.nombre}</h2>
-            <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>{usuario.email}</p>
-            <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Postulando a <strong style={{ color: "var(--accent)", textTransform: "capitalize" }}>{usuario.facultad_objetivo}</strong></p>
+            <p style={{ fontSize: 14, color: "var(--fg-muted)", overflowWrap: "anywhere" }}>{usuario.email}</p>
+            {/* El nombre de la facultad sale del catálogo, no del id: con
+                `capitalize` sobre el id se leía "Economicas", sin tilde. */}
+            <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Postulando a <strong style={{ color: "var(--accent)" }}>{facultades.find((f) => f.id === usuario.facultad_objetivo)?.nombre_corto ?? usuario.facultad_objetivo}</strong></p>
           </div>
-          <div style={{ textAlign: "right" }}>
+          <div style={{ textAlign: "right", flexShrink: 0 }}>
             <div style={{ display: "inline-block", padding: "6px 14px", background: usuario.plan === "premium" ? "#fbbf24" : usuario.plan === "pro" ? "#a78bfa" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "#1e1b4b", borderRadius: 999, fontSize: 13, fontWeight: 800, textTransform: "uppercase", marginBottom: 8 }}>{usuario.plan}</div>
             <div>
               <Link href="/precios" style={{ fontSize: 13, color: "var(--accent)", textDecoration: "none", fontWeight: 700 }}>

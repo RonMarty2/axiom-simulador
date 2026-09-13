@@ -237,6 +237,23 @@ export function iconoFacultad(id: string): NombreIcono {
   return ICONO_POR_FACULTAD[id] ?? "birrete";
 }
 
+// Nombre para mostrar, al lado del ícono. Varias pantallas imprimían el id
+// crudo con `text-transform: capitalize` y al alumno le quedaba "Economicas"
+// sin tilde. Va acá, junto al mapa de íconos, porque son el mismo par de
+// datos y así ninguna pantalla tiene que pedir /api/facultades solo para
+// escribir una palabra.
+const NOMBRE_POR_FACULTAD: Record<string, string> = {
+  economicas: "Económicas",
+  ingenieria: "Ingeniería",
+  medicina: "Medicina",
+  derecho: "Derecho",
+};
+
+export function nombreFacultad(id: string | null | undefined): string {
+  if (!id) return "";
+  return NOMBRE_POR_FACULTAD[id] ?? id;
+}
+
 export default function Icono({
   nombre,
   tamano = 20,

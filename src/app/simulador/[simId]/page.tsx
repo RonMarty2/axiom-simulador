@@ -313,7 +313,7 @@ export default function SimuladorActivoPage() {
                       >
                         {op.letra}
                       </span>
-                      <span className="flex-1 text-sm sm:text-base">
+                      <span className="min-w-0 flex-1 text-sm sm:text-base">
                         <MathText>{op.texto}</MathText>
                       </span>
                     </button>
@@ -424,7 +424,7 @@ export default function SimuladorActivoPage() {
                           <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-violet-600 text-xs font-bold text-white">
                             {numeroGlobal}
                           </span>
-                          <div className="flex-1 text-sm font-medium leading-relaxed text-neutral-900 sm:text-base">
+                          <div className="min-w-0 flex-1 text-sm font-medium leading-relaxed text-neutral-900 sm:text-base">
                             <MathText block>{p.enunciado}</MathText>
                           </div>
                           <button
@@ -474,7 +474,7 @@ export default function SimuladorActivoPage() {
                                 }`}>
                                   {op.letra}
                                 </span>
-                                <span className="flex-1">
+                                <span className="min-w-0 flex-1">
                                   <MathText>{op.texto}</MathText>
                                 </span>
                               </button>

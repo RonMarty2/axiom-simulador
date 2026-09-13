@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import AppHeader from "../components/AppHeader";
-import Icono, { iconoFacultad } from "../components/Icono";
+import Icono, { iconoFacultad, nombreFacultad } from "../components/Icono";
 
 interface UsuarioRanking {
   id: string;
@@ -20,7 +20,7 @@ interface UsuarioRanking {
 function Facultad({ id }: { id: string }) {
   return (
     <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}>
-      <Icono nombre={iconoFacultad(id)} tamano={13} /> {id}
+      <Icono nombre={iconoFacultad(id)} tamano={13} /> {nombreFacultad(id)}
     </span>
   );
 }

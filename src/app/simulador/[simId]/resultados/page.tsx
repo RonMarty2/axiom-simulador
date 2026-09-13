@@ -741,7 +741,7 @@ function PreguntaRevision({
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-current text-xs font-bold">
                 {op.letra}
               </span>
-              <span className="flex-1">
+              <span className="min-w-0 flex-1">
                 <MathText>{op.texto}</MathText>
               </span>
               {esCorrecta && <span className="text-emerald-600">✓</span>}

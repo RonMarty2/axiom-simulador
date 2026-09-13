@@ -191,7 +191,7 @@ function PreguntaCard({
               <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-current text-sm font-bold">
                 {op.letra}
               </span>
-              <span className="flex-1 text-sm">
+              <span className="min-w-0 flex-1 text-sm">
                 <MathText>{op.texto}</MathText>
               </span>
               {revelada && esCorrecta && <span className="text-emerald-600">✓</span>}
