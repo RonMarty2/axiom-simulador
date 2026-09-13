@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono from "../components/Icono";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -42,12 +43,12 @@ export default function ErroresPage() {
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
-        <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>🎯 Mis errores</h1>
+        <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="errores" tamano={27} /> Mis errores</span></h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>Las preguntas que has fallado, agrupadas para repasar.</p>
 
         {loading ? <Cargando /> : errores.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
-            <div style={{ fontSize: 60, marginBottom: 12 }}>🎉</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--green)" }}><Icono nombre="check" tamano={52} grosor={1.6} /></div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>¡No tienes errores aún!</h3>
             <p style={{ color: "var(--fg-muted)", fontSize: 14, marginBottom: 18 }}>Cuando falles una pregunta, la guardaremos aquí para que la repases.</p>
             <Link href="/practicar" style={{ display: "inline-block", padding: "12px 24px", background: "var(--accent)", color: "white", borderRadius: 10, textDecoration: "none", fontWeight: 700 }}>
@@ -68,7 +69,7 @@ export default function ErroresPage() {
 
             {/* CTA: practicar mis errores */}
             <div style={{ background: "linear-gradient(135deg, #ef4444, #dc2626)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ fontSize: 36 }}>🔥</div>
+              <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre="errores" tamano={32} /></div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 16, fontWeight: 800 }}>Practica solo tus errores</div>
                 <div style={{ fontSize: 13, opacity: 0.9 }}>Genera un simulacro con los temas donde has fallado.</div>

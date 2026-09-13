@@ -121,7 +121,7 @@ export default function ResueltosPage() {
                   padding: "8px 16px",
                   borderRadius: 999,
                   border: `1px solid ${vista === v ? (facultad?.color ?? "var(--accent)") : "var(--border)"}`,
-                  background: vista === v ? `${facultad?.color ?? "#6366F1"}15` : "transparent",
+                  background: vista === v ? `${facultad?.color ?? "var(--accent)"}15` : "transparent",
                   color: vista === v ? (facultad?.color ?? "var(--accent)") : "var(--fg-muted)",
                   fontWeight: 700,
                   fontSize: 13,
@@ -171,7 +171,7 @@ export default function ResueltosPage() {
                                 <span
                                   key={a.area}
                                   className="resueltos-chip"
-                                  style={{ background: `${facultad?.color ?? "#6366F1"}15`, color: facultad?.color ?? "var(--accent)" }}
+                                  style={{ background: `${facultad?.color ?? "var(--accent)"}15`, color: facultad?.color ?? "var(--accent)" }}
                                 >
                                   {ETIQUETAS_AREA[a.area] ?? a.area} · {a.cantidad}
                                 </span>
@@ -179,7 +179,7 @@ export default function ResueltosPage() {
                               {ex.areas_resumen.length > 4 && (
                                 <span
                                   className="resueltos-chip"
-                                  style={{ background: `${facultad?.color ?? "#6366F1"}15`, color: facultad?.color ?? "var(--accent)" }}
+                                  style={{ background: `${facultad?.color ?? "var(--accent)"}15`, color: facultad?.color ?? "var(--accent)" }}
                                 >
                                   +{ex.areas_resumen.length - 4}
                                 </span>
@@ -197,7 +197,7 @@ export default function ResueltosPage() {
           </div>
         )}
 
-        <div style={{ marginTop: 28, padding: 16, background: "rgba(99,102,241,0.06)", borderRadius: 12, border: "1px solid rgba(99,102,241,0.2)" }}>
+        <div style={{ marginTop: 28, padding: 16, background: "var(--accent-soft)", borderRadius: 12, border: "1px solid var(--border)" }}>
           <div style={{ fontSize: 13, color: "var(--fg-primary)", lineHeight: 1.5 }}>
             <strong><Icono nombre="idea" tamano={15} /> ¿Cómo usar esta sección?</strong> Entra a un examen, lee la pregunta e intenta resolverla mentalmente. Después click en <em>&ldquo;Ver respuesta&rdquo;</em> para ver la solución detallada paso a paso. Es la mejor forma de aprender de exámenes reales.
           </div>

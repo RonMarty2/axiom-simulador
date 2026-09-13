@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono, { iconoFacultad } from "../components/Icono";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -82,9 +83,9 @@ export default function CuentaPage() {
         {/* Facultad objetivo */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
-            <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}>🎓 Tu facultad objetivo</h3>
+            <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}><span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Icono nombre="birrete" tamano={16} /> Tu facultad objetivo</span></h3>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "#d97706", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
-              🔒 CAMBIO PAGADO
+              <Icono nombre="candado" tamano={11} /> CAMBIO PAGADO
             </span>
           </div>
           <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 16 }}>
@@ -108,14 +109,14 @@ export default function CuentaPage() {
                     cursor: activa ? "default" : "pointer",
                   }}
                 >
-                  <span style={{ fontSize: 26, filter: activa ? "none" : "grayscale(0.4)" }}>{f.emoji}</span>
+                  <span style={{ display: "flex", color: activa ? "var(--accent)" : "var(--fg-muted)" }}><Icono nombre={iconoFacultad(f.id)} tamano={24} /></span>
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ fontSize: 14, fontWeight: 700, color: activa ? "var(--fg-primary)" : "var(--fg-muted)" }}>{f.nombre_corto}</div>
                     {activa
                       ? <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera actual</div>
                       : cambioFacultadLibre
                         ? <div style={{ fontSize: 10, fontWeight: 700, color: "#059669", textTransform: "uppercase" }}>Cambiar</div>
-                        : <div style={{ fontSize: 10, fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}>🔒 Cambiar (pago)</div>}
+                        : <div style={{ fontSize: 10, fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}><Icono nombre="candado" tamano={11} /> Cambiar (pago)</div>}
                   </div>
                 </button>
               );
@@ -166,7 +167,7 @@ export default function CuentaPage() {
                     <td style={{ padding: "10px 14px" }}>{p.metodo.replace("_", " ")}</td>
                     <td style={{ padding: "10px 14px", textAlign: "right", fontWeight: 700 }}>Bs. {p.monto}</td>
                     <td style={{ padding: "10px 14px", textAlign: "center" }}>
-                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "#10b98115" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#d97706" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
+                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#d97706" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
                     </td>
                   </tr>
                 ))}

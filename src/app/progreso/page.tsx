@@ -108,7 +108,7 @@ export default function ProgresoDashboardPage(): ReactNode {
           <div style={{ fontSize: "12px", color: "#6b7280", marginBottom: "8px" }}>
             Mejor Nota
           </div>
-          <div style={{ fontSize: "36px", fontWeight: 700, color: "#10b981" }}>
+          <div style={{ fontSize: "36px", fontWeight: 700, color: "var(--green)" }}>
             {progreso.mejor_nota}
           </div>
         </div>

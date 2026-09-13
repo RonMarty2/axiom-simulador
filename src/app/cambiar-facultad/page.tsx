@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
+import Icono, { iconoFacultad } from "../components/Icono";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
@@ -50,7 +51,7 @@ function CambiarFacultadInner() {
       <div style={{ maxWidth: 880, margin: "0 auto", padding: "32px 24px" }}>
         <BackLink href="/cuenta" label="Volver a mi cuenta" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>
-          🔄 Cambiar de facultad
+          <Icono nombre="mezclar" tamano={26} /> Cambiar de facultad
         </h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>
           Cada facultad es un producto independiente con su propio temario, banco de preguntas y precio. El cambio se hace con un único pago.
@@ -59,7 +60,7 @@ function CambiarFacultadInner() {
         {/* Facultad actual */}
         {actual && (
           <div style={{ display: "flex", alignItems: "center", gap: 16, padding: 18, background: "var(--bg-card)", borderRadius: 12, border: "1px solid var(--border)", marginBottom: 22 }}>
-            <div style={{ fontSize: 36 }}>{actual.emoji}</div>
+            <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre={iconoFacultad(actual.id)} tamano={32} grosor={1.7} /></div>
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 11, fontWeight: 800, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 2 }}>Tu facultad actual</div>
               <div style={{ fontSize: 18, fontWeight: 800, color: "var(--fg-primary)" }}>{actual.nombre_corto}</div>
@@ -90,7 +91,7 @@ function CambiarFacultadInner() {
                 {selected && (
                   <div style={{ position: "absolute", top: 10, right: 10, width: 24, height: 24, borderRadius: "50%", background: f.color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, fontWeight: 800 }}>✓</div>
                 )}
-                <div style={{ fontSize: 36, marginBottom: 10 }}>{f.emoji}</div>
+                <div style={{ display: "flex", marginBottom: 10, color: "var(--accent)" }}><Icono nombre={iconoFacultad(f.id)} tamano={32} grosor={1.7} /></div>
                 <div style={{ fontSize: 18, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>{f.nombre_corto}</div>
                 <div style={{ fontSize: 12, color: "var(--fg-muted)", lineHeight: 1.4, minHeight: 48 }}>
                   {f.descripcion.slice(0, 90)}{f.descripcion.length > 90 ? "…" : ""}
@@ -113,9 +114,9 @@ function CambiarFacultadInner() {
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 14, flexWrap: "wrap" }}>
               <div style={{ fontSize: 14 }}>
-                <span style={{ color: "var(--fg-muted)" }}>{actual?.emoji} {actual?.nombre_corto}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 5, color: "var(--fg-muted)" }}>{actual && <Icono nombre={iconoFacultad(actual.id)} tamano={14} />} {actual?.nombre_corto}</span>
                 <span style={{ margin: "0 10px", color: "var(--fg-muted)" }}>→</span>
-                <span style={{ fontWeight: 800, color: destinoObj.color }}>{destinoObj.emoji} {destinoObj.nombre_corto}</span>
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 5, fontWeight: 800, color: "var(--accent)" }}><Icono nombre={iconoFacultad(destinoObj.id)} tamano={14} /> {destinoObj.nombre_corto}</span>
               </div>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
@@ -135,8 +136,8 @@ function CambiarFacultadInner() {
           </div>
         )}
 
-        <div style={{ padding: 16, background: "rgba(99,102,241,0.06)", borderRadius: 10, border: "1px solid rgba(99,102,241,0.2)", fontSize: 13, color: "var(--fg-primary)", lineHeight: 1.5 }}>
-          <strong>💡 Importante:</strong> Tu progreso (exámenes hechos, notas, ranking) de la facultad actual se mantiene siempre. Cuando se aprueba el pago, tu cuenta queda configurada para la nueva facultad y empiezas desde cero en esa carrera.
+        <div style={{ padding: 16, background: "var(--accent-soft)", borderRadius: 10, border: "1px solid var(--border)", fontSize: 13, color: "var(--fg-primary)", lineHeight: 1.5 }}>
+          <strong><Icono nombre="idea" tamano={15} /> Importante:</strong> Tu progreso (exámenes hechos, notas, ranking) de la facultad actual se mantiene siempre. Cuando se aprueba el pago, tu cuenta queda configurada para la nueva facultad y empiezas desde cero en esa carrera.
         </div>
       </div>
     </div>

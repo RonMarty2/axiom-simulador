@@ -86,7 +86,7 @@ function PagarInner() {
       <div style={{ minHeight: "100vh" }}>
         <AppHeader />
         <div style={{ maxWidth: 540, margin: "60px auto", padding: 24, textAlign: "center" }}>
-          <div style={{ background: "var(--bg-card)", borderRadius: 18, padding: 40, border: "2px solid #10b981" }}>
+          <div style={{ background: "var(--bg-card)", borderRadius: 18, padding: 40, border: "2px solid var(--green)" }}>
             <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--fg-muted)" }}><Icono nombre="reloj" tamano={52} grosor={1.4} /></div>
             <h1 className="font-crimson" style={{ fontSize: 28, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}>
               Pago registrado
@@ -156,7 +156,7 @@ function PagarInner() {
               <button key={m.id} onClick={() => setMetodo(m.id as Metodo)} style={{
                 display: "flex", alignItems: "center", gap: 14, padding: 14, textAlign: "left", cursor: "pointer",
                 border: metodo === m.id ? "2px solid var(--accent)" : "1px solid var(--border)",
-                background: metodo === m.id ? "rgba(99,102,241,0.06)" : "transparent",
+                background: metodo === m.id ? "var(--accent-soft)" : "transparent",
                 borderRadius: 12,
               }}>
                 <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre={m.icono} tamano={26} /></div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono, { iconoFacultad } from "../components/Icono";
 import { useRouter } from "next/navigation";
 import type { Facultad } from "@/lib/data-store";
 
@@ -46,8 +47,8 @@ export default function OnboardingPage() {
       <div style={{ width: "100%", maxWidth: 900 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: 40 }}>
-          <div style={{ fontSize: 48, marginBottom: 12 }}>🎓</div>
-          <div style={{ display: "inline-block", padding: "4px 12px", background: "rgba(99,102,241,0.1)", color: "var(--accent)", borderRadius: 999, fontSize: 12, fontWeight: 700, marginBottom: 14 }}>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre="birrete" tamano={44} grosor={1.6} /></div>
+          <div style={{ display: "inline-block", padding: "4px 12px", background: "var(--accent-soft)", color: "var(--accent)", borderRadius: 999, fontSize: 12, fontWeight: 700, marginBottom: 14 }}>
             PASO 1 DE 1
           </div>
           <h1 className="font-crimson" style={{ fontSize: 40, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10, lineHeight: 1.15 }}>
@@ -82,7 +83,7 @@ export default function OnboardingPage() {
                 {activa && (
                   <div style={{ position: "absolute", top: 10, right: 10, width: 26, height: 26, borderRadius: "50%", background: f.color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, fontWeight: 800 }}>✓</div>
                 )}
-                <div style={{ fontSize: 44, marginBottom: 12 }}>{f.emoji}</div>
+                <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre={iconoFacultad(f.id)} tamano={40} grosor={1.6} /></div>
                 <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>{f.nombre_corto}</h3>
                 <p style={{ fontSize: 12.5, color: "var(--fg-muted)", lineHeight: 1.45, marginBottom: 14, minHeight: 54 }}>
                   {f.descripcion}
@@ -98,7 +99,7 @@ export default function OnboardingPage() {
         </div>
 
         {error && (
-          <div style={{ padding: 12, background: "rgba(239,68,68,0.1)", color: "#b91c1c", borderRadius: 10, marginBottom: 16, textAlign: "center" }}>⚠️ {error}</div>
+          <div style={{ padding: 12, background: "rgba(239,68,68,0.1)", color: "#b91c1c", borderRadius: 10, marginBottom: 16, textAlign: "center" }}><Icono nombre="alerta" tamano={15} /> {error}</div>
         )}
 
         {/* CTA */}
@@ -115,7 +116,7 @@ export default function OnboardingPage() {
               fontSize: 17,
               fontWeight: 800,
               cursor: seleccionada && !guardando ? "pointer" : "not-allowed",
-              boxShadow: seleccionada ? "0 12px 28px rgba(99,102,241,0.30)" : "none",
+              boxShadow: seleccionada ? "0 12px 28px rgba(26,31,46,0.18)" : "none",
               transition: "all 0.15s",
             }}
           >

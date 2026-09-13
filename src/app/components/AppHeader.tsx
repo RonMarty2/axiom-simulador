@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Icono from "./Icono";
+import Icono, { iconoFacultad } from "./Icono";
 
 interface SuscripcionMini { facultad: string; vence: string }
 
@@ -178,7 +178,7 @@ export default function AppHeader() {
                 disabled={cambiando}
                 style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
               >
-                <span>{facInfo(usuario.facultad_objetivo)?.emoji ?? "🎓"}</span>
+                <Icono nombre={usuario.facultad_objetivo ? iconoFacultad(usuario.facultad_objetivo) : "birrete"} tamano={15} />
                 <span className="axiom-fac-selector-text">{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
@@ -192,9 +192,9 @@ export default function AppHeader() {
                       <button
                         key={s.facultad}
                         onClick={() => cambiarFacultad(s.facultad)}
-                        style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", textAlign: "left", padding: "8px 10px", background: activa ? "rgba(99,102,241,0.08)" : "transparent", border: "none", borderRadius: 6, cursor: "pointer" }}
+                        style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", textAlign: "left", padding: "8px 10px", background: activa ? "var(--accent-soft)" : "transparent", border: "none", borderRadius: 6, cursor: "pointer" }}
                       >
-                        <span style={{ fontSize: 18 }}>{fi?.emoji ?? "🎓"}</span>
+                        <Icono nombre={fi ? iconoFacultad(fi.id) : "birrete"} tamano={17} />
                         <span style={{ flex: 1 }}>
                           <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{fi?.nombre_corto ?? s.facultad}</span>
                           <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>Activa hasta {s.vence}</span>
@@ -204,7 +204,7 @@ export default function AppHeader() {
                     );
                   })}
                   <Link href="/precios" onClick={() => setSelOpen(false)} style={{ display: "block", padding: "8px 10px", marginTop: 4, borderTop: "1px solid var(--border)", fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
-                    ➕ Agregar otra facultad
+                    <Icono nombre="mas" tamano={13} /> Agregar otra facultad
                   </Link>
                 </div>
               )}
@@ -266,12 +266,12 @@ export default function AppHeader() {
                               alert(`✓ Ahora estás en plan ${d.plan.toUpperCase()} para esta facultad.`);
                               window.location.reload();
                             } else {
-                              alert("⚠️ " + (d.error ?? "Error"));
+                              alert(d.error ?? "Error");
                             }
                           }}
                           style={{ ...menuItem(), display: "block", width: "100%", textAlign: "left", background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", color: "#d97706", fontWeight: 700, cursor: "pointer", marginTop: 4 }}
                         >
-                          🧪 Cambiar plan (test)
+                          <Icono nombre="probeta" tamano={13} /> Cambiar plan (test)
                         </button>
                       )}
                     </>
@@ -282,7 +282,7 @@ export default function AppHeader() {
                   {cambioFacLibre && facultades.length > 0 && (
                     <div style={{ borderTop: "1px dashed var(--border)", marginTop: 4, paddingTop: 8 }}>
                       <div style={{ fontSize: 10, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
-                        🎓 Cambiar facultad (prueba)
+                        <Icono nombre="birrete" tamano={13} /> Cambiar facultad (prueba)
                       </div>
                       {facultades.map((f) => {
                         const activa = f.id === usuario?.facultad_objetivo;
@@ -311,7 +311,7 @@ export default function AppHeader() {
                               color: activa ? "var(--accent)" : "var(--fg-primary)",
                             }}
                           >
-                            <span>{f.emoji}</span>
+                            <Icono nombre={iconoFacultad(f.id)} tamano={15} />
                             <span style={{ flex: 1 }}>{f.nombre_corto}</span>
                             {activa && <span style={{ color: "var(--accent)" }}>✓</span>}
                           </button>
@@ -325,11 +325,11 @@ export default function AppHeader() {
                   {process.env.NODE_ENV !== "production" && (
                     <div style={{ borderTop: "1px dashed #f59e0b", marginTop: 4, paddingTop: 8 }}>
                       <div style={{ fontSize: 10, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
-                        🛠️ Cambiar de rol (dev)
+                        <Icono nombre="herramienta" tamano={13} /> Cambiar de rol (dev)
                       </div>
-                      <a href="/api/auth/dev-login?rol=estudiante" style={{ ...menuItem(), display: "block" }}>👤 Estudiante</a>
-                      <a href="/api/auth/dev-login?rol=tester" style={{ ...menuItem(), display: "block" }}>🎓 Ronald (tester)</a>
-                      <a href="/api/auth/dev-login?rol=admin" style={{ ...menuItem(), display: "block" }}>⚡ Super Admin</a>
+                      <a href="/api/auth/dev-login?rol=estudiante" style={{ ...menuItem(), display: "block" }}><Icono nombre="cuenta" tamano={13} /> Estudiante</a>
+                      <a href="/api/auth/dev-login?rol=tester" style={{ ...menuItem(), display: "block" }}><Icono nombre="birrete" tamano={13} /> Ronald (tester)</a>
+                      <a href="/api/auth/dev-login?rol=admin" style={{ ...menuItem(), display: "block" }}><Icono nombre="rayo" tamano={13} /> Super Admin</a>
                     </div>
                   )}
                   <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "#ef4444", cursor: "pointer" }}>
@@ -396,7 +396,7 @@ function menuMovilItem(active?: boolean | null): React.CSSProperties {
     fontSize: 16,
     fontWeight: active ? 700 : 600,
     borderRadius: 10,
-    background: active ? "rgba(99,102,241,0.10)" : "transparent",
+    background: active ? "var(--accent-soft)" : "transparent",
   };
 }
 
@@ -408,7 +408,7 @@ function navLink(active?: boolean | null): React.CSSProperties {
     fontSize: 14,
     fontWeight: active ? 700 : 500,
     borderRadius: 6,
-    background: active ? "rgba(99,102,241,0.08)" : "transparent",
+    background: active ? "var(--accent-soft)" : "transparent",
   };
 }
 

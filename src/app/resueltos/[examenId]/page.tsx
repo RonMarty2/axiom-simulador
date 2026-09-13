@@ -96,7 +96,7 @@ export default function ExamenResueltoPage() {
     ? examen.preguntas
     : examen.preguntas.filter((p) => p.area === areaActiva);
 
-  const color = facultad?.color ?? "#6366F1";
+  const color = facultad?.color ?? "var(--accent)";
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -235,7 +235,7 @@ function PreguntaResuelta({
             </span>
             <span style={{
               fontSize: 10, padding: "2px 8px", borderRadius: 999, fontWeight: 700, textTransform: "uppercase",
-              background: pregunta.dificultad === "facil" ? "#10b98115" : pregunta.dificultad === "medio" ? "#f59e0b15" : "#ef444415",
+              background: pregunta.dificultad === "facil" ? "var(--green)15" : pregunta.dificultad === "medio" ? "#f59e0b15" : "#ef444415",
               color: pregunta.dificultad === "facil" ? "#059669" : pregunta.dificultad === "medio" ? "#d97706" : "#dc2626",
             }}>
               {pregunta.dificultad === "facil" ? "Fácil" : pregunta.dificultad === "medio" ? "Medio" : "Difícil"}
@@ -268,7 +268,7 @@ function PreguntaResuelta({
               style={{
                 display: "flex", alignItems: "flex-start", gap: 10,
                 padding: "10px 12px", borderRadius: 10,
-                border: muestraColor ? "2px solid #10b981" : "1px solid var(--border)",
+                border: muestraColor ? "2px solid var(--green)" : "1px solid var(--border)",
                 background: muestraColor ? "rgba(16,185,129,0.08)" : "var(--bg-card)",
               }}
             >
@@ -277,7 +277,7 @@ function PreguntaResuelta({
                 width: 26, height: 26, borderRadius: "50%",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontSize: 12, fontWeight: 800,
-                background: muestraColor ? "#10b981" : "var(--bg-subtle)",
+                background: muestraColor ? "var(--green)" : "var(--bg-subtle)",
                 color: muestraColor ? "white" : "var(--fg-primary)",
                 border: muestraColor ? "none" : "1px solid var(--border)",
               }}>
@@ -287,7 +287,7 @@ function PreguntaResuelta({
                 <MathText>{op.texto}</MathText>
               </span>
               {muestraColor && (
-                <span style={{ fontSize: 11, padding: "3px 8px", background: "#10b981", color: "white", borderRadius: 999, fontWeight: 800, whiteSpace: "nowrap" }}>
+                <span style={{ fontSize: 11, padding: "3px 8px", background: "var(--green)", color: "white", borderRadius: 999, fontWeight: 800, whiteSpace: "nowrap" }}>
                   ✓ CORRECTA
                 </span>
               )}
@@ -310,7 +310,7 @@ function PreguntaResuelta({
           <Icono nombre="ojo" tamano={15} /> Ver respuesta y explicación paso a paso
         </button>
       ) : (
-        <div style={{ background: "rgba(99,102,241,0.06)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: 10, padding: 14 }}>
+        <div style={{ background: "var(--accent-soft)", border: "1px solid var(--border)", borderRadius: 10, padding: 14 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, gap: 8 }}>
             <div style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
               <Icono nombre="idea" tamano={15} /> Solución paso a paso
@@ -330,7 +330,7 @@ function PreguntaResuelta({
               {pregunta.figura && <FiguraExamen id={pregunta.figura} />}
               <span style={{ color: "var(--fg-muted)", fontStyle: "italic" }}>
                 Esta pregunta aún no tiene explicación detallada. La respuesta correcta es{" "}
-                <strong style={{ color: "#10b981" }}>{pregunta.respuesta_correcta}</strong>.
+                <strong style={{ color: "var(--green)" }}>{pregunta.respuesta_correcta}</strong>.
               </span>
             </div>
           )}

@@ -15,7 +15,8 @@ export type NombreIcono =
   | "mas" | "probeta" | "herramienta"
   | "mezclar" | "etiqueta" | "info" | "reloj" | "idea"
   | "medalla" | "check"
-  | "calendario" | "ojo" | "ojoTachado" | "celular" | "qr" | "banco" | "tarjeta";
+  | "calendario" | "ojo" | "ojoTachado" | "celular" | "qr" | "banco" | "tarjeta"
+  | "personas" | "play" | "racha";
 
 const TRAZOS: Record<NombreIcono, React.ReactNode> = {
   inicio: <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />,
@@ -205,6 +206,19 @@ const TRAZOS: Record<NombreIcono, React.ReactNode> = {
     <>
       <rect x="2.4" y="5" width="19.2" height="14" rx="2.2" />
       <path d="M2.4 10h19.2M6 15h3" />
+    </>
+  ),
+  personas: (
+    <>
+      <circle cx="9" cy="8" r="3.6" />
+      <path d="M2.6 20.4v-.8a5.4 5.4 0 0 1 5.4-5.4h2a5.4 5.4 0 0 1 5.4 5.4v.8" />
+      <path d="M16.4 4.8a3.6 3.6 0 0 1 0 6.7M18 14.4a5.4 5.4 0 0 1 3.4 5v1" />
+    </>
+  ),
+  play: <path d="M7.4 4.8v14.4l11.2-7.2z" />,
+  racha: (
+    <>
+      <path d="M12 2.6s5.6 4.2 5.6 9.6a5.6 5.6 0 1 1-11.2 0c0-2 .8-3.8 1.8-5.2.6 1.2 1.5 2 2.4 2.3 0-2.6.5-5 1.4-6.7z" />
     </>
   ),
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono from "../components/Icono";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -36,14 +37,14 @@ export default function HistorialPage() {
       <AppHeader />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
         <div style={{ marginBottom: 24 }}>
-          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>📚 Mis exámenes</h1>
+          <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="aprende" tamano={27} /> Mis exámenes</span></h1>
           <p style={{ color: "var(--fg-muted)" }}>Todos los simulacros que has hecho. Toca cualquiera para volver a ver la resolución.</p>
           <p style={{ color: "var(--fg-muted)", fontSize: 13, marginTop: 4 }}>{historial.length} exámenes completados · Promedio este mes: {promedioMes}/100</p>
         </div>
 
         {historial.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
-            <div style={{ fontSize: 60, marginBottom: 12 }}>📚</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--fg-muted)" }}><Icono nombre="aprende" tamano={52} grosor={1.4} /></div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>Aún no hay exámenes</h3>
             <p style={{ color: "var(--fg-muted)", fontSize: 14, marginBottom: 18 }}>Haz tu primer simulacro para ver tu progreso.</p>
             <Link href="/practicar" style={{ display: "inline-block", padding: "12px 24px", background: "var(--accent)", color: "white", borderRadius: 10, textDecoration: "none", fontWeight: 700 }}>

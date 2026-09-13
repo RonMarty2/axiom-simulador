@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Icono from "./Icono";
 
 interface RankingUser {
   id: string;
@@ -40,7 +41,8 @@ export default function RankingCardNew({
   delay?: number;
 }) {
   const colors = rankColors[position] || rankColors[3];
-  const medals = ["🥇", "🥈", "🥉"];
+  // Oro/plata/bronce: en un ranking el color ES el dato, no decoración.
+const COLOR_MEDALLA = ["#d99c1a", "#8d8d8d", "#b3702c"];
 
   const getInitials = (name: string) =>
     name
@@ -70,7 +72,9 @@ export default function RankingCardNew({
       <div className="mb-6 flex items-start justify-between gap-4">
         {/* Medal + Position */}
         <div className="flex flex-col items-center">
-          <span className="text-4xl mb-2">{medals[position - 1]}</span>
+          <span className="mb-2" style={{ color: COLOR_MEDALLA[position - 1] }}>
+            <Icono nombre="medalla" tamano={34} grosor={1.7} />
+          </span>
           <span className={`text-sm font-bold ${colors.accent}`}>#{position}</span>
         </div>
 
@@ -84,7 +88,7 @@ export default function RankingCardNew({
             <div className="flex-1">
               <p className="font-bold text-neutral-900 text-sm">{user.nombre}</p>
               {user.racha && user.racha > 1 && (
-                <p className="text-xs text-orange-600 font-semibold">🔥 Racha x{user.racha}</p>
+                <p className="flex items-center gap-1 text-xs font-semibold" style={{ color: "var(--accent)" }}><Icono nombre="racha" tamano={12} /> Racha x{user.racha}</p>
               )}
             </div>
           </div>

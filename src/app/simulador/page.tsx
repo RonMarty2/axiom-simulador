@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Icono from "../components/Icono";
 import BackLink from "../components/BackLink";
 
 type Modo = "ia_generado" | "examen_real";
@@ -101,7 +102,7 @@ export default function SimuladorCreatePage() {
                     : "1px solid var(--border)",
                 background:
                   modo === "ia_generado"
-                    ? "rgba(99,102,241,0.08)"
+                    ? "var(--accent-soft)"
                     : "var(--bg-card)",
                 cursor: "pointer",
                 transition: "all 0.15s ease",
@@ -115,7 +116,7 @@ export default function SimuladorCreatePage() {
                   marginBottom: 6,
                 }}
               >
-                <span style={{ fontSize: 22 }}>🤖</span>
+                <Icono nombre="chispa" tamano={21} />
                 <strong style={{ fontSize: 16, color: "var(--fg-primary)" }}>
                   Examen generado por IA (recomendado)
                 </strong>
@@ -152,7 +153,7 @@ export default function SimuladorCreatePage() {
                     : "1px solid var(--border)",
                 background:
                   modo === "examen_real"
-                    ? "rgba(99,102,241,0.08)"
+                    ? "var(--accent-soft)"
                     : "var(--bg-card)",
                 cursor: "pointer",
                 transition: "all 0.15s ease",
@@ -166,7 +167,7 @@ export default function SimuladorCreatePage() {
                   marginBottom: 6,
                 }}
               >
-                <span style={{ fontSize: 22 }}>📄</span>
+                <Icono nombre="documento" tamano={21} />
                 <strong style={{ fontSize: 16, color: "var(--fg-primary)" }}>
                   Examen real 2024
                 </strong>
@@ -287,7 +288,7 @@ export default function SimuladorCreatePage() {
               marginBottom: 16,
             }}
           >
-            ⚠️ {error}
+            <Icono nombre="alerta" tamano={15} /> {error}
           </div>
         )}
 
@@ -301,7 +302,7 @@ export default function SimuladorCreatePage() {
             fontSize: 16,
             background: loading
               ? "var(--bg-subtle)"
-              : "linear-gradient(135deg, var(--accent), #4f46e5)",
+              : "linear-gradient(135deg, var(--accent), var(--accent-hover))",
             color: "white",
             border: "none",
             borderRadius: 12,
@@ -309,7 +310,7 @@ export default function SimuladorCreatePage() {
             fontWeight: 700,
             boxShadow: loading
               ? "none"
-              : "0 12px 28px rgba(99, 102, 241, 0.30)",
+              : "0 12px 28px rgba(26,31,46,0.18)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -333,7 +334,7 @@ export default function SimuladorCreatePage() {
                 : "Preparando examen..."}
             </>
           ) : modo === "ia_generado" ? (
-            "🚀 Generar mi examen ahora"
+            "Generar mi examen ahora"
           ) : (
             "Comenzar examen real 2024"
           )}

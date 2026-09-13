@@ -123,7 +123,7 @@ function PreciosInner() {
               <ul style={{ listStyle: "none", padding: 0, margin: 0, flex: 1, marginBottom: 20 }}>
                 {p.features.map((f) => (
                   <li key={f} style={{ display: "flex", alignItems: "flex-start", gap: 8, padding: "6px 0", fontSize: 14, color: "var(--fg-primary)" }}>
-                    <span style={{ color: "#10b981", fontWeight: 800 }}>✓</span>
+                    <span style={{ color: "var(--green)", fontWeight: 800 }}>✓</span>
                     <span>{f}</span>
                   </li>
                 ))}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Icono from "../../components/Icono";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
@@ -493,7 +494,7 @@ export default function SimuladorActivoPage() {
           {avisoFaltan !== null && avisoFaltan > 0 && (
             <div className="mt-6 rounded-xl border-2 border-amber-400 bg-amber-50 p-4 text-center">
               <div className="text-base font-bold text-amber-900">
-                ⚠️ Te {avisoFaltan === 1 ? "falta" : "faltan"} {avisoFaltan} pregunta{avisoFaltan === 1 ? "" : "s"} sin responder en esta hoja
+                <Icono nombre="alerta" tamano={15} /> Te {avisoFaltan === 1 ? "falta" : "faltan"} {avisoFaltan} pregunta{avisoFaltan === 1 ? "" : "s"} sin responder en esta hoja
               </div>
               <div className="mt-1 text-sm text-amber-800">
                 Te llevamos a la primera. Respóndela antes de pasar a la siguiente hoja.
@@ -543,7 +544,7 @@ export default function SimuladorActivoPage() {
             )}
           </div>
           <p className="mt-2 text-right text-xs text-neutral-500">
-            ⚠️ Pasar de hoja es irreversible. Asegúrate de responder todas las preguntas antes.
+            <Icono nombre="alerta" tamano={15} /> Pasar de hoja es irreversible. Asegúrate de responder todas las preguntas antes.
           </p>
         </main>
         )}
@@ -565,7 +566,7 @@ export default function SimuladorActivoPage() {
               className="max-w-md rounded-2xl bg-white p-6 shadow-2xl"
             >
               <div className="mb-3 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-xl">⚠️</div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100"><Icono nombre="alerta" tamano={20} /></div>
                 <h3 className="text-xl font-bold text-neutral-900">
                   ¿Pasar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area}?
                 </h3>
@@ -655,7 +656,7 @@ function Cronometro({ segundos }: { segundos: number | null }) {
           : "border-neutral-300 bg-white text-neutral-900"
       }`}
     >
-      <span>⏱</span>
+      <Icono nombre="reloj" tamano={15} />
       <span>
         {String(m).padStart(2, "0")}:{String(s).padStart(2, "0")}
       </span>

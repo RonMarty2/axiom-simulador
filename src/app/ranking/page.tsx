@@ -96,7 +96,7 @@ export default function RankingPage() {
                   <Facultad id={u.facultad_objetivo} /> · {u.examenes_completados} exámenes
                 </div>
               </div>
-              <div style={{ fontSize: 22, fontWeight: 800, color: orden === "mejor" ? "#10b981" : "#6366f1" }}>
+              <div style={{ fontSize: 22, fontWeight: 800, color: orden === "mejor" ? "var(--green)" : "var(--accent)" }}>
                 {orden === "mejor" ? u.mejor_nota : u.nota_promedio}
               </div>
             </div>

@@ -30,7 +30,7 @@ function etiquetaSeccion(s: string): string {
 }
 
 function colorPorNota(n: number): string {
-  if (n >= 70) return "#10b981";
+  if (n >= 70) return "var(--green)";
   if (n >= 50) return "#f59e0b";
   return "#ef4444";
 }
@@ -160,13 +160,13 @@ export default function DebilidadesPage() {
 
             {/* CTA al plan IA Premium */}
             <section>
-              <div style={{ background: "linear-gradient(135deg, #6366f1, #8b5cf6)", borderRadius: 14, padding: 20, color: "white", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+              <div style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))", borderRadius: 14, padding: 20, color: "white", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
                 <div style={{ display: "flex", color: "var(--fg-muted)" }}><Icono nombre="documento" tamano={32} /></div>
                 <div style={{ flex: 1, minWidth: 220 }}>
                   <div style={{ fontSize: 16, fontWeight: 800 }}>Plan de estudio personalizado con IA</div>
                   <div style={{ fontSize: 13, opacity: 0.9 }}>Después de un simulacro, la IA te arma un plan de 3 días enfocado en lo que más te costó.</div>
                 </div>
-                <Link href="/practicar" style={{ padding: "10px 18px", background: "white", color: "#6366f1", borderRadius: 10, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>
+                <Link href="/practicar" style={{ padding: "10px 18px", background: "white", color: "var(--accent)", borderRadius: 10, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>
                   Hacer un simulacro →
                 </Link>
               </div>

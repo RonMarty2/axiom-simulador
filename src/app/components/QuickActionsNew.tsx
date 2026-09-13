@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Icono from "./Icono";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import React from "react";
@@ -94,7 +95,7 @@ function ActionCardNew({
 const actions = [
   {
     href: "/examenes",
-    icon: "📚",
+    icon: <Icono nombre="aprende" tamano={26} />,
     title: "Base de Exámenes",
     description: "Accede a exámenes resueltos de años anteriores y aprende de las mejores estrategias",
     colorClass: "bg-white/82 backdrop-blur-xl",
@@ -102,7 +103,7 @@ const actions = [
   },
   {
     href: "/practicar",
-    icon: "▶️",
+    icon: <Icono nombre="play" tamano={26} />,
     title: "Practicar ahora",
     description: "Configura un simulacro: examen real, mixto, por tema o predictivo. Cronómetro y nota al final.",
     colorClass: "bg-white/82 backdrop-blur-xl",
@@ -110,7 +111,7 @@ const actions = [
   },
   {
     href: "/progreso",
-    icon: "📊",
+    icon: <Icono nombre="grafico" tamano={26} />,
     title: "Mi Progreso",
     description: "Visualiza tu evolución en el tiempo con gráficos y estadísticas detalladas",
     colorClass: "bg-white/82 backdrop-blur-xl",
@@ -118,7 +119,7 @@ const actions = [
   },
   {
     href: "/progreso#plan",
-    icon: "🎯",
+    icon: <Icono nombre="errores" tamano={26} />,
     title: "Plan Personalizado",
     description: "Descubre tu ruta optimizada de preparación basada en IA y tu desempeño",
     colorClass: "bg-white/82 backdrop-blur-xl",

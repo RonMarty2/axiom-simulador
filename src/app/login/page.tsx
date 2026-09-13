@@ -74,7 +74,7 @@ function LoginContent() {
               <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("#3b82f6")}>
                 <Icono nombre="cuenta" tamano={15} /> Entrar como Estudiante (plan gratis)
               </a>
-              <a href="/api/auth/dev-login?rol=tester" style={devBtn("#10b981")}>
+              <a href="/api/auth/dev-login?rol=tester" style={devBtn("var(--green)")}>
                 <Icono nombre="birrete" tamano={15} /> Entrar como Ronald (tester + cambio libre)
               </a>
               <a href="/api/auth/dev-login?rol=admin" style={devBtn("#a855f7")}>

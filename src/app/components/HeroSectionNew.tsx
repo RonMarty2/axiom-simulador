@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Icono from "./Icono";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
@@ -102,10 +103,10 @@ export default function HeroSectionNew({ stats }: HeroSectionNewProps) {
           className="mx-auto mb-8 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4"
         >
           {[
-            { label: "Estudiantes", value: data.estudiantes, icon: "👥" },
-            { label: "Promedio", value: data.promedio, icon: "📊" },
-            { label: "Máximo", value: data.maximo, icon: "🏆" },
-            { label: "Aprobados", value: data.aprobados, icon: "✅" },
+            { label: "Estudiantes", value: data.estudiantes, icon: "personas" as const },
+            { label: "Promedio", value: data.promedio, icon: "grafico" as const },
+            { label: "Máximo", value: data.maximo, icon: "ranking" as const },
+            { label: "Aprobados", value: data.aprobados, icon: "check" as const },
           ].map((stat, idx) => (
             <motion.div
               key={idx}
@@ -114,7 +115,7 @@ export default function HeroSectionNew({ stats }: HeroSectionNewProps) {
               transition={{ duration: 0.6, delay: 0.35 + idx * 0.1 }}
               className="flex min-h-28 flex-col items-center justify-center rounded-2xl border border-neutral-200/80 bg-white/78 p-4 shadow-[0_14px_36px_rgba(24,24,70,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <span className="text-3xl mb-2">{stat.icon}</span>
+              <span className="mb-2"><Icono nombre={stat.icon} tamano={26} /></span>
               <span className="text-3xl sm:text-4xl font-bold text-violet-600">
                 <AnimatedCounter to={stat.value} duration={2} />
               </span>

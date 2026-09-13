@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Icono from "./Icono";
 import MathText from "./MathText";
 import FiguraExamen, { FIGURAS_POR_ETAPAS } from "./FiguraExamen";
 
@@ -189,7 +190,7 @@ export default function SolucionPasos({ explicacion, figura, colorFac }: Props) 
                 opacity: activo === 0 ? 0.4 : 1,
               }}
             >
-              ◀ Anterior
+              <Icono nombre="chevron" tamano={13} /> Anterior
             </button>
             {activo < total ? (
               <button
@@ -208,7 +209,7 @@ export default function SolucionPasos({ explicacion, figura, colorFac }: Props) 
                   cursor: "pointer",
                 }}
               >
-                {activo === 0 ? "Empezar solución ▶" : `Siguiente paso ▶`}
+                {activo === 0 ? <>Empezar solución <Icono nombre="chevron" tamano={13} /></> : <>Siguiente paso <Icono nombre="chevron" tamano={13} /></>}
               </button>
             ) : (
               <button

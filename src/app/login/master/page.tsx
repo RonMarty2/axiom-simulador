@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Icono from "../../components/Icono";
 
 // Acceso directo para Ronald — no está linkeado desde ningún lado de la app
 // a propósito (no es el login público). Ver /api/auth/master-login.
@@ -38,7 +39,9 @@ export default function MasterLoginPage() {
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
       <form onSubmit={entrar} style={{ width: "100%", maxWidth: 360, background: "var(--bg-card)", borderRadius: 20, padding: 32, boxShadow: "var(--shadow-lg)" }}>
         <div style={{ textAlign: "center", marginBottom: 20 }}>
-          <div style={{ fontSize: 36, marginBottom: 8 }}>⚡</div>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 8, color: "var(--accent)" }}>
+            <Icono nombre="rayo" tamano={34} grosor={1.7} />
+          </div>
           <h1 className="font-crimson" style={{ fontSize: 22, fontWeight: 800, color: "var(--fg-primary)" }}>
             Acceso directo
           </h1>
