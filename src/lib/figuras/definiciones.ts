@@ -901,10 +901,60 @@ function g6pentagono(): Figura {
   return { ancho: 420, alto: 268, pasos: 0, elementos: el };
 }
 
+// Cuadrilátero ABCD con ángulo recto en B, tres lados iguales (AB = BC = CD)
+// y ∠BCD = 150°. Todo queda fijado por esos datos: A arriba de B, C a la
+// derecha, y CD sale de C girando 30° respecto de la prolongación de BC
+// (suplemento de los 150°). El α que se pide está en A.
+function g7cuadrilatero(): Figura {
+  const L = 112;                                   // el lado x
+  const B: Pt = { x: 96, y: 196 };
+  const A = avanzar(B, 90, L);                     // arriba
+  const C = avanzar(B, 0, L);                      // derecha
+  const D = avanzar(C, 30, L);
+
+  verificarAngulo("recto en B", 90, anguloEn(B, A, C));
+  verificarAngulo("∠BCD = 150°", 150, anguloEn(C, B, D));
+  verificarDistancia("AB = BC", distancia(A, B), distancia(B, C));
+  verificarDistancia("BC = CD", distancia(B, C), distancia(C, D));
+  verificarAngulo("α en A = 75°", 75, anguloEn(A, B, D));
+
+  const arco150 = arcoAngulo(C, anguloHacia(C, B), anguloHacia(C, D), 26, 40);
+  const arcoAlfa = arcoAngulo(A, anguloHacia(A, B), anguloHacia(A, D), 30, 46);
+
+  const medio = (p: Pt, q: Pt) => ({ x: (p.x + q.x) / 2, y: (p.y + q.y) / 2 });
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C, D], rol: "trazo" },
+
+    { tipo: "path", d: cuadradoRecto(B, anguloHacia(B, A), anguloHacia(B, C), 11), rol: "dato", color: AMBAR },
+    { tipo: "arco", d: arco150.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco150.etiquetaEn, texto: "150°", rol: "dato", color: AMBAR, tam: 12, negrita: true, ancla: "middle" },
+    { tipo: "arco", d: arcoAlfa.d, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: arcoAlfa.etiquetaEn, texto: "α", rol: "incognita", color: VIOLETA, tam: 14, negrita: true, ancla: "middle" },
+
+    // los tres lados iguales
+    { tipo: "texto", en: { x: medio(A, B).x - 12, y: medio(A, B).y + 4 }, texto: "x", rol: "dato", color: AMBAR, tam: 12.5, cursiva: true, ancla: "middle" },
+    { tipo: "texto", en: { x: medio(B, C).x, y: medio(B, C).y + 17 }, texto: "x", rol: "dato", color: AMBAR, tam: 12.5, cursiva: true, ancla: "middle" },
+    { tipo: "texto", en: avanzar(medio(C, D), -60, 14), texto: "x", rol: "dato", color: AMBAR, tam: 12.5, cursiva: true, ancla: "middle" },
+
+    { tipo: "punto", en: A, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: B, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: C, r: 3.2, rol: "trazo" },
+    { tipo: "punto", en: D, r: 3.2, rol: "trazo" },
+
+    { tipo: "texto", en: { x: A.x - 6, y: A.y - 11 }, texto: "A", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: B.x - 12, y: B.y + 14 }, texto: "B", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: C.x + 4, y: C.y + 18 }, texto: "C", rol: "trazo", tam: 13, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: { x: D.x + 13, y: D.y - 4 }, texto: "D", rol: "trazo", tam: 13, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 420, alto: 250, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f19-tres-cargas-simetricas": f19cargas,
   "g5-cadena": g5cadena,
   "g6-pentagono-angulos-exteriores": g6pentagono,
+  "g7-cuadrilatero": g7cuadrilatero,
   "g5-paralelas": g5,
   "g6-isosceles": g6,
   "g7-cuadrado": g7,
