@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono from "../components/Icono";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -102,7 +103,7 @@ export default function ResueltosPage() {
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 24px" }}>
         <div style={{ marginBottom: 28 }}>
           <h1 className="font-crimson" style={{ fontSize: 36, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>
-            📚 Exámenes resueltos
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Icono nombre="aprende" tamano={26} /> Exámenes resueltos</span>
           </h1>
           <p style={{ color: "var(--fg-muted)", fontSize: 16 }}>
             Examen oficial completo + solución paso a paso de cada pregunta.{" "}
@@ -127,7 +128,7 @@ export default function ResueltosPage() {
                   cursor: "pointer",
                 }}
               >
-                {v === "admision" ? "🎓 Exámenes de Admisión" : "📝 Parciales de Curso Propedéutico"}
+                {v === "admision" ? <><Icono nombre="birrete" tamano={14} /> Exámenes de Admisión</> : <><Icono nombre="documento" tamano={14} /> Parciales de Curso Propedéutico</>}
               </button>
             ))}
           </div>
@@ -135,7 +136,7 @@ export default function ResueltosPage() {
 
         {examenesVista.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
-            <div style={{ fontSize: 60, marginBottom: 12 }}>📭</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--fg-muted)" }}><Icono nombre="documento" tamano={52} grosor={1.4} /></div>
             <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>Aún no hay exámenes resueltos</h3>
             <p style={{ color: "var(--fg-muted)", fontSize: 14 }}>
               Pronto vamos a publicar los exámenes pasados de {facultad?.nombre_corto ?? "tu facultad"} con su solución completa.
@@ -198,7 +199,7 @@ export default function ResueltosPage() {
 
         <div style={{ marginTop: 28, padding: 16, background: "rgba(99,102,241,0.06)", borderRadius: 12, border: "1px solid rgba(99,102,241,0.2)" }}>
           <div style={{ fontSize: 13, color: "var(--fg-primary)", lineHeight: 1.5 }}>
-            <strong>💡 ¿Cómo usar esta sección?</strong> Entra a un examen, lee la pregunta e intenta resolverla mentalmente. Después click en <em>&ldquo;Ver respuesta&rdquo;</em> para ver la solución detallada paso a paso. Es la mejor forma de aprender de exámenes reales.
+            <strong><Icono nombre="idea" tamano={15} /> ¿Cómo usar esta sección?</strong> Entra a un examen, lee la pregunta e intenta resolverla mentalmente. Después click en <em>&ldquo;Ver respuesta&rdquo;</em> para ver la solución detallada paso a paso. Es la mejor forma de aprender de exámenes reales.
           </div>
         </div>
       </div>

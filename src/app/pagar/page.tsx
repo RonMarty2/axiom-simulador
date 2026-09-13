@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, Suspense } from "react";
+import Icono, { iconoFacultad } from "../components/Icono";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -86,7 +87,7 @@ function PagarInner() {
         <AppHeader />
         <div style={{ maxWidth: 540, margin: "60px auto", padding: 24, textAlign: "center" }}>
           <div style={{ background: "var(--bg-card)", borderRadius: 18, padding: 40, border: "2px solid #10b981" }}>
-            <div style={{ fontSize: 60, marginBottom: 12 }}>⏳</div>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--fg-muted)" }}><Icono nombre="reloj" tamano={52} grosor={1.4} /></div>
             <h1 className="font-crimson" style={{ fontSize: 28, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}>
               Pago registrado
             </h1>
@@ -134,7 +135,7 @@ function PagarInner() {
             color: "white", borderRadius: 14,
             display: "flex", alignItems: "center", gap: 14,
           }}>
-            <div style={{ fontSize: 40 }}>{destinoFac.emoji}</div>
+            <div style={{ display: "flex" }}><Icono nombre={iconoFacultad(destinoFac.id)} tamano={34} grosor={1.7} /></div>
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Te cambias a</div>
               <div style={{ fontSize: 22, fontWeight: 800 }}>{destinoFac.nombre_corto}</div>
@@ -148,9 +149,9 @@ function PagarInner() {
           <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>1. Elige el método de pago</h3>
           <div style={{ display: "grid", gap: 10 }}>
             {[
-              { id: "tigo_money", nombre: "Tigo Money", emoji: "📱", desc: "Pago vía celular Tigo · Bolivia" },
-              { id: "qr_bancario", nombre: "QR Bancario", emoji: "🔲", desc: "Escanea el QR y paga desde tu app bancaria" },
-              { id: "transferencia", nombre: "Transferencia bancaria", emoji: "🏦", desc: "Banco Unión / Mercantil / BNB" },
+              { id: "tigo_money", nombre: "Tigo Money", icono: "celular" as const, desc: "Pago vía celular Tigo · Bolivia" },
+              { id: "qr_bancario", nombre: "QR Bancario", icono: "qr" as const, desc: "Escanea el QR y paga desde tu app bancaria" },
+              { id: "transferencia", nombre: "Transferencia bancaria", icono: "banco" as const, desc: "Banco Unión / Mercantil / BNB" },
             ].map((m) => (
               <button key={m.id} onClick={() => setMetodo(m.id as Metodo)} style={{
                 display: "flex", alignItems: "center", gap: 14, padding: 14, textAlign: "left", cursor: "pointer",
@@ -158,7 +159,7 @@ function PagarInner() {
                 background: metodo === m.id ? "rgba(99,102,241,0.06)" : "transparent",
                 borderRadius: 12,
               }}>
-                <div style={{ fontSize: 28 }}>{m.emoji}</div>
+                <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre={m.icono} tamano={26} /></div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 700, color: "var(--fg-primary)", fontSize: 15 }}>{m.nombre}</div>
                   <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{m.desc}</div>
@@ -174,7 +175,7 @@ function PagarInner() {
           <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>2. Realiza el pago</h3>
           {metodo === "tigo_money" && (
             <div style={{ fontSize: 14, lineHeight: 1.6, color: "var(--fg-primary)" }}>
-              📲 Envía <strong>Bs. {monto}</strong> al número Tigo Money:<br/>
+              <Icono nombre="celular" tamano={15} /> Envía <strong>Bs. {monto}</strong> al número Tigo Money:<br/>
               <div style={{ fontSize: 28, fontWeight: 800, color: "var(--accent)", margin: "10px 0" }}>+591 6 7000-0000</div>
               <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>(Número de demostración. Cuando conectemos pagos reales, este número cambiará.)</span>
             </div>
@@ -216,7 +217,7 @@ function PagarInner() {
         </div>
 
         {error && (
-          <div style={{ padding: 12, background: "rgba(239,68,68,0.1)", borderRadius: 10, color: "#b91c1c", fontSize: 14, marginBottom: 12 }}>⚠️ {error}</div>
+          <div style={{ padding: 12, background: "rgba(239,68,68,0.1)", borderRadius: 10, color: "#b91c1c", fontSize: 14, marginBottom: 12, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="alerta" tamano={15} /> {error}</div>
         )}
 
         <button onClick={enviar} disabled={enviando} style={{

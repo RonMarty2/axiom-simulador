@@ -111,10 +111,12 @@ export function IconoToque({ tamano = 14 }: { tamano?: number }) {
       width={tamano} height={tamano} viewBox="0 0 24 24" fill="none"
       stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
       aria-hidden
-      // verticalAlign: en los condicionales de paso el ícono queda inline con
-      // el texto, y un SVG se apoya en la línea base — sin esto se ve hundido.
-      // En <EtiquetaToque> el contenedor es flex y la propiedad no aplica.
-      style={{ flexShrink: 0, verticalAlign: "-0.18em" }}
+      // display + verticalAlign: el preflight de Tailwind pone
+      // svg { display: block }, así que en los condicionales de paso el ícono
+      // se iba solo a su renglón en vez de quedar junto al texto. Y un SVG
+      // inline se apoya en la línea base, por eso además va bajado.
+      // En <EtiquetaToque> el contenedor es flex y nada de esto aplica.
+      style={{ flexShrink: 0, display: "inline-block", verticalAlign: "-0.18em" }}
     >
       <path d="M11.2 11.6V5.9a1.8 1.8 0 1 1 3.6 0v7.5" />
       <path d="M14.8 12.6a1.7 1.7 0 0 1 3.4 0v2.6a6 6 0 0 1-6 6h-1.3a5 5 0 0 1-3.54-1.47l-2.9-2.9a1.8 1.8 0 0 1 2.55-2.55l1.55 1.55" />

@@ -14,7 +14,8 @@ export type NombreIcono =
   | "documento" | "chispa" | "grafico" | "birrete"
   | "mas" | "probeta" | "herramienta"
   | "mezclar" | "etiqueta" | "info" | "reloj" | "idea"
-  | "medalla" | "check";
+  | "medalla" | "check"
+  | "calendario" | "ojo" | "ojoTachado" | "celular" | "qr" | "banco" | "tarjeta";
 
 const TRAZOS: Record<NombreIcono, React.ReactNode> = {
   inicio: <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" />,
@@ -161,6 +162,51 @@ const TRAZOS: Record<NombreIcono, React.ReactNode> = {
     </>
   ),
   check: <path d="M20 6.5 9.4 17.1l-5.4-5.4" />,
+  calendario: (
+    <>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 10h18M8 3v4M16 3v4" />
+    </>
+  ),
+  ojo: (
+    <>
+      <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  ojoTachado: (
+    <>
+      <path d="M10.6 6.2A9.9 9.9 0 0 1 12 6c6.4 0 10 6 10 6a18 18 0 0 1-2.9 3.7M6.6 6.9C3.9 8.7 2 12 2 12s3.6 6 10 6a9.8 9.8 0 0 0 4.2-.9" />
+      <path d="m9.9 9.9a3 3 0 0 0 4.2 4.2M3 3l18 18" />
+    </>
+  ),
+  celular: (
+    <>
+      <rect x="6" y="2.5" width="12" height="19" rx="2.4" />
+      <path d="M11 18.4h2" />
+    </>
+  ),
+  qr: (
+    <>
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20h1" />
+    </>
+  ),
+  banco: (
+    <>
+      <path d="M3 10h18L12 3.4 3 10z" />
+      <path d="M5.6 10v7.6M10 10v7.6M14 10v7.6M18.4 10v7.6" />
+      <path d="M3 17.6h18M2.2 21h19.6" />
+    </>
+  ),
+  tarjeta: (
+    <>
+      <rect x="2.4" y="5" width="19.2" height="14" rx="2.2" />
+      <path d="M2.4 10h19.2M6 15h3" />
+    </>
+  ),
 };
 
 // Cada facultad a su ícono. Antes se leía facultad.emoji de Supabase, que es
@@ -197,7 +243,11 @@ export default function Icono({
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden
-      style={{ flexShrink: 0 }}
+      // display inline-block y verticalAlign: el preflight de Tailwind pone
+      // svg { display: block }, así que un ícono suelto dentro de un párrafo
+      // se iba solo a su renglón. Dentro de un contenedor flex el display se
+      // blockifica igual, así que esto no afecta a los que ya viven en flex.
+      style={{ flexShrink: 0, display: "inline-block", verticalAlign: "-0.18em" }}
     >
       {TRAZOS[nombre]}
     </svg>

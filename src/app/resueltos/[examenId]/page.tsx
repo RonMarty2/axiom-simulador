@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Icono, { iconoFacultad } from "../../components/Icono";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
@@ -110,7 +111,7 @@ export default function ExamenResueltoPage() {
         <div style={{ maxWidth: 980, margin: "0 auto" }}>
           <BackLink href="/resueltos" label="Volver a exámenes resueltos" variant="dark" />
           <div style={{ display: "flex", alignItems: "center", gap: "clamp(10px, 3vw, 18px)", marginTop: 10, flexWrap: "wrap" }}>
-            <div style={{ fontSize: "clamp(32px, 9vw, 56px)" }}>{facultad?.emoji ?? "📄"}</div>
+            <div style={{ display: "flex" }}><Icono nombre={facultad ? iconoFacultad(facultad.id) : "documento"} tamano={44} grosor={1.6} /></div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>
                 Examen oficial · {examen.universidad} · {examen.anio}
@@ -119,7 +120,7 @@ export default function ExamenResueltoPage() {
                 {examen.titulo ?? `${facultad?.nombre_corto ?? examen.facultad} ${examen.anio}${examen.opcion ? ` · ${examen.opcion}` : ""}`}
               </h1>
               <div style={{ fontSize: 14, opacity: 0.9, marginTop: 6 }}>
-                {examen.fecha_examen && <>📅 {formatearFecha(examen.fecha_examen)} · </>}
+                {examen.fecha_examen && <><Icono nombre="calendario" tamano={13} /> {formatearFecha(examen.fecha_examen)} · </>}
                 {examen.preguntas.length} preguntas · {examen.duracion_minutos} min · resuelto paso a paso
               </div>
             </div>
@@ -174,7 +175,7 @@ export default function ExamenResueltoPage() {
                 fontWeight: 700, fontSize: 12, cursor: "pointer", color: "var(--fg-primary)",
               }}
             >
-              {reveladas.size === examen.preguntas.length ? "🙈 Ocultar todas" : "👁️ Revelar todas"}
+              {reveladas.size === examen.preguntas.length ? <><Icono nombre="ojoTachado" tamano={14} /> Ocultar todas</> : <><Icono nombre="ojo" tamano={14} /> Revelar todas</>}
             </button>
           </div>
         </div>
@@ -306,13 +307,13 @@ function PreguntaResuelta({
             fontWeight: 800, fontSize: 13, cursor: "pointer",
           }}
         >
-          👁️ Ver respuesta y explicación paso a paso
+          <Icono nombre="ojo" tamano={15} /> Ver respuesta y explicación paso a paso
         </button>
       ) : (
         <div style={{ background: "rgba(99,102,241,0.06)", border: "1px solid rgba(99,102,241,0.2)", borderRadius: 10, padding: 14 }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, gap: 8 }}>
             <div style={{ fontSize: 12, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              💡 Solución paso a paso
+              <Icono nombre="idea" tamano={15} /> Solución paso a paso
             </div>
             <button onClick={onToggle} style={{ fontSize: 11, color: "var(--fg-muted)", background: "transparent", border: "none", cursor: "pointer" }}>
               Ocultar

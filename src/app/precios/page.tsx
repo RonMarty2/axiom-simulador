@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Icono from "../components/Icono";
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -8,15 +9,15 @@ import Cargando from "../components/Cargando";
 
 const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   "cambiar-facultad": {
-    titulo: "🔓 Desbloquea el cambio de facultad",
+    titulo: "Desbloquea el cambio de facultad",
     texto: "Con Premium puedes cambiar de carrera cuando quieras y prepararte para otra facultad sin perder tu progreso.",
   },
   "ia-infinita": {
-    titulo: "🤖 Activa la IA infinita",
+    titulo: "Activa la IA infinita",
     texto: "Con Premium, una IA genera preguntas únicas para ti según el temario UMSS, ilimitadas.",
   },
   "limite": {
-    titulo: "📈 Pasa a ilimitado",
+    titulo: "Pasa a ilimitado",
     texto: "Llegaste al límite semanal del Plan Gratis. Pásate a Premium para simulacros ilimitados.",
   },
 };
@@ -53,7 +54,7 @@ const PLANES = [
       "Todo lo del plan Gratis",
       "Todos los exámenes pasados resueltos paso a paso",
       "Simulacros ilimitados",
-      "✨ Simulacro inteligente con IA: arma exámenes nuevos según el temario",
+      "Simulacro inteligente con IA: arma exámenes nuevos según el temario",
       "Programa de aprendizaje que refuerza tus puntos débiles",
       "Práctica enfocada en donde fallas",
       "Cambio de facultad cuando quieras",
@@ -152,7 +153,7 @@ function PreciosInner() {
         </div>
 
         <div style={{ marginTop: 50, padding: 24, background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", textAlign: "center" }}>
-          <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>💳 Métodos de pago aceptados</h3>
+          <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="tarjeta" tamano={17} /> Métodos de pago aceptados</h3>
           <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>Tigo Money · QR Bancario · Transferencia bancaria · (próximamente: tarjeta)</p>
         </div>
       </div>
