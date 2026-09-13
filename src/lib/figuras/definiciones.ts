@@ -1349,7 +1349,151 @@ function f12esfera(): Figura {
   return { ancho: 420, alto: 246, pasos: 0, elementos: el };
 }
 
+// Símbolo de pila: raya larga (+) y raya corta (−), perpendiculares al cable.
+// Se corta el cable en el hueco para que no atraviese el símbolo.
+function pila(de: Pt, a: Pt, etiqueta: string, color = AMBAR): Elemento[] {
+  const dir = anguloHacia(de, a);
+  const medio = { x: (de.x + a.x) / 2, y: (de.y + a.y) / 2 };
+  const p1 = avanzar(medio, dir, -5);
+  const p2 = avanzar(medio, dir, 5);
+  const perp = dir + 90;
+  const raya = (centro: Pt, largo: number, grosor: number): Elemento => ({
+    tipo: "linea",
+    de: avanzar(centro, perp, largo),
+    a: avanzar(centro, perp, -largo),
+    rol: "trazo",
+    grosor,
+  });
+  return [
+    { tipo: "linea", de, a: p1, rol: "trazo" },
+    { tipo: "linea", de: p2, a, rol: "trazo" },
+    raya(p1, 11, 2.2),
+    raya(p2, 6, 2.2),
+    { tipo: "texto", en: avanzar(medio, perp, 22), texto: etiqueta, rol: "dato", color, tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+}
+
+// Resistencia con su valor al costado.
+function resistencia(de: Pt, a: Pt, etiqueta: string, ladoEtiqueta = 1): Elemento[] {
+  const dir = anguloHacia(de, a);
+  const medio = { x: (de.x + a.x) / 2, y: (de.y + a.y) / 2 };
+  return [
+    { tipo: "path", d: resistorZigzag(de, a, 6, 5), rol: "trazo" },
+    { tipo: "texto", en: avanzar(medio, dir + 90, 18 * ladoEtiqueta), texto: etiqueta, rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+}
+
+// Puente: dos pilas de 2 V en los lados, dos resistencias de 1 Ω arriba, dos
+// abajo, y una rama central con 4 Ω en serie con una fuente de 4 V. Del
+// facsímil (examen 2-2023, 2da opción, F9).
+function f9puente(): Figura {
+  const IZQ = 92, MED = 210, DER = 328;
+  const ARR = 56, ABA = 186;
+  const TL = { x: IZQ, y: ARR }, TM = { x: MED, y: ARR }, TR = { x: DER, y: ARR };
+  const BL = { x: IZQ, y: ABA }, BM = { x: MED, y: ABA }, BR = { x: DER, y: ABA };
+  const centro = { x: MED, y: (ARR + ABA) / 2 };
+
+  const el: Elemento[] = [
+    ...resistencia(TL, TM, "1 Ω", -1),
+    ...resistencia(TM, TR, "1 Ω", -1),
+    ...resistencia(BL, BM, "1 Ω", 1),
+    ...resistencia(BM, BR, "1 Ω", 1),
+    ...pila(TL, BL, "2 V"),
+    ...pila(TR, BR, "2 V"),
+    ...resistencia(TM, centro, "4 Ω", 1),
+    ...pila(centro, BM, "4 V"),
+  ];
+  for (const n of [TL, TM, TR, BL, BM, BR]) el.push({ tipo: "punto", en: n, r: 3, rol: "trazo" });
+  return { ancho: 420, alto: 224, pasos: 0, elementos: el };
+}
+
+// Dos fuentes (12 V y 5 V) con 3 Ω en la rama central, 2 Ω y 1 Ω abajo, y el
+// amperímetro en el cable inferior. Del facsímil (examen 1-2023, 2da opción,
+// F12).
+function f12dosFuentes(): Figura {
+  const IZQ = 96, MED = 212, DER = 328;
+  const ARR = 50, MITAD = 122, ABA = 190;
+  const TL = { x: IZQ, y: ARR }, TM = { x: MED, y: ARR }, TR = { x: DER, y: ARR };
+  const ML = { x: IZQ, y: MITAD }, MR = { x: DER, y: MITAD };
+  const BL = { x: IZQ, y: ABA }, BM = { x: MED, y: ABA }, BR = { x: DER, y: ABA };
+  const amperimetro = { x: (IZQ + MED) / 2, y: ABA };
+
+  const el: Elemento[] = [
+    // riel superior
+    { tipo: "linea", de: TL, a: TR, rol: "trazo" },
+    // rama izquierda: 12 V arriba, 2 Ω abajo
+    ...pila(TL, ML, "12 V"),
+    ...resistencia(ML, BL, "2 Ω", 1),
+    // rama central
+    ...resistencia(TM, BM, "3 Ω", 1),
+    // rama derecha: 5 V arriba, 1 Ω abajo
+    ...pila(TR, MR, "5 V"),
+    ...resistencia(MR, BR, "1 Ω", -1),
+    // riel inferior con el amperímetro
+    { tipo: "linea", de: BL, a: { x: amperimetro.x - 11, y: ABA }, rol: "trazo" },
+    { tipo: "linea", de: { x: amperimetro.x + 11, y: ABA }, a: BR, rol: "trazo" },
+    { tipo: "punto", en: amperimetro, r: 11, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: { x: amperimetro.x, y: amperimetro.y + 5 }, texto: "A", rol: "incognita", color: VIOLETA, tam: 12, negrita: true, ancla: "middle" },
+  ];
+  for (const n of [TL, TM, TR, BL, BM, BR]) el.push({ tipo: "punto", en: n, r: 3, rol: "trazo" });
+  return { ancho: 420, alto: 228, pasos: 0, elementos: el };
+}
+
+// Polea de la que alguien tira hacia arriba por el eje. Del facsímil (examen
+// 1-2024, 2da opción, F10): m₁ cuelga del lado izquierdo y m₂ está APOYADO en
+// el piso del lado derecho — que m₂ arranque apoyado es justo lo que hace el
+// problema, y no se deduce del enunciado.
+function f10polea(): Figura {
+  const EJE: Pt = { x: 214, y: 84 };
+  const RADIO = 17;
+  const PISO = 208;
+  const izq = { x: EJE.x - RADIO, y: EJE.y };
+  const der = { x: EJE.x + RADIO, y: EJE.y };
+  const M1 = { x: izq.x, y: 140 };
+  const M2 = { x: der.x, y: PISO - 20 };
+
+  const caja = (centro: Pt, ancho: number, alto: number): Pt[] => [
+    { x: centro.x - ancho / 2, y: centro.y - alto / 2 },
+    { x: centro.x + ancho / 2, y: centro.y - alto / 2 },
+    { x: centro.x + ancho / 2, y: centro.y + alto / 2 },
+    { x: centro.x - ancho / 2, y: centro.y + alto / 2 },
+  ];
+
+  const el: Elemento[] = [
+    // fuerza sobre el eje
+    { tipo: "linea", de: { x: EJE.x, y: EJE.y - RADIO - 8 }, a: { x: EJE.x, y: 26 }, rol: "resultado", color: ROJO, grosor: 2.2 },
+    { tipo: "path", d: cabezaFlecha({ x: EJE.x, y: 26 }, 90, 9), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: EJE.x + 10, y: 36 }, texto: "F = 100 N", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "start" },
+
+    // polea
+    { tipo: "punto", en: EJE, r: RADIO, rol: "trazo" },
+    { tipo: "punto", en: EJE, r: 3, rol: "trazo" },
+
+    // cable a cada lado
+    { tipo: "linea", de: izq, a: M1, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: der, a: M2, rol: "trazo", grosor: 1.6 },
+
+    // los dos bloques
+    { tipo: "poligono", puntos: caja(M1, 40, 28), rol: "trazo" },
+    { tipo: "texto", en: { x: M1.x, y: M1.y + 5 }, texto: "m₁", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "middle" },
+    { tipo: "poligono", puntos: caja(M2, 40, 28), rol: "trazo" },
+    { tipo: "texto", en: { x: M2.x, y: M2.y + 5 }, texto: "m₂", rol: "dato", color: AMBAR, tam: 12.5, negrita: true, ancla: "middle" },
+
+    // piso bajo m₂
+    { tipo: "linea", de: { x: der.x - 58, y: PISO }, a: { x: der.x + 58, y: PISO }, rol: "trazo", grosor: 2 },
+  ];
+  for (let i = 0; i < 7; i++) {
+    const x = der.x - 52 + i * 17;
+    el.push({ tipo: "linea", de: { x, y: PISO }, a: { x: x - 8, y: PISO + 9 }, rol: "trazo", grosor: 1 });
+  }
+
+  return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f10-polea": f10polea,
+  "f9-circuito-puente": f9puente,
+  "f12-circuito-dos-fuentes": f12dosFuentes,
   "f10-proyectil-energia": f10proyectil,
   "f12-esfera-trayectoria-semicircular": f12esfera,
   // El mismo problema aparece en los exámenes 1-2025 (1ra opción, G8) y
