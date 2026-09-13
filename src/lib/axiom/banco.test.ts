@@ -1,0 +1,121 @@
+import { test, describe } from "node:test";
+import assert from "node:assert/strict";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { join } from "node:path";
+import { createRequire } from "node:module";
+import { parseExamenMD } from "./banco-parser.ts";
+
+// Tests sobre el banco REAL, con el parser REAL. La BITACORA §7 documenta
+// varios casos en que un .md mal formado rompió el banco en silencio: el
+// parser fallaba, el loader se comía el error con un console.error y el examen
+// simplemente desaparecía de la lista sin que nadie lo notara. Esto lo levanta.
+
+const require = createRequire(join(process.cwd(), "package.json"));
+const katex = require("katex");
+
+const RAIZ = join(process.cwd(), "data", "examenes", "umss");
+
+function examenes(): { ruta: string; nombre: string; contenido: string }[] {
+  const out = [];
+  for (const facultad of readdirSync(RAIZ)) {
+    const dir = join(RAIZ, facultad);
+    for (const archivo of readdirSync(dir).filter((f) => f.endsWith(".md"))) {
+      const ruta = join(dir, archivo);
+      out.push({ ruta, nombre: `${facultad}/${archivo}`, contenido: readFileSync(ruta, "utf8") });
+    }
+  }
+  return out;
+}
+
+const TODOS = existsSync(RAIZ) ? examenes() : [];
+
+describe("banco de exámenes", () => {
+  test("hay exámenes que revisar", () => {
+    assert.ok(TODOS.length > 100, `se esperaban >100 exámenes, hay ${TODOS.length}`);
+  });
+
+  test("todos parsean sin tirar error", () => {
+    const rotos: string[] = [];
+    for (const e of TODOS) {
+      try {
+        parseExamenMD(e.contenido);
+      } catch (err) {
+        rotos.push(`${e.nombre}: ${err instanceof Error ? err.message : String(err)}`);
+      }
+    }
+    assert.deepEqual(rotos, [], `exámenes que el parser no puede leer:\n${rotos.join("\n")}`);
+  });
+
+  test("cada respuesta correcta tiene una opción que le corresponde", () => {
+    // El caso que más duele: la pregunta se muestra, el alumno responde, y
+    // ninguna opción coincide con la respuesta marcada.
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        const letras = p.opciones.map((o) => o.letra);
+        if (!letras.includes(p.respuesta_correcta)) {
+          fallos.push(`${e.nombre} · ${p.id}: respuesta ${p.respuesta_correcta}, opciones ${letras.join(",")}`);
+        }
+      }
+    }
+    assert.deepEqual(fallos, [], `respuestas sin opción:\n${fallos.join("\n")}`);
+  });
+
+  test("no hay ids repetidos en todo el banco", () => {
+    // Dos exámenes con el mismo id hacen que uno tape al otro en la UI.
+    const vistos = new Map<string, string>();
+    const repetidos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      const previo = vistos.get(examen.id);
+      if (previo) repetidos.push(`${examen.id}: ${previo} y ${e.nombre}`);
+      else vistos.set(examen.id, e.nombre);
+    }
+    assert.deepEqual(repetidos, [], `ids de examen repetidos:\n${repetidos.join("\n")}`);
+  });
+
+  test("ninguna pregunta se queda sin opciones", () => {
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        if (p.opciones.length < 2) fallos.push(`${e.nombre} · ${p.id}: ${p.opciones.length} opciones`);
+      }
+    }
+    assert.deepEqual(fallos, [], `preguntas sin opciones suficientes:\n${fallos.join("\n")}`);
+  });
+
+  test("toda la matemática se renderiza en KaTeX", () => {
+    // Este es el que habría cachado \sen: no existe en KaTeX, y las 22
+    // expresiones que lo usaban se le mostraban al alumno en rojo.
+    // Se usa el mismo regex que MathText para separar math de texto.
+    const RE = /(\$\$([^$]+)\$\$|\$([^$\n]+)\$)/g;
+    const rotas: string[] = [];
+    let total = 0;
+    for (const e of TODOS) {
+      e.contenido.split("\n").forEach((linea, i) => {
+        RE.lastIndex = 0;
+        let m;
+        while ((m = RE.exec(linea)) !== null) {
+          const display = m[2] !== undefined;
+          total++;
+          try {
+            katex.renderToString(display ? m[2] : m[3], {
+              displayMode: display, throwOnError: true, strict: "ignore", output: "html",
+            });
+          } catch (err) {
+            if (rotas.length < 20) {
+              rotas.push(`${e.nombre}:${i + 1}  $${display ? m[2] : m[3]}$  ->  ${(err instanceof Error ? err.message : "").split("\n")[0]}`);
+            }
+          }
+        }
+      });
+    }
+    assert.ok(total > 1000, `se esperaban miles de expresiones, hubo ${total}`);
+    assert.deepEqual(rotas, [], `LaTeX que el alumno vería en rojo:\n${rotas.join("\n")}`);
+  });
+});
