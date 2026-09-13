@@ -110,13 +110,35 @@ export interface HistorialExamen {
 
 // ─────────────────────────────────────────────────────────────
 // FALLBACK CACHE (solo si NO hay Supabase)
+//
+// Vive colgado de globalThis a propósito. En `next dev` los route handlers y
+// los componentes de servidor se cargan en bundles distintos, cada uno con su
+// propia instancia de este módulo: si el estado fuera una variable de módulo,
+// un POST a /api/... escribiría en una copia y un layout de servidor leería
+// otra, con la sesión y las suscripciones desincronizadas. Pasó exactamente
+// eso al agregar el guard de /aprende. En producción hay Supabase y nada de
+// esto se usa, pero el dev tiene que comportarse igual que producción o las
+// pruebas locales mienten.
 // ─────────────────────────────────────────────────────────────
 
-let _facultades: Facultad[] | null = null;
-let _materias: Record<string, Materia[]> | null = null;
-let _usuarios: Usuario[] | null = null;
-let _pagos: Pago[] | null = null;
-let _historial: HistorialExamen[] | null = null;
+interface CacheLocal {
+  facultades: Facultad[] | null;
+  materias: Record<string, Materia[]> | null;
+  usuarios: Usuario[] | null;
+  pagos: Pago[] | null;
+  historial: HistorialExamen[] | null;
+  suscripciones: SuscripcionRow[];
+}
+
+const _g = globalThis as unknown as { __axiomCache?: CacheLocal };
+const _cache: CacheLocal = (_g.__axiomCache ??= {
+  facultades: null,
+  materias: null,
+  usuarios: null,
+  pagos: null,
+  historial: null,
+  suscripciones: [],
+});
 
 async function loadJson<T>(file: string): Promise<T> {
   const raw = await fs.readFile(file, "utf-8");
@@ -137,10 +159,10 @@ export async function getFacultades(): Promise<Facultad[]> {
     if (error) throw error;
     return (data ?? []) as Facultad[];
   }
-  if (!_facultades) {
-    _facultades = await loadJson<Facultad[]>(path.join(DATA_DIR, "facultades.json"));
+  if (!_cache.facultades) {
+    _cache.facultades = await loadJson<Facultad[]>(path.join(DATA_DIR, "facultades.json"));
   }
-  return _facultades;
+  return _cache.facultades;
 }
 
 export async function getFacultad(id: string): Promise<Facultad | null> {
@@ -164,7 +186,7 @@ export async function actualizarFacultad(id: string, updates: Partial<Facultad>)
   const idx = todas.findIndex((f) => f.id === id);
   if (idx === -1) return null;
   todas[idx] = { ...todas[idx], ...updates };
-  _facultades = todas;
+  _cache.facultades = todas;
   await fs.writeFile(path.join(DATA_DIR, "facultades.json"), JSON.stringify(todas, null, 2), "utf-8");
   return todas[idx];
 }
@@ -189,10 +211,10 @@ export async function getMaterias(): Promise<Record<string, Materia[]>> {
     }
     return out;
   }
-  if (!_materias) {
-    _materias = await loadJson<Record<string, Materia[]>>(path.join(DATA_DIR, "materias.json"));
+  if (!_cache.materias) {
+    _cache.materias = await loadJson<Record<string, Materia[]>>(path.join(DATA_DIR, "materias.json"));
   }
-  return _materias;
+  return _cache.materias;
 }
 
 export async function getMateriasFacultad(facultadId: string): Promise<Materia[]> {
@@ -224,10 +246,10 @@ export async function getUsuarios(): Promise<Usuario[]> {
     if (error) throw error;
     return (data ?? []) as Usuario[];
   }
-  if (!_usuarios) {
-    _usuarios = await loadJson<Usuario[]>(path.join(SEED_DIR, "users.json"));
+  if (!_cache.usuarios) {
+    _cache.usuarios = await loadJson<Usuario[]>(path.join(SEED_DIR, "users.json"));
   }
-  return _usuarios;
+  return _cache.usuarios;
 }
 
 export async function getUsuario(id: string): Promise<Usuario | null> {
@@ -292,8 +314,6 @@ interface SuscripcionRow {
   vence: string; // YYYY-MM-DD
 }
 
-// Fallback en memoria (dev sin Supabase).
-const _suscripciones: SuscripcionRow[] = [];
 
 function hoyISO(): string {
   return new Date().toISOString().slice(0, 10);
@@ -317,7 +337,7 @@ export async function getSuscripcionesActivas(usuarioId: string): Promise<Suscri
     if (error) throw error;
     return (data ?? []) as SuscripcionActiva[];
   }
-  return _suscripciones
+  return _cache.suscripciones
     .filter((s) => s.usuario_id === usuarioId && s.vence >= hoy)
     .map((s) => ({ facultad: s.facultad, vence: s.vence }));
 }
@@ -347,11 +367,11 @@ export async function agregarOExtenderSuscripcion(
     if (error) throw error;
     return { facultad, vence };
   }
-  const idx = _suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
-  const base = idx !== -1 && _suscripciones[idx].vence >= hoy ? _suscripciones[idx].vence : hoy;
+  const idx = _cache.suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
+  const base = idx !== -1 && _cache.suscripciones[idx].vence >= hoy ? _cache.suscripciones[idx].vence : hoy;
   const vence = sumarMeses(base, meses);
-  if (idx !== -1) _suscripciones[idx].vence = vence;
-  else _suscripciones.push({ usuario_id: usuarioId, facultad, vence });
+  if (idx !== -1) _cache.suscripciones[idx].vence = vence;
+  else _cache.suscripciones.push({ usuario_id: usuarioId, facultad, vence });
   return { facultad, vence };
 }
 
@@ -365,8 +385,8 @@ export async function eliminarSuscripcion(usuarioId: string, facultad: FacultadI
     if (error) throw error;
     return;
   }
-  const idx = _suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
-  if (idx !== -1) _suscripciones.splice(idx, 1);
+  const idx = _cache.suscripciones.findIndex((s) => s.usuario_id === usuarioId && s.facultad === facultad);
+  if (idx !== -1) _cache.suscripciones.splice(idx, 1);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -379,10 +399,10 @@ export async function getPagos(): Promise<Pago[]> {
     if (error) throw error;
     return (data ?? []) as Pago[];
   }
-  if (!_pagos) {
-    _pagos = await loadJson<Pago[]>(path.join(SEED_DIR, "payments.json"));
+  if (!_cache.pagos) {
+    _cache.pagos = await loadJson<Pago[]>(path.join(SEED_DIR, "payments.json"));
   }
-  return _pagos;
+  return _cache.pagos;
 }
 
 export async function getPagosUsuario(usuarioId: string): Promise<Pago[]> {
@@ -437,10 +457,10 @@ export async function getHistorial(): Promise<HistorialExamen[]> {
     if (error) throw error;
     return (data ?? []) as HistorialExamen[];
   }
-  if (!_historial) {
-    _historial = await loadJson<HistorialExamen[]>(path.join(SEED_DIR, "historial.json"));
+  if (!_cache.historial) {
+    _cache.historial = await loadJson<HistorialExamen[]>(path.join(SEED_DIR, "historial.json"));
   }
-  return _historial;
+  return _cache.historial;
 }
 
 export async function getHistorialUsuario(usuarioId: string): Promise<HistorialExamen[]> {

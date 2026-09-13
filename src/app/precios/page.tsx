@@ -20,6 +20,16 @@ const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
     titulo: "Pasa a ilimitado",
     texto: "Llegaste al límite semanal del Plan Gratis. Pásate a Premium para simulacros ilimitados.",
   },
+  // Los manda el guard de servidor de /aprende y /laminas cuando alguien
+  // entra por URL directa a contenido que no tiene desbloqueado.
+  "leccion": {
+    titulo: "Esta lección es de Premium",
+    texto: "Con el Plan Gratis tenés abierta la Unidad 01 de cada área. Pasate a Premium y se abren todas las lecciones, de todas las unidades.",
+  },
+  "lamina": {
+    titulo: "Las Láminas de Repaso son de Premium",
+    texto: "Son las hojas de referencia para repasar rápido antes del examen. Pasate a Premium y las tenés todas.",
+  },
 };
 
 const PLANES = [
