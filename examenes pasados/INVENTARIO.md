@@ -139,7 +139,7 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
-**Transcriptos hasta ahora: 7 de 37.** Los dos con su Matemáticas completa y
+**Transcriptos hasta ahora: 8 de 37.** Los dos con su Matemáticas completa y
 Lenguaje e Historia declaradas pendientes:
 
 | Examen | Archivo |
@@ -151,6 +151,7 @@ Lenguaje e Historia declaradas pendientes:
 | Admisión 2/2014 (1ra opción) · sin fecha en la hoja | `economicas/2014-1op-2-2014.md` |
 | Admisión 1/2012 (1ra opción) · 26-ene-2012 | `economicas/2012-1op-1-2012.md` |
 | Admisión 1/2012 (2da opción) · pie ilegible | `economicas/2012-2op-1-2012.md` |
+| Admisión 1/2011 (1ra opción) · 3-feb-2011 | `economicas/2011-1op-1-2011.md` |
 
 ### Encabezados REALES del banco de Matemáticas
 
@@ -168,13 +169,20 @@ mismo.
 | 9 | Admisión **II-2013** (primera opción) ✅ transcripto | 20-jul-2013 |
 | 12 | Admisión **1/2012** (primera opción) ✅ transcripto | 26-ene-2012 |
 | 15 | Admisión **1/2012** (segunda opción) ✅ transcripto | pie ilegible |
-| 18 | Admisión **1/2011** (primera opción) | jue 3-feb-2011 · 70 min |
+| 18 | Admisión **1/2011** (primera opción) ✅ transcripto · sigue en la p.19 | jue 3-feb-2011 · 70 min |
 | 20 | Admisión **1/2011** (segunda opción) | sáb 19-feb-2011 · 60 min |
 | 22 | Admisión **1/2010** (primera opción) | — |
 
 Las páginas 18 y 20 ya están identificadas: tenían el encabezado más abajo en
 la hoja y el recorte de la tira no lo agarraba. Se miraron enteras el
 14-sep-2026. Ya no queda ninguna página sin identificar en este banco.
+
+**HAY EXÁMENES QUE OCUPAN DOS PÁGINAS.** El de la página 18 (1/2011 primera
+opción) trae las preguntas 1 a 4 en esa hoja y las 5 a 10 en la 19: el pie de
+cada una lo dice, "Página 1" y "Página 2", las dos fechadas 03/febrero/2011.
+Los de 2012 y 2014 entran en una sola hoja. Por eso una página sin encabezado
+no es necesariamente una página suelta — puede ser la continuación de la
+anterior, y hay que mirar el pie antes de descartarla.
 
 **Lo que hay que confirmar a mano antes de transcribir:**
 
@@ -313,11 +321,11 @@ renumera. Ver "Convención para lo que no se puede leer" más arriba.
       convocatoria en días consecutivos entre facultades. Queda anotado en el
       propio archivo por si aparece el facsímil y dice otra cosa. Sus otras
       áreas NO se declararon pendientes: no hay con qué probar cuáles tomó.
-- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **7 transcriptos**.
+- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **8 transcriptos**.
       Uno por gestión (ver la tabla de arriba). Las páginas del banco de
-      Matemáticas que siguen en la fila: **18** (1/2011 1ra), **20** (1/2011
-      2da) y **22** (1/2010 1ra). Con eso se termina ese PDF y hay que pasar a
-      los bancos de Lenguaje e Historia.
+      Matemáticas que siguen en la fila: **20** (1/2011 2da) y **22**
+      (1/2010 1ra). Con eso se termina ese PDF y hay que pasar a los bancos de
+      Lenguaje e Historia.
       Antes de escribir un solo `.md` hay que releer los tres PDF a fondo: el
       escaneo por OCR encontró los encabezados pero **no es exhaustivo**,
       puede haber secciones que no detectó.
