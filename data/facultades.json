@@ -7,8 +7,16 @@
     "color_secundario": "#34d399",
     "emoji": "📊",
     "descripcion": "Carreras: Economía, Administración de Empresas, Contaduría Pública, Ingeniería Comercial.",
-    "areas": ["matematicas", "economicas", "verbal", "razonamiento"],
-    "ponderacion": { "matematicas": 0.40, "economicas": 0.35, "verbal": 0.15, "razonamiento": 0.10 },
+    "areas": [
+      "matematicas",
+      "lenguaje",
+      "historia"
+    ],
+    "ponderacion": {
+      "matematicas": 0.34,
+      "lenguaje": 0.33,
+      "historia": 0.33
+    },
     "duracion_minutos": 180,
     "preguntas_examen": 100,
     "ano_inicio_banco": 2020
@@ -21,10 +29,22 @@
     "color_secundario": "#60a5fa",
     "emoji": "⚙️",
     "descripcion": "Carreras: Ingeniería Civil, Industrial, de Sistemas, Eléctrica, Electrónica, Mecánica, Química, Matemáticas, Física.",
-    "areas": ["matematicas", "fisica", "quimica", "razonamiento"],
-    "ponderacion": { "matematicas": 0.40, "fisica": 0.30, "quimica": 0.20, "razonamiento": 0.10 },
-    "duracion_minutos": 180,
-    "preguntas_examen": 100,
+    "areas": [
+      "aritmetica_algebra",
+      "geometria_trigonometria",
+      "fisica",
+      "quimica",
+      "biologia"
+    ],
+    "ponderacion": {
+      "aritmetica_algebra": 0.2,
+      "geometria_trigonometria": 0.2,
+      "fisica": 0.2,
+      "quimica": 0.2,
+      "biologia": 0.2
+    },
+    "duracion_minutos": 120,
+    "preguntas_examen": 20,
     "ano_inicio_banco": 2020
   },
   {
@@ -35,8 +55,18 @@
     "color_secundario": "#f87171",
     "emoji": "⚕️",
     "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia.",
-    "areas": ["biologia", "quimica", "fisica", "verbal"],
-    "ponderacion": { "biologia": 0.40, "quimica": 0.30, "fisica": 0.20, "verbal": 0.10 },
+    "areas": [
+      "biologia",
+      "quimica",
+      "fisica",
+      "verbal"
+    ],
+    "ponderacion": {
+      "biologia": 0.4,
+      "quimica": 0.3,
+      "fisica": 0.2,
+      "verbal": 0.1
+    },
     "duracion_minutos": 180,
     "preguntas_examen": 100,
     "ano_inicio_banco": 2020
@@ -49,8 +79,18 @@
     "color_secundario": "#c084fc",
     "emoji": "⚖️",
     "descripcion": "Carreras: Derecho, Ciencias Políticas, Administración Pública, Relaciones Internacionales.",
-    "areas": ["civica", "historia", "verbal", "razonamiento"],
-    "ponderacion": { "civica": 0.35, "historia": 0.30, "verbal": 0.25, "razonamiento": 0.10 },
+    "areas": [
+      "civica",
+      "historia",
+      "verbal",
+      "razonamiento"
+    ],
+    "ponderacion": {
+      "civica": 0.35,
+      "historia": 0.3,
+      "verbal": 0.25,
+      "razonamiento": 0.1
+    },
     "duracion_minutos": 180,
     "preguntas_examen": 100,
     "ano_inicio_banco": 2021

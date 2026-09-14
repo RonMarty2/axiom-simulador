@@ -145,3 +145,95 @@ Reglas:
 4. Agregalo acá con sus páginas y lo que trae adentro, aunque todavía no se
    transcriba. El inventario tiene que reflejar lo que hay en disco, no lo que
    ya se procesó.
+
+---
+
+# Plan acordado (14-sep-2026) — PARA RETOMAR
+
+Si estás retomando esto desde cero, leé esta sección entera antes de tocar nada.
+Son decisiones tomadas con Ronald, no propuestas.
+
+## Las reglas que se acordaron
+
+**1 · Manda la gestión, no la pregunta.** El alumno busca "Prefacultativo
+II-2012" o "Admisión 1/2014", nunca un ejercicio suelto. Los exámenes se
+nombran `{año}-{tipo}-{gestión}-{año}.md`, igual que FCYT.
+
+**2 · Un examen es la suma de sus partes.** Los facsímiles vienen partidos por
+materia entre varios PDF. Todo lo que lleve la misma etiqueta ("1/2014
+admisión") es **el mismo examen**, venga del PDF que venga, y va a un solo
+archivo.
+
+**3 · Las secciones que faltan EXISTEN igual, vacías.** Si de una gestión no
+aparece Historia, la `ponderacion` la declara igual y el examen anota que está
+pendiente. En pantalla el alumno ve las tres materias: dos con preguntas y una
+que dice "Próximamente". **Nunca se debe romper la idea de que está viendo el
+examen completo de esa gestión.**
+
+```yaml
+ponderacion:
+  matematicas: 0.34
+  lenguaje: 0.33
+  historia: 0.33
+secciones_pendientes:
+  historia: no-esta-en-ningun-pdf
+```
+
+**4 · Los ejercicios de práctica NO son exámenes.** Van al banco de preguntas
+sueltas (`/admin/banco`), etiquetados por área y **tema**. El simulador ya los
+mezcla solo: `construirSimulador` arma un pool con las preguntas de los `.md`
+**más** `listarPreguntas()`, y de ahí salen los modos Mixto, Por tema y
+Predictivo. Lo que decide si un ejercicio sirve es la etiqueta `tema`, no el
+copiado.
+
+**5 · Ninguna respuesta del PDF se copia sin verificar.** Se resuelve de cero.
+Donde no coincida con lo impreso, queda la derivación escrita en el archivo.
+Ya pasó dos veces (Pregunta 1 del 2023, circuito del 2006 2da opción).
+
+**6 · Si una pregunta no se puede leer, se deja el hueco.** No se saltea ni se
+renumera. Ver "Convención para lo que no se puede leer" más arriba.
+
+## Estado de las fases
+
+- [x] **Fase 1 · Fijar el contrato.** `data/facultades.json` corregido: las
+      áreas que declaraba no existían en ningún examen. Ver abajo.
+- [ ] **Fase 2 · Que la pantalla muestre los huecos.** Hoy una sección sin
+      preguntas es invisible: `/examenes/[id]` y `/resueltos/[examenId]` arman
+      la lista de áreas recorriendo las preguntas que hay
+      (`examen.preguntas.forEach(...)`), así que una materia declarada y vacía
+      no aparece. Hay que leer `ponderacion` en vez de deducir las áreas, y
+      dibujar la sección pendiente. **Es el cambio que habilita la fase 4.**
+      Incluye agregar `secciones_pendientes` al parser: conviene darle la misma
+      forma de mapa anidado que `ponderacion`, porque `parseFrontmatter` ya
+      sabe leer ese caso (ver `enPonderacion` en `banco-parser.ts`).
+- [ ] **Fase 3 · Económicas al molde.** Renombrar `economicas/2023.md` a la
+      convención y darle `categoria`, `titulo` y `opcion`. Hoy es un huérfano:
+      no tiene ninguno de los tres.
+- [ ] **Fase 4 · Los 4 exámenes de FCE.** Uno por gestión (ver la tabla de
+      arriba). Antes de escribir un solo `.md` hay que releer los tres PDF a
+      fondo: el escaneo por OCR encontró los encabezados pero **no es
+      exhaustivo**, puede haber secciones que no detectó.
+- [ ] **Fase 5 · Los ejercicios de práctica de FCYT.** ~1000 ejercicios en 595
+      páginas. Al banco de preguntas sueltas, por tema. Trabajo de varias
+      sesiones; va al final a propósito.
+
+## Lo que se corrigió en facultades.json (fase 1)
+
+Las áreas declaradas no las había verificado nadie, y **se le muestran al
+alumno** en la landing y en el onboarding.
+
+| | Decía | Dice ahora | Por qué |
+|---|---|---|---|
+| ingeniería · áreas | matematicas, fisica, quimica, razonamiento | aritmetica_algebra, geometria_trigonometria, fisica, quimica, biologia | Son las que usan sus 139 exámenes. `razonamiento` no aparece en ninguna pregunta |
+| ingeniería · preguntas | 100 | 20 | 72 de los 139 exámenes tienen 20 preguntas |
+| ingeniería · duración | 180 min | 120 min | 84 de los 139 duran 120 minutos |
+| económicas · áreas | matematicas, economicas, verbal, razonamiento | matematicas, lenguaje, historia | Son las que toman los facsímiles reales de la FCE |
+
+**Pendiente de esto:** los pesos de económicas quedaron en tercios provisorios y
+`preguntas_examen`/`duracion_minutos` **no se tocaron** porque no hay con qué
+probarlos — se fijan en la fase 4, al transcribir los exámenes de 2014 y 2015.
+
+**OJO, esto no alcanza:** en producción las facultades salen de **Supabase**, no
+de este JSON (`getFacultades()` lee la tabla `facultades` si hay env vars). El
+cambio hay que aplicarlo también desde `/admin/facultades`, o el alumno va a
+seguir viendo las áreas viejas.
