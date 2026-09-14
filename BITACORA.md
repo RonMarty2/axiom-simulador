@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-12 (notación química del banco de Ingeniería, landing pública migrada al rediseño, y la Pregunta 1 del 2023 resuelta)
-**Versión de la bitácora:** v2.0
+**Última actualización:** 2026-09-14 (la biblioteca de exámenes regalaba las soluciones, el banco pasa a tuteo, y cuatro auditorías del banco quedan como test)
+**Versión de la bitácora:** v2.1
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -259,6 +259,9 @@ Las preguntas del simulador deben replicar la dificultad del examen UMSS autént
 ### D7. Kit didáctico modular (v1.1)
 Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales además del esqueleto base: **Hook** (peso en el examen), **Mnemotecnia** (acrónimo o regla memorable), **Misconception** (error típico al detalle), **CasoBolivia** (aplicación local), **Conexion** (mapa con otras unidades), **WorkedExample** (problema resuelto paso a paso con verificación). Estos componentes son reutilizables y consistentes. Si una lección usa diseño totalmente custom (como `potenciacion` estilo 3Blue1Brown), respetar su coherencia y no forzar el kit.
 
+### D8. En la biblioteca de exámenes, el enunciado se lee gratis y la solución se paga
+El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 soluciones paso a paso**. Cualquiera puede leer los 140 exámenes completos, porque eso es el catálogo y es lo que engancha; la respuesta correcta y la explicación piden plan activo. El filtro vive en el servidor (`/api/axiom/examenes/[id]`), no en la pantalla: filtrar en el cliente no sirve, la respuesta del fetch se lee igual desde el navegador. Ojo con la excepción que ya existía y sigue valiendo: en los resultados de un simulacro que el alumno acaba de rendir, el paso a paso **sí** se muestra a todos, porque es parte de sus 2 simulacros gratis por semana.
+
 ---
 
 ## 7. Errores garrafales detectados y corregidos (lecciones aprendidas)
@@ -287,6 +290,11 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 | 2026-09-13 | `/progreso` le mostraba a todos las estadísticas de `demo-user` | Leer la pantalla al rehacerla | Un id de prueba escrito a mano en un fetch sobrevive a todo: no hay error, no hay pantalla vacía, solo datos de otro |
 | 2026-09-13 | Un botón que se ve habilitado y no hace nada: `disabled` y `opacity` tenían condiciones distintas | Probar el flujo sin elegir examen | Si el estado deshabilitado se calcula dos veces, se van a desincronizar. Una sola variable, y que además diga QUÉ falta |
 | 2026-09-13 | Un reemplazo masivo convirtió "presentes" en "presientes" en 4 archivos | Revisar el `git diff` antes de commitear | `node -e` desde bash se come los backslashes: `\p{L}` llegó como `[p{L}]` y la clase matcheó cualquier cosa. Todo script con regex Unicode o acentos va en un ARCHIVO, no en `-e` |
+| 2026-09-14 | `/api/axiom/examenes/[id]` devolvía los 140 exámenes con respuesta y paso a paso sin mirar la sesión: un `curl` sin login se bajaba el producto entero | Barrer qué se abre con plan gratis | `plan.ts` YA definía `puedeVerResolucionBiblioteca()` con el comentario "solo pago", y no la llamaba nadie. Una función de permiso que nadie invoca es una intención, no un candado: grepear los helpers de plan para ver cuáles están muertos |
+| 2026-09-14 | El banco quedó entero en voseo (2.249 de 3.579 preguntas) después de que la app pasara a tuteo | Censo del texto que ve el alumno | La normalización del 13-sep barrió `src/` y nadie miró `data/`. El contenido es texto del alumno tanto como la UI, y es el que más lee |
+| 2026-09-14 | 130 enunciados prometían una figura que no existe, y el trinquete de figuras marcaba 0 | Chequeo nuevo, escrito a mano | Un trinquete mide lo que sabe mirar: contaba las que DECLARAN `figura:`, y el problema vivía justo en las que no lo declaran. Un contador en cero no prueba que no haya problema, prueba que ese contador no lo ve |
+| 2026-09-14 | Tres preguntas de química calculaban "20 y 80" y cerraban marcando la opción "80 y 20", tapándolo con un paréntesis explicativo | Chequeo de coherencia explicación↔respuesta | Es la misma lección del 12-sep en otra forma: si hace falta un paréntesis para explicar por qué la respuesta no coincide con el cálculo, eso no se arregla con el paréntesis |
+| 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 
 ---
 
@@ -301,6 +309,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
   - Cuando lleguen: no hardcodearlos. Van a config/DB (tabla de configuración o `admin/config`, que ya existe) para poder cambiarlos sin deploy, y el QR a Supabase Storage. Están en `src/app/pagar/page.tsx`, líneas ~176-200.
   - Todo lo demás del circuito de cobro YA funciona: el alumno declara el pago, queda pendiente, el admin lo aprueba en `/admin/pagos` y `agregarOExtenderSuscripcion` le da el mes.
 - [x] ~~El contenido pago no está protegido.~~ Resuelto: guard de servidor en `aprende/layout.tsx` y `laminas/layout.tsx`, con la lógica en `src/lib/acceso-contenido.ts` (ver §11). Frena el acceso por URL, que es el problema real; **no** esconde el contenido de quien lea el bundle de JavaScript — para eso habría que mover las lecciones a datos pedidos al servidor.
+- [x] ~~La biblioteca de exámenes regalaba las soluciones.~~ Resuelto el 14-sep: `/api/axiom/examenes/[id]` no miraba la sesión, así que los 140 exámenes con respuesta y paso a paso se bajaban con un `curl` sin login. Ahora resuelve el plan en el servidor y filtra (ver §11 y D8).
+- [ ] **El plan no mira facultad.** `esPago()` solo pregunta si hay alguna suscripción viva, así que un premium de Económicas abre las soluciones de Ingeniería. Detectado el 14-sep probando el fix de arriba; falta decidir si se cobra por facultad o el plan desbloquea todo.
 - [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
 - [ ] **No hay Términos y Condiciones ni Política de Privacidad.** Para cobrar y para guardar datos de menores de edad hacen falta, y la PWA las va a pedir si alguna vez va a una store.
 - [ ] Los precios están escritos dos veces: `api/pagos/route.ts` (servidor, el que vale) y `pagar/page.tsx:30` (cliente). Hoy coinciden en 100 / 50 / 50, pero es cuestión de tiempo.
@@ -317,9 +327,13 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
 - [ ] Animar las lecciones que aún son solo cards (revisar `grep -c "motion\." | sort` para identificarlas).
 - [x] Sistema real de auth + DB persistente: Supabase (Postgres), con cron diario para que no se pause por inactividad.
-- [x] Tests automatizados: 16 con `node --test`, el de banco corre sobre los 139 exámenes reales con el parser real (ver §11).
+- [x] Tests automatizados: 20 con `node --test`, el de banco corre sobre los 139 exámenes reales con el parser real. Los 4 que se sumaron el 14-sep son trinquetes de curaduría (ver §11).
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
+- [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
+- [ ] **55 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado, porque ya traían la configuración descrita. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 55 y solo puede bajar. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
+- [ ] **Guiones largos en el banco**: la regla 11 de §4.5 (nada de "—" cerca de matemática, se confunde con el menos) se aplicó a las lecciones el 16-ago pero nunca al banco. Quedan 189 preguntas, y en 38 el guion está pegado a un número o una fórmula. Es un quinto trinquete natural.
+- [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
 - [x] ~~Auditoría visual sistemática en móvil~~ — hecha el 13-sep a 375px, pantalla por pantalla (ver §11). Salió el corte de las fórmulas, el avatar aplastado y cuatro bugs más.
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
@@ -380,6 +394,54 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-14 (la biblioteca regalaba las soluciones · el banco pasa a tuteo · cuatro auditorías quedan como test)
+
+Sesión de pulido antes de tocar nada de cobro. Se arrancó auditando el banco con los regex del parser real y terminó saliendo un agujero de paywall más grande que el que se había cerrado el 13-sep.
+
+**La biblioteca de exámenes regalaba las 3.579 soluciones.** `/api/axiom/examenes/[id]` no chequeaba absolutamente nada: sin cookie, sin sesión, sin plan, un `curl` devolvía cualquiera de los 140 exámenes con su respuesta correcta y su explicación paso a paso. El producto entero, gratis, sin cuenta.
+
+Y el repo ya se contradecía solo: `plan.ts` define `puedeVerResolucionBiblioteca()` con el comentario *"Paso a paso al NAVEGAR la biblioteca (solo pago)"*, mientras el route handler decía *"son gratis para cualquier usuario, no hay gating acá"*. Esa función, más `puedeProgramaIA`, `puedeSimulacroIA` y `puedePracticaErrores`, no las llamaba nadie: código muerto desde que se escribió.
+
+Ahora la ruta resuelve el plan en el servidor y saca `respuesta_correcta` y `explicacion` antes de responder si no es pago (decisión D8). El payload de un anónimo pasó de 24.758 a 12.912 bytes. En pantalla se dice en vez de dejar un botón muerto: las dos vistas de biblioteca explican por qué falta la solución y linkean a `/precios?motivo=resolucion`.
+
+**El guard de lecciones NO estaba roto.** Ronald reportó que entraba a lecciones siendo free. Se probó con un usuario `plan: gratis` real, por URL directa y por navegación desde el índice (que es una petición RSC, camino distinto): las premium redirigen bien. Lo que estaba viendo era la Unidad 01, gratis por decisión D2. Los números exactos, por si hay que revisarlos: Económicas 12 de 49 lecciones abiertas, Ingeniería 9 de 57, láminas 0 de 64. Se verificó además que no hay fuga por colisión de slugs entre facultades.
+
+**El banco pasa a tuteo: 3.144 reemplazos en 129 archivos.** La normalización del 13-sep barrió `src/` y dejó `data/` afuera, así que el 62,8% de las preguntas (2.249 de 3.579) le hablaban de vos al alumno. Casi toda explicación abría con *"Recordá"*, 1.692 veces.
+
+No se hizo con una regla genérica. Se censó primero el banco entero (211 formas distintas con tilde final) y se armó una tabla explícita de 143 entradas, una por forma real, porque los verbos que diptongan no salen por regla: `recordá` no es "recorda", es **recuerda**; `contá` → cuenta, `resolvé` → resuelve, `descomponé` → descompón, `hacé` → haz. Y algunas ganan tilde donde el voseo no la lleva: `evaluá` → evalúa, `aislá` → aísla.
+
+Tres cosas que conviene no reaprender:
+- **`grep -P` miente con tildes.** Buscando el contexto de `hallá` dio cero resultados con 96 ocurrencias en el banco: `\b` después de una tilde no es confiable, y encima se le pidió contexto que no existe cuando la palabra abre el renglón. Censo y verificación van en Python con lookarounds sobre `[^\W\d_]` y `re.U`.
+- **El censo por tilde final tiene un punto ciego**: los imperativos reflexivos con pronombre pegado no la llevan (`quedate` → quédate). Hubo que barrer `-ate/-ete/-ite` aparte.
+- **La verificación que vale es comparar palabra por palabra contra `HEAD`** y exigir que toda diferencia sea un par de la tabla y que no cambie la cantidad de palabras. Eso habría atrapado el "presentes → presientes" del 13-sep.
+
+Los bloques `<!-- -->` y el frontmatter se protegen antes de tocar nada: van en rioplatense por CLAUDE.md. Sobreviven 3 "vos" a propósito, que son diálogo citado del enunciado original de 2017 P2 entre dos personajes.
+
+**Cuatro auditorías quedan como test.** Las cuatro salieron de encontrar el problema a mano; quedan como trinquete para no tener que volver a encontrarlo:
+
+| chequeo | estado |
+|---|---|
+| la explicación no se contradice con la respuesta marcada | 0 |
+| el banco le habla al alumno de tú, no de vos | 0 |
+| una pregunta repetida no cambia de respuesta entre exámenes | 0 |
+| ningún enunciado promete una figura que no está | 55, tope que solo baja |
+
+El de duplicados se validó solo: al escribirlo falló, y lo único que agarró en los 140 exámenes fue una contradicción real. Detalle que importó: compara el **texto** de la opción marcada, no la letra. Sin eso daba 47 falsos positivos, porque el orden de las opciones cambia entre gestiones y ahí dos letras distintas son la misma respuesta.
+
+**Mendel: la misma pregunta respondía distinto en dos exámenes.** La proporción 9:3:3:1 en F2 era "segunda ley" en `2009-parcial1-1 P29` y "tercera" en `2009-parcial1-2 P29`, con opciones idénticas. El desempate no fue una opinión: la propia pregunta de `parcial1-2` tiene `tema: segunda-ley-mendel-dihibrido` y marcaba C (tercera), o sea que se contradecía sola, y las otras dos copias de la misma gestión responden segunda. Se alineó a B.
+
+Lo de fondo es que **las dos numeraciones conviven en el banco porque conviven en los exámenes reales**: el enunciado oficial de `2007-parcial2-2 P25` dice textual *"3ra Ley de Mendel (herencia independiente)"* y su P28 pone *"1ra Ley = uniformidad"*. No se puede fijar una convención global sin contradecir exámenes reales, así que las tres copias ahora cierran avisando de la doble numeración y de cómo darse cuenta mirando las opciones.
+
+**Ácido fosfórico: el error del 12-sep otra vez.** Tres preguntas (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) calculaban 20 g al 70% y 80 g al 20%, y cerraban marcando la opción que dice "80 y 20", tapando la diferencia con un paréntesis del tipo *"el par 20/80 se corresponde con la opción que lista 80 y 20"*. Las letras quedaron como estaban (tres gestiones distintas ofrecen ese par y lo dan por bueno, así que la clave toma el par sin orden); lo que se reescribió es la explicación, que ahora nombra el orden y le enseña al alumno a chequear a qué solución corresponde cada número. No se pudo contrastar contra el facsímil porque los PDF no están en el repo.
+
+**98 enunciados dejan de prometer una figura que no existe: 130 → 55.** El trinquete viejo contaba las que DECLARAN `figura:` y estaba en 0; estas ni siquiera declaran el campo, así que el alumno leía *"en la figura adjunta…"* y abajo no aparecía nada.
+
+Ninguno de los 98 cambia el problema: todos ya traían la configuración escrita en el propio texto, casi siempre en un paréntesis que el transcriptor puso en lugar del dibujo. 52 se reescribieron a mano cuando la mención sostenía la gramática, y 46 con una pasada mecánica sobre las menciones puramente decorativas (`(ver figura)`, `como se muestra en la figura`, y la etiqueta `(Figura: ` delante de una descripción que ya estaba). Un caso aparte: `2005-1op-1 P18` no traía descripción, pero `2017-1op-1 P9` es el mismo problema (mismos 27 m, mismo μ=1/5, ambos dan 10 m) y sí la traía; se le copió.
+
+**No se les agregó `figura:` en masa a propósito.** Serviría para que salga el cartel de "figura en preparación", pero decidir cuáles lo necesitan es curaduría, no algo que pueda resolver un regex: la heurística que separaba "trae descripción" de "no trae" falló en varias (la del pentágono describe todo en palabras y cayó del lado equivocado), y ponerle el cartel a una pregunta que se resuelve igual es mentir al revés. El tope del test deja el trabajo medido y frena que crezca.
+
+**Dos cosas detectadas y no arregladas** (están en §8): el plan no mira facultad, así que un premium de Económicas abre las soluciones de Ingeniería; y la regla 11 (nada de guiones largos cerca de matemática) nunca se aplicó al banco, quedan 189 preguntas con "—" y en 38 está pegado a un número o fórmula.
 
 ### 2026-09-13 (ter) (auditoría en celular · cinco arreglos del recorrido del alumno · la app pasa a tuteo)
 
