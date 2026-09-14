@@ -90,7 +90,7 @@ Determinar el término independiente de $\left(x^7+\dfrac{1}{\sqrt[3]{x}}\right)
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Planteá el término general del binomio y encontrá el valor de $k$ que anula el exponente de $x$.
+**explicacion:** Plantea el término general del binomio y encuentra el valor de $k$ que anula el exponente de $x$.
 Paso 1 · Término general: $T_{k+1}=\binom{22}{k}(x^7)^{22-k}\left(x^{-1/3}\right)^k=\binom{22}{k}x^{7(22-k)-k/3}$.
 Paso 2 · Igualando el exponente a cero: $7(22-k)-\frac{k}{3}=0 \Rightarrow 154-7k-\frac{k}{3}=0$. Multiplicando por 3: $462-21k-k=0 \Rightarrow 462-22k=0 \Rightarrow k=21$.
 Paso 3 · El término independiente es $\binom{22}{21}=22$.
@@ -112,7 +112,7 @@ En la ecuación $x^2+(2k+5)x+k=0$, una raíz excede a la otra en 3 unidades. Det
 - E) 6
 
 **respuesta:** A
-**explicacion:** Esta pregunta tampoco tiene opción "ninguno" en el original — 5 opciones numéricas puras. Usá suma y producto de raíces.
+**explicacion:** Esta pregunta tampoco tiene opción "ninguno" en el original — 5 opciones numéricas puras. Usa suma y producto de raíces.
 Paso 1 · Sean las raíces $r$ y $r+3$. Suma: $r+(r+3)=2r+3=-(2k+5)$, de donde $r=-k-4$.
 Paso 2 · Producto: $r(r+3)=k$.
 Paso 3 · Sustituyendo $r=-k-4$: $(-k-4)^2+3(-k-4)-k=0 \Rightarrow k^2+8k+16-3k-12-k=0 \Rightarrow k^2+4k+4=0 \Rightarrow (k+2)^2=0 \Rightarrow k=-2$.
@@ -134,7 +134,7 @@ Si $\log_x(12)-3\log_{x^2}(4)+\log_x(6)=2$, calcular el valor de "x".
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Convertí $\log_{x^2}(4)$ a base $x$ usando $\log_{x^2}(4)=\frac{\log_x(4)}{2}$.
+**explicacion:** Convierte $\log_{x^2}(4)$ a base $x$ usando $\log_{x^2}(4)=\frac{\log_x(4)}{2}$.
 Paso 1 · La ecuación queda $\log_x(12)-\frac{3}{2}\log_x(4)+\log_x(6)=2$.
 Paso 2 · Agrupando con propiedades de logaritmos: $\log_x(12\times6)-\log_x\left(4^{3/2}\right)=2 \Rightarrow \log_x(72)-\log_x(8)=2$.
 Paso 3 · $\log_x\left(\frac{72}{8}\right)=2 \Rightarrow \log_x(9)=2 \Rightarrow x^2=9 \Rightarrow x=3$.
@@ -199,7 +199,7 @@ Hallar el valor de $E=\text{sen}\left(\dfrac{13\pi}{2}+x\right)\cdot\sec(9\pi-x)
 - E) ninguno
 
 **respuesta:** C
-**explicacion:** Reducí cada ángulo restando múltiplos completos de $2\pi$.
+**explicacion:** Reduce cada ángulo restando múltiplos completos de $2\pi$.
 Paso 1 · $\frac{13\pi}{2}=6\pi+\frac{\pi}{2}$, entonces $\text{sen}\left(\frac{13\pi}{2}+x\right)=\text{sen}\left(\frac{\pi}{2}+x\right)=\cos(x)$.
 Paso 2 · $9\pi=8\pi+\pi$, entonces $\sec(9\pi-x)=\sec(\pi-x)=\frac{1}{\cos(\pi-x)}=\frac{1}{-\cos(x)}=-\sec(x)$.
 Paso 3 · $E=\cos(x)\cdot(-\sec(x))=\cos(x)\cdot\left(-\frac{1}{\cos(x)}\right)=-1$.
@@ -221,7 +221,7 @@ La menor solución en el intervalo $[0°;180°]$ de la ecuación trigonométrica
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Reconocé la identidad del ángulo doble dentro de la expresión.
+**explicacion:** Reconoce la identidad del ángulo doble dentro de la expresión.
 Paso 1 · $4\text{sen}^2(x)\cos^2(x)=(2\,\text{sen}(x)\cos(x))^2=\text{sen}^2(2x)=\frac14 \Rightarrow \text{sen}(2x)=\pm\frac12$.
 Paso 2 · Con $x\in[0°,180°]$, $2x\in[0°,360°]$. La solución positiva más pequeña de $\text{sen}(2x)=\frac12$ es $2x=30°$.
 Paso 3 · $x=15°$ (las demás soluciones, como $2x=150°,210°,330°$, dan valores de $x$ mayores).
@@ -243,7 +243,7 @@ Calcular "M" para que la igualdad $\dfrac{\cos(x)}{1+\text{sen}(x)}+\dfrac{\cos(
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Sumá las dos fracciones usando común denominador $1-\text{sen}^2(x)=\cos^2(x)$.
+**explicacion:** Suma las dos fracciones usando común denominador $1-\text{sen}^2(x)=\cos^2(x)$.
 Paso 1 · $\frac{\cos(x)(1-\text{sen}(x))+\cos(x)(1+\text{sen}(x))}{(1+\text{sen}(x))(1-\text{sen}(x))}=\frac{2\cos(x)}{1-\text{sen}^2(x)}=\frac{2\cos(x)}{\cos^2(x)}=\frac{2}{\cos(x)}$.
 Paso 2 · Comparando con $\frac{2}{M}$: $M=\cos(x)$.
 Respuesta: A.
@@ -264,7 +264,7 @@ En el intervalo $[0°;360°]$, hallar la suma de las soluciones de $(\cos(x)+2)(
 - E) ninguno
 
 **respuesta:** C
-**explicacion:** Un producto es cero si al menos uno de los factores es cero; descartá el factor imposible.
+**explicacion:** Un producto es cero si al menos uno de los factores es cero; descarta el factor imposible.
 Paso 1 · $\cos(x)+2=0 \Rightarrow \cos(x)=-2$, imposible (el coseno está entre -1 y 1).
 Paso 2 · $2\cos(x)-1=0 \Rightarrow \cos(x)=\frac12 \Rightarrow x=60°$ ó $x=300°$ en $[0°,360°]$.
 Paso 3 · Suma $=60°+300°=360°$.
@@ -286,7 +286,7 @@ El aluminio reacciona con ácido sulfúrico para formar sulfato de aluminio $Al_
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Balanceá primero, calculá el $\mathrm{H_{2}}$ teórico, aplicá el rendimiento y usá la ley de Dalton para descontar el vapor de agua antes de aplicar la ley de gases ideales.
+**explicacion:** Balancea primero, calcula el $\mathrm{H_{2}}$ teórico, aplica el rendimiento y usa la ley de Dalton para descontar el vapor de agua antes de aplicar la ley de gases ideales.
 Paso 1 · Ecuación balanceada: $2Al+3H_2SO_4\rightarrow Al_2(SO_4)_3+3H_2$.
 Paso 2 · Moles de Al $=\frac{2.50}{27}=0.0926$ mol. Moles de $H_2$ teóricos $=\frac32\times0.0926=0.1389$ mol.
 Paso 3 · Con 65% de rendimiento: moles reales de $H_2=0.1389\times0.65=0.0903$ mol.
@@ -310,7 +310,7 @@ A 120 mL de una solución de ácido sulfúrico al 85% en masa de $H_2SO_4$ y den
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Calculá la masa de soluto a partir de la solución original, sumá los volúmenes de ácido y agua para el volumen final, y usá la densidad final dada para obtener la masa total de la mezcla.
+**explicacion:** Calcula la masa de soluto a partir de la solución original, suma los volúmenes de ácido y agua para el volumen final, y usa la densidad final dada para obtener la masa total de la mezcla.
 Paso 1 · Masa de la solución original $=120\text{ mL}\times1.85\text{ g/mL}=222$ g. Masa de $H_2SO_4=0.85\times222=188.7$ g.
 Paso 2 · Volumen final (suma de volúmenes) $=120+480=600$ mL $=0.600$ L.
 Paso 3 · Moles de $H_2SO_4=\frac{188.7}{98}=1.9255$ mol; equivalentes (diprótico) $=2\times1.9255=3.851$ eq.
@@ -378,7 +378,7 @@ La presión de vapor de una solución preparada con 10 g de un soluto no voláti
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Usá la ley de Raoult (con la presión de vapor del agua pura a 100°C = 760 mmHg) para hallar la fracción molar y los moles de soluto, y con eso la molalidad para el descenso crioscópico.
+**explicacion:** Usa la ley de Raoult (con la presión de vapor del agua pura a 100°C = 760 mmHg) para hallar la fracción molar y los moles de soluto, y con eso la molalidad para el descenso crioscópico.
 Paso 1 · Fracción molar del soluto: $X_{soluto}=\frac{\Delta P}{P°}=\frac{760-750.3}{760}=0.01276$.
 Paso 2 · Moles de agua $=\frac{75}{18}=4.1667$ mol. De $X_{soluto}=\frac{n_{soluto}}{n_{soluto}+n_{agua}}$ se despeja $n_{soluto}=\frac{0.01276\times4.1667}{1-0.01276}\approx0.0539$ mol.
 Paso 3 · Molalidad $=\frac{0.0539}{0.075\text{ kg}}\approx0.718$ mol/kg.
@@ -526,7 +526,7 @@ Son acciones que minimizan la contaminación ambiental:
 - E) Ninguna
 
 **respuesta:** D
-**explicacion:** Evaluá cada acción por separado.
+**explicacion:** Evalúa cada acción por separado.
 Paso 1 · Reducir el gasto energético disminuye emisiones asociadas a la generación de electricidad.
 Paso 2 · Reducir y reciclar basura disminuye la contaminación de suelos y la necesidad de nuevos recursos.
 Paso 3 · No quemar en San Juan evita la contaminación del aire por quema de leña/llantas, una práctica muy señalada en la educación ambiental boliviana.
@@ -610,7 +610,7 @@ El concepto de nicho ecológico se refiere a:
 - E) Ninguna
 
 **respuesta:** C
-**explicacion:** Distinguí nicho ecológico de hábitat.
+**explicacion:** Distingue nicho ecológico de hábitat.
 Paso 1 · (a) describe en realidad el concepto de hábitat ("dirección" de la especie), no el de nicho.
 Paso 2 · El nicho ecológico es el papel funcional o "profesión" que una especie desempeña dentro de su comunidad (qué come, cómo interactúa, qué recursos usa).
 Respuesta: C.
@@ -651,7 +651,7 @@ El límite de tolerancia de una emisión acústica recomendada por la OMS es de:
 - E) Ninguna
 
 **respuesta:** C
-**explicacion:** Compará cada valor con las guías reales de la OMS.
+**explicacion:** Compara cada valor con las guías reales de la OMS.
 Paso 1 · Un ambiente "tranquilo" ronda los 30-50 dB, no 65 dB (b es poco preciso).
 Paso 2 · Una moto emite típicamente entre 85-100 dB, no exactamente 80 dB de forma estándar (a es aproximado pero impreciso).
 Paso 3 · La OMS (Guidelines for Community Noise, 1999) recomienda que el nivel de presión sonora pico, para ruidos de impulso, no exceda los 140 dB en adultos — este es el valor de tolerancia límite oficialmente citado, coincidiendo con la opción (c).
@@ -673,7 +673,7 @@ La posición de los organismos en la cadena alimenticia se denomina:
 - E) Ninguna
 
 **respuesta:** B
-**explicacion:** Distinguí nivel trófico de nicho ecológico y hábitat.
+**explicacion:** Distingue nivel trófico de nicho ecológico y hábitat.
 Paso 1 · El nivel trófico es específicamente la posición que ocupa un organismo en la cadena alimenticia (productor, consumidor primario, secundario, etc.).
 Paso 2 · El nicho ecológico es el rol funcional, y el hábitat es el lugar físico — ninguno de los dos es "posición en la cadena alimenticia".
 Respuesta: B.

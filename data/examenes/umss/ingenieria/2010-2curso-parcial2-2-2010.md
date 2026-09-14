@@ -60,7 +60,7 @@ $x_1, x_2$ son raíces de $3x^2+6x-9=0$. Hallar $E=\dfrac{x_1+x_2}{x_1\cdot x_2}
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Usá las relaciones de Vieta: suma de raíces $=-b/a$, producto de raíces $=c/a$.
+**explicacion:** Usa las relaciones de Vieta: suma de raíces $=-b/a$, producto de raíces $=c/a$.
 Paso 1 · $x_1+x_2=-\frac{6}{3}=-2$.
 Paso 2 · $x_1\cdot x_2=\frac{-9}{3}=-3$.
 Paso 3 · $E=\frac{-2}{-3}=\frac{2}{3}$.
@@ -82,7 +82,7 @@ Si el residuo de dividir $P(x)=4x^4-x^3+5x^2-mx+n$ entre $Q(x)=x^2-2x+3$ es $R(x
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Hacé la división larga y compará el resto obtenido con $R(x)=-10x-17$.
+**explicacion:** Haz la división larga y compara el resto obtenido con $R(x)=-10x-17$.
 Paso 1 · $4x^4/x^2=4x^2$; $4x^2(x^2-2x+3)=4x^4-8x^3+12x^2$; resta: $7x^3-7x^2-mx+n$.
 Paso 2 · $7x^3/x^2=7x$; $7x(x^2-2x+3)=7x^3-14x^2+21x$; resta: $7x^2-(m+21)x+n$.
 Paso 3 · $7x^2/x^2=7$; $7(x^2-2x+3)=7x^2-14x+21$; resta: $(-m-7)x+(n-21)$.
@@ -105,7 +105,7 @@ La diferencia de dos números $x-y$ es 40, y $\frac{1}{8}$ de la suma es 11. Hal
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantea el sistema de dos ecuaciones lineales y resolvé por suma.
+**explicacion:** Plantea el sistema de dos ecuaciones lineales y resuelve por suma.
 Paso 1 · $x-y=40$.
 Paso 2 · $\frac{x+y}{8}=11 \Rightarrow x+y=88$.
 Paso 3 · Sumando ambas ecuaciones: $2x=128 \Rightarrow x=64$.
@@ -127,7 +127,7 @@ Hallar "x": $\sqrt{3x-5}+\sqrt{3x-14}=9$
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Resolvé usando la diferencia de cuadrados de los radicandos, sin adivinar entre las opciones.
+**explicacion:** Resuelve usando la diferencia de cuadrados de los radicandos, sin adivinar entre las opciones.
 Paso 1 · Sea $u=3x-5$, $v=3x-14$. Entonces $u-v=9$ (constante, no depende de $x$).
 Paso 2 · $\sqrt u+\sqrt v=9$ y $\sqrt u-\sqrt v=\frac{u-v}{\sqrt u+\sqrt v}=\frac{9}{9}=1$.
 Paso 3 · Sumando y restando: $\sqrt u=5$, $\sqrt v=4$, entonces $u=25$, $v=16$.
@@ -151,7 +151,7 @@ El 15º término de una progresión aritmética es 20, razón=2/7. Hallar el pri
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Usá $a_{15}=a_1+14\cdot r$.
+**explicacion:** Usa $a_{15}=a_1+14\cdot r$.
 Paso 1 · $20=a_1+14\times\frac{2}{7}=a_1+4$.
 Paso 2 · $a_1=20-4=16$.
 Respuesta: C.
@@ -193,7 +193,7 @@ Dos cuerdas AB y CD se cortan en una circunferencia. Los segmentos de AB miden 6
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Usá el teorema de las cuerdas que se cruzan: el producto de los segmentos de una cuerda es igual al de la otra.
+**explicacion:** Usa el teorema de las cuerdas que se cruzan: el producto de los segmentos de una cuerda es igual al de la otra.
 Paso 1 · $6\times8=48$.
 Paso 2 · Sean los segmentos de CD iguales a $s$ y $3s$: $s\times3s=48\Rightarrow3s^2=48\Rightarrow s^2=16\Rightarrow s=4$.
 Paso 3 · $CD=s+3s=4s=16$.
@@ -215,7 +215,7 @@ x ángulo del 4to cuadrante, $\sec(x)=5/4$. Hallar $\tan(2x)$.
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Obtené $\cos(x)$, $\text{sen}(x)$ y $\tan(x)$ según el signo del 4to cuadrante, y aplicá la fórmula del ángulo doble.
+**explicacion:** Obtén $\cos(x)$, $\text{sen}(x)$ y $\tan(x)$ según el signo del 4to cuadrante, y aplica la fórmula del ángulo doble.
 Paso 1 · $\cos(x)=4/5$. En el 4to cuadrante, $\text{sen}(x)<0$: $\text{sen}(x)=-\sqrt{1-16/25}=-3/5$.
 Paso 2 · $\tan(x)=\text{sen}(x)/\cos(x)=-3/4$.
 Paso 3 · $\tan(2x)=\frac{2\tan(x)}{1-\tan^2(x)}=\frac{2(-3/4)}{1-9/16}=\frac{-3/2}{7/16}=-\frac{48}{14}=-\frac{24}{7}$.
@@ -237,7 +237,7 @@ x ángulo del primer cuadrante, $\text{sen}(x)=\sqrt2/2$ (es decir $x=45°$). Ha
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Reducí cada término al primer cuadrante y evaluá con $x=45°$.
+**explicacion:** Reduce cada término al primer cuadrante y evalúa con $x=45°$.
 Paso 1 · $\text{sen}(3\pi/2-x)=-\cos(x)$; $\text{sen}(\pi+x)=-\text{sen}(x)$. Numerador $=\cos(x)\text{sen}(x)$.
 Paso 2 · $\sec(\pi+x)=-\sec(x)$; $\csc(\pi+x)=-\csc(x)$. Denominador $=\sec(x)\csc(x)=\dfrac{1}{\cos(x)\text{sen}(x)}$.
 Paso 3 · $E=\dfrac{\cos(x)\text{sen}(x)}{1/[\cos(x)\text{sen}(x)]}=[\cos(x)\text{sen}(x)]^2$.
@@ -282,7 +282,7 @@ Contenedor dividido en 2 compartimentos: A a 400K, 4atm; B a 400K, 8atm. Se mezc
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** A igual T, $n\propto PV$; usá la fracción molar para relacionar $V_A$ y $V_B$.
+**explicacion:** A igual T, $n\propto PV$; usa la fracción molar para relacionar $V_A$ y $V_B$.
 Paso 1 · $\dfrac{n_A}{n_B}=\dfrac{P_AV_A}{P_BV_B}=\dfrac{4V_A}{8V_B}=\dfrac{V_A}{2V_B}$.
 Paso 2 · $x_A=0.65\Rightarrow\dfrac{n_A}{n_B}=\dfrac{0.65}{0.35}=\dfrac{13}{7}$.
 Paso 3 · $\dfrac{V_A}{2V_B}=\dfrac{13}{7}\Rightarrow V_A=\dfrac{26}{7}V_B$.
@@ -306,7 +306,7 @@ dificultad: medio
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Calculá el volumen teórico con la estequiometría y luego aplicá el rendimiento.
+**explicacion:** Calcula el volumen teórico con la estequiometría y luego aplica el rendimiento.
 Paso 1 · $M(Ca_3P_2)=3(40.08)+2(30.97)=182.18\ g/mol$. $n=\dfrac{150}{182.18}=0.8233\ mol$.
 Paso 2 · $n(PH_3)_{teo}=2\times0.8233=1.6466\ mol$.
 Paso 3 · $V_{teo}=1.6466\times22.4=36.88\ L$ (c.n.).
@@ -329,7 +329,7 @@ dificultad: dificil
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Convertí cada solución a Normalidad (peso equivalente $\mathrm{H_{2}SO_{4}}$=49) y planteá el balance de equivalentes.
+**explicacion:** Convierte cada solución a Normalidad (peso equivalente $\mathrm{H_{2}SO_{4}}$=49) y plantea el balance de equivalentes.
 Paso 1 · Solución 1: $g/mL=1.19\times0.15=0.1785$; $N_1=\dfrac{0.1785\times1000}{49}=3.643\ N$.
 Paso 2 · Solución 2: $g/mL=1.25\times0.55=0.6875$; $N_2=\dfrac{0.6875\times1000}{49}=14.031\ N$.
 Paso 3 · Balance: $N_1V_1+N_2(250-V_1)=7\times250=1750$.
@@ -344,7 +344,7 @@ area: quimica
 tema: redox-ion-electron
 dificultad: dificil
 
-$Cu+HNO_3\rightarrow Cu(NO_3)_2+NO+H_2O$ (balanceá por ion-electrón). $x=\dfrac{\text{coef(sustancia oxidada)}}{\text{coef(agente oxidante)}-\text{coef(agente reductor)}}$
+$Cu+HNO_3\rightarrow Cu(NO_3)_2+NO+H_2O$ (balancea por ion-electrón). $x=\dfrac{\text{coef(sustancia oxidada)}}{\text{coef(agente oxidante)}-\text{coef(agente reductor)}}$
 
 - A) -3/5
 - B) 8/5
@@ -353,7 +353,7 @@ $Cu+HNO_3\rightarrow Cu(NO_3)_2+NO+H_2O$ (balanceá por ion-electrón). $x=\dfra
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Balanceá la ecuación completa e identificá los coeficientes pedidos.
+**explicacion:** Balancea la ecuación completa e identifica los coeficientes pedidos.
 Paso 1 · Ecuación balanceada: $3Cu+8HNO_3\rightarrow3Cu(NO_3)_2+2NO+4H_2O$ (verificado: Cu 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
 Paso 2 · Sustancia oxidada = Cu (pierde electrones, $Cu^0\rightarrow Cu^{2+}$), coeficiente = 3.
 Paso 3 · Agente oxidante = $\mathrm{HNO_{3}}$ (coeficiente total en la ecuación = 8); agente reductor = Cu, coeficiente = 3.
@@ -376,7 +376,7 @@ Calcular el volumen (mL) de HCl 0.2N para titular 0.35g de una muestra al 70% en
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Hallá la masa pura de $\mathrm{Na_{2}CO_{3}}$, convertí a equivalentes y usá $N\times V=eq$.
+**explicacion:** Halla la masa pura de $\mathrm{Na_{2}CO_{3}}$, convierte a equivalentes y usa $N\times V=eq$.
 Paso 1 · Masa $\mathrm{Na_{2}CO_{3}}$ $=0.35\times0.70=0.245\ g$.
 Paso 2 · $M(Na_2CO_3)=2(22.99)+12.01+3(16)=105.99\approx106\ g/mol$; peso equivalente $=106/2=53\ g/eq$ (2 H+ por fórmula).
 Paso 3 · $eq=\dfrac{0.245}{53}=0.0046226\ eq$.
@@ -399,7 +399,7 @@ Sistema de polea: bloque 2 sobre superficie horizontal (arrastrado por la cuerda
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Aplicá 2ª ley de Newton a cada bloque (sistema tipo Atwood, con $g=10\ m/s^2$) y luego calculá el trabajo de la tensión sobre el bloque 2.
+**explicacion:** Aplica 2ª ley de Newton a cada bloque (sistema tipo Atwood, con $g=10\ m/s^2$) y luego calcula el trabajo de la tensión sobre el bloque 2.
 Paso 1 · Bloque 1 (cuelga): $m_1g-T=m_1a$. Bloque 2 (horizontal, sin fricción): $T=m_2a$.
 Paso 2 · Sumando: $m_1g=(m_1+m_2)a\Rightarrow a=\dfrac{200\times10}{400}=5\ m/s^2$.
 Paso 3 · $T=m_2a=200\times5=1000\ N$.
@@ -466,7 +466,7 @@ En los vértices de un cuadrado de 10cm de lado se colocan cargas puntuales (en 
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Descomponé vectorialmente el campo de cada carga (la distancia de cada vértice al centro es la misma, $r=a/\sqrt2$) y sumá componente a componente.
+**explicacion:** Descompón vectorialmente el campo de cada carga (la distancia de cada vértice al centro es la misma, $r=a/\sqrt2$) y suma componente a componente.
 Paso 1 · $r=\dfrac{0.10\sqrt2}{2}=0.07071\ m$; $r^2=0.005\ m^2$; $k/r^2=1.8\times10^{12}$.
 Paso 2 · Magnitudes: $E_1=1.8\times10^{12}\times200\times10^{-12}=360\ N/C$ (V1,+200pC); $E_2=720\ N/C$ (V2,-400pC); $E_3=180\ N/C$ (V3,+100pC); $E_4=720\ N/C$ (V4,-400pC).
 Paso 3 · Con $V_1=(0,0), V_2=(0.1,0), V_3=(0.1,0.1), V_4=(0,0.1)$ y centro $O=(0.05,0.05)$: cada campo apunta alejándose de la carga (si es +) o acercándose a ella (si es -), a $45°$ de los ejes.
@@ -490,7 +490,7 @@ Sistema de dos condensadores en serie: uno fijo de 1μF, otro "C" variable, cone
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Calculá la capacitancia equivalente necesaria a partir de la energía y verificá si es alcanzable en serie con un capacitor fijo de 1μF.
+**explicacion:** Calcula la capacitancia equivalente necesaria a partir de la energía y verifica si es alcanzable en serie con un capacitor fijo de 1μF.
 Paso 1 · $E=\frac12C_{eq}V^2\Rightarrow1.6\times10^{-3}=\frac12C_{eq}(40)^2=800\,C_{eq}\Rightarrow C_{eq}=2\times10^{-6}\ F=2\ \mu F$.
 Paso 2 · En serie, $C_{eq}=\dfrac{1\cdot C}{1+C}$ es siempre MENOR que el menor de los dos capacitores (aquí, menor que 1μF), sin importar cuán grande sea $C$: cuando $C\to\infty$, $C_{eq}\to1\ \mu F$ (cota superior, nunca alcanzada).
 Paso 3 · La energía máxima posible en esa cota es $E_{max}=\frac12(1\times10^{-6})(1600)=0.8\times10^{-3}\ J=0.8\ mJ$, que es la MITAD de lo pedido (1.6mJ).
@@ -513,7 +513,7 @@ Los seres vivos se clasifican en los siguientes reinos:
 - E) Ninguna
 
 **respuesta:** C
-**explicacion:** Distinguí la clasificación por reinos de otras clasificaciones biológicas.
+**explicacion:** Distingue la clasificación por reinos de otras clasificaciones biológicas.
 Paso 1 · "Animal, Vegetal, Mineral" es una clasificación antigua e incorrecta (Mineral no es un reino de seres vivos).
 Paso 2 · "Archeobacteria, Bacteria y Eucarya" corresponde al sistema de tres DOMINIOS, no de reinos.
 Paso 3 · El sistema de cinco reinos (Monera, Protista, Fungi, Plantae, Animalia) es la clasificación de reinos correcta. Como A es falso, "Todas" (D) no puede ser correcta.
@@ -555,7 +555,7 @@ Bolivia es considerada biodiversa por:
 - E) Todas
 
 **respuesta:** E
-**explicacion:** Evaluá cada factor por separado.
+**explicacion:** Evalúa cada factor por separado.
 Paso 1 · Bolivia tiene hábitats óptimos y muy variados (amazonía, altiplano, valles, chaco).
 Paso 2 · Tiene ambientes climáticos muy contrastantes: cálido-húmedos en tierras bajas, fríos-áridos en el altiplano.
 Paso 3 · Presenta suelos diversos según piso ecológico.
@@ -579,7 +579,7 @@ Tipo de interacciones entre las especies:
 - E) Ninguna
 
 **respuesta:** D
-**explicacion:** Evaluá cada tipo de interacción.
+**explicacion:** Evalúa cada tipo de interacción.
 Paso 1 · El mutualismo (ambas especies se benefician), el comensalismo (una se beneficia, la otra no se afecta) y el parasitismo (una se beneficia a costa de la otra) son los tres tipos clásicos de interacciones interespecíficas.
 Respuesta: D.
 
@@ -599,7 +599,7 @@ Los tomates, las cebollas y los pepinos son:
 - E) Ninguna
 
 **respuesta:** C
-**explicacion:** Compará las características de cada grupo con las plantas mencionadas.
+**explicacion:** Compara las características de cada grupo con las plantas mencionadas.
 Paso 1 · Las briofitas (musgos) no tienen flores ni semillas verdaderas; las gimnospermas (coníferas) tienen semillas desnudas sin fruto.
 Paso 2 · El tomate, la cebolla y el pepino son plantas con flor que producen semillas encerradas en un fruto (u órgano floral modificado), característica de las Angiospermas.
 Respuesta: C.

@@ -53,7 +53,7 @@ El número de divisores de 280 es:
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Descomponé en factores primos y aplicá $(e_1+1)(e_2+1)\cdots$ con los exponentes.
+**explicacion:** Descompón en factores primos y aplica $(e_1+1)(e_2+1)\cdots$ con los exponentes.
 Paso 1 · $280=2^3\times5\times7$.
 Paso 2 · Nº divisores $=(3+1)(1+1)(1+1)=4\times2\times2=16$.
 Respuesta: B.
@@ -95,7 +95,7 @@ Se compra a 5000 bolivianos el millar de adoquines. ¿Cuánto costará (en Bs) e
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Convertí todo a las mismas unidades (cm²) antes de dividir por el área de cada adoquín.
+**explicacion:** Convierte todo a las mismas unidades (cm²) antes de dividir por el área de cada adoquín.
 Paso 1 · Área total $=60\times8.5=510\ m^2=5\,100\,000\ cm^2$.
 Paso 2 · Nº de adoquines $=5\,100\,000/80=63\,750$.
 Paso 3 · Costo $=\frac{63\,750}{1000}\times5000=318\,750$ Bs.
@@ -139,7 +139,7 @@ Un propietario no quiso vender una movilidad cuando le ofrecieron 3000 dólares,
 - E) ninguno
 
 **respuesta:** C
-**explicacion:** Primero hallá el costo real usando la oferta hipotética, después calculá la ganancia efectiva.
+**explicacion:** Primero halla el costo real usando la oferta hipotética, después calcula la ganancia efectiva.
 Paso 1 · $3000=C+0.25C=1.25C \Rightarrow C=2400$.
 Paso 2 · Ganancia real $=2760-2400=360$.
 Paso 3 · $\%=\frac{360}{2400}\times100=15\%$.
@@ -161,7 +161,7 @@ Sobre una recta se tienen los puntos consecutivos A, B y D. Entre B y D se toma 
 - E) ninguno
 
 **respuesta:** C
-**explicacion:** Con C insertado entre B y D, el orden final sobre la recta es A, B, C, D. Expresá todo en función de $AB=a$ y $BC=x$.
+**explicacion:** Con C insertado entre B y D, el orden final sobre la recta es A, B, C, D. Expresa todo en función de $AB=a$ y $BC=x$.
 Paso 1 · $AC=AB+BC=a+x$. La condición $CD=4\cdot AC$ da $CD=4(a+x)$.
 Paso 2 · $BD=BC+CD=x+4(a+x)=4a+5x$.
 Paso 3 · $BD-4AB=20 \Rightarrow (4a+5x)-4a=20 \Rightarrow 5x=20 \Rightarrow x=4$.
@@ -228,7 +228,7 @@ Se tiene un romboide ABCD, en el que AD=2AB. Se toma T, punto medio de BC. Halla
 - E) ninguno
 
 **respuesta:** D
-**explicacion:** Usá vectores con $A=0$, $B=\vec b$, $D=\vec d$ (con $|\vec d|=2|\vec b|$) y $C=\vec b+\vec d$ (propiedad del paralelogramo ABCD).
+**explicacion:** Usa vectores con $A=0$, $B=\vec b$, $D=\vec d$ (con $|\vec d|=2|\vec b|$) y $C=\vec b+\vec d$ (propiedad del paralelogramo ABCD).
 Paso 1 · $T=$ punto medio de $BC=\left(\vec b+(\vec b+\vec d)\right)/2=\vec b+\vec d/2$.
 Paso 2 · $\vec{TA}=-\vec b-\vec d/2$, $\quad\vec{TD}=\vec d/2-\vec b$.
 Paso 3 · $\vec{TA}\cdot\vec{TD}=-\vec b\cdot\vec d/2+|\vec b|^2-|\vec d|^2/4+\vec d\cdot\vec b/2=|\vec b|^2-|\vec d|^2/4$.
@@ -274,7 +274,7 @@ Una suspensión consta de una sustancia y agua; densidad de la suspensión 1,5 g
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Usá conservación de masa y de volumen: la masa total sale de la densidad de la suspensión, y los volúmenes de sustancia y agua se suman al volumen total.
+**explicacion:** Usa conservación de masa y de volumen: la masa total sale de la densidad de la suspensión, y los volúmenes de sustancia y agua se suman al volumen total.
 Paso 1 · Masa total $=1000\ ml\times1.5\ g/ml=1500\ g$. Sea $x=$ masa de sustancia, $1500-x=$ masa de agua.
 Paso 2 · Volumen total: $\frac{x}{5}+\frac{1500-x}{1}=1000$.
 Paso 3 · $\frac{x}{5}+1500-x=1000 \Rightarrow -\frac{4x}{5}=-500 \Rightarrow x=625\ g$.
@@ -297,7 +297,7 @@ Se diseñó una nueva escala de temperatura basada en el punto de congelación d
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Convertí 98.5°F a Celsius y planteá la proporcionalidad lineal $N=k\cdot C$ (ya que $0°C\to0$ en la nueva escala).
+**explicacion:** Convierte 98.5°F a Celsius y plantea la proporcionalidad lineal $N=k\cdot C$ (ya que $0°C\to0$ en la nueva escala).
 Paso 1 · $C=(98.5-32)\times\frac{5}{9}=66.5\times\frac{5}{9}=36.944°C$.
 Paso 2 · $12=k\times36.944 \Rightarrow k=\frac{12}{36.944}=0.3248$.
 Paso 3 · Agua hirviente $=100°C$: $N=100\times0.3248=32.48\approx32.5$.
@@ -319,9 +319,9 @@ Calcular la frecuencia en MHz para una luz que tiene una longitud de onda de 700
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Calculá primero la frecuencia en Hz con $\nu=c/\lambda$, y después convertila a MHz (la pregunta pide el resultado explícitamente en MHz, no en Hz).
+**explicacion:** Calcula primero la frecuencia en Hz con $\nu=c/\lambda$, y después convertila a MHz (la pregunta pide el resultado explícitamente en MHz, no en Hz).
 Paso 1 · $\lambda=700\ nm=7\times10^{-7}\ m$. $\nu=\frac{3\times10^8}{7\times10^{-7}}=4.286\times10^{14}\ Hz$.
-Paso 2 · Convertí a MHz dividiendo entre $10^6$: $\nu=\frac{4.286\times10^{14}}{10^6}=4.286\times10^8\ MHz\approx4.3\times10^8\ MHz$.
+Paso 2 · Convierte a MHz dividiendo entre $10^6$: $\nu=\frac{4.286\times10^{14}}{10^6}=4.286\times10^8\ MHz\approx4.3\times10^8\ MHz$.
 Paso 3 · La opción A ($4.3\times10^{14}$) es el valor en Hz, no en MHz — es la trampa para quien olvida la conversión de unidades pedida por el enunciado.
 Respuesta: D.
 
@@ -341,7 +341,7 @@ Identificar los cuatro números cuánticos (n,l,m,s) del último electrón de: a
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Determiná la configuración electrónica de cada ion (incluyendo la excepción del cobre) y ubicá el orbital y espín del último electrón según Hund.
+**explicacion:** Determina la configuración electrónica de cada ion (incluyendo la excepción del cobre) y ubica el orbital y espín del último electrón según Hund.
 Paso 1 · Mn (Z=25) neutro: $[Ar]4s^23d^5$. Mn³⁺ pierde primero los 2 electrones de 4s y luego 1 de 3d: $[Ar]3d^4$.
 Paso 2 · En $3d^4$, por Hund los 4 electrones ocupan orbitales distintos con spin paralelo ($m=-2,-1,0,+1$ en ese orden): el 4º electrón está en $m=+1$, $s=+1/2 \Rightarrow (3,2,1,+1/2)$.
 Paso 3 · Cu (Z=29) neutro tiene configuración anómala $[Ar]4s^13d^{10}$ (por estabilidad del d lleno). Cu⁺ (ion cuproso) pierde el electrón de 4s: $[Ar]3d^{10}$.
@@ -364,7 +364,7 @@ De las siguientes especies, indique la molécula que tiene un enlace covalente d
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Contá los enlaces de la estructura de Lewis de cada especie, distinguiendo enlaces covalentes (dentro del anión) de enlaces iónicos (entre el catión y el anión).
+**explicacion:** Cuenta los enlaces de la estructura de Lewis de cada especie, distinguiendo enlaces covalentes (dentro del anión) de enlaces iónicos (entre el catión y el anión).
 Paso 1 · $\mathrm{CH_{4}}$ y $\mathrm{CH_{3}CH_{3}}$: solo tienen enlaces covalentes simples C-H (y C-C en el segundo caso); no hay enlaces dobles ni iónicos.
 Paso 2 · $\mathrm{K_{2}SO_{4}}$: el anión sulfato ($\mathrm{SO_{4}^{2-}}$) se representa habitualmente con **dos** enlaces dobles S=O y dos enlaces simples S-O⁻, más 2 enlaces iónicos K⁺-O⁻. Tiene dos enlaces dobles, no uno solo.
 Paso 3 · $\mathrm{K_{2}SiO_{3}}$: el anión metasilicato ($\mathrm{SiO_{3}^{2-}}$) se representa con **un** enlace doble Si=O y dos enlaces simples Si-O⁻ (cada uno con carga -1), y esos dos oxígenos cargados se unen iónicamente a los 2 K⁺. Esto da exactamente 1 enlace covalente doble y 2 enlaces iónicos.
@@ -429,7 +429,7 @@ Un avión aterriza con velocidad de 100 m/s y desacelera a 5 m/s² hasta el repo
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Usá $v_f^2=v_0^2-2ad$ con $v_f=0$.
+**explicacion:** Usa $v_f^2=v_0^2-2ad$ con $v_f=0$.
 Paso 1 · $0=100^2-2(5)d \Rightarrow 10000=10d \Rightarrow d=1000\ m$.
 Respuesta: B.
 
@@ -449,7 +449,7 @@ Desde una torre de 110 m de altura se lanza una piedra hacia arriba con rapidez 
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Usá $v^2=v_0^2+2gh$, donde $h=110\ m$ es la caída neta total desde el punto de lanzamiento hasta el suelo (con $g=9.8\ m/s^2$).
+**explicacion:** Usa $v^2=v_0^2+2gh$, donde $h=110\ m$ es la caída neta total desde el punto de lanzamiento hasta el suelo (con $g=9.8\ m/s^2$).
 Paso 1 · $v^2=30^2+2(9.8)(110)=900+2156=3056$.
 Paso 2 · $v=\sqrt{3056}=55.28\ m/s\approx55.3\ m/s$.
 Respuesta: C.
@@ -470,7 +470,7 @@ Una pelota se patea a ras del campo y sube lo suficiente para pasar una cerca de
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Separá el movimiento en sus componentes horizontal (MRU) y vertical (con aceleración $-g$), usando el mismo tiempo $t=0.65\ s$ para ambas.
+**explicacion:** Separa el movimiento en sus componentes horizontal (MRU) y vertical (con aceleración $-g$), usando el mismo tiempo $t=0.65\ s$ para ambas.
 Paso 1 · Horizontal: $v_{0x}=\frac{12}{0.65}=18.46\ m/s$.
 Paso 2 · Vertical: $2.8=v_{0y}(0.65)-\frac12(9.8)(0.65)^2 \Rightarrow 2.8=0.65v_{0y}-2.070 \Rightarrow v_{0y}=\frac{4.870}{0.65}=7.49\ m/s$.
 Paso 3 · $v_0=\sqrt{v_{0x}^2+v_{0y}^2}=\sqrt{18.46^2+7.49^2}=\sqrt{340.8+56.1}=\sqrt{396.97}=19.92\approx19.9\ m/s$.
@@ -532,7 +532,7 @@ Las funciones de los lípidos son:
 - E) Ninguna
 
 **respuesta:** d
-**explicacion:** Evaluá cada afirmación por separado.
+**explicacion:** Evalúa cada afirmación por separado.
 Paso 1 · a) Correcto: las hormonas esteroideas (derivadas del colesterol) son lípidos reguladores.
 Paso 2 · b) Correcto: los fosfolípidos son el componente estructural principal de la membrana celular.
 Paso 3 · c) Correcto: los lípidos son la segunda fuente de energía celular, después de los carbohidratos.
@@ -574,7 +574,7 @@ Las proteínas que cumplen función de transporte son:
 - E) Ninguna
 
 **respuesta:** c
-**explicacion:** Compará la función real de cada proteína listada.
+**explicacion:** Compara la función real de cada proteína listada.
 Paso 1 · Colágeno y queratina son proteínas estructurales (tejido conectivo, piel/uñas/cabello), no de transporte — descarta a).
 Paso 2 · "Cromoproteínas" es una clasificación estructural (proteína + grupo prostético coloreado) que incluye ejemplos con funciones muy diversas (citocromos en la cadena de transporte de electrones, flavoproteínas enzimáticas), no todas de transporte de sustancias — no es la respuesta más precisa.
 Paso 3 · La hemoglobina es el ejemplo clásico y preciso de proteína de transporte (de $\mathrm{O_{2}}$ y $\mathrm{CO_{2}}$ en sangre).
@@ -597,7 +597,7 @@ La ley de la transmisión o segregación independiente de los caracteres indica 
 - E) Ninguna
 
 **respuesta:** c
-**explicacion:** Distinguí la 1ª ley de Mendel (segregación, monohíbrida) de la 2ª ley (distribución o segregación independiente, dihíbrida).
+**explicacion:** Distingue la 1ª ley de Mendel (segregación, monohíbrida) de la 2ª ley (distribución o segregación independiente, dihíbrida).
 Paso 1 · 3:1 es la proporción fenotípica monohíbrida (1ª ley); 1:2:1 es la proporción genotípica monohíbrida (1ª ley).
 Paso 2 · La ley de la segregación independiente (2ª ley de Mendel) se refiere al cruce dihíbrido, cuya proporción fenotípica característica es 9:3:3:1.
 Respuesta: c.
@@ -638,7 +638,7 @@ La proteína más abundante encontrada en la piel, tendones, cartílagos es:
 - E) Ninguna
 
 **respuesta:** b
-**explicacion:** Compará la ubicación característica de cada proteína.
+**explicacion:** Compara la ubicación característica de cada proteína.
 Paso 1 · La queratina se encuentra en piel, uñas y cabello (capa córnea), no en tendones ni cartílagos.
 Paso 2 · El fibrinógeno es una proteína plasmática de la coagulación, no estructural de tejido conectivo.
 Paso 3 · El colágeno es la proteína más abundante del cuerpo humano y el componente estructural principal de piel, tendones y cartílagos.
@@ -660,7 +660,7 @@ El polisacárido de reserva en los animales es:
 - E) Ninguna
 
 **respuesta:** a
-**explicacion:** Distinguí polisacáridos de reserva de polisacáridos estructurales.
+**explicacion:** Distingue polisacáridos de reserva de polisacáridos estructurales.
 Paso 1 · La quitina es estructural (exoesqueleto de artrópodos, pared celular de hongos); la celulosa es estructural (pared celular vegetal).
 Paso 2 · El glucógeno es el polisacárido de reserva energética en animales (almacenado en hígado y músculo).
 Respuesta: a.
@@ -681,7 +681,7 @@ En relación a las biomoléculas orgánicas las siguientes premisas son correcta
 - E) Ninguna
 
 **respuesta:** d
-**explicacion:** Evaluá cada afirmación sobre la composición química de las biomoléculas.
+**explicacion:** Evalúa cada afirmación sobre la composición química de las biomoléculas.
 Paso 1 · a) Correcto: toda biomolécula orgánica tiene el carbono como elemento base (química orgánica).
 Paso 2 · b) Correcto: los bioelementos principales que forman las biomoléculas son C, H, O, N, P y S.
 Paso 3 · c) Correcto: las biomoléculas son justamente combinaciones de esos bioelementos.

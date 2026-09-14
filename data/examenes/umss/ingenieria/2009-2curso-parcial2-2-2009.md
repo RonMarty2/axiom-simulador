@@ -59,7 +59,7 @@ Sea el monomio $M=\dfrac{x^n\,y^m\,z^{5n}}{x^{1-m}\,y^{n-3}\,z^{m-2}}$. Si el gr
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Simplificá el monomio restando exponentes de igual base y planteá un sistema con los dos datos.
+**explicacion:** Simplifica el monomio restando exponentes de igual base y plantea un sistema con los dos datos.
 Paso 1 · Grado en x: $n-(1-m)=n+m-1=12 \Rightarrow n+m=13$.
 Paso 2 · Grado en y: $m-(n-3)=m-n+3=10 \Rightarrow m-n=7$.
 Paso 3 · Sumando ambas ecuaciones: $2m=20 \Rightarrow m=10$, y entonces $n=3$. (Verificación: $m-n=10-3=7$ ✓.)
@@ -106,7 +106,7 @@ Calcular "m" si el resto de dividir $P(x)=x^3-mx^2+7x-1$ entre $(x-2)$ es igual 
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Aplicá el teorema del resto: el resto de dividir entre $(x-a)$ es el valor del polinomio en $a$.
+**explicacion:** Aplica el teorema del resto: el resto de dividir entre $(x-a)$ es el valor del polinomio en $a$.
 Paso 1 · Resto de P entre $(x-2)$: $P(2)=8-4m+14-1=21-4m$.
 Paso 2 · Resto de Q entre $(x+2)$: $Q(-2)=4+2(m+2)-11=2m-3$.
 Paso 3 · Condición: $21-4m=3(2m-3)=6m-9 \Rightarrow 30=10m \Rightarrow m=3$.
@@ -128,7 +128,7 @@ Expresar 196 como suma de tres números enteros positivos $x+y+z=196$, tales que
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa el sistema de tres ecuaciones y resolvé por sustitución.
+**explicacion:** Plantéa el sistema de tres ecuaciones y resuelve por sustitución.
 Paso 1 · De $x+y+z=196$ con $y=2x$: $3x+z=196$.
 Paso 2 · De $x+y=z+20$ con $y=2x$: $3x=z+20 \Rightarrow z=3x-20$.
 Paso 3 · Sustituyendo: $3x+(3x-20)=196 \Rightarrow 6x=216 \Rightarrow x=36$.
@@ -152,7 +152,7 @@ Indicar cuál de las siguientes definiciones es FALSA:
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Evaluá cada definición contra la teoría estándar de expresiones algebraicas antes de concluir.
+**explicacion:** Evalúa cada definición contra la teoría estándar de expresiones algebraicas antes de concluir.
 Paso 1 · A) es la definición correcta y estándar de monomio.
 Paso 2 · B) es la definición correcta y estándar de polinomio.
 Paso 3 · C) es correcta: un polinomio es idénticamente nulo si y solo si todos sus coeficientes son cero.
@@ -176,7 +176,7 @@ Triángulo ABC; $\angle A=2\angle C$; se traza la bisectriz interior AE (E sobre
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Usá la bisectriz para generar un triángulo isósceles auxiliar y después ley de senos.
+**explicacion:** Usa la bisectriz para generar un triángulo isósceles auxiliar y después ley de senos.
 Paso 1 · Sea $\angle C=\gamma$, entonces $\angle A=2\gamma$ y la bisectriz AE forma $\angle BAE=\angle EAC=\gamma$.
 Paso 2 · En el triángulo AEC: $\angle EAC=\gamma=\angle ACE$, por lo tanto es isósceles con $AE=EC=5$.
 Paso 3 · El ángulo $\angle AEC=180°-2\gamma$, y su suplementario $\angle AEB=2\gamma$. En el triángulo ABE los ángulos son $\gamma$ (en A), $2\gamma$ (en E) y $180°-3\gamma$ (en B).
@@ -265,7 +265,7 @@ Indicar cuál de las siguientes definiciones es FALSA:
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Compará cada enunciado contra los criterios de semejanza (AA, LAL, LLL) reconocidos en geometría.
+**explicacion:** Compara cada enunciado contra los criterios de semejanza (AA, LAL, LLL) reconocidos en geometría.
 Paso 1 · A) afirma que basta con "dos lados proporcionales" para garantizar semejanza, sin exigir el ángulo comprendido igual (criterio LAL) ni el tercer lado (criterio LLL). Dos lados proporcionales por sí solos NO garantizan semejanza: es un enunciado incompleto y por lo tanto FALSO.
 Paso 2 · B) es el criterio válido de "lados respectivamente paralelos o perpendiculares" (verdadero).
 Paso 3 · C) es el criterio AA aplicado a triángulos rectángulos (verdadero).
@@ -279,7 +279,7 @@ area: quimica
 tema: redox-ion-electron
 dificultad: dificil
 
-Reacción: $NiS + HNO_3 \rightarrow Ni(NO_3)_2 + NO + S + H_2O$ (balanceá por ion-electrón). Hallar $x=\dfrac{\text{coeficiente(sustancia oxidada)}}{\text{coeficiente(agente oxidante)}-\text{coeficiente(agente reductor)}}$.
+Reacción: $NiS + HNO_3 \rightarrow Ni(NO_3)_2 + NO + S + H_2O$ (balancea por ion-electrón). Hallar $x=\dfrac{\text{coeficiente(sustancia oxidada)}}{\text{coeficiente(agente oxidante)}-\text{coeficiente(agente reductor)}}$.
 
 - A) -3/5
 - B) 8/5
@@ -288,7 +288,7 @@ Reacción: $NiS + HNO_3 \rightarrow Ni(NO_3)_2 + NO + S + H_2O$ (balanceá por i
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Balanceá las semirreacciones de oxidación y reducción, igualá electrones y completá la ecuación molecular.
+**explicacion:** Balancea las semirreacciones de oxidación y reducción, iguala electrones y completa la ecuación molecular.
 Paso 1 · Oxidación: $S^{2-}\rightarrow S^0+2e^-$ (en NiS). Reducción: $NO_3^-+4H^++3e^-\rightarrow NO+2H_2O$.
 Paso 2 · Igualando electrones (mcm=6): oxidación$\times3$ y reducción$\times2$: $3NiS\rightarrow3Ni^{2+}+3S+6e^-$; $2NO_3^-+8H^++6e^-\rightarrow2NO+4H_2O$.
 Paso 3 · Sumando y agregando los $NO_3^-$ espectadores que acompañan a $Ni^{2+}$ (6 más, para formar $3\,Ni(NO_3)_2$): ecuación balanceada final: $3NiS+8HNO_3\rightarrow3Ni(NO_3)_2+2NO+3S+4H_2O$ (verificado: Ni 3=3, S 3=3, H 8=8, N 8=6+2, O 24=18+2+4).
@@ -333,7 +333,7 @@ Combustión de 0.3082 g de hexametilenodiamina produjo 0.7003 g de $CO_2$ y 0.38
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Calculá %C, %H, %N por separado, verificá que sumen ~100% (sin oxígeno), obtené la fórmula empírica y escalala con la masa molar real.
+**explicacion:** Calcula %C, %H, %N por separado, verifica que sumen ~100% (sin oxígeno), obtén la fórmula empírica y escalala con la masa molar real.
 Paso 1 · %C: masa de C en $CO_2$ $=0.7003\times\frac{12.011}{44.01}=0.19112$ g $\Rightarrow \%C=\frac{0.19112}{0.3082}\times100=62.01\%$.
 Paso 2 · %H: masa de H en $H_2O$ $=0.3821\times\frac{2.016}{18.015}=0.04276$ g $\Rightarrow \%H=\frac{0.04276}{0.3082}\times100=13.87\%$.
 Paso 3 · %N: masa de N en $NH_3$ $=0.3723\times\frac{14.007}{17.031}=0.3063$ g $\Rightarrow \%N=\frac{0.3063}{1.270}\times100=24.12\%$. Suma: $62.01+13.87+24.12\approx100.0\%$, confirma que la molécula es solo C, H, N (sin O).
@@ -358,7 +358,7 @@ Oxidación catalítica: $4NH_3(g)+5O_2(g)\rightarrow4NO(g)+6H_2O(g)$. Calcular e
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Determiná el reactivo limitante comparando moles disponibles contra la relación estequiométrica.
+**explicacion:** Determina el reactivo limitante comparando moles disponibles contra la relación estequiométrica.
 Paso 1 · Moles $NH_3=1.5/17.031=0.0881$ mol. Moles $O_2=1.0/32.00=0.03125$ mol.
 Paso 2 · Relación estequiométrica $4NH_3:5O_2$. Para consumir todo el $NH_3$ se necesitarían $0.0881\times5/4=0.1101$ mol de $O_2$ (no hay suficiente) $\Rightarrow O_2$ es el reactivo limitante.
 Paso 3 · Moles de NO (teóricos) $=$ moles $O_2\times\dfrac{4}{5}=0.03125\times0.8=0.025$ mol.
@@ -382,7 +382,7 @@ Un elemento tiene tres isótopos con masas 23.95, 24.95 y 25.95. Masa atómica d
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Probá cuál de los tres isótopos puede ser el mayoritario (75%) resolviendo el sistema en cada caso y descartando las asignaciones que den porcentajes negativos o inconsistentes.
+**explicacion:** Prueba cuál de los tres isótopos puede ser el mayoritario (75%) resolviendo el sistema en cada caso y descartando las asignaciones que den porcentajes negativos o inconsistentes.
 Paso 1 · Si 23.95 fuera 75%: $23.95(0.75)+24.95a+25.95b=25.053$ con $a+b=0.25$ da $a=-0.603$ (negativo, inválido).
 Paso 2 · Si 24.95 fuera 75%: $24.95(0.75)+23.95a+25.95b=25.053$ con $b=0.25-a$: $18.7125+23.95a+25.95(0.25-a)=25.053 \Rightarrow -2a=-0.147 \Rightarrow a=0.0735$ (7.35%) y $b=0.1765$ (17.65%). Ambos positivos y consistentes.
 Paso 3 · Si 25.95 fuera 75%: el sistema análogo da $a=0.647$, mayor que 0.25 (inválido, ya que $a+b=0.25$).
@@ -405,7 +405,7 @@ Un auto de 950 kg se acelera desde el reposo hasta 70 km/h en 8 s. ¿De qué mag
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Convertí la velocidad a m/s, calculá la aceleración y aplicá $F=ma$.
+**explicacion:** Convierte la velocidad a m/s, calcula la aceleración y aplica $F=ma$.
 Paso 1 · $70\ km/h=70000/3600=19.444\ m/s$.
 Paso 2 · $a=\dfrac{19.444}{8}=2.4306\ m/s^2$.
 Paso 3 · $F=950\times2.4306\approx2309\ N$.

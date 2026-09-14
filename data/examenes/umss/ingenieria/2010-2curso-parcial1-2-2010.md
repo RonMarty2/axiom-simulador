@@ -140,7 +140,7 @@ Dos números naturales A y B: su producto es 7425, su diferencia A−B=120, su M
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Escribí $A=15a$, $B=15b$ con $a,b$ primos entre sí (coprimos) y $a>b$.
+**explicacion:** Escribe $A=15a$, $B=15b$ con $a,b$ primos entre sí (coprimos) y $a>b$.
 Paso 1 · $A-B=15(a-b)=120 \Rightarrow a-b=8$.
 Paso 2 · $A\times B=225\,ab=7425 \Rightarrow ab=33$.
 Paso 3 · Con $a-b=8$ y $ab=33$: $b(b+8)=33 \Rightarrow b^2+8b-33=0 \Rightarrow b=\frac{-8+\sqrt{64+132}}{2}=\frac{-8+14}{2}=3$; $a=11$.
@@ -164,7 +164,7 @@ Puntos consecutivos A, B, D en una recta. Entre B y D se toma C tal que 6·AC=CD
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** El orden final sobre la recta, al insertar C entre B y D, es A, B, C, D. Expresá todo en función de $AB=a$ y $BC=x$.
+**explicacion:** El orden final sobre la recta, al insertar C entre B y D, es A, B, C, D. Expresa todo en función de $AB=a$ y $BC=x$.
 Paso 1 · $AC=AB+BC=a+x$. La condición $CD=6\cdot AC$ da $CD=6(a+x)$.
 Paso 2 · $BD=BC+CD=x+6(a+x)=6a+7x$.
 Paso 3 · $BD-6AB=42 \Rightarrow (6a+7x)-6a=42 \Rightarrow 7x=42 \Rightarrow x=6$.
@@ -280,7 +280,7 @@ Nueva escala de temperatura: punto de congelación del agua=-6, temperatura de i
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Convertí 45°F a Celsius y planteá la relación lineal $N=a\cdot C+b$ entre la escala Celsius y la nueva escala N, usando los dos puntos de referencia dados.
+**explicacion:** Convierte 45°F a Celsius y plantea la relación lineal $N=a\cdot C+b$ entre la escala Celsius y la nueva escala N, usando los dos puntos de referencia dados.
 Paso 1 · $45°F \to °C$: $(45-32)\times\frac{5}{9}=13\times\frac{5}{9}=\frac{65}{9}°C\approx7.222°C$.
 Paso 2 · Punto de congelación: $C=0 \Rightarrow N=-6$, entonces $b=-6$.
 Paso 3 · Segundo punto: $C=\frac{65}{9} \Rightarrow N=20$: $20=a\cdot\frac{65}{9}-6 \Rightarrow 26=\frac{65a}{9} \Rightarrow a=\frac{234}{65}=3.6$.
@@ -303,7 +303,7 @@ Combustión de 0.685g de compuesto orgánico (C,H,O) formó 1.882g $\mathrm{CO_{
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Primero hallá la fórmula empírica a partir de las masas de C, H y O (por diferencia), y luego escalá a la fórmula molecular usando la masa molar obtenida de la densidad de vapor en condiciones normales (c.n.).
+**explicacion:** Primero halla la fórmula empírica a partir de las masas de C, H y O (por diferencia), y luego escala a la fórmula molecular usando la masa molar obtenida de la densidad de vapor en condiciones normales (c.n.).
 Paso 1 · $n_{CO_2}=1.882/44.01=0.04276\ mol \Rightarrow$ masa C $=0.04276\times12.011=0.5136\ g$.
 Paso 2 · $n_{H_2O}=0.514/18.015=0.02853\ mol \Rightarrow n_H=0.05706\ mol \Rightarrow$ masa H $=0.05706\times1.008=0.05752\ g$.
 Paso 3 · masa O $=0.685-0.5136-0.05752=0.11388\ g \Rightarrow n_O=0.11388/16.00=0.007117\ mol$.
@@ -328,7 +328,7 @@ Elemento con isótopos 13.95, 14.95, 15.95. Masa atómica=15.033. Más abundante
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Planteá el promedio ponderado con el isótopo de masa intermedia (14.95) como el más abundante (65%), y resolvé para los otros dos porcentajes.
+**explicacion:** Plantea el promedio ponderado con el isótopo de masa intermedia (14.95) como el más abundante (65%), y resuelve para los otros dos porcentajes.
 Paso 1 · $13.95\,x_1+14.95(65)+15.95\,x_3=15.033\times100=1503.3$, con $x_1+x_3=35$.
 Paso 2 · $14.95\times65=971.75 \Rightarrow 13.95x_1+15.95x_3=531.55$.
 Paso 3 · Con $x_3=35-x_1$: $13.95x_1+15.95(35-x_1)=531.55 \Rightarrow 558.25-2x_1=531.55 \Rightarrow x_1=13.35$.
@@ -352,7 +352,7 @@ Representar por Lewis y barras: ¿cuál molécula tiene dos enlaces covalentes s
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Contá los enlaces de cada especie considerando cuántos iones metálicos hay (número de enlaces iónicos) y la estructura de Lewis del anión (enlaces covalentes normales vs. coordinados).
+**explicacion:** Cuenta los enlaces de cada especie considerando cuántos iones metálicos hay (número de enlaces iónicos) y la estructura de Lewis del anión (enlaces covalentes normales vs. coordinados).
 Paso 1 · $\mathrm{KNO_{3}}$: solo hay 1 K⁺, por lo tanto como máximo 1 enlace iónico — no puede cumplir "dos enlaces iónicos", queda descartado sin importar la estructura del $\mathrm{NO_{3}^{-}}$ (que de hecho tiene 1 doble, 1 simple y 1 coordinado por los 5 electrones de valencia del N).
 Paso 2 · $\mathrm{Na_{2}CO_{3}}$: hay 2 Na⁺ (2 enlaces iónicos, correcto), pero el carbono tiene exactamente 4 electrones de valencia que alcanzan para formar 1 enlace doble C=O y 2 enlaces simples C-O de forma normal (1 electrón de C por cada enlace simple, 2 electrones de C para el doble), sin electrones sobrantes que requieran donar un par completo. Por eso $\mathrm{CO_{3}^{2-}}$ no tiene enlaces coordinados.
 Paso 3 · $\mathrm{Li_{2}SO_{4}}$: hay 2 Li⁺ (2 enlaces iónicos, correcto). El azufre tiene 6 electrones de valencia y debe unirse a 4 oxígenos; usando la estructura de Lewis que respeta el octeto (sin expandirlo), S forma 2 enlaces simples normales (aportando 1 electrón a cada uno) y agota sus 2 pares libres restantes donando ambos electrones en 2 enlaces coordinados adicionales. Esto da exactamente 2 enlaces covalentes simples + 2 enlaces covalentes coordinados dentro del ion sulfato, más los 2 enlaces iónicos de los Li⁺.
@@ -397,7 +397,7 @@ Auto parte del origen con MRUA en eje x. A t=2s y t=6s, posiciones son 4 y 16 re
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Con $x_0=0$: $x(t)=v_0t+\frac12at^2$. Planteá el sistema con los dos datos.
+**explicacion:** Con $x_0=0$: $x(t)=v_0t+\frac12at^2$. Plantea el sistema con los dos datos.
 Paso 1 · $t=2$: $4=2v_0+2a \Rightarrow v_0+a=2$.
 Paso 2 · $t=6$: $16=6v_0+18a$, dividiendo entre 6: $v_0+3a=\frac{8}{3}$.
 Paso 3 · Restando la primera ecuación de la segunda: $2a=\frac{8}{3}-2=\frac{2}{3} \Rightarrow a=\frac{1}{3}\ m/s^2$.
@@ -420,7 +420,7 @@ Viaje de 10km (ida): mitad del TIEMPO a 40km/h, mitad del tiempo a 90km/h. Regre
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Calculá tiempo total de la ida (repartido por tiempo) y de la vuelta (repartida por distancia) por separado, y dividí la distancia total entre el tiempo total.
+**explicacion:** Calcula tiempo total de la ida (repartido por tiempo) y de la vuelta (repartida por distancia) por separado, y divide la distancia total entre el tiempo total.
 Paso 1 · Ida: sea $T$ el tiempo total de ida. Distancia $=40\cdot\frac{T}{2}+90\cdot\frac{T}{2}=65T=10\ km \Rightarrow T=\frac{10}{65}=\frac{2}{13}\ h\approx0.15385\ h$.
 Paso 2 · Vuelta: 5km a 60km/h y 5km a 40km/h. Tiempo $=\frac{5}{60}+\frac{5}{40}=\frac{1}{12}+\frac{1}{8}=\frac{5}{24}\ h\approx0.20833\ h$.
 Paso 3 · Distancia total $=10+10=20\ km$. Tiempo total $=\frac{2}{13}+\frac{5}{24}=\frac{48+65}{312}=\frac{113}{312}\ h\approx0.36218\ h$.
@@ -508,7 +508,7 @@ Los lípidos son importantes por ser:
 - E) Ninguna
 
 **respuesta:** D
-**explicacion:** Evaluá cada afirmación por separado.
+**explicacion:** Evalúa cada afirmación por separado.
 Paso 1 · a) Correcto: las grasas son la principal reserva energética a largo plazo del organismo.
 Paso 2 · b) Correcto: los fosfolípidos son el componente estructural principal de la membrana celular.
 Paso 3 · c) Correcto: las hormonas esteroideas (testosterona, estrógeno, cortisol) son lípidos.
@@ -530,7 +530,7 @@ Si se cruza un conejo macho negro (NN) con una coneja hembra gris (Nn) codominan
 - E) Ninguna
 
 **respuesta:** E
-**explicacion:** Planteá el cruce genético con los genotipos dados y compará el resultado real contra las opciones ofrecidas.
+**explicacion:** Plantea el cruce genético con los genotipos dados y compara el resultado real contra las opciones ofrecidas.
 Paso 1 · El progenitor NN solo puede aportar el alelo N. El progenitor Nn aporta N o n con igual probabilidad (50%/50%).
 Paso 2 · Descendencia: 50% NN (fenotipo negro) y 50% Nn (fenotipo gris, por codominancia). No puede aparecer ningún individuo blanco (nn), porque el progenitor NN siempre aporta N.
 Paso 3 · El resultado real (50% negros, 50% grises, 0% blancos) no coincide con "Todos negros" (A, falso, solo la mitad), ni con "75% negros y 25% blancos" (B, falso, proporción y fenotipo incorrectos), ni con "100% blancos" (C, falso). Como A, B y C son falsas, "Todas" (D) tampoco puede ser correcta.
@@ -573,7 +573,7 @@ Son funciones de las proteínas:
 - E) Ninguna
 
 **respuesta:** D
-**explicacion:** Evaluá cada función atribuida a las proteínas.
+**explicacion:** Evalúa cada función atribuida a las proteínas.
 Paso 1 · a) Correcto: las proteínas pueden catabolizarse como fuente de energía (aunque sea una fuente secundaria, después de carbohidratos y lípidos).
 Paso 2 · b) Correcto: canales iónicos y receptores de neurotransmisores son proteínas que permiten la transmisión del impulso nervioso.
 Paso 3 · c) Correcto: hormonas peptídicas como la insulina y el glucagón son proteínas reguladoras.
@@ -617,7 +617,7 @@ Son ejemplos de monosacáridos:
 - E) Ninguna
 
 **respuesta:** C
-**explicacion:** Distinguí monosacáridos de disacáridos y polisacáridos.
+**explicacion:** Distingue monosacáridos de disacáridos y polisacáridos.
 Paso 1 · Celulosa es un polisacárido; lactosa y maltosa son disacáridos.
 Paso 2 · Fructosa y glucosa son monosacáridos (azúcares simples de 6 carbonos).
 Respuesta: C.
@@ -660,7 +660,7 @@ Es una proteína que cumple función hormonal de regular el azúcar en la sangre
 - E) Ninguna
 
 **respuesta:** A
-**explicacion:** Compará la función de cada sustancia listada.
+**explicacion:** Compara la función de cada sustancia listada.
 Paso 1 · La insulina es la hormona proteica que regula la glucemia (azúcar en sangre).
 Paso 2 · La queratina es estructural (piel, uñas, cabello); la quitina es un polisacárido estructural, ni siquiera es proteína.
 Respuesta: A.
@@ -681,7 +681,7 @@ Propiedad(es) del agua de importancia biológica:
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Evaluá cada propiedad del agua.
+**explicacion:** Evalúa cada propiedad del agua.
 Paso 1 · a) Correcto: el agua es el disolvente universal de los procesos biológicos.
 Paso 2 · b) Correcto: el agua tiene un calor específico elevado.
 Paso 3 · c) Correcto: precisamente por su alta capacidad térmica, el agua actúa como termorregulador biológico.

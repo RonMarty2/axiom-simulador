@@ -73,7 +73,7 @@ Un padre deja como herencia un monto para repartir entre sus hijos: al primer hi
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Expresá cada porción en función del total T y planteá que la suma de las cuatro partes es igual a T.
+**explicacion:** Expresa cada porción en función del total T y plantea que la suma de las cuatro partes es igual a T.
 Paso 1 · Hijo 1 = $\frac23T$. Resto tras el primero = $\frac13T$.
 Paso 2 · Hijo 2 = mitad del resto = $\frac12\cdot\frac13T=\frac16T$. Resto tras el segundo = $\frac13T-\frac16T=\frac16T$.
 Paso 3 · Hijo 3 = $\frac35$ de lo del hijo 2 = $\frac35\cdot\frac16T=\frac{1}{10}T$.
@@ -96,7 +96,7 @@ Un número de tres cifras: la cifra de las unidades excede en 5 a la de las cent
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa las tres condiciones en función de la cifra de las centenas y resolvé el sistema.
+**explicacion:** Plantéa las tres condiciones en función de la cifra de las centenas y resuelve el sistema.
 Paso 1 · Sea $h$=centenas, $t$=decenas, $u$=unidades. $u=h+5$, $t=h+1$, $u=2(t+h)$.
 Paso 2 · Sustituyendo: $h+5=2(h+1+h)=4h+2 \Rightarrow 3=3h \Rightarrow h=1$.
 Paso 3 · $t=h+1=2$, $u=h+5=6$. Verificación: $u=2(t+h)=2(2+1)=6$ ✓.
@@ -119,7 +119,7 @@ Una guarnición de 1600 hombres tiene víveres para 10 días a razón de 3 racio
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** El total de raciones disponibles es fijo; calculá el consumo diario del nuevo grupo y dividí.
+**explicacion:** El total de raciones disponibles es fijo; calcula el consumo diario del nuevo grupo y divide.
 Paso 1 · Total de raciones disponibles $=1600\times10\times3=48\,000$.
 Paso 2 · Con el refuerzo, la guarnición tiene $1600+400=2000$ hombres, consumiendo $2000\times2=4000$ raciones por día.
 Paso 3 · Días $=\dfrac{48\,000}{4\,000}=12$.
@@ -141,7 +141,7 @@ Al sumar 18 unidades a un número de dos cifras, el dígito de las unidades y el
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Escribí el número como $10a+b$ (con $a$=decenas, $b$=unidades) y planteá las dos condiciones.
+**explicacion:** Escribe el número como $10a+b$ (con $a$=decenas, $b$=unidades) y plantea las dos condiciones.
 Paso 1 · $b=2a$ y $10a+b+18=10b+a$ (número con dígitos intercambiados).
 Paso 2 · De la segunda ecuación: $9a-9b+18=0 \Rightarrow a-b+2=0 \Rightarrow a=b-2$.
 Paso 3 · Sustituyendo $b=2a$: $a=2a-2 \Rightarrow a=2$, $b=4$.
@@ -164,7 +164,7 @@ Ocho obreros pueden hacer una obra en 20 días. Después de 5 días de trabajo s
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Trabajá en unidades de "obrero-día" para medir el avance de la obra.
+**explicacion:** Trabaja en unidades de "obrero-día" para medir el avance de la obra.
 Paso 1 · Trabajo total $=8\times20=160$ obrero-días.
 Paso 2 · En los primeros 5 días se avanza $8\times5=40$ obrero-días; falta $160-40=120$ obrero-días.
 Paso 3 · Quedan $8-3=5$ obreros, que tardan $\dfrac{120}{5}=24$ días adicionales en terminar lo que falta.
@@ -187,7 +187,7 @@ Puntos colineales consecutivos A, B, C, D, E. Si $AC=DE$; B es punto medio de AC
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Expresá todos los segmentos en función de $AB=BC=m$ (por ser B punto medio de AC) y $CD=d$.
+**explicacion:** Expresa todos los segmentos en función de $AB=BC=m$ (por ser B punto medio de AC) y $CD=d$.
 Paso 1 · $AB=BC=m \Rightarrow AC=2m=DE$. Sea $CD=d$.
 Paso 2 · $AE=AB+BC+CD+DE=m+m+d+2m=4m+d$. $CE=CD+DE=d+2m$.
 Paso 3 · Ecuación: $8(d+2m)=4(4m+d)+20 \Rightarrow 8d+16m=16m+4d+20 \Rightarrow 4d=20 \Rightarrow d=5$ (el término $m$ se cancela, por lo que el resultado es independiente de su valor).
@@ -209,7 +209,7 @@ Triángulo ABC; AD es la altura relativa a BC; BE es la bisectriz interior del �
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Trabajá con el triángulo ABF, usando los ángulos parciales que genera la altura y la bisectriz en el vértice A y en el vértice B.
+**explicacion:** Trabaja con el triángulo ABF, usando los ángulos parciales que genera la altura y la bisectriz en el vértice A y en el vértice B.
 Paso 1 · $\angle B=180°-64°-42°=74°$.
 Paso 2 · En el triángulo ABD (D pie de la altura), $\angle ADB=90°$ y $\angle ABD=\angle ABC=74°$, entonces $\angle BAD=180°-90°-74°=16°$.
 Paso 3 · Como F está sobre AD, $\angle FAB=\angle DAB=16°$. Como F está sobre BE (bisectriz de B), $\angle ABF=\angle ABE=\dfrac{74°}{2}=37°$.
@@ -232,7 +232,7 @@ Dos números consecutivos representan el número de vértices de dos polígonos 
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Usá la fórmula de diagonales $D(n)=\dfrac{n(n-3)}{2}$ para dos polígonos de $n$ y $n+1$ lados.
+**explicacion:** Usa la fórmula de diagonales $D(n)=\dfrac{n(n-3)}{2}$ para dos polígonos de $n$ y $n+1$ lados.
 Paso 1 · $D(n+1)-D(n)=\dfrac{(n+1)(n-2)}{2}-\dfrac{n(n-3)}{2}=\dfrac{(n^2-n-2)-(n^2-3n)}{2}=\dfrac{2n-2}{2}=n-1$.
 Paso 2 · Igualando a la diferencia dada: $n-1=3 \Rightarrow n=4$.
 Paso 3 · El polígono mayor tiene $n+1=5$ lados. Verificación: $D(4)=2$, $D(5)=5$, diferencia $=3$ ✓.
@@ -254,7 +254,7 @@ El suplemento del complemento del ángulo φ es igual al quíntuplo del compleme
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Planteá la ecuación con el complemento $c=90°-\varphi$ y su suplemento $180°-c$.
+**explicacion:** Plantea la ecuación con el complemento $c=90°-\varphi$ y su suplemento $180°-c$.
 Paso 1 · Complemento: $c=90°-\varphi$. Suplemento del complemento: $180°-c=180°-(90°-\varphi)=90°+\varphi$.
 Paso 2 · Ecuación: $90°+\varphi=5(90°-\varphi) \Rightarrow 90°+\varphi=450°-5\varphi \Rightarrow 6\varphi=360° \Rightarrow \varphi=60°$.
 Paso 3 · El complemento pedido es $c=90°-60°=30°$, valor que NO figura entre las opciones (100°, 80°, 60°, 150°) — nótese que 60° (opción C) es el valor de φ, no de su complemento, que es lo que pide el enunciado.
@@ -277,7 +277,7 @@ Indicar cuál de las siguientes afirmaciones es correcta:
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Evaluá cada afirmación una por una contra la teoría estándar de geometría.
+**explicacion:** Evalúa cada afirmación una por una contra la teoría estándar de geometría.
 Paso 1 · A) Falsa: en un triángulo isósceles, a lados iguales se oponen ángulos IGUALES, no diferentes.
 Paso 2 · B) Falsa: tener la misma forma (sin igual tamaño) define triángulos SEMEJANTES, no congruentes; la congruencia exige igual forma Y tamaño.
 Paso 3 · C) Falsa: la intersección de las tres medianas se llama BARICENTRO (o centroide); el incentro es la intersección de las bisectrices.
@@ -301,7 +301,7 @@ Indique los números cuánticos del último electrón de un átomo neutro donde 
 - E) Ninguno
 
 **respuesta:** E
-**explicacion:** Reconstruí la configuración completa del ion a partir del dato del subnivel 4d⁶, sumá los 3 electrones para el átomo neutro, y ubicá el último electrón según Hund con la misma convención de llenado usada en el resto del banco (orden $m=-2,-1,0,+1,+2$ tanto para la primera pasada como para el apareamiento).
+**explicacion:** Reconstruye la configuración completa del ion a partir del dato del subnivel 4d⁶, suma los 3 electrones para el átomo neutro, y ubica el último electrón según Hund con la misma convención de llenado usada en el resto del banco (orden $m=-2,-1,0,+1,+2$ tanto para la primera pasada como para el apareamiento).
 Paso 1 · Orden de llenado hasta 4d: $1s^2 2s^2 2p^6 3s^2 3p^6 4s^2 3d^{10} 4p^6 5s^2 4d^6$. Sumando: $2+2+6+2+6+2+10+6+2+6=44$ electrones en el ion X³⁺.
 Paso 2 · Átomo neutro X: $44+3=47$ electrones (Z=47), con configuración $\ldots 5s^2 4d^9$ (los 3 electrones adicionales completan 4d de 6 a 9).
 Paso 3 · En el subnivel 4d ($l=2$, orbitales $m=-2,-1,0,+1,+2$): los primeros 5 electrones ocupan cada orbital una vez con spin $+1/2$ (electrones 1-5); a partir del 6º empieza el apareamiento en el mismo orden $m=-2,-1,0,+1,+2$ con spin $-1/2$ (electrones 6,7,8,9,10).
@@ -348,7 +348,7 @@ Se diseñó una nueva escala de temperatura basada en el punto de congelamiento 
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Convertí 97°F a Celsius, y planteá la proporcionalidad lineal entre la escala Celsius y la nueva escala (ambas parten de 0 en el punto de congelamiento).
+**explicacion:** Convierte 97°F a Celsius, y plantea la proporcionalidad lineal entre la escala Celsius y la nueva escala (ambas parten de 0 en el punto de congelamiento).
 Paso 1 · $97°F$ a Celsius: $C=(97-32)\times\frac59=\frac{325}{9}\approx36.11°C$.
 Paso 2 · Como ambas escalas coinciden en 0 (congelamiento), la relación es lineal: $\dfrac{T_{nueva}}{T_C}=\dfrac{12}{36.11}$.
 Paso 3 · Para el punto de ebullición ($T_C=100°C$): $T_{nueva}=100\times\dfrac{12}{36.11}=\dfrac{1200}{36.11}\approx33.23$.
@@ -370,7 +370,7 @@ Un átomo "E" es isoelectrónico con un catión de carga 3+ que a su vez es isó
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Reconstruí la cadena de datos isóbaro/isótono para hallar el catión, después usá la isoelectronicidad para hallar Z del átomo E neutro.
+**explicacion:** Reconstruye la cadena de datos isóbaro/isótono para hallar el catión, después usa la isoelectronicidad para hallar Z del átomo E neutro.
 Paso 1 · $^{60}Co$: Z=27, masa=60, neutrones $=60-27=33$.
 Paso 2 · El catión es isóbaro con $^{59}Ni$ (masa=59) e isótono con $^{60}Co$ (neutrones=33) $\Rightarrow$ protones $=59-33=26$, es decir Fe³⁺ (consistente con la carga 3+ dada).
 Paso 3 · Fe³⁺ tiene $26-3=23$ electrones. El átomo E es isoelectrónico con Fe³⁺ pero es neutro, así que $Z(E)=23$ (Vanadio).
@@ -394,7 +394,7 @@ Realizar los enlaces (Lewis y Barras) e indicar cuál de las siguientes especies
 - E) $\mathrm{H_{2}SO_{4}}$
 
 **respuesta:** D
-**explicacion:** Construí la estructura de Lewis de cada especie y contá únicamente los enlaces simples (no los dobles).
+**explicacion:** Construye la estructura de Lewis de cada especie y cuenta únicamente los enlaces simples (no los dobles).
 Paso 1 · $\mathrm{Cl_{2}O_{7}}$ ($\mathrm{O_{3}Cl-O-ClO_{3}}$): 2 enlaces simples Cl-O-Cl (puente) + 6 enlaces dobles Cl=O (3 por cada Cl) → 2 enlaces simples.
 Paso 2 · $\mathrm{CCl_{2}FNH_{2}}$: C central con 2 enlaces C-Cl, 1 C-F, 1 C-N (4 simples), más 2 enlaces N-H (2 simples) → 6 enlaces simples.
 Paso 3 · $\mathrm{H_{3}SbO_{4}}$ (análogo a $\mathrm{H_{3}PO_{4}}$): Sb con 3 enlaces Sb-O simples (a los OH) + 1 enlace Sb=O doble; más 3 enlaces O-H simples → 3+3=6 enlaces simples.
@@ -440,7 +440,7 @@ Un cuerpo con aceleración uniforme tiene velocidad 12 m/s cuando su posición x
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Usá la ecuación de posición $x(t)=x_0+v_0t+\frac12at^2$ tomando $t=0$ en el instante en que $x_0=3$ y $v_0=12$.
+**explicacion:** Usa la ecuación de posición $x(t)=x_0+v_0t+\frac12at^2$ tomando $t=0$ en el instante en que $x_0=3$ y $v_0=12$.
 Paso 1 · $x(2)=-5=3+12(2)+\frac12a(2)^2=3+24+2a=27+2a$.
 Paso 2 · $2a=-5-27=-32 \Rightarrow a=-16$ m/s².
 Paso 3 · Magnitud $=16$ m/s².
@@ -462,7 +462,7 @@ Un auto marcha a 90 km/h. El conductor frena al ver un bache y reduce su velocid
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Convertí la velocidad a m/s, hallá la velocidad final y usá la distancia como el área bajo la curva v-t (velocidad media × tiempo).
+**explicacion:** Convierte la velocidad a m/s, halla la velocidad final y usa la distancia como el área bajo la curva v-t (velocidad media × tiempo).
 Paso 1 · $v_0=90$ km/h $=25$ m/s. $v_f=\frac15(25)=5$ m/s, en $t=4$ s.
 Paso 2 · Velocidad media $=\dfrac{25+5}{2}=15$ m/s (válida porque la aceleración es constante).
 Paso 3 · Distancia $=15\times4=60$ m.
@@ -507,7 +507,7 @@ Un niño arroja una piedra desde 1m de altura con ángulo de elevación 45°, ra
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Hallá el tiempo en que la piedra recorre los 10 m horizontales, y usalo en la ecuación de altura.
+**explicacion:** Halla el tiempo en que la piedra recorre los 10 m horizontales, y usalo en la ecuación de altura.
 Paso 1 · Con $\theta=45°$: $v_{0x}=v_{0y}=20\cos45°=20\sin45°\approx14.142$ m/s.
 Paso 2 · Tiempo para $x=10$ m: $t=\dfrac{10}{14.142}\approx0.7071$ s.
 Paso 3 · Altura: $y=1+v_{0y}t-\frac12gt^2=1+20(0.7071)(0.7071)-\frac12(9.8)(0.7071)^2=1+10-2.45=8.55$ m (usando que $\cos45°=\sin45°=\frac{\sqrt2}{2}$, entonces $(0.7071)^2=0.5$ exactamente).
@@ -529,7 +529,7 @@ Las funciones de los aniones y cationes en los organismos vivos son:
 - E) Ninguna
 
 **respuesta:** D
-**explicacion:** Evaluá cada función por separado.
+**explicacion:** Evalúa cada función por separado.
 Paso 1 · Los iones (bicarbonato, fosfato, etc.) actúan como sistemas amortiguadores que regulan el pH.
 Paso 2 · Los iones Na⁺, K⁺, Ca²⁺ y Cl⁻ generan los potenciales eléctricos que permiten la transmisión del impulso nervioso.
 Paso 3 · Los gradientes iónicos controlan la ósmosis, regulando la entrada y salida de agua de las células.
@@ -552,7 +552,7 @@ Los ácidos nucleicos están compuestos por:
 - E) Ninguna
 
 **respuesta:** E
-**explicacion:** Compará cada opción con la estructura real de un ácido nucleico (nucleótidos: pentosa + fosfato + base nitrogenada).
+**explicacion:** Compara cada opción con la estructura real de un ácido nucleico (nucleótidos: pentosa + fosfato + base nitrogenada).
 Paso 1 · A) Falsa: los ácidos nucleicos no contienen lípidos ni proteínas, solo pentosa, fosfato y bases nitrogenadas.
 Paso 2 · B) Falsa: contienen tanto bases púricas (adenina, guanina) como pirimídicas (citosina, timina/uracilo), no solo púricas.
 Paso 3 · C) Falsa: no son simplemente cadenas de carbohidratos; son cadenas de nucleótidos (pentosa+fosfato+base).
@@ -682,7 +682,7 @@ Procedimiento que permite determinar si un individuo con carácter dominante es 
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Distinguí cada tipo de cruce genético y su propósito específico.
+**explicacion:** Distingue cada tipo de cruce genético y su propósito específico.
 Paso 1 · El cruzamiento recíproco intercambia los roles de macho/hembra entre dos cruces para detectar efectos maternos o ligados al sexo, no para determinar zigosidad.
 Paso 2 · El cruzamiento retrógrado (retrocruza) cruza un híbrido con uno de sus progenitores, usado típicamente en mejoramiento genético, no específicamente para determinar zigosidad.
 Paso 3 · El cruzamiento de prueba (testcross) consiste en cruzar el individuo de fenotipo dominante desconocido con un homocigoto recesivo: si aparece algún descendiente recesivo, el individuo era heterocigoto; si toda la descendencia es dominante, era homocigoto. Este es precisamente el procedimiento estándar para este fin.

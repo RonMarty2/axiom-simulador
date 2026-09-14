@@ -81,7 +81,7 @@ Calcular "m" para que la división de polinomios sea exacta: $(6x^3-3x^2-mx-6)/(
 - E) ninguno
 
 **respuesta:** B
-**explicacion:** Si la división es exacta, el resto debe ser 0; por el teorema del resto, evaluá el dividendo en la raíz del divisor.
+**explicacion:** Si la división es exacta, el resto debe ser 0; por el teorema del resto, evalúa el dividendo en la raíz del divisor.
 Paso 1 · Raíz de $2x-3=0 \Rightarrow x=3/2$.
 Paso 2 · $P(3/2)=6(3/2)^3-3(3/2)^2-m(3/2)-6=6(27/8)-3(9/4)-\frac{3m}{2}-6$.
 Paso 3 · $=20.25-6.75-\frac{3m}{2}-6=7.5-\frac{3m}{2}$.
@@ -104,7 +104,7 @@ Si $a\neq b$, simplificar: $E = \dfrac{a-b}{b} + \dfrac{2a}{a-b} - \dfrac{a^3+a^
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Factorizá el último término y llevá todo a un denominador común.
+**explicacion:** Factoriza el último término y lleva todo a un denominador común.
 Paso 1 · $a^3+a^2b=a^2(a+b)$ y $a^2b-b^3=b(a^2-b^2)=b(a-b)(a+b)$, así que el tercer término $=\dfrac{a^2(a+b)}{b(a-b)(a+b)}=\dfrac{a^2}{b(a-b)}$.
 Paso 2 · Común denominador $b(a-b)$: $E=\dfrac{(a-b)^2+2ab-a^2}{b(a-b)}$.
 Paso 3 · $(a-b)^2+2ab-a^2=a^2-2ab+b^2+2ab-a^2=b^2$.
@@ -127,7 +127,7 @@ Si $a+b=3$ y $ab=1$, hallar el valor de $E=a^4+b^4$.
 - E) ninguno
 
 **respuesta:** D
-**explicacion:** Usá identidades notables para reducir potencias a $a+b$ y $ab$.
+**explicacion:** Usa identidades notables para reducir potencias a $a+b$ y $ab$.
 Paso 1 · $a^2+b^2=(a+b)^2-2ab=3^2-2(1)=9-2=7$.
 Paso 2 · $a^4+b^4=(a^2+b^2)^2-2(ab)^2=7^2-2(1)^2=49-2=47$.
 Respuesta: D.
@@ -169,7 +169,7 @@ En el triángulo ABC, BC=16 cm, AC=24 cm. Se traza una recta "r" que corta al la
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Plantéa la proporción CN/NA=CM/MB y usá que CN+NA=AC.
+**explicacion:** Plantéa la proporción CN/NA=CM/MB y usa que CN+NA=AC.
 Paso 1 · $MB=BC-MC=16-14=2$ cm.
 Paso 2 · $\dfrac{CN}{NA}=\dfrac{CM}{MB}=\dfrac{14}{2}=7 \Rightarrow CN=7\cdot NA$.
 Paso 3 · $CN+NA=AC=24 \Rightarrow 7NA+NA=24 \Rightarrow NA=3$.
@@ -192,7 +192,7 @@ Se da un triángulo ABC cuyos lados BC y AC miden 10 m y 8 m respectivamente. Po
 - E) ninguno
 
 **respuesta:** C
-**explicacion:** Usá la semejanza de triángulos que genera $DE\parallel AC$ y despejá con la condición dada.
+**explicacion:** Usa la semejanza de triángulos que genera $DE\parallel AC$ y despeja con la condición dada.
 Paso 1 · Como $DE\parallel AC$, el triángulo $BDE\sim BAC$, entonces $\dfrac{DE}{AC}=\dfrac{BE}{BC}$. Sea $BE=x$: $DE=8\cdot\dfrac{x}{10}=0.8x$.
 Paso 2 · $EC=BC-BE=10-x$. La condición dada: $DE=EC-BE=(10-x)-x=10-2x$.
 Paso 3 · Igualando: $0.8x=10-2x \Rightarrow 2.8x=10 \Rightarrow x=\dfrac{10}{2.8}=\dfrac{25}{7}$.
@@ -215,7 +215,7 @@ Desde un punto P exterior a una circunferencia de centro O, se traza una tangent
 - E) ninguno
 
 **respuesta:** E
-**explicacion:** Usá el teorema de la potencia de un punto: $PT^2=PQ\cdot PR$, con $PR=PQ+QR$.
+**explicacion:** Usa el teorema de la potencia de un punto: $PT^2=PQ\cdot PR$, con $PR=PQ+QR$.
 Paso 1 · $PR=PQ+QR=PQ+3PQ=4PQ$.
 Paso 2 · $PT^2=PQ\cdot PR \Rightarrow 144=PQ\cdot4PQ=4PQ^2 \Rightarrow PQ^2=36 \Rightarrow PQ=6$.
 Paso 3 · $PR=4\times6=24$.
@@ -258,8 +258,8 @@ En una semicircunferencia de diámetro AB se traza una cuerda CD paralela a AB. 
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Usá que dos cuerdas paralelas cortan arcos iguales entre sí, junto con el teorema del ángulo inscrito.
-Paso 1 · Como $CD\parallel AB$ (diámetro), los arcos $AC$ y $BD$ (a cada lado, entre las dos paralelas) son iguales: llamá a ambos $x$.
+**explicacion:** Usa que dos cuerdas paralelas cortan arcos iguales entre sí, junto con el teorema del ángulo inscrito.
+Paso 1 · Como $CD\parallel AB$ (diámetro), los arcos $AC$ y $BD$ (a cada lado, entre las dos paralelas) son iguales: llama a ambos $x$.
 Paso 2 · El arco $ACB$ (semicircunferencia) mide 180°, entonces arco $AC$ + arco $CD$ + arco $DB$ = 180°, es decir $x+\text{arco }CD+x=180° \Rightarrow \text{arco }CD=180°-2x$.
 Paso 3 · $\angle DAC$ es un ángulo inscrito que subtiende el arco $CD$ (el que no contiene a A): $\angle DAC=\dfrac{180°-2x}{2}=90°-x$. Con $\angle DAC=44°$: $x=46°$ (arco AC = 46°).
 Paso 4 · $\angle ADC$ es un ángulo inscrito que subtiende el arco $AC$ (el que no contiene a D), que mide $x=46°$: $\angle ADC=\dfrac{46°}{2}=23°$. (Verificado también con geometría analítica por coordenadas: mismo resultado, 23°.)
@@ -281,7 +281,7 @@ Un metal X presenta tres isótopos de masas 33,98; 34,98 y 35,98. ¿Cuál es el 
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Probá cada isótopo como el más abundante (68,5%) y resolvé el sistema para los otros dos porcentajes; solo una asignación da porcentajes positivos.
+**explicacion:** Prueba cada isótopo como el más abundante (68,5%) y resuelve el sistema para los otros dos porcentajes; solo una asignación da porcentajes positivos.
 Paso 1 · Si 35,98 fuera el más abundante: $35{,}1245=0{,}685(35{,}98)+p_1(33{,}98)+p_2(34{,}98)$ con $p_1+p_2=0{,}315$ da $p_1=54{,}05\%$ (imposible, mayor que 31,5%).
 Paso 2 · Si 33,98 fuera el más abundante, el sistema da porcentajes negativos (imposible).
 Paso 3 · Si 34,98 es el más abundante: $35{,}1245-0{,}685(34{,}98)=11{,}1632=p_1(33{,}98)+p_2(34{,}98\to35{,}98\ \text{no, es } 35{,}98)$; resolviendo $33{,}98\,p_1+35{,}98(0{,}315-p_1)=11{,}1632 \Rightarrow p_1=8{,}525\%$ (isótopo 33,98) y $p_2=0{,}315-0{,}08525=22{,}975\%\approx23\%$ (isótopo 35,98).
@@ -304,7 +304,7 @@ Por combustión de 0,6678 g de un compuesto orgánico se obtuvieron 0,9795 g de 
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Primero hallá la fórmula empírica con los datos de combustión, luego el peso molecular con el volumen de gas desplazado (c.n. = 22400 mL/mol).
+**explicacion:** Primero halla la fórmula empírica con los datos de combustión, luego el peso molecular con el volumen de gas desplazado (c.n. = 22400 mL/mol).
 Paso 1 · $n_C=n_{CO_2}=0{,}9795/44{,}01=0{,}02226$ mol $\Rightarrow$ masa C $=0{,}2673$ g. $n_{H_2O}=0{,}2609/18{,}015=0{,}01448$ mol $\Rightarrow n_H=0{,}02896$ mol $\Rightarrow$ masa H$=0{,}0292$ g.
 Paso 2 · Masa O $=0{,}6678-0{,}2673-0{,}0292=0{,}3713$ g $\Rightarrow n_O=0{,}3713/16=0{,}02321$ mol.
 Paso 3 · Relación molar C:H:O $=0{,}02226:0{,}02896:0{,}02321$, dividiendo entre el menor: $1:1{,}30:1{,}04$; multiplicando por 3: $C_3H_4O_3$ (masa molar $\approx88$ g/mol).
@@ -319,7 +319,7 @@ area: quimica
 tema: redox-semireacciones
 dificultad: dificil
 
-Reacción: $\mathrm{Cu + HNO_{3} \rightarrow Cu(NO_{3})_{2} + NO + H_{2}O}$ (balanceá primero por semirreacciones redox). ¿Cuál de las siguientes afirmaciones es V o F? a) $\mathrm{HNO_{3}}$ es el agente reductor; b) Cu sufre reducción; c) El coeficiente de $\mathrm{H_{2}O}$ es 8; d) El número total de electrones ganados en la reducción son 3.
+Reacción: $\mathrm{Cu + HNO_{3} \rightarrow Cu(NO_{3})_{2} + NO + H_{2}O}$ (balancea primero por semirreacciones redox). ¿Cuál de las siguientes afirmaciones es V o F? a) $\mathrm{HNO_{3}}$ es el agente reductor; b) Cu sufre reducción; c) El coeficiente de $\mathrm{H_{2}O}$ es 8; d) El número total de electrones ganados en la reducción son 3.
 
 - A) FFFF
 - B) VFVF
@@ -328,7 +328,7 @@ Reacción: $\mathrm{Cu + HNO_{3} \rightarrow Cu(NO_{3})_{2} + NO + H_{2}O}$ (bal
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Balanceá por semirreacciones y contrastá cada afirmación con la ecuación balanceada.
+**explicacion:** Balancea por semirreacciones y contrasta cada afirmación con la ecuación balanceada.
 Paso 1 · Oxidación: $Cu \to Cu^{2+}+2e^-$ (×3). Reducción: $NO_3^-+4H^++3e^- \to NO+2H_2O$ (×2).
 Paso 2 · Sumando y agregando los nitratos espectadores para formar $Cu(NO_3)_2$: $3Cu+8HNO_3 \to 3Cu(NO_3)_2+2NO+4H_2O$ (balanceado: Cu 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
 Paso 3 · a) FALSO: $\mathrm{HNO_{3}}$ (la parte reducida a NO) es el agente oxidante, no el reductor (el reductor es Cu).
@@ -353,7 +353,7 @@ En un recipiente se colocaron 25 g de azufre (S). ¿Cuántos gramos de calcio se
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Convertí la masa de azufre a moles, aplicá la condición de átomos y volvé a convertir a masa de calcio.
+**explicacion:** Convierte la masa de azufre a moles, aplica la condición de átomos y vuelve a convertir a masa de calcio.
 Paso 1 · $n_S=25/32=0{,}78125$ mol $\Rightarrow$ átomos $S=0{,}78125\,N_A$.
 Paso 2 · Átomos $Ca=2\times$ átomos $S \Rightarrow n_{Ca}=2\times0{,}78125=1{,}5625$ mol.
 Paso 3 · Masa $Ca=1{,}5625\times40=62{,}5$ g.
@@ -366,7 +366,7 @@ area: quimica
 tema: estequiometria-reactivo-limitante
 dificultad: dificil
 
-Reacción: $\mathrm{NiS + HNO_{3} \rightarrow Ni(NO_{3})_{2} + NO + S + H_{2}O}$ (balanceá primero). Determinar la cantidad de $\mathrm{Ni(NO_{3})_{2}}$ (Kg) al 80% de pureza en masa que se puede obtener a partir de la reacción de 30 Kg de mineral que contiene 50% en masa de NiS con 25 dm³ de una solución de ácido nítrico al 56% en masa de $\mathrm{HNO_{3}}$ (densidad 1,87 g/mL). Rendimiento de la reacción: 90%.
+Reacción: $\mathrm{NiS + HNO_{3} \rightarrow Ni(NO_{3})_{2} + NO + S + H_{2}O}$ (balancea primero). Determinar la cantidad de $\mathrm{Ni(NO_{3})_{2}}$ (Kg) al 80% de pureza en masa que se puede obtener a partir de la reacción de 30 Kg de mineral que contiene 50% en masa de NiS con 25 dm³ de una solución de ácido nítrico al 56% en masa de $\mathrm{HNO_{3}}$ (densidad 1,87 g/mL). Rendimiento de la reacción: 90%.
 
 - A) 72
 - B) 82
@@ -375,7 +375,7 @@ Reacción: $\mathrm{NiS + HNO_{3} \rightarrow Ni(NO_{3})_{2} + NO + S + H_{2}O}$
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Balanceá la ecuación, identificá el reactivo limitante y aplicá rendimiento y pureza al final.
+**explicacion:** Balancea la ecuación, identifica el reactivo limitante y aplica rendimiento y pureza al final.
 Paso 1 · Balance redox: S²⁻→S (pierde 2e⁻, ×3) y N⁺⁵→N⁺² (gana 3e⁻, ×2), más los nitratos espectadores de $\mathrm{Ni(NO_{3})_{2}}$: $3NiS+8HNO_3 \to 3Ni(NO_3)_2+2NO+3S+4H_2O$ (verificado: Ni 3=3, S 3=3, N 8=6+2, H 8=8, O 24=18+2+4).
 Paso 2 · Masa NiS $=0{,}5\times30\,000=15\,000$ g $\Rightarrow n_{NiS}=15\,000/90{,}76=165{,}27$ mol.
 Paso 3 · Masa solución $=25\,000\,\text{mL}\times1{,}87=46\,750$ g $\Rightarrow$ masa $\mathrm{HNO_{3}}$ $=0{,}56\times46\,750=26\,180$ g $\Rightarrow n_{HNO_3}=26\,180/63{,}0=415{,}46$ mol.
@@ -400,7 +400,7 @@ La tensión en el cable de un ascensor es 2800 N, el peso del ascensor es 2950 N
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Aplicá la segunda ley de Newton al sistema ascensor+persona, con $g=9.8\ m/s^2$.
+**explicacion:** Aplica la segunda ley de Newton al sistema ascensor+persona, con $g=9.8\ m/s^2$.
 Paso 1 · Masa del ascensor $=2950/9.8=301.02$ kg. Masa total $=301.02+80=381.02$ kg.
 Paso 2 · Peso total $=381.02\times9.8=3734.0$ N.
 Paso 3 · Como $T=2800\,N<$ peso total, hay aceleración neta hacia abajo: $a=\dfrac{3734.0-2800}{381.02}=2.45\ m/s^2$.
@@ -443,7 +443,7 @@ El coeficiente de rozamiento estático entre un bloque de masa "m" y un plano in
 - E) Ninguno
 
 **respuesta:** A
-**explicacion:** Hallá el ángulo límite con $\mu_{estático}$ y luego aplicá la ecuación de movimiento con $\mu_{cinético}$ en ese ángulo.
+**explicacion:** Halla el ángulo límite con $\mu_{estático}$ y luego aplica la ecuación de movimiento con $\mu_{cinético}$ en ese ángulo.
 Paso 1 · $\theta=\arctan(0.7)=34.99°$; $\sin\theta=0.5735$, $\cos\theta=0.8192$.
 Paso 2 · $a=g(\sin\theta-\mu_c\cos\theta)=9.8(0.5735-0.5\times0.8192)=9.8(0.5735-0.4096)=9.8(0.1639)\approx1.61\ m/s^2$.
 Respuesta: A.
@@ -484,7 +484,7 @@ Un automóvil tiene el doble de masa que otro pero solo la mitad de energía cin
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa las energías cinéticas iniciales y finales en función de una masa base "m" y resolvé el sistema.
+**explicacion:** Plantéa las energías cinéticas iniciales y finales en función de una masa base "m" y resuelve el sistema.
 Paso 1 · Sea el auto liviano de masa $m$ y velocidad $v_L$, y el pesado de masa $2m$ y velocidad $v_H$. $KE_{pesado}=\frac12(2m)v_H^2=mv_H^2$. Condición: $KE_{pesado}=\frac12 KE_{liviano} \Rightarrow mv_H^2=\frac12\left(\frac12 mv_L^2\right) \Rightarrow v_H^2=\frac14v_L^2 \Rightarrow v_H=v_L/2$.
 Paso 2 · Al aumentar ambos 5.5 m/s, energías iguales: $\frac12(v_L+5.5)^2=(v_H+5.5)^2$. Sustituyendo $v_H=v_L/2$: $\frac12(v_L+5.5)^2=(v_L/2+5.5)^2$.
 Paso 3 · Expandiendo: $0.5v_L^2+5.5v_L+15.125=0.25v_L^2+5.5v_L+30.25 \Rightarrow 0.25v_L^2=15.125 \Rightarrow v_L^2=60.5 \Rightarrow v_L=\sqrt{60.5}=5.5\sqrt2\approx7.778$ m/s.
