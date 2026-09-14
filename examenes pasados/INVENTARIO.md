@@ -205,9 +205,14 @@ renumera. Ver "Convención para lo que no se puede leer" más arriba.
       de las preguntas. `listarMetadata` la suma al `areas_resumen` con
       cantidad 0. De paso se unificaron las 5 copias sueltas de ETIQUETAS_AREA,
       que iban a quedarse sin "lenguaje" e "historia" cada una por su lado.
-- [ ] **Fase 3 · Económicas al molde.** Renombrar `economicas/2023.md` a la
-      convención y darle `categoria`, `titulo` y `opcion`. Hoy es un huérfano:
-      no tiene ninguno de los tres.
+- [x] **Fase 3 · Económicas al molde.** Hecha. `2023.md` pasó a
+      `2023-2op-1-2023.md` con `categoria: admision`, `opcion: 2da Opción` y
+      `titulo: Examen de Ingreso 1-2023 (2da Opción)`. La convocatoria está
+      INFERIDA de la fecha (18-ene-2023) contra el calendario de FCyT de ese
+      año, que tomó la 2da opción el 19-ene: la UMSS toma la misma
+      convocatoria en días consecutivos entre facultades. Queda anotado en el
+      propio archivo por si aparece el facsímil y dice otra cosa. Sus otras
+      áreas NO se declararon pendientes: no hay con qué probar cuáles tomó.
 - [ ] **Fase 4 · Los 4 exámenes de FCE.** Uno por gestión (ver la tabla de
       arriba). Antes de escribir un solo `.md` hay que releer los tres PDF a
       fondo: el escaneo por OCR encontró los encabezados pero **no es
