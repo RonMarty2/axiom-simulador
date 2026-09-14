@@ -166,4 +166,132 @@ describe("banco de exámenes", () => {
     assert.ok(total > 1000, `se esperaban miles de expresiones, hubo ${total}`);
     assert.deepEqual(rotas, [], `LaTeX que el alumno vería en rojo:\n${rotas.join("\n")}`);
   });
+  // ── Chequeos que salieron de auditar el banco el 14-sep ────────────────────
+  //
+  // Los cuatro nacieron de encontrar el problema a mano. Quedan como test para
+  // que no haya que volver a encontrarlo: lo que no se mide, se acumula.
+
+  // Sin esto no hay forma de saber si un enunciado promete un dibujo que no
+  // existe. El trinquete de más arriba NO los ve: cuenta las que DECLARAN
+  // `figura:`, y estas ni siquiera lo declaran, así que el alumno lee "en la
+  // figura adjunta…" y abajo no aparece nada. Es el mismo problema que se
+  // arregló el 13-sep para las que sí declaraban, en la variante que el
+  // trinquete no atrapaba.
+  //
+  // El tope es la foto del día que se midió. Solo puede BAJAR: se baja cuando
+  // se dibuja la figura (y se declara `figura:`) o cuando se reescribe el
+  // enunciado para que se sostenga solo.
+  const FIGURAS_NO_DECLARADAS_TOPE = 130;
+
+  // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
+  // Deja afuera a propósito los "se muestra a continuación" seguidos de la
+  // ecuación o el circuito escritos en el propio texto: esos se sostienen
+  // solos y marcarlos sería mentir al revés.
+  const PIDE_FIGURA =
+    /\b(?:en|de|seg[uú]n|dada|dado|muestra|mostrad[oa]s?\s+en|indicad[oa]\s+en|observad[oa]\s+en|de\s+acuerdo\s+a)\s+(?:la|el)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s+(?:adjunta|mostrada|siguiente|anterior|dada)\b|\b(?:la|el)\s+(?:siguiente|figura)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s*\d*\s*[:.]|\b(?:seg[uú]n|en)\s+(?:la\s+)?gr[aá]fica\b/i;
+
+  test("ningún enunciado nuevo promete una figura que no está", () => {
+    const sinDibujo: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        if (p.figura || p.figura_svg) continue;
+        if (PIDE_FIGURA.test(p.enunciado)) sinDibujo.push(`${e.nombre} · P${p.numero} [${p.area}]`);
+      }
+    }
+    assert.ok(
+      sinDibujo.length <= FIGURAS_NO_DECLARADAS_TOPE,
+      `Subieron los enunciados que nombran una figura ausente: ${sinDibujo.length} ` +
+        `(tope ${FIGURAS_NO_DECLARADAS_TOPE}).\n${sinDibujo.slice(0, 25).join("\n")}`,
+    );
+    if (sinDibujo.length < FIGURAS_NO_DECLARADAS_TOPE) {
+      console.log(`  ℹ enunciados sin su figura: ${sinDibujo.length} (el tope está en ${FIGURAS_NO_DECLARADAS_TOPE}, bajalo)`);
+    }
+  });
+
+  // El error de §7 del 12-sep: una pregunta marcada D con una explicación que
+  // calculaba otra cosa. El alumno lee las dos y no sabe a cuál creerle.
+  test("la explicación no se contradice con la respuesta marcada", () => {
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        if (!p.explicacion) continue;
+        const cierres = [...p.explicacion.matchAll(/Respuesta:\s*\**([A-E])\b/g)];
+        if (!cierres.length) continue;
+        const dice = cierres[cierres.length - 1][1].toUpperCase();
+        if (dice !== p.respuesta_correcta) {
+          fallos.push(`${e.nombre} · P${p.numero}: campo=${p.respuesta_correcta}, la explicación cierra en ${dice}`);
+        }
+      }
+    }
+    assert.deepEqual(fallos, [], `explicaciones que contradicen su propia respuesta:\n${fallos.join("\n")}`);
+  });
+
+  // La app le habla al alumno de TÚ (CLAUDE.md: son de Cochabamba). El banco
+  // se normalizó el 14-sep; esto evita que entre voseo con la próxima tanda
+  // de exámenes. Ojo: \b no sirve con tildes, por eso los lookarounds.
+  test("el banco le habla al alumno de tú, no de vos", () => {
+    // Muestra representativa, no la tabla entera: alcanza para que un archivo
+    // nuevo escrito en rioplatense frene el test.
+    const VOSEO = ["recordá", "fijate", "tenés", "podés", "hacé", "usá", "planteá",
+      "calculá", "despejá", "aplicá", "sustituí", "convertí", "resolvé", "acordate",
+      "sacá", "mirá", "escribí", "elegí", "seguí", "andá"];
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      // Las notas del curador (<!-- -->) van en rioplatense a propósito.
+      const visible = e.contenido.replace(/<!--[\s\S]*?-->/g, "");
+      for (const forma of VOSEO) {
+        const rx = new RegExp(`(?<![\\p{L}\\p{N}])${forma}(?![\\p{L}\\p{N}])`, "giu");
+        const n = [...visible.matchAll(rx)].length;
+        if (n) fallos.push(`${e.nombre}: "${forma}" ×${n}`);
+      }
+    }
+    assert.deepEqual(fallos, [], `voseo en texto que ve el alumno:\n${fallos.slice(0, 30).join("\n")}`);
+  });
+
+  // Dos exámenes distintos con la MISMA pregunta y las MISMAS opciones no
+  // pueden dar respuestas distintas: una de las dos está mal y el alumno que
+  // practique las dos se va a comer la contradicción. Se compara el texto de
+  // la opción marcada, no la letra, porque el orden de las opciones cambia
+  // entre gestiones y ahí dos letras distintas son la misma respuesta.
+  test("una pregunta repetida no cambia de respuesta entre exámenes", () => {
+    const norm = (s: string) =>
+      s.normalize("NFD").replace(/\p{Mn}/gu, "").toLowerCase()
+        .replace(/\\left|\\right|\\dfrac|\\frac|\\mathrm/g, "")
+        .replace(/[^a-z0-9]/g, "");
+    type Item = { donde: string; opciones: string; resp: string };
+    const porEnunciado = new Map<string, Item[]>();
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        if (p.enunciado.length < 40) continue;
+        const clave = norm(p.enunciado);
+        const texto = p.opciones.find((o) => o.letra === p.respuesta_correcta)?.texto ?? "";
+        const item = {
+          donde: `${e.nombre} P${p.numero}`,
+          opciones: p.opciones.map((o) => norm(o.texto)).sort().join("|"),
+          resp: norm(texto),
+        };
+        porEnunciado.set(clave, [...(porEnunciado.get(clave) ?? []), item]);
+      }
+    }
+    const fallos: string[] = [];
+    for (const grupo of porEnunciado.values()) {
+      if (grupo.length < 2) continue;
+      // Agrupar por set de opciones: solo son comparables entre sí.
+      const porOpciones = new Map<string, Item[]>();
+      for (const it of grupo) porOpciones.set(it.opciones, [...(porOpciones.get(it.opciones) ?? []), it]);
+      for (const mismos of porOpciones.values()) {
+        const distintas = new Set(mismos.map((i) => i.resp));
+        if (distintas.size > 1) {
+          fallos.push(mismos.map((i) => `${i.donde} -> "${i.resp.slice(0, 40)}"`).join("  ·  "));
+        }
+      }
+    }
+    assert.deepEqual(fallos, [], `la misma pregunta con las mismas opciones responde distinto:\n${fallos.join("\n")}`);
+  });
 });

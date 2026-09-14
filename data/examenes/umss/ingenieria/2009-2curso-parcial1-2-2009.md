@@ -599,7 +599,8 @@ La frecuencia fenotípica 9:3:3:1 en la $\mathrm{F_{2}}$ corresponde a:
 **explicacion:** La proporción 9:3:3:1 es la firma clásica de un cruce dihíbrido.
 Paso 1 · La primera Ley de Mendel (segregación) explica la proporción 3:1 de un cruce monohíbrido, no 9:3:3:1.
 Paso 2 · La segunda Ley de Mendel (distribución/segregación independiente de los caracteres) es la que explica que dos genes se hereden de forma independiente, generando la proporción 9:3:3:1 en un cruce dihíbrido.
-Paso 3 · No existe una "cuarta Ley de Mendel" reconocida en la genética clásica (Mendel formuló dos leyes fundamentales).
+Paso 3 · No existe una "cuarta Ley de Mendel" reconocida en la genética clásica.
+Paso 4 · Ojo con la numeración. Algunos textos cuentan tres leyes (uniformidad, segregación y distribución independiente) y ahí esta misma proporción cae en la tercera. Fíjate siempre en qué opciones te ofrece el examen: si aparece "tercera ley" junto a "uniformidad", están usando esa numeración.
 Respuesta: B.
 
 ---
