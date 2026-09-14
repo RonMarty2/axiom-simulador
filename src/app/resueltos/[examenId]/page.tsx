@@ -46,6 +46,7 @@ export default function ExamenResueltoPage() {
   const [reveladas, setReveladas] = useState<Set<string>>(new Set());
   const [areaActiva, setAreaActiva] = useState<string>("__todas__");
   const [loading, setLoading] = useState(true);
+  const [bloqueada, setBloqueada] = useState(false);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((me) => {
@@ -56,6 +57,7 @@ export default function ExamenResueltoPage() {
       ]).then(([e, f]) => {
         const ex: ExamenBanco | null = e.examen ?? null;
         setExamen(ex);
+        setBloqueada(!!e.resolucion_bloqueada);
         if (ex) {
           const fac = (f.facultades ?? []).find((x: Facultad) => x.id === ex.facultad);
           setFacultad(fac ?? null);
@@ -121,7 +123,7 @@ export default function ExamenResueltoPage() {
               </h1>
               <div style={{ fontSize: 14, opacity: 0.9, marginTop: 6 }}>
                 {examen.fecha_examen && <><Icono nombre="calendario" tamano={13} /> {formatearFecha(examen.fecha_examen)} · </>}
-                {examen.preguntas.length} preguntas · {examen.duracion_minutos} min · resuelto paso a paso
+                {examen.preguntas.length} preguntas · {examen.duracion_minutos} min{bloqueada ? "" : " · resuelto paso a paso"}
               </div>
             </div>
           </div>
@@ -165,8 +167,10 @@ export default function ExamenResueltoPage() {
               );
             })}
           </div>
-          {/* Acción global */}
+          {/* Acción global. Sin plan pago no hay nada que revelar: el servidor
+              no manda respuestas ni explicaciones. */}
           <div style={{ display: "flex", gap: 8 }}>
+            {!bloqueada && (
             <button
               onClick={reveladas.size === examen.preguntas.length ? ocultarTodas : revelarTodas}
               style={{
@@ -177,15 +181,39 @@ export default function ExamenResueltoPage() {
             >
               {reveladas.size === examen.preguntas.length ? <><Icono nombre="ojoTachado" tamano={14} /> Ocultar todas</> : <><Icono nombre="ojo" tamano={14} /> Revelar todas</>}
             </button>
+            )}
           </div>
         </div>
+
+        {bloqueada && (
+          <div style={{
+            background: "var(--bg-card)", border: "1px solid var(--border)",
+            borderRadius: 14, padding: 18, marginBottom: 16,
+          }}>
+            <div style={{ fontSize: 15, fontWeight: 800, color: "var(--fg-primary)" }}>
+              Las soluciones paso a paso son de Premium
+            </div>
+            <p style={{ fontSize: 14, color: "var(--fg-muted)", lineHeight: 1.6, marginTop: 6 }}>
+              Puedes leer las {examen.preguntas.length} preguntas de este examen.
+              Para ver la respuesta correcta y la solución paso a paso de cada
+              una, necesitas un plan activo.
+            </p>
+            <Link href="/precios?motivo=resolucion" style={{
+              display: "inline-block", marginTop: 12, padding: "10px 18px",
+              background: color, color: "white", borderRadius: 10,
+              fontWeight: 800, fontSize: 13, textDecoration: "none",
+            }}>
+              Ver planes
+            </Link>
+          </div>
+        )}
 
         {/* Lista de preguntas */}
         <div style={{ display: "grid", gap: 14 }}>
           {preguntasFiltradas.map((p, i) => {
             const numeroGlobal = examen.preguntas.findIndex((x) => x.id === p.id) + 1;
             const revelada = reveladas.has(p.id);
-            return <PreguntaResuelta key={p.id} pregunta={p} numero={numeroGlobal} revelada={revelada} onToggle={() => togglePregunta(p.id)} colorFac={color} />;
+            return <PreguntaResuelta key={p.id} pregunta={p} numero={numeroGlobal} revelada={revelada} bloqueada={bloqueada} onToggle={() => togglePregunta(p.id)} colorFac={color} />;
           })}
         </div>
 
@@ -200,11 +228,12 @@ export default function ExamenResueltoPage() {
 }
 
 function PreguntaResuelta({
-  pregunta, numero, revelada, onToggle, colorFac,
+  pregunta, numero, revelada, bloqueada, onToggle, colorFac,
 }: {
   pregunta: PreguntaBanco;
   numero: number;
   revelada: boolean;
+  bloqueada: boolean;
   onToggle: () => void;
   colorFac: string;
 }) {
@@ -297,7 +326,17 @@ function PreguntaResuelta({
       </div>
 
       {/* Botón revelar / Explicación */}
-      {!revelada ? (
+      {bloqueada ? (
+        <div style={{
+          padding: "10px 16px", borderRadius: 10,
+          border: "1px dashed var(--border)", background: "var(--bg-subtle)",
+          fontSize: 13, fontWeight: 700, color: "var(--fg-muted)",
+          display: "flex", alignItems: "center", gap: 8,
+        }}>
+          <Icono nombre="candado" tamano={15} />
+          <span>Solución paso a paso disponible con Premium</span>
+        </div>
+      ) : !revelada ? (
         <button
           onClick={onToggle}
           style={{

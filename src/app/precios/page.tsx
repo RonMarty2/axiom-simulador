@@ -20,6 +20,12 @@ const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
     titulo: "Pasa a ilimitado",
     texto: "Llegaste al límite semanal del Plan Gratis. Pásate a Premium para simulacros ilimitados.",
   },
+  // Lo manda la biblioteca de exámenes pasados: el enunciado se lee gratis,
+  // la respuesta y el paso a paso no.
+  "resolucion": {
+    titulo: "Las soluciones paso a paso son de Premium",
+    texto: "Puedes leer todos los exámenes pasados gratis. Con Premium se abren la respuesta correcta y la solución explicada paso a paso de cada pregunta.",
+  },
   // Los manda el guard de servidor de /aprende y /laminas cuando alguien
   // entra por URL directa a contenido que no tiene desbloqueado.
   "leccion": {

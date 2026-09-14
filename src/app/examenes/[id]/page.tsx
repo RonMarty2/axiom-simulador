@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
@@ -35,6 +36,7 @@ export default function ExamenDetallePage() {
   const [error, setError] = useState<string | null>(null);
   const [revelar, setRevelar] = useState<Record<string, boolean>>({});
   const [seleccion, setSeleccion] = useState<Record<string, string>>({});
+  const [bloqueada, setBloqueada] = useState(false);
 
   useEffect(() => {
     fetch(`/api/axiom/examenes/${id}`)
@@ -42,6 +44,7 @@ export default function ExamenDetallePage() {
         const data = await r.json();
         if (!r.ok) throw new Error(data.error ?? "Error");
         setExamen(data.examen);
+        setBloqueada(!!data.resolucion_bloqueada);
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
@@ -106,6 +109,7 @@ export default function ExamenDetallePage() {
               indice={idx}
               seleccion={seleccion[p.id]}
               revelada={!!revelar[p.id]}
+              bloqueada={bloqueada}
               onElegir={(letra) => elegir(p.id, letra)}
               onRevelar={() => toggleRevelar(p.id)}
             />
@@ -121,6 +125,7 @@ interface PreguntaCardProps {
   indice: number;
   seleccion?: string;
   revelada: boolean;
+  bloqueada: boolean;
   onElegir: (letra: string) => void;
   onRevelar: () => void;
 }
@@ -130,6 +135,7 @@ function PreguntaCard({
   indice,
   seleccion,
   revelada,
+  bloqueada,
   onElegir,
   onRevelar,
 }: PreguntaCardProps) {
@@ -203,6 +209,29 @@ function PreguntaCard({
         })}
       </div>
 
+      {/* Sin plan pago el servidor no manda ni la respuesta ni el paso a paso,
+          así que acá no hay nada que revelar. Se dice en pantalla en vez de
+          dejar un botón que no haría nada. */}
+      {bloqueada ? (
+        <div
+          className="mt-4 rounded-xl border p-4"
+          style={{ borderColor: "var(--border)", background: "var(--bg-subtle)" }}
+        >
+          <div className="text-sm font-semibold" style={{ color: "var(--fg-primary)" }}>
+            La respuesta y el paso a paso son de Premium
+          </div>
+          <p className="mt-1 text-sm" style={{ color: "var(--fg-muted)" }}>
+            Puedes leer el examen completo. Para ver la respuesta correcta y la
+            explicación resuelta de cada pregunta, necesitas un plan activo.
+          </p>
+          <Link
+            href="/precios?motivo=resolucion"
+            className="mt-3 inline-block text-sm font-semibold text-[var(--accent)] hover:underline"
+          >
+            Ver planes
+          </Link>
+        </div>
+      ) : (
       <div className="mt-4 flex items-center justify-between">
         <button
           type="button"
@@ -223,6 +252,7 @@ function PreguntaCard({
           </span>
         )}
       </div>
+      )}
 
       {revelada && pregunta.explicacion && (
         <motion.div
