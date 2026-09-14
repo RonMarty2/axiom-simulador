@@ -139,8 +139,19 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
+**Transcripto hasta ahora: 1 de 37.** `Admisión II-2013 (1ra opción)` →
+`data/examenes/umss/economicas/2013-1op-2-2013.md`, con su Matemáticas completa
+y Lenguaje e Historia declaradas pendientes.
+
 **Lo que hay que confirmar a mano antes de transcribir:**
 
+- **EL OCR NO LEE NÚMEROS ROMANOS, y la columna Gestión está mal por eso.**
+  La UMSS escribe "I-2013" y "II-2013"; el OCR devuelve "1/2013" para las dos.
+  Ya pasó: la página 30 del banco de Lenguaje parecía ser la parte de Lenguaje
+  del examen II-2013 y resultó ser de I-2013, otro examen, de seis meses antes.
+  **Antes de juntar dos secciones hay que abrir las dos páginas y comparar el
+  encabezado completo, con fecha.** La gestión de la tabla es una pista, no un
+  dato.
 - Las opciones marcadas `?` son las que el OCR no pudo leer. Hay que abrir esa
   página y mirarla.
 - Las gestiones `4/2014`, `5/2005` y `2/2015` son sospechosas: la UMSS toma
