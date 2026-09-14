@@ -139,13 +139,15 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
-**Transcriptos hasta ahora: 2 de 37.** Los dos con su Matemáticas completa y
+**Transcriptos hasta ahora: 4 de 37.** Los dos con su Matemáticas completa y
 Lenguaje e Historia declaradas pendientes:
 
 | Examen | Archivo |
 |---|---|
 | Admisión II-2013 (1ra opción) · 20-jul-2013 | `economicas/2013-1op-2-2013.md` |
 | Admisión II-2013 (2da opción) · 27-jul-2013 | `economicas/2013-2op-2-2013.md` |
+| Admisión 1/2014 (1ra opción) · 1-feb-2014 | `economicas/2014-1op-1-2014.md` |
+| Admisión 1/2014 (2da opción) · sin fecha en la hoja | `economicas/2014-2op-1-2014.md` |
 
 ### Encabezados REALES del banco de Matemáticas
 
@@ -156,9 +158,9 @@ mismo.
 
 | Pág. | Examen | Fecha |
 |---|---|---|
-| 2 | Admisión **1/2014** (primera opción) | 11-feb-2014 |
+| 2 | Admisión **1/2014** (primera opción) ✅ transcripto | 1-feb-2014 |
 | 4 | Admisión **2/2014** (primera opción) | — |
-| 7 | Admisión **1/2014** (segunda opción) | — |
+| 7 | Admisión **1/2014** (segunda opción) ✅ transcripto | sin fecha |
 | 8 | Admisión **II-2013** (segunda opción) ✅ transcripto | 27-jul-2013 |
 | 9 | Admisión **II-2013** (primera opción) ✅ transcripto | 20-jul-2013 |
 | 12 | Admisión **1/2012** (primera opción) | — |
