@@ -34,6 +34,7 @@ interface FrontmatterCrudo {
   opcion?: string;      // ej: "1ra Opción", "2da Opción", "3ra Opción"
   titulo?: string;       // ej: "Examen de Ingreso 1-2023 (1ra Opción)" — display explicito, opcional
   categoria?: string;    // "admision" (default) | "parcial_curso" — separa Examenes de Admision de Parciales/Finales de Curso Propedeutico
+  secciones_pendientes?: Record<string, string>;   // { area: motivo } — secciones del examen que todavia no se transcribieron
 }
 
 const FRONTMATTER_REGEX = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
@@ -84,6 +85,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     duracion_minutos: front.duracion_minutos,
     total_preguntas: front.total_preguntas,
     ponderacion: front.ponderacion,
+    secciones_pendientes: front.secciones_pendientes,
     opcion: front.opcion,
     titulo: front.titulo,
     categoria: front.categoria ?? "admision",
@@ -120,24 +122,29 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
   const lineas = raw.split(/\r?\n/);
   const out: Record<string, unknown> = {};
   const ponderacion: Record<string, number> = {};
-  let enPonderacion = false;
+  const secciones_pendientes: Record<string, string> = {};
+  // Cuál de los dos mapas anidados se está leyendo, o null si ninguno.
+  let mapaActual: "ponderacion" | "secciones_pendientes" | null = null;
 
   for (const linea of lineas) {
     if (!linea.trim()) continue;
     const indent = linea.startsWith("  ");
 
-    if (enPonderacion && indent) {
+    if (mapaActual && indent) {
       const m = linea.trim().match(/^([\w_]+):\s*(.+)$/);
-      if (m) ponderacion[m[1]] = parseFloat(m[2]);
+      if (m) {
+        if (mapaActual === "ponderacion") ponderacion[m[1]] = parseFloat(m[2]);
+        else secciones_pendientes[m[1]] = m[2].trim();
+      }
       continue;
     }
-    enPonderacion = false;
+    mapaActual = null;
 
     const m = linea.match(/^([\w_]+):\s*(.*)$/);
     if (!m) continue;
     const [, key, val] = m;
-    if (key === "ponderacion") {
-      enPonderacion = true;
+    if (key === "ponderacion" || key === "secciones_pendientes") {
+      mapaActual = key;
       continue;
     }
     out[key] = val.trim();
@@ -161,6 +168,7 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     duracion_minutos,
     total_preguntas,
     ponderacion,
+    secciones_pendientes,
     opcion: out.opcion ? String(out.opcion) : undefined,
     titulo: out.titulo ? String(out.titulo) : undefined,
     categoria: out.categoria ? String(out.categoria) : undefined,

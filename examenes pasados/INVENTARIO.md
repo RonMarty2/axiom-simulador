@@ -197,15 +197,14 @@ renumera. Ver "Convención para lo que no se puede leer" más arriba.
 
 - [x] **Fase 1 · Fijar el contrato.** `data/facultades.json` corregido: las
       áreas que declaraba no existían en ningún examen. Ver abajo.
-- [ ] **Fase 2 · Que la pantalla muestre los huecos.** Hoy una sección sin
-      preguntas es invisible: `/examenes/[id]` y `/resueltos/[examenId]` arman
-      la lista de áreas recorriendo las preguntas que hay
-      (`examen.preguntas.forEach(...)`), así que una materia declarada y vacía
-      no aparece. Hay que leer `ponderacion` en vez de deducir las áreas, y
-      dibujar la sección pendiente. **Es el cambio que habilita la fase 4.**
-      Incluye agregar `secciones_pendientes` al parser: conviene darle la misma
-      forma de mapa anidado que `ponderacion`, porque `parseFrontmatter` ya
-      sabe leer ese caso (ver `enPonderacion` en `banco-parser.ts`).
+- [x] **Fase 2 · Que la pantalla muestre los huecos.** Hecha. `secciones_pendientes`
+      es un mapa `{ area: motivo }` en el frontmatter, con la misma forma que
+      `ponderacion` — `parseFrontmatter` lee los dos con el mismo código. En
+      `/resueltos/[examenId]` la materia pendiente sale como chip con candado
+      ("Lenguaje · próximamente"), y en `/examenes/[id]` sale un aviso arriba
+      de las preguntas. `listarMetadata` la suma al `areas_resumen` con
+      cantidad 0. De paso se unificaron las 5 copias sueltas de ETIQUETAS_AREA,
+      que iban a quedarse sin "lenguaje" e "historia" cada una por su lado.
 - [ ] **Fase 3 · Económicas al molde.** Renombrar `economicas/2023.md` a la
       convención y darle `categoria`, `titulo` y `opcion`. Hoy es un huérfano:
       no tiene ninguno de los tres.

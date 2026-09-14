@@ -12,21 +12,7 @@ import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import SolucionPasos from "../../components/SolucionPasos";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 import type { Facultad } from "@/lib/data-store";
-
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  fisica: "Física",
-  quimica: "Química",
-  biologia: "Biología",
-  civica: "Cívica",
-  historia: "Historia",
-  general: "General",
-};
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 
 // Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el detalle).
 function formatearFecha(fechaISO: string): string {
@@ -90,9 +76,16 @@ export default function ExamenResueltoPage() {
   const revelarTodas = () => setReveladas(new Set(examen.preguntas.map((p) => p.id)));
   const ocultarTodas = () => setReveladas(new Set());
 
-  // Agrupar por área para tabs
+  // Agrupar por área para tabs.
   const areasUnicas: string[] = [];
   examen.preguntas.forEach((p) => { if (!areasUnicas.includes(p.area)) areasUnicas.push(p.area); });
+
+  // Las materias que este examen SÍ tomó pero que todavía no transcribimos.
+  // Se muestran igual, al final y sin poder abrirlas: el alumno tiene que ver
+  // el examen completo de esa gestión. Deducir las áreas solo de las preguntas
+  // que hay hacía desaparecer una materia entera sin avisarle a nadie.
+  const areasPendientes = Object.keys(examen.secciones_pendientes ?? {})
+    .filter((a) => !areasUnicas.includes(a));
 
   const preguntasFiltradas = areaActiva === "__todas__"
     ? examen.preguntas
@@ -166,6 +159,22 @@ export default function ExamenResueltoPage() {
                 </button>
               );
             })}
+            {areasPendientes.map((a) => (
+              <span
+                key={a}
+                title="Esta materia entró en el examen, pero todavía no la tenemos transcripta"
+                style={{
+                  padding: "6px 14px", borderRadius: 999,
+                  border: "1px dashed var(--border)",
+                  background: "transparent", color: "var(--fg-muted)",
+                  fontWeight: 700, fontSize: 12,
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                }}
+              >
+                <Icono nombre="candado" tamano={11} />
+                {ETIQUETAS_AREA[a] ?? a} · próximamente
+              </span>
+            ))}
           </div>
           {/* Acción global. Sin plan pago no hay nada que revelar: el servidor
               no manda respuestas ni explicaciones. */}

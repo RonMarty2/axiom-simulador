@@ -85,6 +85,14 @@ export interface ExamenBanco {
   // especifica en el frontmatter — retrocompatible. /resueltos usa este
   // campo para mostrar un toggle entre ambas categorias.
   categoria?: string;
+  // Secciones que el examen SÍ tomó pero que todavía no están transcriptas,
+  // con el motivo: { historia: "no-esta-en-ningun-pdf" }. Los facsímiles vienen
+  // partidos por materia entre varios PDF, así que es normal tener Matemáticas
+  // de una gestión y que falte Historia. La sección se declara igual en
+  // `ponderacion` y se muestra vacía: el alumno tiene que seguir viendo el
+  // examen COMPLETO de esa gestión, con una materia en preparación, y no uno
+  // al que le falta un pedazo sin avisar.
+  secciones_pendientes?: Record<string, string>;
   preguntas: PreguntaBanco[];
 }
 
@@ -99,6 +107,14 @@ export interface ExamenMetadata {
   opcion?: string;
   titulo?: string;
   categoria?: string;
+  // Secciones que el examen SÍ tomó pero que todavía no están transcriptas,
+  // con el motivo: { historia: "no-esta-en-ningun-pdf" }. Los facsímiles vienen
+  // partidos por materia entre varios PDF, así que es normal tener Matemáticas
+  // de una gestión y que falte Historia. La sección se declara igual en
+  // `ponderacion` y se muestra vacía: el alumno tiene que seguir viendo el
+  // examen COMPLETO de esa gestión, con una materia en preparación, y no uno
+  // al que le falta un pedazo sin avisar.
+  secciones_pendientes?: Record<string, string>;
   areas_resumen: { area: string; cantidad: number }[];
 }
 

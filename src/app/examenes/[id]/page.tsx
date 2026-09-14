@@ -9,17 +9,8 @@ import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import Cargando from "../../components/Cargando";
 import { nombreFacultad } from "../../components/Icono";
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
-
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  general: "General",
-};
 
 // Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el detalle).
 function formatearFecha(fechaISO: string): string {
@@ -101,6 +92,28 @@ export default function ExamenDetallePage() {
             {examen.fecha_examen ? ` · tomado el ${formatearFecha(examen.fecha_examen)}` : ""}
           </p>
         </motion.div>
+
+        {/* Las materias que este examen tomó y todavía no están transcriptas.
+            Se avisan arriba, antes de las preguntas, para que quede claro que
+            lo que sigue es una parte del examen y no el examen entero. */}
+        {Object.keys(examen.secciones_pendientes ?? {}).length > 0 && (
+          <div
+            className="mb-6 rounded-xl border border-dashed p-4"
+            style={{ borderColor: "var(--border)", background: "var(--bg-subtle)" }}
+          >
+            <div className="text-sm font-semibold" style={{ color: "var(--fg-primary)" }}>
+              De este examen todavía falta{" "}
+              {Object.keys(examen.secciones_pendientes ?? {})
+                .map((a) => ETIQUETAS_AREA[a] ?? a)
+                .join(" y ")}
+            </div>
+            <p className="mt-1 text-sm" style={{ color: "var(--fg-muted)" }}>
+              El facsímil de esa parte no lo tenemos todavía. Abajo están las
+              preguntas de las materias que sí conseguimos; cuando aparezca el
+              resto se suma acá mismo.
+            </p>
+          </div>
+        )}
 
         <div className="space-y-6">
           {examen.preguntas.map((p, idx) => (

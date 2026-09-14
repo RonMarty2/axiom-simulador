@@ -74,7 +74,12 @@ export async function listarMetadata(): Promise<ExamenMetadata[]> {
     opcion: e.opcion,
     titulo: e.titulo,
     categoria: e.categoria,
-    areas_resumen: resumirAreas(e.preguntas),
+    secciones_pendientes: e.secciones_pendientes,
+    // Las secciones declaradas pero todavía sin transcribir se suman acá con
+    // cantidad 0, para que el listado muestre el examen COMPLETO de esa
+    // gestión. Si solo se resumieran las preguntas que hay, una materia que el
+    // examen sí tomó desaparecería del resumen sin que nadie se entere.
+    areas_resumen: resumirAreasConPendientes(e),
   }));
 }
 
@@ -118,6 +123,19 @@ function resumirAreas(preguntas: PreguntaBanco[]): { area: string; cantidad: num
   return Array.from(conteo.entries())
     .map(([area, cantidad]) => ({ area, cantidad }))
     .sort((a, b) => b.cantidad - a.cantidad);
+}
+
+// El resumen de áreas del examen, contando también las que se declararon
+// pendientes (cantidad 0). El orden pone primero las que tienen preguntas y
+// deja las pendientes al final, que es como se leen: "esto podés rendir, esto
+// todavía no".
+function resumirAreasConPendientes(e: ExamenBanco): { area: string; cantidad: number }[] {
+  const conPreguntas = resumirAreas(e.preguntas);
+  const yaEstan = new Set(conPreguntas.map((a) => a.area));
+  const pendientes = Object.keys(e.secciones_pendientes ?? {})
+    .filter((area) => !yaEstan.has(area))
+    .map((area) => ({ area, cantidad: 0 }));
+  return [...conPreguntas, ...pendientes];
 }
 
 export function invalidarCache(): void {

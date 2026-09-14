@@ -11,6 +11,10 @@ export const ETIQUETAS_AREA: Record<string, string> = {
   aritmetica_algebra: "Aritmética-Álgebra",
   geometria_trigonometria: "Geometría-Trigonometría",
   economicas: "Económicas",
+  // La FCE toma Lenguaje e Historia General como áreas propias del examen —
+  // no son "verbal" ni "razonamiento", que era lo que declaraba facultades.json
+  // antes de contrastarlo con los facsímiles.
+  lenguaje: "Lenguaje",
   verbal: "Verbal",
   razonamiento: "Razonamiento",
   fisica: "Física",

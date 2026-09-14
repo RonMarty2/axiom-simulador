@@ -5,6 +5,7 @@ import { llamarIA, extraerJSON } from "@/lib/aiProvider";
 import { getCurrentUser } from "@/lib/session";
 import { esPago } from "@/lib/plan";
 import type { PlanPersonalizado, PreguntaBanco, Simulador } from "@/lib/axiom/types";
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 
 interface DiaPlan {
   dia: number;
@@ -27,16 +28,6 @@ interface CreatePlanRequest {
 interface CreatePlanResponse {
   plan: PlanPersonalizadoInternal;
 }
-
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Economía",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  general: "General",
-};
 
 function preguntasFalladas(
   simulador: Simulador

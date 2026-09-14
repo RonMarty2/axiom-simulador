@@ -8,21 +8,7 @@ import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
 import type { Facultad, Usuario } from "@/lib/data-store";
 import type { ExamenMetadata } from "@/lib/axiom/types";
-
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  fisica: "Física",
-  quimica: "Química",
-  biologia: "Biología",
-  civica: "Cívica",
-  historia: "Historia",
-  general: "General",
-};
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 
 // Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el listado).
 function formatearFecha(fechaISO: string): string {

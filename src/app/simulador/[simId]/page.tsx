@@ -9,20 +9,7 @@ import Cargando from "../../components/Cargando";
 import type { Simulador, PreguntaBanco } from "@/lib/axiom/types";
 import { leerSimulador, guardarSimulador } from "@/lib/sim-storage";
 import { SEP_LLENADO, cantidadEspacios } from "@/lib/axiom/respuestas";
-
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  fisica: "Física",
-  quimica: "Química",
-  biologia: "Biología",
-  estrategias_aprendizaje: "Estrategias de Aprendizaje",
-  general: "General",
-};
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 
 export default function SimuladorActivoPage() {
   const router = useRouter();
