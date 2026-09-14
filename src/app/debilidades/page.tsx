@@ -7,6 +7,7 @@ import AppHeader from "../components/AppHeader";
 import Icono from "../components/Icono";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
+import { etiquetaArea } from "@/lib/axiom/areas";
 
 interface Seccion { seccion: string; promedio: number; intentos: number }
 interface Tema { tema: string; area: string; errores: number; ultima_vez: string }
@@ -17,17 +18,8 @@ interface Resp {
   temas: Tema[];
 }
 
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas", aritmetica_algebra: "Aritmética-Álgebra", geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas", verbal: "Verbal",
-  razonamiento: "Razonamiento", fisica: "Física", quimica: "Química",
-  biologia: "Biología", civica: "Cívica", historia: "Historia", general: "General",
-};
 
-function etiquetaSeccion(s: string): string {
-  if (ETIQUETAS_AREA[s]) return ETIQUETAS_AREA[s];
-  return s.split("_").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-}
+
 
 function colorPorNota(n: number): string {
   if (n >= 70) return "var(--green)";
@@ -83,7 +75,7 @@ export default function DebilidadesPage() {
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
         <h1 className="font-crimson" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}><Icono nombre="grafico" tamano={27} /> Mis debilidades</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>
-          Aquí ves dónde estás fallando más, según tus simulacros. Practica directo lo que necesitas.
+          Aquí ves dónde estas fallando más, según tus simulacros. Practica directo lo que necesitas.
         </p>
 
         {data && data.total_examenes === 0 ? (
@@ -105,7 +97,7 @@ export default function DebilidadesPage() {
                   {debiles.map((s, i) => (
                     <div key={s.seccion} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 12 }}>
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: 15, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 4 }}>{etiquetaSeccion(s.seccion)}</div>
+                        <div style={{ fontSize: 15, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 4 }}>{etiquetaArea(s.seccion)}</div>
                         <div style={{ background: "var(--bg-subtle)", height: 8, borderRadius: 999, overflow: "hidden" }}>
                           <div style={{ width: `${s.promedio}%`, height: "100%", background: colorPorNota(s.promedio) }} />
                         </div>
@@ -126,9 +118,9 @@ export default function DebilidadesPage() {
                   {data.temas.slice(0, 8).map((t, i) => (
                     <div key={`${t.area}-${t.tema}`} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 10 }}>
                       <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{etiquetaSeccion(t.tema)}</div>
+                        <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{etiquetaArea(t.tema)}</div>
                         <div style={{ fontSize: 11, color: "var(--fg-muted)", marginTop: 2 }}>
-                          {etiquetaSeccion(t.area)} · {t.errores} {t.errores === 1 ? "error" : "errores"}
+                          {etiquetaArea(t.area)} · {t.errores} {t.errores === 1 ? "error" : "errores"}
                         </div>
                       </div>
                       <button
@@ -151,7 +143,7 @@ export default function DebilidadesPage() {
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   {fuertes.map((s) => (
                     <span key={s.seccion} style={{ padding: "8px 14px", background: "rgba(16,185,129,0.1)", color: "#059669", borderRadius: 999, fontSize: 13, fontWeight: 700 }}>
-                      ✓ {etiquetaSeccion(s.seccion)} {s.promedio}%
+                      ✓ {etiquetaArea(s.seccion)} {s.promedio}%
                     </span>
                   ))}
                 </div>

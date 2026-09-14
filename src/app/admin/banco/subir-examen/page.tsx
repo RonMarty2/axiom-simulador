@@ -66,14 +66,14 @@ export default function SubirExamenPage() {
         <BackLink href="/admin/banco" label="Volver al banco" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>📥 Subir examen resuelto</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 20, lineHeight: 1.6 }}>
-          Pegá acá lo que te devolvió la IA con el <Link href="/admin/banco/plantillas" style={{ color: "var(--accent)", fontWeight: 700 }}>megaprompt</Link>.
-          Se valida con el mismo parser del banco: si tiene errores de formato los ves al instante, y si está bien lo guardás y aparece en Resueltos.
+          Pega acá lo que te devolvió la IA con el <Link href="/admin/banco/plantillas" style={{ color: "var(--accent)", fontWeight: 700 }}>megaprompt</Link>.
+          Se valida con el mismo parser del banco: si tiene errores de formato los ves al instante, y si está bien lo guardas y aparece en Resueltos.
         </p>
 
         <textarea
           value={contenido}
           onChange={(e) => { setContenido(e.target.value); setResultado(null); }}
-          placeholder={"Pegá acá el Markdown completo del examen (empieza con ---\\nuniversidad: UMSS\\n...)"}
+          placeholder={"Pega acá el Markdown completo del examen (empieza con ---\\nuniversidad: UMSS\\n...)"}
           style={{
             width: "100%", minHeight: 260, padding: 14,
             background: "var(--bg-card)", color: "var(--fg-primary)",
@@ -108,7 +108,7 @@ export default function SubirExamenPage() {
             <div style={{ fontWeight: 800, color: "#dc2626", marginBottom: 6 }}>❌ No se pudo procesar</div>
             <div style={{ fontSize: 13, color: "var(--fg-primary)", fontFamily: "ui-monospace, monospace" }}>{res.error_parseo ?? res.error}</div>
             <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 8 }}>
-              Volvé a la IA, pegale este error y pedile que corrija el formato (sin cambiar el contenido).
+              Vuelve a la IA, pegale este error y pedile que corrija el formato (sin cambiar el contenido).
             </div>
           </div>
         )}
@@ -153,7 +153,7 @@ export default function SubirExamenPage() {
             )}
             {res.ya_existe && !res.guardado && (
               <div style={{ marginTop: 12, fontSize: 13, color: "#d97706" }}>
-                Ya existe un examen con ese id ({res.archivo}). Si querés reemplazarlo, tocá &ldquo;sobrescribir&rdquo;.
+                Ya existe un examen con ese id ({res.archivo}). Si quieres reemplazarlo, toca &ldquo;sobrescribir&rdquo;.
               </div>
             )}
           </div>

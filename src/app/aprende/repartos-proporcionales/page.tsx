@@ -35,7 +35,7 @@ function Esc01_Intro() {
     <EscenaRica>
       <Titulo>Repartir proporcionalmente</Titulo>
       <Parrafo>
-        Cuando tenés algo para repartir (dinero, premio, herencia, ganancia) pero
+        Cuando tienes algo para repartir (dinero, premio, herencia, ganancia) pero
         <strong> no en partes iguales</strong> sino en proporción a algo (capital aportado,
         tiempo dedicado, méritos, etc.), eso es un <strong>reparto proporcional</strong>.
       </Parrafo>
@@ -73,10 +73,10 @@ function Esc02_Directo() {
       </Parrafo>
 
       <Resumen>
-        <Paso n={1}>Sumá las partes: <strong>S = a + b + c + ...</strong></Paso>
-        <Paso n={2}>Calculá el <strong>valor unitario</strong>: <strong>v = T / S</strong></Paso>
+        <Paso n={1}>Suma las partes: <strong>S = a + b + c + ...</strong></Paso>
+        <Paso n={2}>Calcula el <strong>valor unitario</strong>: <strong>v = T / S</strong></Paso>
         <Paso n={3}>Cada uno recibe su parte: <strong>a·v, b·v, c·v, ...</strong></Paso>
-        <Paso n={4}>Verificá que la suma da el total.</Paso>
+        <Paso n={4}>Verifica que la suma da el total.</Paso>
       </Resumen>
 
       <Ejemplo titulo="Ejemplo: repartir 600 Bs entre 3 personas en partes 2, 3 y 5">
@@ -90,7 +90,7 @@ function Esc02_Directo() {
 
       <PorQue>
         El "valor unitario" representa cuánto vale UNA parte de las que estamos
-        repartiendo. Una vez que lo sabés, asignar a cada uno es multiplicar.
+        repartiendo. Una vez que lo sabes, asignar a cada uno es multiplicar.
       </PorQue>
     </EscenaRica>
   );
@@ -156,10 +156,10 @@ function Esc04_Inverso() {
       </Parrafo>
 
       <Resumen>
-        <Paso n={1}>Invertí cada cantidad: si las cantidades son a, b, c → trabajá con 1/a, 1/b, 1/c.</Paso>
-        <Paso n={2}>Reducí esas fracciones a común denominador (MCM).</Paso>
+        <Paso n={1}>Invertí cada cantidad: si las cantidades son a, b, c → trabaja con 1/a, 1/b, 1/c.</Paso>
+        <Paso n={2}>Reduce esas fracciones a común denominador (MCM).</Paso>
         <Paso n={3}>Las nuevas "partes" son los numeradores.</Paso>
-        <Paso n={4}>Aplicá el reparto directo con esas nuevas partes.</Paso>
+        <Paso n={4}>Aplica el reparto directo con esas nuevas partes.</Paso>
       </Resumen>
 
       <Ejemplo titulo="Ejemplo: repartir 310 Bs inversamente a 2, 3 y 5">
@@ -186,7 +186,7 @@ function Esc05_Compania() {
 
       <Resumen>
         Para cada socio i: <strong>partes_i = capital_i × tiempo_i</strong>. Luego
-        aplicás reparto directo con esas partes.
+        aplicas reparto directo con esas partes.
       </Resumen>
 
       <Ejemplo titulo="Dos socios. Ganancia: 2400 Bs">
@@ -253,20 +253,20 @@ function Esc06_Errores() {
       <Cuidado>
         <strong>Error 1:</strong> Olvidar verificar que las partes suman el total. <br />
         <span style={{ fontSize: 13 }}>
-          Siempre sumá las partes que repartís y debe dar exactamente el total inicial.
+          Siempre suma las partes que repartes y debe dar exactamente el total inicial.
         </span>
       </Cuidado>
       <Cuidado>
         <strong>Error 2:</strong> En el inverso, no invertir las cantidades. <br />
         <span style={{ fontSize: 13 }}>
-          Si te piden "inversamente proporcional a 2, 3, 5" y aplicás reparto directo
-          a 2, 3, 5: está MAL. Tenés que trabajar con 1/2, 1/3, 1/5.
+          Si te piden "inversamente proporcional a 2, 3, 5" y aplicas reparto directo
+          a 2, 3, 5: está MAL. Tienes que trabajar con 1/2, 1/3, 1/5.
         </span>
       </Cuidado>
       <Cuidado>
         <strong>Error 3:</strong> En compañía, olvidar multiplicar por el tiempo. <br />
         <span style={{ fontSize: 13 }}>
-          Si solo usás los capitales, ignorás que un socio pudo aportar más tiempo. Capital × Tiempo.
+          Si solo usas los capitales, ignorás que un socio pudo aportar más tiempo. Capital × Tiempo.
         </span>
       </Cuidado>
 
@@ -331,9 +331,9 @@ function Esc07_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás repartos proporcionales."}
+            {ok === ejs.length && "🎉 Dominas repartos proporcionales."}
             {ok >= 3 && ok < ejs.length && "Bien. El método de las 4 etapas no falla."}
-            {ok < 3 && "Volvé a la escena 2 (el método paso a paso)."}
+            {ok < 3 && "Vuelve a la escena 2 (el método paso a paso)."}
           </div>
         </motion.div>
       )}

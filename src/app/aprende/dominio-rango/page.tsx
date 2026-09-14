@@ -68,7 +68,7 @@ function ProyeccionDomRango() {
         </Ejes>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim, minHeight: 22 }}>
-        {paso === 0 && <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Tocá: proyectamos la curva a los ejes</span>}
+        {paso === 0 && <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Toca: proyectamos la curva a los ejes</span>}
         {paso === 1 && <span>Sombra sobre <b style={{ color: LIENZO.ok }}>eje X</b>: <b style={{ color: LIENZO.ok }}>dominio = ℝ</b> (todos los x sirven)</span>}
         {paso === 2 && <span>Sombra sobre <b style={{ color: LIENZO.bad }}>eje Y</b>: <b style={{ color: LIENZO.bad }}>rango = [0, ∞)</b> (los y son ≥ 0)</span>}
       </div>
@@ -115,8 +115,8 @@ function Esc01_Intro() {
 
       <Hook>
         Calcular el dominio aparece en <strong>2-3 preguntas del UMSS</strong>. Es una de las
-        preguntas con respuesta más rápida: si identificás las 3 restricciones típicas
-        (denominador, raíz par, log), resolvés cualquier dominio en 15 segundos.
+        preguntas con respuesta más rápida: si identificas las 3 restricciones típicas
+        (denominador, raíz par, log), resuelves cualquier dominio en 15 segundos.
       </Hook>
 
       <Mnemotecnia>
@@ -133,7 +133,7 @@ function Esc01_Intro() {
 function Esc02_Restricciones() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">¿Qué reduce el dominio?</Titulo>
+      <Titulo accent={LIENZO.accent}>¿Qué reduce el dominio?</Titulo>
       <Resumen>
         Tres situaciones típicas que excluyen valores de x:<br />
         🚫 <strong>División por cero</strong>: el denominador no puede ser 0.<br />
@@ -150,7 +150,7 @@ function Esc02_Restricciones() {
         <strong> R</strong>aíz par (radicando ≥ 0) ·
         <strong> L</strong>og (argumento &gt; 0).<br /><br />
         En el examen siempre escaneá la fórmula buscando estos 3 elementos. Si no hay
-        ninguno → dominio = ℝ. Si hay varios, intersecás las condiciones.
+        ninguno → dominio = ℝ. Si hay varios, intersecas las condiciones.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -203,8 +203,8 @@ function Esc03_Div() {
     <EscenaRica>
       <Titulo accent={COLOR_BAD}>Restricción 1: división por cero</Titulo>
       <Parrafo>
-        Si tu función tiene la forma f(x) = N(x)/D(x), buscás los valores de x que
-        anulan D(x) y los EXCLUÍS del dominio.
+        Si tu función tiene la forma f(x) = N(x)/D(x), buscas los valores de x que
+        anulan D(x) y los EXCLUYES del dominio.
       </Parrafo>
       <Ejemplo titulo="f(x) = 1 / (x − 3)">
         <Paso n={1}>D(x) = x − 3 se anula en x = 3.</Paso>
@@ -261,8 +261,8 @@ function Esc06_Rango() {
     <EscenaRica>
       <Titulo>Encontrar el rango</Titulo>
       <Parrafo>
-        El rango se mira en el eje y. Truco: leé la gráfica de izquierda a derecha y
-        anotá los valores de y que aparecen.
+        El rango se mira en el eje y. Truco: lee la gráfica de izquierda a derecha y
+        anota los valores de y que aparecen.
       </Parrafo>
       <Ejemplo>
         <strong>f(x) = x²</strong>: y nunca es negativo. Rango = [0, +∞).<br />
@@ -306,8 +306,8 @@ function Esc07_Errores() {
         <strong>Sentido gráfico:</strong> la función existe desde x = 2 hacia la derecha,
         pero tiene un "hueco" en x = 5 (asíntota vertical).<br /><br />
 
-        <strong>Regla general:</strong> con múltiples restricciones, escribís cada una y
-        después <em>intersecás</em>. Nunca olvides la condición más restrictiva.
+        <strong>Regla general:</strong> con múltiples restricciones, escribes cada una y
+        después <em>intersecas</em>. Nunca olvides la condición más restrictiva.
       </WorkedExample>
 
       <Misconception titulo="Raíz cúbica vs raíz cuadrada">
@@ -369,8 +369,8 @@ function Esc08_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás dominio y rango."}
-            {ok < ejs.length && "Releé las 3 restricciones (div, raíz par, log)."}
+            {ok === ejs.length && "🎉 Dominas dominio y rango."}
+            {ok < ejs.length && "Relee las 3 restricciones (div, raíz par, log)."}
           </div>
         </motion.div>
       )}

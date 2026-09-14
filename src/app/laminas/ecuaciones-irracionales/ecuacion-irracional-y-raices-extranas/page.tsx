@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionIrracionalYRaicesExtranasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function EcuacionIrracionalYRaicesExtranasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Elevar al cuadrado no siempre se puede deshacer sin cuidado. Fijate:
+            Elevar al cuadrado no siempre se puede deshacer sin cuidado. Fíjate:
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$(-2)^2 = 4 = (2)^2$"}</MathText>
@@ -52,10 +52,10 @@ export default function EcuacionIrracionalYRaicesExtranasPage() {
         <div>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {[
-              "1. Aislá la raíz de un lado de la ecuación",
+              "1. Aisla la raíz de un lado de la ecuación",
               "2. Elevá al cuadrado los dos lados completos",
-              "3. Resolvé la ecuación que queda",
-              "4. Verificá CADA solución en la ecuación ORIGINAL (no en la elevada)",
+              "3. Resuelve la ecuación que queda",
+              "4. Verifica CADA solución en la ecuación ORIGINAL (no en la elevada)",
             ].map((t) => (
               <div key={t} style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
                 {t}
@@ -126,7 +126,7 @@ export default function EcuacionIrracionalYRaicesExtranasPage() {
             <MathText>{"$\\dfrac{1}{\\sqrt{x+2}}-\\dfrac{1}{\\sqrt{x-2}}=\\dfrac{1}{\\sqrt{x-3}}-\\dfrac{1}{\\sqrt{x+3}}$"}</MathText>, con dominio <MathText>{"$x>3$"}</MathText>.
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 13, lineHeight: 1.6 }}>
-            Antes de elevar nada al cuadrado, mirá los signos: para <MathText>{"$x>3$"}</MathText>, el lado izquierdo siempre da negativo, y el derecho siempre da positivo.
+            Antes de elevar nada al cuadrado, mira los signos: para <MathText>{"$x>3$"}</MathText>, el lado izquierdo siempre da negativo, y el derecho siempre da positivo.
           </p>
           <div style={{
             marginTop: 10, textAlign: "center",
@@ -141,7 +141,7 @@ export default function EcuacionIrracionalYRaicesExtranasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar $x$: $\\sqrt{x}+\\sqrt{x+5}=\\dfrac{10}{\\sqrt{x}}$."}

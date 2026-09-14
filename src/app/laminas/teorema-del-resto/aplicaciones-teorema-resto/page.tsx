@@ -15,7 +15,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function AplicacionesTeoremaRestoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -40,7 +40,7 @@ export default function AplicacionesTeoremaRestoPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de lo que ya sabés",
+      etiqueta: "Arrancamos de lo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
@@ -75,7 +75,7 @@ export default function AplicacionesTeoremaRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
-            Igual que antes: buscás los dos valores que anulan a <MathText>{"$Q(x)$"}</MathText>.
+            Igual que antes: buscas los dos valores que anulan a <MathText>{"$Q(x)$"}</MathText>.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
             <LineaEjemplo glosa="Factorizando" eq="$x^2+x-2 = (x-1)(x+2)$" />
@@ -110,7 +110,7 @@ export default function AplicacionesTeoremaRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Dos ecuaciones, dos incógnitas. De la primera, <MathText>{"$m = n+1$"}</MathText>, y reemplazás en la segunda.
+            Dos ecuaciones, dos incógnitas. De la primera, <MathText>{"$m = n+1$"}</MathText>, y reemplazas en la segunda.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Sustituyendo" eq="$2(n+1) + n = -28$" />
@@ -159,13 +159,13 @@ export default function AplicacionesTeoremaRestoPage() {
             incorrecto={{ arriba: "$(-2)^3$", abajo: "$-8$" }}
           />
           <p style={{ margin: "12px 0 0", fontSize: 12.5, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Exponente par, resultado positivo. Exponente impar, conserva el signo del número. Revisá cada término por separado antes de sumar.
+            Exponente par, resultado positivo. Exponente impar, conserva el signo del número. Revisa cada término por separado antes de sumar.
           </p>
         </div>
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Dado $Q(x) = x^5 - 4x^4 + px^3 - qx^2 + x - 1$, al dividirlo entre $(x+1)$ el residuo es 1, y al dividirlo entre $(x-1)$ el residuo es 3. Hallar $p$."}

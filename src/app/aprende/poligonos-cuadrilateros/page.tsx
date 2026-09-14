@@ -124,7 +124,7 @@ function EscRegulares() {
     <EscenaRica>
       <Titulo>Explorador de polígonos regulares</Titulo>
       <Parrafo>
-        Mové el slider para cambiar el número de lados. Mirá cómo cambian los
+        Mueve el slider para cambiar el número de lados. Mira cómo cambian los
         ángulos y la "redondez" del polígono.
       </Parrafo>
 
@@ -220,7 +220,7 @@ function EscSumaAng() {
 
       <Mnemotecnia>
         <strong>Suma de ángulos EXTERIORES de cualquier polígono = 360°</strong>.<br />
-        Esto NO depende de n. Si querés el ángulo exterior de un polígono
+        Esto NO depende de n. Si quieres el ángulo exterior de un polígono
         regular: 360°/n.
       </Mnemotecnia>
     </EscenaRica>
@@ -467,7 +467,7 @@ function EscErrores() {
       <Misconception titulo="Error 4 · aplicar (n-2)·180 a polígonos cóncavos">
         La fórmula vale para polígonos CONVEXOS (los que no tienen "muescas").
         En cóncavos hay que ser más cuidadoso. En el examen, casi siempre son
-        convexos, pero confirmá visualmente.
+        convexos, pero confirma visualmente.
       </Misconception>
     </EscenaRica>
   );

@@ -33,7 +33,7 @@ function EscIntro() {
         está bien.
       </Definicion>
       <PorQue>
-        Aunque mucha gente entiende oraciones mal escritas, el examen quiere verificar que reconocés{" "}
+        Aunque mucha gente entiende oraciones mal escritas, el examen quiere verificar que reconoces{" "}
         <em>cuál es la versión más precisa</em>. Es una habilidad clave de la escritura universitaria.
       </PorQue>
 
@@ -63,7 +63,7 @@ function EscReglas() {
         <strong>2. Concordancia</strong>: el verbo concuerda en número con el sujeto. Los adjetivos
         concuerdan en género y número con el sustantivo.<br /><br />
         <strong>3. Orden lógico de complementos</strong>: los complementos van junto a lo que
-        complementan. Si separás un sustantivo de su complemento por una frase larga, la oración pierde
+        complementan. Si separas un sustantivo de su complemento por una frase larga, la oración pierde
         claridad.<br /><br />
         <strong>4. Conectores apropiados</strong>: "pero", "sin embargo", "aunque" señalan oposición.
         "Y" y "también" suman. Elegir el conector incorrecto cambia el sentido.
@@ -201,12 +201,12 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Resumen</Titulo>
       <Resumen>
-        <strong>1.</strong> Identificá sujeto, verbo y complementos. ¿Están en el orden natural?<br /><br />
-        <strong>2.</strong> Verificá concordancia (sustantivo-adjetivo, sujeto-verbo).<br /><br />
+        <strong>1.</strong> Identifica sujeto, verbo y complementos. ¿Están en el orden natural?<br /><br />
+        <strong>2.</strong> Verifica concordancia (sustantivo-adjetivo, sujeto-verbo).<br /><br />
         <strong>3.</strong> Los modificadores deben ir cerca de lo que modifican. Si "rápido" describe el
         leer, debe ir junto al verbo "lee", no al final.<br /><br />
         <strong>4.</strong> No descartes "Es correcta" sin pensarlo. A veces es la respuesta válida.<br /><br />
-        <strong>5.</strong> Si dudás entre dos opciones, leelas en voz alta. La buena fluye natural; la
+        <strong>5.</strong> Si dudas entre dos opciones, leelas en voz alta. La buena fluye natural; la
         forzada se traba.
       </Resumen>
 

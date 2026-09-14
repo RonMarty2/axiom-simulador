@@ -108,7 +108,7 @@ function EscPregunta() {
 
       <Mnemotecnia>
         <strong>"PICO te ordena la pregunta. H0 y H1 te dan la apuesta. Las
-        variables marcan qué medís."</strong>
+        variables marcan qué mides."</strong>
       </Mnemotecnia>
     </EscenaRica>
   );

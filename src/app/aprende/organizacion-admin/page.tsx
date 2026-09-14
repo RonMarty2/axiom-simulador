@@ -100,7 +100,7 @@ function Esc01() {
       </Parrafo>
       <OrganigramaSVG />
       <Misconception titulo="Organizar ≠ hacer un organigrama bonito">
-        Mucha gente cree que "organizar" termina cuando dibujás el organigrama. Falso. El organigrama
+        Mucha gente cree que "organizar" termina cuando dibujas el organigrama. Falso. El organigrama
         es el resultado <em>visible</em>, pero organizar implica definir <strong>qué hace cada
         puesto, con qué autoridad y con qué recursos</strong>. Un organigrama sin descripciones de
         puesto no organiza nada.
@@ -139,9 +139,9 @@ function Esc02() {
         por supervisor.<br /><br />
 
         <strong>Ejemplo numérico:</strong> empresa de 100 personas.<br />
-        • Si la amplitud es 5 → necesitás <em>100/5 = 20 supervisores</em>, más 4 gerentes
+        • Si la amplitud es 5 → necesitas <em>100/5 = 20 supervisores</em>, más 4 gerentes
         (20/5), más 1 director. Total: ~125 personas. <strong>Estructura ALTA</strong>.<br />
-        • Si la amplitud es 10 → necesitás <em>100/10 = 10 supervisores</em>, más 1 director. Total:
+        • Si la amplitud es 10 → necesitas <em>100/10 = 10 supervisores</em>, más 1 director. Total:
         ~111 personas. <strong>Estructura PLANA</strong>.<br /><br />
 
         Las estructuras planas son más ágiles pero exigen empleados autónomos. Las altas dan más
@@ -202,9 +202,9 @@ function Esc05() {
       </Cuidado>
 
       <Misconception titulo="Delegar ≠ tirar el problema y desentenderse">
-        Delegar no es "yo no quiero hacer esto, hacelo vos". El jefe que delega <strong>conserva la
-        responsabilidad final</strong>: si el subordinado falla, el jefe responde. Por eso delegás
-        autoridad junto con la responsabilidad: y mantenés seguimiento.
+        Delegar no es "yo no quiero hacer esto, hazlo tú". El jefe que delega <strong>conserva la
+        responsabilidad final</strong>: si el subordinado falla, el jefe responde. Por eso delegas
+        autoridad junto con la responsabilidad: y mantienes seguimiento.
       </Misconception>
 
       <CasoBolivia>

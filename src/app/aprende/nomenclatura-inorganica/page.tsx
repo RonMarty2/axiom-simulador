@@ -53,7 +53,7 @@ function EscMapa() {
       </Hook>
 
       <Parrafo>
-        Tocá los botones para ver cada tipo:
+        Toca los botones para ver cada tipo:
       </Parrafo>
 
       <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 6, marginBottom: 12 }}>
@@ -182,7 +182,7 @@ function EscOxidosM() {
         <strong>Truco para escribir la fórmula</strong>:<br />
         Si el metal tiene oxidación +n, y el oxígeno es −2, intercambias los
         números:<br />
-        M_2 O_n (si n es impar, M₂O_n; si n es par, simplificás).<br /><br />
+        M_2 O_n (si n es impar, M₂O_n; si n es par, simplificas).<br /><br />
 
         Ej: Fe con +3 → Fe₂O₃. Al con +3 → Al₂O₃. Ca con +2 → Ca₂O₂ → CaO
         (simplifica).
@@ -298,7 +298,7 @@ function EscAcidos() {
 
       <Mnemotecnia>
         <strong>Para obtener oxácido desde anhídrido</strong>:<br />
-        Sumá un H₂O y simplificá si hay subíndices comunes.<br /><br />
+        Suma un H₂O y simplifica si hay subíndices comunes.<br /><br />
         Ej: SO₃ + H₂O → H₂SO₄ ✓. CO₂ + H₂O → H₂CO₃ ✓.
       </Mnemotecnia>
     </EscenaRica>

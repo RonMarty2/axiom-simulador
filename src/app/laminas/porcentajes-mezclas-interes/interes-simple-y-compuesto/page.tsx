@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function InteresSimpleYCompuestoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -25,12 +25,12 @@ export default function InteresSimpleYCompuestoPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que un aumento del <MathText>{"$r\\%$"}</MathText> multiplica por <MathText>{"$(1+r)$"}</MathText>. El interés compuesto es justamente aplicar ese factor una y otra vez, año tras año.
+            Ya sabes que un aumento del <MathText>{"$r\\%$"}</MathText> multiplica por <MathText>{"$(1+r)$"}</MathText>. El interés compuesto es justamente aplicar ese factor una y otra vez, año tras año.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ textAlign: "center", padding: "10px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
@@ -123,7 +123,7 @@ export default function InteresSimpleYCompuestoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un hombre invierte sus ahorros en dos cuentas: 6% y 10% de interés simple anual. Pone el doble en la de menor rendimiento (6%). El interés anual ganado en ambas es 3520 Bs. ¿Cuánto tenía en total?"}

@@ -657,7 +657,7 @@ export async function llamarIA(
           }
         }
         // Si todos los fallbacks fallaron también, lanzar error amigable.
-        throw new Error(`Estamos teniendo problemas temporales con los proveedores de IA. Por favor intentá de nuevo en unos minutos. Si el problema persiste contactá al equipo.`);
+        throw new Error(`Estamos teniendo problemas temporales con los proveedores de IA. Por favor intenta de nuevo en unos minutos. Si el problema persiste contactá al equipo.`);
       }
     }
     throw new Error(`La inteligencia artificial no está configurada para este servicio. Si sos admin, configurala en Admin → Modelos & APIs.`);

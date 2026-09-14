@@ -93,7 +93,7 @@ function EscIntro() {
       <Parrafo>
         Toda figura poligonal puede descomponerse en triángulos. Por eso el
         triángulo es la <strong>unidad estructural</strong> de la geometría
-        plana: si dominás sus propiedades, dominás todas las demás figuras.
+        plana: si dominas sus propiedades, dominas todas las demás figuras.
       </Parrafo>
 
       <Hook>
@@ -249,7 +249,7 @@ function EscSuma180() {
       </Resumen>
 
       <PorQue>
-        <strong>Demostración intuitiva:</strong> si dibujás una recta paralela a
+        <strong>Demostración intuitiva:</strong> si dibujas una recta paralela a
         un lado del triángulo pasando por el vértice opuesto, los 3 ángulos del
         triángulo se "acomodan" sobre esa recta formando un ángulo llano (180°).
         Esto sale de las propiedades de las paralelas cortadas por transversal
@@ -386,7 +386,7 @@ function EscPitagoras() {
       <Mnemotecnia>
         <strong>"Hipotenusa al cuadrado = suma de los catetos al cuadrado"</strong>.<br /><br />
         Truco para no confundir: la HIPOTENUSA siempre es <em>la más larga</em>
-        de los 3 lados. Si dudás cuál variable usar como hipotenusa, fijate cuál
+        de los 3 lados. Si dudas cuál variable usar como hipotenusa, fíjate cuál
         es el lado más grande.
       </Mnemotecnia>
 
@@ -401,7 +401,7 @@ function EscPitagoras() {
 
       <Cuidado>
         <strong>Memorizar las ternas (3,4,5) y (5,12,13)</strong> ahorra tiempo
-        en el examen. Si reconocés que 3 y 4 son los catetos, sabés sin calcular
+        en el examen. Si reconoces que 3 y 4 son los catetos, sabes sin calcular
         que la hipotenusa es 5.
       </Cuidado>
     </EscenaRica>
@@ -497,7 +497,7 @@ function EscPerimArea() {
         A = (8 · 5) / 2 = 40/2 = 20 cm².
       </Ejemplo>
 
-      <Definicion termino="Fórmula de Herón (cuando solo conocés los 3 lados)">
+      <Definicion termino="Fórmula de Herón (cuando solo conoces los 3 lados)">
         <span style={{ fontSize: 16, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           A = √(s(s−a)(s−b)(s−c))
         </span><br /><br />
@@ -723,9 +723,9 @@ function EscPractica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás triángulos."}
-            {ok >= 5 && ok < ejs.length && "Repasá Pitágoras y la desigualdad triangular."}
-            {ok < 5 && "Volvé al teorema de Pitágoras y a las clasificaciones."}
+            {ok === ejs.length && "🎉 Dominas triángulos."}
+            {ok >= 5 && ok < ejs.length && "Repasa Pitágoras y la desigualdad triangular."}
+            {ok < 5 && "Vuelve al teorema de Pitágoras y a las clasificaciones."}
           </div>
         </motion.div>
       )}

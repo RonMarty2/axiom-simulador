@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 export default function Page() {
   return (
@@ -49,7 +50,7 @@ function Esc01_Intro() {
         • Calcular cuánto invertir para llegar a una meta.<br />
         • Convertir un problema verbal en una expresión y resolverlo.<br />
         • Resolver problemas de mezclas, edades, distancias…<br />
-        Si dominás esto, dominás el 70% de los problemas verbales del examen.
+        Si dominas esto, dominas el 70% de los problemas verbales del examen.
       </Resumen>
 
       <Hook>
@@ -72,7 +73,7 @@ function Esc01_Intro() {
 function Esc02_Tipos() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">3 tipos de igualdades</Titulo>
+      <Titulo accent={LIENZO.accent}>3 tipos de igualdades</Titulo>
       <Ejemplo titulo="1. Igualdad numérica">
         <strong>2 + 3 = 5</strong>. No tiene incógnitas. Es verdadero (o falso). Nada que despejar.
       </Ejemplo>
@@ -95,7 +96,7 @@ function Esc03_Balanza() {
     <EscenaRica>
       <Titulo>Principio fundamental: la balanza</Titulo>
       <Parrafo>
-        Una ecuación es como una <strong>balanza en equilibrio</strong>. Lo que hacés a
+        Una ecuación es como una <strong>balanza en equilibrio</strong>. Lo que haces a
         un lado <strong>debe hacerse al otro</strong> para mantener la igualdad.
       </Parrafo>
 
@@ -129,7 +130,7 @@ function Esc03_Balanza() {
 
       <PorQue>
         Por eso decimos "pasar un término al otro lado cambiando de signo": en realidad
-        estás restando ese término a AMBOS lados. La regla mnemotécnica es solo un atajo.
+        estas restando ese término a AMBOS lados. La regla mnemotécnica es solo un atajo.
       </PorQue>
     </EscenaRica>
   );
@@ -141,7 +142,7 @@ function Esc04_Despejar() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Despejar la incógnita: paso a paso</Titulo>
       <Parrafo>
-        Estrategia general: <strong>aislar la x</strong> en un lado. Pasás todo lo demás al
+        Estrategia general: <strong>aislar la x</strong> en un lado. Pasas todo lo demás al
         otro lado usando el principio de la balanza.
       </Parrafo>
 
@@ -181,7 +182,7 @@ function Esc04_Despejar() {
       </Resumen>
 
       <AutoCheck
-        pregunta="Resolvé: 4x − 7 = 9"
+        pregunta="Resuelve: 4x − 7 = 9"
         opciones={["x = 4", "x = 2", "x = 16", "x = 0.5"]}
         correctaIdx={0}
         explicacion="4x = 9 + 7 = 16 → x = 16/4 = 4."
@@ -252,10 +253,10 @@ function Esc07_Verbal() {
       </Parrafo>
 
       <Resumen>
-        1️⃣ Identificá la incógnita y nombrala x.<br />
-        2️⃣ Traducí cada frase a una operación.<br />
-        3️⃣ Igualá lo que dice el problema.<br />
-        4️⃣ Resolvé y verificá que tenga sentido.
+        1️⃣ Identifica la incógnita y nombrala x.<br />
+        2️⃣ Traduce cada frase a una operación.<br />
+        3️⃣ Iguala lo que dice el problema.<br />
+        4️⃣ Resuelve y verifica que tenga sentido.
       </Resumen>
 
       <Ejemplo titulo="Problema: El doble de un número, más 5, es igual a 17. ¿Cuál es?">
@@ -317,15 +318,15 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> No verificar. <br />
         <span style={{ fontSize: 13 }}>
-          Siempre sustituí tu x en la ecuación original y comprobá. 30 segundos que evitan errores grandes.
+          Siempre sustituí tu x en la ecuación original y comprueba. 30 segundos que evitan errores grandes.
         </span>
       </Cuidado>
 
       <Misconception titulo="Trampa de los problemas verbales · 'lo que dice' ≠ 'lo que pide'">
         Lectura mal hecha: "Pedro tiene 3 más que Juan, juntos suman 27, ¿edad de Pedro?".
-        Mucha gente plantea x = edad de Pedro y se hace lío. <strong>Truco:</strong> elegí
-        siempre como x al "más chico" o "más simple" (en este caso Juan). Después calculás los
-        otros con expresiones (x + 3). Al final, recordá qué pedía el problema (Pedro = x + 3).
+        Mucha gente plantea x = edad de Pedro y se hace lío. <strong>Truco:</strong> elige
+        siempre como x al "más chico" o "más simple" (en este caso Juan). Después calculas los
+        otros con expresiones (x + 3). Al final, recuerda qué pedía el problema (Pedro = x + 3).
       </Misconception>
 
       <Conexion>
@@ -340,10 +341,10 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Resolvé: 2x + 3 = 11", o: ["x = 4", "x = 7", "x = 14", "x = 8"], c: 0, ex: "2x = 8 → x = 4." },
-    { p: "Resolvé: 5x − 8 = 17", o: ["x = 5", "x = 1.8", "x = 9", "x = 25"], c: 0, ex: "5x = 25 → x = 5." },
-    { p: "Resolvé: 3(x + 4) = 21", o: ["x = 3", "x = 5", "x = 7", "x = 9"], c: 0, ex: "3x + 12 = 21 → 3x = 9 → x = 3." },
-    { p: "Resolvé: x/2 + 5 = 11", o: ["x = 12", "x = 3", "x = 32", "x = 8"], c: 0, ex: "x/2 = 6 → x = 12." },
+    { p: "Resuelve: 2x + 3 = 11", o: ["x = 4", "x = 7", "x = 14", "x = 8"], c: 0, ex: "2x = 8 → x = 4." },
+    { p: "Resuelve: 5x − 8 = 17", o: ["x = 5", "x = 1.8", "x = 9", "x = 25"], c: 0, ex: "5x = 25 → x = 5." },
+    { p: "Resuelve: 3(x + 4) = 21", o: ["x = 3", "x = 5", "x = 7", "x = 9"], c: 0, ex: "3x + 12 = 21 → 3x = 9 → x = 3." },
+    { p: "Resuelve: x/2 + 5 = 11", o: ["x = 12", "x = 3", "x = 32", "x = 8"], c: 0, ex: "x/2 = 6 → x = 12." },
     { p: "Un número más 8 es igual a su triple. ¿Cuál es?", o: ["4", "2", "8", "16"], c: 0, ex: "x + 8 = 3x → 8 = 2x → x = 4." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
@@ -380,9 +381,9 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás ecuaciones de primer grado."}
-            {ok >= 3 && ok < ejs.length && "Bien. Repasá los que fallaste."}
-            {ok < 3 && "Volvé a la balanza (escena 3): es el corazón del método."}
+            {ok === ejs.length && "🎉 Dominas ecuaciones de primer grado."}
+            {ok >= 3 && ok < ejs.length && "Bien. Repasa los que fallaste."}
+            {ok < 3 && "Vuelve a la balanza (escena 3): es el corazón del método."}
           </div>
         </motion.div>
       )}

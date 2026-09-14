@@ -53,7 +53,7 @@ function EscSimCorazon() {
       <Titulo>Simulador · ver el corazón latiendo</Titulo>
 
       <Parrafo>
-        Ajustá la frecuencia cardíaca y observá cómo cambia el ritmo de contracción.
+        Ajusta la frecuencia cardíaca y observa cómo cambia el ritmo de contracción.
         Bradicardia (&lt;60), normal (60-100), taquicardia (&gt;100).
       </Parrafo>
 
@@ -101,8 +101,8 @@ function EscSimCorazon() {
       </div>
 
       <Cuidado>
-        Probá fc=40: en deportistas entrenados es normal (corazón más eficiente).
-        Probá fc=180: en ejercicio intenso o emergencia. Sostener taquicardia
+        Prueba fc=40: en deportistas entrenados es normal (corazón más eficiente).
+        Prueba fc=180: en ejercicio intenso o emergencia. Sostener taquicardia
         reduce el llenado ventricular y baja el gasto cardíaco.
       </Cuidado>
     </EscenaRica>
@@ -169,7 +169,7 @@ function EscSangre() {
       <Titulo>Sangre · 5 litros que dan vida</Titulo>
 
       <Hook>
-        Tenés ~5 L de sangre. Cada gota tiene 5 millones de glóbulos rojos.
+        Tienes ~5 L de sangre. Cada gota tiene 5 millones de glóbulos rojos.
         Una sola gota va y vuelve por todo tu cuerpo en menos de 1 minuto.
         Total: ~7.000 L de sangre se mueven al día.
       </Hook>
@@ -459,7 +459,7 @@ function EscPractica() {
         si lo mirás de frente).
       </Misconception>
 
-      <Misconception titulo="Error 3 · 'En altura tenés menos glóbulos rojos'">
+      <Misconception titulo="Error 3 · 'En altura tienes menos glóbulos rojos'">
         <strong>Realidad:</strong> al revés. Por la baja PO₂, el cuerpo
         produce MÁS eritrocitos (poliglobulia).
       </Misconception>

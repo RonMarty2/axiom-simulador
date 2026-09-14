@@ -15,12 +15,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function PermutacionesYConteoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés contar TODAS las formas de ordenar algo sin escribirlas una por una?
+            ¿Sabías que puedes contar TODAS las formas de ordenar algo sin escribirlas una por una?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -35,12 +35,12 @@ export default function PermutacionesYConteoPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que si una elección tiene varios pasos independientes, multiplicás las opciones de cada paso: el principio multiplicativo.
+            Ya sabes que si una elección tiene varios pasos independientes, multiplicas las opciones de cada paso: el principio multiplicativo.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$3 \\text{ remeras} \\times 2 \\text{ pantalones} = 6 \\text{ outfits}$"}</MathText>
@@ -130,7 +130,7 @@ export default function PermutacionesYConteoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"¿Cuántos números de 4 cifras que empiecen con 1 y terminen en 5 se pueden formar con los dígitos 1,2,3,4,5 (cada uno se usa una sola vez)?"}

@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function ExpresionRacionalYSimplificacionPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function ExpresionRacionalYSimplificacionPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Para simplificar <MathText>{"$6/8$"}</MathText>, buscás un factor común en arriba y abajo, y lo cancelás.
+            Para simplificar <MathText>{"$6/8$"}</MathText>, buscas un factor común en arriba y abajo, y lo cancelas.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$\\dfrac{6}{8} = \\dfrac{2 \\cdot 3}{2 \\cdot 4} = \\dfrac{3}{4}$"}</MathText>
@@ -129,7 +129,7 @@ export default function ExpresionRacionalYSimplificacionPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Simplificar $\\dfrac{x^2-9}{x^2-x-6}$."}

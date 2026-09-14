@@ -99,12 +99,12 @@ function EscHook() {
     <EscenaRica>
       <Titulo>Por qué importa la contabilidad</Titulo>
       <Hook>
-        Vas a abrir una panadería en El Alto. Ponés 20 000 Bs de tu plata + un préstamo de 10 000
-        del banco. Comprás el horno (15 000), harina inicial (5 000), y guardás 10 000 en caja para
+        Vas a abrir una panadería en El Alto. Pones 20 000 Bs de tu plata + un préstamo de 10 000
+        del banco. Comprás el horno (15 000), harina inicial (5 000), y guardas 10 000 en caja para
         emergencias.<br /><br />
         Tres meses después, alguien te pregunta: <strong>"¿tu negocio es rentable?"</strong>
         <br /><br />
-        Sin contabilidad, NO podés responder. Con contabilidad, sí.
+        Sin contabilidad, NO puedes responder. Con contabilidad, sí.
       </Hook>
       <Parrafo>
         Esta lección te enseña los <strong>4 informes</strong> que toda empresa usa para responder
@@ -176,7 +176,7 @@ function Esc02() {
         DUEÑOS</em> durante el período.
       </Resumen>
       <PorQue>
-        Cada estado responde una pregunta distinta. Por eso son 4 y no 1: necesitás verlos juntos
+        Cada estado responde una pregunta distinta. Por eso son 4 y no 1: necesitas verlos juntos
         para tener el panorama completo.
       </PorQue>
     </EscenaRica>

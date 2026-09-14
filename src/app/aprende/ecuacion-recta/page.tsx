@@ -142,7 +142,7 @@ function EscPuntoPend() {
       <Titulo>Forma punto-pendiente</Titulo>
 
       <Resumen>
-        Si conocés UN punto P₀(x₀, y₀) y la pendiente m:<br />
+        Si conoces UN punto P₀(x₀, y₀) y la pendiente m:<br />
         <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           y − y₀ = m(x − x₀)
         </span>
@@ -182,8 +182,8 @@ function EscPendOrd() {
 
       <PorQue>
         Esta forma se llama "pendiente-ordenada" porque lee directamente m y b
-        de la ecuación. Es la forma más útil para graficar: marcás (0, b) en
-        el eje y, y de ahí trazás con pendiente m.
+        de la ecuación. Es la forma más útil para graficar: marcas (0, b) en
+        el eje y, y de ahí trazas con pendiente m.
       </PorQue>
 
       <Ejemplo titulo="Identificar m y b">
@@ -193,7 +193,7 @@ function EscPendOrd() {
       </Ejemplo>
 
       <Cuidado>
-        Si la ecuación viene en forma general (Ax + By + C = 0), tenés que
+        Si la ecuación viene en forma general (Ax + By + C = 0), tienes que
         despejar y para llevarla a y = mx + b: y = (−A/B)x + (−C/B). Entonces
         m = −A/B y b = −C/B.
       </Cuidado>
@@ -216,7 +216,7 @@ function EscGeneral() {
 
       <PorQue>
         La forma general tiene la ventaja de tratar a x e y simétricamente. Es
-        la que se usa cuando preferís NO calcular pendiente (por ejemplo, para
+        la que se usa cuando prefieres NO calcular pendiente (por ejemplo, para
         rectas verticales: x = 3 se escribe como 1x + 0y − 3 = 0).
       </PorQue>
 

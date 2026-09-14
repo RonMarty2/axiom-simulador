@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionesCubicasVietaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,7 +30,7 @@ export default function EcuacionesCubicasVietaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
@@ -134,10 +134,10 @@ export default function EcuacionesCubicasVietaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
-          pregunta={"Determiná la suma de las raíces del polinomio $p(x) = x^3 - 5x^2 - x + 5$."}
+          pregunta={"Determina la suma de las raíces del polinomio $p(x) = x^3 - 5x^2 - x + 5$."}
           opciones={["$5$", "$7$", "$3$", "$6$", "Ninguno"]}
           correcta={0}
           explicacion={"Por Vieta: suma de raíces $=-b/a$. Acá $a=1,\\ b=-5$, entonces suma $=-(-5)/1=5$."}

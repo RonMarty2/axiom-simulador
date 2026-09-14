@@ -14,7 +14,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function AsintotasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -34,12 +34,12 @@ export default function AsintotasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que los ceros del denominador dan las asíntotas VERTICALES (son el dominio excluido, vistas &quot;de costado&quot;). Comparando los grados de numerador y denominador salen las otras:
+            Ya sabes que los ceros del denominador dan las asíntotas VERTICALES (son el dominio excluido, vistas &quot;de costado&quot;). Comparando los grados de numerador y denominador salen las otras:
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -62,7 +62,7 @@ export default function AsintotasPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Dividí el numerador entre el denominador (división de polinomios)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Divide el numerador entre el denominador (división de polinomios)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
@@ -139,7 +139,7 @@ export default function AsintotasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"La ordenada donde cortan la asíntota vertical positiva a la asíntota inclinada de $f(x)=\\dfrac{x^3+2x^2-2x+1}{x^2-4}$ es:"}

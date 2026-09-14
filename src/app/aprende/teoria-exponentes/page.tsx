@@ -54,7 +54,7 @@ function CrecimientoExpAnim() {
         textAlign: "center", fontFamily: "var(--font-crimson), serif",
         fontSize: 17, color: LIENZO.fg, fontWeight: 500,
       }}>
-        1000 · 1.08<sup>t</sup> · {on ? <span style={{ color: LIENZO.ok }}>tras {anos} años: {Math.round(datos[anos].v)} Bs</span> : "tocá para simular"}
+        1000 · 1.08<sup>t</sup> · {on ? <span style={{ color: LIENZO.ok }}>tras {anos} años: {Math.round(datos[anos].v)} Bs</span> : "toca para simular"}
       </div>
     </div>
   );
@@ -84,9 +84,9 @@ function Esc01_Basicas() {
     <EscenaRica>
       <Titulo>Las 5 propiedades fundamentales</Titulo>
       <Resumen>
-        <strong>1.</strong> aᵐ · aⁿ = a^(m+n): al multiplicar, sumás exponentes.<br />
-        <strong>2.</strong> aᵐ / aⁿ = a^(m−n): al dividir, restás.<br />
-        <strong>3.</strong> (aᵐ)ⁿ = a^(m·n): al elevar potencia, multiplicás.<br />
+        <strong>1.</strong> aᵐ · aⁿ = a^(m+n): al multiplicar, sumas exponentes.<br />
+        <strong>2.</strong> aᵐ / aⁿ = a^(m−n): al dividir, restas.<br />
+        <strong>3.</strong> (aᵐ)ⁿ = a^(m·n): al elevar potencia, multiplicas.<br />
         <strong>4.</strong> (a·b)ⁿ = aⁿ · bⁿ: el exponente se distribuye al producto.<br />
         <strong>5.</strong> (a/b)ⁿ = aⁿ/bⁿ: y a la división.
       </Resumen>
@@ -100,7 +100,7 @@ function Esc01_Basicas() {
 
       <Hook>
         Las 5 propiedades de exponentes aparecen en <strong>casi todo cálculo algebraico</strong>:
-        radicales, logaritmos, ecuaciones exponenciales, derivadas. Si las dominás, te
+        radicales, logaritmos, ecuaciones exponenciales, derivadas. Si las dominas, te
         ahorrás horas en todas las demás unidades.
       </Hook>
 
@@ -108,7 +108,7 @@ function Esc01_Basicas() {
         <strong>Las 5 reglas en frase única</strong>:<br />
         <em>"<strong>S</strong>uma al multiplicar, <strong>R</strong>esta al dividir,
         <strong> M</strong>ultiplica al elevar, <strong>D</strong>istribuye a producto y cociente"</em>.<br /><br />
-        Letras: <strong>S-R-M-D-D</strong>. Si querés acordarte de cuál hacés primero, mirá
+        Letras: <strong>S-R-M-D-D</strong>. Si quieres acordarte de cuál haces primero, mira
         el SIGNO de la operación: × → sumar exponentes; ÷ → restar.
       </Mnemotecnia>
     </EscenaRica>
@@ -118,7 +118,7 @@ function Esc01_Basicas() {
 function Esc02_CeroNeg() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Exponente 0 y negativo</Titulo>
+      <Titulo accent={LIENZO.accent}>Exponente 0 y negativo</Titulo>
       <Resumen>
         <strong>a⁰ = 1</strong> (con a ≠ 0).<br />
         <strong>a⁻ⁿ = 1/aⁿ</strong>.
@@ -127,7 +127,7 @@ function Esc02_CeroNeg() {
         5⁰ = 1 &nbsp;·&nbsp; 2⁻³ = 1/8 &nbsp;·&nbsp; (3/4)⁻² = (4/3)² = 16/9.
       </Ejemplo>
       <PorQue>
-        ¿Por qué a⁰ = 1? Mirá: aⁿ/aⁿ = a^(n−n) = a⁰. Pero también aⁿ/aⁿ = 1. ⟹ a⁰ = 1.
+        ¿Por qué a⁰ = 1? Mira: aⁿ/aⁿ = a^(n−n) = a⁰. Pero también aⁿ/aⁿ = 1. ⟹ a⁰ = 1.
       </PorQue>
       <PorQue>
         ¿Por qué a⁻ⁿ = 1/aⁿ? Porque 1 = a⁰ = aⁿ·a⁻ⁿ, despejando: a⁻ⁿ = 1/aⁿ.
@@ -164,8 +164,8 @@ function ExpFracEquivAnim() {
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
         {forma === "exp"
-          ? "Tocá: el 1/n del exponente baja a ser el índice de una raíz"
-          : "Tocá: el índice n de la raíz sube como 1/n al exponente"}
+          ? "Toca: el 1/n del exponente baja a ser el índice de una raíz"
+          : "Toca: el índice n de la raíz sube como 1/n al exponente"}
       </div>
     </div>
   );
@@ -215,7 +215,7 @@ function Esc05_Eq() {
       <Titulo accent={COLOR_OK}>Ecuaciones exponenciales</Titulo>
       <Parrafo>
         Si una incógnita aparece en el exponente, la estrategia es <strong>igualar las bases</strong>:
-        si tenés aˣ = aʸ, entonces x = y.
+        si tienes aˣ = aʸ, entonces x = y.
       </Parrafo>
 
       <Ejemplo titulo="2ˣ = 8">
@@ -229,7 +229,7 @@ function Esc05_Eq() {
       </Ejemplo>
 
       <Ejemplo titulo="2ˣ = 10 (no se puede igualar bases)">
-        <Paso n={1}>Aplicá logaritmo: x = log(10)/log(2) = 1/0.301 ≈ 3.322.</Paso>
+        <Paso n={1}>Aplica logaritmo: x = log(10)/log(2) = 1/0.301 ≈ 3.322.</Paso>
       </Ejemplo>
 
       <WorkedExample titulo="Ecuación exponencial · 9^(x+1) = 27^(2x−1)">
@@ -264,7 +264,7 @@ function Esc06_Crec() {
         en un % FIJO sobre el valor actual (no sobre el inicial).
       </Parrafo>
       <Resumen>
-        Modelo: <strong>P(t) = P₀ · (1 + r)ᵗ</strong>. Si decrece: usás (1 − r).
+        Modelo: <strong>P(t) = P₀ · (1 + r)ᵗ</strong>. Si decrece: usas (1 − r).
       </Resumen>
       <CrecimientoExpAnim />
       <Ejemplo titulo="Inversión al 8% anual durante 5 años">
@@ -299,7 +299,7 @@ function Esc07_Errores() {
       </Misconception>
 
       <Misconception titulo="Error #1 en ecuaciones · perder soluciones por raíz par">
-        Si tenés x² = 16, no es solo x = 4: TAMBIÉN x = −4 cumple (porque (−4)² = 16). Las
+        Si tienes x² = 16, no es solo x = 4: TAMBIÉN x = −4 cumple (porque (−4)² = 16). Las
         raíces de índice PAR siempre dan ± dos soluciones. En las raíces de índice IMPAR (³, ⁵)
         hay una sola.
       </Misconception>
@@ -321,7 +321,7 @@ function Esc08_Practica() {
     { p: "2⁰ = ?", o: ["0", "1", "2", "Indefinido"], c: 1, ex: "Por definición a⁰ = 1." },
     { p: "8^(1/3) = ?", o: ["2", "3", "4", "8/3"], c: 0, ex: "³√8 = 2." },
     { p: "5⁻² = ?", o: ["−25", "−10", "1/25", "1/10"], c: 2, ex: "5⁻² = 1/5² = 1/25." },
-    { p: "Resolvé 2^(x+1) = 16:", o: ["x = 3", "x = 4", "x = 8", "x = 5"], c: 0, ex: "16 = 2⁴ → x+1 = 4 → x = 3." },
+    { p: "Resuelve 2^(x+1) = 16:", o: ["x = 3", "x = 4", "x = 8", "x = 5"], c: 0, ex: "16 = 2⁴ → x+1 = 4 → x = 3." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
@@ -357,8 +357,8 @@ function Esc08_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás teoría de exponentes."}
-            {ok < ejs.length && "Releé las 5 propiedades + casos especiales."}
+            {ok === ejs.length && "🎉 Dominas teoría de exponentes."}
+            {ok < ejs.length && "Relee las 5 propiedades + casos especiales."}
           </div>
         </motion.div>
       )}

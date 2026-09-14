@@ -11,12 +11,12 @@ import { TarjetaPractica, PasoCard, LineaEjemplo, ComparacionOjo } from "../../_
 export default function SistemasLineales2x2Page() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés hacer &quot;desaparecer&quot; una de las dos incógnitas con solo sumar bien las dos ecuaciones?
+            ¿Sabías que puedes hacer &quot;desaparecer&quot; una de las dos incógnitas con solo sumar bien las dos ecuaciones?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -31,12 +31,12 @@ export default function SistemasLineales2x2Page() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Una sola ecuación con una sola incógnita ya sabés resolverla. El truco de un sistema es reducirlo a eso.
+            Una sola ecuación con una sola incógnita ya sabes resolverla. El truco de un sistema es reducirlo a eso.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$5y = 10 \\ \\Rightarrow\\ y = 2$"}</MathText>
@@ -52,7 +52,7 @@ export default function SistemasLineales2x2Page() {
       contenido: (
         <PasoCard n={1}>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Si multiplicás una ecuación entera por un número, sigue siendo la misma igualdad. Elegís el número para que una incógnita quede con coeficientes opuestos en las dos ecuaciones.
+            Si multiplicas una ecuación entera por un número, sigue siendo la misma igualdad. Eliges el número para que una incógnita quede con coeficientes opuestos en las dos ecuaciones.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Ecuación 2, multiplicada por 3" eq={"$x - y = 1 \\ \\Rightarrow\\ 3x - 3y = 3$"} />
@@ -103,7 +103,7 @@ export default function SistemasLineales2x2Page() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Al multiplicar una ecuación por un número negativo (o al restar en vez de sumar), hay que cambiar el signo de TODOS los términos, no solo del que querés cancelar.
+            Al multiplicar una ecuación por un número negativo (o al restar en vez de sumar), hay que cambiar el signo de TODOS los términos, no solo del que quieres cancelar.
           </p>
           <ComparacionOjo
             correcto={{ arriba: "$-1 \\cdot (x-y=1)$", abajo: "$-x+y=-1$" }}
@@ -136,7 +136,7 @@ export default function SistemasLineales2x2Page() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolver el sistema $3x + 2y = 16$, $x + y = 7$. ¿Cuánto vale $x$?"}

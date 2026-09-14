@@ -12,7 +12,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function SistemasAplicadosAPlanteoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -25,25 +25,25 @@ export default function SistemasAplicadosAPlanteoPage() {
             </div>
             <span style={{ fontSize: 18, color: LIENZO.fgFaint }}>→</span>
             <div style={{ padding: "10px 18px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}` }}>
-              <span style={{ fontSize: 13, fontWeight: 700 }}>un sistema que ya sabés resolver</span>
+              <span style={{ fontSize: 13, fontWeight: 700 }}>un sistema que ya sabes resolver</span>
             </div>
           </div>
         </div>
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Todo lo que necesitás para resolver el sistema ya lo tenés de las tres láminas anteriores. Lo nuevo es un método fijo para armarlo.
+            Todo lo que necesitas para resolver el sistema ya lo tienes de las tres láminas anteriores. Lo nuevo es un método fijo para armarlo.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {[
               "1. Nombrá cada cantidad desconocida con una letra",
-              "2. Traducí cada frase del problema en una ecuación",
-              "3. Resolvé el sistema (2×2, 3×3, o con cambio de variable)",
+              "2. Traduce cada frase del problema en una ecuación",
+              "3. Resuelve el sistema (2×2, 3×3, o con cambio de variable)",
               "4. Contestá exactamente lo que preguntan, no cualquier letra",
             ].map((t) => (
               <div key={t} style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -126,7 +126,7 @@ export default function SistemasAplicadosAPlanteoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Mary tiene 3 dólares en monedas de 5, 10 y 25 centavos. Tiene el doble de monedas de 10¢ que de 25¢, y 5 monedas más de 5¢ que de 10¢. ¿Cuántas monedas de 10¢ tiene?"}

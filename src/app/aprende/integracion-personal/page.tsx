@@ -231,7 +231,7 @@ function Esc07() {
       <Mnemotecnia>
         <strong>Maslow · pirámide</strong> de abajo arriba: <strong>"F-S-S-E-A"</strong> ·
         <em>Fisio-Seguridad-Social-Estima-Autorrealización</em>.<br /><br />
-        En el examen, suelen mezclar el orden (poniendo Estima antes de Social, etc.). Si memorizás
+        En el examen, suelen mezclar el orden (poniendo Estima antes de Social, etc.). Si memorizas
         F-S-S-E-A no te confunden.
       </Mnemotecnia>
     </EscenaRica>

@@ -12,12 +12,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function FraccionesParcialesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés deshacer la suma de fracciones que aprendiste a combinar, partiendo una fracción en piezas simples?
+            ¿Sabías que puedes deshacer la suma de fracciones que aprendiste a combinar, partiendo una fracción en piezas simples?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -32,12 +32,12 @@ export default function FraccionesParcialesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            En la lámina de ecuaciones racionales combinaste dos fracciones en una, con común denominador. Acá hacés exactamente el camino inverso.
+            En la lámina de ecuaciones racionales combinaste dos fracciones en una, con común denominador. Acá haces exactamente el camino inverso.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\dfrac{A}{x+1}+\\dfrac{B}{x+2}\\ \\longleftrightarrow\\ \\dfrac{7x+3}{(x+1)(x+2)}$"}</MathText>
@@ -56,8 +56,8 @@ export default function FraccionesParcialesPage() {
             {[
               "1. El denominador ya está factorizado en piezas lineales distintas",
               "2. Proponé una fracción con letra (A, B...) por cada factor",
-              "3. Multiplicá todo por el denominador común, para borrar las fracciones",
-              "4. Reemplazá x por la raíz de cada factor: eso anula todos los términos menos uno",
+              "3. Multiplica todo por el denominador común, para borrar las fracciones",
+              "4. Reemplaza x por la raíz de cada factor: eso anula todos los términos menos uno",
             ].map((t) => (
               <div key={t} style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
                 {t}
@@ -126,7 +126,7 @@ export default function FraccionesParcialesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Si $\\dfrac{5x+10}{(x-1)(x+4)} = \\dfrac{A}{x-1} + \\dfrac{B}{x+4}$, ¿cuánto vale $A$?"}

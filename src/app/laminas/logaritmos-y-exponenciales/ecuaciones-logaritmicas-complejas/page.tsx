@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionesLogaritmicasComplejasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function EcuacionesLogaritmicasComplejasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés combinar sumas y restas de logaritmos en uno solo. Cuando hay VARIOS logaritmos con distintas operaciones, esa combinación se hace en varios pasos.
+            Ya sabes combinar sumas y restas de logaritmos en uno solo. Cuando hay VARIOS logaritmos con distintas operaciones, esa combinación se hace en varios pasos.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -55,15 +55,15 @@ export default function EcuacionesLogaritmicasComplejasPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convertí cualquier número suelto en un logaritmo de la misma base</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convierte cualquier número suelto en un logaritmo de la misma base</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Combiná todo en un solo logaritmo por lado, e igualá los argumentos</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Combina todo en un solo logaritmo por lado, e iguala los argumentos</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resolvé y descartá toda raíz que viole el dominio</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve y descarta toda raíz que viole el dominio</span>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function EcuacionesLogaritmicasComplejasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Si $x$ es solución de $\\log_{\\sqrt2}(2x-3)+\\log_{\\sqrt2}(2x+2)$ $=4+\\log_{\\sqrt2}(2x)$, hallar $E=x^2-3x+5$."}

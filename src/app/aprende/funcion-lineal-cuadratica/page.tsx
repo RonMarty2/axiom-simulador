@@ -203,12 +203,12 @@ function Esc02_Lineal() {
       </Ejemplo>
       <RectaInteractiva />
       <Parrafo>
-        Movés <strong>m</strong> y la recta cambia su inclinación; movés <strong>b</strong> y sube o baja
+        Mueves <strong>m</strong> y la recta cambia su inclinación; mueves <strong>b</strong> y sube o baja
         manteniendo la inclinación. El punto verde es donde corta al eje y.
       </Parrafo>
       <Resumen>
-        Solo necesitás <strong>2 puntos</strong> para graficar una recta. Tabla:
-        elegís 2 valores de x, calculás los y, marcás y unís.
+        Solo necesitas <strong>2 puntos</strong> para graficar una recta. Tabla:
+        eliges 2 valores de x, calculas los y, marcas y unes.
       </Resumen>
     </EscenaRica>
   );
@@ -217,7 +217,7 @@ function Esc02_Lineal() {
 function Esc03_PendOrd() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">m (pendiente) y b (ordenada al origen)</Titulo>
+      <Titulo accent={LIENZO.accent}>m (pendiente) y b (ordenada al origen)</Titulo>
       <Resumen>
         <strong>m = pendiente</strong>: indica la inclinación.<br />
         • m &gt; 0: la recta sube.<br />
@@ -258,7 +258,7 @@ function Esc04_Cuad() {
       </Ejemplo>
       <ParabolaInteractiva />
       <Parrafo>
-        Probá cambiar <strong>a, b, c</strong>: cambia la abertura, se mueve y el vértice (punto verde)
+        Prueba cambiar <strong>a, b, c</strong>: cambia la abertura, se mueve y el vértice (punto verde)
         se reubica solo. La línea punteada es el eje de simetría.
       </Parrafo>
     </EscenaRica>
@@ -298,7 +298,7 @@ function Esc06_Raices() {
         Se calculan resolviendo ax² + bx + c = 0 (con la fórmula cuadrática).
       </Parrafo>
       <Ejemplo titulo="f(x) = x² − 5x + 6">
-        Resolvés: x² − 5x + 6 = 0 → x = 2 ó x = 3. La parábola corta al eje x en (2, 0) y (3, 0).
+        Resuelves: x² − 5x + 6 = 0 → x = 2 ó x = 3. La parábola corta al eje x en (2, 0) y (3, 0).
       </Ejemplo>
       <Cuidado>
         Según el discriminante hay 0, 1 o 2 raíces (la parábola puede no tocar al eje, tocarlo en un punto, o cortarlo en dos).
@@ -312,7 +312,7 @@ function Esc07_Opt() {
     <EscenaRica>
       <Titulo>Aplicación: maximizar/minimizar</Titulo>
       <Parrafo>
-        En economía, querés MAXIMIZAR la ganancia o MINIMIZAR el costo. Cuando esos son
+        En economía, quieres MAXIMIZAR la ganancia o MINIMIZAR el costo. Cuando esos son
         cuadráticos, el óptimo está en el <strong>vértice</strong>.
       </Parrafo>
       <Ejemplo titulo="Maximizar ganancia: G(x) = −x² + 100x − 1000">
@@ -348,7 +348,7 @@ function Esc07_Opt() {
         (b) Si pagué 71 Bs, ¿cuántas horas usé? → 8x + 15 = 71 → x = 7 horas.<br />
         (c) ¿Cuál es la tasa de cambio? → m = 8 Bs/hora.<br /><br />
 
-        <strong>Truco:</strong> identificá siempre los significados de m y b en el contexto
+        <strong>Truco:</strong> identifica siempre los significados de m y b en el contexto
         del problema antes de calcular. m = "por cada unidad", b = "lo fijo".
       </WorkedExample>
     </EscenaRica>
@@ -433,8 +433,8 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás funciones lineal y cuadrática."}
-            {ok < ejs.length && "Repasá pendiente, vértice y raíces."}
+            {ok === ejs.length && "🎉 Dominas funciones lineal y cuadrática."}
+            {ok < ejs.length && "Repasa pendiente, vértice y raíces."}
           </div>
         </motion.div>
       )}

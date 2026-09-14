@@ -83,7 +83,7 @@ export function Definicion({ termino, children }: { termino: string; children: R
 export function Puente({ children }: { children: React.ReactNode }) {
   return (
     <Bloque acento={LIENZO.fgDim} fondo={LIENZO.bgSoft}>
-      <Etiqueta color={LIENZO.fgDim}>Arrancamos de algo que ya sabés</Etiqueta>
+      <Etiqueta color={LIENZO.fgDim}>Arrancamos de algo que ya sabes</Etiqueta>
       <div style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fg }}>{children}</div>
     </Bloque>
   );
@@ -362,8 +362,8 @@ export function LecturaQuiz({
           </div>
           <div style={{ fontSize: 13, color: LIENZO.fgDim, marginTop: 4 }}>
             {ok === preguntas.length && "¡Excelente comprensión!"}
-            {ok < preguntas.length && ok >= preguntas.length * 0.6 && "Buen trabajo. Releé las que fallaste."}
-            {ok < preguntas.length * 0.6 && "Volvé a leer el texto con atención y revisá las explicaciones."}
+            {ok < preguntas.length && ok >= preguntas.length * 0.6 && "Buen trabajo. Relee las que fallaste."}
+            {ok < preguntas.length * 0.6 && "Vuelve a leer el texto con atención y revisa las explicaciones."}
           </div>
         </motion.div>
       )}
@@ -382,7 +382,7 @@ export function LecturaQuiz({
 export function Hook({ children }: { children: React.ReactNode }) {
   return (
     <Bloque acento={LIENZO.warn} fondo={LIENZO.bgSoft}>
-      <Etiqueta color={LIENZO.warn}>Pensá esto</Etiqueta>
+      <Etiqueta color={LIENZO.warn}>Piensa esto</Etiqueta>
       <div style={{ fontSize: 17, lineHeight: 1.6, color: LIENZO.fg, fontStyle: "italic", fontFamily: "var(--font-crimson), serif" }}>
         {children}
       </div>

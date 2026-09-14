@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function PropiedadesDeLogaritmosPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function PropiedadesDeLogaritmosPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que las potencias de igual base se suman al multiplicarse. Los logaritmos heredan exactamente esa estructura.
+            Ya sabes que las potencias de igual base se suman al multiplicarse. Los logaritmos heredan exactamente esa estructura.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -58,15 +58,15 @@ export default function PropiedadesDeLogaritmosPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Escribí raíces como exponentes fraccionarios: <MathText>{"$\\sqrt[n]{b^m}=b^{m/n}$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Escribe raíces como exponentes fraccionarios: <MathText>{"$\\sqrt[n]{b^m}=b^{m/n}$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplicá <MathText>{"$\\log_b(b^n)=n$"}</MathText> a cada término por separado</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplica <MathText>{"$\\log_b(b^n)=n$"}</MathText> a cada término por separado</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Sumá/restá los números resultantes</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma/resta los números resultantes</span>
             </div>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function PropiedadesDeLogaritmosPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Determinar el valor de: $E=\\log_5\\sqrt{125}+\\log_{11}\\sqrt[3]{121}+\\dfrac{5}{6}$"}

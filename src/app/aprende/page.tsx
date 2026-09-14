@@ -101,7 +101,7 @@ export default function AprendePage() {
                   Plan gratis: Unidad 01 de cada área desbloqueada
                 </div>
                 <div style={{ fontSize: 13, color: "#92400e" }}>
-                  Hacete Premium para acceder al resto del contenido.
+                  Hazte Premium para acceder al resto del contenido.
                 </div>
               </div>
               <Link href="/precios" style={{
@@ -135,8 +135,12 @@ export default function AprendePage() {
 
 function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: number; esPremium: boolean }) {
   const tieneContenido = bloque.unidades.length > 0;
-  const color = indice === 1 ? "#0ea5e9" : "var(--accent)";
-  const colorGradient = indice === 1 ? "#38bdf8" : "#8b5cf6";
+  // Un solo acento para TODAS las áreas. Antes el área 1 era celeste y las
+  // demás degradaban al violeta de la paleta anterior al rediseño: pintar cada
+  // cosa de un color distinto es justo lo que el rediseño vino a sacar (misma
+  // decisión que se tomó con las tarjetas de facultad, ver bitácora §11).
+  const color = "var(--accent)";
+  const colorGradient = "var(--accent-hover)";
   const [abierto, setAbierto] = useState(false);
   const totalLecciones = bloque.unidades.reduce((acc, u) => acc + u.lecciones.length, 0);
 
@@ -211,7 +215,7 @@ function BloqueArea({ bloque, indice, esPremium }: { bloque: Bloque; indice: num
                   <div style={{ fontSize: 28, marginBottom: 8 }}>🚧</div>
                   <div style={{ fontSize: 15, fontWeight: 600 }}>Contenido en desarrollo</div>
                   <div style={{ fontSize: 13, marginTop: 4 }}>
-                    Estamos preparando las lecciones de esta área. Mientras tanto, podés practicar con los simulacros.
+                    Estamos preparando las lecciones de esta área. Mientras tanto, puedes practicar con los simulacros.
                   </div>
                 </div>
               ) : (

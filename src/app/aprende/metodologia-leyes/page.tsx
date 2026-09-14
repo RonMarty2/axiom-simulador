@@ -81,7 +81,7 @@ function Esc02() {
 
       <Misconception titulo="Inducción ≠ adivinanza">
         Inducción NO es "tirar una hipótesis al aire". Es generalizar a partir de MUCHOS casos
-        observados sistemáticamente. Si subís el precio del pan 100 veces en 100 mercados
+        observados sistemáticamente. Si subes el precio del pan 100 veces en 100 mercados
         distintos y en todos la demanda baja, esa observación masiva permite inducir la "ley
         de demanda". Un solo caso no induce nada.
       </Misconception>
@@ -191,7 +191,7 @@ function Esc06() {
       <Conexion>
         La ley de demanda C<sub>D</sub> = f(P) y la función de consumo C = f(Y) van a reaparecer en
         toda la economía: equilibrio de mercado, política monetaria, modelos keynesianos. Si
-        entendés bien estas dos relaciones funcionales, tenés media economía resuelta.
+        entiendes bien estas dos relaciones funcionales, tienes media economía resuelta.
       </Conexion>
     </EscenaRica>
   );

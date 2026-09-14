@@ -6,20 +6,9 @@ import { motion } from "framer-motion";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import type { ExamenMetadata } from "@/lib/axiom/types";
+import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
 
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  fisica: "Física",
-  quimica: "Química",
-  biologia: "Biología",
-  estrategias_aprendizaje: "Estrategias de Aprendizaje",
-  general: "General",
-};
+
 
 const ETIQUETAS_FACULTAD: Record<string, string> = {
   economicas: "Económicas",
@@ -38,6 +27,9 @@ function formatearFecha(fechaISO: string): string {
 
 export default function ExamenesPage() {
   const [examenes, setExamenes] = useState<ExamenMetadata[]>([]);
+  // La facultad por la que el servidor ya filtró. Null = no hay sesión o el
+  // alumno todavía no eligió carrera, y entonces se ve el banco completo.
+  const [facultad, setFacultad] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,10 +39,13 @@ export default function ExamenesPage() {
         const data = await r.json();
         if (!r.ok) throw new Error(data.error ?? "Error");
         setExamenes(data.examenes ?? []);
+        setFacultad(data.facultad ?? null);
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
   }, []);
+
+  const nombreCarrera = facultad ? ETIQUETAS_FACULTAD[facultad] ?? facultad : null;
 
   return (
     <div className="min-h-screen bg-transparent">
@@ -65,11 +60,12 @@ export default function ExamenesPage() {
             <BackLink href="/" label="Volver a Axiom" />
           </div>
           <h1 className="text-4xl font-black text-[#171545] sm:text-5xl">
-            Base de exámenes UMSS
+            {nombreCarrera ? `Exámenes de ${nombreCarrera}` : "Base de exámenes UMSS"}
           </h1>
           <p className="mt-3 max-w-2xl text-base text-neutral-600 sm:text-lg">
             Practica con exámenes reales de años pasados. Cada uno tiene las
             preguntas originales con su respuesta y explicación.
+            {nombreCarrera && " Son los de tu carrera."}
           </p>
         </motion.div>
 
@@ -81,14 +77,20 @@ export default function ExamenesPage() {
           </div>
         )}
 
+        {/* El vacío le habla al alumno, no al que carga el banco: antes decía
+            "subí archivos .md a data/examenes/", que no significa nada para
+            alguien que está estudiando. */}
         {!loading && !error && examenes.length === 0 && (
           <div className="rounded-2xl border border-dashed border-neutral-300 bg-white/60 p-10 text-center backdrop-blur">
             <p className="text-lg font-semibold text-neutral-700">
-              No hay exámenes cargados todavía
+              {nombreCarrera
+                ? `Todavía no cargamos exámenes de ${nombreCarrera}`
+                : "No hay exámenes cargados todavía"}
             </p>
             <p className="mt-2 text-sm text-neutral-500">
-              Sube archivos .md a <code className="rounded bg-neutral-100 px-1.5 py-0.5">data/examenes/</code> para
-              que aparezcan aquí.
+              {nombreCarrera
+                ? "Estamos trabajando en el banco de tu carrera. Mientras tanto puedes repasar en Aprende paso a paso."
+                : "Todavía no hay nada en el banco."}
             </p>
           </div>
         )}
@@ -103,20 +105,26 @@ export default function ExamenesPage() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
               >
                 <Link href={`/examenes/${ex.id}`}>
-                  <div className="group h-full cursor-pointer rounded-2xl border border-neutral-200/80 bg-white/82 p-6 shadow-[0_14px_36px_rgba(24,24,70,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl">
+                  <div className="group h-full cursor-pointer rounded-2xl border border-neutral-200/80 bg-white/82 p-6 shadow-[0_14px_36px_rgba(24,24,70,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-hover)] hover:shadow-xl">
                     <div className="mb-3 flex items-center justify-between">
-                      <span className="rounded-full bg-violet-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-700">
+                      <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
                         {ex.universidad}
                       </span>
                       <span className="text-2xl font-black text-neutral-300">
                         {ex.anio}
                       </span>
                     </div>
-                    <h3 className="mb-0.5 text-xl font-bold text-[#171545] group-hover:text-violet-600">
-                      {ETIQUETAS_FACULTAD[ex.facultad] ?? ex.facultad}
+                    {/* Con el listado ya filtrado por carrera, poner la
+                        facultad en cada tarjeta es repetir 139 veces lo mismo:
+                        ahí el título pasa a ser la opción del examen, que es
+                        lo que de verdad distingue una tarjeta de otra. */}
+                    <h3 className="mb-0.5 text-xl font-bold text-[#171545] group-hover:text-[var(--accent)]">
+                      {nombreCarrera
+                        ? ex.opcion ?? "Examen de admisión"
+                        : ETIQUETAS_FACULTAD[ex.facultad] ?? ex.facultad}
                     </h3>
-                    {ex.opcion && (
-                      <p className="mb-1 text-sm font-semibold text-violet-500">
+                    {!nombreCarrera && ex.opcion && (
+                      <p className="mb-1 text-sm font-semibold text-[var(--accent)]">
                         {ex.opcion}
                       </p>
                     )}
@@ -139,7 +147,7 @@ export default function ExamenesPage() {
                       <span className="text-neutral-500">
                         {ex.total_preguntas} preguntas · {ex.duracion_minutos} min
                       </span>
-                      <span className="font-semibold text-violet-600 group-hover:translate-x-1 transition-transform">
+                      <span className="font-semibold text-[var(--accent)] group-hover:translate-x-1 transition-transform">
                         Ver →
                       </span>
                     </div>

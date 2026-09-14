@@ -9,7 +9,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function McdYMcmPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -29,12 +29,12 @@ export default function McdYMcmPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Recordá la lámina anterior: cualquier número se descompone en primos con exponentes. El MCD y el MCM son solo comparar esos exponentes entre dos números.
+            Recuerda la lámina anterior: cualquier número se descompone en primos con exponentes. El MCD y el MCM son solo comparar esos exponentes entre dos números.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$12 = 2^2 \\times 3^1 \\qquad 18 = 2^1 \\times 3^2$"}</MathText>
@@ -52,11 +52,11 @@ export default function McdYMcmPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 46 }}>MCD</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>tomá, de cada primo común, el exponente MENOR</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>toma, de cada primo común, el exponente MENOR</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 46 }}>MCM</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>tomá, de todos los primos (comunes o no), el exponente MAYOR</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>toma, de todos los primos (comunes o no), el exponente MAYOR</span>
             </div>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default function McdYMcmPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"El MCD de dos números es 12 y su MCM es 420. Si la diferencia entre ambos es menor que 30, uno de los números es:"}

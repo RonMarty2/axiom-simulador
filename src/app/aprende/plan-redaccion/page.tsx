@@ -31,11 +31,11 @@ function EscIntro() {
       <Titulo>El plan de redacción</Titulo>
       <Definicion termino="plan de redacción">
         Tipo de ejercicio que mide tu capacidad de <strong>producir textos coherentes</strong>.
-        Te dan 4-5 oraciones en desorden y debés elegir el orden lógico que forma un párrafo coherente.
+        Te dan 4-5 oraciones en desorden y debes elegir el orden lógico que forma un párrafo coherente.
       </Definicion>
       <PorQue>
-        Es la unidad que más evalúa <strong>pensamiento estructurado</strong>. Si podés ordenar ideas
-        lógicamente en este ejercicio, podés organizarlas en tu propia escritura.
+        Es la unidad que más evalúa <strong>pensamiento estructurado</strong>. Si puedes ordenar ideas
+        lógicamente en este ejercicio, puedes organizarlas en tu propia escritura.
       </PorQue>
       <Cuidado>
         Prestá especial atención al <strong>título</strong> del ejercicio: te orienta sobre el tema y
@@ -52,7 +52,7 @@ function EscIntro() {
         <strong>Estrategia "P-U-M"</strong>:<br />
         <strong>P</strong>rimera (la más general → introduce el tema).<br />
         <strong>U</strong>ltima (la que concluye o llama a la acción).<br />
-        <strong>M</strong>edio (entre primera y última, ordená por cronología/causa-efecto/general-particular).<br /><br />
+        <strong>M</strong>edio (entre primera y última, ordena por cronología/causa-efecto/general-particular).<br /><br />
         Con primera y última fijas, las opciones se reducen drásticamente.
       </Mnemotecnia>
     </EscenaRica>
@@ -91,7 +91,7 @@ function EscPatrones() {
         (b) Consecuencia o cierre: "por eso…", "por todo lo anterior…".<br />
         (c) Fecha tardía en una secuencia cronológica.<br /><br />
 
-        <strong>Práctica mental:</strong> mirá las 4 oraciones y SIN leer las opciones, decidí
+        <strong>Práctica mental:</strong> mira las 4 oraciones y SIN leer las opciones, decidí
         cuál sería la 1ra y cuál la última. Después comparás con las opciones: el 80% se
         descarta automáticamente.
       </WorkedExample>
@@ -99,7 +99,7 @@ function EscPatrones() {
       <Misconception titulo="Trampa · 'el orden natural 1-2-3-4 siempre gana'">
         En muchos ejercicios fáciles, las oraciones ya vienen casi en orden y la respuesta es
         1-2-3-4. Pero NO siempre: en cronología histórica, la oración 3 (la del nacimiento) suele
-        ir primero aunque esté listada como tercera. Nunca elijas 1-2-3-4 por reflejo: verificá
+        ir primero aunque esté listada como tercera. Nunca elijas 1-2-3-4 por reflejo: verifica
         el orden lógico.
       </Misconception>
     </EscenaRica>
@@ -111,7 +111,7 @@ function EscGuiado() {
     <EscenaRica>
       <Titulo>Ejemplo guiado · "Isaac Newton"</Titulo>
       <Parrafo>
-        Tenés estas 4 oraciones desordenadas:
+        Tienes estas 4 oraciones desordenadas:
       </Parrafo>
       <Ejemplo>
         <strong>1.</strong> Newton es reconocido principalmente por su trabajo en mecánica clásica y óptica.<br />
@@ -243,15 +243,15 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Resumen</Titulo>
       <Resumen>
-        <strong>1.</strong> Identificá la oración que <strong>introduce el tema</strong> (suele ser la
+        <strong>1.</strong> Identifica la oración que <strong>introduce el tema</strong> (suele ser la
         más general). Esa es la primera.<br /><br />
-        <strong>2.</strong> Identificá la oración que <strong>concluye o llama a la acción</strong>. Esa
+        <strong>2.</strong> Identifica la oración que <strong>concluye o llama a la acción</strong>. Esa
         es la última.<br /><br />
-        <strong>3.</strong> Entre primera y última, ordená por lógica: del general a lo específico, de
+        <strong>3.</strong> Entre primera y última, ordena por lógica: del general a lo específico, de
         causa a efecto, o cronológicamente.<br /><br />
         <strong>4.</strong> Las palabras clave (definiciones, datos históricos, fechas) ayudan a fijar el
         orden.<br /><br />
-        <strong>5.</strong> Si tenés dudas entre 2 opciones, releé el texto reconstruido en voz alta. La
+        <strong>5.</strong> Si tienes dudas entre 2 opciones, relee el texto reconstruido en voz alta. La
         opción correcta "suena" como un párrafo natural; la incorrecta tiene saltos lógicos.
       </Resumen>
 
@@ -261,7 +261,7 @@ function EscResumen() {
         <strong>C</strong>ronológico (fecha de inicio → eventos).<br />
         <strong>C</strong>ausa-efecto (problema → consecuencia → solución).<br />
         <strong>T</strong>esis-razones (afirmación → razones → llamado).<br /><br />
-        Identificá el patrón primero, después el orden surge solo.
+        Identifica el patrón primero, después el orden surge solo.
       </Mnemotecnia>
     </EscenaRica>
   );

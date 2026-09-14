@@ -145,7 +145,7 @@ function EscConversionSim() {
       <Titulo accent={COLOR_OK}>Conversor · masa ⇄ moles ⇄ moléculas</Titulo>
 
       <Parrafo>
-        Ingresá masa y masa molar para ver cuántos moles y moléculas tenés:
+        Ingresá masa y masa molar para ver cuántos moles y moléculas tienes:
       </Parrafo>
 
       <Pizarra alto={180}>
@@ -247,7 +247,7 @@ function EscFormulas() {
       <Ejemplo titulo="Glucosa">
         Empírica: CH₂O (razón 1:2:1).<br />
         Molecular: C₆H₁₂O₆ (6 veces la empírica).<br />
-        Para determinar el factor, necesitás la masa molecular real.
+        Para determinar el factor, necesitas la masa molecular real.
       </Ejemplo>
 
       <WorkedExample titulo="Procedimiento general · de % a fórmula empírica">

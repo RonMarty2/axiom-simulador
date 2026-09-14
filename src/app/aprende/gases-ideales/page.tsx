@@ -124,7 +124,7 @@ function EscVariables() {
       </Cuidado>
 
       <Mnemotecnia>
-        <strong>K = °C + 273.</strong> Nunca olvidés.
+        <strong>K = °C + 273.</strong> Nunca olvides.
       </Mnemotecnia>
 
       <AutoCheck
@@ -148,7 +148,7 @@ function EscBoyle() {
       <Titulo>Ley de Boyle · T constante</Titulo>
 
       <Hook>
-        Si apretás una bomba de bicicleta tapando la salida, sentís cada vez
+        Si aprietas una bomba de bicicleta tapando la salida, sientes cada vez
         más resistencia. Al reducir el volumen, la presión sube. Esa es Boyle.
       </Hook>
 
@@ -191,8 +191,8 @@ function EscBoyle() {
           MINI-SIMULADOR · BOYLE
         </div>
         <Parrafo>
-          Si tenés un gas con P₁ = 1 atm en V₁ = {V1} L y lo comprimís hasta V₂ = {V2} L
-          (T = cte), ¿qué presión final P₂ medís?
+          Si tienes un gas con P₁ = 1 atm en V₁ = {V1} L y lo comprimes hasta V₂ = {V2} L
+          (T = cte), ¿qué presión final P₂ mides?
         </Parrafo>
         <div style={{ marginTop: 10 }}>
           <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
@@ -224,7 +224,7 @@ function EscCharles() {
       <Titulo>Ley de Charles · P constante</Titulo>
 
       <Hook>
-        Si calentás un globo, se infla. Si lo metés en la heladera, se arruga.
+        Si calientas un globo, se infla. Si lo metes en la heladera, se arruga.
         Volumen y temperatura van de la mano (a P constante).
       </Hook>
 
@@ -251,7 +251,7 @@ function EscCharles() {
       </Pizarra>
 
       <Cuidado>
-        Si extrapolás la recta V vs T hacia atrás, V = 0 ocurre en T = 0 K
+        Si extrapolas la recta V vs T hacia atrás, V = 0 ocurre en T = 0 K
         (−273.15 °C): el cero absoluto. En la práctica, antes de eso el gas
         se licúa y no aplica.
       </Cuidado>
@@ -362,7 +362,7 @@ function EscCombinada() {
 
       <Mnemotecnia>
         <strong>"P·V / T = constante"</strong> mientras n no cambie. Si te
-        piden uno de los 6 valores y te dan los otros 5, despejá directamente.
+        piden uno de los 6 valores y te dan los otros 5, despeja directamente.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -393,7 +393,7 @@ function EscIdeal() {
 
       <Cuidado>
         El valor de R depende de las unidades. Para FCyT UMSS, siempre usar:
-        <strong> R = 0.082 atm·L/(mol·K)</strong>. Si te dan kPa o m³, convertí
+        <strong> R = 0.082 atm·L/(mol·K)</strong>. Si te dan kPa o m³, convierte
         primero.
       </Cuidado>
 
@@ -449,8 +449,8 @@ function EscSimulador() {
       <Titulo>Simulador · gas ideal interactivo</Titulo>
 
       <Parrafo>
-        Ajustá P, T y n y observá cómo cambia el volumen V de acuerdo a
-        PV = nRT. Notá la proporcionalidad directa con n y T, e inversa con P.
+        Ajusta P, T y n y observa cómo cambia el volumen V de acuerdo a
+        PV = nRT. Nota la proporcionalidad directa con n y T, e inversa con P.
       </Parrafo>
 
       <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
@@ -477,8 +477,8 @@ function EscSimulador() {
       </div>
 
       <Cuidado>
-        Verificá los casos límite: si duplicás P, V se reduce a la mitad. Si
-        duplicás T (en K), V se duplica. Si duplicás n, V se duplica.
+        Verifica los casos límite: si duplicas P, V se reduce a la mitad. Si
+        duplicas T (en K), V se duplica. Si duplicas n, V se duplica.
       </Cuidado>
     </EscenaRica>
   );
@@ -614,7 +614,7 @@ function EscPractica() {
       <Misconception titulo="Error 4 · Fracción molar vs % en masa">
         <strong>Pensar:</strong> que el 21% de O₂ en aire es x = 0.21.<br />
         <strong>Realidad:</strong> 21% es en volumen/moles, no en masa. Para
-        Dalton sí usás 0.21, pero ojo si el dato es % en masa.
+        Dalton sí usas 0.21, pero ojo si el dato es % en masa.
       </Misconception>
 
       <Resumen>
@@ -625,7 +625,7 @@ function EscPractica() {
       </Resumen>
 
       <AutoCheck
-        pregunta="Si calentás un gas de 27 °C a 327 °C a P constante, ¿en qué factor cambia V?"
+        pregunta="Si calientas un gas de 27 °C a 327 °C a P constante, ¿en qué factor cambia V?"
         opciones={["×2", "×12", "×6", "×0.5"]}
         correctaIdx={0}
         explicacion="T₁ = 300 K, T₂ = 600 K. V₂/V₁ = T₂/T₁ = 2. Se duplica."

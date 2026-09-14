@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function InecuacionesRacionalesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -19,18 +19,18 @@ export default function InecuacionesRacionalesPage() {
           </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <span style={{ padding: "8px 12px", borderRadius: 999, background: LIENZO.bgSoft, fontSize: 12.5, fontWeight: 600 }}>nunca multipliques cruzado</span>
-            <span style={{ padding: "8px 12px", borderRadius: 999, background: LIENZO.bgSoft, fontSize: 12.5, fontWeight: 600 }}>pasá todo a un lado</span>
+            <span style={{ padding: "8px 12px", borderRadius: 999, background: LIENZO.bgSoft, fontSize: 12.5, fontWeight: 600 }}>pasa todo a un lado</span>
           </div>
         </div>
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés hallar el signo de una inecuación cuadrática mirando sus raíces. Una racional se resuelve igual, pero con los &quot;puntos críticos&quot; de numerador Y denominador juntos.
+            Ya sabes hallar el signo de una inecuación cuadrática mirando sus raíces. Una racional se resuelve igual, pero con los &quot;puntos críticos&quot; de numerador Y denominador juntos.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\dfrac{p(x)}{q(x)} \\gtrless 0$"}</MathText>
@@ -45,15 +45,15 @@ export default function InecuacionesRacionalesPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Pasá todo a un solo lado y combiná en UNA fracción</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Pasa todo a un solo lado y combina en UNA fracción</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Marcá los puntos críticos: raíces del numerador (se incluyen) y del denominador (SIEMPRE se excluyen)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Marca los puntos críticos: raíces del numerador (se incluyen) y del denominador (SIEMPRE se excluyen)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Probá el signo de la fracción en cada intervalo entre puntos críticos</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Prueba el signo de la fracción en cada intervalo entre puntos críticos</span>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ export default function InecuacionesRacionalesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"El conjunto solución de $\\dfrac{1+x}{1-x}\\geq1$ es:"}

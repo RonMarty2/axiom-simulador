@@ -83,7 +83,7 @@ function VennFactores() {
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
         {on
           ? <>Los factores en <b style={{ color: LIENZO.ok }}>verde</b> aparecen en AMBOS: su producto es el MCD.</>
-          : "Tocá para resaltar los factores comunes"}
+          : "Toca para resaltar los factores comunes"}
       </div>
     </div>
   );
@@ -112,14 +112,14 @@ function Esc01_Intro() {
     <EscenaRica>
       <Titulo>MCD y MCM con polinomios</Titulo>
       <Parrafo>
-        Igual que con números, podés calcular el <strong>Máximo Común Divisor</strong>
+        Igual que con números, puedes calcular el <strong>Máximo Común Divisor</strong>
         y el <strong>Mínimo Común Múltiplo</strong> entre <em>polinomios</em>. Sirve
         para simplificar y sumar fracciones algebraicas.
       </Parrafo>
       <Resumen>
         🎯 ¿Para qué sirve?<br />
         • <strong>Simplificar fracciones algebraicas</strong>: dividir arriba y abajo por el MCD.<br />
-        • <strong>Sumar fracciones algebraicas</strong>: necesitás un común denominador (MCM).<br />
+        • <strong>Sumar fracciones algebraicas</strong>: necesitas un común denominador (MCM).<br />
         • <strong>Resolver ecuaciones racionales</strong>: multiplicar ambos lados por el MCM.
       </Resumen>
       <PorQue>
@@ -129,7 +129,7 @@ function Esc01_Intro() {
 
       <Hook>
         En el examen UMSS aparece como <strong>preparación para fracciones algebraicas</strong>:
-        sin MCM no podés sumarlas, sin MCD no podés simplificarlas. Es paso obligado.
+        sin MCM no puedes sumarlas, sin MCD no puedes simplificarlas. Es paso obligado.
       </Hook>
 
       <Mnemotecnia>
@@ -146,10 +146,10 @@ function Esc01_Intro() {
 function Esc02_Factorizar() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Paso 0: factorizar SIEMPRE primero</Titulo>
+      <Titulo accent={LIENZO.accent}>Paso 0: factorizar SIEMPRE primero</Titulo>
       <Parrafo>
-        Antes de hablar de MCD o MCM, tenés que tener cada polinomio
-        <strong> totalmente factorizado</strong>. Si no, no podés comparar.
+        Antes de hablar de MCD o MCM, tienes que tener cada polinomio
+        <strong> totalmente factorizado</strong>. Si no, no puedes comparar.
       </Parrafo>
 
       <Ejemplo titulo="Factorizar para comparar">
@@ -159,7 +159,7 @@ function Esc02_Factorizar() {
       </Ejemplo>
 
       <Cuidado>
-        Si te dan polinomios sin factorizar, factorizá primero usando los métodos de la
+        Si te dan polinomios sin factorizar, factoriza primero usando los métodos de la
         lección anterior (factor común, dif. cuadrados, TCP, trinomio).
       </Cuidado>
     </EscenaRica>
@@ -263,7 +263,7 @@ function Esc05_Fracciones() {
       </Resumen>
 
       <WorkedExample titulo="Resta de fracciones algebraicas · paso a paso">
-        Resolvé: <strong>(2x)/(x²−1) − 1/(x+1)</strong>.<br /><br />
+        Resuelve: <strong>(2x)/(x²−1) − 1/(x+1)</strong>.<br /><br />
 
         <strong>Paso 1 · Factorizar denominadores:</strong><br />
         x² − 1 = (x+1)(x−1) (diferencia de cuadrados).<br />
@@ -296,7 +296,7 @@ function Esc06_Errores() {
       <Cuidado>
         <strong>Error 1:</strong> Saltarse la factorización. <br />
         <span style={{ fontSize: 13 }}>
-          Si no factorizás los polinomios primero, no podés identificar los "factores comunes".
+          Si no factorizas los polinomios primero, no puedes identificar los "factores comunes".
         </span>
       </Cuidado>
       <Cuidado>
@@ -316,9 +316,9 @@ function Esc06_Errores() {
       <Misconception titulo="Trampa de cancelación · 'solo factores' (NUNCA sumandos)">
         <strong>Correcto:</strong> (x+3)(x−2) / (x+3)(x+4) = (x−2)/(x+4). Cancelo (x+3)
         que es factor.<br />
-        <strong>INCORRECTO:</strong> (x+3)/(x+5) → cancelar x: NO PODÉS. Acá x es SUMANDO,
+        <strong>INCORRECTO:</strong> (x+3)/(x+5) → cancelar x: NO PUEDES. Acá x es SUMANDO,
         no factor.<br /><br />
-        Regla: solo cancelás cuando algo está MULTIPLICANDO arriba y MULTIPLICANDO abajo.
+        Regla: solo cancelas cuando algo está MULTIPLICANDO arriba y MULTIPLICANDO abajo.
         Si está sumando o restando, queda atrapado.
       </Misconception>
 
@@ -345,7 +345,7 @@ function Esc07_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios, combiná factorización con MCD/MCM:</Parrafo>
+      <Parrafo>5 ejercicios, combina factorización con MCD/MCM:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;
@@ -382,9 +382,9 @@ function Esc07_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás MCD/MCM algebraicos."}
+            {ok === ejs.length && "🎉 Dominas MCD/MCM algebraicos."}
             {ok >= 3 && ok < ejs.length && "Bien. La clave: factorizar primero."}
-            {ok < 3 && "Releé la factorización (lección anterior) y volvé acá."}
+            {ok < 3 && "Relee la factorización (lección anterior) y vuelve acá."}
           </div>
         </motion.div>
       )}

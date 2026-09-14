@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function DominioFuncionLogaritmicaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function DominioFuncionLogaritmicaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que el logaritmo solo está definido para argumentos positivos. Para hallar el dominio de <MathText>{"$f(x)=\\log_b(g(x))$"}</MathText>, esa es la única condición a plantear.
+            Ya sabes que el logaritmo solo está definido para argumentos positivos. Para hallar el dominio de <MathText>{"$f(x)=\\log_b(g(x))$"}</MathText>, esa es la única condición a plantear.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\log_b(g(x)) \\ \\text{definido} \\ \\Longleftrightarrow\\ g(x) > 0$"}</MathText>
@@ -54,7 +54,7 @@ export default function DominioFuncionLogaritmicaPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resolvé esa inecuación (lineal, cuadrática o racional)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve esa inecuación (lineal, cuadrática o racional)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
@@ -128,7 +128,7 @@ export default function DominioFuncionLogaritmicaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el dominio de la función: $\\log\\left(\\dfrac{3}{x}-1\\right)$"}

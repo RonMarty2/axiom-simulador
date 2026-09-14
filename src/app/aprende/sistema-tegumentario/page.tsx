@@ -31,7 +31,7 @@ function EscIntro() {
       <Titulo>Piel · el órgano más grande del cuerpo</Titulo>
 
       <Hook>
-        Pesás 70 kg. De esos, 4 kg son piel. Si la estiraras, cubriría 2 m².
+        Pesas 70 kg. De esos, 4 kg son piel. Si la estiraras, cubriría 2 m².
         Es tu interfaz con el mundo: te aísla, te defiende, te enfría, te
         avisa cuando algo quema.
       </Hook>
@@ -252,8 +252,8 @@ function EscPractica() {
 
       <Misconception titulo="Error 3 · 'Sudar = perder grasa'">
         <strong>Pensar:</strong> que el sudor adelgaza.<br />
-        <strong>Realidad:</strong> el sudor es agua + sales. Perdés peso por
-        deshidratación, no por grasa. Volvés a tu peso al beber agua.
+        <strong>Realidad:</strong> el sudor es agua + sales. Pierdes peso por
+        deshidratación, no por grasa. Vuelves a tu peso al beber agua.
       </Misconception>
 
       <Resumen>

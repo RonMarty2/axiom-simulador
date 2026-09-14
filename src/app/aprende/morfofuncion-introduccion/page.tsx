@@ -56,12 +56,12 @@ function EscIntro() {
 
       <Mnemotecnia>
         <strong>"Anatomía = QUÉ es; Fisiología = QUÉ hace."</strong> Si solo
-        sabés anatomía, sabés geografía sin saber idioma. Si solo sabés
-        fisiología, hablás sin saber dónde estás.
+        sabes anatomía, sabes geografía sin saber idioma. Si solo sabes
+        fisiología, hablas sin saber dónde estas.
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás bases de biología celular (Biología-3) y biomoléculas
+        Necesitas bases de biología celular (Biología-3) y biomoléculas
         (Biología-2). El cuerpo es células trabajando en equipo.
       </Conexion>
     </EscenaRica>
@@ -84,7 +84,7 @@ function EscNiveles() {
             { t: "Tisular", ej: "tejidos (muscular, nervioso, conectivo, epitelial)", c: "#10b981" },
             { t: "Orgánico", ej: "órganos (corazón, hígado, pulmón)", c: "#84cc16" },
             { t: "Sistémico", ej: "sistemas/aparatos (circulatorio, digestivo, etc.)", c: "#eab308" },
-            { t: "Organísmico", ej: "el organismo completo (vos)", c: "#ef4444" },
+            { t: "Organísmico", ej: "el organismo completo (tú)", c: "#ef4444" },
           ].map((n, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 38})`}>
               <rect x={0} y={0} width={580} height={32} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={6} />
@@ -441,7 +441,7 @@ function EscPractica() {
       <Misconception titulo="Error 4 · 'Homeostasis = no cambia nada'">
         <strong>Pensar:</strong> que el cuerpo está estático.<br />
         <strong>Realidad:</strong> hay un cambio CONSTANTE para mantener el
-        equilibrio. Es dinámico. Sudás cuando hace calor, tiritás cuando hace
+        equilibrio. Es dinámico. Sudas cuando hace calor, tiritas cuando hace
         frío: ambos son homeostasis activa.
       </Misconception>
 

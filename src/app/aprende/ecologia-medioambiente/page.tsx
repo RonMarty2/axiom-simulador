@@ -244,7 +244,7 @@ function EscTroficas() {
 
       <Definicion termino="Red trófica">
         En la realidad, los organismos comen y son comidos por MUCHAS especies.
-        Las cadenas se entrelazan formando RED. Si quitás una especie, toda
+        Las cadenas se entrelazan formando RED. Si quitas una especie, toda
         la red se desequilibra.
       </Definicion>
 

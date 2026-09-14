@@ -10,16 +10,16 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function MezclasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que cuando sacás parte de una mezcla, también te llevás parte de lo que tenía disuelto?
+            ¿Sabías que cuando sacas parte de una mezcla, también te llevas parte de lo que tenía disuelto?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
-              <span style={{ fontSize: 13 }}>sacás mezcla</span>
+              <span style={{ fontSize: 13 }}>sacas mezcla</span>
             </div>
             <span style={{ fontSize: 18, color: LIENZO.fgFaint }}>→</span>
             <div style={{ padding: "10px 18px", borderRadius: 12, background: `${LIENZO.bad}15`, border: `1.5px solid ${LIENZO.bad}` }}>
@@ -30,12 +30,12 @@ export default function MezclasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que concentración es una razón: <MathText>{"$\\text{soluto}/\\text{volumen total}$"}</MathText>. Lo clave en mezclas es llevar la cuenta de cuánto soluto puro hay, no solo del volumen.
+            Ya sabes que concentración es una razón: <MathText>{"$\\text{soluto}/\\text{volumen total}$"}</MathText>. Lo clave en mezclas es llevar la cuenta de cuánto soluto puro hay, no solo del volumen.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\text{soluto} = \\text{concentración} \\times \\text{volumen}$"}</MathText>
@@ -50,15 +50,15 @@ export default function MezclasPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calculá el soluto puro que hay al principio</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calcula el soluto puro que hay al principio</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si sacás <MathText>{"$x$"}</MathText> litros de mezcla, restá lo que esos <MathText>{"$x$"}</MathText> litros se llevan de soluto</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si sacas <MathText>{"$x$"}</MathText> litros de mezcla, resta lo que esos <MathText>{"$x$"}</MathText> litros se llevan de soluto</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Sumá lo que agregás, e igualá el soluto final con la concentración objetivo</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma lo que agregas, e iguala el soluto final con la concentración objetivo</span>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function MezclasPage() {
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Anticongelante inicial" eq={"$0{,}20 \\times 16 = 3{,}2$"} />
-            <LineaEjemplo glosa="Sacás x litros (se van 0,20x) y agregás x litros puros" eq={"$3{,}2 - 0{,}20x + x = 4$"} />
+            <LineaEjemplo glosa="Sacas x litros (se van 0,20x) y agregas x litros puros" eq={"$3{,}2 - 0{,}20x + x = 4$"} />
             <LineaEjemplo glosa="" eq={"$0{,}80x = 0{,}8 \\ \\Rightarrow\\ x = 1$"} />
           </div>
           <div style={{
@@ -116,7 +116,7 @@ export default function MezclasPage() {
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Alcohol inicial" eq={"$20 \\times 0{,}40 = 8$"} />
-            <LineaEjemplo glosa="Sacás x litros de mezcla (se van 0,40x), el volumen total sigue en 20" eq={"$\\dfrac{8 - 0{,}40x}{20} = 0{,}18$"} />
+            <LineaEjemplo glosa="Sacas x litros de mezcla (se van 0,40x), el volumen total sigue en 20" eq={"$\\dfrac{8 - 0{,}40x}{20} = 0{,}18$"} />
           </div>
           <div style={{
             marginTop: 10, textAlign: "center",
@@ -128,7 +128,7 @@ export default function MezclasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"La cantidad $k$ de litros de alcohol puro que se deben añadir a 10 litros de una solución de alcohol al 20% para obtener una solución al 25% verifica:"}

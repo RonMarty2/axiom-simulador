@@ -130,7 +130,7 @@ function AnguloDoble() {
         </svg>
       </Pizarra>
       <label style={{ fontSize: 13, color: LIENZO.fgDim }}>
-        Movés θ y las tres formas de cos(2θ) siguen dando lo mismo
+        Mueves θ y las tres formas de cos(2θ) siguen dando lo mismo
         <input type="range" min={0} max={90} step={1} value={ang}
           onChange={(e) => setAng(parseFloat(e.target.value))}
           style={{ width: "100%", accentColor: LIENZO.accent }} />
@@ -158,8 +158,8 @@ function EscFundamentales() {
       <Resumen>
         <strong>Identidades pitagóricas (las 3 más importantes)</strong>:<br /><br />
         • <MathText>{"$\\sin^2\\theta + \\cos^2\\theta = 1$"}</MathText> (la fundamental, sale de Pitágoras).<br />
-        • <MathText>{"$1 + \\tan^2\\theta = \\sec^2\\theta$"}</MathText> (dividí la anterior por cos²θ).<br />
-        • <MathText>{"$1 + \\cot^2\\theta = \\csc^2\\theta$"}</MathText> (dividí por sen²θ).
+        • <MathText>{"$1 + \\tan^2\\theta = \\sec^2\\theta$"}</MathText> (divide la anterior por cos²θ).<br />
+        • <MathText>{"$1 + \\cot^2\\theta = \\csc^2\\theta$"}</MathText> (divide por sen²θ).
       </Resumen>
 
       <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
@@ -178,7 +178,7 @@ function EscFundamentales() {
       </Resumen>
 
       <Mnemotecnia>
-        <strong>De la identidad fundamental podés despejar</strong>:<br />
+        <strong>De la identidad fundamental puedes despejar</strong>:<br />
         • sen²θ = 1 − cos²θ → sen θ = ±√(1 − cos²θ).<br />
         • cos²θ = 1 − sen²θ → cos θ = ±√(1 − sen²θ).<br /><br />
         Estas son ULTRA útiles cuando te dan una razón y te piden otra.
@@ -300,7 +300,7 @@ function EscDoble() {
       </Resumen>
 
       <p style={{ margin: "4px 0 0", fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
-        Las 3 formas de cos(2θ) dan SIEMPRE el mismo número: movés θ y lo verificás
+        Las 3 formas de cos(2θ) dan SIEMPRE el mismo número: mueves θ y lo verificas
       </p>
       <AnguloDoble />
 
@@ -313,9 +313,9 @@ function EscDoble() {
 
       <Mnemotecnia>
         <strong>Cuándo elegir cuál forma de cos(2θ) usar</strong>:<br />
-        • Si te dan cos θ y querés cos(2θ): usá 2cos²θ − 1.<br />
-        • Si te dan sen θ y querés cos(2θ): usá 1 − 2sen²θ.<br />
-        • Si te dan tan θ: usá la fórmula con tangente.<br /><br />
+        • Si te dan cos θ y quieres cos(2θ): usa 2cos²θ − 1.<br />
+        • Si te dan sen θ y quieres cos(2θ): usa 1 − 2sen²θ.<br />
+        • Si te dan tan θ: usa la fórmula con tangente.<br /><br />
         Elegir la forma correcta ahorra cuentas.
       </Mnemotecnia>
 
@@ -359,9 +359,9 @@ function EscSimplificacion() {
 
       <Mnemotecnia>
         <strong>Estrategia general de simplificación</strong>:<br />
-        1. Aplicá identidades de reducción para "limpiar" los ángulos
+        1. Aplica identidades de reducción para "limpiar" los ángulos
         compuestos (3π−x, π/2−x, etc.).<br />
-        2. Cancelá factores comunes en numerador y denominador.<br />
+        2. Cancela factores comunes en numerador y denominador.<br />
         3. Si quedan sen y cos, considerá usar tan = sen/cos o las identidades
         pitagóricas.<br /><br />
         Reglas finales útiles: sen²+cos²=1, tan=sen/cos, sec=1/cos, csc=1/sen.
@@ -377,10 +377,10 @@ function EscEcuacionesBasicas() {
 
       <Resumen>
         <strong>Estrategia general</strong>:<br />
-        1. Aislá la función trigonométrica (sen x = c, cos x = c, etc.).<br />
-        2. Encontrá UNA solución usando arcsen, arccos, arctan o valores
+        1. Aisla la función trigonométrica (sen x = c, cos x = c, etc.).<br />
+        2. Encuentra UNA solución usando arcsen, arccos, arctan o valores
         notables.<br />
-        3. Encontrá TODAS las soluciones en el intervalo pedido usando
+        3. Encuentra TODAS las soluciones en el intervalo pedido usando
         periodicidad.
       </Resumen>
 
@@ -457,7 +457,7 @@ function EscEcuacionesAvanzadas() {
 
       <Cuidado>
         Al elevar al cuadrado para resolver ecuaciones trigonométricas pueden
-        aparecer SOLUCIONES EXTRAÑAS. Verificá cada solución sustituyendo en
+        aparecer SOLUCIONES EXTRAÑAS. Verifica cada solución sustituyendo en
         la ecuación original.
       </Cuidado>
     </EscenaRica>
@@ -470,8 +470,8 @@ function EscErrores() {
       <Titulo accent={COLOR_BAD}>Errores típicos</Titulo>
 
       <Misconception titulo="Error 1 · cancelar funciones trig en ecuaciones">
-        Si tenés sen x · cos x = 0, NO podés dividir por sen x (sería cancelar
-        soluciones donde sen x = 0). Factorizá y aplicá la propiedad del
+        Si tienes sen x · cos x = 0, NO puedes dividir por sen x (sería cancelar
+        soluciones donde sen x = 0). Factoriza y aplica la propiedad del
         producto = 0.
       </Misconception>
 

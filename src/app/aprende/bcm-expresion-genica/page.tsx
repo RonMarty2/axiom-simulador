@@ -49,7 +49,7 @@ function EscDogma() {
       </Definicion>
 
       <Conexion>
-        Necesitás: ácidos nucleicos (Biología-2), núcleo y ribosomas
+        Necesitas: ácidos nucleicos (Biología-2), núcleo y ribosomas
         (Biología-3). Esta unidad profundiza cada flecha del dogma.
       </Conexion>
 

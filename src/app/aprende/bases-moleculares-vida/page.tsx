@@ -79,7 +79,7 @@ function EscIntro() {
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás dominar: bioelementos (Unidad 1). La química orgánica te
+        Necesitas dominar: bioelementos (Unidad 1). La química orgánica te
         ayuda pero no es prerrequisito estricto.
       </Conexion>
     </EscenaRica>
@@ -312,7 +312,7 @@ function EscEnzimas() {
 
       <Hook>
         Sin enzimas, descomponer una manzana en glucosa te llevaría miles de
-        años. Con enzimas, lo hacés en horas. Aceleran las reacciones
+        años. Con enzimas, lo haces en horas. Aceleran las reacciones
         biológicas hasta 10⁶ veces, sin consumirse.
       </Hook>
 

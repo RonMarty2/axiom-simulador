@@ -272,7 +272,7 @@ function Esc01_Intro() {
     <Lienzo>
       <Pregunta>¿Qué es una potencia?</Pregunta>
       <Decir>
-        Cuando multiplicás el <Enf color="fg">mismo número</Enf> muchas veces, escribirlo se vuelve largo.
+        Cuando multiplicas el <Enf color="fg">mismo número</Enf> muchas veces, escribirlo se vuelve largo.
         La potencia es la <Enf>notación corta</Enf>.
       </Decir>
 
@@ -360,7 +360,7 @@ function Esc02_Significado() {
   const [paso, setPaso] = useState(0);
   return (
     <Lienzo>
-      <Pregunta>Para calcular una potencia, la expandís.</Pregunta>
+      <Pregunta>Para calcular una potencia, la expandes.</Pregunta>
       <Decir>
         El exponente te dice <Enf>cuántas copias</Enf> de la base hay que multiplicar.
       </Decir>
@@ -457,7 +457,7 @@ function Esc03_Producto() {
   return (
     <Lienzo>
       <Pregunta>Multiplicar potencias con la <Enf>misma base</Enf>.</Pregunta>
-      <Decir>Mirá qué pasa con los exponentes.</Decir>
+      <Decir>Mira qué pasa con los exponentes.</Decir>
 
       <Pizarra alto={220} onClick={() => setPaso(paso < 3 ? paso + 1 : 0)}>
         <svg width="100%" height="100%" viewBox="0 0 480 220"
@@ -531,7 +531,7 @@ function Esc03_Producto() {
 
       <div style={{ minHeight: 60 }}>
         <Decir>
-          {paso === 0 && <>Tenemos <Enf color="fg">2² · 2³</Enf>. Tocá la animación (o "Siguiente") y mirá los exponentes.</>}
+          {paso === 0 && <>Tenemos <Enf color="fg">2² · 2³</Enf>. Toca la animación (o "Siguiente") y mira los exponentes.</>}
           {paso === 1 && <>Los exponentes se separan de sus bases. Entre ellos aparece un <Enf>+</Enf>.</>}
           {paso === 2 && <><Enf color="fg">2 + 3 = 5</Enf>. El resultado se vuelve el nuevo exponente.</>}
           {paso === 3 && <>Y la base sigue siendo la misma. Resultado: <Enf color="ok">2⁵</Enf>.<br /><span style={{ color: LIENZO.fgFaint }}>Regla: <em>aᵐ · aⁿ = aᵐ⁺ⁿ</em></span></>}
@@ -831,7 +831,7 @@ function Esc06_Cero() {
 
       <div style={{ minHeight: 60 }}>
         <Decir>
-          {paso === 0 && <>Pensá en <Enf color="fg">2⁵ ÷ 2⁵</Enf>: algo dividido por sí mismo.</>}
+          {paso === 0 && <>Piensa en <Enf color="fg">2⁵ ÷ 2⁵</Enf>: algo dividido por sí mismo.</>}
           {paso === 1 && <>Por la regla del cociente restamos los exponentes: <Enf color="fg">5 − 5</Enf>.</>}
           {paso === 2 && <>Eso da <Enf color="fg">2⁰</Enf>. Pero un número dividido por sí mismo siempre es 1…</>}
           {paso === 3 && <>Entonces <Enf color="ok">2⁰ = 1</Enf>. Y lo mismo pasa con cualquier base: <Enf color="ok">a⁰ = 1</Enf> (con <em>a ≠ 0</em>).</>}
@@ -1161,7 +1161,7 @@ function Esc10_Radical() {
 
       <div style={{ minHeight: 60 }}>
         <Decir>
-          {paso === 0 && <>Una raíz n-ésima: <Enf color="fg">ⁿ√a</Enf>. Tocá para transformarla.</>}
+          {paso === 0 && <>Una raíz n-ésima: <Enf color="fg">ⁿ√a</Enf>. Toca para transformarla.</>}
           {paso === 1 && <>
             El índice <Enf>n</Enf> pasa abajo y se vuelve el denominador del exponente: <Enf color="ok">a elevado a 1/n</Enf>.
             <br />
@@ -1199,7 +1199,7 @@ const TRAMPAS: Trampa[] = [
   {
     afirmacion: "(a + b)² = a² + b²",
     esCorrecta: false,
-    explica: "Es trampa. Verificá: (1+1)² = 4, pero 1² + 1² = 2. La distribución del exponente NO funciona con sumas: solo con productos: (a·b)ⁿ = aⁿ·bⁿ.",
+    explica: "Es trampa. Verifica: (1+1)² = 4, pero 1² + 1² = 2. La distribución del exponente NO funciona con sumas: solo con productos: (a·b)ⁿ = aⁿ·bⁿ.",
   },
   {
     afirmacion: "2³ · 5² = 10⁵",
@@ -1456,8 +1456,8 @@ function Esc12_Practica() {
             {aciertos} / {PRACTICA.length}
           </div>
           <div style={{ color: LIENZO.fgDim, fontSize: 15 }}>
-            {aciertos === PRACTICA.length && "Perfecto. Dominás las propiedades."}
-            {aciertos >= 3 && aciertos < PRACTICA.length && "Bien. Repasá las que fallaste y volvé."}
+            {aciertos === PRACTICA.length && "Perfecto. Dominas las propiedades."}
+            {aciertos >= 3 && aciertos < PRACTICA.length && "Bien. Repasa las que fallaste y vuelve."}
             {aciertos < 3 && "Conviene volver a las escenas 3, 5 y 7 antes de practicar más."}
           </div>
           <Repetir onClick={resetear} />

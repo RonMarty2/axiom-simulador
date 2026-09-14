@@ -71,7 +71,7 @@ function EscSimPotencial() {
       <Titulo>Simulador · potencial de acción</Titulo>
 
       <Parrafo>
-        Andá apretando "Disparar" para ver cómo cambia el voltaje de membrana
+        Anda apretando "Disparar" para ver cómo cambia el voltaje de membrana
         en una neurona. Reposo: −70 mV. Despolarización: entra Na⁺. Pico: +30 mV.
         Repolarización: sale K⁺. Hiperpolarización breve antes de volver al reposo.
       </Parrafo>
@@ -465,7 +465,7 @@ function EscReflejo() {
       <Titulo>Acto reflejo · respuesta automática</Titulo>
 
       <Hook>
-        Tocás una sartén caliente y tu mano YA se retiró antes de que sintas
+        Tocas una sartén caliente y tu mano YA se retiró antes de que sintas
         el dolor. ¿Cómo? El reflejo NO pasa por el cerebro: se procesa en la
         médula espinal. Es más rápido.
       </Hook>

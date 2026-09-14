@@ -85,7 +85,7 @@ function CatorcePrincipios() {
         </motion.div>
       )}
       <div style={{ textAlign: "center", fontSize: 12, color: LIENZO.fgFaint, fontStyle: "italic", marginTop: 8 }}>
-        Tocá cualquier número para ver el principio.
+        Toca cualquier número para ver el principio.
       </div>
     </div>
   );
@@ -112,7 +112,7 @@ function Esc01() {
       <Hook>
         El examen UMSS pregunta MUCHO sobre los <strong>4 autores clave</strong> de esta unidad:
         Taylor, Fayol, Mayo y la escuela contemporánea. Asociar cada nombre con su idea central
-        es lo único que necesitás.
+        es lo único que necesitas.
       </Hook>
 
       <Mnemotecnia>
@@ -169,7 +169,7 @@ function Esc03() {
         El cliché dice que Taylor era inhumano por cronometrar a los obreros. Es injusto: Taylor
         buscaba <strong>aumentar el bienestar del obrero</strong> a través del aumento de
         productividad. Su error fue NO considerar los factores sociales (eso vino con Mayo). Pero
-        la estandarización de procesos sigue vigente: la usás cada vez que hacés "checklist".
+        la estandarización de procesos sigue vigente: la usas cada vez que haces "checklist".
       </Misconception>
     </EscenaRica>
   );
@@ -191,7 +191,7 @@ function Esc04() {
 
       <Conexion>
         Las funciones administrativas que Fayol definió (planear, organizar, dirigir, controlar)
-        son exactamente las que estudiás en POIDC en las unidades de Bloque 1 Unidad 4. Fayol
+        son exactamente las que estudias en POIDC en las unidades de Bloque 1 Unidad 4. Fayol
         es el padre del modelo POIDC que sigue vigente 100 años después.
       </Conexion>
 

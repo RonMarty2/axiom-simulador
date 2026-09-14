@@ -454,8 +454,8 @@ function EscProblemas() {
       </WorkedExample>
 
       <Conexion>
-        En el examen también aparecen circuitos mixtos. Reducís paso a paso:
-        identifica grupos en serie o paralelo, calculá la equivalente, y así
+        En el examen también aparecen circuitos mixtos. Reduces paso a paso:
+        identifica grupos en serie o paralelo, calcula la equivalente, y así
         hasta tener un capacitor único.
       </Conexion>
     </EscenaRica>
@@ -509,12 +509,12 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · unidades en Coulomb">
         Las cargas suelen venir en μC (microcoulomb) = 10⁻⁶ C, no en C directo.
-        Verificá unidades antes de aplicar la fórmula.
+        Verifica unidades antes de aplicar la fórmula.
       </Misconception>
 
       <Misconception titulo="Error 3 · ignorar el signo en Coulomb">
         |q₁·q₂| da el módulo de la fuerza. Para saber si es atractiva o
-        repulsiva, mirá los signos: iguales = repulsión, opuestos = atracción.
+        repulsiva, mira los signos: iguales = repulsión, opuestos = atracción.
       </Misconception>
 
       <Titulo>Práctica · 5 ejercicios</Titulo>

@@ -106,7 +106,7 @@ function EscNiveles() {
       </Cuidado>
 
       <AutoCheck
-        pregunta="Ordená de menor a mayor complejidad: tejido, órgano, célula, organismo."
+        pregunta="Ordena de menor a mayor complejidad: tejido, órgano, célula, organismo."
         opciones={[
           "órgano → tejido → célula → organismo",
           "célula → tejido → órgano → organismo",
@@ -410,7 +410,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 1 · 'Los oligoelementos no importan porque hay poco'">
         <strong>Pensar:</strong> que si hay menos de 0.1%, no son críticos.<br />
-        <strong>Realidad:</strong> son ESENCIALES. Sin Fe morís de anemia; sin I,
+        <strong>Realidad:</strong> son ESENCIALES. Sin Fe mueres de anemia; sin I,
         hipotiroidismo; sin Zn, deficiencias graves. Cantidad pequeña, impacto enorme.
       </Misconception>
 

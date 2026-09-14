@@ -262,12 +262,12 @@ function Esc03() {
     <EscenaRica>
       <Titulo>Recorrido de un billete · 50 Bs en La Cancha</Titulo>
       <Hook>
-        Tenés un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), comprás una
+        Tienes un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), comprás una
         marraqueta y un trozo de queso. <strong>¿Dónde termina ese billete?</strong> Seguilo:
       </Hook>
       <WorkedExample titulo="El recorrido del billete de 50 Bs">
         <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14, lineHeight: 1.7 }}>
-          <li><strong>Paso 1.</strong> Salís de casa (familia) con 50 Bs. Llegás a La Cancha.</li>
+          <li><strong>Paso 1.</strong> Sales de casa (familia) con 50 Bs. Llegas a La Cancha.</li>
           <li>
             <strong>Paso 2.</strong> Comprás la marraqueta y queso a doña María (empresa pequeña).
             Le diste 50 Bs. → <em>ingreso de la empresa</em>.
@@ -315,7 +315,7 @@ function Esc04() {
       </Definicion>
       <Parrafo>
         El ejemplo clásico: una economía que solo produce <strong>autos</strong> y{" "}
-        <strong>computadoras</strong>. Tocá los botones para ver qué significa cada punto.
+        <strong>computadoras</strong>. Toca los botones para ver qué significa cada punto.
       </Parrafo>
       <FPP />
       <Resumen>
@@ -411,9 +411,9 @@ function Esc06() {
         <strong>1. Escasez</strong>: puntos fuera de la curva son inalcanzables (los recursos no
         dan).<br /><br />
         <strong>2. Disyuntivas</strong>: para producir más de un bien hay que producir menos del
-        otro (te movés sobre la curva).<br /><br />
+        otro (te mueves sobre la curva).<br /><br />
         <strong>3. Costo de oportunidad</strong>: la pendiente de la frontera en cada punto te
-        dice cuánto sacrificás de un bien al producir uno más del otro.<br /><br />
+        dice cuánto sacrificas de un bien al producir uno más del otro.<br /><br />
         <strong>4. Eficiencia</strong>: solo los puntos SOBRE la frontera son eficientes. Adentro
         hay desperdicio.<br /><br />
         <strong>5. Crecimiento económico</strong>: un avance tecnológico o más recursos desplazan
@@ -424,7 +424,7 @@ function Esc06() {
         modelo más enseñado del mundo: <strong>5 conceptos centrales en una curva</strong>.
       </PorQue>
       <Conexion>
-        Los puntos 1, 2 y 3 que acabás de ver son justamente los 3 primeros principios de Mankiw que
+        Los puntos 1, 2 y 3 que acabas de ver son justamente los 3 primeros principios de Mankiw que
         viste en la lección anterior (escasez, disyuntivas, costo de oportunidad).
       </Conexion>
     </EscenaRica>
@@ -460,7 +460,7 @@ function Esc06b() {
       <Misconception>
         <strong>"Si producir más de un bien siempre cuesta producir menos del otro, una economía
         nunca puede crecer."</strong> Falso. Esa lógica vale CON LA FPP DADA. Si la FPP se
-        desplaza hacia afuera, podés producir más de TODO al mismo tiempo. Eso es crecimiento
+        desplaza hacia afuera, puedes producir más de TODO al mismo tiempo. Eso es crecimiento
         económico.
       </Misconception>
     </EscenaRica>
@@ -472,7 +472,7 @@ function EscMnemo() {
     <EscenaRica>
       <Titulo>Mnemotecnia + errores típicos del examen</Titulo>
       <Mnemotecnia>
-        Para no confundir los 2 modelos, recordá <strong>una imagen + una palabra para cada uno</strong>:
+        Para no confundir los 2 modelos, recuerda <strong>una imagen + una palabra para cada uno</strong>:
         <div style={{ marginTop: 14, padding: 14, background: "#fff", borderRadius: 10, border: `1px solid ${LIENZO.fgFaint}` }}>
           <div style={{ fontSize: 15, fontWeight: 700, color: LIENZO.accent }}>
             FLUJO CIRCULAR → <em>"el billete da vueltas"</em>
@@ -492,7 +492,7 @@ function EscMnemo() {
       <Misconception titulo="Error típico 1 · confundir FUERA con ADENTRO">
         Punto <strong>FUERA</strong> de la FPP = imposible (no alcanzan recursos).<br />
         Punto <strong>ADENTRO</strong> = posible pero ineficiente (sobran recursos).<br />
-        El examen suele preguntar "¿qué representa un punto X?": leé bien si está adentro o afuera.
+        El examen suele preguntar "¿qué representa un punto X?": lee bien si está adentro o afuera.
       </Misconception>
       <Misconception titulo="Error típico 2 · pensar que la FPP es la curva de demanda">
         Son COSAS DISTINTAS. La FPP es sobre OFERTA (qué puede producir la economía). La curva de

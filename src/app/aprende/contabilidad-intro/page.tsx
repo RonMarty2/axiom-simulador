@@ -130,8 +130,8 @@ function Esc03() {
       </Misconception>
 
       <Conexion>
-        La partida doble inspiró el concepto de <strong>balance</strong>: lo que tenés (activos) =
-        lo que debés (pasivos) + lo que aportaste (patrimonio). Vas a ver esta ecuación en la unidad
+        La partida doble inspiró el concepto de <strong>balance</strong>: lo que tienes (activos) =
+        lo que debes (pasivos) + lo que aportaste (patrimonio). Vas a ver esta ecuación en la unidad
         de clasificación de estados.
       </Conexion>
     </EscenaRica>
@@ -180,7 +180,7 @@ function Esc05() {
         En Bolivia, toda empresa registrada en FUNDEMPRESA está obligada por el <strong>Código de
         Comercio</strong> a llevar contabilidad. Las microempresas del régimen simplificado (RTS) y
         régimen tributario integrado (RTI) tienen exigencias mínimas, pero las del régimen general
-        deben presentar Estados Financieros anuales al SIN. Sin esos estados no podés acceder a
+        deben presentar Estados Financieros anuales al SIN. Sin esos estados no puedes acceder a
         créditos bancarios ni licitaciones del Estado.
       </CasoBolivia>
     </EscenaRica>

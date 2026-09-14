@@ -188,7 +188,7 @@ function Esc05() {
         Esta es la <strong>P</strong> de POIDC. Las próximas unidades cubren las otras 4:
         <strong> O</strong>rganización (estructura), <strong>I</strong>ntegración de personal (gente),
         <strong> D</strong>irección (liderazgo) y <strong>C</strong>ontrol (medir resultados).
-        Sin una planeación clara, no podés organizar, ni dirigir, ni controlar nada.
+        Sin una planeación clara, no puedes organizar, ni dirigir, ni controlar nada.
       </Conexion>
     </EscenaRica>
   );

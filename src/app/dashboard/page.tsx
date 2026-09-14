@@ -48,7 +48,7 @@ export default function DashboardPage() {
     return (
       <div style={{ padding: 40, minHeight: "70vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, textAlign: "center" }}>
         <span style={{ color: "var(--accent)" }}><Icono nombre="alerta" tamano={40} grosor={1.6} /></span>
-        <p style={{ color: "var(--fg-muted)", fontSize: 16, maxWidth: 320 }}>No pudimos conectar con el servidor. Revisá tu conexión a internet.</p>
+        <p style={{ color: "var(--fg-muted)", fontSize: 16, maxWidth: 320 }}>No pudimos conectar con el servidor. Revisa tu conexión a internet.</p>
         <button onClick={() => window.location.reload()} style={{ padding: "11px 26px", background: "var(--accent)", color: "var(--accent-fg)", border: "none", borderRadius: 4, fontWeight: 700, fontSize: 15, cursor: "pointer" }}>
           Reintentar
         </button>
@@ -80,7 +80,7 @@ export default function DashboardPage() {
               Buenas, {usuario.nombre.split(" ")[0]}
             </h1>
             <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
-              Postulás a <strong style={{ color: "var(--fg-primary)" }}>{facultad?.nombre_corto}</strong>. Seguí practicando.
+              Postulas a <strong style={{ color: "var(--fg-primary)" }}>{facultad?.nombre_corto}</strong>. Sigue practicando.
             </p>
           </div>
 
@@ -107,8 +107,8 @@ export default function DashboardPage() {
             </h2>
             <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "rgba(250,247,240,0.75)" }}>
               {limiteAlcanzado
-                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pasate a Premium para tenerlos ilimitados.`
-                : `Tenés ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
+                ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para tenerlos ilimitados.`
+                : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
             </p>
           </div>
           <Link href={limiteAlcanzado ? "/precios" : "/practicar"} style={{
@@ -153,7 +153,7 @@ export default function DashboardPage() {
 
           <div style={{ display: "grid", gap: 10, alignContent: "start" }}>
             <Acceso href="/practicar" icono="practicar" titulo="Practicar" detalle="6 modos disponibles" />
-            <Acceso href="/errores" icono="errores" titulo="Mis errores" detalle="Repasá lo que fallaste" />
+            <Acceso href="/errores" icono="errores" titulo="Mis errores" detalle="Repasa lo que fallaste" />
             <Acceso href="/ranking" icono="ranking" titulo="Ranking" detalle="Top 10 global" />
             <Acceso href="/cuenta" icono="cuenta" titulo="Mi cuenta" detalle={`Plan ${usuario.plan}`} />
           </div>

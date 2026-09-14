@@ -130,7 +130,7 @@ function EscIntro() {
 
       <PorQue>
         <strong>Resolver un triángulo</strong> significa encontrar TODOS sus
-        elementos (3 lados + 3 ángulos = 6). Necesitás 3 datos para resolverlo
+        elementos (3 lados + 3 ángulos = 6). Necesitas 3 datos para resolverlo
         (mínimo), de los cuales al menos 1 debe ser un lado (los 3 ángulos solos
         no fijan tamaño, solo forma).
       </PorQue>
@@ -166,7 +166,7 @@ function EscLeySenos() {
       </PorQue>
 
       <Mnemotecnia>
-        <strong>Cuándo usar ley de senos</strong> · necesitás:<br />
+        <strong>Cuándo usar ley de senos</strong> · necesitas:<br />
         • Un lado y su ángulo opuesto, MÁS otro elemento (otro ángulo u otro
         lado opuesto a otro ángulo conocido).<br /><br />
         Casos típicos:<br />
@@ -242,10 +242,10 @@ function EscLeyCosenos() {
       <Mnemotecnia>
         <strong>Cuándo usar ley de cosenos</strong>:<br />
         1. <strong>LAL</strong> (Lado-Ángulo-Lado): te dan 2 lados y el ángulo
-        ENTRE ellos. Querés el 3er lado.<br />
-        2. <strong>LLL</strong> (Lado-Lado-Lado): te dan los 3 lados. Querés un
+        ENTRE ellos. Quieres el 3er lado.<br />
+        2. <strong>LLL</strong> (Lado-Lado-Lado): te dan los 3 lados. Quieres un
         ángulo.<br /><br />
-        Si despejás el coseno:
+        Si despejas el coseno:
         <div style={{ textAlign: "center", padding: "6px 0", overflowX: "auto" }}>
           <MathText>{"$\\cos A = \\dfrac{b^2+c^2-a^2}{2bc}$"}</MathText>
         </div>
@@ -300,8 +300,8 @@ function EscCualUsar() {
 
       <Mnemotecnia>
         <strong>Regla práctica</strong>:<br />
-        • Si tenés un ÁNGULO opuesto a un LADO conocido → senos.<br />
-        • Si NO tenés esa pareja (ángulo opuesto a lado), o si te dan 3 lados
+        • Si tienes un ÁNGULO opuesto a un LADO conocido → senos.<br />
+        • Si NO tienes esa pareja (ángulo opuesto a lado), o si te dan 3 lados
         → cosenos.
       </Mnemotecnia>
     </EscenaRica>
@@ -314,7 +314,7 @@ function EscAreaSeno() {
       <Titulo>Área del triángulo con seno</Titulo>
 
       <Resumen>
-        Si conocés 2 lados y el ángulo entre ellos:
+        Si conoces 2 lados y el ángulo entre ellos:
         <div style={{ textAlign: "center", padding: "8px 0", overflowX: "auto" }}>
           <MathText>{"$\\text{Área} = \\tfrac12 ab\\sin C$"}</MathText>
         </div>
@@ -416,12 +416,12 @@ function EscPractica() {
       <Misconception titulo="Error 1 · usar ley de senos con caso LAL">
         Si te dan 2 lados y el ángulo ENTRE ellos (LAL), la ley de senos NO
         funciona directamente (faltaría el ángulo opuesto a un lado conocido).
-        Usá ley de cosenos.
+        Usa ley de cosenos.
       </Misconception>
 
       <Misconception titulo="Error 2 · ignorar el caso ambiguo (LLA)">
         Si te dan 2 lados y un ángulo NO comprendido, puede haber 0, 1 o 2
-        triángulos. Siempre verificá si la segunda solución (180° − ángulo
+        triángulos. Siempre verifica si la segunda solución (180° − ángulo
         principal) es válida.
       </Misconception>
 

@@ -193,7 +193,7 @@ export default function LaminaShell({
           maxWidth: 700, width: "100%", margin: "0 auto", padding: "0 20px 18px",
           display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center",
         }}>
-          {necesitasAntes && <FooterLink etiqueta="Necesitás antes" breadcrumb={necesitasAntes} />}
+          {necesitasAntes && <FooterLink etiqueta="Necesitas antes" breadcrumb={necesitasAntes} />}
           {teAbrePuertaA && <FooterLink etiqueta="Te abre la puerta a" breadcrumb={teAbrePuertaA} />}
         </footer>
       )}

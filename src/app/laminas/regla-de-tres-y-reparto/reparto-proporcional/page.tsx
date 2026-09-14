@@ -12,7 +12,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function RepartoProporcionalPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -32,12 +32,12 @@ export default function RepartoProporcionalPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que una razón como &quot;32 a 9&quot; se puede escribir con una misma constante <MathText>{"$k$"}</MathText>: las partes son <MathText>{"$32k$"}</MathText> y <MathText>{"$9k$"}</MathText>. Repartir proporcionalmente es hallar ese <MathText>{"$k$"}</MathText>.
+            Ya sabes que una razón como &quot;32 a 9&quot; se puede escribir con una misma constante <MathText>{"$k$"}</MathText>: las partes son <MathText>{"$32k$"}</MathText> y <MathText>{"$9k$"}</MathText>. Repartir proporcionalmente es hallar ese <MathText>{"$k$"}</MathText>.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$32k + 9k = \\text{total}$"}</MathText>
@@ -51,15 +51,15 @@ export default function RepartoProporcionalPage() {
         <div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
-              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>1. Sumá</span>
+              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>1. Suma</span>
               <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>las partes de la razón, para saber en cuántas partes iguales se divide el total</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
-              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>2. Dividí</span>
+              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>2. Divide</span>
               <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>el total entre esa suma: eso vale una &quot;parte&quot; (el valor de <MathText>{"$k$"}</MathText>)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
-              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>3. Multiplicá</span>
+              <span style={{ fontSize: 13, fontWeight: 700, minWidth: 70 }}>3. Multiplica</span>
               <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>cada número de la razón por ese valor: esa es cada porción</span>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function RepartoProporcionalPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un arquitecto gana el doble de un maestro albañil y el triple de su ayudante. Entre los tres perciben 3300 Bs. ¿Cuánto gana el arquitecto?"}

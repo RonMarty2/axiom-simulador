@@ -11,7 +11,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function SistemasNoLinealesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -31,12 +31,12 @@ export default function SistemasNoLinealesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés resolver sistemas lineales de 2 y hasta 3 incógnitas. El único paso nuevo acá es ANTES de eso: ponerle un nombre nuevo a la parte complicada.
+            Ya sabes resolver sistemas lineales de 2 y hasta 3 incógnitas. El único paso nuevo acá es ANTES de eso: ponerle un nombre nuevo a la parte complicada.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$a = \\tfrac{1}{x}, \\quad b = \\tfrac{1}{y}, \\quad c = \\tfrac{1}{z}$"}</MathText>
@@ -113,7 +113,7 @@ export default function SistemasNoLinealesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolver el sistema $\\tfrac{1}{x}+\\tfrac{1}{y}=7$, $\\tfrac{1}{x}-\\tfrac{1}{y}=3$. ¿Cuánto vale $x$?"}

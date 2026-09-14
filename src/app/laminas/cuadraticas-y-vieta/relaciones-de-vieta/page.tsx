@@ -13,12 +13,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo, FlechaMini } from "../..
 export default function RelacionesDeVietaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés saber la suma y el producto de las raíces de una cuadrática sin resolverla?
+            ¿Sabías que puedes saber la suma y el producto de las raíces de una cuadrática sin resolverla?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ position: "relative", padding: "10px 16px", borderRadius: 12, border: `1.5px solid ${LIENZO.fgFaint}`, opacity: 0.55 }}>
@@ -34,18 +34,18 @@ export default function RelacionesDeVietaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Si conocés las dos raíces <MathText>{"$r_1$"}</MathText> y <MathText>{"$r_2$"}</MathText> de una cuadrática, ya sabés reconstruirla:
+            Si conoces las dos raíces <MathText>{"$r_1$"}</MathText> y <MathText>{"$r_2$"}</MathText> de una cuadrática, ya sabes reconstruirla:
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 17 }}>
             <MathText>{"$(x-r_1)(x-r_2) = 0$"}</MathText>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Vieta es simplemente mirar qué pasa cuando multiplicás ese paréntesis.
+            Vieta es simplemente mirar qué pasa cuando multiplicas ese paréntesis.
           </p>
         </div>
       ),
@@ -55,7 +55,7 @@ export default function RelacionesDeVietaPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Multiplicá el paréntesis de la lámina de división y compará, término a término, con la forma general.
+            Multiplica el paréntesis de la lámina de división y compara, término a término, con la forma general.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Multiplicando" eq="$(x-r_1)(x-r_2) = x^2 - (r_1{+}r_2)x + r_1 r_2$" />
@@ -84,7 +84,7 @@ export default function RelacionesDeVietaPage() {
       contenido: (
         <div>
           <p style={{ marginBottom: 12, fontSize: 14.5, lineHeight: 1.6 }}>
-            La misma ecuación de la lámina anterior: <MathText>{"$2x^2 - 3x - 5 = 0$"}</MathText>. Ya sabés que sus raíces son <MathText>{"$2.5$"}</MathText> y <MathText>{"$-1$"}</MathText>. Comprobemos Vieta contra eso.
+            La misma ecuación de la lámina anterior: <MathText>{"$2x^2 - 3x - 5 = 0$"}</MathText>. Ya sabes que sus raíces son <MathText>{"$2.5$"}</MathText> y <MathText>{"$-1$"}</MathText>. Comprobemos Vieta contra eso.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
             <LineaEjemplo glosa="Suma, sin resolver: a=2, b=-3" eq={"$r_1+r_2 = -\\tfrac{-3}{2} = 1.5$"} />
@@ -145,7 +145,7 @@ export default function RelacionesDeVietaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"¿Cuáles son la suma y el producto de las raíces de $3x^2 + 5x - 2 = 0$, sin resolverla?"}

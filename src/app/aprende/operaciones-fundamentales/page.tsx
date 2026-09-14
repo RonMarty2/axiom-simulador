@@ -12,6 +12,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Operaciones fundamentales: VERSIÓN COMPLETA Y AUTOCONTENIDA
@@ -74,13 +75,13 @@ function Esc01_Bienvenida() {
         ✅ Practicar con ejemplos resueltos paso a paso.
       </div>
       <Parrafo>
-        Si te sentís perdido en algún punto, tocá <strong>← Anterior</strong> y volvé.
-        Esta lección está pensada para que la repasés cuantas veces necesites.
+        Si te sientes perdido en algún punto, toca <strong>← Anterior</strong> y vuelve.
+        Esta lección está pensada para que la repases cuantas veces necesites.
       </Parrafo>
 
       <Hook>
-        Las operaciones fundamentales son <strong>la base de TODO</strong>. Si fallás en
-        signos o en jerarquía, fallás en cualquier cuenta. En el examen UMSS los errores
+        Las operaciones fundamentales son <strong>la base de TODO</strong>. Si fallas en
+        signos o en jerarquía, fallas en cualquier cuenta. En el examen UMSS los errores
         de aritmética cuestan puntos en preguntas que ya estaban "ganadas". Repasalo bien
         ahora: ahorra dolor después.
       </Hook>
@@ -163,8 +164,8 @@ function Esc03_SumaConcepto() {
       <Titulo accent="#10b981">Suma: combinar cantidades</Titulo>
 
       <Parrafo>
-        <strong>Sumar</strong> es la operación más básica: juntás dos (o más) cantidades
-        en una sola. Si tenés 3 monedas y alguien te da 2 más, terminás con 5.
+        <strong>Sumar</strong> es la operación más básica: juntas dos (o más) cantidades
+        en una sola. Si tienes 3 monedas y alguien te da 2 más, terminas con 5.
       </Parrafo>
 
       <div style={{ ...cajaAnim(), cursor: "default" }}>
@@ -218,7 +219,7 @@ function Esc03_SumaConcepto() {
 
       <Cuidado>
         Los signos <strong>+</strong> y <strong>−</strong> son delicados. <strong>3 + (−2) = 1</strong>, no 5.
-        Cuando aparezca un signo menos pegado a un número, tratá ese número como negativo (lo vemos en detalle más adelante).
+        Cuando aparezca un signo menos pegado a un número, trata ese número como negativo (lo vemos en detalle más adelante).
       </Cuidado>
     </EscenaRica>
   );
@@ -242,8 +243,8 @@ function Esc04_SumaProps() {
           El orden no cambia el resultado. <strong>3 + 5 = 5 + 3 = 8</strong>.
         </div>
         <PorQue>
-          Cuando juntás dos grupos de cosas, el resultado no depende de cuál
-          juntás primero. Es lo mismo "3 manzanas más 5 manzanas" que
+          Cuando juntas dos grupos de cosas, el resultado no depende de cuál
+          juntas primero. Es lo mismo "3 manzanas más 5 manzanas" que
           "5 manzanas más 3 manzanas".
         </PorQue>
       </Ejemplo>
@@ -251,7 +252,7 @@ function Esc04_SumaProps() {
       <Ejemplo titulo="2. Asociativa">
         <strong>(a + b) + c = a + (b + c)</strong>
         <div style={{ marginTop: 6, color: "var(--fg-muted)", fontSize: 14 }}>
-          Si sumás varios números, podés agrupar como quieras: <br />
+          Si sumas varios números, puedes agrupar como quieras: <br />
           <strong>(2 + 3) + 4 = 5 + 4 = 9</strong> &nbsp; o &nbsp; <strong>2 + (3 + 4) = 2 + 7 = 9</strong>.
         </div>
       </Ejemplo>
@@ -293,14 +294,14 @@ function Esc05_RestaConcepto() {
       <Titulo accent="#f59e0b">Resta: quitar de un total</Titulo>
 
       <Parrafo>
-        <strong>Restar</strong> es lo opuesto a sumar: quitás una cantidad de otra.
-        Si tenés 7 panes y te comés 3, te quedan 4.
+        <strong>Restar</strong> es lo opuesto a sumar: quitas una cantidad de otra.
+        Si tienes 7 panes y te comes 3, te quedan 4.
       </Parrafo>
 
       <Definicion termino="resta">
         Notación: <strong>a − b = c</strong>. <br />
         <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>
-          <strong>a</strong> es el <strong>minuendo</strong> (lo que tenés). <strong>b</strong> es el <strong>sustraendo</strong> (lo que sacás). <strong>c</strong> es la <strong>diferencia</strong>.
+          <strong>a</strong> es el <strong>minuendo</strong> (lo que tienes). <strong>b</strong> es el <strong>sustraendo</strong> (lo que sacas). <strong>c</strong> es la <strong>diferencia</strong>.
         </span>
       </Definicion>
 
@@ -335,7 +336,7 @@ function Esc06_RestaNeg() {
       <Titulo accent="#f59e0b">Cuando la resta da negativo</Titulo>
 
       <Parrafo>
-        ¿Qué pasa si querés restar más de lo que tenés? Por ejemplo, ¿cuánto es
+        ¿Qué pasa si quieres restar más de lo que tienes? Por ejemplo, ¿cuánto es
         <strong> 3 − 7</strong>?
       </Parrafo>
 
@@ -366,13 +367,13 @@ function Esc06_RestaNeg() {
       </div>
 
       <PorQue>
-        Pensá en dinero: si tenés 3 bolivianos y querés gastar 7, te falta 4. Esa "deuda" se anota
+        Piensa en dinero: si tienes 3 bolivianos y quieres gastar 7, te falta 4. Esa "deuda" se anota
         como <strong>−4</strong>. Los negativos son la forma matemática de decir "te falta".
       </PorQue>
 
       <Ejemplo titulo="Regla práctica">
         Cuando <strong>a {"<"} b</strong> en la cuenta <strong>a − b</strong>:
-        <Paso n={1}>Calculá <strong>b − a</strong> (el más grande menos el más chico).</Paso>
+        <Paso n={1}>Calcula <strong>b − a</strong> (el más grande menos el más chico).</Paso>
         <Paso n={2}>El resultado lleva signo <strong>menos</strong>.</Paso>
         <div style={{ marginTop: 8, color: COLOR_OK, fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
           Ej: 3 − 7 → calculo 7 − 3 = 4 → resultado: <strong>−4</strong>
@@ -395,11 +396,11 @@ function Esc06_RestaNeg() {
 function Esc07_MultConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Multiplicación: suma repetida</Titulo>
+      <Titulo accent={LIENZO.accent}>Multiplicación: suma repetida</Titulo>
 
       <Parrafo>
         <strong>Multiplicar</strong> es una forma corta de escribir una suma del mismo
-        número. En lugar de escribir <strong>4 + 4 + 4</strong>, escribís <strong>3 × 4</strong>
+        número. En lugar de escribir <strong>4 + 4 + 4</strong>, escribes <strong>3 × 4</strong>
         (tres veces el cuatro).
       </Parrafo>
 
@@ -455,7 +456,7 @@ function Esc07_MultConcepto() {
 function Esc08_MultProps() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Las propiedades de la multiplicación</Titulo>
+      <Titulo accent={LIENZO.accent}>Las propiedades de la multiplicación</Titulo>
 
       <Ejemplo titulo="1. Conmutativa">
         <strong>a · b = b · a</strong>
@@ -479,7 +480,7 @@ function Esc08_MultProps() {
         </div>
         <PorQue>
           Esta es la propiedad que justifica gran parte del álgebra. Cuando
-          factorizás un polinomio o multiplicás (x+2)(x+3), estás usando la
+          factorizas un polinomio o multiplicas (x+2)(x+3), estas usando la
           distributiva. <strong>Memorizala bien.</strong>
         </PorQue>
       </Ejemplo>
@@ -511,7 +512,7 @@ function Esc08_MultProps() {
 function Esc09_MultNeg() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Reglas de signos al multiplicar</Titulo>
+      <Titulo accent={LIENZO.accent}>Reglas de signos al multiplicar</Titulo>
 
       <Parrafo>
         Multiplicar números con signo sigue 4 reglas simples:
@@ -543,7 +544,7 @@ function Esc09_MultNeg() {
       </Resumen>
 
       <PorQue>
-        ¿Por qué (−) · (−) = (+)? Una forma de verlo: si te quitan una deuda, ganás. <br />
+        ¿Por qué (−) · (−) = (+)? Una forma de verlo: si te quitan una deuda, ganas. <br />
         Matemáticamente: usar la distributiva con 0 = 1 + (−1) lleva a esa conclusión obligadamente.
       </PorQue>
 
@@ -572,7 +573,7 @@ function Esc09_MultNeg() {
 function Esc10_DivConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">División: repartir en partes iguales</Titulo>
+      <Titulo accent={LIENZO.accent}>División: repartir en partes iguales</Titulo>
 
       <Parrafo>
         <strong>Dividir</strong> es lo opuesto a multiplicar. Hay dos formas de
@@ -592,13 +593,13 @@ function Esc10_DivConcepto() {
       <Definicion termino="división">
         Notación: <strong>a ÷ b = c</strong> (también <strong>a/b</strong> o <strong>a : b</strong>).<br />
         <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>
-          <strong>a</strong> es el <strong>dividendo</strong> (lo que repartís). <strong>b</strong> es el <strong>divisor</strong> (entre cuántos). <strong>c</strong> es el <strong>cociente</strong> (cuánto le toca a cada uno).
+          <strong>a</strong> es el <strong>dividendo</strong> (lo que repartes). <strong>b</strong> es el <strong>divisor</strong> (entre cuántos). <strong>c</strong> es el <strong>cociente</strong> (cuánto le toca a cada uno).
         </span>
       </Definicion>
 
       <PorQue>
         Dividir es la operación inversa de multiplicar. <strong>12 ÷ 3 = 4</strong> porque
-        <strong> 4 · 3 = 12</strong>. Siempre podés verificar una división multiplicando.
+        <strong> 4 · 3 = 12</strong>. Siempre puedes verificar una división multiplicando.
       </PorQue>
 
       <Cuidado>
@@ -615,7 +616,7 @@ function Esc10_DivConcepto() {
 function Esc11_DivResto() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">Cuando la división no es exacta</Titulo>
+      <Titulo accent={LIENZO.accent}>Cuando la división no es exacta</Titulo>
 
       <Parrafo>
         No todas las divisiones dan un resultado entero. Por ejemplo, <strong>14 ÷ 4</strong>:
@@ -636,7 +637,7 @@ function Esc11_DivResto() {
       </Resumen>
 
       <Parrafo>
-        Si querés un resultado <em>decimal</em> en lugar de un resto, seguís dividiendo:
+        Si quieres un resultado <em>decimal</em> en lugar de un resto, sigues dividiendo:
         <strong> 14 ÷ 4 = 3,5</strong> exactamente.
       </Parrafo>
 
@@ -656,7 +657,7 @@ function Esc11_DivResto() {
 function Esc12_DivCero() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">¿Por qué no se puede dividir por 0?</Titulo>
+      <Titulo accent={LIENZO.accent}>¿Por qué no se puede dividir por 0?</Titulo>
 
       <Parrafo>
         En toda matemática vas a ver esto: <strong>la división por 0 está prohibida</strong>.
@@ -683,7 +684,7 @@ function Esc12_DivCero() {
 
       <Cuidado>
         Esta regla aparece todo el tiempo en álgebra. Cuando aparezca <strong>1/(x−3)</strong>,
-        sabés que <strong>x ≠ 3</strong> (porque ahí el denominador sería 0). Lo vas a usar
+        sabes que <strong>x ≠ 3</strong> (porque ahí el denominador sería 0). Lo vas a usar
         en dominio de funciones, ecuaciones racionales y muchísimo más.
       </Cuidado>
     </EscenaRica>
@@ -710,7 +711,7 @@ function Esc13_JerIntro() {
           padding: "14px 12px", borderRadius: 12, background: "#fee2e2", border: `2px solid ${COLOR_BAD}`,
           textAlign: "center",
         }}>
-          <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_BAD, marginBottom: 4 }}>SI SUMÁS PRIMERO</div>
+          <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_BAD, marginBottom: 4 }}>SI SUMAS PRIMERO</div>
           <div style={{ fontSize: 18, color: COLOR_BASE }}>(2+3) × 4 = 20</div>
           <div style={{ fontSize: 11, color: COLOR_BAD, marginTop: 4 }}>(incorrecto)</div>
         </div>
@@ -718,7 +719,7 @@ function Esc13_JerIntro() {
           padding: "14px 12px", borderRadius: 12, background: "#d1fae5", border: `2px solid ${COLOR_OK}`,
           textAlign: "center",
         }}>
-          <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_OK, marginBottom: 4 }}>SI MULTIPLICÁS PRIMERO</div>
+          <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_OK, marginBottom: 4 }}>SI MULTIPLICAS PRIMERO</div>
           <div style={{ fontSize: 18, color: COLOR_BASE }}>2 + (3 × 4) = 14</div>
           <div style={{ fontSize: 11, color: COLOR_OK, marginTop: 4 }}>(correcto)</div>
         </div>
@@ -747,7 +748,7 @@ function Esc14_PEMDAS() {
       <Titulo>La regla PEMDAS</Titulo>
 
       <Parrafo>
-        Resolvé las operaciones <strong>en este orden</strong>, siempre:
+        Resuelve las operaciones <strong>en este orden</strong>, siempre:
       </Parrafo>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 520, width: "100%" }}>
@@ -843,7 +844,7 @@ function Esc16_Errores() {
       <Titulo accent={COLOR_BAD}>Los 5 errores más comunes</Titulo>
 
       <Parrafo>
-        Si los conocés, los evitás. Estos son los errores que aparecen una y otra vez
+        Si los conoces, los evitas. Estos son los errores que aparecen una y otra vez
         en los exámenes:
       </Parrafo>
 
@@ -858,7 +859,7 @@ function Esc16_Errores() {
       <Cuidado>
         <strong>Error 2:</strong> Hacer multiplicación siempre antes que división. <br />
         <span style={{ fontSize: 13 }}>
-          En <strong>8 ÷ 2 × 4</strong>, hacés <em>izquierda a derecha</em>: <br />
+          En <strong>8 ÷ 2 × 4</strong>, haces <em>izquierda a derecha</em>: <br />
           ❌ 8 ÷ (2×4) = 1 (mal) <br />
           ✅ (8÷2) × 4 = 16 (bien)
         </span>
@@ -889,7 +890,7 @@ function Esc16_Errores() {
 
       <Resumen>
         <strong>Tip de oro</strong>: en un examen, antes de escribir el resultado,
-        <em> repasá la jerarquía mentalmente</em>: ¿hay paréntesis? ¿exponentes?
+        <em> repasa la jerarquía mentalmente</em>: ¿hay paréntesis? ¿exponentes?
         ¿mult/div? ¿suma/resta? Te ahorra muchísimos errores.
       </Resumen>
 
@@ -954,10 +955,10 @@ function Esc17_Practica() {
 
   return (
     <EscenaRica>
-      <Titulo>Practicá lo aprendido</Titulo>
+      <Titulo>Practica lo aprendido</Titulo>
       <Parrafo>
-        Resolvé estos 5 ejercicios sin mirar las páginas anteriores. Si alguno te cuesta,
-        volvé al ejemplo correspondiente y leelo de nuevo. <strong>El objetivo no es
+        Resuelve estos 5 ejercicios sin mirar las páginas anteriores. Si alguno te cuesta,
+        vuelve al ejemplo correspondiente y leelo de nuevo. <strong>El objetivo no es
         acertar todo de una: es darte cuenta de qué te falta repasar.</strong>
       </Parrafo>
 
@@ -1031,9 +1032,9 @@ function Esc17_Practica() {
             {correctas} / {ejercicios.length} correctas
           </div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {correctas === ejercicios.length && "🎉 ¡Perfecto! Tenés bien dominadas las operaciones fundamentales."}
-            {correctas >= 3 && correctas < ejercicios.length && "Muy bien. Repasá los ejercicios que te costaron y volvé en unos días."}
-            {correctas < 3 && "Volvé a las escenas anteriores y repasá los conceptos. La práctica gana, no te apures."}
+            {correctas === ejercicios.length && "🎉 ¡Perfecto! Tienes bien dominadas las operaciones fundamentales."}
+            {correctas >= 3 && correctas < ejercicios.length && "Muy bien. Repasa los ejercicios que te costaron y vuelve en unos días."}
+            {correctas < 3 && "Vuelve a las escenas anteriores y repasa los conceptos. La práctica gana, no te apures."}
           </div>
         </motion.div>
       )}

@@ -13,12 +13,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function LeyesDeExponentesYRadicalesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés simplificar una expresión gigante sacando factor común de una potencia, sin calcular ningún valor numérico?
+            ¿Sabías que puedes simplificar una expresión gigante sacando factor común de una potencia, sin calcular ningún valor numérico?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -33,12 +33,12 @@ export default function LeyesDeExponentesYRadicalesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés las leyes básicas de exponentes; el truco de esta lámina es usarlas para REDUCIR una expresión larga a algo simple.
+            Ya sabes las leyes básicas de exponentes; el truco de esta lámina es usarlas para REDUCIR una expresión larga a algo simple.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -64,11 +64,11 @@ export default function LeyesDeExponentesYRadicalesPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si una misma base aparece con distintos exponentes, sacá factor común la potencia MENOR</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si una misma base aparece con distintos exponentes, saca factor común la potencia MENOR</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Lo que queda son números comunes: sumá, restá o dividí como siempre</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Lo que queda son números comunes: suma, resta o divide como siempre</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
@@ -127,7 +127,7 @@ export default function LeyesDeExponentesYRadicalesPage() {
             Examen UMSS
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.6 }}>
-            La misma idea de &quot;sacar factor común&quot; aplica a radicales: extraé los cuadrados perfectos escondidos y agrupá los términos semejantes.
+            La misma idea de &quot;sacar factor común&quot; aplica a radicales: extraé los cuadrados perfectos escondidos y agrupa los términos semejantes.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="2a√(50b²c) = 2a·5b√(2c)" eq={"$10ab\\sqrt{2c}$"} />
@@ -144,7 +144,7 @@ export default function LeyesDeExponentesYRadicalesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Racionalizar, simplificar y hallar el valor de $E=\\dfrac{1}{\\sqrt2+1}+\\dfrac{2}{\\sqrt3-1}-\\dfrac{1}{\\sqrt3+\\sqrt2}$."}

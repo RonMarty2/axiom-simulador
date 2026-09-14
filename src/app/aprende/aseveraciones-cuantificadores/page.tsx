@@ -165,8 +165,8 @@ function EscIntro() {
 
       <Conexion>
         Esta lección conecta directamente con <em>Silogismos</em>: cada premisa silogística es una
-        aseveración con un cuantificador. Si dominás las 4 formas (universal/particular ×
-        afirmativa/negativa), entendés cualquier silogismo en segundos.
+        aseveración con un cuantificador. Si dominas las 4 formas (universal/particular ×
+        afirmativa/negativa), entiendes cualquier silogismo en segundos.
       </Conexion>
     </EscenaRica>
   );
@@ -202,7 +202,7 @@ function EscCuantificadores() {
       </Mnemotecnia>
 
       <Misconception titulo="'Algunos' NO significa 'solo unos pocos'">
-        En lógica, <strong>"algunos" = al menos uno</strong> (incluso todos). Si decís "algunos
+        En lógica, <strong>"algunos" = al menos uno</strong> (incluso todos). Si dices "algunos
         estudiantes aprobaron" y resulta que aprobaron TODOS, la frase sigue siendo verdadera. Es
         contraintuitivo respecto al uso cotidiano del español, pero es la definición lógica.
       </Misconception>
@@ -215,7 +215,7 @@ function EscVenn() {
     <EscenaRica>
       <Titulo>Las 4 formas básicas con diagramas de Venn</Titulo>
       <Parrafo>
-        Toda aseveración categórica tiene una de 4 formas. Tocá los botones para ver cada una
+        Toda aseveración categórica tiene una de 4 formas. Toca los botones para ver cada una
         representada visualmente:
       </Parrafo>
       <DiagramaVenn4Formas />
@@ -257,10 +257,10 @@ function EscContradiccion() {
 
       <Mnemotecnia>
         <strong>Regla de la "X"</strong> para encontrar la contradicción:<br />
-        Cruzá CANTIDAD y CUALIDAD en aspa.<br /><br />
+        Cruza CANTIDAD y CUALIDAD en aspa.<br /><br />
         Todos × <strong>NO</strong> → "Algunos NO" ↔ "Todos sí"<br />
         Ninguno × <strong>SÍ</strong> → "Algunos SÍ" ↔ "Ninguno"<br /><br />
-        <strong>Recordá la X</strong>: las contradicciones se cruzan diagonalmente entre los 4
+        <strong>Recuerda la X</strong>: las contradicciones se cruzan diagonalmente entre los 4
         cuadros (Universal-Sí, Universal-No, Particular-Sí, Particular-No).
       </Mnemotecnia>
 
@@ -279,7 +279,7 @@ function EscContradiccion() {
         • E ⟷ I (cruz: "Ninguno es" vs "Algunos SÍ son").<br /><br />
 
         <strong>Aplicación:</strong> aseveración "Todos los gatos cazan ratones".<br />
-        Para refutarla, NO necesitás probar "ningún gato caza": basta encontrar UN gato que NO
+        Para refutarla, NO necesitas probar "ningún gato caza": basta encontrar UN gato que NO
         cace (la contradictoria O).<br /><br />
 
         <strong>Esto se llama "contraejemplo"</strong> y es el método más usado en lógica y
@@ -423,7 +423,7 @@ function EscPV() {
     <EscenaRica>
       <Titulo>Práctica · valor de verdad</Titulo>
       <Parrafo>
-        Para cada aseveración, determiná si es verdadera (V) o falsa (F):
+        Para cada aseveración, determina si es verdadera (V) o falsa (F):
       </Parrafo>
       <PracticaFinal ejercicios={[
         {
@@ -468,7 +468,7 @@ function EscResumen() {
       <Resumen>
         <strong>1.</strong> Toda aseveración categórica tiene una de 4 formas: Universal afirmativa,
         Universal negativa, Particular afirmativa, Particular negativa.<br /><br />
-        <strong>2.</strong> Para visualizar usá diagramas de Venn: incluido, disjunto, intersección.<br /><br />
+        <strong>2.</strong> Para visualizar usa diagramas de Venn: incluido, disjunto, intersección.<br /><br />
         <strong>3.</strong> La contradicción cruza CANTIDAD + CUALIDAD: "Todos son" ↔ "Algunos NO son"; "Ninguno es" ↔ "Algunos SÍ son".<br /><br />
         <strong>4.</strong> "Ninguno es" NO es contradicción de "Todos son": es otra universal.<br /><br />
         <strong>5.</strong> Para que una universal afirmativa ("Todos son X") sea falsa, basta UN

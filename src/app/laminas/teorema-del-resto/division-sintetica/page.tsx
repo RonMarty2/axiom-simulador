@@ -16,7 +16,7 @@ import {
 export default function DivisionSinteticaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -37,12 +37,12 @@ export default function DivisionSinteticaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de lo que ya sabés",
+      etiqueta: "Arrancamos de lo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 10px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ruffini no es un truco nuevo. Es la división larga de la lámina anterior, anotada distinto: en vez de escribir cada término con su x, anotás solo los coeficientes.
+            Ruffini no es un truco nuevo. Es la división larga de la lámina anterior, anotada distinto: en vez de escribir cada término con su x, anotas solo los coeficientes.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$(2x^3+3x^2-4x+1) \\div (x+2)$"}</MathText>
@@ -67,10 +67,10 @@ export default function DivisionSinteticaPage() {
             sumas={["$2$", "$-1$", "$-2$", "$5$"]}
           />
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px", marginTop: 12 }}>
-            <LineaEjemplo glosa="Bajás el primer coeficiente tal cual" eq="$2$" />
-            <LineaEjemplo glosa="Multiplicás por a y sumás al siguiente" eq="$3 + (2)(-2) = -1$" />
-            <LineaEjemplo glosa="Repetís" eq="$-4 + (-1)(-2) = -2$" />
-            <LineaEjemplo glosa="Repetís una vez más" eq="$1 + (-2)(-2) = 5$" />
+            <LineaEjemplo glosa="Bajas el primer coeficiente tal cual" eq="$2$" />
+            <LineaEjemplo glosa="Multiplicas por a y sumas al siguiente" eq="$3 + (2)(-2) = -1$" />
+            <LineaEjemplo glosa="Repites" eq="$-4 + (-1)(-2) = -2$" />
+            <LineaEjemplo glosa="Repites una vez más" eq="$1 + (-2)(-2) = 5$" />
           </div>
         </div>
       ),
@@ -162,13 +162,13 @@ export default function DivisionSinteticaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Al dividir $P(x) = x^3 + x^2 - 4x - 4$ entre $(x+1)$ por división sintética, el cociente es:"}
           opciones={["$x^2 - 4$", "$x^2 + 4$", "$x^2 - x - 4$", "$x^2 + x - 4$", "Ninguno"]}
           correcta={0}
-          explicacion={"Divisor $(x+1)$, entonces $a=-1$. Coeficientes $1,1,-4,-4$. Bajás 1. $1+(1)(-1)=0$. $-4+(0)(-1)=-4$. $-4+(-4)(-1)=0$. Fila resultado: $1,0,-4\\ |\\ 0$, así que $Q(x)=x^2-4$, resto $0$."}
+          explicacion={"Divisor $(x+1)$, entonces $a=-1$. Coeficientes $1,1,-4,-4$. Bajas 1. $1+(1)(-1)=0$. $-4+(0)(-1)=-4$. $-4+(-4)(-1)=0$. Fila resultado: $1,0,-4\\ |\\ 0$, así que $Q(x)=x^2-4$, resto $0$."}
         />
       ),
     },

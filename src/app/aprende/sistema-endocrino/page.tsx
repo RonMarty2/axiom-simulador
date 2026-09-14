@@ -72,7 +72,7 @@ function EscSimGlucemia() {
       <Titulo>Simulador · regulación de la glucemia</Titulo>
 
       <Parrafo>
-        Apretá los botones y mirá cómo cambia la glucosa en sangre.
+        Apretá los botones y mira cómo cambia la glucosa en sangre.
         El cuerpo tiende a volver a 90 mg/dL con insulina y glucagón.
       </Parrafo>
 

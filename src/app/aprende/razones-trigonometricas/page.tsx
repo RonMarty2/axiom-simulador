@@ -100,7 +100,7 @@ function EscIntro() {
         (criterio AA: ya tienen el ángulo recto y el ángulo agudo). En
         triángulos semejantes, las razones entre lados correspondientes son
         iguales.<br /><br />
-        Por eso podés tabular sen, cos, tan de cualquier ángulo y obtener los
+        Por eso puedes tabular sen, cos, tan de cualquier ángulo y obtener los
         lados de cualquier triángulo rectángulo que tenga ese ángulo.
       </PorQue>
     </EscenaRica>
@@ -138,7 +138,7 @@ function EscSohCahToa() {
       </WorkedExample>
 
       <Resumen>
-        <strong>Recordá quién es opuesto, adyacente, hipotenusa</strong>:<br />
+        <strong>Recuerda quién es opuesto, adyacente, hipotenusa</strong>:<br />
         • La hipotenusa es siempre la misma (lado más largo, opuesto al ángulo
         recto).<br />
         • El opuesto y adyacente CAMBIAN según qué ángulo agudo mires.<br />
@@ -246,7 +246,7 @@ function EscResolucion() {
 
       <Parrafo>
         "Resolver un triángulo" significa encontrar todos sus lados y ángulos
-        desconocidos. En un rectángulo, necesitás 2 datos (además del ángulo
+        desconocidos. En un rectángulo, necesitas 2 datos (además del ángulo
         recto) para resolverlo completo.
       </Parrafo>
 
@@ -335,7 +335,7 @@ function EscErrores() {
       <Misconception titulo="Error 1 · confundir cateto opuesto vs adyacente">
         Depende del ángulo que mires. El opuesto es el que NO toca al ángulo.
         El adyacente es el que SÍ toca al ángulo (sin ser hipotenusa).<br /><br />
-        Si te equivocás de cateto, sen y cos se intercambian.
+        Si te equivocas de cateto, sen y cos se intercambian.
       </Misconception>
 
       <Misconception titulo="Error 2 · sen² ≠ sen(x²)">
@@ -346,7 +346,7 @@ function EscErrores() {
       <Misconception titulo="Error 3 · usar calculadora en grados vs radianes">
         En el examen, los ángulos vienen en grados. Tu calculadora debe estar
         en modo DEG (degrees), no RAD (radianes). Si vienes con la calculadora
-        en RAD y le pedís sen 30°, te da sen(30 radianes) que es un valor
+        en RAD y le pides sen 30°, te da sen(30 radianes) que es un valor
         absurdo.
       </Misconception>
 

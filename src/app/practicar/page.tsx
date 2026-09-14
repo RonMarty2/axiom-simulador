@@ -92,6 +92,13 @@ function PracticarInner() {
 
   const facultadObj = facultades.find((f) => f.id === facultadSeleccionada);
 
+  // Qué le falta al alumno para poder arrancar, en texto. null = está listo.
+  const falta: string | null =
+    !modo ? "Elige primero un tipo de práctica."
+    : modo === "examen_real" && !examenId ? "Elige cuál examen quieres rendir."
+    : modo === "por_tema" && !tema ? "Elige el tema que quieres practicar."
+    : null;
+
   const empezar = async () => {
     if (!modo) return;
     setCreando(true);
@@ -152,7 +159,7 @@ function PracticarInner() {
             }}>
               <span style={{ display: "flex" }}><Icono nombre={iconoFacultad(fac.id)} tamano={32} grosor={1.7} /></span>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estás postulando a</div>
+                <div style={{ fontSize: 11, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estas postulando a</div>
                 <div style={{ fontSize: 20, fontWeight: 800 }}>{fac.nombre_corto}</div>
               </div>
               <Link
@@ -210,7 +217,7 @@ function PracticarInner() {
 
             {modo === "examen_real" && (
               <div>
-                <label style={lbl()}>Elegí el examen exacto (año, opción y fecha)</label>
+                <label style={lbl()}>Elige el examen exacto (año, opción y fecha)</label>
                 <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                   {examenes.length === 0 && <div style={{ color: "var(--fg-muted)", fontSize: 13 }}>No hay exámenes cargados para esta facultad.</div>}
                   {examenes
@@ -291,18 +298,29 @@ function PracticarInner() {
           </div>
         )}
 
+        {/* `falta` en una sola variable: antes la condición de `disabled` y la
+            de `opacity` no eran la misma, así que eligiendo "Examen real" sin
+            elegir CUÁL examen el botón se veía habilitado, se podía apretar y
+            no pasaba nada. Ahora, si falta algo, el botón se ve apagado y
+            debajo dice qué falta. */}
         <button
           onClick={empezar}
-          disabled={!modo || creando || (modo === "examen_real" && !examenId) || (modo === "por_tema" && !tema)}
+          disabled={!!falta || creando}
           style={{
             width: "100%", padding: 16, background: "var(--accent)",
             color: "var(--accent-fg)", border: "none", borderRadius: 12, fontSize: 16, fontWeight: 800,
-            cursor: "pointer", opacity: (!modo || creando) ? 0.5 : 1,
+            cursor: falta || creando ? "not-allowed" : "pointer", opacity: falta || creando ? 0.5 : 1,
             display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
           }}
         >
           {creando ? "Preparando examen..." : <>Empezar simulacro de {facultadObj?.nombre_corto ?? ""} <Icono nombre="flecha" tamano={18} /></>}
         </button>
+
+        {falta && !creando && (
+          <p style={{ marginTop: 10, textAlign: "center", fontSize: 13, color: "var(--fg-muted)" }}>
+            {falta}
+          </p>
+        )}
 
         <div style={{ textAlign: "center", marginTop: 16 }}>
           <BackLink href="/dashboard" label="Volver al inicio" />

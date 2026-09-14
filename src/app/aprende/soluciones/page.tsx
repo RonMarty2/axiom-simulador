@@ -39,7 +39,7 @@ function EscIntro() {
       <Hook>
         El suero fisiológico que te ponen en el hospital es una solución: NaCl
         disuelto en agua, exactamente al 0.9%. Si la concentración no es la
-        correcta, podés morir. Así de importante es saber medir soluciones.
+        correcta, puedes morir. Así de importante es saber medir soluciones.
       </Hook>
 
       <Definicion termino="Solución">
@@ -74,7 +74,7 @@ function EscIntro() {
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás dominar: moles (Unidad 5): toda la unidad gira alrededor de
+        Necesitas dominar: moles (Unidad 5): toda la unidad gira alrededor de
         moles y masa.
       </Conexion>
     </EscenaRica>
@@ -157,7 +157,7 @@ function EscPorMasa() {
 
       <Mnemotecnia>
         <strong>"% es por 100"</strong>: divide la masa del soluto entre la
-        masa TOTAL (no el solvente solo), y multiplicá por 100.
+        masa TOTAL (no el solvente solo), y multiplica por 100.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -189,7 +189,7 @@ function EscPorVolumen() {
 
       <Cuidado>
         Solo en % m/V se mezclan unidades (g y mL). Es una convención de
-        farmacopea. Si te dan kg y L, convertí primero.
+        farmacopea. Si te dan kg y L, convierte primero.
       </Cuidado>
     </EscenaRica>
   );
@@ -272,7 +272,7 @@ function EscSimulador() {
       <Titulo>Simulador · preparar molaridad</Titulo>
 
       <Parrafo>
-        Elegí un compuesto, su masa y el volumen final. El simulador calcula la
+        Elige un compuesto, su masa y el volumen final. El simulador calcula la
         molaridad y los pasos para prepararla.
       </Parrafo>
 
@@ -332,8 +332,8 @@ function EscSimulador() {
       </div>
 
       <Cuidado>
-        Verificá los extremos: si duplicás los gramos, M se duplica. Si
-        duplicás el volumen, M se reduce a la mitad. Es proporcionalidad
+        Verifica los extremos: si duplicas los gramos, M se duplica. Si
+        duplicas el volumen, M se reduce a la mitad. Es proporcionalidad
         directa con n e inversa con V.
       </Cuidado>
     </EscenaRica>
@@ -472,9 +472,9 @@ function EscDiluciones() {
         Luego completar con agua hasta 500 mL.
       </WorkedExample>
 
-      <Paso n={1}>Identificá M₁, V₁ (lo concentrado) y M₂, V₂ (lo diluido).</Paso>
-      <Paso n={2}>Aplicá M₁V₁ = M₂V₂ y despejá la incógnita.</Paso>
-      <Paso n={3}>Tomá V₁ de la concentrada y completá con SOLVENTE (no soluto).</Paso>
+      <Paso n={1}>Identifica M₁, V₁ (lo concentrado) y M₂, V₂ (lo diluido).</Paso>
+      <Paso n={2}>Aplica M₁V₁ = M₂V₂ y despeja la incógnita.</Paso>
+      <Paso n={3}>Toma V₁ de la concentrada y completa con SOLVENTE (no soluto).</Paso>
 
       <Cuidado>
         <strong>NUNCA agregues agua al ácido concentrado.</strong> Siempre el
@@ -530,7 +530,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · Olvidar el aforo en molaridad">
         <strong>Pensar:</strong> que el volumen de la solución es igual al
-        volumen del solvente que agregás.<br />
+        volumen del solvente que agregas.<br />
         <strong>Realidad:</strong> "aforar a 1 L" significa llegar hasta la
         marca de 1 L una vez disuelto el soluto. El soluto desplaza volumen.
       </Misconception>
@@ -568,7 +568,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="Si diluís 50 mL de HCl 6 M hasta 300 mL, ¿qué M final?"
+        pregunta="Si dilues 50 mL de HCl 6 M hasta 300 mL, ¿qué M final?"
         opciones={["6 M", "0.5 M", "1 M", "2 M"]}
         correctaIdx={2}
         explicacion="M₁V₁ = M₂V₂ → M₂ = (6×50)/300 = 1 M."

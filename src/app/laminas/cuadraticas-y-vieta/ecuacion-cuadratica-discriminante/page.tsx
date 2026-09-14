@@ -11,12 +11,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionCuadraticaDiscriminantePage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés saber cuántas soluciones reales tiene una ecuación cuadrática sin resolverla, mirando un solo número?
+            ¿Sabías que puedes saber cuántas soluciones reales tiene una ecuación cuadrática sin resolverla, mirando un solo número?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -36,7 +36,7 @@ export default function EcuacionCuadraticaDiscriminantePage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            La fórmula general para resolver una cuadrática ya la conocés. Fijate bien qué hay adentro de la raíz cuadrada.
+            La fórmula general para resolver una cuadrática ya la conoces. Fíjate bien qué hay adentro de la raíz cuadrada.
           </p>
           <div style={{ textAlign: "center", padding: "14px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 19 }}>
             <MathText>{"$x = \\dfrac{-b \\pm \\sqrt{\\,b^2-4ac\\,}}{2a}$"}</MathText>
@@ -119,7 +119,7 @@ export default function EcuacionCuadraticaDiscriminantePage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            La gracia del discriminante es esta: contestás &quot;cuántas soluciones reales tiene&quot; sin resolver la ecuación entera.
+            La gracia del discriminante es esta: contestas &quot;cuántas soluciones reales tiene&quot; sin resolver la ecuación entera.
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
             Sin resolver, ¿cuántas soluciones reales tiene <MathText>{"$3x^2 + 2x + 5 = 0$"}</MathText>?
@@ -138,7 +138,7 @@ export default function EcuacionCuadraticaDiscriminantePage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"¿Qué de lo siguiente es cierto para la parábola $y = -4x^2 + 20x - 25$?"}

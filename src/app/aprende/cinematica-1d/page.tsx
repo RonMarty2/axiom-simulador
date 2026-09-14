@@ -266,7 +266,7 @@ function EscMRU() {
 
       <PorQue>
         Como la velocidad es constante: distancia = velocidad × tiempo. Si
-        empezás en x₀, después de tiempo t estás en x = x₀ + vt. En un gráfico
+        empiezas en x₀, después de tiempo t estas en x = x₀ + vt. En un gráfico
         x-t, esto es siempre una RECTA (pendiente = v).
       </PorQue>
 
@@ -372,10 +372,10 @@ function EscMRUA() {
 
       <Mnemotecnia>
         <strong>Cuándo usar cada ecuación</strong>:<br />
-        • Si conocés t y querés v: ec. 1.<br />
-        • Si conocés t y querés x: ec. 2.<br />
-        • Si NO conocés t pero conocés x: ec. 3.<br />
-        • Si conocés v₀ y v final y querés x: ec. 4.<br /><br />
+        • Si conoces t y quieres v: ec. 1.<br />
+        • Si conoces t y quieres x: ec. 2.<br />
+        • Si NO conoces t pero conoces x: ec. 3.<br />
+        • Si conoces v₀ y v final y quieres x: ec. 4.<br /><br />
         Es importante identificar primero los datos para elegir la ecuación.
       </Mnemotecnia>
     </EscenaRica>
@@ -601,18 +601,18 @@ function EscPractica() {
       <Titulo>Errores y práctica</Titulo>
 
       <Misconception titulo="Error 1 · confundir desplazamiento con distancia">
-        Si volvés al punto de partida, desplazamiento = 0 pero distancia es lo
+        Si vuelves al punto de partida, desplazamiento = 0 pero distancia es lo
         que recorriste total.
       </Misconception>
 
       <Misconception titulo="Error 2 · signo de g en caída libre">
-        Si tomás "positivo hacia arriba", g va con signo negativo en las
-        ecuaciones (a = −g = −9.8). Si tomás "positivo hacia abajo",
+        Si tomas "positivo hacia arriba", g va con signo negativo en las
+        ecuaciones (a = −g = −9.8). Si tomas "positivo hacia abajo",
         a = +g = +9.8.
       </Misconception>
 
       <Misconception titulo="Error 3 · usar v_media para encontrar posiciones intermedias">
-        <MathText>{"$v_m = \\dfrac{\\Delta x}{\\Delta t}$"}</MathText> solo te da la posición FINAL si conocés el tiempo
+        <MathText>{"$v_m = \\dfrac{\\Delta x}{\\Delta t}$"}</MathText> solo te da la posición FINAL si conoces el tiempo
         total. No es la velocidad en momentos intermedios (a menos que el
         movimiento sea MRU).
       </Misconception>

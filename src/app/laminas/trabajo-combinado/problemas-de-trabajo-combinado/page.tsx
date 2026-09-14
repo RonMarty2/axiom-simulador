@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function ProblemasDeTrabajoCombinadoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function ProblemasDeTrabajoCombinadoPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que si algo tarda <MathText>{"$a$"}</MathText> horas en completarse, en una hora se hace <MathText>{"$1/a$"}</MathText> del trabajo: esa es su rapidez, o tasa de trabajo.
+            Ya sabes que si algo tarda <MathText>{"$a$"}</MathText> horas en completarse, en una hora se hace <MathText>{"$1/a$"}</MathText> del trabajo: esa es su rapidez, o tasa de trabajo.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\dfrac{1}{a} + \\dfrac{1}{b} = \\dfrac{1}{t}$"}</MathText>
@@ -53,11 +53,11 @@ export default function ProblemasDeTrabajoCombinadoPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convertí cada tiempo individual en una tasa: <MathText>{"$1/\\text{tiempo}$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convierte cada tiempo individual en una tasa: <MathText>{"$1/\\text{tiempo}$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Sumá las tasas de todos los que trabajan a la vez</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma las tasas de todos los que trabajan a la vez</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
@@ -130,7 +130,7 @@ export default function ProblemasDeTrabajoCombinadoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Mario tarda 4h solo, Lena tarda una hora más que Carla. Juntos entregan todo en 40% del tiempo que tarda Carla sola. ¿Cuánto tarda Carla sola?"}

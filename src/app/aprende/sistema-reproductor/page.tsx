@@ -31,7 +31,7 @@ function EscIntro() {
       <Titulo>Reproducción · perpetuar la especie</Titulo>
 
       <Hook>
-        Empezás como UNA célula (cigoto, 0.1 mm). 9 meses después, llegás al
+        Empiezas como UNA célula (cigoto, 0.1 mm). 9 meses después, llegas al
         mundo con billones de células. Toda esa transformación viene de la
         unión de un óvulo + un espermatozoide, cada uno con 23 cromosomas.
       </Hook>
@@ -42,7 +42,7 @@ function EscIntro() {
       </Definicion>
 
       <Conexion>
-        Necesitás dominar: meiosis (Biología-3), genética (Biología-4),
+        Necesitas dominar: meiosis (Biología-3), genética (Biología-4),
         endocrino (Medicina-6). El sistema reproductor está regulado por las
         hormonas hipofisarias FSH y LH.
       </Conexion>

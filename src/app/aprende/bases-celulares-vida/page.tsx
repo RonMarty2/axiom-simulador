@@ -410,7 +410,7 @@ function EscMitosis() {
 
       <Mnemotecnia>
         <strong>"PMAT"</strong>: Profase, Metafase, Anafase, Telofase. O en
-        español: "<em>Picaron mi auto trapeando</em>". Lo que vos quieras: el
+        español: "<em>Picaron mi auto trapeando</em>". Lo que tú quieras: el
         orden es lo crucial.
       </Mnemotecnia>
 
@@ -475,7 +475,7 @@ function EscMeiosis() {
       <Definicion termino="Recombinación genética (crossing-over)">
         Durante la profase I de la meiosis, los cromosomas homólogos
         intercambian fragmentos de ADN. Esto explica la VARIABILIDAD genética:
-        ¡vos no sos clon de tus hermanos! Cada gameto trae una combinación
+        ¡tú no sos clon de tus hermanos! Cada gameto trae una combinación
         única.
       </Definicion>
 

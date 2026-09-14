@@ -67,7 +67,7 @@ function SecuenciaConPatron({
         </svg>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", marginTop: 6 }}>
-        {on ? `Patrón: ${patron} entre términos consecutivos` : "Tocá para ver el patrón"}
+        {on ? `Patrón: ${patron} entre términos consecutivos` : "Toca para ver el patrón"}
       </div>
     </div>
   );
@@ -89,13 +89,13 @@ function EscIntro() {
       <Hook>
         En el examen UMSS aparecen entre <strong>5 y 10 secuencias</strong> (numéricas, alfabéticas,
         mixtas). Es de los temas con mejor relación esfuerzo/puntos: con 5-6 patrones memorizados
-        resolvés casi todas en menos de 30 segundos cada una.
+        resuelves casi todas en menos de 30 segundos cada una.
       </Hook>
 
       <Misconception titulo="Trampa · 'el primer patrón que vea es el bueno'">
         Mucha gente ve "+2" entre los primeros dos términos y elige sin verificar el resto. ERROR.
-        Tenés que probar el patrón en TODAS las diferencias. Si "+2" funciona en t₂−t₁ pero no en
-        t₃−t₂, no es el patrón. Verificá siempre con un término más.
+        Tienes que probar el patrón en TODAS las diferencias. Si "+2" funciona en t₂−t₁ pero no en
+        t₃−t₂, no es el patrón. Verifica siempre con un término más.
       </Misconception>
     </EscenaRica>
   );
@@ -131,15 +131,15 @@ function EscProcedimiento() {
     <EscenaRica>
       <Titulo>Procedimiento · 5 pasos</Titulo>
       <Resumen>
-        <strong>1. Calculá la DIFERENCIA</strong> entre términos consecutivos: t₂ − t₁, t₃ − t₂, etc.<br />
+        <strong>1. Calcula la DIFERENCIA</strong> entre términos consecutivos: t₂ − t₁, t₃ − t₂, etc.<br />
         Si la diferencia es constante → patrón aditivo (suma fija).<br /><br />
-        <strong>2. Si la diferencia no es constante, calculá la RAZÓN</strong>: t₂ / t₁, t₃ / t₂, etc.<br />
+        <strong>2. Si la diferencia no es constante, calcula la RAZÓN</strong>: t₂ / t₁, t₃ / t₂, etc.<br />
         Si es constante → patrón multiplicativo.<br /><br />
         <strong>3. Si tampoco hay razón constante, miralo COMO PATRÓN CRECIENTE</strong>: las diferencias
         forman su propia secuencia (1, 2, 3, 4 o 2, 4, 6, 8).<br /><br />
-        <strong>4. Para alfabéticas, USÁ NÚMEROS</strong>: A=1, B=2, C=3, ..., Z=26. Buscá el patrón en
-        números, después convertí.<br /><br />
-        <strong>5. Verificá con un término más:</strong> aplicá tu regla y comprobá que el siguiente
+        <strong>4. Para alfabéticas, USÁ NÚMEROS</strong>: A=1, B=2, C=3, ..., Z=26. Busca el patrón en
+        números, después convierte.<br /><br />
+        <strong>5. Verifica con un término más:</strong> aplica tu regla y comprueba que el siguiente
         encaja.
       </Resumen>
 
@@ -188,12 +188,12 @@ function EscPatrones() {
         <strong>Alternancia</strong>: +3, −2, +3, −2 (dos operaciones que se turnan).
       </Resumen>
       <PorQue>
-        Cuando una secuencia no encaja con suma ni multiplicación constante, probá uno de los patrones
+        Cuando una secuencia no encaja con suma ni multiplicación constante, prueba uno de los patrones
         avanzados antes de declararla "ninguna".
       </PorQue>
 
       <Mnemotecnia>
-        <strong>Tabla de cuadrados y Fibonacci · memorizá estos números:</strong><br /><br />
+        <strong>Tabla de cuadrados y Fibonacci · memoriza estos números:</strong><br /><br />
         <strong>Cuadrados:</strong> 1, 4, 9, 16, 25, 36, 49, 64, 81, 100.<br />
         Si ves esos números → es n².<br /><br />
         <strong>Fibonacci:</strong> 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.<br />
@@ -203,7 +203,7 @@ function EscPatrones() {
 
       <Misconception titulo="Trampa de las alternancias">
         Si la secuencia parece "saltar" (subir, bajar, subir, bajar), no es errática: es
-        <strong> alternancia</strong> (dos operaciones que se turnan). Mirá las posiciones IMPARES
+        <strong> alternancia</strong> (dos operaciones que se turnan). Mira las posiciones IMPARES
         por un lado y las PARES por otro. A veces son dos secuencias entrelazadas.
       </Misconception>
     </EscenaRica>
@@ -260,7 +260,7 @@ function EscAlf() {
     <EscenaRica>
       <Titulo>Práctica · alfabéticas</Titulo>
       <Parrafo>
-        Truco: <strong>convertí letras a números</strong> (A=1, B=2, C=3…) y aplicá los mismos
+        Truco: <strong>convierte letras a números</strong> (A=1, B=2, C=3…) y aplica los mismos
         procedimientos.
       </Parrafo>
       <PracticaFinal ejercicios={[
@@ -282,7 +282,7 @@ function EscMix() {
     <EscenaRica>
       <Titulo>Práctica · mixtas (número + letra)</Titulo>
       <Parrafo>
-        Tratá número y letra como dos secuencias paralelas. Cada una sigue su propia regla.
+        Trata número y letra como dos secuencias paralelas. Cada una sigue su propia regla.
       </Parrafo>
       <PracticaFinal ejercicios={[
         { p: "1A, 2B, 3C, 4D, …", o: ["5E", "6F", "5F", "5D", "Ninguna"], c: 0, ex: "Número +1, letra +1. 5E." },
@@ -301,13 +301,13 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Resumen</Titulo>
       <Resumen>
-        <strong>1.</strong> Primero probá DIFERENCIA CONSTANTE (suma fija). Es el patrón más simple.<br /><br />
-        <strong>2.</strong> Si no encaja, probá RAZÓN CONSTANTE (multiplicación fija).<br /><br />
-        <strong>3.</strong> Si no encaja, mirá las DIFERENCIAS ENTRE TÉRMINOS: a veces forman su propia
+        <strong>1.</strong> Primero prueba DIFERENCIA CONSTANTE (suma fija). Es el patrón más simple.<br /><br />
+        <strong>2.</strong> Si no encaja, prueba RAZÓN CONSTANTE (multiplicación fija).<br /><br />
+        <strong>3.</strong> Si no encaja, mira las DIFERENCIAS ENTRE TÉRMINOS: a veces forman su propia
         secuencia (+1, +2, +3…).<br /><br />
-        <strong>4.</strong> Para alfabéticas, traducí letras a números (A=1, B=2, …) y trabajá igual.<br /><br />
-        <strong>5.</strong> Para mixtas, separá: el número sigue una regla, la letra otra. Resuelvelas
-        por separado y combiná.<br /><br />
+        <strong>4.</strong> Para alfabéticas, traduce letras a números (A=1, B=2, …) y trabaja igual.<br /><br />
+        <strong>5.</strong> Para mixtas, separa: el número sigue una regla, la letra otra. Resuelvelas
+        por separado y combina.<br /><br />
         <strong>6.</strong> Si nada encaja, considerá Fibonacci, cuadrados perfectos o alternancia.
       </Resumen>
     </EscenaRica>

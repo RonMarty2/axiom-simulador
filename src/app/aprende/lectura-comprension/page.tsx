@@ -37,11 +37,11 @@ function EscEstrategia() {
       <Titulo>Comprensión de lectura · la habilidad central del examen</Titulo>
       <Hook>
         De las 100 preguntas del examen UMSS, <strong>comprensión de lectura representa entre 15 y
-        20</strong>. Si dominás esta unidad, ya tenés casi un quinto del examen ganado.
-        Si no la dominás, te cuesta caro.
+        20</strong>. Si dominas esta unidad, ya tienes casi un quinto del examen ganado.
+        Si no la dominas, te cuesta caro.
       </Hook>
       <Parrafo>
-        Mide algo más que "entender palabras": evalúa si podés <strong>extraer la idea principal</strong>,
+        Mide algo más que "entender palabras": evalúa si puedes <strong>extraer la idea principal</strong>,
         <strong> inferir intenciones</strong> y <strong>conectar partes</strong> del texto.
       </Parrafo>
 
@@ -54,12 +54,12 @@ function EscEstrategia() {
         <strong>Estrategia en 4 pasos</strong> (probada en exámenes de admisión):<br /><br />
         <strong>1. Lectura rápida primera</strong>: para captar de qué trata el texto (¿de qué tema
         habla?, ¿qué postura toma el autor?).<br /><br />
-        <strong>2. Lectura detallada después</strong>: identificá la <strong>idea principal de cada
+        <strong>2. Lectura detallada después</strong>: identifica la <strong>idea principal de cada
         párrafo</strong> (es lo que el autor más repite o lo que articula al párrafo).<br /><br />
-        <strong>3. Leé la pregunta CON ATENCIÓN</strong>: palabras como "según el texto", "se puede
+        <strong>3. Lee la pregunta CON ATENCIÓN</strong>: palabras como "según el texto", "se puede
         deducir" o "principalmente" cambian todo. Subrayalas mentalmente.<br /><br />
-        <strong>4. Volvé al texto antes de elegir</strong>: nunca contestes solo "porque sí". Volvé y
-        verificá. Si dos opciones parecen buenas, la correcta es la <strong>más completa o más exacta</strong>.
+        <strong>4. Vuelve al texto antes de elegir</strong>: nunca contestes solo "porque sí". Vuelve y
+        verifica. Si dos opciones parecen buenas, la correcta es la <strong>más completa o más exacta</strong>.
       </Resumen>
 
       <Mnemotecnia>
@@ -70,7 +70,7 @@ function EscEstrategia() {
 
       <Misconception titulo="Trampa 1 · la opción 'verdadera pero parcial'">
         Una opción dice algo CIERTO del texto pero solo de UN párrafo. Si la pregunta pide la IDEA
-        PRINCIPAL, esa opción es trampa: es verdadera pero no abarca el texto entero. Buscá la más
+        PRINCIPAL, esa opción es trampa: es verdadera pero no abarca el texto entero. Busca la más
         COMPLETA.
       </Misconception>
 
@@ -97,7 +97,7 @@ function EscLectura1() {
     <EscenaRica>
       <Titulo>Ejemplo guiado · economía de mercado</Titulo>
       <Parrafo>
-        Aplicá la estrategia que acabás de ver. Leé con calma, después contestá. Cada opción te explica
+        Aplica la estrategia que acabas de ver. Lee con calma, después contestá. Cada opción te explica
         por qué es buena o por qué no.
       </Parrafo>
       <LecturaQuiz
@@ -321,7 +321,7 @@ function EscLectura3() {
               "La disminución en los precios de bienes y servicios.",
             ],
             c: 3,
-            ex: "El texto lo dice directamente: cuando la inflación es alta, reduce el poder adquisitivo (necesitás más dinero para comprar lo mismo).",
+            ex: "El texto lo dice directamente: cuando la inflación es alta, reduce el poder adquisitivo (necesitas más dinero para comprar lo mismo).",
           },
           {
             p: "Una de las herramientas mencionadas para combatir la inflación es:",
@@ -828,13 +828,13 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Estrategia · qué llevarse al examen</Titulo>
       <Resumen>
-        <strong>1.</strong> Identificá el <strong>tema central</strong> antes de mirar las preguntas.
+        <strong>1.</strong> Identifica el <strong>tema central</strong> antes de mirar las preguntas.
         Casi siempre la pregunta 1 lo pide.<br /><br />
         <strong>2.</strong> Las opciones <em>verdaderas pero parciales</em> son la trampa más común: dicen
-        algo cierto del texto pero NO son la idea principal. Buscá la más COMPLETA.<br /><br />
+        algo cierto del texto pero NO son la idea principal. Busca la más COMPLETA.<br /><br />
         <strong>3.</strong> Si la pregunta dice <strong>"según el texto"</strong>, la respuesta tiene que
         estar literalmente o ser una inferencia muy directa. No agregues conocimiento externo.<br /><br />
-        <strong>4.</strong> Si la pregunta dice <strong>"se puede deducir"</strong>, sí podés inferir,
+        <strong>4.</strong> Si la pregunta dice <strong>"se puede deducir"</strong>, sí puedes inferir,
         pero la inferencia tiene que poder justificarse con el texto.<br /><br />
         <strong>5.</strong> Las opciones que dicen <em>lo contrario</em> de lo que afirma el texto son
         el segundo tipo de trampa (mismas palabras, sentido invertido).

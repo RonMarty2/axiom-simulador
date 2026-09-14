@@ -14,12 +14,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function LaParabolaVerticePage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que toda parábola tiene un único punto más alto o más bajo, y podés hallarlo sin graficar nada?
+            ¿Sabías que toda parábola tiene un único punto más alto o más bajo, y puedes hallarlo sin graficar nada?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -34,12 +34,12 @@ export default function LaParabolaVerticePage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que el signo de <MathText>{"$a$"}</MathText> te dice hacia dónde abre la parábola. Ese mismo signo te dice si el vértice es un máximo o un mínimo.
+            Ya sabes que el signo de <MathText>{"$a$"}</MathText> te dice hacia dónde abre la parábola. Ese mismo signo te dice si el vértice es un máximo o un mínimo.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -59,15 +59,15 @@ export default function LaParabolaVerticePage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identificá <MathText>{"$a$"}</MathText>, <MathText>{"$b$"}</MathText> y <MathText>{"$c$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identifica <MathText>{"$a$"}</MathText>, <MathText>{"$b$"}</MathText> y <MathText>{"$c$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calculá <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>: esa es la coordenada del vértice y también el eje de simetría</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calcula <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>: esa es la coordenada del vértice y también el eje de simetría</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Reemplazá ese <MathText>{"$x$"}</MathText> en la función para hallar el valor máximo o mínimo</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Reemplaza ese <MathText>{"$x$"}</MathText> en la función para hallar el valor máximo o mínimo</span>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@ export default function LaParabolaVerticePage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el vértice de $f(x)=x^2-6x+5$."}

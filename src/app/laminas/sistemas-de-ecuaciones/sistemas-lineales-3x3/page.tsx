@@ -10,7 +10,7 @@ import { TarjetaPractica, PasoCard, LineaEjemplo } from "../../_components/dispo
 export default function SistemasLineales3x3Page() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -23,19 +23,19 @@ export default function SistemasLineales3x3Page() {
             </div>
             <span style={{ fontSize: 18, color: LIENZO.fgFaint }}>→</span>
             <div style={{ padding: "10px 18px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}` }}>
-              <span style={{ fontSize: 13, fontWeight: 700 }}>2×2 que ya sabés resolver</span>
+              <span style={{ fontSize: 13, fontWeight: 700 }}>2×2 que ya sabes resolver</span>
             </div>
           </div>
         </div>
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            En la lámina anterior combinaste 2 ecuaciones para que una incógnita se cancele. Acá hacés lo mismo dos veces, con la misma incógnita, contra dos parejas distintas de ecuaciones.
+            En la lámina anterior combinaste 2 ecuaciones para que una incógnita se cancele. Acá haces lo mismo dos veces, con la misma incógnita, contra dos parejas distintas de ecuaciones.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\text{Ec. 1 y 2} \\to \\text{elimina } z$"}</MathText>
@@ -53,7 +53,7 @@ export default function SistemasLineales3x3Page() {
       contenido: (
         <PasoCard n={1}>
           <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.6 }}>
-            Elegís una incógnita para eliminar primero (acá, <MathText>{"$z$"}</MathText>) y la cancelás contra dos parejas de ecuaciones distintas.
+            Eliges una incógnita para eliminar primero (acá, <MathText>{"$z$"}</MathText>) y la cancelas contra dos parejas de ecuaciones distintas.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="Ec. 1 + Ec. 3 (la z se cancela)" eq="$(x{+}4y{-}z) + (3x{-}2y{+}z) = 6+2$" />
@@ -67,7 +67,7 @@ export default function SistemasLineales3x3Page() {
       contenido: (
         <PasoCard n={2}>
           <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.6 }}>
-            Repetís con otra pareja de ecuaciones, eliminando la misma incógnita.
+            Repites con otra pareja de ecuaciones, eliminando la misma incógnita.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="De Ec. 1: z = x+4y-6. Sustituyendo en Ec. 2" eq="$2x+5y-7(x{+}4y{-}6) = -9$" />
@@ -85,7 +85,7 @@ export default function SistemasLineales3x3Page() {
         <div>
           <PasoCard n={3}>
             <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.6 }}>
-              Resolvés el 2×2 igual que en la lámina anterior, y volvés hacia atrás para la última incógnita.
+              Resuelves el 2×2 igual que en la lámina anterior, y vuelves hacia atrás para la última incógnita.
             </p>
             <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
               <LineaEjemplo glosa="De 4x+2y=8: y=4-2x. Sustituyendo en 5x+23y=51" eq={"$5x + 23(4{-}2x) = 51 \\ \\Rightarrow\\ x=1$"} />
@@ -138,13 +138,13 @@ export default function SistemasLineales3x3Page() {
             <LineaEjemplo glosa="Con x, la siguiente da z" eq="$2x-3z-u=2$" />
           </div>
           <p style={{ margin: "10px 0 0", fontSize: 12, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Antes de lanzarte a eliminar a lo bruto, fijate si alguna ecuación ya te regala un despeje directo.
+            Antes de lanzarte a eliminar a lo bruto, fíjate si alguna ecuación ya te regala un despeje directo.
           </p>
         </div>
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolver el sistema $x+y+z=6$, $2x-y+z=3$, $x+2y-z=2$. ¿Cuánto vale $z$?"}

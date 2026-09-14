@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function ProblemasDeCifrasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function ProblemasDeCifrasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que en notación posicional, cada dígito vale distinto según su lugar. Eso es justo lo que hay que traducir a álgebra.
+            Ya sabes que en notación posicional, cada dígito vale distinto según su lugar. Eso es justo lo que hay que traducir a álgebra.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ textAlign: "center", padding: "10px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
@@ -59,11 +59,11 @@ export default function ProblemasDeCifrasPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traducí cada condición del enunciado a una ecuación entre esas letras</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traduce cada condición del enunciado a una ecuación entre esas letras</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si el problema invierte las cifras, escribí también esa versión con el valor posicional cambiado</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si el problema invierte las cifras, escribe también esa versión con el valor posicional cambiado</span>
             </div>
           </div>
         </div>
@@ -133,7 +133,7 @@ export default function ProblemasDeCifrasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un número de tres cifras: la unidad excede en 5 a la centena; la decena excede en 1 a la centena; la unidad es el doble de la suma de decena y centena. Determinar el número."}

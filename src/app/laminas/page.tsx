@@ -43,7 +43,7 @@ export default function LaminasPage() {
           Láminas de Repaso
         </h1>
         <p style={{ fontSize: 15, lineHeight: 1.6, color: LIENZO.fgDim, maxWidth: 560, margin: "0 0 32px" }}>
-          Fichas visuales que enseñan un concepto de cero, con demostración paso a paso, ejemplo resuelto y ejercicio para practicar. Agrupadas en módulos — elegí uno para ver sus láminas.
+          Fichas visuales que enseñan un concepto de cero, con demostración paso a paso, ejemplo resuelto y ejercicio para practicar. Agrupadas en módulos — elige uno para ver sus láminas.
         </p>
 
         {!facultadLaminas && (

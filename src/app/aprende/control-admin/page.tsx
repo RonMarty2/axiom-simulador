@@ -46,7 +46,7 @@ function Esc01() {
       </PorQue>
 
       <Hook>
-        La <strong>C</strong> de POIDC. Cerrás el ciclo. Es la función más matemática: estándares vs
+        La <strong>C</strong> de POIDC. Cierras el ciclo. Es la función más matemática: estándares vs
         realidad, desviaciones, métricas. <strong>"Lo que no se mide, no se mejora"</strong> (Peter
         Drucker).
       </Hook>

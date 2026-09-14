@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionesLiteralesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés despejar una incógnita aunque la ecuación tenga puras letras, no solo números?
+            ¿Sabías que puedes despejar una incógnita aunque la ecuación tenga puras letras, no solo números?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,18 +30,18 @@ export default function EcuacionesLiteralesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Para despejar <MathText>{"$x$"}</MathText> en <MathText>{"$3x+5=11$"}</MathText>, restás 5 y dividís entre 3. El único cambio en una ecuación literal es que los números 3 y 5 ahora son letras.
+            Para despejar <MathText>{"$x$"}</MathText> en <MathText>{"$3x+5=11$"}</MathText>, restas 5 y divides entre 3. El único cambio en una ecuación literal es que los números 3 y 5 ahora son letras.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$ax + b = c \\ \\Rightarrow\\ x = \\dfrac{c-b}{a}$"}</MathText>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Tratás a las demás letras (<MathText>{"$a$"}</MathText>, <MathText>{"$b$"}</MathText>, <MathText>{"$c$"}</MathText>) como si fueran números conocidos, solo que no sabés cuánto valen.
+            Tratas a las demás letras (<MathText>{"$a$"}</MathText>, <MathText>{"$b$"}</MathText>, <MathText>{"$c$"}</MathText>) como si fueran números conocidos, solo que no sabes cuánto valen.
           </p>
         </div>
       ),
@@ -83,7 +83,7 @@ export default function EcuacionesLiteralesPage() {
             incorrecto={{ arriba: "$x(a-b)=2(a-b)$", abajo: "$x=2 \\text{ siempre}$" }}
           />
           <p style={{ margin: "12px 0 0", fontSize: 12.5, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Igual que no podés dividir entre 0 con números, no podés dividir entre una letra sin saber que es distinta de cero.
+            Igual que no puedes dividir entre 0 con números, no puedes dividir entre una letra sin saber que es distinta de cero.
           </p>
         </div>
       ),
@@ -117,7 +117,7 @@ export default function EcuacionesLiteralesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolviendo $\\dfrac{a+1}{b}=\\dfrac{b+1}{a}+\\dfrac{a-1}{b}-\\dfrac{b}{a}$ para la variable $b$, se obtiene que $b$ vale:"}

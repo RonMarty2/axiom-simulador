@@ -14,12 +14,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function MovimientoEncuentroYAlcancePage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que con dos móviles, sumás o restás las velocidades según hacia dónde vaya cada uno?
+            ¿Sabías que con dos móviles, sumas o restas las velocidades según hacia dónde vaya cada uno?
           </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <span style={{ padding: "8px 12px", borderRadius: 999, background: LIENZO.bgSoft, fontSize: 12.5, fontWeight: 600 }}>al encuentro → se suman</span>
@@ -29,12 +29,12 @@ export default function MovimientoEncuentroYAlcancePage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que en velocidad constante, <MathText>{"$d = v \\cdot t$"}</MathText>. Con dos móviles, lo nuevo es pensar en la velocidad RELATIVA entre ambos.
+            Ya sabes que en velocidad constante, <MathText>{"$d = v \\cdot t$"}</MathText>. Con dos móviles, lo nuevo es pensar en la velocidad RELATIVA entre ambos.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -58,11 +58,11 @@ export default function MovimientoEncuentroYAlcancePage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identificá la distancia que hay que cerrar (separación inicial, o ventaja del que va adelante)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identifica la distancia que hay que cerrar (separación inicial, o ventaja del que va adelante)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Dividí esa distancia entre la velocidad relativa</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Divide esa distancia entre la velocidad relativa</span>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function MovimientoEncuentroYAlcancePage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un pasajero perdió el ómnibus que salió hace 5 minutos y toma un taxi para alcanzarlo. Ómnibus a 60 km/h, taxi a 90 km/h, misma trayectoria. ¿En cuántos minutos lo alcanza?"}

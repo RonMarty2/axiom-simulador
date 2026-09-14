@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function IrracionalesComplejasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -26,21 +26,21 @@ export default function IrracionalesComplejasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés aislar una raíz y elevar al cuadrado. La diferencia acá es que, después de elevar al cuadrado una vez, todavía queda otra raíz sin eliminar.
+            Ya sabes aislar una raíz y elevar al cuadrado. La diferencia acá es que, después de elevar al cuadrado una vez, todavía queda otra raíz sin eliminar.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 13 }}>
-            <span>elevás</span>
+            <span>elevas</span>
             <span style={{ color: LIENZO.fgFaint }}>↓</span>
             <span>queda una raíz</span>
             <span style={{ color: LIENZO.fgFaint }}>↓</span>
-            <span>aislás de nuevo</span>
+            <span>aislas de nuevo</span>
             <span style={{ color: LIENZO.fgFaint }}>↓</span>
-            <span>elevás de nuevo</span>
+            <span>elevas de nuevo</span>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
             Mismo procedimiento de siempre, repetido una vez más.
@@ -118,7 +118,7 @@ export default function IrracionalesComplejasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolver $\\sqrt{x+7} - \\sqrt{x} = 1$."}

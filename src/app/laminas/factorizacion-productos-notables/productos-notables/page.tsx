@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function ProductosNotablesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés reconocer un binomio al cuadrado escondido en una expresión larga, sin desarrollar nada?
+            ¿Sabías que puedes reconocer un binomio al cuadrado escondido en una expresión larga, sin desarrollar nada?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,12 +30,12 @@ export default function ProductosNotablesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés multiplicar dos binomios término a término. Los productos notables son solo tres resultados que conviene memorizar para no tener que desarrollar cada vez.
+            Ya sabes multiplicar dos binomios término a término. Los productos notables son solo tres resultados que conviene memorizar para no tener que desarrollar cada vez.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ textAlign: "center", padding: "10px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
@@ -133,7 +133,7 @@ export default function ProductosNotablesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Simplificar: $\\dfrac{(ax+by)^2+(ay-bx)^2}{x^2+y^2}$"}

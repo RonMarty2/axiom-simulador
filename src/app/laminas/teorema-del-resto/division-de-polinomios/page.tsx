@@ -18,7 +18,7 @@ import {
 export default function DivisionDePolinomiosPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -28,7 +28,7 @@ export default function DivisionDePolinomiosPage() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap" }}>
             <div style={{ padding: "12px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
               <div className="font-crimson" style={{ fontSize: 18 }}>754 ÷ 3</div>
-              <div style={{ fontSize: 9.5, color: LIENZO.fgDim, textTransform: "uppercase", marginTop: 4 }}>ya lo sabés hacer</div>
+              <div style={{ fontSize: 9.5, color: LIENZO.fgDim, textTransform: "uppercase", marginTop: 4 }}>ya lo sabes hacer</div>
             </div>
             <span style={{ fontSize: 18, color: LIENZO.fgFaint }}>=</span>
             <div style={{ padding: "12px 16px", borderRadius: 12, background: `${LIENZO.ok}15`, border: `1.5px solid ${LIENZO.ok}`, textAlign: "center" }}>
@@ -40,16 +40,16 @@ export default function DivisionDePolinomiosPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Repasemos <MathText>{"$754 \\div 3$"}</MathText> como en la primaria: bajás un dígito, repartís lo más grande posible, multiplicás, restás, repetís.
+            Repasemos <MathText>{"$754 \\div 3$"}</MathText> como en la primaria: bajas un dígito, repartes lo más grande posible, multiplicas, restas, repites.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px", marginBottom: 12 }}>
-            <LineaEjemplo glosa="7 entre 3 da 2, sobran 1. Bajás el 5: queda 15" eq={"$7 \\rightarrow 2,\\ \\text{resto } 1\\ \\rightarrow\\ 15$"} />
-            <LineaEjemplo glosa="15 entre 3 da 5, sobran 0. Bajás el 4: queda 4" eq={"$15 \\rightarrow 5,\\ \\text{resto } 0\\ \\rightarrow\\ 4$"} />
+            <LineaEjemplo glosa="7 entre 3 da 2, sobran 1. Bajas el 5: queda 15" eq={"$7 \\rightarrow 2,\\ \\text{resto } 1\\ \\rightarrow\\ 15$"} />
+            <LineaEjemplo glosa="15 entre 3 da 5, sobran 0. Bajas el 4: queda 4" eq={"$15 \\rightarrow 5,\\ \\text{resto } 0\\ \\rightarrow\\ 4$"} />
             <LineaEjemplo glosa="4 entre 3 da 1, sobran 1. No queda nada más que bajar" eq={"$4 \\rightarrow 1,\\ \\text{resto } 1$"} />
           </div>
           <div style={{
@@ -63,7 +63,7 @@ export default function DivisionDePolinomiosPage() {
           </p>
           <FilaRol rol="Repartir lo más grande posible" conocido="7÷3" nuevo="término÷término" />
           <FilaRol rol="Multiplicar y restar" conocido="7−(3×2)" nuevo="igual" />
-          <FilaRol rol="Bajar y repetir" conocido="bajás el 5" nuevo="igual" ultimo />
+          <FilaRol rol="Bajar y repetir" conocido="bajas el 5" nuevo="igual" ultimo />
         </div>
       ),
     },
@@ -72,17 +72,17 @@ export default function DivisionDePolinomiosPage() {
       contenido: (
         <PasoCard n={1}>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Dividí el término líder del dividendo entre el término líder del divisor. Eso es el primer término del cociente.
+            Divide el término líder del dividendo entre el término líder del divisor. Eso es el primer término del cociente.
           </p>
           <div style={{ textAlign: "center", fontSize: 17, marginBottom: 10 }}>
             <MathText>{"$2x^3 \\div x = 2x^2$"}</MathText>
           </div>
           <p style={{ margin: "0 0 8px", fontSize: 13.5, lineHeight: 1.6 }}>
-            Multiplicá TODO el divisor por ese término y restaselo al dividendo:
+            Multiplica TODO el divisor por ese término y restaselo al dividendo:
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
-            <LineaEjemplo glosa="Multiplicás" eq="$2x^2(x+2) = 2x^3 + 4x^2$" />
-            <LineaEjemplo glosa="Restás al dividendo" eq="$(2x^3{+}3x^2{-}4x{+}1) - (2x^3{+}4x^2)$" />
+            <LineaEjemplo glosa="Multiplicas" eq="$2x^2(x+2) = 2x^3 + 4x^2$" />
+            <LineaEjemplo glosa="Restas al dividendo" eq="$(2x^3{+}3x^2{-}4x{+}1) - (2x^3{+}4x^2)$" />
             <LineaEjemplo glosa="" eq="$= -x^2 - 4x + 1$" />
           </div>
         </PasoCard>
@@ -93,14 +93,14 @@ export default function DivisionDePolinomiosPage() {
       contenido: (
         <PasoCard n={2}>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Repetís exactamente lo mismo, ahora con lo que quedó (<MathText>{"$-x^2-4x+1$"}</MathText>) en vez del dividendo original.
+            Repites exactamente lo mismo, ahora con lo que quedó (<MathText>{"$-x^2-4x+1$"}</MathText>) en vez del dividendo original.
           </p>
           <div style={{ textAlign: "center", fontSize: 17, marginBottom: 10 }}>
             <MathText>{"$-x^2 \\div x = -x$"}</MathText>
           </div>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
-            <LineaEjemplo glosa="Multiplicás" eq="$-x(x+2) = -x^2 - 2x$" />
-            <LineaEjemplo glosa="Restás" eq="$(-x^2{-}4x{+}1) - (-x^2{-}2x)$" />
+            <LineaEjemplo glosa="Multiplicas" eq="$-x(x+2) = -x^2 - 2x$" />
+            <LineaEjemplo glosa="Restas" eq="$(-x^2{-}4x{+}1) - (-x^2{-}2x)$" />
             <LineaEjemplo glosa="" eq="$= -2x + 1$" />
           </div>
         </PasoCard>
@@ -118,8 +118,8 @@ export default function DivisionDePolinomiosPage() {
               <MathText>{"$-2x \\div x = -2$"}</MathText>
             </div>
             <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
-              <LineaEjemplo glosa="Multiplicás" eq="$-2(x+2) = -2x - 4$" />
-              <LineaEjemplo glosa="Restás" eq="$(-2x{+}1) - (-2x{-}4)$" />
+              <LineaEjemplo glosa="Multiplicas" eq="$-2(x+2) = -2x - 4$" />
+              <LineaEjemplo glosa="Restas" eq="$(-2x{+}1) - (-2x{-}4)$" />
               <LineaEjemplo glosa="" eq="$= 5$" />
             </div>
           </PasoCard>
@@ -164,7 +164,7 @@ export default function DivisionDePolinomiosPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Si el dividendo se &quot;saltea&quot; un grado, hay que escribirlo igual con coeficiente 0. Si no, te desalineás y el resultado sale mal.
+            Si el dividendo se &quot;saltea&quot; un grado, hay que escribirlo igual con coeficiente 0. Si no, te desalineas y el resultado sale mal.
           </p>
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
             <div style={{ flex: "1 1 140px", padding: "12px 14px", borderRadius: 12, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}55`, textAlign: "center" }}>
@@ -192,7 +192,7 @@ export default function DivisionDePolinomiosPage() {
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
             <LineaEjemplo glosa="Término líder entre término líder" eq={"$2x^2 \\div 2x = x$"} />
-            <LineaEjemplo glosa="Multiplicás y restás" eq={"$(2x^2{+}x{-}3) - x(2x-1)$"} />
+            <LineaEjemplo glosa="Multiplicas y restas" eq={"$(2x^2{+}x{-}3) - x(2x-1)$"} />
             <LineaEjemplo glosa="" eq="$= 2x - 3$" />
             <LineaEjemplo glosa="Otra vuelta" eq={"$2x \\div 2x = 1$"} />
             <LineaEjemplo glosa="" eq={"$(2x{-}3) - 1(2x-1) = -2$"} />
@@ -205,13 +205,13 @@ export default function DivisionDePolinomiosPage() {
             <span style={{ fontSize: 16, fontWeight: 700, color: LIENZO.ok }}><MathText>{"$R = -2$"}</MathText></span>
           </div>
           <p style={{ margin: "10px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            De <MathText>{"$(2x^2+x-3) \\div (2x-1)$"}</MathText>. A veces los términos del cociente salen con fracción, no pasa nada, seguís igual.
+            De <MathText>{"$(2x^2+x-3) \\div (2x-1)$"}</MathText>. A veces los términos del cociente salen con fracción, no pasa nada, sigues igual.
           </p>
         </div>
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Al dividir $P(x) = x^3 - 3x^2 + 5x - 6$ entre $(x - 2)$, el cociente es:"}

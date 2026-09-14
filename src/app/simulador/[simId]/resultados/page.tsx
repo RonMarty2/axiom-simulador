@@ -10,32 +10,10 @@ import Cargando from "../../../components/Cargando";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
+import { etiquetaArea } from "@/lib/axiom/areas";
 
-const ETIQUETAS_AREA: Record<string, string> = {
-  matematicas: "Matemáticas",
-  aritmetica_algebra: "Aritmética-Álgebra",
-  geometria_trigonometria: "Geometría-Trigonometría",
-  economicas: "Económicas",
-  verbal: "Verbal",
-  razonamiento: "Razonamiento",
-  fisica: "Física",
-  quimica: "Química",
-  biologia: "Biología",
-  civica: "Cívica",
-  historia: "Historia",
-  estrategias_aprendizaje: "Estrategias de Aprendizaje",
-  general: "General",
-};
 
-// Nombre lindo de la sección. Para secciones propias de cada facultad
-// (ej. "libro_1") devuelve "Libro 1".
-function etiquetaSeccion(area: string): string {
-  if (ETIQUETAS_AREA[area]) return ETIQUETAS_AREA[area];
-  return (area || "general")
-    .split("_")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
+
 
 // Agrupa preguntas por sección, conservando el orden de aparición.
 function agruparPorSeccion(preguntas: PreguntaBanco[]): { seccion: string; items: PreguntaBanco[] }[] {
@@ -251,7 +229,13 @@ export default function ResultadosPage() {
   const ordenadasFb = Object.entries(desglose).sort((a, b) => a[1] - b[1]);
   const peor = ordenadasFb[0];
   const mejor = ordenadasFb[ordenadasFb.length - 1];
-  const tituloFb = nota >= 70 ? "¡Buen trabajo!" : nota >= 50 ? "Vas por buen camino" : "A reforzar — vos podés";
+  // Sin al menos dos áreas con puntajes distintos no hay "peor" ni "mejor".
+  // El examen de Económicas tiene una sola sección, así que salía la misma
+  // materia como "Reforzar" Y como "Tu fortaleza", las dos con el mismo
+  // porcentaje. Con todas las áreas empatadas pasaba lo mismo: cuál caía en
+  // cada tarjeta dependía del orden del objeto.
+  const hayContraste = ordenadasFb.length >= 2 && peor[1] !== mejor[1];
+  const tituloFb = nota >= 70 ? "¡Buen trabajo!" : nota >= 50 ? "Vas por buen camino" : "A reforzar — tú puedes";
   const textoFb = nota >= 70
     ? "Dominas la mayoría del examen. Pule los detalles y mantén el ritmo."
     : nota >= 50
@@ -311,26 +295,35 @@ export default function ResultadosPage() {
       <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         {/* Feedback personalizado */}
         <section className="mb-10">
-          <div className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-indigo-50 p-6">
-            <h2 className="text-xl font-bold text-violet-900">{tituloFb}</h2>
-            <p className="mt-1 text-sm text-violet-800">{textoFb}</p>
+          <div className="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--accent-soft)] to-[var(--bg-subtle)] p-6">
+            <h2 className="text-xl font-bold text-[var(--accent-hover)]">{tituloFb}</h2>
+            <p className="mt-1 text-sm text-[var(--accent-hover)]">{textoFb}</p>
 
-            {peor && mejor && (
+            {hayContraste ? (
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="rounded-xl border border-red-200 bg-white p-3">
                   <div className="text-xs font-bold uppercase tracking-wider text-red-600">Reforzar</div>
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
-                    {etiquetaSeccion(peor[0])} — {peor[1]}%
+                    {etiquetaArea(peor[0])} — {peor[1]}%
                   </div>
                 </div>
                 <div className="rounded-xl border border-emerald-200 bg-white p-3">
                   <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">Tu fortaleza</div>
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
-                    {etiquetaSeccion(mejor[0])} — {mejor[1]}%
+                    {etiquetaArea(mejor[0])} — {mejor[1]}%
                   </div>
                 </div>
               </div>
-            )}
+            ) : peor ? (
+              <div className="mt-4 rounded-xl border border-neutral-200 bg-white p-3">
+                <div className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+                  {ordenadasFb.length >= 2 ? "Todas las áreas te dieron igual" : "Tu resultado por área"}
+                </div>
+                <div className="mt-0.5 text-sm font-semibold text-neutral-900">
+                  {ordenadasFb.map(([area, pct]) => `${etiquetaArea(area)} — ${pct}%`).join(" · ")}
+                </div>
+              </div>
+            ) : null}
 
             <div className="mt-4 rounded-xl bg-white/70 p-3 text-sm text-neutral-700">
               <span className="font-semibold">Qué hacer ahora: </span>
@@ -338,7 +331,7 @@ export default function ResultadosPage() {
                 ? `Repasa las ${falladas.length} preguntas que fallaste (abajo) y vuelve a practicar tu punto débil.`
                 : "¡Sin errores! Sube la dificultad o prueba otra sección para seguir mejorando."}
               {!pagado && (
-                <span> Con <Link href="/precios" className="font-bold text-violet-700 underline">Premium</Link> desbloqueas el plan de estudio que ataca justo tus fallos.</span>
+                <span> Con <Link href="/precios" className="font-bold text-[var(--accent)] underline">Premium</Link> desbloqueas el plan de estudio que ataca justo tus fallos.</span>
               )}
             </div>
           </div>
@@ -366,14 +359,14 @@ export default function ResultadosPage() {
                 type="button"
                 onClick={reforzarMisErrores}
                 disabled={reforzando || falladas.length === 0}
-                className="rounded-2xl border-2 border-violet-300 bg-gradient-to-br from-violet-50 to-indigo-50 p-5 text-left transition-all hover:-translate-y-0.5 hover:border-violet-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
+                className="rounded-2xl border-2 border-[var(--border-hover)] bg-gradient-to-br from-[var(--accent-soft)] to-[var(--bg-subtle)] p-5 text-left transition-all hover:-translate-y-0.5 hover:border-[var(--accent)] hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <div className="mb-2 flex items-center justify-between">
                   <Icono nombre="errores" tamano={24} />
-                  <span className="rounded-full bg-violet-600 px-2 py-0.5 text-[10px] font-bold text-white">RECOMENDADO</span>
+                  <span className="rounded-full bg-[var(--accent)] px-2 py-0.5 text-[10px] font-bold text-white">RECOMENDADO</span>
                 </div>
-                <div className="text-base font-bold text-violet-900">{reforzando ? "Preparando..." : "Reforzar 10 con la IA"}</div>
-                <div className="mt-1 text-xs text-violet-700">10 preguntas IA sobre lo que más fallaste. Al instante.</div>
+                <div className="text-base font-bold text-[var(--accent-hover)]">{reforzando ? "Preparando..." : "Reforzar 10 con la IA"}</div>
+                <div className="mt-1 text-xs text-[var(--accent)]">10 preguntas IA sobre lo que más fallaste. Al instante.</div>
               </button>
             ) : (
               <Link href="/precios" className="rounded-2xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-orange-50 p-5 transition-all hover:-translate-y-0.5 hover:border-amber-500">
@@ -420,14 +413,14 @@ export default function ResultadosPage() {
           )}
 
           {plan && (
-            <div className="rounded-2xl border border-violet-200 bg-gradient-to-br from-violet-50 to-indigo-50 p-6">
+            <div className="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--accent-soft)] to-[var(--bg-subtle)] p-6">
               <div className="mb-4 flex items-center gap-2">
                 <Icono nombre="documento" tamano={24} />
                 <div>
-                  <h3 className="text-lg font-bold text-violet-900">
+                  <h3 className="text-lg font-bold text-[var(--accent-hover)]">
                     Tu plan de estudio personalizado
                   </h3>
-                  <p className="text-sm text-violet-700">
+                  <p className="text-sm text-[var(--accent)]">
                     Área a reforzar: <strong>{plan.area_debil}</strong>
                   </p>
                 </div>
@@ -436,9 +429,9 @@ export default function ResultadosPage() {
                 {plan.dias.map((d) => (
                   <div
                     key={d.dia}
-                    className="rounded-xl border border-violet-200 bg-white p-4"
+                    className="rounded-xl border border-[var(--border)] bg-white p-4"
                   >
-                    <div className="mb-1 text-xs font-bold uppercase tracking-wider text-violet-600">
+                    <div className="mb-1 text-xs font-bold uppercase tracking-wider text-[var(--accent)]">
                       Día {d.dia}
                     </div>
                     <div className="mb-2 text-base font-bold text-neutral-900">
@@ -512,7 +505,7 @@ export default function ResultadosPage() {
                     >
                       <span className="text-neutral-500 text-lg w-5 inline-block">{abierta ? "▾" : "▸"}</span>
                       <span className="rounded-lg bg-neutral-900 px-3 py-1 text-sm font-bold text-white">
-                        {etiquetaSeccion(seccion)}
+                        {etiquetaArea(seccion)}
                       </span>
                       <span className="text-sm text-neutral-500">
                         {items.length} pregunta{items.length !== 1 ? "s" : ""}
@@ -575,7 +568,7 @@ function nivelDeNota(nota: number): {
 } {
   if (nota >= 80) {
     return {
-      mensaje: "¡Excelente! Estás en el camino correcto. Sigue así.",
+      mensaje: "¡Excelente! Estas en el camino correcto. Sigue así.",
       fondoClase: "bg-emerald-50 border-emerald-100",
       textoClase: "text-emerald-600",
     };
@@ -583,8 +576,8 @@ function nivelDeNota(nota: number): {
   if (nota >= 60) {
     return {
       mensaje: "Buen trabajo. Identifica las áreas débiles y vuelve a practicar.",
-      fondoClase: "bg-violet-50 border-violet-100",
-      textoClase: "text-violet-600",
+      fondoClase: "bg-[var(--accent-soft)] border-[var(--accent-soft)]",
+      textoClase: "text-[var(--accent)]",
     };
   }
   if (nota >= 40) {
@@ -625,14 +618,14 @@ function DesgloseArea({ area, porcentaje, onPracticar, cargando, disabled }: { a
     porcentaje >= 80
       ? "from-emerald-500 to-emerald-600"
       : porcentaje >= 60
-      ? "from-violet-500 to-violet-600"
+      ? "from-[var(--accent)] to-[var(--accent)]"
       : porcentaje >= 40
       ? "from-amber-500 to-amber-600"
       : "from-red-500 to-red-600";
   return (
     <div className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm flex flex-col">
       <div className="mb-1 text-xs uppercase tracking-wider text-neutral-500">
-        {etiquetaSeccion(area)}
+        {etiquetaArea(area)}
       </div>
       <div className="text-3xl font-black text-neutral-900">{porcentaje}%</div>
       <div className="mt-2 h-2 overflow-hidden rounded-full bg-neutral-100">
@@ -648,7 +641,7 @@ function DesgloseArea({ area, porcentaje, onPracticar, cargando, disabled }: { a
           type="button"
           onClick={onPracticar}
           disabled={disabled}
-          className="mt-3 w-full rounded-lg border border-violet-300 bg-violet-50 px-3 py-2 text-xs font-bold text-violet-700 hover:bg-violet-100 disabled:cursor-wait disabled:opacity-60"
+          className="mt-3 w-full rounded-lg border border-[var(--border-hover)] bg-[var(--accent-soft)] px-3 py-2 text-xs font-bold text-[var(--accent)] hover:bg-[var(--accent-soft)] disabled:cursor-wait disabled:opacity-60"
         >
           {cargando ? "Preparando..." : "Practicar 10 →"}
         </button>
@@ -686,8 +679,8 @@ function PreguntaRevision({
         <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
           {indice + 1}
         </span>
-        <span className="rounded bg-violet-50 px-2 py-0.5 text-violet-700">
-          {etiquetaSeccion(pregunta.area)}
+        <span className="rounded bg-[var(--accent-soft)] px-2 py-0.5 text-[var(--accent)]">
+          {etiquetaArea(pregunta.area)}
         </span>
         <span className="text-neutral-400">·</span>
         <span className="text-neutral-600">{pregunta.tema}</span>
@@ -763,11 +756,11 @@ function ExplicacionExpandible({ texto }: { texto: string }) {
   // Por defecto abierta: queremos que el alumno vea cómo se resolvía sin clic.
   const [abierta, setAbierta] = useState(true);
   return (
-    <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/50">
+    <div className="mt-4 rounded-xl border border-[var(--accent-soft)] bg-[var(--accent-soft)]/50">
       <button
         type="button"
         onClick={() => setAbierta(!abierta)}
-        className="flex w-full items-center gap-2 px-4 py-3 text-left text-violet-700 hover:bg-violet-100/40 rounded-xl"
+        className="flex w-full items-center gap-2 px-4 py-3 text-left text-[var(--accent)] hover:bg-[var(--accent-soft)]/40 rounded-xl"
       >
         <span className="text-lg">{abierta ? "▾" : "▸"}</span>
         <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider">

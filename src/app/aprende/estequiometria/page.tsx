@@ -36,8 +36,8 @@ function EscIntro() {
 
       <Hook>
         Si una pizza necesita 2 huevos, 3 tazas de harina y 1 sobre de levadura,
-        y vos tenés 8 huevos, 9 tazas de harina y 2 sobres de levadura,
-        ¿cuántas pizzas podés hacer? La estequiometría es exactamente eso pero
+        y tú tienes 8 huevos, 9 tazas de harina y 2 sobres de levadura,
+        ¿cuántas pizzas puedes hacer? La estequiometría es exactamente eso pero
         con átomos.
       </Hook>
 
@@ -54,12 +54,12 @@ function EscIntro() {
 
       <Mnemotecnia>
         "La ecuación balanceada manda." Los coeficientes son la
-        <strong> proporción molar</strong>, no másica. Siempre trabajá en moles
+        <strong> proporción molar</strong>, no másica. Siempre trabaja en moles
         en el paso intermedio.
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás dominar: ecuación balanceada (Unidad 6), conversión
+        Necesitas dominar: ecuación balanceada (Unidad 6), conversión
         masa-moles (Unidad 5), y masa molar.
       </Conexion>
     </EscenaRica>
@@ -115,7 +115,7 @@ function EscMetodo() {
       </WorkedExample>
 
       <Cuidado>
-        Si NO balanceás primero, todo el cálculo está mal. La proporción molar
+        Si NO balanceas primero, todo el cálculo está mal. La proporción molar
         proviene EXCLUSIVAMENTE de los coeficientes balanceados.
       </Cuidado>
     </EscenaRica>
@@ -144,7 +144,7 @@ function EscSimulador() {
       <Titulo>Simulador · combustión de metano</Titulo>
 
       <Parrafo>
-        Ajustá los gramos de CH₄ y observá cómo escalan automáticamente todos
+        Ajusta los gramos de CH₄ y observa cómo escalan automáticamente todos
         los valores con la relación 1 : 2 : 1 : 2.
       </Parrafo>
 
@@ -182,9 +182,9 @@ function EscSimulador() {
       </div>
 
       <Cuidado>
-        Verificá la <strong>ley de conservación de masa</strong>: masa CH₄ +
-        masa O₂ debe igualar masa CO₂ + masa H₂O. Probá distintos valores y
-        confirmá.
+        Verifica la <strong>ley de conservación de masa</strong>: masa CH₄ +
+        masa O₂ debe igualar masa CO₂ + masa H₂O. Prueba distintos valores y
+        confirma.
       </Cuidado>
     </EscenaRica>
   );
@@ -205,9 +205,9 @@ function EscLimitante() {
       <Titulo>Reactivo limitante · el cuello de botella</Titulo>
 
       <Hook>
-        Volvamos a la pizza: si tenés 10 huevos pero solo 1 sobre de levadura,
+        Volvamos a la pizza: si tienes 10 huevos pero solo 1 sobre de levadura,
         la levadura es el "limitante". No importa cuántos huevos te sobren, la
-        levadura define cuántas pizzas hacés.
+        levadura define cuántas pizzas haces.
       </Hook>
 
       <Definicion termino="Reactivo limitante">
@@ -246,9 +246,9 @@ function EscLimitante() {
         </svg>
       </Pizarra>
 
-      <Paso n={1}>Convertí los datos de cada reactivo a moles.</Paso>
-      <Paso n={2}>Dividí cada n entre su coeficiente. El menor cociente = limitante.</Paso>
-      <Paso n={3}>Usá el limitante para calcular productos. El exceso se calcula como diferencia.</Paso>
+      <Paso n={1}>Convierte los datos de cada reactivo a moles.</Paso>
+      <Paso n={2}>Divide cada n entre su coeficiente. El menor cociente = limitante.</Paso>
+      <Paso n={3}>Usa el limitante para calcular productos. El exceso se calcula como diferencia.</Paso>
 
       <WorkedExample titulo="14 g de N₂ + 6 g de H₂ → NH₃. ¿Limitante? ¿g NH₃? (N=14, H=1)">
         <strong>Balanceo:</strong> N₂ + 3H₂ → 2NH₃<br />
@@ -349,7 +349,7 @@ function EscRendimiento() {
 
       <Mnemotecnia>
         <strong>"Real sobre teórico, por cien."</strong> Si te dan rendimiento
-        y querés calcular el real: real = teórico × (%R/100).
+        y quieres calcular el real: real = teórico × (%R/100).
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -456,12 +456,12 @@ function EscPractica() {
       <Misconception titulo="Error 1 · Coeficientes como masas">
         <strong>Pensar:</strong> que los coeficientes son gramos.<br />
         <strong>Realidad:</strong> los coeficientes son <em>proporción molar</em>,
-        no másica. Siempre pasá los datos a moles primero.
+        no másica. Siempre pasa los datos a moles primero.
       </Misconception>
 
       <Misconception titulo="Error 2 · Olvidar la pureza">
         <strong>Pensar:</strong> que toda la masa de la muestra reacciona.<br />
-        <strong>Realidad:</strong> si te dan pureza, calculá la masa pura primero:
+        <strong>Realidad:</strong> si te dan pureza, calcula la masa pura primero:
         m × (%/100).
       </Misconception>
 
@@ -473,7 +473,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 4 · 22.4 L/mol fuera de CN">
         <strong>Pensar:</strong> que el volumen molar es siempre 22.4 L/mol.<br />
-        <strong>Realidad:</strong> solo en CN (0 °C, 1 atm). Fuera de CN aplicá
+        <strong>Realidad:</strong> solo en CN (0 °C, 1 atm). Fuera de CN aplica
         PV = nRT.
       </Misconception>
 
@@ -505,7 +505,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="Tenés 4 mol de A y 9 mol de B con reacción 2A + 3B → C. ¿Cuál es el limitante?"
+        pregunta="Tienes 4 mol de A y 9 mol de B con reacción 2A + 3B → C. ¿Cuál es el limitante?"
         opciones={["A (cociente 2.0)", "B (cociente 3.0)", "Ambos se agotan", "Ninguno: queda exceso"]}
         correctaIdx={0}
         explicacion="A: 4/2 = 2.0. B: 9/3 = 3.0. A tiene el MENOR cociente → A es el limitante."

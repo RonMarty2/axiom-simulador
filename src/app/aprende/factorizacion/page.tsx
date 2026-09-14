@@ -40,7 +40,7 @@ function FactorComunAnim() {
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 20 }}>
-        {paso === 0 && "Tocá: ¿qué número está en los dos términos?"}
+        {paso === 0 && "Toca: ¿qué número está en los dos términos?"}
         {paso === 1 && "El 3 se repite en ambos…"}
         {paso === 2 && "…y sale afuera. Eso es factorizar."}
       </div>
@@ -83,8 +83,8 @@ function DifCuadradosAnim() {
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 20 }}>
-        {paso === 0 && "Tocá para desarrollar el producto"}
-        {paso === 1 && "Mirá los dos términos del medio: −ab y +ab…"}
+        {paso === 0 && "Toca para desarrollar el producto"}
+        {paso === 1 && "Mira los dos términos del medio: −ab y +ab…"}
         {paso === 2 && "…se cancelan. Por eso queda solo a² − b²."}
       </div>
       {paso === 2 && <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} /></div>}
@@ -160,8 +160,8 @@ function Esc02_FactorComun() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Caso 1: Factor común</Titulo>
       <Parrafo>
-        Es el método <strong>más simple y siempre el primero a probar</strong>. Buscás
-        algo que se repite en todos los términos y lo "sacás afuera".
+        Es el método <strong>más simple y siempre el primero a probar</strong>. Buscas
+        algo que se repite en todos los términos y lo "sacas afuera".
       </Parrafo>
 
       <FactorComunAnim />
@@ -185,7 +185,7 @@ function Esc02_FactorComun() {
       </Resumen>
 
       <AutoCheck
-        pregunta="Factorizá: 10x² + 15x"
+        pregunta="Factoriza: 10x² + 15x"
         opciones={["5(2x² + 3x)", "5x(2x + 3)", "x(10x + 15)", "10x(x + 1.5)"]}
         correctaIdx={1}
         explicacion="MCD(10,15)=5. Menor x común = x. Factor común: 5x. Resultado: 5x(2x + 3)."
@@ -234,7 +234,7 @@ function Esc04_DifCuad() {
         </span>
       </Resumen>
       <Parrafo>
-        Reconocés este patrón cuando hay <strong>dos cuadrados restándose</strong> (NO hay
+        Reconoces este patrón cuando hay <strong>dos cuadrados restándose</strong> (NO hay
         término del medio).
       </Parrafo>
 
@@ -257,7 +257,7 @@ function Esc04_DifCuad() {
       </PorQue>
 
       <AutoCheck
-        pregunta="Factorizá: x² − 16"
+        pregunta="Factoriza: x² − 16"
         opciones={["(x − 4)²", "(x + 4)(x − 4)", "(x + 8)(x − 2)", "x(x − 16)"]}
         correctaIdx={1}
         explicacion="16 = 4². Patrón a²−b²: (x+4)(x−4)."
@@ -318,7 +318,7 @@ function TCPGeometrico() {
       <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim, minHeight: 22 }}>
         {on
           ? <>Área total = <b style={{ color: LIENZO.ok }}>a²</b> + <b style={{ color: LIENZO.accent }}>2·ab</b> + <b style={{ color: LIENZO.ok }}>b²</b> = (a + b)²</>
-          : <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Tocá: por qué el 2ab del medio</span>}
+          : <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Toca: por qué el 2ab del medio</span>}
       </div>
     </div>
   );
@@ -336,7 +336,7 @@ function Esc05_TCP() {
       </Resumen>
 
       <Parrafo>
-        Reconocés un TCP cuando el trinomio es del cuadrado de un binomio. Verificación:
+        Reconoces un TCP cuando el trinomio es del cuadrado de un binomio. Verificación:
       </Parrafo>
 
       <Resumen>
@@ -369,7 +369,7 @@ function Esc06_Trinomio() {
     <EscenaRica>
       <Titulo>Caso 5: Trinomio general x² + bx + c</Titulo>
       <Parrafo>
-        Para factorizar <strong>x² + bx + c</strong>, buscás dos números que:
+        Para factorizar <strong>x² + bx + c</strong>, buscas dos números que:
       </Parrafo>
       <Resumen>
         ✓ <strong>SUMEN</strong> b (el coeficiente del medio)<br />
@@ -401,7 +401,7 @@ function Esc06_Trinomio() {
       </Resumen>
 
       <AutoCheck
-        pregunta="Factorizá: x² + 8x + 15"
+        pregunta="Factoriza: x² + 8x + 15"
         opciones={["(x + 3)(x + 5)", "(x + 15)(x + 1)", "(x − 3)(x − 5)", "(x + 8)(x + 7)"]}
         correctaIdx={0}
         explicacion="Dos números que sumen 8 y multipliquen 15: 3 y 5. Total: (x+3)(x+5)."
@@ -433,12 +433,12 @@ function Esc07_Cual() {
       </Ejemplo>
 
       <Cuidado>
-        <strong>SIEMPRE</strong> probá factor común primero. Si lo salteás, te complicás
-        la vida y a veces no podés terminar.
+        <strong>SIEMPRE</strong> prueba factor común primero. Si lo salteas, te complicas
+        la vida y a veces no puedes terminar.
       </Cuidado>
 
       <WorkedExample titulo="Factorización completa · 'siempre hasta el fondo'">
-        Factorizá: <strong>3x³ − 12x</strong>.<br /><br />
+        Factoriza: <strong>3x³ − 12x</strong>.<br /><br />
 
         <strong>Paso 1 · Factor común:</strong> MCD(3, 12) = 3. Letra común: x.<br />
         Sacando: 3x(x² − 4).<br /><br />
@@ -449,7 +449,7 @@ function Esc07_Cual() {
 
         <strong>Resultado final:</strong> 3x · (x + 2)(x − 2) = <strong>3x(x+2)(x−2)</strong>.<br /><br />
 
-        <strong>Regla:</strong> después de aplicar UN método, volvé a mirar cada factor para
+        <strong>Regla:</strong> después de aplicar UN método, vuelve a mirar cada factor para
         ver si se factoriza MÁS. La factorización está terminada cuando cada factor es
         irreducible.<br /><br />
 
@@ -479,7 +479,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> No sacar el factor común primero. <br />
         <span style={{ fontSize: 13 }}>
-          Si te complicás factorizando 4x² − 16 sin sacar el 4 antes, mal. Hacé 4(x²−4) = 4(x+2)(x−2).
+          Si te complicas factorizando 4x² − 16 sin sacar el 4 antes, mal. Haz 4(x²−4) = 4(x+2)(x−2).
         </span>
       </Cuidado>
 
@@ -503,11 +503,11 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Factorizá: 8x − 12", o: ["4(2x − 3)", "2(4x − 6)", "4(2x − 12)", "8(x − 1.5)"], c: 0, ex: "MCD(8,12)=4. Saco 4: 4(2x − 3)." },
-    { p: "Factorizá: x² − 49", o: ["(x − 7)²", "(x + 7)(x − 7)", "(x − 49)(x + 1)", "no se puede"], c: 1, ex: "Diferencia de cuadrados: 49=7². Resultado: (x+7)(x−7)." },
-    { p: "Factorizá: x² − 8x + 16", o: ["(x − 4)²", "(x + 4)²", "(x − 8)(x − 2)", "(x − 4)(x + 4)"], c: 0, ex: "TCP: √x²=x, √16=4, 2·x·4=8x ✓. Signo −: (x−4)²." },
-    { p: "Factorizá: x² + 5x − 14", o: ["(x + 7)(x − 2)", "(x − 7)(x + 2)", "(x + 7)(x + 2)", "(x − 14)(x + 1)"], c: 0, ex: "Sumen 5, multipliquen −14: 7 y −2. → (x+7)(x−2)." },
-    { p: "Factorizá: 3x² − 27", o: ["3(x² − 9)", "3(x + 3)(x − 3)", "(3x + 3)(x − 9)", "(x + 9)(3x − 3)"], c: 1, ex: "Primero factor común 3: 3(x²−9). Después dif. cuadrados: 3(x+3)(x−3)." },
+    { p: "Factoriza: 8x − 12", o: ["4(2x − 3)", "2(4x − 6)", "4(2x − 12)", "8(x − 1.5)"], c: 0, ex: "MCD(8,12)=4. Saco 4: 4(2x − 3)." },
+    { p: "Factoriza: x² − 49", o: ["(x − 7)²", "(x + 7)(x − 7)", "(x − 49)(x + 1)", "no se puede"], c: 1, ex: "Diferencia de cuadrados: 49=7². Resultado: (x+7)(x−7)." },
+    { p: "Factoriza: x² − 8x + 16", o: ["(x − 4)²", "(x + 4)²", "(x − 8)(x − 2)", "(x − 4)(x + 4)"], c: 0, ex: "TCP: √x²=x, √16=4, 2·x·4=8x ✓. Signo −: (x−4)²." },
+    { p: "Factoriza: x² + 5x − 14", o: ["(x + 7)(x − 2)", "(x − 7)(x + 2)", "(x + 7)(x + 2)", "(x − 14)(x + 1)"], c: 0, ex: "Sumen 5, multipliquen −14: 7 y −2. → (x+7)(x−2)." },
+    { p: "Factoriza: 3x² − 27", o: ["3(x² − 9)", "3(x + 3)(x − 3)", "(3x + 3)(x − 9)", "(x + 9)(3x − 3)"], c: 1, ex: "Primero factor común 3: 3(x²−9). Después dif. cuadrados: 3(x+3)(x−3)." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
@@ -515,7 +515,7 @@ function Esc09_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios: combiná los 5 casos:</Parrafo>
+      <Parrafo>5 ejercicios: combina los 5 casos:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;
@@ -554,7 +554,7 @@ function Esc09_Practica() {
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Sos máquina factorizando."}
             {ok >= 3 && ok < ejs.length && "Bien. Releí la estrategia (escena 7) para elegir mejor el método."}
-            {ok < 3 && "Volvé a la estrategia (escena 7). Es la clave: probar primero factor común."}
+            {ok < 3 && "Vuelve a la estrategia (escena 7). Es la clave: probar primero factor común."}
           </div>
         </motion.div>
       )}

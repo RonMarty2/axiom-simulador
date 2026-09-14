@@ -47,7 +47,7 @@ function EscIntro() {
       <Hook>
         En el examen UMSS FCyT, <strong>5 de las 20 preguntas</strong> son de
         Geometría-Trigonometría. Pero todas dependen de manejar bien los
-        elementos básicos. Si confundís un ángulo agudo con uno obtuso, perdés
+        elementos básicos. Si confundes un ángulo agudo con uno obtuso, pierdes
         puntos en preguntas que tendrías ganadas.
       </Hook>
 
@@ -163,7 +163,7 @@ function EscOpSeg() {
     <EscenaRica>
       <Titulo>Operaciones con segmentos · suma y resta</Titulo>
       <Parrafo>
-        Si tenés varios segmentos sobre una misma recta, sus longitudes se suman
+        Si tienes varios segmentos sobre una misma recta, sus longitudes se suman
         o restan como números reales. La clave es <strong>identificar el
         orden de los puntos</strong> sobre la recta.
       </Parrafo>
@@ -287,8 +287,8 @@ function EscAnguloConcepto() {
         <strong>Conversión grados ↔ radianes</strong>:<br />
         180° = π rad.<br />
         Por lo tanto: 1° = π/180 rad, 1 rad = 180°/π ≈ 57.3°.<br /><br />
-        Truco: para pasar de grados a radianes, <strong>multiplicá por π/180</strong>.
-        Para pasar de radianes a grados, <strong>multiplicá por 180/π</strong>.
+        Truco: para pasar de grados a radianes, <strong>multiplica por π/180</strong>.
+        Para pasar de radianes a grados, <strong>multiplica por 180/π</strong>.
       </Mnemotecnia>
 
       <Ejemplo titulo="Ejemplos de conversión">
@@ -320,7 +320,7 @@ function EscClasificacion() {
     <EscenaRica>
       <Titulo>Clasificación por su medida · los 6 tipos</Titulo>
       <Parrafo>
-        Tocá los botones para ver cada tipo de ángulo. Esta clasificación es
+        Toca los botones para ver cada tipo de ángulo. Esta clasificación es
         clave: aparece en CADA problema de geometría.
       </Parrafo>
 
@@ -548,7 +548,7 @@ function EscErrores() {
 
       <Cuidado>
         <strong>En el examen:</strong> casi siempre hay una pregunta que combina
-        dos relaciones (ej: "el suplemento del complemento de..."). Resolvé en
+        dos relaciones (ej: "el suplemento del complemento de..."). Resuelve en
         orden, no te saltes pasos.
       </Cuidado>
     </EscenaRica>
@@ -646,9 +646,9 @@ function EscPractica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás segmentos y ángulos."}
-            {ok >= 5 && ok < ejs.length && "Bien. Repasá las relaciones angulares."}
-            {ok < 5 && "Volvé a las escenas de pares de ángulos y paralelas."}
+            {ok === ejs.length && "🎉 Dominas segmentos y ángulos."}
+            {ok >= 5 && ok < ejs.length && "Bien. Repasa las relaciones angulares."}
+            {ok < 5 && "Vuelve a las escenas de pares de ángulos y paralelas."}
           </div>
         </motion.div>
       )}

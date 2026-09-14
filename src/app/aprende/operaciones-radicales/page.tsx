@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 export default function Page() {
   return (
@@ -39,7 +40,7 @@ function Esc01_Intro() {
       <Titulo>Operar con radicales: ¿para qué?</Titulo>
       <Parrafo>
         En la lección anterior viste qué es un radical y cómo simplificarlo. Acá
-        aprendés a <strong>sumarlos, restarlos, multiplicarlos y dividirlos</strong>{" "}
+        aprendes a <strong>sumarlos, restarlos, multiplicarlos y dividirlos</strong>{" "}
         • todas operaciones que vas a usar en álgebra, ecuaciones y geometría.
       </Parrafo>
       <Resumen>
@@ -61,7 +62,7 @@ function Esc01_Intro() {
       <Mnemotecnia>
         <strong>Reglas básicas · "S vs M-D"</strong>:<br />
         • <strong>Suma/resta</strong>: solo entre semejantes (mismo índice + mismo radicando).
-        Sumás los coeficientes, el radical queda igual.<br />
+        Sumas los coeficientes, el radical queda igual.<br />
         • <strong>Multiplicación/división</strong>: solo si mismo ÍNDICE (no hace falta
         mismo radicando). El resultado lleva el mismo índice, y el radicando se multiplica
         (o divide).
@@ -73,7 +74,7 @@ function Esc01_Intro() {
 function Esc02_Semejantes() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Radicales semejantes</Titulo>
+      <Titulo accent={LIENZO.accent}>Radicales semejantes</Titulo>
       <Parrafo>
         Para poder <strong>sumar o restar</strong> dos radicales, primero necesitamos
         que sean <em>semejantes</em>. Es un concepto análogo a los "términos semejantes"
@@ -118,9 +119,9 @@ function Esc03_IdentSem() {
 
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">¿Reconocés cuáles son semejantes?</Titulo>
+      <Titulo accent={LIENZO.accent}>¿Reconoces cuáles son semejantes?</Titulo>
       <Parrafo>
-        Practiquemos identificarlos. Tocá para ver el siguiente caso (loopea):
+        Practiquemos identificarlos. Toca para ver el siguiente caso (loopea):
       </Parrafo>
 
       <div onClick={() => setI((p) => (p + 1) % casos.length)} style={cajaAnim()}>
@@ -151,7 +152,7 @@ function Esc03_IdentSem() {
         </div>
       </div>
       <div style={{ fontSize: 13, color: COLOR_EXP, textAlign: "center", fontWeight: 700 }}>
-        Caso {i + 1} de {casos.length} · <IconoToque /> Tocá para ver el siguiente
+        Caso {i + 1} de {casos.length} · <IconoToque /> Toca para ver el siguiente
       </div>
     </EscenaRica>
   );
@@ -244,7 +245,7 @@ function Esc04_SumaResta() {
       </Cuidado>
 
       <AutoCheck
-        pregunta="Calculá: 6√2 − 2√2"
+        pregunta="Calcula: 6√2 − 2√2"
         opciones={["4", "4√2", "8√2", "√0"]}
         correctaIdx={1}
         explicacion="Son semejantes. (6−2)√2 = 4√2. La raíz queda igual."
@@ -260,7 +261,7 @@ function Esc05_SimpAntes() {
       <Titulo>Simplificar ANTES de sumar</Titulo>
       <Parrafo>
         A veces te dan radicales que <em>parecen</em> distintos pero después de
-        simplificar resultan semejantes. <strong>Regla: SIEMPRE simplificá primero</strong>.
+        simplificar resultan semejantes. <strong>Regla: SIEMPRE simplifica primero</strong>.
       </Parrafo>
 
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
@@ -303,7 +304,7 @@ function Esc05_SimpAntes() {
       </Ejemplo>
 
       <AutoCheck
-        pregunta="Calculá: √18 + √50"
+        pregunta="Calcula: √18 + √50"
         opciones={["√68", "8√2", "2√17", "no se puede"]}
         correctaIdx={1}
         explicacion="√18 = 3√2 y √50 = 5√2. Suma: (3+5)√2 = 8√2."
@@ -406,12 +407,12 @@ function Esc07_MultCoef() {
       </Ejemplo>
 
       <Cuidado>
-        Recordá <strong>SIEMPRE simplificar</strong> el radical resultante. Si te queda
+        Recuerda <strong>SIEMPRE simplificar</strong> el radical resultante. Si te queda
         √18 en una respuesta, escribilo como 3√2.
       </Cuidado>
 
       <AutoCheck
-        pregunta="Calculá: 5√3 · 2√7"
+        pregunta="Calcula: 5√3 · 2√7"
         opciones={["10√21", "10√10", "7√21", "70"]}
         correctaIdx={0}
         explicacion="Coef: 5·2 = 10. Raíces: √3·√7 = √21 (no se simplifica). Total: 10√21."
@@ -476,7 +477,7 @@ function Esc08_Div() {
       </Ejemplo>
 
       <AutoCheck
-        pregunta="Calculá: √48 / √3"
+        pregunta="Calcula: √48 / √3"
         opciones={["√45", "4", "√16 = 4", "16"]}
         correctaIdx={2}
         explicacion="√48/√3 = √(48/3) = √16 = 4. Ambas opciones a y c llevan al mismo lugar pero c es la forma completa."
@@ -500,7 +501,7 @@ function Esc09_Errores() {
       <Cuidado>
         <strong>Error 2:</strong> Olvidar simplificar antes de sumar. <br />
         <span style={{ fontSize: 13 }}>
-          √8 y √2 PARECEN no semejantes, pero √8 = 2√2 sí lo es. Siempre simplificá primero.
+          √8 y √2 PARECEN no semejantes, pero √8 = 2√2 sí lo es. Siempre simplifica primero.
         </span>
       </Cuidado>
 
@@ -554,11 +555,11 @@ function Esc09_Errores() {
 
 function Esc10_Practica() {
   const ejs = useMemo(() => [
-    { p: "Simplificá: 7√3 − 2√3", o: ["5√3", "5", "5√0", "5√6"], c: 0, ex: "Son semejantes. (7−2)√3 = 5√3." },
-    { p: "Calculá: √12 + √48", o: ["√60", "6√3", "2√15", "12√3"], c: 1, ex: "√12=2√3, √48=4√3. Suma: 6√3." },
-    { p: "Multiplicá: 2√3 · 3√2", o: ["6√6", "5√5", "6√5", "5√6"], c: 0, ex: "Coef: 2·3=6. Raíces: √3·√2=√6. Total: 6√6." },
-    { p: "Dividí: √32 / √8", o: ["√24", "4", "2", "1/4"], c: 2, ex: "√32/√8 = √(32/8) = √4 = 2." },
-    { p: "Simplificá: √8 · √2", o: ["√10", "4", "2√4", "8"], c: 1, ex: "√8·√2 = √16 = 4. (También 2√2·√2 = 2·2 = 4)." },
+    { p: "Simplifica: 7√3 − 2√3", o: ["5√3", "5", "5√0", "5√6"], c: 0, ex: "Son semejantes. (7−2)√3 = 5√3." },
+    { p: "Calcula: √12 + √48", o: ["√60", "6√3", "2√15", "12√3"], c: 1, ex: "√12=2√3, √48=4√3. Suma: 6√3." },
+    { p: "Multiplica: 2√3 · 3√2", o: ["6√6", "5√5", "6√5", "5√6"], c: 0, ex: "Coef: 2·3=6. Raíces: √3·√2=√6. Total: 6√6." },
+    { p: "Divide: √32 / √8", o: ["√24", "4", "2", "1/4"], c: 2, ex: "√32/√8 = √(32/8) = √4 = 2." },
+    { p: "Simplifica: √8 · √2", o: ["√10", "4", "2√4", "8"], c: 1, ex: "√8·√2 = √16 = 4. (También 2√2·√2 = 2·2 = 4)." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
@@ -603,8 +604,8 @@ function Esc10_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás las operaciones con radicales."}
-            {ok >= 3 && ok < ejs.length && "Bien. Repasá los que fallaste."}
+            {ok === ejs.length && "🎉 Dominas las operaciones con radicales."}
+            {ok >= 3 && ok < ejs.length && "Bien. Repasa los que fallaste."}
             {ok < 3 && "Vale la pena volver a las escenas 4 (semejantes) y 5 (simplificar antes)."}
           </div>
         </motion.div>

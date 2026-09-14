@@ -47,18 +47,18 @@ function EscIntro() {
       </Definicion>
 
       <Parrafo>
-        Si en 1 kg de agua disolvés 1 mol de glucosa, ó 1 mol de urea, ó 1 mol
+        Si en 1 kg de agua disuelves 1 mol de glucosa, ó 1 mol de urea, ó 1 mol
         de fructosa, las 4 propiedades coligativas cambian IGUAL. Lo único que
         importa es que sea 1 mol (de partículas no disociadas).
       </Parrafo>
 
       <Mnemotecnia>
         <strong>"Coligativas = colectivas"</strong>. La identidad del soluto
-        es irrelevante; solo cuenta cuántas partículas pateás al solvente.
+        es irrelevante; solo cuenta cuántas partículas pateas al solvente.
       </Mnemotecnia>
 
       <Conexion>
-        Necesitás dominar: molalidad (Unidad 9), molaridad (Unidad 9), y T en
+        Necesitas dominar: molalidad (Unidad 9), molaridad (Unidad 9), y T en
         Kelvin (Unidad 8).
       </Conexion>
     </EscenaRica>
@@ -281,7 +281,7 @@ function EscOsmosis() {
       <Titulo>Presión osmótica · Ósmosis</Titulo>
 
       <Hook>
-        ¿Por qué no podés beber agua de mar en alta mar? Porque el agua de tus
+        ¿Por qué no puedes beber agua de mar en alta mar? Porque el agua de tus
         células saldría por ósmosis hacia el mar más salado y morirías
         deshidratado. La presión osmótica explica este fenómeno vital.
       </Hook>
@@ -366,8 +366,8 @@ function EscSimulador() {
       <Titulo>Simulador · efectos coligativos en agua</Titulo>
 
       <Parrafo>
-        Ajustá la molalidad y el factor i (1 para no electrolito; 2 para NaCl;
-        3 para CaCl₂; 4 para AlCl₃). Mirá cómo cambian ΔTb, ΔTc y π.
+        Ajusta la molalidad y el factor i (1 para no electrolito; 2 para NaCl;
+        3 para CaCl₂; 4 para AlCl₃). Mira cómo cambian ΔTb, ΔTc y π.
       </Parrafo>
 
       <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
@@ -474,7 +474,7 @@ function EscVantHoff() {
       </Cuidado>
 
       <Mnemotecnia>
-        <strong>"Contá los iones que da una fórmula."</strong> NaCl → Na⁺ + Cl⁻
+        <strong>"Cuenta los iones que da una fórmula."</strong> NaCl → Na⁺ + Cl⁻
         = 2 iones, i=2. K₂SO₄ → 2K⁺ + SO₄²⁻ = 3 iones, i=3.
       </Mnemotecnia>
     </EscenaRica>

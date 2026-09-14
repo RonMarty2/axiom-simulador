@@ -13,7 +13,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function TraducirPalabrasAEcuacionesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -33,12 +33,12 @@ export default function TraducirPalabrasAEcuacionesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés resolver ecuaciones y sistemas. Lo nuevo es reconocer estas frases típicas:
+            Ya sabes resolver ecuaciones y sistemas. Lo nuevo es reconocer estas frases típicas:
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -65,11 +65,11 @@ export default function TraducirPalabrasAEcuacionesPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traducí cada frase del enunciado a una ecuación, una por una</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traduce cada frase del enunciado a una ecuación, una por una</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resolvé el sistema y verificá el resultado contra el enunciado original</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve el sistema y verifica el resultado contra el enunciado original</span>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function TraducirPalabrasAEcuacionesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Encontrar el mayor número de 3 números enteros consecutivos pares, cuya suma de cuadrados es 596."}

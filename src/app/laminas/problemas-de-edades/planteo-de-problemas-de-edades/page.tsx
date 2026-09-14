@@ -11,7 +11,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function PlanteoDeProblemasDeEdadesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -31,12 +31,12 @@ export default function PlanteoDeProblemasDeEdadesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés plantear ecuaciones a partir de un enunciado. Con edades, lo nuevo es fijar la edad ACTUAL de cada persona con una letra, y sumar o restar según el momento.
+            Ya sabes plantear ecuaciones a partir de un enunciado. Con edades, lo nuevo es fijar la edad ACTUAL de cada persona con una letra, y sumar o restar según el momento.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -60,11 +60,11 @@ export default function PlanteoDeProblemasDeEdadesPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traducí cada condición temporal a una ecuación, aplicando el mismo desplazamiento a TODAS las personas involucradas</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Traduce cada condición temporal a una ecuación, aplicando el mismo desplazamiento a TODAS las personas involucradas</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resolvé el sistema y verificá reconstruyendo cada condición del enunciado</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve el sistema y verifica reconstruyendo cada condición del enunciado</span>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function PlanteoDeProblemasDeEdadesPage() {
             Examen UMSS
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 13.5, lineHeight: 1.6 }}>
-            &quot;Tengo el doble de la edad que vos tenías cuando yo tenía la edad que vos tenés. La suma de nuestras edades es 42.&quot; ¿Cuál será la suma cuando vos tengas la edad que yo tengo?
+            &quot;Tengo el doble de la edad que tú tenías cuando yo tenía la edad que tú tienes. La suma de nuestras edades es 42.&quot; ¿Cuál será la suma cuando tú tengas la edad que yo tengo?
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 12, padding: "12px 14px" }}>
             <LineaEjemplo glosa="A, M edades actuales. 'Cuando A tenía la edad de M' fue hace (A-M) años" eq={"$A = 2(2M-A) \\ \\Rightarrow\\ 3A=4M$"} />
@@ -134,7 +134,7 @@ export default function PlanteoDeProblemasDeEdadesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Dentro de 11 años, la edad de Pedro será la mitad del cuadrado de la edad que tenía hace 13 años. Halle la suma de los dígitos del año en que nació (el examen es del año 2017)."}

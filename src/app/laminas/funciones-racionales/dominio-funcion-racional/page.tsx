@@ -14,7 +14,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function DominioFuncionRacionalPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -34,12 +34,12 @@ export default function DominioFuncionRacionalPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que dividir entre cero no existe. Una función racional es una fracción de polinomios, así que el dominio es todo <MathText>{"$\\mathbb{R}$"}</MathText> excepto donde el denominador se anula.
+            Ya sabes que dividir entre cero no existe. Una función racional es una fracción de polinomios, así que el dominio es todo <MathText>{"$\\mathbb{R}$"}</MathText> excepto donde el denominador se anula.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$f(x)=\\dfrac{1}{x-3}$"}</MathText>
@@ -57,15 +57,15 @@ export default function DominioFuncionRacionalPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Igualá el denominador a cero: <MathText>{"$q(x)=0$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Iguala el denominador a cero: <MathText>{"$q(x)=0$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resolvé esa ecuación: esas raíces se EXCLUYEN</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve esa ecuación: esas raíces se EXCLUYEN</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si además hay una raíz en el numerador o denominador, sumá esa condición (el radicando <MathText>{"$\\geq 0$"}</MathText>, o <MathText>{"$> 0$"}</MathText> si está abajo)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si además hay una raíz en el numerador o denominador, suma esa condición (el radicando <MathText>{"$\\geq 0$"}</MathText>, o <MathText>{"$> 0$"}</MathText> si está abajo)</span>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function DominioFuncionRacionalPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el dominio de $f(x)=\\dfrac{x+1}{x^2-9}$."}

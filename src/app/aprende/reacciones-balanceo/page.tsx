@@ -264,10 +264,10 @@ function EscTanteo() {
 
       <Mnemotecnia>
         <strong>Orden recomendado</strong>:<br />
-        1. Empezá por el elemento más común (suele ser C o un metal).<br />
-        2. Después ajustá H.<br />
-        3. Al final ajustá O.<br />
-        4. Si quedan fracciones, multiplicá todo para enteros.
+        1. Empieza por el elemento más común (suele ser C o un metal).<br />
+        2. Después ajusta H.<br />
+        3. Al final ajusta O.<br />
+        4. Si quedan fracciones, multiplica todo para enteros.
       </Mnemotecnia>
 
       <WorkedExample titulo="Combustión del metano · CH₄ + O₂ → CO₂ + H₂O">
@@ -482,8 +482,8 @@ function EscPractica() {
       <Titulo>Errores y práctica</Titulo>
 
       <Misconception titulo="Error 1 · cambiar fórmulas en lugar de coeficientes">
-        Al balancear, NO podés cambiar los subíndices de las fórmulas (H₂O no
-        se vuelve H₂O₂). Solo modificás los coeficientes al frente.
+        Al balancear, NO puedes cambiar los subíndices de las fórmulas (H₂O no
+        se vuelve H₂O₂). Solo modificas los coeficientes al frente.
       </Misconception>
 
       <Misconception titulo="Error 2 · invertir agente oxidante/reductor">

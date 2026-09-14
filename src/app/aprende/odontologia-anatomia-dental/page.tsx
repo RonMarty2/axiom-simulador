@@ -313,7 +313,7 @@ function EscCaries() {
 
       <Mnemotecnia>
         <strong>"Bacteria + Azúcar + Diente + Tiempo = Caries."</strong>
-        Cortá un factor, cortás la enfermedad.
+        Cortá un factor, cortas la enfermedad.
       </Mnemotecnia>
     </EscenaRica>
   );

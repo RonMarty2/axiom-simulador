@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function FactorizacionBasicaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function FactorizacionBasicaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés distribuir: <MathText>{"$a(b+c)=ab+ac$"}</MathText>. Factorizar es reconocer ese patrón al revés, y también reconocer los productos notables de la lámina anterior escritos hacia atrás.
+            Ya sabes distribuir: <MathText>{"$a(b+c)=ab+ac$"}</MathText>. Factorizar es reconocer ese patrón al revés, y también reconocer los productos notables de la lámina anterior escritos hacia atrás.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ textAlign: "center", padding: "10px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
@@ -55,15 +55,15 @@ export default function FactorizacionBasicaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 86 }}>Factor común</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>sacá lo que se repite en TODOS los términos</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>saca lo que se repite en TODOS los términos</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 86 }}>Agrupación</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>armá grupos con un factor común cada uno, y sacá el que quede en común entre grupos</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>arma grupos con un factor común cada uno, y saca el que quede en común entre grupos</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 86 }}>Trinomio</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>en <MathText>{"$x^2+bx+c$"}</MathText>, buscá dos números que sumen <MathText>{"$b$"}</MathText> y multipliquen <MathText>{"$c$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>en <MathText>{"$x^2+bx+c$"}</MathText>, busca dos números que sumen <MathText>{"$b$"}</MathText> y multipliquen <MathText>{"$c$"}</MathText></span>
             </div>
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function FactorizacionBasicaPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Empezar a agrupar o buscar productos notables SIN antes sacar el factor común es el error más frecuente: casi siempre esconde el patrón que buscás.
+            Empezar a agrupar o buscar productos notables SIN antes sacar el factor común es el error más frecuente: casi siempre esconde el patrón que buscas.
           </p>
           <ComparacionOjo
             correcto={{ arriba: "$4x^2{-}4x$", abajo: "$4x(x{-}1)$" }}
@@ -136,7 +136,7 @@ export default function FactorizacionBasicaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Simplificar: $\\dfrac{x^3+4x^2+x-6}{x^3+x^2-14x-24}$"}

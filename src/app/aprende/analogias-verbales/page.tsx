@@ -141,14 +141,14 @@ function EscProcedimiento() {
     <EscenaRica>
       <Titulo>Procedimiento en 5 pasos</Titulo>
       <Resumen>
-        <strong>1.</strong> Leé el par inicial e <strong>identificá la relación</strong>. Es la clave de
+        <strong>1.</strong> Lee el par inicial e <strong>identifica la relación</strong>. Es la clave de
         todo. Ponele un nombre: "función", "causa-efecto", "categoría", etc.<br /><br />
         <strong>2.</strong> Si te cuesta, formulá una <strong>frase puente</strong>: "la llave SIRVE PARA
         abrir cosas", "el león VIVE EN la jungla". Esa frase la vas a aplicar a todas las opciones.<br /><br />
-        <strong>3.</strong> Probá la frase puente en cada opción. La que encaja exactamente es la
+        <strong>3.</strong> Prueba la frase puente en cada opción. La que encaja exactamente es la
         respuesta.<br /><br />
-        <strong>4.</strong> Descartá las que NO siguen la misma relación (aunque parezcan plausibles).<br /><br />
-        <strong>5.</strong> Verificá: ¿el TIPO de relación es idéntico? No solo "ambas son cosas".
+        <strong>4.</strong> Descarta las que NO siguen la misma relación (aunque parezcan plausibles).<br /><br />
+        <strong>5.</strong> Verifica: ¿el TIPO de relación es idéntico? No solo "ambas son cosas".
       </Resumen>
 
       <Mnemotecnia>
@@ -156,8 +156,8 @@ function EscProcedimiento() {
         <strong>F</strong>rase puente · <strong>P</strong>robar en opciones ·
         <strong> P</strong>recisar tipo · <strong>D</strong>escartar parecidas ·
         <strong> V</strong>erificar simetría.<br /><br />
-        Atajo de bolsillo: <strong>"nombrá la relación con un verbo"</strong>. Si podés decir
-        "A <em>VERBO</em> B" (sirve para, produce, vive en, mide, es tipo de), tenés la frase
+        Atajo de bolsillo: <strong>"nombrá la relación con un verbo"</strong>. Si puedes decir
+        "A <em>VERBO</em> B" (sirve para, produce, vive en, mide, es tipo de), tienes la frase
         puente.
       </Mnemotecnia>
 
@@ -428,12 +428,12 @@ function EscResumen() {
       <Resumen>
         <strong>1.</strong> Antes de mirar las opciones, formulá la <strong>frase puente</strong> que une
         las dos primeras palabras: "A SIRVE PARA B", "A PRODUCE B", "A ES TIPO DE B".<br /><br />
-        <strong>2.</strong> Aplicá esa frase a cada opción. La que encaja exactamente es la respuesta.<br /><br />
+        <strong>2.</strong> Aplica esa frase a cada opción. La que encaja exactamente es la respuesta.<br /><br />
         <strong>3.</strong> Atención a las trampas: hay opciones que parecen funcionar pero rompen el
         TIPO o el CAMPO de la relación.<br /><br />
         <strong>4.</strong> En las analogías de hábitat, preferí el hábitat NATURAL (jungla, océano) no
         el artificial (zoo, circo).<br /><br />
-        <strong>5.</strong> Si dos opciones parecen igual de buenas, elegí la más SIMÉTRICA: la que
+        <strong>5.</strong> Si dos opciones parecen igual de buenas, elige la más SIMÉTRICA: la que
         comparte el mismo campo semántico que el par original (astronomía, animales, profesiones, etc).
       </Resumen>
 
@@ -442,7 +442,7 @@ function EscResumen() {
         sigue el patrón).<br />
         <strong>(b)</strong> Orden invertido (cambia la dirección del puente).<br />
         <strong>(c)</strong> Campo semántico distinto (los pares originales son astronómicos, la
-        opción "buena" es animal: descartá).
+        opción "buena" es animal: descarta).
       </Misconception>
     </EscenaRica>
   );

@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Radicación y propiedades — versión completa y autocontenida.
@@ -58,7 +59,7 @@ function Esc01_Intro() {
         padding: 16, maxWidth: 540, fontSize: 15, lineHeight: 1.7, color: COLOR_BASE,
       }}>
         🔸 <strong>¿Para qué sirve en economía?</strong><br /><br />
-        • <strong>Interés compuesto</strong>: invertís a cierta tasa y querés saber qué tasa anual
+        • <strong>Interés compuesto</strong>: invertes a cierta tasa y quieres saber qué tasa anual
         equivale a un crecimiento mensual.<br />
         • <strong>Promedio geométrico</strong>: medir rendimientos de inversión a varios años.<br />
         • <strong>Geometría</strong>: el lado de un cuadrado de área 36 es √36 = 6.<br />
@@ -99,7 +100,7 @@ function Esc02_RaizCuad() {
   const [paso, setPaso] = useState(0);
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">La raíz cuadrada</Titulo>
+      <Titulo accent={LIENZO.accent}>La raíz cuadrada</Titulo>
       <Parrafo>
         Empezamos por el caso más usado: la <strong>raíz cuadrada</strong>.
       </Parrafo>
@@ -156,7 +157,7 @@ function Esc02_RaizCuad() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && <><IconoToque /> Tocá para visualizar</>}
+          {paso === 0 && <><IconoToque /> Toca para visualizar</>}
           {paso === 1 && "Un cuadrado con 9 cuadraditos tiene LADO 3"}
           {paso === 2 && "Por eso √9 = 3 (el lado del cuadrado de área 9)"}
         </div>
@@ -173,7 +174,7 @@ function Esc02_RaizCuad() {
       <PorQue>
         Por convención, <strong>√ se refiere SOLO al valor positivo</strong>. Aunque
         técnicamente tanto 3 como −3 elevados al cuadrado dan 9, escribimos √9 = 3,
-        no ±3. Si querés ambos, se escribe ±√9.
+        no ±3. Si quieres ambos, se escribe ±√9.
       </PorQue>
 
       <Cuidado>
@@ -199,7 +200,7 @@ function Esc02_RaizCuad() {
 function Esc03_CuadPerf() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Cuadrados perfectos: para tener a mano</Titulo>
+      <Titulo accent={LIENZO.accent}>Cuadrados perfectos: para tener a mano</Titulo>
       <Parrafo>
         Te conviene memorizar los primeros cuadrados perfectos. Aparecen todo el
         tiempo en los exámenes:
@@ -225,12 +226,12 @@ function Esc03_CuadPerf() {
       </div>
 
       <Parrafo>
-        <strong>Lectura inversa</strong>: si memorizás que 7² = 49, ya sabés que √49 = 7.
+        <strong>Lectura inversa</strong>: si memorizas que 7² = 49, ya sabes que √49 = 7.
         Es la misma información mirada al revés.
       </Parrafo>
 
       <Resumen>
-        Conociendo de memoria de 1² a 12² podés resolver muchísimas raíces sin pensar.
+        Conociendo de memoria de 1² a 12² puedes resolver muchísimas raíces sin pensar.
       </Resumen>
     </EscenaRica>
   );
@@ -244,7 +245,7 @@ function Esc04_Irracional() {
     <EscenaRica>
       <Titulo accent="#f59e0b">Cuando la raíz no es entera</Titulo>
       <Parrafo>
-        ¿Qué pasa si querés calcular √2? No hay ningún entero que al cuadrado dé 2:
+        ¿Qué pasa si quieres calcular √2? No hay ningún entero que al cuadrado dé 2:
         1² = 1, 2² = 4. La respuesta es un número decimal infinito y no periódico:
       </Parrafo>
 
@@ -262,8 +263,8 @@ function Esc04_Irracional() {
       </Parrafo>
 
       <Ejemplo titulo="¿Cuándo redondear?">
-        Solo redondeás cuando el problema lo pide explícitamente o cuando comparás
-        magnitudes numéricas. En álgebra siempre dejá la expresión exacta:
+        Solo redondeas cuando el problema lo pide explícitamente o cuando comparás
+        magnitudes numéricas. En álgebra siempre deja la expresión exacta:
         ej. <strong>"el resultado es 3√2"</strong>, no "≈ 4.24".
       </Ejemplo>
 
@@ -283,7 +284,7 @@ function Esc04_Irracional() {
 function Esc05_NEsima() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">Raíz n-ésima: cualquier índice</Titulo>
+      <Titulo accent={LIENZO.accent}>Raíz n-ésima: cualquier índice</Titulo>
       <Parrafo>
         La raíz cuadrada es solo un caso. En general, podemos tomar raíz de
         cualquier <strong>índice</strong> n:
@@ -369,11 +370,11 @@ function Esc06_Equiv() {
 
       <Resumen>
         🔑 <strong>Convertir radicales en potencias te permite usar TODAS las propiedades
-        de los exponentes que ya conocés</strong> (producto, cociente, potencia de potencia, etc).
+        de los exponentes que ya conoces</strong> (producto, cociente, potencia de potencia, etc).
       </Resumen>
 
       <AutoCheck
-        pregunta="Reescribí 32^(1/5) como radical"
+        pregunta="Reescribe 32^(1/5) como radical"
         opciones={["√32", "⁵√32", "32⁵", "1/32⁵"]}
         correctaIdx={1}
         explicacion="32^(1/5) = ⁵√32 = 2 (porque 2⁵ = 32)."
@@ -550,7 +551,7 @@ function Esc09_Simplificar() {
       </PorQue>
 
       <Resumen>
-        La regla del "examen": <strong>siempre dejá los radicales simplificados</strong>. Si te
+        La regla del "examen": <strong>siempre deja los radicales simplificados</strong>. Si te
         queda √50 en una respuesta, escribilo como 5√2.
       </Resumen>
     </EscenaRica>
@@ -580,7 +581,7 @@ function Esc10_SumaResta() {
         3√5 + 7√5 = (3+7)√5 = <strong>10√5</strong>.
       </Ejemplo>
 
-      <Ejemplo titulo="Cuando parecen distintos, simplificá primero">
+      <Ejemplo titulo="Cuando parecen distintos, simplifica primero">
         √8 + √2: ¿son semejantes? √8 = 2√2. Ahora: 2√2 + √2 = <strong>3√2</strong>. ✓
       </Ejemplo>
 
@@ -596,7 +597,7 @@ function Esc10_SumaResta() {
       </Cuidado>
 
       <AutoCheck
-        pregunta="Simplificá: √20 + √45"
+        pregunta="Simplifica: √20 + √45"
         opciones={["√65", "√25", "5√5", "7√5"]}
         correctaIdx={2}
         explicacion="√20 = 2√5 y √45 = 3√5. Suma: 2√5 + 3√5 = 5√5."
@@ -746,7 +747,7 @@ function Esc12_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> Dejar el radical sin simplificar. <br />
         <span style={{ fontSize: 13 }}>
-          √48 NO está terminado. Tenés que escribir 4√3.
+          √48 NO está terminado. Tienes que escribir 4√3.
         </span>
       </Cuidado>
 
@@ -790,7 +791,7 @@ function Esc12_Errores() {
 function Esc13_Practica() {
   const ejercicios = useMemo(() => [
     {
-      pregunta: "Simplificá √75",
+      pregunta: "Simplifica √75",
       opciones: ["3√5", "5√3", "√75", "15"],
       correctaIdx: 1,
       explicacion: "75 = 25·3. √75 = √25·√3 = 5√3.",
@@ -802,7 +803,7 @@ function Esc13_Practica() {
       explicacion: "Busco b³ = 64. Como 4³ = 64, ³√64 = 4.",
     },
     {
-      pregunta: "Resolvé: 2√3 + 5√3 − √3",
+      pregunta: "Resuelve: 2√3 + 5√3 − √3",
       opciones: ["6√3", "6√9", "8", "8√3"],
       correctaIdx: 0,
       explicacion: "Son todos semejantes. (2+5−1)√3 = 6√3.",
@@ -814,7 +815,7 @@ function Esc13_Practica() {
       explicacion: "6/√2 · √2/√2 = 6√2/2 = 3√2.",
     },
     {
-      pregunta: "Reescribí 27^(2/3) sin exponente fraccionario",
+      pregunta: "Reescribe 27^(2/3) sin exponente fraccionario",
       opciones: ["³√27 · 2 = 6", "(³√27)² = 9", "27 · 27 / 3 = 243", "no se puede"],
       correctaIdx: 1,
       explicacion: "27^(2/3) = (³√27)² = 3² = 9.",
@@ -899,9 +900,9 @@ function Esc13_Practica() {
             {correctas} / {ejercicios.length} correctas
           </div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {correctas === ejercicios.length && "🎉 ¡Perfecto! Dominás radicales."}
-            {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasá los que fallaste."}
-            {correctas < 3 && "Volvé al algoritmo de simplificación (escena 9) y a las equivalencias (escena 6)."}
+            {correctas === ejercicios.length && "🎉 ¡Perfecto! Dominas radicales."}
+            {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasa los que fallaste."}
+            {correctas < 3 && "Vuelve al algoritmo de simplificación (escena 9) y a las equivalencias (escena 6)."}
           </div>
         </motion.div>
       )}

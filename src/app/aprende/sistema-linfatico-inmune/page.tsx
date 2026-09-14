@@ -33,7 +33,7 @@ function EscIntro() {
 
       <Hook>
         Cada día tu cuerpo se enfrenta a millones de bacterias, virus, hongos.
-        ¿Por qué no te enfermás cada día? Porque tenés un ejército invisible:
+        ¿Por qué no te enfermas cada día? Porque tienes un ejército invisible:
         el sistema inmune.
       </Hook>
 
@@ -100,7 +100,7 @@ function EscOrganos() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"B de Bone marrow; T de Timo."</strong> Recordá dónde maduran.
+        <strong>"B de Bone marrow; T de Timo."</strong> Recuerda dónde maduran.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -261,13 +261,13 @@ function EscVacunas() {
           <g transform="translate(80, 55)">
             <rect width={260} height={90} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
             <text x={130} y={25} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>ACTIVA</text>
-            <text x={130} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Vos producís anticuerpos</text>
+            <text x={130} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Tú produces anticuerpos</text>
             <text x={130} y={68} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>vacuna, infección natural</text>
           </g>
           <g transform="translate(380, 55)">
             <rect width={260} height={90} fill={LIENZO.warn} opacity={0.1} stroke={LIENZO.warn} strokeWidth={1.5} rx={10} />
             <text x={130} y={25} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>PASIVA</text>
-            <text x={130} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Recibís anticuerpos ya hechos</text>
+            <text x={130} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Recibes anticuerpos ya hechos</text>
             <text x={130} y={68} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>leche materna, suero antiveneno</text>
           </g>
         </svg>
@@ -323,7 +323,7 @@ function EscPractica() {
         pregunta="¿Qué tipo de inmunidad da una vacuna?"
         opciones={["pasiva natural", "pasiva artificial", "activa natural", "activa artificial"]}
         correctaIdx={3}
-        explicacion="Vacuna = artificial. Activa = vos producís anticuerpos."
+        explicacion="Vacuna = artificial. Activa = tú produces anticuerpos."
       />
 
       <AutoCheck

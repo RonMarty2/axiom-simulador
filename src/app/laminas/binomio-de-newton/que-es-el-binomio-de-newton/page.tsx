@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function QueEsElBinomioDeNewtonPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés expandir un binomio elevado a la séptima sin multiplicarlo siete veces, usando solo números combinatorios?
+            ¿Sabías que puedes expandir un binomio elevado a la séptima sin multiplicarlo siete veces, usando solo números combinatorios?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,12 +30,12 @@ export default function QueEsElBinomioDeNewtonPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya viste <MathText>{"$(a+b)^2=a^2+2ab+b^2$"}</MathText>. Fijate en los coeficientes: 1, 2, 1.
+            Ya viste <MathText>{"$(a+b)^2=a^2+2ab+b^2$"}</MathText>. Fíjate en los coeficientes: 1, 2, 1.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$(a+b)^3 = a^3+3a^2b+3ab^2+b^3$"}</MathText>
@@ -130,7 +130,7 @@ export default function QueEsElBinomioDeNewtonPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"En el desarrollo de $(x+a)^n$ se sabe que el coeficiente del término $x^r$ es igual al coeficiente del término $x^{r+2}$. Encuentre una relación entre $a, n$ y $r$."}

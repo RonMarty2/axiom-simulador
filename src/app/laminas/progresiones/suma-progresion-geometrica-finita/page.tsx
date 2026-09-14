@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function SumaProgresionGeometricaFinitaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function SumaProgresionGeometricaFinitaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés el término general de una PG. Sumar los primeros <MathText>{"$n$"}</MathText> términos tiene esta fórmula cerrada, válida siempre que <MathText>{"$r\\neq1$"}</MathText>.
+            Ya sabes el término general de una PG. Sumar los primeros <MathText>{"$n$"}</MathText> términos tiene esta fórmula cerrada, válida siempre que <MathText>{"$r\\neq1$"}</MathText>.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$S_n = \\dfrac{a_1(r^n-1)}{r-1}$"}</MathText>
@@ -50,15 +50,15 @@ export default function SumaProgresionGeometricaFinitaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identificá <MathText>{"$a_1$"}</MathText>, <MathText>{"$r$"}</MathText> y lo que buscás (la suma o <MathText>{"$n$"}</MathText>)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identifica <MathText>{"$a_1$"}</MathText>, <MathText>{"$r$"}</MathText> y lo que buscas (la suma o <MathText>{"$n$"}</MathText>)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplicá <MathText>{"$S_n=\\dfrac{a_1(r^n-1)}{r-1}$"}</MathText> con signos consistentes</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplica <MathText>{"$S_n=\\dfrac{a_1(r^n-1)}{r-1}$"}</MathText> con signos consistentes</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si buscás <MathText>{"$n$"}</MathText>, despejá la potencia y expresala como <MathText>{"$r$"}</MathText> elevado a algo</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si buscas <MathText>{"$n$"}</MathText>, despeja la potencia y expresala como <MathText>{"$r$"}</MathText> elevado a algo</span>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function SumaProgresionGeometricaFinitaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"¿Cuántos términos hay en una progresión geométrica que empieza en 3, tiene razón 4, y la suma de esos términos es 1023?"}

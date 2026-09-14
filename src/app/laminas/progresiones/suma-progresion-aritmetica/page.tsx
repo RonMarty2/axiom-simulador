@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function SumaProgresionAritmeticaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function SumaProgresionAritmeticaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés promediar dos números. La suma de una PA es exactamente eso: el promedio del primer y último término, multiplicado por la cantidad de términos.
+            Ya sabes promediar dos números. La suma de una PA es exactamente eso: el promedio del primer y último término, multiplicado por la cantidad de términos.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$S_n = \\dfrac{n}{2}(a_1+a_n)$"}</MathText>
@@ -50,15 +50,15 @@ export default function SumaProgresionAritmeticaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si no tenés <MathText>{"$a_n$"}</MathText>, hallalo primero con <MathText>{"$a_n=a_1+(n-1)d$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si no tienes <MathText>{"$a_n$"}</MathText>, hallalo primero con <MathText>{"$a_n=a_1+(n-1)d$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplicá <MathText>{"$S_n=\\dfrac n2(a_1+a_n)$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplica <MathText>{"$S_n=\\dfrac n2(a_1+a_n)$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si te dan la suma y piden <MathText>{"$n$"}</MathText>, planteá la ecuación resultante y descartá la raíz negativa</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si te dan la suma y piden <MathText>{"$n$"}</MathText>, planteá la ecuación resultante y descarta la raíz negativa</span>
             </div>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function SumaProgresionAritmeticaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un teatro tiene 15 asientos en la primera fila, 18 en la segunda, 21 en la tercera, y así en PA. Si el teatro tiene capacidad de 285 asientos, ¿cuántas filas debe considerar el diseño?"}

@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function FactorizacionPrimaYDivisoresPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés contar TODOS los divisores de un número sin listarlos uno por uno?
+            ¿Sabías que puedes contar TODOS los divisores de un número sin listarlos uno por uno?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,12 +30,12 @@ export default function FactorizacionPrimaYDivisoresPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Con <MathText>{"$12$"}</MathText> es fácil listar a mano: <MathText>{"$1,2,3,4,6,12$"}</MathText>, seis divisores. Fijate qué pasa si lo escribís en factores primos.
+            Con <MathText>{"$12$"}</MathText> es fácil listar a mano: <MathText>{"$1,2,3,4,6,12$"}</MathText>, seis divisores. Fíjate qué pasa si lo escribes en factores primos.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$12 = 2^2 \\times 3^1$"}</MathText>
@@ -126,7 +126,7 @@ export default function FactorizacionPrimaYDivisoresPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Determinar la cantidad de divisores de $180$."}

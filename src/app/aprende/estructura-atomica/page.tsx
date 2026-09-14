@@ -214,7 +214,7 @@ function EscConfigSim() {
       <Titulo accent={COLOR_OK}>Configuración electrónica · simulador</Titulo>
 
       <Parrafo>
-        Movés el slider para elegir Z (número atómico). El sistema calcula y
+        Mueves el slider para elegir Z (número atómico). El sistema calcula y
         muestra la configuración electrónica completa siguiendo el orden de
         Aufbau.
       </Parrafo>
@@ -247,7 +247,7 @@ function EscConfigSim() {
       </div>
 
       <Mnemotecnia>
-        <strong>Probá estos casos clásicos del examen</strong>:<br />
+        <strong>Prueba estos casos clásicos del examen</strong>:<br />
         • Z = 8 (O): 1s² 2s² 2p⁴.<br />
         • Z = 11 (Na): 1s² 2s² 2p⁶ 3s¹.<br />
         • Z = 14 (Si): 1s² 2s² 2p⁶ 3s² 3p². Electrones en s = 6.<br />

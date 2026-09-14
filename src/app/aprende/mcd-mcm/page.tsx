@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // MCD y MCM — versión completa y autocontenida (estándar pedagógico).
@@ -101,7 +102,7 @@ function Esc01_Intro() {
 function Esc02_Divisor() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">¿Qué es un divisor?</Titulo>
+      <Titulo accent={LIENZO.accent}>¿Qué es un divisor?</Titulo>
       <Parrafo>
         Antes de hablar de "divisores comunes" necesitamos tener clarísimo qué es
         un divisor de un número.
@@ -161,7 +162,7 @@ function Esc03_BuscarDiv() {
 
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Buscar TODOS los divisores</Titulo>
+      <Titulo accent={LIENZO.accent}>Buscar TODOS los divisores</Titulo>
       <Parrafo>
         Veamos cómo encontrar la lista completa de divisores de un número. Probamos
         dividir por 1, 2, 3, ... hasta el número mismo, y nos quedamos con los que
@@ -172,7 +173,7 @@ function Esc03_BuscarDiv() {
       <div onClick={() => setPaso((p) => p >= 6 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 13, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1, marginBottom: 6 }}>
           PROBANDO DIVISOR: <span style={{ color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontSize: 18 }}>{reparto.divisor}</span>
-          <span style={{ color: COLOR_EXP, marginLeft: 6, fontSize: 12 }}><IconoToque /> tocá para avanzar</span>
+          <span style={{ color: COLOR_EXP, marginLeft: 6, fontSize: 12 }}><IconoToque /> toca para avanzar</span>
         </div>
         <Stage w={400} h={140}>
           {/* 12 bolitas */}
@@ -254,14 +255,14 @@ function Esc03_BuscarDiv() {
             ))}
           </div>
           <div style={{ marginTop: 10, fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}>
-            {paso < 6 ? <><IconoToque /> Tocá para probar el siguiente (mirá cómo se reorganizan las bolitas arriba)</> : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
+            {paso < 6 ? <><IconoToque /> Toca para probar el siguiente (mira cómo se reorganizan las bolitas arriba)</> : "Listo, los divisores son: 1, 2, 3, 4, 6, 12"}
           </div>
         </div>
       </Ejemplo>
 
       <Resumen>
         <strong>Divisores de 12: {`{1, 2, 3, 4, 6, 12}`}</strong><br />
-        Notá que aparecen en parejas: 1×12, 2×6, 3×4. Eso siempre pasa.
+        Nota que aparecen en parejas: 1×12, 2×6, 3×4. Eso siempre pasa.
       </Resumen>
 
       <PorQue>
@@ -392,7 +393,7 @@ function Esc06_MCDDef() {
 
       <Cuidado>
         Este método de listar divisores funciona bien con números chicos, pero se vuelve
-        impracticable con números grandes (¿imaginás listar los divisores de 1.260 y de 945?).
+        impracticable con números grandes (¿imaginas listar los divisores de 1.260 y de 945?).
         Más adelante vemos un método mucho más eficiente: factorización en primos.
       </Cuidado>
 
@@ -412,7 +413,7 @@ function Esc06_MCDDef() {
 function Esc07_Primos() {
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">Números primos: refresco</Titulo>
+      <Titulo accent={LIENZO.accent}>Números primos: refresco</Titulo>
       <Parrafo>
         Para usar el método rápido de MCD y MCM, necesitamos entender los <strong>números primos</strong>.
         Son las "piezas básicas" de los números enteros.
@@ -463,7 +464,7 @@ function Esc08_Factorizar() {
 
   return (
     <EscenaRica>
-      <Titulo accent="#8b5cf6">Factorizar en primos</Titulo>
+      <Titulo accent={LIENZO.accent}>Factorizar en primos</Titulo>
       <Parrafo>
         <strong>Factorizar</strong> un número significa escribirlo como producto de
         sus factores primos. Es la herramienta que vuelve fáciles el MCD y el MCM.
@@ -473,7 +474,7 @@ function Esc08_Factorizar() {
       <div onClick={() => setPaso((p) => p >= 4 ? 0 : p + 1)} style={{ ...cajaAnim(), padding: "20px 14px" }}>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontWeight: 700, letterSpacing: 1.2, marginBottom: 6 }}>
           ÁRBOL DE FACTORIZACIÓN DE 60{" "}
-          <span style={{ color: COLOR_EXP, marginLeft: 6 }}><IconoToque /> tocá para avanzar</span>
+          <span style={{ color: COLOR_EXP, marginLeft: 6 }}><IconoToque /> toca para avanzar</span>
         </div>
         <Stage w={400} h={260}>
           <motion.svg style={{ position: "absolute", left: 0, top: 0, width: 400, height: 260, pointerEvents: "none" }}>
@@ -542,7 +543,7 @@ function Esc08_Factorizar() {
           )}
           {paso < 4 && (
             <div style={{ marginTop: 8, fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic" }}>
-              <IconoToque /> Tocá para continuar
+              <IconoToque /> Toca para continuar
             </div>
           )}
         </div>
@@ -550,7 +551,7 @@ function Esc08_Factorizar() {
 
       <PorQue>
         El método es siempre el mismo: vas dividiendo por el primo más chico que entre,
-        y bajás el cociente. Cuando ya no entra ese primo, pasás al siguiente. Cuando el
+        y bajas el cociente. Cuando ya no entra ese primo, pasas al siguiente. Cuando el
         cociente es 1, listo.
       </PorQue>
 
@@ -617,7 +618,7 @@ function Esc09_MCDFact() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {paso === 0 && <><IconoToque /> Tocá para ver paso a paso</>}
+          {paso === 0 && <><IconoToque /> Toca para ver paso a paso</>}
           {paso === 1 && "Resaltamos primos COMUNES (2 y 3)"}
           {paso === 2 && "Tomamos el MENOR exponente de cada uno (verde): descartamos el otro (rojo)"}
           {paso === 3 && "Multiplicamos: 2¹ · 3¹ = 6"}
@@ -734,7 +735,7 @@ function Esc11_MCMFact() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 4, fontStyle: "italic", textAlign: "center" }}>
-          {pasoMCM === 0 && <><IconoToque /> Tocá para ver paso a paso</>}
+          {pasoMCM === 0 && <><IconoToque /> Toca para ver paso a paso</>}
           {pasoMCM === 1 && "Esta vez NO descartamos primos"}
           {pasoMCM === 2 && "Tomamos el MAYOR exponente de cada uno (verde)"}
           {pasoMCM === 3 && "Multiplicamos: 4 · 9 = 36"}
@@ -801,7 +802,7 @@ function Esc12_Relacion() {
       </PorQue>
 
       <Ejemplo titulo="Atajo para problemas">
-        Si te piden el MCM y ya conocés el MCD (o viceversa), no rehagas todo el cálculo. Usá:
+        Si te piden el MCM y ya conoces el MCD (o viceversa), no rehagas todo el cálculo. Usa:
         <div style={{ marginTop: 6, padding: 10, background: "var(--bg-subtle)", borderRadius: 8, fontFamily: "var(--font-crimson), serif", fontWeight: 700, textAlign: "center" }}>
           MCM(a,b) = (a · b) / MCD(a,b)
         </div>
@@ -872,7 +873,7 @@ function Esc14_Errores() {
       <Cuidado>
         <strong>Error 2:</strong> En MCD tomar TODOS los primos en vez de solo los comunes. <br />
         <span style={{ fontSize: 13 }}>
-          MCD: <em>solo los comunes</em>. Si un primo está en uno solo, lo dejás afuera.
+          MCD: <em>solo los comunes</em>. Si un primo está en uno solo, lo dejas afuera.
         </span>
       </Cuidado>
 
@@ -903,8 +904,8 @@ function Esc14_Errores() {
       <Conexion>
         MCD/MCM numéricos conectan con: <strong>Fracciones</strong> (MCD para simplificar,
         MCM para sumar/restar), <strong>MCD/MCM algebraicos</strong> (la misma idea con
-        polinomios), <strong>Repartos proporcionales</strong> (cuando usás 1/a, 1/b, 1/c
-        y necesitás común denominador), <strong>Problemas de ciclos</strong> (autobuses,
+        polinomios), <strong>Repartos proporcionales</strong> (cuando usas 1/a, 1/b, 1/c
+        y necesitas común denominador), <strong>Problemas de ciclos</strong> (autobuses,
         semáforos, etc).
       </Conexion>
     </EscenaRica>
@@ -955,7 +956,7 @@ function Esc15_Practica() {
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
       <Parrafo>
-        5 ejercicios variados. Aplicá los métodos que viste en la lección.
+        5 ejercicios variados. Aplica los métodos que viste en la lección.
       </Parrafo>
 
       {ejercicios.map((ej, i) => {
@@ -1028,8 +1029,8 @@ function Esc15_Practica() {
             {correctas} / {ejercicios.length} correctas
           </div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {correctas === ejercicios.length && "🎉 ¡Perfecto! Ya dominás MCD y MCM."}
-            {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasá los que fallaste, en un día volvé."}
+            {correctas === ejercicios.length && "🎉 ¡Perfecto! Ya dominas MCD y MCM."}
+            {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasa los que fallaste, en un día vuelve."}
             {correctas < 3 && "Vale la pena releer las escenas 8 y 9 (factorización + MCD). El método te va a salir."}
           </div>
         </motion.div>

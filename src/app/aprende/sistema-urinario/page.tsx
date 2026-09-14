@@ -118,7 +118,7 @@ function EscIntro() {
       <Hook>
         Tus riñones filtran ~180 litros de sangre por día. De eso, solo 1.5 L
         se vuelven orina; el resto se reabsorbe. Si tus riñones se detienen,
-        morís en pocos días por intoxicación (urea, K⁺, etc.).
+        mueres en pocos días por intoxicación (urea, K⁺, etc.).
       </Hook>
 
       <Definicion termino="Sistema urinario">
@@ -264,14 +264,14 @@ function EscFormacion() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"F-R-S: Filtrás MUCHO, Reabsorbés CASI TODO, Secretás los
+        <strong>"F-R-S: Filtrás MUCHO, Reabsorbes CASI TODO, Secretas los
         sobrantes."</strong> De 180 L filtrados → 1.5 L de orina.
       </Mnemotecnia>
 
       <Definicion termino="Hormonas que regulan">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
           <li><strong>ADH (vasopresina):</strong> hipófisis posterior →
-            reabsorbe agua en colector. Si te deshidratás, la orina es escasa
+            reabsorbe agua en colector. Si te deshidratas, la orina es escasa
             y concentrada.</li>
           <li><strong>Aldosterona:</strong> suprarrenal → reabsorbe Na⁺ y
             excreta K⁺.</li>

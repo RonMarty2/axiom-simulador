@@ -66,7 +66,7 @@ function DiscriminanteVisual() {
         </div>
       </div>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
-        Tocá la parábola para alternar entre los 3 casos
+        Toca la parábola para alternar entre los 3 casos
       </div>
     </div>
   );
@@ -123,7 +123,7 @@ function Esc01_Intro() {
         <strong>Decisión 2x2 · ¿qué método uso?</strong><br />
         • ¿Falta b (sin término lineal)? → <strong>despeje directo</strong>: x = ±√(−c/a).<br />
         • ¿Falta c (sin independiente)? → <strong>factor común x</strong>: x(ax+b)=0.<br />
-        • ¿Coeficientes pequeños y enteros? → <strong>factorización mental</strong> (probá pares
+        • ¿Coeficientes pequeños y enteros? → <strong>factorización mental</strong> (prueba pares
         cuyo producto sea c/a y suma sea −b/a).<br />
         • Si nada anterior funciona → <strong>fórmula cuadrática</strong>.
       </Mnemotecnia>
@@ -134,7 +134,7 @@ function Esc01_Intro() {
 function Esc02_Forma() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">La forma estándar: ax² + bx + c = 0</Titulo>
+      <Titulo accent={LIENZO.accent}>La forma estándar: ax² + bx + c = 0</Titulo>
       <Parrafo>
         Antes de aplicar cualquier método, conviene <strong>llevar la ecuación a la
         forma estándar</strong>: todo igualado a 0, con los términos en orden de potencia.
@@ -157,7 +157,7 @@ function Esc03_Fact() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Método 1: Factorización</Titulo>
       <Parrafo>
-        Si podés <strong>factorizar</strong> el polinomio, cada factor igualado a 0 te da
+        Si puedes <strong>factorizar</strong> el polinomio, cada factor igualado a 0 te da
         una solución. Es el método más rápido cuando se puede.
       </Parrafo>
 
@@ -237,7 +237,7 @@ function Esc04_Formula() {
 
         <strong>Truco clave:</strong> en problemas geométricos las cuadráticas dan a menudo
         DOS soluciones, pero solo una tiene sentido físico (longitudes &gt; 0). Siempre
-        verificá el contexto.
+        verifica el contexto.
       </WorkedExample>
     </EscenaRica>
   );
@@ -280,7 +280,7 @@ function Esc06_Casos() {
       <Titulo>Casos especiales: cuadráticas sin b o sin c</Titulo>
 
       <Ejemplo titulo="Sin b (de la forma ax² + c = 0)">
-        Despejá directamente: x² = −c/a, después raíz.<br />
+        Despeja directamente: x² = −c/a, después raíz.<br />
         Ej: x² − 16 = 0 → x² = 16 → x = ±4.
       </Ejemplo>
 
@@ -312,12 +312,12 @@ function Esc07_Vieta() {
       </Ejemplo>
       <PorQue>
         Es útil para <strong>verificar</strong> tus soluciones rápido. Si encontraste x = 2 y
-        x = 3, sumá y multiplicá − deben dar −b/a y c/a.
+        x = 3, suma y multiplica − deben dar −b/a y c/a.
       </PorQue>
 
       <Mnemotecnia>
         <strong>Vieta · "S = −b/a, P = c/a"</strong><br />
-        Truco: en <em>x² + Bx + C = 0</em> (con a = 1), buscás dos números cuya:<br />
+        Truco: en <em>x² + Bx + C = 0</em> (con a = 1), buscas dos números cuya:<br />
         • <strong>Suma = −B</strong> (opuesto del coeficiente lineal).<br />
         • <strong>Producto = C</strong> (término independiente).<br /><br />
         Ej: x² − 7x + 12 = 0 → buscar 2 nº que sumen 7 y multipliquen 12 → 3 y 4. Soluciones
@@ -370,8 +370,8 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Resolvé: x² − 7x + 12 = 0", o: ["3 y 4", "2 y 6", "5 y 7", "1 y 12"], c: 0, ex: "Factorización: (x−3)(x−4)=0 → x = 3 ó x = 4." },
-    { p: "Resolvé: x² − 16 = 0", o: ["±4", "4", "±16", "8"], c: 0, ex: "x² = 16 → x = ±4." },
+    { p: "Resuelve: x² − 7x + 12 = 0", o: ["3 y 4", "2 y 6", "5 y 7", "1 y 12"], c: 0, ex: "Factorización: (x−3)(x−4)=0 → x = 3 ó x = 4." },
+    { p: "Resuelve: x² − 16 = 0", o: ["±4", "4", "±16", "8"], c: 0, ex: "x² = 16 → x = ±4." },
     { p: "Discriminante de x² + 3x − 10 = 0:", o: ["49", "−40", "−31", "9"], c: 0, ex: "b²−4ac = 9 + 40 = 49." },
     { p: "x² + x + 1 = 0 tiene:", o: ["2 soluciones reales", "1 sol real", "Sin sol reales", "Infinitas"], c: 2, ex: "Δ = 1 − 4 = −3 < 0 → sin soluciones reales." },
     { p: "Si x₁ y x₂ son raíces de x² − 6x + 5 = 0, ¿cuánto suman?", o: ["5", "6", "−6", "11"], c: 1, ex: "Por Vieta: suma = −b/a = 6." },
@@ -410,8 +410,8 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás cuadráticas."}
-            {ok < ejs.length && "Memorizá la fórmula y el discriminante."}
+            {ok === ejs.length && "🎉 Dominas cuadráticas."}
+            {ok < ejs.length && "Memoriza la fórmula y el discriminante."}
           </div>
         </motion.div>
       )}

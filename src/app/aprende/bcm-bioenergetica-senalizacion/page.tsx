@@ -33,7 +33,7 @@ function EscEnergia() {
 
       <Hook>
         Una célula gasta su peso en ATP cada día. No lo almacena: lo fabrica
-        y consume constantemente. Por eso necesitás respirar y comer todos
+        y consume constantemente. Por eso necesitas respirar y comer todos
         los días.
       </Hook>
 
@@ -58,7 +58,7 @@ function EscEnergia() {
       </Mnemotecnia>
 
       <Conexion>
-        Repasá: respiración celular (Biología-5). Esta unidad enfatiza la
+        Repasa: respiración celular (Biología-5). Esta unidad enfatiza la
         regulación enzimática del flujo energético.
       </Conexion>
     </EscenaRica>

@@ -19,7 +19,7 @@ const TABS: { href: string; label: string; icono: NombreIcono }[] = [
 
 const RUTAS_APP = [
   "/dashboard", "/aprende", "/laminas", "/practicar", "/historial",
-  "/debilidades", "/resueltos", "/errores", "/ranking", "/cuenta", "/simulador",
+  "/debilidades", "/resueltos", "/errores", "/ranking", "/cuenta", "/simulador", "/progreso",
 ];
 
 // La lección, la lámina en formato tarjetas y el examen en curso ocupan la

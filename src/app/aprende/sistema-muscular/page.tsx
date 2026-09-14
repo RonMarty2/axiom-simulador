@@ -32,8 +32,8 @@ function EscIntro() {
       <Titulo>Músculos · los motores del cuerpo</Titulo>
 
       <Hook>
-        Tenés ~640 músculos. Producen más calor que cualquier otro órgano:
-        cuando hace frío, tiritás (contracción rápida) para generar T. El
+        Tienes ~640 músculos. Producen más calor que cualquier otro órgano:
+        cuando hace frío, tiritas (contracción rápida) para generar T. El
         corazón es UN músculo que late ~100.000 veces al día sin parar.
       </Hook>
 

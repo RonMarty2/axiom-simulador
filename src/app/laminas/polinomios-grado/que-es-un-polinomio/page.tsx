@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function QueEsUnPolinomioPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function QueEsUnPolinomioPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que un polinomio es una suma de términos con exponentes enteros no negativos. El grado mide &quot;qué tan grande&quot; es cada término.
+            Ya sabes que un polinomio es una suma de términos con exponentes enteros no negativos. El grado mide &quot;qué tan grande&quot; es cada término.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -55,7 +55,7 @@ export default function QueEsUnPolinomioPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calculá el grado absoluto de CADA término (sumando exponentes)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Calcula el grado absoluto de CADA término (sumando exponentes)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
@@ -139,7 +139,7 @@ export default function QueEsUnPolinomioPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Calcular $m$ para que $P=3x^{m+1}y^{n-3}+7x^{m+2}y^{n-1}+11x^{m+3}y^{n-2}$ tenga grado absoluto 8 y grado relativo a $y$ igual a 5."}

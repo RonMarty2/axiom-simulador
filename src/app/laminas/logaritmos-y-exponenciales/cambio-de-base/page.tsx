@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function CambioDeBasePage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés convertir un logaritmo de cualquier base a otra base que te convenga?
+            ¿Sabías que puedes convertir un logaritmo de cualquier base a otra base que te convenga?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,12 +30,12 @@ export default function CambioDeBasePage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que <MathText>{"$\\log_b(b^n)=n$"}</MathText>. La fórmula de cambio de base es una generalización de esa misma idea.
+            Ya sabes que <MathText>{"$\\log_b(b^n)=n$"}</MathText>. La fórmula de cambio de base es una generalización de esa misma idea.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\log_b(x) = \\dfrac{\\log_c(x)}{\\log_c(b)}$"}</MathText>
@@ -53,7 +53,7 @@ export default function CambioDeBasePage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si las bases son potencias de un mismo número, convertí todo a esa base común</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Si las bases son potencias de un mismo número, convierte todo a esa base común</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
@@ -61,7 +61,7 @@ export default function CambioDeBasePage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Sumá/operá los términos ya en la misma base</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma/operá los términos ya en la misma base</span>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@ export default function CambioDeBasePage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Sabiendo que $\\log_a(\\log_a b)-\\log_a(\\log_a c)=1$, calcular $E=\\log_a(\\log_b a)-\\log_a(\\log_c a)$."}

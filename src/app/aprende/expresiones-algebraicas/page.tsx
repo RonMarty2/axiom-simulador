@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 export default function Page() {
   return (
@@ -69,7 +70,7 @@ function Esc01_Intro() {
 function Esc02_Termino() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Anatomía de un término</Titulo>
+      <Titulo accent={LIENZO.accent}>Anatomía de un término</Titulo>
       <Parrafo>
         Cada parte de una expresión separada por + o − se llama <strong>término</strong>.
         Cada término tiene 3 componentes:
@@ -128,7 +129,7 @@ function Esc03_Semejantes() {
   const c = casos[i];
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Términos semejantes</Titulo>
+      <Titulo accent={LIENZO.accent}>Términos semejantes</Titulo>
       <Definicion termino="términos semejantes">
         Dos términos son <strong>semejantes</strong> si tienen <strong>la misma parte
         literal con los mismos exponentes</strong>. Los coeficientes pueden ser distintos.
@@ -222,7 +223,7 @@ function Esc04_SumaResta() {
       </Cuidado>
 
       <AutoCheck
-        pregunta="Reducí: 5a + 3b − 2a + 4b"
+        pregunta="Reduce: 5a + 3b − 2a + 4b"
         opciones={["3a + 7b", "10ab", "7a + 7b", "3ab + 7"]}
         correctaIdx={0}
         explicacion="Junto las a: 5a − 2a = 3a. Junto las b: 3b + 4b = 7b. Total: 3a + 7b."
@@ -314,7 +315,7 @@ function Esc06_FOIL() {
           </motion.div>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
-          {paso === 0 && "Tocá para ver los 4 productos uno a uno"}
+          {paso === 0 && "Toca para ver los 4 productos uno a uno"}
           {paso === 1 && "F: x · x = x²"}
           {paso === 2 && "O: x · 3 = 3x"}
           {paso === 3 && "I: 2 · x = 2x"}
@@ -335,7 +336,7 @@ function Esc07_Notables() {
     <EscenaRica>
       <Titulo>Productos notables: patrones que conviene memorizar</Titulo>
       <Parrafo>
-        Algunos productos aparecen <strong>todo el tiempo</strong>. Si los reconocés,
+        Algunos productos aparecen <strong>todo el tiempo</strong>. Si los reconoces,
         ahorrás tiempo y errores.
       </Parrafo>
 
@@ -369,7 +370,7 @@ function Esc07_Notables() {
       </PorQue>
 
       <Cuidado>
-        ❌ (a + b)² <strong>NO</strong> es a² + b². ¡Te olvidás el 2ab! Es el error
+        ❌ (a + b)² <strong>NO</strong> es a² + b². ¡Te olvidas el 2ab! Es el error
         más común en álgebra.
       </Cuidado>
 
@@ -384,7 +385,7 @@ function Esc07_Notables() {
       </Mnemotecnia>
 
       <WorkedExample titulo="Reconocer productos notables al revés (factorización)">
-        Mirá esta expresión: <strong>x² + 10x + 25</strong>. ¿Se puede simplificar?<br /><br />
+        Mira esta expresión: <strong>x² + 10x + 25</strong>. ¿Se puede simplificar?<br /><br />
 
         <strong>Test rápido:</strong> ¿es un cuadrado perfecto?<br />
         • Primer término: x² → "primer término al cuadrado" → primer término = x. ✓<br />
@@ -422,7 +423,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> (a + b)² = a² + b². <br />
         <span style={{ fontSize: 13 }}>
-          ¡FALSO! Es a² + 2ab + b². Te olvidás el doble producto.
+          ¡FALSO! Es a² + 2ab + b². Te olvidas el doble producto.
         </span>
       </Cuidado>
       <Cuidado>
@@ -455,9 +456,9 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Reducí: 4x + 3 − 2x + 7", o: ["2x + 10", "6x + 10", "2x + 4", "12x"], c: 0, ex: "(4−2)x + (3+7) = 2x + 10." },
+    { p: "Reduce: 4x + 3 − 2x + 7", o: ["2x + 10", "6x + 10", "2x + 4", "12x"], c: 0, ex: "(4−2)x + (3+7) = 2x + 10." },
     { p: "Distribuí: 5(2x − 3)", o: ["10x − 3", "10x − 15", "7x − 15", "10x + 15"], c: 1, ex: "5·2x = 10x. 5·(−3) = −15. Total: 10x − 15." },
-    { p: "Calculá (x + 2)(x + 5)", o: ["x² + 10", "x² + 7x + 10", "x² + 7", "2x + 10"], c: 1, ex: "FOIL: x² + 5x + 2x + 10 = x² + 7x + 10." },
+    { p: "Calcula (x + 2)(x + 5)", o: ["x² + 10", "x² + 7x + 10", "x² + 7", "2x + 10"], c: 1, ex: "FOIL: x² + 5x + 2x + 10 = x² + 7x + 10." },
     { p: "(a + 4)² es:", o: ["a² + 16", "a² + 8a + 16", "a² + 4a + 16", "a² − 8a + 16"], c: 1, ex: "(a+b)² = a² + 2ab + b². Acá: a² + 8a + 16." },
     { p: "(x + 6)(x − 6) es:", o: ["x² − 36", "x² + 36", "x² − 12x − 36", "x² − 12"], c: 0, ex: "Diferencia de cuadrados: a² − b² = x² − 36." },
   ], []);
@@ -504,9 +505,9 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás expresiones algebraicas."}
-            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste. Los productos notables se vienen pidiendo seguido."}
-            {ok < 3 && "Volvé a las escenas 5 (distributiva) y 6 (FOIL)."}
+            {ok === ejs.length && "🎉 Dominas expresiones algebraicas."}
+            {ok >= 3 && ok < ejs.length && "Repasa los que fallaste. Los productos notables se vienen pidiendo seguido."}
+            {ok < 3 && "Vuelve a las escenas 5 (distributiva) y 6 (FOIL)."}
           </div>
         </motion.div>
       )}

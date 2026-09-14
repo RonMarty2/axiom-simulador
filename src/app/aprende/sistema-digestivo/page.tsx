@@ -32,7 +32,7 @@ function EscIntro() {
       <Titulo>Digestión · el viaje de la comida</Titulo>
 
       <Hook>
-        Te comés una empanada salteña. En 24–72 horas, su materia ha sido
+        Te comes una empanada salteña. En 24–72 horas, su materia ha sido
         descompuesta, absorbida, distribuida a cada célula y los desechos
         expulsados. Es un proceso de 9 metros de largo (boca a ano).
       </Hook>

@@ -51,7 +51,7 @@ function SecuenciaArcos({ terminos, op, color }: { terminos: string[]; op: strin
         </svg>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
-        {on ? "Cada paso aplica la misma razón" : "Tocá para ver el patrón"}
+        {on ? "Cada paso aplica la misma razón" : "Toca para ver el patrón"}
       </div>
     </div>
   );
@@ -99,7 +99,7 @@ function GaussPairing() {
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint }}>
         {on
           ? <span><b style={{ color: LIENZO.accent }}>3 pares</b> × <b style={{ color: LIENZO.accent }}>7</b> = <b style={{ color: LIENZO.ok }}>21</b> · (esa es la fórmula de Gauss)</span>
-          : <span style={{ fontStyle: "italic" }}>Tocá para emparejar los extremos</span>}
+          : <span style={{ fontStyle: "italic" }}>Toca para emparejar los extremos</span>}
       </div>
     </div>
   );
@@ -148,7 +148,7 @@ function Esc01_Intro() {
       <Hook>
         En el examen UMSS aparecen <strong>2-3 preguntas de sucesiones</strong> (identificar PA
         vs PG, calcular el n-ésimo, sumar términos). Con 4 fórmulas memorizadas (aₙ de PA y PG,
-        Sₙ de PA y PG) cubrís todo.
+        Sₙ de PA y PG) cubres todo.
       </Hook>
 
       <Mnemotecnia>
@@ -201,7 +201,7 @@ function Esc03_SumaPA() {
       </Resumen>
       <GaussPairing />
       <PorQue>
-        Gauss niño descubrió esto: si sumás los términos en pares (primero + último,
+        Gauss niño descubrió esto: si sumas los términos en pares (primero + último,
         segundo + penúltimo, …), cada par da lo mismo: a₁+aₙ. Y hay n/2 pares. Por eso
         Sn = (a₁+aₙ)·n/2.
       </PorQue>
@@ -288,8 +288,8 @@ function Esc06_App() {
       </CasoBolivia>
 
       <WorkedExample titulo="Interés compuesto · ahorro a 5 años">
-        Depositás <strong>10.000 Bs</strong> a plazo fijo al <strong>5% anual</strong>
-        compuesto. ¿Cuánto tenés en 5 años?<br /><br />
+        Depositas <strong>10.000 Bs</strong> a plazo fijo al <strong>5% anual</strong>
+        compuesto. ¿Cuánto tienes en 5 años?<br /><br />
 
         <strong>Reconocer PG:</strong> capital año 0 = 10.000. Cada año se multiplica por
         1.05 (capital + interés). Es PG con r = 1.05.<br /><br />
@@ -314,7 +314,7 @@ function Esc07_Errores() {
       <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
       <Cuidado>
         <strong>Error 1:</strong> Confundir PA con PG. <br />
-        <span style={{ fontSize: 13 }}>PA suma siempre lo mismo, PG multiplica. Verificá comparando dos diferencias o dos cocientes consecutivos.</span>
+        <span style={{ fontSize: 13 }}>PA suma siempre lo mismo, PG multiplica. Verifica comparando dos diferencias o dos cocientes consecutivos.</span>
       </Cuidado>
       <Cuidado>
         <strong>Error 2:</strong> En aₙ usar (n−1)·d como n·d. <br />
@@ -322,14 +322,14 @@ function Esc07_Errores() {
       </Cuidado>
       <Cuidado>
         <strong>Error 3:</strong> Olvidar contar la cantidad correcta de términos en una suma. <br />
-        <span style={{ fontSize: 13 }}>Si sumás 5 + 10 + … + 95, son 19 términos, no 19 − 5 = 14.</span>
+        <span style={{ fontSize: 13 }}>Si sumas 5 + 10 + … + 95, son 19 términos, no 19 − 5 = 14.</span>
       </Cuidado>
 
       <Misconception titulo="Cómo contar n en una PA · '+1' o 'el truco del cercado'">
-        Si necesitás contar términos entre a₁ y aₙ:<br />
+        Si necesitas contar términos entre a₁ y aₙ:<br />
         n = (aₙ − a₁) / d + 1.<br /><br />
-        <strong>El +1 es clave.</strong> Pensalo como cercar un terreno: si ponés postes cada
-        5 m en un campo de 95 m de largo desde el poste 0... tenés 95/5 + 1 = 20 postes (no 19).<br />
+        <strong>El +1 es clave.</strong> Pensalo como cercar un terreno: si pones postes cada
+        5 m en un campo de 95 m de largo desde el poste 0... tienes 95/5 + 1 = 20 postes (no 19).<br />
         El +1 cuenta el primer poste/término.
       </Misconception>
 
@@ -385,8 +385,8 @@ function Esc08_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás sucesiones y series."}
-            {ok < ejs.length && "Memorizá las 2 fórmulas de aₙ y las 2 de suma."}
+            {ok === ejs.length && "🎉 Dominas sucesiones y series."}
+            {ok < ejs.length && "Memoriza las 2 fórmulas de aₙ y las 2 de suma."}
           </div>
         </motion.div>
       )}

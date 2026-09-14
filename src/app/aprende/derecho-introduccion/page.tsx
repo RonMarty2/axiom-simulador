@@ -32,7 +32,7 @@ function EscIntro() {
       <Titulo>Derecho · regla del juego social</Titulo>
 
       <Hook>
-        ¿Por qué no podés llevarte el celular de un compañero "porque te gustó"?
+        ¿Por qué no puedes llevarte el celular de un compañero "porque te gustó"?
         Porque el Derecho lo prohíbe. ¿Por qué tu casero no puede echarte sin
         previo aviso? Porque el Derecho te protege. El Derecho es el conjunto
         de reglas que organiza la convivencia.
@@ -100,7 +100,7 @@ function EscObjSubj() {
 
       <WorkedExample titulo="Ejemplo">
         El Código Civil (objetivo) dice: "Quien causa daño debe indemnizar".<br />
-        Si un auto rompe tu vidriera, vos tenés el derecho subjetivo a exigir
+        Si un auto rompe tu vidriera, tú tienes el derecho subjetivo a exigir
         que te paguen el vidrio.
       </WorkedExample>
 

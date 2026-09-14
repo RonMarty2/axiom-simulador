@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function AplicacionesMcdMcmPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -25,12 +25,12 @@ export default function AplicacionesMcdMcmPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés calcular MCD y MCM de la lámina anterior. Lo nuevo acá es reconocer, en un problema con palabras, cuál de los dos hace falta.
+            Ya sabes calcular MCD y MCM de la lámina anterior. Lo nuevo acá es reconocer, en un problema con palabras, cuál de los dos hace falta.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -72,7 +72,7 @@ export default function AplicacionesMcdMcmPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 14px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Usar MCD donde el problema pide MCM (o al revés) es el error más común de esta lámina. Fijate qué pregunta el enunciado, no solo qué números da.
+            Usar MCD donde el problema pide MCM (o al revés) es el error más común de esta lámina. Fíjate qué pregunta el enunciado, no solo qué números da.
           </p>
           <ComparacionOjo
             correcto={{ arriba: "$\\text{¿cuándo coinciden?}$", abajo: "$\\text{MCM}$" }}
@@ -106,7 +106,7 @@ export default function AplicacionesMcdMcmPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Tres aviones salen de la misma ciudad: el primero cada 8 días, el segundo cada 10, el tercero cada 20. Salen juntos el 3 de enero. ¿En qué fecha vuelven a salir juntos?"}

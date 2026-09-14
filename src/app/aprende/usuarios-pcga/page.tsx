@@ -42,7 +42,7 @@ function Esc01() {
 
       <Hook>
         Esta unidad responde a "<strong>¿para quién contabilizo?</strong>". El examen UMSS suele
-        pedir clasificar un agente como interno o externo. Si entendés que la prueba es
+        pedir clasificar un agente como interno o externo. Si entiendes que la prueba es
         "<em>¿está dentro de la organización o fuera?</em>", aciertas todas.
       </Hook>
 

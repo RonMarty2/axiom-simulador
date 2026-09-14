@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
   }
   if (!ES_DEV) {
     return NextResponse.json(
-      { error: "En producción no se puede guardar. Ajustá en tu compu local y subí con SUBIR." },
+      { error: "En producción no se puede guardar. Ajusta en tu compu local y sube con SUBIR." },
       { status: 400 }
     );
   }

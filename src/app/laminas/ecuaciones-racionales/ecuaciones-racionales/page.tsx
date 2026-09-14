@@ -10,38 +10,38 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionesRacionalesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que al resolver una ecuación racional, a veces encontrás una &quot;solución&quot; que en realidad no es válida?
+            ¿Sabías que al resolver una ecuación racional, a veces encuentras una &quot;solución&quot; que en realidad no es válida?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
-              <span style={{ fontSize: 13 }}>resolvés la ecuación</span>
+              <span style={{ fontSize: 13 }}>resuelves la ecuación</span>
             </div>
             <span style={{ fontSize: 18, color: LIENZO.fgFaint }}>→</span>
             <div style={{ padding: "10px 18px", borderRadius: 12, background: `${LIENZO.warn}15`, border: `1.5px solid ${LIENZO.warn}` }}>
-              <span style={{ fontSize: 13, fontWeight: 700 }}>verificás contra el dominio</span>
+              <span style={{ fontSize: 13, fontWeight: 700 }}>verificas contra el dominio</span>
             </div>
           </div>
         </div>
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Recordá la lámina anterior: en toda expresión racional, el denominador nunca puede ser cero. Esa regla no desaparece cuando la expresión pasa a ser parte de una ecuación.
+            Recuerda la lámina anterior: en toda expresión racional, el denominador nunca puede ser cero. Esa regla no desaparece cuando la expresión pasa a ser parte de una ecuación.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$\\dfrac{1}{x-2} - \\dfrac{1}{x-1} = \\dfrac{1}{6}$"}</MathText>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Antes de resolver nada, ya sabés que <MathText>{"$x \\neq 2$"}</MathText> y <MathText>{"$x \\neq 1$"}</MathText>.
+            Antes de resolver nada, ya sabes que <MathText>{"$x \\neq 2$"}</MathText> y <MathText>{"$x \\neq 1$"}</MathText>.
           </p>
         </div>
       ),
@@ -52,10 +52,10 @@ export default function EcuacionesRacionalesPage() {
         <div>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {[
-              "1. Anotá qué valores están prohibidos (los que anulan algún denominador)",
-              "2. Multiplicá toda la ecuación por el común denominador, para que desaparezcan las fracciones",
-              "3. Resolvé la ecuación que queda (lineal o cuadrática)",
-              "4. Descartá cualquier solución que coincida con un valor prohibido del paso 1",
+              "1. Anota qué valores están prohibidos (los que anulan algún denominador)",
+              "2. Multiplica toda la ecuación por el común denominador, para que desaparezcan las fracciones",
+              "3. Resuelve la ecuación que queda (lineal o cuadrática)",
+              "4. Descarta cualquier solución que coincida con un valor prohibido del paso 1",
             ].map((t) => (
               <div key={t} style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
                 {t}
@@ -144,7 +144,7 @@ export default function EcuacionesRacionalesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Resolver $\\dfrac{x}{x-3} = \\dfrac{3}{x-3} + 2$."}

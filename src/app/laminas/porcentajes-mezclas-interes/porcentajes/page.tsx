@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function PorcentajesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function PorcentajesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que un aumento del 25% multiplica por <MathText>{"$1{,}25$"}</MathText>, y un descuento del 15% multiplica por <MathText>{"$0{,}85$"}</MathText>. Cuando hay varios cambios seguidos, los factores se MULTIPLICAN entre sí, no se suman los porcentajes.
+            Ya sabes que un aumento del 25% multiplica por <MathText>{"$1{,}25$"}</MathText>, y un descuento del 15% multiplica por <MathText>{"$0{,}85$"}</MathText>. Cuando hay varios cambios seguidos, los factores se MULTIPLICAN entre sí, no se suman los porcentajes.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ textAlign: "center", padding: "10px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
@@ -55,11 +55,11 @@ export default function PorcentajesPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convertí cada cambio en su factor: aumento <MathText>{"$p\\%$"}</MathText> → <MathText>{"$\\times(1+\\frac{p}{100})$"}</MathText>, descuento → <MathText>{"$\\times(1-\\frac{p}{100})$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Convierte cada cambio en su factor: aumento <MathText>{"$p\\%$"}</MathText> → <MathText>{"$\\times(1+\\frac{p}{100})$"}</MathText>, descuento → <MathText>{"$\\times(1-\\frac{p}{100})$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Multiplicá todos los factores en orden, uno tras otro</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Multiplica todos los factores en orden, uno tras otro</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
@@ -132,7 +132,7 @@ export default function PorcentajesPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Juan compra una casa en 32000 Bs, luego la ofrece a la venta en 25% más de su precio original. Un comprador consigue una rebaja del 15% del precio ofrecido. ¿Cuál es el precio de venta final?"}

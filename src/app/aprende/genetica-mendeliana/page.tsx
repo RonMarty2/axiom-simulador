@@ -196,7 +196,7 @@ function EscLey1() {
         </svg>
       </Pizarra>
 
-      <WorkedExample titulo="Cruzá flores rojas puras (RR) con blancas puras (rr). ¿Cómo es la F1?">
+      <WorkedExample titulo="Cruza flores rojas puras (RR) con blancas puras (rr). ¿Cómo es la F1?">
         Padres: RR × rr<br />
         Gametos: R, R × r, r<br />
         F1: <strong>100% Rr</strong> → todas rojas (R domina sobre r)
@@ -298,7 +298,7 @@ function EscSimulador() {
       <Titulo>Simulador · cuadro de Punnett</Titulo>
 
       <Parrafo>
-        Elegí el genotipo de cada padre y mirá los descendientes.
+        Elige el genotipo de cada padre y mira los descendientes.
       </Parrafo>
 
       <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
@@ -539,7 +539,7 @@ function EscABO() {
       </Definicion>
 
       <Definicion termino="Factor Rh">
-        Otro gen, con 2 alelos: Rh⁺ (dominante) y Rh⁻ (recesivo). Por eso decís
+        Otro gen, con 2 alelos: Rh⁺ (dominante) y Rh⁻ (recesivo). Por eso dices
         "A+", "O-", etc. Importante en transfusiones y embarazo.
       </Definicion>
 
@@ -558,7 +558,7 @@ function EscExamen() {
     <EscenaRica>
       <Titulo>Problemas tipo examen FCyT UMSS</Titulo>
 
-      <WorkedExample titulo="EXAMEN: Cruzá guisantes Aa × aa. ¿Proporción fenotípica de F1?">
+      <WorkedExample titulo="EXAMEN: Cruza guisantes Aa × aa. ¿Proporción fenotípica de F1?">
         Gametos: A o a × a, a<br />
         F1: 1/2 Aa, 1/2 aa<br />
         Fenotipo: <strong>50% dominante : 50% recesivo</strong>

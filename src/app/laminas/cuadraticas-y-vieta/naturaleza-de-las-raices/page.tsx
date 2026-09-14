@@ -11,7 +11,7 @@ import { TarjetaPractica, LineaEjemplo } from "../../_components/dispositivos";
 export default function NaturalezaDeLasRaicesPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -32,12 +32,12 @@ export default function NaturalezaDeLasRaicesPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que el signo de <MathText>{"$\\Delta$"}</MathText> dice cuántas raíces reales hay. Falta un detalle: cuando <MathText>{"$\\Delta > 0$"}</MathText>, todavía hay dos casos posibles adentro de la raíz cuadrada.
+            Ya sabes que el signo de <MathText>{"$\\Delta$"}</MathText> dice cuántas raíces reales hay. Falta un detalle: cuando <MathText>{"$\\Delta > 0$"}</MathText>, todavía hay dos casos posibles adentro de la raíz cuadrada.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 16 }}>
             <MathText>{"$\\sqrt{\\Delta}$"}</MathText>
@@ -139,13 +139,13 @@ export default function NaturalezaDeLasRaicesPage() {
             <span style={{ fontSize: 16, fontWeight: 700, color: LIENZO.ok }}><MathText>{"$x^2 - 4x + 8 = 0$"}</MathText></span>
           </div>
           <p style={{ margin: "10px 0 0", fontSize: 12, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Es la misma ecuación de la tarjeta &quot;Aplicándolo&quot;: ahí calculaste que sus raíces eran complejas, acá partís de esas raíces y llegás de vuelta a la ecuación.
+            Es la misma ecuación de la tarjeta &quot;Aplicándolo&quot;: ahí calculaste que sus raíces eran complejas, acá partes de esas raíces y llegas de vuelta a la ecuación.
           </p>
         </div>
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Sin resolverla, ¿qué tipo de raíces tiene $x^2 - 6x + 9 = 0$?"}

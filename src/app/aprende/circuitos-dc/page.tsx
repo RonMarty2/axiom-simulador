@@ -82,7 +82,7 @@ function EscOhmSim() {
       </Resumen>
 
       <Parrafo>
-        Movés los sliders y mirás cómo cambian la corriente y la potencia.
+        Mueves los sliders y mirás cómo cambian la corriente y la potencia.
         Esta es la relación más fundamental de los circuitos.
       </Parrafo>
 
@@ -141,10 +141,10 @@ function EscOhmSim() {
       </div>
 
       <Mnemotecnia>
-        <strong>Probá estos casos</strong>:<br />
-        • Subí V, ¿qué pasa con I? (sube proporcional).<br />
-        • Subí R, ¿qué pasa con I? (baja inversa).<br />
-        • ¿Para qué V y R obtenés exactamente 1 A?
+        <strong>Prueba estos casos</strong>:<br />
+        • Sube V, ¿qué pasa con I? (sube proporcional).<br />
+        • Sube R, ¿qué pasa con I? (baja inversa).<br />
+        • ¿Para qué V y R obtienes exactamente 1 A?
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -289,7 +289,7 @@ function EscParaleloSim() {
         </label>
         <div style={{ padding: 10, background: "var(--bg-card)", borderRadius: 8, marginTop: 10, textAlign: "center" }}>
           R_eq = R₁·R₂/(R₁+R₂) = <strong style={{ color: LIENZO.accent }}>{Req.toFixed(2)} Ω</strong><br />
-          Notá: R_eq es MENOR que R₁ y R₂ individuales.
+          Nota: R_eq es MENOR que R₁ y R₂ individuales.
         </div>
       </div>
 
@@ -363,10 +363,10 @@ function EscKirchhoff() {
 
       <Resumen>
         <strong>Convención de signos en LVK</strong>:<br />
-        • Si recorrés la batería de − a +: ΔV = +ε.<br />
-        • Si la recorrés de + a −: ΔV = −ε.<br />
-        • Si atravesás un resistor en el sentido de la corriente: ΔV = −IR.<br />
-        • Si lo atravesás en sentido contrario: ΔV = +IR.
+        • Si recorres la batería de − a +: ΔV = +ε.<br />
+        • Si la recorres de + a −: ΔV = −ε.<br />
+        • Si atravesas un resistor en el sentido de la corriente: ΔV = −IR.<br />
+        • Si lo atravesas en sentido contrario: ΔV = +IR.
       </Resumen>
     </EscenaRica>
   );
@@ -391,7 +391,7 @@ function EscPotenciaElec() {
       </Ejemplo>
 
       <Ejemplo titulo="Consumo eléctrico">
-        Si encendés una bombilla de 100 W durante 10 horas:<br />
+        Si enciendes una bombilla de 100 W durante 10 horas:<br />
         E = 100 · 10 = 1000 Wh = 1 kWh.
       </Ejemplo>
     </EscenaRica>
@@ -448,7 +448,7 @@ function EscPractica() {
       ex: "P = I²R = 4·10 = 40 W.",
     },
     {
-      p: "Si triplicás la resistencia (V constante), la corriente:",
+      p: "Si triplicas la resistencia (V constante), la corriente:",
       o: ["1/3", "triplica", "queda igual", "se anula"],
       c: 0,
       ex: "I = V/R. Si R triplica, I se hace 1/3.",

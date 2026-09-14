@@ -76,7 +76,7 @@ function Esc01() {
         <strong>CEO/Gerente General:</strong> 5% técnicas, 35% humanas, 60% conceptuales (estrategia
         a 5 años, alianzas, fusiones).<br /><br />
 
-        <strong>Patrón:</strong> mientras subís, lo técnico baja y lo conceptual sube. Lo humano
+        <strong>Patrón:</strong> mientras subes, lo técnico baja y lo conceptual sube. Lo humano
         nunca baja.
       </WorkedExample>
     </EscenaRica>
@@ -245,7 +245,7 @@ function Esc07() {
       <Misconception titulo="Productividad ≠ trabajar más horas">
         Muchos creen que "ser más productivo" es trabajar más. Falso. Productividad es
         <strong> producir MÁS con lo MISMO</strong> (o con MENOS). Trabajar 12 horas en vez de 8
-        no aumenta productividad si producís proporcionalmente más; solo aumenta producción TOTAL.
+        no aumenta productividad si produces proporcionalmente más; solo aumenta producción TOTAL.
       </Misconception>
     </EscenaRica>
   );

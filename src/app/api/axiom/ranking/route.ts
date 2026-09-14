@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
     const user = await getCurrentUser();
     if (!user) {
       return NextResponse.json(
-        { error: "Necesitás estar logueado para entrar al ranking" },
+        { error: "Necesitas estar logueado para entrar al ranking" },
         { status: 401 }
       );
     }

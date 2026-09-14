@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function TerminoIndependienteOCentralPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que en un desarrollo binomial hay un único término &quot;sin x&quot;, y podés encontrarlo directo?
+            ¿Sabías que en un desarrollo binomial hay un único término &quot;sin x&quot;, y puedes encontrarlo directo?
           </p>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center" }}>
             <span style={{ padding: "8px 12px", borderRadius: 999, background: LIENZO.bgSoft, fontSize: 12.5, fontWeight: 600 }}>exponente de x = 0 → independiente</span>
@@ -25,12 +25,12 @@ export default function TerminoIndependienteOCentralPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés armar el término general <MathText>{"$T_{k+1}=\\binom{n}{k}a^{n-k}b^k$"}</MathText> y despejar su exponente de <MathText>{"$x$"}</MathText>. Ahora, en vez de fijar <MathText>{"$k$"}</MathText>, fijás una CONDICIÓN sobre ese exponente.
+            Ya sabes armar el término general <MathText>{"$T_{k+1}=\\binom{n}{k}a^{n-k}b^k$"}</MathText> y despejar su exponente de <MathText>{"$x$"}</MathText>. Ahora, en vez de fijar <MathText>{"$k$"}</MathText>, fijas una CONDICIÓN sobre ese exponente.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -50,7 +50,7 @@ export default function TerminoIndependienteOCentralPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 90 }}>Independiente</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>armá el exponente de <MathText>{"$x$"}</MathText> en función de <MathText>{"$k$"}</MathText>, igualalo a 0 y despejá <MathText>{"$k$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>arma el exponente de <MathText>{"$x$"}</MathText> en función de <MathText>{"$k$"}</MathText>, igualalo a 0 y despeja <MathText>{"$k$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 90 }}>Central</span>
@@ -123,7 +123,7 @@ export default function TerminoIndependienteOCentralPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el término independiente en el desarrollo del binomio: $\\left(x^2-\\dfrac{2}{x}\\right)^9$"}

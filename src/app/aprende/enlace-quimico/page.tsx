@@ -582,7 +582,7 @@ function EscPractica() {
       </Misconception>
 
       <Misconception titulo="Error 3 · puente de hidrógeno con cualquier H">
-        Solo cuando H está unido directamente a F, O o N. Recordá: F-O-N.
+        Solo cuando H está unido directamente a F, O o N. Recuerda: F-O-N.
       </Misconception>
 
       <Titulo>Práctica · 5 ejercicios</Titulo>

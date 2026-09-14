@@ -33,7 +33,7 @@ function EscIntro() {
 
       <Hook>
         Inspiran ~6 litros de aire por minuto. En un día: 8.640 L. En 70 años:
-        220 millones de litros. Y todo automático: solo notás la respiración
+        220 millones de litros. Y todo automático: solo notas la respiración
         cuando algo falla.
       </Hook>
 
@@ -56,7 +56,7 @@ function EscIntro() {
       </Conexion>
 
       <Mnemotecnia>
-        <strong>"Inspirás 21% O₂, espirás 16% O₂."</strong> Solo retenés ~5%
+        <strong>"Inspiras 21% O₂, espiras 16% O₂."</strong> Solo retienes ~5%
         del oxígeno inspirado.
       </Mnemotecnia>
     </EscenaRica>
@@ -92,7 +92,7 @@ function EscVias() {
       </Pizarra>
 
       <Cuidado>
-        La <strong>epiglotis</strong> es crítica: cuando tragás, cierra la
+        La <strong>epiglotis</strong> es crítica: cuando tragas, cierra la
         laringe para que la comida no entre a la tráquea. Si falla → atoramiento.
         Maniobra de Heimlich = salva vidas.
       </Cuidado>
@@ -136,7 +136,7 @@ function EscPulmones() {
       </Pizarra>
 
       <Definicion termino="Alvéolos">
-        Sacos de aire microscópicos rodeados de capilares. Tenés ~300 millones.
+        Sacos de aire microscópicos rodeados de capilares. Tienes ~300 millones.
         Si los extendieras: 75 m² (medio cancha de tenis). Pared finísima (1
         célula) para que los gases pasen rápido.
       </Definicion>
@@ -191,7 +191,7 @@ function EscMecanica() {
       </Definicion>
 
       <Mnemotecnia>
-        <strong>"Diafragma baja = inspirás. Diafragma sube = espirás."</strong>
+        <strong>"Diafragma baja = inspiras. Diafragma sube = espiras."</strong>
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -256,7 +256,7 @@ function EscAltura() {
 
       <Hook>
         En La Paz (3650 msnm), hay 35% menos O₂ que en Santa Cruz. Sin
-        adaptación, perdés conciencia en horas. Los bolivianos andinos están
+        adaptación, pierdes conciencia en horas. Los bolivianos andinos están
         adaptados desde la infancia.
       </Hook>
 

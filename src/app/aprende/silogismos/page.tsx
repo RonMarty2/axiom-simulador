@@ -180,7 +180,7 @@ function EscTipos() {
       <Misconception titulo="Trampa del hipotético · afirmar el consecuente">
         Si A entonces B. <strong>B es verdadero</strong>. ∴ A. <strong>FALSO</strong>.<br />
         Ej: "Si llueve, la calle está mojada. La calle está mojada. ∴ llueve". NO. Pudo regarse, o
-        haberse derretido hielo. <strong>Solo podés concluir hacia adelante</strong> (de A a B), no
+        haberse derretido hielo. <strong>Solo puedes concluir hacia adelante</strong> (de A a B), no
         hacia atrás (de B a A).
       </Misconception>
 
@@ -192,7 +192,7 @@ function EscTipos() {
 
       <Misconception titulo="Trampa del disyuntivo · 'o' inclusivo vs exclusivo">
         En lógica, "A o B" normalmente significa <strong>al menos uno</strong> (inclusivo). En el
-        examen, leé el contexto: si dice "<em>o esto o lo otro</em>" en sentido excluyente, debe
+        examen, lee el contexto: si dice "<em>o esto o lo otro</em>" en sentido excluyente, debe
         haber pista de exclusión. Si no, podrían cumplirse ambos a la vez.
       </Misconception>
     </EscenaRica>
@@ -204,14 +204,14 @@ function EscProcedimiento() {
     <EscenaRica>
       <Titulo>Cómo derivar la conclusión</Titulo>
       <Resumen>
-        <strong>1.</strong> Identificá el <strong>término medio</strong> (el que aparece en las dos
+        <strong>1.</strong> Identifica el <strong>término medio</strong> (el que aparece en las dos
         premisas). Ej: en "Todos los humanos son mortales / Sócrates es humano", el término medio es
         "humano".<br /><br />
-        <strong>2.</strong> Identificá los <strong>extremos</strong>: lo que conecta el término medio en
+        <strong>2.</strong> Identifica los <strong>extremos</strong>: lo que conecta el término medio en
         la premisa mayor (mortal) y en la menor (Sócrates).<br /><br />
         <strong>3.</strong> La conclusión <strong>une los dos extremos</strong> a través del término
         medio: "Sócrates es mortal".<br /><br />
-        <strong>4.</strong> Verificá que las opciones <strong>no agreguen ni quiten información</strong>{" "}
+        <strong>4.</strong> Verifica que las opciones <strong>no agreguen ni quiten información</strong>{" "}
         más allá de lo que las premisas autorizan.
       </Resumen>
       <Cuidado>
@@ -221,7 +221,7 @@ function EscProcedimiento() {
 
       <Mnemotecnia>
         <strong>Acrónimo "TME → C"</strong> para resolver cualquier silogismo:<br />
-        <strong>T</strong>érmino medio (lo identificás: aparece en las DOS premisas).<br />
+        <strong>T</strong>érmino medio (lo identificas: aparece en las DOS premisas).<br />
         <strong>M</strong>ayor (lo que se predica universalmente).<br />
         <strong>E</strong>xtremos (sujeto particular).<br />
         <strong>C</strong>onclusión: une los dos extremos, el término medio desaparece.
@@ -230,9 +230,9 @@ function EscProcedimiento() {
       <CasoBolivia>
         Silogismo en el examen UMSS:<br />
         <strong>PM:</strong> Todos los postulantes que aprueban el examen ingresan a la UMSS.<br />
-        <strong>Pm:</strong> Vos aprobaste el examen.<br />
-        <strong>∴</strong> Vos ingresás a la UMSS.<br /><br />
-        Identificá: término medio = "aprueba el examen", extremos = "vos" + "ingresa UMSS".
+        <strong>Pm:</strong> Tú aprobaste el examen.<br />
+        <strong>∴</strong> Tú ingresas a la UMSS.<br /><br />
+        Identifica: término medio = "aprueba el examen", extremos = "tú" + "ingresa UMSS".
         La conclusión NO es "todos los que ingresan aprobaron" (eso sería invertir la premisa).
       </CasoBolivia>
 
@@ -252,7 +252,7 @@ function EscProcedimiento() {
         <strong>Paso 3:</strong> uní los extremos, el término medio desaparece:<br />
         <strong>∴ Todos los gatos son carnívoros.</strong><br /><br />
 
-        <strong>Verificá:</strong> no agregaste info ("todos" estaba en las premisas), no invertiste
+        <strong>Verifica:</strong> no agregaste info ("todos" estaba en las premisas), no invertiste
         ("gatos → carnívoros", no al revés), y el medio sí cumplió de puente.
       </WorkedExample>
     </EscenaRica>
@@ -407,7 +407,7 @@ function EscResumen() {
         <strong>1.</strong> Silogismo = Premisa Mayor + Premisa Menor + Conclusión.<br /><br />
         <strong>2.</strong> 3 tipos: <em>categórico</em> (categorías), <em>hipotético</em> (si-entonces),
         <em> disyuntivo</em> (alternativas).<br /><br />
-        <strong>3.</strong> Identificá el término medio (aparece en las 2 premisas). La conclusión une
+        <strong>3.</strong> Identifica el término medio (aparece en las 2 premisas). La conclusión une
         los otros dos extremos.<br /><br />
         <strong>4.</strong> Cuidado con invertir la dirección: "todo A es B" NO implica "todo B es A".<br /><br />
         <strong>5.</strong> Si la conclusión incluye información NO contenida en las premisas, es

@@ -106,7 +106,7 @@ export default function StatsNew({ stats }: StatsNewProps) {
           Tu Progreso en Números
         </h2>
         <p className="text-lg text-neutral-600">
-          Visualiza cómo estás avanzando hacia tu meta
+          Visualiza cómo estas avanzando hacia tu meta
         </p>
       </motion.div>
 

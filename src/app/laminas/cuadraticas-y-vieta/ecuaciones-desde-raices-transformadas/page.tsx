@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function EcuacionesDesdeRaicesTransformadasPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés construir una ecuación con &quot;el doble de las raíces&quot; de otra, sin averiguar cuáles son esas raíces?
+            ¿Sabías que puedes construir una ecuación con &quot;el doble de las raíces&quot; de otra, sin averiguar cuáles son esas raíces?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,7 +30,7 @@ export default function EcuacionesDesdeRaicesTransformadasPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
@@ -41,7 +41,7 @@ export default function EcuacionesDesdeRaicesTransformadasPage() {
             <MathText>{"$x^2 - (\\text{suma})x + (\\text{producto}) = 0$"}</MathText>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Si transformás las raíces (el doble, más 3, al cuadrado), lo único que cambia es la suma y el producto nuevos. La receta es la misma.
+            Si transformas las raíces (el doble, más 3, al cuadrado), lo único que cambia es la suma y el producto nuevos. La receta es la misma.
           </p>
         </div>
       ),
@@ -110,7 +110,7 @@ export default function EcuacionesDesdeRaicesTransformadasPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Las raíces de $x^2-4x+3=0$ son $r_1$ y $r_2$. ¿Cuál es la ecuación cuyas raíces son $r_1+1$ y $r_2+1$?"}

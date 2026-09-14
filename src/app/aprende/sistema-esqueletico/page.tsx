@@ -290,7 +290,7 @@ function EscPractica() {
         remodela constantemente.
       </Misconception>
 
-      <Misconception titulo="Error 2 · 'Bebés tienen menos huesos que adultos'">
+      <Misconception titulo="Error 2 · 'Bebes tienen menos huesos que adultos'">
         <strong>Realidad:</strong> al revés. Nacen con ~270 que se fusionan
         hasta llegar a 206.
       </Misconception>

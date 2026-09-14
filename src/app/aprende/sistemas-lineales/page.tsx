@@ -72,7 +72,7 @@ function InterseccionRectas() {
         <span style={{ color }}>{titulo}</span> · solución: <strong>{sol}</strong>
       </div>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
-        Tocá la imagen para alternar entre los 3 casos posibles
+        Toca la imagen para alternar entre los 3 casos posibles
       </div>
     </div>
   );
@@ -134,7 +134,7 @@ function Esc01_Intro() {
         <strong>R</strong>educción (sumar/restar ecuaciones): la más rápida en el examen.<br />
         <strong>S</strong>ustitución (despejar una y reemplazar): la más versátil.<br />
         <strong>I</strong>gualación (despejar la misma variable en ambas): la más elegante.<br /><br />
-        Los 3 dan el mismo resultado. Elegí según el sistema.
+        Los 3 dan el mismo resultado. Elige según el sistema.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -145,7 +145,7 @@ function Esc02_Sust() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Método 1: Sustitución</Titulo>
       <Resumen>
-        <strong>Idea</strong>: despejá una variable en UNA ecuación y reemplazala en la otra.
+        <strong>Idea</strong>: despeja una variable en UNA ecuación y reemplazala en la otra.
       </Resumen>
 
       <Ejemplo titulo="Sistema: x + y = 10 ; x − y = 2">
@@ -157,11 +157,11 @@ function Esc02_Sust() {
 
       <PorQue>
         El truco mental: si y = 10 − x, entonces donde diga y en cualquier otra ecuación
-        puedo escribir 10 − x. Reducís el problema a una sola variable.
+        puedo escribir 10 − x. Reduces el problema a una sola variable.
       </PorQue>
 
       <Cuidado>
-        Conviene despejar la variable que tenga <strong>coeficiente 1 o -1</strong> (no tenés que dividir).
+        Conviene despejar la variable que tenga <strong>coeficiente 1 o -1</strong> (no tienes que dividir).
       </Cuidado>
     </EscenaRica>
   );
@@ -172,7 +172,7 @@ function Esc03_Igual() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Método 2: Igualación</Titulo>
       <Resumen>
-        <strong>Idea</strong>: despejá la MISMA variable en AMBAS ecuaciones y luego igualá.
+        <strong>Idea</strong>: despeja la MISMA variable en AMBAS ecuaciones y luego iguala.
       </Resumen>
 
       <Ejemplo titulo="Sistema: x + y = 10 ; x − y = 2">
@@ -194,7 +194,7 @@ function Esc04_Red() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Método 3: Reducción (el más rápido)</Titulo>
       <Resumen>
-        <strong>Idea</strong>: sumá (o restá) las dos ecuaciones de modo que UNA variable se cancele.
+        <strong>Idea</strong>: suma (o resta) las dos ecuaciones de modo que UNA variable se cancele.
       </Resumen>
 
       <Ejemplo titulo="Sistema: x + y = 10 ; x − y = 2">
@@ -227,7 +227,7 @@ function Esc05_Cual() {
         • Si una variable ya está despejada (o se despeja fácil) → <strong>SUSTITUCIÓN</strong>.<br />
         • Si las dos ecuaciones tienen coef parecidos → <strong>REDUCCIÓN</strong>.<br />
         • Si las dos son simétricas/fáciles para la misma variable → <strong>IGUALACIÓN</strong>.<br />
-        Cualquier método te da el mismo resultado. Usá el que veas más cómodo.
+        Cualquier método te da el mismo resultado. Usa el que veas más cómodo.
       </Resumen>
       <Cuidado>
         En un examen, <strong>reducción suele ser la más rápida</strong> cuando los coeficientes
@@ -255,8 +255,8 @@ function Esc06_Casos() {
       </Ejemplo>
 
       <PorQue>
-        Cuando aplicás cualquier método y llegás a "0 = 5", no hay solución. Si llegás
-        a "0 = 0", hay infinitas. Si llegás a "x = número", solución única.
+        Cuando aplicas cualquier método y llegas a "0 = 5", no hay solución. Si llegas
+        a "0 = 0", hay infinitas. Si llegas a "x = número", solución única.
       </PorQue>
     </EscenaRica>
   );
@@ -326,7 +326,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 2:</strong> Mal manejo de signos en reducción. <br />
         <span style={{ fontSize: 13 }}>
-          Si querés cancelar +y con −y, sumá. Si las dos son +y, RESTÁ. Cuidado.
+          Si quieres cancelar +y con −y, suma. Si las dos son +y, RESTÁ. Cuidado.
         </span>
       </Cuidado>
       <Cuidado>
@@ -337,12 +337,12 @@ function Esc08_Errores() {
       </Cuidado>
 
       <Misconception titulo="Test del 0=0 y 0=5 para detectar casos especiales">
-        Si aplicás cualquier método y llegás a:<br />
+        Si aplicas cualquier método y llegas a:<br />
         • <strong>"0 = 5"</strong> (o cualquier contradicción): el sistema NO TIENE
         SOLUCIÓN. Las rectas son paralelas.<br />
         • <strong>"0 = 0"</strong> (identidad): INFINITAS soluciones. Las rectas son la
         misma.<br />
-        • Si despejás x y obtenés un número: <strong>solución única</strong>.<br /><br />
+        • Si despejas x y obtienes un número: <strong>solución única</strong>.<br /><br />
         Mucha gente se asusta y piensa "me equivoqué". No, ese es el resultado.
       </Misconception>
 
@@ -358,8 +358,8 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Resolvé: x + y = 7 ; x − y = 1", o: ["(4, 3)", "(3, 4)", "(5, 2)", "(7, 0)"], c: 0, ex: "Sumo: 2x = 8 → x = 4. Y = 3. (4,3)." },
-    { p: "Resolvé: 2x + y = 11 ; x − y = 1", o: ["(4, 3)", "(3, 5)", "(5, 1)", "(2, 7)"], c: 0, ex: "Sumo: 3x = 12 → x = 4. Y = 3." },
+    { p: "Resuelve: x + y = 7 ; x − y = 1", o: ["(4, 3)", "(3, 4)", "(5, 2)", "(7, 0)"], c: 0, ex: "Sumo: 2x = 8 → x = 4. Y = 3. (4,3)." },
+    { p: "Resuelve: 2x + y = 11 ; x − y = 1", o: ["(4, 3)", "(3, 5)", "(5, 1)", "(2, 7)"], c: 0, ex: "Sumo: 3x = 12 → x = 4. Y = 3." },
     { p: "Si x + 2y = 9 y x = 3, ¿cuánto vale y?", o: ["3", "6", "1.5", "9"], c: 0, ex: "3 + 2y = 9 → 2y = 6 → y = 3." },
     { p: "Sistema {x − y = 5, 2x − 2y = 9}: ¿qué pasa?", o: ["Tiene sol única", "Sin solución", "Infinitas", "Solo x=5"], c: 1, ex: "La 2ª es la 1ª por 2 daría 10, pero da 9. Contradicción → sin solución." },
     { p: "Dos números suman 14 y difieren en 6. El mayor es:", o: ["10", "8", "12", "4"], c: 0, ex: "x+y=14, x−y=6. Sumo: 2x=20 → x=10." },
@@ -398,9 +398,9 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás sistemas lineales."}
+            {ok === ejs.length && "🎉 Dominas sistemas lineales."}
             {ok >= 3 && ok < ejs.length && "Bien. Reducción es tu amiga en el examen."}
-            {ok < 3 && "Repasá los 3 métodos y volvé acá."}
+            {ok < 3 && "Repasa los 3 métodos y vuelve acá."}
           </div>
         </motion.div>
       )}

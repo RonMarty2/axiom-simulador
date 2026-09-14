@@ -113,7 +113,7 @@ function EscCircCanonica() {
 
       <PorQue>
         La forma canónica es perfecta para "lectura directa": ves la ecuación
-        y al instante sabés centro y radio. Por eso es la forma preferida para
+        y al instante sabes centro y radio. Por eso es la forma preferida para
         identificar circunferencias.
       </PorQue>
     </EscenaRica>
@@ -186,7 +186,7 @@ function EscCompletarCuad() {
 
       <Mnemotecnia>
         <strong>Truco para completar cuadrado en una variable</strong>:<br />
-        Si tenés x² + bx, hay que sumar (b/2)² para que sea cuadrado perfecto.
+        Si tienes x² + bx, hay que sumar (b/2)² para que sea cuadrado perfecto.
         Verificación: x² + bx + (b/2)² = (x + b/2)².<br /><br />
         Ej: x² − 8x → suma (−8/2)² = 16. Queda x² − 8x + 16 = (x − 4)².
       </Mnemotecnia>

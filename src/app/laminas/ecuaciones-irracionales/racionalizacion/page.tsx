@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function RacionalizacionPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés sacar una raíz del denominador, multiplicando por la forma justa de 1?
+            ¿Sabías que puedes sacar una raíz del denominador, multiplicando por la forma justa de 1?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,7 +30,7 @@ export default function RacionalizacionPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
@@ -52,8 +52,8 @@ export default function RacionalizacionPage() {
         <div>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {[
-              "Si el denominador es una sola raíz: multiplicá por esa misma raíz arriba y abajo",
-              "Si el denominador es una suma o resta con raíces: multiplicá por el conjugado (mismos términos, signo del medio cambiado)",
+              "Si el denominador es una sola raíz: multiplica por esa misma raíz arriba y abajo",
+              "Si el denominador es una suma o resta con raíces: multiplica por el conjugado (mismos términos, signo del medio cambiado)",
               "El conjugado convierte la resta en una diferencia de cuadrados, y la raíz desaparece de abajo",
             ].map((t) => (
               <div key={t} style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -127,7 +127,7 @@ export default function RacionalizacionPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Racionalizar $\\dfrac{1}{\\sqrt7-\\sqrt5}$."}

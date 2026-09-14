@@ -17,24 +17,24 @@ import {
 export default function TeoremaDelRestoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés saber el resto de una división de polinomios sin dividir?
+            ¿Sabías que puedes saber el resto de una división de polinomios sin dividir?
           </p>
           <FlujoGancho />
         </div>
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Esto ya lo sabés hacer: es la división con resto de la primaria.
+            Esto ya lo sabes hacer: es la división con resto de la primaria.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 18px" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
@@ -93,12 +93,12 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <PasoCard n={3}>
           <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
-            Como vale para cualquier x, también vale si elegís meter, a propósito, <MathText>{"$x=a$"}</MathText>. Es el único valor que hace cero al paréntesis:
+            Como vale para cualquier x, también vale si eliges meter, a propósito, <MathText>{"$x=a$"}</MathText>. Es el único valor que hace cero al paréntesis:
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, marginBottom: 10 }}>
             <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 16 }}><MathText>{"$(x - a)$"}</MathText></div>
             <FlechaMini abajo />
-            <div style={{ fontSize: 9, color: LIENZO.fgDim, textTransform: "uppercase", marginBottom: 2 }}>metés x = a</div>
+            <div style={{ fontSize: 9, color: LIENZO.fgDim, textTransform: "uppercase", marginBottom: 2 }}>metes x = a</div>
             <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 16 }}><MathText>{"$(a - a)$"}</MathText></div>
             <FlechaMini abajo />
             <div style={{ padding: "8px 16px", borderRadius: 10, background: `${LIENZO.accent}15`, border: `1.5px solid ${LIENZO.accent}`, fontWeight: 700, fontSize: 16 }}>
@@ -183,7 +183,7 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            La idea de siempre no cambia: buscá el valor que anula al divisor. Si el divisor tiene un coeficiente, lo buscás igual.
+            La idea de siempre no cambia: busca el valor que anula al divisor. Si el divisor tiene un coeficiente, lo buscas igual.
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2, marginBottom: 10 }}>
             <div style={{ padding: "8px 14px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 15 }}>
@@ -196,7 +196,7 @@ export default function TeoremaDelRestoPage() {
             </div>
           </div>
           <p style={{ margin: 0, fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Para hallar el resto de <MathText>{"$P(x) \\div (2x-1)$"}</MathText>, evaluás <MathText>{"$P(\\tfrac{1}{2})$"}</MathText>. Mismo teorema, un paso extra al principio.
+            Para hallar el resto de <MathText>{"$P(x) \\div (2x-1)$"}</MathText>, evaluas <MathText>{"$P(\\tfrac{1}{2})$"}</MathText>. Mismo teorema, un paso extra al principio.
           </p>
         </div>
       ),
@@ -224,14 +224,14 @@ export default function TeoremaDelRestoPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            A veces falta un número en el polinomio, y el enunciado te lo da escondido en una frase, no como ecuación. Es la misma idea del Teorema del Resto (<MathText>{"$R = P(a)$"}</MathText>) usada al revés: ya sabés R, te falta un dato de P(x).
+            A veces falta un número en el polinomio, y el enunciado te lo da escondido en una frase, no como ecuación. Es la misma idea del Teorema del Resto (<MathText>{"$R = P(a)$"}</MathText>) usada al revés: ya sabes R, te falta un dato de P(x).
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
             <MathText>{"$P(x) = x^2 + kx + 1$"}</MathText>. Si al dividirlo entre <MathText>{"$(x - 2)$"}</MathText> el resto es 7, hallar <MathText>{"$k$"}</MathText>.
           </p>
           <div style={{ background: LIENZO.bgSoft, borderRadius: 14, padding: "14px 16px" }}>
             <LineaEjemplo glosa="La frase esconde" eq="$P(2) = 7$" />
-            <LineaEjemplo glosa="Reemplazá x = 2 en P(x)" eq="$(2)^2 + k(2) + 1 = 7$" />
+            <LineaEjemplo glosa="Reemplaza x = 2 en P(x)" eq="$(2)^2 + k(2) + 1 = 7$" />
             <LineaEjemplo glosa="" eq="$4 + 2k + 1 = 7$" />
           </div>
           <div style={{
@@ -244,7 +244,7 @@ export default function TeoremaDelRestoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el residuo de dividir el polinomio $f(x) = x^4 + 2x^3 - 7x^2 - 8x + 12$, entre $x + 1$."}

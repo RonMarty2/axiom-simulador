@@ -86,7 +86,7 @@ function PalabraDuoSentido({
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", marginTop: 6 }}>
-        Tocá la tarjeta para alternar entre los dos sentidos.
+        Toca la tarjeta para alternar entre los dos sentidos.
       </div>
     </div>
   );
@@ -151,7 +151,7 @@ function PalabraHomonima({
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", marginTop: 6 }}>
-        Tocá para ver los demás significados.
+        Toca para ver los demás significados.
       </div>
     </div>
   );
@@ -166,7 +166,7 @@ function EscIntro() {
     <EscenaRica>
       <Titulo>Una palabra puede significar muchas cosas</Titulo>
       <Parrafo>
-        El examen evalúa si distinguís bien tres maneras de entender una palabra. Las tres aparecen
+        El examen evalúa si distingues bien tres maneras de entender una palabra. Las tres aparecen
         constantemente en cualquier texto:
       </Parrafo>
       <Resumen>
@@ -185,7 +185,7 @@ function EscIntro() {
       <Hook>
         Esta unidad es la responsable de unas <strong>5-8 preguntas</strong> del examen UMSS sobre
         expresiones figuradas ("le da la vuelta a la tortilla", "está en las nubes", etc). Si
-        confundís los 3 conceptos, perdés esos puntos.
+        confundes los 3 conceptos, pierdes esos puntos.
       </Hook>
 
       <Mnemotecnia>
@@ -250,7 +250,7 @@ function EscEstrella() {
     <EscenaRica>
       <Titulo>Probalo · la palabra "estrella"</Titulo>
       <Parrafo>
-        Mirá cómo la misma palabra cambia de sentido según el contexto. Tocá la tarjeta para alternar
+        Mira cómo la misma palabra cambia de sentido según el contexto. Toca la tarjeta para alternar
         entre los dos significados:
       </Parrafo>
       <PalabraDuoSentido
@@ -279,7 +279,7 @@ function EscHomo() {
         distintos que comparten la misma forma.
       </Definicion>
       <Parrafo>
-        El ejemplo clásico es "banco". Tocá la tarjeta para ver sus distintos significados:
+        El ejemplo clásico es "banco". Toca la tarjeta para ver sus distintos significados:
       </Parrafo>
       <PalabraHomonima
         palabra="banco"
@@ -310,7 +310,7 @@ function EscHomo() {
       </Cuidado>
 
       <Misconception titulo="No confundas connotación con homonimia">
-        Test rápido: ¿podés explicar el sentido B como <em>metáfora</em> del sentido A? Si SÍ →
+        Test rápido: ¿puedes explicar el sentido B como <em>metáfora</em> del sentido A? Si SÍ →
         connotación. Si NO (los dos son independientes históricamente) → homonimia.<br /><br />
         <strong>Ejemplo:</strong> "vela" (cera para iluminar) y "vela" (de barco). ¿Una es metáfora
         de la otra? NO. Son homónimos. En cambio "vela" de cera y "estar en vela" (estar despierto)
@@ -357,7 +357,7 @@ function EscPracticaA() {
     <EscenaRica>
       <Titulo>Práctica · convertir lenguaje figurado a literal (1 de 2)</Titulo>
       <Parrafo>
-        Cada oración tiene una expresión figurada (connotativa). Elegí el significado literal correcto.
+        Cada oración tiene una expresión figurada (connotativa). Elige el significado literal correcto.
       </Parrafo>
       <PracticaFinal ejercicios={[
         {
@@ -491,7 +491,7 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Estrategia · qué llevarse al examen</Titulo>
       <Resumen>
-        <strong>1.</strong> Antes de decidir el sentido de una palabra, mirá el <strong>contexto</strong>{" "}
+        <strong>1.</strong> Antes de decidir el sentido de una palabra, mira el <strong>contexto</strong>{" "}
         (la oración entera, no la palabra suelta).<br /><br />
         <strong>2.</strong> Si una palabra parece tener un sentido raro o desproporcionado, probablemente
         sea <strong>connotativa</strong>. "Una montaña de trabajo" no es literalmente una montaña.<br /><br />
@@ -500,7 +500,7 @@ function EscResumen() {
         <strong>4.</strong> Si dos significados de una palabra <strong>no tienen NADA que ver entre sí</strong>
         (banco-entidad vs banco-mueble), es <strong>homonimia</strong>. Si están relacionados por una
         metáfora (estrella-celeste vs estrella-famoso), es <strong>connotación</strong>.<br /><br />
-        <strong>5.</strong> Cuando el examen te pida "qué significa esta expresión", elegí la opción que
+        <strong>5.</strong> Cuando el examen te pida "qué significa esta expresión", elige la opción que
         <strong> describa el sentido figurado en lenguaje neutro</strong>, no la que repita las palabras
         de la frase original.
       </Resumen>
@@ -513,7 +513,7 @@ function EscResumen() {
         <strong>Paso 1 · ¿Literal o figurado?</strong> "Broche de oro" en contexto NO suele ser un
         objeto real. Sentido figurado.<br /><br />
 
-        <strong>Paso 2 · Descartá las literales:</strong> (a), (c), (d) toman la frase al pie de
+        <strong>Paso 2 · Descarta las literales:</strong> (a), (c), (d) toman la frase al pie de
         la letra. Trampa típica.<br /><br />
 
         <strong>Paso 3 · Distinguí entre las figuradas:</strong><br />

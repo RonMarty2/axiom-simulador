@@ -224,7 +224,7 @@ function Esc08() {
       <Misconception titulo="Una predicción ('si X entonces Y') NO es normativa">
         Mucha gente cree que "si subimos impuestos, la inversión caerá" es normativo porque
         suena a recomendación. FALSO. Es POSITIVO: describe una relación causal sin decir si es
-        bueno o malo. Solo se vuelve normativo si agregás "por eso NO debemos subir impuestos".
+        bueno o malo. Solo se vuelve normativo si agregas "por eso NO debemos subir impuestos".
       </Misconception>
     </EscenaRica>
   );

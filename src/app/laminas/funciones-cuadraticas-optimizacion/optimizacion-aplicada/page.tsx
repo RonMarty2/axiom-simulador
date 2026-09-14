@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function OptimizacionAplicadaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function OptimizacionAplicadaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés hallar el vértice con <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>. Lo nuevo acá es armar VOS la función cuadrática a partir de un enunciado, antes de aplicar esa fórmula.
+            Ya sabes hallar el vértice con <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>. Lo nuevo acá es armar VOS la función cuadrática a partir de un enunciado, antes de aplicar esa fórmula.
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 14, fontWeight: 600 }}>
             <span>variable</span>
@@ -54,15 +54,15 @@ export default function OptimizacionAplicadaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Elegí una variable para lo que cambia (un lado, un descuento, una cantidad)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Elige una variable para lo que cambia (un lado, un descuento, una cantidad)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Escribí lo que querés maximizar/minimizar en función de esa variable</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Escribe lo que quieres maximizar/minimizar en función de esa variable</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Hallá el vértice y traducí el resultado de vuelta al problema original</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Hallá el vértice y traduce el resultado de vuelta al problema original</span>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function OptimizacionAplicadaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Un estadio aloja 55000 espectadores. Con boleto a 10 dólares, la asistencia promedio es 27000. Por cada dólar que se reduce el precio, la asistencia sube en 3000. ¿Qué precio maximiza el ingreso?"}

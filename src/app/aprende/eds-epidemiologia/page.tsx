@@ -295,7 +295,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 3 · 'Correlación = causalidad'">
         <strong>Realidad:</strong> dos cosas pueden ir juntas sin que una
-        cause la otra. Para causalidad necesitás cohortes o ECA.
+        cause la otra. Para causalidad necesitas cohortes o ECA.
       </Misconception>
 
       <Resumen>

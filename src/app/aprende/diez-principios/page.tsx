@@ -70,7 +70,7 @@ function EscIntroA() {
       <Hook>
         Imaginate que todo lo que vamos a estudiar en economía pudiera resumirse en{" "}
         <strong>10 frases sueltas</strong>, cortas y memorables. Esos son los 10 principios de Mankiw.
-        Si los entendés bien, ya pensás como economista.
+        Si los entiendes bien, ya piensas como economista.
       </Hook>
       <Parrafo>
         Mankiw los organizó en tres grandes bloques:
@@ -99,12 +99,12 @@ function P1() {
     <EscenaRica>
       <Tarjeta n={1} titulo="Las personas enfrentan disyuntivas" />
       <Hook>
-        Tenés un sábado libre. Te invitan a una fiesta, también querés estudiar para el examen del
+        Tienes un sábado libre. Te invitan a una fiesta, también quieres estudiar para el examen del
         lunes, y tu papá te pidió que lo ayudes a pintar el cuarto. <strong>¿Las 3 cosas a la vez?</strong>{" "}
         No se puede. <em>Hay que elegir.</em>
       </Hook>
       <Parrafo>
-        Toda decisión implica una <strong>disyuntiva</strong>: para obtener algo, tenés que renunciar
+        Toda decisión implica una <strong>disyuntiva</strong>: para obtener algo, tienes que renunciar
         a otra cosa que también querías.
       </Parrafo>
       <Definicion termino="eficiencia">
@@ -169,7 +169,7 @@ function P2() {
           <strong>Costo de oportunidad (invisible pero ENORME):</strong>
         </p>
         <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14 }}>
-          <li>Salario que dejás de ganar: 2 500 Bs/mes × 12 × 4 = <strong>120 000 Bs</strong></li>
+          <li>Salario que dejas de ganar: 2 500 Bs/mes × 12 × 4 = <strong>120 000 Bs</strong></li>
         </ul>
         <p style={{ marginTop: 8, marginBottom: 0 }}>
           <strong>Costo TOTAL de estudiar:</strong> ~138 800 Bs.<br />
@@ -211,13 +211,13 @@ function P3() {
         <strong>"estudiar UNA HORA MÁS o no"</strong>.
       </Parrafo>
       <Ejemplo titulo="La paradoja del agua y los diamantes">
-        El beneficio marginal de UN VASO MÁS de agua, cuando ya tenés agua abundante, es casi cero.
+        El beneficio marginal de UN VASO MÁS de agua, cuando ya tienes agua abundante, es casi cero.
         El beneficio marginal de UN diamante extra (porque son escasos) es alto.<br /><br />
         Por eso la gente paga mucho por un diamante y poco por un vaso de agua, aunque el agua sea
         100 veces más útil para vivir.
       </Ejemplo>
       <MiniQuiz
-        pregunta="Trabajaste 8 horas y estás cansado. ¿Conviene quedarte una hora más?"
+        pregunta="Trabajaste 8 horas y estas cansado. ¿Conviene quedarte una hora más?"
         opciones={[
           "Sí, siempre que el sueldo total siga subiendo.",
           "Sí, si el sueldo extra de esa hora supera el cansancio que te genera.",
@@ -233,7 +233,7 @@ function P3() {
       </Resumen>
       <Mnemotecnia>
         Cuando dudes, preguntate: <strong>"¿la PRÓXIMA unidad vale la pena?"</strong> No mires el
-        promedio, no mires el total. Mirá el margen.
+        promedio, no mires el total. Mira el margen.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -262,7 +262,7 @@ function P4() {
       <CasoBolivia>
         <strong>Subsidio al diésel y gasolina (caso histórico):</strong> Bolivia mantiene subsidiados
         los combustibles desde hace décadas. El gobierno paga la diferencia entre el precio
-        internacional y el que vos pagás en el surtidor. <br /><br />
+        internacional y el que tú pagas en el surtidor. <br /><br />
         <strong>El incentivo perverso:</strong> como el diésel es barato adentro y caro afuera, hay
         contrabando masivo hacia Perú, Brasil y Chile. La gente responde a ese incentivo
         (diferencia de precio).<br /><br />
@@ -583,7 +583,7 @@ function EscMnemo() {
     <EscenaRica>
       <Titulo>Mnemotecnia · cómo recordar los 10 principios</Titulo>
       <Mnemotecnia>
-        Los principios se agrupan en 3 bloques. Recordá cada bloque por su PALABRA CLAVE:
+        Los principios se agrupan en 3 bloques. Recuerda cada bloque por su PALABRA CLAVE:
         <div style={{ marginTop: 14, padding: 14, background: "#fff", borderRadius: 10, border: `1px solid ${LIENZO.fgFaint}` }}>
           <div style={{ fontSize: 16, fontWeight: 700, color: LIENZO.accent, marginBottom: 8 }}>
             Bloque 1 · DECIDIR (P1–P4)
@@ -609,15 +609,15 @@ function EscMnemo() {
           </div>
           <ul style={{ fontSize: 14, lineHeight: 1.7, paddingLeft: 20, margin: 0 }}>
             <li><strong>P</strong>roductividad determina nivel de vida (P8)</li>
-            <li><strong>I</strong>nflación si imprimís dinero (P9)</li>
+            <li><strong>I</strong>nflación si imprimes dinero (P9)</li>
             <li><strong>D</strong>esempleo vs inflación CP (P10)</li>
           </ul>
         </div>
       </Mnemotecnia>
       <Parrafo>
         Una mnemotecnia útil que junta los 3 bloques en una frase:<br />
-        <strong>"Decidir · Interactuar · País"</strong>. 4 + 3 + 3 = 10 principios. Si recordás los 3
-        verbos, podés reconstruir el resto.
+        <strong>"Decidir · Interactuar · País"</strong>. 4 + 3 + 3 = 10 principios. Si recuerdas los 3
+        verbos, puedes reconstruir el resto.
       </Parrafo>
     </EscenaRica>
   );
@@ -638,7 +638,7 @@ function EscPrac() {
           "lo que se renuncia para obtenerlo",
           "lo que costó producirlo",
           "lo que vale para el comprador",
-        ], c: 1, ex: "Es la mejor alternativa que se descarta. Incluye lo que dejás de ganar." },
+        ], c: 1, ex: "Es la mejor alternativa que se descarta. Incluye lo que dejas de ganar." },
         { p: "Una persona racional decide actuar si:", o: [
           "el beneficio total > costo total",
           "el beneficio marginal > costo marginal",

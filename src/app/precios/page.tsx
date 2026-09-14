@@ -24,11 +24,11 @@ const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   // entra por URL directa a contenido que no tiene desbloqueado.
   "leccion": {
     titulo: "Esta lección es de Premium",
-    texto: "Con el Plan Gratis tenés abierta la Unidad 01 de cada área. Pasate a Premium y se abren todas las lecciones, de todas las unidades.",
+    texto: "Con el Plan Gratis tienes abierta la Unidad 01 de cada área. Pásate a Premium y se abren todas las lecciones, de todas las unidades.",
   },
   "lamina": {
     titulo: "Las Láminas de Repaso son de Premium",
-    texto: "Son las hojas de referencia para repasar rápido antes del examen. Pasate a Premium y las tenés todas.",
+    texto: "Son las hojas de referencia para repasar rápido antes del examen. Pásate a Premium y las tienes todas.",
   },
 };
 

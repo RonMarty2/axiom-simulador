@@ -47,7 +47,7 @@ function EscIntro() {
 
       <Hook>
         En el examen UMSS hay típicamente <strong>4-7 preguntas</strong> de léxico contextual.
-        Tiene rendimiento alto: con la estrategia de "sustitución" resolvés casi todas en 15
+        Tiene rendimiento alto: con la estrategia de "sustitución" resuelves casi todas en 15
         segundos sin necesitar saber sinónimos raros de memoria.
       </Hook>
 
@@ -65,18 +65,18 @@ function EscEstrategia() {
     <EscenaRica>
       <Titulo>Estrategia en 4 pasos</Titulo>
       <Resumen>
-        <strong>1. Leé la oración entera</strong>, no solo la palabra subrayada. El sentido está en el
+        <strong>1. Lee la oración entera</strong>, no solo la palabra subrayada. El sentido está en el
         marco.<br /><br />
-        <strong>2. Determiná qué función cumple la palabra</strong>: ¿describe una cosa, una acción, una
-        cualidad? Identificá el campo (acto técnico, sentimiento, magnitud, etc.).<br /><br />
-        <strong>3. Probá mentalmente cada opción</strong> en el lugar de la palabra original. ¿Cambia el
+        <strong>2. Determina qué función cumple la palabra</strong>: ¿describe una cosa, una acción, una
+        cualidad? Identifica el campo (acto técnico, sentimiento, magnitud, etc.).<br /><br />
+        <strong>3. Prueba mentalmente cada opción</strong> en el lugar de la palabra original. ¿Cambia el
         sentido o se mantiene?<br /><br />
-        <strong>4. Elegí la opción que NO altere el sentido</strong>, aunque tenga distinto género o
+        <strong>4. Elige la opción que NO altere el sentido</strong>, aunque tenga distinto género o
         número. La precisión cuenta más que la cercanía formal.
       </Resumen>
       <Cuidado>
-        Algunas opciones son <strong>antónimos</strong> disfrazados. Si te apurás y leés solo la palabra
-        subrayada, podés elegir una palabra que dice lo contrario y arruinar la oración.
+        Algunas opciones son <strong>antónimos</strong> disfrazados. Si te apurás y lees solo la palabra
+        subrayada, puedes elegir una palabra que dice lo contrario y arruinar la oración.
       </Cuidado>
 
       <Mnemotecnia>
@@ -87,7 +87,7 @@ function EscEstrategia() {
       </Mnemotecnia>
 
       <WorkedExample titulo="Estrategia aplicada · 'La oferta SUPERA a la demanda'">
-        <strong>Pregunta:</strong> reemplazá "SUPERA".<br />
+        <strong>Pregunta:</strong> reemplaza "SUPERA".<br />
         Opciones: (a) iguala, (b) excede, (c) reduce, (d) requiere, (e) supone.<br /><br />
 
         <strong>Paso 1 · Leer oración completa:</strong> en economía, "oferta supera demanda"
@@ -113,7 +113,7 @@ function EscGuiado() {
     <EscenaRica>
       <Titulo>Ejemplo guiado · texto sobre educación</Titulo>
       <Parrafo>
-        Mirá cómo aplicamos la estrategia a un texto real. Subrayadas hay 3 palabras. Probá las opciones
+        Mira cómo aplicamos la estrategia a un texto real. Subrayadas hay 3 palabras. Prueba las opciones
         y verás la explicación de cada una.
       </Parrafo>
       <LecturaQuiz
@@ -274,19 +274,19 @@ function EscResumen() {
       <Titulo>Resumen</Titulo>
       <Resumen>
         <strong>1.</strong> Léxico contextual = sinónimo correcto para ESE contexto.<br /><br />
-        <strong>2.</strong> Leé la oración entera, no la palabra suelta.<br /><br />
-        <strong>3.</strong> Probá la opción en el lugar de la palabra original.<br /><br />
+        <strong>2.</strong> Lee la oración entera, no la palabra suelta.<br /><br />
+        <strong>3.</strong> Prueba la opción en el lugar de la palabra original.<br /><br />
         <strong>4.</strong> Las opciones suelen incluir 1 sinónimo correcto, 1 antónimo trampa, y 2-3
         palabras del mismo campo pero con sentido distinto.<br /><br />
-        <strong>5.</strong> Si dos opciones parecen igual de buenas, elegí la más natural en ese
+        <strong>5.</strong> Si dos opciones parecen igual de buenas, elige la más natural en ese
         registro (formal/coloquial/técnico).
       </Resumen>
 
       <Misconception titulo="Las 3 trampas típicas">
         <strong>(a)</strong> El <strong>antónimo</strong> disfrazado (alto → bajo en vez de
         elevado).<br />
-        <strong>(b)</strong> Una palabra que <strong>ya aparece en el texto</strong> (no podés
-        reemplazar X por X: descartá esa opción de entrada).<br />
+        <strong>(b)</strong> Una palabra que <strong>ya aparece en el texto</strong> (no puedes
+        reemplazar X por X: descarta esa opción de entrada).<br />
         <strong>(c)</strong> Un sinónimo de OTRO sentido de la palabra (válido en otro contexto
         pero no en éste).
       </Misconception>

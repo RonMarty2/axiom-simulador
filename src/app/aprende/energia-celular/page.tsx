@@ -38,7 +38,7 @@ function EscATP() {
       <Hook>
         Cada segundo, tu cuerpo gasta y reproduce 10 millones de moléculas de
         ATP. Toda contracción muscular, todo pensamiento, toda digestión, se
-        paga con ATP. Sin ATP, morís en segundos.
+        paga con ATP. Sin ATP, mueres en segundos.
       </Hook>
 
       <Definicion termino="ATP (Adenosín Tri-Fosfato)">
@@ -386,7 +386,7 @@ function EscCadena() {
 
       <Definicion termino="Aceptor final de electrones">
         El O₂ es el aceptor final: O₂ + 4 e⁻ + 4 H⁺ → 2 H₂O.<br />
-        SIN O₂, la cadena se atasca y NO se produce ATP. Por eso necesitás
+        SIN O₂, la cadena se atasca y NO se produce ATP. Por eso necesitas
         respirar.
       </Definicion>
 

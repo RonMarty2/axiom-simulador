@@ -72,7 +72,7 @@ function EscIntro() {
       <Hook>
         Vectores aparecen en TODA la física. Cinemática, dinámica,
         electrostática. Y en el examen FCyT también: F2 del PREU 2025 pidió
-        calcular módulo de producto vectorial. Sin vectores, no entendés ni
+        calcular módulo de producto vectorial. Sin vectores, no entiendes ni
         velocidad ni fuerza.
       </Hook>
 
@@ -353,7 +353,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · producto escalar vs vectorial">
         El producto · (punto) da un ESCALAR. El producto × (cruz) da un VECTOR.
-        En las fórmulas usá la operación correcta.
+        En las fórmulas usa la operación correcta.
       </Misconception>
 
       <Misconception titulo="Error 3 · olvidar el sentido del producto vectorial">

@@ -550,7 +550,7 @@ function EscPractica() {
       </Misconception>
 
       <Misconception titulo="Error 2 · ángulo de lanzamiento óptimo NO siempre es 45°">
-        45° da alcance máximo SOLO cuando lanzás desde y aterrizas a la misma
+        45° da alcance máximo SOLO cuando lanzas desde y aterrizas a la misma
         altura. Desde altura mayor, el ángulo óptimo es MENOR a 45°.
       </Misconception>
 

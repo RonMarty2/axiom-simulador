@@ -11,6 +11,7 @@ import {
   EscenaRica, AutoCheck,
   Hook, Misconception, Mnemotecnia, Conexion, WorkedExample,
 } from "../_components/pedagogia";
+import { LIENZO } from "../_components/lienzo";
 
 export default function Page() {
   return (
@@ -40,11 +41,11 @@ function Esc01_Intro() {
       <Parrafo>
         Una <strong>razón</strong> es una comparación entre dos cantidades. Una
         <strong> proporción</strong> es una igualdad entre dos razones. Suenan
-        abstractos pero los usás todo el día sin darte cuenta.
+        abstractos pero los usas todo el día sin darte cuenta.
       </Parrafo>
       <Resumen>
         🎯 Usos concretos:<br />
-        • <strong>Recetas de cocina</strong>: si la receta es para 4 personas y querés
+        • <strong>Recetas de cocina</strong>: si la receta es para 4 personas y quieres
         cocinar para 10, todo escala con una proporción.<br />
         • <strong>Mapas y planos</strong>: la "escala" es una razón (1:100 significa
         que 1 cm del mapa = 100 cm reales).<br />
@@ -54,7 +55,7 @@ function Esc01_Intro() {
 
       <Hook>
         Razones y proporciones son la <strong>base teórica de regla de tres, repartos,
-        porcentajes y escalas</strong>. Si entendés esta unidad, las próximas son aplicaciones
+        porcentajes y escalas</strong>. Si entiendes esta unidad, las próximas son aplicaciones
         directas. El examen UMSS suele pedir identificar términos (extremos y medios) y
         despejar valores faltantes.
       </Hook>
@@ -65,7 +66,7 @@ function Esc01_Intro() {
 function Esc02_Razon() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Razón: comparar dos cantidades</Titulo>
+      <Titulo accent={LIENZO.accent}>Razón: comparar dos cantidades</Titulo>
       <Parrafo>
         Si en una clase hay <strong>15 mujeres y 10 hombres</strong>, podemos decir que
         la razón entre mujeres y hombres es <strong>15 a 10</strong>, o
@@ -116,7 +117,7 @@ function Esc02_Razon() {
 function Esc03_Equiv() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Razones equivalentes</Titulo>
+      <Titulo accent={LIENZO.accent}>Razones equivalentes</Titulo>
       <Parrafo>
         Dos razones son <strong>equivalentes</strong> si valen lo mismo (como fracciones).
       </Parrafo>
@@ -127,7 +128,7 @@ function Esc03_Equiv() {
       </Ejemplo>
 
       <PorQue>
-        Si multiplicás (o dividís) <strong>arriba Y abajo por el mismo número</strong>,
+        Si multiplicas (o divides) <strong>arriba Y abajo por el mismo número</strong>,
         la razón no cambia. Igual que en fracciones. Eso te permite simplificar (dividir
         por el MCD) o ampliar (multiplicar por una constante).
       </PorQue>
@@ -276,7 +277,7 @@ function Esc06_Fundamental() {
       </div>
 
       <PorQue>
-        ¿Por qué siempre vale? Empezás con a/b = c/d. Multiplicás ambos lados por bd:
+        ¿Por qué siempre vale? Empiezas con a/b = c/d. Multiplicas ambos lados por bd:
         a/b · bd = c/d · bd → a·d = b·c. Es solo álgebra básica.
       </PorQue>
     </EscenaRica>
@@ -288,7 +289,7 @@ function Esc07_Despejar() {
     <EscenaRica>
       <Titulo>Despejar un término desconocido</Titulo>
       <Parrafo>
-        Si conocés 3 de los 4 términos, podés calcular el faltante usando la
+        Si conoces 3 de los 4 términos, puedes calcular el faltante usando la
         propiedad fundamental.
       </Parrafo>
 
@@ -305,7 +306,7 @@ function Esc07_Despejar() {
       </Ejemplo>
 
       <Resumen>
-        Receta general: <strong>el término que sabés del mismo "lado diagonal" que el desconocido se multiplica,
+        Receta general: <strong>el término que sabes del mismo "lado diagonal" que el desconocido se multiplica,
         y se divide por el restante</strong>. (Si a/b = c/x, entonces x = b·c/a.)
       </Resumen>
 
@@ -342,11 +343,11 @@ function Esc08_Problemas() {
 
       <Cuidado>
         Cuando armes la proporción, <strong>mantené las mismas unidades arriba y abajo</strong>:
-        kg arriba con kg arriba, Bs con Bs. Si no lo hacés, te equivocás.
+        kg arriba con kg arriba, Bs con Bs. Si no lo haces, te equivocas.
       </Cuidado>
 
       <WorkedExample titulo="Proporción con cambio de moneda · Bs vs USD">
-        El tipo de cambio oficial Bolivia es <strong>6,96 Bs = 1 USD</strong>. Querés saber
+        El tipo de cambio oficial Bolivia es <strong>6,96 Bs = 1 USD</strong>. Quieres saber
         cuántos dólares son <strong>1.500 Bs</strong>.<br /><br />
 
         <strong>Planteo:</strong><br />
@@ -375,7 +376,7 @@ function Esc09_Errores() {
       <Cuidado>
         <strong>Error 1:</strong> Mezclar unidades. <br />
         <span style={{ fontSize: 13 }}>
-          Si arriba tenés kg, abajo tenés kg. NO pongas "kg arriba, gramos abajo".
+          Si arriba tienes kg, abajo tienes kg. NO pongas "kg arriba, gramos abajo".
         </span>
       </Cuidado>
 
@@ -390,7 +391,7 @@ function Esc09_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> Aplicar mal la propiedad fundamental. <br />
         <span style={{ fontSize: 13 }}>
-          a/b = c/d ⟹ a·d = b·c. <strong>NO</strong> es a·c = b·d. Multiplicás en cruz.
+          a/b = c/d ⟹ a·d = b·c. <strong>NO</strong> es a·c = b·d. Multiplicas en cruz.
         </span>
       </Cuidado>
 
@@ -461,9 +462,9 @@ function Esc10_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás razones y proporciones."}
-            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste: la propiedad fundamental es clave."}
-            {ok < 3 && "Volvé a la escena 6 (propiedad fundamental). Es la base de todo."}
+            {ok === ejs.length && "🎉 Dominas razones y proporciones."}
+            {ok >= 3 && ok < ejs.length && "Repasa los que fallaste: la propiedad fundamental es clave."}
+            {ok < 3 && "Vuelve a la escena 6 (propiedad fundamental). Es la base de todo."}
           </div>
         </motion.div>
       )}

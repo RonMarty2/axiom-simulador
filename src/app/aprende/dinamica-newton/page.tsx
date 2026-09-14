@@ -144,7 +144,7 @@ function EscPrimera() {
       <Mnemotecnia>
         La "inercia" es la tendencia natural de los cuerpos a NO cambiar su
         estado de movimiento. Por eso un auto que frena de golpe te lanza
-        hacia adelante: vos seguís con MRU mientras el auto frena.
+        hacia adelante: tú sigues con MRU mientras el auto frena.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -197,8 +197,8 @@ function EscSegunda() {
 
       <PorQue>
         Esta ley conecta DINÁMICA (fuerzas) con CINEMÁTICA (aceleraciones).
-        Si conocés las fuerzas, podés predecir el movimiento. Si conocés el
-        movimiento, podés deducir las fuerzas.
+        Si conoces las fuerzas, puedes predecir el movimiento. Si conoces el
+        movimiento, puedes deducir las fuerzas.
       </PorQue>
 
       <WorkedExample titulo="Aplicación simple">
@@ -247,10 +247,10 @@ function EscTercera() {
       </Cuidado>
 
       <Ejemplo titulo="Ejemplos">
-        • Caminás: empujás el piso hacia atrás, el piso te empuja hacia
+        • Caminas: empujas el piso hacia atrás, el piso te empuja hacia
         adelante.<br />
         • Cohete: expulsa gas hacia abajo, el gas lo empuja hacia arriba.<br />
-        • Saltás: empujás el piso, el piso te empuja a vos.
+        • Saltas: empujas el piso, el piso te empuja a tú.
       </Ejemplo>
     </EscenaRica>
   );
@@ -285,7 +285,7 @@ function EscPeso() {
       <Titulo>Peso vs masa · NO son lo mismo</Titulo>
 
       <Definicion termino="Masa (m)">
-        Cantidad de materia. Es invariante (no depende de dónde estés). Unidad: kg.
+        Cantidad de materia. Es invariante (no depende de dónde estes). Unidad: kg.
       </Definicion>
 
       <Definicion termino="Peso (P)">
@@ -437,8 +437,8 @@ function EscPlano() {
       </Resumen>
 
       <WorkedExample titulo="Cuándo está a punto de deslizar">
-        Si el cuerpo está en reposo y aumentás el ángulo hasta que JUSTO
-        empieza a deslizar, tenés:
+        Si el cuerpo está en reposo y aumentas el ángulo hasta que JUSTO
+        empieza a deslizar, tienes:
         <div style={{ textAlign: "center", padding: "6px 0" }}>
           <MathText>{"$\\mu_s = \\tan\\theta_{crítico}$"}</MathText>
         </div>

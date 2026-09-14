@@ -53,7 +53,7 @@ function Esc01() {
         <strong>P</strong>laneación · <strong>O</strong>rganización ·
         <strong> I</strong>ntegración de personal · <strong>D</strong>irección ·
         <strong> C</strong>ontrol.<br /><br />
-        Cada función será una unidad completa en el Bloque 1 Unidad 4. Memorizá la secuencia: el
+        Cada función será una unidad completa en el Bloque 1 Unidad 4. Memoriza la secuencia: el
         examen UMSS suele pedir "qué función NO es parte de la administración".
       </Mnemotecnia>
 
@@ -238,7 +238,7 @@ function Esc08() {
         <strong>"PESTEL"</strong> es el marco más usado para analizar el entorno empresarial:<br />
         <strong>P</strong>olítico · <strong>E</strong>conómico · <strong>S</strong>ocial ·
         <strong> T</strong>ecnológico · <strong>E</strong>cológico · <strong>L</strong>egal.<br /><br />
-        En Bolivia, "Político" y "Legal" pesan mucho (cambios de gobierno, normativa SIN). Memorizá
+        En Bolivia, "Político" y "Legal" pesan mucho (cambios de gobierno, normativa SIN). Memoriza
         las 6 letras: el examen suele preguntar "¿cuál NO es un factor del entorno?".
       </Mnemotecnia>
 

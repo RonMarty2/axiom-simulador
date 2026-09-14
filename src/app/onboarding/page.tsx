@@ -55,7 +55,7 @@ export default function OnboardingPage() {
             {nombreUsuario ? `Bienvenido, ${nombreUsuario}` : "Bienvenido a Axiom"}
           </h1>
           <p style={{ fontSize: 17, color: "var(--fg-muted)", maxWidth: 540, margin: "0 auto" }}>
-            ¿A qué facultad de la UMSS te estás preparando? Toda la plataforma se enfoca en esa carrera.
+            ¿A qué facultad de la UMSS te estas preparando? Toda la plataforma se enfoca en esa carrera.
           </p>
         </div>
 

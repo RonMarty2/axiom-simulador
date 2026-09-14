@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
   const limite = consultarLimite(clave);
   if (!limite.permitido) {
     return NextResponse.json(
-      { error: `Demasiados intentos. Probá de nuevo en ${Math.ceil(limite.esperaSegundos / 60)} minutos.` },
+      { error: `Demasiados intentos. Prueba de nuevo en ${Math.ceil(limite.esperaSegundos / 60)} minutos.` },
       { status: 429, headers: { "Retry-After": String(limite.esperaSegundos) } },
     );
   }
@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
       {
         error: tras.permitido
           ? `Contraseña incorrecta. Te quedan ${tras.restantes} intentos.`
-          : `Demasiados intentos. Probá de nuevo en ${Math.ceil(tras.esperaSegundos / 60)} minutos.`,
+          : `Demasiados intentos. Prueba de nuevo en ${Math.ceil(tras.esperaSegundos / 60)} minutos.`,
       },
       { status: tras.permitido ? 401 : 429 },
     );

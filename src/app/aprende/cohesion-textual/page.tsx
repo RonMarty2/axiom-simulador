@@ -85,13 +85,13 @@ function EscEstrategia() {
     <EscenaRica>
       <Titulo>Estrategia · 3 pasos</Titulo>
       <Resumen>
-        <strong>1. Leé las 4 opciones primero.</strong> Identificá qué FAMILIA propone cada una (causa,
+        <strong>1. Lee las 4 opciones primero.</strong> Identifica qué FAMILIA propone cada una (causa,
         adición, oposición, conclusión).<br /><br />
-        <strong>2. Identificá la relación lógica entre las oraciones.</strong> ¿La segunda oración explica
+        <strong>2. Identifica la relación lógica entre las oraciones.</strong> ¿La segunda oración explica
         la primera (causa)? ¿Agrega información (adición)? ¿La contradice (oposición)? ¿La resume
         (conclusión)?<br /><br />
         <strong>3. Eliminá las opciones que NO encajan</strong> con la relación. Si dos quedan posibles,
-        probá leer en voz alta y elegí la más natural.
+        prueba leer en voz alta y elige la más natural.
       </Resumen>
 
       <WorkedExample titulo="Aplicación · texto sobre Bolivia">
@@ -353,11 +353,11 @@ function EscResumen() {
       <Titulo>Resumen · estrategia para conectores</Titulo>
       <Resumen>
         <strong>1.</strong> Hay 4 grandes familias: <em>causa, adición, oposición, conclusión</em>.<br /><br />
-        <strong>2.</strong> Identificá la relación lógica ANTES de elegir el conector.<br /><br />
+        <strong>2.</strong> Identifica la relación lógica ANTES de elegir el conector.<br /><br />
         <strong>3.</strong> El patrón más común en el examen: <strong>causa + adición + conclusión</strong>{" "}
         (ej: "ya que - Además - Por eso"). Aparece cuando el texto explica un tema sumando razones.<br /><br />
         <strong>4.</strong> Si una oración cambia de dirección (introduce un problema, una excepción, un
-        contrapunto), necesitás <strong>oposición</strong>: pero, sin embargo, aunque, a pesar de.<br /><br />
+        contrapunto), necesitas <strong>oposición</strong>: pero, sin embargo, aunque, a pesar de.<br /><br />
         <strong>5.</strong> Eliminá opciones que tienen "sin embargo" o "aunque" si el texto NO cambia de
         rumbo en ningún momento.
       </Resumen>

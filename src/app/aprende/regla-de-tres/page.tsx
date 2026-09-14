@@ -39,10 +39,10 @@ function Esc01_Intro() {
       <Titulo>Regla de tres: el atajo más útil</Titulo>
       <Parrafo>
         La <strong>regla de tres</strong> es un método rápido para resolver problemas
-        de proporcionalidad cuando conocés <strong>3 valores</strong> y necesitás el cuarto.
+        de proporcionalidad cuando conoces <strong>3 valores</strong> y necesitas el cuarto.
       </Parrafo>
       <Resumen>
-        🎯 Ejemplos donde la usás:<br />
+        🎯 Ejemplos donde la usas:<br />
         • Calcular el precio total de N kilos a partir del precio de 1 kg.<br />
         • Cuántos días tardan X obreros vs Y obreros.<br />
         • Calcular porcentajes (descuentos, propinas, IVA).<br />
@@ -57,14 +57,14 @@ function Esc01_Intro() {
       <Hook>
         La regla de tres + porcentajes + interés simple suman <strong>6-10 preguntas</strong> en
         el examen UMSS. Es la unidad de matemática con mejor rendimiento esfuerzo/puntos. Si
-        dominás identificar "directa vs inversa", resolvés todas en menos de 30 segundos.
+        dominas identificar "directa vs inversa", resuelves todas en menos de 30 segundos.
       </Hook>
 
       <Mnemotecnia>
         <strong>Test "↓↓ vs ↓↑"</strong> antes de hacer cualquier cálculo:<br />
-        Dibujá DOS FLECHAS al lado de las dos columnas.<br />
-        • Si las dos van hacia ABAJO → DIRECTA → multiplicás en CRUZ.<br />
-        • Si una va arriba y otra abajo → INVERSA → multiplicás EN LÍNEA.
+        Dibuja DOS FLECHAS al lado de las dos columnas.<br />
+        • Si las dos van hacia ABAJO → DIRECTA → multiplicas en CRUZ.<br />
+        • Si una va arriba y otra abajo → INVERSA → multiplicas EN LÍNEA.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -113,7 +113,7 @@ function Esc03_Directa() {
       <Titulo accent={COLOR_OK}>Regla de tres DIRECTA</Titulo>
 
       <Resumen>
-        Cuando es directa, multiplicás <strong>en CRUZ</strong> y dividís por el
+        Cuando es directa, multiplicas <strong>en CRUZ</strong> y divides por el
         número que queda. Fórmula: <strong>x = (b · c) / a</strong> si el planteo es
         a → b, c → x.
       </Resumen>
@@ -166,7 +166,7 @@ function Esc04_Inversa() {
       <Titulo accent={COLOR_BAD}>Regla de tres INVERSA</Titulo>
 
       <Resumen>
-        Cuando es inversa, multiplicás <strong>EN LÍNEA</strong> (no en cruz).
+        Cuando es inversa, multiplicas <strong>EN LÍNEA</strong> (no en cruz).
         Fórmula: <strong>x = (a · b) / c</strong> si el planteo es a → b, c → x.
       </Resumen>
 
@@ -205,7 +205,7 @@ function Esc04_Inversa() {
 
       <PorQue>
         En INVERSA el producto de a×b es CONSTANTE (4×12 = 48 horas-obrero totales).
-        Si tenés 6 obreros, hacen el mismo trabajo total: 6·x = 48, x = 8.
+        Si tienes 6 obreros, hacen el mismo trabajo total: 6·x = 48, x = 8.
       </PorQue>
     </EscenaRica>
   );
@@ -226,7 +226,7 @@ function Esc05_Identificar() {
     <EscenaRica>
       <Titulo>¿Directa o inversa? Test rápido</Titulo>
       <Parrafo>
-        Identificar el tipo es el paso más importante. Tocá para ver el siguiente caso:
+        Identificar el tipo es el paso más importante. Toca para ver el siguiente caso:
       </Parrafo>
       <div onClick={() => setI((p) => (p + 1) % casos.length)} style={cajaAnim()}>
         <div style={{ minHeight: 120, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14 }}>
@@ -247,7 +247,7 @@ function Esc05_Identificar() {
         </div>
       </div>
       <div style={{ fontSize: 13, color: COLOR_EXP, textAlign: "center", fontWeight: 700 }}>
-        Caso {i + 1} de {casos.length} · <IconoToque /> Tocá para el siguiente
+        Caso {i + 1} de {casos.length} · <IconoToque /> Toca para el siguiente
       </div>
     </EscenaRica>
   );
@@ -285,7 +285,7 @@ function Esc06_Porcent() {
 
       <WorkedExample titulo="Descuento + IVA · supermercado en La Paz">
         Una compra original cuesta <strong>120 Bs</strong>. Te aplican <strong>15% de
-        descuento</strong>, y después agregan el <strong>13% de IVA</strong>. ¿Cuánto pagás
+        descuento</strong>, y después agregan el <strong>13% de IVA</strong>. ¿Cuánto pagas
         al final?<br /><br />
 
         <strong>Paso 1 · Descuento:</strong> 15% de 120 = (15·120)/100 = 18 Bs.<br />
@@ -306,7 +306,7 @@ function Esc06_Porcent() {
       <Misconception titulo="Trampa de los porcentajes en cadena">
         Mucha gente piensa "15% descuento + 13% IVA → como +13% −15% = −2% neto, pago 117,60 Bs".
         ERROR. Los porcentajes NO se suman ni se restan directamente. Aplicalos UNO A UNO sobre
-        la base que corresponde, o usá factores multiplicativos.
+        la base que corresponde, o usa factores multiplicativos.
       </Misconception>
     </EscenaRica>
   );
@@ -330,7 +330,7 @@ function Esc07_IntInt() {
       </Definicion>
 
       <Ejemplo titulo="Ejemplo intuitivo">
-        Invertís <strong>1000 Bs</strong> al <strong>10%</strong> anual durante <strong>3 años</strong>.<br />
+        Invertes <strong>1000 Bs</strong> al <strong>10%</strong> anual durante <strong>3 años</strong>.<br />
         Cada año gana 100 Bs (10% de 1000). En 3 años: 300 Bs de interés.<br />
         Capital final = 1000 + 300 = <strong style={{ color: COLOR_OK }}>1300 Bs</strong>.
       </Ejemplo>
@@ -367,7 +367,7 @@ function Esc08_IntFor() {
 
       <Cuidado>
         Cuidado con las <strong>unidades de tiempo</strong>. Si la tasa es anual pero
-        el tiempo es en meses, divís por 12. Si es en días, por 360 (convención
+        el tiempo es en meses, dives por 12. Si es en días, por 360 (convención
         bancaria).
       </Cuidado>
 
@@ -384,9 +384,9 @@ function Esc08_IntFor() {
         • Crédito de consumo (tarjeta): <strong>15-22% anual</strong>.<br />
         • Microcrédito productivo: <strong>11-13% anual</strong>.<br />
         • Crédito de vivienda social: <strong>5,5-6,5% anual</strong>.<br /><br />
-        Si pedís un préstamo de 50.000 Bs a 12% anual por 3 años (interés simple):<br />
+        Si pides un préstamo de 50.000 Bs a 12% anual por 3 años (interés simple):<br />
         I = (50.000 × 12 × 3) / 100 = <strong>18.000 Bs</strong> de interés.<br />
-        Pagás un total de 68.000 Bs (1.888 Bs por mes).
+        Pagas un total de 68.000 Bs (1.888 Bs por mes).
       </CasoBolivia>
     </EscenaRica>
   );
@@ -399,13 +399,13 @@ function Esc09_Errores() {
       <Cuidado>
         <strong>Error 1:</strong> Tratar una inversa como directa. <br />
         <span style={{ fontSize: 13 }}>
-          Si te dan "más obreros → menos días" y multiplicás en CRUZ como si fuera directa, obtenés un absurdo (más obreros tardan más). Siempre identificá primero.
+          Si te dan "más obreros → menos días" y multiplicas en CRUZ como si fuera directa, obtienes un absurdo (más obreros tardan más). Siempre identifica primero.
         </span>
       </Cuidado>
       <Cuidado>
         <strong>Error 2:</strong> Mezclar unidades. <br />
         <span style={{ fontSize: 13 }}>
-          Si la tasa es anual y el tiempo en meses, convertí el tiempo a años (mes/12).
+          Si la tasa es anual y el tiempo en meses, convierte el tiempo a años (mes/12).
         </span>
       </Cuidado>
       <Cuidado>
@@ -476,9 +476,9 @@ function Esc10_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás regla de tres e interés simple."}
-            {ok >= 3 && ok < ejs.length && "Repasá los que fallaste: identificar el tipo es lo más importante."}
-            {ok < 3 && "Volvé a la escena 2 (directa vs inversa). Es la base de todo."}
+            {ok === ejs.length && "🎉 Dominas regla de tres e interés simple."}
+            {ok >= 3 && ok < ejs.length && "Repasa los que fallaste: identificar el tipo es lo más importante."}
+            {ok < 3 && "Vuelve a la escena 2 (directa vs inversa). Es la base de todo."}
           </div>
         </motion.div>
       )}

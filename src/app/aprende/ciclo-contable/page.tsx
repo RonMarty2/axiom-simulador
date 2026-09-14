@@ -73,7 +73,7 @@ function CicloAnim() {
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
-        {activo === 0 ? "Tocá para recorrer las 6 etapas en orden" : `Etapa ${activo} · ${etapas[activo - 1].titulo}`}
+        {activo === 0 ? "Toca para recorrer las 6 etapas en orden" : `Etapa ${activo} · ${etapas[activo - 1].titulo}`}
       </div>
     </div>
   );
@@ -135,7 +135,7 @@ function Esc03() {
         <strong>Análisis:</strong><br />
         • Caja AUMENTA en 75 Bs (entra dinero).<br />
         • Ingresos por ventas AUMENTAN en 75 Bs (se generó un ingreso).<br /><br />
-        Son las DOS cuentas que tocás. Eso es la partida doble en acción.
+        Son las DOS cuentas que tocas. Eso es la partida doble en acción.
       </Ejemplo>
       <Misconception>
         <strong>"Si entró efectivo, solo se anota en Caja."</strong> No. La partida doble exige
@@ -194,7 +194,7 @@ function Esc05() {
     <EscenaRica>
       <Titulo>4 · Balanza de comprobación</Titulo>
       <Hook>
-        Imaginate que pasaste 200 transacciones del diario al mayor a mano. ¿Cómo sabés si te
+        Imaginate que pasaste 200 transacciones del diario al mayor a mano. ¿Cómo sabes si te
         equivocaste en una? <strong>Con la balanza de comprobación.</strong>
       </Hook>
       <Definicion termino="balanza de comprobación">
@@ -309,7 +309,7 @@ function EscMnemo() {
         registros mal hechos que la balanza no detecta. El análisis NO es opcional.
       </Misconception>
       <Misconception titulo="Error 2 · creer que la balanza prueba que todo está bien">
-        Si confundís una cuenta con otra (Caja en vez de Banco) pero el monto está bien, la balanza
+        Si confundes una cuenta con otra (Caja en vez de Banco) pero el monto está bien, la balanza
         cuadra. La balanza solo detecta diferencias en SUMAS, no en CLASIFICACIÓN.
       </Misconception>
       <Misconception titulo="Error 3 · olvidar la depreciación">

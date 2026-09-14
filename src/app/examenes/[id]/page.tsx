@@ -81,7 +81,7 @@ export default function ExamenDetallePage() {
           className="mb-8 rounded-2xl border border-neutral-200/80 bg-white/82 p-6 backdrop-blur-xl"
         >
           <div className="mb-2 flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-violet-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-violet-700">
+            <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
               {examen.universidad}
             </span>
             <span className="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-700">
@@ -145,7 +145,7 @@ function PreguntaCard({
         <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
           {indice + 1}
         </span>
-        <span className="rounded bg-violet-50 px-2 py-0.5 text-violet-700">
+        <span className="rounded bg-[var(--accent-soft)] px-2 py-0.5 text-[var(--accent)]">
           {ETIQUETAS_AREA[pregunta.area] ?? pregunta.area}
         </span>
         <span className="text-neutral-400">·</span>
@@ -170,13 +170,13 @@ function PreguntaCard({
           const elegida = seleccion === op.letra;
           const esCorrecta = pregunta.respuesta_correcta === op.letra;
           let estilo =
-            "border-neutral-200 bg-white hover:border-violet-400 hover:bg-violet-50/50";
+            "border-neutral-200 bg-white hover:border-[var(--border-hover)] hover:bg-[var(--accent-soft)]/50";
           if (revelada && esCorrecta) {
             estilo = "border-emerald-400 bg-emerald-50";
           } else if (revelada && elegida && !esCorrecta) {
             estilo = "border-red-400 bg-red-50";
           } else if (elegida) {
-            estilo = "border-violet-500 bg-violet-50";
+            estilo = "border-[var(--accent)] bg-[var(--accent-soft)]";
           }
           return (
             <button
@@ -207,7 +207,7 @@ function PreguntaCard({
         <button
           type="button"
           onClick={onRevelar}
-          className="text-sm font-semibold text-violet-600 hover:underline"
+          className="text-sm font-semibold text-[var(--accent)] hover:underline"
         >
           {revelada ? "Ocultar respuesta" : "Ver respuesta y explicación"}
         </button>

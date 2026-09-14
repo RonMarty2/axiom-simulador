@@ -11,20 +11,28 @@ import React from "react";
 //   2. UNA idea por pantalla. Sin cards, sin bordes, sin emojis decorativos.
 //   3. Animaciones que TRANSFORMAN, no que aparecen-y-desaparecen.
 //   4. Tipografía hero (Crimson Pro grande) para conceptos. Cuerpo cómodo.
-//   5. Acento violeta neón solo donde IMPORTA.
+//   5. UN acento, solo donde IMPORTA.
 //   6. Silencio visual entre elementos. Aire.
+//
+// Los colores se mantienen como hex literales, no como var(--token): se usan
+// en 519 lugares, muchos dentro de atributos SVG y de props de framer-motion,
+// donde una variable CSS no siempre interpola bien. Lo que sí se hizo es
+// alinear los valores con los tokens de globals.css para que la lección no
+// parezca otra app: el acento era violeta (#6d28d9), de la paleta anterior al
+// rediseño, mientras el resto del producto ya era terracota.
+// Si alguna vez cambian los tokens globales, hay que tocar acá también.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const LIENZO = {
-  bg: "#fafaf7",          // off-white cálido, menos agresivo que blanco puro
-  bgSoft: "#f1f0eb",      // contraste sutil para áreas elevadas
-  fg: "#1a1a2e",          // navy muy oscuro (no negro puro: menos duro a la vista)
-  fgDim: "#5a5a6e",       // texto secundario / hints
-  fgFaint: "#b8b8c4",     // borders / lineas / cosas que casi no se ven
-  accent: "#6d28d9",      // violeta profundo — alta legibilidad sobre blanco
-  ok: "#059669",          // verde bosque
+  bg: "#faf7f0",          // = --bg-base
+  bgSoft: "#f2ece0",      // = --bg-subtle
+  fg: "#1a1f2e",          // = --fg-primary
+  fgDim: "#5a6072",       // = --fg-muted
+  fgFaint: "#c9bda3",     // = --border-hover (líneas y bordes apenas visibles)
+  accent: "#9c3d1c",      // = --accent (terracota del rediseño)
+  ok: "#1e5f4f",          // = --green
   warn: "#d97706",        // ámbar quemado
-  bad: "#dc2626",         // rojo claro
+  bad: "#dc2626",         // rojo
 };
 
 export function Lienzo({ children }: { children: React.ReactNode }) {

@@ -84,7 +84,7 @@ function EscCriterios() {
     <EscenaRica>
       <Titulo>Criterios de congruencia · 3 atajos para no medir todo</Titulo>
       <Parrafo>
-        Para probar que dos triángulos son congruentes <strong>no necesitás
+        Para probar que dos triángulos son congruentes <strong>no necesitas
         verificar los 6 elementos</strong> (3 lados + 3 ángulos). Basta con uno
         de estos 3 criterios:
       </Parrafo>
@@ -127,7 +127,7 @@ function EscCriterios() {
         <strong>¿Por qué bastan 3 elementos?</strong> Un triángulo queda
         determinado unívocamente por 3 datos (entre lados y ángulos), siempre
         que esos datos describan la forma completa. 3 lados conocidos → no hay
-        ambigüedad. 2 ángulos → el tercero es 180 menos los otros, y necesitás
+        ambigüedad. 2 ángulos → el tercero es 180 menos los otros, y necesitas
         un lado para fijar el tamaño.
       </PorQue>
     </EscenaRica>
@@ -388,13 +388,13 @@ function EscErrores() {
       </Misconception>
 
       <Misconception titulo="Error 3 · armar mal la proporción de Thales">
-        Si tenés rectas paralelas cortadas por transversales, los segmentos
+        Si tienes rectas paralelas cortadas por transversales, los segmentos
         proporcionales son los QUE ESTÁN ENTRE LAS MISMAS DOS PARALELAS, no
         cualquiera. Hay que cuidar la correspondencia.
       </Misconception>
 
       <Cuidado>
-        Para no confundir, escribí los segmentos con la misma convención de
+        Para no confundir, escribe los segmentos con la misma convención de
         izquierda a derecha. Si en una transversal vas de arriba abajo a-b, en
         la otra escribilos en el mismo orden a'-b'.
       </Cuidado>

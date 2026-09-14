@@ -259,7 +259,7 @@ function EscPotencial() {
 
       <Resumen>
         <strong>Propiedades clave</strong>:<br />
-        • La Ep depende del marco de referencia (la "altura cero" la elegís vos).<br />
+        • La Ep depende del marco de referencia (la "altura cero" la eliges tú).<br />
         • Lo que importa es el CAMBIO de energía potencial entre dos puntos.<br />
         • A mayor altura, mayor Ep.
       </Resumen>

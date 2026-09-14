@@ -71,7 +71,7 @@ function EscIntro() {
       </Resumen>
 
       <Mnemotecnia>
-        <strong>Test rápido</strong>: ¿podés separar los componentes por
+        <strong>Test rápido</strong>: ¿puedes separar los componentes por
         métodos físicos (filtración, destilación, decantación)?<br />
         • Si SÍ → es una mezcla.<br />
         • Si NO → es una sustancia pura (necesitarías una reacción química).
@@ -135,7 +135,7 @@ function EscEstadosSim() {
       <Titulo>Estados de la materia · simulador</Titulo>
 
       <Parrafo>
-        Tocá los botones para ver cómo se organizan las partículas en cada estado.
+        Toca los botones para ver cómo se organizan las partículas en cada estado.
       </Parrafo>
 
       <Pizarra alto={220}>
@@ -272,7 +272,7 @@ function EscDimensional() {
       </WorkedExample>
 
       <Mnemotecnia>
-        Si te confunde, escribí las unidades como fracciones y cancelá lo que
+        Si te confunde, escribe las unidades como fracciones y cancela lo que
         sobra. La unidad que queda al final es la que querías.
       </Mnemotecnia>
     </EscenaRica>
@@ -305,7 +305,7 @@ function EscNotacion() {
       <WorkedExample titulo="Operación típica">
         (3 × 10⁸) · (4 × 10⁻³) = 12 × 10⁵ = 1.2 × 10⁶.<br /><br />
 
-        Notá: cuando ab ≥ 10, "corro" el punto decimal para volver a la forma
+        Nota: cuando ab ≥ 10, "corro" el punto decimal para volver a la forma
         estándar y ajusto el exponente.
       </WorkedExample>
 
@@ -344,7 +344,7 @@ function EscTemp() {
 
       <div style={{ maxWidth: 480, padding: 14, background: "var(--bg-card)", borderRadius: 10, margin: "14px 0" }}>
         <label style={{ fontSize: 13, color: LIENZO.fgDim, display: "block", marginBottom: 8 }}>
-          Movés el slider y mirás las conversiones:
+          Mueves el slider y mirás las conversiones:
         </label>
         <input type="range" min={-50} max={150} value={tempC}
           onChange={(e) => setTempC(parseInt(e.target.value))}
@@ -414,7 +414,7 @@ function EscDensidad() {
       </Definicion>
 
       <WorkedExample titulo="Caso del facsímil Q5 PREU 2025">
-        Probeta con 12.7 mL de agua. Sumergís un perdigón de 5.352 g, el
+        Probeta con 12.7 mL de agua. Sumerges un perdigón de 5.352 g, el
         volumen pasa a 13.3 mL. ¿Gravedad específica? (ρ_agua = 1 g/mL)<br /><br />
 
         Volumen del perdigón = 13.3 − 12.7 = 0.6 mL.<br />
@@ -455,7 +455,7 @@ function EscPractica() {
       p: "0.0042 en notación científica:",
       o: ["4.2 × 10⁻³", "4.2 × 10³", "42 × 10⁻⁴", "0.42 × 10⁻²"],
       c: 0,
-      ex: "Corrés el punto 3 lugares a la derecha: 4.2 × 10⁻³.",
+      ex: "Corres el punto 3 lugares a la derecha: 4.2 × 10⁻³.",
     },
     {
       p: "¿Cambio físico o químico? Derretir hielo:",
@@ -478,7 +478,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · usar °C en Pitágoras de gases">
         Las ecuaciones de gases (Boyle, Charles, gas ideal) requieren la
-        temperatura en KELVIN, no en Celsius. Convertí siempre antes de
+        temperatura en KELVIN, no en Celsius. Convierte siempre antes de
         aplicar fórmulas.
       </Misconception>
 

@@ -68,7 +68,7 @@ function BalanzaEscasez() {
       <div style={{ textAlign: "center", fontSize: 14, color: LIENZO.fgDim }}>
         {on
           ? <>El lado de necesidades pesa más → <b style={{ color: LIENZO.accent }}>escasez</b>: hay que elegir.</>
-          : <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Tocá la balanza</span>}
+          : <span style={{ fontStyle: "italic", color: LIENZO.fgFaint }}>Toca la balanza</span>}
       </div>
     </div>
   );
@@ -118,7 +118,7 @@ function PresupuestoFamiliar() {
             color: negativo ? LIENZO.bad : LIENZO.fg, fontWeight: 600,
             fontFamily: "var(--font-crimson), serif" }}>
             {negativo
-              ? `Te estás pasando ${Math.abs(resto)} Bs · imposible`
+              ? `Te estas pasando ${Math.abs(resto)} Bs · imposible`
               : `Resto para alquiler / ahorro / ocio: ${resto} Bs`}
           </div>
         </div>
@@ -138,7 +138,7 @@ function PresupuestoFamiliar() {
         </label>
       </div>
       <div style={{ fontSize: 12, color: LIENZO.fgFaint, textAlign: "center", fontStyle: "italic" }}>
-        Probá subir comida al máximo · subí también transporte · ¿qué pasa con el resto?
+        Prueba subir comida al máximo · sube también transporte · ¿qué pasa con el resto?
       </div>
     </div>
   );
@@ -150,24 +150,24 @@ function Esc01_Hook() {
   return (
     <EscenaRica>
       <Hook>
-        Imaginate que terminás el mes con <strong>1 000 Bs</strong> en el bolsillo. Te alcanza para
-        comer bien, pero también querés comprarte un par de zapatillas (450 Bs), salir al cine con
+        Imaginate que terminas el mes con <strong>1 000 Bs</strong> en el bolsillo. Te alcanza para
+        comer bien, pero también quieres comprarte un par de zapatillas (450 Bs), salir al cine con
         tus amigos (200 Bs) y guardar algo para el celular nuevo (todo el mes ahorrando).<br /><br />
-        <strong>¿Podés hacer las 4 cosas al mismo tiempo?</strong>
+        <strong>¿Puedes hacer las 4 cosas al mismo tiempo?</strong>
       </Hook>
       <Parrafo>
-        Por más cuentas que hagas, no alcanza. <strong>Tenés que elegir.</strong> Y elegir significa
+        Por más cuentas que hagas, no alcanza. <strong>Tienes que elegir.</strong> Y elegir significa
         renunciar a algo que también querías.
       </Parrafo>
       <Parrafo>
-        Esto que te pasa a vos, le pasa a tu familia, le pasa al gobierno y le pasa a todos los países
+        Esto que te pasa a tú, le pasa a tu familia, le pasa al gobierno y le pasa a todos los países
         del mundo. Es la base de TODA la economía. Tiene nombre:{" "}
         <strong style={{ color: LIENZO.accent }}>el problema de la escasez</strong>.
       </Parrafo>
       <PresupuestoFamiliar />
       <Parrafo>
-        Movés los sliders y siempre te queda menos para "lo demás". Si subís uno mucho, el otro se cae.
-        Si querés todo al máximo, te pasás. <strong>Esa es la escasez.</strong>
+        Mueves los sliders y siempre te queda menos para "lo demás". Si subes uno mucho, el otro se cae.
+        Si quieres todo al máximo, te pasas. <strong>Esa es la escasez.</strong>
       </Parrafo>
     </EscenaRica>
   );
@@ -210,12 +210,12 @@ function Esc03_Balanza() {
     <EscenaRica>
       <Titulo>La balanza · necesidades vs recursos</Titulo>
       <Parrafo>
-        Visualmente, podés pensar a la economía como una balanza con DOS platos:
+        Visualmente, puedes pensar a la economía como una balanza con DOS platos:
       </Parrafo>
       <BalanzaEscasez />
       <Resumen>
         <strong>De un lado:</strong> las necesidades (comer, vestirse, salir, descansar, soñar). Son
-        prácticamente <em>infinitas</em>: cuando satisfacés una, aparece otra.<br /><br />
+        prácticamente <em>infinitas</em>: cuando satisfaces una, aparece otra.<br /><br />
         <strong>Del otro lado:</strong> los recursos (tiempo, dinero, materiales, energía). Son
         siempre <em>limitados</em>.
       </Resumen>
@@ -236,7 +236,7 @@ function Esc04_Aladino() {
     <EscenaRica>
       <Titulo>El truco de Aladino · cuándo NO habría escasez</Titulo>
       <Hook>
-        Imaginate que cada persona tuviera una lámpara de Aladino. La frotás → aparece lo que querés.
+        Imaginate que cada persona tuviera una lámpara de Aladino. La frotas → aparece lo que quieres.
         Casa, comida, viajes, lo que sea. <strong>¿Qué pasaría con la economía?</strong>
       </Hook>
       <Parrafo>
@@ -253,7 +253,7 @@ function Esc04_Aladino() {
         distribución requieren trabajo.
       </Parrafo>
       <Mnemotecnia>
-        Acordate de la frase bíblica <em>"comerás el pan con el sudor de tu frente"</em>. Resume la{" "}
+        Acuérdate de la frase bíblica <em>"comerás el pan con el sudor de tu frente"</em>. Resume la{" "}
         <strong>ley milenaria de la escasez</strong> mejor que cualquier definición técnica.
       </Mnemotecnia>
     </EscenaRica>
@@ -313,7 +313,7 @@ function Esc06_Ilimitadas() {
     <EscenaRica>
       <Titulo>"Pero a mí me alcanza"... las necesidades nunca se terminan</Titulo>
       <Hook>
-        Si ganaras 50 000 Bs al mes, ¿se terminaría tu lista de cosas que querés?<br />
+        Si ganaras 50 000 Bs al mes, ¿se terminaría tu lista de cosas que quieres?<br />
         <strong>No. Crecería.</strong>
       </Hook>
       <Parrafo>
@@ -368,7 +368,7 @@ function Esc07_Bienes() {
       <Misconception>
         <strong>"El agua es un bien libre."</strong> Esto era cierto hace 200 años en una aldea con
         río. Hoy NO. El agua potable que sale de tu canilla pasó por captación, tratamiento,
-        bombeo, distribución y mantenimiento: todo eso cuesta. Por eso pagás factura cada mes. El
+        bombeo, distribución y mantenimiento: todo eso cuesta. Por eso pagas factura cada mes. El
         agua de lluvia que cae sí es libre. El agua tratada NO.
       </Misconception>
       <CasoBolivia>
@@ -432,7 +432,7 @@ function Esc09_Resumen() {
       <Mnemotecnia>
         Para recordar el problema económico en 4 palabras:<br />
         <strong style={{ fontSize: 18 }}>"Mucho querer, poco tener"</strong><br /><br />
-        Si te quedaste con esa frase, ya tenés el 80% de la lección.
+        Si te quedaste con esa frase, ya tienes el 80% de la lección.
       </Mnemotecnia>
     </EscenaRica>
   );

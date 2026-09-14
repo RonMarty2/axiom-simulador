@@ -148,9 +148,9 @@ function EscPosicionesRecta() {
 
       <Mnemotecnia>
         <strong>Regla de oro</strong>: en cualquier problema con tangente,
-        <strong> dibujá el radio al punto de tangencia</strong>. Forma un
+        <strong> dibuja el radio al punto de tangencia</strong>. Forma un
         triángulo RECTÁNGULO con el ángulo recto en el punto de tangencia.
-        Podés aplicar Pitágoras.
+        Puedes aplicar Pitágoras.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -229,7 +229,7 @@ function EscAngulos() {
         2. El ángulo inscrito en un semicírculo es de 90° (porque el arco es
         180°, su mitad es 90°). Esto es el teorema de Tales para
         circunferencia.<br />
-        3. Si una cuerda es diámetro y formás triángulo con cualquier punto de
+        3. Si una cuerda es diámetro y formas triángulo con cualquier punto de
         la circunferencia, ese triángulo es RECTÁNGULO en el punto que NO es
         extremo del diámetro.
       </Resumen>
@@ -261,7 +261,7 @@ function EscPotencia() {
       </Definicion>
 
       <Resumen>
-        <strong>Interpretación geométrica · si trazás secante por P</strong>:<br />
+        <strong>Interpretación geométrica · si trazas secante por P</strong>:<br />
         Si la secante corta la circunferencia en A y B, entonces |PA| · |PB| =
         |Pot(P)| (en valor absoluto).<br /><br />
         Este producto es CONSTANTE para todas las secantes que pasan por P.
@@ -319,8 +319,8 @@ function EscTangentes() {
         |PT| = <strong>8 cm</strong>.<br /><br />
 
         <strong>Esta es la estructura de TODA pregunta de tangente.</strong>
-        Identificá el triángulo rectángulo (centro, punto exterior, punto de
-        tangencia) y aplicá Pitágoras.
+        Identifica el triángulo rectángulo (centro, punto exterior, punto de
+        tangencia) y aplica Pitágoras.
       </WorkedExample>
 
       <Conexion>
@@ -376,14 +376,14 @@ function EscErrores() {
 
       <Misconception titulo="Error 1 · confundir longitud y área">
         Longitud (L = 2πr) tiene unidades lineales (cm). Área (A = πr²) tiene
-        unidades cuadradas (cm²). En el examen siempre verificá las unidades
+        unidades cuadradas (cm²). En el examen siempre verifica las unidades
         de la respuesta.
       </Misconception>
 
       <Misconception titulo="Error 2 · olvidar que tangente ⟂ radio">
         Esta propiedad es la BASE de casi todo problema de tangentes. Si te
-        encontrás un problema con tangente, dibujá el radio al punto de
-        tangencia inmediatamente y buscá el triángulo rectángulo.
+        encuentras un problema con tangente, dibuja el radio al punto de
+        tangencia inmediatamente y busca el triángulo rectángulo.
       </Misconception>
 
       <Misconception titulo="Error 3 · usar diámetro como radio">

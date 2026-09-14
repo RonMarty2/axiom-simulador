@@ -48,7 +48,7 @@ export default function PricingSectionAxiom() {
           Precios
         </div>
         <h2 className="font-crimson text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-          Empieza gratis. Paga cuando estés listo.
+          Empieza gratis. Paga cuando estes listo.
         </h2>
         <p className="mt-3 text-base text-neutral-600">
           Sin contratos. Sin permanencia. Cancelas cuando ya entraste a la UMSS.

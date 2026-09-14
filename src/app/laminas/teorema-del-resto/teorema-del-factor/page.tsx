@@ -15,12 +15,12 @@ import {
 export default function TeoremaDelFactorPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés confirmar si <MathText>{"$(x-a)$"}</MathText> es un factor de un polinomio con un solo cálculo, sin dividir nada?
+            ¿Sabías que puedes confirmar si <MathText>{"$(x-a)$"}</MathText> es un factor de un polinomio con un solo cálculo, sin dividir nada?
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", justifyContent: "center" }}>
@@ -47,7 +47,7 @@ export default function TeoremaDelFactorPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés esto de la lámina anterior: el resto de dividir <MathText>{"$P(x)$"}</MathText> entre <MathText>{"$(x-a)$"}</MathText> es, siempre,
+            Ya sabes esto de la lámina anterior: el resto de dividir <MathText>{"$P(x)$"}</MathText> entre <MathText>{"$(x-a)$"}</MathText> es, siempre,
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, marginBottom: 14, fontSize: 20 }}>
             <MathText>{"$R = P(a)$"}</MathText>
@@ -95,13 +95,13 @@ export default function TeoremaDelFactorPage() {
       contenido: (
         <PasoCard n={2}>
           <p style={{ margin: "0 0 12px", fontSize: 14, lineHeight: 1.6 }}>
-            Y funciona al revés también. Si ya sabés que <MathText>{"$(x-a)$"}</MathText> es un factor, es porque la división da exacta, sin resto:
+            Y funciona al revés también. Si ya sabes que <MathText>{"$(x-a)$"}</MathText> es un factor, es porque la división da exacta, sin resto:
           </p>
           <div style={{ fontSize: 18, textAlign: "center", marginBottom: 10 }}>
             <MathText block>{"$P(x) = (x-a) \\cdot Q(x)$"}</MathText>
           </div>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Compará contra la igualdad general y el resto tiene que ser cero:
+            Compara contra la igualdad general y el resto tiene que ser cero:
           </p>
           <div style={{
             marginTop: 4, textAlign: "center",
@@ -164,7 +164,7 @@ export default function TeoremaDelFactorPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
-            Si te dicen que una división <b>da exacta</b> pero falta un coeficiente, es la misma idea usada al revés: armás la ecuación con <MathText>{"$P(a)=0$"}</MathText> y despejás el dato que falta.
+            Si te dicen que una división <b>da exacta</b> pero falta un coeficiente, es la misma idea usada al revés: armas la ecuación con <MathText>{"$P(a)=0$"}</MathText> y despejas el dato que falta.
           </p>
           <p style={{ margin: "0 0 10px", fontSize: 14, lineHeight: 1.6 }}>
             Calcular <MathText>{"$m$"}</MathText> para que <MathText>{"$(6x^3 - 3x^2 - mx - 6) \\div (2x - 3)$"}</MathText> sea exacta.
@@ -190,7 +190,7 @@ export default function TeoremaDelFactorPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Volvamos al <MathText>{"$P(x) = x^3 - 4x^2 + x + 6$"}</MathText> de antes. Ya confirmaste que <MathText>{"$(x-3)$"}</MathText> es un factor, así que podés escribirlo así, con el resto del polinomio adentro de <MathText>{"$Q(x)$"}</MathText>:
+            Volvamos al <MathText>{"$P(x) = x^3 - 4x^2 + x + 6$"}</MathText> de antes. Ya confirmaste que <MathText>{"$(x-3)$"}</MathText> es un factor, así que puedes escribirlo así, con el resto del polinomio adentro de <MathText>{"$Q(x)$"}</MathText>:
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, marginBottom: 12, fontSize: 17 }}>
             <MathText>{"$P(x) = (x-3) \\cdot Q(x)$"}</MathText>
@@ -212,13 +212,13 @@ export default function TeoremaDelFactorPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"¿Cuál de los siguientes es un factor de $h(x) = x^3 + 2x^2 - x - 2$?"}
           opciones={["$(x - 1)$", "$(x - 2)$", "$(x + 3)$", "$(x - 3)$", "Ninguno"]}
           correcta={0}
-          explicacion={"Probá cada candidato en $h$. Con $x=1$: $h(1) = 1 + 2 - 1 - 2 = 0$, así que $(x-1)$ es factor. (También lo son $(x+1)$ y $(x+2)$, pero no están entre las opciones.)"}
+          explicacion={"Prueba cada candidato en $h$. Con $x=1$: $h(1) = 1 + 2 - 1 - 2 = 0$, así que $(x-1)$ es factor. (También lo son $(x+1)$ y $(x+2)$, pero no están entre las opciones.)"}
         />
       ),
     },

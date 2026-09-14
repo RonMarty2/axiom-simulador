@@ -74,7 +74,7 @@ function HeroLogExp() {
       </div>
 
       {!log
-        ? <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>Tocá para ver la forma logarítmica</div>
+        ? <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>Toca para ver la forma logarítmica</div>
         : <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} texto="Volver a exponencial" /></div>}
     </div>
   );
@@ -111,7 +111,7 @@ function Esc01_Intro() {
       </Parrafo>
       <HeroLogExp />
       <Parrafo>
-        Mirá cómo es la <strong>misma información</strong> escrita de dos formas: el
+        Mira cómo es la <strong>misma información</strong> escrita de dos formas: el
         exponente <span style={{ color: COLOR_EXP, fontWeight: 700 }}>3</span> es la respuesta del
         logaritmo, y el resultado <span style={{ color: COLOR_OK, fontWeight: 700 }}>8</span> es su argumento.
       </Parrafo>
@@ -131,8 +131,8 @@ function Esc01_Intro() {
       <Hook>
         Los logaritmos aparecen en <strong>2-3 preguntas del UMSS</strong> (definición,
         propiedades, ecuaciones). El truco principal: <strong>log es la INVERSA del exponente</strong>.
-        Si dominás las 3 propiedades (producto→suma, cociente→resta, potencia→producto),
-        manejás todo el tema.
+        Si dominas las 3 propiedades (producto→suma, cociente→resta, potencia→producto),
+        manejas todo el tema.
       </Hook>
 
       <Mnemotecnia>
@@ -149,7 +149,7 @@ function Esc01_Intro() {
 function Esc02_Def() {
   return (
     <EscenaRica>
-      <Titulo accent="#3b82f6">Definición formal</Titulo>
+      <Titulo accent={LIENZO.accent}>Definición formal</Titulo>
       <Definicion termino="logaritmo">
         <strong>log<sub>a</sub>(b) = c</strong> ⟺ <strong>aᶜ = b</strong> <br />
         <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>
@@ -168,7 +168,7 @@ function Esc02_Def() {
         El argumento <strong>siempre debe ser positivo</strong>. log(0) y log(número negativo) NO existen.
       </Cuidado>
       <PorQue>
-        Pensá así: log y potencia son operaciones inversas, como suma/resta o mult/div.
+        Piensa así: log y potencia son operaciones inversas, como suma/resta o mult/div.
         Si "elevar a base a" es ir hacia adelante, "log base a" es ir hacia atrás.
       </PorQue>
     </EscenaRica>
@@ -219,7 +219,7 @@ function ProductoSumaLog() {
         </div>
       </Pizarra>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic", minHeight: 22 }}>
-        {paso === 0 && "Tocá: el log se reparte sobre la multiplicación"}
+        {paso === 0 && "Toca: el log se reparte sobre la multiplicación"}
         {paso === 1 && "x e y se separan en dos logs distintos…"}
         {paso === 2 && "…unidos por un +. Producto adentro → suma afuera."}
       </div>
@@ -282,7 +282,7 @@ function Esc06_Pot() {
         log(8) = log(2³) = 3·log(2) ≈ 3·0.301 = 0.903.
       </Ejemplo>
       <AutoCheck
-        pregunta="Reescribí log(x⁵)"
+        pregunta="Reescribe log(x⁵)"
         opciones={["5·log(x)", "log(5x)", "log(5) + log(x)", "x·log(5)"]}
         correctaIdx={0}
         explicacion="El exponente baja como factor: log(x⁵) = 5·log(x)."
@@ -308,7 +308,7 @@ function Esc07_Cambio() {
       </Ejemplo>
 
       <WorkedExample titulo="¿Cuándo se duplica mi capital? · regla del 72">
-        Depositás 10.000 Bs al <strong>6% anual compuesto</strong>. ¿En cuántos años se
+        Depositas 10.000 Bs al <strong>6% anual compuesto</strong>. ¿En cuántos años se
         duplica?<br /><br />
 
         <strong>Planteo:</strong> 10.000 · 1,06ⁿ = 20.000.<br />
@@ -322,9 +322,9 @@ function Esc07_Cambio() {
         <strong>Aproximación rápida · "regla del 72":</strong><br />
         n ≈ 72 / r% = 72 / 6 = <strong>12 años</strong>. ✓ (muy cerca del valor exacto).<br /><br />
 
-        <strong>Aplicación:</strong> con esa fórmula podés estimar al instante:<br />
+        <strong>Aplicación:</strong> con esa fórmula puedes estimar al instante:<br />
         Al 4% → 18 años. Al 8% → 9 años. Al 12% → 6 años. Al 24% → 3 años.<br />
-        Para cualquier objetivo (triplicar, cuadruplicar) usás log con el factor que
+        Para cualquier objetivo (triplicar, cuadruplicar) usas log con el factor que
         corresponda.
       </WorkedExample>
     </EscenaRica>
@@ -336,12 +336,12 @@ function Esc08_Ec() {
     <EscenaRica>
       <Titulo>Ecuaciones exponenciales y logarítmicas</Titulo>
       <Ejemplo titulo="Ecuación exponencial: 2ˣ = 10">
-        <Paso n={1}>Aplicá log a ambos lados: log(2ˣ) = log(10).</Paso>
+        <Paso n={1}>Aplica log a ambos lados: log(2ˣ) = log(10).</Paso>
         <Paso n={2}>Por propiedad: x·log(2) = log(10) = 1.</Paso>
         <Paso n={3}>x = 1/log(2) ≈ 3.322.</Paso>
       </Ejemplo>
       <Ejemplo titulo="Ecuación logarítmica: log₃(x) = 4">
-        <Paso n={1}>Aplicá la definición: x = 3⁴.</Paso>
+        <Paso n={1}>Aplica la definición: x = 3⁴.</Paso>
         <Paso n={2}>x = <strong style={{ color: COLOR_OK }}>81</strong>.</Paso>
       </Ejemplo>
       <Ejemplo titulo="Combinada: log(x) + log(x − 3) = 1">
@@ -432,8 +432,8 @@ function Esc10_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Dominás logaritmos."}
-            {ok < ejs.length && "Memorizá las 3 propiedades + cambio de base."}
+            {ok === ejs.length && "🎉 Dominas logaritmos."}
+            {ok < ejs.length && "Memoriza las 3 propiedades + cambio de base."}
           </div>
         </motion.div>
       )}

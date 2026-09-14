@@ -239,7 +239,7 @@ export default function SimuladorActivoPage() {
             <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
               {indice + 1} / {preguntas.length}
             </span>
-            <span className="rounded bg-violet-50 px-2 py-0.5 text-violet-700">
+            <span className="rounded bg-[var(--accent-soft)] px-2 py-0.5 text-[var(--accent)]">
               {ETIQUETAS_AREA[pregunta.area] ?? pregunta.area}
             </span>
             <span className="text-neutral-400">·</span>
@@ -283,7 +283,7 @@ export default function SimuladorActivoPage() {
                         value={partes[i] ?? ""}
                         onChange={(e) => responderTexto(pregunta.id, i, e.target.value, total)}
                         placeholder="Tu respuesta…"
-                        className="w-full rounded-xl border border-neutral-300 p-3 text-sm focus:border-violet-500 focus:outline-none sm:text-base"
+                        className="w-full rounded-xl border border-neutral-300 p-3 text-sm focus:border-[var(--accent)] focus:outline-none sm:text-base"
                       />
                     </div>
                   );
@@ -300,14 +300,14 @@ export default function SimuladorActivoPage() {
                       onClick={() => elegirOpcion(pregunta.id, op.letra)}
                       className={`flex w-full items-start gap-3 rounded-xl border p-3 text-left transition-all ${
                         elegida
-                          ? "border-violet-500 bg-violet-50"
-                          : "border-neutral-200 bg-white hover:border-violet-300 hover:bg-violet-50/30"
+                          ? "border-[var(--accent)] bg-[var(--accent-soft)]"
+                          : "border-neutral-200 bg-white hover:border-[var(--border-hover)] hover:bg-[var(--accent-soft)]/30"
                       }`}
                     >
                       <span
                         className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold ${
                           elegida
-                            ? "bg-violet-600 text-white"
+                            ? "bg-[var(--accent)] text-white"
                             : "border border-neutral-400 text-neutral-700"
                         }`}
                       >
@@ -337,7 +337,7 @@ export default function SimuladorActivoPage() {
               <button
                 type="button"
                 onClick={() => setIndice((i) => Math.min(preguntas.length - 1, i + 1))}
-                className="rounded-xl bg-violet-600 px-5 py-2.5 font-semibold text-white hover:bg-violet-700"
+                className="rounded-xl bg-[var(--accent)] px-5 py-2.5 font-semibold text-white hover:bg-[var(--accent)]"
               >
                 Siguiente →
               </button>
@@ -376,12 +376,12 @@ export default function SimuladorActivoPage() {
                 return (
                   <div key={g.area} className="flex-1 flex flex-col items-center gap-1 min-w-0">
                     <div className={`h-2 w-full rounded-full transition-all ${
-                      actual ? "bg-violet-500" :
+                      actual ? "bg-[var(--accent)]" :
                       pasada ? "bg-emerald-500" :
                       "bg-neutral-200"
                     }`} />
                     <div className={`text-[10px] font-bold uppercase tracking-wide truncate w-full text-center ${
-                      actual ? "text-violet-700" :
+                      actual ? "text-[var(--accent)]" :
                       pasada ? "text-emerald-700" :
                       "text-neutral-400"
                     }`}>
@@ -421,7 +421,7 @@ export default function SimuladorActivoPage() {
                     return (
                       <div key={p.id} id={`pregunta-${p.id}`} className="p-5">
                         <div className="mb-3 flex items-start gap-3">
-                          <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-violet-600 text-xs font-bold text-white">
+                          <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-xs font-bold text-white">
                             {numeroGlobal}
                           </span>
                           <div className="min-w-0 flex-1 text-sm font-medium leading-relaxed text-neutral-900 sm:text-base">
@@ -449,7 +449,7 @@ export default function SimuladorActivoPage() {
                                   value={partes[ci] ?? ""}
                                   onChange={(e) => responderTexto(p.id, ci, e.target.value, total)}
                                   placeholder={total > 1 ? `Respuesta ${ci + 1}…` : "Tu respuesta…"}
-                                  className="w-full rounded-lg border border-neutral-300 p-2.5 text-sm focus:border-violet-500 focus:outline-none"
+                                  className="w-full rounded-lg border border-neutral-300 p-2.5 text-sm focus:border-[var(--accent)] focus:outline-none"
                                 />
                               );
                             })}
@@ -465,12 +465,12 @@ export default function SimuladorActivoPage() {
                                 onClick={() => elegirOpcion(p.id, op.letra)}
                                 className={`flex items-start gap-2 rounded-lg border p-2.5 text-left text-sm transition-all ${
                                   elegida
-                                    ? "border-violet-500 bg-violet-50"
-                                    : "border-neutral-200 bg-white hover:border-violet-300 hover:bg-violet-50/30"
+                                    ? "border-[var(--accent)] bg-[var(--accent-soft)]"
+                                    : "border-neutral-200 bg-white hover:border-[var(--border-hover)] hover:bg-[var(--accent-soft)]/30"
                                 }`}
                               >
                                 <span className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                                  elegida ? "bg-violet-600 text-white" : "border border-neutral-400 text-neutral-700"
+                                  elegida ? "bg-[var(--accent)] text-white" : "border border-neutral-400 text-neutral-700"
                                 }`}>
                                   {op.letra}
                                 </span>
@@ -527,7 +527,7 @@ export default function SimuladorActivoPage() {
                       setAvisoFaltan(null);
                       setConfirmarSiguienteHoja(true);
                     }}
-                    className="rounded-xl bg-violet-600 px-6 py-3 font-bold text-white shadow-lg hover:bg-violet-700"
+                    className="rounded-xl bg-[var(--accent)] px-6 py-3 font-bold text-white shadow-lg hover:bg-[var(--accent)]"
                   >
                     Continuar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area} →
                   </button>
@@ -593,7 +593,7 @@ export default function SimuladorActivoPage() {
                     setConfirmarSiguienteHoja(false);
                     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
                   }}
-                  className="flex-1 rounded-xl bg-violet-600 py-2.5 font-bold text-white hover:bg-violet-700"
+                  className="flex-1 rounded-xl bg-[var(--accent)] py-2.5 font-bold text-white hover:bg-[var(--accent)]"
                 >
                   Sí, continuar →
                 </button>

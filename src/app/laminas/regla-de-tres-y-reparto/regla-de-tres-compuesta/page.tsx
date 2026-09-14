@@ -10,12 +10,12 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo, PasoCard } from "../../_
 export default function ReglaDeTresCompuestaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
           <p className="font-crimson" style={{ fontSize: 19, fontStyle: "italic", lineHeight: 1.5, margin: "0 0 20px" }}>
-            ¿Sabías que podés encadenar varias reglas de tres simples en una sola ecuación, con tres o más magnitudes a la vez?
+            ¿Sabías que puedes encadenar varias reglas de tres simples en una sola ecuación, con tres o más magnitudes a la vez?
           </p>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
             <div style={{ padding: "10px 16px", borderRadius: 12, background: LIENZO.bgSoft, textAlign: "center" }}>
@@ -30,12 +30,12 @@ export default function ReglaDeTresCompuestaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés distinguir directa de inversa entre DOS magnitudes. En la compuesta hay tres o más: aplicás esa misma pregunta a cada una, por separado, contra la incógnita.
+            Ya sabes distinguir directa de inversa entre DOS magnitudes. En la compuesta hay tres o más: aplicas esa misma pregunta a cada una, por separado, contra la incógnita.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             <div style={{ padding: "8px 12px", borderRadius: 10, background: LIENZO.bgSoft, fontSize: 12.5 }}>
@@ -56,13 +56,13 @@ export default function ReglaDeTresCompuestaPage() {
       contenido: (
         <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
           <PasoCard n={1}>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>Elegí cuál magnitud es la incógnita (por ejemplo, días).</p>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>Elige cuál magnitud es la incógnita (por ejemplo, días).</p>
           </PasoCard>
           <PasoCard n={2}>
             <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>Para cada otra magnitud, preguntate: si ella aumenta, ¿la incógnita aumenta (directa) o disminuye (inversa)?</p>
           </PasoCard>
           <PasoCard n={3}>
-            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>Armá una sola ecuación: las directas quedan &quot;derecho&quot;, las inversas se invierten (van cruzadas).</p>
+            <p style={{ margin: 0, fontSize: 13.5, lineHeight: 1.5 }}>Arma una sola ecuación: las directas quedan &quot;derecho&quot;, las inversas se invierten (van cruzadas).</p>
           </PasoCard>
         </div>
       ),
@@ -131,7 +131,7 @@ export default function ReglaDeTresCompuestaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"15 obreros pueden realizar una obra en 30 días. Luego de 10 días de trabajo se aumentan 5 obreros más. ¿En cuántos días (a partir de ese momento) terminarán la obra?"}

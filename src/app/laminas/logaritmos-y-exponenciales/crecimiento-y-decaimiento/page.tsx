@@ -10,7 +10,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function CrecimientoYDecaimientoPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -30,12 +30,12 @@ export default function CrecimientoYDecaimientoPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés despejar una exponencial aplicando logaritmo natural en ambos lados. Estos problemas solo aplican esa idea a una fórmula con sentido físico.
+            Ya sabes despejar una exponencial aplicando logaritmo natural en ambos lados. Estos problemas solo aplican esa idea a una fórmula con sentido físico.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$A = P\\,e^{rt} \\ \\Longrightarrow\\ t = \\dfrac{\\ln(A/P)}{r}$"}</MathText>
@@ -50,11 +50,11 @@ export default function CrecimientoYDecaimientoPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identificá el valor inicial, la tasa y lo que preguntan</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identifica el valor inicial, la tasa y lo que preguntan</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aislá la exponencial y aplicá ln en ambos lados</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aisla la exponencial y aplica ln en ambos lados</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
@@ -127,7 +127,7 @@ export default function CrecimientoYDecaimientoPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Una taza de café a 200°F se coloca en un ambiente de 70°F. Si $T=70+150e^{-0.05x}$, hallar el instante $x$ en que $T=100$°F."}

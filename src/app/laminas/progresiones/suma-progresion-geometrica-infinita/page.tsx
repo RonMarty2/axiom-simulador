@@ -19,7 +19,7 @@ import { TarjetaPractica, LineaEjemplo, ComparacionOjo } from "../../_components
 export default function SumaProgresionGeometricaInfinitaPage() {
   const diapositivas: LaminaDiapositiva[] = [
     {
-      etiqueta: "Pensá esto",
+      etiqueta: "Piensa esto",
       colorEtiqueta: LIENZO.warn,
       contenido: (
         <div>
@@ -39,12 +39,12 @@ export default function SumaProgresionGeometricaInfinitaPage() {
       ),
     },
     {
-      etiqueta: "Arrancamos de algo que ya sabés",
+      etiqueta: "Arrancamos de algo que ya sabes",
       colorEtiqueta: LIENZO.fgDim,
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabés que si <MathText>{"$|r|<1$"}</MathText>, las potencias <MathText>{"$r^n$"}</MathText> se achican cada vez más. En la fórmula de la suma finita, ese término desaparece y queda un valor límite.
+            Ya sabes que si <MathText>{"$|r|<1$"}</MathText>, las potencias <MathText>{"$r^n$"}</MathText> se achican cada vez más. En la fórmula de la suma finita, ese término desaparece y queda un valor límite.
           </p>
           <div style={{ textAlign: "center", padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 15 }}>
             <MathText>{"$S = \\dfrac{a_1}{1-r}\\,,\\quad |r|<1$"}</MathText>
@@ -59,15 +59,15 @@ export default function SumaProgresionGeometricaInfinitaPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>1.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Verificá que <MathText>{"$|r|<1$"}</MathText> (si no, la serie no tiene suma)</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Verifica que <MathText>{"$|r|<1$"}</MathText> (si no, la serie no tiene suma)</span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>2.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identificá <MathText>{"$a_1$"}</MathText> y <MathText>{"$r$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Identifica <MathText>{"$a_1$"}</MathText> y <MathText>{"$r$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplicá <MathText>{"$S=\\dfrac{a_1}{1-r}$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Aplica <MathText>{"$S=\\dfrac{a_1}{1-r}$"}</MathText></span>
             </div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function SumaProgresionGeometricaInfinitaPage() {
       ),
     },
     {
-      etiqueta: "Practicalo vos",
+      etiqueta: "Practícalo tú",
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar la fracción generatriz de $0{,}7777\\ldots$"}
