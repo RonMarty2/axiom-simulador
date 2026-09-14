@@ -139,7 +139,7 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
-**Transcriptos hasta ahora: 5 de 37.** Los dos con su Matemáticas completa y
+**Transcriptos hasta ahora: 7 de 37.** Los dos con su Matemáticas completa y
 Lenguaje e Historia declaradas pendientes:
 
 | Examen | Archivo |
@@ -149,6 +149,8 @@ Lenguaje e Historia declaradas pendientes:
 | Admisión 1/2014 (1ra opción) · 1-feb-2014 | `economicas/2014-1op-1-2014.md` |
 | Admisión 1/2014 (2da opción) · sin fecha en la hoja | `economicas/2014-2op-1-2014.md` |
 | Admisión 2/2014 (1ra opción) · sin fecha en la hoja | `economicas/2014-1op-2-2014.md` |
+| Admisión 1/2012 (1ra opción) · 26-ene-2012 | `economicas/2012-1op-1-2012.md` |
+| Admisión 1/2012 (2da opción) · pie ilegible | `economicas/2012-2op-1-2012.md` |
 
 ### Encabezados REALES del banco de Matemáticas
 
@@ -164,8 +166,8 @@ mismo.
 | 7 | Admisión **1/2014** (segunda opción) ✅ transcripto | sin fecha |
 | 8 | Admisión **II-2013** (segunda opción) ✅ transcripto | 27-jul-2013 |
 | 9 | Admisión **II-2013** (primera opción) ✅ transcripto | 20-jul-2013 |
-| 12 | Admisión **1/2012** (primera opción) | — |
-| 15 | Admisión **1/2012** (segunda opción) | — |
+| 12 | Admisión **1/2012** (primera opción) ✅ transcripto | 26-ene-2012 |
+| 15 | Admisión **1/2012** (segunda opción) ✅ transcripto | pie ilegible |
 | 18 | Admisión **1/2011** (primera opción) | jue 3-feb-2011 · 70 min |
 | 20 | Admisión **1/2011** (segunda opción) | sáb 19-feb-2011 · 60 min |
 | 22 | Admisión **1/2010** (primera opción) | — |
@@ -311,11 +313,11 @@ renumera. Ver "Convención para lo que no se puede leer" más arriba.
       convocatoria en días consecutivos entre facultades. Queda anotado en el
       propio archivo por si aparece el facsímil y dice otra cosa. Sus otras
       áreas NO se declararon pendientes: no hay con qué probar cuáles tomó.
-- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **5 transcriptos**.
+- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **7 transcriptos**.
       Uno por gestión (ver la tabla de arriba). Las páginas del banco de
-      Matemáticas que siguen en la fila: **12** (1/2012 1ra), **15** (1/2012
-      2da), **22** (1/2010 1ra), y **18 y 20**, que tienen el encabezado más
-      abajo y hay que mirarlas enteras antes de saber de qué gestión son.
+      Matemáticas que siguen en la fila: **18** (1/2011 1ra), **20** (1/2011
+      2da) y **22** (1/2010 1ra). Con eso se termina ese PDF y hay que pasar a
+      los bancos de Lenguaje e Historia.
       Antes de escribir un solo `.md` hay que releer los tres PDF a fondo: el
       escaneo por OCR encontró los encabezados pero **no es exhaustivo**,
       puede haber secciones que no detectó.
