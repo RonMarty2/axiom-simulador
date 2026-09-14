@@ -7,6 +7,7 @@ import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import type { ExamenMetadata } from "@/lib/axiom/types";
 import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
+import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
 
 
 
@@ -97,7 +98,16 @@ export default function ExamenesPage() {
 
         {!loading && examenes.length > 0 && (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {examenes.map((ex, idx) => (
+            {examenes.map((ex, idx) => {
+              const etiqueta = etiquetarExamen(ex.titulo, ex.opcion);
+              // Con el listado filtrado por carrera, el nombre del examen es
+              // el título y la línea de abajo la opción. Sin filtrar, arriba
+              // va la facultad (que ahí sí distingue) y el nombre del examen
+              // baja a la segunda línea.
+              const subtitulo = nombreCarrera
+                ? etiqueta.secundaria
+                : [etiqueta.principal, etiqueta.secundaria].filter(Boolean).join(" · ");
+              return (
               <motion.div
                 key={ex.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -115,17 +125,19 @@ export default function ExamenesPage() {
                       </span>
                     </div>
                     {/* Con el listado ya filtrado por carrera, poner la
-                        facultad en cada tarjeta es repetir 139 veces lo mismo:
-                        ahí el título pasa a ser la opción del examen, que es
-                        lo que de verdad distingue una tarjeta de otra. */}
-                    <h3 className="mb-0.5 text-xl font-bold text-[#171545] group-hover:text-[var(--accent)]">
+                        facultad en cada tarjeta es repetir 139 veces lo mismo.
+                        Va el nombre propio del examen, que es lo único que
+                        distingue una tarjeta de otra: el año solo no alcanza
+                        (2008 tiene NUEVE exámenes) y la opción tampoco, porque
+                        1/2014 y 2/2014 son las dos "1ra Opción". */}
+                    <h3 className="mb-0.5 text-lg font-bold leading-snug text-[#171545] group-hover:text-[var(--accent)]">
                       {nombreCarrera
-                        ? ex.opcion ?? "Examen de admisión"
+                        ? etiqueta.principal
                         : ETIQUETAS_FACULTAD[ex.facultad] ?? ex.facultad}
                     </h3>
-                    {!nombreCarrera && ex.opcion && (
+                    {subtitulo && (
                       <p className="mb-1 text-sm font-semibold text-[var(--accent)]">
-                        {ex.opcion}
+                        {subtitulo}
                       </p>
                     )}
                     {ex.fecha_examen && (
@@ -154,7 +166,8 @@ export default function ExamenesPage() {
                   </div>
                 </Link>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
