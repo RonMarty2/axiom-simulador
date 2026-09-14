@@ -3,17 +3,13 @@
 import katex from "katex";
 import "katex/dist/katex.min.css";
 import { useMemo } from "react";
+import { parsearMath } from "./math-parse";
 
 interface MathTextProps {
   children: string;
   className?: string;
   block?: boolean;
 }
-
-type Segmento =
-  | { tipo: "texto"; contenido: string }
-  | { tipo: "inline"; contenido: string }
-  | { tipo: "display"; contenido: string };
 
 export default function MathText({ children, className, block }: MathTextProps) {
   const segmentos = useMemo(() => parsearMath(children ?? ""), [children]);
@@ -28,6 +24,13 @@ export default function MathText({ children, className, block }: MathTextProps) 
             <span key={i} style={{ whiteSpace: "pre-wrap" }}>
               {seg.contenido}
             </span>
+          );
+        }
+        if (seg.tipo === "negrita") {
+          return (
+            <strong key={i} style={{ whiteSpace: "pre-wrap", fontWeight: 600 }}>
+              {seg.contenido}
+            </strong>
           );
         }
         const html = katex.renderToString(seg.contenido, {
@@ -80,32 +83,4 @@ export default function MathText({ children, className, block }: MathTextProps) 
       })}
     </Wrapper>
   );
-}
-
-function parsearMath(texto: string): Segmento[] {
-  const resultado: Segmento[] = [];
-  const regex = /(\$\$([^$]+)\$\$|\$([^$\n]+)\$)/g;
-  let ultimoIdx = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = regex.exec(texto)) !== null) {
-    if (match.index > ultimoIdx) {
-      resultado.push({
-        tipo: "texto",
-        contenido: texto.slice(ultimoIdx, match.index),
-      });
-    }
-    if (match[2] !== undefined) {
-      resultado.push({ tipo: "display", contenido: match[2] });
-    } else {
-      resultado.push({ tipo: "inline", contenido: match[3] });
-    }
-    ultimoIdx = match.index + match[0].length;
-  }
-
-  if (ultimoIdx < texto.length) {
-    resultado.push({ tipo: "texto", contenido: texto.slice(ultimoIdx) });
-  }
-
-  return resultado;
 }

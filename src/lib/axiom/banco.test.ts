@@ -252,6 +252,36 @@ describe("banco de exámenes", () => {
     assert.deepEqual(fallos, [], `voseo en texto que ve el alumno:\n${fallos.slice(0, 30).join("\n")}`);
   });
 
+  // MathText, que es lo que renderiza enunciados y explicaciones, entiende
+  // KaTeX ($ y $$) y **negrita**, nada más. Cualquier otro markdown le llega
+  // crudo al alumno: una tabla se ve como una hilera de pipes. Ya pasó con
+  // los ** antes de que MathText los soportara (58 explicaciones decían
+  // literalmente "**La clave:**"). Esto frena el próximo.
+  test("el banco no usa markdown que MathText no sabe renderizar", () => {
+    const PROHIBIDO: [RegExp, string][] = [
+      [/^\s*\|.*\|/m, "tabla markdown"],
+      [/^\s*(#{1,6})\s+\S/m, "encabezado #"],
+      [/^\s*>\s+\S/m, "cita >"],
+      [/`{1,3}[^`\n]+`{1,3}/, "código con backticks"],
+      [/\[[^\]\n]+\]\([^)\n]+\)/, "link markdown"],
+    ];
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        for (const campo of [p.enunciado, p.explicacion ?? ""]) {
+          // El enunciado puede traer su propio <svg>; ahí adentro no se mira.
+          const limpio = campo.replace(/<svg[\s\S]*?<\/svg>/gi, "");
+          for (const [rx, que] of PROHIBIDO) {
+            if (rx.test(limpio)) fallos.push(`${e.nombre} P${p.numero}: ${que}`);
+          }
+        }
+      }
+    }
+    assert.deepEqual(fallos, [], `markdown que no se va a ver bien:\n${fallos.join("\n")}`);
+  });
+
   // Dos exámenes distintos con la MISMA pregunta y las MISMAS opciones no
   // pueden dar respuestas distintas: una de las dos está mal y el alumno que
   // practique las dos se va a comer la contradicción. Se compara el texto de
