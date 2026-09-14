@@ -1,0 +1,147 @@
+# Inventario de facsímiles
+
+Para qué existe: cuando aparece un PDF nuevo, la pregunta siempre es la misma —
+**¿esto ya lo tengo?** y **¿está completo?**. Este archivo la contesta sin tener
+que abrir nada. Se actualiza cada vez que entra o sale un PDF.
+
+**Última revisión:** 2026-09-14
+
+---
+
+## Cómo está organizado
+
+```
+examenes pasados/
+├── FCYT/                     Facultad de Ciencias y Tecnología (lo que llamamos "ingeniería")
+│   ├── *.pdf                 exámenes fechados: admisión, parciales, finales
+│   └── bancos-de-practica/   material de estudio por materia, NO son exámenes
+└── FCE/                      Facultad de Ciencias Económicas
+    └── bancos-de-practica/
+```
+
+**FCYT vs. "ingeniería".** En el código la carrera se llama `ingenieria`
+(`data/examenes/umss/ingenieria/`), pero el nombre real de la facultad es FCYT.
+Las carpetas de acá usan el nombre real; el código quedó con el viejo. Si algún
+día se renombra, hay que tocar `FacultadId` en `data-store.ts`, la tabla
+`facultades` de Supabase y los 139 archivos del banco — no es gratis, y por eso
+sigue como está. Anotado para que nadie se confunda.
+
+**Dos tipos de documento, y la diferencia importa:**
+
+| | Exámenes fechados | Bancos de práctica |
+|---|---|---|
+| Qué son | El examen que rindieron ese día | Material de estudio por materia |
+| Tienen | Fecha, opción, ponderación | Solo el tema y la gestión |
+| Van al banco | Sí, uno a uno | Solo como preguntas sueltas, si se decide |
+
+---
+
+## FCYT · exámenes fechados
+
+**135 PDFs · 2005-2025 · todos transcriptos** → `data/examenes/umss/ingenieria/`
+(139 exámenes; algunos PDFs traen más de uno adentro).
+
+Años cubiertos: 2005 a 2025. **Falta 2021**, que no aparece en ningún PDF.
+
+---
+
+## FCYT · bancos de práctica  ⟶ NUEVOS, sin transcribir
+
+Los cinco entraron el 14-sep-2026. Vienen del mismo compilador
+(vonmoscov.blogspot.com / pablomoscoso.es.tl), que juntó material del Curso
+Prefacultativo de las gestiones **2011 y 2012**.
+
+**No se pisan con los exámenes fechados.** El banco ya tiene los *parciales y
+finales* de 2011-2012; esto son las *prácticas* que se daban para preparar esos
+parciales. Mismo período, documento distinto.
+
+| Archivo | Pág. | Qué trae adentro |
+|---|---|---|
+| `FCYT_Banco_Fisica.pdf` | 145 | Banco de preguntas II/2012, un solo bloque continuo. Las respuestas vienen al pie de cada pregunta. |
+| `FCYT_Banco_Biologia.pdf` | 143 | Banco de Biología, 1ra Evaluación Pre-Facultativo II/2012. |
+| `FCYT_Banco_Quimica.pdf` | 105 | 8 bloques: bancos y prácticas de 1er y 2do parcial, gestiones 2011-2012. |
+| `FCYT_Banco_AritmeticaAlgebra.pdf` | 57 | 5 bloques: prácticas N°1 y de 2do parcial, gestiones I-2011, II-2011, II-2012. |
+| `FCYT_Banco_GeometriaTrigonometria.pdf` | 35 | 4 bloques: prácticas de I-2011, II-2011 y II-2012. |
+
+---
+
+## FCE · exámenes fechados
+
+**Ninguno suelto todavía.** Los que hay están adentro de los bancos de práctica
+(ver abajo) y hay que extraerlos.
+
+En el banco hay **un solo examen** de Económicas: `2023.md`, contra los 139 de
+FCYT. Es el cuello de botella de esa carrera.
+
+---
+
+## FCE · bancos de práctica  ⟶ NUEVOS, sin transcribir
+
+| Archivo | Pág. | Qué trae adentro |
+|---|---|---|
+| `FCE_Banco_Lenguaje.pdf` | 71 | Banco de Lenguaje. Adentro, en la pág. 4: **Examen de Ingreso 1/2015 (1ra opción)**. |
+| `FCE_Guia_HistoriaGeneral.pdf` | 84 | "Guía para el examen de ingreso · FCE", Historia General (págs. 2-26). En la pág. 82: **Examen de Ingreso 2/2014 (2da opción)**. |
+| `FCE_Banco_Matematicas.pdf` | 55 | Banco de Matemáticas. Adentro: **Examen de Ingreso 2/2014 (2da opción)** (pág. 5) y **Examen de Admisión 1/2014 (1ra y 2da opción)** (págs. 2 y 7). |
+
+### Exámenes de FCE que se pueden extraer de ahí
+
+Ninguno está en el banco todavía. Ordenados por lo que conviene hacer primero:
+
+| Examen | Dónde está | ¿En el banco? |
+|---|---|---|
+| Admisión 1/2014 · 1ra opción | `FCE_Banco_Matematicas.pdf` p.2 | No |
+| Admisión 1/2014 · 2da opción | `FCE_Banco_Matematicas.pdf` p.7 | No |
+| Ingreso 2/2014 · 2da opción | `FCE_Banco_Matematicas.pdf` p.5 · también en `FCE_Guia_HistoriaGeneral.pdf` p.82 | No |
+| Ingreso 1/2015 · 1ra opción | `FCE_Banco_Lenguaje.pdf` p.4 | No |
+
+**Ojo:** cada uno de esos exámenes aparece **partido por materia**. El de
+Matemáticas trae solo el área de matemáticas de ese examen (10 preguntas, 60
+minutos); las otras áreas del mismo examen estarán en los bancos de Lenguaje y
+de Historia. Para armar un examen completo hay que juntar los pedazos de los
+tres PDFs — y puede que falte alguna área.
+
+---
+
+## Convención para lo que no se puede leer
+
+Los escaneos vienen torcidos, con sellos encima y páginas veladas. Cuando una
+pregunta **no se pueda leer**, no se saltea ni se renumera: se deja el lugar
+marcado, con la fuente exacta, para poder completarla el día que aparezca un
+escaneo mejor.
+
+En el frontmatter del examen:
+
+```yaml
+faltantes:
+  - numero: 7
+    motivo: ilegible
+    fuente: "FCE/bancos-de-practica/FCE_Banco_Matematicas.pdf p.9"
+  - numero: 12
+    motivo: pagina-ausente
+    fuente: "FCE/bancos-de-practica/FCE_Banco_Matematicas.pdf p.11"
+```
+
+Reglas:
+
+1. **La numeración no se toca.** Si falta la 7, la siguiente sigue siendo la 8.
+   Renumerar hace imposible cruzarlo después con el facsímil.
+2. **Siempre archivo y página.** "No se leía" sin la referencia no sirve de nada
+   dentro de seis meses.
+3. `motivo` dice qué pasó: `ilegible` (está pero no se lee), `pagina-ausente`
+   (el PDF no la trae), `sin-opciones` (está el enunciado pero no las
+   alternativas), `sin-respuesta` (está todo menos cuál es la correcta).
+4. El examen se publica igual con las preguntas que sí se leen. Es mejor un
+   examen de 8 preguntas honesto que uno de 10 con dos inventadas.
+
+---
+
+## Antes de agregar un PDF nuevo
+
+1. Fijate en la tabla de arriba si el título interno ya está listado.
+2. Si no está: ¿es un **examen fechado** o un **banco de práctica**? Va a la
+   carpeta que corresponda.
+3. Ponele un nombre que se entienda. Los archivos llegan con nombres tipo
+   `cd4a6956ed319701-high.pdf`, que no le dicen nada a nadie.
+4. Agregalo acá con sus páginas y lo que trae adentro, aunque todavía no se
+   transcriba. El inventario tiene que reflejar lo que hay en disco, no lo que
+   ya se procesó.

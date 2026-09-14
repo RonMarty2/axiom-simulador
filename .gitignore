@@ -30,3 +30,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .store/
+
+# Facsímiles de exámenes (225 MB de escaneos). Los PDF NO se versionan: el
+# repo se volvería inmanejable y GitHub rechaza archivos grandes. Lo que sí se
+# versiona es el inventario, que es el que dice qué hay, qué falta y si un PDF
+# nuevo ya está — ver "examenes pasados/INVENTARIO.md".
+examenes pasados/**/*.pdf
