@@ -181,7 +181,7 @@ describe("banco de exámenes", () => {
   // El tope es la foto del día que se midió. Solo puede BAJAR: se baja cuando
   // se dibuja la figura (y se declara `figura:`) o cuando se reescribe el
   // enunciado para que se sostenga solo.
-  const FIGURAS_NO_DECLARADAS_TOPE = 130;
+  const FIGURAS_NO_DECLARADAS_TOPE = 55;
 
   // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
   // Deja afuera a propósito los "se muestra a continuación" seguidos de la
