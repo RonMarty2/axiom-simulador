@@ -26,8 +26,12 @@ export async function GET(
     // examen entero sin mirar la sesión, así que los 140 exámenes resueltos
     // se bajaban con un curl sin login. Esconderlo solo en el cliente no
     // sirve: la respuesta del fetch se lee igual desde el navegador.
+    //
+    // Y se pregunta por la facultad DEL EXAMEN, no por el plan del alumno: el
+    // plan sale de la carrera que tiene seleccionada, así que un premium de
+    // Económicas pasaba este chequeo y se llevaba las soluciones de Ingeniería.
     const usuario = await getCurrentUser();
-    if (puedeVerResolucionBiblioteca(usuario?.plan)) {
+    if (puedeVerResolucionBiblioteca(usuario, examen.facultad)) {
       return NextResponse.json({ examen, resolucion_bloqueada: false });
     }
 

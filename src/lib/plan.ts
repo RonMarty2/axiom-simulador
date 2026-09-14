@@ -4,7 +4,7 @@
 // "gratis" (pro, premium…) cuenta como pago y desbloquea todo. Así no se rompe
 // nada si en el futuro cambian los nombres de los planes de pago.
 
-import type { PlanId } from "@/lib/data-store";
+import type { PlanId, SuscripcionActiva, Usuario } from "@/lib/data-store";
 
 // Límites del plan gratis (por semana, se reinician cada lunes).
 export const LIMITE_SEMANAL_PASADAS = 2;        // simulacros de exámenes pasados
@@ -14,13 +14,37 @@ export function esPago(plan: PlanId | null | undefined): boolean {
   return plan != null && plan !== "gratis";
 }
 
+// ── El plan es POR CARRERA, no global ────────────────────────────────────────
+//
+// `usuario.plan` se deriva de la facultad que el alumno tiene SELECCIONADA
+// (ver aplicarSuscripciones en session.ts). Preguntarle a ese plan si se puede
+// abrir contenido de OTRA facultad siempre daba que sí: un premium de
+// Económicas leía las soluciones de los 139 exámenes de Ingeniería. Cada
+// facultad es un producto mensual aparte — por eso existe el pago
+// `cambio_facultad` y por eso /cuenta dice "cambiar de carrera requiere
+// comprar el acceso a la nueva".
+//
+// Regla: para contenido que pertenece a una facultad, el permiso se pregunta
+// contra ESA facultad, no contra el plan.
+export function tieneSuscripcionA(
+  usuario: Pick<Usuario, "suscripciones"> | null | undefined,
+  facultad: string | null | undefined,
+): boolean {
+  if (!usuario || !facultad) return false;
+  return (usuario.suscripciones ?? []).some((s: SuscripcionActiva) => s.facultad === facultad);
+}
+
 // ── Permisos derivados del plan ───────────────────────────────────────────────
 
-// Paso a paso al NAVEGAR la biblioteca de exámenes pasados (solo pago).
-// Ojo: en los resultados de un simulacro que el alumno acaba de rendir, el paso
-// a paso SÍ se muestra a todos (es parte de sus 2 simulacros gratis/semana).
-export function puedeVerResolucionBiblioteca(plan: PlanId | null | undefined): boolean {
-  return esPago(plan);
+// Paso a paso al NAVEGAR la biblioteca de exámenes pasados (solo pago, y solo
+// de la carrera que pagó). Ojo: en los resultados de un simulacro que el alumno
+// acaba de rendir, el paso a paso SÍ se muestra a todos (es parte de sus 2
+// simulacros gratis por semana).
+export function puedeVerResolucionBiblioteca(
+  usuario: Pick<Usuario, "suscripciones"> | null | undefined,
+  facultadDelExamen: string | null | undefined,
+): boolean {
+  return tieneSuscripcionA(usuario, facultadDelExamen);
 }
 
 // Programa de aprendizaje personalizado con IA (solo pago).

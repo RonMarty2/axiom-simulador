@@ -8,6 +8,7 @@ import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import Cargando from "../../components/Cargando";
+import { nombreFacultad } from "../../components/Icono";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
 
 const ETIQUETAS_AREA: Record<string, string> = {
@@ -110,6 +111,7 @@ export default function ExamenDetallePage() {
               seleccion={seleccion[p.id]}
               revelada={!!revelar[p.id]}
               bloqueada={bloqueada}
+              carrera={nombreFacultad(examen.facultad)}
               onElegir={(letra) => elegir(p.id, letra)}
               onRevelar={() => toggleRevelar(p.id)}
             />
@@ -126,6 +128,8 @@ interface PreguntaCardProps {
   seleccion?: string;
   revelada: boolean;
   bloqueada: boolean;
+  /** Carrera del examen, para poder decir CUÁL plan hace falta. */
+  carrera: string;
   onElegir: (letra: string) => void;
   onRevelar: () => void;
 }
@@ -136,6 +140,7 @@ function PreguntaCard({
   seleccion,
   revelada,
   bloqueada,
+  carrera,
   onElegir,
   onRevelar,
 }: PreguntaCardProps) {
@@ -217,12 +222,16 @@ function PreguntaCard({
           className="mt-4 rounded-xl border p-4"
           style={{ borderColor: "var(--border)", background: "var(--bg-subtle)" }}
         >
+          {/* Se nombra la carrera: cada facultad es un producto aparte, así que
+              alguien con Premium de Económicas llega igual a un examen de
+              Ingeniería. Decirle "necesitas un plan activo" ahí es mentirle,
+              porque lo tiene. */}
           <div className="text-sm font-semibold" style={{ color: "var(--fg-primary)" }}>
             La respuesta y el paso a paso son de Premium
           </div>
           <p className="mt-1 text-sm" style={{ color: "var(--fg-muted)" }}>
             Puedes leer el examen completo. Para ver la respuesta correcta y la
-            explicación resuelta de cada pregunta, necesitas un plan activo.
+            explicación resuelta de cada pregunta necesitas el plan de {carrera}.
           </p>
           <Link
             href="/precios?motivo=resolucion"

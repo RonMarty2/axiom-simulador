@@ -28,6 +28,18 @@ export async function POST(req: Request) {
     const user = await getCurrentUser();
     const usuarioId = user?.id ?? `anon-${Math.random().toString(36).slice(2, 12)}`;
 
+    // La facultad venía del cliente y no se validaba contra nada: mandando
+    // otra en el body se armaba un simulacro con los 139 exámenes de
+    // Ingeniería desde una cuenta de Económicas. El alumno practica la carrera
+    // que tiene seleccionada; para practicar otra, primero la cambia (y ese
+    // cambio se paga, ver §6 D8 de la bitácora).
+    if (user && user.facultad_objetivo && config.facultad !== user.facultad_objetivo) {
+      return NextResponse.json(
+        { error: "Ese examen no es de la carrera que tienes seleccionada." },
+        { status: 403 }
+      );
+    }
+
     // ── Candado freemium ──────────────────────────────────────────────────────
     // Los usuarios de pago no tienen límites. A los gratis (y a quien crea sin
     // cuenta) se les aplican las reglas del modelo.
