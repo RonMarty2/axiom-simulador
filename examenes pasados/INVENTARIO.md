@@ -139,9 +139,34 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
-**Transcripto hasta ahora: 1 de 37.** `Admisión II-2013 (1ra opción)` →
-`data/examenes/umss/economicas/2013-1op-2-2013.md`, con su Matemáticas completa
-y Lenguaje e Historia declaradas pendientes.
+**Transcriptos hasta ahora: 2 de 37.** Los dos con su Matemáticas completa y
+Lenguaje e Historia declaradas pendientes:
+
+| Examen | Archivo |
+|---|---|
+| Admisión II-2013 (1ra opción) · 20-jul-2013 | `economicas/2013-1op-2-2013.md` |
+| Admisión II-2013 (2da opción) · 27-jul-2013 | `economicas/2013-2op-2-2013.md` |
+
+### Encabezados REALES del banco de Matemáticas
+
+Leídos a ojo, no por OCR — es la lista con la que hay que trabajar, porque la
+tabla de arriba tiene mal la gestión. Nótese que la notación es mixta: 2013 usa
+números romanos (`II-2013`) y 2014 usa arábigos (`1/2014`), pero significan lo
+mismo.
+
+| Pág. | Examen | Fecha |
+|---|---|---|
+| 2 | Admisión **1/2014** (primera opción) | 11-feb-2014 |
+| 4 | Admisión **2/2014** (primera opción) | — |
+| 7 | Admisión **1/2014** (segunda opción) | — |
+| 8 | Admisión **II-2013** (segunda opción) ✅ transcripto | 27-jul-2013 |
+| 9 | Admisión **II-2013** (primera opción) ✅ transcripto | 20-jul-2013 |
+| 12 | Admisión **1/2012** (primera opción) | — |
+| 15 | Admisión **1/2012** (segunda opción) | — |
+| 22 | Admisión **1/2010** (primera opción) | — |
+
+Las páginas 18 y 20 tienen el encabezado más abajo en la hoja y el recorte no
+lo agarró: hay que mirarlas enteras.
 
 **Lo que hay que confirmar a mano antes de transcribir:**
 
