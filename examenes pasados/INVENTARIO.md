@@ -166,10 +166,13 @@ mismo.
 | 9 | Admisión **II-2013** (primera opción) ✅ transcripto | 20-jul-2013 |
 | 12 | Admisión **1/2012** (primera opción) | — |
 | 15 | Admisión **1/2012** (segunda opción) | — |
+| 18 | Admisión **1/2011** (primera opción) | jue 3-feb-2011 · 70 min |
+| 20 | Admisión **1/2011** (segunda opción) | sáb 19-feb-2011 · 60 min |
 | 22 | Admisión **1/2010** (primera opción) | — |
 
-Las páginas 18 y 20 tienen el encabezado más abajo en la hoja y el recorte no
-lo agarró: hay que mirarlas enteras.
+Las páginas 18 y 20 ya están identificadas: tenían el encabezado más abajo en
+la hoja y el recorte de la tira no lo agarraba. Se miraron enteras el
+14-sep-2026. Ya no queda ninguna página sin identificar en este banco.
 
 **Lo que hay que confirmar a mano antes de transcribir:**
 
