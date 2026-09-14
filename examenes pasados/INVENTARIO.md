@@ -83,23 +83,71 @@ FCYT. Es el cuello de botella de esa carrera.
 | `FCE_Guia_HistoriaGeneral.pdf` | 84 | "Guía para el examen de ingreso · FCE", Historia General (págs. 2-26). En la pág. 82: **Examen de Ingreso 2/2014 (2da opción)**. |
 | `FCE_Banco_Matematicas.pdf` | 55 | Banco de Matemáticas. Adentro: **Examen de Ingreso 2/2014 (2da opción)** (pág. 5) y **Examen de Admisión 1/2014 (1ra y 2da opción)** (págs. 2 y 7). |
 
-### Exámenes de FCE que se pueden extraer de ahí
+### Exámenes de FCE que hay adentro
 
-Ninguno está en el banco todavía. Ordenados por lo que conviene hacer primero:
+**37 exámenes, de 2005 a 2017.** Ninguno está en el banco todavía; el banco
+tiene uno solo de Económicas (1-2023). Esto es lo que saca a esa carrera del
+cuello de botella.
 
-| Examen | Dónde está | ¿En el banco? |
-|---|---|---|
-| Admisión 1/2014 · 1ra opción | `FCE_Banco_Matematicas.pdf` p.2 | No |
-| Admisión 1/2014 · 2da opción | `FCE_Banco_Matematicas.pdf` p.7 | No |
-| Ingreso 2/2014 · 2da opción | `FCE_Banco_Matematicas.pdf` p.5 · también en `FCE_Guia_HistoriaGeneral.pdf` p.82 | No |
-| Ingreso 1/2015 · 1ra opción | `FCE_Banco_Lenguaje.pdf` p.4 | No |
+Salió de pasar los tres PDF **enteros** por OCR. El primer relevamiento decía
+"4 exámenes" porque solo miraba la banda superior de cada hoja y se perdía
+todo lo que no tuviera encabezado ahí.
 
-**Ojo:** cada uno de esos exámenes aparece **partido por materia**. El de
-Matemáticas trae solo el área de matemáticas de ese examen (10 preguntas, 60
-minutos); las otras áreas del mismo examen estarán en los bancos de Lenguaje y
-de Historia. Para armar un examen completo hay que juntar los pedazos de los
-tres PDFs — y puede que falte alguna área.
+Cada fila es **un examen**: la misma gestión y opción, aunque sus materias
+estén repartidas entre los tres PDF. `—` es una materia que ese examen tomó y
+no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
+| Gestión | Opción | Matemáticas | Lenguaje | Historia |
+|---|---|---|---|---|
+| 1/2017 | 1ra | Banco_Matematicas p.18 · 10p | — | — |
+| 2/2015 | ? | — | Banco_Lenguaje p.2 · 10p | — |
+| 1/2015 | 1ra | — | Banco_Lenguaje p.4 · 10p | — |
+| 4/2014 | 2da | — | Banco_Lenguaje p.12 · 10p | — |
+| 2/2014 | 1ra | Banco_Matematicas p.4 | Banco_Lenguaje p.6 · 10p | Guia_HistoriaGeneral p.81 |
+| 2/2014 | 2da | — | Banco_Lenguaje p.10 · 10p | Guia_HistoriaGeneral p.82 · 10p |
+| 1/2014 | 1ra | Banco_Matematicas p.2 | Banco_Lenguaje p.18 | Guia_HistoriaGeneral p.79 · 10p |
+| 1/2014 | 2da | Banco_Matematicas p.7 · 10p | Banco_Lenguaje p.8 · 10p | Guia_HistoriaGeneral p.83 |
+| 1/2013 | 1ra | Banco_Matematicas p.9 · 10p | Banco_Lenguaje p.30 · 10p | Guia_HistoriaGeneral p.74 · 10p |
+| 1/2013 | 2da | Banco_Matematicas p.8 | Banco_Lenguaje p.26 · 10p | Guia_HistoriaGeneral p.73 · 10p |
+| 1/2012 | ? | — | Banco_Lenguaje p.36 · 19p | Guia_HistoriaGeneral p.72 |
+| 1/2012 | 1ra | Banco_Matematicas p.12 | Banco_Lenguaje p.34 · 10p | Guia_HistoriaGeneral p.69 |
+| 1/2012 | 2da | Banco_Matematicas p.15 · 10p | — | — |
+| 2/2011 | 1ra | — | — | Guia_HistoriaGeneral p.65 |
+| 1/2011 | 1ra | — | Banco_Lenguaje p.46 · 10p | Guia_HistoriaGeneral p.61 · 10p |
+| 1/2011 | 2da | Banco_Matematicas p.20 · 10p | Banco_Lenguaje p.44 · 10p | Guia_HistoriaGeneral p.63 · 10p |
+| 2/2010 | ? | — | Banco_Lenguaje p.54 · 10p | Guia_HistoriaGeneral p.55 |
+| 2/2010 | 2da | Banco_Matematicas p.30 · 10p | Banco_Lenguaje p.57 · 10p | Guia_HistoriaGeneral p.57 · 10p |
+| 2/2010 | 3ra | — | Banco_Lenguaje p.50 · 10p | Guia_HistoriaGeneral p.59 · 10p |
+| 1/2010 | ? | Banco_Matematicas p.22 · 15p | — | Guia_HistoriaGeneral p.53 · 15p |
+| 1/2010 | 2da | Banco_Matematicas p.24 · 15p | Banco_Lenguaje p.52 · 15p | Guia_HistoriaGeneral p.51 · 15p |
+| 1/2010 | única | — | Banco_Lenguaje p.58 | — |
+| 4/2009 | 1ra | — | Banco_Lenguaje p.64 · 15p | — |
+| 2/2009 | única | Banco_Matematicas p.38 | Banco_Lenguaje p.60 · 15p | — |
+| 1/2009 | ? | — | — | Guia_HistoriaGeneral p.45 · 15p |
+| 1/2009 | 1ra | Banco_Matematicas p.34 · 15p | — | — |
+| 1/2009 | 2da | Banco_Matematicas p.36 | — | Guia_HistoriaGeneral p.47 |
+| 2/2008 | 1ra | Banco_Matematicas p.44 · 15p | Banco_Lenguaje p.68 · 15p | — |
+| 2/2008 | 2da | Banco_Matematicas p.42 · 15p | Banco_Lenguaje p.66 | Guia_HistoriaGeneral p.41 · 15p |
+| 1/2008 | 1ra | Banco_Matematicas p.40 · 15p | Banco_Lenguaje p.70 · 15p | Guia_HistoriaGeneral p.39 · 15p |
+| 1/2008 | 2da | — | — | Guia_HistoriaGeneral p.37 · 15p |
+| 2/2007 | ? | — | — | Guia_HistoriaGeneral p.30 |
+| 1/2007 | ? | Banco_Matematicas p.48 · 15p | — | — |
+| 1/2007 | 1ra | — | — | Guia_HistoriaGeneral p.29 · 15p |
+| 1/2007 | 2da | — | — | Guia_HistoriaGeneral p.27 · 15p |
+| 1/2006 | 2da | Banco_Matematicas p.54 | — | — |
+| 5/2005 | ? | — | — | Guia_HistoriaGeneral p.2 |
+
+**11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
+
+**Lo que hay que confirmar a mano antes de transcribir:**
+
+- Las opciones marcadas `?` son las que el OCR no pudo leer. Hay que abrir esa
+  página y mirarla.
+- Las gestiones `4/2014`, `5/2005` y `2/2015` son sospechosas: la UMSS toma
+  gestión 1 y 2. O el OCR leyó mal un dígito, o son convocatorias
+  extraordinarias. Verificar antes de crear el archivo.
+- La cantidad de preguntas cambia según el año: 10 por área en los exámenes
+  recientes, 15 en los de 2008-2010. No asumir.
 ---
 
 ## Convención para lo que no se puede leer
