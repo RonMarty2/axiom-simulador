@@ -25,6 +25,8 @@
 
 **Formato de las entradas:** español rioplatense informal, sin emojis decorativos en el contenido (los emojis solo viven en los títulos de sección si ayudan a navegar).
 
+**Ojo con el idioma, son dos.** Esta bitácora, los comentarios y los commits van en rioplatense. **El texto que ve el alumno va en TUTEO**, porque los alumnos son de Cochabamba: "puedes", no "podés". Ver §11 (13-sep-2026).
+
 ---
 
 ## 1. Identidad del proyecto
@@ -281,6 +283,10 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 | 2026-09-13 | 10 preguntas marcadas "E (provisorio)" porque el transcriptor no podía leer la figura del escaneo | Abrir el PDF original en alta resolución | Los facsímiles están en `examenes pasados/`: antes de publicar un "no se puede determinar", abrir el PDF. Ninguna de las 10 era E |
 | 2026-09-13 | Todo el contenido pago (110 lecciones, 64 láminas) se abría escribiendo la URL: el candado era solo un dibujo en el índice | Relevamiento de qué faltaba para cobrar | Un candado que no se verifica en el servidor no es un candado. El gateo tiene que estar donde se sirve el contenido, no donde se lista |
 | 2026-09-13 | En `next dev`, un usuario premium se veía bloqueado: el toggle de plan escribía en una copia del cache en memoria y el guard leía otra | Log en el layout contra `/api/auth/me` | Route handlers y componentes de servidor son bundles distintos con su propia instancia de cada módulo. El estado global de dev va en `globalThis` o el local miente |
+| 2026-09-13 | La fórmula de la Pregunta 1 se cortaba en el celular: el alumno no podía leer la consigna. El `overflow-x: auto` estaba puesto pero nunca se activaba | Auditoría a 375px | Un ítem flex tiene `min-width: auto` y **crece** con su contenido en vez de encoger: sin `min-w-0` en el padre, ningún `overflow` del hijo llega a funcionar |
+| 2026-09-13 | `/progreso` le mostraba a todos las estadísticas de `demo-user` | Leer la pantalla al rehacerla | Un id de prueba escrito a mano en un fetch sobrevive a todo: no hay error, no hay pantalla vacía, solo datos de otro |
+| 2026-09-13 | Un botón que se ve habilitado y no hace nada: `disabled` y `opacity` tenían condiciones distintas | Probar el flujo sin elegir examen | Si el estado deshabilitado se calcula dos veces, se van a desincronizar. Una sola variable, y que además diga QUÉ falta |
+| 2026-09-13 | Un reemplazo masivo convirtió "presentes" en "presientes" en 4 archivos | Revisar el `git diff` antes de commitear | `node -e` desde bash se come los backslashes: `\p{L}` llegó como `[p{L}]` y la clase matcheó cualquier cosa. Todo script con regex Unicode o acentos va en un ARCHIVO, no en `-e` |
 
 ---
 
@@ -315,7 +321,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
-- [ ] Auditoría visual sistemática en móvil: probar cada pantalla en device toolbar.
+- [x] ~~Auditoría visual sistemática en móvil~~ — hecha el 13-sep a 375px, pantalla por pantalla (ver §11). Salió el corte de las fórmulas, el avatar aplastado y cuatro bugs más.
+- [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
 - [ ] Banco de Económicas: hay **un solo examen** (2023) contra los 139 de Ingeniería.
 
@@ -345,6 +352,23 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 
 ## 10. Cómo retomar el proyecto (guía para otra IA / dev)
 
+### Desde otra computadora, de cero
+
+Todo lo que hace falta está en GitHub (`ronmarty2/axiom-simulador`, branch `main`). La conversación con la IA NO viaja; esta bitácora es el traspaso.
+
+```bash
+git clone https://github.com/ronmarty2/axiom-simulador.git
+cd axiom-simulador
+npm install
+npm run dev          # queda en http://localhost:3001
+```
+
+Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria y se entra con `/api/auth/dev-login?rol=estudiante` (o `rol=tester`, o `rol=admin`). Ese login está **muerto en producción** por diseño. Para pegarle a la base real hacen falta las env vars de Supabase, que están en Vercel.
+
+**Lo primero que conviene mirar:** §8 Crítico, que arranca con lo único que falta para poder cobrar.
+
+### Orden de lectura
+
 1. **Leé este archivo entero.** Sobre todo §3 (estructura), §4 (sistema visual), §6 (decisiones) y §7 (errores históricos).
 2. Corré `npm install && npm run dev` para levantar local.
 3. Para entender el estilo de las lecciones: abrí `src/app/aprende/potenciacion/page.tsx` (la más completa).
@@ -356,6 +380,30 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-13 (ter) (auditoría en celular · cinco arreglos del recorrido del alumno · la app pasa a tuteo)
+
+**Auditoría en pantalla de celular (375px), pantalla por pantalla.** Era un pendiente de §8 que nunca se había hecho en serio. Lo peor que apareció:
+
+- **La matemática se cortaba.** En el simulador, la fórmula de la Pregunta 1 del examen 2023 de Económicas quedaba cortada por el borde de la tarjeta: el alumno no podía leer la consigna completa. `MathText` ya traía `overflow-x: auto`, pero **nunca se activaba**: el contenedor flex crecía con su contenido en vez de encogerse, porque el default de un ítem flex es `min-width: auto`. Se agregó `min-w-0` en los 5 lugares donde un `flex-1` envuelve `MathText`.
+- **Las fórmulas en línea se salían de la pantalla.** Consecuencia del `whiteSpace: nowrap` que `MathText` usa a propósito (para que el navegador no corte una fórmula a la mitad): una expresión más ancha que el celular no se podía partir y se derramaba. En la explicación paso a paso de esa misma pregunta había expresiones de 541px en una pantalla de 375. Dos detalles que costaron: por spec, si un eje de `overflow` deja de ser `visible` **el otro pasa a `auto` solo**, así que cada fracción se ganaba una barra de scroll VERTICAL al lado; y los `vlist` internos de KaTeX sobresalen ~6px de la caja y se recortaban al volverse contenedor de scroll (se arregla con padding + margen negativo que se cancelan, el truco clásico de KaTeX).
+- El avatar de `/cuenta` se aplastaba a elipse (le faltaba `flexShrink: 0`), y varias pantallas le mostraban al alumno **"Economicas" sin tilde** porque imprimían el id crudo con `text-transform: capitalize`. Se agregó `nombreFacultad()` al lado de `iconoFacultad()`.
+
+**Cinco cosas que salieron de esa auditoría y se arreglaron después:**
+
+1. **La biblioteca mostraba las 4 carreras juntas.** `/api/axiom/examenes` devolvía el banco entero: un alumno de Económicas veía 140 exámenes, 139 de Ingeniería, y el suyo se perdía entre medio. Ahora filtra por la facultad de la sesión, **en el servidor** — para no mandarle 140 exámenes al celular y mostrar uno.
+2. **`/progreso` le mostraba a todos los datos de `demo-user`.** Pedía `/api/axiom/progreso/estadisticas?usuario_id=demo-user`, con el id escrito a mano: nadie veía su propio progreso. Encima el desglose estaba clavado a `matematicas/economicas/verbal`, las áreas de Económicas, así que a alguien de Ingeniería no le correspondía ninguna. Se borró ese endpoint y la pantalla se rehizo sobre `/api/historial`, que resuelve el usuario por sesión. De paso recibió el rediseño (venía de un prototipo, sin AppHeader ni barra inferior): ahora tiene la evolución en una curva SVG hecha a mano — son pocos puntos y no justifica meter una librería de gráficos en el bundle que baja el alumno.
+3. **"Empezar simulacro" no hacía nada.** La condición de `disabled` y la de `opacity` no eran la misma: eligiendo "Examen real" sin elegir CUÁL examen, el botón se veía habilitado, se podía apretar y no pasaba nada.
+4. **La misma materia era debilidad y fortaleza a la vez.** En los resultados salía "Reforzar: Matemáticas 0%" y al lado "Tu fortaleza: Matemáticas 0%", porque el examen de Económicas tiene una sola área y peor == mejor.
+5. **La paleta violeta del diseño anterior.** Las lecciones y las tarjetas de área seguían en violeta y celeste mientras el resto del producto ya era terracota: parecían dos apps distintas. `LIENZO.accent` (519 usos) pasó al token del rediseño. Se dejan como **hex literales y no `var(--token)`** porque se usan dentro de atributos SVG y props de framer-motion, donde una variable CSS no siempre interpola — si cambian los tokens de `globals.css`, hay que tocar `lienzo.tsx` también.
+
+**La app pasa de voseo a tuteo (160 archivos).** Estaba escrita mitad y mitad: *"Practica con exámenes reales"* y *"Elige tu plan"* conviviendo con *"Tenés 4 simulacros"* y *"Pasate a Premium"*. El voseo no es como se habla en Cochabamba. Tres cosas que conviene no reaprender:
+- **Los límites de palabra de `grep` no sirven acá.** Con `\b`, "aplicá" matchea DENTRO de "Aplicándolo" (la tilde no cuenta como letra en locale C) y el reemplazo corrompe la palabra. Hay que usar `(?<![\p{L}\p{N}])` en JS.
+- **Los verbos que diptongan no salen por regla.** "buscás → buscas" es mecánico, pero "empezás → empiezas", "volvé → vuelve" y "pedís → pides" cambian la raíz. Tabla explícita.
+- **Las terminaciones `-é` y `-í` quedan fuera de cualquier automatismo:** "comé" es imperativo voseo pero "compré" es primera persona del pretérito, y "partí" puede ser las dos cosas.
+- Los **comentarios del código no se tocaron**: el repo sigue en rioplatense (ver §0 y CLAUDE.md), eso es para quien lee el código.
+
+**Componentes muertos detectados, NO borrados** (esperan decisión): `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom` — cero imports en todo el repo, restos de la landing anterior al rediseño. Ahí vive casi todo el violeta que queda, y por eso ensucia cualquier búsqueda futura de "¿está consistente la paleta?".
 
 ### 2026-09-13 (bis) (el paywall no existía: guard de servidor para lecciones y láminas)
 

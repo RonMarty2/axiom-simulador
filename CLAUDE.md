@@ -5,7 +5,11 @@
 ## Reglas de oro
 
 1. **No actualices la BITACORA.md sin pedir autorización.** Si hacés un cambio significativo, proponé el update y esperá luz verde explícita.
-2. **Idioma:** español rioplatense informal. Sin emojis decorativos en código o docs (salvo en títulos de sección si ayudan a navegar).
+2. **Idioma — ojo, son dos:**
+   - **Código, comentarios, commits y docs (incluida esta bitácora):** español rioplatense informal. Es para Ronald y para quien lea el repo.
+   - **TEXTO QUE VE EL ALUMNO (toda la UI, lecciones y láminas): TUTEO, nunca voseo.** Los alumnos son de Cochabamba: "puedes", no "podés"; "haz", no "hacé"; "tú", no "vos". La app estaba mitad y mitad y se normalizó entera el 13-sep-2026 (ver bitácora §11). Si agregás texto nuevo para el alumno, escribilo en tuteo.
+
+   Sin emojis decorativos en código o docs (salvo en títulos de sección si ayudan a navegar).
 3. **Estilo de respuesta:** corto, directo, sin adornos. Ronald valora más la honestidad que la presunción de saber todo. Si no estás seguro, decilo.
 4. **Antes de tocar animaciones SVG:** leé §4 "Sistema visual" de la bitácora — hay lecciones aprendidas a fuerza de romper cosas.
 5. **Antes de tocar PWA:** leé §5 — la OTA y la supresión del banner ya funcionan bien.
