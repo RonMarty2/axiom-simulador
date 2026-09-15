@@ -188,7 +188,10 @@ function EscEbullicion() {
           <line x1={250} y1={130} x2={250} y2={50} stroke={LIENZO.accent} strokeWidth={2} strokeDasharray="4 3" />
           <text x={250} y={45} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>100 °C (pura)</text>
           <line x1={450} y1={130} x2={450} y2={50} stroke={LIENZO.bad} strokeWidth={2} strokeDasharray="4 3" />
-          <text x={450} y={45} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={600}>100.52 °C (1 m NaCl·i)</text>
+          {/* Decía 100.52, que es el valor SIN el factor i. Con NaCl i = 2:
+              ΔTb = 0.52 × 1 × 2 = 1.04. La pizarra gemela de congelación sí lo
+              aplicaba (−3.72 = 1.86 × 1 × 2), así que se contradecían. */}
+          <text x={450} y={45} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={600}>101.04 °C (1 m NaCl, i = 2)</text>
           {/* flecha ΔTb */}
           <line x1={260} x2={440} y1={80} y2={80} stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#arrDelta)" />
           <text x={350} y={75} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>ΔTb</text>
@@ -246,7 +249,7 @@ function EscCongelacion() {
           <line x1={450} y1={130} x2={450} y2={50} stroke={LIENZO.accent} strokeWidth={2} strokeDasharray="4 3" />
           <text x={450} y={45} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>0 °C (pura)</text>
           <line x1={250} y1={130} x2={250} y2={50} stroke="#06b6d4" strokeWidth={2} strokeDasharray="4 3" />
-          <text x={250} y={45} textAnchor="middle" fill="#06b6d4" fontSize={12} fontWeight={600}>−3.72 °C (1 m NaCl·i)</text>
+          <text x={250} y={45} textAnchor="middle" fill="#06b6d4" fontSize={12} fontWeight={600}>−3.72 °C (1 m NaCl, i = 2)</text>
           <line x1={260} x2={440} y1={80} y2={80} stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#arrDelta2)" />
           <text x={350} y={75} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>ΔTc</text>
           <defs>
@@ -406,13 +409,26 @@ function EscSimulador() {
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
           <ResultCaja t="T ebullición" v={`${calc.Teb} °C`} sub={`ΔTb=${calc.dTb}`} color="#ef4444" />
           <ResultCaja t="T congelación" v={`${calc.Tcong} °C`} sub={`ΔTc=${calc.dTc}`} color="#06b6d4" />
-          <ResultCaja t="π osmótica (27°C)" v={`${calc.pi} atm`} sub="aprox M≈m" color="#a78bfa" />
+          {/* El "aprox M≈m" no le decía nada al alumno, y dos escenas después la
+              lección marca como error justamente usar m donde va M. Si el
+              simulador hace la aproximación, tiene que decir por qué. */}
+          <ResultCaja t="π osmótica (27°C)" v={`${calc.pi} atm`} sub="usando M ≈ m (ver nota)" color="#a78bfa" />
         </div>
       </div>
 
       <Cuidado>
         Para NaCl, i=2 (Na⁺ + Cl⁻). Para CaCl₂, i=3 (Ca²⁺ + 2Cl⁻). Para
         compuestos NO iónicos (azúcares, urea, glicerina), i=1.
+      </Cuidado>
+
+      <Cuidado>
+        <strong>La nota del simulador.</strong> Más adelante vas a ver que ΔTb y ΔTc
+        van con molalidad (m) y la presión osmótica va con molaridad (M). Acá el
+        slider te da una sola cantidad, y para calcular π estamos usando esa m como
+        si fuera M. Se puede hacer <strong>solo porque la solución es diluida y el
+        solvente es agua</strong>: ahí 1 kg de agua ocupa casi exactamente 1 L, así
+        que M y m dan casi el mismo número. En un problema del examen fíjate cuál te
+        piden: si la solución es concentrada, o el solvente no es agua, ya no vale.
       </Cuidado>
     </EscenaRica>
   );
