@@ -139,7 +139,7 @@ no aparece en ningún PDF: se declara `secciones_pendientes` (regla 3).
 
 **11 de los 37 tienen las tres materias.** Por ahí conviene empezar.
 
-**Transcriptos hasta ahora: 8 de 37.** Los dos con su Matemáticas completa y
+**Transcriptos hasta ahora: 9 de 37.** Los dos con su Matemáticas completa y
 Lenguaje e Historia declaradas pendientes:
 
 | Examen | Archivo |
@@ -152,6 +152,7 @@ Lenguaje e Historia declaradas pendientes:
 | Admisión 1/2012 (1ra opción) · 26-ene-2012 | `economicas/2012-1op-1-2012.md` |
 | Admisión 1/2012 (2da opción) · pie ilegible | `economicas/2012-2op-1-2012.md` |
 | Admisión 1/2011 (1ra opción) · 3-feb-2011 | `economicas/2011-1op-1-2011.md` |
+| Admisión 1/2011 (2da opción) · 19-feb-2011 | `economicas/2011-2op-1-2011.md` | la 7 queda declarada ilegible |
 
 ### Encabezados REALES del banco de Matemáticas
 
@@ -170,7 +171,7 @@ mismo.
 | 12 | Admisión **1/2012** (primera opción) ✅ transcripto | 26-ene-2012 |
 | 15 | Admisión **1/2012** (segunda opción) ✅ transcripto | pie ilegible |
 | 18 | Admisión **1/2011** (primera opción) ✅ transcripto · sigue en la p.19 | jue 3-feb-2011 · 70 min |
-| 20 | Admisión **1/2011** (segunda opción) | sáb 19-feb-2011 · 60 min |
+| 20 | Admisión **1/2011** (segunda opción) ✅ transcripto · sigue en la p.21 | sáb 19-feb-2011 · 60 min |
 | 22 | Admisión **1/2010** (primera opción) | — |
 
 Las páginas 18 y 20 ya están identificadas: tenían el encabezado más abajo en
@@ -208,6 +209,19 @@ Los escaneos vienen torcidos, con sellos encima y páginas veladas. Cuando una
 pregunta **no se pueda leer**, no se saltea ni se renumera: se deja el lugar
 marcado, con la fuente exacta, para poder completarla el día que aparezca un
 escaneo mejor.
+
+**ESTO YA ESTÁ IMPLEMENTADO** (14-sep-2026). Dejó de ser solo una convención
+escrita: el parser lee el bloque y valida el motivo, la fuente y que no haya
+números repetidos; la vista del examen dibuja una tarjeta punteada EN EL LUGAR
+de la pregunta, con su número; y el contador de arriba sigue diciendo 10, no 9.
+El primer caso real es la pregunta 7 de `2011-2op-1-2011.md`. Los tests están
+en `src/lib/axiom/faltantes.test.ts`, e incluyen el que importa: que las
+transcriptas más las declaradas den el `total_preguntas` del frontmatter, así
+una pregunta perdida sin declarar frena el build.
+
+De paso se arregló algo que hacía falta para que esto sirviera: la tarjeta de
+pregunta numeraba por POSICIÓN en la lista, no por el número real, así que un
+hueco habría renumerado todo lo que viene después sin avisar.
 
 En el frontmatter del examen:
 
@@ -321,11 +335,10 @@ renumera. Ver "Convención para lo que no se puede leer" más arriba.
       convocatoria en días consecutivos entre facultades. Queda anotado en el
       propio archivo por si aparece el facsímil y dice otra cosa. Sus otras
       áreas NO se declararon pendientes: no hay con qué probar cuáles tomó.
-- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **8 transcriptos**.
+- [ ] **Fase 4 · Los 37 exámenes de FCE.** En curso: **9 transcriptos**.
       Uno por gestión (ver la tabla de arriba). Las páginas del banco de
-      Matemáticas que siguen en la fila: **20** (1/2011 2da) y **22**
-      (1/2010 1ra). Con eso se termina ese PDF y hay que pasar a los bancos de
-      Lenguaje e Historia.
+      Matemáticas que queda en la fila: **22** (1/2010 1ra). Con eso se
+      termina ese PDF y hay que pasar a los bancos de Lenguaje e Historia.
       Antes de escribir un solo `.md` hay que releer los tres PDF a fondo: el
       escaneo por OCR encontró los encabezados pero **no es exhaustivo**,
       puede haber secciones que no detectó.
