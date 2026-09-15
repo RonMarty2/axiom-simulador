@@ -423,7 +423,7 @@ function Esc07_Primos() {
       </Parrafo>
 
       <Definicion termino="número primo">
-        Un número primo es un entero <strong>{">"}1</strong> que solo tiene 2 divisores:
+        Un número primo es un entero <strong>mayor que 1</strong> que solo tiene 2 divisores:
         <strong> 1 y él mismo</strong>.
       </Definicion>
 
@@ -434,18 +434,28 @@ function Esc07_Primos() {
         </div>
       </Ejemplo>
 
+      {/* Uno por renglón. En una sola línea, el "·" separaba los ejemplos Y
+          multiplicaba adentro de cada uno ("6 = 2·3 · 9 = 3·3"), asi que no se
+          sabía dónde terminaba una cuenta y empezaba la otra. */}
       <Ejemplo titulo="Ejemplos de NO primos (compuestos)">
-        <strong>4 = 2·2</strong> (tiene divisor 2) · <strong>6 = 2·3</strong> · <strong>9 = 3·3</strong> · <strong>15 = 3·5</strong>
+        <div style={{ display: "grid", gap: 7 }}>
+          <div><strong>4 = 2 × 2</strong>, así que además del 1 y del 4 tiene al 2.</div>
+          <div><strong>6 = 2 × 3</strong>, tiene al 2 y al 3.</div>
+          <div><strong>9 = 3 × 3</strong>, tiene al 3.</div>
+          <div><strong>15 = 3 × 5</strong>, tiene al 3 y al 5.</div>
+        </div>
       </Ejemplo>
 
       <Cuidado>
-        El <strong>1 NO es primo</strong> (solo tiene UN divisor, él mismo). El <strong>0</strong> tampoco
-        (tiene infinitos divisores, lo divide cualquier número {">"} 0).
+        El <strong>1 NO es primo</strong>: solo tiene UN divisor, él mismo, y para ser primo
+        hacen falta exactamente 2. El <strong>0</strong> tampoco, por el motivo contrario:
+        lo divide cualquier número (0 = 5 × 0, 0 = 7 × 0, y así con todos), así que tiene
+        infinitos divisores en vez de 2.
       </Cuidado>
 
       <PorQue>
-        Los primos son fundamentales porque <strong>todo número entero {">"}1 se puede
-        escribir de UNA sola manera como producto de primos</strong> (Teorema Fundamental
+        Los primos son fundamentales porque <strong>todo número entero mayor que 1 se puede
+        escribir de UNA sola manera como multiplicación de primos</strong> (Teorema Fundamental
         de la Aritmética). Es como decir que los primos son los "átomos" de los enteros.
       </PorQue>
 

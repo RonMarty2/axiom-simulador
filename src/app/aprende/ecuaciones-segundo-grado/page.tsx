@@ -100,8 +100,14 @@ function Esc01_Intro() {
         Una ecuación es de <strong>segundo grado</strong> si la incógnita aparece elevada
         al cuadrado (y a lo sumo) como mayor potencia. Forma general: <strong>ax² + bx + c = 0</strong>, con a ≠ 0.
       </Definicion>
+      {/* Uno por renglón: el "·" como separador, cerca de números y signos, se
+          lee como un operador más de la ecuación. */}
       <Ejemplo>
-        x² − 5x + 6 = 0 &nbsp;·&nbsp; 2x² + 7x − 4 = 0 &nbsp;·&nbsp; x² − 9 = 0.
+        <div style={{ display: "grid", gap: 7 }}>
+          <div>x² − 5x + 6 = 0</div>
+          <div>2x² + 7x − 4 = 0</div>
+          <div>x² − 9 = 0</div>
+        </div>
       </Ejemplo>
       <Resumen>
         🎯 Aparece en: trayectorias parabólicas (física), maximizar ganancias (economía),

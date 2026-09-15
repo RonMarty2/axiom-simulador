@@ -90,8 +90,14 @@ function Esc01_Basicas() {
         <strong>4.</strong> (a·b)ⁿ = aⁿ · bⁿ: el exponente se distribuye al producto.<br />
         <strong>5.</strong> (a/b)ⁿ = aⁿ/bⁿ: y a la división.
       </Resumen>
+      {/* Uno por renglón: el "·" separaba los ejemplos y además multiplicaba
+          dentro de cada uno, así que no se veía dónde terminaba cada cuenta. */}
       <Ejemplo>
-        2³ · 2⁴ = 2⁷ = 128 &nbsp;·&nbsp; (3²)³ = 3⁶ = 729 &nbsp;·&nbsp; (2·5)² = 100.
+        <div style={{ display: "grid", gap: 7 }}>
+          <div>2³ × 2⁴ = 2⁷ = 128</div>
+          <div>(3²)³ = 3⁶ = 729</div>
+          <div>(2 × 5)² = 100</div>
+        </div>
       </Ejemplo>
       <PorQue>
         Si ya hiciste Potenciación (Unidad 01), esto es repaso. Acá vamos más profundo a
@@ -124,7 +130,11 @@ function Esc02_CeroNeg() {
         <strong>a⁻ⁿ = 1/aⁿ</strong>.
       </Resumen>
       <Ejemplo>
-        5⁰ = 1 &nbsp;·&nbsp; 2⁻³ = 1/8 &nbsp;·&nbsp; (3/4)⁻² = (4/3)² = 16/9.
+        <div style={{ display: "grid", gap: 7 }}>
+          <div>5⁰ = 1</div>
+          <div>2⁻³ = 1/8</div>
+          <div>(3/4)⁻² = (4/3)² = 16/9</div>
+        </div>
       </Ejemplo>
       <PorQue>
         ¿Por qué a⁰ = 1? Mira: aⁿ/aⁿ = a^(n−n) = a⁰. Pero también aⁿ/aⁿ = 1. ⟹ a⁰ = 1.
@@ -180,7 +190,11 @@ function Esc03_Frac() {
       </Resumen>
       <ExpFracEquivAnim />
       <Ejemplo>
-        9^(1/2) = √9 = 3 &nbsp;·&nbsp; 8^(1/3) = ³√8 = 2 &nbsp;·&nbsp; 16^(3/4) = (⁴√16)³ = 2³ = 8.
+        <div style={{ display: "grid", gap: 7 }}>
+          <div>9^(1/2) = √9 = 3</div>
+          <div>8^(1/3) = ³√8 = 2</div>
+          <div>16^(3/4) = (⁴√16)³ = 2³ = 8</div>
+        </div>
       </Ejemplo>
       <Cuidado>
         Esto es clave en cálculo: cualquier raíz se puede escribir como exponente
