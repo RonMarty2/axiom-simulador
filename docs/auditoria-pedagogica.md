@@ -3,8 +3,9 @@
 Encargo de §8 de la bitácora: leer el contenido con ojos de un alumno que ve el
 tema por primera vez y marcar lo que da por sabido.
 
-**Las 9 lecciones del plan gratis están auditadas.** Son las que ve cualquiera
-que llega sin pagar, así que se priorizaron (D2).
+**15 lecciones auditadas**: las 9 del plan gratis (se priorizaron porque son las
+que ve cualquiera que llega sin pagar, D2) más las 6 de matemática y física con
+más peso en el examen.
 
 | Lección | Lagunas | Errores de contenido |
 |---|---|---|
@@ -17,17 +18,35 @@ que llega sin pagar, así que se priorizaron (D2).
 | lectura-comprension | 19 | 4 |
 | metodologia-leyes | 14 | 1 |
 | perspectiva-historica-economia | 17 | 4 |
-| **Total** | **121** | **25** |
+| potenciacion | 8 | 0 |
+| radicacion | 10 | 4 |
+| mcd-mcm | 10 | 1 |
+| operaciones-radicales | 8 | 4 |
+| triangulos | 13 | 2 |
+| cinematica-1d | 13 | 5 |
+| **Total** | **183** | **41** |
 
-Quedan **94 lecciones** y **64 láminas** sin auditar.
+Quedan **88 lecciones** y **64 láminas** sin auditar.
 
 ## Qué ya está corregido y qué no
 
-**Corregido y en `main`** (solo lo que no admitía discusión):
+**Corregido y en `main`** (solo lo que no admitía discusión, y cada cosa
+verificada a mano antes de tocarla):
 
 - El AutoCheck de la distributiva, que daba por correcta una respuesta falsa.
 - La explicación de `lectura-comprension` que citaba datos inexistentes.
 - 22 casos de voseo en 16 archivos.
+- El arco de `AnguloVisual` (`segmentos-angulos`), que dibujaba mal 270° y 360°.
+- El presupuesto de la familia López, que no cerraba, y el "¿?" del ahorro.
+- La verificación de los 720° que daba el número bien por una razón falsa.
+- Los dos AutoCheck de `operaciones-radicales` con dos opciones correctas.
+- El producto vectorial en 2D y el `arctan` sin corrección de cuadrante.
+- "Sumar exponentes" donde había que restar (`nociones-quimica`).
+- Inducción y deducción, que estaban definidas al revés y sin ejemplo.
+- La ley de demanda enunciada al revés (`metodologia-leyes`).
+- "Síntesis neoclásica" atribuida a Marshall, en tres lugares.
+- `√(9+16) NO es √9 + √4`, que se contradecía con su propia línea siguiente.
+- **La rejilla del componente compartido `Ejes`** (ver abajo).
 
 **Todo lo demás de este informe NO está corregido.** Los errores de contenido
 que quedan necesitan una decisión o una verificación contra la guía oficial
@@ -56,6 +75,15 @@ No son problemas de redacción: es contenido que le enseña mal al alumno.
   Central Europeo)". El texto de esa lectura no nombra a ninguno de los dos.
   Pasaba justo en la lección que enseña la "Trampa 3 · verdadera pero ajena"
   ("si no está en el texto, NO es la respuesta").
+
+- **`Ejes` (`_components/lienzo.tsx`) · la rejilla tapaba el gráfico.** El
+  componente ponía una marca por **cada número entero** entre el mínimo y el
+  máximo del eje. En los gráficos de cinemática, que van en kilómetros y llegan a
+  250, eso son **260 líneas de rejilla sobre 200px de alto**: un bloque gris
+  sólido encima de la curva. Medido en el navegador: 260 y 266 líneas antes, 20 y
+  14 después. Ahora el paso sale del rango con la escalera 1-2-5-10, apuntando a
+  una docena de marcas; en los ejes chicos (−6 a 6) sigue dando paso 1, así que
+  los 12 archivos que usan `Ejes` y ya se veían bien no cambian.
 
 ### 1.2 Pendientes de decidir
 
@@ -149,6 +177,39 @@ No son problemas de redacción: es contenido que le enseña mal al alumno.
 - **L162 · la ley de demanda enunciada al revés.** "Por la ley de demanda baja el
   precio". La ley relaciona una baja de precio con una suba de la cantidad
   demandada; no predice el precio.
+
+**`triangulos`**
+- **L326-344 · la figura de Pitágoras no muestra el teorema.** Los "cuadrados"
+  sobre los catetos son **rectángulos** (120×60 y 50×100) y **no hay ningún
+  cuadrado sobre la hipotenusa**, mientras el texto de al lado promete "el
+  cuadrado sobre la hipotenusa = la suma de los cuadrados sobre los catetos". Es
+  la figura central del teorema más famoso de la lección.
+- **L342-344 · los lados están intercambiados** respecto de la convención que
+  enseña la propia lección en L116 (cada lado lleva la letra del vértice
+  opuesto): con el ángulo recto en B, la hipotenusa es AC, que sería *b*, pero la
+  figura la rotula *c*.
+- **L681 y L727 · un ejercicio sobre un tema que nunca se enseña.** El ejercicio 7
+  se resuelve con la desigualdad triangular, que no aparece en ninguna de las 10
+  escenas, y el cierre manda a "repasar" algo que no está.
+
+**`cinematica-1d`**
+- **L430 · signo mal despejado.** De `0 = v₀² + 2ad` se escribe `d = v₀²/(2a)`,
+  cuando da `d = −v₀²/(2a)`. El resultado final sale bien solo porque después se
+  sustituye *a* positiva, contradiciendo la línea que la declaró negativa.
+- **L416 · redondeo que no cierra.** Con el a = 5,33 que se le da al alumno,
+  ½(5,33)(25) = 66,63, no 66,67 (ese sale de a = 16/3).
+- **Los rótulos de los ejes mienten en todos los gráficos.** `Ejes` rotula
+  siempre "x" al horizontal e "y" al vertical. En un gráfico x-t el horizontal es
+  **t** y el vertical es **x**, así que queda un eje que dice "x" con la etiqueta
+  "Δt = 4 h" encima. Arreglarlo pide agregarle rótulos configurables al
+  componente compartido.
+- **L279-292 · la escena es MRU y el ejemplo usa ½at²**, que es MRUA y se define
+  recién dos escenas después.
+
+**`radicacion`**
+- **L812-820 · dos ejercicios flojos**: uno tiene un distractor muerto ("12/2",
+  que nadie elige) y otro pide "reescribir sin exponente fraccionario" pero todas
+  las opciones vienen ya evaluadas, así que se responde por el número.
 
 **`divisiones-economia`**
 - **L155-156 · inducción y deducción mal definidas.** "Si parte de una parte

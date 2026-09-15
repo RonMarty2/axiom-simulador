@@ -385,6 +385,27 @@ export type EjesProps = {
   children?: React.ReactNode;
 };
 
+// Las marcas del eje iban de 1 en 1 SIEMPRE. Con un eje que llega a 250 (los
+// gráficos de cinemática, que van en km o en metros) eso son 250 líneas de
+// rejilla sobre 200px de alto: la rejilla se vuelve un bloque gris y tapa la
+// curva. El paso ahora sale del rango, con la escalera clásica 1-2-5-10, para
+// apuntar a una docena de marcas. En los ejes chicos (−6 a 6) sigue dando 1,
+// así que los gráficos que ya se veían bien no cambian.
+function ticksDe(min: number, max: number): number[] {
+  const rango = max - min;
+  if (!(rango > 0) || !Number.isFinite(rango)) return [];
+  const bruto = rango / 12;
+  const magnitud = Math.pow(10, Math.floor(Math.log10(bruto)));
+  const normalizado = bruto / magnitud;
+  const paso = (normalizado <= 1 ? 1 : normalizado <= 2 ? 2 : normalizado <= 5 ? 5 : 10) * magnitud;
+  const ticks: number[] = [];
+  for (let v = Math.ceil(min / paso) * paso; v <= max + paso * 1e-9; v += paso) {
+    // El 0 no lleva marca: ya lo dibujan los dos ejes.
+    if (Math.abs(v) > paso * 1e-9) ticks.push(Number(v.toPrecision(12)));
+  }
+  return ticks;
+}
+
 export function Ejes({
   xMin = -6, xMax = 6, yMin = -4, yMax = 6, alto = 280,
   rejilla = true, labels = true, children,
@@ -394,8 +415,8 @@ export function Ejes({
   const sx = (x: number) => padL + ((x - xMin) / (xMax - xMin)) * (W - padL - padR);
   const sy = (y: number) => padT + ((yMax - y) / (yMax - yMin)) * (H - padT - padB);
   const x0 = sx(0), y0 = sy(0);
-  const ticksX = []; for (let i = Math.ceil(xMin); i <= Math.floor(xMax); i++) if (i !== 0) ticksX.push(i);
-  const ticksY = []; for (let i = Math.ceil(yMin); i <= Math.floor(yMax); i++) if (i !== 0) ticksY.push(i);
+  const ticksX = ticksDe(xMin, xMax);
+  const ticksY = ticksDe(yMin, yMax);
   return (
     <svg width="100%" height="100%" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMid meet"
       style={{ fontFamily: "var(--font-crimson), serif" }}>
