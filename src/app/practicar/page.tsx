@@ -10,6 +10,7 @@ import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago } from "@/lib/plan";
 import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
+import { etiquetaArea } from "@/lib/axiom/areas";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
 import type {
   ConfiguracionSimulacion,
@@ -173,24 +174,41 @@ function PracticarInner() {
 
   const esPagoUser = esPago(usuario?.plan);
 
+  const aviso =
+    modo === "por_tema" ? "Incluye todas las preguntas disponibles de ese tema."
+    : modo === "ia_generado" && facultadObj
+      ? `Seguirá el formato oficial de ${facultadObj.nombre_corto}: ${facultadObj.preguntas_examen ?? "—"} preguntas en ${facultadObj.duracion_minutos ?? "—"} minutos.`
+    : modo === "mis_errores" && errores > 0 ? `Se arma con las ${errores} preguntas que tienes guardadas como error.`
+    : null;
+
   // Cada nivel declara a dónde vuelve y qué está eligiendo el alumno. El "atrás"
   // es un link a la URL del nivel anterior, así que el gesto del sistema y el
   // botón de la pantalla hacen exactamente lo mismo.
+  // `padre` es la miga de pan. No es decoración: a /practicar se entra también
+  // por link directo (desde /errores con ?modo=mis_errores, por ejemplo), y ahí
+  // el alumno cae en un nivel interior sin haber visto nunca la lista de modos.
+  // Sin esta línea, los otros cuatro modos dejan de existir para él.
   const nivel = (() => {
     if (!modo) {
-      return { volverA: "/dashboard", titulo: "Nuevo simulacro", sub: "Elige cómo quieres practicar" };
+      return { volverA: "/dashboard", padre: null, titulo: "Nuevo simulacro", sub: "Elige cómo quieres practicar" };
     }
     const m = MODOS.find((x) => x.v === modo);
+    const raiz = { label: "Nuevo simulacro", href: "/practicar" };
     if (modo === "examen_real" && anioParam) {
-      return { volverA: "/practicar?modo=examen_real", titulo: anioParam, sub: "Toca el examen que quieres rendir" };
+      return {
+        volverA: "/practicar?modo=examen_real",
+        padre: { label: "Examen real", href: "/practicar?modo=examen_real" },
+        titulo: anioParam,
+        sub: "Toca el examen que quieres rendir",
+      };
     }
     if (modo === "examen_real") {
-      return { volverA: "/practicar", titulo: "Examen real", sub: "Elige la gestión" };
+      return { volverA: "/practicar", padre: raiz, titulo: "Examen real", sub: "Elige la gestión" };
     }
     if (modo === "por_tema") {
-      return { volverA: "/practicar", titulo: "Por tema", sub: "Toca el tema que quieres practicar" };
+      return { volverA: "/practicar", padre: raiz, titulo: "Por tema", sub: "Toca el tema que quieres practicar" };
     }
-    return { volverA: "/practicar", titulo: m?.t ?? "Simulacro", sub: "Elige la dificultad" };
+    return { volverA: "/practicar", padre: raiz, titulo: m?.t ?? "Simulacro", sub: "Elige la dificultad" };
   })();
 
   return (
@@ -200,6 +218,18 @@ function PracticarInner() {
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
           <BackLink href={nivel.volverA} label="Volver" />
           <div style={{ minWidth: 0 }}>
+            {nivel.padre && (
+              <Link
+                href={nivel.padre.href}
+                style={{
+                  display: "inline-block", fontSize: 10.5, fontWeight: 800,
+                  letterSpacing: "0.08em", textTransform: "uppercase",
+                  color: "var(--accent)", textDecoration: "none", marginBottom: 1,
+                }}
+              >
+                {nivel.padre.label}
+              </Link>
+            )}
             <h1 className="font-crimson" style={{ fontSize: 27, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.15 }}>
               {nivel.titulo}
             </h1>
@@ -335,7 +365,7 @@ function PracticarInner() {
                 key={m.id}
                 icono="etiqueta"
                 titulo={m.nombre}
-                detalle={m.area}
+                detalle={etiquetaArea(m.area)}
                 onClick={() => empezar(base({ modo: "por_tema", tema: m.id }))}
               />
             ))}
@@ -364,10 +394,12 @@ function PracticarInner() {
           </Lista>
         )}
 
-        {modo && modo !== "examen_real" && facultadObj && (
+        {/* Solo donde es cierto. "Mis errores" arma el examen con lo que fallaste,
+            así que NO sigue el formato oficial: prometérselo era mentirle. */}
+        {aviso && (
           <div style={{ display: "flex", gap: 8, marginTop: 14, padding: "12px 14px", background: "var(--bg-subtle)", borderRadius: 10, fontSize: 13, color: "var(--fg-muted)" }}>
             <span style={{ display: "flex", paddingTop: 1 }}><Icono nombre="info" tamano={15} /></span>
-            <span>Seguirá el <strong>formato oficial de {facultadObj.nombre_corto}</strong>: {facultadObj.preguntas_examen ?? "—"} preguntas en {facultadObj.duracion_minutos ?? "—"} minutos.</span>
+            <span>{aviso}</span>
           </div>
         )}
       </div>
