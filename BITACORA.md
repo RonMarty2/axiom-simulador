@@ -2,8 +2,8 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-14 (la biblioteca de exámenes regalaba las soluciones, el banco pasa a tuteo, y cuatro auditorías del banco quedan como test)
-**Versión de la bitácora:** v2.1
+**Última actualización:** 2026-09-15 (botón central en la barra inferior, elegir examen pasa a ser navegación, y la regla de leer-y-anotar para no pisarse entre sesiones)
+**Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
 ---
@@ -12,7 +12,9 @@
 
 **Cuándo se actualiza:** después de cualquier cambio significativo (feature nuevo, refactor importante, bug serio resuelto, decisión arquitectónica).
 
-**Quién la actualiza:** la IA o el dev que acaba de hacer el cambio. PROPONE el cambio en formato diff, y el mantenedor (Ronald) lo aprueba con un *"sí, actualizá la bitácora"* o equivalente.
+**Antes de tocar una sola línea de código: traé `main` y leé ESA bitácora.** No la que tenías abierta desde que arrancó la sesión. Corré `git fetch origin main` y mirá qué se movió. Hay varias sesiones trabajando en paralelo sobre este repo y este archivo es el único lugar donde se cruzan; entre que abrís la sesión y que empezás a escribir código, `main` ya avanzó. El 15-sep esto costó trabajo tirado (ver §7).
+
+**Quién la actualiza:** la IA o el dev que acaba de hacer el cambio, **en el mismo commit que lo hace**. Regla de Ronald del 15-sep-2026: *"cada que hagas algo tú también agregar lo que hiciste para no pisarse entre versiones y siempre subir todo a main"*. O sea: agregar tu entrada ya NO necesita luz verde, y dejar un cambio sin anotar es el error. Lo que sí sigue necesitando su OK explícito es **reescribir o borrar** lo que ya está escrito, y tocar decisiones (§6) o reglas.
 
 **Qué se actualiza:**
 - Sección **§ Roadmap / pendientes** → tachar lo hecho, agregar lo nuevo.
@@ -21,7 +23,7 @@
 - Sección **§ Errores garrafales** → cuando se descubra y corrija uno.
 - Resto de secciones → solo si cambian de raíz.
 
-**Nunca se actualiza sin autorización.** Si la IA hace un cambio y propone tocar la bitácora, debe pedir luz verde antes. Ronald dijo: *"con mi autorización"*.
+**Y se sube a `main`.** Una rama sin mergear es invisible para la sesión que entra después, y eso es exactamente cómo se pisa el trabajo. Si el cambio está listo y verificado, va a `main`.
 
 **Formato de las entradas:** español rioplatense informal, sin emojis decorativos en el contenido (los emojis solo viven en los títulos de sección si ayudan a navegar).
 
@@ -234,6 +236,14 @@ Se iteró un mockup v5 (artifact) con formato de **tarjetas/diapositivas** — a
   - **OTA automática:** detecta SW nuevo → manda `SKIP_WAITING` → cuando cambia el controller, `window.location.reload()` UNA sola vez. Sin reinstalar.
 - **CSS forzado por display-mode:** las reglas `@media (display-mode: standalone)` se aplican sin esperar a JS, garantizando vista app.
 
+### 5.1 App Android para Play Store (TWA) — existe en `android/`, todavía sin publicar
+
+El repo tiene un proyecto de Android Studio en `android/`: es un **TWA** (Trusted Web Activity), la forma oficial de Google de llevar una PWA a Play Store. No es una segunda app ni una reescritura — abre la misma web en vivo, así que un deploy a `main` actualiza la web Y la app a la vez. Solo hay que re-publicar el `.aab` si cambia algo del propio proyecto Android (el ícono, por ejemplo). Instrucciones completas en `android/README.md`.
+
+**Estado: falta todo lo que necesita la máquina de Ronald.** No se pudo compilar ni probar desde la sandbox (tiene bloqueado el acceso a los servidores de Google). Falta: compilar en Android Studio, generar el keystore firmado, y pegar su SHA-256 en dos lugares que hoy tienen un placeholder — `android/app/src/main/res/values/strings.xml` y `public/.well-known/assetlinks.json`, que dice literal `REEMPLAZAR_CON_EL_SHA256_DE_TU_KEYSTORE_DE_FIRMA`. Más la cuenta de Play Console (USD 25, pago único).
+
+**La barra del navegador que se ve arriba NO es un bug de CSS.** Cuando el link se abre desde otra app (WhatsApp y compañía), Android usa un Custom Tab: esa barra con la X, el ícono de compartir y los tres puntos es chrome del navegador y ningún estilo la puede sacar. Y si aparece de color raro (violeta, por ejemplo) tampoco es nuestro: el `theme_color` de AXIOM es `#1a1f2e`, ese color lo pone la app que abrió el link. Se saca de dos formas, las dos ya contempladas: instalando la PWA (el manifest ya está en `standalone`) o con el TWA una vez verificado el dominio con el SHA-256 de arriba.
+
 ---
 
 ## 6. Decisiones arquitectónicas (las que importa entender)
@@ -295,6 +305,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | 130 enunciados prometían una figura que no existe, y el trinquete de figuras marcaba 0 | Chequeo nuevo, escrito a mano | Un trinquete mide lo que sabe mirar: contaba las que DECLARAN `figura:`, y el problema vivía justo en las que no lo declaran. Un contador en cero no prueba que no haya problema, prueba que ese contador no lo ve |
 | 2026-09-14 | Tres preguntas de química calculaban "20 y 80" y cerraban marcando la opción "80 y 20", tapándolo con un paréntesis explicativo | Chequeo de coherencia explicación↔respuesta | Es la misma lección del 12-sep en otra forma: si hace falta un paréntesis para explicar por qué la respuesta no coincide con el cálculo, eso no se arregla con el paréntesis |
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
+| 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 
 ---
 
@@ -336,6 +347,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
 - [x] ~~Auditoría visual sistemática en móvil~~ — hecha el 13-sep a 375px, pantalla por pantalla (ver §11). Salió el corte de las fórmulas, el avatar aplastado y cuatro bugs más.
+- [ ] **App Android (TWA) sin publicar.** El proyecto está en `android/` (ver §5.1) pero falta lo que solo puede hacer Ronald en su máquina: compilar en Android Studio, generar el keystore firmado y pegar su SHA-256 en `android/app/src/main/res/values/strings.xml` y en `public/.well-known/assetlinks.json` (hoy tiene un placeholder), más la cuenta de Play Console. Ese paso es además el que le saca la barra de direcciones a la app.
+- [ ] **Los modos Premium bloqueados no hacen nada al tocarlos** en `/practicar`. Se ven atenuados y con candado, así que no es el bug del botón muerto, pero mandarlos a `/precios` es el lugar más natural del producto para ofrecer el upgrade: el alumno acaba de decir qué quería.
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
 - [ ] Banco de Económicas: hay **un solo examen** (2023) contra los 139 de Ingeniería.
@@ -394,6 +407,22 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-15 (botón central en la barra · elegir examen pasa a ser navegación · la regla de leer-y-anotar)
+
+**La barra inferior no llamaba a nada.** Los 5 tabs pesaban exactamente lo mismo y, peor, la acción que define el producto (armar un simulacro) estaba disfrazada de tab, al lado de Láminas. Ronald, probándola en el celular: *"los botones de abajo no son atractivos, por ejemplo un botón central clarísimo que llame a la acción"*. "Practicar" salió de la fila y pasó al medio como círculo elevado en terracota. No hubo que mover nada de producto: `/practicar` YA era la pantalla de armar simulacro (los 5 modos, examen real incluido) y es el mismo destino del CTA del dashboard, así que el tab se convirtió en el botón y siguen siendo 5 celdas.
+- Dos cosas más que la dejaban apagada: el tab activo solo cambiaba de color (ahora el ícono va sobre una pastilla `accent-soft`, se siente un lugar y no un link) y los inactivos estaban a `opacity: 0.55` sobre navy, que los dejaba grises muertos (pasan a `--fg-muted`, el token que corresponde).
+- El espaciador del final del documento subió de 58 a 74px: el círculo sobresale ~14px y tapaba la última tarjeta al scrollear hasta abajo.
+
+**Elegir un examen dejó de ser un formulario y pasó a ser navegación.** Era un formulario de pasos apilados: elegías "Examen real" y aparecían los **139 exámenes de Ingeniería de corrido**, en una lista plana, con el botón de empezar al final de todo. Ronald: *"debo hacer un scroll horrible hacia abajo, no debería ser como una ramificación… si hago push en examen real, que pase a la lista de exámenes por año, luego al hacer push en el año que entre a todo lo que hay en ese año"*. Es el mismo pivote que las láminas hicieron el 5-ago (§4.5), ahora aplicado a la navegación. Quedó: tipo de práctica → gestión (20 filas en vez de 139) → examen de ese año (12 como mucho), y ahí el toque **ya arranca el simulacro**. Mixto, que no necesita más datos, arranca directo desde el primer nivel.
+- **Cada nivel es su propia URL** (`?modo=…&anio=…`), así que el gesto de "atrás" del sistema y el botón de la pantalla hacen lo mismo, y se puede compartir el link de una gestión. Un `useState` habría sacado al alumno de `/practicar` entero al tocar atrás, que en PWA se siente roto.
+- **Se cae el botón "Empezar simulacro"** y con él la clase de bug del 13-sep (`disabled` y `opacity` calculados dos veces): ya no existe un botón esperando que completes algo. En su lugar hay un overlay mientras se crea el examen, porque sin eso el toque no daba ninguna señal y se podían disparar dos simulacros.
+- El separador quedaba huérfano: 120 de los 139 exámenes no traen `fecha_examen`, así que el detalle empezaba con "· 38 preguntas".
+- Los títulos repetían tres veces lo que el alumno acababa de tocar ("Cuarto Parcial · Curso Propedéutico (Gestión 2-2006)" **dentro** de la pantalla de 2006 y del grupo Curso Propedéutico). Queda "Cuarto Parcial" y el resto baja al detalle. Ojo con el agrupado: el loader les pone `categoria: "admision"` a los de ingreso aunque el frontmatter no la traiga, así que separar por "no tiene categoría" deja el grupo vacío; hay que preguntar por `!== "parcial_curso"`.
+
+**Y la lección de la sesión: se duplicó trabajo que ya estaba hecho.** Esta sesión "descubrió" que las tarjetas de examen eran indistinguibles entre sí y escribió su propio parseo de títulos. Ya estaba resuelto en `main` ocho commits antes, con tests, en `src/lib/axiom/etiqueta-examen.ts` (commit `ed0c006`, del 14-sep). La bitácora se había leído al abrir la sesión, pero `main` avanzó 22 commits antes del primer edit. El código duplicado se borró y la pantalla usa el helper compartido (D3); lo único que quedó local es sacar el nombre del curso del título, y es a propósito: en `/practicar` el encabezado del grupo ya lo dice, en `/examenes` no hay tal encabezado y el título tiene que venir completo. De acá salieron **la regla nueva de §0** (traer `main` y releer justo antes de escribir; anotar en el mismo commit; subir a `main`) y la fila del 15-sep en §7.
+
+**De paso se documentó la app Android**, que existía en `android/` desde el 14-sep y no estaba en ninguna parte de esta bitácora (ver §5.1). Incluye por qué la barra del navegador que se ve arriba en el celular no es un bug de CSS.
 
 ### 2026-09-14 (la biblioteca regalaba las soluciones · el banco pasa a tuteo · cuatro auditorías quedan como test)
 
