@@ -37,8 +37,9 @@ function EscIntro() {
 
       <Hook>
         Se han descrito ~1.8 millones de especies, pero se estima que existen
-        entre 8 y 30 millones. Bolivia tiene 14% de toda la biodiversidad del
-        planeta — está entre los 10 países más megadiversos del mundo.
+        entre 8 y 30 millones. Bolivia es uno de los 17 países que las Naciones
+        Unidas llaman <strong>megadiversos</strong>: entre esos 17 se concentra
+        cerca del 70% de las especies del planeta.
       </Hook>
 
       <Definicion termino="Biodiversidad">
@@ -86,7 +87,7 @@ function EscTaxonomia() {
           {[
             { t: "Dominio", ej: "Eukarya", c: "#3b82f6" },
             { t: "Reino", ej: "Animalia", c: "#06b6d4" },
-            { t: "Filo", ej: "Chordata (con notocorda)", c: "#10b981" },
+            { t: "Filo", ej: "Chordata (varilla de sostén en la espalda)", c: "#10b981" },
             { t: "Clase", ej: "Mammalia (mama, pelo)", c: "#84cc16" },
             { t: "Orden", ej: "Primates", c: "#eab308" },
             { t: "Familia", ej: "Hominidae", c: "#f59e0b" },
@@ -172,6 +173,18 @@ function EscReinos() {
     <EscenaRica>
       <Titulo>Los 5 reinos clásicos (Whittaker, 1969)</Titulo>
 
+      <Parrafo>
+        Antes de la tabla, una aclaración que hace falta: en la escena anterior
+        la clasificación del humano empezaba con <strong>Dominio: Eukarya</strong>,
+        y acá vas a ver cinco reinos. No son dos sistemas que compiten, son dos
+        pisos. Hoy se usan <strong>tres dominios</strong> (Bacteria, Archaea y
+        Eukarya) como el nivel más alto de todos, y los reinos cuelgan de ellos:
+        Protista, Fungi, Plantae y Animalia están todos dentro de Eukarya, y lo
+        que Whittaker llamaba Monera se partió en los otros dos dominios.
+        <strong> En el examen de la UMSS igual te van a pedir los 5 reinos</strong>,
+        que es lo que sigue.
+      </Parrafo>
+
       <Pizarra alto={270}>
         <svg width="100%" height="100%" viewBox="0 0 720 270" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
@@ -207,7 +220,10 @@ function EscReinos() {
 
       <Definicion termino="Tipos de nutrición">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
-          <li><strong>Autótrofo:</strong> fabrica su comida (fotosíntesis o quimiosíntesis).</li>
+          <li><strong>Autótrofo:</strong> fabrica su comida. Casi siempre con
+            luz (fotosíntesis); algunas bacterias lo hacen sin luz, sacando la
+            energía de compuestos del ambiente como el azufre, y a eso se le
+            dice quimiosíntesis.</li>
           <li><strong>Heterótrofo:</strong> consume otros organismos.</li>
           <li><strong>Por ingestión:</strong> traga partículas (animales).</li>
           <li><strong>Por absorción:</strong> digiere fuera y absorbe (hongos).</li>
@@ -232,21 +248,42 @@ function EscMonera() {
         circular libre en citoplasma. SIEMPRE unicelulares.
       </Definicion>
 
-      <Pizarra alto={170}>
-        <svg width="100%" height="100%" viewBox="0 0 720 170" preserveAspectRatio="xMidYMid meet">
+      {/* La lámina se titulaba "Forma de las bacterias" y no dibujaba NINGUNA
+          forma: eran tres cajas de texto. El nombre de cada grupo ES su forma,
+          así que sin el dibujo no queda nada que recordar. */}
+      <Pizarra alto={200}>
+        <svg width="100%" height="100%" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Forma de las bacterias
           </text>
           {[
-            { x: 100, t: "Cocos", d: "esféricas", ej: "Streptococcus" },
-            { x: 290, t: "Bacilos", d: "bastones", ej: "E. coli, Bacillus" },
-            { x: 480, t: "Espirilos", d: "espiral", ej: "Treponema (sífilis)" },
+            { x: 100, t: "Cocos", d: "redonditas", ej: "Streptococcus" },
+            { x: 290, t: "Bacilos", d: "como bastoncitos", ej: "E. coli, Bacillus" },
+            { x: 480, t: "Espirilos", d: "en espiral", ej: "Treponema (sífilis)" },
           ].map((b, i) => (
-            <g key={i} transform={`translate(${b.x}, 55)`}>
-              <rect x={-10} y={0} width={160} height={85} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
+            <g key={i} transform={`translate(${b.x}, 50)`}>
+              <rect x={-10} y={0} width={160} height={125} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
               <text x={70} y={22} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{b.t}</text>
-              <text x={70} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{b.d}</text>
-              <text x={70} y={68} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{b.ej}</text>
+
+              {/* El dibujo: un círculo, una cápsula y una espiral. */}
+              <g transform="translate(70, 58)">
+                {i === 0 && (
+                  <>
+                    <circle cx={-14} cy={0} r={11} fill={LIENZO.accent} opacity={0.55} />
+                    <circle cx={12} cy={0} r={11} fill={LIENZO.accent} opacity={0.55} />
+                  </>
+                )}
+                {i === 1 && (
+                  <rect x={-34} y={-9} width={68} height={18} rx={9} fill={LIENZO.accent} opacity={0.55} />
+                )}
+                {i === 2 && (
+                  <path d="M -34 0 Q -25 -16 -17 0 Q -8 16 0 0 Q 8 -16 17 0 Q 25 16 34 0"
+                    fill="none" stroke={LIENZO.accent} strokeWidth={6} strokeLinecap="round" opacity={0.7} />
+                )}
+              </g>
+
+              <text x={70} y={96} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{b.d}</text>
+              <text x={70} y={114} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{b.ej}</text>
             </g>
           ))}
         </svg>
@@ -281,9 +318,9 @@ function EscProtista() {
             Subgrupos de protistas
           </text>
           {[
-            { x: 90, t: "Protozoos", d: "heterótrofos (animal-like)", ej: "ameba, paramecio" },
-            { x: 290, t: "Algas", d: "autótrofas (plant-like)", ej: "diatomeas, algas verdes" },
-            { x: 490, t: "Mohos mucilaginosos", d: "fungi-like", ej: "Physarum" },
+            { x: 90, t: "Protozoos", d: "heterótrofos, parecidos a animales", ej: "ameba, paramecio" },
+            { x: 290, t: "Algas", d: "autótrofas, parecidas a plantas", ej: "diatomeas, algas verdes" },
+            { x: 490, t: "Mohos mucilaginosos", d: "parecidos a hongos", ej: "Physarum" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={170} height={90} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
@@ -312,7 +349,10 @@ function EscFungi() {
 
       <Definicion termino="Hongos (Fungi)">
         Eucariotas heterótrofos por ABSORCIÓN. Pared celular de QUITINA (no
-        celulosa). Cuerpo formado por hifas que forman el micelio.
+        celulosa). El cuerpo del hongo son hilos finísimos llamados{" "}
+        <strong>hifas</strong>; todos juntos forman una maraña, el{" "}
+        <strong>micelio</strong>, que es lo que de verdad crece bajo tierra. El
+        champiñón que ves es solo la parte que sale a la superficie.
       </Definicion>
 
       <Pizarra alto={180}>
@@ -449,7 +489,7 @@ function EscAnimalia() {
                 <text x={100} fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{g.ej}</text>
               </g>
             ))}
-            <text x={145} y={205} textAnchor="middle" fill={LIENZO.warn} fontSize={9}>*Artrópodos = + del 80% de animales</text>
+            <text x={145} y={205} textAnchor="middle" fill={LIENZO.warn} fontSize={9}>*Artrópodos ≈ 85% de las especies animales</text>
           </g>
           {/* Vertebrados */}
           <g transform="translate(380, 40)">
@@ -489,12 +529,13 @@ function EscBolivia() {
     <EscenaRica>
       <Titulo>Biodiversidad en Bolivia · país megadiverso</Titulo>
 
-      <Definicion termino="Bolivia · top 10 megadiverso mundial">
+      <Definicion termino="Bolivia · uno de los 17 países megadiversos">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
-          <li>~14% de la biodiversidad mundial.</li>
-          <li>4 ecorregiones: Amazonía, Chaco, Andes, Cerrado.</li>
-          <li>~22 áreas protegidas (SERNAP).</li>
-          <li>Más de 20.000 especies de plantas y 380 de mamíferos.</li>
+          <li>Cuatro grandes regiones naturales muy distintas entre sí:
+            Amazonía, Chaco, Andes y Cerrado. Que quepan las cuatro en un mismo
+            país es justamente lo que lo hace megadiverso.</li>
+          <li>22 áreas protegidas nacionales (SERNAP).</li>
+          <li>Más de 20.000 especies de plantas y unas 380 de mamíferos.</li>
         </ul>
       </Definicion>
 
@@ -521,8 +562,11 @@ function EscBolivia() {
 
       <Cuidado>
         Bolivia tiene especies <strong>endémicas</strong> (solo viven aquí):
-        bufeo del Beni (Inia boliviensis), titi del altiplano, parabachas
-        bolivianas. Su conservación es responsabilidad ciudadana.
+        el bufeo boliviano (<em>Inia boliviensis</em>, el delfín de río del
+        Beni), la paraba barba azul (<em>Ara glaucogularis</em>) y la paraba
+        frente roja (<em>Ara rubrogenys</em>), que no vive en ningún otro lugar
+        del mundo más que en los valles secos de Cochabamba y Santa Cruz. Su
+        conservación es responsabilidad ciudadana.
       </Cuidado>
     </EscenaRica>
   );
@@ -557,7 +601,9 @@ function EscPractica() {
       <Misconception titulo="Error 4 · 'Todos los animales son vertebrados'">
         <strong>Pensar:</strong> que vertebrados son la mayoría.<br />
         <strong>Realidad:</strong> 95% de los animales son INVERTEBRADOS (sin
-        columna). Insectos solos = más del 80% de las especies animales.
+        columna). Los artrópodos solos son cerca del 85% de las especies
+        animales, y dentro de ellos los insectos son la mayor parte: unas 3 de
+        cada 4 especies animales conocidas es un insecto.
       </Misconception>
 
       <Resumen>

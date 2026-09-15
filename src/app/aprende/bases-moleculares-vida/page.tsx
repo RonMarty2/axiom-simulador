@@ -64,11 +64,17 @@ function EscIntro() {
               <text x={75} y={78} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">ej: {b.ej}</text>
             </g>
           ))}
-          <text x={500} y={195} fill={LIENZO.warn} fontSize={12} fontWeight={600}>
-            Todos: monómeros + polímeros
+          <text x={500} y={190} fill={LIENZO.warn} fontSize={12} fontWeight={600}>
+            Casi todas se arman como un collar:
           </text>
-          <text x={500} y={215} fill={LIENZO.fgDim} fontSize={11}>
-            (bloques que se unen por enlaces específicos)
+          <text x={500} y={207} fill={LIENZO.fgDim} fontSize={11}>
+            piezas chicas (monómeros) enganchadas
+          </text>
+          <text x={500} y={222} fill={LIENZO.fgDim} fontSize={11}>
+            en cadenas largas (polímeros).
+          </text>
+          <text x={500} y={239} fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
+            Los lípidos son la excepción.
           </text>
         </svg>
       </Pizarra>
@@ -126,8 +132,14 @@ function EscGlucidos() {
               <text x={80} y={115} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{g.ej}</text>
             </g>
           ))}
-          <text x={360} y={220} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>
-            Enlace entre monosacáridos: enlace glucosídico (libera H₂O)
+          <text x={360} y={212} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>
+            Enlace entre monosacáridos: enlace glucosídico
+          </text>
+          <text x={360} y={232} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>
+            glucosa + fructosa → sacarosa + H₂O
+          </text>
+          <text x={360} y={248} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">
+            al unirse sale una molécula de agua: por eso &quot;libera H₂O&quot;
           </text>
         </svg>
       </Pizarra>
@@ -137,7 +149,7 @@ function EscGlucidos() {
         especialmente del cerebro (que NO usa grasas).
       </Definicion>
 
-      <Definicion termino="Reserva energética">
+      <Definicion termino="Polisacáridos: de reserva y estructurales">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
           <li><strong>Almidón:</strong> reserva en plantas (papa, trigo, arroz).</li>
           <li><strong>Glucógeno:</strong> reserva en animales (hígado, músculo).</li>
@@ -222,7 +234,7 @@ function EscLipidos() {
         pregunta="¿Qué lípido forma la BICAPA de las membranas celulares?"
         opciones={["Triglicéridos", "Fosfolípidos", "Esteroides", "Ceras"]}
         correctaIdx={1}
-        explicacion="Los fosfolípidos son anfipáticos (cabeza polar + colas hidrofóbicas) y forman la bicapa."
+        explicacion="El fosfolípido tiene una punta que ama el agua (la del fosfato) y dos colas que la odian. Por eso se ordenan solos en doble fila: las colas escondidas adentro y las cabezas afuera, tocando el agua de los dos lados. Esa doble fila es la bicapa."
       />
     </EscenaRica>
   );
@@ -250,6 +262,15 @@ function EscProteinas() {
         Estructura común: grupo amino (-NH₂) + grupo carboxilo (-COOH) + un
         grupo R variable.
       </Definicion>
+
+      <Parrafo>
+        En la lámina de abajo van a aparecer dos tipos de unión que mantienen
+        doblada a la cadena. Los <strong>puentes de hidrógeno</strong> son
+        uniones débiles, muchas y repartidas: cada una sola no sostiene nada,
+        pero juntas mantienen la forma, como el velcro. Los{" "}
+        <strong>puentes S-S</strong> unen dos azufres y son mucho más firmes:
+        son los que hacen que un huevo cocido no vuelva a ser crudo.
+      </Parrafo>
 
       <Pizarra alto={260}>
         <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
@@ -507,6 +528,22 @@ function EscDogma() {
         </svg>
       </Pizarra>
 
+      <Definicion termino="Los tres ARN que trabajan en la traducción">
+        El ARN mensajero no está solo. En el ribosoma trabajan tres, y cada uno
+        tiene un oficio distinto:
+        <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 14 }}>
+          <li><strong>ARN mensajero (ARNm):</strong> la copia móvil de la
+            receta. Sale del núcleo con las instrucciones.</li>
+          <li><strong>ARN ribosomal (ARNr):</strong> forma el ribosoma mismo,
+            que es la mesa de trabajo donde se lee la receta.</li>
+          <li><strong>ARN de transferencia (ARNt):</strong> el que va a buscar
+            cada aminoácido y lo trae a la mesa, uno por uno.</li>
+        </ul>
+        Regla para no confundirlos: <strong>m</strong>ensajero trae el mensaje,
+        <strong> r</strong>ibosomal arma el ribosoma, <strong>t</strong>ransferencia
+        transfiere los aminoácidos.
+      </Definicion>
+
       <Definicion termino="Código genético">
         Cada 3 bases (codón) del ARNm codifican 1 aminoácido. 64 codones para
         20 aa = código DEGENERADO (varios codones para el mismo aa). Hay codón
@@ -556,8 +593,9 @@ function EscComparativa() {
       </Pizarra>
 
       <Resumen>
-        Glúcidos (CHO): energía rápida, monómero glucosa. Lípidos (CHO poco
-        O, también NP): reserva + membranas, no son polímeros estrictos.
+        Glúcidos (CHO): energía rápida, monómero glucosa. Lípidos (CHO, con
+        poco O; los fosfolípidos además llevan P y N, de ahí su nombre):
+        reserva + membranas, y no se arman como collares.
         Proteínas (CHONS): 20 aa, 4 niveles estructurales, multifunción.
         Ácidos nucleicos (CHONP): ADN (info) + ARN (mensajero, ribosomal,
         transferencia).
