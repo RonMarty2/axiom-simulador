@@ -251,7 +251,9 @@ function EscLectura2() {
           {
             p: "De acuerdo con el texto, la pobreza relativa puede aumentar si:",
             o: [
-              "No se aplica ninguna política pública de redistribución.",
+              // El texto dice "si no se aplican adecuadamente", no "si no se
+              // aplica ninguna": la opción afirmaba más de lo que el texto dice.
+              "No se aplican adecuadamente las políticas de redistribución.",
               "El crecimiento económico se distribuye equitativamente.",
               "Los sectores vulnerables se benefician de las políticas.",
               "Se aplican correctamente las políticas públicas.",
@@ -504,10 +506,13 @@ function EscLectura5() {
               "El acceso a mercados más amplios.",
               "La reducción de la competencia nacional.",
               "El aumento en los costos de transacción.",
-              "La ausencia de barreras geográficas.",
+              // Decía "La ausencia de barreras geográficas", que también es
+              // correcta según el texto: había dos respuestas buenas y el
+              // alumno que marcaba esta veía una cruz.
+              "La desaparición de la competencia en el mercado digital.",
             ],
             c: 1,
-            ex: "El texto dice que el e-commerce permite a pequeños empresarios acceder a mercados más amplios, eliminando barreras geográficas.",
+            ex: "El texto dice que el comercio electrónico permite a pequeños empresarios acceder a mercados más amplios, eliminando barreras geográficas. Ojo con la última opción: el texto dice lo contrario, que la competencia digital es más dura.",
           },
           {
             p: "Uno de los principales retos para el desarrollo del comercio electrónico es:",
@@ -715,16 +720,20 @@ function EscLectura7() {
             ex: "El texto recomienda diseñar políticas que no obstaculicen el dinamismo económico.",
           },
           {
-            p: "Los impuestos progresivos son efectivos para reducir la desigualdad cuando:",
+            // La opción correcta era "la riqueza se redistribuye de manera
+            // equitativa": circular (reducir la desigualdad ES redistribuir), y
+            // además el texto nunca enuncia esa condición. La que sí da es la
+            // del diseño que no frena el dinamismo económico.
+            p: "Según el texto, ¿con qué condición los impuestos progresivos reducen la desigualdad sin dañar la economía?",
             o: [
-              "Las tasas impositivas son las mismas para todos.",
-              "La riqueza se redistribuye de manera equitativa.",
-              "Se eliminan los impuestos indirectos.",
-              "Las empresas disminuyen sus inversiones.",
-              "El crecimiento económico se estanca.",
+              "Cuando las tasas son las mismas para todos.",
+              "Cuando se diseñan de modo que no frenen el dinamismo económico.",
+              "Cuando se eliminan los impuestos indirectos.",
+              "Cuando las empresas disminuyen sus inversiones.",
+              "Cuando el crecimiento económico se estanca.",
             ],
             c: 1,
-            ex: "El texto plantea que la redistribución equitativa es clave para reducir desigualdad.",
+            ex: "El texto avisa que tasas muy altas pueden desincentivar la inversión, y que por eso \"es necesario que las políticas fiscales se diseñen de manera que no obstaculicen el dinamismo económico\". Esa es la condición que pide el texto.",
           },
         ]}
       />
