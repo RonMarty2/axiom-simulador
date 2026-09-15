@@ -475,7 +475,7 @@ function EscMeiosis() {
       <Definicion termino="Recombinación genética (crossing-over)">
         Durante la profase I de la meiosis, los cromosomas homólogos
         intercambian fragmentos de ADN. Esto explica la VARIABILIDAD genética:
-        ¡tú no sos clon de tus hermanos! Cada gameto trae una combinación
+        ¡tú no eres clon de tus hermanos! Cada gameto trae una combinación
         única.
       </Definicion>
 

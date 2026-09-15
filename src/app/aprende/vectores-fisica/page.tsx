@@ -165,7 +165,7 @@ function EscSuma() {
 
       <Resumen>
         <strong>Método gráfico (paralelogramo / triángulo)</strong>:<br />
-        Para sumar A⃗ + B⃗: colocá B⃗ a continuación de A⃗ (origen de B donde
+        Para sumar A⃗ + B⃗: coloca B⃗ a continuación de A⃗ (origen de B donde
         termina A). El vector suma va desde el origen de A hasta la punta de B.
       </Resumen>
 

@@ -351,7 +351,7 @@ function EscConservacion() {
 
       <Mnemotecnia>
         Si el problema tiene "altura inicial → velocidad final" o viceversa, y
-        no hay fricción, USÁ CONSERVACIÓN DE ENERGÍA. Mucho más simple que
+        no hay fricción, USA CONSERVACIÓN DE ENERGÍA. Mucho más simple que
         Newton.
       </Mnemotecnia>
     </EscenaRica>

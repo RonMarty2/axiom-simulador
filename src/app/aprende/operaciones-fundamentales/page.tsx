@@ -42,7 +42,7 @@ export default function Page() {
         { titulo: "Jerarquía: el orden importa", componente: Esc13_JerIntro },
         { titulo: "PEMDAS: la regla", componente: Esc14_PEMDAS },
         { titulo: "Ejemplos resueltos paso a paso", componente: Esc15_Ejemplos },
-        { titulo: "Errores comunes (¡evitalos!)", componente: Esc16_Errores },
+        { titulo: "Errores comunes (¡evítalos!)", componente: Esc16_Errores },
         { titulo: "Práctica final", componente: Esc17_Practica },
       ]}
     />
@@ -82,7 +82,7 @@ function Esc01_Bienvenida() {
       <Hook>
         Las operaciones fundamentales son <strong>la base de TODO</strong>. Si fallas en
         signos o en jerarquía, fallas en cualquier cuenta. En el examen UMSS los errores
-        de aritmética cuestan puntos en preguntas que ya estaban "ganadas". Repasalo bien
+        de aritmética cuestan puntos en preguntas que ya estaban "ganadas". Repásalo bien
         ahora: ahorra dolor después.
       </Hook>
 
@@ -481,7 +481,7 @@ function Esc08_MultProps() {
         <PorQue>
           Esta es la propiedad que justifica gran parte del álgebra. Cuando
           factorizas un polinomio o multiplicas (x+2)(x+3), estas usando la
-          distributiva. <strong>Memorizala bien.</strong>
+          distributiva. <strong>Memorízala bien.</strong>
         </PorQue>
       </Ejemplo>
 
@@ -496,11 +496,17 @@ function Esc08_MultProps() {
         </PorQue>
       </Ejemplo>
 
+      {/* "70 + 2 = 72" es el error clásico de la distributiva: multiplicar el 7
+          solo por el primer número de adentro. Estaba como parte de la respuesta
+          CORRECTA ("las dos b) y c)"), así que el ejercicio enseñaba justo el
+          error que tiene que evitar. Ahora es un distractor, que es su lugar.
+          Las otras opciones tampoco podían referirse a "b)" y "c)": AutoCheck no
+          rotula las opciones con letras, así que el alumno no las veía. */}
       <AutoCheck
         pregunta="Aplicando la distributiva, ¿cuánto es 7 · (10 + 2)?"
-        opciones={["72", "70 + 2 = 72", "7 · 12 = 84", "Las dos b) y c)"]}
-        correctaIdx={3}
-        explicacion="7·(10+2) = 7·10 + 7·2 = 70 + 14 = 84. Y también es 7 × 12 = 84. Ambas formas dan lo mismo."
+        opciones={["70 + 2 = 72", "7 · 10 + 2 = 72", "7 · 10 + 7 · 2 = 84", "7 · 10 · 7 · 2 = 980"]}
+        correctaIdx={2}
+        explicacion="7 · (10 + 2) = 7 · 10 + 7 · 2 = 70 + 14 = 84. El 7 multiplica a los DOS números de adentro, no solo al primero: ese es el error más común. Y se puede comprobar haciendo primero el paréntesis: 7 × 12 = 84, el mismo resultado."
       />
     </EscenaRica>
   );
@@ -884,7 +890,7 @@ function Esc16_Errores() {
         <strong>Error 5:</strong> Dividir por 0 sin darte cuenta. <br />
         <span style={{ fontSize: 13 }}>
           Si una expresión termina dividiendo por algo que vale 0, el resultado
-          <strong> no existe</strong>. Siempre chequeá que el denominador no sea 0.
+          <strong> no existe</strong>. Siempre revisa que el denominador no sea 0.
         </span>
       </Cuidado>
 
@@ -958,7 +964,7 @@ function Esc17_Practica() {
       <Titulo>Practica lo aprendido</Titulo>
       <Parrafo>
         Resuelve estos 5 ejercicios sin mirar las páginas anteriores. Si alguno te cuesta,
-        vuelve al ejemplo correspondiente y leelo de nuevo. <strong>El objetivo no es
+        vuelve al ejemplo correspondiente y léelo de nuevo. <strong>El objetivo no es
         acertar todo de una: es darte cuenta de qué te falta repasar.</strong>
       </Parrafo>
 

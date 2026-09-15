@@ -142,7 +142,7 @@ function EscSohCahToa() {
         • La hipotenusa es siempre la misma (lado más largo, opuesto al ángulo
         recto).<br />
         • El opuesto y adyacente CAMBIAN según qué ángulo agudo mires.<br />
-        • Si mirás el otro ángulo agudo (90° − θ), opuesto y adyacente se
+        • Si miras el otro ángulo agudo (90° − θ), opuesto y adyacente se
         intercambian.
       </Resumen>
     </EscenaRica>

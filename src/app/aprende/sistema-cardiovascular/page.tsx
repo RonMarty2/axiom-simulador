@@ -456,7 +456,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · 'El lado izquierdo del corazón está a tu izquierda'">
         <strong>Realidad:</strong> a la izquierda DEL paciente (a tu derecha
-        si lo mirás de frente).
+        si lo miras de frente).
       </Misconception>
 
       <Misconception titulo="Error 3 · 'En altura tienes menos glóbulos rojos'">

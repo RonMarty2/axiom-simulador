@@ -57,7 +57,7 @@ function EscEstrategia() {
         <strong>2. Lectura detallada después</strong>: identifica la <strong>idea principal de cada
         párrafo</strong> (es lo que el autor más repite o lo que articula al párrafo).<br /><br />
         <strong>3. Lee la pregunta CON ATENCIÓN</strong>: palabras como "según el texto", "se puede
-        deducir" o "principalmente" cambian todo. Subrayalas mentalmente.<br /><br />
+        deducir" o "principalmente" cambian todo. Subráyalas mentalmente.<br /><br />
         <strong>4. Vuelve al texto antes de elegir</strong>: nunca contestes solo "porque sí". Vuelve y
         verifica. Si dos opciones parecen buenas, la correcta es la <strong>más completa o más exacta</strong>.
       </Resumen>
@@ -97,7 +97,7 @@ function EscLectura1() {
     <EscenaRica>
       <Titulo>Ejemplo guiado · economía de mercado</Titulo>
       <Parrafo>
-        Aplica la estrategia que acabas de ver. Lee con calma, después contestá. Cada opción te explica
+        Aplica la estrategia que acabas de ver. Lee con calma, después contesta. Cada opción te explica
         por qué es buena o por qué no.
       </Parrafo>
       <LecturaQuiz
@@ -160,7 +160,10 @@ function EscLectura1() {
               "Los mercados de capital.",
             ],
             c: 2,
-            ex: "El texto menciona específicamente a los bancos centrales (Reserva Federal, Banco Central Europeo) como responsables de controlar la inflación. Aunque los gobiernos también participan, el texto atribuye explícitamente esta función a los bancos centrales.",
+            // Decía "(Reserva Federal, Banco Central Europeo)" y el texto de la
+            // lectura no nombra a ninguno de los dos. Justo en la lección que
+            // enseña la trampa de "verdadera pero ajena al texto".
+            ex: "El texto dice que los bancos centrales tienen como uno de sus principales objetivos el control de la inflación. Aunque los gobiernos también participan, el texto le atribuye esa función a los bancos centrales.",
           },
           {
             p: "Si las decisiones de política económica de un país afectan significativamente a otros países, esto se debe principalmente a:",

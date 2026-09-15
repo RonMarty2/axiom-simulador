@@ -137,7 +137,7 @@ function EscProcedimiento() {
         Si es constante → patrón multiplicativo.<br /><br />
         <strong>3. Si tampoco hay razón constante, miralo COMO PATRÓN CRECIENTE</strong>: las diferencias
         forman su propia secuencia (1, 2, 3, 4 o 2, 4, 6, 8).<br /><br />
-        <strong>4. Para alfabéticas, USÁ NÚMEROS</strong>: A=1, B=2, C=3, ..., Z=26. Busca el patrón en
+        <strong>4. Para alfabéticas, USA NÚMEROS</strong>: A=1, B=2, C=3, ..., Z=26. Busca el patrón en
         números, después convierte.<br /><br />
         <strong>5. Verifica con un término más:</strong> aplica tu regla y comprueba que el siguiente
         encaja.

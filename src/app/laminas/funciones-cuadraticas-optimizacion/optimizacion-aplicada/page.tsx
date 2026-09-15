@@ -35,7 +35,7 @@ export default function OptimizacionAplicadaPage() {
       contenido: (
         <div>
           <p style={{ margin: "0 0 12px", fontSize: 14.5, lineHeight: 1.6 }}>
-            Ya sabes hallar el vértice con <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>. Lo nuevo acá es armar VOS la función cuadrática a partir de un enunciado, antes de aplicar esa fórmula.
+            Ya sabes hallar el vértice con <MathText>{"$x=-\\dfrac{b}{2a}$"}</MathText>. Lo nuevo acá es armar TÚ la función cuadrática a partir de un enunciado, antes de aplicar esa fórmula.
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, padding: "12px 0", background: LIENZO.bgSoft, borderRadius: 12, fontSize: 14, fontWeight: 600 }}>
             <span>variable</span>

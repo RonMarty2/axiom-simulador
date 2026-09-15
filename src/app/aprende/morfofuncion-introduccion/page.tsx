@@ -419,7 +419,7 @@ function EscPractica() {
       <Misconception titulo="Error 1 · 'La mano derecha del paciente está a TU derecha'">
         <strong>Pensar:</strong> que tu derecha es la del paciente.<br />
         <strong>Realidad:</strong> NO. La derecha del paciente está a TU
-        IZQUIERDA si lo mirás de frente. Siempre se describe desde la
+        IZQUIERDA si lo miras de frente. Siempre se describe desde la
         perspectiva del paciente.
       </Misconception>
 

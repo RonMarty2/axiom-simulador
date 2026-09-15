@@ -263,7 +263,7 @@ function Esc04_Irracional() {
       </Parrafo>
 
       <Ejemplo titulo="¿Cuándo redondear?">
-        Solo redondeas cuando el problema lo pide explícitamente o cuando comparás
+        Solo redondeas cuando el problema lo pide explícitamente o cuando comparas
         magnitudes numéricas. En álgebra siempre deja la expresión exacta:
         ej. <strong>"el resultado es 3√2"</strong>, no "≈ 4.24".
       </Ejemplo>

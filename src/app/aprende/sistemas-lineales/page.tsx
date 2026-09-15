@@ -326,7 +326,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 2:</strong> Mal manejo de signos en reducción. <br />
         <span style={{ fontSize: 13 }}>
-          Si quieres cancelar +y con −y, suma. Si las dos son +y, RESTÁ. Cuidado.
+          Si quieres cancelar +y con −y, suma. Si las dos son +y, RESTA. Cuidado.
         </span>
       </Cuidado>
       <Cuidado>

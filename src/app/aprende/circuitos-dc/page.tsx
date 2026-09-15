@@ -82,7 +82,7 @@ function EscOhmSim() {
       </Resumen>
 
       <Parrafo>
-        Mueves los sliders y mirás cómo cambian la corriente y la potencia.
+        Mueves los sliders y miras cómo cambian la corriente y la potencia.
         Esta es la relación más fundamental de los circuitos.
       </Parrafo>
 

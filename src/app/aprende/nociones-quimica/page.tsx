@@ -344,7 +344,7 @@ function EscTemp() {
 
       <div style={{ maxWidth: 480, padding: 14, background: "var(--bg-card)", borderRadius: 10, margin: "14px 0" }}>
         <label style={{ fontSize: 13, color: LIENZO.fgDim, display: "block", marginBottom: 8 }}>
-          Mueves el slider y mirás las conversiones:
+          Mueves el slider y miras las conversiones:
         </label>
         <input type="range" min={-50} max={150} value={tempC}
           onChange={(e) => setTempC(parseInt(e.target.value))}

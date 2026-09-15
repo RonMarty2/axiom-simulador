@@ -1,255 +1,257 @@
 # Auditoría pedagógica · informe
 
 Encargo de §8 de la bitácora: leer el contenido con ojos de un alumno que ve el
-tema por primera vez y marcar lo que da por sabido. **Esto es un informe, no una
-lista de cambios aplicados.** Nada de lo de acá está corregido todavía.
+tema por primera vez y marcar lo que da por sabido.
 
-**Estado: 5 de las 9 lecciones gratis auditadas.** Las 4 restantes quedaron sin
-correr porque se agotó el límite de API de la sesión, no porque estén bien.
+**Las 9 lecciones del plan gratis están auditadas.** Son las que ve cualquiera
+que llega sin pagar, así que se priorizaron (D2).
 
-| Lección | Estado | Lagunas | Errores de contenido |
-|---|---|---|---|
-| divisiones-economia | auditada | 12 | 2 |
-| escasez-necesidades | auditada | 10 | 3 |
-| nociones-quimica | auditada | 15 | 4 |
-| segmentos-angulos | auditada | 10 | 2 |
-| vectores-fisica | auditada | 13 | 2 |
-| operaciones-fundamentales | **PENDIENTE** | — | — |
-| lectura-comprension | **PENDIENTE** | — | — |
-| metodologia-leyes | **PENDIENTE** | — | — |
-| perspectiva-historica-economia | **PENDIENTE** | — | — |
+| Lección | Lagunas | Errores de contenido |
+|---|---|---|
+| divisiones-economia | 12 | 2 |
+| escasez-necesidades | 10 | 3 |
+| nociones-quimica | 15 | 4 |
+| segmentos-angulos | 10 | 2 |
+| vectores-fisica | 13 | 2 |
+| operaciones-fundamentales | 11 | 3 |
+| lectura-comprension | 19 | 4 |
+| metodologia-leyes | 14 | 1 |
+| perspectiva-historica-economia | 17 | 4 |
+| **Total** | **121** | **25** |
 
-Después de estas 9 (que son el plan gratis, D2) quedan las otras 94 lecciones y
-las 64 láminas.
+Quedan **94 lecciones** y **64 láminas** sin auditar.
 
----
+## Qué ya está corregido y qué no
 
-## 1. ERRORES DE CONTENIDO — lo que hay que mirar primero
+**Corregido y en `main`** (solo lo que no admitía discusión):
 
-No son problemas de redacción: es contenido que le enseña mal al alumno. Cada
-uno necesita verificación antes de tocarlo.
+- El AutoCheck de la distributiva, que daba por correcta una respuesta falsa.
+- La explicación de `lectura-comprension` que citaba datos inexistentes.
+- 22 casos de voseo en 16 archivos.
 
-### escasez-necesidades
-
-- **Línea 294 · las cuentas no dan.** Total deseado 4.900 Bs. Si postergan el
-  celular (−800) y no salen a comer (−150), gastan **3.950 Bs**, y sobre 4.500
-  de ingreso **sobran 550**, no 250. El texto dice "quedan 4.750 Bs gastados"
-  (restó solo los 150), y con 4.750 sobre 4.500 no sobraría nada: faltarían 250.
-  Hay que rehacer el cierre del caso entero.
-- **Líneas 251 y 456 vs 387 · contradicción que hace fallar el ejercicio.** La
-  escena 4 y la práctica final dicen que el aire es el **único** bien libre; el
-  AutoCheck de la escena 7 cuenta también la luz solar y la lluvia. Un alumno que
-  estudió la escena 4 marca mal. Lo correcto es "el aire es el ejemplo clásico",
-  no "el único".
-- **Línea 485 · definición invertida.** "Si algo tiene precio, es escaso y
-  requirió trabajo" da vuelta la definición de la línea 363, y no siempre se
-  cumple (la tierra tiene precio sin requerir trabajo para existir).
-
-### segmentos-angulos
-
-- **Líneas 213-220 y 240-244 · la figura miente en dos de los botones.** En
-  `AnguloVisual` el `large-arc-flag` del arco está fijo en 0, así que **Cóncavo
-  (270°)** dibuja un arco chico de 90°, y **Completo (360°)** no dibuja arco
-  ninguno (el punto final coincide con el inicial) y los dos lados se superponen,
-  con lo que se ve idéntico a 0°. Los dos casos más difíciles de la escena
-  muestran una figura falsa. Se arregla calculando la bandera
-  (`large = medida > 180 ? 1 : 0`) y, para 360°, dibujando la circunferencia con
-  dos arcos o un `<circle>`.
-- **Líneas 509-510 · el número da, la razón es falsa.** "720 = 8 · 90 ✓ (la suma
-  de los 8 ángulos es 4 vueltas / 2)". Son **2 vueltas** (360° por cada uno de
-  los dos cruces). Y "8 · 90" sugiere que cada ángulo mide 90°, que es justo lo
-  que el problema niega.
-
-### vectores-fisica
-
-- **Líneas 268-271 · se contradice con su propia definición.** "En 2D el producto
-  vectorial es un escalar" contra la línea 243, que dice "Resultado: un VECTOR".
-  El producto cruz siempre da un vector; en 2D apunta en z y lo que se calcula es
-  su componente z. Además concluye |G⃗| = 67 salteándose que el módulo es el
-  **valor absoluto** de esa componente. (La aritmética está bien: 67.)
-- **Línea 148 · fórmula incompleta que da el ángulo equivocado.**
-  `θ = arctan(vy/vx)` falla cuando vx < 0: con A⃗ = (−3, 4) la calculadora
-  devuelve −53,1°, pero el vector está a 126,9°. Falta la corrección de cuadrante.
-
-### nociones-quimica
-
-- **Líneas 368-377 · el ejemplo resuelto se contradice solo.** Calcula bien
-  (5/9)(134−32) = 56,67 °C y la diferencia 26,67 °C, y después dice "probablemente
-  la respuesta era Ninguno porque no encajaba con las 4 opciones", sin mostrar las
-  opciones. Peor: el paréntesis "(las diferencias no se convierten igual que las
-  temperaturas absolutas)" no aplica acá, porque se convirtió una temperatura
-  absoluta. El alumno queda pensando que el 26,67 que acaba de calcular está mal.
-- **Línea 479 · "usar °C en Pitágoras de gases".** Pitágoras no tiene nada que
-  ver con gases; parece un residuo pegado de otra lección.
-- **Líneas 485-488 · el título enseña la operación equivocada.** "Error 3 · sumar
-  exponentes en cambio de prefijo": el factor 10⁹ para pasar de km a μm sale de
-  **restar**, 3 − (−6) = 9. El cierre repite "cuidado al sumar exponentes".
-- **Línea 412 · símbolo que choca con Física.** Usa γ para gravedad específica;
-  γ es convencionalmente el peso específico. Lo habitual para densidad relativa
-  es *s*, *d* o ρ_r.
-
-### divisiones-economia
-
-- **Línea 155-156 · inducción y deducción mal definidas.** "Si parte de una parte
-  conocida hacia hipótesis → deducción" no es una definición comprensible ni
-  correcta: la deducción va de lo general a lo particular. Hay que reescribir las
-  dos con un ejemplo cada una.
-- **Línea 151 · "la económica descriptiva"** — typo por "economía descriptiva".
+**Todo lo demás de este informe NO está corregido.** Los errores de contenido
+que quedan necesitan una decisión o una verificación contra la guía oficial
+antes de tocarlos, y las lagunas de redacción son muchas como para meterlas sin
+que alguien las lea.
 
 ---
 
-## 2. VIOLACIONES DE LA REGLA DE TUTEO
+## 1. ERRORES DE CONTENIDO
 
-Regla 2 de CLAUDE.md: el texto del alumno va en tuteo. La normalización del
-13-sep dejó estos afuera.
+No son problemas de redacción: es contenido que le enseña mal al alumno.
 
-- `nociones-quimica:56` — "el aire que respirás" → "respiras"
-- `nociones-quimica:347` — "Mueves el slider y mirás" → "miras"
-- `vectores-fisica:168` — "colocá B⃗ a continuación" → "coloca"
-- `escasez-necesidades:163` — "Esto que te pasa a tú" → "a ti" (esto lo rompió la
-  propia normalización a tuteo)
+### 1.1 Corregidos
+
+- **`operaciones-fundamentales` · el ejercicio de la distributiva enseñaba el
+  error que quería evitar.** Preguntaba "¿cuánto es 7 · (10 + 2)?" con las
+  opciones `["72", "70 + 2 = 72", "7 · 12 = 84", "Las dos b) y c)"]` y marcaba
+  como correcta la última. O sea que daba por **válida** la opción "70 + 2 = 72",
+  que es exactamente el error clásico de la distributiva: multiplicar el 7 solo
+  por el primer número de adentro. La explicación, además, se contradecía sola
+  (decía "70 + 14 = 84"). Como remate, "las dos b) y c)" citaba etiquetas que el
+  alumno no ve: `AutoCheck` no rotula las opciones con letras. Reescrito con
+  "70 + 2 = 72" como distractor, que es su lugar.
+- **`lectura-comprension` · una explicación inventaba datos.** Afirmaba que "el
+  texto menciona específicamente a los bancos centrales (Reserva Federal, Banco
+  Central Europeo)". El texto de esa lectura no nombra a ninguno de los dos.
+  Pasaba justo en la lección que enseña la "Trampa 3 · verdadera pero ajena"
+  ("si no está en el texto, NO es la respuesta").
+
+### 1.2 Pendientes de decidir
+
+**`escasez-necesidades`**
+- **L294 · las cuentas no dan.** Total deseado 4.900 Bs. Si postergan el celular
+  (−800) y no salen a comer (−150), gastan **3.950**, y sobre 4.500 de ingreso
+  **sobran 550**, no 250. El texto dice "quedan 4.750 gastados" (restó solo los
+  150), y con 4.750 sobre 4.500 faltarían 250, no sobrarían. Hay que rehacer el
+  cierre del caso.
+- **L251 y L456 vs L387 · contradicción que hace fallar el ejercicio.** La escena
+  4 y la práctica final dicen que el aire es el **único** bien libre; el AutoCheck
+  de la escena 7 cuenta también la luz solar y la lluvia. El que estudió la
+  escena 4 marca mal. Lo correcto es "el ejemplo clásico", no "el único".
+- **L485 · definición invertida.** "Si algo tiene precio, es escaso y requirió
+  trabajo" da vuelta la definición de L363, y no siempre se cumple: la tierra
+  tiene precio sin requerir trabajo para existir.
+
+**`segmentos-angulos`**
+- **L213-220 y L240-244 · la figura miente en dos botones.** En `AnguloVisual` el
+  `large-arc-flag` está fijo en 0, así que **Cóncavo (270°)** dibuja un arco de
+  90°, y **Completo (360°)** no dibuja arco ninguno (punto final = inicial) y se
+  ve idéntico a 0°. Son los dos casos más difíciles de la escena. Se arregla
+  calculando la bandera (`large = medida > 180 ? 1 : 0`) y, para 360°, usando dos
+  arcos o un `<circle>`.
+- **L509-510 · el número da, la razón es falsa.** "720 = 8 · 90 ✓ (4 vueltas / 2)".
+  Son **2 vueltas** (360° por cada cruce). Y "8 · 90" sugiere que cada ángulo mide
+  90°, que es justo lo que el problema niega.
+
+**`vectores-fisica`**
+- **L268-271 · se contradice con su propia definición.** "En 2D el producto
+  vectorial es un escalar" contra L243, "Resultado: un VECTOR". El producto cruz
+  siempre da un vector; en 2D apunta en z y se calcula su componente z. Además
+  concluye |G⃗| = 67 salteándose que el módulo es el **valor absoluto**.
+- **L148 · fórmula incompleta que da el ángulo equivocado.** `θ = arctan(vy/vx)`
+  falla con vx < 0: para (−3, 4) la calculadora da −53,1° pero el vector está a
+  126,9°. Falta la corrección de cuadrante.
+
+**`nociones-quimica`**
+- **L368-377 · el ejemplo resuelto se contradice solo.** Calcula bien 56,67 °C y
+  la diferencia 26,67 °C, y después dice "probablemente la respuesta era Ninguno",
+  sin mostrar las opciones. El paréntesis "(las diferencias no se convierten igual
+  que las absolutas)" no aplica acá. El alumno queda pensando que lo que calculó
+  está mal.
+- **L479 · "usar °C en Pitágoras de gases".** Pitágoras no tiene nada que ver con
+  gases: parece un residuo pegado de otra lección.
+- **L485-488 · el título enseña la operación equivocada.** "Error 3 · sumar
+  exponentes": el factor 10⁹ de km a μm sale de **restar**, 3 − (−6) = 9.
+- **L412 · símbolo que choca con Física.** Usa γ para gravedad específica; γ es
+  convencionalmente el peso específico.
+
+**`operaciones-fundamentales`**
+- **L734-736 · la justificación de PEMDAS no se sostiene.** "Si fuera al revés no
+  habría forma de escribir 'el doble de algo más uno' sin paréntesis" es falso:
+  con el orden invertido solo cambiarían de lugar los paréntesis. El argumento
+  real es de economía de escritura en álgebra (2x + 5 y 3x² + 2x + 1 se escriben
+  sin un solo paréntesis).
+- **L606 vs L641 y L935 · separador decimal inconsistente.** "0.25" con punto y
+  "3,5" con coma, en escenas distintas. Conviene coma en todos (uso boliviano).
+
+**`lectura-comprension`**
+- **L501/504 · un ejercicio tiene dos opciones correctas.** Se marca "El acceso a
+  mercados más amplios", pero "La ausencia de barreras geográficas" también es una
+  ventaja que el texto afirma, y la propia explicación la cita. Hay que reformular
+  la segunda para que sea falsa.
+- **L718 · opción correcta circular.** "Los impuestos progresivos son efectivos
+  cuando la riqueza se redistribuye de manera equitativa" es circular, y el texto
+  no enuncia esa condición. El texto sí da una real: que no obstaculice el
+  dinamismo económico.
+- **L249/L258 · la opción es más fuerte que el texto.** Dice "No se aplica
+  **ninguna** política de redistribución"; el texto dice "si no se aplican
+  **adecuadamente**".
+- **L48-51 · atribución dudosa.** La definición de comprensión lectora se cierra
+  con "(RAE)" y la RAE no la define así.
+
+**`perspectiva-historica-economia`**
+- **L21, L58, L137 · "síntesis neoclásica" mal atribuida a Marshall.** Marshall
+  (*Principles*, 1890) funda la economía neoclásica. "Síntesis neoclásica" es otra
+  cosa y posterior: la fusión de Keynes con lo neoclásico por Hicks y Samuelson
+  después de 1945. Puede hacer fallar una pregunta de examen.
+- **L39-40 · atribución que invierte a Aristóteles.** Él separaba la *oikonomía*
+  (administrar la casa) de la *crematística*, el "arte de la adquisición", que
+  criticaba. Presentar lo segundo como su definición de economía lo da vuelta.
+- **L36 · "oikonomia significa 'el que administra una casa'".** Eso es
+  *oikonómos*; *oikonomía* es la administración o las reglas de la casa. El propio
+  ejercicio de L229 da como correcta "administrar una casa".
+- **L127 · título de la obra de Marx.** Cita "Introducción a la Crítica de la
+  Economía Política"; la obra publicada es *Contribución a la crítica de la
+  economía política* (1859).
+
+**`metodologia-leyes`**
+- **L162 · la ley de demanda enunciada al revés.** "Por la ley de demanda baja el
+  precio". La ley relaciona una baja de precio con una suba de la cantidad
+  demandada; no predice el precio.
+
+**`divisiones-economia`**
+- **L155-156 · inducción y deducción mal definidas.** "Si parte de una parte
+  conocida hacia hipótesis → deducción" no es comprensible ni correcto: la
+  deducción va de lo general a lo particular.
+- **L151 · "la económica descriptiva"** — typo por "economía descriptiva".
+
+---
+
+## 2. PATRONES QUE SE REPITEN
+
+No son 121 problemas distintos: son cinco patrones que vuelven en casi todas.
+
+1. **Autor citado sin presentar** (11 casos). "Como dice Demo", "Samuelson:",
+   "Richardson", "Mankiw", "Charles Gide", "Zamora", "Lange", "Quesnay",
+   "Ricardo". El alumno no tiene idea de quiénes son y la cita no le agrega nada.
+   Alcanza con una aposición de seis palabras: quién fue, de dónde, por qué
+   importa.
+2. **Término anunciado en una lista y nunca retomado** (9 casos). El más claro:
+   `divisiones-economia` promete "descripción, sistematización y **normalización**"
+   y nunca define la tercera. Igual con "modelo", "más exacta", "Trampa 3".
+3. **Jerga académica traducida literal** (más de 20 casos). "Sostenido por la
+   credibilidad derivada de tentativas primitivas", "proceso apriorístico",
+   "interpenetración", "resultado global de una infinidad de hechos elementales".
+   Son frases de manual universitario copiadas tal cual.
+4. **Notación que entra sin puente** (14 casos). El sombrerito de los versores,
+   las barras de valor absoluto, Δ, ρ, γ, α, los subíndices de las fórmulas
+   químicas, 6,022 × 10²³, `C = f(Y)`. Aparecen y se usan en la misma línea.
+5. **Extranjerismo sin traducir** (5 casos). "pegging", "peg", "slider",
+   "e-commerce", "PyMEs".
+
+Y uno más chico pero que vale: **la misma idea con dos nombres distintos entre
+escenas** (8 casos), del tipo "credulidad" y "credibilidad", o "idea principal",
+"tema central", "idea central" y "eje" para lo mismo. Varias veces eso hace que
+el ejercicio contradiga a la escena que lo precede.
 
 ---
 
 ## 3. LAGUNAS POR LECCIÓN
 
-Formato: línea · qué pasa → qué propone.
+El detalle línea por línea, con la propuesta de reemplazo de cada una, está en
+los informes de los agentes. Acá va el índice de lo más importante de cada
+lección; lo demás cae en los cinco patrones de arriba.
 
-### divisiones-economia
-
-1. **L36** — Se anuncian tres etapas: descripción, sistematización y
-   **normalización**. "Normalización" no se define nunca y jamás se retoma: el
-   alumno queda con una palabra suelta. Hay que cerrarla contra ideología /
-   política económica, que es a lo que corresponde.
-2. **L41 vs L78** — "credulidad" en la escena 1 y "credibilidad" en la escena 2.
-   Son palabras distintas con significados distintos.
-3. **L41** — "destreza" como rasgo del sentido común, sin explicar en qué sentido.
-4. **L79** — "sostenido por la credibilidad derivada de tentativas primitivas y
-   sin explicación": jerga académica traducida literal, ilegible para un alumno.
-5. **L96** — "Consistencia: resistencia a la argumentación contraria" se define
-   con palabras igual de abstractas y sin ejemplo.
-6. **L117** — "Como dice Demo" — nunca se dice quién es Demo.
-7. **L212** — "Samuelson:" — igual, se cita sin presentar.
-8. **L112** — "necesidad de legitimación de un orden institucional": muy
-   abstracto, sin bajar a un ejemplo.
-9. **L157** — "interpenetración" — palabra rarísima, sin explicar.
-10. **L185** — "pegging del boliviano al dólar" — extranjerismo técnico sin
-    traducir.
-11. **L58** — la mnemotecnia "SC-CI" no se corresponde con las iniciales que
-    lista (S, C, I). Confunde en vez de ayudar.
-12. **L129-191** — las tres divisiones se definen por separado y nunca se ve un
-    mismo hecho económico mirado por las tres. Falta el puente (regla 1 de §4.5).
-
-### escasez-necesidades
-
-1. **L191** — "Como observa Richardson" sin decir quién es.
-2. **L227** — "Principio 1 de Mankiw" y "disyuntivas": ni quién es Mankiw ni qué
-   es una disyuntiva.
-3. **L251** — usa "bien libre" cuatro escenas antes de definirlo, y no dice por
-   qué el aire lo es.
-4. **L257** — "ley milenaria de la escasez" aparece una sola vez, sin definir, y
-   no se explica qué tiene que ver el pan con el sudor.
-5. **L280** — "Ahorrar para emergencias · ¿?": el signo de pregunta no se cierra
-   y el ahorro no entra en el total de 4.900 Bs.
-6. **L324** — "Charles Gide (siglo XIX) decía" sin decir quién fue.
-7. **L335** — "la industria publicitaria existe para CREAR necesidades" se
-   declara sin fundamentar.
-8. **L375** — "SeLA", "SeMAPA": siglas sin desarrollar.
-9. **L169** — "Mueves los sliders": extranjerismo.
-10. **L472** — la opción correcta dice que en economías ricas la escasez "se
-    vuelve más grave", pero la escena 6 enseña que "cambia de cara". El que
-    estudió la escena 6 marca mal.
-
-### nociones-quimica
-
-1. **L62-64** — las primeras fórmulas (H₂O, NaCl, C₆H₁₂O₆) aparecen sin decir
-   nunca qué es un subíndice ni cómo se lee una fórmula.
-2. **L68** — "una sola fase visible": "fase" es la palabra clave de la escena y
-   no se traduce.
-3. **L75** — "filtración, destilación, decantación": tres métodos nombrados y
-   nunca explicados.
-4. **L245** — "fracciones que equivalen a 1" se afirma sin decir por qué, y es la
-   idea entera del método de conversión.
-5. **L249** — "SI" nunca se expande, y se usan potencias 30 líneas antes de la
-   escena que las enseña.
-6. **L289** — "1 ≤ |a| < 10": las barras de valor absoluto entran sin puente.
-7. **L295** — 6,022 × 10²³ sin decir qué cuenta ni para qué sirve.
-8. **L331** — "100° agua hierve (al nivel del mar)" sin decir por qué importa la
-   aclaración, que es justo lo relevante para Cochabamba (a 2.570 m hierve a
-   ~92 °C).
-9. **L334** — "0 K es el cero absoluto" se declara sin fundamentar.
-10. **L340** — °F = (9/5)°C + 32 cae del cielo; no se dice de dónde sale el 9/5
-    ni el 32.
-11. **L380** — Δ aparece por primera y única vez sin traducción.
-12. **L392 y L412** — ρ y γ: letras griegas sin nombrar.
-13. **L397 vs L418** — define las unidades en g/cm³ y el ejemplo resuelto usa
-    g/mL sin avisar que son lo mismo.
-14. **L482** — Boyle, Charles y gas ideal nombrados; el alumno no los vio ni los
-    va a ver en esta lección.
-15. **L485-488** — regla sin ejemplo trabajado (además del error de contenido).
-
-### segmentos-angulos
-
-1. **L42-58** — "no se definen porque son los ladrillos primarios" y justo abajo
-   tres bloques `Definicion`. Se contradice.
-2. **L64 y L132** — describe el símbolo con palabras ("AB con flechita arriba")
-   y nunca lo muestra renderizado.
-3. **L133** — "m(AB)" se introduce y no vuelve a aparecer en toda la lección.
-4. **L146-152** — el título dice "AB ≠ BA si hablamos de notación" y el cuerpo
-   dice que son la misma figura. Además "vectores", "opuestos" y "sentido"
-   llegan sin explicación.
-5. **L270-277** — enseña la notación ∠AOB con tres letras, pero el dibujo solo
-   rotula O: A y B no existen en la figura.
-6. **L282-284** — "la vuelta completa son 2π radianes" sin haber dicho nunca qué
-   es un radián.
-7. **L356** — "perpendicular" aparece sin explicar.
-8. **L409-413** — "los que NO son adyacentes son IGUALES": "adyacentes" se
-   explica recién 130 líneas después, la igualdad se afirma sin prueba, y no hay
-   ningún dibujo de las dos rectas cortándose.
-9. **L455-492 (la más grave)** — toda la escena de paralelas describe 8 ángulos y
-   4 pares en puro texto, sin un solo dibujo. "Misma posición relativa respecto
-   al cruce" es imposible de entender sin verlo.
-10. **L500** — "los 8 ángulos solo pueden tener 2 medidas distintas": dos saltos
-    lógicos en un mismo paso.
-
-### vectores-fisica
-
-1. **L93** — "5 m/s norte + 3 m/s este ≠ 8 m/s": dice que no da 8 pero nunca dice
-   qué da (5,83 en diagonal), así que no se ve la regla nueva.
-2. **L115** — la figura muestra componentes (tema de la escena siguiente)
-   mientras el texto habla de módulo, dirección y sentido.
-3. **L136** — el sombrerito (î, ĵ), el par ordenado y el punto como "escalar por
-   vector" entran los tres de golpe.
-4. **L167-170** — el método gráfico de suma se explica solo con palabras, sin
-   dibujo.
-5. **L209/211** — las dos fórmulas del producto escalar se dan sueltas, sin decir
-   que son la misma cosa.
-6. **L225 y L303** — **el mismo "·" cambia de significado a mitad de renglón**:
-   "A⃗ · B⃗ = 3·1 + 4·2". A la izquierda es la operación nueva (producto escalar),
-   a la derecha es multiplicación común. Es el mismo problema que ya se corrigió
-   en `mcd-mcm`, y acá es peor porque el alumno está aprendiendo justamente a
-   distinguir esa operación.
-7. **L230** — "W = F⃗ · d⃗ = F·d·cos θ": "F·d" parece otro producto escalar.
-8. **L244** — |A⃗ × B⃗| = |A||B| sen θ aparece sin ninguna razón (es el área del
-   paralelogramo).
-9. **L246** — "regla de la mano derecha" se nombra y no se explica ni se dibuja.
-10. **L252** — la expresión 3D del producto cruz no se deriva, no se usa, y el
-    ejemplo siguiente aplica otra regla distinta.
-11. **L336** — el ejercicio 5 pide "vector unitario" y la lección nunca enseña
-    cómo obtenerlo.
+- **divisiones-economia** — "normalización" nunca se cierra (L36);
+  "credulidad"/"credibilidad" (L41 vs L78); la mnemotecnia "SC-CI" no se
+  corresponde con las iniciales que lista (L58); las tres divisiones nunca se ven
+  aplicadas a un mismo hecho económico.
+- **escasez-necesidades** — "bien libre" se usa cuatro escenas antes de definirlo
+  (L251); "ley milenaria de la escasez" aparece una vez y sin definir (L257); un
+  rubro del presupuesto queda con "¿?" y no entra en el total (L280).
+- **nociones-quimica** — las primeras fórmulas aparecen sin decir nunca cómo se
+  lee una fórmula (L62); "fase" es la palabra clave de la escena y no se traduce
+  (L68); °F = (9/5)°C + 32 cae del cielo (L340); 6,022 × 10²³ sin decir qué cuenta
+  (L295).
+- **segmentos-angulos** — dice "no se definen porque son ladrillos primarios" y
+  abajo pone tres `Definicion` (L42); enseña ∠AOB con tres letras pero el dibujo
+  solo rotula O (L270); "2π radianes" sin haber dicho qué es un radián (L282);
+  **toda la escena de paralelas describe 8 ángulos sin un solo dibujo** (L455-492,
+  la peor de la lección).
+- **vectores-fisica** — **el mismo "·" cambia de significado a mitad de renglón**
+  ("A⃗ · B⃗ = 3·1 + 4·2", L225 y L303): a la izquierda es la operación nueva, a la
+  derecha es multiplicación común, justo cuando el alumno está aprendiendo a
+  distinguirla; el método gráfico de suma se explica sin dibujo (L167); el
+  ejercicio 5 pide "vector unitario" y la lección nunca enseña a obtenerlo (L336).
+- **operaciones-fundamentales** — **nunca se dice qué es un exponente** y sin
+  embargo "3²" aparece en tres lugares (L91, L553, L757); "opuesto" se usa dos
+  veces sin definir (L138, L322); restar un negativo se resuelve con una regla que
+  no se enunció (L831); "−(−4)" aparece en la práctica sin haberse explicado
+  (L940).
+- **lectura-comprension** — "inferir" nunca se explica, siendo media lección
+  (L44); la escena se llama "Ejemplo guiado" y no guía nada, el único caso resuelto
+  paso a paso está recién en la escena 10 (L98); varios ejercicios no justifican
+  por qué se descarta la opción tentadora (L261, L317), que en comprensión lectora
+  es lo que hay que enseñar.
+- **metodologia-leyes** — "apriorístico" sin traducir (L72); de las cuatro cosas
+  que anuncia ("principios, teorías, leyes y modelos") solo desarrolla las leyes
+  (L78); `C_D = f(P)` sin explicar la notación (L178).
+- **perspectiva-historica-economia** — los mercantilistas se nombran y se les
+  atribuye un giro histórico sin decir quiénes eran (L77); Quesnay, Ricardo y
+  Lange aparecen sin presentación; la definición de Robbins, "la más preguntada
+  del bloque", no tiene un solo ejemplo (L172); el título de una escena dice
+  "Smith y Quesnay" y el índice dice "Smith y Ricardo" (L91 vs L19).
 
 ---
 
-## 4. LO QUE FALTA
+## 4. CÓMO SEGUIR
 
-1. **Las 4 lecciones gratis pendientes**: `operaciones-fundamentales` (1.044
-   líneas, la más larga), `lectura-comprension` (890), `metodologia-leyes` (238),
-   `perspectiva-historica-economia` (253).
-2. **Las otras 94 lecciones** de `src/app/aprende/*/page.tsx`.
-3. **Las 64 láminas** de `src/app/laminas/*/*/page.tsx`.
+Faltan 94 lecciones (`src/app/aprende/*/page.tsx`) y 64 láminas
+(`src/app/laminas/*/*/page.tsx`).
 
-El método que funcionó: un agente por lección, con instrucción de leer el archivo
-completo, los 8 tipos de laguna de §8 de la bitácora, y ejemplos concretos de
-calibración sacados de una lección ya auditada a mano. Los agentes que además
-verificaron las cuentas encontraron los errores de contenido; los que solo
-buscaron redacción, no.
+**El método que funcionó:** un agente por lección, con instrucción de leer el
+archivo completo, los tipos de laguna de §8 de la bitácora, y **ejemplos
+concretos de calibración sacados de una lección ya auditada a mano**. Sin esos
+ejemplos los informes salen genéricos.
+
+**Lo que más rindió:** pedirles explícitamente que **verifiquen las cuentas y
+resuelvan los ejercicios** antes de darlos por buenos. Los errores más graves
+—el de la distributiva, el presupuesto que no cierra, las dos opciones correctas—
+salieron de ahí, no de leer la redacción. Un agente que solo busca prosa confusa
+no los encuentra.
+
+**Ojo con los falsos positivos al barrer voseo**: "sabes" es tuteo correcto, el
+voseo es "sabés". Un patrón sin la tilde marca 87 líneas, casi todas buenas. Y
+los comentarios de código van en rioplatense a propósito (regla 2): no son
+errores.

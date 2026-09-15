@@ -552,7 +552,7 @@ function Esc09_Practica() {
           style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
-            {ok === ejs.length && "🎉 Sos máquina factorizando."}
+            {ok === ejs.length && "🎉 Eres máquina factorizando."}
             {ok >= 3 && ok < ejs.length && "Bien. Releí la estrategia (escena 7) para elegir mejor el método."}
             {ok < 3 && "Vuelve a la estrategia (escena 7). Es la clave: probar primero factor común."}
           </div>

@@ -160,7 +160,7 @@ function Esc01_Hook() {
         renunciar a algo que también querías.
       </Parrafo>
       <Parrafo>
-        Esto que te pasa a tú, le pasa a tu familia, le pasa al gobierno y le pasa a todos los países
+        Esto que te pasa a ti, le pasa a tu familia, le pasa al gobierno y le pasa a todos los países
         del mundo. Es la base de TODA la economía. Tiene nombre:{" "}
         <strong style={{ color: LIENZO.accent }}>el problema de la escasez</strong>.
       </Parrafo>

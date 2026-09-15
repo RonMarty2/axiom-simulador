@@ -92,7 +92,7 @@ function EscPatrones() {
         (c) Fecha tardía en una secuencia cronológica.<br /><br />
 
         <strong>Práctica mental:</strong> mira las 4 oraciones y SIN leer las opciones, decidí
-        cuál sería la 1ra y cuál la última. Después comparás con las opciones: el 80% se
+        cuál sería la 1ra y cuál la última. Después comparas con las opciones: el 80% se
         descarta automáticamente.
       </WorkedExample>
 
