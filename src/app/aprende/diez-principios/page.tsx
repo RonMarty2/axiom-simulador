@@ -34,7 +34,7 @@ export default function Page() {
         { titulo: "Principio 8 · Productividad", componente: P8 },
         { titulo: "Principio 9 · Inflación monetaria", componente: P9 },
         { titulo: "Principio 10 · Disyuntiva inflación/desempleo", componente: P10 },
-        { titulo: "Mnemotecnia de los 10 · MUEY GLOMER", componente: EscMnemo },
+        { titulo: "Mnemotecnia de los 10 · Decidir, Interactuar, País", componente: EscMnemo },
         { titulo: "Práctica final", componente: EscPrac },
       ]}
     />
@@ -68,7 +68,7 @@ function EscIntroA() {
     <EscenaRica>
       <Titulo>Los 10 principios de la economía</Titulo>
       <Hook>
-        Imaginate que todo lo que vamos a estudiar en economía pudiera resumirse en{" "}
+        Imagínate que todo lo que vamos a estudiar en economía pudiera resumirse en{" "}
         <strong>10 frases sueltas</strong>, cortas y memorables. Esos son los 10 principios de Mankiw.
         Si los entiendes bien, ya piensas como economista.
       </Hook>
@@ -121,8 +121,8 @@ function P1() {
         achicar el pastel total. Por eso los gobiernos siempre tienen que balancear las dos.
       </Misconception>
       <CasoBolivia>
-        Bolivia destina recursos a defensa, a salud y a educación. <strong>Cada Boliviano gastado en
-        un avión militar es un Boliviano menos para hospitales o universidades.</strong> Esa es la
+        Bolivia destina recursos a defensa, a salud y a educación. <strong>Cada boliviano gastado en
+        un avión militar es un boliviano menos para hospitales o universidades.</strong> Esa es la
         disyuntiva nacional clásica ("pan vs armas"). En el presupuesto 2024, salud llevó ~14% y
         defensa ~6%: esos números reflejan elecciones.
       </CasoBolivia>
@@ -217,7 +217,7 @@ function P3() {
         100 veces más útil para vivir.
       </Ejemplo>
       <MiniQuiz
-        pregunta="Trabajaste 8 horas y estas cansado. ¿Conviene quedarte una hora más?"
+        pregunta="Trabajaste 8 horas y estás cansado. ¿Conviene quedarte una hora más?"
         opciones={[
           "Sí, siempre que el sueldo total siga subiendo.",
           "Sí, si el sueldo extra de esa hora supera el cansancio que te genera.",
@@ -232,7 +232,7 @@ function P3() {
         base de toda microeconomía.
       </Resumen>
       <Mnemotecnia>
-        Cuando dudes, preguntate: <strong>"¿la PRÓXIMA unidad vale la pena?"</strong> No mires el
+        Cuando dudes, pregúntate: <strong>"¿la PRÓXIMA unidad vale la pena?"</strong> No mires el
         promedio, no mires el total. Mira el margen.
       </Mnemotecnia>
     </EscenaRica>
@@ -411,7 +411,7 @@ function P7() {
         indebidamente en los precios (monopolio).
       </Definicion>
       <CasoBolivia>
-        <strong>SeMAPA (agua potable en Cochabamba)</strong> y <strong>SeLA (La Paz)</strong> son
+        <strong>SeMAPA (agua potable en Cochabamba)</strong> y <strong>EPSAS (La Paz)</strong> son
         empresas públicas porque el agua potable es un caso de "monopolio natural": no tiene sentido
         que 5 empresas pongan caños paralelos en cada calle. El Estado provee el servicio para evitar
         un monopolio privado abusivo.<br /><br />
@@ -469,7 +469,7 @@ function P8() {
         • Recursos naturales (en algunos casos).
       </Resumen>
       <CasoBolivia>
-        Bolivia tiene <strong>~9% del PIB sudamericano</strong> y una de las productividades más
+        Bolivia aporta cerca del <strong>1% del PIB sudamericano</strong> y tiene una de las productividades más
         bajas de la región. Mejorar el nivel de vida boliviano de manera SUSTENTABLE no se logra
         regalando bonos: se logra <strong>aumentando la productividad</strong> (escuelas mejores,
         infraestructura, acceso a tecnología). Esa es la apuesta de largo plazo.

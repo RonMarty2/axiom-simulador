@@ -114,8 +114,21 @@ function EscIntro() {
         • <strong>3 vértices</strong>: nombrados con letras mayúsculas A, B, C.<br />
         • <strong>3 lados</strong>: nombrados con la letra minúscula del vértice
         OPUESTO. El lado a está enfrente del vértice A.<br />
-        • <strong>3 ángulos interiores</strong>: ∠A, ∠B, ∠C (o α, β, γ).
+        • <strong>3 ángulos interiores</strong>: ∠A, ∠B, ∠C. También se escriben con
+        letras griegas: α (se lee "alfa") para ∠A, β ("beta") para ∠B y γ ("gamma")
+        para ∠C. Son solo otro nombre para lo mismo.
       </Resumen>
+
+      {/* El ejercicio 7 de la práctica final se resuelve con esto y no estaba
+          enseñado en ninguna escena: el alumno no tenía de dónde sacarlo. */}
+      <Definicion termino="desigualdad triangular">
+        No cualquier trío de medidas forma un triángulo. Para que se pueda cerrar,
+        <strong> la suma de dos lados cualesquiera tiene que ser mayor que el tercero</strong>.
+        <br /><br />
+        Con 3, 4 y 8 no se puede: 3 + 4 = 7, y 7 no llega a 8. Si apoyas los dos lados
+        cortos sobre el largo, no se tocan y te queda un hueco. Con 3, 4 y 5 sí,
+        porque 3 + 4 = 7 y 7 sí pasa de 5.
+      </Definicion>
 
       <Mnemotecnia>
         <strong>Convención universal</strong>: el lado se nombra con la letra
@@ -315,43 +328,58 @@ function EscSuma180() {
 function PitagorasVisual() {
   return (
     <div style={{ width: "100%", maxWidth: 480 }}>
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 400 260"
+      {/* Coordenadas calculadas, no dibujadas a ojo (regla 7 de §4.5).
+          Lo que había antes no mostraba el teorema: los dos "cuadrados" sobre
+          los catetos eran rectángulos (120×60 y 50×100) y sobre la hipotenusa
+          no había ninguno, justo al lado del texto que promete "el cuadrado
+          sobre la hipotenusa es igual a la suma de los otros dos". Además los
+          lados estaban rotulados al revés de la convención que enseña esta
+          misma lección (cada lado lleva la letra del vértice opuesto).
+          Ahora el ángulo recto va en C, así la hipotenusa es AB = c y la
+          fórmula c² = a² + b² se lee directo del dibujo.
+          Escala: 13px por unidad. Catetos 6 y 5, hipotenusa √61 ≈ 7,81. */}
+      <Pizarra alto={310}>
+        <svg width="100%" height="100%" viewBox="0 0 400 310"
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}>
-          {/* Triángulo rectángulo central */}
-          <motion.polygon points="160,180 280,180 280,80"
-            fill={`${LIENZO.accent}33`} stroke={LIENZO.accent} strokeWidth="2.5"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} />
-          {/* Cuadrado del cateto horizontal (sobre lado b=120 pixeles) */}
-          <motion.rect x="160" y="180" width="120" height="60"
+          {/* Cuadrado sobre la hipotenusa AB: rotado, hacia afuera del triángulo */}
+          <motion.polygon points="132,196 210,131 145,53 67,118"
+            fill={`${LIENZO.accent}22`} stroke={LIENZO.accent} strokeWidth="2"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0, duration: 0.4 }} />
+          <motion.text x="138" y="130" textAnchor="middle" fontSize="15" fill={LIENZO.accent} fontWeight="700"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>c² = 61</motion.text>
+
+          {/* Cuadrado sobre el cateto AC (b = 6), colgando hacia abajo */}
+          <motion.rect x="132" y="196" width="78" height="78"
             fill={`${COLOR_OK}33`} stroke={COLOR_OK} strokeWidth="2"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 0.4 }} />
-          <motion.text x="220" y="220" textAnchor="middle" fontSize="14" fill={COLOR_OK} fontWeight="700"
+          <motion.text x="171" y="241" textAnchor="middle" fontSize="15" fill={COLOR_OK} fontWeight="700"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>b² = 36</motion.text>
-          {/* Cuadrado del cateto vertical (sobre lado a=100 pixeles) */}
-          <motion.rect x="280" y="80" width="50" height="100"
+
+          {/* Cuadrado sobre el cateto CB (a = 5), hacia la derecha */}
+          <motion.rect x="210" y="131" width="65" height="65"
             fill={`${COLOR_EXP}33`} stroke={COLOR_EXP} strokeWidth="2"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.4 }} />
-          <motion.text x="305" y="135" textAnchor="middle" fontSize="14" fill={COLOR_EXP} fontWeight="700"
+          <motion.text x="243" y="169" textAnchor="middle" fontSize="15" fill={COLOR_EXP} fontWeight="700"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}>a² = 25</motion.text>
-          {/* Etiquetas en el triángulo */}
-          <text x="160" y="200" fontSize="12" fill={LIENZO.fg} fontWeight="600">A</text>
-          <text x="285" y="200" fontSize="12" fill={LIENZO.fg} fontWeight="600">B</text>
-          <text x="285" y="76" fontSize="12" fill={LIENZO.fg} fontWeight="600">C</text>
-          <text x="220" y="170" textAnchor="middle" fontSize="13" fill={COLOR_OK} fontWeight="700">b = 6</text>
-          <text x="293" y="135" fontSize="13" fill={COLOR_EXP} fontWeight="700">a = 5</text>
-          <text x="195" y="130" fontSize="13" fill={LIENZO.accent} fontWeight="700">c (hip.)</text>
-          {/* Marca del ángulo recto */}
-          <polyline points="270,180 270,170 280,170" fill="none" stroke={LIENZO.fg} strokeWidth="1.5" />
-          {/* Resultado */}
-          <motion.text x="200" y="40" textAnchor="middle" fontSize="16" fill={LIENZO.fg} fontWeight="700"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}>
-            c² = a² + b² = 25 + 36 = 61
-          </motion.text>
-          <motion.text x="200" y="60" textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}
+
+          {/* El triángulo va último para que quede encima de los cuadrados */}
+          <motion.polygon points="132,196 210,196 210,131"
+            fill={LIENZO.bg} stroke={LIENZO.fg} strokeWidth="2.5"
+            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.5 }} />
+          {/* Marca del ángulo recto, en C */}
+          <polyline points="198,196 198,184 210,184" fill="none" stroke={LIENZO.fg} strokeWidth="1.5" />
+
+          <text x="124" y="207" fontSize="13" fill={LIENZO.fg} fontWeight="700">A</text>
+          <text x="215" y="127" fontSize="13" fill={LIENZO.fg} fontWeight="700">B</text>
+          <text x="215" y="208" fontSize="13" fill={LIENZO.fg} fontWeight="700">C</text>
+          <text x="171" y="211" textAnchor="middle" fontSize="12" fill={COLOR_OK} fontWeight="700">b = 6</text>
+          {/* Adentro del triángulo, no afuera: afuera se pisaba con "a² = 25" */}
+          <text x="205" y="172" textAnchor="end" fontSize="12" fill={COLOR_EXP} fontWeight="700">a = 5</text>
+
+          <motion.text x="200" y="293" textAnchor="middle" fontSize="15" fill={LIENZO.fg} fontWeight="700"
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.3 }}>
-            c = √61 ≈ 7.81
+            c² = a² + b² = 25 + 36 = 61 → c = √61 ≈ 7,81
           </motion.text>
         </svg>
       </Pizarra>

@@ -158,15 +158,21 @@ function EscRespPanorama() {
         <strong>C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + 36–38 ATP</strong>
       </Definicion>
 
-      <Pizarra alto={230}>
-        <svg width="100%" height="100%" viewBox="0 0 720 230" preserveAspectRatio="xMidYMid meet">
+      {/* Faltaba el paso de transición, y sin él no cierran las cuentas: ni los
+          38 ATP de la tabla de más abajo ni los 6 CO₂ de la ecuación global (de
+          Krebs salen 4, los otros 2 salen de acá). Además la glicólisis termina
+          en piruvato y Krebs arrancaba con acetil-CoA, sin nada que los una.
+          Las cajas también se pisaban: iban en y = 50, 100 y 170 con alto 60. */}
+      <Pizarra alto={300}>
+        <svg width="100%" height="100%" viewBox="0 0 720 300" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Las 3 etapas de la respiración aeróbica
+            Las 4 etapas de la respiración aeróbica
           </text>
           {[
-            { x: 100, t: "1. Glicólisis", lug: "Citoplasma", ent: "1 Glucosa", sal: "2 Piruvato + 2 ATP + 2 NADH" },
-            { x: 100, t: "2. Ciclo de Krebs", lug: "Matriz mitocondrial", ent: "Acetil-CoA", sal: "CO₂ + 2 ATP + 6 NADH + 2 FADH₂", y: 100 },
-            { x: 100, t: "3. Cadena respiratoria", lug: "Crestas mitocondriales", ent: "NADH + FADH₂ + O₂", sal: "H₂O + 32–34 ATP", y: 170 },
+            { x: 100, t: "1. Glicólisis", lug: "Citoplasma", ent: "1 Glucosa", sal: "2 Piruvato + 2 ATP + 2 NADH", y: 42 },
+            { x: 100, t: "2. Paso de transición (×2)", lug: "Matriz mitocondrial", ent: "2 Piruvato", sal: "2 Acetil-CoA + 2 CO₂ + 2 NADH", y: 106 },
+            { x: 100, t: "3. Ciclo de Krebs (×2)", lug: "Matriz mitocondrial", ent: "2 Acetil-CoA", sal: "4 CO₂ + 2 ATP + 6 NADH + 2 FADH₂", y: 170 },
+            { x: 100, t: "4. Cadena respiratoria", lug: "Crestas mitocondriales", ent: "NADH + FADH₂ + O₂", sal: "H₂O + 32–34 ATP", y: 234 },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
               <rect width={520} height={60} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
@@ -403,8 +409,8 @@ function EscBalanceATP() {
     <EscenaRica>
       <Titulo>Balance final · cuánto ATP gana 1 glucosa</Titulo>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={290}>
+        <svg width="100%" height="100%" viewBox="0 0 720 290" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             ATP por glucosa (respiración aeróbica)
           </text>
@@ -414,15 +420,21 @@ function EscBalanceATP() {
               <text x={30 + i * 132 + 65} y={60} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>{h}</text>
             </g>
           ))}
+          {/* Faltaba la fila del paso de transición y por eso la tabla no
+              cerraba: 8 + 24 = 32, pero el total decía 36. Un alumno que sumara
+              las filas encontraba la contradicción. Los 2 NADH de
+              piruvato → acetil-CoA son los que faltaban (y también los 2 CO₂
+              que le faltaban a la ecuación global). */}
           {[
             ["Glicólisis", "2", "2 (=6 ATP)", "0", "8 ATP"],
+            ["Transición (×2)", "0", "2 (=6 ATP)", "0", "6 ATP"],
             ["Krebs (×2)", "2", "6 (=18 ATP)", "2 (=4 ATP)", "24 ATP"],
-            ["Total directo", "4", "8", "2", "—"],
-            ["TOTAL", "—", "—", "—", "≈ 36 ATP"],
+            ["Total directo", "4", "10", "2", "—"],
+            ["TOTAL", "—", "—", "—", "38 ATP"],
           ].map((row, i) => (
             <g key={i}>
               {row.map((v, j) => {
-                const isLast = i === 3;
+                const isLast = i === 4;
                 return (
                   <g key={j}>
                     <rect x={30 + j * 132} y={70 + i * 35} width={130} height={35}
@@ -436,8 +448,8 @@ function EscBalanceATP() {
               })}
             </g>
           ))}
-          <text x={360} y={230} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            En realidad varía entre 30–38 según el tipo de célula. Para FCyT: 36–38.
+          <text x={360} y={268} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
+            En la célula real varía entre 30 y 38, porque mover los NADH hacia la mitocondria cuesta energía. Para el examen: 36–38.
           </text>
         </svg>
       </Pizarra>

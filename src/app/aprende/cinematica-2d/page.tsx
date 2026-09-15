@@ -149,7 +149,7 @@ function EscParabolico() {
       <Resumen>
         <strong>Si v₀ es la velocidad inicial y θ el ángulo con la horizontal</strong>:<br />
         • Componente horizontal: <MathText>{"$v_x = v_0\\cos\\theta$"}</MathText> (constante).<br />
-        • Componente vertical: <MathText>{"$v_y = v_0\\sin\\theta$"}</MathText> (varía con el tiempo).
+        • Componente vertical al inicio: <MathText>{"$v_{0y} = v_0\\sin\\theta$"}</MathText>. Este número es fijo; la velocidad vertical en cada instante sí cambia, y la calculas abajo.
       </Resumen>
 
       <Resumen>
@@ -195,9 +195,12 @@ function ParabolaTRH() {
         <path d={path} fill="none" stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round" />
         <line x1={sx(vx * tH)} y1={sy(0)} x2={sx(vx * tH)} y2={sy(H)} stroke={LIENZO.ok} strokeWidth="1.5" strokeDasharray="3 3" />
         <circle cx={sx(vx * tH)} cy={sy(H)} r="5" fill={LIENZO.ok} />
-        <text x={sx(vx * tH)} y={sy(H) - 10} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.ok}>H = 20 m</text>
+        {/* Los rótulos van calculados. Estaban escritos a mano y el de la altura
+            decía "H = 20 m" cuando la fórmula da 10: la línea se dibujaba en el
+            lugar correcto y el número de al lado mentía. */}
+        <text x={sx(vx * tH)} y={sy(H) - 10} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.ok}>H = {Math.round(H)} m</text>
         <line x1={sx(0)} y1={sy(-H * 0.12)} x2={sx(R)} y2={sy(-H * 0.12)} stroke={LIENZO.warn} strokeWidth="1.5" />
-        <text x={sx(R / 2)} y={sy(-H * 0.12) - 8} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.warn}>R = 40 m</text>
+        <text x={sx(R / 2)} y={sy(-H * 0.12) - 8} textAnchor="middle" fontSize="11" fontWeight="700" fill={LIENZO.warn}>R = {Math.round(R)} m</text>
         <circle cx={sx(0)} cy={sy(0)} r="4" fill={LIENZO.fg} />
         <circle cx={sx(R)} cy={sy(0)} r="4" fill={LIENZO.fg} />
         <text x={sx(R)} y={sy(0) + 16} textAnchor="middle" fontSize="10" fill={LIENZO.fgDim}>T = 2√2 s</text>

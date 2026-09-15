@@ -325,10 +325,10 @@ function EscTiposCov() {
 
       <WorkedExample titulo="Q4 PREU 2025 · identificar enlace iónico">
         ¿Cuál tiene enlace iónico, covalente simple, coordinado, doble?<br />
-        Opciones: a) K₂SO₄, b) Cs·Cl·O₃, c) Na₂CO₃, d) Ag·N·O₃<br /><br />
+        Opciones: a) K₂SO₄, b) CsClO₃, c) Na₂CO₃, d) AgNO₃<br /><br />
 
         Iónico: entre metal-no metal. Todos tienen iones K⁺, Cs⁺, Na⁺ o Ag⁺.<br />
-        Más típico iónico puro: <strong>Cs·Cl·O₃ (clorato de cesio)</strong>:
+        Más típico iónico puro: <strong>CsClO₃ (clorato de cesio)</strong>:
         Cs⁺ con ClO₃⁻. Dentro del anión hay covalente, pero Cs-O₃Cl es iónico.<br /><br />
 
         El de enlace covalente doble más claro: en C=O del carbonato Na₂CO₃.

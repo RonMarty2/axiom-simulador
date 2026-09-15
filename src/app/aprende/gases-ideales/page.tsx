@@ -63,7 +63,7 @@ function EscIntro() {
       </Mnemotecnia>
 
       <Conexion>
-        Conectá con: estequiometría (Unidad 7): los gases en CN ocupan 22.4
+        Conecta con: estequiometría (Unidad 7): los gases en CN ocupan 22.4
         L/mol; presión atmosférica que ya viste en Física.
       </Conexion>
     </EscenaRica>
@@ -430,7 +430,7 @@ function EscIdeal() {
 
       <Mnemotecnia>
         <strong>PV = nRT</strong> es a la química lo que F = ma es a la física.
-        Memorizala con el cuento: "<em>P</em>iquito <em>V</em>ino al
+        Memorízala con el cuento: "<em>P</em>iquito <em>V</em>ino al
         <em> n</em>uevo <em>R</em>estaurante <em>T</em>arifa".
       </Mnemotecnia>
     </EscenaRica>
@@ -506,7 +506,7 @@ function EscDalton() {
       <Titulo>Mezclas de gases · Ley de Dalton</Titulo>
 
       <Hook>
-        El aire que respirás es una mezcla de N₂ (78%), O₂ (21%) y otros (1%).
+        El aire que respiras es una mezcla de N₂ (78%), O₂ (21%) y otros (1%).
         Cada gas aporta una "presión parcial" a la presión total. ¿Cuánto?
       </Hook>
 

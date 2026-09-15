@@ -382,6 +382,10 @@ export type EjesProps = {
   alto?: number;
   rejilla?: boolean;
   labels?: boolean;
+  /** Rótulo del eje horizontal. En un gráfico x-t el eje del tiempo es "t", no "x". */
+  rotuloX?: string;
+  /** Rótulo del eje vertical. En un gráfico x-t la posición va en "x", no en "y". */
+  rotuloY?: string;
   children?: React.ReactNode;
 };
 
@@ -408,7 +412,7 @@ function ticksDe(min: number, max: number): number[] {
 
 export function Ejes({
   xMin = -6, xMax = 6, yMin = -4, yMax = 6, alto = 280,
-  rejilla = true, labels = true, children,
+  rejilla = true, labels = true, rotuloX = "x", rotuloY = "y", children,
 }: EjesProps) {
   const W = 480, H = alto;
   const padL = 32, padR = 16, padT = 16, padB = 24;
@@ -434,8 +438,8 @@ export function Ejes({
       <polygon points={`${x0},${padT - 4} ${x0 - 5},${padT + 4} ${x0 + 5},${padT + 4}`} fill={LIENZO.fg} />
       {labels && (
         <>
-          <text x={W - padR + 4} y={y0 + 18} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">x</text>
-          <text x={x0 - 14} y={padT - 4} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">y</text>
+          <text x={W - padR + 4} y={y0 + 18} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">{rotuloX}</text>
+          <text x={x0 - 14} y={padT - 4} fontSize="13" fill={LIENZO.fgDim} fontStyle="italic">{rotuloY}</text>
           <text x={x0 - 6} y={y0 + 14} fontSize="11" fill={LIENZO.fgFaint}>0</text>
           {ticksX.map((i) => (
             <text key={`lx${i}`} x={sx(i)} y={y0 + 14} fontSize="10" fill={LIENZO.fgFaint} textAnchor="middle">{i}</text>

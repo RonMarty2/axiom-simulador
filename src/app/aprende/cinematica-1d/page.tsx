@@ -109,7 +109,7 @@ function GraficoVelocidadMedia() {
   const t1 = 0, x1 = 0, t2 = 4, x2 = 200;
   return (
     <Pizarra alto={alto}>
-      <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+      <Ejes rotuloX="t" rotuloY="x" xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
         {/* Δt (horizontal) */}
         <line x1={sx(t1)} y1={sy(x1)} x2={sx(t2)} y2={sy(x1)} stroke={LIENZO.warn} strokeWidth="1.5" strokeDasharray="4 3" />
         <text x={(sx(t1) + sx(t2)) / 2} y={sy(x1) + 16} textAnchor="middle" fontSize="11" fill={LIENZO.warn} fontWeight="700">Δt = 4 h</text>
@@ -171,7 +171,7 @@ function GraficoAceleracionMedia() {
   const t1 = 0, v1 = 10, t2 = 4, v2 = 30;
   return (
     <Pizarra alto={alto}>
-      <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+      <Ejes rotuloX="t" rotuloY="v" xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
         <line x1={sx(t1)} y1={sy(v1)} x2={sx(t2)} y2={sy(v1)} stroke={LIENZO.warn} strokeWidth="1.5" strokeDasharray="4 3" />
         <text x={(sx(t1) + sx(t2)) / 2} y={sy(v1) + 16} textAnchor="middle" fontSize="11" fill={LIENZO.warn} fontWeight="700">Δt = 4 s</text>
         <line x1={sx(t2)} y1={sy(v1)} x2={sx(t2)} y2={sy(v2)} stroke={LIENZO.ok} strokeWidth="1.5" strokeDasharray="4 3" />
@@ -228,7 +228,7 @@ function GraficoMRU() {
   const puntos = [0, 1, 2, 3].map((t) => ({ t, x: x0 + v * t }));
   return (
     <Pizarra alto={alto}>
-      <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+      <Ejes rotuloX="t" rotuloY="x" xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
         <motion.line
           x1={sx(0)} y1={sy(x0)} x2={sx(3)} y2={sy(x0 + v * 3)}
           stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round"
@@ -324,7 +324,7 @@ function MRUAInteractivo() {
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, color: LIENZO.fgDim, textAlign: "center", marginBottom: 4 }}>v-t (recta, pendiente = a)</div>
           <Pizarra alto={altoChico}>
-            <Ejes xMin={0} xMax={tMax} yMin={-vMax} yMax={vMax} alto={altoChico}>
+            <Ejes rotuloX="t" rotuloY="v" xMin={0} xMax={tMax} yMin={-vMax} yMax={vMax} alto={altoChico}>
               <motion.line x1={sxV(0)} y1={syV(0)} x2={sxV(tMax)} y2={syV(a * tMax)}
                 stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round"
                 animate={{ x2: sxV(tMax), y2: syV(a * tMax) }} transition={{ duration: 0.25 }} />
@@ -334,7 +334,7 @@ function MRUAInteractivo() {
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, color: LIENZO.fgDim, textAlign: "center", marginBottom: 4 }}>x-t (parábola)</div>
           <Pizarra alto={altoChico}>
-            <Ejes xMin={0} xMax={tMax} yMin={a >= 0 ? -xMaxAbs * 0.15 : -xMaxAbs} yMax={a >= 0 ? xMaxAbs : xMaxAbs * 0.15} alto={altoChico}>
+            <Ejes rotuloX="t" rotuloY="x" xMin={0} xMax={tMax} yMin={a >= 0 ? -xMaxAbs * 0.15 : -xMaxAbs} yMax={a >= 0 ? xMaxAbs : xMaxAbs * 0.15} alto={altoChico}>
               <motion.path d={pathParabola} fill="none" stroke={LIENZO.ok} strokeWidth="3" strokeLinecap="round" />
             </Ejes>
           </Pizarra>
@@ -392,7 +392,7 @@ function GraficoFrenadoArea() {
   const areaPath = `M ${sx(0)} ${sy(0)} L ${sx(0)} ${sy(v0)} L ${sx(tFinal)} ${sy(0)} Z`;
   return (
     <Pizarra alto={alto}>
-      <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+      <Ejes rotuloX="t" rotuloY="v" xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
         <path d={areaPath} fill={LIENZO.accent} opacity="0.18" />
         <line x1={sx(0)} y1={sy(v0)} x2={sx(tFinal)} y2={sy(0)} stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round" />
         <text x={sx(tFinal * 0.32)} y={sy(v0 * 0.4)} fontSize="12" fontWeight="700" fill={LIENZO.accent}>área = distancia = 52.53 m</text>
@@ -518,7 +518,7 @@ function GraficoEncuentro() {
   const pathMicro = puntosMicro.map((p, i) => `${i === 0 ? "M" : "L"} ${sx(p.t)} ${sy(p.x)}`).join(" ");
   return (
     <Pizarra alto={alto}>
-      <Ejes xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
+      <Ejes rotuloX="t" rotuloY="x" xMin={xMin} xMax={xMax} yMin={yMin} yMax={yMax} alto={alto}>
         <line x1={sx(0)} y1={sy(0)} x2={sx(3.5)} y2={sy(17.5)} stroke={LIENZO.accent} strokeWidth="3" strokeLinecap="round" />
         <path d={pathMicro} fill="none" stroke={LIENZO.warn} strokeWidth="3" strokeLinecap="round" />
         <circle cx={sx(2)} cy={sy(10)} r="6" fill={LIENZO.ok} />
