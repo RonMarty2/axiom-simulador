@@ -260,8 +260,9 @@ function EscNeurona() {
           <text x={100} y={45} fill={LIENZO.accent} fontSize={11} fontWeight={600}>Dendritas (entrada)</text>
           <text x={380} y={95} fill={LIENZO.warn} fontSize={11} fontWeight={600} textAnchor="middle">Axón (conducción)</text>
           <text x={380} y={140} fill={LIENZO.fgDim} fontSize={10} textAnchor="middle">vainas de mielina ↑</text>
-          <text x={650} y={110} fill={LIENZO.bad} fontSize={11} fontWeight={600}>Terminales (salida)</text>
-          <text x={650} y={125} fill={LIENZO.fgDim} fontSize={10}>(sinapsis)</text>
+          {/* Arrancaba en x=650 con el lienzo de 720 de ancho: se cortaba. */}
+          <text x={700} y={165} textAnchor="end" fill={LIENZO.bad} fontSize={11} fontWeight={600}>Terminales (salida)</text>
+          <text x={700} y={179} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>(sinapsis)</text>
         </svg>
       </Pizarra>
 
@@ -270,7 +271,12 @@ function EscNeurona() {
           <li><strong>Dendritas:</strong> reciben señales.</li>
           <li><strong>Soma (cuerpo):</strong> integra información, núcleo.</li>
           <li><strong>Axón:</strong> conduce impulso a otras células.</li>
-          <li><strong>Vaina de mielina:</strong> aislante, acelera el impulso (células de Schwann o oligodendrocitos).</li>
+          <li><strong>Vaina de mielina:</strong> aislante que acelera el
+            impulso. Acelera porque el impulso <strong>no recorre</strong> el
+            axón cubierto: salta de un hueco al siguiente entre una vaina y
+            otra, así que se saltea casi todo el camino. La fabrican los
+            oligodendrocitos en el encéfalo y la médula (SNC) y las células de
+            Schwann en los nervios del resto del cuerpo (SNP).</li>
           <li><strong>Terminales sinápticas:</strong> liberan neurotransmisores.</li>
         </ul>
       </Definicion>
@@ -320,20 +326,34 @@ function EscImpulso() {
           ))}
           {/* hendidura */}
           <line x1={270} y1={70} x2={270} y2={130} stroke={LIENZO.warn} strokeWidth={1.5} strokeDasharray="4 3" />
-          <line x1={350} y1={70} x2={350} y2={130} stroke={LIENZO.warn} strokeWidth={1.5} strokeDasharray="4 3" />
-          <text x={310} y={155} textAnchor="middle" fill={LIENZO.warn} fontSize={10}>hendidura</text>
+          {/* El borde derecho iba en 350 y la célula postsináptica arranca en
+              390 (cx 460, rx 70): quedaban 40 px de vacío que no era ni
+              hendidura ni célula. Va pegado a la membrana. */}
+          <line x1={390} y1={70} x2={390} y2={130} stroke={LIENZO.warn} strokeWidth={1.5} strokeDasharray="4 3" />
+          <text x={330} y={155} textAnchor="middle" fill={LIENZO.warn} fontSize={10}>hendidura</text>
           {/* neurotransmisores */}
-          {[290, 300, 320, 335].map((x, i) => (
+          {[292, 310, 330, 355, 372].map((x, i) => (
             <circle key={i} cx={x} cy={100 + (i % 2) * 8} r={4} fill={LIENZO.bad} />
           ))}
           {/* postsináptica */}
           <ellipse cx={460} cy={100} rx={70} ry={40} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={2} />
           <text x={460} y={75} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>Postsináptica</text>
           {/* receptores */}
-          {[400, 420, 440].map((x, i) => (
-            <rect key={i} x={x - 4} y={100} width={8} height={12} fill={LIENZO.ok} />
+          {/* Los receptores estaban en x=400-440, o sea DENTRO del citoplasma.
+              Un receptor va SOBRE la membrana, que acá es el borde izquierdo
+              de la elipse (x=390). */}
+          {[{ y: 84 }, { y: 100 }, { y: 116 }].map((rcp, i) => (
+            <rect key={i} x={386} y={rcp.y} width={10} height={9} rx={2} fill={LIENZO.ok} stroke={LIENZO.ok} strokeWidth={1} />
           ))}
-          <text x={580} y={100} fill={LIENZO.fg} fontSize={11}>Impulso →</text>
+          <text x={392} y={175} fill={LIENZO.ok} fontSize={10}>receptores (sobre la membrana)</text>
+          {/* Faltaba la flecha: "Impulso →" era texto suelto a la derecha de todo. */}
+          <line x1={130} x2={545} y1={45} y2={45} stroke={LIENZO.fgDim} strokeWidth={1.5} markerEnd="url(#sinArr)" opacity={0.7} />
+          <text x={340} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>sentido del impulso</text>
+          <defs>
+            <marker id="sinArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fgDim} />
+            </marker>
+          </defs>
         </svg>
       </Pizarra>
 
@@ -359,7 +379,7 @@ function EscSNC() {
       <Pizarra alto={260}>
         <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Partes del encéfalo
+            Partes del SNC
           </text>
           {[
             { t: "Cerebro", d: "pensamiento, memoria, lenguaje, movimiento voluntario", c: "#a78bfa" },
@@ -387,15 +407,92 @@ function EscSNC() {
         </ul>
       </Definicion>
 
+      {/* Faltaba el dibujo: se listaban 5 lóbulos y la explicación del
+          ejercicio final habla de "la parte trasera" sin que el alumno haya
+          visto nunca dónde queda cada uno.
+
+          Los bordes entre lóbulos NO están puestos a ojo (§4.5, regla 7): se
+          calculan sobre la misma elipse del contorno con `enElipse()`, así que
+          caen exactos sobre el borde de la cabeza. El ángulo se mide como en
+          SVG (y crece hacia abajo): 180° es la frente, 270° el tope del
+          cráneo, 0° la nuca, 90° la base. */}
+      <Pizarra alto={230}>
+        {(() => {
+          const CX = 370, CY = 125, RX = 165, RY = 78;
+          const enElipse = (grados: number) => {
+            const t = (grados * Math.PI) / 180;
+            return [CX + RX * Math.cos(t), CY + RY * Math.sin(t)] as const;
+          };
+          // Los cuatro cortes, en grados sobre ese contorno.
+          const [fx, fy] = enElipse(180);   // frente
+          const [ax, ay] = enElipse(232);   // frontal | parietal
+          const [bx, by] = enElipse(302);   // parietal | occipital
+          const [cx2, cy2] = enElipse(38);  // occipital | temporal
+          // `1` en el flag de barrido = sentido horario en SVG.
+          const arco = (x1: number, y1: number, x2: number, y2: number) =>
+            `M ${x1} ${y1} A ${RX} ${RY} 0 0 1 ${x2} ${y2}`;
+
+          return (
+            <svg width="100%" height="100%" viewBox="0 0 720 230" preserveAspectRatio="xMidYMid meet">
+              <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+                Dónde queda cada lóbulo (cabeza de perfil, mirando a la izquierda)
+              </text>
+
+              {/* Cada lóbulo: su arco de contorno, cerrado contra el centro. */}
+              <path d={`${arco(fx, fy, ax, ay)} L ${CX} ${CY} Z`} fill="#a78bfa" opacity={0.25} stroke="#a78bfa" strokeWidth={1} />
+              <path d={`${arco(ax, ay, bx, by)} L ${CX} ${CY} Z`} fill="#10b981" opacity={0.25} stroke="#10b981" strokeWidth={1} />
+              <path d={`${arco(bx, by, cx2, cy2)} L ${CX} ${CY} Z`} fill="#f59e0b" opacity={0.25} stroke="#f59e0b" strokeWidth={1} />
+              <path d={`${arco(cx2, cy2, fx, fy)} L ${CX} ${CY} Z`} fill="#ef4444" opacity={0.25} stroke="#ef4444" strokeWidth={1} />
+
+              {/* Contorno y nariz, para que se vea hacia dónde mira. */}
+              <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke={LIENZO.fgDim} strokeWidth={2} />
+              <path d={`M ${fx + 3} ${CY - 14} L ${fx - 20} ${CY + 5} L ${fx + 2} ${CY + 13}`} fill="none" stroke={LIENZO.fgDim} strokeWidth={2} />
+
+              {/* Rótulos, en el centro de masa aproximado de cada porción. */}
+              <text x={280} y={92} textAnchor="middle" fill="#a78bfa" fontSize={11.5} fontWeight={700}>Frontal</text>
+              <text x={280} y={106} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>razona, planifica</text>
+
+              <text x={390} y={78} textAnchor="middle" fill="#10b981" fontSize={11.5} fontWeight={700}>Parietal</text>
+              <text x={390} y={92} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>tacto, temperatura</text>
+
+              <text x={482} y={118} textAnchor="middle" fill="#f59e0b" fontSize={11.5} fontWeight={700}>Occipital</text>
+              <text x={482} y={132} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>visión</text>
+
+              <text x={340} y={162} textAnchor="middle" fill="#ef4444" fontSize={11.5} fontWeight={700}>Temporal</text>
+              <text x={340} y={176} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>oído, memoria</text>
+
+              {/* La ínsula está tapada por los otros cuatro: va señalada. */}
+              <circle cx={CX - 40} cy={CY + 2} r={9} fill="#06b6d4" opacity={0.55} stroke="#06b6d4" strokeWidth={1.5} />
+              <line x1={CX - 40} y1={CY + 11} x2={CX - 40} y2={207} stroke="#06b6d4" strokeWidth={1} strokeDasharray="3 2" />
+              <text x={CX - 40} y={220} textAnchor="middle" fill="#06b6d4" fontSize={10}>Ínsula: tapada por los otros cuatro (gusto, dolor)</text>
+
+              <text x={150} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">frente</text>
+              <text x={592} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">nuca</text>
+            </svg>
+          );
+        })()}
+      </Pizarra>
+
       <Mnemotecnia>
         <strong>"Frontal piensa, Parietal siente, Temporal escucha, Occipital
-        mira."</strong>
+        mira."</strong> Y fíjate en el dibujo dónde cae cada uno: la visión está
+        en la NUCA, lo más lejos posible de los ojos. Es el dato que más se
+        pregunta, justamente porque no es lo que uno esperaría.
       </Mnemotecnia>
 
       <Cuidado>
-        El SNC está protegido por: cráneo + vértebras (óseo), meninges (3 capas:
-        duramadre, aracnoides, piamadre), líquido cefalorraquídeo (LCR) y
-        barrera hematoencefálica.
+        El SNC tiene cuatro protecciones, y cada una hace algo distinto:
+        <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 14 }}>
+          <li><strong>Cráneo y vértebras:</strong> la caja dura, contra los golpes.</li>
+          <li><strong>Meninges</strong> (duramadre, aracnoides, piamadre): tres
+            membranas que lo envuelven, como tres bolsas una dentro de otra.</li>
+          <li><strong>Líquido cefalorraquídeo (LCR):</strong> nada entre esas
+            membranas y amortigua, igual que el agua de una pecera amortigua lo
+            que se sacude adentro.</li>
+          <li><strong>Barrera hematoencefálica:</strong> un filtro en las paredes
+            de los vasos del cerebro que deja pasar oxígeno y glucosa pero frena
+            a la mayoría de las toxinas y los microbios que viajan en la sangre.</li>
+        </ul>
       </Cuidado>
     </EscenaRica>
   );
@@ -414,22 +511,43 @@ function EscSNP() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={180}>
-        <svg width="100%" height="100%" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      {/* Antes eran tres cajas hermanas: Somático / Autónomo Simpático /
+          Autónomo Parasimpático. Dibujado así, el alumno cuenta TRES
+          subdivisiones del SNP, y son dos: simpático y parasimpático cuelgan
+          del autónomo. Ahora el dibujo tiene los dos niveles. */}
+      <Pizarra alto={240}>
+        <svg width="100%" height="100%" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet">
+          <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Subdivisiones del SNP
           </text>
-          {[
-            { x: 90, t: "Somático", d: "voluntario (músculos esqueléticos)", c: LIENZO.ok },
-            { x: 290, t: "Autónomo Simpático", d: "lucha o huye (alerta)", c: LIENZO.bad },
-            { x: 490, t: "Autónomo Parasimpático", d: "descansa y digiere (calma)", c: "#06b6d4" },
-          ].map((s, i) => (
-            <g key={i} transform={`translate(${s.x}, 55)`}>
-              <rect x={-10} y={0} width={180} height={100} fill={s.c} opacity={0.1} stroke={s.c} strokeWidth={1.5} rx={8} />
-              <text x={80} y={22} textAnchor="middle" fill={s.c} fontSize={12} fontWeight={700}>{s.t}</text>
-              <text x={80} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{s.d}</text>
-            </g>
-          ))}
+
+          {/* Nivel 1: las dos ramas del SNP */}
+          <rect x={60} y={45} width={250} height={62} fill={LIENZO.ok} opacity={0.12} stroke={LIENZO.ok} strokeWidth={1.5} rx={8} />
+          <text x={185} y={68} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>Somático</text>
+          <text x={185} y={88} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>voluntario (músculos esqueléticos)</text>
+
+          <rect x={400} y={45} width={250} height={62} fill={LIENZO.warn} opacity={0.12} stroke={LIENZO.warn} strokeWidth={1.5} rx={8} />
+          <text x={525} y={68} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>Autónomo</text>
+          <text x={525} y={88} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>involuntario (órganos, glándulas)</text>
+
+          {/* Nivel 2: solo el autónomo se abre */}
+          <path d="M 525 107 L 525 122 L 460 122 L 460 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
+          <path d="M 525 107 L 525 122 L 600 122 L 600 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
+
+          <rect x={370} y={140} width={180} height={62} fill={LIENZO.bad} opacity={0.12} stroke={LIENZO.bad} strokeWidth={1.5} rx={8} />
+          <text x={460} y={163} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={700}>Simpático</text>
+          <text x={460} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>lucha o huye (alerta)</text>
+
+          <rect x={510} y={140} width={180} height={62} fill="#06b6d4" opacity={0.12} stroke="#06b6d4" strokeWidth={1.5} rx={8} />
+          <text x={600} y={163} textAnchor="middle" fill="#06b6d4" fontSize={12} fontWeight={700}>Parasimpático</text>
+          <text x={600} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>descansa y digiere</text>
+
+          <text x={185} y={165} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">El somático no se</text>
+          <text x={185} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">subdivide: mandas tú.</text>
+
+          <text x={360} y={225} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
+            El SNP se parte en DOS, no en tres: simpático y parasimpático son las dos mitades del autónomo
+          </text>
         </svg>
       </Pizarra>
 
