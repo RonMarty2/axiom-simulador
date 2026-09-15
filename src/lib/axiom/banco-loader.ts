@@ -70,11 +70,16 @@ export async function listarMetadata(): Promise<ExamenMetadata[]> {
     anio: e.anio,
     fecha_examen: e.fecha_examen,
     duracion_minutos: e.duracion_minutos,
-    total_preguntas: e.preguntas.length,
+    // Las declaradas en `faltantes` cuentan: el examen tomó 10 preguntas
+    // aunque una no se pueda leer, y la tarjeta tiene que decir 10. Si se
+    // contaran solo las transcriptas, el alumno vería un examen de 9 y no
+    // habría forma de notar que falta algo.
+    total_preguntas: e.preguntas.length + (e.faltantes?.length ?? 0),
     opcion: e.opcion,
     titulo: e.titulo,
     categoria: e.categoria,
     secciones_pendientes: e.secciones_pendientes,
+    faltantes: e.faltantes,
     // Las secciones declaradas pero todavía sin transcribir se suman acá con
     // cantidad 0, para que el listado muestre el examen COMPLETO de esa
     // gestión. Si solo se resumieran las preguntas que hay, una materia que el

@@ -10,7 +10,7 @@ import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import Cargando from "../../components/Cargando";
 import { nombreFacultad } from "../../components/Icono";
 import { ETIQUETAS_AREA } from "@/lib/axiom/areas";
-import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
+import type { ExamenBanco, MotivoFaltante, PreguntaBanco, PreguntaFaltante } from "@/lib/axiom/types";
 
 // Formatea "2025-07-21" -> "21 jul 2025" (evita ambigüedad de fecha en el detalle).
 function formatearFecha(fechaISO: string): string {
@@ -88,7 +88,7 @@ export default function ExamenDetallePage() {
             {examen.titulo ?? `Examen ${examen.anio}${examen.opcion ? ` · ${examen.opcion}` : ""} · ${examen.universidad}`}
           </h1>
           <p className="mt-1 text-sm text-neutral-600">
-            {examen.preguntas.length} preguntas · {examen.duracion_minutos} min
+            {examen.preguntas.length + (examen.faltantes?.length ?? 0)} preguntas · {examen.duracion_minutos} min
             {examen.fecha_examen ? ` · tomado el ${formatearFecha(examen.fecha_examen)}` : ""}
           </p>
         </motion.div>
@@ -115,29 +115,75 @@ export default function ExamenDetallePage() {
           </div>
         )}
 
+        {/* Preguntas y huecos en un solo hilo, ordenados por el número que
+            tienen en el facsímil. El hueco va EN SU LUGAR, no al final: el
+            alumno tiene que ver que entre la 6 y la 8 el examen tenía una
+            pregunta más, aunque no se pueda leer. */}
         <div className="space-y-6">
-          {examen.preguntas.map((p, idx) => (
-            <PreguntaCard
-              key={p.id}
-              pregunta={p}
-              indice={idx}
-              seleccion={seleccion[p.id]}
-              revelada={!!revelar[p.id]}
-              bloqueada={bloqueada}
-              carrera={nombreFacultad(examen.facultad)}
-              onElegir={(letra) => elegir(p.id, letra)}
-              onRevelar={() => toggleRevelar(p.id)}
-            />
-          ))}
+          {[
+            ...examen.preguntas.map((p) => ({ numero: p.numero, pregunta: p, falta: null })),
+            ...(examen.faltantes ?? []).map((f) => ({ numero: f.numero, pregunta: null, falta: f })),
+          ]
+            .sort((a, b) => a.numero - b.numero)
+            .map((fila) =>
+              fila.pregunta ? (
+                <PreguntaCard
+                  key={fila.pregunta.id}
+                  pregunta={fila.pregunta}
+                  seleccion={seleccion[fila.pregunta.id]}
+                  revelada={!!revelar[fila.pregunta.id]}
+                  bloqueada={bloqueada}
+                  carrera={nombreFacultad(examen.facultad)}
+                  onElegir={(letra) => elegir(fila.pregunta!.id, letra)}
+                  onRevelar={() => toggleRevelar(fila.pregunta!.id)}
+                />
+              ) : (
+                <HuecoCard key={`falta-${fila.numero}`} falta={fila.falta!} />
+              ),
+            )}
         </div>
       </div>
     </div>
   );
 }
 
+// Lo que el alumno ve en el lugar de una pregunta que no se pudo transcribir.
+// No es un error ni un "próximamente" genérico: dice qué pasó y en qué hoja
+// está, así queda claro que el examen tenía esa pregunta.
+const TEXTO_MOTIVO: Record<MotivoFaltante, string> = {
+  "ilegible": "El escaneo que tenemos no se llega a leer en esta pregunta.",
+  "pagina-ausente": "Al PDF que conseguimos le falta la hoja donde está esta pregunta.",
+  "sin-opciones": "Se lee el enunciado pero no las cinco alternativas.",
+  "sin-respuesta": "Se lee la pregunta entera pero no cuál era la respuesta correcta.",
+};
+
+function HuecoCard({ falta }: { falta: PreguntaFaltante }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.4 }}
+      className="rounded-2xl border border-dashed p-6"
+      style={{ borderColor: "var(--border)", background: "var(--bg-subtle)" }}
+    >
+      <div className="mb-3 flex items-center gap-2 text-xs font-medium text-neutral-500">
+        <span className="rounded bg-neutral-400 px-2 py-0.5 font-bold text-white">
+          {falta.numero}
+        </span>
+        <span>Todavía no la tenemos</span>
+      </div>
+      <p className="text-sm" style={{ color: "var(--fg-muted)" }}>
+        {TEXTO_MOTIVO[falta.motivo]} La dejamos marcada en su lugar para que
+        sepas que el examen la tomó; cuando consigamos un facsímil mejor se
+        suma acá mismo.
+      </p>
+    </motion.div>
+  );
+}
+
 interface PreguntaCardProps {
   pregunta: PreguntaBanco;
-  indice: number;
   seleccion?: string;
   revelada: boolean;
   bloqueada: boolean;
@@ -149,7 +195,6 @@ interface PreguntaCardProps {
 
 function PreguntaCard({
   pregunta,
-  indice,
   seleccion,
   revelada,
   bloqueada,
@@ -166,8 +211,12 @@ function PreguntaCard({
       className="rounded-2xl border border-neutral-200/80 bg-white/82 p-6 backdrop-blur-xl"
     >
       <div className="mb-3 flex items-center gap-2 text-xs font-medium text-neutral-500">
+        {/* El número REAL de la pregunta en el facsímil, no su posición en la
+            lista. Si de un examen falta la 7 porque el escaneo no se lee, la
+            que sigue tiene que seguir siendo la 8: renumerar hace imposible
+            cruzar el examen con la hoja original. */}
         <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
-          {indice + 1}
+          {pregunta.numero}
         </span>
         <span className="rounded bg-[var(--accent-soft)] px-2 py-0.5 text-[var(--accent)]">
           {ETIQUETAS_AREA[pregunta.area] ?? pregunta.area}

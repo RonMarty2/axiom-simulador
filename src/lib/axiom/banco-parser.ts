@@ -2,8 +2,10 @@ import type {
   Area,
   Dificultad,
   ExamenBanco,
+  MotivoFaltante,
   OpcionPregunta,
   PreguntaBanco,
+  PreguntaFaltante,
 } from "./types";
 
 interface PreguntaCruda {
@@ -35,6 +37,7 @@ interface FrontmatterCrudo {
   titulo?: string;       // ej: "Examen de Ingreso 1-2023 (1ra Opción)" — display explicito, opcional
   categoria?: string;    // "admision" (default) | "parcial_curso" — separa Examenes de Admision de Parciales/Finales de Curso Propedeutico
   secciones_pendientes?: Record<string, string>;   // { area: motivo } — secciones del examen que todavia no se transcribieron
+  faltantes?: PreguntaFaltante[];                  // preguntas que el examen tomo y no se pudieron transcribir
 }
 
 const FRONTMATTER_REGEX = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
@@ -86,6 +89,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     total_preguntas: front.total_preguntas,
     ponderacion: front.ponderacion,
     secciones_pendientes: front.secciones_pendientes,
+    faltantes: front.faltantes,
     opcion: front.opcion,
     titulo: front.titulo,
     categoria: front.categoria ?? "admision",
@@ -118,17 +122,82 @@ function construirId(universidad: string, facultad: string, anio: number, opcion
   return sufijo ? `${base}-${slug(sufijo)}` : base;
 }
 
+const MOTIVOS_FALTANTE = new Set<string>([
+  "ilegible", "pagina-ausente", "sin-opciones", "sin-respuesta",
+]);
+
+function sinComillas(v: string): string {
+  return v.trim().replace(/^["'](.*)["']$/, "$1").trim();
+}
+
+function asignarFaltante(f: Partial<PreguntaFaltante>, clave: string, valor: string): void {
+  const v = sinComillas(valor);
+  if (clave === "numero") f.numero = parseInt(v, 10);
+  else if (clave === "motivo") f.motivo = v as MotivoFaltante;
+  else if (clave === "fuente") f.fuente = v;
+  else if (clave === "detalle") f.detalle = v;
+}
+
+// Se valida fuerte a propósito. Un `faltantes` mal escrito es peor que no
+// tenerlo: el examen diría que le falta una pregunta que en realidad está, o
+// al revés. Y como el loader se come los errores del parser con un
+// console.error, un dato silenciosamente malo no lo ve nadie.
+function validarFaltantes(crudos: Partial<PreguntaFaltante>[]): PreguntaFaltante[] | undefined {
+  if (!crudos.length) return undefined;
+  const vistos = new Set<number>();
+  return crudos.map((f) => {
+    if (!Number.isInteger(f.numero) || (f.numero ?? 0) < 1) {
+      throw new Error(`Frontmatter 'faltantes': 'numero' tiene que ser un entero >= 1 (vino "${f.numero}")`);
+    }
+    if (vistos.has(f.numero!)) {
+      throw new Error(`Frontmatter 'faltantes': la pregunta ${f.numero} está declarada dos veces`);
+    }
+    vistos.add(f.numero!);
+    if (!f.motivo || !MOTIVOS_FALTANTE.has(f.motivo)) {
+      throw new Error(
+        `Frontmatter 'faltantes' (pregunta ${f.numero}): 'motivo' tiene que ser uno de ` +
+        `${[...MOTIVOS_FALTANTE].join(", ")} (vino "${f.motivo ?? ""}")`,
+      );
+    }
+    if (!f.fuente) {
+      throw new Error(`Frontmatter 'faltantes' (pregunta ${f.numero}): falta 'fuente' con archivo y página`);
+    }
+    return { numero: f.numero!, motivo: f.motivo, fuente: f.fuente, detalle: f.detalle };
+  }).sort((a, b) => a.numero - b.numero);
+}
+
 function parseFrontmatter(raw: string): FrontmatterCrudo {
   const lineas = raw.split(/\r?\n/);
   const out: Record<string, unknown> = {};
   const ponderacion: Record<string, number> = {};
   const secciones_pendientes: Record<string, string> = {};
+  const faltantes: Partial<PreguntaFaltante>[] = [];
   // Cuál de los dos mapas anidados se está leyendo, o null si ninguno.
   let mapaActual: "ponderacion" | "secciones_pendientes" | null = null;
+  // `faltantes` no es un mapa sino una lista de objetos, así que va aparte:
+  // cada "- numero: N" abre una entrada y las líneas indentadas que siguen le
+  // agregan campos.
+  let enFaltantes = false;
 
   for (const linea of lineas) {
     if (!linea.trim()) continue;
     const indent = linea.startsWith("  ");
+
+    if (enFaltantes && indent) {
+      const t = linea.trim();
+      const abre = t.match(/^-\s*([\w_]+):\s*(.*)$/);
+      if (abre) {
+        faltantes.push({});
+        asignarFaltante(faltantes[faltantes.length - 1], abre[1], abre[2]);
+        continue;
+      }
+      const campo = t.match(/^([\w_]+):\s*(.*)$/);
+      if (campo && faltantes.length) {
+        asignarFaltante(faltantes[faltantes.length - 1], campo[1], campo[2]);
+      }
+      continue;
+    }
+    enFaltantes = false;
 
     if (mapaActual && indent) {
       const m = linea.trim().match(/^([\w_]+):\s*(.+)$/);
@@ -145,6 +214,10 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     const [, key, val] = m;
     if (key === "ponderacion" || key === "secciones_pendientes") {
       mapaActual = key;
+      continue;
+    }
+    if (key === "faltantes") {
+      enFaltantes = true;
       continue;
     }
     out[key] = val.trim();
@@ -169,6 +242,7 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     total_preguntas,
     ponderacion,
     secciones_pendientes,
+    faltantes: validarFaltantes(faltantes),
     opcion: out.opcion ? String(out.opcion) : undefined,
     titulo: out.titulo ? String(out.titulo) : undefined,
     categoria: out.categoria ? String(out.categoria) : undefined,

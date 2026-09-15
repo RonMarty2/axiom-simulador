@@ -68,6 +68,26 @@ export interface PreguntaBanco {
   materia_id?: string;              // referencia a materias.json
 }
 
+export type MotivoFaltante =
+  | "ilegible"          // la pregunta está en la hoja pero el escaneo no se lee
+  | "pagina-ausente"    // el PDF directamente no trae esa página
+  | "sin-opciones"      // está el enunciado pero no las alternativas
+  | "sin-respuesta";    // está todo menos cuál es la correcta
+
+// Una pregunta que el examen SÍ tomó y que no se pudo transcribir. Se declara
+// en vez de saltearla, por dos razones: el alumno tiene que ver que el examen
+// tenía 10 preguntas y no 9, y el día que aparezca un escaneo mejor hay que
+// poder ir derecho a la página. Ver "Convención para lo que no se puede leer"
+// en examenes pasados/INVENTARIO.md.
+//
+// LA NUMERACIÓN NO SE TOCA: si falta la 7, la siguiente sigue siendo la 8.
+export interface PreguntaFaltante {
+  numero: number;
+  motivo: MotivoFaltante;
+  fuente: string;       // archivo y página exactos, ej "FCE/.../Banco.pdf p.21"
+  detalle?: string;     // qué es puntualmente lo que no se lee
+}
+
 export interface ExamenBanco {
   id: string;                       // umss-ingenieria-2023-segundo-parcial-curso-propedeutico-gestion-2-2006 (sufijo = slug(titulo), o slug(opcion) si no hay titulo)
   universidad: string;
@@ -93,6 +113,8 @@ export interface ExamenBanco {
   // examen COMPLETO de esa gestión, con una materia en preparación, y no uno
   // al que le falta un pedazo sin avisar.
   secciones_pendientes?: Record<string, string>;
+  // Preguntas que no se pudieron transcribir, con su número original.
+  faltantes?: PreguntaFaltante[];
   preguntas: PreguntaBanco[];
 }
 
@@ -115,6 +137,7 @@ export interface ExamenMetadata {
   // examen COMPLETO de esa gestión, con una materia en preparación, y no uno
   // al que le falta un pedazo sin avisar.
   secciones_pendientes?: Record<string, string>;
+  faltantes?: PreguntaFaltante[];
   areas_resumen: { area: string; cantidad: number }[];
 }
 
