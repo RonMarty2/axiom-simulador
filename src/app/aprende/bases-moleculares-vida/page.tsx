@@ -182,10 +182,12 @@ function EscLipidos() {
             Clasificación principal de lípidos
           </text>
           {[
-            { x: 90, t: "Triglicéridos", d: "glicerol + 3 ácidos grasos", fn: "RESERVA energética (tejido adiposo)" },
-            { x: 90, t: "Fosfolípidos", d: "glicerol + 2 AG + grupo fosfato", fn: "membrana celular (bicapa)", y: 80 },
-            { x: 90, t: "Esteroides", d: "estructura cíclica de 4 anillos", fn: "colesterol, hormonas (testosterona, estradiol)", y: 130 },
-            { x: 90, t: "Ceras", d: "cadena larga", fn: "impermeabilización (hojas, plumas, oídos)", y: 180 },
+            // Las cajas miden 42 de alto: si van cada 50, se pisan. Cada 50 con
+            // la primera en 50 daba 50-92 y la segunda arrancaba en 80.
+            { x: 90, t: "Triglicéridos", d: "glicerol + 3 ácidos grasos", fn: "RESERVA energética (tejido adiposo)", y: 50 },
+            { x: 90, t: "Fosfolípidos", d: "glicerol + 2 ácidos grasos + grupo fosfato", fn: "membrana celular (bicapa)", y: 100 },
+            { x: 90, t: "Esteroides", d: "estructura cíclica de 4 anillos", fn: "colesterol, hormonas (testosterona, estradiol)", y: 150 },
+            { x: 90, t: "Ceras", d: "cadena larga", fn: "impermeabilización (hojas, plumas, oídos)", y: 200 },
           ].map((l, i) => (
             <g key={i} transform={`translate(${l.x}, ${l.y || 50})`}>
               <rect width={560} height={42} fill={LIENZO.warn} opacity={0.08} stroke={LIENZO.warn} strokeWidth={1} rx={6} />
@@ -441,8 +443,13 @@ function EscAcidosNucleicos() {
       </Mnemotecnia>
 
       <Cuidado>
-        Si una hebra de ADN tiene 30% de A, entonces tiene 30% de T (Chargaff).
-        Las purinas (A+G) = pirimidinas (T+C) = 50% cada categoría.
+        <strong>Chargaff habla de la molécula entera, no de una hebra suelta.</strong>{" "}
+        Si una molécula de ADN (sus dos hebras juntas) tiene 30% de A, entonces
+        tiene 30% de T, y las purinas (A+G) igualan a las pirimidinas (T+C): 50%
+        cada categoría. Y tiene que ser así, porque cada A de una hebra está
+        emparejada con una T de la otra. En una hebra sola, en cambio, puede
+        haber 40% de A y 10% de T sin ningún problema: ahí no hay pareja que
+        obligue a nada.
       </Cuidado>
     </EscenaRica>
   );
@@ -604,10 +611,10 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="Una hebra de ADN tiene 20% de A. ¿Qué % de G tiene?"
+        pregunta="Una molécula de ADN tiene 20% de A. ¿Qué % de G tiene?"
         opciones={["20%", "30%", "40%", "50%"]}
         correctaIdx={1}
-        explicacion="A=T=20%, juntos 40%. G+C=60%, G=C=30% cada uno."
+        explicacion="Ojo que dice MOLÉCULA (las dos hebras), que es donde vale Chargaff: si fuera una hebra sola el dato no alcanzaría. A=T=20%, juntos 40%. Lo que queda para G+C es 60%, y G=C, así que 30% cada uno."
       />
 
       <AutoCheck
@@ -618,10 +625,10 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="¿Qué biomolécula es la principal RESERVA de energía en animales?"
+        pregunta="¿Qué biomolécula almacena MÁS energía por gramo en los animales?"
         opciones={["almidón", "glucógeno", "celulosa", "triglicéridos"]}
         correctaIdx={3}
-        explicacion="Triglicéridos en tejido adiposo (9 kcal/g). Glucógeno es reserva CORTO plazo en hígado/músculo."
+        explicacion="Triglicéridos: 9 kcal/g, más del doble que un glúcido. Ojo con la diferencia: el glucógeno también es reserva, pero de corto plazo (hígado y músculo) y rinde menos por gramo. Por eso la pregunta dice 'más energía por gramo' y no solo 'reserva'."
       />
 
       <AutoCheck

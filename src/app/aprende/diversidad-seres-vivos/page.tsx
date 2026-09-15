@@ -139,7 +139,7 @@ function EscBinomial() {
           </text>
           {[
             { c: "Humano", n: "Homo sapiens" },
-            { c: "Perro doméstico", n: "Canis lupus familiaris" },
+            { c: "Perro doméstico", n: "Canis familiaris" },
             { c: "Llama (Bolivia)", n: "Lama glama" },
             { c: "Quinua (Bolivia)", n: "Chenopodium quinoa" },
             { c: "Cóndor andino", n: "Vultur gryphus" },
@@ -358,16 +358,18 @@ function EscPlantae() {
         Pluricelulares. Cloroplastos con clorofila.
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={230}>
+        <svg width="100%" height="100%" viewBox="0 0 720 230" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Clasificación principal de plantas
           </text>
           {[
-            { x: 90, t: "Briofitas", d: "sin vasos", ej: "musgos, hepáticas" },
-            { x: 90, t: "Pteridofitas", d: "con vasos, sin semilla", ej: "helechos", y: 100 },
-            { x: 380, t: "Gimnospermas", d: "semilla desnuda", ej: "pino, ciprés" },
-            { x: 380, t: "Angiospermas", d: "semilla en fruto + flor", ej: "rosas, manzano, maíz", y: 100 },
+            // Las cajas miden 75 de alto. Las de arriba no traían `y` y caían
+            // en 50 (o sea 50-125), mientras las de abajo arrancaban en 100.
+            { x: 90, t: "Briofitas", d: "sin vasos que suban el agua", ej: "musgos, hepáticas", y: 45 },
+            { x: 90, t: "Pteridofitas", d: "con vasos, sin semilla", ej: "helechos", y: 130 },
+            { x: 380, t: "Gimnospermas", d: "semilla desnuda", ej: "pino, ciprés", y: 45 },
+            { x: 380, t: "Angiospermas", d: "semilla en fruto + flor", ej: "rosas, manzano, maíz", y: 130 },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
               <rect x={-10} y={0} width={260} height={75} fill="#22c55e" opacity={0.08} stroke="#22c55e" strokeWidth={1.5} rx={8} />
@@ -382,15 +384,27 @@ function EscPlantae() {
       <Mnemotecnia>
         <strong>"Briofitas no tienen vasos; pteridofitas tienen vasos pero no
         semilla; gimnospermas tienen semilla pero no flor; angiospermas tienen
-        flor y fruto."</strong> Cada grupo agrega un avance evolutivo.
+        flor y fruto."</strong> Cada grupo agrega un avance evolutivo. Los
+        "vasos" son los cañitos internos por los que sube el agua desde la raíz:
+        sin ellos una planta no puede crecer alto ni alejarse de la humedad, y
+        por eso los musgos son chiquitos y viven pegados al suelo mojado.
       </Mnemotecnia>
 
       <Definicion termino="Angiospermas en 2 grupos">
+        <p style={{ margin: "0 0 8px", fontSize: 14 }}>
+          Dos palabras antes de la lista. El <strong>cotiledón</strong> es la
+          hojita que la semilla ya trae armada adentro y que sale primero al
+          germinar: si abres un frejol por la mitad ves dos mitades gordas, esos
+          son sus dos cotiledones. Las <strong>nervaduras</strong> son las
+          líneas que se ven a contraluz en una hoja, los cañitos que la
+          recorren. Con esas dos se separan los dos grupos.
+        </p>
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
-          <li><strong>Monocotiledóneas:</strong> 1 cotiledón, hojas paralelas,
-            flores múltiplos de 3. Maíz, trigo, palma.</li>
-          <li><strong>Dicotiledóneas:</strong> 2 cotiledones, hojas ramificadas,
-            flores múltiplos de 4 o 5. Rosa, frejol, manzano.</li>
+          <li><strong>Monocotiledóneas:</strong> 1 cotiledón, nervaduras
+            paralelas, flores en múltiplos de 3. Maíz, trigo, palma.</li>
+          <li><strong>Dicotiledóneas:</strong> 2 cotiledones, nervaduras
+            ramificadas (en red), flores en múltiplos de 4 o 5. Rosa, frejol,
+            manzano.</li>
         </ul>
       </Definicion>
     </EscenaRica>
@@ -404,7 +418,10 @@ function EscAnimalia() {
 
       <Definicion termino="Animales">
         Eucariotas pluricelulares, heterótrofos por INGESTIÓN. SIN pared
-        celular ni cloroplastos. Con sistema nervioso y movimiento.
+        celular ni cloroplastos. La mayoría tiene sistema nervioso y puede
+        moverse; las esponjas son la excepción, son animales sin sistema
+        nervioso (por eso lo que define al reino es cómo comen, no si se
+        mueven).
       </Definicion>
 
       <Pizarra alto={260}>

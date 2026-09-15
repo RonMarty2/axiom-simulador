@@ -58,6 +58,19 @@ function EscSimPotencial() {
 
   const currentV = voltage(t);
 
+  // La fase NO se puede deducir del voltaje solo: −30 mV pasa dos veces, una
+  // subiendo (despolarización) y otra bajando (repolarización). Antes se
+  // decidía por `currentV` y entonces la bajada se rotulaba "Despolarización",
+  // contradiciendo el párrafo de arriba. La fase la define en qué tramo del
+  // episodio estamos, o sea `t`.
+  const fase = (time: number) => {
+    if (time < 20) return "Reposo";
+    if (time < 30) return "Despolarización · entra Na⁺";
+    if (time < 45) return "Repolarización · sale K⁺";
+    if (time < 60) return "Hiperpolarización";
+    return "Reposo";
+  };
+
   const points: string[] = [];
   for (let i = 0; i <= Math.floor(t); i += 0.5) {
     const v = voltage(i);
@@ -71,7 +84,7 @@ function EscSimPotencial() {
       <Titulo>Simulador · potencial de acción</Titulo>
 
       <Parrafo>
-        Anda apretando "Disparar" para ver cómo cambia el voltaje de membrana
+        Aprieta "Disparar" y observa cómo cambia el voltaje de membrana
         en una neurona. Reposo: −70 mV. Despolarización: entra Na⁺. Pico: +30 mV.
         Repolarización: sale K⁺. Hiperpolarización breve antes de volver al reposo.
       </Parrafo>
@@ -99,6 +112,10 @@ function EscSimPotencial() {
           <line x1={60} y1={100 - 30 * 0.8} x2={640} y2={100 - 30 * 0.8} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
           <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>+30 mV</text>
 
+          {/* El umbral: el mnemotécnico de abajo lo promete y no estaba dibujado. */}
+          <line x1={60} y1={100 - (-55 * 0.8)} x2={640} y2={100 - (-55 * 0.8)} stroke="#f59e0b" strokeWidth={1} strokeDasharray="2 4" />
+          <text x={50} y={100 - (-55 * 0.8) + 4} textAnchor="end" fill="#f59e0b" fontSize={10}>-55 mV</text>
+
           <line x1={60} y1={20} x2={60} y2={220} stroke="#94a3b8" strokeWidth={1.5} />
           <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="#94a3b8" strokeWidth={1.5} />
 
@@ -111,6 +128,18 @@ function EscSimPotencial() {
             />
           )}
 
+          {/* Marcas reales en el eje: la escala interna va de 0 a 100 y el
+              episodio completo dura unos 3 ms, así que 10 unidades internas =
+              1 ms. Sin estas marcas el eje decía "ms" sin que nada lo respaldara. */}
+          {[0, 2, 4, 6, 8, 10].map((ms) => {
+            const x = 60 + ((ms * 10) / 100) * 580;
+            return (
+              <g key={ms}>
+                <line x1={x} y1={100 - (-70 * 0.8)} x2={x} y2={100 - (-70 * 0.8) + 5} stroke="#94a3b8" strokeWidth={1} />
+                <text x={x} y={100 - (-70 * 0.8) + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>{ms}</text>
+              </g>
+            );
+          })}
           <text x={350} y={235} textAnchor="middle" fill="#94a3b8" fontSize={10}>tiempo (ms)</text>
           <text x={20} y={120} textAnchor="middle" fill="#94a3b8" fontSize={10} transform="rotate(-90 20 120)">voltaje (mV)</text>
         </svg>
@@ -121,7 +150,7 @@ function EscSimPotencial() {
             {currentV.toFixed(1)} mV
           </div>
           <div style={{ fontSize: 11, opacity: 0.7 }}>
-            {currentV < -75 ? "Hiperpolarización" : currentV < -55 ? "Reposo" : currentV < 0 ? "Despolarización" : currentV >= 0 && currentV < 25 ? "Pico de despolarización" : "Repolarización"}
+            {fase(t)}
           </div>
         </div>
       </div>
@@ -451,9 +480,10 @@ function EscAutonomo() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"Simpático: las 4 F — Fight, Flight, Fright, Fuck (lucha,
-        huida, miedo, sexo). Parasimpático: rest and digest (descansa y
-        digiere)."</strong>
+        <strong>"Simpático: pelear, correr o asustarse. Parasimpático:
+        descansar y digerir."</strong> Una regla para no confundirlos: si la
+        situación te pondría el corazón a mil, es el simpático; si te daría
+        sueño después de almorzar, es el parasimpático.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -465,7 +495,7 @@ function EscReflejo() {
       <Titulo>Acto reflejo · respuesta automática</Titulo>
 
       <Hook>
-        Tocas una sartén caliente y tu mano YA se retiró antes de que sintas
+        Tocas una sartén caliente y tu mano YA se retiró antes de que sientas
         el dolor. ¿Cómo? El reflejo NO pasa por el cerebro: se procesa en la
         médula espinal. Es más rápido.
       </Hook>
@@ -481,33 +511,61 @@ function EscReflejo() {
         </ol>
       </Definicion>
 
-      <Pizarra alto={180}>
-        <svg width="100%" height="100%" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Arco reflejo (rodilla)
+      {/* La figura dibujaba Estímulo → Receptor → Médula → Motor → Respuesta:
+          cinco círculos, pero NO los cinco de la definición de arriba. Se
+          comía la neurona sensitiva y el efector, o sea la vía de ida entera,
+          y ponía en su lugar el estímulo y la respuesta, que son lo que entra
+          y lo que sale, no partes del circuito. Ahora los cinco círculos son
+          los cinco elementos, y el estímulo y la respuesta quedan afuera,
+          como flechas. El título decía "(rodilla)" mientras el Hook y la
+          definición hablan de la sartén caliente. */}
+      <Pizarra alto={200}>
+        <svg width="100%" height="100%" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid meet">
+          <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Arco reflejo · la mano y la sartén caliente
           </text>
+
+          {/* Lo que entra y lo que sale: no son parte del circuito. */}
+          <text x={12} y={100} fill={LIENZO.bad} fontSize={10} fontWeight={700}>Sartén</text>
+          <text x={12} y={112} fill={LIENZO.bad} fontSize={10} fontWeight={700}>caliente</text>
+          <line x1={52} x2={68} y1={100} y2={100} stroke={LIENZO.bad} strokeWidth={1.5} markerEnd="url(#refArrIn)" />
+
           {[
-            { x: 60, t: "Estímulo" },
-            { x: 200, t: "Receptor" },
-            { x: 340, t: "Médula" },
-            { x: 480, t: "Motor" },
-            { x: 620, t: "Respuesta" },
+            { x: 108, t1: "Receptor", t2: "(piel)" },
+            { x: 240, t1: "Neurona", t2: "sensitiva" },
+            { x: 372, t1: "Médula", t2: "espinal" },
+            { x: 504, t1: "Neurona", t2: "motora" },
+            { x: 636, t1: "Efector", t2: "(músculo)" },
           ].map((n, i) => (
             <g key={i}>
-              <circle cx={n.x} cy={90} r={30} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
-              <text x={n.x} y={94} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{n.t}</text>
+              <circle cx={n.x} cy={100} r={32} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
+              <text x={n.x} y={97} textAnchor="middle" fill={LIENZO.accent} fontSize={10.5} fontWeight={700}>{n.t1}</text>
+              <text x={n.x} y={110} textAnchor="middle" fill={LIENZO.accent} fontSize={10.5} fontWeight={700}>{n.t2}</text>
+              <text x={n.x} y={150} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{i + 1}</text>
               {i < 4 && (
-                <line x1={n.x + 32} x2={n.x + 108} y1={90} y2={90} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#refArr)" />
+                <line x1={n.x + 34} x2={n.x + 98} y1={100} y2={100} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#refArr)" />
               )}
             </g>
           ))}
+
+          <line x1={670} x2={688} y1={100} y2={100} stroke={LIENZO.ok} strokeWidth={1.5} markerEnd="url(#refArrOut)" />
+          <text x={694} y={96} textAnchor="end" fill={LIENZO.ok} fontSize={10} fontWeight={700}>La mano</text>
+          <text x={710} y={108} textAnchor="end" fill={LIENZO.ok} fontSize={10} fontWeight={700}>se retira</text>
+
           <defs>
             <marker id="refArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
             </marker>
+            <marker id="refArrIn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.bad} />
+            </marker>
+            <marker id="refArrOut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.ok} />
+            </marker>
           </defs>
-          <text x={360} y={155} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            No pasa por el cerebro → mucho más rápido
+
+          <text x={360} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
+            Fíjate que el cerebro no aparece: la orden sale de la médula, y por eso llega antes que el dolor
           </text>
         </svg>
       </Pizarra>
