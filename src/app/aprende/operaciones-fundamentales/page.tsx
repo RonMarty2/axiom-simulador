@@ -504,7 +504,7 @@ function Esc08_MultProps() {
           rotula las opciones con letras, así que el alumno no las veía. */}
       <AutoCheck
         pregunta="Aplicando la distributiva, ¿cuánto es 7 · (10 + 2)?"
-        opciones={["70 + 2 = 72", "7 · 10 + 2 = 72", "7 · 10 + 7 · 2 = 84", "7 · 10 · 7 · 2 = 980"]}
+        opciones={["70 + 2 = 72", "7 · 12 = 82", "7 · 10 + 7 · 2 = 84", "7 · 10 · 7 · 2 = 980"]}
         correctaIdx={2}
         explicacion="7 · (10 + 2) = 7 · 10 + 7 · 2 = 70 + 14 = 84. El 7 multiplica a los DOS números de adentro, no solo al primero: ese es el error más común. Y se puede comprobar haciendo primero el paréntesis: 7 × 12 = 84, el mismo resultado."
       />

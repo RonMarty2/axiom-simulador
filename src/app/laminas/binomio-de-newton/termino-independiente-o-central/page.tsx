@@ -127,7 +127,7 @@ export default function TerminoIndependienteOCentralPage() {
       contenido: (
         <TarjetaPractica
           pregunta={"Hallar el término independiente en el desarrollo del binomio: $\\left(x^2-\\dfrac{2}{x}\\right)^9$"}
-          opciones={["$t_i=3576$", "$t_i=5367$", "$t_i=3576$", "$t_i=5376$", "Ninguno"]}
+          opciones={["$t_i=3576$", "$t_i=5367$", "$t_i=6357$", "$t_i=5376$", "Ninguno"]}
           correcta={3}
           explicacion={"$T_{k+1}=\\binom{9}{k}(-2)^k x^{18-3k}$. Independiente: $18-3k=0 \\Rightarrow k=6$. $\\binom{9}{6}=84$, $(-2)^6=64$ (par, positivo). $84\\times64=5376$."}
         />
