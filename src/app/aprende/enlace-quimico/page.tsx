@@ -323,15 +323,31 @@ function EscTiposCov() {
         • Más rígida la molécula.
       </Mnemotecnia>
 
-      <WorkedExample titulo="Q4 PREU 2025 · identificar enlace iónico">
-        ¿Cuál tiene enlace iónico, covalente simple, coordinado, doble?<br />
-        Opciones: a) K₂SO₄, b) CsClO₃, c) Na₂CO₃, d) AgNO₃<br /><br />
+      {/* Antes este ejemplo nunca respondía: hablaba del "más típico iónico
+          puro" (que no es lo que pregunta) y terminaba señalando el doble
+          enlace de OTRA opción. El alumno cerraba la escena sin la respuesta. */}
+      <WorkedExample titulo="Q4 PREU 2025 · el compuesto que tiene los cuatro enlaces">
+        <strong>La pregunta:</strong> ¿cuál de estos reúne enlace iónico, covalente
+        simple, covalente doble y covalente coordinado, todos a la vez?<br />
+        a) K₂SO₄ &nbsp; b) CsClO₃ &nbsp; c) Na₂CO₃ &nbsp; d) AgNO₃<br /><br />
 
-        Iónico: entre metal-no metal. Todos tienen iones K⁺, Cs⁺, Na⁺ o Ag⁺.<br />
-        Más típico iónico puro: <strong>CsClO₃ (clorato de cesio)</strong>:
-        Cs⁺ con ClO₃⁻. Dentro del anión hay covalente, pero Cs-O₃Cl es iónico.<br /><br />
+        <strong>Cómo se busca.</strong> No hay que mirar el compuesto entero de golpe,
+        sino en dos partes: el metal con el resto (ahí está el enlace iónico) y después,
+        dentro del anión, los enlaces entre los no metales.<br /><br />
 
-        El de enlace covalente doble más claro: en C=O del carbonato Na₂CO₃.
+        <strong>Descartamos el carbonato (c).</strong> En Na₂CO₃ el ion CO₃²⁻ tiene un
+        C=O doble y dos C−O simples, y nada más: no hay ningún enlace coordinado. Le
+        falta uno de los cuatro.<br /><br />
+
+        <strong>La respuesta es d) AgNO₃</strong>, el nitrato de plata. Los cuatro están:<br />
+        • <strong>Iónico</strong>: entre Ag⁺ y NO₃⁻, metal con no metal.<br />
+        • <strong>Covalente simple</strong>: N−O, un par que aportan los dos átomos.<br />
+        • <strong>Covalente doble</strong>: N=O, dos pares compartidos.<br />
+        • <strong>Coordinado</strong>: N→O, donde el par lo pone entero el nitrógeno.<br /><br />
+
+        <strong>Un dato extra:</strong> el sulfato (a) y el clorato (b) también se pueden
+        dibujar con enlace coordinado, según cómo repartas los pares. El nitrato es el
+        caso que usan los libros porque en él los cuatro se ven sin discusión.
       </WorkedExample>
     </EscenaRica>
   );

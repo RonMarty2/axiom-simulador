@@ -231,19 +231,20 @@ function EscLey2() {
           <text x={300} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>A</text>
           <text x={380} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>a</text>
           {/* gametos izquierda */}
-          <text x={230} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>A</text>
-          <text x={230} y={170} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>a</text>
+          <text x={230} y={120} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>A</text>
+          <text x={230} y={200} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>a</text>
 
-          {/* cuadrantes */}
+          {/* Celdas cuadradas de verdad: eran 80×60, o sea rectángulos, en algo
+              que se llama "cuadro" de Punnett. */}
           {[
-            { x: 260, y: 80, t: "AA", c: LIENZO.ok },
-            { x: 340, y: 80, t: "Aa", c: LIENZO.warn },
-            { x: 260, y: 140, t: "Aa", c: LIENZO.warn },
-            { x: 340, y: 140, t: "aa", c: LIENZO.bad },
+            { x: 260, y: 75, t: "AA", c: LIENZO.ok },
+            { x: 340, y: 75, t: "Aa", c: LIENZO.warn },
+            { x: 260, y: 155, t: "Aa", c: LIENZO.warn },
+            { x: 340, y: 155, t: "aa", c: LIENZO.bad },
           ].map((q, i) => (
             <g key={i}>
-              <rect x={q.x} y={q.y} width={80} height={60} fill={q.c} opacity={0.2} stroke={q.c} strokeWidth={2} />
-              <text x={q.x + 40} y={q.y + 38} textAnchor="middle" fill={q.c} fontSize={18} fontWeight={700}
+              <rect x={q.x} y={q.y} width={80} height={80} fill={q.c} opacity={0.2} stroke={q.c} strokeWidth={2} />
+              <text x={q.x + 40} y={q.y + 48} textAnchor="middle" fill={q.c} fontSize={18} fontWeight={700}
                 fontFamily="var(--font-crimson), serif">{q.t}</text>
             </g>
           ))}

@@ -427,7 +427,10 @@ function EscEcuaciones() {
 
         Usando ec. 3 con v = 0 (se detiene):
         <div style={{ textAlign: "center", padding: "6px 0" }}>
-          <MathText>{"$0 = v_0^2 + 2ad \\ \\Rightarrow\\ d = \\dfrac{v_0^2}{2a} = \\dfrac{823.69}{15.68}$"}</MathText>
+          {/* Decía d = v₀²/(2a), sin el signo menos. El número final salía bien
+              solo porque después se sustituía la a en positivo, contradiciendo
+              la línea de arriba que acababa de declararla negativa. */}
+          <MathText>{"$0 = v_0^2 + 2ad \\ \\Rightarrow\\ d = -\\dfrac{v_0^2}{2a} = -\\dfrac{823.69}{2(-7.84)} = \\dfrac{823.69}{15.68}$"}</MathText>
         </div>
         <strong>52.53 m</strong>. El área bajo el gráfico v-t (triángulo) es exactamente esa distancia:
       </WorkedExample>

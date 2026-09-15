@@ -140,8 +140,12 @@ function EscVariables() {
 function EscBoyle() {
   const [V1, setV1] = useState(4);
   const P1 = 1; // atm
-  const V2 = useMemo(() => 4, []);
-  const P2_real = useMemo(() => (P1 * V1) / V2, [V1]);
+  // V2 estaba fijo en 4 y el slider de V1 arrancaba en 2: por debajo de 4 el
+  // texto decía "lo comprimes" cuando en realidad era una expansión, y en 4
+  // exacto no pasaba nada (P2 = P1). Comprimir siempre a 2 L, con V1 desde 3,
+  // deja el ejemplo coherente en todo el recorrido del slider.
+  const V2 = 2;
+  const P2_real = (P1 * V1) / V2;
 
   return (
     <EscenaRica>
@@ -199,7 +203,7 @@ function EscBoyle() {
             V₁ inicial: {V1} L
           </label>
           <input
-            type="range" min={2} max={10} step={0.5} value={V1}
+            type="range" min={3} max={10} step={0.5} value={V1}
             onChange={(e) => setV1(Number(e.target.value))}
             style={{ width: "100%", marginTop: 4 }}
           />
@@ -611,10 +615,18 @@ function EscPractica() {
         constantes. Si cambia n (le sacan gas, le agregan), no aplica.
       </Misconception>
 
-      <Misconception titulo="Error 4 · Fracción molar vs % en masa">
-        <strong>Pensar:</strong> que el 21% de O₂ en aire es x = 0.21.<br />
-        <strong>Realidad:</strong> 21% es en volumen/moles, no en masa. Para
-        Dalton sí usas 0.21, pero ojo si el dato es % en masa.
+      {/* Marcaba como error algo que dos líneas después admitía que era
+          correcto ("para Dalton sí usas 0.21"). El error real es el otro: usar
+          un porcentaje en MASA como si fuera fracción molar. */}
+      <Misconception titulo="Error 4 · Usar un % en masa como si fuera fracción molar">
+        <strong>Pensar:</strong> que cualquier porcentaje se puede meter directo
+        como fracción molar en las cuentas de Dalton.<br />
+        <strong>Realidad:</strong> depende de en qué está expresado. El 21% de O₂
+        del aire es en volumen, y en gases el % en volumen es igual al % en moles:
+        ahí sí x = 0.21 y lo usas tal cual. Pero si el dato viene en <strong>% en
+        masa</strong>, primero tienes que pasarlo a moles dividiendo por la masa
+        molar de cada gas, porque un gramo de O₂ y un gramo de H₂ no son la misma
+        cantidad de partículas.
       </Misconception>
 
       <Resumen>
