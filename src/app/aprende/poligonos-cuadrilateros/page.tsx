@@ -464,10 +464,17 @@ function EscErrores() {
         doble del área real.
       </Misconception>
 
-      <Misconception titulo="Error 4 · aplicar (n-2)·180 a polígonos cóncavos">
-        La fórmula vale para polígonos CONVEXOS (los que no tienen "muescas").
-        En cóncavos hay que ser más cuidadoso. En el examen, casi siempre son
-        convexos, pero confirma visualmente.
+      {/* Decía que (n−2)·180 "vale para convexos" y que en cóncavos "hay que
+          ser más cuidadoso": es falso, y además contradecía la escena de la
+          fórmula, que dice "cualquier polígono de n lados". Lo que no sirve en
+          un cóncavo es triangular desde un vértice cualquiera. */}
+      <Misconception titulo="Error 4 · creer que la fórmula falla en los cóncavos">
+        La suma de los ángulos interiores es (n−2)·180° en <strong>cualquier</strong>
+        polígono de n lados, tenga "muescas" o no. Un pentágono cóncavo suma 540°
+        igual que uno regular.<br /><br />
+        Lo que sí cambia es el truco de partirlo en triángulos: en un cóncavo hay
+        vértices desde los cuales las diagonales se salen de la figura, así que hay
+        que elegir uno que sí funcione. Pero el resultado final es el mismo.
       </Misconception>
     </EscenaRica>
   );

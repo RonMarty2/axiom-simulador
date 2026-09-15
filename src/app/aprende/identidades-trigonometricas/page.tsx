@@ -448,9 +448,18 @@ function EscEcuacionesAvanzadas() {
         2 sen x (cos²x − 3 sen²x) = 0.<br /><br />
 
         <strong>Paso 3 · Casos:</strong><br />
-        • sen x = 0 → x = 0° o 180°.<br />
-        • cos²x = 3 sen²x → tan²x = 1/3 → tan x = ±1/√3 → x = 30° (o 150° pero
-        está fuera del intervalo si restringimos).<br /><br />
+        • sen x = 0 → x = <strong>0°</strong> o <strong>180°</strong>.<br />
+        • cos²x = 3 sen²x → tan²x = 1/3 → tan x = ±1/√3. El signo + da{" "}
+        <strong>30°</strong> y el signo − da <strong>150°</strong>, y los dos están
+        dentro de [0°, 180°].<br /><br />
+
+        {/* Decía que 150° quedaba "fuera del intervalo": el intervalo es
+            [0°, 180°], así que está adentro. Comprobado: con x = 150°, la
+            izquierda da 2(1/2)(3/4) = 3/4 y la derecha 6(1/8) = 3/4. Además el
+            ejemplo nunca escribía la respuesta final. */}
+        <strong>Soluciones: 0°, 30°, 150° y 180°.</strong> Conviene comprobar una:
+        con x = 150°, el lado izquierdo da 2(1/2)(3/4) = 3/4 y el derecho
+        6(1/8) = 3/4. Coinciden.<br /><br />
 
         Este tipo de ejercicio apareció en el facsímil 2do parcial PREU 2025 G2.
       </WorkedExample>

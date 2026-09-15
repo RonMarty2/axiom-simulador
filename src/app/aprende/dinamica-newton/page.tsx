@@ -160,17 +160,21 @@ function ComparacionMasas() {
       <svg width="100%" height="100%" viewBox="0 0 480 200" preserveAspectRatio="xMidYMid meet">
         <rect x="60" y="80" width="60" height="60" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
         <text x="90" y="115" textAnchor="middle" fontSize="13" fontWeight="700" fill={LIENZO.fg}>{mA} kg</text>
-        <Flecha x1={120} y1={110} x2={120 + F * 3} y2={110} color={LIENZO.accent} id="fA" />
-        <text x={120 + F * 3 + 6} y={106} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
-        <Flecha x1={90} y1={78} x2={90} y2={78 - aA * escala} color={LIENZO.ok} id="aA" />
-        <text x="95" y={78 - aA * escala - 6} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=5 m/s²</text>
+        {/* Las flechas de aceleración iban VERTICALES mientras la fuerza va
+            horizontal, justo debajo del texto que dice que la aceleración tiene
+            la misma dirección que la fuerza neta. Ahora van paralelas: lo único
+            que las distingue es el largo, que es de lo que habla la escena. */}
+        <Flecha x1={120} y1={98} x2={120 + F * 3} y2={98} color={LIENZO.accent} id="fA" />
+        <text x={120 + F * 3 + 6} y={94} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
+        <Flecha x1={120} y1={128} x2={120 + aA * escala} y2={128} color={LIENZO.ok} id="aA" />
+        <text x={120 + aA * escala + 6} y={132} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=5 m/s²</text>
 
         <rect x="300" y="80" width="60" height="60" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
         <text x="330" y="115" textAnchor="middle" fontSize="13" fontWeight="700" fill={LIENZO.fg}>{mB} kg</text>
-        <Flecha x1={360} y1={110} x2={360 + F * 3} y2={110} color={LIENZO.accent} id="fB" />
-        <text x={360 + F * 3 + 6} y={106} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
-        <Flecha x1={330} y1={78} x2={330} y2={78 - aB * escala} color={LIENZO.ok} id="aB" />
-        <text x="335" y={78 - aB * escala - 6} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=2 m/s²</text>
+        <Flecha x1={360} y1={98} x2={360 + F * 3} y2={98} color={LIENZO.accent} id="fB" />
+        <text x={360 + F * 3 + 6} y={94} fontSize="11" fill={LIENZO.accent}>F=10 N</text>
+        <Flecha x1={360} y1={128} x2={360 + aB * escala} y2={128} color={LIENZO.ok} id="aB" />
+        <text x={360 + aB * escala + 6} y={132} fontSize="11" fontWeight="700" fill={LIENZO.ok}>a=2 m/s²</text>
       </svg>
     </Pizarra>
   );
@@ -313,16 +317,20 @@ function EscPeso() {
 }
 
 // ─── DCL de bloque con fricción oponiéndose al movimiento ───
+// Normal y Peso se dibujaban de 50 y 38 px. En piso horizontal y sin
+// aceleración vertical valen lo mismo, y la propia lección lo dice en su
+// "Error 3": el dibujo enseñaba lo contrario del texto. Ahora miden igual.
+// El Peso además arrancaba en y=172, por debajo de la línea del piso.
 function DCLFriccion() {
   return (
-    <Pizarra alto={220}>
-      <svg width="100%" height="100%" viewBox="0 0 480 220" preserveAspectRatio="xMidYMid meet">
+    <Pizarra alto={240}>
+      <svg width="100%" height="100%" viewBox="0 0 480 240" preserveAspectRatio="xMidYMid meet">
         <line x1="60" y1="170" x2="420" y2="170" stroke={LIENZO.fg} strokeWidth="2" />
         <rect x="200" y="120" width="60" height="50" rx="6" fill={LIENZO.bgSoft} stroke={LIENZO.fg} strokeWidth="2" />
-        <Flecha x1={230} y1={118} x2={230} y2={68} color={LIENZO.ok} id="Nfric" />
-        <text x={236} y={90} fontSize="11" fontWeight="700" fill={LIENZO.ok}>Normal</text>
-        <Flecha x1={230} y1={172} x2={230} y2={210} color={LIENZO.warn} id="Pfric" />
-        <text x={236} y={202} fontSize="11" fontWeight="700" fill={LIENZO.warn}>Peso</text>
+        <Flecha x1={230} y1={118} x2={230} y2={70} color={LIENZO.ok} id="Nfric" />
+        <text x={236} y={92} fontSize="11" fontWeight="700" fill={LIENZO.ok}>Normal</text>
+        <Flecha x1={230} y1={170} x2={230} y2={218} color={LIENZO.warn} id="Pfric" />
+        <text x={236} y={212} fontSize="11" fontWeight="700" fill={LIENZO.warn}>Peso</text>
         <Flecha x1={262} y1={145} x2={340} y2={145} color={LIENZO.accent} id="Faplic" />
         <text x={344} y={140} fontSize="11" fontWeight="700" fill={LIENZO.accent}>F aplicada</text>
         <Flecha x1={198} y1={145} x2={150} y2={145} color={LIENZO.bad} id="Ffric" />
