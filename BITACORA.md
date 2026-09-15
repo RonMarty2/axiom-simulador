@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-15 (botón central en la barra inferior, elegir examen pasa a ser navegación, y la regla de leer-y-anotar para no pisarse entre sesiones)
+**Última actualización:** 2026-09-15 (botón central en la barra inferior, elegir examen pasa a ser navegación, la regla de leer-y-anotar, y el encargo abierto de auditoría pedagógica en §8)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -335,6 +335,36 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] Los precios están escritos dos veces: `api/pagos/route.ts` (servidor, el que vale) y `pagar/page.tsx:30` (cliente). Hoy coinciden en 100 / 50 / 50, pero es cuestión de tiempo.
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
 
+### ENCARGO ABIERTO · Auditoría pedagógica de las 167 piezas de contenido
+
+> **Para la IA o el dev que tome esto: esta sección es autocontenida.** No hace falta el historial de la sesión donde salió. Leé §4.5 (reglas de escritura) y §7 (errores históricos) antes de empezar, y §0 antes de commitear.
+
+**Por qué existe este encargo.** El 15-sep Ronald leyó una escena de `mcd-mcm` que daba por buena y encontró varias lagunas de golpe: *"creí que se entiende pero ahorita que lo revisé me quedaron muchas lagunas, me da miedo que haya muchas partes donde exista el mismo problema"*. Se arreglaron esa y tres más, y se barrieron los 167 archivos con un script buscando simbología cruda. **El script encontró lo que era un símbolo, y nada más.** El peor problema de esa pantalla no era un carácter raro: era la frase *"El 0 tampoco (tiene infinitos divisores, lo divide cualquier número > 0)"*, una afirmación tirada sin fundamentar. Ningún grep la habría marcado. Por eso hace falta leer.
+
+**Alcance:** 167 piezas.
+- 103 lecciones: `src/app/aprende/*/page.tsx`
+- 64 láminas: `src/app/laminas/*/*/page.tsx`
+
+**Cómo leer cada pieza.** Con los ojos de un alumno de secundaria de Cochabamba que ve el tema **por primera vez**, no de alguien que lo está repasando. La pregunta en cada párrafo es "¿de dónde salió esto?", no "¿es correcto esto?". Casi todo el contenido es correcto; el problema es lo que da por sabido.
+
+**Qué marcar (los criterios ya son reglas del proyecto, §4.5):**
+1. **Afirmación sin fundamentar** (regla 3). Algo que se declara como cierto sin decir por qué, donde el "por qué" no es obvio para quien recién llega. El caso del 0 es el ejemplo canónico.
+2. **Dos saltos lógicos en un mismo paso** (regla 2). Si una idea no hace falta para llegar a la conclusión, va como dato extra al final, no en medio del argumento.
+3. **Notación nueva sin puente** (regla 1). Un símbolo o una forma de escribir que aparece sin conectarse con algo que el alumno ya sabe de memoria.
+4. **Abreviaturas y simbología de quien escribió el código.** Ya salieron dos casos: `2 r 2` por "resto" y el `·` haciendo de multiplicación y de separador a la vez. Si hay que explicar la abreviatura, no es abreviatura, es un problema.
+5. **El paso "obvio" que no lo es** (regla 3). El que más pierde al lector suele ser el que el autor ni nombró.
+6. **Prosa sin dispositivo visual** donde el tema lo pide (reglas 9 y 10), sobre todo en láminas.
+
+**Qué entregar.** Un informe por pieza, no un reescritura masiva. Para cada archivo: la ruta, y por cada laguna encontrada la cita textual, qué da por sabido, y una propuesta concreta de reemplazo. Priorizar por dónde duele más: **Unidad 01 de cada bloque primero**, porque es el contenido gratis y es lo primero que ve cualquiera que llega (D2). Después el resto.
+
+**Qué NO hacer.**
+- No reescribir las 167 de una pasada sin que Ronald vea el informe. El 31-jul se documentó en §4.5 que él revisa de a una, y hay 4 iteraciones de mockup rechazadas que explican por qué.
+- No tocar el sentido matemático. Si algo parece un error de contenido y no de explicación, reportarlo aparte, no corregirlo de taquito.
+- No meter emojis ni cambiar la paleta (§4, §0).
+- El texto nuevo va en **TUTEO** (§0): "puedes", no "podés".
+
+**Ojo con el volumen.** Son 167 archivos grandes; conviene despachar agentes en paralelo, uno por pieza o por grupo chico, con este texto como instrucción. El patrón está probado en este repo: así se cargaron los 139 exámenes de Ingeniería (§11, 28-jul).
+
 ### Crítico — contenido
 - [ ] Reescribir **examen 2024** UMSS Económicas con preguntas multi-paso (paralelo a lo que se hizo con 2023).
 - [x] Pregunta 1 del examen 2023 (fracciones anidadas): resuelta con aritmética racional exacta, da $-23/55$ y ninguna opción coincide → **E) Ninguno** (ver §11).
@@ -449,6 +479,7 @@ Las dos cosas corregidas (ver §5). **Ojo con el final:** la WebAPK congela el m
 
 **El `·` significaba dos cosas en la misma línea.** Ronald, leyendo la escena de primos: *"hay partes como esta que creí que se entienden pero ahorita que lo revisé me quedaron muchas lagunas, me da miedo que haya muchas partes donde exista el mismo problema"*. Tenía razón: en `4 = 2·2 (tiene divisor 2) · 6 = 2·3 · 9 = 3·3`, el mismo `·` multiplicaba **y** separaba ejemplos, así que no se veía dónde terminaba una cuenta y empezaba la otra. Es la regla 11 de §4.5 (nada de guiones largos cerca de matemática) aplicada a otro carácter: **un símbolo de puntuación pegado a números se lee como operador**. Corregido poniendo un ejemplo por renglón, con `×` en lugar de `·`, en `mcd-mcm`, `teoria-exponentes` (3 bloques) y `ecuaciones-segundo-grado`.
 - En la misma pantalla salieron otras dos lagunas: `>1` escrito así en prosa (queda "mayor que 1") y el *"El 0 tampoco (tiene infinitos divisores, lo divide cualquier número > 0)"*, que afirmaba sin explicar. Ahora dice por qué, con ejemplos: `0 = 5 × 0`, `0 = 7 × 0`.
+- **Queda como encargo abierto en §8** la auditoría pedagógica de las 167 piezas, escrita ahí de forma autocontenida porque Ronald la va a hacer con otra IA. La conclusión que la motiva está abajo.
 - **Lo que el barrido automático sí y no puede encontrar.** Se barrieron los 167 archivos de contenido (103 lecciones + 64 láminas) con un script: 0 casos de `*`, `mod`, `gcd`, `lcm`, `iff`; los `<` y `>` crudos que quedan (en `operaciones-fundamentales`) son legítimos, ahí el símbolo **es** el tema. El separador ambiguo tenía señal limpia (`&nbsp;·&nbsp;`) y salieron los 4 bloques ya corregidos. **Pero el grep solo encuentra símbolos, no lagunas de explicación**: lo del 0 no lo habría detectado ningún patrón, porque el problema no era un carácter sino una afirmación sin fundamentar. Auditar eso pide leer las 167 piezas con ojos de alguien que ve el tema por primera vez.
 
 **De paso quedó `AvisoNavegadorApp.tsx`**, que sí resuelve el otro caso (el real, aunque no era el de Ronald): Messenger, Instagram, Facebook y TikTok abren los links en su propio WebView, y **desde ahí la PWA no se puede instalar**. Como el link se va a repartir por esas apps, cualquier alumno que entre así se quedaría sin enterarse de que existe una app. El componente lo detecta, nombra la app y explica el gesto para salir (ver §5.1). Verificado con los user agents reales de Messenger y de Chrome.
