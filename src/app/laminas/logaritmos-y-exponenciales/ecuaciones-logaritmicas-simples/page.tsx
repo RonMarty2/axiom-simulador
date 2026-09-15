@@ -61,7 +61,7 @@ export default function EcuacionesLogaritmicasSimplesPage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve y VERIFICÁ que el argumento original quede positivo</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Resuelve y VERIFICA que el argumento original quede positivo</span>
             </div>
           </div>
         </div>

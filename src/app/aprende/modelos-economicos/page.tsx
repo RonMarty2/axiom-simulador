@@ -262,14 +262,14 @@ function Esc03() {
     <EscenaRica>
       <Titulo>Recorrido de un billete · 50 Bs en La Cancha</Titulo>
       <Hook>
-        Tienes un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), comprás una
+        Tienes un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), compras una
         marraqueta y un trozo de queso. <strong>¿Dónde termina ese billete?</strong> Seguilo:
       </Hook>
       <WorkedExample titulo="El recorrido del billete de 50 Bs">
         <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14, lineHeight: 1.7 }}>
           <li><strong>Paso 1.</strong> Sales de casa (familia) con 50 Bs. Llegas a La Cancha.</li>
           <li>
-            <strong>Paso 2.</strong> Comprás la marraqueta y queso a doña María (empresa pequeña).
+            <strong>Paso 2.</strong> Compras la marraqueta y queso a doña María (empresa pequeña).
             Le diste 50 Bs. → <em>ingreso de la empresa</em>.
           </li>
           <li>

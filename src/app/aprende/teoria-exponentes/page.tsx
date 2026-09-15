@@ -107,7 +107,7 @@ function Esc01_Basicas() {
       <Hook>
         Las 5 propiedades de exponentes aparecen en <strong>casi todo cálculo algebraico</strong>:
         radicales, logaritmos, ecuaciones exponenciales, derivadas. Si las dominas, te
-        ahorrás horas en todas las demás unidades.
+        ahorras horas en todas las demás unidades.
       </Hook>
 
       <Mnemotecnia>

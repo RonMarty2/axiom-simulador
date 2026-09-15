@@ -337,7 +337,7 @@ function Esc07_Notables() {
       <Titulo>Productos notables: patrones que conviene memorizar</Titulo>
       <Parrafo>
         Algunos productos aparecen <strong>todo el tiempo</strong>. Si los reconoces,
-        ahorrás tiempo y errores.
+        ahorras tiempo y errores.
       </Parrafo>
 
       <Resumen>

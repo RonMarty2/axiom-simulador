@@ -124,7 +124,7 @@ export default function DivisionDePolinomiosPage() {
             </div>
           </PasoCard>
           <p style={{ margin: "12px 0 8px", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            El <MathText>{"$5$"}</MathText> que quedó es de grado 0, menor que el grado 1 del divisor. Ahí parás: no hay más para bajar.
+            El <MathText>{"$5$"}</MathText> que quedó es de grado 0, menor que el grado 1 del divisor. Ahí paras: no hay más para bajar.
           </p>
           <div style={{
             display: "flex", alignItems: "center", justifyContent: "center", gap: 14, flexWrap: "wrap",

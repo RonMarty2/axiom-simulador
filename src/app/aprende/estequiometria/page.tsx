@@ -75,7 +75,7 @@ function EscMetodo() {
         <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}>
           <text x={360} y={30} textAnchor="middle" fill={LIENZO.fg} fontSize={16} fontWeight={700}>
-            MÉTODO MEEMM
+            LOS 4 PASOS, SIEMPRE EN ESTE ORDEN
           </text>
           {[
             { n: "1", t1: "Balancear", t2: "ecuación", c: "#3b82f6" },
@@ -102,9 +102,10 @@ function EscMetodo() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>MEEMM:</strong> <em>M</em>oles del dato → <em>E</em>cuación
-        balanceada → <em>E</em>scala con coeficientes → <em>M</em>oles del
-        pedido → <em>M</em>asa (o volumen, partículas).
+        <strong>Balanceo → paso a moles → escalo → vuelvo a la unidad que me
+        piden.</strong> Las cuatro palabras, en ese orden, son los cuatro
+        círculos de arriba. Si te saltas el balanceo, el paso 3 escala con los
+        coeficientes equivocados y todo lo que sigue sale mal.
       </Mnemotecnia>
 
       <WorkedExample titulo="¿Cuántos g de H₂O se forman al quemar 16 g de CH₄? (C=12, H=1, O=16)">
@@ -205,9 +206,12 @@ function EscLimitante() {
       <Titulo>Reactivo limitante · el cuello de botella</Titulo>
 
       <Hook>
-        Volvamos a la pizza: si tienes 10 huevos pero solo 1 sobre de levadura,
-        la levadura es el "limitante". No importa cuántos huevos te sobren, la
-        levadura define cuántas pizzas haces.
+        Volvamos a la pizza del principio: la receta pide 2 huevos, 3 tazas de
+        harina y 1 sobre de levadura, y tú tienes 8 huevos, 9 tazas y 2 sobres.
+        Los huevos te alcanzan para 8/2 = 4 pizzas, la harina para 9/3 = 3, y
+        la levadura para 2/1 = 2. <strong>Salen 2 pizzas</strong>, no 4: manda
+        el ingrediente que se acaba primero. Ese es el "limitante", y no
+        importa cuánto te sobre de los otros.
       </Hook>
 
       <Definicion termino="Reactivo limitante">
@@ -291,7 +295,7 @@ function EscPureza() {
       </WorkedExample>
 
       <Cuidado>
-        Nunca uses la masa total en el cálculo de moles. Primero descontá las
+        Nunca uses la masa total en el cálculo de moles. Primero descuenta las
         impurezas. Si te dan "muestra impura del 75%", esa muestra solo tiene
         75% del compuesto que reacciona.
       </Cuidado>

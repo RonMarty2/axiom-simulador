@@ -264,7 +264,7 @@ function EscFormacion() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"F-R-S: Filtrás MUCHO, Reabsorbes CASI TODO, Secretas los
+        <strong>"F-R-S: Filtras MUCHO, Reabsorbes CASI TODO, Secretas los
         sobrantes."</strong> De 180 L filtrados → 1.5 L de orina.
       </Mnemotecnia>
 

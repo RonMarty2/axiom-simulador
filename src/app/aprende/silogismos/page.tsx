@@ -249,7 +249,7 @@ function EscProcedimiento() {
         • En la PM: "gatos" (extremo izquierdo).<br />
         • En la Pm: "carnívoros" (extremo derecho).<br /><br />
 
-        <strong>Paso 3:</strong> uní los extremos, el término medio desaparece:<br />
+        <strong>Paso 3:</strong> une los extremos, el término medio desaparece:<br />
         <strong>∴ Todos los gatos son carnívoros.</strong><br /><br />
 
         <strong>Verifica:</strong> no agregaste info ("todos" estaba en las premisas), no invertiste

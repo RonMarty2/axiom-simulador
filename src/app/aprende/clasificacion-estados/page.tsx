@@ -100,7 +100,7 @@ function EscHook() {
       <Titulo>Por qué importa la contabilidad</Titulo>
       <Hook>
         Vas a abrir una panadería en El Alto. Pones 20 000 Bs de tu plata + un préstamo de 10 000
-        del banco. Comprás el horno (15 000), harina inicial (5 000), y guardas 10 000 en caja para
+        del banco. Compras el horno (15 000), harina inicial (5 000), y guardas 10 000 en caja para
         emergencias.<br /><br />
         Tres meses después, alguien te pregunta: <strong>"¿tu negocio es rentable?"</strong>
         <br /><br />

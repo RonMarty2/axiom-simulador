@@ -266,7 +266,7 @@ function Esc06_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> En compañía, olvidar multiplicar por el tiempo. <br />
         <span style={{ fontSize: 13 }}>
-          Si solo usas los capitales, ignorás que un socio pudo aportar más tiempo. Capital × Tiempo.
+          Si solo usas los capitales, ignoras que un socio pudo aportar más tiempo. Capital × Tiempo.
         </span>
       </Cuidado>
 

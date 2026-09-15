@@ -263,7 +263,7 @@ function EscAltura() {
       <Definicion termino="Adaptaciones a la altura">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
           <li><strong>Poliglobulia:</strong> más eritrocitos para llevar más O₂.</li>
-          <li><strong>↑ ventilación:</strong> respirás más rápido y profundo.</li>
+          <li><strong>↑ ventilación:</strong> respiras más rápido y profundo.</li>
           <li><strong>↑ capilarización pulmonar.</strong></li>
           <li><strong>Tórax más amplio</strong> (en nativos andinos).</li>
         </ul>

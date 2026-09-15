@@ -313,7 +313,7 @@ function EscMnemo() {
         cuadra. La balanza solo detecta diferencias en SUMAS, no en CLASIFICACIÓN.
       </Misconception>
       <Misconception titulo="Error 3 · olvidar la depreciación">
-        El activo fijo se desgasta aunque no salga efectivo. Si no lo registrás como ajuste, tu
+        El activo fijo se desgasta aunque no salga efectivo. Si no lo registras como ajuste, tu
         utilidad sale inflada (más alta de la real).
       </Misconception>
       <Conexion>

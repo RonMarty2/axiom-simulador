@@ -151,7 +151,7 @@ function Esc05() {
       </Mnemotecnia>
 
       <Misconception titulo="Devengado vs efectivo NO son lo mismo">
-        Mucha gente confunde "registrar" con "cobrar". El principio del devengado dice: registrá
+        Mucha gente confunde "registrar" con "cobrar". El principio del devengado dice: registra
         cuando OCURRE el hecho económico (cuando entregué el servicio, cuando me obligué a
         pagar), no cuando hay flujo de caja. Por eso una empresa puede tener UTILIDAD CONTABLE
         sin tener PLATA en caja. Son dos cosas distintas.

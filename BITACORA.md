@@ -492,7 +492,14 @@ Las dos cosas corregidas (ver §5). **Ojo con el final:** la WebAPK congela el m
 - `propiedades-coligativas`: las dos pizarras gemelas **se contradecían entre sí**. La de congelación aplicaba el factor de van't Hoff (−3.72 = 1.86 × 1 × 2) y la de ebullición no (decía 100.52 en vez de 101.04). Corregida, y las dos ahora dicen "1 m NaCl, i = 2" en vez del críptico "1 m NaCl·i".
 - El simulador de esa misma lección rotulaba `aprox M≈m`, que no le dice nada a nadie, **y dos escenas después la lección marca como error justamente usar m donde va M**. Ahora dice por qué la aproximación vale (solución diluida, solvente agua, 1 kg ≈ 1 L) y cuándo deja de valer.
 
-**Por qué las lecciones acumularon esto y el banco no: el banco tiene tests desde el 13-sep.** De ahí salió `src/lib/contenido-lecciones.test.ts`, seis trinquetes sobre las 167 piezas (ver el commit `4252251` para el detalle de cada uno). Encontró dos bugs en la primera corrida. **Y también encontró su propio límite:** no cazó el "descontá" de `estequiometria`, porque la lista de verbos de voseo se escribió a mano y ese no estaba. Un trinquete solo cubre lo que alguien se acordó de listar.
+**Por qué las lecciones acumularon esto y el banco no: el banco tiene tests desde el 13-sep.** De ahí salió `src/lib/contenido-lecciones.test.ts`, seis trinquetes sobre las 167 piezas (ver el commit `4252251` para el detalle de cada uno). Encontró dos bugs en la primera corrida. **Y también encontró su propio límite:** no cazó el "descontá" de `estequiometria`, porque la lista de verbos de voseo se escribió a mano y ese no estaba.
+
+**De ahí salió la lección más reutilizable de la sesión: cómo NO escribir un chequeo de voseo.** Tres intentos:
+1. **Enumerar las formas conjugadas a mano** ("podés", "mirá", "tenés"…). Es lo que había. Cubre exactamente lo que alguien se acordó de escribir, y nada más: dejó pasar "descontá".
+2. **Buscar la terminación** `-ás` / `-és` / `-ís`. Peor: 35 marcas, 25 de ellas correctas. **"Aprobarás", "verás", "tendrás" y "comerás" son futuro de tú**, que es justo el tuteo que queremos; y "estrés", "cafés", "ciprés" y "comités" ni siquiera son verbos.
+3. **Listar INFINITIVOS y generar sus formas voseantes.** De "mirar" salen "mirás" y "mirá", y el futuro de tú ("mirarás") no cae porque lleva el infinitivo entero adelante. Sumar un verbo nuevo es agregar una palabra. Es lo que quedó.
+
+**Cazó 20 casos que la versión vieja no veía**, todos en texto del alumno, y los dos peores mezclaban los dos tratos **en la misma oración**: `odontologia-anatomia-dental` decía *"Cortá un factor, cortas la enfermedad"*, y la mnemotecnia de `sistema-urinario` decía *"Filtrás MUCHO, Reabsorbes CASI TODO, Secretas los desechos"* — tres verbos, dos tratos. Un alumno de Cochabamba lee eso y no sabe si le hablan a él. Los 20 corregidos.
 
 **Lo que falta del encargo está en §8.** Quedan ~78 lecciones y las 64 láminas sin auditar, y el tope `TOPE_MISMO_BOTON = 23` (lecciones donde las 5 o 6 respuestas caen siempre en el mismo botón, o sea que se aprueban sin leer) espera que alguien baraje los índices.
 

@@ -444,7 +444,7 @@ function EscProblemas() {
 function EscPractica() {
   const ejs = useMemo(() => [
     {
-      p: "Balanceá: H₂ + O₂ → H₂O. Coef de H₂:",
+      p: "Balancea: H₂ + O₂ → H₂O. Coef de H₂:",
       o: ["2", "1", "3", "4"],
       c: 0,
       ex: "2 H₂ + O₂ → 2 H₂O.",
@@ -492,7 +492,7 @@ function EscPractica() {
       </Misconception>
 
       <Misconception titulo="Error 3 · olvidar átomos de O en redox">
-        En medio ácido, balanceá O con H₂O y H con H⁺. En medio básico, con
+        En medio ácido, balancea O con H₂O y H con H⁺. En medio básico, con
         OH⁻. No te olvides de balancear estos cuando uses ion-electrón.
       </Misconception>
 

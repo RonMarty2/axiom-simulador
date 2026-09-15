@@ -73,7 +73,7 @@ function EscFamilias() {
         <strong>A</strong>dición (además, también, asimismo).<br />
         <strong>O</strong>posición (pero, sin embargo, aunque).<br />
         <strong>C</strong>onclusión (por eso, por lo tanto, en consecuencia).<br /><br />
-        En el examen, primero clasificá cada opción dentro de una familia. Eso descarta el 60% de
+        En el examen, primero clasifica cada opción dentro de una familia. Eso descarta el 60% de
         las trampas.
       </Mnemotecnia>
     </EscenaRica>

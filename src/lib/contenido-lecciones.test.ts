@@ -218,17 +218,63 @@ describe("contenido de lecciones y láminas", () => {
   });
 
   test("el texto del alumno está en tuteo, no en voseo", () => {
-    // Solo formas inequívocas: "sabes" es tuteo CORRECTO, el voseo es "sabés".
-    // Los comentarios de código van en rioplatense a propósito (regla 2 de
-    // CLAUDE.md), así que se saltean.
+    // "sabes" es tuteo CORRECTO; el voseo es "sabés". Los comentarios de código
+    // van en rioplatense a propósito (regla 2 de CLAUDE.md), así que se saltean.
+    //
+    // OJO con cómo se arma esta lista. La primera versión enumeraba a mano las
+    // formas conjugadas ("podés", "mirá", …) y NO cazó el "descontá" de
+    // `estequiometria`: nadie se había acordado de escribirlo. Un trinquete solo
+    // cubre lo que alguien listó.
+    //
+    // La segunda versión buscaba la TERMINACIÓN -ás/-és/-ís, y era peor: marcó
+    // 35 casos de los cuales 25 estaban bien. "Aprobarás", "verás", "tendrás" y
+    // "comerás" son FUTURO DE TÚ, que es el tuteo que queremos; "estrés",
+    // "cafés", "ciprés" y "comités" ni siquiera son verbos.
+    //
+    // Lo que sí funciona: listar INFINITIVOS y generar sus formas voseantes.
+    // De "mirar" salen "mirás" (presente) y "mirá" (imperativo), y el futuro de
+    // tú ("mirarás") no cae porque lleva el infinitivo entero adelante. Para
+    // sumar un verbo alcanza con agregarlo acá en infinitivo, una palabra.
+    const INFINITIVOS = [
+      // los que ya aparecieron en el repo
+      "poder", "tener", "querer", "saber", "hacer", "decir", "vivir", "escribir",
+      "mirar", "buscar", "calcular", "usar", "necesitar", "comparar", "sumar",
+      "restar", "multiplicar", "dividir", "resolver", "elegir", "pensar",
+      "obtener", "empezar", "terminar", "aprender", "entender", "poner", "venir",
+      "colocar", "observar", "recordar", "pasar", "tomar", "agarrar", "descontar",
+      "registrar", "comprar", "ahorrar", "apurar", "ignorar", "respirar", "filtrar",
+      "parar",
+      // vocabulario habitual de una consigna, estén o no hoy en el repo
+      "armar", "fijar", "probar", "contar", "restar", "marcar", "anotar",
+      "dibujar", "medir", "ordenar", "separar", "agrupar", "reemplazar",
+      "despejar", "simplificar", "factorizar", "verificar", "comprobar",
+      "revisar", "leer", "completar", "unir", "trazar", "cortar", "repetir",
+      "empujar", "girar", "acomodar", "estimar", "redondear", "convertir",
+      "balancear", "mezclar", "diluir", "pesar", "clasificar", "identificar",
+      "señalar", "subrayar", "relacionar", "deducir", "concluir", "aplicar",
+      "reemplazar", "graficar", "ubicar", "avanzar", "seguir", "mover",
+    ];
+
+    // De cada infinitivo salen las dos formas voseantes. "mirar" → mirás / mirá.
+    const formas = new Set<string>();
+    for (const inf of INFINITIVOS) {
+      const raiz = inf.slice(0, -2);
+      if (raiz.length < 2) continue;              // "ver" daría "vés", ambiguo
+      const term = inf.slice(-2);                 // ar | er | ir
+      const presente = term === "ar" ? "ás" : term === "er" ? "és" : "ís";
+      const imperativo = presente.slice(0, 1);    // á | é | í
+      formas.add(raiz + presente);
+      formas.add(raiz + imperativo);
+    }
+    // Irregulares y pronominales, que no salen de la regla de arriba.
+    for (const f of ["andá", "vení", "salí", "oí", "fijate", "acordate",
+      "quedate", "sentate", "date cuenta", "vos", "tenés", "ponés", "sos"]) {
+      formas.add(f);
+    }
     const VOSEO = new RegExp(
-      "(?<![\\p{L}])(" +
-      "podés|tenés|querés|sabés|hacés|decís|vivís|escribís|mirás|buscás|calculás|" +
-      "usás|necesitás|comparás|sumás|restás|multiplicás|dividís|resolvés|elegís|" +
-      "pensás|obtenés|empezás|terminás|aprendés|entendés|ponés|venís|" +
-      "mirá|fijate|calculá|probá|sumá|restá|hacé|poné|tené|decí|escribí|elegí|" +
-      "colocá|observá|recordá|acordate|pasá|tomá|agarrá|buscá|usá" +
-      ")(?![\\p{L}])", "iu");
+      "(?<![\\p{L}])(" + [...formas].sort((a, b) => b.length - a.length).join("|") + ")(?![\\p{L}])",
+      "iu",
+    );
 
     const malos: string[] = [];
     for (const ruta of ARCHIVOS) {

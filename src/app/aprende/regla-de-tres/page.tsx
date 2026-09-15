@@ -439,7 +439,7 @@ function Esc10_Practica() {
   return (
     <EscenaRica>
       <Titulo>Práctica final</Titulo>
-      <Parrafo>5 ejercicios: mezclá directa, inversa, porcentaje e interés:</Parrafo>
+      <Parrafo>5 ejercicios: mezcla de directa, inversa, porcentaje e interés:</Parrafo>
       {ejs.map((e, i) => {
         const sel = resp[i];
         const rev = sel !== undefined;

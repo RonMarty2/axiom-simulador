@@ -52,7 +52,7 @@ function EscIntro() {
 
       <Definicion termino="Materia">
         Todo lo que tiene masa y ocupa volumen. Desde una piedra hasta el aire
-        que respirás.
+        que respiras.
       </Definicion>
 
       <Resumen>

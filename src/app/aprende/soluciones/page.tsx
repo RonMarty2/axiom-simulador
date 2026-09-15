@@ -568,7 +568,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="Si dilues 50 mL de HCl 6 M hasta 300 mL, ¿qué M final?"
+        pregunta="Si diluyes 50 mL de HCl 6 M hasta 300 mL, ¿qué M final?"
         opciones={["6 M", "0.5 M", "1 M", "2 M"]}
         correctaIdx={2}
         explicacion="M₁V₁ = M₂V₂ → M₂ = (6×50)/300 = 1 M."

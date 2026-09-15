@@ -75,7 +75,7 @@ function EscEstrategia() {
         número. La precisión cuenta más que la cercanía formal.
       </Resumen>
       <Cuidado>
-        Algunas opciones son <strong>antónimos</strong> disfrazados. Si te apurás y lees solo la palabra
+        Algunas opciones son <strong>antónimos</strong> disfrazados. Si te apuras y lees solo la palabra
         subrayada, puedes elegir una palabra que dice lo contrario y arruinar la oración.
       </Cuidado>
 
