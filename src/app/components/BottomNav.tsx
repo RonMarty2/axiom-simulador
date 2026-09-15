@@ -9,11 +9,19 @@ import Icono, { type NombreIcono } from "./Icono";
 // todas las rutas de la lista son privadas, así que un visitante sin login nunca
 // llega a verlas.
 
-const TABS: { href: string; label: string; icono: NombreIcono }[] = [
+type Tab = { href: string; label: string; icono: NombreIcono };
+
+// Armar un simulacro es LA acción del producto, así que no compite como un tab
+// más: va al medio, elevada y en color. Los otros cuatro son navegación.
+// Apunta a /practicar porque esa ES la pantalla de armar simulacro (los 5 modos,
+// examen real incluido); es el mismo destino del CTA del dashboard.
+const TABS_IZQ: Tab[] = [
   { href: "/dashboard", label: "Inicio", icono: "inicio" },
   { href: "/aprende", label: "Aprende", icono: "aprende" },
+];
+const ACCION: Tab = { href: "/practicar", label: "Simulacro", icono: "play" };
+const TABS_DER: Tab[] = [
   { href: "/laminas", label: "Láminas", icono: "laminas" },
-  { href: "/practicar", label: "Practicar", icono: "practicar" },
   { href: "/historial", label: "Exámenes", icono: "examenes" },
 ];
 
@@ -33,6 +41,76 @@ function esInmersiva(segmentos: string[]): boolean {
   return false;
 }
 
+const ALTO_BARRA = 58;
+// El círculo de la acción sobresale ~14px hacia arriba, así que el espaciador
+// reserva más que el alto de la barra: si no, tapa el final del contenido.
+const ALTO_ESPACIADOR = 74;
+
+function TabLink({ tab, activo }: { tab: Tab; activo: boolean }) {
+  return (
+    <Link
+      href={tab.href}
+      aria-current={activo ? "page" : undefined}
+      style={{
+        flex: 1, display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center", gap: 2,
+        textDecoration: "none",
+        color: activo ? "var(--accent)" : "var(--fg-muted)",
+        WebkitTapHighlightColor: "transparent",
+      }}
+    >
+      <span
+        style={{
+          display: "flex", alignItems: "center", justifyContent: "center",
+          width: 44, height: 28, borderRadius: 999,
+          background: activo ? "var(--accent-soft)" : "transparent",
+        }}
+      >
+        <Icono nombre={tab.icono} tamano={22} grosor={activo ? 2.4 : 1.9} />
+      </span>
+      <span style={{ fontSize: 10.5, fontWeight: activo ? 800 : 600, letterSpacing: 0.1 }}>
+        {tab.label}
+      </span>
+    </Link>
+  );
+}
+
+function BotonAccion({ activo }: { activo: boolean }) {
+  return (
+    <Link
+      href={ACCION.href}
+      aria-current={activo ? "page" : undefined}
+      style={{
+        flex: 1, display: "flex", flexDirection: "column",
+        alignItems: "center", justifyContent: "center", gap: 2,
+        textDecoration: "none", color: "var(--accent)",
+        WebkitTapHighlightColor: "transparent",
+      }}
+    >
+      {/* Mide lo mismo que la pastilla de un tab normal para que los cinco
+          rótulos queden alineados; el círculo flota encima sin ocupar lugar. */}
+      <span style={{ position: "relative", width: 44, height: 28 }}>
+        <span
+          style={{
+            position: "absolute", top: -21, left: "50%", transform: "translateX(-50%)",
+            width: 52, height: 52, borderRadius: 999,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            background: activo ? "var(--accent-hover)" : "var(--accent)",
+            color: "var(--accent-fg)",
+            border: "3px solid var(--bg-base)",
+            boxShadow: "0 3px 12px rgba(156, 61, 28, 0.35)",
+          }}
+        >
+          <Icono nombre={ACCION.icono} tamano={22} grosor={2.4} />
+        </span>
+      </span>
+      <span style={{ fontSize: 10.5, fontWeight: 800, letterSpacing: 0.1 }}>
+        {ACCION.label}
+      </span>
+    </Link>
+  );
+}
+
 export default function BottomNav() {
   const pathname = usePathname() ?? "";
   const segmentos = pathname.split("/").filter(Boolean);
@@ -40,12 +118,14 @@ export default function BottomNav() {
   const esRutaApp = RUTAS_APP.some((r) => pathname === r || pathname.startsWith(r + "/"));
   if (!esRutaApp || esInmersiva(segmentos)) return null;
 
+  const estaEn = (href: string) => pathname === href || pathname.startsWith(href + "/");
+
   return (
     <>
       {/* Reserva el alto de la barra al final del documento. Va acá y no como
           padding en CSS porque el padding tendría que saber si la barra existe
           en esta ruta, y eso solo lo sabe este componente. */}
-      <div className="axiom-bottomnav" style={{ height: 58, flexShrink: 0 }} aria-hidden />
+      <div className="axiom-bottomnav" style={{ height: ALTO_ESPACIADOR, flexShrink: 0 }} aria-hidden />
       <nav
         className="axiom-bottomnav"
         style={{
@@ -56,33 +136,16 @@ export default function BottomNav() {
           paddingBottom: "env(safe-area-inset-bottom)",
         }}
       >
-        <div style={{ display: "flex", alignItems: "stretch", height: 58 }}>
-          {TABS.map(({ href, label, icono }) => {
-            const activo = pathname === href || pathname.startsWith(href + "/");
-            return (
-              <Link
-                key={href}
-                href={href}
-                aria-current={activo ? "page" : undefined}
-                style={{
-                  flex: 1, display: "flex", flexDirection: "column",
-                  alignItems: "center", justifyContent: "center", gap: 3,
-                  textDecoration: "none",
-                  color: activo ? "var(--accent)" : "var(--fg-primary)",
-                  opacity: activo ? 1 : 0.55,
-                  WebkitTapHighlightColor: "transparent",
-                }}
-              >
-                <Icono nombre={icono} tamano={23} grosor={activo ? 2.4 : 1.9} />
-                <span style={{ fontSize: 10.5, fontWeight: activo ? 800 : 600, letterSpacing: 0.1 }}>
-                  {label}
-                </span>
-              </Link>
-            );
-          })}
+        <div style={{ display: "flex", alignItems: "stretch", height: ALTO_BARRA }}>
+          {TABS_IZQ.map((tab) => (
+            <TabLink key={tab.href} tab={tab} activo={estaEn(tab.href)} />
+          ))}
+          <BotonAccion activo={estaEn(ACCION.href)} />
+          {TABS_DER.map((tab) => (
+            <TabLink key={tab.href} tab={tab} activo={estaEn(tab.href)} />
+          ))}
         </div>
       </nav>
     </>
   );
 }
-
