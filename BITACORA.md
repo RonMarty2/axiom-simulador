@@ -443,6 +443,10 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 Las dos cosas corregidas (ver §5). **Ojo con el final:** la WebAPK congela el manifest del día que se instaló, así que arreglar el manifest no arregla las instalaciones viejas. Hay que desinstalar el ícono y reinstalar. Es lo primero que hay que preguntar ante un reporte así.
 
+**"12 ÷ 5 = 2 r 2": la lección hablaba en abreviatura de programador.** Ronald, leyendo la escena de divisores de `mcd-mcm`: *"¿qué significa ese 2r2? No entiendo, no uses simbología que solo para ti tenga sentido"*. La `r` era "resto", y la misma lección ya lo escribía bien dos párrafos arriba ("12 ÷ 5 = 2, resto 2"): la abreviatura estaba solo en el widget interactivo. Queda **"12 ÷ 5 = 2 y sobran 2"**, que además es literal de lo que muestra el dibujo (dos bolitas que no entran en ningún grupo). Se barrió el resto de `/aprende` y `/laminas` buscando abreviaturas del mismo tipo (`mod`, `gcd`, `lcm`, `iff`, `c.q.d`) y no hay más: era un caso aislado.
+- De paso, ese texto estaba **escrito a mano como "2 r 2" aunque el divisor fuera una variable**. Daba la casualidad de que el único divisor que no entra en el recorrido es el 5, así que la cuenta era correcta; pero agregar un 7 o un 8 al widget habría mostrado una cuenta falsa sin que nadie se enterara. Ahora se calcula.
+- Regla general para el contenido: si una abreviatura hay que explicarla, no es una abreviatura, es un problema. El alumno está viendo el tema por primera vez.
+
 **De paso quedó `AvisoNavegadorApp.tsx`**, que sí resuelve el otro caso (el real, aunque no era el de Ronald): Messenger, Instagram, Facebook y TikTok abren los links en su propio WebView, y **desde ahí la PWA no se puede instalar**. Como el link se va a repartir por esas apps, cualquier alumno que entre así se quedaría sin enterarse de que existe una app. El componente lo detecta, nombra la app y explica el gesto para salir (ver §5.1). Verificado con los user agents reales de Messenger y de Chrome.
 
 ### 2026-09-14 (la biblioteca regalaba las soluciones · el banco pasa a tuteo · cuatro auditorías quedan como test)

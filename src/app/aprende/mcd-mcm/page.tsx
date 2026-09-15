@@ -223,9 +223,12 @@ function Esc03_BuscarDiv() {
           })}
         </Stage>
         <div style={{ fontSize: 14, color: reparto.funciona ? COLOR_OK : COLOR_BAD, fontWeight: 700, fontFamily: "var(--font-crimson), serif", textAlign: "center", marginTop: 4 }}>
+          {/* Calculado y no escrito a mano: decía "2 r 2" fijo, que solo era
+              cierto para el 5. Si mañana se prueba otro divisor que no entra,
+              el texto sigue estando bien. */}
           {reparto.funciona
             ? `12 ÷ ${reparto.divisor} = ${reparto.porGrupo} (exacto) ✓: es divisor`
-            : `12 ÷ ${reparto.divisor} = 2 r 2 ✗: NO es divisor`}
+            : `12 ÷ ${reparto.divisor} = ${Math.floor(12 / reparto.divisor)} y sobran ${12 % reparto.divisor} ✗: NO es divisor`}
         </div>
       </div>
 
@@ -237,7 +240,7 @@ function Esc03_BuscarDiv() {
               { d: 2, ok: true, txt: "12 ÷ 2 = 6 ✓" },
               { d: 3, ok: true, txt: "12 ÷ 3 = 4 ✓" },
               { d: 4, ok: true, txt: "12 ÷ 4 = 3 ✓" },
-              { d: 5, ok: false, txt: "12 ÷ 5 = 2 r 2 ✗" },
+              { d: 5, ok: false, txt: "12 ÷ 5 = 2 y sobran 2 ✗" },
               { d: 6, ok: true, txt: "12 ÷ 6 = 2 ✓" },
               { d: 12, ok: true, txt: "12 ÷ 12 = 1 ✓" },
             ].slice(0, paso + 1).map((c, k) => (
