@@ -338,6 +338,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 ### ENCARGO ABIERTO · Auditoría pedagógica de las 167 piezas de contenido
 
 > **Para la IA o el dev que tome esto: esta sección es autocontenida.** No hace falta el historial de la sesión donde salió. Leé §4.5 (reglas de escritura) y §7 (errores históricos) antes de empezar, y §0 antes de commitear.
+>
+> **ARRANCADO el 15-sep. El informe vive en [`docs/auditoria-pedagogica.md`](../docs/auditoria-pedagogica.md)** — hay 5 de las 9 lecciones gratis auditadas y **nada corregido todavía**. Lo primero que hay que mirar de ese informe son los errores de contenido: cuentas que no dan, un ejercicio cuya respuesta correcta contradice lo que enseña su propia lección, y una figura SVG que dibuja mal dos de sus casos. Seguí por ahí antes de tocar redacción.
 
 **Por qué existe este encargo.** El 15-sep Ronald leyó una escena de `mcd-mcm` que daba por buena y encontró varias lagunas de golpe: *"creí que se entiende pero ahorita que lo revisé me quedaron muchas lagunas, me da miedo que haya muchas partes donde exista el mismo problema"*. Se arreglaron esa y tres más, y se barrieron los 167 archivos con un script buscando simbología cruda. **El script encontró lo que era un símbolo, y nada más.** El peor problema de esa pantalla no era un carácter raro: era la frase *"El 0 tampoco (tiene infinitos divisores, lo divide cualquier número > 0)"*, una afirmación tirada sin fundamentar. Ningún grep la habría marcado. Por eso hace falta leer.
 
