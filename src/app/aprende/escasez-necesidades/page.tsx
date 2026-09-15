@@ -248,9 +248,10 @@ function Esc04_Aladino() {
         económicos</strong> y no habría lugar para una ciencia económica."
       </Ejemplo>
       <Parrafo>
-        Pero la realidad es muy distinta. <strong>Solo el aire es un bien libre.</strong> Incluso el
-        agua, en las sociedades modernas, se transformó en un bien económico: su obtención y
-        distribución requieren trabajo.
+        Pero la realidad es muy distinta. Bienes libres quedan muy pocos, y{" "}
+        <strong>el ejemplo más claro es el aire</strong>: está ahí para todos, sin que nadie
+        tenga que trabajar para producirlo. Incluso el agua, en las sociedades modernas, se
+        transformó en un bien económico: su obtención y distribución requieren trabajo.
       </Parrafo>
       <Mnemotecnia>
         Acuérdate de la frase bíblica <em>"comerás el pan con el sudor de tu frente"</em>. Resume la{" "}
@@ -277,21 +278,26 @@ function Esc05_Caso() {
           <li>Transporte · 400 Bs</li>
           <li>Servicios (luz, agua, internet) · 350 Bs</li>
           <li>Útiles escolares de los chicos · 200 Bs</li>
-          <li>Ahorrar para emergencias · ¿?</li>
+          <li>Ahorrar para emergencias · lo que sobre</li>
           <li>Salir a comer un día al mes · 150 Bs</li>
           <li>Cambiar el celular del papá (roto) · 800 Bs</li>
         </ul>
         <p style={{ marginTop: 8 }}>
-          <strong>Total deseado:</strong> 4 900 Bs. <strong>Disponible:</strong> 4 500 Bs.
+          <strong>Total deseado:</strong> 4 900 Bs, sin contar el ahorro (que no tiene monto
+          fijo). <strong>Disponible:</strong> 4 500 Bs.
           <strong style={{ color: LIENZO.bad }}> Faltan 400 Bs.</strong>
         </p>
         <p>
           <strong>¿Qué pueden hacer?</strong>
         </p>
         <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14, lineHeight: 1.7 }}>
-          <li>Postergar el celular (decide el papá usar el roto un mes más).</li>
-          <li>No salir a comer este mes.</li>
-          <li>Quedan 4 750 Bs gastados. <strong style={{ color: LIENZO.ok }}>Sobran 250 Bs</strong> para ahorrar.</li>
+          <li>Postergar el celular: el papá usa el roto un mes más. <strong>−800 Bs</strong></li>
+          <li>No salir a comer este mes. <strong>−150 Bs</strong></li>
+          <li>
+            Gastan 4 900 − 800 − 150 = <strong>3 950 Bs</strong>. Sobre los 4 500 que tienen,
+            <strong style={{ color: LIENZO.ok }}> sobran 550 Bs</strong>: ese es justo el ahorro
+            para emergencias que había quedado sin monto.
+          </li>
         </ul>
         <p style={{ marginBottom: 0 }}>
           <em>Eso es economía aplicada:</em> <strong>renunciar a lo que importa menos para

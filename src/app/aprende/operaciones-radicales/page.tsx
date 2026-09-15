@@ -227,7 +227,7 @@ function Esc04_SumaResta() {
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
           {paso === 0 && "3√5 + 7√5"}
-          {paso === 1 && "Los coeficientes 3 y 5 se preparan para sumarse…"}
+          {paso === 1 && "Los coeficientes 3 y 7 se preparan para sumarse…"}
           {paso === 2 && "3 + 7 = 10"}
           {paso === 3 && "Resultado: 10√5 ✓"}
         </div>
@@ -476,11 +476,14 @@ function Esc08_Div() {
         <Paso n={3}>Resultado: <strong style={{ color: COLOR_OK }}>3√5</strong></Paso>
       </Ejemplo>
 
+      {/* Tenía "4" y "√16 = 4" como opciones separadas: las dos eran correctas,
+          así que el alumno que marcaba la primera veía una cruz. Y la
+          explicación hablaba de "las opciones a y c", que AutoCheck no rotula. */}
       <AutoCheck
         pregunta="Calcula: √48 / √3"
-        opciones={["√45", "4", "√16 = 4", "16"]}
-        correctaIdx={2}
-        explicacion="√48/√3 = √(48/3) = √16 = 4. Ambas opciones a y c llevan al mismo lugar pero c es la forma completa."
+        opciones={["√45", "√16 = 4", "16", "4√3"]}
+        correctaIdx={1}
+        explicacion="Al dividir dos raíces del mismo índice, los radicandos se dividen: √48/√3 = √(48/3) = √16 = 4. Ojo con restar los de adentro (48 − 3 = 45): eso no se hace."
       />
     </EscenaRica>
   );
@@ -559,7 +562,8 @@ function Esc10_Practica() {
     { p: "Calcula: √12 + √48", o: ["√60", "6√3", "2√15", "12√3"], c: 1, ex: "√12=2√3, √48=4√3. Suma: 6√3." },
     { p: "Multiplica: 2√3 · 3√2", o: ["6√6", "5√5", "6√5", "5√6"], c: 0, ex: "Coef: 2·3=6. Raíces: √3·√2=√6. Total: 6√6." },
     { p: "Divide: √32 / √8", o: ["√24", "4", "2", "1/4"], c: 2, ex: "√32/√8 = √(32/8) = √4 = 2." },
-    { p: "Simplifica: √8 · √2", o: ["√10", "4", "2√4", "8"], c: 1, ex: "√8·√2 = √16 = 4. (También 2√2·√2 = 2·2 = 4)." },
+    // "2√4" valía 2·2 = 4, lo mismo que la opción marcada: dos correctas.
+    { p: "Simplifica: √8 · √2", o: ["√10", "4", "2√2", "8"], c: 1, ex: "√8·√2 = √16 = 4. (También 2√2·√2 = 2·2 = 4)." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
@@ -606,7 +610,7 @@ function Esc10_Practica() {
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominas las operaciones con radicales."}
             {ok >= 3 && ok < ejs.length && "Bien. Repasa los que fallaste."}
-            {ok < 3 && "Vale la pena volver a las escenas 4 (semejantes) y 5 (simplificar antes)."}
+            {ok < 3 && "Vale la pena volver a las escenas 2 (semejantes) y 5 (simplificar antes)."}
           </div>
         </motion.div>
       )}

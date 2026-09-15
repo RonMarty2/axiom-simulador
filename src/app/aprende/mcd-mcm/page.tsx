@@ -648,7 +648,7 @@ function Esc09_MCDFact() {
       <PorQue>
         Pensalo así: un número divisor de A no puede tener primos que A no tenga.
         Si A = 2²·3, sus divisores solo contienen 2 (a lo sumo elevado a 2) y 3 (a lo
-        sumo elevado a 1). Para que un divisor lo sea ALSO de B, sus primos también
+        sumo elevado a 1). Para que un divisor lo sea TAMBIÉN de B, sus primos también
         deben estar en B, con exponente que no exceda el de B. El máximo posible es
         tomar los comunes al mínimo.
       </PorQue>

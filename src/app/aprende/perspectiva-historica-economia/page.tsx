@@ -18,7 +18,7 @@ export default function Page() {
         { titulo: "Del Renacimiento al siglo XVIII", componente: Esc02 },
         { titulo: "Clásicos: Smith y Ricardo", componente: Esc03 },
         { titulo: "Perspectiva socialista (Marx, Lange)", componente: Esc04 },
-        { titulo: "Síntesis neoclásica (Marshall)", componente: Esc05 },
+        { titulo: "Escuela neoclásica (Marshall)", componente: Esc05 },
         { titulo: "La sistematización de Robbins", componente: Esc06 },
         { titulo: "Comparación de las tres perspectivas", componente: Esc07 },
         { titulo: "Práctica final", componente: Esc08 },
@@ -55,7 +55,7 @@ function Esc01() {
         <strong>4 hitos · "Q-S-M-R"</strong>:<br />
         <strong>Q</strong>uesnay (1758): Tableau Économique → primer flujo económico.<br />
         <strong>S</strong>mith (1776): Riqueza de las Naciones → economía clásica.<br />
-        <strong>M</strong>arshall (1890): Principles of Economics → síntesis neoclásica.<br />
+        <strong>M</strong>arshall (1890): Principles of Economics → escuela neoclásica.<br />
         <strong>R</strong>obbins (1932): Naturaleza y Significación → definición moderna.<br /><br />
         Diferencia entre fechas: 18 años (Q→S), 114 años (S→M), 42 años (M→R).
       </Mnemotecnia>
@@ -134,7 +134,7 @@ function Esc04() {
 function Esc05() {
   return (
     <EscenaRica>
-      <Titulo>Síntesis neoclásica: Alfred Marshall</Titulo>
+      <Titulo>Escuela neoclásica: Alfred Marshall</Titulo>
       <Parrafo>
         En el paso del siglo XIX al XX, Marshall (Cambridge) publica sus <em>Principles of Economics</em>{" "}
         (1890), con una nueva línea conceptual:

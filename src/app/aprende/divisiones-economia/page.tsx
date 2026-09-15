@@ -147,15 +147,19 @@ function Esc06() {
     <EscenaRica>
       <Titulo>Teoría económica</Titulo>
       <Definicion termino="teoría económica">
-        División <strong>central</strong> de la economía. Ordena lógicamente los levantamientos de la
-        económica descriptiva y produce <strong>generalizaciones</strong> que ligan los hechos entre sí.
+        División <strong>central</strong> de la economía. Ordena lógicamente los datos que juntó la
+        economía descriptiva y produce <strong>generalizaciones</strong> que ligan los hechos entre sí.
       </Definicion>
       <Resumen>
-        Produce principios, teorías, leyes y modelos:<br /><br />
-        • Si parte de hechos hacia la teoría directamente → <strong>inducción</strong>.<br />
-        • Si parte de una parte conocida hacia hipótesis → <strong>deducción</strong>.<br /><br />
-        La <strong>coherencia, interpenetración y consistencia</strong> de sus principios garantizan a la
-        economía su carácter de <em>ciencia</em>.
+        Para armar esas generalizaciones se puede ir en dos direcciones:<br /><br />
+        • <strong>Inducción</strong>: de los casos sueltos a la regla general. Observas que en
+        2019, en 2022 y en 2024 subió el precio del pan y bajó la cantidad vendida, y de ahí
+        sacas una regla: cuando sube el precio, se vende menos.<br />
+        • <strong>Deducción</strong>: de la regla general al caso puntual. Ya tienes la regla
+        anterior, y de ella deduces qué va a pasar el año que viene si se encarece la harina,
+        sin necesidad de haberlo medido todavía.<br /><br />
+        Ninguna sirve sola: la inducción arma la regla mirando la realidad, la deducción la
+        pone a prueba anticipando casos nuevos.
       </Resumen>
     </EscenaRica>
   );

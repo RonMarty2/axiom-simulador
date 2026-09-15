@@ -145,7 +145,12 @@ function EscComponentes() {
         • vy = |v| · sen θ.<br /><br />
         <strong>Si conoces componentes vx, vy</strong>:<br />
         • Módulo: |v| = √(vx² + vy²) (Pitágoras).<br />
-        • Ángulo: θ = arctan(vy / vx).
+        • Ángulo: θ = arctan(vy / vx).<br /><br />
+        <strong>Ojo con el arcotangente:</strong> la calculadora siempre devuelve un ángulo
+        entre −90° y 90°, así que cuando vx es negativo te da el ángulo del vector opuesto.
+        En ese caso, súmale 180°. Por ejemplo, para (−3, 4) la calculadora dice −53,1°, pero
+        el vector apunta a 126,9°. Dibuja siempre el vector primero: así ves en qué cuadrante
+        tiene que caer el ángulo y te das cuenta al toque si el número no cuadra.
       </Resumen>
 
       <WorkedExample titulo="Caso típico del facsímil">
@@ -265,10 +270,13 @@ function EscVectorial() {
         Sean E⃗ = A⃗ + B⃗ = (3, 7), F⃗ = C⃗ − D⃗ = (−10, −1).<br />
         Calcular |G⃗| donde G⃗ = E⃗ × F⃗.<br /><br />
 
-        En 2D, el producto vectorial es un escalar (la componente z):<br />
-        E × F = ExFy − EyFx = (3)(−1) − (7)(−10) = −3 + 70 = 67.<br /><br />
+        Cuando los dos vectores están en el plano, G⃗ apunta perpendicular a la hoja (el eje z),
+        así que su única componente es la z, y esa es la que se calcula:<br />
+        Gz = ExFy − EyFx = (3)(−1) − (7)(−10) = −3 + 70 = 67.<br /><br />
 
-        Por tanto |G⃗| = <strong>67</strong>.
+        El módulo es el valor absoluto de esa componente: |G⃗| = |67| = <strong>67</strong>.
+        (Si la cuenta hubiera dado −67, el módulo seguiría siendo 67: lo que cambia con el
+        signo es hacia qué lado de la hoja apunta el vector, no cuánto mide.)
       </WorkedExample>
 
       <Conexion>

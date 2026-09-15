@@ -214,6 +214,13 @@ function AnguloVisual({ medida = 60 }: { medida?: number }) {
   const angRad = (medida * Math.PI) / 180;
   const r = 60;
   const cx = 200, cy = 130;
+  // El flag "large-arc" del SVG estaba fijo en 0, que significa "andá siempre
+  // por el camino corto": el ángulo de 270° se dibujaba como uno de 90°. Y con
+  // 360° el punto final cae sobre el inicial, así que el navegador no dibujaba
+  // NINGÚN arco y el ángulo completo se veía igual que uno de 0°. Eran los dos
+  // tipos más difíciles de la escena, y los dos mostraban una figura falsa.
+  const arcoGrande = medida > 180 ? 1 : 0;
+  const esCompleto = medida >= 360;
   const xEnd = cx + Math.cos(-angRad) * 90;
   const yEnd = cy + Math.sin(-angRad) * 90;
   const xArc = cx + Math.cos(-angRad / 2) * (r * 0.5);
@@ -236,12 +243,21 @@ function AnguloVisual({ medida = 60 }: { medida?: number }) {
             stroke={LIENZO.fg} strokeWidth="2.5"
             initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
             transition={{ duration: 0.4, delay: 0.4 }} />
-          {/* Arco */}
-          <motion.path
-            d={`M ${cx + r} ${cy} A ${r} ${r} 0 0 0 ${cx + Math.cos(-angRad) * r} ${cy + Math.sin(-angRad) * r}`}
-            fill="none" stroke={LIENZO.accent} strokeWidth="2"
-            initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }} />
+          {/* Arco. La vuelta entera va como circunferencia y no como path: un
+              arco cuyo fin coincide con su inicio no dibuja nada. */}
+          {esCompleto ? (
+            <motion.circle
+              cx={cx} cy={cy} r={r}
+              fill="none" stroke={LIENZO.accent} strokeWidth="2"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }} />
+          ) : (
+            <motion.path
+              d={`M ${cx + r} ${cy} A ${r} ${r} 0 ${arcoGrande} 0 ${cx + Math.cos(-angRad) * r} ${cy + Math.sin(-angRad) * r}`}
+              fill="none" stroke={LIENZO.accent} strokeWidth="2"
+              initial={{ pathLength: 0 }} animate={{ pathLength: 1 }}
+              transition={{ duration: 0.5, delay: 0.8 }} />
+          )}
           {/* Vértice */}
           <circle cx={cx} cy={cy} r="3" fill={LIENZO.fg} />
           <text x={cx - 5} y={cy + 20} textAnchor="middle" fontSize="16" fill={LIENZO.fg} fontWeight="600">
@@ -506,8 +522,9 @@ function EscParalelas() {
         opuestos por el vértice, alternos).<br />
         • 4 ángulos miden <strong>105°</strong> (los suplementarios).<br /><br />
 
-        <strong>Verificación:</strong> 4(75) + 4(105) = 300 + 420 = 720 = 8 · 90 ✓
-        (la suma total de los 8 ángulos siempre es 4 vueltas completas / 2 = 720°).
+        <strong>Verificación:</strong> 4(75) + 4(105) = 300 + 420 = 720° ✓<br />
+        En cada cruce, los 4 ángulos que se forman dan una vuelta entera: 360°.
+        Como hay 2 cruces, el total tiene que ser 2 × 360 = 720°.
       </WorkedExample>
 
       <Conexion>

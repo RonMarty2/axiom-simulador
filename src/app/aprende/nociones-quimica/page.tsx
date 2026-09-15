@@ -476,15 +476,20 @@ function EscPractica() {
         Compuesto: composición FIJA, propiedades NUEVAS.
       </Misconception>
 
-      <Misconception titulo="Error 2 · usar °C en Pitágoras de gases">
+      <Misconception titulo="Error 2 · usar °C en las leyes de los gases">
         Las ecuaciones de gases (Boyle, Charles, gas ideal) requieren la
         temperatura en KELVIN, no en Celsius. Convierte siempre antes de
         aplicar fórmulas.
       </Misconception>
 
-      <Misconception titulo="Error 3 · sumar exponentes en cambio de prefijo">
-        kilo = 10³ y micro = 10⁻⁶. Para pasar de km a μm: factor = 10⁹, no 10³.
-        Cuidado al sumar exponentes.
+      <Misconception titulo="Error 3 · equivocarse con los exponentes al cambiar de prefijo">
+        kilo = 10³ y micro = 10⁻⁶. Para pasar de km a μm el factor es 10⁹, no 10³.
+        Sale de <strong>restar</strong> los exponentes: 3 − (−6) = 9, y restar un
+        negativo es sumar.<br /><br />
+        Si te cuesta, hazlo en dos pasos y no te juegas nada:<br />
+        1 km = 10³ m (mil metros).<br />
+        1 m = 10⁶ μm (un millón de micrómetros).<br />
+        Entonces 1 km = 10³ × 10⁶ = <strong>10⁹ μm</strong>.
       </Misconception>
 
       <Titulo>Práctica · 5 ejercicios</Titulo>

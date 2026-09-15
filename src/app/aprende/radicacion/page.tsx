@@ -59,7 +59,7 @@ function Esc01_Intro() {
         padding: 16, maxWidth: 540, fontSize: 15, lineHeight: 1.7, color: COLOR_BASE,
       }}>
         🔸 <strong>¿Para qué sirve en economía?</strong><br /><br />
-        • <strong>Interés compuesto</strong>: invertes a cierta tasa y quieres saber qué tasa anual
+        • <strong>Interés compuesto</strong>: inviertes a cierta tasa y quieres saber qué tasa anual
         equivale a un crecimiento mensual.<br />
         • <strong>Promedio geométrico</strong>: medir rendimientos de inversión a varios años.<br />
         • <strong>Geometría</strong>: el lado de un cuadrado de área 36 es √36 = 6.<br />
@@ -472,7 +472,7 @@ function Esc07_Producto() {
 
       <Cuidado>
         ⚠️ <strong>NO funciona con sumas</strong>: <br />
-        ❌ √(9 + 16) NO es √9 + √4. <br />
+        ❌ √(9 + 16) NO es √9 + √16. <br />
         Real: √25 = 5, pero √9 + √16 = 3 + 4 = 7. Distintos.
       </Cuidado>
 

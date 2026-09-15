@@ -159,10 +159,10 @@ function Esc05() {
       </CasoBolivia>
 
       <Misconception titulo="'Ceteris paribus' NO significa 'siempre se cumple'">
-        Muchos creen que decir "por la ley de demanda baja el precio" es una verdad eterna. No:
+        Muchos creen que "si baja el precio, siempre se vende más" es una verdad eterna. No:
         es una predicción CONDICIONAL. Si junto con la baja de precio también baja el ingreso
-        de la gente, la demanda podría caer en vez de subir. La cláusula "ceteris paribus" es
-        un blindaje teórico, no una garantía en el mundo real.
+        de la gente, la cantidad vendida podría caer en vez de subir. La cláusula "ceteris
+        paribus" es un blindaje teórico, no una garantía en el mundo real.
       </Misconception>
     </EscenaRica>
   );
