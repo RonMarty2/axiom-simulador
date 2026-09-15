@@ -9,6 +9,7 @@ import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago } from "@/lib/plan";
+import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
 import type {
   ConfiguracionSimulacion,
@@ -34,22 +35,22 @@ function formatearFecha(fechaISO: string): string {
   return `${dia} ${MESES[mes - 1]} ${anio}`;
 }
 
-// Ya estando dentro de la pantalla de un año y de un grupo, un título como
+// Ya estando dentro de la pantalla de un año y de su grupo, un título como
 // "Cuarto Parcial · Curso Propedéutico (Gestión 2-2006)" repite tres veces lo
-// que el alumno acaba de tocar, y se come dos renglones en el celular. La fila
-// se queda con lo que distingue una de otra y baja el resto al detalle.
+// que el alumno acaba de tocar y se come dos renglones del celular. El nombre
+// del curso lo dice el encabezado del grupo, así que acá sobra; en /examenes
+// no hay ese encabezado y por eso `etiquetarExamen` no lo saca por su cuenta.
+const SUFIJO_CURSO = /\s*·\s*[^·]*\bCurso\b[^·]*$/iu;
+
 function partesExamen(e: ExamenMini): { titulo: string; detalle: string } {
-  const crudo = e.titulo ?? e.opcion ?? `Examen ${e.anio}`;
-  const conParentesis = crudo.match(/^(.*?)\s*\(([^)]*)\)\s*$/);
-  const titulo = (conParentesis ? conParentesis[1] : crudo)
-    .replace(/\s*·\s*Curso Propedéutico\s*$/i, "")
-    .trim();
+  const { principal, secundaria } = etiquetarExamen(e.titulo, e.opcion);
+  const titulo = principal.replace(SUFIJO_CURSO, "").trim();
   const detalle = [
-    conParentesis?.[2].trim(),
+    secundaria,
     e.fecha_examen ? formatearFecha(e.fecha_examen) : null,
     `${e.total_preguntas} preguntas`,
   ].filter(Boolean).join(" · ");
-  return { titulo: titulo || crudo, detalle };
+  return { titulo: titulo || principal, detalle };
 }
 
 const MODOS: {
