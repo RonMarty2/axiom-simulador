@@ -3,6 +3,7 @@ import { Crimson_Pro, Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
 import PWARegister from "./components/PWARegister";
 import BottomNav from "./components/BottomNav";
+import AvisoNavegadorApp from "./components/AvisoNavegadorApp";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
         className={`${atkinson.variable} ${crimsonPro.variable} min-h-full font-atkinson flex flex-col`}
         suppressHydrationWarning
       >
+        <AvisoNavegadorApp />
         <section className="axiom-shell flex-1">{children}</section>
         <BottomNav />
         <PWARegister />
