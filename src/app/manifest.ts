@@ -10,10 +10,18 @@ export default function manifest(): MetadataRoute.Manifest {
     description:
       "Simulador de exámenes y lecciones animadas para preparación de admisión universitaria en Bolivia (UMSS).",
     start_url: "/dashboard",
+    // Sin `scope`, el alcance sale de `start_url` y queda a interpretación del
+    // navegador. Si alguno lo lee como "/dashboard", entonces /aprende,
+    // /practicar y /laminas quedan FUERA de la app instalada, y al navegar ahí
+    // Chrome abre una barra con la URL encima. Declararlo explícito lo cierra.
+    scope: "/",
     display: "standalone",
-    // display_override: si el navegador soporta el primero, lo usa; si no, va al siguiente.
-    // Esto fuerza explícitamente vista app y evita heredar settings raros del navegador.
-    display_override: ["standalone", "minimal-ui"],
+    // OJO: acá vivía `display_override: ["standalone", "minimal-ui"]`, puesto
+    // para "forzar vista app". Hacía justo lo contrario: `minimal-ui` ES una
+    // ventana CON barra de direcciones, así que era permiso explícito para
+    // mostrar la barra que se queria evitar. Si standalone no se puede, que
+    // decida el navegador; no le ofrecemos una barra nosotros.
+    display_override: ["standalone"],
     orientation: "portrait",
     background_color: "#faf7f0",
     theme_color: "#1a1f2e",

@@ -229,7 +229,10 @@ Se iteró un mockup v5 (artifact) con formato de **tarjetas/diapositivas** — a
 ## 5. PWA y actualización OTA
 
 - **Service Worker** en `public/sw.js`. Estrategia **network-first** con fallback a cache.
-- **Manifest** en `src/app/manifest.ts`. Display `standalone`.
+- **Manifest** en `src/app/manifest.ts`. Display `standalone`, `scope: "/"`.
+  - **`display_override` NO debe incluir `minimal-ui`.** Estuvo como `["standalone", "minimal-ui"]` con el comentario de que servía para "forzar vista app", y hacía exactamente lo contrario: `minimal-ui` **es** una ventana con barra de direcciones, o sea que le dábamos permiso explícito al navegador para mostrar la barra que queríamos evitar. Corregido el 15-sep a `["standalone"]`.
+  - **`scope` va declarado explícito.** Sin él, el alcance se deduce de `start_url` (que es `/dashboard`) y queda a interpretación del navegador: si alguno lo lee como `/dashboard`, entonces `/aprende`, `/practicar` y `/laminas` quedan fuera de la app instalada y Chrome abre una barra con la URL al navegar ahí.
+  - **La WebAPK congela el manifest del día que se instaló.** Cambiar el manifest no arregla una instalación vieja: hay que desinstalar el ícono y volver a instalar. Es lo primero que hay que preguntar cuando alguien reporta "la app instalada me muestra una barra".
 - **PWARegister.tsx** registra el SW, detecta modo standalone, y maneja:
   - Aplicar clase `axiom-pwa` al `<html>` cuando corre instalada.
   - Suprimir el banner `beforeinstallprompt` en desktop (UA detection).
@@ -310,6 +313,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | Tres preguntas de química calculaban "20 y 80" y cerraban marcando la opción "80 y 20", tapándolo con un paréntesis explicativo | Chequeo de coherencia explicación↔respuesta | Es la misma lección del 12-sep en otra forma: si hace falta un paréntesis para explicar por qué la respuesta no coincide con el cálculo, eso no se arregla con el paréntesis |
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
+| 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
 
 ---
 
@@ -433,7 +437,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 **De paso se documentó la app Android**, que existía en `android/` desde el 14-sep y no estaba en ninguna parte de esta bitácora (ver §5.1). Incluye por qué la barra del navegador que se ve arriba en el celular no es un bug de CSS.
 
-**Y de ahí salió un componente nuevo.** Ronald insistió tres veces con "sigue esa cosa morada arriba" y tenía razón en no conformarse: la respuesta correcta no era solo "no es nuestro CSS". Esa barra es el WebView de **Messenger**, y el punto importante es que **no se puede instalar la PWA desde ahí** — así que cualquier alumno que abra el link desde Messenger, Instagram o Facebook (que es como se va a repartir en Cochabamba) se queda para siempre en la versión con barra, sin enterarse de que existe una app. `AvisoNavegadorApp.tsx` detecta esos WebView y se lo dice, con el gesto exacto para salir (ver §5.1). Se verificó con los user agents reales de Messenger y de Chrome: aparece en el primero, no en el segundo, y una vez cerrado no vuelve.
+**La barra de direcciones en la app instalada: era el manifest, no el navegador.** Ronald reportó tres veces una barra con la URL y un botón de compartir arriba de AXIOM. Las dos primeras respuestas fueron que eso era chrome del navegador y no se podía tocar con CSS, diagnosticando por el ícono que se veía en su barra de estado ("es el WebView de Messenger"). **Estaba mal, y la pregunta que lo resolvió no se hizo hasta la tercera vez:** *¿cómo abrís la app?* La respuesta — *"es la que instalé desde la página, la tengo desde versiones anteriores"* — descartó toda la teoría: era la PWA instalada, y una PWA instalada no muestra barra. El problema estaba en `src/app/manifest.ts`:
+- `display_override: ["standalone", "minimal-ui"]`, con un comentario que decía que servía para "forzar vista app". **`minimal-ui` es el modo CON barra de direcciones**: le estábamos dando permiso explícito al navegador para mostrar justo lo que queríamos evitar.
+- Y `scope` no estaba declarado, así que el alcance se deducía de `start_url: "/dashboard"` — si el navegador lo lee como `/dashboard`, todo `/aprende`, `/practicar` y `/laminas` queda fuera de la app y se abre con barra.
+
+Las dos cosas corregidas (ver §5). **Ojo con el final:** la WebAPK congela el manifest del día que se instaló, así que arreglar el manifest no arregla las instalaciones viejas. Hay que desinstalar el ícono y reinstalar. Es lo primero que hay que preguntar ante un reporte así.
+
+**De paso quedó `AvisoNavegadorApp.tsx`**, que sí resuelve el otro caso (el real, aunque no era el de Ronald): Messenger, Instagram, Facebook y TikTok abren los links en su propio WebView, y **desde ahí la PWA no se puede instalar**. Como el link se va a repartir por esas apps, cualquier alumno que entre así se quedaría sin enterarse de que existe una app. El componente lo detecta, nombra la app y explica el gesto para salir (ver §5.1). Verificado con los user agents reales de Messenger y de Chrome.
 
 ### 2026-09-14 (la biblioteca regalaba las soluciones · el banco pasa a tuteo · cuatro auditorías quedan como test)
 
