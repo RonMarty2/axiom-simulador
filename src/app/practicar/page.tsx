@@ -62,12 +62,15 @@ const MODOS: {
   // A qué nivel lleva el toque. null = no necesita más datos y arranca directo.
   siguiente: "anio" | "tema" | "dificultad" | null;
   premium?: boolean;
+  // Qué se le dice a /precios que quiso hacer el alumno, para que la pantalla
+  // ofrezca el upgrade que corresponde en vez de la lista de planes a secas.
+  motivo?: string;
 }[] = [
   { v: "examen_real", icono: "documento", t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado", siguiente: "anio" },
   { v: "mixto", icono: "mezclar", t: "Mixto", d: "Preguntas aleatorias de varios años", siguiente: null },
   { v: "por_tema", icono: "etiqueta", t: "Por tema", d: "Solo preguntas de un tema específico", siguiente: "tema" },
-  { v: "mis_errores", icono: "errores", t: "Mis errores", d: "Repasa donde fallaste", siguiente: "dificultad", premium: true },
-  { v: "ia_generado", icono: "chispa", t: "Simulacro inteligente", d: "La IA arma un examen nuevo, parecido al que probablemente caiga este año", siguiente: "dificultad", premium: true },
+  { v: "mis_errores", icono: "errores", t: "Mis errores", d: "Repasa donde fallaste", siguiente: "dificultad", premium: true, motivo: "errores" },
+  { v: "ia_generado", icono: "chispa", t: "Simulacro inteligente", d: "La IA arma un examen nuevo, parecido al que probablemente caiga este año", siguiente: "dificultad", premium: true, motivo: "ia-infinita" },
 ];
 
 function PracticarInner() {
@@ -278,7 +281,11 @@ function PracticarInner() {
             {MODOS.map((m) => {
               const bloqueado = m.premium && !esPagoUser;
               const sinErrores = m.v === "mis_errores" && errores === 0;
-              const detalle = m.v === "mis_errores" && errores > 0 ? `Repasa donde fallaste (${errores} guardados)`
+              // Si está bloqueado, el mensaje que le sirve al alumno es el del
+              // candado, no el de "todavía no tenés errores guardados": lo
+              // primero que tiene que resolver es el plan.
+              const detalle = bloqueado ? m.d
+                : m.v === "mis_errores" && errores > 0 ? `Repasa donde fallaste (${errores} guardados)`
                 : sinErrores ? "Completa un examen para guardar errores"
                 : m.d;
               return (
@@ -288,11 +295,18 @@ function PracticarInner() {
                   titulo={m.t}
                   detalle={detalle}
                   candado={bloqueado}
-                  disabled={bloqueado || sinErrores}
+                  // Bloqueado NO es disabled: se ve atenuado y con candado,
+                  // pero se puede tocar y lleva a /precios. El alumno acaba de
+                  // decir qué quería; es el mejor momento para ofrecerlo.
+                  atenuado={bloqueado}
+                  disabled={!bloqueado && sinErrores}
                   // Mixto no necesita ningún dato más: pedirle un paso extra al
                   // alumno para confirmar lo que ya eligió es el scroll que
                   // estamos sacando.
-                  onClick={() => (m.siguiente ? irA(`?modo=${m.v}`) : empezar(base({ modo: m.v })))}
+                  onClick={() => {
+                    if (bloqueado) { router.push(`/precios?motivo=${m.motivo ?? "limite"}`); return; }
+                    if (m.siguiente) irA(`?modo=${m.v}`); else empezar(base({ modo: m.v }));
+                  }}
                 />
               );
             })}
@@ -430,7 +444,7 @@ function Vacio({ children }: { children: React.ReactNode }) {
 }
 
 function Fila({
-  titulo, detalle, icono, onClick, disabled, candado,
+  titulo, detalle, icono, onClick, disabled, candado, atenuado,
 }: {
   titulo: string;
   detalle?: string;
@@ -438,6 +452,9 @@ function Fila({
   onClick: () => void;
   disabled?: boolean;
   candado?: boolean;
+  // Se ve apagado pero SÍ se puede tocar (un modo de pago que lleva a /precios).
+  // Sin esto, "apagado" y "no se puede tocar" eran la misma cosa.
+  atenuado?: boolean;
 }) {
   return (
     <button
@@ -447,7 +464,8 @@ function Fila({
         display: "flex", alignItems: "center", gap: 13, width: "100%",
         padding: "14px 16px", textAlign: "left",
         background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 12,
-        cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
+        cursor: disabled ? "not-allowed" : "pointer",
+        opacity: disabled ? 0.45 : atenuado ? 0.62 : 1,
         WebkitTapHighlightColor: "transparent",
       }}
     >

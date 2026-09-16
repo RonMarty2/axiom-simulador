@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crearPago, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
 import { getCurrentUser, isAdmin } from "@/lib/session";
+import { PRECIOS_BOB } from "@/lib/precios";
 
-// Precios fijos por ahora. Centralizados aquí para que el cliente no pueda
-// inventar montos. Cuando quieras precios distintos por facultad, lee del
-// objeto Facultad.
-const PRECIO_PRO_BOB = 50;
-const PRECIO_PREMIUM_BOB = 100;
-const PRECIO_CAMBIO_FACULTAD_BOB = 50;
+// Los precios viven en src/lib/precios.ts, no acá: estaban escritos tres
+// veces y coincidían de casualidad. El servidor sigue siendo el que MANDA
+// (calcula el monto con estas constantes y nunca confía en lo que manda el
+// cliente); lo único que cambió es de dónde los lee.
+const PRECIO_PRO_BOB = PRECIOS_BOB.pro;
+const PRECIO_PREMIUM_BOB = PRECIOS_BOB.premium;
+const PRECIO_CAMBIO_FACULTAD_BOB = PRECIOS_BOB.cambioFacultad;
 
 export async function GET() {
   if (await isAdmin()) {

@@ -8,6 +8,7 @@ import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import type { Facultad } from "@/lib/data-store";
+import { PRECIOS_BOB, precioPlan } from "@/lib/precios";
 
 type Metodo = "tigo_money" | "qr_bancario" | "transferencia";
 type TipoPago = "plan" | "cambio_facultad";
@@ -27,7 +28,8 @@ function PagarInner() {
   const [exito, setExito] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const monto = tipo === "cambio_facultad" ? 50 : (plan === "premium" ? 100 : 50);
+  // Se muestra lo mismo que el servidor va a cobrar: ver src/lib/precios.ts.
+  const monto = tipo === "cambio_facultad" ? PRECIOS_BOB.cambioFacultad : precioPlan(plan);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {

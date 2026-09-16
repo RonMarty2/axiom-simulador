@@ -6,6 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
+import { PRECIOS_BOB } from "@/lib/precios";
 
 const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   "cambiar-facultad": {
@@ -19,6 +20,12 @@ const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   "limite": {
     titulo: "Pasa a ilimitado",
     texto: "Llegaste al límite semanal del Plan Gratis. Pásate a Premium para simulacros ilimitados.",
+  },
+  // Lo manda /practicar cuando el alumno toca un modo de pago: llega acá
+  // habiendo dicho QUÉ quería hacer, así que la pantalla le habla de eso.
+  "errores": {
+    titulo: "Practica justo donde fallas",
+    texto: "Con Premium, AXIOM junta los errores que cometiste y te arma práctica solo con esos temas, hasta que dejen de fallarte.",
   },
   // Lo manda la biblioteca de exámenes pasados: el enunciado se lee gratis,
   // la respuesta y el paso a paso no.
@@ -62,7 +69,7 @@ const PLANES = [
   {
     id: "premium",
     nombre: "Premium",
-    precio: 100,
+    precio: PRECIOS_BOB.premium,
     color: "#fbbf24",
     descripcion: "Acceso total, sin límites",
     badge: "RECOMENDADO",

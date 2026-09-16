@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-16 (regla 11 en el banco, 14 figuras dibujadas: 55 → 41, y qué falta para las 41 que quedan)
+**Última actualización:** 2026-09-16 (los modos Premium de /practicar dejan de ser botones muertos, y los precios pasan a un solo lugar)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -330,10 +330,10 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
   - Todo lo demás del circuito de cobro YA funciona: el alumno declara el pago, queda pendiente, el admin lo aprueba en `/admin/pagos` y `agregarOExtenderSuscripcion` le da el mes.
 - [x] ~~El contenido pago no está protegido.~~ Resuelto: guard de servidor en `aprende/layout.tsx` y `laminas/layout.tsx`, con la lógica en `src/lib/acceso-contenido.ts` (ver §11). Frena el acceso por URL, que es el problema real; **no** esconde el contenido de quien lea el bundle de JavaScript — para eso habría que mover las lecciones a datos pedidos al servidor.
 - [x] ~~La biblioteca de exámenes regalaba las soluciones.~~ Resuelto el 14-sep: `/api/axiom/examenes/[id]` no miraba la sesión, así que los 140 exámenes con respuesta y paso a paso se bajaban con un `curl` sin login. Ahora resuelve el plan en el servidor y filtra (ver §11 y D8).
-- [ ] **El plan no mira facultad.** `esPago()` solo pregunta si hay alguna suscripción viva, así que un premium de Económicas abre las soluciones de Ingeniería. Detectado el 14-sep probando el fix de arriba; falta decidir si se cobra por facultad o el plan desbloquea todo.
+- [x] ~~El plan no mira facultad.~~ Ya estaba resuelto y figuraba abierto: `puedeVerResolucionBiblioteca(usuario, facultadDelExamen)` recibe la facultad del examen desde `fd17d4c`. Verificado en el código el 16-sep.
 - [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
 - [ ] **No hay Términos y Condiciones ni Política de Privacidad.** Para cobrar y para guardar datos de menores de edad hacen falta, y la PWA las va a pedir si alguna vez va a una store.
-- [ ] Los precios están escritos dos veces: `api/pagos/route.ts` (servidor, el que vale) y `pagar/page.tsx:30` (cliente). Hoy coinciden en 100 / 50 / 50, pero es cuestión de tiempo.
+- [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
 
 ### ENCARGO ABIERTO · Auditoría pedagógica de las 167 piezas de contenido
@@ -390,10 +390,10 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
 - [x] ~~Auditoría visual sistemática en móvil~~ — hecha el 13-sep a 375px, pantalla por pantalla (ver §11). Salió el corte de las fórmulas, el avatar aplastado y cuatro bugs más.
 - [ ] **App Android (TWA) sin publicar.** El proyecto está en `android/` (ver §5.1) pero falta lo que solo puede hacer Ronald en su máquina: compilar en Android Studio, generar el keystore firmado y pegar su SHA-256 en `android/app/src/main/res/values/strings.xml` y en `public/.well-known/assetlinks.json` (hoy tiene un placeholder), más la cuenta de Play Console. Ese paso es además el que le saca la barra de direcciones a la app.
-- [ ] **Los modos Premium bloqueados no hacen nada al tocarlos** en `/practicar`. Se ven atenuados y con candado, así que no es el bug del botón muerto, pero mandarlos a `/precios` es el lugar más natural del producto para ofrecer el upgrade: el alumno acaba de decir qué quería.
+- [x] ~~Los modos Premium bloqueados no hacen nada al tocarlos en `/practicar`.~~ Resuelto el 16-sep: llevan a `/precios` con el motivo de lo que el alumno quiso hacer (ver §11).
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
-- [ ] Banco de Económicas: hay **un solo examen** (2023) contra los 139 de Ingeniería.
+- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería. (Decía "un solo examen"; quedó viejo, se corrigió el 16-sep contando los archivos.)
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -449,6 +449,20 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (quinquies) (los modos Premium dejan de ser botones muertos, y los precios pasan a un solo lugar)
+
+**Los modos Premium de `/practicar` no hacían nada al tocarlos.** Se veían atenuados y con candado, así que no era el bug del botón muerto del 13-sep (ahí el botón parecía habilitado), pero el toque moría igual. Ahora llevan a `/precios` con el motivo de lo que el alumno acaba de pedir: "Mis errores" manda `motivo=errores` y "Simulacro inteligente" manda `motivo=ia-infinita`, y `/precios` le habla de eso en vez de mostrarle la lista de planes a secas. Es el mejor momento del producto para ofrecer el upgrade: el alumno ya dijo qué quería.
+
+Para eso hubo que separar dos cosas que estaban pegadas en el componente `Fila`: **"se ve apagado" y "no se puede tocar" eran la misma prop**. Ahora `atenuado` es lo visual y `disabled` es lo funcional. Un modo de pago se ve apagado pero se toca; "Mis errores" sin errores guardados sigue deshabilitado de verdad, porque ahí todavía no hay nada que ofrecer.
+
+Detalle que salió probándolo: para un alumno gratis SIN errores guardados, "Mis errores" mostraba *"Completa un examen para guardar errores"* estando bloqueado. Son dos cosas ciertas a la vez, pero la que le sirve es la del candado: lo primero que tiene que resolver es el plan. Si está bloqueado, gana ese mensaje.
+
+**Los precios estaban escritos en TRES lugares, no en dos.** El roadmap decía dos (el servidor y `/pagar`); al ir a arreglarlo apareció el tercero, `/precios`, con el 100 hardcodeado en la tabla de planes. Coincidían de casualidad. Ahora salen de `src/lib/precios.ts` y las tres pantallas importan de ahí. **El que manda sigue siendo el servidor**: `/api/pagos` calcula el monto y nunca confía en lo que le manda el cliente; lo único que cambió es de dónde lee los números.
+
+Se suma el trinquete `los precios salen de un solo lugar`, que exige que las tres pantallas importen de `@/lib/precios` y que no quede ningún número de precio escrito a mano. Se probó que puede fallar devolviendo el `100` a la tabla: lo cantó nombrando archivo y línea.
+
+**Y dos pendientes de §8 que ya estaban hechos y figuraban abiertos.** Se verificaron en el código, no en el documento: el plan SÍ mira facultad desde `fd17d4c`, y Económicas tiene 10 exámenes, no uno. Es el costo de varias sesiones en paralelo: el roadmap envejece más rápido que el código.
 
 ### 2026-09-16 (quater) (seis figuras más, y se agotó lo que se puede hacer sin los PDF)
 

@@ -342,4 +342,27 @@ describe("banco de exámenes", () => {
     }
     assert.deepEqual(fallos, [], `guion largo en texto que ve el alumno:\n${fallos.slice(0, 30).join("\n")}`);
   });
+  // Los precios estaban escritos en TRES lugares (el route handler de
+  // /api/pagos, /pagar y /precios) y coincidían de casualidad. Ahora salen de
+  // src/lib/precios.ts; esto evita que vuelvan a filtrarse a mano, porque el
+  // día que dos no coincidan el alumno ve un precio y se le cobra otro.
+  test("los precios salen de un solo lugar", () => {
+    const PANTALLAS: [string, string][] = [
+      ["src/app/api/pagos/route.ts", "el servidor, que es el que cobra"],
+      ["src/app/pagar/page.tsx", "la pantalla de pago"],
+      ["src/app/precios/page.tsx", "la tabla de precios"],
+    ];
+    const fallos: string[] = [];
+    for (const [rel, que] of PANTALLAS) {
+      const fuente = readFileSync(join(process.cwd(), rel), "utf8");
+      if (!fuente.includes('from "@/lib/precios"')) {
+        fallos.push(`${rel} (${que}) no importa de @/lib/precios`);
+      }
+      // Un número de precio suelto: "precio: 100", "monto = 50", "PRECIO_X = 50".
+      for (const m of fuente.matchAll(/(?:precio|monto|PRECIO[A-Z_]*)\s*[:=]\s*(\d{2,4})\b/g)) {
+        fallos.push(`${rel} (${que}) tiene un precio escrito a mano: ${m[0].trim()}`);
+      }
+    }
+    assert.deepEqual(fallos, [], `precios fuera de src/lib/precios.ts:\n${fallos.join("\n")}`);
+  });
 });
