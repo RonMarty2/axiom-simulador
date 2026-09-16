@@ -2752,21 +2752,22 @@ function g5tresSegmentos5(): Figura {
   return { ancho: 420, alto: Y0 + LADO + 44, pasos: 0, elementos: el };
 }
 
-// ── G6 (1-2016 1ra) · cuadrado, cuarto de círculo y cuadrado chico tangente ──
-// Figura 2 del PDF. La reconstrucción (ajuste del círculo sobre el contorno del
-// sombreado, error < 0,5 px sobre ~319 px de lado) dice que el cuarto de
-// círculo está centrado en el vértice INFERIOR IZQUIERDO del cuadrado grande y
-// su radio es el lado entero: el arco pasa justo por el vértice superior
-// izquierdo y por el inferior derecho. El cuadrado chico (área 16, lado 4)
-// ocupa el vértice superior derecho y toca el arco con su propio vértice más
-// cercano al centro, así que (L-4)√2 = L ⇒ L = 8+4√2.
-// La región sombreada es el cuarto de disco completo: no se solapa con el
-// cuadrado chico, que queda entero del otro lado del arco.
-function g6cuartoCirculoTangente(): Figura {
-  const L_CM = 8 + 4 * Math.SQRT2;
+// ── Cuadrado grande + cuarto de círculo + cuadrado chico tangente ──
+// La MISMA construcción aparece en dos exámenes de 2016 con el dato invertido:
+// el 1-2016 1ra (G6) da el área del cuadrado chico y pide la sombreada, y el
+// 1-2016 2da (G5) da el área del cuarto de círculo y pide el lado del chico.
+// El dibujo es idéntico hasta la escala, porque a/L = 1 − 1/√2 SIEMPRE: el
+// cuarto de círculo está centrado en el vértice inferior izquierdo con radio
+// igual al lado (el arco pasa por el superior izquierdo y el inferior
+// derecho), y el cuadrado chico toca el arco con su vértice más cercano al
+// centro, así que (L−a)√2 = L. Por eso comparten builder y solo cambian los
+// rótulos.
+function cuadradoConCuartoCirculo(rotulos: (g: {
+  L: number; A: number; X0: number; Y0: number;
+  TL: Pt; TR: Pt; BR: Pt; O: Pt; cTL: Pt; cBL: Pt; cBR: Pt;
+}) => Elemento[]): Figura {
   const L = 224;                       // lado grande en px
-  const ESC = L / L_CM;
-  const A = 4 * ESC;                   // lado del cuadrado chico (área 16)
+  const A = L * (1 - 1 / Math.SQRT2);  // lado del cuadrado chico
   const X0 = 98, Y0 = 28;
   const GRIS = "#9aa0ad";
 
@@ -2792,18 +2793,409 @@ function g6cuartoCirculoTangente(): Figura {
     { tipo: "poligono", puntos: [TL, TR, BR, O], rol: "trazo" },
     { tipo: "path", d: arcoDe(O, L, 90, 0), rol: "trazo" },
     { tipo: "poligono", puntos: [cTL, TR, cBR, cBL], rol: "trazo" },
-    { tipo: "texto", en: { x: cTL.x + A / 2, y: Y0 + A / 2 }, texto: "área 16", rol: "dato", tam: 10.5, negrita: true },
     { tipo: "punto", en: cBL, rol: "incognita", r: 3.2 },
-    // El rótulo va al margen, con guía: entre el arco y el lado derecho del
-    // cuadrado grande la franja blanca es de 20-40 px y el texto no entra sin
-    // meterse en el sombreado.
+    // El rótulo "tangente" va al margen, con guía: entre el arco y el lado
+    // derecho del cuadrado grande la franja blanca es de 20-40 px y el texto
+    // no entra sin meterse en el sombreado.
     { tipo: "linea", de: cBL, a: { x: 326, y: 132 }, rol: "incognita", grosor: 1 },
     { tipo: "texto", en: { x: 331, y: 132 }, texto: "tangente", rol: "incognita", tam: 10.5, negrita: true, ancla: "start" },
-    { tipo: "texto", en: { x: X0 + L / 2, y: O.y + 24 }, texto: "Figura 2", rol: "trazo", tam: 12 },
+    ...rotulos({ L, A, X0, Y0, TL, TR, BR, O, cTL, cBL, cBR }),
   ];
 
   return { ancho: 420, alto: Y0 + L + 46, pasos: 0, elementos: el };
 }
+
+// ── G6 (1-2016 1ra) · dato: el cuadrado chico tiene área 16 ──
+function g6cuartoCirculoTangente(): Figura {
+  return cuadradoConCuartoCirculo(({ A, cTL, Y0, X0, L, O }) => [
+    { tipo: "texto", en: { x: cTL.x + A / 2, y: Y0 + A / 2 }, texto: "área 16", rol: "dato", tam: 10.5, negrita: true },
+    { tipo: "texto", en: { x: X0 + L / 2, y: O.y + 24 }, texto: "Figura 2", rol: "trazo", tam: 12 },
+  ]);
+}
+
+// ── G5 (1-2016 2da) · dato: el cuarto de círculo tiene área 4π; se pide el lado ──
+// Con área 4π el radio es 4, así que el lado grande es 4 y el chico
+// 4 − 2√2. El dato ya no cabe adentro del cuadrado chico (es el del sector),
+// así que va de pie de figura, y el lado que se busca lleva su cota violeta.
+function g5cuartoCirculoArea4Pi(): Figura {
+  return cuadradoConCuartoCirculo(({ A, cBR, Y0, X0, L, O }) => [
+    { tipo: "texto", en: { x: X0 + L * 0.34, y: O.y - L * 0.30 }, texto: "área 4π", rol: "dato", color: NAVY, tam: 13, negrita: true },
+    ...cota({ x: cBR.x, y: Y0 }, { x: cBR.x, y: Y0 + A }, "?", -22),
+  ]);
+}
+
+// ── G8 (1-2016 2da opción) · x en función de θ ──
+// Cuadrilátero ABCD del facsímil: en A el ángulo θ entre la base AD y el lado
+// AB = 5; ángulo recto en B (entre BA y la diagonal BD), en C y en D. Con eso
+// BC ∥ AD y CD es vertical, así que x = CD es simplemente la altura de B:
+// x = 5·sen(θ). El dibujo se construye con θ = 40°, que es el que tiene el
+// facsímil (proporción ancho/alto ≈ 2, igual que el escaneo).
+function g8cuadrilateroTheta5(): Figura {
+  const TH = 40;                 // θ del dibujo
+  const LADO = 5;
+  const ESC = 46;                // px por unidad
+  const A: Pt = { x: 48, y: 200 };
+
+  const B = avanzar(A, TH, LADO * ESC);
+  const D = hastaY(B, TH - 90, A.y);          // la diagonal BD, perpendicular a AB, hasta la base
+  const C: Pt = { x: D.x, y: B.y };           // arriba de D, a la altura de B
+
+  // El dibujo tiene que medir lo que dicen sus etiquetas.
+  verificarDistancia("lado AB = 5", LADO * ESC, distancia(A, B));
+  verificarAngulo("θ en A", TH, anguloEn(A, D, B));
+  verificarAngulo("ángulo recto en B", 90, anguloEn(B, A, D));
+  verificarAngulo("ángulo recto en C", 90, anguloEn(C, B, D));
+  verificarAngulo("ángulo recto en D", 90, anguloEn(D, C, A));
+  verificarDistancia("x = 5·sen(θ)", LADO * Math.sin(TH * Math.PI / 180) * ESC, distancia(C, D));
+
+  const arcoTh = arcoAngulo(A, 0, TH, 34, 52);
+  verificarAngulo("el arco marca θ", TH, arcoTh.medida);
+
+  const medioAB: Pt = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C, D], rol: "trazo" },
+    { tipo: "linea", de: B, a: D, rol: "trazo" },
+    { tipo: "texto", en: avanzar(medioAB, TH + 90, 16), texto: "5", rol: "dato", tam: 13, negrita: true },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(B, anguloHacia(B, A), anguloHacia(B, D), 10), rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(C, anguloHacia(C, B), anguloHacia(C, D), 10), rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(D, anguloHacia(D, C), anguloHacia(D, A), 10), rol: "trazo" },
+    { tipo: "arco", d: arcoTh.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoTh.etiquetaEn, texto: "θ", rol: "dato", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: D.x + 18, y: (C.y + D.y) / 2 }, texto: "x", rol: "incognita", tam: 15, cursiva: true, negrita: true, ancla: "start" },
+  ];
+
+  return { ancho: 420, alto: A.y + 40, pasos: 0, elementos: el };
+}
+
+// ── G5 (1-2016 3ra) · hexágono con tres sectores en vértices alternados ──
+// Figura 1 del facsímil. Tres circunferencias de radio 5 = el lado, centradas
+// en vértices ALTERNADOS. Como el radio iguala al lado, cada una pasa exacto
+// por sus dos vecinos, y el sector que queda adentro del hexágono es el de su
+// ángulo interior (120°): lo sombreado es el resto, 240° por vértice.
+//
+// Por eso el área es 3·(240/360)·π·5² = 50π y los arcos suman
+// 3·(240/360)·2π·5 = 20π (opción C). Los tres sectores se TOCAN en los
+// vértices intermedios y no se solapan: las dos circunferencias de dos
+// vértices alternados se cortan justo en el vértice de en medio y en el centro
+// del hexágono, los dos sobre el borde o adentro.
+function g5hexagonoTresSectores(): Figura {
+  const LADO = 5;
+  const ESC = 16;
+  const R = LADO * ESC;               // radio = lado
+  const C: Pt = { x: 210, y: 170 };   // centro del hexágono
+  const GRIS = "#9aa0ad";
+
+  // Hexágono con dos lados horizontales (como el facsímil): vértices cada 60°
+  // desde 0°. En un hexágono regular el circunradio ES el lado.
+  const V = (i: number): Pt => avanzar(C, i * 60, R);
+  const vertices = [0, 1, 2, 3, 4, 5].map(V);
+
+  verificarDistancia("lado del hexágono", R, distancia(vertices[0], vertices[1]));
+  verificarDistancia("el radio iguala al lado", R, distancia(C, vertices[0]));
+  verificarAngulo("ángulo interior", 120, anguloEn(vertices[1], vertices[0], vertices[2]));
+
+  // Sector de 240° (lo de AFUERA del hexágono) en el vértice i: sus dos radios
+  // apuntan a los vecinos, o sea a i·60 ∓ 120, y el arco barre del primero al
+  // segundo en sentido antihorario, que es el camino que NO pasa por el
+  // interior (la dirección al centro es i·60 + 180).
+  const sector = (i: number): string => {
+    const v = V(i);
+    const a1 = i * 60 - 120, a2 = i * 60 + 120;
+    const ini = avanzar(v, a1, R);
+    verificarDistancia("el arco arranca en un vértice vecino", 0, Math.min(...vertices.map((w) => distancia(ini, w))), 0.01);
+    return `M ${v.x.toFixed(2)} ${v.y.toFixed(2)} L ${ini.x.toFixed(2)} ${ini.y.toFixed(2)}` + sigueArco(v, R, a1, a2) + " Z";
+  };
+
+  const el: Elemento[] = [
+    // los tres sectores, en vértices alternados (1, 3 y 5)
+    ...[1, 3, 5].map((i): Elemento => ({ tipo: "path", d: sector(i), rol: "trazo", relleno: true, color: GRIS })),
+    // el hexágono encima, para que sus lados se vean
+    { tipo: "poligono", puntos: vertices, rol: "trazo" },
+    { tipo: "texto", en: { x: C.x, y: vertices[1].y + 15 }, texto: "5 cm", rol: "dato", tam: 11.5, negrita: true },
+    // El pie va abajo del sector MAS BAJO, que llega hasta
+    // C.y + R·sen(60°) + R, no hasta C.y + R.
+    { tipo: "texto", en: { x: C.x, y: C.y + R * Math.sin(Math.PI / 3) + R + 22 }, texto: "Figura 1", rol: "trazo", tam: 12 },
+  ];
+
+  return { ancho: 420, alto: Math.round(C.y + R * Math.sin(Math.PI / 3) + R + 42), pasos: 0, elementos: el };
+}
+
+// ── G6 (1-2016 3ra) · cuadrado de lado 2 con triángulo equilátero encima ──
+// Esta figura NO estaba en docs/figuras-pendientes.md: su enunciado decía
+// "ver figura adjunta", que el regex del trinquete no matchea. El facsímil la
+// trae, y sin ella no se sabe desde qué borde se mide la sombra.
+//
+// El rayo roza el vértice del triángulo (1, 2+√3) y cae a 30°, así que toca el
+// piso en 1 + (2+√3)√3 = 4 + 2√3. La "SOMBRA" del facsímil se mide desde el
+// borde DERECHO del cuadrado (x = 2), no desde el izquierdo: 2 + 2√3.
+function g6cuadradoTrianguloSombra(): Figura {
+  const L = 2;                                  // lado del cuadrado y del triángulo
+  const ALTURA_T = (Math.sqrt(3) / 2) * L;      // √3
+  const ELEV = 30;
+  const ESC = 34;
+  const X0 = 118, Y_PISO = 224;
+
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_PISO - uy * ESC });
+
+  const cBL = en(0, 0), cBR = en(L, 0), cTR = en(L, L), cTL = en(0, L);
+  const apex = en(L / 2, L + ALTURA_T);
+  const D = en(L / 2 + (L + ALTURA_T) / Math.tan((ELEV * Math.PI) / 180), 0);
+  const SOL = avanzar(apex, 180 - ELEV, 4 * ESC);
+
+  verificarDistancia("lado del cuadrado", L * ESC, distancia(cBL, cBR));
+  verificarDistancia("lado del triángulo", L * ESC, distancia(cTL, apex));
+  verificarDistancia("el triángulo es equilátero", L * ESC, distancia(cTR, apex));
+  verificarAngulo("elevación del sol", ELEV, anguloEn(D, apex, { x: D.x - 80, y: Y_PISO }));
+  verificarAngulo("el rayo roza el vértice", 180, anguloEn(apex, SOL, D));
+  verificarDistancia("sombra = 2 + 2√3", (L + 2 * Math.sqrt(3)) * ESC, distancia(cBR, D));
+
+  const arco30 = arcoAngulo(D, 180, anguloHacia(D, apex), 32, 48);
+  verificarAngulo("el arco marca 30°", ELEV, arco30.medida);
+
+  const BRAZO = Y_PISO + 17;
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 26, y: Y_PISO }, a: { x: 400, y: Y_PISO }, rol: "trazo", grosor: 2 },
+    ...rayado(26, cBL.x - 4, Y_PISO),
+    { tipo: "linea", de: SOL, a: D, rol: "dato", color: AMBAR, grosor: 1.6 },
+    ...sol(SOL, 7),
+    // el cuadrado (gris claro) y el triángulo (oscuro), como el facsímil
+    { tipo: "poligono", puntos: [cTL, cTR, cBR, cBL], rol: "trazo", relleno: true, rellenoColor: "#d6d6de" },
+    { tipo: "poligono", puntos: [cTL, cTR, apex], rol: "trazo", relleno: true, rellenoColor: "#2b2b35" },
+    { tipo: "texto", en: { x: cBL.x - 14, y: (cBL.y + cTL.y) / 2 }, texto: "2", rol: "dato", tam: 13, negrita: true, ancla: "end" },
+    { tipo: "arco", d: arco30.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco30.etiquetaEn, texto: "30°", rol: "dato", tam: 12, negrita: true },
+    // la sombra, que es lo que se pregunta: desde el borde derecho del cuadrado
+    { tipo: "linea", de: { x: cBR.x, y: BRAZO }, a: { x: D.x, y: BRAZO }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: cBR.x, y: BRAZO - 6 }, a: { x: cBR.x, y: BRAZO + 6 }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: D.x, y: BRAZO - 6 }, a: { x: D.x, y: BRAZO + 6 }, rol: "incognita", grosor: 1.6 },
+    { tipo: "texto", en: { x: (cBR.x + D.x) / 2, y: BRAZO + 16 }, texto: "sombra", rol: "incognita", tam: 11.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: BRAZO + 30, pasos: 0, elementos: el };
+}
+
+// ── G8 (1-2016 3ra) · cuadrado con P punto medio del lado superior ──
+// Tres trazos: del vértice inferior izquierdo salen la diagonal (al superior
+// derecho) y el segmento a P; de P sale el segmento al vértice inferior
+// derecho. El ángulo x está en el CRUCE de la diagonal con PD, abierto hacia
+// arriba. Las pendientes son 1 y −2, así que tan(x) = |(1−(−2))/(1+1·(−2))| = 3
+// y x = arctan(3) ≈ 71,57°: ninguna de las opciones (65, 70, 75, 85), o sea E.
+// El vértice superior izquierdo no tiene ningún trazo, y eso también se ve.
+function g8cuadradoPuntoMedioCevianas(): Figura {
+  const S = 240;
+  const X0 = 90, Y0 = 26;
+
+  const C: Pt = { x: X0, y: Y0 + S };          // inferior izquierdo
+  const D: Pt = { x: X0 + S, y: Y0 + S };      // inferior derecho
+  const B: Pt = { x: X0 + S, y: Y0 };          // superior derecho
+  const A: Pt = { x: X0, y: Y0 };              // superior izquierdo
+  const P: Pt = { x: X0 + S / 2, y: Y0 };      // punto medio del lado superior
+
+  // Cruce de la diagonal CB con el segmento PD: en el cuadrado unitario cae en
+  // (2/3, 2/3) medido desde C.
+  const Q: Pt = { x: X0 + (2 * S) / 3, y: Y0 + S / 3 };
+
+  verificarDistancia("P es el punto medio", distancia(P, A), distancia(P, B), 0.01);
+  verificarAngulo("Q está sobre la diagonal CB", 0, anguloEn(C, Q, B), 0.2);
+  verificarAngulo("Q está sobre PD", 0, anguloEn(P, Q, D), 0.2);
+
+  const arcoX = arcoAngulo(Q, anguloHacia(Q, B), anguloHacia(Q, P), 40, 60);
+  verificarAngulo("x = arctan(3)", (Math.atan(3) * 180) / Math.PI, arcoX.medida);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, D, C], rol: "trazo" },
+    { tipo: "linea", de: C, a: P, rol: "trazo" },
+    { tipo: "linea", de: C, a: B, rol: "trazo" },
+    { tipo: "linea", de: P, a: D, rol: "trazo" },
+    { tipo: "texto", en: { x: P.x, y: P.y - 15 }, texto: "P", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "arco", d: arcoX.d, rol: "incognita" },
+    { tipo: "texto", en: arcoX.etiquetaEn, texto: "x", rol: "incognita", tam: 15, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y0 + S + 34, pasos: 0, elementos: el };
+}
+
+// ── Triángulo rectángulo con la bisectriz de un ángulo agudo ──
+// Otra construcción que aparece dos veces en 2016 con distinto dato: el
+// 1-2016 2da (G5) la da con 17 y 8, el 1-2016 2da de agosto (G5) con 16 y 8.
+// El ángulo recto está en el vértice inferior DERECHO, el cateto vertical
+// queda partido por el pie de la bisectriz (el segmento chico es el de abajo,
+// junto al ángulo recto), y la base es la x que se busca.
+//
+// Por el teorema de la bisectriz, sup/inf = hipotenusa/base, y con la
+// hipotenusa por Pitágoras sale la base:
+//   17 y 8 → x = 40/3     16 y 8 → x = 8√3
+// El dibujo va A ESCALA con esa x, que es más angosto que el esquema del
+// facsímil (ese no está a escala). Regla 7 de §4.5: manda la geometría.
+function trianguloBisectriz(sup: number, inf: number, rotuloX: string): Figura {
+  const cateto = sup + inf;
+  // teorema de la bisectriz: sup/inf = √(x²+cateto²)/x  ⇒  x = cateto·inf/√(sup²−inf²)
+  const x = (cateto * inf) / Math.sqrt(sup * sup - inf * inf);
+  const ESC = 230 / cateto;                  // el cateto vertical ocupa 230 px
+
+  const A: Pt = { x: 150, y: 256 };                        // vértice del ángulo 2φ
+  const C: Pt = { x: A.x + x * ESC, y: A.y };              // ángulo recto
+  const B: Pt = { x: C.x, y: A.y - cateto * ESC };         // vértice superior
+  const D: Pt = { x: C.x, y: A.y - inf * ESC };            // pie de la bisectriz
+
+  verificarAngulo("ángulo recto en C", 90, anguloEn(C, A, B));
+  verificarDistancia("segmento de abajo", inf * ESC, distancia(C, D));
+  verificarDistancia("segmento de arriba", sup * ESC, distancia(D, B));
+  // Lo que define la figura: AD parte el ángulo de A en dos mitades iguales.
+  verificarAngulo("AD es bisectriz", anguloEn(A, C, D), anguloEn(A, D, B), 0.05);
+
+  const arcoBajo = arcoAngulo(A, 0, anguloHacia(A, D), 30, 46);
+  const arcoAlto = arcoAngulo(A, anguloHacia(A, D), anguloHacia(A, B), 44, 60);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C], rol: "trazo" },
+    { tipo: "linea", de: A, a: D, rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(C, anguloHacia(C, B), anguloHacia(C, A), 10), rol: "trazo" },
+    { tipo: "texto", en: { x: C.x + 16, y: (D.y + B.y) / 2 }, texto: String(sup), rol: "dato", tam: 13, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: C.x + 16, y: (C.y + D.y) / 2 }, texto: String(inf), rol: "dato", tam: 13, negrita: true, ancla: "start" },
+    { tipo: "arco", d: arcoBajo.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoBajo.etiquetaEn, texto: "φ", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arcoAlto.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAlto.etiquetaEn, texto: "φ", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: { x: (A.x + C.x) / 2, y: A.y + 20 }, texto: rotuloX, rol: "incognita", tam: 15, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: A.y + 44, pasos: 0, elementos: el };
+}
+
+function g5bisectriz17y8(): Figura {
+  return trianguloBisectriz(17, 8, "x");
+}
+
+function g5bisectriz16y8(): Figura {
+  return trianguloBisectriz(16, 8, "x");
+}
+
+// ── G6 (1-2016 2da, las dos opciones) · la recta que parte el cuadrado en dos ──
+// Figura 3 del facsímil, idéntica en las dos opciones de agosto. B está sobre
+// la prolongación de la base, a 5 del cuadrado de lado 4. La recta que divide
+// al cuadrado en dos áreas iguales tiene que pasar por su CENTRO, así que su
+// pendiente es 2/7 y entra por el lado izquierdo a la altura x = 10/7.
+// El trapecio de abajo mide (10/7 + 18/7)/2 · 4 = 8, la mitad de 16.
+function g6rectaBisecaCuadrado(): Figura {
+  const D = 5, L = 4;                 // distancia de B al cuadrado, y lado
+  const ESC = 38;
+  const X0 = 38, Y_BASE = 190;
+
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const B = en(0, 0);
+  const sBL = en(D, 0), sBR = en(D + L, 0), sTR = en(D + L, L), sTL = en(D, L);
+  const centro = en(D + L / 2, L / 2);
+  // la recta pasa por B y por el centro: alturas de entrada y salida
+  const yEntra = (L / 2) * (D / (D + L / 2));           // 10/7
+  const ySale = (L / 2) * ((D + L) / (D + L / 2));      // 18/7
+  const E = en(D, yEntra);
+  const F = en(D + L, ySale);
+
+  verificarDistancia("lado del cuadrado", L * ESC, distancia(sBL, sTL));
+  verificarDistancia("B está a 5 del cuadrado", D * ESC, distancia(B, sBL));
+  verificarAngulo("la recta pasa por el centro del cuadrado", 0, anguloEn(B, centro, F), 0.2);
+  // y parte el cuadrado en dos mitades: el trapecio de abajo tiene que dar 8
+  verificarDistancia("mitad del área del cuadrado", (L * L) / 2, ((yEntra + ySale) / 2) * L, 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: B, a: { x: sBR.x, y: Y_BASE }, rol: "trazo", grosor: 1.6 },
+    { tipo: "poligono", puntos: [sTL, sTR, sBR, sBL], rol: "trazo" },
+    { tipo: "linea", de: B, a: F, rol: "trazo" },
+    { tipo: "texto", en: { x: B.x - 12, y: B.y - 6 }, texto: "B", rol: "trazo", tam: 14, negrita: true, ancla: "end" },
+    ...cota(B, sBL, "5", 20),
+    ...cota(sBL, sBR, "4", 20),
+    { tipo: "texto", en: { x: sBR.x + 16, y: (sBR.y + sTR.y) / 2 }, texto: "4", rol: "dato", tam: 13, negrita: true, ancla: "start" },
+    // x: el tramo del lado izquierdo, de la base a la recta
+    { tipo: "linea", de: sBL, a: E, rol: "incognita", grosor: 3 },
+    { tipo: "texto", en: { x: E.x + 12, y: (sBL.y + E.y) / 2 }, texto: "x", rol: "incognita", tam: 15, cursiva: true, negrita: true, ancla: "start" },
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 46, pasos: 0, elementos: el };
+}
+
+// ── F11 (1-2016 2da, las dos opciones) · A y B sobre la mesa, C colgando ──
+// Es la figura que docs/figuras-pendientes.md había descartado a propósito:
+// "no queda claro cómo están montadas las dos poleas". El facsímil lo aclara y
+// no era lo que decía el texto: la mesa tiene un HUECO en el medio, con una
+// pared que baja en cada borde interno y una polea montada arriba de cada
+// pared. A está sobre el tramo izquierdo, B sobre el derecho, y cada uno tira
+// de su propia cuerda: horizontal hasta el tope de su polea, un cuarto de
+// vuelta, y vertical hacia abajo hasta C, que cuelga entre las dos.
+//
+// Son DOS cuerdas, no una: C está sostenido por las dos a la vez. De ahí
+// m_C·g − 2T = m_C·a con T = m_A(a + μg), que da a = 4,5 m/s² (y 9 m en 2 s).
+function f11dosBloquesMesaHueco(): Figura {
+  const MESA = 92, PISO_PARED = 212;
+  const R = 17;
+  const PL: Pt = { x: 178, y: 68 };           // polea izquierda
+  const PR: Pt = { x: 242, y: 68 };           // polea derecha
+  const Y_CABLE = PL.y - R;                   // los tramos horizontales, por el tope
+  const X_IZQ = PL.x + R, X_DER = PR.x - R;   // las dos ramas que bajan, por dentro
+  const PARED_IZQ = 160, PARED_DER = 260;
+  const C_ANCHO = 62, C_ALTO = 58, C_TOP = 136;
+  const C_CX = (X_IZQ + X_DER) / 2;
+
+  // Bloques A y B, apoyados en la mesa
+  const B_ALTO = 52;
+  const cajaA: Pt[] = [{ x: 62, y: MESA - B_ALTO }, { x: 134, y: MESA - B_ALTO }, { x: 134, y: MESA }, { x: 62, y: MESA }];
+  const cajaB: Pt[] = [{ x: 286, y: MESA - B_ALTO }, { x: 358, y: MESA - B_ALTO }, { x: 358, y: MESA }, { x: 286, y: MESA }];
+  const cajaC: Pt[] = [
+    { x: C_CX - C_ANCHO / 2, y: C_TOP }, { x: C_CX + C_ANCHO / 2, y: C_TOP },
+    { x: C_CX + C_ANCHO / 2, y: C_TOP + C_ALTO }, { x: C_CX - C_ANCHO / 2, y: C_TOP + C_ALTO },
+  ];
+
+  // La cuerda tiene que estar donde dice: tangente a las poleas, los tramos de
+  // los bloques horizontales y las dos ramas de C verticales.
+  verificarAngulo("tramo de A horizontal", 0, anguloHacia({ x: 134, y: Y_CABLE }, { x: PL.x, y: Y_CABLE }));
+  verificarAngulo("tramo de B horizontal", 180, Math.abs(anguloHacia({ x: 286, y: Y_CABLE }, { x: PR.x, y: Y_CABLE })));
+  verificarDistancia("el tramo horizontal entra por el tope de la polea", R, distancia(PL, { x: PL.x, y: Y_CABLE }));
+  verificarAngulo("rama izquierda vertical", -90, anguloHacia({ x: X_IZQ, y: PL.y }, { x: X_IZQ, y: C_TOP }));
+  verificarAngulo("rama derecha vertical", -90, anguloHacia({ x: X_DER, y: PR.y }, { x: X_DER, y: C_TOP }));
+  verificarDistancia("cuarto de vuelta en la polea izquierda", R, distancia(PL, { x: X_IZQ, y: PL.y }));
+  verificarDistancia("cuarto de vuelta en la polea derecha", R, distancia(PR, { x: X_DER, y: PR.y }));
+  verificarDistancia("las dos ramas llegan a C", 0, Math.abs((X_IZQ + X_DER) / 2 - C_CX), 0.01);
+
+  const el: Elemento[] = [
+    // mesa partida al medio, y las dos paredes del hueco
+    { tipo: "linea", de: { x: 36, y: MESA }, a: { x: PARED_IZQ, y: MESA }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: PARED_DER, y: MESA }, a: { x: 384, y: MESA }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: PARED_IZQ, y: MESA }, a: { x: PARED_IZQ, y: PISO_PARED }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: PARED_DER, y: MESA }, a: { x: PARED_DER, y: PISO_PARED }, rol: "trazo", grosor: 2.4 },
+    // soportes y poleas
+    { tipo: "linea", de: { x: PARED_IZQ, y: MESA }, a: PL, rol: "trazo", grosor: 1.3 },
+    { tipo: "linea", de: { x: PARED_DER, y: MESA }, a: PR, rol: "trazo", grosor: 1.3 },
+    { tipo: "path", d: circuloPath(PL, R), rol: "trazo" },
+    { tipo: "path", d: circuloPath(PR, R), rol: "trazo" },
+    { tipo: "punto", en: PL, rol: "trazo", r: 2.2 },
+    { tipo: "punto", en: PR, rol: "trazo", r: 2.2 },
+    // cuerda de A: horizontal, cuarto de vuelta, y baja
+    { tipo: "linea", de: { x: 134, y: Y_CABLE }, a: { x: PL.x, y: Y_CABLE }, rol: "trazo", grosor: 1.5 },
+    { tipo: "path", d: arcoDe(PL, R, 90, 0), rol: "trazo" },
+    { tipo: "linea", de: { x: X_IZQ, y: PL.y }, a: { x: X_IZQ, y: C_TOP }, rol: "trazo", grosor: 1.5 },
+    // cuerda de B: igual, espejada
+    { tipo: "linea", de: { x: 286, y: Y_CABLE }, a: { x: PR.x, y: Y_CABLE }, rol: "trazo", grosor: 1.5 },
+    { tipo: "path", d: arcoDe(PR, R, 90, 180), rol: "trazo" },
+    { tipo: "linea", de: { x: X_DER, y: PR.y }, a: { x: X_DER, y: C_TOP }, rol: "trazo", grosor: 1.5 },
+    // los tres bloques
+    { tipo: "poligono", puntos: cajaA, rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
+    { tipo: "poligono", puntos: cajaB, rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
+    { tipo: "poligono", puntos: cajaC, rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
+    { tipo: "texto", en: { x: 98, y: MESA - B_ALTO / 2 - 7 }, texto: "A", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: 98, y: MESA - B_ALTO / 2 + 10 }, texto: "10 kg", rol: "dato", tam: 10.5 },
+    { tipo: "texto", en: { x: 322, y: MESA - B_ALTO / 2 - 7 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: 322, y: MESA - B_ALTO / 2 + 10 }, texto: "10 kg", rol: "dato", tam: 10.5 },
+    { tipo: "texto", en: { x: C_CX, y: C_TOP + C_ALTO / 2 - 8 }, texto: "C", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: C_CX, y: C_TOP + C_ALTO / 2 + 10 }, texto: "20 kg", rol: "dato", tam: 10.5 },
+    { tipo: "texto", en: { x: 78, y: MESA + 16 }, texto: "μ = 0,1", rol: "dato", tam: 11.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: PISO_PARED + 28, pasos: 0, elementos: el };
+}
+
 
 // ── G7 (1-2016 1ra) · triángulo equilátero al sol, con el sol a 30° ──
 // Esta figura NO estaba en docs/figuras-pendientes.md, y el facsímil la trae:
@@ -3020,6 +3412,17 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g6-cuarto-circulo-cuadrado-tangente": g6cuartoCirculoTangente,
   "g7-equilatero-sombra-sol-30": g7equilateroSombra,
   "f10-colgante-dos-poleas-fijas": f10colganteDosPoleas,
+  // Lote 1-2016, resto de las opciones (facsímiles 142 a 145). Las que
+  // aparecen dos veces comparten dibujo porque el facsímil es el mismo.
+  "g5-cuarto-circulo-area-4pi": g5cuartoCirculoArea4Pi,
+  "g8-cuadrilatero-theta-5": g8cuadrilateroTheta5,
+  "g5-hexagono-tres-sectores": g5hexagonoTresSectores,
+  "g6-cuadrado-triangulo-sombra-30": g6cuadradoTrianguloSombra,
+  "g8-cuadrado-punto-medio-cevianas": g8cuadradoPuntoMedioCevianas,
+  "g5-bisectriz-17-8": g5bisectriz17y8,
+  "g5-bisectriz-16-8": g5bisectriz16y8,
+  "g6-recta-biseca-cuadrado": g6rectaBisecaCuadrado,
+  "f11-dos-bloques-mesa-hueco": f11dosBloquesMesaHueco,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

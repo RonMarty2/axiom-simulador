@@ -3,12 +3,12 @@
 **Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **38 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
+Quedan **29 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
 El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 38; cada una que se resuelva baja el tope.
+el tope en 29; cada una que se resuelva baja el tope.
 
-**Y hay 74 más que el test no ve.** Es lo primero que hay que leer de este
-archivo: está abajo, en "El 38 es un piso, no un techo".
+**Y hay 73 más que el test no ve.** Es lo primero que hay que leer de este
+archivo: está abajo, en "El 29 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -33,30 +33,57 @@ del repo por peso (225 MB, ver `.gitignore` y `examenes pasados/INVENTARIO.md`).
 
 ### Ya dibujadas
 
-| examen | de la lista | también del mismo PDF |
-|---|---|---|
-| `2016-1op-1-2016` · facsímil `FCYT/141_1ra-op-1-2016.pdf` | P5, P6, P10 | **P7** |
+Todas leídas el 16-sep-2026 abriendo el PDF acá, en la máquina de Ronald (el
+camino 3 de más abajo). La columna de la derecha es lo que **no** estaba pedido
+y el facsímil traía igual.
 
-Las cuatro se dibujaron el 16-sep-2026 leyendo el PDF acá, en la máquina de
-Ronald (el camino 3 de más abajo). La P7 **no estaba en esta lista** y el
-facsímil la tiene: ver "El 38 es un piso, no un techo".
+| examen | facsímil | de la lista | de arriba, y faltaba |
+|---|---|---|---|
+| `2016-1op-1-2016` | `141_1ra-op-1-2016.pdf` | P5, P6, P10 | **P7** |
+| `2016-2op-1-2016` | `142_2da-op-1-2016.pdf` | P5, P8, P10 | — |
+| `2016-3op-1-2016` | `143_2ra-op-1-2016.pdf` | P5, P8 | **P6** |
+| `2016-1op-2-2016` | `144_1ra-op-2-2016.pdf` | P5, P11 | **P6** |
+| `2016-2op-2-2016` | `145_2da-op-2-2016.pdf` | P5, P11 | **P6** |
 
-### fisica (10)
+**13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
+es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
+enunciado, mismos números, mismo dibujo), y las dos opciones de agosto
+comparten la Figura 3 y la del F11.
+
+**Ojo con los nombres de archivo.** `143_2ra-op-1-2016.pdf` dice "2ra" y
+adentro es la **3ra** opción (31-mar-2016). Y los dos de agosto traen
+"EXAMEN-INGRESO 1-2016" en el encabezado siendo de la gestión **2/2016**: el
+error es del facsímil y los nombres del repo ya están bien. Antes de asociar un
+PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado.
+
+### Lo que apareció al abrirlos
+
+- **`2016-1op-2` P11 y `2016-2op-2` P11 dejan de estar descartadas.** Eran las
+  dos que este archivo daba por imposibles ("no queda claro cómo están montadas
+  las dos poleas"). El facsímil lo aclara, y **no era lo que decía el texto**:
+  la mesa tiene un HUECO en el medio, con una pared que baja en cada borde
+  interno y una polea montada arriba de cada pared. El enunciado decía "polea
+  fija en el borde de la mesa", que sugiere el borde de afuera. Se corrigió la
+  descripción en los dos.
+- **Tres P6 no estaban pedidas y necesitaban la figura.** `2016-3op-1` P6 venía
+  de las 74 (le habían sacado la mención). Las otras dos son un agujero NUEVO
+  del regex: decían *"ver figura 3"*, y `PIDE_FIGURA` no entendía ni "ver
+  figura" ni "la figura 3 muestra". Se le agregaron las dos formas, con costo
+  cero porque para entonces ya tenían su dibujo.
+
+### fisica (7)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
 | `2009-parcial3-2-2009` | 19 | Circuito con un resistor de 3Ω, un resistor de 2Ω y un resistor de 5Ω según la figura. La resistencia equivalente (Ω) es… |
 | `2014-final-2-2014` | 19 | La estructura que se muestra en la figura adjunta gira alrededor del eje vertical AB, con una velocidad angular de 10 ra… |
 | `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
-| `2016-1op-2-2016` | 11 | El sistema mostrado en la figura adjunta se suelta desde el reposo, determina la distancia que desciende el cuerpo C en … |
-| `2016-2op-1-2016` | 10 | Para el sistema mostrado en la figura adjunta, calcula el valor que deberá tener la masa del bloque 1 para que todo el s… |
-| `2016-2op-2-2016` | 11 | El sistema mostrado en la figura adjunta se suelta desde el reposo, determina la aceleración del sistema. La figura mues… |
 | `2017-1op-1-2017` | 10 | Dos cargas $Q_1=2q$ y $Q_2=-q$, se sitúan según muestra la figura ($Q_1$ en el punto $(0,1)$ y $Q_2$ en el punto $(2,0)$… |
 | `2018-2op-1-2018` | 11 | En la figura se muestra un automovilista en una acción temeraria venciendo a la gravedad. Si se conocen los valores de $… |
 | `2024-parcial2-1-2024` | 19 | En la figura, cada capacitor tiene $C=9.00\ \mu F$. Calcule la capacitancia equivalente entre $a$ y $b$ (la red tiene do… |
 | `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
 
-### geometria_trigonometria (28)
+### geometria_trigonometria (22)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
@@ -65,12 +92,6 @@ facsímil la tiene: ver "El 38 es un piso, no un techo".
 | `2012-2op-1-2012` | 6 | Se conoce que un ángulo inscrito en una circunferencia vale la mitad del ángulo central que subtiende el mismo arco. En … |
 | `2014-parcial1-2-2014` | 7 | Calcular el área A de la figura: un sector circular de radio 5 cm con ángulo central de 60°; A es la región sombreada co… |
 | `2015-1op-2-2015` | 7 | En la figura $AE=8$, $EC=3$, $DB=5$ y $AB$ es paralelo a $DC$, entonces $BE-ED$ es igual a:… |
-| `2016-1op-2-2016` | 5 | En la figura 2, se tiene un triángulo rectángulo, se traza la bisectriz de un ángulo, definiendo segmentos de 17 y 8 res… |
-| `2016-2op-1-2016` | 5 | En la figura se tienen dos cuadrados y una cuarta circunferencia de área $4\pi$, sabiendo que el cuadrado pequeño es tan… |
-| `2016-2op-1-2016` | 8 | La longitud $x$, en la siguiente figura en función del ángulo $\theta$, es igual a… |
-| `2016-2op-2-2016` | 5 | En la figura 2, se tiene un triángulo rectángulo, se traza la bisectriz de un ángulo (no recto), definiendo segmentos de… |
-| `2016-3op-1-2016` | 5 | Trazamos tres arcos circulares desde tres vértices de un hexágono de 5 cm de lado (tres circunferencias de radio 5 cm ce… |
-| `2016-3op-1-2016` | 8 | En la figura, $P$ es el punto medio del lado superior de un cuadrado; desde el vértice inferior izquierdo se trazan la d… |
 | `2017-1op-2-2017` | 7 | En la figura se tiene cuatro círculos blancos idénticos tangentes entre sí e inscritos en un círculo mayor de color negr… |
 | `2017-2op-1-2017` | 6 | En la figura 1, se tienen dos cuadrados idénticos, cada uno de lado 1cm, entonces el área del triángulo sombreado es igu… |
 | `2017-2op-1-2017` | 7 | El valor de la $\tan(\theta)$ en la figura 2, es igual a:… |
@@ -89,7 +110,7 @@ facsímil la tiene: ver "El 38 es un piso, no un techo".
 | `2024-parcial1-2-2024` | 8 | Encuentra el área sombreada de la siguiente figura: los centros de $C_1$ y $C_2$ son los puntos medios de los lados $\ov… |
 | `2024-parcial1-2-2024` | 9 | En la figura, los lados $\overline{AI}$ y $\overline{BJ}$ están divididos en 4 partes iguales por los puntos $C,E,G$ y $… |
 
-## El 38 es un piso, no un techo
+## El 29 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -113,14 +134,14 @@ y el texto se sostiene solo. Pero no todos, y el caso que lo probó apareció el
 > agarrar: el trinquete de figuras no la veía, el de "la explicación no se
 > contradice con la respuesta" tampoco.
 
-**Las candidatas son 74.** Definición exacta, para poder regenerar la lista: el
+**Las candidatas son 73.** Definición exacta, para poder regenerar la lista: el
 enunciado ANTES de `f3f276a` matcheaba el regex `PIDE_FIGURA` de
 `src/lib/axiom/banco.test.ts`, el de hoy no lo matchea, y hoy sigue sin declarar
 `figura:`. Se saca con un script de tres pasos: `git show f3f276a~1:<archivo>`
 para el texto viejo, el archivo de trabajo para el nuevo, y el regex del test
 sobre los dos.
 
-**No son 74 figuras para dibujar.** Son 74 preguntas para **abrir contra su
+**No son 73 figuras para dibujar.** Son 73 preguntas para **abrir contra su
 facsímil** y decidir: o el paréntesis describe bien la configuración y no hace
 falta nada, o falta el dibujo (y entonces va a la lista de arriba), o —como la
 P7— la descripción está mal y hay que corregir también la explicación. Lo que
@@ -154,7 +175,6 @@ falló.
 | `2014-unica-2-2014` | 7 | En un triángulo equilátero de lado 13, se inscriben dos cuadrados idénticos (apilados uno sobre… |
 | `2014-unica-2-2014` | 10 | Se tiene un sistema de poleas diseñado por un estudiante, instalado sobre una mesa y diseñado pa… |
 | `2015-2op-2-2015` | 7 | En un triángulo equilátero de lado 13, se inscribe dos cuadrados idénticos, entonces el lado de… |
-| `2016-3op-1-2016` | 6 | Sobre un cuadrado de lado 2 se pone un triángulo equilátero; un rayo de luz sale de un foco form… |
 | `2016-3op-1-2016` | 10 | Un bloque de 1 kg de masa se mueve en un plano horizontal rugoso con un coeficiente de fricción… |
 | `2016-3op-1-2016` | 11 | Se tienen esferitas iguales con cargas iguales pero opuestas y masas iguales. Una de ellas se cu… |
 | `2017-1op-1-2017` | 9 | En un rizo, el bloque se suelta del punto A ubicado a 27 [m] de altura. Si el bloque completa un… |
@@ -204,12 +224,6 @@ falló.
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
 
-## Las dos que se descartaron aunque el texto parecía alcanzar
-
-- **`2016-1op-2` P11 y `2016-2op-2` P11** (mismo problema). La física cierra
-  (a = 9/2 m/s², desciende 9 m en 2 s), pero el texto dice que las dos cuerdas
-  bajan verticales y en paralelo desde "el borde" de la mesa y no queda claro
-  cómo están montadas las dos poleas. Con el facsímil se resuelve en minutos.
 ## Cómo desbloquear esto: trabajar en local
 
 **Resuelto el 16-sep-2026: se está usando el camino 3.** Claude Code corriendo

@@ -189,14 +189,20 @@ describe("banco de exámenes", () => {
   // peor, la descripción que le pusieron tenía el triángulo al revés. Hay 74
   // preguntas en esa situación, listadas en docs/figuras-pendientes.md. Bajar
   // este tope reescribiendo texto no es progreso; dibujar la figura sí.
-  const FIGURAS_NO_DECLARADAS_TOPE = 38;
+  const FIGURAS_NO_DECLARADAS_TOPE = 29;
 
   // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
   // Deja afuera a propósito los "se muestra a continuación" seguidos de la
   // ecuación o el circuito escritos en el propio texto: esos se sostienen
   // solos y marcarlos sería mentir al revés.
+  //
+  // Dos formas que se le agregaron el 16-sep, después de encontrarlas a mano en
+  // los facsímiles de 2016: "ver figura 3" y "la figura 3 muestra". Las dos
+  // preguntas que las usaban (`2016-1op-2` P6 y `2016-2op-2` P6) prometían un
+  // dibujo que no estaba y este test las daba por limpias. Sumarlas costó cero
+  // porque para entonces ya tenían su figura: lo que evitan es la próxima.
   const PIDE_FIGURA =
-    /\b(?:en|de|seg[uú]n|dada|dado|muestra|mostrad[oa]s?\s+en|indicad[oa]\s+en|observad[oa]\s+en|de\s+acuerdo\s+a)\s+(?:la|el)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s+(?:adjunta|mostrada|siguiente|anterior|dada)\b|\b(?:la|el)\s+(?:siguiente|figura)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s*\d*\s*[:.]|\b(?:seg[uú]n|en)\s+(?:la\s+)?gr[aá]fica\b/i;
+    /\b(?:en|de|seg[uú]n|dada|dado|muestra|mostrad[oa]s?\s+en|indicad[oa]\s+en|observad[oa]\s+en|de\s+acuerdo\s+a)\s+(?:la|el)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s+(?:adjunta|mostrada|siguiente|anterior|dada)\b|\b(?:la|el)\s+(?:siguiente|figura)\s+(?:figura|gr[aá]fico|esquema|diagrama)\b|\bfigura\s*\d*\s*[:.]|\b(?:seg[uú]n|en)\s+(?:la\s+)?gr[aá]fica\b|\bver\s+(?:la\s+)?(?:figura|gr[aá]fico|esquema|diagrama)\b|\b(?:la|el)\s+(?:figura|gr[aá]fico|esquema|diagrama)\s*\d*\s+(?:muestra|indica)\b/i;
 
   test("ningún enunciado nuevo promete una figura que no está", () => {
     const sinDibujo: string[] = [];
