@@ -2240,8 +2240,173 @@ function f17planoRozamiento(): Figura {
   return { ancho: 430, alto: 275, pasos: 0, elementos: el };
 }
 
+// ── F12 (2-2014 única) · energía con rozamiento solo en el tramo horizontal ──
+// Baja sin fricción desde A (6 m), cruza 9 m con μ=1/3 y sube sin fricción
+// hasta B. mgh_A - μmg·d = mgh_B → 60 - 30 = 10h → h = 3 m.
+function f12energiaRampa(): Figura {
+  const ESC = 21;                         // px por metro
+  const Y0 = 210;                         // nivel del tramo horizontal
+  const H_A = 6, H_B = 3, LARGO = 9;
+  const xIniRampa = 78;
+  const P1: Pt = { x: xIniRampa + 90, y: Y0 };                  // pie de la rampa izquierda
+  const A: Pt = { x: xIniRampa, y: Y0 - H_A * ESC };            // arriba a la izquierda
+  const P2: Pt = { x: P1.x + LARGO * ESC, y: Y0 };              // pie de la rampa derecha
+  const B: Pt = { x: P2.x + 66, y: Y0 - H_B * ESC };            // donde se detiene
+
+  verificarDistancia("altura de A = 6 m", H_A * ESC, Y0 - A.y, 0.5);
+  verificarDistancia("altura de B = 3 m", H_B * ESC, Y0 - B.y, 0.5);
+  verificarDistancia("tramo rugoso = 9 m", LARGO * ESC, distancia(P1, P2), 0.5);
+
+  const bloque = bloqueSobre(avanzar(A, anguloHacia(A, P1), 20), anguloHacia(A, P1), 26, 15);
+
+  const el: Elemento[] = [
+    // el perfil del terreno, de una sola pieza
+    { tipo: "linea", de: A, a: P1, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: P1, a: P2, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: P2, a: B, rol: "trazo", grosor: 2 },
+    // el bloque, apoyado sobre la rampa de salida
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    // A y B
+    { tipo: "punto", en: A, rol: "trazo", r: 3 },
+    { tipo: "texto", en: { x: A.x - 13, y: A.y - 6 }, texto: "A", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "punto", en: B, rol: "resultado", color: ROJO, r: 3 },
+    { tipo: "texto", en: { x: B.x + 13, y: B.y - 6 }, texto: "B", rol: "resultado", color: ROJO, tam: 13, negrita: true },
+    // el dato de cada tramo: lo que cambia el problema es DÓNDE hay rozamiento
+    { tipo: "texto", en: { x: (A.x + P1.x) / 2 - 26, y: (A.y + Y0) / 2 + 16 }, texto: "μ = 0", rol: "trazo", tam: 11 },
+    { tipo: "texto", en: { x: (P2.x + B.x) / 2 + 4, y: (B.y + Y0) / 2 + 20 }, texto: "μ = 0", rol: "trazo", tam: 11 },
+    { tipo: "texto", en: { x: (P1.x + P2.x) / 2, y: Y0 - 14 }, texto: "μ = 1/3", rol: "dato", color: ROJO, tam: 12, negrita: true },
+    // cotas
+    { tipo: "linea", de: { x: A.x - 26, y: A.y }, a: { x: A.x - 26, y: Y0 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: A.x - 32, y: A.y }, a: { x: A.x - 20, y: A.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: A.x - 32, y: Y0 }, a: { x: A.x - 20, y: Y0 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: A.x - 36, y: (A.y + Y0) / 2 }, texto: "6 m", rol: "dato", color: AMBAR, tam: 11, ancla: "end" },
+    { tipo: "linea", de: { x: B.x + 30, y: B.y }, a: { x: B.x + 30, y: Y0 }, rol: "incognita", grosor: 1.4 },
+    { tipo: "linea", de: { x: B.x + 24, y: B.y }, a: { x: B.x + 36, y: B.y }, rol: "incognita", grosor: 1.4 },
+    { tipo: "linea", de: { x: B.x + 24, y: Y0 }, a: { x: B.x + 36, y: Y0 }, rol: "incognita", grosor: 1.4 },
+    { tipo: "texto", en: { x: B.x + 40, y: (B.y + Y0) / 2 }, texto: "h = ?", rol: "incognita", tam: 12, ancla: "start" },
+    { tipo: "linea", de: { x: P1.x, y: Y0 + 26 }, a: { x: P2.x, y: Y0 + 26 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: P1.x, y: Y0 + 20 }, a: { x: P1.x, y: Y0 + 32 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: P2.x, y: Y0 + 20 }, a: { x: P2.x, y: Y0 + 32 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: (P1.x + P2.x) / 2, y: Y0 + 44 }, texto: "9 m", rol: "dato", color: AMBAR, tam: 11 },
+  ];
+
+  return { ancho: 505, alto: 270, pasos: 0, elementos: el };
+}
+
+// ── F6 (2-2008 parcial 2da) · dos secantes desde un punto externo ──
+// Una secante pasa por el centro: AE=10 y AF=10+2r. La otra da AB=12, AC=25.
+// Potencia del punto: 10(10+2r)=300 → r=10. La figura se construye CON r=10,
+// así que las longitudes dibujadas son las del problema.
+function f6secantesPotencia(): Figura {
+  const ESC = 6;                           // px por metro
+  const R = 10 * ESC;                      // radio real: 10 m
+  const O: Pt = { x: 250, y: 132 };
+  const A: Pt = { x: O.x - (10 * ESC + R), y: O.y };   // AE=10 y EO=r → AO = 10+r
+  const E: Pt = { x: A.x + 10 * ESC, y: O.y };         // el cercano
+  const F: Pt = { x: O.x + R, y: O.y };                // el diametralmente opuesto
+
+  // La segunda secante: se calcula el ángulo que hace que AB=12 y AC=25.
+  // t² - 2·AO·cosθ·t + (AO² - R²) = 0, con raíces 12·ESC y 25·ESC.
+  const AO = distancia(A, O);
+  const t1 = 12 * ESC, t2 = 25 * ESC;
+  const cosT = (t1 + t2) / (2 * AO);
+  const th = -Math.acos(cosT) * 180 / Math.PI;          // hacia arriba
+  const B = avanzar(A, th, t1);
+  const C = avanzar(A, th, t2);
+
+  // Que el dibujo cumpla de verdad la potencia del punto.
+  verificarDistancia("AE = 10 m", 10 * ESC, distancia(A, E), 0.5);
+  verificarDistancia("AF = 10+2r", (10 + 20) * ESC, distancia(A, F), 0.5);
+  verificarDistancia("AB = 12 m", t1, distancia(A, B), 0.5);
+  verificarDistancia("AC = 25 m", t2, distancia(A, C), 0.5);
+  verificarDistancia("B sobre la circunferencia", R, distancia(O, B), 0.5);
+  verificarDistancia("C sobre la circunferencia", R, distancia(O, C), 0.5);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: `M ${O.x - R} ${O.y} A ${R} ${R} 0 1 1 ${O.x + R} ${O.y} A ${R} ${R} 0 1 1 ${O.x - R} ${O.y} Z`, rol: "trazo" },
+    { tipo: "linea", de: A, a: F, rol: "trazo", grosor: 1.5 },
+    { tipo: "linea", de: A, a: C, rol: "trazo", grosor: 1.5 },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: O.x + 4, y: O.y + 15 }, texto: "O", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "punto", en: A, rol: "trazo", r: 3 },
+    { tipo: "texto", en: { x: A.x - 14, y: A.y + 2 }, texto: "A", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "punto", en: E, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: E.x - 13, y: E.y - 13 }, texto: "E", rol: "trazo", tam: 12 },
+    { tipo: "punto", en: F, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: F.x + 13, y: F.y + 3 }, texto: "F", rol: "trazo", tam: 12 },
+    { tipo: "punto", en: B, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: B.x + 4, y: B.y + 15 }, texto: "B", rol: "trazo", tam: 12 },
+    { tipo: "punto", en: C, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: C.x + 6, y: C.y - 12 }, texto: "C", rol: "trazo", tam: 12 },
+    // los tres datos, sobre sus tramos
+    { tipo: "texto", en: { x: (A.x + E.x) / 2, y: A.y - 13 }, texto: "10", rol: "dato", color: AMBAR, tam: 11 },
+    { tipo: "texto", en: { x: (A.x + B.x) / 2 - 12, y: (A.y + B.y) / 2 + 16 }, texto: "12", rol: "dato", color: AMBAR, tam: 11 },
+    { tipo: "texto", en: { x: (B.x + C.x) / 2 - 2, y: (B.y + C.y) / 2 + 18 }, texto: "25", rol: "dato", color: AMBAR, tam: 11 },
+    // el radio buscado
+    { tipo: "linea", de: O, a: E, rol: "incognita", grosor: 2 },
+    { tipo: "texto", en: { x: (O.x + E.x) / 2, y: O.y - 12 }, texto: "r = ?", rol: "incognita", tam: 12 },
+  ];
+
+  return { ancho: 400, alto: 265, pasos: 0, elementos: el };
+}
+
+// ── F7 (1-2024 final) · dos secantes y el ángulo inscrito ∠BDE ──
+// Orden circular B-D-E-C con arcos d, a, b, c. De ∠BAC=(c−a)/2=80 y c=5a
+// sale a=40, b=2a=80, c=200 y d=360−a−b−c=40. La figura se dibuja con ESOS
+// arcos, así que el ∠BDE que se ve es el real: (b+c)/2 = 140°.
+function f7secantesArcos(): Figura {
+  const O: Pt = { x: 252, y: 140 };
+  const R = 86;
+  const ARCO = { d: 40, a: 40, b: 80, c: 200 };
+  verificarAngulo("los arcos suman 360", 360, ARCO.a + ARCO.b + ARCO.c + ARCO.d);
+
+  // Se recorre la circunferencia acumulando los arcos: B → D → E → C → B.
+  const pt = (grados: number): Pt => ({
+    x: O.x + R * Math.cos(grados * Math.PI / 180),
+    y: O.y - R * Math.sin(grados * Math.PI / 180),
+  });
+  const gB = 160, gD = gB - ARCO.d, gE = gD - ARCO.a, gC = gE - ARCO.b;
+  const B = pt(gB), D = pt(gD), E = pt(gE), C = pt(gC);
+
+  // A es donde se cruzan las rectas DB y EC, prolongadas fuera del círculo.
+  const cruce = (p1: Pt, p2: Pt, p3: Pt, p4: Pt): Pt => {
+    const a1 = p2.y - p1.y, b1 = p1.x - p2.x, c1 = a1 * p1.x + b1 * p1.y;
+    const a2 = p4.y - p3.y, b2 = p3.x - p4.x, c2 = a2 * p3.x + b2 * p3.y;
+    const det = a1 * b2 - a2 * b1;
+    return { x: (b2 * c1 - b1 * c2) / det, y: (a1 * c2 - a2 * c1) / det };
+  };
+  const A = cruce(D, B, E, C);
+
+  // Las dos medidas que el problema usa tienen que salir del dibujo.
+  verificarAngulo("∠BAC = 80°", 80, anguloEn(A, B, C));
+  verificarAngulo("∠BDE = 140°", 140, anguloEn(D, B, E));
+
+  const el: Elemento[] = [
+    { tipo: "path", d: `M ${O.x - R} ${O.y} A ${R} ${R} 0 1 1 ${O.x + R} ${O.y} A ${R} ${R} 0 1 1 ${O.x - R} ${O.y} Z`, rol: "trazo" },
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.5 },
+    { tipo: "linea", de: A, a: C, rol: "trazo", grosor: 1.5 },
+    { tipo: "linea", de: D, a: E, rol: "trazo", grosor: 1.5 },
+    { tipo: "punto", en: A, rol: "trazo", r: 3 },
+    { tipo: "texto", en: { x: A.x - 14, y: A.y }, texto: "A", rol: "trazo", tam: 13, negrita: true },
+    ...[["B", B, -1, -1], ["D", D, -1.5, 0.4], ["E", E, 1, 1], ["C", C, 1, -1]].map(([n, p, dx, dy]) => ([
+      { tipo: "punto" as const, en: p as Pt, rol: "trazo" as const, r: 2.6 },
+      { tipo: "texto" as const, en: { x: (p as Pt).x + (dx as number) * 14, y: (p as Pt).y + (dy as number) * 12 }, texto: n as string, rol: "trazo" as const, tam: 12, negrita: true },
+    ])).flat(),
+    // el ángulo dato en A y la incógnita en D
+    { tipo: "arco", d: arcoAngulo(A, anguloHacia(A, B), anguloHacia(A, C), 19, 29).d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAngulo(A, anguloHacia(A, B), anguloHacia(A, C), 19, 29).etiquetaEn, texto: "80°", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "arco", d: arcoAngulo(D, anguloHacia(D, B), anguloHacia(D, E), 24, 38).d, rol: "incognita" },
+    { tipo: "texto", en: arcoAngulo(D, anguloHacia(D, B), anguloHacia(D, E), 24, 33).etiquetaEn, texto: "x", rol: "incognita", tam: 13, negrita: true },
+  ];
+
+  return { ancho: 430, alto: 280, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
+  "f12-energia-rampa-friccion": f12energiaRampa,
+  "f6-secantes-potencia-punto": f6secantesPotencia,
+  "f7-secantes-arcos-bde": f7secantesArcos,
   // El mismo dibujo sirve para 2-2022 P11 y 1-2025 P19: enunciado y datos idénticos.
   "f11-atwood-separacion-h": f11atwoodH,
   "f19-atwood-separacion-h": f11atwoodH,

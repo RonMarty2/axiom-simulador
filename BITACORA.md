@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-16 (regla 11 en el banco, y las primeras 5 figuras faltantes dibujadas)
+**Última actualización:** 2026-09-16 (regla 11 en el banco, y 8 figuras faltantes dibujadas: 55 → 47)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -383,7 +383,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
-- [ ] **50 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado y 5 se dibujaron el 16-sep. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 50 y solo puede bajar. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
+- [ ] **47 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado y 8 se dibujaron el 16-sep. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 47 y solo puede bajar. De las que quedan, solo 8 son reconstruibles sin el facsímil: el resto necesita los PDF. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
 - [ ] **Ningún test construye las figuras.** Si una verificación geométrica explota, se entera el alumno y no el CI. El obstáculo está documentado (`definiciones.ts` importa `./motor` sin extensión y `node --test` corre ESM); una salida sin tocar los imports de la app es un paso aparte en CI que las construya con `tsx`.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
@@ -449,6 +449,26 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (ter) (tres figuras más, y una que se descartó a propósito)
+
+Sigue la tanda anterior. **47 enunciados quedan sin su dibujo** (venía de 50).
+
+| id | pregunta | qué dibuja |
+|---|---|---|
+| `f12-energia-rampa-friccion` | 2-2014 única P12 | rampa lisa desde A (6 m), 9 m con μ=1/3, rampa lisa hasta B |
+| `f6-secantes-potencia-punto` | 2-2008 parcial 2da P6 | dos secantes desde A externo, una por el centro |
+| `f7-secantes-arcos-bde` | 1-2024 final P7 | secantes AB y AC, orden B-D-E-C, ∠BAC=80° y ∠BDE=x |
+
+La física y la geometría se rehicieron antes de dibujar: 60−(1/3)(10)(9)=30 → h=3 m (A); potencia del punto 10(10+2r)=12·25 → r=10 (A); de (c−a)/2=80 con c=5a salen a=40, b=80, c=200, d=40 y ∠BDE=(b+c)/2=140° (A).
+
+Las dos de circunferencia se construyen con los valores REALES, no aproximados: en la de potencia del punto el ángulo de la segunda secante se despeja de la cuadrática cuyas raíces son AB=12 y AC=25, y después se verifica que B y C caigan sobre la circunferencia; en la de arcos se recorre la circunferencia acumulando los cuatro arcos y se verifica que el ∠BAC dibujado dé 80° y el ∠BDE dé 140°.
+
+**Una se descartó a propósito:** 1-2016 P11 y 2-2016 P11 (dos bloques sobre una mesa que sostienen entre los dos a un tercero colgado). La física cierra (a=9/2 y d=9 m), pero el texto dice que las dos cuerdas bajan verticales y en paralelo desde "el borde" de la mesa y no queda claro cómo están montadas las dos poleas. Dibujarla era suponer, y la regla 7 dice que eso es peor que no dibujar.
+
+**Lo que volvió a confirmarse: construir sin error no alcanza.** Las tres pasaban todas las verificaciones numéricas y las tres tenían defectos que solo se ven mirando: en la de energía las cotas "6 m" y "h = ?" caían FUERA del lienzo (el ancho no daba); en la de potencia del punto las etiquetas de B y E se encimaban, y "10" con "12" también; en la de arcos el "80°" caía sobre la cuerda DE en vez de quedar bajo A, porque el radio de la etiqueta era casi la distancia de A a D. Se corrigieron mirando el render.
+
+**Un bug propio del script de declaración**, que conviene no repetir: chequeaba `"figura:" in bloque` como subcadena para no pisar una declaración existente, y saltó en una pregunta cuyo ENUNCIADO dice *"(Ver figura: el bloque parte de A…)"*. No es una declaración, es prosa. Va anclado a inicio de línea (`^figura:`), como lo hace el parser.
 
 ### 2026-09-16 (bis) (las primeras 5 figuras faltantes, y por qué no se pueden hacer todas)
 
