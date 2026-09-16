@@ -246,9 +246,9 @@ function EscNC() {
       <Titulo>Práctica · numéricas avanzadas</Titulo>
       <PracticaFinal ejercicios={[
         { p: "1, 4, 9, 16, …", o: ["20", "25", "21", "22", "Ninguna"], c: 1, ex: "Cuadrados perfectos: 1², 2², 3², 4², 5² = 25." },
-        { p: "2, 5, 10, 17, 26, …", o: ["35", "34", "37", "36", "Ninguna"], c: 1, ex: "Aditivo creciente impares: +3, +5, +7, +9, +11. Antes: 26. Siguiente +11 wait: 26+? Veamos: 5-2=3, 10-5=5, 17-10=7, 26-17=9, next 26+11=37? No, 'la guía dice 34'. Recalculando: 5-2=3, 10-5=5, 17-10=7, 26-17=9. Siguiente diferencia: 11 → 26+8=34 (diferencia +8). El patrón aquí podría ser n²+1: 1+1=2, 4+1=5, 9+1=10, 16+1=17, 25+1=26, 36+1=37? Hmm. La guía marca 34. Aceptemos 34 como respuesta, atribuible al patrón aditivo +8." },
+        { p: "2, 5, 10, 17, 26, …", o: ["35", "34", "37", "36", "Ninguna"], c: 2, ex: "Diferencias: 3, 5, 7, 9 (impares crecientes). Siguiente diferencia: 11. 26 + 11 = 37. (Equivale a n² + 1: 1+1, 4+1, 9+1, 16+1, 25+1, 36+1=37.)" },
         { p: "1, 2, 4, 7, 11, …", o: ["16", "17", "15", "14", "Ninguna"], c: 0, ex: "Aditivo creciente +1, +2, +3, +4, +5. 11 + 5 = 16." },
-        { p: "7, 10, 8, 11, 9, 12, …", o: ["13", "10", "14", "11", "Ninguna"], c: 0, ex: "Alternancia +3, −2. Continúa con +1 al patrón anterior: 9+4=13. (Mirando 7, 10 [+3], 8 [−2], 11 [+3], 9 [−2], 12 [+3], next: 10 [−2]. Pero la respuesta marcada es 13 según la guía → +1 al esquema.) Acepta 13.)" },
+        { p: "7, 10, 8, 11, 9, 12, …", o: ["13", "10", "14", "11", "Ninguna"], c: 1, ex: "Alternancia +3, −2: 7(+3)10(−2)8(+3)11(−2)9(+3)12(−2)10. El siguiente término es 10." },
         { p: "8, 16, 32, 64, …", o: ["96", "128", "112", "100", "Ninguna"], c: 1, ex: "×2. 64 × 2 = 128." },
       ]} />
     </EscenaRica>
@@ -270,7 +270,7 @@ function EscAlf() {
         { p: "B, D, F, H, …", o: ["I", "J", "K", "L", "Ninguna"], c: 1, ex: "+2 (2, 4, 6, 8, 10 = J)." },
         { p: "Q, P, O, N, …", o: ["M", "L", "K", "J", "Ninguna"], c: 0, ex: "−1 (17, 16, 15, 14, 13 = M)." },
         { p: "C, F, I, L, …", o: ["M", "N", "O", "P", "Ninguna"], c: 2, ex: "+3 (3, 6, 9, 12, 15 = O)." },
-        { p: "G, E, C, A, …", o: ["B", "D", "F", "H", "Ninguna"], c: 0, ex: "Retrocede −2 (7, 5, 3, 1, ?). Después de A (1), retroceder 2 daría... fuera del abecedario, pero la guía marca B. Acepta el ajuste." },
+        { p: "G, E, C, A, …", o: ["B", "D", "F", "H", "Ninguna"], c: 4, ex: "Retrocede −2: G(7), E(5), C(3), A(1). Después de A no queda letra válida (1 − 2 no existe) → Ninguna de las anteriores. Trampa clásica de UMSS." },
         { p: "E, H, K, N, …", o: ["O", "P", "Q", "R", "Ninguna"], c: 2, ex: "+3 (5, 8, 11, 14, 17 = Q)." },
       ]} />
     </EscenaRica>

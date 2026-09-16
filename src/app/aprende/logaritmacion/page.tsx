@@ -4,7 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
-import { Pizarra, Repetir, LIENZO } from "../_components/lienzo";
+import { Pizarra, Repetir, Hint, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
@@ -76,6 +76,220 @@ function HeroLogExp() {
       {!log
         ? <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>Toca para ver la forma logarítmica</div>
         : <div style={{ display: "flex", justifyContent: "center" }}><Repetir onClick={() => setPaso(0)} texto="Volver a exponencial" /></div>}
+    </div>
+  );
+}
+
+// ─── Escalera de potencias de 2. La altura ES el logaritmo, así que
+// multiplicar argumentos se vuelve apilar alturas (y dividir, restarlas).
+// Misma figura para: básicos, producto→suma y cociente→resta.
+function EscaleraLog({ modo = "basico" }: { modo?: "basico" | "producto" | "cociente" }) {
+  const alto = 300;
+  const ejeX = 172, y0 = 258, paso = 40, maxExp = 5;
+  const yDe = (e: number) => y0 - e * paso;
+  const valor = (e: number) => 2 ** e;
+  const xOp = 316;
+
+  const tramos =
+    modo === "producto"
+      ? [
+          { desde: 0, hasta: 2, color: LIENZO.accent, etiqueta: "log₂4 = 2" },
+          { desde: 2, hasta: 5, color: LIENZO.ok, etiqueta: "log₂8 = 3" },
+        ]
+      : modo === "cociente"
+      ? [{ desde: 3, hasta: 5, color: LIENZO.bad, etiqueta: "saco log₂4 = 2" }]
+      : [];
+
+  const marcas = modo === "producto" ? [0, 2, 5] : modo === "cociente" ? [3, 5] : [];
+
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x={ejeX - 20} y="32" textAnchor="end" fontSize="12" fill={LIENZO.fgDim}>valor</text>
+          <text x={ejeX + 20} y="32" textAnchor="start" fontSize="12" fill={LIENZO.fgDim}>log₂ (altura)</text>
+
+          <line x1={ejeX} y1={yDe(maxExp) - 14} x2={ejeX} y2={y0 + 14}
+            stroke={LIENZO.fgDim} strokeWidth="1.5" />
+
+          {Array.from({ length: maxExp + 1 }, (_, e) => (
+            <g key={e}>
+              <line x1={ejeX - 8} x2={ejeX + 8} y1={yDe(e)} y2={yDe(e)}
+                stroke={LIENZO.fgDim} strokeWidth="1.5" />
+              <text x={ejeX - 20} y={yDe(e) + 5} textAnchor="end" fontSize="16" fontWeight="700"
+                fill={LIENZO.fg}>{valor(e)}</text>
+              <text x={ejeX + 20} y={yDe(e) + 5} textAnchor="start" fontSize="15" fontWeight="700"
+                fill={LIENZO.accent}>{e}</text>
+            </g>
+          ))}
+
+          {/* punteados que llevan la altura de la escalera hasta la operación */}
+          {marcas.map((e) => (
+            <line key={e} x1={ejeX + 52} x2={xOp - 12} y1={yDe(e)} y2={yDe(e)}
+              stroke={LIENZO.fgFaint} strokeWidth="1" strokeDasharray="4 4" />
+          ))}
+
+          {tramos.map((t, i) => {
+            const yA = yDe(t.desde), yB = yDe(t.hasta);
+            return (
+              <g key={i}>
+                <line x1={xOp} y1={yA} x2={xOp} y2={yB}
+                  stroke={t.color} strokeWidth="9" strokeLinecap="round" />
+                <text x={xOp + 18} y={(yA + yB) / 2 + 5} fontSize="14" fontWeight="700"
+                  fill={t.color}>{t.etiqueta}</text>
+              </g>
+            );
+          })}
+
+          {modo === "producto" && (
+            <text x="240" y={alto - 12} textAnchor="middle" fontSize="18" fontWeight="700" fill={LIENZO.fg}>
+              4 × 8 = 32 &nbsp;⇒&nbsp; <tspan fill={LIENZO.accent}>2</tspan> + <tspan fill={LIENZO.ok}>3</tspan> = 5
+            </text>
+          )}
+          {modo === "cociente" && (
+            <text x="240" y={alto - 12} textAnchor="middle" fontSize="18" fontWeight="700" fill={LIENZO.fg}>
+              32 ÷ 4 = 8 &nbsp;⇒&nbsp; 5 − <tspan fill={LIENZO.bad}>2</tspan> = 3
+            </text>
+          )}
+          {modo === "basico" && (
+            <text x="240" y={alto - 12} textAnchor="middle" fontSize="15" fill={LIENZO.fgDim}>
+              el logaritmo es en qué escalón estás, no cuánto valés
+            </text>
+          )}
+        </svg>
+      </Pizarra>
+      <Hint>
+        {modo === "producto" && "Multiplicar 4 por 8 es subir 2 escalones y después 3: por eso los logs se suman"}
+        {modo === "cociente" && "Dividir es bajar escalones: por eso los logs se restan"}
+        {modo === "basico" && "Cada escalón multiplica por 2, pero sube de a 1: eso es un logaritmo"}
+      </Hint>
+    </div>
+  );
+}
+
+// ─── El exponente baja como factor porque es la misma altura repetida ───
+function PotenciaBaja() {
+  const alto = 200;
+  const X0 = 96, unidad = 84, y1 = 92, y2 = 152, h = 30;
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="240" y="34" textAnchor="middle" fontSize="15" fill={LIENZO.fgDim}>
+            log(8) = log(2 · 2 · 2)
+          </text>
+
+          {/* tres tramos iguales de log(2) */}
+          {[0, 1, 2].map((i) => (
+            <g key={i}>
+              <rect x={X0 + i * (unidad + 6)} y={y1} width={unidad} height={h} rx="6"
+                fill={LIENZO.accent} fillOpacity="0.16" stroke={LIENZO.accent} strokeWidth="2" />
+              <text x={X0 + i * (unidad + 6) + unidad / 2} y={y1 + 21} textAnchor="middle"
+                fontSize="15" fontWeight="700" fill={LIENZO.accent}>log 2</text>
+            </g>
+          ))}
+
+          {/* el mismo largo, contado de una */}
+          <rect x={X0} y={y2} width={unidad * 3 + 12} height={h} rx="6"
+            fill={LIENZO.ok} fillOpacity="0.14" stroke={LIENZO.ok} strokeWidth="2" />
+          <text x={X0 + (unidad * 3 + 12) / 2} y={y2 + 21} textAnchor="middle"
+            fontSize="16" fontWeight="700" fill={LIENZO.ok}>3 · log 2 = log 8</text>
+
+          <text x="240" y={alto - 8} textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}>
+            0,301 + 0,301 + 0,301 = 0,903
+          </text>
+        </svg>
+      </Pizarra>
+      <Hint>El exponente baja multiplicando porque es la misma altura repetida esa cantidad de veces</Hint>
+    </div>
+  );
+}
+
+// ─── Cambio de base: medir el mismo largo con otra regla ───
+function CambioBaseReglas() {
+  const alto = 210;
+  // largos reales en base 10: log(7) y log(2)
+  const log7 = Math.log10(7), log2 = Math.log10(2);
+  const escala = 380 / log7;      // log(7) ocupa 380 px
+  const X0 = 54, yBarra = 78, yRegla = 138, h = 32;
+  const pasos = Math.floor(log7 / log2);          // cuántos log(2) enteros entran
+  const resto = (log7 - pasos * log2) * escala;   // lo que sobra
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x={X0} y="40" fontSize="13" fill={LIENZO.fgDim}>este largo es log(7) = 0,845</text>
+          <rect x={X0} y={yBarra} width={log7 * escala} height={h} rx="6"
+            fill={LIENZO.ok} fillOpacity="0.16" stroke={LIENZO.ok} strokeWidth="2" />
+
+          <text x={X0} y={yRegla - 12} fontSize="13" fill={LIENZO.fgDim}>
+            medido con una regla que vale log(2) = 0,301
+          </text>
+          {Array.from({ length: pasos }, (_, i) => (
+            <g key={i}>
+              <rect x={X0 + i * log2 * escala} y={yRegla} width={log2 * escala} height={h} rx="6"
+                fill={LIENZO.accent} fillOpacity="0.14" stroke={LIENZO.accent} strokeWidth="2" />
+              <text x={X0 + (i + 0.5) * log2 * escala} y={yRegla + 21} textAnchor="middle"
+                fontSize="14" fontWeight="700" fill={LIENZO.accent}>{i + 1}</text>
+            </g>
+          ))}
+          {/* el pedazo que sobra: el 0,807 del resultado */}
+          <rect x={X0 + pasos * log2 * escala} y={yRegla} width={resto} height={h} rx="6"
+            fill={LIENZO.warn} fillOpacity="0.18" stroke={LIENZO.warn} strokeWidth="2"
+            strokeDasharray="5 3" />
+
+          <text x="240" y={alto - 12} textAnchor="middle" fontSize="17" fontWeight="700" fill={LIENZO.fg}>
+            log₂7 = log(7) / log(2) = <tspan fill={LIENZO.accent}>2,807</tspan> reglas
+          </text>
+        </svg>
+      </Pizarra>
+      <Hint>Cambiar de base es preguntarse cuántas veces entra la regla nueva en el mismo largo</Hint>
+    </div>
+  );
+}
+
+// ─── El error más caro: el log NO se reparte sobre una suma ───
+function TrampaSumaLog() {
+  const alto = 200;
+  const izq = Math.log10(10);            // log(2 + 8) = 1
+  const der = Math.log10(2) + Math.log10(8); // 1,204
+  const escala = 250;
+  const X0 = 150, yA = 84, yB = 142, h = 34;
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="240" y="34" textAnchor="middle" fontSize="14" fontWeight="700" fill={LIENZO.bad}>
+            log(a + b) NO es log a + log b
+          </text>
+
+          <text x={X0 - 12} y={yA + 23} textAnchor="end" fontSize="14" fontWeight="700"
+            fill={LIENZO.fg}>log(2 + 8)</text>
+          <rect x={X0} y={yA} width={izq * escala} height={h} rx="6"
+            fill={LIENZO.ok} fillOpacity="0.16" stroke={LIENZO.ok} strokeWidth="2" />
+          <text x={X0 + izq * escala + 12} y={yA + 23} fontSize="15" fontWeight="700"
+            fill={LIENZO.ok}>= 1</text>
+
+          <text x={X0 - 12} y={yB + 23} textAnchor="end" fontSize="14" fontWeight="700"
+            fill={LIENZO.fg}>log 2 + log 8</text>
+          <rect x={X0} y={yB} width={der * escala} height={h} rx="6"
+            fill={LIENZO.bad} fillOpacity="0.16" stroke={LIENZO.bad} strokeWidth="2" />
+          <text x={X0 + der * escala + 12} y={yB + 23} fontSize="15" fontWeight="700"
+            fill={LIENZO.bad}>= 1,204</text>
+
+          {/* la diferencia, marcada */}
+          <line x1={X0 + izq * escala} y1={yA} x2={X0 + izq * escala} y2={yB + h}
+            stroke={LIENZO.fgDim} strokeWidth="1.5" strokeDasharray="4 3" />
+
+          <text x="240" y={alto - 10} textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}>
+            distinto largo, distinto número: la propiedad vale para el producto, no para la suma
+          </text>
+        </svg>
+      </Pizarra>
     </div>
   );
 }
@@ -179,6 +393,8 @@ function Esc03_Basicos() {
   return (
     <EscenaRica>
       <Titulo>Logaritmos que conviene memorizar</Titulo>
+
+      <EscaleraLog modo="basico" />
       <Resumen>
         • <strong>log<sub>a</sub>(1) = 0</strong> (porque a⁰ = 1).<br />
         • <strong>log<sub>a</sub>(a) = 1</strong> (porque a¹ = a).<br />
@@ -231,6 +447,8 @@ function Esc04_Prod() {
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Propiedad 1: Producto → Suma</Titulo>
+
+      <EscaleraLog modo="producto" />
       <Resumen>
         <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           log<sub>a</sub>(x · y) = log<sub>a</sub>(x) + log<sub>a</sub>(y)
@@ -252,6 +470,8 @@ function Esc05_Coc() {
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Propiedad 2: Cociente → Resta</Titulo>
+
+      <EscaleraLog modo="cociente" />
       <Resumen>
         <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           log<sub>a</sub>(x / y) = log<sub>a</sub>(x) − log<sub>a</sub>(y)
@@ -269,6 +489,8 @@ function Esc06_Pot() {
   return (
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Propiedad 3: Potencia → Producto</Titulo>
+
+      <PotenciaBaja />
       <Resumen>
         <span style={{ fontSize: 20, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           log<sub>a</sub>(xⁿ) = n · log<sub>a</sub>(x)
@@ -295,6 +517,8 @@ function Esc07_Cambio() {
   return (
     <EscenaRica>
       <Titulo>Cambio de base</Titulo>
+
+      <CambioBaseReglas />
       <Resumen>
         <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 800 }}>
           log<sub>a</sub>(b) = log<sub>c</sub>(b) / log<sub>c</sub>(a)
@@ -358,6 +582,8 @@ function Esc09_Errores() {
   return (
     <EscenaRica>
       <Titulo accent={COLOR_BAD}>Errores comunes</Titulo>
+
+      <TrampaSumaLog />
       <Cuidado>
         <strong>Error 1:</strong> log(a+b) NO es log(a) + log(b). <br />
         <span style={{ fontSize: 13 }}>Eso es para PRODUCTO, no para suma. Suma → no se simplifica.</span>

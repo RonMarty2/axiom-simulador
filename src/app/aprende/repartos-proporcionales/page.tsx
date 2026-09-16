@@ -5,12 +5,260 @@ import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
 import {
   COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD,
-  cajaAnim, Stage, EtiquetaToque } from "../_components/atoms";
+} from "../_components/atoms";
+import { Pizarra, Hint, LIENZO } from "../_components/lienzo";
 import {
   Titulo, Parrafo, Definicion, PorQue, Ejemplo, Paso, Cuidado, Resumen,
   EscenaRica, AutoCheck,
   Hook, CasoBolivia, Misconception, Mnemotecnia, WorkedExample,
 } from "../_components/pedagogia";
+
+const PALETA = [LIENZO.accent, LIENZO.ok, LIENZO.warn, LIENZO.bad];
+
+// ─── Barra del total partida en partes unitarias iguales.
+// El "valor unitario" deja de ser una cuenta y pasa a ser UN segmento visible.
+function BarraReparto({
+  total, partes, etiquetas, moneda = "Bs", mostrarUnitario = true,
+}: {
+  total: number; partes: number[]; etiquetas: string[];
+  moneda?: string; mostrarUnitario?: boolean;
+}) {
+  const S = partes.reduce((a, b) => a + b, 0);
+  const v = total / S;
+  const X0 = 36, X1 = 452, W = X1 - X0;
+  const anchoUnidad = W / S;
+  const alto = mostrarUnitario ? 168 : 140;
+  const barY = mostrarUnitario ? 62 : 36, barH = 46;
+
+  const grupos = partes.map((p, i) => ({
+    x: X0 + partes.slice(0, i).reduce((a, b) => a + b, 0) * anchoUnidad,
+    w: p * anchoUnidad,
+    p, color: PALETA[i % PALETA.length],
+    etiqueta: etiquetas[i], monto: p * v,
+  }));
+
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {mostrarUnitario && (
+            <>
+              <path d={`M ${X0} ${barY - 8} L ${X0} ${barY - 18} L ${X0 + anchoUnidad} ${barY - 18} L ${X0 + anchoUnidad} ${barY - 8}`}
+                fill="none" stroke={LIENZO.fgDim} strokeWidth="1.5" />
+              {/* con muchas partes el segmento es angosto: la etiqueta se ancla al
+                  arranque de la barra en vez de centrarse, si no se sale por la izquierda */}
+              <text
+                x={anchoUnidad < 90 ? X0 : X0 + anchoUnidad / 2}
+                y={barY - 26}
+                textAnchor={anchoUnidad < 90 ? "start" : "middle"}
+                fontSize="13" fontWeight="700" fill={LIENZO.fgDim}>
+                1 parte = {Number.isInteger(v) ? v : v.toFixed(2)} {moneda}
+              </text>
+            </>
+          )}
+
+          {grupos.map((g) => (
+            <g key={g.etiqueta}>
+              <rect x={g.x} y={barY} width={g.w} height={barH} rx="4"
+                fill={g.color} fillOpacity="0.16" stroke={g.color} strokeWidth="2" />
+              {/* divisiones internas: hacen contable cuántas partes tiene cada uno */}
+              {Array.from({ length: g.p - 1 }, (_, k) => (
+                <line key={k} x1={g.x + (k + 1) * anchoUnidad} x2={g.x + (k + 1) * anchoUnidad}
+                  y1={barY + 6} y2={barY + barH - 6}
+                  stroke={g.color} strokeWidth="1" strokeOpacity="0.55" />
+              ))}
+              <text x={g.x + g.w / 2} y={barY + barH + 20} textAnchor="middle" fontSize="13"
+                fontWeight="800" fill={g.color}>{g.etiqueta} · {g.p}</text>
+              <text x={g.x + g.w / 2} y={barY + barH + 38} textAnchor="middle" fontSize="15"
+                fontWeight="700" fill={LIENZO.fg}>
+                {Number.isInteger(g.monto) ? g.monto : g.monto.toFixed(2)} {moneda}
+              </text>
+            </g>
+          ))}
+
+          <text x="240" y={barY - 38} textAnchor="middle" fontSize="14" fill={LIENZO.fgDim}>
+            total {total} {moneda} · {S} partes
+          </text>
+        </svg>
+      </Pizarra>
+    </div>
+  );
+}
+
+// ─── Partes iguales vs proporcional: el contraste que define el tema ───
+function IgualVsProporcional() {
+  const alto = 150;
+  const X0 = 40, W = 400, barH = 34;
+  const filas = [
+    { titulo: "En partes iguales", partes: [1, 1, 1], y: 40 },
+    { titulo: "Proporcional a 2, 3, 5", partes: [2, 3, 5], y: 100 },
+  ];
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          {filas.map((f) => {
+            const S = f.partes.reduce((a, b) => a + b, 0);
+            let acc = 0;
+            return (
+              <g key={f.titulo}>
+                <text x={X0} y={f.y - 10} fontSize="12" fill={LIENZO.fgDim}>{f.titulo}</text>
+                {f.partes.map((p, i) => {
+                  const x = X0 + (acc / S) * W;
+                  const w = (p / S) * W;
+                  acc += p;
+                  return (
+                    <g key={i}>
+                      <rect x={x} y={f.y} width={w} height={barH} rx="4"
+                        fill={PALETA[i]} fillOpacity="0.16" stroke={PALETA[i]} strokeWidth="2" />
+                      <text x={x + w / 2} y={f.y + 23} textAnchor="middle" fontSize="14"
+                        fontWeight="700" fill={PALETA[i]}>{"ABC"[i]}</text>
+                    </g>
+                  );
+                })}
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+    </div>
+  );
+}
+
+// ─── Inverso: al invertir, el más grande se vuelve el más chico ───
+function InversoVisual() {
+  const cantidades = [2, 3, 5];
+  const mcm = 30;
+  const alto = 200;
+  const X0 = 120, W = 300;
+  const maxInv = 1 / Math.min(...cantidades);
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x={X0 - 12} y="26" textAnchor="end" fontSize="12" fill={LIENZO.fgDim}>cantidad</text>
+          <text x={X0 + W / 2} y="26" textAnchor="middle" fontSize="12" fill={LIENZO.fgDim}>
+            longitud proporcional a 1/cantidad
+          </text>
+          {cantidades.map((q, i) => {
+            const y = 50 + i * 46;
+            const w = ((1 / q) / maxInv) * W;
+            const numerador = mcm / q;
+            return (
+              <g key={q}>
+                <text x={X0 - 12} y={y + 22} textAnchor="end" fontSize="20" fontWeight="700"
+                  fill={LIENZO.fg}>{q}</text>
+                <rect x={X0} y={y} width={w} height={30} rx="4"
+                  fill={PALETA[i]} fillOpacity="0.16" stroke={PALETA[i]} strokeWidth="2" />
+                <text x={X0 + 10} y={y + 21} fontSize="14" fontWeight="700" fill={PALETA[i]}>
+                  1/{q}
+                </text>
+                <text x={X0 + w + 12} y={y + 21} fontSize="15" fontWeight="700" fill={LIENZO.fg}>
+                  = {numerador}/{mcm}
+                </text>
+              </g>
+            );
+          })}
+          <text x="240" y={alto - 14} textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}>
+            las nuevas partes son los numeradores: {cantidades.map((q) => mcm / q).join(", ")}
+          </text>
+        </svg>
+      </Pizarra>
+      <Hint>El 5, que era el más grande, quedó con la barra más corta: por eso recibe menos</Hint>
+    </div>
+  );
+}
+
+// ─── Compañía: capital × tiempo es un ÁREA, no una suma ───
+function CompaniaAreas() {
+  const socios = [
+    { n: "A", capital: 1000, meses: 6, color: LIENZO.accent },
+    { n: "B", capital: 3000, meses: 4, color: LIENZO.ok },
+  ];
+  const alto = 230;
+  const baseY = 172, X0 = 62;
+  const escalaT = 21;   // px por mes
+  const escalaC = 0.036; // px por Bs
+  let cursor = X0;
+  const cajas = socios.map((s) => {
+    const w = s.meses * escalaT, h = s.capital * escalaC;
+    const caja = { ...s, x: cursor, w, h, area: s.capital * s.meses };
+    cursor += w + 74;
+    return caja;
+  });
+  return (
+    <div style={{ width: "100%", maxWidth: 620, display: "flex", flexDirection: "column", gap: 8 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <line x1="40" y1={baseY} x2="460" y2={baseY} stroke={LIENZO.fg} strokeWidth="1.5" />
+          <line x1="40" y1={baseY} x2="40" y2="28" stroke={LIENZO.fg} strokeWidth="1.5" />
+          <text x="44" y="24" fontSize="12" fill={LIENZO.fgDim}>capital</text>
+          <text x="440" y={baseY + 18} textAnchor="end" fontSize="12" fill={LIENZO.fgDim}>tiempo</text>
+          {cajas.map((c) => (
+            <g key={c.n}>
+              <rect x={c.x} y={baseY - c.h} width={c.w} height={c.h}
+                fill={c.color} fillOpacity="0.18" stroke={c.color} strokeWidth="2" />
+              <text x={c.x + c.w / 2} y={baseY - c.h / 2 + 5} textAnchor="middle" fontSize="14"
+                fontWeight="800" fill={c.color}>{c.n}</text>
+              <text x={c.x + c.w / 2} y={baseY + 18} textAnchor="middle" fontSize="12"
+                fill={LIENZO.fgDim}>{c.meses} meses</text>
+              <text x={c.x - 6} y={baseY - c.h - 8} fontSize="12" fill={LIENZO.fgDim}>{c.capital} Bs</text>
+              <text x={c.x + c.w / 2} y={baseY + 36} textAnchor="middle" fontSize="14"
+                fontWeight="700" fill={LIENZO.fg}>área = {c.area.toLocaleString("es-BO")}</text>
+            </g>
+          ))}
+        </svg>
+      </Pizarra>
+      <Hint>B puso más plata pero menos tiempo: lo que se reparte es el área, y la de B es el doble</Hint>
+    </div>
+  );
+}
+
+// ─── La trampa: dar vuelta el orden NO es lo mismo que invertir ───
+function InversoTrampa() {
+  const total = 310;
+  const filas = [
+    { titulo: "Dar vuelta el orden (MAL)", partes: [5, 3, 2], color: LIENZO.bad },
+    { titulo: "Invertir de verdad (BIEN)", partes: [15, 10, 6], color: LIENZO.ok },
+  ];
+  const alto = 168;
+  return (
+    <div style={{ width: "100%", maxWidth: 620 }}>
+      <Pizarra alto={alto}>
+        <svg width="100%" height="100%" viewBox={`0 0 480 ${alto}`} preserveAspectRatio="xMidYMid meet"
+          style={{ fontFamily: "var(--font-crimson), serif" }}>
+          <text x="240" y="22" textAnchor="middle" fontSize="13" fill={LIENZO.fgDim}>
+            repartir {total} Bs inversamente a 2, 3 y 5
+          </text>
+          {filas.map((f, fi) => {
+            const S = f.partes.reduce((a, b) => a + b, 0);
+            const v = total / S;
+            const y = 56 + fi * 62;
+            return (
+              <g key={f.titulo}>
+                <text x="34" y={y - 12} fontSize="12" fontWeight="700" fill={f.color}>{f.titulo}</text>
+                {f.partes.map((p, i) => (
+                  <g key={i}>
+                    <rect x={34 + i * 142} y={y} width="130" height="34" rx="8"
+                      fill={f.color} fillOpacity="0.08" stroke={f.color} strokeWidth="1.5" />
+                    <text x={34 + i * 142 + 65} y={y + 23} textAnchor="middle" fontSize="16"
+                      fontWeight="700" fill={LIENZO.fg}>
+                      {Number.isInteger(p * v) ? p * v : (p * v).toFixed(2)} Bs
+                    </text>
+                  </g>
+                ))}
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+    </div>
+  );
+}
 
 export default function Page() {
   return (
@@ -39,8 +287,10 @@ function Esc01_Intro() {
         <strong> no en partes iguales</strong> sino en proporción a algo (capital aportado,
         tiempo dedicado, méritos, etc.), eso es un <strong>reparto proporcional</strong>.
       </Parrafo>
+      <IgualVsProporcional />
+
       <Resumen>
-        🎯 Casos reales: <br />
+        Casos reales: <br />
         • Repartir una ganancia entre socios según el capital que pusieron.<br />
         • Repartir una herencia según parentesco.<br />
         • Distribuir un premio entre integrantes de un equipo según horas trabajadas.<br />
@@ -79,6 +329,8 @@ function Esc02_Directo() {
         <Paso n={4}>Verifica que la suma da el total.</Paso>
       </Resumen>
 
+      <BarraReparto total={600} partes={[2, 3, 5]} etiquetas={["A", "B", "C"]} />
+
       <Ejemplo titulo="Ejemplo: repartir 600 Bs entre 3 personas en partes 2, 3 y 5">
         <Paso n={1}>S = 2 + 3 + 5 = <strong>10</strong></Paso>
         <Paso n={2}>v = 600 / 10 = <strong>60 Bs por parte</strong></Paso>
@@ -98,49 +350,29 @@ function Esc02_Directo() {
 
 function Esc03_App() {
   const [paso, setPaso] = useState(0);
+  const pasos = [
+    "Hay 600 Bs para repartir entre A, B y C",
+    "A lleva 2 partes, B lleva 3, C lleva 5: en total 10 partes",
+    "Cada parte vale 600 / 10 = 60 Bs",
+    "A recibe 120, B recibe 180, C recibe 300 (suman 600)",
+  ];
   return (
     <EscenaRica>
       <Titulo>Aplicación visual</Titulo>
-      <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
-        <EtiquetaToque>REPARTIR 600 Bs ENTRE A (2 partes), B (3 partes), C (5 partes)</EtiquetaToque>
-        <Stage w={420} h={200}>
-          <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring" }}
-            style={{ position: "absolute", left: 0, top: 20, width: "100%", textAlign: "center", fontSize: 50 }}>
-            💰
-          </motion.div>
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
-            style={{ position: "absolute", left: 0, top: 70, width: "100%", textAlign: "center", fontSize: 24, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
-            600 Bs
-          </motion.div>
+      <Parrafo>
+        El total no se parte en tres pedazos iguales: se parte en <strong>10 pedazos
+        iguales</strong> y después se reparten esos pedazos. Ahí está toda la idea.
+      </Parrafo>
 
-          {[
-            { e: "🧑", n: "A", p: 2, m: 120, c: "#3b82f6", x: 50 },
-            { e: "👩", n: "B", p: 3, m: 180, c: "#10b981", x: 175 },
-            { e: "🧓", n: "C", p: 5, m: 300, c: "#f59e0b", x: 300 },
-          ].map((per, k) => (
-            <motion.div key={k}
-              initial={{ opacity: 0, y: 20 }} animate={paso >= 1 ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ delay: k * 0.15, type: "spring" }}
-              style={{ position: "absolute", left: per.x, top: 130, width: 70, textAlign: "center" }}>
-              <div style={{ fontSize: 24 }}>{per.e}</div>
-              <div style={{ fontSize: 12, color: per.c, fontWeight: 800 }}>
-                {per.n}: {per.p} partes
-              </div>
-              <motion.div initial={{ opacity: 0, scale: 0 }} animate={paso >= 3 ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                transition={{ delay: k * 0.15, type: "spring" }}
-                style={{ fontSize: 16, color: per.c, fontWeight: 800, fontFamily: "var(--font-crimson), serif", marginTop: 2 }}>
-                {per.m} Bs
-              </motion.div>
-            </motion.div>
-          ))}
-        </Stage>
-        <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
-          {paso === 0 && "Tenemos 600 Bs"}
-          {paso === 1 && "Repartimos entre 3 con 2, 3 y 5 partes respectivamente"}
-          {paso === 2 && "Sumo: 2+3+5 = 10. Cada parte vale 600/10 = 60 Bs"}
-          {paso === 3 && "A→120, B→180, C→300 (suma 600 ✓)"}
-        </div>
+      <div onClick={() => setPaso((p) => (p + 1) % pasos.length)}
+        role="button" tabIndex={0}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setPaso((p) => (p + 1) % pasos.length); } }}
+        style={{ cursor: "pointer", width: "100%", display: "flex", justifyContent: "center" }}>
+        <BarraReparto total={600} partes={[2, 3, 5]} etiquetas={["A", "B", "C"]}
+          mostrarUnitario={paso >= 2} />
       </div>
+
+      <Hint>{pasos[paso]} · toca para avanzar</Hint>
     </EscenaRica>
   );
 }
@@ -161,6 +393,10 @@ function Esc04_Inverso() {
         <Paso n={3}>Las nuevas "partes" son los numeradores.</Paso>
         <Paso n={4}>Aplica el reparto directo con esas nuevas partes.</Paso>
       </Resumen>
+
+      <InversoVisual />
+
+      <BarraReparto total={310} partes={[15, 10, 6]} etiquetas={["el de 2", "el de 3", "el de 5"]} />
 
       <Ejemplo titulo="Ejemplo: repartir 310 Bs inversamente a 2, 3 y 5">
         <Paso n={1}>Invertí: 1/2, 1/3, 1/5.</Paso>
@@ -188,6 +424,8 @@ function Esc05_Compania() {
         Para cada socio i: <strong>partes_i = capital_i × tiempo_i</strong>. Luego
         aplicas reparto directo con esas partes.
       </Resumen>
+
+      <CompaniaAreas />
 
       <Ejemplo titulo="Dos socios. Ganancia: 2400 Bs">
         <Paso n={1}>Socio A: 1000 Bs durante 6 meses → 1000·6 = <strong>6000</strong></Paso>
@@ -217,7 +455,7 @@ function Esc05_Compania() {
       </CasoBolivia>
 
       <WorkedExample titulo="Reparto inverso paso a paso · 'inverso a las inasistencias'">
-        Una empresa reparte un bono de <strong>1.860 Bs</strong> entre 3 empleados
+        Una empresa reparte un bono de <strong>2.100 Bs</strong> entre 3 empleados
         <strong> inversamente proporcional</strong> a sus inasistencias (3, 5 y 6 faltas).<br /><br />
 
         <strong>Paso 1 · Invertir las cantidades:</strong> 1/3, 1/5, 1/6.<br /><br />
@@ -229,10 +467,7 @@ function Esc05_Compania() {
 
         <strong>Paso 4 · Reparto directo con esas partes:</strong><br />
         Suma: 10 + 6 + 5 = 21.<br />
-        Valor unitario: 1.860 / 21 = <strong>88,57 Bs</strong>... ¡no da entero! Verificación
-        del enunciado: la suma debe ser divisible. Cambio el total a <strong>2.100 Bs</strong>
-        para que dé exacto.<br />
-        Valor unitario: 2.100 / 21 = 100.<br /><br />
+        Valor unitario: 2.100 / 21 = <strong>100 Bs por parte</strong>.<br /><br />
 
         <strong>Paso 5 · Asignación:</strong><br />
         • El que faltó 3 (menos) recibe 10 × 100 = <strong>1.000 Bs</strong>.<br />
@@ -269,6 +504,8 @@ function Esc06_Errores() {
           Si solo usas los capitales, ignoras que un socio pudo aportar más tiempo. Capital × Tiempo.
         </span>
       </Cuidado>
+
+      <InversoTrampa />
 
       <Misconception titulo="Inverso ≠ 'restar del total'">
         Mucha gente cree que "inversamente proporcional a 2, 3, 5" se resuelve repartiendo a
