@@ -396,7 +396,7 @@ function EscErrores() {
       <Cuidado>
         Para no confundir, escribe los segmentos con la misma convención de
         izquierda a derecha. Si en una transversal vas de arriba abajo a-b, en
-        la otra escribilos en el mismo orden a'-b'.
+        la otra escríbelos en el mismo orden a'-b'.
       </Cuidado>
     </EscenaRica>
   );

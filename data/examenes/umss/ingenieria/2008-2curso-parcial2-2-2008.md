@@ -58,7 +58,7 @@ Calcular "m" para que el polinomio $P = 3x^{m+1}y^{n-3} + 7x^{m+2}y^{n-1} + 11x^
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Plantéa el grado absoluto de cada término (suma de exponentes) y el grado relativo a "y" (mayor exponente de y entre los tres términos).
+**explicacion:** Plantea el grado absoluto de cada término (suma de exponentes) y el grado relativo a "y" (mayor exponente de y entre los tres términos).
 Paso 1 · Grados absolutos: término 1 = $(m+1)+(n-3)=m+n-2$; término 2 = $(m+2)+(n-1)=m+n+1$; término 3 = $(m+3)+(n-2)=m+n+1$. El mayor es $m+n+1$ (términos 2 y 3).
 Paso 2 · Grado absoluto del polinomio $=m+n+1=8 \Rightarrow m+n=7$.
 Paso 3 · Grado relativo a "y": los exponentes de y son $n-3$, $n-1$, $n-2$; el mayor es $n-1$ (del término 2). $n-1=5 \Rightarrow n=6$.
@@ -169,7 +169,7 @@ En el triángulo ABC, BC=16 cm, AC=24 cm. Se traza una recta "r" que corta al la
 - E) ninguno
 
 **respuesta:** A
-**explicacion:** Plantéa la proporción CN/NA=CM/MB y usa que CN+NA=AC.
+**explicacion:** Plantea la proporción CN/NA=CM/MB y usa que CN+NA=AC.
 Paso 1 · $MB=BC-MC=16-14=2$ cm.
 Paso 2 · $\dfrac{CN}{NA}=\dfrac{CM}{MB}=\dfrac{14}{2}=7 \Rightarrow CN=7\cdot NA$.
 Paso 3 · $CN+NA=AC=24 \Rightarrow 7NA+NA=24 \Rightarrow NA=3$.
@@ -484,7 +484,7 @@ Un automóvil tiene el doble de masa que otro pero solo la mitad de energía cin
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa las energías cinéticas iniciales y finales en función de una masa base "m" y resuelve el sistema.
+**explicacion:** Plantea las energías cinéticas iniciales y finales en función de una masa base "m" y resuelve el sistema.
 Paso 1 · Sea el auto liviano de masa $m$ y velocidad $v_L$, y el pesado de masa $2m$ y velocidad $v_H$. $KE_{pesado}=\frac12(2m)v_H^2=mv_H^2$. Condición: $KE_{pesado}=\frac12 KE_{liviano} \Rightarrow mv_H^2=\frac12\left(\frac12 mv_L^2\right) \Rightarrow v_H^2=\frac14v_L^2 \Rightarrow v_H=v_L/2$.
 Paso 2 · Al aumentar ambos 5.5 m/s, energías iguales: $\frac12(v_L+5.5)^2=(v_H+5.5)^2$. Sustituyendo $v_H=v_L/2$: $\frac12(v_L+5.5)^2=(v_L/2+5.5)^2$.
 Paso 3 · Expandiendo: $0.5v_L^2+5.5v_L+15.125=0.25v_L^2+5.5v_L+30.25 \Rightarrow 0.25v_L^2=15.125 \Rightarrow v_L^2=60.5 \Rightarrow v_L=\sqrt{60.5}=5.5\sqrt2\approx7.778$ m/s.

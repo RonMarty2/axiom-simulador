@@ -319,7 +319,7 @@ Calcular la frecuencia en MHz para una luz que tiene una longitud de onda de 700
 - E) Ninguno
 
 **respuesta:** D
-**explicacion:** Calcula primero la frecuencia en Hz con $\nu=c/\lambda$, y después convertila a MHz (la pregunta pide el resultado explícitamente en MHz, no en Hz).
+**explicacion:** Calcula primero la frecuencia en Hz con $\nu=c/\lambda$, y después conviértela a MHz (la pregunta pide el resultado explícitamente en MHz, no en Hz).
 Paso 1 · $\lambda=700\ nm=7\times10^{-7}\ m$. $\nu=\frac{3\times10^8}{7\times10^{-7}}=4.286\times10^{14}\ Hz$.
 Paso 2 · Convierte a MHz dividiendo entre $10^6$: $\nu=\frac{4.286\times10^{14}}{10^6}=4.286\times10^8\ MHz\approx4.3\times10^8\ MHz$.
 Paso 3 · La opción A ($4.3\times10^{14}$) es el valor en Hz, no en MHz: es la trampa para quien olvida la conversión de unidades pedida por el enunciado.

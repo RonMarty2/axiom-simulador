@@ -50,7 +50,7 @@ export default function TerminoIndependienteOCentralPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.accent}12`, border: `1.5px solid ${LIENZO.accent}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 90 }}>Independiente</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>arma el exponente de <MathText>{"$x$"}</MathText> en función de <MathText>{"$k$"}</MathText>, igualalo a 0 y despeja <MathText>{"$k$"}</MathText></span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>arma el exponente de <MathText>{"$x$"}</MathText> en función de <MathText>{"$k$"}</MathText>, iguálalo a 0 y despeja <MathText>{"$k$"}</MathText></span>
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.ok}12`, border: `1.5px solid ${LIENZO.ok}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 90 }}>Central</span>

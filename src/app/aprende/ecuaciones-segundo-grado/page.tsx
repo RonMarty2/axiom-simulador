@@ -239,7 +239,7 @@ function AnatomiaFormula() {
         <MathText>{"$x = \\dfrac{-b}{2a} \\pm \\dfrac{\\sqrt{\\Delta}}{2a}$"}</MathText>
       </div>
       <Hint>
-        La fórmula es eso: parate en el eje de simetría y saltá lo mismo para los dos lados
+        La fórmula es eso: párate en el eje de simetría y salta lo mismo para los dos lados
       </Hint>
     </div>
   );
@@ -673,7 +673,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 3:</strong> Saltar al uso de la fórmula sin intentar factorizar. <br />
         <span style={{ fontSize: 13 }}>
-          Factorización es más rápida cuando se puede. Probala primero.
+          Factorización es más rápida cuando se puede. Pruébala primero.
         </span>
       </Cuidado>
 

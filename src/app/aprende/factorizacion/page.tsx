@@ -419,7 +419,7 @@ function Esc07_Cual() {
       </Parrafo>
 
       <Resumen>
-        <Paso n={1}><strong>¿Hay factor común?</strong> → sacalo SIEMPRE primero.</Paso>
+        <Paso n={1}><strong>¿Hay factor común?</strong> → sácalo SIEMPRE primero.</Paso>
         <Paso n={2}><strong>¿Cuántos términos hay?</strong></Paso>
         <Paso n={3}>2 términos → ¿es diferencia de cuadrados (a²−b²)?</Paso>
         <Paso n={4}>3 términos → ¿es TCP? Si no, ¿trinomio x²+bx+c?</Paso>

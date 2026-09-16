@@ -96,7 +96,7 @@ Un número de tres cifras: la cifra de las unidades excede en 5 a la de las cent
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa las tres condiciones en función de la cifra de las centenas y resuelve el sistema.
+**explicacion:** Plantea las tres condiciones en función de la cifra de las centenas y resuelve el sistema.
 Paso 1 · Sea $h$=centenas, $t$=decenas, $u$=unidades. $u=h+5$, $t=h+1$, $u=2(t+h)$.
 Paso 2 · Sustituyendo: $h+5=2(h+1+h)=4h+2 \Rightarrow 3=3h \Rightarrow h=1$.
 Paso 3 · $t=h+1=2$, $u=h+5=6$. Verificación: $u=2(t+h)=2(2+1)=6$ ✓.
@@ -325,7 +325,7 @@ Se mezcla un líquido "x" con agua: densidad resultante 1.25 g/cm³, volumen 1 l
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Plantéa la masa de la mezcla antes y después del intercambio de volúmenes, usando $V_x$ (volumen original de líquido x) y $d_x$ como incógnitas.
+**explicacion:** Plantea la masa de la mezcla antes y después del intercambio de volúmenes, usando $V_x$ (volumen original de líquido x) y $d_x$ como incógnitas.
 Paso 1 · Masa original: $V_x\,d_x+(1000-V_x)(1)=1000(1.25)=1250 \Rightarrow V_x\,d_x-V_x=250$ (i).
 Paso 2 · Tras sacar 40 cm³ de x y agregar 40 cm³ de agua (volumen total sigue en 1000 cm³): $(V_x-40)d_x+(1040-V_x)(1)=1000(1.1)=1100$.
 Paso 3 · Desarrollando: $V_x d_x-40d_x+1040-V_x=1100 \Rightarrow (V_x d_x-V_x)-40d_x=60$. Sustituyendo (i): $250-40d_x=60 \Rightarrow 40d_x=190 \Rightarrow d_x=4.75$.
@@ -507,7 +507,7 @@ Un niño arroja una piedra desde 1m de altura con ángulo de elevación 45°, ra
 - E) Ninguno
 
 **respuesta:** B
-**explicacion:** Halla el tiempo en que la piedra recorre los 10 m horizontales, y usalo en la ecuación de altura.
+**explicacion:** Halla el tiempo en que la piedra recorre los 10 m horizontales, y úsalo en la ecuación de altura.
 Paso 1 · Con $\theta=45°$: $v_{0x}=v_{0y}=20\cos45°=20\sin45°\approx14.142$ m/s.
 Paso 2 · Tiempo para $x=10$ m: $t=\dfrac{10}{14.142}\approx0.7071$ s.
 Paso 3 · Altura: $y=1+v_{0y}t-\frac12gt^2=1+20(0.7071)(0.7071)-\frac12(9.8)(0.7071)^2=1+10-2.45=8.55$ m (usando que $\cos45°=\sin45°=\frac{\sqrt2}{2}$, entonces $(0.7071)^2=0.5$ exactamente).

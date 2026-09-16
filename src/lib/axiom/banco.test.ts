@@ -242,20 +242,76 @@ describe("banco de exámenes", () => {
   // se normalizó el 14-sep; esto evita que entre voseo con la próxima tanda
   // de exámenes. Ojo: \b no sirve con tildes, por eso los lookarounds.
   test("el banco le habla al alumno de tú, no de vos", () => {
-    // Muestra representativa, no la tabla entera: alcanza para que un archivo
-    // nuevo escrito en rioplatense frene el test.
-    const VOSEO = ["recordá", "fijate", "tenés", "podés", "hacé", "usá", "planteá",
-      "calculá", "despejá", "aplicá", "sustituí", "convertí", "resolvé", "acordate",
-      "sacá", "mirá", "escribí", "elegí", "seguí", "andá"];
+    // Antes esto era una lista de 20 formas escritas a mano, y dejaba pasar 28
+    // casos: 24 de imperativo con pronombre pegado ("sumale", "convertila",
+    // "igualalas") más "Balanceala" y tres "vos" que encima citaban mal el
+    // enunciado, que dice "tú". Ninguna estaba en la lista porque a nadie se le
+    // ocurrió escribirlas — el mismo problema que ya había documentado
+    // contenido-lecciones.test.ts.
+    //
+    // Ahora se generan, con el enfoque que ese test dejó probado: se listan
+    // INFINITIVOS y de cada uno salen sus formas voseantes. El futuro de tú
+    // ("mirarás") no cae, porque lleva el infinitivo entero adelante. Para
+    // sumar un verbo alcanza con agregarlo acá, en una palabra.
+    const INFINITIVOS = [
+      "poder", "tener", "querer", "saber", "hacer", "decir", "vivir", "escribir",
+      "mirar", "buscar", "calcular", "usar", "necesitar", "comparar", "sumar",
+      "restar", "multiplicar", "dividir", "resolver", "elegir", "pensar",
+      "obtener", "empezar", "terminar", "aprender", "entender", "poner", "venir",
+      "colocar", "observar", "recordar", "pasar", "tomar", "agarrar", "descontar",
+      "armar", "fijar", "probar", "contar", "marcar", "anotar", "dibujar",
+      "medir", "ordenar", "separar", "agrupar", "reemplazar", "despejar",
+      "simplificar", "factorizar", "verificar", "comprobar", "revisar", "leer",
+      "completar", "unir", "trazar", "cortar", "repetir", "girar", "estimar",
+      "redondear", "convertir", "balancear", "mezclar", "diluir", "pesar",
+      "clasificar", "identificar", "señalar", "relacionar", "deducir", "aplicar",
+      "graficar", "ubicar", "avanzar", "seguir", "mover", "tocar", "sacar",
+      "sustituir", "llevar", "cambiar", "operar", "cancelar", "igualar",
+      "reducir", "dejar", "quitar", "notar", "bajar", "saltar", "plantear",
+    ];
+
+    const formas = new Set<string>();
+    for (const inf of INFINITIVOS) {
+      const raiz = inf.slice(0, -2);
+      if (raiz.length < 2) continue;
+      const term = inf.slice(-2);                             // ar | er | ir
+      const presente = term === "ar" ? "ás" : term === "er" ? "és" : "ís";
+      formas.add(raiz + presente);                            // mirás
+      formas.add(raiz + presente.slice(0, 1));                // mirá
+      // El imperativo CON pronombre pegado pierde la tilde: "sumale",
+      // "convertila". El tuteo la lleva en la raíz ("súmale", "conviértela"),
+      // así que no se pisan.
+      //
+      // Sin "se" a propósito: con verbos -ar daría "mirase" y "sumase", que son
+      // imperfecto de subjuntivo y están bien escritos.
+      const vocal = term === "ar" ? "a" : term === "er" ? "e" : "i";
+      for (const pron of ["lo", "la", "los", "las", "le", "les", "me", "nos", "te"]) {
+        const enclitico = raiz + vocal + pron;
+        // Las dos colisiones con palabras que existen: "tomar"+"te" da el
+        // tomate y "terminar"+"les" da las terminales nerviosas.
+        if (enclitico === "tomate" || enclitico === "terminales") continue;
+        formas.add(enclitico);
+      }
+    }
+    for (const f of ["andá", "vení", "salí", "oí", "fijate", "acordate",
+      "quedate", "sentate", "vos", "tenés", "ponés", "sos"]) {
+      formas.add(f);
+    }
+    const VOSEO = new RegExp(
+      "(?<![\\p{L}\\p{N}])(" + [...formas].sort((a, b) => b.length - a.length).join("|") + ")(?![\\p{L}\\p{N}])",
+      "giu",
+    );
+
     const fallos: string[] = [];
     for (const e of TODOS) {
       // Las notas del curador (<!-- -->) van en rioplatense a propósito.
       const visible = e.contenido.replace(/<!--[\s\S]*?-->/g, "");
-      for (const forma of VOSEO) {
-        const rx = new RegExp(`(?<![\\p{L}\\p{N}])${forma}(?![\\p{L}\\p{N}])`, "giu");
-        const n = [...visible.matchAll(rx)].length;
-        if (n) fallos.push(`${e.nombre}: "${forma}" ×${n}`);
+      const vistas = new Map<string, number>();
+      for (const m of visible.matchAll(VOSEO)) {
+        const w = m[0].toLowerCase();
+        vistas.set(w, (vistas.get(w) ?? 0) + 1);
       }
+      for (const [forma, n] of vistas) fallos.push(`${e.nombre}: "${forma}" ×${n}`);
     }
     assert.deepEqual(fallos, [], `voseo en texto que ve el alumno:\n${fallos.slice(0, 30).join("\n")}`);
   });

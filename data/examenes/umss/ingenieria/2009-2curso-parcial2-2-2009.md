@@ -128,7 +128,7 @@ Expresar 196 como suma de tres números enteros positivos $x+y+z=196$, tales que
 - E) Ninguno
 
 **respuesta:** C
-**explicacion:** Plantéa el sistema de tres ecuaciones y resuelve por sustitución.
+**explicacion:** Plantea el sistema de tres ecuaciones y resuelve por sustitución.
 Paso 1 · De $x+y+z=196$ con $y=2x$: $3x+z=196$.
 Paso 2 · De $x+y=z+20$ con $y=2x$: $3x=z+20 \Rightarrow z=3x-20$.
 Paso 3 · Sustituyendo: $3x+(3x-20)=196 \Rightarrow 6x=216 \Rightarrow x=36$.

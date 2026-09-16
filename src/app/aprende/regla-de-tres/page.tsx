@@ -305,7 +305,7 @@ function Esc06_Porcent() {
 
       <Misconception titulo="Trampa de los porcentajes en cadena">
         Mucha gente piensa "15% descuento + 13% IVA → como +13% −15% = −2% neto, pago 117,60 Bs".
-        ERROR. Los porcentajes NO se suman ni se restan directamente. Aplicalos UNO A UNO sobre
+        ERROR. Los porcentajes NO se suman ni se restan directamente. Aplícalos UNO A UNO sobre
         la base que corresponde, o usa factores multiplicativos.
       </Misconception>
     </EscenaRica>

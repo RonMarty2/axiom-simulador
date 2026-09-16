@@ -525,7 +525,7 @@ function Esc02_Sust() {
     <EscenaRica>
       <Titulo accent={COLOR_OK}>Método 1: Sustitución</Titulo>
       <Resumen>
-        <strong>Idea</strong>: despeja una variable en UNA ecuación y reemplazala en la otra.
+        <strong>Idea</strong>: despeja una variable en UNA ecuación y reemplázala en la otra.
       </Resumen>
 
       <SustitucionVisual />

@@ -206,7 +206,7 @@ function EscResumen() {
         <strong>3.</strong> Los modificadores deben ir cerca de lo que modifican. Si "rápido" describe el
         leer, debe ir junto al verbo "lee", no al final.<br /><br />
         <strong>4.</strong> No descartes "Es correcta" sin pensarlo. A veces es la respuesta válida.<br /><br />
-        <strong>5.</strong> Si dudas entre dos opciones, leelas en voz alta. La buena fluye natural; la
+        <strong>5.</strong> Si dudas entre dos opciones, léelas en voz alta. La buena fluye natural; la
         forzada se traba.
       </Resumen>
 

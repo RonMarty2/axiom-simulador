@@ -48,7 +48,7 @@ export default function TeoremaDelRestoPage() {
             </div>
           </div>
           <p style={{ margin: "14px 0 4px", fontSize: 12.5, color: LIENZO.fgDim, textTransform: "uppercase", letterSpacing: 0.5, fontWeight: 700 }}>
-            Ahora ponele nombre nuevo a cada papel:
+            Ahora ponle nombre nuevo a cada papel:
           </p>
           <div>
             <FilaRol rol="Lo que se divide" conocido="17" nuevo="P(x)" />

@@ -253,6 +253,11 @@ describe("contenido de lecciones y láminas", () => {
       "balancear", "mezclar", "diluir", "pesar", "clasificar", "identificar",
       "señalar", "subrayar", "relacionar", "deducir", "concluir", "aplicar",
       "reemplazar", "graficar", "ubicar", "avanzar", "seguir", "mover",
+      // Sumados el 16-sep: faltaban, y entre los cuatro tapaban 20 casos de
+      // voseo en texto del alumno que este test daba por limpio. "tocar" solo
+      // era 8 de ellos, casi todos en el pie de una Pizarra ("Tocá para…").
+      "tocar", "sacar", "sustituir", "llevar", "cambiar", "operar", "cancelar",
+      "igualar", "reducir", "dejar", "quitar", "notar", "bajar", "saltar",
     ];
 
     // De cada infinitivo salen las dos formas voseantes. "mirar" → mirás / mirá.
@@ -265,6 +270,23 @@ describe("contenido de lecciones y láminas", () => {
       const imperativo = presente.slice(0, 1);    // á | é | í
       formas.add(raiz + presente);
       formas.add(raiz + imperativo);
+      // Y el imperativo CON EL PRONOMBRE PEGADO, que pierde la tilde:
+      // "resolver" → "resolvelo", "mirar" → "miralo". Era el otro agujero del
+      // 16-sep: el tuteo lleva la tilde en la raíz ("resuélvelo", "míralo"),
+      // así que no se pisan, pero la forma voseante sin tilde no la generaba
+      // nadie y había 16 casos vivos.
+      //
+      // Sin "se" a propósito: con verbos -ar daría "mirase", "sumase",
+      // "restase", que son imperfecto de subjuntivo y están bien escritos.
+      const vocal = term === "ar" ? "a" : term === "er" ? "e" : "i";
+      for (const pron of ["lo", "la", "los", "las", "le", "les", "me", "nos", "te"]) {
+        const enclitico = raiz + vocal + pron;
+        // Las dos colisiones reales con palabras que existen: "tomar"+"te" da
+        // el tomate, y "terminar"+"les" da las terminales nerviosas del
+        // diagrama de sistema-nervioso.
+        if (enclitico === "tomate" || enclitico === "terminales") continue;
+        formas.add(enclitico);
+      }
     }
     // Irregulares y pronominales, que no salen de la regla de arriba.
     for (const f of ["andá", "vení", "salí", "oí", "fijate", "acordate",

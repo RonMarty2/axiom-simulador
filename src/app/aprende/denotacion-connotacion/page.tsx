@@ -248,7 +248,7 @@ function EscConno() {
 function EscEstrella() {
   return (
     <EscenaRica>
-      <Titulo>Probalo · la palabra "estrella"</Titulo>
+      <Titulo>Pruébalo · la palabra "estrella"</Titulo>
       <Parrafo>
         Mira cómo la misma palabra cambia de sentido según el contexto. Toca la tarjeta para alternar
         entre los dos significados:

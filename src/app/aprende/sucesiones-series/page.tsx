@@ -328,7 +328,7 @@ function Esc07_Errores() {
       <Misconception titulo="Cómo contar n en una PA · '+1' o 'el truco del cercado'">
         Si necesitas contar términos entre a₁ y aₙ:<br />
         n = (aₙ − a₁) / d + 1.<br /><br />
-        <strong>El +1 es clave.</strong> Pensalo como cercar un terreno: si pones postes cada
+        <strong>El +1 es clave.</strong> Piénsalo como cercar un terreno: si pones postes cada
         5 m en un campo de 95 m de largo desde el poste 0... tienes 95/5 + 1 = 20 postes (no 19).<br />
         El +1 cuenta el primer poste/término.
       </Misconception>

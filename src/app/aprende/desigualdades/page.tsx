@@ -207,7 +207,7 @@ function Esc04_Negativo() {
       </Ejemplo>
 
       <PorQue>
-        Pensalo: 2 &lt; 3 es verdad. Multiplico ambos lados por −1: −2 y −3.
+        Piénsalo: 2 &lt; 3 es verdad. Multiplico ambos lados por −1: −2 y −3.
         ¿Es −2 &lt; −3? NO. Es −2 &gt; −3. El sentido se da vuelta.
       </PorQue>
 
@@ -314,7 +314,7 @@ function Esc06_Cuad() {
         Para resolver <strong>algo cuadrático &gt; 0</strong> (o &lt; 0):
       </Parrafo>
       <Resumen>
-        1️⃣ Llevá la inecuación a la forma <strong>ax² + bx + c &gt; 0</strong> (o &lt; 0).<br />
+        1️⃣ Lleva la inecuación a la forma <strong>ax² + bx + c &gt; 0</strong> (o &lt; 0).<br />
         2️⃣ Encuentra las raíces (igualando a 0).<br />
         3️⃣ Analiza los signos del polinomio en cada intervalo definido por las raíces.<br />
         4️⃣ Toma los intervalos que cumplan la desigualdad.
@@ -391,7 +391,7 @@ function Esc07_Errores() {
         Una desigualdad cuadrática NO se "saca raíz directo". <br />
         x² &lt; 4 NO es x &lt; 2. La solución correcta es <strong>−2 &lt; x &lt; 2</strong>
         (es decir, |x| &lt; 2).<br /><br />
-        Pensalo: x = −3 cumple x² = 9 &gt; 4 (no entra). x = 0 cumple x² = 0 &lt; 4 (entra).
+        Piénsalo: x = −3 cumple x² = 9 &gt; 4 (no entra). x = 0 cumple x² = 0 &lt; 4 (entra).
         Por eso la solución es un intervalo simétrico al cero, no un rayo.
       </Misconception>
 

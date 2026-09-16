@@ -269,7 +269,7 @@ function EscSumaDiferencia() {
         <strong>Truco · "S de seno · C de coseno"</strong>:<br />
         • sen suma: "S-C + C-S" (sen·cos + cos·sen). <em>Mismo orden, suma</em>.<br />
         • cos suma: "C-C − S-S" (cos·cos − sen·sen). <em>Cambian de signo</em>.<br /><br />
-        Para la diferencia: cambiá el signo del medio.
+        Para la diferencia: cambia el signo del medio.
       </Mnemotecnia>
 
       <WorkedExample titulo="Aplicación · ángulos no notables">

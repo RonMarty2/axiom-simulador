@@ -263,7 +263,7 @@ function Esc03() {
       <Titulo>Recorrido de un billete · 50 Bs en La Cancha</Titulo>
       <Hook>
         Tienes un billete de 50 Bs en el bolsillo. Vas a la Cancha (Cochabamba), compras una
-        marraqueta y un trozo de queso. <strong>¿Dónde termina ese billete?</strong> Seguilo:
+        marraqueta y un trozo de queso. <strong>¿Dónde termina ese billete?</strong> Síguelo:
       </Hook>
       <WorkedExample titulo="El recorrido del billete de 50 Bs">
         <ul style={{ paddingLeft: 22, marginTop: 0, fontSize: 14, lineHeight: 1.7 }}>

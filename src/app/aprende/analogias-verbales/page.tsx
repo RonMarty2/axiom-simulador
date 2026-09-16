@@ -142,7 +142,7 @@ function EscProcedimiento() {
       <Titulo>Procedimiento en 5 pasos</Titulo>
       <Resumen>
         <strong>1.</strong> Lee el par inicial e <strong>identifica la relación</strong>. Es la clave de
-        todo. Ponele un nombre: "función", "causa-efecto", "categoría", etc.<br /><br />
+        todo. Ponle un nombre: "función", "causa-efecto", "categoría", etc.<br /><br />
         <strong>2.</strong> Si te cuesta, formulá una <strong>frase puente</strong>: "la llave SIRVE PARA
         abrir cosas", "el león VIVE EN la jungla". Esa frase la vas a aplicar a todas las opciones.<br /><br />
         <strong>3.</strong> Prueba la frase puente en cada opción. La que encaja exactamente es la

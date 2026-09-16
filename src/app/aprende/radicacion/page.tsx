@@ -552,7 +552,7 @@ function Esc09_Simplificar() {
 
       <Resumen>
         La regla del "examen": <strong>siempre deja los radicales simplificados</strong>. Si te
-        queda √50 en una respuesta, escribilo como 5√2.
+        queda √50 en una respuesta, escríbelo como 5√2.
       </Resumen>
     </EscenaRica>
   );

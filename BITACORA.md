@@ -314,7 +314,10 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-16 | 54 casos de voseo vivos en texto del alumno, con dos trinquetes que decían que todo estaba limpio | Barrer a mano al mergear, no un test | Un trinquete que enumera casos solo cubre lo que alguien escribió. 40 de los 54 eran imperativo con el pronombre pegado ("sumale", "convertila"), una forma que NADIE había listado; los otros 14 eran siete infinitivos que faltaban. Si el chequeo se puede generar (de "sumar" salen todas sus formas), generarlo; una lista a mano envejece el día que se escribe |
 | 2026-09-16 | Un script de puntuación dio 77 dos puntos y 147 puntos, exactamente al revés de lo medido antes de tocar nada | Los números no cuadraban con la medición previa | Corriendo sobre el archivo entero, el `:` de `**explicacion:**` cuenta como puntuación de la prosa. El resultado era gramatical igual, así que ningún test lo habría cantado: medí ANTES, y si después no cuadra, es el script, no el dato |
+| 2026-09-16 | 8 commits de una sesión de la nube (los diagramas de 6 lecciones) llevaban días sin llegar a `main`, y nadie lo sabía | Ronald preguntó si estaba todo en `main` | Un branch remoto que nadie mergea no es trabajo hecho, es trabajo escondido. Con varias sesiones en paralelo hay que mirar `git branch -av` y contar `main..<branch>` para CADA rama, no solo mirar si el árbol local está limpio. Y cuanto más se tarda, peor: este quedó 92 commits atrás y hubo que resolver tres conflictos a mano |
+| 2026-09-16 | Al resolver un conflicto, tomar el lado de `main` habría dejado un pie que describía un componente que el otro lado ya había reescrito ("toca para resaltar los factores comunes", en un dibujo que ya no se toca) | Leer qué hacía cada lado antes de elegir | En un merge, "quedarse con una de las dos versiones" es la opción por defecto y a veces las DOS están mal. El arreglo de `main` era sobre código que el branch borró: hay que mirar qué quería cada cambio, no qué líneas trae |
 | 2026-09-16 | La P7 del 1-2016 1ra necesitaba su figura y no estaba en la lista de pendientes: la pasada del 14-sep le había sacado la mención, dejando además el enunciado roto y la explicación con el triángulo al revés | Abrir el facsímil de un examen del que solo se habían pedido otras tres figuras | Un trinquete que se puede bajar **reescribiendo el texto** mide la métrica, no el problema. Es la lección del 14-sep ("mide lo que sabe mirar") una vuelta más adentro: esta vez el contador no estaba ciego, lo cegamos nosotros al bajarlo. Cuando la forma de bajar un número es editar lo que el número busca, hay que anotar cuántas salieron de la cuenta por esa vía — son 74 — y contra qué se verifican |
 
 ---
@@ -452,6 +455,92 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (septies) (main se come el branch de la nube, y 54 casos de voseo que ningún trinquete veía)
+
+**Ronald preguntó si estaba todo en `main`. No estaba.** El branch
+`origin/claude/exam-simulator-m690mc` tenía **8 commits que nunca llegaron**:
+los diagramas nuevos de ecuaciones de primer y segundo grado, logaritmación,
+MCD-MCM algebraico, repartos proporcionales y sistemas lineales, más dos
+arreglos de contenido. Estaba 92 commits atrás de `main`, así que el merge fue
+a mano. Ya está adentro.
+
+Lo que se revisó antes de tocar nada, porque la pregunta era si se perdía algo:
+
+| Qué | Estado |
+|---|---|
+| `main` local vs `origin/main` | iguales, nada colgado |
+| Los 9 commits de exámenes de FCE | **los 9 en `main`** |
+| `origin/claude/exam-simulator-m690mc` | 8 commits afuera → **mergeados** |
+| Los otros tres branches `claude/*` | 0 commits afuera, ya estaban |
+| Branch local `master` | snapshot huérfano (historia sin relación) del ~14-sep. 21 archivos que `main` no tiene: `design/*.dc.html`, `data/research/`, `scripts/auditoria-*.mjs` y una captura. **No se mergeó a propósito**: no comparte raíz con `main` y sus otros 286 archivos son versiones viejas que pisarían lo de ahora. Si esos 21 tienen que entrar, van a mano y uno por uno |
+
+**Nada de esto toca FCE.** El branch de la nube no tiene un solo archivo de
+`economicas/`, y los 10 exámenes de Económicas que hay transcriptos están todos
+en `main`. Si hay otra sesión trabajando en FCE, todavía no empujó nada.
+
+**Cómo se resolvió el merge.** El contenido nuevo lo manda el branch — son las
+escenas con apoyo visual, que es el trabajo que vino a hacer; de `main` se
+preservan el tuteo y los arreglos de refactor y de token de color. Tres
+conflictos, y el tercero es el que enseña algo:
+
+- `ecuaciones-primer-grado`: choque de imports. Van las dos mitades, y el
+  import de `lienzo` queda UNO, porque `main` tenía otro más abajo.
+- `repartos-proporcionales`: `main` había convertido la etiqueta
+  *"👆 REPARTIR…"* en el componente `EtiquetaToque`; el branch reemplazó esa
+  escena entera por `BarraReparto`, un diagrama de verdad, accesible por
+  teclado y sin el emoji. Gana la del branch: el refactor de `main` era sobre
+  código que ya no existe.
+- `mcd-mcm-algebraico`: el branch reescribió `CancelarTrampa` y la dejó
+  estática. El pie al que `main` le había arreglado el voseo describía el
+  componente VIEJO — *"toca para resaltar los factores comunes"*, y ya no se
+  toca nada ni se habla del MCD. **Tomar cualquiera de los dos lados estaba
+  mal**: el de `main` miente sobre el dibujo nuevo y el del branch deja la
+  Pizarra sin pie. Se escribió uno que dice lo que el dibujo muestra.
+
+**Dos cosas que el branch traía y no podían quedar.** Un `let acumulado = 0`
+mutado adentro de un `.map()`, que el compilador de React rechaza y en el
+branch no molestaba porque su base es anterior a esa regla. Y voseo, que abrió
+lo que se llevó el resto de la sesión.
+
+## Los 54 casos de voseo, y por qué los tests decían que estaba limpio
+
+El branch se escribió antes de la normalización a tuteo del 14-sep, así que sus
+líneas nuevas venían en rioplatense. El trinquete de lecciones cantó 6. Barrer
+a mano encontró **54 en total**, en TODO el contenido — lecciones, láminas y
+banco, la mayoría anteriores al branch. Dos agujeros distintos:
+
+**1. Faltaban infinitivos.** El test genera las formas voseantes desde una
+lista de infinitivos, y no tenía `tocar`, `sacar`, `sustituir`, `llevar`,
+`cambiar`, `operar` ni `saltar`. Solo `tocar` eran 8 casos, casi todos el pie
+de una Pizarra: *"Tocá para…"*.
+
+**2. Nadie generaba el imperativo CON EL PRONOMBRE PEGADO**, que pierde la
+tilde: *resolvela, sumale, convertila, igualalas, escribilo, Pensalo, Seguilo,
+ponele*. Son 40 de los 54. Se pueden generar sin falsos positivos justamente
+porque el tuteo lleva la tilde en la raíz (*súmale*, *conviértela*), salvo dos
+colisiones con palabras que existen: `tomar`+`te` da el **tomate** y
+`terminar`+`les` da las **terminales** nerviosas del diagrama de
+`sistema-nervioso`. Quedan como excepción, anotadas en el código.
+
+Los dos tests ahora generan encliticos, y **el del banco dejó de usar la lista
+de 20 formas escritas a mano** y pasa a generar desde infinitivos, que es el
+enfoque que `contenido-lecciones.test.ts` ya tenía probado y documentado. Esa
+lista a mano era la que dejaba pasar 28 casos del banco.
+
+Tres casos merecen mención aparte:
+
+- **`2017-1op-2` P4**: la explicación CITABA el enunciado y le cambiaba el "tú"
+  por "vos" tres veces. No era solo voseo: citaba mal el examen.
+- **22 explicaciones del banco decían "Plantéa"** con tilde. El imperativo de
+  tú es *Plantea*, llana terminada en vocal. Salieron en la misma pasada.
+- **`sistema-nervioso`: "Terminales (salida)" no es voseo**, es el sustantivo.
+  Es la segunda excepción del generador, y el recordatorio de que un generador
+  de formas hay que mirarlo con los ojos antes de creerle.
+
+Se verificó que los dos trinquetes **pueden fallar**: se reinyectó un caso en
+cada lado (`Balanceala` en el banco, `sacalo` en `factorizacion`) y cada uno lo
+cantó con archivo y línea.
 
 ### 2026-09-16 (sexies) (las cuatro figuras del 1-2016 1ra, leídas del facsímil, y el trinquete que no veía 74 preguntas)
 

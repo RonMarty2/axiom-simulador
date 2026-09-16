@@ -177,7 +177,7 @@ function Esc04_SumaResta() {
       {/* ANIMACIÓN: 3√5 + 7√5 = 10√5 */}
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <div style={{ fontSize: 12, color: COLOR_EXP, fontWeight: 800, letterSpacing: 1.2, marginBottom: 4 }}>
-          <IconoToque /> TOCÁ PARA VER LA SUMA
+          <IconoToque /> TOCA PARA VER LA SUMA
         </div>
         <Stage w={420} h={140}>
           {/* 3√5 */}
@@ -408,7 +408,7 @@ function Esc07_MultCoef() {
 
       <Cuidado>
         Recuerda <strong>SIEMPRE simplificar</strong> el radical resultante. Si te queda
-        √18 en una respuesta, escribilo como 3√2.
+        √18 en una respuesta, escríbelo como 3√2.
       </Cuidado>
 
       <AutoCheck

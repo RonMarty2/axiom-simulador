@@ -177,7 +177,7 @@ export default function DivisionDePolinomiosPage() {
             </div>
           </div>
           <p style={{ margin: "12px 0 0", fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.5 }}>
-            Los dos son el mismo polinomio, pero solo el de la izquierda tiene un lugar marcado para cada potencia. Escribilo así antes de empezar a dividir.
+            Los dos son el mismo polinomio, pero solo el de la izquierda tiene un lugar marcado para cada potencia. Escríbelo así antes de empezar a dividir.
           </p>
         </div>
       ),

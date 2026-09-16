@@ -135,7 +135,7 @@ function EscProcedimiento() {
         Si la diferencia es constante → patrón aditivo (suma fija).<br /><br />
         <strong>2. Si la diferencia no es constante, calcula la RAZÓN</strong>: t₂ / t₁, t₃ / t₂, etc.<br />
         Si es constante → patrón multiplicativo.<br /><br />
-        <strong>3. Si tampoco hay razón constante, miralo COMO PATRÓN CRECIENTE</strong>: las diferencias
+        <strong>3. Si tampoco hay razón constante, míralo COMO PATRÓN CRECIENTE</strong>: las diferencias
         forman su propia secuencia (1, 2, 3, 4 o 2, 4, 6, 8).<br /><br />
         <strong>4. Para alfabéticas, USA NÚMEROS</strong>: A=1, B=2, C=3, ..., Z=26. Busca el patrón en
         números, después convierte.<br /><br />

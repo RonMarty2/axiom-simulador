@@ -61,7 +61,7 @@ export default function CambioDeBasePage() {
             </div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "9px 12px", borderRadius: 10, background: `${LIENZO.warn}12`, border: `1.5px solid ${LIENZO.warn}44` }}>
               <span style={{ fontSize: 13, fontWeight: 700, minWidth: 22 }}>3.</span>
-              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma/operá los términos ya en la misma base</span>
+              <span style={{ fontSize: 12.5, color: LIENZO.fgDim }}>Suma/opera los términos ya en la misma base</span>
             </div>
           </div>
         </div>
