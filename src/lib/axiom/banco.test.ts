@@ -324,4 +324,22 @@ describe("banco de exámenes", () => {
     }
     assert.deepEqual(fallos, [], `la misma pregunta con las mismas opciones responde distinto:\n${fallos.join("\n")}`);
   });
+  // Regla 11 de §4.5: en una app de matemática el guion largo cerca de un
+  // número o una variable se lee como signo menos ("no depende de nada — 2x−1=0"
+  // es ambiguo). Se aplicó a las lecciones el 16-ago y al banco el 16-sep.
+  // Para separar cláusulas van punto, coma o dos puntos; para un inciso,
+  // paréntesis.
+  test("el banco no usa guion largo en el texto del alumno", () => {
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        const visible = [p.enunciado, p.explicacion ?? "", ...p.opciones.map((o) => o.texto)].join(" ");
+        const n = (visible.match(/—/g) ?? []).length;
+        if (n) fallos.push(`${e.nombre} · P${p.numero}: ${n} guion(es) largo(s)`);
+      }
+    }
+    assert.deepEqual(fallos, [], `guion largo en texto que ve el alumno:\n${fallos.slice(0, 30).join("\n")}`);
+  });
 });

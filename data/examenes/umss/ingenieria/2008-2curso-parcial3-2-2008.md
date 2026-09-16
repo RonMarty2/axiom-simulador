@@ -68,7 +68,7 @@ $$x^2+y^2=58$$
 - E) 6
 
 **respuesta:** A
-**explicacion:** Esta pregunta del examen original NO tiene opción "ninguno" — las 5 opciones son puramente numéricas.
+**explicacion:** Esta pregunta del examen original NO tiene opción "ninguno": las 5 opciones son puramente numéricas.
 Paso 1 · $xy=\frac{(x+y)^2-(x^2+y^2)}{2}=\frac{100-58}{2}=21$.
 Paso 2 · $x,y$ son raíces de $t^2-10t+21=0 \Rightarrow (t-7)(t-3)=0 \Rightarrow t=7$ ó $t=3$.
 Paso 3 · Las dos soluciones del sistema son $(x,y)=(7,3)$ y $(3,7)$; los dos valores posibles de $x$ son $7$ y $3$, así que $E=x_1+x_2=7+3=10$.
@@ -112,7 +112,7 @@ En la ecuación $x^2+(2k+5)x+k=0$, una raíz excede a la otra en 3 unidades. Det
 - E) 6
 
 **respuesta:** A
-**explicacion:** Esta pregunta tampoco tiene opción "ninguno" en el original — 5 opciones numéricas puras. Usa suma y producto de raíces.
+**explicacion:** Esta pregunta tampoco tiene opción "ninguno" en el original: 5 opciones numéricas puras. Usa suma y producto de raíces.
 Paso 1 · Sean las raíces $r$ y $r+3$. Suma: $r+(r+3)=2r+3=-(2k+5)$, de donde $r=-k-4$.
 Paso 2 · Producto: $r(r+3)=k$.
 Paso 3 · Sustituyendo $r=-k-4$: $(-k-4)^2+3(-k-4)-k=0 \Rightarrow k^2+8k+16-3k-12-k=0 \Rightarrow k^2+4k+4=0 \Rightarrow (k+2)^2=0 \Rightarrow k=-2$.
@@ -506,7 +506,7 @@ Un ecosistema llega a un estado de clímax cuando:
 
 **respuesta:** A
 **explicacion:** El estado clímax es la etapa final y estable de la sucesión ecológica.
-Paso 1 · El clímax es el estado en que una comunidad alcanza un equilibrio óptimo y estable con su ambiente, sin cambios drásticos — esto descarta (b), que describe justo lo opuesto.
+Paso 1 · El clímax es el estado en que una comunidad alcanza un equilibrio óptimo y estable con su ambiente, sin cambios drásticos: esto descarta (b), que describe justo lo opuesto.
 Paso 2 · (c) es parcialmente cierta pero incompleta (el equilibrio del clímax no es solo biótico, sino de toda la comunidad con su entorno), por lo que la mejor definición es (a).
 Respuesta: A.
 
@@ -590,7 +590,7 @@ Considerado uno de los biomas más importantes de Bolivia y el mundo por estar f
 
 **respuesta:** E
 **explicacion:** Ninguno de los biomas listados se caracteriza por ser un reservorio de agua boliviano.
-Paso 1 · La Taiga es un bosque de coníferas de climas fríos, la Sabana es un pastizal tropical y la Tundra es una llanura fría sin árboles — ninguno describe un "reservorio de agua".
+Paso 1 · La Taiga es un bosque de coníferas de climas fríos, la Sabana es un pastizal tropical y la Tundra es una llanura fría sin árboles: ninguno describe un "reservorio de agua".
 Paso 2 · El bioma boliviano típicamente asociado a reservorios de agua serían los humedales/bofedales andinos o la Amazonía, que no figuran entre las opciones dadas.
 Respuesta: E.
 
@@ -654,7 +654,7 @@ El límite de tolerancia de una emisión acústica recomendada por la OMS es de:
 **explicacion:** Compara cada valor con las guías reales de la OMS.
 Paso 1 · Un ambiente "tranquilo" ronda los 30-50 dB, no 65 dB (b es poco preciso).
 Paso 2 · Una moto emite típicamente entre 85-100 dB, no exactamente 80 dB de forma estándar (a es aproximado pero impreciso).
-Paso 3 · La OMS (Guidelines for Community Noise, 1999) recomienda que el nivel de presión sonora pico, para ruidos de impulso, no exceda los 140 dB en adultos — este es el valor de tolerancia límite oficialmente citado, coincidiendo con la opción (c).
+Paso 3 · La OMS (Guidelines for Community Noise, 1999) recomienda que el nivel de presión sonora pico, para ruidos de impulso, no exceda los 140 dB en adultos: este es el valor de tolerancia límite oficialmente citado, coincidiendo con la opción (c).
 Respuesta: C.
 
 ---
@@ -675,7 +675,7 @@ La posición de los organismos en la cadena alimenticia se denomina:
 **respuesta:** B
 **explicacion:** Distingue nivel trófico de nicho ecológico y hábitat.
 Paso 1 · El nivel trófico es específicamente la posición que ocupa un organismo en la cadena alimenticia (productor, consumidor primario, secundario, etc.).
-Paso 2 · El nicho ecológico es el rol funcional, y el hábitat es el lugar físico — ninguno de los dos es "posición en la cadena alimenticia".
+Paso 2 · El nicho ecológico es el rol funcional, y el hábitat es el lugar físico: ninguno de los dos es "posición en la cadena alimenticia".
 Respuesta: B.
 
 ---

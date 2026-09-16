@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-15 (botón central en la barra inferior, elegir examen pasa a ser navegación, la regla de leer-y-anotar, y el encargo abierto de auditoría pedagógica en §8)
+**Última actualización:** 2026-09-16 (la regla 11 llega al banco: 244 guiones largos afuera y quinto trinquete)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -314,6 +314,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-16 | Un script de puntuación dio 77 dos puntos y 147 puntos, exactamente al revés de lo medido antes de tocar nada | Los números no cuadraban con la medición previa | Corriendo sobre el archivo entero, el `:` de `**explicacion:**` cuenta como puntuación de la prosa. El resultado era gramatical igual, así que ningún test lo habría cantado: medí ANTES, y si después no cuadra, es el script, no el dato |
 
 ---
 
@@ -383,7 +384,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
 - [ ] **55 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado, porque ya traían la configuración descrita. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 55 y solo puede bajar. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
-- [ ] **Guiones largos en el banco**: la regla 11 de §4.5 (nada de "—" cerca de matemática, se confunde con el menos) se aplicó a las lecciones el 16-ago pero nunca al banco. Quedan 189 preguntas, y en 38 el guion está pegado a un número o una fórmula. Es un quinto trinquete natural.
+- [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
 - [x] ~~Auditoría visual sistemática en móvil~~ — hecha el 13-sep a 375px, pantalla por pantalla (ver §11). Salió el corte de las fórmulas, el avatar aplastado y cuatro bugs más.
@@ -447,6 +448,26 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (la regla 11 llega al banco: 244 guiones largos afuera)
+
+La regla 11 de §4.5 (nada de guion largo cerca de matemática, se confunde con el signo menos) se había aplicado a las 74 lecciones el 16-ago y nunca al banco. Quedaban 253 guiones en 189 preguntas, y en 44 el guion estaba pegado a un número o una fórmula:
+
+> "la suma de raíces es $-B/A$ — no hace falta resolver la cuadrática"
+
+Ahora dice "$-B/A$: no hace falta resolver la cuadrática".
+
+**Había dos estructuras y no se podían tratar igual.** 13 son INCISOS (guiones de a pares, pegados al texto que encierran) y pasan a paréntesis: *"reafirmando —no contradiciendo— las ideas"* queda *"reafirmando (no contradiciendo) las ideas"*. Los otros 227 son SEPARADORES (" — ") y pasan a dos puntos (143), punto y mayúscula (81) o coma (7, cuando lo que sigue es una conjunción). No se puede poner dos puntos siempre: 81 caen en una cláusula que YA tiene dos puntos y quedarían repetidos.
+
+**El error propio de esta tanda, que vale más que el arreglo.** La primera corrida dio 77 dos puntos y 147 puntos, justo al revés de lo que se había medido antes de tocar nada. La causa: el script corre sobre el archivo entero y el `:` de `**explicacion:**` contaba como puntuación de la prosa, forzando punto donde correspondían dos puntos. Lo importante es que **el resultado habría sido gramatical igual**, así que ningún test lo habría cantado y el diff se habría leído bien. Solo se vio porque los números no cuadraban con la medición previa. Moraleja: medir ANTES de tocar, y si el después no cuadra, sospechar del script, no del dato.
+
+Las notas del curador (`<!-- -->`) quedan afuera, con sus 148 guiones: van en rioplatense y no las ve el alumno.
+
+**Quinto trinquete:** `el banco no usa guion largo en el texto del alumno`, que mira enunciado, opciones y explicación. Está en 0. Se probó que puede fallar inyectando un guion a mano.
+
+**Verificación que sirve para la próxima:** como acá solo se tocaba puntuación, alcanzó con quitar TODA la puntuación y bajar a minúsculas a los 67 archivos y exigir que el texto quedara idéntico al de `main`. Si se hubiera movido una sola palabra, saltaba.
+
+**Nota de proceso.** Esta tanda arrancó con el `main` del 14-sep y no se volvió a hacer `fetch` antes de escribir, que es justo lo que la regla 1 de CLAUDE.md pide desde el 15-sep. `main` había avanzado 43 commits. Salió barato de casualidad: la otra sesión no había tocado los guiones y solo un archivo se solapaba (`2016-1op-2-2016.md`, donde habían pasado una tabla a LaTeX en otra pregunta), así que el rebase entró limpio. La regla está para que la próxima vez no dependa de la suerte.
 
 ### 2026-09-15 (botón central en la barra · elegir examen pasa a ser navegación · la regla de leer-y-anotar)
 

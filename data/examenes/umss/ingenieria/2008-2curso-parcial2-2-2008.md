@@ -489,7 +489,7 @@ Paso 1 · Sea el auto liviano de masa $m$ y velocidad $v_L$, y el pesado de masa
 Paso 2 · Al aumentar ambos 5.5 m/s, energías iguales: $\frac12(v_L+5.5)^2=(v_H+5.5)^2$. Sustituyendo $v_H=v_L/2$: $\frac12(v_L+5.5)^2=(v_L/2+5.5)^2$.
 Paso 3 · Expandiendo: $0.5v_L^2+5.5v_L+15.125=0.25v_L^2+5.5v_L+30.25 \Rightarrow 0.25v_L^2=15.125 \Rightarrow v_L^2=60.5 \Rightarrow v_L=\sqrt{60.5}=5.5\sqrt2\approx7.778$ m/s.
 Paso 4 · $v_H=v_L/2=2.75\sqrt2\approx3.889$ m/s.
-Paso 5 · El par exacto es $(3.889,\,7.778)$. La opción c) trae "3.89 y 7.88": el primer valor coincide exacto, y el segundo ($7.78=2\times3.89$ exactamente) casi seguro es un error de tipeo del original ("7.88" en vez de "7.78" — swap de los últimos dos dígitos), no una opción genuinamente distinta. Con esa lectura, C es la respuesta.
+Paso 5 · El par exacto es $(3.889,\,7.778)$. La opción c) trae "3.89 y 7.88": el primer valor coincide exacto, y el segundo ($7.78=2\times3.89$ exactamente) casi seguro es un error de tipeo del original ("7.88" en vez de "7.78". Swap de los últimos dos dígitos), no una opción genuinamente distinta. Con esa lectura, C es la respuesta.
 Respuesta: C.
 
 ---

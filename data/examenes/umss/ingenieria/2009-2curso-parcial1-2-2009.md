@@ -257,7 +257,7 @@ El suplemento del complemento del ángulo φ es igual al quíntuplo del compleme
 **explicacion:** Plantea la ecuación con el complemento $c=90°-\varphi$ y su suplemento $180°-c$.
 Paso 1 · Complemento: $c=90°-\varphi$. Suplemento del complemento: $180°-c=180°-(90°-\varphi)=90°+\varphi$.
 Paso 2 · Ecuación: $90°+\varphi=5(90°-\varphi) \Rightarrow 90°+\varphi=450°-5\varphi \Rightarrow 6\varphi=360° \Rightarrow \varphi=60°$.
-Paso 3 · El complemento pedido es $c=90°-60°=30°$, valor que NO figura entre las opciones (100°, 80°, 60°, 150°) — nótese que 60° (opción C) es el valor de φ, no de su complemento, que es lo que pide el enunciado.
+Paso 3 · El complemento pedido es $c=90°-60°=30°$, valor que NO figura entre las opciones (100°, 80°, 60°, 150°): nótese que 60° (opción C) es el valor de φ, no de su complemento, que es lo que pide el enunciado.
 Paso 4 · Por política de rigor, no se fuerza el resultado a la opción que coincide por casualidad con φ.
 Respuesta: E.
 
