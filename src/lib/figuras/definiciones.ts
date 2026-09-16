@@ -2402,8 +2402,277 @@ function f7secantesArcos(): Figura {
   return { ancho: 430, alto: 280, pasos: 0, elementos: el };
 }
 
+// ── F19 (2-2014 parcial 2da) · dos péndulos y choque elástico ──
+// m1=2 kg se suelta desde 90° con L=2 m: llega abajo con v=√(2gL)=2√10.
+// Choque elástico contra m2=4 kg en reposo: v2'=2m1/(m1+m2)·v1=(4√10)/3,
+// y sube h=v2'²/(2g)=8/9 m.
+function f19pendulosChoque(): Figura {
+  const TECHO = 22;                     // el techo
+  const PIV = 52;                       // los pivotes cuelgan del techo, para que
+  const L = 104;                        // el hilo horizontal de m1 no pise el techo
+  const P2: Pt = { x: 244, y: PIV };
+  const P1: Pt = { x: P2.x - 24, y: PIV };
+  const M2 = avanzar(P2, -90, L);
+  const M1ini = avanzar(P1, 180, L);
+  const M1baj = avanzar(P1, -90, L);
+  const H = 42;                         // altura a la que sube m2 (la incógnita)
+  const M2alto: Pt = { x: M2.x + 84, y: M2.y - H };
+
+  verificarAngulo("m1 arranca a 90° de la vertical", 90, anguloEn(P1, M1ini, M1baj));
+  verificarDistancia("los dos hilos miden lo mismo", distancia(P2, M2), distancia(P1, M1ini), 0.5);
+
+  const el: Elemento[] = [
+    // techo y los dos pivotes colgando de él
+    { tipo: "linea", de: { x: 176, y: TECHO }, a: { x: 316, y: TECHO }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: P1.x, y: TECHO }, a: P1, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: P2.x, y: TECHO }, a: P2, rol: "trazo", grosor: 1.6 },
+    { tipo: "punto", en: P1, rol: "trazo", r: 2.4 },
+    { tipo: "punto", en: P2, rol: "trazo", r: 2.4 },
+    // m1 arrancando en horizontal, y el arco que va a recorrer
+    { tipo: "linea", de: P1, a: M1ini, rol: "trazo", grosor: 1.4 },
+    { tipo: "punto", en: M1ini, rol: "dato", color: ROJO, r: 11 },
+    { tipo: "texto", en: { x: M1ini.x, y: M1ini.y - 22 }, texto: "m₁ = 2 kg", rol: "dato", color: ROJO, tam: 11 },
+    { tipo: "path", d: arcoAngulo(P1, 180, -90, L).d, rol: "aux" },
+    { tipo: "arco", d: arcoAngulo(P1, 180, -90, 26, 42).d, rol: "incognita" },
+    { tipo: "texto", en: arcoAngulo(P1, 180, -90, 26, 56).etiquetaEn, texto: "90°", rol: "incognita", tam: 11 },
+    // m2 en reposo
+    { tipo: "linea", de: P2, a: M2, rol: "trazo", grosor: 1.4 },
+    { tipo: "punto", en: M2, rol: "trazo", r: 13 },
+    { tipo: "texto", en: { x: M2.x - 4, y: M2.y + 28 }, texto: "m₂ = 4 kg", rol: "trazo", tam: 11 },
+    { tipo: "texto", en: { x: P2.x - 14, y: PIV + L / 2 }, texto: "L = 2 m", rol: "dato", color: AMBAR, tam: 11, ancla: "end" },
+    // a dónde llega m2 después del choque: la incógnita
+    { tipo: "linea", de: P2, a: M2alto, rol: "aux", punteada: true },
+    { tipo: "punto", en: M2alto, rol: "incognita", r: 11 },
+    { tipo: "linea", de: { x: M2.x, y: M2.y }, a: { x: M2alto.x + 34, y: M2.y }, rol: "aux", punteada: true },
+    { tipo: "linea", de: { x: M2alto.x + 26, y: M2alto.y }, a: { x: M2alto.x + 34, y: M2alto.y }, rol: "aux", punteada: true },
+    { tipo: "linea", de: { x: M2alto.x + 30, y: M2.y }, a: { x: M2alto.x + 30, y: M2alto.y }, rol: "incognita", grosor: 1.6 },
+    { tipo: "texto", en: { x: M2alto.x + 38, y: M2.y - H / 2 }, texto: "h = ?", rol: "incognita", tam: 12, ancla: "start" },
+  ];
+  return { ancho: 400, alto: 230, pasos: 0, elementos: el };
+}
+
+// ── F10 (1-2016 2da) · tres bloques en línea arrastrados por F ──
+// Superficie lisa: a = F/(m1+m2+m3) = 3/12 = 0,25. El cable "2" solo tiene
+// que arrastrar a m3, así que T2 = m3·a = 6·0,25 = 3/2 N.
+function f10tresBloquesCable(): Figura {
+  const piso = 112, ALTO = 42;
+  const Y = piso - ALTO;   // el bloque APOYA en el piso: su altura define dónde empieza
+  const XS = [70, 170, 272];            // m3, m2, m1 (en ese orden)
+  const ANCHOS = [52, 46, 38];
+  const NOMBRES = ["m₃ = 6 kg", "m₂ = 4 kg", "m₁ = 2 kg"];
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 24, y: piso }, a: { x: 390, y: piso }, rol: "trazo", grosor: 2.2 },
+    { tipo: "texto", en: { x: 200, y: piso + 20 }, texto: "superficie lisa", rol: "trazo", tam: 10 },
+  ];
+  XS.forEach((x, i) => {
+    const w = ANCHOS[i];
+    el.push({ tipo: "poligono", puntos: [
+      { x, y: Y }, { x: x + w, y: Y }, { x: x + w, y: piso }, { x, y: piso }],
+      rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" });
+    el.push({ tipo: "texto", en: { x: x + w / 2, y: Y + ALTO / 2 }, texto: NOMBRES[i].split(" ")[0], rol: "trazo", tam: 12 });
+    el.push({ tipo: "texto", en: { x: x + w / 2, y: Y - 14 }, texto: NOMBRES[i].slice(NOMBRES[i].indexOf("=") + 2), rol: "dato", color: AMBAR, tam: 10 });
+  });
+  // cable 2 (entre m3 y m2) y cable 1 (entre m2 y m1)
+  const yCable = Y + ALTO / 2;
+  el.push({ tipo: "linea", de: { x: XS[0] + ANCHOS[0], y: yCable }, a: { x: XS[1], y: yCable }, rol: "incognita", grosor: 2 });
+  el.push({ tipo: "texto", en: { x: (XS[0] + ANCHOS[0] + XS[1]) / 2, y: yCable - 16 }, texto: "cable 2", rol: "incognita", tam: 11, negrita: true });
+  el.push({ tipo: "linea", de: { x: XS[1] + ANCHOS[1], y: yCable }, a: { x: XS[2], y: yCable }, rol: "trazo", grosor: 1.6 });
+  el.push({ tipo: "texto", en: { x: (XS[1] + ANCHOS[1] + XS[2]) / 2, y: yCable - 16 }, texto: "cable 1", rol: "trazo", tam: 10 });
+  // la fuerza, sobre m1
+  const desdeF: Pt = { x: XS[2] + ANCHOS[2], y: yCable };
+  el.push({ tipo: "linea", de: desdeF, a: avanzar(desdeF, 0, 62), rol: "resultado", color: ROJO, grosor: 2.2 });
+  el.push({ tipo: "path", d: cabezaFlecha(avanzar(desdeF, 0, 62), 0, 8), rol: "resultado", color: ROJO, relleno: true });
+  el.push({ tipo: "texto", en: { x: desdeF.x + 34, y: yCable - 16 }, texto: "F = 3 N", rol: "resultado", color: ROJO, tam: 12, negrita: true });
+  return { ancho: 400, alto: 148, pasos: 0, elementos: el };
+}
+
+// ── F18 (2-2024 parcial 2da) · plano inclinado en equilibrio ──
+// T = W·senθ → 100 = 200·senθ → θ = 30°. Con altura 4: L = 4/tan30° = 4√3 ≈ 7 m.
+function f18planoEquilibrio(): Figura {
+  const ESC = 26;
+  const ALTO_M = 4, L_M = 4 * Math.sqrt(3);
+  const Y0 = 196;
+  const P: Pt = { x: 62, y: Y0 };                                  // vértice del ángulo
+  const Q: Pt = { x: P.x + L_M * ESC, y: Y0 };                     // esquina inferior derecha
+  const A: Pt = { x: Q.x, y: Y0 - ALTO_M * ESC };                  // lo alto
+
+  verificarAngulo("inclinación = 30°", 30, anguloEn(P, Q, A));
+  verificarDistancia("altura = 4 m", ALTO_M * ESC, distancia(Q, A), 0.5);
+
+  const sobreRampa = avanzar(A, anguloHacia(A, P), 78);
+  const bloque = bloqueSobre(sobreRampa, anguloHacia(A, P), 34, 19);
+  const tDesde = avanzar(sobreRampa, anguloHacia(P, A), 20);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [P, Q, A], rol: "trazo", relleno: true, rellenoColor: "#f1f0eb" },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "texto", en: { x: sobreRampa.x - 6, y: sobreRampa.y - 30 }, texto: "200 N", rol: "dato", color: ROJO, tam: 11 },
+    // la cuerda, tirando rampa arriba
+    { tipo: "linea", de: tDesde, a: avanzar(tDesde, anguloHacia(P, A), 58), rol: "resultado", color: VERDE, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(tDesde, anguloHacia(P, A), 58), anguloHacia(P, A), 8), rol: "resultado", color: VERDE, relleno: true },
+    { tipo: "texto", en: { x: A.x - 52, y: A.y - 16 }, texto: "T = 100 N", rol: "resultado", color: VERDE, tam: 11 },
+    // cotas
+    { tipo: "linea", de: { x: Q.x + 26, y: A.y }, a: { x: Q.x + 26, y: Q.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x + 20, y: A.y }, a: { x: Q.x + 32, y: A.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x + 20, y: Q.y }, a: { x: Q.x + 32, y: Q.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: Q.x + 38, y: (A.y + Q.y) / 2 }, texto: "4 m", rol: "dato", color: AMBAR, tam: 11, ancla: "start" },
+    { tipo: "linea", de: { x: P.x, y: Y0 + 28 }, a: { x: Q.x, y: Y0 + 28 }, rol: "incognita", grosor: 1.4 },
+    { tipo: "linea", de: { x: P.x, y: Y0 + 22 }, a: { x: P.x, y: Y0 + 34 }, rol: "incognita", grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x, y: Y0 + 22 }, a: { x: Q.x, y: Y0 + 34 }, rol: "incognita", grosor: 1.4 },
+    { tipo: "texto", en: { x: (P.x + Q.x) / 2, y: Y0 + 46 }, texto: "L = ?", rol: "incognita", tam: 12 },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(Q, 180, -90, 11), rol: "trazo" },
+  ];
+  return { ancho: 400, alto: 256, pasos: 0, elementos: el };
+}
+
+// ── F9 (2-2017 2da) · A cae del muro y B se lanza desde el piso ──
+// Es el problema del "cazador y el mono": para que choquen, B tiene que
+// apuntar a la posición INICIAL de A. tanθ = 40/40 = 1 → θ = 45°.
+function f9caidaYLanzamiento(): Figura {
+  const ESC = 2.9;                      // px por metro
+  const PISO = 212;
+  const H = 40 * ESC, D = 40 * ESC;
+  const baseMuro: Pt = { x: 90, y: PISO };
+  const A: Pt = { x: baseMuro.x, y: PISO - H };     // arriba del muro
+  const B: Pt = { x: baseMuro.x + D, y: PISO };     // en el piso, a 40 m
+
+  // θ se mide contra la horizontal que apunta AL MURO, que queda a la izquierda de B.
+  verificarAngulo("apuntar a A da 45°", 45, anguloEn(B, A, { x: B.x - 60, y: PISO }));
+  verificarDistancia("muro de 40 m", H, distancia(baseMuro, A), 0.5);
+  verificarDistancia("separación de 40 m", D, distancia(baseMuro, B), 0.5);
+
+  const P: Pt = { x: A.x, y: A.y + H * 0.42 };      // el choque, sobre la vertical de A
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 40, y: PISO }, a: { x: 350, y: PISO }, rol: "trazo", grosor: 2.2 },
+    // el muro
+    { tipo: "poligono", puntos: [{ x: baseMuro.x - 20, y: PISO }, { x: baseMuro.x, y: PISO }, A, { x: baseMuro.x - 20, y: A.y }],
+      rol: "trazo", relleno: true, rellenoColor: "#d7d7e0" },
+    // A cae: se suelta del reposo
+    { tipo: "punto", en: A, rol: "dato", color: ROJO, r: 7 },
+    { tipo: "texto", en: { x: A.x + 14, y: A.y - 12 }, texto: "A", rol: "dato", color: ROJO, tam: 13, negrita: true },
+    { tipo: "linea", de: avanzar(A, -90, 12), a: avanzar(A, -90, 42), rol: "dato", color: ROJO, grosor: 1.8, punteada: true },
+    { tipo: "path", d: cabezaFlecha(avanzar(A, -90, 42), -90, 7), rol: "dato", color: ROJO, relleno: true },
+    // B se lanza apuntando a A
+    { tipo: "punto", en: B, rol: "resultado", color: VERDE, r: 7 },
+    { tipo: "texto", en: { x: B.x + 12, y: B.y - 14 }, texto: "B", rol: "resultado", color: VERDE, tam: 13, negrita: true },
+    { tipo: "linea", de: B, a: avanzar(B, anguloHacia(B, A), 62), rol: "resultado", color: VERDE, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(B, anguloHacia(B, A), 62), anguloHacia(B, A), 8), rol: "resultado", color: VERDE, relleno: true },
+    { tipo: "texto", en: { x: B.x + 16, y: B.y - 58 }, texto: "V₀ = 40 m/s", rol: "resultado", color: VERDE, tam: 11, ancla: "start" },
+    { tipo: "arco", d: arcoAngulo(B, 180, anguloHacia(B, A), 34, 50).d, rol: "incognita" },
+    { tipo: "texto", en: { x: B.x - 46, y: B.y - 16 }, texto: "θ", rol: "incognita", tam: 13, negrita: true },
+    // la línea de mira, que es la clave del problema
+    { tipo: "linea", de: B, a: A, rol: "aux", punteada: true },
+    // el punto de encuentro
+    { tipo: "punto", en: P, rol: "incognita", r: 5 },
+    { tipo: "texto", en: { x: P.x + 14, y: P.y }, texto: "P", rol: "incognita", tam: 12, negrita: true },
+    // cotas
+    { tipo: "linea", de: { x: baseMuro.x - 36, y: A.y }, a: { x: baseMuro.x - 36, y: PISO }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: baseMuro.x - 42, y: A.y }, a: { x: baseMuro.x - 30, y: A.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: baseMuro.x - 42, y: PISO }, a: { x: baseMuro.x - 30, y: PISO }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: baseMuro.x - 46, y: (A.y + PISO) / 2 }, texto: "40 m", rol: "dato", color: AMBAR, tam: 11, ancla: "end" },
+    { tipo: "linea", de: { x: baseMuro.x, y: PISO + 26 }, a: { x: B.x, y: PISO + 26 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: baseMuro.x, y: PISO + 20 }, a: { x: baseMuro.x, y: PISO + 32 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: B.x, y: PISO + 20 }, a: { x: B.x, y: PISO + 32 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: (baseMuro.x + B.x) / 2, y: PISO + 44 }, texto: "40 m", rol: "dato", color: AMBAR, tam: 11 },
+  ];
+  return { ancho: 380, alto: 272, pasos: 0, elementos: el };
+}
+
+// ── F11 (3-2017 1ra) · pared de la muerte (cilindro vertical) ──
+// La respuesta (20 m/s) confirma cuál de los dos montajes es: sale de
+// μN = mg con N = mv²/r, o sea v = √(gr/μ) = √(10·20/0,5) = 20. Un rizo
+// vertical daría √(gr) ≈ 14,1 y ni siquiera usaría μ.
+function f11paredMuerte(): Figura {
+  const CX = 200, CY = 92, RX = 118, RY = 34;    // el cilindro, en perspectiva
+  const ALTO = 96;
+  const moto: Pt = { x: CX + RX, y: CY + 30 };   // la moto, contra la pared interior
+
+  const el: Elemento[] = [
+    // boca del cilindro (elipse) y sus paredes
+    { tipo: "path", d: `M ${CX - RX} ${CY} A ${RX} ${RY} 0 1 0 ${CX + RX} ${CY} A ${RX} ${RY} 0 1 0 ${CX - RX} ${CY}`, rol: "trazo" },
+    { tipo: "linea", de: { x: CX - RX, y: CY }, a: { x: CX - RX, y: CY + ALTO }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: CX + RX, y: CY }, a: { x: CX + RX, y: CY + ALTO }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: `M ${CX - RX} ${CY + ALTO} A ${RX} ${RY} 0 0 0 ${CX + RX} ${CY + ALTO}`, rol: "trazo" },
+    // el radio, sobre la boca
+    { tipo: "linea", de: { x: CX, y: CY }, a: { x: CX + RX, y: CY }, rol: "dato", color: AMBAR, grosor: 1.6 },
+    { tipo: "punto", en: { x: CX, y: CY }, rol: "dato", color: AMBAR, r: 2.6 },
+    { tipo: "texto", en: { x: CX + RX / 2, y: CY - 12 }, texto: "r = 20 m", rol: "dato", color: AMBAR, tam: 11 },
+    // la moto, pegada a la pared
+    { tipo: "poligono", puntos: [
+        { x: moto.x - 20, y: moto.y - 9 }, { x: moto.x - 2, y: moto.y - 9 },
+        { x: moto.x - 2, y: moto.y + 9 }, { x: moto.x - 20, y: moto.y + 9 }],
+      rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
+    // las tres fuerzas que sostienen el problema
+    { tipo: "linea", de: moto, a: avanzar(moto, 180, 56), rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(moto, 180, 56), 180, 7), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: moto.x - 60, y: moto.y - 12 }, texto: "N", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "end" },
+    { tipo: "linea", de: moto, a: avanzar(moto, 90, 44), rol: "aux", grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(moto, 90, 44), 90, 7), rol: "aux", relleno: true },
+    { tipo: "texto", en: { x: moto.x + 16, y: moto.y - 46 }, texto: "f = μN", rol: "aux", tam: 11, ancla: "start" },
+    { tipo: "linea", de: moto, a: avanzar(moto, -90, 44), rol: "incognita", grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(moto, -90, 44), -90, 7), rol: "incognita", relleno: true },
+    { tipo: "texto", en: { x: moto.x + 16, y: moto.y + 46 }, texto: "mg", rol: "incognita", tam: 11, ancla: "start" },
+    { tipo: "texto", en: { x: CX, y: CY + ALTO + 52 }, texto: "μ = 0,5 entre la moto y la pared", rol: "dato", color: AMBAR, tam: 11 },
+  ];
+  return { ancho: 400, alto: 262, pasos: 0, elementos: el };
+}
+
+// ── F20 (1-2024 final) · dos fuentes de 8V a un nodo, y 5Ω + 32V a tierra ──
+// Nodo a V: (8−V)/2 + (8−V)/2 = (V−32)/5 → V = 12, I = 4 A por el 5Ω.
+// P = I²R = 16·5 = 80 W.
+function f20dosFuentesNodo(): Figura {
+  const TIERRA = 236, ARR = 54;
+  const IZQ = 56, DER = 344, NODO_X = 200;
+  const NODO: Pt = { x: NODO_X, y: ARR };
+
+  const pila = (x: number, y: number, etiqueta: string): Elemento[] => ([
+    { tipo: "linea", de: { x: x - 14, y }, a: { x: x + 14, y }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: x - 7, y: y + 10 }, a: { x: x + 7, y: y + 10 }, rol: "trazo", grosor: 1.4 },
+    { tipo: "texto", en: { x: x + 24, y: y + 5 }, texto: etiqueta, rol: "dato", color: AMBAR, tam: 11, ancla: "start" },
+  ]);
+
+  const el: Elemento[] = [
+    // riel de tierra
+    { tipo: "linea", de: { x: IZQ, y: TIERRA }, a: { x: DER, y: TIERRA }, rol: "trazo", grosor: 2 },
+    { tipo: "texto", en: { x: DER + 6, y: TIERRA + 4 }, texto: "tierra", rol: "trazo", tam: 10, ancla: "start" },
+    // riel de arriba, que une las dos ramas con el nodo
+    { tipo: "linea", de: { x: IZQ, y: ARR }, a: { x: DER, y: ARR }, rol: "trazo", grosor: 1.8 },
+    // rama izquierda: 8V en serie con 2Ω
+    { tipo: "linea", de: { x: IZQ, y: ARR }, a: { x: IZQ, y: 108 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: IZQ, y: 108 }, { x: IZQ, y: 158 }), rol: "trazo" },
+    { tipo: "texto", en: { x: IZQ - 8, y: 133 }, texto: "2 Ω", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "linea", de: { x: IZQ, y: 158 }, a: { x: IZQ, y: 186 }, rol: "trazo", grosor: 1.6 },
+    ...pila(IZQ, 186, "8 V"),
+    { tipo: "linea", de: { x: IZQ, y: 196 }, a: { x: IZQ, y: TIERRA }, rol: "trazo", grosor: 1.6 },
+    // rama derecha: igual
+    { tipo: "linea", de: { x: DER, y: ARR }, a: { x: DER, y: 108 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: DER, y: 108 }, { x: DER, y: 158 }), rol: "trazo" },
+    { tipo: "texto", en: { x: DER - 8, y: 133 }, texto: "2 Ω", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "linea", de: { x: DER, y: 158 }, a: { x: DER, y: 186 }, rol: "trazo", grosor: 1.6 },
+    ...pila(DER, 186, "8 V"),
+    { tipo: "linea", de: { x: DER, y: 196 }, a: { x: DER, y: TIERRA }, rol: "trazo", grosor: 1.6 },
+    // rama del medio: 5Ω en serie con 32V, del nodo a tierra
+    { tipo: "punto", en: NODO, rol: "resultado", color: ROJO, r: 3.6 },
+    { tipo: "path", d: resistorZigzag({ x: NODO_X, y: ARR + 14 }, { x: NODO_X, y: 116 }), rol: "resultado", color: ROJO },
+    { tipo: "texto", en: { x: NODO_X + 14, y: 86 }, texto: "5 Ω", rol: "resultado", color: ROJO, tam: 12, negrita: true, ancla: "start" },
+    { tipo: "linea", de: { x: NODO_X, y: 116 }, a: { x: NODO_X, y: 186 }, rol: "trazo", grosor: 1.6 },
+    ...pila(NODO_X, 186, "32 V"),
+    { tipo: "linea", de: { x: NODO_X, y: 196 }, a: { x: NODO_X, y: TIERRA }, rol: "trazo", grosor: 1.6 },
+    { tipo: "texto", en: { x: NODO_X, y: ARR - 16 }, texto: "nodo común", rol: "dato", color: AMBAR, tam: 10 },
+  ];
+  return { ancho: 400, alto: 270, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
+  "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
+  "f11-pared-de-la-muerte": f11paredMuerte,
+  "f20-dos-fuentes-nodo-comun": f20dosFuentesNodo,
+  "f19-pendulos-choque-elastico": f19pendulosChoque,
+  "f10-tres-bloques-cable2": f10tresBloquesCable,
+  "f18-plano-cuerda-equilibrio": f18planoEquilibrio,
   "f12-energia-rampa-friccion": f12energiaRampa,
   "f6-secantes-potencia-punto": f6secantesPotencia,
   "f7-secantes-arcos-bde": f7secantesArcos,

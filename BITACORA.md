@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-16 (regla 11 en el banco, y 8 figuras faltantes dibujadas: 55 → 47)
+**Última actualización:** 2026-09-16 (regla 11 en el banco, 14 figuras dibujadas: 55 → 41, y qué falta para las 41 que quedan)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -383,7 +383,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
-- [ ] **47 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado y 8 se dibujaron el 16-sep. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 47 y solo puede bajar. De las que quedan, solo 8 son reconstruibles sin el facsímil: el resto necesita los PDF. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
+- [ ] **41 enunciados nombran una figura que no existe, y necesitan el facsímil.** Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban). Las 41 que quedan no se pueden reconstruir del texto. Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 41 y solo puede bajar.
 - [ ] **Ningún test construye las figuras.** Si una verificación geométrica explota, se entera el alumno y no el CI. El obstáculo está documentado (`definiciones.ts` importa `./motor` sin extensión y `node --test` corre ESM); una salida sin tocar los imports de la app es un paso aparte en CI que las construya con `tsx`.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
@@ -449,6 +449,27 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (quater) (seis figuras más, y se agotó lo que se puede hacer sin los PDF)
+
+**41 enunciados quedan sin su dibujo** (venía de 47). Seis figuras nuevas:
+
+| id | pregunta | verificación de la física |
+|---|---|---|
+| `f19-pendulos-choque-elastico` | 2-2014 parcial 2da P19 | v₁=√(2gL)=2√10; elástico v₂'=(4√10)/3; h=8/9 m (B) |
+| `f10-tres-bloques-cable2` | 1-2016 2da P10 | a=F/12=0,25; el cable 2 solo arrastra a m₃: T=6·0,25=3/2 N (C) |
+| `f18-plano-cuerda-equilibrio` | 2-2024 parcial 2da P18 | 100=200·senθ → θ=30°; L=4/tan30°=4√3≈7 m (B) |
+| `f9-caida-y-lanzamiento-45` | 2-2017 1ra P9 | cazador y mono: tanθ=40/40 → θ=45° (D) |
+| `f11-pared-de-la-muerte` | 3-2017 1ra P11 | v=√(gr/μ)=√400=20 (C) |
+| `f20-dos-fuentes-nodo-comun` | 1-2024 final P20 | nodo a 12 V, I=4 A por el 5Ω, P=I²R=80 W (D) |
+
+**La respuesta puede desambiguar el dibujo.** La del automovilista se había descartado antes por no saber si era un rizo o una pared cilíndrica. La respuesta lo resuelve: 20 m/s sale de v=√(gr/μ), que es la pared cilíndrica; un rizo daría √(gr)≈14,1 y ni usaría μ. Cuando el texto no alcanza, a veces la clave sí.
+
+**Una verificación atajó un error real.** En la del muro, `verificarAngulo` explotó con *"debería medir 45° pero mide 135°"*: el ángulo se estaba midiendo contra la horizontal que apunta a la derecha, y el muro está a la IZQUIERDA de B. Es exactamente para lo que están esas verificaciones.
+
+**Y otra vez, mirar el render encontró lo que los números no cantan.** En la de los péndulos, m₁ arrancaba en horizontal a la altura del pivote y la bola quedaba dibujada ENCIMA de la barra de soporte; se rehizo colgando los pivotes del techo con dos varillas cortas. En la de los tres bloques, `Y` y `ALTO` eran incoherentes (bloques de 20 px con centrado calculado para 40) y los cables corrían por el piso.
+
+**Se agotó lo que se puede hacer sin los facsímiles.** De las 41 que quedan, ninguna se puede reconstruir del enunciado: la figura carga información que el texto no tiene. Qué hace falta para cada una, y las tres formas de desbloquearlo (mandar recortes, versionar recortes en `data/figuras-fuente/`, o correr Claude Code en la máquina donde están los PDF), quedó escrito en **[`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md)**, con la lista completa por examen y pregunta.
 
 ### 2026-09-16 (ter) (tres figuras más, y una que se descartó a propósito)
 
