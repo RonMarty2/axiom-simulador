@@ -2665,6 +2665,294 @@ function f20dosFuentesNodo(): Figura {
   return { ancho: 400, alto: 270, pasos: 0, elementos: el };
 }
 
+// ── Las cuatro figuras del examen 1-2016, 1ra opción ──
+// Leídas del facsímil `examenes pasados/FCYT/141_1ra-op-1-2016.pdf`, página 1
+// (Figura 1, Figura 2 y la del G7) y página 2 (la del F10), renderizado a
+// 300 dpi y recortado para medirlas. Las tres primeras estaban en la lista de
+// `docs/figuras-pendientes.md`; la del G7 NO estaba y el PDF la tiene.
+
+// Rayado de una superficie fija (piso o techo) entre x1 y x2, a la altura y.
+// `haciaArriba` pone las plumas por encima de la línea, como el techo del F10.
+function rayado(x1: number, x2: number, y: number, haciaArriba = false): Elemento[] {
+  const el: Elemento[] = [];
+  for (let x = x1 + 7; x <= x2; x += 15) {
+    el.push({
+      tipo: "linea",
+      de: { x, y },
+      a: { x: x - 8, y: haciaArriba ? y - 9 : y + 9 },
+      rol: "trazo",
+      grosor: 1,
+    });
+  }
+  return el;
+}
+
+// El solcito del facsímil: disco chico con plumas alrededor.
+function sol(centro: Pt, radio = 8): Elemento[] {
+  const el: Elemento[] = [{ tipo: "punto", en: centro, r: radio, rol: "dato", color: AMBAR }];
+  for (let a = 0; a < 360; a += 30) {
+    el.push({
+      tipo: "linea",
+      de: avanzar(centro, a, radio + 3),
+      a: avanzar(centro, a, radio + 9),
+      rol: "dato", color: AMBAR, grosor: 1.2,
+    });
+  }
+  return el;
+}
+
+// ── G5 (1-2016 1ra) · cuadrado con tres segmentos internos de 5 cm ──
+// Figura 1 del PDF. Los dos segmentos que salen de los vértices izquierdos
+// llegan al MISMO punto interior, así que ese punto está sobre la mediatriz de
+// esos dos vértices: la línea media horizontal. El tercero sale de ahí
+// horizontal hasta el lado derecho. Eso fija el lado en 8 (y el área en 64):
+// con P = (s-5, s/2), (s-5)² + (s/2)² = 25 ⇒ s = 8, P = (3,4).
+// El dibujo usa el lado real (8 cm) para que las proporciones no mientan.
+function g5tresSegmentos5(): Figura {
+  const ESC = 26;                 // px por cm
+  const LADO = 8 * ESC;           // el lado real que sale del sistema
+  const X0 = 106, Y0 = 30;
+
+  // (cx, cy) en cm medidos desde el vértice inferior izquierdo
+  const en = (cx: number, cy: number): Pt => ({ x: X0 + cx * ESC, y: Y0 + (8 - cy) * ESC });
+
+  const TL = en(0, 8), TR = en(8, 8), BR = en(8, 0), BL = en(0, 0);
+  const P = en(3, 4);             // el punto interior
+  const R = en(8, 4);             // donde el segmento horizontal toca el lado derecho
+
+  // Los tres segmentos tienen que medir 5 cm de verdad, no parecerlo.
+  verificarDistancia("segmento desde el vértice superior izquierdo", 5 * ESC, distancia(TL, P));
+  verificarDistancia("segmento desde el vértice inferior izquierdo", 5 * ESC, distancia(BL, P));
+  verificarDistancia("segmento horizontal hasta el lado derecho", 5 * ESC, distancia(P, R));
+  verificarDistancia("el punto interior está a media altura", 0, Math.abs(P.y - (TL.y + BL.y) / 2), 0.01);
+
+  // Las etiquetas de los dos segmentos oblicuos van ROTADAS sobre el trazo.
+  // Horizontales no se pueden: el texto corre hacia la derecha y el segmento
+  // baja (o sube) más rápido, así que lo cruza siempre en algún punto.
+  const etiquetaOblicua = (a: Pt, b: Pt, ladoPerp: number): Elemento => {
+    const dir = anguloHacia(a, b);
+    const medio: Pt = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    return {
+      tipo: "texto", en: avanzar(medio, dir + ladoPerp, 12), texto: "5 cm",
+      rol: "dato", tam: 11.5, negrita: true, rot: -dir,
+    };
+  };
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [TL, TR, BR, BL], rol: "trazo" },
+    { tipo: "linea", de: TL, a: P, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: BL, a: P, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: P, a: R, rol: "trazo", grosor: 1.8 },
+    etiquetaOblicua(TL, P, -90),
+    etiquetaOblicua(BL, P, 90),
+    { tipo: "texto", en: { x: (P.x + R.x) / 2, y: P.y - 13 }, texto: "5 cm", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: { x: (TL.x + TR.x) / 2, y: BR.y + 22 }, texto: "Figura 1", rol: "trazo", tam: 12 },
+  ];
+
+  return { ancho: 420, alto: Y0 + LADO + 44, pasos: 0, elementos: el };
+}
+
+// ── G6 (1-2016 1ra) · cuadrado, cuarto de círculo y cuadrado chico tangente ──
+// Figura 2 del PDF. La reconstrucción (ajuste del círculo sobre el contorno del
+// sombreado, error < 0,5 px sobre ~319 px de lado) dice que el cuarto de
+// círculo está centrado en el vértice INFERIOR IZQUIERDO del cuadrado grande y
+// su radio es el lado entero: el arco pasa justo por el vértice superior
+// izquierdo y por el inferior derecho. El cuadrado chico (área 16, lado 4)
+// ocupa el vértice superior derecho y toca el arco con su propio vértice más
+// cercano al centro, así que (L-4)√2 = L ⇒ L = 8+4√2.
+// La región sombreada es el cuarto de disco completo: no se solapa con el
+// cuadrado chico, que queda entero del otro lado del arco.
+function g6cuartoCirculoTangente(): Figura {
+  const L_CM = 8 + 4 * Math.SQRT2;
+  const L = 224;                       // lado grande en px
+  const ESC = L / L_CM;
+  const A = 4 * ESC;                   // lado del cuadrado chico (área 16)
+  const X0 = 98, Y0 = 28;
+  const GRIS = "#9aa0ad";
+
+  const TL: Pt = { x: X0, y: Y0 };
+  const TR: Pt = { x: X0 + L, y: Y0 };
+  const BR: Pt = { x: X0 + L, y: Y0 + L };
+  const O: Pt = { x: X0, y: Y0 + L };           // centro del cuarto de círculo
+  // cuadrado chico, pegado al vértice superior derecho
+  const cTL: Pt = { x: TR.x - A, y: Y0 };
+  const cBL: Pt = { x: TR.x - A, y: Y0 + A };   // su vértice más cercano a O: el tangente
+  const cBR: Pt = { x: TR.x, y: Y0 + A };
+
+  // Lo que sostiene todo el problema: ese vértice está EXACTAMENTE sobre el arco.
+  verificarDistancia("vértice del cuadrado chico sobre el arco", L, distancia(O, cBL), 0.5);
+  verificarDistancia("el arco pasa por el vértice superior izquierdo", L, distancia(O, TL), 0.5);
+  verificarDistancia("el arco pasa por el vértice inferior derecho", L, distancia(O, BR), 0.5);
+
+  // Cuarto de disco: del centro al vértice superior izquierdo, arco de 90° a 0°, y cierra.
+  const sombreado = `M ${O.x} ${O.y} L ${TL.x} ${TL.y}` + sigueArco(O, L, 90, 0) + " Z";
+
+  const el: Elemento[] = [
+    { tipo: "path", d: sombreado, rol: "trazo", relleno: true, color: GRIS },
+    { tipo: "poligono", puntos: [TL, TR, BR, O], rol: "trazo" },
+    { tipo: "path", d: arcoDe(O, L, 90, 0), rol: "trazo" },
+    { tipo: "poligono", puntos: [cTL, TR, cBR, cBL], rol: "trazo" },
+    { tipo: "texto", en: { x: cTL.x + A / 2, y: Y0 + A / 2 }, texto: "área 16", rol: "dato", tam: 10.5, negrita: true },
+    { tipo: "punto", en: cBL, rol: "incognita", r: 3.2 },
+    // El rótulo va al margen, con guía: entre el arco y el lado derecho del
+    // cuadrado grande la franja blanca es de 20-40 px y el texto no entra sin
+    // meterse en el sombreado.
+    { tipo: "linea", de: cBL, a: { x: 326, y: 132 }, rol: "incognita", grosor: 1 },
+    { tipo: "texto", en: { x: 331, y: 132 }, texto: "tangente", rol: "incognita", tam: 10.5, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: X0 + L / 2, y: O.y + 24 }, texto: "Figura 2", rol: "trazo", tam: 12 },
+  ];
+
+  return { ancho: 420, alto: Y0 + L + 46, pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2016 1ra) · triángulo equilátero al sol, con el sol a 30° ──
+// Esta figura NO estaba en docs/figuras-pendientes.md, y el facsímil la trae:
+// es la que está al lado del enunciado del G7 (rotulada "Figura 3" en la tira
+// de figuras de más arriba de la hoja). El enunciado había quedado como "un
+// triángulo equilátero de lado 6 se halla, sabiendo que…" porque la pasada
+// mecánica del 14-sep le sacó el "como en la figura" sin que hubiera figura.
+//
+// OJO, esto es lo que el PDF corrige: el triángulo está DADO VUELTA. El lado
+// horizontal de 6 está ARRIBA y el vértice de abajo es el único que toca el
+// piso. La explicación que estaba escrita lo ponía apoyado sobre su base ("el
+// vértice izquierdo de la base en (0,0)"), que no es lo que se ve. Da 12 igual
+// — proyectando (x,y) ↦ x + y√3, los vértices del triángulo invertido caen en
+// 0, 6 y 12, y los del apoyado también — pero la figura dibujada según el
+// texto viejo no sería la del examen.
+function g7equilateroSombra(): Figura {
+  const ESC = 21;                             // px por unidad de lado
+  const LADO = 6;
+  const ALTURA = (Math.sqrt(3) / 2) * LADO;   // 3√3 ≈ 5,196
+  const ELEV = 30;                            // el sol, sobre la horizontal
+  const X0 = 130, Y_PISO = 232;
+
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_PISO - uy * ESC });
+
+  const V = en(0, 0);                                  // el vértice que toca el piso
+  const T_IZQ = en(-LADO / 2, ALTURA);
+  const T_DER = en(LADO / 2, ALTURA);
+  // El rayo roza T_DER y llega al piso: avance horizontal = altura / tan(30°) = 9.
+  const D = en(LADO / 2 + ALTURA / Math.tan((ELEV * Math.PI) / 180), 0);
+  const SOL = avanzar(T_DER, 180 - ELEV, 9 * ESC);     // el rayo, estirado hacia atrás
+
+  verificarDistancia("lado superior", LADO * ESC, distancia(T_IZQ, T_DER));
+  verificarDistancia("lado izquierdo", LADO * ESC, distancia(V, T_IZQ));
+  verificarDistancia("lado derecho", LADO * ESC, distancia(V, T_DER));
+  verificarAngulo("elevación del sol en el piso", ELEV, anguloEn(D, T_DER, { x: D.x - 80, y: Y_PISO }));
+  verificarAngulo("el rayo pasa por el vértice superior derecho", 180, anguloEn(T_DER, SOL, D));
+  verificarDistancia("la sombra mide 12", 12 * ESC, distancia(V, D));
+
+  const arco30 = arcoAngulo(D, 180, anguloHacia(D, T_DER), 34, 50);
+  verificarAngulo("el arco marca 30°", ELEV, arco30.medida);
+
+  const BRAZO = Y_PISO + 17;
+  const medioIzq: Pt = { x: (V.x + T_IZQ.x) / 2, y: (V.y + T_IZQ.y) / 2 };
+
+  const el: Elemento[] = [
+    // piso, con el rayado solo afuera de la sombra (como el facsímil)
+    { tipo: "linea", de: { x: 24, y: Y_PISO }, a: { x: 404, y: Y_PISO }, rol: "trazo", grosor: 2 },
+    ...rayado(24, V.x - 4, Y_PISO),
+    ...rayado(D.x + 4, 404, Y_PISO),
+    // el rayo de sol y el sol
+    { tipo: "linea", de: SOL, a: D, rol: "dato", color: AMBAR, grosor: 1.6 },
+    ...sol(SOL),
+    // el triángulo, dado vuelta: lado de 6 arriba, vértice en el piso
+    { tipo: "poligono", puntos: [T_IZQ, T_DER, V], rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: (T_IZQ.x + T_DER.x) / 2, y: T_IZQ.y - 13 }, texto: "6", rol: "dato", tam: 12.5, negrita: true },
+    { tipo: "texto", en: avanzar(medioIzq, anguloHacia(V, T_IZQ) + 90, 15), texto: "6", rol: "dato", tam: 12.5, negrita: true },
+    // el ángulo de 30° donde el rayo toca el piso
+    { tipo: "arco", d: arco30.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco30.etiquetaEn, texto: "30°", rol: "dato", tam: 12, negrita: true },
+    // la sombra: lo que se pregunta
+    { tipo: "linea", de: { x: V.x, y: BRAZO }, a: { x: D.x, y: BRAZO }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: V.x, y: BRAZO - 6 }, a: { x: V.x, y: BRAZO + 6 }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: D.x, y: BRAZO - 6 }, a: { x: D.x, y: BRAZO + 6 }, rol: "incognita", grosor: 1.6 },
+    { tipo: "texto", en: { x: (V.x + D.x) / 2, y: BRAZO + 16 }, texto: "sombra", rol: "incognita", tam: 11.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: BRAZO + 30, pasos: 0, elementos: el };
+}
+
+// ── F10 (1-2016 1ra) · bloque colgado y bloque horizontal, dos poleas fijas ──
+// La figura de la página 2 del facsímil. Es lo que decide el problema y no se
+// puede adivinar del texto: NO es un sistema de masas con poleas móviles. Es
+// UNA sola cuerda que sale del bloque 1 (que cuelga), pasa por una polea fija
+// al techo, baja hasta una polea fija al piso, da un cuarto de vuelta y sigue
+// horizontal hasta el bloque 2. Las dos poleas son fijas, así que la tensión es
+// la misma en todo el recorrido y los dos bloques comparten el módulo de la
+// aceleración: T = m₂a = 24 N y m₁ = T/(g−a) = 24/6 = 4 kg.
+function f10colganteDosPoleas(): Figura {
+  const TECHO = 38, PISO = 262;
+  const EJE1: Pt = { x: 156, y: 78 }, R1 = 17;      // polea del techo
+  const X_IZQ = EJE1.x - R1, X_DER = EJE1.x + R1;   // las dos ramas de la cuerda
+  const R2 = 15;
+  const EJE2: Pt = { x: X_DER + R2, y: 234 };       // polea del piso
+  const BAJADA: Pt = { x: X_DER, y: EJE2.y };       // donde la rama vertical toca la polea del piso
+  const SALIDA: Pt = { x: EJE2.x, y: EJE2.y - R2 }; // de donde sale el tramo horizontal
+  const B1: Pt = { x: X_IZQ, y: 132 };              // borde superior del bloque 1
+  const ENGANCHE: Pt = { x: 252, y: SALIDA.y };     // cara izquierda del bloque 2
+  const B2_ALTO = 48, B2_ANCHO = 54;
+
+  // La cuerda tiene que estar donde dice: tangente a las poleas, vertical la
+  // rama que baja y horizontal el tramo que tira del bloque 2.
+  verificarDistancia("rama izquierda tangente a la polea del techo", R1, Math.abs(EJE1.x - X_IZQ));
+  verificarDistancia("rama derecha tangente a la polea del techo", R1, Math.abs(X_DER - EJE1.x));
+  verificarAngulo("la rama que baja es vertical", -90, anguloHacia({ x: X_DER, y: EJE1.y }, BAJADA));
+  verificarDistancia("cuarto de vuelta en la polea del piso", R2, distancia(EJE2, BAJADA));
+  verificarDistancia("salida del cuarto de vuelta", R2, distancia(EJE2, SALIDA));
+  verificarAngulo("el tramo al bloque 2 es horizontal", 0, anguloHacia(SALIDA, ENGANCHE));
+
+  const caja = (x: number, y: number, ancho: number, alto: number): Pt[] => [
+    { x, y }, { x: x + ancho, y }, { x: x + ancho, y: y + alto }, { x, y: y + alto },
+  ];
+
+  const el: Elemento[] = [
+    // techo y piso
+    { tipo: "linea", de: { x: 98, y: TECHO }, a: { x: 214, y: TECHO }, rol: "trazo", grosor: 2.2 },
+    ...rayado(98, 214, TECHO, true),
+    { tipo: "linea", de: { x: 120, y: PISO }, a: { x: 404, y: PISO }, rol: "trazo", grosor: 2 },
+    ...rayado(120, 306, PISO),
+
+    // polea del techo, colgada de su soporte
+    { tipo: "linea", de: { x: EJE1.x, y: TECHO }, a: { x: EJE1.x, y: EJE1.y - R1 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: circuloPath(EJE1, R1), rol: "trazo" },
+    { tipo: "punto", en: EJE1, rol: "trazo", r: 2.4 },
+
+    // cuerda: rama izquierda al bloque 1, rama derecha a la polea del piso,
+    // cuarto de vuelta, y tramo horizontal al bloque 2
+    { tipo: "linea", de: { x: X_IZQ, y: EJE1.y }, a: B1, rol: "trazo", grosor: 1.5 },
+    { tipo: "linea", de: { x: X_DER, y: EJE1.y }, a: BAJADA, rol: "trazo", grosor: 1.5 },
+    { tipo: "path", d: arcoDe(EJE2, R2, 180, 90), rol: "trazo" },
+    { tipo: "linea", de: SALIDA, a: ENGANCHE, rol: "trazo", grosor: 1.5 },
+
+    // polea del piso y su soporte
+    { tipo: "path", d: circuloPath(EJE2, R2), rol: "trazo" },
+    { tipo: "punto", en: EJE2, rol: "trazo", r: 2.4 },
+    { tipo: "poligono", puntos: [{ x: EJE2.x, y: EJE2.y + R2 }, { x: EJE2.x - 16, y: PISO }, { x: EJE2.x + 16, y: PISO }], rol: "trazo" },
+
+    // bloque 1: el que cuelga, y el que se pregunta
+    { tipo: "poligono", puntos: caja(B1.x - 22, B1.y, 44, 36), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: B1.x, y: B1.y + 19 }, texto: "1", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "texto", en: { x: B1.x - 30, y: B1.y + 19 }, texto: "m₁ = ?", rol: "incognita", tam: 12, negrita: true, ancla: "end" },
+
+    // bloque 2: sobre el piso, sin fricción
+    { tipo: "poligono", puntos: caja(ENGANCHE.x, PISO - B2_ALTO, B2_ANCHO, B2_ALTO), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: ENGANCHE.x + B2_ANCHO / 2, y: PISO - B2_ALTO + 15 }, texto: "2", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "texto", en: { x: ENGANCHE.x + B2_ANCHO / 2, y: PISO - 15 }, texto: "6 kg", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: { x: 355, y: PISO - 14 }, texto: "sin fricción", rol: "dato", tam: 10.5 },
+
+    // la aceleración, que es el dato del enunciado: el bloque 1 baja y el 2 avanza
+    { tipo: "linea", de: { x: B1.x, y: B1.y + 46 }, a: { x: B1.x, y: B1.y + 78 }, rol: "dato", color: AMBAR, grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha({ x: B1.x, y: B1.y + 78 }, -90, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: B1.x - 10, y: B1.y + 62 }, texto: "a", rol: "dato", tam: 12, cursiva: true, negrita: true, ancla: "end" },
+    { tipo: "linea", de: { x: ENGANCHE.x + 6, y: PISO - B2_ALTO - 14 }, a: { x: ENGANCHE.x + 44, y: PISO - B2_ALTO - 14 }, rol: "dato", color: AMBAR, grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha({ x: ENGANCHE.x + 44, y: PISO - B2_ALTO - 14 }, 0, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: ENGANCHE.x + 25, y: PISO - B2_ALTO - 28 }, texto: "a = 4 m/s²", rol: "dato", tam: 11.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -2727,6 +3015,11 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f10-bloques-en-contacto": f10b,
   "f11-acantilado-dos-esferas": f11b,
   "f12-bloque-fuerza-horizontal": f12b,
+  // Examen 1-2016 (1ra opción), leído del facsímil 141_1ra-op-1-2016.pdf.
+  "g5-cuadrado-tres-segmentos-5cm": g5tresSegmentos5,
+  "g6-cuarto-circulo-cuadrado-tangente": g6cuartoCirculoTangente,
+  "g7-equilatero-sombra-sol-30": g7equilateroSombra,
+  "f10-colgante-dos-poleas-fijas": f10colganteDosPoleas,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

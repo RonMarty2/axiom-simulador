@@ -181,7 +181,15 @@ describe("banco de exámenes", () => {
   // El tope es la foto del día que se midió. Solo puede BAJAR: se baja cuando
   // se dibuja la figura (y se declara `figura:`) o cuando se reescribe el
   // enunciado para que se sostenga solo.
-  const FIGURAS_NO_DECLARADAS_TOPE = 41;
+  //
+  // OJO CON QUÉ MIDE ESTO (16-sep-2026). Cuenta enunciados que TODAVÍA nombran
+  // una figura. Reescribir el enunciado para que no la nombre baja el número
+  // sin que la pregunta mejore, y ahí el problema se vuelve invisible: la P7
+  // del 1-2016 1ra salió de la cuenta el 14-sep y necesitaba el dibujo igual —
+  // peor, la descripción que le pusieron tenía el triángulo al revés. Hay 74
+  // preguntas en esa situación, listadas en docs/figuras-pendientes.md. Bajar
+  // este tope reescribiendo texto no es progreso; dibujar la figura sí.
+  const FIGURAS_NO_DECLARADAS_TOPE = 38;
 
   // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
   // Deja afuera a propósito los "se muestra a continuación" seguidos de la
