@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-16 (la regla 11 llega al banco: 244 guiones largos afuera y quinto trinquete)
+**Última actualización:** 2026-09-16 (regla 11 en el banco, y las primeras 5 figuras faltantes dibujadas)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -383,7 +383,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
-- [ ] **55 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado, porque ya traían la configuración descrita. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 55 y solo puede bajar. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
+- [ ] **50 enunciados nombran una figura que no existe** y necesitan que alguien la dibuje: el texto no alcanza para resolverlos. Arrancó en 130 el 14-sep; 98 se arreglaron reescribiendo el enunciado y 5 se dibujaron el 16-sep. El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 50 y solo puede bajar. Tres de esas 55 son las peores: `2018-2op-1 P11` (no se sabe si es un rizo o una pared cilíndrica), `2024-parcial1-2 P6` (importa dónde está marcado cada ángulo) y `2024-parcial2-1 P19` (no se sabe la topología de la red de capacitores).
+- [ ] **Ningún test construye las figuras.** Si una verificación geométrica explota, se entera el alumno y no el CI. El obstáculo está documentado (`definiciones.ts` importa `./motor` sin extensión y `node --test` corre ESM); una salida sin tocar los imports de la app es un paso aparte en CI que las construya con `tsx`.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
@@ -448,6 +449,25 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-16 (bis) (las primeras 5 figuras faltantes, y por qué no se pueden hacer todas)
+
+**Cinco preguntas dejaron de pedir un dibujo que no existía: 55 → 50.** Cuatro figuras nuevas en `definiciones.ts` (una sirve para dos exámenes con enunciado idéntico):
+
+| id | preguntas | qué dibuja |
+|---|---|---|
+| `f24-tres-resistencias-paralelo` | 2-2010 final 2do curso P24 | fuente + 2Ω, 2Ω y 1Ω entre los mismos dos nodos |
+| `f12-cuatro-resistencias-ab` | 1-2010 1ra P12 | A y B con dos ramas: R1+R2 y R3+R4 en serie |
+| `f11/f19-atwood-separacion-h` | 2-2022 P11 y 1-2025 P19 | polea, m1=4 kg arriba, m2=1 kg abajo, cota h=24 m |
+| `f17-plano-inclinado-rozamiento` | 2-2013 parcial 1ra P17 | rampa de catetos 10 y 5, bloque de 20 kg en A |
+
+Antes de dibujar se rehizo la física de cada una para que el dibujo describa un problema cuya respuesta es la marcada: 1/R=2 → 0,5 Ω (A); (3+1)∥(2+4)=2,4 Ω (C); a=6 y se cruzan a h/2=12 → v=12 (A); 50−100μ=12,5 → μ=3/8 (C).
+
+**El hallazgo importante: de las 55, solo 16 se pueden hacer sin el facsímil.** Se clasificaron por cuánta información trae el texto. Hay 26 donde el enunciado no dice nada y la figura carga todo el problema (*"En la figura 2, la altura h de la torre es igual a:"*), y 13 intermedias. Reconstruir esas 26 sería adivinar, y la regla 7 de §4.5 es explícita: una figura que "se ve más o menos como" la real es **peor que no tener figura**, porque enseña mal. **Para esas 39 hacen falta los PDF**, que no están en el repo.
+
+**Ningún test construye las figuras.** Si una verificación de `verificarAngulo`/`verificarDistancia` explota, hoy se entera el alumno, no el CI. La sesión del 13-sep ya lo había topado y documentado: `definiciones.ts` importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria; se decidió no torcer los imports de la app para acomodar un test. El hueco sigue abierto y queda anotado en §8.
+
+**Verificar que construyen no alcanza: hay que mirarlas.** Se armó un render de las figuras a SVG suelto (replicando el dibujo de `FiguraExamen.tsx` sin React) y de ahí a PNG con Chromium. Las cuatro construían sin error y aun así dos estaban mal a la vista: en el circuito paralelo los rieles sobresalían del último resistor y quedaba un cable colgando, y en el Atwood la etiqueta "4 kg" caía pegada a la cota, donde se leía como si etiquetara la cota y no el bloque. Ninguna de las dos cosas la puede cantar una verificación numérica.
 
 ### 2026-09-16 (la regla 11 llega al banco: 244 guiones largos afuera)
 

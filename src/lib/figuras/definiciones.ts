@@ -2078,7 +2078,175 @@ function f11rizo(): Figura {
   return { ancho: 420, alto: SUELO + 34, pasos: 0, elementos: el };
 }
 
+// ── F24 (2-2010 final 2da) · tres resistencias en paralelo entre dos nodos ──
+// El enunciado da la topología completa: 2Ω, 2Ω y 1Ω entre los MISMOS dos
+// nodos, alimentadas por una fuente. 1/R = 1/2+1/2+1/1 = 2 → R = 0,5 Ω.
+function f24tresParalelo(): Figura {
+  const IZQ = 55, ARR = 52, ABA = 186;
+  const XS = [150, 240, 330];           // las tres ramas
+  const DER = XS[XS.length - 1];        // el riel termina EN la última rama, sin cable colgando
+  const VALORES = ["2 Ω", "2 Ω", "1 Ω"];
+
+  const el: Elemento[] = [
+    // nodos: riel superior y riel inferior
+    { tipo: "linea", de: { x: IZQ, y: ARR }, a: { x: DER, y: ARR }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: IZQ, y: ABA }, a: { x: DER, y: ABA }, rol: "trazo", grosor: 1.8 },
+    // fuente a la izquierda (placas larga/corta)
+    { tipo: "linea", de: { x: IZQ, y: ARR }, a: { x: IZQ, y: 108 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: IZQ - 13, y: 108 }, a: { x: IZQ + 13, y: 108 }, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: { x: IZQ - 7, y: 119 }, a: { x: IZQ + 7, y: 119 }, rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: { x: IZQ, y: 119 }, a: { x: IZQ, y: ABA }, rol: "trazo", grosor: 1.6 },
+    { tipo: "texto", en: { x: IZQ - 34, y: 118 }, texto: "V", rol: "trazo", tam: 13, cursiva: true },
+    // los dos nodos comunes, marcados: es el dato que hace que sean paralelo
+    { tipo: "punto", en: { x: XS[0], y: ARR }, rol: "dato", color: ROJO, r: 3.4 },
+    { tipo: "punto", en: { x: XS[0], y: ABA }, rol: "dato", color: ROJO, r: 3.4 },
+  ];
+
+  XS.forEach((x, i) => {
+    el.push({ tipo: "path", d: resistorZigzag({ x, y: ARR }, { x, y: ABA }), rol: "trazo" });
+    el.push({ tipo: "texto", en: { x: x + 22, y: 122 }, texto: VALORES[i], rol: "trazo", tam: 11 });
+  });
+
+  return { ancho: 400, alto: 230, pasos: 0, elementos: el };
+}
+
+// ── F12 (1-2010 1ra) · cuatro resistencias, dos ramas en paralelo entre A y B ──
+// El enunciado describe la disposición entera: una rama con R1+R2 en serie y
+// otra con R3+R4 en serie, ambas entre A y B. (3+1) ∥ (2+4) = 4∥6 = 2,4 Ω.
+function f12cuatroRamas(): Figura {
+  const A: Pt = { x: 58, y: 118 };
+  const B: Pt = { x: 372, y: 118 };
+  const Y_SUP = 60, Y_INF = 176;
+  const X1 = 140, X2 = 265;             // centros de los resistores de cada rama
+
+  const el: Elemento[] = [
+    // terminal A y su reparto a las dos ramas
+    { tipo: "punto", en: A, rol: "trazo", r: 3.4 },
+    { tipo: "texto", en: { x: A.x - 17, y: A.y + 5 }, texto: "A", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "linea", de: A, a: { x: A.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: A, a: { x: A.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    // terminal B
+    { tipo: "punto", en: B, rol: "trazo", r: 3.4 },
+    { tipo: "texto", en: { x: B.x + 17, y: B.y + 5 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "linea", de: B, a: { x: B.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: B, a: { x: B.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    // rama de arriba: R1 y R2 en serie
+    { tipo: "linea", de: { x: A.x, y: Y_SUP }, a: { x: X1 - 30, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X1 - 30, y: Y_SUP }, { x: X1 + 30, y: Y_SUP }), rol: "trazo" },
+    { tipo: "texto", en: { x: X1, y: Y_SUP - 15 }, texto: "R₁ = 3 Ω", rol: "trazo", tam: 11, ancla: "middle" },
+    { tipo: "linea", de: { x: X1 + 30, y: Y_SUP }, a: { x: X2 - 30, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X2 - 30, y: Y_SUP }, { x: X2 + 30, y: Y_SUP }), rol: "trazo" },
+    { tipo: "texto", en: { x: X2, y: Y_SUP - 15 }, texto: "R₂ = 1 Ω", rol: "trazo", tam: 11, ancla: "middle" },
+    { tipo: "linea", de: { x: X2 + 30, y: Y_SUP }, a: { x: B.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    // rama de abajo: R3 y R4 en serie
+    { tipo: "linea", de: { x: A.x, y: Y_INF }, a: { x: X1 - 30, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X1 - 30, y: Y_INF }, { x: X1 + 30, y: Y_INF }), rol: "trazo" },
+    { tipo: "texto", en: { x: X1, y: Y_INF + 22 }, texto: "R₃ = 2 Ω", rol: "trazo", tam: 11, ancla: "middle" },
+    { tipo: "linea", de: { x: X1 + 30, y: Y_INF }, a: { x: X2 - 30, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X2 - 30, y: Y_INF }, { x: X2 + 30, y: Y_INF }), rol: "trazo" },
+    { tipo: "texto", en: { x: X2, y: Y_INF + 22 }, texto: "R₄ = 4 Ω", rol: "trazo", tam: 11, ancla: "middle" },
+    { tipo: "linea", de: { x: X2 + 30, y: Y_INF }, a: { x: B.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+  ];
+
+  return { ancho: 430, alto: 220, pasos: 0, elementos: el };
+}
+
+// ── F11/F19 · Atwood con separación inicial h (m1=4 kg, m2=1 kg, h=24 m) ──
+// Sirve para 2-2022 P11 y 1-2025 P19: mismo enunciado, mismos datos, misma
+// respuesta. m1 arranca h por ENCIMA de m2, baja h/2 y se cruzan a mitad de
+// camino: a = (m1-m2)g/(m1+m2) = 6, v² = 2·6·12 → v = 12 m/s.
+function f11atwoodH(): Figura {
+  const CX = 210, CY = 44, R = 17;      // polea
+  const XI = CX - R, XD = CX + R;       // las dos ramas de la cuerda
+  const Y_M1 = 86;                      // m1 arriba (es la pesada: baja)
+  const Y_M2 = 196;                     // m2 abajo
+  const LADO = 30;
+
+  // La separación dibujada ES la del problema: se verifica contra la cota.
+  verificarDistancia("separación h dibujada", Y_M2 - Y_M1, 110, 0.5);
+
+  const el: Elemento[] = [
+    // soporte y polea
+    { tipo: "linea", de: { x: CX - 62, y: 16 }, a: { x: CX + 62, y: 16 }, rol: "trazo", grosor: 2.2 },
+    { tipo: "linea", de: { x: CX, y: 16 }, a: { x: CX, y: CY - R }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: `M ${CX - R} ${CY} A ${R} ${R} 0 1 1 ${CX + R} ${CY} A ${R} ${R} 0 1 1 ${CX - R} ${CY} Z`, rol: "trazo" },
+    { tipo: "punto", en: { x: CX, y: CY }, rol: "trazo", r: 2 },
+    // cuerda
+    { tipo: "linea", de: { x: XI, y: CY }, a: { x: XI, y: Y_M1 }, rol: "trazo", grosor: 1.5 },
+    { tipo: "linea", de: { x: XD, y: CY }, a: { x: XD, y: Y_M2 }, rol: "trazo", grosor: 1.5 },
+    // bloques
+    { tipo: "poligono", puntos: [
+        { x: XI - LADO / 2, y: Y_M1 }, { x: XI + LADO / 2, y: Y_M1 },
+        { x: XI + LADO / 2, y: Y_M1 + LADO }, { x: XI - LADO / 2, y: Y_M1 + LADO }],
+      rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: XI, y: Y_M1 + LADO / 2 + 5 }, texto: "m₁", rol: "trazo", tam: 12, ancla: "middle" },
+    { tipo: "texto", en: { x: XI - 26, y: Y_M1 + LADO / 2 + 5 }, texto: "4 kg", rol: "dato", color: ROJO, tam: 11, ancla: "end" },
+    { tipo: "poligono", puntos: [
+        { x: XD - LADO / 2, y: Y_M2 }, { x: XD + LADO / 2, y: Y_M2 },
+        { x: XD + LADO / 2, y: Y_M2 + LADO }, { x: XD - LADO / 2, y: Y_M2 + LADO }],
+      rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: XD, y: Y_M2 + LADO / 2 + 5 }, texto: "m₂", rol: "trazo", tam: 12, ancla: "middle" },
+    { tipo: "texto", en: { x: XD + 30, y: Y_M2 + LADO / 2 + 5 }, texto: "1 kg", rol: "dato", color: ROJO, tam: 11 },
+    // cota de la separación inicial h, que es el dato que hace al problema
+    { tipo: "linea", de: { x: 112, y: Y_M1 + LADO / 2 }, a: { x: 112, y: Y_M2 + LADO / 2 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: 106, y: Y_M1 + LADO / 2 }, a: { x: 118, y: Y_M1 + LADO / 2 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: 106, y: Y_M2 + LADO / 2 }, a: { x: 118, y: Y_M2 + LADO / 2 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: 86, y: (Y_M1 + Y_M2) / 2 + LADO / 2 }, texto: "h = 24 m", rol: "dato", color: AMBAR, tam: 11, ancla: "end" },
+  ];
+
+  return { ancho: 400, alto: 250, pasos: 0, elementos: el };
+}
+
+// ── F17 (2-2013 parcial 1ra) · plano inclinado con rozamiento ──
+// Altura 5 m, base 10 m, el cuerpo parte del reposo en A y llega a la base
+// con v = 5 m/s. El ángulo NO se da: sale de la geometría, atan(5/10).
+function f17planoRozamiento(): Figura {
+  const ESC = 30;                        // px por metro dibujado
+  const BASE_M = 10, ALTO_M = 5;
+  const P: Pt = { x: 70, y: 200 };                              // vértice del ángulo (pie de la rampa)
+  const Q: Pt = { x: P.x + BASE_M * ESC, y: P.y };              // esquina inferior derecha
+  const A: Pt = { x: Q.x, y: P.y - ALTO_M * ESC };              // lo alto del plano
+
+  // El dibujo tiene que MEDIR lo que dicen sus etiquetas.
+  verificarDistancia("base de 10 m", BASE_M * ESC, distancia(P, Q), 0.5);
+  verificarDistancia("altura de 5 m", ALTO_M * ESC, distancia(Q, A), 0.5);
+  verificarAngulo("inclinación = atan(5/10)", Math.atan2(ALTO_M, BASE_M) * 180 / Math.PI, anguloEn(P, Q, A));
+
+  const bloque = bloqueSobre(avanzar(A, anguloHacia(A, P), 34), anguloHacia(A, P), 30, 17);
+
+  const el: Elemento[] = [
+    // el triángulo del plano
+    { tipo: "poligono", puntos: [P, Q, A], rol: "trazo", relleno: true, rellenoColor: "#f1f0eb" },
+    // el bloque, apoyado sobre la rampa con su inclinación real
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "texto", en: { x: A.x - 78, y: A.y + 26 }, texto: "20 kg", rol: "dato", color: ROJO, tam: 11 },
+    // A arriba, base abajo
+    { tipo: "punto", en: A, rol: "trazo", r: 3 },
+    { tipo: "texto", en: { x: A.x + 10, y: A.y - 4 }, texto: "A", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "texto", en: { x: P.x - 6, y: P.y + 18 }, texto: "v = 5 m/s", rol: "dato", color: VERDE, tam: 11, ancla: "start" },
+    // cotas: altura y base
+    { tipo: "linea", de: { x: Q.x + 26, y: A.y }, a: { x: Q.x + 26, y: Q.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x + 20, y: A.y }, a: { x: Q.x + 32, y: A.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x + 20, y: Q.y }, a: { x: Q.x + 32, y: Q.y }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: Q.x + 36, y: (A.y + Q.y) / 2 + 4 }, texto: "5 m", rol: "dato", color: AMBAR, tam: 11 },
+    { tipo: "linea", de: { x: P.x, y: Q.y + 34 }, a: { x: Q.x, y: Q.y + 34 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: P.x, y: Q.y + 28 }, a: { x: P.x, y: Q.y + 40 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "linea", de: { x: Q.x, y: Q.y + 28 }, a: { x: Q.x, y: Q.y + 40 }, rol: "dato", color: AMBAR, grosor: 1.4 },
+    { tipo: "texto", en: { x: (P.x + Q.x) / 2, y: Q.y + 52 }, texto: "10 m", rol: "dato", color: AMBAR, tam: 11, ancla: "middle" },
+    // el ángulo recto en Q, que es lo que hace que base y altura sean catetos
+    { tipo: "cuadradoRecto", d: cuadradoRecto(Q, 180, -90, 11), rol: "trazo" },
+  ];
+
+  return { ancho: 430, alto: 275, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
+  "f24-tres-resistencias-paralelo": f24tresParalelo,
+  // El mismo dibujo sirve para 2-2022 P11 y 1-2025 P19: enunciado y datos idénticos.
+  "f11-atwood-separacion-h": f11atwoodH,
+  "f19-atwood-separacion-h": f11atwoodH,
+  "f17-plano-inclinado-rozamiento": f17planoRozamiento,
+  "f12-cuatro-resistencias-ab": f12cuatroRamas,
   // El mismo dibujo sirve para F9 de 2-2022 y F10 de 3-2022: enunciado,
   // datos y figura son identicos entre los dos examenes.
   "g7-dos-cuadrados-arcos": g7dosCuadrados,
