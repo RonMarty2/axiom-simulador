@@ -3,13 +3,13 @@
 **Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **23 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
+Quedan **15 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
 El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 23; cada una que se resuelva baja el tope.
+el tope en 15; cada una que se resuelva baja el tope.
 
 **Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
 esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
-en "El 23 es un piso, no un techo".
+en "El 15 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -50,6 +50,10 @@ y el facsímil traía igual.
 | `2017-3op-1-2017` | `148_3ra-op-1-2017.pdf` | P6, P7 | — |
 | `2017-1op-2-2017` | `149_1ra-op-2-2017.pdf` | P7 | — |
 | `2017-2op-2-2017` | `150_2da-op-2-2017.pdf` | — | **P5** |
+| `2024-parcial1-1-2024` | `2024-1-preu.pdf` p.2 | P6, P8, P9 | — |
+| `2024-parcial2-1-2024` | `2024-1-preu.pdf` p.10 | P19 | — |
+| `2024-final-1-2024` | `2024-1-preu.pdf` p.14 | P6 | — |
+| `2024-parcial1-2-2024` | `2024-2-preu.pdf` p.2 | P6, P8, P9 | — |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
@@ -86,7 +90,7 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
   figura" ni "la figura 3 muestra". Se le agregaron las dos formas, con costo
   cero porque para entonces ya tenían su dibujo.
 
-### fisica (6)
+### fisica (5)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
@@ -94,10 +98,9 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
 | `2014-final-2-2014` | 19 | La estructura que se muestra en la figura adjunta gira alrededor del eje vertical AB, con una velocidad angular de 10 ra… |
 | `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
 | `2018-2op-1-2018` | 11 | En la figura se muestra un automovilista en una acción temeraria venciendo a la gravedad. Si se conocen los valores de $… |
-| `2024-parcial2-1-2024` | 19 | En la figura, cada capacitor tiene $C=9.00\ \mu F$. Calcule la capacitancia equivalente entre $a$ y $b$ (la red tiene do… |
 | `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
 
-### geometria_trigonometria (17)
+### geometria_trigonometria (10)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
@@ -111,15 +114,8 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
 | `2019-3op-1-2019` | 6 | En la figura, O es el centro de la circunferencia circunscrita a un pentágono regular y "t" es una tangente a la circunf… |
 | `2023-3op-1-2023` | 5 | En la figura adjunta se tienen dos triángulos rectángulos tal que $\tan(\alpha)=\dfrac{7}{15}$ y $\tan(\beta)=\dfrac{9}{… |
 | `2023-3op-1-2023` | 7 | En la figura se tienen cinco cuadrados de lados 1, 2, 3, 4 y 5 respectivamente, entonces el área sombreada es igual a:… |
-| `2024-final-1-2024` | 6 | Si $\overline{DE}\parallel\overline{CB}$, calcular el valor de $x$ en la siguiente figura, donde $D$ está sobre $\overli… |
-| `2024-parcial1-1-2024` | 6 | Hallar el área de la zona sombreada en la siguiente figura, si $ABCD$ es un cuadrado de lado 4 cm y $E$ es el punto medi… |
-| `2024-parcial1-1-2024` | 8 | En la figura $C$ y $D$ son puntos medios de $\overline{AE}$ y $\overline{BF}$, $\overline{AB}$ es paralelo a $\overline{… |
-| `2024-parcial1-1-2024` | 9 | En la siguiente figura halle el valor de $2x+y-w-3u$ si $x,y,w,u$ son todos ángulos, y $x$ es ángulo central.… |
-| `2024-parcial1-2-2024` | 6 | Si $L_1\parallel L_2$ encontrar el valor de $2x+s$, según la figura, donde una misma transversal corta a $L_1$ (formando… |
-| `2024-parcial1-2-2024` | 8 | Encuentra el área sombreada de la siguiente figura: los centros de $C_1$ y $C_2$ son los puntos medios de los lados $\ov… |
-| `2024-parcial1-2-2024` | 9 | En la figura, los lados $\overline{AI}$ y $\overline{BJ}$ están divididos en 4 partes iguales por los puntos $C,E,G$ y $… |
 
-## El 23 es un piso, no un techo
+## El 15 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -231,6 +227,47 @@ falló.
 | `2024-parcial2-2-2024` | 16 | Un electrón es lanzado con una velocidad inicial de $2\times10^7$ m/s a lo largo del eje central… |
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
+
+### El lote 2024 y las dos respuestas que estaban mal
+
+Los tres exámenes del prefacultativo de cada gestión vienen en UN PDF de 18
+páginas (`2024-1-preu.pdf` y `2024-2-preu.pdf`), con las secciones siempre en
+el mismo orden: Aritmética, Geometría, Química, Física, Biología y Estrategias.
+Así que el primer parcial ocupa las páginas 1-6, el segundo las 7-12 y el final
+las 13-18. Se ubicaron renderizando solo la banda superior de las 18 páginas y
+leyéndolas juntas.
+
+**Dos de las ocho estaban mal, y las dos por la misma razón: el escaneo no daba
+para leer la figura y se había adoptado una lectura "razonable".**
+
+- **`2024-parcial1-1` P6: era E, es D (5π/2).** La explicación decía *"cuartos
+  de disco centrados en A y en B que se cruzan en un punto O cerca de E"*. A
+  400 dpi son TRES arcos y ninguno sale de A ni de B: el cuarto centrado en **D**
+  de radio 4 (de A a C), el cuarto centrado en **E** de radio 2 (de D a O, con
+  su radio OE dibujado) y la semicircunferencia de diámetro EC. Los dos chicos
+  caen enteros dentro del grande, así que 4π − π − π/2 = 5π/2.
+- **`2024-parcial2-1` P19: era C (54 μF), es D (10 μF).** Esta es la que la
+  bitácora del 14-sep listaba entre las tres peores ("no se sabe la topología de
+  la red de capacitores" — esa frase se perdió al reescribir el ítem el 16-sep,
+  queda en el commit `3c4f3bc`), y el propio archivo lo admitía: *"no permite una
+  reconstrucción topológica 100% inequívoca… se adoptó la lectura más simple…
+  los cuatro en paralelo"*. A 400 dpi el circuito no tiene ambigüedad: entre a
+  y d hay un bloque con dos ramas en paralelo (arriba dos C en serie, abajo un
+  2C) y de d a b va otro 2C en serie con todo. Eso da 10C/9 = 10 μF. **Y los
+  54 μF eran el distractor**: es exactamente 6C, lo que sale de suponer todo en
+  paralelo.
+
+Las otras seis estaban bien. Van **4 respuestas corregidas** en los cuatro
+lotes (las dos de acá más `2016-1op-1` P7 y `2016-3op-1` P6, que eran de
+descripción y no de respuesta).
+
+**Un dibujo que a propósito NO está a escala.** El `2024-final-1` P6 tiene
+AD = DC = 15 y CB = x = 4: a escala es una astilla de 7,5 a 1 donde no entra
+ninguna etiqueta, y el propio facsímil lo dibuja esquemático. Lo que sí está
+exacto, y verificado, es la topología — D es el punto medio de AC y DE es
+paralelo a CB, que es lo único que el alumno tiene que leer del dibujo. Las
+longitudes van rotuladas. Es la primera excepción declarada a la regla 7 de
+§4.5 de la bitácora, y está anotada en el código.
 
 ### Lo que dio el muestreo de 2017
 

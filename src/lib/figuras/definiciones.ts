@@ -3658,6 +3658,465 @@ function g5triangulo51213Cuadrado(): Figura {
   return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
 }
 
+// Capacitor entre dos puntos: las dos placas IGUALES y paralelas, a diferencia
+// de `pila`, que las dibuja de largos distintos para marcar el polo.
+function capacitor(de: Pt, a: Pt, etiqueta: string, ladoEtiqueta = 1): Elemento[] {
+  const dir = anguloHacia(de, a);
+  const medio = { x: (de.x + a.x) / 2, y: (de.y + a.y) / 2 };
+  const p1 = avanzar(medio, dir, -4);
+  const p2 = avanzar(medio, dir, 4);
+  const perp = dir + 90;
+  const placa = (centro: Pt): Elemento => ({
+    tipo: "linea",
+    de: avanzar(centro, perp, 10),
+    a: avanzar(centro, perp, -10),
+    rol: "trazo",
+    grosor: 2.2,
+  });
+  return [
+    { tipo: "linea", de, a: p1, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: p2, a, rol: "trazo", grosor: 1.6 },
+    placa(p1), placa(p2),
+    { tipo: "texto", en: avanzar(medio, perp, 22 * ladoEtiqueta), texto: etiqueta,
+      rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+  ];
+}
+
+// ── G6 (1er parcial 1-2024) · cuadrado con tres arcos, E punto medio de DC ──
+// El transcriptor habia leido "cuartos de disco centrados en A y en B" y marco
+// E. El facsimil (medido a 400 dpi) dice otra cosa: son TRES arcos y ninguno
+// sale de A ni de B.
+//   · cuarto de disco centrado en D, radio 4 = el lado, de A a C  → sombreado
+//   · cuarto de disco centrado en E, radio 2 = ED, de D a O       → en blanco
+//   · semicircunferencia de diametro EC, radio 1                  → en blanco
+// O es el extremo del radio vertical de ese cuarto (2 arriba de E), y el
+// segmento OE esta dibujado. Los dos blancos caen ENTEROS dentro del cuarto
+// grande (el punto mas lejano de D es C, sobre el borde), asi que el area es
+// una resta limpia: 4π − π − π/2 = 5π/2, que es la opcion d.
+function g6cuadradoTresArcos(): Figura {
+  const LADO = 4;
+  const ESC = 56;
+  const X0 = 100, Y0 = 30;
+  const GRIS = "#c9ccd4";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y0 + (LADO - uy) * ESC });
+
+  const A = en(0, LADO), B = en(LADO, LADO), C = en(LADO, 0), D = en(0, 0);
+  const E = en(LADO / 2, 0);                 // punto medio de DC
+  const O = en(LADO / 2, LADO / 2);          // 2 arriba de E
+  const R_GRANDE = LADO * ESC;
+  const R_MEDIO = (LADO / 2) * ESC;
+  const R_CHICO = (LADO / 4) * ESC;
+  const cenChico = en((3 * LADO) / 4, 0);    // centro del semicirculo sobre EC
+
+  verificarDistancia("E es el punto medio de DC", distancia(D, E), distancia(E, C), 0.01);
+  verificarDistancia("el arco grande pasa por A", R_GRANDE, distancia(D, A));
+  verificarDistancia("y por C", R_GRANDE, distancia(D, C));
+  verificarDistancia("el cuarto de E llega a D", R_MEDIO, distancia(E, D));
+  verificarDistancia("y su radio vertical termina en O", R_MEDIO, distancia(E, O));
+  verificarDistancia("el semicirculo se apoya en EC", R_CHICO, distancia(cenChico, E));
+  // Las dos regiones blancas quedan adentro del cuarto grande: el punto mas
+  // lejano de D en cada una esta a lo sumo a un radio.
+  verificarDistancia("O cae dentro del cuarto grande", Math.SQRT2 * R_MEDIO, distancia(D, O), 0.5);
+
+  // 4π − π − π/2 = 5π/2, en unidades del enunciado
+  const areaSombreada = (Math.PI * LADO * LADO) / 4
+    - (Math.PI * (LADO / 2) * (LADO / 2)) / 4
+    - (Math.PI * (LADO / 4) * (LADO / 4)) / 2;
+  verificarDistancia("area sombreada = 5π/2", (5 * Math.PI) / 2, areaSombreada, 0.0001);
+
+  const cuartoGrande = `M ${D.x} ${D.y} L ${A.x} ${A.y}` + sigueArco(D, R_GRANDE, 90, 0) + " Z";
+  const cuartoMedio = `M ${E.x} ${E.y} L ${D.x} ${D.y}` + sigueArco(E, R_MEDIO, 180, 90) + " Z";
+  const semiChico = `M ${E.x} ${E.y}` + sigueArco(cenChico, R_CHICO, 180, 0) + " Z";
+
+  const el: Elemento[] = [
+    { tipo: "path", d: cuartoGrande, rol: "trazo", relleno: true, color: GRIS },
+    // los dos huecos, en blanco encima del sombreado
+    { tipo: "path", d: cuartoMedio, rol: "trazo", relleno: true, color: "#ffffff" },
+    { tipo: "path", d: semiChico, rol: "trazo", relleno: true, color: "#ffffff" },
+    // y ahora los trazos, para que se vean los tres arcos
+    { tipo: "poligono", puntos: [A, B, C, D], rol: "trazo" },
+    { tipo: "path", d: arcoDe(D, R_GRANDE, 90, 0), rol: "trazo" },
+    { tipo: "path", d: arcoDe(E, R_MEDIO, 180, 90), rol: "trazo" },
+    { tipo: "path", d: arcoDe(cenChico, R_CHICO, 180, 0), rol: "trazo" },
+    { tipo: "linea", de: E, a: O, rol: "trazo" },
+    rotulo({ x: A.x - 14, y: A.y - 10 }, "A"),
+    rotulo({ x: B.x + 14, y: B.y - 10 }, "B"),
+    rotulo({ x: C.x + 14, y: C.y + 14 }, "C"),
+    rotulo({ x: D.x - 14, y: D.y + 14 }, "D"),
+    rotulo({ x: E.x - 4, y: E.y + 15 }, "E"),
+    rotulo({ x: O.x - 15, y: O.y + 4 }, "O"),
+    // El "4" va abajo del lado: arriba se pisa con el radio OE.
+    { tipo: "texto", en: { x: (D.x + C.x) / 2, y: D.y + 34 }, texto: "4", rol: "dato", tam: 12.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y0 + R_GRANDE + 54, pasos: 0, elementos: el };
+}
+
+// ── G8 (1er parcial 1-2024) · base media del trapecio y la diagonal EB ──
+// C y D son los puntos medios de AE y BF, y AB ∥ EF, asi que CD es la base
+// media. P es donde la diagonal EB la corta, y eso parte CD en dos pedazos con
+// medidas fijas: CP = AB/2 y PD = EF/2 (no al reves — si la diagonal fuera AF
+// los papeles se cambian y el problema da 50, que no es opcion).
+// De PD = 11/2 = 2y+2 sale y = 7/4, y de CP = (x+1)/2 = y sale x = 5/2, o sea
+// AE = 2x = 5 (opcion a).
+// El dibujo usa esos valores: AE = 5 con A a (3,4) de E, y AB = 3,5.
+function g8trapecioBaseMedia(): Figura {
+  const EF = 11, AB = 3.5;
+  const ESC = 30;
+  const X0 = 42, Y_BASE = 160;
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const E = en(0, 0), F = en(EF, 0);
+  const A = en(3, 4), B = en(3 + AB, 4);       // AE = 5 exacto (3-4-5)
+  const C: Pt = { x: (A.x + E.x) / 2, y: (A.y + E.y) / 2 };
+  const D: Pt = { x: (B.x + F.x) / 2, y: (B.y + F.y) / 2 };
+  const P = en((3 + AB) / 2, 2);               // EB ∩ CD: la mitad de B, porque E es el origen
+
+  verificarDistancia("AE = 5", 5 * ESC, distancia(A, E));
+  verificarDistancia("C es punto medio de AE", distancia(A, C), distancia(C, E), 0.01);
+  verificarDistancia("D es punto medio de BF", distancia(B, D), distancia(D, F), 0.01);
+  verificarAngulo("AB ∥ EF", 0, Math.abs(anguloHacia(A, B) - anguloHacia(E, F)), 0.01);
+  verificarAngulo("P esta sobre CD", 0, anguloEn(C, P, D), 0.2);
+  verificarAngulo("P esta sobre la diagonal EB", 0, anguloEn(E, P, B), 0.2);
+  verificarDistancia("CD es la base media", ((AB + EF) / 2) * ESC, distancia(C, D));
+  verificarDistancia("CP = AB/2", (AB / 2) * ESC, distancia(C, P));
+  verificarDistancia("PD = EF/2", (EF / 2) * ESC, distancia(P, D));
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, F, E], rol: "trazo" },
+    { tipo: "linea", de: C, a: D, rol: "trazo" },
+    { tipo: "linea", de: E, a: B, rol: "trazo" },
+    { tipo: "punto", en: P, rol: "trazo", r: 2.6 },
+    rotulo({ x: A.x - 6, y: A.y - 13 }, "A"),
+    rotulo({ x: B.x + 6, y: B.y - 13 }, "B"),
+    rotulo({ x: C.x - 14, y: C.y - 2 }, "C"),
+    rotulo({ x: D.x + 14, y: D.y - 2 }, "D"),
+    rotulo({ x: E.x - 13, y: E.y + 12 }, "E"),
+    rotulo({ x: F.x + 13, y: F.y + 12 }, "F"),
+    rotulo({ x: P.x - 3, y: P.y + 15 }, "P", "trazo", 12),
+    // los datos del enunciado, cada uno sobre su segmento
+    { tipo: "texto", en: { x: (A.x + B.x) / 2, y: A.y - 13 }, texto: "x + 1", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: { x: (C.x + P.x) / 2 + 6, y: C.y + 15 }, texto: "y", rol: "dato", tam: 12, cursiva: true, negrita: true },
+    { tipo: "texto", en: { x: (P.x + D.x) / 2, y: C.y - 12 }, texto: "2y + 2", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: { x: (E.x + F.x) / 2, y: E.y + 18 }, texto: "11", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 }, anguloHacia(A, C) + 90, 19), texto: "x", rol: "dato", tam: 12, cursiva: true, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (C.x + E.x) / 2, y: (C.y + E.y) / 2 }, anguloHacia(C, E) + 90, 19), texto: "x", rol: "dato", tam: 12, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
+}
+
+// ── G9 (1er parcial 1-2024) · los angulos de la circunferencia ──
+// La figura fija todo con dos arcos de 60°. Poniendo los cuatro puntos sobre
+// la circunferencia en 120° (P1, arriba izq), 60° (P2, arriba der), 240° (P3,
+// abajo izq) y 300° (P4, abajo der):
+//   · P1P2 sale horizontal y P1P3 vertical (por simetria), y P2P3 es DIAMETRO
+//     (60° y 240° son opuestos), que es lo que hace que el angulo en P1 sea
+//     recto — el cuadradito del facsimil.
+//   · arco P1P2 (arriba) = 60° y arco P3P4 (abajo) = 60°, los dos rotulados.
+// De ahi: x = 60 (central), u = 180−60 = 120, w = 60 (inscrito sobre el arco
+// P1P3 de 120°), y = 30 (inscrito sobre el arco P1P2 de 60°) y z = 90.
+// 2x + y − w − 3u = 120 + 30 − 60 − 360 = −270, la opcion c.
+function g9circunferenciaAngulos(): Figura {
+  const R = 116;
+  const O: Pt = { x: 206, y: 158 };
+  const P1 = avanzar(O, 120, R), P2 = avanzar(O, 60, R);
+  const P3 = avanzar(O, 240, R), P4 = avanzar(O, 300, R);
+
+  verificarAngulo("P1P2 horizontal", 0, Math.abs(anguloHacia(P1, P2)), 0.01);
+  verificarAngulo("P1P3 vertical", 90, Math.abs(anguloHacia(P1, P3)), 0.01);
+  verificarAngulo("P2P3 es diametro", 180, anguloEn(O, P2, P3), 0.01);
+  verificarAngulo("angulo recto en P1", 90, anguloEn(P1, P2, P3));
+  verificarAngulo("x = 60 central", 60, anguloEn(O, P3, P4));
+  verificarAngulo("u = 120 central", 120, anguloEn(O, P2, P4));
+  verificarAngulo("w = 60 inscrito en P2", 60, anguloEn(P2, P1, P3));
+  verificarAngulo("y = 30 inscrito en P3", 30, anguloEn(P3, P1, P2));
+
+  const arcoX = arcoAngulo(O, anguloHacia(O, P3), anguloHacia(O, P4), 34, 50);
+  const arcoU = arcoAngulo(O, anguloHacia(O, P4), anguloHacia(O, P2), 52, 68);
+  const arcoW = arcoAngulo(P2, anguloHacia(P2, P1), anguloHacia(P2, P3), 30, 44);
+  const arcoY = arcoAngulo(P3, anguloHacia(P3, P2), anguloHacia(P3, P1), 30, 44);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "linea", de: P1, a: P2, rol: "trazo" },
+    { tipo: "linea", de: P1, a: P3, rol: "trazo" },
+    { tipo: "linea", de: P2, a: P3, rol: "trazo" },
+    { tipo: "linea", de: O, a: P4, rol: "trazo" },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.2 },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(P1, anguloHacia(P1, P2), anguloHacia(P1, P3), 11), rol: "trazo" },
+    // los dos arcos de 60° que son el dato
+    { tipo: "texto", en: avanzar(O, 90, R + 17), texto: "60°", rol: "dato", tam: 12.5, negrita: true },
+    { tipo: "texto", en: avanzar(O, 270, R + 17), texto: "60°", rol: "dato", tam: 12.5, negrita: true },
+    // las incognitas
+    { tipo: "arco", d: arcoX.d, rol: "incognita" },
+    { tipo: "texto", en: arcoX.etiquetaEn, texto: "x", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+    { tipo: "arco", d: arcoU.d, rol: "incognita" },
+    { tipo: "texto", en: arcoU.etiquetaEn, texto: "u", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+    { tipo: "arco", d: arcoW.d, rol: "incognita" },
+    { tipo: "texto", en: arcoW.etiquetaEn, texto: "w", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+    { tipo: "arco", d: arcoY.d, rol: "incognita" },
+    { tipo: "texto", en: arcoY.etiquetaEn, texto: "y", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+    { tipo: "texto", en: avanzar(P1, -50, 30), texto: "z", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: O.y + R + 34, pasos: 0, elementos: el };
+}
+
+// ── G6 (1er parcial 2-2024) · L1 ∥ L2 cortadas por una transversal ──
+// La transversal es horizontal y las dos paralelas bajan hacia la derecha. En
+// cada cruce los cuatro angulos van en el mismo orden: arriba-izq, arriba-der,
+// abajo-izq, abajo-der. Por correspondencia r = 5x−30, y por par lineal
+// x + r = 180, de donde 6x = 210 y x = 35. Despues s = y = r = 145 (y es
+// opuesto por el vertice a r, y s le corresponde), asi que 2x + s = 215.
+function g6paralelasTransversal(): Figura {
+  const X = 35;                       // el x que sale del sistema
+  const INCL = 180 - X;               // direccion de las paralelas hacia arriba
+  const Y_T = 152;                    // la transversal
+  const V1: Pt = { x: 150, y: Y_T };
+  const V2: Pt = { x: 262, y: Y_T };
+  const LARGO = 104;
+
+  const arribaL1 = avanzar(V1, INCL, LARGO), abajoL1 = avanzar(V1, INCL - 180, LARGO);
+  const arribaL2 = avanzar(V2, INCL, LARGO), abajoL2 = avanzar(V2, INCL - 180, LARGO);
+
+  verificarAngulo("x en el cruce con L1", X, anguloEn(V1, { x: V1.x - 60, y: Y_T }, arribaL1));
+  verificarAngulo("L1 ∥ L2", 0, Math.abs(anguloHacia(V1, arribaL1) - anguloHacia(V2, arribaL2)), 0.01);
+  verificarAngulo("5x−30 es el de arriba a la derecha", 5 * X - 30,
+    anguloEn(V2, { x: V2.x + 60, y: Y_T }, arribaL2));
+
+  // Los cuatro rotulos de cada cruce, en sus cuadrantes
+  const rotulos = (V: Pt, arriba: Pt, izq: string, der: string, abIzq: string, abDer: string): Elemento[] => {
+    const dirArriba = anguloHacia(V, arriba);
+    return [
+      { tipo: "texto", en: avanzar(V, (180 + dirArriba) / 2, 32), texto: izq, rol: "dato", tam: 13, cursiva: true, negrita: true },
+      { tipo: "texto", en: avanzar(V, dirArriba / 2, 40), texto: der, rol: "dato", tam: 13, cursiva: true, negrita: true },
+      { tipo: "texto", en: avanzar(V, (180 + dirArriba) / 2 - 180, 32), texto: abIzq, rol: "dato", tam: 13, cursiva: true, negrita: true },
+      { tipo: "texto", en: avanzar(V, dirArriba / 2 - 180, 32), texto: abDer, rol: "dato", tam: 13, cursiva: true, negrita: true },
+    ];
+  };
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 40, y: Y_T }, a: { x: 388, y: Y_T }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: arribaL1, a: abajoL1, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: arribaL2, a: abajoL2, rol: "trazo", grosor: 1.6 },
+    ...rotulos(V1, arribaL1, "x", "r", "y", "q"),
+    ...rotulos(V2, arribaL2, "p", "5x − 30°", "s", "k"),
+    rotulo(avanzar(abajoL1, anguloHacia(V1, abajoL1), 14), "L₁"),
+    rotulo(avanzar(abajoL2, anguloHacia(V2, abajoL2), 14), "L₂"),
+  ];
+
+  return { ancho: 420, alto: Y_T + LARGO + 40, pasos: 0, elementos: el };
+}
+
+// ── G8 (1er parcial 2-2024) · las lunas de Hipocrates ──
+// AB es el diametro de C3 (10 cm) y C esta sobre esa semicircunferencia, asi
+// que el angulo en C es recto (Thales). Con AC = 8 sale BC = 6 (el 6-8-10).
+// C1 y C2 son las semicircunferencias sobre los catetos, hacia afuera.
+// Lo sombreado son las dos lunas, y el clasico: como π·4²/2 + π·3²/2 = π·5²/2,
+// las lunas suman exactamente el area del triangulo, 8·6/2 = 24 cm².
+// Se dibuja pintando las dos medias lunas de gris y tapando despues con blanco
+// el semidisco grande: lo que queda gris es justo lo de afuera.
+function g8lunasHipocrates(): Figura {
+  const AB = 10, AC = 8;
+  const BC = Math.sqrt(AB * AB - AC * AC);      // 6
+  const ESC = 31;
+  const X0 = 44, Y_BASE = 214;
+  const GRIS = "#c9ccd4";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  // C por interseccion: x = (AB² + AC² − BC²)/(2·AB)
+  const cx = (AB * AB + AC * AC - BC * BC) / (2 * AB);
+  const cy = Math.sqrt(AC * AC - cx * cx);
+  const A = en(0, 0), B = en(AB, 0), C = en(cx, cy);
+  const M3: Pt = { x: (A.x + B.x) / 2, y: A.y };
+  const M1: Pt = { x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 };
+  const M2: Pt = { x: (B.x + C.x) / 2, y: (B.y + C.y) / 2 };
+  const R3 = (AB / 2) * ESC, R1 = (AC / 2) * ESC, R2 = (BC / 2) * ESC;
+
+  verificarDistancia("AC = 8", AC * ESC, distancia(A, C));
+  verificarDistancia("BC = 6", BC * ESC, distancia(B, C));
+  verificarAngulo("angulo recto en C (Thales)", 90, anguloEn(C, A, B));
+  verificarDistancia("C esta sobre C3", R3, distancia(M3, C), 0.5);
+  // Lo que hace que las lunas den el area del triangulo
+  verificarDistancia("los dos semidiscos chicos suman el grande",
+    (Math.PI * R3 * R3) / 2, (Math.PI * R1 * R1) / 2 + (Math.PI * R2 * R2) / 2, 1);
+  verificarDistancia("las lunas valen el triangulo", (AC * BC) / 2, (AC * BC) / 2, 0.0001);
+
+  // Cada semidisco chico va hacia AFUERA del triangulo: el sentido del arco se
+  // elige con el vertice opuesto, asi que es imposible pandearlo para adentro.
+  const semi = (M: Pt, R: number, P: Pt, Q: Pt, opuesto: Pt): string => {
+    const aP = anguloHacia(M, P), aQ = anguloHacia(M, Q);
+    const haciaOpuesto = anguloHacia(M, opuesto);
+    // dos caminos de P a Q; se toma el que NO pase por el lado del opuesto
+    const porArriba = ((aQ - aP) % 360 + 360) % 360;
+    const medio = aP + porArriba / 2;
+    const dif = Math.abs((((medio - haciaOpuesto) % 360) + 540) % 360 - 180);
+    const a2 = dif > 90 ? aP + porArriba : aP + porArriba - 360;
+    return `M ${P.x.toFixed(2)} ${P.y.toFixed(2)}` + sigueArco(M, R, aP, a2) + " Z";
+  };
+
+  const el: Elemento[] = [
+    { tipo: "path", d: semi(M1, R1, A, C, B), rol: "trazo", relleno: true, color: GRIS },
+    { tipo: "path", d: semi(M2, R2, C, B, A), rol: "trazo", relleno: true, color: GRIS },
+    // el semidisco grande, en blanco, deja solo las dos lunas grises
+    { tipo: "path", d: `M ${A.x} ${A.y}` + sigueArco(M3, R3, 180, 0) + " Z", rol: "trazo", relleno: true, color: "#ffffff" },
+    { tipo: "path", d: arcoDe(M3, R3, 180, 0), rol: "trazo" },
+    { tipo: "path", d: semi(M1, R1, A, C, B), rol: "trazo" },
+    { tipo: "path", d: semi(M2, R2, C, B, A), rol: "trazo" },
+    { tipo: "poligono", puntos: [A, B, C], rol: "trazo" },
+    rotulo({ x: A.x - 13, y: A.y + 13 }, "A"),
+    rotulo({ x: B.x + 13, y: B.y + 13 }, "B"),
+    rotulo({ x: C.x + 13, y: C.y - 10 }, "C"),
+    // Los rotulos de las dos lunas van ADENTRO de cada luna: afuera del arco
+    // se salen del lienzo por arriba.
+    rotulo(avanzar(M1, anguloHacia(B, C), R1 - 26), "C₁", "dato", 12),
+    rotulo(avanzar(M2, anguloHacia(A, C), R2 - 22), "C₂", "dato", 12),
+    rotulo({ x: M3.x - 30, y: M3.y - R3 / 2 }, "C₃", "dato", 12),
+    { tipo: "texto", en: avanzar({ x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 }, anguloHacia(A, C) - 90, 15), texto: "8", rol: "dato", tam: 12.5, negrita: true },
+    ...cota(A, B, "10", 24),
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 46, pasos: 0, elementos: el };
+}
+
+// ── G9 (1er parcial 2-2024) · trapecio con los lados en 4 partes iguales ──
+// Con AB y IJ paralelas, el segmento a la fraccion t del recorrido mide
+// AB + t(IJ − AB). Los puntos parten los lados en cuartos, asi que
+// CD = (3·AB + IJ)/4 y EF = (AB + IJ)/2. Contra los datos
+// CD = (3a+b)/4 y EF = (a+b)/2 sale AB = a y por lo tanto IJ = b (opcion d).
+// El dibujo usa AB = 4 y IJ = 9 para que se lea como el facsimil; los valores
+// no importan, lo que importa es que los tres segmentos esten en los cuartos
+// exactos y paralelos.
+function g9trapecioCuartos(): Figura {
+  const AB = 4, IJ = 9, ALTO = 4;
+  const ESC = 36;
+  const X0 = 48, Y_BASE = 176;
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const I = en(0, 0), J = en(IJ, 0);
+  const A = en((IJ - AB) / 2, ALTO), B = en((IJ + AB) / 2, ALTO);
+  // los puntos a 1/4, 2/4 y 3/4 de A hacia I (y de B hacia J)
+  const p = (desde: Pt, hasta: Pt, k: number): Pt => ({
+    x: desde.x + ((hasta.x - desde.x) * k) / 4,
+    y: desde.y + ((hasta.y - desde.y) * k) / 4,
+  });
+  const C = p(A, I, 1), E = p(A, I, 2), G = p(A, I, 3);
+  const D = p(B, J, 1), F = p(B, J, 2), H = p(B, J, 3);
+
+  verificarAngulo("AB ∥ IJ", 0, Math.abs(anguloHacia(A, B) - anguloHacia(I, J)), 0.01);
+  for (const [n, s, t] of [["CD", C, D], ["EF", E, F], ["GH", G, H]] as [string, Pt, Pt][]) {
+    verificarAngulo(`${n} es paralelo a la base`, 0, Math.abs(anguloHacia(s, t) - anguloHacia(I, J)), 0.01);
+  }
+  verificarDistancia("AC es un cuarto de AI", distancia(A, I) / 4, distancia(A, C), 0.01);
+  verificarDistancia("CD = (3·AB + IJ)/4", ((3 * AB + IJ) / 4) * ESC, distancia(C, D), 0.01);
+  verificarDistancia("EF = (AB + IJ)/2", ((AB + IJ) / 2) * ESC, distancia(E, F), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, J, I], rol: "trazo" },
+    { tipo: "linea", de: C, a: D, rol: "trazo" },
+    { tipo: "linea", de: E, a: F, rol: "trazo" },
+    { tipo: "linea", de: G, a: H, rol: "trazo" },
+    ...([["A", A, -1], ["C", C, -1], ["E", E, -1], ["G", G, -1], ["I", I, -1],
+      ["B", B, 1], ["D", D, 1], ["F", F, 1], ["H", H, 1], ["J", J, 1]] as [string, Pt, number][])
+      .map(([t, q, lado]): Elemento => rotulo({ x: q.x + lado * 14, y: q.y }, t, "trazo", 12)),
+    { tipo: "texto", en: { x: (C.x + D.x) / 2, y: C.y - 12 }, texto: "(3a + b)/4", rol: "dato", tam: 11, negrita: true },
+    { tipo: "texto", en: { x: (E.x + F.x) / 2, y: E.y - 12 }, texto: "(a + b)/2", rol: "dato", tam: 11, negrita: true },
+    { tipo: "texto", en: { x: (I.x + J.x) / 2, y: I.y + 18 }, texto: "IJ = ?", rol: "incognita", tam: 12.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
+}
+
+// ── G6 (final 1-2024) · DE ∥ CB con D punto medio de AC ──
+// AD = DC = 15, asi que D es el punto medio y el triangulo ADE es semejante al
+// ACB con razon 1/2: DE = CB/2, o sea (x+2)/3 = x/2 y x = 4 (opcion d).
+//
+// OJO, ESTE DIBUJO NO ESTA A ESCALA, y es a proposito. Con AC = 30 y CB = x = 4
+// el triangulo real es una astilla de 7,5 a 1 donde no entra ninguna etiqueta —
+// el propio facsimil lo dibuja esquematico. Lo que SI es exacto acá es la
+// topologia, que es lo que el alumno tiene que leer de la figura: D es el punto
+// medio de AC y DE es paralelo a CB, las dos cosas verificadas. Las longitudes
+// van rotuladas, no medidas.
+function g6thalesDeParaleloCb(): Figura {
+  const A: Pt = { x: 96, y: 216 };
+  const B: Pt = { x: 346, y: 216 };
+  const C: Pt = { x: 268, y: 40 };
+  const D: Pt = { x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 };   // punto medio exacto
+  // E sobre AB con DE ∥ CB: por Thales, E es el punto medio de AB
+  const E: Pt = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
+
+  verificarDistancia("D es el punto medio de AC", distancia(A, D), distancia(D, C), 0.01);
+  verificarAngulo("DE ∥ CB", 0, Math.abs(anguloHacia(D, E) - anguloHacia(C, B)), 0.01);
+  verificarDistancia("y entonces DE = CB/2", distancia(C, B) / 2, distancia(D, E), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, C, B], rol: "trazo" },
+    { tipo: "linea", de: D, a: E, rol: "trazo" },
+    rotulo({ x: C.x + 4, y: C.y - 14 }, "C"),
+    rotulo({ x: D.x - 15, y: D.y - 6 }, "D"),
+    rotulo({ x: A.x - 12, y: A.y + 13 }, "A"),
+    rotulo({ x: E.x, y: E.y + 15 }, "E"),
+    rotulo({ x: B.x + 12, y: B.y + 13 }, "B"),
+    { tipo: "texto", en: avanzar({ x: (D.x + C.x) / 2, y: (D.y + C.y) / 2 }, anguloHacia(D, C) + 90, 15), texto: "15", rol: "dato", tam: 12.5, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + D.x) / 2, y: (A.y + D.y) / 2 }, anguloHacia(A, D) + 90, 15), texto: "15", rol: "dato", tam: 12.5, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (D.x + E.x) / 2, y: (D.y + E.y) / 2 }, anguloHacia(D, E) + 90, 36), texto: "(x + 2)/3", rol: "dato", tam: 11, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (C.x + B.x) / 2, y: (C.y + B.y) / 2 }, anguloHacia(C, B) - 90, 15), texto: "x", rol: "incognita", tam: 14, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: A.y + 40, pasos: 0, elementos: el };
+}
+
+// ── F19 (2do parcial 1-2024) · la red de capacitores ──
+// Es la que la bitacora marcaba como imposible ("no se sabe la topologia"). El
+// facsimil a 400 dpi la resuelve: entre a y d hay un bloque con DOS ramas en
+// paralelo — arriba dos C en serie, abajo un 2C — y de d a b va otro 2C.
+//   bloque = (C/2) ∥ 2C = 5C/2 ;  total = (5C/2 en serie con 2C) = 10C/9
+// Con C = 9 μF son 10 μF, la opcion d. La marcada era 54 μF = 6C, que es lo que
+// da suponer los cuatro en paralelo: el distractor del ejercicio.
+function f19redCapacitores(): Figura {
+  const A_X = 44, B_Y = 246, D_X = 348;
+  const L = 130, R = 254;                 // lados del bloque
+  const Y_MED = 108;                      // la altura de a y del nodo derecho
+  const Y_SUP = 52, Y_INF = 164;          // ramas de arriba y abajo del bloque
+  const a: Pt = { x: A_X, y: Y_MED };
+  const b: Pt = { x: A_X, y: B_Y };
+  const d: Pt = { x: D_X, y: Y_MED + 52 };
+
+  verificarAngulo("a entra horizontal al bloque", 0, anguloHacia(a, { x: L, y: Y_MED }));
+  verificarAngulo("b sale horizontal", 0, anguloHacia(b, { x: D_X, y: B_Y }));
+  // 10C/9: con C = 9 μF, 10 μF
+  const C = 9;
+  const bloque = (C / 2) + 2 * C;
+  const total = 1 / (1 / bloque + 1 / (2 * C));
+  verificarDistancia("la red equivale a 10 μF", 10, total, 0.0001);
+
+  const el: Elemento[] = [
+    // el bloque: riel izquierdo y derecho
+    { tipo: "linea", de: { x: L, y: Y_SUP }, a: { x: L, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: R, y: Y_SUP }, a: { x: R, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    // rama de arriba: dos C en serie
+    ...capacitor({ x: L, y: Y_SUP }, { x: (L + R) / 2, y: Y_SUP }, "C"),
+    ...capacitor({ x: (L + R) / 2, y: Y_SUP }, { x: R, y: Y_SUP }, "C"),
+    // rama de abajo: un 2C
+    ...capacitor({ x: L, y: Y_INF }, { x: R, y: Y_INF }, "2C"),
+    // los cables de a y de b, y el nodo d
+    { tipo: "linea", de: a, a: { x: L, y: Y_MED }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: R, y: Y_MED }, a: { x: D_X, y: Y_MED }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: D_X, y: Y_MED }, a: { x: D_X, y: B_Y }, rol: "trazo", grosor: 1.6 },
+    ...capacitor(b, { x: D_X, y: B_Y }, "2C"),
+    { tipo: "punto", en: a, rol: "trazo", r: 4 },
+    { tipo: "punto", en: b, rol: "trazo", r: 4 },
+    { tipo: "punto", en: d, rol: "trazo", r: 4 },
+    rotulo({ x: a.x, y: a.y - 16 }, "a"),
+    rotulo({ x: b.x, y: b.y - 16 }, "b"),
+    rotulo({ x: d.x + 15, y: d.y }, "d"),
+    { tipo: "texto", en: { x: 210, y: B_Y + 30 }, texto: "cada C = 9,00 μF", rol: "dato", tam: 11.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: B_Y + 48, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -3744,6 +4203,16 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g6-dos-cuadrados-sombra-derecha": g6dosCuadradosDerecha,
   "g7-torre-2theta-theta": g7torre2ThetaTheta,
   "g5-triangulo-5-12-13-cuadrado": g5triangulo51213Cuadrado,
+  // Lote 2024 · prefacultativo (2024-1-preu.pdf y 2024-2-preu.pdf, que traen
+  // los tres examenes de cada gestion adentro).
+  "g6-cuadrado-tres-arcos": g6cuadradoTresArcos,
+  "g8-trapecio-base-media": g8trapecioBaseMedia,
+  "g9-circunferencia-angulos": g9circunferenciaAngulos,
+  "g6-paralelas-transversal-2x-s": g6paralelasTransversal,
+  "g8-lunas-de-hipocrates": g8lunasHipocrates,
+  "g9-trapecio-cuartos": g9trapecioCuartos,
+  "g6-thales-de-paralelo-cb": g6thalesDeParaleloCb,
+  "f19-red-capacitores": f19redCapacitores,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
