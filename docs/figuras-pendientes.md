@@ -3,12 +3,13 @@
 **Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **29 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
+Quedan **23 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
 El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 29; cada una que se resuelva baja el tope.
+el tope en 23; cada una que se resuelva baja el tope.
 
-**Y hay 73 más que el test no ve.** Es lo primero que hay que leer de este
-archivo: está abajo, en "El 29 es un piso, no un techo".
+**Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
+esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
+en "El 23 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -44,6 +45,11 @@ y el facsímil traía igual.
 | `2016-3op-1-2016` | `143_2ra-op-1-2016.pdf` | P5, P8 | **P6** |
 | `2016-1op-2-2016` | `144_1ra-op-2-2016.pdf` | P5, P11 | **P6** |
 | `2016-2op-2-2016` | `145_2da-op-2-2016.pdf` | P5, P11 | **P6** |
+| `2017-1op-1-2017` | `146_1ra-op-1-2017.pdf` | P10 | — |
+| `2017-2op-1-2017` | `147_2da-op-1-2017.pdf` | P6, P7 | — |
+| `2017-3op-1-2017` | `148_3ra-op-1-2017.pdf` | P6, P7 | — |
+| `2017-1op-2-2017` | `149_1ra-op-2-2017.pdf` | P7 | — |
+| `2017-2op-2-2017` | `150_2da-op-2-2017.pdf` | — | **P5** |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
@@ -54,7 +60,16 @@ comparten la Figura 3 y la del F11.
 adentro es la **3ra** opción (31-mar-2016). Y los dos de agosto traen
 "EXAMEN-INGRESO 1-2016" en el encabezado siendo de la gestión **2/2016**: el
 error es del facsímil y los nombres del repo ya están bien. Antes de asociar un
-PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado.
+PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado. Los cinco
+de 2017 (146 a 150), en cambio, coinciden: el problema era propio de esos dos.
+
+**Dos figuras de 2017 se parecen y no son la misma.** La "FIGURA 1" del
+`2017-2op-1` y la del `2017-3op-1` son el mismo dibujo (dos cuadrados de lado 1
+y dos rectas desde el vértice inferior izquierdo) con dos diferencias que solo
+están en la imagen: la cota del dato (4/13 contra 3/11) y **cuál de los dos
+cuadrados está sombreado** — el izquierdo en una, el derecho en la otra. De ahí
+que una dé g/4 = 1/13 y la otra 3g/4 = 9/44. Si se hubieran compartido el
+dibujo, una de las dos habría quedado con la respuesta de la otra.
 
 ### Lo que apareció al abrirlos
 
@@ -71,19 +86,18 @@ PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado.
   figura" ni "la figura 3 muestra". Se le agregaron las dos formas, con costo
   cero porque para entonces ya tenían su dibujo.
 
-### fisica (7)
+### fisica (6)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
 | `2009-parcial3-2-2009` | 19 | Circuito con un resistor de 3Ω, un resistor de 2Ω y un resistor de 5Ω según la figura. La resistencia equivalente (Ω) es… |
 | `2014-final-2-2014` | 19 | La estructura que se muestra en la figura adjunta gira alrededor del eje vertical AB, con una velocidad angular de 10 ra… |
 | `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
-| `2017-1op-1-2017` | 10 | Dos cargas $Q_1=2q$ y $Q_2=-q$, se sitúan según muestra la figura ($Q_1$ en el punto $(0,1)$ y $Q_2$ en el punto $(2,0)$… |
 | `2018-2op-1-2018` | 11 | En la figura se muestra un automovilista en una acción temeraria venciendo a la gravedad. Si se conocen los valores de $… |
 | `2024-parcial2-1-2024` | 19 | En la figura, cada capacitor tiene $C=9.00\ \mu F$. Calcule la capacitancia equivalente entre $a$ y $b$ (la red tiene do… |
 | `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
 
-### geometria_trigonometria (22)
+### geometria_trigonometria (17)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
@@ -92,11 +106,6 @@ PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado.
 | `2012-2op-1-2012` | 6 | Se conoce que un ángulo inscrito en una circunferencia vale la mitad del ángulo central que subtiende el mismo arco. En … |
 | `2014-parcial1-2-2014` | 7 | Calcular el área A de la figura: un sector circular de radio 5 cm con ángulo central de 60°; A es la región sombreada co… |
 | `2015-1op-2-2015` | 7 | En la figura $AE=8$, $EC=3$, $DB=5$ y $AB$ es paralelo a $DC$, entonces $BE-ED$ es igual a:… |
-| `2017-1op-2-2017` | 7 | En la figura se tiene cuatro círculos blancos idénticos tangentes entre sí e inscritos en un círculo mayor de color negr… |
-| `2017-2op-1-2017` | 6 | En la figura 1, se tienen dos cuadrados idénticos, cada uno de lado 1cm, entonces el área del triángulo sombreado es igu… |
-| `2017-2op-1-2017` | 7 | El valor de la $\tan(\theta)$ en la figura 2, es igual a:… |
-| `2017-3op-1-2017` | 6 | En la figura 1, se tiene dos cuadrados idénticos, cada uno de lado 1cm, entonces el área sombreada es igual a:… |
-| `2017-3op-1-2017` | 7 | En la figura 2, la altura h, de la torre es igual a:… |
 | `2018-2op-1-2018` | 7 | En la figura, O es el centro de la circunferencia. Si AB//RT y ∡AOC=94º; calcular la medida del ángulo α.… |
 | `2018-3op-1-2018` | 7 | En la figura, O es el centro de la circunferencia circunscrita a un pentágono regular y "t" es una tangente a la circunf… |
 | `2019-3op-1-2019` | 6 | En la figura, O es el centro de la circunferencia circunscrita a un pentágono regular y "t" es una tangente a la circunf… |
@@ -110,7 +119,7 @@ PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado.
 | `2024-parcial1-2-2024` | 8 | Encuentra el área sombreada de la siguiente figura: los centros de $C_1$ y $C_2$ son los puntos medios de los lados $\ov… |
 | `2024-parcial1-2-2024` | 9 | En la figura, los lados $\overline{AI}$ y $\overline{BJ}$ están divididos en 4 partes iguales por los puntos $C,E,G$ y $… |
 
-## El 29 es un piso, no un techo
+## El 23 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -134,14 +143,14 @@ y el texto se sostiene solo. Pero no todos, y el caso que lo probó apareció el
 > agarrar: el trinquete de figuras no la veía, el de "la explicación no se
 > contradice con la respuesta" tampoco.
 
-**Las candidatas son 73.** Definición exacta, para poder regenerar la lista: el
+**Las candidatas son 72.** Definición exacta, para poder regenerar la lista: el
 enunciado ANTES de `f3f276a` matcheaba el regex `PIDE_FIGURA` de
 `src/lib/axiom/banco.test.ts`, el de hoy no lo matchea, y hoy sigue sin declarar
 `figura:`. Se saca con un script de tres pasos: `git show f3f276a~1:<archivo>`
 para el texto viejo, el archivo de trabajo para el nuevo, y el regex del test
 sobre los dos.
 
-**No son 73 figuras para dibujar.** Son 73 preguntas para **abrir contra su
+**No son 72 figuras para dibujar.** Son 72 preguntas para **abrir contra su
 facsímil** y decidir: o el paréntesis describe bien la configuración y no hace
 falta nada, o falta el dibujo (y entonces va a la lista de arriba), o —como la
 P7— la descripción está mal y hay que corregir también la explicación. Lo que
@@ -180,7 +189,6 @@ falló.
 | `2017-1op-1-2017` | 9 | En un rizo, el bloque se suelta del punto A ubicado a 27 [m] de altura. Si el bloque completa un… |
 | `2017-1op-2-2017` | 9 | Dos bloques se mueven en sentidos contrarios con $V_A=15\text{[m/s]}$ y $V_B=5\text{[m/s]}$ (A s… |
 | `2017-2op-1-2017` | 11 | Dos esferas de masas $M_1$ y $M_2=2M_1$. Si $V_1=30[m/s]$ y $V_2=0$, y el choque es completament… |
-| `2017-2op-2-2017` | 5 | En un triángulo rectángulo de lados: 5, 12 y 13, se traza un cuadrado, entonces el área del triá… |
 | `2017-2op-2-2017` | 12 | Una persona se dirige hacia un muro con rapidez constante de $v_p=5\,[m/s]$, si lanza un grito c… |
 | `2017-3op-1-2017` | 9 | Se lanza una pequeña pelota con un ángulo de $45°$ con respecto a la horizontal. Si $g=10\,[m/s^… |
 | `2018-1op-1-2018` | 5 | Se sabe que AB$\parallel$DE y DF$\perp$CE. Determinar el perímetro del $\triangle CDE$. (Los pun… |
@@ -223,6 +231,36 @@ falló.
 | `2024-parcial2-2-2024` | 16 | Un electrón es lanzado con una velocidad inicial de $2\times10^7$ m/s a lo largo del eje central… |
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
+
+### Lo que dio el muestreo de 2017
+
+De las 72, seis eran de 2017 y se abrieron todas contra su facsímil. **Las seis
+salieron bien**: el paréntesis que les dejó la pasada del 14-sep describe la
+configuración correctamente y la respuesta marcada es la que da el cálculo. Es
+el primer tramo que sale limpio — los dos primeros que se habían abierto
+(`2016-1op-1` P7 y `2016-3op-1` P6) estaban mal. Con 8 de 78 revisadas no se
+puede extrapolar todavía, pero conviene anotar la proporción a medida que se
+avanza.
+
+A una se le dibujó la figura igual: `2017-2op-2` P5 se sostenía con un
+paréntesis de cuatro líneas que describía el dibujo entero. Ahora tiene la
+figura y el enunciado volvió a ser el del facsímil.
+
+## Y una tercera categoría: las que NI SIQUIERA prometen una figura
+
+`2017-3op-1` **P5** no está en ninguna de las dos listas y necesita su dibujo.
+Su enunciado no nombra ninguna figura — *"Se tiene un cuadrado ABCD, el punto de
+intersección de las diagonales es E y los arcos son cuartos de circunferencia,
+sabiendo que el lado del cuadrado es 4, entonces el área sombreada es igual a"* —
+pero el facsímil trae un cuadrado con cuatro arcos y una trama de sombreado que
+el texto **no alcanza a determinar**: no dice cuáles de las regiones que esos
+arcos recortan están sombreadas, y hay varias. Está marcada **E**.
+
+No se dibujó en el lote de 2017 a propósito: reconstruirla pide medir el
+sombreado arco por arco y la respuesta marcada es un "ninguna de las
+anteriores", que es justo el caso en que conviene no apurarse. Queda como el
+primer caso de esta categoría, que por definición **ningún regex puede
+encontrar**: solo aparece abriendo el PDF. Si aparecen más, van acá.
 
 ## Cómo desbloquear esto: trabajar en local
 

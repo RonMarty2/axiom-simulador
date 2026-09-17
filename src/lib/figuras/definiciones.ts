@@ -3345,6 +3345,319 @@ function f10colganteDosPoleas(): Figura {
   return { ancho: 420, alto: PISO + 26, pasos: 0, elementos: el };
 }
 
+// ── F10 (1-2017 1ra) · dos cargas en el plano ──
+// El facsímil dibuja los ejes con Q₁ = 2q en (0,1) y Q₂ = −q en (2,0). El
+// potencial se anula donde 2/r₁ = 1/r₂, o sea r₁ = 2r₂; sobre el segmento,
+// r₁ + r₂ = √5, así que r₁ = 2√5/3.
+function f10dosCargasPlano(): Figura {
+  const ESC = 90;
+  const O: Pt = { x: 60, y: 220 };
+  const en = (ux: number, uy: number): Pt => ({ x: O.x + ux * ESC, y: O.y - uy * ESC });
+
+  const Q1 = en(0, 1);
+  const Q2 = en(2, 0);
+
+  verificarDistancia("Q₁ a un metro sobre el origen", ESC, distancia(O, Q1));
+  verificarDistancia("Q₂ a dos metros del origen", 2 * ESC, distancia(O, Q2));
+  verificarDistancia("separación entre cargas = √5", Math.sqrt(5) * ESC, distancia(Q1, Q2));
+
+  const el: Elemento[] = [
+    // ejes con sus puntas
+    { tipo: "linea", de: { x: O.x, y: O.y }, a: { x: O.x + 3.4 * ESC, y: O.y }, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: O.x + 3.4 * ESC, y: O.y }, 0, 6), rol: "trazo", relleno: true },
+    { tipo: "linea", de: { x: O.x, y: O.y }, a: { x: O.x, y: O.y - 2.2 * ESC }, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: O.x, y: O.y - 2.2 * ESC }, 90, 6), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: O.x + 3.4 * ESC, y: O.y + 30 }, texto: "X (m)", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "texto", en: { x: O.x + 6, y: O.y - 2.2 * ESC - 10 }, texto: "Y (m)", rol: "trazo", tam: 11, ancla: "start" },
+  ];
+  // marcas de los ejes
+  for (const k of [1, 2, 3]) {
+    el.push({ tipo: "linea", de: en(k, 0), a: { x: en(k, 0).x, y: O.y + 5 }, rol: "trazo", grosor: 1 });
+    el.push({ tipo: "texto", en: { x: en(k, 0).x, y: O.y + 17 }, texto: String(k), rol: "trazo", tam: 11 });
+  }
+  for (const k of [1, 2]) {
+    el.push({ tipo: "linea", de: en(0, k), a: { x: O.x - 5, y: en(0, k).y }, rol: "trazo", grosor: 1 });
+    el.push({ tipo: "texto", en: { x: O.x - 11, y: en(0, k).y }, texto: String(k), rol: "trazo", tam: 11, ancla: "end" });
+  }
+  el.push(
+    // el segmento que une las cargas, que es donde se busca el punto
+    { tipo: "linea", de: Q1, a: Q2, rol: "aux", punteada: true },
+    { tipo: "punto", en: Q1, rol: "trazo", r: 6 },
+    { tipo: "punto", en: Q1, rol: "trazo", r: 2.5 },
+    { tipo: "texto", en: { x: Q1.x + 12, y: Q1.y - 12 }, texto: "Q₁ = 2q", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "punto", en: Q2, rol: "trazo", r: 6 },
+    { tipo: "punto", en: Q2, rol: "trazo", r: 2.5 },
+    { tipo: "texto", en: { x: Q2.x + 10, y: Q2.y - 16 }, texto: "Q₂ = −q", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+  );
+
+  return { ancho: 420, alto: O.y + 46, pasos: 0, elementos: el };
+}
+
+// ── G7 (2-2017 1ra) · cuatro círculos iguales tangentes, dentro de uno mayor ──
+// Los cuatro chicos van en 2x2, así que sus centros forman un cuadrado de lado
+// 2r y están a r√2 del centro del grande: R = r√2 + r = r(√2+1), y el cociente
+// R/r es √2+1. La figura se construye desde R y saca r de ahí, para que la
+// tangencia sea exacta y no "más o menos".
+function g7cuatroCirculosEnCirculo(): Figura {
+  const R = 130;
+  const r = R / (1 + Math.SQRT2);
+  const C: Pt = { x: 210, y: 154 };
+  const NEGRO = "#3f4451";
+
+  const centros: Pt[] = [
+    { x: C.x - r, y: C.y - r }, { x: C.x + r, y: C.y - r },
+    { x: C.x + r, y: C.y + r }, { x: C.x - r, y: C.y + r },
+  ];
+
+  // Las dos tangencias que definen la figura.
+  verificarDistancia("dos chicos vecinos se tocan", 2 * r, distancia(centros[0], centros[1]));
+  verificarDistancia("cada chico toca al grande por dentro", R - r, distancia(C, centros[0]));
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(C, R), rol: "trazo", relleno: true, color: NEGRO },
+    ...centros.map((p): Elemento => ({ tipo: "path", d: circuloPath(p, r), rol: "trazo", relleno: true, color: "#ffffff" })),
+    ...centros.map((p): Elemento => ({ tipo: "path", d: circuloPath(p, r), rol: "trazo" })),
+    // Los dos radios que se comparan. R va horizontal desde el centro: esa
+    // dirección cae toda en el negro (apenas roza los dos círculos de la
+    // derecha), así que no cruza ningún blanco. r va horizontal adentro del
+    // círculo de arriba a la izquierda.
+    { tipo: "linea", de: C, a: avanzar(C, 0, R), rol: "dato", color: AMBAR, grosor: 2 },
+    { tipo: "texto", en: avanzar(C, 0, R / 2), texto: "R", rol: "dato", tam: 14, cursiva: true, negrita: true },
+    { tipo: "linea", de: centros[0], a: avanzar(centros[0], 180, r), rol: "incognita", grosor: 2 },
+    { tipo: "texto", en: avanzar(avanzar(centros[0], 180, r / 2), -90, 14), texto: "r", rol: "incognita", tam: 14, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: C.y + R + 26, pasos: 0, elementos: el };
+}
+
+// ── Dos cuadrados de lado 1 con dos rectas desde el vértice inferior izquierdo ──
+// La misma construcción en dos exámenes de 2017, y lo que cambia NO es el
+// dibujo sino QUÉ mitad está sombreada — que es justo lo que el enunciado no
+// dice y la figura sí:
+//   1-2017 2da (G6): separación 4/13 en el borde derecho, sombra en el cuadrado
+//     IZQUIERDO → área = g/4 = 1/13.
+//   1-2017 3ra (G6): separación 3/11, sombra en el DERECHO → área = 3g/4 = 9/44.
+// La separación es el DATO (la figura la marca con una cota); sin ella el
+// problema no tiene con qué resolverse, porque la segunda recta podría ir a
+// cualquier parte.
+function dosCuadradosDosRectas(
+  gap: number, rotuloGap: string, ladoSombreado: "izquierda" | "derecha",
+): Figura {
+  const ESC = 158;
+  const X0 = 30, Y_BASE = 202;
+  const GRIS = "#9aa0ad";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const BL = en(0, 0), BR = en(2, 0), TR = en(2, 1), TL = en(0, 1);
+  const medioAbajo = en(1, 0), medioArriba = en(1, 1);
+  const finL1 = TR;                       // la recta de arriba va a la esquina
+  const finL2 = en(2, 1 - gap);           // la de abajo, gap más abajo
+  const cruceL1 = en(1, 0.5);             // ambas en el borde entre los cuadrados
+  const cruceL2 = en(1, (1 - gap) / 2);
+
+  verificarDistancia("son dos cuadrados de lado 1", ESC, distancia(BL, medioAbajo));
+  verificarDistancia("y el segundo mide igual", ESC, distancia(medioAbajo, BR));
+  verificarDistancia("de alto, uno", ESC, distancia(BL, TL));
+  verificarAngulo("la recta de arriba pasa por el cruce", 0, anguloEn(BL, cruceL1, finL1), 0.2);
+  verificarAngulo("la de abajo también", 0, anguloEn(BL, cruceL2, finL2), 0.2);
+  verificarDistancia("la cota marca la separación", gap * ESC, distancia(finL1, finL2));
+  const sombra: Pt[] = ladoSombreado === "izquierda"
+    ? [BL, cruceL1, cruceL2]
+    : [cruceL1, finL1, finL2, cruceL2];
+
+  // El área que se pregunta. Se mide sobre el polígono que se va a DIBUJAR
+  // (shoelace, y de px a unidades dividiendo por ESC²) y se contrasta con la
+  // fórmula: g/4 del lado izquierdo, 3g/4 del derecho. Si el polígono y la
+  // cuenta no coinciden, explota acá y no en la cara del alumno.
+  const areaPoligono = Math.abs(sombra.reduce(
+    (acc, p, i) => {
+      const q = sombra[(i + 1) % sombra.length];
+      return acc + (p.x * q.y - q.x * p.y);
+    }, 0)) / 2 / (ESC * ESC);
+  const areaEsperada = ladoSombreado === "izquierda" ? gap / 4 : (3 * gap) / 4;
+  verificarDistancia("área sombreada", areaEsperada, areaPoligono, 0.0001);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: sombra, rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "poligono", puntos: [TL, TR, BR, BL], rol: "trazo" },
+    { tipo: "linea", de: medioArriba, a: medioAbajo, rol: "trazo" },
+    { tipo: "linea", de: BL, a: finL1, rol: "trazo" },
+    { tipo: "linea", de: BL, a: finL2, rol: "trazo" },
+    // La cota va AFUERA, a la derecha del borde, como en el facsímil.
+    ...cota({ x: finL1.x + 14, y: finL1.y }, { x: finL2.x + 14, y: finL2.y }, rotuloGap, 22),
+    { tipo: "texto", en: { x: X0 + ESC, y: Y_BASE + 26 }, texto: "FIGURA 1", rol: "trazo", tam: 12 },
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 46, pasos: 0, elementos: el };
+}
+
+function g6dosCuadradosIzquierda(): Figura {
+  return dosCuadradosDosRectas(4 / 13, "4/13", "izquierda");
+}
+
+function g6dosCuadradosDerecha(): Figura {
+  return dosCuadradosDosRectas(3 / 11, "3/11", "derecha");
+}
+
+// ── G7 (1-2017 2da) · el muro con almena, y el θ entre las dos visuales ──
+// Figura 2 del facsímil. Desde el piso, a 6 de la base del muro, salen dos
+// visuales: una a la base de la almena (altura 4) y otra a su cima (altura 5).
+// θ es la diferencia, y sale de la resta de tangentes:
+// tanθ = (5/6 − 4/6)/(1 + (5/6)(4/6)) = (1/6)/(14/9) = 3/28.
+function g7muroAlmenaTheta(): Figura {
+  const DIST = 6, ALTO_MURO = 4, ALTO_ALMENA = 1;
+  const ESC = 46;
+  const X0 = 52, Y_PISO = 268;
+  const GRIS = "#c7c7d1";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_PISO - uy * ESC });
+
+  const O = en(0, 0);
+  const pieMuro = en(DIST, 0);
+  const baseAlmena = en(DIST, ALTO_MURO);
+  const cimaAlmena = en(DIST, ALTO_MURO + ALTO_ALMENA);
+  const ANCHO_MURO = 56, ANCHO_ALMENA = 28;
+
+  verificarDistancia("distancia al muro", DIST * ESC, distancia(O, pieMuro));
+  verificarDistancia("alto del muro", ALTO_MURO * ESC, distancia(pieMuro, baseAlmena));
+  verificarDistancia("alto de la almena", ALTO_ALMENA * ESC, distancia(baseAlmena, cimaAlmena));
+
+  const dirBase = anguloHacia(O, baseAlmena);
+  const dirCima = anguloHacia(O, cimaAlmena);
+  const arcoAlfa = arcoAngulo(O, 0, dirBase, 52, 70);
+  const arcoTheta = arcoAngulo(O, dirBase, dirCima, 92, 104);
+  verificarAngulo("α = atan(4/6)", (Math.atan(ALTO_MURO / DIST) * 180) / Math.PI, arcoAlfa.medida);
+  verificarAngulo(
+    "θ = atan(5/6) − atan(4/6)",
+    ((Math.atan((ALTO_MURO + ALTO_ALMENA) / DIST) - Math.atan(ALTO_MURO / DIST)) * 180) / Math.PI,
+    arcoTheta.medida,
+  );
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 26, y: Y_PISO }, a: { x: 400, y: Y_PISO }, rol: "trazo", grosor: 2 },
+    ...rayado(26, pieMuro.x - 4, Y_PISO),
+    // cuerpo del muro y la almena encima, a la izquierda (es donde pegan las visuales)
+    { tipo: "poligono", puntos: [
+        baseAlmena, { x: pieMuro.x + ANCHO_MURO, y: baseAlmena.y },
+        { x: pieMuro.x + ANCHO_MURO, y: Y_PISO }, pieMuro], rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "poligono", puntos: [
+        cimaAlmena, { x: cimaAlmena.x + ANCHO_ALMENA, y: cimaAlmena.y },
+        { x: cimaAlmena.x + ANCHO_ALMENA, y: baseAlmena.y }, baseAlmena], rol: "trazo", relleno: true, rellenoColor: GRIS },
+    // las dos visuales
+    { tipo: "linea", de: O, a: baseAlmena, rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: O, a: cimaAlmena, rol: "trazo", grosor: 1.4 },
+    { tipo: "arco", d: arcoAlfa.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAlfa.etiquetaEn, texto: "α", rol: "dato", tam: 13, negrita: true },
+    { tipo: "arco", d: arcoTheta.d, rol: "incognita" },
+    { tipo: "texto", en: arcoTheta.etiquetaEn, texto: "θ", rol: "incognita", tam: 14, negrita: true },
+    // los tres datos
+    ...cota(O, pieMuro, "6", 22),
+    ...cota({ x: pieMuro.x + ANCHO_MURO, y: Y_PISO }, { x: pieMuro.x + ANCHO_MURO, y: baseAlmena.y }, "4", -20),
+    ...cota({ x: cimaAlmena.x + ANCHO_ALMENA, y: baseAlmena.y }, { x: cimaAlmena.x + ANCHO_ALMENA, y: cimaAlmena.y }, "1", -16),
+  ];
+
+  return { ancho: 420, alto: Y_PISO + 42, pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2017 3ra) · la torre vista con 2θ y con θ ──
+// Figura 2 del facsímil. Desde 5 m de la base el ángulo de elevación es 2θ y
+// desde 20 m es θ. Con tan2θ = 2tanθ/(1−tan²θ): h/5 = 40h/(400−h²), o sea
+// 400 − h² = 200 y h = 10√2. El dibujo usa esa altura real.
+function g7torre2ThetaTheta(): Figura {
+  const D_CERCA = 5, D_LEJOS = 20;
+  const H = 10 * Math.SQRT2;
+  const ESC = 16;
+  const X0 = 64, Y_PISO = 250;
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_PISO - uy * ESC });
+
+  const pie = en(0, 0);
+  const cima = en(0, H);
+  const cerca = en(D_CERCA, 0);
+  const lejos = en(D_LEJOS, 0);
+
+  const dosTheta = (Math.atan(H / D_CERCA) * 180) / Math.PI;
+  const theta = (Math.atan(H / D_LEJOS) * 180) / Math.PI;
+  // Lo que hace al problema: el de cerca ve EXACTAMENTE el doble.
+  verificarAngulo("el ángulo de cerca es el doble del de lejos", dosTheta, 2 * theta, 0.01);
+  verificarDistancia("altura de la torre", H * ESC, distancia(pie, cima));
+
+  const arco2 = arcoAngulo(cerca, 180, anguloHacia(cerca, cima), 44, 62);
+  const arco1 = arcoAngulo(lejos, 180, anguloHacia(lejos, cima), 52, 70);
+  verificarAngulo("arco de 2θ", dosTheta, arco2.medida);
+  verificarAngulo("arco de θ", theta, arco1.medida);
+
+  const ANCHO = 26;
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 26, y: Y_PISO }, a: { x: 404, y: Y_PISO }, rol: "trazo", grosor: 2 },
+    ...rayado(lejos.x + 6, 404, Y_PISO),
+    // la torre: un fuste angosto con dos cruces, para que se lea como torre
+    { tipo: "poligono", puntos: [
+        { x: pie.x - ANCHO / 2, y: Y_PISO }, { x: pie.x - ANCHO / 2 - 5, y: Y_PISO },
+        { x: pie.x + ANCHO / 2 + 5, y: Y_PISO }, { x: pie.x + ANCHO / 2, y: Y_PISO }],
+      rol: "trazo" },
+    { tipo: "linea", de: { x: pie.x - ANCHO / 2, y: Y_PISO }, a: { x: cima.x - 3, y: cima.y }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: pie.x + ANCHO / 2, y: Y_PISO }, a: { x: cima.x + 3, y: cima.y }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: pie.x - ANCHO / 2, y: Y_PISO }, a: { x: cima.x + 3, y: cima.y }, rol: "trazo", grosor: 0.9 },
+    { tipo: "linea", de: { x: pie.x + ANCHO / 2, y: Y_PISO }, a: { x: cima.x - 3, y: cima.y }, rol: "trazo", grosor: 0.9 },
+    // las dos visuales
+    { tipo: "linea", de: cerca, a: cima, rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: lejos, a: cima, rol: "trazo", grosor: 1.4 },
+    { tipo: "arco", d: arco2.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco2.etiquetaEn, texto: "2θ", rol: "dato", tam: 12.5, negrita: true },
+    { tipo: "arco", d: arco1.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco1.etiquetaEn, texto: "θ", rol: "dato", tam: 12.5, negrita: true },
+    // la altura, que es lo que se busca, y las dos distancias
+    { tipo: "linea", de: { x: pie.x - 28, y: Y_PISO }, a: { x: pie.x - 28, y: cima.y }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: pie.x - 34, y: Y_PISO }, a: { x: pie.x - 22, y: Y_PISO }, rol: "incognita", grosor: 1.6 },
+    { tipo: "linea", de: { x: pie.x - 34, y: cima.y }, a: { x: pie.x - 22, y: cima.y }, rol: "incognita", grosor: 1.6 },
+    { tipo: "texto", en: { x: pie.x - 36, y: (Y_PISO + cima.y) / 2 }, texto: "h", rol: "incognita", tam: 15, cursiva: true, negrita: true, ancla: "end" },
+    ...cota(cerca, pie, "5 m", 20),
+    ...cota(lejos, pie, "20 m", 42),
+  ];
+
+  return { ancho: 420, alto: Y_PISO + 62, pasos: 0, elementos: el };
+}
+
+// ── G5 (2-2017 2da) · el 5-12-13 con un cuadrado en el ángulo recto ──
+// El cuadrado se apoya en los dos catetos y su vértice libre cae sobre la
+// hipotenusa: s = (5/12)(12−s) ⇒ s = 60/17. El sombreado es el triángulo que
+// queda a la IZQUIERDA del cuadrado, de base 12−s = 144/17 y altura s:
+// área = ½·(144/17)·(60/17) = 4320/289. Las cuatro opciones son 4319, 4320,
+// 4321 y 4322 sobre 289, así que acá no alcanza con "aproximadamente".
+function g5triangulo51213Cuadrado(): Figura {
+  const BASE = 12, ALTO = 5;
+  const S = (ALTO * BASE) / (ALTO + BASE);   // 60/17
+  const ESC = 26;
+  const X0 = 54, Y_BASE = 170;
+  const GRIS = "#9aa0ad";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const P = en(0, 0);                 // vértice izquierdo
+  const Q = en(BASE, 0);              // ángulo recto
+  const R = en(BASE, ALTO);           // vértice superior
+  const cSupIzq = en(BASE - S, S);    // el vértice del cuadrado que toca la hipotenusa
+  const cInfIzq = en(BASE - S, 0);
+  const cSupDer = en(BASE, S);
+
+  verificarDistancia("hipotenusa = 13", 13 * ESC, distancia(P, R));
+  verificarAngulo("ángulo recto en Q", 90, anguloEn(Q, P, R));
+  verificarDistancia("el cuadrado es cuadrado", S * ESC, distancia(cInfIzq, cSupIzq));
+  verificarDistancia("y su otro lado también", S * ESC, distancia(cSupIzq, cSupDer));
+  verificarAngulo("su vértice libre cae en la hipotenusa", 0, anguloEn(P, cSupIzq, R), 0.2);
+  // El área que se pregunta, en unidades del enunciado
+  verificarDistancia("área sombreada = 4320/289", 4320 / 289, ((BASE - S) * S) / 2, 0.0001);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [P, cInfIzq, cSupIzq], rol: "trazo", relleno: true, rellenoColor: GRIS },
+    { tipo: "poligono", puntos: [P, Q, R], rol: "trazo" },
+    { tipo: "poligono", puntos: [cSupIzq, cSupDer, Q, cInfIzq], rol: "trazo" },
+    { tipo: "texto", en: { x: (P.x + Q.x) / 2, y: Y_BASE + 18 }, texto: "12", rol: "dato", tam: 13, negrita: true },
+    { tipo: "texto", en: { x: Q.x + 14, y: (Q.y + R.y) / 2 }, texto: "5", rol: "dato", tam: 13, negrita: true, ancla: "start" },
+    { tipo: "texto", en: avanzar({ x: (P.x + R.x) / 2, y: (P.y + R.y) / 2 }, anguloHacia(P, R) + 90, 17), texto: "13", rol: "dato", tam: 13, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -3423,6 +3736,14 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g5-bisectriz-16-8": g5bisectriz16y8,
   "g6-recta-biseca-cuadrado": g6rectaBisecaCuadrado,
   "f11-dos-bloques-mesa-hueco": f11dosBloquesMesaHueco,
+  // Lote 2017 (facsímiles 146 a 150).
+  "f10-dos-cargas-plano": f10dosCargasPlano,
+  "g7-cuatro-circulos-en-circulo": g7cuatroCirculosEnCirculo,
+  "g6-dos-cuadrados-sombra-izquierda": g6dosCuadradosIzquierda,
+  "g7-muro-almena-theta": g7muroAlmenaTheta,
+  "g6-dos-cuadrados-sombra-derecha": g6dosCuadradosDerecha,
+  "g7-torre-2theta-theta": g7torre2ThetaTheta,
+  "g5-triangulo-5-12-13-cuadrado": g5triangulo51213Cuadrado,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

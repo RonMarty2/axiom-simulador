@@ -189,7 +189,7 @@ describe("banco de exámenes", () => {
   // peor, la descripción que le pusieron tenía el triángulo al revés. Hay 74
   // preguntas en esa situación, listadas en docs/figuras-pendientes.md. Bajar
   // este tope reescribiendo texto no es progreso; dibujar la figura sí.
-  const FIGURAS_NO_DECLARADAS_TOPE = 29;
+  const FIGURAS_NO_DECLARADAS_TOPE = 23;
 
   // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
   // Deja afuera a propósito los "se muestra a continuación" seguidos de la
