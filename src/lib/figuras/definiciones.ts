@@ -4117,6 +4117,253 @@ function f19redCapacitores(): Figura {
   return { ancho: 420, alto: B_Y + 48, pasos: 0, elementos: el };
 }
 
+// Desvío del paralelismo entre dos rectas, en grados y siempre en [0, 90].
+// Comparar `anguloHacia` contra `anguloHacia` a secas da 180 cuando las dos
+// van paralelas pero recorridas en sentidos OPUESTOS, que es igual de paralelo:
+// de ahí que haya que plegar el ángulo a módulo 180 y quedarse con el menor.
+function desvioParalelas(a1: Pt, a2: Pt, b1: Pt, b2: Pt): number {
+  const d = Math.abs((((anguloHacia(a1, a2) - anguloHacia(b1, b2)) % 180) + 180) % 180);
+  return Math.min(d, 180 - d);
+}
+
+// Cruce de dos rectas dadas por dos puntos cada una. Hacía falta para las
+// figuras donde el punto que se pregunta es una intersección y no un vértice:
+// `hastaY` solo sirve cuando la otra recta es horizontal.
+function cruce(a1: Pt, a2: Pt, b1: Pt, b2: Pt): Pt {
+  const d1x = a2.x - a1.x, d1y = a2.y - a1.y;
+  const d2x = b2.x - b1.x, d2y = b2.y - b1.y;
+  const den = d1x * d2y - d1y * d2x;
+  if (Math.abs(den) < 1e-9) throw new Error("cruce: las dos rectas son paralelas, no se cortan");
+  const t = ((b1.x - a1.x) * d2y - (b1.y - a1.y) * d2x) / den;
+  return { x: a1.x + t * d1x, y: a1.y + t * d1y };
+}
+
+// ── G7 (1-2018 2da) · α en el cruce de dos cuerdas, con AB ∥ RT ──
+// El ángulo entre dos cuerdas que se cortan adentro vale la SEMISUMA de los dos
+// arcos opuestos que abarca. Nombrando los arcos en sentido horario desde T
+// (t = TC, c = CR, r = RA, a = AB, b = BT):
+//   · AB ∥ RT obliga a r = b (dos paralelas cortan arcos iguales),
+//   · ∡AOC = 94° es el arco CA que pasa por R, o sea c + r = 94.
+// Entonces α = (t + r + a)/2, y como t + c + r + a + b = 360 con c = 94 − r y
+// b = r, queda t + a + r = 266 y α = 133° — la opción A, sin importar cuánto
+// mida cada arco por separado. El dibujo elige r = 45, c = 49, t = 66, a = 155.
+function g7cuerdasAbParalelaRt(): Figura {
+  const R = 128;
+  const O: Pt = { x: 206, y: 162 };
+  // posiciones en grados antihorarios, construidas desde los arcos elegidos
+  const P = { R: 0, C: 49, T: 115, B: 160, A: 315 };
+  const pR = avanzar(O, P.R, R), pC = avanzar(O, P.C, R);
+  const pT = avanzar(O, P.T, R), pB = avanzar(O, P.B, R), pA = avanzar(O, P.A, R);
+
+  // Las dos condiciones del enunciado, verificadas sobre el dibujo
+  verificarAngulo("AB ∥ RT", 0, desvioParalelas(pA, pB, pT, pR), 0.01);
+  verificarAngulo("∡AOC = 94°", 94, anguloEn(O, pA, pC));
+
+  const X = cruce(pT, pR, pB, pC);            // donde se cortan las dos cuerdas
+  const arcoAlfa = arcoAngulo(X, anguloHacia(X, pT), anguloHacia(X, pC), 30, 46);
+  verificarAngulo("α = 133°", 133, arcoAlfa.medida, 0.2);
+
+  const arco94 = arcoAngulo(O, anguloHacia(O, pA), anguloHacia(O, pC), 30, 46);
+  verificarAngulo("el arco del dato marca 94°", 94, arco94.medida);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "linea", de: pT, a: pR, rol: "trazo" },
+    { tipo: "linea", de: pB, a: pC, rol: "trazo" },
+    { tipo: "linea", de: pB, a: pA, rol: "trazo" },
+    { tipo: "linea", de: O, a: pC, rol: "trazo" },
+    { tipo: "linea", de: O, a: pA, rol: "trazo" },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.2 },
+    { tipo: "punto", en: X, rol: "incognita", r: 2.6 },
+    { tipo: "arco", d: arco94.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco94.etiquetaEn, texto: "94°", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arcoAlfa.d, rol: "incognita" },
+    { tipo: "texto", en: arcoAlfa.etiquetaEn, texto: "α", rol: "incognita", tam: 14, negrita: true },
+    rotulo(avanzar(O, P.T, R + 15), "T"),
+    rotulo(avanzar(O, P.C, R + 15), "C"),
+    rotulo(avanzar(O, P.R, R + 15), "R"),
+    rotulo(avanzar(O, P.B, R + 15), "B"),
+    rotulo(avanzar(O, P.A, R + 16), "A"),
+    rotulo({ x: O.x - 15, y: O.y + 4 }, "O"),
+  ];
+
+  return { ancho: 420, alto: O.y + R + 30, pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2018 3ra) y G6 (1-2019 3ra) · pentágono regular con una tangente ──
+// LA MISMA figura en los dos exámenes: se compararon las dos imágenes antes de
+// compartir el dibujo (la lección del lote 2017, donde dos que parecían iguales
+// no lo eran). Acá sí coinciden: mismo pentágono, misma tangente en el vértice
+// de arriba a la izquierda, mismos X e Y.
+//
+// Con arcos de 72° entre vértices consecutivos:
+//   · X es el cruce de dos secantes (el lado V1V5 prolongado y el lado de abajo
+//     V3V4 prolongado): vale (arco lejano − arco cercano)/2 = (144 − 72)/2 = 36°.
+//   · Y es el cruce de la TANGENTE en V2 con ese mismo lado de abajo:
+//     (216 − 72)/2 = 72°.
+// x + y = 108°, la opción A.
+function g7pentagonoTangente(): Figura {
+  const R = 82;
+  const O: Pt = { x: 170, y: 130 };
+  const ANG = [90, 162, 234, 306, 18];              // V1..V5, antihorario
+  const [V1, V2, V3, V4, V5] = ANG.map((a) => avanzar(O, a, R));
+  const PALO = "#f3e6dd";
+
+  verificarDistancia("el pentágono es regular", distancia(V1, V2), distancia(V2, V3), 0.01);
+  verificarDistancia("y de lado parejo", distancia(V3, V4), distancia(V4, V5), 0.01);
+
+  // la tangente en V2: perpendicular al radio OV2
+  const dirTan = 162 - 90;
+  const tanA = avanzar(V2, dirTan, 62), tanB = avanzar(V2, dirTan - 180, 130);
+  verificarAngulo("la tangente es perpendicular al radio", 90, anguloEn(V2, O, tanA));
+
+  // los dos puntos de afuera, sobre la prolongación del lado de abajo
+  const baseIzq = { x: 44, y: V3.y }, baseDer = { x: 396, y: V3.y };
+  const Y = cruce(tanA, tanB, V3, V4);
+  const X = cruce(V1, V5, V3, V4);
+
+  const arcoY = arcoAngulo(Y, anguloHacia(Y, V4), anguloHacia(Y, V2), 34, 50);
+  const arcoX = arcoAngulo(X, anguloHacia(X, V5), anguloHacia(X, V4), 34, 50);
+  verificarAngulo("y = 72°", 72, arcoY.medida, 0.1);
+  verificarAngulo("x = 36°", 36, arcoX.medida, 0.1);
+  verificarAngulo("x + y = 108°", 108, arcoX.medida + arcoY.medida, 0.2);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "poligono", puntos: [V1, V2, V3, V4, V5], rol: "trazo", relleno: true, rellenoColor: PALO },
+    // el lado de abajo prolongado, y el lado V1V5 prolongado hasta X
+    { tipo: "linea", de: baseIzq, a: baseDer, rol: "trazo" },
+    { tipo: "linea", de: V1, a: X, rol: "trazo" },
+    // la tangente
+    { tipo: "linea", de: tanA, a: Y, rol: "trazo" },
+    { tipo: "texto", en: avanzar(tanA, dirTan, 12), texto: "t", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "punto", en: V2, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.2 },
+    { tipo: "texto", en: { x: O.x + 14, y: O.y - 4 }, texto: "O", rol: "trazo", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "arco", d: arcoY.d, rol: "incognita" },
+    { tipo: "texto", en: arcoY.etiquetaEn, texto: "y", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+    { tipo: "arco", d: arcoX.d, rol: "incognita" },
+    { tipo: "texto", en: arcoX.etiquetaEn, texto: "x", rol: "incognita", tam: 13, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(V3.y + 48), pasos: 0, elementos: el };
+}
+
+// ── G5 (1-2023 3ra) · dos triángulos rectángulos y el triangulito negro ──
+// Los dos catetos verticales miden 28 (izquierda) y 45 (derecha), y la base
+// total 148. Las tangentes dadas fijan dónde cae cada hipotenusa sobre la base:
+//   tan α = 7/15 = 28/60  → el pie del izquierdo está a 60 del extremo izquierdo
+//   tan β = 9/20 = 45/100 → el pie del derecho está a 100 del extremo derecho,
+//                           o sea a 148 − 100 = 48
+// Los dos pies se pasan uno al otro, y ese solapamiento es la base del
+// triangulito negro: b = 60 − 48 = 12 (opción A). No hace falta el punto donde
+// se cruzan las hipotenusas, pero el dibujo lo necesita y sale de `cruce`.
+function g5dosTriangulosBaseNegra(): Figura {
+  const BASE = 148, IZQ = 28, DER = 45;
+  const PIE_IZQ = IZQ * (15 / 7);            // 60
+  const PIE_DER = BASE - DER * (20 / 9);     // 48
+  const ESC = 2.15;
+  const X0 = 46, Y_BASE = 148;
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  const izqAbajo = en(0, 0), izqArriba = en(0, IZQ);
+  const derAbajo = en(BASE, 0), derArriba = en(BASE, DER);
+  const pieIzq = en(PIE_IZQ, 0), pieDer = en(PIE_DER, 0);
+  const apex = cruce(izqArriba, pieIzq, derArriba, pieDer);
+
+  verificarDistancia("cateto izquierdo = 28", IZQ * ESC, distancia(izqAbajo, izqArriba));
+  verificarDistancia("cateto derecho = 45", DER * ESC, distancia(derAbajo, derArriba));
+  verificarDistancia("base total = 148", BASE * ESC, distancia(izqAbajo, derAbajo));
+  verificarAngulo("tan α = 7/15", (Math.atan(7 / 15) * 180) / Math.PI,
+    anguloEn(izqArriba, { x: izqArriba.x + 60, y: izqArriba.y }, pieIzq));
+  verificarAngulo("tan β = 9/20", (Math.atan(9 / 20) * 180) / Math.PI,
+    anguloEn(derArriba, { x: derArriba.x - 60, y: derArriba.y }, pieDer));
+  verificarDistancia("la base negra mide 12", 12 * ESC, distancia(pieDer, pieIzq));
+
+  const arcoA = arcoAngulo(izqArriba, 0, anguloHacia(izqArriba, pieIzq), 40, 54);
+  const arcoB = arcoAngulo(derArriba, 180, anguloHacia(derArriba, pieDer), 40, 56);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: izqAbajo, a: derAbajo, rol: "trazo", grosor: 1.6 },
+    { tipo: "poligono", puntos: [izqAbajo, izqArriba, pieIzq], rol: "trazo" },
+    { tipo: "poligono", puntos: [derAbajo, derArriba, pieDer], rol: "trazo" },
+    // el triangulito negro: el solapamiento de las dos bases
+    { tipo: "poligono", puntos: [pieDer, pieIzq, apex], rol: "trazo", relleno: true, rellenoColor: "#1a1a2e" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(izqAbajo, 0, 90, 9), rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(derAbajo, 180, 90, 9), rol: "trazo" },
+    { tipo: "texto", en: { x: izqArriba.x - 12, y: (izqAbajo.y + izqArriba.y) / 2 }, texto: "28", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: derArriba.x + 12, y: (derAbajo.y + derArriba.y) / 2 }, texto: "45", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "arco", d: arcoA.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoA.etiquetaEn, texto: "α", rol: "dato", tam: 13, negrita: true },
+    { tipo: "arco", d: arcoB.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoB.etiquetaEn, texto: "β", rol: "dato", tam: 13, negrita: true },
+    { tipo: "texto", en: { x: (pieDer.x + pieIzq.x) / 2, y: Y_BASE + 16 }, texto: "b", rol: "incognita", tam: 14, cursiva: true, negrita: true },
+    ...cota(izqAbajo, derAbajo, "148", -34),
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 56, pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2023 3ra) · cinco cuadrados en escalera con una diagonal ──
+// Los cuadrados de lado 5, 4, 3, 2 y 1 se apoyan en la misma base, en ese
+// orden, y una sola recta va de la punta de arriba del primero (0,5) a la
+// esquina de abajo del último (15,0). Lo sombreado es la franja entre los
+// techos y esa recta.
+//
+// Sale de dos maneras y conviene tener las dos: sumando los cinco trapecios da
+// 25/6 + 16/3 + 9/2 + 8/3 + 5/6 = 35/2; y de una, el área de la escalera menos
+// el triángulo bajo la recta: (25+16+9+4+1) − ½·15·5 = 55 − 37,5 = 35/2. Es la
+// opción C. La verificación de abajo mide el POLÍGONO que se dibuja.
+function g7cincoCuadradosEscalera(): Figura {
+  const LADOS = [5, 4, 3, 2, 1];
+  const ANCHO_TOTAL = LADOS.reduce((a, b) => a + b, 0);   // 15
+  const ESC = 22;
+  const X0 = 46, Y_BASE = 152;
+  const GRIS = "#9aa0ad";
+  const en = (ux: number, uy: number): Pt => ({ x: X0 + ux * ESC, y: Y_BASE - uy * ESC });
+
+  // bordes de cada cuadrado
+  const bordes: number[] = [0];
+  for (const l of LADOS) bordes.push(bordes[bordes.length - 1] + l);
+
+  // la escalera, de la punta de arriba a la esquina de abajo del último
+  const escalera: Pt[] = [];
+  LADOS.forEach((l, i) => {
+    escalera.push(en(bordes[i], l));
+    escalera.push(en(bordes[i + 1], l));
+  });
+  escalera.push(en(ANCHO_TOTAL, 0));
+  const recta: [Pt, Pt] = [en(0, LADOS[0]), en(ANCHO_TOTAL, 0)];
+
+  verificarDistancia("la recta arranca en la punta del primer cuadrado", 0,
+    distancia(recta[0], en(0, LADOS[0])), 0.01);
+  verificarDistancia("y termina en la esquina de abajo del ultimo", 0,
+    distancia(recta[1], en(ANCHO_TOTAL, 0)), 0.01);
+  // El área del polígono que se va a dibujar, en unidades del enunciado
+  const areaPoligono = Math.abs(escalera.reduce((acc, p, i) => {
+    const q = escalera[(i + 1) % escalera.length];
+    return acc + (p.x * q.y - q.x * p.y);
+  }, 0)) / 2 / (ESC * ESC);
+  verificarDistancia("área sombreada = 35/2", 35 / 2, areaPoligono, 0.0001);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: escalera, rol: "trazo", relleno: true, rellenoColor: GRIS },
+    ...LADOS.map((l, i): Elemento => ({
+      tipo: "poligono",
+      puntos: [en(bordes[i], l), en(bordes[i + 1], l), en(bordes[i + 1], 0), en(bordes[i], 0)],
+      rol: "trazo",
+    })),
+    { tipo: "linea", de: recta[0], a: recta[1], rol: "trazo", grosor: 1.8 },
+    ...LADOS.map((l, i): Elemento => ({
+      tipo: "texto",
+      en: { x: en((bordes[i] + bordes[i + 1]) / 2, 0).x, y: Y_BASE + 17 },
+      texto: String(l), rol: "dato", tam: 12, negrita: true,
+    })),
+  ];
+
+  return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -4213,6 +4460,13 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g9-trapecio-cuartos": g9trapecioCuartos,
   "g6-thales-de-paralelo-cb": g6thalesDeParaleloCb,
   "f19-red-capacitores": f19redCapacitores,
+  // Lote 2018 / 2019 / 2023. El pentagono con la tangente aparece igual en
+  // el 1-2018 3ra (G7) y en el 1-2019 3ra (G6): se compararon las dos
+  // imagenes antes de compartir el id.
+  "g7-cuerdas-ab-paralela-rt": g7cuerdasAbParalelaRt,
+  "g7-pentagono-tangente": g7pentagonoTangente,
+  "g5-dos-triangulos-base-negra": g5dosTriangulosBaseNegra,
+  "g7-cinco-cuadrados-escalera": g7cincoCuadradosEscalera,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

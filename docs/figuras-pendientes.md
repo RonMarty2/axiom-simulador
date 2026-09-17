@@ -3,13 +3,13 @@
 **Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **15 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
+Quedan **9 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
 El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 15; cada una que se resuelva baja el tope.
+el tope en 9; cada una que se resuelva baja el tope.
 
 **Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
 esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
-en "El 15 es un piso, no un techo".
+en "El 9 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -54,6 +54,10 @@ y el facsímil traía igual.
 | `2024-parcial2-1-2024` | `2024-1-preu.pdf` p.10 | P19 | — |
 | `2024-final-1-2024` | `2024-1-preu.pdf` p.14 | P6 | — |
 | `2024-parcial1-2-2024` | `2024-2-preu.pdf` p.2 | P6, P8, P9 | — |
+| `2018-2op-1-2018` | `152_2da-op-1-2018.pdf` | P7, P11 | — |
+| `2018-3op-1-2018` | `153_3ra-op-1-2018.pdf` | P7 | — |
+| `2019-3op-1-2019` | `158_3ra-op-1-2018.pdf` | P6 | — |
+| `2023-3op-1-2023` | `3-op-1-2023.pdf` | P5, P7 | — |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
@@ -65,7 +69,13 @@ adentro es la **3ra** opción (31-mar-2016). Y los dos de agosto traen
 "EXAMEN-INGRESO 1-2016" en el encabezado siendo de la gestión **2/2016**: el
 error es del facsímil y los nombres del repo ya están bien. Antes de asociar un
 PDF a un examen hay que abrirlo y mirar la FECHA, no el encabezado. Los cinco
-de 2017 (146 a 150), en cambio, coinciden: el problema era propio de esos dos.
+de 2017 (146 a 150), en cambio, coinciden.
+
+**Y hay tres más, peores.** `156_1ra-op-1-2018.pdf`, `157_2da-op-1-2018.pdf` y
+`158_3ra-op-1-2018.pdf` dicen 2018 en el nombre y adentro son **1-2019** (1ra,
+2da y 3ra opción). No es un dígito mal tipeado: son otro año. Los de 2018 de
+verdad son el 151 al 155. Así que el `2019-3op-1-2019` del banco sale del
+archivo que se llama `158_3ra-op-1-2018.pdf`.
 
 **Dos figuras de 2017 se parecen y no son la misma.** La "FIGURA 1" del
 `2017-2op-1` y la del `2017-3op-1` son el mismo dibujo (dos cuadrados de lado 1
@@ -90,17 +100,16 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
   figura" ni "la figura 3 muestra". Se le agregaron las dos formas, con costo
   cero porque para entonces ya tenían su dibujo.
 
-### fisica (5)
+### fisica (4)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
 | `2009-parcial3-2-2009` | 19 | Circuito con un resistor de 3Ω, un resistor de 2Ω y un resistor de 5Ω según la figura. La resistencia equivalente (Ω) es… |
 | `2014-final-2-2014` | 19 | La estructura que se muestra en la figura adjunta gira alrededor del eje vertical AB, con una velocidad angular de 10 ra… |
 | `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
-| `2018-2op-1-2018` | 11 | En la figura se muestra un automovilista en una acción temeraria venciendo a la gravedad. Si se conocen los valores de $… |
 | `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
 
-### geometria_trigonometria (10)
+### geometria_trigonometria (5)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
@@ -109,13 +118,8 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
 | `2012-2op-1-2012` | 6 | Se conoce que un ángulo inscrito en una circunferencia vale la mitad del ángulo central que subtiende el mismo arco. En … |
 | `2014-parcial1-2-2014` | 7 | Calcular el área A de la figura: un sector circular de radio 5 cm con ángulo central de 60°; A es la región sombreada co… |
 | `2015-1op-2-2015` | 7 | En la figura $AE=8$, $EC=3$, $DB=5$ y $AB$ es paralelo a $DC$, entonces $BE-ED$ es igual a:… |
-| `2018-2op-1-2018` | 7 | En la figura, O es el centro de la circunferencia. Si AB//RT y ∡AOC=94º; calcular la medida del ángulo α.… |
-| `2018-3op-1-2018` | 7 | En la figura, O es el centro de la circunferencia circunscrita a un pentágono regular y "t" es una tangente a la circunf… |
-| `2019-3op-1-2019` | 6 | En la figura, O es el centro de la circunferencia circunscrita a un pentágono regular y "t" es una tangente a la circunf… |
-| `2023-3op-1-2023` | 5 | En la figura adjunta se tienen dos triángulos rectángulos tal que $\tan(\alpha)=\dfrac{7}{15}$ y $\tan(\beta)=\dfrac{9}{… |
-| `2023-3op-1-2023` | 7 | En la figura se tienen cinco cuadrados de lados 1, 2, 3, 4 y 5 respectivamente, entonces el área sombreada es igual a:… |
 
-## El 15 es un piso, no un techo
+## El 9 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -227,6 +231,27 @@ falló.
 | `2024-parcial2-2-2024` | 16 | Un electrón es lanzado con una velocidad inicial de $2\times10^7$ m/s a lo largo del eje central… |
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
+
+### El lote 2018 / 2019 / 2023
+
+Seis preguntas en cuatro PDF, y **las seis estaban bien respondidas**: acá no
+hubo nada que corregir, solo dibujar. Cuatro figuras nuevas, porque dos
+preguntas comparten una y otra reusa un dibujo que ya existía.
+
+**Se cerró la última de "las tres peores".** El `2018-2op-1` P11 era la que
+quedaba en duda (*"no se sabe si es un rizo o una pared cilíndrica"*). El
+facsímil lo muestra sin lugar a dudas: es una **pared cilíndrica** — un tambor
+con el motociclista pegado a la pared interior. Y además resultó ser **la misma
+pregunta** que el `2017-3op-1` P11, con los mismos μ = 0,5 y r = 20 m, que ya
+tenía dibujado `f11-pared-de-la-muerte`. Se reusa el id: la duda se resolvió sin
+dibujar nada nuevo.
+
+**El pentágono con la tangente es el mismo en 2018 y en 2019.** El `2018-3op-1`
+P7 y el `2019-3op-1` P6 tienen enunciado idéntico y la misma respuesta (108°).
+Se compararon **las dos imágenes** antes de compartir el dibujo — la lección
+del lote 2017, donde dos figuras que parecían iguales no lo eran — y acá sí
+coinciden: mismo pentágono, misma tangente en el vértice de arriba a la
+izquierda, mismos X e Y.
 
 ### El lote 2024 y las dos respuestas que estaban mal
 
