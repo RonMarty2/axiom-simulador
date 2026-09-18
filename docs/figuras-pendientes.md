@@ -148,7 +148,7 @@ viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
 regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
 confiar en la tabla.
 
-**Van 44 auditadas de 88, con 13 problemas.** Y no son de un solo tipo: hay tres
+**Van 58 auditadas de 88, con 16 problemas.** Y no son de un solo tipo: hay tres
 modos de falla distintos, y solo el primero cambia la respuesta.
 
 | modo de falla | qué pasó | encontradas |
@@ -410,6 +410,41 @@ Las cuentas que confirman las ocho:
 - **`2015-1op-2` P6**: razón 14/13, perímetro 34·14/13 = 476/13. Este es el
   único del lote cuyo texto se sostenía solo.
 - **`2015-1op-2` P12**: con m₂ = 2m₁, v' = v/3 y la altura sale R/9.
+
+### El filtro de "sin paréntesis" funcionó: 14 revisadas, 10 se sostenían solas
+
+El filtro que salió del lote 2015 (buscar las que **no tienen paréntesis
+descriptivo**) dio 14 candidatas. Al leerlas, **10 se sostienen solas**: el
+texto trae todos los datos y la cuenta cierra sin abrir el PDF. Son circuitos y
+problemas de cinemática donde la configuración está escrita en palabras.
+
+Las 10 limpias, con la cuenta: `2006-1op-1` P12 (4Ω en serie con 1‖2‖3, P =
+V²/R = 22 W), `2008-parcial2-1` P10 (potencia del punto: 4·12 = 3·CO² ⇒ DC =
+16), `2011-1op-1` P10 (D = 80 m), `2011-final-1` P23 (a = 8 m/s²),
+`2011-unica-2` P11 (Atwood, a = 5 m/s²), `2013-parcial1-1` P16 (los vectores se
+hacen perpendiculares en t = 1 s, distancia 52 m), `2013-parcial1-2` P18
+(25 m/s), `2017-2op-1` P11 (choque elástico, −10 y 20), `2018-3op-1` P9 (6 N) y
+`2025-parcial1-1` P18 (ω = 10π).
+
+**Las otras 4 necesitaban el facsímil, y las 4 estaban bien respondidas.** Tres
+necesitaban además que el texto dijera lo que el dibujo mostraba:
+
+- **`2025-final-1` P8 · el globo está ENTRE A y B.** Este es el caso donde el
+  dato faltante cambia la respuesta: leyendo "el globo más allá de B" —la
+  lectura natural sin figura— sale h = 64,6 km, que no está entre las opciones
+  y llevaría a marcar E. Con el globo en el medio, h·(cot60° + cot75°) = 20 da
+  23,66 km, la opción marcada.
+- **`2025-final-1` P6 · lo sombreado son los tres equiláteros**, construidos
+  hacia afuera, con el △ABC interior en blanco y el ángulo recto en B. La suma
+  es √3/4(25 + 144 + 169) = 169√3/2, porque los dos catetos suman lo mismo que
+  la hipotenusa al cuadrado.
+- **`2024-final-2` P18 · m₁ cuelga del eje de la polea móvil** y m₂ del extremo
+  libre, así que m₁ se mueve a la mitad de la velocidad de m₂. De ahí el par
+  2,45 y 4,90 (justo en razón 1:2).
+- **`2024-parcial2-2` P10 no necesitaba nada.** Parecía indeterminada —falta la
+  altura de la bandera— pero se resuelve **probando las opciones**: el par
+  (θ, d) tiene que cumplir tan θ = 16/(d+9), y de las cuatro solo
+  (53°7', 3 m) lo cumple. Está bien planteada.
 
 ### La única que el facsímil NO resuelve
 

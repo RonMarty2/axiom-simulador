@@ -398,7 +398,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
 - [ ] **1 enunciado nombra una figura que no existe, y es el único que el facsímil NO resuelve.** La `2010-parcial1-2` P7 tiene la figura en el PDF, pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). **Ese 1 ya no baja leyendo PDF**: bajarlo es decidir qué hacer con una pregunta que el examen original dejó ambigua. Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 29 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023, cuatro sueltas de geometría de 2008 a 2015 y las cuatro de física, que dejaron **dos respuestas corregidas**). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 1 y solo puede bajar.
-- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 44, con 13 problemas, de los cuales solo 2 son respuestas mal).** Filtro barato para lo que queda: las que **no tienen paréntesis descriptivo** son las sospechosas de modo 4 (le sacaron la figura y no pusieron nada). Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
+- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 58, con 16 problemas, de los cuales solo 2 son respuestas mal).** Filtro barato para lo que queda: las que **no tienen paréntesis descriptivo** son las sospechosas de modo 4 (le sacaron la figura y no pusieron nada). Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
 - [ ] **Y una tercera categoría, que ningún chequeo automático puede encontrar: las que NI SIQUIERA prometen una figura.** El primer caso es `2017-3op-1` P5, que habla de un cuadrado con arcos sin nombrar ninguna figura y cuyo sombreado el texto no determina (está marcada E). El trinquete solo ve las que prometen un dibujo; estas aparecen únicamente abriendo el PDF. Se anotan en la sección homónima de [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md) a medida que se encuentran.
 - [ ] **Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.** `verificarAngulo`/`verificarDistancia` explotan al CONSTRUIR la figura, y nada la construye en los tests: `banco.test.ts` lee el registro de `definiciones.ts` como texto, porque ese módulo importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria. La sesión del 13-sep ya lo había topado y decidió no torcer los imports de la app para acomodar un test. Consecuencia: una figura con la verificación rota se commitea sin que nada avise y explota recién en el navegador, en esa sola pregunta. Salida sin tocar los imports: un paso aparte en CI que las construya con `tsx`, o copiar el módulo a un temp con la extensión puesta e importarlo — es lo que hicieron a mano los harness del 16 y 17-sep para los 19 dibujos de esas dos sesiones.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
@@ -465,6 +465,38 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-18 (ter) (el filtro de "sin paréntesis" funcionó, y una corrección sobre los PDF del prefacultativo)
+
+El filtro que había salido del lote 2015 —buscar las preguntas que **no tienen paréntesis descriptivo**, porque son las candidatas a modo 4— dio 14. Se revisaron las 14.
+
+## 10 se sostenían solas
+
+El texto trae todos los datos y la cuenta cierra sin abrir el PDF: circuitos y cinemática donde la configuración está escrita en palabras. O sea que **el filtro es barato pero no es un diagnóstico**: señala dónde mirar, no qué está roto. Bien: 14 candidatas para encontrar 4 reales es un rendimiento aceptable para un filtro de una línea.
+
+## Las 4 que sí necesitaban el facsímil estaban las 4 bien respondidas
+
+Tres necesitaban que el texto dijera lo que el dibujo mostraba:
+
+- **`2025-final-1` P8 · el globo está ENTRE A y B.** Es el caso donde el dato faltante **cambia la respuesta**: la lectura natural sin figura (el globo más allá de B) da h = 64,6 km, que no está entre las opciones y llevaría a marcar E. Con el globo en el medio da 23,66 km, la opción marcada.
+- **`2025-final-1` P6 · lo sombreado son los tres equiláteros**, con el △ABC interior en blanco y el ángulo recto en B.
+- **`2024-final-2` P18 · m₁ cuelga del eje de la polea móvil**, así que se mueve a la mitad de la velocidad de m₂. De ahí el par 2,45 y 4,90, justo en razón 1:2.
+
+## La cuarta no necesitaba nada, y es la más interesante
+
+El **`2024-parcial2-2` P10** (el topógrafo, el edificio de 16 m y la bandera a 9 m) parecía indeterminada: falta la altura de la bandera, y sin ella no se puede despejar la distancia. Pero **se resuelve probando las opciones**: el par (θ, d) tiene que cumplir tan θ = 16/(d+9), y de las cuatro solo (53°7', 3 m) lo cumple. Las otras tres son inconsistentes consigo mismas.
+
+Vale la pena anotarlo porque es lo contrario del patrón de esta auditoría: acá el enunciado parecía incompleto y no lo estaba. **Antes de declarar que una pregunta no se puede resolver, hay que probar si las opciones la cierran.**
+
+## Corrección: los `-preu.pdf` no tienen todos la misma forma
+
+La entrada del 17-sep (quinquies) dice que el `2025-1-preu.pdf` trae los tres exámenes de la gestión "cuatro páginas cada uno" —cierto— y agrega que "los `2024-*-preu.pdf` ya eran así". **Eso último está mal:** el `2024-2-preu.pdf` tiene **18 páginas, seis por examen** (1er parcial 1-6, 2do parcial 7-12, final 13-18). Se descubrió buscando una pregunta del final en las primeras 12 páginas y no encontrándola.
+
+La regla correcta es la de siempre, y ya estaba escrita para las secciones: **contar las páginas del archivo antes de asumir dónde empieza cada examen.** Un `seq 1 12` sobre un PDF de 18 páginas no avisa que faltan seis.
+
+## Dónde va la cuenta
+
+Van **58 de 88** auditadas, con 16 problemas. **Solo 2 son respuestas equivocadas**, las dos del primer muestreo. Las otras 14 son de texto.
 
 ### 2026-09-18 (bis) (el lote 2015 y el cuarto modo de falla: le sacaron la figura y no pusieron nada)
 
@@ -643,7 +675,7 @@ Así que las dos figuras de circuito se verifican con la cuenta eléctrica: se d
 
 ## Un PDF puede traer varios exámenes
 
-El `2025-1-preu.pdf` tiene 12 páginas y son los **tres** exámenes de la gestión, cuatro páginas cada uno: 1er parcial (1-4), 2do parcial (5-8) y final (9-12). La física del final es la página 12, no la 4. Los `2024-*-preu.pdf` ya eran así. Van dos lotes seguidos con esta forma, así que conviene asumirla: mirar el encabezado de cada página antes de recortar sale más barato que recortar la página equivocada.
+El `2025-1-preu.pdf` tiene 12 páginas y son los **tres** exámenes de la gestión, cuatro páginas cada uno: 1er parcial (1-4), 2do parcial (5-8) y final (9-12). La física del final es la página 12, no la 4. Los `2024-*-preu.pdf` también traen tres exámenes, pero **no con la misma cantidad de páginas**: el `2024-2-preu.pdf` tiene 18 y son seis por examen (corregido el 18-sep; ver la entrada de ese día). Van dos lotes seguidos con esta forma, así que conviene asumirla: mirar el encabezado de cada página antes de recortar sale más barato que recortar la página equivocada.
 
 ## Lo que el facsímil confirmó sin cambiar la respuesta
 
