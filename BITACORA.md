@@ -411,7 +411,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~Los modos Premium bloqueados no hacen nada al tocarlos en `/practicar`.~~ Resuelto el 16-sep: llevan a `/precios` con el motivo de lo que el alumno quiso hacer (ver §11).
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
-- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **20 preguntas de Lenguaje a 5 de ellos** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página. Falta: **(a)** los 4 de 2011 y 2012, que tienen copias duplicadas con la división Carreras/Programas y hay que abrir cada encabezado antes de emparejar; **(b)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015); **(c)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (una de cuatro verificadas estaba mal); **(d)** abrir el PDF de Historia General, 84 páginas que todavía no se revisaron.
+- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **35 preguntas de Lenguaje a 9 de los 10** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página y comparando la línea de carreras o programas y la fecha. De paso se corrigió una fecha (`2012-1op-1`, 26 → 28 de enero) y se completó otra que estaba vacía (`2012-2op-1`, 8 de febrero). Falta: **(a)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015) y necesita otra fuente; **(b)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (tres verificaciones independientes y las tres fallan, incluyendo preguntas con DOS marcas distintas); **(c)** abrir el PDF de Historia General, 84 páginas que todavía no se revisaron y que son el tercio que falta de cada examen.
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -504,6 +504,51 @@ Estas dos valen la pena porque muestran dónde está el límite:
 Hay **dos exámenes distintos rotulados "1/2014 (PRIMERA OPCIÓN)"**: el de las **Carreras** (Economía, Contaduría Pública y Administración de Empresas), del 1 de febrero, y el de los **Programas** (Ing. Financiera e Ing. Comercial), del 8 de febrero. El título no alcanza para distinguirlos: hay que leer la línea de carreras/programas **y** la fecha del sello.
 
 Es la misma clase de trampa que la del nombre de archivo mentiroso en FCYT, y el archivo `2013-1op-2` ya traía anotada una versión de esto (el OCR confunde `I-2013` con `1/2013`). Ese descarte estaba bien hecho y se mantuvo; lo que falló no fue el criterio sino el inventario, que no llegó a mostrar las páginas donde sí estaban.
+
+## Adenda 2: 9 de los 10 exámenes cerrados, 35 preguntas, y dos fechas arregladas
+
+Se completaron los cuatro que faltaban de 2011 y 2012. Quedan **9 de 10 exámenes con su sección de Lenguaje y 35 preguntas nuevas**. El único que sigue sin ella es el `2023-2op-1`, y no por falta de trabajo: **no está en estos PDF**, que van de 2008 a 2015.
+
+Ocho exámenes aportaron 4 preguntas y uno solo 3, por los motivos que se anotan abajo.
+
+## La división Carreras/Programas era real, no un detalle de redacción
+
+El archivo `2012-1op-1-2012.md` traía anotada una duda: su facsímil de Matemáticas nombra solo *"Programas: Ing. Comercial e Ing. Financiera"*, sin las carreras, y se preguntaba si ese año habían tomado exámenes separados o si era una particularidad de la hoja. **Eran exámenes separados.** El PDF de Lenguaje tiene las dos versiones de la misma primera opción de 1/2012:
+
+- **Programas** (Ingeniería Comercial e Ingeniería Financiera), sábado 28 de enero, página 38.
+- **Carreras** (Economía, Adm. de Empresas y Contaduría Pública), sábado 21 de enero, página 42.
+
+Lo mismo pasa en 2014 con el `1/2014 (PRIMERA OPCIÓN)`: Carreras el 1 de febrero y Programas el 8. O sea que en esta colección **el título del examen no identifica la hoja**: hace falta la línea de carreras o programas y la fecha. Es la misma clase de trampa que los nombres de archivo mentirosos de FCYT.
+
+## Dos fechas que el facsímil de Matemáticas no permitía leer
+
+Las dos se resolvieron con el encabezado de Lenguaje, que además **se valida solo por el día de la semana**:
+
+- **`2012-1op-1` · 26 → 28 de enero.** El pie de la hoja de Matemáticas está desteñido y el segundo dígito es un borrón; se renderizó a **700 dpi** y sigue ilegible. De ahí venía el 26. El encabezado de Lenguaje dice *"sábado 28 de enero de 2012"*, y el 28 fue sábado (el 26 fue jueves).
+- **`2012-2op-1` · estaba SIN fecha** porque el pie era ilegible y se había preferido dejarla vacía antes que inventarla, que fue la decisión correcta. El encabezado de Lenguaje dice *"miércoles 8 de febrero de 2012"*, y el 8 fue miércoles.
+
+Vale como método: **cuando un dato es ilegible en un facsímil, puede estar legible en otra hoja del mismo examen**, y si el dato trae día de la semana, se comprueba solo.
+
+## Las marcas a mano: tres pruebas y las tres fallan
+
+Ya estaba anotado que la marca de la 19 del `2014-1op-2` decía "presupuesto" donde la definición era, textual, la de *arancel* del diccionario de la RAE. Los dos exámenes de 2011 agregan algo peor: **hay preguntas con DOS marcas distintas.**
+
+- Página 47 (`2011-1op-1`): la 18 tiene un círculo en la b) y un tilde en la c); la 19, un tilde en la b) y un círculo en la c). En los dos casos acierta el tilde.
+- Página 45 (`2011-2op-1`): la 20 tiene un círculo en la a) y un tilde en la c). Acierta el tilde.
+
+Tres verificaciones independientes y las tres dan lo mismo: **las letras marcadas en estos escaneos no son una clave.** Se usaron solo como segunda opinión, después de resolver cada pregunta por separado.
+
+## Las que quedaron afuera, con el motivo de cada una
+
+Ninguna se dejó por comodidad:
+
+- **Las 15 de comprensión lectora de cada examen.** Sin clave, la respuesta sería criterio del transcriptor. Siguen pendientes y declaradas como tales.
+- **`2012-1op-1` ítem 18**: el verbo subrayado es un borrón. El contexto (*"necesitamos desesperadamente que..."*) obliga a un presente de subjuntivo, así que la respuesta se sabe, pero no se puede transcribir un enunciado con una palabra que no se lee.
+- **`2012-1op-1` ítem 20**: las **cuatro** opciones tienen faltas de ortografía o puntuación, y el examen no ofrece "Ninguno". No hay letra que marcar sin forzarla.
+- **`2013-1op-2` ítem 17**: ninguna de sus cuatro opciones es la función correcta (es un complemento directo y ofrece otras cuatro), y tampoco hay "Ninguno".
+- **`2014-1op-1` ítem 16**: pide clasificar una oración unida por *"mientras que"*, donde los manuales se contradicen entre sí. No es un hecho objetivo del mismo tipo que reconocer un gerundio.
+- **Varios ítem 16**: su enunciado está al pie de una página y las opciones en la siguiente, así que hace falta abrir las dos. Es recorte, no criterio.
+
 
 ## Adenda del mismo día: 5 exámenes, 20 preguntas, y las marcas a mano NO son una clave
 
