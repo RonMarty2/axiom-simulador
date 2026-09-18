@@ -3,13 +3,14 @@
 **Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **9 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
+Quedan **5 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
 El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 9; cada una que se resuelva baja el tope.
+el tope en 5; cada una que se resuelva baja el tope. Cuatro son de física y la
+quinta es la única que **el facsímil no alcanza a resolver** — ver abajo.
 
 **Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
 esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
-en "El 9 es un piso, no un techo".
+en "El 5 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -58,6 +59,10 @@ y el facsímil traía igual.
 | `2018-3op-1-2018` | `153_3ra-op-1-2018.pdf` | P7 | — |
 | `2019-3op-1-2019` | `158_3ra-op-1-2018.pdf` | P6 | — |
 | `2023-3op-1-2023` | `3-op-1-2023.pdf` | P5, P7 | — |
+| `2008-parcial2-2-2008` | `081_…2-2008.pdf` p.2 | P7 | — |
+| `2012-2op-1-2012` | `120_SegundoExamenIngreso1-2012.pdf` | P6 | — |
+| `2014-parcial1-2-2014` | `134_1erparcial2-2014.pdf` p.2 | P7 | — |
+| `2015-1op-2-2015` | `139_1ra-op-2-2015.pdf` | P7 | — |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
@@ -109,17 +114,13 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
 | `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
 | `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
 
-### geometria_trigonometria (5)
+### geometria_trigonometria (1)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
-| `2008-parcial2-2-2008` | 7 | En la figura, las cuerdas $AB$ y $CD$ de una circunferencia se cruzan en el punto interior $O$. Se sabe que $BO=9$ m, $O… |
 | `2010-parcial1-2-2010` | 7 | $AB$ y $CD$ son paralelas. Dos transversales se cruzan formando los ángulos 1, 2 y 3 marcados en la figura, con ángulo 1… |
-| `2012-2op-1-2012` | 6 | Se conoce que un ángulo inscrito en una circunferencia vale la mitad del ángulo central que subtiende el mismo arco. En … |
-| `2014-parcial1-2-2014` | 7 | Calcular el área A de la figura: un sector circular de radio 5 cm con ángulo central de 60°; A es la región sombreada co… |
-| `2015-1op-2-2015` | 7 | En la figura $AE=8$, $EC=3$, $DB=5$ y $AB$ es paralelo a $DC$, entonces $BE-ED$ es igual a:… |
 
-## El 9 es un piso, no un techo
+## El 5 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -231,6 +232,36 @@ falló.
 | `2024-parcial2-2-2024` | 16 | Un electrón es lanzado con una velocidad inicial de $2\times10^7$ m/s a lo largo del eje central… |
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
+
+### La única que el facsímil NO resuelve
+
+**`2010-parcial1-2-2010` P7** sigue pendiente y no por falta de PDF. Está
+marcada **E, "provisorio"**, con el archivo admitiendo que *"depende de una
+figura del PDF original… que no está disponible en el texto extraído"*.
+
+Se abrió el facsímil (`104_…2-2010.pdf`, página 4) y se renderizó **a 800 dpi**.
+La figura está: dos paralelas AB y CD cortadas por dos transversales, con los
+ángulos 1 y 2 marcados sobre CD. El problema es el ángulo 3: **su marca está
+suelta**, no apoyada en ninguna intersección. Los dos cuadraditos grises que la
+dibujan quedan a unos 100 px (a 800 dpi, ~3 mm en la hoja) del único cruce
+cercano, así que no se puede decir de qué vértice es el ángulo sin adivinar.
+
+Las lecturas posibles dan 40°, 60° o 120° según de qué vértice se mida y hacia
+qué lado; 120° fue la que eligió el transcriptor y no está entre las opciones,
+de ahí la E. **Queda como E**: es el único caso del banco donde tener el
+facsímil en la mano no alcanza, y conviene que esté escrito para que la próxima
+sesión no vuelva a abrirlo esperando resolverlo.
+
+### El lote 2008-2015 (las sueltas de geometría)
+
+Cuatro preguntas en cuatro PDF distintos, una por archivo: es el tramo más caro
+en tiempo por figura de todo el trabajo. **Las cuatro estaban bien respondidas.**
+
+Los exámenes viejos del prefacultativo traen **una sección por página**, pero el
+orden cambia de año en año: en el 2009 es Aritmética, Geometría, Química,
+Física, Biología, y en el 2010 es Aritmética, **Física**, Química, **Geometría**,
+Biología. No se puede asumir; hay que leer el título de cada página. Se hace
+recortando la banda de los títulos de las cinco páginas y mirándolas juntas.
 
 ### El lote 2018 / 2019 / 2023
 

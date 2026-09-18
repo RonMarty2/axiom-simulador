@@ -4364,6 +4364,177 @@ function g7cincoCuadradosEscalera(): Figura {
   return { ancho: 420, alto: Y_BASE + 40, pasos: 0, elementos: el };
 }
 
+// ── G7 (2do parcial 2-2008) · dos cuerdas que se cruzan adentro ──
+// AO·OB = CO·OD (potencia del punto): 4·9 = 36, y con CO = 4·OD queda
+// 4·OD² = 36, OD = 3 y CO = 12 (opción d).
+// La circunferencia no se elige a ojo: los cuatro puntos fijan sus distancias
+// a O y el centro sale del CRUCE de las dos mediatrices, con los cuatro radios
+// verificados. Así es imposible dibujar cuatro puntos que no sean concíclicos.
+function g7dosCuerdasPotencia(): Figura {
+  const AO = 4, OB = 9, OD = 3, CO = 4 * OD;     // 12
+  const ESC = 13;
+  const O: Pt = { x: 212, y: 220 };
+  const A = avanzar(O, 205, AO * ESC);
+  const B = avanzar(O, 25, OB * ESC);
+  const C = avanzar(O, 135, CO * ESC);
+  const D = avanzar(O, -45, OD * ESC);
+
+  verificarDistancia("potencia del punto", AO * OB, CO * OD, 0.0001);
+
+  // centro = cruce de las mediatrices de AB y de CD
+  const medio = (p: Pt, q: Pt): Pt => ({ x: (p.x + q.x) / 2, y: (p.y + q.y) / 2 });
+  const mAB = medio(A, B), mCD = medio(C, D);
+  const centro = cruce(
+    mAB, avanzar(mAB, anguloHacia(A, B) + 90, 100),
+    mCD, avanzar(mCD, anguloHacia(C, D) + 90, 100),
+  );
+  const R = distancia(centro, A);
+  for (const [n, p] of [["B", B], ["C", C], ["D", D]] as [string, Pt][]) {
+    verificarDistancia(`${n} sobre la circunferencia`, R, distancia(centro, p), 0.5);
+  }
+  verificarDistancia("O queda adentro", 0, Math.max(0, distancia(centro, O) - R + 1), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(centro, R), rol: "trazo" },
+    { tipo: "linea", de: A, a: B, rol: "trazo" },
+    { tipo: "linea", de: C, a: D, rol: "trazo" },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.6 },
+    ...[["A", A, 200], ["B", B, 20], ["C", C, 130], ["D", D, -50]].map(
+      ([t, p, a]) => rotulo(avanzar(p as Pt, a as number, 15), t as string)),
+    { tipo: "texto", en: avanzar(O, -120, 15), texto: "O", rol: "trazo", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (O.x + B.x) / 2, y: (O.y + B.y) / 2 }, anguloHacia(O, B) + 90, 14), texto: "9", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (O.x + A.x) / 2, y: (O.y + A.y) / 2 }, anguloHacia(O, A) - 90, 14), texto: "4", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar(avanzar(O, anguloHacia(O, C), CO * ESC * 0.62), anguloHacia(O, C) + 90, 26), texto: "CO = 4·OD", rol: "incognita", tam: 11, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(centro.y + R + 28), pasos: 0, elementos: el };
+}
+
+// ── G6 (2do examen de ingreso 1-2012) · el diámetro AOB y el ángulo ADC ──
+// AOB es diámetro, así que el arco de A a B por el lado de C mide 180°. Con
+// ∡BOC = 40° (central) ese arco BC vale 40°, y el arco AC que NO contiene a D
+// es 180 + 40 = 220°. El inscrito en D vale la mitad: ∡ADC = 110° (opción C).
+function g6diametroAobAnguloAdc(): Figura {
+  const R = 116;
+  const O: Pt = { x: 208, y: 152 };
+  const A = avanzar(O, 150, R);
+  const B = avanzar(O, 330, R);      // diametralmente opuesto a A
+  const C = avanzar(O, 10, R);       // 40° desde B, contando hacia arriba
+  const D = avanzar(O, 75, R);
+
+  verificarAngulo("AOB es diámetro", 180, anguloEn(O, A, B), 0.01);
+  verificarAngulo("∡BOC = 40°", 40, anguloEn(O, B, C));
+  verificarAngulo("∡ADC = 110°", 110, anguloEn(D, A, C), 0.2);
+
+  const arco40 = arcoAngulo(O, anguloHacia(O, B), anguloHacia(O, C), 32, 48);
+  const arcoAdc = arcoAngulo(D, anguloHacia(D, A), anguloHacia(D, C), 30, 46);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "linea", de: A, a: B, rol: "trazo" },
+    { tipo: "linea", de: O, a: C, rol: "trazo" },
+    { tipo: "linea", de: A, a: D, rol: "trazo" },
+    { tipo: "linea", de: D, a: C, rol: "trazo" },
+    { tipo: "linea", de: A, a: C, rol: "trazo" },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.2 },
+    { tipo: "arco", d: arco40.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco40.etiquetaEn, texto: "40°", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "arco", d: arcoAdc.d, rol: "incognita" },
+    { tipo: "texto", en: arcoAdc.etiquetaEn, texto: "?", rol: "incognita", tam: 14, negrita: true },
+    rotulo(avanzar(O, 150, R + 15), "A"),
+    rotulo(avanzar(O, 330, R + 15), "B"),
+    rotulo(avanzar(O, 10, R + 15), "C"),
+    rotulo(avanzar(O, 75, R + 15), "D"),
+    { tipo: "texto", en: avanzar(O, 250, 16), texto: "O", rol: "trazo", tam: 12, negrita: true },
+  ];
+
+  return { ancho: 420, alto: O.y + R + 30, pasos: 0, elementos: el };
+}
+
+// ── G7 (1er parcial 2-2014) · el segmento circular de 60° y radio 5 ──
+// Lo sombreado es el SEGMENTO: el sector de 60° menos el triángulo que forman
+// los dos radios con la cuerda. Como el ángulo central es 60°, ese triángulo
+// es equilátero de lado 5.
+//   sector = (60/360)·π·5² = 25π/6 ;  triángulo = (√3/4)·5² = 25√3/4
+//   segmento = 25π/6 − 25√3/4  (opción C)
+function g7sector60Segmento(): Figura {
+  const RADIO_CM = 5, ABERTURA = 60;
+  const A1 = 15, A2 = A1 + ABERTURA;
+  const R = 106;
+  const O: Pt = { x: 200, y: 168 };
+  const GRIS = "#9aa0ad";
+  const P1 = avanzar(O, A1, R), P2 = avanzar(O, A2, R);
+
+  verificarDistancia("los dos radios miden igual", distancia(O, P1), distancia(O, P2), 0.01);
+  verificarAngulo("la abertura es de 60°", ABERTURA, anguloEn(O, P1, P2));
+  // con 60° el triángulo de los dos radios y la cuerda es equilátero
+  verificarDistancia("la cuerda mide lo mismo que el radio", R, distancia(P1, P2), 0.5);
+  const segmento = (Math.PI * RADIO_CM * RADIO_CM * ABERTURA) / 360
+    - (Math.sqrt(3) / 4) * RADIO_CM * RADIO_CM;
+  verificarDistancia("segmento = 25π/6 − 25√3/4",
+    (25 * Math.PI) / 6 - (25 * Math.sqrt(3)) / 4, segmento, 0.0001);
+
+  const arcoAbertura = arcoAngulo(O, A1, A2, 30, 46);
+
+  const el: Elemento[] = [
+    // el segmento sombreado: la cuerda y el arco de vuelta
+    { tipo: "path", d: `M ${P1.x.toFixed(2)} ${P1.y.toFixed(2)}` + sigueArco(O, R, A1, A2) + " Z", rol: "trazo", relleno: true, color: GRIS },
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "linea", de: O, a: P1, rol: "trazo" },
+    { tipo: "linea", de: O, a: P2, rol: "trazo" },
+    { tipo: "linea", de: P1, a: P2, rol: "trazo" },
+    { tipo: "punto", en: O, rol: "trazo", r: 2.2 },
+    { tipo: "arco", d: arcoAbertura.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoAbertura.etiquetaEn, texto: "60°", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (O.x + P1.x) / 2, y: (O.y + P1.y) / 2 }, A1 - 90, 14), texto: "5 cm", rol: "dato", tam: 11, negrita: true },
+    { tipo: "texto", en: avanzar(O, A1 + ABERTURA / 2, R + 34), texto: "A", rol: "incognita", tam: 14, cursiva: true, negrita: true },
+  ];
+
+  return { ancho: 420, alto: O.y + R + 30, pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2015 2da opción) · las diagonales y BE − ED ──
+// Con AB ∥ DC los triángulos ABE y CDE son semejantes, así que E parte LAS DOS
+// diagonales en la misma razón: BE/ED = AE/EC = 8/3. Con BD = 5 sale
+// BE = 40/11, ED = 15/11 y BE − ED = 25/11 (opción A).
+// El dibujo se construye desde E con esas cuatro distancias, y por eso el
+// paralelismo sale solo: es consecuencia de la razón, no algo que haya que
+// acomodar a ojo.
+function g7diagonalesBeMenosEd(): Figura {
+  const AE = 8, EC = 3, BD = 5;
+  const BE = (BD * AE) / (AE + EC);      // 40/11
+  const ED = BD - BE;                    // 15/11
+  const ESC = 30;
+  const E: Pt = { x: 250, y: 142 };
+  const A = avanzar(E, 205, AE * ESC);
+  const C = avanzar(E, 25, EC * ESC);
+  const B = avanzar(E, 315, BE * ESC);
+  const D = avanzar(E, 135, ED * ESC);
+
+  verificarDistancia("AE = 8", AE * ESC, distancia(A, E));
+  verificarDistancia("EC = 3", EC * ESC, distancia(E, C));
+  verificarDistancia("DB = 5", BD * ESC, distancia(D, B));
+  verificarAngulo("AB ∥ DC", 0, desvioParalelas(A, B, D, C), 0.01);
+  verificarDistancia("BE − ED = 25/11", (25 / 11) * ESC, distancia(B, E) - distancia(E, D), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C, D], rol: "trazo" },
+    { tipo: "linea", de: A, a: C, rol: "trazo" },
+    { tipo: "linea", de: B, a: D, rol: "trazo" },
+    { tipo: "punto", en: E, rol: "trazo", r: 2.6 },
+    rotulo(avanzar(A, 200, 15), "A"),
+    rotulo(avanzar(B, -20, 15), "B"),
+    rotulo(avanzar(C, 25, 15), "C"),
+    rotulo(avanzar(D, 130, 15), "D"),
+    { tipo: "texto", en: avanzar(E, -80, 16), texto: "E", rol: "trazo", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + E.x) / 2, y: (A.y + E.y) / 2 }, anguloHacia(A, E) - 90, 14), texto: "8", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar(avanzar(E, anguloHacia(E, C), EC * ESC * 0.62), anguloHacia(E, C) - 90, 15), texto: "3", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (D.x + B.x) / 2, y: (D.y + B.y) / 2 }, anguloHacia(D, B) + 90, 30), texto: "DB = 5", rol: "dato", tam: 11, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(Math.max(A.y, B.y) + 36), pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -4467,6 +4638,11 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g7-pentagono-tangente": g7pentagonoTangente,
   "g5-dos-triangulos-base-negra": g5dosTriangulosBaseNegra,
   "g7-cinco-cuadrados-escalera": g7cincoCuadradosEscalera,
+  // Las sueltas de 2008 a 2015: casi un PDF por pregunta.
+  "g7-dos-cuerdas-potencia": g7dosCuerdasPotencia,
+  "g6-diametro-aob-angulo-adc": g6diametroAobAnguloAdc,
+  "g7-sector-60-segmento": g7sector60Segmento,
+  "g7-diagonales-be-menos-ed": g7diagonalesBeMenosEd,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
