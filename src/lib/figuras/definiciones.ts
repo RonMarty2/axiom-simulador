@@ -5179,6 +5179,149 @@ function g5PerimetroAbcColineal(): Figura {
   return { ancho: 420, alto: Math.round(D.y + 32), pasos: 0, elementos: el };
 }
 
+// ── G5/G6 (1-2015 1ra y 2da opción) · el rombo dentro del triángulo 3-4 ──
+// Auditoría de las "invisibles": el enunciado quedó en "en un triángulo
+// rectángulo de lados 3 y 4 se construye un rombo", y así no se puede resolver:
+// hay infinitos rombos ahí adentro. El facsímil dice CUÁL.
+// Es el paralelogramo que tiene dos lados HORIZONTALES y los otros dos
+// PARALELOS A LA HIPOTENUSA, con un vértice en el cateto vertical y otro en el
+// vértice inferior derecho del triángulo. Que sea rombo (cuatro lados iguales)
+// es lo que lo fija:
+//   con la altura k, el lado horizontal mide 4 − 4k/3 y el oblicuo 5k/3;
+//   igualándolos, 9k/3 = 4 ⇒ k = 4/3 y el lado sale 20/9.
+//   área = (20/9)(4/3) = 80/27 (opción d del 1ra)
+//   perímetro = 4(20/9) = 80/9, que NO está entre las opciones del 2da
+//   —el examen repitió ahí la lista del área, todas sobre 27— así que va E.
+// El mismo dibujo sirve para las dos preguntas porque no lleva el resultado.
+function g5RomboEnTriangulo34(): Figura {
+  const ESC = 86;
+  const X0 = 44, Y0 = 44;
+  const P = (x: number, y: number): Pt => ({ x: X0 + x * ESC, y: Y0 + (3 - y) * ESC });
+
+  const O = P(0, 0);            // el ángulo recto
+  const T = P(0, 3);            // punta del cateto vertical
+  const C = P(4, 0);            // punta del cateto horizontal
+  const k = 4 / 3, lado = 20 / 9;
+  const R1 = P(0, k);           // sobre el cateto vertical
+  const R2 = P(4 - (4 * k) / 3, k);  // sobre la hipotenusa
+  const R3 = C;                 // el vértice de abajo a la derecha
+  const R4 = P((4 * k) / 3, 0); // sobre el cateto horizontal
+
+  verificarAngulo("el triángulo es rectángulo en O", 90, anguloEn(O, T, C), 0.01);
+  verificarDistancia("cateto vertical 3", 3 * ESC, distancia(O, T), 0.01);
+  verificarDistancia("cateto horizontal 4", 4 * ESC, distancia(O, C), 0.01);
+  for (const [n, a, b] of [["R1R2", R1, R2], ["R2R3", R2, R3], ["R3R4", R3, R4], ["R4R1", R4, R1]] as [string, Pt, Pt][]) {
+    verificarDistancia(`el lado ${n} mide 20/9`, lado * ESC, distancia(a, b), 0.01);
+  }
+  verificarAngulo("R2R3 va paralelo a la hipotenusa", 0, desvioParalelas(R2, R3, T, C), 0.01);
+  verificarAngulo("R4R1 va paralelo a la hipotenusa", 0, desvioParalelas(R4, R1, T, C), 0.01);
+  verificarDistancia("R2 cae sobre la hipotenusa", 0,
+    Math.abs(distancia(T, R2) + distancia(R2, C) - distancia(T, C)), 0.5);
+  verificarDistancia("área = 80/27", 80 / 27, (20 / 9) * (4 / 3), 1e-9);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [R1, R2, R3, R4], rol: "resalte", relleno: true },
+    { tipo: "poligono", puntos: [O, T, C], rol: "trazo" },
+    { tipo: "poligono", puntos: [R1, R2, R3, R4], rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(O, anguloHacia(O, T), anguloHacia(O, C), 11), rol: "trazo" },
+    { tipo: "texto", en: avanzar({ x: (O.x + T.x) / 2, y: (O.y + T.y) / 2 }, 180, 16), texto: "3", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (O.x + C.x) / 2, y: (O.y + C.y) / 2 }, -90, 17), texto: "4", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(Y0 * 2 + 3 * ESC), pasos: 0, elementos: el };
+}
+
+// ── G8 (1-2015 2da opción) · el cuadrado sobre la hipotenusa y la distancia AB ──
+// Auditoría de las "invisibles": este es el caso más crudo. Al enunciado le
+// sacaron el "ver figura" y quedó preguntando por "la distancia AB" sin que A
+// ni B aparezcan en ninguna parte del texto. Era irresoluble tal como estaba.
+// El facsímil: triángulo rectángulo isósceles de catetos 2, con el ángulo recto
+// en A; sobre la hipotenusa se levanta un cuadrado hacia afuera, y B es el
+// vértice del cuadrado vecino al extremo del cateto horizontal.
+// Con A en el origen, los catetos llegan a (0,2) y (2,0); el cuadrado tiene lado
+// 2√2 y B queda en (4,2), así que AB = √(16+4) = 2√5 (opción b).
+function g8CuadradoSobreHipotenusa(): Figura {
+  const ESC = 62;
+  const X0 = 96, Y0 = 34;
+  const P = (x: number, y: number): Pt => ({ x: X0 + x * ESC, y: Y0 + (4 - y) * ESC });
+
+  const A = P(0, 0);            // el ángulo recto
+  const Q1 = P(0, 2);           // punta del cateto vertical
+  const Q2 = P(2, 0);           // punta del cateto horizontal
+  const B = P(4, 2);            // vértice del cuadrado, el que el examen llama B
+  const S = P(2, 4);            // el cuarto vértice del cuadrado
+
+  verificarAngulo("el ángulo recto está en A", 90, anguloEn(A, Q1, Q2), 0.01);
+  verificarDistancia("los dos catetos miden 2", distancia(A, Q1), distancia(A, Q2), 0.01);
+  verificarDistancia("cateto = 2", 2 * ESC, distancia(A, Q1), 0.01);
+  const ladoCuadrado = distancia(Q1, Q2);
+  for (const [n, a, b] of [["Q2B", Q2, B], ["BS", B, S], ["SQ1", S, Q1]] as [string, Pt, Pt][]) {
+    verificarDistancia(`el lado ${n} del cuadrado`, ladoCuadrado, distancia(a, b), 0.01);
+  }
+  verificarAngulo("el cuadrado tiene ángulo recto en Q2", 90, anguloEn(Q2, Q1, B), 0.01);
+  verificarAngulo("el cuadrado tiene ángulo recto en B", 90, anguloEn(B, Q2, S), 0.01);
+  verificarDistancia("el cuadrado queda del lado opuesto a A", 0,
+    Math.max(0, distancia(A, { x: (Q1.x + Q2.x) / 2, y: (Q1.y + Q2.y) / 2 })
+      - distancia(A, { x: (B.x + S.x) / 2, y: (B.y + S.y) / 2 })), 0.01);
+  verificarDistancia("AB = 2√5", 2 * Math.sqrt(5) * ESC, distancia(A, B), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [Q1, Q2, B, S], rol: "trazo" },
+    { tipo: "poligono", puntos: [A, Q1, Q2], rol: "trazo" },
+    { tipo: "linea", de: A, a: B, rol: "incognita", grosor: 2 },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(A, anguloHacia(A, Q1), anguloHacia(A, Q2), 10), rol: "trazo" },
+    { tipo: "texto", en: avanzar({ x: (A.x + Q1.x) / 2, y: (A.y + Q1.y) / 2 }, 180, 14), texto: "2", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + Q2.x) / 2, y: (A.y + Q2.y) / 2 }, -90, 15), texto: "2", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    rotulo(avanzar(A, 200, 15), "A"),
+    rotulo(avanzar(B, 20, 15), "B"),
+  ];
+
+  return { ancho: 420, alto: Math.round(Y0 * 2 + 4 * ESC), pasos: 0, elementos: el };
+}
+
+// ── G7 (1-2015 1ra opción) · las dos circunferencias iguales en el cuadrado ──
+// Del facsímil: van sobre la DIAGONAL, una metida en la esquina de abajo a la
+// izquierda y la otra en la de arriba a la derecha, tangentes entre sí y cada
+// una tangente a los dos lados de su esquina.
+//   con lado L: √2(L − 2r) = 2r ⇒ r = √2·L / (2(1+√2)), y con L = 1+√2 queda
+//   r = √2/2, así que el perímetro de las DOS es 2·2πr = 2√2·π ≈ 2,83π.
+// Ninguna opción (π, 2π, 3π, 2,5π) coincide, y por eso la respuesta es E.
+function g7DosCirculosEnCuadrado(): Figura {
+  const LADO = 1 + Math.SQRT2;
+  const r = Math.SQRT2 / 2;
+  const ESC = 104;
+  const X0 = 108, Y0 = 26;
+  const P = (x: number, y: number): Pt => ({ x: X0 + x * ESC, y: Y0 + (LADO - y) * ESC });
+
+  const esquinas = [P(0, 0), P(LADO, 0), P(LADO, LADO), P(0, LADO)];
+  const C1 = P(r, r);
+  const C2 = P(LADO - r, LADO - r);
+  const R = r * ESC;
+
+  verificarDistancia("las dos se tocan", 2 * R, distancia(C1, C2), 0.01);
+  verificarDistancia("la de abajo toca el lado de abajo", R, Math.abs(P(0, 0).y - C1.y), 0.01);
+  verificarDistancia("la de abajo toca el lado izquierdo", R, Math.abs(C1.x - P(0, 0).x), 0.01);
+  verificarDistancia("la de arriba toca el lado de arriba", R, Math.abs(C2.y - P(0, LADO).y), 0.01);
+  verificarDistancia("la de arriba toca el lado derecho", R, Math.abs(P(LADO, 0).x - C2.x), 0.01);
+  verificarAngulo("los dos centros van sobre la diagonal", 0,
+    desvioParalelas(P(0, 0), P(LADO, LADO), C1, C2), 0.01);
+  verificarDistancia("el perímetro de las dos es 2√2·π",
+    2 * Math.SQRT2 * Math.PI, 2 * (2 * Math.PI * r), 1e-9);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: esquinas, rol: "trazo" },
+    { tipo: "linea", de: P(0, 0), a: P(LADO, LADO), rol: "aux", punteada: true },
+    { tipo: "path", d: circuloPath(C1, R), rol: "trazo" },
+    { tipo: "path", d: circuloPath(C2, R), rol: "trazo" },
+    { tipo: "punto", en: C1, r: 2.4, rol: "trazo" },
+    { tipo: "punto", en: C2, r: 2.4, rol: "trazo" },
+    { tipo: "texto", en: avanzar({ x: (esquinas[0].x + esquinas[1].x) / 2, y: esquinas[0].y }, -90, 17),
+      texto: "√2 + 1", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(Y0 * 2 + LADO * ESC), pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -5305,6 +5448,11 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f12-semiesfera-giratoria": f12SemiesferaGiratoria,
   "f10-dos-poleas-compuestas": f10DosPoleasCompuestas,
   "g5-perimetro-abc-colineal": g5PerimetroAbcColineal,
+  // Lote 2015. El rombo lo comparten dos preguntas (una pide el area y la otra
+  // el perimetro) porque el dibujo no lleva el resultado.
+  "g5-rombo-en-triangulo-3-4": g5RomboEnTriangulo34,
+  "g8-cuadrado-sobre-hipotenusa": g8CuadradoSobreHipotenusa,
+  "g7-dos-circulos-en-cuadrado": g7DosCirculosEnCuadrado,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

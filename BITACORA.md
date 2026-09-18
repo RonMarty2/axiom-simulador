@@ -398,7 +398,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
 - [ ] **1 enunciado nombra una figura que no existe, y es el único que el facsímil NO resuelve.** La `2010-parcial1-2` P7 tiene la figura en el PDF, pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). **Ese 1 ya no baja leyendo PDF**: bajarlo es decidir qué hacer con una pregunta que el examen original dejó ambigua. Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 29 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023, cuatro sueltas de geometría de 2008 a 2015 y las cuatro de física, que dejaron **dos respuestas corregidas**). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 1 y solo puede bajar.
-- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 36, con 8 problemas, de los cuales solo 2 son respuestas mal).** Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
+- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 44, con 13 problemas, de los cuales solo 2 son respuestas mal).** Filtro barato para lo que queda: las que **no tienen paréntesis descriptivo** son las sospechosas de modo 4 (le sacaron la figura y no pusieron nada). Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
 - [ ] **Y una tercera categoría, que ningún chequeo automático puede encontrar: las que NI SIQUIERA prometen una figura.** El primer caso es `2017-3op-1` P5, que habla de un cuadrado con arcos sin nombrar ninguna figura y cuyo sombreado el texto no determina (está marcada E). El trinquete solo ve las que prometen un dibujo; estas aparecen únicamente abriendo el PDF. Se anotan en la sección homónima de [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md) a medida que se encuentran.
 - [ ] **Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.** `verificarAngulo`/`verificarDistancia` explotan al CONSTRUIR la figura, y nada la construye en los tests: `banco.test.ts` lee el registro de `definiciones.ts` como texto, porque ese módulo importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria. La sesión del 13-sep ya lo había topado y decidió no torcer los imports de la app para acomodar un test. Consecuencia: una figura con la verificación rota se commitea sin que nada avise y explota recién en el navegador, en esa sola pregunta. Salida sin tocar los imports: un paso aparte en CI que las construya con `tsx`, o copiar el módulo a un temp con la extensión puesta e importarlo — es lo que hicieron a mano los harness del 16 y 17-sep para los 19 dibujos de esas dos sesiones.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
@@ -465,6 +465,33 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-18 (bis) (el lote 2015 y el cuarto modo de falla: le sacaron la figura y no pusieron nada)
+
+Cuatro facsímiles, ocho preguntas. **Las ocho respuestas están bien.** Pero cinco enunciados no se pueden resolver, y por un motivo que no estaba en la lista de modos.
+
+## Modo 4: la gramática queda perfecta y la pregunta queda irresoluble
+
+Los modos conocidos eran: la respuesta mal (1), el enunciado roto por la propia pasada (2) y la descripción que no es la figura (3). Este es distinto: **la pasada le sacó el *"ver figura"* del original y no dejó nada en su lugar.** La frase queda impecable, así que el barrido del modo 2 —que busca comas sueltas y minúsculas— no lo ve. Y la pregunta queda sin datos.
+
+El caso extremo es el **`2015-1op-2` P8**, que pregunta *"entonces la distancia AB es igual a"* **sin que A ni B aparezcan en ninguna parte del texto**. Solo existían en el dibujo. Un alumno no puede ni empezar.
+
+Los otros cuatro: dos preguntas dicen *"se construye un rombo"* en un triángulo 3-4 (hay infinitos rombos ahí adentro), una dice *"dos circunferencias tangentes interiormente al cuadrado"* sin decir que van sobre la diagonal, y otra *"se inscribe dos cuadrados idénticos"* sin decir que van apilados.
+
+**Cómo encontrarlo:** no hay atajo de regex. Hay que leer el enunciado y preguntarse si alcanza para resolver, que es exactamente lo que hace esta auditoría. Los cinco salieron de mirar la lista y notar que **no tenían paréntesis descriptivo ninguno** — eso sí es un filtro barato para el resto: de las 88, las que no tienen paréntesis son las sospechosas.
+
+## Dos figuras compartidas, las dos verificadas antes de compartir
+
+- **El rombo lo usan dos preguntas**: el `2015-1op-1` P5 pide el área y el `2015-2op-1` P6 el perímetro, con el mismo dibujo. Se puede compartir porque **el dibujo no lleva el resultado**.
+- **El tazón del `2015-1op-2` P12 es el mismo del final 2-2014** que se dibujó ayer. Se compararon las dos imágenes antes de reusar el id, siguiendo la lección del lote 2017.
+
+## Un error del examen original, y la E que estaba bien puesta
+
+El `2015-2op-1` P6 pide el **perímetro** del rombo, que es 80/9. Las cuatro opciones son 77/27, 82/27, 79/27 y 80/27: son las del **área** de la otra versión del examen, copiadas tal cual. Ninguna sirve, y la E marcada es la respuesta correcta. Vale anotarlo porque es la segunda vez que una E del banco resulta ser un error del examen original y no del transcriptor.
+
+## Dónde va la cuenta
+
+Van **44 de 88** auditadas, con 13 problemas. Pero el número que importa sigue siendo el mismo: **solo 2 son respuestas equivocadas**, las dos del primer muestreo. Las otras 11 son de texto. El banco responde bien; lo que hay que reparar es la capa de palabras que se le puso encima.
 
 ### 2026-09-18 (los lotes 2018 y 2020 de la auditoría: 16 preguntas, 15 limpias)
 

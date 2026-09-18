@@ -148,7 +148,7 @@ viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
 regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
 confiar en la tabla.
 
-**Van 36 auditadas de 88, con 8 problemas.** Y no son de un solo tipo: hay tres
+**Van 44 auditadas de 88, con 13 problemas.** Y no son de un solo tipo: hay tres
 modos de falla distintos, y solo el primero cambia la respuesta.
 
 | modo de falla | qué pasó | encontradas |
@@ -156,6 +156,11 @@ modos de falla distintos, y solo el primero cambia la respuesta.
 | **1 · la respuesta está mal** | el paréntesis describe otra figura, y el resultado depende de eso | 2 (`2016-1op-1` P7, `2016-3op-1` P6) |
 | **2 · el enunciado quedó roto** | le sacaron *"Como se muestra en la figura,"* y quedó arrancando con una coma suelta. El alumno lo ve así HOY | 3 (`2013-final-2` P17, `2013-parcial2-2` P20, `2025-parcial2-1` P18) |
 | **3 · la descripción no es la figura** | el paréntesis dice algo que el facsímil contradice, o se olvida un dato sin el cual no hay solución, pero la respuesta marcada igual es la correcta | 3 (`2019-1op-2` P12, `2019-2op-2` P10, `2018-1op-2` P5) |
+
+**Y hay un cuarto modo, que apareció en el lote 2015: le sacaron el "ver figura" y NO pusieron ninguna descripción.** La gramática queda perfecta, así que el barrido del modo 2 no lo ve, y la pregunta queda
+irresoluble o ambigua. El caso extremo es el `2015-1op-2` P8, que pregunta
+*"entonces la distancia AB es igual a"* sin que A ni B aparezcan en ninguna
+parte del texto. Van 5, todas en 2015.
 
 El modo 2 se detecta **sin abrir ningún PDF**: basta buscar enunciados que
 empiecen con coma o minúscula. El modo 3 solo aparece abriendo el facsímil, y es
@@ -366,6 +371,45 @@ Las otras quince, con la cuenta que las confirma:
   y DA sean iguales y x sale ½·arco AB = 29°, y **G8** el cuadrado con la
   semicircunferencia, donde la parte de arriba da 24 − 4π, la de abajo 4π − 8
   y **el π se cancela**: 16 justo.
+
+### El lote 2015: las 8 respuestas bien, y el cuarto modo de falla
+
+Cuatro facsímiles, ocho preguntas. **Las ocho respuestas están bien.** Pero
+cinco enunciados quedaron sin poder resolverse, y por un motivo nuevo: la pasada
+les sacó el *"ver figura"* del original y no dejó nada en su lugar.
+
+| pregunta | qué quedó escrito | por qué no alcanza |
+|---|---|---|
+| `2015-1op-1` P5 | *"se construye un rombo"* | hay infinitos rombos ahí adentro |
+| `2015-2op-1` P6 | *"se construye un rombo"* | el mismo caso, pidiendo el perímetro |
+| `2015-1op-2` P8 | *"la distancia AB"* | **A y B no existen en el texto** |
+| `2015-1op-1` P7 | *"tangentes interiormente al cuadrado"* | no dice que van sobre la diagonal |
+| `2015-2op-2` P7 | *"se inscribe dos cuadrados idénticos"* | no dice que van apilados |
+
+Se dibujaron tres figuras y se completaron los cinco textos. **El rombo lo
+comparten dos preguntas** (una pide el área y la otra el perímetro) porque el
+dibujo no lleva el resultado, y **la del tazón reusa la figura del final
+2-2014**: se compararon las dos imágenes antes de compartir el id.
+
+Las cuentas que confirman las ocho:
+
+- **El rombo** es el paralelogramo con dos lados horizontales y dos paralelos a
+  la hipotenusa. La condición de rombo lo fija: con altura *k*, el lado
+  horizontal mide 4 − 4k/3 y el oblicuo 5k/3, así que k = 4/3 y el lado 20/9.
+  Área = 80/27 (opción d). **Perímetro = 80/9, que no está entre las opciones
+  del 2da**, porque ese examen repitió ahí la lista del área (todas sobre 27):
+  la E está bien puesta y el error es del examen original.
+- **`2015-1op-2` P8**: con A en el origen y los catetos llegando a (0,2) y
+  (2,0), el cuadrado tiene lado 2√2 y B cae en (4,2), así que AB = 2√5.
+- **`2015-1op-1` P7**: r = √2·L/(2(1+√2)) y con L = 1+√2 queda r = √2/2, así que
+  el perímetro de las dos es 2√2·π ≈ 2,83π. No coincide con π, 2π, 3π ni 2,5π,
+  de ahí la E.
+- **`2015-2op-2` P7**: los dos cuadrados apilados dan s = 13√3/(4+√3) = 4√3 − 3.
+- **`2015-2op-2` P5**: el rectángulo 6×3 fija el lado en 6+2√3 y el área en
+  12√3 + 18.
+- **`2015-1op-2` P6**: razón 14/13, perímetro 34·14/13 = 476/13. Este es el
+  único del lote cuyo texto se sostenía solo.
+- **`2015-1op-2` P12**: con m₂ = 2m₁, v' = v/3 y la altura sale R/9.
 
 ### La única que el facsímil NO resuelve
 
