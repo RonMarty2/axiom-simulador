@@ -314,6 +314,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-18 | Diez exámenes de Económicas declaraban sus secciones de Lenguaje e Historia como `no-encontrado-en-los-pdf`, y la de Lenguaje estaba en el PDF de Lenguaje | Abrir el archivo y mirar las páginas una por una | **Afirmar una ausencia obliga a buscar en todos los archivos, y eso se escribió para diez exámenes de una sola vez.** El descarte puntual que estaba anotado (la página 30 no es de ese examen) estaba bien hecho; lo que falló fue el inventario, que se armó con OCR sobre PDF sin capa de texto y no llegó a mostrar las páginas buenas. Un inventario incompleto no autoriza a escribir "no existe": autoriza a escribir "no lo encontré todavía" |
 | 2026-09-18 | Dos errores de conteo en el mismo día: *"tres de cuatro respuestas mal"* cuando eran dos, y *"58 auditadas de 88"* cuando eran 50 (se sumaban 8 de un muestreo anterior que no forma parte de la lista) | Recalcular con el script en vez de escribir el número de memoria | Los conteos que sostienen una decisión (cuánto falta, qué tan malo es el banco) **se calculan, no se recuerdan**. Los dos números estaban inflados y los dos apuntaban en la misma dirección: hacer parecer el problema más grande y el avance mayor. Hay un script que cruza las listas; una corrida cuesta menos que corregir el changelog dos veces |
 | 2026-09-17 | **14 preguntas tenían el enunciado vacío**: el alumno veía las cinco opciones sin ninguna pregunta arriba. Las rompieron los tres commits del 16-sep que DECLARARON las figuras, insertando `figura:` en lugar de la línea en blanco que separa el encabezado del enunciado | Un barrido de gramática sobre todo el banco, sin abrir ningún PDF | Un script que inserta una línea en un formato estructurado se verifica **re-parseando**, no con un grep. El grep habría confirmado que la línea `figura:` estaba bien puesta, y habría tenido razón: lo que estaba mal era la línea que se pisó. Había test para las opciones, para la respuesta y para el LaTeX; el campo más importante era el único sin medir. Ahora el parser corta el encabezado en la primera línea que no es `clave: valor`, y hay un test de una línea que lo habría cazado el mismo día |
 | 2026-09-17 | Tres enunciados quedaron arrancando con una coma suelta desde el 14-sep (*", dos masas están sobre una mesa…"*), porque la pasada que les sacó la mención a la figura no revisó cómo quedaba la frase | Buscar enunciados que empiecen con coma o minúscula | Una reescritura masiva necesita un chequeo masivo. El costo de encontrarlos era CERO (un regex sobre el primer carácter) y estuvieron tres días a la vista del alumno. Cuando se toca un campo en 98 archivos, hay que dejar corriendo la verificación de que el campo sigue bien formado |
@@ -410,7 +411,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~Los modos Premium bloqueados no hacen nada al tocarlos en `/practicar`.~~ Resuelto el 16-sep: llevan a `/precios` con el motivo de lo que el alumno quiso hacer (ver §11).
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
-- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería. (Decía "un solo examen"; quedó viejo, se corrigió el 16-sep contando los archivos.)
+- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron 12 preguntas de Lenguaje a 3 de ellos (las verificables: gramática, semántica y ortografía). Falta: completar Lenguaje en los otros 7, resolver qué hacer con las 15 de comprensión lectora por examen (el facsímil no trae clave) y abrir el PDF de Historia General, que todavía no se revisó.
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -466,6 +467,43 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-18 (septies) (Económicas: la sección de Lenguaje SÍ estaba en los PDF)
+
+Los 10 exámenes de Económicas son **solo matemáticas**: 99 preguntas, todas del mismo área. Y sus propias cabeceras declaran la ponderación real del examen (matemáticas 0.34, lenguaje 0.33, historia 0.33) y marcan las otras dos secciones como `no-encontrado-en-los-pdf`.
+
+**Están en los PDF.** La sección de Lenguaje del `II-2013 (segunda opción)` es la página 26-27 de `FCE_Banco_Lenguaje.pdf`; la del `II-2013 (primera opción)`, la 24-25; la del `1/2014 (primera opción)`, la 18-19. Las tres se confirmaron abriendo el encabezado y comparando la línea de carreras y el sello de fecha con el facsímil de Matemáticas.
+
+## Qué son estos PDF, que no es lo que parecía
+
+La carpeta `examenes pasados/FCE/` tiene tres archivos con nombre de "banco de práctica" (Lenguaje 71 págs, Matemáticas 55, Historia General 84) y parecían material compilado por terceros. **No lo son**: adentro hay exámenes de admisión oficiales de la FCE escaneados, con sello de la Oficina Educativa, desde **2/2008 hasta 1/2015**. El blog que figura en la tapa solo los juntó.
+
+Dos diferencias grandes con los facsímiles de FCYT, que conviene tener presentes:
+
+1. **No tienen capa de texto.** `pdftotext` devuelve vacío. Todo se lee a ojo, página por página, así que el trabajo por pregunta es varias veces más caro.
+2. **No traen clave de respuestas** en las gestiones que interesan. Los exámenes de 2008 tienen las respuestas marcadas a mano; los de 2012-2015 vienen limpios.
+
+## La consecuencia: qué se transcribe y qué no
+
+Sin clave, cada respuesta la tiene que resolver el transcriptor, y no todas las preguntas de Lenguaje se pueden resolver con el mismo rigor. Se separó así, y el criterio es el que conviene repetir:
+
+- **Se transcriben** gramática, semántica y ortografía: son hechos objetivos de lengua. Reconocer que *siendo* es gerundio, que *La producción agrícola* es el sujeto de *ha adquirido*, o que *fortaleze* va con c, no depende de interpretar nada.
+- **No se transcribe la comprensión lectora** (15 de las 20 preguntas de cada examen). *"¿Cuál es la idea central del texto?"* sin clave es criterio del transcriptor, no una verificación. Quedan pendientes y declaradas como tales.
+
+Van **12 preguntas** agregadas en 3 exámenes (4 en cada uno), y la cabecera de cada archivo pasó de `lenguaje: no-encontrado-en-los-pdf` a `lenguaje: parcial-4-de-20-las-verificables`.
+
+## Dos preguntas que se dejaron afuera aunque eran de gramática
+
+Estas dos valen la pena porque muestran dónde está el límite:
+
+- **`2013-1op-2` ítem 17: ninguna de sus cuatro opciones es correcta.** Pide la función de la frase subrayada en *"La gente creía que era verdad de tanto repetirlo"*, que es un complemento directo, y las opciones son objeto indirecto, circunstancial de tiempo, sujeto y circunstancial de modo. Ese examen no ofrece "Ninguno" en esa pregunta, así que no hay letra que marcar sin forzarla.
+- **`2014-1op-1` ítem 16: la clasificación está en discusión.** Pide clasificar una oración unida por *"mientras que"*, y los manuales se contradicen: unos la tratan como subordinada adverbial de contraste, otros como coordinada adversativa. No es un hecho objetivo del mismo tipo que reconocer un gerundio.
+
+## El emparejamiento tiene una trampa propia
+
+Hay **dos exámenes distintos rotulados "1/2014 (PRIMERA OPCIÓN)"**: el de las **Carreras** (Economía, Contaduría Pública y Administración de Empresas), del 1 de febrero, y el de los **Programas** (Ing. Financiera e Ing. Comercial), del 8 de febrero. El título no alcanza para distinguirlos: hay que leer la línea de carreras/programas **y** la fecha del sello.
+
+Es la misma clase de trampa que la del nombre de archivo mentiroso en FCYT, y el archivo `2013-1op-2` ya traía anotada una versión de esto (el OCR confunde `I-2013` con `1/2013`). Ese descarte estaba bien hecho y se mantuvo; lo que falló no fue el criterio sino el inventario, que no llegó a mostrar las páginas donde sí estaban.
 
 ### 2026-09-18 (sexies) (las verificaciones de las figuras ya corren en CI: 104 redes enchufadas)
 
