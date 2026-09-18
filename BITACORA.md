@@ -411,7 +411,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~Los modos Premium bloqueados no hacen nada al tocarlos en `/practicar`.~~ Resuelto el 16-sep: llevan a `/precios` con el motivo de lo que el alumno quiso hacer (ver §11).
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
-- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron 12 preguntas de Lenguaje a 3 de ellos (las verificables: gramática, semántica y ortografía). Falta: completar Lenguaje en los otros 7, resolver qué hacer con las 15 de comprensión lectora por examen (el facsímil no trae clave) y abrir el PDF de Historia General, que todavía no se revisó.
+- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **20 preguntas de Lenguaje a 5 de ellos** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página. Falta: **(a)** los 4 de 2011 y 2012, que tienen copias duplicadas con la división Carreras/Programas y hay que abrir cada encabezado antes de emparejar; **(b)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015); **(c)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (una de cuatro verificadas estaba mal); **(d)** abrir el PDF de Historia General, 84 páginas que todavía no se revisaron.
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -504,6 +504,26 @@ Estas dos valen la pena porque muestran dónde está el límite:
 Hay **dos exámenes distintos rotulados "1/2014 (PRIMERA OPCIÓN)"**: el de las **Carreras** (Economía, Contaduría Pública y Administración de Empresas), del 1 de febrero, y el de los **Programas** (Ing. Financiera e Ing. Comercial), del 8 de febrero. El título no alcanza para distinguirlos: hay que leer la línea de carreras/programas **y** la fecha del sello.
 
 Es la misma clase de trampa que la del nombre de archivo mentiroso en FCYT, y el archivo `2013-1op-2` ya traía anotada una versión de esto (el OCR confunde `I-2013` con `1/2013`). Ese descarte estaba bien hecho y se mantuvo; lo que falló no fue el criterio sino el inventario, que no llegó a mostrar las páginas donde sí estaban.
+
+## Adenda del mismo día: 5 exámenes, 20 preguntas, y las marcas a mano NO son una clave
+
+Se completaron cinco: los dos `II-2013` y los tres de 2014, con 4 preguntas de Lenguaje cada uno. Cada emparejamiento se confirmó abriendo el encabezado de la página y comparando la línea de carreras y el sello de fecha contra el facsímil de Matemáticas.
+
+**El hallazgo que cambia el método.** La página 7 (la del `2/2014 primera opción`) SÍ trae las respuestas encerradas a mano, a diferencia de las de 2013. No se copiaron: se resolvieron las cuatro por separado y después se comparó. En tres coincide, **y en una no**.
+
+La que falla es la 19, que pide el concepto de *"Tarifa oficial que determina los derechos que se han de pagar en varios ramos, como el de costas judiciales, aduanas, ferrocarriles, etc."*. Eso es, palabra por palabra, **la definición de *arancel* del diccionario de la RAE**, y arancel es la opción c. La marca a mano está en la a) Presupuesto.
+
+Se transcribió con la respuesta correcta y quedó anotado en el archivo. La conclusión vale para todo lo que queda: **las letras encerradas en estos escaneos no son una clave oficial, son la respuesta de alguien.** Una de cuatro verificadas estaba mal. O sea que tampoco sirven para desbloquear las preguntas de comprensión lectora, que es justo lo que no se puede verificar de otra forma.
+
+## Lo que falta, y por qué se paró acá
+
+Quedan 5 de los 10 exámenes, y no se siguió para no apurar el emparejamiento:
+
+- **`2023-2op-1` no está en estos PDF.** Son exámenes de 2008 a 2015; el de 2023 no puede salir de acá.
+- **Los cuatro de 2011 y 2012 tienen copias duplicadas con la división Carreras/Programas.** Del `1/2012 (primera opción)` hay al menos dos copias en el PDF (páginas 38 y 42), una rotulada "Programas: Ingeniería Comercial e Ingeniería Financiera". Emparejar la equivocada es exactamente el error que este proyecto viene documentando todo el día, así que hace falta abrir cada encabezado antes de tocar un archivo.
+
+Índice de lo ya ubicado, para que la próxima sesión no lo busque de nuevo: `II-2013 1ra` → págs. 24-25 · `II-2013 2da` → 26-27 · `1/2014 1ra (Carreras)` → 18-19 · `2/2014 1ra` → 6-7 · `1/2014 2da (Carreras)` → 8-9 · `1/2012 1ra` → 38 y 42 (dos copias) · `1/2012 2da` → 40 · `1/2011 1ra` → 46 · `1/2010 2da` → 54.
+
 
 ### 2026-09-18 (sexies) (las verificaciones de las figuras ya corren en CI: 104 redes enchufadas)
 
