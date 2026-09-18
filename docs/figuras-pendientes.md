@@ -1,16 +1,18 @@
 # Figuras que faltan: qué necesito de los facsímiles
 
-**Generado el 2026-09-16. Actualizado el 2026-09-16**, al empezar a leer los
+**Generado el 2026-09-16. Actualizado el 2026-09-17**, al terminar de leer los
 PDF en local. Actualizar cuando cambie el conteo.
 
-Quedan **5 preguntas** cuyo enunciado nombra una figura que el alumno no ve.
-El test `ningún enunciado nuevo promete una figura que no está` las cuenta, con
-el tope en 5; cada una que se resuelva baja el tope. Cuatro son de física y la
-quinta es la única que **el facsímil no alcanza a resolver** — ver abajo.
+Queda **1 pregunta** cuyo enunciado nombra una figura que el alumno no ve, y
+es justo la única que **el facsímil no alcanza a resolver**: la
+`2010-parcial1-2` P7 (ver abajo). El test
+`ningún enunciado nuevo promete una figura que no está` la cuenta, con el tope
+en 1. **Ese 1 ya no baja leyendo PDF**: bajarlo requiere decidir qué hacer con
+una pregunta que el examen original dejó ambigua.
 
 **Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
 esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
-en "El 5 es un piso, no un techo".
+en "El 1 es un piso, no un techo".
 
 ## Por qué están frenadas
 
@@ -63,6 +65,9 @@ y el facsímil traía igual.
 | `2012-2op-1-2012` | `120_SegundoExamenIngreso1-2012.pdf` | P6 | — |
 | `2014-parcial1-2-2014` | `134_1erparcial2-2014.pdf` p.2 | P7 | — |
 | `2015-1op-2-2015` | `139_1ra-op-2-2015.pdf` | P7 | — |
+| `2009-parcial3-2-2009` | `094_…2-2009.pdf` p.4 | P19 | — |
+| `2014-final-2-2014` | `136_final2-2014.pdf` p.4 | P19, P20 | — |
+| `2025-final-1-2025` | `2025-1-preu.pdf` p.12 | P20 | — |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo
@@ -105,22 +110,13 @@ dibujo, una de las dos habría quedado con la respuesta de la otra.
   figura" ni "la figura 3 muestra". Se le agregaron las dos formas, con costo
   cero porque para entonces ya tenían su dibujo.
 
-### fisica (4)
-
-| examen | preg. | qué dice el enunciado |
-|---|---|---|
-| `2009-parcial3-2-2009` | 19 | Circuito con un resistor de 3Ω, un resistor de 2Ω y un resistor de 5Ω según la figura. La resistencia equivalente (Ω) es… |
-| `2014-final-2-2014` | 19 | La estructura que se muestra en la figura adjunta gira alrededor del eje vertical AB, con una velocidad angular de 10 ra… |
-| `2014-final-2-2014` | 20 | Una masa $m_1$ se suelta desde el reposo en un tazón semihemisférico liso de radio $R$, desde la posición que se muestra… |
-| `2025-final-1-2025` | 20 | En el circuito que se muestra en la figura, el amperímetro $A_1$ marca 10,0 A y las baterías tienen una resistencia inte… |
-
 ### geometria_trigonometria (1)
 
 | examen | preg. | qué dice el enunciado |
 |---|---|---|
 | `2010-parcial1-2-2010` | 7 | $AB$ y $CD$ son paralelas. Dos transversales se cruzan formando los ángulos 1, 2 y 3 marcados en la figura, con ángulo 1… |
 
-## El 5 es un piso, no un techo
+## El 1 es un piso, no un techo
 
 El test cuenta enunciados que **todavía nombran** una figura ausente. Entonces
 hay dos formas de bajar el número, y solo una es progreso:
@@ -251,6 +247,51 @@ qué lado; 120° fue la que eligió el transcriptor y no está entre las opcione
 de ahí la E. **Queda como E**: es el único caso del banco donde tener el
 facsímil en la mano no alcanza, y conviene que esté escrito para que la próxima
 sesión no vuelva a abrirlo esperando resolverlo.
+
+### El lote de física: tres respuestas cambiaron
+
+Cuatro preguntas, cuatro PDF, y el peor rendimiento de acierto de todo el
+trabajo: **tres de las cuatro estaban mal respondidas**, y en los dos casos de
+circuito el archivo mismo admitía que había adivinado.
+
+- **`2009-parcial3-2` P19 · era B (10 Ω), es C (3 Ω).** El archivo decía, con
+  todas las letras, que había *"probado las combinaciones serie/paralelo
+  posibles"* hasta que una diera un número de la lista, y se había quedado con
+  "los tres en serie" = 10 Ω. El facsímil (página 4, la de Física) muestra un
+  **cable pelado** que va del nodo posterior al 3 Ω al nodo posterior al 5 Ω:
+  cortocircuita la serie 2+5, así que Req = 3 + (7 ∥ 0) = **3 Ω**. Se verificó
+  a 600 dpi que los dos pies del puente caen donde parece, porque de eso
+  depende todo. Y los cuatro distractores cierran con esa lectura: 10 es "no vi
+  el puente" — exactamente el error que se había cometido —, 7 es "el puente se
+  comió el 3" y 5 es el resistor solo.
+- **`2025-final-1` P20 · era E, es A (20 Ω).** Sin la figura se había supuesto
+  que el extremo lejano de R quedaba fijado en 160 V por la otra batería:
+  R = (200−160)/10 = 4 Ω, que no está entre las opciones, de ahí la E. La
+  figura dice otra cosa: **A₄ es un amperímetro ideal, o sea un cable**, y une
+  el nodo donde termina R con el negativo de la *propia* batería de 200 V.
+  R y esa batería forman un lazo cerrado y solo, y el resto de la red no
+  interviene: R = 200/10 = **20 Ω**. Es el circuito clásico del Young &
+  Freedman; las otras cuatro lecturas salen del lado de 160 V (A₂ = 4 A,
+  A₅ = 8 A, A₃ = 12 A, A₄ = 14 A) y sirven para chequear que todo cierra.
+- **`2014-final-2` P19 y P20 ya estaban bien** (C y A), y el facsímil confirma
+  el razonamiento, no solo el número: en la P19 el resorte y la varilla son
+  **horizontales** — por eso la gravedad no entra y el radio de giro es el
+  largo estirado, 50 cm, no el natural — y en la P20 m₁ arranca **en el borde**
+  del tazón, o sea a una altura R, que es el único dato que el texto no da.
+
+**Un PDF puede traer varios exámenes.** El `2025-1-preu.pdf` tiene 12 páginas y
+son los **tres** exámenes de la gestión, cuatro páginas cada uno: 1er parcial
+(1-4), 2do parcial (5-8) y final (9-12). La física del final es la página 12, no
+la 4. Los `2024-*-preu.pdf` ya eran así; conviene asumirlo y mirar el
+encabezado de cada página antes de recortar.
+
+**En circuitos la verificación no puede ser geométrica.** Un dibujo de circuito
+no tiene ángulos que mentir: lo que puede estar mal es la TOPOLOGÍA, y eso no
+lo agarra ningún `verificarAngulo`. Así que las dos figuras de circuito se
+verifican con la cuenta eléctrica — se declaran los potenciales de nodo y se
+comprueba que la corriente por R dé los 10 A del enunciado. Esa verificación
+es la que distingue las dos lecturas posibles de la figura del 2025: con la
+topología del transcriptor daría 2 A y explota.
 
 ### El lote 2008-2015 (las sueltas de geometría)
 

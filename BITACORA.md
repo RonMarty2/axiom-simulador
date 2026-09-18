@@ -314,6 +314,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-17 | Dos respuestas de física salieron mal de "probar combinaciones hasta que una dé un número de la lista": el circuito del 2009 (10 Ω en vez de 3 Ω) y el del 2025 (marcado E en vez de 20 Ω) | Abrir el facsímil | Probar variantes y quedarse con la que calza **no es resolver el problema, es adivinar con más pasos**. En el del 2025 el archivo hasta anotaba que el resultado "se mantuvo robusto al probar variantes razonables": las cuatro variantes probadas compartían el supuesto equivocado, así que la robustez no medía nada. Cuando el enunciado nombra una figura que no está, la respuesta honesta es E con una nota, no la opción que cierre |
 | 2026-09-17 | Se buscó la geometría en la página 2 porque en los otros exámenes del prefacultativo estaba ahí, y en el de 2010 la página 2 es Física | Leer el título de cada página antes de recortar | El orden de las secciones cambia de año en año en esta colección. Una estructura que se cumple en tres archivos no es una regla: cuesta menos recortar la banda de títulos de las cinco páginas y mirarlas juntas que leer la página equivocada |
 | 2026-09-17 | Cinco PDF de la colección tienen el nombre equivocado: tres dicen 2018 y son de 2019, uno dice "2ra opción" y es la 3ra, y dos traen el año mal en el propio encabezado | Leer el encabezado y la fecha de cada uno antes de asociarlo | En esta colección **el nombre del archivo no identifica el examen**. Los PDF llegaron de compiladores distintos y nadie verificó los nombres. Antes de trabajar con uno hay que abrirlo: el encabezado da la gestión y la opción, y cuando el encabezado también miente (los dos de agosto de 2016) manda la FECHA |
 | 2026-09-17 | Una verificación de paralelismo explotó diciendo "debería medir 0° pero mide 180°" con dos rectas que SÍ eran paralelas | Construir la figura | Comparar `anguloHacia` contra `anguloHacia` no mide paralelismo: da 180 cuando las dos rectas van paralelas pero recorridas al revés. Hay que plegar a módulo 180 (`desvioParalelas`). El patrón frágil quedó en tres figuras anteriores donde funciona de casualidad |
@@ -394,8 +395,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] CI: GitHub Actions con tipos, lint, tests y build en cada push.
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
-- [ ] **5 enunciados nombran una figura que no existe.** Cuatro son de física y **la quinta no la resuelve el facsímil**: la `2010-parcial1-2` P7 tiene la figura en el PDF pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 25 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023 y cuatro sueltas de geometría de 2008 a 2015). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 5 y solo puede bajar.
-- [ ] **72 preguntas más que el trinquete no ve, y hay que contrastar contra su facsímil.** Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. La mayoría probablemente estén bien (el texto trae la configuración en un paréntesis), pero nadie las verificó contra el PDF y van **2 malas de 8 revisadas**: `2016-1op-1` P7 tenía la geometría descrita al revés y `2016-3op-1` P6 necesitaba el dibujo para saber desde qué borde se mide la sombra, mientras que las seis de 2017 salieron limpias. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 5 es un piso, no un techo".
+- [ ] **1 enunciado nombra una figura que no existe, y es el único que el facsímil NO resuelve.** La `2010-parcial1-2` P7 tiene la figura en el PDF, pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). **Ese 1 ya no baja leyendo PDF**: bajarlo es decidir qué hacer con una pregunta que el examen original dejó ambigua. Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 29 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023, cuatro sueltas de geometría de 2008 a 2015 y las cuatro de física, que dejaron **tres respuestas corregidas**). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 1 y solo puede bajar.
+- [ ] **72 preguntas más que el trinquete no ve, y hay que contrastar contra su facsímil.** Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. La mayoría probablemente estén bien (el texto trae la configuración en un paréntesis), pero nadie las verificó contra el PDF y van **2 malas de 8 revisadas**: `2016-1op-1` P7 tenía la geometría descrita al revés y `2016-3op-1` P6 necesitaba el dibujo para saber desde qué borde se mide la sombra, mientras que las seis de 2017 salieron limpias. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
 - [ ] **Y una tercera categoría, que ningún chequeo automático puede encontrar: las que NI SIQUIERA prometen una figura.** El primer caso es `2017-3op-1` P5, que habla de un cuadrado con arcos sin nombrar ninguna figura y cuyo sombreado el texto no determina (está marcada E). El trinquete solo ve las que prometen un dibujo; estas aparecen únicamente abriendo el PDF. Se anotan en la sección homónima de [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md) a medida que se encuentran.
 - [ ] **Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.** `verificarAngulo`/`verificarDistancia` explotan al CONSTRUIR la figura, y nada la construye en los tests: `banco.test.ts` lee el registro de `definiciones.ts` como texto, porque ese módulo importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria. La sesión del 13-sep ya lo había topado y decidió no torcer los imports de la app para acomodar un test. Consecuencia: una figura con la verificación rota se commitea sin que nada avise y explota recién en el navegador, en esa sola pregunta. Salida sin tocar los imports: un paso aparte en CI que las construya con `tsx`, o copiar el módulo a un temp con la extensión puesta e importarlo — es lo que hicieron a mano los harness del 16 y 17-sep para los 19 dibujos de esas dos sesiones.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
@@ -462,6 +463,57 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-17 (quinquies) (las cuatro de física, y tres respuestas que estaban mal)
+
+**5 → 1.** Se terminó la lista: las cuatro que quedaban eran de física, una por facsímil. Fue el lote con **peor tasa de acierto de todo el trabajo — tres de cuatro estaban mal respondidas**, y no por casualidad: en los dos circuitos el propio archivo admitía que había adivinado la figura.
+
+| examen | facsímil | pregunta | respuesta |
+|---|---|---|---|
+| `2009-parcial3-2-2009` | `094_…2-2009.pdf` p.4 | P19 · tres resistores | **B → C** |
+| `2014-final-2-2014` | `136_final2-2014.pdf` p.4 | P19 · resorte que gira | C, ya estaba bien |
+| `2014-final-2-2014` | `136_final2-2014.pdf` p.4 | P20 · tazón semiesférico | A, ya estaba bien |
+| `2025-final-1-2025` | `2025-1-preu.pdf` p.12 | P20 · cinco amperímetros | **E → A** |
+
+## El cable que nadie vio
+
+El `2009-parcial3-2` P19 pide la resistencia equivalente de un 3 Ω, un 2 Ω y un 5 Ω "según la figura". El archivo decía, con todas las letras, que había *"probado las combinaciones serie/paralelo posibles"* hasta que una diera un número de la lista, y se había quedado con "los tres en serie" = 10 Ω.
+
+El facsímil muestra un **cable pelado** que sale del nodo posterior al 3 Ω, cruza por arriba y baja al nodo posterior al 5 Ω. Cortocircuita la serie 2+5: **Req = 3 + (7 ∥ 0) = 3 Ω**, la opción C. Se renderizó a 600 dpi para confirmar dónde apoyan los dos pies del puente, porque de eso depende todo el resultado.
+
+Lo que cierra el caso es la lista de distractores: 10 es "no vi el puente" — *justo* el error que se había cometido —, 7 es "el puente se comió el 3 en lugar del 2 y el 5", y 5 es el resistor solo. Cuando los cuatro distractores se explican solos con una lectura, esa lectura es la correcta.
+
+## El amperímetro que era un cable
+
+El `2025-final-1` P20 estaba en **E**, y con un razonamiento explícito: se había supuesto que el extremo lejano de R quedaba fijado en 160 V por la otra batería, lo que da R = (200−160)/10 = 4 Ω, un valor que no está entre las opciones. El archivo hasta anotaba que el resultado "se mantuvo robusto al probar variantes razonables" de cómo se conectan las otras ramas.
+
+La figura dice otra cosa, y la pieza que cambia todo es **A₄: un amperímetro ideal es un cable**, y ese cable une el nodo donde termina R con el negativo de *la propia* batería de 200 V. O sea que R y esa batería forman un lazo cerrado y solo, y el resto de la red no interviene: **R = 200/10 = 20 Ω**, la opción A. Es el circuito clásico del Young & Freedman, y las otras cuatro lecturas (A₂ = 4, A₅ = 8, A₃ = 12, A₄ = 14) salen del lado de 160 V y sirven de chequeo.
+
+La lección no es sobre este circuito: es que **"probé variantes y todas dan parecido" no es evidencia de nada** si ninguna de las variantes probadas era la real. Las cuatro que se probaron compartían el supuesto equivocado.
+
+## En circuitos la verificación tiene que ser eléctrica
+
+Todas las figuras del banco se verifican con geometría: ángulos, distancias, áreas. Un circuito no tiene nada de eso que mentir — un riel torcido dos grados no cambia ninguna respuesta. Lo que puede estar mal es la **topología**, y eso no lo agarra ningún `verificarAngulo`.
+
+Así que las dos figuras de circuito se verifican con la cuenta eléctrica: se declaran los potenciales de nodo que impone la topología dibujada y se comprueba que la corriente por R dé los 10 A del enunciado. Esa verificación es exactamente la que distingue las dos lecturas posibles de la figura del 2025: con la topología del transcriptor daría 2 A y explota al construir. Es el patrón a repetir para cualquier figura donde lo que importa es qué está conectado con qué y no dónde está dibujado.
+
+## Un PDF puede traer varios exámenes
+
+El `2025-1-preu.pdf` tiene 12 páginas y son los **tres** exámenes de la gestión, cuatro páginas cada uno: 1er parcial (1-4), 2do parcial (5-8) y final (9-12). La física del final es la página 12, no la 4. Los `2024-*-preu.pdf` ya eran así. Van dos lotes seguidos con esta forma, así que conviene asumirla: mirar el encabezado de cada página antes de recortar sale más barato que recortar la página equivocada.
+
+## Lo que el facsímil confirmó sin cambiar la respuesta
+
+Las dos del `2014-final-2` ya estaban en C y A, pero el facsímil no solo confirma el número: confirma el **razonamiento**, que es lo que el alumno necesita. En la P19 el resorte y la varilla son **horizontales** — por eso la gravedad no entra en la ecuación y el radio de giro es el largo estirado (50 cm) y no el natural. En la P20, m₁ arranca **en el borde** del tazón, a una altura R sobre el fondo: es el único dato que el texto no da y del que depende todo el resultado.
+
+## Y queda 1, que ya no baja leyendo PDF
+
+El trinquete pasa de 5 a **1**, y el que queda es la `2010-parcial1-2` P7: la única del banco donde **tener el facsímil no alcanza** (la marca del ángulo 3 está suelta, ni a 800 dpi se sabe de qué vértice es; queda como E). Bajar ese 1 no es cuestión de conseguir un PDF, es decidir qué hacer con una pregunta que el examen original dejó ambigua.
+
+Lo que sigue abierto es otra cosa: las **72 preguntas** que el trinquete no ve porque el 14-sep se les sacó la mención a la figura, y que hay que contrastar contra su facsímil. Van 2 malas de 8 revisadas.
+
+## El test de voseo hizo su trabajo
+
+Las dos explicaciones nuevas salieron con *"Mirá el cable de arriba"* y *"Seguí el camino de R"*. El test las frenó en el acto: es texto que ve el alumno, y va en tuteo ("Mira", "Sigue"). Es la primera vez que ese test agarra algo escrito en la misma sesión y no una deuda vieja — la reescritura del 17-sep, que lo generó desde los infinitivos en lugar de una lista a mano, es lo que lo hizo capaz de verlo.
 
 ### 2026-09-17 (quater) (las sueltas de geometría 2008-2015, y la única que el facsímil no resuelve)
 

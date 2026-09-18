@@ -1375,12 +1375,12 @@ function pila(de: Pt, a: Pt, etiqueta: string, color = AMBAR): Elemento[] {
 }
 
 // Resistencia con su valor al costado.
-function resistencia(de: Pt, a: Pt, etiqueta: string, ladoEtiqueta = 1): Elemento[] {
+function resistencia(de: Pt, a: Pt, etiqueta: string, ladoEtiqueta = 1, aparte = 18): Elemento[] {
   const dir = anguloHacia(de, a);
   const medio = { x: (de.x + a.x) / 2, y: (de.y + a.y) / 2 };
   return [
     { tipo: "path", d: resistorZigzag(de, a, 6, 5), rol: "trazo" },
-    { tipo: "texto", en: avanzar(medio, dir + 90, 18 * ladoEtiqueta), texto: etiqueta, rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "middle" },
+    { tipo: "texto", en: avanzar(medio, dir + 90, aparte * ladoEtiqueta), texto: etiqueta, rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "middle" },
   ];
 }
 
@@ -4535,6 +4535,300 @@ function g7diagonalesBeMenosEd(): Figura {
   return { ancho: 420, alto: Math.round(Math.max(A.y, B.y) + 36), pasos: 0, elementos: el };
 }
 
+// Amperímetro en serie sobre un tramo de cable: el cable se corta y en el
+// hueco va el círculo con su nombre. `frac` lo mueve a lo largo del tramo
+// (0.5 = al medio), para poder dejarlo donde lo pone el facsímil.
+function amperimetro(de: Pt, a: Pt, etiqueta: string, frac = 0.5): Elemento[] {
+  const dir = anguloHacia(de, a);
+  const RADIO = 11;
+  const centro = avanzar(de, dir, distancia(de, a) * frac);
+  return [
+    { tipo: "linea", de, a: avanzar(centro, dir, -RADIO), rol: "trazo" },
+    { tipo: "linea", de: avanzar(centro, dir, RADIO), a, rol: "trazo" },
+    { tipo: "punto", en: centro, r: RADIO, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: { x: centro.x, y: centro.y + 4 }, texto: etiqueta,
+      rol: "incognita", color: VIOLETA, tam: 11, negrita: true, ancla: "middle" },
+  ];
+}
+
+// ── F19 (3er parcial 2-2009) · tres resistores y el puente que los cortocircuita ──
+// El transcriptor no tenía la figura y probó combinaciones hasta que una diera
+// un número de la lista: se quedó con "los tres en serie" = 10 Ω (opción b). El
+// facsímil (página 4, la de Física) muestra otra cosa, y a 600 dpi no deja
+// lugar a dudas: hay un CABLE PELADO que sale del nodo posterior al 3 Ω, sube,
+// cruza por arriba y baja al nodo posterior al 5 Ω.
+// Ese puente pone 0 Ω en paralelo con la serie 2+5, o sea la cortocircuita:
+//   Req = 3 + (7 ∥ 0) = 3 Ω  → opción c.
+// Y los distractores cierran con esa lectura: 10 es "no vi el puente", 7 es
+// "el puente se comió el 3 en lugar del 2 y el 5", 5 es el resistor solo.
+function f19tresResistoresPuente(): Figura {
+  const Y = 158;          // el riel donde están los tres resistores
+  const Y_PUENTE = 74;    // la altura a la que pasa el cable
+  const BORNE_IZQ: Pt = { x: 40, y: Y };
+  const R3_INI: Pt = { x: 78, y: Y }, R3_FIN: Pt = { x: 146, y: Y };
+  const P: Pt = { x: 182, y: Y };                    // pie izquierdo del puente
+  const R2_INI: Pt = { x: 214, y: Y }, R2_FIN: Pt = { x: 278, y: Y };
+  const R5_INI: Pt = { x: 306, y: Y }, R5_FIN: Pt = { x: 370, y: Y };
+  const Q: Pt = { x: 388, y: Y };                    // pie derecho del puente
+  const BORNE_DER: Pt = { x: 406, y: Y };
+
+  // Lo único que decide la respuesta es DÓNDE apoyan los pies del puente: si
+  // el derecho cayera entre el 2 y el 5, o el izquierdo antes del 3, el
+  // resultado cambiaría. Así que se verifica el orden, no las coordenadas.
+  const sobra = (a: number, b: number) => Math.max(0, a - b);
+  verificarDistancia("el puente arranca después del 3 Ω", 0, sobra(R3_FIN.x + 8, P.x), 0.01);
+  verificarDistancia("el puente arranca antes del 2 Ω", 0, sobra(P.x + 8, R2_INI.x), 0.01);
+  verificarDistancia("el puente vuelve después del 5 Ω", 0, sobra(R5_FIN.x + 8, Q.x), 0.01);
+  verificarDistancia("el puente vuelve antes del borne derecho", 0, sobra(Q.x + 8, BORNE_DER.x), 0.01);
+
+  // Y la cuenta que sale de ese orden, escrita como cuenta y no como número.
+  const enParalelo = (a: number, b: number) => (a + b === 0 ? 0 : (a * b) / (a + b));
+  verificarDistancia("Req = 3 Ω", 3, 3 + enParalelo(2 + 5, 0), 0.0001);
+
+  const el: Elemento[] = [
+    // el riel, en los tramos que no ocupa un resistor
+    { tipo: "linea", de: BORNE_IZQ, a: R3_INI, rol: "trazo" },
+    { tipo: "linea", de: R3_FIN, a: R2_INI, rol: "trazo" },
+    { tipo: "linea", de: R2_FIN, a: R5_INI, rol: "trazo" },
+    { tipo: "linea", de: R5_FIN, a: BORNE_DER, rol: "trazo" },
+    ...resistencia(R3_INI, R3_FIN, "3 Ω", -1),
+    ...resistencia(R2_INI, R2_FIN, "2 Ω", -1),
+    ...resistencia(R5_INI, R5_FIN, "5 Ω", -1),
+
+    // el puente: cable, sin nada en el medio
+    { tipo: "linea", de: P, a: { x: P.x, y: Y_PUENTE }, rol: "trazo" },
+    { tipo: "linea", de: { x: P.x, y: Y_PUENTE }, a: { x: Q.x, y: Y_PUENTE }, rol: "trazo" },
+    { tipo: "linea", de: { x: Q.x, y: Y_PUENTE }, a: Q, rol: "trazo" },
+
+    // nodos del puente y bornes abiertos, donde se mide la equivalente
+    { tipo: "punto", en: P, r: 3, rol: "trazo" },
+    { tipo: "punto", en: Q, r: 3, rol: "trazo" },
+    { tipo: "punto", en: BORNE_IZQ, r: 5, rol: "trazo" },
+    { tipo: "punto", en: BORNE_DER, r: 5, rol: "trazo" },
+  ];
+
+  return { ancho: 420, alto: 210, pasos: 0, elementos: el };
+}
+
+// ── F19 (final 2-2014) · el bloque que gira atado a un resorte horizontal ──
+// Del facsímil (página 4, Física, F4). La figura pesa más de lo que parece:
+// muestra que el resorte y la varilla que lo sostiene son HORIZONTALES,
+// enhebrados en el eje vertical AB que gira. Si fuera un péndulo cónico habría
+// que meter la gravedad; acá la varilla aguanta el peso y el resorte tira solo
+// hacia el eje, así que todo su estirón es fuerza centrípeta.
+// Y el radio de giro es el largo ESTIRADO (40 + 10 = 50 cm), no el natural:
+//   k·x = m·ω²·r → k(0,10) = 1·10²·0,50 = 50 → k = 500 N/m (opción c).
+function f19ejeVerticalResorte(): Figura {
+  const NATURAL_CM = 40, ESTIRON_CM = 10, OMEGA = 10, MASA = 1;
+  const ESC = 3.6;                                     // px por cm
+  const EJE_X = 120;
+  const A: Pt = { x: EJE_X, y: 42 };                   // punta de arriba del eje
+  const B: Pt = { x: EJE_X, y: 228 };                  // punta de abajo
+  const ANCLAJE: Pt = { x: EJE_X, y: 136 };            // donde el resorte agarra el eje
+  const radioCm = NATURAL_CM + ESTIRON_CM;             // 50 cm: el resorte está estirado
+  const BLOQUE: Pt = { x: EJE_X + radioCm * ESC, y: ANCLAJE.y };
+  const FIN_VARILLA: Pt = { x: BLOQUE.x + 30, y: ANCLAJE.y };
+  const MEDIO_BLOQUE = 11;
+  const CENTRO_GIRO: Pt = { x: EJE_X, y: B.y + 6 };
+  const RADIO_GIRO = 26;
+
+  verificarAngulo("el resorte sale perpendicular al eje", 90, anguloEn(ANCLAJE, A, BLOQUE));
+  verificarDistancia("el bloque gira a 50 cm del eje", radioCm * ESC, distancia(ANCLAJE, BLOQUE), 0.01);
+  verificarDistancia("el anclaje cae entre las dos puntas del eje", 0,
+    Math.max(0, A.y - ANCLAJE.y) + Math.max(0, ANCLAJE.y - B.y), 0.01);
+  // k = m·ω²·r / x, todo en unidades SI
+  verificarDistancia("k = 500 N/m", 500,
+    (MASA * OMEGA * OMEGA * (radioCm / 100)) / (ESTIRON_CM / 100), 0.0001);
+
+  const el: Elemento[] = [
+    // el eje vertical AB, como la barra angosta que dibuja el facsímil
+    { tipo: "poligono", puntos: [
+      { x: EJE_X - 6, y: A.y }, { x: EJE_X + 6, y: A.y },
+      { x: EJE_X + 6, y: B.y }, { x: EJE_X - 6, y: B.y },
+    ], rol: "trazo" },
+
+    // la varilla horizontal enhebrada, que sigue más allá del bloque
+    { tipo: "linea", de: ANCLAJE, a: FIN_VARILLA, rol: "trazo" },
+
+    // el resorte, del eje al bloque
+    { tipo: "path", d: resistorZigzag(avanzar(ANCLAJE, 0, 6), avanzar(BLOQUE, 180, MEDIO_BLOQUE), 9, 7), rol: "trazo" },
+
+    // el bloque
+    { tipo: "poligono", puntos: [
+      { x: BLOQUE.x - MEDIO_BLOQUE, y: BLOQUE.y - MEDIO_BLOQUE },
+      { x: BLOQUE.x + MEDIO_BLOQUE, y: BLOQUE.y - MEDIO_BLOQUE },
+      { x: BLOQUE.x + MEDIO_BLOQUE, y: BLOQUE.y + MEDIO_BLOQUE },
+      { x: BLOQUE.x - MEDIO_BLOQUE, y: BLOQUE.y + MEDIO_BLOQUE },
+    ], rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: BLOQUE.x, y: BLOQUE.y - MEDIO_BLOQUE - 13 }, texto: "m",
+      rol: "dato", color: AMBAR, tam: 13, negrita: true, cursiva: true },
+
+    // la flecha del giro, abrazando la punta de abajo del eje
+    { tipo: "arco", d: arcoDe(CENTRO_GIRO, RADIO_GIRO, 200, 340), rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha(avanzar(CENTRO_GIRO, 340, RADIO_GIRO), 70, 8), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: EJE_X + 52, y: B.y + 26 }, texto: "ω",
+      rol: "dato", color: AMBAR, tam: 15, negrita: true, cursiva: true },
+
+    rotulo({ x: EJE_X, y: A.y - 14 }, "A"),
+    rotulo({ x: EJE_X, y: B.y + 20 }, "B"),
+  ];
+
+  return { ancho: 420, alto: 288, pasos: 0, elementos: el };
+}
+
+// ── F20 (final 2-2014) · el tazón semiesférico y las dos masas ──
+// Del facsímil (página 4, Física, F5). Lo único que el texto no dice y la
+// figura sí es DESDE DÓNDE se suelta m₁: está en el BORDE del tazón, o sea a
+// una altura R sobre el fondo, y m₂ espera quieta justo en el fondo.
+//   baja:   ½m v² = m g R       → v = √(2gR)
+//   choque: m v = 2m v'         → v' = v/2   (se pegan)
+//   sube:   h = v'²/(2g) = R/4  → opción a.
+function f20tazonDosMasas(): Figura {
+  const R = 122;
+  const O: Pt = { x: 210, y: 56 };            // centro del tazón, al nivel del borde
+  const BORDE_IZQ: Pt = { x: O.x - R, y: O.y };
+  const BORDE_DER: Pt = { x: O.x + R, y: O.y };
+  const FONDO: Pt = { x: O.x, y: O.y + R };
+  const FIN_RADIO = avanzar(O, -55, R);       // el radio que dibuja el facsímil, abajo-derecha
+  const LADO = 15;
+
+  verificarDistancia("m₁ arranca sobre el tazón", R, distancia(O, BORDE_IZQ), 0.01);
+  verificarDistancia("m₂ está sobre el tazón", R, distancia(O, FONDO), 0.01);
+  verificarDistancia("el radio dibujado termina sobre el tazón", R, distancia(O, FIN_RADIO), 0.01);
+  verificarDistancia("la caída de m₁ vale R", R, FONDO.y - BORDE_IZQ.y, 0.01);
+  verificarAngulo("el borde es horizontal y pasa por el centro", 180,
+    anguloEn(O, BORDE_IZQ, BORDE_DER), 0.01);
+
+  // El cálculo con números, para que la respuesta no dependa de la prosa.
+  const g = 10, RADIO_M = 1;
+  const v = Math.sqrt(2 * g * RADIO_M);       // con la que m₁ llega al fondo
+  const vPegadas = v / 2;                     // choque perfectamente inelástico, masas iguales
+  verificarDistancia("suben R/4", RADIO_M / 4, (vPegadas * vPegadas) / (2 * g), 1e-9);
+
+  const bloque = (centro: Pt): Elemento => ({
+    tipo: "poligono",
+    puntos: [
+      { x: centro.x - LADO / 2, y: centro.y - LADO },
+      { x: centro.x + LADO / 2, y: centro.y - LADO },
+      { x: centro.x + LADO / 2, y: centro.y },
+      { x: centro.x - LADO / 2, y: centro.y },
+    ],
+    rol: "trazo", relleno: true,
+  });
+
+  const el: Elemento[] = [
+    // el tazón: la mitad de abajo de la circunferencia, de borde a borde
+    { tipo: "path", d: `M ${BORDE_IZQ.x.toFixed(2)} ${BORDE_IZQ.y.toFixed(2)}` + sigueArco(O, R, 180, 360), rol: "trazo" },
+
+    // el radio que marca el facsímil
+    { tipo: "linea", de: O, a: FIN_RADIO, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: avanzar({ x: (O.x + FIN_RADIO.x) / 2, y: (O.y + FIN_RADIO.y) / 2 }, 35, 16),
+      texto: "R", rol: "dato", color: AMBAR, tam: 14, negrita: true, cursiva: true },
+
+    bloque(BORDE_IZQ),
+    bloque(FONDO),
+    { tipo: "texto", en: { x: BORDE_IZQ.x + 28, y: BORDE_IZQ.y - 8 }, texto: "m₁",
+      rol: "dato", color: AMBAR, tam: 13, negrita: true },
+    { tipo: "texto", en: { x: FONDO.x + 6, y: FONDO.y - 27 }, texto: "m₂",
+      rol: "dato", color: AMBAR, tam: 13, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Math.round(FONDO.y + 26), pasos: 0, elementos: el };
+}
+
+// ── F20 (final 1-2025) · el circuito de los cinco amperímetros ──
+// El transcriptor no tenía la figura y supuso que el extremo lejano de R
+// quedaba fijado en 160 V por la otra pila: le salió R = (200−160)/10 = 4 Ω,
+// que no está entre las opciones, y marcó E. El facsímil dice otra cosa.
+//
+// A₄ es un amperímetro IDEAL, o sea un cable: une el nodo donde termina R con
+// el negativo de la propia pila de 200 V. Entonces R y esa pila forman un lazo
+// cerrado y solo, y el resto del circuito no interviene:
+//   R = 200 V / 10 A = 20 Ω  → opción a.
+// Del otro lado, la pila de 160 V (ideal, sin resistencia interna) fija su
+// nodo: el 40 Ω lleva 4 A, el 20 Ω lleva 8 A, A₃ marca 12 A y A₄ marca
+// 10 + 4 = 14 A. Es el circuito clásico del Young & Freedman.
+function f20cincoAmperimetros(): Figura {
+  const XL = 44;      // rama de la pila de 200 V
+  const XA = 152;     // nodo donde termina R y arranca A₄
+  const XB = 190;     // el escalón por donde el cable de abajo se va a la derecha
+  const XR = 300;     // rama del 40 Ω, A₃ y la pila de 160 V
+  const XF = 356;     // rama del 20 Ω
+  const Y_ARR = 44;   // riel de arriba, con A₂
+  const Y_R = 112;    // riel de R
+  const Y_D = 132;    // riel que sale del pie del 40 Ω hacia el 20 Ω
+  const Y_PASO = 214; // donde la rama de A₄ dobla hacia el riel de abajo
+  const Y_E = 238;    // riel de abajo de la derecha, con A₅
+  const Y_ABA = 264;  // riel de abajo de la izquierda
+
+  const codoIzq: Pt = { x: XL, y: Y_R };        // esquina de arriba a la izquierda
+  const nodoA: Pt = { x: XA, y: Y_R };          // fin de R = cabeza de A₄
+  const nodoB: Pt = { x: XB, y: Y_PASO };       // el nodo común de abajo
+  const nodoC: Pt = { x: XR, y: Y_ARR };        // fin del riel de arriba = cabeza del 40 Ω
+  const nodoD: Pt = { x: XR, y: Y_D };          // pie del 40 Ω
+  const nodoE: Pt = { x: XR, y: Y_E };          // pie de la pila de 160 V
+
+  verificarDistancia("las cinco ramas verticales van en orden", 0,
+    Math.max(0, XL - XA) + Math.max(0, XA - XB) + Math.max(0, XB - XR) + Math.max(0, XR - XF), 0.01);
+  verificarAngulo("R sale horizontal del codo de la izquierda", 90,
+    anguloEn(codoIzq, { x: XL, y: Y_ABA }, nodoA));
+  verificarAngulo("el 40 Ω cuelga vertical del riel de arriba", 90,
+    anguloEn(nodoC, { x: XA, y: Y_ARR }, nodoD));
+  verificarAngulo("el 20 Ω está en la rama vertical de la derecha", 90,
+    anguloEn({ x: XF, y: Y_D }, nodoD, { x: XF, y: Y_E }));
+
+  // La cuenta eléctrica, que es la que distingue las dos lecturas posibles de
+  // la figura: con A₄ como cable el nodo de R y el negativo de las dos pilas
+  // son el MISMO nodo (0 V), y la pila de 160 V fija el suyo en 160 V.
+  const Va = 0, Vb = 0, Vd = 160, R_OHM = 20;
+  const iR = (200 - Va) / R_OHM;        // por R y por A₁
+  const i40 = (Vd - Va) / 40;           // por el 40 Ω y por A₂
+  const i20 = (Vd - Vb) / 20;           // por el 20 Ω y por A₅
+  verificarDistancia("A₁ marca los 10 A del enunciado", 10, iR, 1e-9);
+  verificarDistancia("A₃ = A₂ + A₅ = 12 A", 12, i40 + i20, 1e-9);
+  verificarDistancia("A₄ = A₁ + A₂ = 14 A", 14, iR + i40, 1e-9);
+
+  const el: Elemento[] = [
+    // ── rama izquierda: A₁, la pila de 200 V y la vuelta por el riel de abajo ──
+    ...amperimetro(codoIzq, { x: XL, y: 176 }, "A₁"),
+    ...pila({ x: XL, y: 176 }, { x: XL, y: 214 }, "200 V"),
+    { tipo: "linea", de: { x: XL, y: 214 }, a: { x: XL, y: Y_ABA }, rol: "trazo" },
+    { tipo: "linea", de: { x: XL, y: Y_ABA }, a: { x: XB, y: Y_ABA }, rol: "trazo" },
+
+    // ── R, del codo de arriba al nodo A ──
+    { tipo: "linea", de: codoIzq, a: { x: XL + 22, y: Y_R }, rol: "trazo" },
+    ...resistencia({ x: XL + 22, y: Y_R }, { x: XA - 6, y: Y_R }, "R", 1),
+    { tipo: "linea", de: { x: XA - 6, y: Y_R }, a: nodoA, rol: "trazo" },
+
+    // ── del nodo A para arriba: el riel con A₂ y el 40 Ω bajando ──
+    { tipo: "linea", de: nodoA, a: { x: XA, y: Y_ARR }, rol: "trazo" },
+    ...amperimetro({ x: XA, y: Y_ARR }, nodoC, "A₂"),
+    ...resistencia(nodoC, nodoD, "40,0 Ω", 1, 30),
+
+    // ── del nodo A para abajo: A₄ y el escalón hasta el nodo común ──
+    ...amperimetro(nodoA, { x: XA, y: Y_PASO }, "A₄", 0.42),
+    { tipo: "linea", de: { x: XA, y: Y_PASO }, a: nodoB, rol: "trazo" },
+    { tipo: "linea", de: nodoB, a: { x: XB, y: Y_ABA }, rol: "trazo" },
+    // y de ahí a la derecha, con el escaloncito del facsímil, hasta el nodo E
+    { tipo: "linea", de: nodoB, a: { x: XB + 26, y: Y_PASO }, rol: "trazo" },
+    { tipo: "linea", de: { x: XB + 26, y: Y_PASO }, a: { x: XB + 48, y: Y_E }, rol: "trazo" },
+    { tipo: "linea", de: { x: XB + 48, y: Y_E }, a: nodoE, rol: "trazo" },
+
+    // ── rama del medio: A₃ y la pila de 160 V ──
+    ...amperimetro(nodoD, { x: XR, y: 190 }, "A₃", 0.55),
+    ...pila({ x: XR, y: 190 }, nodoE, "160 V"),
+
+    // ── rama de la derecha: el 20 Ω bajando y A₅ en el riel de abajo ──
+    { tipo: "linea", de: nodoD, a: { x: XF, y: Y_D }, rol: "trazo" },
+    ...resistencia({ x: XF, y: Y_D }, { x: XF, y: Y_E }, "20,0 Ω", 1, 30),
+    ...amperimetro(nodoE, { x: XF, y: Y_E }, "A₅"),
+  ];
+
+  for (const n of [nodoA, nodoB, nodoD, nodoE]) el.push({ tipo: "punto", en: n, r: 3, rol: "trazo" });
+
+  return { ancho: 420, alto: 290, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -4643,6 +4937,12 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g6-diametro-aob-angulo-adc": g6diametroAobAnguloAdc,
   "g7-sector-60-segmento": g7sector60Segmento,
   "g7-diagonales-be-menos-ed": g7diagonalesBeMenosEd,
+  // Las cuatro de fisica, una por facsimil. Tres respuestas cambiaron al ver
+  // la figura: el puente del 2009, y el circuito del 2025 que estaba en E.
+  "f19-tres-resistores-puente": f19tresResistoresPuente,
+  "f19-eje-vertical-resorte": f19ejeVerticalResorte,
+  "f20-tazon-dos-masas": f20tazonDosMasas,
+  "f20-cinco-amperimetros": f20cincoAmperimetros,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
