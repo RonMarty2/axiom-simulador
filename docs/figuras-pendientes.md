@@ -148,14 +148,14 @@ viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
 regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
 confiar en la tabla.
 
-**Van 20 auditadas de 88, con 7 problemas.** Y no son de un solo tipo: hay tres
+**Van 36 auditadas de 88, con 8 problemas.** Y no son de un solo tipo: hay tres
 modos de falla distintos, y solo el primero cambia la respuesta.
 
 | modo de falla | qué pasó | encontradas |
 |---|---|---|
 | **1 · la respuesta está mal** | el paréntesis describe otra figura, y el resultado depende de eso | 2 (`2016-1op-1` P7, `2016-3op-1` P6) |
 | **2 · el enunciado quedó roto** | le sacaron *"Como se muestra en la figura,"* y quedó arrancando con una coma suelta. El alumno lo ve así HOY | 3 (`2013-final-2` P17, `2013-parcial2-2` P20, `2025-parcial2-1` P18) |
-| **3 · la descripción no es la figura** | el paréntesis dice algo que el facsímil contradice, pero la respuesta marcada igual es la correcta | 2 (`2019-1op-2` P12, `2019-2op-2` P10) |
+| **3 · la descripción no es la figura** | el paréntesis dice algo que el facsímil contradice, o se olvida un dato sin el cual no hay solución, pero la respuesta marcada igual es la correcta | 3 (`2019-1op-2` P12, `2019-2op-2` P10, `2018-1op-2` P5) |
 
 El modo 2 se detecta **sin abrir ningún PDF**: basta buscar enunciados que
 empiecen con coma o minúscula. El modo 3 solo aparece abriendo el facsímil, y es
@@ -326,6 +326,46 @@ descripciones mal.**
   clásico de Stewart y da 3/(sen θ cos²θ)), P11 del 1ra (t = 0,2 s, una vuelta
   entera, ω = 10π), P5 (AM = r·cot 30° = 4√3), P8 del 2da (d = 450, y H suma los
   2 m del instrumento), P11 (ω = √(g/μR) = 10) y P12 (μ = 1/3).
+
+### Los lotes 2018 y 2020: 16 preguntas, 15 limpias
+
+Dos bloques enteros auditados contra sus cinco facsímiles. **Las 16 respuestas
+están bien**, verificadas con la cuenta completa y no solo comparando el número.
+De las 16 descripciones, 15 coinciden con la figura.
+
+La que falla es del modo 3, y es la variante más peligrosa: **no dice algo
+falso, se olvida el dato que hace que el problema tenga solución.**
+
+> **`2018-1op-2` P5.** El paréntesis describe bien los seis puntos y las cuatro
+> medidas, pero no dice que **A, C y D están alineados** (el "60" es el tramo
+> C→D de la misma recta que sale de A). Sin esa condición el problema es
+> indeterminado: se verificó algebraicamente que BC puede valer cualquier cosa.
+> Con ella, BC = 14, AC = 15 y el perímetro da 42, que es la opción marcada. La
+> explicación del archivo SÍ usaba la colinealidad, así que el agujero estaba
+> solo en la descripción. Se corrigió y se dibujó la figura.
+
+Las otras quince, con la cuenta que las confirma:
+
+- `2018-1op-2`: **A3** el alambre cortado (A = ⅛(x−5)² + 25/8), **G7** los tres
+  círculos tangentes de radios 1, 2 y 3, donde el triángulo de centros es un
+  3-4-5 y por eso el sector del círculo chico es de 90° = π/4, **G8** la altura
+  de las nubes (600·tan75°/(1+tan75°) = 100(3+√3)).
+- `2018-2op-2`: **A2** el polinomio (x−2)(x−1)(x+1), **G5** el pentágono y el
+  hexágono (132° en el vértice compartido, base isósceles de 24°), **G6** el
+  rectángulo en la semicircunferencia (2cosθ·senθ = sen2θ), **G7** las
+  paralelas con dos bisectrices, donde x = β − α = 50° **sin depender de la
+  inclinación de la transversal**.
+- `2020-1op-1`: **G5** el equilátero inscrito (4π − 3√3), **F12** el plano
+  inclinado, donde la trampa es que "distancia total recorrida" incluye los 5 m
+  del plano: 30 + 5 = 35, y el 30 pelado es el distractor.
+- `2020-2op-1`: **G5** las paralelas con 4α y 5α (α = 10°, x = 105°), **G6** el
+  cuadrado inscrito en el equilátero (L = 2+√3), **F10** el tiro que da en el
+  blanco en caída libre (apuntar directo a A: tanθ = 40/40 → 45°), **F12** el
+  choque elástico con M₂ = 2M₁ (−10 y 20).
+- `2020-3op-1`: **G5** las dos tangentes, donde θ = θ obliga a que los arcos BD
+  y DA sean iguales y x sale ½·arco AB = 29°, y **G8** el cuadrado con la
+  semicircunferencia, donde la parte de arriba da 24 − 4π, la de abajo 4π − 8
+  y **el π se cancela**: 16 justo.
 
 ### La única que el facsímil NO resuelve
 

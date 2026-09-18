@@ -5113,6 +5113,72 @@ function f10DosPoleasCompuestas(): Figura {
   return { ancho: 420, alto: Y_BLOQUE + 46, pasos: 0, elementos: el };
 }
 
+// ── G5 (2-2018 1ra opción) · el perímetro del △ABC, con A, C y D alineados ──
+// Auditoría de las "invisibles": el paréntesis describía bien los puntos y las
+// medidas, pero se olvidaba el dato que hace que el problema TENGA solución:
+// que A, C y D están sobre una misma recta (el "60" es el tramo C→D de esa
+// recta, que sale de A). Sin esa condición, BC puede valer cualquier cosa y el
+// perímetro queda indeterminado; se verificó algebraicamente.
+// Con la colinealidad todo se cierra solo:
+//   BF = √(13² − 12²) = 5 ;  AB ∥ DE con |DE| = 52 = 4·13 ⇒ D está 20 a la
+//   izquierda de E y 48 abajo ;  CD = 60 ⇒ CE = 56 ;  y A-C-D alineados fija
+//   BC = 14, con lo que AC = √(9² + 12²) = 15.
+//   Perímetro = 13 + 14 + 15 = 42 (opción A).
+function g5PerimetroAbcColineal(): Figura {
+  const ESC = 5.15;
+  const X0 = 26, Y0 = 92;                       // B en pantalla
+  const P = (x: number, y: number): Pt => ({ x: X0 + x * ESC, y: Y0 - y * ESC });
+
+  const B = P(0, 0);
+  const F = P(5, 0);
+  const A = P(5, 12);
+  const C = P(14, 0);
+  const E = P(70, 0);
+  const D = P(50, -48);
+
+  verificarDistancia("AB = 13", 13 * ESC, distancia(A, B), 0.01);
+  verificarDistancia("AF = 12", 12 * ESC, distancia(A, F), 0.01);
+  verificarAngulo("AF ⊥ BC", 90, anguloEn(F, A, C), 0.01);
+  verificarDistancia("CD = 60", 60 * ESC, distancia(C, D), 0.01);
+  verificarDistancia("DE = 52", 52 * ESC, distancia(D, E), 0.01);
+  verificarAngulo("AB ∥ DE", 0, desvioParalelas(A, B, D, E), 0.01);
+  // el dato que faltaba en el texto, y sin el cual no hay respuesta
+  verificarAngulo("A, C y D están alineados", 0, desvioParalelas(A, C, C, D), 0.01);
+  verificarDistancia("perímetro = 42",
+    42 * ESC, distancia(A, B) + distancia(B, C) + distancia(C, A), 0.01);
+
+  const el: Elemento[] = [
+    // la recta horizontal con B, F, C, E
+    { tipo: "linea", de: avanzar(B, 180, 16), a: avanzar(E, 0, 16), rol: "trazo" },
+    // el triángulo ABC, que es lo que se pide
+    { tipo: "linea", de: A, a: B, rol: "resalte" },
+    { tipo: "linea", de: B, a: C, rol: "resalte" },
+    { tipo: "linea", de: C, a: A, rol: "resalte" },
+    { tipo: "linea", de: A, a: B, rol: "trazo" },
+    { tipo: "linea", de: B, a: C, rol: "trazo" },
+    // la recta que sale de A, pasa por C y sigue hasta D: es el dato clave
+    { tipo: "linea", de: A, a: D, rol: "trazo" },
+    { tipo: "linea", de: D, a: E, rol: "trazo" },
+    // la altura AF, con su cuadradito
+    { tipo: "linea", de: A, a: F, rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(F, anguloHacia(F, A), anguloHacia(F, C), 9), rol: "trazo" },
+
+    { tipo: "texto", en: avanzar({ x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 }, 160, 15), texto: "13", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + F.x) / 2, y: (A.y + F.y) / 2 }, 0, 13), texto: "12", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (C.x + D.x) / 2, y: (C.y + D.y) / 2 }, anguloHacia(C, D) + 90, 16), texto: "60", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (D.x + E.x) / 2, y: (D.y + E.y) / 2 }, anguloHacia(D, E) - 90, 16), texto: "52", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+
+    rotulo(avanzar(A, 90, 14), "A"),
+    rotulo(avanzar(B, 200, 14), "B"),
+    rotulo(avanzar(F, -90, 14), "F"),
+    rotulo(avanzar(C, 70, 15), "C"),
+    rotulo(avanzar(E, 20, 15), "E"),
+    rotulo(avanzar(D, -80, 15), "D"),
+  ];
+
+  return { ancho: 420, alto: Math.round(D.y + 32), pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -5238,6 +5304,7 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   // correa donde el facsimil tiene los dos rodetes en contacto.
   "f12-semiesfera-giratoria": f12SemiesferaGiratoria,
   "f10-dos-poleas-compuestas": f10DosPoleasCompuestas,
+  "g5-perimetro-abc-colineal": g5PerimetroAbcColineal,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

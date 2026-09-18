@@ -398,7 +398,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] Todas las preguntas con `figura:` tienen su dibujo — el trinquete del test está en 0 (ver §11).
 - [x] ~~El banco le hablaba de vos al alumno.~~ Pasado a tuteo el 14-sep, 3.144 reemplazos en 129 archivos, con trinquete en 0 para que no vuelva a entrar (ver §11).
 - [ ] **1 enunciado nombra una figura que no existe, y es el único que el facsímil NO resuelve.** La `2010-parcial1-2` P7 tiene la figura en el PDF, pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). **Ese 1 ya no baja leyendo PDF**: bajarlo es decidir qué hacer con una pregunta que el examen original dejó ambigua. Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 29 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023, cuatro sueltas de geometría de 2008 a 2015 y las cuatro de física, que dejaron **dos respuestas corregidas**). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 1 y solo puede bajar.
-- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 20, con 7 problemas).** Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
+- [ ] **88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil (van 36, con 8 problemas, de los cuales solo 2 son respuestas mal).** Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
 - [ ] **Y una tercera categoría, que ningún chequeo automático puede encontrar: las que NI SIQUIERA prometen una figura.** El primer caso es `2017-3op-1` P5, que habla de un cuadrado con arcos sin nombrar ninguna figura y cuyo sombreado el texto no determina (está marcada E). El trinquete solo ve las que prometen un dibujo; estas aparecen únicamente abriendo el PDF. Se anotan en la sección homónima de [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md) a medida que se encuentran.
 - [ ] **Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.** `verificarAngulo`/`verificarDistancia` explotan al CONSTRUIR la figura, y nada la construye en los tests: `banco.test.ts` lee el registro de `definiciones.ts` como texto, porque ese módulo importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria. La sesión del 13-sep ya lo había topado y decidió no torcer los imports de la app para acomodar un test. Consecuencia: una figura con la verificación rota se commitea sin que nada avise y explota recién en el navegador, en esa sola pregunta. Salida sin tocar los imports: un paso aparte en CI que las construya con `tsx`, o copiar el módulo a un temp con la extensión puesta e importarlo — es lo que hicieron a mano los harness del 16 y 17-sep para los 19 dibujos de esas dos sesiones.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
@@ -465,6 +465,30 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-18 (los lotes 2018 y 2020 de la auditoría: 16 preguntas, 15 limpias)
+
+Dos bloques enteros contra sus cinco facsímiles. **Las 16 respuestas están bien**, verificadas rehaciendo la cuenta y no solo comparando el número marcado. De las 16 descripciones, 15 coinciden con la figura.
+
+## La que falla es la variante más peligrosa del modo 3
+
+No dice nada falso: **se olvida el dato sin el cual el problema no tiene solución.**
+
+El `2018-1op-2` P5 describe bien los seis puntos y las cuatro medidas, pero no menciona que **A, C y D están alineados** (el "60" es el tramo C→D de la misma recta que sale de A). Se verificó algebraicamente que sin esa condición BC puede valer cualquier cosa y el perímetro queda indeterminado. Con ella, BC = 14, AC = 15 y el perímetro da 42, la opción marcada.
+
+Lo interesante: **la explicación del archivo SÍ usaba la colinealidad** ("con A,C,D colineales"). O sea que quien la resolvió tenía la figura delante y la usó bien; lo que se perdió fue la traducción de la figura a palabras. Ese es el agujero exacto que deja el modo 3, y ningún test lo puede ver porque la respuesta y la explicación son coherentes entre sí.
+
+## Lo que confirma que la tasa de error real es baja
+
+Van 36 de 88 auditadas, con 8 problemas, pero conviene separarlos: **solo 2 son respuestas equivocadas**, y las dos aparecieron en el primer muestreo. De las 28 auditadas desde entonces, ninguna tenía la respuesta mal. Lo que aparece ahora son problemas de TEXTO: enunciados que quedaron rotos y descripciones que no son la figura.
+
+Eso cambia la lectura del riesgo. El banco responde bien; lo que está dañado es la capa de texto que se le agregó encima, y la dañaron pasadas automáticas.
+
+## Detalles que valieron la pena verificar
+
+- **`2020-1op-1` F12**: la pregunta dice "distancia total recorrida", y la respuesta correcta (35 m) incluye los 5 m del plano inclinado. El 30 m pelado —el tramo rugoso solo— es una opción, y es la que sale si uno lee rápido.
+- **`2018-2op-2` G7**: x = β − α = 50° **sin depender de la inclinación de la transversal**. Que el resultado sea invariante es lo que hace que el problema esté bien planteado, y es la clase de cosa que solo se ve rehaciendo la cuenta.
+- **`2020-3op-1` G8**: el área sombreada son dos piezas, 24 − 4π arriba y 4π − 8 abajo, y **el π se cancela**: 16 justo. Si una de las dos piezas estuviera mal identificada, el resultado tendría π y ninguna opción entera cerraría.
 
 ### 2026-09-17 (septies) (14 preguntas sin enunciado, y las rompió el arreglo de las figuras)
 
