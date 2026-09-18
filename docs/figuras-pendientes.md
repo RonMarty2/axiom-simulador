@@ -148,8 +148,17 @@ viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
 regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
 confiar en la tabla.
 
-**Van 58 auditadas de 88, con 16 problemas.** Y no son de un solo tipo: hay tres
-modos de falla distintos, y solo el primero cambia la respuesta.
+**Van 50 auditadas de 88, con 14 problemas, y ninguna tenía la respuesta mal.**
+
+> **Cuidado con el conteo** (se corrigió el 18-sep): las **2 respuestas
+> equivocadas** que aparecen en la tabla de abajo —`2016-1op-1` P7 y
+> `2016-3op-1` P6— salieron de un muestreo **anterior** y **no forman parte de
+> las 88**: esas dos ya tienen su figura declarada, así que el filtro no las
+> incluye. Contarlas como progreso de las 88 inflaba el avance en 8 preguntas.
+> De las 50 de la lista auditadas hasta ahora, **las 50 tienen la respuesta
+> bien**; los 14 problemas son todos de texto.
+
+Los modos de falla son cuatro, y solo el primero cambia la respuesta.
 
 | modo de falla | qué pasó | encontradas |
 |---|---|---|
