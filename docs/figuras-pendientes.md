@@ -346,11 +346,12 @@ de ahí la E. **Queda como E**: es el único caso del banco donde tener el
 facsímil en la mano no alcanza, y conviene que esté escrito para que la próxima
 sesión no vuelva a abrirlo esperando resolverlo.
 
-### El lote de física: tres respuestas cambiaron
+### El lote de física: dos respuestas cambiaron
 
 Cuatro preguntas, cuatro PDF, y el peor rendimiento de acierto de todo el
-trabajo: **tres de las cuatro estaban mal respondidas**, y en los dos casos de
-circuito el archivo mismo admitía que había adivinado.
+trabajo: **dos de las cuatro estaban mal respondidas**, y son justo los dos casos
+de circuito, donde el archivo mismo admitía que había adivinado. Las dos del 2014
+ya estaban bien.
 
 - **`2009-parcial3-2` P19 · era B (10 Ω), es C (3 Ω).** El archivo decía, con
   todas las letras, que había *"probado las combinaciones serie/paralelo
