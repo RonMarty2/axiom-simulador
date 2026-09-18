@@ -1,7 +1,8 @@
 # Figuras que faltan: qué necesito de los facsímiles
 
 **Generado el 2026-09-16. Actualizado el 2026-09-17**, al terminar de leer los
-PDF en local. Actualizar cuando cambie el conteo.
+PDF en local y arrancar la auditoría de las invisibles. Actualizar cuando
+cambie el conteo.
 
 Queda **1 pregunta** cuyo enunciado nombra una figura que el alumno no ve, y
 es justo la única que **el facsímil no alcanza a resolver**: la
@@ -140,7 +141,35 @@ y el texto se sostiene solo. Pero no todos, y el caso que lo probó apareció el
 > agarrar: el trinquete de figuras no la veía, el de "la explicación no se
 > contradice con la respuesta" tampoco.
 
-**Las candidatas son 72.** Definición exacta, para poder regenerar la lista: el
+**Hoy las candidatas son 88, no 72.** El número subió y no porque algo
+empeorara: el 17-sep se le agregaron dos formas al regex `PIDE_FIGURA` (*"ver
+figura"* y *"la figura N muestra"*), así que ahora reconoce más enunciados
+viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
+regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
+confiar en la tabla.
+
+**Van 20 auditadas de 88, con 7 problemas.** Y no son de un solo tipo: hay tres
+modos de falla distintos, y solo el primero cambia la respuesta.
+
+| modo de falla | qué pasó | encontradas |
+|---|---|---|
+| **1 · la respuesta está mal** | el paréntesis describe otra figura, y el resultado depende de eso | 2 (`2016-1op-1` P7, `2016-3op-1` P6) |
+| **2 · el enunciado quedó roto** | le sacaron *"Como se muestra en la figura,"* y quedó arrancando con una coma suelta. El alumno lo ve así HOY | 3 (`2013-final-2` P17, `2013-parcial2-2` P20, `2025-parcial2-1` P18) |
+| **3 · la descripción no es la figura** | el paréntesis dice algo que el facsímil contradice, pero la respuesta marcada igual es la correcta | 2 (`2019-1op-2` P12, `2019-2op-2` P10) |
+
+El modo 2 se detecta **sin abrir ningún PDF**: basta buscar enunciados que
+empiecen con coma o minúscula. El modo 3 solo aparece abriendo el facsímil, y es
+el más traicionero, porque ningún test lo puede ver: la respuesta cierra, la
+explicación cierra, y lo único que está mal es el dibujo que el alumno se arma
+en la cabeza.
+
+**La regla que se usó al dibujar: poner los datos, nunca el paso.** Si el
+enunciado dice "la mesa no tiene fricción" o "las placas están a 2,0 cm", eso va
+rotulado en la figura. Si el dato hay que *combinarlo* para llegar al resultado
+(como el radio de giro de 50 cm, que sale de sumar 40 + 10), no va: eso es
+resolver el problema, no dibujarlo.
+
+**Definición exacta**, para poder regenerar la lista: el
 enunciado ANTES de `f3f276a` matcheaba el regex `PIDE_FIGURA` de
 `src/lib/axiom/banco.test.ts`, el de hoy no lo matchea, y hoy sigue sin declarar
 `figura:`. Se saca con un script de tres pasos: `git show f3f276a~1:<archivo>`
@@ -228,6 +257,52 @@ falló.
 | `2024-parcial2-2-2024` | 16 | Un electrón es lanzado con una velocidad inicial de $2\times10^7$ m/s a lo largo del eje central… |
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
+
+### Lo que dio la auditoría, lote por lote
+
+**Los tres enunciados rotos (modo 2).** Los tres estaban **bien de fondo**: se
+abrieron los tres facsímiles y tanto la configuración como los datos coinciden
+dígito por dígito. Lo único roto era el texto.
+
+- `2013-final-2` P17 y `2013-parcial2-2` P20 son **la misma figura** (m₁ apoyado
+  sobre m₂, m₂ en la mesa, la cuerda sale de m₁ y pasa por la polea del borde
+  hasta m₃). Se verificó que m₁ va ARRIBA, que es lo que decía el paréntesis: la
+  normal entre los bloques es el peso del de arriba, así que leerlo al revés
+  cambiaría la fricción. En el final, al revés, el sistema ni arrancaría y la
+  T = 8m₃ (opción C) pasaría a 10m₃.
+- `2025-parcial2-1` P18 (la partícula entre las placas) tiene respuesta **E**, y
+  una E siempre merece revisar los DATOS y no solo la figura: un dígito mal
+  transcripto alcanza para que el valor real caiga fuera de las opciones sin que
+  el examen tenga nada de raro. Se comparó contra el facsímil (`2025-1-preu.pdf`
+  p.8) y los tres números están bien, así que los 33,3 kV y la E quedan firmes.
+
+En los tres se devolvió el *"Como se muestra en la figura,"* del original y se
+dibujó la figura, en lugar de parchear la gramática: dos dibujos para tres
+preguntas, porque el par de 2013 comparte uno. Se puede compartir justamente
+porque **el dibujo no lleva números** (el 2do parcial trae 2/1/3 kg y el final
+trae m₁ = 2m₃ = m₂/5).
+
+**El lote 2019 (9 preguntas en 2 facsímiles): las 9 respuestas bien, 2
+descripciones mal.**
+
+- `2019-1op-2` P12 · **θ se mide desde la HORIZONTAL del borde**, no desde el eje
+  vertical como decía el texto. La respuesta (0,9 m) no cambia porque θ no
+  aparece en las opciones, pero el alumno que dibuje desde el texto se queda con
+  84° donde el examen marca 6°, y cualquier paso que escriba en función de θ le
+  sale al revés. La explicación también usaba θ desde el eje: se renombró a α y
+  se aclaró que el θ del dibujo es el complemento.
+- `2019-2op-2` P10 · **los dos rodetes externos se TOCAN**, no hay correa. Y acá
+  no es cosmético: con una correa las dos poleas girarían en el mismo sentido, y
+  en contacto giran al revés una de la otra. El facsímil saca la cuerda de A por
+  la izquierda de su polea y la de B por la derecha *justamente* por eso, así que
+  las dos suben. Con la correa del texto, ese mismo dibujo tendría un bloque
+  subiendo y el otro bajando. El número (20 m/s) no cambia, porque la condición
+  de rodadura sin resbalar es la misma que la de la correa.
+- Las otras siete se verificaron con la cuenta completa y cierran: P6 (homotecia
+  externa, CB = 6, distancia 2), P8 del 1ra (el doblez de papel, que es el
+  clásico de Stewart y da 3/(sen θ cos²θ)), P11 del 1ra (t = 0,2 s, una vuelta
+  entera, ω = 10π), P5 (AM = r·cot 30° = 4√3), P8 del 2da (d = 450, y H suma los
+  2 m del instrumento), P11 (ω = √(g/μR) = 10) y P12 (μ = 1/3).
 
 ### La única que el facsímil NO resuelve
 

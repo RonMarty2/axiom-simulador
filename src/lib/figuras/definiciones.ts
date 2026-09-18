@@ -4829,6 +4829,290 @@ function f20cincoAmperimetros(): Figura {
   return { ancho: 420, alto: 290, pasos: 0, elementos: el };
 }
 
+// ── Bloques apilados sobre la mesa, con m₃ colgando de la polea del borde ──
+// Del facsímil, y aparece IGUAL en dos exámenes de 2013 (el 2do parcial 2-2013
+// F5 y el final 2-2013 F2): m₁ es el cubo de ARRIBA, apoyado sobre m₂, m₂ es el
+// que toca la mesa, y la cuerda sale de m₁ —no de m₂— pasa por la polea del
+// borde y baja hasta m₃.
+// Cuál de los dos va arriba no es un detalle: la normal entre ellos es el peso
+// del de arriba, así que cambia la fricción y cambia la respuesta. En el final
+// 2-2013, leerlo al revés convertiría la T = 8m₃ (opción C) en un sistema que
+// ni arranca.
+// El dibujo NO lleva números, y por eso lo pueden compartir las dos preguntas:
+// el 2do parcial trae 2 kg / 1 kg / 3 kg y el final trae m₁ = 2m₃ = m₂/5.
+function fBloquesApiladosPolea(): Figura {
+  const MESA_Y = 168;                 // la cara de arriba de la mesa
+  const MESA_X1 = 34, MESA_X2 = 250;  // la tabla, con el borde a la derecha
+  const GRUESO_MESA = 8;
+
+  // m₂ apoya en la mesa; m₁ apoya sobre m₂ y es más angosto
+  const M2 = { x1: 78, x2: 196, y2: MESA_Y, alto: 34 };
+  const M2_Y1 = M2.y2 - M2.alto;
+  const M1 = { x1: 104, x2: 172, y2: M2_Y1, alto: 48 };
+  const M1_Y1 = M1.y2 - M1.alto;
+  const M1_MEDIO_Y = (M1_Y1 + M1.y2) / 2;
+
+  // la polea: la cuerda entra horizontal (tangente arriba) y sale vertical
+  // (tangente a la derecha), así que el centro queda a R de las dos rectas
+  const R_POLEA = 16;
+  const POLEA = { x: 254, y: M1_MEDIO_Y + R_POLEA };
+  const CUERDA_X = POLEA.x + R_POLEA;       // la rama vertical
+  const SALE_DE_M1: Pt = { x: M1.x2, y: M1_MEDIO_Y };
+  const TOCA_POLEA: Pt = { x: POLEA.x, y: M1_MEDIO_Y };
+
+  const M3 = { x1: CUERDA_X - 15, x2: CUERDA_X + 15, y1: 226, alto: 32 };
+
+  verificarDistancia("m₁ apoya justo sobre m₂", 0, Math.abs(M1.y2 - M2_Y1), 0.01);
+  verificarDistancia("m₂ apoya justo sobre la mesa", 0, Math.abs(M2.y2 - MESA_Y), 0.01);
+  verificarDistancia("m₁ entra entero sobre m₂", 0,
+    Math.max(0, M2.x1 - M1.x1) + Math.max(0, M1.x2 - M2.x2), 0.01);
+  verificarDistancia("la cuerda sale de m₁ a media altura", 0,
+    Math.abs(SALE_DE_M1.y - M1_MEDIO_Y), 0.01);
+  verificarDistancia("el tramo horizontal es tangente a la polea", R_POLEA,
+    distancia(POLEA, TOCA_POLEA), 0.01);
+  verificarDistancia("el tramo vertical es tangente a la polea", R_POLEA,
+    distancia(POLEA, { x: CUERDA_X, y: POLEA.y }), 0.01);
+  verificarDistancia("m₃ cuelga de la rama vertical", 0,
+    Math.abs((M3.x1 + M3.x2) / 2 - CUERDA_X), 0.01);
+  verificarAngulo("la cuerda dobla 90° en la polea", 90,
+    anguloEn(POLEA, TOCA_POLEA, { x: CUERDA_X, y: POLEA.y }), 0.01);
+
+  const caja = (c: { x1: number; x2: number }, y1: number, y2: number): Pt[] => [
+    { x: c.x1, y: y1 }, { x: c.x2, y: y1 }, { x: c.x2, y: y2 }, { x: c.x1, y: y2 },
+  ];
+
+  const el: Elemento[] = [
+    // la mesa: tabla y una pata cerca del borde
+    { tipo: "poligono", puntos: caja({ x1: MESA_X1, x2: MESA_X2 }, MESA_Y, MESA_Y + GRUESO_MESA), rol: "trazo", relleno: true },
+    { tipo: "poligono", puntos: caja({ x1: 214, x2: 228 }, MESA_Y + GRUESO_MESA, 246), rol: "trazo", relleno: true },
+    ...rayado(MESA_X1, 210, MESA_Y + GRUESO_MESA),
+
+    // los dos bloques de la mesa
+    { tipo: "poligono", puntos: caja(M2, M2_Y1, M2.y2), rol: "trazo", relleno: true },
+    { tipo: "poligono", puntos: caja(M1, M1_Y1, M1.y2), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: (M2.x1 + M2.x2) / 2, y: (M2_Y1 + M2.y2) / 2 }, texto: "m₂", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+    { tipo: "texto", en: { x: (M1.x1 + M1.x2) / 2, y: M1_MEDIO_Y }, texto: "m₁", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+
+    // la cuerda: tramo horizontal, cuarto de vuelta en la polea, tramo vertical
+    { tipo: "linea", de: SALE_DE_M1, a: TOCA_POLEA, rol: "trazo" },
+    { tipo: "arco", d: arcoDe(POLEA, R_POLEA, 90, 0), rol: "trazo" },
+    { tipo: "linea", de: { x: CUERDA_X, y: POLEA.y }, a: { x: CUERDA_X, y: M3.y1 }, rol: "trazo" },
+    { tipo: "punto", en: POLEA, r: R_POLEA, rol: "trazo" },
+    { tipo: "punto", en: POLEA, r: 2.4, rol: "trazo" },
+
+    // m₃, colgando
+    { tipo: "poligono", puntos: caja(M3, M3.y1, M3.y1 + M3.alto), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: (M3.x1 + M3.x2) / 2, y: M3.y1 + M3.alto / 2 }, texto: "m₃", rol: "dato", color: AMBAR, tam: 13, negrita: true },
+
+    { tipo: "texto", en: { x: 150, y: 286 }, texto: "mesa sin fricción", rol: "dato", color: AMBAR, tam: 11, negrita: true },
+  ];
+
+  return { ancho: 420, alto: 300, pasos: 0, elementos: el };
+}
+
+// ── F18 (2do parcial 1-2025) · la partícula quieta entre las dos placas ──
+// Del facsímil (2025-1-preu.pdf, página 8: el 2do parcial de la gestión). La
+// figura muestra la placa de ARRIBA negativa y la de ABAJO positiva, el campo
+// E apuntando hacia arriba, y sobre la carga las dos fuerzas que se cancelan:
+// Eq para arriba y mg para abajo. Ese equilibrio es todo el problema.
+//   qE = mg → E = mg/q → V = E·d = (4,0e−13 · 10 · 0,020) / 2,4e−18 ≈ 33,3 kV,
+// que no está entre las opciones (10 / 29 / 52 / 69), así que la respuesta es
+// E. Los datos se compararon dígito por dígito con el facsímil, porque una
+// respuesta "Ninguno" también puede salir de un número mal transcripto.
+function f18PlacasParticula(): Figura {
+  const X1 = 108, X2 = 328;
+  const Y_ARR = 54, Y_ABA = 182;
+  const GRUESO = 7;
+  const CARGA: Pt = { x: (X1 + X2) / 2, y: (Y_ARR + Y_ABA) / 2 };
+
+  // los datos del enunciado, en SI
+  const m = 4.0e-13, q = 2.4e-18, g = 10, d = 0.020;
+  verificarDistancia("V = 33,3 kV", 33333.3, (m * g * d) / q, 1);
+  verificarDistancia("la carga queda entre las dos placas", 0,
+    Math.max(0, Y_ARR + GRUESO - CARGA.y) + Math.max(0, CARGA.y - Y_ABA), 0.01);
+  verificarAngulo("las dos placas son paralelas", 0,
+    desvioParalelas({ x: X1, y: Y_ARR }, { x: X2, y: Y_ARR },
+      { x: X1, y: Y_ABA }, { x: X2, y: Y_ABA }), 0.01);
+
+  const placa = (y: number): Elemento => ({
+    tipo: "poligono",
+    puntos: [{ x: X1, y }, { x: X2, y }, { x: X2, y: y + GRUESO }, { x: X1, y: y + GRUESO }],
+    rol: "trazo", relleno: true,
+  });
+
+  const X_CAMPO_IZQ = X1 + 22, X_CAMPO_DER = X2 - 22;
+  const signos = (y: number, signo: string): Elemento[] =>
+    Array.from({ length: 9 }, (_, i) => X1 + 16 + i * 24)
+      .filter((x) => Math.abs(x - X_CAMPO_IZQ) > 13 && Math.abs(x - X_CAMPO_DER) > 13)
+      .map((x): Elemento => ({ tipo: "texto", en: { x, y }, texto: signo, rol: "trazo", tam: 13, negrita: true }));
+
+  const flechaCampo = (x: number): Elemento[] => [
+    { tipo: "linea", de: { x, y: Y_ABA - 6 }, a: { x, y: Y_ARR + GRUESO + 16 }, rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha({ x, y: Y_ARR + GRUESO + 16 }, 90, 7), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: x - 14, y: CARGA.y }, texto: "E", rol: "dato", color: AMBAR, tam: 12, negrita: true, cursiva: true },
+  ];
+
+  const el: Elemento[] = [
+    placa(Y_ARR), placa(Y_ABA),
+    // los signos de cada placa, como los dibuja el facsímil, salteando las
+    // dos columnas por donde sube una flecha de campo
+    ...signos(Y_ARR + GRUESO + 11, "−"),
+    ...signos(Y_ABA - 11, "+"),
+
+    ...flechaCampo(X_CAMPO_IZQ),
+    ...flechaCampo(X_CAMPO_DER),
+
+    // la carga y las dos fuerzas que se cancelan
+    { tipo: "punto", en: CARGA, r: 4, rol: "incognita", color: VIOLETA },
+    { tipo: "texto", en: { x: CARGA.x - 15, y: CARGA.y }, texto: "+q", rol: "incognita", color: VIOLETA, tam: 12, negrita: true },
+    { tipo: "linea", de: avanzar(CARGA, 90, 7), a: avanzar(CARGA, 90, 42), rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(CARGA, 90, 42), 90, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: CARGA.x + 22, y: CARGA.y - 34 }, texto: "Eq", rol: "resultado", color: ROJO, tam: 12, negrita: true, cursiva: true },
+    { tipo: "linea", de: avanzar(CARGA, -90, 7), a: avanzar(CARGA, -90, 42), rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(CARGA, -90, 42), -90, 8), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: CARGA.x + 24, y: CARGA.y + 34 }, texto: "mg", rol: "resultado", color: ROJO, tam: 12, negrita: true, cursiva: true },
+
+    ...cota({ x: X2 + 26, y: Y_ARR + GRUESO }, { x: X2 + 26, y: Y_ABA }, "2,0 cm", -24),
+  ];
+
+  return { ancho: 420, alto: 220, pasos: 0, elementos: el };
+}
+
+// ── F12 (2-2019 1ra opción) · la semiesfera que gira y la esferita adentro ──
+// Auditoría de las "invisibles": el enunciado decía que θ se mide "respecto del
+// eje vertical", y el facsímil (159_1ra-op-2-2019.pdf, p.2) lo mide **desde la
+// horizontal del borde**. El arco de θ está dibujado entre la línea de puntos
+// del borde y el radio que baja hasta la esferita.
+// La respuesta no cambia (θ no aparece en las opciones), pero la descripción sí
+// importa: un alumno que la dibuje desde el texto se queda con 84° donde el
+// examen marca 6°, y cualquier paso intermedio que escriba en función de θ le
+// sale al revés.
+// Con α medido desde el eje: N cos α = mg y N sen α = mω²(R sen α) ⇒ N = mω²R,
+// así que cos α = g/(ω²R) = 10/(100·1) = 0,1 y
+//   h = R − R cos α = R(1 − 0,1) = 0,9 m  → opción a.
+// El θ del dibujo es el complemento: sen θ = 0,1, θ ≈ 5,74°.
+function f12SemiesferaGiratoria(): Figura {
+  const R = 118;
+  const O: Pt = { x: 208, y: 78 };                  // centro de curvatura, al nivel del borde
+  const OMEGA = 10, R_M = 1.0, g = 10;
+  const cosAlfa = g / (OMEGA * OMEGA * R_M);        // 0,1
+  const alfa = (Math.acos(cosAlfa) * 180) / Math.PI;
+  const theta = 90 - alfa;                          // lo que marca el facsímil
+  const BOLITA = avanzar(O, -theta, R);             // baja hacia la derecha
+  const FONDO: Pt = { x: O.x, y: O.y + R };
+  const BORDE_IZQ: Pt = { x: O.x - R, y: O.y };
+  const BORDE_DER: Pt = { x: O.x + R, y: O.y };
+
+  verificarDistancia("la esferita está sobre la semiesfera", R, distancia(O, BOLITA), 0.01);
+  verificarAngulo("θ se mide desde la horizontal del borde", theta,
+    anguloEn(O, BORDE_DER, BOLITA), 0.01);
+  verificarDistancia("h = 0,9·R medido desde el fondo", 0.9 * R, FONDO.y - BOLITA.y, 0.5);
+  // la cuenta del problema, con números
+  verificarDistancia("h = 0,9 m", 0.9, R_M * (1 - cosAlfa), 1e-9);
+
+  const arcoTheta = arcoAngulo(O, 0, -theta, 74, 92);
+  const X_COTA = BORDE_DER.x + 44;
+
+  const el: Elemento[] = [
+    // el tazón
+    { tipo: "path", d: `M ${BORDE_IZQ.x.toFixed(2)} ${BORDE_IZQ.y.toFixed(2)}` + sigueArco(O, R, 180, 360), rol: "trazo" },
+    // la línea del borde y el eje, de puntos como en el facsímil
+    { tipo: "linea", de: { x: BORDE_IZQ.x - 22, y: O.y }, a: { x: BORDE_DER.x + 22, y: O.y }, rol: "aux", punteada: true },
+    { tipo: "linea", de: { x: O.x, y: O.y - 46 }, a: FONDO, rol: "aux", punteada: true },
+
+    // el radio hasta la esferita, y el ángulo θ pegado a la horizontal
+    { tipo: "linea", de: O, a: BOLITA, rol: "aux", punteada: true },
+    { tipo: "arco", d: arcoTheta.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arcoTheta.etiquetaEn, texto: "θ", rol: "dato", color: AMBAR, tam: 12, negrita: true, cursiva: true },
+
+    // la flecha del giro alrededor del eje
+    { tipo: "arco", d: arcoDe({ x: O.x, y: O.y - 44 }, 30, 10, 170), rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha(avanzar({ x: O.x, y: O.y - 44 }, 170, 30), 260, 8), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: { x: O.x + 44, y: O.y - 56 }, texto: "ω", rol: "dato", color: AMBAR, tam: 14, negrita: true, cursiva: true },
+
+    { tipo: "punto", en: BOLITA, r: 5, rol: "trazo" },
+    { tipo: "punto", en: O, r: 2.2, rol: "aux" },
+
+    // h, del fondo hasta la altura de la esferita
+    { tipo: "linea", de: BOLITA, a: { x: X_COTA + 10, y: BOLITA.y }, rol: "aux", punteada: true },
+    { tipo: "linea", de: FONDO, a: { x: X_COTA + 10, y: FONDO.y }, rol: "aux", punteada: true },
+    ...cota({ x: X_COTA, y: FONDO.y }, { x: X_COTA, y: BOLITA.y }, "h", 16),
+  ];
+
+  return { ancho: 420, alto: Math.round(FONDO.y + 26), pasos: 0, elementos: el };
+}
+
+// ── F10 (2-2019 2da opción) · las dos poleas compuestas que se tocan ──
+// Auditoría de las "invisibles": el enunciado decía que "una correa conecta los
+// radios externos", y el facsímil (160_2da-op-2-2019.pdf, p.2) muestra los dos
+// rodetes externos EN CONTACTO, sin correa.
+// No es un detalle cosmético: con una correa las dos poleas girarían en el
+// MISMO sentido, y en contacto giran al REVÉS una de la otra. El dibujo saca la
+// cuerda de A por la izquierda de su polea y la de B por la derecha de la suya
+// justo por eso: girando opuesto, las dos suben. Con la correa del texto, ese
+// mismo dibujo tendría a un bloque subiendo y al otro bajando.
+// El número no cambia, porque la condición de rodadura sin resbalar es la misma
+// que la de la correa: ω₁·20 = ω₂·10.
+//   ω₁ = 10/0,05 = 200 rad/s → ω₂ = 400 rad/s → v_B = 400·0,05 = 20 m/s (d).
+function f10DosPoleasCompuestas(): Figura {
+  const R1 = 78, R2 = 46;              // los externos, 20 y 10 (a escala del dibujo)
+  const r1 = 24, r2 = 20;              // los internos, 5 y 5
+  const O1: Pt = { x: 128, y: 96 };
+  const O2: Pt = { x: O1.x + R1 + R2, y: O1.y };   // se tocan: la distancia es R1+R2
+  const Y_BLOQUE = 246;
+  const CUERDA_A = O1.x - r1;          // sale por la IZQUIERDA de la polea chica
+  const CUERDA_B = O2.x + r2;          // sale por la DERECHA de la otra
+
+  verificarDistancia("los dos rodetes externos se tocan", R1 + R2, distancia(O1, O2), 0.01);
+  verificarDistancia("el punto de contacto está sobre la línea de centros", 0,
+    Math.abs(avanzar(O1, 0, R1).x - avanzar(O2, 180, R2).x), 0.01);
+  verificarDistancia("A cuelga por la izquierda y B por la derecha", 0,
+    Math.max(0, CUERDA_A - O1.x) + Math.max(0, O2.x - CUERDA_B), 0.01);
+  // la cuenta: rodadura sin resbalar en el contacto, y cada bloque en su radio interno
+  const w1 = 10 / 0.05, w2 = (w1 * 0.20) / 0.10;
+  verificarDistancia("v_B = 20 m/s", 20, w2 * 0.05, 1e-9);
+
+  const bloque = (x: number, etiqueta: string, ladoTexto: number): Elemento[] => [
+    { tipo: "linea", de: { x, y: O1.y }, a: { x, y: Y_BLOQUE }, rol: "trazo" },
+    { tipo: "poligono", puntos: [
+      { x: x - 17, y: Y_BLOQUE }, { x: x + 17, y: Y_BLOQUE },
+      { x: x + 17, y: Y_BLOQUE + 24 }, { x: x - 17, y: Y_BLOQUE + 24 },
+    ], rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: x + 32 * ladoTexto, y: Y_BLOQUE + 12 }, texto: etiqueta, rol: "dato", color: AMBAR, tam: 13, negrita: true },
+  ];
+
+  const radioRotulado = (O: Pt, r: number, ang: number, etiqueta: string): Elemento[] => [
+    { tipo: "linea", de: O, a: avanzar(O, ang, r), rol: "dato", color: AMBAR },
+    { tipo: "path", d: cabezaFlecha(avanzar(O, ang, r), ang, 6), rol: "dato", color: AMBAR, relleno: true },
+    { tipo: "texto", en: avanzar(O, ang, r + 14), texto: etiqueta, rol: "dato", color: AMBAR, tam: 11.5, negrita: true },
+  ];
+
+  const el: Elemento[] = [
+    // los cuatro rodetes
+    { tipo: "path", d: circuloPath(O1, R1), rol: "trazo" },
+    { tipo: "path", d: circuloPath(O1, r1), rol: "trazo" },
+    { tipo: "path", d: circuloPath(O2, R2), rol: "trazo" },
+    { tipo: "path", d: circuloPath(O2, r2), rol: "trazo" },
+    // la línea de centros, que pasa por el contacto
+    { tipo: "linea", de: O1, a: O2, rol: "aux", punteada: true },
+    { tipo: "punto", en: O1, r: 2.6, rol: "trazo" },
+    { tipo: "punto", en: O2, r: 2.6, rol: "trazo" },
+    { tipo: "punto", en: avanzar(O1, 0, R1), r: 3, rol: "resultado", color: ROJO },
+
+    ...radioRotulado(O1, R1, 52, "20"),
+    ...radioRotulado(O1, r1, 128, "5"),
+    ...radioRotulado(O2, R2, 52, "10"),
+    ...radioRotulado(O2, r2, 128, "5"),
+
+    ...bloque(CUERDA_A, "A", -1),
+    ...bloque(CUERDA_B, "B", 1),
+
+    { tipo: "texto", en: { x: avanzar(O1, 0, R1).x, y: O1.y + R1 + 22 }, texto: "se tocan sin resbalar", rol: "resultado", color: ROJO, tam: 10.5, negrita: true },
+  ];
+
+  return { ancho: 420, alto: Y_BLOQUE + 46, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -4943,6 +5227,17 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f19-eje-vertical-resorte": f19ejeVerticalResorte,
   "f20-tazon-dos-masas": f20tazonDosMasas,
   "f20-cinco-amperimetros": f20cincoAmperimetros,
+  // Auditoria de las "invisibles": las que en septiembre dejaron de nombrar la
+  // figura y nadie comparo contra el facsimil. Estas tres estaban BIEN de
+  // fondo, pero el enunciado habia quedado arrancando con una coma suelta.
+  // El par de 2013 comparte dibujo porque el dibujo no lleva numeros.
+  "f-bloques-apilados-polea-mesa": fBloquesApiladosPolea,
+  "f18-placas-particula-estacionaria": f18PlacasParticula,
+  // Y estas dos salieron con la DESCRIPCION mal, aunque la respuesta estaba
+  // bien: el angulo medido desde el eje en lugar de la horizontal, y una
+  // correa donde el facsimil tiene los dos rodetes en contacto.
+  "f12-semiesfera-giratoria": f12SemiesferaGiratoria,
+  "f10-dos-poleas-compuestas": f10DosPoleasCompuestas,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
