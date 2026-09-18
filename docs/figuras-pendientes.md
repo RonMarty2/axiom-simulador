@@ -148,7 +148,10 @@ viejos como "prometía una figura". La lista de abajo es la de 72 del 16-sep;
 regenerarla con el script da 88. **Conviene regenerarla antes de seguir**, y no
 confiar en la tabla.
 
-**Van 50 auditadas de 88, con 14 problemas, y ninguna tenía la respuesta mal.**
+**TERMINADA: las 88 auditadas, 15 problemas, y NINGUNA tenía la respuesta mal.**
+
+Se verificó con el script que las 88 de la lista están auditadas y que ninguna
+auditada quedó fuera de ella: `faltan 0`, `sobran 0`.
 
 > **Cuidado con el conteo** (se corrigió el 18-sep): las **2 respuestas
 > equivocadas** que aparecen en la tabla de abajo —`2016-1op-1` P7 y
@@ -455,7 +458,50 @@ necesitaban además que el texto dijera lo que el dibujo mostraba:
   (θ, d) tiene que cumplir tan θ = 16/(d+9), y de las cuatro solo
   (53°7', 3 m) lo cumple. Está bien planteada.
 
-### La única que el facsímil NO resuelve
+### El resultado de la auditoría, completo
+
+**Las 88 respuestas están bien.** Se verificaron rehaciendo la cuenta, no
+comparando el número marcado. Los 15 problemas encontrados son **todos de
+texto**, y se reparten así:
+
+| modo | qué pasó | cuántos |
+|---|---|---|
+| **2 · el enunciado quedó roto** | arrancaba con una coma suelta | 3 |
+| **3 · la descripción no es la figura** | dice algo que el facsímil contradice, u omite el dato que hace que haya solución | 3 |
+| **4 · le sacaron la figura y no pusieron nada** | la gramática queda perfecta y la pregunta, irresoluble | 9 |
+
+**El modo 1 (respuesta equivocada) no apareció ni una vez en las 88.** Las dos
+respuestas mal que se conocían (`2016-1op-1` P7 y `2016-3op-1` P6) vienen de un
+muestreo anterior y no forman parte de esta lista.
+
+Lo que eso significa, dicho sin vueltas: **quien transcribió el banco resolvió
+bien.** Tenía la figura delante y la usó. Lo que se rompió después fue la
+traducción de esa figura a palabras, y lo rompieron pasadas automáticas.
+
+**Se dibujaron 10 figuras** en la auditoría, tres de ellas compartidas por dos
+preguntas cada una (el par de bloques apilados de 2013, el rombo de 2015 que una
+pregunta usa para el área y otra para el perímetro, y el tazón que el
+`2015-1op-2` P12 reusa del final 2-2014). En los tres casos se compararon las
+imágenes de los facsímiles antes de compartir el id.
+
+### Las dos que hay que mirar si alguna vez se duda del método
+
+- **`2015-1op-2` P8** preguntaba *"la distancia AB es igual a"* **sin que A ni B
+  aparecieran en el texto**. Solo existían en el dibujo. Es el peor caso del
+  modo 4 y el argumento más simple de por qué había que hacer esto.
+- **`2025-final-1` P8** es el único donde el dato faltante **cambiaba la
+  respuesta**: sin saber que el globo está entre A y B, la lectura natural da
+  64,6 km, que no está entre las opciones y llevaría a marcar "Ninguno".
+
+### Y la que parecía rota y no lo estaba
+
+El **`2024-parcial2-2` P10** (el topógrafo) parecía indeterminado porque falta la
+altura de la bandera. Se resuelve **probando las opciones**: el par (θ, d) tiene
+que cumplir tan θ = 16/(d+9) y solo una de las cuatro lo cumple. La regla que
+deja: **antes de declarar que una pregunta no se puede resolver, probar si las
+opciones la cierran.**
+
+## La única que el facsímil NO resuelve
 
 **`2010-parcial1-2-2010` P7** sigue pendiente y no por falta de PDF. Está
 marcada **E, "provisorio"**, con el archivo admitiendo que *"depende de una

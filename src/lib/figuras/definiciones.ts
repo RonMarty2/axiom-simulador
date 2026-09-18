@@ -5322,6 +5322,71 @@ function g7DosCirculosEnCuadrado(): Figura {
   return { ancho: 420, alto: Math.round(Y0 * 2 + LADO * ESC), pasos: 0, elementos: el };
 }
 
+// ── G5 (2-2018 1ra opción) · el mismo dibujo, pidiendo el perímetro del △CDE ──
+// Es LA MISMA figura que la del `2018-1op-2` P5 (se compararon las dos imágenes
+// del facsímil antes de darlo por hecho): mismos puntos, mismas posiciones. Lo
+// que cambia es qué segmentos están acotados y qué triángulo se pide.
+//   allá: AB = 13, AF = 12, CD = 60, DE = 52 → perímetro del △ABC = 42
+//   acá:  AB = 13, AC = 15, DF = 48, DE = 52 → perímetro del △CDE = 168
+// Por eso no se comparte el constructor: el dibujo es el mismo pero los rótulos
+// son otros, y una figura que muestre cotas que el enunciado no da enseña mal.
+// Y arrastra el mismo hueco: el paréntesis no decía que **A, C y D están
+// alineados**, sin lo cual no hay forma de llegar a DC.
+//   △ABC ∼ △DEC con razón AB/DE = 13/52 = 1/4 ⇒ DC = 4·AC = 60
+//   DF ⊥ CE ⇒ FE = √(52²−48²) = 20 y FC = √(60²−48²) = 36, así que CE = 56
+//   perímetro = 60 + 52 + 56 = 168 (opción D)
+function g5PerimetroCdeColineal(): Figura {
+  const ESC = 5.15;
+  const X0 = 26, Y0 = 92;
+  const P = (x: number, y: number): Pt => ({ x: X0 + x * ESC, y: Y0 - y * ESC });
+
+  const B = P(0, 0);
+  const A = P(5, 12);
+  const C = P(14, 0);
+  const F = P(50, 0);          // acá el pie de la perpendicular es el de D
+  const E = P(70, 0);
+  const D = P(50, -48);
+
+  verificarDistancia("AB = 13", 13 * ESC, distancia(A, B), 0.01);
+  verificarDistancia("AC = 15", 15 * ESC, distancia(A, C), 0.01);
+  verificarDistancia("DF = 48", 48 * ESC, distancia(D, F), 0.01);
+  verificarDistancia("DE = 52", 52 * ESC, distancia(D, E), 0.01);
+  verificarAngulo("DF ⊥ CE", 90, anguloEn(F, D, E), 0.01);
+  verificarAngulo("AB ∥ DE", 0, desvioParalelas(A, B, D, E), 0.01);
+  verificarAngulo("A, C y D están alineados", 0, desvioParalelas(A, C, C, D), 0.01);
+  verificarDistancia("DC = 60", 60 * ESC, distancia(D, C), 0.01);
+  verificarDistancia("CE = 56", 56 * ESC, distancia(C, E), 0.01);
+  verificarDistancia("perímetro del △CDE = 168",
+    168 * ESC, distancia(C, D) + distancia(D, E) + distancia(E, C), 0.01);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: avanzar(B, 180, 16), a: avanzar(E, 0, 16), rol: "trazo" },
+    // el triángulo que se pide, resaltado
+    { tipo: "linea", de: C, a: D, rol: "resalte" },
+    { tipo: "linea", de: D, a: E, rol: "resalte" },
+    { tipo: "linea", de: E, a: C, rol: "resalte" },
+    { tipo: "linea", de: A, a: B, rol: "trazo" },
+    { tipo: "linea", de: A, a: D, rol: "trazo" },
+    { tipo: "linea", de: D, a: E, rol: "trazo" },
+    { tipo: "linea", de: D, a: F, rol: "trazo" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(F, anguloHacia(F, D), anguloHacia(F, E), 9), rol: "trazo" },
+
+    { tipo: "texto", en: avanzar({ x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 }, 160, 15), texto: "13", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 }, 20, 15), texto: "15", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (D.x + F.x) / 2, y: (D.y + F.y) / 2 }, 180, 15), texto: "48", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar({ x: (D.x + E.x) / 2, y: (D.y + E.y) / 2 }, anguloHacia(D, E) - 90, 16), texto: "52", rol: "dato", color: AMBAR, tam: 12, negrita: true },
+
+    rotulo(avanzar(A, 90, 14), "A"),
+    rotulo(avanzar(B, 200, 14), "B"),
+    rotulo(avanzar(C, 70, 15), "C"),
+    rotulo(avanzar(F, 60, 15), "F"),
+    rotulo(avanzar(E, 20, 15), "E"),
+    rotulo(avanzar(D, -80, 15), "D"),
+  ];
+
+  return { ancho: 420, alto: Math.round(D.y + 32), pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -5448,6 +5513,7 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f12-semiesfera-giratoria": f12SemiesferaGiratoria,
   "f10-dos-poleas-compuestas": f10DosPoleasCompuestas,
   "g5-perimetro-abc-colineal": g5PerimetroAbcColineal,
+  "g5-perimetro-cde-colineal": g5PerimetroCdeColineal,
   // Lote 2015. El rombo lo comparten dos preguntas (una pide el area y la otra
   // el perimetro) porque el dibujo no lleva el resultado.
   "g5-rombo-en-triangulo-3-4": g5RomboEnTriangulo34,
