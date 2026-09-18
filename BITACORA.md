@@ -401,7 +401,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] **1 enunciado nombra una figura que no existe, y es el único que el facsímil NO resuelve.** La `2010-parcial1-2` P7 tiene la figura en el PDF, pero la marca del ángulo 3 está suelta, sin apoyarse en ninguna intersección, ni a 800 dpi (queda como E; ver `docs/figuras-pendientes.md`). **Ese 1 ya no baja leyendo PDF**: bajarlo es decidir qué hacer con una pregunta que el examen original dejó ambigua. Arrancó en 130 el 14-sep: 106 se resolvieron sin abrir un PDF (98 reescribiendo el enunciado, que ya traía la configuración, y 14 dibujando la figura cuando los datos la determinaban), el 16-sep se dibujaron 12 más leyendo los facsímiles en local (los cinco PDF de la gestión 1-2016, que quedó terminada) y el 17-sep otras 29 (los cinco de 2017, las ocho del prefacultativo 2024, seis de 2018/2019/2023, cuatro sueltas de geometría de 2008 a 2015 y las cuatro de física, que dejaron **dos respuestas corregidas**). Qué hace falta para cada una, y las tres formas de desbloquearlo, están en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). El test `ningún enunciado nuevo promete una figura que no está` tiene el tope en 1 y solo puede bajar.
 - [x] ~~**88 preguntas que el trinquete no ve, y hay que contrastar contra su facsímil.**~~ **TERMINADO el 18-sep: las 88 auditadas, las 88 con la respuesta bien.** Los 15 problemas encontrados eran todos de texto (3 enunciados rotos, 3 descripciones que no eran la figura, 9 a las que les sacaron la figura y no pusieron nada). Se dibujaron 10 figuras. Detalle en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md). Filtro barato para lo que queda: las que **no tienen paréntesis descriptivo** son las sospechosas de modo 4 (le sacaron la figura y no pusieron nada). Son las que la pasada del 14-sep sacó de la cuenta reescribiendo el enunciado, y que hoy no declaran `figura:`. Son 88 y no 72 porque el 17-sep `PIDE_FIGURA` se hizo más ancho: **regenerar la lista con el script antes de seguir**. Van 20 auditadas con 7 problemas, en tres modos de falla distintos (la respuesta mal: 2; el enunciado roto por la propia pasada: 3; la descripción que no es la figura aunque la respuesta esté bien: 2). El modo del enunciado roto se encuentra **sin abrir un PDF**, buscando enunciados que arranquen con coma o minúscula, y debería ser lo primero. Lista completa y definición exacta del filtro en [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md), sección "El 1 es un piso, no un techo".
 - [ ] **Y una tercera categoría, que ningún chequeo automático puede encontrar: las que NI SIQUIERA prometen una figura.** El primer caso es `2017-3op-1` P5, que habla de un cuadrado con arcos sin nombrar ninguna figura y cuyo sombreado el texto no determina (está marcada E). El trinquete solo ve las que prometen un dibujo; estas aparecen únicamente abriendo el PDF. Se anotan en la sección homónima de [`docs/figuras-pendientes.md`](../docs/figuras-pendientes.md) a medida que se encuentran.
-- [ ] **Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.** `verificarAngulo`/`verificarDistancia` explotan al CONSTRUIR la figura, y nada la construye en los tests: `banco.test.ts` lee el registro de `definiciones.ts` como texto, porque ese módulo importa `./motor` sin extensión y `node --test` corre ESM, donde la extensión es obligatoria. La sesión del 13-sep ya lo había topado y decidió no torcer los imports de la app para acomodar un test. Consecuencia: una figura con la verificación rota se commitea sin que nada avise y explota recién en el navegador, en esa sola pregunta. Salida sin tocar los imports: un paso aparte en CI que las construya con `tsx`, o copiar el módulo a un temp con la extensión puesta e importarlo — es lo que hicieron a mano los harness del 16 y 17-sep para los 19 dibujos de esas dos sesiones.
+- [x] ~~**Ningún test construye las figuras, así que sus verificaciones geométricas no corren en CI.**~~ **Resuelto el 18-sep**: `src/lib/figuras/figuras.test.ts` construye las 104 y además chequea que toda figura que el banco declara se pueda dibujar. Se destrabó poniendo la extensión en el import de `motor` (`allowImportingTsExtensions` ya estaba activo), y se verificó que el test puede fallar rompiendo una figura a propósito.
 - [x] ~~Guiones largos en el banco.~~ Resuelto el 16-sep: 244 reemplazos en 67 archivos, con el trinquete `el banco no usa guion largo en el texto del alumno` en 0 (ver §11).
 - [ ] Las respuestas del ácido fosfórico (`2010-2op-1 P16`, `1-2015 P16`, `2-2015 P16`) quedaron como estaban porque tres gestiones distintas ofrecen el mismo par y lo dan por bueno, pero **no se pudo contrastar contra el facsímil**: los PDF no están en el repo. Anotado en los tres archivos por si aparecen.
 - [ ] ~~Stripe~~: descartado para Bolivia. El modelo es pago manual (Tigo Money / QR / transferencia) con aprobación del admin; lo que falta está en §8 Crítico.
@@ -466,6 +466,38 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-18 (sexies) (las verificaciones de las figuras ya corren en CI: 104 redes enchufadas)
+
+Cada figura lleva sus propias verificaciones adentro (`verificarAngulo`, `verificarDistancia`): si el dibujo no cumple lo que sus etiquetas dicen, la construcción TIRA en vez de mostrar algo que enseñe mal. Eso ya estaba. **Lo que faltaba era que alguien las construyera.**
+
+## El agujero, medido
+
+Las verificaciones solo corren al construir la figura, y **nada la construía fuera de la app**. El único que las disparaba era el alumno al abrir la pregunta. Y `FiguraExamen` llama a `construirFigura` **sin try/catch**, así que una figura rota no se veía fea: le rompía la pantalla.
+
+O sea: **104 redes de seguridad instaladas y ninguna enchufada.** Los 67 tests pasaban en verde, el build pasaba, se subía a `main`, y el error aparecía recién del lado del alumno.
+
+Es el mismo agujero que el de los 14 enunciados vacíos: el chequeo existía, nadie lo corría, y lo encontró alguien de casualidad.
+
+## Lo que se hizo
+
+`src/lib/figuras/figuras.test.ts`, con tres tests:
+
+1. **hay figuras que revisar** — cordura, avisa si el registro queda vacío en vez de dar por buenas cero figuras.
+2. **todas se construyen sin romper sus propias verificaciones** — construye las 104 y reporta las que tiran, con el mensaje exacto de la verificación que falló.
+3. **toda figura que el banco declara se puede construir** — el trinquete viejo (`el banco no pide figuras nuevas sin dibujar`) mira si el id está ESCRITO en el registro; este mira si además se puede DIBUJAR, que no es lo mismo.
+
+## El obstáculo que lo tenía frenado, y cómo se destrabó
+
+Esto no se había hecho antes por una razón concreta y anotada: `definiciones.ts` importaba `./motor` **sin extensión**, y `node --test` corre ESM, donde la extensión es obligatoria. Por eso el trinquete viejo lee los ids del archivo con un regex en vez de importarlo.
+
+La salida fue mirar el `tsconfig.json`: **`allowImportingTsExtensions` ya estaba en `true`** (es seguro porque `noEmit` también lo está, quien compila es Next). Así que alcanzó con poner `from "./motor.ts"`, y se verificó que `tsc` y el build de Next lo aceptan. La cola no movió al perro: el import quedó correcto para las dos herramientas.
+
+## Y se probó que el test PUEDE fallar
+
+Dos veces hoy aparecieron chequeos que no podían fallar, así que este se rompió a propósito antes de darlo por bueno: se cambió `lado = 20/9` por `20/9.5` en el rombo y el test se puso rojo nombrando la figura, la verificación y el desvío exacto (*"el lado R1R2 mide 20/9: debería medir 181.1 pero mide 191.1"*). Después se revirtió. **Un test nuevo no cuenta como red hasta que se lo vio atrapar algo.**
+
+70 tests, 70 pasan.
 
 ### 2026-09-18 (quinquies) (TERMINA la auditoría de las 88: cero respuestas mal)
 

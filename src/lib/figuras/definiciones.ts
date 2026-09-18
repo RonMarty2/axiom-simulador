@@ -21,7 +21,7 @@ import {
   resistorZigzag,
   verificarAngulo,
   verificarDistancia,
-} from "./motor";
+} from "./motor.ts";
 
 const ROJO = "#dc2626";
 const AMBAR = "#d97706";
@@ -5523,6 +5523,13 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
 const cache = new Map<string, Figura>();
+
+// Los ids registrados, para que un test pueda construirlas TODAS. Sin esto,
+// las verificaciones que cada figura lleva adentro solo se disparaban cuando el
+// alumno abría la pregunta.
+export function idsDeFiguras(): string[] {
+  return Object.keys(CONSTRUCTORES);
+}
 
 export function construirFigura(id: string): Figura | null {
   const ctor = CONSTRUCTORES[id];
