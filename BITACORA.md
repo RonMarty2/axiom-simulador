@@ -411,7 +411,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~Los modos Premium bloqueados no hacen nada al tocarlos en `/practicar`.~~ Resuelto el 16-sep: llevan a `/precios` con el motivo de lo que el alumno quiso hacer (ver §11).
 - [ ] Borrar (o rescatar) los 8 componentes muertos de la landing anterior: `Header.tsx`, `CTANew`, `HeroSectionNew`, `StatsNew`, `RankingSectionNew`, `RankingCardNew`, `QuickActionsNew`, `PricingSectionAxiom`. Cero imports. Ahí vive casi todo el violeta que queda.
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
-- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **35 preguntas de Lenguaje a 9 de los 10** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página y comparando la línea de carreras o programas y la fecha. De paso se corrigió una fecha (`2012-1op-1`, 26 → 28 de enero) y se completó otra que estaba vacía (`2012-2op-1`, 8 de febrero). Falta: **(a)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015) y necesita otra fuente; **(b)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (tres verificaciones independientes y las tres fallan, incluyendo preguntas con DOS marcas distintas); **(c)** abrir el PDF de Historia General, 84 páginas que todavía no se revisaron y que son el tercio que falta de cada examen.
+- [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **35 preguntas de Lenguaje a 9 de los 10** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página y comparando la línea de carreras o programas y la fecha. De paso se corrigió una fecha (`2012-1op-1`, 26 → 28 de enero) y se completó otra que estaba vacía (`2012-2op-1`, 8 de febrero). Falta: **(a)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015) y necesita otra fuente; **(b)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (tres verificaciones independientes y las tres fallan, incluyendo preguntas con DOS marcas distintas); **(c)** seguir con Historia: el PDF `FCE_Guia_HistoriaGeneral.pdf` tiene **dos partes**, una guía de práctica (páginas 1 a ~68) y **los exámenes reales en las páginas 69 a 84**. Ya se transcribió la del `2013-2op-2` (8 de 10 preguntas), que es el primer examen de Económicas con las tres áreas. Las del `2013-1op-2` están en la página 74 y hay al menos ocho más identificadas por encabezado; **(d)** la guía de práctica en sí, que son cientos de preguntas de Historia General numeradas en secuencia y podría ser un banco de práctica aparte, no atado a un examen.
 
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
@@ -504,6 +504,34 @@ Estas dos valen la pena porque muestran dónde está el límite:
 Hay **dos exámenes distintos rotulados "1/2014 (PRIMERA OPCIÓN)"**: el de las **Carreras** (Economía, Contaduría Pública y Administración de Empresas), del 1 de febrero, y el de los **Programas** (Ing. Financiera e Ing. Comercial), del 8 de febrero. El título no alcanza para distinguirlos: hay que leer la línea de carreras/programas **y** la fecha del sello.
 
 Es la misma clase de trampa que la del nombre de archivo mentiroso en FCYT, y el archivo `2013-1op-2` ya traía anotada una versión de esto (el OCR confunde `I-2013` con `1/2013`). Ese descarte estaba bien hecho y se mantuvo; lo que falló no fue el criterio sino el inventario, que no llegó a mostrar las páginas donde sí estaban.
+
+## Adenda 3: el PDF de Historia tiene DOS partes, y casi me lo pierdo
+
+Al abrir `FCE_Guia_HistoriaGeneral.pdf` las primeras páginas dicen "GUÍA PARA EL EXAMEN DE INGRESO · PRIMERA PARTE · HISTORIA GENERAL" y traen cientos de preguntas de práctica numeradas en secuencia (13, 25, 37, 49...), doce por página. Con eso se concluyó que **no eran exámenes** y que el `historia: no-encontrado-en-los-pdf` de los diez archivos estaba bien puesto.
+
+**Estaba mal.** Las últimas páginas, de la **69 a la 84**, son exámenes de admisión reales con `ÁREA: HISTORIA`, 15 minutos y 10 preguntas, con sus sellos y sus fechas. Son al menos diez. La conclusión se había sacado mirando el principio de un archivo de 84 páginas.
+
+Es la tercera vez en el día que aparece el mismo error, y ahora en primera persona: **una conclusión sobre lo que un archivo NO contiene exige recorrerlo entero.** Las dos anteriores fueron el `no-encontrado-en-los-pdf` de Lenguaje (que sí estaba) y el inventario incompleto que lo había originado.
+
+## Y confirma la estructura del examen de la FCE
+
+La sección de Historia **arranca en la pregunta 21** y llega a la 30. Con Lenguaje numerado del 1 al 20, eso da un examen de 30 preguntas en tres áreas, que es exactamente lo que dicen las ponderaciones de 0,34 / 0,33 / 0,33 que los archivos ya declaraban. La estructura quedó confirmada por el propio facsímil y no por deducción.
+
+## Primera sección de Historia transcrita
+
+El `2013-2op-2-2013` (página 73, sello del 27 JUL 2013, misma línea de carreras que el facsímil de Matemáticas) pasó de 14 a **22 preguntas**, y es el primer examen de Económicas con **las tres áreas** representadas.
+
+Se transcribieron **8 de las 10**. La Historia es distinta de la comprensión lectora: son hechos verificables contra el registro histórico, no interpretaciones, así que se pueden resolver con la misma exigencia que una cuenta. Waterloo fue en 1815 y Luis XIV murió en 1715; eso no es opinión.
+
+Las dos que quedaron afuera:
+
+- **La 25 está mal redactada**: habla de "los temores de una guerra civil" en 1990 tras la caída de los regímenes socialistas de Europa Oriental, y no dice de qué país. Sin eso no se puede saber si esperaba "Todas las anteriores" o algo puntual.
+- **La 26** pide durante qué gobierno se acuñó la moneda feble bajando su ley de once a ocho dineros. Las devaluaciones bolivianas del siglo XIX se reparten entre varios gobiernos según la fuente y el que suele señalarse no está entre las cuatro opciones. No se marca sin tener la atribución firme.
+
+## Las marcas a mano fallan por cuarta vez
+
+En esta página hay una marca en la b) **Luis XIV** de la pregunta 22 (murió cien años antes de Waterloo) y otra en la e) de la 24, cuya respuesta es Guerra Fría sin discusión posible. Van cuatro exámenes distintos con marcas equivocadas. Queda cerrado: **son la respuesta de alguien, no una clave.**
+
 
 ## Adenda 2: 9 de los 10 exámenes cerrados, 35 preguntas, y dos fechas arregladas
 
