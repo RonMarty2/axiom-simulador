@@ -324,12 +324,21 @@ describe("banco de exámenes", () => {
       "giu",
     );
 
+    // Tercera colision, ahora con un NOMBRE PROPIO: el voseo de "tomar" es
+    // "tomas/tomas", identico al nombre del inventor Tomas Alva Edison, que
+    // aparece en una pregunta de historia de Economicas. Se distinguen por la
+    // mayuscula: un verbo conjugado en medio de una frase no la lleva. Por eso
+    // el chequeo de esta lista es SENSIBLE A MAYUSCULAS, a diferencia del
+    // regex, que es case-insensitive a proposito.
+    const NOMBRES_PROPIOS = new Set(["Tomás"]);
+
     const fallos: string[] = [];
     for (const e of TODOS) {
       // Las notas del curador (<!-- -->) van en rioplatense a propósito.
       const visible = e.contenido.replace(/<!--[\s\S]*?-->/g, "");
       const vistas = new Map<string, number>();
       for (const m of visible.matchAll(VOSEO)) {
+        if (NOMBRES_PROPIOS.has(m[0])) continue;
         const w = m[0].toLowerCase();
         vistas.set(w, (vistas.get(w) ?? 0) + 1);
       }
