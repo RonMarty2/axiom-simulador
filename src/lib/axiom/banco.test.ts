@@ -77,6 +77,22 @@ describe("banco de exámenes", () => {
     assert.deepEqual(repetidos, [], `ids de examen repetidos:\n${repetidos.join("\n")}`);
   });
 
+  test("ninguna pregunta se queda sin enunciado", () => {
+    // El agujero que aparecio el 17-sep: a 14 preguntas les faltaba la linea
+    // en blanco entre el encabezado y el enunciado, asi que el parser se
+    // comia el texto y el alumno veia las opciones SIN PREGUNTA. Ningun test
+    // lo veia, porque las opciones y la respuesta estaban perfectas.
+    const fallos: string[] = [];
+    for (const e of TODOS) {
+      let examen;
+      try { examen = parseExamenMD(e.contenido); } catch { continue; }
+      for (const p of examen.preguntas) {
+        if (p.enunciado.trim().length === 0) fallos.push(`${e.nombre} · P${p.numero}`);
+      }
+    }
+    assert.deepEqual(fallos, [], `preguntas sin enunciado:\n${fallos.join("\n")}`);
+  });
+
   test("ninguna pregunta se queda sin opciones", () => {
     const fallos: string[] = [];
     for (const e of TODOS) {

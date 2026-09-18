@@ -258,6 +258,29 @@ falló.
 | `2025-3op-1-2025` | 5 | Bloque de 10 kg se libera desde punto A. Pista sin fricción excepto entre B y C (longitud 6 m).… |
 | `2025-parcial2-1-2025` | 18 | , una partícula cargada permanece estacionaria entre las dos placas cargadas horizontales. La se… |
 
+### El modo 2 destapó algo peor: 14 preguntas sin enunciado
+
+Buscar enunciados con la gramática rota costaba un regex y no requería abrir
+ningún PDF. Además de los tres que arrancaban con coma, apareció esto: **14
+preguntas tenían el enunciado COMPLETAMENTE VACÍO.** El alumno veía las cinco
+opciones y ninguna pregunta.
+
+**Las rompieron los tres commits del 16-sep que declararon las figuras**
+(`e7cf339` 6, `11f525f` 5, `477db86` 3): el script insertó `figura: <id>` en
+lugar de la línea en blanco que separa el encabezado del enunciado, y el parser
+descartaba en silencio la primera línea que no fuera `clave: valor`. O sea que
+**el trabajo hecho para que el alumno viera el dibujo es el que le borró la
+pregunta**, y estuvo así un día.
+
+Quedó arreglado en tres capas: las 14 recuperadas (los enunciados estaban
+intactos, solo invisibles), el parser endurecido para que corte el encabezado en
+la primera línea que no sea `clave: valor`, y un test nuevo de una línea,
+`ninguna pregunta se queda sin enunciado`, que lo habría cazado el mismo 16-sep.
+
+La lección para esta auditoría: **verificar re-parseando, no con grep.** Un grep
+habría dicho que la línea `figura:` estaba perfecta, y habría tenido razón; lo
+que estaba mal era la línea que se pisó.
+
 ### Lo que dio la auditoría, lote por lote
 
 **Los tres enunciados rotos (modo 2).** Los tres estaban **bien de fondo**: se

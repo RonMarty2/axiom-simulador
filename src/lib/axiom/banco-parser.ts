@@ -289,11 +289,17 @@ function parsePreguntaBloque(bloqueOriginal: string): PreguntaCruda {
   const numero = parseInt(headerMatch[1], 10);
   i++;
 
-  // Metadata: area, tema, dificultad (key: value lines hasta linea en blanco)
+  // Metadata: area, tema, dificultad (key: value hasta linea en blanco).
+  // El bloque tambien corta en la primera linea que NO sea `clave: valor`.
+  // Sin ese segundo corte, un archivo al que le falta la linea en blanco entre
+  // el encabezado y el enunciado pierde el enunciado ENTERO en silencio: la
+  // linea no matchea, se descarta, y el alumno ve las opciones sin pregunta.
+  // Paso en 14 preguntas y ningun test lo veia (bitacora, 17-sep).
   const meta: Record<string, string> = {};
   while (i < lineas.length && lineas[i].trim() !== "") {
     const m = lineas[i].match(/^([\w_]+):\s*(.+)$/);
-    if (m) meta[m[1]] = m[2].trim();
+    if (!m) break;
+    meta[m[1]] = m[2].trim();
     i++;
   }
   while (i < lineas.length && lineas[i].trim() === "") i++;

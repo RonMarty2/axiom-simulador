@@ -314,6 +314,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-17 | **14 preguntas tenían el enunciado vacío**: el alumno veía las cinco opciones sin ninguna pregunta arriba. Las rompieron los tres commits del 16-sep que DECLARARON las figuras, insertando `figura:` en lugar de la línea en blanco que separa el encabezado del enunciado | Un barrido de gramática sobre todo el banco, sin abrir ningún PDF | Un script que inserta una línea en un formato estructurado se verifica **re-parseando**, no con un grep. El grep habría confirmado que la línea `figura:` estaba bien puesta, y habría tenido razón: lo que estaba mal era la línea que se pisó. Había test para las opciones, para la respuesta y para el LaTeX; el campo más importante era el único sin medir. Ahora el parser corta el encabezado en la primera línea que no es `clave: valor`, y hay un test de una línea que lo habría cazado el mismo día |
 | 2026-09-17 | Tres enunciados quedaron arrancando con una coma suelta desde el 14-sep (*", dos masas están sobre una mesa…"*), porque la pasada que les sacó la mención a la figura no revisó cómo quedaba la frase | Buscar enunciados que empiecen con coma o minúscula | Una reescritura masiva necesita un chequeo masivo. El costo de encontrarlos era CERO (un regex sobre el primer carácter) y estuvieron tres días a la vista del alumno. Cuando se toca un campo en 98 archivos, hay que dejar corriendo la verificación de que el campo sigue bien formado |
 | 2026-09-17 | Dos respuestas de física salieron mal de "probar combinaciones hasta que una dé un número de la lista": el circuito del 2009 (10 Ω en vez de 3 Ω) y el del 2025 (marcado E en vez de 20 Ω) | Abrir el facsímil | Probar variantes y quedarse con la que calza **no es resolver el problema, es adivinar con más pasos**. En el del 2025 el archivo hasta anotaba que el resultado "se mantuvo robusto al probar variantes razonables": las cuatro variantes probadas compartían el supuesto equivocado, así que la robustez no medía nada. Cuando el enunciado nombra una figura que no está, la respuesta honesta es E con una nota, no la opción que cierre |
 | 2026-09-17 | Se buscó la geometría en la página 2 porque en los otros exámenes del prefacultativo estaba ahí, y en el de 2010 la página 2 es Física | Leer el título de cada página antes de recortar | El orden de las secciones cambia de año en año en esta colección. Una estructura que se cumple en tres archivos no es una regla: cuesta menos recortar la banda de títulos de las cinco páginas y mirarlas juntas que leer la página equivocada |
@@ -464,6 +465,51 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-17 (septies) (14 preguntas sin enunciado, y las rompió el arreglo de las figuras)
+
+El barrido del "modo 2" (buscar enunciados con la gramática rota, sin abrir un solo PDF) encontró algo bastante peor que una coma mal puesta: **14 preguntas tenían el enunciado COMPLETAMENTE VACÍO**. El alumno abría la pregunta y veía las cinco opciones, la respuesta y la explicación, sin ninguna pregunta arriba.
+
+## Las rompió el commit que las iba a arreglar
+
+Lo peor no es el bug, es de dónde salió. Los tres commits del 16-sep que **declararon las figuras** —el trabajo hecho justamente para que el alumno vea el dibujo— son los que borraron el texto:
+
+| commit | preguntas que dejó vacías |
+|---|---|
+| `e7cf339` "seis figuras mas, y se agota lo que se puede hacer sin los PDF" | 6 |
+| `11f525f` "las primeras 5 preguntas dejan de pedir un dibujo que no existe" | 5 |
+| `477db86` "tres figuras mas, y una que se descarto a proposito" | 3 |
+
+El script que insertaba `figura: <id>` lo puso **en lugar de** la línea en blanco que separa el encabezado del enunciado, en vez de antes. Y el parser, al ver una línea que no es `clave: valor` dentro del bloque de claves, **la descartaba en silencio** y seguía buscando hasta la primera línea vacía, que ya estaba después del texto.
+
+Estuvieron así un día. Antes del 16-sep las 14 estaban sanas: se verificó commit por commit.
+
+## Ningún test lo podía ver
+
+Y esto es lo que hay que aprender. Había tests para casi todo lo demás de la misma pregunta:
+
+- las opciones estaban perfectas → el test de opciones pasaba
+- la respuesta correspondía a una opción → ese test pasaba
+- el LaTeX renderizaba → ese test lee las líneas crudas del archivo, así que ni se enteró
+- el trinquete de figuras contaba `figura:`, que ahí estaba y bien escrito
+
+**Nadie medía el largo del enunciado.** El campo más importante de la pregunta era el único sin chequear.
+
+## Lo que se hizo, en tres capas
+
+1. **Las 14 arregladas**, devolviendo la línea en blanco. Los enunciados estaban intactos, solo invisibles.
+2. **El parser endurecido**: el bloque de claves ahora corta en la primera línea en blanco **o en la primera que no sea `clave: valor`**. Con eso, un archivo al que le falte la separación pierde la prolijidad pero no el texto. Se probó con un bloque sin línea en blanco: sobreviven el enunciado y la metadata.
+3. **Test nuevo**: `ninguna pregunta se queda sin enunciado`. Es de una línea y habría cazado esto el mismo 16-sep.
+
+## La lección, que es más general que este bug
+
+**Un script que inserta una línea en un formato estructurado tiene que verificarse RE-PARSEANDO, no con un grep.** Un grep sobre los 14 archivos habría dicho "sí, la línea `figura:` está donde tiene que estar" y habría tenido razón: el problema no era la línea que se agregó, era la que se pisó. La única verificación que sirve es volver a leer el archivo con el mismo parser que usa la app y mirar que los campos sigan teniendo contenido.
+
+Es la misma familia que el error del 15-sep de §7 (reescribir un parseo que ya existía testeado) y que el de las 98 reescrituras del 14-sep (cambiar un campo en masa sin chequear cómo quedaba la frase). Tres veces el mismo patrón: **edición masiva sin verificación masiva**.
+
+## Y de paso, dos erratas de texto
+
+El mismo barrido encontró dos cosas chicas y reales: un `.- ` que quedó pegado al principio de un enunciado de química del `2024-Uop-2` (resto de la numeración del PDF) y un espacio antes de una coma en el `2017-2op-1` P3. Las otras 22 "alertas" del barrido eran falsos positivos: paréntesis que el chequeo veía desbalanceados y son marcadores de lista (`a)`, `i)`, `I)`) o intervalos medio abiertos como `[0°,180°)`.
 
 ### 2026-09-17 (sexies) (arranca la auditoría de las invisibles: 20 de 88, y tres modos de falla)
 
