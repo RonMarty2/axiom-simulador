@@ -16,9 +16,11 @@
 4. **Antes de tocar animaciones SVG:** leé §4 "Sistema visual" de la bitácora — hay lecciones aprendidas a fuerza de romper cosas.
 5. **Antes de tocar PWA:** leé §5 — la OTA y la supresión del banner ya funcionan bien.
 
-## Agentes del proyecto (`.claude/agents/`)
+## Agentes del proyecto (`agentes/`)
 
 Cada uno lleva adentro las lecciones de §7 que le tocan, así no hay que releer la bitácora entera para cada tarea chica.
+
+**Se editan en `agentes/`, sin punto.** Claude Code los lee de `.claude/agents/`, pero Ronald sincroniza el repo entre PC y laptop con Synology Drive, que no lleva carpetas con punto. `scripts/sincronizar-agentes.mjs` copia entre las dos (gana el archivo más nuevo, nunca borra) y corre solo en `npm install`, en `npm run dev` y al abrir cada sesión de Claude Code. Para borrar un agente, borralo de las dos carpetas. El test `src/lib/agentes.test.ts` frena si llegan distintas al repo.
 
 | Agente | Para qué | Cuándo |
 |---|---|---|

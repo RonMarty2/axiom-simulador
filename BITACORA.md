@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-27 (seis agentes del proyecto en `.claude/agents/`: las lecciones de §7 pasan a ser instrucciones)
+**Última actualización:** 2026-09-27 (bis) (los agentes viajan entre PC y laptop: `agentes/` sin punto, copiada sola a `.claude/agents/`)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -314,6 +314,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 | 2026-09-14 | La misma pregunta de Mendel respondía "segunda ley" en un examen y "tercera" en otro, con opciones idénticas | Chequeo de duplicados contradictorios | Comparar la LETRA marcada da 47 falsos positivos, porque el orden de las opciones cambia entre gestiones. Hay que comparar el TEXTO de la opción marcada |
 | 2026-09-15 | Se reescribió desde cero el parseo de títulos de examen que ya existía en `main`, testeado, ocho commits antes (`etiqueta-examen.ts`, commit `ed0c006`) | Al mergear aparecieron dos implementaciones del mismo parseo | La bitácora envejece mientras trabajás: se leyó al abrir la sesión y `main` avanzó 22 commits antes del primer edit. Leer al empezar no alcanza, hay que `git fetch` + releer justo antes de escribir código. De acá salió la regla de §0 |
 | 2026-09-15 | El manifest pedía `display_override: ["standalone", "minimal-ui"]` "para forzar vista app", y `minimal-ui` **es** el modo CON barra de direcciones | Ronald reportó tres veces una barra con la URL en la app instalada, y se le contestó tres veces que era culpa del navegador | Dos errores encadenados. Uno: un fallback puede contradecir lo que el campo principal pide; leer qué significa cada valor, no confiar en el comentario de al lado (que decía lo contrario de lo que hacía el código). Dos, peor: se diagnosticó por la captura ("es Messenger") en vez de preguntar **cómo abrís la app**. La pregunta correcta llegó recién a la tercera queja, y la respuesta ("la instalé desde la página") descartaba toda la teoría anterior. Cuando el usuario insiste, el que está equivocado es el diagnóstico |
+| 2026-09-27 | Los agentes no llegaban de la PC a la laptop | Ronald lo reportó: "no viajan, por un punto o algo así" | Synology Drive no suele sincronizar carpetas que empiezan con punto, y `.claude/` es una. Lo que tiene que viajar por Synology va en una carpeta visible; si una herramienta exige un nombre con punto, se copia ahí de forma automática, enganchada a algo que el usuario ya hace (`npm install`, `npm run dev`), no a un paso nuevo que tenga que acordarse |
 | 2026-09-18 | Un `git checkout -- <archivo>` para deshacer una inyección de prueba se llevó puestas diez preguntas recién escritas y no commiteadas | Volver a correr el script que las había generado | `git checkout --` descarta **todo** lo no commiteado de ese archivo, no solo el último cambio. Para deshacer una inyección hay que revertir la cadena exacta que se inyectó. Lo que salvó el trabajo fue que cada tanda se escribe como un script con `assert` y no como edición manual: el efecto colateral no buscado es que **el trabajo se puede reproducir** |
 | 2026-09-18 | Diez exámenes de Económicas declaraban sus secciones de Lenguaje e Historia como `no-encontrado-en-los-pdf`, y la de Lenguaje estaba en el PDF de Lenguaje | Abrir el archivo y mirar las páginas una por una | **Afirmar una ausencia obliga a buscar en todos los archivos, y eso se escribió para diez exámenes de una sola vez.** El descarte puntual que estaba anotado (la página 30 no es de ese examen) estaba bien hecho; lo que falló fue el inventario, que se armó con OCR sobre PDF sin capa de texto y no llegó a mostrar las páginas buenas. Un inventario incompleto no autoriza a escribir "no existe": autoriza a escribir "no lo encontré todavía" |
 | 2026-09-18 | Dos errores de conteo en el mismo día: *"tres de cuatro respuestas mal"* cuando eran dos, y *"58 auditadas de 88"* cuando eran 50 (se sumaban 8 de un muestreo anterior que no forma parte de la lista) | Recalcular con el script en vez de escribir el número de memoria | Los conteos que sostienen una decisión (cuánto falta, qué tan malo es el banco) **se calculan, no se recuerdan**. Los dos números estaban inflados y los dos apuntaban en la misma dirección: hacer parecer el problema más grande y el avance mayor. Hay un script que cruza las listas; una corrida cuesta menos que corregir el changelog dos veces |
@@ -474,6 +475,21 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-27 (bis) (los agentes viajan entre PC y laptop sin tocar nada)
+
+Ronald trabaja el repo en local, sincronizado entre la PC y la laptop con **Synology Drive**, y ya le había pasado que los agentes no viajaban de una máquina a la otra, "por un punto o algo así". Era eso: **Synology Drive no suele sincronizar carpetas que empiezan con punto**, y Claude Code lee los agentes de `.claude/agents/`. El resto del repo viajaba; justo esa carpeta, no.
+
+**La solución no depende de configurar Synology**, que habría que repetir en cada máquina y se pierde al reinstalar el cliente:
+
+- La copia principal pasa a **`agentes/`**, sin punto. Esa viaja por Synology y por git.
+- **`scripts/sincronizar-agentes.mjs`** copia entre `agentes/` y `.claude/agents/`. Por archivo gana el más nuevo (y conserva la fecha del original, para que la copia no se vea "más nueva" en la corrida siguiente), así que una edición hecha directo en `.claude/agents/` tampoco se pierde. **Nunca borra** y **nunca falla**: un error ahí no puede frenar un install, un build de Vercel ni el arranque.
+- Corre solo, en tres momentos que Ronald ya usa: **`npm install`** (`postinstall`, o sea cada `ACTUALIZAR.bat`), **`npm run dev`** (`predev`, o sea cada `INICIAR.bat`) y **al abrir una sesión de Claude Code** (hook `SessionStart` en `.claude/settings.json`). Según la documentación, Claude Code vigila `.claude/agents/` y toma los cambios en segundos sin reiniciar. La excepción es la primera vez en una máquina donde esa carpeta todavía no existía: ahí hace falta reiniciar Claude Code **una sola vez**.
+- **Test nuevo**, `src/lib/agentes.test.ts`: las dos carpetas tienen que llegar iguales al repo, y cada agente tiene que declarar un `name` igual a su nombre de archivo. Hace falta porque una sesión en la nube clona el repo y no siempre corre `npm install`: si `.claude/agents/` llegara vieja, arrancaría con agentes viejos. Se probó que puede fallar agregando una línea a una sola copia; se revirtió esa cadena exacta, no el archivo.
+
+Probado sobre una copia en el scratchpad: la máquina sin `.claude/` la recrea, una edición en `agentes/` llega a `.claude/agents/`, una edición en `.claude/agents/` vuelve a `agentes/`, un agente creado en `.claude/agents/` se adopta, y la segunda corrida no hace nada. Tipos, lint, los 73 tests y el build en verde; `npm ci` con el `postinstall` nuevo instala sin problemas.
+
+**Lo que no resuelve, para que se sepa:** si Synology tampoco lleva `.git/`, cada máquina tiene su propio git y la fuente de verdad sigue siendo GitHub vía `ACTUALIZAR.bat`. Está bien que sea así: sincronizar `.git/` con Synology entre dos máquinas que lo usan a la vez es una forma conocida de corromperlo.
 
 ### 2026-09-27 (seis agentes del proyecto: las lecciones de §7 pasan a ser instrucciones)
 
