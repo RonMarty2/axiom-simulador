@@ -16,6 +16,21 @@
 4. **Antes de tocar animaciones SVG:** leé §4 "Sistema visual" de la bitácora — hay lecciones aprendidas a fuerza de romper cosas.
 5. **Antes de tocar PWA:** leé §5 — la OTA y la supresión del banner ya funcionan bien.
 
+## Agentes del proyecto (`.claude/agents/`)
+
+Cada uno lleva adentro las lecciones de §7 que le tocan, así no hay que releer la bitácora entera para cada tarea chica.
+
+| Agente | Para qué | Cuándo |
+|---|---|---|
+| `transcriptor-examenes` | PDF → `.md` del banco, resolviendo cada respuesta | Uno por examen, en paralelo. Necesita los PDF (máquina de Ronald) |
+| `auditor-figuras` | Contrasta preguntas contra el facsímil y dibuja la figura | Figuras pendientes, modos 1 a 4. Necesita los PDF |
+| `auditor-pedagogico` | Lee lecciones/láminas como alumno nuevo, reporta en `docs/auditoria-pedagogica.md` | 3 a 6 piezas por agente, varios en paralelo. No reescribe |
+| `autor-laminas` | Escribe una lámina nueva en formato tarjetas (§4.5) | De a una: Ronald revisa cada una |
+| `verificador` | Corre tsc/lint/test/build y lee el diff contra los errores conocidos | Antes de commitear cualquier cambio al banco, figuras, contenido o plan |
+| `cronista` | Ramas sin mergear, roadmap contra código, entrada de bitácora | Al abrir y al cerrar sesión |
+
+**Flujo típico:** `cronista` (estado) → agentes de trabajo en paralelo → `verificador` → `cronista` (entrada) → commit y push a `main`. Los agentes de trabajo **no commitean**: lo hace la sesión principal después del verificador.
+
 ## Cómo retomar
 
 ```bash

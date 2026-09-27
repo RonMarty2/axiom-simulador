@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-16 (los modos Premium de /practicar dejan de ser botones muertos, y los precios pasan a un solo lugar)
+**Última actualización:** 2026-09-27 (seis agentes del proyecto en `.claude/agents/`: las lecciones de §7 pasan a ser instrucciones)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -414,6 +414,12 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] Terminar de sacar los emojis usados como iconografía: ya salieron los de la landing, el chrome y **todas** las pantallas del alumno. Quedan 1 en componentes compartidos, 166 en las lecciones de `/aprende` (33 archivos) y 77 en admin (12 archivos) — los de admin son los menos urgentes, no los ve el alumno.
 - [ ] Banco de Económicas: hay **10 exámenes** contra los 139 de Ingeniería, y además cada uno estaba **solo con la sección de Matemáticas**. El 18-sep se agregaron **35 preguntas de Lenguaje a 9 de los 10** (las verificables: gramática, semántica y ortografía), con cada emparejamiento confirmado abriendo el encabezado de la página y comparando la línea de carreras o programas y la fecha. De paso se corrigió una fecha (`2012-1op-1`, 26 → 28 de enero) y se completó otra que estaba vacía (`2012-2op-1`, 8 de febrero). Falta: **(a)** el `2023-2op-1`, que NO está en estos PDF (van de 2008 a 2015) y necesita otra fuente; **(b)** decidir qué hacer con las 15 de comprensión lectora por examen, que el facsímil no permite verificar y **las marcas a mano no sirven como clave** (tres verificaciones independientes y las tres fallan, incluyendo preguntas con DOS marcas distintas); **(c)** seguir con Historia: el PDF `FCE_Guia_HistoriaGeneral.pdf` tiene **dos partes**, una guía de práctica (páginas 1 a ~68) y **los exámenes reales en las páginas 69 a 84**. Ya se transcribieron dos: la del `2013-2op-2` (8 de 10, página 73) y la del `2013-1op-2` (**las 10**, página 74). Quedan identificadas por encabezado las del `2014-1op-1` (p. 79), `2014-1op-2` (p. 81) y `2014-2op-1` (p. 84), más varias de exámenes que no están en el banco; **(d)** la guía de práctica en sí, que son cientos de preguntas de Historia General numeradas en secuencia y podría ser un banco de práctica aparte, no atado a un examen.
 
+### Infraestructura de agentes (desde el 27-sep, ver §11)
+- [ ] **Probar cada agente en una tarea real y corregir su texto con lo que falle.** Orden sugerido: `cronista` (barato, sin PDF), `verificador` sobre el próximo cambio, `auditor-pedagogico` sobre 3 lecciones de la Unidad 01, y los dos que necesitan PDF en la máquina de Ronald.
+- [ ] **Versionar los scripts reutilizables en `scripts/`.** Hoy viven en scratchpads que se pierden al cerrar la sesión: el que cruza listas para contar la auditoría, la comparación palabra por palabra contra `HEAD`, el que regenera la lista de figuras invisibles, el de la banda superior de páginas. Los agentes dicen "calculalo con un script" y no tienen uno a mano; con esto la regla de "los conteos se calculan" (§7, 18-sep) deja de depender de que alguien lo reescriba.
+- [ ] **Hook de `SessionStart` que haga `git fetch origin main` y muestre `HEAD..origin/main`.** Convierte la regla de oro 1 de `CLAUDE.md` de pedido en automática. Dos veces se trabajó sobre un `main` viejo (15-sep y 16-sep).
+- [ ] **Agente `auditor-movil`**: recorrido de las pantallas del alumno a 375px con Playwright. De la auditoría del 13-sep salieron el corte de fórmulas, el botón muerto y el `demo-user`; hoy no hay nada que la repita. Conviene hacerlo después de tener un script que levante la app con datos de prueba.
+
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
 - [ ] Sistema de notificaciones (PWA push) para racha de estudio.
@@ -468,6 +474,34 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-09-27 (seis agentes del proyecto: las lecciones de §7 pasan a ser instrucciones)
+
+Ronald preguntó si el proyecto tenía agentes. **No tenía.** Lo que había era un patrón: despachar subagentes genéricos al vuelo (139 exámenes de Ingeniería el 28-jul, la auditoría pedagógica el 15-sep) con un prompt escrito en el momento. Funcionó, pero tenía dos costos que la bitácora ya registraba sin nombrarlos:
+
+- **Cada prompt se reescribía, y las lecciones entraban tarde.** La advertencia de "opciones en mayúscula" se agregó al prompt de los agentes el 28-jul *después* de que el primero rompiera un archivo con `a) b) c)`. Lo mismo con "no adivinar", "el nombre del archivo miente" o "las marcas a mano no son clave": cada una costó un error antes de llegar al prompt.
+- **Un agente en frío no se lee la bitácora.** Son 1.650 líneas; un subagente que transcribe un examen no va a leerlas, así que las lecciones de §7 no le llegaban.
+
+Se crearon seis agentes en `.claude/agents/`, uno por cada tipo de trabajo que en esta bitácora se repite. Cada uno lleva **adentro** la parte de §7 que le toca, destilada a checklist:
+
+| agente | qué hace | lecciones que carga |
+|---|---|---|
+| `transcriptor-examenes` | un examen del PDF al `.md` | no adivinar, resolver antes de mirar opciones, nombre de archivo mentiroso, contar páginas, Carreras/Programas, marcas a mano, comprensión lectora sin clave, `figura:` antes de la línea en blanco, script con `assert`, nunca `git checkout --` |
+| `auditor-figuras` | contrasta contra el facsímil y dibuja | los cuatro modos de falla, verificaciones que no pueden fallar, circuitos se verifican eléctricamente, "los datos sí, el paso no", comparar dos imágenes antes de compartir un id, mirar el render |
+| `auditor-pedagogico` | lee lecciones y láminas y reporta | errores de contenido primero, los seis criterios del encargo de §8, no reescribir |
+| `autor-laminas` | una lámina nueva en tarjetas | reglas 1 a 12 de §4.5, banco como mapa y no guion, 375px |
+| `verificador` | revisa un cambio antes del commit | edición masiva sin verificación masiva, chequeos que no fallan, paywall en el servidor, helpers duplicados, conteos de memoria |
+| `cronista` | ramas sin mergear, roadmap contra código, entrada de bitácora | el branch de 92 commits del 16-sep, el roadmap que envejece, el formato de esta sección |
+
+**Tres decisiones de diseño que conviene no deshacer sin pensarlo:**
+
+1. **Los agentes de trabajo no commitean.** Commitea la sesión principal, después de pasar por el `verificador`. Si cada agente en paralelo subiera lo suyo, se repite exactamente el problema de §0 (sesiones pisándose).
+2. **El `verificador` y el `auditor-pedagogico` no editan.** El primero solo tiene herramientas de lectura; el segundo escribe únicamente el informe. Es la regla del encargo de §8 ("un informe por pieza, no una reescritura masiva") llevada a la configuración.
+3. **Uno por examen, no uno por PDF.** Viene del 30-jul: los `-preu.pdf` traen tres exámenes adentro.
+
+`CLAUDE.md` suma la tabla de agentes y el flujo típico (`cronista` → trabajo en paralelo → `verificador` → `cronista` → commit a `main`).
+
+**Lo que falta, dicho sin adorno: ninguno se probó todavía en una tarea real.** Están escritos a partir de la bitácora y se verificó que cada ruta, helper y test que nombran existe en el repo, pero la primera corrida de cada uno va a encontrar algo que ajustar. Los pendientes que salen de acá están en §8 ("Infraestructura de agentes").
 
 ### 2026-09-18 (septies) (Económicas: la sección de Lenguaje SÍ estaba en los PDF)
 
