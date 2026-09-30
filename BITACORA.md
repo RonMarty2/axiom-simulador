@@ -476,6 +476,22 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-09-30 (bis) (formato nativo de Medicina en el banco, y materias reales)
+
+Ronald aprobó las dos decisiones que había dejado abiertas la entrada anterior.
+
+**1. El banco entiende las preguntas de clave de combinación.** En el `.md` la pregunta se escribe con afirmaciones `- 1) texto`, `- 2) texto` (y `- 3)`), sin opciones. `src/lib/axiom/combinacion.ts` define la clave (2 afirmaciones: A solo la 1, B solo la 2, C ambas, D ninguna; 3 afirmaciones: A, B, C una sola, D todas, E ninguna) y **genera las opciones**, así que el evaluador, el simulador y los resultados siguen funcionando sin cambios. `PreguntaBanco` gana el campo opcional `afirmaciones`; el componente `Afirmaciones.tsx` las muestra debajo del enunciado en las cinco pantallas que muestran preguntas (examen, resueltos, simulador y resultados). Las preguntas de alternativas de siempre no cambian (hay un test que lo comprueba).
+
+- **Se rechaza a propósito** mezclar `- 1)` con `- A)`, afirmaciones fuera de orden, una sola afirmación y una respuesta que no existe en la clave (por ejemplo E con dos afirmaciones). Mismo criterio que el resto del parser: que un .md mal formado falle fuerte en los tests y no desaparezca un examen en silencio.
+- `letraDeVeredicto` convierte "qué afirmaciones son verdaderas" en la letra. Es lo que usa el agente `auditor-clave-oficial` para no hacer la tabla de memoria. La combinación "dos de tres verdaderas" **no tiene letra** en la clave de los patrones rezagados y tira error: si aparece en un examen, el examen usa otra clave y hay que agregar un esquema, no torcer la pregunta.
+- Tests nuevos en `combinacion.test.ts` (9). Total: **82 pruebas, 0 fallan**; `tsc` sin errores, lint 0 errores (los 227 avisos ya estaban), `build` sin errores.
+- **Límite conocido:** una respuesta oficial "A o C" (la facultad aceptó dos) no cabe, porque `respuesta_correcta` compara una sola letra en más de diez lugares. Esas preguntas van a `faltantes` con `motivo: sin-respuesta`. Soportar respuestas dobles es un cambio aparte y toca el evaluador.
+
+**2. Materias reales de Medicina.** `data/materias.json` y `data/facultades.json` ahora dicen lo que es el Curso Básico: **Morfofunción, Biología Celular y Educación en Salud e Investigación**, con los libros de cada gestión, y 90 minutos en vez de 180. Antes figuraban biología, química, física y verbal, que es el esquema de otra facultad. Se agregaron las tres etiquetas a `areas.ts`.
+
+- **Ponderación PROVISIONAL:** quedó 0,34 / 0,33 / 0,33 porque todavía no se contó cuántas preguntas de cada materia trae un examen real. Es un número puesto para que el archivo sea válido, no un dato. Se ajusta con el primer examen digitalizado (contar las preguntas por materia).
+- El seed demo (`data/seed/historial.json`) sigue con las áreas viejas de Medicina; es dato de demostración, no de producto.
+
 ### 2026-09-30 (llega el material de Medicina: mapa del PDF, extractor y dos agentes)
 
 Ronald consiguió el material del Curso Básico de Medicina (UMSS, Facultad Dr. Aurelio Melean) y pidió armar el proceso de digitalización antes de cargar nada. Entraron tres PDF, que **no se suben a git** (siguen la regla `examenes pasados/**/*.pdf` del `.gitignore`: solo viven en la PC y en Synology). Quedaron en `examenes pasados/MEDICINA/`, con nombre descriptivo: `examenes-2021-2026/` (166 páginas), `bibliografia/` y `hoja-de-respuestas/` (la cartilla de 100 preguntas de la facultad).

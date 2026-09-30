@@ -8,6 +8,7 @@ import AppHeader from "../../components/AppHeader";
 import BackLink from "../../components/BackLink";
 import Cargando from "../../components/Cargando";
 import MathText from "../../components/MathText";
+import Afirmaciones from "../../components/Afirmaciones";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import SolucionPasos from "../../components/SolucionPasos";
 import type { ExamenBanco, PreguntaBanco } from "@/lib/axiom/types";
@@ -281,6 +282,7 @@ function PreguntaResuelta({
           </div>
           <div style={{ fontSize: 16, color: "var(--fg-primary)", lineHeight: 1.5, fontWeight: 500 }}>
             <MathText block>{pregunta.enunciado}</MathText>
+            <Afirmaciones lista={pregunta.afirmaciones} />
           </div>
         </div>
       </div>

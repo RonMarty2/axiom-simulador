@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import BackLink from "../../components/BackLink";
 import MathText from "../../components/MathText";
+import Afirmaciones from "../../components/Afirmaciones";
 import FiguraExamen, { FiguraSVGLibre } from "../../components/FiguraExamen";
 import Cargando from "../../components/Cargando";
 import { nombreFacultad } from "../../components/Icono";
@@ -229,6 +230,7 @@ function PreguntaCard({
 
       <div className="mb-5 text-base leading-relaxed text-neutral-900">
         <MathText block>{pregunta.enunciado}</MathText>
+        <Afirmaciones lista={pregunta.afirmaciones} />
       </div>
 
       {/* Figura: SVG del propio .md (exámenes en lote) o figura del motor */}

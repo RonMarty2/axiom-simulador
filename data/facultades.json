@@ -54,20 +54,18 @@
     "color": "#ef4444",
     "color_secundario": "#f87171",
     "emoji": "⚕️",
-    "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia.",
+    "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia. Curso Básico de Medicina: 100 preguntas en 90 minutos, con afirmaciones 1/2/3 y clave de combinación.",
     "areas": [
-      "biologia",
-      "quimica",
-      "fisica",
-      "verbal"
+      "morfofuncion",
+      "biologia_celular",
+      "educacion_salud"
     ],
     "ponderacion": {
-      "biologia": 0.4,
-      "quimica": 0.3,
-      "fisica": 0.2,
-      "verbal": 0.1
+      "morfofuncion": 0.34,
+      "biologia_celular": 0.33,
+      "educacion_salud": 0.33
     },
-    "duracion_minutos": 180,
+    "duracion_minutos": 90,
     "preguntas_examen": 100,
     "ano_inicio_banco": 2020
   },

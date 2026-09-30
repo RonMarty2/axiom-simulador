@@ -17,14 +17,11 @@
     { "id": "razon-ing", "nombre": "Razonamiento Lógico", "area": "razonamiento", "libros_referencia": ["Razonamiento Lógico Cuanto"] }
   ],
   "medicina": [
-    { "id": "biocelular", "nombre": "Biología Celular y Molecular", "area": "biologia", "libros_referencia": ["Curtis - Biología", "Alberts - Bio Celular"] },
-    { "id": "anatomia-basica", "nombre": "Anatomía Humana Básica", "area": "biologia", "libros_referencia": ["Tortora", "Rouvière"] },
-    { "id": "genetica", "nombre": "Genética Básica", "area": "biologia", "libros_referencia": ["Curtis Cap. Genética"] },
-    { "id": "quim-organica", "nombre": "Química Orgánica", "area": "quimica", "libros_referencia": ["Wade", "McMurry"] },
-    { "id": "quim-inorg", "nombre": "Química Inorgánica", "area": "quimica", "libros_referencia": ["Chang", "Petrucci"] },
-    { "id": "fisica-med", "nombre": "Física Aplicada a la Medicina", "area": "fisica", "libros_referencia": ["Cromer - Física Vida"] },
-    { "id": "verbal-med", "nombre": "Comprensión Lectora", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] }
+    { "id": "morfofuncion", "nombre": "Morfofunción", "area": "morfofuncion", "libros_referencia": ["Saladin - Anatomía y Fisiología, 6.ª ed. (2025-2026)", "Tortora y Derrickson - Principios de Anatomía y Fisiología, 15.ª ed. (2021-2025)"] },
+    { "id": "biologia-celular", "nombre": "Biología Celular", "area": "biologia_celular", "libros_referencia": ["Alfonso Calvo - Biología Celular Biomédica, 1.ª ed. (2025-2026)", "Alberts - Introducción a la Biología Celular, 5.ª ed. (2022-2025)", "Junqueira y Carneiro - Biología celular y molecular (2021-2022)"] },
+    { "id": "educacion-salud", "nombre": "Educación en Salud e Investigación", "area": "educacion_salud", "libros_referencia": ["Educación en Salud e Investigación, Curso Básico 2025-2026 (Facultad de Medicina, UMSS)"] }
   ],
+
   "derecho": [
     { "id": "const-politica", "nombre": "Constitución Política del Estado", "area": "civica", "libros_referencia": ["CPE 2009 Bolivia"] },
     { "id": "civica-general", "nombre": "Educación Cívica", "area": "civica", "libros_referencia": ["Cívica 4to Secundaria"] },

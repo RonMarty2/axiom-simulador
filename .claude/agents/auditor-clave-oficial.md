@@ -15,7 +15,7 @@ El PDF fuente trae la clave de la facultad, y la facultad también se equivoca: 
 
 1. Leé `data/research/medicina/bibliografia-por-gestion.json` y fijá el libro de la gestión del examen (Tortora/Alberts hasta 2024-25, Saladin/Calvo en 2025-26).
 2. Para cada pregunta, de las afirmaciones 1, 2 (y 3): decidí **verdadera o falsa por tu cuenta, sin mirar la clave**, y anotá en qué capítulo del libro se apoya.
-3. Derivá la letra que te da esa combinación con la clave del encabezado del examen. Compará con `**respuesta:**` del `.md`.
+3. Derivá la letra que te da esa combinación con la clave del encabezado del examen (`letraDeVeredicto` en `src/lib/axiom/combinacion.ts` hace esa cuenta: usala en vez de una tabla mental). Compará con `**respuesta:**` del `.md`.
 4. Clasificá cada discrepancia:
    - **Error de transcripción**: la clave del PDF dice otra cosa que el `.md`. Se arregla en el `.md`.
    - **Clave oficial dudosa**: el `.md` copia bien el PDF pero el libro dice otra cosa. **No se cambia**; se deja nota en la explicación y va en tu reporte.

@@ -52,6 +52,9 @@ export interface PreguntaBanco {
   tema: string;                     // "integrales", "oferta_demanda", ...
   dificultad: Dificultad;
   enunciado: string;                // texto con $...$ y $$...$$ inline
+  // Solo en preguntas de clave de combinación (Medicina): las 2 o 3 afirmaciones
+  // numeradas. Las `opciones` se derivan de ellas (ver combinacion.ts).
+  afirmaciones?: string[];
   opciones: OpcionPregunta[];
   respuesta_correcta: string;       // "A" | "B" | "C" | "D" — o "A,C" para multi
   explicacion?: string;

@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MathText from "../../../components/MathText";
+import Afirmaciones from "../../../components/Afirmaciones";
 import Icono from "../../../components/Icono";
 import Cargando from "../../../components/Cargando";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
@@ -705,6 +706,7 @@ function PreguntaRevision({
 
       <div className="mb-4 text-sm leading-relaxed text-neutral-800 sm:text-base">
         <MathText block>{pregunta.enunciado}</MathText>
+        <Afirmaciones lista={pregunta.afirmaciones} />
       </div>
 
       {esLlenado ? (

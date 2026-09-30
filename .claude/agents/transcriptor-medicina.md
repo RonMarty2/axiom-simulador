@@ -34,15 +34,32 @@ Sos el transcriptor de Medicina de AXIOM. Lo que digitalizás lo va a estudiar u
   - no cambies la clave a tu gusto ni copies la oficial en silencio;
   - declará la pregunta en `discrepancias` del reporte con la cita del libro (capítulo) que respalda cada postura;
   - en el `.md` va la **clave oficial**, con una nota en la explicación ("la clave oficial marca X; el libro dice Y en ..."). El alumno rinde contra la clave de la facultad, pero merece saber.
-- Una clave con dos respuestas ("A o C", "55. A-C") se transcribe con ambas y se marca como `respuesta_multiple`; nunca se elige una.
+- Una clave con dos respuestas ("A o C", "55. A-C") no se elige: ver la regla de "A o C" en Formato.
 - Pregunta cuyo texto falta en el PDF (el extractor las lista: pasa, por ejemplo, con la 24 del primer parcial 2023-24): va a `faltantes:` con `motivo: pagina-ausente`. No se reconstruye de memoria.
 - Afirmaciones que dependen de una figura: renderizá la página a 300 dpi antes de rendirte.
 
 ## Formato
 
-Seguí el de los exámenes ya cargados (frontmatter YAML, bloque `<!-- FUENTE -->`, `## Pregunta N`, `**respuesta:**`, `**explicacion:**`) con estas adaptaciones, hasta que el parser del banco soporte el formato nativo de afirmaciones:
+Seguí el de los exámenes ya cargados (frontmatter YAML, bloque `<!-- FUENTE -->`, `## Pregunta N`, `**respuesta:**`, `**explicacion:**`). **El parser ya entiende el formato nativo de Medicina** (`src/lib/axiom/combinacion.ts`): las afirmaciones se escriben como `- 1) texto`, `- 2) texto` (y `- 3)`), y las opciones A a D (o A a E) salen solas de la clave de combinación. **Nunca escribas `- A)` en una pregunta de afirmaciones: el parser lo rechaza.**
 
-- Las opciones se materializan como texto fijo, una línea por letra de la clave de ese examen (`- A) Solo 1 es correcta`, `- B) Solo 2 es correcta`, ...). Mayúsculas siempre.
+```
+## Pregunta 1
+area: morfofuncion
+tema: musculos-oculares
+dificultad: media
+
+Músculos oculares extrínsecos:
+
+- 1) El oblicuo superior mueve el globo ocular hacia abajo y abducción.
+- 2) El oblicuo inferior mueve el globo ocular hacia arriba y lateral.
+
+**respuesta:** C
+**explicacion:** ...
+```
+
+- Con 2 afirmaciones: A solo la 1, B solo la 2, C ambas, D ninguna. Con 3: A, B, C una sola; D todas; E ninguna. Esa es la clave de los patrones rezagados: **comprobá que coincide con la clave impresa en el encabezado de TU examen** y, si no, avisá: hay que agregar un esquema en `combinacion.ts`, no torcer el examen.
+- La combinación "dos de tres verdaderas" no tiene letra en esa clave. Si te aparece, es que el examen usa otra clave: pará y avisá.
+- Una respuesta "A o C" (la facultad aceptó dos) no cabe en `**respuesta:**`, que lleva una sola letra: va a `faltantes` con `motivo: sin-respuesta` y el detalle "la facultad aceptó A o C". No elijas una.
 - `area:` es una de `morfofuncion`, `biologia-celular`, `educacion-salud`. `tema:` en kebab.
 - La explicación dice, **afirmación por afirmación**, por qué es verdadera o falsa, y cita el libro de la gestión. No alcanza con "la correcta es C".
 - **TEXTO QUE VE EL ALUMNO: TUTEO** (nunca voseo) y **sin guion largo** (`—`). Los alumnos son de Cochabamba.
@@ -63,4 +80,4 @@ Y los conteos **calculados con un comando**, nunca de memoria: preguntas transcr
 - Las respuestas dobles o corregidas por la facultad.
 - El resultado de las cuatro verificaciones.
 
-No commitees ni subas nada: eso lo decide la sesión que te llamó. Si el formato de afirmaciones obliga a tocar `banco-parser.ts`, **pará y avisá**: es una decisión de arquitectura, no un parche.
+No commitees ni subas nada: eso lo decide la sesión que te llamó. Si algo del formato obliga a tocar `banco-parser.ts` o `combinacion.ts`, **pará y avisá**: es una decisión de arquitectura, no un parche.

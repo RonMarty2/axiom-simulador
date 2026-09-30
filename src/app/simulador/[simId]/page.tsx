@@ -5,6 +5,7 @@ import Icono from "../../components/Icono";
 import { useParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import MathText from "../../components/MathText";
+import Afirmaciones from "../../components/Afirmaciones";
 import Cargando from "../../components/Cargando";
 import type { Simulador, PreguntaBanco } from "@/lib/axiom/types";
 import { leerSimulador, guardarSimulador } from "@/lib/sim-storage";
@@ -253,6 +254,7 @@ export default function SimuladorActivoPage() {
           >
             <div className="mb-6 text-base leading-relaxed text-neutral-900 sm:text-lg">
               <MathText block>{pregunta.enunciado}</MathText>
+              <Afirmaciones lista={pregunta.afirmaciones} />
             </div>
             {(pregunta.tipo ?? "seleccion_simple") === "completar" ? (
               <div className="space-y-3">
@@ -413,6 +415,7 @@ export default function SimuladorActivoPage() {
                           </span>
                           <div className="min-w-0 flex-1 text-sm font-medium leading-relaxed text-neutral-900 sm:text-base">
                             <MathText block>{p.enunciado}</MathText>
+                            <Afirmaciones lista={p.afirmaciones} />
                           </div>
                           <button
                             type="button"

@@ -1,3 +1,4 @@
+import { opcionesDeCombinacion } from "./combinacion.ts";
 import type {
   Area,
   Dificultad,
@@ -14,6 +15,7 @@ interface PreguntaCruda {
   tema: string;
   dificultad: Dificultad;
   enunciado: string;
+  afirmaciones?: string[];
   opciones: OpcionPregunta[];
   respuesta_correcta: string;
   explicacion?: string;
@@ -71,6 +73,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     tema: p.tema,
     dificultad: p.dificultad,
     enunciado: p.enunciado,
+    afirmaciones: p.afirmaciones,
     opciones: p.opciones,
     respuesta_correcta: p.respuesta_correcta,
     explicacion: p.explicacion,
@@ -304,22 +307,49 @@ function parsePreguntaBloque(bloqueOriginal: string): PreguntaCruda {
   }
   while (i < lineas.length && lineas[i].trim() === "") i++;
 
-  // Enunciado: hasta encontrar primera linea que empiece con "- " (opción)
+  // Enunciado: hasta encontrar primera linea que empiece con "- " (opción
+  // "- A)" o, en las preguntas de clave de combinación, afirmación "- 1)").
   const enunciadoLineas: string[] = [];
-  while (i < lineas.length && !/^-\s+[A-D]\)/.test(lineas[i].trim())) {
+  while (i < lineas.length && !/^-\s+([A-D]|[1-3])\)/.test(lineas[i].trim())) {
     enunciadoLineas.push(lineas[i]);
     i++;
   }
   const enunciado = enunciadoLineas.join("\n").trim();
 
+  // Afirmaciones (Medicina): "- 1) texto", numeradas en orden desde 1. De ahí
+  // salen las opciones por la clave de combinación, y escribir además "- A)" a
+  // mano sería declarar la misma pregunta dos veces: se rechaza.
+  const afirmaciones: string[] = [];
+  while (i < lineas.length) {
+    const m = lineas[i].match(/^-\s+([1-3])\)\s*(.+)$/);
+    if (!m) break;
+    if (Number(m[1]) !== afirmaciones.length + 1) {
+      throw new Error(`Pregunta ${numero}: las afirmaciones van en orden, vino "- ${m[1]})" después de ${afirmaciones.length}`);
+    }
+    afirmaciones.push(m[2].trim());
+    i++;
+  }
+
   // Opciones: "- A) texto" (acepta A-E para soportar el formato real del
   // examen UMSS que incluye la opción E "Ninguno").
-  const opciones: OpcionPregunta[] = [];
-  while (i < lineas.length) {
-    const m = lineas[i].match(/^-\s+([A-E])\)\s*(.+)$/);
-    if (!m) break;
-    opciones.push({ letra: m[1], texto: m[2].trim() });
-    i++;
+  let opciones: OpcionPregunta[] = [];
+  if (afirmaciones.length) {
+    if (afirmaciones.length < 2) {
+      throw new Error(`Pregunta ${numero}: una pregunta de combinación lleva 2 o 3 afirmaciones, tiene ${afirmaciones.length}`);
+    }
+    let k = i;
+    while (k < lineas.length && lineas[k].trim() === "") k++;
+    if (/^-\s+[A-E]\)/.test((lineas[k] ?? "").trim())) {
+      throw new Error(`Pregunta ${numero}: tiene afirmaciones "- 1)" Y opciones "- A)"; las opciones salen de la clave de combinación, no se escriben`);
+    }
+    opciones = opcionesDeCombinacion(afirmaciones.length);
+  } else {
+    while (i < lineas.length) {
+      const m = lineas[i].match(/^-\s+([A-E])\)\s*(.+)$/);
+      if (!m) break;
+      opciones.push({ letra: m[1], texto: m[2].trim() });
+      i++;
+    }
   }
 
   while (i < lineas.length && lineas[i].trim() === "") i++;
@@ -352,9 +382,16 @@ function parsePreguntaBloque(bloqueOriginal: string): PreguntaCruda {
   if (!respuesta) {
     throw new Error(`Pregunta ${numero}: falta '**respuesta:** [A-E]'`);
   }
-  if (opciones.length < 4 || opciones.length > 5) {
+  if (!afirmaciones.length && (opciones.length < 4 || opciones.length > 5)) {
     throw new Error(
       `Pregunta ${numero}: debe tener 4 ó 5 opciones (A-E), tiene ${opciones.length}`
+    );
+  }
+
+  if (afirmaciones.length && !opciones.some((o) => o.letra === respuesta)) {
+    throw new Error(
+      `Pregunta ${numero}: la respuesta "${respuesta}" no existe en la clave de ${afirmaciones.length} afirmaciones ` +
+      `(letras válidas: ${opciones.map((o) => o.letra).join(", ")})`,
     );
   }
 
@@ -364,6 +401,7 @@ function parsePreguntaBloque(bloqueOriginal: string): PreguntaCruda {
     tema: meta.tema ?? "general",
     dificultad: (meta.dificultad ?? "medio") as Dificultad,
     enunciado,
+    afirmaciones: afirmaciones.length ? afirmaciones : undefined,
     opciones,
     respuesta_correcta: respuesta,
     explicacion,
