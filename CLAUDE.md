@@ -41,3 +41,7 @@ npm run dev
 ```
 
 Después: bitácora § 10 ("Cómo retomar el proyecto") tiene el orden de lectura.
+
+## El cuaderno de lecciones
+
+6. **Toda tanda de trabajo tiene que dejar la siguiente más fácil.** Antes de digitalizar, verificar o tocar el banco, leé [docs/lecciones-agentes.md](./docs/lecciones-agentes.md): errores, aciertos y casualidades de las tandas anteriores. Al terminar, agregá lo que aprendiste, con la forma `fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`. Las SUERTES se anotan también: sirven para no generalizar. Los agentes (`agentes/`) leen el cuaderno al empezar y devuelven una sección "Lecciones nuevas" al terminar; el cronista las asienta.

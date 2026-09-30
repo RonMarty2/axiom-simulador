@@ -476,6 +476,21 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-09-30 (quater) (el cuaderno de lecciones y los agentes que aprenden de cada tanda)
+
+Ronald pidió que lo que se haga **mejore lo siguiente**: que los errores, los aciertos y las casualidades queden escritos y los agentes los usen. Hasta hoy las lecciones vivían en la bitácora (§7), repartidas y pensadas para el proyecto, no para el oficio de digitalizar.
+
+- **`docs/lecciones-agentes.md`**: un cuaderno con una línea por lección (`fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`), ordenado por tema: extracción de PDF, claves de respuesta, verificación y honestidad, formato y código del banco, herramientas (Windows, Git Bash) y proceso. Arrancó con 25 lecciones de la tanda de Medicina. Se agrega, no se reescribe; una lección vieja se matiza con una corrección fechada.
+- **La categoría SUERTE existe a propósito**: es lo que salió bien sin que se sepa si fue mérito o casualidad (que un examen cuadre 100 de 100 no prueba que el método sirva para el siguiente). Sin ella, cada acierto se generaliza de más.
+- **Agentes cambiados** (en `agentes/`, sincronizados a `.claude/agents/`; hace falta abrir una sesión nueva para invocarlos):
+  - `transcriptor-medicina`: lee el cuaderno primero; usa el lote del examen anterior como molde (`scripts/medicina/lotes/`); lee las claves en imagen a 260 dpi y por columnas; usa Write o Edit y no heredocs; no asume que el extractor sirve para el examen siguiente; **distingue tres niveles de verificación** (confirmado con el libro, de memoria, no verificable); recomienda pasar el examen por el auditor; devuelve "Lecciones nuevas" obligatorias.
+  - `auditor-clave-oficial`: forma su veredicto **antes** de leer al transcriptor; trae escrito lo ya aprendido de las claves (marca doble = dos verdaderas sin letra, letra imposible = error de lectura, cifras exactas dependen de la edición); nombra su nivel de confianza en cada fila.
+  - `transcriptor-examenes`: lee el cuaderno y deriva Medicina al agente propio.
+  - `cronista`: **tarea D**, asentar las lecciones en el cuaderno sin duplicarlas, matizarlas si se contradicen y proponer el cambio concreto al agente que la causó.
+- **`CLAUDE.md`**: regla 6, leer el cuaderno antes de empezar y dejar lo aprendido al terminar.
+
+Un error propio de esta misma tanda quedó anotado en el cuaderno como ejemplo de cómo se asienta: el comentario del lote decía "coinciden con lo que dice el libro" cuando los veredictos se habían hecho de memoria, sin el libro. Se corrigió antes de subir y de ahí salió la regla de los tres niveles.
+
 ### 2026-09-30 (ter) (primer examen de Medicina digitalizado: Segundo Parcial 2024-2025)
 
 Se probó todo el flujo con un examen completo: `data/examenes/umss/medicina/2025-segundo-parcial-curso-basico-2024-2025.md`. **98 preguntas cargadas y 2 en `faltantes`** (60 y 91), contadas con un comando sobre el parser real: 49 de morfofunción, 49 de biología celular, 48 con tres afirmaciones. Este examen no trae nada de Educación en Salud e Investigación.

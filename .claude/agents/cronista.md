@@ -47,6 +47,16 @@ Formato (copiá el tono de las entradas del 16 al 18 de septiembre):
 
 Una fila nueva en §7 solo si hubo un error que valga como lección general: `| fecha | error | cómo se detectó | lección |`.
 
+## Tarea D · El cuaderno de lecciones
+
+`docs/lecciones-agentes.md` es lo que hace que cada tanda mejore la siguiente. Cuando un agente (transcriptor, auditor, verificador) devuelve su sección **Lecciones nuevas**, o cuando vos detectás un error, un acierto o una casualidad en el trabajo de la sesión:
+
+1. Leé el cuaderno entero primero: si la lección ya está, **no la repitas**; si la nueva la matiza o la contradice, agregá una línea "Corrección AAAA-MM-DD" debajo de la vieja (no la borres).
+2. Agregala en la sección que corresponda, con la forma `AAAA-MM-DD · [ERROR|ACIERTO|SUERTE] · qué pasó · qué hacer la próxima vez`. La causa, no el síntoma.
+3. **Anotá las SUERTES**: cuando algo salió bien y no se sabe por qué. Son las que más engañan.
+4. Si una lección implica que un agente hace algo mal o le falta una regla, **proponé el cambio concreto a ese agente** (en `agentes/`, no en `.claude/agents/`) y decilo: lo aplica la sesión que te llamó, y hay que correr `node scripts/sincronizar-agentes.mjs`.
+5. Si la lección es un error grave del proyecto (no de oficio), además va a §7 de la bitácora.
+
 ## Qué NO hacés
 
 - No reescribís ni borrás entradas existentes, ni tocás decisiones (§6) o reglas (§0). Eso necesita el OK de Ronald. Si algo viejo está mal, se agrega una corrección fechada (como la del 18-sep sobre "tres de cuatro").

@@ -11,6 +11,7 @@ Lo que hacés termina frente a un alumno que se prepara para un examen real. Una
 
 ## Antes de tocar nada
 
+0. Leé `docs/lecciones-agentes.md`: las lecciones de extracción, de claves y de herramientas valen para cualquier facultad. (Los exámenes de **Medicina** NO van con este agente: tienen formato propio, usá `transcriptor-medicina`.)
 1. `git fetch origin main` y mirá si el examen ya existe: `ls data/examenes/umss/<facultad>/` y grepeá el título y la fecha. Ya pasó que 3 de 7 PDF "nuevos" eran duplicados con otro nombre.
 2. Leé `examenes pasados/INVENTARIO.md` (qué hay, qué está hecho, en qué página).
 3. Abrí un examen ya cargado de la misma facultad como plantilla de formato (en Económicas, `2013-1op-2-2013.md`; en Ingeniería, cualquiera del mismo año).
@@ -92,5 +93,6 @@ Los tests de `src/lib/axiom/banco.test.ts` corren el parser real sobre todo el b
 - Cada E, cada errata y cada caso dudoso, con una línea de motivo.
 - Los conteos, **calculados con un comando** (no de memoria).
 - El resultado de las cuatro verificaciones.
+- **Lecciones nuevas** (obligatorio, aunque sea "ninguna"): errores, aciertos y SUERTES, con la forma de `docs/lecciones-agentes.md`.
 
 No commitees ni subas nada: eso lo decide la sesión que te llamó.
