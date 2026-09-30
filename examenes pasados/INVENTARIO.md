@@ -4,7 +4,7 @@ Para qué existe: cuando aparece un PDF nuevo, la pregunta siempre es la misma �
 **¿esto ya lo tengo?** y **¿está completo?**. Este archivo la contesta sin tener
 que abrir nada. Se actualiza cada vez que entra o sale un PDF.
 
-**Última revisión:** 2026-09-14
+**Última revisión:** 2026-09-30
 
 ---
 
@@ -366,3 +366,20 @@ probarlos — se fijan en la fase 4, al transcribir los exámenes de 2014 y 2015
 de este JSON (`getFacultades()` lee la tabla `facultades` si hay env vars). El
 cambio hay que aplicarlo también desde `/admin/facultades`, o el alumno va a
 seguir viendo las áreas viejas.
+
+---
+
+## MEDICINA · Curso Básico (Facultad Dr. Aurelio Melean)  ⟶ NUEVO, sin digitalizar
+
+Entró el 30-sep-2026. Carpeta `MEDICINA/`, con subcarpeta por tipo de documento.
+Mapa página por página en `scripts/medicina/mapa-pdf.json`; bibliografía por gestión
+en `data/research/medicina/bibliografia-por-gestion.json`.
+
+| Archivo | Pág. | Qué trae adentro |
+|---|---|---|
+| `examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf` | 166 | Compilado de la Preparatoria William Osler. Págs. 2-54: patrones rezagados escaneados (sin texto). 55-132: los 9 exámenes oficiales 2023-24, 2024-25 y 2025-26 (1er parcial, 2do parcial, final). 133-165: 3 simulacros de la preparatoria (NO oficiales). |
+| `bibliografia/MED_Bibliografia-curso-basico-2021-2026_William-Osler.pdf` | 1 | Libros por gestión y materia. Cambia en 2025-26 (Saladin y Calvo). |
+| `hoja-de-respuestas/MED_Cartilla-de-respuestas-100-preguntas_FCM-UMSS.pdf` | 1 | La cartilla en blanco de la facultad: 100 preguntas A-E, código SIS. Sirve para copiar el formato de la hoja en el simulador. |
+
+**Ojo:** el compilado dice "2021-2026" pero lo verificado es 2023-24 en adelante. Las gestiones 2021-22 y 2022-23 no se identificaron todavía (podrían estar en los patrones escaneados de las págs. 2-54).
+**Formato propio de Medicina:** 100 preguntas, 90 minutos, afirmaciones 1/2/3 con clave de combinación y patrón oficial aparte. Ver la entrada del 30-sep-2026 de la bitácora.

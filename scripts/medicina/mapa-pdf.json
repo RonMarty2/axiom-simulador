@@ -1,0 +1,20 @@
+{
+  "_nota": "Mapa del PDF maestro de Medicina (166 páginas). Páginas 1-based, verificadas el 30-sep-2026 leyendo encabezados. `paginas` = rango del examen, la clave (patrón) va al final. `clave`: 'texto' si el patrón tiene capa de texto, 'imagen' si hay que leerlo con la vista (renderizar con --render-claves). Los simulacros son de la preparatoria, NO son exámenes oficiales de la facultad.",
+  "pdf": "examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf",
+  "preguntas_esperadas": 100,
+  "examenes_escaneados": { "paginas": [2, 54], "nota": "Patrones rezagados de 2021-2023, sin capa de texto, con ANSWER escrito en el propio facsímil. Se digitalizan con la vista, no con este script." },
+  "examenes": [
+    { "id": "med-2023-24-p1",  "gestion": "2023-2024", "tipo": "primer-parcial",  "oficial": true,  "paginas": [55, 63],   "clave": "texto" },
+    { "id": "med-2023-24-p2",  "gestion": "2023-2024", "tipo": "segundo-parcial", "oficial": true,  "paginas": [64, 72],   "clave": "texto" },
+    { "id": "med-2023-24-fin", "gestion": "2023-2024", "tipo": "final",           "oficial": true,  "paginas": [73, 81],   "clave": "texto" },
+    { "id": "med-2024-25-p1",  "gestion": "2024-2025", "tipo": "primer-parcial",  "oficial": true,  "paginas": [82, 91],   "clave": "imagen" },
+    { "id": "med-2024-25-p2",  "gestion": "2024-2025", "tipo": "segundo-parcial", "oficial": true,  "paginas": [92, 100],  "clave": "imagen" },
+    { "id": "med-2024-25-fin", "gestion": "2024-2025", "tipo": "final",           "oficial": true,  "paginas": [101, 109], "clave": "imagen" },
+    { "id": "med-2025-26-p1",  "gestion": "2025-2026", "tipo": "primer-parcial",  "oficial": true,  "fecha": "2025-12-22", "paginas": [110, 117], "clave": "imagen" },
+    { "id": "med-2025-26-p2",  "gestion": "2025-2026", "tipo": "segundo-parcial", "oficial": true,  "fecha": "2026-01-19", "paginas": [118, 125], "clave": "imagen", "correcciones": "texto en la pág. 125: hay respuestas corregidas y varias 'A o C' (la facultad aceptó dos)" },
+    { "id": "med-2025-26-fin", "gestion": "2025-2026", "tipo": "final",           "oficial": true,  "fecha": "2026-02-11", "paginas": [126, 132], "clave": "imagen" },
+    { "id": "sim-2025-26-p1",  "gestion": "2025-2026", "tipo": "simulacro-primer-parcial",  "oficial": false, "paginas": [133, 144], "clave": "imagen" },
+    { "id": "sim-2025-26-p2",  "gestion": "2025-2026", "tipo": "simulacro-segundo-parcial", "oficial": false, "paginas": [145, 155], "clave": "imagen" },
+    { "id": "sim-2025-26-fin", "gestion": "2025-2026", "tipo": "simulacro-final",           "oficial": false, "paginas": [156, 165], "clave": "imagen" }
+  ]
+}

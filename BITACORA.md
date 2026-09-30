@@ -476,6 +476,24 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-09-30 (llega el material de Medicina: mapa del PDF, extractor y dos agentes)
+
+Ronald consiguió el material del Curso Básico de Medicina (UMSS, Facultad Dr. Aurelio Melean) y pidió armar el proceso de digitalización antes de cargar nada. Entraron tres PDF, que **no se suben a git** (siguen la regla `examenes pasados/**/*.pdf` del `.gitignore`: solo viven en la PC y en Synology). Quedaron en `examenes pasados/MEDICINA/`, con nombre descriptivo: `examenes-2021-2026/` (166 páginas), `bibliografia/` y `hoja-de-respuestas/` (la cartilla de 100 preguntas de la facultad).
+
+**Lo que descubrí leyendo el PDF maestro** (hecho de esta sesión, verificado leyendo páginas y encabezados):
+
+- **Medicina NO tiene el formato de Económicas ni de Ingeniería.** Son 100 preguntas de 90 minutos, cada una con un enunciado y 2 o 3 afirmaciones numeradas. Las letras no son opciones de texto: son una clave de combinación impresa una vez en el encabezado del examen (con dos afirmaciones: A si 1, B si 2, C ambas, D ninguna). Esto es una decisión de arquitectura pendiente: hoy el parser del banco espera `- A) texto`. Por ahora los agentes materializan la clave como opciones de texto fijo; **no se tocó `banco-parser.ts`**.
+- **La respuesta oficial viene en un "patrón" aparte**, no junto a la pregunta: con capa de texto en 2023-24, como imagen de 2024-25 en adelante. Hay una página de "Corrección" de la facultad (2do parcial 2025-26: la 44 pasa a C, la 46 a A, y la 95, 97 y 100 figuran "A o C").
+- **Mapa del PDF** (páginas de 1 a 166, en `scripts/medicina/mapa-pdf.json`): 2 a 54 patrones rezagados escaneados (sin texto); 55 a 132 los nueve exámenes oficiales (tres gestiones, 2023-24, 2024-25 y 2025-26, cada una con 1er parcial, 2do parcial y final); 133 a 165 tres **simulacros de la Preparatoria William Osler, que NO son exámenes de la facultad** y se cargan con esa etiqueta.
+- **La bibliografía cambió en 2025-26 en las dos materias grandes** (Tortora a Saladin, Alberts a Calvo). Quedó en `data/research/medicina/bibliografia-por-gestion.json`: cada afirmación se verifica contra el libro de su gestión.
+
+**Qué se hizo:**
+
+- `scripts/medicina/extraer.mjs` + `mapa-pdf.json`: saca de cada examen un borrador (preguntas, afirmaciones y clave de texto) y reporta conteos honestos. Es un triaje: sobre los 12 bloques, 2 cuadran solos (2024-25 2do parcial y final, 100 de 100) y el resto marca a mano qué falta. **Hay preguntas que el PDF directamente no trae** (la 24, 55 y 62 del 1er parcial 2023-24, la 88 del 2do, la 64 del final, una en cada simulacro): van a `faltantes:`, no se reconstruyen. El formato de 2025-26 (afirmaciones con "1-" sin punto) todavía deja unas 60 preguntas con menos de 2 afirmaciones detectadas: es un límite conocido del extractor, no un dato del examen.
+- Dos agentes nuevos: **`transcriptor-medicina`** (digitaliza un examen resolviendo cada afirmación contra el libro de la gestión ANTES de mirar la clave, y declara las discrepancias en vez de copiar o "corregir" en silencio) y **`auditor-clave-oficial`** (audita un examen ya digitalizado, afirmación por afirmación, y clasifica cada diferencia: error de transcripción, clave oficial dudosa, ambigua, no verificable). Sincronizados a `.claude/agents/`.
+
+**Lo que no se hizo, a propósito:** no se digitalizó ningún examen todavía, no se tocó el parser y **no se corrigió `data/materias.json`**: la lista de materias de `medicina` (biología celular, anatomía básica, genética, química, física...) no coincide con el Curso Básico real, que tiene tres materias (Morfofunción, Biología Celular, Educación en Salud e Investigación). Es decisión de Ronald.
+
 ### 2026-09-27 (bis) (los agentes viajan entre PC y laptop sin tocar nada)
 
 Ronald trabaja el repo en local, sincronizado entre la PC y la laptop con **Synology Drive**, y ya le había pasado que los agentes no viajaban de una máquina a la otra, "por un punto o algo así". Era eso: **Synology Drive no suele sincronizar carpetas que empiezan con punto**, y Claude Code lee los agentes de `.claude/agents/`. El resto del repo viajaba; justo esa carpeta, no.

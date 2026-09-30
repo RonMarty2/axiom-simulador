@@ -1,0 +1,17 @@
+{
+  "_fuente": "examenes pasados/MEDICINA/bibliografia/MED_Bibliografia-curso-basico-2021-2026_William-Osler.pdf (Preparatoria William Osler, no es documento de la facultad). Cargado el 30-sep-2026.",
+  "_uso": "Cada pregunta de Medicina se verifica contra el libro de SU gestión, no contra 'la literatura': un dato puede cambiar de edición a edición.",
+  "materias": ["Morfofunción", "Biología Celular", "Educación en Salud e Investigación"],
+  "gestiones": {
+    "2021-2022": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Biología celular y molecular. Junqueira y Carneiro", "educacion_salud": "Facultad de Medicina (texto de la cátedra)" },
+    "2022-2023": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Introducción a la Biología Celular. Alberts", "educacion_salud": "Facultad de Medicina (texto de la cátedra)" },
+    "2023-2024": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "educacion_salud": null },
+    "2024-2025": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "educacion_salud": null },
+    "2025-2026": { "morfofuncion": "Anatomía y Fisiología. Saladin, 6.ª ed.", "biologia_celular": "Biología Celular Biomédica. Alfonso Calvo, 1.ª ed.", "educacion_salud": "Educación en Salud e Investigación, Curso Básico 2025-2026 (Facultad de Medicina, UMSS)" }
+  },
+  "notas": [
+    "La bibliografía cambió de libro en 2025-2026 en las DOS materias grandes: Tortora a Saladin, Alberts a Calvo. El contenido de las lecciones tiene que declarar contra qué edición está escrito.",
+    "En 2023-2024 y 2024-2025 el PDF de la preparatoria deja 'Educación para la Salud' sin fila propia; no se infiere que no hubo, solo que el PDF no lo lista.",
+    "El PDF de bibliografía trae un 'examen simulacro de la preparatoria 2025-2026' con los mismos libros que el curso 2025-2026."
+  ]
+}
