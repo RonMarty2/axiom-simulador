@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,600&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+  <style>
+    body { margin: 0; background: #f4efe4; font-family: "Atkinson Hyperlegible", system-ui, sans-serif; }
+    a { color: #a1532a; text-decoration: none; } a:hover { color: #7d3d1d; }
+    .pt { width: 5px; height: 5px; border-radius: 50%; display: block; }
+    .on { background: #2f6b4f; }
+    .off { background: #ddd2bd; }
+    .dots { display: flex; flex-wrap: wrap; gap: 3px; align-content: flex-start; }
+  </style>
+</helmet>
+
+<div style="width: 1280px; background: #f4efe4; color: #191512;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 40px; background: #191512; color: #f4efe4;">
+    <div style="display: flex; align-items: center; gap: 32px;">
+      <div style="display: flex; align-items: center; gap: 9px; padding: 16px 0;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#f4efe4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+        <span style="font-family: 'Crimson Pro', Georgia, serif; font-size: 19px; font-weight: 700; letter-spacing: 0.08em;">AXIOM</span>
+      </div>
+      <div style="display: flex; gap: 2px;">
+        <span style="padding: 17px 13px; font-size: 13.5px; font-weight: 700; border-bottom: 2px solid #d98d4f;">Mi mapa</span>
+        <span style="padding: 17px 13px; font-size: 13.5px; color: rgba(244,239,228,0.62); border-bottom: 2px solid transparent;">Aprende</span>
+        <span style="padding: 17px 13px; font-size: 13.5px; color: rgba(244,239,228,0.62); border-bottom: 2px solid transparent;">Láminas</span>
+        <span style="padding: 17px 13px; font-size: 13.5px; color: rgba(244,239,228,0.62); border-bottom: 2px solid transparent;">Practicar</span>
+        <span style="padding: 17px 13px; font-size: 13.5px; color: rgba(244,239,228,0.62); border-bottom: 2px solid transparent;">Exámenes</span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 11px;">
+      <span style="font-size: 12.5px; color: rgba(244,239,228,0.62);">Ingeniería</span>
+      <span style="width: 29px; height: 29px; border-radius: 50%; background: #a1532a; display: flex; align-items: center; justify-content: center; font-size: 11.5px; font-weight: 700;">RM</span>
+    </div>
+  </div>
+
+  <div style="padding: 40px 56px 32px; border-bottom: 1px solid #191512;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 36px; align-items: end;">
+      <div style="grid-column: span 7;">
+        <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #a1532a; margin-bottom: 14px;">Tu mapa · Ingeniería · 4 exámenes rendidos</div>
+        <h1 style="font-family: 'Crimson Pro', Georgia, serif; font-size: 52px; line-height: 1.02; font-weight: 700; margin: 0 0 14px; letter-spacing: -0.024em;">
+          Te faltan <span style="color: #a1532a;">14 puntos</span><br>para el corte.
+        </h1>
+        <p style="font-size: 15.5px; line-height: 1.6; color: #45392f; margin: 0; max-width: 520px;">
+          Tu promedio hoy es 37 sobre 100. En Ingeniería entraron los que sacaron 51 o más. Estos son los temas que más te acercan, ordenados por cuánto pesan en el examen.
+        </p>
+      </div>
+
+      <div style="grid-column: span 5;">
+        <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: #6d6154; margin-bottom: 9px;">
+          <span>HOY · 37</span>
+          <span style="color: #a1532a;">CORTE · 51</span>
+          <span>100</span>
+        </div>
+        <div style="position: relative; height: 26px; background: #e4dbc9; border: 1px solid #191512;">
+          <div style="position: absolute; left: 0; top: 0; bottom: 0; width: 37%; background: #2f6b4f;"></div>
+          <div style="position: absolute; left: 51%; top: -6px; bottom: -6px; width: 2px; background: #a1532a;"></div>
+        </div>
+        <div style="display: flex; gap: 22px; margin-top: 16px; font-size: 13px; color: #45392f;">
+          <span><strong style="font-family: 'Crimson Pro', Georgia, serif; font-size: 19px;">56</strong> mejor nota</span>
+          <span><strong style="font-family: 'Crimson Pro', Georgia, serif; font-size: 19px;">4</strong> exámenes</span>
+          <span><strong style="font-family: 'Crimson Pro', Georgia, serif; font-size: 19px;">63</strong> días restantes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 34px 56px 26px;">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 22px;">
+      <h2 style="font-family: 'Crimson Pro', Georgia, serif; font-size: 25px; font-weight: 700; margin: 0;">Por dónde empezar</h2>
+      <div style="display: flex; align-items: center; gap: 22px; font-size: 12.5px; color: #6d6154;">
+        <span style="display: flex; align-items: center; gap: 6px;"><span class="pt on"></span> lo que ya acertás</span>
+        <span style="display: flex; align-items: center; gap: 6px;"><span class="pt off"></span> lo que te falta</span>
+        <span style="padding-left: 16px; border-left: 1px solid #d8cdb8;">cada punto = 4 preguntas del banco</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 26px 186px 76px 1fr 92px; gap: 16px; padding-bottom: 9px; border-bottom: 1px solid #191512; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #6d6154;">
+      <div></div>
+      <div>Tema</div>
+      <div style="text-align: right;">Cae</div>
+      <div>Tu dominio</div>
+      <div style="text-align: right;">Ganás</div>
+    </div>
+
+    <sc-for list="{{temas}}" as="t" hint-placeholder-count="7">
+      <div style="display: grid; grid-template-columns: 26px 186px 76px 1fr 92px; gap: 16px; align-items: start; padding: 12px 0; border-bottom: 1px solid #e4dbc9;">
+        <div style="font-family: 'Crimson Pro', Georgia, serif; font-size: 19px; font-weight: 700; color: #b0a496;">{{t.rank}}</div>
+        <div>
+          <div style="font-size: 14.5px; font-weight: 700; line-height: 1.3;">{{t.nombre}}</div>
+          <div style="font-size: 12px; color: #6d6154; margin-top: 3px;">{{t.ratio}}</div>
+        </div>
+        <div style="font-family: 'Crimson Pro', Georgia, serif; font-size: 20px; font-weight: 700; text-align: right; color: #45392f;">{{t.n}}</div>
+        <div class="dots">
+          <sc-for list="{{t.on}}" as="p" hint-placeholder-count="6">
+            <span class="pt on"></span>
+          </sc-for>
+          <sc-for list="{{t.off}}" as="p" hint-placeholder-count="20">
+            <span class="pt off"></span>
+          </sc-for>
+        </div>
+        <div style="text-align: right; font-size: 13.5px; font-weight: 700; color: #2f6b4f;">{{t.gana}}</div>
+      </div>
+    </sc-for>
+
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 26px; padding: 22px 26px; background: #191512; color: #f4efe4;">
+      <div>
+        <div style="font-family: 'Crimson Pro', Georgia, serif; font-size: 21px; font-weight: 700; margin-bottom: 4px;">Empezá por Trigonometría</div>
+        <div style="font-size: 13.5px; color: rgba(244,239,228,0.74);">Es el tema que más cae y el que peor tenés. Son 9 láminas y 2 lecciones animadas.</div>
+      </div>
+      <span style="display: inline-flex; align-items: center; gap: 9px; padding: 13px 26px; background: #d98d4f; color: #191512; font-weight: 700; font-size: 15px;">
+        Abrir el plan
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#191512" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+
+<script data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const POR_PUNTO = 4;
+    const DATOS = [
+      ["Trigonometría", 480, 0.22, "+6,4"],
+      ["Estequiometría", 282, 0.41, "+2,9"],
+      ["Cinemática", 227, 0.55, "+1,8"],
+      ["Química general", 196, 0.38, "+2,3"],
+      ["Logaritmos", 104, 0.22, "+1,4"],
+      ["Progresiones y sucesiones", 91, 0.37, "+0,9"],
+      ["Dinámica y fuerzas", 104, 0.62, "+0,8"],
+    ];
+    const temas = DATOS.map(([nombre, n, dominio, gana], i) => {
+      const total = Math.round(n / POR_PUNTO);
+      const on = Math.round(total * dominio);
+      return {
+        rank: String(i + 1).padStart(2, "0"),
+        nombre,
+        n,
+        gana,
+        ratio: Math.round(dominio * 100) + "% acertadas",
+        on: Array.from({ length: on }, (_, k) => k),
+        off: Array.from({ length: total - on }, (_, k) => k),
+      };
+    });
+    return { temas };
+  }
+}
+</script>
+</body>
+</html>

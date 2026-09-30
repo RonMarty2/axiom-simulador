@@ -1,0 +1,48 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "A · Editorial académico — Landing", "x": 0, "y": 0, "w": 1280, "h": 1180 },
+    { "file": "PizarraLanding.dc.html", "title": "B · Pizarra — Landing", "x": 1400, "y": 0, "w": 1280, "h": 1150 },
+    { "file": "AltiplanoLanding.dc.html", "title": "C · Altiplano — Landing", "x": 2800, "y": 0, "w": 1280, "h": 1180 },
+    { "file": "EditorialDashboard.dc.html", "title": "A · Editorial académico — Dashboard", "x": 0, "y": 1330, "w": 1280, "h": 900 },
+    { "file": "PizarraDashboard.dc.html", "title": "B · Pizarra — Dashboard", "x": 1400, "y": 1330, "w": 1280, "h": 880 },
+    { "file": "AltiplanoDashboard.dc.html", "title": "C · Altiplano — Dashboard", "x": 2800, "y": 1330, "w": 1280, "h": 880 }
+  ],
+  "annotations": [
+    {
+      "id": "como-leerlo",
+      "x": 0,
+      "y": -200,
+      "w": 420,
+      "text": "Tres direcciones, mismo contenido real.\nArriba la landing, abajo el dashboard de cada una.\n\nLas tres comparten dos cosas a propósito:\nCrimson Pro en títulos (lo único con carácter que ya tenías) e íconos SVG en vez de emojis.\nLo que cambia es paleta, composición y densidad."
+    },
+    {
+      "id": "dir-a",
+      "x": 480,
+      "y": -200,
+      "w": 300,
+      "text": "A · EDITORIAL ACADÉMICO\nPapel crema, tinta navy, un solo acento terracota. Se siente material de estudio serio, no SaaS.\n\nA favor: el más alejado del look genérico, y el que mejor explota Crimson Pro.\nEn contra: el más sobrio — puede leerse \"viejo\" para un chico de 17 años."
+    },
+    {
+      "id": "dir-b",
+      "x": 1400,
+      "y": -200,
+      "w": 300,
+      "text": "B · PIZARRA\nOscuro con grilla, violeta eléctrico y turquesa. Es el sistema LIENZO de tus lecciones llevado a toda la app.\n\nA favor: coherencia total con las lecciones animadas, y lo más parecido a 3Blue1Brown.\nEn contra: el modo oscuro cansa en sesiones largas de lectura, y encarece imprimir/compartir capturas."
+    },
+    {
+      "id": "dir-c",
+      "x": 2800,
+      "y": -200,
+      "w": 300,
+      "text": "C · ALTIPLANO\nCrema, rojo tierra, verde oliva y ocre, con geometría andina sutil. Identidad boliviana sin folclore literal.\n\nA favor: el único que no se puede confundir con una plantilla internacional.\nEn contra: el más arriesgado; si la paleta no se aplica con disciplina se vuelve ruidosa."
+    },
+    {
+      "id": "nota-nav",
+      "x": 0,
+      "y": 1240,
+      "w": 560,
+      "text": "En los tres dashboards el nav entra en UNA línea: pasa de 8 links a 5, y el resto (debilidades, resueltos, planes, cuenta) se va al menú del avatar. Ese es el arreglo del nav partido, independiente de la dirección que elijas."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}

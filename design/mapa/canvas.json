@@ -1,0 +1,30 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "title": "Landing — El mapa público", "x": 0, "y": 0, "w": 1280, "h": 1560 },
+    { "file": "MapaPersonal.dc.html", "title": "Producto — El mapa, ya tuyo", "x": 1400, "y": 0, "w": 1280, "h": 1080 }
+  ],
+  "annotations": [
+    {
+      "id": "de-donde-salen",
+      "x": 0,
+      "y": -230,
+      "w": 460,
+      "text": "Los números NO son inventados.\nSalen de recorrer los 139 archivos de data/examenes/umss/ingenieria y clasificar sus 3.569 preguntas por el campo tema.\n\nTrigonometría 480 · Estequiometría 282 · Cinemática 227.\nLos 10 primeros temas suman el 52% del examen."
+    },
+    {
+      "id": "por-que-no-generico",
+      "x": 1400,
+      "y": -230,
+      "w": 440,
+      "text": "La misma pieza en los dos lados: afuera el mapa es la prueba (nadie más tiene este dato), adentro es el plan de estudio.\n\nNo hay hero partido, ni grid de tarjetas, ni fila de métricas decorativas. La estructura ES el dato."
+    },
+    {
+      "id": "inventado",
+      "x": 1400,
+      "y": 1140,
+      "w": 440,
+      "text": "Lo único inventado acá: el corte en 51 puntos, el porcentaje de dominio por tema y los \"+puntos que ganás\".\nSi la UMSS publica el corte real, se reemplaza; el resto ya lo podés calcular con lo que tenés en la base."
+    }
+  ],
+  "launch": { "view": "canvas" }
+}
