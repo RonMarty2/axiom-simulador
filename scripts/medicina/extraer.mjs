@@ -36,6 +36,12 @@ function parsearPreguntas(texto) {
   for (const cruda of lineas) {
     const l = cruda.trim();
     if (!l) continue;
+    // Encabezado de sección ("II. A continuación, se presentan 50 preguntas..."): cierra la
+    // pregunta en curso, si no se pega como cola de su última afirmación.
+    if (/^I{1,3}\s*\.\s*A continuaci/.test(l)) {
+      actual = null;
+      continue;
+    }
     // "1.-", "2-", "3. -": con guion es siempre afirmación (la numeración de pregunta no lo lleva).
     const conGuion = l.match(/^([1-3])\s*(?:\.\s*-|-)\s*(.*)$/);
     if (actual && conGuion && Number(conGuion[1]) === actual.afirmaciones.length + 1) {

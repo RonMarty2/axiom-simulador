@@ -394,7 +394,10 @@ describe("banco de exámenes", () => {
       try { examen = parseExamenMD(e.contenido); } catch { continue; }
       for (const p of examen.preguntas) {
         if (p.enunciado.length < 40) continue;
-        const clave = norm(p.enunciado);
+        // En las preguntas de clave de combinación (Medicina) el enunciado solo no
+        // identifica la pregunta: dos preguntas pueden compartir enunciado y
+        // distinguirse por sus afirmaciones.
+        const clave = norm(p.enunciado + (p.afirmaciones ?? []).join(" "));
         const texto = p.opciones.find((o) => o.letra === p.respuesta_correcta)?.texto ?? "";
         const item = {
           donde: `${e.nombre} P${p.numero}`,

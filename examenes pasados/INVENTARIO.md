@@ -383,3 +383,5 @@ en `data/research/medicina/bibliografia-por-gestion.json`.
 
 **Ojo:** el compilado dice "2021-2026" pero lo verificado es 2023-24 en adelante. Las gestiones 2021-22 y 2022-23 no se identificaron todavía (podrían estar en los patrones escaneados de las págs. 2-54).
 **Formato propio de Medicina:** 100 preguntas, 90 minutos, afirmaciones 1/2/3 con clave de combinación y patrón oficial aparte. Ver la entrada del 30-sep-2026 de la bitácora.
+
+**Estado de la digitalización de Medicina (30-sep-2026):** cargado `2025-segundo-parcial-curso-basico-2024-2025.md` (págs. 92-100 del compilado; 98 de 100 preguntas, 2 en `faltantes`). Faltan 8 exámenes oficiales (págs. 55-91, 101-132), 3 simulacros (133-165) y las páginas escaneadas 2-54. El flujo, con el script de lote de ese examen como modelo, está en `scripts/medicina/`.

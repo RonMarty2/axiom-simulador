@@ -476,6 +476,22 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-09-30 (ter) (primer examen de Medicina digitalizado: Segundo Parcial 2024-2025)
+
+Se probó todo el flujo con un examen completo: `data/examenes/umss/medicina/2025-segundo-parcial-curso-basico-2024-2025.md`. **98 preguntas cargadas y 2 en `faltantes`** (60 y 91), contadas con un comando sobre el parser real: 49 de morfofunción, 49 de biología celular, 48 con tres afirmaciones. Este examen no trae nada de Educación en Salud e Investigación.
+
+**Cómo salió, y lo que enseñó:**
+
+- **La clave está en una imagen, y es una cartilla de círculos rellenados a mano** (fechada 23-01-2025, firmada por los coordinadores). Se leyó recortando la página en cuatro columnas a 260 dpi. Es el patrón de la facultad, no una marca suelta de un alumno, pero igual se contrastó: para cada afirmación se decidió verdadera o falsa por separado y se exigió que la letra resultante coincidiera con la cartilla. El script (`scripts/medicina/lotes/med-2024-25-p2.py`) se **detiene** si una no coincide. Coincidieron 94 de 98 a la primera, lo que también valida la lectura de la cartilla.
+- **Las marcas dobles son reales y tienen una causa.** Las preguntas 60 y 91 traen dos marcas (A y C). En las dos, la afirmación 1 y la 3 son correctas y la 2 es falsa: esa combinación no tiene letra en la clave, y la facultad aceptó las dos. Es el mismo caso de la "Corrección" del 2do parcial 2025-26. Por eso van a `faltantes` con `sin-respuesta`.
+- **Cuatro claves oficiales que parecen discrepar del libro** (20, 51, 56 y 85). Están transcriptas con la clave oficial y llevan "Nota: Revisión pendiente" en la explicación, que **el alumno ve**. **No se verificaron con el libro**: el veredicto propio se hizo de memoria de Tortora y Alberts, sin los libros a mano. Hay que confirmarlas con el libro de la gestión (Tortora 15.ª y Alberts 5.ª) antes de darlas por cerradas; si alguna se confirma como error oficial, decidir si se deja con la nota o se mueve a `faltantes`.
+- **Límites del extractor:** salió bien porque este examen usa `1.` y `2.` para las afirmaciones. La pregunta 50 arrastraba el encabezado de la sección II dentro de su última afirmación (se recorta en el script de carga); se corrigió en `extraer.mjs` (un encabezado "II. A continuación..." corta la pregunta en curso).
+- **Se ajustó un test que era correcto para Económicas e Ingeniería pero no para Medicina:** "una pregunta repetida no cambia de respuesta" comparaba solo el enunciado, y las preguntas 56 y 57 de este examen comparten enunciado ("Con relación a la formación de hormonas tiroideas") y se distinguen por sus afirmaciones. Ahora la clave de comparación suma las afirmaciones.
+- **Ponderación:** este examen es 50% morfofunción y 50% biología celular (49/49 cargadas, más 2 en faltantes). La ponderación de `facultades.json` para Medicina **sigue provisional** (0,34/0,33/0,33): falta ver un examen con Educación en Salud e Investigación.
+- **Efecto visible en la app:** con un examen cargado, `/api/facultades` deja de marcar Medicina como "Próximamente" y el alumno ya puede elegirla. Es el comportamiento pensado ("se corrige solo"), pero hoy Medicina tiene un único examen y cuatro claves en revisión.
+
+**Pendiente:** `data/examenes/umss/medicina/` tiene un solo examen; quedan 8 oficiales y 3 simulacros por digitalizar, y las páginas escaneadas 2 a 54.
+
 ### 2026-09-30 (bis) (formato nativo de Medicina en el banco, y materias reales)
 
 Ronald aprobó las dos decisiones que había dejado abiertas la entrada anterior.
