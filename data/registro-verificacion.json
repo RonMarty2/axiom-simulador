@@ -1,1 +1,13 @@
-{}
+{
+  "ingenieria/2006-1op-1-2006": {
+    "id": "umss-ingenieria-2006-examen-de-ingreso-1-2006-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/054_ExamenAdmisionPrimeraOpcion1-2006.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Contrastadas 20/20 contra el PDF (texto y render a 200-400 dpi). Corregido: P12 opciones c y d estaban invertidas (11/23 y 77/26; el PDF dice 23/11 y 26/77); P11 omitia la frase 'y que en el proceso de la colision no se pierde masa'. Desviaciones editoriales que el PDF no trae y se dejaron: P1 aclaracion '(el original, antes de duplicar)', P13 masas atomicas S=32 Ca=40, P16 P.M. HNO3=63, P12 enunciado reescrito en texto en vez de 'figura adjunta'. Dudas: P6 opcion A se transcribe 3 raiz de 3, pero el PDF renderiza solo '3' (el radical no se dibuja; el texto oculto trae un segundo 3 de 0.7 pt). Figuras de P11 (pendulo) y P12 (circuito 10V, 4 ohm serie, 1/2/3 ohm paralelo) NO estan dibujadas en el banco: sin figura, no hay respaldo grafico de esas dos preguntas. DECISION: completo=false hasta dibujar las figuras de P11 y P12 (auditor-figuras); el texto ya esta contrastado."
+  }
+}

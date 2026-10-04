@@ -65,3 +65,13 @@ Esto **no reemplaza** a `BITACORA.md` §7 (errores históricos del proyecto). Ac
 
 - 2026-09-30 · ACIERTO · Antes de digitalizar un solo examen de Medicina se leyó el formato en el PDF y se le preguntó al humano por las dos decisiones de arquitectura (parser nativo y materias reales). Después se probó todo con UN examen completo. · Formato nuevo: decidir la arquitectura, probar con un examen entero, recién entonces escalar.
 - 2026-09-30 · ACIERTO · Dejar el script de lote (`scripts/medicina/lotes/`) con los datos y la clave al lado hace el trabajo **regenerable** y sirve de molde para el siguiente examen. · Cada examen nuevo: copiar el lote anterior y cambiar los datos.
+
+## Verificación contra facsímil
+
+- 2026-10-04 · ACIERTO · El PDF tenía capa de texto: con PyMuPDF se contrastaron 20 preguntas en minutos y el render a 200 dpi sirvió para lo que el texto no da (fracciones, figuras). · Primero capa de texto, luego render solo de lo dudoso.
+- 2026-10-04 · ERROR · La capa de texto de PyMuPDF entrega las fracciones con el denominador antes del numerador; el transcriptor invirtió dos opciones de P12 (2006-1op-1). · Las fracciones se leen siempre en el render.
+- 2026-10-04 · ERROR · Una frase final del enunciado (P11) se perdió en la transcripción y no se nota sin comparar línea por línea. · Contrastar el cierre de cada enunciado.
+- 2026-10-04 · SUERTE · 2 errores en 20 preguntas y las respuestas coincidían; el comentario "100 % verificado" del .md no impidió que hubiera errores en las opciones. · Ese comentario no reemplaza el contraste con el PDF.
+- 2026-10-04 · ERROR · Ecuaciones de Word mal embebidas (P6 opción A) no se dibujan y dejan texto oculto de 0,7 pt. · Revisar spans diminutos antes de decidir si es ilegible.
+- 2026-10-04 · ERROR · El agente dejó `completo: true` en un examen con 2 figuras sin dibujar: el alumno habría visto un examen "verificado" sin figuras. · Una pregunta con figura en el PDF y sin dibujo en el banco deja el examen en `completo: false`.
+- 2026-10-04 · ACIERTO · Costo de la primera auditoría: ~24 llamadas a herramientas y unos 2 minutos para 20 preguntas sin figuras y con texto limpio. · Estimar por examen con esa cifra.

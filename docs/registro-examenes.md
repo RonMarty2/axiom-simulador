@@ -35,7 +35,7 @@ Sin registro de verificación: **10** de 10. Con conteo que no cuadra: **1**.
 
 ## ingenieria (139 exámenes, 3569 preguntas)
 
-Sin registro de verificación: **139** de 139. Con conteo que no cuadra: **0**.
+Sin registro de verificación: **138** de 139. Con conteo que no cuadra: **0**.
 
 | Examen | Fecha | Decl. | Reales | E | Fig. | Pend. | Alta | Últ. | Verificación |
 |---|---|--:|--:|--:|--:|:-:|---|---|---|
@@ -43,7 +43,7 @@ Sin registro de verificación: **139** de 139. Con conteo que no cuadra: **0**.
 | Examen de Ingreso 2-2005 (1ra Opción) <br><sub>ingenieria/2005-1op-2-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-14 | sin registrar |
 | Examen de Ingreso 1-2005 (2da Opción) <br><sub>ingenieria/2005-2op-1-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Examen de Ingreso 2-2005 (2da Opción) <br><sub>ingenieria/2005-2op-2-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
-| Examen de Ingreso 1-2006 (1ra Opción) <br><sub>ingenieria/2006-1op-1-2006</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-14 | sin registrar |
+| Examen de Ingreso 1-2006 (1ra Opción) <br><sub>ingenieria/2006-1op-1-2006</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-14 | contra-facsimil (2026-10-04) |
 | Examen de Ingreso 1-2006 (2da Opción) <br><sub>ingenieria/2006-2op-1-2006</sub> |  | 20 | 20 | 0 | 1 |  | 2026-07-20 | 2026-09-14 | sin registrar |
 | Primer Parcial · Curso Propedéutico (Gestión I-2006) <br><sub>ingenieria/2006-parcial1-1-2006</sub> |  | 38 | 38 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Primer Parcial · Curso Propedéutico (Gestión 2-2006) <br><sub>ingenieria/2006-parcial1-2-2006</sub> |  | 38 | 38 | 5 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
