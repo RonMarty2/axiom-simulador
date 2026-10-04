@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-04 (ter) (Términos y Condiciones y Política de Privacidad)
+**Última actualización:** 2026-10-04 (quater) (datos de cobro reales: BNB, Binance Pay, RedotPay)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -344,7 +344,8 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual declarado por el alumno → admin aprueba en `/admin/pagos` → `agregarOExtenderSuscripcion` da un mes de esa facultad; el plan se deriva de las suscripciones vigentes y vence solo). Lo que falta no es la plomería, es esto:
 
 - [ ] **Datos de cobro reales en `/pagar`.** ⬅ **ESTE ES EL QUE FALTA PARA COBRAR.** Hoy son de demostración y lo dicen en pantalla: Tigo Money `+591 6 7000-0000`, un "QR" que es un damero CSS con la leyenda QR DEMO, y banco `Axiom SRL · Banco Unión · 10000123456789`. Mientras estén así, **un alumno que quiera pagar no puede**: no hay a dónde mandar la plata.
-  - **Bloqueado esperando a Ronald** (decisión del 2026-09-13: se deja para después). Hacen falta tres datos que solo él tiene: (1) número real de Tigo Money, (2) la imagen del QR bancario, (3) cuenta bancaria — banco, número y titular.
+  - **Actualización 4-oct (quater):** Ronald mandó los QR y quedaron cargados (BNB, Binance Pay, RedotPay; ver §11). Tigo y transferencia se sacaron. **Falta:** (1) un QR de BNB sin monto y sin vencimiento (el que mandó es de Bs. 100 y vence el 5-oct), (2) correr `supabase/migration-006-pagos-metodos.sql` en Supabase, (3) probar un pago de punta a punta.
+  - ~~Bloqueado esperando a Ronald~~ (decisión del 2026-09-13: se deja para después). Hacen falta tres datos que solo él tiene: (1) número real de Tigo Money, (2) la imagen del QR bancario, (3) cuenta bancaria — banco, número y titular.
   - Cuando lleguen: no hardcodearlos. Van a config/DB (tabla de configuración o `admin/config`, que ya existe) para poder cambiarlos sin deploy, y el QR a Supabase Storage. Están en `src/app/pagar/page.tsx`, líneas ~176-200.
   - Todo lo demás del circuito de cobro YA funciona: el alumno declara el pago, queda pendiente, el admin lo aprueba en `/admin/pagos` y `agregarOExtenderSuscripcion` le da el mes.
 - [x] ~~El contenido pago no está protegido.~~ Resuelto: guard de servidor en `aprende/layout.tsx` y `laminas/layout.tsx`, con la lógica en `src/lib/acceso-contenido.ts` (ver §11). Frena el acceso por URL, que es el problema real; **no** esconde el contenido de quien lea el bundle de JavaScript — para eso habría que mover las lecciones a datos pedidos al servidor.
@@ -480,6 +481,26 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (quater) (datos de cobro reales: QR de BNB, Binance Pay y RedotPay)
+
+Ronald mandó tres QR (BNB, RedotPay con 10 USDT y Binance Pay "RonMarty") y no usa Tigo Money ni cuenta bancaria. Se reemplazaron los datos de demostración de `/pagar`, que era el bloqueante de §8.
+
+- **`src/lib/pagos-config.ts`**: una sola fuente de a dónde se paga. Cada método declara su imagen de QR (`public/pagos/`), la moneda, el usuario o ID, qué comprobante se pide, y si el QR trae un **monto grabado** (`qrMonto`) o una **fecha de vencimiento** (`qrVence`). `/pagar` deja de ofrecer un QR que no corresponde (monto distinto o vencido) en vez de mandar al alumno a escanear algo que su banco va a rechazar.
+- **Métodos activos:** `qr_bancario` (BNB, Bs.), `binance_pay` (USDT, usuario `RonMarty`) y `redotpay` (USDT, ID `1939601201`). **Tigo Money y transferencia ya no se ofrecen**, pero siguen en el tipo y en la restricción de la tabla porque hay pagos históricos con esos valores.
+- **`src/lib/precios.ts`** suma `PRECIOS_USDT` (pro 5, premium 10, cambio de facultad 5) y las funciones `montoPlanEn` / `montoCambioFacultadEn` / `formatearMonto`. Premium = 10 USDT es lo que ya trae grabado el QR de RedotPay; **los otros dos montos en USDT son una suposición mía** (la misma proporción que en Bs.) y Ronald puede cambiarlos. No hay conversión automática: el tipo de cambio paralelo se mueve y el monto en USDT se fija a mano.
+- **`/api/pagos`** ahora valida el método contra la lista (antes aceptaba cualquier texto), calcula el monto en la moneda del método y, si la base rechaza el método por su restricción, responde un mensaje claro en vez de un error de base de datos. `/cuenta` y `/admin/pagos` muestran la moneda (`10 USDT` / `Bs. 100`) y el nombre del método.
+- **`supabase/migration-006-pagos-metodos.sql`** amplía la restricción `pagos_metodo_check`. **HAY QUE CORRERLA UNA VEZ en el SQL Editor de Supabase** antes de que alguien pague con Binance o RedotPay; sin eso la base los rechaza (y el alumno ve "todavía no está habilitado"). `schema.sql` ya la incluye para instalaciones nuevas.
+- **Textos legales y de precios** actualizados: métodos, que el cripto no se puede deshacer y que los reembolsos en USDT se devuelven en USDT.
+- **`src/lib/pagos-config.test.ts`** (11 tests): cada QR existe en `public/`, la restricción de la base admite todos los métodos, el servidor valida el método, el QR con monto solo se ofrece para ese monto, un QR vencido no se ofrece, y `/pagar` ya no tiene datos de demostración.
+
+**El QR de BNB que mandó Ronald es de un solo uso y vence mañana, y no sirve para cobrar de verdad.** Trae **Bs. 100.00 grabados** y dice **"Válido hasta: 5 de octubre de 2026"**. Por eso la pantalla lo oculta solo para el cambio de facultad (Bs. 50) y desde el 6-oct. **Falta un QR de BNB sin monto y sin vencimiento** (un QR de cobro reutilizable): cuando esté, se reemplaza `public/pagos/qr-bnb.png` y en `pagos-config.ts` se ponen `qrMonto: null` y `qrVence: null`. Hasta entonces, desde el 6-oct, el alumno solo ve Binance Pay y RedotPay.
+
+**Decisión de diseño:** las imágenes van en `public/` y no en Supabase Storage. Cambiar un QR requiere subir a `main` (lo hace la IA), pero evita sumar infraestructura el día del lanzamiento. Si se vuelve molesto, el paso siguiente es moverlos a una tabla de configuración.
+
+**Verificado en local:** la pantalla con los tres métodos (premium) y con dos (cambio de facultad), registrar un pago de RedotPay (queda `10 USDT`), y que el servidor rechaza `tigo_money` y un método inventado. **No se probó pagar de verdad con ninguno de los tres.**
+
+**Pendiente:** el alumno sigue sin poder adjuntar la foto del comprobante; el admin aprueba mirando el número que el alumno escribe (§8).
 
 ### 2026-10-04 (ter) (Términos y Condiciones y Política de Privacidad)
 

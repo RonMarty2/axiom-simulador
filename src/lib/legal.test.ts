@@ -43,6 +43,7 @@ test("el texto legal no repite precios escritos a mano", () => {
   // Los montos salen de src/lib/precios.ts: si cambian, el texto cambia solo.
   for (const p of PAGINAS) {
     assert.equal(/Bs\.?\s*\d/.test(leer(p)), false, `${p} escribe un precio a mano`);
+    assert.equal(/\d\s*USDT/.test(leer(p)), false, `${p} escribe un monto en USDT a mano`);
   }
 });
 

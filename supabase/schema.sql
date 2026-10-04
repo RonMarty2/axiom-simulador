@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS pagos (
   plan            TEXT NOT NULL CHECK (plan IN ('pro', 'premium')),
   monto           NUMERIC NOT NULL,
   moneda          TEXT NOT NULL DEFAULT 'BOB',
-  metodo          TEXT NOT NULL CHECK (metodo IN ('tigo_money', 'qr_bancario', 'transferencia')),
+  metodo          TEXT NOT NULL CHECK (metodo IN ('tigo_money', 'qr_bancario', 'transferencia', 'binance_pay', 'redotpay')),
   estado          TEXT NOT NULL DEFAULT 'pendiente' CHECK (estado IN ('pendiente', 'aprobado', 'rechazado')),
   fecha           DATE NOT NULL DEFAULT CURRENT_DATE,
   referencia      TEXT,

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { LegalPagina, Seccion, Lista, Contacto } from "../components/LegalPagina";
 import { LEGAL } from "@/lib/legal";
-import { PRECIOS_BOB, formatearBs } from "@/lib/precios";
+import { PRECIOS_BOB, PRECIOS_USDT, formatearBs } from "@/lib/precios";
 
 export const metadata: Metadata = {
   title: "Términos y Condiciones | AXIOM",
@@ -65,14 +65,16 @@ export default function TerminosPage() {
 
       <Seccion n={4} titulo="Cómo se paga">
         <p>
-          El pago es manual. Pagas por Tigo Money, QR bancario o transferencia bancaria, y luego registras el pago
-          en AXIOM con el número de comprobante. Nosotros verificamos que el dinero llegó y recién entonces
-          activamos tu acceso. Esto puede tomar algún tiempo, sobre todo fuera de horario.
+          El pago es manual. Pagas con QR bancario (en bolivianos) o con Binance Pay o RedotPay (en USDT, un dólar
+          digital), y luego registras el pago en AXIOM con el número de comprobante. Nosotros verificamos que el
+          dinero llegó y recién entonces activamos tu acceso. Esto puede tomar algún tiempo, sobre todo fuera de
+          horario. En USDT, Premium cuesta {PRECIOS_USDT.premium} USDT y el cambio de facultad {PRECIOS_USDT.cambioFacultad} USDT.
         </p>
         <Lista items={[
           "Si el pago no llega, el monto no coincide o el comprobante es falso, lo rechazamos y no se activa el acceso.",
           "Presentar un pago falso o un comprobante alterado es motivo de cierre de la cuenta.",
-          "Nunca te pediremos tu clave del banco ni tu PIN de Tigo Money. Si alguien te los pide a nombre de AXIOM, no es AXIOM.",
+          "Un pago en cripto no se puede deshacer: revisa el destinatario y el monto antes de confirmar. Las comisiones de tu banco o plataforma corren por tu cuenta.",
+          "Nunca te pediremos la clave de tu banco ni de tus cuentas de cripto. Si alguien te las pide a nombre de AXIOM, no es AXIOM.",
         ]} />
       </Seccion>
 
@@ -88,7 +90,7 @@ export default function TerminosPage() {
         ]} />
         <p>
           Pide la devolución dentro de los 7 días de tu pago, por el canal de contacto de abajo, con tu comprobante.
-          Te respondemos y, si corresponde, devolvemos por el mismo medio con el que pagaste.
+          Te respondemos y, si corresponde, devolvemos por el mismo medio con el que pagaste (en USDT si pagaste en USDT).
         </p>
       </Seccion>
 

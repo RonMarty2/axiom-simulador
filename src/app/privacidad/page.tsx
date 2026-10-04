@@ -36,8 +36,8 @@ export default function PrivacidadPage() {
         ]} />
         <p><strong>Los de tus pagos:</strong></p>
         <Lista items={[
-          "El plan, el monto, el método (Tigo Money, QR o transferencia), el número de comprobante que escribes, la fecha y si lo aprobamos o rechazamos.",
-          "No guardamos números de tarjeta, claves del banco ni PIN. No tenemos acceso a tu cuenta bancaria ni a tu Tigo Money: solo vemos el comprobante que tú nos das.",
+          "El plan, el monto, el método (QR bancario, Binance Pay o RedotPay), el número de comprobante que escribes, la fecha y si lo aprobamos o rechazamos.",
+          "No guardamos números de tarjeta ni claves de tu banco o de tus cuentas de cripto. No tenemos acceso a tus cuentas: solo vemos el comprobante que tú nos das y el pago que nos llega a nosotros.",
         ]} />
         <p><strong>Los técnicos:</strong></p>
         <Lista items={[

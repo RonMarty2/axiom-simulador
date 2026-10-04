@@ -8,6 +8,8 @@
 import fs from "fs/promises";
 import path from "path";
 import { supabaseAdmin, supabaseConfigurado } from "@/lib/supabase";
+import type { MetodoPago } from "@/lib/pagos-config";
+export type { MetodoPago };
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const SEED_DIR = path.join(DATA_DIR, "seed");
@@ -19,7 +21,6 @@ const SEED_DIR = path.join(DATA_DIR, "seed");
 export type FacultadId = "economicas" | "ingenieria" | "medicina" | "derecho";
 export type PlanId = "gratis" | "pro" | "premium";
 export type EstadoPago = "pendiente" | "aprobado" | "rechazado";
-export type MetodoPago = "tigo_money" | "qr_bancario" | "transferencia";
 
 export interface Facultad {
   id: FacultadId;
@@ -82,7 +83,7 @@ export interface Pago {
   plan: PlanId | null;            // null cuando tipo=cambio_facultad
   destino_facultad?: FacultadId | null;
   monto: number;
-  moneda: "BOB";
+  moneda: "BOB" | "USDT";
   metodo: MetodoPago;
   estado: EstadoPago;
   fecha: string;

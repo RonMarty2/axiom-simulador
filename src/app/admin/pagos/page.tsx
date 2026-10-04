@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import AppHeader from "../../components/AppHeader";
 import type { Pago } from "@/lib/data-store";
+import { etiquetaMetodo } from "@/lib/pagos-config";
+import { formatearMonto } from "@/lib/precios";
 
 interface UsuarioMini {
   id: string;
@@ -112,9 +114,9 @@ export default function AdminPagos() {
                           <span style={{ textTransform: "capitalize", fontWeight: 700, color: p.plan === "premium" ? "#d97706" : "#7c3aed" }}>Plan {p.plan}</span>
                         )}
                       </td>
-                      <td style={td()}>{p.metodo.replace("_", " ")}</td>
+                      <td style={td()}>{etiquetaMetodo(p.metodo)}</td>
                       <td style={td()}><code style={{ fontSize: 12, background: "var(--bg-subtle)", padding: "2px 6px", borderRadius: 4 }}>{p.referencia}</code></td>
-                      <td style={{ ...td(), fontWeight: 700 }}>Bs. {p.monto}</td>
+                      <td style={{ ...td(), fontWeight: 700 }}>{formatearMonto(p.monto, p.moneda)}</td>
                       <td style={td()}><span style={{ padding: "3px 10px", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase", background: p.estado === "aprobado" ? "#10b98115" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#d97706" : "#dc2626" }}>{p.estado}</span></td>
                       <td style={td()}>
                         {p.estado === "pendiente" ? (

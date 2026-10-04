@@ -146,7 +146,7 @@ function CambiarFacultadInner() {
               <div>
                 <div style={{ fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>Total a pagar</div>
                 <div style={{ fontSize: 32, fontWeight: 900, color: "var(--fg-primary)" }}>Bs. {PRECIO_CAMBIO_BOB}</div>
-                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Pago único · Tigo Money / QR / Transferencia</div>
+                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>Pago único · QR bancario / Binance Pay / RedotPay</div>
               </div>
               <button onClick={procederPago} style={{
                 padding: "14px 28px", background: "var(--accent)", color: "var(--accent-fg)",

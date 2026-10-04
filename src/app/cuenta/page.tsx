@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
 import type { Usuario, Pago, Facultad } from "@/lib/data-store";
+import { etiquetaMetodo } from "@/lib/pagos-config";
+import { formatearMonto } from "@/lib/precios";
 
 export default function CuentaPage() {
   const router = useRouter();
@@ -168,8 +170,8 @@ export default function CuentaPage() {
                   <tr key={p.id} style={{ borderTop: "1px solid var(--border)" }}>
                     <td style={{ padding: "10px 14px" }}>{new Date(p.fecha).toLocaleDateString("es-BO")}</td>
                     <td style={{ padding: "10px 14px", textTransform: "capitalize" }}>{p.plan}</td>
-                    <td style={{ padding: "10px 14px" }}>{p.metodo.replace("_", " ")}</td>
-                    <td style={{ padding: "10px 14px", textAlign: "right", fontWeight: 700 }}>Bs. {p.monto}</td>
+                    <td style={{ padding: "10px 14px" }}>{etiquetaMetodo(p.metodo)}</td>
+                    <td style={{ padding: "10px 14px", textAlign: "right", fontWeight: 700 }}>{formatearMonto(p.monto, p.moneda)}</td>
                     <td style={{ padding: "10px 14px", textAlign: "center" }}>
                       <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#d97706" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
                     </td>

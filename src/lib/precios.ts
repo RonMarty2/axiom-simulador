@@ -16,7 +16,18 @@ export const PRECIOS_BOB = {
   cambioFacultad: 50,
 } as const;
 
+// Lo mismo en dólares digitales (USDT), para quien paga por Binance Pay o
+// RedotPay. NO es una conversión automática: el tipo de cambio paralelo se
+// mueve y Ronald fija el monto en USDT a mano. Premium = 10 USDT es el monto
+// que ya trae grabado el QR de RedotPay; el resto sigue la misma proporción.
+export const PRECIOS_USDT = {
+  pro: 5,
+  premium: 10,
+  cambioFacultad: 5,
+} as const;
+
 export const MONEDA = "BOB";
+export type Moneda = "BOB" | "USDT";
 
 // Monto de un pago de plan. Un solo lugar donde se decide cuánto sale cada uno.
 export function precioPlan(plan: "pro" | "premium"): number {
@@ -26,4 +37,20 @@ export function precioPlan(plan: "pro" | "premium"): number {
 // Lo que se muestra en pantalla: "Bs. 100".
 export function formatearBs(monto: number): string {
   return `Bs. ${monto}`;
+}
+
+// El monto de un pago según la moneda en la que se paga. El servidor lo usa
+// para cobrar y las pantallas para mostrar: nunca se calcula en otro lado.
+export function montoPlanEn(plan: "pro" | "premium", moneda: Moneda): number {
+  const tabla = moneda === "USDT" ? PRECIOS_USDT : PRECIOS_BOB;
+  return plan === "premium" ? tabla.premium : tabla.pro;
+}
+
+export function montoCambioFacultadEn(moneda: Moneda): number {
+  return moneda === "USDT" ? PRECIOS_USDT.cambioFacultad : PRECIOS_BOB.cambioFacultad;
+}
+
+// "Bs. 100" o "10 USDT".
+export function formatearMonto(monto: number, moneda: Moneda): string {
+  return moneda === "USDT" ? `${monto} USDT` : formatearBs(monto);
 }

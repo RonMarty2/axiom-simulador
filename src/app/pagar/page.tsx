@@ -8,9 +8,9 @@ import AppHeader from "../components/AppHeader";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import type { Facultad } from "@/lib/data-store";
-import { PRECIOS_BOB, precioPlan } from "@/lib/precios";
+import { formatearMonto, montoCambioFacultadEn, montoPlanEn } from "@/lib/precios";
+import { METODOS_ACTIVOS, ORDEN_METODOS, metodoDisponible, qrVigente, type MetodoActivo } from "@/lib/pagos-config";
 
-type Metodo = "tigo_money" | "qr_bancario" | "transferencia";
 type TipoPago = "plan" | "cambio_facultad";
 
 function PagarInner() {
@@ -22,14 +22,29 @@ function PagarInner() {
 
   const [facultades, setFacultades] = useState<Facultad[]>([]);
   const [destinoFac, setDestinoFac] = useState<Facultad | null>(null);
-  const [metodo, setMetodo] = useState<Metodo>("tigo_money");
+  const [metodoElegido, setMetodoElegido] = useState<MetodoActivo | null>(null);
+  // "Hoy", fijado al abrir la pantalla: decide si un QR con vencimiento sigue
+  // sirviendo. Se lee una sola vez y no en cada render.
+  const [hoy] = useState(() => new Date());
   const [referencia, setReferencia] = useState("");
   const [enviando, setEnviando] = useState(false);
   const [exito, setExito] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   // Se muestra lo mismo que el servidor va a cobrar: ver src/lib/precios.ts.
-  const monto = tipo === "cambio_facultad" ? PRECIOS_BOB.cambioFacultad : precioPlan(plan);
+  // El monto depende del método, porque el QR bancario cobra en Bs. y Binance
+  // Pay y RedotPay en USDT.
+  const montoEn = (moneda: "BOB" | "USDT") =>
+    tipo === "cambio_facultad" ? montoCambioFacultadEn(moneda) : montoPlanEn(plan, moneda);
+  // Solo los métodos con los que se puede pagar este monto hoy (un QR con otro
+  // monto grabado, o ya vencido, no se ofrece).
+  const disponibles = ORDEN_METODOS
+    .map((id) => METODOS_ACTIVOS[id])
+    .filter((m) => metodoDisponible(m, montoEn(m.moneda), hoy));
+  const cfg = disponibles.find((m) => m.id === metodoElegido) ?? disponibles[0];
+  const metodo = cfg.id;
+  const monto = montoEn(cfg.moneda);
+  const textoMonto = formatearMonto(monto, cfg.moneda);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
@@ -51,7 +66,8 @@ function PagarInner() {
       const body: Record<string, unknown> = {
         tipo,
         metodo,
-        referencia: referencia || `${metodo.toUpperCase()}-${Date.now().toString().slice(-8)}`,
+        // Si va vacía, el servidor arma una referencia por defecto.
+        referencia: referencia.trim(),
       };
       if (tipo === "plan") body.plan = plan;
       if (tipo === "cambio_facultad") body.destino_facultad = destinoFacultadId;
@@ -126,7 +142,7 @@ function PagarInner() {
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 6 }}>
             {titulo}
           </h1>
-          <p style={{ color: "var(--fg-muted)" }}>Total a pagar: <strong style={{ color: "var(--fg-primary)", fontSize: 22 }}>Bs. {monto}</strong></p>
+          <p style={{ color: "var(--fg-muted)" }}>Total a pagar: <strong style={{ color: "var(--fg-primary)", fontSize: 22 }}>{textoMonto}</strong></p>
         </div>
 
         {/* Resumen para cambio de facultad */}
@@ -150,21 +166,17 @@ function PagarInner() {
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>1. Elige el método de pago</h3>
           <div style={{ display: "grid", gap: 10 }}>
-            {[
-              { id: "tigo_money", nombre: "Tigo Money", icono: "celular" as const, desc: "Pago vía celular Tigo · Bolivia" },
-              { id: "qr_bancario", nombre: "QR Bancario", icono: "qr" as const, desc: "Escanea el QR y paga desde tu app bancaria" },
-              { id: "transferencia", nombre: "Transferencia bancaria", icono: "banco" as const, desc: "Banco Unión / Mercantil / BNB" },
-            ].map((m) => (
-              <button key={m.id} onClick={() => setMetodo(m.id as Metodo)} style={{
+            {disponibles.map((m) => (
+              <button key={m.id} onClick={() => setMetodoElegido(m.id)} style={{
                 display: "flex", alignItems: "center", gap: 14, padding: 14, textAlign: "left", cursor: "pointer",
                 border: metodo === m.id ? "2px solid var(--accent)" : "1px solid var(--border)",
                 background: metodo === m.id ? "var(--accent-soft)" : "transparent",
                 borderRadius: 12,
               }}>
-                <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre={m.icono} tamano={26} /></div>
+                <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre={m.moneda === "BOB" ? "qr" : "tarjeta"} tamano={26} /></div>
                 <div style={{ flex: 1 }}>
                   <div style={{ fontWeight: 700, color: "var(--fg-primary)", fontSize: 15 }}>{m.nombre}</div>
-                  <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{m.desc}</div>
+                  <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{m.descripcion}</div>
                 </div>
                 {metodo === m.id && <div style={{ color: "var(--accent)", fontSize: 20 }}>✓</div>}
               </button>
@@ -175,42 +187,49 @@ function PagarInner() {
         {/* Instrucciones según método */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>2. Realiza el pago</h3>
-          {metodo === "tigo_money" && (
-            <div style={{ fontSize: 14, lineHeight: 1.6, color: "var(--fg-primary)" }}>
-              <Icono nombre="celular" tamano={15} /> Envía <strong>Bs. {monto}</strong> al número Tigo Money:<br/>
-              <div style={{ fontSize: 28, fontWeight: 800, color: "var(--accent)", margin: "10px 0" }}>+591 6 7000-0000</div>
-              <span style={{ fontSize: 13, color: "var(--fg-muted)" }}>(Número de demostración. Cuando conectemos pagos reales, este número cambiará.)</span>
-            </div>
-          )}
-          {metodo === "qr_bancario" && (
-            <div style={{ textAlign: "center", fontSize: 14, color: "var(--fg-primary)" }}>
-              <div style={{ display: "inline-block", padding: 20, background: "white", border: "1px solid var(--border)", borderRadius: 10 }}>
-                <div style={{ width: 180, height: 180, background: "linear-gradient(45deg, #000 25%, #fff 25%, #fff 50%, #000 50%, #000 75%, #fff 75%)", backgroundSize: "20px 20px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <span style={{ color: "white", fontSize: 14, background: "rgba(0,0,0,0.5)", padding: 8, borderRadius: 4 }}>QR DEMO</span>
-                </div>
+          <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.7 }}>
+            <p>
+              Paga exactamente <strong style={{ fontSize: 18 }}>{textoMonto}</strong>
+              {cfg.moneda === "USDT" && <> (USDT es un dólar digital)</>}.
+            </p>
+            {cfg.destinatario && (
+              <div style={{ margin: "12px 0", padding: "10px 14px", background: "var(--bg-subtle)", borderRadius: 10 }}>
+                <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>{cfg.destinatario.etiqueta}</div>
+                <div style={{ fontSize: 22, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.02em", wordBreak: "break-all" }}>{cfg.destinatario.valor}</div>
               </div>
-              <p style={{ marginTop: 12, fontSize: 13, color: "var(--fg-muted)" }}>Escanea con tu app bancaria y paga Bs. {monto}</p>
-            </div>
-          )}
-          {metodo === "transferencia" && (
-            <div style={{ fontSize: 14, color: "var(--fg-primary)", lineHeight: 1.8 }}>
-              <div><strong>Banco:</strong> Banco Unión S.A.</div>
-              <div><strong>Cuenta:</strong> 10000123456789</div>
-              <div><strong>Titular:</strong> Axiom SRL</div>
-              <div><strong>Monto:</strong> Bs. {monto}</div>
-              <div style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 8 }}>(Datos de demostración.)</div>
-            </div>
-          )}
+            )}
+            {qrVigente(cfg, monto, hoy) && (
+              <div style={{ textAlign: "center", margin: "14px 0" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={cfg.qr}
+                  alt={`Código QR para pagar con ${cfg.nombre}`}
+                  style={{ width: "100%", maxWidth: 280, height: "auto", borderRadius: 12, border: "1px solid var(--border)" }}
+                />
+                <div style={{ marginTop: 8, fontSize: 13 }}>
+                  <a href={cfg.qr} download style={{ color: "var(--accent)", fontWeight: 700 }}>Descargar la imagen del QR</a>
+                </div>
+                <p style={{ marginTop: 6, fontSize: 12.5, color: "var(--fg-muted)" }}>
+                  Si pagas desde este mismo celular, descarga la imagen y busca en tu app la opción para leer un QR desde la galería.
+                </p>
+              </div>
+            )}
+            {cfg.irreversible && (
+              <p style={{ fontSize: 13, color: "var(--fg-muted)" }}>
+                Un pago en cripto no se puede deshacer. Revisa el destinatario y el monto antes de confirmar. Las comisiones que cobre tu plataforma corren por tu cuenta.
+              </p>
+            )}
+          </div>
         </div>
 
         {/* Confirmar referencia */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
-          <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>3. Número de comprobante</h3>
+          <h3 style={{ fontSize: 16, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 14 }}>3. {cfg.referencia.etiqueta}</h3>
           <input
             type="text"
             value={referencia}
             onChange={(e) => setReferencia(e.target.value)}
-            placeholder="Ej. TM-89472341 (opcional)"
+            placeholder={`${cfg.referencia.ejemplo} (opcional)`}
             style={{ width: "100%", padding: "12px 14px", borderRadius: 10, border: "1px solid var(--border)", fontSize: 14 }}
           />
           <p style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 6 }}>
@@ -226,7 +245,7 @@ function PagarInner() {
           width: "100%", padding: 16, background: "var(--accent)", color: "white",
           border: "none", borderRadius: 12, fontSize: 16, fontWeight: 800, cursor: "pointer",
         }}>
-          {enviando ? "Enviando..." : `✓ Ya pagué Bs. ${monto}, registrar mi pago`}
+          {enviando ? "Enviando..." : `✓ Ya pagué ${textoMonto}, registrar mi pago`}
         </button>
         <p style={{ marginTop: 12, fontSize: 12.5, lineHeight: 1.5, color: "var(--fg-muted)", textAlign: "center" }}>
           Al registrar tu pago aceptas los <Link href="/terminos" style={{ color: "var(--accent)", fontWeight: 700 }}>Términos y Condiciones</Link>, que incluyen

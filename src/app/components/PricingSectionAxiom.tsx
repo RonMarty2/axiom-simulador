@@ -124,8 +124,8 @@ export default function PricingSectionAxiom() {
       </div>
 
       <p className="mx-auto mt-10 max-w-xl text-center text-sm text-neutral-500">
-        Paga por Tigo Money, QR bancario o transferencia. Activación manual en
-        menos de 24 horas (te avisamos por WhatsApp).
+        Paga por QR bancario, Binance Pay o RedotPay. Activación manual en
+        menos de 24 horas.
       </p>
     </section>
   );

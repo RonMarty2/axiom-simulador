@@ -33,3 +33,8 @@ Los dos textos los redactó una IA a partir de lo que la app hace de verdad (có
 - Cookie: una sola de sesión, `httpOnly`, 30 días (`COOKIE_MAX_AGE`). Sin analítica ni cookies de terceros (no hay ninguna librería de seguimiento en `package.json`).
 - A los proveedores de IA no se les envía nombre ni correo: `plan-personalizado` manda enunciados fallados y temas.
 - Precios: salen de `src/lib/precios.ts`; el test `legal.test.ts` impide escribirlos a mano en los textos.
+
+## Cobros en cripto (agregado el 4-oct, al sumar Binance Pay y RedotPay)
+
+- Recibir pagos en USDT puede tener tratamiento impositivo y regulatorio propio en Bolivia. **Consultarlo con un contador o abogado antes de depender de ese canal.** Los textos solo dicen que el pago en cripto no se puede deshacer y que los reembolsos se devuelven en la misma moneda.
+- Los montos en USDT están fijados a mano (`PRECIOS_USDT` en `src/lib/precios.ts`); el tipo de cambio con el boliviano se mueve y nadie lo recalcula.

@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crearPago, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
 import { getCurrentUser, isAdmin } from "@/lib/session";
-import { PRECIOS_BOB } from "@/lib/precios";
+import { montoCambioFacultadEn, montoPlanEn, type Moneda } from "@/lib/precios";
+import { METODOS_ACTIVOS, esMetodoActivo, type MetodoActivo } from "@/lib/pagos-config";
 
 // Los precios viven en src/lib/precios.ts, no acá: estaban escritos tres
 // veces y coincidían de casualidad. El servidor sigue siendo el que MANDA
-// (calcula el monto con estas constantes y nunca confía en lo que manda el
-// cliente); lo único que cambió es de dónde los lee.
-const PRECIO_PRO_BOB = PRECIOS_BOB.pro;
-const PRECIO_PREMIUM_BOB = PRECIOS_BOB.premium;
-const PRECIO_CAMBIO_FACULTAD_BOB = PRECIOS_BOB.cambioFacultad;
+// (calcula el monto con esas tablas y nunca confía en lo que manda el
+// cliente); lo único que cambió es de dónde los lee. La moneda la decide el
+// método: QR bancario cobra en Bs., Binance Pay y RedotPay en USDT.
 
 export async function GET() {
   if (await isAdmin()) {
@@ -28,12 +27,44 @@ export async function POST(req: NextRequest) {
 
   const body = await req.json();
   const tipo = (body.tipo ?? "plan") as TipoPago;
-  const metodo = body.metodo as "tigo_money" | "qr_bancario" | "transferencia";
-  const referencia = (body.referencia as string) || `${(metodo ?? "PAGO").toUpperCase()}-${Date.now().toString().slice(-8)}`;
-
+  const metodo = body.metodo;
   if (!metodo) {
     return NextResponse.json({ error: "Falta método de pago" }, { status: 400 });
   }
+  // Solo los métodos que hoy se ofrecen: antes se aceptaba cualquier texto, y
+  // la tabla de pagos solo admite un conjunto cerrado.
+  if (!esMetodoActivo(metodo)) {
+    return NextResponse.json({ error: "Ese método de pago no está disponible" }, { status: 400 });
+  }
+  const moneda = METODOS_ACTIVOS[metodo].moneda;
+  const referencia = (body.referencia as string) || `${metodo.toUpperCase()}-${Date.now().toString().slice(-8)}`;
+
+  try {
+    return await registrarPago({ usuarioId: u.id, body, tipo, metodo, moneda, referencia });
+  } catch (e) {
+    // Si la base todavía no tiene el método en su restricción (falta correr
+    // supabase/migration-006-pagos-metodos.sql), que el alumno vea algo útil
+    // y no un error de base de datos.
+    const msg = e instanceof Error ? e.message : (e as { message?: string })?.message ?? "";
+    if (msg.includes("pagos_metodo_check")) {
+      return NextResponse.json(
+        { error: "Ese método de pago todavía no está habilitado. Prueba con otro." },
+        { status: 503 },
+      );
+    }
+    throw e;
+  }
+}
+
+async function registrarPago(d: {
+  usuarioId: string;
+  body: Record<string, unknown>;
+  tipo: TipoPago;
+  metodo: MetodoActivo;
+  moneda: Moneda;
+  referencia: string;
+}) {
+  const { usuarioId, body, tipo, metodo, moneda, referencia } = d;
 
   if (tipo === "cambio_facultad") {
     const destino = body.destino_facultad as FacultadId | undefined;
@@ -45,12 +76,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Facultad destino inválida" }, { status: 400 });
     }
     const pago = await crearPago({
-      usuario_id: u.id,
+      usuario_id: usuarioId,
       tipo: "cambio_facultad",
       plan: null,
       destino_facultad: destino,
-      monto: PRECIO_CAMBIO_FACULTAD_BOB,
-      moneda: "BOB",
+      monto: montoCambioFacultadEn(moneda),
+      moneda,
       metodo,
       referencia,
     });
@@ -62,13 +93,12 @@ export async function POST(req: NextRequest) {
   if (!plan) {
     return NextResponse.json({ error: "Falta plan" }, { status: 400 });
   }
-  const monto = plan === "premium" ? PRECIO_PREMIUM_BOB : PRECIO_PRO_BOB;
   const pago = await crearPago({
-    usuario_id: u.id,
+    usuario_id: usuarioId,
     tipo: "plan",
     plan,
-    monto,
-    moneda: "BOB",
+    monto: montoPlanEn(plan, moneda),
+    moneda,
     metodo,
     referencia,
   });

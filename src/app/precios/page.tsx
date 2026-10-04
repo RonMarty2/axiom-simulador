@@ -177,7 +177,7 @@ function PreciosInner() {
 
         <div style={{ marginTop: 50, padding: 24, background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", textAlign: "center" }}>
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="tarjeta" tamano={17} /> Métodos de pago aceptados</h3>
-          <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>Tigo Money · QR Bancario · Transferencia bancaria · (próximamente: tarjeta)</p>
+          <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>QR bancario (Bs.) · Binance Pay (USDT) · RedotPay (USDT)</p>
         </div>
         <p style={{ marginTop: 18, fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
           Al pagar aceptas los <Link href="/terminos" style={{ color: "var(--accent)", fontWeight: 700 }}>Términos y Condiciones</Link>.
