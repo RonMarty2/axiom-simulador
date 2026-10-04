@@ -482,6 +482,12 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-04 (sexies) (app nativa: estado y decisiones pendientes)
+- **Estado:** el TWA de `android/` (commit `bcfea25`, 3-ago-2026, hecho por una sesión web) nunca se compiló ni se probó. Falta todo lo de §5.1: correrla en Android Studio, ícono real, keystore + SHA-256 en `strings.xml` y `assetlinks.json`, cuenta de Play Console.
+- **Decisión de Ronald:** quiere app nativa. Se recomienda publicar primero solo Android con el TWA (USD 25 único). iPhone queda para después (USD 99 al año, necesita Mac y Capacitor; Apple puede rechazar un envoltorio web por la regla 4.2). Una reescritura nativa de verdad (React Native/Flutter) no se justifica: todo el valor ya está en la web.
+- **Pendiente de verificar antes de publicar:** Google Play suele exigir su propio sistema de cobro (comisión 15-30 %) para suscripciones digitales dentro de la app; hoy se cobra por QR de BNB, Binance Pay y RedotPay. Revisar las políticas vigentes de Play para Bolivia antes de pagar la cuenta. No se sabe cómo aplican, no asumirlo.
+- **Agentes:** no hacen falta para la app nativa (pasos de una sola vez, con llave y cuenta de Ronald). Útil: `cronista` vigilando que el placeholder de `assetlinks.json` no llegue a producción.
+
 ### 2026-10-04 (quinquies) (PUBLICIDAD: primer video de prueba, con voz y efectos, y agentes de marketing mejorados)
 - **+** `PUBLICIDAD/` entra al repo (solo lo liviano): guion, brief, agentes, `lecciones.md`, proyecto de motion `motion/axiom-v1/` (HTML determinista por `render(t)`, `render.py`, `warp.py`, `mix.py`), voz y los mp4 de prueba en `final/`. Los frames PNG, las referencias y las descargas quedan en `.gitignore`.
 - **+** Video de prueba de 38 s (9:16): motion graphics + voz de Gemini TTS (voz Nika, aprobada por Ronald) + efectos de sonido sintetizados. Es solo una prueba: los videos reales se hacen cuando Axiom esté terminado.
