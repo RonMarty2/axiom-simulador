@@ -179,6 +179,11 @@ export default function CuentaPage() {
             </table>
           )}
         </div>
+        <p style={{ marginTop: 20, fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+          <Link href="/terminos" style={{ color: "var(--fg-muted)", textDecoration: "underline" }}>Términos y Condiciones</Link>
+          {" · "}
+          <Link href="/privacidad" style={{ color: "var(--fg-muted)", textDecoration: "underline" }}>Política de Privacidad</Link>
+        </p>
       </div>
     </div>
   );

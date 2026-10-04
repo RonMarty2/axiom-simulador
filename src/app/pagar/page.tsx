@@ -228,6 +228,10 @@ function PagarInner() {
         }}>
           {enviando ? "Enviando..." : `✓ Ya pagué Bs. ${monto}, registrar mi pago`}
         </button>
+        <p style={{ marginTop: 12, fontSize: 12.5, lineHeight: 1.5, color: "var(--fg-muted)", textAlign: "center" }}>
+          Al registrar tu pago aceptas los <Link href="/terminos" style={{ color: "var(--accent)", fontWeight: 700 }}>Términos y Condiciones</Link>, que incluyen
+          cuándo se devuelve el dinero. Tus datos se tratan según la <Link href="/privacidad" style={{ color: "var(--accent)", fontWeight: 700 }}>Política de Privacidad</Link>.
+        </p>
       </div>
     </div>
   );

@@ -54,6 +54,11 @@ function LoginContent() {
           Continuar con Google
         </a>
 
+        <p style={{ marginTop: 14, fontSize: 12.5, lineHeight: 1.5, color: "var(--fg-muted)", textAlign: "center" }}>
+          Al continuar aceptas los <Link href="/terminos" style={{ color: "var(--accent)", fontWeight: 700 }}>Términos y Condiciones</Link> y la{" "}
+          <Link href="/privacidad" style={{ color: "var(--accent)", fontWeight: 700 }}>Política de Privacidad</Link>.
+        </p>
+
         {error && (
           <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.08)", borderRadius: 10, color: "#b91c1c", fontSize: 13, textAlign: "center" }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 7, justifyContent: "center" }}><Icono nombre="alerta" tamano={14} /> No se pudo iniciar sesión: {error}</span>
@@ -86,7 +91,7 @@ function LoginContent() {
 
         <p style={{ marginTop: 22, textAlign: "center", fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5 }}>
           Al entrar se crea tu cuenta automáticamente.<br/>
-          Empiezas con plan <strong>Gratis</strong> (2 simulacros al mes).
+          Empiezas con plan <strong>Gratis</strong> (2 simulacros de exámenes pasados y 2 predictivos por semana).
         </p>
 
         <div style={{ marginTop: 28, textAlign: "center" }}>

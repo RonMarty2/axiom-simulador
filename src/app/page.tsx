@@ -179,6 +179,10 @@ export default function LandingPage() {
 
       <footer style={{ padding: "30px 24px", textAlign: "center", color: "var(--fg-muted)", fontSize: 13 }}>
         © 2026 Axiom · Simulador de exámenes UMSS · Hecho en Bolivia
+        <div style={{ marginTop: 8, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <Link href="/terminos" style={{ color: "var(--fg-muted)", textDecoration: "underline" }}>Términos y Condiciones</Link>
+          <Link href="/privacidad" style={{ color: "var(--fg-muted)", textDecoration: "underline" }}>Política de Privacidad</Link>
+        </div>
       </footer>
     </div>
   );

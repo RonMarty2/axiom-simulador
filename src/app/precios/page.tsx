@@ -54,7 +54,7 @@ const PLANES = [
     descripcion: "Para empezar a prepararte",
     features: [
       "Todos los exámenes pasados con sus respuestas",
-      "2 simulacros por semana (con resolución paso a paso)",
+      "4 simulacros por semana: 2 de exámenes pasados y 2 predictivos (con resolución paso a paso)",
       "Ver en qué fallaste",
     ],
     contras: [
@@ -179,6 +179,10 @@ function PreciosInner() {
           <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="tarjeta" tamano={17} /> Métodos de pago aceptados</h3>
           <p style={{ fontSize: 14, color: "var(--fg-muted)" }}>Tigo Money · QR Bancario · Transferencia bancaria · (próximamente: tarjeta)</p>
         </div>
+        <p style={{ marginTop: 18, fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
+          Al pagar aceptas los <Link href="/terminos" style={{ color: "var(--accent)", fontWeight: 700 }}>Términos y Condiciones</Link>.
+          Ahí están la política de reembolsos y qué hacemos con tus datos (<Link href="/privacidad" style={{ color: "var(--accent)", fontWeight: 700 }}>Privacidad</Link>).
+        </p>
       </div>
     </div>
   );

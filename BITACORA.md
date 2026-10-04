@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-04 (bis) (panel lateral del examen en tablet acostada)
+**Última actualización:** 2026-10-04 (ter) (Términos y Condiciones y Política de Privacidad)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -351,7 +351,8 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~La biblioteca de exámenes regalaba las soluciones.~~ Resuelto el 14-sep: `/api/axiom/examenes/[id]` no miraba la sesión, así que los 140 exámenes con respuesta y paso a paso se bajaban con un `curl` sin login. Ahora resuelve el plan en el servidor y filtra (ver §11 y D8).
 - [x] ~~El plan no mira facultad.~~ Ya estaba resuelto y figuraba abierto: `puedeVerResolucionBiblioteca(usuario, facultadDelExamen)` recibe la facultad del examen desde `fd17d4c`. Verificado en el código el 16-sep.
 - [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
-- [ ] **No hay Términos y Condiciones ni Política de Privacidad.** Para cobrar y para guardar datos de menores de edad hacen falta, y la PWA las va a pedir si alguna vez va a una store.
+- [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Falta lo que bloquea cobrar:** completar `titular` y `correo`/`whatsapp` en `src/lib/legal.ts` (hoy `null`) y que un abogado los lea.
+- [ ] **Botón para borrar la cuenta y para salir del ranking** (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
 - [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
 
@@ -479,6 +480,21 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (ter) (Términos y Condiciones y Política de Privacidad)
+
+Era el pendiente de §8 "No hay Términos y Condiciones ni Política de Privacidad": hacen falta para cobrar y para guardar datos de menores, y la tienda de Android los pide. Ronald pidió hacerlos.
+
+- **`/terminos` y `/privacidad`** (`src/app/terminos`, `src/app/privacidad`), públicas, en tuteo, con un resumen corto arriba y secciones numeradas. Estructura común en `src/app/components/LegalPagina.tsx`.
+- **Se redactaron desde lo que la app hace de verdad**, leyendo el código antes de escribir: Google con `openid email profile`, tablas con datos del alumno, una sola cookie `httpOnly` de 30 días, ninguna analítica, y qué se le manda a la IA (enunciados fallados y temas, nunca nombre ni correo). La lista de lo verificado está en [`docs/legal-revision.md`](../docs/legal-revision.md).
+- **`src/lib/legal.ts`**: fecha de vigencia, ciudad y los datos de contacto en un solo lugar. Los precios salen de `src/lib/precios.ts` (el texto no escribe ningún monto).
+- **Enlazadas desde** login ("Al continuar aceptas..."), landing (pie), `/pagar` (junto al botón de registrar el pago), `/precios` y `/cuenta`.
+- **`src/lib/legal.test.ts`** (6 tests): existen las páginas, las cuatro pantallas las enlazan, tuteo, sin precios a mano, sin guion largo, y la fecha no se duplica.
+- **De paso se corrigió un dato falso del propio alumno:** el login decía "2 simulacros al mes" y `/precios` "2 simulacros por semana". El código (`plan.ts`) da **2 de exámenes pasados y 2 predictivos por semana**. Como los Términos dicen que la descripción de Precios forma parte del contrato, tenía que coincidir.
+
+**Lo que NO está resuelto, y bloquea cobrar:** el titular y el canal de contacto están en `null` en `legal.ts`. Las páginas lo dicen con todas las letras en la sección de contacto, pero **sin canal nadie puede pedir un reembolso ni que le borren los datos**. Ronald tiene que dar un nombre (o razón social) y un correo o WhatsApp.
+
+**Los textos los escribió una IA, no un abogado.** `docs/legal-revision.md` lista las decisiones tomadas por defecto (reembolsos, edad, jurisdicción, límite de responsabilidad) y lo que conviene que mire un abogado boliviano. Y dos cosas que los textos ofrecen y la app no tiene: **borrar la cuenta y salir del ranking no tienen botón** (hoy sería a mano en Supabase).
 
 ### 2026-10-04 (bis) (panel lateral del examen en tablet acostada y pantalla ancha)
 
