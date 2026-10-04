@@ -33,6 +33,8 @@ export default function SimuladorActivoPage() {
   const [areaActualIdx, setAreaActualIdx] = useState(0);
   const [confirmarSiguienteHoja, setConfirmarSiguienteHoja] = useState(false);
   const [avisoFaltan, setAvisoFaltan] = useState<number | null>(null);
+  // Pregunta que el alumno tiene a la vista, para resaltarla en el panel lateral.
+  const [preguntaVisible, setPreguntaVisible] = useState<string | null>(null);
 
   // Cargar simulador: primero de localStorage (sobrevive a serverless),
   // luego del servidor como fallback.
@@ -119,6 +121,25 @@ export default function SimuladorActivoPage() {
     }
   }, [simulador, router, simId]);
 
+  // Panel lateral: sigue qué pregunta de la hoja está cerca del borde superior.
+  // La franja de observación es una línea fina a ~27% desde arriba (5% de alto):
+  // con una franja ancha, dos preguntas cortas quedaban "a la vista" a la vez y
+  // el panel resaltaba la que no era.
+  useEffect(() => {
+    if (cargando) return;
+    const bloques = Array.from(document.querySelectorAll<HTMLElement>('[id^="pregunta-"]'));
+    if (bloques.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entradas) => {
+        const visible = entradas.find((e) => e.isIntersecting);
+        if (visible) setPreguntaVisible(visible.target.id.replace("pregunta-", ""));
+      },
+      { rootMargin: "-25% 0px -70% 0px" }
+    );
+    bloques.forEach((b) => obs.observe(b));
+    return () => obs.disconnect();
+  }, [cargando, areaActualIdx]);
+
   const elegirOpcion = async (preguntaId: string, letra: string) => {
     if (!simulador) return;
     setAvisoFaltan(null);
@@ -200,6 +221,27 @@ export default function SimuladorActivoPage() {
   const marcadas = new Set(simulador.marcadas ?? []);
   const seleccion = simulador.respuestas_usuario[pregunta.id];
 
+  // "Continuar a la hoja siguiente" lo disparan dos botones (el del final de la
+  // hoja y el del panel lateral), así que la lógica vive en un solo lugar.
+  const grupoActual = grupos[areaActualIdx];
+  const sinResponderActual = grupoActual
+    ? grupoActual.indices.filter((i) => !simulador.respuestas_usuario[preguntas[i].id])
+    : [];
+  const irAPregunta = (id: string, posicion: ScrollLogicalPosition = "start") => {
+    const el = document.getElementById(`pregunta-${id}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: posicion });
+  };
+  const intentarContinuar = () => {
+    if (sinResponderActual.length > 0) {
+      setAvisoFaltan(sinResponderActual.length);
+      // Lleva al alumno a la primera pregunta sin responder
+      irAPregunta(preguntas[sinResponderActual[0]].id, "center");
+      return;
+    }
+    setAvisoFaltan(null);
+    setConfirmarSiguienteHoja(true);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
       {/* Header con cronómetro */}
@@ -219,7 +261,9 @@ export default function SimuladorActivoPage() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
+      {/* En pantalla ancha (tablet acostada, escritorio) la hoja ocupa la columna
+          izquierda y el panel de navegación queda fijo a la derecha. */}
+      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-6">
         {/* Pregunta principal */}
         {vista === "una" && (
         <main>
@@ -408,7 +452,7 @@ export default function SimuladorActivoPage() {
                     const sel = simulador.respuestas_usuario[p.id];
                     const marc = marcadas.has(p.id);
                     return (
-                      <div key={p.id} id={`pregunta-${p.id}`} className="p-5">
+                      <div key={p.id} id={`pregunta-${p.id}`} className="scroll-mt-24 p-5">
                         <div className="mb-3 flex items-start gap-3">
                           <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-xs font-bold text-white">
                             {numeroGlobal}
@@ -495,34 +539,13 @@ export default function SimuladorActivoPage() {
           {/* Navegación: solo avanzar (no se puede volver, como examen real UMSS) */}
           <div className="mt-6 flex items-center justify-end gap-3">
             {areaActualIdx < grupos.length - 1 ? (
-              (() => {
-                const siguiente = grupos[areaActualIdx + 1];
-                const actual = grupos[areaActualIdx];
-                const idxSinResponder = actual.indices.find((i) => !simulador.respuestas_usuario[preguntas[i].id]);
-                const cantFaltan = actual.indices.filter((i) => !simulador.respuestas_usuario[preguntas[i].id]).length;
-                return (
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (cantFaltan > 0) {
-                        setAvisoFaltan(cantFaltan);
-                        // Lleva al alumno a la primera pregunta sin responder
-                        if (idxSinResponder !== undefined) {
-                          const id = preguntas[idxSinResponder].id;
-                          const el = document.getElementById(`pregunta-${id}`);
-                          if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-                        }
-                        return;
-                      }
-                      setAvisoFaltan(null);
-                      setConfirmarSiguienteHoja(true);
-                    }}
-                    className="rounded-xl bg-[var(--accent)] px-6 py-3 font-bold text-white shadow-lg hover:bg-[var(--accent)]"
-                  >
-                    Continuar a {ETIQUETAS_AREA[siguiente.area] ?? siguiente.area} →
-                  </button>
-                );
-              })()
+              <button
+                type="button"
+                onClick={intentarContinuar}
+                className="rounded-xl bg-[var(--accent)] px-6 py-3 font-bold text-white shadow-lg hover:bg-[var(--accent)]"
+              >
+                Continuar a {ETIQUETAS_AREA[grupos[areaActualIdx + 1].area] ?? grupos[areaActualIdx + 1].area} →
+              </button>
             ) : (
               <button
                 type="button"
@@ -537,6 +560,77 @@ export default function SimuladorActivoPage() {
             <Icono nombre="alerta" tamano={15} /> Pasar de hoja es irreversible. Asegúrate de responder todas las preguntas antes.
           </p>
         </main>
+        )}
+
+        {/* Panel lateral (solo pantalla ancha): mapa de la hoja actual. Respeta
+            la regla del examen real: solo muestra y salta dentro de la hoja en
+            curso; las hojas anteriores no son navegables. */}
+        {vista === "hoja" && grupoActual && (
+          <aside className="hidden lg:block" aria-label="Navegación de la hoja">
+            <div className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm">
+              <div className="text-xs font-bold uppercase tracking-wide text-neutral-500">
+                Hoja {areaActualIdx + 1} de {grupos.length}
+              </div>
+              <div className="text-base font-bold text-neutral-900">
+                {ETIQUETAS_AREA[grupoActual.area] ?? grupoActual.area}
+              </div>
+              <div className="mt-1 text-xs text-neutral-500">
+                <b className="text-neutral-800">{grupoActual.preguntas.length - sinResponderActual.length}</b> de {grupoActual.preguntas.length} respondidas
+              </div>
+              <div className="mt-3 grid grid-cols-6 gap-1.5">
+                {grupoActual.indices.map((i) => {
+                  const q = preguntas[i];
+                  const respondida = !!simulador.respuestas_usuario[q.id];
+                  const marcada = marcadas.has(q.id);
+                  const aLaVista = preguntaVisible === q.id;
+                  return (
+                    <button
+                      key={q.id}
+                      type="button"
+                      onClick={() => irAPregunta(q.id)}
+                      aria-label={`Pregunta ${i + 1}, ${respondida ? "respondida" : "sin responder"}${marcada ? ", marcada" : ""}`}
+                      aria-current={aLaVista ? "true" : undefined}
+                      className={`relative flex h-9 items-center justify-center rounded-lg text-xs font-bold tabular-nums transition-colors ${
+                        respondida
+                          ? "bg-[var(--accent)] text-white"
+                          : "border border-neutral-300 bg-white text-neutral-700 hover:bg-neutral-50"
+                      } ${aLaVista ? "shadow-[0_0_0_2px_var(--fg-primary)]" : ""}`}
+                    >
+                      {i + 1}
+                      {marcada && (
+                        <span className="absolute -right-1 -top-1 text-[11px] leading-none text-amber-500">★</span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-neutral-500">
+                <span className="flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded bg-[var(--accent)]" /> Respondida</span>
+                <span className="flex items-center gap-1"><span className="inline-block h-2.5 w-2.5 rounded border border-neutral-300" /> Sin responder</span>
+                <span className="flex items-center gap-1"><span className="text-amber-500">★</span> Marcada</span>
+              </div>
+              {areaActualIdx < grupos.length - 1 ? (
+                <button
+                  type="button"
+                  onClick={intentarContinuar}
+                  className="mt-4 w-full rounded-xl bg-[var(--accent)] px-4 py-3 text-sm font-bold text-white shadow-lg"
+                >
+                  Continuar a {ETIQUETAS_AREA[grupos[areaActualIdx + 1].area] ?? grupos[areaActualIdx + 1].area} →
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setConfirmFinalizar(true)}
+                  className="mt-4 w-full rounded-xl bg-emerald-600 px-4 py-3 text-sm font-bold text-white shadow-lg hover:bg-emerald-700"
+                >
+                  ✓ Finalizar examen
+                </button>
+              )}
+              <p className="mt-2 text-[11px] leading-snug text-neutral-500">
+                Pasar de hoja es irreversible, como en el examen real.
+              </p>
+            </div>
+          </aside>
         )}
 
       </div>

@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-04 (la tablet: nav, orientación y escala de lecciones y láminas)
+**Última actualización:** 2026-10-04 (bis) (panel lateral del examen en tablet acostada)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -395,7 +395,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 
 ### Importante
 - [ ] **Probar la tablet en un aparato físico** (acostada y parada, con la app instalada). Lo de la entrada del 4-oct se verificó solo con viewports emulados.
-- [ ] **Examen en tablet acostada:** hoy es una columna con las preguntas en fila. Falta un panel lateral fijo con el número de cada pregunta (respondida / sin responder) para saltar. Es el uso de tablet con más valor y no se hizo.
+- [x] ~~Examen en tablet acostada: panel lateral con el mapa de la hoja~~ Hecho el 4-oct (bis), ver §11. Sigue sin probarse en tablet física.
 - [ ] **Compilar y firmar la app de Android (TWA)** y reemplazar el ícono provisional (ver §5.1). Mientras tanto la web instalada desde Chrome es la vía directa.
 - [x] Láminas de Repaso: las 64 de Aritmética-Álgebra Ingeniería en producción, 23 módulos (ver §11).
 - [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
@@ -479,6 +479,18 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (bis) (panel lateral del examen en tablet acostada y pantalla ancha)
+
+Era el pendiente que quedó abierto en la entrada de la tablet: el examen era una sola columna larga (50 preguntas por hoja) y en una pantalla ancha sobraba un tercio de la pantalla.
+
+- **`src/app/simulador/[simId]/page.tsx`: desde 1024px de ancho aparece un panel fijo a la derecha** (280px) con un mapa de la hoja en curso: una casilla por pregunta, llena si ya la respondiste, con estrella si la marcaste, y con un borde oscuro la que tienes a la vista. Tocar una casilla lleva a esa pregunta. Arriba, el contador "X de Y respondidas"; abajo, el botón de **continuar a la hoja siguiente / finalizar**, que antes solo estaba al final de una hoja de 50 preguntas.
+- **Respeta la regla del examen real** (§6, D6): el panel solo muestra y salta dentro de la HOJA ACTUAL; las hojas anteriores no son navegables y el panel lo recuerda ("Pasar de hoja es irreversible"). No se agregó ninguna forma de volver atrás.
+- **Un solo handler para "continuar"** (`intentarContinuar`): lo usan el botón del final de la hoja y el del panel. Antes la lógica vivía en una función anónima dentro del JSX. Si faltan preguntas, muestra el aviso y lleva a la primera sin responder; si no, abre la confirmación.
+- **Debajo de 1024px no hay panel**: tablet parada y celular se ven exactamente como antes (verificado a 800x1280 y 390x844).
+- **Detalle que costó:** el panel usa `position: sticky` dentro de un hijo de la grilla. Con `items-start` en la grilla el contenedor mide lo mismo que el panel y el sticky no tiene recorrido: el panel desaparecía al hacer scroll. La grilla tiene que estirar al hijo (sin `items-start`). Anotado en el cuaderno.
+
+**Verificado:** tsc, lint (0 errores; las 4 advertencias del archivo ya estaban), 82 tests y build. Con Playwright en 1280x800 y 1024x768: responder tres preguntas, marcar una, saltar desde el panel, y "continuar" con preguntas sin responder (aviso y salto a la primera). **No hay test automático de esta pantalla** (no existe infraestructura de pruebas de UI en el repo) y **no se probó en una tablet física**.
 
 ### 2026-10-04 (la tablet: la app instalada dejaba de verse como app de tablet)
 
