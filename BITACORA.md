@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-09-27 (bis) (los agentes viajan entre PC y laptop: `agentes/` sin punto, copiada sola a `.claude/agents/`)
+**Última actualización:** 2026-10-04 (la tablet: nav, orientación y escala de lecciones y láminas)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -238,6 +238,7 @@ Se iteró un mockup v5 (artifact) con formato de **tarjetas/diapositivas** — a
   - Suprimir el banner `beforeinstallprompt` en desktop (UA detection).
   - **OTA automática:** detecta SW nuevo → manda `SKIP_WAITING` → cuando cambia el controller, `window.location.reload()` UNA sola vez. Sin reinstalar.
 - **CSS forzado por display-mode:** las reglas `@media (display-mode: standalone)` se aplican sin esperar a JS, garantizando vista app.
+  - **Actualización 4-oct-2026:** ya NO fuerzan la navegación de celular. Qué nav se ve lo decide el ancho (modo compacto vs. amplio, ver §11 del 4-oct); en una tablet instalada tiene que verse el nav amplio. Lo único que queda forzado por display-mode es el comportamiento táctil.
 
 ### 5.1 App Android para Play Store (TWA) — existe en `android/`, todavía sin publicar
 
@@ -393,6 +394,9 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] Crear bancos serios para Medicina, Derecho (mismo patrón que Ingeniería, ver §11).
 
 ### Importante
+- [ ] **Probar la tablet en un aparato físico** (acostada y parada, con la app instalada). Lo de la entrada del 4-oct se verificó solo con viewports emulados.
+- [ ] **Examen en tablet acostada:** hoy es una columna con las preguntas en fila. Falta un panel lateral fijo con el número de cada pregunta (respondida / sin responder) para saltar. Es el uso de tablet con más valor y no se hizo.
+- [ ] **Compilar y firmar la app de Android (TWA)** y reemplazar el ícono provisional (ver §5.1). Mientras tanto la web instalada desde Chrome es la vía directa.
 - [x] Láminas de Repaso: las 64 de Aritmética-Álgebra Ingeniería en producción, 23 módulos (ver §11).
 - [ ] Láminas para las otras materias de Ingeniería (Geometría, Física, Química) y para las demás facultades.
 - [ ] Animar las lecciones que aún son solo cards (revisar `grep -c "motion\." | sort` para identificarlas).
@@ -475,6 +479,34 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (la tablet: la app instalada dejaba de verse como app de tablet)
+
+Ronald pidió que la app se use **lo mejor posible en celular y en tablet**, y dijo que en tablet es donde más se luce. Se midió antes de tocar: capturas con Playwright a 1280x800 (tablet acostada), 800x1280 (tablet parada), 768x1024, 390x844 y 850x390 (celular acostado), en navegador y con la clase `axiom-pwa`.
+
+**Lo que se encontró (tres causas, ninguna era "falta de pantallas responsive"):**
+1. **La app instalada forzaba SIEMPRE la vista de celular.** Dos reglas de `globals.css` (`html.axiom-pwa` y `@media (display-mode: standalone)`) escondían el nav de escritorio y mostraban la hamburguesa sin mirar el ancho. En una tablet instalada se veía el menú de celular y la barra inferior sobre 1280px. Las reglas existían por el caso "celular con Sitio de escritorio activado", que da un viewport de 980px.
+2. **El manifest tenía `orientation: "portrait"`**, así que la app instalada quedaba trabada en vertical también en tablet.
+3. **Las lecciones y láminas se diseñaron para una columna de celular** (720px la lección, 560px la lámina): en una tablet acostada, una columna chica con 500px vacíos al lado y texto de 13-15px.
+
+**Lo que NO era problema:** el dashboard, practicar, el simulacro (opciones en dos columnas) y la biblioteca ya se adaptaban bien. No se tocaron.
+
+**Qué se cambió:**
+- **`globals.css`, un solo criterio de "modo compacto"** para hamburguesa, nav de escritorio y barra inferior: `(max-width: 767px), (max-height: 500px), (max-device-width: 600px)`. Cubre el celular parado, el celular acostado (mide ~850px de ancho pero solo ~390 de alto) y la pantalla física chica (el caso del Sitio de escritorio). Una tablet queda en modo amplio, parada o acostada. Se sacaron los dos forzados de standalone; el umbral pasó de 880 a 768.
+- **Tablet parada (768 a 1023px):** el nav amplio entra justo; el quinto link bajaba a otra línea. Se achicó el espaciado en ese rango.
+- **`manifest.ts`: `orientation: "any"`.**
+- **Lecciones y láminas se escalan con `zoom` por escalones** (`.ax-leccion-escena`, `.ax-lamina-tarjeta`, `.ax-lamina-contenido`): 1.2 desde 900x600, 1.35 desde 1200x900, y las láminas también en tablet parada. `zoom` escala texto, SVG y cajas por igual, así que no cambia el diseño ni hay que tocar las 103 lecciones ni las 64 láminas. Un celular no entra en ningún escalón y se ve idéntico (verificado con captura a 390px).
+
+**Verificado:** tsc, lint (0 errores), 82 tests y build, y capturas antes/después en las cinco medidas. Con `zoom`, `Stage` (el componente que escala las animaciones al ancho disponible) sigue funcionando: se miró la lección de regla de tres, que lo usa.
+
+**Límites, para no sobreprometer:**
+- **No se probó en una tablet física.** Un viewport emulado no dice nada del tacto ni del teclado en pantalla.
+- `max-device-width` está deprecada en el estándar pero Chrome de Android la sigue respetando. Si algún día deja de hacerlo, el celular con Sitio de escritorio vuelve a ver el nav amplio; no se rompe nada más.
+- `zoom` no existía en Firefox antes de la 126: ahí se ve como antes.
+- Observación vieja, no de esta tanda: en `regla-de-tres` las escenas con `Stage` quedan ~25px corridas a la izquierda del centro de la columna, con o sin zoom.
+- La app de Play Store (`android/`) sigue **sin compilar ni firmar** (§5.1). Lo de arriba aplica igual a la web instalada y a la TWA, porque la TWA muestra la misma web.
+
+**Para quien siga:** el servidor de desarrollo de Turbopack sirvió un CSS viejo después de agregar un bloque a `globals.css` (la regla nueva no llegaba al navegador aunque PostCSS la compilaba bien por separado). Se arregló matando el proceso y borrando `.next`. Anotado también en `docs/lecciones-agentes.md`.
 
 ### 2026-09-30 (quater) (el cuaderno de lecciones y los agentes que aprenden de cada tanda)
 

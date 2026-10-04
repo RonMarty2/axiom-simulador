@@ -132,7 +132,7 @@ export default function LaminaShell({
           style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "14%", background: "transparent", border: "none", cursor: i === diapositivas.length - 1 ? "default" : "pointer", zIndex: 1 }}
         />
 
-        <div style={{ width: "100%", maxWidth: 560, height: "100%", maxHeight: 640, position: "relative" }}>
+        <div className="ax-lamina-tarjeta" style={{ width: "100%", maxWidth: 560, height: "100%", maxHeight: 640, position: "relative" }}>
           <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={i}
@@ -148,10 +148,12 @@ export default function LaminaShell({
                 boxShadow: "0 8px 30px rgba(0,0,0,0.06)",
               }}
             >
-              <div style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: slide.colorEtiqueta ?? LIENZO.accent }}>
+              <div className="ax-lamina-contenido" style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", color: slide.colorEtiqueta ?? LIENZO.accent }}>
                 {slide.etiqueta}
               </div>
-              {slide.contenido}
+              <div className="ax-lamina-contenido" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                {slide.contenido}
+              </div>
             </motion.div>
           </AnimatePresence>
         </div>

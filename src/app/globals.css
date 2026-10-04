@@ -1,24 +1,35 @@
 @import "tailwindcss";
 
-/* ═══ HEADER RESPONSIVE — desktop muestra nav inline; mobile usa hamburguesa ═ */
+/* ═══ MODO COMPACTO (celular) vs. MODO AMPLIO (tablet y escritorio) ═══════════
+   Un solo criterio para las dos navegaciones, así nunca conviven ni faltan las
+   dos: en compacto va hamburguesa + barra inferior; en amplio, el nav inline
+   del header.
+
+   Compacto es cualquiera de estas tres cosas:
+     - viewport angosto (<768px): celular en vertical;
+     - viewport bajo (<=500px de alto): celular acostado. Sin esto, un celular
+       en horizontal mide ~850px de ancho y recibiría el nav de escritorio;
+     - pantalla física chica (<=600px): cubre un celular con "Sitio de
+       escritorio" activado (viewport de 980px) y la app instalada.
+   Una tablet (>=768px y >500px de alto, vertical u horizontal) queda en amplio.
+
+   Antes el umbral era 880px y la app instalada forzaba SIEMPRE la vista de
+   celular sin mirar el ancho: en una tablet instalada se veía el menú
+   hamburguesa y la barra inferior sobre una pantalla de 1280px. */
 .axiom-nav-desktop { display: flex; gap: 18px; flex: 1; align-items: center; margin-left: 16px; flex-wrap: wrap; }
 .axiom-nav-hamburger { display: none; }
-@media (max-width: 880px) {
+.axiom-bottomnav { display: none; }
+@media (max-width: 767px), (max-height: 500px), (max-device-width: 600px) {
   .axiom-nav-desktop { display: none !important; }
   .axiom-nav-hamburger { display: flex !important; }
+  .axiom-bottomnav { display: block; }
 }
 
-/* ═══ BARRA DE NAVEGACIÓN INFERIOR — solo móvil y app instalada ══════════════
-   Es el patrón de navegación nativo de Android; en escritorio sobra porque ahí
-   está el nav inline del header. Se muestra con el mismo criterio que la
-   hamburguesa (≤880px o standalone) para que nunca convivan dos navegaciones.
-   El padding al shell evita que la barra tape el final del contenido. */
-.axiom-bottomnav { display: none; }
-@media (max-width: 880px) {
-  .axiom-bottomnav { display: block; }
-}
-@media all and (display-mode: standalone), all and (display-mode: minimal-ui), all and (display-mode: fullscreen) {
-  .axiom-bottomnav { display: block; }
+/* Tablet en vertical (768 a 1023px): el nav amplio entra, pero justo. Con el
+   espaciado de escritorio el quinto link bajaba a una segunda línea. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .axiom-header-row { gap: 12px !important; }
+  .axiom-nav-desktop { gap: 2px; margin-left: 0; flex-wrap: nowrap; }
 }
 
 /* En celulares angostos, logo + selector de facultad + avatar no entran en
@@ -65,15 +76,13 @@ html.axiom-pwa body {
   padding-left: env(safe-area-inset-left);
   padding-right: env(safe-area-inset-right);
 }
-/* En PWA, si el usuario tenía "Desktop site" en el navegador antes de instalar,
-   forzamos siempre el menú hamburguesa, sin importar lo que diga el viewport. */
-html.axiom-pwa .axiom-nav-desktop { display: none !important; }
-html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
 
 /* ═══ FORZAR VISTA APP — refuerzo SIN depender de JavaScript ════════════════════
    La clase .axiom-pwa la pone PWARegister.tsx, pero eso ocurre DESPUÉS de cargar
    (puede tardar o fallar). Esta media query se aplica al instante cuando la app
-   corre instalada (standalone), garantizando siempre la vista app/móvil. */
+   corre instalada (standalone). Solo toca el comportamiento táctil: qué
+   navegación se ve lo decide el ancho de pantalla, más arriba (en una tablet
+   instalada tiene que verse el nav amplio, no el de celular). */
 @media all and (display-mode: standalone), all and (display-mode: minimal-ui), all and (display-mode: fullscreen) {
   html {
     overscroll-behavior-y: auto;         /* Pull to refresh habilitado */
@@ -81,9 +90,33 @@ html.axiom-pwa .axiom-nav-hamburger { display: flex !important; }
     text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
   }
-  /* Siempre menú hamburguesa (vista app), nunca nav de escritorio */
-  .axiom-nav-desktop { display: none !important; }
-  .axiom-nav-hamburger { display: flex !important; }
+}
+
+/* ═══ TABLET Y PANTALLA GRANDE · lecciones y láminas ═════════════════════════
+   El contenido se diseñó para una columna de celular (720px la lección, 560px
+   la lámina). En una tablet eso es una columna chica con 500px vacíos al lado y
+   texto de 13-15px. `zoom` escala TODO lo de adentro por igual (texto, SVG de
+   las animaciones, cajas), así que el diseño no cambia de forma: solo se ve
+   más grande. Se hace por escalones y no con una fórmula continua porque
+   `zoom` no admite calc() con vw/vh.
+
+   Los pisos de alto evitan que en una tablet acostada (800px) la tarjeta
+   desborde: el escenario de la lámina mide el alto de la pantalla menos
+   cabecera, puntos y controles. Un celular (<768px de ancho) no entra en
+   ningún escalón: se ve exactamente como antes. */
+@media (min-width: 900px) and (min-height: 600px) {
+  .ax-leccion-escena { zoom: 1.2; }
+  .ax-lamina-tarjeta { max-width: 720px !important; max-height: 760px !important; }
+  .ax-lamina-contenido { zoom: 1.2; }
+}
+@media (min-width: 1200px) and (min-height: 900px) {
+  .ax-leccion-escena { zoom: 1.35; }
+  .ax-lamina-tarjeta { max-width: 820px !important; max-height: 900px !important; }
+  .ax-lamina-contenido { zoom: 1.35; }
+}
+@media (min-width: 768px) and (max-width: 899px) and (min-height: 900px) {
+  .ax-lamina-tarjeta { max-width: 700px !important; max-height: 800px !important; }
+  .ax-lamina-contenido { zoom: 1.2; }
 }
 
 /* ═══ DESIGN TOKENS — Editorial académico ════════════════════════════════════

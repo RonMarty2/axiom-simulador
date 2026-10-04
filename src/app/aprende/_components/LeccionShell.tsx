@@ -70,6 +70,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.3 }}
+            className="ax-leccion-escena"
             style={{ width: "100%", maxWidth: 720 }}
           >
             <EscenaComp />

@@ -22,7 +22,10 @@ export default function manifest(): MetadataRoute.Manifest {
     // mostrar la barra que se queria evitar. Si standalone no se puede, que
     // decida el navegador; no le ofrecemos una barra nosotros.
     display_override: ["standalone"],
-    orientation: "portrait",
+    // "any": la tablet se usa en horizontal tanto como en vertical, y con
+    // "portrait" la app instalada quedaba trabada en vertical. El celular
+    // acostado lo cubre el CSS (globals.css, "modo compacto").
+    orientation: "any",
     background_color: "#faf7f0",
     theme_color: "#1a1f2e",
     lang: "es",
