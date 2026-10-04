@@ -10,3 +10,7 @@
 local.properties
 *.keystore
 *.jks
+
+# salida de compilacion del modulo app
+app/build/
+.gradle/
