@@ -482,6 +482,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-04 (quinquies) (PUBLICIDAD: primer video de prueba, con voz y efectos, y agentes de marketing mejorados)
+- **+** `PUBLICIDAD/` entra al repo (solo lo liviano): guion, brief, agentes, `lecciones.md`, proyecto de motion `motion/axiom-v1/` (HTML determinista por `render(t)`, `render.py`, `warp.py`, `mix.py`), voz y los mp4 de prueba en `final/`. Los frames PNG, las referencias y las descargas quedan en `.gitignore`.
+- **+** Video de prueba de 38 s (9:16): motion graphics + voz de Gemini TTS (voz Nika, aprobada por Ronald) + efectos de sonido sintetizados. Es solo una prueba: los videos reales se hacen cuando Axiom esté terminado.
+- **+** Agente nuevo `revisor-video` (revisa como alguien que no conoce Axiom) y mejoras a `estratega-marketing` (serie de 3 videos: gancho, lo gratis, Premium), `director-motion` y `productor-audio`. Ideas tomadas de `product-launch-motion`, `claude-video-studio` y `marketing-claude-code`; no se instaló nada de ellos.
+- **Pendiente:** corregir la nota "Unidad 01" del cierre (es jerga interna), las etiquetas de años cortadas en la escena 6 y el clip de Flow de la escena 4. Detalle en `PUBLICIDAD/lecciones.md`.
+- **+** Entran también agentes de otras sesiones que estaban sin subir (`analista-resolucion`, `analista-temas`, `catalogador-fotos`, `probador-app`, `redactor-explicaciones`), `docs/registro-examenes.md`, `scripts/registro-examenes.mjs` y el catálogo `data/research/fotos/` (solo JSON, sin fotos).
+
 ### 2026-10-04 (quater) (datos de cobro reales: QR de BNB, Binance Pay y RedotPay)
 
 Ronald mandó tres QR (BNB, RedotPay con 10 USDT y Binance Pay "RonMarty") y no usa Tigo Money ni cuenta bancaria. Se reemplazaron los datos de demostración de `/pagar`, que era el bloqueante de §8.

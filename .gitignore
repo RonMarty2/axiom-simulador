@@ -36,3 +36,13 @@ next-env.d.ts
 # versiona es el inventario, que es el que dice qué hay, qué falta y si un PDF
 # nuevo ya está — ver "examenes pasados/INVENTARIO.md".
 examenes pasados/**/*.pdf
+
+# PUBLICIDAD: lo pesado y regenerable no se versiona (frames PNG, referencias y descargas)
+PUBLICIDAD/motion/*/frames/
+PUBLICIDAD/motion/*/prev/
+PUBLICIDAD/analisis/frames/
+PUBLICIDAD/analisis/audio/
+PUBLICIDAD/analisis/contacto.jpg
+PUBLICIDAD/referencia/
+PUBLICIDAD/FDownloader*.mp4
+PUBLICIDAD/audio/frase.txt

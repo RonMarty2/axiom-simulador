@@ -1,0 +1,842 @@
+[
+  {
+    "archivo": "616821944_1296295712544390_6841567794639908294_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "geometria",
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Geometria-Trigonometria G5-G8, 1ra opcion 1-2026, manuscrito con respuesta encuadrada y letra elegida. G8 descarta x=90 por no verificar. Marca de agua INAP."
+  },
+  {
+    "archivo": "617057077_1300142115493083_7321084612909227135_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      5,
+      6,
+      7
+    ],
+    "pagina_de": "617714492",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "M5 (D, x=16), M6 (B, producto 16), M7 (E). Coinciden con el examen 617714492. Marca de agua INAP."
+  },
+  {
+    "archivo": "617258097_1300142112159750_5359546471735381419_n.jpg",
+    "tipo": "hoja-de-respuestas",
+    "facultad": "fce",
+    "materia": null,
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Hoja de alumno rellenada (M1-10, F1-10, R1-10). La plantilla impresa dice 1-2024 pero las marcas coinciden con las respuestas resaltadas del examen 1ra opcion 1-2026 (M1 B, M2 C, M3 D). NO es clave oficial. Nombre en blanco, sin datos personales visibles. Marca de agua INAP."
+  },
+  {
+    "archivo": "617592224_1296295799211048_1997707754218209726_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "quimica",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      13,
+      14
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q13 redox FeCl2+H2SO4 (coef. HCl=2, c) y Q14 gas ideal (M=27,03, a): coinciden con la hoja de 2da (Q13 C, Q14 A). OJO: en 625965328 el gas aparece como Q13; numeracion distinta entre solucionarios."
+  },
+  {
+    "archivo": "617617308_1296295695877725_8124007977282997062_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra",
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      3
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A3: suma de raices con condicion x1*x2=2(x1+x2), n=0, resultado -1/2 (A). La opcion 1ra es POR DESCARTE: no coincide con A3 de 2da (rombo) ni de 3ra (logaritmos). Verificar con el examen 1ra."
+  },
+  {
+    "archivo": "617714492_1300142108826417_4485608709707295988_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Examen impreso FCE Matematicas M1-M10, 21-ene-2026, 1ra opcion, foto de la hoja. Respuestas resaltadas en naranja (clave del instituto) y circulos a lapiz de otra mano que NO coinciden con lo resaltado (M1 circula C y E, M7 D, M8 C). Resueltas en 617057077."
+  },
+  {
+    "archivo": "618369470_1300142258826402_7431720246684965069_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fce",
+    "materia": "fundamentos (economicas, contables y administrativas)",
+    "gestion": "1-2026",
+    "opcion": "1ra",
+    "preguntas_visibles": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Examen impreso FCE Fundamentos F11-F20, 21-ene-2026, 1ra opcion, dos columnas. Naranja = clave del instituto; circulos a lapiz de otra mano discrepan en F11, F15, F19, F20. Perspectiva leve."
+  },
+  {
+    "archivo": "624706354_1310212624486032_8342341812260415323_n.jpg",
+    "tipo": "hoja-de-respuestas",
+    "facultad": "fcyt",
+    "materia": null,
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Hoja FCyT con 20 respuestas (A1-4, G5-8, F9-12, Q13-16, B17-20), fecha 02-FEB-26, 2da opc. Hoja de alumno, NO clave oficial. Sin datos personales visibles."
+  },
+  {
+    "archivo": "625258835_1313613424145952_631887962329374747_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      10
+    ],
+    "pagina_de": "627085316",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "M10: 3*raiz cubica(4)*raiz 4ta(8)*raiz 12(128)=12 (A). Resto de la hoja en blanco. Marca de agua INAP."
+  },
+  {
+    "archivo": "625313708_1313613457479282_5375474840511521833_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fce",
+    "materia": "fundamentos (economicas, contables y administrativas)",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Examen impreso FCE F11-F20, 6-feb-2026, 2da opcion, dos columnas. Respuestas resaltadas en amarillo/verde (clave del instituto), algunos circulos a lapiz. Perspectiva, texto legible."
+  },
+  {
+    "archivo": "625965328_1310151207825507_5434483097836912425_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "quimica",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      13,
+      14
+    ],
+    "pagina_de": "625965328",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Escaneado CamScanner, otra mano que 617592224. Rotula Pregunta Q13 al gas ideal (M=27 g/mol) y Q14 a dilucion de HCl (1,27 M), sin letra de alternativa. Numeracion discrepa con 617592224 (ahi el gas es Q14): revisar antes de usar."
+  },
+  {
+    "archivo": "626152528_1310206541153307_3450726280512783384_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "geometria",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "G5 (20, c), G6 (0, b), G7 (400, c), G8 (105, a); coinciden con la hoja 2da (C, B, C, A). CamScanner, la mejor foto del lote para geometria."
+  },
+  {
+    "archivo": "626169395_1310151167825511_5940862626556782804_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "quimica",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      15,
+      16
+    ],
+    "pagina_de": "625965328",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q15 (0,9 mol H+) y Q16 (solubilidad, 51 g que cristalizan), sin letra de alternativa. Misma mano que 625965328. La grafica de solubilidad es a mano alzada."
+  },
+  {
+    "archivo": "626423052_1313613360812625_5624635664086953277_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      4
+    ],
+    "pagina_de": "627085316",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "M4: taxi lineal T(x)=3x+13, T(25)=88 (A). Coincide con la hoja 2da (M4 A). Marca de agua INAP."
+  },
+  {
+    "archivo": "626594153_1310151104492184_3418687400858158848_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "fisica",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Fisica F9-F12 en lapiz y tinta roja: F9 8,06 m/s (b), F10 13,99 m/s (d), F11 250 J (d), F12 3,87 m/s (b). Coinciden con la hoja 2da. Solo diagramas, sin enunciados."
+  },
+  {
+    "archivo": "626663181_1313613250812636_3437960666038072806_n.jpg",
+    "tipo": "hoja-de-respuestas",
+    "facultad": "fce",
+    "materia": null,
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Hoja FCE de alumno, 30 respuestas, rotulada Examen 2da Op 06-02-2026 (plantilla impresa dice 1-2024). NO es clave oficial. Sin datos personales visibles."
+  },
+  {
+    "archivo": "626835123_1310150854492209_1387784807289391873_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "aritmetica-algebra",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      1,
+      2
+    ],
+    "pagina_de": "626835123",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A1: divisores pares de 310 = 4 (c); A2: precio de la naranja y=1 Bs (a). Encabezado Aritmetica-Algebra 2a Opcion. CamScanner."
+  },
+  {
+    "archivo": "626910854_1310150914492203_3014643164615658959_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "aritmetica-algebra",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      3
+    ],
+    "pagina_de": "626835123",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A3: rombo de area 108 cm2, diagonales 2:3, diagonal mayor 18 cm (d). Coincide con la hoja 2da (A3 D)."
+  },
+  {
+    "archivo": "626937187_1310151007825527_6629252764208384280_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "aritmetica-algebra",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      4
+    ],
+    "pagina_de": "626835123",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A4: numero abcde con cifras en PA, e+c=4 (a). Opcion 2da por prefijo consecutivo con A1-A3."
+  },
+  {
+    "archivo": "627085316_1313613297479298_5384999707475869753_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Examen impreso FCE Matematicas M1-M10, 6-feb-2026, 2da opcion. Respuestas resaltadas en verde (clave del instituto). Trae el enunciado de M4, M5, M6, M10 de los solucionarios 626423052, 627771680, 625258835."
+  },
+  {
+    "archivo": "627158441_1310151251158836_6759131770314493241_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fcyt",
+    "materia": "biologia",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Enunciados B17-B20 tipeados (captura de Word) con respuestas resaltadas en amarillo: c, a, c, d; coinciden con la hoja 2da. Sin desarrollo."
+  },
+  {
+    "archivo": "627771680_1313613384145956_3850655913740780900_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      5,
+      6
+    ],
+    "pagina_de": "628027659",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "M5 (x=a, c) y M6 (producto -30, b). Luz desigual pero legible."
+  },
+  {
+    "archivo": "628027659_1313613327479295_9031963598632651039_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fce",
+    "materia": "matematicas",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      1,
+      2,
+      3
+    ],
+    "pagina_de": "628027659",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Titulado Solucionario: M1 (4, c), M2 (25, d), M3 (1/(a-b), a). Primera hoja del solucionario FCE 2da opcion."
+  },
+  {
+    "archivo": "629384583_1313613494145945_1060309271872391233_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fce",
+    "materia": "razonamiento verbal y logico",
+    "gestion": "1-2026",
+    "opcion": "2da",
+    "preguntas_visibles": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Examen impreso FCE Razonamiento Verbal y Logico R21-R30, 6-feb-2026, 2da opcion, dos columnas, respuestas resaltadas en verde. Perspectiva y reflejos, legible."
+  },
+  {
+    "archivo": "629446264_1318859636954664_8736166370583704476_n.jpg",
+    "tipo": "examen-sin-resolver",
+    "facultad": "fcyt",
+    "materia": "biologia",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Enunciados B17-B20 tipeados con respuestas resaltadas: c, b, c, d; coinciden con la hoja 3ra (634187000)."
+  },
+  {
+    "archivo": "631004498_1318859466954681_3391379511036550276_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      4
+    ],
+    "pagina_de": "632960987",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A4: termino central de (x^6-2x^2+1/x^2)^4 = 70x^8 (a). Enunciado no visible."
+  },
+  {
+    "archivo": "631407618_1318859570288004_8402148854954650368_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "quimica",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      13,
+      14,
+      15
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q13 numero atomico Z=44 (d), Q14 molaridad NaCl 1,83 M (c), Q15 masa de Fe 952,56 g (b); coinciden con la hoja 3ra (D, C, B)."
+  },
+  {
+    "archivo": "631467410_1318859603621334_7019823948812967148_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "quimica",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      16
+    ],
+    "pagina_de": "631407618",
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q16: Ley de Charles, V2=125,17 dm3 (a). El resto de la hoja esta en blanco."
+  },
+  {
+    "archivo": "631537952_1318859543621340_8461948329601018230_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "fisica",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Fisica F9-F12 en tinta roja: F9 H=225 m (c), F10 9,75 m (d), F11 V2=2V (a), F12 a=4 m/s2 (a); coinciden con la hoja 3ra. Enunciados no visibles. Posible misma mano que 626594153."
+  },
+  {
+    "archivo": "632194705_1318859493621345_4573643168938000134_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "geometria",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "G5 (70, d), G6 (40, c), G7 (4 soluciones, d), G8 (90 grados, c); coinciden con la hoja 3ra. Misma mano que 616821944 y 626152528."
+  },
+  {
+    "archivo": "632960987_1318859436954684_7900896880689280487_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra",
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      3
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "instituto (INAP)",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "A3: sistema logaritmico, x+y=raiz de 2 + 1 (a). Coincide con la hoja 3ra (A3 A)."
+  },
+  {
+    "archivo": "634187000_1318859370288024_3264650025802275065_n.jpg",
+    "tipo": "hoja-de-respuestas",
+    "facultad": "fcyt",
+    "materia": null,
+    "gestion": "1-2026",
+    "opcion": "3ra",
+    "preguntas_visibles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "pagina_de": null,
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Hoja FCyT de alumno, 20 respuestas, rotulada 3ra Opc. Examen, fecha 12-feb-2026. NO es clave oficial. Sin datos personales visibles."
+  },
+  {
+    "archivo": "65903325_2333186073600525_571750977065975808_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      1,
+      2,
+      3
+    ],
+    "pagina_de": "65903325",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q1 raiz de indice a^2 (c, 1/10), Q2 decimales (c, 144, 4000), Q3 ecuacion con radicales (x=27, b). Serie A (prefijo 2333186). Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "66172747_2333186106933855_6232327258250412032_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      4
+    ],
+    "pagina_de": "65903325",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q4: gasta 30%, gana 28%, pierde 1560, x=15000 (a). Serie A. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "65911914_2333186103600522_8577953690533494784_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      5,
+      6
+    ],
+    "pagina_de": "65903325",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q5 proporcion x+y:x-y:xy=10:6:32 (x=16, b); Q6 1/x+1/(x-12)=1/8 (x=24, c). Serie A. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "65916582_2333186363600496_5977610155427102720_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      7,
+      8
+    ],
+    "pagina_de": "65903325",
+    "quien_resuelve": "desconocido",
+    "legible": "regular",
+    "en_banco": "no",
+    "nota": "Q7 precio de venta 24, pierde x% (40 o 60); Q8 ecuacion logaritmica (x=10 o 10^-4). Sin letra de alternativa; lapiz claro. Serie A. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "65942146_2333186373600495_3500971105898725376_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      9,
+      10
+    ],
+    "pagina_de": "65903325",
+    "quien_resuelve": "desconocido",
+    "legible": "regular",
+    "en_banco": "no",
+    "nota": "Q9 PA a1=500, an=1900, d=200, n=8 (a); Q10 sistema de fracciones, x=2/3, y=1/4. Lapiz claro, algo borroso. Serie A. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "66458625_2337750273144105_9209457601241153536_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      1,
+      2
+    ],
+    "pagina_de": "66458625",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q1 decimales y fracciones (29,8, b); Q2 reparto proporcional 66000 Bs, x=540000. Serie B (prefijo 2337750), examen distinto a la serie A. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "66813314_2337750303144102_5629874325944270848_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      3,
+      4,
+      5
+    ],
+    "pagina_de": "66458625",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q3 factorizacion (x+5)^2(x-5)(x^2+3) (d); Q4 dos grifos, x=3 dias; Q5 ecuacion literal x=(a+b)/(a-b). Serie B. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "66431792_2337750326477433_6115570002532761600_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      6,
+      7,
+      8
+    ],
+    "pagina_de": "66458625",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q6 condiciones de signo (A y C validas), Q7 log2 (x=2), Q8 fraccion n+d=18. Serie B. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  },
+  {
+    "archivo": "64593538_2337750529810746_945697948279242752_n.jpg",
+    "tipo": "resuelto-a-mano",
+    "facultad": "fcyt",
+    "materia": "algebra-aritmetica",
+    "gestion": null,
+    "opcion": null,
+    "preguntas_visibles": [
+      9,
+      10
+    ],
+    "pagina_de": "66458625",
+    "quien_resuelve": "desconocido",
+    "legible": "buena",
+    "en_banco": "no",
+    "nota": "Q9 raices iguales, dice que no hay condicion (opcion E; a=2 sale del discriminante); Q10 PA n=86. Serie B. Hoja cuadriculada, letra y fuente distintas a las del INAP; marca de agua de letras grandes huecas (ilegible) y WINNER del escaner. Facultad por el tipo de preguntas (algebra/aritmetica, 5 alternativas); gestion desconocida (IDs de Facebook sugieren ~2019, pero grepeando 1560, 66000, 0,035 y 345 no hay coincidencia en el banco)."
+  }
+]

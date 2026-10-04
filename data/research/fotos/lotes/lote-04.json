@@ -1,0 +1,785 @@
+[
+ {
+  "archivo": "484324218_1049745927199371_6889677012510641339_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "estrategias-aprendizaje",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2024-parcial2-1-2024",
+  "nota": "Segundo Parcial 1-2024 (Pre-U) impreso con respuestas resaltadas con marcador (sin desarrollo); sello INAP."
+ },
+ {
+  "archivo": "484329181_1049065203934110_8563750373612138435_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "biologia",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2024-parcial1-1-2024",
+  "nota": "Primer Parcial 1-2024 Biologia B1-B10 impreso con respuestas resaltadas en violeta; B4 marcada c (transportar) pero la correcta parece b (ATP): revisar antes de fiarse."
+ },
+ {
+  "archivo": "484368344_1048963313944299_6273459061505927561_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "algebra-aritmetica",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1
+  ],
+  "pagina_de": "484329181",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2024-parcial1-1-2024",
+  "nota": "Solo el desarrollo de A1 (sistema 3x3, x=8), sin enunciado ni letra marcada; se reconoce por el sistema en el banco."
+ },
+ {
+  "archivo": "484447225_1048963407277623_6999098697785647208_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "geometria",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "pagina_de": "484329181",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2024-parcial1-1-2024",
+  "nota": "Cabecera '1 Parcial 1-2024 (PRE-U)'; G1-G5 con figura y desarrollo completo, letras d,b,a,c,d."
+ },
+ {
+  "archivo": "484448281_1048963323944298_2988971342432533820_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": "484329181",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2024-parcial1-1-2024",
+  "nota": "Q1 (formula empirica KMnO4, c) y Q2 (combustion, C12H32N4, b); sin cabecera, se identifica por los datos numericos en el banco."
+ },
+ {
+  "archivo": "484388380_1049985927175371_5564881779586359857_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Serie M (Matematica FCE) con letras en burbuja rosa: M9 c, M10 a. Subida junto a los examenes FCE II-2024 2da (ids 1049986...); gestion inferida, no comprobada."
+ },
+ {
+  "archivo": "484493739_1049986170508680_2107235353874581434_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   4,
+   5,
+   6
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Serie M burbuja rosa: M4 b, M5 c (F(x) en x=-2), M6 a. Probable FCE II-2024 2da por orden de subida; no comprobado."
+ },
+ {
+  "archivo": "484496508_1049084303932200_6520685954125399331_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   7,
+   8
+  ],
+  "pagina_de": "484814217",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Cabecera y pie INAP; M7 (E=x^2) y M8 (y1*y2=0), sin letra de alternativa. Otra serie M distinta de las de burbuja rosa; gestion desconocida."
+ },
+ {
+  "archivo": "484541104_1049986107175353_1307617896904183082_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "introduccion-ciencias-economicas",
+  "gestion": "2-2024",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   21,
+   22,
+   23,
+   24,
+   25,
+   26,
+   27,
+   28,
+   29,
+   30
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Examen impreso FCE 12-ago-2024 con respuestas resaltadas y circulos; en E29 y E30 el circulo y el resaltado caen en letras distintas (varias manos o dudas)."
+ },
+ {
+  "archivo": "484552009_1049986257175338_8211353901522968960_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "introduccion-ciencias-contables",
+  "gestion": "2-2024",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": "484541104",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Misma hoja FCE 12-ago-2024, area contable C11-C20; resaltado rosa mas circulos, alguna alternativa tachada (C11) y notas a mano (A=P+C)."
+ },
+ {
+  "archivo": "484560531_1049986263842004_1767374060873024365_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "introduccion-ciencias-administrativas",
+  "gestion": "2-2024",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39,
+   40
+  ],
+  "pagina_de": "484541104",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Misma hoja FCE 12-ago-2024, area administrativa A31-A40, resaltado verde; completa."
+ },
+ {
+  "archivo": "484577415_1049084267265537_4214192561718291252_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   3,
+   4
+  ],
+  "pagina_de": "484814217",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Cabecera INAP; M3 (simplificacion, -x) y M4 (f(-1/2)=1/4), sin letra. Serie con cabecera INAP, gestion desconocida."
+ },
+ {
+  "archivo": "484585844_1049728860534411_5139624655649391504_n.jpg",
+  "tipo": "otra",
+  "facultad": "medicina",
+  "materia": null,
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "nadie",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Pagina 12 de un documento de la Facultad de Medicina: contenidos de Introduccion a Biologia celular (Alberts 5ta) e Induccion a la formacion medica. Temario, no examen; util para el Curso Basico de medicina."
+ },
+ {
+  "archivo": "484640421_1049084670598830_5713520468981140261_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   5,
+   6
+  ],
+  "pagina_de": "484814217",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Cabecera INAP; M5 (x=2) y M6 (x*y=1), sin letra."
+ },
+ {
+  "archivo": "484814217_1049084323932198_520128071068422231_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Primera hoja de la serie con cabecera INAP ('Matematicas'): M1=5/2, M2 reparto proporcional (687,5 Bs); sin letras."
+ },
+ {
+  "archivo": "484913233_1049986013842029_7542746130401275833_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   7,
+   8
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Serie M burbuja rosa: M7 c (pollo/res, 23), M8 b (E=x^2)."
+ },
+ {
+  "archivo": "485017117_1055179426656021_5230150703555757852_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "algebra-aritmetica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   3,
+   4
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "A3 (irracional, P=14/9, a) y A4 (exponencial, -ln(13/11), d); coinciden con la hoja de respuestas 1ra opcion."
+ },
+ {
+  "archivo": "485060126_1055179526656011_4324290372841113976_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   11,
+   12
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Final de F11 (x2=3,2 cm, b) y F12 pendulo (T=30 N, d)."
+ },
+ {
+  "archivo": "485132667_1055179529989344_4427160044982910686_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "F9 (tiempo de vuelo, 2 s, b) y F10 (caida horizontal, 6 s, c)."
+ },
+ {
+  "archivo": "485140146_1055179536656010_5909557249212087171_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "algebra-aritmetica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Primera hoja del juego INAP de la 1ra opcion 1-2025: A1 (b) y A2 logaritmos (x=7, b)."
+ },
+ {
+  "archivo": "485143855_1055179559989341_4263247788172455448_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   13,
+   14,
+   15,
+   16
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Q13-Q16 (b,b,c,c); en Q15 el resultado dice '150 L' pero el calculo da 150 mL: revisar unidad."
+ },
+ {
+  "archivo": "485150674_1055179539989343_6091152539902422920_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "geometria",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   5,
+   6,
+   7,
+   8
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Cabecera 'Examen - ingreso I-2025'; G5-G8 con figuras y desarrollo, sin letra de alternativa."
+ },
+ {
+  "archivo": "485187514_1055179463322684_62762328296631492_n.jpg",
+  "tipo": "hoja-de-respuestas",
+  "facultad": "fcyt",
+  "materia": null,
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "desconocido",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Hoja de respuestas FCyT rotulada a mano (1ra OPC, 23-Ene-25), sin datos personales. Marcas: A B,B,A,D; G D,B,B,C; F B,C,B,D; Q B,B,C,C; B D,A,D,C. NO es clave oficial; coincide con las soluciones INAP."
+ },
+ {
+  "archivo": "485303909_1055464756627488_82897197558858510_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   1,
+   2,
+   3
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Titulo 'Matematica 3 Opcion': M1 b, M2 a, M3 d. Gestion inferida por orden de subida junto a convocatorias 1-2025; no comprobada."
+ },
+ {
+  "archivo": "485305776_1055462409961056_7998683061779484716_n.jpg",
+  "tipo": "hoja-de-respuestas",
+  "facultad": "fcyt",
+  "materia": null,
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": "485681521",
+  "quien_resuelve": "desconocido",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "Hoja FCyT '2da OPC' con marca de agua INAP, sin nombre ni fecha. Marcas: A C,D,A,A; G A,A,A,B; F C,B,B,A; Q B,A,C,B; B D,C,B,D. NO es clave oficial; coincide con el examen resaltado."
+ },
+ {
+  "archivo": "485307445_1055476966626267_1342410318183941743_n.jpg",
+  "tipo": "convocatoria",
+  "facultad": "otra",
+  "materia": null,
+  "gestion": "2025",
+  "opcion": "2da",
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "nadie",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Convocatoria PSA 2025 2da opcion de la Facultad de Ciencias Farmaceuticas y Bioquimicas (inscripcion 20-21 feb, notas 25 feb); no es un examen."
+ },
+ {
+  "archivo": "485355301_1055179459989351_6064622777932226337_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   11
+  ],
+  "pagina_de": "485140146",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-1op-1-2025",
+  "nota": "Inicio de F11 (canicas con resorte, dos ninos), sin llegar a la letra; continua en 485060126."
+ },
+ {
+  "archivo": "485368043_1054959293344701_7520544048427474070_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "desconocido",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Cuaderno rayado a mano con letras rojas: M1 B, M2 D, M3 A, M4 C, M5 D. Letra distinta a INAP; gestion inferida (subida con la convocatoria FCYT 1-2025 y la hoja FCE I-2025), no comprobada."
+ },
+ {
+  "archivo": "485381074_1055464706627493_1415280168703070903_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   4,
+   5,
+   6
+  ],
+  "pagina_de": "485303909",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Serie 3ra opcion: M4 a, M5 b, M6 a."
+ },
+ {
+  "archivo": "485395065_1054959516678012_445894480348797006_n.jpg",
+  "tipo": "convocatoria",
+  "facultad": "fcyt",
+  "materia": null,
+  "gestion": "1-2025",
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "nadie",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Convocatoria FCYT examen de ingreso 1-2025: 1ra opcion 23-ene, 2da 5-feb, nota minima 51; costos y requisitos."
+ },
+ {
+  "archivo": "485404244_1054959623344668_5420600099966807017_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   6,
+   7,
+   8
+  ],
+  "pagina_de": "485368043",
+  "quien_resuelve": "desconocido",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Cuaderno rayado, misma mano que 485368043: M6 b, M7 c, M8 b."
+ },
+ {
+  "archivo": "485406687_1054959520011345_6730911533241875687_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "fundamentos-ciencias-economicas",
+  "gestion": "1-2025",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "FCE I-2025 1ra opcion (7-ene-2025), area Fundamentos F11-F20 (F de Fundamentos, no Fisica), resaltado verde con sello de Direccion Academica."
+ },
+ {
+  "archivo": "485621737_1055462746627689_9087184236492435936_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": "485681521",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "F9 tren y tunel (450 m, c) y F10 moviles circulares (0,2 s, b)."
+ },
+ {
+  "archivo": "485658867_1054369926736971_2090691913274147102_n.jpg",
+  "tipo": "convocatoria",
+  "facultad": "medicina",
+  "materia": null,
+  "gestion": "1-2025",
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "nadie",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Convocatoria PSA 1/2025 de Fisioterapia y Kinesiologia (examen 28-ene, 50 min), repostada por 'Mega Fisio Activa' con marca INAP."
+ },
+ {
+  "archivo": "485678377_1055464749960822_438847423271451383_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   10
+  ],
+  "pagina_de": "485303909",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "M10 progresion aritmetica, n=20 (d)."
+ },
+ {
+  "archivo": "485681521_1055462569961040_6186196042700904743_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "algebra-aritmetica",
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "Examen impreso 5-feb-2025 (A1-A4, G5-G8) con respuestas resaltadas: c,d,a,a,a,a,a,b; coinciden con la hoja 2da y con A4 resuelto."
+ },
+ {
+  "archivo": "485697967_1055462743294356_6301808392156803901_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   13,
+   14,
+   15
+  ],
+  "pagina_de": "485681521",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "Q13 (75 g), Q14 (100 g) y Q15 Graham (59% N2 / 41% H2), sin letra."
+ },
+ {
+  "archivo": "485729126_1055464853294145_6855941682227529205_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2025",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   7,
+   8,
+   9
+  ],
+  "pagina_de": "485303909",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "Serie 3ra opcion: M7 c, M8 c, M9 d."
+ },
+ {
+  "archivo": "485757067_1055462623294368_5091328493343074679_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   16
+  ],
+  "pagina_de": "485681521",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "Q16 NaOH 2M, 16 g de OH-; sin letra; pagina casi vacia salvo la marca de agua."
+ },
+ {
+  "archivo": "485761142_1054369913403639_3174713518870659242_n.jpg",
+  "tipo": "convocatoria",
+  "facultad": "medicina",
+  "materia": null,
+  "gestion": "1-2025",
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "nadie",
+  "legible": "regular",
+  "en_banco": "no",
+  "nota": "Convocatoria PSA 1/2025 Nutricion y Dietetica (examen 27-ene, 14:00) con temario y bibliografia; foto sesgada, con firmas y marca INAP."
+ },
+ {
+  "archivo": "485774288_1055462736627690_4360968600394274055_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "algebra-aritmetica",
+  "gestion": "1-2025",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   4
+  ],
+  "pagina_de": "485681521",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:2025-2op-1-2025",
+  "nota": "A4 progresion (n=10, a); coincide con la marca de la hoja 2da."
+ }
+]

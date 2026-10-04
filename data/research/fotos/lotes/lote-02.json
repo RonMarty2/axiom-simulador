@@ -1,0 +1,735 @@
+[
+ {
+  "archivo": "481069958_1037236688450295_2967024103593641389_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": null,
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Pregunta 10 de aritmetica-algebra (fraccion compleja anidada), resultado x-1, opcion B. La misma expresion aparece como item 3 en 481777509 (FCE 2023-2op-1) pero con otro enunciado; examen sin identificar. Facultad no determinable."
+ },
+ {
+  "archivo": "481112915_3885755848343532_8075495616702426893_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": null,
+  "materia": "geometria",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Encabezado 'Geometria - Trigonometria'; 5 problemas sin numerar (circulos tangentes r=raiz5-1, triangulo con cuadrados 432+372raiz3, area total 4, hexagono 2raiz3+2). Sin numero de pregunta ni gestion: hay que cruzar por enunciado."
+ },
+ {
+  "archivo": "481119555_3884480388471078_3031872212595306394_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2023",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   13,
+   14,
+   15,
+   16
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "si:ingenieria/2023-1op-1-2023",
+  "nota": "Q13 Li2S+HNO3 (R=15, a), Q14 5 g/L, Q15 44.8 L, Q16 2 g. Banco tiene Li2S en 2023-1op-1. Letras a,a,a,a coinciden con la hoja 481201627. Marco negro con logo INAP 23 anos."
+ },
+ {
+  "archivo": "481161202_3884480518471065_1114479158965902200_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2023",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   2,
+   3
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "si:ingenieria/2023-1op-1-2023",
+  "nota": "A2 (x+y=738, y=162) y A3 (binomio de Newton, termino independiente 495). 738 aparece en 2023-1op-1 y 2023-2op-1; se asigna a 1op por el marco y la mano iguales a 481468955. Verificar contra el enunciado."
+ },
+ {
+  "archivo": "481201627_3884480658471051_4741175712198797128_n.jpg",
+  "tipo": "hoja-de-respuestas",
+  "facultad": "fcyt",
+  "materia": null,
+  "gestion": "2-2022",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "desconocido",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Hoja FCyT 'Curso preuniversitario 2-2022, Final'. Solo marcadas 9-20 (Fisica 9-12: c,d,a,c; Quimica 13-16: a,a,a,a; Biologia 17-20: c,e,d,b); matematicas 1-8 vacias. Fisica no coincide con 481898227 (e,d,a,e): no usar como clave. Quimica y biologia coinciden con 481119555 y 481766953 (2023-1op-1); posible que el 'final 2-2022' sea el ingreso 1-2023 1ra opcion (fecha 2022-12-19), sin confirmar. Sin datos personales rellenos."
+ },
+ {
+  "archivo": "481204315_3885755741676876_7517225584877298177_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "F9 suma de vectores (R=raiz6, componentes raiz3) y F10 P=30,Q=20, angulo 120, R=10raiz19, A=5raiz19. El banco 2023-2op-1 tiene preguntas de vectores pero no se pudo confirmar. Mano y fondo blanco como 481707227 (2023-2op-1): candidato a 2023-2op-1."
+ },
+ {
+  "archivo": "481223064_3885753811677069_5197042260405871169_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": null,
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Titulo 'Solucionario'. Item 1 fracciones anidadas = -31/11 (d); item 2 A+B=27 con A/B=1/10 : 1/8, A=12, B=15 (c). Captura de Facebook (se ve 'Agregar etiquetas' abajo). Probable FCE (10 preguntas) por el estilo, sin confirmar."
+ },
+ {
+  "archivo": "481253119_1049751143865516_5246256468236256278_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-final-1-2024",
+  "nota": "Titulo 'Aritmetica-Algebra Final I-2024'. A1: E=-1431 (945x aparece en el banco). A2 fracciones parciales: se corta antes del resultado. Primera hoja de la serie con 481257255."
+ },
+ {
+  "archivo": "481254346_1049746147199349_8119383612876007374_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   4,
+   5
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-parcial2-1-2024",
+  "nota": "F4 capacitores (10 uF) y F5 bloque con F=160 N, m=15 kg, W=480 J. El banco tiene 160 N y 15 kg en 2024-parcial2-1; no era 'Final I-2024' como otras de este lote. Cuadriculado."
+ },
+ {
+  "archivo": "481257255_1049751130532184_829107267390929496_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": "481253119",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-final-1-2024",
+  "nota": "Titulo 'Quimica Final I-2024'. Q1 9.03e22 atomos O (4,20 g NaHCO3; esta en el banco), Q2 redox FeCl2+KMnO4, resultado 4/5."
+ },
+ {
+  "archivo": "481268427_3885755775010206_4759722523921067772_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   3
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "AA3 teorema del residuo, hallar a^2+b^2 = 116. Examen sin identificar."
+ },
+ {
+  "archivo": "481277247_1037236441783653_2757254179542177991_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   4,
+   5
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Item 4 progresion aritmetica (a1=-1, a7=11, razon 2, D); item 5 sistema, x=2,y=4, producto 8 (B). Numeros encerrados en circulo, como las hojas FCE; el banco FCE tiene progresiones pero no se confirmo cual examen."
+ },
+ {
+  "archivo": "481468955_3884480788471038_7738809338010715752_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2023",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   1,
+   4
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "si:ingenieria/2023-1op-1-2023",
+  "nota": "A4 (x+9)(y+9)=xy+549 y A1 media aritmetica/geometrica de ab y ba; el 549 aparece en 2023-1op-1. Marco negro con logo INAP."
+ },
+ {
+  "archivo": "481660741_3885755868343530_6684600494671373744_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   15,
+   16
+  ],
+  "pagina_de": "481664805",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2023-2op-1-2023",
+  "nota": "Q15 dilucion HCl 36,5% (20 mL), Q16 KClO3 (20 mol). Continuacion de 481664805. Sin letra de opcion marcada."
+ },
+ {
+  "archivo": "481664805_3885755778343539_2267708488892634494_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   13,
+   14
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2023-2op-1-2023",
+  "nota": "'Resolucion Quimica' Q13 NaMnO4+HCl (12 L) y Q14 anticongelante (-9,3 C). NaMnO4 y 36,5% estan en 2023-2op-1."
+ },
+ {
+  "archivo": "481707227_3885755781676872_3003929424416218173_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   11,
+   12
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2023-2op-1-2023",
+  "nota": "F11 bus/vehiculo Aiquile-Cochabamba (12:00 pm) y F12 circuito de mallas (I1=3 A). 'Aiquile' esta solo en 2023-2op-1. Captura de ComScanner."
+ },
+ {
+  "archivo": "481766953_3884480498471067_9009143388921746562_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "biologia",
+  "gestion": "1-2023",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2023-1op-1-2023",
+  "nota": "B17-B20 con enunciado manuscrito y respuesta resaltada (timidina, ninguna, replicarse por si mismos, Gg y Gg). Timidina monofosfato y chimpances estan en 2023-1op-1."
+ },
+ {
+  "archivo": "481777509_3885753908343726_6727101269167423771_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   3,
+   4,
+   5
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:economicas/2023-2op-1-2023",
+  "nota": "Items 3 (b), 4 (a, 22/3) y 5 (d, 3/5). Item 5 coincide con el banco (quebrado 3/5). OJO: en el item 4 la foto lee f(x)=(x^2-2x+8)/(x+2) y da 22/3; el banco dice x^2-2x+1: posible error de transcripcion del banco o de la foto. Revisar."
+ },
+ {
+  "archivo": "481790956_3885753515010432_6800999243565967983_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": "481777509",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:economicas/2023-2op-1-2023",
+  "nota": "Item 9 intervalo [2;3] (d) y item 10 log 1250, x=+-1 (c): coincide con el banco FCE 2023-2op-1. id real del banco: economicas/2023-2op-1-2023."
+ },
+ {
+  "archivo": "481898227_3884480428471074_8346087529866312911_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2023",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   9,
+   10,
+   11,
+   12
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "si:ingenieria/2023-1op-1-2023",
+  "nota": "F9 analisis dimensional, F10 bloque en plano 37 grados (10 s), F11 campo E=30 kN/C, F12 R=20 ohm. Coincide con el banco 2023-1op-1. Letras: e,d,a,e (la hoja 481201627 trae c,d,a,c: no coinciden)."
+ },
+ {
+  "archivo": "481900806_1044568791050418_5203363658199507227_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   11,
+   12
+  ],
+  "pagina_de": "481977728",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "F11 resorte k=500 N/m, vB=raiz3 m/s; F12 potencial (q=5 uC). El 500 N/m esta en 2024-1op-1."
+ },
+ {
+  "archivo": "481974390_1044568881050409_3323792485194539451_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   1,
+   4
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "A1 diagonal 25 y perimetro 70 (area 300) y A4 logaritmos, suma 33/128. El 'perimetro 70' esta en 2024-1op-1."
+ },
+ {
+  "archivo": "481975091_1044568567717107_7626019754667098985_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   13,
+   14
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "Q13 CO2/CO presiones parciales (2) y Q14 densidad O2 4,46 g/L (CH4 2,23 g/L). Ambos datos estan en 2024-1op-1."
+ },
+ {
+  "archivo": "481977728_1044568547717109_6742601305673327896_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "F9 encuentro de dos moviles (8 s), F10 a=2 m/s2, v0=10 m/s. Misma mano y fondo que 481900806 (2024-1op-1); no se grepeo el enunciado."
+ },
+ {
+  "archivo": "481996463_3885753925010391_3265536605858352115_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2023",
+  "opcion": "2da",
+  "preguntas_visibles": [
+   6,
+   7,
+   8
+  ],
+  "pagina_de": "481777509",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:economicas/2023-2op-1-2023",
+  "nota": "6 gallinas y conejos (33 gallinas, c), 7 potencias de 2 (11/3, b), 8 consecutivos producto 552 (23, a). Coincide con el banco FCE 2023-2op-1."
+ },
+ {
+  "archivo": "482007439_1044568714383759_7909772459243631416_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "Dos problemas rotulados 'AA': P(x,y) por cociente notable (suma de coeficientes 9) y ahorro esposos (diferencia 264, 1416). Ambos enunciados estan en 2024-1op-1. Captura CamScanner."
+ },
+ {
+  "archivo": "482015367_1046433887530575_2967311272978302300_n.jpg",
+  "tipo": "hoja-de-respuestas",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "desconocido",
+  "legible": "regular",
+  "en_banco": "no",
+  "nota": "Hoja FCE 'Tercera Opcion I-2024' (14/02/24) con marcas a mano en M1-M10 y bloques contables/economicas/administrativas. Matematicas marcadas: a,b,c,d,a,b,c,d,a,b (igual que la resolucion INAP 482026245). El banco FCE no tiene 2024. No es clave oficial. Sin datos personales rellenos."
+ },
+ {
+  "archivo": "482020667_1044568834383747_477270695975455740_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   15
+  ],
+  "pagina_de": "481975091",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "Q15 elevacion del punto de ebullicion NH3 5,1 g, 300 mL de agua. El 5,1 g esta en 2024-1op-1."
+ },
+ {
+  "archivo": "482026245_1046434000863897_4382692921286637261_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no",
+  "nota": "'Facultad de Ciencias Economicas, Area Matematicas', M1-M10 completos con letras (A,B,C,D,A,B,C,D,A,B). Coinciden con la hoja 482015367 (3ra opcion I-2024), de ahi la gestion; el enunciado no se vio. FCE 2024 no esta en el banco. Foto valiosa: 10 de 10 legible."
+ },
+ {
+  "archivo": "482028148_3885756008343516_4459495794453907518_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "no-se",
+  "nota": "AA1 cocientes notables (sexto termino x^20 y^15) y AA2 logaritmos (resultado 1). Captura de Facebook, resolucion borrosa."
+ },
+ {
+  "archivo": "482031548_1044568841050413_4927408414329144498_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "biologia",
+  "gestion": "1-2024",
+  "opcion": "1ra",
+  "preguntas_visibles": [
+   17,
+   18,
+   19,
+   20
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-1op-1-2024",
+  "nota": "Enunciados impresos con la respuesta resaltada (sacarosa D, productores E, ADN por aminoacidos B, Panthera/Leopardus C). Sacarosa y Panthera estan en 2024-1op-1."
+ },
+ {
+  "archivo": "482033782_1049746157199348_9191336324455075196_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Fragmento: final de un sistema (z=4, y=6, suma de soluciones 18) y A2 fracciones algebraicas (y=6). Mano y fondo de las hojas 'Final I-2024', sin confirmar."
+ },
+ {
+  "archivo": "482125797_3884480528471064_698380039467722379_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "geometria",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "regular",
+  "en_banco": "no-se",
+  "nota": "Geometria-Trigonometria: paralelas x=10, triangulos alfa=20, b=8raiz3+4, identidad trigonometrica A=4. Sin numero de pregunta; marco negro con INAP, como 2023-1op-1 (candidato), sin confirmar."
+ },
+ {
+  "archivo": "482316080_1045638434276787_4679639709903402956_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   9,
+   10,
+   11,
+   12
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-3op-1-2024",
+  "nota": "F9 v0=8 m/s (4,2 m), F10 v0=9 m/s, F11 masa 25 kg, F12 Q=600 J. El 4,2 m y el 600 J estan en 2024-3op-1."
+ },
+ {
+  "archivo": "482317303_1045638380943459_2372747031487078347_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   15
+  ],
+  "pagina_de": "482319688",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-3op-1-2024",
+  "nota": "Q15 presion osmotica 25 atm, descenso crioscopico -1,89 C. Continuacion de la serie de lisina (esta en 2024-3op-1)."
+ },
+ {
+  "archivo": "482318462_1045638157610148_2868453260961360211_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   13,
+   14
+  ],
+  "pagina_de": "482319688",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-3op-1-2024",
+  "nota": "Cierre de Q13 (formula empirica C3H7NO) y Q14 6,60 L de Na2CO3 0,2 M. Segunda hoja de la serie."
+ },
+ {
+  "archivo": "482319688_1045638367610127_5743882539520200165_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "quimica",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   13
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-3op-1-2024",
+  "nota": "Titulo 'Quimica', Q13 lisina (composicion centesimal 49,4% C, 9,7% H, 19,2% N, 21,7% O). 'Lisina' esta en 2024-3op-1."
+ },
+ {
+  "archivo": "482324563_1045646770942620_2963075802168076508_n.jpg",
+  "tipo": "hoja-de-respuestas",
+  "facultad": "fce",
+  "materia": "matematicas",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "Hoja FCE en blanco con las respuestas resaltadas en verde y marca de agua INAP (clave del instituto, no oficial). Matematicas: a,a,c,d,a,b,c,d,a,d; no coincide con la 3ra opcion I-2024 (482015367), asi que es otra opcion o gestion. Sin datos personales."
+ },
+ {
+  "archivo": "482325278_1045638164276814_1208161864282217031_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   1,
+   2
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "si:ingenieria/2024-3op-1-2024",
+  "nota": "A1 reparto de 144 Bs entre 6 personas (2 no pagan) y A2 logaritmos (cuadratica a^2-6a+5, se corta). El '144 Bs' esta en 2024-3op-1."
+ },
+ {
+  "archivo": "482327310_1045638067610157_7326334023118499638_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "matematicas",
+  "gestion": "1-2024",
+  "opcion": "3ra",
+  "preguntas_visibles": [
+   4
+  ],
+  "pagina_de": "482325278",
+  "quien_resuelve": "instituto (INAP)",
+  "legible": "buena",
+  "en_banco": "no-se",
+  "nota": "A4 teorema del residuo, P(x)/(x^2-1), R(x)=x+3. Misma mano y fondo que 482325278 (2024-3op-1); enunciado no grepeado."
+ },
+ {
+  "archivo": "483064794_1048963310610966_1921881507311396446_n.jpg",
+  "tipo": "resuelto-a-mano",
+  "facultad": "fcyt",
+  "materia": "fisica",
+  "gestion": null,
+  "opcion": null,
+  "preguntas_visibles": [
+   3,
+   4,
+   5
+  ],
+  "pagina_de": null,
+  "quien_resuelve": "desconocido",
+  "legible": "regular",
+  "en_banco": "no-se",
+  "nota": "Items 3 bolita y disco (4 pi rad/s, d), 4 tren (30,9 m/s, c), 5 catalina-pinon-rueda (12,56 m/s). Papel cuadriculado, marca de agua INAP muy tenue y letra distinta a la del resto del lote (posible otra mano). Sin identificar."
+ }
+]
