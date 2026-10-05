@@ -1,6 +1,6 @@
 # Registro de exámenes del banco
 
-> **Generado** por `node scripts/registro-examenes.mjs` el 2026-10-04. No se edita a mano.
+> **Generado** por `node scripts/registro-examenes.mjs` el 2026-10-05. No se edita a mano.
 > Lo que sale de los archivos y de git (preguntas, pendientes, fechas de carga) es automático.
 > El **nivel de verificación** sale de `data/registro-verificacion.json` (se edita a mano o lo escribe un agente
 > al terminar una auditoría). Si un examen no está ahí, figura como **sin registrar**: no se asume que esté verificado.
@@ -35,17 +35,17 @@ Sin registro de verificación: **10** de 10. Con conteo que no cuadra: **1**.
 
 ## ingenieria (139 exámenes, 3569 preguntas)
 
-Sin registro de verificación: **138** de 139. Con conteo que no cuadra: **0**.
+Sin registro de verificación: **133** de 139. Con conteo que no cuadra: **0**.
 
 | Examen | Fecha | Decl. | Reales | E | Fig. | Pend. | Alta | Últ. | Verificación |
 |---|---|--:|--:|--:|--:|:-:|---|---|---|
-| Examen de Ingreso 1-2005 (1ra Opción) <br><sub>ingenieria/2005-1op-1-2005</sub> |  | 20 | 20 | 1 | 1 |  | 2026-07-20 | 2026-09-16 | sin registrar |
+| Examen de Ingreso 1-2005 (1ra Opción) <br><sub>ingenieria/2005-1op-1-2005</sub> |  | 20 | 20 | 1 | 1 |  | 2026-07-20 | 2026-09-16 | contra-facsimil (2026-10-04) |
 | Examen de Ingreso 2-2005 (1ra Opción) <br><sub>ingenieria/2005-1op-2-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-14 | sin registrar |
 | Examen de Ingreso 1-2005 (2da Opción) <br><sub>ingenieria/2005-2op-1-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Examen de Ingreso 2-2005 (2da Opción) <br><sub>ingenieria/2005-2op-2-2005</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
-| Examen de Ingreso 1-2006 (1ra Opción) <br><sub>ingenieria/2006-1op-1-2006</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-14 | contra-facsimil (2026-10-04) |
-| Examen de Ingreso 1-2006 (2da Opción) <br><sub>ingenieria/2006-2op-1-2006</sub> |  | 20 | 20 | 0 | 1 |  | 2026-07-20 | 2026-09-14 | sin registrar |
-| Primer Parcial · Curso Propedéutico (Gestión I-2006) <br><sub>ingenieria/2006-parcial1-1-2006</sub> |  | 38 | 38 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
+| Examen de Ingreso 1-2006 (1ra Opción) <br><sub>ingenieria/2006-1op-1-2006</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-10-04 | contra-facsimil (2026-10-04) |
+| Examen de Ingreso 1-2006 (2da Opción) <br><sub>ingenieria/2006-2op-1-2006</sub> |  | 20 | 20 | 0 | 1 |  | 2026-07-20 | 2026-09-14 | contra-facsimil (2026-10-04) |
+| Primer Parcial · Curso Propedéutico (Gestión I-2006) <br><sub>ingenieria/2006-parcial1-1-2006</sub> |  | 38 | 38 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | contra-facsimil (2026-10-04) |
 | Primer Parcial · Curso Propedéutico (Gestión 2-2006) <br><sub>ingenieria/2006-parcial1-2-2006</sub> |  | 38 | 38 | 5 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Segundo Parcial · Curso Propedéutico (Gestión I-2006) <br><sub>ingenieria/2006-parcial2-1-2006</sub> |  | 38 | 38 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Segundo Parcial · Curso Propedéutico (Gestión 2-2006) <br><sub>ingenieria/2006-parcial2-2-2006</sub> |  | 38 | 38 | 2 | 0 |  | 2026-07-21 | 2026-09-16 | sin registrar |
@@ -54,7 +54,7 @@ Sin registro de verificación: **138** de 139. Con conteo que no cuadra: **0**.
 | Cuarto Parcial · Curso Propedéutico (Gestión I-2006) <br><sub>ingenieria/2006-parcial4-1-2006</sub> |  | 38 | 38 | 5 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
 | Cuarto Parcial · Curso Propedéutico (Gestión 2-2006) <br><sub>ingenieria/2006-parcial4-2-2006</sub> |  | 38 | 38 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
 | Examen de Ingreso 2-2006 (Única Opción) <br><sub>ingenieria/2006-unica-2-2006</sub> |  | 20 | 20 | 1 | 0 |  | 2026-07-20 | 2026-09-16 | sin registrar |
-| Examen de Ingreso 1-2007 (1ra Opción) <br><sub>ingenieria/2007-1op-1-2007</sub> |  | 20 | 20 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
+| Examen de Ingreso 1-2007 (1ra Opción) <br><sub>ingenieria/2007-1op-1-2007</sub> |  | 20 | 20 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | contra-facsimil (2026-10-04) |
 | Examen de Ingreso 1-2007 (2da Opción) <br><sub>ingenieria/2007-2op-1-2007</sub> |  | 20 | 20 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
 | Primer Parcial · Curso Propedéutico (Gestión 1-2007) <br><sub>ingenieria/2007-parcial1-1-2007</sub> |  | 38 | 38 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
 | Primer Parcial · Curso Propedéutico (Gestión 2-2007) <br><sub>ingenieria/2007-parcial1-2-2007</sub> |  | 42 | 42 | 5 | 0 |  | 2026-07-21 | 2026-09-16 | sin registrar |
@@ -63,7 +63,7 @@ Sin registro de verificación: **138** de 139. Con conteo que no cuadra: **0**.
 | Tercer Parcial · Curso Propedéutico (Gestión 1-2007) <br><sub>ingenieria/2007-parcial3-1-2007</sub> |  | 38 | 38 | 4 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
 | Tercer Parcial · Curso Propedéutico (Gestión 2-2007) <br><sub>ingenieria/2007-parcial3-2-2007</sub> |  | 36 | 36 | 1 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
 | Examen de Ingreso 2-2007 (Única Opción) <br><sub>ingenieria/2007-unica-2-2007</sub> |  | 20 | 20 | 2 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
-| Examen de Ingreso 1-2008 (1ra Opción) <br><sub>ingenieria/2008-1op-1-2008</sub> |  | 20 | 20 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | sin registrar |
+| Examen de Ingreso 1-2008 (1ra Opción) <br><sub>ingenieria/2008-1op-1-2008</sub> |  | 20 | 20 | 0 | 0 |  | 2026-07-21 | 2026-09-14 | contra-facsimil (2026-10-04) |
 | Primer Parcial · Segundo Curso Pre-Facultativo (Gestión 2-2008) <br><sub>ingenieria/2008-2curso-parcial1-2-2008</sub> |  | 30 | 30 | 0 | 0 |  | 2026-07-26 | 2026-09-16 | sin registrar |
 | Segundo Parcial · Segundo Curso Pre-Facultativo (Gestión 2-2008) <br><sub>ingenieria/2008-2curso-parcial2-2-2008</sub> |  | 30 | 30 | 3 | 0 |  | 2026-07-26 | 2026-09-16 | sin registrar |
 | Tercer Parcial · Segundo Curso Pre-Facultativo (Gestión 2-2008) <br><sub>ingenieria/2008-2curso-parcial3-2-2008</sub> |  | 30 | 30 | 1 | 0 |  | 2026-07-26 | 2026-09-16 | sin registrar |

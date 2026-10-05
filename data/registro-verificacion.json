@@ -1,4 +1,15 @@
 {
+  "ingenieria/2005-1op-1-2005": {
+    "id": "umss-ingenieria-2005-examen-de-ingreso-1-2005-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/050_ExamenAdmisionPrimerOpcion1-2005.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Contrastadas 20/20 contra el PDF (capa de texto y render a 200 dpi; fracciones de P2, P3 y P17 leidas en el render). Titulo de p.1: 'EXAMEN DE INGRESO PRIMERA OPCION GESTION I-2005'. Sin errores de transcripcion: no se corrigio nada. Desviaciones editoriales que se dejaron: P1 y P5 enunciado levemente reordenado sin cambiar datos; P12-P15 decimales con coma (PDF con punto); P15 opcion B 'cromico' (el PDF trae la errata 'crômico'); P16 '(g=10 m/s2)' en vez de 'Considera la aceleracion de la gravedad'; P18 reescrito sin 'figura adjunta' (rampa lisa A-B, tramo BC, B y C a altura 0), coherente con el dibujo; P19 agrega la geometria de la figura en texto. El PDF no trae fecha ni duracion: duracion_minutos 120 y la ponderacion son del transcriptor. Figura P19 (f19-tres-cargas-simetricas) contrastada: q1 arriba y q2 abajo en la misma vertical, P a 1 m horizontal y a 2 m de cada carga; coincide. Figuras de P16 (gotas a 60 grados, distancia d) y P18 (rampa desde A con altura h, tramo BC = d, rizo de radio R en C) estan en el PDF y NO dibujadas en el banco. DECISION: completo=false hasta dibujar P16 y P18 (auditor-figuras); el texto ya esta contrastado."
+  },
   "ingenieria/2006-1op-1-2006": {
     "id": "umss-ingenieria-2006-examen-de-ingreso-1-2006-1ra-opcion",
     "nivel": "contra-facsimil",
@@ -9,5 +20,49 @@
     },
     "completo": false,
     "notas": "Contrastadas 20/20 contra el PDF (texto y render a 200-400 dpi). Corregido: P12 opciones c y d estaban invertidas (11/23 y 77/26; el PDF dice 23/11 y 26/77); P11 omitia la frase 'y que en el proceso de la colision no se pierde masa'. Desviaciones editoriales que el PDF no trae y se dejaron: P1 aclaracion '(el original, antes de duplicar)', P13 masas atomicas S=32 Ca=40, P16 P.M. HNO3=63, P12 enunciado reescrito en texto en vez de 'figura adjunta'. Dudas: P6 opcion A se transcribe 3 raiz de 3, pero el PDF renderiza solo '3' (el radical no se dibuja; el texto oculto trae un segundo 3 de 0.7 pt). Figuras de P11 (pendulo) y P12 (circuito 10V, 4 ohm serie, 1/2/3 ohm paralelo) NO estan dibujadas en el banco: sin figura, no hay respaldo grafico de esas dos preguntas. DECISION: completo=false hasta dibujar las figuras de P11 y P12 (auditor-figuras); el texto ya esta contrastado."
+  },
+  "ingenieria/2007-1op-1-2007": {
+    "id": "umss-ingenieria-2007-examen-de-ingreso-1-2007-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/065_ExamenAdmisionPrimeraOpcion1-2007.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo impreso p.1: 'PRIMER EXAMEN DE INGRESO 1-2007' (el 066 dice SEGUNDO). Contrastadas 20/20 contra el PDF (capa de texto y render a 200 dpi; P2 y P13 a 400 dpi). Fracciones de P3, P6 y P8 leidas en el render. Corregido: P13 la reaccion estaba balanceada (2Al+6HCl->2AlCl3+3H2); el PDF la da sin coeficientes 'Al + HCl -> AlCl3 + H2' (balancear es parte del ejercicio); P2 decia tan(90°+alfa), el PDF imprime tan(90+alfa) sin el signo de grado. Sin figuras en el PDF (P1 y P4 son de geometria pero sin dibujo). Sin texto oculto (ningun span < 3 pt). La duracion de 120 min no figura en el encabezado del PDF. Diferencias solo ortograficas (triangulo/triángulo, esta/está, Que/Qué) no se tocaron."
+  },
+  "ingenieria/2008-1op-1-2008": {
+    "id": "umss-ingenieria-2008-examen-de-ingreso-1-2008-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/074_ExamenAdmisionPrimeraOpcion1-2008.pdf",
+      "paginas": "1-3"
+    },
+    "completo": true,
+    "notas": "Titulo impreso p.1: 'PRIMER EXAMEN DE INGRESO 1-2008'. Contrastadas 20/20 contra el PDF (capa de texto y render PyMuPDF a 200 dpi; p.1 de matematicas a 400 dpi; fracciones de P1, P3 y P5 leidas en el render). Cifras, signos, exponentes y las 100 opciones coinciden. Corregido: P15 la reaccion estaba balanceada (CaCO3+2HCl); el PDF la da sin coeficientes 'CaCO3 + HCl -> CaCl2 + CO2 + H2O'. P20 opciones a-c abreviadas; restituidas 'Utilizacion de pesticidas', 'Tala y quema indiscriminada de arboles' (el PDF trae la errata 'indiscrimanada'), 'Generacion de productos no biodegradables'. Cierres de enunciado restituidos: P2 '(en metros cuadrados)', P9 'a lo largo de una linea recta' y 'en m/s', P13 la ecuacion Pb(NO3)2 + calor -> O2(g)+NO2(g)+PbO(s), P14 'a presion constante'. Parafrasis sin perdida de datos que se dejaron (P1-P8, P10-P12, P16-P19); P17 opcion D lleva coma tras 'especie' que el PDF omite; P4 usa sin en vez de sen. Sin figuras en el PDF (los 19 trazos de p.1 son barras de fraccion y sobrerrayados de segmentos de P6). Sin texto oculto (ningun span < 3 pt). El PDF no trae fecha ni duracion: duracion_minutos 120 y la ponderacion son del transcriptor."
+  },
+  "ingenieria/2006-2op-1-2006": {
+    "id": "umss-ingenieria-2006-examen-de-ingreso-1-2006-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/055_ExamenAdmisionSegundaOpcion1-2006.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo impreso p.1: 'EXAMEN DE INGRESO SEGUNDA OPCION 1-2006' (la p.3 del PDF es copia exacta de la p.2). Contrastadas 20/20 contra el PDF (capa de texto y render PyMuPDF a 200 dpi; figura de P12 a 400 dpi y por sus trazos vectoriales; fracciones de P2, P3 y P7 leidas en el render). Opciones: las 100 coinciden. Corregido: P1 faltaba 'en centimetros' ('inscrita en centimetros al mismo poligono'); P3 decia cos(180°-x), el PDF imprime cos(pi-x); P10 '(g=10)' restituido a 'Considera la aceleracion de la gravedad como 10 m/s2'; P12 enunciado reescrito ('4 resistencias... conectadas') restituido al original; P13 la reaccion estaba balanceada (2H2O2 -> O2 + 2H2O), el PDF la da sin coeficientes 'H2O2(aq) -> O2(g) + H2O' al final ('La reaccion es:'); P16 faltaba el cierre 'para fundir el hielo y luego calentarlo hasta la temperatura final (80°C)'. Agregados editoriales que se dejaron: P14 la ecuacion C3H8+5O2->3CO2+4H2O (el PDF no la trae); P15 '(P.at. C=12)'; P11 '(quedan unidas)'; mayusculas de enfasis (CIRCUNSCRITA, UNICA, MAS, TRIPLE, MITAD, etc.) que el PDF no tiene; decimales con coma. P6 opcion a: hay un '3' oculto de 0,71 pt; el render dice 30, sin duda. El PDF no trae fecha ni duracion: duracion_minutos 120 es del transcriptor. FIGURA P12 MAL DIBUJADA: en el PDF (trazos vectoriales p.2) la R de abajo va de a al NODO MEDIO entre las dos R del medio (x=521.7 sube a y=278.7), no hasta b; el cable derecho (x=557.1) solo une la R de arriba con la rama media. Topologia real: [(R||R)+R] || R = 3R/5 = 3 ohm (opcion A). La figura f12-circuito-cuatro-resistencias-r dibuja tres ramas paralelas (R, 2R, R) y la respuesta del banco es B (2 ohm), que sale de esa lectura equivocada. RESUELTO el 4-oct por la sesion principal: f12 redibujada con la topologia real (verificada a ojo en el render del PDF) y P12 corregida a A (3 ohm) con su explicacion; completo=true."
+  },
+  "ingenieria/2006-parcial1-1-2006": {
+    "id": "umss-ingenieria-2006-primer-parcial-curso-propedeutico-gestion-i-2006",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-10-04",
+    "fuente": {
+      "archivo": "FCYT/056_PrimerParcialCursoPropedeutico1-2006.pdf",
+      "paginas": "1-5"
+    },
+    "completo": true,
+    "notas": "Titulo impreso p.1: 'PRIMER EXAMEN ALGEBRA - ARITMETICA CURSO PROPEDEUTICO GESTION I-2006' (p.2 Geometria-Trigonometria, p.3 Quimica y p.4 Fisica 'CURSO PREPARATORIO GESTION 1-2006', p.5 Biologia). Contrastadas 38/38 y las 190 opciones contra el PDF (capa de texto PyMuPDF y render PyMuPDF a 200 dpi; fracciones de P6, radicales de P5 y P25 y vectores de P28 leidos en el render). Corregido: ORDEN de Fisica, el pendulo es la P4 de Fisica en el PDF (P25 del banco) y estaba como P28; se movio y avion/modulo/vectores pasaron a P26-P28 (cambian los ids -025..-028: las filas de la tabla errores con esos ids apuntan ahora a otra pregunta). P2 divisor (x^2-2x+4) restituido como impreso (4-2x+x^2). Frases recortadas restituidas: P4 'se obtenga', P10 'tres veces mas que', P16 'e identificar de que metal se trata', P17 'es un paso determinante para la formacion del smog fotoquimico', P21 'es el combustible empleado en las cocinas' y 'que libera una gran cantidad de calor', P22 y P23 enunciados completos (estaban resumidos), P25 'ecuacion dimensional' (decia 'dimensionalmente correcta'), P26 'Despues de dejar caer provisiones', P27 coordenadas con punto y coma como el PDF, P36 '(acido desoxirribonucleico)'. Agregados editoriales que se dejaron: P6 '(25 dias en total)', P8 '(en ese orden sobre la recta)', P10 '(el angulo del vertice)', P16 aclaracion de la reduccion con H2O, P17 y P20 masas molares, P17 nota de la errata del PDF '(N2O)' por NO2, EXCEPTO en mayusculas (P31, P33, P36), decimales con coma, P11 se omite un 'AE' suelto que el PDF imprime antes de 'AC=BD'. Sin figuras en el PDF. Sin faltantes. El PDF no trae fecha ni duracion: duracion_minutos 150 es del transcriptor."
   }
 }

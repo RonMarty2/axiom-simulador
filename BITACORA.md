@@ -482,6 +482,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-04 (undecies) (primera tanda de verificación contra facsímil: 5 exámenes de Ingeniería)
+- **Hecho:** 5 agentes `auditor-facsimil` en paralelo contrastaron `2005-1op-1`, `2006-parcial1-1`, `2006-2op-1`, `2007-1op-1` y `2008-1op-1` contra sus PDF. Registro: 6 exámenes (con el `2006-1op-1` del paso 1), **144 de 150 sin registrar**. Completos (se mostrarían como digitalizados): `2006-parcial1-1`, `2006-2op-1`, `2007-1op-1`, `2008-1op-1`. Incompleto: `2005-1op-1` (faltan las figuras de P16 y P18, hay que dibujarlas con `auditor-figuras`).
+- **Errores reales encontrados y corregidos en el banco:** reacciones químicas balanceadas de más (3 exámenes), enunciados y opciones resumidos (4 de 5), un orden de Física alterado (`2006-parcial1-1` P25 a P28), y **una respuesta mal**: `2006-2op-1` P12 es **3 Ω (A)** y no 2 Ω (B). La figura estaba dibujada como tres ramas en paralelo; en el PDF la R de abajo vuelve al nodo del medio. Redibujada la figura, corregidas respuesta y explicación (lo comprobé yo mirando el PDF).
+- **Ojo:** el reorden de P25 a P28 cambia esos ids y la tabla `errores` los guarda. Con pocos alumnos el impacto es mínimo; si importa, migrar esas filas.
+- **Pendiente:** las explicaciones de `2007-1op-1` P13, `2008-1op-1` P15 y `2006-2op-1` P13 deberían mostrar el paso de balancear la reacción (ahora el enunciado viene sin coeficientes). Faltan los 144 exámenes restantes, la página de impresión con marca de agua y el botón "Ver examen".
+- **Agentes:** mejorar `transcriptor-examenes` (no balancear ni abreviar, copiar opciones literales) y `auditor-facsimil` (contar figuras en el PDF, verificar orden por tema, renderizar con PyMuPDF). Lecciones en `docs/lecciones-agentes.md`.
+
 ### 2026-10-04 (decies) (borrar la cuenta)
 - **`DELETE /api/cuenta`** + sección plegable "Borrar mi cuenta" al pie de `/cuenta` (hay que escribir BORRAR). `eliminarUsuario` en `data-store.ts` borra a mano `simuladores`, `errores` y `suscripciones` (sin clave foránea) y después el usuario; `pagos`, `historial` y comprobantes se van por CASCADE. No borra cuentas admin ni tester.
 - **Por decidir:** los pagos también se borran con la cuenta. Si se quiere conservarlos por contabilidad, hay que anonimizar en vez de borrar.

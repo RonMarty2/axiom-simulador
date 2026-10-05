@@ -1521,29 +1521,36 @@ function f10ramal(): Figura {
 }
 
 // Cuatro resistencias iguales entre a y b. Del facsímil (examen 1-2006, 2da
-// opción, F12): son TRES ramas en paralelo — una R arriba, dos R en serie al
-// medio, una R abajo. Esa topología da Req = 2R/5 = 2 Ω con R = 5 Ω.
+// opción, F12), leído en los trazos vectoriales del PDF: arriba una R de a a b;
+// al medio una R de a al nodo M y otra R de M a b; abajo una R que va de a a M
+// (NO a b: queda en paralelo con la primera del medio). Req = [(R||R)+R]||R =
+// 3R/5 = 3 Ω con R = 5 Ω. Antes se dibujó como tres ramas completas en
+// paralelo (2R/5 = 2 Ω) y la respuesta del banco estaba mal (corregido 4-oct).
 function f12cuatroR(): Figura {
-  const IZQ = 96, DER = 330;
+  const IZQ = 96, DER = 330, M = (IZQ + DER) / 2;
   const ARRIBA = 54, MEDIO = 112, ABAJO = 170;
   const a: Pt = { x: IZQ - 34, y: MEDIO };
   const b: Pt = { x: DER + 34, y: MEDIO };
 
   const el: Elemento[] = [
-    // verticales que unen las tres ramas
+    // vertical izquierda: une las tres ramas en a
     { tipo: "linea", de: { x: IZQ, y: ARRIBA }, a: { x: IZQ, y: ABAJO }, rol: "trazo" },
-    { tipo: "linea", de: { x: DER, y: ARRIBA }, a: { x: DER, y: ABAJO }, rol: "trazo" },
+    // vertical derecha: baja la R de arriba hasta b
+    { tipo: "linea", de: { x: DER, y: ARRIBA }, a: { x: DER, y: MEDIO }, rol: "trazo" },
+    // vertical del nodo M: sube la R de abajo hasta la rama del medio
+    { tipo: "linea", de: { x: M, y: MEDIO }, a: { x: M, y: ABAJO }, rol: "trazo" },
     { tipo: "linea", de: a, a: { x: IZQ, y: MEDIO }, rol: "trazo" },
     { tipo: "linea", de: { x: DER, y: MEDIO }, a: b, rol: "trazo" },
 
-    // rama de arriba: una R
+    // rama de arriba: una R de a a b
     ...resistencia({ x: IZQ, y: ARRIBA }, { x: DER, y: ARRIBA }, "R", -1),
-    // rama del medio: dos R en serie
-    ...resistencia({ x: IZQ, y: MEDIO }, { x: (IZQ + DER) / 2, y: MEDIO }, "R", -1),
-    ...resistencia({ x: (IZQ + DER) / 2, y: MEDIO }, { x: DER, y: MEDIO }, "R", -1),
-    // rama de abajo: una R
-    ...resistencia({ x: IZQ, y: ABAJO }, { x: DER, y: ABAJO }, "R", 1),
+    // rama del medio: R de a a M y R de M a b
+    ...resistencia({ x: IZQ, y: MEDIO }, { x: M, y: MEDIO }, "R", -1),
+    ...resistencia({ x: M, y: MEDIO }, { x: DER, y: MEDIO }, "R", -1),
+    // abajo: R de a a M
+    ...resistencia({ x: IZQ, y: ABAJO }, { x: M, y: ABAJO }, "R", 1),
 
+    { tipo: "punto", en: { x: M, y: MEDIO }, r: 2.6, rol: "trazo" },
     { tipo: "punto", en: a, r: 3.4, rol: "trazo" },
     { tipo: "punto", en: b, r: 3.4, rol: "trazo" },
     { tipo: "texto", en: { x: a.x - 10, y: a.y + 5 }, texto: "a", rol: "incognita", color: VIOLETA, tam: 13, cursiva: true, negrita: true, ancla: "end" },
