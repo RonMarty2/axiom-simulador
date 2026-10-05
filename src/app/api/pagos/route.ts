@@ -1,8 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { after, NextRequest, NextResponse } from "next/server";
 import { crearPago, guardarComprobante, idsConComprobante, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
 import { getCurrentUser, isAdmin } from "@/lib/session";
 import { montoCambioFacultadEn, montoPlanEn, type Moneda } from "@/lib/precios";
 import { METODOS_ACTIVOS, esMetodoActivo, type MetodoActivo } from "@/lib/pagos-config";
+import { avisarPago } from "@/lib/avisos";
 
 // Los precios viven en src/lib/precios.ts, no acá: estaban escritos tres
 // veces y coincidían de casualidad. El servidor sigue siendo el que MANDA
@@ -49,7 +50,7 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    return await registrarPago({ usuarioId: u.id, body, tipo, metodo, moneda, referencia, comprobante });
+    return await registrarPago({ usuarioId: u.id, alumno: u.nombre, urlAdmin: `${req.nextUrl.origin}/admin/pagos`, body, tipo, metodo, moneda, referencia, comprobante });
   } catch (e) {
     // Si la base todavía no tiene el método en su restricción (falta correr
     // supabase/migration-006-pagos-metodos.sql), que el alumno vea algo útil
@@ -67,6 +68,8 @@ export async function POST(req: NextRequest) {
 
 async function registrarPago(d: {
   usuarioId: string;
+  alumno: string;
+  urlAdmin: string;
   body: Record<string, unknown>;
   tipo: TipoPago;
   metodo: MetodoActivo;
@@ -74,7 +77,15 @@ async function registrarPago(d: {
   referencia: string;
   comprobante: string | null;
 }) {
-  const { usuarioId, body, tipo, metodo, moneda, referencia, comprobante } = d;
+  const { usuarioId, alumno, urlAdmin, body, tipo, metodo, moneda, referencia, comprobante } = d;
+  // Avisa a Ronald DESPUÉS de responder al alumno (`after`), así un Telegram
+  // lento no demora la pantalla de "pago registrado". Si falla, no pasa nada:
+  // el pago ya está guardado. Ver src/lib/avisos.ts.
+  const avisar = (pago: { monto: number; moneda: Moneda }, extra: { plan: string | null; destino: string | null }) =>
+    after(() => avisarPago({
+      alumno, tipo, plan: extra.plan, destino: extra.destino,
+      monto: pago.monto, moneda: pago.moneda, metodo, referencia, conFoto: comprobante !== null, urlAdmin,
+    }));
   const guardarFoto = async (pagoId: string) => {
     if (comprobante) await guardarComprobante(pagoId, comprobante);
   };
@@ -99,6 +110,7 @@ async function registrarPago(d: {
       referencia,
     });
     await guardarFoto(pago.id);
+    avisar(pago, { plan: null, destino });
     return NextResponse.json({ pago });
   }
 
@@ -117,5 +129,6 @@ async function registrarPago(d: {
     referencia,
   });
   await guardarFoto(pago.id);
+  avisar(pago, { plan, destino: null });
   return NextResponse.json({ pago });
 }

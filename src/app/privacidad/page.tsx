@@ -63,6 +63,7 @@ export default function PrivacidadPage() {
           "Google, para el inicio de sesión.",
           "Supabase, donde se guarda la base de datos.",
           "Vercel, donde se aloja la aplicación.",
+          "Telegram, para avisarnos a nosotros cuando entra un pago. El aviso lleva tu nombre, el plan, el monto, el método y la referencia; no lleva tu correo.",
           "Proveedores de inteligencia artificial, para las funciones que generan práctica o planes de estudio. A ellos les enviamos el contenido de las preguntas y los temas que fallaste. No les enviamos tu nombre ni tu correo.",
         ]} />
         <p>

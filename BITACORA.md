@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-05 (QR de BNB definitivo, titular y contacto)
+**Última actualización:** 2026-10-05 (bis) (aviso por Telegram cuando entra un pago)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -355,6 +355,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Actualización 5-oct:** `titular` y `whatsapp` ya están cargados en `src/lib/legal.ts`. **Falta que un abogado los lea.**
 - [~] **Botón para borrar la cuenta** hecho el 4-oct (decies); **falta salir del ranking** sin borrar (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
 - [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
+- [~] **Aviso a Ronald cuando entra un pago:** el código está hecho (5-oct bis, `docs/avisos-telegram.md`); **falta que Ronald cree el bot y cargue `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID` en Vercel.** Hasta entonces los avisos no llegan.
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
 
 ### ENCARGO ABIERTO · Auditoría pedagógica de las 167 piezas de contenido
@@ -481,6 +482,17 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-05 (bis) (aviso por Telegram cuando entra un pago)
+
+Ronald pidió el aviso de pagos ("Hacelo"). Era un hueco de lanzamiento: el pago es manual, la app promete activar en 24 horas y nada le avisaba a Ronald que había uno esperando.
+
+- **`src/lib/avisos.ts`**: `avisarPago` manda un mensaje por Telegram (alumno, qué compró, monto, método, referencia, si trae foto, enlace a `/admin/pagos`). **Nunca lanza**: si Telegram falla o no está configurado, el pago ya está guardado y solo se pierde el aviso. Sin las variables de entorno no hace nada, así que el desarrollo local y los tests andan sin configurar. Texto plano, sin `parse_mode`: un guion bajo en un nombre rompería el mensaje.
+- **`/api/pagos`** avisa con `after()`, o sea después de responderle al alumno: un Telegram lento no demora el "pago registrado". Cubre el pago de plan y el cambio de facultad.
+- **Variables:** `TELEGRAM_BOT_TOKEN` y `TELEGRAM_CHAT_ID`, a cargar en Vercel con un redeploy. **Hasta que Ronald las cargue, los avisos no llegan.** Guía paso a paso en [`docs/avisos-telegram.md`](../docs/avisos-telegram.md) y ayudante `scripts/telegram-chat-id.mjs` (busca el chat y manda un mensaje de prueba).
+- **Privacidad:** el aviso lleva el nombre del alumno, así que la Política de Privacidad suma a Telegram como proveedor. No viaja el correo ni la foto del comprobante.
+- **`src/lib/avisos.test.ts`** (6 tests): contenido del mensaje, que sin variables no llame a Telegram, que con variables mande a la URL correcta en texto plano, que un fallo no lance, y que el servidor avise con `after()` en los dos tipos de pago.
+- **No se probó contra Telegram de verdad** (no hay token en este entorno): el mensaje real hay que verlo después de configurar y hacer un pago de prueba.
 
 ### 2026-10-05 (QR de BNB con dos años de vigencia, titular y contacto en los Términos)
 
