@@ -18,6 +18,9 @@ export default function CuentaPage() {
   const [facultades, setFacultades] = useState<Facultad[]>([]);
   const [loading, setLoading] = useState(true);
   const [cambiandoFacultad, setCambiandoFacultad] = useState(false);
+  const [borrando, setBorrando] = useState(false);
+  const [confirmarBorrado, setConfirmarBorrado] = useState("");
+  const [errorBorrado, setErrorBorrado] = useState<string | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -53,6 +56,23 @@ export default function CuentaPage() {
       return;
     }
     router.push(`/cambiar-facultad?destino=${nuevaId}`);
+  };
+
+  const borrarCuenta = async () => {
+    setBorrando(true);
+    setErrorBorrado(null);
+    const r = await fetch("/api/cuenta", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ confirmar: confirmarBorrado.trim() }),
+    });
+    if (r.ok) {
+      window.location.href = "/";
+      return;
+    }
+    const d = await r.json().catch(() => ({}));
+    setErrorBorrado(d.error ?? "No se pudo borrar la cuenta. Inténtalo de nuevo.");
+    setBorrando(false);
   };
 
   if (loading || !usuario) return <Cargando />;
@@ -181,6 +201,31 @@ export default function CuentaPage() {
             </table>
           )}
         </div>
+        <details style={{ marginTop: 24, background: "var(--bg-card)", borderRadius: 14, padding: "14px 20px", border: "1px solid var(--border)" }}>
+          <summary style={{ cursor: "pointer", fontSize: 14, fontWeight: 700, color: "var(--fg-muted)" }}>Borrar mi cuenta</summary>
+          <p style={{ fontSize: 13.5, lineHeight: 1.55, color: "var(--fg-muted)", margin: "12px 0" }}>
+            Se borran tu perfil, tu historial de exámenes, tus errores, tus suscripciones y tus pagos registrados.
+            <strong> No se puede deshacer</strong>, y las suscripciones que tengas activas se pierden sin devolución.
+            Para confirmar, escribe <strong>BORRAR</strong>.
+          </p>
+          <input
+            type="text"
+            value={confirmarBorrado}
+            onChange={(e) => setConfirmarBorrado(e.target.value)}
+            placeholder="BORRAR"
+            style={{ width: "100%", maxWidth: 260, padding: "10px 12px", borderRadius: 10, border: "1px solid var(--border)", fontSize: 14 }}
+          />
+          {errorBorrado && <p style={{ fontSize: 13, color: "#b91c1c", marginTop: 8 }}>{errorBorrado}</p>}
+          <div style={{ marginTop: 12 }}>
+            <button
+              onClick={borrarCuenta}
+              disabled={borrando || confirmarBorrado.trim() !== "BORRAR"}
+              style={{ padding: "10px 18px", background: "#dc2626", color: "white", border: "none", borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer", opacity: confirmarBorrado.trim() === "BORRAR" ? 1 : 0.4 }}
+            >
+              {borrando ? "Borrando..." : "Borrar mi cuenta para siempre"}
+            </button>
+          </div>
+        </details>
         <p style={{ marginTop: 20, fontSize: 13, color: "var(--fg-muted)", textAlign: "center" }}>
           <Link href="/terminos" style={{ color: "var(--fg-muted)", textDecoration: "underline" }}>Términos y Condiciones</Link>
           {" · "}

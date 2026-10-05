@@ -353,7 +353,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~El plan no mira facultad.~~ Ya estaba resuelto y figuraba abierto: `puedeVerResolucionBiblioteca(usuario, facultadDelExamen)` recibe la facultad del examen desde `fd17d4c`. Verificado en el código el 16-sep.
 - [x] ~~**El alumno no sube comprobante.**~~ Resuelto el 4-oct (nonies). `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
 - [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Falta lo que bloquea cobrar:** completar `titular` y `correo`/`whatsapp` en `src/lib/legal.ts` (hoy `null`) y que un abogado los lea.
-- [ ] **Botón para borrar la cuenta y para salir del ranking** (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
+- [~] **Botón para borrar la cuenta** hecho el 4-oct (decies); **falta salir del ranking** sin borrar (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
 - [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
 
@@ -481,6 +481,11 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (decies) (borrar la cuenta)
+- **`DELETE /api/cuenta`** + sección plegable "Borrar mi cuenta" al pie de `/cuenta` (hay que escribir BORRAR). `eliminarUsuario` en `data-store.ts` borra a mano `simuladores`, `errores` y `suscripciones` (sin clave foránea) y después el usuario; `pagos`, `historial` y comprobantes se van por CASCADE. No borra cuentas admin ni tester.
+- **Por decidir:** los pagos también se borran con la cuenta. Si se quiere conservarlos por contabilidad, hay que anonimizar en vez de borrar.
+- **Sigue pendiente:** salir del ranking sin borrar la cuenta.
 
 ### 2026-10-04 (nonies) (foto del comprobante de pago)
 - **Cierra el pendiente de §8 "El alumno no sube comprobante".** En `/pagar` hay un campo de foto (opcional, recomendado). El navegador la reduce a 1200 px en JPEG antes de enviarla (el celular manda 4-8 MB) y `/api/pagos` la valida (data URL de imagen, tope ~1,4 MB).

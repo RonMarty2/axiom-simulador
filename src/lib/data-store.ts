@@ -574,3 +574,27 @@ export async function idsConComprobante(): Promise<Set<string>> {
   }
   return new Set(Object.keys(_cache.comprobantes));
 }
+
+// ─────────────────────────────────────────────────────────────
+// BORRAR CUENTA
+// ─────────────────────────────────────────────────────────────
+
+// Borra al usuario y todo lo suyo. `pagos`, `historial` y los comprobantes se
+// van solos por ON DELETE CASCADE; `simuladores`, `errores` y `suscripciones`
+// no tienen clave foránea, así que se borran acá a mano y ANTES que el usuario.
+export async function eliminarUsuario(id: string): Promise<void> {
+  if (supabaseConfigurado()) {
+    for (const tabla of ["simuladores", "errores", "suscripciones"]) {
+      const { error } = await db().from(tabla).delete().eq("usuario_id", id);
+      if (error) throw error;
+    }
+    const { error } = await db().from("usuarios").delete().eq("id", id);
+    if (error) throw error;
+    return;
+  }
+  const u = await getUsuarios();
+  const idx = u.findIndex((x) => x.id === id);
+  if (idx !== -1) u.splice(idx, 1);
+  _cache.suscripciones = _cache.suscripciones.filter((s) => s.usuario_id !== id);
+  if (_cache.pagos) _cache.pagos = _cache.pagos.filter((p) => p.usuario_id !== id);
+}
