@@ -34,6 +34,17 @@ Cada uno lleva adentro las lecciones de §7 que le tocan, así no hay que releer
 
 **Flujo típico:** `cronista` (estado) → agentes de trabajo en paralelo → `verificador` → `cronista` (entrada) → commit y push a `main`. Los agentes de trabajo **no commitean**: lo hace la sesión principal después del verificador.
 
+## Cómo trabajar
+
+Adaptado el 5-oct-2026 de una plantilla de flujo de trabajo que Ronald trajo. Lo que ya teníamos (cuaderno de lecciones, subagentes, bitácora) no se duplicó; esto es lo que faltaba.
+
+- **Planificá antes de lo grande.** Si son más de 3 pasos, hay una decisión de arquitectura o algo que no se deshace fácil (cobros, borrar datos, un cambio masivo al banco), escribí un plan corto: qué vas a tocar y cómo vas a comprobar que quedó bien. Si a mitad de camino algo sale torcido, **frená y replanificá**; no sigas empujando (así salieron las 14 preguntas vaciadas). Un cambio chico no necesita plan.
+- **Subagentes** para investigar y para trabajo en paralelo, uno por tarea. No para lo que se resuelve con dos lecturas.
+- **Una corrección de Ronald es una lección.** Anotala en el cuaderno en el momento, no al final, y leé el cuaderno al empezar **cualquier** tanda (interfaz, cobros, legal), no solo las del banco.
+- **No des nada por terminado sin probarlo.** `tsc`, lint, tests y build; si tocaste la interfaz, miralá en celular y en tablet; si es un bug, reproducí el fallo antes y mostrá que ya no pasa. Preguntate si un ingeniero senior lo aprobaría. Cambios a banco, figuras, cobros, legal o contenido pasan por `verificador`.
+- **Bugs y CI rojo: arreglalos sin pedir permiso**, buscando la causa raíz y tocando solo lo necesario. Lo que NO se resuelve solo: decisiones de producto, precios, reglas de acceso y textos legales. Eso se pregunta.
+- **Simple y mínimo.** El cambio más chico que ataque la causa; sin capas ni abstracciones "por las dudas". Si un arreglo se siente parche, pensá cómo lo harías sabiendo todo lo que ya sabés, salvo que sea simple y obvio.
+
 ## Cómo retomar
 
 ```bash
@@ -45,4 +56,4 @@ Después: bitácora § 10 ("Cómo retomar el proyecto") tiene el orden de lectur
 
 ## El cuaderno de lecciones
 
-6. **Toda tanda de trabajo tiene que dejar la siguiente más fácil.** Antes de digitalizar, verificar o tocar el banco, leé [docs/lecciones-agentes.md](./docs/lecciones-agentes.md): errores, aciertos y casualidades de las tandas anteriores. Al terminar, agregá lo que aprendiste, con la forma `fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`. Las SUERTES se anotan también: sirven para no generalizar. Los agentes (`agentes/`) leen el cuaderno al empezar y devuelven una sección "Lecciones nuevas" al terminar; el cronista las asienta.
+6. **Toda tanda de trabajo tiene que dejar la siguiente más fácil.** Antes de digitalizar, verificar o tocar el banco (y al empezar cualquier otra tanda), leé [docs/lecciones-agentes.md](./docs/lecciones-agentes.md): errores, aciertos y casualidades de las tandas anteriores. Al terminar, agregá lo que aprendiste, con la forma `fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`. Las SUERTES se anotan también: sirven para no generalizar. Los agentes (`agentes/`) leen el cuaderno al empezar y devuelven una sección "Lecciones nuevas" al terminar; el cronista las asienta.

@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-05 (bis) (aviso por Telegram cuando entra un pago)
+**Última actualización:** 2026-10-05 (ter) (flujo de trabajo: sección "Cómo trabajar" y verificador ampliado)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -482,6 +482,25 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-05 (ter) (una plantilla de flujo de trabajo, comparada con lo que ya teníamos)
+
+Ronald trajo una plantilla de `CLAUDE.md` muy difundida (planificar primero, subagentes, bucle de autocorrección, verificar antes de dar por hecho, elegancia, arreglar bugs solo, `tasks/todo.md` y `tasks/lessons.md`) y pidió ver si sirve y aplicarla donde corresponda.
+
+**Se comparó punto por punto antes de copiar nada.** Ya teníamos tres de las seis ideas: el cuaderno de lecciones (`docs/lecciones-agentes.md`, regla 6), los subagentes con tabla y flujo, y la bitácora que documenta resultados.
+
+**Se adoptó solo lo que faltaba:**
+- **`CLAUDE.md`, sección nueva "Cómo trabajar"** (6 reglas cortas): planificar lo grande y **frenar y replanificar cuando algo sale torcido** (es lo que habría evitado las 14 preguntas vaciadas); una corrección de Ronald se anota en el momento; verificar antes de dar por terminado (en celular y en tablet si es interfaz, reproducir el fallo si es un bug); bugs y CI rojo se arreglan sin pedir permiso, con la causa raíz; el cambio más chico que sirva. La regla 6 ahora vale para **cualquier** tanda y no solo las del banco.
+- **`agentes/verificador.md`:** su alcance estaba pensado para banco, figuras y contenido. Se amplió a **cobros, textos legales, interfaz y arreglos de bugs**, con los chequeos que salieron de esta sesión (que un aviso fallido no tumbe un pago, que lo que dice el texto legal se pueda comprobar en el código, que un precio escrito en una pantalla coincida con el código que decide, mirar la interfaz en tres tamaños, que un bug tenga su test) y cierra con la pregunta del ingeniero senior.
+- **`agentes/cronista.md`:** la tarea D también asienta las correcciones que Ronald le hace a la IA en la conversación.
+
+**Lo que NO se adoptó, y por qué:**
+- **`tasks/todo.md` y `tasks/lessons.md`:** serían una segunda copia de §8 de la bitácora y del cuaderno. Con varias sesiones en paralelo, dos listas de lo mismo se desincronizan.
+- **"Modo plan para cualquier tarea de más de 3 pasos":** demasiado pesado para un flujo donde Ronald dice "sigue". Se pide solo para lo grande o irreversible.
+- **"Usar subagentes con generosidad":** acá cada subagente arranca en frío y cuesta; se usan para lo paralelizable.
+- **"Elegancia" como paso aparte:** se resumió en la última regla, para no empujar a sobrediseñar.
+
+**No se creó ningún skill nuevo.** Una instrucción de cierre ("verificar, bitácora, lecciones, subir") ya la cubren `verificador` y `cronista`; un skill con el mismo contenido sería una tercera copia.
 
 ### 2026-10-05 (bis) (aviso por Telegram cuando entra un pago)
 

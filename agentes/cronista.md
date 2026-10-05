@@ -49,7 +49,7 @@ Una fila nueva en §7 solo si hubo un error que valga como lección general: `| 
 
 ## Tarea D · El cuaderno de lecciones
 
-`docs/lecciones-agentes.md` es lo que hace que cada tanda mejore la siguiente. Cuando un agente (transcriptor, auditor, verificador) devuelve su sección **Lecciones nuevas**, o cuando vos detectás un error, un acierto o una casualidad en el trabajo de la sesión:
+`docs/lecciones-agentes.md` es lo que hace que cada tanda mejore la siguiente. Cuando un agente (transcriptor, auditor, verificador) devuelve su sección **Lecciones nuevas**, cuando vos detectás un error, un acierto o una casualidad en el trabajo de la sesión, o cuando **Ronald corrigió a la IA** en la conversación (esa es la lección más valiosa: dice exactamente qué no se entendió):
 
 1. Leé el cuaderno entero primero: si la lección ya está, **no la repitas**; si la nueva la matiza o la contradice, agregá una línea "Corrección AAAA-MM-DD" debajo de la vieja (no la borres).
 2. Agregala en la sección que corresponda, con la forma `AAAA-MM-DD · [ERROR|ACIERTO|SUERTE] · qué pasó · qué hacer la próxima vez`. La causa, no el síntoma.
