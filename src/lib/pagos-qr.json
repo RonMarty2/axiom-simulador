@@ -1,5 +1,17 @@
 {
-  "qr_bancario": { "imagen": "/pagos/qr-bnb.png", "monto": 100, "vence": "2026-10-05" },
-  "binance_pay": { "imagen": "/pagos/qr-binance.png", "monto": null, "vence": null },
-  "redotpay": { "imagen": "/pagos/qr-redotpay.jpg", "monto": 10, "vence": null }
+  "qr_bancario": {
+    "imagen": "/pagos/qr_bancario-2026-10-05-25182.png",
+    "monto": 100,
+    "vence": "2028-10-03"
+  },
+  "binance_pay": {
+    "imagen": "/pagos/qr-binance.png",
+    "monto": null,
+    "vence": null
+  },
+  "redotpay": {
+    "imagen": "/pagos/qr-redotpay.jpg",
+    "monto": 10,
+    "vence": null
+  }
 }

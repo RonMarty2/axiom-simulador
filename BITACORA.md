@@ -2,7 +2,7 @@
 
 > **Documento vivo.** Si sos una IA o un dev nuevo leyendo esto: acá está TODO lo que necesitás para entender el proyecto, sus decisiones y su historia. Leé las secciones en orden — están pensadas para que en 10 minutos sepas dónde estás parado.
 
-**Última actualización:** 2026-10-04 (quater) (datos de cobro reales: BNB, Binance Pay, RedotPay)
+**Última actualización:** 2026-10-05 (QR de BNB definitivo, titular y contacto)
 **Versión de la bitácora:** v2.2
 **Mantenedor:** Ronald (RonMarty2)
 
@@ -344,7 +344,7 @@ El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 solu
 Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual declarado por el alumno → admin aprueba en `/admin/pagos` → `agregarOExtenderSuscripcion` da un mes de esa facultad; el plan se deriva de las suscripciones vigentes y vence solo). Lo que falta no es la plomería, es esto:
 
 - [ ] **Datos de cobro reales en `/pagar`.** ⬅ **ESTE ES EL QUE FALTA PARA COBRAR.** Hoy son de demostración y lo dicen en pantalla: Tigo Money `+591 6 7000-0000`, un "QR" que es un damero CSS con la leyenda QR DEMO, y banco `Axiom SRL · Banco Unión · 10000123456789`. Mientras estén así, **un alumno que quiera pagar no puede**: no hay a dónde mandar la plata.
-  - **Actualización 4-oct (quater):** Ronald mandó los QR y quedaron cargados (BNB, Binance Pay, RedotPay; ver §11). Tigo y transferencia se sacaron. **Falta:** (1) un QR de BNB sin monto y sin vencimiento (el que mandó es de Bs. 100 y vence el 5-oct), (2) correr `supabase/migration-006-pagos-metodos.sql` en Supabase, (3) probar un pago de punta a punta.
+  - **Actualización 4-oct (quater):** Ronald mandó los QR y quedaron cargados (BNB, Binance Pay, RedotPay; ver §11). Tigo y transferencia se sacaron. **Falta:** (1) un QR de BNB sin monto y sin vencimiento (el que mandó es de Bs. 100 y vence el 5-oct), (2) correr `supabase/migration-006-pagos-metodos.sql` en Supabase, (3) probar un pago de punta a punta. **Actualización 5-oct:** (1) resuelto a medias, hay QR de BNB de Bs. 100 válido hasta 2028 (falta uno de Bs. 50 para el cambio de facultad); (2) corrida el 4-oct; (3) sigue sin hacerse.
   - ~~Bloqueado esperando a Ronald~~ (decisión del 2026-09-13: se deja para después). Hacen falta tres datos que solo él tiene: (1) número real de Tigo Money, (2) la imagen del QR bancario, (3) cuenta bancaria — banco, número y titular.
   - Cuando lleguen: no hardcodearlos. Van a config/DB (tabla de configuración o `admin/config`, que ya existe) para poder cambiarlos sin deploy, y el QR a Supabase Storage. Están en `src/app/pagar/page.tsx`, líneas ~176-200.
   - Todo lo demás del circuito de cobro YA funciona: el alumno declara el pago, queda pendiente, el admin lo aprueba en `/admin/pagos` y `agregarOExtenderSuscripcion` le da el mes.
@@ -352,7 +352,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~La biblioteca de exámenes regalaba las soluciones.~~ Resuelto el 14-sep: `/api/axiom/examenes/[id]` no miraba la sesión, así que los 140 exámenes con respuesta y paso a paso se bajaban con un `curl` sin login. Ahora resuelve el plan en el servidor y filtra (ver §11 y D8).
 - [x] ~~El plan no mira facultad.~~ Ya estaba resuelto y figuraba abierto: `puedeVerResolucionBiblioteca(usuario, facultadDelExamen)` recibe la facultad del examen desde `fd17d4c`. Verificado en el código el 16-sep.
 - [x] ~~**El alumno no sube comprobante.**~~ Resuelto el 4-oct (nonies). `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
-- [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Falta lo que bloquea cobrar:** completar `titular` y `correo`/`whatsapp` en `src/lib/legal.ts` (hoy `null`) y que un abogado los lea.
+- [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Actualización 5-oct:** `titular` y `whatsapp` ya están cargados en `src/lib/legal.ts`. **Falta que un abogado los lea.**
 - [~] **Botón para borrar la cuenta** hecho el 4-oct (decies); **falta salir del ranking** sin borrar (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
 - [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
 - [ ] **Rotar la contraseña del login maestro** (se compartió en un chat el 2026-09-12).
@@ -481,6 +481,12 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-05 (QR de BNB con dos años de vigencia, titular y contacto en los Términos)
+
+- **QR de BNB reemplazado** con `scripts/cambiar-qr.mjs qr_bancario ... --monto 100 --vence 2028-10-03`. El anterior vencía ese mismo día; el nuevo sigue siendo de **Bs. 100 grabados** (no es un QR sin monto) pero vale hasta el **3-oct-2028**. Consecuencia: sirve para Premium y **no para el cambio de facultad (Bs. 50)**, que por ahora solo se puede pagar con Binance Pay o RedotPay. Para cubrirlo hace falta un segundo QR de BNB de Bs. 50; hoy la configuración admite un solo QR por método.
+- **`src/lib/legal.ts`: titular y contacto reales.** `titular: "Ronald Martinez Jimenes"` y `whatsapp: "+591 64805522"`. **El número lo dio Ronald junto con su nombre y se asumió que es su WhatsApp**; si es otra cosa, corregir. A título personal, sin razón social. Los Términos y la Privacidad ya muestran un canal de contacto, así que ya existe un camino para pedir reembolsos o que se borren datos. Falta un correo si se quiere uno, y que un abogado lea los textos (`docs/legal-revision.md`). Fecha de vigencia de ambos textos actualizada.
+- **CI:** el test `agentes del proyecto` exige que `agentes/` y `.claude/agents/` tengan lo mismo en el repo, y el agente `resolutor-exacto` se había subido solo en `agentes/`. Se subió también la copia de `.claude/agents/`.
 
 ### 2026-10-04 (duodecies) (agente nuevo `resolutor-exacto`)
 - **Pedido de Ronald:** un agente que resuelva sin errores y muestre los pasos "bonitos" como en las fotos de los institutos (una operación por línea, el truco escrito, verificación al final).

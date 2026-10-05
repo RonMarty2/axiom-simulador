@@ -15,7 +15,7 @@ Los dos textos los redactó una IA a partir de lo que la app hace de verdad (có
 
 ## Afirmaciones que dependen de datos que solo Ronald tiene
 
-- **Quién es el titular** (nombre completo o razón social) y **un canal de contacto**. Van en `src/lib/legal.ts` (`titular`, `correo`, `whatsapp`). Hoy están en `null` y las páginas lo dicen en la sección de contacto. **No se debe cobrar con eso así**: sin canal, nadie puede pedir un reembolso ni que le borren los datos.
+- **Quién es el titular y un canal de contacto.** Van en `src/lib/legal.ts`. Desde el 5-oct están cargados: Ronald a título personal y un WhatsApp (se asumió que el número que dio es su WhatsApp). Si se constituye una empresa, cambiarlo y revisar los textos.
 - "AXIOM es independiente de la UMSS y no cuenta con su aval": confirmar que es así.
 - Los exámenes pasados "pertenecen a sus titulares originales" y se usan "con fines de estudio": un abogado debería opinar sobre la reproducción de exámenes de la UMSS.
 
