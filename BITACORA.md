@@ -492,7 +492,7 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 - **Pedido de Ronald:** dejar el cobro robusto para que cualquier QR nuevo se cambie sencillo. El pago sigue siendo manual (el alumno declara, el admin aprueba en `/admin/pagos`).
 - **`src/lib/pagos-qr.json`**: imagen, monto grabado y vencimiento de cada QR, separados del resto de la configuración. `pagos-config.ts` los lee de ahí.
 - **`node scripts/cambiar-qr.mjs <metodo> <imagen> [--monto N | --sin-monto] [--vence AAAA-MM-DD | --sin-vencimiento]`**: copia la imagen a `public/pagos/` (con fecha en el nombre, para que el navegador no muestre el viejo), borra la anterior y actualiza el JSON. Para el QR de BNB definitivo: `--sin-monto --sin-vencimiento`.
-- **La tabla `pagos` ya no restringe el método** (`schema.sql` y migración 006 reescrita para quitar el CHECK). Sumar un método ya no necesita migración; lo valida el servidor con `esMetodoActivo`. La 006 sigue sin correrse en Supabase: hay que correrla una vez.
+- **La tabla `pagos` ya no restringe el método** (`schema.sql` y migración 006 reescrita para quitar el CHECK). Sumar un método ya no necesita migración; lo valida el servidor con `esMetodoActivo`. La 006 (con la tabla `pagos_comprobantes`) la corrió Ronald en Supabase el 4-oct.
 - Los tests de vigencia de QR usan métodos de prueba, no el QR cargado hoy (si no, cada cambio de QR los rompía).
 
 ### 2026-10-04 (septies) (paso 1 del examen digitalizado verificado: registro y agente `auditor-facsimil`)
