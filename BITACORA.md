@@ -351,7 +351,7 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [x] ~~El contenido pago no está protegido.~~ Resuelto: guard de servidor en `aprende/layout.tsx` y `laminas/layout.tsx`, con la lógica en `src/lib/acceso-contenido.ts` (ver §11). Frena el acceso por URL, que es el problema real; **no** esconde el contenido de quien lea el bundle de JavaScript — para eso habría que mover las lecciones a datos pedidos al servidor.
 - [x] ~~La biblioteca de exámenes regalaba las soluciones.~~ Resuelto el 14-sep: `/api/axiom/examenes/[id]` no miraba la sesión, así que los 140 exámenes con respuesta y paso a paso se bajaban con un `curl` sin login. Ahora resuelve el plan en el servidor y filtra (ver §11 y D8).
 - [x] ~~El plan no mira facultad.~~ Ya estaba resuelto y figuraba abierto: `puedeVerResolucionBiblioteca(usuario, facultadDelExamen)` recibe la facultad del examen desde `fd17d4c`. Verificado en el código el 16-sep.
-- [ ] **El alumno no sube comprobante.** `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
+- [x] ~~**El alumno no sube comprobante.**~~ Resuelto el 4-oct (nonies). `/pagar` solo pide un número de referencia tipeado a mano, así que el admin aprueba a ciegas. Falta subir la foto del comprobante (Supabase Storage) y verla en `/admin/pagos`.
 - [x] ~~No hay Términos y Condiciones ni Política de Privacidad.~~ Escritos el 4-oct (ter), ver §11 y `docs/legal-revision.md`. **Falta lo que bloquea cobrar:** completar `titular` y `correo`/`whatsapp` en `src/lib/legal.ts` (hoy `null`) y que un abogado los lea.
 - [ ] **Botón para borrar la cuenta y para salir del ranking** (`/cuenta`). Los textos legales lo ofrecen "a pedido"; hoy sería a mano en Supabase.
 - [x] ~~Los precios están escritos dos veces.~~ Eran **tres** (servidor, `/pagar` y `/precios`). Resuelto el 16-sep: salen de `src/lib/precios.ts`, con trinquete que frena si vuelven a escribirse a mano (ver §11).
@@ -481,6 +481,12 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-04 (nonies) (foto del comprobante de pago)
+- **Cierra el pendiente de §8 "El alumno no sube comprobante".** En `/pagar` hay un campo de foto (opcional, recomendado). El navegador la reduce a 1200 px en JPEG antes de enviarla (el celular manda 4-8 MB) y `/api/pagos` la valida (data URL de imagen, tope ~1,4 MB).
+- **Dónde se guarda:** tabla nueva `pagos_comprobantes` (en la migración 006 y en `schema.sql`), aparte de `pagos` para que las listas no carguen imágenes. Se decidió guardarla en la base y no en Supabase Storage para no sumar infraestructura; si crece mucho, mover a Storage.
+- **Quién la ve:** `GET /api/pagos/[id]/comprobante` solo para el admin y el alumno dueño. `/admin/pagos` muestra "Ver foto del comprobante" o "Sin foto".
+- **Si falta correr la 006:** el pago se registra igual, sin foto (guardar el comprobante no puede tumbar el pago).
 
 ### 2026-10-04 (octies) (cambiar un QR sin tocar código y sin migraciones)
 - **Pedido de Ronald:** dejar el cobro robusto para que cualquier QR nuevo se cambie sencillo. El pago sigue siendo manual (el alumno declara, el admin aprueba en `/admin/pagos`).

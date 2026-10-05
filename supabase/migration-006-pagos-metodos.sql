@@ -15,3 +15,12 @@ ALTER TABLE pagos DROP CONSTRAINT IF EXISTS pagos_metodo_check;
 
 -- Verificar: no debe devolver ninguna fila.
 SELECT conname FROM pg_constraint WHERE conname = 'pagos_metodo_check';
+
+-- Foto del comprobante de pago. Tabla aparte para que las listas de pagos no
+-- carguen imagenes: solo se lee cuando el admin (o el dueño) la pide.
+CREATE TABLE IF NOT EXISTS pagos_comprobantes (
+  pago_id   TEXT PRIMARY KEY REFERENCES pagos(id) ON DELETE CASCADE,
+  imagen    TEXT NOT NULL,           -- data URL (JPEG reducido en el navegador)
+  creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+ALTER TABLE pagos_comprobantes DISABLE ROW LEVEL SECURITY;

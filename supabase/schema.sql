@@ -172,3 +172,12 @@ ALTER TABLE historial DISABLE ROW LEVEL SECURITY;
 -- ═══════════════════════════════════════════════════════════════════════════
 -- FIN del schema. Después de ejecutar, corre seed.sql para datos iniciales.
 -- ═══════════════════════════════════════════════════════════════════════════
+
+-- Foto del comprobante de pago (ver migration-006). Tabla aparte para que las
+-- listas de pagos no carguen imagenes.
+CREATE TABLE IF NOT EXISTS pagos_comprobantes (
+  pago_id   TEXT PRIMARY KEY REFERENCES pagos(id) ON DELETE CASCADE,
+  imagen    TEXT NOT NULL,
+  creado_en TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+ALTER TABLE pagos_comprobantes DISABLE ROW LEVEL SECURITY;

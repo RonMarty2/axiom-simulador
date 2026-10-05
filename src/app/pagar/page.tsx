@@ -28,6 +28,8 @@ function PagarInner() {
   const [hoy] = useState(() => new Date());
   const [referencia, setReferencia] = useState("");
   const [enviando, setEnviando] = useState(false);
+  const [foto, setFoto] = useState<string | null>(null);
+  const [fotoError, setFotoError] = useState<string | null>(null);
   const [exito, setExito] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -59,6 +61,27 @@ function PagarInner() {
     }
   }, [router, tipo, destinoFacultadId]);
 
+  // Reduce la foto en el navegador (el celular manda 4-8 MB): lado mayor 1200 px, JPEG.
+  const elegirFoto = async (archivo: File | undefined) => {
+    setFotoError(null);
+    if (!archivo) return;
+    if (!archivo.type.startsWith("image/")) {
+      setFotoError("Elige una imagen (foto o captura de pantalla).");
+      return;
+    }
+    try {
+      const bmp = await createImageBitmap(archivo);
+      const escala = Math.min(1, 1200 / Math.max(bmp.width, bmp.height));
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(bmp.width * escala);
+      canvas.height = Math.round(bmp.height * escala);
+      canvas.getContext("2d")!.drawImage(bmp, 0, 0, canvas.width, canvas.height);
+      setFoto(canvas.toDataURL("image/jpeg", 0.8));
+    } catch {
+      setFotoError("No pude leer esa imagen. Prueba con otra.");
+    }
+  };
+
   const enviar = async () => {
     setEnviando(true);
     setError(null);
@@ -69,6 +92,7 @@ function PagarInner() {
         // Si va vacía, el servidor arma una referencia por defecto.
         referencia: referencia.trim(),
       };
+      if (foto) body.comprobante = foto;
       if (tipo === "plan") body.plan = plan;
       if (tipo === "cambio_facultad") body.destino_facultad = destinoFacultadId;
 
@@ -235,6 +259,20 @@ function PagarInner() {
           <p style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 6 }}>
             El admin verificará este código para {tipo === "cambio_facultad" ? "aplicar el cambio de facultad" : "aprobar tu plan"}.
           </p>
+          <label style={{ display: "block", marginTop: 16, fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>
+            Foto o captura del comprobante <span style={{ fontWeight: 500, color: "var(--fg-muted)" }}>(recomendado: así te aprobamos más rápido)</span>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => elegirFoto(e.target.files?.[0])}
+              style={{ display: "block", marginTop: 8, fontSize: 13 }}
+            />
+          </label>
+          {fotoError && <p style={{ fontSize: 12.5, color: "#b91c1c", marginTop: 6 }}>{fotoError}</p>}
+          {foto && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={foto} alt="Vista previa del comprobante" style={{ marginTop: 10, maxWidth: "100%", maxHeight: 220, borderRadius: 10, border: "1px solid var(--border)" }} />
+          )}
         </div>
 
         {error && (

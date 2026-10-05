@@ -90,6 +90,8 @@ export interface Pago {
   referencia: string;
   valido_hasta: string | null;
   motivo_rechazo?: string;
+  // Solo en la lista del admin: si el alumno subió la foto del comprobante.
+  tiene_comprobante?: boolean;
 }
 
 export interface HistorialExamen {
@@ -127,6 +129,7 @@ interface CacheLocal {
   materias: Record<string, Materia[]> | null;
   usuarios: Usuario[] | null;
   pagos: Pago[] | null;
+  comprobantes: Record<string, string>;
   historial: HistorialExamen[] | null;
   suscripciones: SuscripcionRow[];
 }
@@ -137,6 +140,7 @@ const _cache: CacheLocal = (_g.__axiomCache ??= {
   materias: null,
   usuarios: null,
   pagos: null,
+  comprobantes: {},
   historial: null,
   suscripciones: [],
 });
@@ -536,4 +540,37 @@ export async function getEstadisticasGlobales() {
     total_facultades: facultades.length,
     por_facultad: porFacultad,
   };
+}
+
+// ─────────────────────────────────────────────────────────────
+// COMPROBANTES (foto del pago)
+// ─────────────────────────────────────────────────────────────
+
+// Si la tabla todavía no existe (falta correr la migración 006), guardar o leer
+// la foto NO debe tumbar el pago: se registra sin foto.
+export async function guardarComprobante(pagoId: string, imagen: string): Promise<boolean> {
+  if (supabaseConfigurado()) {
+    const { error } = await db().from("pagos_comprobantes").upsert({ pago_id: pagoId, imagen });
+    return !error;
+  }
+  _cache.comprobantes[pagoId] = imagen;
+  return true;
+}
+
+export async function getComprobante(pagoId: string): Promise<string | null> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("pagos_comprobantes").select("imagen").eq("pago_id", pagoId).maybeSingle();
+    if (error) return null;
+    return (data?.imagen as string | undefined) ?? null;
+  }
+  return _cache.comprobantes[pagoId] ?? null;
+}
+
+export async function idsConComprobante(): Promise<Set<string>> {
+  if (supabaseConfigurado()) {
+    const { data, error } = await db().from("pagos_comprobantes").select("pago_id");
+    if (error) return new Set();
+    return new Set((data ?? []).map((r) => r.pago_id as string));
+  }
+  return new Set(Object.keys(_cache.comprobantes));
 }

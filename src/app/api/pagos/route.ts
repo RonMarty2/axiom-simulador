@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { crearPago, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
+import { crearPago, guardarComprobante, idsConComprobante, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
 import { getCurrentUser, isAdmin } from "@/lib/session";
 import { montoCambioFacultadEn, montoPlanEn, type Moneda } from "@/lib/precios";
 import { METODOS_ACTIVOS, esMetodoActivo, type MetodoActivo } from "@/lib/pagos-config";
@@ -10,10 +10,13 @@ import { METODOS_ACTIVOS, esMetodoActivo, type MetodoActivo } from "@/lib/pagos-
 // cliente); lo único que cambió es de dónde los lee. La moneda la decide el
 // método: QR bancario cobra en Bs., Binance Pay y RedotPay en USDT.
 
+// ~1,4 MB en base64: el navegador la reduce a ~150 KB, esto es solo el techo.
+const MAX_COMPROBANTE = 1_400_000;
+
 export async function GET() {
   if (await isAdmin()) {
-    const pagos = await getPagos();
-    return NextResponse.json({ pagos });
+    const [pagos, conFoto] = await Promise.all([getPagos(), idsConComprobante()]);
+    return NextResponse.json({ pagos: pagos.map((p) => ({ ...p, tiene_comprobante: conFoto.has(p.id) })) });
   }
   const u = await getCurrentUser();
   if (!u) return NextResponse.json({ error: "No autenticado" }, { status: 401 });
@@ -39,8 +42,14 @@ export async function POST(req: NextRequest) {
   const moneda = METODOS_ACTIVOS[metodo].moneda;
   const referencia = (body.referencia as string) || `${metodo.toUpperCase()}-${Date.now().toString().slice(-8)}`;
 
+  // Foto opcional del comprobante: una imagen ya reducida por el navegador.
+  const comprobante = typeof body.comprobante === "string" ? body.comprobante : null;
+  if (comprobante && (!/^data:image\/(jpeg|png|webp);base64,/.test(comprobante) || comprobante.length > MAX_COMPROBANTE)) {
+    return NextResponse.json({ error: "La foto del comprobante no es válida o pesa demasiado" }, { status: 400 });
+  }
+
   try {
-    return await registrarPago({ usuarioId: u.id, body, tipo, metodo, moneda, referencia });
+    return await registrarPago({ usuarioId: u.id, body, tipo, metodo, moneda, referencia, comprobante });
   } catch (e) {
     // Si la base todavía no tiene el método en su restricción (falta correr
     // supabase/migration-006-pagos-metodos.sql), que el alumno vea algo útil
@@ -63,8 +72,12 @@ async function registrarPago(d: {
   metodo: MetodoActivo;
   moneda: Moneda;
   referencia: string;
+  comprobante: string | null;
 }) {
-  const { usuarioId, body, tipo, metodo, moneda, referencia } = d;
+  const { usuarioId, body, tipo, metodo, moneda, referencia, comprobante } = d;
+  const guardarFoto = async (pagoId: string) => {
+    if (comprobante) await guardarComprobante(pagoId, comprobante);
+  };
 
   if (tipo === "cambio_facultad") {
     const destino = body.destino_facultad as FacultadId | undefined;
@@ -85,6 +98,7 @@ async function registrarPago(d: {
       metodo,
       referencia,
     });
+    await guardarFoto(pago.id);
     return NextResponse.json({ pago });
   }
 
@@ -102,5 +116,6 @@ async function registrarPago(d: {
     metodo,
     referencia,
   });
+  await guardarFoto(pago.id);
   return NextResponse.json({ pago });
 }
