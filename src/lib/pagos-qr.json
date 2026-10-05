@@ -1,0 +1,5 @@
+{
+  "qr_bancario": { "imagen": "/pagos/qr-bnb.png", "monto": 100, "vence": "2026-10-05" },
+  "binance_pay": { "imagen": "/pagos/qr-binance.png", "monto": null, "vence": null },
+  "redotpay": { "imagen": "/pagos/qr-redotpay.jpg", "monto": 10, "vence": null }
+}

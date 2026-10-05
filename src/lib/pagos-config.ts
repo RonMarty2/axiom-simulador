@@ -8,14 +8,23 @@
 // El pago sigue siendo manual: el alumno paga, declara el pago y Ronald lo
 // aprueba en /admin/pagos. Esto solo dice dónde se paga.
 //
-// Para cambiar un QR: reemplazar el archivo de public/pagos/ y subirlo a main.
-// Si el QR tiene monto o fecha de vencimiento grabados, se declaran abajo
-// (`qrMonto`, `qrVence`) y la pantalla deja de ofrecerlo cuando no corresponde
-// en vez de mandar al alumno a escanear algo que su banco va a rechazar.
+// Para cambiar un QR: `node scripts/cambiar-qr.mjs <metodo> <imagen>` (ver el
+// script) y subir a main. Si el QR tiene monto o fecha de vencimiento grabados
+// se declaran ahí y la pantalla deja de ofrecerlo cuando no corresponde, en vez
+// de mandar al alumno a escanear algo que su banco va a rechazar.
+// Para sumar un método nuevo: agregarlo acá, en pagos-qr.json y en ORDEN_METODOS.
+// La tabla `pagos` NO restringe el método (la validación es esMetodoActivo en
+// /api/pagos), así que no hace falta migración.
 //
 // Este archivo no importa nada del servidor: lo usa también la pantalla.
 
-import { PRECIOS_BOB, PRECIOS_USDT, type Moneda } from "./precios.ts";
+import { type Moneda } from "./precios.ts";
+import qrDatos from "./pagos-qr.json" with { type: "json" };
+
+// Los QR (imagen, monto grabado, vencimiento) viven en pagos-qr.json y se
+// cambian con `node scripts/cambiar-qr.mjs`, sin tocar este archivo.
+type DatosQr = { imagen: string; monto: number | null; vence: string | null };
+const QR = qrDatos as Record<MetodoActivo, DatosQr>;
 
 export type MetodoActivo = "qr_bancario" | "binance_pay" | "redotpay";
 // Tigo Money y transferencia ya no se ofrecen, pero hay pagos viejos (y datos
@@ -41,20 +50,12 @@ export interface ConfigMetodo {
   irreversible: boolean;
 }
 
-export const METODOS_ACTIVOS: Record<MetodoActivo, ConfigMetodo> = {
+const BASE: Record<MetodoActivo, Omit<ConfigMetodo, "qr" | "qrMonto" | "qrVence">> = {
   qr_bancario: {
     id: "qr_bancario",
     nombre: "QR bancario (BNB)",
     descripcion: "Escanea el QR y paga desde la app de tu banco",
     moneda: "BOB",
-    qr: "/pagos/qr-bnb.png",
-    // OJO: este QR lo generó el banco con el monto de Premium y vence el
-    // 5-oct-2026. Para cobrar de verdad hace falta un QR sin monto y sin
-    // vencimiento: cuando se reemplace la imagen, poner `qrMonto: null` y
-    // `qrVence: null`. Mientras tanto la pantalla lo oculta sola cuando vence,
-    // y para montos distintos de Premium (cambio de facultad).
-    qrMonto: PRECIOS_BOB.premium,
-    qrVence: "2026-10-05",
     referencia: { etiqueta: "Número de comprobante", ejemplo: "El que te muestra tu banco al pagar" },
     irreversible: false,
   },
@@ -63,9 +64,6 @@ export const METODOS_ACTIVOS: Record<MetodoActivo, ConfigMetodo> = {
     nombre: "Binance Pay (USDT)",
     descripcion: "Escanea el QR con la app de Binance o busca el usuario",
     moneda: "USDT",
-    qr: "/pagos/qr-binance.png",
-    qrMonto: null,
-    qrVence: null,
     destinatario: { etiqueta: "Usuario de Binance Pay", valor: "RonMarty" },
     referencia: { etiqueta: "ID de la orden", ejemplo: "Lo ves en el detalle del pago en Binance" },
     irreversible: true,
@@ -75,16 +73,18 @@ export const METODOS_ACTIVOS: Record<MetodoActivo, ConfigMetodo> = {
     nombre: "RedotPay (USDT)",
     descripcion: "Escanea el QR con la app de RedotPay o usa el ID",
     moneda: "USDT",
-    qr: "/pagos/qr-redotpay.jpg",
-    // El QR trae 10 USDT grabados: sirve para Premium; para otro monto se paga
-    // con el ID.
-    qrMonto: PRECIOS_USDT.premium,
-    qrVence: null,
     destinatario: { etiqueta: "ID de RedotPay", valor: "1939601201" },
     referencia: { etiqueta: "ID de la transacción", ejemplo: "Lo ves en el detalle del pago en RedotPay" },
     irreversible: true,
   },
 };
+
+export const METODOS_ACTIVOS = Object.fromEntries(
+  (Object.keys(BASE) as MetodoActivo[]).map((id) => [
+    id,
+    { ...BASE[id], qr: QR[id].imagen, qrMonto: QR[id].monto, qrVence: QR[id].vence },
+  ]),
+) as Record<MetodoActivo, ConfigMetodo>;
 
 export const ORDEN_METODOS: MetodoActivo[] = ["qr_bancario", "binance_pay", "redotpay"];
 

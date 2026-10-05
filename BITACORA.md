@@ -482,6 +482,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-04 (octies) (cambiar un QR sin tocar código y sin migraciones)
+- **Pedido de Ronald:** dejar el cobro robusto para que cualquier QR nuevo se cambie sencillo. El pago sigue siendo manual (el alumno declara, el admin aprueba en `/admin/pagos`).
+- **`src/lib/pagos-qr.json`**: imagen, monto grabado y vencimiento de cada QR, separados del resto de la configuración. `pagos-config.ts` los lee de ahí.
+- **`node scripts/cambiar-qr.mjs <metodo> <imagen> [--monto N | --sin-monto] [--vence AAAA-MM-DD | --sin-vencimiento]`**: copia la imagen a `public/pagos/` (con fecha en el nombre, para que el navegador no muestre el viejo), borra la anterior y actualiza el JSON. Para el QR de BNB definitivo: `--sin-monto --sin-vencimiento`.
+- **La tabla `pagos` ya no restringe el método** (`schema.sql` y migración 006 reescrita para quitar el CHECK). Sumar un método ya no necesita migración; lo valida el servidor con `esMetodoActivo`. La 006 sigue sin correrse en Supabase: hay que correrla una vez.
+- Los tests de vigencia de QR usan métodos de prueba, no el QR cargado hoy (si no, cada cambio de QR los rompía).
+
 ### 2026-10-04 (septies) (paso 1 del examen digitalizado verificado: registro y agente `auditor-facsimil`)
 - **Idea de Ronald:** que al elegir un "Examen real" el alumno vea el examen digitalizado (limpio, con su orden y título) y pueda descargarlo en PDF con marca de agua, sin salir del simulacro; y que solo se ofrezca donde hay respaldo en el escaneo real. Los demás dirán "En desarrollo". Plan completo en el plan de la sesión (visor + PDF imprimible con marca configurable, PDF sin respuestas y gratis).
 - **Hecho (solo el paso 1, "poco a poco"):** `data/registro-verificacion.json` (arranca vacío: ningún examen está verificado, y no se asume), `src/lib/axiom/verificacion.ts` (`estaVerificado`, `idsVerificados`; se muestra solo si nivel >= `contra-facsimil` y `completo: true`), `verificacion.test.ts` (4 tests: la entrada apunta a un examen real con su id, nivel/fecha/fuente válidos, `completo` coherente con `faltantes`/`secciones_pendientes`) y el agente `auditor-facsimil`. La clave del registro es `facultad/archivo` (la misma que usa `scripts/registro-examenes.mjs`) y cada entrada guarda además el `id` del banco.

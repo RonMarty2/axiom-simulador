@@ -1,18 +1,17 @@
 -- ═══════════════════════════════════════════════════════════════════════════
--- MIGRACIÓN 006 — Métodos de pago: se suman Binance Pay y RedotPay
+-- MIGRACIÓN 006 — Métodos de pago: la base deja de restringirlos
 -- ═══════════════════════════════════════════════════════════════════════════
 -- Ejecutar UNA VEZ en el SQL Editor de Supabase, ANTES de que un alumno intente
--- pagar con Binance Pay o RedotPay. Sin esto, la base rechaza esos pagos y
--- /api/pagos le responde al alumno que el método "todavía no está habilitado".
+-- pagar con Binance Pay o RedotPay. Sin esto, la base rechaza esos pagos.
 --
--- Tigo Money y transferencia se conservan en la restricción: hay pagos
--- históricos con esos valores y no se pueden borrar ni dejar inválidos.
+-- Se QUITA la restricción en vez de agregar los métodos nuevos a la lista: así
+-- sumar un método (o cambiar un QR) nunca más necesita una migración. La
+-- validación vive en el servidor (esMetodoActivo en src/lib/pagos-config.ts).
+-- Los pagos históricos (tigo_money, transferencia) quedan intactos.
 -- Es idempotente: si ya está aplicada, no cambia nada.
 -- ═══════════════════════════════════════════════════════════════════════════
 
 ALTER TABLE pagos DROP CONSTRAINT IF EXISTS pagos_metodo_check;
-ALTER TABLE pagos ADD CONSTRAINT pagos_metodo_check
-  CHECK (metodo IN ('tigo_money', 'qr_bancario', 'transferencia', 'binance_pay', 'redotpay'));
 
--- Verificar
-SELECT conname, pg_get_constraintdef(oid) FROM pg_constraint WHERE conname = 'pagos_metodo_check';
+-- Verificar: no debe devolver ninguna fila.
+SELECT conname FROM pg_constraint WHERE conname = 'pagos_metodo_check';

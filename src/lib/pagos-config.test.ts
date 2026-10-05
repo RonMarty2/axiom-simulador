@@ -25,16 +25,20 @@ test("el orden de la pantalla cubre exactamente los métodos activos", () => {
   assert.deepEqual([...ORDEN_METODOS].sort(), Object.keys(METODOS_ACTIVOS).sort());
 });
 
-test("la restricción de la base (schema y migración 006) admite todos los métodos activos", () => {
+test("la tabla pagos no restringe el método: la validación es del servidor", () => {
   const schema = leer("supabase/schema.sql");
   const migracion = leer("supabase/migration-006-pagos-metodos.sql");
-  for (const id of Object.keys(METODOS_ACTIVOS)) {
-    assert.ok(schema.includes(`'${id}'`), `schema.sql no admite ${id}`);
-    assert.ok(migracion.includes(`'${id}'`), `la migración 006 no admite ${id}`);
-  }
-  // Los viejos se conservan: hay pagos históricos con esos valores.
-  for (const viejo of ["tigo_money", "transferencia"]) {
-    assert.ok(schema.includes(`'${viejo}'`) && leer("supabase/migration-006-pagos-metodos.sql").includes(`'${viejo}'`));
+  assert.equal(/metodo\s+TEXT NOT NULL CHECK/.test(schema), false, "schema.sql volvió a restringir el método");
+  assert.ok(migracion.includes("DROP CONSTRAINT IF EXISTS pagos_metodo_check"));
+  assert.equal(/ADD CONSTRAINT pagos_metodo_check/.test(migracion), false);
+});
+
+test("pagos-qr.json: monto positivo o null, vencimiento AAAA-MM-DD o null", () => {
+  const qr = JSON.parse(leer("src/lib/pagos-qr.json"));
+  assert.deepEqual(Object.keys(qr).sort(), Object.keys(METODOS_ACTIVOS).sort());
+  for (const [id, d] of Object.entries(qr) as [string, { monto: number | null; vence: string | null }][]) {
+    assert.ok(d.monto === null || d.monto > 0, `${id}: monto inválido`);
+    assert.ok(d.vence === null || /^\d{4}-\d{2}-\d{2}$/.test(d.vence), `${id}: vence inválido`);
   }
 });
 
@@ -56,29 +60,31 @@ test("los métodos viejos igual tienen etiqueta legible en las tablas", () => {
   assert.equal(etiquetaMetodo("binance_pay"), METODOS_ACTIVOS.binance_pay.nombre);
 });
 
+// Métodos de prueba: no dependen del QR que esté cargado hoy en pagos-qr.json.
+const prueba = (qrMonto: number | null, qrVence: string | null, conId = false) => ({
+  ...METODOS_ACTIVOS.qr_bancario,
+  qrMonto,
+  qrVence,
+  destinatario: conId ? { etiqueta: "ID", valor: "1" } : undefined,
+});
+
 test("el QR con monto grabado solo se ofrece para ese monto", () => {
-  const bnb = METODOS_ACTIVOS.qr_bancario;
-  const antes = new Date("2026-10-04T12:00:00Z");
-  assert.equal(qrVigente(bnb, PRECIOS_BOB.premium, antes), true);
-  assert.equal(qrVigente(bnb, PRECIOS_BOB.cambioFacultad, antes), false, "el QR de Bs. 100 no sirve para Bs. 50");
-  const redot = METODOS_ACTIVOS.redotpay;
-  assert.equal(qrVigente(redot, PRECIOS_USDT.premium, antes), true);
-  assert.equal(qrVigente(redot, PRECIOS_USDT.cambioFacultad, antes), false);
+  const m = prueba(100, null);
+  assert.equal(qrVigente(m, 100), true);
+  assert.equal(qrVigente(m, 50), false, "el QR de 100 no sirve para 50");
+  assert.equal(qrVigente(prueba(null, null), 7), true, "sin monto grabado sirve para cualquiera");
 });
 
 test("un QR vencido no se ofrece", () => {
-  const bnb = METODOS_ACTIVOS.qr_bancario;
-  assert.equal(qrVigente(bnb, PRECIOS_BOB.premium, new Date("2026-10-05T10:00:00Z")), true, "el último día todavía sirve");
-  assert.equal(qrVigente(bnb, PRECIOS_BOB.premium, new Date("2026-10-06T10:00:00Z")), false);
+  const m = prueba(null, "2026-10-05");
+  assert.equal(qrVigente(m, 100, new Date("2026-10-05T10:00:00Z")), true, "el último día todavía sirve");
+  assert.equal(qrVigente(m, 100, new Date("2026-10-06T10:00:00Z")), false);
 });
 
 test("sin QR vigente ni usuario o ID, el método no se ofrece; con ID sí", () => {
-  const bnb = METODOS_ACTIVOS.qr_bancario;
-  assert.equal(metodoDisponible(bnb, PRECIOS_BOB.cambioFacultad, new Date("2026-10-04T12:00:00Z")), false);
-  // RedotPay con otro monto: el QR no sirve pero queda el ID.
-  assert.equal(metodoDisponible(METODOS_ACTIVOS.redotpay, PRECIOS_USDT.cambioFacultad), true);
-  // Binance no trae monto: sirve siempre.
-  assert.equal(metodoDisponible(METODOS_ACTIVOS.binance_pay, 7), true);
+  assert.equal(metodoDisponible(prueba(100, null), 50), false);
+  assert.equal(metodoDisponible(prueba(100, null, true), 50), true);
+  assert.equal(metodoDisponible(prueba(null, null), 7), true);
 });
 
 test("el monto depende de la moneda del método", () => {
