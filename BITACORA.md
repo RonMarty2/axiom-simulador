@@ -482,6 +482,11 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-04 (duodecies) (agente nuevo `resolutor-exacto`)
+- **Pedido de Ronald:** un agente que resuelva sin errores y muestre los pasos "bonitos" como en las fotos de los institutos (una operación por línea, el truco escrito, verificación al final).
+- **`agentes/resolutor-exacto.md`:** primero la respuesta, demostrada (resolver a ciegas, comprobar con código exacto `sympy`/`Fraction`, segundo camino distinto, recién después mirar las opciones y el banco); después la explicación en el formato del banco. Si discrepa con el banco o el instituto, no cambia nada: devuelve las dos cuentas y el código. Lo nuevo frente a `analista-resolucion`/`redactor-explicaciones`: la exactitud sale del código y del segundo camino, no de la lectura.
+- **Sin probar todavía en una tarea real.** Prueba sugerida: un examen con foto resuelta (las fotos 494530844 y 494943083 son de aritmética/álgebra) y comparar contra el banco.
+
 ### 2026-10-04 (undecies) (primera tanda de verificación contra facsímil: 5 exámenes de Ingeniería)
 - **Hecho:** 5 agentes `auditor-facsimil` en paralelo contrastaron `2005-1op-1`, `2006-parcial1-1`, `2006-2op-1`, `2007-1op-1` y `2008-1op-1` contra sus PDF. Registro: 6 exámenes (con el `2006-1op-1` del paso 1), **144 de 150 sin registrar**. Completos (se mostrarían como digitalizados): `2006-parcial1-1`, `2006-2op-1`, `2007-1op-1`, `2008-1op-1`. Incompleto: `2005-1op-1` (faltan las figuras de P16 y P18, hay que dibujarlas con `auditor-figuras`).
 - **Errores reales encontrados y corregidos en el banco:** reacciones químicas balanceadas de más (3 exámenes), enunciados y opciones resumidos (4 de 5), un orden de Física alterado (`2006-parcial1-1` P25 a P28), y **una respuesta mal**: `2006-2op-1` P12 es **3 Ω (A)** y no 2 Ω (B). La figura estaba dibujada como tres ramas en paralelo; en el PDF la R de abajo vuelve al nodo del medio. Redibujada la figura, corregidas respuesta y explicación (lo comprobé yo mirando el PDF).
