@@ -483,6 +483,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-05 (agentes de animación: `animador-resolucion` y `animador-conceptos`)
+- **Pedido de Ronald:** mejorar cómo se muestran las resoluciones (hoy `SolucionPasos` revela texto paso a paso) con animaciones por tipo de problema, y poder hacer lo mismo para Medicina.
+- **`agentes/animador-resolucion.md`:** plantillas React (SVG + Framer Motion) por TIPO de problema, con los datos como props. No calcula: el paso a paso sale del banco. Si una pregunta no tiene pasos usables la registra como `falta-resolucion` y la devuelve al `resolutor-exacto`.
+- **`agentes/animador-conceptos.md`:** conceptos que se ven (anatomía, ciclos, células) con SVG de partes nombradas, capas o imágenes con licencia. El contenido sale de lecciones y banco, no se inventa. Flow solo en publicidad, nunca en la app.
+- **`data/registro-animaciones.json`:** plantillas y estado por pregunta (`pendiente | falta-resolucion | animada | bloqueada`). Vacío por ahora.
+- **Pendiente:** piloto con una plantilla (cinemática o ecuación de primer grado) y la mejora "capa 0" de `SolucionPasos` (resaltar qué cambia entre pasos). Las mismas plantillas se renderizan a mp4 para publicidad con `director-motion`.
+
 ### 2026-10-05 (ter) (una plantilla de flujo de trabajo, comparada con lo que ya teníamos)
 
 Ronald trajo una plantilla de `CLAUDE.md` muy difundida (planificar primero, subagentes, bucle de autocorrección, verificar antes de dar por hecho, elegancia, arreglar bugs solo, `tasks/todo.md` y `tasks/lessons.md`) y pidió ver si sirve y aplicarla donde corresponda.
