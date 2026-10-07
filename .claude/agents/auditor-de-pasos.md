@@ -45,6 +45,10 @@ Si el generador resuelve con una fórmula (cuadrática, MRU, `n = m/M`, interés
 6. Recién después se quitan ejercicio y etiquetas; luego, **una operación por paso**.
 Probá siempre **dos ejemplos**: uno que ya viene ordenado y otro desordenado, con signos negativos (los signos esconden pasos vacíos).
 
+## Arrastre y aire (reglas de Ronald, 7-oct-2026)
+- **Si una pieza desaparece en un sitio y aparece en otro, debe viajar** (mismo `id`, a veces con otro `tex`). Búscalo en cada generador: exponentes que se suman, exponente negativo, lo que sale de la raíz, producto cruzado, conversión de unidades, dato que va del enunciado a la fórmula, despejes. Un test del generador debe comprobar que la pieza cruza y no se duplica.
+- **Revisa el aire visual** cuando haya `debajo` o `salto`: las etiquetas no pueden tocar la fórmula ni la raya de fracción. Si no puedes ver la pantalla (captura con el navegador), dilo en el informe: no lo des por bueno.
+
 ## Cómo trabajás
 1. Corré `node --test src/app/prueba-animacion/*.test.ts` para ver qué ya vigilan los tests; no repitas lo que ellos cubren.
 2. Por cada generador, **generá la animación de un ejemplo de verdad** (importá la función y volcá `estados` y `transiciones` a texto) y leela **transición por transición como si fueras el alumno que ve el tema por primera vez**: en cada paso preguntate "¿de dónde salió cada símbolo del estado nuevo?". Anotá el primer paso donde no puedas contestar.

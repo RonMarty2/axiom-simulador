@@ -231,7 +231,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                         margin: prevSup ? "0 0 0 2px" : "0 3px 0 -10px",
                       }
                     : f.salto
-                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: "22px 0 0" }
+                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
                       : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : "0 4px" }
                 }
               >
@@ -284,9 +284,9 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                       top: "100%",
                       left: "50%",
                       transform: "translateX(-50%)",
-                      fontSize: "0.46em",
+                      fontSize: "0.54em",
                       whiteSpace: "nowrap",
-                      marginTop: 2,
+                      marginTop: 6,
                       lineHeight: 1.1,
                     }}
                   >
