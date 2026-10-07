@@ -269,9 +269,20 @@ export function diferenciaCuadrados(k: number): Resultado {
     { id: "m", tex: "-", op: true },
   ];
   const n3Etiquetado: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
-  const formulaLetras = "a^{2}-b^{2}=(a-b)(a+b)";
-  const formulaConX = "x^{2}-b^{2}=(x-b)(x+b)";
-  const formulaNumeros =`x^{2}-${k}^{2}=(x-${k})(x+${k})`;
+  // la formula en PIEZAS sueltas, en un renglon aparte (S = el salto de renglon): cada parentesis tiene su id (f1, f2)
+  // para poder viajar despues a la ecuacion
+  const formula = (a2: string, b2: string, p1: string, p2: string): Ficha[] => [
+    { id: "S", tex: "", salto: true },
+    { id: "Fa", tex: a2 },
+    { id: "Fm", tex: "-", op: true },
+    { id: "Fb", tex: b2 },
+    { id: "Fe", tex: "=", op: true },
+    { id: "f1", tex: p1 },
+    { id: "f2", tex: p2 },
+  ];
+  const formulaLetras = formula("a^{2}", "b^{2}", "(a-b)", "(a+b)");
+  const formulaConX = formula("x^{2}", "b^{2}", "(x-b)", "(x+b)");
+  const formulaNumeros = formula("x^{2}", `${k}^{2}`, `(x-${k})`, `(x+${k})`);
   const estados: Ficha[][] = [
     [...base, { id: "n", tex: `${q}` }, ...cola],
     [...base, { id: "nn", tex: `${k}\\cdot ${k}` }, ...cola],
@@ -279,10 +290,10 @@ export function diferenciaCuadrados(k: number): Resultado {
     // se nombran a y b
     [...baseEtiquetada, n3Etiquetado, ...cola],
     // la formula general aparece debajo (con letras)
-    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaLetras, salto: true }],
+    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaLetras],
     // se reemplaza PRIMERO la a por x, despues la b por su numero
-    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaConX, salto: true }],
-    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaNumeros, salto: true }],
+    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaConX],
+    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaNumeros],
     // la izquierda se reemplaza por lo que dice la formula: los dos parentesis
     [...factores, ...cola],
     [...factores, ...cola],
@@ -362,26 +373,27 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       fusiones: [],
-      brotes: [{ desde: "eq1", hacia: "F" }],
+      brotes: ["S", "Fa", "Fm", "Fb", "Fe", "f1", "f2"].map((hacia) => ({ desde: "eq1", hacia })),
       texto: `Escribimos debajo la fórmula de la diferencia de cuadrados: $a^{2}-b^{2}=(a-b)(a+b)$.`,
       porque: `Es una fórmula que vale para cualquier $a$ y cualquier $b$. Con ella una resta de cuadrados se convierte en un producto.`,
       regla: `$a^{2}-b^{2}=(a-b)(a+b)$`,
     },
     {
       fusiones: [],
-      resaltar: ["F", "a"],
+      resaltar: ["Fa", "f1", "f2", "a"],
       texto: `Reemplazamos primero la $a$: vale $x$. Donde la fórmula dice $a$ escribimos $x$.`,
       porque: `La $a$ aparece dos veces en la fórmula: en $a^{2}$ y en $(a-b)(a+b)$. Se cambia en los dos lugares.`,
     },
     {
       fusiones: [],
-      resaltar: ["F", "n3"],
+      resaltar: ["Fb", "f1", "f2", "n3"],
       texto: `Ahora la $b$: vale $${k}$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
       porque: `Donde la fórmula dice $b$ escribimos $${k}$. Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
     },
     {
-      fusiones: [{ desde: ["a", "m", "n3", "F"], hacia: ["f1", "f2"] }],
-      texto: `Lo de la izquierda, $x^{2}-${k}^{2}$, vale lo mismo que lo de la derecha de la fórmula. Lo cambiamos: queda $(x-${k})(x+${k})$.`,
+      // los dos parentesis de la formula VIAJAN a la ecuacion (mismo id); lo de la izquierda y el resto de la formula se van
+      fusiones: [{ desde: ["a", "m", "n3", "S", "Fa", "Fm", "Fb", "Fe"], hacia: null }],
+      texto: `La fórmula dice que $x^{2}-${k}^{2}$ es igual a $(x-${k})(x+${k})$. Subimos los dos paréntesis a la ecuación, en lugar de $x^{2}-${k}^{2}$.`,
       porque: `La fórmula dice que son iguales, así que podemos escribir uno en lugar del otro sin cambiar la ecuación.`,
     },
     {

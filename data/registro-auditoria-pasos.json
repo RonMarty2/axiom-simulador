@@ -9,9 +9,9 @@
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "f6d1240c723f",
+      "huella": "ae47d718fbdf",
       "fecha": "2026-10-07",
-      "nota": "7-oct: arreglados 9->3·3->3², reemplazo de a y b por separado y un arrastre por paso. Quedan: F es una sola ficha (los valores no viajan desde las etiquetas) y falta la comprobacion final."
+      "nota": "7-oct: formula en piezas con id; los parentesis viajan a la ecuacion. Quedan: los valores a y b no viajan desde las etiquetas (se resalta y cambia el tex) y falta la comprobacion final."
     },
     "fracciones": {
       "estado": "con-hallazgos",
