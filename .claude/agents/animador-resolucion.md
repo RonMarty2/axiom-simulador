@@ -46,6 +46,8 @@ Motor: **Framer Motion** (ya está en el proyecto; GSAP se descartó, no aporta 
 - `hacia: null` = las piezas se cancelan y desaparecen (+2 y −2).
 - Una ficha que sigue en el estado siguiente con el mismo `id` **viaja** a su nuevo lugar (el 3 que pasa al otro lado); si cambia el `tex`, se resalta.
 - **Ninguna ficha de `desde` puede seguir existiendo en el estado siguiente**, ni ninguna de `hacia` existir antes. Comprobalo con código antes de dar una animación por buena (el prototipo lo hizo con un script de 10 líneas).
+- **`ancla`:** cuando algo se repite y NO cambia (la base de 2³·2²), no se desvanece una de las dos: las piezas repetidas se deslizan hacia la que se queda (`ancla`) y esta late una vez. Lo que se conserva nunca desaparece.
+- **Exponentes (`sup`):** fichas chicas y levantadas, con su propia caja ajustada. Nunca se escriben como `{}^{3}` dentro de una ficha normal: la base vacía agranda la caja de resaltado.
 - Varias fusiones en una misma transición ocurren a la vez (√16 → 4 y √9 → 3).
 - Una división se muestra como **fracción** (9 sobre 3, con raya), nunca con ÷: es la notación del colegio de los alumnos. Una fracción es una ficha; para cancelar *dentro* de una fracción hay que partirla en fichas más finas.
 - **El `porque` es obligatorio** en todo paso y nombra la regla ("menos por menos da más", "misma base, se suman los exponentes"). Sin porqué, la animación es decoración.
