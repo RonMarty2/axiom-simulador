@@ -153,12 +153,13 @@ describe("generadores de algebra", () => {
     for (let k = 2; k <= 15; k++) {
       const e = diferenciaCuadrados(k).demo.estados;
       const i = e.findIndex((s) => s.some((f) => f.id === "m1"));
-      for (const [id, antes, despues] of [["m1", `-${k}`, `+${k}`], ["m2", `+${k}`, `-${k}`]] as const) {
-        assert.equal(e[i].find((f) => f.id === id)!.tex, antes);
-        assert.equal(e[i + 1].find((f) => f.id === id)!.tex, despues);
+      // un arrastre por paso: primero m1 (estados i -> i+1), despues m2 (i+1 -> i+2)
+      for (const [id, antes, despues, desde] of [["m1", `-${k}`, `+${k}`, i], ["m2", `+${k}`, `-${k}`, i + 1]] as const) {
+        assert.equal(e[desde].find((f) => f.id === id)!.tex, antes);
+        assert.equal(e[desde + 1].find((f) => f.id === id)!.tex, despues);
         const eq = id === "m1" ? "eq1" : "eq2";
-        assert.ok(e[i].findIndex((f) => f.id === id) < e[i].findIndex((f) => f.id === eq), "empieza a la izquierda del =");
-        assert.ok(e[i + 1].findIndex((f) => f.id === id) > e[i + 1].findIndex((f) => f.id === eq), "termina a la derecha del =");
+        assert.ok(e[desde].findIndex((f) => f.id === id) < e[desde].findIndex((f) => f.id === eq), "empieza a la izquierda del =");
+        assert.ok(e[desde + 1].findIndex((f) => f.id === id) > e[desde + 1].findIndex((f) => f.id === eq), "termina a la derecha del =");
       }
     }
   });

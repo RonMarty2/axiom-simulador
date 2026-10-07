@@ -61,3 +61,9 @@ Probá siempre **dos ejemplos**: uno que ya viene ordenado y otro desordenado, c
 - Tests propuestos o agregados.
 - Si el criterio sirve para una materia que todavía no tiene generador (Física, Química…), cómo se vería ahí un paso "como a lápiz".
 - Sección **"Lecciones nuevas"** (`fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`) para `docs/lecciones-agentes.md`.
+
+## Registro: no se audita dos veces lo mismo (Ronald, 7-oct-2026)
+- **Al empezar:** lee `data/registro-auditoria-pasos.json`. Un generador `auditado` cuya huella no cambió (el test `registro-auditoria.test.ts` pasa) **no se vuelve a auditar**: salta al siguiente. Audita solo `pendiente`, `con-hallazgos` o los que el test marca como cambiados.
+- **Al terminar cada generador:** regístralo con `node src/app/prueba-animacion/registrar-auditoria.ts <id> <auditado|con-hallazgos> "nota corta"`. Eso guarda la huella de la salida actual; si alguien toca el generador después, el test frena y hay que re-auditar.
+- **No marques `auditado` si quedan saltos:** usa `con-hallazgos` y lista cuáles en la nota. Pasa a `auditado` solo cuando una segunda lectura no encuentra nada.
+- **Generador nuevo:** agrégalo a `CASOS` en `huellas.ts` (con dos ejemplos, uno con signos negativos) y corre `registrar-auditoria.ts iniciar`.

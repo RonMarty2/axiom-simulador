@@ -270,15 +270,18 @@ export function diferenciaCuadrados(k: number): Resultado {
   ];
   const n3Etiquetado: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
   const formulaLetras = "a^{2}-b^{2}=(a-b)(a+b)";
-  const formulaNumeros = `x^{2}-${k}^{2}=(x-${k})(x+${k})`;
+  const formulaConX = "x^{2}-b^{2}=(x-b)(x+b)";
+  const formulaNumeros =`x^{2}-${k}^{2}=(x-${k})(x+${k})`;
   const estados: Ficha[][] = [
     [...base, { id: "n", tex: `${q}` }, ...cola],
+    [...base, { id: "nn", tex: `${k}\\cdot ${k}` }, ...cola],
     [...base, { id: "n3", tex: `${k}^2` }, ...cola],
     // se nombran a y b
     [...baseEtiquetada, n3Etiquetado, ...cola],
     // la formula general aparece debajo (con letras)
     [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaLetras, salto: true }],
-    // se reemplazan a y b por lo que valen (x y k) en la formula
+    // se reemplaza PRIMERO la a por x, despues la b por su numero
+    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaConX, salto: true }],
     [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaNumeros, salto: true }],
     // la izquierda se reemplaza por lo que dice la formula: los dos parentesis
     [...factores, ...cola],
@@ -305,7 +308,19 @@ export function diferenciaCuadrados(k: number): Resultado {
       { id: "eq2", tex: "=", op: true },
       { id: "z2", tex: "0" },
     ],
-    // el -k y el +k se ARRASTRAN al otro lado y cambian de signo
+    // primero se ARRASTRA el -k de la primera ecuacion y cambia de signo
+    [
+      { id: "x1", tex: "x" },
+      { id: "eq1", tex: "=", op: true },
+      { id: "z1", tex: "0" },
+      { id: "m1", tex: `+${k}` },
+      { id: "or", tex: "\\text{ ó }", op: true },
+      { id: "x2", tex: "x" },
+      { id: "m2", tex: `+${k}` },
+      { id: "eq2", tex: "=", op: true },
+      { id: "z2", tex: "0" },
+    ],
+    // despues el +k de la segunda
     [
       { id: "x1", tex: "x" },
       { id: "eq1", tex: "=", op: true },
@@ -329,9 +344,15 @@ export function diferenciaCuadrados(k: number): Resultado {
   ];
   const trans: Transicion[] = [
     {
-      fusiones: [{ desde: ["n"], hacia: "n3" }],
-      texto: `Escribimos $${q}$ como un cuadrado: $${q}=${k}\\cdot${k}=${k}^{2}$.`,
-      porque: `Para usar la fórmula necesitamos que los dos números estén elevados al cuadrado: $x^{2}$ ya lo está, y el $${q}$ es $${k}^{2}$.`,
+      fusiones: [{ desde: ["n"], hacia: "nn" }],
+      descompone: true,
+      texto: `Escribimos $${q}$ como un producto de dos números iguales: $${q}=${k}\\cdot${k}$.`,
+      porque: `Para usar la fórmula necesitamos que los dos números sean cuadrados. Buscamos qué número multiplicado por sí mismo da $${q}$: es el $${k}$.`,
+    },
+    {
+      fusiones: [{ desde: ["nn"], hacia: "n3" }],
+      texto: `Un número multiplicado por sí mismo es ese número al cuadrado: $${k}\\cdot${k}=${k}^{2}$.`,
+      porque: `Así $x^{2}$ y $${k}^{2}$ quedan los dos elevados al cuadrado, como pide la fórmula.`,
     },
     {
       fusiones: [],
@@ -348,9 +369,15 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       fusiones: [],
-      resaltar: ["F", "a", "n3"],
-      texto: `En la fórmula ponemos lo que vale cada letra: $a=x$ y $b=${k}$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
-      porque: `Donde la fórmula dice $a$ escribimos $x$, y donde dice $b$ escribimos $${k}$. Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
+      resaltar: ["F", "a"],
+      texto: `Reemplazamos primero la $a$: vale $x$. Donde la fórmula dice $a$ escribimos $x$.`,
+      porque: `La $a$ aparece dos veces en la fórmula: en $a^{2}$ y en $(a-b)(a+b)$. Se cambia en los dos lugares.`,
+    },
+    {
+      fusiones: [],
+      resaltar: ["F", "n3"],
+      texto: `Ahora la $b$: vale $${k}$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
+      porque: `Donde la fórmula dice $b$ escribimos $${k}$. Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
     },
     {
       fusiones: [{ desde: ["a", "m", "n3", "F"], hacia: ["f1", "f2"] }],
@@ -384,9 +411,16 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       fusiones: [],
-      resaltar: ["m1", "m2"],
-      texto: `Para dejar $x$ sola, pasamos el $-${k}$ al otro lado: cambia de signo y queda $+${k}$. En la otra ecuación, el $+${k}$ pasa como $-${k}$.`,
+      resaltar: ["m1"],
+      texto: `En la primera ecuación, para dejar $x$ sola, pasamos el $-${k}$ al otro lado: cambia de signo y queda $+${k}$.`,
       porque: `Es lo mismo que sumar el opuesto en los dos lados: al cruzar la igualdad un número cambia de signo.`,
+      regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
+    },
+    {
+      fusiones: [],
+      resaltar: ["m2"],
+      texto: `En la segunda ecuación, el $+${k}$ pasa al otro lado y queda $-${k}$.`,
+      porque: `Igual que antes: al cruzar la igualdad cambia de signo.`,
       regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
     },
     {
