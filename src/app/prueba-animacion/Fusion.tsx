@@ -33,9 +33,14 @@ function parteEstilo(marcada: boolean): React.CSSProperties {
 interface Leyenda {
   texto: string;
   porque?: string;
+  regla?: string;
 }
 
-export default function Fusion({ demo }: { demo: Demo }) {
+export type ModoRegla = "resolver" | "ensenar";
+
+// modo "resolver" (ejercicio resuelto): la regla va dentro del "¿Por qué?".
+// modo "ensenar" (leccion): la regla va destacada, en su propio recuadro.
+export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?: ModoRegla }) {
   const total = demo.estados.length;
   const [idx, setIdx] = useState(0);
   const [leyenda, setLeyenda] = useState<Leyenda>({ texto: demo.intro });
@@ -105,7 +110,7 @@ export default function Fusion({ demo }: { demo: Demo }) {
     const k = factorTiempo();
 
     setNuevos([]);
-    setLeyenda({ texto: t.texto, porque: t.porque });
+    setLeyenda({ texto: t.texto, porque: t.porque, regla: t.regla });
 
     const marcas = [
       ...t.fusiones.flatMap((f) => (f.ancla ? [...f.desde, f.ancla] : f.desde)),
@@ -164,7 +169,7 @@ export default function Fusion({ demo }: { demo: Demo }) {
     setLeyenda(
       n === 0
         ? { texto: demo.intro }
-        : { texto: demo.transiciones[n - 1].texto, porque: demo.transiciones[n - 1].porque }
+        : { texto: demo.transiciones[n - 1].texto, porque: demo.transiciones[n - 1].porque, regla: demo.transiciones[n - 1].regla }
     );
   }
 
@@ -289,6 +294,30 @@ export default function Fusion({ demo }: { demo: Demo }) {
             {leyenda.porque && (
               <div style={{ fontSize: 13.5, marginTop: 4, color: "var(--fg-muted, #6b6b6b)" }}>
                 <strong>¿Por qué?</strong> <MathText>{leyenda.porque}</MathText>
+                {modo === "resolver" && leyenda.regla && (
+                  <>
+                    {" "}
+                    <span style={{ color: "var(--fg-primary)" }}>
+                      Regla: <MathText>{leyenda.regla}</MathText>
+                    </span>
+                  </>
+                )}
+              </div>
+            )}
+            {modo === "ensenar" && leyenda.regla && (
+              <div
+                style={{
+                  marginTop: 8,
+                  padding: "8px 12px",
+                  borderRadius: 8,
+                  background: "var(--bg-card)",
+                  border: "2px solid var(--accent, #9a3a1a)",
+                  fontSize: 16,
+                  color: "var(--fg-primary)",
+                }}
+              >
+                <strong style={{ fontSize: 12.5, color: "var(--fg-muted, #6b6b6b)" }}>Regla clave:</strong>{" "}
+                <MathText>{leyenda.regla}</MathText>
               </div>
             )}
           </motion.div>

@@ -49,6 +49,8 @@ export interface Transicion {
   resaltar?: string[];
   texto: string;
   porque: string;
+  /** la formula, identidad o propiedad que justifica el paso, escrita general ($a^m\cdot a^n=a^{m+n}$); en modo "resolver" va dentro del porque, en "ensenar" en su propio recuadro */
+  regla?: string;
 }
 export interface Demo {
   titulo: string;

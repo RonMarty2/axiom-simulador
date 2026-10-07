@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Fusion from "./Fusion";
+import Fusion, { type ModoRegla } from "./Fusion";
 import {
   potenciaProducto,
   raizConFactor,
@@ -10,8 +10,18 @@ import {
   validarRaiz,
   type Base,
 } from "./generadores";
+import {
+  diferenciaCuadrados,
+  ecuacionLineal,
+  fracciones,
+  sumaLogaritmos,
+  validarCuadrados,
+  validarEcuacionLineal,
+  validarFracciones,
+  validarLogaritmos,
+} from "./generadores-algebra";
 
-type Tipo = "potencia" | "raiz" | "raizResto";
+type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos";
 
 const campo: React.CSSProperties = {
   width: 64,
@@ -37,9 +47,30 @@ function Numero({ nombre, valor, onCambio }: { nombre: string; valor: string; on
 // cualquier base, exponente e indice dentro de los limites.
 export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titulo: string; inicial: string[] }) {
   const [v, setV] = useState<string[]>(inicial);
+  const [modo, setModo] = useState<ModoRegla>("resolver");
   const set = (i: number) => (x: string) => setV((a) => a.map((y, j) => (j === i ? x : y)));
 
   const resultado = useMemo(() => {
+    if (tipo === "fracciones") {
+      const [n1, d1, n2, d2] = [Number(v[0]), Number(v[1]), Number(v[2]), Number(v[3])];
+      const e = validarFracciones(n1, d1, n2, d2);
+      return e ? { error: e } : { demo: fracciones(n1, d1, n2, d2, v[4].trim() === "-").demo };
+    }
+    if (tipo === "cuadrados") {
+      const k = Number(v[0]);
+      const e = validarCuadrados(k);
+      return e ? { error: e } : { demo: diferenciaCuadrados(k).demo };
+    }
+    if (tipo === "logaritmos") {
+      const [b, m, n] = [Number(v[0]), Number(v[1]), Number(v[2])];
+      const e = validarLogaritmos(b, m, n);
+      return e ? { error: e } : { demo: sumaLogaritmos(b, m, n).demo };
+    }
+    if (tipo === "lineal") {
+      const [a, b, c] = [Number(v[0]), Number(v[1]), Number(v[2])];
+      const e = validarEcuacionLineal(a, b, c);
+      return e ? { error: e } : { demo: ecuacionLineal(a, b, c).demo };
+    }
     const base: Base = v[0].trim().toLowerCase() === "x" ? "x" : Number(v[0]);
     const n1 = Number(v[1]);
     const n2 = Number(v[2]);
@@ -62,7 +93,15 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   }, [tipo, v]);
 
   const rotulos =
-    tipo === "potencia"
+    tipo === "fracciones"
+      ? ["Numerador 1", "Denominador 1", "Numerador 2", "Denominador 2", "Operación (+ o -)"]
+      : tipo === "cuadrados"
+        ? ["Número al cuadrado (3 para x² − 9)"]
+        : tipo === "logaritmos"
+          ? ["Base", "Primer número", "Segundo número"]
+          : tipo === "lineal"
+      ? ["Lo que multiplica a x", "Lo que se suma (con su signo)", "Lado derecho"]
+      : tipo === "potencia"
       ? ["Base (número o x)", "Primer exponente", "Segundo exponente"]
       : tipo === "raiz"
         ? ["Base (número o x)", "Exponente", "Índice de la raíz"]
@@ -76,10 +115,29 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
           <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} />
         ))}
       </div>
+      <div style={{ display: "flex", gap: 6, marginBottom: 8, alignItems: "center", fontSize: 13 }}>
+        <span style={{ color: "var(--fg-muted, #6b6b6b)" }}>Se usa para:</span>
+        {(["resolver", "ensenar"] as const).map((m) => (
+          <button
+            key={m}
+            onClick={() => setModo(m)}
+            style={{
+              padding: "4px 10px",
+              borderRadius: 8,
+              border: "1px solid var(--border, #d8d0c0)",
+              background: modo === m ? "var(--accent, #9a3a1a)" : "var(--bg-card)",
+              color: modo === m ? "#fff" : "var(--fg-primary)",
+              cursor: "pointer",
+            }}
+          >
+            {m === "resolver" ? "Resolver un ejercicio" : "Enseñar el tema"}
+          </button>
+        ))}
+      </div>
       {"error" in resultado && resultado.error ? (
         <p style={{ fontSize: 14, color: "var(--accent)" }}>{resultado.error}</p>
       ) : (
-        "demo" in resultado && resultado.demo && <Fusion key={v.join("|")} demo={resultado.demo} />
+        "demo" in resultado && resultado.demo && <Fusion key={v.join("|") + modo} demo={resultado.demo} modo={modo} />
       )}
     </div>
   );

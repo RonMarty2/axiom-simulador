@@ -66,6 +66,7 @@ export function potenciaProducto(base: Base, m: number, n: number): Resultado {
       fusiones: [{ desde: ["e1", "e2"], hacia: "e5" }],
       texto: `Se suman los exponentes: $${m}+${n}=${s}$.`,
       porque: `En total hay $${s}$ factores iguales a $${b}$.`,
+      regla: `$a^{m}\\cdot a^{n}=a^{m+n}$`,
     },
   ];
   if (base !== "x") {
@@ -134,6 +135,7 @@ export function raizGeneral(
     fusiones: [{ desde: ["q"], hacia: ["o", "b", "x", "c", "h"] }],
     texto: `La raíz de índice $${k}$ se convierte en el exponente $\\tfrac{1}{${k}}$.`,
     porque: `Sacar la raíz de índice $${k}$ es lo mismo que elevar a $\\tfrac{1}{${k}}$: $${raiz(k, "a")}=a^{\\frac{1}{${k}}}$.`,
+    regla: `$${raiz(k, "a")}=a^{\\frac{1}{${k}}}$`,
   });
 
   // Potencia de potencia: se multiplican los exponentes
@@ -146,6 +148,7 @@ export function raizGeneral(
     fusiones: [{ desde: ["o", "c"], hacia: null, ancla: "b" }],
     texto: `Es una potencia de potencia: los paréntesis se unen a la base y los exponentes quedan juntos.`,
     porque: `Siempre se cumple $(a^{m})^{p}=a^{m\\cdot p}$: la base se queda y los exponentes se multiplican.`,
+    regla: `$(a^{m})^{p}=a^{m\\cdot p}$`,
   });
 
   estados.push([
@@ -172,6 +175,7 @@ export function raizGeneral(
       fusiones: [{ desde: ["x2"], hacia: "x3", modo: "tachar" }],
       texto: `Se tacha el factor $${g}$ de arriba y de abajo: $\\tfrac{${n}}{${k}}=${frac(n1, k1)}$.`,
       porque: `Dividir el numerador y el denominador entre el mismo número, $${g}$, no cambia la fracción.${k1 === 1 ? " Como el denominador queda en $1$, el exponente es un número entero." : ""}`,
+      regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
     });
     expId = "x3";
   }
@@ -186,6 +190,7 @@ export function raizGeneral(
         fusiones: [{ desde: [expId], hacia: null, ancla: "b" }],
         texto: `Elevar a $1$ no cambia nada: ${numerica ? `$${raiz(k, `${valor}`)}=${b}$` : `queda $${b}$`}.`,
         porque: `Cualquier número elevado a $1$ es el mismo número.`,
+        regla: `$a^{1}=a$`,
       });
     } else if (numerica) {
       const v = pot(base as number, n1);
@@ -209,6 +214,7 @@ export function raizGeneral(
         fusiones: [{ desde: ["b", expId], hacia: "f" }],
         texto: `Un exponente fraccionario es una raíz: $${b}^{${frac(n1, k1)}}=${raiz(k1, potTex(b, n1))}$.`,
         porque: `No se puede sacar nada de la raíz porque el exponente de adentro, $${n1}$, es menor que el índice, $${k1}$. Es la forma más simple.`,
+        regla: `$a^{\\frac{m}{p}}=\\sqrt[p]{a^{m}}$`,
       });
     } else {
       const radical = raiz(k1, potTex(b, r));
@@ -222,6 +228,7 @@ export function raizGeneral(
         fusiones: [{ desde: ["b", expId], hacia: ["pb", "pq", "pt", "pr"] }],
         texto: `Separamos el exponente: $${frac(n1, k1)}=${q}+${frac(r, k1)}$. Una parte es entera y la otra sigue siendo raíz.`,
         porque: `$${b}^{${q}+${frac(r, k1)}}=${b}^{${q}}\\cdot ${b}^{${frac(r, k1)}}$, y $${b}^{${frac(r, k1)}}=${radical}$.`,
+        regla: `$a^{p+q}=a^{p}\\cdot a^{q}$`,
       });
       if (numerica) {
         const coef = pot(base as number, q);
@@ -280,6 +287,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
       fusiones: [{ desde: ["q0"], hacia: ["q", "t", "rc"] }],
       texto: `La raíz de un producto se separa en el producto de las raíces.`,
       porque: `$${raiz(k, "a\\cdot b")}=${raiz(k, "a")}\\cdot ${raiz(k, "b")}$, porque los dos factores se multiplican.`,
+      regla: `$\\sqrt[k]{a\\cdot b}=\\sqrt[k]{a}\\cdot\\sqrt[k]{b}$`,
     },
     ...inner.demo.transiciones,
     {
