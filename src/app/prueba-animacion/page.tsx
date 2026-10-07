@@ -23,17 +23,20 @@ export default function Pagina() {
       </p>
 
       <section style={tarjeta}>
+        <Generador tipo="cuadratica" titulo="NUEVO · Ecuación de segundo grado (fórmula general)" inicial={["1", "-5", "6"]} />
+      </section>
+      <section style={tarjeta}>
         <Generador tipo="lineal" titulo="Ecuación de primer grado: ax + b = c (elige tú los números)" inicial={["3", "2", "11"]} />
       </section>
 
       <section style={tarjeta}>
-        <Generador tipo="fracciones" titulo="NUEVO · Suma y resta de fracciones" inicial={["1", "2", "1", "3", "+"]} />
+        <Generador tipo="fracciones" titulo="Suma y resta de fracciones" inicial={["1", "2", "1", "3", "+"]} />
       </section>
       <section style={tarjeta}>
-        <Generador tipo="cuadrados" titulo="NUEVO · Diferencia de cuadrados: x² − k² = 0" inicial={["3"]} />
+        <Generador tipo="cuadrados" titulo="Diferencia de cuadrados: x² − k² = 0" inicial={["3"]} />
       </section>
       <section style={tarjeta}>
-        <Generador tipo="logaritmos" titulo="NUEVO · Suma de logaritmos de igual base" inicial={["2", "4", "8"]} />
+        <Generador tipo="logaritmos" titulo="Suma de logaritmos de igual base" inicial={["2", "4", "8"]} />
       </section>
       <section style={tarjeta}>
         <Generador tipo="potencia" titulo="Potencias de la misma base (elige tú los números)" inicial={["2", "3", "2"]} />

@@ -73,7 +73,9 @@ Motor: **Framer Motion** (ya está en el proyecto; GSAP se descartó, no aporta 
 - **Al informar a Ronald, solo lo nuevo.** Lo que ya aprobó y no cambió no se vuelve a describir ni a mostrar; di qué cambió y dónde mirarlo. Si algo aprobado se modificó por una mejora retroactiva, dilo en una línea.
 - **Verificación obligatoria:** el valor del estado `i` y el del `i+1` tienen que ser iguales (sympy o `fractions`), y el estado final tiene que coincidir con la letra del banco. La animación nunca hace la cuenta: la recibe hecha.
 
-**Estado actual:** prototipo en `src/app/prueba-animacion/` (`datos.ts` con 6 ejemplos escritos a mano, `generadores.ts` + su test, `Generador.tsx` con campos para elegir los números, `Fusion.tsx`, `Tex.tsx`). Es una página temporal; **no se sube a `main`** mientras sea ruta pública. Cuando se promueva, pasa a `src/app/components/animaciones/fusion/` y se conecta a `SolucionPasos`.
+**Generadores que ya existen (cada uno con su test sobre todas las combinaciones; no reescribir, ampliar):** `generadores.ts` (potencias de igual base, raíces de cualquier índice, raíz con resto), `generadores-algebra.ts` (ecuación `ax+b=c`, suma y resta de fracciones, diferencia de cuadrados, suma de logaritmos, y el ayudante `simplificar`), `generadores-cuadratica.ts` (segunda grado por fórmula general, soluciones enteras). Vara común de coherencia: `revisar.ts`. Falta: sistemas 2x2, factorización por trinomio, proporciones y toda Física y Química.
+
+**Estado actual:** prototipo en `src/app/prueba-animacion/` (`datos.ts` con 6 ejemplos escritos a mano, `generadores*.ts` + sus tests, `Generador.tsx` con campos para elegir los números, `Fusion.tsx`, `Tex.tsx`). Es una página temporal; **no se sube a `main`** mientras sea ruta pública. Cuando se promueva, pasa a `src/app/components/animaciones/fusion/` y se conecta a `SolucionPasos`.
 
 ### Cómo se extrapola a cada materia y examen
 La jugada es la misma; cambia qué se junta y qué regla explica. Esto es lo que ya tenemos pensado (no inventes otra cosa sin avisar):

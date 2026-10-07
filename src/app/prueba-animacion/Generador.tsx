@@ -20,8 +20,9 @@ import {
   validarFracciones,
   validarLogaritmos,
 } from "./generadores-algebra";
+import { cuadratica, validarCuadratica } from "./generadores-cuadratica";
 
-type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos";
+type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica";
 
 const campo: React.CSSProperties = {
   width: 64,
@@ -51,6 +52,11 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   const set = (i: number) => (x: string) => setV((a) => a.map((y, j) => (j === i ? x : y)));
 
   const resultado = useMemo(() => {
+    if (tipo === "cuadratica") {
+      const [a, b, c] = [Number(v[0]), Number(v[1]), Number(v[2])];
+      const e = validarCuadratica(a, b, c);
+      return e ? { error: e } : { demo: cuadratica(a, b, c).demo };
+    }
     if (tipo === "fracciones") {
       const [n1, d1, n2, d2] = [Number(v[0]), Number(v[1]), Number(v[2]), Number(v[3])];
       const e = validarFracciones(n1, d1, n2, d2);
@@ -93,7 +99,9 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   }, [tipo, v]);
 
   const rotulos =
-    tipo === "fracciones"
+    tipo === "cuadratica"
+      ? ["a (lo que multiplica a x²)", "b (lo que multiplica a x)", "c (el número solo)"]
+      : tipo === "fracciones"
       ? ["Numerador 1", "Denominador 1", "Numerador 2", "Denominador 2", "Operación (+ o -)"]
       : tipo === "cuadrados"
         ? ["Número al cuadrado (3 para x² − 9)"]
