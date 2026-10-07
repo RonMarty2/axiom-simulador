@@ -76,7 +76,9 @@ export function revisar(d: Demo, etiqueta: string) {
       assert.ok(nuevosNum.size <= LIMITE_NUMEROS_NUEVOS, `${etiqueta}: T${i} un solo paso calcula ${nuevosNum.size} numeros nuevos (${[...nuevosNum].join(", ")}): dividelo en pasos`);
     }
     for (const br of t.brotes ?? []) {
-      assert.ok(a.has(br.desde) && b.has(br.desde), `${etiqueta}: T${i} el origen del brote ${br.desde} debe seguir existiendo`);
+      // el origen sigue existiendo, o es una pieza que viaja (la consume una fusion "viajar")
+      const viaja = t.fusiones.some((f) => f.modo === "viajar" && f.desde.includes(br.desde));
+      assert.ok(a.has(br.desde) && (b.has(br.desde) || viaja), `${etiqueta}: T${i} el origen del brote ${br.desde} debe seguir existiendo (o viajar)`);
       assert.ok(b.has(br.hacia) && !a.has(br.hacia), `${etiqueta}: T${i} el brote ${br.hacia} debe ser nuevo`);
     }
     for (const id of t.resaltar ?? []) {

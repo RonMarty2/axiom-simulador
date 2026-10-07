@@ -1,7 +1,7 @@
 // Generadores de Algebra: arman la animacion completa para CUALQUIER numero
 // dentro de los limites. Todo texto del alumno va en LaTeX entre $...$ (MathText):
 // fracciones con raya, nunca "/" ni "÷". Las barras invertidas van dobles.
-import type { Ficha, Transicion } from "./datos.ts";
+import { fr, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 
 const mcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : mcd(b, a % b));
@@ -89,7 +89,7 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     [
       { id: "x", tex: "x" },
       { id: "eq", tex: "=", op: true },
-      { id: "fr", tex: fracTex(n, a) },
+      fr("fr", num(n), `${a}`),
     ],
   ];
   const trans: Transicion[] = [
@@ -107,8 +107,13 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
       regla: `$a+b=c$`,
     },
     {
-      fusiones: [{ desde: ["a", "n"], hacia: "fr" }],
-      texto: `El $${a}$ multiplica a $x$. Pasa al otro lado dividiendo: queda $x=${fracTex(n, a)}$.`,
+      // el 3 NO se funde con el numero: viaja hasta debajo de el y se queda de denominador
+      fusiones: [{ desde: ["a", "n"], hacia: "fr", modo: "viajar" }],
+      brotes: [
+        { desde: "n", hacia: "fr.n" },
+        { desde: "a", hacia: "fr.d" },
+      ],
+      texto: `El $${a}$ multiplica a $x$. Pasa al otro lado dividiendo: viaja hasta debajo del $${n}$ y queda $x=${fracTex(n, a)}$.`,
       porque: `Lo que multiplicaba pasa dividiendo: ahora es el denominador. Es lo mismo que dividir los dos lados entre $${a}$. La fracción es una división: $${Math.abs(n)}$ entre $${a}$.`,
       regla: `$a\\cdot x=n\\ \\Rightarrow\\ x=\\dfrac{n}{a}\\quad (a\\neq 0)$`,
     },
@@ -251,20 +256,44 @@ export function diferenciaCuadrados(k: number): Resultado {
     { id: "m", tex: "-", op: true },
   ];
   const cola: Ficha[] = [
-    { id: "eq", tex: "=", op: true },
-    { id: "z", tex: "0" },
+    { id: "eq1", tex: "=", op: true },
+    { id: "z1", tex: "0" },
   ];
   const factores: Ficha[] = [
     { id: "f1", tex: `(x-${k})` },
     { id: "f2", tex: `(x+${k})` },
   ];
+  // la letra que cumple cada pieza en la formula (a = x, b = k), escrita debajo
+  const baseEtiquetada: Ficha[] = [
+    { id: "a", tex: "x^2", debajo: "a=x" },
+    { id: "m", tex: "-", op: true },
+  ];
+  const n3Etiquetado: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
+  const formulaLetras = "a^{2}-b^{2}=(a-b)(a+b)";
+  const formulaNumeros = `x^{2}-${k}^{2}=(x-${k})(x+${k})`;
   const estados: Ficha[][] = [
     [...base, { id: "n", tex: `${q}` }, ...cola],
     [...base, { id: "n3", tex: `${k}^2` }, ...cola],
-    [...base, { id: "n3", tex: `${k}^2` }, ...cola],
+    // se nombran a y b
+    [...baseEtiquetada, n3Etiquetado, ...cola],
+    // la formula general aparece debajo (con letras)
+    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaLetras, salto: true }],
+    // se reemplazan a y b por lo que valen (x y k) en la formula
+    [...baseEtiquetada, n3Etiquetado, ...cola, { id: "F", tex: formulaNumeros, salto: true }],
+    // la izquierda se reemplaza por lo que dice la formula: los dos parentesis
     [...factores, ...cola],
     [...factores, ...cola],
-    // una ecuacion por factor, cada una con sus piezas sueltas para poder arrastrar el numero
+    // un factor por ecuacion, todavia con parentesis
+    [
+      { id: "f1", tex: `(x-${k})` },
+      { id: "eq1", tex: "=", op: true },
+      { id: "z1", tex: "0" },
+      { id: "or", tex: "\\text{ ó }", op: true },
+      { id: "f2", tex: `(x+${k})` },
+      { id: "eq2", tex: "=", op: true },
+      { id: "z2", tex: "0" },
+    ],
+    // los parentesis solo agrupaban: se quitan y quedan las piezas sueltas
     [
       { id: "x1", tex: "x" },
       { id: "m1", tex: `-${k}` },
@@ -306,15 +335,27 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       fusiones: [],
-      resaltar: ["a", "m", "n3"],
-      texto: `Reconocemos el patrón $a^{2}-b^{2}$: aquí $a=x$ y $b=${k}$.`,
+      resaltar: ["a", "n3"],
+      texto: `Reconocemos el patrón $a^{2}-b^{2}$: aquí $a=x$ y $b=${k}$. Lo anotamos debajo de cada número.`,
       porque: `Es una resta de dos cuadrados. Esa forma se llama diferencia de cuadrados y siempre se factoriza igual.`,
     },
     {
-      fusiones: [{ desde: ["a", "m", "n3"], hacia: ["f1", "f2"] }],
-      texto: `Aplicamos la fórmula $a^{2}-b^{2}=(a-b)(a+b)$ con $a=x$ y $b=${k}$: queda $(x-${k})(x+${k})$.`,
-      porque: `Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
+      fusiones: [],
+      brotes: [{ desde: "eq1", hacia: "F" }],
+      texto: `Escribimos debajo la fórmula de la diferencia de cuadrados: $a^{2}-b^{2}=(a-b)(a+b)$.`,
+      porque: `Es una fórmula que vale para cualquier $a$ y cualquier $b$. Con ella una resta de cuadrados se convierte en un producto.`,
       regla: `$a^{2}-b^{2}=(a-b)(a+b)$`,
+    },
+    {
+      fusiones: [],
+      resaltar: ["F", "a", "n3"],
+      texto: `En la fórmula ponemos lo que vale cada letra: $a=x$ y $b=${k}$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
+      porque: `Donde la fórmula dice $a$ escribimos $x$, y donde dice $b$ escribimos $${k}$. Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
+    },
+    {
+      fusiones: [{ desde: ["a", "m", "n3", "F"], hacia: ["f1", "f2"] }],
+      texto: `Lo de la izquierda, $x^{2}-${k}^{2}$, vale lo mismo que lo de la derecha de la fórmula. Lo cambiamos: queda $(x-${k})(x+${k})$.`,
+      porque: `La fórmula dice que son iguales, así que podemos escribir uno en lugar del otro sin cambiar la ecuación.`,
     },
     {
       fusiones: [],
@@ -324,9 +365,22 @@ export function diferenciaCuadrados(k: number): Resultado {
       regla: `$a\\cdot b=0\\ \\Rightarrow\\ a=0\\ \\text{ ó }\\ b=0$`,
     },
     {
-      fusiones: [{ desde: ["f1", "f2", "eq", "z"], hacia: ["x1", "m1", "eq1", "z1", "or", "x2", "m2", "eq2", "z2"] }],
-      texto: `Igualamos cada factor a cero: $x-${k}=0$ o $x+${k}=0$.`,
+      fusiones: [],
+      brotes: [
+        { desde: "eq1", hacia: "eq2" },
+        { desde: "z1", hacia: "z2" },
+        { desde: "eq1", hacia: "or" },
+      ],
+      texto: `Igualamos cada factor a cero: $(x-${k})=0$ o $(x+${k})=0$. Copiamos el $=0$ para el segundo factor.`,
       porque: `Cada factor puede ser el que vale $0$, así que se resuelve una ecuación para cada uno.`,
+    },
+    {
+      fusiones: [
+        { desde: ["f1"], hacia: ["x1", "m1"] },
+        { desde: ["f2"], hacia: ["x2", "m2"] },
+      ],
+      texto: `Quitamos los paréntesis: $(x-${k})$ queda $x-${k}$ y $(x+${k})$ queda $x+${k}$. Ahora el $x$ y el número están sueltos.`,
+      porque: `Un paréntesis que no tiene nada multiplicando por fuera solo agrupa; se puede quitar sin cambiar el valor.`,
     },
     {
       fusiones: [],

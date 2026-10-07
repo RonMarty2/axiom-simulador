@@ -36,8 +36,9 @@ export interface Fusion {
   hacia: string | string[] | null;
   /** ficha que se QUEDA: las de `desde` se deslizan hacia ella y se unen (no cambia, solo late) */
   ancla?: string;
-  /** "tachar": una raya cruza las piezas y se desvanecen en su lugar (no viajan al centro) */
-  modo?: "tachar";
+  /** "tachar": una raya cruza las piezas y se desvanecen en su lugar (no viajan al centro).
+   *  "viajar": las piezas NO se juntan: se quedan donde estan y cada una viaja hasta su lugar nuevo (un `brote` por cada una) */
+  modo?: "tachar" | "viajar";
 }
 /** una pieza nueva que NACE de una que ya existe: sale de ella y viaja a su lugar (no aparece de la nada) */
 export interface Brote {

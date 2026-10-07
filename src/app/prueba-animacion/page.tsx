@@ -26,10 +26,10 @@ export default function Pagina() {
       </p>
 
       <section style={tarjeta}>
-        <Generador tipo="lineal" titulo="CAMBIÓ · Ecuación de primer grado (ahora se arrastra)" inicial={["3", "2", "11"]} />
+        <Generador tipo="lineal" titulo="CAMBIÓ · Ecuación de primer grado (el número viaja y queda de denominador)" inicial={["3", "2", "11"]} />
       </section>
       <section style={tarjeta}>
-        <Generador tipo="cuadrados" titulo="CAMBIÓ · Diferencia de cuadrados (ahora se arrastra)" inicial={["3"]} />
+        <Generador tipo="cuadrados" titulo="CAMBIÓ · Diferencia de cuadrados (fórmula con letras, paréntesis y ecuaciones paso a paso)" inicial={["3"]} />
       </section>
       <section style={tarjeta}>
         <Generador tipo="cuadratica" titulo="Ecuación de segundo grado: ordenar, etiquetar y fórmula general" inicial={["1", "-2", "4", "0", "3", "-2"]} />

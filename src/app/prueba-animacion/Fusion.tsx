@@ -67,7 +67,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
   // Con `ancla`, el destino es esa ficha (que se queda) y al final late una vez.
   async function juntar(f: FusionDatos, k: number) {
     const els = f.desde.map((id) => celdas.current[id]).filter((e): e is HTMLElement => !!e);
-    if (els.length === 0 || k === 0) return;
+    if (els.length === 0 || k === 0 || f.modo === "viajar") return;
     if (f.modo === "tachar") {
       await Promise.all(
         els.map(async (el) => {
@@ -129,6 +129,8 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
     const origenes = (t.brotes ?? []).map((b) => ({
       hacia: b.hacia,
       rect: celdas.current[b.desde]?.getBoundingClientRect() ?? null,
+      // si la pieza de origen desaparece (pasa de lugar), la que viaja es ella misma: no se encoge ni se desvanece
+      viaja: !demo.estados[i + 1].some((f) => f.id === b.desde),
     }));
 
     const antes = new Map(demo.estados[i].map((f) => [f.id, f.tex]));
@@ -138,7 +140,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
     if (origenes.length > 0 && k > 0) {
       // esperar a que la ficha nueva exista en pantalla y hacerla viajar desde su origen
       await new Promise<void>((r) => requestAnimationFrame(() => requestAnimationFrame(() => r())));
-      origenes.forEach(({ hacia, rect }) => {
+      origenes.forEach(({ hacia, rect, viaja }) => {
         const el = celdas.current[hacia];
         if (!el || !rect) return;
         const nr = el.getBoundingClientRect();
@@ -147,8 +149,8 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
           {
             x: [rect.left + rect.width / 2 - (nr.left + nr.width / 2), 0],
             y: [rect.top + rect.height / 2 - (nr.top + nr.height / 2), 0],
-            scale: [0.4, 1],
-            opacity: [0, 1],
+            scale: viaja ? [1, 1] : [0.4, 1],
+            opacity: viaja ? [1, 1] : [0, 1],
           },
           { duration: 0.9, ease: "easeOut" }
         );
