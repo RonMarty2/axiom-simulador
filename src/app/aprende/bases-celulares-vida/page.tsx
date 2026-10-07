@@ -219,7 +219,7 @@ function EscOrganelos() {
             { t: "RE liso", fn: "síntesis de lípidos", c: "#06b6d4", y: 160 },
             { t: "Aparato de Golgi", fn: "empaqueta y exporta", c: "#f59e0b", y: 190 },
             { t: "Lisosomas", fn: "digestión intracelular", c: "#eab308", y: 220 },
-            { t: "Cloroplastos", fn: "fotosíntesis (solo plantas)", c: "#22c55e", y: 250 },
+            { t: "Cloroplastos", fn: "fotosíntesis (plantas y algas)", c: "#22c55e", y: 250 },
             { t: "Pared celular", fn: "rigidez (plantas, hongos, bacterias)", c: "#84cc16", y: 280 },
           ].map((o, i) => (
             <g key={i}>
@@ -248,8 +248,8 @@ function EscOrganelos() {
       </Mnemotecnia>
 
       <Cuidado>
-        Mitocondrias y cloroplastos son los únicos organelos con <strong>ADN
-        propio</strong> y <strong>ribosomas propios</strong>. Por eso se cree
+        Fuera del núcleo, mitocondrias y cloroplastos son los únicos organelos con <strong>ADN
+        propio</strong> (distinto del ADN del núcleo) y <strong>ribosomas propios</strong>. Por eso se cree
         que fueron bacterias incorporadas (teoría endosimbiótica de Lynn
         Margulis).
       </Cuidado>
@@ -299,10 +299,10 @@ function EscAnimalVegetal() {
       </Mnemotecnia>
 
       <AutoCheck
-        pregunta="¿Qué organelo está SOLO en células vegetales?"
+        pregunta="¿Qué organelo tienen las células vegetales y NO las animales?"
         opciones={["mitocondria", "núcleo", "cloroplasto", "ribosoma"]}
         correctaIdx={2}
-        explicacion="Cloroplastos hacen fotosíntesis; solo plantas y algas los tienen."
+        explicacion="Cloroplastos hacen fotosíntesis; las plantas y algas los tienen, las células animales no."
       />
     </EscenaRica>
   );
@@ -331,9 +331,9 @@ function EscCiclo() {
             {/* S - 25% */}
             <path d="M 0 70 A 70 70 0 0 1 -70 0 L 0 0 Z" fill="#10b981" opacity={0.5} />
             {/* G2 - 15% */}
-            <path d="M -70 0 A 70 70 0 0 1 -50 -50 L 0 0 Z" fill="#f59e0b" opacity={0.5} />
+            <path d="M -70 0 A 70 70 0 0 1 -41.1 -56.6 L 0 0 Z" fill="#f59e0b" opacity={0.5} />
             {/* M - 10% */}
-            <path d="M -50 -50 A 70 70 0 0 1 0 -70 L 0 0 Z" fill="#ef4444" opacity={0.5} />
+            <path d="M -41.1 -56.6 A 70 70 0 0 1 0 -70 L 0 0 Z" fill="#ef4444" opacity={0.5} />
           </g>
           {/* leyenda */}
           {[
@@ -353,7 +353,7 @@ function EscCiclo() {
       <Definicion termino="Las 4 fases">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
           <li><strong>G1 (Gap 1):</strong> la célula crece y prepara organelos.</li>
-          <li><strong>S (Síntesis):</strong> se duplica el ADN. Las 46 hebras pasan a 92.</li>
+          <li><strong>S (Síntesis):</strong> se copia el ADN. Cada uno de los 46 cromosomas queda formado por dos copias idénticas unidas (cromátidas hermanas).</li>
           <li><strong>G2 (Gap 2):</strong> última preparación antes de dividirse.</li>
           <li><strong>M (Mitosis):</strong> división del núcleo + citocinesis.</li>
         </ul>
@@ -392,9 +392,9 @@ function EscMitosis() {
           {[
             { x: 90, t: "Profase", d: "cromatina se condensa, desaparece membrana nuclear", c: "#3b82f6" },
             { x: 280, t: "Metafase", d: "cromosomas se alinean en el ecuador", c: "#10b981" },
-            { x: 470, t: "Anafase", d: "se separan cromátidas hermanas (a los polos)", c: "#f59e0b" },
+            { x: 470, t: "Anafase", d: "se separan cromátidas hermanas, van a los polos", c: "#f59e0b" },
             { x: 90, y: 160, t: "Telofase", d: "se forman 2 núcleos hijos, citocinesis", c: "#ef4444" },
-            { x: 360, y: 160, t: "Resultado", d: "2 células diploides (2n) idénticas a la madre", c: "#a78bfa" },
+            { x: 360, y: 160, t: "Resultado", d: "2 células diploides (2n), idénticas a la madre", c: "#a78bfa" },
           ].map((f, i) => (
             <g key={i} transform={`translate(${f.x}, ${f.y || 50})`}>
               <rect x={-10} y={0} width={180} height={90} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={10} />
@@ -438,7 +438,9 @@ function EscMeiosis() {
       <Definicion termino="Meiosis">
         División celular en la que de UNA célula madre diploide (2n) se
         obtienen CUATRO células hijas haploides (n), genéticamente DIFERENTES.
-        Ocurre solo en gametogénesis (ovarios, testículos).
+        En el hombre, las cuatro son espermatozoides; en la mujer, solo una
+        llega a ser óvulo. En los animales, ocurre en ovarios y testículos y
+        produce los gametos.
       </Definicion>
 
       <Pizarra alto={250}>
@@ -457,7 +459,7 @@ function EscMeiosis() {
             { c: "Células hijas", m: "2", me: "4" },
             { c: "Cromosomas hija", m: "2n (igual)", me: "n (mitad)" },
             { c: "Variabilidad", m: "No (idénticas)", me: "Sí (recombinación)" },
-            { c: "Tipo de célula", m: "somática", me: "gametos" },
+            { c: "Tipo de célula", m: "somática", me: "células germinales → gametos" },
             { c: "Función", m: "crecer, reparar", me: "reproducir" },
           ].map((row, i) => (
             <g key={i}>
@@ -499,9 +501,9 @@ function EscPractica() {
         si son "vivos".
       </Misconception>
 
-      <Misconception titulo="Error 2 · 'Mitosis = reproducción'">
+      <Misconception titulo="Error 2 · 'La mitosis fabrica gametos'">
         <strong>Pensar:</strong> que la mitosis produce gametos.<br />
-        <strong>Realidad:</strong> mitosis es para CRECIMIENTO y REPARACIÓN.
+        <strong>Realidad:</strong> en ti, la mitosis sirve para CRECER y REPARAR.
         Los gametos los hace la MEIOSIS.
       </Misconception>
 
@@ -520,7 +522,7 @@ function EscPractica() {
       <Resumen>
         Procariota = sin núcleo. Eucariota = con núcleo y organelos. Animal vs
         vegetal: clorop. + pared = vegetal. Ciclo: G1-S-G2-M. Mitosis = 2
-        células iguales. Meiosis = 4 gametos diferentes con la mitad de
+        células iguales. Meiosis = 4 células diferentes con la mitad de
         cromosomas.
       </Resumen>
 

@@ -37,7 +37,8 @@ function EscMendel() {
 
       <Hook>
         En 1865, Gregor Mendel publicó sus experimentos con guisantes. Nadie le
-        prestó atención. Murió en el olvido. 35 años después, lo redescubrieron
+        prestó atención. Murió en el olvido. En 1900, 35 años después de su trabajo y 16 después de
+        su muerte, tres científicos lo redescubrieron
         y se convirtió en el padre de la genética. Su clave: tratar la herencia
         como matemática.
       </Hook>
@@ -216,8 +217,9 @@ function EscLey2() {
       <Titulo>2ª Ley · Segregación de los alelos</Titulo>
 
       <Definicion termino="Ley de segregación">
-        Al cruzar dos individuos HETEROCIGOTOS (Aa × Aa), los alelos se
-        separan al formar gametos. Resultado en F2:<br /><br />
+        Cada individuo tiene dos alelos de cada gen, pero al formar gametos se
+        separan: cada gameto lleva solo uno. Por eso, al cruzar dos
+        HETEROCIGOTOS (Aa × Aa), la F2 sale así:<br /><br />
         <strong>Genotipo:</strong> 1 AA : 2 Aa : 1 aa<br />
         <strong>Fenotipo:</strong> 3 dominantes : 1 recesivo
       </Definicion>
@@ -486,8 +488,8 @@ function EscSexo() {
       </WorkedExample>
 
       <Mnemotecnia>
-        <strong>"Hijo varón hereda el problema X de la mamá; los varones no
-        portan."</strong> Patrón típico de hemofilia, daltonismo, distrofia
+        <strong>"El hijo varón recibe su X de la mamá. Un varón no puede ser
+        portador sano: si tiene el alelo, está enfermo."</strong> Patrón típico de hemofilia, daltonismo, distrofia
         muscular de Duchenne.
       </Mnemotecnia>
     </EscenaRica>
@@ -606,14 +608,14 @@ function EscPractica() {
       <Misconception titulo="Error 3 · 'Una mujer XX no puede tener daltonismo'">
         <strong>Pensar:</strong> que solo varones se enferman.<br />
         <strong>Realidad:</strong> es RARO pero POSIBLE: necesita ambos X
-        afectados (X^a X^a). Es padre daltónico + madre portadora.
+        afectados (X^a X^a). Por ejemplo, con padre daltónico y madre portadora.
       </Misconception>
 
       <Misconception titulo="Error 4 · 'Los hijos heredan del padre lo del padre'">
         <strong>Pensar:</strong> que cada característica viene de un solo
         progenitor.<br />
         <strong>Realidad:</strong> cada característica recibe un alelo de cada
-        padre. La sumatoria de ambos determina el fenotipo.
+        padre. La combinación de los dos alelos determina el fenotipo.
       </Misconception>
 
       <Resumen>

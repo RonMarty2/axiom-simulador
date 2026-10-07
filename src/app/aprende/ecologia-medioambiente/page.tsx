@@ -81,7 +81,7 @@ function EscNiveles() {
             { t: "Biosfera", d: "todos los ecosistemas del planeta", c: "#f59e0b" },
           ].map((n, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 42})`}>
-              <rect x={0} y={0} width={580 - i * 20} height={32} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={6} />
+              <rect x={0} y={0} width={480 + i * 20} height={32} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={6} />
               <text x={15} y={20} fill={n.c} fontSize={12} fontWeight={700}>{i + 1}. {n.t}</text>
               <text x={140} y={20} fill={LIENZO.fg} fontSize={11}>{n.d}</text>
             </g>
@@ -162,7 +162,7 @@ function EscRelaciones() {
             { c: "Inquilinismo", a: "+ / 0", ej: "ave nido en árbol", col: "#0ea5e9" },
             { c: "Depredación", a: "+ / −", ej: "puma caza vicuña", col: LIENZO.bad },
             { c: "Parasitismo", a: "+ / −", ej: "garrapata-perro", col: LIENZO.warn },
-            { c: "Competencia", a: "− / −", ej: "leones por presa", col: "#dc2626" },
+            { c: "Competencia", a: "− / −", ej: "puma y zorro por la vizcacha", col: "#dc2626" },
             { c: "Amensalismo", a: "0 / −", ej: "Penicillium → bacterias", col: "#7c3aed" },
           ].map((r, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 32})`}>
@@ -196,7 +196,9 @@ function EscTroficas() {
 
       <Definicion termino="Cadena trófica">
         Secuencia lineal en la que cada eslabón es comido por el siguiente. La
-        energía y materia fluyen del SOL hacia los descomponedores.
+        energía entra con el Sol y fluye en un solo sentido hasta perderse como
+        calor. La materia, en cambio, da vueltas: los productores la toman del
+        aire y del suelo, y los descomponedores la devuelven.
       </Definicion>
 
       <Pizarra alto={230}>
@@ -205,10 +207,10 @@ function EscTroficas() {
             Niveles tróficos
           </text>
           {[
-            { x: 80, t: "Productor", e: "1°", c: "#22c55e", ej: "planta" },
-            { x: 220, t: "Consumidor I", e: "2°", c: "#eab308", ej: "vicuña" },
-            { x: 360, t: "Consumidor II", e: "3°", c: "#f59e0b", ej: "puma" },
-            { x: 500, t: "Consumidor III", e: "4°", c: "#ef4444", ej: "cóndor (carroñero)" },
+            { x: 80, t: "Productor", e: "1°", c: "#22c55e", ej: "pasto" },
+            { x: 220, t: "Consumidor I", e: "2°", c: "#eab308", ej: "saltamontes" },
+            { x: 360, t: "Consumidor II", e: "3°", c: "#f59e0b", ej: "sapo" },
+            { x: 500, t: "Consumidor III", e: "4°", c: "#ef4444", ej: "serpiente" },
             { x: 640, t: "Descomponedor", e: "", c: "#a78bfa", ej: "bacteria, hongo" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x - 60}, 55)`}>
@@ -276,7 +278,7 @@ function EscPiramides() {
           {[
             { x: 110, t: "N° de individuos", base: "muchos productores", n: "Números" },
             { x: 360, t: "Biomasa (kg/m²)", base: "más masa de productores", n: "Biomasa" },
-            { x: 610, t: "Energía (kcal)", base: "100% en el sol", n: "Energía" },
+            { x: 610, t: "Energía (kcal)", base: "energía guardada por los productores", n: "Energía" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 60)`}>
               <text x={0} y={0} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{p.n}</text>
@@ -299,8 +301,10 @@ function EscPiramides() {
 
       <Cuidado>
         La pirámide de ENERGÍA siempre tiene esa forma (regla del 10%). Las
-        otras dos a veces se INVIERTEN: ej. un solo árbol grande (biomasa
-        grande) con miles de insectos (números grandes).
+        otras dos a veces se INVIERTEN. Números: un solo árbol grande (abajo)
+        sostiene a miles de insectos (arriba). Biomasa: en el mar, el poco
+        fitoplancton que hay en un momento dado se reproduce tan rápido que
+        sostiene más masa de zooplancton.
       </Cuidado>
     </EscenaRica>
   );
@@ -445,8 +449,8 @@ function EscBolivia() {
           <li><strong>Amboró (Santa Cruz):</strong> ecotonos andino-amazónicos.</li>
           <li><strong>TIPNIS (Cochabamba, Beni):</strong> Territorio Indígena y
             Parque Nacional Isiboro-Sécure.</li>
-          <li><strong>Eduardo Avaroa (Potosí):</strong> Salar de Uyuni, lagunas
-            altiplánicas.</li>
+          <li><strong>Eduardo Avaroa (Potosí):</strong> Laguna Colorada, Laguna Verde,
+            flamencos.</li>
         </ul>
       </Definicion>
 
@@ -537,7 +541,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="Si un productor recibe 10.000 kcal del sol, ¿cuántas llegan al consumidor secundario?"
+        pregunta="Si los productores guardan 10.000 kcal, ¿cuántas llegan al consumidor secundario?"
         opciones={["10.000", "1.000", "100", "10"]}
         correctaIdx={2}
         explicacion="Regla del 10%: 10.000 → 1.000 (consumidor I) → 100 (consumidor II)."

@@ -18,8 +18,8 @@ export default function Page() {
         { titulo: "Metabolismo · anabolismo y catabolismo", componente: EscMetabolismo },
         { titulo: "Respiración celular · panorama", componente: EscRespPanorama },
         { titulo: "1. Glicólisis · en el citoplasma", componente: EscGlicolisis },
-        { titulo: "2. Ciclo de Krebs · en la matriz", componente: EscKrebs },
-        { titulo: "3. Cadena respiratoria · en las crestas", componente: EscCadena },
+        { titulo: "3. Ciclo de Krebs · en la matriz", componente: EscKrebs },
+        { titulo: "4. Cadena respiratoria · en las crestas", componente: EscCadena },
         { titulo: "Balance final de ATP", componente: EscBalanceATP },
         { titulo: "Fotosíntesis · panorama", componente: EscFotoPanorama },
         { titulo: "Fase luminosa y oscura", componente: EscFasesFoto },
@@ -36,8 +36,8 @@ function EscATP() {
       <Titulo>ATP · la energía universal de las células</Titulo>
 
       <Hook>
-        Cada segundo, tu cuerpo gasta y reproduce 10 millones de moléculas de
-        ATP. Toda contracción muscular, todo pensamiento, toda digestión, se
+        Cada célula de tu cuerpo gasta unos 10 millones de moléculas de ATP
+        por segundo. Toda contracción muscular, todo pensamiento, toda digestión, se
         paga con ATP. Sin ATP, mueres en segundos.
       </Hook>
 
@@ -186,8 +186,9 @@ function EscRespPanorama() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"GLI – KREBS – CADENA = energía."</strong> Tres etapas, una
-        después de la otra. Glicólisis no necesita O₂; las otras dos sí.
+        <strong>"GLI – KREBS – CADENA = energía."</strong> Cuatro etapas (con el
+        paso de transición entre glicólisis y Krebs), una después de la otra.
+        Glicólisis no necesita O₂; las otras tres sí.
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -455,8 +456,8 @@ function EscBalanceATP() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"36 ATP por glucosa aeróbica vs 2 ATP anaeróbica."</strong>
-        El O₂ multiplica el rendimiento por 18.
+        <strong>"38 ATP por glucosa aeróbica vs 2 ATP anaeróbica."</strong>
+        El O₂ multiplica el rendimiento por 19 (de 18 a 19 según cuentes 36 o 38).
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -469,8 +470,8 @@ function EscFotoPanorama() {
 
       <Hook>
         Toda la energía que consumimos (excepto la nuclear y geotérmica) viene
-        del Sol. Las plantas son las únicas que pueden capturarla directamente
-        y guardarla en moléculas comestibles. Sin fotosíntesis, no existimos.
+        del Sol. Las plantas, las algas y algunas bacterias son los únicos seres
+        vivos que pueden capturarla directamente y guardarla en moléculas comestibles. Sin fotosíntesis, no existimos.
       </Hook>
 
       <Definicion termino="Fotosíntesis">
@@ -564,8 +565,10 @@ function EscFasesFoto() {
       </Definicion>
 
       <Cuidado>
-        El nombre "fase oscura" es CONFUSO. Ocurre tanto de día como de noche,
-        siempre que haya ATP y NADPH. No es que sea de noche.
+        El nombre "fase oscura" es CONFUSO. Se llama oscura porque no usa la luz
+        directamente, no porque ocurra de noche. En realidad funciona de día,
+        al mismo tiempo que la fase luminosa, porque necesita el ATP y el NADPH
+        que esta va fabricando.
       </Cuidado>
 
       <Mnemotecnia>
@@ -597,8 +600,8 @@ function EscComparacion() {
             { c: "Energía", r: "Libera ATP", f: "Consume luz" },
             { c: "Reactivos", r: "Glucosa + O₂", f: "CO₂ + H₂O" },
             { c: "Productos", r: "CO₂ + H₂O", f: "Glucosa + O₂" },
-            { c: "Lugar", r: "Mitocondria", f: "Cloroplasto" },
-            { c: "Ocurre en", r: "Todos los seres vivos", f: "Plantas, algas, cianobac." },
+            { c: "Lugar", r: "Citoplasma + mitocondria", f: "Cloroplasto" },
+            { c: "Ocurre en", r: "Casi todos (bacterias: en su membrana)", f: "Plantas, algas, cianobac." },
           ].map((row, i) => (
             <g key={i}>
               {[row.c, row.r, row.f].map((v, j) => (
@@ -635,25 +638,28 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · 'La fase oscura es de noche'">
         <strong>Pensar:</strong> que el ciclo de Calvin solo ocurre de noche.<br />
-        <strong>Realidad:</strong> ocurre TODO el día, mientras haya ATP y NADPH
-        (que se acumulan durante la fase luminosa).
+        <strong>Realidad:</strong> ocurre de día, a la par de la fase luminosa, porque
+        necesita el ATP y el NADPH que esta va fabricando (no se acumulan: se
+        gastan enseguida).
       </Misconception>
 
       <Misconception titulo="Error 3 · 'Toda la energía del ATP viene de glicólisis'">
         <strong>Pensar:</strong> que glicólisis es la principal.<br />
-        <strong>Realidad:</strong> glicólisis solo aporta 2 ATP. La cadena
-        respiratoria aporta 32+. Es la principal fuente de ATP en aeróbica.
+        <strong>Realidad:</strong> la glicólisis da solo 2 ATP directos (8 si
+        cuentas lo que después pagan sus NADH). La cadena respiratoria aporta
+        32+. Es la principal fuente de ATP en aeróbica.
       </Misconception>
 
       <Misconception titulo="Error 4 · 'La fermentación produce más ATP que la respiración'">
         <strong>Pensar:</strong> que la fermentación es más eficiente.<br />
         <strong>Realidad:</strong> al revés. Fermentación = 2 ATP. Respiración
-        aeróbica = 36–38 ATP. 18 veces más.
+        aeróbica = 36–38 ATP. De 18 a 19 veces más.
       </Misconception>
 
       <Resumen>
-        ATP = moneda energética. Respiración celular: glicólisis (2 ATP) →
-        Krebs (2 ATP) → cadena (32 ATP) = 36+ ATP por glucosa. Fotosíntesis:
+        ATP = moneda energética. Respiración celular: glicólisis (8 ATP) →
+        transición (6 ATP) → Krebs (24 ATP) = 38 ATP por glucosa (cada etapa
+        con lo que pagan después sus NADH y FADH₂ en la cadena). Fotosíntesis:
         fase luminosa (ATP + NADPH + O₂) + ciclo Calvin (glucosa). Mitocondria
         respira; cloroplasto fotosintetiza.
       </Resumen>

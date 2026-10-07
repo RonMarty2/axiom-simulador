@@ -428,6 +428,17 @@ Relevado el 2026-09-13. El circuito de cobro **existe y funciona** (pago manual 
 - [ ] **Hook de `SessionStart` que haga `git fetch origin main` y muestre `HEAD..origin/main`.** Convierte la regla de oro 1 de `CLAUDE.md` de pedido en automática. Dos veces se trabajó sobre un `main` viejo (15-sep y 16-sep).
 - [ ] **Agente `auditor-movil`**: recorrido de las pantallas del alumno a 375px con Playwright. De la auditoría del 13-sep salieron el corte de fórmulas, el botón muerto y el `demo-user`; hoy no hay nada que la repita. Conviene hacerlo después de tener un script que levante la app con datos de prueba.
 
+### Pendiente (anotado el 7-oct-2026, "retomaremos después")
+
+Sale del análisis de competencia ([`docs/analisis-competencia.md`](../docs/analisis-competencia.md)) y del mapa de temas ([`docs/mapa-de-temas.md`](../docs/mapa-de-temas.md)). Decisiones de Ronald ese día: el cobro sigue **mes a mes**, **no** se pone su cara ni nombre en la landing, no hay fecha oficial del examen UMSS ni alumnos de prueba (por eso no hay testimonios).
+
+- [ ] **Probar un pago real de punta a punta** y activar el bot de Telegram. Es lo que bloquea todo lo demás: no sirve atraer gente si no se puede cobrar.
+- [ ] **Biología de Ingeniería, ya conectada pero sin publicar.** Las 7 lecciones (BIO-01 a BIO-07) se auditaron, se corrigieron 48 errores y se conectaron en `catalogo-aprende.ts`; **todo quedó sin commitear**. Falta: (1) mirarlas en celular (pizarra de mitosis y celda larga de lípidos de BIO-02 pueden verse cortadas; nadie las vio renderizadas), (2) decidir si energía celular enseña 38 ATP o el rango 36–38, (3) contrastar los ~12 datos dudosos con la guía UMSS (ecorregiones de Bolivia: 4 vs 12, áreas protegidas, año de la sal yodada), (4) redibujar dos figuras de ecología (pirámide invertida, ciclo del carbono), (5) las ~90 lagunas de explicación, de a una lección. Informes: `docs/auditoria-biologia-1.md` y `-2.md`.
+- [ ] **Racha de estudio simple** (días seguidos con actividad). Planear antes de tocar código.
+- [ ] **Datos del mapa de temas por limpiar:** 44 preguntas de 2025 con el sufijo del examen pegado en `tema`, 12 con `area: matematicas` mal puesta en Ingeniería, y la bitácora dice que Derecho está en el banco pero no hay carpeta.
+- [ ] **Ideas descartadas por ahora** (retomar si cambia el contexto): prueba gratis sin registro, fecha de examen del alumno con cuenta regresiva, pase único hasta el examen, garantía de devolución, tutor IA, referidos, curso en vivo, expandir a otras universidades.
+- [ ] Faltan escribir las 5 piezas de contenido que el mapa de temas marca como hueco (normalidad y titulación, dinámica del movimiento circular, impulso y choques, reducción al primer cuadrante, ondas electromagnéticas) y una lección de Historia para Económicas.
+
 ### Nice-to-have
 - [ ] Editor admin de banco con WYSIWYG (parser markdown ya existe).
 - [ ] Sistema de notificaciones (PWA push) para racha de estudio.
@@ -482,6 +493,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-07 (competencia, mapa de temas y Biología de Ingeniería conectada)
+- **Análisis de competencia:** 13 sitios revisados, 10 leídos, 3 no competían y 3 no cargaron. Informe con opciones, consecuencias y riesgos en `docs/analisis-competencia.md`. No se encontró ninguna plataforma para la UMSS ni Bolivia. Decisiones de Ronald: cobro mes a mes, sin su cara en la landing, sin fecha oficial de examen ni alumnos de prueba. Lo descartado y lo pendiente está en §8, "Pendiente (anotado el 7-oct-2026)".
+- **Mapa de temas** (`docs/mapa-de-temas.md`, scripts en `scripts/analisis/`): frecuencia por materia y tema sobre los 150 exámenes con el parser real. Hallazgo: **las 7 lecciones de Biología (BIO-01 a BIO-07) existían desde junio y ningún catálogo las listaba**, aunque Biología pesa 20% del examen de Ingeniería (924 preguntas en el banco).
+- **Auditoría de esas 7 lecciones** (`docs/auditoria-biologia-1.md` y `-2.md`): 48 errores de contenido, ~90 lagunas y ~12 datos dudosos. Ninguna se podía publicar tal cual, ninguna había que rehacer. Se corrigieron los 48 errores con cambios mínimos (bocio es hipotiroidismo, el sudor enfría por calor de vaporización, la meiosis femenina da 1 óvulo y 3 cuerpos polares, mula = burro × yegua, Linneo 1753, coherencia 38 ATP, regla del 10%, etc.) y se conectaron como bloque "Biología" en `BLOQUES_INGENIERIA` (`catalogo-aprende.ts`). La Unidad 01 queda gratis y el resto es de pago, igual que los demás bloques.
+- **No se tocó:** los datos dudosos (hay que contrastarlos con la guía UMSS), las lagunas, las respuestas de los AutoCheck, ni dos figuras de ecología que hay que redibujar. **Nadie vio las lecciones renderizadas**: la pizarra de mitosis de BIO-03 y una celda larga de BIO-02 pueden verse cortadas. Falta mirarlas en celular.
+- Las 18 lecciones de Medicina siguen sin catálogo, a propósito (Medicina solo tiene un examen cargado).
 
 ### 2026-10-07 (animación de resoluciones: el motor de fusión, en prototipo)
 - **Pedido de Ronald:** la resolución animada tiene que verse como una operación, no como fichas que aparecen y desaparecen. Ejemplo suyo: en 2 + 3 + 4, el 3 y el 4 se juntan y se funden en 7; con ley de signos igual, y debajo dice por qué. Y que valga para todas las materias y exámenes, no solo para matemática.

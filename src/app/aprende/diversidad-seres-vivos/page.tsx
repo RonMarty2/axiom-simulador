@@ -57,7 +57,7 @@ function EscIntro() {
       </Definicion>
 
       <Mnemotecnia>
-        <strong>"Caballo × Burra = Mula (estéril) → distinta especie."</strong>
+        <strong>"Burro × Yegua = Mula (estéril) → distinta especie."</strong>
         Si la cría es estéril, los padres son especies diferentes.
       </Mnemotecnia>
 
@@ -123,7 +123,7 @@ function EscBinomial() {
     <EscenaRica>
       <Titulo>Nomenclatura binomial · el invento de Linneo</Titulo>
 
-      <Definicion termino="Nomenclatura binomial (Linneo, 1735)">
+      <Definicion termino="Nomenclatura binomial (Linneo, 1753)">
         Cada especie tiene un nombre científico formado por DOS palabras en
         latín:
         <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 14 }}>
@@ -594,8 +594,9 @@ function EscPractica() {
       <Misconception titulo="Error 3 · 'Bacterias y arqueas son lo mismo'">
         <strong>Pensar:</strong> que todas las procariotas son bacterias.<br />
         <strong>Realidad:</strong> hay 2 dominios procariotas: Bacteria y
-        Archaea. Las arqueas viven en ambientes extremos (volcanes, salinas,
-        intestinos).
+        Archaea. Muchas arqueas viven en ambientes extremos (aguas termales,
+        salares como el de Uyuni), pero también las hay en el suelo, en el mar
+        y en tu intestino.
       </Misconception>
 
       <Misconception titulo="Error 4 · 'Todos los animales son vertebrados'">
@@ -609,7 +610,7 @@ function EscPractica() {
       <Resumen>
         Taxonomía: Dominio → Reino → Filo → Clase → Orden → Familia → Género
         → Especie. Nomenclatura binomial en latín (cursiva). 5 reinos: Monera,
-        Protista, Fungi, Plantae, Animalia. Bolivia: top 10 megadiverso.
+        Protista, Fungi, Plantae, Animalia. Bolivia: uno de los 17 países megadiversos.
       </Resumen>
 
       <AutoCheck

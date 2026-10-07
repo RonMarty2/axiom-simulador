@@ -102,3 +102,17 @@ Esto **no reemplaza** a `BITACORA.md` §7 (errores históricos del proyecto). Ac
 - 2026-10-07 · ERROR · Un `cat <<'EOF'` largo con LaTeX y comillas rompió el shell (`unexpected EOF`) y no escribió nada; un Python con `"\\div"` no encontró el texto a reemplazar. · Archivos con LaTeX: herramienta Write o Edit, no heredocs.
 - 2026-10-07 · ERROR · Para "misma base" se hizo desaparecer una de las dos bases iguales: se leía como que algo se perdía. Y el exponente, escrito como `{}^{3}` con base vacía, tenía una caja de resaltado enorme. Ronald lo vio al instante. · Lo repetido se desliza hacia la ficha que se queda (`ancla`) y esta late; los exponentes son fichas chicas (`sup`), no LaTeX con base vacía.
 - 2026-10-07 · ERROR · La raíz √16 pasaba directo a 4. Ronald: hay que mostrar el proceso (16 = 4², la raíz se vuelve exponente ½, los exponentes se tachan, queda 4) y que valga también si la raíz no es exacta. Un atajo "correcto" no enseña. · Si una operación tiene un proceso que el alumno debe aprender, se anima completo; se agregó `modo: "tachar"` y `hacia` en lista. Al escribir las transiciones, contar que haya una por cada par de estados (me faltó la de quitar paréntesis y el script de validación lo atrapó).
+
+
+## Mapa de temas y Biología de Ingeniería, 7-oct-2026
+
+- 2026-10-07 · ERROR · Un regex con token corto (`rizo`, `arn`, `eco`) metió preguntas en la familia equivocada (ho-RIZO-ntal en "Movimiento circular"). · Los tokens cortos van con límite de palabra y se lee una muestra de cada familia antes de citar cifras.
+- 2026-10-07 · ERROR (evitado) · Casi se tomó la lista del catálogo como "todo lo que existe": había 27 lecciones en disco que ningún catálogo mostraba, entre ellas las 7 de Biología de Ingeniería. · Al medir cobertura, separar "existe en disco" de "el alumno lo ve".
+- 2026-10-07 · ERROR · Los números de línea del informe de auditoría no coincidían con el archivo (corridos 1 o 2). · Localizar cada hallazgo con grep por el texto citado, no por el número de línea.
+- 2026-10-07 · ERROR · `grep -E` con acentos en Git Bash dio un "no hay" falso. · Buscar con acentos en Python (UTF-8).
+- 2026-10-07 · ACIERTO · Repartir las lecciones de un mismo bloque al mismo auditor encontró contradicciones entre lecciones (el nitrógeno en glúcidos y lípidos) que una auditoría de a una no ve. · Un auditor por bloque, no por lección.
+- 2026-10-07 · ACIERTO · Simular el simulador de Punnett con un script sobre las 16 combinaciones en vez de leer el código. · Hacerlo con todo componente que calcule algo.
+- 2026-10-07 · ACIERTO · Comparar los números de la tabla de ATP con todo lo que la repite (mnemotecnia, resumen, errores comunes) encontró el 36/38 que la corrección anterior de la tabla no vio. · Una cuenta corregida se busca en toda la lección, no solo en la figura.
+- 2026-10-07 · ACIERTO · Pedir a los auditores el reemplazo textual por hallazgo hizo que las correcciones salieran mínimas y sin reinterpretar. · Seguir pidiendo "reemplazo" por hallazgo.
+- 2026-10-07 · SUERTE · El error de las barras invertidas de ecología se arregló cambiando una expresión (`580 - i*20` a `480 + i*20`) sin redibujar. · Mirar si un error visual es un parámetro antes de dar por hecho que hay que rehacer la figura.
+- 2026-10-07 · SUERTE · Las reglas de agrupación de temas dejaron 1,3% sin familia en Ingeniería pero 5,5% en Biología. · No generalizar las reglas a otra facultad sin revisar una muestra.

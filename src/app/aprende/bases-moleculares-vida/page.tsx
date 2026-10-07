@@ -80,7 +80,7 @@ function EscIntro() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"Glúcidos = azúcar; Lípidos = grasa; Proteínas = músculo;
+        <strong>"Glúcidos = azúcar; Lípidos = grasa; Proteínas = las obreras (hacen casi todo);
         Ácidos nucleicos = ADN."</strong> Esa es la traducción "callejera".
       </Mnemotecnia>
 
@@ -102,8 +102,8 @@ function EscGlucidos() {
         "hidratos de carbono"). Fórmula general: <strong>(CH₂O)n</strong>.
       </Definicion>
 
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={260}>
+        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Clasificación por número de unidades
           </text>
@@ -139,7 +139,7 @@ function EscGlucidos() {
             glucosa + fructosa → sacarosa + H₂O
           </text>
           <text x={360} y={248} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">
-            al unirse sale una molécula de agua: por eso &quot;libera H₂O&quot;
+            al unirse dos azúcares, sale una molécula de agua
           </text>
         </svg>
       </Pizarra>
@@ -268,8 +268,8 @@ function EscProteinas() {
         doblada a la cadena. Los <strong>puentes de hidrógeno</strong> son
         uniones débiles, muchas y repartidas: cada una sola no sostiene nada,
         pero juntas mantienen la forma, como el velcro. Los{" "}
-        <strong>puentes S-S</strong> unen dos azufres y son mucho más firmes:
-        son los que hacen que un huevo cocido no vuelva a ser crudo.
+        <strong>puentes S-S</strong> unen dos azufres y son mucho más firmes
+        que los puentes de hidrógeno.
       </Parrafo>
 
       <Pizarra alto={260}>
@@ -295,7 +295,8 @@ function EscProteinas() {
       <Definicion termino="Desnaturalización">
         Pérdida de la estructura 3D de una proteína por calor, ácido, base o
         sales. Pierde su función. Ejemplo: clara de huevo cocida = albúmina
-        desnaturalizada.
+        desnaturalizada. Al cocinarlo, las proteínas se desarman y se enredan
+        unas con otras; por eso no vuelve a ser crudo.
       </Definicion>
 
       <Pizarra alto={210}>
@@ -336,7 +337,7 @@ function EscEnzimas() {
       <Hook>
         Sin enzimas, descomponer una manzana en glucosa te llevaría miles de
         años. Con enzimas, lo haces en horas. Aceleran las reacciones
-        biológicas hasta 10⁶ veces, sin consumirse.
+        biológicas entre 10⁴ y 10⁸ veces (algunas, mucho más), sin consumirse.
       </Hook>
 
       <Definicion termino="Enzima">
@@ -409,8 +410,9 @@ function EscAcidosNucleicos() {
 
       <Hook>
         Cada célula tuya contiene ~2 metros de ADN enrollados. Si pusieras
-        todo el ADN de tu cuerpo en línea recta, daría 100 vueltas al sistema
-        solar. Y todo el "manual" para fabricarte cabe en un solo óvulo.
+        todo el ADN de tu cuerpo en línea recta, alcanzaría para ir y volver del
+        Sol decenas de veces. Y todo el "manual" para fabricarte cabe en un
+        solo cigoto (el óvulo ya fecundado).
       </Hook>
 
       <Definicion termino="Ácido nucleico">
@@ -452,7 +454,7 @@ function EscAcidosNucleicos() {
         </svg>
       </Pizarra>
 
-      <Definicion termino="Reglas de complementariedad (Chargaff)">
+      <Definicion termino="Apareamiento de bases (Watson y Crick)">
         En el ADN, las bases se aparean SIEMPRE de la misma forma:<br /><br />
         <strong>A — T</strong> (2 puentes H) | <strong>G — C</strong> (3 puentes H)<br />
         En ARN: A — U (porque ARN no tiene T).
@@ -576,7 +578,7 @@ function EscComparativa() {
           ))}
           {[
             ["Glúcido", "monosacárido", "glucosídico", "energía rápida", "4 kcal/g"],
-            ["Lípido", "ácido graso / glicerol", "éster", "reserva, membranas", "9 kcal/g"],
+            ["Lípido", "no tiene (no es polímero); se arma con glicerol + ácidos grasos", "éster", "reserva, membranas", "9 kcal/g"],
             ["Proteína", "aminoácido", "peptídico", "estructura, enzimas", "4 kcal/g"],
             ["Ácido nucleico", "nucleótido", "fosfodiéster", "info genética", "—"],
           ].map((row, i) => (
@@ -594,7 +596,7 @@ function EscComparativa() {
 
       <Resumen>
         Glúcidos (CHO): energía rápida, monómero glucosa. Lípidos (CHO, con
-        poco O; los fosfolípidos además llevan P y N, de ahí su nombre):
+        poco O; los fosfolípidos además llevan P, de ahí 'fosfo', y muchos llevan N):
         reserva + membranas, y no se arman como collares.
         Proteínas (CHONS): 20 aa, 4 niveles estructurales, multifunción.
         Ácidos nucleicos (CHONP): ADN (info) + ARN (mensajero, ribosomal,

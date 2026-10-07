@@ -86,6 +86,20 @@ const QUIMICA_UNIDADES: Unidad[] = [
   { numero: "10", titulo: "Propiedades coligativas", lecciones: [{ slug: "propiedades-coligativas", titulo: "Cambios por soluto" }] },
 ];
 
+// Biología — quinta área del examen de Ingeniería (20% de la nota, ver
+// data/facultades.json). Códigos de unidad en cada page.tsx: BIO-01 a BIO-07.
+// Las lecciones existían desde junio pero ningún catálogo las listaba; se
+// conectaron el 7-oct-2026 después de auditarlas y corregir sus errores.
+const BIOLOGIA_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Componentes de la materia viva", lecciones: [{ slug: "componentes-materia-viva", titulo: "Bioelementos y agua" }] },
+  { numero: "02", titulo: "Bases moleculares de la vida", lecciones: [{ slug: "bases-moleculares-vida", titulo: "Biomoléculas: glúcidos, lípidos, proteínas, ácidos nucleicos" }] },
+  { numero: "03", titulo: "Bases celulares", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y ciclo celular" }] },
+  { numero: "04", titulo: "Genética mendeliana", lecciones: [{ slug: "genetica-mendeliana", titulo: "Herencia y cruzas" }] },
+  { numero: "05", titulo: "Energía celular", lecciones: [{ slug: "energia-celular", titulo: "Respiración y fotosíntesis" }] },
+  { numero: "06", titulo: "Diversidad de seres vivos", lecciones: [{ slug: "diversidad-seres-vivos", titulo: "Taxonomía y reinos" }] },
+  { numero: "07", titulo: "Ecología y medio ambiente", lecciones: [{ slug: "ecologia-medioambiente", titulo: "Ecosistemas, cadenas tróficas y ambiente" }] },
+];
+
 // Estructura alineada con la guía oficial FCE-UMSS "Fundamentos de las
 // Ciencias Económicas, Contables y Administrativas" (Oficina Educativa,
 // gestión 2024). Respeta sus 4 unidades y todos sus subpuntos.
@@ -220,6 +234,12 @@ const BLOQUES_INGENIERIA: Bloque[] = [
     titulo: "Química",
     descripcion: "Estructura atómica, enlace químico, nomenclatura, reacciones y estequiometría.",
     unidades: QUIMICA_UNIDADES,
+  },
+  {
+    id: "biologia",
+    titulo: "Biología",
+    descripcion: "Bioelementos, biomoléculas, célula, genética, energía celular, diversidad y ecología.",
+    unidades: BIOLOGIA_UNIDADES,
   },
   {
     id: "razonamiento-verbal-logico",

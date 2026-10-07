@@ -34,7 +34,7 @@ function EscIntro() {
 
       <Hook>
         El 96% de tu cuerpo está hecho de solo 4 elementos: C, H, O, N. El otro
-        4% se reparte entre 22 elementos más. ¿Por qué la vida usa tan pocos
+        4% se reparte entre unos 20 elementos más. ¿Por qué la vida usa tan pocos
         materiales de los 118 de la tabla periódica?
       </Hook>
 
@@ -163,8 +163,8 @@ function EscPrimarios() {
 
       <WorkedExample titulo="¿En qué biomoléculas aparece cada bioelemento primario?">
         <strong>C, H, O:</strong> en TODAS (glúcidos, lípidos, proteínas, ácidos nucleicos)<br />
-        <strong>N:</strong> en proteínas y ácidos nucleicos (NO en glúcidos ni lípidos)<br />
-        <strong>S:</strong> en proteínas con cisteína/metionina (puentes disulfuro)<br />
+        <strong>N:</strong> siempre en proteínas y ácidos nucleicos; también en algunos glúcidos (quitina) y en algunos lípidos (varios fosfolípidos)<br />
+        <strong>S:</strong> en dos aminoácidos, cisteína y metionina; los puentes disulfuro los forman las cisteínas<br />
         <strong>P:</strong> en ácidos nucleicos (esqueleto azúcar-fosfato), ATP y fosfolípidos
       </WorkedExample>
 
@@ -184,7 +184,9 @@ function EscSecundarios() {
 
       <Definicion termino="Bioelementos secundarios">
         Elementos presentes en menor proporción (0.1–1%) pero indispensables.
-        Generalmente como iones disueltos.<br /><br />
+        Generalmente como iones disueltos. La clasificación es la tradicional de
+        los libros y los límites son aproximados: el calcio pasa un poco del 1%,
+        pero por costumbre se lo cuenta entre los secundarios.<br /><br />
         <strong>Ca, Na, K, Mg, Cl</strong>
       </Definicion>
 
@@ -263,7 +265,7 @@ function EscAgua() {
             { x: 90, t: "Solvente", d: "polar disuelve polar", c: "#06b6d4" },
             { x: 290, t: "Cohesión", d: "puentes H entre moléculas", c: "#3b82f6" },
             { x: 490, t: "Adhesión", d: "se pega a superficies", c: "#a78bfa" },
-            { x: 90, t: "Alto calor", d: "regula T del cuerpo", c: "#ef4444", y: 130 },
+            { x: 90, t: "Calor de vaporización", d: "el sudor enfría al evaporarse", c: "#ef4444", y: 130 },
             { x: 290, t: "Densidad anomalía", d: "hielo flota", c: "#06b6d4", y: 130 },
             { x: 490, t: "Tensión superficial", d: "insectos caminan sobre agua", c: "#10b981", y: 130 },
           ].map((p, i) => (
@@ -321,7 +323,7 @@ function EscSales() {
           <g transform="translate(380, 55)">
             <rect width={280} height={100} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
             <text x={140} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>Precipitadas (sólidos)</text>
-            <text x={140} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={12}>Ca₃(PO₄)₂, CaCO₃, SiO₂</text>
+            <text x={140} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={12}>Ca₃(PO₄)₂, CaCO₃</text>
             <text x={140} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>huesos, dientes, conchas</text>
             <text x={140} y={82} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>función estructural</text>
           </g>
@@ -331,7 +333,7 @@ function EscSales() {
       <Definicion termino="Funciones generales de las sales">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
           <li><strong>Estructural:</strong> huesos (Ca₃(PO₄)₂), conchas (CaCO₃).</li>
-          <li><strong>Regulador de pH:</strong> bicarbonato/carbonato (HCO₃⁻/CO₃²⁻).</li>
+          <li><strong>Regulador de pH:</strong> ácido carbónico/bicarbonato (H₂CO₃/HCO₃⁻).</li>
           <li><strong>Equilibrio osmótico:</strong> Na⁺, K⁺, Cl⁻.</li>
           <li><strong>Transmisión nerviosa:</strong> Na⁺/K⁺ (potencial de acción).</li>
           <li><strong>Contracción muscular:</strong> Ca²⁺.</li>
@@ -342,7 +344,7 @@ function EscSales() {
         pregunta="¿Cuál es el componente principal de los huesos?"
         opciones={["NaCl", "CaCO₃", "Ca₃(PO₄)₂", "SiO₂"]}
         correctaIdx={2}
-        explicacion="El fosfato tricálcico forma la matriz mineral del hueso (hidroxiapatita)."
+        explicacion="El fosfato de calcio forma la matriz mineral del hueso."
       />
     </EscenaRica>
   );
@@ -383,21 +385,21 @@ function EscBolivia() {
       </Pizarra>
 
       <Definicion termino="Bocio endémico en Bolivia">
-        Históricamente, el altiplano boliviano sufrió de bocio (hipertiroidismo)
-        por déficit de yodo en suelos andinos. Por eso desde 1980 toda la sal
+        Históricamente, el altiplano boliviano sufrió de bocio (la tiroides se agranda porque,
+        sin yodo, no puede fabricar sus hormonas: hipotiroidismo) por déficit de yodo en suelos andinos. Por eso desde 1980 toda la sal
         de consumo se yoda obligatoriamente.
       </Definicion>
 
       <Definicion termino="Anemia en altura (Cochabamba, La Paz)">
         En zonas de altura, el cuerpo produce más glóbulos rojos para compensar
-        la baja PO₂. El hierro (Fe) es indispensable: déficit = anemia. Por
-        eso la dieta andina (quinua, amaranto) es rica en Fe.
+        la baja PO₂, y cada uno necesita hierro (Fe). Si comes poco hierro,
+        aparece la anemia. La quinua y el amaranto son buenas fuentes de Fe.
       </Definicion>
 
       <Resumen>
         La materia viva = bioelementos (CHON SP + secundarios + oligo) +
         biomoléculas (agua + sales + glúcidos + lípidos + proteínas + ácidos
-        nucleicos). Solo 27 elementos hacen toda la vida del planeta.
+        nucleicos). Solo unos 25 elementos hacen toda la vida del planeta.
       </Resumen>
     </EscenaRica>
   );
@@ -448,9 +450,9 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué propiedad del agua permite que el sudor enfríe el cuerpo?"
-        opciones={["Densidad", "Alto calor específico", "Tensión superficial", "Acidez"]}
+        opciones={["Densidad", "Alto calor de vaporización", "Tensión superficial", "Acidez"]}
         correctaIdx={1}
-        explicacion="El agua absorbe MUCHO calor antes de evaporarse, así enfría la piel."
+        explicacion="Al evaporarse, cada gramo de sudor se lleva mucho calor de la piel (alto calor de vaporización). El calor específico alto es otra cosa: hace que el agua tarde en calentarse."
       />
 
       <AutoCheck

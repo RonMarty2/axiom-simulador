@@ -57,8 +57,8 @@ FIS = R(
     ("Circuitos y resistencias (corriente continua)", r"resistencia|circuito|ohm|amperimetro|efecto-joule|energia-electrica|electricidad|calor-disipado"),
     ("Impulso y choques", r"choque|impulso|colision|momento-lineal|momentum|restitucion"),
     ("Tiro parabolico y proyectiles", r"tiro|parabolic|proyectil|lanzamiento|alcance|blanco"),
-    ("Movimiento circular", r"circular|angular|rizo|loop|curva|ventilador|peralte"),
-    ("Cinematica 1D (MRU, MRUV, caida libre, encuentro)", r"cinematic|mru|velocidad|caida|vertical|libre|encuentro|persecucion|movil|aceleracion|rapidez|desaceleracion|frenado|distancia|posicion|desplazamiento|tren|globo|pozo|eco|movimiento|tiempo|tunel|puente|horizontal|detencion|alto"),
+    ("Movimiento circular", r"circular|angular|(?<![a-z])rizo|(?<![a-z])loop|curva|ventilador|peralte"),
+    ("Cinematica 1D (MRU, MRUV, caida libre, encuentro)", r"cinematic|mru|velocidad|caida|vertical|libre|encuentro|persecucion|movil|aceleracion|rapidez|desaceleracion|frenado|distancia|posicion|desplazamiento|(?<![a-z])tren|globo|pozo|(?<![a-z])eco(?![a-z])|movimiento|tiempo|tunel|puente|horizontal|detencion|(?<![a-z])alto(?![a-z])"),
     ("Dinamica: Newton, poleas y friccion", r"friccion|rozamiento|dinamica|newton|polea|atwood|inclinado|plano|tension|bloque|ascensor|fuerza|normal|cuerda|masa|contacto|segunda-ley|ley-de"),
     ("Estatica y equilibrio", r"estatica|equilibrio|torque|momento-de-fuerza|palanca"),
     ("Trabajo, energia y potencia", r"energia|trabajo|potencia|resorte|elastic|conservacion|joule|cinetica|maquina|elevador|disipada"),
@@ -85,9 +85,9 @@ QUI = R(
 )
 BIO = R(
     ("Genetica mendeliana y herencia", r"genetic|mendel|herencia|dominancia|codominancia|monohibrid|dihibrid|fenotipo|genotipo|cruz|probabilidad|alelo|recesiv|letal|gen$|genes|cromosoma"),
-    ("Acidos nucleicos (ADN, ARN)", r"adn|arn|nucleic|nucleotid|nitrogenada|pirimidin|purin|gen-definicion|replicacion|transcripcion|traduccion|codon"),
+    ("Acidos nucleicos (ADN, ARN)", r"(?<![a-z])adn|(?<![a-z])arn|nucleic|nucleotid|nitrogenada|pirimidin|purin|gen-definicion|replicacion|transcripcion|traduccion|codon"),
     ("Biomoleculas (proteinas, lipidos, carbohidratos, agua)", r"proteina|lipido|carbohidrato|biomolecula|aminoacido|polisacarido|monosacarido|colageno|bioelemento|enzima|agua|glucido|sacarido|vitamina|sales"),
-    ("Clasificacion, taxonomia y reinos", r"taxonom|clasificacion|reino|binomial|nomenclatura|fungi|plantae|monera|animalia|protista|protozoario|angiosperma|gimnosperma|vertebrado|invertebrado|artropodo|categoria|especie|filo|virus|dominio"),
+    ("Clasificacion, taxonomia y reinos", r"taxonom|clasificacion|reino|binomial|nomenclatura|fungi|plantae|monera|animalia|protista|protozoario|angiosperma|gimnosperma|vertebrado|invertebrado|artropodo|categoria|especie|(?<![a-z])filo(?![a-z])|virus|dominio"),
     ("Biodiversidad y conservacion", r"biodiversidad|amenaza|servicios|bienes|conservacion|endemic|extincion|areas-protegidas|bolivia|ecorregion"),
     ("Contaminacion y problemas ambientales", r"contaminacion|efecto-invernadero|gases-efecto|ambiental|erosion|calentamiento|deforestacion|residuos|impacto|cambio-climatico|lluvia-acida|ozono|desarrollo-sostenible|causas"),
     ("Ecologia (ecosistema, cadenas troficas, biomas)", r"ecolog|ecosistema|trofic[oa]s?|biocenosis|biotopo|comensalismo|cadena|bioma|nicho|poblacion|comunidad|factores|abiotic|biotic|interaccion|simbiosis|parasitismo|depredacion|biomasa|piramide|productores|descomponedores|climax|sucesion|flujo|ciclo-(del|de)|habitat"),
@@ -119,7 +119,7 @@ REGLAS = {
     ("economicas", "historia"): HIST,
     ("economicas", "lenguaje"): LEN,
 }
-SUFIJO = re.compile(r"-(\dop)(-\d)?-\d{4}(-version-?b)?$|-\d{4}$", re.I)
+SUFIJO = re.compile(r"-(\dop)(-\d)?-\d{4}(-version-?b)?$|-20(0[5-9]|1\d|2[0-5])$", re.I)
 
 
 def limpiar(t):
