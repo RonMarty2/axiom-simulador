@@ -200,7 +200,8 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
           alignItems: "center",
           justifyContent: "center",
           fontSize: "clamp(24px, 7vw, 36px)",
-          padding: "18px 4px",
+          padding: estado.some((f) => f.debajo) ? "18px 4px 44px" : "18px 4px",
+          transition: "padding 0.3s",
         }}
       >
         <AnimatePresence mode="popLayout" initial={false}>
@@ -229,7 +230,9 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                         fontSize: "0.7em",
                         margin: prevSup ? "0 0 0 2px" : "0 3px 0 -10px",
                       }
-                    : { display: "inline-block", margin: f.pegado ? "0 4px 0 -10px" : "0 4px" }
+                    : f.salto
+                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: "22px 0 0" }
+                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : "0 4px" }
                 }
               >
                 <span
@@ -273,6 +276,23 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                     <Tex tex={f.tex} />
                   )}
                 </span>
+                {f.debajo && (
+                  // etiqueta debajo de la pieza: no cambia la altura de la fila (va en posicion absoluta)
+                  <span
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      fontSize: "0.46em",
+                      whiteSpace: "nowrap",
+                      marginTop: 2,
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    <Tex tex={f.debajo} />
+                  </span>
+                )}
               </motion.span>
             );
           })}

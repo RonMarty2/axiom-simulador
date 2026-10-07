@@ -56,6 +56,18 @@ export function revisar(d: Demo, etiqueta: string) {
     // mismo paso es un salto que el alumno no puede seguir con lapiz.
     const numeros = (s: string) => new Set(s.match(/\d+/g) ?? []);
     const fichaPorId = new Map<string, Ficha>([...d.estados[i], ...d.estados[i + 1]].map((f) => [f.id, f]));
+    // UNA OPERACION POR FUSION: cuando una sola pieza se convierte en otra, no puede perder mas de 1 operador
+    // (producto, fraccion, potencia, raiz, mas o menos). `4·1·6 -> 24` son dos productos: dos pasos.
+    // Se excluyen las factorizaciones (`descompone`) y el tachado, que cancela varias cosas a la vez a proposito.
+    const contarOperadores = (tex: string) => (tex.match(/\\cdot|\\dfrac|\\pm|\\sqrt|\^\{/g) ?? []).length;
+    for (const f of t.descompone ? [] : t.fusiones) {
+      if (f.modo === "tachar" || f.desde.length !== 1 || typeof f.hacia !== "string") continue;
+      // una fraccion con partes opera arriba y abajo en paralelo (1·3 sobre 2·3): es lo normal en el colegio
+      if (fichaPorId.get(f.desde[0].split(".")[0])?.frac) continue;
+      const antes = contarOperadores(fichaPorId.get(f.desde[0].split(".")[0])?.tex ?? "");
+      const despues = contarOperadores(fichaPorId.get(f.hacia.split(".")[0])?.tex ?? "");
+      assert.ok(antes - despues <= 1, `${etiqueta}: T${i} una sola fusion resuelve ${antes - despues} operaciones a la vez: dividelo en pasos`);
+    }
     for (const f of t.descompone ? [] : t.fusiones) {
       const origen = new Set(f.desde.flatMap((id) => [...numeros(fichaPorId.get(id.split(".")[0])?.tex ?? "")]));
       const destinos = f.hacia === null ? [] : Array.isArray(f.hacia) ? f.hacia : [f.hacia];

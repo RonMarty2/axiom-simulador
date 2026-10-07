@@ -53,9 +53,9 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
 
   const resultado = useMemo(() => {
     if (tipo === "cuadratica") {
-      const [a, b, c] = [Number(v[0]), Number(v[1]), Number(v[2])];
-      const e = validarCuadratica(a, b, c);
-      return e ? { error: e } : { demo: cuadratica(a, b, c).demo };
+      const [a1, b1, c1, a2, b2, c2] = v.map(Number);
+      const e = validarCuadratica(a1, b1, c1, a2, b2, c2);
+      return e ? { error: e } : { demo: cuadratica(a1, b1, c1, a2, b2, c2).demo };
     }
     if (tipo === "fracciones") {
       const [n1, d1, n2, d2] = [Number(v[0]), Number(v[1]), Number(v[2]), Number(v[3])];
@@ -100,7 +100,7 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
 
   const rotulos =
     tipo === "cuadratica"
-      ? ["a (lo que multiplica a x²)", "b (lo que multiplica a x)", "c (el número solo)"]
+      ? ["Lado izq.: x²", "Lado izq.: x", "Lado izq.: número", "Lado der.: x²", "Lado der.: x", "Lado der.: número"]
       : tipo === "fracciones"
       ? ["Numerador 1", "Denominador 1", "Numerador 2", "Denominador 2", "Operación (+ o -)"]
       : tipo === "cuadrados"

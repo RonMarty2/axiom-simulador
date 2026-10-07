@@ -26,7 +26,7 @@ export default function Pagina() {
       </p>
 
       <section style={tarjeta}>
-        <Generador tipo="cuadratica" titulo="Ecuación de segundo grado (fórmula general)" inicial={["1", "-5", "6"]} />
+        <Generador tipo="cuadratica" titulo="Ecuación de segundo grado: ordenar, etiquetar y fórmula general" inicial={["1", "-2", "4", "0", "3", "-2"]} />
       </section>
     </main>
   );

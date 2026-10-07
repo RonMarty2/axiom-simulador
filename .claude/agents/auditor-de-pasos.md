@@ -35,6 +35,16 @@ Se aplica a **toda materia**, no solo a cuentas. El modelo de datos (fichas, fus
 8. **El resultado se comprueba.** El último paso devuelve al enunciado o muestra la comprobación; coincide con la letra del banco.
 9. **Lo escrito se puede leer sin la animación.** El `texto` de cada paso dice qué término exacto se está tocando ("el `b²`", no "lo de adentro").
 
+## Para ejercicios que se resuelven con una fórmula o plantilla: el patrón "anotar y reemplazar"
+Si el generador resuelve con una fórmula (cuadrática, MRU, `n = m/M`, interés, Punnett…), además de lo anterior revisá que siga este orden (está definido en `agentes/animador-resolucion.md`):
+1. El ejercicio se muestra tal como viene y se dice **por qué no se resuelve con lo de siempre**.
+2. Se **ordena primero** (pasar términos, agrupar, sumar constantes, convertir unidades) **un término por paso**; si ya estaba ordenado, se dice y se salta, sin pasos vacíos.
+3. Cada elemento lleva **debajo su letra o rol, con color y valor** (`debajo`), de uno en uno, incluso el valor que no se ve (el 1 de x²).
+4. La **fórmula va debajo con letras del mismo color**, con la ecuación y las etiquetas todavía a la vista.
+5. Se **reemplaza una letra por vez**, el número conserva el color, y se nombran los otros lugares donde aparece la letra.
+6. Recién después se quitan ejercicio y etiquetas; luego, **una operación por paso**.
+Probá siempre **dos ejemplos**: uno que ya viene ordenado y otro desordenado, con signos negativos (los signos esconden pasos vacíos).
+
 ## Cómo trabajás
 1. Corré `node --test src/app/prueba-animacion/*.test.ts` para ver qué ya vigilan los tests; no repitas lo que ellos cubren.
 2. Por cada generador, **generá la animación de un ejemplo de verdad** (importá la función y volcá `estados` y `transiciones` a texto) y leela **transición por transición como si fueras el alumno que ve el tema por primera vez**: en cada paso preguntate "¿de dónde salió cada símbolo del estado nuevo?". Anotá el primer paso donde no puedas contestar.

@@ -14,6 +14,10 @@ export interface Ficha {
   pegado?: boolean;
   /** exponente: ficha chica y levantada, pegada a su base */
   sup?: boolean;
+  /** etiqueta escrita DEBAJO de la pieza (LaTeX SIN signos de dolar, con color si hace falta): la letra o el rol que cumple (a = 1, "masa", "velocidad") */
+  debajo?: string;
+  /** la pieza empieza en un renglon nuevo (la formula debajo de la ecuacion) */
+  salto?: boolean;
   /** fraccion con partes propias: se pueden señalar como "<id>.n" (numerador) y "<id>.d" (denominador) */
   frac?: { n: string; d: string };
 }
