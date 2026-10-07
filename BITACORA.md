@@ -494,6 +494,11 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-07 (ter) (punto 1 del repaso del flujo: el test de voseo cubre toda la interfaz)
+- **Corrección a lo que dije al principio:** había propuesto "un validador del banco en CI" porque creía que el banco tenía pocos tests. Era falso. `banco.test.ts` ya trae 15 chequeos (opciones, respuesta que existe, ids únicos, enunciado, figuras, KaTeX, tuteo, guion largo, precios, coherencia de repetidas) y hay tests de registro de verificación, faltantes y figuras. El banco **sí** está vigilado por mecanismo.
+- **El hueco real que sí había:** el test de voseo de `contenido-lecciones.test.ts` solo miraba `aprende/` y `laminas/`. Login, resultados, landing y componentes no se vigilaban. Se amplió a todo `src/app` salvo `admin/` (ahí van prompts para IAs, en rioplatense a propósito) y se vaciaron los comentarios de bloque multilínea (un `{/* ... vos ... */}` en `login` daba falso positivo). Resultado hoy: cero casos. Se comprobó que **puede fallar** metiendo un "podés" en `login` (saltó) y restaurando.
+- Lo que NO se hizo, a propósito: forzar `verificador` por mecanismo. Es un agente, no un script; en CI ya corren tsc, lint, tests y build, que es lo que de verdad frena.
+
 ### 2026-10-07 (bis) (la bitácora se acorta: el changelog viejo pasa a `docs/bitacora-historial.md`)
 - La bitácora tenía casi 2000 líneas y una IA nueva no la lee entera con atención. Se movieron **tal cual, sin cambiar una línea**, las entradas de §11 del 30-sep-2026 hacia atrás a `docs/bitacora-historial.md` (1295 líneas). `BITACORA.md` baja a unas 690. Se comprobó por script que no se perdió ninguna línea.
 - No se tocó §0 a §10, así que todas las referencias `§N` de CLAUDE.md, los agentes y el código siguen valiendo. Las entradas nuevas se siguen escribiendo al inicio de §11. Reversible con `git revert`.

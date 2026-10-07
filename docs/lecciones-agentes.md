@@ -123,3 +123,9 @@ Esto **no reemplaza** a `BITACORA.md` §7 (errores históricos del proyecto). Ac
 - 2026-10-07 · ERROR · En la suma de fracciones los numeradores 3 y 2 aparecían de golpe (1/2 + 1/3 → 3/6 + 2/6). Ronald: "haces aparecer los números de la nada". · Cada número nuevo nace de algo visible (`brotes`): el denominador de la otra fracción viaja a multiplicar. Se aplicó también a la resta de 2 en los dos lados de una ecuación.
 - 2026-10-07 · ERROR · La diferencia de cuadrados saltaba de x² − 9 a (x−3)(x+3), y de ahí a x = 3 o −3. Ronald: "una persona que solo ve no entiende qué pasó; mi idea es que al ver se entienda la resolución". · Ese es el criterio de calidad de toda animación: alguien que solo mira, sin leer, debe entender. Se agregaron pasos (9 = 3², reconocer el patrón, comprobar, un producto es cero si un factor lo es, una ecuación por factor) y `resaltar`.
 - 2026-10-07 · ERROR · Mi regla de test para detectar LaTeX sin barra marcaba `\dfrac` como error (confundía `d` + `frac`). · Una regla nueva de test se prueba también contra lo correcto, no solo contra lo roto.
+
+## Proceso (sesión del 7-oct)
+
+- 2026-10-07 · ERROR · Propuse "crear un validador del banco en CI" sin contar antes los tests que ya existían; el banco ya tenía 15. · Antes de proponer una mejora de calidad, listar con grep los `test(` existentes. Una propuesta sin ese conteo es una impresión, no un hallazgo.
+- 2026-10-07 · ACIERTO · Ampliar el alcance de un test y medir cuántos casos salen **antes** de decidir si tocar código o ajustar el test: de 10 hallazgos, 10 eran falsos positivos (admin y un comentario). · Medir el hueco primero; el arreglo sale del tipo de falsos positivos, no de suponerlos.
+
