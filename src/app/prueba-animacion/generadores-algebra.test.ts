@@ -35,8 +35,26 @@ describe("generadores de algebra", () => {
   test("el ejemplo clasico 3x + 2 = 11 da x = 3 con todos los pasos", () => {
     const r = ecuacionLineal(3, 2, 11);
     const texto = r.demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
-    for (const pista of ["opuesto", "se cancelan", "dividimos los dos lados", "se tachan", "Buscamos un factor", "x=3"]) {
+    for (const pista of ["cambia de signo", "los sumamos", "Pasa al otro lado dividiendo", "se tachan", "Buscamos un factor", "x=3"]) {
       assert.ok(texto.includes(pista), `falta el paso: ${pista}`);
+    }
+  });
+
+  test("ecuacion lineal: el termino se ARRASTRA al otro lado (misma pieza, cruza el =, cambia de signo)", () => {
+    for (const [a, b, c] of [[3, 2, 11], [4, -5, 7], [5, 1, 3], [2, -3, -9]] as const) {
+      const r = ecuacionLineal(a, b, c);
+      const e = r.demo.estados;
+      const antes = e[0].find((f) => f.id === "b")!;
+      const despues = e[1].find((f) => f.id === "b")!;
+      assert.ok(antes && despues, "la misma pieza existe antes y despues");
+      assert.equal(e[1].filter((f) => f.id === "b").length, 1, "no se duplica");
+      assert.notEqual(antes.tex, despues.tex, "cambia de signo");
+      const eq0 = e[0].findIndex((f) => f.id === "eq");
+      const eq1 = e[1].findIndex((f) => f.id === "eq");
+      assert.ok(e[0].findIndex((f) => f.id === "b") < eq0, "empieza a la izquierda");
+      assert.ok(e[1].findIndex((f) => f.id === "b") > eq1, "termina a la derecha");
+      assert.equal(r.demo.transiciones[0].fusiones.length, 0, "arrastrar no fusiona ni cancela");
+      assert.ok(!r.demo.transiciones.some((t) => t.texto.includes("en los dos lados de la igualdad")), "ya no se escribe el opuesto en los dos lados");
     }
   });
 
@@ -129,6 +147,20 @@ describe("generadores de algebra", () => {
     revisar(sumaLogaritmos(10, 2, 5).demo, "log10(2)+log10(5)");
     assert.ok(validarLogaritmos(2, 3, 5)); // 15 no es potencia de 2
     assert.ok(validarLogaritmos(2, 1, 8));
+  });
+
+  test("diferencia de cuadrados: los numeros se ARRASTRAN al otro lado y cambian de signo", () => {
+    for (let k = 2; k <= 15; k++) {
+      const e = diferenciaCuadrados(k).demo.estados;
+      const i = e.findIndex((s) => s.some((f) => f.id === "m1"));
+      for (const [id, antes, despues] of [["m1", `-${k}`, `+${k}`], ["m2", `+${k}`, `-${k}`]] as const) {
+        assert.equal(e[i].find((f) => f.id === id)!.tex, antes);
+        assert.equal(e[i + 1].find((f) => f.id === id)!.tex, despues);
+        const eq = id === "m1" ? "eq1" : "eq2";
+        assert.ok(e[i].findIndex((f) => f.id === id) < e[i].findIndex((f) => f.id === eq), "empieza a la izquierda del =");
+        assert.ok(e[i + 1].findIndex((f) => f.id === id) > e[i + 1].findIndex((f) => f.id === eq), "termina a la derecha del =");
+      }
+    }
   });
 
   test("rechaza lo que no puede animar", () => {

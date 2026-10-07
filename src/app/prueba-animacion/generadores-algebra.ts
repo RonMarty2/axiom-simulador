@@ -70,27 +70,21 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     { id: "eq", tex: "=", op: true },
     { id: "c", tex: num(c) },
   ];
+  // El termino que estorba SE ARRASTRA al otro lado (la misma pieza viaja) y cambia de signo al cruzar la igualdad.
   const estados: Ficha[][] = [
     inicio,
     [
       { id: "a", tex: `${a}` },
       { id: "x", tex: "x", pegado: true },
-      { id: "b", tex: conSigno(b) },
-      { id: "s1", tex: opuesto },
       { id: "eq", tex: "=", op: true },
       { id: "c", tex: num(c) },
-      { id: "s2", tex: opuesto },
+      { id: "b", tex: opuesto },
     ],
     [
       { id: "a", tex: `${a}` },
       { id: "x", tex: "x", pegado: true },
       { id: "eq", tex: "=", op: true },
       { id: "n", tex: num(n) },
-    ],
-    [
-      { id: "L", tex: `\\dfrac{${a}x}{${a}}` },
-      { id: "eq", tex: "=", op: true },
-      { id: "fr", tex: fracTex(n, a) },
     ],
     [
       { id: "x", tex: "x" },
@@ -101,39 +95,27 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
   const trans: Transicion[] = [
     {
       fusiones: [],
-      brotes: [
-        { desde: "b", hacia: "s1" },
-        { desde: "b", hacia: "s2" },
-      ],
-      texto: `Queremos dejar $x$ sola. Hay un $${conSigno(b)}$ que estorba: para quitarlo, escribimos $${opuesto}$ en los dos lados de la igualdad.`,
-      porque: `Lo que haces de un lado debes hacerlo del otro, así la igualdad se mantiene. $${opuesto}$ es el opuesto de $${conSigno(b)}$.`,
-      regla: `$a=b\\ \\Rightarrow\\ a+c=b+c$`,
+      resaltar: ["b"],
+      texto: `Queremos dejar $x$ sola. Pasamos el $${conSigno(b)}$ al otro lado. Al cruzar la igualdad cambia de signo: ahora es $${opuesto}$.`,
+      porque: `Es lo mismo que sumar $${opuesto}$ en los dos lados: a la izquierda se cancela con $${conSigno(b)}$ y a la derecha queda escrito.`,
+      regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
     },
     {
-      fusiones: [
-        { desde: ["b", "s1"], hacia: null },
-        { desde: ["c", "s2"], hacia: "n" },
-      ],
-      texto: `$${conSigno(b)}$ y $${opuesto}$ se cancelan. Del otro lado, $${c}${opuesto}=${n}$.`,
-      porque: `Un número más su opuesto da cero y desaparece. Del lado derecho sí hay que hacer la cuenta.`,
-      regla: `$a+(-a)=0$`,
+      fusiones: [{ desde: ["c", "b"], hacia: "n" }],
+      texto: `Los dos números ya están del mismo lado: los sumamos. $${c}${opuesto}=${n}$.`,
+      porque: `Del lado derecho sí hay que hacer la cuenta.`,
+      regla: `$a+b=c$`,
     },
     {
-      fusiones: [{ desde: ["a", "x", "n"], hacia: ["L", "fr"] }],
-      texto: `El $${a}$ multiplica a $x$. Para dejar $x$ sola, dividimos los dos lados entre $${a}$: a la izquierda $\\dfrac{${a}x}{${a}}$ y a la derecha $${fracTex(n, a)}$.`,
-      porque: `Dividir entre $${a}$ deshace la multiplicación por $${a}$, y se hace en los dos lados para que la igualdad se mantenga. La fracción es una división: $${Math.abs(n)}$ entre $${a}$.`,
-      regla: `$a=b\\ \\Rightarrow\\ \\dfrac{a}{c}=\\dfrac{b}{c}\\quad (c\\neq 0)$`,
-    },
-    {
-      fusiones: [{ desde: ["L"], hacia: "x", modo: "tachar" }],
-      texto: `A la izquierda, el $${a}$ de arriba y el $${a}$ de abajo se tachan: queda $x$.`,
-      porque: `Un número dividido entre sí mismo vale $1$, y $1\\cdot x=x$. Así $x$ queda sola.`,
-      regla: `$\\dfrac{a\\cdot x}{a}=x$`,
+      fusiones: [{ desde: ["a", "n"], hacia: "fr" }],
+      texto: `El $${a}$ multiplica a $x$. Pasa al otro lado dividiendo: queda $x=${fracTex(n, a)}$.`,
+      porque: `Lo que multiplicaba pasa dividiendo: ahora es el denominador. Es lo mismo que dividir los dos lados entre $${a}$. La fracción es una división: $${Math.abs(n)}$ entre $${a}$.`,
+      regla: `$a\\cdot x=n\\ \\Rightarrow\\ x=\\dfrac{n}{a}\\quad (a\\neq 0)$`,
     },
   ];
 
   if (g > 1) {
-    simplificar(estados, trans, [estados[4][0], estados[4][1]], "fr", n, a, g);
+    simplificar(estados, trans, [estados[3][0], estados[3][1]], "fr", n, a, g);
     if (exacta) trans[trans.length - 1].porque += ` La fracción sale exacta, así que $x=${n / a}$ es la solución de la ecuación.`;
   } else {
     // ya es irreducible: se cierra marcando el resultado
@@ -282,15 +264,38 @@ export function diferenciaCuadrados(k: number): Resultado {
     [...base, { id: "n3", tex: `${k}^2` }, ...cola],
     [...factores, ...cola],
     [...factores, ...cola],
+    // una ecuacion por factor, cada una con sus piezas sueltas para poder arrastrar el numero
     [
-      { id: "e1", tex: `x-${k}=0` },
+      { id: "x1", tex: "x" },
+      { id: "m1", tex: `-${k}` },
+      { id: "eq1", tex: "=", op: true },
+      { id: "z1", tex: "0" },
       { id: "or", tex: "\\text{ ó }", op: true },
-      { id: "e2", tex: `x+${k}=0` },
+      { id: "x2", tex: "x" },
+      { id: "m2", tex: `+${k}` },
+      { id: "eq2", tex: "=", op: true },
+      { id: "z2", tex: "0" },
+    ],
+    // el -k y el +k se ARRASTRAN al otro lado y cambian de signo
+    [
+      { id: "x1", tex: "x" },
+      { id: "eq1", tex: "=", op: true },
+      { id: "z1", tex: "0" },
+      { id: "m1", tex: `+${k}` },
+      { id: "or", tex: "\\text{ ó }", op: true },
+      { id: "x2", tex: "x" },
+      { id: "eq2", tex: "=", op: true },
+      { id: "z2", tex: "0" },
+      { id: "m2", tex: `-${k}` },
     ],
     [
-      { id: "s1", tex: `x=${k}` },
+      { id: "x1", tex: "x" },
+      { id: "eq1", tex: "=", op: true },
+      { id: "r1", tex: `${k}` },
       { id: "or", tex: "\\text{ ó }", op: true },
-      { id: "s2", tex: `x=-${k}` },
+      { id: "x2", tex: "x" },
+      { id: "eq2", tex: "=", op: true },
+      { id: "r2", tex: `-${k}` },
     ],
   ];
   const trans: Transicion[] = [
@@ -319,17 +324,25 @@ export function diferenciaCuadrados(k: number): Resultado {
       regla: `$a\\cdot b=0\\ \\Rightarrow\\ a=0\\ \\text{ ó }\\ b=0$`,
     },
     {
-      fusiones: [{ desde: ["f1", "f2", "eq", "z"], hacia: ["e1", "or", "e2"] }],
+      fusiones: [{ desde: ["f1", "f2", "eq", "z"], hacia: ["x1", "m1", "eq1", "z1", "or", "x2", "m2", "eq2", "z2"] }],
       texto: `Igualamos cada factor a cero: $x-${k}=0$ o $x+${k}=0$.`,
       porque: `Cada factor puede ser el que vale $0$, así que se resuelve una ecuación para cada uno.`,
     },
     {
+      fusiones: [],
+      resaltar: ["m1", "m2"],
+      texto: `Para dejar $x$ sola, pasamos el $-${k}$ al otro lado: cambia de signo y queda $+${k}$. En la otra ecuación, el $+${k}$ pasa como $-${k}$.`,
+      porque: `Es lo mismo que sumar el opuesto en los dos lados: al cruzar la igualdad un número cambia de signo.`,
+      regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
+    },
+    {
       fusiones: [
-        { desde: ["e1"], hacia: "s1" },
-        { desde: ["e2"], hacia: "s2" },
+        { desde: ["z1", "m1"], hacia: "r1" },
+        { desde: ["z2", "m2"], hacia: "r2" },
       ],
-      texto: `Despejamos $x$: el $-${k}$ pasa como $+${k}$ y el $+${k}$ pasa como $-${k}$.`,
-      porque: `Al pasar un número al otro lado de la igualdad cambia de signo. Soluciones: $x=${k}$ o $x=-${k}$.`,
+      texto: `A la derecha, $0+${k}=${k}$ y $0-${k}=-${k}$. Soluciones: $x=${k}$ o $x=-${k}$.`,
+      porque: `Sumar $0$ no cambia el número.`,
+      regla: `$0+a=a$`,
     },
   ];
   return {
