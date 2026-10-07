@@ -53,10 +53,13 @@ Motor: **Framer Motion** (ya está en el proyecto; GSAP se descartó, no aporta 
 - **Exponentes (`sup`):** fichas chicas y levantadas, con su propia caja ajustada. Nunca se escriben como `{}^{3}` dentro de una ficha normal: la base vacía agranda la caja de resaltado.
 - Varias fusiones en una misma transición ocurren a la vez (√16 → 4 y √9 → 3).
 - Una división se muestra como **fracción** (9 sobre 3, con raya), nunca con ÷: es la notación del colegio de los alumnos. Una fracción es una ficha; para cancelar *dentro* de una fracción hay que partirla en fichas más finas.
+- **El texto del alumno se escribe en LaTeX entre `$...$` y se pinta con `MathText`**, igual que las explicaciones del banco: fracciones con raya (`\dfrac{9}{3}`), exponentes, raíces. **Nunca** texto plano con `/`, `÷`, `^` o `sqrt` en `intro`, `texto` ni `porque`. Un test lo vigila (`generadores.test.ts` rechaza `÷`).
+- **Para "cualquier nivel" no se escribe caso por caso: se hace un generador.** Una función recibe los parámetros (base, exponente, índice) y arma estados y transiciones; un test la corre sobre **todas** las combinaciones permitidas y comprueba que cada transición sea coherente y que la cuenta cierre (aquí: `generadores.ts`, con potencias de igual base, raíces de cualquier índice y exponente, y raíz con parte exacta y resto). Fuera de los límites, el panel avisa en vez de animar mal.
+- **Una parte exacta dentro de algo no exacto pasa por el mismo proceso completo** que si estuviera sola (√12 = √(2²·3): el 2² recorre exponente ½, 2/2, tachar, exponente 1; el √3 se queda quieto al lado con `extra`). Nunca se salta a "aparece el 2".
 - **El `porque` es obligatorio** en todo paso y nombra la regla ("menos por menos da más", "misma base, se suman los exponentes"). Sin porqué, la animación es decoración.
 - **Verificación obligatoria:** el valor del estado `i` y el del `i+1` tienen que ser iguales (sympy o `fractions`), y el estado final tiene que coincidir con la letra del banco. La animación nunca hace la cuenta: la recibe hecha.
 
-**Estado actual:** prototipo en `src/app/prueba-animacion/` (`datos.ts` con 8 ejemplos, `Fusion.tsx`, `Tex.tsx`). Es una página temporal; **no se sube a `main`** mientras sea ruta pública. Cuando se promueva, pasa a `src/app/components/animaciones/fusion/` y se conecta a `SolucionPasos`.
+**Estado actual:** prototipo en `src/app/prueba-animacion/` (`datos.ts` con 6 ejemplos escritos a mano, `generadores.ts` + su test, `Generador.tsx` con campos para elegir los números, `Fusion.tsx`, `Tex.tsx`). Es una página temporal; **no se sube a `main`** mientras sea ruta pública. Cuando se promueva, pasa a `src/app/components/animaciones/fusion/` y se conecta a `SolucionPasos`.
 
 ### Cómo se extrapola a cada materia y examen
 La jugada es la misma; cambia qué se junta y qué regla explica. Esto es lo que ya tenemos pensado (no inventes otra cosa sin avisar):
