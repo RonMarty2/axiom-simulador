@@ -62,7 +62,7 @@ describe("ecuacion de segundo grado", () => {
     const r = cuadratica(1, 0, 0, 0, 5, -6); // x^2 = 5x - 6  ->  a=1, b=-5, c=6
     assert.deepEqual([r.resumen.a, r.resumen.b, r.resumen.c], [1, -5, 6]);
     const todo = r.demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
-    for (const pista of ["no se puede despejar", "primero hay que ordenar", "su opuesto", "se cancelan", "Ordenamos", "$a=1$", "$b=-5$", "$c=6$", "debajo la fórmula"]) {
+    for (const pista of ["no se puede despejar", "primero hay que ordenar", "Pasamos", "cambia de signo", "Ordenamos", "$a=1$", "$b=-5$", "$c=6$", "debajo la fórmula"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
     // las etiquetas aparecen debajo de cada termino, de una en una y con color
@@ -73,6 +73,30 @@ describe("ecuacion de segundo grado", () => {
     const nace = r.demo.estados.find((e) => e.some((f) => f.id === "F"))!;
     assert.ok(nace.find((f) => f.id === "F")!.salto);
     assert.ok(nace.some((f) => f.id === "eq"));
+  });
+
+  test("pasar un termino al otro lado es ARRASTRAR la misma pieza (mismo id) que cambia de signo, sin duplicarla", () => {
+    const r = cuadratica(1, 0, 0, 0, 5, -6); // x^2 = 5x - 6: pasan -6 y 5x
+    const e = r.demo.estados;
+    const pasos = r.demo.transiciones.map((t, i) => ({ t, i })).filter(({ t }) => t.texto.startsWith("Pasamos"));
+    assert.equal(pasos.length, 2, "un paso por cada termino de la derecha");
+    for (const { t, i } of pasos) {
+      const id = t.resaltar![0];
+      const antes = e[i].find((f) => f.id === id)!;
+      const despues = e[i + 1].find((f) => f.id === id)!;
+      assert.ok(antes && despues, "la misma pieza existe antes y despues");
+      assert.equal(e[i + 1].filter((f) => f.id === id).length, 1, "no se duplica");
+      assert.notEqual(antes.tex, despues.tex, "cambia de signo al cruzar");
+      // estaba a la derecha del = y ahora esta a la izquierda
+      const posEq = (fs: typeof antes[]) => fs.findIndex((f) => f.id === "eq");
+      assert.ok(e[i].findIndex((f) => f.id === id) > posEq(e[i]));
+      assert.ok(e[i + 1].findIndex((f) => f.id === id) < posEq(e[i + 1]));
+      assert.ok(t.fusiones.length === 0, "arrastrar no fusiona ni cancela nada");
+    }
+    // el ultimo termino en salir deja el 0, y ese 0 nace de la pieza que se fue
+    const ultimo = pasos[pasos.length - 1].t;
+    assert.ok(ultimo.brotes?.some((b) => b.hacia === "z"));
+    assert.ok(!r.demo.transiciones.some((t) => t.texto.includes("se cancelan")), "ya no se escribe el opuesto en los dos lados");
   });
 
   test("hay constantes de los dos lados: se suman antes de etiquetar", () => {

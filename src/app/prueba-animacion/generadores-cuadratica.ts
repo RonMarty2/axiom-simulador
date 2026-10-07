@@ -96,14 +96,14 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
 
   // ----- estado inicial: la ecuacion tal como viene
   for (const k of clases) if (izqCoef[k] !== 0) izq.push({ id: ID[k], tex: termino(k, izqCoef[k], izq.length === 0) });
-  for (const k of clases) if (derCoef[k] !== 0) der.push({ id: `R${ID[k]}`, tex: termino(k, derCoef[k], der.length === 0) });
+  for (const k of clases) if (derCoef[k] !== 0) der.push({ id: `m${ID[k]}`, tex: termino(k, derCoef[k], der.length === 0) });
   if (der.length === 0) der.push({ id: "z", tex: "0" });
   const yaEstandar = der.length === 1 && der[0].id === "z" && izq.length === 3 && izq.every((f, i) => f.id === ID[clases[i]]);
   const intro = `Queremos resolver $${[...izq].map((f) => f.tex).join("")}=${der.map((f) => f.tex).join("")}$. Vamos a escribir cada paso, como a lápiz.`;
   foto();
 
   // ----- 1) por que no se puede despejar
-  const conX = [...izq, ...der].filter((f) => f.id.replace("R", "") === "A" || f.id.replace("R", "") === "B").map((f) => f.id);
+  const conX = [...izq, ...der].filter((f) => ["A", "B"].includes(f.id.replace(/^m/, ""))).map((f) => f.id);
   foto();
   trans.push({
     fusiones: [],
@@ -117,38 +117,24 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
 
   // ----- 2) ordenar: pasar cada termino de la derecha a la izquierda
   if (!yaEstandar) {
-    const restantes = () => der.filter((f) => f.id !== "z").length;
+    // Cada termino de la derecha SE ARRASTRA a la izquierda (la misma pieza viaja) y cambia de signo al cruzar la igualdad.
     for (const k of [...clases].reverse()) {
       if (derCoef[k] === 0) continue;
-      const idR = `R${ID[k]}`;
+      const id = `m${ID[k]}`;
       const opuesto = termino(k, -derCoef[k], false);
-      const mL = `m${ID[k]}`;
-      const nR = `n${ID[k]}`;
-      const original = texDe(idR);
-      izq.push({ id: mL, tex: opuesto });
-      der.push({ id: nR, tex: opuesto });
+      const original = texDe(id);
+      der = der.filter((f) => f.id !== id);
+      const vacia = der.filter((f) => f.id !== "z").length === 0;
+      if (vacia) der.push({ id: "z", tex: "0" });
+      izq.push({ id, tex: opuesto });
       foto();
       trans.push({
         fusiones: [],
-        brotes: [
-          { desde: idR, hacia: mL },
-          { desde: idR, hacia: nR },
-        ],
-        texto: `Para pasar $${original}$ al lado izquierdo, escribimos su opuesto, $${opuesto}$, en los dos lados.`,
-        porque: `Lo que haces de un lado debes hacerlo del otro, así la igualdad se mantiene.`,
-        regla: `$a=b\\ \\Rightarrow\\ a+c=b+c$`,
-      });
-      const ultimo = restantes() === 2; // solo quedan este termino y su opuesto
-      der = der.filter((f) => f.id !== idR && f.id !== nR);
-      if (ultimo) der.push({ id: "z", tex: "0" });
-      foto();
-      trans.push({
-        fusiones: [{ desde: [idR, nR], hacia: ultimo ? "z" : null }],
-        texto: ultimo
-          ? `En el lado derecho, $${original}$ y $${opuesto}$ se cancelan: queda $0$.`
-          : `En el lado derecho, $${original}$ y $${opuesto}$ se cancelan.`,
-        porque: `Un número más su opuesto da cero y desaparece.`,
-        regla: `$a+(-a)=0$`,
+        resaltar: [id],
+        brotes: vacia ? [{ desde: id, hacia: "z" }] : undefined,
+        texto: `Pasamos $${original}$ al lado izquierdo. Al cruzar la igualdad cambia de signo: ahora es $${opuesto}$.${vacia ? ` En la derecha queda $0$.` : ""}`,
+        porque: `Es lo mismo que sumar $${opuesto}$ en los dos lados: a la derecha se cancela con $${original}$ y a la izquierda queda escrito.`,
+        regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
       });
     }
 
