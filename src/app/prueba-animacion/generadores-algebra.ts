@@ -34,6 +34,7 @@ function simplificar(
   estados.push([...antes, { id: "hf", tex: `${signo}\\dfrac{${nn}\\cdot ${g}}{${factDen}}` }]);
   trans.push({
     fusiones: [{ desde: [idDesde], hacia: "hf" }],
+    descompone: true,
     texto: `Buscamos un factor que se repita arriba y abajo: el $${g}$. Escribimos $${Math.abs(n)}=${nn}\\cdot ${g}$ y $${d}=${factDen}$.`,
     porque: `Un número se puede escribir como producto de sus divisores. Así se ve que el $${g}$ está arriba y abajo.`,
   });

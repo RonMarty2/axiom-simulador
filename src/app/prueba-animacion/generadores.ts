@@ -280,6 +280,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
   const trans: Transicion[] = [
     {
       fusiones: [{ desde: ["r0"], hacia: "q0" }],
+      descompone: true,
       texto: `Buscamos una potencia perfecta que divida a $${valor}$: $${valor}=${potTex(String(a), n)}\\cdot ${c}$.`,
       porque: `$${potTex(String(a), n)}$ tiene raíz de índice $${k}$ exacta. El $${c}$ no la tiene, así que se queda como está.`,
     },

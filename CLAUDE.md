@@ -27,6 +27,7 @@ Cada uno lleva adentro las lecciones de §7 que le tocan, así no hay que releer
 | `transcriptor-examenes` | PDF → `.md` del banco, resolviendo cada respuesta | Uno por examen, en paralelo. Necesita los PDF (máquina de Ronald) |
 | `auditor-figuras` | Contrasta preguntas contra el facsímil y dibuja la figura | Figuras pendientes, modos 1 a 4. Necesita los PDF |
 | `auditor-facsimil` | Contrasta UN examen digitalizado contra su PDF y lo registra en `data/registro-verificacion.json`; solo los verificados se muestran como digitalizados | Uno por examen, de a poco. Necesita los PDF (máquina de Ronald) |
+| `auditor-de-pasos` | Lee una animación de resolución transición por transición como alumno nuevo y reporta saltos ("como a lápiz": definir, reemplazar de a una, una operación por paso). Vale para toda materia | Siempre antes de mostrarle una animación a Ronald. No reescribe |
 | `auditor-pedagogico` | Lee lecciones/láminas como alumno nuevo, reporta en `docs/auditoria-pedagogica.md` | 3 a 6 piezas por agente, varios en paralelo. No reescribe |
 | `autor-laminas` | Escribe una lámina nueva en formato tarjetas (§4.5) | De a una: Ronald revisa cada una |
 | `verificador` | Corre tsc/lint/test/build y lee el diff contra los errores conocidos | Antes de commitear cualquier cambio al banco, figuras, contenido o plan |

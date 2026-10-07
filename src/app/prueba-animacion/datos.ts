@@ -51,6 +51,8 @@ export interface Transicion {
   porque: string;
   /** la formula, identidad o propiedad que justifica el paso, escrita general ($a^m\cdot a^n=a^{m+n}$); en modo "resolver" va dentro del porque, en "ensenar" en su propio recuadro */
   regla?: string;
+  /** el paso solo REESCRIBE un valor como producto o potencia (448 = 2^6·7, 6 = 3·2): traer varios numeros a la vez es valido */
+  descompone?: boolean;
 }
 export interface Demo {
   titulo: string;
