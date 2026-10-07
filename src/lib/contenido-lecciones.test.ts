@@ -49,7 +49,23 @@ function archivosDeContenido(): string[] {
   return salida;
 }
 
+// Todo el código de interfaz que puede mostrar texto al alumno: no solo
+// lecciones y láminas, también login, resultados, landing, componentes. Se
+// excluye `admin/`: ahí viven prompts para IAs y herramientas de Ronald, que
+// van en rioplatense a propósito. Hoy el resultado es CERO casos; el test
+// existe para que el voseo no entre por una pantalla que nadie vigilaba.
+function fuentesDeInterfaz(dir: string): string[] {
+  const out: string[] = [];
+  for (const d of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, d.name);
+    if (d.isDirectory()) {
+      if (d.name !== "admin") out.push(...fuentesDeInterfaz(p));
+    } else if (/\.tsx?$/.test(d.name) && !/\.test\./.test(d.name)) out.push(p);
+  }
+  return out;
+}
 const ARCHIVOS = archivosDeContenido();
+const ARCHIVOS_ALUMNO = existsSync(RAIZ) ? fuentesDeInterfaz(RAIZ) : [];
 const corto = (p: string) => p.slice(p.indexOf("src/app/") + 8).replace("/page.tsx", "");
 
 /** Lee un array literal de strings desde `desde` (que apunta al "["). */
@@ -299,8 +315,12 @@ describe("contenido de lecciones y láminas", () => {
     );
 
     const malos: string[] = [];
-    for (const ruta of ARCHIVOS) {
-      const lineas = readFileSync(ruta, "utf8").split("\n");
+    for (const ruta of ARCHIVOS_ALUMNO) {
+      // Los comentarios de bloque (también dentro de JSX, en varias líneas) son
+      // para quien lee el código, no para el alumno. Se vacían sin perder los
+      // saltos de línea, así los números de línea del reporte siguen siendo reales.
+      const fuente = readFileSync(ruta, "utf8").replace(/\/\*[\s\S]*?\*\//g, (c) => c.replace(/[^\n]/g, " "));
+      const lineas = fuente.split("\n");
       for (let i = 0; i < lineas.length; i++) {
         const l = lineas[i];
         if (/^\s*(\/\/|\*|\/\*)/.test(l)) continue;
