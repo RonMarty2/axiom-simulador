@@ -483,6 +483,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-07 (animación de resoluciones: el motor de fusión, en prototipo)
+- **Pedido de Ronald:** la resolución animada tiene que verse como una operación, no como fichas que aparecen y desaparecen. Ejemplo suyo: en 2 + 3 + 4, el 3 y el 4 se juntan y se funden en 7; con ley de signos igual, y debajo dice por qué. Y que valga para todas las materias y exámenes, no solo para matemática.
+- **Decisión:** la jugada es **marcar, juntar, fundir y explicar el porqué**. Motor: Framer Motion. Se probó GSAP Flip y se descartó. La división se muestra como fracción (9 sobre 3), no con ÷. Lo que no cambia se queda quieto (en 2³·2² la base no se anima, solo se funden los exponentes).
+- **Prototipo:** `src/app/prueba-animacion/` (`datos.ts` con 8 ejemplos: suma, ley de signos, ecuación, potencias, raíces, fracciones, multiplicación con signos, diferencia de cuadrados; `Fusion.tsx`; `Tex.tsx`). Ronald lo aprobó en lo visual ("me gusta un montón"). **No se sube a `main`** mientras sea una ruta pública.
+- **Agentes:** `animador-resolucion` ahora lleva la jugada, el modelo de datos (`estados` + `transiciones` con `desde`/`hacia`/`porque`), las reglas de verificación y una tabla de cómo se extrapola a Física, Química, Económicas, Medicina/Biología, Lenguaje, lógica e Historia. `animador-conceptos` apunta a esa tabla para lo que es cuenta o proceso con pasos. Lecciones en `docs/lecciones-agentes.md`.
+- **Pendiente:** (1) probar el prototipo en celular a 375 px y con `prefers-reduced-motion` (no se pudo ver en un navegador desde la sesión); (2) promoverlo a `src/app/components/animaciones/fusion/` y conectarlo a `SolucionPasos`; (3) agregar ficha de texto plano para materias no numéricas; (4) piloto con 3 a 5 preguntas reales, empezando por las explicaciones ya reescritas de `2006-2op` y `2006-parcial1`; (5) probar una plantilla de Física (unidades que se cancelan) y una de Química (balanceo) para confirmar que la jugada alcanza.
+
 ### 2026-10-05 (agentes de animación: `animador-resolucion` y `animador-conceptos`)
 - **Pedido de Ronald:** mejorar cómo se muestran las resoluciones (hoy `SolucionPasos` revela texto paso a paso) con animaciones por tipo de problema, y poder hacer lo mismo para Medicina.
 - **`agentes/animador-resolucion.md`:** plantillas React (SVG + Framer Motion) por TIPO de problema, con los datos como props. No calcula: el paso a paso sale del banco. Si una pregunta no tiene pasos usables la registra como `falta-resolucion` y la devuelve al `resolutor-exacto`.

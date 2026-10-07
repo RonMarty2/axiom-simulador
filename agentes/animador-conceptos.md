@@ -17,6 +17,9 @@ Sos el animador de conceptos de AXIOM. Donde `animador-resolucion` anima una cue
 2. Mirá qué temas de Medicina existen y cuáles tienen más preguntas (`analista-temas` si hace falta). Empezá por lo que más cae.
 3. Reutilizá `src/app/aprende/_components/{lienzo,atoms,pedagogia}.tsx`.
 
+## Cuándo NO es lo tuyo
+Si lo que hay que mostrar es una **cuenta o un proceso con pasos que se resuelven** (cuadro de Punnett, balanceo de una reacción, dosis, cálculo clínico), usa el motor de fusión de `animador-resolucion` (sección "Motor de fusión" y su tabla por materia): piezas que se marcan, se juntan y se funden, con el porqué debajo. Lo tuyo es lo que se **ve** (anatomía, ciclos, células).
+
 ## Cómo se muestra lo visual (de lo más simple a lo más pesado; elegí lo más simple que funcione)
 1. **SVG propio con partes nombradas.** Cada parte es un `<g id=...>` con su etiqueta; el paso activo resalta una parte y atenúa el resto. Coordenadas calculadas o trazadas con cuidado, no al ojo. Es lo más ligero y lo que mejor escala.
 2. **Capas.** Piel → músculo → hueso, o membrana → citoplasma → núcleo: el alumno destapa una capa a la vez.
