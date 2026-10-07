@@ -46,3 +46,11 @@ PUBLICIDAD/analisis/contacto.jpg
 PUBLICIDAD/referencia/
 PUBLICIDAD/FDownloader*.mp4
 PUBLICIDAD/audio/frase.txt
+
+# Fotos de examenes (JPG de Facebook/WhatsApp, ~270 MB): misma politica que los PDF
+examenes pasados/**/*.jpg
+examenes pasados/**/*.jpeg
+examenes pasados/**/*.png
+
+# IDE
+.idea/
