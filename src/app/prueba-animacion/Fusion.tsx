@@ -330,7 +330,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
           {f.frac?.nPiezas || f.frac?.dPiezas ? compuesta(f) : <Tex tex={f.tex} />}
         </span>
         {f.debajo && (
-          <span style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", whiteSpace: "nowrap", lineHeight: 1, fontSize: "0.6em", marginTop: 2 }}>
+          <span data-etiqueta style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", whiteSpace: "nowrap", lineHeight: 1, fontSize: "0.6em", marginTop: 2 }}>
             <Tex tex={f.debajo} />
           </span>
         )}
@@ -446,6 +446,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
                 {f.debajo && (
                   // etiqueta debajo de la pieza: no cambia la altura de la fila (va en posicion absoluta)
                   <span
+                    data-etiqueta
                     // en una pieza elevada (indice, exponente) la etiqueta baja lo que la pieza subio y se achica
                     // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
                     style={{

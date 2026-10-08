@@ -42,6 +42,20 @@ export default function Barrido() {
           if (r.width && izq - r.left > peor) peor = izq - r.left;
         });
         if (peor > 0) malos.push(`${el.dataset.barrido}: se sale ${Math.round(peor)} px`);
+        // etiquetas (`debajo`) montadas entre si o sobre una formula que no es la suya
+        const etiquetas = [...el.querySelectorAll<HTMLElement>("[data-etiqueta]")];
+        const choca = (a: DOMRect, c: DOMRect) => Math.min(a.right, c.right) - Math.max(a.left, c.left) > 2 && Math.min(a.bottom, c.bottom) - Math.max(a.top, c.top) > 2;
+        const dueña = (e: HTMLElement) => e.parentElement as HTMLElement;
+        let montadas = 0;
+        etiquetas.forEach((e, k) => {
+          const r = e.getBoundingClientRect();
+          for (const o of etiquetas.slice(k + 1)) if (choca(r, o.getBoundingClientRect())) montadas++;
+          el.querySelectorAll<HTMLElement>(".katex").forEach((kx) => {
+            if (e.contains(kx) || dueña(e).contains(kx) || kx.closest("[data-etiqueta]")) return;
+            if (choca(r, kx.getBoundingClientRect())) montadas++;
+          });
+        });
+        if (montadas > 0) malos.push(`${el.dataset.barrido}: ${montadas} etiqueta(s) montadas`);
       });
       (window as unknown as { __barrido: string[] }).__barrido = malos;
       setInforme(malos);

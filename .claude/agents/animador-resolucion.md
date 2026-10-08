@@ -124,6 +124,20 @@ Para materias que no son numéricas hace falta que la ficha pueda ser **texto pl
 - Texto original completo siempre disponible: la animación **acompaña** a la explicación en texto, no la reemplaza (accesibilidad y respaldo si la animación falla).
 - Plantilla sin datos de una pregunta real que la pruebe = plantilla no terminada.
 
+## Qué vigila qué (para no repetir errores con ejercicios nuevos)
+Toda corrección de Ronald termina en un test o en un chequeo. Si una regla de arriba no está en esta tabla, es solo prosa y se puede romper sin que nadie lo note: **conviértela en chequeo o anótala como pendiente.**
+
+| Regla | Quién la vigila |
+|---|---|
+| Nada aparece ni desaparece de la nada; una operación y pocos números nuevos por paso; paso no vacío; `porque` y `regla` presentes; LaTeX con barra | `revisar.ts` (obligatorio, en todo generador) |
+| Texto del alumno: tuteo, sin guion largo, sin `/` `^` `sqrt` `÷` fuera de `$` | `estilo.ts` parte `texto`, llamado desde `revisar.ts` (obligatorio) |
+| ARRASTRAR: lo que desaparece y reaparece igual en otro lugar viaja con su id; pasar al otro lado no escribe el opuesto en los dos lados | `estilo.ts` parte `movimiento`, con trinquete por tipo en `estilo.test.ts` (un tipo nuevo nace con techo 0) |
+| Etiquetas (`debajo`) de una en una | `estilo.ts` parte `movimiento` |
+| Nada se sale del ancho de un celular; **etiquetas no se montan entre sí ni sobre la fórmula** | `/prueba-animacion/barrido?tipo=...` en el navegador (no corre en `npm test`): córrelo para TODOS los tipos antes de mostrarle algo a Ronald (ver lección del 8-oct) |
+| Cada generador, sus reglas por signo y su comprobación final | el test de ese generador |
+| Pasos como alumno nuevo (saltos de lógica) | agente `auditor-de-pasos`, con huella en `registro-auditoria-pasos.json` |
+| Diseño: aire, colores, movimiento que se entiende | **solo Ronald, mirando la pantalla**. Ningún agente lo ve |
+
 ## Controles antes de devolver
 1. `npx tsc --noEmit`, `npm run lint`, `npm test`.
 2. Probá en el navegador a 375 px con una pregunta real; pasá todos los pasos y comprobá que el resultado mostrado **coincide con la letra del banco**. Si podés, pedí al `probador-app` que haga un examen entero con la plantilla.

@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { aplanar, hijas, type Demo, type Ficha } from "./datos.ts";
+import { hallazgosEstilo } from "./estilo.ts";
 
 // cuantos numeros calculados nuevos puede traer un solo paso (2 + 3 = 5 trae 1; una cuenta de varios terminos, mas)
 const LIMITE_NUMEROS_NUEVOS = 2;
@@ -18,6 +19,8 @@ export function revisar(d: Demo, etiqueta: string) {
     assert.ok(reglas.length > 0, `${etiqueta}: ningun paso muestra la regla que se usa`);
     for (const t of reglas) assert.ok(t.regla!.includes("$"), `${etiqueta}: la regla debe ir en LaTeX entre $...$`);
   }
+  // el texto del alumno (tuteo, sin guion largo, sin / ^ sqrt fuera de LaTeX) es obligatorio en todo generador
+  assert.deepEqual(hallazgosEstilo(d, etiqueta, "texto"), [], `${etiqueta}: texto del alumno`);
   d.estados.forEach((e, i) => {
     const ids = e.map((f) => f.id);
     assert.equal(new Set(ids).size, ids.length, `${etiqueta}: ids repetidos en el estado ${i}`);
