@@ -620,6 +620,12 @@ export function diferenciaCuadrados(k: number): Resultado {
   const e2: Ficha = { id: "e2", tex: `+${k}x` };
   const e3: Ficha = { id: "e3", tex: `-${k}x` };
   const e4: Ficha = { id: "e4", tex: `-${k}^{2}` };
+  // los productos antes de calcularlos (el signo de cada termino va dentro)
+  const p1: Ficha = { id: "p1", tex: "x\\cdot x" };
+  const o1: Ficha = { id: "o1", tex: "+", op: true };
+  const p2: Ficha = { id: "p2", tex: `x\\cdot ${k}` };
+  const p3: Ficha = { id: "p3", tex: `-${k}\\cdot x` };
+  const p4: Ficha = { id: "p4", tex: `-${k}\\cdot ${k}` };
   // la ecuacion con los dos factores (sus piezas ya vienen de la formula)
   const factor1: Ficha[] = [
     { id: "fo1", tex: "(" },
@@ -660,7 +666,13 @@ export function diferenciaCuadrados(k: number): Resultado {
     [...baseEt, bEt, ...igual, ...formula(true, false)],
     // 8: la b se reemplaza por k en sus tres lugares
     [...baseEt, bEt, ...igual, ...formula(true, true)],
-    // 9: se multiplican los parentesis: cuatro productos
+    // 9: se multiplican los parentesis, "como a lapiz": primero el x del primer parentesis por cada termino del segundo
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, p1, o1, p2],
+    // 10: se calculan esos dos productos
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e2],
+    // 11: ahora el -k del primer parentesis por cada termino del segundo
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e2, p3, p4],
+    // 12: se calculan los otros dos productos
     [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e2, e3, e4],
     // 10: kx y -kx se cancelan
     [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e4],
@@ -765,17 +777,43 @@ export function diferenciaCuadrados(k: number): Resultado {
       porque: `Igual que la $a$, la $b$ aparece en tres lugares: en $b^{2}$ y en los dos paréntesis. Se cambia en los tres.`,
     },
     {
+      // primero el x del primer parentesis por cada termino del segundo
       fusiones: [],
       brotes: [
         { desde: "Fe", hacia: "SE" },
-        { desde: "x1", hacia: "e1" },
-        { desde: "k2", hacia: "e2" },
-        { desde: "k1", hacia: "e3" },
-        { desde: "fs1", hacia: "e4" },
+        { desde: "x1", hacia: "p1" },
+        { desde: "x2", hacia: "o1" },
+        { desde: "x1", hacia: "p2" },
       ],
-      texto: `Comprobamos que la fórmula es cierta con estos números: multiplicamos los paréntesis, cada término del primero por cada término del segundo. Salen $x\\cdot x=x^{2}$, $x\\cdot ${k}=${k}x$, $-${k}\\cdot x=-${k}x$ y $-${k}\\cdot ${k}=-${k}^{2}$.`,
-      porque: `Para multiplicar dos paréntesis, cada término de uno se multiplica por cada término del otro.`,
+      texto: `Comprobamos que la fórmula es cierta con estos números: multiplicamos los paréntesis. Primero el $x$ del primer paréntesis por cada término del segundo: $x\\cdot x$ y $x\\cdot ${k}$.`,
+      porque: `Para multiplicar dos paréntesis, cada término de uno se multiplica por cada término del otro. Empezamos con el primer término del primero.`,
       regla: `$(a+b)(c+d)=ac+ad+bc+bd$`,
+    },
+    {
+      fusiones: [
+        { desde: ["p1"], hacia: "e1" },
+        { desde: ["o1", "p2"], hacia: "e2" },
+      ],
+      texto: `Calculamos: $x\\cdot x=x^{2}$ y $x\\cdot ${k}=${k}x$.`,
+      porque: `Un número por sí mismo es ese número al cuadrado, y el número y la letra se escriben juntos.`,
+    },
+    {
+      // ahora el -k del primer parentesis por cada termino del segundo
+      fusiones: [],
+      brotes: [
+        { desde: "k1", hacia: "p3" },
+        { desde: "k1", hacia: "p4" },
+      ],
+      texto: `Ahora el $-${k}$ del primer paréntesis por cada término del segundo: $-${k}\\cdot x$ y $-${k}\\cdot ${k}$.`,
+      porque: `Seguimos con el segundo término del primer paréntesis, que es $-${k}$: lleva su signo menos.`,
+    },
+    {
+      fusiones: [
+        { desde: ["p3"], hacia: "e3" },
+        { desde: ["p4"], hacia: "e4" },
+      ],
+      texto: `Calculamos: $-${k}\\cdot x=-${k}x$ y $-${k}\\cdot ${k}=-${k}^{2}$.`,
+      porque: `Un número negativo por uno positivo da negativo. Y $${k}\\cdot ${k}$ es $${k}$ al cuadrado.`,
     },
     {
       fusiones: [{ desde: ["e2", "e3"], hacia: null, modo: "tachar" }],

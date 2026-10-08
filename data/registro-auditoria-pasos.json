@@ -9,9 +9,9 @@
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "bf6e04ed9db3",
+      "huella": "a3a2f8d76dbf",
       "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: pendientes del 8-oct resueltos (a y b vuelan, etiquetas de a una, comprobacion, tres lugares). Quedan: (1) T10 cuatro productos x*x, x*k, -k*x, -k*k nacen en un solo paso (limite 2); (2) T12 afirma x^2-k^2 = x^2-q pero k^2=q (3^2=9) solo esta en el texto y la fila ref no se resalta; (3) T21 (-k)^2 -> q salta (-k)(-k) que solo vive en el porque; (4) menor: T20 copia el ejercicio y reemplaza x en el mismo paso."
+      "nota": "9-oct: multiplicacion de parentesis partida en 4 pasos (x por cada termino, calcular; -k por cada termino, calcular), pedido de Ronald. Antes: 9-oct auditor independiente: pendientes del 8-oct resueltos (a y b vuelan, etiquetas de a una, comprobacion, tres lugares). Quedan: (1) T10 cuatro productos x*x, x*k, -k*x, -k*k nacen en un solo paso (limite 2); (2) T12 afirma x^2-k^2 = x^2-q pero k^2=q (3^2=9) solo esta en el texto y la fila ref no se resalta; (3) T21 (-k)^2 -> q salta (-k)(-k) que solo vive en el porque; (4) menor: T20 copia el ejercicio y reemplaza x en el mismo paso."
     },
     "fracciones": {
       "estado": "con-hallazgos",
