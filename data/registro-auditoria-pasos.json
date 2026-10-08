@@ -3,9 +3,9 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "66e9bdcbe907",
+      "huella": "aadec5d8f01b",
       "fecha": "2026-10-08",
-      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts. || 9-oct: x fraccionaria negativa arreglada (6·(-4)/3, el signo se queda en el numerador)."
+      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts. || 9-oct: x fraccionaria negativa arreglada (6·(-4)/3, el signo se queda en el numerador). || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
     },
     "cuadrados": {
       "estado": "con-hallazgos",
@@ -15,9 +15,9 @@
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "226d1d94c084",
+      "huella": "1a230194ff35",
       "fecha": "2026-10-08",
-      "nota": "9-oct (2da pasada, auditor independiente): sigue (1) comprobacion con resultado negativo cambia de forma sin paso; (2) en 5/12+7/8 la comprobacion hace 3 productos y 3 divisiones en un paso (revisar.ts cuenta por fusion, no por transicion); (3) los 8, 12 y 96 pasan por fusion y no viajan; (4) irreducible sin listas; (5) denominador comun 96 y no el mcm 24 (decision de Ronald). Cambios de presentacion: negrita en listas y 'El mayor'."
+      "nota": "9-oct (2da pasada, auditor independiente): sigue (1) comprobacion con resultado negativo cambia de forma sin paso; (2) en 5/12+7/8 la comprobacion hace 3 productos y 3 divisiones en un paso (revisar.ts cuenta por fusion, no por transicion); (3) los 8, 12 y 96 pasan por fusion y no viajan; (4) irreducible sin listas; (5) denominador comun 96 y no el mcm 24 (decision de Ronald). Cambios de presentacion: negrita en listas y 'El mayor'. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
     },
     "logaritmos": {
       "estado": "con-hallazgos",
@@ -39,15 +39,15 @@
     },
     "raiz": {
       "estado": "con-hallazgos",
-      "huella": "2dee7ce91e9f",
+      "huella": "c0c653580b97",
       "fecha": "2026-10-08",
-      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta."
+      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "efbbf448f621",
+      "huella": "fb58088388ea",
       "fecha": "2026-10-08",
-      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta."
+      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
     },
     "cuadratica": {
       "estado": "con-hallazgos",

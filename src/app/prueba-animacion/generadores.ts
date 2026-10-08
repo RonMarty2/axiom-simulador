@@ -2,7 +2,7 @@
 // CUALQUIER base, exponente e indice, en vez de escribirla a mano caso por caso.
 // Todo el texto va en LaTeX entre $...$ (se pinta con MathText): fracciones con
 // raya, nunca "/" ni "÷".
-import { fr, type Demo, type Ficha, type Transicion } from "./datos.ts";
+import { fr, frPiezas, type Demo, type Ficha, type Transicion } from "./datos.ts";
 
 export type Base = number | "x";
 
@@ -16,6 +16,9 @@ const potTex = (b: string, e: number) => (e === 1 ? b : `${b}^{${e}}`);
 const factores = (b: string, n: number) => (n <= 5 ? Array<string>(n).fill(b).join("\\cdot ") : `${b}\\cdot ${b}\\cdot \\cdots\\cdot ${b}`);
 /** fraccion con partes propias, chica y levantada (un exponente fraccionario) */
 const frSup = (id: string, n: string, d: string): Ficha => ({ ...fr(id, n, d), sup: true });
+/** lo mismo pero con PIEZAS con id: lo que se tacha se ve pieza por pieza (el 1 de arriba y el 1 de abajo), no la fraccion entera */
+const frSupPiezas = (id: string, n: Ficha[], d: Ficha[]): Ficha => ({ ...frPiezas(id, n, d), sup: true });
+const punto = (id: string): Ficha => ({ id, tex: "\\cdot", op: true });
 
 /** si la fila de factores lleva puntos suspensivos (mas de 5), se aclara cuantos son para que se puedan contar */
 const etiquetaFactores = (n: number): Partial<Ficha> => (n > 5 ? { debajo: `${n}\\text{ factores}` } : {});
@@ -273,12 +276,21 @@ export function raizGeneral(
 
   // n · (1/k): el n queda arriba y el k abajo
   // numerador por numerador y denominador por denominador: el 1 que sobra se ve y se tacha
-  estados.push([{ id: "b", tex: b }, frSup("x2a", `${n}\\cdot 1`, `1\\cdot ${k}`)]);
+  estados.push([
+    { id: "b", tex: b },
+    frSupPiezas(
+      "x2a",
+      [{ id: "xn", tex: `${n}` }, punto("xo1"), { id: "xu1", tex: "1" }],
+      [{ id: "xu2", tex: "1" }, punto("xo2"), { id: "xk", tex: `${k}` }]
+    ),
+  ]);
   trans.push({
     fusiones: [{ desde: ["x", "c", "h"], hacia: "x2a", modo: "viajar" }],
     brotes: [
-      { desde: "x", hacia: "x2a.n" },
-      { desde: "h", hacia: "x2a.d" },
+      { desde: "x", hacia: "xn" },
+      { desde: "h", hacia: "xu1" },
+      { desde: "h", hacia: "xu2" },
+      { desde: "h", hacia: "xk" },
     ],
     texto: `Multiplicamos los exponentes: $${n}\\cdot\\tfrac{1}{${k}}=\\tfrac{${n}\\cdot 1}{1\\cdot ${k}}$. El $${n}$ va arriba, el $${k}$ abajo, y el $1$ de la fracción se queda con cada uno.`,
     porque: `Un número es una fracción sobre $1$ ($${n}=\\tfrac{${n}}{1}$). Para multiplicar fracciones se multiplican los numeradores entre sí y los denominadores entre sí.`,
@@ -286,7 +298,15 @@ export function raizGeneral(
   });
   estados.push([{ id: "b", tex: b }, frSup("x2", `${n}`, `${k}`)]);
   trans.push({
-    fusiones: [{ desde: ["x2a"], hacia: "x2", modo: "tachar" }],
+    // se tachan SOLO los dos 1 (con su punto); el n y el k salen de la raya y quedan como la fraccion n/k
+    fusiones: [
+      { desde: ["xo1", "xu1", "xu2", "xo2"], hacia: null, modo: "tachar" },
+      { desde: ["x2a", "xn", "xk"], hacia: "x2", modo: "viajar" },
+    ],
+    brotes: [
+      { desde: "xn", hacia: "x2.n" },
+      { desde: "xk", hacia: "x2.d" },
+    ],
     texto: `Multiplicar por $1$ no cambia nada: se tachan los dos $1$ y queda $\\tfrac{${n}}{${k}}$.`,
     porque: `Un número multiplicado por $1$ es el mismo número.`,
     regla: `$a\\cdot 1=a$`,
@@ -333,15 +353,22 @@ export function raizGeneral(
       texto: `De los divisores comunes, el mayor es el $${g}$.`,
       porque: `Dividir arriba y abajo entre el mayor divisor común deja la fracción lo más simple posible en un solo paso.`,
     });
-    estados.push([{ id: "b", tex: b }, frSup("xg", `${n1}\\cdot ${g}`, `${k1}\\cdot ${g}`)]);
+    estados.push([
+      { id: "b", tex: b },
+      frSupPiezas(
+        "xg",
+        [{ id: "xn1", tex: `${n1}` }, punto("xp1"), { id: "xg1", tex: `${g}` }],
+        [{ id: "xk1", tex: `${k1}` }, punto("xp2"), { id: "xg2", tex: `${g}` }]
+      ),
+    ]);
     trans.push({
       fusiones: [
         { desde: ["x2"], hacia: "xg" },
         { desde: ["Sg", "gg"], hacia: null, modo: "viajar" },
       ],
       brotes: [
-        { desde: "gg", hacia: "xg.n" },
-        { desde: "gg", hacia: "xg.d" },
+        { desde: "gg", hacia: "xg1" },
+        { desde: "gg", hacia: "xg2" },
       ],
       descompone: true,
       texto: `Escribimos $${n}=${n1}\\cdot ${g}$ y $${k}=${k1}\\cdot ${g}$: el $${g}$ baja a multiplicar arriba y abajo.`,
@@ -349,7 +376,12 @@ export function raizGeneral(
     });
     estados.push([{ id: "b", tex: b }, k1 === 1 ? { id: "x3", tex: `${n1}`, sup: true } : frSup("x3", `${n1}`, `${k1}`)]);
     trans.push({
-      fusiones: [{ desde: ["xg"], hacia: "x3", modo: "tachar" }],
+      // se tachan SOLO el g de arriba y el g de abajo (con su punto); lo que queda sale de la raya como la fraccion simplificada
+      fusiones: [
+        { desde: ["xp1", "xg1", "xp2", "xg2"], hacia: null, modo: "tachar" },
+        { desde: ["xg", "xn1", "xk1"], hacia: "x3", modo: "viajar" },
+      ],
+      brotes: k1 === 1 ? [{ desde: "xn1", hacia: "x3" }] : [{ desde: "xn1", hacia: "x3.n" }, { desde: "xk1", hacia: "x3.d" }],
       texto: `El $${g}$ de arriba y el $${g}$ de abajo se tachan: $\\tfrac{${n1}\\cdot ${g}}{${k1}\\cdot ${g}}=${frac(n1, k1)}$.`,
       porque: `Dividir el numerador y el denominador entre el mismo número, $${g}$, no cambia la fracción.${k1 === 1 ? " Como el denominador queda en $1$, el exponente es un número entero." : ""}`,
       regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,

@@ -135,6 +135,8 @@ Toda corrección de Ronald termina en un test o en un chequeo. Si una regla de a
 | Regla | Quién la vigila |
 |---|---|
 | Nada aparece ni desaparece de la nada; una operación y pocos números nuevos por paso; paso no vacío; `porque` y `regla` presentes; LaTeX con barra | `revisar.ts` (obligatorio, en todo generador) |
+| **Tachar se ve (Ronald, 9-oct):** se tacha la pieza concreta (el 4 de arriba y el 4 de abajo, con su punto), nunca una fracción entera de una sola ficha. La fracción se arma con `frPiezas` (o `frSupPiezas` si es exponente), se tachan solo las repetidas y lo que queda sale de la raya con `viajar`. Dos nunca juntos: no "tachar" con `hacia` de una fracción | `revisar.ts`: un `tachar` cuyo `desde` es una ficha con `\dfrac` o con `frac` sin piezas falla |
+| Dos números pegados sin operador (`3 3` por `3·3`) | `revisar.ts` (excluye `op`, `salto`, `frac` y `sup`; hueco: número seguido de fracción) |
 | Texto del alumno: tuteo, sin guion largo, sin `/` `^` `sqrt` `÷` fuera de `$` | `estilo.ts` parte `texto`, llamado desde `revisar.ts` (obligatorio) |
 | ARRASTRAR: lo que desaparece y reaparece igual en otro lugar viaja con su id; pasar al otro lado no escribe el opuesto en los dos lados | `estilo.ts` parte `movimiento`, con trinquete por tipo en `estilo.test.ts` (todos en 0) |
 | Etiquetas (`debajo`) de una en una | `estilo.ts` parte `movimiento` |

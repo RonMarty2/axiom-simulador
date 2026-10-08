@@ -1,7 +1,7 @@
 // Generadores de Algebra: arman la animacion completa para CUALQUIER numero
 // dentro de los limites. Todo texto del alumno va en LaTeX entre $...$ (MathText):
 // fracciones con raya, nunca "/" ni "÷". Las barras invertidas van dobles.
-import { fr, type Ficha, type Transicion } from "./datos.ts";
+import { fr, frPiezas, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 
 const mcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : mcd(b, a % b));
@@ -122,9 +122,15 @@ function simplificar(
     porque: `Con el mayor se simplifica todo de una vez; se llama máximo común divisor.`,
   });
 
-  estados.push([...antes, { id: "hf", tex: `${signo}\\dfrac{${nn}\\cdot ${g}}{${factDen}}` }]);
+  // la fraccion se arma con PIEZAS: asi, al tachar, se ve cuales son el g de arriba y el g de abajo (Ronald, 9-oct)
+  const hay1 = dd === 1;
+  const contId = signo === "" && !hay1 ? "r" : "hf";
+  const sg: Ficha[] = signo ? [{ id: "hsg", tex: "-", pegado: true }] : [];
+  const arribaA: Ficha[] = [{ id: "hn", tex: `${nn}` }, { id: "hx1", tex: "\\cdot", op: true }, { id: "hg1", tex: `${g}` }];
+  const abajoA: Ficha[] = hay1 ? [{ id: "hg2", tex: `${g}` }] : [{ id: "hd", tex: `${dd}` }, { id: "hx2", tex: "\\cdot", op: true }, { id: "hg2", tex: `${g}` }];
+  estados.push([...antes, ...sg, frPiezas(contId, arribaA, abajoA)]);
   trans.push({
-    fusiones: [{ desde: [desde, "Sa", "Dg"], hacia: "hf" }],
+    fusiones: [{ desde: [desde, "Sa", "Dg"], hacia: signo ? ["hsg", contId] : contId }],
     descompone: true,
     texto:
       dd === 1
@@ -132,17 +138,33 @@ function simplificar(
         : `Buscamos un factor que se repita arriba y abajo: el $${g}$. Escribimos $${Math.abs(n)}=${nn}\\cdot ${g}$ y $${d}=${factDen}$.`,
     porque: `Un número se puede escribir como producto de sus divisores. Así se ve que el $${g}$ está arriba y abajo.`,
   });
-  const resultado = dd === 1 ? `${n / g}` : fracTex(n / g, dd);
-  estados.push([...antes, { id: "r", tex: resultado }]);
+  // se tachan SOLO las piezas repetidas (el g de arriba y el de abajo, con su punto)
+  const abajoB: Ficha[] = hay1 ? [{ id: "h1", tex: "1" }] : [abajoA[0]];
+  estados.push([...antes, ...sg, frPiezas(contId, [arribaA[0]], abajoB)]);
   trans.push({
-    fusiones: [{ desde: ["hf"], hacia: "r", modo: "tachar" }],
-    texto:
-      dd === 1
-        ? `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Abajo queda $1$ y un número entre $1$ es él mismo: queda $${resultado}$.`
-        : `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Queda $${resultado}$.`,
+    fusiones: [
+      { desde: ["hx1", "hg1"], hacia: null, modo: "tachar" },
+      { desde: hay1 ? ["hg2"] : ["hx2", "hg2"], hacia: hay1 ? "h1" : null, modo: "tachar" },
+    ],
+    texto: hay1
+      ? `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Abajo queda $1$.`
+      : `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Quedan $${nn}$ arriba y $${dd}$ abajo.`,
     porque: `Un número dividido entre sí mismo vale $1$, y multiplicar por $1$ no cambia nada. Por eso se puede tachar.`,
     regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
   });
+  // si queda un signo suelto o un denominador 1, un ultimo paso lo junta en el resultado
+  if (contId === "hf") {
+    const resultado = hay1 ? `${n / g}` : fracTex(n / g, dd);
+    estados.push([...antes, { id: "r", tex: resultado }]);
+    trans.push({
+      fusiones: [{ desde: signo ? ["hsg", "hf"] : ["hf"], hacia: "r" }],
+      texto: hay1
+        ? `Un número entre $1$ es él mismo${signo ? ", y el signo menos se queda delante" : ""}: queda $${resultado}$.`
+        : `El signo menos se queda delante de la fracción: queda $${resultado}$.`,
+      porque: hay1 ? `Dividir entre $1$ no cambia el número.` : `El signo afecta a toda la fracción, así que va delante de ella.`,
+      regla: hay1 ? `$\\dfrac{a}{1}=a$` : undefined,
+    });
+  }
 }
 
 export function validarEcuacionLineal(a: number, b: number, c: number): string | null {

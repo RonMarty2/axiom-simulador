@@ -92,6 +92,16 @@ export function revisar(d: Demo, etiqueta: string) {
       const despues = contarOperadores(fichaPorId.get(f.hacia.split(".")[0])?.tex ?? "");
       assert.ok(antes - despues <= 1, `${etiqueta}: T${i} una sola fusion resuelve ${antes - despues} operaciones a la vez: dividelo en pasos`);
     }
+    // TACHAR SE VE: lo que se tacha tiene que ser la pieza concreta (el 4 de arriba y el 4 de abajo), no una fraccion entera
+    // de una sola ficha, donde la raya parece cubrir todo el numerador (Ronald, 9-oct). Hay que armarla con `frPiezas`.
+    for (const f of t.fusiones) {
+      if (f.modo !== "tachar") continue;
+      for (const id of f.desde) {
+        const ficha = fichaPorId.get(id);
+        const entera = !!ficha && ((ficha.frac && !ficha.frac.nPiezas && !ficha.frac.dPiezas) || /\\[dt]?frac/.test(ficha.tex));
+        assert.ok(!entera, `${etiqueta}: T${i} tacha ${id} (una fraccion entera, de una sola ficha): arma la fraccion con piezas (frPiezas) y tacha solo las que se repiten`);
+      }
+    }
     for (const f of t.descompone ? [] : t.fusiones) {
       const origen = new Set(f.desde.flatMap((id) => [...numeros(fichaPorId.get(id.split(".")[0])?.tex ?? "")]));
       const destinos = f.hacia === null ? [] : Array.isArray(f.hacia) ? f.hacia : [f.hacia];
