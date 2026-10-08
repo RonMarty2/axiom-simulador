@@ -41,7 +41,16 @@ export function hallazgosEstilo(d: Demo, etiqueta: string, parte: "texto" | "mov
     for (const br of t.brotes ?? []) if (viajan.has(br.desde)) tachadas.add(br.desde);
     for (const q of quitadas) {
       if (tachadas.has(q.id) || q.tex.includes("§")) continue;
-      const gemela = nuevas.find((n) => n.tex === q.tex);
+      // un numero que se consume en una cuenta y otro resultado que se ve igual (4·1 = 4; 6/2 y 4/2 = 2) es casualidad, no una pieza que deba viajar
+      // (tambien si q esta DENTRO de una fraccion o raiz que se consume: 4/2 = 2)
+      const consumidaEnCuenta = () =>
+        t.fusiones.some((f) => {
+          const cubre = f.desde.some((d) => d === q.id || aplanar(a.filter((x) => x.id === d)).some((h) => h.id === q.id));
+          const directa = f.desde.length === 1 && f.desde[0] === q.id;
+          // q lo consume una cuenta (de varias piezas o de su fraccion): que otra pieza nueva se vea igual es casualidad
+          return cubre && !directa;
+        });
+      const gemela = nuevas.find((n) => n.tex === q.tex && !consumidaEnCuenta());
       if (gemela) mal(i, `la pieza ${q.id} (${q.tex}) desaparece y ${gemela.id} aparece igual en otro lugar: debe viajar con el mismo id`);
     }
 
@@ -53,7 +62,11 @@ export function hallazgosEstilo(d: Demo, etiqueta: string, parte: "texto" | "mov
         const k = top.findIndex((f) => f.id === id || aplanar([f]).some((h) => h.id === id));
         return k < 0 ? null : k < igual ? "izq" : "der";
       };
-      const hijos = (t.brotes ?? []).map((br) => ({ lado: lado(br.hacia), v: num(despues.get(br.hacia)?.tex ?? "") }));
+      // solo cuenta lo que lleva signo (+2, -2): el patron viejo escribia el opuesto; una comprobacion 2^2 = 2·2 no es pasar nada al otro lado
+      const hijos = (t.brotes ?? []).map((br) => {
+        const tex = despues.get(br.hacia)?.tex ?? "";
+        return { lado: lado(br.hacia), v: /^[-+−]/.test(tex.trim()) ? num(tex) : "" };
+      });
       const izq = hijos.filter((h) => h.lado === "izq").map((h) => h.v);
       const der = hijos.filter((h) => h.lado === "der").map((h) => h.v);
       if (izq.some((v) => v && der.includes(v))) mal(i, `escribe el mismo termino en los dos lados con brotes: pasar al otro lado es ARRASTRAR la pieza`);
