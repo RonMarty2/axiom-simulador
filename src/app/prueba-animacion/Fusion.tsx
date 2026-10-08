@@ -49,7 +49,8 @@ export type ModoRegla = "resolver" | "ensenar";
 
 // modo "resolver" (ejercicio resuelto): la regla va dentro del "¿Por qué?".
 // modo "ensenar" (leccion): la regla va destacada, en su propio recuadro.
-export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo; modo?: ModoRegla; clave?: string }) {
+// `paso` (opcional, desde 0): muestra ese paso quieto, sin recorrer los anteriores (lo usa el barrido de ancho)
+export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo: Demo; modo?: ModoRegla; clave?: string; paso?: number }) {
   const total = demo.estados.length;
   const [idx, setIdx] = useState(0);
   const [leyenda, setLeyenda] = useState<Leyenda>({ texto: demo.intro });
@@ -67,6 +68,7 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
 
   useEffect(() => {
     cancelar.current = false;
+    if (paso !== undefined) irA(paso);
     // enlace directo a un paso: /prueba-animacion?raiz=4 abre la tarjeta "raiz" en el paso 4 (para ver un paso sin recorrer los anteriores)
     if (clave) {
       const n = Number(new URLSearchParams(window.location.search).get(clave));

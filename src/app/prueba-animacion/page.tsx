@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import Generador from "./Generador";
-import { huella } from "./huellas";
+import { huellaVistoBueno } from "./huellas";
+import type { Tipo } from "./construir";
 
 export const metadata = { title: "Prueba de animación", robots: { index: false, follow: false } };
 
@@ -15,26 +16,26 @@ const tarjeta: React.CSSProperties = {
 // Esta pagina muestra SOLO lo que Ronald todavia no aprobo. El visto bueno vive en
 // data/registro-visto-bueno.json con la huella de lo aprobado: si el generador cambia, vuelve a aparecer.
 // Se aprueba con: node src/app/prueba-animacion/aprobar-animacion.ts <id>  (solo cuando Ronald lo dice).
-const TARJETAS = [
-  { id: "lineal", tipo: "lineal", titulo: "CAMBIÓ · Ecuación de primer grado (el número viaja y queda de denominador)", inicial: ["3", "2", "11"] },
-  { id: "cuadrados", tipo: "cuadrados", titulo: "CAMBIÓ · Diferencia de cuadrados (fórmula con letras, paréntesis y ecuaciones paso a paso)", inicial: ["3"] },
-  { id: "fracciones", tipo: "fracciones", titulo: "CAMBIÓ · Suma de fracciones (una fracción por paso, el multiplicador nace del denominador)", inicial: ["1", "2", "1", "3", "+"] },
-  { id: "potencia", tipo: "potencia", titulo: "CAMBIÓ · Potencias (se ven los factores y la multiplicación se vuelve suma)", inicial: ["2", "3", "4"] },
-  { id: "raiz", tipo: "raiz", titulo: "CAMBIÓ · Raíces (la raíz se abre en piezas y el índice viaja)", inicial: ["2", "5", "2"] },
-  { id: "raiz-con-resto", tipo: "raizResto", titulo: "CAMBIÓ · Raíz con factor (12 = 4·3, cuadrado perfecto marcado)", inicial: ["2", "2", "2", "3"] },
-  { id: "logaritmos", tipo: "logaritmos", titulo: "CAMBIÓ · Suma de logaritmos (exponente viaja, comprobación con pasos)", inicial: ["2", "4", "8"] },
-  { id: "cuadratica", tipo: "cuadratica", titulo: "CAMBIÓ · Ecuación de segundo grado (cada letra vuela de su etiqueta a la fórmula, comprobación con pasos)", inicial: ["1", "-2", "4", "0", "3", "-2"] },
-  { id: "mruv", tipo: "mruv", titulo: "NUEVO · Física: MRUV (la velocidad se triplica, se halla la aceleración)", inicial: ["3", "200", "10"] },
-  { id: "charles", tipo: "charles", titulo: "NUEVO · Física: gases, ley de Charles (°C pasa a kelvin, las unidades se tachan)", inicial: ["20", "-33", "27"] },
-  { id: "moles-atomos", tipo: "molesAtomos", titulo: "NUEVO · Química: moles de átomos en un compuesto (la masa molar se arma a la vista)", inicial: ["C6H12O6", "O", "30"] },
-  { id: "estequiometria", tipo: "estequiometria", titulo: "NUEVO · Química: estequiometría (gramos a gramos con factores que se tachan)", inicial: ["formacion-agua", "H2", "H2O", "8", "g"] },
+const TARJETAS: { tipo: Tipo; titulo: string; inicial: string[] }[] = [
+  { tipo: "lineal", titulo: "CAMBIÓ · Ecuación de primer grado (el número viaja y queda de denominador)", inicial: ["3", "2", "11"] },
+  { tipo: "cuadrados", titulo: "CAMBIÓ · Diferencia de cuadrados (fórmula con letras, paréntesis y ecuaciones paso a paso)", inicial: ["3"] },
+  { tipo: "fracciones", titulo: "CAMBIÓ · Suma de fracciones (una fracción por paso, el multiplicador nace del denominador)", inicial: ["1", "2", "1", "3", "+"] },
+  { tipo: "potencia", titulo: "CAMBIÓ · Potencias (se ven los factores y la multiplicación se vuelve suma)", inicial: ["2", "3", "4"] },
+  { tipo: "raiz", titulo: "CAMBIÓ · Raíces (la raíz se abre en piezas y el índice viaja)", inicial: ["2", "5", "2"] },
+  { tipo: "raizResto", titulo: "CAMBIÓ · Raíz con factor (12 = 4·3, cuadrado perfecto marcado)", inicial: ["2", "2", "2", "3"] },
+  { tipo: "logaritmos", titulo: "CAMBIÓ · Suma de logaritmos (exponente viaja, comprobación con pasos)", inicial: ["2", "4", "8"] },
+  { tipo: "cuadratica", titulo: "CAMBIÓ · Ecuación de segundo grado (cada letra vuela de su etiqueta a la fórmula, comprobación con pasos)", inicial: ["1", "-2", "4", "0", "3", "-2"] },
+  { tipo: "mruv", titulo: "NUEVO · Física: MRUV (la velocidad se triplica, se halla la aceleración)", inicial: ["3", "200", "10"] },
+  { tipo: "charles", titulo: "NUEVO · Física: gases, ley de Charles (°C pasa a kelvin, las unidades se tachan)", inicial: ["20", "-33", "27"] },
+  { tipo: "molesAtomos", titulo: "NUEVO · Química: moles de átomos en un compuesto (la masa molar se arma a la vista)", inicial: ["C6H12O6", "O", "30"] },
+  { tipo: "estequiometria", titulo: "NUEVO · Química: estequiometría (gramos a gramos con factores que se tachan)", inicial: ["formacion-agua", "H2", "H2O", "8", "g"] },
 ];
 
 export const dynamic = "force-dynamic";
 
 export default function Pagina() {
   const vb: Record<string, { huella: string }> = JSON.parse(readFileSync(process.cwd() + "/data/registro-visto-bueno.json", "utf8")).generadores;
-  const aprobadas = TARJETAS.filter((t) => vb[t.id]?.huella === huella(t.id));
+  const aprobadas = TARJETAS.filter((t) => vb[t.tipo]?.huella === huellaVistoBueno(t.tipo));
   const pendientes = TARJETAS.filter((t) => !aprobadas.includes(t));
   return (
     <main style={{ maxWidth: 720, margin: "0 auto", padding: "24px 16px 64px" }}>
@@ -49,8 +50,8 @@ export default function Pagina() {
       </p>
       {pendientes.length === 0 && <p style={{ fontSize: 15 }}>Todo está aprobado.</p>}
       {pendientes.map((t) => (
-        <section key={t.id} style={tarjeta}>
-          <Generador tipo={t.tipo as never} titulo={t.titulo} inicial={t.inicial} />
+        <section key={t.tipo} style={tarjeta}>
+          <Generador tipo={t.tipo} titulo={t.titulo} inicial={t.inicial} />
         </section>
       ))}
     </main>

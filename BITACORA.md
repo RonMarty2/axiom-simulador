@@ -494,6 +494,14 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-08 (quater) (el visto bueno cubre los casos difíciles, no un solo ejemplo)
+
+- Pedido de Ronald: un tipo no se aprueba porque se vea bien con 2+2; tiene que verse bien con sus variantes difíciles (negativos, cero, uno, fracciones, números grandes).
+- `src/app/prueba-animacion/casos.ts` lista los casos difíciles de cada tipo (3 a 7). `construir.ts` arma la animación de un tipo con sus valores (lo usan la tarjeta, el test y la huella). `casos.test.ts` comprueba que todos validen y pasen `revisar`.
+- Cada tarjeta de `/prueba-animacion` tiene botones «Casos a mirar». La huella del visto bueno (`huellaVistoBueno` en `huellas.ts`) cubre TODOS los casos: si cambia el generador o la lista, el tipo vuelve a revisión. Se aprueba con `aprobar-animacion.ts <tipo>`, solo cuando Ronald lo dice.
+- **Barrido de ancho a 343 px (hecho 8-oct):** ruta `/prueba-animacion/barrido?tipo=<tipo>` dibuja quieto cada paso de cada caso difícil (`Fusion` con la prop `paso`) y mide desbordes; deja el resultado en `window.__barrido`. Resultado: **Álgebra (lineal, cuadrados, fracciones, potencia, logaritmos, cuadrática) y Charles sin desbordes. Se salen:** MRUV «quintuplica» (33 px, 42 pasos), moles de átomos (4 casos, hasta 58 px) y estequiometría (4 casos, hasta 42 px). Raíz y raíz con resto marcan 14048 px en todos los pasos: casi seguro un elemento oculto (no un desborde real), por revisar. Ojo: el iframe del barrido era de 420 px, no 375; los desbordes de fracciones con piezas pueden ser algo peores en un celular real. Pendiente: arreglar esos tres tipos y repetir el barrido con 375 px.
+- **Barrido de ancho a 375 px:** se hizo desde el navegador con un script (carga la página con `main` a 343 px, recorre cada caso paso a paso y mide si algo se sale). Lección: con la animación real son ~3 s por paso; se corrió una tarjeta por vez en paralelo.
+
 ### 2026-10-08 (ter) (visto bueno por tipo: lo aprobado sale de `/prueba-animacion`)
 
 - Pedido de Ronald: cada tipo de animación se aprueba con su visto bueno y, una vez aprobado, se marca con ✓ y se quita de lo que él prueba.

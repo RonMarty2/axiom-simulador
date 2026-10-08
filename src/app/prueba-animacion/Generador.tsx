@@ -2,29 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Fusion, { type ModoRegla } from "./Fusion";
-import {
-  potenciaProducto,
-  raizConFactor,
-  raizGeneral,
-  validarPotencia,
-  validarRaiz,
-  type Base,
-} from "./generadores";
-import {
-  diferenciaCuadrados,
-  ecuacionLineal,
-  fracciones,
-  sumaLogaritmos,
-  validarCuadrados,
-  validarEcuacionLineal,
-  validarFracciones,
-  validarLogaritmos,
-} from "./generadores-algebra";
-import { cuadratica, validarCuadratica } from "./generadores-cuadratica";
-import { charles, mruvMultiplica, validarCharles, validarMruvMultiplica } from "./generadores-fisica";
-import { estequiometria, molesDeAtomos, validarEstequiometria, validarMolesDeAtomos } from "./generadores-quimica";
-
-type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica" | "mruv" | "charles" | "estequiometria" | "molesAtomos";
+import { construir, type Tipo } from "./construir";
+import { CASOS_POR_TIPO } from "./casos";
 
 const campo: React.CSSProperties = {
   width: 64,
@@ -53,73 +32,7 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   const [modo, setModo] = useState<ModoRegla>("resolver");
   const set = (i: number) => (x: string) => setV((a) => a.map((y, j) => (j === i ? x : y)));
 
-  const resultado = useMemo(() => {
-    if (tipo === "mruv") {
-      const [k, d, t] = v.map(Number);
-      const e = validarMruvMultiplica(k, d, t);
-      return e ? { error: e } : { demo: mruvMultiplica(k, d, t).demo };
-    }
-    if (tipo === "charles") {
-      const [V1, t1, t2] = v.map(Number);
-      const e = validarCharles(V1, t1, t2);
-      return e ? { error: e } : { demo: charles(V1, t1, t2).demo };
-    }
-    if (tipo === "molesAtomos") {
-      const m = Number(v[2]);
-      const e = validarMolesDeAtomos(v[0].trim(), v[1].trim(), m);
-      return e ? { error: e } : { demo: molesDeAtomos(v[0].trim(), v[1].trim(), m).demo };
-    }
-    if (tipo === "estequiometria") {
-      const m = Number(v[3]);
-      const pide = v[4].trim() === "mol" ? "mol" : "g";
-      const e = validarEstequiometria(v[0].trim(), v[1].trim(), v[2].trim(), m, pide);
-      return e ? { error: e } : { demo: estequiometria(v[0].trim(), v[1].trim(), v[2].trim(), m, pide).demo };
-    }
-    if (tipo === "cuadratica") {
-      const [a1, b1, c1, a2, b2, c2] = v.map(Number);
-      const e = validarCuadratica(a1, b1, c1, a2, b2, c2);
-      return e ? { error: e } : { demo: cuadratica(a1, b1, c1, a2, b2, c2).demo };
-    }
-    if (tipo === "fracciones") {
-      const [n1, d1, n2, d2] = [Number(v[0]), Number(v[1]), Number(v[2]), Number(v[3])];
-      const e = validarFracciones(n1, d1, n2, d2);
-      return e ? { error: e } : { demo: fracciones(n1, d1, n2, d2, v[4].trim() === "-").demo };
-    }
-    if (tipo === "cuadrados") {
-      const k = Number(v[0]);
-      const e = validarCuadrados(k);
-      return e ? { error: e } : { demo: diferenciaCuadrados(k).demo };
-    }
-    if (tipo === "logaritmos") {
-      const [b, m, n] = [Number(v[0]), Number(v[1]), Number(v[2])];
-      const e = validarLogaritmos(b, m, n);
-      return e ? { error: e } : { demo: sumaLogaritmos(b, m, n).demo };
-    }
-    if (tipo === "lineal") {
-      const [a, b, c] = [Number(v[0]), Number(v[1]), Number(v[2])];
-      const e = validarEcuacionLineal(a, b, c);
-      return e ? { error: e } : { demo: ecuacionLineal(a, b, c).demo };
-    }
-    const base: Base = v[0].trim().toLowerCase() === "x" ? "x" : Number(v[0]);
-    const n1 = Number(v[1]);
-    const n2 = Number(v[2]);
-    if (tipo === "potencia") {
-      const e = validarPotencia(base, n1, n2);
-      return e ? { error: e } : { demo: potenciaProducto(base, n1, n2).demo };
-    }
-    if (tipo === "raiz") {
-      const e = validarRaiz(base, n1, n2);
-      return e ? { error: e } : { demo: raizGeneral(base, n1, n2).demo };
-    }
-    // raizResto: base^exponente por un resto c, indice k
-    const c = Number(v[3]);
-    const e = validarRaiz(base, n1, n2);
-    if (e) return { error: e };
-    if (base === "x") return { error: "Aquí la base debe ser un número." };
-    if (n1 % n2 !== 0) return { error: "Para este ejemplo el índice debe dividir al exponente (por ejemplo 2 y 2, o 3 y 6)." };
-    if (!Number.isInteger(c) || c < 2 || c > 99) return { error: "El resto debe ser un entero entre 2 y 99." };
-    return { demo: raizConFactor(base, n1, n2, c).demo };
-  }, [tipo, v]);
+  const resultado = useMemo(() => construir(tipo, v), [tipo, v]);
 
   const rotulos =
     tipo === "mruv"
@@ -149,6 +62,29 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   return (
     <div>
       <h2 style={{ fontSize: 16, fontWeight: 700, margin: "0 0 8px" }}>{titulo}</h2>
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 10, alignItems: "center", fontSize: 13 }}>
+        <span style={{ color: "var(--fg-muted, #6b6b6b)" }}>Casos a mirar:</span>
+        {CASOS_POR_TIPO[tipo].map((c) => {
+          const activo = c.v.join("|") === v.join("|");
+          return (
+            <button
+              key={c.nombre}
+              onClick={() => setV(c.v)}
+              style={{
+                padding: "3px 9px",
+                borderRadius: 8,
+                border: "1px solid var(--border, #d8d0c0)",
+                background: activo ? "var(--accent-soft)" : "var(--bg-card)",
+                boxShadow: activo ? "0 0 0 1px var(--accent)" : "none",
+                color: "var(--fg-primary)",
+                cursor: "pointer",
+              }}
+            >
+              {c.nombre}
+            </button>
+          );
+        })}
+      </div>
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 8 }}>
         {rotulos.map((r, i) => (
           <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} texto={tipo === "molesAtomos" ? i < 2 : tipo === "estequiometria" ? i < 3 || i === 4 : false} />
