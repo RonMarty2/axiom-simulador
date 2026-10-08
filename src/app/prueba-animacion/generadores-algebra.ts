@@ -57,7 +57,30 @@ function simplificar(
   const conPartes = !!base.find((f) => f.id === desde)?.frac;
   const origenN = conPartes ? `${desde}.n` : desde;
   const origenD = conPartes ? `${desde}.d` : desde;
-  const lista = (rotulo: string, xs: number[]) => `\\scriptsize\\text{${rotulo}}\\ ${xs.join(",\\ ")}`;
+  // Una lista larga no cabe en un celular (columna de 343 px) y KaTeX no parte
+  // una ficha: si no entra en un renglon (medido: 34 caracteres caben, 36 se salen 1 px), el rotulo va
+  // arriba y los numeros en renglones parejos de hasta 24 caracteres (sin un numero suelto al final).
+  const enFilas = (xs: number[]) => {
+    let filas: number[][] = [xs];
+    for (let k = 2; k <= xs.length; k++) {
+      const t = Math.ceil(xs.length / k);
+      filas = Array.from({ length: Math.ceil(xs.length / t) }, (_, i) => xs.slice(i * t, i * t + t));
+      if (filas.every((f) => f.join(", ").length + 1 <= 24)) break;
+    }
+    return filas;
+  };
+  const lista = (rotulo: string, xs: number[]) => {
+    if (`${rotulo} ${xs.join(", ")}`.length <= 34) return `\\scriptsize\\text{${rotulo}}\\ ${xs.join(",\\ ")}`;
+    const filas = enFilas(xs);
+    const renglones = filas.map((f, i) => `\\scriptsize ${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}`);
+    return `\\begin{array}{l}\\scriptsize\\text{${rotulo}}\\\\ ${renglones.join("\\\\ ")}\\end{array}`;
+  };
+  // en la explicacion, una lista larga va en varias formulas $...$ para que MathText pueda partir el renglon
+  const enTexto = (xs: number[]) => {
+    if (xs.join(", ").length <= 34) return `$${xs.join(",\\ ")}$`;
+    const filas = enFilas(xs);
+    return filas.map((f, i) => `$${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}$`).join(" ");
+  };
   const Sa: Ficha = { id: "Sa", tex: "", salto: true };
   const Sb: Ficha = { id: "Sb", tex: "", salto: true };
   const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn) };
@@ -71,7 +94,7 @@ function simplificar(
       { desde: origenN, hacia: "Sa" },
       { desde: origenN, hacia: "Dn" },
     ],
-    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: $${dn.join(",\\ ")}$.`,
+    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: ${enTexto(dn)}.`,
     porque: `Un divisor es un número que entra exacto en otro. Los escribimos todos, empezando por los del numerador.`,
   });
   estados.push([...base, Sa, Dn, Sb, Dd]);
@@ -81,13 +104,13 @@ function simplificar(
       { desde: origenD, hacia: "Sb" },
       { desde: origenD, hacia: "Dd" },
     ],
-    texto: `Ahora lo mismo con el denominador. Divisores de $${d}$: $${dd2.join(",\\ ")}$.`,
+    texto: `Ahora lo mismo con el denominador. Divisores de $${d}$: ${enTexto(dd2)}.`,
     porque: `Hacemos la misma lista para el denominador.`,
   });
   estados.push([...base, Sa, Dc]);
   trans.push({
     fusiones: [{ desde: ["Dn", "Sb", "Dd"], hacia: "Dc" }],
-    texto: `Los que están en las dos listas: $${comunes.join(",\\ ")}$.`,
+    texto: `Los que están en las dos listas: ${enTexto(comunes)}.`,
     porque: `Un número que está en las dos listas divide al de arriba y al de abajo a la vez.`,
   });
   estados.push([...base, Sa, Dg]);

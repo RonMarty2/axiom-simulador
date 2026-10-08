@@ -28,12 +28,16 @@ export default function Barrido() {
       document.querySelectorAll<HTMLElement>("[data-barrido]").forEach((el) => {
         const lim = el.getBoundingClientRect().right + 1;
         let peor = 0;
+        // los trazos de un svg (el signo de raiz de KaTeX mide miles de px pero el svg los recorta) no cuentan
+        const cuenta = (h: Element) => !(h instanceof SVGElement && h.tagName.toLowerCase() !== "svg");
         el.querySelectorAll("*").forEach((h) => {
+          if (!cuenta(h)) return;
           const r = h.getBoundingClientRect();
           if (r.width && r.right - lim > peor) peor = r.right - lim;
         });
         const izq = el.getBoundingClientRect().left - 1;
         el.querySelectorAll("*").forEach((h) => {
+          if (!cuenta(h)) return;
           const r = h.getBoundingClientRect();
           if (r.width && izq - r.left > peor) peor = izq - r.left;
         });
