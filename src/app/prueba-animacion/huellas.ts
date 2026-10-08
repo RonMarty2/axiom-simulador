@@ -5,6 +5,8 @@
 import { createHash } from "node:crypto";
 import { diferenciaCuadrados, ecuacionLineal, fracciones, sumaLogaritmos, sumaLogaritmosPropiedad } from "./generadores-algebra.ts";
 import { cuadratica } from "./generadores-cuadratica.ts";
+import { charles, mruvMultiplica } from "./generadores-fisica.ts";
+import { estequiometria, molesDeAtomos } from "./generadores-quimica.ts";
 import { potenciaProducto, raizConFactor, raizGeneral } from "./generadores.ts";
 import type { Demo } from "./datos.ts";
 
@@ -19,6 +21,10 @@ export const CASOS: Record<string, () => Demo[]> = {
   raiz: () => [raizGeneral(2, 4, 2), raizGeneral("x", 6, 3)].map((r) => r.demo),
   "raiz-con-resto": () => [raizConFactor(2, 2, 2, 3)].map((r) => r.demo),
   cuadratica: () => [cuadratica(1, -2, 4, 0, 3, -2), cuadratica(2, 2, -4)].map((r) => r.demo),
+  mruv: () => [mruvMultiplica(3, 200, 10)].map((r) => r.demo),
+  charles: () => [charles(20, -33, 27), charles(20, -33, 27, { presion: { p1: 1, u1: "atm", p2: 760, u2: "torr" } })].map((r) => r.demo),
+  "moles-atomos": () => [molesDeAtomos("C6H12O6", "O", 30)].map((r) => r.demo),
+  estequiometria: () => [estequiometria("formacion-agua", "H2", "H2O", 8, "g")].map((r) => r.demo),
 };
 
 export function huella(id: string): string {

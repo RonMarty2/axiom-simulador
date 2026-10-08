@@ -21,8 +21,10 @@ import {
   validarLogaritmos,
 } from "./generadores-algebra";
 import { cuadratica, validarCuadratica } from "./generadores-cuadratica";
+import { charles, mruvMultiplica, validarCharles, validarMruvMultiplica } from "./generadores-fisica";
+import { estequiometria, molesDeAtomos, validarEstequiometria, validarMolesDeAtomos } from "./generadores-quimica";
 
-type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica";
+type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica" | "mruv" | "charles" | "estequiometria" | "molesAtomos";
 
 const campo: React.CSSProperties = {
   width: 64,
@@ -35,11 +37,11 @@ const campo: React.CSSProperties = {
 };
 const etiqueta: React.CSSProperties = { fontSize: 13, color: "var(--fg-muted, #6b6b6b)", display: "flex", flexDirection: "column", gap: 2 };
 
-function Numero({ nombre, valor, onCambio }: { nombre: string; valor: string; onCambio: (v: string) => void }) {
+function Numero({ nombre, valor, onCambio, texto }: { nombre: string; valor: string; onCambio: (v: string) => void; texto?: boolean }) {
   return (
     <label style={etiqueta}>
       {nombre}
-      <input style={campo} value={valor} inputMode="numeric" onChange={(e) => onCambio(e.target.value)} />
+      <input style={campo} value={valor} inputMode={texto ? "text" : "numeric"} onChange={(e) => onCambio(e.target.value)} />
     </label>
   );
 }
@@ -52,6 +54,27 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   const set = (i: number) => (x: string) => setV((a) => a.map((y, j) => (j === i ? x : y)));
 
   const resultado = useMemo(() => {
+    if (tipo === "mruv") {
+      const [k, d, t] = v.map(Number);
+      const e = validarMruvMultiplica(k, d, t);
+      return e ? { error: e } : { demo: mruvMultiplica(k, d, t).demo };
+    }
+    if (tipo === "charles") {
+      const [V1, t1, t2] = v.map(Number);
+      const e = validarCharles(V1, t1, t2);
+      return e ? { error: e } : { demo: charles(V1, t1, t2).demo };
+    }
+    if (tipo === "molesAtomos") {
+      const m = Number(v[2]);
+      const e = validarMolesDeAtomos(v[0].trim(), v[1].trim(), m);
+      return e ? { error: e } : { demo: molesDeAtomos(v[0].trim(), v[1].trim(), m).demo };
+    }
+    if (tipo === "estequiometria") {
+      const m = Number(v[3]);
+      const pide = v[4].trim() === "mol" ? "mol" : "g";
+      const e = validarEstequiometria(v[0].trim(), v[1].trim(), v[2].trim(), m, pide);
+      return e ? { error: e } : { demo: estequiometria(v[0].trim(), v[1].trim(), v[2].trim(), m, pide).demo };
+    }
     if (tipo === "cuadratica") {
       const [a1, b1, c1, a2, b2, c2] = v.map(Number);
       const e = validarCuadratica(a1, b1, c1, a2, b2, c2);
@@ -99,7 +122,15 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
   }, [tipo, v]);
 
   const rotulos =
-    tipo === "cuadratica"
+    tipo === "mruv"
+      ? ["Veces que aumenta la velocidad (3 = triplica)", "Distancia (m)", "Tiempo (s)"]
+      : tipo === "charles"
+        ? ["Volumen inicial", "Temperatura inicial (°C)", "Temperatura final (°C)"]
+        : tipo === "molesAtomos"
+          ? ["Compuesto (C6H12O6)", "Elemento (O)", "Masa (g)"]
+          : tipo === "estequiometria"
+            ? ["Reacción (formacion-agua)", "Sustancia dada (H2)", "Sustancia pedida (H2O)", "Masa (g)", "Pide (g o mol)"]
+    : tipo === "cuadratica"
       ? ["Lado izq.: x²", "Lado izq.: x", "Lado izq.: número", "Lado der.: x²", "Lado der.: x", "Lado der.: número"]
       : tipo === "fracciones"
       ? ["Numerador 1", "Denominador 1", "Numerador 2", "Denominador 2", "Operación (+ o -)"]
@@ -120,7 +151,7 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
       <h2 style={{ fontSize: 16, fontWeight: 700, margin: "0 0 8px" }}>{titulo}</h2>
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 8 }}>
         {rotulos.map((r, i) => (
-          <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} />
+          <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} texto={tipo === "molesAtomos" ? i < 2 : tipo === "estequiometria" ? i < 3 || i === 4 : false} />
         ))}
       </div>
       <div style={{ display: "flex", gap: 6, marginBottom: 8, alignItems: "center", fontSize: 13 }}>

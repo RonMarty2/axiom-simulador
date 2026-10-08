@@ -494,6 +494,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-08 (bis) (piloto de animaciones de Física y Química, y plan de qué animar primero)
+
+- **Plan:** `docs/plan-animaciones.md` (lo genera `scripts/analisis/plan-animaciones.py`) mide qué tipos de problema caen más. Ranking por impacto (preguntas x facilidad, la facilidad es juicio): Cinemática, Estequiometría, Gases, Genética, Soluciones. SVG con el motor de fusión alcanza para los 27 tipos; 3D casi no hace falta (13 de 3569 preguntas de Ingeniería nombran un sólido); las partículas serían explicación de conceptos, no resolución. Económicas Matemáticas está explicada en prosa (1% con «Paso N»): hay que reescribir antes de animar.
+- **Generadores nuevos** (en `src/app/prueba-animacion/`): `generadores-fisica.ts` (MRUV velocidad, distancia, tiempo y «se multiplica la velocidad»; gases de Charles) y `generadores-quimica.ts` (moles de átomos y estequiometría con 14 reacciones). Número y unidad son piezas aparte, las unidades se tachan de a una, la masa molar se arma a la vista. Cada cuenta se comprueba con tabla propia en el test y los casos de referencia salen del banco (2024-010, 2018-014, 2024-016).
+- **Conectados** a `/prueba-animacion` (4 tarjetas «NUEVO») y a `huellas.ts`; registro de auditoría en «pendiente». tsc, lint y tests verdes.
+- **Pendiente:** ver en celular a 375 px; pasar `auditor-de-pasos`; que Ronald los mire. Conocidos: la estequiometría no simplifica antes de multiplicar (160/160), el balance se cuenta solo en el texto, `mruvDistancia` sin comprobación final, un brote a una pieza interna mueve también su fracción contenedora (limitación del motor). Faltan despejes de t, km/h→m/s, Charles con otra incógnita, rendimiento/pureza/limitante. Siguiente en el ranking: Genética (Punnett, pide componente nuevo) y Soluciones.
+
 ### 2026-10-08 (la fórmula general con raya real: fracciones y raíces con piezas adentro)
 
 - **Qué:** en la ecuación de segundo grado, la fórmula general ya no es texto en línea con "entre": es una fracción con raya real y la raíz abarca su radicando. Cada letra y número de adentro es una pieza con id (se marca, se tacha, viaja, nace por brote). Se sacó el paso "entre es la raya" (1 paso menos).

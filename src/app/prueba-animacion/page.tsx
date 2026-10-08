@@ -49,6 +49,18 @@ export default function Pagina() {
       <section style={tarjeta}>
         <Generador tipo="cuadratica" titulo="CAMBIÓ · Ecuación de segundo grado (cada letra vuela de su etiqueta a la fórmula, comprobación con pasos)" inicial={["1", "-2", "4", "0", "3", "-2"]} />
       </section>
+      <section style={tarjeta}>
+        <Generador tipo="mruv" titulo="NUEVO · Física: MRUV (la velocidad se triplica, se halla la aceleración)" inicial={["3", "200", "10"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="charles" titulo="NUEVO · Física: gases, ley de Charles (°C pasa a kelvin, las unidades se tachan)" inicial={["20", "-33", "27"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="molesAtomos" titulo="NUEVO · Química: moles de átomos en un compuesto (la masa molar se arma a la vista)" inicial={["C6H12O6", "O", "30"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="estequiometria" titulo="NUEVO · Química: estequiometría (gramos a gramos con factores que se tachan)" inicial={["formacion-agua", "H2", "H2O", "8", "g"]} />
+      </section>
     </main>
   );
 }

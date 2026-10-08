@@ -54,6 +54,30 @@
       "huella": "19aeae77a835",
       "fecha": "2026-10-08",
       "nota": "9-oct animador: la formula general es una fraccion con piezas (frPiezas) con raya real desde que aparece y la raiz abarca su radicando (raiz); sin 'entre' ni parentesis sueltos; x2 se copia por brote de la fraccion de x1 (F->Q2, Fe->E2); se quito el paso 'entre es la raya' (1 paso menos). Sin auditar con estas piezas. Siguen pendientes los hallazgos del 9-oct: (1) fila de referencia sin rotulo; (3) (-1)^2 en un paso en la comprobacion; (4) 4*1 repetido con a=c=1; (5) reglas 2n=n+n y x=3; (6) rotulo Delta sin valor. Ver en pantalla: el Delta queda entre el radicando y la raya."
+    },
+    "mruv": {
+      "estado": "pendiente",
+      "huella": null,
+      "fecha": null,
+      "nota": ""
+    },
+    "charles": {
+      "estado": "pendiente",
+      "huella": null,
+      "fecha": null,
+      "nota": ""
+    },
+    "moles-atomos": {
+      "estado": "pendiente",
+      "huella": null,
+      "fecha": null,
+      "nota": ""
+    },
+    "estequiometria": {
+      "estado": "pendiente",
+      "huella": null,
+      "fecha": null,
+      "nota": ""
     }
   }
 }
