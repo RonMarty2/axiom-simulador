@@ -47,9 +47,20 @@ export interface Brote {
   /** id de la ficha nueva en el estado siguiente */
   hacia: string;
 }
+/** una pieza "visita" a otras para mostrar a cuales se aplica (el x del primer parentesis va al x y al +3 del segundo: se multiplica con cada uno).
+ *  Una copia viaja de una a una, sin cambiar nada; despues las piezas del resultado nacen con los `brotes`. */
+export interface Visita {
+  /** ficha que viaja (queda donde esta; viaja una copia) */
+  desde: string;
+  /** fichas que visita, en orden */
+  hacia: string[];
+  /** LaTeX de lo que viaja si no es la ficha tal cual (el -3 con su signo cuando la ficha es solo el 3) */
+  etiqueta?: string;
+}
 export interface Transicion {
   fusiones: Fusion[];
   brotes?: Brote[];
+  visitas?: Visita[];
   /** fichas que se marcan para que el alumno las mire (patron que se reconoce), sin cambiar nada */
   resaltar?: string[];
   texto: string;

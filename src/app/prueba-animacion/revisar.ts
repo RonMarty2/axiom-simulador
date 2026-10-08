@@ -28,7 +28,7 @@ export function revisar(d: Demo, etiqueta: string) {
     assert.ok(t.porque.trim().length > 0, `${etiqueta}: T${i} sin porque`);
     // NINGUN PASO VACIO: si no fusiona, no brota y no resalta nada, el alumno ve que no pasa nada
     assert.ok(
-      t.fusiones.length > 0 || (t.brotes ?? []).length > 0 || (t.resaltar ?? []).length > 0,
+      t.fusiones.length > 0 || (t.brotes ?? []).length > 0 || (t.resaltar ?? []).length > 0 || (t.visitas ?? []).length > 0,
       `${etiqueta}: T${i} es un paso vacio (no fusiona, no brota ni resalta nada)`
     );
     // CONSERVACION ("como a lapiz"): nada aparece ni desaparece sin que una fusion o un brote lo explique.
@@ -80,6 +80,12 @@ export function revisar(d: Demo, etiqueta: string) {
       const viaja = t.fusiones.some((f) => f.modo === "viajar" && f.desde.includes(br.desde));
       assert.ok(a.has(br.desde) && (b.has(br.desde) || viaja), `${etiqueta}: T${i} el origen del brote ${br.desde} debe seguir existiendo (o viajar)`);
       assert.ok(b.has(br.hacia) && !a.has(br.hacia), `${etiqueta}: T${i} el brote ${br.hacia} debe ser nuevo`);
+    }
+    // una visita: la pieza que viaja y las que visita existen antes (y la que viaja no desaparece sola)
+    for (const v of t.visitas ?? []) {
+      assert.ok(a.has(v.desde), `${etiqueta}: T${i} la visita sale de ${v.desde}, que no existe antes`);
+      assert.ok(v.hacia.length > 0, `${etiqueta}: T${i} una visita sin destinos`);
+      for (const h of v.hacia) assert.ok(a.has(h), `${etiqueta}: T${i} la visita va a ${h}, que no existe antes`);
     }
     for (const id of t.resaltar ?? []) {
       assert.ok(a.has(id) && b.has(id), `${etiqueta}: T${i} resaltar ${id} debe existir antes y despues`);

@@ -4,7 +4,8 @@ import { AnimatePresence, animate, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import Tex from "./Tex";
-import type { Demo, Fusion as FusionDatos } from "./datos";
+import katex from "katex";
+import type { Demo, Fusion as FusionDatos, Visita } from "./datos";
 
 const esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -101,6 +102,40 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
     if (elAncla) await animate(elAncla, { scale: [1, 1.3, 1] }, { duration: 0.45, ease: "easeOut" });
   }
 
+  // Una COPIA de la pieza viaja hasta cada pieza que visita, se detiene a "tocarla" (la pieza visitada late)
+  // y sigue a la siguiente. La pieza original no se mueve.
+  async function visitar(v: Visita, k: number) {
+    const origen = celdas.current[v.desde];
+    if (!origen || k === 0) return;
+    const r0 = origen.getBoundingClientRect();
+    const copia = document.createElement("span");
+    copia.innerHTML = v.etiqueta
+      ? katex.renderToString(v.etiqueta, { throwOnError: false, strict: "ignore", output: "html" })
+      : origen.innerHTML;
+    copia.style.cssText = `position:fixed;left:${r0.left}px;top:${r0.top}px;margin:0;pointer-events:none;z-index:50;padding:2px 8px;border-radius:12px;background:var(--accent-soft);box-shadow:0 0 0 2px var(--accent);color:var(--accent);font-size:${getComputedStyle(origen).fontSize};white-space:nowrap`;
+    document.body.appendChild(copia);
+    // la copia se mide una vez puesta, para que su centro parta del centro de la pieza original
+    const c0 = copia.getBoundingClientRect();
+    const sx = r0.left + r0.width / 2 - (c0.left + c0.width / 2);
+    const sy = r0.top + r0.height / 2 - (c0.top + c0.height / 2);
+    let x = sx;
+    let y = sy;
+    await animate(copia, { x: [0, sx], y: [0, sy], opacity: [0, 1] }, { duration: 0.01 });
+    for (const id of v.hacia) {
+      const el = celdas.current[id];
+      if (!el) continue;
+      const r = el.getBoundingClientRect();
+      const nx = r.left + r.width / 2 - (c0.left + c0.width / 2);
+      const ny = r.top + r.height / 2 - (c0.top + c0.height / 2);
+      await animate(copia, { x: [x, nx], y: [y, ny] }, { duration: 0.9, ease: "easeInOut" });
+      x = nx;
+      y = ny;
+      await animate(el, { scale: [1, 1.3, 1] }, { duration: 0.45, ease: "easeOut" });
+    }
+    await animate(copia, { opacity: [1, 0] }, { duration: 0.3 });
+    copia.remove();
+  }
+
   async function avanzar() {
     if (ocupadoRef.current || idxRef.current >= total - 1) return;
     ocupadoRef.current = true;
@@ -116,10 +151,13 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
       ...t.fusiones.flatMap((f) => (f.ancla ? [...f.desde, f.ancla] : f.desde)),
       ...(t.brotes ?? []).map((b) => b.desde),
       ...(t.resaltar ?? []),
+      ...(t.visitas ?? []).flatMap((v) => [v.desde, ...v.hacia]),
     ];
     if (marcas.length > 0) {
       setMarcados(marcas);
       await esperar(1100 * k);
+      // una pieza viaja a visitar a otras (se ve a cual se aplica cada una), de visita en visita
+      for (const v of t.visitas ?? []) await visitar(v, k);
       await Promise.all(t.fusiones.map((f) => juntar(f, k)));
       setMarcados([]);
     } else {

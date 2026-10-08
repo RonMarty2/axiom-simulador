@@ -779,13 +779,15 @@ export function diferenciaCuadrados(k: number): Resultado {
     {
       // primero el x del primer parentesis por cada termino del segundo
       fusiones: [],
+      // el x del primer parentesis VIAJA al x y al numero del segundo: se ve con quien se multiplica
+      visitas: [{ desde: "x1", hacia: ["x2", "k2"] }],
       brotes: [
         { desde: "Fe", hacia: "SE" },
         { desde: "x1", hacia: "p1" },
         { desde: "x2", hacia: "o1" },
         { desde: "x1", hacia: "p2" },
       ],
-      texto: `Comprobamos que la fórmula es cierta con estos números: multiplicamos los paréntesis. Primero el $x$ del primer paréntesis por cada término del segundo: $x\\cdot x$ y $x\\cdot ${k}$.`,
+      texto: `Comprobamos que la fórmula es cierta con estos números: multiplicamos los paréntesis. Primero el $x$ del primer paréntesis viaja a cada término del segundo: se multiplica con el $x$ y con el $${k}$. Salen $x\\cdot x$ y $x\\cdot ${k}$.`,
       porque: `Para multiplicar dos paréntesis, cada término de uno se multiplica por cada término del otro. Empezamos con el primer término del primero.`,
       regla: `$(a+b)(c+d)=ac+ad+bc+bd$`,
     },
@@ -800,11 +802,13 @@ export function diferenciaCuadrados(k: number): Resultado {
     {
       // ahora el -k del primer parentesis por cada termino del segundo
       fusiones: [],
+      // el -k (con su signo) viaja al x y al numero del segundo parentesis
+      visitas: [{ desde: "k1", hacia: ["x2", "k2"], etiqueta: `-${k}` }],
       brotes: [
         { desde: "k1", hacia: "p3" },
         { desde: "k1", hacia: "p4" },
       ],
-      texto: `Ahora el $-${k}$ del primer paréntesis por cada término del segundo: $-${k}\\cdot x$ y $-${k}\\cdot ${k}$.`,
+      texto: `Ahora el $-${k}$ del primer paréntesis viaja a cada término del segundo: se multiplica con el $x$ y con el $${k}$. Salen $-${k}\\cdot x$ y $-${k}\\cdot ${k}$.`,
       porque: `Seguimos con el segundo término del primer paréntesis, que es $-${k}$: lleva su signo menos.`,
     },
     {
