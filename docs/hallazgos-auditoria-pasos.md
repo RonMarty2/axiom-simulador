@@ -35,3 +35,35 @@ Dos rondas: (1) auditoría de los 9 generadores de `src/app/prueba-animacion/`, 
 - Los brotes con origen en una parte de fracción (`f2.d`) se tratan como "viaja" en `Fusion.tsx`: verificar en pantalla.
 - Un radical no se puede partir en fichas: se abre en `[índice, base, exponente]` y se vuelve a armar con una fusión.
 - No se puede combinar `salto` con un `extra` fijo al final de cada estado.
+
+---
+
+# Ronda 3 (9-oct-2026): auditoría independiente tras la segunda tanda de arreglos
+
+Resultado: los 9 generadores siguen `con-hallazgos`. **Todos los pendientes de la ronda 2 quedaron resueltos**; lo que queda son saltos más finos, casi todos en las **comprobaciones** (el arreglo trae una copia de los defectos que acababa de quitar del cálculo principal). Ninguno es un error de cálculo.
+
+## lineal / cuadrados / fracciones
+- **lineal:** la comprobación reconstruye la ecuación desde el `=` (no tiene fila de referencia; cuadrados y fracciones sí); con x negativa no entera el signo entra al numerador dentro del paso "el 4 viaja" (4x+2=-4); en 5x+1=-2 el estado dice `-5·3` y el texto calcula `5·(-3)`; la lista de divisores nace entera y no se muestra el cofactor (`12=3·4`); cuando la división es exacta sobran los 6 pasos de divisores.
+- **cuadrados:** cuatro productos (`x·x`, `x·k`, `-k·x`, `-k·k`) nacen en un paso; `3²=9` solo en el texto (la fila `ref` no se resalta); `(-3)²` pasa a `9` sin `(-3)·(-3)`; el paso T20 copia el ejercicio y reemplaza x a la vez.
+- **fracciones:** en la comprobación con resultado negativo el signo cambia de forma (`-1/6` → `(-1/6)·6` → `-1·6`) sin paso; 3 productos y 3 divisiones por paso; el factor `·N` nace dentro del tex de `Ka/Kb/Kc`; dice "para que sea múltiplo de N" aunque un denominador ya lo era (7/12-1/4 usa 48 en vez de 12).
+
+## logaritmos / cuadratica
+- **cuadratica:** la fila de referencia es idéntica a la ecuación y no tiene rótulo (el alumno ve la misma ecuación dos veces durante 8 pasos): rótulo "enunciado"; los operadores `=` y "entre" del renglón de x₂ y de la comprobación nacen sin brote (`revisar.ts` exime a los operadores); con base negativa en la comprobación `(-1)²=1` va en un paso (mientras `(-5)²` se expande); `4·1` repetido con c=1; reglas que no coinciden con el paso (`2n=n+n` en un paso que multiplica; `x=3` en vez de la general); texto "Multiplicamos cada número por su valor" confuso; rótulo del Δ debe decir `Δ=1`. **Largo real: 27 a 39 pasos** (la nota decía ~35): la comprobación de x₁ y x₂ ocupa 14 de 39; hacerla en paralelo ahorraría ~7.
+- **logaritmos:** la comprobación nombra "la propiedad del producto" sin haberla enseñado; al desarrollar `bᵏ` los factores nuevos nacen del exponente `k` y no de la base; la fila de referencia no tiene rótulo; en propiedad el primer factor `f1` viene del 36 y los demás de la base.
+
+## potencia / raiz / raiz-con-resto
+- `5·1/1·2`: el 1 de abajo nace de la nada (`5=5/1` solo en el porqué) en todas las ramas; `16=2·2·2·2` y `15625=5·…` salen de golpe (dividir entre el primo paso a paso); **la lista de potencias perfectas muestra "las que caben" y el criterio es "las que dividen"**: en √72 también dividen el 4 y el 9 y se elige el 36 sin decir "la mayor"; en √242 la lista salta de 64 a 121; cociente y resto: `1·2=2` y `3−2=1` solo en el texto; tras `12=4·3` se pierde el signo de raíz y queda un 2 flotando sin etiqueta; el texto dice `√4=2` y en pantalla está `√(2²)`; tachar `2·2/1·2` deja `2/1` y salta a `2`; `∛9` da una vuelta de 11 pasos y termina igual que empezó sin decirlo; el último paso no vuelve al enunciado ni comprueba; potencia 2^24: 22 pasos casi idénticos y una fila de 47 piezas (probar a 375 px).
+
+## Tests nuevos propuestos (se suman a los de arriba)
+1. Todo operador de una fila nueva debe tener brote (generalizar; hoy `revisar.ts` exime a los operadores).
+2. El texto de un paso no cita una expresión (`√4`, `5·(-3)`) que no exista como pieza, con sus signos, en el estado.
+3. Un paso no cambia la forma de un signo (frente ↔ numerador) sin que el texto lo nombre.
+4. Toda comprobación nace de una pieza de referencia que existe en el primer estado; la fila de referencia lleva rótulo.
+5. Un número nuevo en una fracción (`x·1/1·k`) nace de una pieza o de un estado visible.
+6. Cada candidato de una lista de elección tiene su prueba (tachado) antes de elegir.
+7. El último estado se vincula al enunciado (el texto final cita la expresión original).
+8. Brotes con el mismo `hacia` en una transición (limitación del motor).
+9. Si el texto nombra una propiedad, debe estar enseñada antes o ser la `regla` del paso.
+
+## Lección de proceso
+Cada ronda de arreglos + auditoría resuelve lo anterior y encuentra hallazgos más finos. **Hay rendimientos decrecientes**: tras la ronda 2 no quedan saltos graves. El validador que falta es la mirada de Ronald en pantalla, que ningún agente tuvo (nadie vio el diseño, el desborde a 375 px ni el largo real).
