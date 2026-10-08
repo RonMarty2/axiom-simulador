@@ -493,6 +493,27 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+### 2026-10-08 (RETOMAR) (animación de resoluciones: dónde quedamos, para una sesión sin contexto)
+
+**Objetivo de Ronald:** mostrar sus ejercicios resueltos a otro nivel, visual y atractivo, en todas las carreras y temas, con la herramienta que convenga (SVG con el motor de fusión; partículas o 3D solo si enseñan algo que el SVG no puede). Ronald no es experto en Física ni Química: él juzga solo «se ve feo / se ve bien»; lo correcto lo garantiza el código y el criterio visual lo vigilan los agentes con las reglas «como a lápiz» (una operación por paso, la pieza viaja, nada aparece sin origen; ver `agentes/animador-resolucion.md`).
+
+**Estado (8-oct-2026, todo en `main`):**
+- **Ruta de prueba `/prueba-animacion`** (`src/app/prueba-animacion/`, noindex): muestra SOLO los tipos que Ronald no aprobó. 12 tipos hoy: lineal, cuadrados, fracciones, potencia, raíz, raíz con resto, logaritmos, cuadrática (álgebra) y `mruv`, `charles` (Física), `molesAtomos`, `estequiometria` (Química). **Ninguno tiene visto bueno todavía** (`data/registro-visto-bueno.json` vacío). Las de álgebra que él aprobó el 7-oct volvieron a revisión porque cambiaron después.
+- **El visto bueno** se da con `node src/app/prueba-animacion/aprobar-animacion.ts <tipo>` y SOLO cuando Ronald lo dice. La huella cubre todos los casos difíciles de `casos.ts` (botones «Casos a mirar» en cada tarjeta): si cambia el generador o la lista, el tipo vuelve a revisión. Un tipo no se aprueba por verse bien con un ejemplo cómodo.
+- **Conexión a la app real: cero.** Nada de esto llega aún al alumno. Registro `data/registro-animaciones.json` vacío. Falta conectar a `SolucionPasos` y hacer el piloto.
+- **Plan de qué animar:** `docs/plan-animaciones.md` (lo regenera `python -I -X utf8 scripts/analisis/plan-animaciones.py`). Ranking: Cinemática, Estequiometría, Gases, Genética, Soluciones. SVG alcanza para los 27 tipos; 3D casi no hace falta. Económicas Matemáticas está explicada en prosa (1% con «Paso N»): reescribir antes de animar. Piloto propuesto, 5 preguntas con ids reales: ver el plan (Gases 2018-3ra-014, Estequiometría 2024-1ra-016, MRUV 2024-1ra-010, Punnett 2023-3ra-019, Logaritmos Económicas 2011-1ra-009).
+- **Motor** (`Fusion.tsx`, `datos.ts`): fracciones y raíces con piezas con id adentro (`frPiezas`, `raiz`, `aplanar`, `sustituir`); prop `paso` para dibujar un paso quieto; en celular la explicación y los botones quedan fijos abajo y hay botón «Achicar hoja / Agrandar hoja».
+- **Barrido de ancho** (`/prueba-animacion/barrido?tipo=<tipo>`, deja la lista en `window.__barrido`): a 375 px **ningún tipo se sale**. Se corre un tipo por vez; pasar el ancho de ventana y el navegador junto con las cifras.
+
+**Pendiente, en este orden:**
+1. Pasar el `auditor-de-pasos` por los 12 tipos (el registro de auditoría `data/registro-auditoria-pasos.json` los tiene «con-hallazgos» o «pendiente»; Física y Química siempre «pendiente»). Hallazgos viejos de la cuadrática: fila de referencia sin rótulo, `(-1)^2` en un paso, `4·1` repetido con a=c=1, reglas «2n=n+n» y «x=3», rótulo Δ sin valor.
+2. Probar en un **Android real** el anclaje de la explicación y el «Achicar hoja» (la ventana de prueba era muy alta). Evaluar plegar renglones ya resueltos (hoy no: los orígenes de los brotes viven en esos renglones).
+3. Que Ronald mire los 12 y diga cuáles aprueba.
+4. Cortes a mejorar: en `Dato:`/`Piden:` de química las fórmulas se parten a mitad (`C₆ H₁₂` / `O₆`) con un hueco entre `C` y `O₂`; en el MRUV «3v₀ = v₀ + 10a» separa el 10 de su letra con letra grande; la estequiometría no simplifica antes de multiplicar (160/160) y cuenta el balance solo en el texto; `generadores.ts` (raíz) tiene listas «divisores de n» en una sola ficha que podrían salirse.
+5. Piloto con 3 a 5 preguntas reales conectadas a `SolucionPasos`; después Cinemática, Gases, Soluciones, Genética (Punnett pide componente nuevo) y las materias de texto.
+
+**Reglas para quien siga:** LaTeX solo con Write/Edit (un heredoc o `python -c` se come las barras); el servidor de desarrollo corre en el puerto 3001 (`npm run dev`); pruebas con `node --test src/app/prueba-animacion/*.test.ts` (127 verdes); leer `docs/lecciones-agentes.md` sección «Animación de Física y Química…» antes de tocar nada.
+
 
 ### 2026-10-08 (quater) (el visto bueno cubre los casos difíciles, no un solo ejemplo)
 
