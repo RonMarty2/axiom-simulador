@@ -16,6 +16,7 @@ import {
   validarMruvVelocidad,
   type OpcionesCharles,
 } from "./generadores-fisica.ts";
+import { CASOS_POR_TIPO } from "./casos.ts";
 
 const limpia = (s: string) =>
   s
@@ -302,4 +303,45 @@ describe("ley de Charles", () => {
     assert.ok(validarCharles(20, -33, 27, { presion: { p1: 1, u1: "atm", p2: 700, u2: "torr" } })); // presiones distintas
     assert.ok(validarCharles(10, 0, 1)); // 274/273 no es un decimal corto
   });
+});
+
+// Lo que mide el barrido de ancho (/prueba-animacion/barrido), vigilado en los datos: en un celular la fila de datos
+// se partia sola y la letra anotada debajo de un dato (posicion absoluta) caia encima del renglon de abajo (la "d"
+// sobre "a = ?" en mruvMultiplica, la T2 sobre "V2 = ?" en Charles).
+describe("fila de datos con etiquetas: cabe en un celular y la etiqueta queda bajo su dato", () => {
+  /** las letras con que Fusion.tsx calcula el ancho reservado bajo una etiqueta (cuenta tambien el color) */
+  const letrasMotor = (tex: string) => tex.replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length;
+  const renglones = (e: Ficha[]) => {
+    const rs: Ficha[][] = [[]];
+    for (const f of e) {
+      if (f.salto) rs.push([]);
+      else rs.at(-1)!.push(f);
+    }
+    return rs;
+  };
+  const demos: [string, Demo][] = [
+    ...CASOS_POR_TIPO.mruv.map((c) => [`mruv ${c.nombre}`, mruvMultiplica(...(c.v.map(Number) as [number, number, number])).demo] as [string, Demo]),
+    ...CASOS_POR_TIPO.charles.map((c) => [`charles ${c.nombre}`, charles(...(c.v.map(Number) as [number, number, number])).demo] as [string, Demo]),
+    ["charles con presiones", charles(20, -33, 27, { presion: { p1: 1, u1: "atm", p2: 760, u2: "torr" } }).demo],
+  ];
+  for (const [nombre, d] of demos) {
+    test(nombre, () => {
+      for (const [i, e] of d.estados.entries()) {
+        const rs = renglones(e);
+        for (const [j, r] of rs.entries()) {
+          if (!r.some((f) => f.debajo)) continue;
+          // un renglon con etiquetas tiene solo datos: lo que piden y las formulas van en otro renglon, despues de un
+          // salto (el salto deja lugar a la etiqueta; un corte automatico, no)
+          assert.ok(j < rs.length - 1, `${nombre} E${i}: el renglon con etiquetas es el ultimo`);
+          assert.ok(!r.some((f) => f.id === "Dq" || (f.op && f.tex === "=")), `${nombre} E${i}: renglon con etiquetas mezclado con lo que piden o con una formula`);
+          assert.ok(r.length <= 5, `${nombre} E${i}: renglon con etiquetas de ${r.length} piezas (en 343 px caben 5)`);
+          for (const f of r.filter((x) => x.debajo)) assert.ok(letrasMotor(f.debajo!) <= 7, `${nombre} E${i}: la etiqueta de ${f.id} reserva ${letrasMotor(f.debajo!)} letras (usa colores de tres cifras)`);
+        }
+      }
+      // el renglon de lo que piden va solo, despues de un salto (antes quedaba pegado a los datos con etiqueta)
+      const e0 = d.estados[0];
+      const iq = e0.findIndex((f) => f.id === "Dq");
+      assert.ok(iq > 0 && e0[iq - 1].salto, `${nombre}: lo que piden no empieza renglon`);
+    });
+  }
 });

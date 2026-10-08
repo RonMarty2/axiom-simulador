@@ -795,7 +795,10 @@ export function mruvTiempo(v0: number, vf: number, a: number, enunciado?: string
 // con las unidades de los datos.
 
 const VECES: Record<number, string> = { 2: "duplica", 3: "triplica", 4: "cuadruplica", 5: "quintuplica" };
-const COLOR_M = { d: "#db2777", t: "#ea580c", a: "#16a34a" } as const;
+// Colores de tres cifras A PROPOSITO (los mismos tonos que #db2777 y #ea580c): Fusion.tsx reserva bajo cada pieza con
+// etiqueta un ancho que cuenta tambien las letras del color (`\textcolor{#db2777}{d}` cuenta 9 letras, no 1), y con
+// seis cifras "200 m , 10 s" no cabe en un renglon de celular. Si el motor deja de contar el color, se pueden volver a seis.
+const COLOR_M = { d: "#d27", t: "#e50", a: "#16a34a" } as const;
 const colM = (k: keyof typeof COLOR_M, tex: string) => `\\textcolor{${COLOR_M[k]}}{${tex}}`;
 
 export function validarMruvMultiplica(k: number, d: number, t: number): string | null {
@@ -824,28 +827,32 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
   const v02 = v0 * v0;
   const dosA = 2 * a;
   const dosAd = dosA * d;
+  // los datos en tres renglones (en un celular no caben en uno): la relacion de velocidades, los datos con unidad
+  // (llevaran su letra debajo, y el salto les deja lugar) y lo que piden. "quintuplica su velocidad" va en dos
+  // piezas para que pueda partirse si no cabe entera.
   const h = new Hoja([
-    { id: "Dkw", tex: `\\text{${VECES[k]} su velocidad}` },
-    { id: "Dck", tex: ",", op: true },
+    { id: "Dkw1", tex: `\\text{${VECES[k]}}` },
+    { id: "Dkw2", tex: "\\text{su velocidad}" },
+    { id: "DS1", tex: "", salto: true },
     { id: "Dd", tex: nf(d) },
     { id: "Ddu", tex: "\\text{m}" },
     { id: "Dcd", tex: ",", op: true },
     { id: "Dt", tex: nf(t) },
     { id: "Dtu", tex: "\\text{s}" },
-    { id: "Dct", tex: ",", op: true },
+    { id: "DS2", tex: "", salto: true },
     { id: "Dq", tex: "a=\\ ?" },
   ]);
   const intro = enunciado ?? `Un móvil que viaja con MRUV ${VECES[k]} su velocidad luego de recorrer $${cant(d, "m")}$ empleando $${cant(t, "s")}$. ¿Cuál es su aceleración? Vamos a escribir cada paso, como a lápiz.`;
   h.paso({
     fusiones: [],
-    resaltar: ["Dkw", "Dd", "Dt", "Dq"],
+    resaltar: ["Dkw1", "Dkw2", "Dd", "Dt", "Dq"],
     texto: `Anotamos los datos y lo que piden, $a$. No sabemos la velocidad inicial ni la aceleración: son dos incógnitas, y con una sola fórmula no alcanza. Usaremos dos fórmulas del MRUV.`,
     porque: `Con dos incógnitas hacen falta dos ecuaciones: de una se despeja una incógnita y se reemplaza en la otra.`,
     regla: `$2\\ \\text{incógnitas}\\ \\Rightarrow\\ 2\\ \\text{ecuaciones}$`,
   });
-  h.cambiar(["Dkw"], [{ id: "Dk", tex: `v_{f}=${k}v_{0}` }]);
+  h.cambiar(["Dkw1", "Dkw2"], [{ id: "Dk", tex: `v_{f}=${k}v_{0}` }]);
   h.paso({
-    fusiones: [{ desde: ["Dkw"], hacia: "Dk" }],
+    fusiones: [{ desde: ["Dkw1", "Dkw2"], hacia: "Dk" }],
     texto: `"${VECES[k][0].toUpperCase()}${VECES[k].slice(1)} su velocidad" quiere decir que la velocidad final es ${k} veces la inicial: $v_{f}=${k}v_{0}$.`,
     porque: `No sabemos cuánto vale $v_{0}$, pero sí cómo se relaciona con $v_{f}$: eso también es un dato.`,
     regla: `$\\text{${VECES[k]}}\\ \\Rightarrow\\ v_{f}=${k}\\cdot v_{0}$`,
@@ -1282,7 +1289,8 @@ export interface OpcionesCharles {
   volumen?: "mL" | "L";
   enunciado?: string;
 }
-const COLOR_G = { V1: "#2563eb", T1: "#16a34a", T2: "#ea580c" } as const;
+// tres cifras a proposito (los tonos de #2563eb, #16a34a y #ea580c): ver COLOR_M, el ancho de la etiqueta cuenta el color
+const COLOR_G = { V1: "#26e", T1: "#1a4", T2: "#e50" } as const;
 const colG = (k: keyof typeof COLOR_G, tex: string) => `\\textcolor{${COLOR_G[k]}}{${tex}}`;
 const aAtm = (p: number, u: UPresion) => (u === "atm" ? p : p / 760);
 
@@ -1316,19 +1324,21 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
   const uV: U = op.volumen ?? "mL";
   const uT: U = kelvin ? "K" : "C";
   const p = op.presion;
-  // fila de datos: arriba el estado del principio, abajo el del final (en el orden del enunciado: T, P, V)
+  // fila de datos: arriba el estado del principio, abajo el del final (en el orden del enunciado: T, P, V).
+  // Cada estado en dos renglones (temperatura y presion; volumen): en un celular no caben en uno, y los saltos dejan
+  // lugar a la letra que se anota debajo de cada dato (sin salto, la etiqueta cae encima del renglon de abajo).
   const fila: Ficha[] = [
     { id: "DT1", tex: nf(t1) },
     uPieza("DT1u", uT),
-    { id: "Dc1", tex: ",", op: true },
-    ...(p ? [{ id: "DP1", tex: nf(p.p1) }, uPieza("DP1u", p.u1), { id: "Dc2", tex: ",", op: true }] : []),
+    ...(p ? [{ id: "Dc1", tex: ",", op: true }, { id: "DP1", tex: nf(p.p1) }, uPieza("DP1u", p.u1)] : []),
+    { id: "DS1", tex: "", salto: true },
     { id: "DV1", tex: nf(V1) },
     uPieza("DV1u", uV),
     { id: "DS2", tex: "", salto: true },
     { id: "DT2", tex: nf(t2) },
     uPieza("DT2u", uT),
-    { id: "Dc3", tex: ",", op: true },
-    ...(p ? [{ id: "DP2", tex: nf(p.p2) }, uPieza("DP2u", p.u2), { id: "Dc4", tex: ",", op: true }] : []),
+    ...(p ? [{ id: "Dc3", tex: ",", op: true }, { id: "DP2", tex: nf(p.p2) }, uPieza("DP2u", p.u2)] : []),
+    { id: "DS3", tex: "", salto: true },
     { id: "Dq", tex: "V_{2}=\\ ?" },
   ];
   const h = new Hoja(fila);

@@ -30,6 +30,20 @@ const sinColor = (tex: string) => tex.replace(/\\textcolor\{[^}]*\}\{([^}]*)\}/g
 // todas las combinaciones quedan cubiertas sin que la suite tarde
 const POR_COMBINACION = 4;
 const ultimo = (d: Demo) => d.estados[d.estados.length - 1];
+// Ancho aproximado de una formula $...$ de la leyenda. MathText no la parte de renglon: si es larga, se sale en un
+// celular. Las flechas cuentan 3, las ordenes (\cdot, \dots) 1, las llaves y los indices no cuentan. Es una vara
+// gruesa (la medida real es el barrido de ancho, /prueba-animacion/barrido): calibrada a 375 px, la regla
+// "1 mol de compuesto <-> n mol de cada elemento" (44) se salia 13 px y "g de A -> mol de A -> mol de B -> g de B" (43)
+// quedaba a 2 px del borde; lo que hoy cabe holgado mide 34 o menos.
+const ANCHO_FORMULA = 36;
+const anchoFormula = (f: string) =>
+  f
+    .replace(/\\textcolor\{[^}]*\}/g, "")
+    .replace(/\\(longleftrightarrow|longrightarrow|rightarrow|Rightarrow|iff)/g, "@@@")
+    .replace(/\\(text|mathrm)\{([^}]*)\}/g, "$2")
+    .replace(/\\[ ,]/g, " ")
+    .replace(/\\[a-zA-Z]+/g, "#")
+    .replace(/[{}_^]/g, "").length;
 const buscar = (e: Ficha[], id: string) => aplanar(e).find((f) => f.id === id);
 
 /** comprobaciones comunes a toda animacion de estequiometria */
@@ -70,6 +84,10 @@ function comun(d: Demo, etiqueta: string, esperado: string, unidad: string) {
       assert.ok(!/\b(podés|tenés|hacé|mirá|fijate|sabés|querés|vos)\b/i.test(s), `${etiqueta}: voseo en "${s}"`);
       assert.ok(!s.replace(/\$[^$]*\$/g, "").includes("/"), `${etiqueta}: barra suelta en "${s}"`);
     }
+    // DESBORDE: ninguna formula de la leyenda es tan larga que no quepa en un celular (las fracciones se apilan: no se miden)
+    for (const s of [t.texto, t.porque, t.regla ?? "", d.intro])
+      for (const m of s.matchAll(/\$([^$]+)\$/g))
+        if (!m[1].includes("frac")) assert.ok(anchoFormula(m[1]) <= ANCHO_FORMULA, `${etiqueta}: formula larga en la leyenda (${anchoFormula(m[1])}): ${m[1]}`);
   }
 }
 
@@ -101,6 +119,12 @@ describe("estequiometria: tablas", () => {
     } finally {
       delete REACCIONES["_mal"];
     }
+  });
+  test("la vara de ancho de formula atrapa las reglas que se salian y deja pasar las que caben", () => {
+    assert.ok(anchoFormula("1\\ \\text{mol de compuesto}\\longleftrightarrow n\\ \\text{mol de cada elemento}") > ANCHO_FORMULA);
+    assert.ok(anchoFormula("\\text{g de A}\\ \\rightarrow\\ \\text{mol de A}\\ \\rightarrow\\ \\text{mol de B}\\ \\rightarrow\\ \\text{g de B}") > ANCHO_FORMULA);
+    assert.ok(anchoFormula("1\\ \\text{mol de}\\ \\dots\\mathrm{X}_{n}\\dots\\longleftrightarrow n\\ \\text{mol de X}") <= ANCHO_FORMULA);
+    assert.ok(anchoFormula("a\\,\\text{A}\\rightarrow b\\,\\text{B}\\ \\Rightarrow\\ a\\ \\text{mol A}\\longleftrightarrow b\\ \\text{mol B}") <= ANCHO_FORMULA);
   });
   test("decimal con coma del colegio", () => {
     assert.equal(decimal(100), "1");

@@ -52,8 +52,14 @@ export type ModoRegla = "resolver" | "ensenar";
 // `paso` (opcional, desde 0): muestra ese paso quieto, sin recorrer los anteriores (lo usa el barrido de ancho)
 export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo: Demo; modo?: ModoRegla; clave?: string; paso?: number }) {
   const total = demo.estados.length;
-  const [idx, setIdx] = useState(0);
-  const [leyenda, setLeyenda] = useState<Leyenda>({ texto: demo.intro });
+  // con `paso` se arranca ya en ese paso: nada entra animado (el barrido de ancho no mide piezas a medio rebote)
+  const inicio = paso !== undefined && paso > 0 && paso < total ? paso : 0;
+  const [idx, setIdx] = useState(inicio);
+  const [leyenda, setLeyenda] = useState<Leyenda>(
+    inicio === 0
+      ? { texto: demo.intro }
+      : { texto: demo.transiciones[inicio - 1].texto, porque: demo.transiciones[inicio - 1].porque, regla: demo.transiciones[inicio - 1].regla }
+  );
   const [marcados, setMarcados] = useState<string[]>([]);
   const [nuevos, setNuevos] = useState<string[]>([]);
   const [ocupado, setOcupado] = useState(false);
@@ -354,7 +360,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
             const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
             const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
             // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
-            const letras = f.debajo ? f.debajo.replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
+            const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
             const anchoEtiqueta = letras > 0 ? { minWidth: `${(letras * 0.5 * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
             const marcado = marcados.includes(f.id);
             const nuevo = nuevos.includes(f.id);

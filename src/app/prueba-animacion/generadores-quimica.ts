@@ -242,11 +242,13 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
     E.push({ id: "fl", tex: "\\longrightarrow", op: true });
     lado(rel.reaccion.productos, "P");
   }
+  // la ecuacion del intro va en DOS formulas (reactivos con la flecha, y productos): una formula no se parte de
+  // renglon (MathText es nowrap) y la de la glucosa entera casi no cabe en la leyenda de un celular
   const ecuacionTex =
     rel.tipo === "reaccion"
       ? [rel.reaccion.reactivos, rel.reaccion.productos]
           .map((xs) => xs.map(([k, f]) => `${k > 1 ? k : ""}${formulaTex(f)}`).join("+"))
-          .join("\\longrightarrow ")
+          .join("\\longrightarrow$ $")
       : "";
   const unidadPedida = pideU === "g" ? "gramos" : "moles";
   let intro: string;
@@ -267,7 +269,7 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
       resaltar: ["ug", "uq"],
       texto: `Nos dan gramos de ${SUSTANCIAS[A]} y nos piden moles de átomos de ${NOMBRE_ELEMENTO[rel.elemento]}. Gramos y moles son unidades distintas: no se pasa de una a otra directo.`,
       porque: `Los gramos miden cuánto pesa algo y los moles cuentan partículas. El puente entre los dos es la masa molar, lo que pesa un mol.`,
-      regla: `$\\text{gramos}\\ \\rightarrow\\ \\text{moles}\\ \\rightarrow\\ \\text{moles de cada elemento}$`,
+      regla: `$\\text{g}\\ \\rightarrow\\ \\text{mol}\\ \\rightarrow\\ \\text{mol de cada elemento}$`,
     });
   } else {
     paso({
@@ -277,8 +279,8 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
       porque: `La ecuación balanceada relaciona las sustancias contando moles, no gramos. Por eso el camino pasa por los moles.`,
       regla:
         rel.pide === "g"
-          ? `$\\text{g de A}\\ \\rightarrow\\ \\text{mol de A}\\ \\rightarrow\\ \\text{mol de B}\\ \\rightarrow\\ \\text{g de B}$`
-          : `$\\text{g de A}\\ \\rightarrow\\ \\text{mol de A}\\ \\rightarrow\\ \\text{mol de B}$`,
+          ? `$\\text{g A}\\ \\rightarrow\\ \\text{mol A}\\ \\rightarrow\\ \\text{mol B}\\ \\rightarrow\\ \\text{g B}$`
+          : `$\\text{g A}\\ \\rightarrow\\ \\text{mol A}\\ \\rightarrow\\ \\text{mol B}$`,
     });
     // ----- 2) la ecuacion esta balanceada: se cuentan los atomos a cada lado
     const izq = contarLado(rel.reaccion.reactivos);
@@ -496,7 +498,8 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
           ? `Cada molécula de ${SUSTANCIAS[A]} tiene $1$ átomo de ${NOMBRE_ELEMENTO[rel.elemento]}: el $\\mathrm{${rel.elemento}}$ no lleva subíndice. Contado en moles: $1$ mol de ${SUSTANCIAS[A]} tiene $1$ mol de átomos de ${NOMBRE_ELEMENTO[rel.elemento]}.`
           : `Cada molécula de ${SUSTANCIAS[A]} tiene $${rel.k}$ átomos de ${NOMBRE_ELEMENTO[rel.elemento]}: es el subíndice de $${elemTex(rel.elemento, rel.k)}$. Contado en moles: $1$ mol de ${SUSTANCIAS[A]} tiene $${rel.k}$ mol de átomos de ${NOMBRE_ELEMENTO[rel.elemento]}.`,
       porque: `Un mol es siempre la misma cantidad de partículas. Si una molécula trae $${rel.k}$ ${rel.k === 1 ? "átomo" : "átomos"} de $${X}$, un mol de moléculas trae $${rel.k}$ ${rel.k === 1 ? "mol" : "moles"} de átomos de $${X}$.`,
-      regla: `$1\\ \\text{mol de compuesto}\\longleftrightarrow n\\ \\text{mol de cada elemento}$`,
+      // corta: una formula no se parte de renglon (MathText es nowrap) y en un celular no cabia
+      regla: `$1\\ \\text{mol de}\\ \\dots\\mathrm{X}_{n}\\dots\\longleftrightarrow n\\ \\text{mol de X}$`,
     });
   } else {
     const ea = idEspecie.get(A)!;
