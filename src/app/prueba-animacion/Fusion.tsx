@@ -59,6 +59,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
   const [ocupado, setOcupado] = useState(false);
   const [jugando, setJugando] = useState(false);
   const [pausando, setPausando] = useState(false);
+  // hoja achicada: un ejercicio largo cabe mas en un celular (los renglones siguen todos ahi, solo cambia el tamaño)
+  const [compacta, setCompacta] = useState(false);
   const pausaRef = useRef(false);
 
   const idxRef = useRef(0);
@@ -340,7 +342,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
           flexWrap: "wrap",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "clamp(24px, 7vw, 36px)",
+          fontSize: compacta ? "clamp(16px, 4.6vw, 24px)" : "clamp(24px, 7vw, 36px)",
           padding: estado.some((f) => f.debajo) ? "18px 4px 44px" : "18px 4px",
           transition: "padding 0.3s",
         }}
@@ -382,7 +384,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
                         ...anchoEtiqueta,
                       }
                     : f.salto
-                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
+                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: compacta ? (estado.some((g) => g.debajo) ? "40px 0 0" : "8px 0 0") : estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
                       : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", ...anchoEtiqueta }
                 }
               >
@@ -461,7 +463,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
         </AnimatePresence>
       </div>
 
-      <div style={{ minHeight: 78, padding: "10px 12px", borderRadius: 10, background: "var(--bg-subtle)" }}>
+      {/* la explicacion y los botones quedan fijos abajo mientras te desplazas por la hoja de un ejercicio largo */}
+      <div style={{ position: "sticky", bottom: 0, zIndex: 5, background: "var(--bg-card)", paddingTop: 8, paddingBottom: 8, boxShadow: "0 -8px 10px -8px rgba(0,0,0,0.15)" }}>
+      <div style={{ minHeight: 78, maxHeight: "34vh", overflowY: "auto", padding: "10px 12px", borderRadius: 10, background: "var(--bg-subtle)" }}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={leyenda.texto}
@@ -523,9 +527,13 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
         <button style={boton} disabled={ocupado || jugando || idx === 0} onClick={() => irA(0)}>
           Reiniciar
         </button>
+        <button style={boton} onClick={() => setCompacta((c) => !c)}>
+          {compacta ? "Agrandar hoja" : "Achicar hoja"}
+        </button>
         <span style={{ fontSize: 13, color: "var(--fg-muted, #6b6b6b)" }}>
           Paso {idx + 1} de {total}
         </span>
+      </div>
       </div>
     </div>
   );
