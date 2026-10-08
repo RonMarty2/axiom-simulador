@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import Generador from "./Generador";
 import { huellaVistoBueno } from "./huellas";
 import type { Tipo } from "./construir";
+import { leer as leerCambios } from "./revisar-pasos";
 
 export const metadata = { title: "Prueba de animación", robots: { index: false, follow: false } };
 
@@ -37,6 +38,10 @@ export default function Pagina() {
   const vb: Record<string, { huella: string }> = JSON.parse(readFileSync(process.cwd() + "/data/registro-visto-bueno.json", "utf8")).generadores;
   const aprobadas = TARJETAS.filter((t) => vb[t.tipo]?.huella === huellaVistoBueno(t.tipo));
   const pendientes = TARJETAS.filter((t) => !aprobadas.includes(t));
+  // pasos corregidos que Ronald debe mirar (data/cambios-por-revisar.json, se edita con revisar-pasos.ts)
+  const registro = leerCambios();
+  const cambiosDe = (tipo: string) => registro.cambios.filter((c) => c.tipo === tipo).map(({ caso, paso, nota }) => ({ caso, paso, nota }));
+  const pasosPendientes = registro.cambios.length;
   return (
     <main style={{ maxWidth: 720, margin: "0 auto", padding: "24px 16px 64px" }}>
       <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Prueba de animación · por revisar</h1>
@@ -45,13 +50,14 @@ export default function Pagina() {
         «Siguiente» o «Reproducir todo».
       </p>
       <p style={{ fontSize: 14, marginBottom: 20 }}>
-        <strong>{pendientes.length}</strong> por revisar · <strong>{aprobadas.length}</strong> aprobadas ✓
+        <strong>{pendientes.length}</strong> por revisar · <strong>{pasosPendientes}</strong> pasos corregidos para mirar · <strong>{aprobadas.length}</strong> aprobadas ✓
+        {registro.aprobadosPorSilencio.length > 0 && <span> · {registro.aprobadosPorSilencio.length} pasos dados por vistos</span>}
         {aprobadas.length > 0 && <span style={{ color: "var(--fg-muted, #6b6b6b)" }}> ({aprobadas.map((t) => t.titulo.split(" · ").pop()?.split(" (")[0]).join(", ")})</span>}
       </p>
       {pendientes.length === 0 && <p style={{ fontSize: 15 }}>Todo está aprobado.</p>}
       {pendientes.map((t) => (
         <section key={t.tipo} style={tarjeta}>
-          <Generador tipo={t.tipo} titulo={t.titulo} inicial={t.inicial} />
+          <Generador tipo={t.tipo} titulo={t.titulo} inicial={t.inicial} cambios={cambiosDe(t.tipo)} />
         </section>
       ))}
     </main>

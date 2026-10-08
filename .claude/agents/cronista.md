@@ -23,7 +23,7 @@ Para **cada** rama remota sin mergear: `git log --oneline origin/main..<rama> | 
 
 Reportá: rama, commits afuera, fecha, qué archivos toca (`git diff --stat origin/main...<rama>`), y si choca con algo que cambió en `main`. **No mergees vos**: eso lo decide la sesión que te llamó.
 
-**Animaciones (pedido de Ronald, 9-oct):** al cerrar sesión que tocó animaciones, corré `node src/app/prueba-animacion/cobertura.ts --huecos` (debe dar 0) y listá a Ronald los tipos que siguen sin generador (tabla de `docs/cobertura-animaciones.md`) y los pasos que la sesión cambió, para que elija qué sigue. Él no puede quejarse de una animación que no ve: la lista de lo que falta la armás vos.
+**Animaciones (pedido de Ronald, 9-oct):** al cerrar sesión que tocó animaciones, corré `node src/app/prueba-animacion/cobertura.ts --huecos` (debe dar 0) y listá a Ronald los tipos que siguen sin generador (tabla de `docs/cobertura-animaciones.md`) y los pasos que la sesión cambió, para que elija qué sigue. Él no puede quejarse de una animación que no ve: la lista de lo que falta la armás vos. Corré también `node src/app/prueba-animacion/revisar-pasos.ts listar`: cada corrección de la sesión debe estar registrada como paso por revisar, y los pasos "dados por vistos sin observación" deben tener evidencia de que Ronald llegó más allá (si no, avisá).
 
 ## Tarea B · El roadmap contra el código
 
