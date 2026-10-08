@@ -5,55 +5,55 @@
       "estado": "con-hallazgos",
       "huella": "faf74c667ca0",
       "fecha": "2026-10-08",
-      "nota": "Arreglado: signo al frente dicho, n=0 propio, sin tautologias, divisores del g, comprobacion con x entero. Pendiente: sin comprobacion cuando x es fraccion."
+      "nota": "8-oct 2a lectura independiente (4x-5=7, 4x+2=8, 3x+5=2, 4x+2=2, 4x+3=-3). Quedan: sin comprobacion cuando x es fraccion (g=1 o resultado no entero); T2 con n<0 dice x=-6/4 (signo al frente) pero el estado muestra -6 arriba, el signo recien se mueve en T3; listas de divisores solo en el texto; tachar deja un denominador 1 que no se nombra."
     },
     "cuadrados": {
       "estado": "con-hallazgos",
       "huella": "ae47d718fbdf",
-      "fecha": "2026-10-07",
-      "nota": "7-oct: formula en piezas con id; los parentesis viajan a la ecuacion. Quedan: los valores a y b no viajan desde las etiquetas (se resalta y cambia el tex) y falta la comprobacion final."
+      "fecha": "2026-10-08",
+      "nota": "8-oct 2a lectura independiente (k=3, k=12). Quedan: T4/T5 a y b cambian de tex en la formula sin viajar desde sus etiquetas (a=x, b=k); etiquetas a y b aparecen juntas (T2->T3) en vez de una por paso; la expansion x^2+kx-kx-q esta solo en el porque de T5; falta comprobacion final de x=k y x=-k en x^2-q=0; T12 'Sumar 0 no cambia' no cubre 0-k."
     },
     "fracciones": {
       "estado": "con-hallazgos",
       "huella": "cda686281062",
       "fecha": "2026-10-08",
-      "nota": "Arreglado: una fraccion por paso con producto escrito, multiplicadores brotan del denominador, denominadores se funden con ancla, divisores del g. Pendiente: sin paso de comprobacion; ancla sobre parte (g2.d) y la ficha w2 sin verificar en pantalla."
+      "nota": "8-oct 2a lectura independiente (1/2-3/4, 1/4-1/4, 3/6+1/2, 1/3+2/3). Quedan: sin paso de comprobacion; resultado negativo: 4-6=-2 y mover el signo al frente en un solo paso (T9); w2 (numerador) aparece sin brote y solo el denominador viaja al ancla (sin ver en pantalla); listas de divisores solo en texto; tachar deja denominador 1 sin nombrar."
     },
     "logaritmos": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "d6041337a555",
       "fecha": "2026-10-08",
-      "nota": "Segunda lectura sin saltos: log separado, b nacen de la base, exponente 1 como estado, exponente viaja a ser resultado, comprobacion como estado. Ojo visual sin ver en pantalla."
+      "nota": "8-oct auditor independiente: comprobacion final reconstruye 4*8 desde la suma sin que 4 y 8 esten a la vista; 2^5=32 afirmado sin desarrollar y el 5 aparece sin viajar de la suma; en (2,2,2) T2/T6 no cambia nada visible (solo el id)."
     },
     "logaritmos-propiedad": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "ad8ec388afe6",
       "fecha": "2026-10-08",
-      "nota": "Segunda lectura sin saltos: m y n cruzan con su id, b nacen de la base, exponente 1 como estado, exponente viaja, comprobacion como estado. Ojo visual sin ver en pantalla."
+      "nota": "8-oct auditor independiente: comprobacion T8-T9 hace aparecer 6^2 y 36 sin base ni producto a la vista (2*18 ya no esta; el 6 de la base se consumio); T6 solo resalta (agrupable con T7)."
     },
     "potencia": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "4d76acba5d35",
       "fecha": "2026-10-08",
-      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
+      "nota": "8-oct auditor independiente: (1) 2^7=128 de un golpe, las 6 multiplicaciones no se ven y la fila de factores se borra justo antes; (2) con m+n>5 la fila 'g' pasa a 2·2·...·2: se juntan factores a la vista y el resultado ya no se pueden contar. Pendiente: mirar en pantalla."
     },
     "raiz": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "492d966cb963",
       "fecha": "2026-10-08",
-      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
+      "nota": "8-oct auditor independiente: (1) el mayor divisor g sale solo del texto (sin divisores de n y k, como ya se hizo en fracciones); (2) q y r (n1 = q·k1 + r) y 1·k1 solo en el porque; (3) b^n o b^q de un golpe; (4) resultado con radicando sin calcular: 2·raiz3(2^2) en vez de 2·raiz3(4), y raiz3(3^2) se llama 'forma mas simple' siendo raiz3(9) mas simple; (5) el 1 de 1/k desaparece sin rastro al multiplicar exponentes; (6) fila de factores con puntos suspensivos (n>5) no se puede contar."
     },
     "raiz-con-resto": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "0ff4307706b8",
       "fecha": "2026-10-08",
-      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
+      "nota": "8-oct auditor independiente: (1) 'Buscamos una potencia perfecta que divida a 12: 12=4·3' sin buscarla (lista de potencias perfectas y 12÷4=3 faltan); (2) hereda de raiz: g solo en el texto, radicando sin calcular en el resultado cuando r>1, el 1 de 1/k sin rastro; (3) T3 solo resalta (estado igual) por diseño."
     },
     "cuadratica": {
       "estado": "con-hallazgos",
       "huella": "5863c3b90dee",
       "fecha": "2026-10-08",
-      "nota": "8-oct: arreglados los saltos del auditor (a,b,c vuelan de su etiqueta uno por paso; (-5)^2, 4+32, 36=6.6=6^2 son estados; comprobacion con cada cuenta). Pendiente: re-auditar con auditor-de-pasos independiente y mirar en pantalla la formula en linea con 'entre'."
+      "nota": "8-oct auditor independiente: T25-T26 (5+-1 sobre 2) todo en un solo trozo LaTeX sin viajar, x1/x2 y 'o' aparecen sin decirlo; T27-T28 cuentas dentro del trozo; comprobacion reconstruye la ecuacion original desde r1; Delta se nombra sin mostrarse; 44 pasos, agrupables 5-7."
     }
   }
 }
