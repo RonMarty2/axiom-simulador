@@ -32,7 +32,22 @@ export default function Pagina() {
         <Generador tipo="cuadrados" titulo="CAMBIÓ · Diferencia de cuadrados (fórmula con letras, paréntesis y ecuaciones paso a paso)" inicial={["3"]} />
       </section>
       <section style={tarjeta}>
-        <Generador tipo="cuadratica" titulo="Ecuación de segundo grado: ordenar, etiquetar y fórmula general" inicial={["1", "-2", "4", "0", "3", "-2"]} />
+        <Generador tipo="fracciones" titulo="CAMBIÓ · Suma de fracciones (una fracción por paso, el multiplicador nace del denominador)" inicial={["1", "2", "1", "3", "+"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="potencia" titulo="CAMBIÓ · Potencias (se ven los factores y la multiplicación se vuelve suma)" inicial={["2", "3", "4"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="raiz" titulo="CAMBIÓ · Raíces (la raíz se abre en piezas y el índice viaja)" inicial={["2", "5", "2"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="raizResto" titulo="CAMBIÓ · Raíz con factor (12 = 4·3, cuadrado perfecto marcado)" inicial={["2", "2", "2", "3"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="logaritmos" titulo="CAMBIÓ · Suma de logaritmos (exponente viaja, comprobación con pasos)" inicial={["2", "4", "8"]} />
+      </section>
+      <section style={tarjeta}>
+        <Generador tipo="cuadratica" titulo="CAMBIÓ · Ecuación de segundo grado (cada letra vuela de su etiqueta a la fórmula, comprobación con pasos)" inicial={["1", "-2", "4", "0", "3", "-2"]} />
       </section>
     </main>
   );

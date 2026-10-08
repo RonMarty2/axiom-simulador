@@ -134,7 +134,7 @@ describe("generadores de algebra", () => {
     for (const pista of ["Resolvemos $\\log_{2}(4)$", "Resolvemos $\\log_{2}(8)$", "2\\cdot 2=4", "2\\cdot 2\\cdot 2=8","Contamos", "Ahora sí sumamos", "$2+3=5$", "propiedad del producto"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
-    assert.equal(ej.demo.transiciones.length, 7);
+    assert.equal(ej.demo.transiciones.length, 12);
     assert.equal(ej.resumen.k, 5);
     // por propiedad (2 y 18 no son potencias de 6, pero 36 si): marcar, juntar, multiplicar, descomponer, contar, responder
     const prop = sumaLogaritmos(6, 2, 18);
@@ -162,6 +162,110 @@ describe("generadores de algebra", () => {
         assert.ok(e[desde + 1].findIndex((f) => f.id === id) > e[desde + 1].findIndex((f) => f.id === eq), "termina a la derecha del =");
       }
     }
+  });
+
+  test("fracciones: los multiplicadores brotan del DENOMINADOR que los origina, una fraccion por paso", () => {
+    const r = fracciones(1, 2, 1, 3);
+    const [t0, t1, t2, t3, t4, t5] = r.demo.transiciones;
+    assert.deepEqual(t0.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f2.d>m1", "f2.d>k1"]);
+    assert.deepEqual(t1.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f1.d>m2", "f1.d>k2"]);
+    // una fraccion por paso, con el producto escrito antes de calcularlo
+    assert.deepEqual(t2.fusiones[0].desde, ["f1", "m1", "k1"]);
+    assert.ok(r.demo.estados[3].some((f) => f.frac?.n === "1\\cdot 3" && f.frac?.d === "2\\cdot 3"));
+    assert.deepEqual(t3.fusiones[0].desde, ["u1"]);
+    assert.deepEqual(t4.fusiones[0].desde, ["f2", "m2", "k2"]);
+    assert.deepEqual(t5.fusiones[0].desde, ["u2"]);
+    assert.ok(r.demo.estados[3].some((f) => f.frac?.n === "1\\cdot 3"));
+  });
+
+  test("fracciones: el segundo denominador se funde con el primero (ancla), no desaparece sin mas", () => {
+    for (const [a, b, c, d] of [[1, 2, 1, 3], [1, 4, 3, 4], [5, 6, 7, 6]] as const) {
+      const r = fracciones(a, b, c, d);
+      const t = r.demo.transiciones.find((x) => x.fusiones.some((f) => f.ancla && f.ancla.endsWith(".d")));
+      assert.ok(t, `${a}/${b}+${c}/${d}: falta fundir los denominadores con ancla`);
+      assert.ok(t!.fusiones[0].desde[0].endsWith(".d"));
+    }
+  });
+
+  test("simplificar muestra de donde sale el g (divisores) y no escribe tautologias", () => {
+    const f = fracciones(1, 6, 1, 3); // 9/18 -> mcd 9
+    const txt = f.demo.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(txt.includes("Divisores de $9$: $1,\\ 3,\\ 9$"));
+    assert.ok(txt.includes("Divisores de $18$"));
+    assert.ok(txt.includes("Tomamos el mayor: $9$"));
+    // x = 8/4: el denominador ya es el g, no se escribe 4 = 4
+    const l = ecuacionLineal(4, 1, 9);
+    const tl = l.demo.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(!/\$(\d+)=\1\$/.test(tl), "tautologia tipo 4=4");
+    assert.ok(tl.includes("Abajo ya está el $4$"));
+  });
+
+  test("lineal: con n<0 se dice que el signo pasa al frente de la fraccion", () => {
+    const r = ecuacionLineal(4, 5, -7); // n = -12, mcd 4
+    assert.equal(r.resumen.n, -12);
+    const t = r.demo.transiciones.find((x) => x.texto.includes("signo menos delante"));
+    assert.ok(t, "falta el paso del signo");
+    assert.equal(t!.fusiones[0].hacia, "hs");
+    const hs = r.demo.estados.flat().find((f) => f.id === "hs")!;
+    assert.equal(hs.tex, "-\\dfrac{12}{4}");
+    // con n>0 ese paso no existe
+    assert.ok(!ecuacionLineal(4, 1, 9).demo.transiciones.some((x) => x.texto.includes("signo menos delante")));
+  });
+
+  test("lineal: n=0 dice '0 entre a es 0' y no inventa 0=0 por a", () => {
+    const r = ecuacionLineal(4, 3, 3);
+    assert.equal(r.resumen.n, 0);
+    const txt = r.demo.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(txt.includes("Cero entre $4$ es $0$"));
+    assert.ok(!txt.includes("0=0\\cdot"));
+    assert.ok(!txt.includes("Buscamos un factor"));
+  });
+
+  test("lineal: con solucion entera termina comprobando en el enunciado, una operacion por paso", () => {
+    for (const [a, b, c] of [[3, 2, 11], [4, -5, 7], [2, -3, -9]] as const) {
+      const r = ecuacionLineal(a, b, c);
+      if (!r.resumen.exacta) continue;
+      const txt = r.demo.transiciones.map((t) => t.texto).join(" | ");
+      assert.ok(txt.includes("Comprobamos"), `${a}x${b}=${c}: falta comprobar`);
+      assert.ok(txt.includes("Primero la multiplicación") && txt.includes("Ahora la suma"));
+      assert.ok(r.demo.estados.at(-1)!.some((f) => f.id === "ok" && f.tex.includes("checkmark")));
+    }
+    // con x entero seguro: 3x+2=11
+    assert.ok(ecuacionLineal(3, 2, 11).demo.transiciones.some((t) => t.texto.includes("Comprobamos")));
+  });
+
+  test("logaritmos: exponente 1 se escribe como estado, el exponente viaja y los b nacen de la base", () => {
+    // log2(2) + log2(8): el 2 solo tiene exponente 1
+    const r = sumaLogaritmos(2, 2, 8);
+    const t = r.demo.transiciones.find((x) => x.texto.includes("El exponente $1$ nunca se escribe"));
+    assert.ok(t, "falta mostrar b = b^1");
+    assert.deepEqual(t!.brotes, [{ desde: "af1", hacia: "ae" }]);
+    assert.ok(r.demo.estados.some((s) => s.some((f) => f.id === "ae" && f.sup && f.tex === "1")));
+    // el exponente conserva el id hasta la suma: viaja
+    const idx = r.demo.estados.findIndex((s) => s.length === 3 && s.some((f) => f.id === "ae" && !f.sup));
+    assert.ok(idx > 0, "el exponente deja de ser sup y se queda como resultado");
+    // los b de la factorizacion nacen de la base del log (brote desde el log), no aparecen de golpe
+    const fact = sumaLogaritmos(2, 4, 8).demo.transiciones.find((x) => x.texto.includes("Cada $2$ sale de la base"));
+    assert.ok(fact && fact.brotes!.every((b) => b.desde === "zo" || b.desde === "ao"));
+    // la comprobacion es estado, no solo texto
+    const ult = sumaLogaritmos(2, 4, 8).demo.estados.at(-1)!;
+    assert.ok(ult.some((f) => f.tex.includes("2^{5}=32")));
+  });
+
+  test("logaritmos por propiedad: los argumentos cruzan con su id, los b nacen de la base y la comprobacion es estado", () => {
+    const r = sumaLogaritmos(6, 2, 18);
+    const e = r.demo.estados;
+    // m y n existen en el estado de los dos logs y en el del log unico (cruzan)
+    assert.ok(e[0].some((f) => f.id === "m") && e[2].some((f) => f.id === "m"));
+    assert.ok(e[0].some((f) => f.id === "n") && e[2].some((f) => f.id === "n"));
+    const nace = r.demo.transiciones.find((x) => x.texto.includes("Cada $6$ sale de la base"));
+    assert.ok(nace && nace.brotes!.every((b) => b.desde === "o"));
+    // exponente 1 (10: 2 y 5)
+    const uno = sumaLogaritmos(10, 2, 5);
+    assert.ok(uno.demo.transiciones.some((x) => x.texto.includes("El exponente $1$ nunca se escribe")));
+    // el exponente viaja a ser el resultado y la comprobacion queda en la hoja
+    assert.ok(e.at(-1)!.some((f) => f.tex.includes("6^{2}=36")));
+    assert.ok(e.at(-1)!.some((f) => f.id === "e"));
   });
 
   test("rechaza lo que no puede animar", () => {

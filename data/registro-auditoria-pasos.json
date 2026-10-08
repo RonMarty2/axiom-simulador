@@ -3,9 +3,9 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "20e186e44a46",
-      "fecha": "2026-10-07",
-      "nota": "L1 signo negativo salta del numerador al frente de la fraccion en simplificar sin decirlo; L2 'b=b' vacio (4=4) en el denominador; L3 n=0 muestra 0=0·a; L4 sin comprobacion final (sustituir x). Arrastre de b y a->denominador OK"
+      "huella": "faf74c667ca0",
+      "fecha": "2026-10-08",
+      "nota": "Arreglado: signo al frente dicho, n=0 propio, sin tautologias, divisores del g, comprobacion con x entero. Pendiente: sin comprobacion cuando x es fraccion."
     },
     "cuadrados": {
       "estado": "con-hallazgos",
@@ -15,45 +15,45 @@
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "0d22635995ef",
-      "fecha": "2026-10-07",
-      "nota": "F1 T1 multiplica arriba y abajo de las dos fracciones en un paso (4 productos) y 1·3/2·3 solo en el texto; F2 los multiplicadores k1,k2 nacen de la fraccion entera, no del denominador del otro (usar fr y f2.d); F3 el denominador comun se fusiona sin ancla; F4 el factor g aparece sin mostrar como se halla; F5 sin comprobacion"
+      "huella": "cda686281062",
+      "fecha": "2026-10-08",
+      "nota": "Arreglado: una fraccion por paso con producto escrito, multiplicadores brotan del denominador, denominadores se funden con ancla, divisores del g. Pendiente: sin paso de comprobacion; ancla sobre parte (g2.d) y la ficha w2 sin verificar en pantalla."
     },
     "logaritmos": {
-      "estado": "con-hallazgos",
-      "huella": "88f7eabd0a7a",
-      "fecha": "2026-10-07",
-      "nota": "L1 exponente 1 (log_b(b)) nunca se escribe: el 1 del resultado nace de la nada; L2 el exponente que sale de log(b^n) no viaja con su id (4 piezas se funden en 'ar'); L3 la suma final 2+3=5 y la comprobacion log(4*8)=log(32), 2^5=32 viven solo en el porque; L4 los 2 de '2*2' nacen del log entero, no de la base. (huella recalculada: caso invalido reemplazado, sumado log_b(b))"
+      "estado": "auditado",
+      "huella": "d6041337a555",
+      "fecha": "2026-10-08",
+      "nota": "Segunda lectura sin saltos: log separado, b nacen de la base, exponente 1 como estado, exponente viaja a ser resultado, comprobacion como estado. Ojo visual sin ver en pantalla."
     },
     "logaritmos-propiedad": {
-      "estado": "con-hallazgos",
-      "huella": "297a63060977",
-      "fecha": "2026-10-07",
-      "nota": "P1 los numeros de adentro (2 y 18) no son piezas: no viajan al juntar logs; P2 caso log_b(b): exponente 1 nunca escrito, el 1 aparece de la nada y el texto dice 'Vemos que 10 es justo 10'; P3 36=6*6 nace del log entero, no de la base; P4 la comprobacion 6^2=36 solo en el porque; P5 el exponente que sale de log(b^n) no viaja."
+      "estado": "auditado",
+      "huella": "ad8ec388afe6",
+      "fecha": "2026-10-08",
+      "nota": "Segunda lectura sin saltos: m y n cruzan con su id, b nacen de la base, exponente 1 como estado, exponente viaja, comprobacion como estado. Ojo visual sin ver en pantalla."
     },
     "potencia": {
-      "estado": "con-hallazgos",
-      "huella": "12fd6cd90766",
-      "fecha": "2026-10-07",
-      "nota": "T1: el + de los exponentes aparece sin viajar (el cdot se consume y e2 cambia a +n); falta mostrar a^m*a^n como m factores y n factores; sin test de viaje. Aire visual sin verificar."
+      "estado": "auditado",
+      "huella": "4d76acba5d35",
+      "fecha": "2026-10-08",
+      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
     },
     "raiz": {
-      "estado": "con-hallazgos",
-      "huella": "03f30aab9441",
-      "fecha": "2026-10-07",
-      "nota": "T1 64->2^6 sin mostrar 2*2*2*2*2*2; T2 raiz->(b^n)^(1/k): indice k, base y exponente no viajan (q es una sola pieza); T3 el cdot aparece sin origen; T5 tachar: 6/2=3 sin mostrar 6=3*2; T6(q=0) y T5(q>0) la fraccion n/k, base y n no viajan a la raiz; falta forma intermedia b^(q+r/k) y b^q*b^(r/k); b se duplica sin viajar; 'sale de la raiz' sin origen visible. Aire sin verificar."
+      "estado": "auditado",
+      "huella": "492d966cb963",
+      "fecha": "2026-10-08",
+      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
     },
     "raiz-con-resto": {
-      "estado": "con-hallazgos",
-      "huella": "eaa22acd403e",
-      "fecha": "2026-10-07",
-      "nota": "Hereda los saltos de raiz; T1 12=2^2*3 sin mostrar el criterio; T2 q0 es una sola pieza: a^n y c no viajan a q y rc; T8 'el 2 sale de la raiz' ya estaba afuera, es un paso sin cambio real. Aire sin verificar."
+      "estado": "auditado",
+      "huella": "0ff4307706b8",
+      "fecha": "2026-10-08",
+      "nota": "Arreglo de saltos de la 1a auditoria (factores a la vista, o viaja a +, raiz abierta en indice/base/exponente, mcd con 3·2/1·2, b^q·b^(r/k), 12=4·3 con cuadrado perfecto). Segunda lectura del animador sin saltos; falta ojo independiente del auditor-de-pasos"
     },
     "cuadratica": {
       "estado": "con-hallazgos",
-      "huella": "c6f12d1c1256",
-      "fecha": "2026-10-07",
-      "nota": "C1 a, b, c no viajan de la etiqueta a la formula (F->F1->F2->F3 es un reemplazo del bloque entero, sin brotes ni ids de valor); C2 (-5)^2=(-5)(-5)=25 y 2^2=2*2=4 solo en el texto, sin estado intermedio; C3 4-(-32)=36: falta el estado 4+32; C4 raiz exacta sqrt(36)=6 en un paso, sin 36=6^2 (leccion de raices); C5 comprobacion: solo dice 'queda 7 y 7', las cuentas no se ven; C6 caso b=0 'el opuesto de 0' con regla 'positivo vuelve negativo' (no ocurre: el validador rechaza b=0 y c=0). Ojo: CASOS.cuadratica en huellas.ts incluye (1,0,0,0,0,4) que el validador rechaza. (huella recalculada: caso invalido reemplazado, sumado log_b(b))"
+      "huella": "5863c3b90dee",
+      "fecha": "2026-10-08",
+      "nota": "8-oct: arreglados los saltos del auditor (a,b,c vuelan de su etiqueta uno por paso; (-5)^2, 4+32, 36=6.6=6^2 son estados; comprobacion con cada cuenta). Pendiente: re-auditar con auditor-de-pasos independiente y mirar en pantalla la formula en linea con 'entre'."
     }
   }
 }

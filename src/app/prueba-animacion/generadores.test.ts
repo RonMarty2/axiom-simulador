@@ -65,9 +65,96 @@ describe("animaciones de fusion", () => {
   test("el ejemplo clasico √12 tiene el proceso completo, sin saltos", () => {
     const r = raizConFactor(2, 2, 2, 3);
     const texto = r.demo.transiciones.map((t) => t.texto).join(" | ");
-    for (const pista of ["potencia", "exponente", "tacha", "sale de la raíz"]) {
+    for (const pista of ["potencia", "exponente", "tacha", "ya salió de la raíz"]) {
       assert.ok(texto.toLowerCase().includes(pista.toLowerCase()), `falta el paso: ${pista}`);
     }
     assert.ok(r.demo.transiciones.length >= 8);
+  });
+
+  const ids = (e: { id: string }[]) => e.map((f) => f.id);
+  const todosLosTextos = (d: { transiciones: { texto: string; porque: string }[] }) => d.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
+
+  test("potencia: se ven los factores y el · viaja a ser el + (mismo id, sin aparecer de la nada)", () => {
+    for (const [base, m, n] of [[2, 3, 4], ["x", 2, 3], [3, 7, 9]] as const) {
+      const d = potenciaProducto(base, m, n).demo;
+      // el estado de los factores: m factores y n factores, cada grupo con su etiqueta
+      const conFactores = d.estados.find((e) => ids(e).includes("g1"))!;
+      assert.ok(conFactores.find((f) => f.id === "g1")!.debajo?.includes(`${m}`), "falta la etiqueta de los m factores");
+      assert.ok(conFactores.find((f) => f.id === "g2")!.debajo?.includes(`${n}`), "falta la etiqueta de los n factores");
+      // el "por" y el "mas" son LA MISMA ficha: viaja, no se consume y reaparece
+      const antes = d.estados.find((e) => ids(e).includes("b2") && ids(e).includes("g"))!;
+      const despues = d.estados.find((e) => ids(e).includes("e2") && !ids(e).includes("b2"))!;
+      assert.equal(antes.find((f) => f.id === "t")!.tex, "\\cdot");
+      assert.equal(despues.find((f) => f.id === "t")!.tex, "+");
+      // ningun exponente trae el "+" metido en su tex
+      for (const e of d.estados) for (const f of e) if (f.sup && f.id !== "t") assert.ok(!f.tex.includes("+"), `el + no debe ir dentro de ${f.id}`);
+    }
+  });
+
+  test("raiz numerica: 64 = 2·2·2·2·2·2 = 2^6 antes de usar el exponente", () => {
+    const d = raizGeneral(2, 6, 3).demo;
+    assert.ok(d.estados[1][0].tex.includes("2\\cdot 2\\cdot 2\\cdot 2\\cdot 2\\cdot 2") || d.estados[1][0].tex.includes("\\cdots"), "faltan los factores");
+    assert.equal(d.estados[2][0].tex, "\\sqrt[3]{2^{6}}");
+  });
+
+  test("raiz: indice, base y exponente son fichas separadas; el indice viaja al denominador", () => {
+    const d = raizGeneral("x", 6, 4).demo;
+    const abierto = d.estados.find((e) => ids(e).includes("ik") && ids(e).includes("b") && ids(e).includes("x"))!;
+    assert.ok(abierto, "falta el estado con la raiz abierta");
+    const t = d.transiciones.find((t) => t.brotes?.some((b) => b.desde === "ik" && b.hacia === "h.d"))!;
+    assert.ok(t, "el indice debe viajar a h.d");
+    assert.ok(t.brotes!.some((b) => b.desde === "ik" && b.hacia === "h.n"), "el 1 del numerador debe nacer del indice");
+    assert.ok(t.brotes!.some((b) => b.hacia === "o") && t.brotes!.some((b) => b.hacia === "c"), "los parentesis deben nacer de la base y el exponente");
+    // el "por" entre exponentes es una pieza propia (el parentesis de la derecha que se vuelve ·), no va dentro del tex de h
+    for (const e of d.estados) for (const f of e) if (f.id === "h") assert.ok(!f.tex.includes("cdot"), "el · no va dentro de h");
+    assert.ok(d.estados.some((e) => e.some((f) => f.id === "c" && f.tex === "\\cdot")));
+  });
+
+  test("raiz: al simplificar la fraccion se ve de donde sale el factor antes de tachar", () => {
+    const d = raizGeneral("x", 6, 4).demo; // 6/4 = 3·2 / 2·2
+    const i = d.transiciones.findIndex((t) => t.fusiones.some((f) => f.modo === "tachar"));
+    assert.ok(i > 0, "falta tachar");
+    const factorizada = d.estados[i].find((f) => f.id === "xg")!;
+    assert.ok(factorizada.frac!.n.includes("\\cdot") && factorizada.frac!.d.includes("\\cdot"), "falta 3·2 sobre 2·2");
+    assert.ok(d.transiciones[i - 1].texto.includes("mayor número que divide"), "falta nombrar el mcd");
+  });
+
+  test("raiz con exponente fraccionario: base y numerador viajan al radicando, denominador al indice", () => {
+    const d = raizGeneral("x", 2, 3).demo; // x^(2/3)
+    const t = d.transiciones.find((t) => t.brotes?.some((b) => b.hacia === "ik2"))!;
+    assert.ok(t.brotes!.some((b) => b.desde.endsWith(".d") && b.hacia === "ik2"), "el denominador va al indice");
+    assert.ok(t.brotes!.some((b) => b.desde.endsWith(".n") && b.hacia === "nn"), "el numerador queda con la base");
+  });
+
+  test("raiz con parte entera: se ven b^(q+r/k) y b^q·b^(r/k), la base se copia y x^1 se simplifica", () => {
+    for (const base of [2, "x"] as const) {
+      const d = raizGeneral(base, 5, 2).demo; // b^(5/2) = b^(2+1/2)
+      const texto = todosLosTextos(d);
+      assert.ok(texto.includes(`${base}^{2+\\tfrac{1}{2}}=${base}^{2}\\cdot ${base}^{\\tfrac{1}{2}}`), "falta la forma b^q·b^(r/k)");
+      assert.ok(d.transiciones.some((t) => t.brotes?.some((b) => b.desde === "b" && b.hacia === "b2")), "la base debe copiarse con una copia que viaja");
+    }
+    const x1 = raizGeneral("x", 3, 2).demo; // x^(3/2) = x^1 · raiz(x)
+    assert.ok(x1.transiciones.some((t) => t.fusiones.some((f) => f.desde.includes("pq") && f.hacia === null)), "x^1 debe simplificarse a x");
+    const x2 = raizGeneral("x", 5, 2).demo; // x^2 no se simplifica
+    assert.ok(!x2.transiciones.some((t) => t.fusiones.some((f) => f.desde.includes("pq") && f.hacia === null)));
+  });
+
+  test("raiz: nunca dice que algo 'sale de la raiz' cuando ya estaba afuera", () => {
+    const d = raizGeneral(2, 5, 2).demo;
+    assert.ok(!todosLosTextos(d).includes("sale de la raíz"));
+    const r = raizConFactor(2, 2, 2, 3).demo;
+    assert.ok(!r.transiciones[r.transiciones.length - 1].texto.includes("sale de la raíz"));
+  });
+
+  test("raiz con resto: 12 = 4·3 con el 4 marcado como cuadrado perfecto, y despues 4 = 2·2 = 2^2", () => {
+    const d = raizConFactor(2, 2, 2, 3).demo;
+    const texto = todosLosTextos(d);
+    assert.ok(texto.includes("12=4\\cdot 3"));
+    assert.ok(texto.includes("cuadrado perfecto"));
+    assert.ok(d.transiciones.some((t) => t.resaltar?.includes("pv")), "el 4 debe resaltarse");
+    assert.ok(texto.includes("4=2\\cdot 2"));
+    // a^n y c son piezas que viajan a su raiz (con su indice), no un solo q0
+    assert.ok(d.estados.some((e) => ids(e).includes("pa") && ids(e).includes("pc") && ids(e).includes("ik1")));
+    assert.ok(!d.estados.some((e) => ids(e).includes("q0")));
   });
 });
