@@ -5,7 +5,7 @@
       "estado": "con-hallazgos",
       "huella": "66e9bdcbe907",
       "fecha": "2026-10-08",
-      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts."
+      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts. || 9-oct: x fraccionaria negativa arreglada (6·(-4)/3, el signo se queda en el numerador)."
     },
     "cuadrados": {
       "estado": "con-hallazgos",

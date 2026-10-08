@@ -274,7 +274,9 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
       });
     } else {
       // x fraccionaria: el a viaja al numerador, se multiplica arriba y se divide (una operacion por paso)
-      const Cm = fr("Cm", `${pp < 0 ? "-" : ""}${a}\\cdot ${Math.abs(pp)}`, `${qq}`);
+      // el signo se queda con el numerador original: 6·(-4), no (-6)·4
+      const prodN = `${a}\\cdot ${pp < 0 ? `(${pp})` : pp}`;
+      const Cm = fr("Cm", prodN, `${qq}`);
       estados.push([...ultimo, S, Cm, Cb, Ce, Cc]);
       trans.push({
         fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cm", modo: "viajar" }],
@@ -282,7 +284,7 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
           { desde: "Ca", hacia: "Cm.n" },
           { desde: "Cr", hacia: "Cm.d" },
         ],
-        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ viaja al numerador de la fracción y el denominador $${qq}$ se queda: queda $\\dfrac{${pp < 0 ? "-" : ""}${a}\\cdot ${Math.abs(pp)}}{${qq}}$.`,
+        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ viaja al numerador de la fracción y el denominador $${qq}$ se queda: queda $\\dfrac{${prodN}}{${qq}}$.`,
         porque: `En una expresión, la multiplicación se hace antes que la suma. Un número por una fracción es el número por el numerador, sobre el mismo denominador.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
