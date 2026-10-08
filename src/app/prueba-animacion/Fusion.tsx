@@ -49,6 +49,8 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
   const [nuevos, setNuevos] = useState<string[]>([]);
   const [ocupado, setOcupado] = useState(false);
   const [jugando, setJugando] = useState(false);
+  const [pausando, setPausando] = useState(false);
+  const pausaRef = useRef(false);
 
   const idxRef = useRef(0);
   const ocupadoRef = useRef(false);
@@ -219,12 +221,22 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
       irA(0);
       await esperar(500);
     }
+    pausaRef.current = false;
+    setPausando(false);
     setJugando(true);
-    while (idxRef.current < total - 1 && !cancelar.current) {
+    // sigue desde el paso en que esta; se detiene al terminar el paso en curso si se pide pausa
+    while (idxRef.current < total - 1 && !cancelar.current && !pausaRef.current) {
       await avanzar();
-      if (!cancelar.current) await esperar(600);
+      if (!cancelar.current && !pausaRef.current) await esperar(600);
     }
     setJugando(false);
+    setPausando(false);
+  }
+
+  // Pausar: el paso que esta en curso termina (para no dejar piezas a medias) y despues se puede ir atras, adelante o continuar
+  function pausar() {
+    pausaRef.current = true;
+    setPausando(true);
   }
 
   const estado = demo.estados[idx];
@@ -247,6 +259,9 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
         <AnimatePresence mode="popLayout" initial={false}>
           {estado.map((f, pos) => {
             const prevSup = pos > 0 && !!estado[pos - 1].sup;
+            // una fraccion elevada (exponente 5/2) mide dos lineas: se agranda y se sube mas que un exponente comun
+            const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
+            const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
             const marcado = marcados.includes(f.id);
             const nuevo = nuevos.includes(f.id);
             return (
@@ -266,9 +281,9 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                     ? {
                         display: "inline-block",
                         position: "relative",
-                        top: "-0.75em",
-                        fontSize: "0.7em",
-                        margin: prevSup ? "0 0 0 2px" : "0 3px 0 -10px",
+                        top: `-${alza}em`,
+                        fontSize: `${escala}em`,
+                        margin: prevSup ? "0 0 0 2px" : "0 4px 0 -17px",
                       }
                     : f.salto
                       ? { display: "block", flexBasis: "100%", textAlign: "center", margin: estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
@@ -281,7 +296,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                   }}
                   style={{
                     display: "inline-block",
-                    padding: f.sup ? "0 5px" : "2px 8px",
+                    padding: f.sup ? "0 2px" : "2px 8px",
                     borderRadius: f.sup ? 8 : 12,
                     background: marcado ? "var(--accent-soft)" : "transparent",
                     boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
@@ -293,7 +308,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                   {f.frac ? (
                     // fraccion con sus dos partes como piezas propias: se puede
                     // señalar, copiar y mover el numerador o el denominador
-                    <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: "0.85em" }}>
+                    <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: f.sup ? "1em" : "0.85em" }}>
                       <span
                         ref={(el) => {
                           celdas.current[`${f.id}.n`] = el;
@@ -319,18 +334,21 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                 {f.debajo && (
                   // etiqueta debajo de la pieza: no cambia la altura de la fila (va en posicion absoluta)
                   <span
+                    // en una pieza elevada (indice, exponente) la etiqueta baja lo que la pieza subio y se achica
+                    // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
                     style={{
                       position: "absolute",
-                      top: "100%",
+                      top: f.sup ? `calc(100% + ${alza}em + 6px)` : "100%",
                       left: "50%",
                       transform: "translateX(-50%)",
-                      fontSize: "0.54em",
                       whiteSpace: "nowrap",
-                      marginTop: 6,
+                      marginTop: f.sup ? 0 : 6,
                       lineHeight: 1.1,
                     }}
                   >
-                    <Tex tex={f.debajo} />
+                    <span style={{ fontSize: `${0.54 / escala}em` }}>
+                      <Tex tex={f.debajo} />
+                    </span>
                   </span>
                 )}
               </motion.span>
@@ -393,10 +411,10 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
         </button>
         <button
           style={{ ...boton, background: "var(--accent)", color: "var(--accent-fg)", border: "none" }}
-          disabled={ocupado || jugando}
-          onClick={() => void reproducir()}
+          disabled={jugando ? pausando : ocupado}
+          onClick={() => (jugando ? pausar() : void reproducir())}
         >
-          Reproducir todo
+          {jugando ? (pausando ? "Pausando…" : "Pausar") : idx > 0 && idx < total - 1 ? "Continuar" : "Reproducir todo"}
         </button>
         <button style={boton} disabled={ocupado || jugando || idx === 0} onClick={() => irA(0)}>
           Reiniciar
