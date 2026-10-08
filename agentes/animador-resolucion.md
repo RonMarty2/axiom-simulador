@@ -124,6 +124,11 @@ Para materias que no son numéricas hace falta que la ficha pueda ser **texto pl
 - Texto original completo siempre disponible: la animación **acompaña** a la explicación en texto, no la reemplaza (accesibilidad y respaldo si la animación falla).
 - Plantilla sin datos de una pregunta real que la pruebe = plantilla no terminada.
 
+- **Una multiplicación SIEMPRE muestra su operador (Ronald, 8-oct).** Al reemplazar `x` por un número en `3x`, no puede quedar `3 3` (se lee como 33 o como dos cosas sueltas): aparece el punto de multiplicar entre los dos, se ve, y después se calcula. Vale en TODA materia (reemplazar un dato en una fórmula, `2H`, `2·(-3)`). Chequeo pendiente de volver a `main`: ver rama `wip-lineal-8oct` en la bitácora.
+- **Rotulo y datos se distinguen (Ronald, 8-oct).** En "Divisores de 12: 1, 2, 3..." lo que va después de los dos puntos se mezclaba con la frase. El rótulo va normal, los datos en negrita y con un espacio mayor después de los dos puntos. Vale para toda lista con rótulo (divisores, factores, datos, unidades).
+- **El espacio vertical se suma una sola vez (Ronald, 8-oct: "¿no es mucho espacio?").** Entre renglones de la hoja hay un `rowGap` (cabe la etiqueta de arriba) y el `salto` ya no le suma otro margen encima. Antes de tocar espaciado en `Fusion.tsx`, mide con `node scripts/barrido.mjs` Y míralo en pantalla: el barrido solo detecta choques, no si sobra aire.
+- **La página baja sola cuando la resolución crece (Ronald, 8-oct: "pareciera que se perdió").** `Fusion.tsx` desplaza la página para dejar a la vista el último renglón (por encima del panel fijo), espera ~0,9 s a que termine el paso y no se mueve en el barrido. **Sin verificar a ojo todavía.**
+
 ## Qué vigila qué (para no repetir errores con ejercicios nuevos)
 Toda corrección de Ronald termina en un test o en un chequeo. Si una regla de arriba no está en esta tabla, es solo prosa y se puede romper sin que nadie lo note: **conviértela en chequeo o anótala como pendiente.**
 

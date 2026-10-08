@@ -45,7 +45,7 @@ describe("el detector de estilo atrapa los errores conocidos", () => {
     assert.equal(hallazgosEstilo(d, "x", "texto").length, 3);
   });
   test("dos etiquetas nuevas en un mismo paso", () => {
-    const d = demo([[f("a", "1"), f("b", "2")], [f("a", "1", { debajo: "a=1" }), f("b", "2", { debajo: "b=2" })]], [t({ resaltar: ["a", "b"] })]);
+    const d = demo([[f("a", "p"), f("b", "q")], [f("a", "p", { debajo: "a=1" }), f("b", "q", { debajo: "b=2" })]], [t({ resaltar: ["a", "b"] })]);
     assert.equal(hallazgosEstilo(d, "x", "movimiento").length, 1);
   });
 });

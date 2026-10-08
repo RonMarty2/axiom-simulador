@@ -73,6 +73,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
   const ocupadoRef = useRef(false);
   const cancelar = useRef(false);
   const celdas = useRef<Record<string, HTMLElement | null>>({});
+  const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     cancelar.current = false;
@@ -88,6 +89,28 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
     // solo al montar
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Cuando la resolucion crece hacia abajo, la pagina baja sola hasta dejar a la vista el ultimo renglon (si no, parece que se perdio y hay que bajar a buscarlo).
+  // Espera a que termine el movimiento del paso. En el barrido (`paso` fijo) no se mueve nada.
+  useEffect(() => {
+    if (paso !== undefined || idx === inicio) return; // sin paso fijo (barrido) y sin haber avanzado, la pagina no se mueve
+    const t = setTimeout(() => {
+      const panel = panelRef.current;
+      if (!panel) return;
+      const ids = demo.estados[idx].map((f) => f.id).reverse();
+      const ultimo = ids.map((id) => celdas.current[id]).find((el) => el && el.getBoundingClientRect().height > 0);
+      if (!ultimo) return;
+      const r = ultimo.getBoundingClientRect();
+      const etiqueta = demo.estados[idx].some((f) => f.debajo) ? 56 : 16;
+      const limite = window.innerHeight - panel.getBoundingClientRect().height - etiqueta;
+      const reducido = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (r.bottom > limite) window.scrollBy({ top: r.bottom - limite, behavior: reducido ? "auto" : "smooth" });
+      else if (r.top < 8) window.scrollBy({ top: r.top - 8, behavior: reducido ? "auto" : "smooth" });
+    }, 900);
+    return () => clearTimeout(t);
+    // solo cuando cambia el paso
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [idx]);
 
   const factorTiempo = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1);
 
@@ -350,8 +373,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
           justifyContent: "center",
           fontSize: compacta ? "clamp(16px, 4.6vw, 24px)" : "clamp(24px, 7vw, 36px)",
           padding: estado.some((f) => f.debajo) ? "18px 4px 58px" : "18px 4px",
-          // si la fila se parte en dos renglones, la etiqueta de arriba no puede caer sobre el de abajo
-          rowGap: estado.some((f) => f.debajo) ? 40 : 0,
+          // entre renglones (los que se parten solos y los `salto`) cabe la etiqueta de arriba; el margen del salto ya no se suma a esto (Ronald: 'mucho espacio')
+          rowGap: estado.some((f) => f.debajo) ? (compacta ? 30 : 40) : 0,
           transition: "padding 0.3s",
         }}
       >
@@ -394,7 +417,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
                         ...anchoEtiqueta,
                       }
                     : f.salto
-                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: compacta ? (estado.some((g) => g.debajo) ? "40px 0 0" : "8px 0 0") : estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
+                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: compacta ? (estado.some((g) => g.debajo) ? "0" : "8px 0 0") : estado.some((g) => g.debajo) ? "16px 0 0" : "22px 0 0", fontSize: "0.82em" }
                       : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", ...anchoEtiqueta }
                 }
               >
@@ -475,7 +498,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
       </div>
 
       {/* la explicacion y los botones quedan fijos abajo mientras te desplazas por la hoja de un ejercicio largo */}
-      <div style={{ position: "sticky", bottom: 0, zIndex: 5, background: "var(--bg-card)", paddingTop: 8, paddingBottom: 8, boxShadow: "0 -8px 10px -8px rgba(0,0,0,0.15)" }}>
+      <div ref={panelRef} style={{ position: "sticky", bottom: 0, zIndex: 5, background: "var(--bg-card)", paddingTop: 8, paddingBottom: 8, boxShadow: "0 -8px 10px -8px rgba(0,0,0,0.15)" }}>
       <div style={{ minHeight: 78, maxHeight: "34vh", overflowY: "auto", padding: "10px 12px", borderRadius: 10, background: "var(--bg-subtle)" }}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
