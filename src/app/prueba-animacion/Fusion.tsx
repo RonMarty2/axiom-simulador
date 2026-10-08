@@ -41,7 +41,7 @@ export type ModoRegla = "resolver" | "ensenar";
 
 // modo "resolver" (ejercicio resuelto): la regla va dentro del "¿Por qué?".
 // modo "ensenar" (leccion): la regla va destacada, en su propio recuadro.
-export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?: ModoRegla }) {
+export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo; modo?: ModoRegla; clave?: string }) {
   const total = demo.estados.length;
   const [idx, setIdx] = useState(0);
   const [leyenda, setLeyenda] = useState<Leyenda>({ texto: demo.intro });
@@ -59,9 +59,16 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
 
   useEffect(() => {
     cancelar.current = false;
+    // enlace directo a un paso: /prueba-animacion?raiz=4 abre la tarjeta "raiz" en el paso 4 (para ver un paso sin recorrer los anteriores)
+    if (clave) {
+      const n = Number(new URLSearchParams(window.location.search).get(clave));
+      if (Number.isInteger(n) && n >= 1 && n <= total) irA(n - 1);
+    }
     return () => {
       cancelar.current = true;
     };
+    // solo al montar
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const factorTiempo = () => (window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1);
@@ -262,6 +269,9 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
             // una fraccion elevada (exponente 5/2) mide dos lineas: se agranda y se sube mas que un exponente comun
             const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
             const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
+            // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
+            const letras = f.debajo ? f.debajo.replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
+            const anchoEtiqueta = letras > 0 ? { minWidth: `${(letras * 0.5 * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
             const marcado = marcados.includes(f.id);
             const nuevo = nuevos.includes(f.id);
             return (
@@ -283,11 +293,13 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                         position: "relative",
                         top: `-${alza}em`,
                         fontSize: `${escala}em`,
-                        margin: prevSup ? "0 0 0 2px" : "0 4px 0 -17px",
+                        // con etiqueta no se pega a la base: abajo necesita su lugar
+                        margin: prevSup ? "0 0 0 2px" : f.debajo ? "0 8px" : "0 4px 0 -17px",
+                        ...anchoEtiqueta,
                       }
                     : f.salto
                       ? { display: "block", flexBasis: "100%", textAlign: "center", margin: estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
-                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : "0 4px" }
+                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : "0 4px", ...anchoEtiqueta }
                 }
               >
                 <span
@@ -338,7 +350,7 @@ export default function Fusion({ demo, modo = "resolver" }: { demo: Demo; modo?:
                     // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
                     style={{
                       position: "absolute",
-                      top: f.sup ? `calc(100% + ${alza}em + 6px)` : "100%",
+                      top: f.sup ? `calc(100% + ${alza + 0.6}em + 6px)` : "100%",
                       left: "50%",
                       transform: "translateX(-50%)",
                       whiteSpace: "nowrap",

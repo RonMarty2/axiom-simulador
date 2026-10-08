@@ -145,7 +145,7 @@ export default function Generador({ tipo, titulo, inicial }: { tipo: Tipo; titul
       {"error" in resultado && resultado.error ? (
         <p style={{ fontSize: 14, color: "var(--accent)" }}>{resultado.error}</p>
       ) : (
-        "demo" in resultado && resultado.demo && <Fusion key={v.join("|") + modo} demo={resultado.demo} modo={modo} />
+        "demo" in resultado && resultado.demo && <Fusion key={v.join("|") + modo} demo={resultado.demo} modo={modo} clave={tipo} />
       )}
     </div>
   );
