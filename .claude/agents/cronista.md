@@ -23,6 +23,8 @@ Para **cada** rama remota sin mergear: `git log --oneline origin/main..<rama> | 
 
 Reportá: rama, commits afuera, fecha, qué archivos toca (`git diff --stat origin/main...<rama>`), y si choca con algo que cambió en `main`. **No mergees vos**: eso lo decide la sesión que te llamó.
 
+**Animaciones (pedido de Ronald, 9-oct):** al cerrar sesión que tocó animaciones, corré `node src/app/prueba-animacion/cobertura.ts --huecos` (debe dar 0) y listá a Ronald los tipos que siguen sin generador (tabla de `docs/cobertura-animaciones.md`) y los pasos que la sesión cambió, para que elija qué sigue. Él no puede quejarse de una animación que no ve: la lista de lo que falta la armás vos.
+
 ## Tarea B · El roadmap contra el código
 
 El roadmap envejece más rápido que el código: dos veces figuraron abiertos pendientes que ya estaban hechos. Para cada ítem abierto de §8 que se pueda comprobar, comprobalo **en el código**, no en el documento:
