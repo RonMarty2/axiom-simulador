@@ -24,6 +24,14 @@ export function revisar(d: Demo, etiqueta: string) {
   d.estados.forEach((e, i) => {
     const ids = e.map((f) => f.id);
     assert.equal(new Set(ids).size, ids.length, `${etiqueta}: ids repetidos en el estado ${i}`);
+    // DOS NUMEROS PEGADOS SIN OPERADOR: `3` y `3` seguidos en un renglon se leen como 33 (Ronald, 8-oct: `3x` con x=3 dejaba `3 3`).
+    // Una multiplicacion siempre muestra su operador. Un `salto` corta el renglon.
+    for (let k = 1; k < e.length; k++) {
+      const antes = e[k - 1];
+      const ahora = e[k];
+      if (antes.salto || ahora.salto || ahora.op || ahora.sup || antes.sup || antes.frac || ahora.frac) continue;
+      assert.ok(!(/\d$/.test(antes.tex.trim()) && /^\d/.test(ahora.tex.trim())), `${etiqueta}: estado ${i} tiene dos numeros pegados sin operador (${antes.id} "${antes.tex}" y ${ahora.id} "${ahora.tex}")`);
+    }
   });
   d.transiciones.forEach((t, i) => {
     const a = idsConPartes(d.estados[i]);

@@ -65,14 +65,16 @@ function simplificar(
     for (let k = 2; k <= xs.length; k++) {
       const t = Math.ceil(xs.length / k);
       filas = Array.from({ length: Math.ceil(xs.length / t) }, (_, i) => xs.slice(i * t, i * t + t));
-      if (filas.every((f) => f.join(", ").length + 1 <= 24)) break;
+      if (filas.every((f) => f.join(", ").length + 1 <= 20)) break;
     }
     return filas;
   };
   const lista = (rotulo: string, xs: number[]) => {
-    if (`${rotulo} ${xs.join(", ")}`.length <= 34) return `\\scriptsize\\text{${rotulo}}\\ ${xs.join(",\\ ")}`;
+    // el rotulo va normal y los datos en negrita, con un espacio mayor despues de los dos puntos
+    const neg = (ys: number[]) => ys.map((y) => `\\mathbf{${y}}`).join(",\\ ");
+    if (`${rotulo} ${xs.join(", ")}`.length <= 26) return `\\scriptsize\\text{${rotulo}}\\ \\ ${neg(xs)}`;
     const filas = enFilas(xs);
-    const renglones = filas.map((f, i) => `\\scriptsize ${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}`);
+    const renglones = filas.map((f, i) => `\\scriptsize ${neg(f)}${i < filas.length - 1 ? "," : ""}`);
     return `\\begin{array}{l}\\scriptsize\\text{${rotulo}}\\\\ ${renglones.join("\\\\ ")}\\end{array}`;
   };
   // en la explicacion, una lista larga va en varias formulas $...$ para que MathText pueda partir el renglon
@@ -86,7 +88,7 @@ function simplificar(
   const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn) };
   const Dd: Ficha = { id: "Dd", tex: lista(`Divisores de ${d}:`, dd2) };
   const Dc: Ficha = { id: "Dc", tex: lista("En las dos listas:", comunes) };
-  const Dg: Ficha = { id: "Dg", tex: `\\scriptsize\\text{El mayor:}\\ ${g}` };
+  const Dg: Ficha = { id: "Dg", tex: `\\scriptsize\\text{El mayor:}\\ \\ \\mathbf{${g}}` };
   estados.push([...base, Sa, Dn]);
   trans.push({
     fusiones: [],
@@ -256,7 +258,7 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
       porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple.`,
     });
     const [S, Ca, , Cb, Ce, Cc] = linea;
-    estados.push([...ultimo, S, Ca, { id: "Cr", tex: vTex, pegado: true }, Cb, Ce, Cc]);
+    estados.push([...ultimo, S, Ca, { id: "Cr", tex: `\\cdot ${vTex}`, pegado: true }, Cb, Ce, Cc]);
     trans.push({
       fusiones: [{ desde: ["Cx"], hacia: "Cr" }],
       brotes: [{ desde: idX, hacia: "Cr" }],

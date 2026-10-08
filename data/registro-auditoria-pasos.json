@@ -3,9 +3,9 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "dce7ab7fba5c",
+      "huella": "66e9bdcbe907",
       "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: pendientes del 8-oct resueltos (x fraccionaria, texto n<0, listas de divisores como estado, denominador 1 nombrado). Quedan: (1) comprobacion con x negativa no entera: el signo pasa del frente de la fraccion al numerador y se pega al a dentro del paso 'el a viaja' (4x+2=-4: Cm=-4*3/2; 5x+1=-2: Cm=-5*3 y el texto siguiente calcula 5*(-3)); (2) la comprobacion reescribe a, b, c desde '=' (brotes eq>Ca..Cc) sin fila de referencia con el enunciado, a diferencia de cuadrados y fracciones; (3) menores: lista de divisores nace entera en una pieza, cofactor 12=3*4 no se muestra, 6 pasos de divisores para 9/3=3 exacto."
+      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts."
     },
     "cuadrados": {
       "estado": "con-hallazgos",
@@ -15,9 +15,9 @@
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "3cc8c9518b60",
+      "huella": "226d1d94c084",
       "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: pendientes del 8-oct resueltos (signo del resultado en paso propio, comprobacion, numerador viaja a w2 en datos, divisores como estado). Quedan: (1) comprobacion con resultado negativo: el signo cambia de forma sin paso (h=-1/6 se copia como (-1/6)*6 y T siguiente lo mete al numerador -1*6; con -1/3 igual); (2) menores: tres productos y tres divisiones por paso en la comprobacion, el factor *N nace dentro del tex de Ka/Kb/Kc, T2/T3 dicen 'para que sea multiplo' aunque un denominador ya lo era (7/12-1/4 usa 48 en vez de 12). Ver en pantalla el viaje desde g2.n. || 8-oct: solo cambio el LaTeX de las listas largas de divisores (en renglones, por ancho en celular); no se re-audito."
+      "nota": "9-oct (2da pasada, auditor independiente): sigue (1) comprobacion con resultado negativo cambia de forma sin paso; (2) en 5/12+7/8 la comprobacion hace 3 productos y 3 divisiones en un paso (revisar.ts cuenta por fusion, no por transicion); (3) los 8, 12 y 96 pasan por fusion y no viajan; (4) irreducible sin listas; (5) denominador comun 96 y no el mcm 24 (decision de Ronald). Cambios de presentacion: negrita en listas y 'El mayor'."
     },
     "logaritmos": {
       "estado": "con-hallazgos",

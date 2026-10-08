@@ -328,8 +328,8 @@ describe("generadores de algebra", () => {
     const iDn = e.findIndex((s) => s.some((f) => f.id === "Dn"));
     assert.ok(iDn > 0);
     assert.ok(!e[iDn].some((f) => f.id === "Dd"), "primero una lista");
-    assert.ok(e[iDn].find((f) => f.id === "Dn")!.tex.includes("1,\\ 2,\\ 4,\\ 8"));
-    assert.ok(e[iDn + 1].find((f) => f.id === "Dd")!.tex.includes("1,\\ 2,\\ 4"));
+    assert.ok(e[iDn].find((f) => f.id === "Dn")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4},\\ \\mathbf{8}"));
+    assert.ok(e[iDn + 1].find((f) => f.id === "Dd")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4}"));
     const [tn, td] = [r.demo.transiciones[iDn - 1], r.demo.transiciones[iDn]];
     assert.ok(tn.brotes!.every((b) => b.desde === "fr.n"), "los divisores del numerador nacen del numerador");
     assert.ok(td.brotes!.every((b) => b.desde === "fr.d"), "los del denominador nacen del denominador");
@@ -435,14 +435,14 @@ describe("generadores de algebra", () => {
   test("simplificar: ningun renglon de las listas de divisores pasa de 34 caracteres (cabe en un celular de 375 px)", () => {
     // medido en el barrido: 34 caracteres caben en la columna de 343 px; 36 se salen
     const renglones = (t: string) =>
-      t.replace(/\\begin\{array\}\{l\}|\\end\{array\}/g, "").split("\\\\").map((r) => r.replace(/\\scriptsize|\\text\{([^}]*)\}/g, "$1").replace(/\\ /g, " ").replace(/\s+/g, " ").trim());
+      t.replace(/\\begin\{array\}\{l\}|\\end\{array\}/g, "").split("\\\\").map((r) => r.replace(/\\scriptsize|\\text\{([^}]*)\}|\\mathbf\{([^}]*)\}/g, "$1$2").replace(/\\ /g, " ").replace(/\s+/g, " ").trim());
     const demos = [];
     for (let d1 = 2; d1 <= 12; d1++) for (let d2 = 2; d2 <= 12; d2++) for (const n1 of [1, 5, 11, 20]) for (const n2 of [1, 7, 19, 20]) for (const r of [false, true]) demos.push(fracciones(n1, d1, n2, d2, r).demo);
     for (let a = 2; a <= 12; a++) for (const b of [-30, -7, 1, 30]) for (const c of [-99, -60, 11, 89, 99]) if (!validarEcuacionLineal(a, b, c)) demos.push(ecuacionLineal(a, b, c).demo);
     let vistas = 0;
     for (const d of demos) for (const f of d.estados.flat()) if (["Dn", "Dd", "Dc"].includes(f.id)) for (const r of renglones(f.tex)) {
       vistas++;
-      assert.ok(r.length <= 34, `renglon demasiado largo (${r.length}): ${r}`);
+      assert.ok(r.length <= 26, `renglon demasiado largo (${r.length}): ${r}`);
     }
     assert.ok(vistas > 1000);
     // en la explicacion, cada formula de una lista tambien es corta (MathText no parte una formula)
@@ -450,6 +450,6 @@ describe("generadores de algebra", () => {
       for (const m of t.texto.matchAll(/\$([^$]*)\$/g)) assert.ok(m[1].replace(/\\ /g, " ").length <= 34, `formula larga en el texto: ${m[1]}`);
     // y la lista de 96 se parte en renglones parejos, sin un numero suelto
     const l96 = renglones(fracciones(5, 12, 7, 8).demo.estados.flat().find((f) => f.id === "Dd")!.tex);
-    assert.deepEqual(l96, ["Divisores de 96:", "1, 2, 3, 4, 6, 8,", "12, 16, 24, 32, 48, 96"]);
+    assert.deepEqual(l96, ["Divisores de 96:", "1, 2, 3, 4,", "6, 8, 12, 16,", "24, 32, 48, 96"]);
   });
 });

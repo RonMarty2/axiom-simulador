@@ -765,3 +765,5 @@ Ronald pidió que la app se use **lo mejor posible en celular y en tablet**, y d
 
 *Fin de la bitácora v1.9 — Crecé conmigo.*
 
+
+- **9-oct: se rehizo en `main` lo de la ex rama `wip-lineal-8oct` (que nunca existió en el repo).** Comprobación de la lineal con punto visible (`3 · 3`), listas de divisores con datos en negrita y renglones de 20 caracteres (límite del test 26), `El mayor` en negrita, y detector de dos números pegados en `revisar.ts` (excluye `op`, `salto`, `frac`, `sup`). 254 pruebas en verde. `lineal` y `fracciones` quedan `con-hallazgos` tras auditor independiente; pendientes: x fraccionaria negativa en la comprobación, fila de referencia en la lineal, límite de números nuevos por transición (no por fusión) y viaje de los 8/12/96 en fracciones. Falta que Ronald mire en celular las listas, el espaciado y el autodesplazamiento.
