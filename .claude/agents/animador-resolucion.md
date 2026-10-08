@@ -133,7 +133,7 @@ Toda corrección de Ronald termina en un test o en un chequeo. Si una regla de a
 | Texto del alumno: tuteo, sin guion largo, sin `/` `^` `sqrt` `÷` fuera de `$` | `estilo.ts` parte `texto`, llamado desde `revisar.ts` (obligatorio) |
 | ARRASTRAR: lo que desaparece y reaparece igual en otro lugar viaja con su id; pasar al otro lado no escribe el opuesto en los dos lados | `estilo.ts` parte `movimiento`, con trinquete por tipo en `estilo.test.ts` (un tipo nuevo nace con techo 0) |
 | Etiquetas (`debajo`) de una en una | `estilo.ts` parte `movimiento` |
-| Nada se sale del ancho de un celular; **etiquetas no se montan entre sí ni sobre la fórmula** | `/prueba-animacion/barrido?tipo=...` en el navegador (no corre en `npm test`): córrelo para TODOS los tipos antes de mostrarle algo a Ronald (ver lección del 8-oct) |
+| Nada se sale del ancho de un celular; **etiquetas no se montan entre sí ni sobre la fórmula** | `node scripts/barrido.mjs` (Chrome sin ventana a 400 px; necesita `npm run dev`; no corre en `npm test`): córrelo para TODOS los tipos antes de mostrarle algo a Ronald (ver lección del 8-oct) |
 | Cada generador, sus reglas por signo y su comprobación final | el test de ese generador |
 | Pasos como alumno nuevo (saltos de lógica) | agente `auditor-de-pasos`, con huella en `registro-auditoria-pasos.json` |
 | Diseño: aire, colores, movimiento que se entiende | **solo Ronald, mirando la pantalla**. Ningún agente lo ve |

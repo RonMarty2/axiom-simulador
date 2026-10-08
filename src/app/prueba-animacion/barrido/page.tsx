@@ -47,15 +47,16 @@ export default function Barrido() {
         const choca = (a: DOMRect, c: DOMRect) => Math.min(a.right, c.right) - Math.max(a.left, c.left) > 2 && Math.min(a.bottom, c.bottom) - Math.max(a.top, c.top) > 2;
         const dueña = (e: HTMLElement) => e.parentElement as HTMLElement;
         let montadas = 0;
+        const quienes: string[] = [];
         etiquetas.forEach((e, k) => {
           const r = e.getBoundingClientRect();
-          for (const o of etiquetas.slice(k + 1)) if (choca(r, o.getBoundingClientRect())) montadas++;
+          for (const o of etiquetas.slice(k + 1)) if (choca(r, o.getBoundingClientRect())) { montadas++; quienes.push(`«${e.textContent}» con «${o.textContent}»`); }
           el.querySelectorAll<HTMLElement>(".katex").forEach((kx) => {
             if (e.contains(kx) || dueña(e).contains(kx) || kx.closest("[data-etiqueta]")) return;
-            if (choca(r, kx.getBoundingClientRect())) montadas++;
+            if (choca(r, kx.getBoundingClientRect())) { montadas++; quienes.push(`«${e.textContent}» sobre la formula «${(kx.textContent ?? "").slice(0, 25)}»`); }
           });
         });
-        if (montadas > 0) malos.push(`${el.dataset.barrido}: ${montadas} etiqueta(s) montadas`);
+        if (montadas > 0) malos.push(`${el.dataset.barrido}: ${montadas} etiqueta(s) montadas: ${quienes.slice(0, 3).join("; ")}`);
       });
       (window as unknown as { __barrido: string[] }).__barrido = malos;
       setInforme(malos);
@@ -72,6 +73,8 @@ export default function Barrido() {
   return (
     <main style={{ padding: 16 }}>
       <h1 style={{ fontSize: 18 }}>Barrido de ancho ({ANCHO} px): {tipo}</h1>
+      {/* el panel de explicacion es sticky en la app (se pega abajo de la pantalla); aqui cada bloque esta fuera de pantalla y se pegaria ENCIMA de la hoja: se apaga para medir */}
+      <style>{`[data-barrido] [style*="sticky"] { position: static !important; }`}</style>
       <p id="informe" style={{ fontSize: 14 }}>{informe.length === 0 ? "midiendo…" : `${informe.length} paso(s) se salen`}</p>
       {armados.map(({ c, r }) =>
         "demo" in r ? (

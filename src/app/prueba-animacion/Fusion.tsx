@@ -349,7 +349,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
           alignItems: "center",
           justifyContent: "center",
           fontSize: compacta ? "clamp(16px, 4.6vw, 24px)" : "clamp(24px, 7vw, 36px)",
-          padding: estado.some((f) => f.debajo) ? "18px 4px 44px" : "18px 4px",
+          padding: estado.some((f) => f.debajo) ? "18px 4px 58px" : "18px 4px",
+          // si la fila se parte en dos renglones, la etiqueta de arriba no puede caer sobre el de abajo
+          rowGap: estado.some((f) => f.debajo) ? 40 : 0,
           transition: "padding 0.3s",
         }}
       >
@@ -361,7 +363,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
             const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
             // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
             const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
-            const anchoEtiqueta = letras > 0 ? { minWidth: `${(letras * 0.5 * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
+            // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
+            const iguales = f.debajo ? (f.debajo.match(/=/g) ?? []).length : 0;
+            const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
             const marcado = marcados.includes(f.id);
             const nuevo = nuevos.includes(f.id);
             // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
