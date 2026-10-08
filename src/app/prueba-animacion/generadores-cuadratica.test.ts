@@ -1,6 +1,6 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import type { Ficha } from "./datos.ts";
+import { aplanar, type Ficha } from "./datos.ts";
 import { revisar } from "./revisar.ts";
 import { cuadratica, validarCuadratica } from "./generadores-cuadratica.ts";
 
@@ -78,7 +78,7 @@ describe("ecuacion de segundo grado", () => {
 
   test("pasar un termino al otro lado es ARRASTRAR la misma pieza (mismo id) que cambia de signo, sin duplicarla", () => {
     const r = cuadratica(1, 0, 0, 0, 5, -6); // x^2 = 5x - 6: pasan -6 y 5x
-    const e = r.demo.estados;
+    const e = r.demo.estados.map(aplanar);
     const pasos = r.demo.transiciones.map((t, i) => ({ t, i })).filter(({ t }) => t.texto.startsWith("Pasamos"));
     assert.equal(pasos.length, 2, "un paso por cada termino de la derecha");
     for (const { t, i } of pasos) {
@@ -199,7 +199,7 @@ describe("saltos de la formula general", () => {
       assert.equal(validarCuadratica(a1, b1, c1, a2, b2, c2), null);
       const r = cuadratica(a1, b1, c1, a2, b2, c2);
       const { a, b, c } = r.resumen;
-      const e = r.demo.estados;
+      const e = r.demo.estados.map(aplanar);
       const t = r.demo.transiciones;
       const idx = (letra: string) => t.findIndex((x) => x.texto.startsWith(`Reemplazamos $${letra}$`));
       const [ia, ib, ic] = [idx("a"), idx("b"), idx("c")];
@@ -260,35 +260,35 @@ describe("saltos de la formula general", () => {
   test("los intermedios son estados: (-5)^2 = (-5).(-5) = 25 y 2^2 = 2.2 = 4", () => {
     const neg = cuadratica(1, -5, 6).demo; // b negativo
     const pos = cuadratica(1, 4, 3).demo; // b positivo
-    const piezas = (d: typeof neg) => d.estados.flat().map((f) => limpia(f.tex));
+    const piezas = (d: typeof neg) => d.estados.flatMap(aplanar).map((f) => limpia(f.tex));
     for (const p of ["(-5)\\cdot(-5)", "25"]) assert.ok(piezas(neg).includes(p), `falta el estado ${p}`);
     for (const p of ["4\\cdot4", "16"]) assert.ok(piezas(pos).includes(p), `falta el estado ${p}`);
     // 2^2 = 2.2 = 4 (b = 2)
     const dos = cuadratica(2, 2, -4).demo;
     for (const p of ["2\\cdot2", "4"]) assert.ok(piezas(dos).includes(p), `falta el estado ${p}`);
     // el cuadrado y su producto estan en pasos distintos
-    const iProd = neg.estados.findIndex((e) => e.some((f) => limpia(f.tex) === "(-5)\\cdot(-5)"));
-    const iRes = neg.estados.findIndex((e) => e.some((f) => f.id === "Pn"));
+    const iProd = neg.estados.findIndex((e) => aplanar(e).some((f) => limpia(f.tex) === "(-5)\\cdot(-5)"));
+    const iRes = neg.estados.findIndex((e) => aplanar(e).some((f) => f.id === "Pn"));
     assert.ok(iProd >= 0 && iRes === iProd + 1);
   });
 
   test("restar un negativo pasa por la suma: 4-(-32) = 4+32 = 36", () => {
     const r = cuadratica(2, 2, -4); // D = 4 + 32
-    const piezas = r.demo.estados.flat().map((f) => limpia(f.tex));
+    const piezas = r.demo.estados.flatMap(aplanar).map((f) => limpia(f.tex));
     assert.ok(piezas.includes("4+32"), "falta el estado 4+32");
     assert.ok(piezas.includes("36"));
-    const i = r.demo.estados.findIndex((e) => e.some((f) => limpia(f.tex) === "4+32"));
-    assert.ok(r.demo.estados[i - 1].some((f) => limpia(f.tex) === "(-32)"), "antes estaba la resta de un negativo");
-    assert.ok(r.demo.estados[i + 1].some((f) => limpia(f.tex) === "36"), "despues se calcula");
+    const i = r.demo.estados.findIndex((e) => aplanar(e).some((f) => limpia(f.tex) === "4+32"));
+    assert.ok(aplanar(r.demo.estados[i - 1]).some((f) => limpia(f.tex) === "(-32)"), "antes estaba la resta de un negativo");
+    assert.ok(aplanar(r.demo.estados[i + 1]).some((f) => limpia(f.tex) === "36"), "despues se calcula");
     // con 4ac positivo no se inventa la conversion
-    assert.ok(!cuadratica(1, 4, 3).demo.estados.flat().some((f) => f.id === "Dm"));
+    assert.ok(!cuadratica(1, 4, 3).demo.estados.flatMap(aplanar).some((f) => f.id === "Dm"));
   });
 
   test("la raiz pasa por 36 = 6.6 = 6^2 y se tacha con su exponente antes de quedar 6", () => {
     for (const caso of [[1, -3, -4, 0, 0, 0], [2, 2, -4, 0, 0, 0]] as Caso[]) {
       const r = cuadratica(...caso);
       const { d, D } = r.resumen;
-      const e = r.demo.estados;
+      const e = r.demo.estados.map(aplanar);
       const iDD = e.findIndex((s) => s.some((f) => f.id === "Dd" && f.tex === String(D)));
       const iProd = e.findIndex((s) => s.some((f) => f.id === "Rdd" && limpia(f.tex) === `${d}\\cdot${d}`));
       const iPot = e.findIndex((s) => s.some((f) => f.id === "Rds"));
@@ -303,7 +303,7 @@ describe("saltos de la formula general", () => {
 
   test("la comprobacion muestra la sustitucion y cada cuenta, una operacion por paso", () => {
     const r = cuadratica(1, -5, 6); // x = 3 y 2
-    const e = r.demo.estados;
+    const e = r.demo.estados.map(aplanar);
     const t = r.demo.transiciones;
     const textos = t.map((x) => x.texto);
     const iEmpieza = textos.findIndex((x) => x.startsWith("Comprobamos $x_{1}=3$"));
@@ -350,29 +350,47 @@ describe("saltos de la formula general", () => {
 
 // ---- arreglos de la auditoria independiente (8-oct): piezas que viajan, Delta visible, fila de referencia, mas corto
 describe("arreglos de la auditoria independiente", () => {
-  test("x=(5±1)/2: se llaman x1 y x2, las piezas se copian por brote, la suma es una fusion de piezas y la raya es una fraccion con partes", () => {
+  test("x=(5±1)/2: se llaman x1 y x2, la fraccion se copia por brote, la suma es una fusion de piezas y la raya es real", () => {
     const r = cuadratica(1, -5, 6);
     const t = r.demo.transiciones;
-    const e = r.demo.estados;
+    const e = r.demo.estados.map(aplanar);
     const iAbre = t.findIndex((x) => x.texto.includes("Llamamos $x_{1}$ y $x_{2}$"));
     assert.ok(iAbre >= 0, "falta decir que se llaman x1 y x2");
-    const origenes = new Set(t[iAbre].brotes!.map((br) => br.desde));
-    for (const o of ["Rnb", "Rd", "Rden"]) assert.ok(origenes.has(o), `el brote sale de ${o}`);
+    // la fraccion de x2 nace de la de x1, y el = de x2 nace del =
+    assert.ok(t[iAbre].brotes!.some((br) => br.desde === "F" && br.hacia === "Q2"), "la fraccion de x2 se copia de la formula");
+    assert.ok(t[iAbre].brotes!.some((br) => br.desde === "Fe" && br.hacia === "E2"), "el = de x2 nace del =");
     // la suma 5+1 y la resta 5-1 son fusiones de TRES piezas separadas (numero, signo, numero)
     const iSuma = t.findIndex((x) => x.texto.includes("$5+1=6$"));
     assert.ok(iSuma > iAbre);
     assert.deepEqual(t[iSuma].fusiones.map((f) => f.desde.length), [3, 3]);
     for (const f of t[iSuma].fusiones[0].desde) assert.ok(e[iSuma].some((p) => p.id === f), "las piezas estaban sueltas");
-    // la raya: fraccion con partes y modo viajar; "÷" nunca
-    const iFr = iSuma + 1;
-    assert.ok(t[iFr].fusiones.every((f) => f.modo === "viajar"));
-    assert.ok(e[iFr + 1].some((p) => p.frac), "la fraccion tiene partes");
-    assert.ok(t[iFr].brotes!.some((br) => br.hacia.endsWith(".n")) && t[iFr].brotes!.some((br) => br.hacia.endsWith(".d")));
-    // despues la fraccion se calcula: 6/2 = 3
-    assert.ok(t[iFr + 1].texto.includes("\\dfrac{6}{2}=3"));
+    // las dos son fracciones con piezas (raya real) y despues se calculan: 6/2 = 3
+    assert.ok(e[iSuma + 1].filter((p) => p.frac?.nPiezas).length === 2, "dos fracciones con piezas");
+    assert.ok(t[iSuma + 1].texto.includes("\\dfrac{6}{2}=3"));
     assert.ok(!t.some((x) => `${x.texto} ${x.porque}`.includes("÷")));
     // ya no hay una ficha unica con "x_{1}=\dfrac{...}" ni "ó" pegado
     assert.ok(!e.flat().some((p) => p.tex.includes("x_{1}=")), "x1 y su valor son piezas distintas");
+  });
+
+  test("la formula es una fraccion con raya real desde que aparece: letras en piezas, raiz que abarca el radicando, sin 'entre'", () => {
+    for (const caso of EJEMPLOS) {
+      const r = cuadratica(...caso);
+      const t = r.demo.transiciones;
+      const i = t.findIndex((x) => x.texto.includes("debajo la fórmula"));
+      const F = r.demo.estados[i + 1].find((f) => f.id === "F")!;
+      assert.deepEqual(F.frac?.nPiezas?.map((p) => p.id), ["Fneg", "Fb1", "Fpm", "Fr"], "arriba: -b, mas o menos y la raiz");
+      assert.deepEqual(F.frac?.dPiezas?.map((p) => p.id), ["F2", "Fa2"], "abajo: 2a");
+      const raizF = F.frac!.nPiezas!.find((p) => p.id === "Fr")!;
+      assert.deepEqual(raizF.rad?.map((p) => p.id), ["Fb2", "Fs2", "Fmn", "F4", "Fa1", "Fc"], "la raiz abarca b^2-4ac");
+      // ningun estado escribe la division con la palabra "entre" ni con parentesis sueltos de la raiz
+      for (const s of r.demo.estados.flatMap(aplanar)) {
+        assert.ok(!s.tex.includes("entre") && !s.tex.includes("\\surd"), `${caso.join(",")}: queda ${s.tex}`);
+        if (/^F(o|c1|c2|en)$/.test(s.id)) assert.fail(`${caso.join(",")}: queda la pieza ${s.id}`);
+      }
+      // la fraccion sigue con raya hasta que se divide (nunca vuelve a escribirse en linea)
+      const iDiv = t.findIndex((x) => x.texto.startsWith("Dividimos"));
+      for (let k = i + 1; k <= iDiv; k++) assert.ok(r.demo.estados[k].some((f) => f.frac?.nPiezas), `${caso.join(",")}: E${k} sin fraccion`);
+    }
   });
 
   test("Delta se ve: la pieza del discriminante lleva la etiqueta Delta y el paso la nombra", () => {
@@ -381,19 +399,19 @@ describe("arreglos de la auditoria independiente", () => {
       const t = r.demo.transiciones;
       const i = t.findIndex((x) => x.texto.includes("se escribe $\\Delta$"));
       assert.ok(i >= 0);
-      assert.ok(r.demo.estados[i + 1].some((f) => f.id === "Dd" && f.debajo === "\\Delta"), "el estado siguiente muestra Delta");
+      assert.ok(aplanar(r.demo.estados[i + 1]).some((f) => f.id === "Dd" && f.debajo === "\\Delta"), "el estado siguiente muestra Delta");
     }
   });
 
   test("la raiz de 0 y de 1 es un solo paso; desde 4 se mantiene el proceso completo", () => {
     const uno = cuadratica(1, -5, 6); // D = 1
-    assert.ok(!uno.demo.estados.flat().some((f) => f.id === "Rdd"), "sin 1.1 ni 1^2");
+    assert.ok(!uno.demo.estados.flatMap(aplanar).some((f) => f.id === "Rdd"), "sin 1.1 ni 1^2");
     assert.ok(uno.demo.transiciones.some((x) => x.texto.includes("\\sqrt{1}=1")));
     const cero = cuadratica(1, -4, 4); // D = 0
-    assert.ok(!cero.demo.estados.flat().some((f) => f.id === "Rdd"));
+    assert.ok(!cero.demo.estados.flatMap(aplanar).some((f) => f.id === "Rdd"));
     const cuatro = cuadratica(1, 0, 0, 0, 5, -6 + 0); // D = 1 tambien: solo para verificar que no rompe
     assert.equal(cuatro.resumen.d, 1);
-    assert.ok(cuadratica(1, -3, -4).demo.estados.flat().some((f) => f.id === "Rdd"), "D = 25 conserva el proceso");
+    assert.ok(cuadratica(1, -3, -4).demo.estados.flatMap(aplanar).some((f) => f.id === "Rdd"), "D = 25 conserva el proceso");
   });
 
   test("la regla del paso que calcula b.b no es la inversa (n.n = n^2) y la comprobacion no repite 3.3", () => {
@@ -415,7 +433,7 @@ describe("arreglos de la auditoria independiente", () => {
   test("la comprobacion nace de la fila de referencia, que existe desde el primer paso y se queda", () => {
     for (const caso of EJEMPLOS) {
       const r = cuadratica(...caso);
-      const e = r.demo.estados;
+      const e = r.demo.estados.map(aplanar);
       assert.ok(!e[0].some((f) => f.id === "RefS"), "al empezar solo esta el enunciado");
       assert.ok(r.demo.transiciones[0].brotes!.some((br) => br.hacia === "RefS"), "la referencia nace de la ecuacion en el primer paso");
       for (const s of e.slice(1)) assert.ok(s.some((f) => f.id === "RefS"), "la referencia no desaparece");

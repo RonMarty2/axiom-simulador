@@ -5,9 +5,17 @@ import { useEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import Tex from "./Tex";
 import katex from "katex";
-import type { Demo, Fusion as FusionDatos, Visita } from "./datos";
+import { aplanar, hijas, type Demo, type Ficha, type Fusion as FusionDatos, type Visita } from "./datos";
 
 const esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+// cuanto se puede agrandar una fraccion con piezas en un celular: la formula general completa (~17 signos arriba) es 1
+const escalaFraccion = (f: Ficha) => {
+  const largo = aplanar(f.frac?.nPiezas ?? [])
+    .map((p) => p.tex.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}^ ]/g, ""))
+    .join("").length;
+  return Math.min(2, Math.max(1, 17 / Math.max(largo, 1)));
+};
 
 const boton: React.CSSProperties = {
   padding: "8px 14px",
@@ -177,11 +185,12 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
       hacia: b.hacia,
       rect: celdas.current[b.desde]?.getBoundingClientRect() ?? null,
       // si la pieza de origen desaparece (pasa de lugar), la que viaja es ella misma: no se encoge ni se desvanece
-      viaja: !demo.estados[i + 1].some((f) => f.id === b.desde),
+      viaja: !aplanar(demo.estados[i + 1]).some((f) => f.id === b.desde),
     }));
 
-    const antes = new Map(demo.estados[i].map((f) => [f.id, f.tex]));
-    setNuevos(demo.estados[i + 1].filter((f) => antes.get(f.id) !== f.tex).map((f) => f.id));
+    // se resaltan las piezas que cambian; una fraccion o raiz con piezas no se pinta entera, solo lo que cambio adentro
+    const antes = new Map(aplanar(demo.estados[i]).map((f) => [f.id, f.tex]));
+    setNuevos(aplanar(demo.estados[i + 1]).filter((f) => hijas(f).length === 0 && antes.get(f.id) !== f.tex).map((f) => f.id));
     idxRef.current = i + 1;
     setIdx(i + 1);
     if (origenes.length > 0 && k > 0) {
@@ -248,6 +257,77 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
 
   const estado = demo.estados[idx];
 
+  // ---- piezas DENTRO de una fraccion o de una raiz (la formula general con sus letras): cada una con su ref,
+  // para que se pueda marcar, tachar, juntar o ser origen y destino de un brote. No tienen animacion propia de
+  // entrada o salida (aparecen y se van con el cambio de estado); los gestos de la transicion si las alcanzan.
+  const fila = (fs: Ficha[]) => (
+    <span style={{ display: "inline-flex", alignItems: "baseline", whiteSpace: "nowrap" }}>
+      {fs.map((h, j) => interna(h, fs[j - 1]))}
+    </span>
+  );
+  // cuerpo de una fraccion con piezas (arriba, raya, abajo) o de una raiz con piezas (signo y raya sobre el radicando)
+  const compuesta = (f: Ficha) => {
+    if (f.rad) return null;
+    const n = f.frac?.nPiezas ?? [];
+    const d = f.frac?.dPiezas ?? [];
+    // si algo de arriba lleva etiqueta debajo (el Δ), se deja lugar entre el numerador y la raya
+    const etiquetaArriba = aplanar(n).some((h) => h.debajo);
+    return (
+      <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", verticalAlign: "middle" }}>
+        <span style={{ paddingBottom: etiquetaArriba ? "1.05em" : 0, transition: "padding 0.3s" }}>{fila(n)}</span>
+        <span style={{ alignSelf: "stretch", height: 2, background: "currentColor", margin: "2px 0", borderRadius: 1 }} />
+        <span>{fila(d)}</span>
+      </span>
+    );
+  };
+  function interna(f: Ficha, prev: Ficha | undefined): React.ReactNode {
+    const marcado = marcados.includes(f.id);
+    const nuevo = nuevos.includes(f.id);
+    const ref = (el: HTMLElement | null) => {
+      celdas.current[f.id] = el;
+    };
+    const caja: React.CSSProperties = {
+      display: "inline-block",
+      position: "relative",
+      // poco aire: una formula con muchas piezas tiene que caber en 375 px
+      padding: "0 1px",
+      borderRadius: 8,
+      background: marcado ? "var(--accent-soft)" : "transparent",
+      boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
+      color: nuevo ? "var(--accent)" : f.op ? "var(--fg-muted, #7a7a7a)" : "inherit",
+      fontWeight: nuevo ? 700 : 400,
+      transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
+    };
+    const margen = f.sup ? (prev?.sup ? "0 0 0 1px" : "0 1px 0 -1px") : f.pegado ? "0 0 0 -1px" : f.op ? "0 0.1em" : "0 1px";
+    if (f.rad) {
+      // la raiz abarca su radicando: el signo es la pieza (se marca y se tacha), la raya de arriba cubre todo lo de adentro
+      return (
+        <span key={f.id} style={{ display: "inline-flex", alignItems: "stretch", margin: "0 2px", alignSelf: "stretch" }}>
+          <span ref={ref} style={{ ...caja, display: "inline-flex", padding: "0 1px", borderRadius: 6 }}>
+            <svg viewBox="0 0 12 24" preserveAspectRatio="none" style={{ width: "0.62em", height: "100%", overflow: "visible" }} aria-hidden>
+              <path d="M0 14 L3 12 L7 23.5 L12 1" fill="none" stroke="currentColor" strokeWidth="1.6" vectorEffect="non-scaling-stroke" strokeLinejoin="round" />
+            </svg>
+          </span>
+          <span style={{ display: "inline-flex", alignItems: "baseline", borderTop: "2px solid currentColor", padding: f.rad.some((h) => h.sup) ? "0.4em 2px 0" : "3px 2px 0", marginLeft: -2 }}>
+            {f.rad.map((h, j) => interna(h, f.rad![j - 1]))}
+          </span>
+        </span>
+      );
+    }
+    return (
+      <span key={f.id} style={{ display: "inline-block", position: "relative", margin: margen, ...(f.sup ? { fontSize: "0.65em", top: "-0.85em" } : {}) }}>
+        <span ref={ref} style={caja}>
+          {f.frac?.nPiezas || f.frac?.dPiezas ? compuesta(f) : <Tex tex={f.tex} />}
+        </span>
+        {f.debajo && (
+          <span style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", whiteSpace: "nowrap", lineHeight: 1, fontSize: "0.6em", marginTop: 2 }}>
+            <Tex tex={f.debajo} />
+          </span>
+        )}
+      </span>
+    );
+  }
+
   return (
     <div>
       <div
@@ -274,6 +354,8 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
             const anchoEtiqueta = letras > 0 ? { minWidth: `${(letras * 0.5 * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
             const marcado = marcados.includes(f.id);
             const nuevo = nuevos.includes(f.id);
+            // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
+            const conPiezas = !!(f.frac?.nPiezas || f.frac?.dPiezas);
             return (
               <motion.span
                 key={f.id}
@@ -299,7 +381,7 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
                       }
                     : f.salto
                       ? { display: "block", flexBasis: "100%", textAlign: "center", margin: estado.some((g) => g.debajo) ? "72px 0 0" : "22px 0 0", fontSize: "0.82em" }
-                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : "0 4px", ...anchoEtiqueta }
+                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", ...anchoEtiqueta }
                 }
               >
                 <span
@@ -308,7 +390,7 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
                   }}
                   style={{
                     display: "inline-block",
-                    padding: f.sup ? "0 2px" : "2px 8px",
+                    padding: f.sup ? "0 2px" : conPiezas ? "2px" : "2px 8px",
                     borderRadius: f.sup ? 8 : 12,
                     background: marcado ? "var(--accent-soft)" : "transparent",
                     boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
@@ -317,7 +399,15 @@ export default function Fusion({ demo, modo = "resolver", clave }: { demo: Demo;
                     transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
                   }}
                 >
-                  {f.frac ? (
+                  {f.frac?.nPiezas || f.frac?.dPiezas ? (
+                    // fraccion con PIEZAS arriba y abajo (la formula general): raya real desde que aparece
+                    // en un celular se achica con el ancho de pantalla, para que x = (fraccion) quepa en un renglon
+                    // (medido: 13 px a 375, 12 px a 360; en escritorio queda en 0.8em)
+                    // una fraccion corta (5+1 sobre 2) no necesita achicarse tanto: se agranda segun lo largo del numerador
+                    <span style={{ display: "inline-block", fontSize: f.sup ? "1em" : `min(0.8em, calc((5.3vw - 7px) * ${escalaFraccion(f)}))` }}>{compuesta(f)}</span>
+                  ) : f.rad ? (
+                    fila([f])
+                  ) : f.frac ? (
                     // fraccion con sus dos partes como piezas propias: se puede
                     // señalar, copiar y mover el numerador o el denominador
                     <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: f.sup ? "1em" : "0.85em" }}>

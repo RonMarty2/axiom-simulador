@@ -18,8 +18,48 @@ export interface Ficha {
   debajo?: string;
   /** la pieza empieza en un renglon nuevo (la formula debajo de la ecuacion) */
   salto?: boolean;
-  /** fraccion con partes propias: se pueden señalar como "<id>.n" (numerador) y "<id>.d" (denominador) */
-  frac?: { n: string; d: string };
+  /** fraccion con partes propias: se pueden señalar como "<id>.n" (numerador) y "<id>.d" (denominador).
+   *  Con `nPiezas`/`dPiezas`, arriba y abajo de la raya van PIEZAS con id (la formula general con sus letras):
+   *  cada una se puede marcar, tachar, ser origen o destino de un brote, y cambiar sola. `n` y `d` se ignoran. */
+  frac?: { n: string; d: string; nPiezas?: Ficha[]; dPiezas?: Ficha[] };
+  /** raiz cuadrada que ABARCA piezas con id: el signo √ (la pieza misma) con su raya encima del radicando */
+  rad?: Ficha[];
+}
+
+/** las piezas que lleva adentro una ficha (las de una fraccion con piezas o las de una raiz) */
+export const hijas = (f: Ficha): Ficha[] => [...(f.frac?.nPiezas ?? []), ...(f.frac?.dPiezas ?? []), ...(f.rad ?? [])];
+/** todas las fichas de un estado, incluidas las que estan dentro de otra (en orden de lectura) */
+export const aplanar = (e: Ficha[]): Ficha[] => e.flatMap((f) => [f, ...aplanar(hijas(f))]);
+/** tex de una lista de piezas, para las comprobaciones (cuantos numeros, cuantas operaciones) */
+const texDe = (fs: Ficha[]) => fs.map((f) => (f.sup ? `^{${f.tex}}` : f.tex)).join("");
+
+/** fraccion con PIEZAS con id arriba y abajo de la raya */
+export const frPiezas = (id: string, n: Ficha[], d: Ficha[]): Ficha => ({
+  id,
+  tex: `§${texDe(n)}§${texDe(d)}`,
+  frac: { n: "", d: "", nPiezas: n, dPiezas: d },
+});
+/** raiz cuadrada con piezas con id adentro */
+export const raiz = (id: string, piezas: Ficha[]): Ficha => ({ id, tex: `\\sqrt{${texDe(piezas)}}`, rad: piezas });
+
+/** cambia las piezas `viejos` (contiguas, en la misma lista, a cualquier profundidad) por `nuevos`, sin mutar nada:
+ *  las fracciones y raices que las contienen se rehacen (con su tex al dia) y conservan su id */
+export function sustituir(lista: Ficha[], viejos: string[], nuevos: Ficha[]): Ficha[] {
+  const i = lista.findIndex((f) => f.id === viejos[0]);
+  if (i >= 0) {
+    const resto = lista.filter((f) => !viejos.includes(f.id));
+    resto.splice(i, 0, ...nuevos);
+    return resto;
+  }
+  return lista.map((f) => {
+    if (f.frac?.nPiezas || f.frac?.dPiezas) {
+      const n = sustituir(f.frac.nPiezas ?? [], viejos, nuevos);
+      const d = sustituir(f.frac.dPiezas ?? [], viejos, nuevos);
+      return { ...frPiezas(f.id, n, d), ...(f.op ? { op: f.op } : {}), ...(f.salto ? { salto: f.salto } : {}) };
+    }
+    if (f.rad) return { ...f, ...raiz(f.id, sustituir(f.rad, viejos, nuevos)) };
+    return f;
+  });
 }
 
 /** fraccion con numerador y denominador como piezas separadas */

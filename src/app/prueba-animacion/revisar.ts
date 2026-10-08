@@ -1,11 +1,11 @@
 import assert from "node:assert/strict";
-import type { Demo, Ficha } from "./datos.ts";
+import { aplanar, hijas, type Demo, type Ficha } from "./datos.ts";
 
 // cuantos numeros calculados nuevos puede traer un solo paso (2 + 3 = 5 trae 1; una cuenta de varios terminos, mas)
 const LIMITE_NUMEROS_NUEVOS = 2;
 
 // ids de las fichas y, en las fracciones con partes, de sus partes ("f2.n", "f2.d")
-const idsConPartes = (e: Ficha[]) => new Set(e.flatMap((f) => (f.frac ? [f.id, f.id + ".n", f.id + ".d"] : [f.id])));
+const idsConPartes = (e: Ficha[]) => new Set(aplanar(e).flatMap((f) => (f.frac ? [f.id, f.id + ".n", f.id + ".d"] : [f.id])));
 
 // Una animacion solo es confiable si cada transicion es coherente con los
 // estados que une. Esto la comprueba; los tests de cada generador la corren
@@ -41,8 +41,21 @@ export function revisar(d: Demo, etiqueta: string) {
       for (const h of f.hacia === null ? [] : Array.isArray(f.hacia) ? f.hacia : [f.hacia]) cubiertasNuevas.add(h.split(".")[0]);
     }
     for (const br of t.brotes ?? []) cubiertasNuevas.add(br.hacia.split(".")[0]);
+    // las piezas que van DENTRO de una fraccion o raiz siguen a su contenedor: si nace (o se consume) entero, ellas tambien
+    const conHijas = (ids: Set<string>, e: Ficha[]) => {
+      const visitar = (fs: Ficha[], cubierto: boolean) => {
+        for (const f of fs) {
+          const c = cubierto || ids.has(f.id);
+          if (c) ids.add(f.id);
+          visitar(hijas(f), c);
+        }
+      };
+      visitar(e, false);
+    };
+    conHijas(cubiertasNuevas, d.estados[i + 1]);
+    conHijas(cubiertasQuitadas, d.estados[i]);
     // un operador (+, ·, =) que llega junto a un brote es parte de ese brote; solo los numeros y letras deben estar cubiertos
-    const operadores = new Set(d.estados[i + 1].filter((f) => f.op).map((f) => f.id));
+    const operadores = new Set(aplanar(d.estados[i + 1]).filter((f) => f.op).map((f) => f.id));
     for (const id of b) {
       if (a.has(id) || id.includes(".") || operadores.has(id)) continue;
       assert.ok(cubiertasNuevas.has(id), `${etiqueta}: T${i} la ficha ${id} aparece de la nada (no es el hacia de ninguna fusion ni brote)`);
@@ -55,7 +68,7 @@ export function revisar(d: Demo, etiqueta: string) {
     // Los numeros del resultado que no aparecen en las piezas de origen son numeros calculados; mas de 2 en un
     // mismo paso es un salto que el alumno no puede seguir con lapiz.
     const numeros = (s: string) => new Set(s.match(/\d+/g) ?? []);
-    const fichaPorId = new Map<string, Ficha>([...d.estados[i], ...d.estados[i + 1]].map((f) => [f.id, f]));
+    const fichaPorId = new Map<string, Ficha>([...aplanar(d.estados[i]), ...aplanar(d.estados[i + 1])].map((f) => [f.id, f]));
     // UNA OPERACION POR FUSION: cuando una sola pieza se convierte en otra, no puede perder mas de 1 operador
     // (producto, fraccion, potencia, raiz, mas o menos). `4·1·6 -> 24` son dos productos: dos pasos.
     // Se excluyen las factorizaciones (`descompone`) y el tachado, que cancela varias cosas a la vez a proposito.
@@ -103,7 +116,7 @@ export function revisar(d: Demo, etiqueta: string) {
       }
     }
     // una orden de LaTeX sin su barra invertida se vería como la palabra suelta ("cdot")
-    for (const txt of [t.texto, t.porque, t.regla ?? "", ...d.estados[i].map((f) => f.tex)]) {
+    for (const txt of [t.texto, t.porque, t.regla ?? "", ...aplanar(d.estados[i]).map((f) => f.tex)]) {
       assert.ok(!/(^|[^\\a-zA-Z])(cdot|tfrac|dfrac|frac|sqrt|text)\b/.test(txt), `${etiqueta}: T${i} tiene una orden de LaTeX sin barra: ${txt}`);
     }
     // el texto del alumno no usa "÷" ni fracciones con barra suelta

@@ -51,9 +51,9 @@
     },
     "cuadratica": {
       "estado": "con-hallazgos",
-      "huella": "b35874f1fa33",
+      "huella": "19aeae77a835",
       "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: resueltos los pendientes del 8-oct (x1/x2 con fr y viajar, sumas/divisiones en piezas, Delta con rotulo, regla corregida, comprobacion desde la fila de referencia). Pasos reales 27 a 39 (no ~35). Quedan: (1) fila de referencia gemela de la ecuacion, sin rotulo, de T0 a T8; (2) en T21 los operadores = y entre del renglon x2 aparecen sin brote (revisar.ts exime operadores; igual los signos y = de la fila de comprobacion); (3) comprobacion con base negativa hace (-1)^2=1 en un paso, sin expandir como se hizo con b^2; (4) con a=c=1 se hacen dos pasos 4*1=4 identicos en lo visible (T16-T17); (5) regla de T19 (2n=n+n) no corresponde a lo que hace, y la de T26/T33 es x=3 en vez de la general; texto 'Multiplicamos cada numero por su valor' confuso; (6) rotulo del Delta dice solo Delta, sin valor."
+      "nota": "9-oct animador: la formula general es una fraccion con piezas (frPiezas) con raya real desde que aparece y la raiz abarca su radicando (raiz); sin 'entre' ni parentesis sueltos; x2 se copia por brote de la fraccion de x1 (F->Q2, Fe->E2); se quito el paso 'entre es la raya' (1 paso menos). Sin auditar con estas piezas. Siguen pendientes los hallazgos del 9-oct: (1) fila de referencia sin rotulo; (3) (-1)^2 en un paso en la comprobacion; (4) 4*1 repetido con a=c=1; (5) reglas 2n=n+n y x=3; (6) rotulo Delta sin valor. Ver en pantalla: el Delta queda entre el radicando y la raya."
     }
   }
 }

@@ -7,9 +7,9 @@
 //   6. CALCULAR una operacion por paso, y cada resultado intermedio (25 = 5.5, 36 = 6.6 = 6^2) es un estado de la hoja;
 //   7. COMPROBAR cada solucion en la ecuacion ORIGINAL, mostrando la sustitucion y cada cuenta.
 // Todo texto del alumno va en LaTeX entre $...$ (MathText); las fichas y etiquetas van en LaTeX sin $. Las barras van dobles.
-// La division de la formula se escribe en linea con la palabra "entre" mientras hay piezas sueltas (no se puede partir una
-// fraccion en piezas) y se acomoda como fraccion al abrir el mas o menos.
-import { fr, type Ficha, type Transicion, type Fusion, type Brote } from "./datos.ts";
+// La formula es una fraccion CON PIEZAS (`frPiezas`, raya real desde que aparece) y la raiz abarca su radicando (`raiz`):
+// cada letra es una pieza con id dentro de la raya, asi que su valor puede volar hasta ella.
+import { aplanar, frPiezas, raiz, sustituir, type Ficha, type Transicion, type Fusion, type Brote } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 
 type Clase = "a" | "b" | "c";
@@ -279,42 +279,46 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
   const cb = col("b", "b");
   const ca = col("a", "a");
   const cc = col("c", "c");
+  // la formula es una FRACCION CON PIEZAS (raya real) y la raiz ABARCA su radicando: cada letra es una pieza con id
   extra = [
     { id: "S", tex: "", salto: true },
     { id: "Fx", tex: "x" },
     { id: "Fe", tex: "=", op: true },
-    { id: "Fo", tex: "(" },
-    { id: "Fneg", tex: "-" },
-    { id: "Fb1", tex: cb, pegado: true },
-    { id: "Fpm", tex: "\\pm", op: true },
-    { id: "Fr", tex: "\\surd(" },
-    { id: "Fb2", tex: cb },
-    { id: "Fs2", tex: "2", sup: true },
-    { id: "Fmn", tex: "-", op: true },
-    { id: "F4", tex: "4" },
-    { id: "Fa1", tex: ca, pegado: true },
-    { id: "Fc", tex: cc, pegado: true },
-    { id: "Fc2", tex: ")" },
-    { id: "Fc1", tex: ")" },
-    { id: "Fen", tex: "\\text{ entre }", op: true },
-    { id: "F2", tex: "2" },
-    { id: "Fa2", tex: ca, pegado: true },
+    frPiezas(
+      "F",
+      [
+        { id: "Fneg", tex: "-" },
+        { id: "Fb1", tex: cb, pegado: true },
+        { id: "Fpm", tex: "\\pm", op: true },
+        raiz("Fr", [
+          { id: "Fb2", tex: cb },
+          { id: "Fs2", tex: "2", sup: true },
+          { id: "Fmn", tex: "-", op: true },
+          { id: "F4", tex: "4" },
+          { id: "Fa1", tex: ca, pegado: true },
+          { id: "Fc", tex: cc, pegado: true },
+        ]),
+      ],
+      [
+        { id: "F2", tex: "2" },
+        { id: "Fa2", tex: ca, pegado: true },
+      ]
+    ),
   ];
   foto();
   trans.push({
     fusiones: [],
-    brotes: extra.map((f) => ({ desde: "eq", hacia: f.id })),
-    texto: `Ahora que está igualada a cero, escribimos debajo la fórmula general, todavía con letras. Cada letra tiene el color de su término. La barra de la fracción la leemos "entre": todo lo de arriba, entre $2a$.`,
+    brotes: ["S", "Fx", "F"].map((id) => ({ desde: "eq", hacia: id })),
+    texto: `Ahora que está igualada a cero, escribimos debajo la fórmula general, todavía con letras. Cada letra tiene el color de su término. La raya de la fracción dice que todo lo de arriba se divide entre $2a$.`,
     porque: `Esta fórmula resuelve cualquier ecuación de la forma de arriba. Primero se escribe con letras y después se reemplaza cada una.`,
     regla: `$x=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$`,
   });
 
   // ----- helpers para cambiar piezas de la formula
   /** cambia las piezas `viejos` (contiguas) por `nuevos`, en el lugar de la primera */
+  // (a cualquier profundidad: dentro de la fraccion o de la raiz; las que las contienen conservan su id)
   const subs = (viejos: string[], nuevos: Ficha[]) => {
-    const i = extra.findIndex((f) => f.id === viejos[0]);
-    extra = extra.filter((f) => !viejos.includes(f.id));
-    extra.splice(i, 0, ...nuevos);
+    extra = sustituir(extra, viejos, nuevos);
   };
   const empuja = (t: Transicion) => {
     foto();
@@ -459,9 +463,9 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
   // la raiz: el discriminante se escribe como cuadrado y la raiz se cancela con el exponente.
   // Con D = 0 o D = 1 la raiz es trivial (0.0 = 0, 1.1 = 1) y va en un solo paso.
   if (d <= 1) {
-    subs(["Fr", "Dd", "Fc2"], [{ id: "Rd", tex: `${d}` }]);
+    subs(["Fr"], [{ id: "Rd", tex: `${d}` }]);
     empuja({
-      fusiones: [{ desde: ["Fr", "Dd", "Fc2"], hacia: "Rd" }],
+      fusiones: [{ desde: ["Fr", "Dd"], hacia: "Rd" }],
       texto: `${ordinal()} cuenta: la raíz del discriminante. Queremos $\\sqrt{${D}}$: el número que multiplicado por sí mismo da $${D}$ es el $${d}$, porque $${d}$ por $${d}$ es $${D}$. Entonces $\\sqrt{${D}}=${d}$.`,
       porque: `Con el $0$ y con el $1$ el número no cambia al multiplicarse por sí mismo, así que la raíz es ese mismo número.`,
       regla: `$\\sqrt{n\\cdot n}=n$`,
@@ -483,9 +487,10 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       porque: `Así dentro de la raíz queda un cuadrado, y la raíz cuadrada es la operación contraria de elevar al cuadrado.`,
       regla: `$n\\cdot n=n^{2}$`,
     });
-    subs(["Fr", "Rds", "Fc2"], []);
+    // el signo de raiz y el exponente se van; el d sale de debajo de la raiz y queda en su lugar (la misma pieza)
+    subs(["Fr"], [aplanar(extra).find((f) => f.id === "Rd") as Ficha]);
     empuja({
-      fusiones: [{ desde: ["Fr", "Rds", "Fc2"], hacia: null, modo: "tachar" }],
+      fusiones: [{ desde: ["Fr", "Rds"], hacia: null, modo: "tachar" }],
       texto: `La raíz y el cuadrado se tachan, porque se deshacen entre sí: $\\sqrt{${d}^{2}}=${d}$. Queda el $${d}$.`,
       porque: `La raíz cuadrada deshace el cuadrado: el número que sale es la base, $${d}$.`,
       regla: `$\\sqrt{n^{2}}=n$`,
@@ -494,7 +499,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
 
   // ----- 7) abrir el mas o menos
   // La formula sigue en `extra` hasta el final: las piezas VIAJAN (nada se reescribe de golpe en una sola ficha).
-  const pieza = (id: string) => extra.find((f) => f.id === id) as Ficha;
+  const pieza = (id: string) => aplanar(extra).find((f) => f.id === id) as Ficha;
   if (d === 0) {
     subs(["Fpm", "Rd"], []);
     empuja({
@@ -503,66 +508,46 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       porque: `$\\pm 0$ no cambia nada, así que las dos soluciones coinciden y hay una sola.`,
       regla: `$a\\pm 0=a$`,
     });
-    subs(["Fo", "Rnb", "Fc1", "Fen", "Rden"], [fr("Q1", `${-b}`, `${den}`)]);
+    extra = extra.map((f) => (f.id === "F" ? { id: "r1", tex: `${x1}` } : f));
     empuja({
-      fusiones: [{ desde: ["Fo", "Rnb", "Fc1", "Fen", "Rden"], hacia: "Q1", modo: "viajar" }],
-      brotes: [
-        { desde: "Rnb", hacia: "Q1.n" },
-        { desde: "Rden", hacia: "Q1.d" },
-      ],
-      texto: `La palabra "entre" es la raya de una fracción: el $${-b}$ viaja arriba de la raya y el $${den}$ abajo.`,
-      porque: `Decir "$${-b}$ entre $${den}$" es lo mismo que escribir una fracción: el número de arriba, la raya y el de abajo.`,
-      regla: `$a\\ \\text{entre}\\ b=\\dfrac{a}{b}$`,
-    });
-    extra = extra.map((f) => (f.id === "Q1" ? { id: "r1", tex: `${x1}` } : f));
-    empuja({
-      fusiones: [{ desde: ["Q1"], hacia: "r1" }],
+      fusiones: [{ desde: ["F"], hacia: "r1" }],
       texto: `Dividimos: $\\dfrac{${-b}}{${den}}=${x1}$. Hay una sola solución, $x=${x1}$.`,
       porque: `La fracción es una división: el número de arriba entre el de abajo.`,
       regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
     });
   } else {
     // a) el +/- se abre en dos caminos: cada solucion tiene su renglon y sus propias piezas, copiadas de las que ya estan
-    const nuevas: Ficha[] = [
-      { id: "X1", tex: "x_{1}" },
-      { ...pieza("Fe") },
-      { ...pieza("Fo") },
-      { ...pieza("Rnb") },
-      { id: "Pl", tex: "+", op: true },
-      { ...pieza("Rd") },
-      { ...pieza("Fc1") },
-      { ...pieza("Fen") },
-      { ...pieza("Rden") },
-      { id: "X2", tex: "x_{2}", salto: true },
-      { id: "E2", tex: "=", op: true },
-      { id: "O2", tex: "(" },
-      { id: "N2", tex: pieza("Rnb").tex },
-      { id: "Mi", tex: "-", op: true },
-      { id: "D2", tex: pieza("Rd").tex },
-      { id: "C2", tex: ")" },
-      { id: "En2", tex: "\\text{ entre }", op: true },
-      { id: "R2den", tex: pieza("Rden").tex },
-    ];
-    extra = [pieza("S"), ...nuevas];
+    // la fraccion de x2 es una COPIA de la de arriba (nace de ella y baja a su renglon) con un menos en lugar del mas
+    const F = sustituir([pieza("F")], ["Fpm"], [{ id: "Pl", tex: "+", op: true }])[0];
+    const Q2 = frPiezas(
+      "Q2",
+      [
+        { id: "N2", tex: pieza("Rnb").tex },
+        { id: "Mi", tex: "-", op: true },
+        { id: "D2", tex: pieza("Rd").tex },
+      ],
+      [{ id: "R2den", tex: pieza("Rden").tex }]
+    );
+    extra = [pieza("S"), { id: "X1", tex: "x_{1}" }, { ...pieza("Fe") }, F, { id: "S2", tex: "", salto: true }, { id: "X2", tex: "x_{2}" }, { id: "E2", tex: "=", op: true }, Q2];
     empuja({
       fusiones: [
         { desde: ["Fx"], hacia: "X1", modo: "viajar" },
         { desde: ["Fpm"], hacia: ["Pl", "Mi"] },
       ],
       brotes: [
+        // renglon nuevo (vacio: solo corta la linea) para que x2 = ... quede en una sola linea
+        { desde: "S", hacia: "S2" },
         { desde: "Fx", hacia: "X2" },
-        { desde: "Fo", hacia: "O2" },
-        { desde: "Rnb", hacia: "N2" },
-        { desde: "Rd", hacia: "D2" },
-        { desde: "Fc1", hacia: "C2" },
-        { desde: "Rden", hacia: "R2den" },
+        { desde: "Fe", hacia: "E2" },
+        { desde: "F", hacia: "Q2" },
       ],
-      texto: `El $\\pm$ se abre en dos caminos: uno suma $${d}$ y el otro resta $${d}$. Llamamos $x_{1}$ y $x_{2}$ a las dos soluciones: cada una tiene su renglón, con el $${-b}$, el $${d}$ y el $${den}$ copiados de la fórmula.`,
+      texto: `El $\\pm$ se abre en dos caminos: uno suma $${d}$ y el otro resta $${d}$. Llamamos $x_{1}$ y $x_{2}$ a las dos soluciones: cada una tiene su renglón, con la fracción copiada de la fórmula.`,
       porque: `El signo $\\pm$ significa "más o menos": son dos soluciones distintas, una por cada signo.`,
       regla: `$\\pm\\ \\Rightarrow\\ \\text{dos soluciones}$`,
     });
     // b) las dos sumas de arriba
-    extra = extra.flatMap((f) => (["Rnb", "Pl", "Rd"].includes(f.id) ? (f.id === "Rnb" ? [{ id: "Ns1", tex: `${-b + d}` }] : []) : ["N2", "Mi", "D2"].includes(f.id) ? (f.id === "N2" ? [{ id: "Ns2", tex: `${-b - d}` }] : []) : [f]));
+    subs(["Rnb", "Pl", "Rd"], [{ id: "Ns1", tex: `${-b + d}` }]);
+    subs(["N2", "Mi", "D2"], [{ id: "Ns2", tex: `${-b - d}` }]);
     empuja({
       fusiones: [
         { desde: ["Rnb", "Pl", "Rd"], hacia: "Ns1" },
@@ -572,38 +557,11 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       porque: `Cada camino se calcula por separado: son dos cuentas independientes, por eso van a la vez.`,
       regla: `$a+b=c$`,
     });
-    // c) "entre" es la raya de una fraccion: el de arriba y el de abajo viajan a sus lugares
-    extra = extra.flatMap((f) =>
-      ["Fo", "Ns1", "Fc1", "Fen", "Rden"].includes(f.id)
-        ? f.id === "Fo"
-          ? [fr("Q1", `${-b + d}`, `${den}`)]
-          : []
-        : ["O2", "Ns2", "C2", "En2", "R2den"].includes(f.id)
-          ? f.id === "O2"
-            ? [fr("Q2", `${-b - d}`, `${den}`)]
-            : []
-          : [f]
-    );
+    // c) cada fraccion es una division
+    extra = extra.map((f) => (f.id === "F" ? { id: "r1", tex: `${x1}` } : f.id === "Q2" ? { id: "r2", tex: `${x2}` } : f));
     empuja({
       fusiones: [
-        { desde: ["Fo", "Ns1", "Fc1", "Fen", "Rden"], hacia: "Q1", modo: "viajar" },
-        { desde: ["O2", "Ns2", "C2", "En2", "R2den"], hacia: "Q2", modo: "viajar" },
-      ],
-      brotes: [
-        { desde: "Ns1", hacia: "Q1.n" },
-        { desde: "Rden", hacia: "Q1.d" },
-        { desde: "Ns2", hacia: "Q2.n" },
-        { desde: "R2den", hacia: "Q2.d" },
-      ],
-      texto: `La palabra "entre" es la raya de una fracción: en cada renglón, el número de arriba viaja sobre la raya y el $${den}$ queda debajo.`,
-      porque: `Decir "$${-b + d}$ entre $${den}$" es lo mismo que escribir una fracción: el número de arriba, la raya y el de abajo.`,
-      regla: `$a\\ \\text{entre}\\ b=\\dfrac{a}{b}$`,
-    });
-    // d) cada fraccion es una division
-    extra = extra.map((f) => (f.id === "Q1" ? { id: "r1", tex: `${x1}` } : f.id === "Q2" ? { id: "r2", tex: `${x2}` } : f));
-    empuja({
-      fusiones: [
-        { desde: ["Q1"], hacia: "r1" },
+        { desde: ["F"], hacia: "r1" },
         { desde: ["Q2"], hacia: "r2" },
       ],
       texto: `Dividimos cada una: $\\dfrac{${-b + d}}{${den}}=${x1}$ y $\\dfrac{${-b - d}}{${den}}=${x2}$. Soluciones: $x=${x1}$ o $x=${x2}$.`,

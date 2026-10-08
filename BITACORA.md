@@ -494,6 +494,13 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-08 (la fórmula general con raya real: fracciones y raíces con piezas adentro)
+
+- **Qué:** en la ecuación de segundo grado, la fórmula general ya no es texto en línea con "entre": es una fracción con raya real y la raíz abarca su radicando. Cada letra y número de adentro es una pieza con id (se marca, se tacha, viaja, nace por brote). Se sacó el paso "entre es la raya" (1 paso menos).
+- **Cómo:** `Ficha` suma `frac.nPiezas/dPiezas` y `rad`; helpers `aplanar`, `hijas`, `frPiezas`, `raiz`, `sustituir` en `datos.ts`; `Fusion.tsx` dibuja las piezas internas (`interna`/`compuesta`) y achica la fracción según el ancho de pantalla. x2 se copia por brote de la fracción de x1.
+- **Probado:** `tsc`, lint y 76 tests verdes; visto en pantalla (el Δ ahora tiene aire sobre la raya, `paddingBottom` 1.05em).
+- **Pendiente (registro `auditoria-pasos`, "con-hallazgos"):** fila de referencia sin rótulo; (-1)^2 en un paso en la comprobación; 4·1 repetido con a=c=1; reglas "2n=n+n" y "x=3"; rótulo Δ sin valor. Falta ver en celular de 375 px y pasar el `auditor-de-pasos` con las piezas nuevas.
+
 ### 2026-10-07 (ter) (punto 1 del repaso del flujo: el test de voseo cubre toda la interfaz)
 - **Corrección a lo que dije al principio:** había propuesto "un validador del banco en CI" porque creía que el banco tenía pocos tests. Era falso. `banco.test.ts` ya trae 15 chequeos (opciones, respuesta que existe, ids únicos, enunciado, figuras, KaTeX, tuteo, guion largo, precios, coherencia de repetidas) y hay tests de registro de verificación, faltantes y figuras. El banco **sí** está vigilado por mecanismo.
 - **El hueco real que sí había:** el test de voseo de `contenido-lecciones.test.ts` solo miraba `aprende/` y `laminas/`. Login, resultados, landing y componentes no se vigilaban. Se amplió a todo `src/app` salvo `admin/` (ahí van prompts para IAs, en rioplatense a propósito) y se vaciaron los comentarios de bloque multilínea (un `{/* ... vos ... */}` en `login` daba falso positivo). Resultado hoy: cero casos. Se comprobó que **puede fallar** metiendo un "podés" en `login` (saltó) y restaurando.
