@@ -494,6 +494,12 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-10-08 (ter) (visto bueno por tipo: lo aprobado sale de `/prueba-animacion`)
+
+- Pedido de Ronald: cada tipo de animación se aprueba con su visto bueno y, una vez aprobado, se marca con ✓ y se quita de lo que él prueba.
+- `data/registro-visto-bueno.json` guarda la huella de lo aprobado; `/prueba-animacion` (ya no estática) muestra solo lo no aprobado o cambiado después, con el contador «N por revisar · M aprobadas ✓». Se aprueba con `node src/app/prueba-animacion/aprobar-animacion.ts <id>` y **solo cuando Ronald lo dice**; `--quitar <id>` lo devuelve a revisión.
+- Los tipos de álgebra aprobados el 7-oct reaparecían porque cambiaron después (arreglos del auditor): quedan pendientes hasta que Ronald los vuelva a aprobar.
+
 ### 2026-10-08 (bis) (piloto de animaciones de Física y Química, y plan de qué animar primero)
 
 - **Plan:** `docs/plan-animaciones.md` (lo genera `scripts/analisis/plan-animaciones.py`) mide qué tipos de problema caen más. Ranking por impacto (preguntas x facilidad, la facilidad es juicio): Cinemática, Estequiometría, Gases, Genética, Soluciones. SVG con el motor de fusión alcanza para los 27 tipos; 3D casi no hace falta (13 de 3569 preguntas de Ingeniería nombran un sólido); las partículas serían explicación de conceptos, no resolución. Económicas Matemáticas está explicada en prosa (1% con «Paso N»): hay que reescribir antes de animar.
