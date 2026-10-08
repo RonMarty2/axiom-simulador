@@ -52,17 +52,54 @@ function simplificar(
   const dn = divs(Math.abs(n));
   const dd2 = divs(d);
   const comunes = dn.filter((k) => dd2.includes(k));
-  estados.push(estados[estados.length - 1]);
+  // las listas son ESTADO (cada una nace del numerador o del denominador), de a una por paso
+  const base = estados[estados.length - 1];
+  const conPartes = !!base.find((f) => f.id === desde)?.frac;
+  const origenN = conPartes ? `${desde}.n` : desde;
+  const origenD = conPartes ? `${desde}.d` : desde;
+  const lista = (rotulo: string, xs: number[]) => `\\scriptsize\\text{${rotulo}}\\ ${xs.join(",\\ ")}`;
+  const Sa: Ficha = { id: "Sa", tex: "", salto: true };
+  const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+  const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn) };
+  const Dd: Ficha = { id: "Dd", tex: lista(`Divisores de ${d}:`, dd2) };
+  const Dc: Ficha = { id: "Dc", tex: lista("En las dos listas:", comunes) };
+  const Dg: Ficha = { id: "Dg", tex: `\\scriptsize\\text{El mayor:}\\ ${g}` };
+  estados.push([...base, Sa, Dn]);
   trans.push({
     fusiones: [],
-    resaltar: [desde],
-    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: $${dn.join(",\\ ")}$. Divisores de $${d}$: $${dd2.join(",\\ ")}$. Los que están en las dos listas: $${comunes.join(",\\ ")}$. Tomamos el mayor: $${g}$.`,
-    porque: `Un divisor es un número que entra exacto en otro. Si un número divide a los dos, se puede sacar de arriba y de abajo sin cambiar el valor.`,
+    brotes: [
+      { desde: origenN, hacia: "Sa" },
+      { desde: origenN, hacia: "Dn" },
+    ],
+    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: $${dn.join(",\\ ")}$.`,
+    porque: `Un divisor es un número que entra exacto en otro. Los escribimos todos, empezando por los del numerador.`,
+  });
+  estados.push([...base, Sa, Dn, Sb, Dd]);
+  trans.push({
+    fusiones: [],
+    brotes: [
+      { desde: origenD, hacia: "Sb" },
+      { desde: origenD, hacia: "Dd" },
+    ],
+    texto: `Ahora lo mismo con el denominador. Divisores de $${d}$: $${dd2.join(",\\ ")}$.`,
+    porque: `Hacemos la misma lista para el denominador.`,
+  });
+  estados.push([...base, Sa, Dc]);
+  trans.push({
+    fusiones: [{ desde: ["Dn", "Sb", "Dd"], hacia: "Dc" }],
+    texto: `Los que están en las dos listas: $${comunes.join(",\\ ")}$.`,
+    porque: `Un número que está en las dos listas divide al de arriba y al de abajo a la vez.`,
+  });
+  estados.push([...base, Sa, Dg]);
+  trans.push({
+    fusiones: [{ desde: ["Dc"], hacia: "Dg" }],
+    texto: `Tomamos el mayor: $${g}$.`,
+    porque: `Con el mayor se simplifica todo de una vez; se llama máximo común divisor.`,
   });
 
   estados.push([...antes, { id: "hf", tex: `${signo}\\dfrac{${nn}\\cdot ${g}}{${factDen}}` }]);
   trans.push({
-    fusiones: [{ desde: [desde], hacia: "hf" }],
+    fusiones: [{ desde: [desde, "Sa", "Dg"], hacia: "hf" }],
     descompone: true,
     texto:
       dd === 1
@@ -74,7 +111,10 @@ function simplificar(
   estados.push([...antes, { id: "r", tex: resultado }]);
   trans.push({
     fusiones: [{ desde: ["hf"], hacia: "r", modo: "tachar" }],
-    texto: `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Queda $${resultado}$.`,
+    texto:
+      dd === 1
+        ? `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Abajo queda $1$ y un número entre $1$ es él mismo: queda $${resultado}$.`
+        : `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Queda $${resultado}$.`,
     porque: `Un número dividido entre sí mismo vale $1$, y multiplicar por $1$ no cambia nada. Por eso se puede tachar.`,
     regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
   });
@@ -145,8 +185,8 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
         { desde: "n", hacia: "fr.n" },
         { desde: "a", hacia: "fr.d" },
       ],
-      texto: `El $${a}$ multiplica a $x$. Pasa al otro lado dividiendo: viaja hasta debajo del $${n}$ y queda $x=${fracTex(n, a)}$.`,
-      porque: `Lo que multiplicaba pasa dividiendo: ahora es el denominador. Es lo mismo que dividir los dos lados entre $${a}$. La fracción es una división: $${Math.abs(n)}$ entre $${a}$.`,
+      texto: `El $${a}$ multiplica a $x$. Pasa al otro lado dividiendo: viaja hasta debajo del $${n}$ y queda $x=\\dfrac{${n}}{${a}}$.`,
+      porque: `Lo que multiplicaba pasa dividiendo: ahora es el denominador. Es lo mismo que dividir los dos lados entre $${a}$. La fracción es una división: $${n}$ entre $${a}$.`,
       regla: `$a\\cdot x=n\\ \\Rightarrow\\ x=\\dfrac{n}{a}\\quad (a\\neq 0)$`,
     },
   ];
@@ -168,11 +208,15 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     trans[trans.length - 1].porque += ` No se puede simplificar más, así que esa fracción es la solución.`;
   }
 
-  if (exacta) {
-    // comprobacion contra el enunciado ORIGINAL, una operacion por paso (solo con x entero; con fraccion queda anotado)
-    const v = n / a;
-    const vTex = v < 0 ? `(${v})` : `${v}`;
+  {
+    // comprobacion contra el enunciado ORIGINAL, una operacion por paso; x puede ser entero o fraccion (p/q ya simplificada)
+    const pp = n / g;
+    const qq = a / g;
     const ultimo = estados[estados.length - 1];
+    const idX = ultimo.some((f) => f.id === "r") ? "r" : "fr";
+    // se escribe igual que se ve en la hoja: la fraccion irreducible lleva el signo en el numerador
+    const xTex = qq === 1 ? `${pp}` : idX === "fr" ? `\\dfrac{${pp}}{${qq}}` : fracTex(pp, qq);
+    const vTex = pp < 0 ? `(${xTex})` : xTex;
     const linea: Ficha[] = [
       { id: "S", tex: "", salto: true },
       { id: "Ca", tex: `${a}` },
@@ -192,26 +236,54 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     estados.push([...ultimo, S, Ca, { id: "Cr", tex: vTex, pegado: true }, Cb, Ce, Cc]);
     trans.push({
       fusiones: [{ desde: ["Cx"], hacia: "Cr" }],
-      brotes: [{ desde: "r", hacia: "Cr" }],
-      texto: `Reemplazamos $x$ por su valor, $${v}$.`,
+      brotes: [{ desde: idX, hacia: "Cr" }],
+      texto: `Reemplazamos $x$ por su valor, $${xTex}$.`,
       porque: `Donde la ecuación dice $x$ escribimos el número que encontramos.`,
     });
-    estados.push([...ultimo, S, { id: "Cp", tex: `${a * v}` }, Cb, Ce, Cc]);
-    trans.push({
-      fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cp" }],
-      texto: `Primero la multiplicación: $${a}\\cdot ${vTex}=${a * v}$.`,
-      porque: `En una expresión, la multiplicación se hace antes que la suma.`,
-    });
+    if (qq === 1) {
+      estados.push([...ultimo, S, { id: "Cp", tex: `${n}` }, Cb, Ce, Cc]);
+      trans.push({
+        fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cp" }],
+        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}=${n}$.`,
+        porque: `En una expresión, la multiplicación se hace antes que la suma.`,
+      });
+    } else {
+      // x fraccionaria: el a viaja al numerador, se multiplica arriba y se divide (una operacion por paso)
+      const Cm = fr("Cm", `${pp < 0 ? "-" : ""}${a}\\cdot ${Math.abs(pp)}`, `${qq}`);
+      estados.push([...ultimo, S, Cm, Cb, Ce, Cc]);
+      trans.push({
+        fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cm", modo: "viajar" }],
+        brotes: [
+          { desde: "Ca", hacia: "Cm.n" },
+          { desde: "Cr", hacia: "Cm.d" },
+        ],
+        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ viaja al numerador de la fracción y el denominador $${qq}$ se queda: queda $\\dfrac{${pp < 0 ? "-" : ""}${a}\\cdot ${Math.abs(pp)}}{${qq}}$.`,
+        porque: `En una expresión, la multiplicación se hace antes que la suma. Un número por una fracción es el número por el numerador, sobre el mismo denominador.`,
+        regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
+      });
+      estados.push([...ultimo, S, fr("Cm2", `${a * pp}`, `${qq}`), Cb, Ce, Cc]);
+      trans.push({
+        fusiones: [{ desde: ["Cm"], hacia: "Cm2" }],
+        texto: `Hacemos la cuenta de arriba: $${a}\\cdot ${pp < 0 ? `(${pp})` : pp}=${a * pp}$. Queda $\\dfrac{${a * pp}}{${qq}}$.`,
+        porque: `Solo se multiplica el numerador: el denominador no cambia.`,
+      });
+      estados.push([...ultimo, S, { id: "Cp", tex: `${n}` }, Cb, Ce, Cc]);
+      trans.push({
+        fusiones: [{ desde: ["Cm2"], hacia: "Cp" }],
+        texto: `Dividimos: $\\dfrac{${a * pp}}{${qq}}=${n}$.`,
+        porque: `La división sale exacta, y se comprueba multiplicando: $${qq}\\cdot ${n < 0 ? `(${n})` : n}=${a * pp}$. Una fracción es una división: el numerador entre el denominador.`,
+      });
+    }
     estados.push([...ultimo, S, { id: "Cs", tex: `${c}` }, Ce, Cc]);
     trans.push({
       fusiones: [{ desde: ["Cp", "Cb"], hacia: "Cs" }],
-      texto: `Ahora la suma: $${a * v}${conSigno(b)}=${c}$.`,
+      texto: `Ahora la suma: $${n}${conSigno(b)}=${c}$.`,
       porque: `Con la multiplicación hecha, solo queda sumar.`,
     });
     estados.push([...ultimo, S, { id: "ok", tex: `${c}=${c}\\ \\checkmark` }]);
     trans.push({
       fusiones: [{ desde: ["Cs", "Ce", "Cc"], hacia: "ok" }],
-      texto: `Los dos lados valen $${c}$: la igualdad se cumple. Entonces $x=${v}$ es solución de $${a}x${conSigno(b)}=${c}$.`,
+      texto: `Los dos lados valen $${c}$: la igualdad se cumple. Entonces $x=${xTex}$ es solución de $${a}x${conSigno(b)}=${c}$.`,
       porque: `Si al reemplazar $x$ los dos lados dan lo mismo, la solución es correcta.`,
     });
   }
@@ -334,8 +406,13 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
   // el segundo denominador se funde con el primero (ancla): ya esta escrito, no hace falta repetirlo
   estados.push([fr(x1, nx1, `${den}`), p, { id: "w2", tex: nx2 }]);
   trans.push({
-    fusiones: [{ desde: [`${x2}.d`], hacia: "w2", ancla: `${x1}.d` }],
-    texto: `El $${den}$ de la segunda fracción se une al $${den}$ de la primera: se escribe una sola vez. De la segunda queda el numerador, $${nx2}$.`,
+    fusiones: [
+      { desde: [`${x2}.d`], hacia: null, ancla: `${x1}.d` },
+      // el numerador de la segunda fraccion VIAJA (mismo lugar de salida, nueva ficha w2): no desaparece y reaparece
+      { desde: [`${x2}.n`], hacia: "w2", modo: "viajar" },
+    ],
+    brotes: [{ desde: `${x2}.n`, hacia: "w2" }],
+    texto: `El $${den}$ de la segunda fracción se une al $${den}$ de la primera: se escribe una sola vez. El numerador de la segunda, $${nx2}$, viaja al lado de la primera fracción.`,
     porque: `Si las partes son del mismo tamaño, el denominador solo dice de qué tamaño son: no hace falta repetirlo.`,
   });
   // un solo denominador y los dos numeradores con su signo, todavia sin calcular
@@ -347,10 +424,11 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     porque: `Con partes del mismo tamaño, solo se cuenta cuántas partes hay ${resta ? "de diferencia" : "en total"}.`,
     regla: resta ? `$\\dfrac{a}{c}-\\dfrac{b}{c}=\\dfrac{a-b}{c}$` : `$\\dfrac{a}{c}+\\dfrac{b}{c}=\\dfrac{a+b}{c}$`,
   });
-  estados.push([{ id: "h", tex: fracTex(sumaN, den) }]);
+  // solo se calcula: el numerador queda con su signo (si es negativo, el paso del signo es el siguiente)
+  estados.push([{ id: "h", tex: `\\dfrac{${sumaN}}{${den}}` }]);
   trans.push({
     fusiones: [{ desde: ["h0"], hacia: "h" }],
-    texto: `${palabra} los numeradores: $${cuenta}=${sumaN}$. El $${den}$ se queda.${sumaN < 0 ? ` El resultado es negativo, así que el signo menos se escribe delante de la fracción.` : ""}`,
+    texto: `${palabra} los numeradores: $${cuenta}=${sumaN}$. El $${den}$ se queda.`,
     porque: `Solo se hace la cuenta de arriba: el denominador no cambia.`,
   });
 
@@ -362,7 +440,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       porque: `Las dos fracciones valían lo mismo, y al restarlas no queda nada.`,
     });
   } else if (g > 1) {
-    simplificar(estados, trans, [], "h", sumaN, den, g, true);
+    simplificar(estados, trans, [], "h", sumaN, den, g);
     if (den / g === 1) trans[trans.length - 1].porque += ` La fracción sale exacta: es un número entero.`;
   } else {
     trans[trans.length - 1].porque += ` Esta fracción ya no se puede simplificar.`;
@@ -370,13 +448,116 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
 
   const rn = sumaN / g;
   const rd = den / g;
+
+  // FILA DE REFERENCIA: el enunciado se anota abajo desde el primer paso y se queda hasta el final,
+  // asi la comprobacion nace de ahi y no de numeros que ya no estan en pantalla
+  const SR: Ficha = { id: "SR", tex: "", salto: true };
+  const cola: Ficha[] = [SR, fr("R1", `${n1}`, `${d1}`), { id: "Rp", tex: op, op: true }, fr("R2", `${n2}`, `${d2}`)];
+  const final: Ficha[][] = [estados[0], ...estados.map((e) => [...e, ...cola])];
+  const trs: Transicion[] = [
+    {
+      fusiones: [],
+      brotes: [
+        { desde: "p", hacia: "SR" },
+        { desde: "f1", hacia: "R1" },
+        { desde: "p", hacia: "Rp" },
+        { desde: "f2", hacia: "R2" },
+      ],
+      texto: `Antes de empezar, anotamos el ejercicio debajo, tal como viene: lo vamos a necesitar para comprobar al final.`,
+      porque: `Mientras trabajamos, las fracciones de arriba van a cambiar. Con el ejercicio escrito abajo podemos volver a él cuando queramos.`,
+    },
+    ...trans,
+  ];
+
+  // COMPROBACION: se multiplica todo por el denominador comun D y deben salir enteros iguales a los dos lados
+  {
+    const D = den;
+    const resId = estados[estados.length - 1][0].id;
+    const base = estados[estados.length - 1];
+    const v1 = (n1 * D) / d1;
+    const v2 = (n2 * D) / d2;
+    const v3 = (rn * D) / rd;
+    const s = resta ? v1 - v2 : v1 + v2;
+    // la respuesta se escribe como se ve en la hoja: el signo menos delante de la fraccion
+    const rTex = rd === 1 ? `${rn}\\cdot ${D}` : rn < 0 ? `(-\\dfrac{${-rn}}{${rd}})\\cdot ${D}` : `\\dfrac{${rn}}{${rd}}\\cdot ${D}`;
+    const SC: Ficha = { id: "SC", tex: "", salto: true };
+    const Kp: Ficha = { id: "Kp", tex: op, op: true };
+    const Ke: Ficha = { id: "Ke", tex: "=", op: true };
+    const base0 = [...base, ...cola];
+    const fila = (...fs: Ficha[]) => final.push([...base0, SC, ...fs]);
+    fila({ id: "Ka", tex: `\\dfrac{${n1}}{${d1}}\\cdot ${D}` }, Kp, { id: "Kb", tex: `\\dfrac{${n2}}{${d2}}\\cdot ${D}` }, Ke, { id: "Kc", tex: rTex });
+    trs.push({
+      fusiones: [],
+      brotes: [
+        { desde: "Rp", hacia: "SC" },
+        { desde: "R1", hacia: "Ka" },
+        { desde: "Rp", hacia: "Kp" },
+        { desde: "R2", hacia: "Kb" },
+        { desde: "Rp", hacia: "Ke" },
+        { desde: resId, hacia: "Kc" },
+      ],
+      texto: `Comprobamos: ${resta ? "la resta" : "la suma"} del ejercicio tiene que ser igual a la respuesta. Para quitar los denominadores multiplicamos cada término por $${D}$, el denominador común: a la izquierda las dos fracciones del ejercicio, y a la derecha la respuesta.`,
+      porque: `Si dos números son iguales, siguen siendo iguales al multiplicarlos por lo mismo. Multiplicar por $${D}$ deja números enteros, que son más fáciles de comparar.`,
+      regla: `$a=b\\ \\Rightarrow\\ a\\cdot c=b\\cdot c$`,
+    });
+    // el factor entra al numerador (la fraccion por un entero)
+    fila(fr("Ka2", `${n1}\\cdot ${D}`, `${d1}`), Kp, fr("Kb2", `${n2}\\cdot ${D}`, `${d2}`), Ke, rd === 1 ? { id: "Kc", tex: rTex } : fr("Kc2", `${rn}\\cdot ${D}`, `${rd}`));
+    trs.push({
+      fusiones: [
+        { desde: ["Ka"], hacia: "Ka2" },
+        { desde: ["Kb"], hacia: "Kb2" },
+        ...(rd === 1 ? [] : [{ desde: ["Kc"], hacia: "Kc2" }]),
+      ],
+      texto: `Multiplicar una fracción por $${D}$ es multiplicar solo su numerador: el $${D}$ pasa arriba.`,
+      porque: `Una fracción por un número entero: el entero multiplica al numerador y el denominador se queda igual.`,
+      regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
+    });
+    // se hace la multiplicacion de arriba
+    const Kc3: Ficha = rd === 1 ? { id: "Kv3", tex: `${v3}` } : fr("Kc3", `${rn * D}`, `${rd}`);
+    fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, Kc3);
+    trs.push({
+      fusiones: [
+        { desde: ["Ka2"], hacia: "Ka3" },
+        { desde: ["Kb2"], hacia: "Kb3" },
+        { desde: [rd === 1 ? "Kc" : "Kc2"], hacia: Kc3.id },
+      ],
+      texto: `Hacemos las multiplicaciones de arriba: $${n1}\\cdot ${D}=${n1 * D}$, $${n2}\\cdot ${D}=${n2 * D}$ y $${rn}\\cdot ${D}=${rn * D}$.`,
+      porque: `Cada fracción queda con su numerador calculado; los denominadores no cambian.`,
+    });
+    // se divide
+    fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, { id: "Kv3", tex: `${v3}` });
+    trs.push({
+      fusiones: [
+        { desde: ["Ka3"], hacia: "Kv1" },
+        { desde: ["Kb3"], hacia: "Kv2" },
+        ...(rd === 1 ? [] : [{ desde: ["Kc3"], hacia: "Kv3" }]),
+      ],
+      texto: `Ahora las divisiones, que salen exactas: $\\dfrac{${n1 * D}}{${d1}}=${v1}$, $\\dfrac{${n2 * D}}{${d2}}=${v2}$${rd === 1 ? "" : ` y $\\dfrac{${rn * D}}{${rd}}=${v3}$`}.`,
+      porque: `El denominador común $${D}$ se puede repartir exacto entre cada denominador, por eso quedan números enteros.`,
+    });
+    // la suma o resta de la izquierda
+    fila({ id: "Ks", tex: `${s}` }, Ke, { id: "Kv3", tex: `${v3}` });
+    trs.push({
+      fusiones: [{ desde: ["Kv1", "Kp", "Kv2"], hacia: "Ks" }],
+      texto: `${resta ? "Restamos" : "Sumamos"} a la izquierda: $${v1}${op}${v2 < 0 ? `(${v2})` : v2}=${s}$.`,
+      porque: `Es la misma cuenta que hicimos con la fracción, pero con números enteros.`,
+    });
+    // se comparan los dos lados
+    final.push([...base0, SC, { id: "ok", tex: `${s}=${v3}\\ \\checkmark` }]);
+    trs.push({
+      fusiones: [{ desde: ["Ks", "Ke", "Kv3"], hacia: "ok" }],
+      texto: `A la izquierda queda $${s}$ y a la derecha $${v3}$: son iguales. La respuesta es correcta.`,
+      porque: `Si multiplicar por $${D}$ deja los dos lados iguales, los dos lados eran iguales desde antes.`,
+    });
+  }
+
   return {
     demo: {
       titulo: "",
       nota: "",
       intro: `Queremos calcular $\\dfrac{${n1}}{${d1}}${op}\\dfrac{${n2}}{${d2}}$.${iguales ? " Los denominadores son iguales." : " Los denominadores son distintos."}`,
-      estados,
-      transiciones: trans,
+      estados: final,
+      transiciones: trs,
     },
     resumen: { n1, d1, n2, d2, rn, rd, resta: resta ? 1 : 0 },
   };
@@ -392,103 +573,141 @@ export function validarCuadrados(k: number): string | null {
 
 export function diferenciaCuadrados(k: number): Resultado {
   const q = k * k;
+  const kk = `${k}`;
+  // FILA DE REFERENCIA: el ejercicio se anota abajo en el primer paso y se queda hasta el final,
+  // asi la comprobacion nace de ahi y no de numeros que ya no estan en pantalla
+  const SR: Ficha = { id: "SR", tex: "", salto: true };
+  const ref: Ficha = { id: "ref", tex: `x^{2}-${q}=0` };
+  const cola: Ficha[] = [SR, ref];
+
+  const igual: Ficha[] = [
+    { id: "eq1", tex: "=", op: true },
+    { id: "z1", tex: "0" },
+  ];
   const base: Ficha[] = [
     { id: "a", tex: "x^2" },
     { id: "m", tex: "-", op: true },
   ];
-  const cola: Ficha[] = [
-    { id: "eq1", tex: "=", op: true },
-    { id: "z1", tex: "0" },
-  ];
-  const factores: Ficha[] = [
-    { id: "f1", tex: `(x-${k})` },
-    { id: "f2", tex: `(x+${k})` },
-  ];
-  // la letra que cumple cada pieza en la formula (a = x, b = k), escrita debajo
-  const baseEtiquetada: Ficha[] = [
-    { id: "a", tex: "x^2", debajo: "a=x" },
-    { id: "m", tex: "-", op: true },
-  ];
-  const n3Etiquetado: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
-  // la formula en PIEZAS sueltas, en un renglon aparte (S = el salto de renglon): cada parentesis tiene su id (f1, f2)
-  // para poder viajar despues a la ecuacion
-  const formula = (a2: string, b2: string, p1: string, p2: string): Ficha[] => [
-    { id: "S", tex: "", salto: true },
-    { id: "Fa", tex: a2 },
+  // las etiquetas (a = x, b = k) se escriben DEBAJO de cada pieza, de a una
+  const aEt: Ficha = { id: "a", tex: "x^2", debajo: "a=x" };
+  const bEt: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
+  const baseEt: Ficha[] = [aEt, { id: "m", tex: "-", op: true }];
+  const Sf: Ficha = { id: "S", tex: "", salto: true };
+  // la formula en PIEZAS sueltas, una por cada lugar donde aparece cada letra (tres lugares la a, tres la b):
+  // asi cada valor puede VOLAR desde su etiqueta hasta su lugar
+  const formula = (aListo: boolean, bListo: boolean): Ficha[] => [
+    Sf,
+    aListo ? { id: "Fax", tex: "x" } : { id: "Fa", tex: "a" },
+    { id: "Fa2", tex: "2", sup: true },
     { id: "Fm", tex: "-", op: true },
-    { id: "Fb", tex: b2 },
+    bListo ? { id: "Fbk", tex: kk } : { id: "Fb", tex: "b" },
+    { id: "Fb2", tex: "2", sup: true },
     { id: "Fe", tex: "=", op: true },
-    { id: "f1", tex: p1 },
-    { id: "f2", tex: p2 },
+    { id: "fo1", tex: "(" },
+    aListo ? { id: "x1", tex: "x", pegado: true } : { id: "ra1", tex: "a", pegado: true },
+    { id: "fs1", tex: "-", op: true, pegado: true },
+    bListo ? { id: "k1", tex: kk, pegado: true } : { id: "rb1", tex: "b", pegado: true },
+    { id: "fc1", tex: ")", pegado: true },
+    { id: "fo2", tex: "(" },
+    aListo ? { id: "x2", tex: "x", pegado: true } : { id: "ra2", tex: "a", pegado: true },
+    { id: "fs2", tex: "+", op: true, pegado: true },
+    bListo ? { id: "k2", tex: kk, pegado: true } : { id: "rb2", tex: "b", pegado: true },
+    { id: "fc2", tex: ")", pegado: true },
   ];
-  const formulaLetras = formula("a^{2}", "b^{2}", "(a-b)", "(a+b)");
-  const formulaConX = formula("x^{2}", "b^{2}", "(x-b)", "(x+b)");
-  const formulaNumeros = formula("x^{2}", `${k}^{2}`, `(x-${k})`, `(x+${k})`);
+  // comprobacion de la formula con estos numeros: se multiplican los parentesis
+  const SE: Ficha = { id: "SE", tex: "", salto: true };
+  const e1: Ficha = { id: "e1", tex: "x^{2}" };
+  const e2: Ficha = { id: "e2", tex: `+${k}x` };
+  const e3: Ficha = { id: "e3", tex: `-${k}x` };
+  const e4: Ficha = { id: "e4", tex: `-${k}^{2}` };
+  // la ecuacion con los dos factores (sus piezas ya vienen de la formula)
+  const factor1: Ficha[] = [
+    { id: "fo1", tex: "(" },
+    { id: "x1", tex: "x", pegado: true },
+    { id: "fs1", tex: "-", op: true, pegado: true },
+    { id: "k1", tex: kk, pegado: true },
+    { id: "fc1", tex: ")", pegado: true },
+  ];
+  const factor2: Ficha[] = [
+    { id: "fo2", tex: "(" },
+    { id: "x2", tex: "x", pegado: true },
+    { id: "fs2", tex: "+", op: true, pegado: true },
+    { id: "k2", tex: kk, pegado: true },
+    { id: "fc2", tex: ")", pegado: true },
+  ];
+  const fila2: Ficha[] = [
+    { id: "eq2", tex: "=", op: true },
+    { id: "z2", tex: "0" },
+  ];
+  const o: Ficha = { id: "or", tex: "\\text{ ó }", op: true };
+
   const estados: Ficha[][] = [
-    [...base, { id: "n", tex: `${q}` }, ...cola],
-    [...base, { id: "nn", tex: `${k}\\cdot ${k}` }, ...cola],
-    [...base, { id: "n3", tex: `${k}^2` }, ...cola],
-    // se nombran a y b
-    [...baseEtiquetada, n3Etiquetado, ...cola],
-    // la formula general aparece debajo (con letras)
-    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaLetras],
-    // se reemplaza PRIMERO la a por x, despues la b por su numero
-    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaConX],
-    [...baseEtiquetada, n3Etiquetado, ...cola, ...formulaNumeros],
-    // la izquierda se reemplaza por lo que dice la formula: los dos parentesis
-    [...factores, ...cola],
-    [...factores, ...cola],
-    // un factor por ecuacion, todavia con parentesis
-    [
-      { id: "f1", tex: `(x-${k})` },
-      { id: "eq1", tex: "=", op: true },
-      { id: "z1", tex: "0" },
-      { id: "or", tex: "\\text{ ó }", op: true },
-      { id: "f2", tex: `(x+${k})` },
-      { id: "eq2", tex: "=", op: true },
-      { id: "z2", tex: "0" },
-    ],
-    // los parentesis solo agrupaban: se quitan y quedan las piezas sueltas
+    // 0
+    [...base, { id: "n", tex: `${q}` }, ...igual],
+    // 1: 9 = 3 por 3
+    [...base, { id: "nn", tex: `${k}\\cdot ${k}` }, ...igual],
+    // 2: 3 por 3 = 3 al cuadrado
+    [...base, { id: "n3", tex: `${k}^2` }, ...igual],
+    // 3: se reconoce el patron (resaltar)
+    [...base, { id: "n3", tex: `${k}^2` }, ...igual],
+    // 4: se nombra la a, debajo de x^2
+    [...baseEt, { id: "n3", tex: `${k}^2` }, ...igual],
+    // 5: se nombra la b, debajo de k^2
+    [...baseEt, bEt, ...igual],
+    // 6: la formula general aparece debajo (con letras)
+    [...baseEt, bEt, ...igual, ...formula(false, false)],
+    // 7: la a se reemplaza por x en sus tres lugares: vuela desde su etiqueta
+    [...baseEt, bEt, ...igual, ...formula(true, false)],
+    // 8: la b se reemplaza por k en sus tres lugares
+    [...baseEt, bEt, ...igual, ...formula(true, true)],
+    // 9: se multiplican los parentesis: cuatro productos
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e2, e3, e4],
+    // 10: kx y -kx se cancelan
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e4],
+    // 11: queda x^2 - k^2, igual que el lado izquierdo (se marca)
+    [...baseEt, bEt, ...igual, ...formula(true, true), SE, e1, e4],
+    // 12: los dos parentesis suben a la ecuacion, en lugar de x^2 - k^2
+    [...factor1, ...factor2, ...igual],
+    // 13: un producto igual a cero (se marca)
+    [...factor1, ...factor2, ...igual],
+    // 14: un factor por ecuacion, todavia con parentesis
+    [...factor1, ...igual, o, ...factor2, ...fila2],
+    // 15: los parentesis solo agrupaban: se quitan y el signo se junta con el numero
     [
       { id: "x1", tex: "x" },
       { id: "m1", tex: `-${k}` },
-      { id: "eq1", tex: "=", op: true },
-      { id: "z1", tex: "0" },
-      { id: "or", tex: "\\text{ ó }", op: true },
+      ...igual,
+      o,
       { id: "x2", tex: "x" },
       { id: "m2", tex: `+${k}` },
-      { id: "eq2", tex: "=", op: true },
-      { id: "z2", tex: "0" },
+      ...fila2,
     ],
-    // primero se ARRASTRA el -k de la primera ecuacion y cambia de signo
+    // 16: primero se ARRASTRA el -k de la primera ecuacion y cambia de signo
     [
       { id: "x1", tex: "x" },
-      { id: "eq1", tex: "=", op: true },
-      { id: "z1", tex: "0" },
+      ...igual,
       { id: "m1", tex: `+${k}` },
-      { id: "or", tex: "\\text{ ó }", op: true },
+      o,
       { id: "x2", tex: "x" },
       { id: "m2", tex: `+${k}` },
-      { id: "eq2", tex: "=", op: true },
-      { id: "z2", tex: "0" },
+      ...fila2,
     ],
-    // despues el +k de la segunda
+    // 17: despues el +k de la segunda
     [
       { id: "x1", tex: "x" },
-      { id: "eq1", tex: "=", op: true },
-      { id: "z1", tex: "0" },
+      ...igual,
       { id: "m1", tex: `+${k}` },
-      { id: "or", tex: "\\text{ ó }", op: true },
+      o,
       { id: "x2", tex: "x" },
-      { id: "eq2", tex: "=", op: true },
-      { id: "z2", tex: "0" },
+      ...fila2,
       { id: "m2", tex: `-${k}` },
     ],
+    // 18: soluciones
     [
       { id: "x1", tex: "x" },
       { id: "eq1", tex: "=", op: true },
       { id: "r1", tex: `${k}` },
-      { id: "or", tex: "\\text{ ó }", op: true },
+      o,
       { id: "x2", tex: "x" },
       { id: "eq2", tex: "=", op: true },
       { id: "r2", tex: `-${k}` },
@@ -509,37 +728,76 @@ export function diferenciaCuadrados(k: number): Resultado {
     {
       fusiones: [],
       resaltar: ["a", "n3"],
-      texto: `Reconocemos el patrón $a^{2}-b^{2}$: aquí $a=x$ y $b=${k}$. Lo anotamos debajo de cada número.`,
+      texto: `Reconocemos el patrón: una resta de dos cuadrados, $x^{2}-${k}^{2}$. Es de la forma $a^{2}-b^{2}$.`,
       porque: `Es una resta de dos cuadrados. Esa forma se llama diferencia de cuadrados y siempre se factoriza igual.`,
     },
     {
       fusiones: [],
-      brotes: ["S", "Fa", "Fm", "Fb", "Fe", "f1", "f2"].map((hacia) => ({ desde: "eq1", hacia })),
+      resaltar: ["a"],
+      texto: `El primer cuadrado es $x^{2}$: aquí $a=x$. Lo anotamos debajo.`,
+      porque: `En la fórmula, $a$ es lo que está elevado al cuadrado en el primer término.`,
+    },
+    {
+      fusiones: [],
+      resaltar: ["n3"],
+      texto: `El segundo cuadrado es $${k}^{2}$: aquí $b=${k}$. Lo anotamos debajo.`,
+      porque: `En la fórmula, $b$ es lo que está elevado al cuadrado en el segundo término.`,
+    },
+    {
+      fusiones: [],
+      brotes: formula(false, false).map((f) => ({ desde: "eq1", hacia: f.id })),
       texto: `Escribimos debajo la fórmula de la diferencia de cuadrados: $a^{2}-b^{2}=(a-b)(a+b)$.`,
       porque: `Es una fórmula que vale para cualquier $a$ y cualquier $b$. Con ella una resta de cuadrados se convierte en un producto.`,
       regla: `$a^{2}-b^{2}=(a-b)(a+b)$`,
     },
     {
-      fusiones: [],
-      resaltar: ["Fa", "f1", "f2", "a"],
-      texto: `Reemplazamos primero la $a$: vale $x$. Donde la fórmula dice $a$ escribimos $x$.`,
-      porque: `La $a$ aparece dos veces en la fórmula: en $a^{2}$ y en $(a-b)(a+b)$. Se cambia en los dos lugares.`,
+      // la a VUELA desde su etiqueta a los tres lugares donde aparece
+      fusiones: [{ desde: ["Fa", "ra1", "ra2"], hacia: ["Fax", "x1", "x2"], modo: "viajar" }],
+      brotes: ["Fax", "x1", "x2"].map((hacia) => ({ desde: "a", hacia })),
+      texto: `Reemplazamos primero la $a$: vale $x$. El $x$ sale de su etiqueta y va a los tres lugares donde la fórmula dice $a$.`,
+      porque: `La $a$ aparece en tres lugares de la fórmula: en $a^{2}$ y en cada uno de los dos paréntesis. Se cambia en los tres.`,
+    },
+    {
+      // la b VUELA desde su etiqueta a los tres lugares donde aparece
+      fusiones: [{ desde: ["Fb", "rb1", "rb2"], hacia: ["Fbk", "k1", "k2"], modo: "viajar" }],
+      brotes: ["Fbk", "k1", "k2"].map((hacia) => ({ desde: "n3", hacia })),
+      texto: `Ahora la $b$: vale $${k}$. El $${k}$ sale de su etiqueta y va a los tres lugares donde la fórmula dice $b$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
+      porque: `Igual que la $a$, la $b$ aparece en tres lugares: en $b^{2}$ y en los dos paréntesis. Se cambia en los tres.`,
     },
     {
       fusiones: [],
-      resaltar: ["Fb", "f1", "f2", "n3"],
-      texto: `Ahora la $b$: vale $${k}$. Queda $x^{2}-${k}^{2}=(x-${k})(x+${k})$.`,
-      porque: `Donde la fórmula dice $b$ escribimos $${k}$. Se puede comprobar: $(x-${k})(x+${k})=x^{2}+${k}x-${k}x-${q}=x^{2}-${q}$. Los términos $${k}x$ y $-${k}x$ se cancelan.`,
+      brotes: [
+        { desde: "Fe", hacia: "SE" },
+        { desde: "x1", hacia: "e1" },
+        { desde: "k2", hacia: "e2" },
+        { desde: "k1", hacia: "e3" },
+        { desde: "fs1", hacia: "e4" },
+      ],
+      texto: `Comprobamos que la fórmula es cierta con estos números: multiplicamos los paréntesis, cada término del primero por cada término del segundo. Salen $x\\cdot x=x^{2}$, $x\\cdot ${k}=${k}x$, $-${k}\\cdot x=-${k}x$ y $-${k}\\cdot ${k}=-${k}^{2}$.`,
+      porque: `Para multiplicar dos paréntesis, cada término de uno se multiplica por cada término del otro.`,
+      regla: `$(a+b)(c+d)=ac+ad+bc+bd$`,
     },
     {
-      // los dos parentesis de la formula VIAJAN a la ecuacion (mismo id); lo de la izquierda y el resto de la formula se van
-      fusiones: [{ desde: ["a", "m", "n3", "S", "Fa", "Fm", "Fb", "Fe"], hacia: null }],
+      fusiones: [{ desde: ["e2", "e3"], hacia: null, modo: "tachar" }],
+      texto: `Los términos $+${k}x$ y $-${k}x$ son opuestos: se cancelan.`,
+      porque: `Un número más su opuesto da $0$: $${k}x-${k}x=0$.`,
+      regla: `$a+(-a)=0$`,
+    },
+    {
+      fusiones: [],
+      resaltar: ["e1", "e4", "Fax", "Fbk"],
+      texto: `Queda $x^{2}-${k}^{2}=x^{2}-${q}$: justo lo que tenía la ecuación. La fórmula se cumple.`,
+      porque: `Multiplicar los paréntesis devuelve la resta de cuadrados, así que podemos usar el producto en lugar de la resta.`,
+    },
+    {
+      // los dos parentesis de la formula VIAJAN a la ecuacion (mismas piezas); lo de la izquierda y el resto de la formula se van
+      fusiones: [{ desde: ["a", "m", "n3", "S", "Fax", "Fa2", "Fm", "Fbk", "Fb2", "Fe", "SE", "e1", "e4"], hacia: null }],
       texto: `La fórmula dice que $x^{2}-${k}^{2}$ es igual a $(x-${k})(x+${k})$. Subimos los dos paréntesis a la ecuación, en lugar de $x^{2}-${k}^{2}$.`,
       porque: `La fórmula dice que son iguales, así que podemos escribir uno en lugar del otro sin cambiar la ecuación.`,
     },
     {
       fusiones: [],
-      resaltar: ["f1", "f2"],
+      resaltar: ["fo1", "fc1", "fo2", "fc2"],
       texto: `Tenemos un producto de dos factores igual a $0$.`,
       porque: `Un producto solo da $0$ si al menos uno de sus factores vale $0$. Si ninguno fuera $0$, el producto tampoco lo sería.`,
       regla: `$a\\cdot b=0\\ \\Rightarrow\\ a=0\\ \\text{ ó }\\ b=0$`,
@@ -556,8 +814,10 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       fusiones: [
-        { desde: ["f1"], hacia: ["x1", "m1"] },
-        { desde: ["f2"], hacia: ["x2", "m2"] },
+        { desde: ["fo1", "fc1"], hacia: null },
+        { desde: ["fs1", "k1"], hacia: "m1" },
+        { desde: ["fo2", "fc2"], hacia: null },
+        { desde: ["fs2", "k2"], hacia: "m2" },
       ],
       texto: `Quitamos los paréntesis: $(x-${k})$ queda $x-${k}$ y $(x+${k})$ queda $x+${k}$. Ahora el $x$ y el número están sueltos.`,
       porque: `Un paréntesis que no tiene nada multiplicando por fuera solo agrupa; se puede quitar sin cambiar el valor.`,
@@ -586,8 +846,94 @@ export function diferenciaCuadrados(k: number): Resultado {
       regla: `$0+a=a$`,
     },
   ];
+
+  // el ejercicio se anota abajo desde el primer paso
+  const final: Ficha[][] = [estados[0], ...estados.map((e) => [...e, ...cola])];
+  const trs: Transicion[] = [
+    {
+      fusiones: [],
+      brotes: [
+        { desde: "eq1", hacia: "SR" },
+        { desde: "eq1", hacia: "ref" },
+      ],
+      texto: `Antes de empezar, anotamos el ejercicio debajo, tal como viene: lo vamos a necesitar para comprobar las soluciones al final.`,
+      porque: `Mientras trabajamos, la ecuación de arriba va a cambiar. Con el ejercicio escrito abajo podemos volver a él cuando queramos.`,
+    },
+    ...trans,
+  ];
+
+  // COMPROBACION de las dos soluciones contra el ejercicio ORIGINAL (la fila de referencia), una operacion por paso
+  {
+    const fin = estados[estados.length - 1];
+    const Sc = (n: number): Ficha => ({ id: `SC${n}`, tex: "", salto: true });
+    const fil = (n: number, ...fs: Ficha[]): Ficha[] => [Sc(n), ...fs];
+    const par = (n: number, tex: string, id: string): Ficha[] => [
+      { id: `${id}${n}`, tex },
+      { id: `B${n}`, tex: "-", op: true },
+      { id: `C${n}`, tex: `${q}` },
+      { id: `D${n}`, tex: "=", op: true },
+      { id: `Z${n}`, tex: "0" },
+    ];
+    const antes = [...fin, ...cola];
+    final.push([...antes, ...fil(1, ...par(1, `${k}^{2}`, "A")), ...fil(2, ...par(2, `(-${k})^{2}`, "A"))]);
+    trs.push({
+      fusiones: [],
+      brotes: [1, 2].flatMap((n) => [
+        { desde: "ref", hacia: `SC${n}` },
+        { desde: n === 1 ? "r1" : "r2", hacia: `A${n}` },
+        { desde: "ref", hacia: `B${n}` },
+        { desde: "ref", hacia: `C${n}` },
+        { desde: "ref", hacia: `D${n}` },
+        { desde: "ref", hacia: `Z${n}` },
+      ]),
+      texto: `Comprobamos las dos soluciones en el ejercicio original. Volvemos a escribirlo dos veces, y en cada una reemplazamos $x$ por su valor: $${k}$ en la primera y $-${k}$ en la segunda.`,
+      porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple.`,
+    });
+    final.push([
+      ...antes,
+      ...fil(1, { id: "P1", tex: `${q}` }, ...par(1, "", "A").slice(1)),
+      ...fil(2, { id: "P2", tex: `${q}` }, ...par(2, "", "A").slice(1)),
+    ]);
+    trs.push({
+      fusiones: [
+        { desde: ["A1"], hacia: "P1" },
+        { desde: ["A2"], hacia: "P2" },
+      ],
+      texto: `Primero la potencia: $${k}^{2}=${q}$ y $(-${k})^{2}=${q}$.`,
+      porque: `Elevar al cuadrado es multiplicar el número por sí mismo. En la segunda, $(-${k})\\cdot(-${k})=${q}$ porque menos por menos da más.`,
+      regla: `$(-a)\\cdot(-a)=a^{2}$`,
+    });
+    final.push([
+      ...antes,
+      ...fil(1, { id: "Q1", tex: "0" }, ...par(1, "", "A").slice(3)),
+      ...fil(2, { id: "Q2", tex: "0" }, ...par(2, "", "A").slice(3)),
+    ]);
+    trs.push({
+      fusiones: [
+        { desde: ["P1", "B1", "C1"], hacia: "Q1" },
+        { desde: ["P2", "B2", "C2"], hacia: "Q2" },
+      ],
+      texto: `Ahora la resta: $${q}-${q}=0$ en las dos.`,
+      porque: `Un número menos él mismo da $0$.`,
+      regla: `$a-a=0$`,
+    });
+    final.push([
+      ...antes,
+      ...fil(1, { id: "ok1", tex: "0=0\\ \\checkmark" }),
+      ...fil(2, { id: "ok2", tex: "0=0\\ \\checkmark" }),
+    ]);
+    trs.push({
+      fusiones: [
+        { desde: ["Q1", "D1", "Z1"], hacia: "ok1" },
+        { desde: ["Q2", "D2", "Z2"], hacia: "ok2" },
+      ],
+      texto: `Los dos lados valen $0$ en las dos filas: la igualdad se cumple. Entonces $x=${k}$ y $x=-${k}$ son soluciones de $x^{2}-${q}=0$.`,
+      porque: `Si al reemplazar $x$ los dos lados dan lo mismo, la solución es correcta.`,
+    });
+  }
+
   return {
-    demo: { titulo: "", nota: "", intro: `Queremos resolver $x^{2}-${q}=0$.`, estados, transiciones: trans },
+    demo: { titulo: "", nota: "", intro: `Queremos resolver $x^{2}-${q}=0$.`, estados: final, transiciones: trs },
     resumen: { k, q },
   };
 }
@@ -616,6 +962,121 @@ export function validarLogaritmos(b: number, m: number, n: number): string | nul
 }
 
 /**
+ * Fila de referencia de los logaritmos: el ejercicio (log_b(m) + log_b(n)) se anota abajo en el primer paso y se queda
+ * hasta el final. La comprobacion nace de esa fila, no de numeros que ya no estan en pantalla.
+ */
+function conReferencia(estados: Ficha[][], trans: Transicion[], b: number, m: number, n: number, origen: string) {
+  const SR: Ficha = { id: "SR", tex: "", salto: true };
+  const ref: Ficha = { id: "ref", tex: `\\log_{${b}}(${m})+\\log_{${b}}(${n})` };
+  const cola = [SR, ref];
+  const final: Ficha[][] = [estados[0], ...estados.map((e) => [...e, ...cola])];
+  const trs: Transicion[] = [
+    {
+      fusiones: [],
+      brotes: [
+        { desde: origen, hacia: "SR" },
+        { desde: origen, hacia: "ref" },
+      ],
+      texto: `Antes de empezar, anotamos el ejercicio debajo, tal como viene: lo vamos a necesitar para comprobar al final.`,
+      porque: `Mientras trabajamos, el ejercicio de arriba va a cambiar. Con el ejercicio escrito abajo podemos volver a él cuando queramos.`,
+    },
+    ...trans,
+  ];
+  return { final, trs, cola };
+}
+
+/**
+ * Comprobacion con la definicion, nacida de la fila de referencia: b^k tiene que ser m·n. Se desarrolla la potencia
+ * (b·b·...·b) y se multiplica de a dos, una operacion por paso, hasta comparar con m·n.
+ * `base` es lo que queda arriba (el resultado), `valorId` la ficha que tiene el valor k.
+ */
+function comprobarPotencia(
+  final: Ficha[][],
+  trs: Transicion[],
+  base: Ficha[],
+  cola: Ficha[],
+  b: number,
+  k: number,
+  m: number,
+  n: number,
+  valorId: string
+) {
+  const P = m * n;
+  const antes = [...base, ...cola];
+  const SC: Ficha = { id: "SC", tex: "", salto: true };
+  const ce: Ficha = { id: "ce", tex: "=", op: true };
+  const cd: Ficha = { id: "cd", tex: "\\cdot", op: true };
+  const cm: Ficha = { id: "cm", tex: `${m}` };
+  const cn: Ficha = { id: "cn", tex: `${n}` };
+  const wb: Ficha = { id: "wb", tex: `${b}` };
+  const wk: Ficha = { id: "wk", tex: `${k}`, sup: true };
+  const cP: Ficha = { id: "cP", tex: `${P}` };
+
+  final.push([...antes, SC, wb, wk, ce, cm, cd, cn]);
+  trs.push({
+    fusiones: [],
+    brotes: [
+      { desde: "ref", hacia: "SC" },
+      { desde: "ref", hacia: "wb" },
+      { desde: valorId, hacia: "wk" },
+      { desde: "ref", hacia: "ce" },
+      { desde: "ref", hacia: "cm" },
+      { desde: "ref", hacia: "cd" },
+      { desde: "ref", hacia: "cn" },
+    ],
+    texto: `Comprobamos con la definición. Por la propiedad del producto, la suma de los dos logaritmos es el logaritmo de $${m}\\cdot ${n}$; si vale $${k}$, entonces $${b}^{${k}}$ tiene que ser $${m}\\cdot ${n}$. Lo escribimos debajo: la base $${b}$ y los números $${m}$ y $${n}$ salen del ejercicio anotado, y el $${k}$ es el resultado.`,
+    porque: `Un logaritmo es un exponente: $\\log_{${b}}(a)=y$ significa $${b}^{y}=a$.`,
+    regla: `$\\log_{${b}}(a)=y\\ \\iff\\ ${b}^{y}=a$`,
+  });
+
+  final.push([...antes, SC, wb, wk, ce, cP]);
+  trs.push({
+    fusiones: [{ desde: ["cm", "cd", "cn"], hacia: "cP" }],
+    texto: `Hacemos la multiplicación: $${m}\\cdot ${n}=${P}$.`,
+    porque: `A la derecha tiene que quedar un solo número para poder compararlo.`,
+  });
+
+  if (k === 1) {
+    final.push([...antes, SC, { id: "wv", tex: `${b}` }, ce, cP]);
+    trs.push({
+      fusiones: [{ desde: ["wb", "wk"], hacia: "wv" }],
+      texto: `Con exponente $1$: $${b}^{1}=${b}$.`,
+      porque: `Un número elevado a $1$ es ese mismo número.`,
+      regla: `$a^{1}=a$`,
+    });
+  } else {
+    // b^k se desarrolla: b·b·...·b (el primer b es el mismo; los demas NACEN del exponente)
+    const dots = (j: number): Ficha[] => [{ id: `wt${j}`, tex: "\\cdot", op: true }, { id: `wf${j}`, tex: `${b}` }];
+    const resto = (desde: number): Ficha[] => Array.from({ length: k - desde + 1 }, (_, i) => dots(desde + i)).flat();
+    final.push([...antes, SC, wb, ...resto(2), ce, cP]);
+    trs.push({
+      fusiones: [{ desde: ["wk"], hacia: resto(2).map((f) => f.id) }],
+      texto: `Desarrollamos la potencia: $${b}^{${k}}$ es el $${b}$ multiplicado por sí mismo $${k}$ veces.`,
+      porque: `El exponente cuenta cuántas veces se multiplica la base.`,
+      regla: `$a^{n}=\\underbrace{a\\cdot a\\cdots a}_{n}$`,
+    });
+    // se multiplica de a dos: el producto parcial y el siguiente b
+    for (let j = 2; j <= k; j++) {
+      const prev = j === 2 ? "wb" : `wa${j - 1}`;
+      const nuevo = j === k ? "wv" : `wa${j}`;
+      final.push([...antes, SC, { id: nuevo, tex: `${b ** j}` }, ...resto(j + 1), ce, cP]);
+      trs.push({
+        fusiones: [{ desde: [prev, `wt${j}`, `wf${j}`], hacia: nuevo }],
+        texto: `$${b ** (j - 1)}\\cdot ${b}=${b ** j}$.`,
+        porque: j === 2 ? `Se multiplican de a dos: primero los dos primeros $${b}$.` : `Al producto que llevamos le multiplicamos el siguiente $${b}$.`,
+      });
+    }
+  }
+
+  final.push([...antes, SC, { id: "ok", tex: `${P}=${P}\\ \\checkmark` }]);
+  trs.push({
+    fusiones: [{ desde: ["wv", "ce", "cP"], hacia: "ok" }],
+    texto: `$${b}^{${k}}=${P}$ y $${m}\\cdot ${n}=${P}$: los dos lados valen $${P}$. Se cumple, la respuesta $${k}$ es correcta.`,
+    porque: `Si $${b}$ elevado a $${k}$ da justo el producto de lo que había dentro de los logaritmos, el logaritmo vale $${k}$.`,
+  });
+}
+
+/**
  * Cada logaritmo se resuelve por su SIGNIFICADO antes de sumar: log_b(m) pregunta cuantos b hay que
  * multiplicar para llegar a m. Se escribe m como b·b·b, se cuentan, y asi nace el valor. Solo aplica
  * si m y n son potencias de b; si no, se usa el camino por propiedad.
@@ -630,9 +1091,10 @@ function sumaLogaritmosPorSignificado(b: number, m: number, n: number, e1: numbe
 
   const inicial = (l: Lado): Ficha[] => [{ id: `${l.id}l`, tex: L(`${l.m}`) }];
   // el logaritmo se separa en base+parentesis y el numero de adentro
+  // (si el numero es justo la base, hay un solo factor: la pieza ya es el primer b y no hace falta un paso mas)
   const separado = (l: Lado): Ficha[] => [
     { id: `${l.id}o`, tex: `\\log_{${b}}(` },
-    { id: `${l.id}m`, tex: `${l.m}` },
+    { id: l.valor === 1 ? `${l.id}f1` : `${l.id}m`, tex: `${l.m}` },
     { id: `${l.id}c`, tex: ")" },
   ];
   const factores = (l: Lado): Ficha[] => {
@@ -667,26 +1129,26 @@ function sumaLogaritmosPorSignificado(b: number, m: number, n: number, e1: numbe
 
   for (const l of lados) {
     const vecesB = Array.from({ length: l.valor }, () => `${b}`).join("\\cdot ");
+    const uno = l.valor === 1;
     // 1) separamos el logaritmo: base y parentesis por un lado, el numero de adentro por otro
     poner(l, separado(l));
     trans.push({
       fusiones: [{ desde: [`${l.id}l`], hacia: separado(l).map((f) => f.id) }],
-      texto: `Resolvemos $${L(`${l.m}`)}$ solo: pregunta ¿cuántas veces hay que multiplicar el $${b}$ para llegar a $${l.m}$? Primero separamos el logaritmo (con su base) del número de adentro, $${l.m}$.`,
+      texto: `Resolvemos $${L(`${l.m}`)}$ solo: pregunta ¿cuántas veces hay que multiplicar el $${b}$ para llegar a $${l.m}$? Primero separamos el logaritmo (con su base) del número de adentro, $${l.m}$.${uno ? ` Ese $${l.m}$ es justo $${b}$: hay un solo $${b}$.` : ""}`,
       porque: `Un logaritmo es un exponente: cuenta cuántos $${b}$ se multiplican para formar $${l.m}$. La base $${b}$ es la que se va a multiplicar.`,
       regla: `$\\log_{${b}}(a)=y\\ \\iff\\ ${b}^{y}=a$`,
     });
     // 2) el numero de adentro se escribe con la base: el primer b es el mismo numero; los demas NACEN de la base del log
     const fs = factores(l);
-    poner(l, fs);
-    trans.push({
-      fusiones: [{ desde: [`${l.id}m`], hacia: `${l.id}f1` }],
-      brotes: fs.filter((f) => !/^(.)(o|c|f1)$/.test(f.id)).map((f) => ({ desde: `${l.id}o`, hacia: f.id })),
-      texto:
-        l.valor === 1
-          ? `$${l.m}$ es justo $${b}$: hay un solo $${b}$.`
-          : `Escribimos $${l.m}$ como producto de $${b}$: $${vecesB}=${l.m}$. Cada $${b}$ sale de la base del logaritmo.`,
-      porque: `Un logaritmo con base $${b}$ pregunta por los $${b}$ que se multiplican. Por eso escribimos el número de adentro con esa base.`,
-    });
+    if (!uno) {
+      poner(l, fs);
+      trans.push({
+        fusiones: [{ desde: [`${l.id}m`], hacia: `${l.id}f1` }],
+        brotes: fs.filter((f) => !/^(.)(o|c|f1)$/.test(f.id)).map((f) => ({ desde: `${l.id}o`, hacia: f.id })),
+        texto: `Escribimos $${l.m}$ como producto de $${b}$: $${vecesB}=${l.m}$. Cada $${b}$ sale de la base del logaritmo.`,
+        porque: `Un logaritmo con base $${b}$ pregunta por los $${b}$ que se multiplican. Por eso escribimos el número de adentro con esa base.`,
+      });
+    }
     // 3) contar: el exponente nace de los b que se juntan (o, si hay uno solo, el exponente 1 que nunca se escribe)
     if (l.valor > 1) {
       poner(l, agrupado(l));
@@ -719,46 +1181,24 @@ function sumaLogaritmosPorSignificado(b: number, m: number, n: number, e1: numbe
   }
 
   const k = e1 + e2;
-  const P = m * n;
   estados.push([{ id: "tot", tex: `${k}` }]);
   trans.push({
     fusiones: [{ desde: ["ae", "p", "ze"], hacia: "tot" }],
     texto: `Ahora sí sumamos los resultados: $${e1}+${e2}=${k}$.`,
     porque: `Cada logaritmo ya es un número, así que solo queda sumar.`,
   });
-  // comprobacion con la propiedad del producto, paso a paso y a la vista
-  estados.push([{ id: "tot", tex: `${k}` }, { id: "S", tex: "", salto: true }, { id: "q1", tex: L(`${m}\\cdot ${n}`) }]);
-  trans.push({
-    fusiones: [],
-    brotes: [
-      { desde: "tot", hacia: "S" },
-      { desde: "tot", hacia: "q1" },
-    ],
-    texto: `Comprobamos con la propiedad del producto: la suma de los dos logaritmos debe ser el logaritmo del producto, $${L(`${m}\\cdot ${n}`)}$.`,
-    porque: `Si $${L(`${m}`)}+${L(`${n}`)}=${k}$, entonces $${L(`${m}\\cdot ${n}`)}$ tiene que dar también $${k}$.`,
-    regla: `$\\log_{${b}}(a)+\\log_{${b}}(c)=\\log_{${b}}(a\\cdot c)$`,
-  });
-  estados.push([{ id: "tot", tex: `${k}` }, { id: "S", tex: "", salto: true }, { id: "q2", tex: L(`${P}`) }]);
-  trans.push({
-    fusiones: [{ desde: ["q1"], hacia: "q2" }],
-    texto: `Hacemos la multiplicación de adentro: $${m}\\cdot ${n}=${P}$.`,
-    porque: `Ahora hay un solo logaritmo con un solo número adentro.`,
-  });
-  estados.push([{ id: "tot", tex: `${k}` }, { id: "S", tex: "", salto: true }, { id: "q3", tex: `${b}^{${k}}=${P}\\ \\checkmark` }]);
-  trans.push({
-    fusiones: [{ desde: ["q2"], hacia: "q3" }],
-    texto: `$${L(`${P}`)}$ debe valer $${k}$: lo comprobamos con la definición, $${b}^{${k}}=${P}$. Se cumple.`,
-    porque: `Un logaritmo es un exponente: $${L(`${P}`)}=${k}$ significa que $${b}$ elevado a $${k}$ da $${P}$. Da lo mismo que la suma.`,
-    regla: `$\\log_{${b}}(a)=y\\ \\iff\\ ${b}^{y}=a$`,
-  });
+
+  // fila de referencia + comprobacion nacida de ahi (definicion, con la potencia desarrollada)
+  const { final, trs, cola } = conReferencia(estados, trans, b, m, n, "p");
+  comprobarPotencia(final, trs, estados[estados.length - 1], cola, b, k, m, n, "tot");
 
   return {
     demo: {
       titulo: "",
       nota: "",
       intro: `Queremos calcular $${L(`${m}`)}+${L(`${n}`)}$. Recuerda: $\\log_{${b}}(a)$ es el exponente al que hay que elevar $${b}$ para obtener $a$. Resolvemos cada uno y después sumamos.`,
-      estados,
-      transiciones: trans,
+      estados: final,
+      transiciones: trs,
     },
     resumen: { b, m, n, p: m * n, k, e1, e2 },
   };
@@ -804,7 +1244,9 @@ export function sumaLogaritmosPropiedad(b: number, m: number, n: number): Result
     { id: "n", tex: `${n}` },
     { id: "c", tex: ")" },
   ];
-  const estados: Ficha[][] = [dos, dos, unico, [unico[0], { id: "v", tex: `${p}` }, unico[4]]];
+  // con k = 1 el producto ya ES el unico b: la pieza se llama f1 desde que se calcula (no hay paso de "escribirlo como b")
+  const idProducto = k === 1 ? "f1" : "v";
+  const estados: Ficha[][] = [dos, dos, unico, [unico[0], { id: idProducto, tex: `${p}` }, unico[4]]];
   const trans: Transicion[] = [
     {
       fusiones: [],
@@ -820,19 +1262,21 @@ export function sumaLogaritmosPropiedad(b: number, m: number, n: number): Result
       regla: `$\\log_{${b}}(a)+\\log_{${b}}(c)=\\log_{${b}}(a\\cdot c)$`,
     },
     {
-      fusiones: [{ desde: ["m", "dot", "n"], hacia: "v" }],
-      texto: `Hacemos la multiplicación de adentro: $${m}\\cdot ${n}=${p}$.`,
+      fusiones: [{ desde: ["m", "dot", "n"], hacia: idProducto }],
+      texto: `Hacemos la multiplicación de adentro: $${m}\\cdot ${n}=${p}$.${k === 1 ? ` Y $${p}$ es justo $${b}$: hay un solo $${b}$.` : ""}`,
       porque: `Ahora hay un solo logaritmo con un solo número adentro.`,
     },
-    {
+  ];
+  if (k > 1) {
+    trans.push({
       // el primer b es el mismo numero; los demas NACEN de la base del log
       fusiones: [{ desde: ["v"], hacia: "f1" }],
       brotes: factores.filter((f) => !["o", "c", "f1"].includes(f.id)).map((f) => ({ desde: "o", hacia: f.id })),
-      texto: k === 1 ? `Vemos que $${p}$ es justo $${b}$.` : `Escribimos $${p}$ como una multiplicación de $${b}$ por sí mismo: $${vecesB}=${p}$. Cada $${b}$ sale de la base del logaritmo.`,
+      texto: `Escribimos $${p}$ como una multiplicación de $${b}$ por sí mismo: $${vecesB}=${p}$. Cada $${b}$ sale de la base del logaritmo.`,
       porque: `El logaritmo pregunta: ¿a qué exponente hay que elevar $${b}$ para obtener $${p}$? Para verlo, conviene escribir $${p}$ usando $${b}$.`,
-    },
-  ];
-  estados.push(factores);
+    });
+    estados.push(factores);
+  }
 
   // contar: el exponente nace de los b que se juntan; con un solo b, el exponente 1 que nunca se escribe
   const grupo: Ficha[] = [
@@ -878,32 +1322,18 @@ export function sumaLogaritmosPropiedad(b: number, m: number, n: number): Result
     porque: `El logaritmo, la base y el paréntesis se van, y el exponente se queda como respuesta.`,
     regla: `$\\log_{${b}}(${b}^{n})=n$`,
   });
-  // comprobacion a la vista: la definicion
-  estados.push([{ id: "e", tex: `${k}` }, { id: "S", tex: "", salto: true }, { id: "w", tex: `${b}^{${k}}` }]);
-  trans.push({
-    fusiones: [],
-    brotes: [
-      { desde: "e", hacia: "S" },
-      { desde: "e", hacia: "w" },
-    ],
-    texto: `Comprobamos con la definición: si el logaritmo vale $${k}$, entonces $${b}$ elevado a $${k}$ tiene que dar lo que había adentro.`,
-    porque: `Un logaritmo es un exponente: $\\log_{${b}}(a)=${k}$ significa $${b}^{${k}}=a$.`,
-    regla: `$\\log_{${b}}(a)=y\\ \\iff\\ ${b}^{y}=a$`,
-  });
-  estados.push([{ id: "e", tex: `${k}` }, { id: "S", tex: "", salto: true }, { id: "w2", tex: `${b}^{${k}}=${p}\\ \\checkmark` }]);
-  trans.push({
-    fusiones: [{ desde: ["w"], hacia: "w2" }],
-    texto: `$${b}^{${k}}=${p}$, y $${p}$ es justo $${m}\\cdot ${n}$. Se cumple.`,
-    porque: `Es el mismo producto que habíamos juntado dentro del logaritmo.`,
-  });
+
+  // fila de referencia + comprobacion nacida de ahi (definicion, con la potencia desarrollada)
+  const { final, trs, cola } = conReferencia(estados, trans, b, m, n, "p");
+  comprobarPotencia(final, trs, estados[estados.length - 1], cola, b, k, m, n, "e");
 
   return {
     demo: {
       titulo: "",
       nota: "",
       intro: `Queremos calcular $${L(`${m}`)}+${L(`${n}`)}$. Recuerda: $\\log_{${b}}(a)$ es el exponente al que hay que elevar $${b}$ para obtener $a$.`,
-      estados,
-      transiciones: trans,
+      estados: final,
+      transiciones: trs,
     },
     resumen: { b, m, n, p, k },
   };

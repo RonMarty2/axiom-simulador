@@ -285,7 +285,7 @@ describe("saltos de la formula general", () => {
   });
 
   test("la raiz pasa por 36 = 6.6 = 6^2 y se tacha con su exponente antes de quedar 6", () => {
-    for (const caso of [[1, -5, 6, 0, 0, 0], [2, 2, -4, 0, 0, 0], [1, -4, 4, 0, 0, 0]] as Caso[]) {
+    for (const caso of [[1, -3, -4, 0, 0, 0], [2, 2, -4, 0, 0, 0]] as Caso[]) {
       const r = cuadratica(...caso);
       const { d, D } = r.resumen;
       const e = r.demo.estados;
@@ -311,11 +311,12 @@ describe("saltos de la formula general", () => {
     const tras = (k: number) => e[iEmpieza + 1 + k].flatMap((f) => (f.tex ? [limpia(f.tex)] : []));
     // la ecuacion original vuelve a escribirse y el 3 viaja desde la solucion
     assert.ok(e[iEmpieza + 1].some((f) => limpia(f.tex) === "x^{2}"));
+    assert.ok(t[iEmpieza].brotes!.length > 0 && t[iEmpieza].brotes!.every((br) => /^(Rl|Rr|Rz|RefS)/.test(br.desde)), "la ecuacion nace de la fila de referencia, no de la solucion");
     assert.ok(t[iEmpieza + 1].brotes!.every((br) => br.desde === "r1"), "el valor sale de la solucion");
     assert.ok(tras(1).includes("3^{2}"));
-    assert.ok(tras(2).includes("3\\cdot3"));
-    assert.ok(tras(3).includes("9"));
-    assert.ok(tras(4).includes("15"), "5.3 = 15");
+    assert.ok(tras(2).includes("9"), "3^2 = 9 sin repetir 3.3 (n.n ya se enseno con b^2)");
+    assert.ok(!e.slice(iEmpieza + 1, iEmpieza + 6).some((s) => s.some((f) => limpia(f.tex) === "3\\cdot3")), "no se repite 3.3");
+    assert.ok(tras(3).includes("15"), "5.3 = 15");
     // sumas de a dos
     assert.ok(textos.some((x) => x.includes("$9-15=-6$")));
     assert.ok(textos.some((x) => x.includes("$-6+6=0$")));
@@ -344,5 +345,97 @@ describe("saltos de la formula general", () => {
         for (const x of t.slice(iC)) assert.ok(!(x.regla ?? "").includes("negativo") && !(x.regla ?? "").includes("a-(-b)"), `b=${b} c=${c}`);
       }
     }
+  });
+});
+
+// ---- arreglos de la auditoria independiente (8-oct): piezas que viajan, Delta visible, fila de referencia, mas corto
+describe("arreglos de la auditoria independiente", () => {
+  test("x=(5±1)/2: se llaman x1 y x2, las piezas se copian por brote, la suma es una fusion de piezas y la raya es una fraccion con partes", () => {
+    const r = cuadratica(1, -5, 6);
+    const t = r.demo.transiciones;
+    const e = r.demo.estados;
+    const iAbre = t.findIndex((x) => x.texto.includes("Llamamos $x_{1}$ y $x_{2}$"));
+    assert.ok(iAbre >= 0, "falta decir que se llaman x1 y x2");
+    const origenes = new Set(t[iAbre].brotes!.map((br) => br.desde));
+    for (const o of ["Rnb", "Rd", "Rden"]) assert.ok(origenes.has(o), `el brote sale de ${o}`);
+    // la suma 5+1 y la resta 5-1 son fusiones de TRES piezas separadas (numero, signo, numero)
+    const iSuma = t.findIndex((x) => x.texto.includes("$5+1=6$"));
+    assert.ok(iSuma > iAbre);
+    assert.deepEqual(t[iSuma].fusiones.map((f) => f.desde.length), [3, 3]);
+    for (const f of t[iSuma].fusiones[0].desde) assert.ok(e[iSuma].some((p) => p.id === f), "las piezas estaban sueltas");
+    // la raya: fraccion con partes y modo viajar; "÷" nunca
+    const iFr = iSuma + 1;
+    assert.ok(t[iFr].fusiones.every((f) => f.modo === "viajar"));
+    assert.ok(e[iFr + 1].some((p) => p.frac), "la fraccion tiene partes");
+    assert.ok(t[iFr].brotes!.some((br) => br.hacia.endsWith(".n")) && t[iFr].brotes!.some((br) => br.hacia.endsWith(".d")));
+    // despues la fraccion se calcula: 6/2 = 3
+    assert.ok(t[iFr + 1].texto.includes("\\dfrac{6}{2}=3"));
+    assert.ok(!t.some((x) => `${x.texto} ${x.porque}`.includes("÷")));
+    // ya no hay una ficha unica con "x_{1}=\dfrac{...}" ni "ó" pegado
+    assert.ok(!e.flat().some((p) => p.tex.includes("x_{1}=")), "x1 y su valor son piezas distintas");
+  });
+
+  test("Delta se ve: la pieza del discriminante lleva la etiqueta Delta y el paso la nombra", () => {
+    for (const caso of [[1, -5, 6, 0, 0, 0], [2, 2, -4, 0, 0, 0]] as Caso[]) {
+      const r = cuadratica(...caso);
+      const t = r.demo.transiciones;
+      const i = t.findIndex((x) => x.texto.includes("se escribe $\\Delta$"));
+      assert.ok(i >= 0);
+      assert.ok(r.demo.estados[i + 1].some((f) => f.id === "Dd" && f.debajo === "\\Delta"), "el estado siguiente muestra Delta");
+    }
+  });
+
+  test("la raiz de 0 y de 1 es un solo paso; desde 4 se mantiene el proceso completo", () => {
+    const uno = cuadratica(1, -5, 6); // D = 1
+    assert.ok(!uno.demo.estados.flat().some((f) => f.id === "Rdd"), "sin 1.1 ni 1^2");
+    assert.ok(uno.demo.transiciones.some((x) => x.texto.includes("\\sqrt{1}=1")));
+    const cero = cuadratica(1, -4, 4); // D = 0
+    assert.ok(!cero.demo.estados.flat().some((f) => f.id === "Rdd"));
+    const cuatro = cuadratica(1, 0, 0, 0, 5, -6 + 0); // D = 1 tambien: solo para verificar que no rompe
+    assert.equal(cuatro.resumen.d, 1);
+    assert.ok(cuadratica(1, -3, -4).demo.estados.flat().some((f) => f.id === "Rdd"), "D = 25 conserva el proceso");
+  });
+
+  test("la regla del paso que calcula b.b no es la inversa (n.n = n^2) y la comprobacion no repite 3.3", () => {
+    const r = cuadratica(2, 2, -4); // b = 2
+    const paso = r.demo.transiciones.find((x) => x.texto.startsWith("Ahora multiplicamos"))!;
+    assert.ok(!paso.regla!.includes("n^{2}"), paso.regla);
+    const textos = r.demo.transiciones.map((x) => x.texto).join(" | ");
+    assert.ok(!/\$\(?-?\d+\)?\^\{2\}=\(?-?\d+\)?\\cdot \(?-?\d+\)?\$/.test(textos.slice(textos.indexOf("Comprobamos"))), "la comprobacion no expande n^2 = n.n otra vez");
+  });
+
+  test("sumar los semejantes de x y de los numeros solos es UN paso con dos fusiones independientes", () => {
+    const r = cuadratica(1, -2, 4, 0, 3, -2);
+    const t = r.demo.transiciones.filter((x) => x.texto.includes("Sumamos los"));
+    assert.equal(t.length, 1);
+    assert.equal(t[0].fusiones.length, 2);
+    assert.ok(t[0].texto.includes("Sumamos los de $x$") && t[0].texto.includes("Sumamos los números solos"));
+  });
+
+  test("la comprobacion nace de la fila de referencia, que existe desde el primer paso y se queda", () => {
+    for (const caso of EJEMPLOS) {
+      const r = cuadratica(...caso);
+      const e = r.demo.estados;
+      assert.ok(!e[0].some((f) => f.id === "RefS"), "al empezar solo esta el enunciado");
+      assert.ok(r.demo.transiciones[0].brotes!.some((br) => br.hacia === "RefS"), "la referencia nace de la ecuacion en el primer paso");
+      for (const s of e.slice(1)) assert.ok(s.some((f) => f.id === "RefS"), "la referencia no desaparece");
+      // lo que dice la fila de referencia es la ecuacion original
+      const refTex = limpia(e.at(-1)!.filter((f) => /^(Rl|Rr|Re|Rz)/.test(f.id)).map((f) => f.tex).join(""));
+      const [a1, b1, c1, a2, b2, c2] = caso;
+      const lado = (a: number, b: number, c: number) => {
+        let s = "";
+        for (const [k, v] of [["x^{2}", a], ["x", b], ["", c]] as const) {
+          if (v === 0) continue;
+          s += `${v < 0 ? "-" : s ? "+" : ""}${Math.abs(v) === 1 && k ? "" : Math.abs(v)}${k}`;
+        }
+        return s || "0";
+      };
+      assert.equal(refTex, limpia(`${lado(a1, b1, c1)}=${lado(a2, b2, c2)}`));
+    }
+  });
+
+  test("es mas corta: la comprobacion y la raiz ya no repiten lo enseñado", () => {
+    // antes tenia 44 transiciones
+    assert.ok(cuadratica(1, -5, 6).demo.transiciones.length <= 36, `${cuadratica(1, -5, 6).demo.transiciones.length} pasos`);
   });
 });

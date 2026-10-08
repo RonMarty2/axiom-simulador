@@ -9,7 +9,7 @@
 // Todo texto del alumno va en LaTeX entre $...$ (MathText); las fichas y etiquetas van en LaTeX sin $. Las barras van dobles.
 // La division de la formula se escribe en linea con la palabra "entre" mientras hay piezas sueltas (no se puede partir una
 // fraccion en piezas) y se acomoda como fraccion al abrir el mas o menos.
-import type { Ficha, Transicion, Fusion, Brote } from "./datos.ts";
+import { fr, type Ficha, type Transicion, type Fusion, type Brote } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 
 type Clase = "a" | "b" | "c";
@@ -66,7 +66,8 @@ const terminosDe = (cs: Record<Clase, number>): Termino[] => {
   for (const k of CLASES) if (cs[k] !== 0) t.push({ k, m: Math.abs(cs[k]), neg: cs[k] < 0, lead: t.length === 0 });
   return t;
 };
-type Etapa = "k1" | "k2" | "k3" | "k4";
+// k1 sustituir, k3 calcular la potencia (n^2 = n.n ya se enseno al calcular b^2), k4 multiplicar por el coeficiente
+type Etapa = "k1" | "k3" | "k4";
 interface Etapas {
   ini: string;
   /** valor con el que el termino entra a la suma (el primero lleva su signo; los demas, su magnitud) */
@@ -93,13 +94,12 @@ function etapasTermino(t: Termino, s: number): Etapas {
   }
   const sq = s * s;
   const val = sg * t.m * sq;
-  const prod = `${par(s)}\\cdot ${par(s)}`;
   const k3 = `${pre}${mc}${sq}`;
   const e: Etapas = {
     ini: `${pre}${t.m > 1 ? t.m : ""}x^{2}`,
     val,
-    tex: { k1: `${pre}${mc}${par(s)}^{2}`, k2: t.m > 1 || pre ? `${pre}${mc}(${prod})` : prod, k3 },
-    frase: { k2: `$${par(s)}^{2}=${prod}$`, k3: `$${prod}=${sq}$` },
+    tex: { k1: `${pre}${mc}${par(s)}^{2}`, k3 },
+    frase: { k3: `$${par(s)}^{2}=${sq}$` },
   };
   if (`${val}` !== k3) {
     e.tex.k4 = `${val}`;
@@ -134,7 +134,9 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
   const trans: Transicion[] = [];
   const copia = (fs: Ficha[]) => fs.map((f) => ({ ...f }));
   let conIgual = true; // el signo = se dibuja mientras la ecuacion este a la vista
-  const foto = () => estados.push([...copia(izq), ...(conIgual ? [{ ...eq }] : []), ...copia(der), ...copia(extra)]);
+  // fila de REFERENCIA: copia del enunciado, nace en el primer paso y se queda abajo; la comprobacion final nace de ella
+  const ref: Ficha[] = [];
+  const foto = () => estados.push([...copia(izq), ...(conIgual ? [{ ...eq }] : []), ...copia(der), ...copia(extra), ...copia(ref)]);
   const poner = (id: string, parche: Partial<Ficha>) => {
     izq = izq.map((f) => (f.id === id ? { ...f, ...parche } : f));
     der = der.map((f) => (f.id === id ? { ...f, ...parche } : f));
@@ -151,14 +153,31 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
 
   // ----- 1) por que no se puede despejar
   const conX = [...izq, ...der].filter((f) => ["A", "B"].includes(f.id.replace(/^m/, ""))).map((f) => f.id);
+  // la referencia: cada pieza nace de su par en la ecuacion que se ve
+  const origenRef: Brote[] = [];
+  const nuevaRef = (origen: string, f: Ficha) => {
+    ref.push(f);
+    origenRef.push({ desde: origen, hacia: f.id });
+  };
+  nuevaRef(izq[0].id, { id: "RefS", tex: "", salto: true });
+  for (const k of clases) if (izqCoef[k] !== 0) nuevaRef(ID[k], { id: `Rl${ID[k]}`, tex: termino(k, izqCoef[k], ref.length === 1) });
+  nuevaRef("eq", { id: "Re", tex: "=", op: true });
+  if (!clases.some((k) => derCoef[k] !== 0)) nuevaRef("z", { id: "Rz", tex: "0" });
+  let primeroDer = true;
+  for (const k of clases) {
+    if (derCoef[k] === 0) continue;
+    nuevaRef(`m${ID[k]}`, { id: `Rr${ID[k]}`, tex: termino(k, derCoef[k], primeroDer) });
+    primeroDer = false;
+  }
   foto();
   trans.push({
     fusiones: [],
+    brotes: origenRef,
     resaltar: conX,
     texto: yaEstandar
       ? `La $x$ aparece de dos formas, como $x^{2}$ y como $x$. Así no se puede despejar con las operaciones de siempre: usaremos la fórmula general. La ecuación ya está ordenada (todo a la izquierda y $0$ a la derecha), así que no hay que prepararla.`
       : `La $x$ aparece de dos formas, como $x^{2}$ y como $x$, y además hay términos en los dos lados. Así no se puede despejar con las operaciones de siempre: usaremos la fórmula general, pero primero hay que ordenar la ecuación.`,
-    porque: `La fórmula general solo funciona si la ecuación tiene la forma $ax^{2}+bx+c=0$: todo de un lado y un cero del otro.`,
+    porque: `La fórmula general solo funciona si la ecuación tiene la forma $ax^{2}+bx+c=0$: todo de un lado y un cero del otro. Abajo queda una copia de la ecuación tal como vino, para comprobar las soluciones al final.`,
     regla: `$ax^{2}+bx+c=0$`,
   });
 
@@ -206,23 +225,32 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         regla: `$a+b=b+a$`,
       });
     }
-    // sumar semejantes, una clase por paso
-    for (const k of clases) {
-      if (!par2(k)) continue;
-      const nuevoId = `${ID[k]}f`;
-      const l = izqCoef[k];
-      const r = derCoef[k];
-      const antes = [texDe(ID[k]), texDe(`m${ID[k]}`)];
-      izq = izq.flatMap((f) => (f.id === ID[k] ? [{ id: nuevoId, tex: termino(k, fin[k], k === "a") } as Ficha] : f.id === `m${ID[k]}` ? [] : [f]));
-      foto();
-      trans.push({
-        fusiones: [{ desde: [ID[k], `m${ID[k]}`], hacia: nuevoId }],
-        texto:
+    // sumar semejantes: cada clase es una cuenta independiente, y todas juntas van en un solo paso
+    const pares = clases.filter(par2);
+    if (pares.length > 0) {
+      const fusiones: Fusion[] = [];
+      const textos: string[] = [];
+      const porques: string[] = [];
+      for (const k of pares) {
+        const nuevoId = `${ID[k]}f`;
+        const l = izqCoef[k];
+        const r = derCoef[k];
+        const antes = [texDe(ID[k]), texDe(`m${ID[k]}`)];
+        izq = izq.flatMap((f) => (f.id === ID[k] ? [{ id: nuevoId, tex: termino(k, fin[k], k === "a") } as Ficha] : f.id === `m${ID[k]}` ? [] : [f]));
+        fusiones.push({ desde: [ID[k], `m${ID[k]}`], hacia: nuevoId });
+        textos.push(
           k === "c"
             ? `Sumamos ${nombre(k)}: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`
-            : `Sumamos ${nombre(k)}: $${antes[0]}${antes[1]}=${termino(k, fin[k], k === "a")}$. Se suman los números que las acompañan: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`,
-        porque: k === "c" ? `Los números solos se suman entre sí.` : `Es como sumar objetos iguales: los $${cuerpo(k, 1)}$ se cuentan y se suman sus cantidades.`,
-        regla: k === "c" ? `$a+b=c$` : `$m\\cdot u+n\\cdot u=(m+n)\\cdot u$`,
+            : `Sumamos ${nombre(k)}: $${antes[0]}${antes[1]}=${termino(k, fin[k], k === "a")}$. Se suman sus números: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`
+        );
+        porques.push(k === "c" ? `Los números solos se suman entre sí.` : `Es como sumar objetos iguales: los $${cuerpo(k, 1)}$ se cuentan y se suman sus cantidades.`);
+      }
+      foto();
+      trans.push({
+        fusiones,
+        texto: pares.length > 1 ? `${textos.join(" ")} Son dos cuentas independientes, así que las hacemos a la vez.` : textos[0],
+        porque: porques.join(" "),
+        regla: pares.some((k) => k !== "c") ? `$m\\cdot u+n\\cdot u=(m+n)\\cdot u$` : `$a+b=c$`,
       });
     }
   }
@@ -380,7 +408,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       b < 0
         ? `Un negativo por un negativo da positivo, por eso el resultado no es negativo.`
         : `Un positivo por un positivo da positivo: $${b}\\cdot ${b}=${P}$.`,
-    regla: b < 0 ? `$(-n)^{2}=n^{2}$` : `$n\\cdot n=n^{2}$`,
+    regla: b < 0 ? `$(-n)^{2}=n^{2}$` : `$m\\cdot n=p$`,
   });
   subs(["F4", "Fd1", "Va1"], [{ id: "P4a", tex: `${4 * a}` }]);
   empuja({
@@ -405,7 +433,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       porque: `Restar un negativo es lo mismo que sumar su opuesto: quitar $${Q}$ es agregar $${-Q}$.`,
       regla: `$a-(-b)=a+b$`,
     });
-    subs(["Dm"], [{ id: "Dd", tex: `${D}` }]);
+    subs(["Dm"], [{ id: "Dd", tex: `${D}`, debajo: "\\Delta" }]);
     empuja({
       fusiones: [{ desde: ["Dm"], hacia: "Dd" }],
       texto: `${ordinal()} cuenta: sumamos lo de adentro de la raíz: $${P}+${-Q}=${D}$. Ese resultado se llama discriminante y se escribe $\\Delta$.`,
@@ -413,7 +441,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       regla: `$\\Delta=b^{2}-4ac$`,
     });
   } else {
-    subs(["Pn", "Fmn", "PQ"], [{ id: "Dd", tex: `${D}` }]);
+    subs(["Pn", "Fmn", "PQ"], [{ id: "Dd", tex: `${D}`, debajo: "\\Delta" }]);
     empuja({
       fusiones: [{ desde: ["Pn", "Fmn", "PQ"], hacia: "Dd" }],
       texto: `${ordinal()} cuenta: restamos lo de adentro de la raíz: $${P}-${par(Q)}=${D}$. Ese resultado se llama discriminante y se escribe $\\Delta$.`,
@@ -428,41 +456,45 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     porque: `Es el doble de $a$. Es el número entre el que se divide todo lo de arriba.`,
     regla: `$2\\cdot n=n+n$`,
   });
-  // la raiz: el discriminante se escribe como cuadrado y la raiz se cancela con el exponente
-  subs(["Dd"], [{ id: "Rdd", tex: `${d}\\cdot ${d}` }]);
-  empuja({
-    fusiones: [{ desde: ["Dd"], hacia: "Rdd" }],
-    descompone: true,
-    texto: `${ordinal()} cuenta: la raíz del discriminante. Queremos $\\sqrt{${D}}$: buscamos qué número multiplicado por sí mismo da $${D}$. Es el $${d}$, porque $${d}\\cdot ${d}=${D}$. Escribimos $${D}=${d}\\cdot ${d}$.`,
-    porque: `Para sacar una raíz cuadrada hay que reconocer el número que, multiplicado por sí mismo, da el de adentro. Como es un cuadrado perfecto, existe.`,
-    regla: `$\\sqrt{n\\cdot n}=n$`,
-  });
-  subs(["Rdd"], [{ id: "Rd", tex: `${d}` }, { id: "Rds", tex: "2", sup: true }]);
-  empuja({
-    fusiones: [{ desde: ["Rdd"], hacia: ["Rd", "Rds"] }],
-    descompone: true,
-    texto: `Un número multiplicado por sí mismo es ese número al cuadrado: $${d}\\cdot ${d}=${d}^{2}$.`,
-    porque: `Así dentro de la raíz queda un cuadrado, y la raíz cuadrada es la operación contraria de elevar al cuadrado.`,
-    regla: `$n\\cdot n=n^{2}$`,
-  });
-  subs(["Fr", "Rds", "Fc2"], []);
-  empuja({
-    fusiones: [{ desde: ["Fr", "Rds", "Fc2"], hacia: null, modo: "tachar" }],
-    texto: `La raíz y el cuadrado se tachan, porque se deshacen entre sí: $\\sqrt{${d}^{2}}=${d}$. Queda el $${d}$.`,
-    porque: `La raíz cuadrada deshace el cuadrado: el número que sale es la base, $${d}$.`,
-    regla: `$\\sqrt{n^{2}}=n$`,
-  });
+  // la raiz: el discriminante se escribe como cuadrado y la raiz se cancela con el exponente.
+  // Con D = 0 o D = 1 la raiz es trivial (0.0 = 0, 1.1 = 1) y va en un solo paso.
+  if (d <= 1) {
+    subs(["Fr", "Dd", "Fc2"], [{ id: "Rd", tex: `${d}` }]);
+    empuja({
+      fusiones: [{ desde: ["Fr", "Dd", "Fc2"], hacia: "Rd" }],
+      texto: `${ordinal()} cuenta: la raíz del discriminante. Queremos $\\sqrt{${D}}$: el número que multiplicado por sí mismo da $${D}$ es el $${d}$, porque $${d}$ por $${d}$ es $${D}$. Entonces $\\sqrt{${D}}=${d}$.`,
+      porque: `Con el $0$ y con el $1$ el número no cambia al multiplicarse por sí mismo, así que la raíz es ese mismo número.`,
+      regla: `$\\sqrt{n\\cdot n}=n$`,
+    });
+  } else {
+    subs(["Dd"], [{ id: "Rdd", tex: `${d}\\cdot ${d}` }]);
+    empuja({
+      fusiones: [{ desde: ["Dd"], hacia: "Rdd" }],
+      descompone: true,
+      texto: `${ordinal()} cuenta: la raíz del discriminante. Queremos $\\sqrt{${D}}$: buscamos qué número multiplicado por sí mismo da $${D}$. Es el $${d}$, porque $${d}\\cdot ${d}=${D}$. Escribimos $${D}=${d}\\cdot ${d}$.`,
+      porque: `Para sacar una raíz cuadrada hay que reconocer el número que, multiplicado por sí mismo, da el de adentro. Como es un cuadrado perfecto, existe.`,
+      regla: `$\\sqrt{n\\cdot n}=n$`,
+    });
+    subs(["Rdd"], [{ id: "Rd", tex: `${d}` }, { id: "Rds", tex: "2", sup: true }]);
+    empuja({
+      fusiones: [{ desde: ["Rdd"], hacia: ["Rd", "Rds"] }],
+      descompone: true,
+      texto: `Un número multiplicado por sí mismo es ese número al cuadrado: $${d}\\cdot ${d}=${d}^{2}$.`,
+      porque: `Así dentro de la raíz queda un cuadrado, y la raíz cuadrada es la operación contraria de elevar al cuadrado.`,
+      regla: `$n\\cdot n=n^{2}$`,
+    });
+    subs(["Fr", "Rds", "Fc2"], []);
+    empuja({
+      fusiones: [{ desde: ["Fr", "Rds", "Fc2"], hacia: null, modo: "tachar" }],
+      texto: `La raíz y el cuadrado se tachan, porque se deshacen entre sí: $\\sqrt{${d}^{2}}=${d}$. Queda el $${d}$.`,
+      porque: `La raíz cuadrada deshace el cuadrado: el número que sale es la base, $${d}$.`,
+      regla: `$\\sqrt{n^{2}}=n$`,
+    });
+  }
 
   // ----- 7) abrir el mas o menos
-  let fila: Ficha[] = [];
-  const sola = (fs: Ficha[]) => {
-    extra = [];
-    izq = fs;
-    der = [];
-    fila = fs;
-    estados.push(copia(fs));
-  };
-  const todasFormula = () => extra.map((f) => f.id);
+  // La formula sigue en `extra` hasta el final: las piezas VIAJAN (nada se reescribe de golpe en una sola ficha).
+  const pieza = (id: string) => extra.find((f) => f.id === id) as Ficha;
   if (d === 0) {
     subs(["Fpm", "Rd"], []);
     empuja({
@@ -471,60 +503,110 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       porque: `$\\pm 0$ no cambia nada, así que las dos soluciones coinciden y hay una sola.`,
       regla: `$a\\pm 0=a$`,
     });
-    const desdeDiv = todasFormula();
-    sola([{ id: "R", tex: `x=${x1}` }]);
-    trans.push({
-      fusiones: [{ desde: desdeDiv, hacia: "R" }],
+    subs(["Fo", "Rnb", "Fc1", "Fen", "Rden"], [fr("Q1", `${-b}`, `${den}`)]);
+    empuja({
+      fusiones: [{ desde: ["Fo", "Rnb", "Fc1", "Fen", "Rden"], hacia: "Q1", modo: "viajar" }],
+      brotes: [
+        { desde: "Rnb", hacia: "Q1.n" },
+        { desde: "Rden", hacia: "Q1.d" },
+      ],
+      texto: `La palabra "entre" es la raya de una fracción: el $${-b}$ viaja arriba de la raya y el $${den}$ abajo.`,
+      porque: `Decir "$${-b}$ entre $${den}$" es lo mismo que escribir una fracción: el número de arriba, la raya y el de abajo.`,
+      regla: `$a\\ \\text{entre}\\ b=\\dfrac{a}{b}$`,
+    });
+    extra = extra.map((f) => (f.id === "Q1" ? { id: "r1", tex: `${x1}` } : f));
+    empuja({
+      fusiones: [{ desde: ["Q1"], hacia: "r1" }],
       texto: `Dividimos: $\\dfrac{${-b}}{${den}}=${x1}$. Hay una sola solución, $x=${x1}$.`,
       porque: `La fracción es una división: el número de arriba entre el de abajo.`,
       regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
     });
   } else {
-    // primero la division se acomoda como fraccion (un solo cambio), despues se abre el +/-
-    const desdeFraccion = todasFormula();
-    sola([{ id: "Ffr", tex: `x=\\dfrac{${-b}\\pm ${d}}{${den}}` }]);
-    trans.push({
-      fusiones: [{ desde: desdeFraccion, hacia: "Ffr" }],
-      texto: `Acomodamos la división como fracción: lo de arriba, $${-b}\\pm ${d}$, queda sobre la raya y el $${den}$ debajo.`,
-      porque: `Decir "todo lo de arriba entre $${den}$" es lo mismo que escribir una fracción: el número de arriba, la raya y el de abajo.`,
-      regla: `$a\\ \\text{entre}\\ b=\\dfrac{a}{b}$`,
-    });
-    sola([
-      { id: "x1", tex: `x_{1}=\\dfrac{${-b}+${d}}{${den}}` },
-      { id: "o", tex: "\\text{ ó }", op: true },
-      { id: "x2", tex: `x_{2}=\\dfrac{${-b}-${d}}{${den}}` },
-    ]);
-    trans.push({
-      fusiones: [{ desde: ["Ffr"], hacia: ["x1", "o", "x2"] }],
-      texto: `El $\\pm$ se abre en dos caminos: uno suma $${d}$ y el otro resta $${d}$.`,
+    // a) el +/- se abre en dos caminos: cada solucion tiene su renglon y sus propias piezas, copiadas de las que ya estan
+    const nuevas: Ficha[] = [
+      { id: "X1", tex: "x_{1}" },
+      { ...pieza("Fe") },
+      { ...pieza("Fo") },
+      { ...pieza("Rnb") },
+      { id: "Pl", tex: "+", op: true },
+      { ...pieza("Rd") },
+      { ...pieza("Fc1") },
+      { ...pieza("Fen") },
+      { ...pieza("Rden") },
+      { id: "X2", tex: "x_{2}", salto: true },
+      { id: "E2", tex: "=", op: true },
+      { id: "O2", tex: "(" },
+      { id: "N2", tex: pieza("Rnb").tex },
+      { id: "Mi", tex: "-", op: true },
+      { id: "D2", tex: pieza("Rd").tex },
+      { id: "C2", tex: ")" },
+      { id: "En2", tex: "\\text{ entre }", op: true },
+      { id: "R2den", tex: pieza("Rden").tex },
+    ];
+    extra = [pieza("S"), ...nuevas];
+    empuja({
+      fusiones: [
+        { desde: ["Fx"], hacia: "X1", modo: "viajar" },
+        { desde: ["Fpm"], hacia: ["Pl", "Mi"] },
+      ],
+      brotes: [
+        { desde: "Fx", hacia: "X2" },
+        { desde: "Fo", hacia: "O2" },
+        { desde: "Rnb", hacia: "N2" },
+        { desde: "Rd", hacia: "D2" },
+        { desde: "Fc1", hacia: "C2" },
+        { desde: "Rden", hacia: "R2den" },
+      ],
+      texto: `El $\\pm$ se abre en dos caminos: uno suma $${d}$ y el otro resta $${d}$. Llamamos $x_{1}$ y $x_{2}$ a las dos soluciones: cada una tiene su renglón, con el $${-b}$, el $${d}$ y el $${den}$ copiados de la fórmula.`,
       porque: `El signo $\\pm$ significa "más o menos": son dos soluciones distintas, una por cada signo.`,
       regla: `$\\pm\\ \\Rightarrow\\ \\text{dos soluciones}$`,
     });
-    sola([
-      { id: "s1", tex: `x_{1}=\\dfrac{${-b + d}}{${den}}` },
-      { id: "o", tex: "\\text{ ó }", op: true },
-      { id: "s2", tex: `x_{2}=\\dfrac{${-b - d}}{${den}}` },
-    ]);
-    trans.push({
+    // b) las dos sumas de arriba
+    extra = extra.flatMap((f) => (["Rnb", "Pl", "Rd"].includes(f.id) ? (f.id === "Rnb" ? [{ id: "Ns1", tex: `${-b + d}` }] : []) : ["N2", "Mi", "D2"].includes(f.id) ? (f.id === "N2" ? [{ id: "Ns2", tex: `${-b - d}` }] : []) : [f]));
+    empuja({
       fusiones: [
-        { desde: ["x1"], hacia: "s1" },
-        { desde: ["x2"], hacia: "s2" },
+        { desde: ["Rnb", "Pl", "Rd"], hacia: "Ns1" },
+        { desde: ["N2", "Mi", "D2"], hacia: "Ns2" },
       ],
       texto: `Hacemos la suma y la resta de arriba: $${-b}+${d}=${-b + d}$ y $${-b}-${d}=${-b - d}$.`,
-      porque: `Cada camino se calcula por separado.`,
-      regla: `$a+b\\quad\\text{y}\\quad a-b$`,
+      porque: `Cada camino se calcula por separado: son dos cuentas independientes, por eso van a la vez.`,
+      regla: `$a+b=c$`,
     });
-    sola([
-      { id: "r1", tex: `x_{1}=${x1}` },
-      { id: "o", tex: "\\text{ ó }", op: true },
-      { id: "r2", tex: `x_{2}=${x2}` },
-    ]);
-    trans.push({
+    // c) "entre" es la raya de una fraccion: el de arriba y el de abajo viajan a sus lugares
+    extra = extra.flatMap((f) =>
+      ["Fo", "Ns1", "Fc1", "Fen", "Rden"].includes(f.id)
+        ? f.id === "Fo"
+          ? [fr("Q1", `${-b + d}`, `${den}`)]
+          : []
+        : ["O2", "Ns2", "C2", "En2", "R2den"].includes(f.id)
+          ? f.id === "O2"
+            ? [fr("Q2", `${-b - d}`, `${den}`)]
+            : []
+          : [f]
+    );
+    empuja({
       fusiones: [
-        { desde: ["s1"], hacia: "r1" },
-        { desde: ["s2"], hacia: "r2" },
+        { desde: ["Fo", "Ns1", "Fc1", "Fen", "Rden"], hacia: "Q1", modo: "viajar" },
+        { desde: ["O2", "Ns2", "C2", "En2", "R2den"], hacia: "Q2", modo: "viajar" },
       ],
-      texto: `Dividimos cada una entre $${den}$: $\\dfrac{${-b + d}}{${den}}=${x1}$ y $\\dfrac{${-b - d}}{${den}}=${x2}$. Soluciones: $x=${x1}$ o $x=${x2}$.`,
+      brotes: [
+        { desde: "Ns1", hacia: "Q1.n" },
+        { desde: "Rden", hacia: "Q1.d" },
+        { desde: "Ns2", hacia: "Q2.n" },
+        { desde: "R2den", hacia: "Q2.d" },
+      ],
+      texto: `La palabra "entre" es la raya de una fracción: en cada renglón, el número de arriba viaja sobre la raya y el $${den}$ queda debajo.`,
+      porque: `Decir "$${-b + d}$ entre $${den}$" es lo mismo que escribir una fracción: el número de arriba, la raya y el de abajo.`,
+      regla: `$a\\ \\text{entre}\\ b=\\dfrac{a}{b}$`,
+    });
+    // d) cada fraccion es una division
+    extra = extra.map((f) => (f.id === "Q1" ? { id: "r1", tex: `${x1}` } : f.id === "Q2" ? { id: "r2", tex: `${x2}` } : f));
+    empuja({
+      fusiones: [
+        { desde: ["Q1"], hacia: "r1" },
+        { desde: ["Q2"], hacia: "r2" },
+      ],
+      texto: `Dividimos cada una: $\\dfrac{${-b + d}}{${den}}=${x1}$ y $\\dfrac{${-b - d}}{${den}}=${x2}$. Soluciones: $x=${x1}$ o $x=${x2}$.`,
       porque: `La fracción es una división: el número de arriba entre el de abajo.`,
       regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
     });
@@ -541,15 +623,17 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     /** signo con el que se suma al anterior (el primero no tiene) */
     signo?: "+" | "-";
     opId?: string;
+    /** pieza de la fila de referencia de la que nace este termino */
+    ref: string;
   }
   const comprobar = (j: number, solId: string, nuevoId: string, nuevoTex: string, x: number, nombreSol: string) => {
     const lados: Item[][] = [terminosDe(izqCoef), terminosDe(derCoef)].map((ts, lado) => {
       const L = lado === 0 ? "L" : "R";
-      if (ts.length === 0) return [{ id: `k${j}${L}0`, base: `k${j}${L}0`, tex: "0", val: 0, et: null }];
+      if (ts.length === 0) return [{ id: `k${j}${L}0`, base: `k${j}${L}0`, tex: "0", val: 0, et: null, ref: "Rz" }];
       return ts.map((t, i) => {
         const et = etapasTermino(t, x);
         const base = `k${j}${L}${i}`;
-        return { id: base, base, tex: et.ini, val: et.val, et, signo: i === 0 ? undefined : t.neg ? "-" : "+", opId: `${base}o` } as Item;
+        return { id: base, base, tex: et.ini, val: et.val, et, signo: i === 0 ? undefined : t.neg ? "-" : "+", opId: `${base}o`, ref: `${lado === 0 ? "Rl" : "Rr"}${ID[t.k]}` } as Item;
       });
     });
     const idE = `k${j}E`;
@@ -559,13 +643,15 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       return [{ id: idS, tex: "", salto: true }, ...lado(lados[0]), { id: idE, tex: "=", op: true }, ...lado(lados[1])];
     };
     let chk = piezas();
-    const nuevoEstado = () => estados.push([...copia(fila), ...copia(chk)]);
-    // a) la ecuacion original se escribe otra vez
+    const nuevoEstado = () => estados.push([...copia(extra), ...copia(ref), ...copia(chk)]);
+    // a) la ecuacion original se copia desde la fila de referencia (el enunciado), pieza por pieza
     nuevoEstado();
+    const origenDe = new Map<string, string>([[idS, "RefS"]]);
+    for (const items of lados) for (const it of items) origenDe.set(it.id, it.ref);
     trans.push({
       fusiones: [],
-      brotes: chk.map((f) => ({ desde: solId, hacia: f.id })),
-      texto: `Comprobamos ${nombreSol}. Escribimos otra vez la ecuación original, la del principio, debajo de la solución.`,
+      brotes: chk.filter((f) => !f.op).map((f) => ({ desde: origenDe.get(f.id) as string, hacia: f.id })),
+      texto: `Comprobamos ${nombreSol}. Copiamos la ecuación original, la del enunciado que dejamos guardada abajo, en un renglón nuevo para reemplazar $x$.`,
       porque: `Una solución sirve solo si, al reemplazar $x$ en la ecuación original, los dos lados dan lo mismo.`,
       regla: `$\\text{izquierda}=\\text{derecha}\\ \\Rightarrow\\ x\\ \\text{es solución}$`,
     });
@@ -576,11 +662,10 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         porque: x < 0 ? `Como $x$ vale un número negativo, va entre paréntesis para que no se confunda su signo con una resta.` : `Donde estaba la letra $x$ ahora va el número $${x}$.`,
         regla: `$x=${x}$`,
       },
-      k2: { texto: (fr) => `Elevar al cuadrado es multiplicar por sí mismo: ${fr}.`, porque: `El exponente $2$ dice cuántas veces se escribe el número en la multiplicación.`, regla: `$n^{2}=n\\cdot n$` },
-      k3: { texto: (fr) => `Multiplicamos: ${fr}.`, porque: `Las potencias se calculan antes que las multiplicaciones por un número.`, regla: `$m\\cdot n=p$` },
-      k4: { texto: (fr) => `Multiplicamos cada número por su valor: ${fr}.`, porque: `Primero se hacen las multiplicaciones y después las sumas y restas.`, regla: `$m\\cdot n=p$` },
+      k3: { texto: (cuenta) => `Calculamos la potencia: ${cuenta}.`, porque: `El exponente $2$ dice que el número se multiplica por sí mismo, como al calcular $b^{2}$. Las potencias se calculan antes que las multiplicaciones por un número.`, regla: `$n^{2}=n\\cdot n$` },
+      k4: { texto: (cuenta) => `Multiplicamos cada número por su valor: ${cuenta}.`, porque: `Primero se hacen las multiplicaciones y después las sumas y restas.`, regla: `$m\\cdot n=p$` },
     };
-    for (const kn of ["k1", "k2", "k3", "k4"] as Etapa[]) {
+    for (const kn of ["k1", "k3", "k4"] as Etapa[]) {
       const fusiones: Fusion[] = [];
       const brotes: Brote[] = [];
       const frases: string[] = [];
@@ -604,7 +689,6 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       trans.push({
         fusiones,
         brotes: brotes.length > 0 ? brotes : undefined,
-        descompone: kn === "k2",
         texto: e.texto(frases.join(", ")),
         porque: e.porque,
         regla: e.regla,
@@ -652,7 +736,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         const nid = `k${j}${lado === 0 ? "L" : "R"}s${++n}`;
         fusiones.push({ desde: [p.id, q.opId as string, q.id], hacia: nid });
         frases.push(`${ambos ? (lado === 0 ? "a la izquierda " : "a la derecha ") : ""}$${p.tex}${q.signo}${q.tex}=${res}$`);
-        items.splice(0, 2, { id: nid, base: nid, tex: `${res}`, val: res, et: null });
+        items.splice(0, 2, { id: nid, base: nid, tex: `${res}`, val: res, et: null, ref: p.ref });
       });
       chk = piezas();
       nuevoEstado();
@@ -667,9 +751,8 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     const Lp = lados[0][0];
     const Rp = lados[1][0];
     const quitar = [idS, Lp.id, idE, Rp.id];
-    const filaNueva = fila.map((f) => (f.id === solId ? { id: nuevoId, tex: nuevoTex } : f));
+    extra = extra.map((f) => (f.id === solId ? { id: nuevoId, tex: nuevoTex } : f));
     chk = [];
-    fila = filaNueva;
     nuevoEstado();
     trans.push({
       fusiones: [
@@ -683,10 +766,10 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
   };
 
   if (d === 0) {
-    comprobar(1, "R", "Rc", `x=${x1}\\ ${visto}`, x1, `$x=${x1}$`);
+    comprobar(1, "r1", "c1", `${x1}\\ ${visto}`, x1, `$x=${x1}$`);
   } else {
-    comprobar(1, "r1", "c1", `x_{1}=${x1}\\ ${visto}`, x1, `$x_{1}=${x1}$`);
-    comprobar(2, "r2", "c2", `x_{2}=${x2}\\ ${visto}`, x2, `$x_{2}=${x2}$`);
+    comprobar(1, "r1", "c1", `${x1}\\ ${visto}`, x1, `$x_{1}=${x1}$`);
+    comprobar(2, "r2", "c2", `${x2}\\ ${visto}`, x2, `$x_{2}=${x2}$`);
   }
 
   return {

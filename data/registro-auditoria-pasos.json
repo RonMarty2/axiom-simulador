@@ -3,57 +3,57 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "faf74c667ca0",
+      "huella": "dce7ab7fba5c",
       "fecha": "2026-10-08",
-      "nota": "8-oct 2a lectura independiente (4x-5=7, 4x+2=8, 3x+5=2, 4x+2=2, 4x+3=-3). Quedan: sin comprobacion cuando x es fraccion (g=1 o resultado no entero); T2 con n<0 dice x=-6/4 (signo al frente) pero el estado muestra -6 arriba, el signo recien se mueve en T3; listas de divisores solo en el texto; tachar deja un denominador 1 que no se nombra."
+      "nota": "9-oct animador-resolucion: arreglados los pendientes del 8-oct. Comprobacion tambien con x fraccionaria (el a viaja al numerador, se multiplica, se divide, se suma); n<0 con el mismo -12 en texto y hoja; listas de divisores, comunes y mayor como estado (nacen del numerador y denominador, de a una); denominador 1 nombrado al tachar. Falta 2da lectura independiente."
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "ae47d718fbdf",
+      "huella": "bf6e04ed9db3",
       "fecha": "2026-10-08",
-      "nota": "8-oct 2a lectura independiente (k=3, k=12). Quedan: T4/T5 a y b cambian de tex en la formula sin viajar desde sus etiquetas (a=x, b=k); etiquetas a y b aparecen juntas (T2->T3) en vez de una por paso; la expansion x^2+kx-kx-q esta solo en el porque de T5; falta comprobacion final de x=k y x=-k en x^2-q=0; T12 'Sumar 0 no cambia' no cubre 0-k."
+      "nota": "9-oct animador-resolucion: formula en piezas; a y b VUELAN desde sus etiquetas a los tres lugares (brotes desde la ficha con debajo), etiquetas de a una por paso; expansion x^2+kx-kx-q y su cancelacion como estado; fila de referencia con el ejercicio y comprobacion de las dos soluciones nacida de ahi (4 pasos). Falta 2da lectura independiente (ver en pantalla: piezas con pegado, filas con salto a 375 px)."
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "cda686281062",
+      "huella": "7dbdd496f720",
       "fecha": "2026-10-08",
-      "nota": "8-oct 2a lectura independiente (1/2-3/4, 1/4-1/4, 3/6+1/2, 1/3+2/3). Quedan: sin paso de comprobacion; resultado negativo: 4-6=-2 y mover el signo al frente en un solo paso (T9); w2 (numerador) aparece sin brote y solo el denominador viaja al ancla (sin ver en pantalla); listas de divisores solo en texto; tachar deja denominador 1 sin nombrar."
+      "nota": "9-oct animador-resolucion: el numerador de la 2da fraccion viaja a w2 (fusion viajar + brote); con resultado negativo se calcula (-4 arriba) y el signo pasa al frente en su propio paso; divisores como estado; fila de referencia y comprobacion multiplicando por el denominador comun (6 pasos). Falta 2da lectura independiente (ver en pantalla el viaje desde g2.n)."
     },
     "logaritmos": {
       "estado": "con-hallazgos",
-      "huella": "d6041337a555",
+      "huella": "7feb400c42de",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: comprobacion final reconstruye 4*8 desde la suma sin que 4 y 8 esten a la vista; 2^5=32 afirmado sin desarrollar y el 5 aparece sin viajar de la suma; en (2,2,2) T2/T6 no cambia nada visible (solo el id)."
+      "nota": "9-oct animador-resolucion: fila de referencia con el ejercicio; la comprobacion nace de ahi (b, m, n, k), se desarrolla b^k y se multiplica de a dos; sin pasos que solo cambian de id (numero igual a la base). Falta 2da lectura independiente."
     },
     "logaritmos-propiedad": {
       "estado": "con-hallazgos",
-      "huella": "ad8ec388afe6",
+      "huella": "c8e2985c064c",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: comprobacion T8-T9 hace aparecer 6^2 y 36 sin base ni producto a la vista (2*18 ya no esta; el 6 de la base se consumio); T6 solo resalta (agrupable con T7)."
+      "nota": "9-oct animador-resolucion: igual que logaritmos: fila de referencia, comprobacion nacida de ahi con 6^2 desarrollado y multiplicado de a dos; con k=1 el producto se llama f1 directo (sin paso vacio). Falta 2da lectura independiente."
     },
     "potencia": {
       "estado": "con-hallazgos",
-      "huella": "4d76acba5d35",
+      "huella": "218e58bcf629",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: (1) 2^7=128 de un golpe, las 6 multiplicaciones no se ven y la fila de factores se borra justo antes; (2) con m+n>5 la fila 'g' pasa a 2·2·...·2: se juntan factores a la vista y el resultado ya no se pueden contar. Pendiente: mirar en pantalla."
+      "nota": "9-oct animador-resolucion: arreglados los pendientes del 8-oct (cadena de productos parciales para b^n y b^q, radicando calculado 2∛4 y ∛9, cociente y resto como estado, divisores y mcd como estado, el 1 de 3·(1/2) se tacha, lista de potencias perfectas con la cuenta 12/4=3, filas con puntos dicen cuantos factores, etiqueta indice en ik2). Sin re-auditar por un auditor independiente."
     },
     "raiz": {
       "estado": "con-hallazgos",
-      "huella": "492d966cb963",
+      "huella": "2dee7ce91e9f",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: (1) el mayor divisor g sale solo del texto (sin divisores de n y k, como ya se hizo en fracciones); (2) q y r (n1 = q·k1 + r) y 1·k1 solo en el porque; (3) b^n o b^q de un golpe; (4) resultado con radicando sin calcular: 2·raiz3(2^2) en vez de 2·raiz3(4), y raiz3(3^2) se llama 'forma mas simple' siendo raiz3(9) mas simple; (5) el 1 de 1/k desaparece sin rastro al multiplicar exponentes; (6) fila de factores con puntos suspensivos (n>5) no se puede contar."
+      "nota": "9-oct animador-resolucion: arreglados los pendientes del 8-oct (cadena de productos parciales para b^n y b^q, radicando calculado 2∛4 y ∛9, cociente y resto como estado, divisores y mcd como estado, el 1 de 3·(1/2) se tacha, lista de potencias perfectas con la cuenta 12/4=3, filas con puntos dicen cuantos factores, etiqueta indice en ik2). Sin re-auditar por un auditor independiente."
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "0ff4307706b8",
+      "huella": "efbbf448f621",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: (1) 'Buscamos una potencia perfecta que divida a 12: 12=4·3' sin buscarla (lista de potencias perfectas y 12÷4=3 faltan); (2) hereda de raiz: g solo en el texto, radicando sin calcular en el resultado cuando r>1, el 1 de 1/k sin rastro; (3) T3 solo resalta (estado igual) por diseño."
+      "nota": "9-oct animador-resolucion: arreglados los pendientes del 8-oct (cadena de productos parciales para b^n y b^q, radicando calculado 2∛4 y ∛9, cociente y resto como estado, divisores y mcd como estado, el 1 de 3·(1/2) se tacha, lista de potencias perfectas con la cuenta 12/4=3, filas con puntos dicen cuantos factores, etiqueta indice en ik2). Sin re-auditar por un auditor independiente."
     },
     "cuadratica": {
       "estado": "con-hallazgos",
-      "huella": "5863c3b90dee",
+      "huella": "b35874f1fa33",
       "fecha": "2026-10-08",
-      "nota": "8-oct auditor independiente: T25-T26 (5+-1 sobre 2) todo en un solo trozo LaTeX sin viajar, x1/x2 y 'o' aparecen sin decirlo; T27-T28 cuentas dentro del trozo; comprobacion reconstruye la ecuacion original desde r1; Delta se nombra sin mostrarse; 44 pasos, agrupables 5-7."
+      "nota": "8-oct: x=(5+-1)/2 con piezas que viajan y fr, x1/x2, Delta visible, fila de referencia, regla corregida, raiz de 0 y 1 en un paso, comprobacion sin 3.3 y sumas de semejantes juntas; ~35 pasos (antes 44). Falta re-auditar."
     }
   }
 }
