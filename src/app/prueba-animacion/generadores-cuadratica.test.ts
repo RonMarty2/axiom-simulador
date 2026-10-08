@@ -349,6 +349,24 @@ describe("saltos de la formula general", () => {
 });
 
 // ---- arreglos de la auditoria independiente (8-oct): piezas que viajan, Delta visible, fila de referencia, mas corto
+describe("la solucion que se comprueba queda resaltada (Ronald, 9-oct)", () => {
+  test("mientras se reemplaza x1 (o x2) esa solucion esta destacada en todos los estados; la otra no, y al final nadie", () => {
+    const r = cuadratica(1, -5, 6); // x1 = 3, x2 = 2
+    const e = r.demo.estados.map(aplanar);
+    const dest = (est: Ficha[]) => est.filter((f) => f.destacada).map((f) => f.id);
+    // estados donde hay una fila de comprobacion en curso (la copia nace con ids k1.. / k2..)
+    for (const [j, sol, otro] of [[1, "r1", "r2"], [2, "r2", "r1"]] as const) {
+      const durante = e.filter((est) => est.some((f) => f.id.startsWith(`k${j}`)) && est.some((f) => f.id === sol));
+      assert.ok(durante.length >= 6, `x${j}: faltan estados de la comprobacion`);
+      for (const est of durante) {
+        assert.ok(dest(est).includes(sol), `x${j}: la solucion ${sol} debe estar resaltada mientras se reemplaza`);
+        assert.ok(!dest(est).includes(otro), `x${j}: la otra solucion no debe estar resaltada`);
+      }
+    }
+    assert.deepEqual(dest(e[e.length - 1]), [], "al terminar no queda nada resaltado");
+  });
+});
+
 describe("arreglos de la auditoria independiente", () => {
   test("x=(5±1)/2: se llaman x1 y x2, la fraccion se copia por brote, la suma es una fusion de piezas y la raya es real", () => {
     const r = cuadratica(1, -5, 6);

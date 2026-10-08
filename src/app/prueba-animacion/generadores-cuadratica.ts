@@ -601,6 +601,9 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       return [{ id: idS, tex: "", salto: true }, ...lado(lados[0]), { id: idE, tex: "=", op: true }, ...lado(lados[1])];
     };
     let chk = piezas();
+    // la solucion que se esta comprobando (su nombre, el = y su valor) queda resaltada en TODO el proceso, para no olvidar cual se reemplaza
+    const fila = [j === 1 ? "X1" : "X2", j === 1 ? "Fe" : "E2", solId];
+    extra = extra.map((f) => (fila.includes(f.id) ? { ...f, destacada: true } : f));
     const nuevoEstado = () => estados.push([...copia(extra), ...copia(ref), ...copia(chk)]);
     // a) la ecuacion original se copia desde la fila de referencia (el enunciado), pieza por pieza
     nuevoEstado();
@@ -709,7 +712,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     const Lp = lados[0][0];
     const Rp = lados[1][0];
     const quitar = [idS, Lp.id, idE, Rp.id];
-    extra = extra.map((f) => (f.id === solId ? { id: nuevoId, tex: nuevoTex } : f));
+    extra = extra.map((f) => (f.id === solId ? { id: nuevoId, tex: nuevoTex } : { ...f, destacada: false }));
     chk = [];
     nuevoEstado();
     trans.push({

@@ -10,6 +10,8 @@ export interface Ficha {
   tex: string;
   /** operador (+, =): se pinta mas suave */
   op?: boolean;
+  /** resaltada de forma FIJA mientras esté en pantalla (la solución que se está comprobando, para no perderla de vista en todo el proceso) */
+  destacada?: boolean;
   /** pegada a la anterior (3x = "3" + "x") */
   pegado?: boolean;
   /** exponente: ficha chica y levantada, pegada a su base */
