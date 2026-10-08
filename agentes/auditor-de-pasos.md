@@ -47,6 +47,7 @@ Probá siempre **dos ejemplos**: uno que ya viene ordenado y otro desordenado, c
 
 ## Arrastre y aire (reglas de Ronald, 7-oct-2026)
 - **Si una pieza desaparece en un sitio y aparece en otro, debe viajar** (mismo `id`, a veces con otro `tex`). Búscalo en cada generador: exponentes que se suman, exponente negativo, lo que sale de la raíz, producto cruzado, conversión de unidades, dato que va del enunciado a la fórmula, despejes. Un test del generador debe comprobar que la pieza cruza y no se duplica.
+- **Multiplicación o aplicación de una pieza a varias (Ronald, 9-oct-2026):** si el estado siguiente trae productos (`x·x`, `x·3`, `-3·x`) o resultados de aplicar un término a otros, comprueba que la pieza **viaje a cada una** con `visitas` (no basta con que los productos aparezcan) y que no nazcan más de dos productos por paso. Un `(x−3)(x+3)` que pasa de dos paréntesis a `x²+3x−3x−9` en un paso es un salto.
 - **Revisa el aire visual** cuando haya `debajo` o `salto`: las etiquetas no pueden tocar la fórmula ni la raya de fracción. Si no puedes ver la pantalla (captura con el navegador), dilo en el informe: no lo des por bueno.
 
 ## Cómo trabajás
