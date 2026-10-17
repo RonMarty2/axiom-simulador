@@ -350,6 +350,11 @@ describe("generadores de algebra", () => {
     assert.ok(viaja && viaja.brotes!.some((b) => b.desde === "Ca" && b.hacia === "Cq1"));
     // con x negativa fraccionaria el signo va en el numerador y la cuenta cierra con enteros
     assert.ok(termina(ecuacionLineal(5, 1, -3).demo));
+    // 4x + 2 = -4 da x = -3/2: la solucion se escribio con el menos delante y al reemplazar entra al numerador; se dice, y el texto
+    // de la multiplicacion muestra lo mismo que la hoja ((-3) arriba)
+    const neg = ecuacionLineal(4, 2, -4).demo.transiciones.map((t) => t.texto);
+    assert.ok(neg.some((x) => x.includes("El signo menos entra al numerador")), "falta decir que el menos entra al numerador");
+    assert.ok(neg.some((x) => x.startsWith("Primero la multiplicación: $4\\cdot (\\dfrac{-3}{2})$")), "el texto no muestra el (-3) de la hoja");
   });
 
   test("lineal con n<0: el texto y el estado muestran el mismo -12 arriba, y el signo se mueve en su propio paso", () => {

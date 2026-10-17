@@ -295,7 +295,8 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     trans.push({
       fusiones: [{ desde: ["Cx"], hacia: qq === 1 ? "Cr" : piezasX.map((f) => f.id) }],
       brotes: qq === 1 ? [{ desde: idX, hacia: "Cr" }] : piezasX.map((f) => ({ desde: idX, hacia: f.id })),
-      texto: `Reemplazamos $x$ por su valor, $${xTex}$.`,
+      // una solucion fraccionaria negativa se escribio con el menos DELANTE de la raya; en la hoja el menos entra al numerador: se dice
+      texto: `Reemplazamos $x$ por su valor, $${xTex}$.${qq > 1 && pp < 0 && idX === "r" ? ` El signo menos entra al numerador: $${xTex}=\\dfrac{${pp}}{${qq}}$.` : ""}`,
       porque: `Donde la ecuación dice $x$ escribimos el número que encontramos.`,
     });
     if (qq === 1) {
@@ -327,7 +328,8 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
           { desde: "Cd", hacia: "Cq2" },
           { desde: "Cfn", hacia: "Cq3" },
         ],
-        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ y el numerador $${pp}$ viajan juntos arriba, uno al lado del otro; el denominador $${qq}$ se queda quieto: queda $\\dfrac{${prodN}}{${qq}}$.`,
+        // el texto escribe la solucion como se ve en la hoja: el menos dentro del numerador
+        texto: `Primero la multiplicación: $${a}\\cdot ${pp < 0 ? `(\\dfrac{${pp}}{${qq}})` : vTex}$. El $${a}$ y el numerador $${pp}$ viajan juntos arriba, uno al lado del otro; el denominador $${qq}$ se queda quieto: queda $\\dfrac{${prodN}}{${qq}}$.`,
         porque: `En una expresión, la multiplicación se hace antes que la suma. Un número por una fracción es el número por el numerador, sobre el mismo denominador.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
