@@ -363,15 +363,21 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     );
   }
 
-  // con etiquetas debajo (d, t), entre renglones cabe la etiqueta. Un salto de renglon es una linea propia: el hueco se contaba
-  // dos veces (antes y despues de ella) y la hoja quedaba enorme (Ronald, 17-oct); su margen negativo anula el primero.
+  // ESPACIO ENTRE RENGLONES (Ronald, 17-oct: 'mucho espacio'). Un salto de renglon es una linea propia y un rowGap del contenedor
+  // se contaba antes y despues de ella; un margen negativo no sirve (la linea no baja de 0). Por eso no hay rowGap: las piezas de
+  // un renglon que lleva etiqueta debajo (d, t, base...) y las del renglon que le sigue llevan un margen superior que deja lugar a la
+  // etiqueta (y a las lineas en que ese renglon se parta solo). Los demas renglones quedan pegados.
   const conEtiquetas = estado.some((f) => f.debajo);
-  const huecoEtiqueta = conEtiquetas ? (compacta ? 30 : 40) : 0;
-  // el hueco grande solo va debajo del renglon que lleva etiqueta; entre los demas, uno corto
-  const filaAnteriorConEtiqueta = (pos: number) => {
-    for (let i = pos - 1; i >= 0 && !estado[i].salto; i--) if (estado[i].debajo) return true;
-    return false;
-  };
+  const huecoEtiqueta = compacta ? 40 : 52;
+  const filaDe: number[] = [];
+  const filaConEtiqueta: boolean[] = [false];
+  estado.forEach((f, i) => {
+    const prev = i > 0 ? filaDe[i - 1] : 0;
+    filaDe[i] = f.salto && i > 0 ? prev + 1 : prev;
+    if (filaConEtiqueta[filaDe[i]] === undefined) filaConEtiqueta[filaDe[i]] = false;
+    if (f.debajo) filaConEtiqueta[filaDe[i]] = true;
+  });
+  const margenSuperior = (pos: number) => (conEtiquetas && (filaConEtiqueta[filaDe[pos]] || filaConEtiqueta[filaDe[pos] - 1]) ? huecoEtiqueta : 0);
   return (
     <div>
       <div
@@ -385,7 +391,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
           fontSize: compacta ? "clamp(16px, 4.6vw, 24px)" : "clamp(24px, 7vw, 36px)",
           padding: conEtiquetas ? "18px 4px 58px" : "18px 4px",
           // entre renglones (los que se parten solos y los `salto`) cabe la etiqueta de arriba; el margen del salto ya no se suma a esto (Ronald: 'mucho espacio')
-          rowGap: huecoEtiqueta,
+          rowGap: 0,
           transition: "padding 0.3s",
         }}
       >
@@ -425,11 +431,12 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
                         fontSize: `${escala}em`,
                         // con etiqueta no se pega a la base: abajo necesita su lugar
                         margin: prevSup ? "0 0 0 2px" : f.debajo ? "0 8px" : "0 4px 0 -17px",
+                        marginTop: margenSuperior(pos),
                         ...anchoEtiqueta,
                       }
                     : f.salto
-                      ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: conEtiquetas ? `${filaAnteriorConEtiqueta(pos) ? -huecoEtiqueta : 14 - 2 * huecoEtiqueta}px 0 0` : compacta ? "8px 0 0" : "22px 0 0", fontSize: "0.82em" }
-                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", ...anchoEtiqueta }
+                      ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: `${conEtiquetas && filaConEtiqueta[filaDe[pos] - 1] ? 0 : compacta ? 8 : 22}px 0 0`, fontSize: "0.82em" }
+                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", marginTop: margenSuperior(pos), ...anchoEtiqueta }
                 }
               >
                 <span
