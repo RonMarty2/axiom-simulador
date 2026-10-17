@@ -388,8 +388,17 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
       return antes;
     });
   };
-  // se puede partir antes de un operador, o antes de un parentesis que abre, siempre fuera de otro parentesis
-  const puedePartirAntes = (fs: Ficha[], i: number, prof: number[]) => prof[i] <= 0 && (esOperador(fs[i]) || fs[i].tex.trim().startsWith("("));
+  const esProducto = (f: Ficha) => !!f.op && /^(\\cdot|\\times|\\div|·|×|÷|\/)$/.test(f.tex.trim());
+  // Se puede partir antes de una pieza SALVO: dentro de un parentesis; si va pegada a la anterior o es un exponente; si es un punto de
+  // multiplicar o va justo despues de uno (2 · 2 · d no se parte); o si va justo despues de + − = (el operando se queda con su operador).
+  // Un operador (+ − =) SI puede abrir renglon: la formula sigue en la linea de abajo con su signo delante.
+  const puedePartirAntes = (fs: Ficha[], i: number, prof: number[]) => {
+    const f = fs[i];
+    if (i === 0 || prof[i] > 0 || f.pegado || f.sup || esProducto(f)) return false;
+    const antes = fs[i - 1];
+    // el parentesis que abre SI puede quedar abajo aunque lo preceda un operador: «a² − b² =» arriba, «(a − b)(a + b)» abajo
+    return !esProducto(antes) && (esOperador(f) || !esOperador(antes) || f.tex.trim().startsWith("("));
+  };
   // grupos de posiciones: cada operador (fuera de parentesis) abre uno; un salto de renglon va solo
   const gruposDe = (fs: Ficha[]) => {
     const gs: number[][] = [];
