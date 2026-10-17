@@ -280,10 +280,20 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
       porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple.`,
     });
     const [S, Ca, , Cb, Ce, Cc] = linea;
-    estados.push([...ultimo, S, Ca, { id: "Cr", tex: `\\cdot ${vTex}`, pegado: true }, Cb, Ce, Cc]);
+    // x entero: el valor es UNA pieza. x fraccion: son piezas sueltas (punto, parentesis, numerador y denominador)
+    // para que despues solo viajen el a y el numerador, y el denominador se quede quieto
+    const Cd: Ficha = { id: "Cd", tex: "\\cdot", pegado: true };
+    const Cpa: Ficha = { id: "Cpa", tex: "(", pegado: true };
+    const Cpb: Ficha = { id: "Cpb", tex: ")", pegado: true };
+    const Cfn: Ficha = { id: "Cfn", tex: `${pp}` };
+    const Cfd: Ficha = { id: "Cfd", tex: `${qq}` };
+    const Cf = frPiezas("Cf", [Cfn], [Cfd]);
+    const piezasX: Ficha[] = pp < 0 ? [Cd, Cpa, { ...Cf, pegado: true }, Cpb] : [Cd, { ...Cf, pegado: true }];
+    if (qq === 1) estados.push([...ultimo, S, Ca, { id: "Cr", tex: `\\cdot ${vTex}`, pegado: true }, Cb, Ce, Cc]);
+    else estados.push([...ultimo, S, Ca, ...piezasX, Cb, Ce, Cc]);
     trans.push({
-      fusiones: [{ desde: ["Cx"], hacia: "Cr" }],
-      brotes: [{ desde: idX, hacia: "Cr" }],
+      fusiones: [{ desde: ["Cx"], hacia: qq === 1 ? "Cr" : piezasX.map((f) => f.id) }],
+      brotes: qq === 1 ? [{ desde: idX, hacia: "Cr" }] : piezasX.map((f) => ({ desde: idX, hacia: f.id })),
       texto: `Reemplazamos $x$ por su valor, $${xTex}$.`,
       porque: `Donde la ecuación dice $x$ escribimos el número que encontramos.`,
     });
@@ -298,21 +308,31 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
       // x fraccionaria: el a viaja al numerador, se multiplica arriba y se divide (una operacion por paso)
       // el signo se queda con el numerador original: 6·(-4), no (-6)·4
       const prodN = `${a}\\cdot ${pp < 0 ? `(${pp})` : pp}`;
-      const Cm = fr("Cm", prodN, `${qq}`);
+      // solo viajan el a y el numerador de x, uno al lado del otro; el denominador (Cfd) conserva su id y no se mueve
+      const q1: Ficha = { id: "Cq1", tex: `${a}` };
+      const q2: Ficha = { id: "Cq2", tex: "\\cdot" };
+      const q3: Ficha = { id: "Cq3", tex: pp < 0 ? `(${pp})` : `${pp}` };
+      const Cm = frPiezas("Cf", [q1, q2, q3], [Cfd]);
       estados.push([...ultimo, S, Cm, Cb, Ce, Cc]);
       trans.push({
-        fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cm", modo: "viajar" }],
-        brotes: [
-          { desde: "Ca", hacia: "Cm.n" },
-          { desde: "Cr", hacia: "Cm.d" },
+        fusiones: [
+          { desde: ["Ca"], hacia: "Cq1", modo: "viajar" },
+          { desde: ["Cd"], hacia: "Cq2", modo: "viajar" },
+          { desde: ["Cfn"], hacia: "Cq3", modo: "viajar" },
+          ...(pp < 0 ? [{ desde: ["Cpa", "Cpb"], hacia: null }] : []),
         ],
-        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ viaja al numerador de la fracción y el denominador $${qq}$ se queda: queda $\\dfrac{${prodN}}{${qq}}$.`,
+        brotes: [
+          { desde: "Ca", hacia: "Cq1" },
+          { desde: "Cd", hacia: "Cq2" },
+          { desde: "Cfn", hacia: "Cq3" },
+        ],
+        texto: `Primero la multiplicación: $${a}\\cdot ${vTex}$. El $${a}$ y el numerador $${pp}$ viajan juntos arriba, uno al lado del otro; el denominador $${qq}$ se queda quieto: queda $\\dfrac{${prodN}}{${qq}}$.`,
         porque: `En una expresión, la multiplicación se hace antes que la suma. Un número por una fracción es el número por el numerador, sobre el mismo denominador.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
       estados.push([...ultimo, S, fr("Cm2", `${a * pp}`, `${qq}`), Cb, Ce, Cc]);
       trans.push({
-        fusiones: [{ desde: ["Cm"], hacia: "Cm2" }],
+        fusiones: [{ desde: ["Cf"], hacia: "Cm2" }],
         texto: `Hacemos la cuenta de arriba: $${a}\\cdot ${pp < 0 ? `(${pp})` : pp}=${a * pp}$. Queda $\\dfrac{${a * pp}}{${qq}}$.`,
         porque: `Solo se multiplica el numerador: el denominador no cambia.`,
       });
@@ -363,11 +383,13 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
   const op = resta ? "-" : "+";
   const palabra = resta ? "Restamos" : "Sumamos";
   const iguales = d1 === d2;
-  const D = d1 * d2;
-  const A = n1 * d2;
-  const B = n2 * d1;
+  const L = (d1 / mcd(d1, d2)) * d2; // minimo comun multiplo
+  const k1 = L / d1;
+  const k2 = L / d2;
+  const A = n1 * k1;
+  const B = n2 * k2;
   const sumaN = resta ? (iguales ? n1 - n2 : A - B) : iguales ? n1 + n2 : A + B;
-  const den = iguales ? d1 : D;
+  const den = iguales ? d1 : L;
   const g = mcd(sumaN, den);
   const estados: Ficha[][] = [];
   const trans: Transicion[] = [];
@@ -381,64 +403,88 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
   let nx2 = `${n2}`;
 
   if (!iguales) {
+    // 0) se busca el minimo comun multiplo: el menor denominador comun posible
+    estados.push(estados[0]);
+    trans.push({
+      fusiones: [],
+      resaltar: ["f1.d", "f2.d"],
+      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número en el que caben los dos. Para $${d1}$ y $${d2}$ es $${L}$.`,
+      porque: `Con partes del mismo tamaño se puede sumar. Usamos el mínimo común múltiplo porque es el denominador más chico posible: las cuentas salen más cortas.`,
+    });
     const m1: Ficha = { id: "m1", tex: "\\cdot", op: true };
     const m2: Ficha = { id: "m2", tex: "\\cdot", op: true };
-    const k1 = fr("k1", `${d2}`, `${d2}`);
-    const k2 = fr("k2", `${d1}`, `${d1}`);
-    // 1) el 1 escrito como fraccion NACE del denominador de la otra fraccion, una fraccion por paso
-    estados.push([fr("f1", `${n1}`, `${d1}`), m1, k1, p, fr("f2", `${n2}`, `${d2}`)]);
-    trans.push({
-      fusiones: [],
-      brotes: [
-        { desde: "f2.d", hacia: "m1" },
-        { desde: "f2.d", hacia: "k1" },
-      ],
-      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). A la primera fracción la multiplicamos por $\\dfrac{${d2}}{${d2}}$: ese $${d2}$ sale del denominador de la segunda fracción.`,
-      porque: `$\\dfrac{${d2}}{${d2}}=1$: multiplicar por $1$ no cambia el valor. Lo hacemos para que el denominador de la primera fracción también sea múltiplo de $${d2}$.`,
-      regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
-    });
-    estados.push([fr("f1", `${n1}`, `${d1}`), m1, k1, p, fr("f2", `${n2}`, `${d2}`), m2, k2]);
-    trans.push({
-      fusiones: [],
-      brotes: [
-        { desde: "f1.d", hacia: "m2" },
-        { desde: "f1.d", hacia: "k2" },
-      ],
-      texto: `A la segunda fracción la multiplicamos por $\\dfrac{${d1}}{${d1}}$: ese $${d1}$ sale del denominador de la primera fracción.`,
-      porque: `$\\dfrac{${d1}}{${d1}}=1$, así que tampoco cambia el valor. Con los dos pasos, los dos denominadores van a quedar iguales.`,
-      regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
-    });
-    // 2) primera fraccion: se multiplica arriba y abajo (se ve el producto escrito) y despues se calcula
-    estados.push([fr("u1", `${n1}\\cdot ${d2}`, `${d1}\\cdot ${d2}`), p, fr("f2", `${n2}`, `${d2}`), m2, k2]);
-    trans.push({
-      fusiones: [{ desde: ["f1", "m1", "k1"], hacia: "u1" }],
-      texto: `Multiplicamos la primera fracción: arriba $${n1}\\cdot ${d2}$ y abajo $${d1}\\cdot ${d2}$.`,
-      porque: `Multiplicar fracciones es multiplicar numerador con numerador y denominador con denominador. Todavía no hacemos las cuentas.`,
-      regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
-    });
-    estados.push([fr("g1", `${A}`, `${D}`), p, fr("f2", `${n2}`, `${d2}`), m2, k2]);
-    trans.push({
-      fusiones: [{ desde: ["u1"], hacia: "g1" }],
-      texto: `Hacemos las cuentas: $${n1}\\cdot ${d2}=${A}$ arriba y $${d1}\\cdot ${d2}=${D}$ abajo. Queda $\\dfrac{${A}}{${D}}$.`,
-      porque: `Es la misma fracción de antes, escrita con partes más chicas.`,
-    });
-    // 3) segunda fraccion, igual
-    estados.push([fr("g1", `${A}`, `${D}`), p, fr("u2", `${n2}\\cdot ${d1}`, `${d2}\\cdot ${d1}`)]);
-    trans.push({
-      fusiones: [{ desde: ["f2", "m2", "k2"], hacia: "u2" }],
-      texto: `Ahora la segunda fracción: arriba $${n2}\\cdot ${d1}$ y abajo $${d2}\\cdot ${d1}$.`,
-      porque: `Igual que antes: numerador con numerador y denominador con denominador.`,
-      regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
-    });
-    estados.push([fr("g1", `${A}`, `${D}`), p, fr("g2", `${B}`, `${D}`)]);
-    trans.push({
-      fusiones: [{ desde: ["u2"], hacia: "g2" }],
-      texto: `Hacemos las cuentas: $${n2}\\cdot ${d1}=${B}$ arriba y $${d2}\\cdot ${d1}=${D}$ abajo. Queda $\\dfrac{${B}}{${D}}$.`,
-      porque: `Ahora las dos fracciones tienen el mismo denominador, $${D}$: las partes son del mismo tamaño.`,
-    });
-    x1 = "g1";
-    x2 = "g2";
-    nx2 = `${B}`;
+    const c1 = fr("c1", `${k1}`, `${k1}`);
+    const c2 = fr("c2", `${k2}`, `${k2}`);
+    let F1: Ficha[] = [fr("f1", `${n1}`, `${d1}`)];
+    let F2: Ficha[] = [fr("f2", `${n2}`, `${d2}`)];
+    const juntar = () => [...F1, p, ...F2];
+    // 1) el 1 escrito como fraccion (solo si la fraccion lo necesita): $d \\cdot k = L$
+    if (k1 > 1) {
+      F1 = [F1[0], m1, c1];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [],
+        brotes: [
+          { desde: "f1.d", hacia: "m1" },
+          { desde: "f1.d", hacia: "c1" },
+        ],
+        texto: `A la primera fracción la multiplicamos por $\\dfrac{${k1}}{${k1}}$, porque $${d1}\\cdot ${k1}=${L}$.`,
+        porque: `$\\dfrac{${k1}}{${k1}}=1$: multiplicar por $1$ no cambia el valor, pero hace que el denominador llegue a $${L}$.`,
+        regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
+      });
+    }
+    if (k2 > 1) {
+      F2 = [F2[0], m2, c2];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [],
+        brotes: [
+          { desde: "f2.d", hacia: "m2" },
+          { desde: "f2.d", hacia: "c2" },
+        ],
+        texto: `${k1 > 1 ? "A la segunda fracción la multiplicamos" : "Solo la segunda fracción necesita cambiar: la multiplicamos"} por $\\dfrac{${k2}}{${k2}}$, porque $${d2}\\cdot ${k2}=${L}$.`,
+        porque: `$\\dfrac{${k2}}{${k2}}=1$, así que tampoco cambia el valor. ${k1 > 1 ? "Con los dos pasos, los dos denominadores van a quedar iguales." : `La primera fracción ya tiene denominador $${L}$.`}`,
+        regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
+      });
+    }
+    // 2) cada fraccion multiplicada: se ve el producto escrito y despues se calcula
+    if (k1 > 1) {
+      F1 = [fr("u1", `${n1}\\cdot ${k1}`, `${d1}\\cdot ${k1}`)];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [{ desde: ["f1", "m1", "c1"], hacia: "u1" }],
+        texto: `Multiplicamos la primera fracción: arriba $${n1}\\cdot ${k1}$ y abajo $${d1}\\cdot ${k1}$.`,
+        porque: `Multiplicar fracciones es multiplicar numerador con numerador y denominador con denominador. Todavía no hacemos las cuentas.`,
+        regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
+      });
+      F1 = [fr("g1", `${A}`, `${L}`)];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [{ desde: ["u1"], hacia: "g1" }],
+        texto: `Hacemos las cuentas: $${n1}\\cdot ${k1}=${A}$ arriba y $${d1}\\cdot ${k1}=${L}$ abajo. Queda $\\dfrac{${A}}{${L}}$.`,
+        porque: `Es la misma fracción de antes, escrita con partes más chicas.`,
+      });
+      x1 = "g1";
+    }
+    if (k2 > 1) {
+      F2 = [fr("u2", `${n2}\\cdot ${k2}`, `${d2}\\cdot ${k2}`)];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [{ desde: ["f2", "m2", "c2"], hacia: "u2" }],
+        texto: `${k1 > 1 ? "Ahora la segunda fracción" : "Multiplicamos la segunda fracción"}: arriba $${n2}\\cdot ${k2}$ y abajo $${d2}\\cdot ${k2}$.`,
+        porque: `Igual que antes: numerador con numerador y denominador con denominador.`,
+        regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
+      });
+      F2 = [fr("g2", `${B}`, `${L}`)];
+      estados.push(juntar());
+      trans.push({
+        fusiones: [{ desde: ["u2"], hacia: "g2" }],
+        texto: `Hacemos las cuentas: $${n2}\\cdot ${k2}=${B}$ arriba y $${d2}\\cdot ${k2}=${L}$ abajo. Queda $\\dfrac{${B}}{${L}}$.`,
+        porque: `Ahora las dos fracciones tienen el mismo denominador, $${L}$: las partes son del mismo tamaño.`,
+      });
+      x2 = "g2";
+      nx2 = `${B}`;
+    }
   }
 
   const nx1 = iguales ? `${n1}` : `${A}`;

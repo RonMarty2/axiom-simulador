@@ -56,6 +56,13 @@
       "paso": 5,
       "nota": "Listas de divisores: rotulo normal, datos en negrita, renglones cortos (mirar en celular)",
       "fecha": "2026-10-08"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria",
+      "paso": 13,
+      "nota": "Al multiplicar, solo viajan el 4 y el numerador (juntos, uno al lado del otro); el denominador se queda quieto. Pedido tuyo del 17-oct.",
+      "fecha": "2026-10-17"
     }
   ],
   "aprobadosPorSilencio": []

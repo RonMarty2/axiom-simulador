@@ -1,4 +1,25 @@
 {
   "_nota": "Visto bueno de Ronald por tipo de animacion. Guarda la huella de lo aprobado: si el generador cambia, vuelve a aparecer en /prueba-animacion. Se edita SOLO con aprobar-animacion.ts y SOLO cuando Ronald lo aprueba.",
-  "generadores": {}
+  "generadores": {
+    "cuadrados": {
+      "huella": "4fe38f457a91",
+      "fecha": "2026-10-17"
+    },
+    "fracciones": {
+      "huella": "369a7550f929",
+      "fecha": "2026-10-17"
+    },
+    "potencia": {
+      "huella": "aa1da444c881",
+      "fecha": "2026-10-17"
+    },
+    "raiz": {
+      "huella": "3888e3eb2a16",
+      "fecha": "2026-10-17"
+    },
+    "raizResto": {
+      "huella": "3c361d77ffe2",
+      "fecha": "2026-10-17"
+    }
+  }
 }

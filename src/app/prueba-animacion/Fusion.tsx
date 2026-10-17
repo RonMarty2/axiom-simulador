@@ -50,7 +50,7 @@ export type ModoRegla = "resolver" | "ensenar";
 // modo "resolver" (ejercicio resuelto): la regla va dentro del "¿Por qué?".
 // modo "ensenar" (leccion): la regla va destacada, en su propio recuadro.
 // `paso` (opcional, desde 0): muestra ese paso quieto, sin recorrer los anteriores (lo usa el barrido de ancho)
-export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo: Demo; modo?: ModoRegla; clave?: string; paso?: number }) {
+export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }: { demo: Demo; modo?: ModoRegla; clave?: string; paso?: number; onPaso?: (idx: number) => void }) {
   const total = demo.estados.length;
   // con `paso` se arranca ya en ese paso: nada entra animado (el barrido de ancho no mide piezas a medio rebote)
   const inicio = paso !== undefined && paso > 0 && paso < total ? paso : 0;
@@ -68,6 +68,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso }: { demo:
   // hoja achicada: un ejercicio largo cabe mas en un celular (los renglones siguen todos ahi, solo cambia el tamaño)
   const [compacta, setCompacta] = useState(false);
   const pausaRef = useRef(false);
+  // el panel de desarrollo (Generador) necesita saber en que paso esta
+  useEffect(() => onPaso?.(idx), [idx, onPaso]);
 
   const idxRef = useRef(0);
   const ocupadoRef = useRef(false);

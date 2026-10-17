@@ -170,16 +170,30 @@ describe("generadores de algebra", () => {
   test("fracciones: los multiplicadores brotan del DENOMINADOR que los origina, una fraccion por paso", () => {
     const r = fracciones(1, 2, 1, 3);
     // la primera transicion anota el ejercicio abajo (fila de referencia)
-    const [, t0, t1, t2, t3, t4, t5] = r.demo.transiciones;
-    assert.deepEqual(t0.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f2.d>m1", "f2.d>k1"]);
-    assert.deepEqual(t1.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f1.d>m2", "f1.d>k2"]);
+    // t1 busca el mcm (6); el factor de cada fraccion es mcm / su denominador: 6/2 = 3 y 6/3 = 2
+    const [, tm, t1, t2, t3, t4, t5, t6] = r.demo.transiciones;
+    assert.ok(tm.texto.includes("mínimo común múltiplo") && tm.texto.includes("$6$"));
+    assert.deepEqual(t1.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f1.d>m1", "f1.d>c1"]);
+    assert.deepEqual(t2.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f2.d>m2", "f2.d>c2"]);
     // una fraccion por paso, con el producto escrito antes de calcularlo
-    assert.deepEqual(t2.fusiones[0].desde, ["f1", "m1", "k1"]);
-    assert.ok(r.demo.estados[4].some((f) => f.frac?.n === "1\\cdot 3" && f.frac?.d === "2\\cdot 3"));
-    assert.deepEqual(t3.fusiones[0].desde, ["u1"]);
-    assert.deepEqual(t4.fusiones[0].desde, ["f2", "m2", "k2"]);
-    assert.deepEqual(t5.fusiones[0].desde, ["u2"]);
-    assert.ok(r.demo.estados[4].some((f) => f.frac?.n === "1\\cdot 3"));
+    assert.deepEqual(t3.fusiones[0].desde, ["f1", "m1", "c1"]);
+    assert.ok(r.demo.estados[5].some((f) => f.frac?.n === "1\\cdot 3" && f.frac?.d === "2\\cdot 3"));
+    assert.deepEqual(t4.fusiones[0].desde, ["u1"]);
+    assert.deepEqual(t5.fusiones[0].desde, ["f2", "m2", "c2"]);
+    assert.deepEqual(t6.fusiones[0].desde, ["u2"]);
+  });
+
+  test("fracciones: usa el MINIMO comun multiplo y solo multiplica la fraccion que lo necesita", () => {
+    // 1/8 + 5/12: mcm 24 (no 96): 3/24 + 10/24 = 13/24
+    const a = fracciones(1, 8, 5, 12);
+    assert.ok(a.demo.transiciones.some((t) => t.texto.includes("es $24$")));
+    assert.ok(!a.demo.estados.flat().some((f) => f.frac?.d === "96"));
+    // 1/2 + 1/6: el 6 ya es multiplo de 2, solo se multiplica la primera
+    const b = fracciones(1, 2, 1, 6);
+    const textos = b.demo.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(textos.includes("primera fracción la multiplicamos por $\\dfrac{3}{3}$"));
+    assert.ok(!textos.includes("segunda fracción la multiplicamos"));
+    assert.ok(!b.demo.transiciones.some((t) => t.fusiones.some((f) => f.hacia === "u2")));
   });
 
   test("fracciones: el segundo denominador se funde con el primero (ancla), no desaparece sin mas", () => {
@@ -192,11 +206,11 @@ describe("generadores de algebra", () => {
   });
 
   test("simplificar muestra de donde sale el g (divisores) y no escribe tautologias", () => {
-    const f = fracciones(1, 6, 1, 3); // 9/18 -> mcd 9
+    const f = fracciones(1, 6, 1, 3); // 1/6 + 2/6 = 3/6 -> mcd 3
     const txt = f.demo.transiciones.map((t) => t.texto).join(" | ");
-    assert.ok(txt.includes("Divisores de $9$: $1,\\ 3,\\ 9$"));
-    assert.ok(txt.includes("Divisores de $18$"));
-    assert.ok(txt.includes("Tomamos el mayor: $9$"));
+    assert.ok(txt.includes("Divisores de $3$: $1,\\ 3$"));
+    assert.ok(txt.includes("Divisores de $6$"));
+    assert.ok(txt.includes("Tomamos el mayor: $3$"));
     // x = 8/4: el denominador ya es el g, no se escribe 4 = 4
     const l = ecuacionLineal(4, 1, 9);
     const tl = l.demo.transiciones.map((t) => t.texto).join(" | ");
@@ -306,9 +320,9 @@ describe("generadores de algebra", () => {
     // x = 3/2: el 4 viaja al numerador, se multiplica arriba, se divide y recien se suma
     const f = ecuacionLineal(4, 2, 8);
     const txt = f.demo.transiciones.map((t) => t.texto).join(" | ");
-    for (const pista of ["viaja al numerador", "4\\cdot 3=12", "\\dfrac{12}{2}=6", "6+2=8"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
-    const viaja = f.demo.transiciones.find((t) => t.fusiones.some((x) => x.modo === "viajar" && x.hacia === "Cm"));
-    assert.ok(viaja && viaja.brotes!.some((b) => b.desde === "Ca" && b.hacia === "Cm.n"));
+    for (const pista of ["viajan juntos arriba", "4\\cdot 3=12", "\\dfrac{12}{2}=6", "6+2=8"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
+    const viaja = f.demo.transiciones.find((t) => t.fusiones.some((x) => x.modo === "viajar" && x.hacia === "Cq3"));
+    assert.ok(viaja && viaja.brotes!.some((b) => b.desde === "Ca" && b.hacia === "Cq1"));
     // con x negativa fraccionaria el signo va en el numerador y la cuenta cierra con enteros
     assert.ok(termina(ecuacionLineal(5, 1, -3).demo));
   });
@@ -388,17 +402,17 @@ describe("generadores de algebra", () => {
       // el ejercicio queda anotado abajo desde el primer paso
       assert.ok(f.demo.estados.slice(1).every((s) => s.some((x) => x.id === "R1") && s.some((x) => x.id === "R2")));
     }
-    // 1/2 - 5/6 = -4/12: primero se CALCULA (queda -4 arriba), despues el signo pasa al frente en su propio paso
+    // 1/2 - 5/6 = -2/6: primero se CALCULA (queda -2 arriba), despues el signo pasa al frente en su propio paso
     const neg = fracciones(1, 2, 5, 6, true);
     const calc = neg.demo.transiciones.find((x) => x.texto.includes("Restamos los numeradores"))!;
     assert.ok(!calc.texto.includes("signo menos se escribe") && calc.fusiones[0].hacia === "h");
-    assert.equal(neg.demo.estados.flat().find((x) => x.id === "h")!.tex, "\\dfrac{-4}{12}");
+    assert.equal(neg.demo.estados.flat().find((x) => x.id === "h")!.tex, "\\dfrac{-2}{6}");
     const signo = neg.demo.transiciones.find((x) => x.texto.includes("signo menos delante"))!;
     assert.equal(signo.fusiones[0].hacia, "hs");
     assert.ok(neg.demo.transiciones.indexOf(signo) === neg.demo.transiciones.indexOf(calc) + 1);
-    // la comprobacion multiplica por el denominador comun: 1/2·12 = 6, 5/6·12 = 10, y -1/3·12 = -4
+    // la comprobacion multiplica por el denominador comun: 1/2·6 = 3, 5/6·6 = 5, y -1/3·6 = -2
     const txt = neg.demo.transiciones.map((x) => x.texto).join(" | ");
-    for (const pista of ["multiplicamos cada término por $12$", "$6-10=-4$", "A la izquierda queda $-4$ y a la derecha $-4$"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
+    for (const pista of ["multiplicamos cada término por $6$", "$3-5=-2$", "A la izquierda queda $-2$ y a la derecha $-2$"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
   });
 
   test("logaritmos: la comprobacion nace de la fila de referencia y la potencia se DESARROLLA (2^5 = 2·2·2·2·2 de a dos)", () => {
@@ -449,7 +463,7 @@ describe("generadores de algebra", () => {
     for (const d of demos) for (const t of d.transiciones) if (/Divisores de|en las dos listas/.test(t.texto))
       for (const m of t.texto.matchAll(/\$([^$]*)\$/g)) assert.ok(m[1].replace(/\\ /g, " ").length <= 34, `formula larga en el texto: ${m[1]}`);
     // y la lista de 96 se parte en renglones parejos, sin un numero suelto
-    const l96 = renglones(fracciones(5, 12, 7, 8).demo.estados.flat().find((f) => f.id === "Dd")!.tex);
-    assert.deepEqual(l96, ["Divisores de 96:", "1, 2, 3, 4,", "6, 8, 12, 16,", "24, 32, 48, 96"]);
+    const l96 = renglones(fracciones(1, 8, 3, 9).demo.estados.flat().find((f) => f.id === "Dd")!.tex);
+    assert.deepEqual(l96, ["Divisores de 72:", "1, 2, 3, 4,", "6, 8, 9, 12,", "18, 24, 36, 72"]);
   });
 });

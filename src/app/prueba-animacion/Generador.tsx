@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import Fusion, { type ModoRegla } from "./Fusion";
 import { construir, type Tipo } from "./construir";
 import { CASOS_POR_TIPO } from "./casos";
@@ -33,8 +34,65 @@ export interface CambioVista {
   nota: string;
 }
 
-export default function Generador({ tipo, titulo, inicial, cambios = [] }: { tipo: Tipo; titulo: string; inicial: string[]; cambios?: CambioVista[] }) {
+// Panel SOLO DE DESARROLLO (`dev` lo pasa la pagina y esta solo existe con NODE_ENV=development): Ronald aprueba o anota
+// desde aqui en vez de escribirle a la IA. Guarda en data/observaciones-ronald.json via /api/dev/observaciones.
+function PanelDev({ tipo, valores, paso, total }: { tipo: Tipo; valores: string[]; paso: number; total: number }) {
+  const router = useRouter();
+  const [texto, setTexto] = useState("");
+  const [aviso, setAviso] = useState("");
+  const [listo, setListo] = useState(false);
+  // proteccion contra el doble clic: al aprobar, la pagina pasa a la siguiente animacion y su boton queda en el mismo lugar
+  useEffect(() => {
+    const t = setTimeout(() => setListo(true), 1500);
+    return () => clearTimeout(t);
+  }, []);
+  const enviar = async (estado: "bien" | "nota", todo = false) => {
+    try {
+      const r = await fetch("/api/dev/observaciones", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tipo, valores, paso, totalPasos: total, estado, texto, total: todo }),
+      });
+      const j = await r.json();
+      if (!r.ok) return setAviso(j.error ?? "no se guardo");
+      setAviso(estado === "nota" ? `Guardado: nota en el paso ${paso}.` : todo || paso === total ? "Aprobada." : `Guardado: bien hasta el paso ${paso} (los anteriores tambien). Para aprobarla toda pulsa «Aprobar toda la animación» (o llega al último paso).`);
+      if (estado === "nota") setTexto("");
+      // la pagina vuelve a calcular la fila: si esta animacion quedo aprobada o en rehacer, aparece la siguiente
+      router.refresh();
+    } catch {
+      setAviso("No se pudo guardar (¿esta corriendo npm run dev?).");
+    }
+  };
+  const b: React.CSSProperties = { padding: "6px 12px", borderRadius: 8, border: "1px solid var(--border, #d8d0c0)", background: "var(--bg-card)", color: "var(--fg-primary)", cursor: "pointer", fontSize: 13 };
+  return (
+    <div style={{ marginTop: 10, padding: 10, borderRadius: 10, border: "1px dashed var(--accent, #9a3a1a)", fontSize: 13 }}>
+      <strong>Solo desarrollo · paso {paso} de {total}</strong>
+      <div style={{ display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }}>
+        <button style={{ ...b, background: "var(--accent, #9a3a1a)", color: "#fff" }} disabled={!listo} onClick={() => enviar("bien", true)}>
+          Aprobar toda la animación
+        </button>
+        <button style={b} disabled={!listo} onClick={() => enviar("bien")}>
+          Está bien hasta aquí
+        </button>
+      </div>
+      <textarea
+        value={texto}
+        onChange={(e) => setTexto(e.target.value)}
+        placeholder="Observación para este paso…"
+        rows={2}
+        style={{ width: "100%", marginTop: 6, padding: 6, borderRadius: 8, border: "1px solid var(--border, #d8d0c0)", background: "var(--bg-card)", color: "var(--fg-primary)", fontSize: 13 }}
+      />
+      <button style={{ ...b, marginTop: 4 }} disabled={!listo} onClick={() => enviar("nota")}>
+        Enviar observación
+      </button>
+      {aviso && <div style={{ marginTop: 6 }}>{aviso}</div>}
+    </div>
+  );
+}
+
+export default function Generador({ tipo, titulo, inicial, cambios = [], dev = false, aprobados = [] }: { tipo: Tipo; titulo: string; inicial: string[]; cambios?: CambioVista[]; dev?: boolean; aprobados?: string[] }) {
   const [v, setV] = useState<string[]>(inicial);
+  const [pasoActual, setPasoActual] = useState(1);
   const [modo, setModo] = useState<ModoRegla>("resolver");
   // salto directo a un paso corregido: se arma el caso y se abre ya en ese paso (despues se sigue con Siguiente)
   const [salto, setSalto] = useState<{ paso: number; id: number } | null>(null);
@@ -111,6 +169,7 @@ export default function Generador({ tipo, titulo, inicial, cambios = [] }: { tip
                 cursor: "pointer",
               }}
             >
+              {aprobados.includes(c.v.join("|")) ? "✓ " : ""}
               {c.nombre}
             </button>
           );
@@ -144,9 +203,10 @@ export default function Generador({ tipo, titulo, inicial, cambios = [] }: { tip
         <p style={{ fontSize: 14, color: "var(--accent)" }}>{resultado.error}</p>
       ) : (
         "demo" in resultado && resultado.demo && (
-          <Fusion key={v.join("|") + modo + (salto?.id ?? "")} demo={resultado.demo} modo={modo} clave={tipo} paso={salto?.paso} />
+          <Fusion key={v.join("|") + modo + (salto?.id ?? "")} demo={resultado.demo} modo={modo} clave={tipo} paso={salto?.paso} onPaso={dev ? (i) => setPasoActual(i + 1) : undefined} />
         )
       )}
+      {dev && "demo" in resultado && resultado.demo && <PanelDev tipo={tipo} valores={v} paso={pasoActual} total={resultado.demo.estados.length} />}
     </div>
   );
 }

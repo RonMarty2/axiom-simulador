@@ -1,8 +1,11 @@
 import { readFileSync } from "node:fs";
+import { notFound } from "next/navigation";
+import PestanasDev from "../pruebas/PestanasDev";
 import Generador from "./Generador";
 import { huellaVistoBueno } from "./huellas";
 import type { Tipo } from "./construir";
 import { leer as leerCambios } from "./revisar-pasos";
+import { estadoDe, leerObservaciones } from "./cola";
 
 export const metadata = { title: "Prueba de animación", robots: { index: false, follow: false } };
 
@@ -35,31 +38,36 @@ const TARJETAS: { tipo: Tipo; titulo: string; inicial: string[] }[] = [
 export const dynamic = "force-dynamic";
 
 export default function Pagina() {
+  // herramienta de Ronald como desarrollador: en produccion la pagina no existe para nadie
+  if (process.env.NODE_ENV !== "development") notFound();
   const vb: Record<string, { huella: string }> = JSON.parse(readFileSync(process.cwd() + "/data/registro-visto-bueno.json", "utf8")).generadores;
-  const aprobadas = TARJETAS.filter((t) => vb[t.tipo]?.huella === huellaVistoBueno(t.tipo));
-  const pendientes = TARJETAS.filter((t) => !aprobadas.includes(t));
+  // una animacion a la vez: la primera de la fila (las rehechas van al final). Ver cola.ts
+  const obs = leerObservaciones();
+  const estados = TARJETAS.map((t) => ({ t, e: estadoDe(t.tipo, obs, vb[t.tipo]?.huella === huellaVistoBueno(t.tipo)) }));
+  const aprobadas = estados.filter((x) => x.e.estado === "aprobada");
+  const enRehacer = estados.filter((x) => x.e.estado === "en-rehacer");
+  const fila = estados.filter((x) => x.e.estado === "por-revisar").sort((x, y) => Number(x.e.rehecha) - Number(y.e.rehecha));
+  const actual = fila[0];
   // pasos corregidos que Ronald debe mirar (data/cambios-por-revisar.json, se edita con revisar-pasos.ts)
   const registro = leerCambios();
   const cambiosDe = (tipo: string) => registro.cambios.filter((c) => c.tipo === tipo).map(({ caso, paso, nota }) => ({ caso, paso, nota }));
-  const pasosPendientes = registro.cambios.length;
   return (
     <main style={{ maxWidth: 720, margin: "0 auto", padding: "24px 16px 64px" }}>
-      <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Prueba de animación · por revisar</h1>
-      <p style={{ fontSize: 14, marginBottom: 12, color: "var(--fg-muted, #6b6b6b)" }}>
-        Solo aparece lo que falta aprobar. Puedes <strong>cambiar los números</strong> y la animación se arma sola. Pulsa
-        «Siguiente» o «Reproducir todo».
-      </p>
+      <PestanasDev actual="animaciones" />
+      <h1 style={{ fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Prueba de animación</h1>
       <p style={{ fontSize: 14, marginBottom: 20 }}>
-        <strong>{pendientes.length}</strong> por revisar · <strong>{pasosPendientes}</strong> pasos corregidos para mirar · <strong>{aprobadas.length}</strong> aprobadas ✓
-        {registro.aprobadosPorSilencio.length > 0 && <span> · {registro.aprobadosPorSilencio.length} pasos dados por vistos</span>}
-        {aprobadas.length > 0 && <span style={{ color: "var(--fg-muted, #6b6b6b)" }}> ({aprobadas.map((t) => t.titulo.split(" · ").pop()?.split(" (")[0]).join(", ")})</span>}
+        {actual ? <strong>{fila.length === 1 ? "Última por revisar" : `1 de ${fila.length} por revisar`}</strong> : <strong>No queda nada por revisar</strong>} · {aprobadas.length} aprobadas ✓
+        {enRehacer.length > 0 && <span> · {enRehacer.length} en rehacer</span>}
       </p>
-      {pendientes.length === 0 && <p style={{ fontSize: 15 }}>Todo está aprobado.</p>}
-      {pendientes.map((t) => (
-        <section key={t.tipo} style={tarjeta}>
-          <Generador tipo={t.tipo} titulo={t.titulo} inicial={t.inicial} cambios={cambiosDe(t.tipo)} />
+      {!actual && <p style={{ fontSize: 15 }}>{enRehacer.length > 0 ? "Lo que queda está en rehacer: vuelve cuando la IA lo corrija." : "Todo está aprobado."}</p>}
+      {actual && (
+        <section key={actual.t.tipo} style={tarjeta}>
+          <p style={{ fontSize: 13, margin: "0 0 8px", color: "var(--fg-muted, #6b6b6b)" }}>
+            Pulsa <strong>«Aprobar toda la animación»</strong> cuando la hayas visto completa: queda aprobado el tipo entero. «Está bien hasta aquí» solo deja una marca parcial.
+          </p>
+          <Generador tipo={actual.t.tipo} titulo={actual.t.titulo} inicial={actual.e.siguiente ?? actual.t.inicial} aprobados={actual.e.aprobados} cambios={cambiosDe(actual.t.tipo)} dev />
         </section>
-      ))}
+      )}
     </main>
   );
 }
