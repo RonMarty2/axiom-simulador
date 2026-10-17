@@ -171,13 +171,17 @@ describe("generadores de algebra", () => {
     const r = fracciones(1, 2, 1, 3);
     // la primera transicion anota el ejercicio abajo (fila de referencia)
     // t1 busca el mcm (6); el factor de cada fraccion es mcm / su denominador: 6/2 = 3 y 6/3 = 2
-    const [, tm, t1, t2, t3, t4, t5, t6] = r.demo.transiciones;
-    assert.ok(tm.texto.includes("mínimo común múltiplo") && tm.texto.includes("$6$"));
+    // el mcm se BUSCA a la vista: lista de multiplos de cada denominador, el primero comun, y se despeja
+    const [, tm, tm2, tm3, tm4, t1, t2, t3, t4, t5, t6] = r.demo.transiciones;
+    assert.ok(tm.texto.includes("mínimo común múltiplo") && tm.texto.includes("Múltiplos de $2$") && tm.texto.includes("$2,\\ 4,\\ 6$"));
+    assert.ok(tm2.texto.includes("$3,\\ 6$"));
+    assert.deepEqual(tm3.fusiones[0].desde, ["Ma", "Sb", "Mb"]);
+    assert.ok(tm3.texto.includes("$6$") && tm4.texto.includes("denominador común"));
     assert.deepEqual(t1.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f1.d>m1", "f1.d>c1"]);
     assert.deepEqual(t2.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f2.d>m2", "f2.d>c2"]);
     // una fraccion por paso, con el producto escrito antes de calcularlo
     assert.deepEqual(t3.fusiones[0].desde, ["f1", "m1", "c1"]);
-    assert.ok(r.demo.estados[5].some((f) => f.frac?.n === "1\\cdot 3" && f.frac?.d === "2\\cdot 3"));
+    assert.ok(r.demo.estados[8].some((f) => f.frac?.n === "1\\cdot 3" && f.frac?.d === "2\\cdot 3"));
     assert.deepEqual(t4.fusiones[0].desde, ["u1"]);
     assert.deepEqual(t5.fusiones[0].desde, ["f2", "m2", "c2"]);
     assert.deepEqual(t6.fusiones[0].desde, ["u2"]);
@@ -194,6 +198,27 @@ describe("generadores de algebra", () => {
     assert.ok(textos.includes("primera fracción la multiplicamos por $\\dfrac{3}{3}$"));
     assert.ok(!textos.includes("segunda fracción la multiplicamos"));
     assert.ok(!b.demo.transiciones.some((t) => t.fusiones.some((f) => f.hacia === "u2")));
+    // si la segunda fraccion no cambia, se dice (antes solo lo decia el caso simetrico)
+    assert.ok(b.demo.transiciones.some((t) => t.porque.includes("La segunda fracción ya tiene denominador $6$")));
+  });
+
+  test("fracciones: comprobacion con un paso por lado, negativos con parentesis, y la irreducible se demuestra", () => {
+    // 3/4 - 5/6 = -1/12 (no se simplifica): el menos va DENTRO del numerador, como en el paso anterior, y el negativo suelto con parentesis
+    const neg = fracciones(3, 4, 5, 6, true);
+    const textos = neg.demo.transiciones.map((t) => t.texto);
+    assert.ok(textos.some((x) => x.includes("$(-1)\\cdot 12=-12$")), "falta (-1)·12 con parentesis");
+    assert.ok(!textos.some((x) => /[^(]-1\\cdot 12/.test(x)), "-1·12 sin parentesis");
+    // las multiplicaciones y las divisiones van por lados: dos operaciones a la izquierda y una en la respuesta, nunca tres juntas
+    assert.ok(textos.some((x) => x.includes("lado izquierdo") && x.includes("$3\\cdot 12=36$") && x.includes("$5\\cdot 12=60$")));
+    assert.ok(textos.some((x) => x.startsWith("Ahora la multiplicación de arriba de la respuesta")));
+    assert.ok(textos.some((x) => x.includes("lado izquierdo") && x.includes("=9$") && x.includes("=10$")));
+    assert.ok(textos.some((x) => x.startsWith("Y la división de la respuesta")));
+    // irreducible: se muestran los divisores y el unico comun (1)
+    const irr = fracciones(1, 4, 1, 6).demo.transiciones.map((t) => t.texto);
+    assert.ok(irr.some((x) => x.startsWith("¿Se puede simplificar?") && x.includes("Divisores de $5$") && x.includes("Divisores de $12$") && x.includes("único")));
+    // con el signo ya delante (se simplifico): se queda delante hasta dividir
+    const simp = fracciones(1, 2, 5, 6, true).demo.transiciones.map((t) => t.texto);
+    assert.ok(simp.some((x) => x.includes("El signo menos se queda delante")));
   });
 
   test("fracciones: el segundo denominador se funde con el primero (ancla), no desaparece sin mas", () => {

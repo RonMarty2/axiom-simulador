@@ -13,6 +13,33 @@ const fracTex = (n: number, d: number) => `${n < 0 ? "-" : ""}\\dfrac{${Math.abs
 /** termino con signo: +5 o -5 */
 const conSigno = (n: number) => (n < 0 ? `-${-n}` : `+${n}`);
 
+// Una lista larga no cabe en un celular (columna de 343 px) y KaTeX no parte
+// una ficha: si no entra en un renglon (medido: 34 caracteres caben, 36 se salen 1 px), el rotulo va
+// arriba y los numeros en renglones parejos de hasta 24 caracteres (sin un numero suelto al final).
+export const enFilas = (xs: number[]) => {
+  let filas: number[][] = [xs];
+  for (let k = 2; k <= xs.length; k++) {
+    const t = Math.ceil(xs.length / k);
+    filas = Array.from({ length: Math.ceil(xs.length / t) }, (_, i) => xs.slice(i * t, i * t + t));
+    if (filas.every((f) => f.join(", ").length + 1 <= 20)) break;
+  }
+  return filas;
+};
+export const lista = (rotulo: string, xs: number[]) => {
+  // el rotulo va normal y los datos en negrita, con un espacio mayor despues de los dos puntos
+  const neg = (ys: number[]) => ys.map((y) => `\\mathbf{${y}}`).join(",\\ ");
+  if (`${rotulo} ${xs.join(", ")}`.length <= 26) return `\\scriptsize\\text{${rotulo}}\\ \\ ${neg(xs)}`;
+  const filas = enFilas(xs);
+  const renglones = filas.map((f, i) => `\\scriptsize ${neg(f)}${i < filas.length - 1 ? "," : ""}`);
+  return `\\begin{array}{l}\\scriptsize\\text{${rotulo}}\\\\ ${renglones.join("\\\\ ")}\\end{array}`;
+};
+// en la explicacion, una lista larga va en varias formulas $...$ para que MathText pueda partir el renglon
+export const enTexto = (xs: number[]) => {
+  if (xs.join(", ").length <= 34) return `$${xs.join(",\\ ")}$`;
+  const filas = enFilas(xs);
+  return filas.map((f, i) => `$${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}$`).join(" ");
+};
+
 /**
  * Simplifica la fraccion n/d (g = mcd > 1) SIN saltos: primero se ve de donde sale el g
  * (numerador y denominador se escriben como producto por g), despues se tacha el g repetido.
@@ -57,32 +84,6 @@ function simplificar(
   const conPartes = !!base.find((f) => f.id === desde)?.frac;
   const origenN = conPartes ? `${desde}.n` : desde;
   const origenD = conPartes ? `${desde}.d` : desde;
-  // Una lista larga no cabe en un celular (columna de 343 px) y KaTeX no parte
-  // una ficha: si no entra en un renglon (medido: 34 caracteres caben, 36 se salen 1 px), el rotulo va
-  // arriba y los numeros en renglones parejos de hasta 24 caracteres (sin un numero suelto al final).
-  const enFilas = (xs: number[]) => {
-    let filas: number[][] = [xs];
-    for (let k = 2; k <= xs.length; k++) {
-      const t = Math.ceil(xs.length / k);
-      filas = Array.from({ length: Math.ceil(xs.length / t) }, (_, i) => xs.slice(i * t, i * t + t));
-      if (filas.every((f) => f.join(", ").length + 1 <= 20)) break;
-    }
-    return filas;
-  };
-  const lista = (rotulo: string, xs: number[]) => {
-    // el rotulo va normal y los datos en negrita, con un espacio mayor despues de los dos puntos
-    const neg = (ys: number[]) => ys.map((y) => `\\mathbf{${y}}`).join(",\\ ");
-    if (`${rotulo} ${xs.join(", ")}`.length <= 26) return `\\scriptsize\\text{${rotulo}}\\ \\ ${neg(xs)}`;
-    const filas = enFilas(xs);
-    const renglones = filas.map((f, i) => `\\scriptsize ${neg(f)}${i < filas.length - 1 ? "," : ""}`);
-    return `\\begin{array}{l}\\scriptsize\\text{${rotulo}}\\\\ ${renglones.join("\\\\ ")}\\end{array}`;
-  };
-  // en la explicacion, una lista larga va en varias formulas $...$ para que MathText pueda partir el renglon
-  const enTexto = (xs: number[]) => {
-    if (xs.join(", ").length <= 34) return `$${xs.join(",\\ ")}$`;
-    const filas = enFilas(xs);
-    return filas.map((f, i) => `$${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}$`).join(" ");
-  };
   const Sa: Ficha = { id: "Sa", tex: "", salto: true };
   const Sb: Ficha = { id: "Sb", tex: "", salto: true };
   const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn) };
@@ -404,12 +405,47 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
 
   if (!iguales) {
     // 0) se busca el minimo comun multiplo: el menor denominador comun posible
-    estados.push(estados[0]);
+    // la busqueda se VE: se listan los multiplos de cada denominador hasta el L y se toma el primero que esta en las dos listas
+    const multiplos = (d: number) => Array.from({ length: L / d }, (_, i) => d * (i + 1));
+    const mult1 = multiplos(d1);
+    const mult2 = multiplos(d2);
+    const base0 = estados[0];
+    const Sa: Ficha = { id: "Sa", tex: "", salto: true };
+    const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+    const Ma: Ficha = { id: "Ma", tex: lista(`Múltiplos de ${d1}:`, mult1) };
+    const Mb: Ficha = { id: "Mb", tex: lista(`Múltiplos de ${d2}:`, mult2) };
+    const Ml: Ficha = { id: "Ml", tex: `\\scriptsize\\text{El primero en las dos:}\\ \\ \\mathbf{${L}}` };
+    estados.push([...base0, Sa, Ma]);
     trans.push({
       fusiones: [],
-      resaltar: ["f1.d", "f2.d"],
-      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número en el que caben los dos. Para $${d1}$ y $${d2}$ es $${L}$.`,
-      porque: `Con partes del mismo tamaño se puede sumar. Usamos el mínimo común múltiplo porque es el denominador más chico posible: las cuentas salen más cortas.`,
+      brotes: [
+        { desde: "f1.d", hacia: "Sa" },
+        { desde: "f1.d", hacia: "Ma" },
+      ],
+      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número que está en la tabla de los dos. Múltiplos de $${d1}$: ${enTexto(mult1)}.`,
+      porque: `Un múltiplo de $${d1}$ es lo que sale al multiplicarlo por $1$, por $2$, por $3$... Empezamos por el primer denominador y paramos en $${L}$.`,
+    });
+    estados.push([...base0, Sa, Ma, Sb, Mb]);
+    trans.push({
+      fusiones: [],
+      brotes: [
+        { desde: "f2.d", hacia: "Sb" },
+        { desde: "f2.d", hacia: "Mb" },
+      ],
+      texto: `Ahora los múltiplos de $${d2}$: ${enTexto(mult2)}.`,
+      porque: `Hacemos la misma lista para el segundo denominador.`,
+    });
+    estados.push([...base0, Sa, Ml]);
+    trans.push({
+      fusiones: [{ desde: ["Ma", "Sb", "Mb"], hacia: "Ml" }],
+      texto: `El primer número que está en las dos listas es $${L}$: es el mínimo común múltiplo.`,
+      porque: `Un número que está en las dos listas es múltiplo de los dos denominadores: las dos fracciones pueden llegar a tener ese denominador. Elegimos el más chico para que las cuentas sean cortas.`,
+    });
+    estados.push(base0);
+    trans.push({
+      fusiones: [{ desde: ["Sa", "Ml"], hacia: null }],
+      texto: `Usaremos $${L}$ como denominador común de las dos fracciones.`,
+      porque: `Lo que sigue es lograr que las dos fracciones tengan denominador $${L}$ sin cambiar su valor.`,
     });
     const m1: Ficha = { id: "m1", tex: "\\cdot", op: true };
     const m2: Ficha = { id: "m2", tex: "\\cdot", op: true };
@@ -429,7 +465,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
           { desde: "f1.d", hacia: "c1" },
         ],
         texto: `A la primera fracción la multiplicamos por $\\dfrac{${k1}}{${k1}}$, porque $${d1}\\cdot ${k1}=${L}$.`,
-        porque: `$\\dfrac{${k1}}{${k1}}=1$: multiplicar por $1$ no cambia el valor, pero hace que el denominador llegue a $${L}$.`,
+        porque: `$\\dfrac{${k1}}{${k1}}=1$: multiplicar por $1$ no cambia el valor, pero hace que el denominador llegue a $${L}$.${k2 === 1 ? ` La segunda fracción ya tiene denominador $${L}$: no hay que cambiarla.` : ""}`,
         regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
       });
     }
@@ -538,7 +574,18 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     simplificar(estados, trans, [], "h", sumaN, den, g);
     if (den / g === 1) trans[trans.length - 1].porque += ` La fracción sale exacta: es un número entero.`;
   } else {
-    trans[trans.length - 1].porque += ` Esta fracción ya no se puede simplificar.`;
+    // no se afirma sin mostrar: se listan los divisores de arriba y de abajo y el unico que comparten es el 1
+    const divs = (v: number) => Array.from({ length: v }, (_, i) => i + 1).filter((k) => v % k === 0);
+    const dArriba = divs(Math.abs(sumaN));
+    const dAbajo = divs(den);
+    const ultimo = estados[estados.length - 1];
+    estados.push(ultimo);
+    trans.push({
+      fusiones: [],
+      resaltar: [ultimo[0].id],
+      texto: `¿Se puede simplificar? Divisores de $${Math.abs(sumaN)}$: ${enTexto(dArriba)}. Divisores de $${den}$: ${enTexto(dAbajo)}. El único que está en las dos listas es el $1$.`,
+      porque: `Con solo el $1$ en común no hay nada que tachar: la fracción ya no se puede simplificar.`,
+    });
   }
 
   const rn = sumaN / g;
@@ -573,8 +620,14 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const v2 = (n2 * D) / d2;
     const v3 = (rn * D) / rd;
     const s = resta ? v1 - v2 : v1 + v2;
-    // la respuesta se escribe como se ve en la hoja: el signo menos delante de la fraccion
-    const rTex = rd === 1 ? `${rn}\\cdot ${D}` : rn < 0 ? `(-\\dfrac{${-rn}}{${rd}})\\cdot ${D}` : `\\dfrac{${rn}}{${rd}}\\cdot ${D}`;
+    // la respuesta se escribe EXACTAMENTE como quedo en la hoja, sin cambiarle la forma al signo: si se simplifico (g > 1) el menos va
+    // delante de la fraccion y se queda delante hasta dividir; si no se simplifico va dentro del numerador. Un negativo suelto lleva parentesis.
+    const signoAdelante = rn < 0 && rd !== 1 && g > 1;
+    const pr = rn < 0 ? `(${rn})` : `${rn}`;
+    const rTex = rd === 1 ? `${pr}\\cdot ${D}` : signoAdelante ? `-\\dfrac{${-rn}}{${rd}}\\cdot ${D}` : `\\dfrac{${rn}}{${rd}}\\cdot ${D}`;
+    // la respuesta con el factor ya arriba, y con el producto hecho
+    const kcMult: Ficha = signoAdelante ? { id: "Kc2", tex: `-\\dfrac{${-rn}\\cdot ${D}}{${rd}}` } : fr("Kc2", `${pr}\\cdot ${D}`, `${rd}`);
+    const kcHecho: Ficha = signoAdelante ? { id: "Kc3", tex: `-\\dfrac{${-rn * D}}{${rd}}` } : fr("Kc3", `${rn * D}`, `${rd}`);
     const SC: Ficha = { id: "SC", tex: "", salto: true };
     const Kp: Ficha = { id: "Kp", tex: op, op: true };
     const Ke: Ficha = { id: "Ke", tex: "=", op: true };
@@ -596,7 +649,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       regla: `$a=b\\ \\Rightarrow\\ a\\cdot c=b\\cdot c$`,
     });
     // el factor entra al numerador (la fraccion por un entero)
-    fila(fr("Ka2", `${n1}\\cdot ${D}`, `${d1}`), Kp, fr("Kb2", `${n2}\\cdot ${D}`, `${d2}`), Ke, rd === 1 ? { id: "Kc", tex: rTex } : fr("Kc2", `${rn}\\cdot ${D}`, `${rd}`));
+    fila(fr("Ka2", `${n1}\\cdot ${D}`, `${d1}`), Kp, fr("Kb2", `${n2}\\cdot ${D}`, `${d2}`), Ke, rd === 1 ? { id: "Kc", tex: rTex } : kcMult);
     trs.push({
       fusiones: [
         { desde: ["Ka"], hacia: "Ka2" },
@@ -607,29 +660,47 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       porque: `Una fracción por un número entero: el entero multiplica al numerador y el denominador se queda igual.`,
       regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
     });
-    // se hace la multiplicacion de arriba
-    const Kc3: Ficha = rd === 1 ? { id: "Kv3", tex: `${v3}` } : fr("Kc3", `${rn * D}`, `${rd}`);
-    fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, Kc3);
+    // las multiplicaciones de arriba, UNA FRACCION POR PASO: primero el lado izquierdo (las dos del ejercicio) y despues la respuesta
+    const derecha = rd === 1 ? { id: "Kc", tex: rTex } : kcMult;
+    fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, derecha);
     trs.push({
       fusiones: [
         { desde: ["Ka2"], hacia: "Ka3" },
         { desde: ["Kb2"], hacia: "Kb3" },
-        { desde: [rd === 1 ? "Kc" : "Kc2"], hacia: Kc3.id },
       ],
-      texto: `Hacemos las multiplicaciones de arriba: $${n1}\\cdot ${D}=${n1 * D}$, $${n2}\\cdot ${D}=${n2 * D}$ y $${rn}\\cdot ${D}=${rn * D}$.`,
+      texto: `Hacemos las multiplicaciones de arriba del lado izquierdo: $${n1}\\cdot ${D}=${n1 * D}$ y $${n2}\\cdot ${D}=${n2 * D}$.`,
       porque: `Cada fracción queda con su numerador calculado; los denominadores no cambian.`,
     });
-    // se divide
-    fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, { id: "Kv3", tex: `${v3}` });
+    const Kc3: Ficha = rd === 1 ? { id: "Kv3", tex: `${v3}` } : kcHecho;
+    fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, Kc3);
+    trs.push({
+      fusiones: [{ desde: [rd === 1 ? "Kc" : "Kc2"], hacia: Kc3.id }],
+      texto:
+        rd === 1
+          ? `Ahora la respuesta: $${pr}\\cdot ${D}=${v3}$.`
+          : signoAdelante
+            ? `Ahora la multiplicación de arriba de la respuesta: $${-rn}\\cdot ${D}=${-rn * D}$. El signo menos se queda delante de la fracción.`
+            : `Ahora la multiplicación de arriba de la respuesta: $${pr}\\cdot ${D}=${rn * D}$.`,
+      porque: `Igual que en las otras: se multiplica solo el numerador y el denominador no cambia.`,
+    });
+    // las divisiones, tambien por lados: izquierda (dos) y respuesta (una)
+    fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, Kc3);
     trs.push({
       fusiones: [
         { desde: ["Ka3"], hacia: "Kv1" },
         { desde: ["Kb3"], hacia: "Kv2" },
-        ...(rd === 1 ? [] : [{ desde: ["Kc3"], hacia: "Kv3" }]),
       ],
-      texto: `Ahora las divisiones, que salen exactas: $\\dfrac{${n1 * D}}{${d1}}=${v1}$, $\\dfrac{${n2 * D}}{${d2}}=${v2}$${rd === 1 ? "" : ` y $\\dfrac{${rn * D}}{${rd}}=${v3}$`}.`,
+      texto: `Ahora las divisiones del lado izquierdo, que salen exactas: $\\dfrac{${n1 * D}}{${d1}}=${v1}$ y $\\dfrac{${n2 * D}}{${d2}}=${v2}$.`,
       porque: `El denominador común $${D}$ se puede repartir exacto entre cada denominador, por eso quedan números enteros.`,
     });
+    if (rd !== 1) {
+      fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, { id: "Kv3", tex: `${v3}` });
+      trs.push({
+        fusiones: [{ desde: [Kc3.id], hacia: "Kv3" }],
+        texto: `Y la división de la respuesta: $${signoAdelante ? "-" : ""}\\dfrac{${signoAdelante ? -rn * D : rn * D}}{${rd}}=${v3}$.`,
+        porque: `También sale exacta, porque $${D}$ se reparte exacto entre $${rd}$.`,
+      });
+    }
     // la suma o resta de la izquierda
     fila({ id: "Ks", tex: `${s}` }, Ke, { id: "Kv3", tex: `${v3}` });
     trs.push({
