@@ -2,10 +2,10 @@
   "_nota": "Registro de auditoria de pasos (auditor-de-pasos). Un generador 'auditado' guarda la huella de su salida: si el codigo cambia, el test frena y hay que re-auditar. 'pendiente' = nunca auditado con las reglas actuales; 'con-hallazgos' = se audito y quedan saltos por arreglar. Se edita SOLO con registrar-auditoria.ts.",
   "generadores": {
     "lineal": {
-      "estado": "con-hallazgos",
-      "huella": "aadec5d8f01b",
-      "fecha": "2026-10-08",
-      "nota": "9-oct (2da pasada, auditor independiente): punto de multiplicar visible OK (3·3), listas en negrita OK. Siguen: (1) comprobacion con x fraccionaria negativa (6·(-4/3) pasa a (-6·4)/3 y el texto calcula 6·(-4)); (2) sin fila de referencia en la comprobacion; (3) x negativa irreducible escribe (-4)/3 y simplificada -4/3; (4) 'no se puede simplificar mas' sin mostrar las listas; (5) en 3·3/3 no dice cual 3 se tacha. Pendiente: sumar numeros nuevos por transicion en revisar.ts. || 9-oct: x fraccionaria negativa arreglada (6·(-4)/3, el signo se queda en el numerador). || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
+      "estado": "auditado",
+      "huella": "f97e6537a198",
+      "fecha": "2026-10-17",
+      "nota": "2da lectura independiente 17-oct: x negativa fraccionaria (el menos entra al numerador, dicho en el texto), irreducible, n=0, enteros con signos; sin saltos"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
@@ -14,10 +14,10 @@
       "nota": "9-oct: parentesis en 4 pasos con gesto de VISITA (el x y el -3 viajan al x y al numero del segundo parentesis, pedido de Ronald). Pendientes de la ronda 3 en docs/hallazgos-auditoria-pasos.md"
     },
     "fracciones": {
-      "estado": "con-hallazgos",
-      "huella": "1a230194ff35",
-      "fecha": "2026-10-08",
-      "nota": "9-oct (2da pasada, auditor independiente): sigue (1) comprobacion con resultado negativo cambia de forma sin paso; (2) en 5/12+7/8 la comprobacion hace 3 productos y 3 divisiones en un paso (revisar.ts cuenta por fusion, no por transicion); (3) los 8, 12 y 96 pasan por fusion y no viajan; (4) irreducible sin listas; (5) denominador comun 96 y no el mcm 24 (decision de Ronald). Cambios de presentacion: negrita en listas y 'El mayor'. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
+      "estado": "auditado",
+      "huella": "615b9c231ae4",
+      "fecha": "2026-10-17",
+      "nota": "2da lectura independiente 17-oct: los 6 hallazgos de la 1a verificados; 3 detalles finos de redaccion (criterio de parada del mcm, divisores sin el signo, 'tampoco' sin referente) corregidos y vigilados por prueba, sin nueva relectura"
     },
     "logaritmos": {
       "estado": "con-hallazgos",

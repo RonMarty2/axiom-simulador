@@ -63,6 +63,48 @@
       "paso": 13,
       "nota": "Al multiplicar, solo viajan el 4 y el numerador (juntos, uno al lado del otro); el denominador se queda quieto. Pedido tuyo del 17-oct.",
       "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 14,
+      "nota": "Al reemplazar x, dice que el signo menos entra al numerador (-3/2 = (-3)/2).",
+      "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 15,
+      "nota": "El 4 y el (-3) viajan juntos arriba; el 2 de abajo se queda quieto.",
+      "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 3,
+      "nota": "El mcm se busca a la vista: lista de multiplos de cada denominador (pasos 3 a 6).",
+      "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 17,
+      "nota": "Antes de decir que no se puede simplificar, muestra los divisores y que solo el 1 es comun.",
+      "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 20,
+      "nota": "La comprobacion va por lados: dos multiplicaciones a la izquierda, y la respuesta aparte (despues lo mismo con las divisiones).",
+      "fecha": "2026-10-17"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 21,
+      "nota": "En la respuesta negativa el menos se queda dentro del numerador y el negativo suelto lleva parentesis: (-1)·12.",
+      "fecha": "2026-10-17"
     }
   ],
   "aprobadosPorSilencio": []

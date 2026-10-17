@@ -14,6 +14,8 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "normal", v: ["3", "2", "11"] },
     { nombre: "suma negativa", v: ["4", "-5", "7"] },
     { nombre: "x fraccionaria", v: ["4", "2", "8"] },
+    // x = -3/2: el menos pasa de delante de la raya al numerador al reemplazar x (el auditor lo pidio como caso fijo, 17-oct)
+    { nombre: "x fraccionaria negativa", v: ["4", "2", "-4"] },
     { nombre: "x negativa", v: ["3", "2", "-4"] },
     { nombre: "numeros grandes", v: ["12", "-7", "89"] },
   ],

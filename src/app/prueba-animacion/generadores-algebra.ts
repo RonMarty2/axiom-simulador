@@ -425,7 +425,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: "f1.d", hacia: "Ma" },
       ],
       texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número que está en la tabla de los dos. Múltiplos de $${d1}$: ${enTexto(mult1)}.`,
-      porque: `Un múltiplo de $${d1}$ es lo que sale al multiplicarlo por $1$, por $2$, por $3$... Empezamos por el primer denominador y paramos en $${L}$.`,
+      porque: `Un múltiplo de $${d1}$ es lo que sale al multiplicarlo por $1$, por $2$, por $3$... Llegamos hasta $${L}$: por qué paramos ahí se ve cuando hagamos la lista del otro denominador.`,
     });
     estados.push([...base0, Sa, Ma, Sb, Mb]);
     trans.push({
@@ -435,7 +435,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: "f2.d", hacia: "Mb" },
       ],
       texto: `Ahora los múltiplos de $${d2}$: ${enTexto(mult2)}.`,
-      porque: `Hacemos la misma lista para el segundo denominador.`,
+      porque: `Hacemos la misma lista para el segundo denominador. Paramos en $${L}$ porque es el primer número que ya está en las dos listas.`,
     });
     estados.push([...base0, Sa, Ml]);
     trans.push({
@@ -481,7 +481,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
           { desde: "f2.d", hacia: "c2" },
         ],
         texto: `${k1 > 1 ? "A la segunda fracción la multiplicamos" : "Solo la segunda fracción necesita cambiar: la multiplicamos"} por $\\dfrac{${k2}}{${k2}}$, porque $${d2}\\cdot ${k2}=${L}$.`,
-        porque: `$\\dfrac{${k2}}{${k2}}=1$, así que tampoco cambia el valor. ${k1 > 1 ? "Con los dos pasos, los dos denominadores van a quedar iguales." : `La primera fracción ya tiene denominador $${L}$.`}`,
+        porque: `$\\dfrac{${k2}}{${k2}}=1$, así que ${k1 > 1 ? "tampoco" : "así no"} cambia el valor. ${k1 > 1 ? "Con los dos pasos, los dos denominadores van a quedar iguales." : `La primera fracción ya tiene denominador $${L}$.`}`,
         regla: `$\\dfrac{a}{b}=\\dfrac{a}{b}\\cdot\\dfrac{c}{c}\\quad\\text{porque}\\quad\\dfrac{c}{c}=1$`,
       });
     }
@@ -585,7 +585,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     trans.push({
       fusiones: [],
       resaltar: [ultimo[0].id],
-      texto: `¿Se puede simplificar? Divisores de $${Math.abs(sumaN)}$: ${enTexto(dArriba)}. Divisores de $${den}$: ${enTexto(dAbajo)}. El único que está en las dos listas es el $1$.`,
+      texto: `¿Se puede simplificar? Divisores de $${Math.abs(sumaN)}$${sumaN < 0 ? " (sin el signo menos)" : ""}: ${enTexto(dArriba)}. Divisores de $${den}$: ${enTexto(dAbajo)}. El único que está en las dos listas es el $1$.`,
       porque: `Con solo el $1$ en común no hay nada que tachar: la fracción ya no se puede simplificar.`,
     });
   }

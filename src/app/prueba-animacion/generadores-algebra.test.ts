@@ -216,6 +216,14 @@ describe("generadores de algebra", () => {
     // irreducible: se muestran los divisores y el unico comun (1)
     const irr = fracciones(1, 4, 1, 6).demo.transiciones.map((t) => t.texto);
     assert.ok(irr.some((x) => x.startsWith("¿Se puede simplificar?") && x.includes("Divisores de $5$") && x.includes("Divisores de $12$") && x.includes("único")));
+    // el criterio de parada de la lista de multiplos se explica; el divisor de un numerador negativo avisa que no cuenta el signo;
+    // y "tampoco" solo aparece si hubo una multiplicacion antes (k1 > 1)
+    const mcm = fracciones(1, 4, 1, 6).demo.transiciones;
+    assert.ok(mcm.some((t) => t.porque.includes("Paramos en $12$ porque es el primer número que ya está en las dos listas")));
+    assert.ok(neg.demo.transiciones.some((t) => t.texto.includes("Divisores de $1$ (sin el signo menos)")));
+    const k1uno = fracciones(1, 6, 1, 3).demo.transiciones.map((t) => t.porque).join(" | ");
+    assert.ok(k1uno.includes("así no cambia el valor") && !k1uno.includes("tampoco"));
+    assert.ok(fracciones(1, 4, 1, 6).demo.transiciones.some((t) => t.porque.includes("tampoco cambia el valor")));
     // con el signo ya delante (se simplifico): se queda delante hasta dividir
     const simp = fracciones(1, 2, 5, 6, true).demo.transiciones.map((t) => t.texto);
     assert.ok(simp.some((x) => x.includes("El signo menos se queda delante")));
