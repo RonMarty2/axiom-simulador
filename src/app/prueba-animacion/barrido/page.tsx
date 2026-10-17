@@ -23,7 +23,9 @@ export default function Barrido() {
 
   useEffect(() => {
     if (!tipo) return;
-    const t = setTimeout(() => {
+    // se mide con el estado ya estable: fuentes de las formulas cargadas y los reajustes de ancho de Fusion hechos
+    let t: ReturnType<typeof setTimeout>;
+    const medir = () => {
       const malos: string[] = [];
       document.querySelectorAll<HTMLElement>("[data-barrido]").forEach((el) => {
         const lim = el.getBoundingClientRect().right + 1;
@@ -60,7 +62,10 @@ export default function Barrido() {
       });
       (window as unknown as { __barrido: string[] }).__barrido = malos;
       setInforme(malos);
-    }, 2500);
+    };
+    void document.fonts.ready.then(() => {
+      t = setTimeout(medir, 2500);
+    });
     return () => clearTimeout(t);
   }, [tipo, armados]);
 

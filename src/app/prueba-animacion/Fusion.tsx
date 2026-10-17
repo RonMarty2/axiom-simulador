@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, animate, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import Tex from "./Tex";
 import katex from "katex";
@@ -378,9 +378,202 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     if (f.debajo) filaConEtiqueta[filaDe[i]] = true;
   });
   const margenSuperior = (pos: number) => (conEtiquetas && (filaConEtiqueta[filaDe[pos]] || filaConEtiqueta[filaDe[pos] - 1]) ? huecoEtiqueta : 0);
+  const esOperador = (f: Ficha) => !!f.op && ["+", "-", "−", "=", "\\pm"].includes(f.tex.trim());
+  // profundidad de parentesis ANTES de cada pieza: un operador dentro de un parentesis, (a − b), no es lugar para partir la formula
+  const profundidad = (fs: Ficha[]) => {
+    let d = 0;
+    return fs.map((f) => {
+      const antes = d;
+      d += (f.tex.match(/\(/g) ?? []).length - (f.tex.match(/\)/g) ?? []).length;
+      return antes;
+    });
+  };
+  // se puede partir antes de un operador, o antes de un parentesis que abre, siempre fuera de otro parentesis
+  const puedePartirAntes = (fs: Ficha[], i: number, prof: number[]) => prof[i] <= 0 && (esOperador(fs[i]) || fs[i].tex.trim().startsWith("("));
+  // grupos de posiciones: cada operador (fuera de parentesis) abre uno; un salto de renglon va solo
+  const gruposDe = (fs: Ficha[]) => {
+    const gs: number[][] = [];
+    const prof = profundidad(fs);
+    fs.forEach((f, i) => {
+      if (f.salto) gs.push([i]);
+      else if (gs.length === 0 || puedePartirAntes(fs, i, prof) || fs[gs[gs.length - 1][0]].salto) gs.push([i]);
+      else gs[gs.length - 1].push(i);
+    });
+    return gs;
+  };
+  // 0 = piezas sueltas, 1 = agrupadas por operador, 2 = se probo agrupar y algo se salia del ancho: se quedan sueltas
+  const [modoGrupo, setModoGrupo] = useState<0 | 1 | 2>(0);
+  const agrupar = modoGrupo === 1;
+  const hojaRef = useRef<HTMLDivElement | null>(null);
+  // al cambiar de paso se parte de la formula suelta; si se partio en un mal lugar (la 2a pieza abre renglon y no es un operador), se agrupa
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useLayoutEffect(() => setModoGrupo(0), [idx, compacta, demo]);
+  useLayoutEffect(() => {
+    const hoja = hojaRef.current;
+    if (modoGrupo !== 0 || !hoja) return;
+    const detectar = () => {
+      const tops = estado.map((f) => (f.salto || f.sup ? null : celdas.current[f.id]?.getBoundingClientRect().top ?? null));
+      let previo: number | null = null;
+      const prof = profundidad(estado);
+      for (let i = 0; i < estado.length; i++) {
+        if (tops[i] === null) {
+          if (estado[i].salto) previo = null;
+          continue;
+        }
+        if (previo !== null && (tops[i] as number) - previo > 14 && !puedePartirAntes(estado, i, prof)) {
+          setModoGrupo(1);
+          return;
+        }
+        previo = tops[i];
+      }
+    };
+    detectar();
+    // las fuentes de las formulas cargan despues: la formula puede partirse recien entonces, asi que se vuelve a mirar
+    const ro = new ResizeObserver(detectar);
+    ro.observe(hoja);
+    void document.fonts.ready.then(detectar);
+    return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modoGrupo, idx, compacta, demo]);
+  // si al agrupar un grupo no cabe en el ancho de la hoja (un grupo mas ancho que el celular no se puede partir), se deshace.
+  // Se mide el ancho de DISEÑO (offsetWidth): al aparecer, las piezas van agrandandose y su rect medido seria menor que el final.
+  useLayoutEffect(() => {
+    const hoja = hojaRef.current;
+    if (modoGrupo !== 1 || !hoja) return;
+    const revisar = () => {
+      const util = hoja.clientWidth - 8;
+      if ([...hoja.children].some((g) => g instanceof HTMLElement && Math.max(g.offsetWidth, g.scrollWidth) > util)) setModoGrupo(2);
+    };
+    revisar();
+    // las fuentes de las formulas terminan de cargar despues y los grupos crecen: se vuelve a comprobar cuando cambian de tamaño
+    const ro = new ResizeObserver(revisar);
+    [...hoja.children].forEach((g) => ro.observe(g));
+    return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [modoGrupo, idx, compacta, demo]);
+  const renderFicha = (f: Ficha, pos: number, enGrupo = false) => {
+    const prevSup = pos > 0 && !!estado[pos - 1].sup;
+    const mt = enGrupo ? 0 : margenSuperior(pos);
+    // una fraccion elevada (exponente 5/2) mide dos lineas: se agranda y se sube mas que un exponente comun
+    const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
+    const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
+    // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
+    const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
+    // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
+    const iguales = f.debajo ? (f.debajo.match(/=/g) ?? []).length : 0;
+    const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
+    const marcado = marcados.includes(f.id) || !!f.destacada;
+    const nuevo = nuevos.includes(f.id);
+    // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
+    const conPiezas = !!(f.frac?.nPiezas || f.frac?.dPiezas);
+    return (
+      <motion.span
+        key={f.id}
+        layout="position"
+        initial={{ opacity: 0, scale: 0.3 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, transition: { duration: 0.15 } }}
+        transition={{
+          layout: { duration: 0.7, ease: [0.45, 0, 0.25, 1] },
+          opacity: { duration: 0.3, delay: 0.1 },
+          scale: { type: "spring", stiffness: 240, damping: 12, delay: 0.1 },
+        }}
+        style={
+          f.sup
+            ? {
+                display: "inline-block",
+                position: "relative",
+                top: `-${alza}em`,
+                fontSize: `${escala}em`,
+                // con etiqueta no se pega a la base: abajo necesita su lugar
+                // el margen superior va DENTRO del shorthand (mezclar margin y marginTop hace que React avise de fallos de estilo al re-dibujar)
+                margin: prevSup ? `${mt}px 0 0 2px` : f.debajo ? `${mt}px 8px 0` : `${mt}px 4px 0 -17px`,
+                ...anchoEtiqueta,
+              }
+            : f.salto
+              ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: `${conEtiquetas && filaConEtiqueta[filaDe[pos] - 1] ? 0 : compacta ? 8 : 22}px 0 0`, fontSize: "0.82em" }
+              : { display: "inline-block", position: "relative", margin: f.pegado ? `${mt}px 4px 0 -10px` : conPiezas ? `${mt}px 2px 0` : `${mt}px 4px 0`, ...anchoEtiqueta }
+        }
+      >
+        <span
+          ref={(el) => {
+            celdas.current[f.id] = el;
+          }}
+          style={{
+            display: "inline-block",
+            padding: f.sup ? "0 2px" : conPiezas ? "2px" : "2px 8px",
+            borderRadius: f.sup ? 8 : 12,
+            background: marcado ? "var(--accent-soft)" : "transparent",
+            boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
+            color: nuevo ? "var(--accent)" : f.op ? "var(--fg-muted, #7a7a7a)" : "inherit",
+            fontWeight: nuevo ? 700 : 400,
+            transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
+          }}
+        >
+          {f.frac?.nPiezas || f.frac?.dPiezas ? (
+            // fraccion con PIEZAS arriba y abajo (la formula general): raya real desde que aparece
+            // en un celular se achica con el ancho de pantalla, para que x = (fraccion) quepa en un renglon
+            // (medido: 13 px a 375, 12 px a 360; en escritorio queda en 0.8em)
+            // una fraccion corta (5+1 sobre 2) no necesita achicarse tanto: se agranda segun lo largo del numerador
+            <span style={{ display: "inline-block", fontSize: f.sup ? "1em" : `min(0.8em, calc((5.3vw - 7px) * ${escalaFraccion(f)}))` }}>{compuesta(f)}</span>
+          ) : f.rad ? (
+            fila([f])
+          ) : f.frac ? (
+            // fraccion con sus dos partes como piezas propias: se puede
+            // señalar, copiar y mover el numerador o el denominador
+            <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: f.sup ? "1em" : "0.85em" }}>
+              <span
+                ref={(el) => {
+                  celdas.current[`${f.id}.n`] = el;
+                }}
+                style={parteEstilo(marcados.includes(`${f.id}.n`))}
+              >
+                <Tex tex={f.frac.n} />
+              </span>
+              <span style={{ alignSelf: "stretch", height: 2, background: "currentColor", margin: "1px 0", borderRadius: 1 }} />
+              <span
+                ref={(el) => {
+                  celdas.current[`${f.id}.d`] = el;
+                }}
+                style={parteEstilo(marcados.includes(`${f.id}.d`))}
+              >
+                <Tex tex={f.frac.d} />
+              </span>
+            </span>
+          ) : (
+            <Tex tex={f.tex} />
+          )}
+        </span>
+        {f.debajo && (
+          // etiqueta debajo de la pieza: no cambia la altura de la fila (va en posicion absoluta)
+          <span
+            data-etiqueta
+            // en una pieza elevada (indice, exponente) la etiqueta baja lo que la pieza subio y se achica
+            // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
+            style={{
+              position: "absolute",
+              top: f.sup ? `calc(100% + ${alza + 0.6}em + 6px)` : "100%",
+              left: "50%",
+              transform: "translateX(-50%)",
+              whiteSpace: "nowrap",
+              marginTop: f.sup ? 0 : 6,
+              lineHeight: 1.1,
+            }}
+          >
+            <span style={{ fontSize: `${0.54 / escala}em` }}>
+              <Tex tex={f.debajo} />
+            </span>
+          </span>
+        )}
+      </motion.span>
+    );
+  };
+
   return (
     <div>
       <div
+        ref={hojaRef}
+        data-modo-grupo={modoGrupo}
         style={{
           position: "relative",
           minHeight: 120,
@@ -395,124 +588,26 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
           transition: "padding 0.3s",
         }}
       >
-        <AnimatePresence mode="popLayout" initial={false}>
-          {estado.map((f, pos) => {
-            const prevSup = pos > 0 && !!estado[pos - 1].sup;
-            // una fraccion elevada (exponente 5/2) mide dos lineas: se agranda y se sube mas que un exponente comun
-            const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
-            const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
-            // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
-            const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
-            // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
-            const iguales = f.debajo ? (f.debajo.match(/=/g) ?? []).length : 0;
-            const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
-            const marcado = marcados.includes(f.id) || !!f.destacada;
-            const nuevo = nuevos.includes(f.id);
-            // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
-            const conPiezas = !!(f.frac?.nPiezas || f.frac?.dPiezas);
-            return (
-              <motion.span
-                key={f.id}
-                layout="position"
-                initial={{ opacity: 0, scale: 0.3 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0.15 } }}
-                transition={{
-                  layout: { duration: 0.7, ease: [0.45, 0, 0.25, 1] },
-                  opacity: { duration: 0.3, delay: 0.1 },
-                  scale: { type: "spring", stiffness: 240, damping: 12, delay: 0.1 },
-                }}
-                style={
-                  f.sup
-                    ? {
-                        display: "inline-block",
-                        position: "relative",
-                        top: `-${alza}em`,
-                        fontSize: `${escala}em`,
-                        // con etiqueta no se pega a la base: abajo necesita su lugar
-                        margin: prevSup ? "0 0 0 2px" : f.debajo ? "0 8px" : "0 4px 0 -17px",
-                        marginTop: margenSuperior(pos),
-                        ...anchoEtiqueta,
-                      }
-                    : f.salto
-                      ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: `${conEtiquetas && filaConEtiqueta[filaDe[pos] - 1] ? 0 : compacta ? 8 : 22}px 0 0`, fontSize: "0.82em" }
-                      : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", marginTop: margenSuperior(pos), ...anchoEtiqueta }
-                }
-              >
-                <span
-                  ref={(el) => {
-                    celdas.current[f.id] = el;
-                  }}
-                  style={{
-                    display: "inline-block",
-                    padding: f.sup ? "0 2px" : conPiezas ? "2px" : "2px 8px",
-                    borderRadius: f.sup ? 8 : 12,
-                    background: marcado ? "var(--accent-soft)" : "transparent",
-                    boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
-                    color: nuevo ? "var(--accent)" : f.op ? "var(--fg-muted, #7a7a7a)" : "inherit",
-                    fontWeight: nuevo ? 700 : 400,
-                    transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
-                  }}
-                >
-                  {f.frac?.nPiezas || f.frac?.dPiezas ? (
-                    // fraccion con PIEZAS arriba y abajo (la formula general): raya real desde que aparece
-                    // en un celular se achica con el ancho de pantalla, para que x = (fraccion) quepa en un renglon
-                    // (medido: 13 px a 375, 12 px a 360; en escritorio queda en 0.8em)
-                    // una fraccion corta (5+1 sobre 2) no necesita achicarse tanto: se agranda segun lo largo del numerador
-                    <span style={{ display: "inline-block", fontSize: f.sup ? "1em" : `min(0.8em, calc((5.3vw - 7px) * ${escalaFraccion(f)}))` }}>{compuesta(f)}</span>
-                  ) : f.rad ? (
-                    fila([f])
-                  ) : f.frac ? (
-                    // fraccion con sus dos partes como piezas propias: se puede
-                    // señalar, copiar y mover el numerador o el denominador
-                    <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", fontSize: f.sup ? "1em" : "0.85em" }}>
-                      <span
-                        ref={(el) => {
-                          celdas.current[`${f.id}.n`] = el;
-                        }}
-                        style={parteEstilo(marcados.includes(`${f.id}.n`))}
-                      >
-                        <Tex tex={f.frac.n} />
-                      </span>
-                      <span style={{ alignSelf: "stretch", height: 2, background: "currentColor", margin: "1px 0", borderRadius: 1 }} />
-                      <span
-                        ref={(el) => {
-                          celdas.current[`${f.id}.d`] = el;
-                        }}
-                        style={parteEstilo(marcados.includes(`${f.id}.d`))}
-                      >
-                        <Tex tex={f.frac.d} />
-                      </span>
-                    </span>
-                  ) : (
-                    <Tex tex={f.tex} />
-                  )}
-                </span>
-                {f.debajo && (
-                  // etiqueta debajo de la pieza: no cambia la altura de la fila (va en posicion absoluta)
-                  <span
-                    data-etiqueta
-                    // en una pieza elevada (indice, exponente) la etiqueta baja lo que la pieza subio y se achica
-                    // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
-                    style={{
-                      position: "absolute",
-                      top: f.sup ? `calc(100% + ${alza + 0.6}em + 6px)` : "100%",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      whiteSpace: "nowrap",
-                      marginTop: f.sup ? 0 : 6,
-                      lineHeight: 1.1,
-                    }}
-                  >
-                    <span style={{ fontSize: `${0.54 / escala}em` }}>
-                      <Tex tex={f.debajo} />
-                    </span>
-                  </span>
-                )}
-              </motion.span>
-            );
-          })}
-        </AnimatePresence>
+        {agrupar ? (
+          // una formula que se partia en medio de un producto o un parentesis: cada operador (+, -, =) abre un grupo que no se parte
+          gruposDe(estado).map((g) =>
+            g.length === 1 && estado[g[0]].salto ? (
+              <AnimatePresence key={`s${g[0]}`} mode="popLayout" initial={false}>
+                {renderFicha(estado[g[0]], g[0])}
+              </AnimatePresence>
+            ) : (
+              <span key={`g${g[0]}`} style={{ display: "inline-flex", flexWrap: "nowrap", alignItems: "center", whiteSpace: "nowrap", marginTop: margenSuperior(g[0]) }}>
+                <AnimatePresence mode="popLayout" initial={false}>
+                  {g.map((pos) => renderFicha(estado[pos], pos, true))}
+                </AnimatePresence>
+              </span>
+            )
+          )
+        ) : (
+          <AnimatePresence mode="popLayout" initial={false}>
+            {estado.map((f, pos) => renderFicha(f, pos))}
+          </AnimatePresence>
+        )}
       </div>
 
       {/* la explicacion y los botones quedan fijos abajo mientras te desplazas por la hoja de un ejercicio largo */}
