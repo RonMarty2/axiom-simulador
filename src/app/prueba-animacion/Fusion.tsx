@@ -470,7 +470,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
     // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
     const iguales = f.debajo ? (f.debajo.match(/=/g) ?? []).length : 0;
-    const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 0.3}em`, textAlign: "center" as const } : {};
+    const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 1}em`, textAlign: "center" as const } : {};
     const marcado = marcados.includes(f.id) || !!f.destacada;
     const nuevo = nuevos.includes(f.id);
     // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
