@@ -218,6 +218,41 @@
       "atendida": false,
       "huella": "3c361d77ffe2",
       "total": true
+    },
+    {
+      "tipo": "logaritmos",
+      "valores": [
+        "2",
+        "4",
+        "8"
+      ],
+      "paso": 19,
+      "totalPasos": 19,
+      "estado": "bien",
+      "texto": "",
+      "fecha": "2026-10-17T12:33:53.914Z",
+      "atendida": false,
+      "huella": "7e3b6c3a47ec",
+      "total": true
+    },
+    {
+      "tipo": "cuadratica",
+      "valores": [
+        "1",
+        "-2",
+        "4",
+        "0",
+        "3",
+        "-2"
+      ],
+      "paso": 39,
+      "totalPasos": 39,
+      "estado": "bien",
+      "texto": "",
+      "fecha": "2026-10-17T12:45:25.159Z",
+      "atendida": false,
+      "huella": "244e9e10ae45",
+      "total": true
     }
   ]
 }
