@@ -363,6 +363,15 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     );
   }
 
+  // con etiquetas debajo (d, t), entre renglones cabe la etiqueta. Un salto de renglon es una linea propia: el hueco se contaba
+  // dos veces (antes y despues de ella) y la hoja quedaba enorme (Ronald, 17-oct); su margen negativo anula el primero.
+  const conEtiquetas = estado.some((f) => f.debajo);
+  const huecoEtiqueta = conEtiquetas ? (compacta ? 30 : 40) : 0;
+  // el hueco grande solo va debajo del renglon que lleva etiqueta; entre los demas, uno corto
+  const filaAnteriorConEtiqueta = (pos: number) => {
+    for (let i = pos - 1; i >= 0 && !estado[i].salto; i--) if (estado[i].debajo) return true;
+    return false;
+  };
   return (
     <div>
       <div
@@ -374,9 +383,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
           alignItems: "center",
           justifyContent: "center",
           fontSize: compacta ? "clamp(16px, 4.6vw, 24px)" : "clamp(24px, 7vw, 36px)",
-          padding: estado.some((f) => f.debajo) ? "18px 4px 58px" : "18px 4px",
+          padding: conEtiquetas ? "18px 4px 58px" : "18px 4px",
           // entre renglones (los que se parten solos y los `salto`) cabe la etiqueta de arriba; el margen del salto ya no se suma a esto (Ronald: 'mucho espacio')
-          rowGap: estado.some((f) => f.debajo) ? (compacta ? 30 : 40) : 0,
+          rowGap: huecoEtiqueta,
           transition: "padding 0.3s",
         }}
       >
@@ -419,7 +428,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
                         ...anchoEtiqueta,
                       }
                     : f.salto
-                      ? { display: "block", flexBasis: "100%", textAlign: "center", margin: compacta ? (estado.some((g) => g.debajo) ? "0" : "8px 0 0") : estado.some((g) => g.debajo) ? "16px 0 0" : "22px 0 0", fontSize: "0.82em" }
+                      ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: conEtiquetas ? `${filaAnteriorConEtiqueta(pos) ? -huecoEtiqueta : 14 - 2 * huecoEtiqueta}px 0 0` : compacta ? "8px 0 0" : "22px 0 0", fontSize: "0.82em" }
                       : { display: "inline-block", position: "relative", margin: f.pegado ? "0 4px 0 -10px" : conPiezas ? "0 2px" : "0 4px", ...anchoEtiqueta }
                 }
               >
