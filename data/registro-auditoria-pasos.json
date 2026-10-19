@@ -78,6 +78,60 @@
       "huella": null,
       "fecha": null,
       "nota": ""
+    },
+    "dinamica": {
+      "estado": "auditado",
+      "huella": "f703368a525d",
+      "fecha": "2026-10-19",
+      "nota": "Re-auditoria 18-oct tras el arreglo visual (unidades pegadas, sin cortes): casos 4/20/0, 4/30/10, 1/7/0, 50/1000/500 leidos transicion por transicion; no se perdio ningun paso ni porque; sin saltos nuevos. Leve, no bloqueante: la comprobacion trae 5 piezas copiadas de golpe (copia, no calculo) y con m=1 el ultimo paso junta 'x1' y la unidad = newton"
+    },
+    "tiro": {
+      "estado": "con-hallazgos",
+      "huella": "14d8b61f1daf",
+      "fecha": "2026-10-18",
+      "nota": "Auditor 18-oct: comprobacion (T27) llena 1/2, 2, g, h y t de golpe y nacen de T3, sin escribir la formula con letras; 1/2 y 2 de la caida nacen de la t; tanteo de raiz solo en texto (9 productos en t=9); 'extremos y medios' sin mostrar; 1/2 pasa a 2 perdiendo el 1; comprobacion sin unidades"
+    },
+    "molaridad": {
+      "estado": "con-hallazgos",
+      "huella": "4e8a2aade495",
+      "fecha": "2026-10-19",
+      "nota": "ronda 5 arreglada; pendiente visto bueno de Ronald"
+    },
+    "oxidacion": {
+      "estado": "con-hallazgos",
+      "huella": "14e76811d296",
+      "fecha": "2026-10-18",
+      "nota": "17-oct: la suma de sueltos salta por encima del termino con x (reordenar sin mostrar); numero de oxidacion nunca se define; pasos vacios 1*1=1 y 1*x; comprobacion copia 3 terminos de golpe; Na2S2O3 y N2O dan el promedio sin avisarlo"
+    },
+    "trigonometria": {
+      "estado": "con-hallazgos",
+      "huella": "aa9a72b0d376",
+      "fecha": "2026-10-19",
+      "nota": "ronda 4 arreglada; pendiente visto bueno de Ronald"
+    },
+    "progresion": {
+      "estado": "con-hallazgos",
+      "huella": "6cc283ed4edd",
+      "fecha": "2026-10-18",
+      "nota": "18-oct: formula dada sin derivar n-1 (a3=a1+2d solo en el porque); comprobacion final borra la sucesion en T12 y trae a(n-1) (35, -300) sin calcular; n=3 muestra la respuesta desde el inicio; D1,D2 se funden sin ancla; reglas a1=3/d=4/n=10 repiten el texto"
+    },
+    "pitagoras": {
+      "estado": "con-hallazgos",
+      "huella": "623b5f89401f",
+      "fecha": "2026-10-18",
+      "nota": "T13-T16/T15-T17: tanteo (r-1, r) sin origen, el alumno no puede adivinar 64/65 o 95/96; comprobacion final reemplaza a, b, c a la vez y calcula los 3 cuadrados en un paso (3 numeros nuevos, sin 3x3)"
+    },
+    "punnett": {
+      "estado": "pendiente",
+      "huella": null,
+      "fecha": null,
+      "nota": ""
+    },
+    "interes": {
+      "estado": "con-hallazgos",
+      "huella": "1dd052748603",
+      "fecha": "2026-10-18",
+      "nota": "12,5 y 18,75: 1250/100 y 37,5/2 en un solo paso sin proceso; lista de divisores solo en el texto; comprobacion del interes (8 pasos) repite la misma cuenta en otro orden; 12 meses=1 año solo en la regla"
     }
   }
 }

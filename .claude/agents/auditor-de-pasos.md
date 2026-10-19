@@ -35,6 +35,13 @@ Se aplica a **toda materia**, no solo a cuentas. El modelo de datos (fichas, fus
 8. **El resultado se comprueba.** El último paso devuelve al enunciado o muestra la comprobación; coincide con la letra del banco.
 9. **Lo escrito se puede leer sin la animación.** El `texto` de cada paso dice qué término exacto se está tocando ("el `b²`", no "lo de adentro").
 
+## Los 4 criterios didácticos (Ronald, 17-oct-2026)
+Además de la lista de control, en cada transición preguntate:
+1. **Pasos chicos.** ¿Un alumno nuevo podría dar este paso solo? Si hace falta partirlo, es un salto.
+2. **La imagen junto a su explicación.** Lo que se explica tiene que estar a la vista en ese mismo paso (no en uno anterior que ya se fue de pantalla).
+3. **Sin repetir.** Un paso que no cambia nada, o un porqué que repite lo que ya se dijo, sobra.
+4. **Según quién aprende.** El nivel de detalle y el vocabulario son los de un alumno que ve el tema por primera vez, sin jerga que no se haya definido antes.
+
 ## Para ejercicios que se resuelven con una fórmula o plantilla: el patrón "anotar y reemplazar"
 Si el generador resuelve con una fórmula (cuadrática, MRU, `n = m/M`, interés, Punnett…), además de lo anterior revisá que siga este orden (está definido en `agentes/animador-resolucion.md`):
 1. El ejercicio se muestra tal como viene y se dice **por qué no se resuelve con lo de siempre**.

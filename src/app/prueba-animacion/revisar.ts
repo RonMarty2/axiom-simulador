@@ -67,12 +67,14 @@ export function revisar(d: Demo, etiqueta: string) {
     conHijas(cubiertasQuitadas, d.estados[i]);
     // un operador (+, ·, =) que llega junto a un brote es parte de ese brote; solo los numeros y letras deben estar cubiertos
     const operadores = new Set(aplanar(d.estados[i + 1]).filter((f) => f.op).map((f) => f.id));
+    // un corte de renglon vacio (salto sin texto) no se ve: no hay nada que explicar cuando nace o se va
+    const cortes = new Set([...d.estados[i], ...d.estados[i + 1]].filter((f) => f.salto && f.tex === "" && !f.frac).map((f) => f.id));
     for (const id of b) {
-      if (a.has(id) || id.includes(".") || operadores.has(id)) continue;
+      if (a.has(id) || id.includes(".") || operadores.has(id) || cortes.has(id)) continue;
       assert.ok(cubiertasNuevas.has(id), `${etiqueta}: T${i} la ficha ${id} aparece de la nada (no es el hacia de ninguna fusion ni brote)`);
     }
     for (const id of a) {
-      if (b.has(id) || id.includes(".")) continue;
+      if (b.has(id) || id.includes(".") || cortes.has(id)) continue;
       assert.ok(cubiertasQuitadas.has(id), `${etiqueta}: T${i} la ficha ${id} desaparece sin que ninguna fusion la consuma`);
     }
     // NINGUN SALTO ("un numero a la vez"): una fusion no puede producir varios numeros que no estaban ya escritos.

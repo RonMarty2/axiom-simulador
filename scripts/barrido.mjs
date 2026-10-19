@@ -10,7 +10,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const BASE = process.env.BASE ?? "http://localhost:3001";
-const TIPOS = ["potencia", "raiz", "raizResto", "lineal", "fracciones", "cuadrados", "logaritmos", "cuadratica", "mruv", "charles", "estequiometria", "molesAtomos"];
+const TIPOS = ["potencia", "raiz", "raizResto", "lineal", "fracciones", "cuadrados", "logaritmos", "cuadratica", "mruv", "charles", "estequiometria", "molesAtomos", "dinamica", "tiro", "molaridad", "oxidacion", "trigonometria", "progresion", "pitagoras", "punnett", "interes"];
 const args = process.argv.slice(2);
 const iEval = args.indexOf("--eval");
 const EXPR = iEval >= 0 ? args.splice(iEval, 2)[1] : null; // --eval "<js>": evalua en la pagina cargada y lo imprime (investigar)

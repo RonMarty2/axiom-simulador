@@ -33,6 +33,15 @@ const TARJETAS: { tipo: Tipo; titulo: string; inicial: string[] }[] = [
   { tipo: "charles", titulo: "NUEVO · Física: gases, ley de Charles (°C pasa a kelvin, las unidades se tachan)", inicial: ["20", "-33", "27"] },
   { tipo: "molesAtomos", titulo: "NUEVO · Química: moles de átomos en un compuesto (la masa molar se arma a la vista)", inicial: ["C6H12O6", "O", "30"] },
   { tipo: "estequiometria", titulo: "NUEVO · Química: estequiometría (gramos a gramos con factores que se tachan)", inicial: ["formacion-agua", "H2", "H2O", "8", "g"] },
+  { tipo: "dinamica", titulo: "NUEVO · Física: dinámica, segunda ley de Newton (F = m·a, con una o dos fuerzas)", inicial: ["4", "20", "0"] },
+  { tipo: "tiro", titulo: "NUEVO · Física: tiro horizontal (tiempo de caída y alcance, la raíz por su significado)", inicial: ["45", "8"] },
+  { tipo: "molaridad", titulo: "NUEVO · Química: molaridad (la masa molar se arma a la vista, g/mol se tachan)", inicial: ["C6H12O6", "36", "2"] },
+  { tipo: "oxidacion", titulo: "NUEVO · Química: número de oxidación (ecuación con x y despeje)", inicial: ["KMnO4", "Mn"] },
+  { tipo: "trigonometria", titulo: "NUEVO · Matemática: trigonometría del triángulo rectángulo (SOH CAH TOA)", inicial: ["30", "hip", "10", "op"] },
+  { tipo: "progresion", titulo: "NUEVO · Matemática: progresión aritmética (término n-ésimo)", inicial: ["3", "4", "10"] },
+  { tipo: "pitagoras", titulo: "NUEVO · Geometría: teorema de Pitágoras (la raíz por su significado)", inicial: ["hipotenusa", "3", "4"] },
+  { tipo: "punnett", titulo: "NUEVO · Biología: cuadro de Punnett (cruce monohíbrido)", inicial: ["Aa", "Aa"] },
+  { tipo: "interes", titulo: "NUEVO · Económicas: interés simple (meses a años, tasa % a fracción)", inicial: ["2000", "5", "18", "meses"] },
 ];
 
 export const dynamic = "force-dynamic";

@@ -32,6 +32,12 @@ export interface Ficha {
 export const hijas = (f: Ficha): Ficha[] => [...(f.frac?.nPiezas ?? []), ...(f.frac?.dPiezas ?? []), ...(f.rad ?? [])];
 /** todas las fichas de un estado, incluidas las que estan dentro de otra (en orden de lectura) */
 export const aplanar = (e: Ficha[]): Ficha[] => e.flatMap((f) => [f, ...aplanar(hijas(f))]);
+/** Una unidad (kg, N, m/s²) va PEGADA al numero que la precede: la formula no se parte entre «20» y «kg». Se marca `pegado` a toda pieza
+ *  que no es operador, ni salto, ni numero y viene justo despues de un numero (con o sin color). Solo mira el primer nivel de cada estado. */
+export const pegarUnidades = (estado: Ficha[]): Ficha[] => {
+  const esNumero = (f: Ficha) => !f.frac && /^-?\d+([.,]\d+)?$/.test(f.tex.replace(/\\textcolor\{[^}]*\}\{([^}]*)\}/g, "$1").trim());
+  return estado.map((f, i) => (i > 0 && !f.op && !f.salto && !f.sup && !f.pegado && !esNumero(f) && esNumero(estado[i - 1]) && (f.frac || f.tex.startsWith("\\text{")) ? { ...f, pegado: true } : f));
+};
 /** tex de una lista de piezas, para las comprobaciones (cuantos numeros, cuantas operaciones) */
 const texDe = (fs: Ficha[]) => fs.map((f) => (f.sup ? `^{${f.tex}}` : f.tex)).join("");
 
@@ -99,6 +105,16 @@ export interface Visita {
   /** LaTeX de lo que viaja si no es la ficha tal cual (el -3 con su signo cuando la ficha es solo el 3) */
   etiqueta?: string;
 }
+/** figura sencilla (SVG) que acompaña al paso: lineas y rotulos en coordenadas de un viewBox propio. Cada paso trae la suya (la que se ve mientras dura ese paso) */
+export interface Figura {
+  /** ancho y alto del viewBox */
+  vb: [number, number];
+  lineas: { d: string; resaltada?: boolean; discontinua?: boolean }[];
+  rotulos: { x: number; y: number; t: string; resaltado?: boolean; ancla?: "start" | "middle" | "end" }[];
+  /** texto para lectores de pantalla */
+  descripcion: string;
+}
+
 export interface Transicion {
   fusiones: Fusion[];
   brotes?: Brote[];
@@ -111,6 +127,8 @@ export interface Transicion {
   regla?: string;
   /** el paso solo REESCRIBE un valor como producto o potencia (448 = 2^6·7, 6 = 3·2): traer varios numeros a la vez es valido */
   descompone?: boolean;
+  /** figura que se ve durante este paso (opcional: solo los generadores que la usan) */
+  figura?: Figura;
 }
 export interface Demo {
   titulo: string;
@@ -118,6 +136,8 @@ export interface Demo {
   intro: string;
   estados: Ficha[][];
   transiciones: Transicion[];
+  /** figura del paso 0 (antes de la primera transicion) */
+  figura?: Figura;
 }
 
 export const DEMOS: Demo[] = [

@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import MathText from "../components/MathText";
 import Tex from "./Tex";
 import katex from "katex";
-import { aplanar, hijas, type Demo, type Ficha, type Fusion as FusionDatos, type Visita } from "./datos";
+import { aplanar, hijas, type Demo, type Ficha, type Figura, type Fusion as FusionDatos, type Visita } from "./datos";
 
 const esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -43,6 +43,7 @@ interface Leyenda {
   texto: string;
   porque?: string;
   regla?: string;
+  figura?: Figura;
 }
 
 export type ModoRegla = "resolver" | "ensenar";
@@ -57,8 +58,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
   const [idx, setIdx] = useState(inicio);
   const [leyenda, setLeyenda] = useState<Leyenda>(
     inicio === 0
-      ? { texto: demo.intro }
-      : { texto: demo.transiciones[inicio - 1].texto, porque: demo.transiciones[inicio - 1].porque, regla: demo.transiciones[inicio - 1].regla }
+      ? { texto: demo.intro, figura: demo.figura }
+      : { texto: demo.transiciones[inicio - 1].texto, porque: demo.transiciones[inicio - 1].porque, regla: demo.transiciones[inicio - 1].regla, figura: demo.transiciones[inicio - 1].figura }
   );
   const [marcados, setMarcados] = useState<string[]>([]);
   const [nuevos, setNuevos] = useState<string[]>([]);
@@ -197,7 +198,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     const k = factorTiempo();
 
     setNuevos([]);
-    setLeyenda({ texto: t.texto, porque: t.porque, regla: t.regla });
+    setLeyenda({ texto: t.texto, porque: t.porque, regla: t.regla, figura: t.figura });
 
     const marcas = [
       ...t.fusiones.flatMap((f) => (f.ancla ? [...f.desde, f.ancla] : f.desde)),
@@ -261,8 +262,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     setMarcados([]);
     setLeyenda(
       n === 0
-        ? { texto: demo.intro }
-        : { texto: demo.transiciones[n - 1].texto, porque: demo.transiciones[n - 1].porque, regla: demo.transiciones[n - 1].regla }
+        ? { texto: demo.intro, figura: demo.figura }
+        : { texto: demo.transiciones[n - 1].texto, porque: demo.transiciones[n - 1].porque, regla: demo.transiciones[n - 1].regla, figura: demo.transiciones[n - 1].figura }
     );
   }
 
@@ -394,8 +395,10 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
   // Un operador (+ − =) SI puede abrir renglon: la formula sigue en la linea de abajo con su signo delante.
   const puedePartirAntes = (fs: Ficha[], i: number, prof: number[]) => {
     const f = fs[i];
-    if (i === 0 || prof[i] > 0 || f.pegado || f.sup || esProducto(f)) return false;
+    if (i === 0 || prof[i] > 0 || f.pegado || f.sup) return false;
     const antes = fs[i - 1];
+    // el punto entre dos parentesis, (2·2·⋯·2) · (2·2·⋯·2), SI puede abrir renglon: queda delante del segundo grupo y no colgado al final del primero
+    if (esProducto(f)) return antes.tex.trim().endsWith(")") && !!fs[i + 1]?.tex.trim().startsWith("(");
     // el parentesis que abre SI puede quedar abajo aunque lo preceda un operador: «a² − b² =» arriba, «(a − b)(a + b)» abajo
     return !esProducto(antes) && (esOperador(f) || !esOperador(antes) || f.tex.trim().startsWith("("));
   };
@@ -580,6 +583,41 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
 
   return (
     <div>
+      {leyenda.figura && (
+        <svg
+          viewBox={`0 0 ${leyenda.figura.vb[0]} ${leyenda.figura.vb[1]}`}
+          role="img"
+          aria-label={leyenda.figura.descripcion}
+          data-figura
+          style={{ display: "block", margin: "0 auto", width: "100%", maxWidth: leyenda.figura.vb[0], maxHeight: 170 }}
+        >
+          {leyenda.figura.lineas.map((l, i) => (
+            <path
+              key={i}
+              d={l.d}
+              fill="none"
+              stroke={l.resaltada ? "var(--accent)" : "var(--fg-muted, #6b6b6b)"}
+              strokeWidth={l.resaltada ? 4 : 2}
+              strokeDasharray={l.discontinua ? "5 4" : undefined}
+              strokeLinejoin="round"
+              strokeLinecap="round"
+            />
+          ))}
+          {leyenda.figura.rotulos.map((r, i) => (
+            <text
+              key={i}
+              x={r.x}
+              y={r.y}
+              textAnchor={r.ancla ?? "middle"}
+              fontSize={15}
+              fontWeight={r.resaltado ? 700 : 500}
+              fill={r.resaltado ? "var(--accent)" : "var(--fg-primary)"}
+            >
+              {r.t}
+            </text>
+          ))}
+        </svg>
+      )}
       <div
         ref={hojaRef}
         data-modo-grupo={modoGrupo}
@@ -621,7 +659,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
 
       {/* la explicacion y los botones quedan fijos abajo mientras te desplazas por la hoja de un ejercicio largo */}
       <div ref={panelRef} style={{ position: "sticky", bottom: 0, zIndex: 5, background: "var(--bg-card)", paddingTop: 8, paddingBottom: 8, boxShadow: "0 -8px 10px -8px rgba(0,0,0,0.15)" }}>
-      <div style={{ minHeight: 78, maxHeight: "34vh", overflowY: "auto", padding: "10px 12px", borderRadius: 10, background: "var(--bg-subtle)" }}>
+      <div style={{ minHeight: 78, maxHeight: "42vh", overflowY: "auto", padding: "10px 12px", borderRadius: 10, background: "var(--bg-subtle)" }}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={leyenda.texto}

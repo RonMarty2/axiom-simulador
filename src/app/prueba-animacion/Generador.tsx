@@ -15,6 +15,15 @@ const campo: React.CSSProperties = {
   color: "var(--fg-primary)",
   fontSize: 15,
 };
+// campos de texto (no numericos) de los tipos nuevos
+const TEXTO: Partial<Record<Tipo, (i: number) => boolean>> = {
+  molaridad: (i) => i === 0,
+  oxidacion: () => true,
+  trigonometria: (i) => i === 1 || i === 3,
+  pitagoras: (i) => i === 0,
+  punnett: () => true,
+  interes: (i) => i === 3,
+};
 const etiqueta: React.CSSProperties = { fontSize: 13, color: "var(--fg-muted, #6b6b6b)", display: "flex", flexDirection: "column", gap: 2 };
 
 function Numero({ nombre, valor, onCambio, texto }: { nombre: string; valor: string; onCambio: (v: string) => void; texto?: boolean }) {
@@ -101,7 +110,25 @@ export default function Generador({ tipo, titulo, inicial, cambios = [], dev = f
   const resultado = useMemo(() => construir(tipo, v), [tipo, v]);
 
   const rotulos =
-    tipo === "mruv"
+    tipo === "dinamica"
+      ? ["Masa (kg)", "Fuerza que empuja (N)", "Fuerza en contra, 0 si no hay (N)"]
+      : tipo === "tiro"
+        ? ["Altura (m)", "Velocidad horizontal (m/s)"]
+        : tipo === "molaridad"
+          ? ["Soluto (NaOH, KOH, H2SO4, HNO3, C6H12O6, C2H6O, NH3, ZnSO4)", "Masa de soluto (g)", "Volumen de solución (L)"]
+          : tipo === "oxidacion"
+            ? ["Compuesto (KMnO4)", "Elemento a hallar (Mn)"]
+            : tipo === "trigonometria"
+              ? ["Ángulo (30, 45 o 60)", "Lado conocido (op, ady o hip)", "Medida del lado conocido", "Lado buscado (op, ady o hip)"]
+              : tipo === "progresion"
+                ? ["Primer término a1", "Diferencia d", "Posición n del término"]
+                : tipo === "pitagoras"
+                  ? ["Se busca (hipotenusa o cateto)", "Hipotenusa o cateto 1 (cm)", "Cateto 2 o el conocido (cm)"]
+                  : tipo === "punnett"
+                    ? ["Genotipo del padre 1 (Aa)", "Genotipo del padre 2 (Aa)"]
+                    : tipo === "interes"
+                      ? ["Capital C (Bs)", "Tasa anual r (%)", "Tiempo t", "Unidad (años o meses)"]
+                      : tipo === "mruv"
       ? ["Veces que aumenta la velocidad (3 = triplica)", "Distancia (m)", "Tiempo (s)"]
       : tipo === "charles"
         ? ["Volumen inicial", "Temperatura inicial (°C)", "Temperatura final (°C)"]
@@ -177,7 +204,7 @@ export default function Generador({ tipo, titulo, inicial, cambios = [], dev = f
       </div>
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 8 }}>
         {rotulos.map((r, i) => (
-          <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} texto={tipo === "molesAtomos" ? i < 2 : tipo === "estequiometria" ? i < 3 || i === 4 : false} />
+          <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} texto={TEXTO[tipo]?.(i) ?? (tipo === "molesAtomos" ? i < 2 : tipo === "estequiometria" ? i < 3 || i === 4 : false)} />
         ))}
       </div>
       <div style={{ display: "flex", gap: 6, marginBottom: 8, alignItems: "center", fontSize: 13 }}>

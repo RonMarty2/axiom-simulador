@@ -6,12 +6,59 @@ import { diferenciaCuadrados, ecuacionLineal, fracciones, sumaLogaritmos, valida
 import { cuadratica, validarCuadratica } from "./generadores-cuadratica.ts";
 import { charles, mruvMultiplica, validarCharles, validarMruvMultiplica } from "./generadores-fisica.ts";
 import { estequiometria, molesDeAtomos, validarEstequiometria, validarMolesDeAtomos } from "./generadores-quimica.ts";
+import { dinamica, validarDinamica } from "./generadores-dinamica.ts";
+import { tiroHorizontal, validarTiro } from "./generadores-tiro.ts";
+import { molaridad, validarMolaridad } from "./generadores-soluciones.ts";
+import { numeroOxidacion, validarOxidacion } from "./generadores-redox.ts";
+import { trigonometria, validarTrigonometria } from "./generadores-trigonometria.ts";
+import { progresionAritmetica, validarProgresion } from "./generadores-progresiones.ts";
+import { pitagoras, validarPitagoras, type TipoPitagoras } from "./generadores-geometria.ts";
+import { punnett, validarPunnett } from "./generadores-genetica.ts";
+import { interesSimple, validarInteres, type UnidadTiempo } from "./generadores-economicas.ts";
 
-export type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica" | "mruv" | "charles" | "estequiometria" | "molesAtomos";
+export type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica" | "mruv" | "charles" | "estequiometria" | "molesAtomos" | "dinamica" | "tiro" | "molaridad" | "oxidacion" | "trigonometria" | "progresion" | "pitagoras" | "punnett" | "interes";
 export type Armado = { demo: Demo } | { error: string };
 
 export function construir(tipo: Tipo, v: string[]): Armado {
   const n = v.map(Number);
+  if (tipo === "dinamica") {
+    const e = validarDinamica(n[0], n[1], n[2]);
+    return e ? { error: e } : { demo: dinamica(n[0], n[1], n[2]).demo };
+  }
+  if (tipo === "tiro") {
+    const e = validarTiro(n[0], n[1]);
+    return e ? { error: e } : { demo: tiroHorizontal(n[0], n[1]).demo };
+  }
+  if (tipo === "molaridad") {
+    const e = validarMolaridad(v[0].trim(), n[1], n[2]);
+    return e ? { error: e } : { demo: molaridad(v[0].trim(), n[1], n[2]).demo };
+  }
+  if (tipo === "oxidacion") {
+    const e = validarOxidacion(v[0].trim(), v[1].trim());
+    return e ? { error: e } : { demo: numeroOxidacion(v[0].trim(), v[1].trim()).demo };
+  }
+  if (tipo === "trigonometria") {
+    const e = validarTrigonometria(n[0], v[1].trim(), n[2], v[3].trim());
+    return e ? { error: e } : { demo: trigonometria(n[0], v[1].trim(), n[2], v[3].trim()).demo };
+  }
+  if (tipo === "progresion") {
+    const e = validarProgresion(n[0], n[1], n[2]);
+    return e ? { error: e } : { demo: progresionAritmetica(n[0], n[1], n[2]).demo };
+  }
+  if (tipo === "pitagoras") {
+    const t = (v[0].trim() === "cateto" ? "cateto" : "hipotenusa") as TipoPitagoras;
+    const e = validarPitagoras(t, n[1], n[2]);
+    return e ? { error: e } : { demo: pitagoras(t, n[1], n[2]).demo };
+  }
+  if (tipo === "punnett") {
+    const e = validarPunnett(v[0].trim(), v[1].trim());
+    return e ? { error: e } : { demo: punnett(v[0].trim(), v[1].trim()).demo };
+  }
+  if (tipo === "interes") {
+    const u = (v[3].trim() === "años" ? "años" : "meses") as UnidadTiempo;
+    const e = validarInteres(n[0], n[1], n[2], u);
+    return e ? { error: e } : { demo: interesSimple(n[0], n[1], n[2], u).demo };
+  }
   if (tipo === "mruv") {
     const e = validarMruvMultiplica(n[0], n[1], n[2]);
     return e ? { error: e } : { demo: mruvMultiplica(n[0], n[1], n[2]).demo };

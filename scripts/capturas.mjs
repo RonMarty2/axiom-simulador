@@ -14,7 +14,7 @@ import { join } from "node:path";
 
 const BASE = process.env.BASE ?? "http://localhost:3001";
 const SALIDA = process.env.SALIDA ?? join(tmpdir(), "capturas-animacion");
-const TIPOS = ["potencia", "raiz", "raizResto", "lineal", "fracciones", "cuadrados", "logaritmos", "cuadratica", "mruv", "charles", "estequiometria", "molesAtomos"];
+const TIPOS = ["potencia", "raiz", "raizResto", "lineal", "fracciones", "cuadrados", "logaritmos", "cuadratica", "mruv", "charles", "estequiometria", "molesAtomos", "dinamica", "tiro", "molaridad", "oxidacion", "trigonometria", "progresion", "pitagoras", "punnett", "interes"];
 const args = process.argv.slice(2);
 const todos = args.includes("--todos");
 const pedidos = args.filter((a) => !a.startsWith("--"));
