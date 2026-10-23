@@ -83,7 +83,9 @@ for (const tipo of aCapturar) {
   let guardadas = 0;
   for (const [caso, lista] of porCaso) {
     const altos = [...lista].sort((a, b) => b[1] - a[1]).slice(0, 2);
-    const elegidos = todos ? lista : lista.filter((p, i) => i === 0 || i === lista.length - 1 || altos.includes(p) || p[2]);
+    // PASOS=26,27,28 -> solo esos pasos (de los casos que se piden); sirve para mirar un tramo sin capturar todo
+    const soloPasos = process.env.PASOS ? process.env.PASOS.split(",").map((x) => `paso ${x.trim()}`) : null;
+    const elegidos = soloPasos ? lista.filter((p) => soloPasos.includes(p[0].split(" / ")[2])) : todos ? lista : lista.filter((p, i) => i === 0 || i === lista.length - 1 || altos.includes(p) || p[2]);
     // las etiquetas aparecen en muchos pasos seguidos: se queda con una de cada tres para no inundar
     let sinEtiquetaVista = 0;
     for (const p of elegidos) {

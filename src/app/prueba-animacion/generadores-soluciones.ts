@@ -11,6 +11,7 @@
 // La animacion no calcula: cada numero que se escribe sale de una cuenta hecha aqui y comprobada en el test.
 // Los resultados de una cuenta van SIN color (el color se va cuando se calcula; ademas los digitos del color
 // contarian como "numeros nuevos" en revisar.ts).
+import { lista, enTexto } from "./generadores-algebra.ts";
 import { frPiezas, pegarUnidades, sustituir, aplanar, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 import { MASAS_ATOMICAS, SUSTANCIAS, atomos, masaMolar, formulaTex, decimal } from "./generadores-quimica.ts";
@@ -49,9 +50,14 @@ const elemTex = (e: string, n: number) => `\\mathrm{${n > 1 ? `${e}_{${n}}` : e}
 /** unidad en fraccion con piezas (arriba y abajo se pueden tachar o cambiar solas) */
 const uFrac = (id: string, arriba: string, abajo: string): Ficha => frPiezas(id, [{ id: `${id}n`, tex: arriba }], [{ id: `${id}d`, tex: abajo }]);
 const clon = <T,>(x: T): T => JSON.parse(JSON.stringify(x));
+/** la puntuacion que sigue a una formula (. , ; :) va FUERA de ella, en la linea de base del texto (dentro de una fraccion
+ *  quedaba a la altura de la raya y se leia como un "·" de multiplicar), pegada con un word-joiner (U+2060) para que el
+ *  navegador no la deje sola al inicio de un renglon. */
+export const WJ = "⁠";
+const pegarPunto = (s: string) => s.replace(/\$([.,;:])/g, `$${WJ}$1`);
 
 // las letras de las reglas generales NO repiten las del ejercicio (m masa, n moles, M molaridad, V volumen, PM, A masa atomica)
-const REGLA_DIVIDE = `$\\dfrac{a\\ c}{b\\ d}=\\dfrac{a}{b}\\cdot\\dfrac{c}{d}$`;
+const REGLA_DIVIDE = `$\\dfrac{a\\,\\mathrm{u}}{b\\,\\mathrm{w}}=\\dfrac{a}{b}\\cdot\\dfrac{\\mathrm{u}}{\\mathrm{w}}$`;
 const REGLA_PM = `$\\text{PM}=k_{1}\\cdot A_{1}+k_{2}\\cdot A_{2}+\\dots$`;
 /** solutos ionicos (bases y sales): no hay moleculas sueltas, la formula cuenta iones */
 const IONICOS = ["NaOH", "KOH", "ZnSO4"];
@@ -306,8 +312,8 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
     regla: `$${PMtex}=${PM}\\ \\dfrac{\\text{g}}{\\text{mol}}$`,
   });
 
-  // si m / PM no es entera, el proceso va a la vista: simplificar la fraccion y pasarla a decimal (abajo 10 o 100)
-  // las fracciones intermedias son fichas de un renglon de borrador; al dividir se funden en el resultado
+  // si m / PM no es entera, el proceso va a la vista: la fraccion, achicarla (si se puede) y pasarla a decimal (abajo 10 o 100).
+  // Cada paso trae una sola cosa nueva. Las fracciones intermedias son fichas de un renglon de borrador; al dividir se funden en el resultado.
   const borrador: string[] = [];
   const fr = (id: string, a: number, b: number): Ficha => frPiezas(id, [{ id: `${id}n`, tex: `${a}` }], [{ id: `${id}d`, tex: `${b}` }]);
   const idsFr = (id: string) => [id, `${id}n`, `${id}d`];
@@ -316,57 +322,171 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
     const g = mcd(masa, PM);
     const p = masa / g;
     const q = PM / g;
-    if (g > 1) {
-      // criterio para hallarlo: se prueba con el mas chico de los dos; si no entra justo en el otro, se baja a uno mas chico
-      const chico = Math.min(masa, PM);
-      const grande = Math.max(masa, PM);
-      const criterioMcd =
-        grande % chico === 0
-          ? `Prueba con el más chico, el $${chico}$: ¿entra justo en $${grande}$? Sí, $${chico}\\cdot ${grande / chico}=${grande}$.`
-          : `Prueba con el más chico, el $${chico}$: ¿entra justo en $${grande}$? No. Entonces prueba con números más chicos, de a uno, hasta dar con el más grande que entre en los dos.`;
-      agregar([{ id: "Ss", tex: "", salto: true }, fr("Sf1", p, q)]);
-      borrador.push("Ss", ...idsFr("Sf1"));
-      paso({
-        fusiones: [],
-        resaltar: ["Nm", "Np"],
-        brotes: [
-          { desde: "Nm", hacia: "Ss" },
-          { desde: "Nm", hacia: "Sf1" },
-          { desde: "Np", hacia: "Sf1" },
-        ],
-        texto: `Esta división no da un número entero, así que achicamos la fracción $\\dfrac{${masa}}{${PM}}$. ¿Qué número entra justo en $${masa}$ y en $${PM}$? Busca el más grande que entre justo en los dos. ${criterioMcd} Es el $${g}$, porque $${g}\\cdot ${p}=${masa}$ y $${g}\\cdot ${q}=${PM}$. Al dividir arriba y abajo entre $${g}$, queda $\\dfrac{${p}}{${q}}$.`,
-        porque: `Dividir arriba y abajo entre el mismo número no cambia el valor de la fracción, pero la deja más chica y más fácil de pasar a decimal.`,
-        regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
-      });
-    }
     const pot = 10 % q === 0 ? 10 : 100;
     const k = pot / q;
     const c = p * k;
-    const previo =
-      k === 1
-        ? `Ahora la fracción $\\dfrac{${p}}{${q}}$ se escribe como decimal. Abajo ya hay $${pot}$: `
-        : `Ahora el decimal de $\\dfrac{${p}}{${q}}$. Buscamos que abajo quede $${pot}$: como $${q}\\cdot ${k}=${pot}$, se puede multiplicar arriba y abajo por $${k}$ y queda $\\dfrac{${p}\\cdot ${k}}{${q}\\cdot ${k}}=\\dfrac{${c}}{${pot}}$. `;
-    const brotesB: { desde: string; hacia: string }[] = [];
-    const nuevas: Ficha[] = [];
-    if (g === 1) {
-      nuevas.push({ id: "Ss", tex: "", salto: true }, fr("Sf1", p, q));
-      brotesB.push({ desde: "Nm", hacia: "Ss" }, { desde: "Nm", hacia: "Sf1" }, { desde: "Np", hacia: "Sf1" });
-    }
-    let previa = "Sf1";
-    if (k > 1) {
-      nuevas.push({ id: "Se1", tex: "=", op: true }, fr("Sf2", c, pot));
-      brotesB.push({ desde: previa, hacia: "Sf2" });
-      previa = "Sf2";
-    }
-    nuevas.push({ id: "Se2", tex: "=", op: true }, { id: "Sdec", tex: nTxt });
-    brotesB.push({ desde: "Sf1", hacia: "Sdec" });
-    agregar(nuevas);
-    borrador.push(...nuevas.flatMap((f) => (f.id.startsWith("Sf") ? idsFr(f.id) : [f.id])));
+    // la fraccion m/PM, en su propio paso (si se puede achicar se llama Sf0, y la achicada Sf1)
+    const f0 = g > 1 ? "Sf0" : "Sf1";
+    agregar([{ id: "Ss", tex: "", salto: true }, fr(f0, masa, PM)]);
+    borrador.push("Ss", ...idsFr(f0));
     paso({
       fusiones: [],
       resaltar: ["Nm", "Np"],
-      brotes: brotesB,
-      texto: `${previo}$\\dfrac{${c}}{${pot}}$ ${c === 1 ? "es" : "son"} $${c}$ ${cant(c, pot)}, y ${c === 1 ? "se escribe" : "se escriben"} con coma $${nTxt}$.`,
+      brotes: [
+        { desde: "Nm", hacia: "Ss" },
+        { desde: "Nm", hacia: f0 },
+        { desde: "Np", hacia: f0 },
+      ],
+      texto:
+        g > 1
+          ? `Esta división no da un número entero, así que la escribimos como fracción, $\\dfrac{${masa}}{${PM}}$, y la achicamos: buscamos el número más grande que entre justo en el $${masa}$ y en el $${PM}$.`
+          : `Esta división no da un número entero, así que la escribimos como fracción, $\\dfrac{${masa}}{${PM}}$, y la pasamos a decimal.`,
+      porque: `Una división se puede escribir como fracción: el de arriba entre el de abajo.`,
+      regla: `$\\dfrac{a}{b}=a\\ \\text{entre}\\ b$`,
+    });
+    if (g > 1) {
+      // el g se BUSCA a la vista: divisores de arriba, de abajo, los comunes y el mayor (listas = estado)
+      const divs = (v: number) => Array.from({ length: v }, (_, i) => i + 1).filter((d) => v % d === 0);
+      const dn = divs(masa);
+      const dd = divs(PM);
+      const comunes = dn.filter((d) => dd.includes(d));
+      const REGLA_DIVISOR = `$d\\ \\text{es divisor de}\\ a\\ \\text{si}\\ a=d\\cdot e$`;
+      agregar([{ id: "Ds1", tex: "", salto: true }, { id: "Dn", tex: lista(`Divisores de ${masa}:`, dn) }]);
+      paso({
+        fusiones: [],
+        brotes: [
+          { desde: "Sf0n", hacia: "Ds1" },
+          { desde: "Sf0n", hacia: "Dn" },
+        ],
+        texto: `Un divisor es un número que entra justo en otro. Divisores de $${masa}$: ${enTexto(dn)}.`,
+        porque: `Para achicar la fracción necesitamos un número que entre justo arriba y abajo. Empezamos por los del numerador.`,
+        regla: REGLA_DIVISOR,
+      });
+      agregar([{ id: "Ds2", tex: "", salto: true }, { id: "Dd", tex: lista(`Divisores de ${PM}:`, dd) }]);
+      paso({
+        fusiones: [],
+        brotes: [
+          { desde: "Sf0d", hacia: "Ds2" },
+          { desde: "Sf0d", hacia: "Dd" },
+        ],
+        texto: `Ahora lo mismo con el denominador. Divisores de $${PM}$: ${enTexto(dd)}.`,
+        porque: `Hacemos la misma lista para el denominador.`,
+        regla: REGLA_DIVISOR,
+      });
+      cambiar(["Dn", "Ds2", "Dd"], [{ id: "Dc", tex: lista("Comunes:", comunes) }]);
+      paso({
+        fusiones: [{ desde: ["Dn", "Ds2", "Dd"], hacia: "Dc" }],
+        texto: `Los que están en las dos listas: ${enTexto(comunes)}.`,
+        porque: `Un número que está en las dos listas entra justo arriba y abajo a la vez.`,
+        regla: REGLA_DIVISOR,
+      });
+      cambiar(["Dc"], [{ id: "Dg", tex: `\\scriptsize\\text{El mayor:}\\ \\ \\mathbf{${g}}` }]);
+      paso({
+        fusiones: [{ desde: ["Dc"], hacia: "Dg" }],
+        texto: `Tomamos el mayor: el $${g}$.`,
+        porque: `Con el mayor se achica todo de una vez; se llama máximo común divisor.`,
+        regla: `$\\text{mayor divisor común}$`,
+      });
+      // los cocientes a la vista: m entre g y PM entre g (el g baja desde "El mayor")
+      agregar([
+        { id: "Qs", tex: "", salto: true },
+        frPiezas("Qa", [{ id: "Qan", tex: `${masa}` }], [{ id: "Qad", tex: `${g}` }]),
+        { id: "Qs2", tex: "", salto: true },
+        frPiezas("Qb", [{ id: "Qbn", tex: `${PM}` }], [{ id: "Qbd", tex: `${g}` }]),
+      ]);
+      paso({
+        fusiones: [],
+        brotes: [
+          { desde: "Sf0n", hacia: "Qs" },
+          { desde: "Sf0n", hacia: "Qa" },
+          { desde: "Dg", hacia: "Qa" },
+          { desde: "Sf0d", hacia: "Qs2" },
+          { desde: "Sf0d", hacia: "Qb" },
+          { desde: "Dg", hacia: "Qb" },
+        ],
+        texto: `Dividimos arriba y abajo entre ese $${g}$: el de arriba, $\\dfrac{${masa}}{${g}}$, y el de abajo, $\\dfrac{${PM}}{${g}}$.`,
+        porque: `Dividir arriba y abajo entre el mismo número no cambia el valor de la fracción, pero la deja más chica y más fácil de pasar a decimal.`,
+        regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
+      });
+      // cada cociente se escribe como cuenta completa (12/4 = 3), con su raya: nunca dos numeros sueltos uno debajo del otro
+      cambiar(["Qa"], [{ ...pieza("Qa") }, { id: "Qe1", tex: "=", op: true }, { id: "Qr", tex: `${p}` }]);
+      paso({
+        fusiones: [],
+        brotes: [{ desde: "Qa", hacia: "Qr" }],
+        texto: `Hacemos primero la división de arriba: $\\dfrac{${masa}}{${g}}=${p}$.`,
+        porque: `Cada división se hace aparte: el numerador entre el $${g}$ y el denominador entre el $${g}$.`,
+        regla: `$\\dfrac{a}{b}=c$`,
+      });
+      cambiar(["Qb"], [{ ...pieza("Qb") }, { id: "Qe2", tex: "=", op: true }, { id: "Qr2", tex: `${q}` }]);
+      paso({
+        fusiones: [],
+        brotes: [{ desde: "Qb", hacia: "Qr2" }],
+        texto: `Ahora la de abajo: $\\dfrac{${PM}}{${g}}=${q}$.`,
+        porque: `El denominador también se divide entre el $${g}$, para que la fracción valga lo mismo.`,
+        regla: `$\\dfrac{a}{b}=c$`,
+      });
+      cambiar(["Qa", "Qan", "Qad", "Qe1", "Qr", "Qs2", "Qb", "Qbn", "Qbd", "Qe2", "Qr2"], [fr("Sf1", p, q)]);
+      paso({
+        fusiones: [{ desde: ["Qa", "Qan", "Qad", "Qe1", "Qr", "Qs2", "Qb", "Qbn", "Qbd", "Qe2", "Qr2"], hacia: ["Sf1", "Sf1n", "Sf1d"], modo: "viajar" }],
+        brotes: [
+          { desde: "Qr", hacia: "Sf1n" },
+          { desde: "Qr2", hacia: "Sf1d" },
+        ],
+        texto: `El $${p}$ va arriba y el $${q}$ abajo: la fracción achicada es $\\dfrac{${p}}{${q}}$, que vale lo mismo que $\\dfrac{${masa}}{${PM}}$.`,
+        porque: `Dividir arriba y abajo entre el mismo número no cambia el valor de la fracción.`,
+        regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
+      });
+      borrador.push("Ds1", "Dg", "Qs", ...idsFr("Sf1"));
+    }
+    // de fraccion a decimal: abajo tiene que quedar 10 o 100
+    const nuevas: Ficha[] = [];
+    let ultima = "Sf1";
+    if (k > 1) {
+      // ampliar: arriba y abajo por k, con k y los productos a la vista
+      agregar([
+        { id: "Se1", tex: "=", op: true },
+        frPiezas(
+          "Sf2",
+          [{ id: "Sf2a", tex: `${p}` }, { id: "Sf2x1", tex: "\\cdot", op: true }, { id: "Sf2k1", tex: `${k}` }],
+          [{ id: "Sf2b", tex: `${q}` }, { id: "Sf2x2", tex: "\\cdot", op: true }, { id: "Sf2k2", tex: `${k}` }]
+        ),
+      ]);
+      borrador.push("Se1", "Sf2");
+      paso({
+        fusiones: [],
+        brotes: [
+          { desde: "Sf1", hacia: "Sf2" },
+          { desde: "Sf1n", hacia: "Sf2a" },
+          { desde: "Sf1d", hacia: "Sf2b" },
+          { desde: "Sf1d", hacia: "Sf2k1" },
+          { desde: "Sf1d", hacia: "Sf2k2" },
+        ],
+        texto: `Ahora el decimal de $\\dfrac{${p}}{${q}}$. Buscamos que abajo quede $${pot}$: como $${q}\\cdot ${k}=${pot}$, se puede multiplicar arriba y abajo por $${k}$: $\\dfrac{${p}\\cdot ${k}}{${q}\\cdot ${k}}$.`,
+        porque: `Multiplicar arriba y abajo por el mismo número no cambia el valor de la fracción.`,
+        regla: `$\\dfrac{a}{b}=\\dfrac{a\\cdot c}{b\\cdot c}$`,
+      });
+      cambiar(["Sf2a", "Sf2x1", "Sf2k1"], [{ id: "Sf2n", tex: `${c}` }]);
+      cambiar(["Sf2b", "Sf2x2", "Sf2k2"], [{ id: "Sf2d", tex: `${pot}` }]);
+      borrador.push("Sf2n", "Sf2d");
+      paso({
+        fusiones: [
+          { desde: ["Sf2a", "Sf2x1", "Sf2k1"], hacia: "Sf2n" },
+          { desde: ["Sf2b", "Sf2x2", "Sf2k2"], hacia: "Sf2d" },
+        ],
+        texto: `Resolvemos arriba y abajo: $${p}\\cdot ${k}=${c}$ y $${q}\\cdot ${k}=${pot}$. Queda $\\dfrac{${c}}{${pot}}$.`,
+        porque: `Una operación por vez: el producto de arriba y el de abajo.`,
+        regla: `$a\\cdot b=c$`,
+      });
+      ultima = "Sf2";
+    }
+    nuevas.push({ id: "Se2", tex: "=", op: true }, { id: "Sdec", tex: nTxt });
+    agregar(nuevas);
+    borrador.push("Se2", "Sdec");
+    paso({
+      fusiones: [],
+      resaltar: ["Nm", "Np"],
+      brotes: [{ desde: ultima, hacia: "Sdec" }],
+      texto: `${k === 1 ? `Ahora la fracción $\\dfrac{${p}}{${q}}$ se escribe como decimal. Abajo ya hay $${pot}$: ` : ""}$\\dfrac{${c}}{${pot}}$ ${c === 1 ? "es" : "son"} $${c}$ ${cant(c, pot)}, y ${c === 1 ? "se escribe" : "se escriben"} con coma $${nTxt}$.`,
       porque: `Una fracción con $${pot}$ abajo se lee directo como decimal: ${pot === 10 ? "un lugar después de la coma" : "dos lugares después de la coma"}.`,
       regla: pot === 10 ? `$\\dfrac{a}{10}=a\\ \\text{décimas}$` : `$\\dfrac{a}{100}=a\\ \\text{centésimas}$`,
     });
@@ -451,61 +571,119 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
     });
     const borradorC: string[] = [];
     if (V > 1 && MCent % 100 !== 0) {
-      // n / V no entera: se pasa a decimas o centesimas, se divide entre enteros y se vuelve a escribir con coma
+      // n / V no entera: se pasa a decimas o centesimas, se divide entre enteros y se vuelve a escribir con coma.
+      // Cada paso trae una sola cosa nueva: la fraccion, el factor (con sus productos a la vista), el reparto, la lectura con coma.
       const f = nCent % 10 === 0 && MCent % 10 === 0 ? 10 : 100;
       const a = (nCent * f) / 100;
       const b = (MCent * f) / 100;
       const un = (c: number) => cant(c, f);
-      // 0,5 = 5/10 = 50/100: el decimal, escrito en las partes en que se reparte (cada paso es una ficha del renglon de borrador)
-      const cadena: Ficha[] = [{ id: "Cs", tex: "", salto: true }, { id: "Ca", tex: nTxt }];
-      let eq = "";
-      if (f === 100 && nCent % 10 === 0) {
-        cadena.push({ id: "Ce1", tex: "=", op: true }, fr("Cf1", nCent / 10, 10));
-        eq = `$${nTxt}=\\dfrac{${nCent / 10}}{10}=\\dfrac{${a}}{100}$`;
+      const porDecimas = f === 100 && nCent % 10 === 0;
+      const idsC: string[] = [];
+      if (porDecimas) {
+        // 0,5 = 5/10 (paso 1); x10 arriba y abajo con los productos a la vista (paso 2); se calculan (paso 3)
+        const x = nCent / 10;
+        agregar([{ id: "Cs", tex: "", salto: true }, { id: "Ca", tex: nTxt }, { id: "Ce1", tex: "=", op: true }, fr("Cf1", x, 10)]);
+        idsC.push("Cs", "Ca", "Ce1", ...idsFr("Cf1"));
+        paso({
+          fusiones: [],
+          resaltar: ["Mn", "Mv"],
+          brotes: [
+            { desde: "Mn", hacia: "Cs" },
+            { desde: "Mn", hacia: "Ca" },
+            { desde: "Mn", hacia: "Cf1" },
+          ],
+          texto: `Esta división no da un entero, así que la hacemos con enteros. Escribimos $${nTxt}$ en décimas: $${nTxt}=\\dfrac{${x}}{10}$. En cada unidad entera hay $10$ décimas, así que en $${nTxt}$ caben $${x}$ ${cant(x, 10)}.`,
+          porque: `Es más fácil repartir enteros que decimales. Una fracción con $10$ abajo cuenta cuántas décimas hay, y se vuelve a escribir como decimal con coma.`,
+          regla: `$${nTxt}=\\dfrac{${x}}{10}$`,
+        });
+        agregar([
+          { id: "Ce2", tex: "=", op: true },
+          frPiezas(
+            "Cf2",
+            [{ id: "Cf2a", tex: `${x}` }, { id: "Cf2x1", tex: "\\cdot", op: true }, { id: "Cf2k1", tex: "10" }],
+            [{ id: "Cf2b", tex: "10" }, { id: "Cf2x2", tex: "\\cdot", op: true }, { id: "Cf2k2", tex: "10" }]
+          ),
+        ]);
+        idsC.push("Ce2", "Cf2");
+        paso({
+          fusiones: [],
+          brotes: [
+            { desde: "Cf1", hacia: "Cf2" },
+            { desde: "Cf1n", hacia: "Cf2a" },
+            { desde: "Cf1d", hacia: "Cf2b" },
+            { desde: "Cf1d", hacia: "Cf2k1" },
+            { desde: "Cf1d", hacia: "Cf2k2" },
+          ],
+          texto: `Pero $${x}$ ${cant(x, 10)} ${x === 1 ? "no se reparte exacta" : "no se reparten exactas"} entre $${V}$ litros, así que cada décima se parte en $10$ centésimas: arriba y abajo se multiplican por $10$, $\\dfrac{${x}\\cdot 10}{10\\cdot 10}$.`,
+          porque: `Multiplicar arriba y abajo por el mismo número no cambia el valor de la fracción.`,
+          regla: `$\\dfrac{a}{b}=\\dfrac{a\\cdot c}{b\\cdot c}$`,
+        });
+        cambiar(["Cf2a", "Cf2x1", "Cf2k1"], [{ id: "Cf2n", tex: `${a}` }]);
+        cambiar(["Cf2b", "Cf2x2", "Cf2k2"], [{ id: "Cf2d", tex: "100" }]);
+        paso({
+          fusiones: [
+            { desde: ["Cf2a", "Cf2x1", "Cf2k1"], hacia: "Cf2n" },
+            { desde: ["Cf2b", "Cf2x2", "Cf2k2"], hacia: "Cf2d" },
+          ],
+          texto: `Resolvemos arriba y abajo: $${x}\\cdot 10=${a}$ y $10\\cdot 10=100$. Queda $\\dfrac{${a}}{100}$.`,
+          porque: `Una operación por vez: el producto de arriba y el de abajo.`,
+          regla: `$a\\cdot b=c$`,
+        });
       } else {
-        eq = `$${nTxt}=\\dfrac{${a}}{${f}}$`;
+        agregar([{ id: "Cs", tex: "", salto: true }, { id: "Ca", tex: nTxt }, { id: "Ce2", tex: "=", op: true }, fr("Cf2", a, f)]);
+        idsC.push("Cs", "Ca", "Ce2", ...idsFr("Cf2"));
+        paso({
+          fusiones: [],
+          resaltar: ["Mn", "Mv"],
+          brotes: [
+            { desde: "Mn", hacia: "Cs" },
+            { desde: "Mn", hacia: "Ca" },
+            { desde: "Mn", hacia: "Cf2" },
+          ],
+          texto: `Esta división no da un entero, así que la hacemos con enteros. Escribimos $${nTxt}$ en ${un(2)}: $${nTxt}=\\dfrac{${a}}{${f}}$. En cada unidad entera hay $${f}$ ${un(2)}, así que en $${nTxt}$ caben $${a}$ ${un(a)}.`,
+          porque: `Es más fácil repartir enteros que decimales. Una fracción con $${f}$ abajo cuenta cuántas ${un(2)} hay, y se vuelve a escribir como decimal con coma.`,
+          regla: `$${nTxt}=\\dfrac{${a}}{${f}}$`,
+        });
       }
-      cadena.push({ id: "Ce2", tex: "=", op: true }, fr("Cf2", a, f));
-      agregar(cadena);
-      const idsC = cadena.flatMap((x) => (x.id.startsWith("Cf") ? idsFr(x.id) : [x.id]));
-      paso({
-        fusiones: [],
-        resaltar: ["Mn", "Mv"],
-        brotes: [
-          { desde: "Mn", hacia: "Cs" },
-          { desde: "Mn", hacia: "Ca" },
-          { desde: "Mn", hacia: "Cf2" },
-          ...(f === 100 && nCent % 10 === 0 ? [{ desde: "Mn", hacia: "Cf1" }] : []),
-        ],
-        texto: `Esta división no da un entero, así que la hacemos con enteros. ${
-          f === 100 && nCent % 10 === 0
-            ? `Escribimos $${nTxt}$ en décimas: $${nTxt}=\\dfrac{${nCent / 10}}{10}$. Pero $${nCent / 10}$ ${cant(nCent / 10, 10)} ${nCent / 10 === 1 ? "no se reparte exacta" : "no se reparten exactas"} entre $${V}$ litros, así que cada décima se parte en $10$ centésimas: arriba y abajo se multiplican por $10$, $\\dfrac{${nCent / 10}\\cdot 10}{10\\cdot 10}=\\dfrac{${a}}{100}$. Queda ${eq}.`
-            : `Escribimos $${nTxt}$ en ${un(2)}: ${eq}.`
-        } En cada unidad entera hay $${f}$ ${un(2)}, así que en $${nTxt}$ caben $${a}$ ${un(a)}.`,
-        porque: `Es más fácil repartir enteros que decimales. Una fracción con $${f}$ abajo cuenta cuántas ${un(2)} hay, y se vuelve a escribir como decimal con coma.`,
-        regla: `$${nTxt}=\\dfrac{${a}}{${f}}$`,
-      });
-      const resto: Ficha[] = [
-        { id: "Cdv", tex: "\\div", op: true },
-        { id: "CV", tex: `${V}` },
-        { id: "Ce3", tex: "=", op: true },
-        fr("Cf3", b, f),
-        { id: "Ce4", tex: "=", op: true },
-        { id: "Cdec", tex: MTxt },
-      ];
-      agregar(resto);
-      idsC.push(...resto.flatMap((x) => (x.id.startsWith("Cf") ? idsFr(x.id) : [x.id])));
+      // el reparto cambia el valor: va en su propio renglon (a/V = b), nunca colgado de la cadena de igualdades de arriba
+      agregar([{ id: "Cs2", tex: "", salto: true }, fr("Cf4", a, V), { id: "Ce3", tex: "=", op: true }, { id: "Cq", tex: `${b}` }]);
+      idsC.push("Cs2", ...idsFr("Cf4"), "Ce3", "Cq");
       paso({
         fusiones: [],
         resaltar: ["Mv"],
         brotes: [
-          { desde: "Mv", hacia: "CV" },
-          { desde: "Cf2", hacia: "Cf3" },
-          { desde: "Cf2", hacia: "Cdec" },
+          { desde: "Cf2n", hacia: "Cs2" },
+          { desde: "Cf2n", hacia: "Cf4" },
+          { desde: "Mv", hacia: "Cf4" },
+          { desde: "Cf2n", hacia: "Cq" },
         ],
-        texto: `Repartimos $${a}$ ${un(a)} entre $${V}$ litros: $\\dfrac{${a}}{${V}}=${b}$, o sea $${b}$ ${un(b)}, y ${b === 1 ? `esa ${un(b)} se escribe` : `esas ${un(b)} se escriben`} con coma $${MTxt}$.${f === 100 && b < 10 ? ` Las centésimas son dos lugares después de la coma: ${b === 1 ? "el $1$" : `el $${b}$`} va en el segundo y el primero queda en $0$.` : ""}`,
+        texto: `Ahora repartimos, en un renglón aparte porque el valor cambia: $${a}$ ${un(a)} entre $${V}$ litros, $\\dfrac{${a}}{${V}}=${b}$, o sea $${b}$ ${un(b)}.`,
         porque: `Repartir ${un(2)} es repartir enteros: $${a}$ entre $${V}$ da $${b}$, y cada una sigue siendo una ${cant(1, f)}.`,
         regla: `$\\dfrac{a}{b}=c$`,
+      });
+      // las centesimas (o decimas) del reparto vuelven a escribirse como fraccion, en otro renglon
+      agregar([{ id: "Cs3", tex: "", salto: true }, fr("Cf3", b, f)]);
+      idsC.push("Cs3", ...idsFr("Cf3"));
+      paso({
+        fusiones: [],
+        brotes: [
+          { desde: "Cq", hacia: "Cs3" },
+          { desde: "Cq", hacia: "Cf3" },
+          { desde: "Cf2d", hacia: "Cf3" },
+        ],
+        texto: `${b === 1 ? "Esa" : "Esas"} $${b}$ ${un(b)} ${b === 1 ? "se escribe" : "se escriben"} otra vez como fracción: $${b}$ arriba y $${f}$ abajo, $\\dfrac{${b}}{${f}}$.`,
+        porque: `Cada ${cant(1, f)} sigue siendo una parte de $${f}$ del entero: el $${f}$ no cambia con el reparto.`,
+        regla: `$${b}\\ \\text{${un(b)}}=\\dfrac{${b}}{${f}}$`,
+      });
+      // leer el resultado con coma
+      agregar([{ id: "Ce4", tex: "=", op: true }, { id: "Cdec", tex: MTxt }]);
+      idsC.push("Ce4", "Cdec");
+      paso({
+        fusiones: [],
+        brotes: [{ desde: "Cf3", hacia: "Cdec" }],
+        texto: `$\\dfrac{${b}}{${f}}$ ${b === 1 ? "es" : "son"} $${b}$ ${un(b)}, y se ${b === 1 ? "escribe" : "escriben"} con coma $${MTxt}$.${f === 100 && b < 10 ? ` Las centésimas son dos lugares después de la coma: ${b === 1 ? "el $1$" : `el $${b}$`} va en el segundo y el primero queda en $0$.` : ""}`,
+        porque: `Una fracción con $${f}$ abajo se lee directo como decimal: ${f === 10 ? "un lugar después de la coma" : "dos lugares después de la coma"}.`,
+        regla: f === 10 ? `$\\dfrac{a}{10}=a\\ \\text{décimas}$` : `$\\dfrac{a}{100}=a\\ \\text{centésimas}$`,
       });
       borradorC.push(...idsC);
     }
@@ -538,7 +716,7 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
   // ----- 9) comprobar hacia atras contra el enunciado original: M·V = n y n·PM = m, con las unidades que se tachan
   const fraccionMolL = (id: string) => uFrac(id, U.mol, U.L);
   /** decimal por entero con proceso a la vista: 0,25 · 56 -> 25/100 · 56 -> (25·56)/100 -> 1400/100 -> 14 (cada cifra es una ficha) */
-  const productoDecimal = (p: string, aId: string, xId: string, bId: string, resId: string, aCent: number, b: number, resTxt: string, que: "moles" | "gramos") => {
+  const productoDecimal = (p: string, aId: string, bId: string, resId: string, aCent: number, b: number, resTxt: string, que: "moles" | "gramos") => {
     const den = aCent % 10 === 0 ? 10 : 100;
     const num = aCent / (100 / den);
     const T = num * b;
@@ -555,9 +733,10 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
     });
     // 2) el entero se junta con el numerador (si arriba hay un 1, el entero queda solo: no hay producto que escribir)
     if (num === 1) {
-      cambiar([f, xId, bId], [frPiezas(g, [{ id: `${p}gp`, tex: `${b}` }], [{ id: `${g}d`, tex: `${den}` }])]);
+      // el punto xId NO se funde: queda entre los numeros y las unidades hasta que las unidades se tachen
+      cambiar([f, bId], [frPiezas(g, [{ id: `${p}gp`, tex: `${b}` }], [{ id: `${g}d`, tex: `${den}` }])]);
       paso({
-        fusiones: [{ desde: [f, `${f}n`, `${f}d`, xId, bId], hacia: [g, `${p}gp`, `${g}d`], modo: "viajar" }],
+        fusiones: [{ desde: [f, `${f}n`, `${f}d`, bId], hacia: [g, `${p}gp`, `${g}d`], modo: "viajar" }],
         brotes: [
           { desde: bId, hacia: `${p}gp` },
           { desde: `${f}d`, hacia: `${g}d` },
@@ -567,11 +746,11 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
         regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
       });
     } else {
-      cambiar([f, xId, bId], [
+      cambiar([f, bId], [
         frPiezas(g, [{ id: `${g}1`, tex: `${num}` }, { id: `${g}x`, tex: "\\cdot", op: true }, { id: `${g}2`, tex: `${b}` }], [{ id: `${g}d`, tex: `${den}` }]),
       ]);
       paso({
-        fusiones: [{ desde: [f, `${f}n`, `${f}d`, xId, bId], hacia: [g, `${g}1`, `${g}x`, `${g}2`, `${g}d`], modo: "viajar" }],
+        fusiones: [{ desde: [f, `${f}n`, `${f}d`, bId], hacia: [g, `${g}1`, `${g}x`, `${g}2`, `${g}d`], modo: "viajar" }],
         brotes: [
           { desde: `${f}n`, hacia: `${g}1` },
           { desde: bId, hacia: `${g}2` },
@@ -647,21 +826,21 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
       regla: `$m=M\\cdot V\\cdot ${PMtex}$`,
     });
     if (MCent % 100 !== 0) {
-      productoDecimal("Kv", "Ka", "Kx1", "Kb", "Kab", MCent, V, nTxt, "moles");
+      productoDecimal("Kv", "Ka", "Kb", "Kab", MCent, V, nTxt, "moles");
     } else {
-      cambiar(["Ka", "Kx1", "Kb"], [{ id: "Kab", tex: nTxt }]);
+      cambiar(["Ka", "Kb"], [{ id: "Kab", tex: nTxt }]);
       paso({
-        fusiones: [{ desde: ["Ka", "Kx1", "Kb"], hacia: "Kab" }],
+        fusiones: [{ desde: ["Ka", "Kb"], hacia: "Kab" }],
         texto: `Primero los números de los moles: $${MTxt}\\cdot ${V}=${nTxt}$. Las unidades quedan aparte.`,
         porque: `En $V$ litros hay $V$ veces los moles de cada litro.`,
         regla: `$n=M\\cdot V$`,
       });
     }
     cambiar(["KaU"], [{ id: "Kmol", tex: U.mol }]);
-    quitar("Kbu");
+    quitar("Kbu", "Kx1");
     paso({
       fusiones: [
-        { desde: ["KaUd", "Kbu"], hacia: null, modo: "tachar" },
+        { desde: ["KaUd", "Kx1", "Kbu"], hacia: null, modo: "tachar" },
         { desde: ["KaU", "KaUn"], hacia: "Kmol", modo: "viajar" },
       ],
       brotes: [{ desde: "KaUn", hacia: "Kmol" }],
@@ -682,21 +861,21 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
     regla: `$m=n\\cdot ${PMtex}$`,
   });
   if (nCent % 100 !== 0) {
-    productoDecimal("Kp", "Kab", "Kx2", "Kc", "Kz", nCent, PM, `${masa}`, "gramos");
+    productoDecimal("Kp", "Kab", "Kc", "Kz", nCent, PM, `${masa}`, "gramos");
   } else {
-    cambiar(["Kab", "Kx2", "Kc"], [{ id: "Kz", tex: `${masa}` }]);
+    cambiar(["Kab", "Kc"], [{ id: "Kz", tex: `${masa}` }]);
     paso({
-      fusiones: [{ desde: ["Kab", "Kx2", "Kc"], hacia: "Kz" }],
+      fusiones: [{ desde: ["Kab", "Kc"], hacia: "Kz" }],
       texto: `Primero los números de los gramos: $${nTxt}\\cdot ${PM}=${masa}$. Las unidades quedan aparte.`,
-      porque: `Cada mol pesa $${PM}$ gramos, así que $${nTxt}$ moles pesan $${nTxt}$ veces $${PM}$.`,
+      porque: `Cada mol pesa $${PM}$ gramos, así que ${nTxt === "1" ? `$1$ mol pesa $1$ vez` : `$${nTxt}$ moles pesan $${nTxt}$ veces`} $${PM}$.`,
       regla: `$m=n\\cdot ${PMtex}$`,
     });
   }
   cambiar(["KcU"], [{ id: "Kg", tex: U.g }]);
-  quitar("Kmol");
+  quitar("Kmol", "Kx2");
   paso({
     fusiones: [
-      { desde: ["Kmol", "KcUd"], hacia: null, modo: "tachar" },
+      { desde: ["Kmol", "Kx2", "KcUd"], hacia: null, modo: "tachar" },
       { desde: ["KcU", "KcUn"], hacia: "Kg", modo: "viajar" },
     ],
     brotes: [{ desde: "KcUn", hacia: "Kg" }],
@@ -715,7 +894,13 @@ export function molaridad(soluto: string, masa: number, volumen: number): Result
   });
 
   return {
-    demo: { titulo: "", nota: "", intro, estados: estados.map(pegarUnidades), transiciones: trans },
+    demo: {
+      titulo: "",
+      nota: "",
+      intro: pegarPunto(intro),
+      estados: estados.map(pegarUnidades),
+      transiciones: trans.map((t) => ({ ...t, texto: pegarPunto(t.texto), porque: pegarPunto(t.porque), ...(t.regla ? { regla: pegarPunto(t.regla) } : {}) })),
+    },
     resumen: { masa, PM, V, nCent, centesimas: MCent },
   };
 }

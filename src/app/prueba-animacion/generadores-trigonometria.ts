@@ -90,7 +90,7 @@ function figuraTriangulo(angulo: number, theta: string, rotulos: Partial<Record<
     // arco del angulo
     { d: `M${f(A[0] + arco)} ${f(A[1])} A${arco} ${arco} 0 0 0 ${f(A[0] + arco * Math.cos(rad))} ${f(A[1] - arco * Math.sin(rad))}` },
   ];
-  const lista: Figura["rotulos"] = [{ x: f(A[0] + 64 * Math.cos(rad / 2)), y: f(A[1] - 64 * Math.sin(rad / 2) + 5), t: theta, resaltado: opc.thetaRes }];
+  const lista: Figura["rotulos"] = [{ x: f(A[0] + 46 * Math.cos(rad / 2)), y: f(A[1] - 46 * Math.sin(rad / 2) + 5), t: theta, resaltado: opc.thetaRes }];
   if (opc.referencia) lista.push({ x: W / 2, y: 14, t: "triángulo de referencia" });
   if (rotulos.op) lista.push({ x: f(C[0] + 8), y: f(C[1] - h / 2 + 5), t: rotulos.op, ancla: "start", resaltado: resaltados.includes("op") });
   if (rotulos.ady) lista.push({ x: f(x0 + b / 2), y: f(y0 + 20), t: rotulos.ady, resaltado: resaltados.includes("ady") });
@@ -259,7 +259,7 @@ export function trigonometria(angulo: number, dado: string, valor: number, busca
   });
 
   // la fila de la tabla: se queda a la vista hasta el final (la comprobacion la vuelve a usar)
-  const introTabla = `Con esos dos lados armamos una fila de la tabla de valores notables: una lista corta con el seno, el coseno y la tangente de $30^\\circ$, $45^\\circ$ y $60^\\circ$.`;
+  const introTabla = `Con esos dos lados armamos una fila de la tabla de valores notables (seno, coseno y tangente de $30^\\circ$, $45^\\circ$ y $60^\\circ$).`;
   const Rv: Ficha = q === 1 ? { id: "Rv", tex: "1" } : frPiezas("Rv", [{ id: "Rvn", tex: "1" }], [{ id: "Rvd", tex: `${q}` }]);
   const ref: Ficha[] = [{ id: "Rl", tex: `\\text{Tabla: }${razTex}\\,${angTex}`, salto: true }, { id: "Re", tex: "=", op: true }, Rv];
   estados.push([...datos, ...ecu0, ...ref]);
@@ -268,9 +268,9 @@ export function trigonometria(angulo: number, dado: string, valor: number, busca
     brotes: [{ desde: `${rz}f`, hacia: "Rl" }],
     texto:
       q === 1
-        ? `${introTabla} La tangente es el cateto opuesto entre el adyacente: $\\dfrac{1}{1}=1$. Así queda la fila de la tabla de valores notables: la tangente de $${angTex}$ vale $1$. Los valores de esa tabla suelen aprenderse de memoria; aquí los armamos con el triángulo.`
-        : `${introTabla} ${cap(RAZON_ART[rz])} es $\\dfrac{${letras(def.n)}}{${letras(def.d)}}=\\dfrac{1}{${q}}$. Así queda la fila de la tabla de valores notables: ${RAZON_ART[rz]} de $${angTex}$ vale $\\dfrac{1}{${q}}$. Los valores de esa tabla suelen aprenderse de memoria; aquí los armamos con el triángulo.`,
-    porque: q === 1 ? `Esos valores se usan tanto que conviene tenerlos a mano. Un número entre sí mismo da $1$. La fila se queda a la vista: la vamos a usar otra vez al final.` : `Esos valores se usan tanto que conviene tenerlos a mano. La razón no depende del tamaño del triángulo, solo del ángulo, y este triángulo da siempre la misma. La fila se queda a la vista: la vamos a usar otra vez al final.`,
+        ? `${introTabla} La tangente es el cateto opuesto entre el adyacente: $\\dfrac{1}{1}=1$. Así queda la fila: la tangente de $${angTex}$ vale $1$.`
+        : `${introTabla} ${cap(RAZON_ART[rz])} es $\\dfrac{${letras(def.n)}}{${letras(def.d)}}=\\dfrac{1}{${q}}$. Así queda la fila: ${RAZON_ART[rz]} de $${angTex}$ vale $\\dfrac{1}{${q}}$.`,
+    porque: q === 1 ? `Esos valores se usan tanto que conviene tenerlos a mano (suelen aprenderse de memoria; aquí los armamos con el triángulo). Un número entre sí mismo da $1$. La fila se queda a la vista: la usamos otra vez al final.` : `Esos valores se usan tanto que conviene tenerlos a mano (suelen aprenderse de memoria; aquí los armamos con el triángulo). La razón no depende del tamaño del triángulo, solo del ángulo. La fila se queda a la vista: la usamos otra vez al final.`,
     regla: q === 1 ? `$\\text{tan}\\,45^\\circ=1$` : `$${razTex}\\,${angTex}=\\dfrac{1}{2}$`,
   });
 
@@ -545,7 +545,13 @@ export function trigonometria(angulo: number, dado: string, valor: number, busca
   // El id del corte es su numero de orden en el estado (no el de la ficha): si un renglon se reemplaza por otro, el corte sigue siendo el mismo y no "viaja".
   const conCorte = (fs: Ficha[]): Ficha[] => {
     let n = 0;
-    return fs.flatMap((f) => (f.salto && (f.tex !== "" || f.frac) ? [{ id: `corte${n++}`, tex: "", salto: true }, { ...f, salto: undefined }] : [f]));
+    return fs.flatMap((f) => {
+      if (!(f.salto && (f.tex !== "" || f.frac))) return [f];
+      const piezas: Ficha[] = [{ id: `corte${n++}`, tex: "", salto: true }, { ...f, salto: undefined }];
+      // el rotulo «Comprobación:» va SIEMPRE solo en su renglon: otro corte vacio despues, para que la cuenta quede abajo y no se parta
+      if (f.id === "CS") piezas.push({ id: `corte${n++}`, tex: "", salto: true });
+      return piezas;
+    });
   };
   const estadosCorte = estados.map(conCorte);
 

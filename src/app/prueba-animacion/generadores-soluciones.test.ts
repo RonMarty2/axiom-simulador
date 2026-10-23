@@ -3,7 +3,16 @@ import assert from "node:assert/strict";
 import { aplanar, type Demo, type Ficha } from "./datos.ts";
 import { revisar } from "./revisar.ts";
 import { decimal } from "./generadores-quimica.ts";
-import { LIMITE_MASA, LIMITE_VOLUMEN, SOLUTOS, molaridad, validarMolaridad } from "./generadores-soluciones.ts";
+import { LIMITE_MASA, LIMITE_VOLUMEN, SOLUTOS, molaridad as molaridadReal, validarMolaridad } from "./generadores-soluciones.ts";
+
+// El generador pone la puntuacion tras una formula FUERA de ella, pegada con un word-joiner ("$126$" + U+2060 + ".").
+// Las pruebas de texto de abajo buscan frases con la puntuacion pegada ("$126$."): sacamos el word-joiner aqui; los tests de puntuacion miran lo real.
+const despegar = (s: string) => s.replaceAll("⁠", "");
+const molaridad = (...a: Parameters<typeof molaridadReal>) => {
+  const r = molaridadReal(...a);
+  const demo = { ...r.demo, intro: despegar(r.demo.intro), transiciones: r.demo.transiciones.map((t) => ({ ...t, texto: despegar(t.texto), porque: despegar(t.porque) })) };
+  return { ...r, demo };
+};
 
 // Tabla y conteo PROPIOS del test (no los del generador), para que la cuenta se compruebe de forma independiente.
 const MASA: Record<string, number> = { H: 1, C: 12, N: 14, O: 16, Na: 23, Mg: 24, Al: 27, S: 32, K: 39, Ca: 40, Fe: 56, Zn: 65 };
@@ -35,17 +44,82 @@ const anchoFormula = (f: string) =>
     .replace(/\\[a-zA-Z]+/g, "#")
     .replace(/[{}_^]/g, "").length;
 
+// ---- cadenas de igualdades: una fila con varios "=" tiene que ser VERDADERA (evaluada con fracciones exactas)
+type Rac = [number, number];
+const numRac = (s: string): Rac | null => {
+  const m = /^(\d+)(?:\{,\}(\d+))?$/.exec(sinColor(s).trim());
+  return m ? [Number(m[1] + (m[2] ?? "")), 10 ** (m[2] ?? "").length] : null;
+};
+/** producto de piezas numericas (los \cdot se saltan); null si hay algo que no es un numero */
+const prodRac = (ps: Ficha[]): Rac | null => {
+  let r: Rac = [1, 1];
+  for (const p of ps) {
+    if (p.tex === "\\cdot") continue;
+    const v = numRac(p.tex);
+    if (!v) return null;
+    r = [r[0] * v[0], r[1] * v[1]];
+  }
+  return r;
+};
+/** valor de un miembro (una sola ficha: numero o fraccion con piezas numericas); null si trae unidades u otra cosa */
+const valorMiembro = (seg: Ficha[]): Rac | null => {
+  if (seg.length !== 1) return null;
+  const f = seg[0];
+  if (!f.frac) return numRac(f.tex);
+  const n = prodRac(f.frac.nPiezas ?? []);
+  const dd = prodRac(f.frac.dPiezas ?? []);
+  return n && dd ? [n[0] * dd[1], n[1] * dd[0]] : null;
+};
+/** los renglones de un estado (cada ficha `salto` abre uno), y en cada renglon sus miembros separados por "=" */
+const renglones = (e: Ficha[]): Ficha[][][] => {
+  const filas: Ficha[][] = [[]];
+  for (const f of e) {
+    if (f.salto) filas.push([]);
+    else filas[filas.length - 1].push(f);
+  }
+  return filas.map((fila) => {
+    const miembros: Ficha[][] = [[]];
+    for (const f of fila) {
+      if (f.op && f.tex === "=") miembros.push([]);
+      else miembros[miembros.length - 1].push(f);
+    }
+    return miembros;
+  });
+};
+function cadenasVerdaderas(d: Demo, etiqueta: string) {
+  d.estados.forEach((e, i) => {
+    for (const miembros of renglones(e)) {
+      if (miembros.length < 3) continue; // una cadena real tiene al menos dos "="
+      // ninguna operacion colgada entre dos "=": dividir o multiplicar cambia el valor y rompe la cadena
+      miembros.slice(1, -1).forEach((m) => assert.ok(!m.some((f) => f.tex === "\\div" || f.tex === "\\cdot"), `${etiqueta}: estado ${i}: operacion entre dos "=" de una cadena`));
+      const vals = miembros.map(valorMiembro);
+      if (vals.some((v) => !v)) continue;
+      for (const v of vals) assert.equal(v![0] * vals[0]![1], vals[0]![0] * v![1], `${etiqueta}: estado ${i}: cadena de igualdades falsa`);
+    }
+  });
+}
+
 /** comprobaciones comunes a toda animacion de molaridad */
 function comun(d: Demo, etiqueta: string, nTxt: string, MTxt: string, masa: number, PM: number, k: number, f: string, V: number) {
   revisar(d, etiqueta);
+  cadenasVerdaderas(d, etiqueta);
+  // la division va como fraccion, nunca con el signo ÷: ni en el texto ni en las fichas
+  for (const e of d.estados) for (const x of aplanar(e)) assert.ok(!/÷|\\div\b/.test(x.tex), `${etiqueta}: la ficha ${x.id} usa ÷`);
+  for (const t of d.transiciones) assert.ok(!/÷|\\div\b/.test(`${t.texto} ${t.porque} ${t.regla ?? ""}`), `${etiqueta}: ÷ en el texto`);
   // cuenta exacta de pasos: 20 fijos + 4 por cada elemento del soluto (etiqueta, termino, producto, suma),
   // menos el producto de cada elemento sin subindice, mas el proceso de cada division no entera, mas 3 de la comprobacion con unidades si V > 1
   // sin producto: elemento sin subindice (1·A) o de masa atomica 1 (k·1)
   const unos = Object.entries(contar(f)).filter(([e, n]) => n === 1 || MASA[e] === 1).length;
   const g = mcdT(masa, PM);
   const nCent = (masa * 100) / PM;
-  const procN = nCent % 100 === 0 ? 0 : (g > 1 ? 1 : 0) + 1;
-  const procM = V > 1 && (nCent / V) % 100 !== 0 ? 2 : 0;
+  // m/PM no entera: la fraccion (1 paso) + achicarla si se puede (divisores, comunes, mayor, cocientes escritos, cocientes hechos, fraccion achicada: 7 mas)
+  // + pasarla a decimal (1 paso si abajo ya hay 10 o 100; si no, ampliar con k, hacer los productos y leer: 3)
+  const qq = PM / g;
+  const kk = (10 % qq === 0 ? 10 : 100) / qq;
+  const procN = nCent % 100 === 0 ? 0 : (g > 1 ? 9 : 1) + (kk > 1 ? 3 : 1);
+  // n/V no entera: el decimal en decimas o centesimas (1 paso; si hay que pasar de decimas a centesimas, 3), el reparto y la lectura con coma
+  const porDecimas = nCent % 10 === 0 && (nCent / V) % 10 !== 0;
+  const procM = V > 1 && (nCent / V) % 100 !== 0 ? (porDecimas ? 3 : 1) + 3 : 0;
   // V = 1 tambien reemplaza V (0,1 mol / 1 L) y divide entre 1 en su propio paso: 20 fijos con V = 1, 22 con V > 1.
   // Un decimal por entero (n·PM siempre que n no sea entero; M·V con V > 1) trae su proceso: 3 pasos si arriba queda un 1, 4 si no (en vez de 1)
   const pasosDec = (aCent: number) => (aCent % 100 === 0 ? 1 : (aCent % 10 === 0 ? aCent / 10 : aCent) === 1 ? 3 : 4);
@@ -77,7 +151,8 @@ function comun(d: Demo, etiqueta: string, nTxt: string, MTxt: string, masa: numb
   // la comprobacion tacha ademas L (si V > 1) y mol, de a dos piezas
   const tachados = d.transiciones.flatMap((t, i) => t.fusiones.filter((x) => x.modo === "tachar").map((x) => ({ f: x, i })));
   assert.equal(tachados.length, V > 1 ? 3 : 2, `${etiqueta}: tachados`);
-  assert.equal(tachados.filter((x) => x.f.desde.length === 3).length, 1, `${etiqueta}: un solo tachado de g en el calculo de n`);
+  // la comprobacion tacha la unidad CON su punto (L, punto, L): tambien 3 piezas, y el punto ya no se funde con los numeros
+  assert.equal(tachados.filter((x) => x.f.desde.length === 3).length, tachados.length, `${etiqueta}: todo tachado lleva su punto`);
   const { f: tf, i: ti } = tachados[0];
   assert.equal(tf.desde.length, 3);
   assert.equal(buscar(d.estados[ti], tf.desde[0])!.tex, "\\text{g}");
@@ -190,6 +265,43 @@ describe("molaridad: la animacion", () => {
       }
     }
     assert.ok(casos > 100, `solo ${casos} casos`);
+  });
+
+  test("la puntuacion tras una formula va fuera de ella y pegada con word-joiner; ningun texto empieza con puntuacion suelta", () => {
+    const sueltos: string[] = [];
+    for (const f of SOLUTOS) {
+      for (let V = 1; V <= LIMITE_VOLUMEN; V++) {
+        let aqui = 0;
+        for (let masa = 1; masa <= LIMITE_MASA && aqui < 2; masa++) {
+          if (validarMolaridad(f, masa, V)) continue;
+          aqui++;
+          const d = molaridadReal(f, masa, V).demo;
+          const textos = [d.intro, ...d.transiciones.flatMap((t) => [t.texto, t.porque, t.regla ?? ""])];
+          for (const s of textos) {
+            if (/^\s*[.,;:]/.test(s)) sueltos.push(`empieza con puntuacion: ${s.slice(0, 40)}`);
+            // despues de cerrar un $...$ la puntuacion debe llevar el word-joiner delante (nunca pegada, nunca dentro)
+            const sinWJ = s.match(/[^$]\$[.,;:]/g) ?? [];
+            if (sinWJ.length) sueltos.push(`puntuacion sin word-joiner: ${s.slice(0, 60)}`);
+            if (/[.:;]\$(\s|$)/.test(s)) sueltos.push(`puntuacion dentro de la formula: ${s.slice(0, 60)}`);
+          }
+        }
+      }
+    }
+    assert.deepEqual([...new Set(sueltos)].slice(0, 5), []);
+  });
+
+  test("el plural concuerda con la cantidad: nada de '1 moles', '1 veces' ni 'Esas 1'", () => {
+    for (const f of SOLUTOS) {
+      for (let V = 1; V <= LIMITE_VOLUMEN; V++) {
+        for (let masa = 1; masa <= LIMITE_MASA; masa++) {
+          if (validarMolaridad(f, masa, V)) continue;
+          const todo = JSON.stringify(molaridad(f, masa, V).demo);
+          for (const mal of ["$1$ moles", "$1$ veces", "Esas $1$"]) {
+            assert.ok(!todo.includes(mal), `${masa} g de ${f} en ${V} L: dice "${mal}"`);
+          }
+        }
+      }
+    }
   });
 
   test("cada soluto tiene al menos una combinacion valida", () => {
@@ -312,13 +424,118 @@ describe("molaridad: la animacion", () => {
     const tb = b.demo.transiciones.map((t) => t.texto).join(" | ");
     assert.ok(tb.includes("\\dfrac{1}{2}") && tb.includes("se puede multiplicar arriba y abajo por $5$"), "49 entre 98 pasa por 1 sobre 2");
     assert.ok(tb.includes("Esta división no da un entero") && tb.includes("$5$ décimas"), "49 entre 98: 5 décimas");
-    assert.ok(tb.includes("¿Qué número entra justo en $49$ y en $98$? Busca el más grande que entre justo en los dos."), "el divisor común se explica");
-    assert.ok(tb.includes("¿entra justo en $98$? Sí, $49\\cdot 2=98$") && tb.includes("Es el $49$"), "el criterio: probar con el más chico");
-    assert.ok(tb.includes("$\\dfrac{5\\cdot 10}{10\\cdot 10}=\\dfrac{50}{100}$") && tb.includes("$5$ décimas no se reparten exactas entre $2$ litros"), "5/10 a 50/100 con el factor y el porqué");
-    assert.ok(tb.includes("$0{,}5=\\dfrac{5}{10}=\\dfrac{50}{100}$"), "0,5 = 5/10 = 50/100");
-    const c = molaridad("C6H12O6", 36, 2).demo.transiciones.map((t) => t.texto).join(" | ");
-    assert.ok(c.includes("$2$ décimas") && c.includes("$\\dfrac{2}{2}=1$, o sea $1$ décima, y esa décima se escribe"), "0,2 entre 2: 2 décimas entre 2 litros");
+    // el divisor común se BUSCA a la vista: listas de divisores, comunes y el mayor, y los cocientes escritos antes de la fracción achicada
+    assert.ok(tb.includes("Divisores de $49$") && tb.includes("Divisores de $98$") && tb.includes("Tomamos el mayor: el $49$"), "el divisor común se busca con listas");
+    assert.ok(tb.includes("$\\dfrac{49}{49}=1$") && tb.includes("$\\dfrac{98}{49}=2$"), "los cocientes se escriben antes de 1/2");
+    assert.ok(!/prueba con|de a uno/i.test(tb), "no declara una búsqueda que no muestra");
+    // 0,5 -> 5/10 -> 50/100 -> 25/100 -> 0,25: un paso por cosa
+    assert.ok(tb.includes("$0{,}5=\\dfrac{5}{10}$"), "0,5 = 5/10");
+    assert.ok(tb.includes("$\\dfrac{5\\cdot 10}{10\\cdot 10}$") && tb.includes("$5$ décimas no se reparten exactas entre $2$ litros"), "5/10 a 50/100 con el factor y el porqué");
+    assert.ok(tb.includes("$5\\cdot 10=50$ y $10\\cdot 10=100$"), "los productos se resuelven en su paso");
     assert.ok(tb.includes("centésimas") && tb.includes("$\\dfrac{50}{2}=25$"), "50 centésimas entre 2 dan 25");
+    assert.ok(tb.includes("$\\dfrac{25}{100}$ son $25$ centésimas, y se escriben con coma $0{,}25$"), "25/100 se lee como 0,25 en su propio paso");
+    const c = molaridad("C6H12O6", 36, 2).demo.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(c.includes("$2$ décimas") && c.includes("$\\dfrac{2}{2}=1$, o sea $1$ décima.") && c.includes("$\\dfrac{1}{10}$ es $1$ décima, y se escribe con coma $0{,}1$"), "0,2 entre 2: 2 décimas entre 2 litros");
+  });
+
+  // ---- los 3 chequeos que salieron de la segunda lectura independiente (23-oct) ----
+  const CASOS_FRACCION: [string, number, number][] = [
+    ["NaOH", 12, 1], // 12/40 = 3/10: mcd 4 y abajo ya hay 10
+    ["H2SO4", 147, 1], // 147/98 = 3/2: mcd 49, se amplia por 5
+    ["KOH", 14, 1], // 14/56 = 1/4: mcd 14, se amplia por 25 (productos 1·25 y 4·25)
+    ["H2SO4", 49, 2], // 49/98 = 1/2 = 5/10 = 0,5 y 0,5 entre 2: 5/10 = 50/100
+    ["NaOH", 4, 1], // 4/40 = 1/10
+    ["C6H12O6", 36, 2], // 36/180 = 1/5 = 2/10 = 0,2 y 0,2 entre 2
+  ];
+  const planos = (f: Ficha[]) => aplanar(f).map((x) => sinColor(x.tex));
+  const hayProducto = (e: Ficha[], a: string, b: string) => {
+    const t = planos(e);
+    return t.some((x) => x === `${a}\\cdot ${b}`) || t.some((x, i) => x === a && t[i + 1] === "\\cdot" && t[i + 2] === b);
+  };
+
+  test("(a) todo producto a·k que el texto nombra existe como ficha en el estado (antes o despues del paso)", () => {
+    for (const [f, m, v] of CASOS_FRACCION) {
+      const d = molaridad(f, m, v).demo;
+      d.transiciones.forEach((t, i) => {
+        // la comprobacion "al revés" de una division exacta (63·2=126) es una cuenta de control: sus factores ya estan a la vista
+        const texto = t.texto.split("Se comprueba al revés")[0];
+        for (const mm of texto.matchAll(/(?<![\d}])(\d+)\\cdot (\d+)/g)) {
+          // (un decimal por un entero, 0{,}3·40, tampoco cuenta: el 3 de 0,3 no es un factor)
+          assert.ok(
+            hayProducto(d.estados[i], mm[1], mm[2]) || hayProducto(d.estados[i + 1], mm[1], mm[2]),
+            `${m} g de ${f} en ${v} L, T${i}: el producto ${mm[1]}·${mm[2]} del texto no es una ficha del estado: "${t.texto}"`
+          );
+        }
+      });
+    }
+    // el caso del hallazgo: 1/4 se amplia por 25, con 1·25 y 4·25 como piezas y no solo en el texto
+    const d = molaridad("KOH", 14, 1).demo;
+    const i = d.transiciones.findIndex((t) => t.texto.includes("se puede multiplicar arriba y abajo por $25$"));
+    assert.ok(i > 0 && hayProducto(d.estados[i + 1], "1", "25") && hayProducto(d.estados[i + 1], "4", "25"));
+    assert.ok(d.transiciones[i + 1].texto.includes("$1\\cdot 25=25$ y $4\\cdot 25=100$"));
+  });
+
+  test("(b) un paso no trae a la vez una fraccion y un decimal nuevos, ni dos '=' nuevos", () => {
+    const esDecimal = (x: Ficha) => /\d\{,\}\d/.test(x.tex);
+    const esFraccion = (x: Ficha) => !!x.frac || /\\dfrac/.test(x.tex);
+    for (const [f, m, v] of [...CASOS_FRACCION, ["HNO3", 126, 2], ["ZnSO4", 161, 10], ["C6H12O6", 180, 1]] as [string, number, number][]) {
+      const d = molaridad(f, m, v).demo;
+      d.transiciones.forEach((t, i) => {
+        const antes = aplanar(d.estados[i]);
+        const idsAntes = new Set(antes.map((x) => x.id));
+        const textosAntes = new Set(antes.map((x) => sinColor(x.tex)));
+        const nuevas = aplanar(d.estados[i + 1]).filter((x) => !idsAntes.has(x.id));
+        // copiar un decimal que ya estaba escrito (0,5 que se vuelve a escribir al lado de 5/10) no es un decimal nuevo
+        const decimales = nuevas.filter((x) => esDecimal(x) && !textosAntes.has(sinColor(x.tex)));
+        const fracciones = nuevas.filter(esFraccion);
+        const iguales = nuevas.filter((x) => x.op && x.tex === "=");
+        const et = `${m} g de ${f} en ${v} L, T${i}`;
+        assert.ok(!(decimales.length > 0 && fracciones.length > 0), `${et}: trae una fraccion y un decimal nuevos a la vez: "${t.texto}"`);
+        assert.ok(iguales.length <= 1, `${et}: trae ${iguales.length} signos = nuevos: "${t.texto}"`);
+      });
+    }
+  });
+
+  test("(c) el texto no declara una busqueda ('prueba con', 'de a uno') sin que el estado tenga la lista de intentos", () => {
+    for (const [f, m, v] of CASOS_FRACCION) {
+      const d = molaridad(f, m, v).demo;
+      d.transiciones.forEach((t, i) => {
+        if (!/prueba con|de a uno/i.test(t.texto)) return;
+        assert.ok(aplanar(d.estados[i + 1]).some((x) => /Divisores de/.test(x.tex)), `${m} g de ${f} en ${v} L, T${i}: dice que busca pero el estado no muestra los intentos: "${t.texto}"`);
+      });
+    }
+  });
+
+  test("achicar la fraccion: el divisor sale de la lista y viaja como pieza a los cocientes; fraccion a decimal con el factor k como pieza", () => {
+    // 12/40: divisores 1,2,3,4,6,12 y 1,2,4,5,8,10,20,40; comunes 1,2,4; mayor 4
+    const a = molaridad("NaOH", 12, 1).demo;
+    const iMayor = a.transiciones.findIndex((t) => t.texto.startsWith("Tomamos el mayor: el $4$"));
+    assert.ok(iMayor > 0);
+    assert.ok(buscar(a.estados[iMayor], "Dn") === undefined && sinColor(buscar(a.estados[iMayor], "Dc")!.tex).includes("\\mathbf{4}"));
+    const ts = a.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(ts.includes("Divisores de $12$") && ts.includes("Divisores de $40$") && ts.includes("$\\dfrac{12}{4}=3$") && ts.includes("$\\dfrac{40}{4}=10$"));
+    const iCoc = a.transiciones.findIndex((t) => t.texto.startsWith("Dividimos arriba y abajo entre ese $4$"));
+    assert.deepEqual(
+      (a.transiciones[iCoc].brotes ?? []).filter((b) => b.desde === "Dg").map((b) => b.hacia),
+      ["Qa", "Qb"],
+      "el g baja desde El mayor a las dos divisiones"
+    );
+    assert.equal(buscar(a.estados[iCoc + 1], "Qad")?.tex, "4");
+    assert.equal(buscar(a.estados[iCoc + 1], "Qbd")?.tex, "4");
+    // 147/98 = 3/2: g = 49; 3/2 = 15/10 = 1,5 con k = 5 como pieza
+    const b = molaridad("H2SO4", 147, 1).demo;
+    const tb = b.transiciones.map((t) => t.texto).join(" | ");
+    assert.ok(tb.includes("$\\dfrac{147}{49}=3$") && tb.includes("$\\dfrac{98}{49}=2$") && tb.includes("se puede multiplicar arriba y abajo por $5$"));
+    const iAmp = b.transiciones.findIndex((t) => t.texto.includes("se puede multiplicar arriba y abajo por $5$"));
+    assert.equal(buscar(b.estados[iAmp + 1], "Sf2k1")?.tex, "5");
+    assert.equal(buscar(b.estados[iAmp + 1], "Sf2k2")?.tex, "5");
+    assert.ok(hayProducto(b.estados[iAmp + 1], "3", "5") && hayProducto(b.estados[iAmp + 1], "2", "5"));
+    // la ampliacion y la lectura con coma son pasos distintos
+    const iLee = b.transiciones.findIndex((t) => t.texto.includes("son $15$ décimas, y se escriben con coma $1{,}5$"));
+    assert.ok(iLee > iAmp + 1, "ampliar, resolver los productos y recien despues leer 15/10 como 1,5");
+    // 1/2 -> 5/10 : 49/98 con k = 5
+    const c = molaridad("H2SO4", 49, 2).demo;
+    assert.ok(c.transiciones.some((t) => t.texto.includes("$\\dfrac{1\\cdot 5}{2\\cdot 5}$")));
   });
 
   test("gramatica del decimal: nunca '1 décimos' ni '1 centésimos', y las fracciones intermedias son fichas antes del decimal", () => {
@@ -400,9 +617,69 @@ describe("molaridad: la animacion", () => {
     assert.ok(calc("NaOH", 40, 1).includes("iones, que son átomos con carga"));
     assert.ok(!/\biones\b/.test(calc("H2SO4", 98, 1)) && calc("H2SO4", 98, 1).includes("de una molécula"));
     assert.ok(t("HNO3", 126, 1).includes("$63\\cdot 2=126$") && t("HNO3", 126, 1).includes("el $63$ entra $2$ veces en el $126$"));
+    // (el producto 63·2 de esa comprobacion es una cuenta de control: el test (a) la deja pasar)
     // con borrador no se repite el calculo del paso anterior
     const b = t("NaOH", 4, 1);
     assert.ok(!b.includes("Primero dividimos los números") && b.includes("Nos quedamos con el resultado de la división"));
+  });
+
+  test("el reparto entre litros va en su renglon: 0,5 = 5/10 = 50/100 y aparte 50/2 = 25 y 25/100 = 0,25", () => {
+    const d = molaridad("H2SO4", 49, 2).demo;
+    // el estado donde ya nacio la lectura con coma (despues se borra el borrador)
+    const fin = d.estados.find((e) => buscar(e, "Cdec"))!;
+    const filas = renglones(fin).map((m) => m.map(valorMiembro));
+    // la cadena de la conversion: 0,5 = 5/10 = 50/100 (tres miembros, todos con el mismo valor)
+    assert.ok(filas.some((v) => v.length === 3 && v.every((x) => x && x[0] * v[0]![1] === v[0]![0] * x[1])), "hay una cadena de tres miembros iguales");
+    // el reparto (50/2 = 25): dos miembros que SI valen distinto de 50/100, por eso viven en otro renglon
+    assert.ok(filas.some((v) => v.length === 2 && v.every(Boolean)), "50/2 = 25 en su renglon");
+    const idx = (id: string) => fin.findIndex((f) => f.id === id);
+    // el reparto (50/2 = 25) abre renglon propio y no cuelga de la cadena anterior
+    assert.ok(fin[idx("Cs2")]?.salto, "el reparto abre renglon");
+    assert.ok(fin[idx("Cs3")]?.salto, "las centesimas del reparto abren otro renglon");
+    assert.ok(!buscar(fin, "Cdv") && !buscar(fin, "CV"), "no queda el signo de dividir");
+    // reparto con V > 1 en todos los casos: 0,2 / 2, 1,5 / 3 y 1 / 10 tampoco dejan cadenas falsas
+    for (const [f, m, v] of [["C6H12O6", 36, 2], ["NaOH", 4, 10], ["KOH", 84, 3], ["NaOH", 40, 4]] as [string, number, number][]) {
+      if (validarMolaridad(f, m, v)) continue;
+      cadenasVerdaderas(molaridad(f, m, v).demo, `${m} g de ${f} en ${v} L`);
+    }
+  });
+
+  test("los cocientes del divisor nacen con su raya y su igual (12/4 = 3), no como dos numeros sueltos", () => {
+    const d = molaridad("NaOH", 12, 1).demo;
+    const i = d.transiciones.findIndex((t) => t.texto.startsWith("Hacemos primero la división de arriba"));
+    assert.ok(i > 0);
+    const e = d.estados[i + 1];
+    assert.ok(buscar(e, "Qa")?.frac && sinColor(buscar(e, "Qr")!.tex) === "3", "12/4 = 3 en un mismo renglon");
+    const j = d.transiciones.findIndex((t) => t.texto.startsWith("Ahora la de abajo"));
+    assert.ok(buscar(d.estados[j + 1], "Qb")?.frac && buscar(d.estados[j + 1], "Qr2")?.tex === "10");
+    // nunca dos enteros sueltos en renglones seguidos sin raya: el 3 y el 10 solo existen junto a su fraccion
+    for (const x of d.estados) {
+      const suelto = aplanar(x).filter((f) => ["Qr", "Qr2"].includes(f.id));
+      if (suelto.length) assert.ok(buscar(x, "Qa") || buscar(x, "Qb"), "un cociente sin su fraccion");
+    }
+  });
+
+  test("la comprobacion conserva el punto entre unidades hasta que se tachan (no queda '50/100 mol/L L')", () => {
+    for (const [f, m, v] of [["H2SO4", 49, 2], ["C6H12O6", 36, 2], ["NaOH", 12, 1], ["KOH", 28, 5]] as [string, number, number][]) {
+      if (validarMolaridad(f, m, v)) continue;
+      const d = molaridad(f, m, v).demo;
+      for (const e of d.estados) {
+        const ids = e.map((x) => x.id);
+        // si el litro (Kbu) sigue en la hoja, el punto Kx1 esta justo antes que el
+        const iL = ids.indexOf("Kbu");
+        if (iL > 0 && !ids.includes("Kb")) assert.equal(ids[iL - 1], "Kx1", `${m} g de ${f} en ${v} L: falta el punto antes del litro`);
+        // y con los moles de n (Kmol) y la masa molar (Kc o KcU), el punto Kx2
+        const iC = ids.indexOf("KcU");
+        if (iC > 0 && ids.includes("Kmol")) assert.ok(ids.slice(ids.indexOf("Kmol"), iC).includes("Kx2"), `${m} g de ${f} en ${v} L: falta el punto entre mol y g/mol`);
+      }
+    }
+  });
+
+  test("el punto final de una oracion va dentro de la formula: nunca queda solo al inicio de un renglon", () => {
+    for (const [f, m, v] of [["H2SO4", 49, 2], ["NaOH", 12, 1], ["C6H12O6", 36, 2]] as [string, number, number][]) {
+      const d = molaridadReal(f, m, v).demo;
+      for (const s of [d.intro, ...d.transiciones.flatMap((t) => [t.texto, t.porque])]) assert.ok(!/\$[.,;:]/.test(s) && !/\.\$(\s|$)/.test(s), `${m} g de ${f}: puntuacion suelta o dentro de la formula en "${s}"`);
+    }
   });
 
   test("la formula de n nace de la n de M = n / V, y la de PM de la PM", () => {

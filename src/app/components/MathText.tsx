@@ -12,7 +12,19 @@ interface MathTextProps {
 }
 
 export default function MathText({ children, className, block }: MathTextProps) {
-  const segmentos = useMemo(() => parsearMath(children ?? ""), [children]);
+  // Puntuación pegada a una fórmula con word-joiner (U+2060 + signo): el navegador no respeta el WJ junto a un inline-block,
+  // así que el signo se mueve DENTRO de un envoltorio nowrap con la fórmula y nunca cae solo al inicio de un renglón.
+  const { segmentos, pegada } = useMemo(() => {
+    const segs = parsearMath(children ?? "");
+    const pegada = new Map<number, string>();
+    segs.forEach((s, i) => {
+      if (i > 0 && s.tipo === "texto" && segs[i - 1].tipo === "inline" && /^⁠[.,;:]/.test(s.contenido)) {
+        pegada.set(i - 1, s.contenido[1]);
+        segs[i] = { ...s, contenido: s.contenido.slice(2) };
+      }
+    });
+    return { segmentos: segs, pegada };
+  }, [children]);
 
   const Wrapper: "div" | "span" = block ? "div" : "span";
 
@@ -39,7 +51,8 @@ export default function MathText({ children, className, block }: MathTextProps) 
           strict: "ignore",
           output: "html",
         });
-        return seg.tipo === "display" ? (
+        const punto = pegada.get(i);
+        const formula = seg.tipo === "display" ? (
           <span
             key={i}
             className="block my-3 overflow-x-auto"
@@ -79,6 +92,14 @@ export default function MathText({ children, className, block }: MathTextProps) 
             }}
             dangerouslySetInnerHTML={{ __html: html }}
           />
+        );
+        return punto ? (
+          <span key={i} style={{ whiteSpace: "nowrap" }}>
+            {formula}
+            {punto}
+          </span>
+        ) : (
+          formula
         );
       })}
     </Wrapper>

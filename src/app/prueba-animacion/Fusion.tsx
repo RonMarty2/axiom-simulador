@@ -610,6 +610,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
               y={r.y}
               textAnchor={r.ancla ?? "middle"}
               fontSize={15}
+              fontFamily="KaTeX_Main, 'Times New Roman', serif"
               fontWeight={r.resaltado ? 700 : 500}
               fill={r.resaltado ? "var(--accent)" : "var(--fg-primary)"}
             >

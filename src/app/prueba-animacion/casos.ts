@@ -111,6 +111,8 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "masa igual a la masa molar", v: ["C6H12O6", "180", "1"] },
     { nombre: "masa molar grande y volumen alto", v: ["ZnSO4", "161", "10"] },
     { nombre: "glucosa", v: ["C6H12O6", "36", "2"] },
+    { nombre: "achicar 12/40 (el 4 sale de los divisores)", v: ["NaOH", "12", "1"] },
+    { nombre: "achicar 147/98 y ampliar 3/2 a 15/10", v: ["H2SO4", "147", "1"] },
   ],
   oxidacion: [
     { nombre: "permanganato", v: ["KMnO4", "Mn"] },

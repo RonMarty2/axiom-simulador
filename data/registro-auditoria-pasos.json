@@ -92,10 +92,10 @@
       "nota": "Auditor 18-oct: comprobacion (T27) llena 1/2, 2, g, h y t de golpe y nacen de T3, sin escribir la formula con letras; 1/2 y 2 de la caida nacen de la t; tanteo de raiz solo en texto (9 productos en t=9); 'extremos y medios' sin mostrar; 1/2 pasa a 2 perdiendo el 1; comprobacion sin unidades"
     },
     "molaridad": {
-      "estado": "con-hallazgos",
-      "huella": "4e8a2aade495",
-      "fecha": "2026-10-19",
-      "nota": "ronda 5 arreglada; pendiente visto bueno de Ronald"
+      "estado": "auditado",
+      "huella": "869e54c2a011",
+      "fecha": "2026-10-23",
+      "nota": "5a lectura independiente (casos 40/1, 36/2, 49/2): sin saltos. Plurales concuerdan (1 mol pesa 1 vez; Esa 1 decima; Esas 25 centesimas), punto tras formula con U+2060 se lee bien, REGLA_DIVIDE correcta. 12 g en 40 L lo rechaza validarMolaridad (no exacto a 2 decimales); fuera de contrato."
     },
     "oxidacion": {
       "estado": "con-hallazgos",
@@ -104,10 +104,10 @@
       "nota": "17-oct: la suma de sueltos salta por encima del termino con x (reordenar sin mostrar); numero de oxidacion nunca se define; pasos vacios 1*1=1 y 1*x; comprobacion copia 3 terminos de golpe; Na2S2O3 y N2O dan el promedio sin avisarlo"
     },
     "trigonometria": {
-      "estado": "con-hallazgos",
-      "huella": "aa9a72b0d376",
-      "fecha": "2026-10-19",
-      "nota": "ronda 4 arreglada; pendiente visto bueno de Ronald"
+      "estado": "auditado",
+      "huella": "6a1f5fa1c211",
+      "fecha": "2026-10-23",
+      "nota": "Re-lectura independiente tras los arreglos del revisor visual (texto de la tabla acortado, Comprobacion en su renglon, theta a radio 46, KaTeX_Main): leidos sen30 incognita arriba (hip 98, op 5 hip), cos60 incognita abajo con producto cruzado (ady 1 y 7), tan45 abajo (op 9 ady) y arriba (ady 99 op), limites 1 y 99. Cada simbolo nace de lo escrito, la comprobacion nace de Dk, r y la fila Tabla, sin saltos nuevos. Sin ver pantalla: figura y fuente a cargo del revisor-visual. Pendiente de Ronald: fila de datos desde el estado 0."
     },
     "progresion": {
       "estado": "con-hallazgos",

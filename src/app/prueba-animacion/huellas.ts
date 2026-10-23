@@ -37,7 +37,7 @@ export const CASOS: Record<string, () => Demo[]> = {
   "moles-atomos": () => [molesDeAtomos("C6H12O6", "O", 30)].map((r) => r.demo),
   dinamica: () => [dinamica(4, 20, 0), dinamica(4, 30, 10)].map((r) => r.demo),
   tiro: () => [tiroHorizontal(45, 8), tiroHorizontal(405, 50)].map((r) => r.demo),
-  molaridad: () => [molaridad("C6H12O6", 36, 2), molaridad("NaOH", 4, 1)].map((r) => r.demo),
+  molaridad: () => [molaridad("C6H12O6", 36, 2), molaridad("NaOH", 4, 1), molaridad("NaOH", 12, 1), molaridad("H2SO4", 147, 1), molaridad("H2SO4", 49, 2)].map((r) => r.demo),
   oxidacion: () => [numeroOxidacion("K2Cr2O7", "Cr"), numeroOxidacion("NH3", "N")].map((r) => r.demo),
   trigonometria: () => [trigonometria(30, "hip", 10, "op"), trigonometria(30, "op", 7, "hip")].map((r) => r.demo),
   progresion: () => [progresionAritmetica(3, 4, 10), progresionAritmetica(3, -4, 10)].map((r) => r.demo),
