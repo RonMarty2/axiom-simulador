@@ -12,7 +12,7 @@
 //   8. COMPROBAR con la altura del enunciado: la caida con t = 3 s tiene que devolver los 45 m.
 // Todo texto del alumno va en LaTeX entre $...$ (MathText); las fichas en LaTeX sin $. Barras dobles.
 // La animacion no calcula: cada numero que se escribe sale de una cuenta hecha aqui y comprobada en el test.
-import { aplanar, frPiezas, raiz, sustituir, type Brote, type Ficha, type Fusion, type Transicion } from "./datos.ts";
+import { aplanar, frPiezas, pegarUnidades, raiz, sustituir, type Brote, type Ficha, type Fusion, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 import { nf } from "./generadores-fisica.ts";
 
@@ -20,6 +20,10 @@ import { nf } from "./generadores-fisica.ts";
 // Utilidades (la misma Hoja y las mismas unidades de generadores-fisica.ts, que no las exporta)
 
 const clon = (e: Ficha[]): Ficha[] => JSON.parse(JSON.stringify(e));
+/** la puntuacion que sigue a una formula va FUERA de ella, pegada con un word-joiner (U+2060) que MathText reconoce
+ *  (mismo mecanismo que generadores-soluciones.ts): ni sube a la altura de la raya ni queda sola al inicio de un renglon */
+const WJ = "⁠";
+const pegarPunto = (s: string) => s.replace(/\$([.,;:])/g, `$${WJ}$1`);
 
 class Hoja {
   fichas: Ficha[];
@@ -84,10 +88,13 @@ const REGLA_PRODUCTO = `$(m\\ u)\\cdot(n\\ w)=(m\\cdot n)\\ (u\\cdot w)$`;
 const REGLA_TACHAR = `$\\dfrac{u}{w}\\cdot w=u$`;
 
 /** el piso de cada valor que se reemplaza: el numero y la unidad vuelan desde el dato (o desde un resultado) */
-function reemplazo(h: Hoja, letraId: string, k: Clave, valor: number, n: string, u: string, origen: { num: string; uni: string }) {
-  h.cambiar([letraId], [{ id: n, tex: col(k, nf(valor)) }, uPieza(u, UNI[k])]);
+function reemplazo(h: Hoja, letraId: string, k: Clave, valor: number, n: string, u: string, origen: { num: string; uni: string }, conParentesis = false) {
+  // `conParentesis`: el dato queda como DIVISOR de una fraccion con unidades; (10 m/s^2) entre parentesis se distingue de la raya de la unidad
+  const pa: Ficha[] = conParentesis ? [{ id: `${n}pa`, tex: "(" }] : [];
+  const pb: Ficha[] = conParentesis ? [{ id: `${n}pb`, tex: ")" }] : [];
+  h.cambiar([letraId], [...pa, { id: n, tex: col(k, nf(valor)) }, uPieza(u, UNI[k]), ...pb]);
   return {
-    fusion: { desde: [letraId], hacia: [n, u], modo: "viajar" } as Fusion,
+    fusion: { desde: [letraId], hacia: [...pa.map((f) => f.id), n, u, ...pb.map((f) => f.id)], modo: "viajar" } as Fusion,
     brotes: [
       { desde: origen.num, hacia: n },
       { desde: origen.uni, hacia: u },
@@ -96,16 +103,16 @@ function reemplazo(h: Hoja, letraId: string, k: Clave, valor: number, n: string,
 }
 
 /** tacha unidades de abajo de la fraccion `frac` junto con piezas sueltas; si abajo no queda nada, lo de arriba sale de la raya */
-function tachar(h: Hoja, frac: string, abajo: string[], sueltas: string[], nuevoId: string): { fusiones: Fusion[]; brotes: Brote[] } {
+function tachar(h: Hoja, frac: string, abajo: string[], sueltas: string[], nuevoId: string, cortes: string[] = []): { fusiones: Fusion[]; brotes: Brote[] } {
   const f = h.pieza(frac);
   const arriba = f.frac?.nPiezas ?? [];
   if (arriba.length !== 1) throw new Error("tachar: arriba debe quedar una sola pieza");
-  h.quitar(...abajo, ...sueltas);
+  h.quitar(...abajo, ...sueltas, ...cortes);
   h.cambiar([frac], [{ id: nuevoId, tex: arriba[0].tex }]);
   return {
     fusiones: [
       { desde: [...abajo, ...sueltas], hacia: null, modo: "tachar" },
-      { desde: [frac, arriba[0].id], hacia: nuevoId, modo: "viajar" },
+      { desde: [frac, arriba[0].id, ...cortes], hacia: nuevoId, modo: "viajar" },
     ],
     brotes: [{ desde: arriba[0].id, hacia: nuevoId }],
   };
@@ -186,18 +193,29 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
   hoja.agregar(formulaX);
   hoja.paso({
     fusiones: [],
-    brotes: formulaX.filter((f) => !f.op).map((f) => ({ desde: "Dq", hacia: f.id })),
+    brotes: formulaX.filter((f) => !f.op && !f.salto).map((f) => ({ desde: "Dq", hacia: f.id })),
     texto: `Escribimos debajo cómo se halla el alcance, todavía con letras: lo que avanza es la velocidad horizontal por el tiempo. Pero no conocemos $t$.`,
     porque: `Hacia adelante la velocidad no cambia (es un movimiento uniforme), así que la distancia es velocidad por tiempo.`,
     regla: `$x=v_{0}\\cdot t$`,
   });
 
-  // ---- 3b. el tiempo sale de la caida: la formula nace de la t que falta
+  // ---- 3b. el tiempo sale de la caida: primero se anota que falta (t = ?), y de ahi nace la formula
+  hoja.agregar([
+    { id: "SA2", tex: "", salto: true },
+    { id: "Dtq", tex: col("t", "t=\\ ?") },
+  ]);
+  hoja.paso({
+    fusiones: [],
+    brotes: [{ desde: "At", hacia: "Dtq" }],
+    texto: `En la fórmula del alcance aparece la $t$, y no la conocemos. Anotamos debajo que ahora lo que buscamos es $t$: hay que hallarla antes de calcular $x$.`,
+    porque: `Para el alcance hace falta el tiempo. Lo averiguamos con el otro movimiento, la caída.`,
+    regla: `$\\text{para hallar}\\ x\\ \\text{hace falta}\\ t$`,
+  });
   const formulaCaida: Ficha[] = [
     { id: "SB", tex: "", salto: true },
     { id: "Bh", tex: col("h", "h") },
     { id: "Be", tex: "=", op: true },
-    { id: "Bf", tex: "\\dfrac{1}{2}" },
+    frPiezas("Bf", [{ id: "Bf1", tex: "1" }], [{ id: "Bf2", tex: "2" }]),
     { id: "Bm2", tex: "\\cdot", op: true },
     { id: "Bg", tex: col("g", "g") },
     { id: "Bm3", tex: "\\cdot", op: true },
@@ -207,36 +225,51 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
   hoja.agregar(formulaCaida);
   hoja.paso({
     fusiones: [],
-    brotes: formulaCaida.filter((f) => !f.op).map((f) => ({ desde: "At", hacia: f.id })),
+    brotes: formulaCaida.filter((f) => !f.op && !f.salto).map((f) => ({ desde: "Dtq", hacia: f.id })),
     texto: `Para hallar $t$ usamos la caída. En vertical parte sin velocidad hacia abajo y la gravedad lo hace caer: la altura es la mitad de $g$ por $t$ al cuadrado. Cada letra tiene el color de su dato.`,
     porque: `Como sale horizontal, su velocidad inicial hacia abajo es $0$: por eso en esta fórmula no hay un término de velocidad inicial.`,
     regla: `$h=\\dfrac{1}{2}\\cdot g\\cdot t^{2}$`,
   });
 
   // ---- 4. despejar t^2 con letras, ARRASTRANDO
-  // el 1/2 cruza el igual: estaba dividiendo entre 2 y pasa multiplicando (2). El punto viaja con el.
+  // el 2 de abajo del 1/2 cruza el igual y pasa multiplicando a la h; el 1 de arriba se queda donde estaba (no se pierde: se tacha en el paso siguiente)
+  hoja.cambiar(["Bf"], [{ id: "Bu", tex: "1" }]);
+  hoja.agregar([
+    { id: "Cf", tex: "2" },
+    { id: "Cm", tex: "\\cdot", op: true },
+  ]);
   {
-    const ids = hoja.fichas.map((f) => f.id).filter((i) => i !== "Bf" && i !== "Bm2");
-    ids.splice(ids.indexOf("Bh"), 0, "Bf", "Bm2");
+    const ids = hoja.fichas.map((f) => f.id).filter((i) => i !== "Cf" && i !== "Cm");
+    ids.splice(ids.indexOf("Bh"), 0, "Cf", "Cm");
     hoja.ordenar(ids);
-    hoja.poner("Bf", { tex: "2" });
   }
   hoja.paso({
-    fusiones: [],
-    resaltar: ["Bf"],
-    texto: `Pasamos el $\\dfrac{1}{2}$ al lado izquierdo. Estaba dividiendo entre $2$ y al cruzar la igualdad pasa multiplicando: queda un $2$ junto a la $h$.`,
-    porque: `Es lo mismo que multiplicar por $2$ los dos lados: a la derecha el $\\dfrac{1}{2}$ se cancela y a la izquierda queda escrito el $2$.`,
-    regla: `$c=\\dfrac{1}{2}\\cdot b\\ \\Rightarrow\\ 2\\cdot c=b$`,
+    fusiones: [{ desde: ["Bf", "Bf1", "Bf2"], hacia: ["Bu", "Cf"], modo: "viajar" }],
+    brotes: [
+      { desde: "Bf1", hacia: "Bu" },
+      { desde: "Bf2", hacia: "Cf" },
+    ],
+    texto: `Pasamos el $\\dfrac{1}{2}$ al lado izquierdo. El $2$ de abajo estaba dividiendo y al cruzar la igualdad pasa multiplicando: va junto a la $h$. En el lado derecho queda el $1$ de arriba.`,
+    porque: `Es lo mismo que multiplicar por $2$ los dos lados: a la derecha el $2$ cancela al $2$ de abajo y a la izquierda queda escrito multiplicando.`,
+    regla: `$c=\\dfrac{1}{2}\\cdot b\\ \\Rightarrow\\ 2\\cdot c=1\\cdot b$`,
+  });
+  // el 1 que sobra se tacha junto con su punto
+  hoja.quitar("Bu", "Bm2");
+  hoja.paso({
+    fusiones: [{ desde: ["Bu", "Bm2"], hacia: null, modo: "tachar" }],
+    texto: `Del lado derecho queda $1\\cdot g\\cdot t^{2}$. Multiplicar por $1$ no cambia nada: el $1$ se tacha junto con su punto.`,
+    porque: `Un factor $1$ no cambia el producto: $1\\cdot g$ es lo mismo que $g$.`,
+    regla: `$1\\cdot a=a$`,
   });
   // la g pasa dividiendo: lo de la izquierda queda arriba de la raya y la g abajo
-  hoja.cambiar(["Bf"], [frPiezas("BR", [{ id: "Cf", tex: "2" }, { id: "Cm", tex: "\\cdot", op: true }, { id: "Ch", tex: col("h", "h") }], [{ id: "Cg", tex: col("g", "g") }])]);
-  hoja.quitar("Bm2", "Bh", "Bg", "Bm3");
+  hoja.cambiar(["Cf"], [frPiezas("BR", [{ id: "Rf", tex: "2" }, { id: "Rm", tex: "\\cdot", op: true }, { id: "Rh", tex: col("h", "h") }], [{ id: "Rg", tex: col("g", "g") }])]);
+  hoja.quitar("Cm", "Bh", "Bg", "Bm3");
   hoja.paso({
-    fusiones: [{ desde: ["Bf", "Bm2", "Bh", "Bg", "Bm3"], hacia: "BR", modo: "viajar" }],
+    fusiones: [{ desde: ["Cf", "Cm", "Bh", "Bg", "Bm3"], hacia: "BR", modo: "viajar" }],
     brotes: [
-      { desde: "Bf", hacia: "Cf" },
-      { desde: "Bh", hacia: "Ch" },
-      { desde: "Bg", hacia: "Cg" },
+      { desde: "Cf", hacia: "Rf" },
+      { desde: "Bh", hacia: "Rh" },
+      { desde: "Bg", hacia: "Rg" },
     ],
     texto: `La $g$ multiplica a $t^{2}$: pasa al otro lado dividiendo, debajo de todo lo que hay ahí.`,
     porque: `Es lo mismo que dividir los dos lados entre $g$: a la derecha $g$ se cancela y queda $t^{2}$ sola.`,
@@ -256,7 +289,7 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
 
   // ---- 5. reemplazar una letra por vez (los valores vuelan desde sus datos)
   {
-    const r = reemplazo(hoja, "Ch", "h", h, "Nh", "Uh", { num: "Dh", uni: "Dhu" });
+    const r = reemplazo(hoja, "Rh", "h", h, "Nh", "Uh", { num: "Dh", uni: "Dhu" });
     hoja.paso({
       fusiones: [r.fusion],
       brotes: r.brotes,
@@ -266,21 +299,21 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
     });
   }
   {
-    const r = reemplazo(hoja, "Cg", "g", G, "Ng", "Ug", { num: "Dg", uni: "Dgu" });
+    const r = reemplazo(hoja, "Rg", "g", G, "Ng", "Ug", { num: "Dg", uni: "Dgu" }, true);
     hoja.paso({
       fusiones: [r.fusion],
       brotes: r.brotes,
-      texto: `Reemplazamos $g$ por $${cant(G, "ms2")}$: el número y la unidad salen del dato y van abajo de la raya.`,
+      texto: `Reemplazamos $g$ por $${cant(G, "ms2")}$: el número y la unidad salen del dato y van abajo de la raya, entre paréntesis para que se lea como un solo divisor.`,
       porque: `Se reemplaza una letra por vez, con su unidad, para no perder ningún dato.`,
       regla: `$g=${cant(G, "ms2")}$`,
     });
   }
 
   // ---- 6. calcular: arriba 2·h, luego dividir, luego las unidades
-  hoja.cambiar(["Cf"], [{ id: "N2h", tex: nf(dosH) }]);
-  hoja.quitar("Cm", "Nh");
+  hoja.cambiar(["Rf"], [{ id: "N2h", tex: nf(dosH) }]);
+  hoja.quitar("Rm", "Nh");
   hoja.paso({
-    fusiones: [{ desde: ["Cf", "Cm", "Nh"], hacia: "N2h" }],
+    fusiones: [{ desde: ["Rf", "Rm", "Nh"], hacia: "N2h" }],
     texto: `Primero la multiplicación de arriba. Multiplicamos los números: $2\\cdot ${h}=${nf(dosH)}$. La unidad espera su turno.`,
     porque: `En física se multiplican los números entre sí y las unidades entre sí.`,
     regla: REGLA_PRODUCTO,
@@ -293,7 +326,25 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
     porque: `Los números se dividen entre sí y las unidades entre sí.`,
     regla: `$\\dfrac{m\\ u}{n\\ w}=\\dfrac{m}{n}\\cdot\\dfrac{u}{w}$`,
   });
-  // unidades: m / (m/s^2) = (m·s^2) / m   (extremos y medios: cada pieza viaja a su lugar)
+  // unidades: m / (m/s^2) = (m·s^2) / m   (extremos y medios: primero se SEÑALAN, despues cada pieza viaja a su lugar)
+  // los extremos quedan marcados (destacada) mientras dure el proceso: quietos, el gesto de `resaltar` no se ve
+  hoja.poner("Uh", { destacada: true });
+  hoja.poner("Ugd", { destacada: true });
+  hoja.paso({
+    fusiones: [],
+    resaltar: ["Uh", "Ugd"],
+    texto: `Ahora las unidades: $\\text{m}$ dividida entre la fracción $\\dfrac{\\text{m}}{\\text{s}^{2}}$. Primero señalamos los extremos, que son los de afuera: la $\\text{m}$ de arriba y la $\\text{s}^{2}$ de abajo del todo.`,
+    porque: `En una división de este tipo se llaman extremos a la primera y a la última pieza, y medios a las que quedan en el centro.`,
+    regla: `$\\text{extremos: la primera y la última pieza}$`,
+  });
+  hoja.poner("Ugn", { destacada: true });
+  hoja.paso({
+    fusiones: [],
+    resaltar: ["Ugn"],
+    texto: `El medio es el que queda adentro: la $\\text{m}$ de arriba de la fracción de abajo. Los extremos siguen marcados.`,
+    porque: `Extremos arriba y medios abajo es la forma de resolver una fracción que tiene otra fracción adentro.`,
+    regla: `$\\text{medios: las piezas del centro}$`,
+  });
   hoja.cambiar(
     ["BR"],
     [
@@ -309,13 +360,13 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
     ]
   );
   hoja.paso({
-    fusiones: [{ desde: ["BR", "Uh", "Ug", "Ugn", "Ugd"], hacia: "UG", modo: "viajar" }],
+    fusiones: [{ desde: ["BR", "Uh", "Ug", "Ugn", "Ugd", "Ngpa", "Ngpb"], hacia: "UG", modo: "viajar" }],
     brotes: [
       { desde: "Uh", hacia: "g1" },
       { desde: "Ugd", hacia: "g2" },
       { desde: "Ugn", hacia: "g3" },
     ],
-    texto: `Ahora las unidades: una unidad dividida entre una fracción. Por extremos y medios, arriba va el producto de los de afuera, $\\text{m}\\cdot\\text{s}^{2}$, y abajo el de adentro, $\\text{m}$.`,
+    texto: `Extremos arriba y medios abajo: arriba va el producto de los extremos, $\\text{m}\\cdot\\text{s}^{2}$, y abajo va el medio, $\\text{m}$.`,
     porque: `Dividir entre una fracción es multiplicar por esa fracción dada vuelta.`,
     regla: `$\\dfrac{\\;a\\;}{\\dfrac{b}{c}}=\\dfrac{a\\cdot c}{b}$`,
   });
@@ -344,13 +395,43 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
     regla: `$t^{2}=b\\ \\Rightarrow\\ t=\\sqrt{b}$`,
   });
   // 7b. que significa la raiz
-  const probar = Array.from({ length: t }, (_, i) => `${i + 1} por ${i + 1} da ${(i + 1) * (i + 1)}`).join(", ");
   hoja.paso({
     fusiones: [],
     resaltar: ["Nt2", "Us2"],
-    texto: `Antes de resolverla, recordamos qué es la raíz cuadrada: el número que, multiplicado por sí mismo, da lo de adentro. Buscamos qué número por sí mismo da $${nf(t2)}$ y qué unidad por sí misma da $\\text{s}^{2}$. Probamos: ${probar}.`,
+    texto: `Antes de resolverla, recordamos qué es la raíz cuadrada: el número que, multiplicado por sí mismo, da lo de adentro. Buscamos qué número por sí mismo da $${nf(t2)}$ y qué unidad por sí misma da $\\text{s}^{2}$.`,
     porque: `La raíz cuadrada deshace al cuadrado: pregunta "¿qué se multiplicó por sí mismo para llegar aquí?". Con las unidades pasa igual.`,
     regla: `$\\sqrt{a}=b\\ \\iff\\ b\\cdot b=a$`,
+  });
+  // 7b2. el tanteo se ESCRIBE en la hoja: cada prueba es una pieza; se para donde el producto da justo lo de adentro
+  // de a DOS pruebas por pieza (un renglon cada una): con t = 9 son 5 renglones en vez de 8, y el tanteo se sigue viendo entero
+  const parejas = Array.from({ length: Math.ceil(t / 2) }, (_, i) => i + 1);
+  const idsPrueba = ["SQ", ...parejas.map((p) => `Z${p}`)];
+  const prueba = (k: number) => `${k}\\cdot ${k}=${k * k}${k < t ? "," : ""}`;
+  hoja.agregar([
+    { id: "SQ", tex: "", salto: true },
+    // la coma que separa va dentro de la prueba (como pieza suelta se iba sola al inicio de un renglon)
+    ...parejas.map((p): Ficha => ({ id: `Z${p}`, tex: `\\small ${[2 * p - 1, 2 * p].filter((k) => k <= t).map(prueba).join("\\ \\ ")}` })),
+  ]);
+  hoja.paso({
+    fusiones: [],
+    brotes: parejas.map((p) => ({ desde: "Nt2", hacia: `Z${p}` })),
+    texto: `Probamos con los números en orden, uno por uno, y escribimos cuánto da cada uno multiplicado por sí mismo, hasta llegar a $${nf(t2)}$.`,
+    porque: `Cuando un número por sí mismo da menos que lo de adentro, hay que probar con el siguiente. Paramos cuando da justo lo que buscamos.`,
+    regla: `$\\sqrt{a}=b\\ \\iff\\ b\\cdot b=a$`,
+  });
+  hoja.paso({
+    fusiones: [],
+    resaltar: [`Z${Math.ceil(t / 2)}`, "Nt2"],
+    texto: `El último intento, $${nf(t)}\\cdot ${nf(t)}=${nf(t2)}$, da justo $${nf(t2)}$. ${t === 2 ? "El anterior dio menos y por eso seguimos." : "Los anteriores daban menos y por eso seguimos."} Entonces el número que buscamos es el $${nf(t)}$.`,
+    porque: `El número que, multiplicado por sí mismo, da lo de adentro es el que la raíz va a devolver.`,
+    regla: `$b\\cdot b=a\\ \\Rightarrow\\ \\sqrt{a}=b$`,
+  });
+  hoja.quitar(...idsPrueba);
+  hoja.paso({
+    fusiones: [{ desde: idsPrueba, hacia: null }],
+    texto: `Ya encontramos el número, así que borramos las pruebas.`,
+    porque: `Las pruebas ya cumplieron su trabajo: solo sirvieron para hallar el $${nf(t)}$.`,
+    regla: `$b\\cdot b=a\\ \\Rightarrow\\ \\sqrt{a}=b$`,
   });
   // 7c. el numero se escribe como producto de dos iguales (y queda multiplicando a la unidad)
   hoja.cambiar(["Nt2"], [{ id: "Qa", tex: nf(t) }, { id: "Qx", tex: "\\cdot", op: true }, { id: "Qb", tex: nf(t) }, { id: "Qm", tex: "\\cdot", op: true }]);
@@ -385,7 +466,7 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
       { desde: ["Qx", "Qb"], hacia: null, ancla: "Qa" },
       { desde: ["Sx", "Sb"], hacia: null, ancla: "Sa" },
     ],
-    texto: `Cada pareja cuenta como uno solo: los dos $${nf(t)}$ se juntan en un $${nf(t)}$ y las dos $\\text{s}$ en una $\\text{s}$.`,
+    texto: `Cada pareja cuenta como uno solo: los dos $${nf(t)}$ se juntan en un $${nf(t)}$ y las dos $\\text{s}$ en una $\\text{s}$. Lo que queda dentro de la raíz todavía no es el valor de $t$: es lo que la raíz va a soltar.`,
     porque: `Lo que se repite no desaparece: se queda uno de cada pareja, y es el que va a salir de la raíz.`,
     regla: `$\\sqrt{b\\cdot b}=b$`,
   });
@@ -441,61 +522,114 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
     });
   }
 
-  // ---- 9. comprobar con la altura del enunciado: h = 1/2 · g · t^2
+  // ---- 9. comprobar con la altura del enunciado: la formula de la caida se escribe de nuevo CON LETRAS y se reemplaza una letra por vez, con sus unidades
   const t9 = t * t;
   const gt = G * t9;
   hoja.agregar([
     { id: "KS", tex: "", salto: true },
-    { id: "Kh", tex: nf(h) },
+    { id: "Kq", tex: "\\footnotesize\\text{Comprobación:}" },
+  ]);
+  hoja.paso({
+    fusiones: [],
+    brotes: [{ desde: "T3", hacia: "Kq" }],
+    texto: `Ya tenemos $t=${cant(t, "s")}$. Para saber si está bien, lo usamos en la fórmula de la caída: tiene que volver a salir la altura del enunciado, $${cant(h, "m")}$. Lo escribimos debajo.`,
+    porque: `Si el tiempo está bien, al caer ese tiempo el objeto recorre justo la altura del enunciado.`,
+    regla: `$\\text{con el}\\ t\\ \\text{hallado, la caída da}\\ h$`,
+  });
+  hoja.agregar([
+    { id: "KS2", tex: "", salto: true },
+    { id: "Kh", tex: col("h", "h") },
+    // corte fijo de todo el tramo: la altura arriba y la igualdad abajo (cortes vacios, nunca con texto)
+    { id: "KS3", tex: "", salto: true },
     { id: "Ke", tex: "=", op: true },
     { id: "Kf", tex: "\\dfrac{1}{2}" },
     { id: "Km1", tex: "\\cdot", op: true },
-    { id: "Kg", tex: nf(G) },
+    { id: "Kg", tex: col("g", "g") },
     { id: "Km2", tex: "\\cdot", op: true },
-    { id: "Kt", tex: nf(t) },
+    { id: "KS4", tex: "", salto: true },
+    { id: "Kt", tex: col("t", "t") },
     { id: "Ks", tex: "2", sup: true },
   ]);
   hoja.paso({
     fusiones: [],
-    brotes: [
-      { desde: "T3", hacia: "KS" },
-      { desde: "Dh", hacia: "Kh" },
-      { desde: "T3", hacia: "Kf" },
-      { desde: "Dg", hacia: "Kg" },
-      { desde: "T3", hacia: "Kt" },
-      { desde: "T3", hacia: "Ks" },
-    ],
-    texto: `Comprobamos con la altura del enunciado: con $t=${nf(t)}$ en la fórmula de la caída, tiene que volver a salir $${nf(h)}$. Copiamos $h$, $g$ y el tiempo que hallamos.`,
-    porque: `Si el tiempo está bien, al caer ese tiempo el objeto recorre justo la altura del enunciado.`,
+    brotes: ["Kh", "Kf", "Kg", "Kt", "Ks"].map((id) => ({ desde: "Kq", hacia: id })),
+    texto: `Escribimos la fórmula de la caída, todavía con letras: la altura es la mitad de $g$ por $t$ al cuadrado. Cada letra tiene el color de su dato.`,
+    porque: `Es la misma fórmula con la que despejamos $t$; ahora la usamos al derecho, con el $t$ ya conocido.`,
     regla: `$h=\\dfrac{1}{2}\\cdot g\\cdot t^{2}$`,
   });
-  hoja.cambiar(["Kt", "Ks"], [{ id: "K33", tex: `${nf(t)}\\cdot ${nf(t)}` }]);
+  {
+    const r = reemplazo(hoja, "Kh", "h", h, "Wh", "Whu", { num: "Dh", uni: "Dhu" });
+    hoja.paso({
+      fusiones: [r.fusion],
+      brotes: r.brotes,
+      texto: `Reemplazamos $h$ por $${cant(h, "m")}$, la altura del enunciado: es el valor que tiene que volver a salir en el otro lado.`,
+      porque: `Se reemplaza una letra por vez, con su unidad, para no perder ningún dato.`,
+      regla: `$h=${cant(h, "m")}$`,
+    });
+  }
+  {
+    const r = reemplazo(hoja, "Kg", "g", G, "Wg", "Wgu", { num: "Dg", uni: "Dgu" });
+    hoja.paso({
+      fusiones: [r.fusion],
+      brotes: r.brotes,
+      texto: `Reemplazamos $g$ por $${cant(G, "ms2")}$: el número y la unidad salen del dato.`,
+      porque: `Se reemplaza una letra por vez, con su unidad, para no perder ningún dato.`,
+      regla: `$g=${cant(G, "ms2")}$`,
+    });
+  }
+  // la t esta elevada al cuadrado: va entre parentesis con su unidad (se eleva todo)
+  hoja.cambiar(["Kt"], [{ id: "Wp", tex: `(${tNum}\\ \\text{s})` }]);
   hoja.paso({
-    fusiones: [{ desde: ["Kt", "Ks"], hacia: "K33" }],
+    fusiones: [{ desde: ["Kt"], hacia: "Wp", modo: "viajar" }],
+    brotes: [{ desde: "T3", hacia: "Wp" }],
+    texto: `Reemplazamos $t$ por $${cant(t, "s")}$, el tiempo que hallamos. Como $t$ está al cuadrado, va entre paréntesis: se eleva el número y la unidad.`,
+    porque: `En $t^{2}$ el dato va entre paréntesis, porque se eleva al cuadrado todo: el número y la unidad.`,
+    regla: `$t=${cant(t, "s")}$`,
+  });
+  hoja.cambiar(["Wp", "Ks"], [{ id: "W3", tex: nf(t) }, { id: "W3s", tex: "2", sup: true }, { id: "Wus2", tex: "\\text{s}^{2}", pegado: true }]);
+  hoja.paso({
+    fusiones: [{ desde: ["Wp", "Ks"], hacia: ["W3", "W3s", "Wus2"] }],
+    descompone: true,
+    texto: `El cuadrado afecta al número y a la unidad: $(${nf(t)}\\ \\text{s})^{2}=${nf(t)}^{2}\\ \\text{s}^{2}$.`,
+    porque: `Elevar al cuadrado un producto es elevar cada uno de sus factores.`,
+    regla: `$(m\\cdot u)^{2}=m^{2}\\cdot u^{2}$`,
+  });
+  hoja.cambiar(["W3", "W3s"], [{ id: "W33", tex: `${nf(t)}\\cdot ${nf(t)}` }]);
+  hoja.paso({
+    fusiones: [{ desde: ["W3", "W3s"], hacia: "W33" }],
     descompone: true,
     texto: `Primero el cuadrado: $${nf(t)}^{2}$ es $${nf(t)}\\cdot ${nf(t)}$.`,
     porque: `El exponente $2$ dice cuántas veces se escribe el número en la multiplicación.`,
     regla: `$n^{2}=n\\cdot n$`,
   });
-  hoja.cambiar(["K33"], [{ id: "K9", tex: nf(t9) }]);
+  hoja.cambiar(["W33"], [{ id: "W9", tex: nf(t9) }]);
   hoja.paso({
-    fusiones: [{ desde: ["K33"], hacia: "K9" }],
+    fusiones: [{ desde: ["W33"], hacia: "W9" }],
     texto: `Multiplicamos: $${nf(t)}\\cdot ${nf(t)}=${nf(t9)}$.`,
     porque: `Un positivo por un positivo da positivo.`,
     regla: `$m\\cdot n=p$`,
   });
-  hoja.cambiar(["Kg"], [{ id: "Kgt", tex: nf(gt) }]);
-  hoja.quitar("Km2", "K9");
+  hoja.cambiar(["Wg"], [{ id: "Wgt", tex: nf(gt) }]);
+  hoja.quitar("W9");
   hoja.paso({
-    fusiones: [{ desde: ["Kg", "Km2", "K9"], hacia: "Kgt" }],
-    texto: `Quedan tres factores. Se multiplica de dos en dos: $${G}\\cdot ${nf(t9)}=${nf(gt)}$, y el $\\dfrac{1}{2}$ espera.`,
+    fusiones: [{ desde: ["Wg", "W9"], hacia: "Wgt" }],
+    texto: `Quedan tres números que se multiplican: $\\dfrac{1}{2}$, $${G}$ y $${nf(t9)}$. Se hace de dos en dos: primero $${G}\\cdot ${nf(t9)}=${nf(gt)}$, y el $\\dfrac{1}{2}$ espera. Las unidades esperan su turno.`,
     porque: `El orden en que se multiplica no cambia el resultado: elegimos el que da números enteros.`,
     regla: `$\\dfrac{1}{2}\\cdot a\\cdot b=\\dfrac{1}{2}\\cdot(a\\cdot b)$`,
   });
-  hoja.cambiar(["Kf"], [{ id: "Kmit", tex: nf(gt / 2) }]);
-  hoja.quitar("Km1", "Kgt");
+  {
+    const ta = tachar(hoja, "Wgu", ["Wgud"], ["Km2", "Wus2"], "Wum", ["KS4"]);
+    hoja.paso({
+      ...ta,
+      texto: `Ahora las unidades: la $\\text{s}^{2}$ de abajo se tacha con la $\\text{s}^{2}$ que multiplica. Queda $\\text{m}$, una distancia.`,
+      porque: `Una unidad dividida entre sí misma vale $1$, igual que un número: por eso se tacha.`,
+      regla: REGLA_TACHAR,
+    });
+  }
+  hoja.cambiar(["Kf"], [{ id: "Wmit", tex: nf(gt / 2) }]);
+  hoja.quitar("Km1", "Wgt");
   hoja.paso({
-    fusiones: [{ desde: ["Kf", "Km1", "Kgt"], hacia: "Kmit" }],
+    fusiones: [{ desde: ["Kf", "Km1", "Wgt"], hacia: "Wmit" }],
     texto: `Multiplicar por $\\dfrac{1}{2}$ es sacar la mitad: la mitad de $${nf(gt)}$ es $${nf(gt / 2)}$.`,
     porque: `$\\dfrac{1}{2}$ de algo es partirlo en dos partes iguales y quedarse con una.`,
     regla: `$\\dfrac{1}{2}\\cdot n=\\dfrac{n}{2}$`,
@@ -504,11 +638,16 @@ export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resul
   hoja.paso({
     fusiones: [],
     brotes: [{ desde: "Ke", hacia: "Kok" }],
-    resaltar: ["Kh", "Kmit"],
-    texto: `Los dos lados dan $${nf(h)}$, la altura del enunciado: el tiempo de caída es correcto. El objeto cae a $x=${cant(x, "m")}$ del punto de lanzamiento.`,
+    resaltar: ["Wh", "Wmit"],
+    texto: `Los dos lados dan $${cant(h, "m")}$, la altura del enunciado: el tiempo de caída es correcto. El objeto cae a $x=${cant(x, "m")}$ del punto de lanzamiento.`,
     porque: `Al volver a calcular la altura con el tiempo que hallamos, sale la del enunciado: la cuenta está bien.`,
     regla: `$h=\\dfrac{1}{2}\\cdot g\\cdot t^{2}$`,
   });
 
-  return { demo: { titulo: "", nota: "", intro, estados: hoja.estados, transiciones: hoja.trans }, resumen: { h, v0, g: G, t, x } };
+  const ret = {
+    intro: pegarPunto(intro),
+    estados: hoja.estados.map(pegarUnidades),
+    transiciones: hoja.trans.map((tr) => ({ ...tr, texto: pegarPunto(tr.texto), porque: pegarPunto(tr.porque), ...(tr.regla ? { regla: pegarPunto(tr.regla) } : {}) })),
+  };
+  return { demo: { titulo: "", nota: "", ...ret }, resumen: { h, v0, g: G, t, x } };
 }

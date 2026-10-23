@@ -86,10 +86,10 @@
       "nota": "Re-auditoria 18-oct tras el arreglo visual (unidades pegadas, sin cortes): casos 4/20/0, 4/30/10, 1/7/0, 50/1000/500 leidos transicion por transicion; no se perdio ningun paso ni porque; sin saltos nuevos. Leve, no bloqueante: la comprobacion trae 5 piezas copiadas de golpe (copia, no calculo) y con m=1 el ultimo paso junta 'x1' y la unidad = newton"
     },
     "tiro": {
-      "estado": "con-hallazgos",
-      "huella": "14d8b61f1daf",
-      "fecha": "2026-10-18",
-      "nota": "Auditor 18-oct: comprobacion (T27) llena 1/2, 2, g, h y t de golpe y nacen de T3, sin escribir la formula con letras; 1/2 y 2 de la caida nacen de la t; tanteo de raiz solo en texto (9 productos en t=9); 'extremos y medios' sin mostrar; 1/2 pasa a 2 perdiendo el 1; comprobacion sin unidades"
+      "estado": "auditado",
+      "huella": "513a8f6da2f3",
+      "fecha": "2026-10-23",
+      "nota": "Relectura independiente final (t=2,3,9; 24 combos t=2..9 x v0 1/7/50): T23 singular con t=2 ok, T28 aclara que sqrt(3·s) es lo que la raiz suelta, comprobacion con cortes fijos (KS4 se consume en el tachado, sin renglon vacio), divisor (10 m/s2) con parentesis que nacen de Rg por viajar y se consumen en la fusion de extremos y medios, extremos/medio destacados, tanteo t=9 en 5 renglones; x=v0·t y h=5t2 coinciden con la fisica; sin saltos"
     },
     "molaridad": {
       "estado": "auditado",
