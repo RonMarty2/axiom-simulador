@@ -135,9 +135,15 @@ describe("numero de oxidacion: animacion", () => {
     const r = numeroOxidacion("KMnO4", "Mn");
     comun(r.demo, "KMnO4", 7);
     const todo = todoTexto(r.demo);
-    for (const pista of ["neutro", "grupo 1", "$-2$", "lo llamamos $x$", "$1\\cdot(+1)$", "$4\\cdot(-2)$", "$4\\cdot (-2)=-8$", "$1\\cdot x=x$", "$1+(-8)=-7$", "cambia de signo", "$0+7=7$", "Respuesta", "Comprobamos", "$1\\cdot 7=7$", "$1+7=8$", "$8+(-8)=0$"]) {
+    for (const pista of ["neutro", "grupo 1", "$-2$", "lo llamamos $x$", "Escribimos $1$", "$4\\cdot(-2)$", "$4\\cdot (-2)=-8$", "lo pasamos al principio", "$1+(-8)=-7$", "cambia de signo", "$0+7=7$", "Respuesta", "Comprobamos", "Escribimos $7$", "$1+7=8$", "$8+(-8)=0$"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
+    // con un solo atomo no hay un paso de «1·algo»: ni 1·x tachado ni 1·(+1) ni 1·7
+    assert.ok(!/\$1\\cdot /.test(todo), "no hay pasos vacios de multiplicar por 1");
+    assert.ok(!todo.includes("se tacha"), "no hay un 1 que tachar");
+    // la comprobacion arma un termino por paso, no los tres de golpe
+    const brotesComprob = r.demo.transiciones.filter((x) => x.texto.startsWith("Comprobamos") || x.texto.startsWith("Seguimos con")).length;
+    assert.ok(brotesComprob >= 3, "un termino por paso en la comprobacion");
     // el -7 viaja como el mismo objeto (id cz) al otro lado
     const t = r.demo.transiciones.find((t) => t.texto.startsWith("Queremos dejar"))!;
     assert.equal(t.fusiones[0].modo, "viajar");
@@ -148,7 +154,7 @@ describe("numero de oxidacion: animacion", () => {
     const r = numeroOxidacion("K2Cr2O7", "Cr");
     comun(r.demo, "K2Cr2O7", 6);
     const todo = todoTexto(r.demo);
-    for (const pista of ["$2\\cdot 1=2$", "$7\\cdot (-2)=-14$", "$2+(-14)=-12$", "$0+12=12$", "viaja hasta debajo del $12$", "\\dfrac{12}{2}=6", "$6\\cdot 2=12$"]) {
+    for (const pista of ["$2\\cdot (+1)=2$", "$7\\cdot (-2)=-14$", "$2+(-14)=-12$", "$0+12=12$", "viaja hasta debajo del $12$", "\\dfrac{12}{2}=6"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
     assert.ok(!todo.includes("se tacha"), "con 2 atomos no se tacha el 1");
@@ -161,7 +167,7 @@ describe("numero de oxidacion: animacion", () => {
     const r = numeroOxidacion("NH3", "N");
     comun(r.demo, "NH3", -3);
     const todo = todoTexto(r.demo);
-    for (const pista of ["$3\\cdot 1=3$", "$0+(-3)=-3$", "Pasamos el $3$", "$1\\cdot (-3)=-3$", "$(-3)+3=0$"]) {
+    for (const pista of ["$3\\cdot (+1)=3$", "$0+(-3)=-3$", "Pasamos el $3$", "$(-3)+3=0$"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
   });
@@ -176,7 +182,25 @@ describe("numero de oxidacion: animacion", () => {
     const r = numeroOxidacion("Na2S2O3", "S");
     comun(r.demo, "Na2S2O3", 2);
     const todo = todoTexto(r.demo);
-    for (const pista of ["$2\\cdot 1=2$", "$3\\cdot (-2)=-6$", "$2+(-6)=-4$", "\\dfrac{4}{2}=2"]) assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
+    for (const pista of ["$2\\cdot (+1)=2$", "$3\\cdot (-2)=-6$", "$2+(-6)=-4$", "\\dfrac{4}{2}=2"]) assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
+  });
+
+  test("ningun paso repite el `porque` del paso anterior (en toda combinacion permitida)", () => {
+    for (const c of Object.keys(COMPUESTOS)) {
+      for (const e of incognitasPosibles(c)) {
+        const t = numeroOxidacion(c, e).demo.transiciones;
+        for (let i = 1; i < t.length; i++) assert.notEqual(t[i].porque, t[i - 1].porque, `${c}/${e}: T${i - 1} y T${i} con el mismo porque: ${t[i].porque}`);
+      }
+    }
+  });
+
+  test("los compuestos cuyos atomos repetidos NO valen lo mismo avisan que el numero es un promedio", () => {
+    for (const [c, e] of [["Na2S2O3", "S"], ["N2O", "N"], ["N2O3", "N"]] as const) {
+      const todo = todoTexto(numeroOxidacion(c, e).demo);
+      assert.ok(todo.includes("es el promedio") && todo.includes("como si valieran lo mismo"), `${c}: falta el aviso del promedio`);
+    }
+    // y los que si valen lo mismo no lo dicen
+    assert.ok(!todoTexto(numeroOxidacion("K2Cr2O7", "Cr").demo).includes("promedio"));
   });
 
   test("HCl, Cl: solo dos elementos, no hay nada que juntar y el resultado es -1", () => {

@@ -98,10 +98,10 @@
       "nota": "5a lectura independiente (casos 40/1, 36/2, 49/2): sin saltos. Plurales concuerdan (1 mol pesa 1 vez; Esa 1 decima; Esas 25 centesimas), punto tras formula con U+2060 se lee bien, REGLA_DIVIDE correcta. 12 g en 40 L lo rechaza validarMolaridad (no exacto a 2 decimales); fuera de contrato."
     },
     "oxidacion": {
-      "estado": "con-hallazgos",
-      "huella": "14e76811d296",
-      "fecha": "2026-10-18",
-      "nota": "17-oct: la suma de sueltos salta por encima del termino con x (reordenar sin mostrar); numero de oxidacion nunca se define; pasos vacios 1*1=1 y 1*x; comprobacion copia 3 terminos de golpe; Na2S2O3 y N2O dan el promedio sin avisarlo"
+      "estado": "auditado",
+      "huella": "2e10492bf6a5",
+      "fecha": "2026-10-24",
+      "nota": "3a lectura independiente casi limpia (23-oct): resueltos los 5 hallazgos del 17-oct y los de la 2a lectura; el unico residuo (porque repetido en el 3er termino) y 3 retoques de texto (signo en el porque del producto, aviso del +) se arreglaron DESPUES sin nueva lectura del auditor y los cubre un test sobre todas las combinaciones. Visual: cabecera Piden pegada, 2·x compacto, parentesis solo el numero pintado. Abierto para Ronald: ver bitacora."
     },
     "trigonometria": {
       "estado": "auditado",

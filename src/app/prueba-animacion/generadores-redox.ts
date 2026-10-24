@@ -91,6 +91,13 @@ export const COMPUESTOS: Record<string, string> = {
   Cu2O: "óxido de cobre (I)",
 };
 
+/** compuestos donde los atomos repetidos NO valen lo mismo en la realidad: la cuenta da el promedio, y se le dice al alumno */
+const PROMEDIO: Record<string, string> = {
+  "Na2S2O3:S": "los dos azufres no son iguales (uno tiene $+6$ y el otro $-2$): el $+2$ es el promedio de los dos.",
+  "N2O:N": "los dos nitrógenos no son iguales (uno tiene $0$ y el otro $+2$): el $+1$ es el promedio de los dos.",
+  "N2O3:N": "los dos nitrógenos no son iguales (uno tiene $+2$ y el otro $+4$): el $+3$ es el promedio de los dos.",
+};
+
 /** atomos de una formula sin parentesis, en el orden en que se escriben: K2Cr2O7 -> [K,2] [Cr,2] [O,7] */
 export function contarAtomos(formula: string): [string, number][] | null {
   if (!/^([A-Z][a-z]?\d*)+$/.test(formula)) return null;
@@ -141,6 +148,8 @@ const sg = (v: number) => (v < 0 ? `-${-v}` : `+${v}`);
 const par = (v: number) => (v < 0 ? `(${v})` : `${v}`);
 /** numero en una posicion: al comienzo del renglon el negativo va sin parentesis */
 const enPos = (v: number, primero: boolean) => (primero ? `${v}` : par(v));
+/** numero con su color; el negativo lleva el parentesis en negro y solo el numero pintado, como en n·(-2) */
+const colPar = (c: string, v: number) => (v < 0 ? `(${col(c, `${v}`)})` : col(c, `${v}`));
 const razonSuma = (a: number, b: number) =>
   a < 0 && b < 0
     ? `Con el mismo signo se suman los valores y se conserva el signo.`
@@ -193,8 +202,8 @@ function construir(compuesto: string, elemento: string): Resultado {
     { id: "SP", tex: "", salto: true },
     { id: "tP", tex: "\\text{Piden:}", op: true },
     { id: "pn", tex: `N(${X})` },
-    { id: "pe", tex: "=", op: true },
-    { id: "q", tex: "?" },
+    { id: "pe", tex: "=", op: true, pegado: true },
+    { id: "q", tex: "?", pegado: true },
   ];
   const intro = `Queremos hallar el número de oxidación del ${nom(elemento)} ($${X}$) en el ${nombreComp}. Lo escribimos $N(${X})$. Vamos a escribir cada paso, como a lápiz.`;
   foto();
@@ -203,12 +212,20 @@ function construir(compuesto: string, elemento: string): Resultado {
   paso({
     fusiones: [],
     resaltar: at.map((_, i) => `a${i}`),
-    texto: `El número de oxidación del ${nom(elemento)} no está en ninguna tabla: depende del compuesto. En cambio, los de los otros átomos sí los conocemos. Y todo compuesto cumple algo: es neutro, así que los números de oxidación de todos sus átomos suman $0$. Aquí $n$ es la cantidad de átomos de cada elemento y $N$ su número de oxidación.`,
+    texto: `El número de oxidación de un átomo es la carga que tendría dentro del compuesto, con su signo ($+$ o $-$). El del ${nom(elemento)} no está en ninguna tabla: depende del compuesto. En cambio, los de los otros átomos sí los conocemos.`,
+    porque: `El número de oxidación cambia de un compuesto a otro porque cada átomo se reparte las cargas de forma distinta según con quién se une.`,
+    regla: `$N(\\text{átomo})=\\text{carga con su signo}$`,
+  });
+  paso({
+    fusiones: [],
+    resaltar: at.map((_, i) => `a${i}`),
+    texto: `Y todo compuesto cumple algo: es neutro, así que los números de oxidación de todos sus átomos suman $0$. En la suma, $n$ es la cantidad de átomos de cada elemento y $N$ su número de oxidación.`,
     porque: `Un compuesto no tiene carga en total: lo que unos átomos ceden, otros lo reciben. Por eso los números de oxidación de todos sus átomos se compensan.`,
     regla: `$n_{1}\\cdot N_{1}+n_{2}\\cdot N_{2}+\\dots=0$`,
   });
 
   // ----- 2) etiquetas de a una: primero los conocidos, al final la incognita
+  let avisoMas = false;
   at.forEach(([e, n], i) => {
     if (i === ix) return;
     const v = valor(i);
@@ -217,7 +234,7 @@ function construir(compuesto: string, elemento: string): Resultado {
       fusiones: [],
       resaltar: [`a${i}`],
       texto: `${CONOCIDOS[e].razon} Lo anotamos debajo del $\\mathrm{${e}}$: $${sg(v)}$.${n > 1 ? ` Vale para cada uno de los $${n}$ átomos.` : ""}`,
-      porque: `Cada elemento se comporta de una forma conocida en estos compuestos; por eso su número de oxidación se anota sin calcular.`,
+      porque: i === (ix === 0 ? 1 : 0) ? `Cada elemento se comporta de una forma conocida en estos compuestos; por eso su número de oxidación se anota sin calcular.` : `Igual que el anterior: este elemento también se conoce de memoria en estos compuestos.`,
       regla: `$N(\\mathrm{${e}})=${sg(v)}$`,
     });
   });
@@ -225,7 +242,7 @@ function construir(compuesto: string, elemento: string): Resultado {
   paso({
     fusiones: [],
     resaltar: [`a${ix}`],
-    texto: `Del ${nom(elemento)} no sabemos el número de oxidación: lo llamamos $x$ y lo anotamos debajo del $${X}$. Es lo que vamos a buscar.${nx > 1 ? ` Los $${nx}$ átomos de ${nom(elemento)} valen lo mismo.` : ""}`,
+    texto: `Del ${nom(elemento)} no sabemos el número de oxidación: lo llamamos $x$ y lo anotamos debajo del $${X}$. Es lo que vamos a buscar.${nx > 1 ? (PROMEDIO[`${compuesto}:${elemento}`] ? ` Los $${nx}$ átomos de ${nom(elemento)} los tratamos como si valieran lo mismo: lo que hallaremos es el promedio.` : ` Los $${nx}$ átomos de ${nom(elemento)} valen lo mismo.`) : ""}`,
     porque: `Una letra guarda el lugar de un número que todavía no conocemos.`,
     regla: `$N(${X})=x$`,
   });
@@ -235,25 +252,33 @@ function construir(compuesto: string, elemento: string): Resultado {
   at.forEach(([e, n], i) => {
     const cuantos = n === 1 ? `el $\\mathrm{${e}}$ no lleva subíndice: hay $1$ átomo` : `el subíndice del $\\mathrm{${e}}$ es $${n}$: hay $${n}$ átomos`;
     const v = i === ix ? null : valor(i);
+    // con un solo atomo no hay producto que hacer: el termino se escribe directo (sin un «1·» que despues se tache)
     const termino: Ficha[] =
       v === null
-        ? [
-            { id: "xn", tex: `${n}` },
-            { id: "xd", tex: "\\cdot", op: true },
-            { id: "xx", tex: col(COLOR.incognita, "x") },
-          ]
-        : [{ id: `t${i}`, tex: `${n}\\cdot(${col(COLOR.conocido, sg(v))})` }];
+        ? n === 1
+          ? [{ id: "xx", tex: col(COLOR.incognita, "x") }]
+          : [
+              { id: "xn", tex: `${n}` },
+              { id: "xd", tex: "\\cdot", op: true, pegado: true },
+              { id: "xx", tex: col(COLOR.incognita, "x"), pegado: true },
+            ]
+        : n === 1
+          ? [{ id: `r${i}`, tex: colPar(COLOR.conocido, v) }]
+          : [{ id: `t${i}`, tex: `${n}\\cdot(${col(COLOR.conocido, sg(v))})` }];
     const nuevos = i === 0 ? [{ id: "S", tex: "", salto: true }, ...termino] : [{ id: `p${i}`, tex: "+", op: true }, ...termino];
     W = [...W, ...nuevos];
-    const escrito = v === null ? `${n}\\cdot x` : `${n}\\cdot(${sg(v)})`;
+    const escrito = v === null ? (n === 1 ? "x" : `${n}\\cdot x`) : n === 1 ? par(v) : `${n}\\cdot(${sg(v)})`;
+    // un solo atomo con numero positivo se escribe sin el +: se avisa la primera vez para que no parezca que desaparece
+    const sinMas = n === 1 && v !== null && v > 0 && !avisoMas ? " (el $+$ no hace falta escribirlo)" : "";
+    if (sinMas) avisoMas = true;
     paso({
       fusiones: [],
       brotes: [...(i === 0 ? [{ desde: "a0", hacia: "S" }] : []), ...termino.filter((f) => !f.op).map((f) => ({ desde: `a${i}`, hacia: f.id }))],
       texto:
         i === 0
-          ? `Armamos la suma, un término por elemento, de izquierda a derecha. Empezamos por el ${nom(e)}: ${cuantos}, y a cada uno le toca ${v === null ? "$x$" : `$${sg(v)}$`}. Escribimos $${escrito}$.`
-          : `Seguimos con el ${nom(e)}: ${cuantos}, y a cada uno le toca ${v === null ? "$x$" : `$${sg(v)}$`}. Escribimos $${escrito}$ y lo sumamos.`,
-      porque: `Cada átomo aporta su número de oxidación. Si hay $n$ átomos del mismo elemento, aportan $n$ veces ese número.`,
+          ? `Armamos la suma, un término por elemento, de izquierda a derecha. Empezamos por el ${nom(e)}: ${cuantos}, y a cada uno le toca ${v === null ? "$x$" : `$${sg(v)}$`}. Escribimos $${escrito}$${sinMas}.`
+          : `Seguimos con el ${nom(e)}: ${cuantos}, y a cada uno le toca ${v === null ? "$x$" : `$${sg(v)}$`}. Escribimos $${escrito}$${sinMas} y lo sumamos.`,
+      porque: i === 0 ? `Cada átomo aporta su número de oxidación. Si hay $n$ átomos del mismo elemento, aportan $n$ veces ese número.` : i === 1 ? `Igual que con el elemento anterior: los $n$ átomos aportan $n$ veces su número.` : `Con el ${nom(e)} se hace lo mismo: ${n === 1 ? "un átomo aporta su número" : `los $${n}$ átomos aportan $${n}$ veces su número`}.`,
       regla: reglaT,
     });
   });
@@ -269,6 +294,27 @@ function construir(compuesto: string, elemento: string): Resultado {
     regla: `$n_{1}\\cdot N_{1}+n_{2}\\cdot N_{2}+\\dots=0$`,
   });
 
+  // ----- 3b) si el termino con x queda en el medio, se pasa al principio: asi los numeros sueltos quedan juntos y se pueden sumar
+  if (ix > 0 && ix < at.length - 1) {
+    const piezas = (i: number): Ficha[] => W.filter((f) => (i === ix ? ["xn", "xd", "xx"].includes(f.id) : f.id === `t${i}` || f.id === `r${i}`));
+    const mas = (i: number): Ficha => W.find((f) => f.id === `p${i}`)!;
+    const orden: Ficha[] = [W.find((f) => f.id === "S")!, ...piezas(ix), mas(ix)];
+    at.forEach((_, i) => {
+      if (i === ix) return;
+      if (i > 0) orden.push(mas(i));
+      orden.push(...piezas(i));
+    });
+    orden.push(W.find((f) => f.id === "eq")!, W.find((f) => f.id === "z")!);
+    W = orden;
+    paso({
+      fusiones: [],
+      resaltar: ["xx"],
+      texto: `El término con $x$ está en el medio de los números que no tienen $x$ (los llamaremos «sueltos»). Para poder sumar los sueltos, lo pasamos al principio, con su signo $+$: en una suma el orden no cambia el resultado.`,
+      porque: `Sumar es conmutativo: $a+b=b+a$. Cada término viaja junto con el signo que lo precede.`,
+      regla: `$a+b=b+a$`,
+    });
+  }
+
   // ----- 4) un producto por paso (sirve igual para la ecuacion y para la comprobacion)
   const producto = (idT: string, idR: string, n: number, v: number, fila: Ficha[]) => {
     const r = n * v;
@@ -276,11 +322,11 @@ function construir(compuesto: string, elemento: string): Resultado {
     cambiar([idT], [{ id: idR, tex: enPos(r, pr) }]);
     paso({
       fusiones: [{ desde: [idT], hacia: idR }],
-      texto: `Multiplicamos: $${n}\\cdot ${par(v)}=${r}$.`,
+      texto: `Multiplicamos: $${n}\\cdot ${v < 0 ? par(v) : `(${sg(v)})`}=${r}$.`,
       porque:
         n === 1
           ? `Un solo átomo aporta justo su número de oxidación.`
-          : `Los $${n}$ átomos aportan $${n}$ veces $${par(v)}$: juntos suman $${r}$.${v < 0 ? " Positivo por negativo da negativo." : ""}`,
+          : `Los $${n}$ átomos aportan $${n}$ veces $${v < 0 ? par(v) : `(${sg(v)})`}$: juntos suman $${r}$.${v < 0 ? " Positivo por negativo da negativo." : ""}`,
       regla: n === 1 ? `$1\\cdot N=N$` : `$n\\cdot N=N+N+\\dots+N$`,
     });
     return r;
@@ -299,19 +345,9 @@ function construir(compuesto: string, elemento: string): Resultado {
 
   const rv = new Map<number, number>(); // valor del producto de cada elemento conocido
   at.forEach(([, n], i) => {
-    if (i === ix) {
-      if (nx === 1) {
-        cambiar(["xn", "xd"], []);
-        paso({
-          fusiones: [{ desde: ["xn", "xd"], hacia: null, modo: "tachar" }],
-          texto: `Hay un solo átomo de ${nom(elemento)}: $1\\cdot x=x$. El $1$ no cambia nada, se tacha.`,
-          porque: `Multiplicar por $1$ no cambia el número.`,
-          regla: `$1\\cdot x=x$`,
-        });
-      }
-      return;
-    }
-    rv.set(i, producto(`t${i}`, `r${i}`, n, valor(i), W));
+    if (i === ix) return;
+    // con un solo atomo el termino ya se escribio como numero: no hay producto
+    rv.set(i, n === 1 ? valor(i) : producto(`t${i}`, `r${i}`, n, valor(i), W));
   });
 
   // ----- 5) los numeros sueltos (sin x) se juntan: de a dos
@@ -375,7 +411,7 @@ function construir(compuesto: string, elemento: string): Resultado {
     W = W.map((f) => (f.id === "fr" ? { id: "X", tex: `${x}` } : f));
     paso({
       fusiones: [{ desde: ["fr"], hacia: "X" }],
-      texto: `Dividimos: $\\dfrac{${cv}}{${nx}}=${x}$. Se comprueba al revés: $${x}\\cdot ${nx}=${cv}$.`,
+      texto: `Dividimos: $\\dfrac{${cv}}{${nx}}=${x}$.`,
       porque: `La raya de la fracción es una división: el número de arriba entre el de abajo.${cv < 0 ? " Negativo entre positivo da negativo." : ""}`,
       regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
     });
@@ -383,38 +419,55 @@ function construir(compuesto: string, elemento: string): Resultado {
   }
 
   // ----- 8) la respuesta viaja al "?" y la etiqueta x se vuelve el numero hallado
-  cambiar(["q"], [{ id: "qR", tex: sg(x) }]);
+  cambiar(["q"], [{ id: "qR", tex: sg(x), pegado: true }]);
   etiquetar(`a${ix}`, col(COLOR.resultado, sg(x)));
   paso({
     fusiones: [{ desde: ["q"], hacia: "qR", modo: "viajar" }],
     brotes: [{ desde: fin, hacia: "qR" }],
-    texto: `Respuesta: el número de oxidación del ${nom(elemento)} en el $${F}$ es $${sg(x)}$. Lo escribimos en el lugar del signo de pregunta, y también debajo del $${X}$, donde estaba la $x$.`,
+    texto: `Respuesta: el número de oxidación del ${nom(elemento)} en el $${F}$ es $${sg(x)}$. Lo escribimos en el lugar del signo de pregunta, y también debajo del $${X}$, donde estaba la $x$.${PROMEDIO[`${compuesto}:${elemento}`] ? ` Ojo: ${PROMEDIO[`${compuesto}:${elemento}`]} Esos valores salen de la estructura de la molécula, que verás más adelante.` : ""}`,
     porque: `El valor que quedó en lugar de $x$ responde lo que pide el enunciado.`,
     regla: `$N(${X})=${sg(x)}$`,
   });
 
   // ----- 9) comprobacion contra el compuesto ORIGINAL: con las etiquetas, la suma da 0
+  // un termino por paso, como en la ecuacion; con un solo atomo el termino ya es el numero (id q) y no hay producto
   const kTerm = (i: number): Ficha => {
     const [, n] = at[i];
-    return { id: `k${i}`, tex: i === ix ? `${n}\\cdot(${col(COLOR.resultado, sg(x))})` : `${n}\\cdot(${col(COLOR.conocido, sg(valor(i)))})` };
+    const v = i === ix ? x : valor(i);
+    const c = i === ix ? COLOR.resultado : COLOR.conocido;
+    return n === 1 ? { id: `q${i}`, tex: colPar(c, v) } : { id: `k${i}`, tex: `${n}\\cdot(${col(c, sg(v))})` };
   };
-  K = at.flatMap((_, i): Ficha[] => (i === 0 ? [{ id: "kS", tex: "", salto: true }, kTerm(i)] : [{ id: `kp${i}`, tex: "+", op: true }, kTerm(i)]));
+  at.forEach(([e, n], i) => {
+    const t = kTerm(i);
+    const v = i === ix ? x : valor(i);
+    K = [...K, ...(i === 0 ? [{ id: "kS", tex: "", salto: true }, t] : [{ id: `kp${i}`, tex: "+", op: true }, t])];
+    const escrito = n === 1 ? par(v) : `${n}\\cdot(${sg(v)})`;
+    paso({
+      fusiones: [],
+      brotes: [...(i === 0 ? [{ desde: "a0", hacia: "kS" }] : []), { desde: `a${i}`, hacia: t.id }],
+      texto:
+        i === 0
+          ? `Comprobamos con el compuesto original: armamos otra vez la suma, ahora con el número que hallamos. Empezamos por el ${nom(e)}: ${n === 1 ? "hay $1$ átomo" : `hay $${n}$ átomos`} y a cada uno le toca $${sg(v)}$${i === ix ? " (el que hallamos)" : ""}. Escribimos $${escrito}$.`
+          : `Seguimos con el ${nom(e)}: ${n === 1 ? "hay $1$ átomo" : `hay $${n}$ átomos`} y a cada uno le toca $${sg(v)}$${i === ix ? " (el que hallamos)" : ""}. Escribimos $${escrito}$ y lo sumamos.`,
+      porque: i === 0 ? `Cada átomo aporta su número de oxidación. Si hay $n$ átomos del mismo elemento, aportan $n$ veces ese número.` : i === 1 ? `Igual que con el elemento anterior: los $n$ átomos aportan $n$ veces su número.` : `Con el ${nom(e)} se hace lo mismo: ${n === 1 ? "un átomo aporta su número" : `los $${n}$ átomos aportan $${n}$ veces su número`}.`,
+      regla: reglaT,
+    });
+  });
   K = [...K, { id: "ke", tex: "=", op: true }, { id: "kz", tex: "0" }];
   paso({
     fusiones: [],
     brotes: [
-      { desde: "a0", hacia: "kS" },
-      ...at.map((_, i) => ({ desde: `a${i}`, hacia: `k${i}` })),
       { desde: "a0", hacia: "ke" },
       { desde: "a0", hacia: "kz" },
     ],
-    texto: `Comprobamos con el compuesto original: de cada átomo tomamos su cantidad y el número que tiene debajo (en el ${nom(elemento)} ya está el $${sg(x)}$) y volvemos a armar la suma. Tiene que dar $0$.`,
+    texto: `La suma tiene que dar $0$, porque el compuesto es neutro. Si da $0$, el número que hallamos está bien.`,
     porque: `Una solución es buena si, al ponerla en lugar de $x$, la suma de los números de oxidación da $0$ como pide un compuesto neutro.`,
-    regla: reglaT,
+    regla: `$n_{1}\\cdot N_{1}+n_{2}\\cdot N_{2}+\\dots=0$`,
   });
   const qv: number[] = [];
   at.forEach(([, n], i) => {
-    qv.push(producto(`k${i}`, `q${i}`, n, i === ix ? x : valor(i), K));
+    const v = i === ix ? x : valor(i);
+    qv.push(n === 1 ? v : producto(`k${i}`, `q${i}`, n, v, K));
   });
   let kc = `q0`;
   let ka = qv[0];
@@ -428,7 +481,7 @@ function construir(compuesto: string, elemento: string): Resultado {
   paso({
     fusiones: [{ desde: [kc, "ke", "kz"], hacia: "kok" }],
     texto: `Los dos lados valen $0$: la igualdad se cumple. Entonces el número de oxidación del ${nom(elemento)} en el $${F}$ es $${sg(x)}$.`,
-    porque: `Si al reemplazar $x$ la suma da $0$, el valor es correcto.`,
+    porque: `Con el número hallado en lugar de $x$, el compuesto neutro se cumple: eso confirma que el valor es correcto.`,
     regla: `$n_{1}\\cdot N_{1}+n_{2}\\cdot N_{2}+\\dots=0$`,
   });
 
