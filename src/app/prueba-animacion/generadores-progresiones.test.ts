@@ -119,7 +119,7 @@ describe("progresion aritmetica", () => {
       const reglas = t.map((x) => x.regla ?? "");
       const textos = t.map((x) => x.texto);
       const t2 = a1 + d;
-      const hayRestaNegativa = a1 < 0 || t2 < 0; // el sustraendo de alguna de las dos restas es negativo
+      const hayRestaNegativa = a1 < 0 || t2 < 0 || d < 0; // el sustraendo de alguna resta es negativo (las dos de la sucesion y la de la comprobacion con d negativa)
       assert.equal(reglas.some((x) => x.includes("a-(-b)")), hayRestaNegativa, `${a1},${d},${n}: restar un negativo`);
       assert.equal(reglas.some((x) => x.includes("a+(-b)")), d < 0, `${a1},${d},${n}: sumar un negativo solo si el producto es negativo`);
       assert.equal(reglas.some((x) => x.includes("negativo}")), d < 0, `${a1},${d},${n}: la regla de signos del producto depende de d`);
@@ -133,7 +133,7 @@ describe("progresion aritmetica", () => {
   });
 
   test("orden de las cuentas: primero el parentesis, luego el producto, luego la suma, y la comprobacion al final", () => {
-    for (const [a1, d, n] of [[3, 4, 10], [-8, -3, 12], [5, -2, 3]] as const) {
+    for (const [a1, d, n] of [[3, 4, 10], [-8, -3, 12], [5, -2, 4]] as const) {
       const t = progresionAritmetica(a1, d, n).demo.transiciones;
       const iPar = t.findIndex((x) => x.texto.startsWith("Primera cuenta: el paréntesis"));
       const iProd = t.findIndex((x) => x.texto.startsWith("Segunda cuenta: el producto"));
@@ -141,8 +141,12 @@ describe("progresion aritmetica", () => {
       assert.ok(iPar > 0 && iPar < iProd && iProd < iSuma, `${a1},${d},${n}`);
       // la ecuacion y las etiquetas se quitan antes de calcular
       assert.ok(t.findIndex((x) => x.texto.startsWith("Ya tenemos todos los valores")) < iPar);
-      assert.ok(t.at(-1)!.texto.startsWith("Respuesta"), "el ultimo paso es la comprobacion");
-      assert.ok(t.at(-1)!.texto.includes(`$${a1 + (n - 1) * d}$`));
+      const iResp = t.findIndex((x) => x.texto.startsWith("Respuesta"));
+      const iRev = t.findIndex((x) => x.texto.startsWith("Revisamos"));
+      const iRest = t.findIndex((x) => x.texto.startsWith("Restamos"));
+      assert.ok(iResp > iSuma && iResp < iRev && iRev < iRest && t[t.length - 1].texto.startsWith("Y al revés"), "los ultimos pasos son la respuesta y la comprobacion");
+      assert.ok(t[iResp].texto.includes(`$${a1 + (n - 1) * d}$`));
+      assert.equal(t.some((x) => x.texto.startsWith("Restar un número negativo es sumar su opuesto: $") && x.regla === "$a-(-b)=a+b$" && iRev < t.indexOf(x)), d < 0, "con d negativa, la resta de la comprobacion pasa por la suma");
     }
   });
 
@@ -173,7 +177,8 @@ describe("progresion aritmetica", () => {
     revisar(r.demo, "0,1,4");
     assert.ok(validarProgresion(3, 0, 10), "d=0 se rechaza");
     assert.ok(validarProgresion(3.5, 4, 10));
-    assert.ok(validarProgresion(3, 4, 2), "n menor que 3");
+    assert.ok(validarProgresion(3, 4, 3), "n = 3: la sucesion del enunciado ya trae ese termino");
+    assert.ok(validarProgresion(3, 4, 4), "n = 4: la ultima pista es el propio ejercicio");
     assert.ok(validarProgresion(3, 4, 31));
     assert.ok(validarProgresion(21, 4, 10));
     assert.ok(validarProgresion(3, 11, 10));

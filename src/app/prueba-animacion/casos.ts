@@ -135,7 +135,7 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "d negativa", v: ["3", "-4", "10"] },
     { nombre: "restar un negativo", v: ["-5", "3", "6"] },
     { nombre: "todo negativo, extremos", v: ["-20", "-10", "30"] },
-    { nombre: "a1 cero y n minimo", v: ["0", "1", "3"] },
+    { nombre: "a1 cero y n minimo", v: ["0", "1", "5"] },
     { nombre: "cruza el cero", v: ["-8", "3", "12"] },
   ],
   pitagoras: [

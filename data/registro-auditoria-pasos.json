@@ -110,10 +110,10 @@
       "nota": "Re-lectura independiente tras los arreglos del revisor visual (texto de la tabla acortado, Comprobacion en su renglon, theta a radio 46, KaTeX_Main): leidos sen30 incognita arriba (hip 98, op 5 hip), cos60 incognita abajo con producto cruzado (ady 1 y 7), tan45 abajo (op 9 ady) y arriba (ady 99 op), limites 1 y 99. Cada simbolo nace de lo escrito, la comprobacion nace de Dk, r y la fila Tabla, sin saltos nuevos. Sin ver pantalla: figura y fuente a cargo del revisor-visual. Pendiente de Ronald: fila de datos desde el estado 0."
     },
     "progresion": {
-      "estado": "con-hallazgos",
-      "huella": "6cc283ed4edd",
-      "fecha": "2026-10-18",
-      "nota": "18-oct: formula dada sin derivar n-1 (a3=a1+2d solo en el porque); comprobacion final borra la sucesion en T12 y trae a(n-1) (35, -300) sin calcular; n=3 muestra la respuesta desde el inicio; D1,D2 se funden sin ancla; reglas a1=3/d=4/n=10 repiten el texto"
+      "estado": "auditado",
+      "huella": "ab620d53a0bf",
+      "fecha": "2026-10-24",
+      "nota": "4a lectura independiente sin saltos (23-oct); pistas a_2..a_4 derivan el n-1, las dos diferencias se resaltan antes de fundirse, n minimo 5, comprobacion de 3 pasos con d a la vista y la regla de signos reusada. Abierto para Ronald: la comprobacion es una identidad (resultado menos d, mas d); sumar un negativo en el ultimo paso con d<0 sin paso aparte; pasos de 1200 px con las pistas."
     },
     "pitagoras": {
       "estado": "auditado",
