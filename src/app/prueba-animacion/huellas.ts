@@ -43,7 +43,7 @@ export const CASOS: Record<string, () => Demo[]> = {
   progresion: () => [progresionAritmetica(3, 4, 10), progresionAritmetica(3, -4, 10)].map((r) => r.demo),
   pitagoras: () => [pitagoras("hipotenusa", 3, 4), pitagoras("cateto", 13, 5)].map((r) => r.demo),
   punnett: () => [punnett("Aa", "Aa"), punnett("AA", "aa")].map((r) => r.demo),
-  interes: () => [interesSimple(2000, 5, 18, "meses"), interesSimple(2000, 5, 3, "años")].map((r) => r.demo),
+  interes: () => [interesSimple(2000, 5, 18, "meses"), interesSimple(250, 5, 3, "años"), interesSimple(3000, 8, 12, "meses"), interesSimple(1200, 6, 1, "meses"), interesSimple(120, 1, 1, "meses")].map((r) => r.demo),
   estequiometria: () => [estequiometria("formacion-agua", "H2", "H2O", 8, "g")].map((r) => r.demo),
 };
 

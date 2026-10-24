@@ -159,6 +159,10 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "meses que no simplifican", v: ["1200", "6", "5", "meses"] },
     { nombre: "24 meses = 2 años", v: ["1000", "10", "24", "meses"] },
     { nombre: "decimales", v: ["250", "5", "18", "meses"] },
+    { nombre: "12 meses = 1 año", v: ["3000", "8", "12", "meses"] },
+    { nombre: "1 mes (singular)", v: ["1200", "6", "1", "meses"] },
+    { nombre: "menos de 1 Bs", v: ["120", "1", "1", "meses"] },
+    { nombre: "decimal en años", v: ["250", "5", "3", "años"] },
     { nombre: "años sin conversion", v: ["2000", "5", "3", "años"] },
   ],
 };

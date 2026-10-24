@@ -58,8 +58,7 @@ describe("interes simple: toda combinacion permitida", () => {
             const e = ultimo(res.demo);
             assert.ok(e.some((f) => f.id === "Ires" && f.tex === nf(res.resumen.I)), `${etq}: falta el interes en la hoja`);
             assert.ok(e.some((f) => f.id === "Mres" && f.tex === nf(res.resumen.M)), `${etq}: falta el monto en la hoja`);
-            // las dos comprobaciones dan lo mismo que el resultado
-            assert.ok(e.some((f) => f.id === "Cres" && f.tex === nf(res.resumen.I)), `${etq}: la comprobacion del interes no coincide`);
+            // la comprobacion (monto menos capital) da lo mismo que el interes
             assert.ok(e.some((f) => f.id === "Mkr" && f.tex === nf(res.resumen.I)), `${etq}: M - C no da el interes`);
             casos++;
           }
@@ -84,11 +83,11 @@ describe("interes simple: ejemplos", () => {
     assert.ok(d.transiciones.some((t) => t.fusiones.some((f) => f.modo === "tachar" && f.desde.includes("Tng") && f.desde.includes("Tdg"))));
     // los meses se tachan con los meses del factor de conversion
     assert.ok(d.transiciones.some((t) => t.fusiones.some((f) => f.modo === "tachar" && f.desde.includes("Dtu") && f.desde.includes("FCdu"))));
-    // cuentas del texto: 2000·5 = 10000, 10000/100 = 100, 100·3 = 300, 300/2 = 150
+    // cuentas del texto: todo en UNA fraccion (2000·5 = 10000, 10000·3 = 30000), 30000 = 15000·2 y 15000/100 = 150
     const todo = d.transiciones.map((t) => t.texto).join(" ");
-    for (const frag of ["2000\\cdot 5=10000", "\\dfrac{10000}{100}=100", "100\\cdot 3=300", "\\dfrac{300}{2}=150", "2000+150=2150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
-    // cuentas de la comprobacion: 2000·3 = 6000, 6000/2 = 3000, 3000·5 = 15000, 15000/100 = 150, 2150 - 2000 = 150
-    for (const frag of ["2000\\cdot 3=6000", "\\dfrac{6000}{2}=3000", "3000\\cdot 5=15000", "\\dfrac{15000}{100}=150", "2150-2000=150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
+    for (const frag of ["2000\\cdot 5=10000", "10000\\cdot 3=30000", "30000=15000\\cdot 2", "\\dfrac{15000}{100}=150", "2000+150=2150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
+    // comprobacion: el monto menos el capital da el interes
+    assert.ok(todo.includes("2150-2000=150"), "falta 2150-2000=150");
   });
 
   test("tiempo en años: no hay conversion de unidades y 2000 Bs al 5 % por 3 años da 300", () => {
@@ -104,13 +103,14 @@ describe("interes simple: ejemplos", () => {
     assert.ok(!d.transiciones.some((t) => t.texto.includes("meses a años")));
   });
 
-  test("meses que son años completos: 24 meses = 2 años enteros (se divide, no se simplifica)", () => {
+  test("meses que son años completos: 24 meses = 2 años enteros (12 meses = 1 año se ve con las listas de divisores)", () => {
     const r = interesSimple(1000, 10, 24, "meses");
     controles(r.demo, "24 meses");
     assert.equal(r.resumen.tAnios, 2);
     assert.equal(r.resumen.I, 200);
-    assert.ok(idxTexto(r.demo, /Son años completos/) >= 0);
-    assert.ok(!r.demo.transiciones.some((t) => t.descompone), "no hay nada que simplificar");
+    assert.ok(idxTexto(r.demo, /años completos/) >= 0);
+    assert.ok(idxTexto(r.demo, /Divisores de|Los que están en las dos listas/) >= 0, "las listas de divisores se escriben");
+    assert.ok(r.demo.transiciones.some((t) => t.descompone && t.texto.includes("24=2\\cdot 12") && t.texto.includes("12=1\\cdot 12")));
   });
 
   test("meses que no se simplifican: 5 meses = 5/12 y el texto lo dice", () => {

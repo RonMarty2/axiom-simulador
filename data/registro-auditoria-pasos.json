@@ -128,10 +128,10 @@
       "nota": ""
     },
     "interes": {
-      "estado": "con-hallazgos",
-      "huella": "1dd052748603",
-      "fecha": "2026-10-18",
-      "nota": "12,5 y 18,75: 1250/100 y 37,5/2 en un solo paso sin proceso; lista de divisores solo en el texto; comprobacion del interes (8 pasos) repite la misma cuenta en otro orden; 12 meses=1 año solo en la regla"
+      "estado": "auditado",
+      "huella": "52c669e608d6",
+      "fecha": "2026-10-24",
+      "nota": "3a lectura independiente limpia (23-oct); despues solo cambios tipograficos (comas y ':' pegados, parentesis dentro de la formula, frase sin jerga). Visual: sin desbordes; quedan A (I sola en un renglon con capital de 4 cifras), E (hueco antes de Bs con decimal, pegarUnidades no acepta {,}), F (etiquetas r y t se van juntas) para Ronald."
     }
   }
 }
