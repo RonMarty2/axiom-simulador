@@ -236,8 +236,30 @@ describe("Pitagoras: casos difíciles y datos del enunciado", () => {
     assert.ok(brotes.some((br) => br.hacia === "Cc" && br.desde === "XR"), "el c de la comprobacion nace del resultado");
   });
 
-  test("cantidad de pasos medida: 21 con hipotenusa, 23 con cateto (los dos pasos de ordenar)", () => {
-    assert.equal(pitagoras("hipotenusa", 3, 4).demo.transiciones.length, 21);
-    assert.equal(pitagoras("cateto", 13, 5).demo.transiciones.length, 23);
+  test("cantidad de pasos medida: 23 con hipotenusa, 26 con cateto (los dos pasos de ordenar y el tanteo por decenas y ultima cifra)", () => {
+    assert.equal(pitagoras("hipotenusa", 3, 4).demo.transiciones.length, 23);
+    assert.equal(pitagoras("cateto", 13, 5).demo.transiciones.length, 26);
+  });
+});
+
+describe("Pitagoras: la raiz de dos cifras no se adivina", () => {
+  // 33 y 56 dan 65: entre que decenas esta, que cifra termina, y recien ahi el numero que se prueba
+  test("65: decenas, ultima cifra y el justo, en ese orden y sin raiz antes de tiempo", () => {
+    const t = textos(pitagoras("hipotenusa", 33, 56).demo);
+    const iDec = t.findIndex((x) => x.includes("entre $60$ y $70$"));
+    const iCifra = t.findIndex((x) => x.includes("termina en $5$"));
+    const iJusto = t.findIndex((x) => x.includes("$65\\cdot 65=4225$") && x.includes("Justo"));
+    const iRaiz = t.findIndex((x) => x.includes("$\\sqrt{4225}=65$"));
+    assert.ok(iDec >= 0 && iDec < iCifra && iCifra < iJusto && iJusto < iRaiz, "orden: decenas, cifra, justo, raiz");
+  });
+  // 74: 5476 termina en 6, asi que 4 o 6: se prueba el 74 y es justo; 76 no hace falta
+  test("cuando dos cifras terminan igual se prueban en orden y se corta en el justo", () => {
+    const t = textos(pitagoras("hipotenusa", 51, 68).demo); // 85
+    assert.ok(t.some((x) => x.includes("termina en $5$")), "85 termina en 5");
+    const r = pitagoras("cateto", 85, 36); // el otro cateto: 77
+    const u = textos(r.demo);
+    assert.ok(u.some((x) => x.includes("termina en $9$") && x.includes("$3\\cdot 3=9$") && x.includes("$7\\cdot 7=49$")), "las dos cifras que terminan en 9");
+    assert.ok(u.some((x) => x.includes("$77\\cdot 77=5929$") && x.includes("Justo")));
+    assert.ok(!u.some((x) => x.includes("$73\\cdot 73")) || u.some((x) => x.includes("$73\\cdot 73=5329$") && x.includes("cortos")), "73 se prueba y se queda corto");
   });
 });

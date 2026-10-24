@@ -116,10 +116,10 @@
       "nota": "18-oct: formula dada sin derivar n-1 (a3=a1+2d solo en el porque); comprobacion final borra la sucesion en T12 y trae a(n-1) (35, -300) sin calcular; n=3 muestra la respuesta desde el inicio; D1,D2 se funden sin ancla; reglas a1=3/d=4/n=10 repiten el texto"
     },
     "pitagoras": {
-      "estado": "con-hallazgos",
-      "huella": "623b5f89401f",
-      "fecha": "2026-10-18",
-      "nota": "T13-T16/T15-T17: tanteo (r-1, r) sin origen, el alumno no puede adivinar 64/65 o 95/96; comprobacion final reemplaza a, b, c a la vez y calcula los 3 cuadrados en un paso (3 numeros nuevos, sin 3x3)"
+      "estado": "auditado",
+      "huella": "d2b1f952c140",
+      "fecha": "2026-10-24",
+      "nota": "3a lectura independiente limpia (23-oct); tanteo con escalera escrita (de 1 en 1 o de 10 en 10), ultima cifra con candidatos nombrados, comprobacion un cuadrado por paso. Abierto para Ronald: la comprobacion repite calculos hechos arriba; exponente suelto al partir renglon en buscar cateto (motor Fusion); numeros de la comprobacion sin color; tachado de filas solo se ve en movimiento."
     },
     "punnett": {
       "estado": "pendiente",

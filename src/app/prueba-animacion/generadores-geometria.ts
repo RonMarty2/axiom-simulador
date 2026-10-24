@@ -119,7 +119,7 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
   const datos: Ficha[] = [];
   dados.forEach((k, i) => {
     datos.push({ id: `D${k}`, tex: String(val[k]) }, { id: `D${k}u`, tex: CM });
-    datos.push({ id: `Ds${i}`, tex: ",", op: true });
+    datos.push({ id: `Ds${i}`, tex: ",", op: true, pegado: true });
   });
   datos.push({ id: "Dq", tex: "?" });
   const h = new Hoja(datos);
@@ -263,46 +263,84 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
     porque: `Para encontrar el lado hay que deshacer el cuadrado. Un cuadrado es un número por sí mismo.`,
     regla: `$x^{2}=x\\cdot x$`,
   });
-  // tanteo: un numero que se queda corto y el justo
-  h.agregar([
-    { id: "Ts1", tex: "", salto: true },
-    { id: "T1a", tex: String(r - 1) },
-    { id: "T1x", tex: "\\cdot", op: true },
-    { id: "T1b", tex: String(r - 1) },
-    { id: "T1e", tex: "=", op: true },
-    { id: "T1v", tex: String((r - 1) ** 2), debajo: "\\text{se queda corto}" },
-  ]);
-  h.paso({
-    fusiones: [],
-    brotes: ["Ts1", "T1a", "T1b", "T1v"].map((hacia) => ({ desde: "Q1", hacia })),
-    texto: `Probamos con un número: con $${r - 1}$ sale $${r - 1}\\cdot ${r - 1}=${(r - 1) ** 2}$. Es menos que $${total}$: nos quedamos cortos.`,
-    porque: `Buscar la raíz es probar números: si el producto no llega a lo que piden, hay que subir el número.`,
-    regla: `$${r - 1}\\cdot ${r - 1}=${(r - 1) ** 2}<${total}$`,
-  });
-  h.agregar([
-    { id: "Ts2", tex: "", salto: true },
-    { id: "J1", tex: String(r) },
-    { id: "Jx", tex: "\\cdot", op: true },
-    { id: "J2", tex: String(r) },
-    { id: "Je", tex: "=", op: true },
-    { id: "Jv", tex: String(total), debajo: "\\text{justo}" },
-  ]);
-  h.paso({
-    fusiones: [],
-    brotes: ["Ts2", "J1", "J2", "Jv"].map((hacia) => ({ desde: "Q2", hacia })),
-    texto: `Probamos con el siguiente: $${r}\\cdot ${r}=${total}$. Justo lo que pedía la pregunta.`,
-    porque: `Si multiplicado por sí mismo da $${total}$, ese número es el que buscamos.`,
-    regla: `$${r}\\cdot ${r}=${total}$`,
+  // tanteo de la raiz. Raiz de una cifra o decena justa (r <= 10 o r multiplo de 10): un numero que se queda corto y el justo.
+  // Raiz de dos cifras: primero entre que decenas esta, despues la ultima cifra (que cifras al cuadrado terminan igual
+  // que el numero) y recien ahi se prueban los pocos candidatos: el alumno no tiene que adivinar 64 o 65.
+  type Fila = { id: string; m: number; resultado: number; nota: string };
+  const filas: Fila[] = [];
+  const dec = Math.floor(r / 10) * 10;
+  const porDecenas = r > 10 && r % 10 !== 0;
+  const ultima = total % 10;
+  const digitos = porDecenas ? [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].filter((d) => (d * d) % 10 === ultima) : [];
+  const todosCand = digitos.map((d) => dec + d); // los que anuncia el texto
+  const candidatos = todosCand.filter((m) => m <= r); // los que se prueban: se corta en el justo
+  const lad = (ms: number[]) => ms.map((m) => `$${m}\\cdot ${m}=${m * m}$`).join(", ");
+  const serie = (de: number, hasta: number, paso: number) => Array.from({ length: Math.max(0, Math.floor((hasta - de) / paso) + 1) }, (_, i) => de + i * paso);
+  const nuevaFila = (m: number, nota: string, k: number): Ficha[] => [
+    { id: `W${k}s`, tex: "", salto: true },
+    { id: `W${k}a`, tex: String(m) },
+    { id: `W${k}x`, tex: "\\cdot", op: true },
+    { id: `W${k}b`, tex: String(m) },
+    { id: `W${k}e`, tex: "=", op: true },
+    { id: `W${k}v`, tex: String(m * m), debajo: nota },
+  ];
+  const idsFila = (k: number) => [`W${k}s`, `W${k}a`, `W${k}x`, `W${k}b`, `W${k}e`, `W${k}v`];
+  let k = 0;
+  const poner = (m: number, nota: string, desde: string) => {
+    filas.push({ id: String(k), m, resultado: m * m, nota });
+    h.agregar(nuevaFila(m, nota, k));
+    const ids = idsFila(k);
+    k++;
+    return ids.map((hacia) => ({ desde, hacia }));
+  };
+  if (porDecenas) {
+    const b1 = poner(dec, "\\text{corto}", "Q1");
+    const b2 = poner(dec + 10, "\\text{se pasa}", "Q1");
+    h.paso({
+      fusiones: [],
+      brotes: [...b1, ...b2],
+      texto: `Probamos de diez en diez: ${lad(serie(10, dec, 10))}. ${dec === 10 ? "Da" : "Todos dan"} menos que $${total}$: nos quedamos cortos. Con $${dec + 10}\\cdot ${dec + 10}=${(dec + 10) ** 2}$ ya nos pasamos. Entonces el número está entre $${dec}$ y $${dec + 10}$.`,
+      porque: `Si un número da menos y el siguiente da más, lo que buscamos está entre los dos.`,
+      regla: `$${dec}^{2}<${total}<${dec + 10}^{2}$`,
+    });
+    const dig = digitos.map((d) => `$${d}\\cdot ${d}=${d * d}$`).join(" y ");
+    h.paso({
+      fusiones: [],
+      resaltar: ["Pres"],
+      texto: `Ahora la última cifra. $${total}$ termina en $${ultima}$. Al multiplicar un número por sí mismo, la última cifra sale de multiplicar la última cifra. Miramos las cifras del $0$ al $9$ y solo estas terminan en $${ultima}$: ${dig}. Entonces el número termina en ${digitos.length === 1 ? `$${digitos[0]}$` : `$${digitos[0]}$ o en $${digitos[1]}$`}. Entre $${dec}$ y $${dec + 10}$ y con esa última cifra ${todosCand.length === 1 ? `queda solo el $${todosCand[0]}$` : `hay dos: $${todosCand[0]}$ y $${todosCand[1]}$. Probamos primero el menor`}.`,
+      porque: `La última cifra de un producto depende solo de las últimas cifras de los factores. Así quedan pocos números para probar.`,
+      regla: `$${digitos.map((d) => `${d}\\cdot ${d}=${d * d}`).join(",\\ ")}$`,
+    });
+  }
+  const probar = porDecenas ? candidatos : r > 10 ? [r - 10, r] : r > 1 ? [r - 1, r] : [r];
+  probar.forEach((m, i) => {
+    const ultimo = m === r;
+    const desde = ultimo ? "Q2" : "Q1";
+    const brotes = poner(m, ultimo ? "\\text{justo}" : "\\text{corto}", desde);
+    h.paso({
+      fusiones: [],
+      brotes,
+      texto: porDecenas
+        ? ultimo
+          ? `Probamos con ${todosCand.length === 1 ? "" : i === 0 ? "el primer candidato, " : "el segundo candidato, "}$${m}$: $${m}\\cdot ${m}=${total}$. Justo lo que pedía la pregunta.${todosCand.some((x) => x > r) ? ` Ya no hace falta probar el $${todosCand.find((x) => x > r)}$.` : ""}`
+          : `Probamos con el primer candidato, $${m}$: $${m}\\cdot ${m}=${m * m}$. Es menos que $${total}$: nos quedamos cortos.`
+        : ultimo
+          ? `Probamos con el siguiente, $${m}$: $${m}\\cdot ${m}=${total}$. Justo lo que pedía la pregunta.`
+          : `Probamos los números en orden, ${r > 10 ? "de diez en diez" : "desde $1$"}: ${lad(r > 10 ? serie(10, m, 10) : serie(1, m, 1))}. ${(r > 10 ? serie(10, m, 10) : serie(1, m, 1)).length === 1 ? "Da" : "Todos dan"} menos que $${total}$: nos quedamos cortos.`,
+      porque: ultimo ? `Si multiplicado por sí mismo da $${total}$, ese número es el que buscamos.` : `Buscar la raíz es probar números: si el producto no llega a lo que piden, hay que subir el número.`,
+      regla: ultimo ? `$${m}\\cdot ${m}=${total}$` : `$${m}\\cdot ${m}=${m * m}<${total}$`,
+    });
   });
   // se encuentra: x.x y r.r valen lo mismo, asi que x = r
+  const ultimaFila = k - 1;
+  const tanteo = Array.from({ length: k }, (_, i) => idsFila(i)).flat().filter((id) => id !== `W${ultimaFila}a`);
   h.cambiar(["Q1", "Qx", "Q2"], [{ id: "XL", tex: col(incog, incog) }]);
   h.cambiar(["Pres"], [{ id: "XR", tex: String(r) }]);
-  const tanteo = ["Ts1", "T1a", "T1x", "T1b", "T1e", "T1v", "Ts2", "J2", "Jx", "Je", "Jv"];
-  h.quitar("J1", ...tanteo);
+  h.quitar(`W${ultimaFila}a`, ...tanteo);
   h.paso({
     fusiones: [
       { desde: ["Q1", "Qx", "Q2"], hacia: "XL" },
-      { desde: ["J1", "Pres"], hacia: "XR" },
+      { desde: [`W${ultimaFila}a`, "Pres"], hacia: "XR" },
       { desde: tanteo, hacia: null, modo: "tachar" },
     ],
     texto: `$${incog}\\cdot ${incog}$ y $${r}\\cdot ${r}$ dan lo mismo, $${total}$. Entonces $${incog}=${r}$. Eso es sacar la raíz cuadrada: $\\sqrt{${total}}=${r}$.`,
@@ -350,19 +388,16 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
     porque: `Si el lado que encontramos está bien, el teorema de Pitágoras se cumple con los tres números.`,
     regla: `$a^{2}+b^{2}=c^{2}$`,
   });
-  h.cambiar(["Ca", "Ca2"], [{ id: "Ka", tex: String(a * a) }]);
-  h.cambiar(["Cb", "Cb2"], [{ id: "Kb", tex: String(b * b) }]);
-  h.cambiar(["Cc", "Cc2"], [{ id: "Kc", tex: String(c * c) }]);
-  h.paso({
-    fusiones: [
-      { desde: ["Ca", "Ca2"], hacia: "Ka" },
-      { desde: ["Cb", "Cb2"], hacia: "Kb" },
-      { desde: ["Cc", "Cc2"], hacia: "Kc" },
-    ],
-    texto: `Calculamos los tres cuadrados: $${a}^{2}=${a * a}$, $${b}^{2}=${b * b}$ y $${c}^{2}=${c * c}$.`,
-    porque: `Cada uno es el número multiplicado por sí mismo, como hicimos arriba.`,
-    regla: `$n^{2}=n\\cdot n$`,
-  });
+  // un cuadrado por paso, con su producto escrito (el alumno ve 3·3 = 9, no solo el 9)
+  for (const [l, n] of [["a", a], ["b", b], ["c", c]] as const) {
+    h.cambiar([`C${l}`, `C${l}2`], [{ id: `K${l}`, tex: String(n * n) }]);
+    h.paso({
+      fusiones: [{ desde: [`C${l}`, `C${l}2`], hacia: `K${l}` }],
+      texto: `Calculamos $${n}^{2}$: $${n}^{2}=${n}\\cdot ${n}=${n * n}$.`,
+      porque: l === "a" ? `Es el número multiplicado por sí mismo, como hicimos arriba.` : l === "b" ? `Igual que con $a$, ahora con $b$.` : `Y por último el lado más largo: la hipotenusa.`,
+      regla: `$n^{2}=n\\cdot n$`,
+    });
+  }
   h.cambiar(["Ka", "Cp", "Kb"], [{ id: "Ks", tex: String(a * a + b * b) }]);
   h.paso({
     fusiones: [{ desde: ["Ka", "Cp", "Kb"], hacia: "Ks" }],
