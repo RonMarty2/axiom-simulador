@@ -20,7 +20,7 @@ export type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" |
 export type Armado = { demo: Demo } | { error: string };
 
 /** tipos que tienen version RAPIDA (lo que se escribe en el examen) ademas de la explicada */
-export const CON_RAPIDA: Tipo[] = ["fracciones", "molaridad", "tiro"];
+export const CON_RAPIDA: Tipo[] = ["fracciones", "molaridad", "tiro", "mruv"];
 
 export function construir(tipo: Tipo, v: string[], rapido = false): Armado {
   const n = v.map(Number);
@@ -64,7 +64,7 @@ export function construir(tipo: Tipo, v: string[], rapido = false): Armado {
   }
   if (tipo === "mruv") {
     const e = validarMruvMultiplica(n[0], n[1], n[2]);
-    return e ? { error: e } : { demo: mruvMultiplica(n[0], n[1], n[2]).demo };
+    return e ? { error: e } : { demo: mruvMultiplica(n[0], n[1], n[2], undefined, rapido).demo };
   }
   if (tipo === "charles") {
     const e = validarCharles(n[0], n[1], n[2]);

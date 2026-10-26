@@ -203,6 +203,24 @@ describe("MRUV: multiplica su velocidad (hallar a con dos incognitas)", () => {
     assert.ok(r.demo.transiciones.at(-1)!.texto.includes("cumple también"));
   });
 
+  test("RAPIDA: toda combinacion pasa revisar, da el mismo resumen que la explicada y tiene pocos pasos", () => {
+    let casos = 0;
+    for (let k = 2; k <= 5; k++) {
+      for (let t = 2; t <= 20; t += 2) {
+        for (let d = 1; d <= 2000; d += 3) {
+          if (validarMruvMultiplica(k, d, t)) continue;
+          const et = `rapida mult ${k},${d},${t}`;
+          const r = mruvMultiplica(k, d, t, undefined, true);
+          revisar(r.demo, et);
+          assert.deepEqual(r.resumen, mruvMultiplica(k, d, t).resumen, `${et}: mismo resultado que la explicada`);
+          assert.ok(r.demo.transiciones.length <= 9, `${et}: la rapida tiene ${r.demo.transiciones.length} pasos`);
+          casos++;
+        }
+      }
+    }
+    assert.ok(casos > 20);
+  });
+
   test("toda combinacion permitida: d = c4·a y v_f^2 = v_0^2 + 2ad (con enteros)", () => {
     let casos = 0;
     for (let k = 2; k <= 5; k++) {

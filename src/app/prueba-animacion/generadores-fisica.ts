@@ -814,7 +814,160 @@ export function validarMruvMultiplica(k: number, d: number, t: number): string |
   return null;
 }
 
-export function mruvMultiplica(k: number, d: number, t: number, enunciado?: string): Resultado {
+/** Version RAPIDA: lo que se escribe en el examen (dos formulas, reemplazar, despejar v0, reemplazar, calcular a). Sin etiquetas de
+ *  cada dato, sin comprobacion con la tercera formula y sin la regla de signos. Mismo `resumen` que la explicada. */
+function mruvMultiplicaRapido(k: number, d: number, t: number): Resultado {
+  const c1 = t / (k - 1);
+  const c2 = t * c1;
+  const c3 = (t * t) / 2;
+  const c4 = c2 + c3;
+  const a = d / c4;
+  const v0 = c1 * a;
+  const vf = k * v0;
+  const vf2 = vf * vf;
+  const v02 = v0 * v0;
+  const dosAd = 2 * a * d;
+  const S = (id: string): Ficha => ({ id, tex: "", salto: true });
+  const O = (id: string, tex: string): Ficha => ({ id, tex, op: true });
+  const P = (id: string, tex: string): Ficha => ({ id, tex });
+  const dat: Ficha[] = [
+    P("Dkw1", `\\text{${VECES[k]}}`),
+    P("Dkw2", "\\text{su velocidad}"),
+    S("DS1"),
+    P("Dd", `d=${nf(d)}\\ \\text{m}`),
+    O("Dcd", ","),
+    P("Dt", `t=${nf(t)}\\ \\text{s}`),
+    S("DS2"),
+    P("Dq", "a=\\ ?"),
+  ];
+  let r1: Ficha[] = [];
+  let r2: Ficha[] = [];
+  const estados: Ficha[][] = [clon(dat)];
+  const trans: Transicion[] = [];
+  const paso = (tr: Transicion) => {
+    estados.push(clon([...dat, ...r1, ...r2]));
+    trans.push(tr);
+  };
+  const coef = (n: number, s: string) => (n === 1 ? s : `${n}${s}`);
+
+  // 1) las dos formulas, con letras
+  r1 = [S("S1"), P("A1", "v_{f}"), O("a1e", "="), P("A2", "v_{0}"), O("a1p", "+"), P("A3", "a"), O("a1m", "\\cdot"), P("A4", "t")];
+  r2 = [S("S2"), P("B1", "d"), O("b1e", "="), P("B2", "v_{0}"), O("b1m", "\\cdot"), P("B3", "t"), O("b1p", "+"), P("B4", "\\dfrac{1}{2}"), O("b1n", "\\cdot"), P("B5", "a"), O("b1o", "\\cdot"), P("B6", "t^{2}")];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "Dq", hacia: "S1" },
+      { desde: "Dq", hacia: "A1" },
+      { desde: "Dq", hacia: "A2" },
+      { desde: "Dq", hacia: "A3" },
+      { desde: "Dq", hacia: "A4" },
+      { desde: "Dd", hacia: "S2" },
+      { desde: "Dd", hacia: "B1" },
+      { desde: "Dd", hacia: "B2" },
+      { desde: "Dd", hacia: "B3" },
+      { desde: "Dd", hacia: "B4" },
+      { desde: "Dd", hacia: "B5" },
+      { desde: "Dd", hacia: "B6" },
+    ],
+    texto: `No sabemos la velocidad inicial $v_{0}$ ni la aceleración $a$: son dos incógnitas, así que usamos dos fórmulas del MRUV, la de la velocidad y la de la distancia. Todo va en metros y segundos.`,
+    porque: `Con dos incógnitas hacen falta dos ecuaciones: de una se despeja una incógnita y se reemplaza en la otra.`,
+    regla: `$v_{f}=v_{0}+a\\cdot t,$ $d=v_{0}\\cdot t+\\dfrac{1}{2}\\cdot a\\cdot t^{2}$`,
+  });
+
+  // 2) reemplazar vf (lo que dice el enunciado) y t
+  r1 = [S("S1"), P("K1", `${k}v_{0}`), O("a1e", "="), P("A2", "v_{0}"), O("a1p", "+"), P("A3", "a"), O("a1m", "\\cdot"), P("N1", `${t}`)];
+  paso({
+    fusiones: [
+      { desde: ["A1"], hacia: "K1" },
+      { desde: ["A4"], hacia: "N1" },
+    ],
+    texto: `"${VECES[k][0].toUpperCase()}${VECES[k].slice(1)} su velocidad" quiere decir que la velocidad final es ${k} veces la inicial: $v_{f}=${k}v_{0}$. Reemplazamos $v_{f}$ y $t=${t}$ en la primera fórmula.`,
+    porque: `Así en la fórmula queda una sola velocidad desconocida, $v_{0}$.`,
+    regla: `$v_{f}=${k}v_{0}$`,
+  });
+
+  // 3) y 4) despejar v0 en funcion de a
+  if (k > 2) {
+    r1 = [S("S1"), P("C1", coef(k - 1, "v_{0}")), O("c1e", "="), P("C2", `${t}a`)];
+    paso({
+      fusiones: [{ desde: ["K1", "a1e", "A2", "a1p", "A3", "a1m", "N1"], hacia: ["C1", "c1e", "C2"] }],
+      texto: `Pasamos el $v_{0}$ de la derecha a la izquierda: $${k}v_{0}-v_{0}=${k - 1}v_{0}$. Queda $${k - 1}v_{0}=${t}a$.`,
+      porque: `Lo que está sumando a un lado pasa restando al otro, y las dos $v_{0}$ se juntan.`,
+      regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
+    });
+    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${c1}a`)];
+    paso({
+      fusiones: [{ desde: ["C1", "c1e", "C2"], hacia: ["D1", "d1e", "D2"] }],
+      texto: `Dividimos los dos lados entre $${k - 1}$: $v_{0}=\\dfrac{${t}a}{${k - 1}}=${c1}a$.`,
+      porque: `Para dejar $v_{0}$ sola, se divide todo entre el número que la multiplica.`,
+      regla: `$c\\cdot x=y\\ \\Rightarrow\\ x=\\dfrac{y}{c}$`,
+    });
+  } else {
+    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${c1}a`)];
+    paso({
+      fusiones: [{ desde: ["K1", "a1e", "A2", "a1p", "A3", "a1m", "N1"], hacia: ["D1", "d1e", "D2"] }],
+      texto: `Pasamos el $v_{0}$ de la derecha a la izquierda: $${k}v_{0}-v_{0}=v_{0}$. Queda $v_{0}=${t}a$.`,
+      porque: `Lo que está sumando a un lado pasa restando al otro, y las dos $v_{0}$ se juntan.`,
+      regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
+    });
+  }
+
+  // 5) reemplazar en la formula de la distancia
+  r2 = [S("S2"), P("B1b", `${d}`), O("b1e", "="), P("B2b", `${c1}a`), O("b1m", "\\cdot"), P("B3b", `${t}`), O("b1p", "+"), P("B4", "\\dfrac{1}{2}"), O("b1n", "\\cdot"), P("B5", "a"), O("b1o", "\\cdot"), P("B6b", `${t}^{2}`)];
+  paso({
+    fusiones: [
+      { desde: ["B1"], hacia: "B1b" },
+      { desde: ["B2"], hacia: "B2b" },
+      { desde: ["B3"], hacia: "B3b" },
+      { desde: ["B6"], hacia: "B6b" },
+    ],
+    texto: `Reemplazamos en la segunda fórmula: $d=${d}$, $v_{0}=${c1}a$ y $t=${t}$.`,
+    porque: `Ahora la fórmula tiene una sola incógnita, $a$.`,
+  });
+
+  // 6) los dos productos
+  r2 = [S("S2"), P("B1b", `${d}`), O("b1e", "="), P("E1", `${c2}a`), O("b1p", "+"), P("E2", `${c3}a`)];
+  paso({
+    fusiones: [
+      { desde: ["B2b", "b1m", "B3b"], hacia: "E1" },
+      { desde: ["B4", "b1n", "B5", "b1o", "B6b"], hacia: "E2" },
+    ],
+    texto: `Hacemos las multiplicaciones: $${c1}a\\cdot ${t}=${c2}a$ y $\\dfrac{1}{2}\\cdot a\\cdot ${t}^{2}=${c3}a$.`,
+    porque: `Cada término queda como un número por $a$.`,
+  });
+
+  // 7) la suma
+  r2 = [S("S2"), P("B1b", `${d}`), O("b1e", "="), P("E3", `${c4}a`)];
+  paso({
+    fusiones: [{ desde: ["E1", "b1p", "E2"], hacia: "E3" }],
+    texto: `Sumamos los términos con $a$: $${c2}a+${c3}a=${c4}a$.`,
+    porque: `Dos términos con la misma letra se suman juntando sus números.`,
+  });
+
+  // 8) despejar a
+  r2 = [S("S2"), P("F1", "a"), O("f1e", "="), P("F2", `\\dfrac{${d}}{${c4}}`)];
+  paso({
+    fusiones: [{ desde: ["B1b", "b1e", "E3"], hacia: ["F1", "f1e", "F2"] }],
+    texto: `Dividimos los dos lados entre $${c4}$ para dejar $a$ sola: $a=\\dfrac{${d}}{${c4}}$.`,
+    porque: `Para dejar $a$ sola, se divide todo entre el número que la multiplica.`,
+    regla: `$c\\cdot x=y\\ \\Rightarrow\\ x=\\dfrac{y}{c}$`,
+  });
+
+  // 9) la aceleracion
+  r2 = [S("S2"), P("F1", "a"), O("f1e", "="), P("G1", nf(a)), P("Gu", "\\text{m/s}^{2}")];
+  paso({
+    fusiones: [{ desde: ["F2"], hacia: "G1" }],
+    brotes: [{ desde: "Dt", hacia: "Gu" }],
+    texto: `Dividimos: $\\dfrac{${d}}{${c4}}=${nf(a)}$. La distancia está en metros y el tiempo en segundos, así que la aceleración es $a=${nf(a)}\\ \\text{m/s}^{2}$.`,
+    porque: `Metros entre segundos al cuadrado: así se mide una aceleración.`,
+  });
+
+  const intro = `Un móvil que viaja con MRUV ${VECES[k]} su velocidad luego de recorrer $${cant(d, "m")}$ empleando $${cant(t, "s")}$. ¿Cuál es su aceleración? Es la versión rápida: lo que se escribe en el examen.`;
+  return { demo: { titulo: "", nota: "", intro, estados, transiciones: trans }, resumen: { k, d, t, c1, c4, a, v0, vf, vf2, v02, dosAd } };
+}
+
+export function mruvMultiplica(k: number, d: number, t: number, enunciado?: string, rapido = false): Resultado {
+  if (rapido) return mruvMultiplicaRapido(k, d, t);
   const c1 = t / (k - 1); // v0 = c1·a
   const c2 = t * c1; // t·v0 = c2·a
   const t2 = t * t;
