@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import Fusion, { type ModoRegla } from "./Fusion";
-import { construir, type Tipo } from "./construir";
+import { construir, CON_RAPIDA, type Tipo } from "./construir";
 import { CASOS_POR_TIPO } from "./casos";
 
 const campo: React.CSSProperties = {
@@ -103,11 +103,14 @@ export default function Generador({ tipo, titulo, inicial, cambios = [], dev = f
   const [v, setV] = useState<string[]>(inicial);
   const [pasoActual, setPasoActual] = useState(1);
   const [modo, setModo] = useState<ModoRegla>("resolver");
+  // los tipos con version rapida abren en ella: es lo que se escribe en un examen
+  const [rapida, setRapida] = useState(true);
+  const tieneRapida = CON_RAPIDA.includes(tipo);
   // salto directo a un paso corregido: se arma el caso y se abre ya en ese paso (despues se sigue con Siguiente)
   const [salto, setSalto] = useState<{ paso: number; id: number } | null>(null);
   const set = (i: number) => (x: string) => setV((a) => a.map((y, j) => (j === i ? x : y)));
 
-  const resultado = useMemo(() => construir(tipo, v), [tipo, v]);
+  const resultado = useMemo(() => construir(tipo, v, tieneRapida && rapida), [tipo, v, tieneRapida, rapida]);
 
   const rotulos =
     tipo === "dinamica"
@@ -225,12 +228,33 @@ export default function Generador({ tipo, titulo, inicial, cambios = [], dev = f
             {m === "resolver" ? "Resolver un ejercicio" : "Enseñar el tema"}
           </button>
         ))}
+        {tieneRapida && (
+          <>
+            <span style={{ color: "var(--fg-muted, #6b6b6b)", marginLeft: 10 }}>Pasos:</span>
+            {([true, false] as const).map((r) => (
+              <button
+                key={String(r)}
+                onClick={() => setRapida(r)}
+                style={{
+                  padding: "4px 10px",
+                  borderRadius: 8,
+                  border: "1px solid var(--border, #d8d0c0)",
+                  background: rapida === r ? "var(--accent, #9a3a1a)" : "var(--bg-card)",
+                  color: rapida === r ? "#fff" : "var(--fg-primary)",
+                  cursor: "pointer",
+                }}
+              >
+                {r ? "Rápida" : "Explicada"}
+              </button>
+            ))}
+          </>
+        )}
       </div>
       {"error" in resultado && resultado.error ? (
         <p style={{ fontSize: 14, color: "var(--accent)" }}>{resultado.error}</p>
       ) : (
         "demo" in resultado && resultado.demo && (
-          <Fusion key={v.join("|") + modo + (salto?.id ?? "")} demo={resultado.demo} modo={modo} clave={tipo} paso={salto?.paso} onPaso={dev ? (i) => setPasoActual(i + 1) : undefined} />
+          <Fusion key={v.join("|") + modo + (tieneRapida && rapida ? "r" : "") + (salto?.id ?? "")} demo={resultado.demo} modo={modo} clave={tipo} paso={salto?.paso} onPaso={dev ? (i) => setPasoActual(i + 1) : undefined} />
         )
       )}
       {dev && "demo" in resultado && resultado.demo && <PanelDev tipo={tipo} valores={v} paso={pasoActual} total={resultado.demo.estados.length} />}

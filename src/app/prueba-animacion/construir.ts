@@ -19,7 +19,10 @@ import { interesSimple, validarInteres, type UnidadTiempo } from "./generadores-
 export type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" | "cuadrados" | "logaritmos" | "cuadratica" | "mruv" | "charles" | "estequiometria" | "molesAtomos" | "dinamica" | "tiro" | "molaridad" | "oxidacion" | "trigonometria" | "progresion" | "pitagoras" | "punnett" | "interes";
 export type Armado = { demo: Demo } | { error: string };
 
-export function construir(tipo: Tipo, v: string[]): Armado {
+/** tipos que tienen version RAPIDA (lo que se escribe en el examen) ademas de la explicada */
+export const CON_RAPIDA: Tipo[] = ["fracciones"];
+
+export function construir(tipo: Tipo, v: string[], rapido = false): Armado {
   const n = v.map(Number);
   if (tipo === "dinamica") {
     const e = validarDinamica(n[0], n[1], n[2]);
@@ -82,7 +85,7 @@ export function construir(tipo: Tipo, v: string[]): Armado {
   }
   if (tipo === "fracciones") {
     const e = validarFracciones(n[0], n[1], n[2], n[3]);
-    return e ? { error: e } : { demo: fracciones(n[0], n[1], n[2], n[3], v[4].trim() === "-").demo };
+    return e ? { error: e } : { demo: fracciones(n[0], n[1], n[2], n[3], v[4].trim() === "-", rapido).demo };
   }
   if (tipo === "cuadrados") {
     const e = validarCuadrados(n[0]);

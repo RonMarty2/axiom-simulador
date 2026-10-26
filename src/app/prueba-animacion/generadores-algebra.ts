@@ -1,7 +1,7 @@
 // Generadores de Algebra: arman la animacion completa para CUALQUIER numero
 // dentro de los limites. Todo texto del alumno va en LaTeX entre $...$ (MathText):
 // fracciones con raya, nunca "/" ni "÷". Las barras invertidas van dobles.
-import { fr, frPiezas, type Ficha, type Transicion } from "./datos.ts";
+import { fr, frPiezas, type Ficha, type Fusion, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 
 const mcd = (a: number, b: number): number => (b === 0 ? Math.abs(a) : mcd(b, a % b));
@@ -382,7 +382,109 @@ export function validarFracciones(n1: number, d1: number, n2: number, d2: number
   return null;
 }
 
-export function fracciones(n1: number, d1: number, n2: number, d2: number, resta = false): Resultado {
+/** Version RAPIDA: lo que se escribe en el cuaderno en un examen (denominador comun de una vez, suma, simplificar).
+ *  Sin la busqueda del minimo comun multiplo, sin la fila de referencia y sin la comprobacion larga. */
+function fraccionesRapido(n1: number, d1: number, n2: number, d2: number, resta: boolean): Resultado {
+  const op = resta ? "-" : "+";
+  const palabra = resta ? "Restamos" : "Sumamos";
+  const iguales = d1 === d2;
+  const L = (d1 / mcd(d1, d2)) * d2;
+  const k1 = L / d1;
+  const k2 = L / d2;
+  const A = n1 * k1;
+  const B = n2 * k2;
+  const sumaN = resta ? (iguales ? n1 - n2 : A - B) : iguales ? n1 + n2 : A + B;
+  const den = iguales ? d1 : L;
+  const g = mcd(sumaN, den);
+  const p: Ficha = { id: "p", tex: op, op: true };
+  const estados: Ficha[][] = [[fr("f1", `${n1}`, `${d1}`), p, fr("f2", `${n2}`, `${d2}`)]];
+  const trans: Transicion[] = [];
+  let x1 = "f1";
+  let x2 = "f2";
+  let nx1 = n1;
+  let nx2 = n2;
+
+  if (!iguales) {
+    // cada fraccion que cambia se escribe como en el cuaderno: n/d = (n·k)/(d·k) = A/L; la que ya tiene denominador L no se toca
+    const fus: Fusion[] = [];
+    const cambios: string[] = [];
+    let F1 = fr("f1", `${n1}`, `${d1}`);
+    let F2 = fr("f2", `${n2}`, `${d2}`);
+    if (k1 > 1) {
+      F1 = fr("g1", `${A}`, `${L}`);
+      fus.push({ desde: ["f1"], hacia: "g1" });
+      cambios.push(`$\\dfrac{${n1}}{${d1}}=\\dfrac{${n1}\\cdot ${k1}}{${d1}\\cdot ${k1}}=\\dfrac{${A}}{${L}}$`);
+      x1 = "g1";
+      nx1 = A;
+    }
+    if (k2 > 1) {
+      F2 = fr("g2", `${B}`, `${L}`);
+      fus.push({ desde: ["f2"], hacia: "g2" });
+      cambios.push(`$\\dfrac{${n2}}{${d2}}=\\dfrac{${n2}\\cdot ${k2}}{${d2}\\cdot ${k2}}=\\dfrac{${B}}{${L}}$`);
+      x2 = "g2";
+      nx2 = B;
+    }
+    estados.push([F1, p, F2]);
+    trans.push({
+      fusiones: fus,
+      texto: `Los denominadores son distintos. El mínimo común múltiplo de $${d1}$ y $${d2}$ es $${L}$. Pasamos ${cambios.length > 1 ? "las dos fracciones" : "la fracción que lo necesita"} a denominador $${L}$, multiplicando arriba y abajo por el mismo número: ${cambios.join(" y ")}.`,
+      porque: `Multiplicar arriba y abajo por el mismo número no cambia el valor de la fracción, y deja las partes del mismo tamaño.${cambios.length === 1 ? ` La otra fracción ya tiene denominador $${L}$.` : ""}`,
+      regla: `$\\dfrac{a}{b}=\\dfrac{a\\cdot c}{b\\cdot c}$`,
+    });
+  }
+
+  // un solo denominador y la cuenta de los numeradores
+  const cuenta = `${nx1}${op}${nx2}`;
+  estados.push([{ id: "h", tex: `\\dfrac{${sumaN}}{${den}}` }]);
+  trans.push({
+    fusiones: [{ desde: [x1, "p", x2], hacia: "h" }],
+    texto: `${iguales ? "Los denominadores son iguales." : "Ahora los denominadores son iguales."} ${palabra} los numeradores y el $${den}$ se queda: $${cuenta}=${sumaN}$.`,
+    porque: `Con partes del mismo tamaño solo se cuenta cuántas hay ${resta ? "de diferencia" : "en total"}: el denominador no cambia.`,
+    regla: resta ? `$\\dfrac{a}{c}-\\dfrac{b}{c}=\\dfrac{a-b}{c}$` : `$\\dfrac{a}{c}+\\dfrac{b}{c}=\\dfrac{a+b}{c}$`,
+  });
+
+  const rn = sumaN / g;
+  const rd = den / g;
+  if (sumaN === 0) {
+    estados.push([{ id: "r", tex: "0" }]);
+    trans.push({
+      fusiones: [{ desde: ["h"], hacia: "r" }],
+      texto: `Cero partes de cualquier tamaño es $0$.`,
+      porque: `Las dos fracciones valían lo mismo, y al restarlas no queda nada.`,
+    });
+  } else if (g > 1) {
+    const tex = rd === 1 ? `${rn}` : `${rn < 0 ? "-" : ""}\\dfrac{${Math.abs(rn)}}{${rd}}`;
+    estados.push([{ id: "r", tex }]);
+    trans.push({
+      fusiones: [{ desde: ["h"], hacia: "r" }],
+      texto: `Simplificamos: el mayor número que divide a $${Math.abs(sumaN)}$ y a $${den}$ es $${g}$. Dividimos arriba y abajo entre $${g}$: queda $${rd === 1 ? rn : `${rn < 0 ? "-" : ""}\\dfrac{${Math.abs(rn)}}{${rd}}`}$.${rd === 1 ? " La fracción sale exacta: es un número entero." : ""}`,
+      porque: `Dividir arriba y abajo entre el mismo número no cambia el valor de la fracción y la deja lo más pequeña posible.`,
+      regla: `$\\dfrac{a}{b}=\\dfrac{a\\div g}{b\\div g}$`,
+    });
+  } else {
+    estados.push(estados[estados.length - 1]);
+    trans.push({
+      fusiones: [],
+      resaltar: ["h"],
+      texto: `¿Se puede simplificar? $${Math.abs(sumaN)}$ y $${den}$ no tienen ningún divisor en común aparte del $1$. La respuesta ya está lista.`,
+      porque: `Con solo el $1$ en común no hay nada que dividir: la fracción ya es lo más pequeña posible.`,
+    });
+  }
+
+  return {
+    demo: {
+      titulo: "",
+      nota: "",
+      intro: `Queremos calcular $\\dfrac{${n1}}{${d1}}${op}\\dfrac{${n2}}{${d2}}$. Es la versión rápida: lo que se escribe en el examen.`,
+      estados,
+      transiciones: trans,
+    },
+    resumen: { n1, d1, n2, d2, rn, rd, resta: resta ? 1 : 0 },
+  };
+}
+
+export function fracciones(n1: number, d1: number, n2: number, d2: number, resta = false, rapido = false): Resultado {
+  if (rapido) return fraccionesRapido(n1, d1, n2, d2, resta);
   const op = resta ? "-" : "+";
   const palabra = resta ? "Restamos" : "Sumamos";
   const iguales = d1 === d2;

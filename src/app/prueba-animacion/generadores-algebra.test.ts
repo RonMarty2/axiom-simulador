@@ -90,6 +90,29 @@ describe("generadores de algebra", () => {
     assert.ok(casos > 5000);
   });
 
+  test("fracciones RAPIDA: toda combinacion pasa revisar, da el mismo resultado que la explicada y tiene pocos pasos", () => {
+    let casos = 0;
+    for (let d1 = 2; d1 <= 12; d1++) {
+      for (let d2 = 2; d2 <= 12; d2++) {
+        for (const n1 of [1, 2, 3, 5, 7, 11, 20]) {
+          for (const n2 of [1, 2, 4, 5, 9, 13, 20]) {
+            for (const resta of [false, true]) {
+              if (validarFracciones(n1, d1, n2, d2)) continue;
+              const et = `rapida ${n1}/${d1} ${resta ? "-" : "+"} ${n2}/${d2}`;
+              const r = fracciones(n1, d1, n2, d2, resta, true);
+              revisar(r.demo, et);
+              assert.deepEqual(r.resumen, fracciones(n1, d1, n2, d2, resta).resumen, `${et}: mismo resultado que la explicada`);
+              assert.ok(r.demo.transiciones.length <= 4, `${et}: la rapida tiene ${r.demo.transiciones.length} pasos`);
+              casos++;
+            }
+          }
+        }
+      }
+    }
+    assert.ok(casos > 5000);
+    assert.equal(fracciones(1, 2, 1, 3, false, true).demo.estados.at(-1)![0].tex, "\\dfrac{5}{6}");
+  });
+
   test("fracciones: casos clasicos", () => {
     const t = (r: ReturnType<typeof fracciones>) => r.demo.transiciones.map((x) => `${x.texto} ${x.porque}`).join(" | ");
     const final = fracciones(1, 2, 1, 3).demo.estados.at(-1)!;
