@@ -35,6 +35,30 @@ describe("ecuacion de segundo grado", () => {
     assert.ok(r.demo.transiciones.every((t) => t.regla), "todo paso debe llevar su regla");
   });
 
+  test("RAPIDA: toda combinacion (ordenada o no) pasa revisar, da el mismo resumen que la explicada y tiene pocos pasos", () => {
+    let casos = 0;
+    for (let a1 = 1; a1 <= 4; a1++) {
+      for (let b1 = -5; b1 <= 5; b1++) {
+        for (let c1 = -8; c1 <= 8; c1++) {
+          for (let a2 = -1; a2 <= 3; a2++) {
+            for (let b2 = -4; b2 <= 4; b2 += 2) {
+              for (let c2 = -6; c2 <= 6; c2 += 3) {
+                if (validarCuadratica(a1, b1, c1, a2, b2, c2)) continue;
+                const et = `rapida ${a1}x2${b1}x${c1}=${a2}x2${b2}x${c2}`;
+                const r = cuadratica(a1, b1, c1, a2, b2, c2, true);
+                revisar(r.demo, et);
+                assert.deepEqual(r.resumen, cuadratica(a1, b1, c1, a2, b2, c2).resumen, `${et}: mismo resultado que la explicada`);
+                assert.ok(r.demo.transiciones.length <= 10, `${et}: la rapida tiene ${r.demo.transiciones.length} pasos`);
+                casos++;
+              }
+            }
+          }
+        }
+      }
+    }
+    assert.ok(casos > 100);
+  });
+
   test("ecuaciones desordenadas: terminos en los dos lados, y las soluciones cumplen la ECUACION ORIGINAL", () => {
     let casos = 0;
     for (let a1 = 1; a1 <= 4; a1++) {

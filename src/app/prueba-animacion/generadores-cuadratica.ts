@@ -108,8 +108,194 @@ function etapasTermino(t: Termino, s: number): Etapas {
   return e;
 }
 
+/** Version RAPIDA: lo que se escribe en el examen (ordenar, a b c, formula, reemplazar, calcular, soluciones). Sin etiquetas de
+ *  cada termino, sin la fila de referencia y sin comprobar las soluciones en la ecuacion original. Mismo `resumen` que la explicada. */
+function cuadraticaRapida(a1: number, b1: number, c1: number, a2: number, b2: number, c2: number): Resultado {
+  const izqCoef: Record<Clase, number> = { a: a1, b: b1, c: c1 };
+  const derCoef: Record<Clase, number> = { a: a2, b: b2, c: c2 };
+  const a = a1 - a2;
+  const b = b1 - b2;
+  const c = c1 - c2;
+  const fin: Record<Clase, number> = { a, b, c };
+  const D = b * b - 4 * a * c;
+  const d = raizEntera(D) as number;
+  const P = b * b;
+  const Q = 4 * a * c;
+  const den = 2 * a;
+  const x1 = (-b + d) / den;
+  const x2 = (-b - d) / den;
+  const S = (id: string): Ficha => ({ id, tex: "", salto: true });
+  const O = (id: string, tex: string): Ficha => ({ id, tex, op: true });
+  const Pz = (id: string, tex: string): Ficha => ({ id, tex });
+
+  // la ecuacion tal como viene
+  const izq: Ficha[] = [];
+  const der: Ficha[] = [];
+  for (const k of CLASES) if (izqCoef[k] !== 0) izq.push(Pz(ID[k], termino(k, izqCoef[k], izq.length === 0)));
+  for (const k of CLASES) if (derCoef[k] !== 0) der.push(Pz(`m${ID[k]}`, termino(k, derCoef[k], der.length === 0)));
+  if (der.length === 0) der.push(Pz("z", "0"));
+  const yaEstandar = der.length === 1 && der[0].id === "z" && izq.length === 3 && izq.every((f, i) => f.id === ID[CLASES[i]]);
+  const intro = `Queremos resolver $${izq.map((f) => f.tex).join("")}=${der.map((f) => f.tex).join("")}$. Es la versión rápida: lo que se escribe en el examen.`;
+
+  let eqRow: Ficha[] = [...izq, O("eq", "="), ...der];
+  let rAbc: Ficha[] = [];
+  let rF: Ficha[] = [];
+  const estados: Ficha[][] = [JSON.parse(JSON.stringify(eqRow))];
+  const trans: Transicion[] = [];
+  const paso = (t: Transicion) => {
+    estados.push(JSON.parse(JSON.stringify([...eqRow, ...rAbc, ...rF])));
+    trans.push(t);
+  };
+
+  // 1) ordenar: cada clase de terminos (los de x^2, los de x, los numeros) se junta de los dos lados en un solo termino
+  const idFin = {} as Record<Clase, string>;
+  if (!yaEstandar) {
+    const fusiones: Fusion[] = [];
+    const nuevos: Ficha[] = [];
+    for (const k of CLASES) {
+      const desde = [...(izqCoef[k] !== 0 ? [ID[k]] : []), ...(derCoef[k] !== 0 ? [`m${ID[k]}`] : [])];
+      if (derCoef[k] === 0) {
+        idFin[k] = ID[k];
+        nuevos.push(Pz(ID[k], termino(k, fin[k], k === "a")));
+      } else {
+        idFin[k] = `N${ID[k]}`;
+        nuevos.push(Pz(`N${ID[k]}`, termino(k, fin[k], k === "a")));
+        fusiones.push({ desde, hacia: `N${ID[k]}` });
+      }
+    }
+    eqRow = [...nuevos, O("eq", "="), Pz("z", "0")];
+    paso({
+      fusiones,
+      brotes: [{ desde: "eq", hacia: "z" }],
+      texto: `La fórmula general pide la forma $ax^{2}+bx+c=0$. Pasamos todo a la izquierda (cada término que cruza el igual cambia de signo) y juntamos los semejantes: $${nuevos.map((f) => f.tex).join("")}=0$.`,
+      porque: `La fórmula general solo funciona si la ecuación tiene un cero de un lado y todos los términos del otro.`,
+      regla: `$ax^{2}+bx+c=0$`,
+    });
+  } else {
+    for (const k of CLASES) idFin[k] = ID[k];
+  }
+
+  // 2) a, b y c
+  rAbc = [S("S1"), Pz("Ra", `a=${a}`), O("Rc1", ","), Pz("Rb", `b=${b}`), O("Rc2", ","), Pz("Rc", `c=${c}`)];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: idFin.a, hacia: "S1" },
+      { desde: idFin.a, hacia: "Ra" },
+      { desde: idFin.b, hacia: "Rb" },
+      { desde: idFin.c, hacia: "Rc" },
+    ],
+    texto: `Comparamos con $ax^{2}+bx+c=0$: $a=${a}$ es el número de $x^{2}$, $b=${b}$ es el de $x$ y $c=${c}$ es el número solo (con su signo).`,
+    porque: `Cada letra de la fórmula es el número que acompaña a su término, con el signo que tiene.`,
+    regla: `$a=${a},$ $b=${b},$ $c=${c}$`,
+  });
+
+  // 3) la formula, con letras
+  const frac = (n: Ficha[], dd: Ficha[]) => frPiezas("Ff", n, dd);
+  const lettersRad: Ficha[] = [Pz("Fb2", "b^{2}"), O("Fmn", "-"), Pz("F4", "4"), O("Fmc", "\\cdot"), Pz("Fa", "a"), O("Fmd", "\\cdot"), Pz("Fc", "c")];
+  rF = [S("S2"), Pz("Fx", "x"), O("Fe", "="), frac([Pz("Fnb", "-b"), O("Fpm", "\\pm"), raiz("Fr", lettersRad)], [Pz("Fd2", "2"), O("Fdm", "\\cdot"), Pz("Fda", "a")])];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "Ra", hacia: "S2" },
+      { desde: "Ra", hacia: "Fx" },
+      { desde: "Ra", hacia: "Ff" },
+    ],
+    texto: `Escribimos la fórmula general, todavía con letras.`,
+    porque: `Esta fórmula da las dos soluciones de cualquier ecuación $ax^{2}+bx+c=0$.`,
+    regla: `$x=\\dfrac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$`,
+  });
+
+  // 4) reemplazar las letras
+  const rad2: Ficha[] = [Pz("Gb2", `${par(b)}^{2}`), O("Fmn", "-"), Pz("F4", "4"), O("Fmc", "\\cdot"), Pz("Ga", `${par(a)}`), O("Fmd", "\\cdot"), Pz("Gc", `${par(c)}`)];
+  rF = [S("S2"), Pz("Fx", "x"), O("Fe", "="), frac([Pz("Gnb", `-${par(b)}`), O("Fpm", "\\pm"), raiz("Fr", rad2)], [Pz("Fd2", "2"), O("Fdm", "\\cdot"), Pz("Gda", `${par(a)}`)])];
+  paso({
+    fusiones: [
+      { desde: ["Fnb"], hacia: "Gnb" },
+      { desde: ["Fb2"], hacia: "Gb2" },
+      { desde: ["Fa"], hacia: "Ga" },
+      { desde: ["Fc"], hacia: "Gc" },
+      { desde: ["Fda"], hacia: "Gda" },
+    ],
+    texto: `Reemplazamos cada letra por su número: $a=${a}$, $b=${b}$ y $c=${c}$. Los números negativos van entre paréntesis.`,
+    porque: `Cada letra se cambia por su valor, con su signo.`,
+  });
+
+  // 5) las cuentas sueltas: -b, b^2, 4ac y 2a
+  rF = [
+    S("S2"),
+    Pz("Fx", "x"),
+    O("Fe", "="),
+    frac([Pz("Hnb", `${-b}`), O("Fpm", "\\pm"), raiz("Fr", [Pz("Hb2", `${P}`), O("Fmn", "-"), Pz("Hq", `${par(Q)}`)])], [Pz("Hd", `${den}`)]),
+  ];
+  paso({
+    fusiones: [
+      { desde: ["Gnb"], hacia: "Hnb" },
+      { desde: ["Gb2"], hacia: "Hb2" },
+      { desde: ["F4", "Fmc", "Ga", "Fmd", "Gc"], hacia: "Hq" },
+      { desde: ["Fd2", "Fdm", "Gda"], hacia: "Hd" },
+    ],
+    texto: `Hacemos las cuentas sueltas: $-(${b})=${-b}$, $(${b})^{2}=${P}$, $4\\cdot ${par(a)}\\cdot ${par(c)}=${Q}$ y $2\\cdot ${a}=${den}$.`,
+    porque: `Primero se resuelven las potencias y los productos; el signo menos delante de un paréntesis cambia el signo del número.`,
+  });
+
+  // 6) el discriminante
+  rF = [S("S2"), Pz("Fx", "x"), O("Fe", "="), frac([Pz("Hnb", `${-b}`), O("Fpm", "\\pm"), raiz("Fr", [Pz("HD", `${D}`)])], [Pz("Hd", `${den}`)])];
+  paso({
+    fusiones: [{ desde: ["Hb2", "Fmn", "Hq"], hacia: "HD" }],
+    texto: `Restamos dentro de la raíz: $${P}-${par(Q)}=${D}$.`,
+    porque: `Lo de adentro de la raíz es el discriminante $b^{2}-4ac$: dice si las soluciones son enteras.`,
+    regla: `$D=b^{2}-4ac$`,
+  });
+
+  // 7) la raiz
+  rF = [S("S2"), Pz("Fx", "x"), O("Fe", "="), frac([Pz("Hnb", `${-b}`), O("Fpm", "\\pm"), Pz("Hr", `${d}`)], [Pz("Hd", `${den}`)])];
+  paso({
+    fusiones: [{ desde: ["Fr"], hacia: "Hr" }],
+    texto: `La raíz: $\\sqrt{${D}}=${d}$, porque $${d}\\cdot ${d}=${D}$.`,
+    porque: `La raíz cuadrada es el número que, multiplicado por sí mismo, da lo de adentro.`,
+    regla: `$\\sqrt{a\\cdot a}=a$`,
+  });
+
+  // 8) separar el mas o menos en dos soluciones (o una sola si la raiz es 0)
+  const suma = (s: string) => `${-b}${s}${d}`;
+  if (d === 0) {
+    rF = [S("S2"), Pz("Y1", `x=\\dfrac{${-b}}{${den}}`)];
+    paso({
+      fusiones: [{ desde: ["Fx", "Fe", "Ff"], hacia: "Y1" }],
+      texto: `La raíz es $0$, así que $\\pm 0$ no cambia nada: hay una sola solución, $x=\\dfrac{${-b}}{${den}}$.`,
+      porque: `Sumar o restar cero da lo mismo: las dos soluciones coinciden.`,
+    });
+    rF = [S("S2"), Pz("Z1", `x=${x1}`)];
+    paso({
+      fusiones: [{ desde: ["Y1"], hacia: "Z1" }],
+      texto: `Dividimos: $\\dfrac{${-b}}{${den}}=${x1}$. La solución es $x=${x1}$.`,
+      porque: `La raya de la fracción es una división.`,
+    });
+  } else {
+    rF = [S("S2"), Pz("Y1", `x_{1}=\\dfrac{${suma("+")}}{${den}}`), O("Yc", ","), Pz("Y2", `x_{2}=\\dfrac{${suma("-")}}{${den}}`)];
+    paso({
+      fusiones: [{ desde: ["Fx", "Fe", "Ff"], hacia: ["Y1", "Yc", "Y2"] }],
+      texto: `El $\\pm$ da dos soluciones: una sumando y otra restando. $x_{1}=\\dfrac{${suma("+")}}{${den}}$ y $x_{2}=\\dfrac{${suma("-")}}{${den}}$.`,
+      porque: `El signo $\\pm$ quiere decir "más" en una solución y "menos" en la otra.`,
+    });
+    rF = [S("S2"), Pz("Z1", `x_{1}=${x1}`), O("Yc", ","), Pz("Z2", `x_{2}=${x2}`)];
+    paso({
+      fusiones: [
+        { desde: ["Y1"], hacia: "Z1" },
+        { desde: ["Y2"], hacia: "Z2" },
+      ],
+      texto: `Calculamos: $\\dfrac{${suma("+")}}{${den}}=${x1}$ y $\\dfrac{${suma("-")}}{${den}}=${x2}$. Las soluciones son $x_{1}=${x1}$ y $x_{2}=${x2}$.`,
+      porque: `Primero se suma o resta arriba y después se divide entre $${den}$.`,
+    });
+  }
+
+  return { demo: { titulo: "", nota: "", intro, estados, transiciones: trans }, resumen: { a, b, c, a1, b1, c1, a2, b2, c2, D, d, x1, x2 } };
+}
+
 // partes de un numero-resultado de la formula; ver cuadratica()
-export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c2 = 0): Resultado {
+export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c2 = 0, rapido = false): Resultado {
+  if (rapido) return cuadraticaRapida(a1, b1, c1, a2, b2, c2);
   const izqCoef: Record<Clase, number> = { a: a1, b: b1, c: c1 };
   const derCoef: Record<Clase, number> = { a: a2, b: b2, c: c2 };
   const a = a1 - a2;
