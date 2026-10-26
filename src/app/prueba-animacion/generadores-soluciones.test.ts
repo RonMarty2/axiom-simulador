@@ -267,6 +267,26 @@ describe("molaridad: la animacion", () => {
     assert.ok(casos > 100, `solo ${casos} casos`);
   });
 
+  test("RAPIDA: toda combinacion pasa revisar, da el mismo resumen que la explicada y tiene pocos pasos", () => {
+    let casos = 0;
+    for (const f of SOLUTOS) {
+      for (let V = 1; V <= LIMITE_VOLUMEN; V++) {
+        let aqui = 0;
+        for (let masa = 1; masa <= LIMITE_MASA && aqui < POR_COMBINACION; masa++) {
+          if (validarMolaridad(f, masa, V)) continue;
+          aqui++;
+          const et = `rapida ${masa}g ${f} en ${V}L`;
+          const r = molaridadReal(f, masa, V, true);
+          revisar(r.demo, et);
+          assert.deepEqual(r.resumen, molaridadReal(f, masa, V).resumen, `${et}: mismo resultado que la explicada`);
+          assert.ok(r.demo.transiciones.length <= 8, `${et}: la rapida tiene ${r.demo.transiciones.length} pasos`);
+          casos++;
+        }
+      }
+    }
+    assert.ok(casos > 100);
+  });
+
   test("la puntuacion tras una formula va fuera de ella y pegada con word-joiner; ningun texto empieza con puntuacion suelta", () => {
     const sueltos: string[] = [];
     for (const f of SOLUTOS) {

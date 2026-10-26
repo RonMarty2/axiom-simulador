@@ -63,8 +63,142 @@ const REGLA_PM = `$\\text{PM}=k_{1}\\cdot A_{1}+k_{2}\\cdot A_{2}+\\dots$`;
 const IONICOS = ["NaOH", "KOH", "ZnSO4"];
 
 // ---------------------------------------------------------------------------
+/** Version RAPIDA: lo que se escribe en el examen (formulas, masa molar, reemplazar, calcular). Sin etiquetas de cada dato,
+ *  sin tachar unidades una por una y sin comprobacion hacia atras. Mismo `resumen` que la explicada. */
+function molaridadRapido(soluto: string, masa: number, volumen: number): Resultado {
+  const V = volumen;
+  const PM = masaMolar(soluto);
+  const at = atomos(soluto)!;
+  const nCent = molesCent(masa, PM);
+  const MCent = nCent / V;
+  const nTxt = decimal(nCent);
+  const MTxt = decimal(MCent);
+  const nombre = SUSTANCIAS[soluto] ?? soluto;
+  const salto = (id: string): Ficha => ({ id, tex: "", salto: true });
+  const sumaOp = (id: string): Ficha => ({ id, tex: "+", op: true });
+
+  const dat: Ficha[] = [
+    { id: "dm", tex: `m=${masa}\\ \\text{g}` },
+    { id: "dc", tex: ",", op: true, pegado: true },
+    { id: "dV", tex: `V=${V}\\ \\text{L}` },
+    salto("SP"),
+    { id: "q", tex: "M=\\ ?\\ \\text{mol/L}" },
+  ];
+  let rM: Ficha[] = [];
+  let rN: Ficha[] = [];
+  let rP: Ficha[] = [];
+  const estados: Ficha[][] = [clon(dat)];
+  const trans: Transicion[] = [];
+  const paso = (t: Transicion) => {
+    estados.push(clon([...dat, ...rM, ...rN, ...rP]));
+    trans.push({ ...t, texto: pegarPunto(t.texto), porque: pegarPunto(t.porque) });
+  };
+  const fM = (n: Ficha, v: Ficha): Ficha[] => [salto("S1"), { id: "F1M", tex: "M" }, { id: "F1e", tex: "=", op: true }, frPiezas("F1", [n], [v])];
+  const fN = (m: Ficha, p: Ficha): Ficha[] => [salto("S2"), { id: "F2n", tex: "n" }, { id: "F2e", tex: "=", op: true }, frPiezas("F2", [m], [p])];
+
+  const intro = `Se disuelven $${masa}\\ \\text{g}$ de ${nombre} ($${formulaTex(soluto)}$) en agua hasta completar $${V}\\ \\text{L}$ de solución. ¿Cuál es la molaridad? Es la versión rápida: lo que se escribe en el examen.`;
+
+  // 1) las dos formulas, todavia con letras
+  rM = fM({ id: "F1n", tex: "n" }, { id: "F1V", tex: "V" });
+  rN = fN({ id: "F2m", tex: "m" }, { id: "F2p", tex: PMtex });
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "q", hacia: "S1" },
+      { desde: "q", hacia: "F1M" },
+      { desde: "q", hacia: "F1" },
+      { desde: "dm", hacia: "S2" },
+      { desde: "dm", hacia: "F2n" },
+      { desde: "dm", hacia: "F2" },
+    ],
+    texto: `Escribimos las dos fórmulas. La molaridad $M$ son los moles $n$ entre los litros $V$. Los moles no son dato: salen de dividir la masa $m$ entre la masa molar $${PMtex}$.`,
+    porque: `Si en $V$ litros hay $n$ moles, en cada litro hay $n$ entre $V$. Y si cada mol pesa $${PMtex}$ gramos, en $m$ gramos caben $m$ entre $${PMtex}$ moles.`,
+    regla: `$M=\\dfrac{n}{V},$ $n=\\dfrac{m}{${PMtex}}$`,
+  });
+
+  // 2) la masa molar: un termino por elemento (cantidad de atomos por masa atomica), con el elemento debajo
+  const terminos = at.map(([e, k], i): Ficha => ({ id: `t${i}`, tex: k > 1 ? `${k}\\cdot ${MASAS_ATOMICAS[e]}` : `${MASAS_ATOMICAS[e]}`, debajo: `\\mathrm{${e}}` }));
+  const filaTerminos = (ts: Ficha[]): Ficha[] => ts.flatMap((t, i) => (i > 0 ? [sumaOp(`o${i}`), t] : [t]));
+  rP = [salto("S3"), { id: "Pp", tex: PMtex }, { id: "Pe", tex: "=", op: true }, ...filaTerminos(terminos)];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "F2p", hacia: "S3" },
+      { desde: "F2p", hacia: "Pp" },
+      ...terminos.map((t) => ({ desde: "F2p", hacia: t.id })),
+    ],
+    texto: `Armamos la masa molar con la tabla periódica: la masa atómica de cada elemento, multiplicada por los átomos que hay en $${formulaTex(soluto)}$. ${at.map(([e]) => `$\\mathrm{${e}}=${MASAS_ATOMICAS[e]}$`).join(", ")}.`,
+    porque: `La masa molar es lo que pesa un mol de la sustancia: se suma lo que pesa cada átomo de la fórmula.`,
+    regla: REGLA_PM,
+  });
+
+  // 3) los productos (solo si algun elemento tiene mas de un atomo), cada uno en su fusion
+  const productos = at.map(([e, k], i): Ficha => (k > 1 ? { id: `s${i}`, tex: `${k * MASAS_ATOMICAS[e]}`, debajo: `\\mathrm{${e}}` } : terminos[i]));
+  if (at.some(([, k]) => k > 1)) {
+    rP = [salto("S3"), { id: "Pp", tex: PMtex }, { id: "Pe", tex: "=", op: true }, ...filaTerminos(productos)];
+    paso({
+      fusiones: at.flatMap(([e, k], i) => (k > 1 ? [{ desde: [`t${i}`], hacia: `s${i}` }] : [])),
+      texto: `Hacemos las multiplicaciones: ${at.flatMap(([e, k]) => (k > 1 ? [`$${k}\\cdot ${MASAS_ATOMICAS[e]}=${k * MASAS_ATOMICAS[e]}$`] : [])).join(", ")}.`,
+      porque: `Cada elemento pesa su masa atómica por la cantidad de átomos que tiene la fórmula.`,
+    });
+  }
+
+  // 4) la suma: la masa molar
+  const valores = at.map(([e, k]) => k * MASAS_ATOMICAS[e]);
+  rP = [salto("S3"), { id: "Pp", tex: PMtex }, { id: "Pe", tex: "=", op: true }, { id: "Pv", tex: `${PM}\\ \\text{g/mol}` }];
+  paso({
+    fusiones: [{ desde: filaTerminos(productos).map((f) => f.id), hacia: "Pv" }],
+    texto: `Sumamos: $${valores.join("+")}=${PM}$. La masa molar es $${PM}\\ \\text{g/mol}$.`,
+    porque: `Un mol de ${nombre} pesa $${PM}$ gramos.`,
+  });
+
+  // 5) reemplazar en n = m / PM
+  rN = fN({ id: "F2m2", tex: `${masa}\\ \\text{g}` }, { id: "F2p2", tex: `${PM}\\ \\text{g/mol}` });
+  paso({
+    fusiones: [
+      { desde: ["F2m"], hacia: "F2m2" },
+      { desde: ["F2p"], hacia: "F2p2" },
+    ],
+    texto: `Reemplazamos en $n=\\dfrac{m}{${PMtex}}$: la masa es $${masa}\\ \\text{g}$ y la masa molar es $${PM}\\ \\text{g/mol}$.`,
+    porque: `Cada letra se cambia por su dato, con su unidad.`,
+  });
+
+  // 6) los moles
+  rN = [salto("S2"), { id: "F2n", tex: "n" }, { id: "F2e", tex: "=", op: true }, { id: "nv", tex: `${nTxt}\\ \\text{mol}` }];
+  paso({
+    fusiones: [{ desde: ["F2"], hacia: "nv" }],
+    texto: `Dividimos: $\\dfrac{${masa}}{${PM}}=${nTxt}$. Los gramos se cancelan con los gramos de la masa molar y quedan moles: $n=${nTxt}\\ \\text{mol}$.`,
+    porque: `Gramos entre gramos por mol dan moles: la unidad dice que el resultado es una cantidad de moles.`,
+    regla: REGLA_DIVIDE,
+  });
+
+  // 7) reemplazar en M = n / V
+  rM = fM({ id: "F1n2", tex: `${nTxt}\\ \\text{mol}` }, { id: "F1V2", tex: `${V}\\ \\text{L}` });
+  paso({
+    fusiones: [
+      { desde: ["F1n"], hacia: "F1n2" },
+      { desde: ["F1V"], hacia: "F1V2" },
+    ],
+    texto: `Reemplazamos en $M=\\dfrac{n}{V}$: los moles son $${nTxt}\\ \\text{mol}$ y el volumen es $${V}\\ \\text{L}$.`,
+    porque: `Cada letra se cambia por su valor, con su unidad.`,
+  });
+
+  // 8) la molaridad
+  rM = [salto("S1"), { id: "F1M", tex: "M" }, { id: "F1e", tex: "=", op: true }, { id: "Mv", tex: `${MTxt}\\ \\text{mol/L}` }];
+  paso({
+    fusiones: [{ desde: ["F1"], hacia: "Mv" }],
+    texto: `Dividimos: $\\dfrac{${nTxt}}{${V}}=${MTxt}$. La molaridad es $M=${MTxt}\\ \\text{mol/L}$.`,
+    porque: `Moles entre litros: la unidad $\\text{mol/L}$ es justo la de la molaridad.`,
+    regla: `$M=\\dfrac{n}{V}$`,
+  });
+
+  return { demo: { titulo: "", nota: "", intro, estados, transiciones: trans }, resumen: { masa, PM, V, nCent, centesimas: MCent } };
+}
+
+// ---------------------------------------------------------------------------
 /** M = n / V con n = m / PM. Validar antes con validarMolaridad. */
-export function molaridad(soluto: string, masa: number, volumen: number): Resultado {
+export function molaridad(soluto: string, masa: number, volumen: number, rapido = false): Resultado {
+  if (rapido) return molaridadRapido(soluto, masa, volumen);
   const V = volumen;
   const PM = masaMolar(soluto);
   const at = atomos(soluto)!;

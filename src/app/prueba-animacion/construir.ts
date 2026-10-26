@@ -20,7 +20,7 @@ export type Tipo = "potencia" | "raiz" | "raizResto" | "lineal" | "fracciones" |
 export type Armado = { demo: Demo } | { error: string };
 
 /** tipos que tienen version RAPIDA (lo que se escribe en el examen) ademas de la explicada */
-export const CON_RAPIDA: Tipo[] = ["fracciones"];
+export const CON_RAPIDA: Tipo[] = ["fracciones", "molaridad"];
 
 export function construir(tipo: Tipo, v: string[], rapido = false): Armado {
   const n = v.map(Number);
@@ -34,7 +34,7 @@ export function construir(tipo: Tipo, v: string[], rapido = false): Armado {
   }
   if (tipo === "molaridad") {
     const e = validarMolaridad(v[0].trim(), n[1], n[2]);
-    return e ? { error: e } : { demo: molaridad(v[0].trim(), n[1], n[2]).demo };
+    return e ? { error: e } : { demo: molaridad(v[0].trim(), n[1], n[2], rapido).demo };
   }
   if (tipo === "oxidacion") {
     const e = validarOxidacion(v[0].trim(), v[1].trim());
