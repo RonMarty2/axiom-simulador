@@ -55,6 +55,18 @@ function controles(d: Demo, etiqueta: string) {
 }
 
 describe("tiro horizontal", () => {
+  test("RAPIDA: toda combinacion pasa revisar, da el mismo resumen que la explicada y tiene pocos pasos", () => {
+    for (const h of ALTURAS_TIRO) {
+      for (let v0 = 1; v0 <= 50; v0++) {
+        const et = `rapida h=${h} v0=${v0}`;
+        const r = tiroCrudo(h, v0, undefined, true);
+        revisar(r.demo, et);
+        assert.deepEqual(r.resumen, tiroCrudo(h, v0).resumen, `${et}: mismo resultado que la explicada`);
+        assert.ok(r.demo.transiciones.length <= 8, `${et}: la rapida tiene ${r.demo.transiciones.length} pasos`);
+      }
+    }
+  });
+
   test("toda combinacion permitida: revisar, h = 5 t^2 y x = v0 t (con enteros)", () => {
     let casos = 0;
     for (const h of ALTURAS_TIRO) {

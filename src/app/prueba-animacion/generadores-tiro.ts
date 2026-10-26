@@ -132,8 +132,115 @@ export function validarTiro(h: number, v0: number): string | null {
   return null;
 }
 
+/** Version RAPIDA: lo que se escribe en el examen (formulas, reemplazar, calcular t, calcular x). Sin etiquetas de cada dato,
+ *  sin unidades tachadas una por una, sin la raiz por su significado y sin comprobacion. Mismo `resumen` que la explicada. */
+function tiroRapido(h: number, v0: number): Resultado {
+  const t = Math.sqrt((2 * h) / G);
+  const x = v0 * t;
+  const salto = (id: string): Ficha => ({ id, tex: "", salto: true });
+  const dat: Ficha[] = [
+    { id: "dh", tex: `h=${h}\\ \\text{m}` },
+    { id: "dc1", tex: ",", op: true, pegado: true },
+    { id: "dv", tex: `v_{0}=${v0}\\ \\text{m/s}` },
+    { id: "dc2", tex: ",", op: true, pegado: true },
+    { id: "dg", tex: `g=${G}\\ \\text{m/s}^{2}` },
+  ];
+  let rT: Ficha[] = [];
+  let rX: Ficha[] = [];
+  const estados: Ficha[][] = [clon(dat)];
+  const trans: Transicion[] = [];
+  const paso = (tr: Transicion) => {
+    estados.push(clon([...dat, ...rT, ...rX]));
+    trans.push({ ...tr, texto: pegarPunto(tr.texto), porque: pegarPunto(tr.porque) });
+  };
+  const fT = (dos: Ficha[], hh: Ficha, gg: Ficha): Ficha[] => [salto("S1"), { id: "T0", tex: "t" }, { id: "Te", tex: "=", op: true }, raiz("Rt", [frPiezas("Ft", [...dos, hh], [gg])])];
+  const dos: Ficha[] = [
+    { id: "Ft2", tex: "2" },
+    { id: "Ftc", tex: "\\cdot", op: true },
+  ];
+
+  // 1) las dos formulas, todavia con letras
+  rT = fT(dos, { id: "Fth", tex: "h" }, { id: "Ftg", tex: "g" });
+  rX = [salto("S2"), { id: "X0", tex: "x" }, { id: "Xe", tex: "=", op: true }, { id: "Xv", tex: "v_{0}" }, { id: "Xc", tex: "\\cdot", op: true }, { id: "Xt", tex: "t" }];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "dh", hacia: "S1" },
+      { desde: "dh", hacia: "T0" },
+      { desde: "dh", hacia: "Rt" },
+      { desde: "dv", hacia: "S2" },
+      { desde: "dv", hacia: "X0" },
+      { desde: "dv", hacia: "Xv" },
+      { desde: "dv", hacia: "Xt" },
+    ],
+    texto: `El objeto cae y avanza a la vez, pero los dos movimientos son independientes. Escribimos las fórmulas: el tiempo de caída $t$ solo depende de la altura $h$ y de $g$, y el alcance $x$ es la velocidad horizontal $v_{0}$ por ese tiempo.`,
+    porque: `Hacia abajo el objeto acelera por la gravedad; hacia adelante va a velocidad constante. Primero se halla cuánto tarda en caer y después cuánto avanza en ese tiempo.`,
+    regla: `$t=\\sqrt{\\dfrac{2h}{g}},$ $x=v_{0}\\cdot t$`,
+  });
+
+  // 2) reemplazar h y g
+  rT = fT(dos, { id: "Fth2", tex: `${h}` }, { id: "Ftg2", tex: `${G}` });
+  paso({
+    fusiones: [
+      { desde: ["Fth"], hacia: "Fth2" },
+      { desde: ["Ftg"], hacia: "Ftg2" },
+    ],
+    texto: `Reemplazamos en la fórmula del tiempo: $h=${h}$ y $g=${G}$ (metros y segundos).`,
+    porque: `Cada letra se cambia por su dato.`,
+  });
+
+  // 3) la cuenta de arriba
+  rT = [salto("S1"), { id: "T0", tex: "t" }, { id: "Te", tex: "=", op: true }, raiz("Rt", [frPiezas("Ft", [{ id: "Ft90", tex: `${2 * h}` }], [{ id: "Ftg2", tex: `${G}` }])])];
+  paso({
+    fusiones: [{ desde: ["Ft2", "Ftc", "Fth2"], hacia: "Ft90" }],
+    texto: `Multiplicamos arriba: $2\\cdot ${h}=${2 * h}$.`,
+    porque: `Primero se hace la cuenta de arriba de la fracción, dentro de la raíz.`,
+  });
+
+  // 4) la division
+  rT = [salto("S1"), { id: "T0", tex: "t" }, { id: "Te", tex: "=", op: true }, raiz("Rt", [{ id: "T9", tex: `${t * t}` }])];
+  paso({
+    fusiones: [{ desde: ["Ft"], hacia: "T9" }],
+    texto: `Dividimos: $\\dfrac{${2 * h}}{${G}}=${t * t}$.`,
+    porque: `La raya de la fracción es una división.`,
+  });
+
+  // 5) la raiz
+  rT = [salto("S1"), { id: "T0", tex: "t" }, { id: "Te", tex: "=", op: true }, { id: "Tv", tex: `${t}\\ \\text{s}` }];
+  paso({
+    fusiones: [{ desde: ["Rt"], hacia: "Tv" }],
+    texto: `La raíz: $\\sqrt{${t * t}}=${t}$, porque $${t}\\cdot ${t}=${t * t}$. El objeto tarda $${t}\\ \\text{s}$ en caer.`,
+    porque: `La raíz cuadrada es el número que, multiplicado por sí mismo, da lo de adentro.`,
+    regla: `$\\sqrt{a\\cdot a}=a$`,
+  });
+
+  // 6) reemplazar en x
+  rX = [salto("S2"), { id: "X0", tex: "x" }, { id: "Xe", tex: "=", op: true }, { id: "Xv2", tex: `${v0}\\ \\text{m/s}` }, { id: "Xc", tex: "\\cdot", op: true }, { id: "Xt2", tex: `${t}\\ \\text{s}` }];
+  paso({
+    fusiones: [
+      { desde: ["Xv"], hacia: "Xv2" },
+      { desde: ["Xt"], hacia: "Xt2" },
+    ],
+    texto: `Reemplazamos en el alcance: $v_{0}=${v0}\\ \\text{m/s}$ y $t=${t}\\ \\text{s}$.`,
+    porque: `Cada letra se cambia por su valor, con su unidad.`,
+  });
+
+  // 7) el alcance
+  rX = [salto("S2"), { id: "X0", tex: "x" }, { id: "Xe", tex: "=", op: true }, { id: "Xr", tex: `${x}\\ \\text{m}` }];
+  paso({
+    fusiones: [{ desde: ["Xv2", "Xc", "Xt2"], hacia: "Xr" }],
+    texto: `Multiplicamos: $${v0}\\cdot ${t}=${x}$. Los segundos se cancelan con los segundos de la velocidad y quedan metros: $x=${x}\\ \\text{m}$.`,
+    porque: `Metros por segundo, multiplicados por segundos, dan metros: es una distancia.`,
+    regla: `$x=v_{0}\\cdot t$`,
+  });
+
+  const intro = `Se lanza un objeto horizontalmente con una velocidad de $${v0}\\ \\text{m/s}$ desde una altura de $${h}\\ \\text{m}$. Considera $g=${G}\\ \\text{m/s}^{2}$. ¿Cuánto tarda en caer y qué distancia horizontal recorre? Es la versión rápida: lo que se escribe en el examen.`;
+  return { demo: { titulo: "", nota: "", intro, estados, transiciones: trans }, resumen: { h, v0, g: G, t, x } };
+}
+
 /** t = raiz(2h/g) y x = v0·t, con sus unidades y la raiz resuelta por su significado. Comprueba con la altura. */
-export function tiroHorizontal(h: number, v0: number, enunciado?: string): Resultado {
+export function tiroHorizontal(h: number, v0: number, enunciado?: string, rapido = false): Resultado {
+  if (rapido) return tiroRapido(h, v0);
   const dosH = 2 * h;
   const t2 = dosH / G; // t al cuadrado (numero)
   const t = Math.sqrt(t2);
