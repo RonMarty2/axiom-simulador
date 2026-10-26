@@ -54,7 +54,8 @@ describe("punnett: los cruces", () => {
   test("las cuatro casillas existen con el genotipo correcto (mayuscula primero)", () => {
     for (const [a, b] of ORDENADOS) {
       const { demo } = punnett(a, b);
-      const fin = aplanar(ultimo(demo));
+      // el cuadro se quita despues de contar: se mira el ultimo estado en que esta completo
+      const fin = aplanar(demo.estados.filter((e) => e.some((f) => f.id === "c11b")).at(-1)!);
       const sinColor = (t: string) => t.replace(/\\textcolor\{[^}]*\}\{([^}]*)\}/g, "$1").replace(/\\mathrm\{([^}]*)\}/g, "$1");
       const genos: string[] = [];
       for (let i = 0; i < 2; i++)
@@ -104,10 +105,12 @@ describe("punnett: los cruces", () => {
 describe("punnett: como a lapiz", () => {
   test("cada alelo se etiqueta con su padre, de uno en uno, y cada casilla es un paso con visita", () => {
     const { demo } = punnett("Aa", "Aa");
-    const fin = aplanar(ultimo(demo));
+    // los padres se recogen cuando el cuadro esta completo: la etiqueta se mira justo antes
+    const antes = aplanar(demo.estados.filter((e) => e.some((f) => f.id === "p1a")).at(-1)!);
     for (const [id, p] of [["p1a", 1], ["p1b", 1], ["p2a", 2], ["p2b", 2]] as const) {
-      assert.ok(fin.find((f) => f.id === id)?.debajo?.includes(`padre ${p}`), `${id} lleva padre ${p}`);
+      assert.ok(antes.find((f) => f.id === id)?.debajo?.includes(`padre ${p}`), `${id} lleva padre ${p}`);
     }
+    assert.ok(!aplanar(ultimo(demo)).some((f) => f.id === "p1a"), "los padres se recogen antes de contar");
     const conVisita = demo.transiciones.filter((t) => (t.visitas ?? []).length > 0 && (t.brotes ?? []).some((b) => /^c\d\d[ab]$/.test(b.hacia)));
     assert.equal(conVisita.length, 4, "una visita por casilla");
     for (const t of conVisita) assert.equal((t.brotes ?? []).filter((b) => /^c\d\d[ab]$/.test(b.hacia)).length, 2, "cada casilla recibe dos alelos");
@@ -123,11 +126,17 @@ describe("punnett: como a lapiz", () => {
   test("fenotipos: cada genotipo se etiqueta dominante o recesivo, uno por paso", () => {
     const { demo } = punnett("Aa", "Aa");
     const fin = aplanar(ultimo(demo));
-    assert.ok(fin.find((f) => f.id === "gt0")?.debajo?.includes("dominante"));
-    assert.ok(fin.find((f) => f.id === "gt1")?.debajo?.includes("dominante"));
-    assert.ok(fin.find((f) => f.id === "gt2")?.debajo?.includes("recesivo"));
+    assert.ok(fin.find((f) => f.id === "fe0")?.tex.includes("dominante"));
+    assert.ok(fin.find((f) => f.id === "fe1")?.tex.includes("dominante"));
+    assert.ok(fin.find((f) => f.id === "fe2")?.tex.includes("recesivo"));
     const texto = todoTexto(demo).join(" ");
     assert.ok(texto.includes("dominante") && texto.includes("recesivo"));
+  });
+
+  test("ningun texto trae codigo crudo (${, undefined, NaN) en ninguno de los 9 cruces", () => {
+    for (const [a, b] of ORDENADOS) {
+      for (const s of todoTexto(punnett(a, b).demo)) assert.ok(!/\$\{|undefined|NaN|\[object/.test(s), `${a}x${b}: codigo crudo en: ${s}`);
+    }
   });
 
   test("tuteo y LaTeX con barra: ningun texto vosea ni trae una orden sin barra", () => {

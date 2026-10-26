@@ -153,6 +153,7 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "todos heterocigotos", v: ["AA", "aa"] },
     { nombre: "solo dominantes", v: ["AA", "Aa"] },
     { nombre: "una sola clase", v: ["aa", "aa"] },
+    { nombre: "recesivo por dominante", v: ["aa", "AA"] },
   ],
   interes: [
     { nombre: "18 meses simplifica", v: ["2000", "5", "18", "meses"] },

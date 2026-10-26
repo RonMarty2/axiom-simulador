@@ -122,10 +122,10 @@
       "nota": "3a lectura independiente limpia (23-oct); tanteo con escalera escrita (de 1 en 1 o de 10 en 10), ultima cifra con candidatos nombrados, comprobacion un cuadrado por paso. Abierto para Ronald: la comprobacion repite calculos hechos arriba; exponente suelto al partir renglon en buscar cateto (motor Fusion); numeros de la comprobacion sin color; tachado de filas solo se ve en movimiento."
     },
     "punnett": {
-      "estado": "pendiente",
-      "huella": null,
-      "fecha": null,
-      "nota": ""
+      "estado": "auditado",
+      "huella": "59a217175f73",
+      "fecha": "2026-10-26",
+      "nota": "3a lectura independiente (26-oct): unico hallazgo grave (codigo crudo en el texto del intercambio de mayuscula) arreglado y vigilado por un test sobre los 9 cruces; marcadores invisibles que reservan las casillas, cruce de los padres y cuadro se recogen, etiqueta dominante/recesivo al lado del conteo, respuesta y comprobacion en dos pasos. Abierto para Ronald: paso mas alto 1188 px; renglones de conteo centrados (bordes desparejos); rayas del cuadro corren 3-4 px entre filas; comprobacion con la suma solo en el texto; decidir si los cierres muestran la probabilidad (3/4) en vez de 'cualquier hijo'."
     },
     "interes": {
       "estado": "auditado",
