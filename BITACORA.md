@@ -500,6 +500,33 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+### 2026-10-26 (identidad Medicina Borgoña, motor modular de anuncios, suite de marketing y pipeline UGC con Google Gemini Neural TTS)
+
+**Objetivo de Ronald:** consolidar la identidad visual institucional de cada facultad (AXIOM unificado en warm paper pero adoptando el color de cada carrera: Medicina en Borgoña Doctoral `#881337`, Económicas en Verde Esmeralda `#047857`, Tecnología en Terracota `#9c3d1c`, Derecho en Púrpura `#581c87`), construir un motor publicitario desacoplado y modular donde el año pueda cambiarse o suprimirse a voluntad, y producir contenido audiovisual atractivo con personas reales y voces neurales oficiales de Google.
+
+**Cambios realizados (todo en `main`):**
+1. **Identidad Visual de Medicina y Theming Adaptativo:**
+   - Fijado formalmente el color oficial **Borgoña Doctoral (`#881337`)** para Medicina en `src/app/globals.css` (`[data-facultad="medicina"]`), `data/facultades.json` y `src/app/components/AppHeader.tsx`.
+   - Portada (`src/app/page.tsx`): selector interactivo en la demo de examen que transmuta los acentos de toda la página en tiempo real (`document.documentElement.setAttribute("data-facultad", facId)`) al hacer clic en Medicina, Económicas o Tecnología.
+   - Tests: 441/441 tests unitarios y de regresión en verde sin una sola falla.
+2. **Motor Modular de Publicidad (`PUBLICIDAD/`):**
+   - Creado `PUBLICIDAD/config_anuncios.json` y `scripts/generar_anuncios.py`: motor desacoplado que renderiza afiches en alta resolución con Chromium/Playwright y fotos reales en Base64.
+   - Soporte dinámico de año: si `"anio": null`, el sistema imprime *"Admisión San Simón · Exámenes Reales"* (afiches perennes); si `"anio": "2026"`, imprime *"Admisión San Simón 2026"*. Se regeneran todas las piezas en 5 segundos con un solo comando.
+   - Corrección académica rigurosa: En la Facultad de Medicina UMSS la admisión es **ANUAL** (Curso Básico único al año). Se corrigió la frase ambigua "te cuesta el semestre" por "te cuesta tu cupo en la facultad".
+3. **Suite de Marketing Desplegada:**
+   - 15 láminas de Carrusel educativo para Instagram (1080×1350 px) en `PUBLICIDAD/piezas/` (5 para Medicina, 5 para Ingeniería, 5 para Económicas).
+   - 6 Historias interactivas para WhatsApp y Stories (1080×1920 px) en formato Quiz + Solución justificada.
+   - Guiones de video corto para TikTok y Reels (`PUBLICIDAD/guion/GUIONES_TIKTOK_REELS_UMSS.md`).
+   - Pack de copys listos para redes y grupos de WhatsApp (`PUBLICIDAD/guion/COPIES_REDES_SOCIALES.md`).
+   - Calendario semanal de publicación (`PUBLICIDAD/CALENDARIO_LANZAMIENTO_SEMANAL.md`).
+4. **Pipeline Audiovisual UGC con Google Gemini Neural TTS:**
+   - Se descartaron las voces sintéticas robóticas locales (rechazadas por Ronald).
+   - Conexión oficial al SDK `google.genai` con modelo **`gemini-3.8-flash-tts`** y voz neural preconstruida **`Aoede`** (femenina, cálida, cadencia conversacional real), normalizada con `loudnorm` a `-16 LUFS`.
+   - Generación de 3 tomas fotográficas 35mm cinematográficas con Google Imagen 3 mostrando a una estudiante boliviana real de Medicina (agobio a las 11 PM con fotocopias -> descubrimiento de AXIOM en su laptop -> alivio y comprensión).
+   - Ensamblado del video vertical 9:16 final en `PUBLICIDAD/final/ugc-medicina-v1.mp4` (27.9s, 837 frames a 30 fps, zoom Ken Burns y subtítulos sincronizados).
+5. **Agentes y Lecciones Actualizados:**
+   - `PUBLICIDAD/lecciones.md`, `productor-audio.md` y `director-motion.md` actualizados con el nuevo estándar de video UGC y Google Gemini Neural TTS.
+
 ### 2026-10-08 (RETOMAR) (animación de resoluciones: dónde quedamos, para una sesión sin contexto)
 
 **Objetivo de Ronald:** mostrar sus ejercicios resueltos a otro nivel, visual y atractivo, en todas las carreras y temas, con la herramienta que convenga (SVG con el motor de fusión; partículas o 3D solo si enseñan algo que el SVG no puede). Ronald no es experto en Física ni Química: él juzga solo «se ve feo / se ve bien»; lo correcto lo garantiza el código y el criterio visual lo vigilan los agentes con las reglas «como a lápiz» (una operación por paso, la pieza viaja, nada aparece sin origen; ver `agentes/animador-resolucion.md`).

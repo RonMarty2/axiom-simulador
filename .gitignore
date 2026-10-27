@@ -59,3 +59,7 @@ examenes pasados/**/*.png
 examenes pasados/MEDICINA/
 *.mp3
 *.wav
+
+# Python
+__pycache__/
+*.pyc

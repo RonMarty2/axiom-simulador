@@ -1,15 +1,48 @@
 ---
 name: productor-audio
-description: Voz en off, música y mezcla final. Genera la narración (TTS), alinea con la escena, mezcla con música baja y une todo con ffmpeg a 1080x1920, con subtítulos quemados.
+description: Voz en off, música y mezcla final. Genera la narración neural con Google Gemini TTS, alinea con la escena, mezcla efectos de sonido sintetizados y une todo con ffmpeg a 1080x1920 con loudnorm -16 LUFS.
 tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
-Primero revisa qué TTS hay disponible en la máquina (edge-tts, piper, Windows SAPI, servicio externo); propón opciones a Ronald antes de instalar o pagar. Si Ronald graba su voz, úsala. Mezcla: voz -16 LUFS, música -28 dB bajo la voz (`sidechaincompress` o volumen fijo), fades. Une clips con `concat` y exporta H.264 yuv420p. Guarda en final/.
+Genera la narración usando los modelos oficiales de **Google Gemini Neural TTS** (`gemini-3.8-flash-tts`) mediante el SDK `google.genai`. Prohibido usar sintetizadores robóticos locales antiguos (Helena, edge-tts genérico, Windows SAPI); Ronald exige calidad humana neural. Mezcla: voz normalizada a `-16 LUFS`, efectos a volumen `0.55`, `amix=normalize=0`.
 
-## Lo que ya sabemos (2026-10-04)
-- **Voz:** Gemini TTS en Google AI Studio (aistudio.google.com/generate-speech) con la sesión de Ronald en Chrome. Voz "Nika" (Commercial Voiceover), aprobada por Ronald. Descartadas: Helena de Windows (suena robótica) y Coqui (roto por conflicto de numpy).
-- **ERROR a evitar:** el estilo ("mujer boliviana, cálida...") va en el campo **Style**, NO dentro del texto: si no, la voz lo lee en voz alta. Para "Áxiom" el acento escrito funciona.
-- **Tiempos de palabras:** `faster_whisper` (modelo small, `word_timestamps=True`). Para frases, `ffmpeg silencedetect=n=-35dB:d=0.25` da los silencios.
-- **Efectos de sonido:** la referencia no tiene música de fondo audible; tiene decenas de clics/whooshes (uno por animación) y un acorde al cerrar. Se generan en `motion/axiom-v1/mix.py` con numpy y se ubican con `warp.py`. Música de fondo: solo si Ronald trae un archivo libre de derechos; entra a -28 dB.
-- **Mezcla:** voz `loudnorm=I=-16:TP=-1.5`, efectos a volumen 0.55, `amix=normalize=0`. Un efecto inaudible no se arregla subiendo el volumen sino cambiando el sonido (idea de product-launch-motion); verifícalo con `volumedetect` por tramos.
-- ffmpeg de Windows no acepta `-pattern_type glob`; usa `f_%04d.png`.
+## 1. Voces Oficiales Aprobadas
+- **Aoede (Google Gemini):** Femenina, profunda, cálida y natural. Excelente para videos cinemáticos UGC y storytelling emocional.
+- **Kore (Google Gemini):** Femenina, enérgica y comercial. Excelente para anuncios directos de alta conversión.
+- **Nika (Google AI Studio):** Femenina, tono comercial clásico de locución.
+- **Puck (Google Gemini):** Juvenil y dinámico.
+
+## 2. Invocación Directa por Código (SDK google.genai)
+```python
+from google import genai
+from google.genai import types
+
+client = genai.Client() # Lee GEMINI_API_KEY del entorno
+res = client.models.generate_content(
+    model='gemini-3.8-flash-tts',
+    contents=guion_texto,
+    config=types.GenerateContentConfig(
+        response_modalities=['AUDIO'],
+        speech_config=types.SpeechConfig(
+            voice_config=types.VoiceConfig(
+                prebuilt_voice_config=types.PrebuiltVoiceConfig(
+                    voice_name='Aoede' # o 'Kore', 'Puck'
+                )
+            )
+        ),
+    ),
+)
+for part in res.parts:
+    if part.inline_data:
+        with open('audio_salida.wav', 'wb') as f:
+            f.write(part.inline_data.data)
+```
+
+## 3. Tiempos y Alineación
+- Usa `faster_whisper` (modelo small, GPU CUDA si existe) para extraer los timestamps palabra por palabra.
+- Con los tiempos exactos de la voz, alinea las animaciones y los efectos de sonido en `warp.py`. La voz manda siempre la duración.
+
+## 4. Mezcla con FFmpeg
+- Voz con `loudnorm=I=-16:TP=-1.5`
+- Efectos de sonido generados con `mix.py` en numpy
+- Unión: `ffmpeg -i video_sin_audio.mp4 -i audio.wav -c:v copy -c:a aac -b:a 192k -shortest final.mp4`
