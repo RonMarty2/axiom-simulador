@@ -38,6 +38,30 @@ function centavos(C: number, r: number, t: number, unidad: UnidadTiempo): number
 
 const CAPITALES = [100, 250, 1234, 2000, 12000, 100000];
 
+describe("interes simple RAPIDA", () => {
+  test("toda combinacion permitida: revisar, mismo resumen que la explicada y pocos pasos", () => {
+    let casos = 0;
+    for (const unidad of ["años", "meses"] as const) {
+      const tMax = unidad === "años" ? 10 : 60;
+      for (const C of CAPITALES) {
+        for (let r = 1; r <= 30; r++) {
+          for (let t = 1; t <= tMax; t++) {
+            if (validarInteres(C, r, t, unidad)) continue;
+            if ((r * 7 + t) % 5 !== 0 && r > 3 && t > 3 && C !== 2000) continue;
+            const et = `rapida ${C},${r},${t},${unidad}`;
+            const res = interesSimple(C, r, t, unidad, undefined, true);
+            revisar(res.demo, et);
+            assert.deepEqual(res.resumen, interesSimple(C, r, t, unidad).resumen, `${et}: mismo resultado que la explicada`);
+            assert.ok(res.demo.transiciones.length <= 6, `${et}: la rapida tiene ${res.demo.transiciones.length} pasos`);
+            casos++;
+          }
+        }
+      }
+    }
+    assert.ok(casos > 100);
+  });
+});
+
 describe("interes simple: toda combinacion permitida", () => {
   test("años y meses: revisar, cuenta exacta, resultado y monto en la hoja, comprobaciones", () => {
     let casos = 0;

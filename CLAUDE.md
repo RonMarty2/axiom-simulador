@@ -15,6 +15,7 @@
 3. **Estilo de respuesta:** corto, directo, sin adornos. Ronald valora más la honestidad que la presunción de saber todo. Si no estás seguro, decilo.
 4. **Antes de tocar animaciones SVG:** leé §4 "Sistema visual" de la bitácora — hay lecciones aprendidas a fuerza de romper cosas.
 5. **Antes de tocar PWA:** leé §5 — la OTA y la supresión del banner ya funcionan bien.
+6. **Modularidad y Cero cifras "quemadas" a mano (Single Source of Truth):** Precios SOLO salen de `@/lib/precios` (`PRECIOS_BOB`); métodos de pago de `@/lib/pagos-config`; cantidad de exámenes del banco de `listarMetadata()` o `/api/facultades`. **NUNCA escribas números de catálogo ("139 exámenes", precios fijos) clavados a mano en el JSX.** El software debe auto-calcularse para que cuando Ronald o un agente agregue un examen nuevo, todo se actualice automáticamente sin choques entre sesiones. Ver Decisión D9 en [BITACORA.md](./BITACORA.md).
 
 ## Agentes del proyecto (`agentes/`)
 

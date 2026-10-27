@@ -54,3 +54,8 @@ examenes pasados/**/*.png
 
 # IDE
 .idea/
+
+# Audios y material de investigación pesado de Medicina
+examenes pasados/MEDICINA/
+*.mp3
+*.wav

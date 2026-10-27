@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import Icono from "../components/Icono";
 import BackLink from "../components/BackLink";
 
@@ -13,6 +14,43 @@ export default function SimuladorCreatePage() {
   const [modo, setModo] = useState<Modo>("ia_generado");
   const [cantidad, setCantidad] = useState<number>(20);
   const [dificultad, setDificultad] = useState<Dificultad>("medio");
+  const [facultad, setFacultad] = useState<string>("economicas");
+  const [nombreFacultad, setNombreFacultad] = useState<string>("Ciencias Económicas");
+  const [aniosDisponibles, setAniosDisponibles] = useState<number[]>([2023]);
+  const [anioSeleccionado, setAnioSeleccionado] = useState<number>(2023);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((me) => {
+        const facId = me.usuario?.facultad_objetivo || "economicas";
+        setFacultad(facId);
+
+        fetch("/api/facultades")
+          .then((r) => r.json())
+          .then((fd) => {
+            const fac = (fd.facultades ?? []).find((f: { id: string; nombre: string }) => f.id === facId);
+            if (fac) setNombreFacultad(fac.nombre);
+          })
+          .catch(() => {});
+
+        fetch("/api/axiom/examenes")
+          .then((r) => r.json())
+          .then((ed) => {
+            const propios = (ed.examenes ?? []).filter((e: { facultad: string }) => e.facultad === facId);
+            const anios = Array.from(
+              new Set<number>(propios.map((e: { anio: number }) => Number(e.anio)).filter(Boolean))
+            ).sort((a, b) => b - a);
+
+            if (anios.length > 0) {
+              setAniosDisponibles(anios);
+              setAnioSeleccionado(anios[0]);
+            }
+          })
+          .catch(() => {});
+      })
+      .catch(() => {});
+  }, []);
 
   const handleCrear = async () => {
     setLoading(true);
@@ -23,15 +61,15 @@ export default function SimuladorCreatePage() {
         ? {
             modo: "ia_generado" as const,
             universidad: "UMSS",
-            facultad: "economicas",
+            facultad,
             cantidad_preguntas: cantidad,
             dificultad,
           }
         : {
             modo: "examen_real" as const,
             universidad: "UMSS",
-            facultad: "economicas",
-            anio: 2024,
+            facultad,
+            anio: anioSeleccionado,
           };
 
     try {
@@ -54,14 +92,14 @@ export default function SimuladorCreatePage() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", padding: "48px 24px" }}>
+    <div style={{ minHeight: "100vh", padding: "44px 20px 100px" }}>
       <div style={{ maxWidth: 680, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: 32 }}>
           <h1
             className="font-crimson"
             style={{
-              fontSize: 32,
-              fontWeight: 700,
+              fontSize: 34,
+              fontWeight: 800,
               color: "var(--fg-primary)",
               marginBottom: 8,
               letterSpacing: "-0.02em",
@@ -70,7 +108,7 @@ export default function SimuladorCreatePage() {
             Nuevo simulacro
           </h1>
           <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
-            Examen de ingreso · <strong>UMSS Facultad de Ciencias Económicas</strong>
+            Examen de admisión · <strong>UMSS {nombreFacultad}</strong>
           </p>
         </div>
 
@@ -91,6 +129,7 @@ export default function SimuladorCreatePage() {
 
           <div style={{ display: "grid", gap: 12 }}>
             <button
+              type="button"
               onClick={() => setModo("ia_generado")}
               style={{
                 textAlign: "left",
@@ -99,7 +138,7 @@ export default function SimuladorCreatePage() {
                 border:
                   modo === "ia_generado"
                     ? "2px solid var(--accent)"
-                    : "1px solid var(--border)",
+                    : "1.5px solid var(--border)",
                 background:
                   modo === "ia_generado"
                     ? "var(--accent-soft)"
@@ -135,13 +174,13 @@ export default function SimuladorCreatePage() {
                 </span>
               </div>
               <p style={{ fontSize: 13.5, color: "var(--fg-muted)", lineHeight: 1.5 }}>
-                Preguntas frescas creadas en el momento sobre el temario oficial
-                UMSS. Cada examen es único. Distribución real: 40% Matemáticas,
-                35% Economía, 15% Verbal, 10% Razonamiento.
+                Preguntas frescas creadas sobre el temario oficial de la UMSS. Cada examen es único,
+                adaptado a la distribución real de tu facultad.
               </p>
             </button>
 
             <button
+              type="button"
               onClick={() => setModo("examen_real")}
               style={{
                 textAlign: "left",
@@ -150,7 +189,7 @@ export default function SimuladorCreatePage() {
                 border:
                   modo === "examen_real"
                     ? "2px solid var(--accent)"
-                    : "1px solid var(--border)",
+                    : "1.5px solid var(--border)",
                 background:
                   modo === "examen_real"
                     ? "var(--accent-soft)"
@@ -169,12 +208,12 @@ export default function SimuladorCreatePage() {
               >
                 <Icono nombre="documento" tamano={21} />
                 <strong style={{ fontSize: 16, color: "var(--fg-primary)" }}>
-                  Examen real 2024
+                  Examen oficial de admisión UMSS
                 </strong>
               </div>
               <p style={{ fontSize: 13.5, color: "var(--fg-muted)", lineHeight: 1.5 }}>
-                El examen oficial de la UMSS Económicas del año 2024, tal cual fue
-                tomado. Ideal para medir cómo te iría hoy.
+                Prueba oficial tomada por la facultad, con las preguntas exactas y tiempo oficial.
+                Ideal para medir tu nivel real hoy.
               </p>
             </button>
           </div>
@@ -185,7 +224,7 @@ export default function SimuladorCreatePage() {
           <div
             style={{
               background: "var(--bg-card)",
-              border: "1px solid var(--border)",
+              border: "1.5px solid var(--border)",
               borderRadius: 14,
               padding: 20,
               marginBottom: 24,
@@ -208,13 +247,14 @@ export default function SimuladorCreatePage() {
                   {[10, 20, 30, 50].map((n) => (
                     <button
                       key={n}
+                      type="button"
                       onClick={() => setCantidad(n)}
                       style={{
                         padding: "8px 18px",
                         borderRadius: 999,
                         border:
                           cantidad === n
-                            ? "1px solid var(--accent)"
+                            ? "1.5px solid var(--accent)"
                             : "1px solid var(--border)",
                         background:
                           cantidad === n ? "var(--accent)" : "transparent",
@@ -249,13 +289,14 @@ export default function SimuladorCreatePage() {
                   {(["facil", "medio", "dificil"] as Dificultad[]).map((d) => (
                     <button
                       key={d}
+                      type="button"
                       onClick={() => setDificultad(d)}
                       style={{
                         padding: "8px 18px",
                         borderRadius: 999,
                         border:
                           dificultad === d
-                            ? "1px solid var(--accent)"
+                            ? "1.5px solid var(--accent)"
                             : "1px solid var(--border)",
                         background:
                           dificultad === d ? "var(--accent)" : "transparent",
@@ -275,26 +316,106 @@ export default function SimuladorCreatePage() {
           </div>
         )}
 
+        {/* Configuración Examen Real */}
+        {modo === "examen_real" && (
+          <div
+            style={{
+              background: "var(--bg-card)",
+              border: "1.5px solid var(--border)",
+              borderRadius: 14,
+              padding: 20,
+              marginBottom: 24,
+            }}
+          >
+            <label
+              style={{
+                display: "block",
+                fontSize: 13,
+                fontWeight: 600,
+                color: "var(--fg-primary)",
+                marginBottom: 10,
+              }}
+            >
+              Selecciona la convocatoria oficial:
+            </label>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {aniosDisponibles.map((a) => (
+                <button
+                  key={a}
+                  type="button"
+                  onClick={() => setAnioSeleccionado(a)}
+                  style={{
+                    padding: "8px 18px",
+                    borderRadius: 999,
+                    border:
+                      anioSeleccionado === a
+                        ? "1.5px solid var(--accent)"
+                        : "1px solid var(--border)",
+                    background:
+                      anioSeleccionado === a ? "var(--accent)" : "transparent",
+                    color: anioSeleccionado === a ? "white" : "var(--fg-primary)",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                >
+                  Gestión {a}
+                </button>
+              ))}
+            </div>
+            <p style={{ fontSize: 12.5, color: "var(--fg-muted)", marginTop: 10 }}>
+              Examen oficial recopilado y contrastado con los patrones originales de la UMSS.
+            </p>
+          </div>
+        )}
+
+        {/* Aviso de error o puente de conversión (CRO) */}
         {error && (
           <div
             role="alert"
             style={{
-              background: "rgba(239,68,68,0.08)",
-              border: "1px solid rgba(239,68,68,0.30)",
-              borderRadius: 10,
-              padding: "12px 14px",
-              color: "#b91c1c",
+              background: "var(--accent-soft)",
+              border: "1.5px solid var(--accent)",
+              borderRadius: 14,
+              padding: "16px 20px",
+              color: "var(--fg-primary)",
               fontSize: 14,
-              marginBottom: 16,
+              marginBottom: 20,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 12,
+              flexWrap: "wrap",
             }}
           >
-            <Icono nombre="alerta" tamano={15} /> {error}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <Icono nombre="alerta" tamano={18} />
+              <span style={{ fontWeight: 600 }}>{error}</span>
+            </div>
+            {(error.includes("Premium") || error.includes("plan") || error.includes("límite")) && (
+              <Link
+                href="/precios"
+                style={{
+                  padding: "8px 18px",
+                  background: "var(--accent)",
+                  color: "white",
+                  borderRadius: 10,
+                  fontSize: 13,
+                  fontWeight: 700,
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Ver planes desde Bs 49 →
+              </Link>
+            )}
           </div>
         )}
 
         <button
           onClick={handleCrear}
           disabled={loading}
+          type="button"
           className="btn-primary"
           style={{
             width: "100%",
@@ -302,7 +423,7 @@ export default function SimuladorCreatePage() {
             fontSize: 16,
             background: loading
               ? "var(--bg-subtle)"
-              : "linear-gradient(135deg, var(--accent), var(--accent-hover))",
+              : "var(--accent)",
             color: "white",
             border: "none",
             borderRadius: 12,
@@ -310,7 +431,7 @@ export default function SimuladorCreatePage() {
             fontWeight: 700,
             boxShadow: loading
               ? "none"
-              : "0 12px 28px rgba(26,31,46,0.18)",
+              : "var(--shadow-md)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -336,7 +457,7 @@ export default function SimuladorCreatePage() {
           ) : modo === "ia_generado" ? (
             "Generar mi examen ahora"
           ) : (
-            "Comenzar examen real 2024"
+            `Comenzar examen oficial ${anioSeleccionado}`
           )}
         </button>
 
@@ -350,7 +471,7 @@ export default function SimuladorCreatePage() {
         >
           {modo === "ia_generado"
             ? "Generar puede tomar 20-40 segundos. La IA escribe preguntas únicas para ti."
-            : "Empezarás de inmediato con el cronómetro corriendo."}
+            : "Empezarás de inmediato con el cronómetro oficial corriendo."}
         </p>
 
         <div style={{ textAlign: "center", marginTop: 24 }}>

@@ -26,7 +26,7 @@ function LoginContent() {
         <div style={{ textAlign: "center", marginBottom: 28 }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre="rayo" tamano={44} grosor={1.6} /></div>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 8 }}>
-            Entrar a Axiom
+            Entrar a AXIOM
           </h1>
           <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
             Simulador de exámenes UMSS
@@ -73,7 +73,7 @@ function LoginContent() {
               <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Icono nombre="herramienta" tamano={12} /> Solo desarrollo local</span>
             </div>
             <div style={{ fontSize: 12.5, color: "var(--fg-muted)", marginBottom: 12, lineHeight: 1.5 }}>
-              Entrá sin Google para previsualizar. No aparece en producción.
+              Entra sin Google para previsualizar. No aparece en producción.
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("#3b82f6")}>

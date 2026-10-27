@@ -130,8 +130,122 @@ export function validarInteres(C: number, r: number, t: number, unidad: string):
   return null;
 }
 
+/** Version RAPIDA: lo que se escribe en el examen (formulas, reemplazar con la tasa y el tiempo ya como fracciones, multiplicar,
+ *  dividir, monto). Sin etiquetas de cada dato, sin listas de divisores, sin simplificar y sin comprobacion. Mismo `resumen`. */
+function interesRapido(C: number, r: number, t: number, unidad: UnidadTiempo): Resultado {
+  const meses = unidad === "meses";
+  const g = meses ? mcd(t, 12) : 1;
+  const tn = meses ? t / g : t;
+  const td = meses ? 12 / g : 1;
+  const q1 = r2((C * r) / 100);
+  const Y = 100 * (meses ? 12 : 1);
+  const X = C * r * t;
+  const I = r2(X / Y);
+  const M = r2(C + I);
+  const unidadDato = meses ? mesesTxt(t) : anios(t);
+  const S = (id: string): Ficha => ({ id, tex: "", salto: true });
+  const O = (id: string, tex: string): Ficha => ({ id, tex, op: true });
+  const P = (id: string, tex: string): Ficha => ({ id, tex });
+
+  const dat: Ficha[] = [
+    P("Dc", `C=${nf(C)}\\ \\text{Bs}`),
+    O("Dc1", ","),
+    P("Dr", `r=${nf(r)}\\ \\%\\ \\text{anual}`),
+    O("Dc2", ","),
+    P("Dt", `t=${nf(t)}\\ \\text{${unidadDato}}`),
+    S("DS1"),
+    P("Dq1", "I=\\ ?"),
+    O("Dq2c", ","),
+    P("Dq2", "M=\\ ?"),
+  ];
+  let rI: Ficha[] = [];
+  let rM: Ficha[] = [];
+  const estados: Ficha[][] = [clon(dat)];
+  const trans: Transicion[] = [];
+  const paso = (tr: Transicion) => {
+    estados.push(clon([...dat, ...rI, ...rM]));
+    trans.push({ ...tr, texto: pegarPunto(tr.texto), porque: pegarPunto(tr.porque) });
+  };
+  const tFrac = meses ? `\\dfrac{${t}}{12}` : `${t}`;
+
+  // 1) las dos formulas, con letras
+  rI = [S("S1"), P("I0", "I"), O("Ie", "="), P("Cc", "C"), O("m1", "\\cdot"), P("Rr", "r"), O("m2", "\\cdot"), P("Tt", "t")];
+  rM = [S("S2"), P("M0", "M"), O("Me", "="), P("Mc", "C"), O("Mp", "+"), P("Mi", "I")];
+  paso({
+    fusiones: [],
+    brotes: [
+      { desde: "Dq1", hacia: "S1" },
+      { desde: "Dq1", hacia: "I0" },
+      { desde: "Dq1", hacia: "Cc" },
+      { desde: "Dq1", hacia: "Rr" },
+      { desde: "Dq1", hacia: "Tt" },
+      { desde: "Dq2", hacia: "S2" },
+      { desde: "Dq2", hacia: "M0" },
+      { desde: "Dq2", hacia: "Mc" },
+      { desde: "Dq2", hacia: "Mi" },
+    ],
+    texto: `Es interés simple: el interés $I$ es el capital $C$ por la tasa $r$ por el tiempo $t$, y el monto $M$ es el capital más el interés.`,
+    porque: `El interés simple siempre se calcula sobre el capital del principio. El monto es todo el dinero al final: lo que había más lo que ganó.`,
+    regla: `$I=C\\cdot r\\cdot t,$ $M=C+I$`,
+  });
+
+  // 2) reemplazar: la tasa como fraccion de 100 y, si hace falta, el tiempo en anios
+  rI = [S("S1"), P("I0", "I"), O("Ie", "="), P("C2", nf(C)), O("m1", "\\cdot"), P("R2", `\\dfrac{${nf(r)}}{100}`), O("m2", "\\cdot"), P("T2", tFrac)];
+  paso({
+    fusiones: [
+      { desde: ["Cc"], hacia: "C2" },
+      { desde: ["Rr"], hacia: "R2" },
+      { desde: ["Tt"], hacia: "T2" },
+    ],
+    texto: `Reemplazamos: $C=${nf(C)}$; la tasa $${nf(r)}\\ \\%$ es $\\dfrac{${nf(r)}}{100}$ (por cada cien)${meses ? `; y como la tasa es anual, los $${t}$ ${mesesTxt(t)} se pasan a años: $\\dfrac{${t}}{12}$ (un año tiene $12$ meses)` : `; el tiempo ya está en años: $t=${t}$`}.`,
+    porque: `Un porcentaje es una fracción de $100$.${meses ? " La tasa y el tiempo tienen que usar la misma unidad: años." : ""}`,
+    regla: `$n\\ \\%=\\dfrac{n}{100}$`,
+  });
+
+  // 3) multiplicar todo en una sola fraccion
+  rI = [S("S1"), P("I0", "I"), O("Ie", "="), P("Ix", `\\dfrac{${nf(X)}}{${Y}}`)];
+  paso({
+    fusiones: [{ desde: ["C2", "m1", "R2", "m2", "T2"], hacia: "Ix" }],
+    texto: `Multiplicamos todo en una sola fracción: arriba $${nf(C)}\\cdot ${nf(r)}${meses ? `\\cdot ${t}` : `\\cdot ${t}`}=${nf(X)}$ y abajo $100${meses ? "\\cdot 12" : ""}=${Y}$.`,
+    porque: `Multiplicar fracciones es multiplicar numerador con numerador y denominador con denominador; un número entero es una fracción sobre $1$.`,
+    regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
+  });
+
+  // 4) dividir
+  rI = [S("S1"), P("I0", "I"), O("Ie", "="), P("Iv", `${nf(I)}\\ \\text{Bs}`)];
+  paso({
+    fusiones: [{ desde: ["Ix"], hacia: "Iv" }],
+    texto: `Dividimos: $\\dfrac{${nf(X)}}{${Y}}=${nf(I)}$. El interés es $I=${nf(I)}\\ \\text{Bs}$.`,
+    porque: `La raya de la fracción es una división.`,
+  });
+
+  // 5) reemplazar en el monto
+  rM = [S("S2"), P("M0", "M"), O("Me", "="), P("Mc2", nf(C)), O("Mp", "+"), P("Mi2", nf(I))];
+  paso({
+    fusiones: [
+      { desde: ["Mc"], hacia: "Mc2" },
+      { desde: ["Mi"], hacia: "Mi2" },
+    ],
+    texto: `Reemplazamos en el monto: $C=${nf(C)}$ e $I=${nf(I)}$.`,
+    porque: `Cada letra se cambia por su valor.`,
+  });
+
+  // 6) el monto
+  rM = [S("S2"), P("M0", "M"), O("Me", "="), P("Mv", `${nf(M)}\\ \\text{Bs}`)];
+  paso({
+    fusiones: [{ desde: ["Mc2", "Mp", "Mi2"], hacia: "Mv" }],
+    texto: `Sumamos: $${nf(C)}+${nf(I)}=${nf(M)}$. El monto es $M=${nf(M)}\\ \\text{Bs}$.`,
+    porque: `El monto es el capital más lo que ganó.`,
+    regla: `$M=C+I$`,
+  });
+
+  const intro = `Se deposita un capital de $${nf(C)}\\ \\text{Bs}$ al $${nf(r)}\\ \\%$ de interés simple anual durante $${t}\\ \\text{${unidadDato}}$. ¿Cuál es el interés y cuál es el monto? Es la versión rápida: lo que se escribe en el examen.`;
+  return { demo: { titulo: "", nota: "", intro: pegarPunto(intro), estados, transiciones: trans }, resumen: { C, r, t, meses: meses ? 1 : 0, tn, td, tAnios: tn / td, I, M, q1 } };
+}
+
 /** I = C·r·t y M = C + I; el tiempo en meses se pasa a anios antes de reemplazar */
-export function interesSimple(C: number, r: number, t: number, unidad: UnidadTiempo, enunciado?: string): Resultado {
+export function interesSimple(C: number, r: number, t: number, unidad: UnidadTiempo, enunciado?: string, rapido = false): Resultado {
+  if (rapido) return interesRapido(C, r, t, unidad);
   const meses = unidad === "meses";
   const g = meses ? mcd(t, 12) : 1;
   const tn = meses ? t / g : t; // el tiempo en anios es tn/td

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
+import Icono from "../components/Icono";
 import type { Facultad, Usuario } from "@/lib/data-store";
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -90,32 +91,35 @@ export default function AprendePage() {
 
           {!usuarioEsPremium && bloques && (
             <div style={{
-              marginTop: 14, padding: "12px 16px",
-              background: "linear-gradient(135deg, #fef3c7, #fde68a)",
-              borderRadius: 12, border: "1px solid #fbbf24",
-              display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap",
+              marginTop: 16, padding: "14px 18px",
+              background: "var(--accent-soft)",
+              borderRadius: 14, border: "1.5px solid var(--accent)",
+              display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
             }}>
-              <span style={{ fontSize: 20 }}>🔓</span>
+              <span style={{ display: "flex", color: "var(--accent)" }}>
+                <Icono nombre="chispa" tamano={22} />
+              </span>
               <div style={{ flex: 1, minWidth: 200 }}>
-                <div style={{ fontSize: 14, fontWeight: 700, color: "#78350f" }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>
                   Plan gratis: Unidad 01 de cada área desbloqueada
                 </div>
-                <div style={{ fontSize: 13, color: "#92400e" }}>
-                  Hazte Premium para acceder al resto del contenido.
+                <div style={{ fontSize: 13, color: "var(--fg-secondary)", marginTop: 2 }}>
+                  Accede a los 150 exámenes reales y todas las unidades con un plan activo.
                 </div>
               </div>
               <Link href="/precios" style={{
-                padding: "8px 16px", background: "#f59e0b", color: "white",
-                borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 14,
+                padding: "8px 18px", background: "var(--accent)", color: "white",
+                borderRadius: 10, textDecoration: "none", fontWeight: 700, fontSize: 13.5,
+                boxShadow: "var(--shadow-sm)",
               }}>
-                Ver planes →
+                Ver planes desde Bs 49 →
               </Link>
             </div>
           )}
         </div>
       </header>
 
-      <main style={{ maxWidth: 920, margin: "0 auto", padding: "28px 24px" }}>
+      <main style={{ maxWidth: 920, margin: "0 auto", padding: "28px 20px 100px" }}>
         {!bloques && (
           <div style={{
             padding: "30px 24px", background: "var(--bg-card)",

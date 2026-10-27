@@ -3,8 +3,8 @@
     "id": "economicas",
     "nombre": "Ciencias Económicas y Administrativas",
     "nombre_corto": "Económicas",
-    "color": "#10b981",
-    "color_secundario": "#34d399",
+    "color": "#047857",
+    "color_secundario": "#059669",
     "emoji": "📊",
     "descripcion": "Carreras: Economía, Administración de Empresas, Contaduría Pública, Ingeniería Comercial.",
     "areas": [
@@ -25,8 +25,8 @@
     "id": "ingenieria",
     "nombre": "Facultad de Ciencias y Tecnología",
     "nombre_corto": "Ingeniería",
-    "color": "#3b82f6",
-    "color_secundario": "#60a5fa",
+    "color": "#9c3d1c",
+    "color_secundario": "#c2603c",
     "emoji": "⚙️",
     "descripcion": "Carreras: Ingeniería Civil, Industrial, de Sistemas, Eléctrica, Electrónica, Mecánica, Química, Matemáticas, Física.",
     "areas": [
@@ -51,8 +51,8 @@
     "id": "medicina",
     "nombre": "Facultad de Medicina",
     "nombre_corto": "Medicina",
-    "color": "#ef4444",
-    "color_secundario": "#f87171",
+    "color": "#881337",
+    "color_secundario": "#9f1239",
     "emoji": "⚕️",
     "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia. Curso Básico de Medicina: 100 preguntas en 90 minutos, con afirmaciones 1/2/3 y clave de combinación.",
     "areas": [
@@ -73,8 +73,8 @@
     "id": "derecho",
     "nombre": "Facultad de Derecho y Ciencias Políticas",
     "nombre_corto": "Derecho",
-    "color": "#a855f7",
-    "color_secundario": "#c084fc",
+    "color": "#581c87",
+    "color_secundario": "#7e22ce",
     "emoji": "⚖️",
     "descripcion": "Carreras: Derecho, Ciencias Políticas, Administración Pública, Relaciones Internacionales.",
     "areas": [

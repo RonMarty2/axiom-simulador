@@ -70,7 +70,7 @@ export default function DashboardPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 1180, margin: "0 auto", padding: "clamp(18px, 3vw, 32px) clamp(16px, 3vw, 24px)" }}>
         {/* Saludo + números de un vistazo. Antes eran cuatro tarjetas grandes
             apiladas que en móvil ocupaban media pantalla para mostrar cuatro
             cifras; ahora van en una sola fila separada por líneas. */}
@@ -167,9 +167,9 @@ export default function DashboardPage() {
 // palabras pueden partirse en móvil sin desalinear las cifras entre sí.
 function Cifra({ label, valor, color }: { label: string; valor: string | number; color?: string }) {
   return (
-    <div style={{ padding: "12px 22px", borderLeft: "1px solid var(--border)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 6 }}>
-      <div style={{ fontSize: 10.5, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.09em", lineHeight: 1.25 }}>{label}</div>
-      <div className="font-crimson" style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, color: color ?? "var(--fg-primary)" }}>{valor}</div>
+    <div style={{ padding: "14px 18px", borderLeft: "1px solid var(--border)", display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 8 }}>
+      <div style={{ fontSize: 11, color: "var(--fg-muted)", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.06em", lineHeight: 1.3 }}>{label}</div>
+      <div className="font-crimson" style={{ fontSize: 28, fontWeight: 700, lineHeight: 1, color: color ?? "var(--fg-primary)" }}>{valor}</div>
     </div>
   );
 }

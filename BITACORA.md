@@ -280,12 +280,19 @@ Cada lección que requiere profundidad pedagógica usa 6 componentes opcionales 
 ### D8. En la biblioteca de exámenes, el enunciado se lee gratis y la solución se paga
 El corte del plan gratis no es "ves el examen o no lo ves": son las **3.579 soluciones paso a paso**. Cualquiera puede leer los 140 exámenes completos, porque eso es el catálogo y es lo que engancha; la respuesta correcta y la explicación piden plan activo. El filtro vive en el servidor (`/api/axiom/examenes/[id]`), no en la pantalla: filtrar en el cliente no sirve, la respuesta del fetch se lee igual desde el navegador. Ojo con la excepción que ya existía y sigue valiendo: en los resultados de un simulacro que el alumno acaba de rendir, el paso a paso **sí** se muestra a todos, porque es parte de sus 2 simulacros gratis por semana.
 
+### D9. Cero conteos clavados a mano: Single Source of Truth para el banco de exámenes
+Los números del banco ("139 exámenes", "150 exámenes") **NUNCA deben escribirse como texto estático fijo** en el JSX ni en la landing.
+- **Por qué:** Cuando Ronald agrega un nuevo examen al banco en `data/examenes/`, cualquier cifra cableada a mano ("139") queda desactualizada de inmediato, rompiendo la modularidad y credibilidad de la plataforma.
+- **La regla arquitectónica:** El conteo se deriva siempre de la fuente única de verdad: `listarMetadata()` en el servidor y `/api/facultades` en el cliente (`facultades.reduce((acc, f) => acc + (f.examenes || 0), 0)`).
+- **Flujo al agregar un examen:** Se deposita el archivo `.md` estructurado en `data/examenes/<universidad>/<facultad>/<examen>.md`. El servidor lo indexa automáticamente mediante `banco-loader.ts`. La landing, el simulador y las tarjetas de facultad se actualizan al instante sin tocar ni una línea de código ni arriesgar regresiones.
+
 ---
 
 ## 7. Errores garrafales detectados y corregidos (lecciones aprendidas)
 
 | Fecha | Error | Cómo se detectó | Lección |
 |-------|-------|----------------|---------|
+| 2026-10-26 | Portada decía "139 exámenes" fijo cuando el banco ya tenía 150 en disco, y el simulador forzaba 2024 para Económicas cuando su último examen era 2023 | Auditoría visual y de flujo real | Los datos de inventario y convocatorias se leen en tiempo de ejecución de la carpeta física, nunca se escriben de memoria en el código. Ver D9 |
 | 2026-06 | Balanza de escasez giraba al revés (necesidades arriba en vez de abajo) | Ronald al revisar | Si una metáfora física, simulala mentalmente |
 | 2026-06 | Indicador "6 ⌃" parecía "6 elevado a algo" (potencia) | Ronald al revisar móvil | Carácter `⌃` se renderiza elevado; usar SVG chevron |
 | 2026-06 | Flujo circular económico tenía flechas en un solo sentido con etiquetas mezcladas | Auditoría posterior | Dibujar AMBOS flujos (bienes/dinero en sentidos opuestos) |

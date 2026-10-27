@@ -64,6 +64,11 @@ export default function AppHeader() {
         setTester(!!d.tester);
         setCambioFacLibre(!!d.cambio_facultad_libre);
         setPicture(d.picture ?? null);
+        if (d.usuario?.facultad_objetivo) {
+          document.documentElement.setAttribute("data-facultad", d.usuario.facultad_objetivo);
+        } else {
+          document.documentElement.removeAttribute("data-facultad");
+        }
       })
       .catch(() => null);
   }, [pathname]);

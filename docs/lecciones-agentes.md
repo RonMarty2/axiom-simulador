@@ -36,6 +36,10 @@ Esto **no reemplaza** a `BITACORA.md` §7 (errores históricos del proyecto). Ac
 - 2026-09-30 · ACIERTO · Cuatro claves oficiales parecían contradecir el libro (20, 51, 56, 85). Se transcribieron con la clave oficial y una nota de revisión, sin "corregirlas" en silencio y sin copiarlas como si nada. · Discrepancia con la clave oficial: se transcribe la oficial, se anota la duda, se le pide al humano el capítulo del libro.
 - 2026-09-30 · ERROR · Las notas "Revisión pendiente" quedaron dentro de la explicación, que el alumno ve. · Decidir con el humano si una nota de revisión se muestra o si la pregunta se oculta hasta confirmarla. No es una decisión del transcriptor.
 
+## Modularidad y Fuente Única de Verdad (Single Source of Truth)
+
+- 2026-10-26 · ERROR (corregido) · La portada decía "139 exámenes" fijo mientras el banco ya tenía 150 exámenes en disco, y el simulador forzaba convocatoria 2024 fija en Económicas cuando la última disponible era 2023. · NUNCA clavar cifras de inventario (cantidad de exámenes, preguntas o precios) como texto fijo en el código. Todo conteo se calcula en tiempo real desde la fuente de verdad (`listarMetadata()` en servidor, `/api/facultades` en cliente). Si Ronald o una IA agrega un examen `.md` nuevo a `data/examenes/`, la web debe pasar automáticamente de 150 a 151 y desplegar la nueva convocatoria sin que nadie tenga que editar el código.
+
 ## Formato y código del banco
 
 - 2026-09-30 · ERROR · El test "una pregunta repetida no cambia de respuesta" comparaba solo el enunciado. En Medicina dos preguntas comparten enunciado y se distinguen por las afirmaciones (56 y 57). · Un test escrito para un formato puede dar falso positivo en otro. Al sumar un formato, correr los tests y **leer por qué falla uno** antes de tocarlo: acá el test tenía que ampliarse, no relajarse.

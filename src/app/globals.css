@@ -50,12 +50,27 @@
 }
 
 /* La fila de cifras del dashboard: en escritorio se agrupa a la derecha del
-   saludo; en móvil ocupa todo el ancho y reparte las cuatro en partes iguales,
-   porque con el padding de escritorio no entran en 375px. */
+   saludo; en móvil (≤720px) se convierte en una cuadrícula 2x2 espaciosa
+   para que las etiquetas nunca se quiebren en micro-renglones. */
 @media (max-width: 720px) {
-  .ax-cifras { width: 100%; }
-  .ax-cifras > * { flex: 1; padding-left: 10px !important; padding-right: 10px !important; }
-  .ax-cifras > *:first-child { border-left: none !important; }
+  .ax-cifras {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+  }
+  .ax-cifras > * {
+    border-left: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 14px 16px !important;
+  }
+  .ax-cifras > *:nth-child(odd) {
+    border-right: 1px solid var(--border) !important;
+  }
+  .ax-cifras > *:nth-last-child(-n+2) {
+    border-bottom: none !important;
+  }
 }
 
 /* ═══ MODO PWA — cuando la app corre standalone, forzar comportamiento app ═══
@@ -150,6 +165,48 @@ html.axiom-pwa body {
   --shadow-md: 0 10px 32px rgba(26,31,46,0.10);
   --shadow-lg: 0 18px 60px rgba(26,31,46,0.13);
 }
+
+/* ═══ PALETAS DINÁMICAS POR FACULTAD (Acento dominante al entrar) ═════════════
+   AXIOM mantiene siempre su base unificada (fondo crema #faf7f0, texto navy #1a1f2e,
+   tipografía Crimson Pro + Atkinson). Al ingresar un alumno o seleccionar su carrera,
+   la interfaz adopta con elegancia el acento cromático de su facultad. */
+
+[data-facultad="economicas"] {
+  --accent:       #047857;
+  --accent-hover: #065f46;
+  --accent-soft:  rgba(4, 120, 87, 0.10);
+  --primary:      #047857;
+  --primary-light:#059669;
+  --primary-dark: #064e3b;
+}
+
+[data-facultad="ingenieria"] {
+  --accent:       #9c3d1c;
+  --accent-hover: #7d2f13;
+  --accent-soft:  rgba(156, 61, 28, 0.10);
+  --primary:      #9c3d1c;
+  --primary-light:#c2603c;
+  --primary-dark: #7d2f13;
+}
+
+[data-facultad="medicina"] {
+  --accent:       #881337; /* Borgoña Doctoral / Medicina San Simón */
+  --accent-hover: #700f2b;
+  --accent-soft:  rgba(136, 19, 55, 0.10);
+  --primary:      #881337;
+  --primary-light:#9f1239;
+  --primary-dark: #700f2b;
+}
+
+[data-facultad="derecho"] {
+  --accent:       #581c87; /* Púrpura Toga / Jurisprudencia */
+  --accent-hover: #3b0764;
+  --accent-soft:  rgba(88, 28, 135, 0.10);
+  --primary:      #581c87;
+  --primary-light:#7e22ce;
+  --primary-dark: #3b0764;
+}
+
 
 html,
 body {
@@ -367,6 +424,7 @@ body {
 
 @media (max-width: 640px) {
   .resueltos-fila-linea { grid-template-columns: 1fr auto; row-gap: 6px; }
+  .resueltos-fila-titulo { white-space: normal; line-height: 1.35; }
   .resueltos-fila-chips, .resueltos-fila-meta { grid-column: 1 / -1; }
   .resueltos-fila-flecha { display: none; }
 }
