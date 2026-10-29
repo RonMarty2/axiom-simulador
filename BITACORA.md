@@ -530,6 +530,15 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 2. Guiones audiovisuales para redes (`PUBLICIDAD/guion/GUIONES_TIKTOK_REELS_UMSS.md`):
    - Agregado **GUION 0: ALERTA URGENTE MEDICINA UMSS · "Eliminaron el Curso Básico: Nueva PSA"** (30s, tuteo riguroso, estructura de gancho sobre el pánico a las ciencias exactas y CTA directo a AXIOM).
 
+**Eliminación de Flash de Tema al Recargar o Pull-to-Refresh en PWA/Web:**
+- **Problema reportado por Ronald:** Al hacer pull-to-refresh en la app instalada o F5 en PC, la interfaz arrancaba con los colores base de AXIOM (terracota) y recién mutaba a Borgoña/Medicina tras hidratar React y esperar a /api/auth/me.
+- **Causa raíz:** <html> carecía del atributo data-facultad en el renderizado inicial y no existía script síncrono previo al primer pintado.
+- **Solución implementada:**
+  1. En src/app/layout.tsx: RootLayout ahora lee síncronamente la cookie xiom_facultad (SSR directo en <html>).
+  2. Inyección de script síncrono en <head> de src/app/layout.tsx: evalúa localStorage.getItem('axiom_facultad') y cookies antes del primer render de CSS y DOM (0 ms de demora, cero parpadeo).
+  3. AppHeader.tsx, page.tsx, pi/perfil/facultad/route.ts y pi/auth/me/route.ts sincronizan la selección de facultad tanto en localStorage como en cookie persistente de 1 año (xiom_facultad).
+  4. Resultados: La recarga o pull-to-refresh arranca instantáneamente con el color de la carrera del usuario desde el frame 0.
+
 ### 2026-10-26 (identidad Medicina Borgoña, motor modular de anuncios, suite de marketing y pipeline UGC con Google Gemini Neural TTS)
 
 **Objetivo de Ronald:** consolidar la identidad visual institucional de cada facultad (AXIOM unificado en warm paper pero adoptando el color de cada carrera: Medicina en Borgoña Doctoral `#881337`, Económicas en Verde Esmeralda `#047857`, Tecnología en Terracota `#9c3d1c`, Derecho en Púrpura `#581c87`), construir un motor publicitario desacoplado y modular donde el año pueda cambiarse o suprimirse a voluntad, y producir contenido audiovisual atractivo con personas reales y voces neurales oficiales de Google.

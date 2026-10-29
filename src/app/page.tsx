@@ -141,6 +141,10 @@ export default function LandingPage() {
   useEffect(() => {
     const facId = carreraSel === "tecnologia" ? "ingenieria" : carreraSel;
     document.documentElement.setAttribute("data-facultad", facId);
+    try {
+      localStorage.setItem("axiom_facultad", facId);
+      document.cookie = `axiom_facultad=${encodeURIComponent(facId)}; path=/; max-age=31536000; SameSite=Lax`;
+    } catch {}
   }, [carreraSel]);
 
   useEffect(() => {

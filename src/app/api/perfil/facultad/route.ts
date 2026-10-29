@@ -44,5 +44,11 @@ export async function POST(req: NextRequest) {
   }
 
   const actualizado = await actualizarUsuario(userSession.id, { facultad_objetivo: facultad });
-  return NextResponse.json({ ok: true, usuario: actualizado });
+  const res = NextResponse.json({ ok: true, usuario: actualizado });
+  res.cookies.set("axiom_facultad", facultad, {
+    path: "/",
+    maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+  });
+  return res;
 }

@@ -66,8 +66,16 @@ export default function AppHeader() {
         setPicture(d.picture ?? null);
         if (d.usuario?.facultad_objetivo) {
           document.documentElement.setAttribute("data-facultad", d.usuario.facultad_objetivo);
+          try {
+            localStorage.setItem("axiom_facultad", d.usuario.facultad_objetivo);
+            document.cookie = `axiom_facultad=${encodeURIComponent(d.usuario.facultad_objetivo)}; path=/; max-age=31536000; SameSite=Lax`;
+          } catch {}
         } else {
           document.documentElement.removeAttribute("data-facultad");
+          try {
+            localStorage.removeItem("axiom_facultad");
+            document.cookie = "axiom_facultad=; path=/; max-age=0; SameSite=Lax";
+          } catch {}
         }
       })
       .catch(() => null);
@@ -89,6 +97,11 @@ export default function AppHeader() {
         body: JSON.stringify({ facultad }),
       });
       if (r.ok) {
+        document.documentElement.setAttribute("data-facultad", facultad);
+        try {
+          localStorage.setItem("axiom_facultad", facultad);
+          document.cookie = `axiom_facultad=${encodeURIComponent(facultad)}; path=/; max-age=31536000; SameSite=Lax`;
+        } catch {}
         // Recarga dura: la mayoría de las páginas son "use client" con su
         // propio fetch en useEffect — router.refresh() no las re-dispara,
         // solo re-renderiza partes de servidor. Sin esto quedaban con datos

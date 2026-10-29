@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { cookies } from "next/headers";
 import { Crimson_Pro, Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
 import PWARegister from "./components/PWARegister";
@@ -125,12 +126,28 @@ const jsonLdData = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  let facultadInicial: string | undefined;
+  try {
+    const cookieStore = await cookies();
+    facultadInicial = cookieStore.get("axiom_facultad")?.value;
+  } catch {}
+
   return (
-    <html lang="es" className="h-full" suppressHydrationWarning>
+    <html
+      lang="es"
+      className="h-full"
+      data-facultad={facultadInicial}
+      suppressHydrationWarning
+    >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var f=localStorage.getItem("axiom_facultad");if(!f){var m=document.cookie.match(/(?:^|; )axiom_facultad=([^;]+)/);if(m)f=decodeURIComponent(m[1]);}if(f){document.documentElement.setAttribute("data-facultad",f);}}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}

@@ -13,7 +13,7 @@ export async function GET() {
   const token = (await cookies()).get(SESSION_COOKIE)?.value;
   if (token) session = await verificarTokenSesion(token);
 
-  return NextResponse.json({
+  const res = NextResponse.json({
     usuario,
     admin,
     tester,
@@ -22,4 +22,12 @@ export async function GET() {
     picture: session?.picture,
     autenticado_google: !!session,
   });
+  if (usuario?.facultad_objetivo) {
+    res.cookies.set("axiom_facultad", usuario.facultad_objetivo, {
+      path: "/",
+      maxAge: 60 * 60 * 24 * 365,
+      sameSite: "lax",
+    });
+  }
+  return res;
 }
