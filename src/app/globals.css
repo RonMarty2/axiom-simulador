@@ -448,3 +448,13 @@ body {
   .resueltos-fila-chips, .resueltos-fila-meta { grid-column: 1 / -1; }
   .resueltos-fila-flecha { display: none; }
 }
+
+/* Graficas de Mafs (aprende/_components/GraficaFuncion.tsx) con los colores de LIENZO.
+   Mafs declara sus variables sobre .MafsView (fondo negro): aca se pisan con la misma especificidad + 1. */
+.ax-mafs .MafsView {
+  --mafs-bg: #faf7f0;
+  --mafs-fg: #1a1f2e;
+  --mafs-line-color: #e3dac8;
+  --mafs-origin-color: #5a6072;
+  font-family: inherit;
+}
