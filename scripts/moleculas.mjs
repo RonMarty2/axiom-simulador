@@ -29,6 +29,12 @@ for (const m of moleculas) {
     const dib = new SmilesDrawer.SvgDrawer({ width: 320, height: 220, bondThickness: 1.4, fontSizeLarge: 13, fontSizeSmall: 9, padding: 14, themes: { lienzo: tema } });
     SmilesDrawer.parse(smiles, (arbol) => {
       dib.draw(arbol, el, "lienzo");
+      // recortar al dibujo: smiles-drawer centra en un cuadrado y una cadena corta queda con mucho aire arriba y abajo
+      const c = el.getBBox(), m = 8;
+      const w = c.width + 2 * m, h = c.height + 2 * m;
+      el.setAttribute("viewBox", `${c.x - m} ${c.y - m} ${w} ${h}`);
+      el.setAttribute("width", String(Math.round(w * 1.7))); // tamano natural de la imagen: 1,7 veces el dibujo
+      el.setAttribute("height", String(Math.round(h * 1.7)));
       ok(new XMLSerializer().serializeToString(el));
       el.remove();
     }, (e) => mal(String(e)));
