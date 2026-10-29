@@ -110,7 +110,7 @@ export default function CuentaPage() {
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
             <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}><span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Icono nombre="birrete" tamano={16} /> Tu facultad objetivo</span></h3>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "#d97706", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "#b45309", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
               <Icono nombre="candado" tamano={11} /> CAMBIO PAGADO
             </span>
           </div>
@@ -142,7 +142,7 @@ export default function CuentaPage() {
                       ? <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera actual</div>
                       : cambioFacultadLibre
                         ? <div style={{ fontSize: 10, fontWeight: 700, color: "#059669", textTransform: "uppercase" }}>Cambiar</div>
-                        : <div style={{ fontSize: 10, fontWeight: 700, color: "#d97706", textTransform: "uppercase" }}><Icono nombre="candado" tamano={11} /> Cambiar (pago)</div>}
+                        : <div style={{ fontSize: 10, fontWeight: 700, color: "#b45309", textTransform: "uppercase" }}><Icono nombre="candado" tamano={11} /> Cambiar (pago)</div>}
                   </div>
                 </button>
               );
@@ -172,7 +172,7 @@ export default function CuentaPage() {
         <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflow: "hidden" }}>
           {pagos.length === 0 ? (
             <div style={{ padding: 30, textAlign: "center", color: "var(--fg-muted)", fontSize: 14 }}>
-              No tienes pagos aún. <Link href="/precios" style={{ color: "var(--accent)" }}>Ver planes</Link>
+              No tienes pagos aún. <Link href="/precios" style={{ color: "var(--accent)", textDecoration: "underline" }}>Ver planes</Link>
             </div>
           ) : (
             <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
@@ -193,7 +193,7 @@ export default function CuentaPage() {
                     <td style={{ padding: "10px 14px" }}>{etiquetaMetodo(p.metodo)}</td>
                     <td style={{ padding: "10px 14px", textAlign: "right", fontWeight: 700 }}>{formatearMonto(p.monto, p.moneda)}</td>
                     <td style={{ padding: "10px 14px", textAlign: "center" }}>
-                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#d97706" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
+                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#b45309" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
                     </td>
                   </tr>
                 ))}

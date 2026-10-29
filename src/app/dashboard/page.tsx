@@ -131,7 +131,7 @@ export default function DashboardPage() {
             </div>
             {ultimos.length === 0 && (
               <div style={{ textAlign: "center", padding: 30, color: "var(--fg-muted)", fontSize: 14 }}>
-                Aún no has hecho ningún examen. <Link href="/practicar" style={{ color: "var(--accent)" }}>Empieza ahora</Link>.
+                Aún no has hecho ningún examen. <Link href="/practicar" style={{ color: "var(--accent)", textDecoration: "underline" }}>Empieza ahora</Link>.
               </div>
             )}
             {ultimos.map((h) => (

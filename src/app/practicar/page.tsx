@@ -463,9 +463,11 @@ function Fila({
       style={{
         display: "flex", alignItems: "center", gap: 13, width: "100%",
         padding: "14px 16px", textAlign: "left",
-        background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 12,
+        // atenuado con el fondo y no con opacity: la opacidad bajaba el texto a 2,7 de contraste (axe pide 4,5).
+        // El candado ya dice que es de pago; disabled si sigue con opacity (no se puede tocar)
+        background: atenuado && !disabled ? "var(--bg-subtle)" : "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 12,
         cursor: disabled ? "not-allowed" : "pointer",
-        opacity: disabled ? 0.45 : atenuado ? 0.62 : 1,
+        opacity: disabled ? 0.45 : 1,
         WebkitTapHighlightColor: "transparent",
       }}
     >
