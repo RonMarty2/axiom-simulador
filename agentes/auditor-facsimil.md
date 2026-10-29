@@ -18,6 +18,7 @@ La app va a mostrar el examen digitalizado completo (con su orden, título y fig
 
 ## Receta (aprendida en la primera prueba)
 - Paso 0: listá páginas y caracteres con PyMuPDF (`import fitz`) o `pdftotext`. En esta máquina no hay `mutool`; sí PyMuPDF y `pdftoppm`.
+- **Segunda lectura independiente:** `python scripts/pdf-a-borrador.py "<pdf>"` (MinerU en local) da el texto con las fórmulas en LaTeX, mucho mejor que la capa de texto en ecuaciones de Word (9 de 10 contra 2 de 10). Sirve para encontrar rápido dónde el banco y el PDF difieren; **no es prueba**: inventa en escaneos, mezcla opciones y borra el encabezado. Toda diferencia se decide mirando el render.
 - Primero la **capa de texto** (contrasta 20 preguntas en minutos); después **render a 200 dpi** de las páginas y **300-400 dpi con recorte** de lo dudoso.
 - **Las fracciones se leen SIEMPRE en el render, nunca en la capa de texto**: PyMuPDF entrega el denominador antes que el numerador y ya hubo dos opciones invertidas (P12 del 2006).
 - Contrastá también **el cierre de cada enunciado**, no solo cifras y opciones: una frase final se perdió sin que nada lo avisara.

@@ -27,6 +27,15 @@ Lo que hacés termina frente a un alumno que se prepara para un examen real. Una
 
 Truco que funciona: renderizá solo la banda superior de todas las páginas (`pdftoppm -r 100` + recorte con `sharp`) y miralas juntas en una imagen.
 
+## Partir del borrador de MinerU (en vez de mirar páginas enteras)
+
+`python scripts/pdf-a-borrador.py "<pdf>" [carpeta] [--paginas 1-4]` deja un `.md` con el texto y las fórmulas ya en LaTeX (instalación en su encabezado; 2 páginas tardan de 25 a 90 s). En dos exámenes de prueba acertó 9 de 10 y 13 de 18 fragmentos del banco, contra 2 de 10 y 2 de 18 de la capa de texto. Es un **borrador, no la verdad**. Inventa cosas, y estas ya pasaron:
+- caracteres chinos o palabras rotas dentro de una fórmula de una página escaneada;
+- las cinco opciones mezcladas, con las letras separadas de sus fórmulas (G8 de 2016): **contá y leé las cinco opciones de cada pregunta contra el render**, siempre;
+- borra el encabezado (universidad, examen, fecha): **la fecha y la identificación salen del PDF**, nunca del borrador;
+- subíndices en HTML (`SO<sub>2</sub>`) y números con espacios (`1 0 N`): pasalos a LaTeX y juntalos.
+Nunca uses `--remote` (manda el PDF a un servidor externo); el script lo rechaza.
+
 ## Resolver cada pregunta
 
 - **Resolvé con la cuenta completa ANTES de mirar las opciones.** Después comparás.

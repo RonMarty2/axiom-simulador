@@ -51,7 +51,7 @@ Ronald aprobó todo lo de este plan el 29-oct-2026 («sí a todo lo que mejore»
 
 ## Fase 4 · Borrador automático de exámenes con MinerU (solo en la PC de Ronald)
 - [x] **4.1 Script `scripts/pdf-a-borrador.py`** que corre `mineru-kit parse <pdf> -o <carpeta> --tier basic` y deja el `.md` crudo en una carpeta temporal (fuera del banco). Instalación aparte: `py -3.11 -m venv` + `pip install mineru` (0,8 GB de modelos). **Nunca usar `--remote`**: manda el PDF a un servidor externo. Ver `docs/repos/MinerU.md`.
-- [ ] **4.2 Actualizar agentes** `transcriptor-examenes`, `transcriptor-medicina` y `auditor-facsimil`: parten del borrador y contrastan contra el render del PDF. El borrador INVENTA cosas (caracteres chinos en un escaneo, opciones mezcladas, borra la fecha del encabezado): **contar y leer siempre las cinco opciones** y sacar la fecha del PDF.
+- [x] **4.2 Actualizar agentes** `transcriptor-examenes`, `transcriptor-medicina` y `auditor-facsimil`: parten del borrador y contrastan contra el render del PDF. El borrador INVENTA cosas (caracteres chinos en un escaneo, opciones mezcladas, borra la fecha del encabezado): **contar y leer siempre las cinco opciones** y sacar la fecha del PDF.
 - [ ] **4.3 Medir** en un examen real cuántos tokens cuesta con y sin borrador. Si no ahorra, se descarta y se anota.
 - [ ] **4.4 Créditos:** agregar una línea de créditos a MinerU (licencia con cláusula de atribución; ver el informe).
 
