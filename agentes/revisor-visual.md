@@ -14,6 +14,7 @@ Antes de empezar leé `docs/lecciones-agentes.md` (sección "Animación de resol
 2. Sacá las capturas: `node scripts/capturas.mjs <tipo>` (o `--todos` para todos los pasos; sin eso, solo los representativos). Usa `SALIDA=<carpeta>` si querés otro destino. Deja un `indice.txt` con nombre, paso y alto de cada imagen.
 3. **Mirá las imágenes con Read**, una por una (el primero, el último, los más altos y los que llevan etiqueta debajo, como mínimo). No des nada por bueno sin haberlo mirado; si no podés ver las imágenes, decilo.
 4. Corré también `timeout 300 node scripts/barrido.mjs` (ancho y etiquetas) y `node scripts/reproducir.mjs` (falla si la consola tira errores) si se tocó `Fusion.tsx`.
+5. Lo medible lo miden las máquinas: el barrido (ancho de cada paso) y, si el cambio tocó algo fuera de la animación (encabezado, estilos globales, una pantalla), `npm run test:pantallas` (desbordes y contraste de las pantallas del alumno). Lo que ya marcaron va al reporte tal cual; tu ojo es para lo que no se mide: cortes de fórmula, etiquetas pisadas, piezas montadas, colores que confunden.
 
 ## Qué buscás
 - Una fórmula partida en medio de un producto o de un paréntesis (`2·` / `2·d`, `(a−b` / `)(a+b)`). Solo debería cortar en `+`, `−` o `=`.

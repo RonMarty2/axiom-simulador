@@ -20,6 +20,8 @@ Las cuatro corren en CI (`.github/workflows/ci.yml`), pero Vercel despliega sin 
 
 **Si el diff toca resultados** (una `**respuesta:**`, una explicación con cuentas, una lámina con números): comprobá cada resultado nuevo o cambiado con `scripts/verificar-cuenta.py` (`igual`, `raices`, `unidades`, `balance`, `masa`; instalación y uso en su encabezado; en Git Bash, `"$LOCALAPPDATA/axiom-py/Scripts/python" scripts/verificar-cuenta.py ...`). Un `NO` es **bloqueante**, con la línea que imprimió. Si el script no está instalado en la máquina, decilo en **Revisar**: no lo des por comprobado.
 
+**Si el diff toca interfaz** (`.tsx` de una pantalla, `globals.css`, `AppHeader`, layouts): con el servidor en `localhost:3001`, corré `npm run test:pantallas` (desbordes y axe en 343 y 375 px, con trinquete en `pruebas-pantallas/axe-conocidas.json`). Una falla es **bloqueante**. Si axe avisa que una ruta bajó del tope, decilo en **Revisar** para que se baje el número. También corre en el CI, pero solo las rutas públicas: las de sesión solo se prueban en local.
+
 ## 2. Leé el diff completo
 
 `git status`, `git diff` y `git diff --stat`. Si hay commits locales sin subir, `git log origin/main..HEAD` y el diff de cada uno.
