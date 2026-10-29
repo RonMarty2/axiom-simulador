@@ -119,8 +119,8 @@ describe("animaciones de fusion", () => {
     assert.equal(piezas(factorizada.frac!.nPiezas!), "3\\cdot2", "falta 3·2 arriba");
     assert.equal(piezas(factorizada.frac!.dPiezas!), "2\\cdot2", "falta 2·2 abajo");
     // se tachan solo el 2 de arriba y el 2 de abajo (con su punto), no la fraccion entera
-    const tacha = d.transiciones[i].fusiones.find((f) => f.modo === "tachar")!;
-    assert.deepEqual(tacha.desde, ["xp1", "xg1", "xp2", "xg2"]);
+    const tachas = d.transiciones[i].fusiones.filter((f) => f.modo === "tachar").map((f) => f.desde.join());
+    assert.deepEqual(tachas, ["xp1,xg1", "xp2,xg2"]);
     assert.ok(d.transiciones.slice(0, i).some((t) => t.texto.includes("mayor número que divide")), "falta nombrar el mcd");
   });
 
@@ -135,12 +135,18 @@ describe("animaciones de fusion", () => {
     assert.ok(d.transiciones.some((t) => t.brotes?.some((b) => b.desde === "gg" && b.hacia === "xg1")), "el g debe bajar al numerador");
     assert.ok(d.transiciones.some((t) => t.brotes?.some((b) => b.desde === "gg" && b.hacia === "xg2")), "el g debe bajar al denominador");
     // el 1 del numerador y del denominador de 3·(1/2) se ve (n·1 sobre 1·k) y se tacha
-    const conUnos = d.estados.find((e) => ids(e).includes("x2a"))!;
+    const conUnos = d.estados.find((e) => (e.find((f) => f.id === "x2a")?.frac?.nPiezas?.length ?? 0) === 3)!;
     const x2a = conUnos.find((f) => f.id === "x2a")!.frac!;
     assert.equal(x2a.nPiezas!.map((p) => p.tex).join(""), "6\\cdot1");
     assert.equal(x2a.dPiezas!.map((p) => p.tex).join(""), "1\\cdot4");
-    // se tachan solo los dos 1 (con su punto)
-    assert.ok(d.transiciones.some((t) => t.fusiones.some((f) => f.modo === "tachar" && f.desde.join() === "xo1,xu1,xu2,xo2")), "falta tachar los 1");
+    // se tachan solo los dos 1 (con su punto), uno arriba y otro abajo
+    assert.ok(d.transiciones.some((t) => t.fusiones.map((f) => (f.modo === "tachar" ? f.desde.join() : "")).join("|") === "c,xu1|xu2,xo2"), "falta tachar los 1");
+    // antes de multiplicar, el 6 se escribe 6/1 en la hoja y el 1 de abajo nace del 6 (no del 1/4)
+    const iUnos = d.estados.indexOf(conUnos);
+    const sobreUno = d.estados[iUnos - 1].find((f) => f.id === "x2a")!.frac!;
+    assert.equal(sobreUno.nPiezas!.map((p) => p.tex).join("") + "/" + sobreUno.dPiezas!.map((p) => p.tex).join(""), "6/1");
+    assert.ok(d.transiciones[iUnos - 2].brotes?.some((b) => b.desde === "x" && b.hacia === "xu2"), "el 1 de 6/1 debe nacer del 6");
+    assert.ok(!d.transiciones[iUnos - 1].brotes?.some((b) => b.hacia === "xu2"), "el 1 de abajo ya estaba: no nace al multiplicar");
   });
 
   test("potencia y exponentes enteros: b^n se calcula con productos parciales, uno por paso, sin borrar la fila", () => {
@@ -215,8 +221,9 @@ describe("animaciones de fusion", () => {
   test("raiz con exponente fraccionario: base y numerador viajan al radicando, denominador al indice", () => {
     const d = raizGeneral("x", 2, 3).demo; // x^(2/3)
     const t = d.transiciones.find((t) => t.brotes?.some((b) => b.hacia === "ik2"))!;
-    assert.ok(t.brotes!.some((b) => b.desde.endsWith(".d") && b.hacia === "ik2"), "el denominador va al indice");
-    assert.ok(t.brotes!.some((b) => b.desde.endsWith(".n") && b.hacia === "nn"), "el numerador queda con la base");
+    // la fraccion del exponente esta armada con piezas: el 3 de abajo (xk) va al indice y el 2 de arriba (x) queda con la base
+    assert.ok(t.brotes!.some((b) => b.desde === "xk" && b.hacia === "ik2"), "el denominador va al indice");
+    assert.ok(t.brotes!.some((b) => b.desde === "x" && b.hacia === "nn"), "el numerador queda con la base");
   });
 
   test("raiz con parte entera: se ven b^(q+r/k) y b^q·b^(r/k), la base se copia y x^1 se simplifica", () => {

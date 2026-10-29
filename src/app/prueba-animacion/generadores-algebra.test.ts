@@ -238,7 +238,18 @@ describe("generadores de algebra", () => {
     assert.ok(textos.some((x) => x.startsWith("Y la división de la respuesta")));
     // irreducible: se muestran los divisores y el unico comun (1)
     const irr = fracciones(1, 4, 1, 6).demo.transiciones.map((t) => t.texto);
-    assert.ok(irr.some((x) => x.startsWith("¿Se puede simplificar?") && x.includes("Divisores de $5$") && x.includes("Divisores de $12$") && x.includes("único")));
+    assert.ok(irr.some((x) => x.startsWith("¿Se puede simplificar?") && x.includes("Divisores de $5$")));
+    assert.ok(irr.some((x) => x.includes("Divisores de $12$")));
+    assert.ok(irr.some((x) => x.includes("único") && x.includes("$1$")));
+    // las listas van EN LA HOJA, de a una, y nacen de la fraccion (revision por agentes del 29-oct: antes solo estaban en el texto)
+    const irrD = fracciones(1, 4, 1, 6).demo;
+    const iDn = irrD.estados.findIndex((e) => e.some((f) => f.id === "Dn"));
+    assert.ok(iDn > 0 && !irrD.estados[iDn].some((f) => f.id === "Dd"), "la lista de arriba nace sola");
+    assert.ok(irrD.transiciones[iDn - 1].brotes!.some((b) => b.hacia === "Dn"));
+    assert.ok(irrD.estados[iDn + 1].some((f) => f.id === "Dd"), "la lista de abajo nace en el paso siguiente");
+    assert.ok(irrD.estados[iDn + 2].some((f) => f.id === "Dc" && f.tex.includes("\\mathbf{1}")), "«en las dos listas: 1» queda en la hoja");
+    // y se van al empezar la comprobacion, sin dejar la hoja cargada
+    assert.ok(!irrD.estados.at(-1)!.some((f) => f.id === "Dc"));
     // el criterio de parada de la lista de multiplos se explica; el divisor de un numerador negativo avisa que no cuenta el signo;
     // y "tampoco" solo aparece si hubo una multiplicacion antes (k1 > 1)
     const mcm = fracciones(1, 4, 1, 6).demo.transiciones;
@@ -385,7 +396,37 @@ describe("generadores de algebra", () => {
     // de la multiplicacion muestra lo mismo que la hoja ((-3) arriba)
     const neg = ecuacionLineal(4, 2, -4).demo.transiciones.map((t) => t.texto);
     assert.ok(neg.some((x) => x.includes("El signo menos entra al numerador")), "falta decir que el menos entra al numerador");
-    assert.ok(neg.some((x) => x.startsWith("Primero la multiplicación: $4\\cdot (\\dfrac{-3}{2})$")), "el texto no muestra el (-3) de la hoja");
+    assert.ok(neg.some((x) => x.startsWith("Primero la multiplicación: $4\\cdot \\left(\\dfrac{-3}{2}\\right)$")), "el texto no muestra el (-3) de la hoja");
+    // revision por agentes del 29-oct: reemplazar y meter el menos son DOS pasos; el menos es una pieza que viaja
+    const negD = ecuacionLineal(4, 2, -4).demo;
+    const iRe = negD.transiciones.findIndex((t) => t.texto.startsWith("Reemplazamos $x$"));
+    assert.ok(negD.transiciones[iRe].porque.includes("entre paréntesis"), "dice por que el negativo va entre parentesis");
+    assert.ok(!negD.transiciones[iRe].texto.includes("entra al numerador"));
+    const menos = negD.transiciones[iRe + 1];
+    assert.ok(menos.texto.startsWith("El signo menos entra al numerador") && menos.regla === "$-\\dfrac{a}{b}=\\dfrac{-a}{b}$");
+    assert.deepEqual(menos.fusiones, [{ desde: ["Cm"], hacia: "Cfm", modo: "viajar" }]);
+    // los parentesis se estiran alrededor de la fraccion
+    assert.ok(negD.estados[iRe + 1].some((f) => f.id === "Cpa" && f.tex.includes("\\left(")));
+    // la regla de signos se nombra al multiplicar
+    assert.ok(negD.transiciones.some((t) => t.porque.includes("Positivo por negativo da negativo") && t.regla === "$a\\cdot(-b)=-(a\\cdot b)$"));
+    // x entera negativa: tambien dice por que el parentesis y nombra la regla de signos
+    const ent = ecuacionLineal(3, 2, -4).demo.transiciones;
+    assert.ok(ent.some((t) => t.texto.startsWith("Reemplazamos") && t.porque.includes("entre paréntesis")));
+    assert.ok(ent.some((t) => t.texto.startsWith("Primero la multiplicación") && t.porque.includes("Positivo por negativo da negativo")));
+  });
+
+  test("lineal x fraccionaria: al hacer la cuenta de arriba SOLO se funde el numerador; el denominador sigue siendo la misma pieza (29-oct)", () => {
+    // «lo que se dice quieto queda quieto»: el Cfd se sigue con su id desde que nace hasta la division
+    for (const [a, b, c] of [[4, 2, 8], [4, 2, -4], [5, 1, -3], [6, 1, 4], [12, -7, 89]] as const) {
+      const d = ecuacionLineal(a, b, c).demo;
+      const iCuenta = d.transiciones.findIndex((t) => t.texto.startsWith("Hacemos la cuenta de arriba"));
+      if (iCuenta < 0) continue;
+      const t = d.transiciones[iCuenta];
+      assert.ok(t.fusiones.every((f) => !f.desde.includes("Cf") && !f.desde.includes("Cfd")), `${a}x${b}=${c}: la cuenta de arriba funde la fraccion entera`);
+      const den = (e: Ficha[]) => e.find((f) => f.id === "Cf")?.frac?.dPiezas?.map((p) => p.id);
+      assert.deepEqual(den(d.estados[iCuenta]), ["Cfd"]);
+      assert.deepEqual(den(d.estados[iCuenta + 1]), ["Cfd"], `${a}x${b}=${c}: el denominador cambio de pieza`);
+    }
   });
 
   test("lineal con n<0: el texto y el estado muestran el mismo -12 arriba, y el signo se mueve en su propio paso", () => {
@@ -473,7 +514,16 @@ describe("generadores de algebra", () => {
     assert.ok(neg.demo.transiciones.indexOf(signo) === neg.demo.transiciones.indexOf(calc) + 1);
     // la comprobacion multiplica por el denominador comun: 1/2·6 = 3, 5/6·6 = 5, y -1/3·6 = -2
     const txt = neg.demo.transiciones.map((x) => x.texto).join(" | ");
-    for (const pista of ["multiplicamos cada término por $6$", "$3-5=-2$", "A la izquierda queda $-2$ y a la derecha $-2$"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
+    for (const pista of ["multiplicamos los dos lados por $6$", "$3-5=-2$", "A la izquierda queda $-2$ y a la derecha $-2$"]) assert.ok(txt.includes(pista), `falta: ${pista}`);
+    // repartir el 6 sobre la resta es la distributiva: se nombra (29-oct)
+    assert.ok(neg.demo.transiciones.some((t) => t.porque.includes("propiedad distributiva") && t.regla!.includes("(a-b)\\cdot c")));
+    // el mcm queda anotado mientras lo nombran los pasos «porque d·k = L» y se va cuando los dos denominadores ya son L (29-oct)
+    const sn = fracciones(1, 2, 1, 3).demo;
+    for (let i = 0; i < sn.transiciones.length; i++) {
+      if (/porque \$\d+\\cdot \d+=6\$/.test(sn.transiciones[i].texto)) assert.ok(sn.estados[i + 1].some((f) => f.id === "Mm"), `T${i} nombra el mcm y no esta en la hoja`);
+    }
+    const iMira = sn.transiciones.findIndex((t) => t.texto.startsWith("Mira los denominadores"));
+    assert.ok(sn.estados[iMira].some((f) => f.id === "Mm") && !sn.estados[iMira + 1].some((f) => f.id === "Mm"));
   });
 
   test("logaritmos: la comprobacion nace de la fila de referencia y la potencia se DESARROLLA (2^5 = 2·2·2·2·2 de a dos)", () => {

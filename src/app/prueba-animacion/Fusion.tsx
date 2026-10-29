@@ -469,6 +469,23 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     // una fraccion elevada (exponente 5/2) mide dos lineas: se agranda y se sube mas que un exponente comun
     const escala = f.sup ? (f.frac ? 0.8 : 0.7) : 1;
     const alza = f.sup ? (f.frac ? 1.05 : 0.9) : 0;
+    // un exponente que LLEVA una fraccion (2^(4/2), 2^(4·½)) sube hasta que el denominador queda por encima de la mitad de la base:
+    // con solo 1.05em el denominador quedaba al lado de la base y se leia «22» o «21·2» (revision por agentes, 29-oct). Todas las
+    // piezas de ese exponente suben lo mismo (el 4 y el · siguen alineados con la raya del ½). Lo que sube de mas se hace con margen
+    // abajo: el renglon crece y el exponente no se sale por arriba de la hoja.
+    const cadenaConFraccion = (() => {
+      if (!f.sup) return false;
+      let a = pos;
+      while (a > 0 && estado[a - 1].sup) a--;
+      let z = pos;
+      while (z < estado.length - 1 && estado[z + 1].sup) z++;
+      return estado.slice(a, z + 1).some((p) => !!p.frac);
+    })();
+    // en em de la propia pieza (una fraccion elevada es mas grande que un exponente comun): la misma subida en pantalla para todas
+    const k8 = 0.8 / escala;
+    const extra = cadenaConFraccion ? 2.2 * k8 : 0;
+    const tope = cadenaConFraccion ? alza - 0.45 * k8 : alza;
+    const fraccionSola = cadenaConFraccion && !prevSup && !!f.frac;
     // una pieza con etiqueta debajo reserva al menos el ancho de su etiqueta (si no, las etiquetas de piezas vecinas se montan)
     const letras = f.debajo ? f.debajo.replace(/\\textcolor\{[^}]*\}/g, "").replace(/\\text\{([^}]*)\}/g, "$1").replace(/\\[a-zA-Z]+/g, "X").replace(/[{}$^_]/g, "").length : 0;
     // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
@@ -495,11 +512,11 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
             ? {
                 display: "inline-block",
                 position: "relative",
-                top: `-${alza}em`,
+                top: `-${tope}em`,
                 fontSize: `${escala}em`,
                 // con etiqueta no se pega a la base: abajo necesita su lugar
                 // el margen superior va DENTRO del shorthand (mezclar margin y marginTop hace que React avise de fallos de estilo al re-dibujar)
-                margin: prevSup ? `${mt}px 0 0 2px` : f.debajo ? `${mt}px 8px 0` : `${mt}px 4px 0 -17px`,
+                margin: prevSup ? `${mt}px 0 ${extra}em 2px` : f.debajo ? `${mt}px 8px ${extra}em` : `${mt}px 4px ${extra}em ${fraccionSola ? -12 : -17}px`,
                 ...anchoEtiqueta,
               }
             : f.salto
@@ -564,7 +581,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
             // en la misma proporcion, para que quede a la misma altura y del mismo tamaño que la de la base
             style={{
               position: "absolute",
-              top: f.sup ? `calc(100% + ${alza + 0.6}em + 6px)` : "100%",
+              top: f.sup ? `calc(100% + ${tope + extra / 2 + 0.6}em + 6px)` : "100%",
               left: "50%",
               transform: "translateX(-50%)",
               whiteSpace: "nowrap",

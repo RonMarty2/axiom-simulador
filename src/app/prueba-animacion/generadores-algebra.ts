@@ -284,44 +284,62 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
     // x entero: el valor es UNA pieza. x fraccion: son piezas sueltas (punto, parentesis, numerador y denominador)
     // para que despues solo viajen el a y el numerador, y el denominador se quede quieto
     const Cd: Ficha = { id: "Cd", tex: "\\cdot", pegado: true };
-    const Cpa: Ficha = { id: "Cpa", tex: "(", pegado: true };
-    const Cpb: Ficha = { id: "Cpb", tex: ")", pegado: true };
-    const Cfn: Ficha = { id: "Cfn", tex: `${pp}` };
+    // los parentesis se ESTIRAN alrededor de la fraccion (la altura la da un \vphantom de la misma fraccion)
+    const alto = `\\vphantom{\\dfrac{${Math.abs(pp)}}{${qq}}}`;
+    // el espacio negativo (\!) junta las piezas sueltas (cada una trae su margen): sin el, la fila no entra en un celular y el «= -4» baja solo.
+    // Va con \! y no con \kern-4pt: revisar cuenta los digitos del tex como numeros nuevos
+    const Cpa: Ficha = { id: "Cpa", tex: `\\!\\left(${alto}\\right.\\!\\!`, pegado: true };
+    const Cpb: Ficha = { id: "Cpb", tex: `\\!\\!\\!\\left.${alto}\\right)`, pegado: true };
+    // el menos es UNA PIEZA: si la solucion lo trae delante de la raya, se reemplaza asi (Cm) y en el paso siguiente viaja al numerador (Cfm)
+    const menosAdelante = qq > 1 && pp < 0 && idX === "r";
+    const Cm: Ficha = { id: "Cm", tex: "-\\!\\!", pegado: true };
+    const Cfm: Ficha = { id: "Cfm", tex: "-" };
+    const Cfn: Ficha = { id: "Cfn", tex: `${Math.abs(pp)}`, ...(pp < 0 ? { pegado: true } : {}) };
     const Cfd: Ficha = { id: "Cfd", tex: `${qq}` };
-    const Cf = frPiezas("Cf", [Cfn], [Cfd]);
-    const piezasX: Ficha[] = pp < 0 ? [Cd, Cpa, { ...Cf, pegado: true }, Cpb] : [Cd, { ...Cf, pegado: true }];
+    const Cf = { ...frPiezas("Cf", pp < 0 && !menosAdelante ? [Cfm, Cfn] : [{ ...Cfn, pegado: undefined }], [Cfd]), pegado: true };
+    const piezasX: Ficha[] = pp < 0 ? [Cd, Cpa, ...(menosAdelante ? [Cm] : []), Cf, Cpb] : [Cd, Cf];
     if (qq === 1) estados.push([...ultimo, S, Ca, { id: "Cr", tex: `\\cdot ${vTex}`, pegado: true }, Cb, Ce, Cc]);
     else estados.push([...ultimo, S, Ca, ...piezasX, Cb, Ce, Cc]);
     trans.push({
       fusiones: [{ desde: ["Cx"], hacia: qq === 1 ? "Cr" : piezasX.map((f) => f.id) }],
       brotes: qq === 1 ? [{ desde: idX, hacia: "Cr" }] : piezasX.map((f) => ({ desde: idX, hacia: f.id })),
-      // una solucion fraccionaria negativa se escribio con el menos DELANTE de la raya; en la hoja el menos entra al numerador: se dice
-      texto: `Reemplazamos $x$ por su valor, $${xTex}$.${qq > 1 && pp < 0 && idX === "r" ? ` El signo menos entra al numerador: $${xTex}=\\dfrac{${pp}}{${qq}}$.` : ""}`,
-      porque: `Donde la ecuación dice $x$ escribimos el número que encontramos.`,
+      texto: `Reemplazamos $x$ por su valor, $${xTex}$${pp < 0 ? `, entre paréntesis: $${a}\\cdot\\left(${xTex}\\right)$` : ""}.`,
+      porque: `Donde la ecuación dice $x$ escribimos el número que encontramos.${pp < 0 ? " Como es negativo, va entre paréntesis: así el punto de multiplicar y el signo menos no quedan uno al lado del otro, y se ve que el menos es parte del número." : ""}`,
     });
+    if (menosAdelante) {
+      // el menos de delante de la raya VIAJA al numerador (la misma pieza): la cuenta de arriba se hace con el numerador negativo
+      estados.push([...ultimo, S, Ca, Cd, Cpa, { ...frPiezas("Cf", [Cfm, Cfn], [Cfd]), pegado: true }, Cpb, Cb, Ce, Cc]);
+      trans.push({
+        fusiones: [{ desde: ["Cm"], hacia: "Cfm", modo: "viajar" }],
+        brotes: [{ desde: "Cm", hacia: "Cfm" }],
+        texto: `El signo menos entra al numerador: $${xTex}=\\dfrac{${pp}}{${qq}}$. Es el mismo número, escrito con el menos arriba.`,
+        porque: `Una fracción negativa se puede escribir con el menos delante de la raya o en el numerador: vale lo mismo. Con el menos arriba, la multiplicación que sigue se hace con $${pp}$.`,
+        regla: `$-\\dfrac{a}{b}=\\dfrac{-a}{b}$`,
+      });
+    }
     if (qq === 1) {
       estados.push([...ultimo, S, { id: "Cp", tex: `${n}` }, Cb, Ce, Cc]);
       trans.push({
         fusiones: [{ desde: ["Ca", "Cr"], hacia: "Cp" }],
         texto: `Primero la multiplicación: $${a}\\cdot ${vTex}=${n}$.`,
-        porque: `En una expresión, la multiplicación se hace antes que la suma.`,
+        porque: `En una expresión, la multiplicación se hace antes que la suma.${pp < 0 ? ` Positivo por negativo da negativo: $${a}\\cdot ${-pp}=${-n}$ y el resultado lleva el signo menos.` : ""}`,
+        ...(pp < 0 ? { regla: `$a\\cdot(-b)=-(a\\cdot b)$` } : {}),
       });
     } else {
       // x fraccionaria: el a viaja al numerador, se multiplica arriba y se divide (una operacion por paso)
       // el signo se queda con el numerador original: 6·(-4), no (-6)·4
       const prodN = `${a}\\cdot ${pp < 0 ? `(${pp})` : pp}`;
       // solo viajan el a y el numerador de x, uno al lado del otro; el denominador (Cfd) conserva su id y no se mueve
+      // con x negativa, los parentesis de afuera VIAJAN con el numerador: arriba siguen separando el punto del menos
       const q1: Ficha = { id: "Cq1", tex: `${a}` };
       const q2: Ficha = { id: "Cq2", tex: "\\cdot" };
       const q3: Ficha = { id: "Cq3", tex: pp < 0 ? `(${pp})` : `${pp}` };
-      const Cm = frPiezas("Cf", [q1, q2, q3], [Cfd]);
-      estados.push([...ultimo, S, Cm, Cb, Ce, Cc]);
+      estados.push([...ultimo, S, frPiezas("Cf", [q1, q2, q3], [Cfd]), Cb, Ce, Cc]);
       trans.push({
         fusiones: [
           { desde: ["Ca"], hacia: "Cq1", modo: "viajar" },
           { desde: ["Cd"], hacia: "Cq2", modo: "viajar" },
-          { desde: ["Cfn"], hacia: "Cq3", modo: "viajar" },
-          ...(pp < 0 ? [{ desde: ["Cpa", "Cpb"], hacia: null }] : []),
+          { desde: pp < 0 ? ["Cpa", "Cfm", "Cfn", "Cpb"] : ["Cfn"], hacia: "Cq3", modo: "viajar" },
         ],
         brotes: [
           { desde: "Ca", hacia: "Cq1" },
@@ -329,21 +347,23 @@ export function ecuacionLineal(a: number, b: number, c: number): Resultado {
           { desde: "Cfn", hacia: "Cq3" },
         ],
         // el texto escribe la solucion como se ve en la hoja: el menos dentro del numerador
-        texto: `Primero la multiplicación: $${a}\\cdot ${pp < 0 ? `(\\dfrac{${pp}}{${qq}})` : vTex}$. El $${a}$ y el numerador $${pp}$ viajan juntos arriba, uno al lado del otro; el denominador $${qq}$ se queda quieto: queda $\\dfrac{${prodN}}{${qq}}$.`,
+        texto: `Primero la multiplicación: $${a}\\cdot ${pp < 0 ? `\\left(\\dfrac{${pp}}{${qq}}\\right)` : vTex}$. El $${a}$ y el numerador $${pp}$ viajan juntos arriba, uno al lado del otro; el denominador $${qq}$ se queda quieto.${pp < 0 ? ` Los paréntesis suben con el $${pp}$: arriba siguen separando el punto de multiplicar del signo menos.` : ""} Queda $\\dfrac{${prodN}}{${qq}}$.`,
         porque: `En una expresión, la multiplicación se hace antes que la suma. Un número por una fracción es el número por el numerador, sobre el mismo denominador.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
-      estados.push([...ultimo, S, fr("Cm2", `${a * pp}`, `${qq}`), Cb, Ce, Cc]);
+      // SOLO el numerador se funde en el producto: el denominador (Cfd) sigue siendo la misma pieza, quieta
+      estados.push([...ultimo, S, frPiezas("Cf", [{ id: "Cn", tex: `${a * pp}` }], [Cfd]), Cb, Ce, Cc]);
       trans.push({
-        fusiones: [{ desde: ["Cf"], hacia: "Cm2" }],
-        texto: `Hacemos la cuenta de arriba: $${a}\\cdot ${pp < 0 ? `(${pp})` : pp}=${a * pp}$. Queda $\\dfrac{${a * pp}}{${qq}}$.`,
-        porque: `Solo se multiplica el numerador: el denominador no cambia.`,
+        fusiones: [{ desde: ["Cq1", "Cq2", "Cq3"], hacia: "Cn" }],
+        texto: `Hacemos la cuenta de arriba: $${prodN}=${a * pp}$. El denominador $${qq}$ no se mueve: queda $\\dfrac{${a * pp}}{${qq}}$.`,
+        porque: `${pp < 0 ? `Positivo por negativo da negativo: $${a}\\cdot ${-pp}=${-a * pp}$ y el resultado lleva el signo menos. ` : ""}Solo se multiplica el numerador: el denominador no cambia.`,
+        ...(pp < 0 ? { regla: `$a\\cdot(-b)=-(a\\cdot b)$` } : {}),
       });
       estados.push([...ultimo, S, { id: "Cp", tex: `${n}` }, Cb, Ce, Cc]);
       trans.push({
-        fusiones: [{ desde: ["Cm2"], hacia: "Cp" }],
+        fusiones: [{ desde: ["Cf"], hacia: "Cp" }],
         texto: `Dividimos: $\\dfrac{${a * pp}}{${qq}}=${n}$.`,
-        porque: `La división sale exacta, y se comprueba multiplicando: $${qq}\\cdot ${n < 0 ? `(${n})` : n}=${a * pp}$. Una fracción es una división: el numerador entre el denominador.`,
+        porque: `${n < 0 ? "Negativo entre positivo da negativo. " : ""}La división sale exacta, y se comprueba multiplicando: $${qq}\\cdot ${n < 0 ? `(${n})` : n}=${a * pp}$. Una fracción es una división: el numerador entre el denominador.`,
       });
     }
     estados.push([...ultimo, S, { id: "Cs", tex: `${c}` }, Ce, Cc]);
@@ -545,11 +565,14 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       texto: `El primer número que está en las dos listas es $${L}$: es el mínimo común múltiplo.`,
       porque: `Un número que está en las dos listas es múltiplo de los dos denominadores: las dos fracciones pueden llegar a tener ese denominador. Elegimos el más chico para que las cuentas sean cortas.`,
     });
-    estados.push(base0);
+    // el mcm se QUEDA anotado mientras se usa (los pasos que siguen dicen «porque d·k = L»); se quita cuando los dos denominadores ya son L
+    const Mm: Ficha = { id: "Mm", tex: `\\scriptsize\\text{mcm}\\ =\\ \\mathbf{${L}}` };
+    const notaMcm: Ficha[] = [Sa, Mm];
+    estados.push([...base0, ...notaMcm]);
     trans.push({
-      fusiones: [{ desde: ["Sa", "Ml"], hacia: null }],
-      texto: `Usaremos $${L}$ como denominador común de las dos fracciones.`,
-      porque: `Lo que sigue es lograr que las dos fracciones tengan denominador $${L}$ sin cambiar su valor.`,
+      fusiones: [{ desde: ["Ml"], hacia: "Mm" }],
+      texto: `Lo anotamos como $\\text{mcm}=${L}$ (mínimo común múltiplo). Usaremos $${L}$ como denominador común de las dos fracciones.`,
+      porque: `Lo que sigue es lograr que las dos fracciones tengan denominador $${L}$ sin cambiar su valor. Lo dejamos anotado para tenerlo a la vista mientras lo usamos.`,
     });
     const m1: Ficha = { id: "m1", tex: "\\cdot", op: true };
     const m2: Ficha = { id: "m2", tex: "\\cdot", op: true };
@@ -557,7 +580,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const c2 = fr("c2", `${k2}`, `${k2}`);
     let F1: Ficha[] = [fr("f1", `${n1}`, `${d1}`)];
     let F2: Ficha[] = [fr("f2", `${n2}`, `${d2}`)];
-    const juntar = () => [...F1, p, ...F2];
+    const juntar = () => [...F1, p, ...F2, ...notaMcm];
     // 1) el 1 escrito como fraccion (solo si la fraccion lo necesita): $d \\cdot k = L$
     if (k1 > 1) {
       F1 = [F1[0], m1, c1];
@@ -629,13 +652,14 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
 
   const nx1 = iguales ? `${n1}` : `${A}`;
   // se reconoce que los denominadores son iguales
-  estados.push(estados[estados.length - 1]);
+  // sin denominadores iguales de entrada, la nota del mcm se va aqui: ya cumplio su papel (los dos denominadores son L)
+  estados.push(estados[estados.length - 1].filter((f) => iguales || (f.id !== "Sa" && f.id !== "Mm")));
   trans.push({
-    fusiones: [],
+    fusiones: iguales ? [] : [{ desde: ["Sa", "Mm"], hacia: null }],
     resaltar: [`${x1}.d`, `${x2}.d`],
     texto: iguales
       ? `Los denominadores ya son iguales: los dos son $${den}$.`
-      : `Mira los denominadores: los dos son $${den}$.`,
+      : `Mira los denominadores: los dos son $${den}$, el mcm que buscamos. Ya no hace falta tenerlo anotado aparte.`,
     porque: `Con el mismo denominador las partes son del mismo tamaño y se pueden ${resta ? "restar" : "sumar"} contando cuántas hay.`,
   });
   // el segundo denominador se funde con el primero (ancla): ya esta escrito, no hace falta repetirlo
@@ -664,7 +688,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
   trans.push({
     fusiones: [{ desde: ["h0"], hacia: "h" }],
     texto: `${palabra} los numeradores: $${cuenta}=${sumaN}$. El $${den}$ se queda.`,
-    porque: `Solo se hace la cuenta de arriba: el denominador no cambia.`,
+    porque: `Solo se hace la cuenta de arriba: el denominador no cambia.${sumaN < 0 ? ` Al restar un número más grande, el resultado es negativo: $${nx2}-${nx1}=${-sumaN}$, con signo menos.` : ""}`,
   });
 
   if (sumaN === 0) {
@@ -682,13 +706,40 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const divs = (v: number) => Array.from({ length: v }, (_, i) => i + 1).filter((k) => v % k === 0);
     const dArriba = divs(Math.abs(sumaN));
     const dAbajo = divs(den);
+    // las listas van EN LA HOJA (como en simplificar): de arriba, de abajo, y lo que comparten
     const ultimo = estados[estados.length - 1];
-    estados.push(ultimo);
+    const idH = ultimo[0].id;
+    const Sa: Ficha = { id: "Sa", tex: "", salto: true };
+    const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+    const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(sumaN)}:`, dArriba) };
+    const Dd: Ficha = { id: "Dd", tex: lista(`Divisores de ${den}:`, dAbajo) };
+    const Dc: Ficha = { id: "Dc", tex: lista("En las dos listas:", [1]) };
+    estados.push([...ultimo, Sa, Dn]);
     trans.push({
       fusiones: [],
-      resaltar: [ultimo[0].id],
-      texto: `¿Se puede simplificar? Divisores de $${Math.abs(sumaN)}$${sumaN < 0 ? " (sin el signo menos)" : ""}: ${enTexto(dArriba)}. Divisores de $${den}$: ${enTexto(dAbajo)}. El único que está en las dos listas es el $1$.`,
-      porque: `Con solo el $1$ en común no hay nada que tachar: la fracción ya no se puede simplificar.`,
+      brotes: [
+        { desde: idH, hacia: "Sa" },
+        { desde: idH, hacia: "Dn" },
+      ],
+      resaltar: [idH],
+      texto: `¿Se puede simplificar? Buscamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(sumaN)}$${sumaN < 0 ? " (sin el signo menos)" : ""}: ${enTexto(dArriba)}.`,
+      porque: `Un divisor es un número que entra exacto en otro. Los escribimos todos, empezando por los del numerador.`,
+    });
+    estados.push([...ultimo, Sa, Dn, Sb, Dd]);
+    trans.push({
+      fusiones: [],
+      brotes: [
+        { desde: idH, hacia: "Sb" },
+        { desde: idH, hacia: "Dd" },
+      ],
+      texto: `Ahora lo mismo con el denominador. Divisores de $${den}$: ${enTexto(dAbajo)}.`,
+      porque: `Hacemos la misma lista para el denominador.`,
+    });
+    estados.push([...ultimo, Sa, Dc]);
+    trans.push({
+      fusiones: [{ desde: ["Dn", "Sb", "Dd"], hacia: "Dc" }],
+      texto: `El único que está en las dos listas es el $1$.`,
+      porque: `Con solo el $1$ en común no hay nada que tachar: la fracción ya no se puede simplificar. Esa es la respuesta.`,
     });
   }
 
@@ -719,7 +770,9 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
   {
     const D = den;
     const resId = estados[estados.length - 1][0].id;
-    const base = estados[estados.length - 1];
+    // las listas de divisores (si la fraccion no se pudo simplificar) ya cumplieron su papel: se quitan al empezar la comprobacion
+    const conListas = estados[estados.length - 1].some((f) => f.id === "Dc");
+    const base = estados[estados.length - 1].filter((f) => f.id !== "Sa" && f.id !== "Dc");
     const v1 = (n1 * D) / d1;
     const v2 = (n2 * D) / d2;
     const v3 = (rn * D) / rd;
@@ -739,7 +792,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const fila = (...fs: Ficha[]) => final.push([...base0, SC, ...fs]);
     fila({ id: "Ka", tex: `\\dfrac{${n1}}{${d1}}\\cdot ${D}` }, Kp, { id: "Kb", tex: `\\dfrac{${n2}}{${d2}}\\cdot ${D}` }, Ke, { id: "Kc", tex: rTex });
     trs.push({
-      fusiones: [],
+      fusiones: conListas ? [{ desde: ["Sa", "Dc"], hacia: null }] : [],
       brotes: [
         { desde: "Rp", hacia: "SC" },
         { desde: "R1", hacia: "Ka" },
@@ -748,9 +801,10 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: "Rp", hacia: "Ke" },
         { desde: resId, hacia: "Kc" },
       ],
-      texto: `Comprobamos: ${resta ? "la resta" : "la suma"} del ejercicio tiene que ser igual a la respuesta. Para quitar los denominadores multiplicamos cada término por $${D}$, el denominador común: a la izquierda las dos fracciones del ejercicio, y a la derecha la respuesta.`,
-      porque: `Si dos números son iguales, siguen siendo iguales al multiplicarlos por lo mismo. Multiplicar por $${D}$ deja números enteros, que son más fáciles de comparar.`,
-      regla: `$a=b\\ \\Rightarrow\\ a\\cdot c=b\\cdot c$`,
+      texto: `${conListas ? "Las listas de divisores ya cumplieron su papel y se quitan. " : ""}Comprobamos: ${resta ? "la resta" : "la suma"} del ejercicio tiene que ser igual a la respuesta. Para quitar los denominadores multiplicamos los dos lados por $${D}$, el denominador común: a la izquierda, cada una de las dos fracciones del ejercicio, y a la derecha la respuesta.`,
+      porque: `Si dos números son iguales, siguen siendo iguales al multiplicarlos por lo mismo. A la izquierda hay una ${resta ? "resta" : "suma"}: por la propiedad distributiva, el $${D}$ multiplica a cada fracción por separado. Multiplicar por $${D}$ deja números enteros, que son más fáciles de comparar.${rn < 0 && rd === 1 ? ` La respuesta $${rn}$ va entre paréntesis: así el signo menos no queda al lado del punto de multiplicar, y se ve que es parte del número.` : ""}`,
+      // dos reglas, una debajo de la otra (lado a lado no caben en un celular)
+      regla: `$\\begin{array}{l}a=b\\ \\Rightarrow\\ a\\cdot c=b\\cdot c\\\\ (a${op}b)\\cdot c=a\\cdot c${op}b\\cdot c\\end{array}$`,
     });
     // el factor entra al numerador (la fraccion por un entero)
     fila(fr("Ka2", `${n1}\\cdot ${D}`, `${d1}`), Kp, fr("Kb2", `${n2}\\cdot ${D}`, `${d2}`), Ke, rd === 1 ? { id: "Kc", tex: rTex } : kcMult);
@@ -761,7 +815,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         ...(rd === 1 ? [] : [{ desde: ["Kc"], hacia: "Kc2" }]),
       ],
       texto: `Multiplicar una fracción por $${D}$ es multiplicar solo su numerador: el $${D}$ pasa arriba.`,
-      porque: `Una fracción por un número entero: el entero multiplica al numerador y el denominador se queda igual.`,
+      porque: `Una fracción por un número entero: el entero multiplica al numerador y el denominador se queda igual.${rn < 0 && rd !== 1 && !signoAdelante ? ` El $${rn}$ va entre paréntesis: así el signo menos no queda al lado del punto de multiplicar, y se ve que es parte del número.` : ""}`,
       regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
     });
     // las multiplicaciones de arriba, UNA FRACCION POR PASO: primero el lado izquierdo (las dos del ejercicio) y despues la respuesta
@@ -785,7 +839,8 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
           : signoAdelante
             ? `Ahora la multiplicación de arriba de la respuesta: $${-rn}\\cdot ${D}=${-rn * D}$. El signo menos se queda delante de la fracción.`
             : `Ahora la multiplicación de arriba de la respuesta: $${pr}\\cdot ${D}=${rn * D}$.`,
-      porque: `Igual que en las otras: se multiplica solo el numerador y el denominador no cambia.`,
+      porque: `Igual que en las otras: se multiplica solo el numerador y el denominador no cambia.${rn < 0 && !signoAdelante ? ` Negativo por positivo da negativo: $${-rn}\\cdot ${D}=${-rn * D}$ y el resultado lleva el signo menos.` : ""}`,
+      ...(rn < 0 && !signoAdelante ? { regla: `$(-a)\\cdot b=-(a\\cdot b)$` } : {}),
     });
     // las divisiones, tambien por lados: izquierda (dos) y respuesta (una)
     fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, Kc3);
@@ -802,7 +857,8 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       trs.push({
         fusiones: [{ desde: [Kc3.id], hacia: "Kv3" }],
         texto: `Y la división de la respuesta: $${signoAdelante ? "-" : ""}\\dfrac{${signoAdelante ? -rn * D : rn * D}}{${rd}}=${v3}$.`,
-        porque: `También sale exacta, porque $${D}$ se reparte exacto entre $${rd}$.`,
+        porque: `También sale exacta, porque $${D}$ se reparte exacto entre $${rd}$.${v3 < 0 ? (signoAdelante ? " El signo menos de delante se queda en el resultado." : " Negativo entre positivo da negativo.") : ""}`,
+        ...(v3 < 0 && !signoAdelante ? { regla: `$\\dfrac{-a}{b}=-\\dfrac{a}{b}$` } : {}),
       });
     }
     // la suma o resta de la izquierda
@@ -810,7 +866,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     trs.push({
       fusiones: [{ desde: ["Kv1", "Kp", "Kv2"], hacia: "Ks" }],
       texto: `${resta ? "Restamos" : "Sumamos"} a la izquierda: $${v1}${op}${v2 < 0 ? `(${v2})` : v2}=${s}$.`,
-      porque: `Es la misma cuenta que hicimos con la fracción, pero con números enteros.`,
+      porque: `Es la misma cuenta que hicimos con la fracción, pero con números enteros.${s < 0 ? ` Al restar un número más grande, el resultado es negativo: $${v2}-${v1}=${-s}$, con signo menos.` : ""}`,
     });
     // se comparan los dos lados
     final.push([...base0, SC, { id: "ok", tex: `${s}=${v3}\\ \\checkmark` }]);
@@ -1199,7 +1255,7 @@ export function diferenciaCuadrados(k: number): Resultado {
         { desde: "ref", hacia: `Z${n}` },
       ]),
       texto: `Comprobamos las dos soluciones en el ejercicio original. Volvemos a escribirlo dos veces, y en cada una reemplazamos $x$ por su valor: $${k}$ en la primera y $-${k}$ en la segunda.`,
-      porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple.`,
+      porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple. El $-${k}$ va entre paréntesis porque se eleva al cuadrado todo el número, con su signo: sin paréntesis, $-${k}^{2}$ elevaría solo el $${k}$.`,
     });
     final.push([
       ...antes,

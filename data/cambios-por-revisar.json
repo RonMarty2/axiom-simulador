@@ -4,58 +4,72 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 8,
-      "nota": "Tachado de los dos 1 (con su punto); n y k salen de la raya como fraccion",
-      "fecha": "2026-10-08"
+      "paso": 12,
+      "nota": "(visual) 2·2 sobre 1·2 en tamano de exponente y subido",
+      "fecha": "2026-10-29"
     },
     {
-      "tipo": "lineal",
-      "caso": "x negativa",
-      "paso": 15,
-      "nota": "Comprobacion con x negativa: 3·(-2) con parentesis y signo en su lugar",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "lineal",
-      "caso": "x fraccionaria",
-      "paso": 13,
-      "nota": "Al multiplicar, solo viajan el 4 y el numerador (juntos, uno al lado del otro); el denominador se queda quieto. Pedido tuyo del 17-oct.",
-      "fecha": "2026-10-17"
+      "tipo": "raiz",
+      "caso": "letra",
+      "paso": 12,
+      "nota": "NUEVO: 2/1 = 2, queda x²",
+      "fecha": "2026-10-29"
     },
     {
       "tipo": "lineal",
       "caso": "x fraccionaria negativa",
       "paso": 14,
-      "nota": "Al reemplazar x, dice que el signo menos entra al numerador (-3/2 = (-3)/2).",
-      "fecha": "2026-10-17"
+      "nota": "Reemplazar x: queda 4·(−3/2) con parentesis altos y el porque de los parentesis",
+      "fecha": "2026-10-29"
     },
     {
       "tipo": "lineal",
       "caso": "x fraccionaria negativa",
       "paso": 15,
-      "nota": "El 4 y el (-3) viajan juntos arriba; el 2 de abajo se queda quieto.",
-      "fecha": "2026-10-17"
+      "nota": "Paso nuevo: el menos viaja al numerador, regla −a/b = (−a)/b (mirar la marca del menos a media animacion)",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 16,
+      "nota": "El 4 y el −3 suben y los parentesis suben con el −3 (mirar que las marcas no se pisen a media animacion)",
+      "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "suma normal",
-      "paso": 3,
-      "nota": "El mcm se busca a la vista: lista de multiplos de cada denominador (pasos 3 a 6).",
-      "fecha": "2026-10-17"
+      "paso": 13,
+      "nota": "La nota del mcm se quita cuando los dos denominadores ya son 6",
+      "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "suma normal",
       "paso": 17,
-      "nota": "Antes de decir que no se puede simplificar, muestra los divisores y que solo el 1 es comun.",
-      "fecha": "2026-10-17"
+      "nota": "Listas de divisores en la hoja (17 arriba, 18 abajo, 19 «en las dos listas: 1»)",
+      "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 21,
-      "nota": "En la respuesta negativa el menos se queda dentro del numerador y el negativo suelto lleva parentesis: (-1)·12.",
-      "fecha": "2026-10-17"
+      "caso": "suma normal",
+      "paso": 20,
+      "nota": "Las listas se van; la comprobacion nombra la distributiva, regla en dos renglones",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 17,
+      "nota": "Listas de divisores en la hoja (17 a 19); la de 24 en dos renglones",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 24,
+      "nota": "Porque de (−3) entre parentesis al comprobar",
+      "fecha": "2026-10-29"
     }
   ],
   "aprobadosPorSilencio": [],
@@ -115,6 +129,254 @@
       "nota": "Tachado: se tachan solo el 4 de arriba y el 4 de abajo; quedan 31 sobre 24",
       "fecha": "2026-10-29",
       "revision": "ENTRADA VIEJA: desde el mcm (17-oct) el caso da 31/24 y no tacha; el tachado equivalente (un denominador multiplo del otro, paso 19) BIEN para los dos agentes"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 8,
+      "nota": "Tachado de los dos 1 (con su punto); n y k salen de la raya como fraccion",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria",
+      "paso": 13,
+      "nota": "Al multiplicar, solo viajan el 4 y el numerador (juntos, uno al lado del otro); el denominador se queda quieto. Pedido tuyo del 17-oct.",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 14,
+      "nota": "Al reemplazar x, dice que el signo menos entra al numerador (-3/2 = (-3)/2).",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 15,
+      "nota": "El 4 y el (-3) viajan juntos arriba; el 2 de abajo se queda quieto.",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 3,
+      "nota": "El mcm se busca a la vista: lista de multiplos de cada denominador (pasos 3 a 6).",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 17,
+      "nota": "Antes de decir que no se puede simplificar, muestra los divisores y que solo el 1 es comun.",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x negativa",
+      "paso": 15,
+      "nota": "Comprobacion con x negativa: 3·(-2) con parentesis y signo en su lugar",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 21,
+      "nota": "En la respuesta negativa el menos se queda dentro del numerador y el negativo suelto lleva parentesis: (-1)·12.",
+      "fecha": "2026-10-29",
+      "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 6,
+      "nota": "(visual) el exponente 4·½ subio entero: la raya del ½ alineada con el 4 y el ·",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 7,
+      "nota": "NUEVO: 4 = 4/1 escrito en la hoja; el 1 de abajo nace del 4",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 8,
+      "nota": "multiplicar 4/1·1/2: el 1 sube desde el ½, el 2 baja, el 1 de abajo es el de 4/1; exponente chico y subido",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 9,
+      "nota": "se marcan y tachan solo los dos 1 con su punto, sin marco en toda la fraccion",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 10,
+      "nota": "«Divisores de 4:» y «Divisores de 2:» con mayuscula, en un renglon",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 13,
+      "nota": "se tachan solo los 2 con su punto; quedan 2 arriba y 1 abajo",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 14,
+      "nota": "NUEVO: 2/1 = 2, el exponente queda entero (regla a/1 = a)",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 7,
+      "nota": "NUEVO: 6 = 6/1; el 1 nace del 6",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 8,
+      "nota": "multiplicar 6/1·1/3; exponente chico y subido (no se lee 31·3)",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 9,
+      "nota": "se tachan solo los dos 1",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 14,
+      "nota": "NUEVO: 2/1 = 2",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "no exacta",
+      "paso": 7,
+      "nota": "NUEVO: 5 = 5/1",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "no exacta",
+      "paso": 9,
+      "nota": "se tachan solo los dos 1; queda 5/2 subido (antes se leia 22)",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "letra",
+      "paso": 5,
+      "nota": "NUEVO: 6 = 6/1 sobre x",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 14,
+      "nota": "NUEVO: 2 = 2/1 (dentro de √(2²)·√3)",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 16,
+      "nota": "se tachan solo los dos 1",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 21,
+      "nota": "NUEVO: 1/1 = 1 antes de 2¹ = 2",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria",
+      "paso": 14,
+      "nota": "La cuenta de arriba funde solo el numerador (4·3 → 12); el 2 de abajo no se mueve ni renace",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 17,
+      "nota": "Solo el numerador se funde (−12) con la regla de signos; el 2 queda quieto",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x negativa",
+      "paso": 15,
+      "nota": "3·(−2) = −6 con positivo por negativo da negativo y su regla",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 6,
+      "nota": "«mcm = 6» queda anotado en la hoja (y se ve en 7 y 8)",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 21,
+      "nota": "Porque del parentesis en (−1)·12",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 23,
+      "nota": "(−1)·12 = −12 con negativo por positivo da negativo",
+      "fecha": "2026-10-29",
+      "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
     }
   ]
 }

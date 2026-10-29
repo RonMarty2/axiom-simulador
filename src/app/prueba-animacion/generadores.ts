@@ -274,38 +274,54 @@ export function raizGeneral(
     regla: `$(a^{m})^{p}=a^{m\\cdot p}$`,
   });
 
-  // n · (1/k): el n queda arriba y el k abajo
-  // numerador por numerador y denominador por denominador: el 1 que sobra se ve y se tacha
+  // n = n/1: el exponente entero se escribe como fraccion ANTES de multiplicar; el 1 de abajo nace del mismo n
+  // (el n es la misma pieza: pasa a ser el numerador)
+  estados.push([
+    { id: "b", tex: b },
+    frSupPiezas("x2a", [{ id: "x", tex: `${n}` }], [{ id: "xu2", tex: "1" }]),
+    { id: "c", tex: "\\cdot", sup: true, op: true },
+    frSup("h", "1", `${k}`),
+  ]);
+  trans.push({
+    fusiones: [],
+    brotes: [
+      { desde: "x", hacia: "x2a" },
+      { desde: "x", hacia: "xu2" },
+    ],
+    descompone: true,
+    texto: `Para multiplicar por una fracción, escribimos también el $${n}$ como fracción: $${n}=\\tfrac{${n}}{1}$. El $1$ de abajo sale del mismo $${n}$.`,
+    porque: `Todo número es igual a sí mismo dividido entre $1$, así que no cambia nada. Ahora los dos exponentes son fracciones.`,
+    regla: `$a=\\dfrac{a}{1}$`,
+  });
+
+  // n/1 · 1/k: numerador por numerador y denominador por denominador. El 1 de 1/k sube junto al n, el k baja junto al 1 de n/1,
+  // y el · entre los exponentes viaja a ser el · de arriba (el de abajo es su copia)
   estados.push([
     { id: "b", tex: b },
     frSupPiezas(
       "x2a",
-      [{ id: "xn", tex: `${n}` }, punto("xo1"), { id: "xu1", tex: "1" }],
+      [{ id: "x", tex: `${n}` }, { id: "c", tex: "\\cdot", op: true }, { id: "xu1", tex: "1" }],
       [{ id: "xu2", tex: "1" }, punto("xo2"), { id: "xk", tex: `${k}` }]
     ),
   ]);
   trans.push({
-    fusiones: [{ desde: ["x", "c", "h"], hacia: "x2a", modo: "viajar" }],
+    fusiones: [{ desde: ["h", "h.n", "h.d"], hacia: ["xu1", "xk"], modo: "viajar" }],
     brotes: [
-      { desde: "x", hacia: "xn" },
-      { desde: "h", hacia: "xu1" },
-      { desde: "h", hacia: "xu2" },
-      { desde: "h", hacia: "xk" },
+      { desde: "h.n", hacia: "xu1" },
+      { desde: "h.d", hacia: "xk" },
+      { desde: "c", hacia: "xo2" },
     ],
-    texto: `Multiplicamos los exponentes: $${n}\\cdot\\tfrac{1}{${k}}=\\tfrac{${n}\\cdot 1}{1\\cdot ${k}}$. El $${n}$ va arriba, el $${k}$ abajo, y el $1$ de la fracción se queda con cada uno.`,
-    porque: `Un número es una fracción sobre $1$ ($${n}=\\tfrac{${n}}{1}$). Para multiplicar fracciones se multiplican los numeradores entre sí y los denominadores entre sí.`,
+    resaltar: ["x", "xu2"],
+    texto: `Multiplicamos los exponentes: $\\tfrac{${n}}{1}\\cdot\\tfrac{1}{${k}}=\\tfrac{${n}\\cdot 1}{1\\cdot ${k}}$. Arriba van los dos numeradores, $${n}$ y $1$; abajo, los dos denominadores, $1$ y $${k}$.`,
+    porque: `Para multiplicar fracciones se multiplican los numeradores entre sí y los denominadores entre sí.`,
     regla: `$\\dfrac{a}{b}\\cdot\\dfrac{c}{d}=\\dfrac{a\\cdot c}{b\\cdot d}$`,
   });
-  estados.push([{ id: "b", tex: b }, frSup("x2", `${n}`, `${k}`)]);
+  estados.push([{ id: "b", tex: b }, frSupPiezas("x2a", [{ id: "x", tex: `${n}` }], [{ id: "xk", tex: `${k}` }])]);
   trans.push({
-    // se tachan SOLO los dos 1 (con su punto); el n y el k salen de la raya y quedan como la fraccion n/k
+    // se tachan SOLO los dos 1 (con su punto), uno arriba y otro abajo; el n y el k se quedan en su lugar
     fusiones: [
-      { desde: ["xo1", "xu1", "xu2", "xo2"], hacia: null, modo: "tachar" },
-      { desde: ["x2a", "xn", "xk"], hacia: "x2", modo: "viajar" },
-    ],
-    brotes: [
-      { desde: "xn", hacia: "x2.n" },
-      { desde: "xk", hacia: "x2.d" },
+      { desde: ["c", "xu1"], hacia: null, modo: "tachar" },
+      { desde: ["xu2", "xo2"], hacia: null, modo: "tachar" },
     ],
     texto: `Multiplicar por $1$ no cambia nada: se tachan los dos $1$ y queda $\\tfrac{${n}}{${k}}$.`,
     porque: `Un número multiplicado por $1$ es el mismo número.`,
@@ -316,35 +332,41 @@ export function raizGeneral(
   const g = mcd(n, k);
   const n1 = n / g;
   const k1 = k / g;
-  let expId = "x2";
+  // el exponente fraccionario y sus piezas de arriba y de abajo (de ahi nacen las cuentas que siguen)
+  let expId = "x2a";
+  let expN = "x";
+  let expD = "xk";
   if (g > 1) {
     // los divisores de cada numero se ven en la hoja y los comunes van en negrita
     const dn = divisores(n);
     const dk = divisores(k);
     const comunes = new Set(dn.filter((d) => k % d === 0));
     const lista = (ds: number[]) => coma(ds.map((d) => (comunes.has(d) ? `\\mathbf{${d}}` : `${d}`)));
+    // mismo rotulo que en lineal y fracciones: «Divisores de 9:» en un renglon (los dos puntos dentro del texto, sin espacio antes)
+    const rotulo = (m: number, ds: number[]) => `\\scriptsize\\text{Divisores de ${m}:}\\ \\ ${lista(ds)}`;
+    const fx2 = estados[estados.length - 1].find((f) => f.id === "x2a")!;
     estados.push([
       { id: "b", tex: b },
-      frSup("x2", `${n}`, `${k}`),
+      fx2,
       { id: "Sg", tex: "", salto: true },
-      { id: "dvn", tex: `\\text{divisores de }${n}:\\ ${lista(dn)}` },
+      { id: "dvn", tex: rotulo(n, dn) },
       { id: "Sg2", tex: "", salto: true },
-      { id: "dvk", tex: `\\text{divisores de }${k}:\\ ${lista(dk)}` },
+      { id: "dvk", tex: rotulo(k, dk) },
     ]);
     trans.push({
       fusiones: [],
       brotes: [
-        { desde: "x2", hacia: "Sg" },
-        { desde: "x2.n", hacia: "dvn" },
-        { desde: "x2", hacia: "Sg2" },
-        { desde: "x2.d", hacia: "dvk" },
+        { desde: "x", hacia: "Sg" },
+        { desde: "x", hacia: "dvn" },
+        { desde: "xk", hacia: "Sg2" },
+        { desde: "xk", hacia: "dvk" },
       ],
       texto: `Para simplificar buscamos el mayor número que divide a $${n}$ y a $${k}$. Escribimos los divisores de cada uno y marcamos en negrita los que se repiten.`,
       porque: `Un divisor de un número es otro número que lo divide sin dejar resto. Los que están en las dos listas dividen a la vez al numerador y al denominador.`,
     });
     estados.push([
       { id: "b", tex: b },
-      frSup("x2", `${n}`, `${k}`),
+      fx2,
       { id: "Sg", tex: "", salto: true },
       { id: "gg", tex: `${g}`, debajo: "\\text{mayor común}" },
     ]);
@@ -363,7 +385,7 @@ export function raizGeneral(
     ]);
     trans.push({
       fusiones: [
-        { desde: ["x2"], hacia: "xg" },
+        { desde: ["x2a"], hacia: "xg" },
         { desde: ["Sg", "gg"], hacia: null, modo: "viajar" },
       ],
       brotes: [
@@ -374,19 +396,31 @@ export function raizGeneral(
       texto: `Escribimos $${n}=${n1}\\cdot ${g}$ y $${k}=${k1}\\cdot ${g}$: el $${g}$ baja a multiplicar arriba y abajo.`,
       porque: `Un número se puede escribir como producto de sus divisores. Así se ve que el $${g}$ está arriba y abajo.`,
     });
-    estados.push([{ id: "b", tex: b }, k1 === 1 ? { id: "x3", tex: `${n1}`, sup: true } : frSup("x3", `${n1}`, `${k1}`)]);
+    estados.push([{ id: "b", tex: b }, frSupPiezas("xg", [{ id: "xn1", tex: `${n1}` }], [{ id: "xk1", tex: `${k1}` }])]);
     trans.push({
-      // se tachan SOLO el g de arriba y el g de abajo (con su punto); lo que queda sale de la raya como la fraccion simplificada
+      // se tachan SOLO el g de arriba y el g de abajo (con su punto); lo que queda se queda en su lugar, arriba y abajo de la raya
       fusiones: [
-        { desde: ["xp1", "xg1", "xp2", "xg2"], hacia: null, modo: "tachar" },
-        { desde: ["xg", "xn1", "xk1"], hacia: "x3", modo: "viajar" },
+        { desde: ["xp1", "xg1"], hacia: null, modo: "tachar" },
+        { desde: ["xp2", "xg2"], hacia: null, modo: "tachar" },
       ],
-      brotes: k1 === 1 ? [{ desde: "xn1", hacia: "x3" }] : [{ desde: "xn1", hacia: "x3.n" }, { desde: "xk1", hacia: "x3.d" }],
-      texto: `El $${g}$ de arriba y el $${g}$ de abajo se tachan: $\\tfrac{${n1}\\cdot ${g}}{${k1}\\cdot ${g}}=${frac(n1, k1)}$.`,
-      porque: `Dividir el numerador y el denominador entre el mismo número, $${g}$, no cambia la fracción.${k1 === 1 ? " Como el denominador queda en $1$, el exponente es un número entero." : ""}`,
+      texto: `El $${g}$ de arriba y el $${g}$ de abajo se tachan. Quedan $${n1}$ arriba y $${k1}$ abajo: $\\tfrac{${n1}}{${k1}}$.`,
+      porque: `Dividir el numerador y el denominador entre el mismo número, $${g}$, no cambia la fracción.`,
       regla: `$\\dfrac{a\\cdot c}{b\\cdot c}=\\dfrac{a}{b}$`,
     });
-    expId = "x3";
+    expId = "xg";
+    expN = "xn1";
+    expD = "xk1";
+    if (k1 === 1) {
+      // un numero entre 1 es el mismo numero: el exponente queda entero (el numerador es el que se queda)
+      estados.push([{ id: "b", tex: b }, { id: "x3", tex: `${n1}`, sup: true }]);
+      trans.push({
+        fusiones: [{ desde: ["xg"], hacia: "x3" }],
+        texto: `Un número entre $1$ es el mismo número: $\\tfrac{${n1}}{1}=${n1}$. El exponente es un número entero.`,
+        porque: `Dividir entre $1$ no cambia nada.`,
+        regla: `$\\dfrac{a}{1}=a$`,
+      });
+      expId = "x3";
+    }
   }
 
   const resumen: Record<string, number> = { n, k, g, n1, k1 };
@@ -424,12 +458,13 @@ export function raizGeneral(
     resumen.r = r;
     const reglaRaiz = `$a^{\\frac{m}{p}}=\\sqrt[p]{a^{m}}$`;
     // el exponente fraccionario se abre en indice (el denominador viaja a la izquierda) y exponente (el numerador se queda con la base)
-    const abrirFraccion = (idFrac: string, baseTex: string, idNum: string, numTex: string) => {
+    // idArriba e idAbajo: las partes de la fraccion ("er.n") o sus piezas, si la fraccion esta armada con piezas
+    const abrirFraccion = (idFrac: string, idArriba: string, idAbajo: string, baseTex: string, idNum: string, numTex: string) => {
       trans.push({
-        fusiones: [{ desde: [idFrac, `${idFrac}.n`, `${idFrac}.d`], hacia: ["ik2", idNum], modo: "viajar" }],
+        fusiones: [{ desde: [...new Set([idFrac, idArriba, idAbajo])], hacia: ["ik2", idNum], modo: "viajar" }],
         brotes: [
-          { desde: `${idFrac}.d`, hacia: "ik2" },
-          { desde: `${idFrac}.n`, hacia: idNum },
+          { desde: idAbajo, hacia: "ik2" },
+          { desde: idArriba, hacia: idNum },
         ],
         texto: `Un exponente fraccionario es una raíz: el denominador $${k1}$ viaja a la izquierda y es el índice; el numerador $${numTex}$ queda como exponente de $${baseTex}$.`,
         porque: `En $a^{\\frac{m}{p}}$ el denominador $p$ es el índice de la raíz y el numerador $m$ es el exponente de lo que está adentro.`,
@@ -444,7 +479,7 @@ export function raizGeneral(
       const calcula = numerica && n1 > 1;
       const radicandoQ0 = numerica ? String(pot(base as number, n1)) : potTex(b, n1);
       estados.push([ik2, { id: "b", tex: b }, { id: "nn", tex: `${n1}`, sup: true }]);
-      abrirFraccion(expId, b, "nn", `${n1}`);
+      abrirFraccion(expId, expN, expD, b, "nn", `${n1}`);
       if (calcula) {
         cadenaPotencia(estados, trans, { antes: [ik2], despues: [], idB: "b", idE: "nn", idR: "rr", base: base as number, exp: n1, pre: "u" });
         estados.push([{ id: "f", tex: raiz(k1, radicandoQ0) }]);
@@ -483,10 +518,10 @@ export function raizGeneral(
         fusiones: [],
         brotes: [
           { desde: expId, hacia: "Sq" },
-          { desde: `${expId}.n`, hacia: "dn" },
-          { desde: `${expId}.n`, hacia: "pq" },
-          { desde: `${expId}.d`, hacia: "dk" },
-          { desde: `${expId}.n`, hacia: "dr" },
+          { desde: expN, hacia: "dn" },
+          { desde: expN, hacia: "pq" },
+          { desde: expD, hacia: "dk" },
+          { desde: expN, hacia: "dr" },
         ],
         texto: `Vemos cuántas veces cabe el $${k1}$ en el $${n1}$: cabe $${q}$ ${q === 1 ? "vez" : "veces"} ($${q}\\cdot ${k1}=${q * k1}$) y sobra $${r}$. Lo escribimos así: $${n1}=${q}\\cdot ${k1}+${r}$.`,
         porque: `Todo número es igual al cociente por el divisor más el resto.`,
@@ -524,7 +559,7 @@ export function raizGeneral(
         { id: "b2", tex: b },
         { id: "rn", tex: `${r}`, sup: true },
       ]);
-      abrirFraccion("er", b, "rn", `${r}`);
+      abrirFraccion("er", "er.n", "er.d", b, "rn", `${r}`);
       // 4) se meten en la raiz (si la potencia de adentro es un numero, primero se calcula)
       const entero: Ficha[] = [{ id: "b", tex: b }, { id: "pq", tex: `${q}`, sup: true }, { id: "pt", tex: "\\cdot", op: true }];
       if (numerica && r > 1) {

@@ -2,22 +2,22 @@
   "_nota": "Registro de auditoria de pasos (auditor-de-pasos). Un generador 'auditado' guarda la huella de su salida: si el codigo cambia, el test frena y hay que re-auditar. 'pendiente' = nunca auditado con las reglas actuales; 'con-hallazgos' = se audito y quedan saltos por arreglar. Se edita SOLO con registrar-auditoria.ts.",
   "generadores": {
     "lineal": {
-      "estado": "auditado",
-      "huella": "f97e6537a198",
-      "fecha": "2026-10-17",
-      "nota": "2da lectura independiente 17-oct: x negativa fraccionaria (el menos entra al numerador, dicho en el texto), irreducible, n=0, enteros con signos; sin saltos"
+      "estado": "con-hallazgos",
+      "huella": "f3a76a2212c1",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (denominador quieto, menos al numerador en paso propio, regla de signos). Falta: menos pegado a la raya en 4·(−3/2) y marcas que se pisan a media animacion (x fracc negativa 14-16); suma con signos distintos (−6+2) sin regla"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "6c207558243c",
-      "fecha": "2026-10-08",
-      "nota": "9-oct: parentesis en 4 pasos con gesto de VISITA (el x y el -3 viajan al x y al numero del segundo parentesis, pedido de Ronald). Pendientes de la ronda 3 en docs/hallazgos-auditoria-pasos.md"
+      "huella": "02f205729775",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: porque del (−3) entre parentesis agregado. Falta: el paso 24 copia la ecuacion dos veces y reemplaza en el mismo paso; corte «x = 3 ó x / = −3»"
     },
     "fracciones": {
-      "estado": "auditado",
-      "huella": "615b9c231ae4",
-      "fecha": "2026-10-17",
-      "nota": "2da lectura independiente 17-oct: los 6 hallazgos de la 1a verificados; 3 detalles finos de redaccion (criterio de parada del mcm, divisores sin el signo, 'tampoco' sin referente) corregidos y vigilados por prueba, sin nueva relectura"
+      "estado": "con-hallazgos",
+      "huella": "1b6250df075f",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (mcm a la vista, divisores en la hoja, distributiva, signos). Falta: negrita en todos los divisores (en raiz marca solo los comunes); capsula de marca vacia al quitar el mcm (13) y en 20; el 20 salta a ½·6 + ⅓·6 sin escribir (½+⅓)·6"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
@@ -39,15 +39,15 @@
     },
     "raiz": {
       "estado": "con-hallazgos",
-      "huella": "c0c653580b97",
-      "fecha": "2026-10-08",
-      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
+      "huella": "8b013f3beff0",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (4 = 4/1, tachar solo los 1, exponente con fraccion subido en Fusion.tsx, 2/1 = 2). Falta: letra no cierra con ∛(x⁶) = x²; capsula de marca vacia en exacta 12; porque «los factores que faltan» contradice «ya no quedan» con 2 factores"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "fb58088388ea",
-      "fecha": "2026-10-08",
-      "nota": "Auditoria independiente 8-oct. Siguen: (1) 1 del denominador en n*1/1*k nace de la nada (5=5/1 solo en el porque); (2) factorizacion 16=2*2*2*2 / 256=2^8 sin buscar (descompone sin dividir); (3) lista de perfectas: las que caben no las que dividen, solo se prueba la elegida, no se dice 'la mayor' (72: 4 y 9 tambien dividen); con '...' salta 81 y 100; (4) q*k=6 y n-q*k=r solo en texto; (5) tras T4 el indice queda sin raiz ni etiqueta (^2 4*3); (6) texto 'sqrt4=2' sin pieza sqrt4 en raiz-con-resto; (7) cierre: simbolico q>0 sin frase final y sin comprobacion; 3-sqrt9 termina igual que empezo sin decirlo; (8) g=1 se salta simplificar sin decirlo; (9) 2/1 al tachar no se nombra. Resueltos: cadena de productos, 2*cbrt4, g y divisores, ik2 con etiqueta. || 9-oct: al tachar un factor repetido se tachan solo las piezas (el g de arriba y el de abajo), no la fraccion entera; sin re-auditar en pantalla."
+      "huella": "a85ebee51753",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: mismos arreglos que raiz. Falta: indice 3 elige 64 sin decir «el mayor» (8 tambien divide a 192); base 3 no muestra que 4 no divide a 45; el paso de elevar a 1 nombra √4/√9/∛64 que no estan en la hoja; 2/2 en 5 pasos con listas repetidas"
     },
     "cuadratica": {
       "estado": "con-hallazgos",
