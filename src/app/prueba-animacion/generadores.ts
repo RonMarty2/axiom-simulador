@@ -74,7 +74,12 @@ function cadenaPotencia(
       texto: ultimo
         ? `${exp === 2 ? "Multiplicamos los dos factores" : "Multiplicamos los dos últimos"}: $${parcial}\\cdot ${b}=${nuevo}$. Ya no quedan factores: $${b}^{${exp}}=${nuevo}$.${o.cierre ?? ""}`
         : `${j === 1 ? "Multiplicamos los dos primeros" : "Seguimos con el resultado parcial y el factor que sigue"}: $${parcial}\\cdot ${b}=${nuevo}$.`,
-      porque: `Se multiplica de a dos: el resultado parcial por el siguiente factor. Los factores que faltan siguen en la fila.`,
+      // el porque respeta el caso limite: en el ultimo producto ya no queda ningun factor en la fila
+      porque: ultimo
+        ? exp === 2
+          ? `Se multiplican los dos factores entre sí. No queda ningún otro en la fila, así que ese es el valor de la potencia.`
+          : `Se multiplica de a dos: el resultado parcial por el último factor. No queda ningún otro en la fila, así que ese es el valor de la potencia.`
+        : `Se multiplica de a dos: el resultado parcial por el siguiente factor. Los factores que faltan siguen en la fila.`,
     });
     parcial = nuevo;
   }
@@ -336,7 +341,17 @@ export function raizGeneral(
   let expId = "x2a";
   let expN = "x";
   let expD = "xk";
-  if (g > 1) {
+  if (n === k) {
+    // rama corta: arriba y abajo el mismo numero (2/2). No hace falta buscar divisores: un numero entre si mismo da 1
+    estados.push([{ id: "b", tex: b }, { id: "x3", tex: "1", sup: true }]);
+    trans.push({
+      fusiones: [{ desde: ["x2a"], hacia: "x3" }],
+      texto: `El exponente es $\\tfrac{${n}}{${k}}$: arriba y abajo está el mismo número, así que vale $1$.`,
+      porque: `Un número dividido entre sí mismo da $1$: $${n}$ cabe exactamente una vez en $${k}$.`,
+      regla: `$\\dfrac{a}{a}=1$`,
+    });
+    expId = "x3";
+  } else if (g > 1) {
     // los divisores de cada numero se ven en la hoja y los comunes van en negrita
     const dn = divisores(n);
     const dk = divisores(k);
@@ -415,7 +430,8 @@ export function raizGeneral(
       estados.push([{ id: "b", tex: b }, { id: "x3", tex: `${n1}`, sup: true }]);
       trans.push({
         fusiones: [{ desde: ["xg"], hacia: "x3" }],
-        texto: `Un número entre $1$ es el mismo número: $\\tfrac{${n1}}{1}=${n1}$. El exponente es un número entero.`,
+        // con letra no hay potencia que calcular despues: este es el ultimo paso y cierra volviendo al enunciado
+        texto: `Un número entre $1$ es el mismo número: $\\tfrac{${n1}}{1}=${n1}$. El exponente es un número entero.${numerica ? "" : ` Queda $${potTex(b, n1)}$. Entonces $${raiz(k, potTex(b, n))}=${potTex(b, n1)}$.`}`,
         porque: `Dividir entre $1$ no cambia nada.`,
         regla: `$\\dfrac{a}{1}=a$`,
       });
@@ -431,7 +447,8 @@ export function raizGeneral(
       estados.push([{ id: "b", tex: b }]);
       trans.push({
         fusiones: [{ desde: [expId], hacia: null, ancla: "b" }],
-        texto: `Elevar a $1$ no cambia nada: ${numerica ? `$${raiz(k, `${valor}`)}=${b}$` : `queda $${b}$`}.`,
+        // se nombra lo que esta en la hoja (la raiz de b^n), no el numero calculado que nunca se escribio
+        texto: `Elevar a $1$ no cambia nada: $${raiz(k, potTex(b, n))}=${b}$.${numerica && !opciones.empezarEnQ ? ` Entonces $${raiz(k, `${valor}`)}=${b}$.` : ""}`,
         porque: `Cualquier número elevado a $1$ es el mismo número.`,
         regla: `$a^{1}=a$`,
       });
@@ -446,7 +463,8 @@ export function raizGeneral(
         base: base as number,
         exp: n1,
         pre: "w",
-        cierre: ` Entonces $${raiz(k, `${valor}`)}=${v}$.`,
+        // en raizConFactor (empezarEnQ) la hoja tiene la raiz de b^n, no la del numero: se nombra lo que se ve
+        cierre: ` Entonces $${opciones.empezarEnQ ? raiz(k, potTex(b, n)) : raiz(k, `${valor}`)}=${v}$.`,
       });
     }
     resumen.q = n1;
@@ -629,6 +647,28 @@ export function raizGeneral(
   };
 }
 
+/**
+ * raizConFactor elige a^n como la MAYOR potencia perfecta que divide a a^n·c. Eso solo es cierto si c no tiene
+ * ningun factor primo repetido k veces o mas (con c = 8 y k = 2, el 4 de 8 tambien saldria de la raiz y el texto mentiria).
+ */
+export function validarRaizConFactor(a: number, n: number, k: number, c: number): string | null {
+  const e = validarRaiz(a, n, k);
+  if (e) return e;
+  if (n % k !== 0) return "Para este ejemplo el índice debe dividir al exponente (por ejemplo 2 y 2, o 3 y 6).";
+  if (!Number.isInteger(c) || c < 2 || c > 99) return "El resto debe ser un entero entre 2 y 99.";
+  let m = c;
+  for (let p = 2; p <= m; p++) {
+    let veces = 0;
+    while (m % p === 0) {
+      m /= p;
+      veces++;
+    }
+    if (veces >= k) return `El resto ${c} todavía tiene una parte que sale de la raíz (el ${p} se repite ${veces} veces); elige un resto sin factores repetidos ${k} veces.`;
+    if (m === 1) break;
+  }
+  return null;
+}
+
 /** raiz de indice k de (a^n · c): la parte exacta pasa por el proceso completo y el resto se deja */
 export function raizConFactor(a: number, n: number, k: number, c: number): Resultado {
   const exacta = pot(a, n);
@@ -670,20 +710,55 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     agregar("lpe", "\\ldots", true);
     agregar("pv", `${exacta}`);
   }
-  const otrosDeLista = listaIds.filter((id) => id !== "pv");
   const Sl: Ficha = { id: "Sl", tex: "", salto: true };
   const Sd: Ficha = { id: "Sd", tex: "", salto: true };
   const cu: Ficha = fr("cu", `${valor}`, `${exacta}`);
   const ce: Ficha = { id: "ce", tex: "=", op: true };
   const pvF: Ficha = { id: "pv", tex: `${exacta}` };
+  const nvF: Ficha = { id: "nv", tex: `${valor}`, debajo: "\\text{radicando}" };
+
+  // Se busca la MAYOR potencia perfecta que divide: se prueba desde la mas grande de la lista hacia abajo.
+  // Las que estan por encima de la elegida no dividen (se ve la cuenta con su resto) y se tachan; ahi se para.
+  const mayores = js.filter((j) => j > raizExacta).reverse();
+  const pruebas: Transicion[] = [];
+  const listas: Ficha[][] = [listaFichas];
+  let listaActual = listaFichas;
+  for (const j of mayores) {
+    const cand = pot(j, k);
+    const id = `lp${j}`;
+    const i = listaActual.findIndex((f) => f.id === id);
+    const comaId = listaActual[i - 1].id;
+    listaActual = listaActual.filter((f) => f.id !== id && f.id !== comaId);
+    listas.push(listaActual);
+    const cociente = valor / cand;
+    const sobra = valor % cand;
+    pruebas.push({
+      fusiones: [{ desde: [comaId, id], hacia: null, modo: "tachar" }],
+      resaltar: ["nv"],
+      texto: `${pruebas.length === 0 ? "Probamos desde el mayor de la lista. " : "Seguimos con el que sigue. "}¿El $${cand}$ divide a $${valor}$? $${valor}=${cand}\\cdot ${cociente}+${sobra}$: sobra $${sobra}$, así que no. Lo tachamos.`,
+      porque: `Un número divide a otro solo si la división no deja resto. Aquí sobra $${sobra}$.`,
+      regla: `$n=q\\cdot p+r$`,
+    });
+  }
+  const otrosDeLista = listaActual.map((f) => f.id).filter((id) => id !== "pv");
+  // los mas chicos que tambien dividen (el 8 en 192): se dicen, para que se vea por que igual se elige el mayor
+  const chicosQueDividen = js.filter((j) => j < raizExacta && valor % pot(j, k) === BigInt(0)).map((j) => `$${pot(j, k)}$`);
+  const porQueSeElige =
+    chicosQueDividen.length > 0
+      ? ` También ${chicosQueDividen.length === 1 ? "divide el" : "dividen el"} ${chicosQueDividen.join(" y el ")}, pero ${chicosQueDividen.length === 1 ? "es más chico" : "son más chicos"}: con el mayor sale de la raíz todo lo que se puede de una vez.`
+      : js.some((j) => j < raizExacta)
+        ? " Es el mayor de la lista que divide: aquí paramos, los que quedan son más chicos."
+        : mayores.length > 0
+          ? " Es el mayor de la lista que divide."
+          : "";
 
   const estados: Ficha[][] = [
     [{ id: "r0", tex: raiz(k, `${valor}`) }],
     // se abre la raiz: indice y radicando
-    [ik0, { id: "nv", tex: `${valor}`, debajo: "\\text{radicando}" }],
-    // lista de potencias perfectas y la cuenta 12 / 4 = 3
-    [ik0, { id: "nv", tex: `${valor}`, debajo: "\\text{radicando}" }, Sl, ...listaFichas],
-    [ik0, { id: "nv", tex: `${valor}`, debajo: "\\text{radicando}" }, Sl, ...listaFichas, Sd, cu, ce, pc],
+    [ik0, nvF],
+    // lista de potencias perfectas, las que no dividen tachadas de mayor a menor, y la cuenta 12 / 4 = 3
+    ...listas.map((l) => [ik0, nvF, Sl, ...l]),
+    [ik0, nvF, Sl, ...listaActual, Sd, cu, ce, pc],
     // 12 = 4 · 3
     [ikSin, pvF, t, pc],
     [ikSin, pvF, t, pc],
@@ -707,9 +782,10 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
         { desde: "nv", hacia: "Sl" },
         ...listaIds.filter((id) => !id.startsWith("lq")).map((id) => ({ desde: "nv", hacia: id })),
       ],
-      texto: `Buscamos una potencia perfecta de índice $${k}$ que divida a $${valor}$. Escribimos las que caben en $${valor}$: ${js.map((j) => `$${pot(j, k)}$`).join(", ")}${hayPuntos ? `, ..., $${exacta}$` : ""}.`,
-      porque: `Una potencia perfecta de índice $${k}$ es un número que sale de multiplicar $${k}$ veces el mismo número ($${js[0] ?? 2}^{${k}}=${pot(js[0] ?? 2, k)}$). Solo esas se pueden sacar de la raíz.`,
+      texto: `Buscamos la mayor potencia perfecta de índice $${k}$ que divida a $${valor}$. Escribimos las que caben en $${valor}$: ${js.map((j) => `$${pot(j, k)}$`).join(", ")}${hayPuntos ? `, ..., $${exacta}$` : ""}.`,
+      porque: `Una potencia perfecta de índice $${k}$ es un número que sale de multiplicar $${k}$ veces el mismo número ($${js[0] ?? 2}^{${k}}=${pot(js[0] ?? 2, k)}$). Solo esas se pueden sacar de la raíz, y conviene la mayor: así sale todo lo posible.`,
     },
+    ...pruebas,
     {
       fusiones: [],
       brotes: [
@@ -719,8 +795,8 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
         { desde: "nv", hacia: "pc" },
       ],
       resaltar: ["pv"],
-      texto: `De la lista, el $${exacta}$ divide a $${valor}$ sin dejar resto: $\\tfrac{${valor}}{${exacta}}=${c}$.`,
-      porque: `Si la división da un número entero, el $${exacta}$ cabe justo en el $${valor}$ y lo que sobra, $${c}$, es el otro factor.`,
+      texto: `${mayores.length > 0 ? "Seguimos con el que sigue: el" : js.length > 1 || hayPuntos ? "Probamos desde el mayor de la lista: el" : "El"} $${exacta}$ divide a $${valor}$ sin dejar resto: $\\tfrac{${valor}}{${exacta}}=${c}$.${porQueSeElige}`,
+      porque: `Si la división da un número entero, el $${exacta}$ cabe justo en el $${valor}$ y el resultado, $${c}$, es el otro factor.`,
     },
     {
       fusiones: [{ desde: ["nv", "Sl", ...otrosDeLista, "Sd", "cu", "ce"], hacia: ["t"] }],
@@ -766,7 +842,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     {
       fusiones: [{ desde: finalDesde, hacia: "fin" }],
       texto: `El $${v}$ ya salió de la raíz (era $${raiz(k, aTex)}$): lo pegamos delante de $${raiz(k, `${c}`)}$. Queda $${raiz(k, `${valor}`)}=${resultado}$.`,
-      porque: `$${raiz(k, `${c}`)}$ no se puede resolver exacta, porque $${c}$ no es una potencia perfecta de exponente $${k}$. Se deja escrita: ese es el resultado simplificado.`,
+      porque: `$${raiz(k, `${c}`)}$ no se puede resolver exacta, porque $${c}$ no es una potencia perfecta de índice $${k}$. Se deja escrita: ese es el resultado simplificado.`,
     },
   ];
   return {

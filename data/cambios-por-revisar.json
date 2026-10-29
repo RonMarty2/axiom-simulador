@@ -4,71 +4,575 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 12,
-      "nota": "(visual) 2·2 sobre 1·2 en tamano de exponente y subido",
+      "paso": 16,
+      "nota": "porque del ultimo producto ya no dice «los factores que faltan»",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "no exacta",
+      "paso": 16,
+      "nota": "porque del ultimo producto",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 16,
+      "nota": "porque del ultimo producto",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "raiz",
       "caso": "letra",
       "paso": 12,
-      "nota": "NUEVO: 2/1 = 2, queda x²",
+      "nota": "cierra con ∛(x⁶) = x²",
       "fecha": "2026-10-29"
     },
     {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 14,
-      "nota": "Reemplazar x: queda 4·(−3/2) con parentesis altos y el porque de los parentesis",
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 5,
+      "nota": "marcas nuevas ajustadas (5) y sin capsula vacia (12)",
       "fecha": "2026-10-29"
     },
     {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 15,
-      "nota": "Paso nuevo: el menos viaja al numerador, regla −a/b = (−a)/b (mirar la marca del menos a media animacion)",
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 12,
+      "nota": "marcas nuevas ajustadas (5) y sin capsula vacia (12)",
       "fecha": "2026-10-29"
     },
     {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 16,
-      "nota": "El 4 y el −3 suben y los parentesis suben con el −3 (mirar que las marcas no se pisen a media animacion)",
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 3,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 18,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 19,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 3,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 6,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 7,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 20,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 21,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 3,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 24,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 25,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "suma normal",
       "paso": 13,
-      "nota": "La nota del mcm se quita cuando los dos denominadores ya son 6",
+      "nota": "«mcm = 6» sin capsula vacia delante",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 11,
+      "nota": "la copia que visita lleva un solo recuadro",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "dos soluciones enteras",
+      "paso": 30,
+      "nota": "destacada x2 con la marca nueva ajustada",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 3,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 14,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 15,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 16,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 17,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 20,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x negativa",
+      "paso": 3,
+      "nota": "regla de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x negativa",
+      "paso": 16,
+      "nota": "regla de suma con signos",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 3,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 4,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "suma normal",
       "paso": 17,
-      "nota": "Listas de divisores en la hoja (17 arriba, 18 abajo, 19 «en las dos listas: 1»)",
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 18,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "suma normal",
       "paso": 20,
-      "nota": "Las listas se van; la comprobacion nombra la distributiva, regla en dos renglones",
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 21,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 22,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 23,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 3,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 4,
+      "nota": "idem con D = 24",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "fracciones",
       "caso": "numeros grandes",
       "paso": 17,
-      "nota": "Listas de divisores en la hoja (17 a 19); la de 24 en dos renglones",
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 18,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 20,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 21,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 22,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 23,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 3,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 4,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 17,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 18,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 20,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 21,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 22,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 23,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 3,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 14,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 15,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 20,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 21,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 22,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 3,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 14,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 15,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 17,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 18,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 19,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta que da 0",
+      "paso": 8,
+      "nota": "comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta que da 0",
+      "paso": 9,
+      "nota": "comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta que da 0",
+      "paso": 10,
+      "nota": "comprobacion nueva",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 19,
+      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
       "fecha": "2026-10-29"
     },
     {
       "tipo": "cuadrados",
       "caso": "k = 3",
       "paso": 24,
-      "nota": "Porque de (−3) entre parentesis al comprobar",
+      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 25,
+      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 2",
+      "paso": 19,
+      "nota": "idem",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 2",
+      "paso": 24,
+      "nota": "idem",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 2",
+      "paso": 25,
+      "nota": "idem",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 19,
+      "nota": "idem",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 24,
+      "nota": "idem",
+      "fecha": "2026-10-29"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 25,
+      "nota": "idem",
       "fecha": "2026-10-29"
     }
   ],
@@ -377,6 +881,86 @@
       "nota": "(−1)·12 = −12 con negativo por positivo da negativo",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 12,
+      "nota": "(visual) 2·2 sobre 1·2 en tamano de exponente y subido",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "letra",
+      "paso": 12,
+      "nota": "NUEVO: 2/1 = 2, queda x²",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 14,
+      "nota": "Reemplazar x: queda 4·(−3/2) con parentesis altos y el porque de los parentesis",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 15,
+      "nota": "Paso nuevo: el menos viaja al numerador, regla −a/b = (−a)/b (mirar la marca del menos a media animacion)",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 16,
+      "nota": "El 4 y el −3 suben y los parentesis suben con el −3 (mirar que las marcas no se pisen a media animacion)",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 13,
+      "nota": "La nota del mcm se quita cuando los dos denominadores ya son 6",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 17,
+      "nota": "Listas de divisores en la hoja (17 arriba, 18 abajo, 19 «en las dos listas: 1»)",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 20,
+      "nota": "Las listas se van; la comprobacion nombra la distributiva, regla en dos renglones",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 17,
+      "nota": "Listas de divisores en la hoja (17 a 19); la de 24 en dos renglones",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 24,
+      "nota": "Porque de (−3) entre parentesis al comprobar",
+      "fecha": "2026-10-29",
+      "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
     }
   ]
 }

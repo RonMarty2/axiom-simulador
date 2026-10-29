@@ -396,7 +396,7 @@ describe("generadores de algebra", () => {
     // de la multiplicacion muestra lo mismo que la hoja ((-3) arriba)
     const neg = ecuacionLineal(4, 2, -4).demo.transiciones.map((t) => t.texto);
     assert.ok(neg.some((x) => x.includes("El signo menos entra al numerador")), "falta decir que el menos entra al numerador");
-    assert.ok(neg.some((x) => x.startsWith("Primero la multiplicación: $4\\cdot \\left(\\dfrac{-3}{2}\\right)$")), "el texto no muestra el (-3) de la hoja");
+    assert.ok(neg.some((x) => x.startsWith("Primero la multiplicación: $4\\cdot \\dfrac{(-3)}{2}$")), "el texto no muestra el (-3) de la hoja");
     // revision por agentes del 29-oct: reemplazar y meter el menos son DOS pasos; el menos es una pieza que viaja
     const negD = ecuacionLineal(4, 2, -4).demo;
     const iRe = negD.transiciones.findIndex((t) => t.texto.startsWith("Reemplazamos $x$"));
@@ -404,9 +404,24 @@ describe("generadores de algebra", () => {
     assert.ok(!negD.transiciones[iRe].texto.includes("entra al numerador"));
     const menos = negD.transiciones[iRe + 1];
     assert.ok(menos.texto.startsWith("El signo menos entra al numerador") && menos.regla === "$-\\dfrac{a}{b}=\\dfrac{-a}{b}$");
-    assert.deepEqual(menos.fusiones, [{ desde: ["Cm"], hacia: "Cfm", modo: "viajar" }]);
+    // el menos viaja al numerador y se junta con el 3: arriba queda UNA pieza (-3), para que despues se marque entera (29-oct)
+    assert.deepEqual(menos.fusiones, [{ desde: ["Cm", "Cfn"], hacia: "Cfz", modo: "viajar" }]);
+    // el menos no lleva espacio negativo: con \! tocaba la raya y se leia como 3/2 positivo
+    assert.equal(negD.estados[iRe + 1].find((f) => f.id === "Cm")!.tex, "-");
     // los parentesis se estiran alrededor de la fraccion
     assert.ok(negD.estados[iRe + 1].some((f) => f.id === "Cpa" && f.tex.includes("\\left(")));
+    // antes de subir el 4, los parentesis pasan a rodear el -3 (su propio paso); al subir se marcan TRES unidades: 4, punto y (-3)
+    const parens = negD.transiciones[iRe + 2];
+    assert.deepEqual(parens.fusiones, [{ desde: ["Cpa", "Cfz", "Cpb"], hacia: "Cfp", modo: "viajar" }]);
+    const sube = negD.transiciones[iRe + 3];
+    assert.deepEqual(sube.fusiones.map((f) => f.desde), [["Ca"], ["Cd"], ["Cfp"]]);
+    for (const [a, b, c] of [[4, 2, -4], [5, 1, -3], [6, 1, -4], [12, -7, -50]] as const) {
+      const d = ecuacionLineal(a, b, c).demo;
+      const t = d.transiciones.find((x) => x.fusiones.some((f) => f.hacia === "Cq3"));
+      if (!t) continue;
+      const marcas = [...t.fusiones.flatMap((f) => f.desde), ...(t.brotes ?? []).map((x) => x.desde)];
+      assert.ok(new Set(marcas).size <= 3, `${a}x${b}=${c}: al subir al numerador se marcan ${new Set(marcas).size} piezas`);
+    }
     // la regla de signos se nombra al multiplicar
     assert.ok(negD.transiciones.some((t) => t.porque.includes("Positivo por negativo da negativo") && t.regla === "$a\\cdot(-b)=-(a\\cdot b)$"));
     // x entera negativa: tambien dice por que el parentesis y nombra la regla de signos
@@ -444,7 +459,8 @@ describe("generadores de algebra", () => {
     const iDn = e.findIndex((s) => s.some((f) => f.id === "Dn"));
     assert.ok(iDn > 0);
     assert.ok(!e[iDn].some((f) => f.id === "Dd"), "primero una lista");
-    assert.ok(e[iDn].find((f) => f.id === "Dn")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4},\\ \\mathbf{8}"));
+    // en negrita SOLO los que estan en las dos listas (como en raiz): el 8 no divide al 4 y va normal (29-oct)
+    assert.ok(e[iDn].find((f) => f.id === "Dn")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4},\\ 8"));
     assert.ok(e[iDn + 1].find((f) => f.id === "Dd")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4}"));
     const [tn, td] = [r.demo.transiciones[iDn - 1], r.demo.transiciones[iDn]];
     assert.ok(tn.brotes!.every((b) => b.desde === "fr.n"), "los divisores del numerador nacen del numerador");
@@ -483,8 +499,17 @@ describe("generadores de algebra", () => {
       assert.ok(r.demo.transiciones.some((t) => t.fusiones.some((x) => x.modo === "tachar" && x.desde.join() === "e2,e3")), "kx y -kx se tachan");
       // el ejercicio queda anotado desde el primer paso hasta el final y la comprobacion nace de ahi
       assert.ok(e.slice(1).every((s) => s.some((f) => f.id === "ref" && f.tex === `x^{2}-${k * k}=0`)));
-      const t = r.demo.transiciones.find((x) => (x.brotes ?? []).some((b) => b.desde === "ref" && b.hacia === "C1"))!;
-      assert.ok(t.brotes!.some((b) => b.desde === "r1" && b.hacia === "A1") && t.brotes!.some((b) => b.desde === "r2" && b.hacia === "A2"));
+      const iT = r.demo.transiciones.findIndex((x) => (x.brotes ?? []).some((b) => b.desde === "ref" && b.hacia === "C1"));
+      // copiar y reemplazar son dos pasos (29-oct): la copia lleva la x; en el paso siguiente la x se cambia por cada solucion
+      assert.ok(r.demo.estados[iT + 1].some((f) => f.id === "X1" && f.tex === "x") && r.demo.estados[iT + 1].some((f) => f.id === "X2" && f.tex === "x"));
+      const re = r.demo.transiciones[iT + 1];
+      assert.ok(re.brotes!.some((b) => b.desde === "r1" && b.hacia === "V1") && re.brotes!.some((b) => b.desde === "r2" && b.hacia === "V2"));
+      assert.deepEqual(re.fusiones.map((f) => f.desde), [["X1"], ["X2"]]);
+      // la segunda ecuacion va en su renglon, empezando por «ó» (el corte no deja «ó x» colgado)
+      for (const s of e) {
+        const i = s.findIndex((f) => f.id === "or");
+        if (i >= 0) assert.equal(s[i - 1].id, "So", "antes del «ó» va un salto de renglon");
+      }
       const ult = e.at(-1)!;
       assert.ok(ult.some((f) => f.id === "ok1") && ult.some((f) => f.id === "ok2"));
       const txt = r.demo.transiciones.map((x) => x.texto + x.porque).join(" | ");
@@ -576,5 +601,83 @@ describe("generadores de algebra", () => {
     // y la lista de 96 se parte en renglones parejos, sin un numero suelto
     const l96 = renglones(fracciones(1, 8, 3, 9).demo.estados.flat().find((f) => f.id === "Dd")!.tex);
     assert.deepEqual(l96, ["Divisores de 72:", "1, 2, 3, 4,", "6, 8, 9, 12,", "18, 24, 36, 72"]);
+  });
+
+  test("listas: la negrita marca SOLO lo que esta en las dos listas, como en raiz (29-oct)", () => {
+    const negritas = (t: string) => [...t.matchAll(/\\mathbf\{(\d+)\}/g)].map((m) => +m[1]);
+    const sueltos = (t: string) => t.replace(/\\text\{[^}]*\}/g, "").replace(/\\mathbf\{\d+\}/g, "").match(/\d+/g)?.map(Number) ?? [];
+    const demos = [];
+    for (let d1 = 2; d1 <= 12; d1++) for (let d2 = 2; d2 <= 12; d2 += 3) for (const [n1, n2] of [[1, 1], [5, 7], [3, 9]]) for (const r of [false, true]) if (!validarFracciones(n1, d1, n2, d2)) demos.push(fracciones(n1, d1, n2, d2, r).demo);
+    for (let a = 2; a <= 12; a++) for (const c of [-60, 11, 89]) demos.push(ecuacionLineal(a, 1, c).demo);
+    let vistas = 0;
+    for (const d of demos) {
+      for (const e of d.estados) {
+        const por = new Map(e.map((f) => [f.id, f.tex]));
+        for (const [a, b] of [["Dn", "Dd"], ["Ma", "Mb"]]) {
+          const ta = por.get(a);
+          const tb = por.get(b);
+          if (!ta || !tb) continue;
+          const todos = (t: string) => [...negritas(t), ...sueltos(t)];
+          const comunes = todos(ta).filter((x) => todos(tb).includes(x));
+          for (const t of [ta, tb]) {
+            assert.deepEqual(negritas(t).sort((x, y) => x - y), comunes.slice().sort((x, y) => x - y), `negrita fuera de los comunes: ${t}`);
+            vistas++;
+          }
+        }
+      }
+    }
+    assert.ok(vistas > 200);
+  });
+
+  test("lineal: la suma con signos distintos o los dos negativos nombra su regla de signos (29-oct)", () => {
+    for (let a = 2; a <= 12; a++) {
+      for (const b of [-30, -7, -1, 2, 9, 30]) {
+        for (const c of [-99, -11, -4, 0, 5, 24, 99]) {
+          if (validarEcuacionLineal(a, b, c)) continue;
+          const d = ecuacionLineal(a, b, c).demo.transiciones;
+          const n = c - b;
+          const t3 = d.find((t) => t.texto.includes("los sumamos"))!;
+          const tf = d.find((t) => t.texto.startsWith("Ahora la suma"))!;
+          for (const [t, p, q] of [[t3, c, -b], [tf, n, b]] as const) {
+            const necesita = (p < 0 && q < 0) || (p < 0 && q > 0) || (p > 0 && q < 0 && p + q < 0) || (p !== 0 && p + q === 0 && q !== 0);
+            if (necesita) assert.ok(/negativo|signos distintos|se cancelan/.test(t.porque) && t.regla && t.regla !== "$a+b=c$", `${a}x${b}=${c}: ${p}+${q} sin regla de signos: ${t.porque}`);
+            else assert.ok(!/negativo|signos distintos/.test(t.porque), `${a}x${b}=${c}: ${p}+${q} nombra una regla de signos que no aplica`);
+          }
+        }
+      }
+    }
+    const neg = ecuacionLineal(3, 2, -4).demo.transiciones; // -4-2 = -6 y -6+2 = -4
+    assert.ok(neg.find((t) => t.texto.includes("los sumamos"))!.regla === "$-a-b=-(a+b)$");
+    assert.ok(neg.find((t) => t.texto.startsWith("Ahora la suma"))!.regla === "$-a+b=-(a-b)\\quad (a>b)$");
+  });
+
+  test("fracciones: la comprobacion escribe (a+b)·D = r·D antes de repartir, y el D nace de un D a la vista (29-oct)", () => {
+    for (let d1 = 2; d1 <= 12; d1++) {
+      for (let d2 = 2; d2 <= 12; d2++) {
+        for (const [n1, n2] of [[1, 1], [5, 7], [3, 9], [20, 1]]) {
+          for (const r of [false, true]) {
+            if (validarFracciones(n1, d1, n2, d2)) continue;
+            const d = fracciones(n1, d1, n2, d2, r).demo;
+            const i = d.transiciones.findIndex((t) => t.texto.startsWith("Para quitar los denominadores multiplicamos"));
+            assert.ok(i > 0, `${n1}/${d1}, ${n2}/${d2}: falta el paso de multiplicar los dos lados`);
+            const t = d.transiciones[i];
+            const e = d.estados[i + 1];
+            // los parentesis abarcan la suma entera y el D sale de un denominador que se ve en la hoja
+            assert.ok(e.some((f) => f.id === "Kpa") && e.some((f) => f.id === "Kpb"));
+            for (const br of t.brotes!.filter((x) => x.hacia === "K6a" || x.hacia === "K6b")) {
+              const D = e.find((f) => f.id === "K6a")!.tex.replace("{}\\cdot ", "");
+              const [id, parte] = br.desde.split(".");
+              const origen = d.estados[i].find((f) => f.id === id)!;
+              if (parte === "d") assert.equal(origen.frac!.d, D, `${n1}/${d1}, ${n2}/${d2}: el ${D} nace de un ${origen.frac!.d}`);
+              else assert.ok(origen.tex.includes(`\\mathbf{${D}}`));
+            }
+            // el paso anterior ya tiene la igualdad sin multiplicar, y el siguiente reparte (distributiva)
+            assert.ok(d.estados[i].some((f) => f.id === "Ka0") && d.estados[i].some((f) => f.id === "Kc0"));
+            const dist = d.transiciones[i + 1];
+            assert.ok(dist.porque.includes("propiedad distributiva") && dist.visitas?.[0].desde === "K6a");
+          }
+        }
+      }
+    }
   });
 });

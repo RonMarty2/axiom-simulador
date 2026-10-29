@@ -3,21 +3,21 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "f3a76a2212c1",
+      "huella": "4ef2558da8d9",
       "fecha": "2026-10-29",
-      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (denominador quieto, menos al numerador en paso propio, regla de signos). Falta: menos pegado a la raya en 4·(−3/2) y marcas que se pisan a media animacion (x fracc negativa 14-16); suma con signos distintos (−6+2) sin regla"
+      "nota": "29-oct tanda 3: menos sin tocar la raya, −3 en una pieza, 3 marcas, reglas de suma. Falta: el porque dice «el signo del mas grande, el −6» (debe ser «el de mas valor sin signo»); negrita en la primera lista antes de que exista la segunda y sin texto que la explique; «)» toca el 3 en x fracc negativa 14"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "02f205729775",
+      "huella": "282fa6decf52",
       "fecha": "2026-10-29",
-      "nota": "29-oct: porque del (−3) entre parentesis agregado. Falta: el paso 24 copia la ecuacion dos veces y reemplaza en el mismo paso; corte «x = 3 ó x / = −3»"
+      "nota": "29-oct tanda 3: copiar y reemplazar separados, segunda ecuacion desde «ó». Falta: tres copias de x²−9=0 a la vista (ref sin usar); texto «o» y hoja «ó»; revisar gestos del paso 11"
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "1b6250df075f",
+      "huella": "b65e18eb8a31",
       "fecha": "2026-10-29",
-      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (mcm a la vista, divisores en la hoja, distributiva, signos). Falta: negrita en todos los divisores (en raiz marca solo los comunes); capsula de marca vacia al quitar el mcm (13) y en 20; el 20 salta a ½·6 + ⅓·6 sin escribir (½+⅓)·6"
+      "nota": "29-oct tanda 3: comprobacion con (½+⅓)·6 y distributiva BIEN. Falta: negrita antes de la segunda lista y sin explicar (pasos 3, 14, 17); resta que da 0 paso 13: porque «solo el numerador» aplicado a un 0 entero; la copia SR queda sin usar"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
@@ -33,21 +33,21 @@
     },
     "potencia": {
       "estado": "con-hallazgos",
-      "huella": "218e58bcf629",
-      "fecha": "2026-10-08",
-      "nota": "Auditoria independiente 8-oct. Resuelto: b^n por cadena de productos parciales (viajan, 1 por paso). Quedan: (1) 2^24 son 22 pasos iguales y una fila de 47 piezas (ancho en 375px sin verificar); (2) el ultimo texto da 2^7=128 pero no vuelve al enunciado 2^3*2^4=128; (3) la fila 'g' se borra y se vuelve a abrir en el mismo tamano (duplica)."
+      "huella": "7f89d0a95b9e",
+      "fecha": "2026-10-29",
+      "nota": "29-oct: cambio el porque compartido del ultimo producto. Falta: exponente 1 dice «son 1 factores» (plural fijo) y pone (5) con parentesis para un factor"
     },
     "raiz": {
       "estado": "con-hallazgos",
-      "huella": "8b013f3beff0",
+      "huella": "999a75386c2d",
       "fecha": "2026-10-29",
-      "nota": "29-oct: revisado por auditor-de-pasos + revisor-visual tras arreglos (4 = 4/1, tachar solo los 1, exponente con fraccion subido en Fusion.tsx, 2/1 = 2). Falta: letra no cierra con ∛(x⁶) = x²; capsula de marca vacia en exacta 12; porque «los factores que faltan» contradice «ya no quedan» con 2 factores"
+      "nota": "29-oct tanda 3: cierre de letra y porque del ultimo producto BIEN. Falta la revision de gestos a media animacion (pasos 5 y 12)"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "a85ebee51753",
+      "huella": "24498c41469e",
       "fecha": "2026-10-29",
-      "nota": "29-oct: mismos arreglos que raiz. Falta: indice 3 elige 64 sin decir «el mayor» (8 tambien divide a 192); base 3 no muestra que 4 no divide a 45; el paso de elevar a 1 nombra √4/√9/∛64 que no estan en la hoja; 2/2 en 5 pasos con listas repetidas"
+      "nota": "29-oct tanda 3: mayor potencia perfecta, candidatos tachados, 2/2 = 1, √(2²) BIEN. Falta: indice 3 pasos 18-19 el «· ∛3» cae en el renglon de las listas (poner t y rc antes de Sg); paso 10 «copiamos el 3» no dice cual 3; lista de potencias sin decir de donde sale"
     },
     "cuadratica": {
       "estado": "con-hallazgos",

@@ -2,7 +2,7 @@ import { test, describe } from "node:test";
 import assert from "node:assert/strict";
 import { DEMOS } from "./datos.ts";
 import { revisar } from "./revisar.ts";
-import { potenciaProducto, raizConFactor, raizGeneral, validarPotencia, validarRaiz } from "./generadores.ts";
+import { potenciaProducto, raizConFactor, raizGeneral, validarPotencia, validarRaiz, validarRaizConFactor } from "./generadores.ts";
 
 describe("animaciones de fusion", () => {
   test("los ejemplos escritos a mano son coherentes", () => {
@@ -256,5 +256,62 @@ describe("animaciones de fusion", () => {
     // a^n y c son piezas que viajan a su raiz (con su indice), no un solo q0
     assert.ok(d.estados.some((e) => ids(e).includes("pa") && ids(e).includes("pc") && ids(e).includes("ik1")));
     assert.ok(!d.estados.some((e) => ids(e).includes("q0")));
+  });
+
+  // segunda revision por agentes (29-oct): cierres, criterio del mayor, nombres de lo que esta en la hoja, 2/2 corto
+  test("raiz con letra: el ultimo paso vuelve al enunciado (∛(x⁶) = x²)", () => {
+    const d = raizGeneral("x", 6, 3).demo;
+    assert.ok(d.transiciones[d.transiciones.length - 1].texto.includes("\\sqrt[3]{x^{6}}=x^{2}"), "falta cerrar con ∛(x⁶) = x²");
+    const x1 = raizGeneral("x", 3, 3).demo; // ∛(x³) = x
+    assert.ok(x1.transiciones[x1.transiciones.length - 1].texto.includes("\\sqrt[3]{x^{3}}=x"));
+  });
+
+  test("raiz con resto: se prueba desde la mayor potencia perfecta, las que no dividen se tachan con su resto", () => {
+    for (const [a, n, k, c, tachadas] of [[2, 2, 2, 3, ["9"]], [3, 2, 2, 5, ["36", "25", "16"]], [2, 6, 3, 3, ["125"]]] as const) {
+      const d = raizConFactor(a, n, k, c).demo;
+      const valor = a ** n * c;
+      const pruebas = d.transiciones.filter((t) => t.fusiones.some((f) => f.modo === "tachar" && f.desde.some((x) => x.startsWith("lp"))));
+      assert.deepEqual(pruebas.map((t) => t.texto.match(/¿El \$(\d+)\$/)![1]), [...tachadas], `${valor}: candidatos tachados`);
+      for (const t of pruebas) assert.ok(/sobra \$[1-9]/.test(t.texto), "cada candidato descartado muestra lo que sobra");
+      assert.ok(todosLosTextos(d).includes("mayor potencia perfecta"), "falta decir que se busca la mayor");
+    }
+    // 192: el 8 tambien divide y se dice por que no se elige
+    assert.ok(todosLosTextos(raizConFactor(2, 6, 3, 3).demo).includes("También divide el $8$"));
+  });
+
+  test("raiz con resto: cada caso valido cumple que la elegida es la mayor que divide (validarRaizConFactor)", () => {
+    assert.ok(validarRaizConFactor(2, 2, 2, 8), "c = 8 con indice 2 tiene un 4 adentro");
+    assert.ok(validarRaizConFactor(2, 3, 3, 16), "c = 16 con indice 3 tiene un 8 adentro");
+    let casos = 0;
+    for (const a of [2, 3, 5]) for (const k of [2, 3]) for (const n of [k, 2 * k]) for (let c = 2; c <= 30; c++) {
+      if (validarRaizConFactor(a, n, k, c)) continue;
+      const d = raizConFactor(a, n, k, c).demo;
+      revisar(d, `raiz[${k}](${a}^${n}·${c})`);
+      for (const t of d.transiciones) if (t.texto.includes("¿El $")) assert.ok(!t.texto.includes("sobra $0$"), "un candidato descartado dividia");
+      casos++;
+    }
+    assert.ok(casos > 100);
+  });
+
+  test("raiz con resto: se nombra lo que esta en la hoja (√(2²) = 2, ∛(2⁶) = 4), no √4 ni ∛64", () => {
+    const t1 = todosLosTextos(raizConFactor(2, 2, 2, 3).demo);
+    assert.ok(t1.includes("\\sqrt{2^{2}}=2") && !t1.includes("\\sqrt{4}=2"));
+    const t3 = todosLosTextos(raizConFactor(2, 6, 3, 3).demo);
+    assert.ok(t3.includes("\\sqrt[3]{2^{6}}=4") && !t3.includes("\\sqrt[3]{64}=4"));
+    assert.ok(!t3.includes("de exponente $3$"), "vocabulario: potencia perfecta de índice, no de exponente");
+  });
+
+  test("raiz: n/n = 1 en un paso, sin listas de divisores", () => {
+    for (const d of [raizConFactor(2, 2, 2, 3).demo, raizGeneral(5, 2, 2).demo, raizGeneral("x", 3, 3).demo]) {
+      assert.ok(!todosLosTextos(d).includes("Divisores") && !d.estados.flat().some((f) => f.id === "dvn"), "no hacen falta divisores para n/n");
+      assert.ok(d.transiciones.some((t) => t.regla === "$\\dfrac{a}{a}=1$"));
+    }
+  });
+
+  test("potencia: el ultimo producto no dice que quedan factores en la fila", () => {
+    for (const d of [raizGeneral(2, 4, 2).demo, raizGeneral(2, 6, 3).demo, potenciaProducto(2, 3, 4).demo]) {
+      const ult = d.transiciones.find((t) => t.texto.includes("Ya no quedan factores"))!;
+      assert.ok(ult && !ult.porque.includes("Los factores que faltan"), "el porque contradice al texto");
+    }
   });
 });

@@ -6,6 +6,7 @@ import MathText from "../components/MathText";
 import Tex from "./Tex";
 import katex from "katex";
 import { aplanar, hijas, type Demo, type Ficha, type Figura, type Fusion as FusionDatos, type Visita } from "./datos";
+import { marcasDe, tieneContenido } from "./marcas";
 
 const esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -37,6 +38,84 @@ function parteEstilo(marcada: boolean): React.CSSProperties {
     boxShadow: marcada ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
     transition: "background 0.3s, box-shadow 0.3s",
   };
+}
+
+// MARCA AJUSTADA A LA PIEZA (revision por agentes, 29-oct: en «4·(−3/2)» la marca del menos tenia el alto del renglon, 49 px, y tapaba
+// la punta de la raya, el 3 y el 2). La caja de una pieza de texto mide el alto de LINEA del renglon (1.6 del tamaño de letra), no el de
+// lo que se ve. La marca se dibuja aparte, medida sobre lo que pinta KaTeX: alto = el de la pieza (sus `.strut`, con un minimo de 0,9 em
+// para que «x» y «2» lleven la misma pastilla) y ancho = sus glifos. `px`/`py` son el aire alrededor de la tinta.
+type Caja = { l: number; t: number; w: number; h: number };
+let lienzo: CanvasRenderingContext2D | null | undefined;
+const lienzoTinta = () => (lienzo === undefined ? (lienzo = document.createElement("canvas").getContext("2d")) : lienzo);
+function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boolean; px: number; py: number; radio: number }) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [caja, setCaja] = useState<Caja | null>(null);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!marcado || !el) return;
+    const medir = () => {
+      const r0 = el.getBoundingClientRect();
+      // la pieza puede estar escalada (rebote, juntar): se mide en px de diseño
+      const esc = el.offsetWidth > 0 ? r0.width / el.offsetWidth : 1;
+      const katexEl = el.querySelector(".katex");
+      const struts = [...el.querySelectorAll(".katex-html .strut")].map((s) => s.getBoundingClientRect());
+      // ancho = la TINTA de los glifos, no su avance: el avance del «−» llega 3 px mas alla de lo que se ve y, con un aire de 8 px,
+      // la marca se metia 4 px en la raya de la fraccion pegada (medido, 29-oct). La tinta se mide con el mismo tipo de letra en un canvas.
+      const ctx = lienzoTinta();
+      const glifos: { left: number; right: number }[] = [];
+      for (const e of el.querySelectorAll(".katex-html *")) {
+        const texto = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent ?? "").join("");
+        const r = e.getBoundingClientRect();
+        if (texto.trim() !== "" && ctx && r.width > 0) {
+          const cs = getComputedStyle(e);
+          ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+          const m = ctx.measureText(texto);
+          glifos.push({ left: r.left - m.actualBoundingBoxLeft * esc, right: r.left + m.actualBoundingBoxRight * esc });
+        } else if (e instanceof SVGSVGElement || e.classList.contains("frac-line") || e.classList.contains("rule")) {
+          // rayas y signos dibujados (raiz, parentesis grandes): su caja es su tinta
+          if (r.width > 0) glifos.push({ left: r.left, right: r.right });
+        }
+      }
+      if (!katexEl || !esc || struts.length === 0 || glifos.length === 0) return setCaja(null);
+      const fs = parseFloat(getComputedStyle(katexEl).fontSize) * esc;
+      let arriba = Math.min(...struts.map((r) => r.top));
+      let abajo = Math.max(...struts.map((r) => r.bottom));
+      if (abajo - arriba < 0.9 * fs) {
+        const c = (arriba + abajo) / 2;
+        arriba = c - 0.45 * fs;
+        abajo = c + 0.45 * fs;
+      }
+      const izq = Math.min(...glifos.map((r) => r.left));
+      const der = Math.max(...glifos.map((r) => r.right));
+      setCaja({ l: (izq - r0.left) / esc - px, t: (arriba - r0.top) / esc - py, w: (der - izq) / esc + 2 * px, h: (abajo - arriba) / esc + 2 * py });
+    };
+    medir();
+    // la hoja se achica o crece (Achicar hoja, fuentes que cargan): se vuelve a medir
+    const ro = new ResizeObserver(medir);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [marcado, tex, px, py]);
+  return (
+    <span ref={ref} style={{ display: "inline-block", position: "relative" }}>
+      <span
+        data-marca
+        aria-hidden
+        style={{
+          position: "absolute",
+          ...(caja ? { left: caja.l, top: caja.t, width: caja.w, height: caja.h } : { left: -px, right: -px, top: -py, bottom: -py }),
+          borderRadius: radio,
+          background: "var(--accent-soft)",
+          boxShadow: "0 0 0 2px var(--accent)",
+          opacity: marcado ? 1 : 0,
+          transition: "opacity 0.3s",
+          pointerEvents: "none",
+        }}
+      />
+      <span style={{ position: "relative" }}>
+        <Tex tex={tex} />
+      </span>
+    </span>
+  );
 }
 
 interface Leyenda {
@@ -165,6 +244,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     copia.innerHTML = v.etiqueta
       ? katex.renderToString(v.etiqueta, { throwOnError: false, strict: "ignore", output: "html" })
       : origen.innerHTML;
+    // la marca ajustada de la pieza original no viaja: la copia lleva su propio recuadro
+    copia.querySelectorAll("[data-marca]").forEach((m) => m.remove());
     copia.style.cssText = `position:fixed;left:${r0.left}px;top:${r0.top}px;margin:0;pointer-events:none;z-index:50;padding:2px 8px;border-radius:12px;background:var(--accent-soft);box-shadow:0 0 0 2px var(--accent);color:var(--accent);font-size:${getComputedStyle(origen).fontSize};white-space:nowrap`;
     document.body.appendChild(copia);
     // la copia se mide una vez puesta, para que su centro parta del centro de la pieza original
@@ -200,12 +281,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     setNuevos([]);
     setLeyenda({ texto: t.texto, porque: t.porque, regla: t.regla, figura: t.figura });
 
-    const marcas = [
-      ...t.fusiones.flatMap((f) => (f.ancla ? [...f.desde, f.ancla] : f.desde)),
-      ...(t.brotes ?? []).map((b) => b.desde),
-      ...(t.resaltar ?? []),
-      ...(t.visitas ?? []).flatMap((v) => [v.desde, ...v.hacia]),
-    ];
+    // un salto de renglon o una pieza vacia puede irse con una fusion, pero no se marca (era la pastilla naranja vacia, 29-oct)
+    const marcas = marcasDe(t, demo.estados[i]);
     if (marcas.length > 0) {
       setMarcados(marcas);
       await esperar(1100 * k);
@@ -317,8 +394,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     );
   };
   function interna(f: Ficha, prev: Ficha | undefined): React.ReactNode {
-    const marcado = marcados.includes(f.id) || !!f.destacada;
+    const marcado = tieneContenido(f) && (marcados.includes(f.id) || !!f.destacada);
     const nuevo = nuevos.includes(f.id);
+    const compuestaDentro = !!(f.frac?.nPiezas || f.frac?.dPiezas);
     const ref = (el: HTMLElement | null) => {
       celdas.current[f.id] = el;
     };
@@ -328,8 +406,9 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
       // poco aire: una formula con muchas piezas tiene que caber en 375 px
       padding: "0 1px",
       borderRadius: 8,
-      background: marcado ? "var(--accent-soft)" : "transparent",
-      boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
+      // una pieza de texto lleva su marca ajustada (MarcaTex); la caja solo se pinta en la raiz y en una fraccion con piezas
+      background: marcado && (f.rad || compuestaDentro) ? "var(--accent-soft)" : "transparent",
+      boxShadow: marcado && (f.rad || compuestaDentro) ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
       color: nuevo ? "var(--accent)" : f.op ? "var(--fg-muted, #7a7a7a)" : "inherit",
       fontWeight: nuevo ? 700 : 400,
       transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
@@ -353,7 +432,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     return (
       <span key={f.id} style={{ display: "inline-block", position: "relative", margin: margen, ...(f.sup ? { fontSize: "0.65em", top: "-0.85em" } : {}) }}>
         <span ref={ref} style={caja}>
-          {f.frac?.nPiezas || f.frac?.dPiezas ? compuesta(f) : <Tex tex={f.tex} />}
+          {compuestaDentro ? compuesta(f) : <MarcaTex tex={f.tex} marcado={marcado} px={2} py={0} radio={8} />}
         </span>
         {f.debajo && (
           <span data-etiqueta style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", whiteSpace: "nowrap", lineHeight: 1, fontSize: "0.6em", marginTop: 2 }}>
@@ -491,8 +570,10 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     // medido en pantalla (8-oct): un caracter mide ~0.62em de la etiqueta y cada "=" suma ~0.5em de espacio (O=16 medía 57 px y se reservaban 46)
     const iguales = f.debajo ? (f.debajo.match(/=/g) ?? []).length : 0;
     const anchoEtiqueta = letras > 0 ? { minWidth: `${((letras * 0.62 + iguales * 0.5) * 0.54) / escala + 1}em`, textAlign: "center" as const } : {};
-    const marcado = marcados.includes(f.id) || !!f.destacada;
+    const marcado = tieneContenido(f) && (marcados.includes(f.id) || !!f.destacada);
     const nuevo = nuevos.includes(f.id);
+    // una pieza de texto (ni fraccion ni raiz) lleva su marca ajustada a lo que se ve (MarcaTex); las demas, la caja entera
+    const deTexto = !f.frac && !f.rad;
     // fraccion con piezas: poco aire alrededor, para que x = (fraccion) quepa en un renglon de celular
     const conPiezas = !!(f.frac?.nPiezas || f.frac?.dPiezas);
     return (
@@ -532,8 +613,8 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
             display: "inline-block",
             padding: f.sup ? "0 2px" : conPiezas ? "2px" : "2px 8px",
             borderRadius: f.sup ? 8 : 12,
-            background: marcado ? "var(--accent-soft)" : "transparent",
-            boxShadow: marcado ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
+            background: marcado && !deTexto ? "var(--accent-soft)" : "transparent",
+            boxShadow: marcado && !deTexto ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
             color: nuevo ? "var(--accent)" : f.op ? "var(--fg-muted, #7a7a7a)" : "inherit",
             fontWeight: nuevo ? 700 : 400,
             transition: "background 0.3s, box-shadow 0.3s, color 0.6s",
@@ -570,7 +651,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
               </span>
             </span>
           ) : (
-            <Tex tex={f.tex} />
+            <MarcaTex tex={f.tex} marcado={marcado} px={f.sup ? 3 : 5} py={2} radio={f.sup ? 8 : 12} />
           )}
         </span>
         {f.debajo && (
