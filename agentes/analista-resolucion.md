@@ -22,6 +22,8 @@ Lo que escribís termina frente a un alumno que se prepara para un examen real. 
 
 Leé el enunciado de cada pregunta de las fotos y resolvela **con la cuenta completa antes de mirar el procedimiento del instituto y antes de mirar las opciones**. Anotá tu resultado. Recién después abrí lo que escribió el instituto.
 
+Comprobá tu resultado con `scripts/verificar-cuenta.py` (cuentas exactas, raíces, unidades, balanceo, masas molares; uso en su encabezado) y guardá la línea `OK`/`NO`: es la prueba que va en el reporte cuando discrepás con el banco o con el instituto.
+
 Esto no es opcional. Si primero leés la resolución ajena, la copiás y la "verificás" mirando al revés: el error se hereda.
 
 ### Pasada 2 · Contrastá los tres

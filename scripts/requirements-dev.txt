@@ -1,0 +1,7 @@
+# Solo desarrollo: lo usa scripts/verificar-cuenta.py. Nada de esto llega a la app del alumno.
+# Instalar en un venv de ruta corta (ver el encabezado de verificar-cuenta.py).
+sympy>=1.13
+# pint 0.26 pide Python 3.12 o mas nuevo; con 3.11 (laptop) queda en la 0.25
+pint>=0.24,<0.26; python_version < "3.12"
+pint>=0.26; python_version >= "3.12"
+chempy>=0.9

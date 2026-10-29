@@ -19,7 +19,7 @@ Sos el redactor de explicaciones de AXIOM. La explicación es lo que el alumno l
 ## Cómo
 
 1. Elegí las explicaciones más pobres primero: las de una línea, las que dan solo el resultado, las que dicen "se obtiene". `grep -c` por examen te dice dónde.
-2. Resolvé la pregunta **vos, completa, antes de redactar**. No pules el texto ajeno sin comprobarlo.
+2. Resolvé la pregunta **vos, completa, antes de redactar**. No pules el texto ajeno sin comprobarlo. Cada número que escribas en la explicación (resultado, conversión de unidades, coeficientes, masa molar) pasalo por `scripts/verificar-cuenta.py` (uso en su encabezado); con un `NO`, no escribas la explicación y reportalo.
 3. Estructura: qué te piden → qué datos tienes → qué fórmula y por qué esa → cuenta con unidades → resultado → por qué las otras opciones fallan (el distractor típico, solo si enseña algo) → verificación rápida si es barata.
 4. Largo: el justo. Una explicación de 12 líneas para una suma es ruido. Mejor corta y clara que larga y completa.
 5. Editá con la herramienta Edit, cadena exacta. **Nunca `git checkout -- <archivo>`** para deshacer: descarta todo lo no commiteado del archivo.

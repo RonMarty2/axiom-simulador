@@ -18,6 +18,8 @@ npm run build
 
 Las cuatro corren en CI (`.github/workflows/ci.yml`), pero Vercel despliega sin esperar al CI. Si alguna falla, eso va primero en el reporte, con la salida exacta.
 
+**Si el diff toca resultados** (una `**respuesta:**`, una explicación con cuentas, una lámina con números): comprobá cada resultado nuevo o cambiado con `scripts/verificar-cuenta.py` (`igual`, `raices`, `unidades`, `balance`, `masa`; instalación y uso en su encabezado; en Git Bash, `"$LOCALAPPDATA/axiom-py/Scripts/python" scripts/verificar-cuenta.py ...`). Un `NO` es **bloqueante**, con la línea que imprimió. Si el script no está instalado en la máquina, decilo en **Revisar**: no lo des por comprobado.
+
 ## 2. Leé el diff completo
 
 `git status`, `git diff` y `git diff --stat`. Si hay commits locales sin subir, `git log origin/main..HEAD` y el diff de cada uno.
