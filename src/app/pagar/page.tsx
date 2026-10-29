@@ -265,7 +265,7 @@ function PagarInner() {
               type="file"
               accept="image/*"
               onChange={(e) => elegirFoto(e.target.files?.[0])}
-              style={{ display: "block", marginTop: 8, fontSize: 13 }}
+              style={{ display: "block", marginTop: 8, fontSize: 13, width: "100%", boxSizing: "border-box" }}
             />
           </label>
           {fotoError && <p style={{ fontSize: 12.5, color: "#b91c1c", marginTop: 6 }}>{fotoError}</p>}

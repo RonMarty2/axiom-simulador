@@ -63,3 +63,7 @@ examenes pasados/MEDICINA/
 # Python
 __pycache__/
 *.pyc
+
+# Salida de npm run test:pantallas (Playwright)
+test-results/
+playwright-report/

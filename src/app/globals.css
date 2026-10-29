@@ -40,6 +40,13 @@
   .axiom-header-row { padding-left: 12px !important; padding-right: 12px !important; gap: 12px !important; }
   .axiom-fac-selector-text { display: none !important; }
 }
+/* Sin sesion: logo + menu + «Entrar» + «Crear cuenta» sumaban 361 px. En 343 se salia y en 375
+   «Crear cuenta» se partia en dos renglones. Medido con npm run test:pantallas. */
+@media (max-width: 400px) {
+  .axiom-header-row { gap: 8px !important; }
+  .axiom-btn-entrar { padding-left: 4px !important; padding-right: 4px !important; font-size: 13px !important; }
+  .axiom-btn-crear { padding-left: 10px !important; padding-right: 10px !important; font-size: 13px !important; }
+}
 
 /* ═══ DASHBOARD · grid de "Últimos exámenes + Acciones rápidas" ═══════════════
    En móvil (≤720px) se apila en una sola columna, evitando que la columna
