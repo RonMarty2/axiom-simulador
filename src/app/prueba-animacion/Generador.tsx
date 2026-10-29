@@ -210,7 +210,7 @@ export default function Generador({ tipo, titulo, inicial, cambios = [], dev = f
           <Numero key={r} nombre={r} valor={v[i]} onCambio={set(i)} texto={TEXTO[tipo]?.(i) ?? (tipo === "molesAtomos" ? i < 2 : tipo === "estequiometria" ? i < 3 || i === 4 : false)} />
         ))}
       </div>
-      <div style={{ display: "flex", gap: 6, marginBottom: 8, alignItems: "center", fontSize: 13 }}>
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 8, alignItems: "center", fontSize: 13 }}>
         <span style={{ color: "var(--fg-muted, #6b6b6b)" }}>Se usa para:</span>
         {(["resolver", "ensenar"] as const).map((m) => (
           <button
