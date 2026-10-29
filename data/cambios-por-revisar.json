@@ -1,20 +1,6 @@
 {
-  "_nota": "Pasos que Ronald debe mirar y pasos que dio por vistos sin observacion. Se edita SOLO con revisar-pasos.ts. La pagina /prueba-animacion muestra `cambios` con salto directo al paso.",
+  "_nota": "Pasos que Ronald debe mirar, pasos que dio por vistos sin observacion y pasos que revisaron los agentes. Se edita SOLO con revisar-pasos.ts. La pagina /prueba-animacion muestra `cambios` con salto directo al paso.",
   "cambios": [
-    {
-      "tipo": "lineal",
-      "caso": "normal",
-      "paso": 10,
-      "nota": "Tachado: se tachan solo el 3 de arriba y el 3 de abajo (antes parecia tachar todo el numerador)",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "numeros grandes",
-      "paso": 18,
-      "nota": "Tachado: se tachan solo el 4 de arriba y el 4 de abajo; quedan 31 sobre 24",
-      "fecha": "2026-10-08"
-    },
     {
       "tipo": "raiz",
       "caso": "exacta",
@@ -24,37 +10,9 @@
     },
     {
       "tipo": "lineal",
-      "caso": "x fraccionaria",
-      "paso": 12,
-      "nota": "Comprobacion: punto de multiplicar visible al reemplazar x (3 · x, no 3 3)",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "lineal",
       "caso": "x negativa",
       "paso": 15,
       "nota": "Comprobacion con x negativa: 3·(-2) con parentesis y signo en su lugar",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "cuadratica",
-      "caso": "desordenada",
-      "paso": 26,
-      "nota": "Comprobacion de x1: x1 = 3 queda resaltada todo el reemplazo (hasta el paso 32)",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "cuadratica",
-      "caso": "desordenada",
-      "paso": 33,
-      "nota": "Comprobacion de x2: ahora la resaltada es x2 = 2 (x1 ya no)",
-      "fecha": "2026-10-08"
-    },
-    {
-      "tipo": "lineal",
-      "caso": "normal",
-      "paso": 5,
-      "nota": "Listas de divisores: rotulo normal, datos en negrita, renglones cortos (mirar en celular)",
       "fecha": "2026-10-08"
     },
     {
@@ -94,18 +52,69 @@
     },
     {
       "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 20,
-      "nota": "La comprobacion va por lados: dos multiplicaciones a la izquierda, y la respuesta aparte (despues lo mismo con las divisiones).",
-      "fecha": "2026-10-17"
-    },
-    {
-      "tipo": "fracciones",
       "caso": "resta",
       "paso": 21,
       "nota": "En la respuesta negativa el menos se queda dentro del numerador y el negativo suelto lleva parentesis: (-1)·12.",
       "fecha": "2026-10-17"
     }
   ],
-  "aprobadosPorSilencio": []
+  "aprobadosPorSilencio": [],
+  "revisadosPorAgentes": [
+    {
+      "tipo": "lineal",
+      "caso": "normal",
+      "paso": 10,
+      "nota": "Tachado: se tachan solo el 3 de arriba y el 3 de abajo (antes parecia tachar todo el numerador)",
+      "fecha": "2026-10-29",
+      "revision": "auditor-de-pasos BIEN; revisor-visual BIEN (raya sobre ·3 y el 3 de abajo; detalle: cajas de marca se pisan)"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria",
+      "paso": 12,
+      "nota": "Comprobacion: punto de multiplicar visible al reemplazar x (3 · x, no 3 3)",
+      "fecha": "2026-10-29",
+      "revision": "auditor BIEN; visual BIEN (punto visible)"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "desordenada",
+      "paso": 26,
+      "nota": "Comprobacion de x1: x1 = 3 queda resaltada todo el reemplazo (hasta el paso 32)",
+      "fecha": "2026-10-29",
+      "revision": "auditor BIEN; visual BIEN (x1 resaltada 26 a 31)"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "desordenada",
+      "paso": 33,
+      "nota": "Comprobacion de x2: ahora la resaltada es x2 = 2 (x1 ya no)",
+      "fecha": "2026-10-29",
+      "revision": "auditor BIEN; visual BIEN (x2 resaltada, x1 con check)"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "normal",
+      "paso": 5,
+      "nota": "Listas de divisores: rotulo normal, datos en negrita, renglones cortos (mirar en celular)",
+      "fecha": "2026-10-29",
+      "revision": "auditor BIEN en contenido; visual BIEN a 343 px (lista en un renglon)"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 20,
+      "nota": "La comprobacion va por lados: dos multiplicaciones a la izquierda, y la respuesta aparte (despues lo mismo con las divisiones).",
+      "fecha": "2026-10-29",
+      "revision": "auditor BIEN; visual BIEN (va por lados)"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 18,
+      "nota": "Tachado: se tachan solo el 4 de arriba y el 4 de abajo; quedan 31 sobre 24",
+      "fecha": "2026-10-29",
+      "revision": "ENTRADA VIEJA: desde el mcm (17-oct) el caso da 31/24 y no tacha; el tachado equivalente (un denominador multiplo del otro, paso 19) BIEN para los dos agentes"
+    }
+  ]
 }
