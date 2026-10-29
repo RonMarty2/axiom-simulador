@@ -330,6 +330,17 @@ body {
   transition: border-color 0.2s ease;
 }
 
+/* Con el zoom permitido (layout.tsx), iPhone agranda la pantalla sola al tocar un campo
+   con letra menor a 16 px. En pantallas tactiles ningun campo baja de 16 px, aunque
+   traiga fontSize propio (cuenta, pagar y simulador usan 14). En PC no cambia nada. */
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: max(16px, 1em) !important;
+  }
+}
+
 .axiom-shell input:focus,
 .axiom-shell textarea:focus,
 .axiom-shell select:focus {
