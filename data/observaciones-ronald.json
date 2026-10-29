@@ -123,7 +123,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:14:57.298Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "4fe38f457a91"
     },
     {
@@ -136,7 +136,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:16:09.105Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "4fe38f457a91"
     },
     {
@@ -153,7 +153,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:23:08.626Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "369a7550f929"
     },
     {
@@ -168,7 +168,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:25:39.278Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "aa1da444c881"
     },
     {
@@ -183,7 +183,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:28:23.364Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "3888e3eb2a16"
     },
     {
@@ -199,7 +199,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:28:26.663Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "3c361d77ffe2"
     },
     {
@@ -215,7 +215,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:30:58.863Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "3c361d77ffe2",
       "total": true
     },
@@ -231,7 +231,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:33:53.914Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "7e3b6c3a47ec",
       "total": true
     },
@@ -250,7 +250,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-17T12:45:25.159Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "244e9e10ae45",
       "total": true
     },
@@ -268,7 +268,7 @@
       "estado": "bien",
       "texto": "",
       "fecha": "2026-10-26T12:47:16.913Z",
-      "atendida": false,
+      "atendida": true,
       "huella": "43d2141e4c84",
       "total": true
     }
