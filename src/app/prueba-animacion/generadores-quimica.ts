@@ -13,6 +13,7 @@
 // Arrastre: una pieza que cambia de lugar se va con una fusion "viajar" y su copia nace con un brote en el destino.
 import { frPiezas, sustituir, aplanar, type Ficha, type Transicion, type Brote } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
+import { NOMBRE_ELEMENTO } from "./elementos.ts";
 
 // ---------------------------------------------------------------------------
 // Tablas. Masas atomicas redondeadas a enteros, como en el colegio y en el banco (UMSS usa C=12, H=1, O=16).
@@ -29,20 +30,6 @@ export const MASAS_ATOMICAS: Record<string, number> = {
   Ca: 40,
   Fe: 56,
   Zn: 65,
-};
-const NOMBRE_ELEMENTO: Record<string, string> = {
-  H: "hidrógeno",
-  C: "carbono",
-  N: "nitrógeno",
-  O: "oxígeno",
-  Na: "sodio",
-  Mg: "magnesio",
-  Al: "aluminio",
-  S: "azufre",
-  K: "potasio",
-  Ca: "calcio",
-  Fe: "hierro",
-  Zn: "zinc",
 };
 /** sustancias que se pueden usar (formulas sin parentesis; cada elemento aparece una sola vez) */
 export const SUSTANCIAS: Record<string, string> = {

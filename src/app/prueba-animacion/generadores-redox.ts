@@ -10,28 +10,10 @@
 // Todo texto del alumno va en LaTeX entre $...$ (MathText); las fichas en LaTeX sin $. Las barras van dobles.
 import { fr, sustituir, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
+import { NOMBRE_ELEMENTO } from "./elementos.ts";
 
 // ---------------------------------------------------------------------------
 // Tablas
-export const NOMBRE_ELEMENTO: Record<string, string> = {
-  H: "hidrógeno",
-  C: "carbono",
-  N: "nitrógeno",
-  O: "oxígeno",
-  Na: "sodio",
-  Mg: "magnesio",
-  Al: "aluminio",
-  P: "fósforo",
-  S: "azufre",
-  Cl: "cloro",
-  K: "potasio",
-  Ca: "calcio",
-  Cr: "cromo",
-  Mn: "manganeso",
-  Fe: "hierro",
-  Cu: "cobre",
-  Zn: "zinc",
-};
 
 /** los elementos cuyo numero de oxidacion se da por conocido (en los compuestos de la tabla) y la razon que se le dice al alumno */
 export const CONOCIDOS: Record<string, { valor: number; razon: string }> = {
