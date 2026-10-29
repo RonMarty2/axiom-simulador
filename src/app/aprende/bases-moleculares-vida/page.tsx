@@ -263,6 +263,39 @@ function EscProteinas() {
         grupo R variable.
       </Definicion>
 
+      {/* Como lo dibujan los libros del curso: el carbono central con sus 4 partes escritas (no el dibujo
+          esqueletal de quimica organica, que esconde los carbonos). Lienzo de 360 de ancho para que la letra
+          se lea en celular. */}
+      <Pizarra alto={270}>
+        <svg width="100%" height="100%" viewBox="0 0 360 270" preserveAspectRatio="xMidYMid meet" role="img"
+          aria-label="Estructura de un aminoácido: un carbono central unido a un H, a un grupo amino NH2, a un grupo carboxilo COOH y a un grupo R">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>Todo aminoácido tiene la misma base</text>
+          {/* enlaces */}
+          <line x1={180} y1={74} x2={180} y2={108} stroke={LIENZO.fg} strokeWidth={2} />
+          <line x1={180} y1={142} x2={180} y2={176} stroke={LIENZO.fg} strokeWidth={2} />
+          <line x1={118} y1={125} x2={166} y2={125} stroke={LIENZO.fg} strokeWidth={2} />
+          <line x1={194} y1={125} x2={240} y2={125} stroke={LIENZO.fg} strokeWidth={2} />
+          {/* atomos y grupos */}
+          <text x={180} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={22} fontWeight={700}>H</text>
+          <text x={180} y={133} textAnchor="middle" fill={LIENZO.fg} fontSize={22} fontWeight={700}>C</text>
+          <text x={112} y={133} textAnchor="end" fill={LIENZO.ok} fontSize={22} fontWeight={700}>H₂N</text>
+          <text x={246} y={133} textAnchor="start" fill={LIENZO.accent} fontSize={22} fontWeight={700}>COOH</text>
+          <text x={180} y={200} textAnchor="middle" fill={LIENZO.warn} fontSize={22} fontWeight={700}>R</text>
+          {/* rotulos */}
+          <text x={78} y={158} textAnchor="middle" fill={LIENZO.ok} fontSize={12} fontWeight={700}>grupo amino</text>
+          <text x={278} y={158} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>grupo carboxilo</text>
+          <text x={208} y={100} textAnchor="start" fill={LIENZO.fgDim} fontSize={11}>carbono central (α)</text>
+          <text x={180} y={226} textAnchor="middle" fill={LIENZO.warn} fontSize={12} fontWeight={700}>grupo R: lo único que cambia</text>
+          <text x={180} y={244} textAnchor="middle" fill={LIENZO.warn} fontSize={12} fontWeight={700}>entre los 20 aminoácidos</text>
+        </svg>
+      </Pizarra>
+
+      <Parrafo>
+        El <strong>enlace peptídico</strong> une el <strong>grupo carboxilo</strong> (COOH) de un aminoácido con
+        el <strong>grupo amino</strong> (NH₂) del siguiente, y al unirse sale una molécula de agua (H₂O). Así se
+        arma la cadena de una proteína, aminoácido tras aminoácido.
+      </Parrafo>
+
       <Parrafo>
         En la lámina de abajo van a aparecer dos tipos de unión que mantienen
         doblada a la cadena. Los <strong>puentes de hidrógeno</strong> son
