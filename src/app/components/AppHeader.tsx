@@ -126,7 +126,7 @@ export default function AppHeader() {
       <div className="axiom-header-row" style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", gap: 24 }}>
         <Link href={admin ? "/admin" : usuario ? "/dashboard" : "/"} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
           <span style={{ color: "var(--accent)", display: "flex" }}><Icono nombre="rayo" tamano={21} grosor={2.2} /></span>
-          <span className="font-crimson" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)", letterSpacing: "0.06em" }}>AXIOM</span>
+          <span className="font-crimson axiom-logo-texto" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)", letterSpacing: "0.06em" }}>AXIOM</span>
         </Link>
 
         {/* Nav inline (desktop) — se oculta en móvil vía CSS */}

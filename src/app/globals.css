@@ -41,9 +41,11 @@
   .axiom-fac-selector-text { display: none !important; }
 }
 /* Sin sesion: logo + menu + «Entrar» + «Crear cuenta» sumaban 361 px. En 343 se salia y en 375
-   «Crear cuenta» se partia en dos renglones. Medido con npm run test:pantallas. */
+   «Crear cuenta» se partia en dos renglones. Medido con npm run test:pantallas. Con 7 px de sobra
+   no alcanzaba: en Linux (CI) las letras salen mas anchas y volvia a salirse 6 px. Ahora sobran ~25. */
 @media (max-width: 400px) {
-  .axiom-header-row { gap: 8px !important; }
+  .axiom-header-row { gap: 6px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  .axiom-logo-texto { font-size: 20px !important; letter-spacing: 0.03em !important; }
   .axiom-btn-entrar { padding-left: 4px !important; padding-right: 4px !important; font-size: 13px !important; }
   .axiom-btn-crear { padding-left: 10px !important; padding-right: 10px !important; font-size: 13px !important; }
 }
