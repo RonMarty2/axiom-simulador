@@ -35,3 +35,13 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      # Pantallas del alumno en celular (desbordes + axe con trinquete), sobre el servidor de
+      # produccion del build de arriba. Sin comparacion de capturas: las referencias dependen del
+      # sistema operativo (en Linux las fuentes se dibujan distinto). Las rutas con sesion se
+      # saltan solas: el login de desarrollo no existe en produccion.
+      - name: Navegador para las pruebas de pantallas
+        run: npx playwright install --with-deps chromium
+
+      - name: Pantallas en celular
+        run: npm run test:pantallas
