@@ -54,18 +54,26 @@
     "color": "#881337",
     "color_secundario": "#9f1239",
     "emoji": "⚕️",
-    "descripcion": "Carreras: Medicina, Enfermería, Bioquímica y Farmacia, Tecnología Médica, Fisioterapia. Curso Básico de Medicina: 100 preguntas en 90 minutos, con afirmaciones 1/2/3 y clave de combinación.",
+    "descripcion": "Carreras: Medicina, Enfermería, Fisioterapia, Nutrición. Admisión por Prueba de Suficiencia Académica (PSA) con 7 asignaturas: Matemáticas, Física, Química, Comprensión Lectora, Morfofunción, Biología Celular e Introducción a la Investigación.",
     "areas": [
       "morfofuncion",
       "biologia_celular",
-      "educacion_salud"
+      "investigacion",
+      "quimica",
+      "fisica",
+      "matematicas",
+      "comprension_lectora"
     ],
     "ponderacion": {
-      "morfofuncion": 0.34,
-      "biologia_celular": 0.33,
-      "educacion_salud": 0.33
+      "morfofuncion": 0.2,
+      "biologia_celular": 0.2,
+      "investigacion": 0.15,
+      "quimica": 0.15,
+      "fisica": 0.1,
+      "matematicas": 0.1,
+      "comprension_lectora": 0.1
     },
-    "duracion_minutos": 90,
+    "duracion_minutos": 120,
     "preguntas_examen": 100,
     "ano_inicio_banco": 2020
   },

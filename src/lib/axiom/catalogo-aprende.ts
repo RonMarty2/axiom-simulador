@@ -249,16 +249,90 @@ const BLOQUES_INGENIERIA: Bloque[] = [
   },
 ];
 
-// Facultades sin catálogo propio todavía (ej. Medicina, Derecho) no deben
-// heredar el contenido de otra facultad — mejor mostrar el estado vacío
-// (ver "Todavía no hay lecciones para tu facultad" en AprendePage) que
-// mezclar carreras.
+// Estructura oficial de la Prueba de Suficiencia Académica (PSA) Medicina UMSS:
+// 7 asignaturas: Morfofunción, Biología Celular, Introducción a la Investigación,
+// Química, Física, Matemáticas y Comprensión Lectora (Res. 08/2026).
+const MORFOFUNCION_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Introducción a la Morfofunción", lecciones: [{ slug: "morfofuncion-introduccion", titulo: "Niveles de organización y homeostasis", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Sistema tegumentario", lecciones: [{ slug: "sistema-tegumentario", titulo: "Piel, epidermis y dermis", tags: ["✨ Animada"] }] },
+  { numero: "03", titulo: "Sistema esquelético", lecciones: [{ slug: "sistema-esqueletico", titulo: "Huesos, esqueleto axil y apendicular", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Sistema muscular", lecciones: [{ slug: "sistema-muscular", titulo: "Músculo esquelético, contracción y palancas", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Sistema nervioso", lecciones: [{ slug: "sistema-nervioso", titulo: "Neuronas, sinapsis y sistema central y periférico", tags: ["✨ Animada"] }] },
+  { numero: "06", titulo: "Sistema endocrino", lecciones: [{ slug: "sistema-endocrino", titulo: "Hormonas, hipotálamo e hipófisis", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Sistema cardiovascular", lecciones: [{ slug: "sistema-cardiovascular", titulo: "Corazón, vasos y ciclo cardíaco", tags: ["✨ Animada"] }] },
+  { numero: "08", titulo: "Sistema linfático e inmune", lecciones: [{ slug: "sistema-linfatico-inmune", titulo: "Linfa, ganglios e inmunidad", tags: ["✨ Animada"] }] },
+  { numero: "09", titulo: "Sistema respiratorio", lecciones: [{ slug: "sistema-respiratorio", titulo: "Vías aéreas, ventilación e intercambio gaseoso", tags: ["✨ Animada"] }] },
+  { numero: "10", titulo: "Sistema digestivo", lecciones: [{ slug: "sistema-digestivo", titulo: "Tubo digestivo, digestión y absorción", tags: ["✨ Animada"] }] },
+  { numero: "11", titulo: "Sistema urinario", lecciones: [{ slug: "sistema-urinario", titulo: "Riñones, nefrona y filtración glomerular", tags: ["✨ Animada"] }] },
+  { numero: "12", titulo: "Sistema reproductor", lecciones: [{ slug: "sistema-reproductor", titulo: "Aparatos reproductores y gametogénesis", tags: ["✨ Animada"] }] },
+];
+
+const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Membrana celular y transporte", lecciones: [{ slug: "bcm-membrana-transporte", titulo: "Bicapa lipídica y mecanismos de transporte", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Expresión génica", lecciones: [{ slug: "bcm-expresion-genica", titulo: "Transcripción, traducción y código genético", tags: ["✨ Animada"] }] },
+  { numero: "03", titulo: "Bioenergética y señalización celular", lecciones: [{ slug: "bcm-bioenergetica-senalizacion", titulo: "ATP, respiración y transducción de señales", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Bases moleculares de la vida", lecciones: [{ slug: "bases-moleculares-vida", titulo: "Biomoléculas: glúcidos, lípidos, proteínas, ácidos nucleicos" }] },
+  { numero: "05", titulo: "Bases celulares y ciclo celular", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y división celular" }] },
+];
+
+const INVESTIGACION_MED_UNIDADES: Unidad[] = [
+  { numero: "01", titulo: "Investigación científica y bioética", lecciones: [{ slug: "eds-investigacion-bioetica", titulo: "Método científico, variables y bioética en salud", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Epidemiología básica", lecciones: [{ slug: "eds-epidemiologia", titulo: "Indicadores, prevalencia, incidencia y causalidad" }] },
+  { numero: "03", titulo: "Determinantes de la salud", lecciones: [{ slug: "eds-determinantes-salud", titulo: "Salud pública y determinantes sociales" }] },
+];
+
+const BLOQUES_MEDICINA: Bloque[] = [
+  {
+    id: "morfofuncion",
+    titulo: "Morfofunción",
+    descripcion: "Anatomía y fisiología por sistemas: cardiovascular, nervioso, digestivo, respiratorio.",
+    unidades: MORFOFUNCION_UNIDADES,
+  },
+  {
+    id: "biologia-celular",
+    titulo: "Biología Celular",
+    descripcion: "Organización celular, transporte de membrana, bioenergética y genética.",
+    unidades: BIOLOGIA_CELULAR_MED_UNIDADES,
+  },
+  {
+    id: "investigacion",
+    titulo: "Introducción a la Investigación",
+    descripcion: "Método científico, bioética, epidemiología y análisis crítico en salud.",
+    unidades: INVESTIGACION_MED_UNIDADES,
+  },
+  {
+    id: "quimica",
+    titulo: "Química",
+    descripcion: "Estructura atómica, enlaces, estequiometría, gases, soluciones y concentraciones.",
+    unidades: QUIMICA_UNIDADES,
+  },
+  {
+    id: "fisica",
+    titulo: "Física",
+    descripcion: "Vectores, cinemática, dinámica newtoniana, trabajo, energía y biofísica.",
+    unidades: FISICA_UNIDADES,
+  },
+  {
+    id: "matematicas",
+    titulo: "Matemáticas: aritmética y álgebra",
+    descripcion: "Operaciones fundamentales, razones y proporciones, ecuaciones, funciones y exponentes.",
+    unidades: MATEMATICAS_UNIDADES,
+  },
+  {
+    id: "comprension-lectora",
+    titulo: "Comprensión Lectora y Razonamiento Verbal",
+    descripcion: "Comprensión de lectura, vocabulario contextual, analogías, cohesión y silogismos.",
+    unidades: RAZONAMIENTO_VERBAL_UNIDADES,
+  },
+];
+
 const BLOQUES_POR_FACULTAD: Record<string, Bloque[]> = {
   economicas: BLOQUES_ECONOMICAS,
   ingenieria: BLOQUES_INGENIERIA,
+  medicina: BLOQUES_MEDICINA,
 };
 
-export { BLOQUES_POR_FACULTAD, BLOQUES_ECONOMICAS, BLOQUES_INGENIERIA };
+export { BLOQUES_POR_FACULTAD, BLOQUES_ECONOMICAS, BLOQUES_INGENIERIA, BLOQUES_MEDICINA };
 export type { Leccion, Unidad, Bloque };
 
 // Slugs de las lecciones abiertas en el plan gratis: las de toda Unidad 01,

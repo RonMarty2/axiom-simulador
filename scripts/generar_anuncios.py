@@ -218,7 +218,8 @@ async def generar():
             await page_feed.set_content(render_html(item, "feed"))
             await page_feed.wait_for_timeout(800)
             
-            path_feed = os.path.join(OUTPUT_DIR, fac, f"ANUNCIO_FEED_{fac.upper()}.png")
+            item_id = item.get("id", fac).upper()
+            path_feed = os.path.join(OUTPUT_DIR, fac, f"ANUNCIO_FEED_{item_id}.png")
             os.makedirs(os.path.dirname(path_feed), exist_ok=True)
             await page_feed.screenshot(path=path_feed)
             print(f"[FEED 4:5 OK] -> {path_feed}")
@@ -229,7 +230,7 @@ async def generar():
             await page_story.set_content(render_html(item, "story"))
             await page_story.wait_for_timeout(800)
             
-            path_story = os.path.join(OUTPUT_DIR, fac, f"HISTORIA_STORY_{fac.upper()}.png")
+            path_story = os.path.join(OUTPUT_DIR, fac, f"HISTORIA_STORY_{item_id}.png")
             await page_story.screenshot(path=path_story)
             print(f"[STORY 9:16 OK] -> {path_story}")
             await page_story.close()

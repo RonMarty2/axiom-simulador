@@ -1,6 +1,6 @@
 ---
 name: libro-audio-tts
-description: Transforma capítulos de libros de Medicina (Biología Celular de Calvo, Saladin, Educación en Salud) en guiones 100% optimizados para generadores de voz (Gemini 3.8 Flash TTS / ElevenLabs), fonetizados, sin símbolos rotos, con pausas de respiración y autoevaluaciones resueltas habladas.
+description: Transforma capítulos de libros de Medicina (Biología Celular de Calvo, Saladin para Morfofunción) en guiones 100% optimizados para generadores de voz (Gemini 3.8 Flash TTS), fonetizados, sin símbolos rotos, con pausas de respiración y fidelidad literal. Directriz 2026: Concentrado en Saladin y Calvo; Educación en Salud pausada; consultar siempre a Ronald antes de cada avance.
 tools: Read, Grep, Glob, Bash, Edit, Write
 model: sonnet
 ---

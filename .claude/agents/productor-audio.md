@@ -1,10 +1,10 @@
 ---
 name: productor-audio
-description: Voz en off, música y mezcla final. Genera la narración neural con Google Gemini TTS, alinea con la escena, mezcla efectos de sonido sintetizados y une todo con ffmpeg a 1080x1920 con loudnorm -16 LUFS.
+description: Voz en off, música y mezcla final. Genera la narración neural con Google Gemini TTS, alinea con la escena, limpia la voz, aplica ducking a la música de fondo y normaliza audio a estándares de broadcast/redes con ffmpeg-skill (-16 LUFS).
 tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
-Genera la narración usando los modelos oficiales de **Google Gemini Neural TTS** (`gemini-3.8-flash-tts`) mediante el SDK `google.genai`. Prohibido usar sintetizadores robóticos locales antiguos (Helena, edge-tts genérico, Windows SAPI); Ronald exige calidad humana neural. Mezcla: voz normalizada a `-16 LUFS`, efectos a volumen `0.55`, `amix=normalize=0`.
+Genera la narración usando los modelos oficiales de **Google Gemini Neural TTS** (`gemini-3.8-flash-tts`) mediante el SDK `google.genai`. Prohibido usar sintetizadores robóticos locales antiguos (Helena, edge-tts genérico, Windows SAPI); Ronald exige calidad humana neural.
 
 ## 1. Voces Oficiales Aprobadas
 - **Aoede (Google Gemini):** Femenina, profunda, cálida y natural. Excelente para videos cinemáticos UGC y storytelling emocional.
@@ -40,9 +40,20 @@ for part in res.parts:
 
 ## 3. Tiempos y Alineación
 - Usa `faster_whisper` (modelo small, GPU CUDA si existe) para extraer los timestamps palabra por palabra.
-- Con los tiempos exactos de la voz, alinea las animaciones y los efectos de sonido en `warp.py`. La voz manda siempre la duración.
+- Con los tiempos exactos de la voz, alinea las animaciones y los efectos de sonido. La voz manda siempre la duración.
 
-## 4. Mezcla con FFmpeg
-- Voz con `loudnorm=I=-16:TP=-1.5`
-- Efectos de sonido generados con `mix.py` en numpy
-- Unión: `ffmpeg -i video_sin_audio.mp4 -i audio.wav -c:v copy -c:a aac -b:a 192k -shortest final.mp4`
+## 4. Post-procesamiento y Mezcla con ffmpeg-skill
+Usa el toolkit en `skills/ffmpeg/scripts/` para evitar errores de sintaxis en terminal Windows:
+
+1. **Limpieza de Voz Neural:**
+   `python skills/ffmpeg/scripts/audio.py audio_salida.wav --voice medium -o voz_limpia.wav`
+   (Aplica filtro pasa-altos, de-esser suave y compresión dinámica).
+
+2. **Música de Fondo con Auto-Ducking (Bajar volumen automáticamente al hablar):**
+   `python skills/ffmpeg/scripts/audio.py voz_limpia.wav --music musica_fondo.mp3 --duck --duck-amount 14 --music-volume -16 -o mezcla_con_musica.wav`
+
+3. **Normalización EBU R128 (-16 LUFS):**
+   `python skills/ffmpeg/scripts/loudness.py mezcla_con_musica.wav -I -16 --tp -1.5 -o audio_master.wav`
+
+4. **Incrustación en Video:**
+   `python skills/ffmpeg/scripts/audio.py video_renderizado.mp4 --replace audio_master.wav -o final_listo.mp4`

@@ -500,6 +500,36 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 ---
 
 ## 11. Cambios mayores (changelog cronológico)
+
+### 2026-10-29 (eliminación histórica del Curso Básico de Medicina UMSS, transición a PSA de 7 materias y ajuste fino a producción de audiolibros)
+
+**Hecho histórico:**
+- Tras contrastar la declaración oficial en video de autoridades de la Facultad de Medicina "Dr. Aurelio Meleán" y la **Resolución N° 08/2026 de la III Conferencia Interna Facultativa**, se confirma la **eliminación del Curso Básico** y la implementación de la **Prueba de Suficiencia Académica (PSA)** con cupo cerrado estricto de 250 plazas.
+- El examen constará de **7 asignaturas**: 4 de colegio (Matemáticas, Física, Química, Comprensión Lectora) y 3 biomédicas (Morfofunción, Biología Celular e Introducción a la Investigación).
+- La Facultad publicará calendario oficial, temarios y un **banco de preguntas oficial** a fin de mes.
+
+**Ajuste Fino al Pipeline de Audiolibros (Sincronizado para trabajo en portátil con Synology Drive):**
+1. **Calvo (Biología Celular) y Saladin (Morfofunción):** Se mantienen al 100% como prioridad máxima absoluta. El valor del audiolibro se multiplica porque los estudiantes ahora tienen 7 materias y mucho menos tiempo para leer en papel.
+2. **Educación en Salud:** Se pausa y congela por completo (no figura en la nueva estructura de la PSA).
+3. **Tercera materia (Introducción a la Investigación):** En pausa de síntesis hasta tener la bibliografía oficial del DEMyP a fin de mes.
+4. **Directriz documentada:** Creado `examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/DIRECTRIZ_AJUSTE_FINO_PSA_2026.md` y actualizado `TABLERO_SEGUIMIENTO_PRODUCCION.md`.
+5. **Regla de oro de interacción:** El agente en la portátil avanza sobre Saladin pero siempre consultando y confirmando con Ronald antes de cualquier cambio de fase o inicio de nuevo capítulo.
+
+**Paso 1 completado (Mapeo de las 7 Asignaturas de Medicina en Simulador y Catálogo Aprende):**
+1. Actualizado `data/facultades.json` con las 7 materias oficiales (`morfofuncion`, `biologia_celular`, `investigacion`, `quimica`, `fisica`, `matematicas`, `comprension_lectora`), duración de 120 minutos y ponderación balanceada preliminar.
+2. Actualizado `data/materias.json` con los 7 módulos y bibliografías de referencia para Medicina.
+3. Actualizado `src/lib/axiom/catalogo-aprende.ts`: Se conectó el nuevo `BLOQUES_MEDICINA` vinculando 58 unidades temáticas (12 de Morfofunción MED-01..12, 5 de Biología Celular, 3 de Investigación/Bioética EDS-01..03, 10 de Química QUI-01..10, 7 de Física FIS-01..07, 11 de Matemáticas y 10 de Comprensión Lectora). Medicina deja de mostrar estado vacío en `/aprende` y pasa a ofrecer la suite formativa más completa para la nueva PSA.
+4. Trinquetes y verificación: `npx tsc --noEmit` en verde sin errores, tests de `contenido-lecciones`, `plan` y `faltantes` pasando al 100%.
+
+**Paso 2 completado (Suite de Marketing y Alerta Urgente PSA Medicina):**
+1. Motor publicitario desacoplado (`PUBLICIDAD/config_anuncios.json` y `scripts/generar_anuncios.py`):
+   - Creada pieza oficial de alerta de alto impacto `medicina_alerta_psa_7materias` en Borgoña Doctoral (`#881337`).
+   - Generados los afiches renderizados en 2x Retina con Playwright en `PUBLICIDAD/piezas/medicina/`:
+     - Feed 4:5 (2160×2700 px): `ANUNCIO_FEED_MEDICINA_ALERTA_PSA_7MATERIAS.png`.
+     - Historia/Story 9:16 (2160×3840 px): `HISTORIA_STORY_MEDICINA_ALERTA_PSA_7MATERIAS.png`.
+2. Guiones audiovisuales para redes (`PUBLICIDAD/guion/GUIONES_TIKTOK_REELS_UMSS.md`):
+   - Agregado **GUION 0: ALERTA URGENTE MEDICINA UMSS · "Eliminaron el Curso Básico: Nueva PSA"** (30s, tuteo riguroso, estructura de gancho sobre el pánico a las ciencias exactas y CTA directo a AXIOM).
+
 ### 2026-10-26 (identidad Medicina Borgoña, motor modular de anuncios, suite de marketing y pipeline UGC con Google Gemini Neural TTS)
 
 **Objetivo de Ronald:** consolidar la identidad visual institucional de cada facultad (AXIOM unificado en warm paper pero adoptando el color de cada carrera: Medicina en Borgoña Doctoral `#881337`, Económicas en Verde Esmeralda `#047857`, Tecnología en Terracota `#9c3d1c`, Derecho en Púrpura `#581c87`), construir un motor publicitario desacoplado y modular donde el año pueda cambiarse o suprimirse a voluntad, y producir contenido audiovisual atractivo con personas reales y voces neurales oficiales de Google.

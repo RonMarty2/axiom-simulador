@@ -1,33 +1,234 @@
 {
   "economicas": [
-    { "id": "alg-economicas", "nombre": "Álgebra y Funciones", "area": "matematicas", "libros_referencia": ["Algebra Baldor", "Calculo Stewart"] },
-    { "id": "calc-economicas", "nombre": "Cálculo Diferencial e Integral", "area": "matematicas", "libros_referencia": ["Cálculo Larson", "Cálculo Leithold"] },
-    { "id": "microeconomia", "nombre": "Microeconomía", "area": "economicas", "libros_referencia": ["Mankiw - Principios", "Pindyck"] },
-    { "id": "macroeconomia", "nombre": "Macroeconomía", "area": "economicas", "libros_referencia": ["Mankiw - Macroeconomía", "Blanchard"] },
-    { "id": "verbal-economicas", "nombre": "Comprensión Lectora", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] },
-    { "id": "logica-economicas", "nombre": "Razonamiento Lógico Matemático", "area": "razonamiento", "libros_referencia": ["Razonamiento Lógico Cuanto"] }
+    {
+      "id": "alg-economicas",
+      "nombre": "Álgebra y Funciones",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Algebra Baldor",
+        "Calculo Stewart"
+      ]
+    },
+    {
+      "id": "calc-economicas",
+      "nombre": "Cálculo Diferencial e Integral",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Cálculo Larson",
+        "Cálculo Leithold"
+      ]
+    },
+    {
+      "id": "microeconomia",
+      "nombre": "Microeconomía",
+      "area": "economicas",
+      "libros_referencia": [
+        "Mankiw - Principios",
+        "Pindyck"
+      ]
+    },
+    {
+      "id": "macroeconomia",
+      "nombre": "Macroeconomía",
+      "area": "economicas",
+      "libros_referencia": [
+        "Mankiw - Macroeconomía",
+        "Blanchard"
+      ]
+    },
+    {
+      "id": "verbal-economicas",
+      "nombre": "Comprensión Lectora",
+      "area": "verbal",
+      "libros_referencia": [
+        "Razonamiento Verbal UMSS"
+      ]
+    },
+    {
+      "id": "logica-economicas",
+      "nombre": "Razonamiento Lógico Matemático",
+      "area": "razonamiento",
+      "libros_referencia": [
+        "Razonamiento Lógico Cuanto"
+      ]
+    }
   ],
   "ingenieria": [
-    { "id": "alg-ing", "nombre": "Álgebra y Trigonometría", "area": "matematicas", "libros_referencia": ["Algebra Baldor", "Trigonometría Sullivan"] },
-    { "id": "geom-ing", "nombre": "Geometría Analítica", "area": "matematicas", "libros_referencia": ["Lehmann", "Charles Lehmann"] },
-    { "id": "calc-ing", "nombre": "Cálculo I", "area": "matematicas", "libros_referencia": ["Stewart", "Leithold"] },
-    { "id": "mec-fisica", "nombre": "Mecánica Clásica", "area": "fisica", "libros_referencia": ["Sears Zemansky", "Serway Vol. 1"] },
-    { "id": "term-fisica", "nombre": "Termodinámica y Ondas", "area": "fisica", "libros_referencia": ["Serway Vol. 2"] },
-    { "id": "quim-gen", "nombre": "Química General", "area": "quimica", "libros_referencia": ["Chang", "Whitten"] },
-    { "id": "razon-ing", "nombre": "Razonamiento Lógico", "area": "razonamiento", "libros_referencia": ["Razonamiento Lógico Cuanto"] }
+    {
+      "id": "alg-ing",
+      "nombre": "Álgebra y Trigonometría",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Algebra Baldor",
+        "Trigonometría Sullivan"
+      ]
+    },
+    {
+      "id": "geom-ing",
+      "nombre": "Geometría Analítica",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Lehmann",
+        "Charles Lehmann"
+      ]
+    },
+    {
+      "id": "calc-ing",
+      "nombre": "Cálculo I",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Stewart",
+        "Leithold"
+      ]
+    },
+    {
+      "id": "mec-fisica",
+      "nombre": "Mecánica Clásica",
+      "area": "fisica",
+      "libros_referencia": [
+        "Sears Zemansky",
+        "Serway Vol. 1"
+      ]
+    },
+    {
+      "id": "term-fisica",
+      "nombre": "Termodinámica y Ondas",
+      "area": "fisica",
+      "libros_referencia": [
+        "Serway Vol. 2"
+      ]
+    },
+    {
+      "id": "quim-gen",
+      "nombre": "Química General",
+      "area": "quimica",
+      "libros_referencia": [
+        "Chang",
+        "Whitten"
+      ]
+    },
+    {
+      "id": "razon-ing",
+      "nombre": "Razonamiento Lógico",
+      "area": "razonamiento",
+      "libros_referencia": [
+        "Razonamiento Lógico Cuanto"
+      ]
+    }
   ],
   "medicina": [
-    { "id": "morfofuncion", "nombre": "Morfofunción", "area": "morfofuncion", "libros_referencia": ["Saladin - Anatomía y Fisiología, 6.ª ed. (2025-2026)", "Tortora y Derrickson - Principios de Anatomía y Fisiología, 15.ª ed. (2021-2025)"] },
-    { "id": "biologia-celular", "nombre": "Biología Celular", "area": "biologia_celular", "libros_referencia": ["Alfonso Calvo - Biología Celular Biomédica, 1.ª ed. (2025-2026)", "Alberts - Introducción a la Biología Celular, 5.ª ed. (2022-2025)", "Junqueira y Carneiro - Biología celular y molecular (2021-2022)"] },
-    { "id": "educacion-salud", "nombre": "Educación en Salud e Investigación", "area": "educacion_salud", "libros_referencia": ["Educación en Salud e Investigación, Curso Básico 2025-2026 (Facultad de Medicina, UMSS)"] }
+    {
+      "id": "morfofuncion",
+      "nombre": "Morfofunción",
+      "area": "morfofuncion",
+      "libros_referencia": [
+        "Saladin - Anatomía y Fisiología, 6.ª ed. (2025-2026)",
+        "Tortora y Derrickson - Principios de Anatomía y Fisiología, 15.ª ed. (2021-2025)"
+      ]
+    },
+    {
+      "id": "biologia-celular",
+      "nombre": "Biología Celular",
+      "area": "biologia_celular",
+      "libros_referencia": [
+        "Alfonso Calvo - Biología Celular Biomédica, 1.ª ed. (2025-2026)",
+        "Alberts - Introducción a la Biología Celular, 5.ª ed. (2022-2025)"
+      ]
+    },
+    {
+      "id": "investigacion",
+      "nombre": "Introducción a la Investigación",
+      "area": "investigacion",
+      "libros_referencia": [
+        "Guía Oficial DEMyP - Introducción a la Investigación Científica (Facultad de Medicina, UMSS)"
+      ]
+    },
+    {
+      "id": "quimica-med",
+      "nombre": "Química General",
+      "area": "quimica",
+      "libros_referencia": [
+        "Química Secundaria Bolivia",
+        "Chang - Química General, 13.ª ed."
+      ]
+    },
+    {
+      "id": "fisica-med",
+      "nombre": "Física",
+      "area": "fisica",
+      "libros_referencia": [
+        "Física Secundaria Bolivia",
+        "Sears & Zemansky - Física Universitaria"
+      ]
+    },
+    {
+      "id": "matematicas-med",
+      "nombre": "Matemáticas (Aritmética y Álgebra)",
+      "area": "matematicas",
+      "libros_referencia": [
+        "Matemáticas Secundaria Bolivia",
+        "Álgebra Baldor"
+      ]
+    },
+    {
+      "id": "comprension-med",
+      "nombre": "Comprensión Lectora",
+      "area": "comprension_lectora",
+      "libros_referencia": [
+        "Razonamiento Verbal y Comprensión de Textos UMSS"
+      ]
+    }
   ],
-
   "derecho": [
-    { "id": "const-politica", "nombre": "Constitución Política del Estado", "area": "civica", "libros_referencia": ["CPE 2009 Bolivia"] },
-    { "id": "civica-general", "nombre": "Educación Cívica", "area": "civica", "libros_referencia": ["Cívica 4to Secundaria"] },
-    { "id": "hist-bolivia", "nombre": "Historia de Bolivia", "area": "historia", "libros_referencia": ["Mesa Gisbert - Historia Bolivia", "Querejazu"] },
-    { "id": "hist-universal", "nombre": "Historia Universal", "area": "historia", "libros_referencia": ["Lozano - Historia Universal"] },
-    { "id": "filosofia", "nombre": "Filosofía y Ética", "area": "verbal", "libros_referencia": ["Gaarder - Sofía", "Savater - Ética"] },
-    { "id": "verbal-der", "nombre": "Comprensión Lectora Jurídica", "area": "verbal", "libros_referencia": ["Razonamiento Verbal UMSS"] }
+    {
+      "id": "const-politica",
+      "nombre": "Constitución Política del Estado",
+      "area": "civica",
+      "libros_referencia": [
+        "CPE 2009 Bolivia"
+      ]
+    },
+    {
+      "id": "civica-general",
+      "nombre": "Educación Cívica",
+      "area": "civica",
+      "libros_referencia": [
+        "Cívica 4to Secundaria"
+      ]
+    },
+    {
+      "id": "hist-bolivia",
+      "nombre": "Historia de Bolivia",
+      "area": "historia",
+      "libros_referencia": [
+        "Mesa Gisbert - Historia Bolivia",
+        "Querejazu"
+      ]
+    },
+    {
+      "id": "hist-universal",
+      "nombre": "Historia Universal",
+      "area": "historia",
+      "libros_referencia": [
+        "Lozano - Historia Universal"
+      ]
+    },
+    {
+      "id": "filosofia",
+      "nombre": "Filosofía y Ética",
+      "area": "verbal",
+      "libros_referencia": [
+        "Gaarder - Sofía",
+        "Savater - Ética"
+      ]
+    },
+    {
+      "id": "verbal-der",
+      "nombre": "Comprensión Lectora Jurídica",
+      "area": "verbal",
+      "libros_referencia": [
+        "Razonamiento Verbal UMSS"
+      ]
+    }
   ]
 }

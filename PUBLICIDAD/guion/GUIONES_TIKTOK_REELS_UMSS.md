@@ -4,6 +4,21 @@
 
 ---
 
+## GUION 0: MEDICINA UMSS · "Eliminaron el Curso Básico: Nueva PSA"
+- **Formato:** Video vertical 9:16 (30 segundos).
+- **Audio sugerido:** Efecto sonoro de alerta periodística + beat dinámico sobrio.
+- **Enfoque visual:** Plano medio dinámico con la resolución facultativa de fondo y la interfaz de AXIOM.
+
+| Tiempo | Video / Acción | Audio / Voz en Off (Tuteo estricto) | Texto en Pantalla |
+| :--- | :--- | :--- | :--- |
+| **0:00 - 0:04** | Primer plano dinámico con expresión seria. Muestra titular en pantalla. | *"Si vas a postular a Medicina en la San Simón, presta atención: las reglas acaban de cambiar por completo."* | **COMUNICADO MEDICINA UMSS** |
+| **0:05 - 0:11** | Transición a la resolución facultativa: texto resaltado y sello oficial. | *"La facultad confirmó la eliminación del Curso Básico. El ingreso ahora será por examen directo (PSA) con cupo cerrado de 250 plazas."* | **Eliminación del Curso Básico**<br>**Cupo cerrado: 250 plazas** |
+| **0:12 - 0:19** | Gráfico editorial en pantalla mostrando las 7 asignaturas: entran Matemáticas, Física y Química. | *"Y este es el cambio decisivo: te van a evaluar en 7 asignaturas, sumando Matemáticas, Física, Química y Comprensión Lectora."* | **Evaluación sobre 7 Asignaturas** |
+| **0:20 - 0:25** | Transición fluida a la pantalla de AXIOM mostrando el selector de Medicina con las 7 materias activas. | *"No te quedes atrás. En AXIOM ya actualizamos todo el simulador y las lecciones paso a paso para que te niveles desde cero."* | **Las 7 materias activas en AXIOM** |
+| **0:26 - 0:30** | Señala el enlace inferior o bio. | *"Prueba el simulador gratis hoy mismo en axiom-simulador.com. El enlace está en nuestro perfil."* | **Prueba gratis en axiom-simulador.com** |
+
+---
+
 ## 🩺 GUION 1: MEDICINA · "La trampa de Morfofunción"
 - **Formato:** Video vertical 9:16 (35 segundos).
 - **Audio sugerido:** Beat lo-fi tenso o sonido de reloj cronometrado con "drop" al resolver.
