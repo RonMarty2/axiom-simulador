@@ -3,6 +3,7 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import LeccionShell from "../_components/LeccionShell";
+import GraficaFuncionDiferida from "../_components/GraficaFuncionDiferida";
 import { COLOR_BASE, COLOR_EXP, COLOR_OK, COLOR_BAD } from "../_components/atoms";
 import { Pizarra, Ejes, scalerX, scalerY, LIENZO } from "../_components/lienzo";
 import {
@@ -289,6 +290,29 @@ function Esc05_Vertice() {
   );
 }
 
+// Parabola con sus raices y su vertice, calculados de a, b, c (no escritos a mano)
+function GraficaRaices({ a, b, c }: { a: number; b: number; c: number }) {
+  const f = (x: number) => a * x * x + b * x + c;
+  const d = b * b - 4 * a * c;
+  const xv = -b / (2 * a);
+  const raices = d < 0 ? [] : d === 0 ? [xv] : [(-b - Math.sqrt(d)) / (2 * a), (-b + Math.sqrt(d)) / (2 * a)];
+  // decimal con coma, como en el colegio; si hay coma, las coordenadas se separan con punto y coma
+  const num = (n: number) => String(Math.round(n * 100) / 100).replace("-", "−").replace(".", ",");
+  const par = (p: number, q: number) => `(${num(p)}${num(p).includes(",") || num(q).includes(",") ? ";" : ","} ${num(q)})`;
+  return (
+    <GraficaFuncionDiferida
+      f={f}
+      x={[xv - 3, xv + 3]}
+      y={[Math.min(f(xv), 0) - 2, Math.max(f(xv), 0) + 4]}
+      puntos={[
+        // raices arriba (la izquierda a la izquierda), vertice abajo. En Mafs "n" pone el texto DEBAJO del punto
+        ...raices.map((r, i) => ({ x: r, y: 0, texto: par(r, 0), lado: (i === 0 && raices.length > 1 ? "sw" : "se") as "sw" | "se" })),
+        { x: xv, y: f(xv), texto: `vértice ${par(xv, f(xv))}`, color: COLOR_EXP, lado: "n" as const },
+      ]}
+    />
+  );
+}
+
 function Esc06_Raices() {
   return (
     <EscenaRica>
@@ -300,6 +324,7 @@ function Esc06_Raices() {
       <Ejemplo titulo="f(x) = x² − 5x + 6">
         Resuelves: x² − 5x + 6 = 0 → x = 2 ó x = 3. La parábola corta al eje x en (2, 0) y (3, 0).
       </Ejemplo>
+      <GraficaRaices a={1} b={-5} c={6} />
       <Cuidado>
         Según el discriminante hay 0, 1 o 2 raíces (la parábola puede no tocar al eje, tocarlo en un punto, o cortarlo en dos).
       </Cuidado>
