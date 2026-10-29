@@ -522,7 +522,9 @@ export default function LandingPage() {
                   {cuerpo}
                 </Link>
               ) : (
-                <div key={f.id} style={{ ...estilo, opacity: 0.8 }}>
+                // apagada con el fondo y sin sombra, no con opacity: la opacidad aclaraba el gris
+                // del texto hasta 3,5 de contraste (axe pide 4,5)
+                <div key={f.id} style={{ ...estilo, background: "var(--bg-subtle)", boxShadow: "none" }}>
                   {cuerpo}
                 </div>
               );
