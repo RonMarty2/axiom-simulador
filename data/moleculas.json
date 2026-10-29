@@ -1,0 +1,8 @@
+{
+  "_nota": "Moleculas que se dibujan como imagen fija. Fuente unica: el SMILES. scripts/moleculas.mjs genera public/moleculas/<id>.svg (correr despues de agregar o cambiar una). La formula se anota para que el test compruebe que el SMILES tiene esos atomos.",
+  "moleculas": [
+    { "id": "glucosa", "nombre": "Glucosa", "formula": "C6H12O6", "smiles": "OCC1OC(O)C(O)C(O)C1O" },
+    { "id": "glicerol", "nombre": "Glicerol", "formula": "C3H8O3", "smiles": "OCC(O)CO" },
+    { "id": "glicina", "nombre": "Glicina (el aminoácido más simple)", "formula": "C2H5NO2", "smiles": "NCC(=O)O" }
+  ]
+}
