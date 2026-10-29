@@ -15,6 +15,11 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      // codigo de terceros (ffmpeg-skill) y pruebas sueltas de la evaluacion de repos:
+      // no son de Axiom, y los .cjs/.mjs de anexos hacian morir a ESLint sin el plugin react-hooks
+      "skills/**",
+      "PUBLICIDAD/skills/**",
+      "docs/repos/anexos/**",
     ],
   },
   {
