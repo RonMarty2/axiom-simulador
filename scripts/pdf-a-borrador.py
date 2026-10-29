@@ -32,6 +32,30 @@ def mineru_kit():
     sys.exit("No encuentro mineru-kit. Instalalo como dice el encabezado de este script.")
 
 
+def sacar_imagenes(md):
+    """MinerU mete cada figura en base64 dentro del .md: es el 90 % del archivo y un agente que lo lee gasta
+    miles de tokens en eso. Se guardan como archivos al lado y en el .md queda solo la ruta."""
+    import base64
+    import re
+
+    texto = md.read_text(encoding="utf-8")
+    carpeta = md.parent / f"{md.stem}_figuras"
+    cuenta = 0
+
+    def guardar(m):
+        nonlocal cuenta
+        cuenta += 1
+        carpeta.mkdir(exist_ok=True)
+        archivo = carpeta / f"figura-{cuenta}.{m.group(1).replace('jpeg', 'jpg')}"
+        archivo.write_bytes(base64.b64decode(m.group(2)))
+        return f"({carpeta.name}/{archivo.name})"
+
+    nuevo = re.sub(r"\(data:image/(\w+);base64,([A-Za-z0-9+/=\s]+)\)", guardar, texto)
+    if cuenta:
+        md.write_text(nuevo, encoding="utf-8")
+    return cuenta
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__)
@@ -65,7 +89,8 @@ def main(argv):
             print(f"MinerU no dejo ningun .md en {destino}")
             return 1
         destino = mds[0]
-    print(f"Borrador: {destino}")
+    n = sacar_imagenes(destino)
+    print(f"Borrador: {destino}" + (f" ({n} figuras en {destino.stem}_figuras/)" if n else ""))
     print("Recordatorio: contar y leer las cinco opciones de cada pregunta contra el PDF, y sacar la fecha del encabezado del PDF.")
     return 0
 
