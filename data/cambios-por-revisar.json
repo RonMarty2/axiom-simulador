@@ -210,6 +210,48 @@
       "paso": 19,
       "nota": "x = 9: se tacha el 1 (sin 9·1)",
       "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "b de dos cifras",
+      "paso": 12,
+      "nota": "Cuenta a lapiz de (-12)(-12): primero el signo, luego 12 en 10+2",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "b de dos cifras",
+      "paso": 16,
+      "nota": "Suma de las dos partes: 120+24=144",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "b de dos cifras",
+      "paso": 17,
+      "nota": "El 1 de 4 por 1 y de 2 por 1 se tacha con su punto, sin paso de cuenta",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "b de dos cifras",
+      "paso": 1,
+      "nota": "Rotulo 'enunciado' bajo el igual de la copia que queda abajo",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "desordenada",
+      "paso": 5,
+      "nota": "Los semejantes se suman de a una clase por paso (el paso 6 suma los numeros solos)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "producto 4ac de dos cifras",
+      "paso": 15,
+      "nota": "8 por -12 a lapiz: pasos 15 a 18",
+      "fecha": "2026-10-30"
     }
   ],
   "aprobadosPorSilencio": [],

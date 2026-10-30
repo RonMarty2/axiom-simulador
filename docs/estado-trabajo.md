@@ -2,7 +2,7 @@
 
 Un solo archivo, corto, que se reescribe al cerrar cada tanda. Si tenés dudas de qué está hecho, **no confíes en esta lista: comprobalo con los comandos de abajo**. El código y el registro mandan, esto solo es el mapa.
 
-Última actualización: 30-oct-2026, tarde (física y química cerradas contra reglas; falta cuadratica).
+Última actualización: 30-oct-2026, tarde (todas las animaciones medidas en 0; falta sumar reglas candidatas y la lectura final).
 
 ## Cómo comprobar el estado real (en este orden, 2 minutos)
 
@@ -30,7 +30,7 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 - [x] Física y química (hecho 30-oct): mruv, charles, moles-atomos, estequiometria, molaridad y trigonometria en 0 en `medir-reglas.ts`; topes bajados (solo queda cuadratica: 10 y 2). 529 tests. Ninguna marcada `auditado`. NO se pudo: comprobación del valor en moles-atomos (30 g/180 = 1/6 mol) y conservación de masa en estequiometria (piden dejar visibles masas molares; decidir si vale la pena); `÷1` como paso propio en molaridad con V=1. A mirar por `revisor-visual`: etiqueta `H:4=4` del balanceo (deja un hueco entre coeficiente y fórmula) y el gesto del tachado de los `1`.
 
 ### Pendiente, en este orden
-1. [ ] Arreglar cuadratica (10 hallazgos en casos difíciles, 2 en el registro: pasos `×1` con a=1, sumas de 3 en un paso) hasta 0.
+1. [x] Cuadratica en 0 (hecho 30-oct, 530 tests): a=1 con la `a` al final y `·1` tachado, una suma por paso, cuentas de dos cifras «a lápiz». Abierto: la fila de referencia no tiene rótulo (con `debajo` se estira mucho); a negativa, discriminante negativo y resultado no entero los rechaza `validarCuadratica` (decisión de producto: ampliar o no el alcance).
 2. [ ] Sumar a `casos.ts` los casos de borde que faltan (`logaritmos-propiedad`, `2,2,2`) y que las reglas los vean.
 3. [ ] Pendientes visuales de álgebra que el código no ve (marcas, comas, renglones): una pasada de `revisor-visual` por tipo, después de lo anterior.
 4. [ ] Una lectura final por animación con `auditor-de-pasos` (lo que el código no mide: comprobación circular, cambio de base sin avisar, química sin mostrar conteos, que se entienda). Registrar `auditado` solo con segunda lectura independiente.

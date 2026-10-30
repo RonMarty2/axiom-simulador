@@ -88,8 +88,8 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
 });
 
 // Trinquete: hallazgos de pasos que hoy existen, por tipo. NO pueden subir. Un tipo que no esta aca debe dar 0.
-const TRINQUETE_CASOS: Record<string, number> = { cuadratica: 10 };
-const TRINQUETE_HUELLAS: Record<string, number> = { cuadratica: 2 };
+const TRINQUETE_CASOS: Record<string, number> = {};
+const TRINQUETE_HUELLAS: Record<string, number> = {};
 
 describe("reglas de pasos en todos los tipos (trinquete)", () => {
   for (const [tipo, casos] of Object.entries(CASOS_POR_TIPO) as [Tipo, (typeof CASOS_POR_TIPO)[Tipo]][]) {

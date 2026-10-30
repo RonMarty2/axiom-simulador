@@ -167,7 +167,8 @@ describe("ecuacion de segundo grado", () => {
       const define = t.findIndex((x) => x.texto.includes("se escribe $\\Delta$"));
       assert.ok(define >= 0 && define <= usa, `${a1},${b1},${c1}: Delta se usa antes de definirse`);
       // el producto de tres numeros se hace de dos en dos, cada uno en su paso
-      assert.ok(t.some((x) => x.texto.includes("de dos en dos")), "falta el producto de dos en dos");
+      // con a = 1 el producto es de DOS numeros (4 y c): el 1 se tacha y no hay nada que hacer de dos en dos
+      if (cuadratica(a1, b1, c1, a2, b2, c2).resumen.a !== 1) assert.ok(t.some((x) => x.texto.includes("de dos en dos")), "falta el producto de dos en dos");
       // la comprobacion contra la ecuacion ORIGINAL va despues del resultado
       const iComprueba = t.findIndex((x) => x.texto.includes("Comprobamos"));
       const iDivide = t.findIndex((x) => x.texto.includes("Dividimos") || x.texto.includes("Hay una sola solución"));
@@ -227,7 +228,8 @@ describe("saltos de la formula general", () => {
       const t = r.demo.transiciones;
       const idx = (letra: string) => t.findIndex((x) => x.texto.startsWith(`Reemplazamos $${letra}$`));
       const [ia, ib, ic] = [idx("a"), idx("b"), idx("c")];
-      assert.ok(ia >= 0 && ia < ib && ib < ic, "a, b y c, en ese orden y cada una en su paso");
+      // con a = 1 la a va al final (si no, quedaria un 1 delante de la letra c)
+      assert.ok(a === 1 ? ib >= 0 && ib < ic && ic < ia : ia >= 0 && ia < ib && ib < ic, "a, b y c, cada una en su paso (con a = 1 la a va al final)");
       const ocurrencias = { a: 2, b: 2, c: 1 };
       const valores = { a, b, c };
       for (const [letra, i] of [["a", ia], ["b", ib], ["c", ic]] as const) {
@@ -464,12 +466,21 @@ describe("arreglos de la auditoria independiente", () => {
     assert.ok(!/\$\(?-?\d+\)?\^\{2\}=\(?-?\d+\)?\\cdot \(?-?\d+\)?\$/.test(textos.slice(textos.indexOf("Comprobamos"))), "la comprobacion no expande n^2 = n.n otra vez");
   });
 
-  test("sumar los semejantes de x y de los numeros solos es UN paso con dos fusiones independientes", () => {
+  test("sumar los semejantes: una clase por paso (una operacion por paso)", () => {
     const r = cuadratica(1, -2, 4, 0, 3, -2);
     const t = r.demo.transiciones.filter((x) => x.texto.includes("Sumamos los"));
-    assert.equal(t.length, 1);
-    assert.equal(t[0].fusiones.length, 2);
-    assert.ok(t[0].texto.includes("Sumamos los de $x$") && t[0].texto.includes("Sumamos los números solos"));
+    assert.equal(t.length, 2);
+    assert.ok(t.every((x) => x.fusiones.length === 1));
+    assert.ok(t[0].texto.includes("Sumamos los de $x$") && t[1].texto.includes("Sumamos los números solos"));
+  });
+
+  test("con a = 1 no hay pasos x1 y el 1 se tacha con su punto; las cuentas de dos cifras van a lapiz", () => {
+    const uno = cuadratica(1, -5, 6);
+    const textos = uno.demo.transiciones.map((x) => x.texto);
+    assert.ok(!textos.some((x) => /\$4\\cdot 1=4\$|\$2\\cdot 1=2\$/.test(x)));
+    assert.ok(uno.demo.transiciones.some((x) => x.fusiones.some((f) => f.modo === "tachar" && f.desde.includes("Va1"))));
+    const grande = cuadratica(1, -12, 11);
+    assert.ok(grande.demo.transiciones.some((x) => x.texto.includes("dos cifras")), "(-12).(-12) se parte en decenas y unidades");
   });
 
   test("la comprobacion nace de la fila de referencia, que existe desde el primer paso y se queda", () => {

@@ -64,6 +64,8 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "una sola solucion", v: ["1", "-4", "4", "0", "0", "0"] },
     { nombre: "c grande y negativo", v: ["1", "-1", "-12", "0", "0", "0"] },
     { nombre: "a grande", v: ["3", "-12", "9", "0", "0", "0"] },
+    { nombre: "b de dos cifras", v: ["1", "-12", "11", "0", "0", "0"] },
+    { nombre: "producto 4ac de dos cifras", v: ["2", "2", "-12", "0", "0", "0"] },
   ],
   mruv: [
     { nombre: "triplica", v: ["3", "200", "10"] },

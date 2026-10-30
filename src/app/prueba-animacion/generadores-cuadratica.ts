@@ -411,32 +411,23 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         regla: `$a+b=b+a$`,
       });
     }
-    // sumar semejantes: cada clase es una cuenta independiente, y todas juntas van en un solo paso
+    // sumar semejantes: una clase por paso (una operacion por paso)
     const pares = clases.filter(par2);
-    if (pares.length > 0) {
-      const fusiones: Fusion[] = [];
-      const textos: string[] = [];
-      const porques: string[] = [];
-      for (const k of pares) {
-        const nuevoId = `${ID[k]}f`;
-        const l = izqCoef[k];
-        const r = derCoef[k];
-        const antes = [texDe(ID[k]), texDe(`m${ID[k]}`)];
-        izq = izq.flatMap((f) => (f.id === ID[k] ? [{ id: nuevoId, tex: termino(k, fin[k], k === "a") } as Ficha] : f.id === `m${ID[k]}` ? [] : [f]));
-        fusiones.push({ desde: [ID[k], `m${ID[k]}`], hacia: nuevoId });
-        textos.push(
-          k === "c"
-            ? `Sumamos ${nombre(k)}: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`
-            : `Sumamos ${nombre(k)}: $${antes[0]}${antes[1]}=${termino(k, fin[k], k === "a")}$. Se suman sus números: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`
-        );
-        porques.push(k === "c" ? `Los números solos se suman entre sí.` : `Es como sumar objetos iguales: los $${cuerpo(k, 1)}$ se cuentan y se suman sus cantidades.`);
-      }
+    for (const k of pares) {
+      const nuevoId = `${ID[k]}f`;
+      const l = izqCoef[k];
+      const r = derCoef[k];
+      const antes = [texDe(ID[k]), texDe(`m${ID[k]}`)];
+      izq = izq.flatMap((f) => (f.id === ID[k] ? [{ id: nuevoId, tex: termino(k, fin[k], k === "a") } as Ficha] : f.id === `m${ID[k]}` ? [] : [f]));
       foto();
       trans.push({
-        fusiones,
-        texto: pares.length > 1 ? `${textos.join(" ")} Son dos cuentas independientes, así que las hacemos a la vez.` : textos[0],
-        porque: porques.join(" "),
-        regla: pares.some((k) => k !== "c") ? `$m\\cdot u+n\\cdot u=(m+n)\\cdot u$` : `$a+b=c$`,
+        fusiones: [{ desde: [ID[k], `m${ID[k]}`], hacia: nuevoId }],
+        texto:
+          k === "c"
+            ? `Sumamos ${nombre(k)}: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`
+            : `Sumamos ${nombre(k)}: $${antes[0]}${antes[1]}=${termino(k, fin[k], k === "a")}$. Se suman sus números: $${l}${-r < 0 ? "-" : "+"}${Math.abs(r)}=${fin[k]}$.`,
+        porque: k === "c" ? `Los números solos se suman entre sí.` : `Es como sumar objetos iguales: los $${cuerpo(k, 1)}$ se cuentan y se suman sus cantidades.`,
+        regla: k !== "c" ? `$m\\cdot u+n\\cdot u=(m+n)\\cdot u$` : `$a+b=c$`,
       });
     }
   }
@@ -513,47 +504,63 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
 
   // ----- 5) reemplazar UNA letra por vez: el valor vuela desde su etiqueta
   const dot = (id: string): Ficha => ({ id, tex: "\\cdot", op: true });
-  subs(["Fa1"], [dot("Fd1"), { id: "Va1", tex: col("a", String(a)) }]);
-  subs(["Fa2"], [dot("Fd3"), { id: "Va2", tex: col("a", String(a)) }]);
-  empuja({
-    fusiones: [
-      { desde: ["Fa1"], hacia: ["Fd1", "Va1"], modo: "viajar" },
-      { desde: ["Fa2"], hacia: ["Fd3", "Va2"], modo: "viajar" },
-    ],
-    brotes: [
-      { desde: idEq.a, hacia: "Va1" },
-      { desde: idEq.a, hacia: "Va2" },
-    ],
-    texto: `Reemplazamos $a$ por $${a}$: el valor que anotamos debajo de la ecuación sale de su etiqueta y ocupa el lugar de la letra. La $a$ aparece en dos lugares, en $4ac$ y en $2a$, y en los dos se reemplaza. Entre números aparece el punto de multiplicar.`,
-    porque: `La letra $a$ aparece dos veces en la fórmula, así que se reemplaza las dos veces. El número conserva el color de su letra.`,
-    regla: `$a=${a}$`,
-  });
-  subs(["Fb1"], [{ id: "Vb1", tex: col("b", `(${b})`), pegado: true }]);
-  subs(["Fb2"], [{ id: "Vb2", tex: col("b", par(b)) }]);
-  empuja({
-    fusiones: [
-      { desde: ["Fb1"], hacia: "Vb1", modo: "viajar" },
-      { desde: ["Fb2"], hacia: "Vb2", modo: "viajar" },
-    ],
-    brotes: [
-      { desde: idEq.b, hacia: "Vb1" },
-      { desde: idEq.b, hacia: "Vb2" },
-    ],
-    texto: `Reemplazamos $b$ por $${b}$: el valor sale de su etiqueta y ocupa el lugar de la letra en los dos lugares donde aparece. En $-b$ queda $-(${b})$ y en $b^{2}$ queda $${par(b)}^{2}$.`,
-    porque:
-      b < 0
-        ? `Como $b$ es negativo, va entre paréntesis para que no se confunda su signo con una resta.`
-        : `En $-b$ el número va entre paréntesis para no perder el signo menos de adelante: $-(${b})$.`,
-    regla: `$b=${b}$`,
-  });
-  subs(["Fc"], [dot("Fd2"), { id: "Vc", tex: col("c", par(c)) }]);
-  empuja({
-    fusiones: [{ desde: ["Fc"], hacia: ["Fd2", "Vc"], modo: "viajar" }],
-    brotes: [{ desde: idEq.c, hacia: "Vc" }],
-    texto: `Reemplazamos $c$ por $${par(c)}$: el valor sale de su etiqueta y ocupa el lugar de la letra. La $c$ aparece una sola vez, en $4ac$.`,
-    porque: `${c < 0 ? "Como $c$ es negativo, va entre paréntesis." : "Se reemplaza tal cual."} Ya no quedan letras: todo son números.`,
-    regla: `$c=${c}$`,
-  });
+  // Con a = 1 la a se reemplaza al FINAL: si no, en el medio quedaria un 1 delante de la letra c (`4 . 1 c`).
+  const reemplazaA = () => {
+    subs(["Fa1"], [dot("Fd1"), { id: "Va1", tex: col("a", String(a)) }]);
+    subs(["Fa2"], [dot("Fd3"), { id: "Va2", tex: col("a", String(a)) }]);
+    empuja({
+      fusiones: [
+        { desde: ["Fa1"], hacia: ["Fd1", "Va1"], modo: "viajar" },
+        { desde: ["Fa2"], hacia: ["Fd3", "Va2"], modo: "viajar" },
+      ],
+      brotes: [
+        { desde: idEq.a, hacia: "Va1" },
+        { desde: idEq.a, hacia: "Va2" },
+      ],
+      texto: `Reemplazamos $a$ por $${a}$: el valor que anotamos debajo de la ecuación sale de su etiqueta y ocupa el lugar de la letra. La $a$ aparece en dos lugares, en $4ac$ y en $2a$, y en los dos se reemplaza. Entre números aparece el punto de multiplicar.${a === 1 ? " Ya no quedan letras: todo son números." : ""}`,
+      porque: `La letra $a$ aparece dos veces en la fórmula, así que se reemplaza las dos veces. El número conserva el color de su letra.`,
+      regla: `$a=${a}$`,
+    });
+  };
+  const reemplazaB = () => {
+    subs(["Fb1"], [{ id: "Vb1", tex: col("b", `(${b})`), pegado: true }]);
+    subs(["Fb2"], [{ id: "Vb2", tex: col("b", par(b)) }]);
+    empuja({
+      fusiones: [
+        { desde: ["Fb1"], hacia: "Vb1", modo: "viajar" },
+        { desde: ["Fb2"], hacia: "Vb2", modo: "viajar" },
+      ],
+      brotes: [
+        { desde: idEq.b, hacia: "Vb1" },
+        { desde: idEq.b, hacia: "Vb2" },
+      ],
+      texto: `Reemplazamos $b$ por $${b}$: el valor sale de su etiqueta y ocupa el lugar de la letra en los dos lugares donde aparece. En $-b$ queda $-(${b})$ y en $b^{2}$ queda $${par(b)}^{2}$.`,
+      porque:
+        b < 0
+          ? `Como $b$ es negativo, va entre paréntesis para que no se confunda su signo con una resta.`
+          : `En $-b$ el número va entre paréntesis para no perder el signo menos de adelante: $-(${b})$.`,
+      regla: `$b=${b}$`,
+    });
+  };
+  const reemplazaC = () => {
+    subs(["Fc"], [dot("Fd2"), { id: "Vc", tex: col("c", par(c)) }]);
+    empuja({
+      fusiones: [{ desde: ["Fc"], hacia: ["Fd2", "Vc"], modo: "viajar" }],
+      brotes: [{ desde: idEq.c, hacia: "Vc" }],
+      texto: `Reemplazamos $c$ por $${par(c)}$: el valor sale de su etiqueta y ocupa el lugar de la letra. La $c$ aparece una sola vez, en $4ac$.${a === 1 ? "" : " Ya no quedan letras: todo son números."}`,
+      porque: `${c < 0 ? "Como $c$ es negativo, va entre paréntesis." : "Se reemplaza tal cual."}${a === 1 ? " Todavía queda la $a$ por reemplazar; la dejamos para el final." : ""}`,
+      regla: `$c=${c}$`,
+    });
+  };
+  if (a === 1) {
+    reemplazaB();
+    reemplazaC();
+    reemplazaA();
+  } else {
+    reemplazaA();
+    reemplazaB();
+    reemplazaC();
+  }
 
   // la ecuacion y sus etiquetas ya cumplieron su papel
   const aQuitar = [...izq, eq, ...der].map((x) => x.id);
@@ -582,6 +589,69 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     porque: b < 0 ? `Menos por menos da más: el signo de adelante cambia el de $b$.` : `Un signo menos delante de un número positivo lo vuelve negativo.`,
     regla: b < 0 ? `$-(-n)=n$` : `$-(n)=-n$`,
   });
+  // Producto "a lapiz": si los dos numeros son grandes (12.9, 12.12) no se da el resultado de golpe: se parte el
+  // numero en decenas y unidades, se hace una cuenta por paso y se suman. Devuelve true si lo hizo.
+  const grande = (m: number, n: number) => {
+    const A = Math.abs(m);
+    const B = Math.abs(n);
+    return Math.max(A, B) >= 11 && Math.min(A, B) >= 6 && (A % 10 !== 0 || B % 10 !== 0);
+  };
+  const lapiz = (desde: string[], pid: string, m: number, n: number): void => {
+    const L = Math.abs(m);
+    const R = Math.abs(n);
+    const neg = m * n < 0;
+    const res = m * n;
+    const partirIzq = L >= 11 && L % 10 !== 0;
+    const gran = partirIzq ? L : R;
+    const T = gran - (gran % 10);
+    const u = gran % 10;
+    const o = partirIzq ? R : L;
+    const prod = (x: number) => (partirIzq ? `${x}\\cdot ${o}` : `${o}\\cdot ${x}`);
+    const pre = neg ? "-\\left(" : "";
+    const pos = neg ? "\\right)" : "";
+    let actual = desde;
+    let n0 = 0;
+    const paso2 = (tex: string, texto: string, porque: string, regla: string, descompone?: boolean, ultimo?: boolean) => {
+      const nid = ultimo ? pid : `${pid}${++n0}`;
+      subs(actual, [{ id: nid, tex }]);
+      empuja({ fusiones: [{ desde: actual, hacia: nid }], descompone, texto, porque, regla });
+      actual = [nid];
+    };
+    if (m < 0 || n < 0) {
+      paso2(
+        `${neg ? "-" : ""}${L}\\cdot ${R}`,
+        `${ordinal()} cuenta: primero el signo. $${par(m)}\\cdot ${par(n)}$ ${neg ? "da un resultado negativo" : "da un resultado positivo"}, así que multiplicamos $${L}\\cdot ${R}$${neg ? " y al final ponemos el signo menos" : ""}.`,
+        neg ? `Un positivo por un negativo da negativo.` : `Un negativo por un negativo da positivo.`,
+        neg ? `$\\text{positivo}\\cdot\\text{negativo}=\\text{negativo}$` : m === n ? `$(-n)^{2}=n^{2}$` : `$(-m)\\cdot(-n)=m\\cdot n$`,
+        true
+      );
+    }
+    paso2(
+      `${pre}${prod(T)}+${prod(u)}${pos}`,
+      `${m < 0 || n < 0 ? "Seguimos con" : `${ordinal()} cuenta:`} $${L}\\cdot ${R}$, una cuenta con números de dos cifras. Partimos $${gran}$ en $${T}+${u}$ y multiplicamos cada parte por $${o}$.`,
+      `Multiplicar una suma por un número es multiplicar cada parte y sumar los resultados.`,
+      `$(a+b)\\cdot c=a\\cdot c+b\\cdot c$`,
+      true
+    );
+    const p1 = T * o;
+    const p2 = u * o;
+    paso2(
+      `${pre}${p1}+${prod(u)}${pos}`,
+      `Primera parte: $${prod(T)}=${p1}$.`,
+      `Una operación por vez: primero la parte de las decenas.`,
+      `$m\\cdot n=p$`
+    );
+    paso2(`${pre}${p1}+${p2}${pos}`, `Segunda parte: $${prod(u)}=${p2}$.`, `Ahora la parte de las unidades.`, `$m\\cdot n=p$`);
+    paso2(
+      par(res),
+      `Sumamos las dos partes: $${p1}+${p2}=${L * R}$${neg ? `, y con el signo menos queda $${res}$` : ""}.`,
+      `Al final se suman los resultados de las dos partes.`,
+      `$a+b=c$`,
+      false,
+      true
+    );
+  };
+
   subs(["Vb2", "Fs2"], [{ id: "Pm", tex: `${par(b)}\\cdot ${par(b)}` }]);
   empuja({
     fusiones: [{ desde: ["Vb2", "Fs2"], hacia: "Pm" }],
@@ -590,30 +660,54 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     porque: `El exponente $2$ dice cuántas veces se escribe el número en la multiplicación.`,
     regla: `$n^{2}=n\\cdot n$`,
   });
-  subs(["Pm"], [{ id: "Pn", tex: `${P}` }]);
-  empuja({
-    fusiones: [{ desde: ["Pm"], hacia: "Pn" }],
-    texto: `Ahora multiplicamos: $${par(b)}\\cdot ${par(b)}=${P}$.`,
-    porque:
-      b < 0
-        ? `Un negativo por un negativo da positivo, por eso el resultado no es negativo.`
-        : `Un positivo por un positivo da positivo: $${b}\\cdot ${b}=${P}$.`,
-    regla: b < 0 ? `$(-n)^{2}=n^{2}$` : `$m\\cdot n=p$`,
-  });
-  subs(["F4", "Fd1", "Va1"], [{ id: "P4a", tex: `${4 * a}` }]);
-  empuja({
-    fusiones: [{ desde: ["F4", "Fd1", "Va1"], hacia: "P4a" }],
-    texto: `${ordinal()} cuenta: el producto de tres números se hace de dos en dos, de izquierda a derecha. Primero $4\\cdot ${a}=${4 * a}$.`,
-    porque: `Todavía no tocamos el $${par(c)}$: se queda esperando su turno.`,
-    regla: `$(m\\cdot n)\\cdot p=m\\cdot(n\\cdot p)$`,
-  });
-  subs(["P4a", "Fd2", "Vc"], [{ id: "PQ", tex: par(Q) }]);
-  empuja({
-    fusiones: [{ desde: ["P4a", "Fd2", "Vc"], hacia: "PQ" }],
-    texto: `${ordinal()} cuenta: seguimos con $${4 * a}\\cdot ${par(c)}=${Q}$.`,
-    porque: c < 0 ? `Un positivo por un negativo da negativo.` : `Un positivo por un positivo da positivo.`,
-    regla: c < 0 ? `$\\text{positivo}\\cdot\\text{negativo}=\\text{negativo}$` : `$\\text{positivo}\\cdot\\text{positivo}=\\text{positivo}$`,
-  });
+  if (grande(b, b)) {
+    lapiz(["Pm"], "Pn", b, b);
+  } else {
+    subs(["Pm"], [{ id: "Pn", tex: `${P}` }]);
+    empuja({
+      fusiones: [{ desde: ["Pm"], hacia: "Pn" }],
+      texto: `Ahora multiplicamos: $${par(b)}\\cdot ${par(b)}=${P}$.`,
+      porque:
+        b < 0
+          ? `Un negativo por un negativo da positivo, por eso el resultado no es negativo.`
+          : `Un positivo por un positivo da positivo: $${b}\\cdot ${b}=${P}$.`,
+      regla: b < 0 ? `$(-n)^{2}=n^{2}$` : `$m\\cdot n=p$`,
+    });
+  }
+  if (a === 1) {
+    // multiplicar por 1 no cambia el valor: el 1 se tacha con su punto, sin paso propio de cuenta
+    subs(["Fd1", "Va1"], []);
+    subs(["Fd3", "Va2"], []);
+    empuja({
+      fusiones: [
+        { desde: ["Fd1", "Va1"], hacia: null, modo: "tachar" },
+        { desde: ["Fd3", "Va2"], hacia: null, modo: "tachar" },
+      ],
+      texto: `Multiplicar por $1$ no cambia nada: tachamos el $\\cdot 1$ en $4\\cdot 1\\cdot ${par(c)}$ y en $2\\cdot 1$. Quedan $4\\cdot ${par(c)}$ y $2$.`,
+      porque: `Cualquier número multiplicado por $1$ da el mismo número.`,
+      regla: `$n\\cdot 1=n$`,
+    });
+  } else {
+    subs(["F4", "Fd1", "Va1"], [{ id: "P4a", tex: `${4 * a}` }]);
+    empuja({
+      fusiones: [{ desde: ["F4", "Fd1", "Va1"], hacia: "P4a" }],
+      texto: `${ordinal()} cuenta: el producto de tres números se hace de dos en dos, de izquierda a derecha. Primero $4\\cdot ${a}=${4 * a}$.`,
+      porque: `Todavía no tocamos el $${par(c)}$: se queda esperando su turno.`,
+      regla: `$(m\\cdot n)\\cdot p=m\\cdot(n\\cdot p)$`,
+    });
+  }
+  const f4 = a === 1 ? "F4" : "P4a";
+  if (grande(4 * a, c)) {
+    lapiz([f4, "Fd2", "Vc"], "PQ", 4 * a, c);
+  } else {
+    subs([f4, "Fd2", "Vc"], [{ id: "PQ", tex: par(Q) }]);
+    empuja({
+      fusiones: [{ desde: [f4, "Fd2", "Vc"], hacia: "PQ" }],
+      texto: a === 1 ? `${ordinal()} cuenta: $4\\cdot ${par(c)}=${Q}$.` : `${ordinal()} cuenta: seguimos con $${4 * a}\\cdot ${par(c)}=${Q}$.`,
+      porque: c < 0 ? `Un positivo por un negativo da negativo.` : `Un positivo por un positivo da positivo.`,
+      regla: c < 0 ? `$\\text{positivo}\\cdot\\text{negativo}=\\text{negativo}$` : `$\\text{positivo}\\cdot\\text{positivo}=\\text{positivo}$`,
+    });
+  }
   if (Q < 0) {
     // restar un negativo es sumar: se escribe la suma ANTES de calcularla
     subs(["Pn", "Fmn", "PQ"], [{ id: "Dm", tex: `${P}+${-Q}` }]);
@@ -639,13 +733,17 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       regla: `$\\Delta=b^{2}-4ac$`,
     });
   }
-  subs(["F2", "Fd3", "Va2"], [{ id: "Rden", tex: `${den}` }]);
-  empuja({
-    fusiones: [{ desde: ["F2", "Fd3", "Va2"], hacia: "Rden" }],
-    texto: `${ordinal()} cuenta: abajo, el $2\\cdot ${a}$ del denominador: $2\\cdot ${a}=${den}$.`,
-    porque: `Es el doble de $a$. Es el número entre el que se divide todo lo de arriba.`,
-    regla: `$2\\cdot n=n+n$`,
-  });
+  // con a = 1 el denominador ya quedo en 2 (el 1 se tacho): la pieza es la misma `F2`
+  const idDen = a === 1 ? "F2" : "Rden";
+  if (a !== 1) {
+    subs(["F2", "Fd3", "Va2"], [{ id: "Rden", tex: `${den}` }]);
+    empuja({
+      fusiones: [{ desde: ["F2", "Fd3", "Va2"], hacia: "Rden" }],
+      texto: `${ordinal()} cuenta: abajo, el $2\\cdot ${a}$ del denominador: $2\\cdot ${a}=${den}$.`,
+      porque: `Es el doble de $a$. Es el número entre el que se divide todo lo de arriba.`,
+      regla: `$2\\cdot n=n+n$`,
+    });
+  }
   // la raiz: el discriminante se escribe como cuadrado y la raiz se cancela con el exponente.
   // Con D = 0 o D = 1 la raiz es trivial (0.0 = 0, 1.1 = 1) y va en un solo paso.
   if (d <= 1) {
@@ -712,7 +810,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         { id: "Mi", tex: "-", op: true },
         { id: "D2", tex: pieza("Rd").tex },
       ],
-      [{ id: "R2den", tex: pieza("Rden").tex }]
+      [{ id: "R2den", tex: pieza(idDen).tex }]
     );
     extra = [pieza("S"), { id: "X1", tex: "x_{1}" }, { ...pieza("Fe") }, F, { id: "S2", tex: "", salto: true }, { id: "X2", tex: "x_{2}" }, { id: "E2", tex: "=", op: true }, Q2];
     empuja({

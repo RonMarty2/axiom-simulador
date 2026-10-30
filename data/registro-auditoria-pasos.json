@@ -51,9 +51,9 @@
     },
     "cuadratica": {
       "estado": "con-hallazgos",
-      "huella": "35a0d69ff9d7",
+      "huella": "e9ee8235658a",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (7 casos). Sin saltos graves: ordenar de a un termino, a,b,c con color, reemplazo una letra por vez con parentesis, (-5)^2 en dos pasos, Delta con valor, x1 y x2 comprobadas. Leves: (1) con a=1 hay 2 pasos x1 (4*1=4 y 2*1=2) que no cambian el valor; (2) T5 desordenada cuenta 3 sumas en un paso (2 resultados nuevos); (3) (-12)*(-12)=144 y 12*9=108 de un golpe. Rotulo de fila de referencia no verificado en pantalla"
+      "nota": "a=1: el 1 se tacha con su punto y la a se reemplaza al final; semejantes de a una clase por paso; productos de dos cifras a lapiz (decenas y unidades); casos b de dos cifras y 4ac de dos cifras. Medidor en 0. Sin leer por auditor-de-pasos aun"
     },
     "mruv": {
       "estado": "con-hallazgos",
