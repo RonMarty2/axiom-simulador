@@ -51,6 +51,7 @@ Los 12 tipos con hallazgos se arreglaron en sus generadores: cuentas de dos cifr
 - Decisiones de Ronald: línea de créditos a MinerU (texto legal), colores del avatar.
 
 ## Reglas para no perder el hilo
+0. **`agy` ejecuta, Claude planifica y verifica (Ronald, 30-oct).** Las tareas de edición van a `agy` en una copia aislada (`git worktree`), modo `accept-edits`, con un plan escrito; Claude revisa `git diff`, `tsc`, lint, tests y `medir-reglas.ts` antes de traer nada a `main`. Cómo llamarlo y sus límites (cuota, PowerShell, nombres de modelo): memoria `usar-agy-para-ejecutar` y la nota de «Lectura independiente con agy» más arriba. Hasta ahora `agy` solo se usó para LEER (10 tipos); todo el código lo hicieron agentes de Claude.
 1. **Un lote cerrado por agente**: lista medida de qué arreglar y cómo comprobar. Nunca «revisá y encontrá».
 2. **Commit al terminar cada agente**, no al final del día. Lo que no está en `main` se puede perder.
 3. **Cada informe de agente se resume acá o en la bitácora en el momento**, no «después». Las reglas candidatas que devuelva un agente se suman a `hallazgosPasos`.
