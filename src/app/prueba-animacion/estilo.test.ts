@@ -86,6 +86,12 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
     const d = demo([[g], [f("r", "132")]], [t({ fusiones: [{ desde: ["g"], hacia: "r" }] })]);
     assert.ok(malos(d).some((m) => m.includes("cuenta grande")));
   });
+  test("un producto de dos cifras por dos cifras de un golpe (33·33=1089), pero no uno partido ni con ceros finales", () => {
+    const d = (porque: string) => demo([[f("a", "3")], [f("a", "3")]], [t({ resaltar: ["a"], porque })]);
+    assert.ok(malos(d("Calculamos $33\\cdot 33=1089$.")).some((m) => m.includes("dos cifras")));
+    assert.deepEqual(malos(d("Partimos $12\\cdot 12=10\\cdot 12+2\\cdot 12$.")), []);
+    assert.deepEqual(malos(d("Queda $25\\cdot 40=1000$.")), []);
+  });
   test("dos pasos seguidos que solo marcan algo sin mover nada", () => {
     const e = [[f("a", "3")], [f("a", "3")], [f("a", "3")]];
     assert.equal(malos(demo(e, [t({ resaltar: ["a"] }), t({ resaltar: ["a"] })])).length, 1);
@@ -99,8 +105,8 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
 
 // Trinquete: hallazgos de pasos que hoy existen, por tipo. NO pueden subir. Un tipo que no esta aca debe dar 0.
 // punnett y oxidacion: sus pasos de lectura seguidos son parte de leer una tabla o una molecula; se miran en la lectura final.
-const TRINQUETE_CASOS: Record<string, number> = { oxidacion: 6, punnett: 10 };
-const TRINQUETE_HUELLAS: Record<string, number> = { oxidacion: 2, punnett: 5 };
+const TRINQUETE_CASOS: Record<string, number> = { cuadrados: 1, fracciones: 1, cuadratica: 1, mruv: 1, charles: 2, estequiometria: 1, molaridad: 2, oxidacion: 6, punnett: 10, pitagoras: 15 };
+const TRINQUETE_HUELLAS: Record<string, number> = { fracciones: 1, charles: 2, estequiometria: 1, molaridad: 1, oxidacion: 2, punnett: 5, pitagoras: 4 };
 
 describe("reglas de pasos en todos los tipos (trinquete)", () => {
   for (const [tipo, casos] of Object.entries(CASOS_POR_TIPO) as [Tipo, (typeof CASOS_POR_TIPO)[Tipo]][]) {

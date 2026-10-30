@@ -2,136 +2,136 @@
   "_nota": "Registro de auditoria de pasos (auditor-de-pasos). Un generador 'auditado' guarda la huella de su salida: si el codigo cambia, el test frena y hay que re-auditar. 'pendiente' = nunca auditado con las reglas actuales; 'con-hallazgos' = se audito y quedan saltos por arreglar. Se edita SOLO con registrar-auditoria.ts.",
   "generadores": {
     "lineal": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "a1bd8ce27270",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (6 casos, 15-20 pasos): texto sin saltos graves; definir, signos entre parentesis, comprobacion OK. Leve: 96=8*12 / 9=3*3 / 6=3*2 el cofactor sale de una division mental sin mostrar. Sigue pendiente solo lo visual de la nota anterior (marca del parentesis grande en x fracc negativa, sin verificar en pantalla)"
+      "nota": "lectura final 30-oct: leidos todos los casos, sin saltos que el codigo no mida"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
       "huella": "847ff5a1e845",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (k=3,2,15): sin saltos de calculo ni pasos vacios. Leves: (1) T13 -3*3 pasa a -3^2 (lee como (-3)*3=-9, la notacion -(3^2) no se explica hasta T24); (2) T22 el porque solo justifica 0+3, no 0-3; (3) T24-26 reemplazo y calculo de las dos filas juntas (2 ops por paso, tolerado). Pendiente visual sin verificar: k grande parte (x-15)(x+15) en dos renglones"
+      "nota": "lectura final 30-oct: T2-T4 hablan de 'la formula' y de a^2-b^2 antes de presentarlas (se muestra en T7)"
     },
     "fracciones": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "ee301a705aca",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (6 casos). (1) numeros grandes y todos: T24-27 de la comprobacion multiplica por el mcm y divide de vuelta (31*24=744 y 744/24=31 en un paso, 168/8) cuentas de 3 cifras sin mostrar, ida y vuelta evitable; (2) denominadores iguales (1/4-1/4): T2 'ya son iguales' deja el estado igual (paso quieto); (3) simplificar 3/6: T17 escribe 3=1*3 (coeficiente 1). Resto bien: mcm con listas, 3/3 y 2/2 de a uno, signos. Pendiente visual sin verificar: numeros grandes corta antes de el punto 24"
+      "nota": "lectura final 30-oct: leidos todos los casos, sin saltos que el codigo no mida"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
       "huella": "7feb400c42de",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (5 casos). Siguen (1) la comprobacion T10/T11 dice 'por la propiedad del producto' sin haberla ensenado (en logaritmos por significado); (2) T13 desarrollo de b^k: los factores b nuevos salen del exponente (wk), no de la base; (3) en 2,2,2 y 10,10,100 los bloques repiten texto identico. Definir, un log por vez y potencias OK"
+      "nota": "lectura final 30-oct: comprobacion (T11) invoca 'propiedad del producto' que nunca se ensena"
     },
     "logaritmos-propiedad": {
       "estado": "con-hallazgos",
       "huella": "c8e2985c064c",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (4 casos). (1) caso 2,2,2: T3 2*2, T4 2*2=4 y T5 4=2*2 vuelve al mismo estado (paso que deshace el anterior); (2) T5 escribe 32=2*2*2*2*2 de golpe sin mostrar como se cuentan los 2; (3) la comprobacion repite la misma cuenta (circular, usa la propiedad recien aplicada); (4) T7 'la pregunta se responde sola' no cambia el estado"
+      "nota": "lectura final 30-oct: comprobacion circular (T9 usa la propiedad del producto recien aplicada; no calcula cada log por separado)"
     },
     "potencia": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "cbfc9a31ad78",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (4 casos). Sin saltos de calculo: factores contados, suma de exponentes y multiplicacion de a dos. Leve: 2^12*2^12 son 23 pasos con el mismo porque repetido; 5^1 explica el 1. Pendiente visual sin verificar: el punto colgado con exponentes grandes"
+      "nota": "lectura final 30-oct: leidos todos los casos, sin saltos que el codigo no mida"
     },
     "raiz": {
       "estado": "con-hallazgos",
       "huella": "999a75386c2d",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (4 casos). Leves: (1) T1 escribe 16=2*2*2*2 y 729=3*3*...*3 (6 factores) de golpe: el alumno no ve como se halla la base ni cuantos factores; (2) T11 2=1*2 y T9 3=1*3 escriben coeficiente 1 (necesario para tachar, esta explicado en T6). Resto bien: indice-exponente fraccionario, potencia de potencia, simplificar con divisores. Gestos sin revisar en pantalla"
+      "nota": "lectura final 30-oct: T1 factoriza 16/32/729 en factores iguales sin proceso (729=3^6 no se sigue a lapiz); raiz->exponente 1/n se aplica sin enunciar que es una raiz"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
       "huella": "5f54d5320845",
       "fecha": "2026-10-30",
-      "nota": "30-oct re-auditoria (3 casos). (1) indice 3: la lista dice 64=4*4*4 pero T7 reescribe 64=2*2*...*2 (6 factores) sin vincular: la base cambia de 4 a 2 sin decirlo; (2) T6 (resaltar el cuadrado perfecto) deja el estado igual; (3) T4 192/64=3 de un golpe. Lista de potencias, descarte uno a uno y division con resto OK. Pendiente visual sin verificar: base 3 coma colgada y 36 solo abajo"
+      "nota": "lectura final 30-oct: caso indice 3, la lista muestra 64=4*4*4 y T7 escribe 64=2^6 sin avisar; 729/64 factorizados sin proceso; raiz->exponente sin significado"
     },
     "cuadratica": {
       "estado": "con-hallazgos",
       "huella": "e9ee8235658a",
       "fecha": "2026-10-30",
-      "nota": "a=1: el 1 se tacha con su punto y la a se reemplaza al final; semejantes de a una clase por paso; productos de dos cifras a lapiz (decenas y unidades); casos b de dos cifras y 4ac de dos cifras. Medidor en 0. Sin leer por auditor-de-pasos aun"
+      "nota": "lectura final 30-oct: resolucion limpia (definir, reemplazar de a una, comprobacion contra el enunciado). Falta: en la comprobacion de x=11 (b de dos cifras) 11^2=121 y 12*11=132 van de un golpe, sin decenas y unidades como en el discriminante"
     },
     "mruv": {
       "estado": "con-hallazgos",
       "huella": "1fc110013eeb",
       "fecha": "2026-10-30",
-      "nota": "30-oct arreglado en el generador (animador): coeficiente 1 no se escribe (v0=a, 4a), sin paso vacio de v0 ya sola, T1 marca solo lo que falta, numero delante de la letra y sacar la mitad en pasos distintos, m/s2 nace en dos pasos (m de la distancia, s2 del tiempo), 2*1 y 3*1 se tachan, queda 1. Falta segunda lectura independiente"
+      "nota": "lectura final 30-oct: resolucion y verificacion con otra formula, limpias. Falta: en la verificacion, 125*125=15625 y 25*25=625 (quintuplica) y 4,5*4,5=20,25 y 1,5*1,5=2,25 (a no entera) van de un golpe sin productos parciales"
     },
     "charles": {
       "estado": "con-hallazgos",
       "huella": "22290b2feca7",
       "fecha": "2026-10-30",
-      "nota": "30-oct arreglado en el generador (animador): T1 y T6 de la variante presion se fundieron con el paso siguiente (leer no mueve nada), se escribe 1 atm = 760 torr antes del factor y el numero sube con el 1 tachado, T2 y V1 se mueven en pasos distintos, la comprobacion trae la ley con los cuatro numeros desde sus fichas y el cruzado con visitas. Falta segunda lectura independiente"
+      "nota": "lectura final 30-oct: pasos y unidades limpios. Falta menor: en la comprobacion cruzada 25*240=6000 (bajo cero) y 15*150=2250 (enfria) de un golpe, sin partir 25*24 ni 15*15 y despues el cero"
     },
     "moles-atomos": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "8e2086580272",
       "fecha": "2026-10-30",
-      "nota": "30-oct arreglado en el generador (animador): los 1 de los factores se tachan al juntar (ya no hay pasos x1), el juntar lleva menos piezas. NO hecho: la comprobacion del valor (30 g entre 180 = 1/6 mol) porque en pantalla ya no quedan la masa molar ni el subindice. Falta segunda lectura independiente"
+      "nota": "lectura final 30-oct: cierre por unidades alcanza (el 1/6 mol intermedio queda dentro de la fraccion unica de T20, se sigue a lapiz); conteo coef x subindice claro"
     },
     "estequiometria": {
       "estado": "con-hallazgos",
       "huella": "98f1a349011a",
       "fecha": "2026-10-30",
-      "nota": "30-oct arreglado en el generador (animador): el balanceo cuenta un elemento por paso con la cuenta coeficiente por subindice y el resultado anotado debajo de la ecuacion, lo de abajo se multiplica primero y se tacha el numero de arriba igual a el (44 con 44, 224 con 224) antes de multiplicar, sin pasos x1. NO hecho: conservacion de masa (hace falta la masa molar de cada sustancia a la vista). Falta segunda lectura independiente"
+      "nota": "propano T30: 'arriba hay un 44' pero arriba hay dos 44 (dato y masa molar del CO2) y no dice cual se tacha; cierre solo por unidades (conservacion de masa no, no es grave)"
     },
     "dinamica": {
       "estado": "auditado",
       "huella": "f703368a525d",
-      "fecha": "2026-10-19",
-      "nota": "Re-auditoria 18-oct tras el arreglo visual (unidades pegadas, sin cortes): casos 4/20/0, 4/30/10, 1/7/0, 50/1000/500 leidos transicion por transicion; no se perdio ningun paso ni porque; sin saltos nuevos. Leve, no bloqueante: la comprobacion trae 5 piezas copiadas de golpe (copia, no calculo) y con m=1 el ultimo paso junta 'x1' y la unidad = newton"
+      "fecha": "2026-10-30",
+      "nota": "lectura final 30-oct: dos fuerzas, una fuerza y a=1 leidos paso a paso; datos con letra, fuerza neta antes de la 2a ley, newton explicado antes de simplificar unidades, comprobacion F=m*a con valor. Sin hallazgos"
     },
     "tiro": {
       "estado": "auditado",
       "huella": "513a8f6da2f3",
-      "fecha": "2026-10-23",
-      "nota": "Relectura independiente final (t=2,3,9; 24 combos t=2..9 x v0 1/7/50): T23 singular con t=2 ok, T28 aclara que sqrt(3·s) es lo que la raiz suelta, comprobacion con cortes fijos (KS4 se consume en el tachado, sin renglon vacio), divisor (10 m/s2) con parentesis que nacen de Rg por viajar y se consumen en la fusion de extremos y medios, extremos/medio destacados, tanteo t=9 en 5 renglones; x=v0·t y h=5t2 coinciden con la fisica; sin saltos"
+      "fecha": "2026-10-30",
+      "nota": "lectura final 30-oct: t=9,8,6 leidos; t antes de x, h=1/2gt2 explicada, raiz con pruebas escritas, comprobacion de h con valor. Observacion no bloqueante: la comprobacion revisa t (h=405) y no x=450"
     },
     "molaridad": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "2a3ad0152935",
       "fecha": "2026-10-30",
-      "nota": "Division exacta de cuenta grande (1400/100, 1470/10) resuelta en el generador: T = cociente·den y se tacha. Medido en 0. Sin segunda lectura del auditor sobre los pasos nuevos; queda el paso de ÷1 con V=1"
+      "nota": "lectura final 30-oct: comprobacion real al reves (n=M*V, m=n*PM) en todos los casos; decimales y fracciones avisados"
     },
     "oxidacion": {
       "estado": "auditado",
       "huella": "2e10492bf6a5",
-      "fecha": "2026-10-24",
-      "nota": "3a lectura independiente casi limpia (23-oct): resueltos los 5 hallazgos del 17-oct y los de la 2a lectura; el unico residuo (porque repetido en el 3er termino) y 3 retoques de texto (signo en el porque del producto, aviso del +) se arreglaron DESPUES sin nueva lectura del auditor y los cubre un test sobre todas las combinaciones. Visual: cabecera Piden pegada, 2·x compacto, parentesis solo el numero pintado. Abierto para Ronald: ver bitacora."
+      "fecha": "2026-10-30",
+      "nota": "lectura final 30-oct: N definido antes de usar, suma=0 explicada, promedio avisado en tiosulfato; los dos pasos de lectura (H y O) se entienden"
     },
     "trigonometria": {
-      "estado": "con-hallazgos",
+      "estado": "auditado",
       "huella": "d780241f61dc",
       "fecha": "2026-10-30",
-      "nota": "30-oct: el auditor encontro pasos x1 (10*1, 1*10, 9*1). Arreglado en el generador (animador): el numero sube a la fraccion con el 1 tachado, tangente de 45 tacha el 1 y el cruzado de la comprobacion ya no multiplica por el 1 de la tabla. Las lecturas del 23-oct siguen valiendo. Falta segunda lectura independiente del arreglo"
+      "nota": "lectura final 30-oct: seno/coseno/tangente definidos antes de elegir, triangulo de referencia para 30 y 45, comprobacion por fracciones equivalentes con valor. Sin hallazgos"
     },
     "progresion": {
       "estado": "con-hallazgos",
       "huella": "19c08508f7eb",
       "fecha": "2026-10-30",
-      "nota": "Era auditado (24-oct). Cambio solo de maquetacion en el generador: con d<0 el salto de renglon pasa a DESPUES del punto, asi (30 - 1) · queda junto y (-10) baja solo (pasos 15 y 16, visto en captura 343 px). Textos y pasos iguales. Vuelve a auditado con una lectura del auditor-de-pasos o con el OK de Ronald; lo anterior de la nota sigue vigente"
+      "nota": "comprobacion circular en todos los casos: a(n)-d y luego +d vuelve al mismo numero; no valida contra a(n-1) calculado por la formula o la lista; el porque dice 'si no diera lo mismo habria un error' y es falso"
     },
     "pitagoras": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "d2b1f952c140",
-      "fecha": "2026-10-24",
-      "nota": "3a lectura independiente limpia (23-oct); tanteo con escalera escrita (de 1 en 1 o de 10 en 10), ultima cifra con candidatos nombrados, comprobacion un cuadrado por paso. Abierto para Ronald: la comprobacion repite calculos hechos arriba; exponente suelto al partir renglon en buscar cateto (motor Fusion); numeros de la comprobacion sin color; tachado de filas solo se ve en movimiento."
+      "fecha": "2026-10-30",
+      "nota": "lectura final 30-oct: c y cateto limpios en definicion, orden y comprobacion. Falta: cuadrados de dos cifras de un golpe (13*13, 33*33=1089, 56*56=3136, 65*65, 28*28, 94*94, 96*96=9216) sin productos parciales, en el calculo y en la comprobacion; inconsistente con cuadratica que parte en decenas y unidades"
     },
     "punnett": {
       "estado": "auditado",
       "huella": "59a217175f73",
-      "fecha": "2026-10-26",
-      "nota": "3a lectura independiente (26-oct): unico hallazgo grave (codigo crudo en el texto del intercambio de mayuscula) arreglado y vigilado por un test sobre los 9 cruces; marcadores invisibles que reservan las casillas, cruce de los padres y cuadro se recogen, etiqueta dominante/recesivo al lado del conteo, respuesta y comprobacion en dos pasos. Abierto para Ronald: paso mas alto 1188 px; renglones de conteo centrados (bordes desparejos); rayas del cuadro corren 3-4 px entre filas; comprobacion con la suma solo en el texto; decidir si los cierres muestran la probabilidad (3/4) en vez de 'cualquier hijo'."
+      "fecha": "2026-10-30",
+      "nota": "lectura final 30-oct: alelo/dominante/genotipo/fenotipo definidos en la intro; los 4 pasos de etiquetar alelos se entienden; conteo contra 2x2 casillas"
     },
     "interes": {
       "estado": "con-hallazgos",
       "huella": "e3c640cd2888",
       "fecha": "2026-10-30",
-      "nota": "Division de cuenta grande (X/100) resuelta en el generador: I·100 y se tacha el 100. Medido en 0. Sin segunda lectura del auditor sobre los pasos nuevos"
+      "nota": "comprobacion circular en todos los casos: M=C+I y luego M-C=I; no valida I=C*r*t (por ejemplo contra C*r por un ano o contra el tiempo en meses)"
     }
   }
 }

@@ -136,6 +136,15 @@ export function hallazgosPasos(d: Demo, etiqueta: string): string[] {
       // (dividir entre 1 no se mide: `x = 3/1` es el cierre normal de lineal y raiz; lo ve el auditor)
     }
 
+    // PRODUCTO DE DOS CIFRAS POR DOS CIFRAS DE UN GOLPE escrito en el texto (33·33=1089): se parte en decenas y unidades.
+    // Cifras significativas (sin ceros finales ni coma): 10·12 o 25·40 no cuentan, 12·12 o 4,5·4,5 si.
+    const cifras = (n: string) => n.replace(/[.,]/g, "").replace(/0+$/, "").length;
+    const productoGrande = /(\d[\d.,]*)\s*\\cdot\s*(\d[\d.,]*)\s*=\s*\d[\d.,]*(?!\s*(?:\\cdot|\+|-|\\times|\d))/g;
+    for (const s of [t.texto, t.porque]) {
+      const hit = [...s.matchAll(productoGrande)].find((m) => cifras(m[1]) >= 2 && cifras(m[2]) >= 2);
+      if (hit) { mal(i, `calcula de un golpe un producto de dos cifras por dos cifras (${hit[0].trim()}): partir en decenas y unidades`); break; }
+    }
+
     // (el `x·1` escrito en el TEXTO no se mide: `1·3=3` es valido cuando el 1 es el numerador de una fraccion; lo ve el auditor)
 
     // DOS PASOS DE LECTURA SEGUIDOS: dos pasos que solo marcan algo, sin mover nada, uno detras del otro
