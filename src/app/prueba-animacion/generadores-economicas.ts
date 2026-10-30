@@ -648,12 +648,27 @@ export function interesSimple(C: number, r: number, t: number, unidad: UnidadTie
 
   // ---- el interes en centesimas (Y arriba, 100 abajo) se pasa a entero o a decimal con coma
   if (Y % 100 === 0) {
+    // no se divide de un golpe un numero grande: Y = I·100, y el 100 de arriba se tacha con el de abajo
+    h.cambiar([Ynum], [{ id: "Ia", tex: nf(I) }, { id: "Ix", tex: "\\cdot", op: true }, { id: "Ib", tex: "100" }]);
+    h.paso({
+      fusiones: [{ desde: [Ynum], hacia: ["Ia", "Ix", "Ib"] }],
+      brotes: [{ desde: "P2d1", hacia: "Ib" }],
+      descompone: true,
+      texto: `Abajo hay un $100$ y arriba $${nf(Y)}$ termina en ceros: $${nf(Y)}=${nf(I)}\\cdot 100$. Así aparece el $100$ también arriba y no hace falta dividir un número grande.`,
+      porque: `Escribir un número como un producto no cambia su valor, y así se puede tachar lo que se repite.`,
+      regla: `$n=a\\cdot g$`,
+    });
+    h.quitar("Ix", "Ib", "P2d1");
     h.cambiar(["P2"], [{ id: "Ires", tex: nf(I) }]);
     h.paso({
-      fusiones: [{ desde: ["P2"], hacia: "Ires" }],
-      texto: `Dividimos: $\\dfrac{${nf(Y)}}{100}=${nf(I)}$.`,
-      porque: PORQUE_DIV,
-      regla: REGLA_DIVISION,
+      fusiones: [
+        { desde: ["Ix", "Ib", "P2d1"], hacia: null, modo: "tachar" },
+        { desde: ["P2"], hacia: "Ires", modo: "viajar" },
+      ],
+      brotes: [{ desde: "P2", hacia: "Ires" }],
+      texto: `Tachamos el $100$ de arriba con el $100$ de abajo. Queda $${nf(I)}$.`,
+      porque: `Un número dividido entre sí mismo vale $1$: por eso se tacha.`,
+      regla: REGLA_SIMPLIFICAR,
     });
   } else {
     const E = Math.floor(Y / 100);

@@ -252,6 +252,48 @@
       "paso": 15,
       "nota": "8 por -12 a lapiz: pasos 15 a 18",
       "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "interes",
+      "caso": "18 meses simplifica",
+      "paso": 25,
+      "nota": "Ya no se divide 15000 entre 100 de un golpe: 15000 = 150·100 y se tacha el 100 (pasos 25 y 26)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "interes",
+      "caso": "12 meses = 1 año",
+      "paso": 23,
+      "nota": "Igual: 24000 = 240·100 y se tacha el 100 (pasos 23 y 24)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "interes",
+      "caso": "años sin conversion",
+      "paso": 15,
+      "nota": "Con tiempo en años: 30000... = I·100 y se tacha el 100 (pasos 15 y 16)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molaridad",
+      "caso": "dos decimales",
+      "paso": 43,
+      "nota": "1400/100 ya no se divide de golpe: 1400 = 14·100 y se tacha el 100 (pasos 43 y 44)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molaridad",
+      "caso": "achicar 147/98 y ampliar 3/2 a 15/10",
+      "paso": 44,
+      "nota": "1470/10 ya no se divide de golpe: 1470 = 147·10 y se tacha el 10 (pasos 44 y 45)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "progresion",
+      "caso": "todo negativo, extremos",
+      "paso": 15,
+      "nota": "El punto ya no queda solo al principio del renglon: queda al final de (30 - 1) y (-10) baja solo (pasos 15 y 16)",
+      "fecha": "2026-10-30"
     }
   ],
   "aprobadosPorSilencio": [],

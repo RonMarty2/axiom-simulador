@@ -123,7 +123,14 @@ function comun(d: Demo, etiqueta: string, nTxt: string, MTxt: string, masa: numb
   // V = 1 tambien reemplaza V (0,1 mol / 1 L) y divide entre 1 en su propio paso: 20 fijos con V = 1, 22 con V > 1.
   // Un decimal por entero (n·PM siempre que n no sea entero; M·V con V > 1) trae su proceso: 3 pasos si arriba queda un 1, 4 si no (en vez de 1)
   const pasosDec = (aCent: number) => (aCent % 100 === 0 ? 1 : (aCent % 10 === 0 ? aCent / 10 : aCent) === 1 ? 3 : 4);
-  const extraDec = pasosDec(nCent) - 1 + (V > 1 ? pasosDec(nCent / V) - 1 : 0);
+  // si la fraccion queda con un numerador de 4 cifras o mas y la division es exacta, no se divide de un golpe: 2 pasos mas (producto y tachar)
+  const grande = (aCent: number, b: number) => {
+    if (aCent % 100 === 0) return 0;
+    const den = aCent % 10 === 0 ? 10 : 100;
+    const T = (aCent / (100 / den)) * b;
+    return T % den === 0 && String(T).length >= 4 ? 1 : 0;
+  };
+  const extraDec = pasosDec(nCent) - 1 + (V > 1 ? pasosDec(nCent / V) - 1 : 0) + grande(nCent, PM) + (V > 1 ? grande(nCent / V, V) : 0);
   assert.equal(d.transiciones.length, 20 + 4 * k - unos + procN + procM + extraDec + (V > 1 ? 2 : 0), `${etiqueta}: cantidad de pasos`);
   // NUNCA un paso vacio: ningun termino `1·A` es un paso propio (n = 1 se escribe directo) ni hay un paso cuyo unico cambio es ÷1 o ·1
   assert.ok(!d.transiciones.some((t) => /\$1\\cdot /.test(t.texto) && /Multiplicamos/.test(t.texto)), `${etiqueta}: producto 1·A como paso`);
@@ -150,7 +157,7 @@ function comun(d: Demo, etiqueta: string, nTxt: string, MTxt: string, masa: numb
   // en el calculo de n los gramos se tachan arriba y abajo (3 piezas: g de arriba, el punto y g de abajo);
   // la comprobacion tacha ademas L (si V > 1) y mol, de a dos piezas
   const tachados = d.transiciones.flatMap((t, i) => t.fusiones.filter((x) => x.modo === "tachar").map((x) => ({ f: x, i })));
-  assert.equal(tachados.length, V > 1 ? 3 : 2, `${etiqueta}: tachados`);
+  assert.equal(tachados.length, (V > 1 ? 3 : 2) + grande(nCent, PM) + (V > 1 ? grande(nCent / V, V) : 0), `${etiqueta}: tachados`);
   // la comprobacion tacha la unidad CON su punto (L, punto, L): tambien 3 piezas, y el punto ya no se funde con los numeros
   assert.equal(tachados.filter((x) => x.f.desde.length === 3).length, tachados.length, `${etiqueta}: todo tachado lleva su punto`);
   const { f: tf, i: ti } = tachados[0];
@@ -409,8 +416,10 @@ describe("molaridad: la animacion", () => {
     assert.deepEqual(a.d.transiciones[a.i0 + 1].brotes!.map((b) => b.desde).sort(), ["Kc", "Kpfd", "Kpfn"]);
     assert.ok(a.tex[a.i0 + 2].includes("$25\\cdot 56=1400$"));
     assert.equal(buscar(a.d.estados[a.i0 + 3], "Kpgp")?.tex, "1400");
-    assert.ok(a.tex[a.i0 + 3].includes("$\\dfrac{1400}{100}=14$"));
-    assert.equal(buscar(a.d.estados[a.i0 + 4], "Kz")?.tex, "14");
+    // 1400 no se divide de un golpe: 1400 = 14·100 y se tacha el 100
+    assert.ok(a.tex[a.i0 + 3].includes("$1400=14\\cdot 100$"));
+    assert.ok(a.tex[a.i0 + 4].includes("Tachamos el $100$ de arriba con el $100$ de abajo. Queda $14$"));
+    assert.equal(buscar(a.d.estados[a.i0 + 5], "Kz")?.tex, "14");
     // 0,1 · 40 = 4 : arriba queda un 1, el entero solo sube (sin paso 1·40)
     const b = camino("NaOH", 4, 1);
     assert.ok(b.tex[b.i0].includes("$0{,}1=\\dfrac{1}{10}$") && b.tex[b.i0].includes("$1$ décima"));

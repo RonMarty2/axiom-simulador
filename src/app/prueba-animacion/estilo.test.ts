@@ -99,8 +99,8 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
 
 // Trinquete: hallazgos de pasos que hoy existen, por tipo. NO pueden subir. Un tipo que no esta aca debe dar 0.
 // punnett y oxidacion: sus pasos de lectura seguidos son parte de leer una tabla o una molecula; se miran en la lectura final.
-const TRINQUETE_CASOS: Record<string, number> = { molaridad: 2, oxidacion: 6, punnett: 10, interes: 5 };
-const TRINQUETE_HUELLAS: Record<string, number> = { molaridad: 1, oxidacion: 2, punnett: 5, interes: 2 };
+const TRINQUETE_CASOS: Record<string, number> = { oxidacion: 6, punnett: 10 };
+const TRINQUETE_HUELLAS: Record<string, number> = { oxidacion: 2, punnett: 5 };
 
 describe("reglas de pasos en todos los tipos (trinquete)", () => {
   for (const [tipo, casos] of Object.entries(CASOS_POR_TIPO) as [Tipo, (typeof CASOS_POR_TIPO)[Tipo]][]) {

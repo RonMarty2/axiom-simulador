@@ -109,7 +109,7 @@ describe("interes simple: ejemplos", () => {
     assert.ok(d.transiciones.some((t) => t.fusiones.some((f) => f.modo === "tachar" && f.desde.includes("Dtu") && f.desde.includes("FCdu"))));
     // cuentas del texto: todo en UNA fraccion (2000·5 = 10000, 10000·3 = 30000), 30000 = 15000·2 y 15000/100 = 150
     const todo = d.transiciones.map((t) => t.texto).join(" ");
-    for (const frag of ["2000\\cdot 5=10000", "10000\\cdot 3=30000", "30000=15000\\cdot 2", "\\dfrac{15000}{100}=150", "2000+150=2150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
+    for (const frag of ["2000\\cdot 5=10000", "10000\\cdot 3=30000", "30000=15000\\cdot 2", "15000=150\\cdot 100","2000+150=2150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
     // comprobacion: el monto menos el capital da el interes
     assert.ok(todo.includes("2150-2000=150"), "falta 2150-2000=150");
   });

@@ -2,7 +2,7 @@
 
 Un solo archivo, corto, que se reescribe al cerrar cada tanda. Si tenés dudas de qué está hecho, **no confíes en esta lista: comprobalo con los comandos de abajo**. El código y el registro mandan, esto solo es el mapa.
 
-Última actualización: 30-oct-2026, tarde (todas las animaciones medidas en 0; falta sumar reglas candidatas y la lectura final).
+Última actualización: 30-oct-2026, tarde (todo medido en 0 salvo punnett y oxidacion, que son pasos de lectura; falta la lectura final por animación y el visto bueno).
 
 ## Cómo comprobar el estado real (en este orden, 2 minutos)
 
@@ -41,7 +41,7 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 ### Reglas candidatas: qué se midió y qué quedó para el auditor
 - Sumadas a `hallazgosPasos` (30-oct): cuenta grande también con fracciones de piezas (`nPiezas`/`dPiezas`) y dos pasos seguidos que solo marcan algo. Con eso quedan topes: molaridad 2, oxidacion 6, punnett 10, interes 5 (casos difíciles). punnett y oxidacion son pasos de lectura de una tabla o molécula: se miran en la lectura final, no son error seguro.
 - NO se miden con código (dan falsos positivos): `÷1` como paso (`x = 3/1` es el cierre normal de lineal y raíz), `x·1` escrito en el texto (`1·3=3` es válido si el 1 es el numerador de una fracción), etiqueta `debajo` más ancha que su pieza. Los ve el auditor.
-- Falta (motor): progresión «todo_negativo_extremos» pasos 15 y 16, `·` suelto al principio del renglón en `(30 − 1) · (−10)`: permitir el corte antes del `·` solo cuando los dos operandos son paréntesis, en `Fusion.tsx`.
+- Hecho 30-oct: interes y molaridad en 0 (cuenta grande exacta: Y = I·100 y tachar). El `·` suelto de progresión se arregló en el generador (el salto `Fsd` ahora va después del punto), no en el motor; `progresion` quedó `con-hallazgos` por cambiar la huella y necesita una lectura corta del auditor. Candidata sin medir: «un renglón forzado (`salto`) que empieza con `·`, `+`, `−` o `=` solo puede ser el primero de su fórmula».
 
 ## Después de las animaciones (orden acordado)
 - Comparar los exámenes del banco contra su PDF con `auditor-facsimil` (6 de 150 hechos; de 1 a 2 por día).

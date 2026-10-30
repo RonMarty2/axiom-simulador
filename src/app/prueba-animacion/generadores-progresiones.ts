@@ -240,8 +240,10 @@ export function progresionAritmetica(a1: number, d: number, n: number): Resultad
     { id: "Fm", tex: "-", op: true },
     { id: "Fu", tex: "1" },
     { id: "Fr", tex: ")", pegado: true },
-    ...(d < 0 ? [{ id: "Fsd", tex: "", salto: true }] : []),
+    // con d negativa, «(n − 1) · (d)» no cabe en un renglon de celular (343 px): el punto se queda al final de «(n − 1)» y la d baja sola.
+    // El punto nunca abre renglon solo, separado de su primer factor (revisor-visual, 30-oct)
     { id: "Fdt", tex: "\\cdot", op: true },
+    ...(d < 0 ? [{ id: "Fsd", tex: "", salto: true }] : []),
     { id: "Fd", tex: col("d", "d") },
   ];
   empuja({

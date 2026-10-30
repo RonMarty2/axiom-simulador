@@ -904,6 +904,34 @@ export function molaridad(soluto: string, masa: number, volumen: number, rapido 
       });
     }
     // 4) la fraccion se pasa a entero o a decimal
+    if (T % den === 0 && String(T).length >= 4) {
+      // no se divide de un golpe un numero grande: T = cociente·den y el den de arriba se tacha con el de abajo
+      const ha = `${p}ha`;
+      const hx = `${p}hx`;
+      const hb = `${p}hb`;
+      cambiar([`${p}gp`], [{ id: ha, tex: resTxt }, { id: hx, tex: "\\cdot", op: true }, { id: hb, tex: `${den}` }]);
+      paso({
+        fusiones: [{ desde: [`${p}gp`], hacia: [ha, hx, hb] }],
+        brotes: [{ desde: `${g}d`, hacia: hb }],
+        descompone: true,
+        texto: `Abajo hay un $${den}$ y arriba $${T}$ termina en ceros: $${T}=${resTxt}\\cdot ${den}$. Así aparece el $${den}$ también arriba y no hace falta dividir un número grande.`,
+        porque: `Escribir un número como un producto no cambia su valor, y así se puede tachar lo que se repite.`,
+        regla: `$n=a\\cdot g$`,
+      });
+      quitar(hx, hb, `${g}d`);
+      cambiar([g], [{ id: resId, tex: resTxt }]);
+      paso({
+        fusiones: [
+          { desde: [hx, hb, `${g}d`], hacia: null, modo: "tachar" },
+          { desde: [g], hacia: resId, modo: "viajar" },
+        ],
+        brotes: [{ desde: g, hacia: resId }],
+        texto: `Tachamos el $${den}$ de arriba con el $${den}$ de abajo. Queda $${resTxt}$.`,
+        porque: `Un número dividido entre sí mismo vale $1$: por eso se tacha.`,
+        regla: `$\\dfrac{a\\cdot g}{g}=a$`,
+      });
+      return;
+    }
     cambiar([g], [{ id: resId, tex: resTxt }]);
     paso({
       fusiones: [{ desde: [g, `${p}gp`, `${g}d`], hacia: resId }],

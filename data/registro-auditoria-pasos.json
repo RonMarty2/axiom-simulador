@@ -93,9 +93,9 @@
     },
     "molaridad": {
       "estado": "con-hallazgos",
-      "huella": "cde89bd897e5",
+      "huella": "2a3ad0152935",
       "fecha": "2026-10-30",
-      "nota": "30-oct: el auditor encontro pasos x1 (1*25, 1*5, 1*2) al ampliar 1/4, 1/2. Arreglado en el generador (animador): con 1 arriba el 25 o el 5 nace directo y solo se resuelve la cuenta de abajo. Las lecturas del 23-oct (plurales, puntos, REGLA_DIVIDE) siguen valiendo. Falta segunda lectura independiente del arreglo"
+      "nota": "Division exacta de cuenta grande (1400/100, 1470/10) resuelta en el generador: T = cociente·den y se tacha. Medido en 0. Sin segunda lectura del auditor sobre los pasos nuevos; queda el paso de ÷1 con V=1"
     },
     "oxidacion": {
       "estado": "auditado",
@@ -110,10 +110,10 @@
       "nota": "30-oct: el auditor encontro pasos x1 (10*1, 1*10, 9*1). Arreglado en el generador (animador): el numero sube a la fraccion con el 1 tachado, tangente de 45 tacha el 1 y el cruzado de la comprobacion ya no multiplica por el 1 de la tabla. Las lecturas del 23-oct siguen valiendo. Falta segunda lectura independiente del arreglo"
     },
     "progresion": {
-      "estado": "auditado",
-      "huella": "ab620d53a0bf",
-      "fecha": "2026-10-24",
-      "nota": "4a lectura independiente sin saltos (23-oct); pistas a_2..a_4 derivan el n-1, las dos diferencias se resaltan antes de fundirse, n minimo 5, comprobacion de 3 pasos con d a la vista y la regla de signos reusada. Abierto para Ronald: la comprobacion es una identidad (resultado menos d, mas d); sumar un negativo en el ultimo paso con d<0 sin paso aparte; pasos de 1200 px con las pistas."
+      "estado": "con-hallazgos",
+      "huella": "19c08508f7eb",
+      "fecha": "2026-10-30",
+      "nota": "Era auditado (24-oct). Cambio solo de maquetacion en el generador: con d<0 el salto de renglon pasa a DESPUES del punto, asi (30 - 1) · queda junto y (-10) baja solo (pasos 15 y 16, visto en captura 343 px). Textos y pasos iguales. Vuelve a auditado con una lectura del auditor-de-pasos o con el OK de Ronald; lo anterior de la nota sigue vigente"
     },
     "pitagoras": {
       "estado": "auditado",
@@ -128,10 +128,10 @@
       "nota": "3a lectura independiente (26-oct): unico hallazgo grave (codigo crudo en el texto del intercambio de mayuscula) arreglado y vigilado por un test sobre los 9 cruces; marcadores invisibles que reservan las casillas, cruce de los padres y cuadro se recogen, etiqueta dominante/recesivo al lado del conteo, respuesta y comprobacion en dos pasos. Abierto para Ronald: paso mas alto 1188 px; renglones de conteo centrados (bordes desparejos); rayas del cuadro corren 3-4 px entre filas; comprobacion con la suma solo en el texto; decidir si los cierres muestran la probabilidad (3/4) en vez de 'cualquier hijo'."
     },
     "interes": {
-      "estado": "auditado",
-      "huella": "52c669e608d6",
-      "fecha": "2026-10-24",
-      "nota": "3a lectura independiente limpia (23-oct); despues solo cambios tipograficos (comas y ':' pegados, parentesis dentro de la formula, frase sin jerga). Visual: sin desbordes; quedan A (I sola en un renglon con capital de 4 cifras), E (hueco antes de Bs con decimal, pegarUnidades no acepta {,}), F (etiquetas r y t se van juntas) para Ronald."
+      "estado": "con-hallazgos",
+      "huella": "e3c640cd2888",
+      "fecha": "2026-10-30",
+      "nota": "Division de cuenta grande (X/100) resuelta en el generador: I·100 y se tacha el 100. Medido en 0. Sin segunda lectura del auditor sobre los pasos nuevos"
     }
   }
 }
