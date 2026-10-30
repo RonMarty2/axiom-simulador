@@ -67,7 +67,10 @@ const terminosDe = (cs: Record<Clase, number>): Termino[] => {
   return t;
 };
 // k1 sustituir, k3 calcular la potencia (n^2 = n.n ya se enseno al calcular b^2), k4 multiplicar por el coeficiente
-type Etapa = "k1" | "k3" | "k4";
+// Si el producto es de dos cifras por dos cifras (12·11) no se da de golpe: k4s el signo, k4a partir en decenas y
+// unidades, k4b y k4c una parte por paso, k4 la suma.
+type Etapa = "k1" | "k3" | "k4s" | "k4a" | "k4b" | "k4c" | "k4";
+const productoGrande = (A: number, B: number) => Math.max(A, B) >= 11 && Math.min(A, B) >= 6 && (A % 10 !== 0 || B % 10 !== 0);
 interface Etapas {
   ini: string;
   /** valor con el que el termino entra a la suma (el primero lleva su signo; los demas, su magnitud) */
@@ -75,6 +78,33 @@ interface Etapas {
   tex: Partial<Record<Etapa, string>>;
   frase: Partial<Record<Etapa, string>>;
 }
+/** Las etapas de un producto A·B de dos cifras por dos cifras, a lapiz (el signo va por fuera de las partes). */
+function partirProducto(e: Etapas, A: number, B: number, val: number, t: Termino, sNeg: boolean, fin: string): void {
+  const neg = val < 0;
+  const izq = A >= 11 && A % 10 !== 0;
+  const gran = izq ? A : B;
+  const o = izq ? B : A;
+  const u = gran % 10;
+  const T = gran - u;
+  const prod = (x: number) => (izq ? `${x}\\cdot ${o}` : `${o}\\cdot ${x}`);
+  const p1 = T * o;
+  const p2 = u * o;
+  const env = (s: string) => (neg ? (t.lead ? `-\\left(${s}\\right)` : `\\left(-\\left(${s}\\right)\\right)`) : `\\left(${s}\\right)`);
+  if (sNeg) {
+    const solo = `${neg ? "-" : ""}${A}\\cdot ${B}`;
+    e.tex.k4s = t.lead ? solo : neg ? `(${solo})` : solo;
+    e.frase.k4s = `$${t.lead && t.neg ? "-" : ""}${A}\\cdot(-${B})$ da ${neg ? "un resultado negativo" : "un resultado positivo"}, así que multiplicamos $${A}\\cdot ${B}$${neg ? " y al final ponemos el signo menos" : ""}`;
+  }
+  e.tex.k4a = env(`${prod(T)}+${prod(u)}`);
+  e.frase.k4a = `$${A}\\cdot ${B}$ es una cuenta de dos cifras: partimos $${gran}$ en $${T}+${u}$ y multiplicamos cada parte por $${o}$`;
+  e.tex.k4b = env(`${p1}+${prod(u)}`);
+  e.frase.k4b = `la primera parte, $${prod(T)}=${p1}$`;
+  e.tex.k4c = env(`${p1}+${p2}`);
+  e.frase.k4c = `la segunda parte, $${prod(u)}=${p2}$`;
+  e.tex.k4 = fin;
+  e.frase.k4 = `sumamos las dos partes, $${p1}+${p2}=${A * B}$${neg ? `, y con el signo menos queda $${val}$` : ""}`;
+}
+
 function etapasTermino(t: Termino, s: number): Etapas {
   const pre = t.lead && t.neg ? "-" : "";
   const sg = pre ? -1 : 1;
@@ -89,6 +119,7 @@ function etapasTermino(t: Termino, s: number): Etapas {
     if (fin !== k1) {
       e.tex.k4 = fin;
       e.frase.k4 = t.m > 1 ? `$${pre}${t.m}\\cdot ${par(s)}=${val}$` : pre ? `$-${par(s)}=${val}$` : `$(${s})=${s}$`;
+      if (productoGrande(t.m, Math.abs(s))) partirProducto(e, t.m, Math.abs(s), val, t, s < 0, fin);
     }
     return e;
   }
@@ -104,6 +135,7 @@ function etapasTermino(t: Termino, s: number): Etapas {
   if (`${val}` !== k3) {
     e.tex.k4 = `${val}`;
     e.frase.k4 = `$${pre}${t.m}\\cdot ${sq}=${val}$`;
+    if (productoGrande(t.m, sq)) partirProducto(e, t.m, sq, val, t, false, `${val}`);
   }
   return e;
 }
@@ -908,9 +940,13 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
         regla: `$x=${x}$`,
       },
       k3: { texto: (cuenta) => `Calculamos la potencia: ${cuenta}.`, porque: `El exponente $2$ dice que el número se multiplica por sí mismo, como al calcular $b^{2}$. Las potencias se calculan antes que las multiplicaciones por un número.`, regla: `$n^{2}=n\\cdot n$` },
-      k4: { texto: (cuenta) => `Multiplicamos cada número por su valor: ${cuenta}.`, porque: `Primero se hacen las multiplicaciones y después las sumas y restas.`, regla: `$m\\cdot n=p$` },
+      k4: { texto: (cuenta) => (cuenta.startsWith("sumamos las dos partes") ? `Terminamos el producto: ${cuenta}.` : `Multiplicamos cada número por su valor: ${cuenta}.`), porque: `Primero se hacen las multiplicaciones y después las sumas y restas.`, regla: `$m\\cdot n=p$` },
+      k4s: { texto: (cuenta) => `Primero el signo: ${cuenta}.`, porque: `Un positivo por un negativo da negativo, y un negativo por un negativo da positivo.`, regla: `$(\\pm m)\\cdot(\\pm n)=\\pm(m\\cdot n)$` },
+      k4a: { texto: (cuenta) => `Una cuenta con números de dos cifras: ${cuenta}.`, porque: `Multiplicar una suma por un número es multiplicar cada parte y sumar los resultados.`, regla: `$(a+b)\\cdot c=a\\cdot c+b\\cdot c$` },
+      k4b: { texto: (cuenta) => `Una operación por vez: ${cuenta}.`, porque: `Primero la parte de las decenas.`, regla: `$m\\cdot n=p$` },
+      k4c: { texto: (cuenta) => `Seguimos con ${cuenta}.`, porque: `Ahora la parte de las unidades.`, regla: `$m\\cdot n=p$` },
     };
-    for (const kn of ["k1", "k3", "k4"] as Etapa[]) {
+    for (const kn of ["k1", "k3", "k4s", "k4a", "k4b", "k4c", "k4"] as Etapa[]) {
       const fusiones: Fusion[] = [];
       const brotes: Brote[] = [];
       const frases: string[] = [];
@@ -934,6 +970,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
       trans.push({
         fusiones,
         brotes: brotes.length > 0 ? brotes : undefined,
+        descompone: kn === "k4a" ? true : undefined,
         texto: e.texto(frases.join(", ")),
         porque: e.porque,
         regla: e.regla,

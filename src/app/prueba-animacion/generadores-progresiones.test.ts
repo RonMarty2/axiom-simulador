@@ -144,7 +144,10 @@ describe("progresion aritmetica", () => {
       const iResp = t.findIndex((x) => x.texto.startsWith("Respuesta"));
       const iRev = t.findIndex((x) => x.texto.startsWith("Revisamos"));
       const iRest = t.findIndex((x) => x.texto.startsWith("Restamos"));
-      assert.ok(iResp > iSuma && iResp < iRev && iRev < iRest && t[t.length - 1].texto.startsWith("Y al revés"), "los ultimos pasos son la respuesta y la comprobacion");
+      // la comprobacion es INDEPENDIENTE: el termino anterior por la formula general desde a1, no por an - d + d
+      const iOtro = t.findIndex((x) => x.texto.startsWith("Ahora calculamos ese mismo término por otro camino"));
+      assert.ok(iResp > iSuma && iResp < iRev && iRev < iRest && iRest < iOtro && t[t.length - 1].texto.startsWith("Los dos caminos dan el mismo término"), "los ultimos pasos son la respuesta y la comprobacion");
+      assert.ok(t[t.length - 1].texto.includes(`$${a1 + (n - 2) * d}$`), "el termino anterior sale igual por los dos caminos");
       assert.ok(t[iResp].texto.includes(`$${a1 + (n - 1) * d}$`));
       assert.equal(t.some((x) => x.texto.startsWith("Restar un número negativo es sumar su opuesto: $") && x.regla === "$a-(-b)=a+b$" && iRev < t.indexOf(x)), d < 0, "con d negativa, la resta de la comprobacion pasa por la suma");
     }

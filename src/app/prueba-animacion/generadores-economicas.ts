@@ -16,6 +16,7 @@
 // La animacion no calcula: cada numero que se escribe sale de una cuenta hecha aqui y comprobada en el test.
 import { aplanar, frPiezas, pegarUnidades, sustituir, type Brote, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
+import { productoALapiz, productoGrande, type AplicarPaso } from "./lapiz.ts";
 
 // ---------------------------------------------------------------------------
 // Utilidades
@@ -813,38 +814,127 @@ export function interesSimple(C: number, r: number, t: number, unidad: UnidadTie
     regla: `$m\\ u+n\\ u=(m+n)\\ u$`,
   });
 
-  // ---- 8. comprobar el monto: M - C tiene que dar el interes
+  // ---- 8. comprobar el INTERES por otro camino (M - C = I seria circular: devuelve el I que acabamos de usar).
+  // Se calcula cuanto gana el capital en UN año (C·r/100) y se compara con el interes proporcional al tiempo:
+  // I·td tiene que dar lo mismo que (interes de un año)·tn.
+  const aLapiz = (p: AplicarPaso) => {
+    h.cambiar(p.desde, [{ id: p.nuevoId, tex: p.tex }]);
+    h.paso({ fusiones: [{ desde: p.desde, hacia: p.nuevoId }], descompone: p.descompone, texto: p.texto, porque: p.porque, regla: p.regla });
+  };
   h.agregar([
-    { id: "MS", tex: "", salto: true },
-    { id: "Mk1", tex: nf(M) },
-    { id: "Mkm", tex: "-", op: true },
-    { id: "Mk2", tex: nf(C) },
+    { id: "Ks", tex: "", salto: true },
+    { id: "Kl", tex: "I_{1}" },
+    { id: "Ke", tex: "=", op: true },
+    frPiezas("Kf", r === 1 ? [{ id: "Kc", tex: nf(C) }] : [{ id: "Kc", tex: nf(C) }, { id: "Kx", tex: "\\cdot", op: true }, { id: "Kr", tex: nf(r) }], [{ id: "Kd", tex: "100" }]),
   ]);
   h.paso({
     fusiones: [],
     brotes: [
-      { desde: "Mres", hacia: "MS" },
-      { desde: "Mres", hacia: "Mk1" },
-      { desde: "Dc", hacia: "Mk2" },
+      { desde: "Mres", hacia: "Ks" },
+      { desde: "Mres", hacia: "Kl" },
+      { desde: "Mres", hacia: "Kf" },
+      { desde: "Dc", hacia: "Kc" },
+      ...(r === 1 ? [] : [{ desde: "Drf", hacia: "Kr" }]),
+      { desde: "Drf", hacia: "Kd" },
     ],
-    texto: `Comprobamos el monto: si al monto le quitamos el capital, tiene que quedar el interés. Copiamos $${nf(M)}$ y el capital $${nf(C)}$.`,
-    porque: `El monto es el capital más el interés: al restar el capital queda el interés.`,
-    regla: `$M-C=I$`,
+    texto: `Comprobamos el interés por otro camino. Primero calculamos cuánto gana el capital en un solo año, $I_{1}=\\dfrac{C\\cdot r}{100}$, con los datos del enunciado: ${r === 1 ? `$\\dfrac{${nf(C)}}{100}$ (multiplicar por $1$ no cambia el capital)` : `$\\dfrac{${nf(C)}\\cdot ${nf(r)}}{100}$`}.`,
+    porque: `Restar el capital al monto no sirve de comprobación: devuelve el mismo interés que usamos. En cambio, el interés de un año se calcula aparte, y después se compara con el del tiempo completo.`,
+    regla: `$I_{1}=C\\cdot r$`,
   });
-  h.cambiar(["Mk1", "Mkm", "Mk2"], [{ id: "Mkr", tex: nf(I) }]);
+  const X1c = C * r;
+  const idNum = r === 1 ? "Kc" : "Kn";
+  if (r === 1) {
+    // multiplicar por 1 no cambia nada: el numerador ya es el capital
+  } else if (productoGrande(C, r)) {
+    productoALapiz(C, r, ["Kc", "Kx", "Kr"], "Kn", nf, aLapiz);
+  } else {
+    h.cambiar(["Kc", "Kx", "Kr"], [{ id: "Kn", tex: nf(X1c) }]);
+    h.paso({
+      fusiones: [{ desde: ["Kc", "Kx", "Kr"], hacia: "Kn" }],
+      texto: `Multiplicamos arriba: $${nf(C)}\\cdot ${nf(r)}=${nf(X1c)}$.`,
+      porque: PORQUE_CALCULO,
+      regla: REGLA_PRODUCTO,
+    });
+  }
+  if (X1c % 100 === 0) {
+    // no se divide de un golpe un numero grande: X1c = q1·100 y el 100 de arriba se tacha con el de abajo
+    h.cambiar([idNum], [{ id: "Ka", tex: nf(q1) }, { id: "Kz", tex: "\\cdot", op: true }, { id: "Kb", tex: "100" }]);
+    h.paso({
+      fusiones: [{ desde: [idNum], hacia: ["Ka", "Kz", "Kb"] }],
+      brotes: [{ desde: "Kd", hacia: "Kb" }],
+      descompone: true,
+      texto: `Abajo hay un $100$ y arriba $${nf(X1c)}$ termina en ceros: $${nf(X1c)}=${nf(q1)}\\cdot 100$. Así aparece el $100$ también arriba y no hace falta dividir un número grande.`,
+      porque: `Escribir un número como un producto no cambia su valor, y así se puede tachar lo que se repite.`,
+      regla: `$n=a\\cdot g$`,
+    });
+    h.quitar("Kz", "Kb", "Kd");
+    h.cambiar(["Kf"], [{ id: "Kq", tex: nf(q1) }]);
+    h.paso({
+      fusiones: [
+        { desde: ["Kz", "Kb", "Kd"], hacia: null, modo: "tachar" },
+        { desde: ["Kf"], hacia: "Kq", modo: "viajar" },
+      ],
+      brotes: [{ desde: "Kf", hacia: "Kq" }],
+      texto: `Tachamos el $100$ de arriba con el $100$ de abajo. Queda $${nf(q1)}$: en un año el capital gana $${nf(q1)}\\ \\text{Bs}$.`,
+      porque: `Un número dividido entre sí mismo vale $1$: por eso se tacha.`,
+      regla: `$\\dfrac{a\\cdot g}{g}=a$`,
+    });
+  } else {
+    // el interes de un año tiene centavos: dividir entre 100 es correr la coma dos lugares (se mueve la misma pieza)
+    h.cambiar(["Kf"], [{ id: "Kq", tex: nf(q1) }]);
+    h.paso({
+      fusiones: [{ desde: ["Kf"], hacia: "Kq", modo: "viajar" }],
+      brotes: [{ desde: "Kf", hacia: "Kq" }],
+      texto: `Dividimos entre $100$: el $${nf(X1c)}$ corre su coma dos lugares hacia la izquierda y queda $${nf(q1)}$. En un año el capital gana $${nf(q1)}\\ \\text{Bs}$.`,
+      porque: `Dividir entre $100$ corre la coma dos lugares hacia la izquierda: es lo mismo que tomar cada $100$ centésimas como un entero.`,
+      regla: `$\\dfrac{a}{100}=a\\ \\text{con la coma dos lugares a la izquierda}$`,
+    });
+  }
+  // el tiempo: (interes de un año)·tn tiene que ser igual a I·td; el factor 1 no se escribe
+  // la pieza del tiempo (en años) que sigue a la vista: de ahi nacen tn y td
+  const origen = (...ids: string[]) => ids.find((id) => aplanar(h.fichas).some((f) => f.id === id)) ?? "Dra";
+  const L = r2(q1 * tn);
+  const Rr = r2(I * td);
+  const izqF: Ficha[] = tn === 1 ? [{ id: "Wq", tex: nf(q1) }] : [{ id: "Wq", tex: nf(q1) }, { id: "Wx", tex: "\\cdot", op: true }, { id: "Wt", tex: nf(tn) }];
+  const derF: Ficha[] = td === 1 ? [{ id: "Wi", tex: nf(I) }] : [{ id: "Wi", tex: nf(I) }, { id: "Wy", tex: "\\cdot", op: true }, { id: "Wd", tex: nf(td) }];
+  h.agregar([{ id: "Ws", tex: "", salto: true }, ...izqF, { id: "We", tex: "=", op: true }, ...derF]);
   h.paso({
-    fusiones: [{ desde: ["Mk1", "Mkm", "Mk2"], hacia: "Mkr" }],
-    texto: `Restamos: $${nf(M)}-${nf(C)}=${nf(I)}$.`,
-    porque: `Es lo que ganó el dinero.`,
-    regla: `$a-b=c$`,
+    fusiones: [],
+    brotes: [
+      { desde: "Kq", hacia: "Ws" },
+      { desde: "Kq", hacia: "Wq" },
+      ...(tn === 1 ? [] : [{ desde: origen("Tna", "Tv", "Dt", "Tfn"), hacia: "Wt" }]),
+      { desde: "Ires", hacia: "Wi" },
+      ...(td === 1 ? [] : [{ desde: origen("Tda", "Tfd"), hacia: "Wd" }]),
+    ],
+    texto: td === 1
+      ? `Ahora el tiempo: son $${tn}$ ${anios(tn)}, y cada año gana lo mismo. Entonces el interés de un año por $${tn}$ tiene que dar el interés que calculamos: $${nf(q1)}${tn === 1 ? "" : `\\cdot ${tn}`}=${nf(I)}$.`
+      : `Ahora el tiempo: son $\\dfrac{${tn}}{${td}}$ de año. El interés de un año por $${tn}$, dividido entre $${td}$, tiene que dar $I$. Para no dividir, comparamos $${nf(q1)}${tn === 1 ? "" : `\\cdot ${tn}`}$ con $${nf(I)}\\cdot ${td}$: tienen que ser iguales.`,
+    porque: `El interés simple es proporcional al tiempo: en el doble de tiempo se gana el doble. Si el interés que calculamos está bien, los dos lados coinciden.`,
+    regla: `$I=I_{1}\\cdot t$`,
   });
+  const lado = (ids: string[], a: number, b: number, id: string, valor: number) => {
+    if (ids.length === 1) return;
+    if (productoGrande(a, b)) productoALapiz(a, b, ids, id, nf, aLapiz);
+    else {
+      h.cambiar(ids, [{ id, tex: nf(valor) }]);
+      h.paso({
+        fusiones: [{ desde: ids, hacia: id }],
+        texto: `Multiplicamos: $${nf(a)}\\cdot ${nf(b)}=${nf(valor)}$.`,
+        porque: PORQUE_CALCULO,
+        regla: REGLA_PRODUCTO,
+      });
+    }
+  };
+  lado(izqF.map((f) => f.id), q1, tn, "Wl", L);
+  lado(derF.map((f) => f.id), I, td, "Wr", Rr);
   h.agregar([{ id: "Mok", tex: CHECK }]);
   h.paso({
     fusiones: [],
-    brotes: [{ desde: "Mkr", hacia: "Mok" }],
-    resaltar: ["Ires", "Mkr"],
-    texto: `Da $${nf(I)}$, el mismo interés. Respuesta: el interés es $I=${nf(I)}\\ \\text{Bs}$ y el monto es $M=${nf(M)}\\ \\text{Bs}$.`,
-    porque: `El monto menos el capital da el interés: los dos resultados se corresponden.`,
+    brotes: [{ desde: "We", hacia: "Mok" }],
+    resaltar: ["Ires", tn === 1 ? "Wq" : "Wl"],
+    texto: `Los dos lados dan $${nf(L)}$: el interés está bien. Respuesta: el interés es $I=${nf(I)}\\ \\text{Bs}$ y el monto es $M=${nf(M)}\\ \\text{Bs}$.`,
+    porque: `El interés de un año, llevado al tiempo del enunciado, coincide con el que calculamos: los dos caminos se corresponden.`,
     regla: `$M=C+I$`,
   });
 

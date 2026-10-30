@@ -12,6 +12,7 @@
 // La animacion no calcula: cada numero que se escribe sale de una cuenta hecha aqui y comprobada en el test.
 import { aplanar, frPiezas, sustituir, type Brote, type Ficha, type Fusion, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
+import { productoALapiz, productoGrande, type AplicarPaso } from "./lapiz.ts";
 
 // ---------------------------------------------------------------------------
 // Utilidades comunes
@@ -1419,17 +1420,25 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     porque: `Son dos cuentas independientes, así que van a la vez.`,
     regla: `$n^{2}=n\\cdot n$`,
   });
-  h.cambiar(["Z1"], [{ id: "Z1r", tex: nf(vf2) }]);
-  h.cambiar(["Z2"], [{ id: "Z2r", tex: nf(v02) }]);
-  h.paso({
-    fusiones: [
-      { desde: ["Z1"], hacia: "Z1r" },
-      { desde: ["Z2"], hacia: "Z2r" },
-    ],
-    texto: `Multiplicamos: $${nf(vf)}\\cdot ${nf(vf)}=${nf(vf2)}$ y $${nf(v0)}\\cdot ${nf(v0)}=${nf(v02)}$.`,
-    porque: `Son dos cuentas independientes, así que van a la vez.`,
-    regla: `$m\\cdot n=p$`,
-  });
+  // los cuadrados de dos cifras van "a lapiz", uno por uno; los chicos se multiplican juntos
+  const aLapiz = (p: AplicarPaso) => {
+    h.cambiar(p.desde, [{ id: p.nuevoId, tex: p.tex }]);
+    h.paso({ fusiones: [{ desde: p.desde, hacia: p.nuevoId }], descompone: p.descompone, texto: p.texto, porque: p.porque, regla: p.regla });
+  };
+  const chicos: [string, string, number, number][] = [];
+  for (const [z, base, cuadrado] of [["Z1", vf, vf2], ["Z2", v0, v02]] as const) {
+    if (productoGrande(base, base)) productoALapiz(base, base, [z], `${z}r`, nf, aLapiz);
+    else chicos.push([z, `${z}r`, base, cuadrado]);
+  }
+  if (chicos.length) {
+    for (const [z, zr, , cuadrado] of chicos) h.cambiar([z], [{ id: zr, tex: nf(cuadrado) }]);
+    h.paso({
+      fusiones: chicos.map(([z, zr]) => ({ desde: [z], hacia: zr })),
+      texto: `Multiplicamos: ${chicos.map(([, , base, cuadrado]) => `$${nf(base)}\\cdot ${nf(base)}=${nf(cuadrado)}$`).join(" y ")}.${chicos.length > 1 ? " Son dos cuentas independientes, así que van a la vez." : ""}`,
+      porque: chicos.length > 1 ? `Son dos cuentas independientes, así que van a la vez.` : `Los dos factores son el mismo número, así que el resultado es su cuadrado.`,
+      regla: `$m\\cdot n=p$`,
+    });
+  }
   let primero = "Z3"; // la pieza que queda a la izquierda del segundo producto
   if (a === 1) {
     // multiplicar por 1 no cambia nada: se tacha el 1 con su punto y no hay cuenta propia
@@ -1831,17 +1840,26 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
     porque: `En una igualdad de fracciones, el de arriba de una por el de abajo de la otra dan lo mismo.`,
     regla: `$\\dfrac{a}{b}=\\dfrac{c}{d}\\ \\iff\\ a\\cdot d=c\\cdot b$`,
   });
-  h.cambiar(["C1", "Cm1", "C2"], [{ id: "CP1", tex: nf(P1) }]);
-  h.cambiar(["C3", "Cm2", "C4"], [{ id: "CP2", tex: nf(P2) }]);
-  h.paso({
-    fusiones: [
-      { desde: ["C1", "Cm1", "C2"], hacia: "CP1" },
-      { desde: ["C3", "Cm2", "C4"], hacia: "CP2" },
-    ],
-    texto: `Multiplicamos cada lado: $${nf(V1)}\\cdot ${nf(T2)}=${nf(P1)}$ y $${nf(V2)}\\cdot ${nf(T1)}=${nf(P2)}$. Son dos cuentas independientes, así que van a la vez.`,
-    porque: `Primero se multiplica en cada lado; después se comparan.`,
-    regla: `$m\\cdot n=p$`,
-  });
+  // los productos de dos cifras por dos cifras van "a lapiz", uno por uno; los chicos se multiplican juntos
+  const aLapizC = (p: AplicarPaso) => {
+    h.cambiar(p.desde, [{ id: p.nuevoId, tex: p.tex }]);
+    h.paso({ fusiones: [{ desde: p.desde, hacia: p.nuevoId }], descompone: p.descompone, texto: p.texto, porque: p.porque, regla: p.regla });
+  };
+  const ladosC: { desde: string[]; id: string; a: number; b: number; prod: number }[] = [
+    { desde: ["C1", "Cm1", "C2"], id: "CP1", a: V1, b: T2, prod: P1 },
+    { desde: ["C3", "Cm2", "C4"], id: "CP2", a: V2, b: T1, prod: P2 },
+  ];
+  const chicosC = ladosC.filter((l) => !productoGrande(l.a, l.b));
+  for (const l of ladosC) if (productoGrande(l.a, l.b)) productoALapiz(l.a, l.b, l.desde, l.id, nf, aLapizC);
+  if (chicosC.length) {
+    for (const l of chicosC) h.cambiar(l.desde, [{ id: l.id, tex: nf(l.prod) }]);
+    h.paso({
+      fusiones: chicosC.map((l) => ({ desde: l.desde, hacia: l.id })),
+      texto: `Multiplicamos ${chicosC.length > 1 ? "cada lado" : "el otro lado"}: ${chicosC.map((l) => `$${nf(l.a)}\\cdot ${nf(l.b)}=${nf(l.prod)}$`).join(" y ")}.${chicosC.length > 1 ? " Son dos cuentas independientes, así que van a la vez." : ""}`,
+      porque: `Primero se multiplica en cada lado; después se comparan.`,
+      regla: `$m\\cdot n=p$`,
+    });
+  }
   h.agregar([{ id: "Cok", tex: CHECK }]);
   h.paso({
     fusiones: [],

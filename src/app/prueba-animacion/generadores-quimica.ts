@@ -14,6 +14,7 @@
 import { frPiezas, sustituir, aplanar, type Ficha, type Transicion, type Brote } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
 import { NOMBRE_ELEMENTO } from "./elementos.ts";
+import { productoALapiz, productoGrande } from "./lapiz.ts";
 
 // ---------------------------------------------------------------------------
 // Tablas. Masas atomicas redondeadas a enteros, como en el colegio y en el banco (UMSS usa C=12, H=1, O=16).
@@ -657,6 +658,16 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
     for (let i = 1; i < vals.length; i++) {
       const nid = i === vals.length - 1 && ultimoId ? ultimoId : `${pref}p${i}`;
       const prod = acum * vals[i];
+      if (productoGrande(acum, vals[i])) {
+        // dos cifras por dos cifras: a lapiz, una parte por paso
+        productoALapiz(acum, vals[i], [actual, `${pref}d${i}`, `${pref}${i}`], nid, (x) => String(x), (p) => {
+          cambiar(p.desde, [{ id: p.nuevoId, tex: p.tex }]);
+          paso({ fusiones: [{ desde: p.desde, hacia: p.nuevoId }], descompone: p.descompone, texto: p.texto, porque: p.porque, regla: p.regla });
+        });
+        acum = prod;
+        actual = nid;
+        continue;
+      }
       cambiar([actual, `${pref}d${i}`, `${pref}${i}`], [{ id: nid, tex: `${prod}` }]);
       paso({
         fusiones: [{ desde: [actual, `${pref}d${i}`, `${pref}${i}`], hacia: nid }],
@@ -681,6 +692,10 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
   const j = arribaIds.length > 1 && Dd > 1 ? vArriba.findIndex((v) => v === Dd) : -1;
   if (j >= 0) {
     const restoIdx = arribaIds.map((_, i) => i).filter((i) => i !== j);
+    // cuando arriba hay mas de un numero igual, el texto dice cual de ellos se tacha y de donde sale cada uno
+    const rolArriba = (id: string) =>
+      id === "cm" ? `el dato, ${masa} g de ${SUSTANCIAS[A]}` : id === "F3n" && rel.tipo === "reaccion" ? `la masa molar de ${SUSTANCIAS[rel.pedido]}` : `el número del factor ${id.replace(/\D/g, "")}`;
+    const otrosIguales = arribaIds.filter((id, i) => i !== j && vArriba[i] === Dd);
     const dotCancelada = j > 0 ? `Tnd${j}` : "Tnd1";
     const dotsRestantes = Array.from({ length: arribaIds.length - 1 }, (_, i) => `Tnd${i + 1}`).filter((id) => id !== dotCancelada);
     const piezasViejas = restoIdx.map((i) => `Tn${i}`);
@@ -697,7 +712,7 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
         { desde: ["FT", ...piezasViejas, ...dotsRestantes], hacia: fichas.map((f) => f.id), modo: "viajar" },
       ],
       brotes: brotesViaje,
-      texto: `Arriba hay un $${Dd}$ y abajo quedó $${Dd}$: se tachan, porque un número dividido entre sí mismo da $1$. ${restoIdx.length === 1 ? `La fracción se queda sin nada abajo y arriba queda solo $${res}$.` : `La fracción se queda sin nada abajo: lo que sobra arriba se multiplica.`}`,
+      texto: `Arriba hay un $${Dd}$ (${rolArriba(arribaIds[j])}) y abajo quedó $${Dd}$ (${abajoIds.length === 1 && abajoIds[0] === "F1d" ? `la masa molar de ${SUSTANCIAS[A]}` : "lo que quedó de multiplicar lo de abajo"}): se tachan esos dos, porque un número dividido entre sí mismo da $1$.${otrosIguales.length > 0 ? ` Ojo: arriba hay otro $${Dd}$ (${otrosIguales.map(rolArriba).join(" y ")}); ese no se toca, se queda para multiplicar.` : ""} ${restoIdx.length === 1 ? `La fracción se queda sin nada abajo y arriba queda solo $${res}$.` : `La fracción se queda sin nada abajo: lo que sobra arriba se multiplica.`}`,
       porque: `Simplificar antes evita multiplicar números grandes para después dividirlos.`,
       regla: `$\\dfrac{a\\cdot b}{a}=b$`,
     });

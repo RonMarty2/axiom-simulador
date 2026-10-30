@@ -82,8 +82,8 @@ describe("interes simple: toda combinacion permitida", () => {
             const e = ultimo(res.demo);
             assert.ok(e.some((f) => f.id === "Ires" && f.tex === nf(res.resumen.I)), `${etq}: falta el interes en la hoja`);
             assert.ok(e.some((f) => f.id === "Mres" && f.tex === nf(res.resumen.M)), `${etq}: falta el monto en la hoja`);
-            // la comprobacion (monto menos capital) da lo mismo que el interes
-            assert.ok(e.some((f) => f.id === "Mkr" && f.tex === nf(res.resumen.I)), `${etq}: M - C no da el interes`);
+            // la comprobacion es independiente: el interes de un año (C·r/100) llevado al tiempo coincide con el interes
+            assert.ok(e.some((f) => f.id === "Kq" && f.tex === nf(res.resumen.q1)), `${etq}: falta el interes de un año (comprobacion independiente)`);
             casos++;
           }
         }
@@ -111,7 +111,8 @@ describe("interes simple: ejemplos", () => {
     const todo = d.transiciones.map((t) => t.texto).join(" ");
     for (const frag of ["2000\\cdot 5=10000", "10000\\cdot 3=30000", "30000=15000\\cdot 2", "15000=150\\cdot 100","2000+150=2150"]) assert.ok(todo.includes(frag), `falta ${frag}`);
     // comprobacion: el monto menos el capital da el interes
-    assert.ok(todo.includes("2150-2000=150"), "falta 2150-2000=150");
+    assert.ok(todo.includes("100\\cdot 3") && todo.includes("150\\cdot 2"), "falta comparar el interes de un año por 3 con 150 por 2");
+    assert.ok(!todo.includes("2150-2000=150"), "M - C es circular: no es comprobacion");
   });
 
   test("tiempo en años: no hay conversion de unidades y 2000 Bs al 5 % por 3 años da 300", () => {

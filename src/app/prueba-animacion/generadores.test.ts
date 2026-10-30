@@ -93,8 +93,14 @@ describe("animaciones de fusion", () => {
 
   test("raiz numerica: 64 = 2·2·2·2·2·2 = 2^6 antes de usar el exponente", () => {
     const d = raizGeneral(2, 6, 3).demo;
-    assert.ok(d.estados[1][0].tex.includes("2\\cdot 2\\cdot 2\\cdot 2\\cdot 2\\cdot 2") || d.estados[1][0].tex.includes("\\cdots"), "faltan los factores");
-    assert.equal(d.estados[2][0].tex, "\\sqrt[3]{2^{6}}");
+    const iRf = d.estados.findIndex((e) => e[0].id === "rf");
+    assert.ok(d.estados[iRf][0].tex.includes("2\\cdot 2\\cdot 2\\cdot 2\\cdot 2\\cdot 2") || d.estados[iRf][0].tex.includes("\\cdots"), "faltan los factores");
+    assert.equal(d.estados[iRf + 1][0].tex, "\\sqrt[3]{2^{6}}");
+    // antes de los factores se ven las divisiones sucesivas entre la base (64 / 2 = 32 ... hasta 1)
+    const conDiv = d.estados[iRf - 1].map((f) => f.tex).join(" ");
+    assert.ok(conDiv.includes("\\dfrac{64}{2}=32") && conDiv.includes("=1"), "faltan las divisiones sucesivas");
+    // antes del exponente 1/n se dice que significa una raiz
+    assert.ok(d.transiciones.some((t) => t.texto.includes("qué es una raíz") && t.fusiones.length === 0), "falta el significado de la raiz");
   });
 
   test("raiz: indice, base y exponente son fichas separadas; el indice viaja al denominador", () => {

@@ -9,27 +9,27 @@
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "847ff5a1e845",
+      "huella": "896dbb527b0d",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: T2-T4 hablan de 'la formula' y de a^2-b^2 antes de presentarlas (se muestra en T7)"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "fracciones": {
-      "estado": "auditado",
-      "huella": "ee301a705aca",
+      "estado": "con-hallazgos",
+      "huella": "98f4ec48ce83",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: leidos todos los casos, sin saltos que el codigo no mida"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
-      "huella": "7feb400c42de",
+      "huella": "192252b5cad0",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: comprobacion (T11) invoca 'propiedad del producto' que nunca se ensena"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "logaritmos-propiedad": {
       "estado": "con-hallazgos",
-      "huella": "c8e2985c064c",
+      "huella": "e152ca8274c9",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: comprobacion circular (T9 usa la propiedad del producto recien aplicada; no calcula cada log por separado)"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "potencia": {
       "estado": "auditado",
@@ -39,45 +39,45 @@
     },
     "raiz": {
       "estado": "con-hallazgos",
-      "huella": "999a75386c2d",
+      "huella": "072d406efcda",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: T1 factoriza 16/32/729 en factores iguales sin proceso (729=3^6 no se sigue a lapiz); raiz->exponente 1/n se aplica sin enunciar que es una raiz"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "5f54d5320845",
+      "huella": "efe245de16d5",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: caso indice 3, la lista muestra 64=4*4*4 y T7 escribe 64=2^6 sin avisar; 729/64 factorizados sin proceso; raiz->exponente sin significado"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "cuadratica": {
       "estado": "con-hallazgos",
       "huella": "e9ee8235658a",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: resolucion limpia (definir, reemplazar de a una, comprobacion contra el enunciado). Falta: en la comprobacion de x=11 (b de dos cifras) 11^2=121 y 12*11=132 van de un golpe, sin decenas y unidades como en el discriminante"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "mruv": {
       "estado": "con-hallazgos",
-      "huella": "1fc110013eeb",
+      "huella": "246543e47289",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: resolucion y verificacion con otra formula, limpias. Falta: en la verificacion, 125*125=15625 y 25*25=625 (quintuplica) y 4,5*4,5=20,25 y 1,5*1,5=2,25 (a no entera) van de un golpe sin productos parciales"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "charles": {
       "estado": "con-hallazgos",
-      "huella": "22290b2feca7",
+      "huella": "8d3fc8cbf2a3",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: pasos y unidades limpios. Falta menor: en la comprobacion cruzada 25*240=6000 (bajo cero) y 15*150=2250 (enfria) de un golpe, sin partir 25*24 ni 15*15 y despues el cero"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "moles-atomos": {
-      "estado": "auditado",
+      "estado": "con-hallazgos",
       "huella": "8e2086580272",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: cierre por unidades alcanza (el 1/6 mol intermedio queda dentro de la fraccion unica de T20, se sigue a lapiz); conteo coef x subindice claro"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "estequiometria": {
       "estado": "con-hallazgos",
-      "huella": "98f1a349011a",
+      "huella": "6f3fe4556a7c",
       "fecha": "2026-10-30",
-      "nota": "propano T30: 'arriba hay un 44' pero arriba hay dos 44 (dato y masa molar del CO2) y no dice cual se tacha; cierre solo por unidades (conservacion de masa no, no es grave)"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "dinamica": {
       "estado": "auditado",
@@ -92,10 +92,10 @@
       "nota": "lectura final 30-oct: t=9,8,6 leidos; t antes de x, h=1/2gt2 explicada, raiz con pruebas escritas, comprobacion de h con valor. Observacion no bloqueante: la comprobacion revisa t (h=405) y no x=450"
     },
     "molaridad": {
-      "estado": "auditado",
-      "huella": "2a3ad0152935",
+      "estado": "con-hallazgos",
+      "huella": "a8a9b0ad7f34",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: comprobacion real al reves (n=M*V, m=n*PM) en todos los casos; decimales y fracciones avisados"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "oxidacion": {
       "estado": "auditado",
@@ -111,15 +111,15 @@
     },
     "progresion": {
       "estado": "con-hallazgos",
-      "huella": "19c08508f7eb",
+      "huella": "bf07361628d9",
       "fecha": "2026-10-30",
-      "nota": "comprobacion circular en todos los casos: a(n)-d y luego +d vuelve al mismo numero; no valida contra a(n-1) calculado por la formula o la lista; el porque dice 'si no diera lo mismo habria un error' y es falso"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "pitagoras": {
       "estado": "con-hallazgos",
-      "huella": "d2b1f952c140",
+      "huella": "553324fe870f",
       "fecha": "2026-10-30",
-      "nota": "lectura final 30-oct: c y cateto limpios en definicion, orden y comprobacion. Falta: cuadrados de dos cifras de un golpe (13*13, 33*33=1089, 56*56=3136, 65*65, 28*28, 94*94, 96*96=9216) sin productos parciales, en el calculo y en la comprobacion; inconsistente con cuadratica que parte en decenas y unidades"
+      "nota": "arreglado 30-oct, falta lectura"
     },
     "punnett": {
       "estado": "auditado",
@@ -129,9 +129,9 @@
     },
     "interes": {
       "estado": "con-hallazgos",
-      "huella": "e3c640cd2888",
+      "huella": "0637b8440afc",
       "fecha": "2026-10-30",
-      "nota": "comprobacion circular en todos los casos: M=C+I y luego M-C=I; no valida I=C*r*t (por ejemplo contra C*r por un ano o contra el tiempo en meses)"
+      "nota": "arreglado 30-oct, falta lectura"
     }
   }
 }

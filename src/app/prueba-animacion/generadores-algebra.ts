@@ -13,6 +13,80 @@ const fracTex = (n: number, d: number) => `${n < 0 ? "-" : ""}\\dfrac{${Math.abs
 /** termino con signo: +5 o -5 */
 const conSigno = (n: number) => (n < 0 ? `-${-n}` : `+${n}`);
 
+/** cifras significativas (sin ceros finales): 10 o 40 cuentan 1, 12 o 24 cuentan 2 */
+const cifrasSig = (n: number) => `${Math.abs(n)}`.replace(/0+$/, "").length;
+
+export type PasoLapiz = { num: string; texto: string; porque: string; regla?: string; descompone?: boolean };
+
+/**
+ * Producto «a lapiz» m·D cuando los dos tienen dos cifras o mas (31·24): no se da de un golpe. Se parte el numero con menos
+ * cifras distintas de cero en decenas y unidades (31 = 30 + 1), se hace una cuenta por paso y se suman. Cada paso trae el LaTeX
+ * de lo que queda escrito (`num`). Devuelve null si el producto es chico y se puede hacer directo. Mismo modelo que `lapiz`
+ * de generadores-cuadratica.ts (que vive dentro de su generador y no se puede importar).
+ */
+export function productoLapiz(m: number, D: number, intro = ""): PasoLapiz[] | null {
+  if (cifrasSig(m) < 2 || cifrasSig(D) < 2) return null;
+  const L = Math.abs(m);
+  const neg = m < 0;
+  const partes = (x: number) => `${x}`.split("").map((c, i, a) => Number(c) * 10 ** (a.length - 1 - i)).filter((v) => v > 0);
+  const pm = partes(L);
+  const pd = partes(D);
+  const partirM = pm.length <= pd.length;
+  const ps = partirM ? pm : pd;
+  const X = partirM ? L : D;
+  const otro = partirM ? D : L;
+  const prod = (a: number) => (partirM ? `${a}\\cdot ${otro}` : `${otro}\\cdot ${a}`);
+  const vals = ps.map((a) => a * otro);
+  const pre = neg ? "-\\left(" : "";
+  const pos = neg ? "\\right)" : "";
+  const total = L * D;
+  const pasos: PasoLapiz[] = [];
+  let primero = true;
+  const nuevo = (p: PasoLapiz) => {
+    pasos.push(primero ? { ...p, texto: `${intro}${p.texto}` } : p);
+    primero = false;
+  };
+  if (neg) {
+    nuevo({
+      num: `-${L}\\cdot ${D}`,
+      texto: `Primero el signo: $(${m})\\cdot ${D}$ da un resultado negativo, así que multiplicamos $${L}\\cdot ${D}$ y al final ponemos el signo menos.`,
+      porque: `Un negativo por un positivo da negativo.`,
+      regla: `$\\text{negativo}\\cdot\\text{positivo}=\\text{negativo}$`,
+      descompone: true,
+    });
+  }
+  nuevo({
+    num: `${pre}${ps.map(prod).join("+")}${pos}`,
+    texto: `${neg ? "Seguimos con" : "Es una cuenta con números de dos cifras:"} $${L}\\cdot ${D}$. Partimos $${X}$ en $${ps.join("+")}$ y multiplicamos cada parte por $${otro}$.`,
+    porque: `Multiplicar una suma por un número es multiplicar cada parte y sumar los resultados.`,
+    regla: `$(a+b)\\cdot c=a\\cdot c+b\\cdot c$`,
+    descompone: true,
+  });
+  ps.forEach((a, i) => {
+    const mezcla = ps.map((b, j) => (j <= i ? `${vals[j]}` : prod(b))).join("+");
+    nuevo({
+      num: `${pre}${mezcla}${pos}`,
+      texto: `${["Primera", "Segunda", "Tercera"][i]} parte: $${prod(a)}=${vals[i]}$.`,
+      porque: i === 0 ? `Una cuenta por vez: primero la parte más grande.` : `Seguimos con la siguiente parte.`,
+      regla: `$m\\cdot n=p$`,
+    });
+  });
+  let acum = vals[0];
+  for (let i = 1; i < vals.length; i++) {
+    const ultimo = i === vals.length - 1;
+    const nueva = acum + vals[i];
+    const resto = vals.slice(i + 1).join("+");
+    nuevo({
+      num: ultimo ? `${neg ? -total : total}` : `${pre}${nueva}+${resto}${pos}`,
+      texto: `Sumamos ${ultimo ? "las partes" : "las dos primeras"}: $${acum}+${vals[i]}=${nueva}$${ultimo && neg ? `, y con el signo menos queda $${-total}$` : ""}.`,
+      porque: `Al final se suman los resultados de las partes.`,
+      regla: `$a+b=c$`,
+    });
+    acum = nueva;
+  }
+  return pasos;
+}
+
 /**
  * La regla de signos de una suma p + q, elegida segun los datos (auditoria del 29-oct: -6+2 se hacia sin regla).
  * Con los dos positivos, o positivo menos uno mas chico, no hace falta ninguna regla: devuelve texto vacio.
@@ -941,16 +1015,49 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
       regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
     });
     // las multiplicaciones de arriba, UNA FRACCION POR PASO: primero el lado izquierdo (las dos del ejercicio) y despues la respuesta
-    fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, ...derecha);
-    trs.push({
-      fusiones: [
-        { desde: ["Ka2"], hacia: "Ka3" },
-        { desde: ["Kb2"], hacia: "Kb3" },
-      ],
-      texto: `Hacemos las multiplicaciones de arriba del lado izquierdo: $${n1}\\cdot ${D}=${n1 * D}$ y $${n2}\\cdot ${D}=${n2 * D}$.`,
-      porque: `Cada fracción queda con su numerador calculado; los denominadores no cambian.`,
-    });
+    const lapA = productoLapiz(n1, D, "Multiplicamos arriba de la primera fracción. ");
+    const lapB = productoLapiz(n2, D, `${lapA ? "Ahora la segunda fracción. " : "Multiplicamos arriba de la segunda fracción. "}`);
+    // sub-pasos de un producto grande a lapiz: cada paso reemplaza al anterior; el ultimo deja la ficha final (idFin)
+    const secuencia = (pasos: PasoLapiz[], desde: string[], idFin: string, pref: string, mk: (id: string, num: string) => Ficha, armar: (f: Ficha) => Ficha[]) => {
+      let prev = desde;
+      pasos.forEach((p, i) => {
+        const id = i === pasos.length - 1 ? idFin : `${pref}${i + 1}`;
+        fila(...armar(mk(id, p.num)));
+        trs.push({
+          fusiones: [{ desde: prev, hacia: id }],
+          descompone: p.descompone,
+          texto: p.texto,
+          porque: p.porque,
+          ...(p.regla ? { regla: p.regla } : {}),
+        });
+        prev = [id];
+      });
+    };
+    if (!lapA && !lapB) {
+      fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, ...derecha);
+      trs.push({
+        fusiones: [
+          { desde: ["Ka2"], hacia: "Ka3" },
+          { desde: ["Kb2"], hacia: "Kb3" },
+        ],
+        texto: `Hacemos las multiplicaciones de arriba del lado izquierdo: $${n1}\\cdot ${D}=${n1 * D}$ y $${n2}\\cdot ${D}=${n2 * D}$.`,
+        porque: `Cada fracción queda con su numerador calculado; los denominadores no cambian.`,
+      });
+    } else {
+      // al menos un producto es de dos cifras por dos cifras: una fraccion por vez, cada una a lapiz
+      const unPaso = (m: number, intro: string): PasoLapiz[] => [
+        { num: `${m * D}`, texto: `${intro}$${m}\\cdot ${D}=${m * D}$.`, porque: `La fracción queda con su numerador calculado; el denominador no cambia.` },
+      ];
+      secuencia(lapA ?? unPaso(n1, "Multiplicamos arriba de la primera fracción: "), ["Ka2"], "Ka3", "Ka2_", (id, num) => fr(id, num, `${d1}`), (f) => [f, Kp, fr("Kb2", `${n2}\\cdot ${D}`, `${d2}`), Ke, ...derecha]);
+      secuencia(lapB ?? unPaso(n2, "Ahora la segunda fracción: "), ["Kb2"], "Kb3", "Kb2_", (id, num) => fr(id, num, `${d2}`), (f) => [fr("Ka3", `${n1 * D}`, `${d1}`), Kp, f, Ke, ...derecha]);
+    }
     const Kc3: Ficha = rd === 1 ? { id: "Kv3", tex: `${v3}` } : kcHecho;
+    if (rn !== 0 && productoLapiz(signoAdelante ? -rn : rn, D)) {
+      // la respuesta tambien es de dos cifras por dos cifras: a lapiz. El signo menos delante de la fraccion (signoAdelante) no entra en la cuenta
+      const pasosR = productoLapiz(signoAdelante ? -rn : rn, D, "Ahora la multiplicación de arriba de la respuesta. ")!;
+      const mkR = (id: string, num: string): Ficha => (rd === 1 ? { id, tex: num } : signoAdelante ? { id, tex: `-\\dfrac{${num}}{${rd}}` } : fr(id, num, `${rd}`));
+      secuencia(pasosR, rd === 1 ? ["Kc0", "K6b"] : ["Kc2"], Kc3.id, "Kq", mkR, (f) => [fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, f]);
+    } else {
     fila(fr("Ka3", `${n1 * D}`, `${d1}`), Kp, fr("Kb3", `${n2 * D}`, `${d2}`), Ke, Kc3);
     trs.push({
       fusiones: [{ desde: rd === 1 ? ["Kc0", "K6b"] : ["Kc2"], hacia: Kc3.id }],
@@ -967,6 +1074,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
           : `${rd === 1 ? "La respuesta es un número entero: se multiplica directo." : "Igual que en las otras: se multiplica solo el numerador y el denominador no cambia."}${rn < 0 && !signoAdelante ? ` Negativo por positivo da negativo: $${-rn}\\cdot ${D}=${-rn * D}$ y el resultado lleva el signo menos.` : ""}`,
       ...(rn === 0 ? { regla: `$0\\cdot a=0$` } : rn < 0 && !signoAdelante ? { regla: `$(-a)\\cdot b=-(a\\cdot b)$` } : {}),
     });
+    }
     // las divisiones, tambien por lados: izquierda (dos) y respuesta (una)
     fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, Kc3);
     trs.push({
@@ -1201,30 +1309,30 @@ export function diferenciaCuadrados(k: number): Resultado {
       fusiones: [{ desde: ["n"], hacia: "nn" }],
       descompone: true,
       texto: `Escribimos $${q}$ como un producto de dos números iguales: $${q}=${k}\\cdot${k}$.`,
-      porque: `Para usar la fórmula necesitamos que los dos números sean cuadrados. Buscamos qué número multiplicado por sí mismo da $${q}$: es el $${k}$.`,
+      porque: `Queremos ver $x^{2}-${q}$ como una resta de dos cuadrados, y para eso hace falta que los dos números sean cuadrados. Buscamos qué número multiplicado por sí mismo da $${q}$: es el $${k}$.`,
     },
     {
       fusiones: [{ desde: ["nn"], hacia: "n3" }],
-      texto: `Un número multiplicado por sí mismo es ese número al cuadrado: $${k}\\cdot${k}=${k}^{2}$.`,
-      porque: `Así $x^{2}$ y $${k}^{2}$ quedan los dos elevados al cuadrado, como pide la fórmula.`,
+      texto: `Un número multiplicado por sí mismo se escribe como ese número al cuadrado: $${k}\\cdot ${k}$ se escribe $${k}^{2}$.`,
+      porque: `Así $x^{2}$ y $${k}^{2}$ quedan los dos elevados al cuadrado: cada término de la resta es un número al cuadrado.`,
     },
     {
       fusiones: [],
       resaltar: ["a", "n3"],
-      texto: `Reconocemos el patrón: una resta de dos cuadrados, $x^{2}-${k}^{2}$. Es de la forma $a^{2}-b^{2}$.`,
-      porque: `Es una resta de dos cuadrados. Esa forma se llama diferencia de cuadrados y siempre se factoriza igual.`,
+      texto: `Reconocemos el patrón: una resta de dos cuadrados, $x^{2}-${k}^{2}$. Cada término es un número elevado al cuadrado.`,
+      porque: `Una resta de dos cuadrados se llama diferencia de cuadrados y siempre se factoriza igual. Para usar esa forma, primero le ponemos nombre a cada cuadrado.`,
     },
     {
       fusiones: [],
       resaltar: ["a"],
-      texto: `El primer cuadrado es $x^{2}$: aquí $a=x$. Lo anotamos debajo.`,
-      porque: `En la fórmula, $a$ es lo que está elevado al cuadrado en el primer término.`,
+      texto: `El primer cuadrado es $x^{2}$: llamamos $a$ a lo que está al cuadrado, aquí $a=x$. Lo anotamos debajo.`,
+      porque: `Le damos una letra para poder usarla enseguida en la fórmula: $a$ es lo que está elevado al cuadrado en el primer término.`,
     },
     {
       fusiones: [],
       resaltar: ["n3"],
-      texto: `El segundo cuadrado es $${k}^{2}$: aquí $b=${k}$. Lo anotamos debajo.`,
-      porque: `En la fórmula, $b$ es lo que está elevado al cuadrado en el segundo término.`,
+      texto: `El segundo cuadrado es $${k}^{2}$: llamamos $b$ a lo que está al cuadrado, aquí $b=${k}$. Lo anotamos debajo.`,
+      porque: `Igual que con la $a$: $b$ es lo que está elevado al cuadrado en el segundo término.`,
     },
     {
       fusiones: [],
@@ -1522,7 +1630,8 @@ function comprobarPotencia(
   k: number,
   m: number,
   n: number,
-  valorId: string
+  valorId: string,
+  independiente = false
 ) {
   const P = m * n;
   const antes = [...base, ...cola];
@@ -1547,7 +1656,7 @@ function comprobarPotencia(
       { desde: "ref", hacia: "cd" },
       { desde: "ref", hacia: "cn" },
     ],
-    texto: `Comprobamos con la definición. Por la propiedad del producto, la suma de los dos logaritmos es el logaritmo de $${m}\\cdot ${n}$; si vale $${k}$, entonces $${b}^{${k}}$ tiene que ser $${m}\\cdot ${n}$. Lo escribimos debajo: la base $${b}$ y los números $${m}$ y $${n}$ salen del ejercicio anotado, y el $${k}$ es el resultado.`,
+    texto: `Comprobamos con la definición${independiente ? ", sin usar la propiedad del producto que aplicamos antes" : ""}. Llamamos $x$ al primer logaritmo y $y$ al segundo. Por la definición, $${b}^{x}=${m}$ y $${b}^{y}=${n}$. Al multiplicar las dos potencias, los exponentes se suman: $${b}^{x+y}$ es $${m}$ por $${n}$, y $x+y$ es lo que calculamos, $${k}$. Entonces $${b}^{${k}}$ tiene que ser igual a $${m}\\cdot ${n}$. Lo escribimos debajo: la base $${b}$ y los números $${m}$ y $${n}$ salen del ejercicio anotado, y el $${k}$ es el resultado.`,
     porque: `Un logaritmo es un exponente: $\\log_{${b}}(a)=y$ significa $${b}^{y}=a$.`,
     regla: `$\\log_{${b}}(a)=y\\ \\iff\\ ${b}^{y}=a$`,
   });
@@ -1848,7 +1957,7 @@ export function sumaLogaritmosPropiedad(b: number, m: number, n: number): Result
 
   // fila de referencia + comprobacion nacida de ahi (definicion, con la potencia desarrollada)
   const { final, trs, cola } = conReferencia(estados, trans, b, m, n, "p");
-  comprobarPotencia(final, trs, estados[estados.length - 1], cola, b, k, m, n, "e");
+  comprobarPotencia(final, trs, estados[estados.length - 1], cola, b, k, m, n, "e", true);
 
   return {
     demo: {

@@ -156,7 +156,7 @@ describe("generadores de algebra", () => {
     // por significado (4 y 8 son potencias de 2): cada log se resuelve solo, se cuentan los factores y recien se suma
     const ej = sumaLogaritmos(2, 4, 8);
     const todo = ej.demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
-    for (const pista of ["Resolvemos $\\log_{2}(4)$", "Resolvemos $\\log_{2}(8)$", "2\\cdot 2=4", "2\\cdot 2\\cdot 2=8","Contamos", "Ahora sí sumamos", "$2+3=5$", "propiedad del producto"]) {
+    for (const pista of ["Resolvemos $\\log_{2}(4)$", "Resolvemos $\\log_{2}(8)$", "2\\cdot 2=4", "2\\cdot 2\\cdot 2=8","Contamos", "Ahora sí sumamos", "$2+3=5$", "Comprobamos con la definición"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
     // 1 (anotar el ejercicio) + 4 + 4 (cada logaritmo) + 1 (sumar) + 8 (comprobacion: 5 productos parciales, ver mas abajo)
@@ -585,6 +585,30 @@ describe("generadores de algebra", () => {
     const q = sumaLogaritmosPropiedad(10, 2, 5); // 10 = 10: un solo b
     assert.ok(!q.demo.transiciones.some((t) => t.texto.includes("como una multiplicación")));
     assert.ok(q.demo.transiciones.some((t) => t.texto.includes("es justo $10$")));
+  });
+
+  test("logaritmos: la comprobacion no nombra una propiedad que la animacion no enseno, y la de propiedad es independiente (lectura 30-oct)", () => {
+    const sig = sumaLogaritmos(2, 4, 8).demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
+    assert.ok(!sig.includes("propiedad del producto"), "el camino por significado no enseña esa propiedad");
+    const prop = sumaLogaritmosPropiedad(6, 2, 18).demo.transiciones.find((t) => t.texto.includes("Comprobamos con la definición"))!;
+    assert.ok(prop.texto.includes("sin usar la propiedad") && prop.texto.includes("x+y"), "la comprobacion usa solo la definicion");
+  });
+
+  test("cuadrados: el patron se nombra y se definen a y b ANTES de usar la formula (lectura 30-oct)", () => {
+    for (const k of [2, 3, 15]) {
+      const t = diferenciaCuadrados(k).demo.transiciones;
+      const iFormula = t.findIndex((x) => x.regla?.includes("(a-b)(a+b)") && x.brotes?.length);
+      assert.ok(iFormula > 3);
+      for (const x of t.slice(0, iFormula)) {
+        assert.ok(!/para usar la fórmula|como pide la fórmula|es de la forma/i.test(`${x.texto} ${x.porque}`), `usa la formula antes de mostrarla: ${x.texto}`);
+      }
+    }
+  });
+
+  test("fracciones: los productos grandes de la comprobacion se parten en decenas y unidades", () => {
+    const t = fracciones(5, 12, 7, 8).demo.transiciones.map((x) => x.texto).join(" | ");
+    assert.ok(t.includes("Partimos"), "falta partir el producto de dos cifras por dos cifras");
+    assert.ok(!t.includes("31\\cdot 24=744"));
   });
 
   test("rechaza lo que no puede animar", () => {

@@ -28,12 +28,13 @@ describe("marcas: nunca se marca una pieza sin contenido", () => {
     assert.ok(saltosEnDesde > 0, "ningun salto en desde: el test quedo sin casos");
   });
 
-  test("raiz / exacta paso 12: el salto Sg se va con la fusion pero no se marca", () => {
+  test("raiz / exacta: el salto Sg se va con la fusion pero no se marca", () => {
     const r = construir("raiz", ["2", "4", "2"]);
     assert.ok("demo" in r);
-    const t = r.demo.transiciones[10];
-    assert.ok(t.fusiones.some((f) => f.desde.includes("Sg")));
-    assert.ok(!marcasDe(t, r.demo.estados[10]).includes("Sg"));
+    // se busca el paso donde Sg se consume (la posicion cambia cada vez que se agrega un paso antes)
+    const i = r.demo.transiciones.findIndex((t) => t.fusiones.some((f) => f.desde.includes("Sg")));
+    assert.ok(i >= 0, "ningun paso consume el salto Sg");
+    assert.ok(!marcasDe(r.demo.transiciones[i], r.demo.estados[i]).includes("Sg"));
   });
 
   test("Fusion.tsx toma las marcas de marcasDe y no pinta marca en piezas sin contenido", () => {

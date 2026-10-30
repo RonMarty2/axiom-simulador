@@ -236,7 +236,7 @@ describe("estequiometria con ecuacion balanceada", () => {
     assert.equal(buscar(ultimo(r.demo), "qR")!.tex, "72");
     assert.equal(r.demo.transiciones.filter((t, i) => t.fusiones.some((f) => f.modo === "tachar" && !esTachadoDeNumeros(r.demo.estados[i], f.desde))).length, 3);
     const todo = r.demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
-    for (const pista of ["balanceada", "$\\mathrm{H}$: $4$ y $4$", "pesa $2\\ \\text{g}$", "pesa $18\\ \\text{g}$", "coeficientes", "al revés", "$16\\cdot 18=288$", "\\dfrac{288}{4}=72"]) {
+    for (const pista of ["balanceada", "$\\mathrm{H}$: $4$ y $4$", "pesa $2\\ \\text{g}$", "pesa $18\\ \\text{g}$", "coeficientes", "al revés", "$10\\cdot 18=180$", "$6\\cdot 18=108$", "$180+108=288$", "\\dfrac{288}{4}=72"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);
     }
   });

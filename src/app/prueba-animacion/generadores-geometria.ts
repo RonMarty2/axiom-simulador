@@ -220,6 +220,33 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
     });
   }
 
+  // Cuadrado de un numero de dos cifras "a lapiz" (33·33 no se da de un golpe): se parte en decenas y unidades,
+  // una parte por paso, y se suman. `desde` son las tres piezas n · n; el resultado queda en la pieza `pid`.
+  const grande = (n: number) => n >= 11 && n % 10 !== 0;
+  const cuadradoLapiz = (desde: string[], pid: string, n: number) => {
+    const u = n % 10;
+    const T = n - u;
+    const p1 = T * n;
+    const p2 = u * n;
+    const paso2 = (actual: string[], nid: string, tex: string, texto: string, porque: string, regla: string, descompone?: boolean) => {
+      h.cambiar(actual, [{ id: nid, tex }]);
+      h.paso({ fusiones: [{ desde: actual, hacia: nid }], descompone, texto, porque, regla });
+      return [nid];
+    };
+    let ids = paso2(
+      desde,
+      `${pid}a`,
+      `${T}\\cdot ${n}+${u}\\cdot ${n}`,
+      `Multiplicamos $${n}\\cdot ${n}$, una cuenta con números de dos cifras. Partimos $${n}$ en $${T}+${u}$ y multiplicamos cada parte por $${n}$.`,
+      `Multiplicar una suma por un número es multiplicar cada parte y sumar los resultados.`,
+      `$(a+b)\\cdot c=a\\cdot c+b\\cdot c$`,
+      true
+    );
+    ids = paso2(ids, `${pid}b`, `${p1}+${u}\\cdot ${n}`, `Primera parte: $${T}\\cdot ${n}=${p1}$.`, `Una operación por vez: primero la parte de las decenas.`, `$m\\cdot n=p$`);
+    ids = paso2(ids, `${pid}c`, `${p1}+${p2}`, `Segunda parte: $${u}\\cdot ${n}=${p2}$.`, `Ahora la parte de las unidades.`, `$m\\cdot n=p$`);
+    paso2(ids, pid, String(n * n), `Sumamos las dos partes: $${p1}+${p2}=${n * n}$. Entonces $${n}^{2}=${n * n}$.`, `Al final se suman los resultados de las dos partes.`, `$a+b=c$`);
+  };
+
   // 5) calcular una operacion por paso: cada cuadrado se abre y se multiplica
   for (const k of orden) {
     const n = val[k];
@@ -231,6 +258,10 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
       porque: `Elevar al cuadrado es multiplicar un número por sí mismo, dos factores iguales.`,
       regla: `$n^{2}=n\\cdot n$`,
     });
+    if (grande(n)) {
+      cuadradoLapiz([`${k}1`, `${k}x`, `${k}2`], `P${k}`, n);
+      continue;
+    }
     h.cambiar([`${k}1`, `${k}x`, `${k}2`], [{ id: `P${k}`, tex: String(n * n) }]);
     h.paso({
       fusiones: [{ desde: [`${k}1`, `${k}x`, `${k}2`], hacia: `P${k}` }],
@@ -312,6 +343,11 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
       regla: `$${digitos.map((d) => `${d}\\cdot ${d}=${d * d}`).join(",\\ ")}$`,
     });
   }
+  // m·m de un candidato: si tiene dos cifras no se da el resultado de golpe, se escribe partido en decenas y unidades
+  const prodTexto = (m: number) =>
+    grande(m)
+      ? `${m}\\cdot ${m}=${m - (m % 10)}\\cdot ${m}+${m % 10}\\cdot ${m}=${(m - (m % 10)) * m}+${(m % 10) * m}=${m * m}`
+      : `${m}\\cdot ${m}=${m * m}`;
   const probar = porDecenas ? candidatos : r > 10 ? [r - 10, r] : r > 1 ? [r - 1, r] : [r];
   probar.forEach((m, i) => {
     const ultimo = m === r;
@@ -322,8 +358,8 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
       brotes,
       texto: porDecenas
         ? ultimo
-          ? `Probamos con ${todosCand.length === 1 ? "" : i === 0 ? "el primer candidato, " : "el segundo candidato, "}$${m}$: $${m}\\cdot ${m}=${total}$. Justo lo que pedía la pregunta.${todosCand.some((x) => x > r) ? ` Ya no hace falta probar el $${todosCand.find((x) => x > r)}$.` : ""}`
-          : `Probamos con el primer candidato, $${m}$: $${m}\\cdot ${m}=${m * m}$. Es menos que $${total}$: nos quedamos cortos.`
+          ? `Probamos con ${todosCand.length === 1 ? "" : i === 0 ? "el primer candidato, " : "el segundo candidato, "}$${m}$: $${prodTexto(m)}$. Justo lo que pedía la pregunta.${todosCand.some((x) => x > r) ? ` Ya no hace falta probar el $${todosCand.find((x) => x > r)}$.` : ""}`
+          : `Probamos con el primer candidato, $${m}$: $${prodTexto(m)}$. Es menos que $${total}$: nos quedamos cortos.`
         : ultimo
           ? `Probamos con el siguiente, $${m}$: $${m}\\cdot ${m}=${total}$. Justo lo que pedía la pregunta.`
           : `Probamos los números en orden, ${r > 10 ? "de diez en diez" : "desde $1$"}: ${lad(r > 10 ? serie(10, m, 10) : serie(1, m, 1))}. ${(r > 10 ? serie(10, m, 10) : serie(1, m, 1)).length === 1 ? "Da" : "Todos dan"} menos que $${total}$: nos quedamos cortos.`,
@@ -390,6 +426,18 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
   });
   // un cuadrado por paso, con su producto escrito (el alumno ve 3·3 = 9, no solo el 9)
   for (const [l, n] of [["a", a], ["b", b], ["c", c]] as const) {
+    if (grande(n)) {
+      h.cambiar([`C${l}`, `C${l}2`], [{ id: `C${l}1`, tex: String(n) }, { id: `C${l}x`, tex: "\\cdot", op: true }, { id: `C${l}3`, tex: String(n) }]);
+      h.paso({
+        fusiones: [{ desde: [`C${l}`, `C${l}2`], hacia: [`C${l}1`, `C${l}x`, `C${l}3`] }],
+        descompone: true,
+        texto: `Calculamos $${n}^{2}$: el exponente $2$ dice que el $${n}$ se multiplica por sí mismo, $${n}^{2}=${n}\\cdot ${n}$.`,
+        porque: l === "a" ? `Es el número multiplicado por sí mismo, como hicimos arriba.` : l === "b" ? `Igual que con $a$, ahora con $b$.` : `Y por último el lado más largo: la hipotenusa.`,
+        regla: `$n^{2}=n\\cdot n$`,
+      });
+      cuadradoLapiz([`C${l}1`, `C${l}x`, `C${l}3`], `K${l}`, n);
+      continue;
+    }
     h.cambiar([`C${l}`, `C${l}2`], [{ id: `K${l}`, tex: String(n * n) }]);
     h.paso({
       fusiones: [{ desde: [`C${l}`, `C${l}2`], hacia: `K${l}` }],

@@ -14,6 +14,7 @@
 import { lista, enTexto } from "./generadores-algebra.ts";
 import { frPiezas, pegarUnidades, sustituir, aplanar, type Ficha, type Transicion } from "./datos.ts";
 import type { Resultado } from "./generadores.ts";
+import { productoALapiz, productoGrande } from "./lapiz.ts";
 import { MASAS_ATOMICAS, SUSTANCIAS, atomos, masaMolar, formulaTex, decimal } from "./generadores-quimica.ts";
 
 /** solutos que se pueden usar (todos de la tabla de generadores-quimica; cada elemento aparece una sola vez) */
@@ -895,13 +896,21 @@ export function molaridad(soluto: string, masa: number, volumen: number, rapido 
         regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
       });
       // 3) el producto de arriba
-      cambiar([`${g}1`, `${g}x`, `${g}2`], [{ id: `${p}gp`, tex: `${T}` }]);
-      paso({
-        fusiones: [{ desde: [`${g}1`, `${g}x`, `${g}2`], hacia: `${p}gp` }],
-        texto: `Multiplicamos arriba: $${num}\\cdot ${b}=${T}$.`,
-        porque: `Una operación por vez: primero el producto de arriba.`,
-        regla: `$a\\cdot b=c$`,
-      });
+      if (productoGrande(num, b)) {
+        // dos cifras por dos cifras: a lapiz, una parte por paso
+        productoALapiz(num, b, [`${g}1`, `${g}x`, `${g}2`], `${p}gp`, (x) => String(x), (q) => {
+          cambiar(q.desde, [{ id: q.nuevoId, tex: q.tex }]);
+          paso({ fusiones: [{ desde: q.desde, hacia: q.nuevoId }], descompone: q.descompone, texto: q.texto, porque: q.porque, regla: q.regla });
+        });
+      } else {
+        cambiar([`${g}1`, `${g}x`, `${g}2`], [{ id: `${p}gp`, tex: `${T}` }]);
+        paso({
+          fusiones: [{ desde: [`${g}1`, `${g}x`, `${g}2`], hacia: `${p}gp` }],
+          texto: `Multiplicamos arriba: $${num}\\cdot ${b}=${T}$.`,
+          porque: `Una operación por vez: primero el producto de arriba.`,
+          regla: `$a\\cdot b=c$`,
+        });
+      }
     }
     // 4) la fraccion se pasa a entero o a decimal
     if (T % den === 0 && String(T).length >= 4) {

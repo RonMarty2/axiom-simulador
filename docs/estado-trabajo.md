@@ -2,7 +2,7 @@
 
 Un solo archivo, corto, que se reescribe al cerrar cada tanda. Si tenés dudas de qué está hecho, **no confíes en esta lista: comprobalo con los comandos de abajo**. El código y el registro mandan, esto solo es el mapa.
 
-Última actualización: 30-oct-2026, tarde (todo medido en 0 salvo punnett y oxidacion, que son pasos de lectura; falta la lectura final por animación y el visto bueno).
+Última actualización: 30-oct-2026, tarde (arreglo final hecho y medido; falta la lectura corta de lo cambiado, la mirada visual y el visto bueno).
 
 ## Cómo comprobar el estado real (en este orden, 2 minutos)
 
@@ -25,12 +25,9 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 - [x] 6 reglas de pasos medidas por código con trinquete por tipo (commit `0969aba`).
 - [x] Auditadas con hallazgos: mruv, charles, moles-atomos, estequiometria y las 9 de álgebra (ninguna `auditado`).
 
-### En curso (30-oct, tarde): arreglo final tras la lectura final
-La lectura final dejó 10 animaciones `auditado` y 12 `con-hallazgos` (cuadrados, raiz, raiz-con-resto, logaritmos, logaritmos-propiedad, cuadratica, mruv, charles, estequiometria, progresion, pitagoras, interes). Dos agentes arreglan en paralelo, uno por conjunto de archivos (el 1 toca `generadores-algebra.ts` y `generadores.ts`; el 2, geometría, física, cuadrática, química, soluciones, progresiones y economicas). Se cortaron una vez por el límite de 5 horas; sus cambios quedan en disco SIN commitear. **Si la sesión murió: corré `npx tsc --noEmit`, `npm run lint`, `npm test` y `node src/app/prueba-animacion/medir-reglas.ts`; si pasan, commiteá; si no, mirá `git diff`.** Borrá `medir-tmp.ts` y `ver-tmp.ts` si siguen en `src/app/prueba-animacion/` (son de un agente). Lista cerrada de lo que arreglan:
-- Regla de producto de dos cifras por dos cifras de un golpe (hoy: cuadrados 1, molaridad 2; pitagoras, charles, mruv, cuadratica, estequiometria y fracciones ya en 0), partiendo «a lápiz» con `lapiz.ts`.
-- Comprobaciones circulares: progresion, interes, logaritmos-propiedad (cambiarlas por una independiente).
-- Concepto: cuadrados (fórmula antes de usarla), raiz (divisiones sucesivas y significado de raíz), raiz-con-resto (cambio de base sin avisar), logaritmos (no nombrar una propiedad que no se enseñó), estequiometria (nombrar cuál 44 se tacha).
-- Al terminar: una lectura corta e independiente solo de lo que cambió, registrar `auditado`, subir, y lista de visto bueno para Ronald.
+### Hecho (30-oct, tarde): arreglo final tras la lectura final (commit de esta tanda)
+Los 12 tipos con hallazgos se arreglaron en sus generadores: cuentas de dos cifras «a lápiz» (`lapiz.ts` compartido), comprobaciones circulares reemplazadas (progresion, interes, logaritmos-propiedad), concepto antes de la propiedad (cuadrados, raiz, raiz-con-resto, logaritmos) y el 44 nombrado en estequiometria. `medir-reglas.ts` da 0 salvo punnett (10 y 5) y oxidacion (6 y 2), que son pasos de lectura. 536 tests, build OK. Ninguno de los 12 está `auditado` todavía: quedaron `con-hallazgos` «arreglado 30-oct, falta lectura».
+**Siguiente:** una lectura corta e independiente solo de lo que cambió (los 12 tipos), después registrar `auditado --independiente`, una pasada de `revisor-visual` a los pasos nuevos (cuadrados, fracciones, cuadratica, pitagoras, raiz) y la lista de visto bueno para Ronald. Abierto: fracciones tiene ~9 % de combinaciones con `n·k`/`d·k` de dos cifras (los casos fijos dan 0); decimales con `{,}` no los mide la regla; interes con centavos usa `viajar` para correr la coma.
 
 ### Pendiente, en este orden
 1. [x] Cuadratica en 0 (hecho 30-oct, 530 tests): a=1 con la `a` al final y `·1` tachado, una suma por paso, cuentas de dos cifras «a lápiz». Abierto: la fila de referencia no tiene rótulo (con `debajo` se estira mucho); a negativa, discriminante negativo y resultado no entero los rechaza `validarCuadratica` (decisión de producto: ampliar o no el alcance).

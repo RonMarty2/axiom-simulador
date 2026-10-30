@@ -278,7 +278,8 @@ describe("ley de Charles", () => {
     assert.ok(iK >= 0 && iK < iDiv);
     // el ultimo paso es la comprobacion, y nace de los datos
     assert.ok(r.demo.transiciones.at(-1)!.texto.includes("cumple la ley"));
-    assert.ok(todo.includes("$20\\cdot 300=6000$") && todo.includes("$25\\cdot 240=6000$"));
+    // 25·240 es de dos cifras por dos cifras: va a lapiz (20·240 + 5·240) y la suma da lo mismo que 20·300
+    assert.ok(todo.includes("$20\\cdot 300=6000$") && todo.includes("$20\\cdot 240=4800$") && todo.includes("$5\\cdot 240=1200$") && todo.includes("$4800+1200=6000$"));
   });
 
   test("toda combinacion permitida: V_2 T_1 = V_1 T_2 (con enteros)", () => {

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { aplanar, type Demo, type Ficha } from "./datos.ts";
 import { revisar } from "./revisar.ts";
 import { decimal } from "./generadores-quimica.ts";
+import { cifrasSig, partesPorCifra, productoGrande } from "./lapiz.ts";
 import { LIMITE_MASA, LIMITE_VOLUMEN, SOLUTOS, molaridad as molaridadReal, validarMolaridad } from "./generadores-soluciones.ts";
 
 // El generador pone la puntuacion tras una formula FUERA de ella, pegada con un word-joiner ("$126$" + U+2060 + ".").
@@ -130,7 +131,16 @@ function comun(d: Demo, etiqueta: string, nTxt: string, MTxt: string, masa: numb
     const T = (aCent / (100 / den)) * b;
     return T % den === 0 && String(T).length >= 4 ? 1 : 0;
   };
-  const extraDec = pasosDec(nCent) - 1 + (V > 1 ? pasosDec(nCent / V) - 1 : 0) + grande(nCent, PM) + (V > 1 ? grande(nCent / V, V) : 0);
+  // el producto de dos cifras por dos cifras (25·56) va a lapiz: partir, una parte por paso y sumas de a dos = 2·partes pasos en vez de 1
+  const lapizExtra = (aCent: number, b: number) => {
+    if (aCent % 100 === 0) return 0;
+    const den = aCent % 10 === 0 ? 10 : 100;
+    const num = aCent / (100 / den);
+    if (!productoGrande(num, b)) return 0;
+    const gran = cifrasSig(num) >= cifrasSig(b) ? num : b;
+    return 2 * partesPorCifra(gran).length - 1;
+  };
+  const extraDec = pasosDec(nCent) - 1 + (V > 1 ? pasosDec(nCent / V) - 1 : 0) + grande(nCent, PM) + (V > 1 ? grande(nCent / V, V) : 0) + lapizExtra(nCent, PM) + (V > 1 ? lapizExtra(nCent / V, V) : 0);
   assert.equal(d.transiciones.length, 20 + 4 * k - unos + procN + procM + extraDec + (V > 1 ? 2 : 0), `${etiqueta}: cantidad de pasos`);
   // NUNCA un paso vacio: ningun termino `1·A` es un paso propio (n = 1 se escribe directo) ni hay un paso cuyo unico cambio es ÷1 o ·1
   assert.ok(!d.transiciones.some((t) => /\$1\\cdot /.test(t.texto) && /Multiplicamos/.test(t.texto)), `${etiqueta}: producto 1·A como paso`);
@@ -414,12 +424,14 @@ describe("molaridad: la animacion", () => {
     // la regla de pasar 1/10 a decimal no es la de achicar
     assert.ok(molaridad("NaOH", 4, 1).demo.transiciones.some((t) => (t.regla ?? "").includes("décimas")));
     assert.deepEqual(a.d.transiciones[a.i0 + 1].brotes!.map((b) => b.desde).sort(), ["Kc", "Kpfd", "Kpfn"]);
-    assert.ok(a.tex[a.i0 + 2].includes("$25\\cdot 56=1400$"));
-    assert.equal(buscar(a.d.estados[a.i0 + 3], "Kpgp")?.tex, "1400");
+    // 25·56 es de dos cifras por dos cifras: va a lapiz (20·56 + 5·56) y recien despues se divide
+    assert.ok(a.tex[a.i0 + 2].includes("Multiplicamos $25\\cdot 56$, una cuenta con números de dos cifras") && a.tex[a.i0 + 2].includes("$20+5$"));
+    assert.ok(a.tex[a.i0 + 3].includes("$20\\cdot 56=1120$") && a.tex[a.i0 + 4].includes("$5\\cdot 56=280$") && a.tex[a.i0 + 5].includes("$1120+280=1400$"));
+    assert.equal(buscar(a.d.estados[a.i0 + 6], "Kpgp")?.tex, "1400");
     // 1400 no se divide de un golpe: 1400 = 14·100 y se tacha el 100
-    assert.ok(a.tex[a.i0 + 3].includes("$1400=14\\cdot 100$"));
-    assert.ok(a.tex[a.i0 + 4].includes("Tachamos el $100$ de arriba con el $100$ de abajo. Queda $14$"));
-    assert.equal(buscar(a.d.estados[a.i0 + 5], "Kz")?.tex, "14");
+    assert.ok(a.tex[a.i0 + 6].includes("$1400=14\\cdot 100$"));
+    assert.ok(a.tex[a.i0 + 7].includes("Tachamos el $100$ de arriba con el $100$ de abajo. Queda $14$"));
+    assert.equal(buscar(a.d.estados[a.i0 + 8], "Kz")?.tex, "14");
     // 0,1 · 40 = 4 : arriba queda un 1, el entero solo sube (sin paso 1·40)
     const b = camino("NaOH", 4, 1);
     assert.ok(b.tex[b.i0].includes("$0{,}1=\\dfrac{1}{10}$") && b.tex[b.i0].includes("$1$ décima"));
@@ -479,7 +491,7 @@ describe("molaridad: la animacion", () => {
   const planos = (f: Ficha[]) => aplanar(f).map((x) => sinColor(x.tex));
   const hayProducto = (e: Ficha[], a: string, b: string) => {
     const t = planos(e);
-    return t.some((x) => x === `${a}\\cdot ${b}`) || t.some((x, i) => x === a && t[i + 1] === "\\cdot" && t[i + 2] === b);
+    return t.some((x) => x.includes(`${a}\\cdot ${b}`)) || t.some((x, i) => x === a && t[i + 1] === "\\cdot" && t[i + 2] === b);
   };
 
   test("(a) todo producto a·k que el texto nombra existe como ficha en el estado (antes o despues del paso)", () => {

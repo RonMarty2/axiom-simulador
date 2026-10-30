@@ -164,13 +164,6 @@
     },
     {
       "tipo": "estequiometria",
-      "caso": "coeficientes grandes",
-      "paso": 30,
-      "nota": "44 de arriba con 44 de abajo antes de multiplicar",
-      "fecha": "2026-10-30"
-    },
-    {
-      "tipo": "estequiometria",
       "caso": "numeros grandes",
       "paso": 26,
       "nota": "224 con 224 antes de multiplicar (abajo 56·4 primero)",
@@ -294,6 +287,188 @@
       "paso": 15,
       "nota": "El punto ya no queda solo al principio del renglon: queda al final de (30 - 1) y (-10) baja solo (pasos 15 y 16)",
       "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 2,
+      "nota": "NUEVO: divisiones sucesivas 16/2=8, 8/2=4... hasta 1; de ahi salen los factores. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 3,
+      "nota": "Los factores 2·2·2·2 nacen de contar las divisiones. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "exacta",
+      "paso": 5,
+      "nota": "NUEVO: que es una raiz (el numero que multiplicado por si mismo da lo de adentro) antes de pasarla a exponente 1/n. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "indice 3",
+      "paso": 2,
+      "nota": "NUEVO: 729 dividido entre 3 seis veces (se muestran 2 y la ultima). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raiz",
+      "caso": "letra",
+      "paso": 2,
+      "nota": "NUEVO: significado de la raiz antes del exponente 1/n. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 8,
+      "nota": "NUEVO: aviso de cambio de base (4 de la lista a 2 de la base) y divisiones 64/2... 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 9,
+      "nota": "Los 6 factores 2 salen de contar las divisiones. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 13,
+      "nota": "NUEVO: significado de la raiz antes del exponente 1/n. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 3,
+      "nota": "El patron se nombra y a, b se definen antes de la formula (sin 'para usar la formula'). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 4,
+      "nota": "El patron se nombra y a, b se definen antes de la formula (sin 'para usar la formula'). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 5,
+      "nota": "El patron se nombra y a, b se definen antes de la formula (sin 'para usar la formula'). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 6,
+      "nota": "El patron se nombra y a, b se definen antes de la formula (sin 'para usar la formula'). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 7,
+      "nota": "El patron se nombra y a, b se definen antes de la formula (sin 'para usar la formula'). 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 26,
+      "nota": "31·24 partido en decenas y unidades, una parte por paso. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 27,
+      "nota": "31·24 partido en decenas y unidades, una parte por paso. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 28,
+      "nota": "31·24 partido en decenas y unidades, una parte por paso. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 29,
+      "nota": "31·24 partido en decenas y unidades, una parte por paso. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "logaritmos",
+      "caso": "base 2",
+      "paso": 12,
+      "nota": "Comprobacion sin nombrar la propiedad: cada log es un exponente, 2^x=4 y 2^y=8, se suman. 30-oct",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "pitagoras",
+      "caso": "catetos de dos cifras",
+      "paso": 9,
+      "nota": "NUEVO 30-oct: 33 al cuadrado a lapiz: se parte 33 en 30+3, una parte por paso y se suma (pasos 9 a 12; igual 14 a 17 con 56)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "b de dos cifras",
+      "paso": 29,
+      "nota": "NUEVO 30-oct: en la comprobacion de x=11, 12 por 11 se parte en 10+2 y se hace una parte por paso (pasos 29 a 32)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "progresion",
+      "caso": "normal",
+      "paso": 21,
+      "nota": "NUEVO 30-oct: comprobacion INDEPENDIENTE: el termino anterior se calcula otra vez por la formula desde a1 (pasos 21 a 25) y se compara con el que salio de restar d",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "interes",
+      "caso": "18 meses simplifica",
+      "paso": 31,
+      "nota": "NUEVO 30-oct: comprobacion independiente: interes de UN año (C·r/100) y despues I·td contra (interes de un año)·tn (pasos 31 a 38); ya no es M-C",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "estequiometria",
+      "caso": "coeficientes grandes",
+      "paso": 30,
+      "nota": "ARREGLADO 30-oct: el texto dice cual 44 se tacha (el dato de propano con la masa molar de propano de abajo) y que el otro 44 de arriba se queda",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 37,
+      "nota": "NUEVO 30-oct: 125·125 y 25·25 a lapiz en la verificacion (pasos 37 a 46)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "charles",
+      "caso": "temperatura bajo cero",
+      "paso": 21,
+      "nota": "NUEVO 30-oct: 25·240 a lapiz en la comprobacion cruzada (pasos 21 a 24)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molaridad",
+      "caso": "dos decimales",
+      "paso": 41,
+      "nota": "NUEVO 30-oct: 25·56 a lapiz (pasos 41 a 44)",
+      "fecha": "2026-10-30"
     }
   ],
   "aprobadosPorSilencio": [],
@@ -357,7 +532,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 8,
+      "paso": 10,
       "nota": "Tachado de los dos 1 (con su punto); n y k salen de la raya como fraccion",
       "fecha": "2026-10-29",
       "revision": "PROBLEMA de la revision del 29-oct, ARREGLADO el mismo dia (ver bitacora); los pasos nuevos se registran aparte"
@@ -421,7 +596,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 6,
+      "paso": 8,
       "nota": "(visual) el exponente 4·½ subio entero: la raya del ½ alineada con el 4 y el ·",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -429,7 +604,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 7,
+      "paso": 9,
       "nota": "NUEVO: 4 = 4/1 escrito en la hoja; el 1 de abajo nace del 4",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -437,7 +612,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 8,
+      "paso": 10,
       "nota": "multiplicar 4/1·1/2: el 1 sube desde el ½, el 2 baja, el 1 de abajo es el de 4/1; exponente chico y subido",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -445,7 +620,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 9,
+      "paso": 11,
       "nota": "se marcan y tachan solo los dos 1 con su punto, sin marco en toda la fraccion",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -453,7 +628,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 10,
+      "paso": 12,
       "nota": "«Divisores de 4:» y «Divisores de 2:» con mayuscula, en un renglon",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -461,7 +636,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 13,
+      "paso": 15,
       "nota": "se tachan solo los 2 con su punto; quedan 2 arriba y 1 abajo",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -469,7 +644,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 14,
+      "paso": 16,
       "nota": "NUEVO: 2/1 = 2, el exponente queda entero (regla a/1 = a)",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -477,7 +652,7 @@
     {
       "tipo": "raiz",
       "caso": "indice 3",
-      "paso": 7,
+      "paso": 9,
       "nota": "NUEVO: 6 = 6/1; el 1 nace del 6",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -485,7 +660,7 @@
     {
       "tipo": "raiz",
       "caso": "indice 3",
-      "paso": 8,
+      "paso": 10,
       "nota": "multiplicar 6/1·1/3; exponente chico y subido (no se lee 31·3)",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -493,7 +668,7 @@
     {
       "tipo": "raiz",
       "caso": "indice 3",
-      "paso": 9,
+      "paso": 11,
       "nota": "se tachan solo los dos 1",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -501,7 +676,7 @@
     {
       "tipo": "raiz",
       "caso": "indice 3",
-      "paso": 14,
+      "paso": 16,
       "nota": "NUEVO: 2/1 = 2",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -509,7 +684,7 @@
     {
       "tipo": "raiz",
       "caso": "no exacta",
-      "paso": 7,
+      "paso": 9,
       "nota": "NUEVO: 5 = 5/1",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -517,7 +692,7 @@
     {
       "tipo": "raiz",
       "caso": "no exacta",
-      "paso": 9,
+      "paso": 11,
       "nota": "se tachan solo los dos 1; queda 5/2 subido (antes se leia 22)",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -525,7 +700,7 @@
     {
       "tipo": "raiz",
       "caso": "letra",
-      "paso": 5,
+      "paso": 6,
       "nota": "NUEVO: 6 = 6/1 sobre x",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -533,7 +708,7 @@
     {
       "tipo": "raizResto",
       "caso": "12 = 4 por 3",
-      "paso": 14,
+      "paso": 16,
       "nota": "NUEVO: 2 = 2/1 (dentro de √(2²)·√3)",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -541,7 +716,7 @@
     {
       "tipo": "raizResto",
       "caso": "12 = 4 por 3",
-      "paso": 16,
+      "paso": 18,
       "nota": "se tachan solo los dos 1",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -549,7 +724,7 @@
     {
       "tipo": "raizResto",
       "caso": "12 = 4 por 3",
-      "paso": 21,
+      "paso": 23,
       "nota": "NUEVO: 1/1 = 1 antes de 2¹ = 2",
       "fecha": "2026-10-29",
       "revision": "segunda revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN (detalles pasajeros anotados en bitacora)"
@@ -605,7 +780,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 12,
+      "paso": 14,
       "nota": "(visual) 2·2 sobre 1·2 en tamano de exponente y subido",
       "fecha": "2026-10-29",
       "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
@@ -613,7 +788,7 @@
     {
       "tipo": "raiz",
       "caso": "letra",
-      "paso": 12,
+      "paso": 13,
       "nota": "NUEVO: 2/1 = 2, queda x²",
       "fecha": "2026-10-29",
       "revision": "tercera tanda 29-oct: arreglado (ver bitacora); los pasos nuevos se registran aparte"
@@ -685,7 +860,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 5,
+      "paso": 7,
       "nota": "marcas nuevas ajustadas (5) y sin capsula vacia (12)",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -693,7 +868,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 12,
+      "paso": 14,
       "nota": "marcas nuevas ajustadas (5) y sin capsula vacia (12)",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -701,7 +876,7 @@
     {
       "tipo": "raiz",
       "caso": "exacta",
-      "paso": 16,
+      "paso": 18,
       "nota": "porque del ultimo producto ya no dice «los factores que faltan»",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -709,7 +884,7 @@
     {
       "tipo": "raiz",
       "caso": "no exacta",
-      "paso": 16,
+      "paso": 18,
       "nota": "porque del ultimo producto",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -717,7 +892,7 @@
     {
       "tipo": "raiz",
       "caso": "indice 3",
-      "paso": 16,
+      "paso": 18,
       "nota": "porque del ultimo producto",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -725,7 +900,7 @@
     {
       "tipo": "raiz",
       "caso": "letra",
-      "paso": 12,
+      "paso": 13,
       "nota": "cierra con ∛(x⁶) = x²",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -741,7 +916,7 @@
     {
       "tipo": "raizResto",
       "caso": "12 = 4 por 3",
-      "paso": 18,
+      "paso": 20,
       "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -749,7 +924,7 @@
     {
       "tipo": "raizResto",
       "caso": "12 = 4 por 3",
-      "paso": 19,
+      "paso": 21,
       "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -757,7 +932,7 @@
     {
       "tipo": "raizResto",
       "caso": "indice 3",
-      "paso": 24,
+      "paso": 26,
       "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -765,7 +940,7 @@
     {
       "tipo": "raizResto",
       "caso": "indice 3",
-      "paso": 25,
+      "paso": 27,
       "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -773,7 +948,7 @@
     {
       "tipo": "raizResto",
       "caso": "base 3",
-      "paso": 20,
+      "paso": 22,
       "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
@@ -781,7 +956,7 @@
     {
       "tipo": "raizResto",
       "caso": "base 3",
-      "paso": 21,
+      "paso": 23,
       "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"

@@ -187,7 +187,7 @@ describe("Pitagoras: cateto (b^2 = c^2 - a^2)", () => {
     assert.equal(aplanar(d.estados[iPasa]).find((f) => f.id === "Fp")!.tex, "+");
     assert.equal(aplanar(d.estados[iPasa + 1]).find((f) => f.id === "Fp")!.tex, "-");
     // cuentas: una por paso, con resta
-    for (const cuenta of ["$13^{2}=13\\cdot 13$", "$13\\cdot 13=169$", "$5\\cdot 5=25$", "$169-25=144$", "$\\sqrt{144}=12$"]) assert.ok(t.some((x) => x.includes(cuenta)), `falta ${cuenta}`);
+    for (const cuenta of ["$13^{2}=13\\cdot 13$", "$10\\cdot 13=130$", "$3\\cdot 13=39$", "$130+39=169$", "$5\\cdot 5=25$", "$169-25=144$", "$\\sqrt{144}=12$"]) assert.ok(t.some((x) => x.includes(cuenta)), `falta ${cuenta}`);
     // el orden de reemplazo sigue el de la formula ordenada: primero c, despues a; b nunca se reemplaza
     const reemplazos = d.transiciones.flatMap((x) => x.fusiones.filter((f) => f.modo === "viajar" && /^N[abc]$/.test(String(f.hacia))).map((f) => f.hacia));
     assert.deepEqual(reemplazos, ["Nc", "Na"]);
@@ -236,9 +236,9 @@ describe("Pitagoras: casos difíciles y datos del enunciado", () => {
     assert.ok(brotes.some((br) => br.hacia === "Cc" && br.desde === "XR"), "el c de la comprobacion nace del resultado");
   });
 
-  test("cantidad de pasos medida: 23 con hipotenusa, 26 con cateto (los dos pasos de ordenar y el tanteo por decenas y ultima cifra)", () => {
+  test("cantidad de pasos medida: 23 con hipotenusa, 37 con cateto (los dos pasos de ordenar, el tanteo por decenas y ultima cifra, y 13·13 y 12·12 a lapiz en el calculo y la comprobacion)", () => {
     assert.equal(pitagoras("hipotenusa", 3, 4).demo.transiciones.length, 23);
-    assert.equal(pitagoras("cateto", 13, 5).demo.transiciones.length, 26);
+    assert.equal(pitagoras("cateto", 13, 5).demo.transiciones.length, 37);
   });
 });
 
@@ -248,7 +248,7 @@ describe("Pitagoras: la raiz de dos cifras no se adivina", () => {
     const t = textos(pitagoras("hipotenusa", 33, 56).demo);
     const iDec = t.findIndex((x) => x.includes("entre $60$ y $70$"));
     const iCifra = t.findIndex((x) => x.includes("termina en $5$"));
-    const iJusto = t.findIndex((x) => x.includes("$65\\cdot 65=4225$") && x.includes("Justo"));
+    const iJusto = t.findIndex((x) => x.includes("$65\\cdot 65=60\\cdot 65+5\\cdot 65=3900+325=4225$") && x.includes("Justo"));
     const iRaiz = t.findIndex((x) => x.includes("$\\sqrt{4225}=65$"));
     assert.ok(iDec >= 0 && iDec < iCifra && iCifra < iJusto && iJusto < iRaiz, "orden: decenas, cifra, justo, raiz");
   });
@@ -259,7 +259,7 @@ describe("Pitagoras: la raiz de dos cifras no se adivina", () => {
     const r = pitagoras("cateto", 85, 36); // el otro cateto: 77
     const u = textos(r.demo);
     assert.ok(u.some((x) => x.includes("termina en $9$") && x.includes("$3\\cdot 3=9$") && x.includes("$7\\cdot 7=49$")), "las dos cifras que terminan en 9");
-    assert.ok(u.some((x) => x.includes("$77\\cdot 77=5929$") && x.includes("Justo")));
-    assert.ok(!u.some((x) => x.includes("$73\\cdot 73")) || u.some((x) => x.includes("$73\\cdot 73=5329$") && x.includes("cortos")), "73 se prueba y se queda corto");
+    assert.ok(u.some((x) => x.includes("$77\\cdot 77=70\\cdot 77+7\\cdot 77=5390+539=5929$") && x.includes("Justo")));
+    assert.ok(!u.some((x) => x.includes("$73\\cdot 73")) || u.some((x) => x.includes("$73\\cdot 73=70\\cdot 73+3\\cdot 73=5110+219=5329$") && x.includes("cortos")), "73 se prueba y se queda corto");
   });
 });

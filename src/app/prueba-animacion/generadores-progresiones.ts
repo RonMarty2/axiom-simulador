@@ -289,14 +289,14 @@ export function progresionAritmetica(a1: number, d: number, n: number): Resultad
 
   // ----- 6) el ejercicio y las etiquetas ya cumplieron su papel
   // la diferencia (con su etiqueta d) se queda: la comprobacion final la necesita a la vista
-  const aQuitar = [...seq, ...difs.filter((f) => f.id !== "Dv"), ...pregunta, ...pistas].map((f) => f.id);
-  seq = [];
+  const aQuitar = [...seq.filter((f) => f.id !== "A1"), ...difs.filter((f) => f.id !== "Dv"), ...pregunta, ...pistas].map((f) => f.id);
+  seq = seq.filter((f) => f.id === "A1");
   difs = difs.filter((f) => f.id === "Dv");
   pregunta = [];
   pistas = [];
   empuja({
     fusiones: [{ desde: aQuitar, hacia: null }],
-    texto: `Ya tenemos todos los valores dentro de la fórmula, así que la sucesión de arriba, sus etiquetas y los ejemplos de saltos ya no se necesitan. Dejamos solo la $d$ a la vista, porque la usaremos al comprobar.`,
+    texto: `Ya tenemos todos los valores dentro de la fórmula, así que la sucesión de arriba, sus etiquetas y los ejemplos de saltos ya no se necesitan. Dejamos solo el primer término, $${par(t1)}$, y la $d$ a la vista, porque las usaremos al comprobar.`,
     porque: `Los números $a_{1}$, $d$ y $n$ quedaron escritos en la fórmula.`,
     regla: `$a_{n}=a_{1}+(n-1)\\cdot d$`,
   });
@@ -392,26 +392,81 @@ export function progresionAritmetica(a1: number, d: number, n: number): Resultad
     porque: `Quitar $d$ al resultado nos lleva un lugar hacia atrás en la sucesión.`,
     regla: d < 0 ? `$a+b=c$` : `$a-b=c$`,
   });
+  // Comprobacion INDEPENDIENTE: el mismo termino anterior, ahora por la formula general desde a_1 (no por an - d).
+  // Si las dos vias dan lo mismo, la cuenta del resultado esta bien.
+  const k1 = n - 2; // (n-1) - 1 saltos
+  const prod2 = k1 * d;
   formula = [
     ...formula,
     { id: "Cs2", tex: "", salto: true },
-    { id: "Cw", tex: `${t(n - 1)}` },
-    { id: "Cp", tex: "+", op: true },
-    { id: "Cd2", tex: par(d) },
+    { id: "Cw", tex: `a_{${n - 1}}` },
     { id: "Ce", tex: "=", op: true },
-    { id: "Cv", tex: `${an}` },
+    { id: "Cw1", tex: par(t1) },
+    { id: "Cp", tex: "+", op: true },
+    { id: "Cl", tex: "(", pegado: true },
+    { id: "Ck", tex: `${n - 1}`, pegado: true },
+    { id: "Cmi", tex: "-", op: true },
+    { id: "Cu", tex: "1" },
+    { id: "Cr3", tex: ")", pegado: true },
+    { id: "Cdt", tex: "\\cdot", op: true },
+    { id: "Cd2", tex: col("d", par(d)) },
   ];
   empuja({
     fusiones: [],
     brotes: [
       { desde: "Cr", hacia: "Cs2" },
       { desde: "Cr", hacia: "Cw" },
+      { desde: "A1", hacia: "Cw1" },
+      { desde: "Ct", hacia: "Ck" },
+      { desde: "Ct", hacia: "Cu" },
+      { desde: "Ct", hacia: "Cl" },
+      { desde: "Ct", hacia: "Cr3" },
       { desde: "Dv", hacia: "Cd2" },
-      { desde: "R", hacia: "Cv" },
     ],
-    texto: `Y al revés: a ese término le sumamos $d$ y tiene que dar el resultado: $${t(n - 1)}+${par(d)}=${an}$. Encaja con el $${an}$ que obtuvimos.`,
-    porque: `De un término al siguiente se suma $d$: ir hacia atrás y volver nos deja en el mismo lugar. Si no diera lo mismo, habría un error en alguna cuenta.`,
-    regla: `$a_{n-1}+d=a_{n}$`,
+    texto: `Ahora calculamos ese mismo término por otro camino, sin usar el resultado: con la fórmula, partiendo del primero. El lugar es $${n - 1}$, así que hay $${n - 1}-1$ saltos de $d$.`,
+    porque: `Si dos caminos distintos llegan al mismo número, la cuenta está bien. Antes restamos $d$ al resultado; ahora no lo tocamos y partimos de $a_{1}$.`,
+    regla: `$a_{k}=a_{1}+(k-1)\\cdot d$`,
+  });
+  formula = formula.flatMap((f) => (f.id === "Cl" ? [{ id: "Cq1", tex: `${k1}` }] : ["Ck", "Cmi", "Cu", "Cr3"].includes(f.id) ? [] : [f]));
+  empuja({
+    fusiones: [{ desde: ["Cl", "Ck", "Cmi", "Cu", "Cr3"], hacia: "Cq1" }],
+    texto: `Primera cuenta: el paréntesis. $${n - 1}-1=${k1}$.`,
+    porque: `Primero el paréntesis: son ${k1} saltos entre el primer término y el del lugar ${n - 1}.`,
+    regla: `$\\text{paréntesis}\\ \\to\\ \\text{producto}\\ \\to\\ \\text{suma}$`,
+  });
+  formula = formula.flatMap((f) => (f.id === "Cq1" ? [{ id: "Cpr", tex: par(prod2) }] : ["Cdt", "Cd2"].includes(f.id) ? [] : [f]));
+  empuja({
+    fusiones: [{ desde: ["Cq1", "Cdt", "Cd2"], hacia: "Cpr" }],
+    texto: `Segunda cuenta: el producto. $${k1}\\cdot ${par(d)}=${prod2}$.`,
+    porque: d < 0 ? `Un positivo por un negativo da negativo: ${k1} saltos que bajan $${-d}$ cada uno.` : `Un positivo por un positivo da positivo: ${k1} saltos que suben $${d}$ cada uno.`,
+    regla: d < 0 ? `$\\text{positivo}\\cdot\\text{negativo}=\\text{negativo}$` : `$m\\cdot n=p$`,
+  });
+  let idOp2 = "Cp";
+  let idPr2 = "Cpr";
+  if (prod2 < 0) {
+    formula = formula.flatMap((f) => (f.id === "Cp" ? [{ id: "Cp2", tex: "-", op: true }] : f.id === "Cpr" ? [{ id: "Cpr2", tex: `${-prod2}` }] : [f]));
+    empuja({
+      fusiones: [{ desde: ["Cp", "Cpr"], hacia: ["Cp2", "Cpr2"] }],
+      texto: `Sumar un número negativo es restar su opuesto: $${par(t1)}+(${prod2})=${par(t1)}-${-prod2}$.`,
+      porque: `Sumar una cantidad negativa es lo mismo que quitar su opuesto.`,
+      regla: `$a+(-b)=a-b$`,
+    });
+    idOp2 = "Cp2";
+    idPr2 = "Cpr2";
+  }
+  formula = formula.flatMap((f) => (f.id === "Cw1" ? [{ id: "Cz", tex: `${t(n - 1)}` }] : [idOp2, idPr2].includes(f.id) ? [] : [f]));
+  empuja({
+    fusiones: [{ desde: ["Cw1", idOp2, idPr2], hacia: "Cz" }],
+    texto: `Tercera cuenta: la suma. $${par(t1)}${prod2 < 0 ? "-" + -prod2 : "+" + prod2}=${t(n - 1)}$.`,
+    porque: `Ya no queda nada antes de la suma. Es el término del lugar ${n - 1} calculado desde el primero.`,
+    regla: `$a+b=c$`,
+  });
+  empuja({
+    fusiones: [],
+    resaltar: ["Cr", "Cz"],
+    texto: `Los dos caminos dan el mismo término, $${t(n - 1)}$: restando $d$ al resultado y calculando desde $a_{1}$. Entonces el $${an}$ es correcto.`,
+    porque: `Dos cuentas distintas que coinciden son una comprobación real: si el resultado estuviera mal, no darían igual.`,
+    regla: `$a_{n}-d=a_{1}+(n-2)\\cdot d$`,
   });
 
   return {

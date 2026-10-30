@@ -24,6 +24,23 @@ const punto = (id: string): Ficha => ({ id, tex: "\\cdot", op: true });
 const etiquetaFactores = (n: number): Partial<Ficha> => (n > 5 ? { debajo: `${n}\\text{ factores}` } : {});
 const divisores =(m: number): number[] => Array.from({ length: m }, (_, i) => i + 1).filter((d) => m % d === 0);
 const coma = (xs: string[]) => xs.join(",\\ ");
+/**
+ * Divisiones sucesivas entre la base hasta llegar a 1 (729 / 3 = 243, 243 / 3 = 81...): de ahi sale cuantos factores hay.
+ * Una fila por division, cada una en su renglon. Con mas de 5 se muestran las dos primeras, unos puntos y la ultima.
+ * Devuelve las fichas (con saltos) y sus ids; `resumido` dice si se omitieron filas.
+ */
+function filasDivision(valor: bigint, b: number, n: number, pref: string): { fichas: Ficha[]; ids: string[]; resumido: boolean } {
+  const fila = (i: number): Ficha => {
+    const num = valor / BigInt(b) ** BigInt(i - 1);
+    return { id: `${pref}${i}`, tex: `\\dfrac{${num}}{${b}}=${num / BigInt(b)}` };
+  };
+  const resumido = n > 5;
+  const filas: Ficha[] = resumido ? [fila(1), fila(2), { id: `${pref}p`, tex: "\\vdots" }, { ...fila(n), debajo: `${n}\\text{ divisiones}` }] : Array.from({ length: n }, (_, i) => fila(i + 1));
+  const fichas: Ficha[] = [];
+  for (const f of filas) fichas.push({ id: `${f.id}s`, tex: "", salto: true }, f);
+  return { fichas, ids: fichas.map((f) => f.id), resumido };
+}
+
 /** «factor» o «factores» segun cuantos son (con 1 va en singular) */
 const fact = (n: number) => (n === 1 ? "factor" : "factores");
 /** «son 3 factores 5» o «es 1 factor 5» */
@@ -220,14 +237,23 @@ export function raizGeneral(
   } else if (numerica) {
     // 64 = 2·2·2·2·2·2 = 2^6: los factores se escriben y se cuentan antes de usar el exponente
     estados.push([{ id: "r", tex: raiz(k, `${valor}`) }]);
+    // las divisiones sucesivas se VEN: de ahi salen los factores (antes aparecian 729 = 3·3·3·3·3·3 sin proceso)
+    const dv = filasDivision(valor as bigint, base as number, n, "dv");
+    estados.push([{ id: "r", tex: raiz(k, `${valor}`) }, ...dv.fichas]);
     estados.push([{ id: "rf", tex: raiz(k, factores(b, n)), ...etiquetaFactores(n) }]);
     estados.push([{ id: "q", tex: raiz(k, potTex(b, n)) }]);
     intro = `Queremos calcular $${raiz(k, `${valor}`)}$. Veamos qué pasa por dentro.`;
     trans.push({
-      fusiones: [{ desde: ["r"], hacia: "rf" }],
+      fusiones: [],
+      brotes: dv.ids.map((hacia) => ({ desde: "r", hacia })),
+      texto: `Para ver cuántas veces está el $${b}$ dentro de $${valor}$, lo dividimos entre $${b}$ una y otra vez hasta llegar a $1$: son $${n}$ divisiones exactas.${dv.resumido ? " Mostramos las dos primeras y la última." : ""}`,
+      porque: `Cada división exacta entre $${b}$ saca un factor $${b}$ del número. Cuando llegamos a $1$ ya no queda nada: los factores son todas las divisiones que hicimos.`,
+    });
+    trans.push({
+      fusiones: [{ desde: ["r", ...dv.ids], hacia: "rf" }],
       descompone: true,
-      texto: `Escribimos $${valor}$ como un producto de factores iguales: $${valor}=${factores(b, n)}$, con $${n}$ factores $${b}$.`,
-      porque: `Buscamos un número que, multiplicado por sí mismo $${n}$ veces, dé $${valor}$. Ese número es $${b}$.`,
+      texto: `Hicimos $${n}$ divisiones entre $${b}$, así que $${valor}$ es un producto de $${n}$ factores $${b}$: $${valor}=${factores(b, n)}$.`,
+      porque: `Dividir $${n}$ veces entre $${b}$ hasta llegar a $1$ quiere decir que $${b}$ está $${n}$ veces en el número.`,
     });
     trans.push({
       fusiones: [{ desde: ["rf"], hacia: "q" }],
@@ -240,6 +266,17 @@ export function raizGeneral(
     estados.push([{ id: "q", tex: raiz(k, potTex(b, n)) }]);
     intro = `Queremos simplificar $${raiz(k, potTex(b, n))}$.`;
   }
+
+  // Antes de pasar la raiz a exponente 1/n: que ES una raiz (el significado), con un ejemplo chico
+  const ejemploK = k === 2 ? `$\\sqrt{9}=3$ porque $3\\cdot 3=9$` : k === 3 ? `$\\sqrt[3]{8}=2$ porque $2\\cdot 2\\cdot 2=8$` : `$\\sqrt[${k}]{${2 ** k}}=2$ porque $${factores("2", k)}=${2 ** k}$`;
+  estados.push([{ id: "q", tex: raiz(k, potTex(b, n)) }]);
+  trans.push({
+    fusiones: [],
+    resaltar: ["q"],
+    texto: `Antes de seguir, recordamos qué es una raíz: $${raiz(k, "a")}$ es el número que, multiplicado por sí mismo $${k}$ veces, da $a$. Por ejemplo, ${ejemploK}.`,
+    porque: `Eso significa la raíz de índice $${k}$: buscar el número que multiplicado $${k}$ veces por sí mismo da lo que hay adentro. Con esa idea la vamos a escribir como exponente.`,
+    regla: `$${raiz(k, "a")}=r\\ \\Longleftrightarrow\\ r^{${k}}=a$`,
+  });
 
   // Se abre la raiz en sus tres partes: indice, base y exponente (piezas sueltas, cada una con su etiqueta)
   estados.push([
@@ -726,6 +763,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     agregar("lpe", "\\ldots", true);
     agregar("pv", `${exacta}`);
   }
+  const dvc = filasDivision(exacta, a, n, "dc");
   const Sl: Ficha = { id: "Sl", tex: "", salto: true };
   const Sd: Ficha = { id: "Sd", tex: "", salto: true };
   const cu: Ficha = fr("cu", `${valor}`, `${exacta}`);
@@ -772,6 +810,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
 
   const estados: Ficha[][] = [
     [{ id: "r0", tex: raiz(k, `${valor}`) }],
+    // (las divisiones sucesivas del exacto entre la base van mas abajo, antes de escribir los factores)
     // se abre la raiz: indice y radicando
     [ik0, nvF],
     // lista de potencias perfectas, las que no dividen tachadas de mayor a menor, y la cuenta 12 / 4 = 3
@@ -780,6 +819,8 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     // 12 = 4 · 3
     [ikSin, pvF, t, pc],
     [ikSin, pvF, t, pc],
+    // divisiones sucesivas entre la base del ejercicio (64 / 2 = 32, 32 / 2 = 16...)
+    [ikSin, pvF, t, pc, ...dvc.fichas],
     // 4 = 2 · 2 = 2^2
     [ikSin, { id: "pf", tex: factores(String(a), n), ...etiquetaFactores(n) }, t, pc],
     [ikSin, { id: "pa", tex: aTex }, t, pc],
@@ -830,10 +871,21 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
       porque: `Solo se puede sacar de la raíz lo que es una potencia perfecta del índice. Marcamos cuál es.`,
     },
     {
-      fusiones: [{ desde: ["pv"], hacia: "pf" }],
+      fusiones: [],
+      brotes: dvc.ids.map((hacia) => ({ desde: "pv", hacia })),
+      resaltar: ["pv"],
+      texto: `${
+        raizExacta !== a
+          ? `Ojo, cambiamos de base: en la lista salió el $${raizExacta}$ ($${factores(String(raizExacta), k)}$), pero el $${raizExacta}$ todavía se puede partir y la base del ejercicio es el $${a}$. Para contar los factores del $${a}$, dividimos`
+          : "Para contar los factores, dividimos"
+      } $${exacta}$ entre $${a}$ una y otra vez hasta llegar a $1$: son $${n}$ divisiones exactas.${dvc.resumido ? " Mostramos las dos primeras y la última." : ""}`,
+      porque: `Cada división exacta entre $${a}$ saca un factor $${a}$ del número. Cuando llegamos a $1$ ya no queda nada.`,
+    },
+    {
+      fusiones: [{ desde: ["pv", ...dvc.ids], hacia: "pf" }],
       descompone: true,
-      texto: `Escribimos $${exacta}$ como producto de factores iguales: $${exacta}=${factores(String(a), n)}$, con $${n}$ factores $${a}$.`,
-      porque: `Buscamos el número que, multiplicado por sí mismo $${n}$ veces, da $${exacta}$. Ese número es $${a}$.`,
+      texto: `Hicimos $${n}$ divisiones entre $${a}$, así que $${exacta}$ es un producto de $${n}$ factores $${a}$: $${exacta}=${factores(String(a), n)}$.`,
+      porque: `Dividir $${n}$ veces entre $${a}$ hasta llegar a $1$ quiere decir que $${a}$ está $${n}$ veces en el número.`,
     },
     {
       fusiones: [{ desde: ["pf"], hacia: "pa" }],

@@ -139,7 +139,7 @@ export function hallazgosPasos(d: Demo, etiqueta: string): string[] {
     // PRODUCTO DE DOS CIFRAS POR DOS CIFRAS DE UN GOLPE escrito en el texto (33·33=1089): se parte en decenas y unidades.
     // Cifras significativas (sin ceros finales ni coma): 10·12 o 25·40 no cuentan, 12·12 o 4,5·4,5 si.
     const cifras = (n: string) => n.replace(/[.,]/g, "").replace(/0+$/, "").length;
-    const productoGrande = /(\d[\d.,]*)\s*\\cdot\s*(\d[\d.,]*)\s*=\s*\d[\d.,]*(?!\s*(?:\\cdot|\+|-|\\times|\d))/g;
+    const productoGrande = /(\d[\d.,]*)\s*\\cdot\s*(\d[\d.,]*)\s*=\s*\d[\d.,]*(?!\s*(?:\\cdot|\+|-|\\times|\d|\^))/g;
     for (const s of [t.texto, t.porque]) {
       const hit = [...s.matchAll(productoGrande)].find((m) => cifras(m[1]) >= 2 && cifras(m[2]) >= 2);
       if (hit) { mal(i, `calcula de un golpe un producto de dos cifras por dos cifras (${hit[0].trim()}): partir en decenas y unidades`); break; }
