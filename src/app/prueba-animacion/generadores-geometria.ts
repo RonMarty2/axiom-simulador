@@ -223,11 +223,14 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
   // Cuadrado de un numero de dos cifras "a lapiz" (33·33 no se da de un golpe): se parte en decenas y unidades,
   // una parte por paso, y se suman. `desde` son las tres piezas n · n; el resultado queda en la pieza `pid`.
   const grande = (n: number) => n >= 11 && n % 10 !== 0;
-  const cuadradoLapiz = (desde: string[], pid: string, n: number) => {
+  // `menos`: el cuadrado va despues de un signo menos (c² − a²): la suma parcial lleva parentesis mientras dure,
+  // porque 10000 − 20·28 + 8·28 NO vale lo mismo que 10000 − (20·28 + 8·28)
+  const cuadradoLapiz = (desde: string[], pid: string, n: number, menos = false) => {
     const u = n % 10;
     const T = n - u;
     const p1 = T * n;
     const p2 = u * n;
+    const par = (s: string) => (menos ? `\\left(${s}\\right)` : s);
     const paso2 = (actual: string[], nid: string, tex: string, texto: string, porque: string, regla: string, descompone?: boolean) => {
       h.cambiar(actual, [{ id: nid, tex }]);
       h.paso({ fusiones: [{ desde: actual, hacia: nid }], descompone, texto, porque, regla });
@@ -236,14 +239,14 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
     let ids = paso2(
       desde,
       `${pid}a`,
-      `${T}\\cdot ${n}+${u}\\cdot ${n}`,
-      `Multiplicamos $${n}\\cdot ${n}$, una cuenta con números de dos cifras. Partimos $${n}$ en $${T}+${u}$ y multiplicamos cada parte por $${n}$.`,
+      par(`${T}\\cdot ${n}+${u}\\cdot ${n}`),
+      `Multiplicamos $${n}\\cdot ${n}$, una cuenta con números de dos cifras. Partimos $${n}$ en $${T}+${u}$ y multiplicamos cada parte por $${n}$.${menos ? " Como este cuadrado se resta, lo dejamos entre paréntesis hasta tener el resultado." : ""}`,
       `Multiplicar una suma por un número es multiplicar cada parte y sumar los resultados.`,
       `$(a+b)\\cdot c=a\\cdot c+b\\cdot c$`,
       true
     );
-    ids = paso2(ids, `${pid}b`, `${p1}+${u}\\cdot ${n}`, `Primera parte: $${T}\\cdot ${n}=${p1}$.`, `Una operación por vez: primero la parte de las decenas.`, `$m\\cdot n=p$`);
-    ids = paso2(ids, `${pid}c`, `${p1}+${p2}`, `Segunda parte: $${u}\\cdot ${n}=${p2}$.`, `Ahora la parte de las unidades.`, `$m\\cdot n=p$`);
+    ids = paso2(ids, `${pid}b`, par(`${p1}+${u}\\cdot ${n}`), `Primera parte: $${T}\\cdot ${n}=${p1}$.`, `Una operación por vez: primero la parte de las decenas.`, `$m\\cdot n=p$`);
+    ids = paso2(ids, `${pid}c`, par(`${p1}+${p2}`), `Segunda parte: $${u}\\cdot ${n}=${p2}$.`, `Ahora la parte de las unidades.`, `$m\\cdot n=p$`);
     paso2(ids, pid, String(n * n), `Sumamos las dos partes: $${p1}+${p2}=${n * n}$. Entonces $${n}^{2}=${n * n}$.`, `Al final se suman los resultados de las dos partes.`, `$a+b=c$`);
   };
 
@@ -259,7 +262,7 @@ export function pitagoras(tipo: TipoPitagoras, x: number, y: number, enunciado?:
       regla: `$n^{2}=n\\cdot n$`,
     });
     if (grande(n)) {
-      cuadradoLapiz([`${k}1`, `${k}x`, `${k}2`], `P${k}`, n);
+      cuadradoLapiz([`${k}1`, `${k}x`, `${k}2`], `P${k}`, n, !esHip && k === orden[1]);
       continue;
     }
     h.cambiar([`${k}1`, `${k}x`, `${k}2`], [{ id: `P${k}`, tex: String(n * n) }]);

@@ -628,7 +628,9 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     const B = Math.abs(n);
     return Math.max(A, B) >= 11 && Math.min(A, B) >= 6 && (A % 10 !== 0 || B % 10 !== 0);
   };
-  const lapiz = (desde: string[], pid: string, m: number, n: number): void => {
+  // `menos`: la cuenta va justo despues de un signo menos (b^2 - 4ac). Entonces la suma parcial lleva parentesis
+  // mientras dure (144-(10·9+2·9)) y nunca quedan dos signos menos seguidos (4-(-8·12), no 4--8·12).
+  const lapiz = (desde: string[], pid: string, m: number, n: number, menos = false): void => {
     const L = Math.abs(m);
     const R = Math.abs(n);
     const neg = m * n < 0;
@@ -639,8 +641,8 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     const u = gran % 10;
     const o = partirIzq ? R : L;
     const prod = (x: number) => (partirIzq ? `${x}\\cdot ${o}` : `${o}\\cdot ${x}`);
-    const pre = neg ? "-\\left(" : "";
-    const pos = neg ? "\\right)" : "";
+    const pre = neg ? (menos ? "\\left(-\\left(" : "-\\left(") : menos ? "\\left(" : "";
+    const pos = neg ? (menos ? "\\right)\\right)" : "\\right)") : menos ? "\\right)" : "";
     let actual = desde;
     let n0 = 0;
     const paso2 = (tex: string, texto: string, porque: string, regla: string, descompone?: boolean, ultimo?: boolean) => {
@@ -651,7 +653,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
     };
     if (m < 0 || n < 0) {
       paso2(
-        `${neg ? "-" : ""}${L}\\cdot ${R}`,
+        neg && menos ? `(-${L}\\cdot ${R})` : `${neg ? "-" : ""}${L}\\cdot ${R}`,
         `${ordinal()} cuenta: primero el signo. $${par(m)}\\cdot ${par(n)}$ ${neg ? "da un resultado negativo" : "da un resultado positivo"}, así que multiplicamos $${L}\\cdot ${R}$${neg ? " y al final ponemos el signo menos" : ""}.`,
         neg ? `Un positivo por un negativo da negativo.` : `Un negativo por un negativo da positivo.`,
         neg ? `$\\text{positivo}\\cdot\\text{negativo}=\\text{negativo}$` : m === n ? `$(-n)^{2}=n^{2}$` : `$(-m)\\cdot(-n)=m\\cdot n$`,
@@ -730,7 +732,7 @@ export function cuadratica(a1: number, b1: number, c1: number, a2 = 0, b2 = 0, c
   }
   const f4 = a === 1 ? "F4" : "P4a";
   if (grande(4 * a, c)) {
-    lapiz([f4, "Fd2", "Vc"], "PQ", 4 * a, c);
+    lapiz([f4, "Fd2", "Vc"], "PQ", 4 * a, c, true);
   } else {
     subs([f4, "Fd2", "Vc"], [{ id: "PQ", tex: par(Q) }]);
     empuja({
