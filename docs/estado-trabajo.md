@@ -38,13 +38,10 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 6. [ ] **Decisión de Ronald antes de hacerlo:** registro por caso o examen en vez de por tipo.
 7. [ ] Conectar las animaciones a la app: aplazado por Ronald hasta completar todas.
 
-### Reglas candidatas pendientes de sumar a `hallazgosPasos` (vistas en 2 o más tipos)
-1. Paso que solo resalta (sin fusión, brote ni visita) tras otro paso de lectura (charles, mruv, trigonometria).
-2. `÷1` o `/1` como paso propio (molaridad V=1, trigonometria).
-3. `×1` dentro de un texto o un `1` que nace pegado a un factor (hoy solo ve fusiones de 3 piezas).
-4. Cuenta grande en fracciones con piezas: leer `nPiezas`/`dPiezas`, no solo `frac.n`/`frac.d`.
-5. Etiqueta `debajo` más ancha que su pieza (reacomoda renglones).
-6. Progresión «todo_negativo_extremos» pasos 15 y 16: `·` suelto al principio del renglón (arreglo en `Fusion.tsx`).
+### Reglas candidatas: qué se midió y qué quedó para el auditor
+- Sumadas a `hallazgosPasos` (30-oct): cuenta grande también con fracciones de piezas (`nPiezas`/`dPiezas`) y dos pasos seguidos que solo marcan algo. Con eso quedan topes: molaridad 2, oxidacion 6, punnett 10, interes 5 (casos difíciles). punnett y oxidacion son pasos de lectura de una tabla o molécula: se miran en la lectura final, no son error seguro.
+- NO se miden con código (dan falsos positivos): `÷1` como paso (`x = 3/1` es el cierre normal de lineal y raíz), `x·1` escrito en el texto (`1·3=3` es válido si el 1 es el numerador de una fracción), etiqueta `debajo` más ancha que su pieza. Los ve el auditor.
+- Falta (motor): progresión «todo_negativo_extremos» pasos 15 y 16, `·` suelto al principio del renglón en `(30 − 1) · (−10)`: permitir el corte antes del `·` solo cuando los dos operandos son paréntesis, en `Fusion.tsx`.
 
 ## Después de las animaciones (orden acordado)
 - Comparar los exámenes del banco contra su PDF con `auditor-facsimil` (6 de 150 hechos; de 1 a 2 por día).

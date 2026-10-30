@@ -81,6 +81,16 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
     const d = demo([[g], [f("r", "320")]], [t({ fusiones: [{ desde: ["g"], hacia: "r" }] })]);
     assert.ok(malos(d).some((m) => m.includes("cuenta grande")));
   });
+  test("una cuenta grande tambien cuando la fraccion trae piezas con id (nPiezas/dPiezas)", () => {
+    const g = f("g", "", { frac: { n: "", d: "", nPiezas: [f("n1", "5808")], dPiezas: [f("d1", "44")] } });
+    const d = demo([[g], [f("r", "132")]], [t({ fusiones: [{ desde: ["g"], hacia: "r" }] })]);
+    assert.ok(malos(d).some((m) => m.includes("cuenta grande")));
+  });
+  test("dos pasos seguidos que solo marcan algo sin mover nada", () => {
+    const e = [[f("a", "3")], [f("a", "3")], [f("a", "3")]];
+    assert.equal(malos(demo(e, [t({ resaltar: ["a"] }), t({ resaltar: ["a"] })])).length, 1);
+    assert.deepEqual(malos(demo(e.slice(0, 2), [t({ resaltar: ["a"] })])), []);
+  });
   test("un numero nuevo que nace de la nada (sin fusion ni brote)", () => {
     const d = demo([[f("a", "3")], [f("a", "3"), f("o", "+", { op: true }), f("n", "5")]], [t({ resaltar: ["a"] })]);
     assert.ok(malos(d).some((m) => m.includes("sin origen")));
@@ -88,8 +98,9 @@ describe("las reglas de pasos atrapan los errores conocidos", () => {
 });
 
 // Trinquete: hallazgos de pasos que hoy existen, por tipo. NO pueden subir. Un tipo que no esta aca debe dar 0.
-const TRINQUETE_CASOS: Record<string, number> = {};
-const TRINQUETE_HUELLAS: Record<string, number> = {};
+// punnett y oxidacion: sus pasos de lectura seguidos son parte de leer una tabla o una molecula; se miran en la lectura final.
+const TRINQUETE_CASOS: Record<string, number> = { molaridad: 2, oxidacion: 6, punnett: 10, interes: 5 };
+const TRINQUETE_HUELLAS: Record<string, number> = { molaridad: 1, oxidacion: 2, punnett: 5, interes: 2 };
 
 describe("reglas de pasos en todos los tipos (trinquete)", () => {
   for (const [tipo, casos] of Object.entries(CASOS_POR_TIPO) as [Tipo, (typeof CASOS_POR_TIPO)[Tipo]][]) {

@@ -129,9 +129,18 @@ export function hallazgosPasos(d: Demo, etiqueta: string): string[] {
     // CUENTA GRANDE DE UN GOLPE: una fraccion con numerador o denominador de 4 cifras o mas que se resuelve en un solo paso
     for (const f of t.fusiones) {
       if (f.modo) continue;
-      const grande = f.desde.map((id) => antes.get(id)).find((p) => p?.frac && [p.frac.n, p.frac.d].some((v) => /^\d{4,}$/.test(v)));
-      if (grande) mal(i, `resuelve de un golpe una cuenta grande (${grande.frac!.n}/${grande.frac!.d}): simplificar antes`);
+      // la fraccion puede traer el texto en `n`/`d` o en piezas con id (nPiezas/dPiezas, que dejan n y d vacios)
+      const lado = (p: Ficha, k: "n" | "d") => p.frac![k] || (p.frac![k === "n" ? "nPiezas" : "dPiezas"] ?? []).map((x) => x.tex).join("");
+      const grande = f.desde.map((id) => antes.get(id)).find((p) => p?.frac && (["n", "d"] as const).some((k) => /^\d{4,}$/.test(lado(p, k))));
+      if (grande) mal(i, `resuelve de un golpe una cuenta grande (${lado(grande, "n")}/${lado(grande, "d")}): simplificar antes`);
+      // (dividir entre 1 no se mide: `x = 3/1` es el cierre normal de lineal y raiz; lo ve el auditor)
     }
+
+    // (el `x·1` escrito en el TEXTO no se mide: `1·3=3` es valido cuando el 1 es el numerador de una fraccion; lo ve el auditor)
+
+    // DOS PASOS DE LECTURA SEGUIDOS: dos pasos que solo marcan algo, sin mover nada, uno detras del otro
+    const soloLee = (k: number) => k >= 0 && !d.transiciones[k].fusiones.length && !(d.transiciones[k].brotes ?? []).length && !(d.transiciones[k].visitas ?? []).length && firma(d.estados[k]) === firma(d.estados[k + 1]);
+    if (i >= 1 && soloLee(i) && soloLee(i - 1)) mal(i, "es el segundo paso seguido que solo marca algo sin mover nada: juntarlo con el anterior o con el siguiente");
 
     // NUMERO SIN ORIGEN: un numero nuevo que no sale de una fusion, un brote ni una visita aparece de la nada
     const conOrigen = new Set<string>([
