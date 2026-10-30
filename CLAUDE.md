@@ -1,6 +1,6 @@
 # Punto de entrada para asistentes IA
 
-**Si sos una IA (Claude, GPT, etc.) trabajando en este repo, leé primero [BITACORA.md](./BITACORA.md).** Tiene TODO: identidad del proyecto, decisiones arquitectónicas, errores históricos, principios de animación, roadmap. En 10 minutos sabés dónde estás parado.
+**Si retomás una sesión o no sabés en qué estamos, leé primero [docs/estado-trabajo.md](./docs/estado-trabajo.md)** (un mapa corto con los comandos para comprobar el estado real). **Si sos una IA (Claude, GPT, etc.) trabajando en este repo, leé después [BITACORA.md](./BITACORA.md).** Tiene TODO: identidad del proyecto, decisiones arquitectónicas, errores históricos, principios de animación, roadmap. En 10 minutos sabés dónde estás parado.
 
 ## Reglas de oro
 

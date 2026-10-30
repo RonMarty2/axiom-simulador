@@ -8,7 +8,7 @@ description: Retoma el trabajo de las animaciones de resolucion donde se dejo, s
 Hace esto, en orden y sin preguntarle nada a Ronald hasta el final:
 
 1. `git fetch origin main` y `git pull` (hay sesiones en paralelo). Si hay cambios sin subir, decirlo.
-2. Leer en `BITACORA.md` la seccion **DONDE RETOMAR** mas reciente (la ultima del archivo) y `docs/lecciones-agentes.md` (las entradas del 17-oct).
+2. Leer `docs/estado-trabajo.md` (el mapa corto: que esta hecho, en curso y pendiente) y correr ahi los comandos de «Como comprobar el estado real» (`git status`, `node src/app/prueba-animacion/medir-reglas.ts`, `npm test`). Si hay archivos sin commitear, son de un agente que quedo a medias: verificar (tsc, lint, test) y commitear, no borrar. Despues leer en `BITACORA.md` la seccion **DONDE RETOMAR** mas reciente (la ultima del archivo) y `docs/lecciones-agentes.md`.
 3. Si `localhost:3001` no responde: `npm run dev` en segundo plano. No matar procesos por puerto (puede ser el servidor de Ronald).
 4. Leer `data/observaciones-ronald.json` y buscar `atendida: false`:
    - **nota** → parafrasearla a Ronald en lenguaje simple y esperar su «si» ANTES de tocar nada. Despues: rehacer, `node src/app/prueba-animacion/revisar-pasos.ts agregar ...`, y marcar `atendida: true`.
