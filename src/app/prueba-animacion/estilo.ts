@@ -78,3 +78,72 @@ export function hallazgosEstilo(d: Demo, etiqueta: string, parte: "texto" | "mov
   });
   return malos;
 }
+
+// REGLAS DE PASOS (auditorias del 30-oct): lo que los agentes de revision fueron encontrando a mano y se repetia.
+// Cada hallazgo nuevo que se repita en varias animaciones se agrega ACA con su test del error conocido (estilo.test.ts),
+// asi se vigila en todos los tipos de golpe y no depende de que un agente lo vuelva a ver.
+// Lo que pide criterio y no se puede medir con codigo (comprobacion circular, cambio de base sin avisar, quimica sin conteo)
+// sigue en agentes/auditor-de-pasos.md.
+const firma = (e: Ficha[]) => aplanar(e).map((f) => `${f.tex}|${f.debajo ?? ""}|${f.destacada ? 1 : 0}`).join("¦");
+// el LaTeX sin colores (#1a4 no es "1a"), llaves ni marcas §
+const limpio = (tex: string) => tex.replace(/\\textcolor\{[^}]*\}/g, "").replace(/[{}§]/g, "");
+const esNumero = (tex: string) => /^[-+−]?\d+([.,]\d+)?$/.test(tex.trim());
+
+export function hallazgosPasos(d: Demo, etiqueta: string): string[] {
+  const malos: string[] = [];
+  const mal = (i: number, msg: string) => malos.push(`${etiqueta}: T${i} ${msg}`);
+
+  // COEFICIENTE 1 ESCRITO: 1a, 4(1a), v0=1a. El 1 no se escribe delante de una letra
+  d.estados.forEach((e, k) => {
+    e.forEach((f, j) => {
+      if (f.op || f.sup) return;
+      const sig = e[j + 1];
+      const pegadoLetra = limpio(f.tex).trim() === "1" && sig?.pegado && !sig.op && /^[A-Za-z\u0391-\u03c9]/.test(limpio(sig.tex).trim());
+      const suelto = limpio(f.tex).replace(/\\text\{[^}]*\}/g, " ").replace(/\\[A-Za-z]+/g, " ");
+      if (pegadoLetra || /(^|[^\d.,{^_])1(?=[A-Za-z\u0391-\u03c9])/.test(suelto)) mal(k, `escribe el coeficiente 1 (${f.tex}): no se escribe 1 delante de una letra`);
+    });
+  });
+
+  d.transiciones.forEach((t, i) => {
+    const a = aplanar(d.estados[i]);
+    const b = aplanar(d.estados[i + 1]);
+    const antes = new Map(a.map((f) => [f.id, f]));
+    const despues = new Map(b.map((f) => [f.id, f]));
+
+    // PASO QUIETO: el estado no cambia y el paso no hace nada (ni marca, ni mueve, ni nace nada)
+    const hace = t.fusiones.length || (t.brotes ?? []).length || (t.visitas ?? []).length || (t.resaltar ?? []).length || t.figura;
+    if (firma(d.estados[i]) === firma(d.estados[i + 1]) && !hace) mal(i, "no cambia nada ni marca nada: paso vacio");
+
+    // UN PASO QUE DESHACE EL ANTERIOR: el estado vuelve a ser el de dos pasos atras
+    if (i >= 1 && firma(d.estados[i + 1]) === firma(d.estados[i - 1]) && firma(d.estados[i]) !== firma(d.estados[i - 1])) mal(i, "deshace el paso anterior (vuelve al mismo estado de hace dos pasos)");
+
+    // MULTIPLICAR POR 1: la cuenta x·1 = x no ensena nada (salvo que haga falta para tachar: ahi se justifica en el texto)
+    for (const f of t.fusiones) {
+      if (f.modo || f.desde.length !== 3 || typeof f.hacia !== "string") continue;
+      const [x, op, y] = f.desde.map((id) => antes.get(id));
+      if (!x || !op || !y || !/cdot|times|·|×/.test(op.tex)) continue;
+      const otro = x.tex.trim() === "1" ? y : y.tex.trim() === "1" ? x : null;
+      if (otro && despues.get(f.hacia)?.tex.trim() === otro.tex.trim()) mal(i, `multiplica por 1 (${x.tex}·${y.tex}) y no cambia el valor`);
+    }
+
+    // CUENTA GRANDE DE UN GOLPE: una fraccion con numerador o denominador de 4 cifras o mas que se resuelve en un solo paso
+    for (const f of t.fusiones) {
+      if (f.modo) continue;
+      const grande = f.desde.map((id) => antes.get(id)).find((p) => p?.frac && [p.frac.n, p.frac.d].some((v) => /^\d{4,}$/.test(v)));
+      if (grande) mal(i, `resuelve de un golpe una cuenta grande (${grande.frac!.n}/${grande.frac!.d}): simplificar antes`);
+    }
+
+    // NUMERO SIN ORIGEN: un numero nuevo que no sale de una fusion, un brote ni una visita aparece de la nada
+    const conOrigen = new Set<string>([
+      ...t.fusiones.flatMap((f) => (f.hacia === null ? [] : Array.isArray(f.hacia) ? f.hacia : [f.hacia])),
+      ...(t.brotes ?? []).map((br) => br.hacia),
+    ]);
+    const hijosDeNueva = new Set<string>();
+    for (const f of d.estados[i + 1]) if (!antes.has(f.id)) aplanar([f]).forEach((h) => hijosDeNueva.add(h.id));
+    for (const n of b) {
+      if (antes.has(n.id) || n.op || n.sup || conOrigen.has(n.id) || hijosDeNueva.has(n.id) && !d.estados[i + 1].some((r) => r.id === n.id)) continue;
+      if (esNumero(n.tex) && !(t.visitas ?? []).length) mal(i, `el numero ${n.tex} aparece sin origen (ni fusion ni brote)`);
+    }
+  });
+  return malos;
+}

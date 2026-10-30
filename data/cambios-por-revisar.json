@@ -5,28 +5,35 @@
       "tipo": "lineal",
       "caso": "x fraccionaria negativa",
       "paso": 16,
-      "nota": "PENDIENTE IA: la marca del «)» grande sale corrida ~10 px y pisa la raya y el 2 (medir el «)» con su propio rect o no marcar parentesis que envuelven una fraccion)",
+      "nota": "ARREGLADO (motor): la marca del parentesis grande se mide con su propia caja; ya no sale corrida ni mas ancha. A media animacion los dos parentesis y el -3 se rozan (los parentesis son mas anchos que la fraccion de adentro)",
       "fecha": "2026-10-30"
     },
     {
       "tipo": "raizResto",
       "caso": "base 3",
       "paso": 3,
-      "nota": "PENDIENTE IA: «4, 9, 16, 25,» con coma colgada y el 36 solo abajo en 343 px",
+      "nota": "ARREGLADO (motor): la lista 4, 9, 16, 25, 36 va en un solo renglon a 343 px, con la coma pegada al numero",
       "fecha": "2026-10-30"
     },
     {
       "tipo": "fracciones",
       "caso": "numeros grandes",
       "paso": 22,
-      "nota": "PENDIENTE IA: el renglon corta antes de «· 24 )»: punto colgado y parentesis partidos",
+      "nota": "ARREGLADO (motor): el parentesis largo se parte en el + (renglon 1: (5/12 · 24, renglon 2: + 7/8 · 24 ) ) y ya no queda un punto colgado ni parentesis partidos",
       "fecha": "2026-10-30"
     },
     {
       "tipo": "cuadrados",
       "caso": "k grande",
       "paso": 10,
-      "nota": "PENDIENTE IA: «(x − 15)» y «(x + 15)» en renglones distintos (pasos 10 a 16); mucho aire dentro de los parentesis",
+      "nota": "ARREGLADO (motor): (x - 15)(x + 15) van juntos en un renglon desde el paso 10 hasta el 16, con los parentesis pegados a lo que encierran",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 13,
+      "nota": "ARREGLADO (motor): idem, el producto de parentesis queda en un renglon con el = delante",
       "fecha": "2026-10-30"
     }
   ],

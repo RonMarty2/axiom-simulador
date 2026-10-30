@@ -5,79 +5,79 @@
       "estado": "con-hallazgos",
       "huella": "a1bd8ce27270",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: regla de signos corregida (valor sin signo), negrita con la segunda lista. Falta: la marca del parentesis grande en x fracc negativa 16 sale corrida"
+      "nota": "30-oct re-auditoria (6 casos, 15-20 pasos): texto sin saltos graves; definir, signos entre parentesis, comprobacion OK. Leve: 96=8*12 / 9=3*3 / 6=3*2 el cofactor sale de una division mental sin mostrar. Sigue pendiente solo lo visual de la nota anterior (marca del parentesis grande en x fracc negativa, sin verificar en pantalla)"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
       "huella": "847ff5a1e845",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: corte antes del =, una sola copia, o sin tilde. Falta: k grande 10-16 parte (x − 15)(x + 15) en dos renglones"
+      "nota": "30-oct re-auditoria (k=3,2,15): sin saltos de calculo ni pasos vacios. Leves: (1) T13 -3*3 pasa a -3^2 (lee como (-3)*3=-9, la notacion -(3^2) no se explica hasta T24); (2) T22 el porque solo justifica 0+3, no 0-3; (3) T24-26 reemplazo y calculo de las dos filas juntas (2 ops por paso, tolerado). Pendiente visual sin verificar: k grande parte (x-15)(x+15) en dos renglones"
     },
     "fracciones": {
       "estado": "con-hallazgos",
       "huella": "ee301a705aca",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: negrita con la segunda lista, distributiva en dos pasos, cero por cualquier numero, punto dentro de la formula. Falta: numeros grandes 22 corta antes de «· 24 )»"
+      "nota": "30-oct re-auditoria (6 casos). (1) numeros grandes y todos: T24-27 de la comprobacion multiplica por el mcm y divide de vuelta (31*24=744 y 744/24=31 en un paso, 168/8) cuentas de 3 cifras sin mostrar, ida y vuelta evitable; (2) denominadores iguales (1/4-1/4): T2 'ya son iguales' deja el estado igual (paso quieto); (3) simplificar 3/6: T17 escribe 3=1*3 (coeficiente 1). Resto bien: mcm con listas, 3/3 y 2/2 de a uno, signos. Pendiente visual sin verificar: numeros grandes corta antes de el punto 24"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
       "huella": "7feb400c42de",
-      "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: resueltos los pendientes del 8-oct (fila de referencia, comprobacion nacida de ahi, 2^5 desarrollado, sin pasos vacios en 2,2,2). Quedan: (1) la comprobacion T10 usa la propiedad del producto de logaritmos en el texto sin haberla ensenado (en (2,4,8) y (2,2,2) se resolvio por significado); (2) al desarrollar b^k (T12) los factores b nuevos nacen del exponente k y no de la base wb (deberian brotar de wb); (3) la fila de referencia queda gemela del ejercicio, sin rotulo, hasta T9. Casos leidos: (2,4,8),(2,2,2),(10,2,5)."
+      "fecha": "2026-10-30",
+      "nota": "30-oct re-auditoria (5 casos). Siguen (1) la comprobacion T10/T11 dice 'por la propiedad del producto' sin haberla ensenado (en logaritmos por significado); (2) T13 desarrollo de b^k: los factores b nuevos salen del exponente (wk), no de la base; (3) en 2,2,2 y 10,10,100 los bloques repiten texto identico. Definir, un log por vez y potencias OK"
     },
     "logaritmos-propiedad": {
       "estado": "con-hallazgos",
       "huella": "c8e2985c064c",
-      "fecha": "2026-10-08",
-      "nota": "9-oct auditor independiente: caso (6,2,18) sin saltos de calculo. Quedan menores: (1) al desarrollar 6^2 en la comprobacion (T10) el segundo 6 nace del exponente 2 y no de la base wb; (2) fila de referencia gemela sin rotulo; (3) T4: el primer factor f1 viene del 36 y los demas de la base (mezcla de origenes). Con un arreglo de (1) y rotulo de (2) pasa a auditado."
+      "fecha": "2026-10-30",
+      "nota": "30-oct re-auditoria (4 casos). (1) caso 2,2,2: T3 2*2, T4 2*2=4 y T5 4=2*2 vuelve al mismo estado (paso que deshace el anterior); (2) T5 escribe 32=2*2*2*2*2 de golpe sin mostrar como se cuentan los 2; (3) la comprobacion repite la misma cuenta (circular, usa la propiedad recien aplicada); (4) T7 'la pregunta se responde sola' no cambia el estado"
     },
     "potencia": {
       "estado": "con-hallazgos",
       "huella": "cbfc9a31ad78",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: «1 factor» y sin parentesis. Falta: el · colgado con exponentes grandes"
+      "nota": "30-oct re-auditoria (4 casos). Sin saltos de calculo: factores contados, suma de exponentes y multiplicacion de a dos. Leve: 2^12*2^12 son 23 pasos con el mismo porque repetido; 5^1 explica el 1. Pendiente visual sin verificar: el punto colgado con exponentes grandes"
     },
     "raiz": {
       "estado": "con-hallazgos",
       "huella": "999a75386c2d",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: sin cambios visibles nuevos salvo marcas con aire; falta revision de gestos completa"
+      "nota": "30-oct re-auditoria (4 casos). Leves: (1) T1 escribe 16=2*2*2*2 y 729=3*3*...*3 (6 factores) de golpe: el alumno no ve como se halla la base ni cuantos factores; (2) T11 2=1*2 y T9 3=1*3 escriben coeficiente 1 (necesario para tachar, esta explicado en T6). Resto bien: indice-exponente fraccionario, potencia de potencia, simplificar con divisores. Gestos sin revisar en pantalla"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
       "huella": "5f54d5320845",
       "fecha": "2026-10-30",
-      "nota": "29-oct ronda 4: · ∛3 al lado de la potencia, comas sin tachar, de donde sale cada potencia, indice y factor nombrados. Falta: base 3 paso 3 coma colgada y 36 solo abajo"
+      "nota": "30-oct re-auditoria (3 casos). (1) indice 3: la lista dice 64=4*4*4 pero T7 reescribe 64=2*2*...*2 (6 factores) sin vincular: la base cambia de 4 a 2 sin decirlo; (2) T6 (resaltar el cuadrado perfecto) deja el estado igual; (3) T4 192/64=3 de un golpe. Lista de potencias, descarte uno a uno y division con resto OK. Pendiente visual sin verificar: base 3 coma colgada y 36 solo abajo"
     },
     "cuadratica": {
       "estado": "con-hallazgos",
       "huella": "35a0d69ff9d7",
-      "fecha": "2026-10-08",
-      "nota": "9-oct animador: la formula general es una fraccion con piezas (frPiezas) con raya real desde que aparece y la raiz abarca su radicando (raiz); sin 'entre' ni parentesis sueltos; x2 se copia por brote de la fraccion de x1 (F->Q2, Fe->E2); se quito el paso 'entre es la raya' (1 paso menos). Sin auditar con estas piezas. Siguen pendientes los hallazgos del 9-oct: (1) fila de referencia sin rotulo; (3) (-1)^2 en un paso en la comprobacion; (4) 4*1 repetido con a=c=1; (5) reglas 2n=n+n y x=3; (6) rotulo Delta sin valor. Ver en pantalla: el Delta queda entre el radicando y la raya. || 9-oct: en la comprobacion la solucion que se reemplaza (x1 o x2) queda resaltada todo el proceso (campo destacada); sin ver en pantalla."
+      "fecha": "2026-10-30",
+      "nota": "30-oct re-auditoria (7 casos). Sin saltos graves: ordenar de a un termino, a,b,c con color, reemplazo una letra por vez con parentesis, (-5)^2 en dos pasos, Delta con valor, x1 y x2 comprobadas. Leves: (1) con a=1 hay 2 pasos x1 (4*1=4 y 2*1=2) que no cambian el valor; (2) T5 desordenada cuenta 3 sumas en un paso (2 resultados nuevos); (3) (-12)*(-12)=144 y 12*9=108 de un golpe. Rotulo de fila de referencia no verificado en pantalla"
     },
     "mruv": {
-      "estado": "pendiente",
-      "huella": null,
-      "fecha": null,
-      "nota": ""
+      "estado": "con-hallazgos",
+      "huella": "386bb85cf429",
+      "fecha": "2026-10-30",
+      "nota": "30-oct auditor (3 casos: triplica, duplica, quintuplica). Leve/medio: (1) con v0=1a (quintuplica) aparece '1a' y '4(1a)' y '1.25' en vez de a; (2) duplica T11 paso vacio (v0=10a ya sola, el estado no cambia) y T1 no cambia nada; (3) T21 junta reordenar la a y sacar la mitad en un paso; (4) T26 la unidad m/s2 aparece de golpe con un porque denso; (5) multiplicar por 1 (2.1, 10.1) como paso propio. Sin saltos graves: definir, reemplazar de a una y verificar estan bien"
     },
     "charles": {
-      "estado": "pendiente",
-      "huella": null,
-      "fecha": null,
-      "nota": ""
+      "estado": "con-hallazgos",
+      "huella": "eeea86488553",
+      "fecha": "2026-10-30",
+      "nota": "30-oct auditor (4 casos + variante con presion). Comprobacion T19: 20*300=25*240 nace sin brotes ni visitas y la igualdad V1/T1=V2/T2 ya no esta a la vista (se explica 'en cruz' solo con texto); T12 mueve V1 y T2 a la vez; T1 y T6 (variante presion) no cambian el estado y repiten el porque de Charles; el factor 1atm/760torr aparece sin haber escrito antes la equivalencia. El resto (kelvin, letras con color, reemplazar una por vez, tachar K) esta bien"
     },
     "moles-atomos": {
-      "estado": "pendiente",
-      "huella": null,
-      "fecha": null,
-      "nota": ""
+      "estado": "con-hallazgos",
+      "huella": "192ccff5d797",
+      "fecha": "2026-10-30",
+      "nota": "30-oct auditor (4 casos). Leve: con subindice 1 o factor 1 hay 3 a 5 pasos 'x1' vacios (100*1=100 tres veces, 980*1=980 dos veces); T20 junta fracciones con 7 brotes en un paso; la comprobacion final solo mira unidades, no el valor. Sin saltos graves: masa molar, factor 1 mol-subindice y tachado de unidades estan a la vista"
     },
     "estequiometria": {
-      "estado": "pendiente",
-      "huella": null,
-      "fecha": null,
-      "nota": ""
+      "estado": "con-hallazgos",
+      "huella": "81d912492b27",
+      "fecha": "2026-10-30",
+      "nota": "30-oct auditor (5 casos). (1) T2 'comprobamos que esta balanceada' dice H:4 y 4 pero el estado no cambia: el 4 = 2*2 (coeficiente por subindice) no se ve; (2) divisiones/productos que no se hacen a lapiz en un paso: 5808/44, 71680/224, 528/12, 16*18, 448*160 -> simplificar antes (44 con 44, 224 con 224); (3) 4 pasos 'x1' vacios en el caso 1 a 1; (4) sin comprobacion numerica (conservacion de masa), solo de unidades. Lo demas (g->mol->mol->g, coeficientes leidos de la ecuacion, factor al reves) esta bien"
     },
     "dinamica": {
       "estado": "auditado",

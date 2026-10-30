@@ -35,6 +35,9 @@ Se aplica a **toda materia**, no solo a cuentas. El modelo de datos (fichas, fus
 8. **El resultado se comprueba.** El último paso devuelve al enunciado o muestra la comprobación; coincide con la letra del banco.
 9. **Lo escrito se puede leer sin la animación.** El `texto` de cada paso dice qué término exacto se está tocando ("el `b²`", no "lo de adentro").
 
+## Antes de leer: las reglas que ya miden el código (30-oct-2026)
+`hallazgosPasos` en `src/app/prueba-animacion/estilo.ts` ya vigila en todos los tipos: coeficiente 1 escrito, pasos vacíos, paso que deshace el anterior, ×1 sin cambio, cuenta grande de un golpe y número sin origen. Su trinquete está en `estilo.test.ts`. **No re-reportes eso a mano**: corre `npm test` y mira ahí. Tú lees lo que el código no mide: comprobación circular o que solo revisa unidades, cambio de base sin avisar (`64=4·4·4` y después `2^6`), química sin mostrar coeficiente × subíndice, y si se entiende. **Cuando encuentres algo que se repite en 2 o más tipos, devuélvelo como "regla candidata"** (qué detectar y un ejemplo) para que la sesión principal lo sume a `hallazgosPasos`.
+
 ## Los 4 criterios didácticos (Ronald, 17-oct-2026)
 Además de la lista de control, en cada transición preguntate:
 1. **Pasos chicos.** ¿Un alumno nuevo podría dar este paso solo? Si hace falta partirlo, es un salto.

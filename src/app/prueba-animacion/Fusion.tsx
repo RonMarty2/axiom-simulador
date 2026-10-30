@@ -60,7 +60,9 @@ function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boole
     const medir = () => {
       const r0 = el.getBoundingClientRect();
       // la pieza puede estar escalada (rebote, juntar): se mide en px de diseño
-      const esc = el.offsetWidth > 0 ? r0.width / el.offsetWidth : 1;
+      // (con la dimension MAS GRANDE: offsetWidth se redondea, y la caja de un parentesis estirado mide ~1 px de ancho: 1,3/1 daba escala 1,3
+      // y la marca del «)» salia ancha y corrida; lineal / x fraccionaria negativa 16)
+      const esc = el.offsetWidth >= el.offsetHeight ? (el.offsetWidth > 0 ? r0.width / el.offsetWidth : 1) : r0.height / el.offsetHeight;
       const katexEl = el.querySelector(".katex");
       const ctx = lienzoTinta();
       if (!katexEl || !esc || !ctx) return setCaja(null);
@@ -75,7 +77,11 @@ function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boole
         const cs = getComputedStyle(e);
         if (invisible(cs)) continue;
         const texto = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent ?? "").join("");
-        if (texto.trim() !== "") {
+        // un parentesis estirado (left y right) de KaTeX, fuente Size3/Size4) es un signo con su propia caja: el canvas mide mal sus
+        // glifos grandes y la marca del «)» salia ~10 px corrida y pisaba la raya y el 2 (lineal / x fraccionaria negativa 16, 30-oct)
+        if (e.classList.contains("delimsizing")) {
+          tinta.push({ izq: r.left, der: r.right, arriba: r.top, abajo: r.bottom });
+        } else if (texto.trim() !== "") {
           ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
           const m = ctx.measureText(texto);
           // la caja de un elemento con texto es su area de contenido (ascenso + descenso de la fuente), centrada en su alto si es
@@ -502,29 +508,32 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
   // Se puede partir antes de una pieza SALVO: dentro de un parentesis; si va pegada a la anterior o es un exponente; si es un punto de
   // multiplicar o va justo despues de uno (2 · 2 · d no se parte); o si va justo despues de + − = (el operando se queda con su operador).
   // Un operador (+ − =) SI puede abrir renglon: la formula sigue en la linea de abajo con su signo delante.
-  const puedePartirAntes = (fs: Ficha[], i: number, prof: number[]) => {
+  const puedePartirAntes = (fs: Ficha[], i: number, prof: number[], dentro = false) => {
     const f = fs[i];
-    if (i === 0 || prof[i] > 0 || f.pegado || f.sup) return false;
+    // `dentro` (modo 3): si el parentesis entero no cabe en un renglon, se puede partir ANTES de un + o − de adentro; el punto y el parentesis no
+    if (i === 0 || (prof[i] > 0 && !(dentro && esOperador(f) && !!f.tex.trim().match(/^[+\-−]$/))) || f.pegado || f.sup) return false;
     const antes = fs[i - 1];
+    // dos parentesis pegados, (x − 15)(x + 15), son un producto: no se parten entre si (si no caben juntos, el modo suelto los deja partirse)
+    if (!esProducto(f) && f.tex.trim().startsWith("(") && antes.tex.trim().endsWith(")")) return false;
     // el punto entre dos parentesis, (2·2·⋯·2) · (2·2·⋯·2), SI puede abrir renglon: queda delante del segundo grupo y no colgado al final del primero
     if (esProducto(f)) return antes.tex.trim().endsWith(")") && !!fs[i + 1]?.tex.trim().startsWith("(");
     // el parentesis que abre SI puede quedar abajo aunque lo preceda un operador: «a² − b² =» arriba, «(a − b)(a + b)» abajo
     return !esProducto(antes) && (esOperador(f) || !esOperador(antes) || f.tex.trim().startsWith("("));
   };
   // grupos de posiciones: cada operador (fuera de parentesis) abre uno; un salto de renglon va solo
-  const gruposDe = (fs: Ficha[]) => {
+  const gruposDe = (fs: Ficha[], dentro = false) => {
     const gs: number[][] = [];
     const prof = profundidad(fs);
     fs.forEach((f, i) => {
       if (f.salto) gs.push([i]);
-      else if (gs.length === 0 || puedePartirAntes(fs, i, prof) || fs[gs[gs.length - 1][0]].salto) gs.push([i]);
+      else if (gs.length === 0 || puedePartirAntes(fs, i, prof, dentro) || fs[gs[gs.length - 1][0]].salto) gs.push([i]);
       else gs[gs.length - 1].push(i);
     });
     return gs;
   };
-  // 0 = piezas sueltas, 1 = agrupadas por operador, 2 = se probo agrupar y algo se salia del ancho: se quedan sueltas
-  const [modoGrupo, setModoGrupo] = useState<0 | 1 | 2>(0);
-  const agrupar = modoGrupo === 1;
+  // 0 = piezas sueltas, 1 = agrupadas por operador, 3 = agrupadas y un parentesis largo puede partirse en su + o −, 2 = se probo y algo se salia del ancho: se quedan sueltas
+  const [modoGrupo, setModoGrupo] = useState<0 | 1 | 2 | 3>(0);
+  const agrupar = modoGrupo === 1 || modoGrupo === 3;
   const hojaRef = useRef<HTMLDivElement | null>(null);
   // al cambiar de paso se parte de la formula suelta; si se partio en un mal lugar (la 2a pieza abre renglon y no es un operador), se agrupa
   // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -560,10 +569,10 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
   // Se mide el ancho de DISEÑO (offsetWidth): al aparecer, las piezas van agrandandose y su rect medido seria menor que el final.
   useLayoutEffect(() => {
     const hoja = hojaRef.current;
-    if (modoGrupo !== 1 || !hoja) return;
+    if (!agrupar || !hoja) return;
     const revisar = () => {
       const util = hoja.clientWidth - 8;
-      if ([...hoja.children].some((g) => g instanceof HTMLElement && Math.max(g.offsetWidth, g.scrollWidth) > util)) setModoGrupo(2);
+      if ([...hoja.children].some((g) => g instanceof HTMLElement && Math.max(g.offsetWidth, g.scrollWidth) > util)) setModoGrupo(modoGrupo === 1 ? 3 : 2);
     };
     revisar();
     // las fuentes de las formulas terminan de cargar despues y los grupos crecen: se vuelve a comprobar cuando cambian de tamaño
@@ -572,6 +581,11 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     return () => ro.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modoGrupo, idx, compacta, demo]);
+  // la coma de una lista va pegada al numero de antes y sin el aire de una pieza comun: «4, 9, 16, 25, 36» cabe en un renglon de celular
+  const esComa = (f: Ficha) => !!f.pegado && f.tex.trim() === ",";
+  // un parentesis suelto, «(» o «)», se pega a lo que encierra: sin el aire de una pieza comun por el lado de adentro, «(x − 15)(x + 15)» cabe en un renglon
+  const esAbre = (f: Ficha) => !f.op && f.tex.trim() === "(";
+  const esCierra = (f: Ficha) => !f.op && f.tex.trim() === ")";
   const renderFicha = (f: Ficha, pos: number, enGrupo = false) => {
     const prevSup = pos > 0 && !!estado[pos - 1].sup;
     const mt = enGrupo ? 0 : margenSuperior(pos);
@@ -632,7 +646,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
               }
             : f.salto
               ? { display: "block", flexBasis: "100%", height: 0, textAlign: "center", margin: `${conEtiquetas && filaConEtiqueta[filaDe[pos] - 1] ? 0 : compacta ? 8 : 22}px 0 0`, fontSize: "0.82em" }
-              : { display: "inline-block", position: "relative", margin: f.pegado ? `${mt}px 4px 0 -10px` : conPiezas ? `${mt}px 2px 0` : `${mt}px 4px 0`, ...anchoEtiqueta }
+              : { display: "inline-block", position: "relative", margin: esComa(f) || esCierra(f) ? `${mt}px ${esComa(f) ? 0 : 4}px 0 -10px` : esAbre(f) ? `${mt}px -6px 0 ${pos > 0 && esCierra(estado[pos - 1]) ? -6 : 4}px` : f.pegado ? `${mt}px 4px 0 -10px` : conPiezas ? `${mt}px 2px 0` : `${mt}px 4px 0`, ...anchoEtiqueta }
         }
       >
         <span
@@ -641,7 +655,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
           }}
           style={{
             display: "inline-block",
-            padding: f.sup ? "0 2px" : conPiezas ? "2px" : "2px 8px",
+            padding: f.sup ? "0 2px" : conPiezas || esComa(f) ? "2px" : esAbre(f) ? "2px 2px 2px 2px" : esCierra(f) ? "2px 8px 2px 2px" : "2px 8px",
             borderRadius: f.sup ? 8 : 12,
             background: marcado && !deTexto ? "var(--accent-soft)" : "transparent",
             boxShadow: marcado && !deTexto ? "0 0 0 2px var(--accent)" : "0 0 0 0 transparent",
@@ -766,7 +780,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
       >
         {agrupar ? (
           // una formula que se partia en medio de un producto o un parentesis: cada operador (+, -, =) abre un grupo que no se parte
-          gruposDe(estado).map((g) =>
+          gruposDe(estado, modoGrupo === 3).map((g) =>
             g.length === 1 && estado[g[0]].salto ? (
               <AnimatePresence key={`s${g[0]}`} mode="popLayout" initial={false}>
                 {renderFicha(estado[g[0]], g[0])}
