@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
 import { cargarExamen } from "@/lib/axiom/banco-loader";
 import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
-import { guardarErroresFallados } from "@/lib/axiom/errores-db";
+import { actualizarErrores } from "@/lib/axiom/errores-db";
 import { agregarHistorial, getUsuario, getHistorialUsuario, actualizarUsuario, type FacultadId } from "@/lib/data-store";
 import { getCurrentUser } from "@/lib/session";
 import type { Simulador } from "@/lib/axiom/types";
@@ -65,11 +65,11 @@ export async function POST(
     tiempo_usado_segundos: resultado.tiempo_usado_segundos,
   });
 
-  // Guardar los errores del usuario (para "Mis errores" y práctica enfocada).
+  // Guardar lo fallado y avanzar el repaso de lo acertado (para "Mis errores"; ver repaso.ts).
   const usuarioId = simulador.usuario_id;
   if (usuarioId && !usuarioId.startsWith("anon-")) {
     try {
-      await guardarErroresFallados(
+      await actualizarErrores(
         usuarioId,
         simulador.preguntas ?? [],
         simulador.respuestas_usuario ?? {},

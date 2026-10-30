@@ -85,6 +85,8 @@ function PracticarInner() {
   const [facultadSeleccionada, setFacultadSeleccionada] = useState<string>("");
   const [examenes, setExamenes] = useState<ExamenMini[]>([]);
   const [errores, setErrores] = useState(0);
+  // de esos, los que hoy tocan repasar (repaso.ts): «Mis errores» se arma solo con ellos
+  const [paraHoy, setParaHoy] = useState(0);
   const [temasReforzar, setTemasReforzar] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [creando, setCreando] = useState(false);
@@ -94,6 +96,7 @@ function PracticarInner() {
   useEffect(() => {
     fetch("/api/axiom/errores").then((r) => r.json()).then((d) => {
       setErrores(d.total ?? 0);
+      setParaHoy(d.para_hoy ?? 0);
       setTemasReforzar(d.temas_reforzar ?? []);
     }).catch(() => {});
     Promise.all([
@@ -181,7 +184,7 @@ function PracticarInner() {
     modo === "por_tema" ? "Incluye todas las preguntas disponibles de ese tema."
     : modo === "ia_generado" && facultadObj
       ? `Seguirá el formato oficial de ${facultadObj.nombre_corto}: ${facultadObj.preguntas_examen ?? "—"} preguntas en ${facultadObj.duracion_minutos ?? "—"} minutos.`
-    : modo === "mis_errores" && errores > 0 ? `Se arma con las ${errores} preguntas que tienes guardadas como error.`
+    : modo === "mis_errores" && paraHoy > 0 ? `Se arma con ${paraHoy === 1 ? "la pregunta" : `las ${paraHoy} preguntas`} que fallaste y hoy te toca repasar. Si la aciertas 3 veces seguidas, sale de la lista.`
     : null;
 
   // Cada nivel declara a dónde vuelve y qué está eligiendo el alumno. El "atrás"
@@ -280,12 +283,13 @@ function PracticarInner() {
           <Lista>
             {MODOS.map((m) => {
               const bloqueado = m.premium && !esPagoUser;
-              const sinErrores = m.v === "mis_errores" && errores === 0;
+              const sinErrores = m.v === "mis_errores" && (errores === 0 || paraHoy === 0);
               // Si está bloqueado, el mensaje que le sirve al alumno es el del
               // candado, no el de "todavía no tenés errores guardados": lo
               // primero que tiene que resolver es el plan.
               const detalle = bloqueado ? m.d
-                : m.v === "mis_errores" && errores > 0 ? `Repasa donde fallaste (${errores} guardados)`
+                : m.v === "mis_errores" && paraHoy > 0 ? `Repasa donde fallaste (${paraHoy} para hoy)`
+                : m.v === "mis_errores" && errores > 0 ? "Hoy no te toca repasar ninguna"
                 : sinErrores ? "Completa un examen para guardar errores"
                 : m.d;
               return (

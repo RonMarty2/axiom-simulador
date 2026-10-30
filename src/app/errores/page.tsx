@@ -23,6 +23,10 @@ export default function ErroresPage() {
   const [loading, setLoading] = useState(true);
 
   const [porArea, setPorArea] = useState<Record<string, number>>({});
+  // repaso con fecha (repaso.ts): cuantas tocan hoy y cuando es el proximo
+  const [paraHoy, setParaHoy] = useState(0);
+  const [proximo, setProximo] = useState<string | null>(null);
+  const [dominadas, setDominadas] = useState(0);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
@@ -33,6 +37,9 @@ export default function ErroresPage() {
         .then((data) => {
           setErrores(Array.isArray(data.errores) ? data.errores : []);
           setPorArea(data.por_area ?? {});
+          setParaHoy(data.para_hoy ?? 0);
+          setProximo(data.proximo_repaso ?? null);
+          setDominadas(data.dominadas ?? 0);
         })
         .catch(() => {})
         .finally(() => setLoading(false));
@@ -44,7 +51,10 @@ export default function ErroresPage() {
       <AppHeader />
       <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="errores" tamano={27} /> Mis errores</span></h1>
-        <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>Las preguntas que has fallado, agrupadas para repasar.</p>
+        <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>
+          Las preguntas que has fallado. Te las volvemos a preguntar en su fecha: si aciertas una 3 veces seguidas, sale de la lista.
+          {dominadas > 0 && <> Ya dominaste {dominadas} {dominadas === 1 ? "pregunta" : "preguntas"}.</>}
+        </p>
 
         {loading ? <Cargando /> : errores.length === 0 ? (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
@@ -71,10 +81,13 @@ export default function ErroresPage() {
             <div style={{ background: "linear-gradient(135deg, #ef4444, #dc2626)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
               <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre="errores" tamano={32} /></div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: 16, fontWeight: 800 }}>Practica solo tus errores</div>
-                <div style={{ fontSize: 13, opacity: 0.9 }}>Genera un simulacro con los temas donde has fallado.</div>
+                <div style={{ fontSize: 16, fontWeight: 800 }}>{paraHoy > 0 ? `Tienes ${paraHoy} ${paraHoy === 1 ? "pregunta" : "preguntas"} para repasar hoy` : "Hoy no te toca repasar"}</div>
+                <div style={{ fontSize: 13, opacity: 0.9 }}>
+                  {paraHoy > 0 ? "Las mismas preguntas que fallaste, para que no se te olviden."
+                    : proximo ? `Tu próximo repaso es el ${new Date(proximo).toLocaleDateString("es-BO", { weekday: "long", day: "numeric", month: "long" })}.` : "Vuelve después de tu próximo examen."}
+                </div>
               </div>
-              <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "#dc2626", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>
+              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "#dc2626", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}
             </div>
 
             {/* Lista */}

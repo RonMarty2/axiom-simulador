@@ -4,6 +4,8 @@ import { cargarBanco } from "./banco-loader";
 import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
 import { esRespuestaCorrecta } from "./respuestas";
+import { getErroresUsuario } from "./errores-db";
+import { tocaRepasar, proximoRepaso } from "./repaso";
 import type {
   ConfiguracionSimulacion,
   ExamenBanco,
@@ -20,19 +22,11 @@ export async function construirSimulador(
   config: ConfiguracionSimulacion,
   usuarioId: string
 ): Promise<ResultadoConstruccion> {
-  // Modos que generan con IA (no requieren banco cargado):
-  //  - "ia_generado": examen fresco siguiendo distribución oficial
-  //  - "mis_errores": examen enfocado en temas que el usuario falló antes
-  //                   (el cliente pasa los temas en config.temas_reforzar)
-  if (config.modo === "ia_generado" || config.modo === "mis_errores") {
-    if (config.modo === "mis_errores") {
-      if (!config.temas_reforzar || config.temas_reforzar.length === 0) {
-        throw new Error(
-          "Aún no tienes errores guardados. Completa al menos un examen para que la IA pueda reforzar los temas que te cuestan."
-        );
-      }
-    }
+  // "mis_errores": vuelve a preguntar LAS MISMAS preguntas falladas que hoy tocan repasar (repaso.ts).
+  if (config.modo === "mis_errores") return { simulador: await simuladorDeRepaso(config, usuarioId) };
 
+  // "ia_generado": examen fresco con IA siguiendo la distribución oficial (no requiere banco cargado)
+  if (config.modo === "ia_generado") {
     const cantidad = config.cantidad_preguntas ?? 20;
     // Cargamos la facultad para que la IA genere según SUS secciones (no las de
     // Economía). Cada facultad define sus propias secciones y pesos.
@@ -322,4 +316,41 @@ function seleccionarPonderado<T extends { tema: string }>(
     resultado.push(...mezclar(items).slice(0, cuota));
   }
   return mezclar(resultado).slice(0, cantidad);
+}
+
+// Examen de «Mis errores»: las preguntas falladas de esta facultad que hoy tocan repasar, las que vencieron
+// hace mas tiempo primero. La pregunta sale del banco en su version actual (si se corrigio despues de fallarla,
+// se repasa la corregida); si ya no esta en el banco (p. ej. una generada por IA), la guardada con el error.
+async function simuladorDeRepaso(config: ConfiguracionSimulacion, usuarioId: string): Promise<Simulador> {
+  const ahora = new Date();
+  const facL = config.facultad.toLowerCase();
+  const errores = (await getErroresUsuario(usuarioId)).filter((e) => (e.pregunta?.facultad ?? "").toLowerCase() === facL);
+  const tocan = errores
+    .filter((e) => tocaRepasar(e, ahora))
+    .sort((a, b) => (a.proximo ?? a.fecha).localeCompare(b.proximo ?? b.fecha))
+    .slice(0, config.cantidad_preguntas ?? 20);
+  if (tocan.length === 0) {
+    const proxima = proximoRepaso(errores, ahora);
+    throw new Error(
+      errores.length === 0
+        ? "Aún no tienes errores guardados. Completa al menos un examen y aquí vas a repasar las preguntas que falles."
+        : proxima
+          ? `Hoy no te toca repasar ninguna. Tu próximo repaso es el ${new Date(proxima).toLocaleDateString("es-BO", { weekday: "long", day: "numeric", month: "long" })}.`
+          : "Ya dominaste todas tus preguntas falladas. ¡Bien hecho!"
+    );
+  }
+  const actuales = new Map<string, PreguntaBanco>();
+  for (const ex of await cargarBanco()) for (const p of ex.preguntas) actuales.set(p.id, p);
+  const preguntas = tocan.map((e) => actuales.get(e.pregunta_id) ?? e.pregunta);
+  return {
+    id: `sim-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`,
+    usuario_id: usuarioId,
+    config,
+    preguntas,
+    respuestas_usuario: {},
+    marcadas: [],
+    estado: "activo",
+    fecha_inicio: ahora.toISOString(),
+    duracion_minutos: Math.max(10, preguntas.length * 2),
+  };
 }
