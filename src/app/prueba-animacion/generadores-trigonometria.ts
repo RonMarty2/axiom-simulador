@@ -338,21 +338,24 @@ export function trigonometria(angulo: number, dado: string, valor: number, busca
       regla: `$c=\\dfrac{a}{b}\\ \\Rightarrow\\ a=b\\cdot c$`,
     });
     if (q === 1) {
-      estados.push(E(Xl(), eqF, { id: "r", tex: `${res}` }));
+      // multiplicar por 1 no cambia nada: se tacha el 1 con su punto y queda el K (no hay una cuenta por 1)
+      estados.push(E(Xl(), eqF, Kp()));
       trans.push({
-        fusiones: [{ desde: ["K", "Dot", "V"], hacia: "r" }],
-        texto: `Multiplicamos: $${valor}\\cdot 1=${res}$. Entonces $x=${res}$.`,
-        porque: `Multiplicar por $1$ no cambia el número.`,
+        fusiones: [{ desde: ["Dot", "V"], hacia: null, modo: "tachar" }],
+        texto: `Multiplicar por $1$ no cambia nada: $${valor}\\cdot 1=${valor}$. Tachamos el $1$ con su punto. Entonces $x=${res}$.`,
+        porque: `Un número multiplicado por $1$ es el mismo número.`,
         regla: `$n\\cdot 1=n$`,
       });
-      rid = "r";
+      rid = "K";
     } else {
-      // el K y su punto viajan al numerador de la fraccion (mismos ids)
-      const Nn: Ficha = { id: "Nn", tex: par(valor) };
+      // el K viaja al numerador de la fraccion (mismo valor, otro lugar) y el 1 de arriba, que no cambia nada, se tacha con su punto
+      const Nn: Ficha = { id: "K", tex: par(valor) };
       estados.push(E(Xl(), eqF, frPiezas("V", [Nn], [Vd])));
       trans.push({
-        fusiones: [{ desde: ["K", "Dot", "Vn"], hacia: "Nn" }],
-        texto: `El $${valor}$ multiplica al $1$ de arriba de la fracción: $${valor}\\cdot 1=${valor}$. El denominador $${q}$ se queda quieto: queda $\\dfrac{${valor}}{${q}}$.`,
+        fusiones: [
+          { desde: ["Dot", "Vn"], hacia: null, modo: "tachar" },
+        ],
+        texto: `El $${valor}$ multiplica a la fracción: sube arriba de la raya, ocupando el lugar del $1$ (multiplicar por $1$ no cambia nada, así que el $1$ y su punto se tachan). El denominador $${q}$ se queda quieto: queda $\\dfrac{${valor}}{${q}}$.`,
         porque: `Un número por una fracción es el número por el numerador, sobre el mismo denominador. Y multiplicar por $1$ no cambia el número.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
@@ -458,40 +461,35 @@ export function trigonometria(angulo: number, dado: string, valor: number, busca
       porque: `La razón de los lados coincide con la tangente de $${angTex}$, así que el resultado es correcto.`,
     });
   } else {
-    const CA1: Ficha = { id: "CA1", tex: "1" };
-    const CAd = dot("CAd");
+    // el 1 de la tabla por el denominador de los lados es ese mismo denominador (multiplicar por 1 no cambia nada): se escribe directo,
+    // sin una cuenta por 1; la unica cuenta que queda es q por el numerador
     const CA3: Ficha = { id: "CA3", tex: `${denVal}` };
     const CB1: Ficha = { id: "CB1", tex: `${q}` };
     const CBd = dot("CBd");
     const CB3: Ficha = { id: "CB3", tex: `${numVal}` };
-    estados.push([...ultimo, CS, CA1, CAd, CA3, CE, CB1, CBd, CB3]);
+    estados.push([...ultimo, CS, CA3, CE, CB1, CBd, CB3]);
     trans.push({
-      fusiones: [{ desde: ["Cv", "Cq"], hacia: ["CA1", "CAd", "CA3", "CB1", "CBd", "CB3"], modo: "viajar" }],
+      fusiones: [{ desde: ["Cv", "Cq"], hacia: ["CA3", "CB1", "CBd", "CB3"], modo: "viajar" }],
       brotes: [
-        { desde: "Cv", hacia: "CA1" },
-        { desde: "Cv", hacia: "CAd" },
         { desde: "Cv", hacia: "CB1" },
         { desde: "Cv", hacia: "CBd" },
         { desde: "Cq", hacia: "CA3" },
         { desde: "Cq", hacia: "CB3" },
       ],
-      texto: `Para ver si las dos fracciones son iguales, multiplicamos en cruz: $1\\cdot ${denVal}=${q}\\cdot ${numVal}$.`,
+      texto: `Para ver si las dos fracciones son iguales, multiplicamos en cruz: el $1$ de arriba de la tabla por el $${denVal}$ de abajo de los lados es el mismo $${denVal}$ (un número por $1$ no cambia), y queda $${denVal}=${q}\\cdot ${numVal}$.`,
       porque: `Tenemos dos fracciones: $\\dfrac{1}{${q}}$ (la de la tabla) y $\\dfrac{${numVal}}{${denVal}}$ (la de los lados). Si el resultado es correcto, son iguales, como $\\dfrac{5}{10}=\\dfrac{1}{2}$. Dos fracciones son iguales si sus productos cruzados son iguales.`,
       regla: `$\\dfrac{a}{b}=\\dfrac{c}{d}\\ \\Leftrightarrow\\ a\\cdot d=b\\cdot c$`,
     });
-    estados.push([...ultimo, CS, { id: "Cl", tex: `${denVal}` }, CE, { id: "Cr", tex: `${q * numVal}` }]);
+    estados.push([...ultimo, CS, CA3, CE, { id: "Cr", tex: `${q * numVal}` }]);
     trans.push({
-      fusiones: [
-        { desde: ["CA1", "CAd", "CA3"], hacia: "Cl" },
-        { desde: ["CB1", "CBd", "CB3"], hacia: "Cr" },
-      ],
-      texto: `Hacemos las dos cuentas: $1\\cdot ${denVal}=${denVal}$ y $${q}\\cdot ${numVal}=${q * numVal}$.`,
-      porque: `Multiplicar por $1$ no cambia el número; la otra es una multiplicación común.`,
+      fusiones: [{ desde: ["CB1", "CBd", "CB3"], hacia: "Cr" }],
+      texto: `Hacemos la cuenta del otro lado: $${q}\\cdot ${numVal}=${q * numVal}$.`,
+      porque: `Es una multiplicación común.`,
       regla: `$m\\cdot n=p$`,
     });
     estados.push([...ultimo, CS, { id: "ok", tex: `${denVal}=${denVal}\\ \\checkmark` }]);
     trans.push({
-      fusiones: [{ desde: ["Cl", "CE", "Cr"], hacia: "ok" }],
+      fusiones: [{ desde: ["CA3", "CE", "Cr"], hacia: "ok" }],
       texto: `Los dos miembros de la igualdad valen $${denVal}$: la igualdad se cumple. ${cap(LADO_ART[U])} mide $${res}$.`,
       porque: `La razón de los lados coincide con ${RAZON_ART[rz]} de $${angTex}$, así que el resultado es correcto.`,
     });

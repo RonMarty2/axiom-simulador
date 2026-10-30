@@ -272,14 +272,33 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
     // ----- 2) la ecuacion esta balanceada: se cuentan los atomos a cada lado
     const izq = contarLado(rel.reaccion.reactivos);
     const der = contarLado(rel.reaccion.productos);
-    const cuentas = Object.keys(izq).map((e) => `$\\mathrm{${e}}$: $${izq[e]}$ y $${der[e]}$`);
-    paso({
-      fusiones: [],
-      resaltar: E.filter((f) => !f.op && !f.salto).map((f) => f.id),
-      texto: `Antes de usar la ecuación comprobamos que está balanceada: contamos los átomos de cada elemento a la izquierda y a la derecha. ${cuentas.join("; ")}.`,
-      porque: `En una reacción los átomos no se crean ni se destruyen, solo se reacomodan: cada elemento tiene que sumar lo mismo a los dos lados. El número de adelante multiplica a toda la fórmula.`,
-      regla: `$m_{\\text{reactivos}}=m_{\\text{productos}}$`,
+    // un elemento por paso: se resaltan las fórmulas que lo tienen, la cuenta (coeficiente por subíndice) va en el texto
+    // y el resultado de cada lado queda anotado debajo de la ecuación
+    const elementos = Object.keys(izq);
+    // la etiqueta va bajo la ultima formula (la de mas a la derecha): debajo de la flecha hacia que la ecuacion se partiera en tres renglones
+    const ultimaE = [...idEspecie.values()].at(-1)!.e;
+    const cuentaLado = (xs: [number, string][], e: string) =>
+      xs
+        .map(([k, f]) => [k, (atomos(f) ?? []).find(([x]) => x === e)?.[1] ?? 0] as const)
+        .filter(([, n]) => n > 0)
+        .map(([k, n]) => `${k}\\cdot ${n}`)
+        .join("+");
+    elementos.forEach((e, idx) => {
+      const idsConE = [...idEspecie].filter(([f]) => (atomos(f) ?? []).some(([x]) => x === e)).map(([, v]) => v.e);
+      // corta a proposito: la etiqueta no puede ser mas ancha que la flecha, o la ecuacion se parte raro en un celular
+      parchear(ultimaE, { debajo: `\\mathrm{${e}}\\!:\\!${izq[e]}{=}${der[e]}` });
+      paso({
+        fusiones: [],
+        resaltar: idsConE,
+        texto: `${idx === 0 ? "Antes de usar la ecuación comprobamos que está balanceada: contamos los átomos de cada elemento a la izquierda y a la derecha. " : ""}Contamos el $\\mathrm{${e}}$, coeficiente por subíndice (si no hay número, es $1$): a la izquierda $${cuentaLado(rel.reaccion.reactivos, e)}=${izq[e]}$ y a la derecha $${cuentaLado(rel.reaccion.productos, e)}=${der[e]}$. Queda anotado debajo de la ecuación: $\\mathrm{${e}}$: $${izq[e]}$ y $${der[e]}$.${idx === elementos.length - 1 ? " Todos coinciden: la ecuación está balanceada." : ""}`,
+        porque:
+          idx === 0
+            ? `En una reacción los átomos no se crean ni se destruyen, solo se reacomodan: cada elemento tiene que sumar lo mismo a los dos lados. El número de adelante multiplica a toda la fórmula.`
+            : `Cada elemento tiene que sumar lo mismo a los dos lados, porque los átomos no se crean ni se destruyen.`,
+        regla: `$m_{\\text{reactivos}}=m_{\\text{productos}}$`,
+      });
     });
+    parchear(ultimaE, { debajo: undefined });
   }
 
   // ----- 3) la cadena: el dato se copia en un renglon nuevo
@@ -586,10 +605,20 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
     quedan = ["F3nu", "F3ns"];
   }
 
-  // ----- 8) todo en una sola fraccion: los numeros viajan (arriba con arriba, abajo con abajo) y la unidad que queda, al final
+  // ----- 8) todo en una sola fraccion: los numeros viajan (arriba con arriba, abajo con abajo) y la unidad que queda, al final.
+  // Los 1 no se llevan (multiplicar por 1 no cambia nada): se tachan en este mismo paso.
   const factores = Array.from({ length: nFactor }, (_, i) => `F${i + 1}`);
-  const arribaIds = ["cm", ...factores.map((F) => `${F}n`)];
-  const abajoIds = factores.map((F) => `${F}d`);
+  const valorDe = (id: string) => Number(pieza(id).tex.replace(/\\textcolor\{[^}]*\}\{([^}]*)\}/, "$1"));
+  // quita los 1 de la lista, pero deja siempre al menos una pieza
+  const sinUnos = (ids: string[]): { quedan: string[]; unos: string[] } => {
+    const unos = ids.filter((id) => valorDe(id) === 1);
+    if (unos.length === 0) return { quedan: ids, unos: [] };
+    if (unos.length === ids.length) return { quedan: [unos[0]], unos: unos.slice(1) };
+    return { quedan: ids.filter((id) => !unos.includes(id)), unos };
+  };
+  const { quedan: arribaIds, unos: unosArriba } = sinUnos(["cm", ...factores.map((F) => `${F}n`)]);
+  const { quedan: abajoIds, unos: unosAbajo } = sinUnos(factores.map((F) => `${F}d`));
+  const unos = [...unosArriba, ...unosAbajo];
   const conPuntos = (ids: string[], pref: string): Ficha[] =>
     ids.flatMap((id, i) => [...(i > 0 ? [dot(`${pref}d${i}`)] : []), { id: `${pref}${i}`, tex: pieza(id).tex }]);
   const Tn = conPuntos(arribaIds, "Tn");
@@ -601,61 +630,89 @@ function construir(masa: number, A: string, rel: Relacion): Resultado {
   ];
   const desdeC = aplanar(C)
     .map((f) => f.id)
-    .filter((id) => id !== "SC");
+    .filter((id) => id !== "SC" && !unos.includes(id));
   C = [C[0], FT, ...unidadFinal];
   const nombreUnidad = `$${pieza("lu").tex}$ de ${nomB}`;
   paso({
-    fusiones: [{ desde: desdeC, hacia: ["FT", ...aplanar([FT]).slice(1).map((f) => f.id), "lu", "ls"], modo: "viajar" }],
+    fusiones: [
+      { desde: desdeC, hacia: ["FT", ...aplanar([FT]).slice(1).map((f) => f.id), "lu", "ls"], modo: "viajar" },
+      ...(unos.length > 0 ? [{ desde: unos, hacia: null, modo: "tachar" as const }] : []),
+    ],
     brotes: [
       ...arribaIds.map((o, i) => ({ desde: o, hacia: `Tn${i}` })),
       ...abajoIds.map((o, i) => ({ desde: o, hacia: `Td${i}` })),
       { desde: quedan[0], hacia: "lu" },
       { desde: quedan[1], hacia: "ls" },
     ],
-    texto: `Ya se tacharon todas las unidades menos la que piden. Juntamos todo en una sola fracción: los números de arriba se multiplican arriba y los de abajo, abajo. La unidad que quedó, ${nombreUnidad}, pasa al final.`,
-    porque: `Multiplicar fracciones es multiplicar los de arriba entre sí y los de abajo entre sí. El dato $${masa}$ es como $\\dfrac{${masa}}{1}$, por eso va arriba.`,
+    texto: `Ya se tacharon todas las unidades menos la que piden. Juntamos todo en una sola fracción: los números de arriba se multiplican arriba y los de abajo, abajo. La unidad que quedó, ${nombreUnidad}, pasa al final.${unos.length > 0 ? ` Los $1$ de los factores se tachan: multiplicar por $1$ no cambia ningún producto.` : ""}`,
+    porque: `Multiplicar fracciones es multiplicar los de arriba entre sí y los de abajo entre sí. El dato $${masa}$ es como $\\dfrac{${masa}}{1}$, por eso va arriba.${unos.length > 0 ? ` Un número por $1$ es el mismo número.` : ""}`,
     regla: `$a\\cdot\\dfrac{b}{c}\\cdot\\dfrac{d}{e}=\\dfrac{a\\cdot b\\cdot d}{c\\cdot e}$`,
   });
 
-  // ----- 9) multiplicar de a dos, primero arriba y despues abajo
-  const valores = (ids: string[]) =>
-    ids.map((id) => {
-      const tex = pieza(id).tex.replace(/\\textcolor\{[^}]*\}\{([^}]*)\}/, "$1");
-      return Number(tex);
-    });
-  const multiplicar = (pref: string, vals: number[], donde: string) => {
+  // ----- 9) primero lo de abajo (de a dos), despues se simplifica si algo de arriba es igual a lo de abajo, y se multiplica lo de arriba.
+  const valores = (ids: string[]) => ids.map((id) => valorDe(id));
+  const multiplicar = (pref: string, vals: number[], donde: string, ultimoId?: string) => {
     let actual = `${pref}0`;
     let acum = vals[0];
     for (let i = 1; i < vals.length; i++) {
-      const nid = `${pref}p${i}`;
+      const nid = i === vals.length - 1 && ultimoId ? ultimoId : `${pref}p${i}`;
       const prod = acum * vals[i];
       cambiar([actual, `${pref}d${i}`, `${pref}${i}`], [{ id: nid, tex: `${prod}` }]);
       paso({
         fusiones: [{ desde: [actual, `${pref}d${i}`, `${pref}${i}`], hacia: nid }],
         texto: `Multiplicamos ${donde}, de a dos: $${acum}\\cdot ${vals[i]}=${prod}$.`,
-        porque: vals[i] === 1 ? `Multiplicar por $1$ no cambia el número.` : acum === 1 ? `$1$ por cualquier número da ese mismo número.` : `Una multiplicación por vez, de izquierda a derecha.`,
-        regla: vals[i] === 1 ? `$n\\cdot 1=n$` : acum === 1 ? `$1\\cdot n=n$` : `$(a\\cdot b)\\cdot c=a\\cdot(b\\cdot c)$`,
+        porque: `Una multiplicación por vez, de izquierda a derecha.`,
+        regla: `$(a\\cdot b)\\cdot c=a\\cdot(b\\cdot c)$`,
       });
       acum = prod;
       actual = nid;
     }
-    return acum;
+    return { acum, id: actual };
   };
   const vArriba = valores(arribaIds.map((_, i) => `Tn${i}`));
   const vAbajo = valores(abajoIds.map((_, i) => `Td${i}`));
-  const N = multiplicar("Tn", vArriba, "arriba");
-  const Dd = multiplicar("Td", vAbajo, "abajo");
+  const N = vArriba.reduce((x, y) => x * y, 1);
+  const Dd = vAbajo.reduce((x, y) => x * y, 1);
   const cent = (N * 100) / Dd;
   const res = decimal(cent);
 
-  // ----- 10) dividir una vez
-  C = [C[0], { id: "res", tex: res }, ...unidadFinal];
-  paso({
-    fusiones: [{ desde: ["FT"], hacia: "res" }],
-    texto: N === Dd ? `Arriba y abajo quedó el mismo número: $\\dfrac{${N}}{${Dd}}=1$.` : `Dividimos: $\\dfrac{${N}}{${Dd}}=${res}$. Se comprueba al revés: $${res}\\cdot ${Dd}=${N}$.`,
-    porque: N === Dd ? `Un número dividido entre sí mismo da $1$.` : `La raya de la fracción es una división: el número de arriba entre el de abajo.`,
-    regla: N === Dd ? `$\\dfrac{a}{a}=1$` : `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
-  });
+  const abajo = multiplicar("Td", vAbajo, "abajo");
+  // un numero de arriba igual a todo lo de abajo: se tachan (los grandes no se multiplican para dividirlos despues)
+  const j = arribaIds.length > 1 && Dd > 1 ? vArriba.findIndex((v) => v === Dd) : -1;
+  if (j >= 0) {
+    const restoIdx = arribaIds.map((_, i) => i).filter((i) => i !== j);
+    const dotCancelada = j > 0 ? `Tnd${j}` : "Tnd1";
+    const dotsRestantes = Array.from({ length: arribaIds.length - 1 }, (_, i) => `Tnd${i + 1}`).filter((id) => id !== dotCancelada);
+    const piezasViejas = restoIdx.map((i) => `Tn${i}`);
+    // la fraccion se queda sin nada abajo: lo que sobra arriba sale de la raya (y si es una sola pieza, ya es la respuesta)
+    const fichas: Ficha[] =
+      restoIdx.length === 1
+        ? [{ id: "res", tex: res }]
+        : restoIdx.flatMap((i, k) => [...(k > 0 ? [dot(`Pnd${k}`)] : []), { id: `Pn${k}`, tex: pieza(`Tn${i}`).tex }]);
+    const brotesViaje: Brote[] = restoIdx.map((i, k) => ({ desde: `Tn${i}`, hacia: restoIdx.length === 1 ? "res" : `Pn${k}` }));
+    C = [C[0], ...fichas, ...unidadFinal];
+    paso({
+      fusiones: [
+        { desde: [`Tn${j}`, dotCancelada, abajo.id], hacia: null, modo: "tachar" },
+        { desde: ["FT", ...piezasViejas, ...dotsRestantes], hacia: fichas.map((f) => f.id), modo: "viajar" },
+      ],
+      brotes: brotesViaje,
+      texto: `Arriba hay un $${Dd}$ y abajo quedó $${Dd}$: se tachan, porque un número dividido entre sí mismo da $1$. ${restoIdx.length === 1 ? `La fracción se queda sin nada abajo y arriba queda solo $${res}$.` : `La fracción se queda sin nada abajo: lo que sobra arriba se multiplica.`}`,
+      porque: `Simplificar antes evita multiplicar números grandes para después dividirlos.`,
+      regla: `$\\dfrac{a\\cdot b}{a}=b$`,
+    });
+    if (restoIdx.length > 1) multiplicar("Pn", restoIdx.map((i) => vArriba[i]), "arriba", "res");
+  } else {
+    multiplicar("Tn", vArriba, "arriba");
+    // ----- 10) dividir una vez
+    C = [C[0], { id: "res", tex: res }, ...unidadFinal];
+    paso({
+      fusiones: [{ desde: ["FT"], hacia: "res" }],
+      texto: N === Dd ? `Arriba y abajo quedó el mismo número: $\\dfrac{${N}}{${Dd}}=1$.` : `Dividimos: $\\dfrac{${N}}{${Dd}}=${res}$. Se comprueba al revés: $${res}\\cdot ${Dd}=${N}$.`,
+      porque: N === Dd ? `Un número dividido entre sí mismo da $1$.` : `La raya de la fracción es una división: el número de arriba entre el de abajo.`,
+      regla: N === Dd ? `$\\dfrac{a}{a}=1$` : `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
+    });
+  }
 
   // ----- 11) la respuesta viaja al "?" del enunciado y se comprueba la unidad
   cambiar(["q"], [{ id: "qR", tex: res }]);

@@ -2,7 +2,7 @@
 
 Un solo archivo, corto, que se reescribe al cerrar cada tanda. Si tenés dudas de qué está hecho, **no confíes en esta lista: comprobalo con los comandos de abajo**. El código y el registro mandan, esto solo es el mapa.
 
-Última actualización: 30-oct-2026, tarde.
+Última actualización: 30-oct-2026, tarde (física y química cerradas contra reglas; falta cuadratica).
 
 ## Cómo comprobar el estado real (en este orden, 2 minutos)
 
@@ -27,7 +27,7 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 
 ### En curso (sesión del 30-oct). Los agentes escriben a disco; si la sesión murió, mirá `git status`
 - [x] `revisor-visual` (hecho 30-oct): los 4 casos del arreglo del motor salen BIEN en 343 px y no se rompió cuadratica ni fracciones. Único hallazgo, viejo: progresion «todo_negativo_extremos» pasos 15 y 16, el `·` queda solo al principio del renglón en `(30 − 1) · (−10)`. Arreglo ya anotado en la bitácora: permitir el corte antes del `·` solo cuando los dos operandos son paréntesis y el punto abre el renglón de abajo. Falta hacerlo en `Fusion.tsx`.
-- [ ] Agente de física y química: arreglar en el generador mruv, charles, moles-atomos, estequiometria, molaridad y trigonometria hasta que `medir-reglas.ts` dé 0, y bajar sus topes en `TRINQUETE_*` de `estilo.test.ts`. Comprobar con `medir-reglas.ts` qué falta.
+- [x] Física y química (hecho 30-oct): mruv, charles, moles-atomos, estequiometria, molaridad y trigonometria en 0 en `medir-reglas.ts`; topes bajados (solo queda cuadratica: 10 y 2). 529 tests. Ninguna marcada `auditado`. NO se pudo: comprobación del valor en moles-atomos (30 g/180 = 1/6 mol) y conservación de masa en estequiometria (piden dejar visibles masas molares; decidir si vale la pena); `÷1` como paso propio en molaridad con V=1. A mirar por `revisor-visual`: etiqueta `H:4=4` del balanceo (deja un hueco entre coeficiente y fórmula) y el gesto del tachado de los `1`.
 
 ### Pendiente, en este orden
 1. [ ] Arreglar cuadratica (10 hallazgos en casos difíciles, 2 en el registro: pasos `×1` con a=1, sumas de 3 en un paso) hasta 0.
@@ -37,6 +37,14 @@ Método que decidió Ronald (30-oct): **un error se encuentra una sola vez, se c
 5. [ ] Lista final para el visto bueno de Ronald (`/prueba-animacion`).
 6. [ ] **Decisión de Ronald antes de hacerlo:** registro por caso o examen en vez de por tipo.
 7. [ ] Conectar las animaciones a la app: aplazado por Ronald hasta completar todas.
+
+### Reglas candidatas pendientes de sumar a `hallazgosPasos` (vistas en 2 o más tipos)
+1. Paso que solo resalta (sin fusión, brote ni visita) tras otro paso de lectura (charles, mruv, trigonometria).
+2. `÷1` o `/1` como paso propio (molaridad V=1, trigonometria).
+3. `×1` dentro de un texto o un `1` que nace pegado a un factor (hoy solo ve fusiones de 3 piezas).
+4. Cuenta grande en fracciones con piezas: leer `nPiezas`/`dPiezas`, no solo `frac.n`/`frac.d`.
+5. Etiqueta `debajo` más ancha que su pieza (reacomoda renglones).
+6. Progresión «todo_negativo_extremos» pasos 15 y 16: `·` suelto al principio del renglón (arreglo en `Fusion.tsx`).
 
 ## Después de las animaciones (orden acordado)
 - Comparar los exámenes del banco contra su PDF con `auditor-facsimil` (6 de 150 hechos; de 1 a 2 por día).

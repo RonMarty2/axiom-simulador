@@ -35,6 +35,181 @@
       "paso": 13,
       "nota": "ARREGLADO (motor): idem, el producto de parentesis queda en un renglon con el = delante",
       "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 1,
+      "nota": "El primer paso ya no repite el enunciado: marca solo lo que falta (dos incognitas)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 12,
+      "nota": "v0 = a (sin el coeficiente 1)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 17,
+      "nota": "En la segunda formula v0 se reemplaza por a, sin parentesis ni cuenta por 1",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 20,
+      "nota": "Primero el numero pasa delante de la letra (solo eso)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 21,
+      "nota": "Despues se saca la mitad: una operacion por paso",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 26,
+      "nota": "La unidad de a nace en dos pasos: primero m (de la distancia)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "quintuplica",
+      "paso": 27,
+      "nota": "Despues s al cuadrado (del tiempo): m/s2 ya no aparece de golpe",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "duplica",
+      "paso": 10,
+      "nota": "El paso vacio 'v0 ya esta sola' desaparecio; el 'queda 1' esta bien dicho",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "mruv",
+      "caso": "duplica",
+      "paso": 37,
+      "nota": "2·1 ya no es un paso propio: se tacha el 1",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "charles",
+      "caso": "temperatura bajo cero",
+      "paso": 11,
+      "nota": "T2 sube arriba (primer movimiento)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "charles",
+      "caso": "temperatura bajo cero",
+      "paso": 12,
+      "nota": "V1 sale adelante (segundo movimiento, en otro paso)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "charles",
+      "caso": "temperatura bajo cero",
+      "paso": 19,
+      "nota": "La comprobacion trae de vuelta la ley con los cuatro numeros, cada uno desde su ficha",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "charles",
+      "caso": "temperatura bajo cero",
+      "paso": 20,
+      "nota": "Producto en cruz con visitas desde las fracciones",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molesAtomos",
+      "caso": "glucosa",
+      "paso": 20,
+      "nota": "Los 1 se tachan al juntar, ya no hay pasos x1",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molesAtomos",
+      "caso": "subindice 1",
+      "paso": 20,
+      "nota": "Con subindice 1 ya no hay 100·1 como paso",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molesAtomos",
+      "caso": "masa grande",
+      "paso": 20,
+      "nota": "Sin 980·1 como paso",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "estequiometria",
+      "caso": "de g a g",
+      "paso": 2,
+      "nota": "Conteo de H a la vista, debajo de la flecha, con la cuenta coeficiente por subindice",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "estequiometria",
+      "caso": "de g a g",
+      "paso": 3,
+      "nota": "Conteo de O",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "estequiometria",
+      "caso": "coeficientes grandes",
+      "paso": 30,
+      "nota": "44 de arriba con 44 de abajo antes de multiplicar",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "estequiometria",
+      "caso": "numeros grandes",
+      "paso": 26,
+      "nota": "224 con 224 antes de multiplicar (abajo 56·4 primero)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molaridad",
+      "caso": "dos decimales",
+      "paso": 27,
+      "nota": "1/4 a 25/100: arriba el 25 nace directo (sin 1·25)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "molaridad",
+      "caso": "dos decimales",
+      "paso": 28,
+      "nota": "Solo se resuelve la cuenta de abajo",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "trigonometria",
+      "caso": "incognita arriba",
+      "paso": 19,
+      "nota": "El 10 sube a la fraccion y el 1 se tacha (sin 10·1)",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "trigonometria",
+      "caso": "producto cruzado",
+      "paso": 22,
+      "nota": "Comprobacion en cruz sin 1·7: el 1 de la tabla no se multiplica",
+      "fecha": "2026-10-30"
+    },
+    {
+      "tipo": "trigonometria",
+      "caso": "tangente de 45",
+      "paso": 19,
+      "nota": "x = 9: se tacha el 1 (sin 9·1)",
+      "fecha": "2026-10-30"
     }
   ],
   "aprobadosPorSilencio": [],

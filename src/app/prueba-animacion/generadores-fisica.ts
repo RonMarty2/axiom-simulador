@@ -800,6 +800,8 @@ const VECES: Record<number, string> = { 2: "duplica", 3: "triplica", 4: "cuadrup
 // seis cifras "200 m , 10 s" no cabe en un renglon de celular. Si el motor deja de contar el color, se pueden volver a seis.
 const COLOR_M = { d: "#d27", t: "#e50", a: "#16a34a" } as const;
 const colM = (k: keyof typeof COLOR_M, tex: string) => `\\textcolor{${COLOR_M[k]}}{${tex}}`;
+/** un numero delante de la letra a: el coeficiente 1 no se escribe (1a es a) */
+const coefA = (c: number) => (c === 1 ? "a" : `${nf(c)}a`);
 
 export function validarMruvMultiplica(k: number, d: number, t: number): string | null {
   if (![k, d, t].every(Number.isInteger)) return "Escribe números enteros.";
@@ -895,15 +897,15 @@ function mruvMultiplicaRapido(k: number, d: number, t: number): Resultado {
       porque: `Lo que está sumando a un lado pasa restando al otro, y las dos $v_{0}$ se juntan.`,
       regla: `$a+b=c\\ \\Rightarrow\\ a=c-b$`,
     });
-    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${c1}a`)];
+    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${coefA(c1)}`)];
     paso({
       fusiones: [{ desde: ["C1", "c1e", "C2"], hacia: ["D1", "d1e", "D2"] }],
-      texto: `Dividimos los dos lados entre $${k - 1}$: $v_{0}=\\dfrac{${t}a}{${k - 1}}=${c1}a$.`,
+      texto: `Dividimos los dos lados entre $${k - 1}$: $v_{0}=\\dfrac{${t}a}{${k - 1}}=${coefA(c1)}$.`,
       porque: `Para dejar $v_{0}$ sola, se divide todo entre el número que la multiplica.`,
       regla: `$c\\cdot x=y\\ \\Rightarrow\\ x=\\dfrac{y}{c}$`,
     });
   } else {
-    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${c1}a`)];
+    r1 = [S("S1"), P("D1", "v_{0}"), O("d1e", "="), P("D2", `${coefA(c1)}`)];
     paso({
       fusiones: [{ desde: ["K1", "a1e", "A2", "a1p", "A3", "a1m", "N1"], hacia: ["D1", "d1e", "D2"] }],
       texto: `Pasamos el $v_{0}$ de la derecha a la izquierda: $${k}v_{0}-v_{0}=v_{0}$. Queda $v_{0}=${t}a$.`,
@@ -913,7 +915,7 @@ function mruvMultiplicaRapido(k: number, d: number, t: number): Resultado {
   }
 
   // 5) reemplazar en la formula de la distancia
-  r2 = [S("S2"), P("B1b", `${d}`), O("b1e", "="), P("B2b", `${c1}a`), O("b1m", "\\cdot"), P("B3b", `${t}`), O("b1p", "+"), P("B4", "\\dfrac{1}{2}"), O("b1n", "\\cdot"), P("B5", "a"), O("b1o", "\\cdot"), P("B6b", `${t}^{2}`)];
+  r2 = [S("S2"), P("B1b", `${d}`), O("b1e", "="), P("B2b", `${coefA(c1)}`), O("b1m", "\\cdot"), P("B3b", `${t}`), O("b1p", "+"), P("B4", "\\dfrac{1}{2}"), O("b1n", "\\cdot"), P("B5", "a"), O("b1o", "\\cdot"), P("B6b", `${t}^{2}`)];
   paso({
     fusiones: [
       { desde: ["B1"], hacia: "B1b" },
@@ -921,7 +923,7 @@ function mruvMultiplicaRapido(k: number, d: number, t: number): Resultado {
       { desde: ["B3"], hacia: "B3b" },
       { desde: ["B6"], hacia: "B6b" },
     ],
-    texto: `Reemplazamos en la segunda fórmula: $d=${d}$, $v_{0}=${c1}a$ y $t=${t}$.`,
+    texto: `Reemplazamos en la segunda fórmula: $d=${d}$, $v_{0}=${coefA(c1)}$ y $t=${t}$.`,
     porque: `Ahora la fórmula tiene una sola incógnita, $a$.`,
   });
 
@@ -932,7 +934,7 @@ function mruvMultiplicaRapido(k: number, d: number, t: number): Resultado {
       { desde: ["B2b", "b1m", "B3b"], hacia: "E1" },
       { desde: ["B4", "b1n", "B5", "b1o", "B6b"], hacia: "E2" },
     ],
-    texto: `Hacemos las multiplicaciones: $${c1}a\\cdot ${t}=${c2}a$ y $\\dfrac{1}{2}\\cdot a\\cdot ${t}^{2}=${c3}a$.`,
+    texto: `Hacemos las multiplicaciones: $${coefA(c1)}\\cdot ${t}=${c2}a$ y $\\dfrac{1}{2}\\cdot a\\cdot ${t}^{2}=${c3}a$.`,
     porque: `Cada término queda como un número por $a$.`,
   });
 
@@ -998,8 +1000,8 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
   const intro = enunciado ?? `Un móvil que viaja con MRUV ${VECES[k]} su velocidad luego de recorrer $${cant(d, "m")}$ empleando $${cant(t, "s")}$. ¿Cuál es su aceleración? Vamos a escribir cada paso, como a lápiz.`;
   h.paso({
     fusiones: [],
-    resaltar: ["Dkw1", "Dkw2", "Dd", "Dt", "Dq"],
-    texto: `Anotamos los datos y lo que piden, $a$. No sabemos la velocidad inicial ni la aceleración: son dos incógnitas, y con una sola fórmula no alcanza. Usaremos dos fórmulas del MRUV.`,
+    resaltar: ["Dkw1", "Dkw2", "Dq"],
+    texto: `Fíjate en lo que falta: nos piden $a$, y de la velocidad solo sabemos que ${VECES[k]} (no nos dan cuánto vale al empezar). Hay dos incógnitas, la velocidad inicial $v_{0}$ y la aceleración $a$, y con una sola fórmula no alcanza. Usaremos dos fórmulas del MRUV.`,
     porque: `Con dos incógnitas hacen falta dos ecuaciones: de una se despeja una incógnita y se reemplaza en la otra.`,
     regla: `$2\\ \\text{incógnitas}\\ \\Rightarrow\\ 2\\ \\text{ecuaciones}$`,
   });
@@ -1084,8 +1086,8 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
   h.cambiar(["K1", "G1v0"], [{ id: "K2", tex: k1 === 1 ? "v_{0}" : `${k1}v_{0}` }]);
   h.paso({
     fusiones: [{ desde: ["K1", "G1v0"], hacia: "K2" }],
-    texto: `Restamos los términos semejantes: $${k}v_{0}-v_{0}=${k1 === 1 ? "v_{0}" : `${k1}v_{0}`}$.`,
-    porque: `Es como tener ${k} objetos iguales y quitar uno: quedan ${k1}.`,
+    texto: `Restamos los términos semejantes: $${k}v_{0}-v_{0}=${k1 === 1 ? "v_{0}" : `${k1}v_{0}`}$.${k1 === 1 ? ` Queda $v_{0}=${t}a$: ya sabemos cuánto vale $v_{0}$ si conocemos $a$.` : ""}`,
+    porque: `Es como tener ${k} objetos iguales y quitar uno: ${k1 === 1 ? "queda 1" : `quedan ${k1}`}.`,
     regla: `$m\\cdot u-u=(m-1)\\cdot u$`,
   });
   // de donde sale el "c1·a" que viaja a la segunda formula
@@ -1108,22 +1110,14 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
       porque: `Es lo mismo que dividir los dos lados entre $${k1}$: a la izquierda se cancela y $v_{0}$ queda sola.`,
       regla: `$m\\cdot x=b\\ \\Rightarrow\\ x=\\dfrac{b}{m}$`,
     });
-    h.cambiar(["FR1"], [{ id: "K5", tex: `${nf(c1)}a` }]);
+    h.cambiar(["FR1"], [{ id: "K5", tex: coefA(c1) }]);
     h.paso({
       fusiones: [{ desde: ["FR1"], hacia: "K5" }],
-      texto: `Dividimos el número: $\\dfrac{${t}}{${k1}}=${nf(c1)}$. Queda $v_{0}=${nf(c1)}a$: ya sabemos cuánto vale $v_{0}$ si conocemos $a$.`,
+      texto: `Dividimos el número: $\\dfrac{${t}}{${k1}}=${nf(c1)}$${c1 === 1 ? ", y el $1$ no se escribe delante de una letra" : ""}. Queda $v_{0}=${coefA(c1)}$: ya sabemos cuánto vale $v_{0}$ si conocemos $a$.`,
       porque: `La letra $a$ se queda: solo se dividen los números.`,
       regla: `$\\dfrac{m\\cdot a}{n}=\\dfrac{m}{n}\\cdot a$`,
     });
     origenV0 = "K5";
-  } else {
-    h.paso({
-      fusiones: [],
-      resaltar: ["K2", "N1tb", "G1a"],
-      texto: `Queda $v_{0}=${t}a$: ya sabemos cuánto vale $v_{0}$ si conocemos $a$.`,
-      porque: `$v_{0}$ ya está sola: no hay nada que despejar.`,
-      regla: `$v_{0}=${t}a$`,
-    });
   }
 
   // ---- segunda formula: la de la distancia; v0 se reemplaza por c1·a
@@ -1179,22 +1173,28 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     porque: `El orden de los factores no cambia el producto.`,
     regla: `$a\\cdot b=b\\cdot a$`,
   });
-  h.cambiar(["H2v0"], [{ id: "V5a", tex: `(${nf(c1)}a)`, pegado: true }]);
+  // con c1 = 1, v0 vale exactamente a: no hay parentesis ni cuenta, el numero que ya estaba delante queda pegado a la a (4a)
+  h.cambiar(["H2v0"], [{ id: "V5a", tex: c1 === 1 ? "a" : `(${nf(c1)}a)`, pegado: true }]);
   h.paso({
     fusiones: [{ desde: ["H2v0"], hacia: "V5a", modo: "viajar" }],
     brotes: [{ desde: origenV0, hacia: "V5a" }],
-    texto: `Usamos la primera fórmula: en lugar de $v_{0}$ escribimos $${nf(c1)}a$. Va entre paréntesis porque el $${t}$ multiplica a todo.`,
-    porque: `$v_{0}$ y $${nf(c1)}a$ son lo mismo, así que uno puede ocupar el lugar del otro. Ahora solo queda la incógnita $a$.`,
-    regla: `$v_{0}=${nf(c1)}a$`,
+    texto: `Usamos la primera fórmula: en lugar de $v_{0}$ escribimos $${coefA(c1)}$.${c1 === 1 ? ` Como $v_{0}$ vale justo $a$, el $${t}$ queda pegado a la letra: $${t}a$.` : ` Va entre paréntesis porque el $${t}$ multiplica a todo.`}`,
+    porque: `$v_{0}$ y $${coefA(c1)}$ son lo mismo, así que uno puede ocupar el lugar del otro. Ahora solo queda la incógnita $a$.`,
+    regla: `$v_{0}=${coefA(c1)}$`,
   });
-  h.cambiar(["N2tb"], [{ id: "T1a", tex: `${nf(c2)}a` }]);
-  h.quitar("V5a");
-  h.paso({
-    fusiones: [{ desde: ["N2tb", "V5a"], hacia: "T1a" }],
-    texto: `Multiplicamos los números, $${t}$ por $${nf(c1)}$: $${t}(${nf(c1)}a)=${nf(c2)}a$.`,
-    porque: `La letra se queda; se multiplican los números.`,
-    regla: `$m\\cdot(n\\cdot a)=(m\\cdot n)\\cdot a$`,
-  });
+  // el primer sumando: ${c2}a (con c1 = 1 ya esta formado: las piezas N2tb y V5a)
+  let sumando1 = ["T1a"];
+  if (c1 === 1) sumando1 = ["N2tb", "V5a"];
+  else {
+    h.cambiar(["N2tb"], [{ id: "T1a", tex: `${nf(c2)}a` }]);
+    h.quitar("V5a");
+    h.paso({
+      fusiones: [{ desde: ["N2tb", "V5a"], hacia: "T1a" }],
+      texto: `Multiplicamos los números, $${t}$ por $${nf(c1)}$: $${t}(${nf(c1)}a)=${nf(c2)}a$.`,
+      porque: `La letra se queda; se multiplican los números.`,
+      regla: `$m\\cdot(n\\cdot a)=(m\\cdot n)\\cdot a$`,
+    });
+  }
   h.cambiar(["N2t2", "H2s"], [{ id: "P2t", tex: `${t}\\cdot ${t}` }]);
   h.paso({
     fusiones: [{ desde: ["N2t2", "H2s"], hacia: "P2t" }],
@@ -1210,17 +1210,26 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     porque: `Un positivo por un positivo da positivo.`,
     regla: `$m\\cdot n=p$`,
   });
-  h.cambiar(["H2h"], [{ id: "T2a", tex: `${nf(c3)}a` }]);
-  h.quitar("H2m2", "H2a", "H2m3", "N2t2b");
+  // primero el numero pasa delante de la letra (una sola cosa), despues se saca la mitad (otra)
+  h.quitar("H2m3", "N2t2b");
+  h.cambiar(["H2a"], [{ id: "N2t2c", tex: nf(t2) }, { id: "H2a", tex: "a", pegado: true }]);
   h.paso({
-    fusiones: [{ desde: ["H2h", "H2m2", "H2a", "H2m3", "N2t2b"], hacia: "T2a" }],
-    texto: `Multiplicar por $\\dfrac{1}{2}$ es sacar la mitad: la mitad de $${t2}$ es $${nf(c3)}$. Queda $${nf(c3)}a$.`,
-    porque: `El orden en que se multiplica no cambia el resultado: primero los números, y la letra se escribe al final.`,
-    regla: `$\\dfrac{1}{2}\\cdot a\\cdot n=\\dfrac{n}{2}\\cdot a$`,
+    fusiones: [{ desde: ["H2m3", "N2t2b"], hacia: "N2t2c" }],
+    texto: `El número se escribe delante de la letra: $a\\cdot ${t2}=${t2}a$.`,
+    porque: `El orden de los factores no cambia el producto.`,
+    regla: `$a\\cdot b=b\\cdot a$`,
   });
-  h.cambiar(["T1a", "H2p", "T2a"], [{ id: "T3a", tex: `${nf(c4)}a` }]);
+  h.cambiar(["H2h"], [{ id: "T2a", tex: `${nf(c3)}a` }]);
+  h.quitar("H2m2", "H2a", "N2t2c");
   h.paso({
-    fusiones: [{ desde: ["T1a", "H2p", "T2a"], hacia: "T3a" }],
+    fusiones: [{ desde: ["H2h", "H2m2", "N2t2c", "H2a"], hacia: "T2a" }],
+    texto: `Multiplicar por $\\dfrac{1}{2}$ es sacar la mitad: la mitad de $${t2}$ es $${nf(c3)}$. Queda $${nf(c3)}a$.`,
+    porque: `Sacar la mitad de un número es multiplicarlo por $\\dfrac{1}{2}$; la letra se queda.`,
+    regla: `$\\dfrac{1}{2}\\cdot(n\\cdot a)=\\dfrac{n}{2}\\cdot a$`,
+  });
+  h.cambiar(sumando1.concat(["H2p", "T2a"]), [{ id: "T3a", tex: `${nf(c4)}a` }]);
+  h.paso({
+    fusiones: [{ desde: [...sumando1, "H2p", "T2a"], hacia: "T3a" }],
     texto: `Sumamos los términos semejantes: $${nf(c2)}a+${nf(c3)}a=${nf(c4)}a$.`,
     porque: `Es como sumar objetos iguales: se suman sus cantidades y la letra se queda.`,
     regla: `$m\\cdot a+n\\cdot a=(m+n)\\cdot a$`,
@@ -1260,12 +1269,24 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
   });
   // la unidad de a se arma con las unidades de los datos: metros entre segundos al cuadrado
-  h.cambiar(["Ares"], [h.pieza("Ares"), frPiezas("UA", [{ id: "UAn", tex: "\\text{m}" }], [{ id: "UAd", tex: "\\text{s}^{2}" }])]);
+  // en dos pasos: primero los metros (de la distancia), despues los segundos al cuadrado (del tiempo)
+  h.cambiar(["Ares"], [h.pieza("Ares"), { id: "UAm", tex: "\\text{m}" }]);
   h.paso({
     fusiones: [],
-    brotes: [{ desde: "Dtu", hacia: "UA" }],
-    resaltar: ["Ddu", "Dtu"],
-    texto: `La unidad: la distancia está en $\\text{m}$ y el tiempo en $\\text{s}$; como en $\\dfrac{1}{2}\\cdot a\\cdot t^{2}$ el tiempo va al cuadrado, para que dé metros $a$ va en $\\dfrac{\\text{m}}{\\text{s}^{2}}$. Resultado: $a=${cant(a, "ms2")}$.`,
+    brotes: [{ desde: "Ddu", hacia: "UAm" }],
+    texto: `La unidad de $a$. La distancia está en $\\text{m}$, y la aceleración sirve para calcular esa distancia: empezamos escribiendo $\\text{m}$ junto al $${nf(a)}$.`,
+    porque: `El resultado de $\\dfrac{1}{2}\\cdot a\\cdot t^{2}$ tiene que ser una distancia, o sea metros.`,
+    regla: `$d\\ (\\text{m})=\\dfrac{1}{2}\\cdot a\\cdot t^{2}$`,
+  });
+  h.cambiar(["UAm"], [frPiezas("UA", [{ id: "UAn", tex: "\\text{m}" }], [{ id: "UAd", tex: "\\text{s}^{2}" }])]);
+  h.paso({
+    fusiones: [{ desde: ["UAm"], hacia: "UA", modo: "viajar" }],
+    brotes: [
+      { desde: "UAm", hacia: "UAn" },
+      { desde: "Dtu", hacia: "UAd" },
+    ],
+    resaltar: ["Dtu"],
+    texto: `Pero $a$ se multiplica por $t^{2}$, y el tiempo está en $\\text{s}$: abajo de los metros escribimos $\\text{s}^{2}$. Resultado: $a=${cant(a, "ms2")}$.`,
     porque: `En $a\\cdot t^{2}$ los $\\text{s}^{2}$ de abajo de $a$ se tachan con los del tiempo y quedan metros, como debe dar una distancia.`,
     regla: `$\\dfrac{\\text{m}}{\\text{s}^{2}}\\cdot\\text{s}^{2}=\\text{m}$`,
   });
@@ -1273,32 +1294,41 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
   // ---- verificacion del banco: v0 = c1·a, vf = k·v0, y v_f^2 = v_0^2 + 2ad
   // v0: en la primera fila, a vale lo que salio
   const idA1 = k1 > 1 ? "K5" : "G1a";
-  if (k1 > 1) {
-    h.cambiar(["K5"], [{ id: "K5n", tex: `${nf(c1)}\\cdot ${nf(a)}` }]);
+  const coefV0 = k1 > 1 ? c1 : t; // v0 = coefV0·a
+  if (k1 > 1 ? c1 === 1 || a === 1 : a === 1) {
+    // sin cuenta: v0 = a (coeficiente 1) o a vale 1 (multiplicar por 1 no cambia nada): el valor sale directo
+    h.cambiar(k1 > 1 ? ["K5"] : ["N1tb", "G1a"], [{ id: "V0r", tex: nf(v0) }]);
     h.paso({
-      fusiones: [{ desde: ["K5"], hacia: "K5n", modo: "viajar" }],
-      brotes: [{ desde: "Ares", hacia: "K5n" }],
-      texto: `Verificamos. Primero, cuánto valía $v_{0}$: en $v_{0}=${nf(c1)}a$ reemplazamos $a$ por $${nf(a)}$.`,
+      fusiones: [{ desde: k1 > 1 ? ["K5"] : ["N1tb", idA1], hacia: "V0r" }],
+      brotes: [{ desde: "Ares", hacia: "V0r" }],
+      texto:
+        coefV0 === 1
+          ? `Verificamos. Primero, cuánto valía $v_{0}$: en $v_{0}=a$ reemplazamos $a$ por $${nf(a)}$. La velocidad inicial era $${cant(v0, "ms")}$.`
+          : `Verificamos. Primero, cuánto valía $v_{0}$: en $v_{0}=${coefA(coefV0)}$ reemplazamos $a$ por $1$. Multiplicar por $1$ no cambia el número: la velocidad inicial era $${cant(v0, "ms")}$.`,
       porque: `Con $a$ ya conocida, la primera fórmula da la velocidad inicial.`,
-      regla: `$v_{0}=${nf(c1)}a$`,
+      regla: `$v_{0}=${coefA(coefV0)}$`,
     });
   } else {
-    h.cambiar(["N1tb", "G1a"], [{ id: "K5n", tex: `${nf(t)}\\cdot ${nf(a)}` }]);
+    if (k1 > 1) {
+      h.cambiar(["K5"], [{ id: "K5n", tex: `${nf(c1)}\\cdot ${nf(a)}` }]);
+    } else {
+      h.cambiar(["N1tb", "G1a"], [{ id: "K5n", tex: `${nf(t)}\\cdot ${nf(a)}` }]);
+    }
     h.paso({
-      fusiones: [{ desde: ["N1tb", idA1], hacia: "K5n", modo: "viajar" }],
+      fusiones: [{ desde: k1 > 1 ? ["K5"] : ["N1tb", idA1], hacia: "K5n", modo: "viajar" }],
       brotes: [{ desde: "Ares", hacia: "K5n" }],
-      texto: `Verificamos. Primero, cuánto valía $v_{0}$: en $v_{0}=${t}a$ reemplazamos $a$ por $${nf(a)}$.`,
+      texto: `Verificamos. Primero, cuánto valía $v_{0}$: en $v_{0}=${coefA(coefV0)}$ reemplazamos $a$ por $${nf(a)}$.`,
       porque: `Con $a$ ya conocida, la primera fórmula da la velocidad inicial.`,
-      regla: `$v_{0}=${t}a$`,
+      regla: `$v_{0}=${coefA(coefV0)}$`,
+    });
+    h.cambiar(["K5n"], [{ id: "V0r", tex: nf(v0) }]);
+    h.paso({
+      fusiones: [{ desde: ["K5n"], hacia: "V0r" }],
+      texto: `Multiplicamos: $${nf(coefV0)}\\cdot ${nf(a)}=${nf(v0)}$. La velocidad inicial era $${cant(v0, "ms")}$.`,
+      porque: `Un positivo por un positivo da positivo.`,
+      regla: `$m\\cdot n=p$`,
     });
   }
-  h.cambiar(["K5n"], [{ id: "V0r", tex: nf(v0) }]);
-  h.paso({
-    fusiones: [{ desde: ["K5n"], hacia: "V0r" }],
-    texto: `Multiplicamos: $${nf(c1)}\\cdot ${nf(a)}=${nf(v0)}$. La velocidad inicial era $${cant(v0, "ms")}$.`,
-    porque: `Un positivo por un positivo da positivo.`,
-    regla: `$m\\cdot n=p$`,
-  });
   // vf: debajo del dato v_f = k·v0
   h.agregar([
     { id: "S3", tex: "", salto: true },
@@ -1320,13 +1350,26 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     porque: `Es el dato del enunciado, ahora con números.`,
     regla: `$v_{f}=${k}v_{0}$`,
   });
-  h.cambiar(["W1k", "W1m", "W1v"], [{ id: "W1r", tex: nf(vf) }]);
-  h.paso({
-    fusiones: [{ desde: ["W1k", "W1m", "W1v"], hacia: "W1r" }],
-    texto: `Multiplicamos: $${k}\\cdot ${nf(v0)}=${nf(vf)}$. La velocidad final era $${cant(vf, "ms")}$.`,
-    porque: `Un positivo por un positivo da positivo.`,
-    regla: `$m\\cdot n=p$`,
-  });
+  let idVf = "W1r"; // la pieza con la velocidad final
+  if (v0 === 1) {
+    // multiplicar por 1 no cambia nada: se tacha el 1 con su punto
+    h.quitar("W1m", "W1v");
+    h.paso({
+      fusiones: [{ desde: ["W1m", "W1v"], hacia: null, modo: "tachar" }],
+      texto: `Multiplicar por $1$ no cambia nada: $${k}\\cdot 1=${k}$. Tachamos el $1$ con su punto. La velocidad final era $${cant(vf, "ms")}$.`,
+      porque: `Un número multiplicado por $1$ es el mismo número.`,
+      regla: `$n\\cdot 1=n$`,
+    });
+    idVf = "W1k";
+  } else {
+    h.cambiar(["W1k", "W1m", "W1v"], [{ id: "W1r", tex: nf(vf) }]);
+    h.paso({
+      fusiones: [{ desde: ["W1k", "W1m", "W1v"], hacia: "W1r" }],
+      texto: `Multiplicamos: $${k}\\cdot ${nf(v0)}=${nf(vf)}$. La velocidad final era $${cant(vf, "ms")}$.`,
+      porque: `Un positivo por un positivo da positivo.`,
+      regla: `$m\\cdot n=p$`,
+    });
+  }
   // la tercera formula, con letras, y despues una letra por vez
   h.agregar([
     { id: "S4", tex: "", salto: true },
@@ -1350,7 +1393,7 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     regla: `$v_{f}^{2}=v_{0}^{2}+2\\cdot a\\cdot d$`,
   });
   for (const [letra, id, nuevo, valor, origen, nombre] of [
-    ["v_{f}", "X1", "Y1", vf, "W1r", "la velocidad final"],
+    ["v_{f}", "X1", "Y1", vf, idVf, "la velocidad final"],
     ["v_{0}", "X2", "Y2", v0, "V0r", "la velocidad inicial"],
     ["a", "X4", "Y4", a, "Ares", "la aceleración que salió"],
     ["d", "X5", "Y5", d, "Dd", "el dato de la distancia"],
@@ -1387,17 +1430,30 @@ export function mruvMultiplica(k: number, d: number, t: number, enunciado?: stri
     porque: `Son dos cuentas independientes, así que van a la vez.`,
     regla: `$m\\cdot n=p$`,
   });
-  h.cambiar(["X3", "X3m", "Y4"], [{ id: "Z3", tex: nf(dosA) }]);
+  let primero = "Z3"; // la pieza que queda a la izquierda del segundo producto
+  if (a === 1) {
+    // multiplicar por 1 no cambia nada: se tacha el 1 con su punto y no hay cuenta propia
+    h.quitar("X3m", "Y4");
+    h.paso({
+      fusiones: [{ desde: ["X3m", "Y4"], hacia: null, modo: "tachar" }],
+      texto: `Multiplicar por $1$ no cambia nada: $2\\cdot 1=2$. Tachamos el $1$ con su punto y queda $2\\cdot ${nf(d)}$.`,
+      porque: `Un número multiplicado por $1$ es el mismo número.`,
+      regla: `$n\\cdot 1=n$`,
+    });
+    primero = "X3";
+  } else {
+    h.cambiar(["X3", "X3m", "Y4"], [{ id: "Z3", tex: nf(dosA) }]);
+    h.paso({
+      fusiones: [{ desde: ["X3", "X3m", "Y4"], hacia: "Z3" }],
+      texto: `El producto de tres números se hace de dos en dos. Primero $2\\cdot ${nf(a)}=${nf(dosA)}$.`,
+      porque: `Una multiplicación por vez, de izquierda a derecha.`,
+      regla: `$(m\\cdot n)\\cdot p=m\\cdot(n\\cdot p)$`,
+    });
+  }
+  h.cambiar([primero, "X4m", "Y5"], [{ id: "Z4", tex: nf(dosAd) }]);
   h.paso({
-    fusiones: [{ desde: ["X3", "X3m", "Y4"], hacia: "Z3" }],
-    texto: `El producto de tres números se hace de dos en dos. Primero $2\\cdot ${nf(a)}=${nf(dosA)}$.`,
-    porque: `Una multiplicación por vez, de izquierda a derecha.`,
-    regla: `$(m\\cdot n)\\cdot p=m\\cdot(n\\cdot p)$`,
-  });
-  h.cambiar(["Z3", "X4m", "Y5"], [{ id: "Z4", tex: nf(dosAd) }]);
-  h.paso({
-    fusiones: [{ desde: ["Z3", "X4m", "Y5"], hacia: "Z4" }],
-    texto: `Después $${nf(dosA)}\\cdot ${nf(d)}=${nf(dosAd)}$.`,
+    fusiones: [{ desde: [primero, "X4m", "Y5"], hacia: "Z4" }],
+    texto: a === 1 ? `Multiplicamos: $2\\cdot ${nf(d)}=${nf(dosAd)}$.` : `Después $${nf(dosA)}\\cdot ${nf(d)}=${nf(dosAd)}$.`,
     porque: `Primero se multiplica y después se suma.`,
     regla: `$m\\cdot n=p$`,
   });
@@ -1500,13 +1556,14 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
     op.enunciado ??
     `El volumen de un gas a $${tTex(t1)}$${p ? ` y $${nf(p.p1)}\\ ${uTex(p.u1)}$` : ""} es $${cant(V1, uV)}$. ¿Qué volumen ocupará a $${tTex(t2)}$${p ? ` y $${nf(p.p2)}\\ ${uTex(p.u2)}$` : ", a presión constante"}? Vamos a escribir cada paso, como a lápiz.`;
 
-  h.paso({
-    fusiones: [],
-    resaltar: ["DT1", "DV1", "DT2", "Dq"],
-    texto: `Anotamos los datos: arriba, el gas al principio; abajo, al final. Cambian la temperatura y el volumen, y nos piden $V_{2}$.${p ? " Antes de elegir la ley hay que mirar la presión." : " El enunciado dice que la presión no cambia."}`,
-    porque: `Cada ley de los gases sirve cuando una de las cantidades se mantiene igual. Con la presión igual, se usa la ley de Charles.`,
-    regla: `$P\\ \\text{constante}\\ \\Rightarrow\\ \\dfrac{V_{1}}{T_{1}}=\\dfrac{V_{2}}{T_{2}}$`,
-  });
+  // Los datos ya estan escritos: leerlos no mueve nada. Lo que dice la primera lectura (que cambia, que se pide, la presion)
+  // se dice en el texto del primer paso que SI cambia algo.
+  let pendiente = `Los datos: arriba, el gas al principio; abajo, al final. Cambian la temperatura y el volumen, y nos piden $V_{2}$.${p ? " Antes de elegir la ley hay que mirar la presión." : " El enunciado dice que la presión no cambia, así que usaremos la ley de Charles."} `;
+  const pasoSolo = h.paso.bind(h);
+  h.paso = (t: Transicion) => {
+    pasoSolo(pendiente ? { ...t, texto: pendiente + t.texto } : t);
+    pendiente = "";
+  };
 
   // ---- presiones: a la misma unidad, y se ve que son iguales
   if (p) {
@@ -1517,13 +1574,33 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
       const pu = k === "1" ? p.u1 : p.u2;
       const N = `DP${k}`;
       const Uid = `DP${k}u`;
+      // primero se escribe la equivalencia (de donde sale el factor), con su unidad tomada del dato que se convierte
+      h.agregar([{ id: "EqS", tex: "", salto: true }, { id: "Eq1", tex: "1" }, { id: "Eq1u", tex: "\\text{atm}" }, { id: "Eqe", tex: "=", op: true }, { id: "Eq2", tex: "760" }, uPieza("Eq2u", pu)]);
+      h.paso({
+        fusiones: [],
+        brotes: [
+          { desde: Uid, hacia: "Eq1" },
+          { desde: Uid, hacia: "Eq1u" },
+          { desde: Uid, hacia: "Eq2" },
+          { desde: Uid, hacia: "Eq2u" },
+        ],
+        texto: `Las presiones están en unidades distintas, y para compararlas hay que pasar $${nf(pv)}\\ ${uTex(pu)}$ a atmósferas. Para eso escribimos la equivalencia entre las dos unidades.`,
+        porque: `Una atmósfera es la presión de $760\\ ${uTex(pu)}$: es la misma cantidad dicha con otra unidad.`,
+        regla: `$1\\ \\text{atm}=760\\ ${uTex(pu)}$`,
+      });
       h.cambiar([Uid], [h.pieza(Uid), { id: "Dx", tex: "\\cdot", op: true }, frPiezas("DFx", [{ id: "Fx1", tex: "1" }, { id: "Fx1u", tex: "\\text{atm}" }], [{ id: "Fx2", tex: "760" }, { id: "Fx2u", tex: uTex(pu) }])]);
       h.paso({
         fusiones: [],
-        brotes: [{ desde: Uid, hacia: "DFx" }],
-        texto: `Las presiones están en unidades distintas. Pasamos $${nf(pv)}\\ ${uTex(pu)}$ a atmósferas: lo multiplicamos por $\\dfrac{1\\ \\text{atm}}{760\\ ${uTex(pu)}}$.`,
+        brotes: [
+          { desde: "Eqe", hacia: "DFx" },
+          { desde: "Eq1", hacia: "Fx1" },
+          { desde: "Eq1u", hacia: "Fx1u" },
+          { desde: "Eq2", hacia: "Fx2" },
+          { desde: "Eq2u", hacia: "Fx2u" },
+        ],
+        texto: `Con la equivalencia armamos el factor: multiplicamos $${nf(pv)}\\ ${uTex(pu)}$ por $\\dfrac{1\\ \\text{atm}}{760\\ ${uTex(pu)}}$, con la unidad que queremos arriba y la que sobra abajo.`,
         porque: `Como $1\\ \\text{atm}$ es lo mismo que $760\\ ${uTex(pu)}$, esa fracción vale $1$: multiplicar por ella no cambia la presión, solo su unidad.`,
-        regla: `$1\\ \\text{atm}=760\\ ${uTex(pu)}$`,
+        regla: `$\\dfrac{1\\ \\text{atm}}{760\\ ${uTex(pu)}}=1$`,
       });
       h.quitar(Uid, "Fx2u");
       h.paso({
@@ -1535,9 +1612,12 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
       h.cambiar(["Fx1"], [{ id: "Fx1b", tex: nf(pv) }]);
       h.quitar(N, "Dx");
       h.paso({
-        fusiones: [{ desde: [N, "Dx", "Fx1"], hacia: "Fx1b" }],
-        texto: `El número sube a multiplicar arriba de la raya: $${nf(pv)}\\cdot 1=${nf(pv)}$.`,
-        porque: `Multiplicar por una fracción es multiplicar su número de arriba. Por $1$ no cambia.`,
+        fusiones: [
+          { desde: [N], hacia: "Fx1b", modo: "viajar" },
+          { desde: ["Dx", "Fx1"], hacia: null, modo: "tachar" },
+        ],
+        texto: `El número sube a multiplicar arriba de la raya, ocupando el lugar del $1$: multiplicar por $1$ no cambia nada, así que el $1$ y su punto se tachan.`,
+        porque: `Multiplicar por una fracción es multiplicar su número de arriba, y un número por $1$ es el mismo número.`,
         regla: `$a\\cdot\\dfrac{b}{c}=\\dfrac{a\\cdot b}{c}$`,
       });
       const enAtm = pv / 760;
@@ -1548,26 +1628,14 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
           { desde: ["DFx", "Fx1u"], hacia: `${N}au`, modo: "viajar" },
         ],
         brotes: [{ desde: "Fx1u", hacia: `${N}au` }],
-        texto: `Dividimos: $\\dfrac{${nf(pv)}}{760}=${nf(enAtm)}$. Queda $${nf(enAtm)}\\ \\text{atm}$.`,
-        porque: pv === 760 ? `Un número dividido entre sí mismo da $1$.` : `La fracción es una división: el número de arriba entre el de abajo.`,
-        regla: `$\\dfrac{a}{b}=c\\ \\iff\\ a=b\\cdot c$`,
-      });
-      const otra = k === "1" ? "DP2" : "DP1";
-      h.paso({
-        fusiones: [],
-        resaltar: [otra, `${N}a`],
-        texto: `Ahora se ve: las dos presiones valen $${nf(aAtm(p.p1, p.u1))}\\ \\text{atm}$. La presión no cambia, así que usamos la ley de Charles.`,
-        porque: `A presión constante, el volumen de un gas cambia en la misma proporción que su temperatura en kelvin.`,
+        resaltar: [k === "1" ? "DP2" : "DP1"],
+        texto: `Dividimos: $\\dfrac{${nf(pv)}}{760}=${nf(enAtm)}$. Queda $${nf(enAtm)}\\ \\text{atm}$, y ahora se ve que las dos presiones valen $${nf(aAtm(p.p1, p.u1))}\\ \\text{atm}$: la presión no cambia, así que usamos la ley de Charles.`,
+        porque: pv === 760 ? `Un número dividido entre sí mismo da $1$. A presión constante, el volumen de un gas cambia en la misma proporción que su temperatura en kelvin.` : `La fracción es una división: el número de arriba entre el de abajo. A presión constante, el volumen de un gas cambia en la misma proporción que su temperatura en kelvin.`,
         regla: `$P_{1}=P_{2}\\ \\Rightarrow\\ \\dfrac{V_{1}}{T_{1}}=\\dfrac{V_{2}}{T_{2}}$`,
       });
     } else {
-      h.paso({
-        fusiones: [],
-        resaltar: ["DP1", "DP2"],
-        texto: `Las dos presiones valen $${nf(p.p1)}\\ ${uTex(p.u1)}$: la presión no cambia, así que usamos la ley de Charles.`,
-        porque: `A presión constante, el volumen de un gas cambia en la misma proporción que su temperatura en kelvin.`,
-        regla: `$P_{1}=P_{2}\\ \\Rightarrow\\ \\dfrac{V_{1}}{T_{1}}=\\dfrac{V_{2}}{T_{2}}$`,
-      });
+      // las dos presiones ya se ven iguales: se dice en el texto del paso siguiente (leer no mueve nada)
+      pendiente += `Las dos presiones valen $${nf(p.p1)}\\ ${uTex(p.u1)}$: la presión no cambia, así que usamos la ley de Charles. `;
     }
   }
 
@@ -1643,17 +1711,30 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
     porque: `Una igualdad dice lo mismo leída de izquierda a derecha que de derecha a izquierda.`,
     regla: `$a=b\\ \\iff\\ b=a$`,
   });
-  h.cambiar(["FL", "Fm", "FT2b"], [{ id: "GV1", tex: colG("V1", "V_{1}") }, { id: "Gm", tex: "\\cdot", op: true }, frPiezas("GF", [{ id: "GT2", tex: colG("T2", "T_{2}") }], [{ id: "GT1", tex: colG("T1", "T_{1}") }])]);
+  // dos movimientos, uno por paso: T2 sube arriba (junto a V1) y despues V1 sale de la fraccion hacia adelante
+  h.cambiar(["FL", "Fm", "FT2b"], [frPiezas("GF1", [{ id: "G1v", tex: colG("V1", "V_{1}") }, { id: "G1m", tex: "\\cdot", op: true }, { id: "G1t2", tex: colG("T2", "T_{2}") }], [{ id: "G1t1", tex: colG("T1", "T_{1}") }])]);
   h.paso({
-    fusiones: [{ desde: ["FL", "FV1", "FT1", "Fm", "FT2b"], hacia: ["GV1", "Gm", "GF"], modo: "viajar" }],
+    fusiones: [{ desde: ["FL", "FV1", "FT1", "Fm", "FT2b"], hacia: ["GF1"], modo: "viajar" }],
     brotes: [
-      { desde: "FV1", hacia: "GV1" },
-      { desde: "FT2b", hacia: "GT2" },
-      { desde: "FT1", hacia: "GT1" },
+      { desde: "FV1", hacia: "G1v" },
+      { desde: "FT2b", hacia: "G1t2" },
+      { desde: "FT1", hacia: "G1t1" },
     ],
-    texto: `Reordenamos: $V_{1}$ sale adelante y $T_{2}$ sube arriba de $T_{1}$. Así queda $V_{2}=V_{1}\\cdot\\dfrac{T_{2}}{T_{1}}$: cuántas veces cambió la temperatura, por el volumen del principio.`,
-    porque: `Multiplicar por $T_{2}$ y dividir entre $T_{1}$ se puede hacer en cualquier orden: el resultado es el mismo.`,
-    regla: `$\\dfrac{a}{b}\\cdot c=a\\cdot\\dfrac{c}{b}$`,
+    texto: `$T_{2}$ multiplica a la fracción: sube arriba de la raya, junto a $V_{1}$. Queda $V_{2}=\\dfrac{V_{1}\\cdot T_{2}}{T_{1}}$.`,
+    porque: `Multiplicar una fracción por un número es multiplicar su número de arriba.`,
+    regla: `$\\dfrac{a}{b}\\cdot c=\\dfrac{a\\cdot c}{b}$`,
+  });
+  h.cambiar(["GF1"], [{ id: "GV1", tex: colG("V1", "V_{1}") }, { id: "Gm", tex: "\\cdot", op: true }, frPiezas("GF", [{ id: "GT2", tex: colG("T2", "T_{2}") }], [{ id: "GT1", tex: colG("T1", "T_{1}") }])]);
+  h.paso({
+    fusiones: [{ desde: ["GF1", "G1v", "G1m", "G1t2", "G1t1"], hacia: ["GV1", "Gm", "GF"], modo: "viajar" }],
+    brotes: [
+      { desde: "G1v", hacia: "GV1" },
+      { desde: "G1t2", hacia: "GT2" },
+      { desde: "G1t1", hacia: "GT1" },
+    ],
+    texto: `$V_{1}$ sale adelante: $V_{2}=V_{1}\\cdot\\dfrac{T_{2}}{T_{1}}$, o sea cuántas veces cambió la temperatura, por el volumen del principio.`,
+    porque: `El producto de arriba se puede escribir en cualquier orden: $V_{1}$ y $\\dfrac{T_{2}}{T_{1}}$ multiplicados dan lo mismo.`,
+    regla: `$\\dfrac{a\\cdot c}{b}=a\\cdot\\dfrac{c}{b}$`,
   });
 
   // ---- reemplazar de a una letra
@@ -1702,6 +1783,27 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
   // ---- comprobacion: producto cruzado con los datos y el resultado
   const P1 = V1 * T2;
   const P2 = V2 * T1;
+  // primero la ley otra vez, ahora con los cuatro numeros (cada uno viaja desde su ficha); despues el producto en cruz
+  h.agregar([
+    { id: "CQS", tex: "", salto: true },
+    frPiezas("CQ1", [{ id: "CQn1", tex: nf(V1) }], [{ id: "CQd1", tex: nf(T1) }]),
+    { id: "CQe", tex: "=", op: true },
+    frPiezas("CQ2", [{ id: "CQn2", tex: nf(V2) }], [{ id: "CQd2", tex: nf(T2) }]),
+  ]);
+  h.paso({
+    fusiones: [],
+    brotes: [
+      { desde: "DV1", hacia: "CQ1" },
+      { desde: "DV1", hacia: "CQn1" },
+      { desde: idT["1"].n, hacia: "CQd1" },
+      { desde: "R", hacia: "CQ2" },
+      { desde: "R", hacia: "CQn2" },
+      { desde: idT["2"].n, hacia: "CQd2" },
+    ],
+    texto: `Comprobamos con los datos. Escribimos otra vez la ley, ahora con los cuatro números: $V_{1}$, $T_{1}$, el $V_{2}$ que salió y $T_{2}$.`,
+    porque: `Si el resultado está bien, las dos fracciones tienen que valer lo mismo.`,
+    regla: `$\\dfrac{V_{1}}{T_{1}}=\\dfrac{V_{2}}{T_{2}}$`,
+  });
   h.agregar([
     { id: "CS", tex: "", salto: true },
     { id: "C1", tex: nf(V1) },
@@ -1714,14 +1816,18 @@ export function charles(V1: number, t1: number, t2: number, op: OpcionesCharles 
   ]);
   h.paso({
     fusiones: [],
-    brotes: [
-      { desde: "R", hacia: "CS" },
-      { desde: "DV1", hacia: "C1" },
-      { desde: idT["2"].n, hacia: "C2" },
-      { desde: "R", hacia: "C3" },
-      { desde: idT["1"].n, hacia: "C4" },
+    visitas: [
+      { desde: "CQn1", hacia: ["CQd2"] },
+      { desde: "CQn2", hacia: ["CQd1"] },
     ],
-    texto: `Comprobamos con los datos: si $\\dfrac{V_{1}}{T_{1}}=\\dfrac{V_{2}}{T_{2}}$, multiplicando en cruz, $V_{1}\\cdot T_{2}$ tiene que dar lo mismo que $V_{2}\\cdot T_{1}$.`,
+    brotes: [
+      { desde: "CQ1", hacia: "CS" },
+      { desde: "CQn1", hacia: "C1" },
+      { desde: "CQd2", hacia: "C2" },
+      { desde: "CQn2", hacia: "C3" },
+      { desde: "CQd1", hacia: "C4" },
+    ],
+    texto: `Multiplicando en cruz: el de arriba de cada fracción se multiplica con el de abajo de la otra. $V_{1}\\cdot T_{2}$ tiene que dar lo mismo que $V_{2}\\cdot T_{1}$.`,
     porque: `En una igualdad de fracciones, el de arriba de una por el de abajo de la otra dan lo mismo.`,
     regla: `$\\dfrac{a}{b}=\\dfrac{c}{d}\\ \\iff\\ a\\cdot d=c\\cdot b$`,
   });

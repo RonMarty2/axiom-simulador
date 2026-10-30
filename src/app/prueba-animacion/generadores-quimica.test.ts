@@ -45,6 +45,8 @@ const anchoFormula = (f: string) =>
     .replace(/\\[a-zA-Z]+/g, "#")
     .replace(/[{}_^]/g, "").length;
 const buscar = (e: Ficha[], id: string) => aplanar(e).find((f) => f.id === id);
+/** un tachado de numeros: todas sus piezas son numeros o el punto de multiplicar (no unidades) */
+const esTachadoDeNumeros = (e: Ficha[], ids: string[]) => ids.every((id) => /^(\\textcolor\{[^}]*\}\{)?\d+\}?$|^\\cdot$/.test(buscar(e, id)?.tex ?? ""));
 
 /** comprobaciones comunes a toda animacion de estequiometria */
 function comun(d: Demo, etiqueta: string, esperado: string, unidad: string) {
@@ -58,7 +60,8 @@ function comun(d: Demo, etiqueta: string, esperado: string, unidad: string) {
   assert.equal(buscar(fin, "uq")?.tex, unidad, `${etiqueta}: la unidad que piden`);
   // cada tachado cancela la MISMA unidad de la MISMA sustancia, una arriba y otra abajo (4 piezas: unidad y sustancia dos veces)
   d.transiciones.forEach((t, i) => {
-    for (const f of t.fusiones.filter((f) => f.modo === "tachar")) {
+    // se tachan unidades (de a una, con su sustancia) y, aparte, los 1 y los numeros iguales de arriba y de abajo
+    for (const f of t.fusiones.filter((f) => f.modo === "tachar" && !esTachadoDeNumeros(d.estados[i], f.desde))) {
       assert.equal(f.desde.length, 4, `${etiqueta}: T${i} tacha de a una unidad`);
       const tex = f.desde.map((id) => buscar(d.estados[i], id)!.tex);
       assert.equal(tex[0], tex[2], `${etiqueta}: T${i} la unidad de arriba y la de abajo son la misma`);
@@ -231,7 +234,7 @@ describe("estequiometria con ecuacion balanceada", () => {
   test("8 g de H2 forman 72 g de agua: tres factores, tres tachados, la masa molar de los dos", () => {
     const r = estequiometria("formacion-agua", "H2", "H2O", 8, "g");
     assert.equal(buscar(ultimo(r.demo), "qR")!.tex, "72");
-    assert.equal(r.demo.transiciones.filter((t) => t.fusiones.some((f) => f.modo === "tachar")).length, 3);
+    assert.equal(r.demo.transiciones.filter((t, i) => t.fusiones.some((f) => f.modo === "tachar" && !esTachadoDeNumeros(r.demo.estados[i], f.desde))).length, 3);
     const todo = r.demo.transiciones.map((t) => `${t.texto} ${t.porque}`).join(" | ");
     for (const pista of ["balanceada", "$\\mathrm{H}$: $4$ y $4$", "pesa $2\\ \\text{g}$", "pesa $18\\ \\text{g}$", "coeficientes", "al revés", "$16\\cdot 18=288$", "\\dfrac{288}{4}=72"]) {
       assert.ok(todo.includes(pista), `falta el paso: ${pista}`);

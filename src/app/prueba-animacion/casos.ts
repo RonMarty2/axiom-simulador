@@ -69,6 +69,8 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "triplica", v: ["3", "200", "10"] },
     { nombre: "duplica", v: ["2", "150", "10"] },
     { nombre: "quintuplica", v: ["5", "300", "4"] },
+    { nombre: "v0 igual a a, y a igual a 1", v: ["3", "4", "2"] },
+    { nombre: "v0 igual a a, a no entera", v: ["3", "6", "2"] },
   ],
   charles: [
     { nombre: "temperatura bajo cero", v: ["20", "-33", "27"] },
@@ -81,6 +83,7 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "agua", v: ["H2O", "H", "18"] },
     { nombre: "subindice 1", v: ["CaCO3", "Ca", "100"] },
     { nombre: "masa grande", v: ["H2SO4", "S", "980"] },
+    { nombre: "resultado no entero", v: ["H2O", "O", "9"] },
   ],
   estequiometria: [
     { nombre: "de g a g", v: ["formacion-agua", "H2", "H2O", "8", "g"] },
@@ -88,6 +91,7 @@ export const CASOS_POR_TIPO: Record<Tipo, Caso[]> = {
     { nombre: "coeficientes 1 a 1", v: ["combustion-carbono", "C", "CO2", "12", "g"] },
     { nombre: "coeficientes grandes", v: ["combustion-propano", "C3H8", "CO2", "44", "g"] },
     { nombre: "numeros grandes", v: ["oxidacion-hierro", "Fe", "Fe2O3", "224", "g"] },
+    { nombre: "resultado no entero", v: ["descomposicion-caliza", "CaCO3", "CaO", "10", "g"] },
   ],
   dinamica: [
     { nombre: "una fuerza", v: ["4", "20", "0"] },

@@ -491,8 +491,9 @@ describe("molaridad: la animacion", () => {
     // el caso del hallazgo: 1/4 se amplia por 25, con 1·25 y 4·25 como piezas y no solo en el texto
     const d = molaridad("KOH", 14, 1).demo;
     const i = d.transiciones.findIndex((t) => t.texto.includes("se puede multiplicar arriba y abajo por $25$"));
-    assert.ok(i > 0 && hayProducto(d.estados[i + 1], "1", "25") && hayProducto(d.estados[i + 1], "4", "25"));
-    assert.ok(d.transiciones[i + 1].texto.includes("$1\\cdot 25=25$ y $4\\cdot 25=100$"));
+    // (arriba el 1 por 25 es 25: no hay cuenta por 1, nace directo el 25; abajo 4·25 es una pieza a la vista)
+    assert.ok(i > 0 && hayProducto(d.estados[i + 1], "4", "25") && !hayProducto(d.estados[i + 1], "1", "25"));
+    assert.ok(d.transiciones[i + 1].texto.includes("Resolvemos abajo: $4\\cdot 25=100$"));
   });
 
   test("(b) un paso no trae a la vez una fraccion y un decimal nuevos, ni dos '=' nuevos", () => {
@@ -555,7 +556,8 @@ describe("molaridad: la animacion", () => {
     assert.ok(iLee > iAmp + 1, "ampliar, resolver los productos y recien despues leer 15/10 como 1,5");
     // 1/2 -> 5/10 : 49/98 con k = 5
     const c = molaridad("H2SO4", 49, 2).demo;
-    assert.ok(c.transiciones.some((t) => t.texto.includes("$\\dfrac{1\\cdot 5}{2\\cdot 5}$")));
+    // (con 1 arriba no se escribe 1·5: el 5 nace directo y solo abajo queda la cuenta 2·5)
+    assert.ok(c.transiciones.some((t) => t.texto.includes("Abajo queda $2\\cdot 5$")));
   });
 
   test("gramatica del decimal: nunca '1 décimos' ni '1 centésimos', y las fracciones intermedias son fichas antes del decimal", () => {

@@ -577,11 +577,13 @@ export function molaridad(soluto: string, masa: number, volumen: number, rapido 
     let ultima = "Sf1";
     if (k > 1) {
       // ampliar: arriba y abajo por k, con k y los productos a la vista
+      // con p = 1 el numerador es 1·k: multiplicar por 1 no cambia nada, asi que arriba se escribe directo k (sin cuenta propia)
+      const unoArriba = p === 1;
       agregar([
         { id: "Se1", tex: "=", op: true },
         frPiezas(
           "Sf2",
-          [{ id: "Sf2a", tex: `${p}` }, { id: "Sf2x1", tex: "\\cdot", op: true }, { id: "Sf2k1", tex: `${k}` }],
+          unoArriba ? [{ id: "Sf2n", tex: `${k}` }] : [{ id: "Sf2a", tex: `${p}` }, { id: "Sf2x1", tex: "\\cdot", op: true }, { id: "Sf2k1", tex: `${k}` }],
           [{ id: "Sf2b", tex: `${q}` }, { id: "Sf2x2", tex: "\\cdot", op: true }, { id: "Sf2k2", tex: `${k}` }]
         ),
       ]);
@@ -590,25 +592,23 @@ export function molaridad(soluto: string, masa: number, volumen: number, rapido 
         fusiones: [],
         brotes: [
           { desde: "Sf1", hacia: "Sf2" },
-          { desde: "Sf1n", hacia: "Sf2a" },
+          ...(unoArriba ? [{ desde: "Sf1n", hacia: "Sf2n" }] : [{ desde: "Sf1n", hacia: "Sf2a" }, { desde: "Sf1d", hacia: "Sf2k1" }]),
           { desde: "Sf1d", hacia: "Sf2b" },
-          { desde: "Sf1d", hacia: "Sf2k1" },
           { desde: "Sf1d", hacia: "Sf2k2" },
         ],
-        texto: `Ahora el decimal de $\\dfrac{${p}}{${q}}$. Buscamos que abajo quede $${pot}$: como $${q}\\cdot ${k}=${pot}$, se puede multiplicar arriba y abajo por $${k}$: $\\dfrac{${p}\\cdot ${k}}{${q}\\cdot ${k}}$.`,
+        texto: unoArriba
+          ? `Ahora el decimal de $\\dfrac{${p}}{${q}}$. Buscamos que abajo quede $${pot}$: como $${q}\\cdot ${k}=${pot}$, se puede multiplicar arriba y abajo por $${k}$. Abajo queda $${q}\\cdot ${k}$; arriba, el $1$ por $${k}$ es el mismo $${k}$ (un número por $1$ no cambia).`
+          : `Ahora el decimal de $\\dfrac{${p}}{${q}}$. Buscamos que abajo quede $${pot}$: como $${q}\\cdot ${k}=${pot}$, se puede multiplicar arriba y abajo por $${k}$: $\\dfrac{${p}\\cdot ${k}}{${q}\\cdot ${k}}$.`,
         porque: `Multiplicar arriba y abajo por el mismo número no cambia el valor de la fracción.`,
         regla: `$\\dfrac{a}{b}=\\dfrac{a\\cdot c}{b\\cdot c}$`,
       });
-      cambiar(["Sf2a", "Sf2x1", "Sf2k1"], [{ id: "Sf2n", tex: `${c}` }]);
+      if (!unoArriba) cambiar(["Sf2a", "Sf2x1", "Sf2k1"], [{ id: "Sf2n", tex: `${c}` }]);
       cambiar(["Sf2b", "Sf2x2", "Sf2k2"], [{ id: "Sf2d", tex: `${pot}` }]);
       borrador.push("Sf2n", "Sf2d");
       paso({
-        fusiones: [
-          { desde: ["Sf2a", "Sf2x1", "Sf2k1"], hacia: "Sf2n" },
-          { desde: ["Sf2b", "Sf2x2", "Sf2k2"], hacia: "Sf2d" },
-        ],
-        texto: `Resolvemos arriba y abajo: $${p}\\cdot ${k}=${c}$ y $${q}\\cdot ${k}=${pot}$. Queda $\\dfrac{${c}}{${pot}}$.`,
-        porque: `Una operación por vez: el producto de arriba y el de abajo.`,
+        fusiones: [...(unoArriba ? [] : [{ desde: ["Sf2a", "Sf2x1", "Sf2k1"], hacia: "Sf2n" }]), { desde: ["Sf2b", "Sf2x2", "Sf2k2"], hacia: "Sf2d" }],
+        texto: unoArriba ? `Resolvemos abajo: $${q}\\cdot ${k}=${pot}$. Queda $\\dfrac{${c}}{${pot}}$.` : `Resolvemos arriba y abajo: $${p}\\cdot ${k}=${c}$ y $${q}\\cdot ${k}=${pot}$. Queda $\\dfrac{${c}}{${pot}}$.`,
+        porque: unoArriba ? `Una sola multiplicación: la de abajo.` : `Una operación por vez: el producto de arriba y el de abajo.`,
         regla: `$a\\cdot b=c$`,
       });
       ultima = "Sf2";
