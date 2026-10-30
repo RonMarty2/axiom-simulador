@@ -3,21 +3,21 @@
   "generadores": {
     "lineal": {
       "estado": "con-hallazgos",
-      "huella": "4ef2558da8d9",
-      "fecha": "2026-10-29",
-      "nota": "29-oct tanda 3: menos sin tocar la raya, −3 en una pieza, 3 marcas, reglas de suma. Falta: el porque dice «el signo del mas grande, el −6» (debe ser «el de mas valor sin signo»); negrita en la primera lista antes de que exista la segunda y sin texto que la explique; «)» toca el 3 en x fracc negativa 14"
+      "huella": "a1bd8ce27270",
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: regla de signos corregida (valor sin signo), negrita con la segunda lista. Falta: la marca del parentesis grande en x fracc negativa 16 sale corrida"
     },
     "cuadrados": {
       "estado": "con-hallazgos",
-      "huella": "282fa6decf52",
-      "fecha": "2026-10-29",
-      "nota": "29-oct tanda 3: copiar y reemplazar separados, segunda ecuacion desde «ó». Falta: tres copias de x²−9=0 a la vista (ref sin usar); texto «o» y hoja «ó»; revisar gestos del paso 11"
+      "huella": "847ff5a1e845",
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: corte antes del =, una sola copia, o sin tilde. Falta: k grande 10-16 parte (x − 15)(x + 15) en dos renglones"
     },
     "fracciones": {
       "estado": "con-hallazgos",
-      "huella": "b65e18eb8a31",
-      "fecha": "2026-10-29",
-      "nota": "29-oct tanda 3: comprobacion con (½+⅓)·6 y distributiva BIEN. Falta: negrita antes de la segunda lista y sin explicar (pasos 3, 14, 17); resta que da 0 paso 13: porque «solo el numerador» aplicado a un 0 entero; la copia SR queda sin usar"
+      "huella": "ee301a705aca",
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: negrita con la segunda lista, distributiva en dos pasos, cero por cualquier numero, punto dentro de la formula. Falta: numeros grandes 22 corta antes de «· 24 )»"
     },
     "logaritmos": {
       "estado": "con-hallazgos",
@@ -33,21 +33,21 @@
     },
     "potencia": {
       "estado": "con-hallazgos",
-      "huella": "7f89d0a95b9e",
-      "fecha": "2026-10-29",
-      "nota": "29-oct: cambio el porque compartido del ultimo producto. Falta: exponente 1 dice «son 1 factores» (plural fijo) y pone (5) con parentesis para un factor"
+      "huella": "cbfc9a31ad78",
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: «1 factor» y sin parentesis. Falta: el · colgado con exponentes grandes"
     },
     "raiz": {
       "estado": "con-hallazgos",
       "huella": "999a75386c2d",
-      "fecha": "2026-10-29",
-      "nota": "29-oct tanda 3: cierre de letra y porque del ultimo producto BIEN. Falta la revision de gestos a media animacion (pasos 5 y 12)"
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: sin cambios visibles nuevos salvo marcas con aire; falta revision de gestos completa"
     },
     "raiz-con-resto": {
       "estado": "con-hallazgos",
-      "huella": "24498c41469e",
-      "fecha": "2026-10-29",
-      "nota": "29-oct tanda 3: mayor potencia perfecta, candidatos tachados, 2/2 = 1, √(2²) BIEN. Falta: indice 3 pasos 18-19 el «· ∛3» cae en el renglon de las listas (poner t y rc antes de Sg); paso 10 «copiamos el 3» no dice cual 3; lista de potencias sin decir de donde sale"
+      "huella": "5f54d5320845",
+      "fecha": "2026-10-30",
+      "nota": "29-oct ronda 4: · ∛3 al lado de la potencia, comas sin tachar, de donde sale cada potencia, indice y factor nombrados. Falta: base 3 paso 3 coma colgada y 36 solo abajo"
     },
     "cuadratica": {
       "estado": "con-hallazgos",

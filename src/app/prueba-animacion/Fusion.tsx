@@ -6,7 +6,7 @@ import MathText from "../components/MathText";
 import Tex from "./Tex";
 import katex from "katex";
 import { aplanar, hijas, type Demo, type Ficha, type Figura, type Fusion as FusionDatos, type Visita } from "./datos";
-import { marcasDe, tieneContenido } from "./marcas";
+import { cajaDeMarca, marcasDe, tieneContenido, type Tinta } from "./marcas";
 
 const esperar = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
@@ -42,11 +42,15 @@ function parteEstilo(marcada: boolean): React.CSSProperties {
 
 // MARCA AJUSTADA A LA PIEZA (revision por agentes, 29-oct: en «4·(−3/2)» la marca del menos tenia el alto del renglon, 49 px, y tapaba
 // la punta de la raya, el 3 y el 2). La caja de una pieza de texto mide el alto de LINEA del renglon (1.6 del tamaño de letra), no el de
-// lo que se ve. La marca se dibuja aparte, medida sobre lo que pinta KaTeX: alto = el de la pieza (sus `.strut`, con un minimo de 0,9 em
-// para que «x» y «2» lleven la misma pastilla) y ancho = sus glifos. `px`/`py` son el aire alrededor de la tinta.
+// lo que se ve. La marca se dibuja aparte, medida sobre la TINTA que pinta KaTeX (cada glifo en un canvas con su mismo tipo de letra;
+// rayas y signos dibujados en SVG con su propio rect). La cuenta de la caja (aire minimo, banda comun para que «x», «=» y «2» lleven la
+// misma capsula, no cruzar la raya de la fraccion) esta en `cajaDeMarca` (marcas.ts), testeada sin navegador.
 type Caja = { l: number; t: number; w: number; h: number };
 let lienzo: CanvasRenderingContext2D | null | undefined;
 const lienzoTinta = () => (lienzo === undefined ? (lienzo = document.createElement("canvas").getContext("2d")) : lienzo);
+// un vphantom de KaTeX (los parentesis altos de «4·(−3/2)») tiene glifos de verdad pintados en transparente: no son tinta.
+// Antes contaban y la marca del «(» abarcaba la fraccion entera (lineal x fracc negativa 16).
+const invisible = (cs: CSSStyleDeclaration) => cs.color === "rgba(0, 0, 0, 0)" || cs.color === "transparent" || cs.visibility === "hidden";
 function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boolean; px: number; py: number; radio: number }) {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [caja, setCaja] = useState<Caja | null>(null);
@@ -58,36 +62,58 @@ function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boole
       // la pieza puede estar escalada (rebote, juntar): se mide en px de diseño
       const esc = el.offsetWidth > 0 ? r0.width / el.offsetWidth : 1;
       const katexEl = el.querySelector(".katex");
-      const struts = [...el.querySelectorAll(".katex-html .strut")].map((s) => s.getBoundingClientRect());
-      // ancho = la TINTA de los glifos, no su avance: el avance del «−» llega 3 px mas alla de lo que se ve y, con un aire de 8 px,
-      // la marca se metia 4 px en la raya de la fraccion pegada (medido, 29-oct). La tinta se mide con el mismo tipo de letra en un canvas.
       const ctx = lienzoTinta();
-      const glifos: { left: number; right: number }[] = [];
+      if (!katexEl || !esc || !ctx) return setCaja(null);
+      const fsPrincipal = parseFloat(getComputedStyle(katexEl).fontSize);
+      const tinta: Tinta[] = [];
+      // linea base del texto mas grande (no la de un subindice)
+      let base: number | null = null;
+      let fsBase = 0;
       for (const e of el.querySelectorAll(".katex-html *")) {
-        const texto = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent ?? "").join("");
         const r = e.getBoundingClientRect();
-        if (texto.trim() !== "" && ctx && r.width > 0) {
-          const cs = getComputedStyle(e);
+        if (r.width <= 0 && r.height <= 0) continue;
+        const cs = getComputedStyle(e);
+        if (invisible(cs)) continue;
+        const texto = [...e.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent ?? "").join("");
+        if (texto.trim() !== "") {
           ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
           const m = ctx.measureText(texto);
-          glifos.push({ left: r.left - m.actualBoundingBoxLeft * esc, right: r.left + m.actualBoundingBoxRight * esc });
+          // la caja de un elemento con texto es su area de contenido (ascenso + descenso de la fuente), centrada en su alto si es
+          // inline-block con interlineado: de ahi sale su linea base, y de la linea base, la tinta (actualBoundingBox*)
+          const contenido = (m.fontBoundingBoxAscent + m.fontBoundingBoxDescent) * esc;
+          const b = r.top + (r.height - contenido) / 2 + m.fontBoundingBoxAscent * esc;
+          tinta.push({
+            izq: r.left - m.actualBoundingBoxLeft * esc,
+            der: r.left + m.actualBoundingBoxRight * esc,
+            arriba: b - m.actualBoundingBoxAscent * esc,
+            abajo: b + m.actualBoundingBoxDescent * esc,
+          });
+          const fsE = parseFloat(cs.fontSize);
+          if (fsE > fsBase + 0.5) {
+            fsBase = fsE;
+            base = b;
+          }
         } else if (e instanceof SVGSVGElement || e.classList.contains("frac-line") || e.classList.contains("rule")) {
-          // rayas y signos dibujados (raiz, parentesis grandes): su caja es su tinta
-          if (r.width > 0) glifos.push({ left: r.left, right: r.right });
+          // rayas y signos dibujados (raiz, parentesis grandes): su rect es su tinta, tambien en alto (el «)» alto salia 25 px corrido
+          // abajo porque el alto venia de los `.strut`)
+          tinta.push({ izq: r.left, der: r.right, arriba: r.top, abajo: r.bottom });
         }
       }
-      if (!katexEl || !esc || struts.length === 0 || glifos.length === 0) return setCaja(null);
-      const fs = parseFloat(getComputedStyle(katexEl).fontSize) * esc;
-      let arriba = Math.min(...struts.map((r) => r.top));
-      let abajo = Math.max(...struts.map((r) => r.bottom));
-      if (abajo - arriba < 0.9 * fs) {
-        const c = (arriba + abajo) / 2;
-        arriba = c - 0.45 * fs;
-        abajo = c + 0.45 * fs;
-      }
-      const izq = Math.min(...glifos.map((r) => r.left));
-      const der = Math.max(...glifos.map((r) => r.right));
-      setCaja({ l: (izq - r0.left) / esc - px, t: (arriba - r0.top) / esc - py, w: (der - izq) / esc + 2 * px, h: (abajo - arriba) / esc + 2 * py });
+      // dentro de una fraccion con piezas, la raya de esa fraccion es un tope
+      const parte = el.closest("[data-parte]");
+      const raya = parte ? (parte.getAttribute("data-parte") === "d" ? parte.previousElementSibling : parte.nextElementSibling) : null;
+      const rr = raya?.getBoundingClientRect();
+      const c = cajaDeMarca(tinta, {
+        // un signo dibujado solo (parentesis alto) no lleva banda de texto: su alto es el suyo
+        base,
+        fs: (fsBase || fsPrincipal) * esc,
+        px: px * esc,
+        py: py * esc,
+        rayaArriba: rr && parte?.getAttribute("data-parte") === "d" ? rr.bottom : undefined,
+        rayaAbajo: rr && parte?.getAttribute("data-parte") === "n" ? rr.top : undefined,
+      });
+      if (!c) return setCaja(null);
+      setCaja({ l: (c.izq - r0.left) / esc, t: (c.arriba - r0.top) / esc, w: (c.der - c.izq) / esc, h: (c.abajo - c.arriba) / esc });
     };
     medir();
     // la hoja se achica o crece (Achicar hoja, fuentes que cargan): se vuelve a medir
@@ -102,7 +128,7 @@ function MarcaTex({ tex, marcado, px, py, radio }: { tex: string; marcado: boole
         aria-hidden
         style={{
           position: "absolute",
-          ...(caja ? { left: caja.l, top: caja.t, width: caja.w, height: caja.h } : { left: -px, right: -px, top: -py, bottom: -py }),
+          ...(caja ? { left: caja.l, top: caja.t, width: caja.w, height: caja.h } : { left: -Math.max(px, 3), right: -Math.max(px, 3), top: -Math.max(py, 3), bottom: -Math.max(py, 3) }),
           borderRadius: radio,
           background: "var(--accent-soft)",
           boxShadow: "0 0 0 2px var(--accent)",
@@ -387,9 +413,13 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     const etiquetaArriba = aplanar(n).some((h) => h.debajo);
     return (
       <span style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", verticalAlign: "middle" }}>
-        <span style={{ paddingBottom: etiquetaArriba ? "1.05em" : 0, transition: "padding 0.3s" }}>{fila(n)}</span>
-        <span style={{ alignSelf: "stretch", height: 2, background: "currentColor", margin: "2px 0", borderRadius: 1 }} />
-        <span>{fila(d)}</span>
+        {/* data-parte: la marca de una pieza de arriba no baja de la raya y la de una pieza de abajo no sube (MarcaTex) */}
+        <span data-parte="n" style={{ paddingBottom: etiquetaArriba ? "1.05em" : 0, transition: "padding 0.3s" }}>
+          {fila(n)}
+        </span>
+        {/* 3 px de luz: lo justo para que la marca respire sin tocar la raya (con 2 px se montaba, revision del 29-oct) */}
+        <span style={{ alignSelf: "stretch", height: 2, background: "currentColor", margin: "3px 0", borderRadius: 1 }} />
+        <span data-parte="d">{fila(d)}</span>
       </span>
     );
   };
@@ -432,7 +462,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
     return (
       <span key={f.id} style={{ display: "inline-block", position: "relative", margin: margen, ...(f.sup ? { fontSize: "0.65em", top: "-0.85em" } : {}) }}>
         <span ref={ref} style={caja}>
-          {compuestaDentro ? compuesta(f) : <MarcaTex tex={f.tex} marcado={marcado} px={2} py={0} radio={8} />}
+          {compuestaDentro ? compuesta(f) : <MarcaTex tex={f.tex} marcado={marcado} px={3} py={3} radio={8} />}
         </span>
         {f.debajo && (
           <span data-etiqueta style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", whiteSpace: "nowrap", lineHeight: 1, fontSize: "0.6em", marginTop: 2 }}>
@@ -651,7 +681,7 @@ export default function Fusion({ demo, modo = "resolver", clave, paso, onPaso }:
               </span>
             </span>
           ) : (
-            <MarcaTex tex={f.tex} marcado={marcado} px={f.sup ? 3 : 5} py={2} radio={f.sup ? 8 : 12} />
+            <MarcaTex tex={f.tex} marcado={marcado} px={f.sup ? 3 : 5} py={3} radio={f.sup ? 8 : 12} />
           )}
         </span>
         {f.debajo && (

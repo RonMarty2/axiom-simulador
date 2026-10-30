@@ -308,6 +308,53 @@ describe("animaciones de fusion", () => {
     }
   });
 
+  test("raiz con resto: lo de al lado (· ∛3) va antes del salto, nunca en el renglon de una lista", () => {
+    let casos = 0;
+    for (const a of [2, 3, 5]) for (const k of [2, 3]) for (const n of [k, 2 * k]) for (let c = 2; c <= 30; c++) {
+      if (validarRaizConFactor(a, n, k, c)) continue;
+      for (const [i, e] of raizConFactor(a, n, k, c).demo.estados.entries()) {
+        const s = e.findIndex((f) => f.salto);
+        if (s < 0) continue;
+        for (const id of ["t", "rc"]) {
+          const j = e.findIndex((f) => f.id === id);
+          assert.ok(j < 0 || j < s, `raiz[${k}](${a}^${n}·${c}) estado ${i}: ${id} cae despues del salto`);
+        }
+      }
+      casos++;
+    }
+    assert.ok(casos > 100);
+  });
+
+  test("raiz con resto: las comas de la lista van pegadas, no se tachan y nunca queda una colgada al final", () => {
+    for (const [a, n, k, c] of [[2, 2, 2, 3], [3, 2, 2, 5], [2, 6, 3, 3]] as const) {
+      const d = raizConFactor(a, n, k, c).demo;
+      for (const f of d.estados.flat()) if (f.id.startsWith("lq") && f.tex === ",") assert.ok(f.pegado, "coma sin pegar");
+      for (const t of d.transiciones) for (const f of t.fusiones) if (f.modo === "tachar") assert.ok(!f.desde.some((x) => x.startsWith("lq")), "se tacha una coma");
+      for (const e of d.estados) {
+        const visibles = e.filter((f) => !f.salto && f.tex !== "");
+        const ult = visibles[visibles.length - 1];
+        assert.ok(!(ult && ult.id.startsWith("lq")), "la lista termina en coma");
+      }
+      // cada potencia de la lista dice de donde sale
+      const t = d.transiciones.find((x) => x.texto.startsWith("Buscamos la mayor"))!;
+      assert.ok(t.texto.includes(`$2\\cdot 2${k === 3 ? "\\cdot 2" : ""}=${2 ** k}$`), "la lista no dice de donde sale cada potencia");
+    }
+  });
+
+  test("raiz con resto: al copiar el indice se dice cual es el indice y cual el factor", () => {
+    const t = raizConFactor(2, 6, 3, 3).demo.transiciones.find((x) => x.brotes?.some((b) => b.hacia === "ik1"))!;
+    assert.ok(t.texto.includes("el índice $3$") && t.texto.includes("al factor $3$"));
+  });
+
+  test("potencia con exponente 1: un factor en singular y sin parentesis", () => {
+    for (const [m, n] of [[1, 4], [4, 1], [1, 1]]) {
+      const d = potenciaProducto(5, m, n).demo;
+      const txt = todosLosTextos(d) + d.estados.flat().map((f) => `${f.tex} ${f.debajo ?? ""}`).join(" ");
+      assert.ok(!/\$1\$ factores|1\\text\{ factores\}/.test(txt), `${m},${n}: «1 factores»`);
+      assert.ok(!txt.includes("(5)"), `${m},${n}: un solo factor entre parentesis`);
+    }
+  });
+
   test("potencia: el ultimo producto no dice que quedan factores en la fila", () => {
     for (const d of [raizGeneral(2, 4, 2).demo, raizGeneral(2, 6, 3).demo, potenciaProducto(2, 3, 4).demo]) {
       const ult = d.transiciones.find((t) => t.texto.includes("Ya no quedan factores"))!;

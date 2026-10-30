@@ -39,7 +39,7 @@ export function reglaSuma(p: number, q: number): { porque: string; regla?: strin
     };
   }
   return {
-    porque: `Tienen signos distintos: sin mirar los signos, se resta el menor del mayor, $${mayor}-${menor}=${Math.abs(r)}$, y el resultado lleva el signo del más grande, ${r < 0 ? `el $${p}$: queda negativo` : `el $${q}$: queda positivo`}.`,
+    porque: `Tienen signos distintos: sin mirar los signos, se resta el menor del mayor, $${mayor}-${menor}=${Math.abs(r)}$, y el resultado lleva el signo del que tiene más valor sin signo ($${mayor}>${menor}$), ${r < 0 ? `el $${p}$: queda negativo` : `el $${q}$: queda positivo`}.`,
     regla: r < 0 ? `$-a+b=-(a-b)\\quad (a>b)$` : `$-a+b=b-a\\quad (b>a)$`,
   };
 }
@@ -66,10 +66,11 @@ export const lista = (rotulo: string, xs: number[], negrita?: number[]) => {
   return `\\begin{array}{l}\\scriptsize\\text{${rotulo}}\\\\ ${renglones.join("\\\\ ")}\\end{array}`;
 };
 // en la explicacion, una lista larga va en varias formulas $...$ para que MathText pueda partir el renglon
-export const enTexto = (xs: number[]) => {
-  if (xs.join(", ").length <= 34) return `$${xs.join(",\\ ")}$`;
+// `fin` (el punto que cierra la frase) va DENTRO de la ultima formula: suelto, MathText lo deja solo en un renglon (fracciones / resta, 29-oct)
+export const enTexto = (xs: number[], fin = "") => {
+  if (xs.join(", ").length + fin.length <= 34) return `$${xs.join(",\\ ")}${fin}$`;
   const filas = enFilas(xs);
-  return filas.map((f, i) => `$${f.join(",\\ ")}${i < filas.length - 1 ? "," : ""}$`).join(" ");
+  return filas.map((f, i) => `$${f.join(",\\ ")}${i < filas.length - 1 ? "," : fin}$`).join(" ");
 };
 
 /**
@@ -118,18 +119,21 @@ function simplificar(
   const origenD = conPartes ? `${desde}.d` : desde;
   const Sa: Ficha = { id: "Sa", tex: "", salto: true };
   const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+  // la primera lista va SIN negrita: «esta en las dos» no significa nada hasta que existe la segunda (auditoria del 29-oct).
+  // La negrita aparece en el paso que escribe la segunda lista, y el texto la nombra
+  const Dn0: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn, []) };
   const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(n)}:`, dn, comunes) };
   const Dd: Ficha = { id: "Dd", tex: lista(`Divisores de ${d}:`, dd2, comunes) };
   const Dc: Ficha = { id: "Dc", tex: lista("En las dos listas:", comunes) };
   const Dg: Ficha = { id: "Dg", tex: `\\scriptsize\\text{El mayor:}\\ \\ \\mathbf{${g}}` };
-  estados.push([...base, Sa, Dn]);
+  estados.push([...base, Sa, Dn0]);
   trans.push({
     fusiones: [],
     brotes: [
       { desde: origenN, hacia: "Sa" },
       { desde: origenN, hacia: "Dn" },
     ],
-    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: ${enTexto(dn)}.`,
+    texto: `Para simplificar necesitamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(n)}$: ${enTexto(dn, ".")}`,
     porque: `Un divisor es un número que entra exacto en otro. Los escribimos todos, empezando por los del numerador.`,
   });
   estados.push([...base, Sa, Dn, Sb, Dd]);
@@ -139,13 +143,13 @@ function simplificar(
       { desde: origenD, hacia: "Sb" },
       { desde: origenD, hacia: "Dd" },
     ],
-    texto: `Ahora lo mismo con el denominador. Divisores de $${d}$: ${enTexto(dd2)}.`,
-    porque: `Hacemos la misma lista para el denominador.`,
+    texto: `Ahora lo mismo con el denominador. Divisores de $${d}$: ${enTexto(dd2, ".")} En negrita, los que están en las dos listas.`,
+    porque: `Hacemos la misma lista para el denominador. Con las dos a la vista se puede comparar: lo que está en negrita aparece en las dos.`,
   });
   estados.push([...base, Sa, Dc]);
   trans.push({
     fusiones: [{ desde: ["Dn", "Sb", "Dd"], hacia: "Dc" }],
-    texto: `Los que están en las dos listas: ${enTexto(comunes)}.`,
+    texto: `Los que están en las dos listas, los de negrita: ${enTexto(comunes, ".")}`,
     porque: `Un número que está en las dos listas divide al de arriba y al de abajo a la vez.`,
   });
   estados.push([...base, Sa, Dg]);
@@ -586,17 +590,19 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const base0 = estados[0];
     const Sa: Ficha = { id: "Sa", tex: "", salto: true };
     const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+    // la primera lista va sin negrita; el L se pone en negrita cuando ya esta la segunda y se puede ver que esta en las dos (29-oct)
+    const Ma0: Ficha = { id: "Ma", tex: lista(`Múltiplos de ${d1}:`, mult1, []) };
     const Ma: Ficha = { id: "Ma", tex: lista(`Múltiplos de ${d1}:`, mult1, [L]) };
     const Mb: Ficha = { id: "Mb", tex: lista(`Múltiplos de ${d2}:`, mult2, [L]) };
     const Ml: Ficha = { id: "Ml", tex: `\\scriptsize\\text{El primero en las dos:}\\ \\ \\mathbf{${L}}` };
-    estados.push([...base0, Sa, Ma]);
+    estados.push([...base0, Sa, Ma0]);
     trans.push({
       fusiones: [],
       brotes: [
         { desde: "f1.d", hacia: "Sa" },
         { desde: "f1.d", hacia: "Ma" },
       ],
-      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número que está en la tabla de los dos. Múltiplos de $${d1}$: ${enTexto(mult1)}.`,
+      texto: `Los denominadores son distintos ($${d1}$ y $${d2}$). Buscamos el mínimo común múltiplo: el menor número que está en la tabla de los dos. Múltiplos de $${d1}$: ${enTexto(mult1, ".")}`,
       porque: `Un múltiplo de $${d1}$ es lo que sale al multiplicarlo por $1$, por $2$, por $3$... Llegamos hasta $${L}$: por qué paramos ahí se ve cuando hagamos la lista del otro denominador.`,
     });
     estados.push([...base0, Sa, Ma, Sb, Mb]);
@@ -606,8 +612,8 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: "f2.d", hacia: "Sb" },
         { desde: "f2.d", hacia: "Mb" },
       ],
-      texto: `Ahora los múltiplos de $${d2}$: ${enTexto(mult2)}.`,
-      porque: `Hacemos la misma lista para el segundo denominador. Paramos en $${L}$ porque es el primer número que ya está en las dos listas.`,
+      texto: `Ahora los múltiplos de $${d2}$: ${enTexto(mult2, ".")} En negrita, el que está en las dos listas.`,
+      porque: `Hacemos la misma lista para el segundo denominador. Paramos en $${L}$ porque es el primer número que ya está en las dos listas: por eso va en negrita en las dos.`,
     });
     estados.push([...base0, Sa, Ml]);
     trans.push({
@@ -761,10 +767,12 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     const idH = ultimo[0].id;
     const Sa: Ficha = { id: "Sa", tex: "", salto: true };
     const Sb: Ficha = { id: "Sb", tex: "", salto: true };
+    // la primera lista va sin negrita: el 1 se marca cuando ya estan las dos (29-oct)
+    const Dn0: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(sumaN)}:`, dArriba, []) };
     const Dn: Ficha = { id: "Dn", tex: lista(`Divisores de ${Math.abs(sumaN)}:`, dArriba, [1]) };
     const Dd: Ficha = { id: "Dd", tex: lista(`Divisores de ${den}:`, dAbajo, [1]) };
     const Dc: Ficha = { id: "Dc", tex: lista("En las dos listas:", [1]) };
-    estados.push([...ultimo, Sa, Dn]);
+    estados.push([...ultimo, Sa, Dn0]);
     trans.push({
       fusiones: [],
       brotes: [
@@ -772,7 +780,7 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: idH, hacia: "Dn" },
       ],
       resaltar: [idH],
-      texto: `¿Se puede simplificar? Buscamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(sumaN)}$${sumaN < 0 ? " (sin el signo menos)" : ""}: ${enTexto(dArriba)}.`,
+      texto: `¿Se puede simplificar? Buscamos un número que divida al de arriba y al de abajo. Divisores de $${Math.abs(sumaN)}$${sumaN < 0 ? " (sin el signo menos)" : ""}: ${enTexto(dArriba, ".")}`,
       porque: `Un divisor es un número que entra exacto en otro. Los escribimos todos, empezando por los del numerador.`,
     });
     estados.push([...ultimo, Sa, Dn, Sb, Dd]);
@@ -782,13 +790,13 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
         { desde: idH, hacia: "Sb" },
         { desde: idH, hacia: "Dd" },
       ],
-      texto: `Ahora lo mismo con el denominador. Divisores de $${den}$: ${enTexto(dAbajo)}.`,
-      porque: `Hacemos la misma lista para el denominador.`,
+      texto: `Ahora lo mismo con el denominador. Divisores de $${den}$: ${enTexto(dAbajo, ".")} En negrita, el que está en las dos listas.`,
+      porque: `Hacemos la misma lista para el denominador. Con las dos a la vista se puede comparar: lo que está en negrita aparece en las dos.`,
     });
     estados.push([...ultimo, Sa, Dc]);
     trans.push({
       fusiones: [{ desde: ["Dn", "Sb", "Dd"], hacia: "Dc" }],
-      texto: `El único que está en las dos listas es el $1$.`,
+      texto: `El único que está en las dos listas, el de negrita, es el $1.$`,
       porque: `Con solo el $1$ en común no hay nada que tachar: la fracción ya no se puede simplificar. Esa es la respuesta.`,
     });
   }
@@ -898,15 +906,26 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
     });
     // 3) distributiva: el D VISITA cada fraccion, a la primera le nace su propio «·D» y los parentesis se van. Va en UN paso:
     // la forma intermedia (1/2·6 + 1/3·6) con parentesis no entra en un celular y el «)» quedaba solo en un renglon (29-oct)
+    // Los parentesis se van en su PROPIO paso, despues de repartir: si se van en el mismo gesto que la visita, sus marcas se montan
+    // sobre las dos fracciones mientras el D viaja (revision visual del 29-oct, fracciones 22). El D visita primero la fraccion
+    // que tiene al lado (la segunda) y despues va a la primera: asi no pasa por encima de una fraccion camino a la otra.
+    // Mientras los parentesis siguen, Fusion no parte nada de adentro (cuenta los parentesis del tex) ni deja el «=» colgado:
+    // si no entra, el corte cae antes del «=». No hace falta `pegado` (que ademas junta las piezas 10 px)
     const K6c: Ficha = { id: "K6c", tex: `{}\\cdot ${D}`, pegado: true };
+    fila(Kpa, Ka0, K6c, Kp, Kb0, K6a, Kpb, Ke, KcX, K6b);
+    trs.push({
+      fusiones: fuente === "Nd" ? [{ desde: ["SN", "Nd"], hacia: null }] : [],
+      visitas: [{ desde: "K6a", hacia: ["Kb0", "Ka0"] }],
+      brotes: [{ desde: "K6a", hacia: "K6c" }],
+      texto: `El $${D}$ multiplica a cada fracción por separado: primero a la que tiene al lado, la segunda, y después viaja a la primera. Queda $\\left(\\dfrac{${n1}}{${d1}}\\cdot ${D}${op}\\dfrac{${n2}}{${d2}}\\cdot ${D}\\right).$${fuente === "Nd" ? " El denominador común anotado ya cumplió su papel y se quita." : ""}`,
+      porque: `Es la propiedad distributiva: multiplicar una ${suma} por un número es multiplicar cada término por ese número.`,
+      regla: `$(a${op}b)\\cdot c=a\\cdot c${op}b\\cdot c$`,
+    });
     fila({ ...Ka0, pegado: undefined }, K6c, Kp, Kb0, K6a, Ke, KcX, K6b);
     trs.push({
-      fusiones: [{ desde: ["Kpa", "Kpb"], hacia: null }, ...(fuente === "Nd" ? [{ desde: ["SN", "Nd"], hacia: null }] : [])],
-      visitas: [{ desde: "K6a", hacia: ["Ka0", "Kb0"] }],
-      brotes: [{ desde: "K6a", hacia: "K6c" }],
-      texto: `El $${D}$ multiplica a cada fracción por separado: viaja a la primera y a la segunda. Queda $\\dfrac{${n1}}{${d1}}\\cdot ${D}${op}\\dfrac{${n2}}{${d2}}\\cdot ${D}$ y los paréntesis ya no hacen falta.${fuente === "Nd" ? " El denominador común anotado ya cumplió su papel y se quita." : ""}`,
-      porque: `Es la propiedad distributiva: multiplicar una ${suma} por un número es multiplicar cada término por ese número. Hecho eso, los paréntesis solo agrupaban y se pueden quitar.`,
-      regla: `$(a${op}b)\\cdot c=a\\cdot c${op}b\\cdot c$`,
+      fusiones: [{ desde: ["Kpa", "Kpb"], hacia: null }],
+      texto: `Ahora quitamos los paréntesis: ya no hacen falta.`,
+      porque: `Los paréntesis estaban para que el $${D}$ multiplicara a toda la ${suma}. Ahora cada fracción tiene su propio $\\cdot ${D}$, así que ya no agrupan nada.`,
     });
     // 4) el factor entra al numerador (la fraccion por un entero)
     const derecha: Ficha[] = rd === 1 ? [KcX, K6b] : [kcMult];
@@ -941,8 +960,12 @@ export function fracciones(n1: number, d1: number, n2: number, d2: number, resta
           : signoAdelante
             ? `Ahora la multiplicación de arriba de la respuesta: $${-rn}\\cdot ${D}=${-rn * D}$. El signo menos se queda delante de la fracción.`
             : `Ahora la multiplicación de arriba de la respuesta: $${pr}\\cdot ${D}=${rn * D}$.`,
-      porque: `Igual que en las otras: se multiplica solo el numerador y el denominador no cambia.${rn < 0 && !signoAdelante ? ` Negativo por positivo da negativo: $${-rn}\\cdot ${D}=${-rn * D}$ y el resultado lleva el signo menos.` : ""}`,
-      ...(rn < 0 && !signoAdelante ? { regla: `$(-a)\\cdot b=-(a\\cdot b)$` } : {}),
+      // la respuesta entera (o el 0) no es una fraccion: no se habla de numerador (auditoria del 29-oct, resta que da 0)
+      porque:
+        rn === 0
+          ? `Cero por cualquier número es cero.`
+          : `${rd === 1 ? "La respuesta es un número entero: se multiplica directo." : "Igual que en las otras: se multiplica solo el numerador y el denominador no cambia."}${rn < 0 && !signoAdelante ? ` Negativo por positivo da negativo: $${-rn}\\cdot ${D}=${-rn * D}$ y el resultado lleva el signo menos.` : ""}`,
+      ...(rn === 0 ? { regla: `$0\\cdot a=0$` } : rn < 0 && !signoAdelante ? { regla: `$(-a)\\cdot b=-(a\\cdot b)$` } : {}),
     });
     // las divisiones, tambien por lados: izquierda (dos) y respuesta (una)
     fila({ id: "Kv1", tex: `${v1}` }, Kp, { id: "Kv2", tex: `${v2}` }, Ke, Kc3);
@@ -1004,9 +1027,19 @@ export function diferenciaCuadrados(k: number): Resultado {
   const kk = `${k}`;
   // FILA DE REFERENCIA: el ejercicio se anota abajo en el primer paso y se queda hasta el final,
   // asi la comprobacion nace de ahi y no de numeros que ya no estan en pantalla
+  // La fila anotada ES la primera copia de la comprobacion: va en piezas (x, exponente, −, q, =, 0) para que al comprobar se
+  // reemplace su x ahi mismo. Antes se guardaba entera y despues se copiaba dos veces: quedaban tres x² − q = 0 a la vista y la
+  // anotada no se usaba (revision visual del 29-oct, cuadrados 24-25)
   const SR: Ficha = { id: "SR", tex: "", salto: true };
-  const ref: Ficha = { id: "ref", tex: `x^{2}-${q}=0` };
-  const cola: Ficha[] = [SR, ref];
+  const ref: Ficha[] = [
+    { id: "X1", tex: "x" },
+    { id: "E1", tex: "2", sup: true },
+    { id: "B1", tex: "-", op: true },
+    { id: "C1", tex: `${q}` },
+    { id: "D1", tex: "=", op: true },
+    { id: "Z1", tex: "0" },
+  ];
+  const cola: Ficha[] = [SR, ...ref];
 
   const igual: Ficha[] = [
     { id: "eq1", tex: "=", op: true },
@@ -1021,6 +1054,9 @@ export function diferenciaCuadrados(k: number): Resultado {
   const bEt: Ficha = { id: "n3", tex: `${k}^2`, debajo: `b=${k}` };
   const baseEt: Ficha[] = [aEt, { id: "m", tex: "-", op: true }];
   const Sf: Ficha = { id: "S", tex: "", salto: true };
+  // con k de dos cifras «x² − 15² = (x − 15)(x + 15)» no entra en un celular: el corte caia entre los dos parentesis y dejaba
+  // el «=» colgado (revision visual del 29-oct, k grande). Se corta ANTES del «=», con la formula de letras incluida (no salta al reemplazar)
+  const corteF: Ficha[] = k >= 10 ? [{ id: "SF2", tex: "", salto: true }] : [];
   // la formula en PIEZAS sueltas, una por cada lugar donde aparece cada letra (tres lugares la a, tres la b):
   // asi cada valor puede VOLAR desde su etiqueta hasta su lugar
   const formula = (aListo: boolean, bListo: boolean): Ficha[] => [
@@ -1030,6 +1066,7 @@ export function diferenciaCuadrados(k: number): Resultado {
     { id: "Fm", tex: "-", op: true },
     bListo ? { id: "Fbk", tex: kk } : { id: "Fb", tex: "b" },
     { id: "Fb2", tex: "2", sup: true },
+    ...corteF,
     { id: "Fe", tex: "=", op: true },
     { id: "fo1", tex: "(" },
     aListo ? { id: "x1", tex: "x", pegado: true } : { id: "ra1", tex: "a", pegado: true },
@@ -1073,8 +1110,8 @@ export function diferenciaCuadrados(k: number): Resultado {
     { id: "eq2", tex: "=", op: true },
     { id: "z2", tex: "0" },
   ];
-  const o: Ficha = { id: "or", tex: "\\text{ ó }", op: true };
-  // la segunda ecuacion va en su propio renglon, empezando por «ó»: si no, en un celular el corte caia en «x = 3 ó x / = -3» (29-oct)
+  const o: Ficha = { id: "or", tex: "\\text{ o }", op: true };
+  // la segunda ecuacion va en su propio renglon, empezando por «o»: si no, en un celular el corte caia en «x = 3 o x / = -3» (29-oct)
   const So: Ficha = { id: "So", tex: "", salto: true };
 
   const estados: Ficha[][] = [
@@ -1267,7 +1304,7 @@ export function diferenciaCuadrados(k: number): Resultado {
     },
     {
       // los dos parentesis de la formula VIAJAN a la ecuacion (mismas piezas); lo de la izquierda y el resto de la formula se van
-      fusiones: [{ desde: ["a", "m", "n3", "S", "Fax", "Fa2", "Fm", "Fbk", "Fb2", "Fe", "SE", "e1", "e4"], hacia: null }],
+      fusiones: [{ desde: ["a", "m", "n3", "S", "Fax", "Fa2", "Fm", "Fbk", "Fb2", ...corteF.map((f) => f.id), "Fe", "SE", "e1", "e4"], hacia: null }],
       texto: `La fórmula dice que $x^{2}-${k}^{2}$ es igual a $(x-${k})(x+${k})$. Subimos los dos paréntesis a la ecuación, en lugar de $x^{2}-${k}^{2}$.`,
       porque: `La fórmula dice que son iguales, así que podemos escribir uno en lugar del otro sin cambiar la ecuación.`,
     },
@@ -1276,7 +1313,7 @@ export function diferenciaCuadrados(k: number): Resultado {
       resaltar: ["fo1", "fc1", "fo2", "fc2"],
       texto: `Tenemos un producto de dos factores igual a $0$.`,
       porque: `Un producto solo da $0$ si al menos uno de sus factores vale $0$. Si ninguno fuera $0$, el producto tampoco lo sería.`,
-      regla: `$a\\cdot b=0\\ \\Rightarrow\\ a=0\\ \\text{ ó }\\ b=0$`,
+      regla: `$a\\cdot b=0\\ \\Rightarrow\\ a=0\\ \\text{ o }\\ b=0$`,
     },
     {
       fusiones: [],
@@ -1328,10 +1365,7 @@ export function diferenciaCuadrados(k: number): Resultado {
   const trs: Transicion[] = [
     {
       fusiones: [],
-      brotes: [
-        { desde: "eq1", hacia: "SR" },
-        { desde: "eq1", hacia: "ref" },
-      ],
+      brotes: cola.map((f) => ({ desde: "eq1", hacia: f.id })),
       texto: `Antes de empezar, anotamos el ejercicio debajo, tal como viene: lo vamos a necesitar para comprobar las soluciones al final.`,
       porque: `Mientras trabajamos, la ecuación de arriba va a cambiar. Con el ejercicio escrito abajo podemos volver a él cuando queramos.`,
     },
@@ -1341,8 +1375,8 @@ export function diferenciaCuadrados(k: number): Resultado {
   // COMPROBACION de las dos soluciones contra el ejercicio ORIGINAL (la fila de referencia), una operacion por paso
   {
     const fin = estados[estados.length - 1];
-    const Sc = (n: number): Ficha => ({ id: `SC${n}`, tex: "", salto: true });
-    const fil = (n: number, ...fs: Ficha[]): Ficha[] => [Sc(n), ...fs];
+    // la fila 1 es la anotada al principio (su salto es SR); la fila 2 es la copia nueva
+    const fil = (n: number, ...fs: Ficha[]): Ficha[] => [n === 1 ? SR : { id: `SC${n}`, tex: "", salto: true }, ...fs];
     const par = (n: number, tex: string, id: string): Ficha[] => [
       { id: `${id}${n}`, tex },
       { id: `B${n}`, tex: "-", op: true },
@@ -1350,24 +1384,20 @@ export function diferenciaCuadrados(k: number): Resultado {
       { id: `D${n}`, tex: "=", op: true },
       { id: `Z${n}`, tex: "0" },
     ];
-    const antes = [...fin, ...cola];
+    const antes = fin;
     // copiar y reemplazar son DOS pasos (como en lineal): primero el ejercicio con su x, despues la x se cambia por la solucion.
     // La x y su exponente son piezas aparte: al reemplazar cambia solo la x y el 2 se queda
     const pot = (n: number, base: Ficha): Ficha[] => [base, { id: `E${n}`, tex: "2", sup: true }, ...par(n, "", "A").slice(1)];
+    // la primera solucion usa el ejercicio anotado; para la segunda se copia una vez (cada pieza nace de la de arriba)
     final.push([...antes, ...fil(1, ...pot(1, { id: "X1", tex: "x" })), ...fil(2, ...pot(2, { id: "X2", tex: "x" }))]);
     trs.push({
       fusiones: [],
-      brotes: [1, 2].flatMap((n) => [
-        { desde: "ref", hacia: `SC${n}` },
-        { desde: "ref", hacia: `X${n}` },
-        { desde: "ref", hacia: `E${n}` },
-        { desde: "ref", hacia: `B${n}` },
-        { desde: "ref", hacia: `C${n}` },
-        { desde: "ref", hacia: `D${n}` },
-        { desde: "ref", hacia: `Z${n}` },
-      ]),
-      texto: `Comprobamos las dos soluciones en el ejercicio original. Lo volvemos a escribir dos veces, una para cada solución: $x^{2}-${q}=0$.`,
-      porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple. Con una copia para cada una, las comprobamos por separado.`,
+      brotes: [
+        { desde: "X1", hacia: "SC2" },
+        ...["X", "E", "B", "C", "D", "Z"].map((p) => ({ desde: `${p}1`, hacia: `${p}2` })),
+      ],
+      texto: `Comprobamos las dos soluciones en el ejercicio original. Para la primera usamos el que anotamos al principio; para la segunda lo copiamos otra vez debajo: $x^{2}-${q}=0$.`,
+      porque: `Una solución es buena si, al ponerla en lugar de $x$ en la ecuación original, la igualdad se cumple. Con una fila para cada una, las comprobamos por separado.`,
     });
     final.push([...antes, ...fil(1, ...pot(1, { id: "V1", tex: `${k}` })), ...fil(2, ...pot(2, { id: "V2", tex: `(-${k})` }))]);
     trs.push({
@@ -1379,7 +1409,7 @@ export function diferenciaCuadrados(k: number): Resultado {
         { desde: "r1", hacia: "V1" },
         { desde: "r2", hacia: "V2" },
       ],
-      texto: `En cada copia reemplazamos $x$ por su valor: $${k}$ en la primera y $-${k}$ en la segunda. El exponente $2$ se queda.`,
+      texto: `En cada fila reemplazamos $x$ por su valor: $${k}$ en la primera y $-${k}$ en la segunda. El exponente $2$ se queda.`,
       porque: `Donde la ecuación dice $x$ escribimos la solución. El $-${k}$ va entre paréntesis porque se eleva al cuadrado todo el número, con su signo: sin paréntesis, $-${k}^{2}$ elevaría solo el $${k}$.`,
     });
     final.push([

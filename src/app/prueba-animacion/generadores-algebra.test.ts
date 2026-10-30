@@ -196,8 +196,8 @@ describe("generadores de algebra", () => {
     // t1 busca el mcm (6); el factor de cada fraccion es mcm / su denominador: 6/2 = 3 y 6/3 = 2
     // el mcm se BUSCA a la vista: lista de multiplos de cada denominador, el primero comun, y se despeja
     const [, tm, tm2, tm3, tm4, t1, t2, t3, t4, t5, t6] = r.demo.transiciones;
-    assert.ok(tm.texto.includes("mínimo común múltiplo") && tm.texto.includes("Múltiplos de $2$") && tm.texto.includes("$2,\\ 4,\\ 6$"));
-    assert.ok(tm2.texto.includes("$3,\\ 6$"));
+    assert.ok(tm.texto.includes("mínimo común múltiplo") && tm.texto.includes("Múltiplos de $2$") && tm.texto.includes("$2,\\ 4,\\ 6.$"));
+    assert.ok(tm2.texto.includes("$3,\\ 6.$"));
     assert.deepEqual(tm3.fusiones[0].desde, ["Ma", "Sb", "Mb"]);
     assert.ok(tm3.texto.includes("$6$") && tm4.texto.includes("denominador común"));
     assert.deepEqual(t1.brotes!.map((b) => `${b.desde}>${b.hacia}`), ["f1.d>m1", "f1.d>c1"]);
@@ -240,7 +240,7 @@ describe("generadores de algebra", () => {
     const irr = fracciones(1, 4, 1, 6).demo.transiciones.map((t) => t.texto);
     assert.ok(irr.some((x) => x.startsWith("¿Se puede simplificar?") && x.includes("Divisores de $5$")));
     assert.ok(irr.some((x) => x.includes("Divisores de $12$")));
-    assert.ok(irr.some((x) => x.includes("único") && x.includes("$1$")));
+    assert.ok(irr.some((x) => x.includes("único") && x.includes("$1.$")));
     // las listas van EN LA HOJA, de a una, y nacen de la fraccion (revision por agentes del 29-oct: antes solo estaban en el texto)
     const irrD = fracciones(1, 4, 1, 6).demo;
     const iDn = irrD.estados.findIndex((e) => e.some((f) => f.id === "Dn"));
@@ -275,7 +275,7 @@ describe("generadores de algebra", () => {
   test("simplificar muestra de donde sale el g (divisores) y no escribe tautologias", () => {
     const f = fracciones(1, 6, 1, 3); // 1/6 + 2/6 = 3/6 -> mcd 3
     const txt = f.demo.transiciones.map((t) => t.texto).join(" | ");
-    assert.ok(txt.includes("Divisores de $3$: $1,\\ 3$"));
+    assert.ok(txt.includes("Divisores de $3$: $1,\\ 3.$"));
     assert.ok(txt.includes("Divisores de $6$"));
     assert.ok(txt.includes("Tomamos el mayor: $3$"));
     // x = 8/4: el denominador ya es el g, no se escribe 4 = 4
@@ -459,8 +459,9 @@ describe("generadores de algebra", () => {
     const iDn = e.findIndex((s) => s.some((f) => f.id === "Dn"));
     assert.ok(iDn > 0);
     assert.ok(!e[iDn].some((f) => f.id === "Dd"), "primero una lista");
-    // en negrita SOLO los que estan en las dos listas (como en raiz): el 8 no divide al 4 y va normal (29-oct)
-    assert.ok(e[iDn].find((f) => f.id === "Dn")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4},\\ 8"));
+    // la primera lista, sola, va SIN negrita; con la segunda a la vista, en negrita SOLO los que estan en las dos (29-oct)
+    assert.ok(!e[iDn].find((f) => f.id === "Dn")!.tex.includes("\\mathbf"), "negrita antes de que exista la segunda lista");
+    assert.ok(e[iDn + 1].find((f) => f.id === "Dn")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4},\\ 8"));
     assert.ok(e[iDn + 1].find((f) => f.id === "Dd")!.tex.includes("\\mathbf{1},\\ \\mathbf{2},\\ \\mathbf{4}"));
     const [tn, td] = [r.demo.transiciones[iDn - 1], r.demo.transiciones[iDn]];
     assert.ok(tn.brotes!.every((b) => b.desde === "fr.n"), "los divisores del numerador nacen del numerador");
@@ -498,17 +499,27 @@ describe("generadores de algebra", () => {
       assert.ok(exp, "los cuatro productos estan en la hoja");
       assert.ok(r.demo.transiciones.some((t) => t.fusiones.some((x) => x.modo === "tachar" && x.desde.join() === "e2,e3")), "kx y -kx se tachan");
       // el ejercicio queda anotado desde el primer paso hasta el final y la comprobacion nace de ahi
-      assert.ok(e.slice(1).every((s) => s.some((f) => f.id === "ref" && f.tex === `x^{2}-${k * k}=0`)));
-      const iT = r.demo.transiciones.findIndex((x) => (x.brotes ?? []).some((b) => b.desde === "ref" && b.hacia === "C1"));
+      // la fila anotada va en piezas y ES la primera fila de la comprobacion: nunca hay tres x² − q = 0 a la vista (29-oct)
+      const iT = r.demo.transiciones.findIndex((x) => (x.brotes ?? []).some((b) => b.desde === "C1" && b.hacia === "C2"));
+      assert.ok(iT > 0, "la segunda fila nace de la anotada");
+      assert.ok(e.slice(1, iT + 2).every((s) => s.some((f) => f.id === "C1" && f.tex === `${k * k}`)));
+      assert.ok(e.every((s) => s.filter((f) => /^C\d$/.test(f.id)).length <= 2), "mas de dos copias del ejercicio");
       // copiar y reemplazar son dos pasos (29-oct): la copia lleva la x; en el paso siguiente la x se cambia por cada solucion
       assert.ok(r.demo.estados[iT + 1].some((f) => f.id === "X1" && f.tex === "x") && r.demo.estados[iT + 1].some((f) => f.id === "X2" && f.tex === "x"));
       const re = r.demo.transiciones[iT + 1];
       assert.ok(re.brotes!.some((b) => b.desde === "r1" && b.hacia === "V1") && re.brotes!.some((b) => b.desde === "r2" && b.hacia === "V2"));
       assert.deepEqual(re.fusiones.map((f) => f.desde), [["X1"], ["X2"]]);
-      // la segunda ecuacion va en su renglon, empezando por «ó» (el corte no deja «ó x» colgado)
+      // la segunda ecuacion va en su renglon, empezando por «o» (el corte no deja «o x» colgado)
       for (const s of e) {
         const i = s.findIndex((f) => f.id === "or");
-        if (i >= 0) assert.equal(s[i - 1].id, "So", "antes del «ó» va un salto de renglon");
+        if (i >= 0) assert.equal(s[i - 1].id, "So", "antes del «o» va un salto de renglon");
+      }
+      // texto y hoja escriben la misma «o» (sin tilde)
+      assert.ok(!JSON.stringify(r.demo).includes("ó }"), "la hoja dice «ó» y el texto «o»");
+      // con k de dos cifras la formula se corta ANTES del «=» (no queda colgado ni se separan los parentesis)
+      for (const s of e) {
+        const i = s.findIndex((f) => f.id === "Fe");
+        if (i >= 0) assert.equal(s[i - 1].id === "SF2", k >= 10, `k=${k}: corte de la formula`);
       }
       const ult = e.at(-1)!;
       assert.ok(ult.some((f) => f.id === "ok1") && ult.some((f) => f.id === "ok2"));
@@ -679,5 +690,44 @@ describe("generadores de algebra", () => {
         }
       }
     }
+  });
+
+  test("auditoria del 29-oct: signo del de mas valor sin signo, negrita solo con las dos listas, 0 por D, parentesis aparte", () => {
+    const demos = [];
+    for (let d1 = 2; d1 <= 12; d1++) for (let d2 = 2; d2 <= 12; d2 += 2) for (const [n1, n2] of [[1, 1], [5, 7], [3, 9]]) for (const r of [false, true]) if (!validarFracciones(n1, d1, n2, d2)) demos.push(fracciones(n1, d1, n2, d2, r).demo);
+    for (let a = 2; a <= 12; a++) for (const b of [-7, 2, 9]) for (const c of [-60, -4, 11, 89]) demos.push(ecuacionLineal(a, b, c).demo);
+    for (const d of demos) {
+      for (const t of d.transiciones) {
+        // «el signo del mas grande» con un -6 frente a un 2 es falso: se compara sin signo
+        assert.ok(!/signo del más grande/.test(t.porque), t.porque);
+        // ninguna lista del texto deja el punto final fuera de la formula (MathText lo baja solo a otro renglon)
+        if (/Divisores de|Múltiplos de|dos listas/.test(t.texto)) assert.ok(!/\d\$\./.test(t.texto), `punto suelto: ${t.texto}`);
+      }
+      // una lista sola (sin su pareja a la vista) va sin negrita; y el paso que pone la negrita la nombra
+      d.estados.forEach((e, i) => {
+        for (const [a, b] of [["Dn", "Dd"], ["Ma", "Mb"]]) {
+          const fa = e.find((f) => f.id === a);
+          if (fa && !e.some((f) => f.id === b)) assert.ok(!fa.tex.includes("\\mathbf"), `negrita adelantada: ${fa.tex}`);
+          if (fa && e.some((f) => f.id === b) && i > 0 && !d.estados[i - 1].some((f) => f.id === b)) assert.ok(d.transiciones[i - 1].texto.includes("En negrita"), "el texto no dice que es la negrita");
+        }
+      });
+      // los parentesis de la comprobacion se van en su propio paso, sin visita encima
+      const iQ = d.transiciones.findIndex((t) => t.fusiones.some((f) => f.desde.includes("Kpa")));
+      if (iQ >= 0) {
+        assert.ok(!d.transiciones[iQ].visitas, "los parentesis se van en el mismo gesto que la visita");
+        assert.ok(d.transiciones[iQ - 1].porque.includes("distributiva"));
+      }
+    }
+    const neg = ecuacionLineal(3, 2, -4).demo.transiciones.find((t) => t.texto.startsWith("Ahora la suma"))!;
+    assert.ok(neg.porque.includes("más valor sin signo ($6>2$), el $-6$"), neg.porque);
+    // resta que da 0: el 0 no es una fraccion, no tiene numerador
+    const cero = fracciones(1, 4, 1, 4, true).demo.transiciones.find((t) => t.texto.startsWith("Ahora la respuesta"))!;
+    assert.ok(cero.porque.includes("Cero por cualquier número es cero") && !cero.porque.includes("numerador"), cero.porque);
+    // el D de la distributiva visita primero la fraccion de al lado (la segunda)
+    const sn = fracciones(1, 2, 1, 3).demo.transiciones.find((t) => t.visitas?.[0].desde === "K6a")!;
+    assert.deepEqual(sn.visitas![0].hacia, ["Kb0", "Ka0"]);
+    // el punto que cierra una lista va dentro de la formula
+    const resta = fracciones(3, 4, 5, 6, true).demo.transiciones.find((t) => t.texto.includes("(sin el signo menos)"))!;
+    assert.ok(resta.texto.endsWith("$1.$"), resta.texto);
   });
 });

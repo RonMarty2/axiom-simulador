@@ -24,6 +24,10 @@ const punto = (id: string): Ficha => ({ id, tex: "\\cdot", op: true });
 const etiquetaFactores = (n: number): Partial<Ficha> => (n > 5 ? { debajo: `${n}\\text{ factores}` } : {});
 const divisores =(m: number): number[] => Array.from({ length: m }, (_, i) => i + 1).filter((d) => m % d === 0);
 const coma = (xs: string[]) => xs.join(",\\ ");
+/** «factor» o «factores» segun cuantos son (con 1 va en singular) */
+const fact = (n: number) => (n === 1 ? "factor" : "factores");
+/** «son 3 factores 5» o «es 1 factor 5» */
+const sonFactores = (n: number, b: string) => `${n === 1 ? "es" : "son"} $${n}$ ${fact(n)} $${b}$`;
 
 /**
  * Calcula base^exp con una cadena de productos parciales, como a lapiz: la potencia se abre en `exp` factores
@@ -119,9 +123,11 @@ export function potenciaProducto(base: Base, m: number, n: number): Resultado {
   ];
   // la segunda linea (en un renglon aparte): cada potencia escrita como sus factores
   const salto: Ficha = { id: "S", tex: "", salto: true };
-  const g1: Ficha = { id: "g1", tex: `(${factores(b, m)})`, debajo: `${m}\\text{ factores}` };
+  // con exponente 1 es UN factor: singular y sin parentesis (un solo factor no se agrupa; auditor, 29-oct: «son 1 factores», «(5)»)
+  const grupo = (k: number) => (k === 1 ? b : `(${factores(b, k)})`);
+  const g1: Ficha = { id: "g1", tex: grupo(m), debajo: `${m}\\text{ ${fact(m)}}` };
   const tx: Ficha = { id: "tx", tex: "\\cdot", op: true };
-  const g2: Ficha = { id: "g2", tex: `(${factores(b, n)})`, debajo: `${n}\\text{ factores}` };
+  const g2: Ficha = { id: "g2", tex: grupo(n), debajo: `${n}\\text{ ${fact(n)}}` };
   const g: Ficha = { id: "g", tex: factores(b, s), debajo: `${s}\\text{ factores}` };
   const estados: Ficha[][] = [
     linea,
@@ -150,14 +156,17 @@ export function potenciaProducto(base: Base, m: number, n: number): Resultado {
         { desde: "t", hacia: "tx" },
         { desde: "b2", hacia: "g2" },
       ],
-      texto: `Recuerda qué es una potencia: $${b}^{${m}}$ son $${m}$ factores $${b}$ multiplicados, y $${b}^{${n}}$ son $${n}$ factores $${b}$. Los escribimos debajo.`,
+      texto: `Recuerda qué es una potencia: $${b}^{${m}}$ ${sonFactores(m, b)}${m === 1 ? "" : " multiplicados"}, y $${b}^{${n}}$ ${sonFactores(n, b)}. Los escribimos debajo.`,
       porque: `El exponente cuenta cuántas veces se multiplica la base por sí misma.`,
       regla: `$a^{n}=a\\cdot a\\cdots a\\ (n\\text{ factores})$`,
     },
     {
       fusiones: [{ desde: ["g1", "tx", "g2"], hacia: "g" }],
-      texto: `Juntamos todo en una sola fila: son $${m}$ factores y otros $${n}$ factores, es decir $${s}$ factores $${b}$ multiplicados.`,
-      porque: `Multiplicar un grupo de factores por otro grupo de factores solo los junta: los paréntesis ya no hacen falta.`,
+      texto: `Juntamos todo en una sola fila: ${m === 1 ? "es $1$ factor" : `son $${m}$ factores`} y ${n === 1 ? "otro $1$ factor" : `otros $${n}$ factores`}, es decir $${s}$ factores $${b}$ multiplicados.`,
+      porque:
+        m === 1 && n === 1
+          ? `Multiplicar un factor por otro solo los pone uno al lado del otro.`
+          : `Multiplicar un grupo de factores por otro solo los junta en una fila: los paréntesis ya no hacen falta.`,
     },
     {
       fusiones: [{ desde: ["b2"], hacia: null, ancla: "b1" }],
@@ -640,8 +649,14 @@ export function raizGeneral(
   }
 
   const idsFinales = estados[estados.length - 1].map((f) => f.id);
+  // lo que va al lado (el «· ∛3» de raizConFactor) es parte de la expresion principal: va ANTES del primer salto de renglon.
+  // Si va al final, cae en el renglon de una lista temporal (los divisores, el cociente y el resto) y se lee «Divisores de 3: 1, 3 · ∛3» (29-oct).
+  const conExtra = (e: Ficha[]) => {
+    const s = e.findIndex((f) => f.salto);
+    return s < 0 ? [...e, ...extra] : [...e.slice(0, s), ...extra, ...e.slice(s)];
+  };
   return {
-    demo: { titulo: "", nota: "", intro, estados: estados.map((e) => [...e, ...extra]), transiciones: trans },
+    demo: { titulo: "", nota: "", intro, estados: estados.map(conExtra), transiciones: trans },
     resumen,
     idsFinales,
   };
@@ -697,9 +712,10 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
   const hayPuntos = !js.includes(raizExacta);
   const listaIds: string[] = [];
   const listaFichas: Ficha[] = [];
+  // la coma va PEGADA al numero de antes («4, 9», no «4 , 9»): si el renglon se parte, se parte despues de la coma
   const agregar = (id: string, tex: string, op = false) => {
     if (listaFichas.length > 0) {
-      listaFichas.push({ id: `lq${listaFichas.length}`, tex: ",", op: true });
+      listaFichas.push({ id: `lq${listaFichas.length}`, tex: ",", op: true, pegado: true });
       listaIds.push(`lq${listaFichas.length - 1}`);
     }
     listaFichas.push({ id, tex, ...(op ? { op } : {}) });
@@ -728,12 +744,14 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     const id = `lp${j}`;
     const i = listaActual.findIndex((f) => f.id === id);
     const comaId = listaActual[i - 1].id;
-    listaActual = listaActual.filter((f) => f.id !== id && f.id !== comaId);
+    // se tacha SOLO el numero. La coma de antes no se marca ni se tacha (Ronald/revisor, 29-oct: se tachaba tambien): se vacia
+    // en el mismo cambio de estado, sin gesto, y la pieza vacia se recoge junto con la lista (una pieza sin tinta no se marca)
+    listaActual = listaActual.filter((f) => f.id !== id).map((f) => (f.id === comaId ? { ...f, tex: "" } : f));
     listas.push(listaActual);
     const cociente = valor / cand;
     const sobra = valor % cand;
     pruebas.push({
-      fusiones: [{ desde: [comaId, id], hacia: null, modo: "tachar" }],
+      fusiones: [{ desde: [id], hacia: null, modo: "tachar" }],
       resaltar: ["nv"],
       texto: `${pruebas.length === 0 ? "Probamos desde el mayor de la lista. " : "Seguimos con el que sigue. "}¿El $${cand}$ divide a $${valor}$? $${valor}=${cand}\\cdot ${cociente}+${sobra}$: sobra $${sobra}$, así que no. Lo tachamos.`,
       porque: `Un número divide a otro solo si la división no deja resto. Aquí sobra $${sobra}$.`,
@@ -782,7 +800,8 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
         { desde: "nv", hacia: "Sl" },
         ...listaIds.filter((id) => !id.startsWith("lq")).map((id) => ({ desde: "nv", hacia: id })),
       ],
-      texto: `Buscamos la mayor potencia perfecta de índice $${k}$ que divida a $${valor}$. Escribimos las que caben en $${valor}$: ${js.map((j) => `$${pot(j, k)}$`).join(", ")}${hayPuntos ? `, ..., $${exacta}$` : ""}.`,
+      // cada potencia de la lista dice de donde sale (2·2 = 4, 3·3 = 9...), como a lapiz
+      texto: `Buscamos la mayor potencia perfecta de índice $${k}$ que divida a $${valor}$. Escribimos las que caben en $${valor}$, multiplicando $${k}$ veces cada número: ${[...js, ...(hayPuntos ? [raizExacta] : [])].map((j) => `$${factores(String(j), k)}=${pot(j, k)}$`).join(", ")}.${hayPuntos ? " Las del medio no se escriben: en su lugar van los puntos suspensivos." : ""}`,
       porque: `Una potencia perfecta de índice $${k}$ es un número que sale de multiplicar $${k}$ veces el mismo número ($${js[0] ?? 2}^{${k}}=${pot(js[0] ?? 2, k)}$). Solo esas se pueden sacar de la raíz, y conviene la mayor: así sale todo lo posible.`,
     },
     ...pruebas,
@@ -826,7 +845,7 @@ export function raizConFactor(a: number, n: number, k: number, c: number): Resul
     {
       fusiones: [],
       brotes: [{ desde: "ik0", hacia: "ik1" }],
-      texto: `La raíz de un producto se separa en dos raíces, y cada una necesita su índice. Copiamos el $${k}$: la copia viaja junto al $${c}$.`,
+      texto: `La raíz de un producto se separa en dos raíces, y cada una necesita su índice. Copiamos el índice $${k}$: la copia viaja junto al factor $${c}$.`,
       porque: `Las dos raíces tienen el mismo índice que tenía la raíz original.`,
     },
     {

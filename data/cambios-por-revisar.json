@@ -2,333 +2,32 @@
   "_nota": "Pasos que Ronald debe mirar, pasos que dio por vistos sin observacion y pasos que revisaron los agentes. Se edita SOLO con revisar-pasos.ts. La pagina /prueba-animacion muestra `cambios` con salto directo al paso.",
   "cambios": [
     {
-      "tipo": "raizResto",
-      "caso": "12 = 4 por 3",
-      "paso": 4,
-      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "12 = 4 por 3",
-      "paso": 5,
-      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "base 3",
-      "paso": 3,
-      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "base 3",
-      "paso": 4,
-      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "base 3",
-      "paso": 5,
-      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "base 3",
-      "paso": 6,
-      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "base 3",
-      "paso": 7,
-      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "indice 3",
-      "paso": 3,
-      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "indice 3",
-      "paso": 4,
-      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "raizResto",
-      "caso": "indice 3",
-      "paso": 5,
-      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 13,
-      "nota": "«mcm = 6» sin capsula vacia delante",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadratica",
-      "caso": "dos soluciones enteras",
-      "paso": 30,
-      "nota": "destacada x2 con la marca nueva ajustada",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 14,
-      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 15,
-      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
-      "fecha": "2026-10-29"
-    },
-    {
       "tipo": "lineal",
       "caso": "x fraccionaria negativa",
       "paso": 16,
-      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
-      "fecha": "2026-10-29"
+      "nota": "PENDIENTE IA: la marca del «)» grande sale corrida ~10 px y pisa la raya y el 2 (medir el «)» con su propio rect o no marcar parentesis que envuelven una fraccion)",
+      "fecha": "2026-10-30"
     },
     {
-      "tipo": "lineal",
-      "caso": "x fraccionaria negativa",
-      "paso": 20,
-      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "lineal",
-      "caso": "x negativa",
-      "paso": 16,
-      "nota": "regla de suma con signos",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
+      "tipo": "raizResto",
+      "caso": "base 3",
       "paso": 3,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 4,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 17,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 18,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 20,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "suma normal",
-      "paso": 22,
-      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "numeros grandes",
-      "paso": 3,
-      "nota": "idem con D = 24",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "numeros grandes",
-      "paso": 4,
-      "nota": "idem con D = 24",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "numeros grandes",
-      "paso": 17,
-      "nota": "idem con D = 24",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "numeros grandes",
-      "paso": 18,
-      "nota": "idem con D = 24",
-      "fecha": "2026-10-29"
+      "nota": "PENDIENTE IA: «4, 9, 16, 25,» con coma colgada y el 36 solo abajo en 343 px",
+      "fecha": "2026-10-30"
     },
     {
       "tipo": "fracciones",
       "caso": "numeros grandes",
       "paso": 22,
-      "nota": "idem con D = 24",
-      "fecha": "2026-10-29"
+      "nota": "PENDIENTE IA: el renglon corta antes de «· 24 )»: punto colgado y parentesis partidos",
+      "fecha": "2026-10-30"
     },
     {
-      "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 3,
-      "nota": "idem con D = 12",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 4,
-      "nota": "idem con D = 12",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 17,
-      "nota": "idem con D = 12",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 18,
-      "nota": "idem con D = 12",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resta",
-      "paso": 22,
-      "nota": "idem con D = 12",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "un denominador multiplo del otro",
-      "paso": 3,
-      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "un denominador multiplo del otro",
-      "paso": 14,
-      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "un denominador multiplo del otro",
-      "paso": 15,
-      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "un denominador multiplo del otro",
-      "paso": 22,
-      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resultado simplificable",
-      "paso": 3,
-      "nota": "negrita y comprobacion nueva",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resultado simplificable",
-      "paso": 14,
-      "nota": "negrita y comprobacion nueva",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resultado simplificable",
-      "paso": 15,
-      "nota": "negrita y comprobacion nueva",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "fracciones",
-      "caso": "resta que da 0",
+      "tipo": "cuadrados",
+      "caso": "k grande",
       "paso": 10,
-      "nota": "comprobacion nueva",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k = 3",
-      "paso": 24,
-      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k = 3",
-      "paso": 25,
-      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k = 2",
-      "paso": 24,
-      "nota": "idem",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k = 2",
-      "paso": 25,
-      "nota": "idem",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k grande",
-      "paso": 24,
-      "nota": "idem",
-      "fecha": "2026-10-29"
-    },
-    {
-      "tipo": "cuadrados",
-      "caso": "k grande",
-      "paso": 25,
-      "nota": "idem",
-      "fecha": "2026-10-29"
+      "nota": "PENDIENTE IA: «(x − 15)» y «(x + 15)» en renglones distintos (pasos 10 a 16); mucho aire dentro de los parentesis",
+      "fecha": "2026-10-30"
     }
   ],
   "aprobadosPorSilencio": [],
@@ -996,6 +695,382 @@
       "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
       "fecha": "2026-10-29",
       "revision": "tercera revision 29-oct: auditor-de-pasos BIEN y revisor-visual BIEN"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "12 = 4 por 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta, 9 tachado, 2/2 = 1 en un paso, √(2²) = 2",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 3,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 6,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "base 3",
+      "paso": 7,
+      "nota": "mayor potencia perfecta con candidatos tachados, 2/2 = 1, √(3²) = 3",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 3,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 4,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "raizResto",
+      "caso": "indice 3",
+      "paso": 5,
+      "nota": "mayor potencia perfecta, «tambien divide el 8 pero es mas chico», ∛(2⁶) = 4, «de indice 3»",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 13,
+      "nota": "«mcm = 6» sin capsula vacia delante",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadratica",
+      "caso": "dos soluciones enteras",
+      "paso": 30,
+      "nota": "destacada x2 con la marca nueva ajustada",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 14,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 15,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 16,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x fraccionaria negativa",
+      "paso": 20,
+      "nota": "menos sin tocar la raya, −3 en una pieza, parentesis en paso propio, solo 3 marcas, reglas de suma con signos",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "lineal",
+      "caso": "x negativa",
+      "paso": 16,
+      "nota": "regla de suma con signos",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 3,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 4,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 17,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 18,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 20,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "suma normal",
+      "paso": 22,
+      "nota": "negrita solo en comunes; comprobacion: igualdad, (½+⅓)·6 = ⅚·6, distributiva, el 6 sube",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 3,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 4,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 17,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 18,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "numeros grandes",
+      "paso": 22,
+      "nota": "idem con D = 24",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 3,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 4,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 17,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 18,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta",
+      "paso": 22,
+      "nota": "idem con D = 12",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 3,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 14,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 15,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "un denominador multiplo del otro",
+      "paso": 22,
+      "nota": "negrita solo en comunes; el 6 nace del denominador de la primera fraccion",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 3,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 14,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resultado simplificable",
+      "paso": 15,
+      "nota": "negrita y comprobacion nueva",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "fracciones",
+      "caso": "resta que da 0",
+      "paso": 10,
+      "nota": "comprobacion nueva",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 24,
+      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 3",
+      "paso": 25,
+      "nota": "segunda ecuacion en su renglon desde «ó»; copiar y reemplazar en pasos separados",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 2",
+      "paso": 24,
+      "nota": "idem",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k = 2",
+      "paso": 25,
+      "nota": "idem",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 24,
+      "nota": "idem",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
+    },
+    {
+      "tipo": "cuadrados",
+      "caso": "k grande",
+      "paso": 25,
+      "nota": "idem",
+      "fecha": "2026-10-30",
+      "revision": "cuarta ronda 29-oct: arreglado; revision visual (sonnet) BIEN salvo lo anotado aparte en bitacora"
     }
   ]
 }
