@@ -17,6 +17,8 @@
 5. **Antes de tocar PWA:** leé §5 — la OTA y la supresión del banner ya funcionan bien.
 6. **Modularidad y Cero cifras "quemadas" a mano (Single Source of Truth):** Precios SOLO salen de `@/lib/precios` (`PRECIOS_BOB`); métodos de pago de `@/lib/pagos-config`; cantidad de exámenes del banco de `listarMetadata()` o `/api/facultades`. **NUNCA escribas números de catálogo ("139 exámenes", precios fijos) clavados a mano en el JSX.** El software debe auto-calcularse para que cuando Ronald o un agente agregue un examen nuevo, todo se actualice automáticamente sin choques entre sesiones. Ver Decisión D9 en [BITACORA.md](./BITACORA.md).
 
+7. **`agy` primero (decisión de Ronald, 1-nov-2026).** Antes de lanzar un agente de Claude o de leer, auditar o editar cosas largas, decidí si lo puede hacer `agy` y, si puede, delegalo: leé [agentes/ejecutor-agy.md](./agentes/ejecutor-agy.md) (sección «Puerta obligatoria») y usá `scripts/agy/agy_run.py`. Claude decide, revisa el DIFF y los CONTROLES y habla con Ronald; `agy` hace el resto (Flash 3.8 para lo mecánico y la lectura, Argon para lo que pide criterio). Un agente de Claude solo entra si necesita el navegador o hablar con Ronald. Si decís «lo hago con Claude», explicale a Ronald en una línea por qué `agy` no podía. Un hook (`scripts/agy/recordatorio.mjs`) te lo recuerda antes de cada subagente.
+
 ## Agentes del proyecto (`agentes/`)
 
 Cada uno lleva adentro las lecciones de §7 que le tocan, así no hay que releer la bitácora entera para cada tarea chica.
