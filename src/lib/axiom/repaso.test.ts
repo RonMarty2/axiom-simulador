@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { programar, tocaRepasar, proximoRepaso, type EstadoRepaso } from "./repaso.ts";
+import { programar, tocaRepasar, proximoRepaso, contarDominadasDesde, type EstadoRepaso } from "./repaso.ts";
 
 const dia = (n: number) => new Date(Date.UTC(2026, 9, 1 + n, 12));
 const fecha = (n: number) => dia(n).toISOString();
@@ -44,4 +44,28 @@ test("los errores viejos sin fecha tocan repasar ya", () => {
 test("proximo repaso: la fecha mas cercana de las que todavia no tocan", () => {
   assert.equal(proximoRepaso([{ proximo: fecha(5) }, { proximo: fecha(2) }, { proximo: fecha(-1) }, { proximo: fecha(1), dominada_en: fecha(0) }], dia(0)), fecha(2));
   assert.equal(proximoRepaso([], dia(0)), null);
+});
+
+test("contarDominadasDesde cuenta solo las dominadas desde esa fecha", () => {
+  const lista: Partial<EstadoRepaso>[] = [
+    { dominada_en: fecha(2) },
+    { dominada_en: fecha(5) },
+    { dominada_en: fecha(1) },
+  ];
+  assert.equal(contarDominadasDesde(lista, fecha(2)), 2);
+});
+
+test("contarDominadasDesde ignora las que no están dominadas y las dominadas antes", () => {
+  const lista: Partial<EstadoRepaso>[] = [
+    { dominada_en: null, proximo: fecha(3) },
+    {},
+    { dominada_en: fecha(0) },
+    { dominada_en: fecha(1) },
+  ];
+  assert.equal(contarDominadasDesde(lista, fecha(2)), 0);
+});
+
+test("contarDominadasDesde con lista vacía devuelve 0", () => {
+  assert.equal(contarDominadasDesde([], fecha(0)), 0);
+
 });

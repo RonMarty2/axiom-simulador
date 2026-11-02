@@ -44,3 +44,11 @@ export function proximoRepaso(es: Partial<EstadoRepaso>[], ahora: Date): string 
     .sort();
   return futuras[0] ?? null;
 }
+
+/** cuantas preguntas fueron dominadas desde una fecha ISO (inclusive) */
+export function contarDominadasDesde(es: Partial<EstadoRepaso>[], desdeISO: string): number {
+  const desdeMs = new Date(desdeISO).getTime();
+  if (!Number.isFinite(desdeMs)) return 0;
+  return es.filter((e) => e.dominada_en && new Date(e.dominada_en).getTime() >= desdeMs).length;
+
+}

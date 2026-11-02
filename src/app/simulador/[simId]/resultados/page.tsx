@@ -12,9 +12,35 @@ import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
 import { etiquetaArea } from "@/lib/axiom/areas";
+import Reconocimiento from "@/app/components/Reconocimiento";
+import ConstanciaSemana from "@/app/components/ConstanciaSemana";
+import { anteriorA } from "@/lib/historial-calculos";
+import {
+  fnv1a,
+  crearAzar,
+  esfuerzoReal,
+  elegiblesDe,
+  decidirRefuerzo,
+  textoDominadas,
+  textoRepasoFijo,
+  type DecisionRefuerzo,
+} from "@/lib/refuerzo";
+import {
+  leerEstadoRefuerzo,
+  guardarEstadoRefuerzo,
+  sorpresasDeHoy,
+  decisionGuardada,
+  aplicarDecision,
+  refuerzoActivo,
+} from "@/lib/refuerzo-storage";
 
-
-
+interface FilaHistorial {
+  id: string;
+  simulador_id?: string;
+  nota: number;
+  fecha: string;
+  desglose?: Record<string, number>;
+}
 
 // Agrupa preguntas por sección, conservando el orden de aparición.
 function agruparPorSeccion(preguntas: PreguntaBanco[]): { seccion: string; items: PreguntaBanco[] }[] {
@@ -50,7 +76,12 @@ export default function ResultadosPage() {
   const [seccionesAbiertas, setSeccionesAbiertas] = useState<Set<string>>(new Set());
   const [seccionesAutoabiertas, setSeccionesAutoabiertas] = useState(false);
   const [historialPrev, setHistorialPrev] = useState<{ anterior: number | null; mejor: number; total: number }>({ anterior: null, mejor: 0, total: 0 });
+  const [historialFilas, setHistorialFilas] = useState<FilaHistorial[] | null>(null);
+  const [usuarioId, setUsuarioId] = useState<string | null>(null);
+  const [meListo, setMeListo] = useState(false);
+  const [ahoraISO] = useState(() => new Date().toISOString());
   const [practicandoArea, setPracticandoArea] = useState<string | null>(null);
+  const [dominadasDesde, setDominadasDesde] = useState(0);
   const toggleSeccion = (s: string) => {
     setSeccionesAbiertas((prev) => {
       const next = new Set(prev);
@@ -60,16 +91,30 @@ export default function ResultadosPage() {
   };
 
   useEffect(() => {
-    fetch("/api/auth/me").then((r) => r.json()).then((me) => setPagado(esPago(me?.usuario?.plan))).catch(() => {});
-    fetch("/api/historial").then((r) => r.json()).then((d) => {
-      const hist = (d.historial ?? []) as { id: string; nota: number; fecha: string }[];
-      const ordenados = [...hist].sort((a, b) => b.fecha.localeCompare(a.fecha));
-      // Excluye el simulacro actual para encontrar "el anterior".
-      const otros = ordenados.filter((h) => h.id !== simId);
-      const anterior = otros[0]?.nota ?? null;
-      const mejor = hist.length ? Math.max(...hist.map((h) => h.nota)) : 0;
-      setHistorialPrev({ anterior, mejor, total: hist.length });
-    }).catch(() => {});
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((me) => {
+        setPagado(esPago(me?.usuario?.plan));
+        if (typeof me?.usuario?.id === "string" && me.usuario.id) {
+          setUsuarioId(me.usuario.id);
+        }
+      })
+      .catch(() => {})
+      .finally(() => setMeListo(true));
+    fetch("/api/historial")
+      .then((r) => {
+        if (!r.ok) throw new Error("Error cargando historial");
+        return r.json();
+      })
+      .then((d) => {
+        if (!Array.isArray(d?.historial)) return;
+        const hist = d.historial as FilaHistorial[];
+        const anterior = anteriorA(hist, simId)?.nota ?? null;
+        const mejor = hist.length ? Math.max(...hist.map((h) => h.nota)) : 0;
+        setHistorialPrev({ anterior, mejor, total: hist.length });
+        setHistorialFilas(hist);
+      })
+      .catch(() => {});
   }, [simId]);
 
   useEffect(() => {
@@ -97,6 +142,19 @@ export default function ResultadosPage() {
       .catch((e) => setError(e instanceof Error ? e.message : String(e)))
       .finally(() => setCargando(false));
   }, [simId]);
+
+  useEffect(() => {
+    if (!simulador?.fecha_inicio) return;
+    const desde = encodeURIComponent(simulador.fecha_inicio);
+    fetch(`/api/axiom/errores?desde=${desde}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (typeof d?.dominadas_desde === "number") {
+          setDominadasDesde(d.dominadas_desde);
+        }
+      })
+      .catch(() => {});
+  }, [simulador?.fecha_inicio]);
 
   const generarPlanIA = async () => {
     setGenerandoPlan(true);
@@ -188,6 +246,82 @@ export default function ResultadosPage() {
     if (!simulador) return [];
     return preguntas.filter((p) => !esRespuestaCorrecta(p, simulador.respuestas_usuario[p.id]));
   }, [simulador, preguntas]);
+
+  const decision = useMemo<DecisionRefuerzo | null>(() => {
+    if (!simulador || !historialFilas || !meListo) return null;
+    if (simulador.nota_final === undefined) return null;
+    const estado = leerEstadoRefuerzo();
+    const guardada = decisionGuardada(estado, simId);
+    if (guardada !== undefined) {
+      return guardada;
+    }
+
+    const corr = preguntas.filter((p) =>
+      esRespuestaCorrecta(p, simulador.respuestas_usuario[p.id]),
+    ).length;
+    const sinR = preguntas.filter((p) => !simulador.respuestas_usuario[p.id]).length;
+    const inc = preguntas.length - corr - sinR;
+    const esfuerzo = esfuerzoReal({
+      correctas: corr,
+      incorrectas: inc,
+      sin_responder: sinR,
+    });
+
+    const desgloseActual: Record<string, number> = {};
+    for (const [area, valor] of Object.entries(simulador.desglose ?? {})) {
+      if (typeof valor === "number") {
+        desgloseActual[etiquetaArea(area)] = valor;
+      }
+    }
+
+    const previos = historialFilas.filter((h) => h.simulador_id !== simId);
+    const desglosesPrevios = previos
+      .map((h) => {
+        if (!h.desglose || typeof h.desglose !== "object") return null;
+        const mapeado: Record<string, number> = {};
+        for (const [area, valor] of Object.entries(h.desglose)) {
+          if (typeof valor === "number") {
+            mapeado[etiquetaArea(area)] = valor;
+          }
+        }
+        return mapeado;
+      })
+      .filter((item): item is Record<string, number> => item !== null);
+
+    const elegibles = elegiblesDe({
+      esfuerzo,
+      ahora: ahoraISO,
+      fechasPrevias: previos.map((h) => h.fecha),
+      modo: simulador.config?.modo,
+      correctasRepaso: corr,
+      desgloseActual,
+      desglosesPrevios,
+      totalSimulacros: historialFilas.length,
+    });
+
+    const uid = usuarioId || simulador.usuario_id || "";
+    if (!uid) return null;
+    const azar = crearAzar(fnv1a(`${uid}|${simId}`));
+    return decidirRefuerzo(
+      {
+        elegibles,
+        sorpresasHoy: sorpresasDeHoy(estado, ahoraISO),
+        activo: refuerzoActivo(),
+      },
+      azar,
+    );
+  }, [simulador, historialFilas, meListo, usuarioId, simId, preguntas, ahoraISO]);
+
+  useEffect(() => {
+    if (!simulador || !historialFilas || !meListo) return;
+    if (simulador.nota_final === undefined) return;
+    const uid = usuarioId || simulador.usuario_id || "";
+    if (!uid) return;
+    const estado = leerEstadoRefuerzo();
+    if (decisionGuardada(estado, simId) !== undefined) return;
+    const actualizado = aplicarDecision(estado, simId, decision, ahoraISO);
+    guardarEstadoRefuerzo(actualizado);
+  }, [simulador, historialFilas, meListo, usuarioId, simId, decision, ahoraISO]);
 
   if (cargando) {
     return <Cargando texto="Cargando resultados…" />;
@@ -290,6 +424,12 @@ export default function ResultadosPage() {
               </span>
             </div>
           )}
+          <Reconocimiento decision={decision} />
+          {historialFilas && (
+            <div className="mx-auto mt-4 max-w-xl text-left">
+              <ConstanciaSemana fechas={historialFilas.map((h) => h.fecha)} ahoraISO={ahoraISO} />
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -299,6 +439,16 @@ export default function ResultadosPage() {
           <div className="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--accent-soft)] to-[var(--bg-subtle)] p-6">
             <h2 className="text-xl font-bold text-[var(--accent-hover)]">{tituloFb}</h2>
             <p className="mt-1 text-sm text-[var(--accent-hover)]">{textoFb}</p>
+            {simulador.config?.modo === "mis_errores" && preguntas.length >= 1 && (
+              <p className="mt-2 text-sm font-semibold text-[var(--accent-hover)]">
+                {textoRepasoFijo(preguntas.length, correctas)}
+              </p>
+            )}
+            {dominadasDesde >= 1 && (
+              <p className="mt-2 text-sm font-semibold text-emerald-700">
+                {textoDominadas(dominadasDesde)}
+              </p>
+            )}
 
             {hayContraste ? (
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">

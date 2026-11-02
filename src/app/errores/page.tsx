@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
+import { inicioDiaLaPazISO, textoDominadas } from "@/lib/refuerzo";
 
 interface ErrorGuardado {
   pregunta_id: string;
@@ -27,12 +28,14 @@ export default function ErroresPage() {
   const [paraHoy, setParaHoy] = useState(0);
   const [proximo, setProximo] = useState<string | null>(null);
   const [dominadas, setDominadas] = useState(0);
+  const [dominadasHoy, setDominadasHoy] = useState(0);
 
   useEffect(() => {
     fetch("/api/auth/me").then((r) => r.json()).then((d) => {
       if (!d.usuario) { router.push("/login"); return; }
       // Errores guardados en la base de datos, atados a la cuenta del usuario.
-      fetch("/api/axiom/errores")
+      const desde = encodeURIComponent(inicioDiaLaPazISO(new Date().toISOString()));
+      fetch(`/api/axiom/errores?desde=${desde}`)
         .then((r) => r.json())
         .then((data) => {
           setErrores(Array.isArray(data.errores) ? data.errores : []);
@@ -40,6 +43,7 @@ export default function ErroresPage() {
           setParaHoy(data.para_hoy ?? 0);
           setProximo(data.proximo_repaso ?? null);
           setDominadas(data.dominadas ?? 0);
+          setDominadasHoy(data.dominadas_desde ?? 0);
         })
         .catch(() => {})
         .finally(() => setLoading(false));
@@ -85,6 +89,7 @@ export default function ErroresPage() {
                 <div style={{ fontSize: 13, opacity: 0.9 }}>
                   {paraHoy > 0 ? "Las mismas preguntas que fallaste, para que no se te olviden."
                     : proximo ? `Tu próximo repaso es el ${new Date(proximo).toLocaleDateString("es-BO", { weekday: "long", day: "numeric", month: "long" })}.` : "Vuelve después de tu próximo examen."}
+                  {dominadasHoy >= 1 && <div style={{ fontWeight: 700, marginTop: 4 }}>{textoDominadas(dominadasHoy)}</div>}
                 </div>
               </div>
               {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "#dc2626", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}

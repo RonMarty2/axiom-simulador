@@ -164,6 +164,7 @@ html.axiom-pwa body {
   --accent:       #9c3d1c;
   --accent-hover: #7d2f13;
   --accent-fg:    #faf7f0;
+  --accent-claro: #fdba74;
   --accent-soft:  rgba(156, 61, 28, 0.10);
 
   --green:        #1e5f4f;
@@ -184,6 +185,7 @@ html.axiom-pwa body {
   --accent:       #047857;
   --accent-hover: #065f46;
   --accent-soft:  rgba(4, 120, 87, 0.10);
+  --accent-claro: #a7f3d0;
   --primary:      #047857;
   --primary-light:#059669;
   --primary-dark: #064e3b;
@@ -195,6 +197,7 @@ html.axiom-pwa body {
   --accent-soft:  rgba(156, 61, 28, 0.10);
   --primary:      #9c3d1c;
   --primary-light:#c2603c;
+  --accent-claro: #fdba74;
   --primary-dark: #7d2f13;
 }
 
@@ -202,6 +205,7 @@ html.axiom-pwa body {
   --accent:       #881337; /* Borgoña Doctoral / Medicina San Simón */
   --accent-hover: #700f2b;
   --accent-soft:  rgba(136, 19, 55, 0.10);
+  --accent-claro: #fda4af;
   --primary:      #881337;
   --primary-light:#9f1239;
   --primary-dark: #700f2b;
@@ -211,6 +215,7 @@ html.axiom-pwa body {
   --accent:       #581c87; /* Púrpura Toga / Jurisprudencia */
   --accent-hover: #3b0764;
   --accent-soft:  rgba(88, 28, 135, 0.10);
+  --accent-claro: #d8b4fe; /* Propuesta pendiente de Ronald */
   --primary:      #581c87;
   --primary-light:#7e22ce;
   --primary-dark: #3b0764;

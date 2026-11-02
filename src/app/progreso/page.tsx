@@ -8,6 +8,8 @@ import Cargando from "../components/Cargando";
 import Icono from "../components/Icono";
 import { etiquetaArea } from "@/lib/axiom/areas";
 import type { HistorialExamen } from "@/lib/data-store";
+import { diasConPractica } from "@/lib/refuerzo";
+import { REFUERZO } from "@/lib/refuerzo-config";
 
 // Pantalla de evolución: los números y la tendencia. El listado completo de
 // simulacros vive en /historial, que es su propia pantalla — acá no se repite.
@@ -67,6 +69,10 @@ export default function ProgresoPage() {
       promedio,
       mejor: Math.max(...notas),
       evolucion: notas.length >= 2 ? ultima - primera : null,
+      diasPractica: diasConPractica(
+        cronologico.map((h) => h.fecha),
+        new Date().toISOString(),
+      ),
     };
   }, [cronologico]);
 
@@ -126,6 +132,13 @@ export default function ProgresoPage() {
                   titulo="Desde el primero"
                   valor={`${stats.evolucion > 0 ? "+" : ""}${stats.evolucion}`}
                   color={stats.evolucion > 0 ? "var(--green)" : stats.evolucion < 0 ? "#dc2626" : "var(--fg-muted)"}
+                />
+              )}
+              {stats.diasPractica > 0 && (
+                <Tarjeta
+                  titulo="Días con práctica"
+                  valor={String(stats.diasPractica)}
+                  sufijo={`/${REFUERZO.ventanaDias}`}
                 />
               )}
             </div>

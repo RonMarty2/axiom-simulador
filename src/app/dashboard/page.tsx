@@ -8,6 +8,7 @@ import Cargando from "../components/Cargando";
 import Icono, { type NombreIcono } from "../components/Icono";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
 import { esPago, inicioSemanaISO, textoProximaRenovacion } from "@/lib/plan";
+import { diasConPractica, textoConstancia } from "@/lib/refuerzo";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -66,6 +67,11 @@ export default function DashboardPage() {
   const esGratis = !esPago(usuario.plan);
   const limiteAlcanzado = esGratis && examenesEstaSemana >= limiteSemanal;
   const restantes = Math.max(0, limiteSemanal - examenesEstaSemana);
+  const diasPractica7 = diasConPractica(
+    historial.map((h) => h.fecha),
+    new Date().toISOString(),
+  );
+  const lineaConstancia = textoConstancia(diasPractica7);
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -82,6 +88,11 @@ export default function DashboardPage() {
             <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
               Postulas a <strong style={{ color: "var(--fg-primary)" }}>{facultad?.nombre_corto}</strong>. Sigue practicando.
             </p>
+            {lineaConstancia && (
+              <p style={{ color: "var(--accent)", fontSize: 13.5, fontWeight: 600, marginTop: 4, fontVariantNumeric: "lining-nums" }}>
+                {lineaConstancia}
+              </p>
+            )}
           </div>
 
           <div className="ax-cifras" style={{ display: "flex", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 6 }}>

@@ -1,12 +1,15 @@
 import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/session";
 import { getErroresUsuario, limpiarErroresUsuario, temasReforzarDeErrores } from "@/lib/axiom/errores-db";
-import { tocaRepasar, proximoRepaso } from "@/lib/axiom/repaso";
+import { tocaRepasar, proximoRepaso, contarDominadasDesde } from "@/lib/axiom/repaso";
+import { desdeValido } from "@/lib/refuerzo";
 
 // Lista los errores del usuario actual, agrupados y listos para mostrar.
-export async function GET() {
+export async function GET(req?: Request) {
   const user = await getCurrentUser();
   if (!user) return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+
+  const desde = desdeValido(req?.url ? new URL(req.url).searchParams.get("desde") : null);
 
   // las dominadas (3 aciertos seguidos en su fecha, repaso.ts) ya no se muestran, pero no se borran
   const ahora = new Date();
@@ -35,6 +38,7 @@ export async function GET() {
     para_hoy: items.filter((e) => e.toca_hoy).length,
     proximo_repaso: proximoRepaso(errores, ahora),
     dominadas: todos.length - errores.length,
+    dominadas_desde: desde ? contarDominadasDesde(todos, desde) : 0,
   });
 }
 
