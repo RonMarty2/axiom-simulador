@@ -99,7 +99,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Caso real de examen oficial</div>
-              <div class="swipe-pill">Desliza para ver la trampa 👉</div>
+              <div class="swipe-pill">Desliza para ver la trampa &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -124,7 +124,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">¿Por qué está mal?</div>
-              <div class="swipe-pill">Mira la explicación 👉</div>
+              <div class="swipe-pill">Mira la explicación &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -143,18 +143,18 @@ async def run():
               <h2 class="slide-title">La respuesta es <em>FALSA</em>.</h2>
               <div class="card-grid">
                 <div class="card-item">
-                  <div class="card-h">🩸 Ocurre en arterias y arteriolas</div>
+                  <div class="card-h">Ocurre en arterias y arteriolas</div>
                   <div class="card-p">El espasmo vascular protege contra la hemorragia a alta presión. Las vénulas carecen de la túnica media suficiente para este reflejo.</div>
                 </div>
                 <div class="card-item">
-                  <div class="card-h">⚠️ El método San Simón</div>
+                  <div class="card-h">El método San Simón</div>
                   <div class="card-p">Los docentes colocan definiciones 95% textuales del libro pero cambian una palabra clave al inicio para anular tu puntaje.</div>
                 </div>
               </div>
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Regla de oro</div>
-              <div class="swipe-pill">Siguiente lámina 👉</div>
+              <div class="swipe-pill">Siguiente lámina &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -177,7 +177,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Entrena bajo tiempo</div>
-              <div class="swipe-pill">Ver cómo practicar 👉</div>
+              <div class="swipe-pill">Ver cómo practicar &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -201,7 +201,7 @@ async def run():
               </div>
             </div>
             <div class="slide-footer">
-              <div class="footer-hint">💾 Guarda este post para repasar</div>
+              <div class="footer-hint">Guarda este post para repasar</div>
               <div style="font-weight:700; color:#cbd5e1;">axiom-simulador.com</div>
             </div></body></html>"""
         ]
@@ -239,7 +239,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Caso real Examen de Ingreso</div>
-              <div class="swipe-pill">Desliza para ver el problema 👉</div>
+              <div class="swipe-pill">Desliza para ver el problema &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -264,7 +264,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">¿Por qué perdiste puntos?</div>
-              <div class="swipe-pill">Ver la solución correcta 👉</div>
+              <div class="swipe-pill">Ver la solución correcta &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -283,18 +283,18 @@ async def run():
               <h2 class="slide-title">Al dividir, <em>pierdes soluciones</em>.</h2>
               <div class="card-grid">
                 <div class="card-item">
-                  <div class="card-h">⛔ El error común</div>
+                  <div class="card-h">El error común</div>
                   <div class="card-p">Si divides entre sen(x), asumes que sen(x) ≠ 0. Pierdes de inmediato las soluciones x = 0 y x = π.</div>
                 </div>
                 <div class="card-item">
-                  <div class="card-h">✅ La forma rigurosa de San Simón</div>
+                  <div class="card-h">La forma rigurosa de San Simón</div>
                   <div class="card-p">Iguala a cero y factoriza:<br>sen(x)(2·cos(x) - 1) = 0<br>Soluciones: sen(x)=0 o cos(x)=1/2. Total: 4 soluciones completas.</div>
                 </div>
               </div>
             </div>
             <div class="slide-footer">
               <div class="footer-hint">El criterio del docente</div>
-              <div class="swipe-pill">Siguiente lámina 👉</div>
+              <div class="swipe-pill">Siguiente lámina &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -317,7 +317,7 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Asegura tu 100</div>
-              <div class="swipe-pill">Ver cómo practicar 👉</div>
+              <div class="swipe-pill">Ver cómo practicar &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
@@ -341,7 +341,7 @@ async def run():
               </div>
             </div>
             <div class="slide-footer">
-              <div class="footer-hint">💾 Guarda este post para tu examen</div>
+              <div class="footer-hint">Guarda este post para tu examen</div>
               <div style="font-weight:700; color:#cbd5e1;">axiom-simulador.com</div>
             </div></body></html>"""
         ]
@@ -365,7 +365,7 @@ async def run():
         slides_eco = [
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
             <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-            <style>{base_slide_css('#047857', '#6ee7b7')}
+            <style>{base_slide_css('#047857', '#a7f3d0')}
             .hero-bg {{ position: absolute; top: 0; left: 0; width: 1080px; height: 1350px; object-fit: cover; filter: brightness(0.38) contrast(1.1); z-index: 1; }}
             </style></head><body>
             <img class="hero-bg" src="{eco_b64}">
@@ -379,12 +379,12 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Pregunta Oficial de Admisión</div>
-              <div class="swipe-pill">Desliza para ver la pregunta 👉</div>
+              <div class="swipe-pill">Desliza para ver la pregunta &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
             <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-            <style>{base_slide_css('#047857', '#6ee7b7')}
+            <style>{base_slide_css('#047857', '#a7f3d0')}
             .error-box {{ background: #faf7f0; color: #1a1f2e; border-radius: 18px; padding: 36px 40px; margin-top: 20px; box-shadow: 0 16px 40px rgba(0,0,0,0.4); }}
             .error-tag {{ font-size: 14px; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; }}
             .error-quote {{ font-size: 26px; line-height: 1.4; color: #1e293b; margin-bottom: 16px; font-style: italic; }}
@@ -404,12 +404,12 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">¿Por qué disminuye?</div>
-              <div class="swipe-pill">Ver la explicación técnica 👉</div>
+              <div class="swipe-pill">Ver la explicación técnica &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
             <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-            <style>{base_slide_css('#047857', '#6ee7b7')}
+            <style>{base_slide_css('#047857', '#a7f3d0')}
             .card-grid {{ display: flex; flex-direction: column; gap: 18px; margin-top: 16px; }}
             .card-item {{ background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 24px 28px; }}
             .card-h {{ font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }}
@@ -423,25 +423,25 @@ async def run():
               <h2 class="slide-title">La respuesta correcta: <em>DISMINUYE</em>.</h2>
               <div class="card-grid">
                 <div class="card-item">
-                  <div class="card-h">📉 El efecto cantidad supera al precio</div>
+                  <div class="card-h">El efecto cantidad supera al precio</div>
                   <div class="card-p">Al ser elástica, la cantidad demandada cae en una proporción mayor que el aumento de precio (por ejemplo, cae 20%). El ingreso total cae.</div>
                 </div>
                 <div class="card-item">
-                  <div class="card-h">💡 La intuición económica</div>
+                  <div class="card-h">La intuición económica</div>
                   <div class="card-p">Los consumidores son altamente sensibles. Pierdes más clientes de lo que ganas por el mayor precio unitario.</div>
                 </div>
               </div>
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Matriz mnemotécnica</div>
-              <div class="swipe-pill">Siguiente lámina 👉</div>
+              <div class="swipe-pill">Siguiente lámina &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
             <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-            <style>{base_slide_css('#047857', '#6ee7b7')}
+            <style>{base_slide_css('#047857', '#a7f3d0')}
             .golden-box {{ background: linear-gradient(135deg, rgba(4,120,87,0.3) 0%, rgba(20,22,31,0.6) 100%); border: 1.5px solid #047857; border-radius: 18px; padding: 36px 40px; margin-top: 16px; }}
-            .golden-h {{ font-family: 'Crimson Pro', serif; font-size: 38px; font-weight: 800; color: #6ee7b7; margin-bottom: 12px; }}
+            .golden-h {{ font-family: 'Crimson Pro', serif; font-size: 38px; font-weight: 800; color: #a7f3d0; margin-bottom: 12px; }}
             .golden-p {{ font-size: 22px; line-height: 1.45; color: #ffffff; }}
             </style></head><body>
             <div class="slide-header">
@@ -460,12 +460,12 @@ async def run():
             </div>
             <div class="slide-footer">
               <div class="footer-hint">Asegura tu cupo</div>
-              <div class="swipe-pill">Ver cómo entrenar 👉</div>
+              <div class="swipe-pill">Ver cómo entrenar &rarr;</div>
             </div></body></html>""",
 
             f"""<!DOCTYPE html><html><head><meta charset="utf-8">
             <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-            <style>{base_slide_css('#047857', '#6ee7b7')}
+            <style>{base_slide_css('#047857', '#a7f3d0')}
             .cta-box {{ background: #faf7f0; color: #1a1f2e; border-radius: 20px; padding: 44px 40px; margin-top: 16px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }}
             .cta-h {{ font-family: 'Crimson Pro', serif; font-size: 42px; font-weight: 800; color: #1a1f2e; margin-bottom: 10px; }}
             .cta-sub {{ font-size: 20px; color: #64748b; margin-bottom: 24px; }}
@@ -484,7 +484,7 @@ async def run():
               </div>
             </div>
             <div class="slide-footer">
-              <div class="footer-hint">💾 Guarda este post para repasar</div>
+              <div class="footer-hint">Guarda este post para repasar</div>
               <div style="font-weight:700; color:#cbd5e1;">axiom-simulador.com</div>
             </div></body></html>"""
         ]

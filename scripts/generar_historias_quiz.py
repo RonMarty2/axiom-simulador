@@ -116,7 +116,7 @@ async def run():
             <div class="quiz-option"><span class="quiz-letter">C</span> En las venas cavas</div>
             <div class="quiz-option"><span class="quiz-letter">D</span> En todos los vasos por igual</div>
           </div>
-          <div class="poll-hint">👆 Toca para responder en la encuesta</div>
+          <div class="poll-hint">Toca para responder en la encuesta</div>
         </div>
         <div style="font-size:18px; color:#94a3b8; text-align:center; z-index:10;">Pregunta de Morfofunción · San Simón</div>
         </body></html>"""
@@ -133,7 +133,7 @@ async def run():
             <div class="quiz-option correct-opt" style="margin-bottom:0;"><span class="quiz-letter">✓</span> B) En las arterias y arteriolas</div>
           </div>
           <div class="solution-box">
-            <div class="solution-title">🩸 Justificación Oficial:</div>
+            <div class="solution-title">Justificación Oficial:</div>
             <div class="solution-body">El músculo liso circular se contrae para reducir la pérdida de sangre a alta presión. Las vénulas no poseen la capa muscular suficiente para desarrollar este mecanismo reflejo.</div>
           </div>
           <div class="cta-card">
@@ -173,7 +173,7 @@ async def run():
             <div class="quiz-option"><span class="quiz-letter">C</span> Exactamente 4 soluciones</div>
             <div class="quiz-option"><span class="quiz-letter">D</span> Infinitas soluciones</div>
           </div>
-          <div class="poll-hint">👆 Vota antes de ver la solución</div>
+          <div class="poll-hint">Vota antes de ver la solución</div>
         </div>
         <div style="font-size:18px; color:#94a3b8; text-align:center; z-index:10;">Facultad de Ciencias y Tecnología · UMSS</div>
         </body></html>"""
@@ -189,7 +189,7 @@ async def run():
             <div class="quiz-option correct-opt" style="margin-bottom:0;"><span class="quiz-letter">✓</span> C) Exactamente 4 soluciones</div>
           </div>
           <div class="solution-box">
-            <div class="solution-title">📐 Resolución Paso a Paso:</div>
+            <div class="solution-title">Resolución Paso a Paso:</div>
             <div class="solution-body">sen(x)(2·cos(x) - 1) = 0<br>1) sen(x)=0 → x = 0, x = π<br>2) cos(x)=1/2 → x = π/3, x = 5π/3<br>Total = <strong>4 soluciones</strong>. (Si dividías entre sen(x), perdías 2).</div>
           </div>
           <div class="cta-card">
@@ -217,7 +217,7 @@ async def run():
 
         h1_eco = f"""<!DOCTYPE html><html><head><meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-        <style>{base_story_css('#047857', '#6ee7b7')}</style></head><body>
+        <style>{base_story_css('#047857', '#a7f3d0')}</style></head><body>
         <div class="bg-glow"></div>
         <div class="header-badge"><span class="dot"></span> Admisión Económicas UMSS</div>
         <div class="content-area">
@@ -229,14 +229,14 @@ async def run():
             <div class="quiz-option"><span class="quiz-letter">C</span> Se mantiene constante</div>
             <div class="quiz-option"><span class="quiz-letter">D</span> No se puede determinar</div>
           </div>
-          <div class="poll-hint">👆 Pon a prueba tu criterio económico</div>
+          <div class="poll-hint">Pon a prueba tu criterio económico</div>
         </div>
         <div style="font-size:18px; color:#94a3b8; text-align:center; z-index:10;">Facultad de Ciencias Económicas · UMSS</div>
         </body></html>"""
 
         h2_eco = f"""<!DOCTYPE html><html><head><meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,800;1,800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
-        <style>{base_story_css('#047857', '#6ee7b7')}</style></head><body>
+        <style>{base_story_css('#047857', '#a7f3d0')}</style></head><body>
         <div class="bg-glow"></div>
         <div class="header-badge"><span class="dot"></span> Clave Económicas UMSS</div>
         <div class="content-area">
@@ -245,7 +245,7 @@ async def run():
             <div class="quiz-option correct-opt" style="margin-bottom:0;"><span class="quiz-letter">✓</span> B) Disminuye</div>
           </div>
           <div class="solution-box">
-            <div class="solution-title">📊 Razón Técnica:</div>
+            <div class="solution-title">Razón Técnica:</div>
             <div class="solution-body">En demanda elástica, la caída porcentual en la cantidad consumida es mayor que el incremento del precio. La pérdida por ventas perdidas supera la ganancia del precio más alto.</div>
           </div>
           <div class="cta-card">

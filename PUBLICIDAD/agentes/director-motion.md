@@ -14,7 +14,7 @@ Construye el video vertical 1080x1920 con timeline por escena en HTML/CSS/JS det
 - Identidad visual oficial por facultad:
   - Medicina: Borgoña Doctoral `#881337`, luz suave `#fda4af`, papel `#faf7f0`
   - Ingeniería: Terracota `#9c3d1c`, acento `#fdba74`
-  - Económicas: Verde Esmeralda `#047857`, acento `#6ee7b7`
+  - Económicas: Verde Esmeralda `#047857`, acento `#a7f3d0`
 
 ### 2. UGC Cinematográfico con Personas Reales (`motion/ugc-medicina/`)
 - Utiliza fotografías 35mm documentales generadas con Google Imagen 3 (`image-generator`) representando estudiantes bolivianos en situaciones de estudio reales (agobio nocturno con fotocopias -> descubrimiento de AXIOM -> éxito y comprensión).
