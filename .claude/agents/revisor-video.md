@@ -11,6 +11,7 @@ Usa el toolkit de `skills/ffmpeg/scripts/` para la auditoría técnica y visual:
 1. **Compliance Técnico Automatizado:**
    Ejecuta `python skills/ffmpeg/scripts/check.py <video.mp4> --platform tiktok --content` (o `--platform reels`).
    Audita automáticamente: relación de aspecto (9:16), resolución, códec h264/yuv420p, framerate constante, loudness objetivo (-14 a -16 LUFS), picos de audio, pantallas negras o congeladas. Anota cualquier FAIL o WARN.
+   `check.py` mide el volumen general, no cada efecto: comprueba además que **cada efecto de sonido se oiga**, con `volumedetect` por tramos.
 
 2. **Zonas Seguras y Hoja de Contacto UI:**
    Ejecuta `python skills/ffmpeg/scripts/look.py <video.mp4> --safe tiktok -o final/revision-seguridad.png`.

@@ -11,6 +11,7 @@ Genera la narración usando los modelos oficiales de **Google Gemini Neural TTS*
 - **Kore (Google Gemini):** Femenina, enérgica y comercial. Excelente para anuncios directos de alta conversión.
 - **Nika (Google AI Studio):** Femenina, tono comercial clásico de locución.
 - **Puck (Google Gemini):** Juvenil y dinámico.
+- **Si Ronald graba su propia voz, se usa la suya.** El resultado final se guarda en `final/`.
 
 ## 2. Invocación Directa por Código (SDK google.genai)
 ```python
@@ -39,7 +40,7 @@ for part in res.parts:
 ```
 
 ## 3. Tiempos y Alineación
-- Usa `faster_whisper` (modelo small, GPU CUDA si existe) para extraer los timestamps palabra por palabra.
+- Usa `faster_whisper` (modelo small, GPU CUDA si existe, `word_timestamps=True`) para extraer los timestamps palabra por palabra. Para cortar por frases, `ffmpeg -af silencedetect=n=-35dB:d=0.25` da los silencios.
 - Con los tiempos exactos de la voz, alinea las animaciones y los efectos de sonido. La voz manda siempre la duración.
 
 ## 4. Post-procesamiento y Mezcla con ffmpeg-skill
@@ -57,3 +58,10 @@ Usa el toolkit en `skills/ffmpeg/scripts/` para evitar errores de sintaxis en te
 
 4. **Incrustación en Video:**
    `python skills/ffmpeg/scripts/audio.py video_renderizado.mp4 --replace audio_master.wav -o final_listo.mp4`
+
+## 5. Lecciones y errores a evitar
+> Rescatadas el 02-11-2026 de la copia vieja de `PUBLICIDAD\.claude\agents\productor-audio.md` (lecciones del 04-10).
+- **AI Studio (voz Nika):** el estilo («mujer boliviana, cálida…») va en el campo **Style**, NUNCA dentro del texto: si no, la voz lo lee en voz alta. Para «Áxiom», el acento escrito funciona.
+- **Efectos de sonido:** se generan en `motion/axiom-v1/mix.py` y se ubican con `warp.py`. Música de fondo solo si Ronald trae un archivo libre de derechos.
+- **Un efecto inaudible no se arregla subiendo el volumen, sino cambiando el sonido.** Verifícalo con `volumedetect` por tramos.
+- ffmpeg de Windows no acepta `-pattern_type glob`: usa `f_%04d.png`.
