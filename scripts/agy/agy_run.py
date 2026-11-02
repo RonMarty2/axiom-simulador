@@ -99,7 +99,20 @@ def main():
     ap.add_argument("--solo-texto", action="store_true")
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--seguir", default="", help="id de una entrega: corrige en LA MISMA conversacion de agy")
+    ap.add_argument("--con-binarios", action="store_true", help="no convertir PDF/Word (solo si agy no necesita leerlos)")
     a = ap.parse_args()
+
+    # 02-11-2026: agy SOLO lee texto (con PDF/Word se rindio y gasto 45k tokens en UNIFRANZ). Si el pedido o --leer nombran
+    # PDF/Word/PPT/Excel con ruta absoluta, se convierten solos a Markdown con el conversor central (pymupdf4llm/markitdown),
+    # el MISMO que usa el motor de UNIFRANZ: SynologyDrive\12.NUBES\_AGENTES_CENTRAL\herramientas\a_texto.py.
+    nota_texto, dirs_texto = "", []
+    if not a.seguir and not a.con_binarios:
+        central = os.path.expanduser(r"~\SynologyDrive\12.NUBES\_AGENTES_CENTRAL\herramientas")
+        if os.path.exists(os.path.join(central, "a_texto.py")):
+            sys.path.insert(0, central)
+            from a_texto import preparar_para_agy
+            nota_texto, dirs_texto = preparar_para_agy([open(a.pedido, encoding="utf-8").read()], a.leer,
+                                                       os.path.join(TRABAJO, "_TEXTO"))
 
     if not os.path.exists(os.path.join(ARRANQUE, "_agents", "hooks.json")):
         sys.exit("ALTO: falta el candado (scripts/agy/arranque/_agents/hooks.json). No se corre agy sin candado.")
@@ -131,7 +144,7 @@ def main():
         texto = (f"CORRECCION de Claude sobre tu entrega anterior (misma tarea, mismas reglas, misma copia {repo}). "
                  f"Corrige SOLO esto:\n\n{pedido}\n\nAl terminar, agrega una seccion 'Vuelta {vuelta}' a ENTREGA_AGY.md.")
     else:
-        texto = pedido + "\n" + REGLAS_AGY.format(repo=repo)
+        texto = pedido + "\n" + nota_texto + REGLAS_AGY.format(repo=repo)
     with open(os.path.join(carpeta, f"PEDIDO{suf}.md"), "w", encoding="utf-8") as f:
         f.write(texto)
 
@@ -140,7 +153,7 @@ def main():
            "--output-format", "stream-json", "--print-timeout", f"{a.timeout}s", "-p", texto]
     if previo:
         cmd[1:1] = ["--conversation", previo["conversation_id"]]
-    for p_ in a.leer + [repo]:
+    for p_ in a.leer + dirs_texto + [repo]:
         cmd[1:1] = ["--add-dir", p_]
     env = dict(os.environ, AXIOM_AGY_TRABAJO=TRABAJO)
 
