@@ -501,6 +501,28 @@ Sin `.env.local` la app corre igual: no hay Supabase, los datos viven en memoria
 
 ## 11. Cambios mayores (changelog cronológico)
 
+### 2026-11-01 (refuerzo intermitente en Axiom, ejecutor de agy y identidad visual en un solo documento)
+
+**Qué se hizo**
+- **Premio en resultados.** Después de un simulacro, a veces (no siempre) aparece un bloque del color de la facultad con partículas breves y un dato real del alumno: simulacro terminado, mejora en un área débil, errores corregidos o regreso tras una pausa. Topes de 2 por visita y 5 por día, esfuerzo mínimo de la mitad de las preguntas, todo en el dispositivo (localStorage). La corrección y la nota nunca son intermitentes. Núcleo puro en `src/lib/refuerzo.ts` y `refuerzo-config.ts`; plan y decisiones en `docs/plan-refuerzo-intermitente.md`.
+- **Franja «Practicaste N de los últimos 7 días»** en resultados, línea en el inicio y tarjeta en progreso. Ventana de 7 días, sin racha ni culpa.
+- **Línea fija «Dominaste N preguntas»** en resultados y `/errores` (campo aditivo `dominadas_desde` en `/api/axiom/errores?desde=`).
+- **Métricas de retención** en `/api/admin/retencion` (solo admin; marca `insuficiente` con menos de 30 usuarios activos).
+- **Error corregido:** el chip «vs tu último examen» comparaba `h.id` con `simId` y siempre decía «igual». Ahora compara por `simulador_id`.
+- **Publicidad:** sin emojis en las plantillas de carruseles e historias y en `config_anuncios.json`; el verde claro de Económicas es `#a7f3d0` en todo. Las imágenes regeneradas NO se commitearon: las 21 piezas no pasaron `revisor-piezas` (franjas vacías, letra chica, cifras sin fuente como «80 %» o «100 preguntas»).
+- **Identidad visual:** `docs/identidad-visual.md` es la única referencia de colores y lenguaje; los agentes apuntan ahí y no llevan hex.
+- **Herramienta `scripts/agy/`:** delega a Gemini en una copia aislada (git worktree) con candado; Flash 3.8 para lo mecánico, Argon para lo que pide criterio. Agentes nuevos: `ejecutor-agy`, `curador-agentes`, `revisor-piezas`, `disenador-refuerzo`.
+
+**Cómo se comprobó:** `tsc`, lint sin errores, 593 de 593 tests, `build` correcto, y las pantallas vistas en la app real a 390 px con dos facultades.
+
+**Lo aprendido (detalle en `docs/lecciones-agentes.md`)**
+- La cuota de `agy` es por modelo: si uno se agota, probar otro antes de rendirse.
+- Sin `--leer`, `agy` no puede leer un archivo que esté fuera de su copia y termina sin hacer nada; la copia nace de `HEAD`, lo sin commitear va con `--base`.
+- El «SUCCESS» de `agy` no prueba nada: se lee el diff y se vuelven a correr los controles en main. Un test escrito por Gemini tenía la cuenta mal (3 en vez de 3,25) y el código estaba bien.
+- Antes de diseñar algo visual hay que mirar las tres fuentes (la app, `config_anuncios.json` y las piezas terminadas de `PUBLICIDAD`); una maqueta no se muestra sin haberla visto, y las decisiones de pantalla se validan en la app real.
+
+**Pendiente:** color claro de Derecho en anuncios (`#d8b4fe` es propuesta); cifras sin fuente de las piezas; el premio con partículas lo tiene que mirar Ronald en su navegador; D7 y D8 del plan siguen abiertas.
+
 ### 2026-10-29 (eliminación histórica del Curso Básico de Medicina UMSS, transición a PSA de 7 materias y ajuste fino a producción de audiolibros)
 
 **Hecho histórico:**
