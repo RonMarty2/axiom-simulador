@@ -426,7 +426,7 @@ export default function ResultadosPage() {
           )}
           <Reconocimiento decision={decision} />
           {historialFilas && (
-            <div className="mx-auto mt-4 max-w-xl text-left">
+            <div className="mx-auto mt-4 max-w-xl text-left md:max-w-2xl">
               <ConstanciaSemana fechas={historialFilas.map((h) => h.fecha)} ahoraISO={ahoraISO} />
             </div>
           )}

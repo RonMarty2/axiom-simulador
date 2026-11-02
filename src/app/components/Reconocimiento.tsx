@@ -28,9 +28,9 @@ function renderizarTextoConCifras(texto: string) {
       return (
         <span
           key={idx}
+          className="ax-cifra"
           style={{
             fontFamily: "var(--font-crimson), Georgia, serif",
-            fontSize: "22px",
             fontWeight: 700,
             color: "var(--accent-claro)",
             fontVariantNumeric: "lining-nums",
@@ -159,7 +159,7 @@ export default function Reconocimiento({
 
   return (
     <div
-      className="ax-reconocimiento-bloque relative mx-auto mt-5 flex max-w-xl items-center gap-3.5 overflow-hidden px-4 py-3.5 text-left"
+      className="ax-reconocimiento-bloque relative mx-auto mt-5 flex max-w-xl items-center gap-3.5 overflow-hidden px-4 py-3.5 text-left md:max-w-2xl md:gap-5 md:px-6 md:py-5"
       style={{
         background: "var(--accent)",
         color: "white",
@@ -199,8 +199,16 @@ export default function Reconocimiento({
         .ax-reconocimiento-bloque {
           animation: ax-reconocimiento-entrada 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1 both;
         }
+        .ax-reconocimiento-bloque .ax-cifra {
+          font-size: 22px;
+        }
         .ax-reconocimiento-brillo {
           animation: ax-reconocimiento-brillo 1.1s ease-out 1 forwards;
+        }
+        @media (min-width: 768px) {
+          .ax-reconocimiento-bloque .ax-cifra {
+            font-size: 28px;
+          }
         }
         @media (prefers-reduced-motion: reduce) {
           .ax-reconocimiento-bloque {
@@ -233,10 +241,8 @@ export default function Reconocimiento({
       />
 
       <div
-        className="relative flex flex-shrink-0 items-center justify-center rounded-full"
+        className="relative flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full md:h-14 md:w-14"
         style={{
-          width: "44px",
-          height: "44px",
           background: "rgba(255, 255, 255, 0.14)",
           border: "1px solid rgba(255, 255, 255, 0.24)",
           zIndex: 3,
@@ -244,11 +250,10 @@ export default function Reconocimiento({
         aria-hidden="true"
       >
         <svg
-          width="22"
-          height="22"
           viewBox="0 0 24 24"
           fill="none"
           aria-hidden="true"
+          className="h-6 w-6 md:h-[30px] md:w-[30px]"
         >
           <path
             d="M5 12.5l4.5 4.5L19 7.5"
@@ -261,7 +266,7 @@ export default function Reconocimiento({
       </div>
 
       <p
-        className="relative m-0 min-w-0 flex-1 text-sm font-medium leading-snug text-white sm:text-[15px]"
+        className="relative m-0 min-w-0 flex-1 text-sm font-medium leading-snug text-white sm:text-[15px] md:text-lg"
         style={{ zIndex: 3 }}
       >
         {renderizarTextoConCifras(texto)}
