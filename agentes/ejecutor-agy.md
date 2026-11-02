@@ -80,6 +80,7 @@ Dos o más pedidos a la vez funcionan si **tocan archivos distintos**. Lo que va
 - **`aplicar.py` se niega con cambios sin commitear en los mismos archivos**: con cambios propios ya verificados, `git apply` (paso 5).
 - **Paralelo solo con archivos distintos**; lo compartido lo inserta Claude.
 - **`npm run build` con el servidor de desarrollo detenido.**
+- **En pedidos de cambios de estilo "solo tablet/celular"**: decir expresamente que lo otro NO cambia y que los tamaños base se conservan; después de aplicar, comprobar con getComputedStyle en ambos anchos.
 
 ## Candado
 `scripts/agy/arranque/_agents/candado_agy.py` (hook): agy solo escribe dentro de `%LOCALAPPDATA%\axiom-agy`, la terminal y el navegador están bloqueados, falla cerrado. Lo que intentó y se le negó queda en `_candado_log.jsonl`. **Nunca correr agy para trabajo delegado desde otra carpeta: sin el arranque no hay candado** (`agy_run.py` se niega si falta).

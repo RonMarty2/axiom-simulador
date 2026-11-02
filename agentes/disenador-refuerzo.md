@@ -35,6 +35,7 @@ Refuerzo intermitente = la recompensa llega **a veces**, no siempre (razón vari
 5. **Plan para `agy`**: un lote cerrado y chico por vez (nunca «mejorá el engagement»). Cada lote lista: archivos a tocar, función pura a crear, tests exactos que deben existir, comando de comprobación (`npx tsc --noEmit`, `npm run lint`, `npm test`, `npm run build`), y qué NO tocar. Escribilo en `docs/plan-refuerzo-intermitente.md` con casillas `[ ]`.
    - **Cada pedido para `agy` dice qué pasarle con `--leer` y `--base`**: el plan va por `--leer` si no está commiteado (sin eso agy no lo lee y termina sin hacer nada), y todo archivo sin commitear del que dependa el lote (el núcleo del lote anterior, `refuerzo-config.ts`) va por `--base`. Cómo y por qué: `agentes/ejecutor-agy.md`.
    - Si dos lotes van en paralelo, que toquen archivos distintos; montar el componente en una pantalla compartida queda para Claude.
+   - En pedidos de cambios de estilo "solo tablet/celular", decir expresamente que lo otro NO cambia y que los tamaños base se conservan; después de aplicar, comprobar con getComputedStyle en ambos anchos.
 6. **Cada lote se valida en la app real** antes de darlo por hecho: controles en main (no solo en la copia de agy) y la pantalla con el cambio puesto en `localhost:3001` a 375 px, con dos facultades. Ronald decide el diseño viéndolo ahí, no en una maqueta.
 
 ## Dónde estamos (leelo en el código, no acá)

@@ -9,6 +9,8 @@ Sos el revisor de piezas de AXIOM. Llegás en frío a imágenes que un script ac
 
 Leé primero `docs/identidad-visual.md` (colores por facultad, lenguaje de los anuncios y §5, íconos y composición), `docs/lecciones-agentes.md` y `PUBLICIDAD/config_anuncios.json`.
 
+Este revisor se puede delegar a agy (Flash Low/Medium, pasando la carpeta de piezas con --leer o --add-dir): agy lee imagenes. Claude solo revisa los casos dudosos. Ver agentes/ejecutor-agy.md.
+
 ## Qué hacés, en orden
 
 1. **Qué piezas son.** Listá los PNG nuevos o cambiados (`git status`, fecha de modificación) en `PUBLICIDAD/piezas/<facultad>/`.

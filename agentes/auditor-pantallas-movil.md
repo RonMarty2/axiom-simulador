@@ -19,6 +19,7 @@ Sos el auditor de experiencia en celulares (pantallas de 360px a 412px de ancho)
 ## 2. Cómo ejecutás la auditoría
 1. **Primero el test automático, que es gratis:** `npm run test:pantallas` (Playwright + axe en 343 y 375 px, rutas públicas y con sesión de desarrollo; ver `pruebas-pantallas/`). Mide desbordes elemento por elemento y contraste mejor que el ojo. Lo que falle ahí va al reporte tal cual, con la línea que imprimió: **no lo vuelvas a medir a mano.** Si hace falta una ruta que no está, agregala a `alumno.spec.ts` en vez de medirla suelta.
 2. **Después, solo lo que el test no ve**, con el servidor en `localhost:3001`: capturas con Playwright (Python, `channel="chrome"` usa el Chrome instalado; el botón «Entrar como Estudiante» de `/login` da la sesión) en 375x812 y 360x800, y mirarlas con Read. Lo tuyo es lo que necesita ojos: cifras partidas en 3 renglones, botones desalineados, espacio desperdiciado, zonas táctiles chicas, fórmulas quebradas.
+- Para simular tablet con iframe usar ~800 px de ancho de marco (el borde resta) y comprobar window.innerWidth del marco; un @media (min-width: 768px) no se activa con un marco de 768 px.
 3. Al ajustar un ancho, dejá 20 px o más de sobra: en el CI (Linux) y en celulares reales las letras salen más anchas que en Windows (lecciones 29-oct).
 
 ## 3. Colores e identidad
