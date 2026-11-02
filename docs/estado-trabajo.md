@@ -57,3 +57,11 @@ Los 12 tipos con hallazgos se arreglaron en sus generadores: cuentas de dos cifr
 3. **Cada informe de agente se resume acá o en la bitácora en el momento**, no «después». Las reglas candidatas que devuelva un agente se suman a `hallazgosPasos`.
 4. Al cerrar la sesión: actualizar este archivo, la entrada de `BITACORA.md` y subir a `main`.
 5. Hablarle a Ronald simple y corto; una pregunta por vez con respuesta de una palabra.
+
+## Refuerzo intermitente y piezas (1-nov-2026, noche)
+
+- **Hecho, sin commitear en el árbol de trabajo:** arreglo del chip «vs tu último examen» (`resultados/page.tsx`), núcleo puro del premio (`src/lib/refuerzo*.ts`, 568 tests en verde, `tsc` y lint sin errores), emojis fuera de `generar_carruseles.py`, `generar_historias_quiz.py` y `config_anuncios.json`, verde claro de Económicas unificado (`#a7f3d0`), 21 piezas regeneradas.
+- **Herramienta nueva:** `scripts/agy/` (agy_run.py, aplicar.py, candado) y agente `ejecutor-agy`. Flash 3.8 para lo mecánico, Argon para lo que pide criterio; la cuota de agy es por modelo. Una tanda se perdió porque agy no puede leer fuera de su copia sin `--leer`.
+- **Diseño aprobado por Ronald:** pantalla crema como hoy; solo el bloque del premio con el estilo de los anuncios (color pleno de la facultad, resplandor, partículas). Detalle en `docs/plan-refuerzo-intermitente.md` §3.3 y maqueta v6.
+- **Pendiente (Ronald dijo «dejalo» sobre las piezas):** las 21 piezas no están aprobadas por `revisor-piezas` (franjas vacías y letra chica en las plantillas; cifras sin fuente como «80 %», «100 preguntas», «Curso Básico»). Decisiones abiertas: sacar o fundamentar las cifras; color del check ✓ (verde o de la facultad); color de Derecho en anuncios.
+- **Hecho (1-nov, noche), sin commitear:** Lotes 2, 3 y 4 del plan de refuerzo en el árbol de trabajo (premio con partículas en resultados con 4 tipos de mensaje, línea fija «Dominaste N», franja de 7 días `ConstanciaSemana`, métricas de retención en `/api/admin/retencion` solo admin, línea de constancia en inicio/progreso). 593 tests, `tsc` y lint sin errores. Falta: `npm run build` (no se corrió para no pisar el servidor de desarrollo), `verificador`, mirar `/errores`, inicio y progreso en la app real, y el commit.

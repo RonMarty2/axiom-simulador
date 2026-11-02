@@ -26,6 +26,8 @@ Usa el toolkit de `skills/ffmpeg/scripts/` para la auditoría técnica y visual:
 5. **Voz y Sincronía:**
    Transcribe con `faster_whisper` y compara con el guion; el texto en pantalla debe aparecer 0,3-0,8 s antes de que se diga. Revisa la pronunciación de la marca ("Áxiom", no "Axióm").
 
+5b. **Íconos y uso de la pantalla** (`../docs/identidad-visual.md` §5): un emoji usado como ícono en un fotograma es hallazgo (va SVG de una sola familia, o nada). También lo es un fotograma con el contenido en una franja chica y fondo liso arriba y abajo dentro de la zona segura.
+
 6. **Ritmo y Dinámica:**
    ¿Hay más de 2.5 segundos seguidos sin cambio visual ni estímulo auditivo? ¿El CTA final dura al menos 3 segundos para que pueda leerse?
 

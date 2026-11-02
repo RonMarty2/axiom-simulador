@@ -23,6 +23,8 @@ Para **cada** rama remota sin mergear: `git log --oneline origin/main..<rama> | 
 
 Reportá: rama, commits afuera, fecha, qué archivos toca (`git diff --stat origin/main...<rama>`), y si choca con algo que cambió en `main`. **No mergees vos**: eso lo decide la sesión que te llamó.
 
+**Copias de `agy`:** `git worktree list` y `git branch --list "agy/*"`. Son locales (en `%LOCALAPPDATA%\axiom-agy`) y no llevan commits: su trabajo está en el árbol de la copia hasta que `scripts/agy/aplicar.py <id> --si` lo trae a main. Para cada una, decí si ya se aplicó (comparar su `DIFF.txt` con `git diff` de main) y, si sí, que se borre con `aplicar.py <id> --limpiar`. Al cerrar la tanda del 1-nov quedaron 8 sin limpiar. Al cerrar sesión, si hay trabajo de agy aplicado sin commitear, recordá que el build y el `verificador` se corren en main (`agentes/ejecutor-agy.md`, paso 6).
+
 **Animaciones (pedido de Ronald, 9-oct):** al cerrar sesión que tocó animaciones, corré `node src/app/prueba-animacion/cobertura.ts --huecos` (debe dar 0) y listá a Ronald los tipos que siguen sin generador (tabla de `docs/cobertura-animaciones.md`) y los pasos que la sesión cambió, para que elija qué sigue. Él no puede quejarse de una animación que no ve: la lista de lo que falta la armás vos. Corré también `node src/app/prueba-animacion/revisar-pasos.ts listar`: cada corrección de la sesión debe estar registrada como paso por revisar, y los pasos "dados por vistos sin observación" deben tener evidencia de que Ronald llegó más allá (si no, avisá).
 
 ## Tarea B · El roadmap contra el código

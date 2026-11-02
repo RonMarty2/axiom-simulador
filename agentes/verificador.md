@@ -16,7 +16,7 @@ npm test
 npm run build
 ```
 
-Las cuatro corren en CI (`.github/workflows/ci.yml`), pero Vercel despliega sin esperar al CI. Si alguna falla, eso va primero en el reporte, con la salida exacta.
+Las cuatro corren en CI (`.github/workflows/ci.yml`), pero Vercel despliega sin esperar al CI. Si alguna falla, eso va primero en el reporte, con la salida exacta. `npm run build` pisa el `.next` del servidor de desarrollo: si hay uno corriendo en `localhost:3001`, pedí que lo detengan antes (o decí en **Revisar** que el build no se corrió); no lo des por pasado.
 
 **Si el diff toca resultados** (una `**respuesta:**`, una explicación con cuentas, una lámina con números): comprobá cada resultado nuevo o cambiado con `scripts/verificar-cuenta.py` (`igual`, `raices`, `unidades`, `balance`, `masa`; instalación y uso en su encabezado; en Git Bash, `"$LOCALAPPDATA/axiom-py/Scripts/python" scripts/verificar-cuenta.py ...`). Un `NO` es **bloqueante**, con la línea que imprimió. Si el script no está instalado en la máquina, decilo en **Revisar**: no lo des por comprobado.
 
@@ -38,6 +38,10 @@ Las cuatro corren en CI (`.github/workflows/ci.yml`), pero Vercel despliega sin 
 - ¿Compara algo consigo mismo? ¿Mide entre dos puntos iguales?
 - ¿Se probó rompiendo algo a propósito? Si no hay evidencia, pedilo.
 - Si enumera formas a mano (verbos, frases), ¿se podría generar? Las listas a mano dejaron pasar 54 casos de voseo.
+
+**Trabajo hecho por `agy` (u otro modelo).** Si el diff vino de `scripts/agy/aplicar.py` o de un parche de la copia:
+- Los controles se corren **otra vez en main**; que `CONTROLES.txt` de la copia diga verde no alcanza (la copia puede haber nacido sin los cambios sin commitear de main).
+- **Un test escrito por otro modelo puede tener la cuenta mal.** Rehacé a mano cada valor esperado nuevo (media, mediana, porcentajes, fechas) antes de dar el test por bueno o de culpar al código. El 1-nov un test esperaba media 3 con bloques 1, 2, 6 y 4; es 3,25 y el código estaba bien.
 
 **Respuestas del banco.** Toda `respuesta:` que cambió: ¿la explicación nueva llega a esa opción con la cuenta? ¿Hay un paréntesis justificando por qué el resultado no coincide? (Es un error, no una aclaración.) ¿Alguna nota del tipo "no se pudo leer la figura" o "se adoptó la lectura más simple" sobre una respuesta que no sea E?
 

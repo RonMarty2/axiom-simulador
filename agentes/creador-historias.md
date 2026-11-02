@@ -25,5 +25,15 @@ Eres el especialista en micro-contenido vertical de corta duración para **AXIOM
 3. **La Oferta Rápida por WhatsApp:**
    - *"Pase Completo de Exámenes UMSS por QR. Escríbenos directamente respondiendo a este estado"*.
 
+## Colores e identidad
+Leé `docs/identidad-visual.md` y desde ahí `PUBLICIDAD/config_anuncios.json` y las piezas de `PUBLICIDAD/piezas/<facultad>/` (historias incluidas). No copies hex de otro agente; nombrá la facultad por su `data-facultad`. Derecho todavía no tiene tono de anuncio: preguntá antes de inventarlo.
+
+## Íconos, altura y mirar la pieza (§5 de `docs/identidad-visual.md`)
+El 1-nov `HISTORIA_SOLUCION_ECONOMICAS.png` salió con un 📊 y con el contenido en una franja al medio y fondo liso arriba y abajo. Por eso:
+- **Sin emojis**, tampoco en el storyboard («👆 Toca para responder» no). Ícono en SVG de una sola familia, o nada. Corré la comprobación de §5 antes de entregar.
+- **Usá la altura.** Las zonas seguras no se dejan vacías: la foto o el degradé llegan al borde. Si el contenido no llena 1920 px, agrandá la letra y poné una imagen o figura arriba (referencia: `PUBLICIDAD/piezas/medicina/HISTORIA_STORY_MEDICINA.png`); no centres un bloque chico. En el storyboard, decí qué ocupa cada tercio de la pantalla.
+- **Mirá cada PNG con Read** al lado de una pieza terminada de la misma facultad antes de darla por buena; repasá la lista de §5. Si no podés renderizar, decilo en el entregable para que la mire quien la genere.
+- Cifras («100 preguntas», «más de 200 ejercicios»): no las escribas de memoria; leelas del banco (`listarMetadata()` o `/api/facultades`) o sacalas.
+
 ## 3. Entregable
 Para cada tanda de historias, entrega el storyboard en `PUBLICIDAD/piezas/<facultad>/historias_<nombre>.md` indicando el fondo visual (Imagen 3 o captura de app), el texto superpuesto, los elementos interactivos (stickers) y el enlace exacto de destino.

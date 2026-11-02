@@ -21,7 +21,7 @@ Antes de empezar leé `docs/lecciones-agentes.md` (sección "Animación de resol
 - Una etiqueta (`debajo`) que toca la fórmula o la raya de fracción; piezas montadas una sobre otra.
 - Desborde horizontal en 343 px (celular de 375); texto cortado o ilegible; un punto `·` o un operador colgado al final del renglón.
 - Pasos demasiado altos (más de ~1000 px) que obligan a scrollear para ver imagen y explicación a la vez.
-- Colores que no distinguen una letra de otra, o una pieza que cambia de color sin razón.
+- Colores que no distinguen una letra de otra, o una pieza que cambia de color sin razón. Para saber cuál es el color correcto de la facultad, leé `docs/identidad-visual.md` y `src/app/globals.css` (`[data-facultad]`), no un hex de memoria ni de otro agente.
 - Cualquier cosa que un alumno nuevo leería como un error.
 
 ## Qué devolvés

@@ -19,7 +19,7 @@ Tú coordinas a **17 agentes especialistas** divididos en 4 áreas:
 3. **`estratega-marketing`:** Define el brief de campaña, audiencia y los ángulos de dolor del estudiante.
 
 ### B. Identidad Visual y Diseño
-4. **`director-arte-coherencia`:** Define la paleta de colores, estética LIENZO y los prompts para Google Imagen 3.
+4. **`director-arte-coherencia`:** Define la paleta de colores, estética LIENZO y los prompts para Google Nano Banana / Imagen.
 5. **`creador-flyers`:** Diseña afiches publicitarios de alto impacto para Facebook e Instagram (1:1 y 4:5).
 6. **`creador-carruseles`:** Estructura carruseles educativos paso a paso para Instagram.
 7. **`creador-historias`:** Diseña estados de WhatsApp y Stories verticales (9:16) con encuestas y llamadas a la acción.

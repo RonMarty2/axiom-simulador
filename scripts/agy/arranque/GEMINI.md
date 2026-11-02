@@ -1,0 +1,1 @@
+Reglas para Gemini en Axiom: lee CLAUDE.md y docs/lecciones-agentes.md del repo antes de empezar. Texto al alumno en tuteo, nunca voseo. Sin emojis en codigo. Ninguna cifra de catalogo escrita a mano. Haz SOLO lo que pide el pedido.
