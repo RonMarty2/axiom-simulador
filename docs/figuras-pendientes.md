@@ -11,6 +11,10 @@ es justo la única que **el facsímil no alcanza a resolver**: la
 en 1. **Ese 1 ya no baja leyendo PDF**: bajarlo requiere decidir qué hacer con
 una pregunta que el examen original dejó ambigua.
 
+**4-nov-2026: ese 1 bajó a 0.** La `2010-parcial1-2` P7 se resolvió contra el
+facsímil (B, 40°) y tiene figura; el tope del test quedó en 0. Ver "La única que
+el facsímil NO resuelve", más abajo, para el porqué.
+
 **Y hay 72 más que el test no ve**, más una tercera categoría que ni el test ni
 esa lista alcanzan. Es lo primero que hay que leer de este archivo: está abajo,
 en "El 1 es un piso, no un techo".
@@ -522,6 +526,16 @@ de ahí la E. **Queda como E**: es el único caso del banco donde tener el
 facsímil en la mano no alcanza, y conviene que esté escrito para que la próxima
 sesión no vuelva a abrirlo esperando resolverlo.
 
+**4-nov-2026 · sí se resolvía.** Leída por los trazos vectoriales
+(`page.get_drawings()`), la marca del 3 es un segmentito con un extremo a
+0,02 pt de la transversal casi horizontal y el otro a 0,6 pt de la oblicua. Esas
+dos rectas solo se cortan en X (a la izquierda de AB), a unos 11 pt de la marca:
+los ~100 px a 800 dpi eran **el radio de la marca**, no una distancia a otro
+cruce. El 3 es el ángulo entre las dos transversales en X; el 2 es exterior del
+triángulo que forman con CD, y 3 = 2 − 1 = 40° (b). Dibujada como
+`g7-paralelas-transversales-40-80`. La lección: una marca de ángulo se ubica por
+**sobre qué rectas caen sus extremos**, no por a qué distancia queda del cruce.
+
 ### El lote de física: dos respuestas cambiaron
 
 Cuatro preguntas, cuatro PDF, y el peor rendimiento de acierto de todo el
@@ -670,6 +684,16 @@ sombreado arco por arco y la respuesta marcada es un "ninguna de las
 anteriores", que es justo el caso en que conviene no apurarse. Queda como el
 primer caso de esta categoría, que por definición **ningún regex puede
 encontrar**: solo aparece abriendo el PDF. Si aparecen más, van acá.
+
+**4-nov-2026**, al abrir los facsímiles de las 10 «de la figura» de Ingeniería,
+aparecieron figuras en la misma página que el banco no declara (no se
+contrastaron ni dibujaron; el enunciado de cada una describe el dibujo en texto):
+
+| examen | preg. | facsímil | qué trae la figura |
+|---|---|---|---|
+| `2022-3op-2-2022` | 11 | `3-op-2-2022.pdf` p.2 (F11) | bloque M empujado por F, bloque m contra su cara delantera, «Liso» al piso |
+| `2023-3op-1-2023` | 10 | `3-op-1-2023.pdf` p.2 (F10) | q₁, P, q₂ en línea con cotas 4 m y 6 m |
+| `2020-3op-1-2020` | 10 | `163_3ra-op-1-2020.pdf` p.2 (F10) | bloque con 6 m/s hacia la izquierda, B ← 5 m → A |
 
 ## Cómo desbloquear esto: trabajar en local
 

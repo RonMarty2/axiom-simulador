@@ -12,7 +12,7 @@ Si no pasas --despues, corre los controles de siempre dentro de la copia: tsc, l
 Deja en <trabajo>/<id>/: ENTREGA.json, DIFF.txt (lineas enteras), CONTROLES.txt, RESPUESTA.md.
 Revisar SOLO eso. Para traer el resultado a main: python scripts/agy/aplicar.py <id> [--si]
 """
-import argparse, os, sys, json, time, subprocess, datetime
+import argparse, os, sys, json, time, subprocess, datetime, re
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.dirname(os.path.dirname(AQUI))
@@ -39,9 +39,12 @@ REGLAS FIJAS (no negociables):
 3. Texto al alumno en tuteo (nunca voseo). Sin emojis en codigo. Cero cifras de catalogo escritas a mano.
 4. No inventes datos. Si no sabes algo, escribe "NO SE".
 5. Haz SOLO lo que pide la tarea. No reformatees ni "mejores" lo que no se pidio. No hagas commit.
-6. Al terminar, escribe ENTREGA_AGY.md en la raiz de la copia con: (a) que hiciste, (b) archivos que cambiaste,
-   (c) que comprobaste, (d) dudas o lo que no pudiste hacer. Breve.
+{regla6}
 """
+REGLA6_EDITA = ("6. Al terminar, escribe ENTREGA_AGY.md en la raiz de la copia con: (a) que hiciste, (b) archivos que cambiaste,\n"
+                "   (c) que comprobaste, (d) dudas o lo que no pudiste hacer. Breve.")
+REGLA6_TEXTO = ("6. Este pedido es SOLO LECTURA (modo plan): NO tienes permiso de escribir archivos, no uses write_file ni ENTREGA_AGY.md.\n"
+                "   Entrega el informe COMPLETO como texto en tu respuesta final.")
 
 
 def git(*args, cwd=REPO):
@@ -88,6 +91,29 @@ def diff_de(repo):
     return estado, git("diff", "--no-color", "--", ".", ":(exclude)ENTREGA_AGY.md", cwd=repo).stdout
 
 
+def verificar_entrega(carpeta, pedido_txt, res, modelo, suf=""):
+    """Alertas baratas sobre la entrega (propuesta_motor_axiom.md): agente nombrado y no abierto, respuesta corta, cuota de Argon."""
+    alertas = []
+    try:
+        citados = set(re.findall(r"(?:skill|agente)\s+[`'\"]([\w-]+)[`'\"]", pedido_txt or "", re.I)) - {"ejecutor-agy"}
+        jl = os.path.join(carpeta, f"run{suf}.jsonl")
+        abiertos = set()
+        if citados and os.path.exists(jl):
+            for l in open(jl, encoding="utf-8", errors="replace"):
+                if "view_file" in l or "read_file" in l:
+                    for ag in citados:
+                        if ag in l and ("SKILL.md" in l or ag + ".md" in l):
+                            abiertos.add(ag)
+        alertas += [f"AGENTE NO CARGADO: {ag}" for ag in sorted(citados - abiertos)]
+        if res.get("status") == "SUCCESS" and len((res.get("response") or "").strip()) < 80:
+            alertas.append("RESPUESTA MUY CORTA CON SUCCESS")
+        if ("429" in str(res.get("finished_reason", "")) or "RESOURCE_EXHAUSTED" in str(res)[:2000]) and "Argon" in modelo:
+            alertas.append("RELANZAR CON FLASH MEDIUM: cuota agotada en Argon")
+    except Exception as e:
+        alertas.append(f"(verificador con error: {e})")
+    return alertas
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--tipo", default="")
@@ -129,9 +155,11 @@ def main():
     pedido = open(a.pedido, encoding="utf-8").read()
     if previo:
         texto = (f"CORRECCION de Claude sobre tu entrega anterior (misma tarea, mismas reglas, misma copia {repo}). "
-                 f"Corrige SOLO esto:\n\n{pedido}\n\nAl terminar, agrega una seccion 'Vuelta {vuelta}' a ENTREGA_AGY.md.")
+                 f"Corrige SOLO esto:\n\n{pedido}\n\n"
+                 + ("Entrega el resultado como texto en tu respuesta final (no escribas archivos)." if a.solo_texto
+                    else f"Al terminar, agrega una seccion 'Vuelta {vuelta}' a ENTREGA_AGY.md."))
     else:
-        texto = pedido + "\n" + REGLAS_AGY.format(repo=repo)
+        texto = pedido + "\n" + REGLAS_AGY.format(repo=repo, regla6=REGLA6_TEXTO if a.solo_texto else REGLA6_EDITA)
     with open(os.path.join(carpeta, f"PEDIDO{suf}.md"), "w", encoding="utf-8") as f:
         f.write(texto)
 
@@ -173,6 +201,21 @@ def main():
         proc, res, errores2 = correr(cmd[:-1] + [cmd[-1] + aviso], os.path.join(carpeta, "run2.jsonl"))
         errores += ["[reintento] " + x for x in errores2]
         tokens_total += (res.get("usage") or {}).get("total_tokens") or 0
+    if a.solo_texto and not (res.get("response") or "").strip() and res.get("conversation_id"):
+        # respaldo (propuesta_motor_axiom.md): respuesta vacia en modo texto -> una vez, misma conversacion, Flash Medium
+        reintento = True
+        pide = ("Tu respuesta anterior salio VACIA. No escribas archivos (se niegan). Pega AHORA, como texto en este mensaje, "
+                "el informe completo con el formato pedido; si no terminaste, entrega lo que ya tienes y lista lo que falta.")
+        cmd_r = [AGY, "--sandbox", "--model", MODELOS["lectura"], "--mode", "plan", "--output-format", "stream-json",
+                 "--print-timeout", f"{a.timeout}s", "--conversation", res["conversation_id"]]
+        for p_ in a.leer + [repo]:
+            cmd_r += ["--add-dir", p_]
+        cmd_r += ["-p", pide]
+        proc, res2, errores2 = correr(cmd_r, os.path.join(carpeta, f"run{suf}_texto.jsonl"))
+        errores += ["[respaldo texto] " + x for x in errores2]
+        tokens_total += (res2.get("usage") or {}).get("total_tokens") or 0
+        if (res2.get("response") or "").strip():
+            res = res2
     minutos = round((time.time() - t0) / 60, 1)
     with open(os.path.join(carpeta, f"RESPUESTA{suf}.md"), "w", encoding="utf-8") as f:
         f.write(res.get("response", "(sin respuesta: ver run.jsonl)"))
@@ -200,6 +243,7 @@ def main():
         estado += " PERO NO CREO NI CAMBIO NADA"
     if any("quota" in (e or "").lower() or "429" in (e or "") for e in errores) or "quota" in (res.get("response") or "").lower():
         estado += " SIN CUOTA EN ESTE MODELO: probar otro (agy models)"
+    estado += "".join(" | " + x for x in verificar_entrega(carpeta, pedido, res, modelo, suf))
     vueltas = list((previo or {}).get("vueltas") or [])
     if previo:
         vueltas.append({"id": rid, "estado_agy": estado, "minutos": minutos, "errores_agy": errores})

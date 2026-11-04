@@ -205,7 +205,9 @@ describe("banco de exámenes", () => {
   // peor, la descripción que le pusieron tenía el triángulo al revés. Hay 74
   // preguntas en esa situación, listadas en docs/figuras-pendientes.md. Bajar
   // este tope reescribiendo texto no es progreso; dibujar la figura sí.
-  const FIGURAS_NO_DECLARADAS_TOPE = 1;
+  // 4-nov-2026: baja a 0. La última, `2010-parcial1-2` P7, se dibujó contra el
+  // facsímil (la marca del ángulo 3 no estaba suelta: era el radio de la marca).
+  const FIGURAS_NO_DECLARADAS_TOPE = 0;
 
   // Nombra "la figura"/"el gráfico" como algo que debería estar a la vista.
   // Deja afuera a propósito los "se muestra a continuación" seguidos de la

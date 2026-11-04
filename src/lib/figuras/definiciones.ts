@@ -6886,6 +6886,478 @@ function f12ProyectilRampa45(): Figura {
   return { ancho: Math.round(pie.x + 24), alto: Math.round(yPiso + 16), pasos: 0, elementos: el };
 }
 
+// ── Lote 4-nov-2026 · preguntas «de la figura» que el banco no dibujaba ──
+
+function flecha(de: Pt, a: Pt, rol: Rol = "trazo", grosor = 1.6, tam = 8, color?: string): Elemento[] {
+  return [
+    { tipo: "linea", de, a: avanzar(a, anguloHacia(a, de), tam * 0.6), rol, grosor, color },
+    { tipo: "path", d: cabezaFlecha(a, anguloHacia(de, a), tam), rol, relleno: true, color },
+  ];
+}
+
+// Recorta la recta que pasa por `p` con dirección `ang` al rectángulo [x0,x1]×[y0,y1].
+function recortarRecta(p: Pt, ang: number, x0: number, y0: number, x1: number, y1: number): { de: Pt; a: Pt } | null {
+  const dx = Math.cos((ang * Math.PI) / 180), dy = -Math.sin((ang * Math.PI) / 180);
+  let tMin = -1e9, tMax = 1e9;
+  for (const [d, q, lo, hi] of [[dx, p.x, x0, x1], [dy, p.y, y0, y1]] as const) {
+    if (Math.abs(d) < 1e-12) { if (q < lo || q > hi) return null; continue; }
+    const t1 = (lo - q) / d, t2 = (hi - q) / d;
+    tMin = Math.max(tMin, Math.min(t1, t2));
+    tMax = Math.min(tMax, Math.max(t1, t2));
+  }
+  if (tMax - tMin < 1e-6) return null;
+  return { de: { x: p.x + dx * tMin, y: p.y + dy * tMin }, a: { x: p.x + dx * tMax, y: p.y + dy * tMax } };
+}
+
+// G7 (1-2008 parcial, G2, figura 1) · AB ∥ CD; por el punto O de AB pasan una
+// horizontal (que corta CD en Q) y una transversal (que corta CD en P). Leído
+// de los trazos vectoriales del facsímil (pág. 2, recorte a 500 dpi): el
+// ángulo 1 está en P, entre PO y PC; el 2 en Q, entre la horizontal hacia la
+// derecha y QD; el 3 en O, entre la prolongación de la transversal bajo O y OA.
+// El facsímil no está a escala (el 2 se ve de unos 70°): acá AB y CD suben a
+// 125° de la horizontal para que el 2 mida lo que dice, y por eso se inclinan
+// a la izquierda. El 3 es opuesto por el vértice a ∡BOP, alterno interno del
+// 1: mide 30° sin importar el 125°, y 30° no está entre las opciones (e).
+function g7ParalelasAngulos30y125(): Figura {
+  const ANG1 = 30, ANG2 = 125;
+  const DIR = ANG2;                                  // AB y CD
+  const O: Pt = { x: 170, y: 218 };
+  const Q: Pt = { x: 280, y: 218 };
+  const P = cruce(O, avanzar(O, DIR - ANG1, 1), Q, avanzar(Q, DIR, 1));
+  const B = avanzar(O, DIR, 150), A = avanzar(O, DIR + 180, 72);
+  const D = avanzar(P, DIR, 26), C = avanzar(Q, DIR + 180, 72);
+  const colaT = avanzar(O, anguloHacia(P, O), 58);   // la transversal sigue bajo O
+  const derecha: Pt = { x: Q.x + 60, y: Q.y };
+
+  if (desvioParalelas(A, B, C, D) > 1e-6) throw new Error("g7 2008: AB y CD no quedaron paralelas");
+  verificarAngulo("ángulo 1 en P (entre PO y PC)", ANG1, anguloEn(P, O, C));
+  verificarAngulo("ángulo 2 en Q (horizontal derecha y QD)", ANG2, anguloEn(Q, derecha, P));
+  if (!(P.y < Q.y && Q.y < C.y)) throw new Error("g7 2008: Q tiene que quedar entre P y C sobre CD");
+  // Lo que se pregunta, medido sobre lo dibujado: 30° (no está en las opciones).
+  verificarAngulo("ángulo 3 en O (alterno de 1)", 30, anguloEn(O, colaT, A));
+
+  const a1 = arcoAngulo(P, anguloHacia(P, O), anguloHacia(P, C), 26, 40);
+  const a2 = arcoAngulo(Q, 0, DIR, 20, 33);
+  const a3 = arcoAngulo(O, anguloHacia(O, colaT), anguloHacia(O, A), 28, 42);
+  const el: Elemento[] = [
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: C, a: D, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: O.x - 110, y: O.y }, a: derecha, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: colaT, a: P, rol: "trazo", grosor: 1.6 },
+    { tipo: "arco", d: a1.d, rol: "dato" },
+    rotulo(a1.etiquetaEn, "1", "dato", 13),
+    { tipo: "arco", d: a2.d, rol: "dato" },
+    rotulo(a2.etiquetaEn, "2", "dato", 13),
+    { tipo: "arco", d: a3.d, rol: "incognita" },
+    rotulo(a3.etiquetaEn, "3", "incognita", 13),
+    rotulo({ x: A.x + 8, y: A.y + 12 }, "A", "trazo", 14),
+    rotulo({ x: B.x - 10, y: B.y - 6 }, "B", "trazo", 14),
+    rotulo({ x: C.x + 8, y: C.y + 12 }, "C", "trazo", 14),
+    rotulo({ x: D.x - 12, y: D.y - 2 }, "D", "trazo", 14),
+  ];
+  return { ancho: 400, alto: 300, pasos: 0, elementos: el };
+}
+
+// G7 (2-2010 parcial, G2) · AB ∥ CD y dos transversales que se cruzan en X, a
+// la izquierda de AB. Del facsímil (pág. 4, vectores y recorte a 500 dpi): el
+// 1 está en P1 (transversal oblicua ∩ CD), entre P1X y P1C; el 2 en P2
+// (transversal casi horizontal ∩ CD), entre la transversal hacia la derecha y
+// P2D; el 3 en X, entre las dos transversales del lado izquierdo. El 2 es
+// exterior del triángulo X·P1·P2, así que 3 = 2 − 1 = 40° (b). AB no se usa.
+// Acá P1 sale del ángulo 1 y X del cruce; el 3 se mide sobre lo dibujado.
+function g7ParalelasTransversales40y80(): Figura {
+  const ANG1 = 40, ANG2 = 80;
+  const DIR = 82;                                    // CD y AB
+  const DIR1 = DIR - ANG2;                           // transversal casi horizontal
+  const P2: Pt = { x: 292, y: 232 };
+  const P1 = avanzar(P2, DIR, 200);
+  const X = cruce(P1, avanzar(P1, DIR + 180 - ANG1, 1), P2, avanzar(P2, DIR1, 1));
+  const ref = avanzar(X, DIR1, 45);
+  const B = hastaY(ref, DIR, 44), A = hastaY(ref, DIR + 180, 286);
+  const D = avanzar(P1, DIR, 20), C = hastaY(P2, DIR + 180, 286);
+  const izq1 = avanzar(X, DIR1 + 180, 28), der1 = avanzar(P2, DIR1, 58);
+  const izq2 = avanzar(X, anguloHacia(P1, X), 46), der2 = avanzar(P1, anguloHacia(X, P1), 26);
+
+  if (desvioParalelas(A, B, C, D) > 1e-6) throw new Error("g7 2010: AB y CD no quedaron paralelas");
+  verificarAngulo("ángulo 1 en P1 (entre P1X y P1C)", ANG1, anguloEn(P1, X, C));
+  verificarAngulo("ángulo 2 en P2 (transversal a la derecha y P2D)", ANG2, anguloEn(P2, der1, D));
+  // X queda a la izquierda de AB y AB corta las dos transversales (como en el facsímil).
+  const k1 = cruce(X, P2, A, B), k2 = cruce(X, P1, A, B);
+  if (!(X.x < k1.x && k1.x < P2.x && X.x < k2.x && k2.x < P1.x)) throw new Error("g7 2010: AB tiene que cortar las transversales entre X y CD");
+  verificarAngulo("ángulo 3 en X (entre las transversales)", 40, anguloEn(X, izq1, izq2));
+
+  const a1 = arcoAngulo(P1, anguloHacia(P1, X), anguloHacia(P1, C), 24, 38);
+  const a2 = arcoAngulo(P2, DIR1, DIR, 20, 33);
+  const a3 = arcoAngulo(X, DIR1 + 180, anguloHacia(X, izq2), 22, 36);
+  const el: Elemento[] = [
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: C, a: D, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: izq1, a: der1, rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: izq2, a: der2, rol: "trazo", grosor: 1.4 },
+    { tipo: "arco", d: a1.d, rol: "dato" },
+    rotulo(a1.etiquetaEn, "1", "dato", 13),
+    { tipo: "arco", d: a2.d, rol: "dato" },
+    rotulo(a2.etiquetaEn, "2", "dato", 13),
+    { tipo: "arco", d: a3.d, rol: "incognita" },
+    rotulo(a3.etiquetaEn, "3", "incognita", 13),
+    rotulo({ x: A.x + 10, y: A.y + 6 }, "A", "trazo", 14),
+    rotulo({ x: B.x + 12, y: B.y + 4 }, "B", "trazo", 14),
+    rotulo({ x: C.x + 12, y: C.y + 2 }, "C", "trazo", 14),
+    rotulo({ x: D.x - 13, y: D.y + 2 }, "D", "trazo", 14),
+  ];
+  return { ancho: 380, alto: 300, pasos: 0, elementos: el };
+}
+
+// Ejes de una gráfica con marcas y números. `en` pasa de (t, v) a píxeles.
+function ejesGrafica(
+  en: (t: number, v: number) => Pt, t0: number, t1: number, v0: number, v1: number,
+  marcasT: number[], marcasV: number[], fmt: (n: number) => string,
+): Elemento[] {
+  const el: Elemento[] = [
+    { tipo: "linea", de: en(t0, v0), a: en(t0, v1), rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: en(t0, 0), a: en(t1, 0), rol: "trazo", grosor: 1.4 },
+  ];
+  for (const t of marcasT) {
+    const p = en(t, 0);
+    el.push({ tipo: "linea", de: { x: p.x, y: p.y - 4 }, a: { x: p.x, y: p.y + 4 }, rol: "trazo", grosor: 1 });
+    el.push({ tipo: "texto", en: { x: p.x, y: p.y + 14 }, texto: fmt(t), rol: "trazo", tam: 11 });
+  }
+  for (const v of marcasV) {
+    const p = en(t0, v);
+    el.push({ tipo: "linea", de: { x: p.x - 4, y: p.y }, a: { x: p.x + 4, y: p.y }, rol: "trazo", grosor: 1 });
+    el.push({ tipo: "texto", en: { x: p.x - 8, y: p.y }, texto: fmt(v), rol: "trazo", tam: 11, ancla: "end" });
+  }
+  return el;
+}
+const coma = (n: number) => String(n).replace(".", ",").replace("-", "−");
+
+// F11 (2-2009 única) · gráfico v-t: recta de (0 s, 4 m/s) a (2,5 s, −1 m/s),
+// como en el facsímil (pág. 2, recorte a 400 dpi). Sobre lo dibujado: v(2) = 0
+// y W = ½m(v₂² − v₀²) = −16 J con m = 2 kg (b).
+function f11GraficaVt4a0en2s(): Figura {
+  const M = 2;
+  const LEIDO: [number, number][] = [[0, 4], [2.5, -1]];
+  const ESX = 120, ESY = 34, X0 = 74, Y0 = 26 + 4 * ESY;
+  const en = (t: number, v: number): Pt => ({ x: X0 + t * ESX, y: Y0 - v * ESY });
+  const [p, q] = LEIDO.map(([t, v]) => en(t, v));
+  const vEn = (t: number) => {
+    const x = en(t, 0).x;
+    return (Y0 - (p.y + ((q.y - p.y) * (x - p.x)) / (q.x - p.x))) / ESY;
+  };
+  verificarDistancia("la recta dibujada cruza v = 0 en t = 2 s", 0, vEn(2), 1e-9);
+  verificarDistancia("W neto entre 0 y 2 s = −16 J", -16, 0.5 * M * (vEn(2) ** 2 - vEn(0) ** 2), 1e-9);
+
+  const el: Elemento[] = [
+    ...ejesGrafica(en, 0, 2.5, -1, 4, [0.5, 1, 1.5, 2, 2.5], [-1, 1, 2, 3, 4], coma),
+    { tipo: "texto", en: { x: X0 - 8, y: Y0 + 12 }, texto: "0", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "linea", de: p, a: q, rol: "trazo", grosor: 2.4 },
+    { tipo: "texto", en: { x: en(1.25, 0).x, y: Y0 + 32 }, texto: "t [s]", rol: "trazo", tam: 12, cursiva: true },
+    { tipo: "texto", en: { x: 22, y: en(0, 1.5).y }, texto: "v [m/s]", rol: "trazo", tam: 12, rot: -90 },
+  ];
+  return { ancho: Math.round(en(2.5, 0).x + 24), alto: Math.round(en(0, -1).y + 16), pasos: 0, elementos: el };
+}
+
+// F17 (1-2010 parcial, F2) · gráfico x-t con cuadrícula: recta de (0 s, 15 m) a
+// (4 s, −5 m). El facsímil (pág. 2) trae una imagen de 180×192 px; ampliada,
+// los números de los ejes son 15, 10, 5, 0, −5 y 1, 2, 3, 4, y la recta corta
+// el eje t en 3 s (pasa por los cruces (1, 10), (2, 5), (3, 0) y (4, −5)).
+// x = 15 − 5t (d). El banco decía que cortaba en t = 5 y daba 15 − 3t (c).
+function f17GraficaXt15cruza3s(): Figura {
+  const LEIDO: [number, number][] = [[0, 15], [4, -5]];
+  const ESX = 66, ESY = 10, X0 = 64, Y0 = 22 + 15 * ESY;
+  const en = (t: number, x: number): Pt => ({ x: X0 + t * ESX, y: Y0 - x * ESY });
+  const [p, q] = LEIDO.map(([t, x]) => en(t, x));
+  const xEn = (t: number) => {
+    const px = en(t, 0).x;
+    return (Y0 - (p.y + ((q.y - p.y) * (px - p.x)) / (q.x - p.x))) / ESY;
+  };
+  for (const t of [1, 2, 3, 4]) {
+    verificarDistancia(`la recta dibujada en t = ${t} s cae en el cruce de la cuadrícula`, 15 - 5 * t, xEn(t), 1e-9);
+  }
+  verificarDistancia("la recta dibujada corta el eje t en 3 s", 0, xEn(3), 1e-9);
+
+  const GRILLA = "#9aa5c8";
+  const el: Elemento[] = [];
+  for (let t = 0.5; t <= 4; t += 0.5) {
+    el.push({ tipo: "linea", de: en(t, -5), a: en(t, 15), rol: "trazo", color: GRILLA, grosor: t % 1 === 0 ? 0.9 : 0.5 });
+  }
+  for (let x = -5; x <= 15; x += 2.5) {
+    if (x === 0) continue;
+    el.push({ tipo: "linea", de: en(0, x), a: en(4, x), rol: "trazo", color: GRILLA, grosor: x % 5 === 0 ? 0.9 : 0.5 });
+  }
+  el.push(
+    ...ejesGrafica(en, 0, 4, -5, 15, [1, 2, 3, 4], [-5, 5, 10, 15], coma),
+    { tipo: "texto", en: { x: X0 - 8, y: Y0 + 12 }, texto: "0", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "linea", de: p, a: q, rol: "trazo", grosor: 2.4 },
+    { tipo: "texto", en: { x: en(2, 0).x + 22, y: Y0 + 30 }, texto: "t [s]", rol: "trazo", tam: 12, cursiva: true },
+    { tipo: "texto", en: { x: 20, y: en(0, 7.5).y }, texto: "x [m]", rol: "trazo", tam: 12, rot: -90 },
+  );
+  return { ancho: Math.round(en(4, 0).x + 22), alto: Math.round(en(0, -5).y + 14), pasos: 0, elementos: el };
+}
+
+// G10 (2-2014 parcial, G5) · «dardo» sombreado: desde el vértice B de 60° suben
+// dos lados de 4 hasta L y R; de L y R bajan dos de 3 hasta la muesca I, sobre
+// el eje. Del facsímil (pág. 2, 700 dpi). LR = 4 (equilátero), I está a √5 de
+// LR, y el área es 4√3 − 2√5 (a): se mide con shoelace sobre lo dibujado.
+function g10Dardo60Lados4y3(): Figura {
+  const K = 40;
+  const B: Pt = { x: 150, y: 176 };
+  const L = avanzar(B, 120, 4 * K), R = avanzar(B, 60, 4 * K);
+  const M: Pt = { x: (L.x + R.x) / 2, y: (L.y + R.y) / 2 };
+  const I: Pt = { x: M.x, y: M.y + Math.sqrt(3 * 3 - 2 * 2) * K };
+  verificarAngulo("60° en B", 60, anguloEn(B, L, R));
+  verificarDistancia("BL = 4", 4 * K, distancia(B, L), 1e-9);
+  verificarDistancia("BR = 4", 4 * K, distancia(B, R), 1e-9);
+  verificarDistancia("IL = 3", 3 * K, distancia(I, L), 1e-9);
+  verificarDistancia("IR = 3", 3 * K, distancia(I, R), 1e-9);
+  const poli = [B, R, I, L];
+  let doble = 0;
+  for (let i = 0; i < poli.length; i++) {
+    const a = poli[i], b = poli[(i + 1) % poli.length];
+    doble += a.x * b.y - b.x * a.y;
+  }
+  verificarDistancia("área sombreada = 4√3 − 2√5", 4 * Math.sqrt(3) - 2 * Math.sqrt(5), Math.abs(doble) / 2 / (K * K), 1e-9);
+  if (!(I.y < B.y && I.y > L.y)) throw new Error("g10 2014: la muesca tiene que quedar entre LR y B");
+
+  const fuera = (a: Pt, b: Pt, lado: number, d: number): Pt =>
+    avanzar({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }, anguloHacia(a, b) + 90 * lado, d);
+  const a60 = arcoAngulo(B, 60, 120, 20, 32);
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: poli, rol: "trazo", relleno: true, rellenoColor: "#f7c6b8" },
+    { tipo: "arco", d: a60.d, rol: "dato" },
+    rotulo({ x: a60.etiquetaEn.x, y: a60.etiquetaEn.y + 2 }, "60°", "dato", 11),
+    rotulo(fuera(B, L, 1, 14), "4", "dato", 14),
+    rotulo(fuera(B, R, -1, 14), "4", "dato", 14),
+    rotulo(fuera(L, I, 1, 13), "3", "dato", 14),
+    rotulo(fuera(I, R, 1, 13), "3", "dato", 14),
+  ];
+  return { ancho: 300, alto: 196, pasos: 0, elementos: el };
+}
+
+// A2 (2-2018 2da opción) · gráfica de un polinomio cúbico sobre cuadrícula,
+// en rojo como en el facsímil (pág. 1, 500 dpi): corta el eje x en −1, 1 y 2
+// y el eje y en 2. Se dibuja f(x) = (x+1)(x−1)(x−2) y se comprueba sobre la
+// poligonal dibujada que corta el eje x exactamente ahí y el eje y en 2.
+function a2CubicaRaices(): Figura {
+  const f = (x: number) => (x + 1) * (x - 1) * (x - 2);
+  const U = 38, O: Pt = { x: 150, y: 184 };
+  const en = (x: number, y: number): Pt => ({ x: O.x + x * U, y: O.y - y * U });
+  const YMIN = -2.6, YMAX = 4.3;
+  const pts: Pt[] = [];
+  for (let i = 0; i <= 263; i++) {
+    const x = -2 + (5.2 * i) / 263;                // paso que no cae justo en las raíces
+    const y = f(x);
+    if (y >= YMIN && y <= YMAX) pts.push(en(x, y));
+  }
+  const raices: number[] = [];
+  for (let i = 0; i + 1 < pts.length; i++) {
+    const a = pts[i], b = pts[i + 1];
+    if ((a.y - O.y) * (b.y - O.y) < 0) raices.push((a.x + ((O.y - a.y) * (b.x - a.x)) / (b.y - a.y) - O.x) / U);
+  }
+  if (raices.length !== 3) throw new Error(`a2 2018: la curva dibujada corta el eje x ${raices.length} veces, no 3`);
+  [-1, 1, 2].forEach((r, i) => verificarDistancia(`raíz dibujada en x = ${r}`, r, raices[i], 0.01));
+  const k = pts.findIndex((p) => p.x >= O.x);
+  const yCorte = (O.y - (pts[k - 1].y + ((pts[k].y - pts[k - 1].y) * (O.x - pts[k - 1].x)) / (pts[k].x - pts[k - 1].x))) / U;
+  verificarDistancia("corte con el eje y = 2", 2, yCorte, 0.01);
+
+  const GRILLA = "#a8a8b0";
+  const el: Elemento[] = [];
+  for (let x = -3; x <= 3; x++) if (x !== 0) el.push({ tipo: "linea", de: en(x, YMIN), a: en(x, YMAX), rol: "trazo", color: GRILLA, grosor: 1 });
+  for (let y = -2; y <= 4; y++) if (y !== 0) el.push({ tipo: "linea", de: en(-3.4, y), a: en(3.4, y), rol: "trazo", color: GRILLA, grosor: 0.8 });
+  el.push(
+    ...flecha(en(-3.4, 0), en(3.8, 0), "trazo", 1.2),
+    ...flecha(en(0, YMIN), en(0, 4.6), "trazo", 1.4),
+    rotulo({ x: O.x - 12, y: O.y + 14 }, "O", "trazo", 13),
+    rotulo({ x: en(1, 0).x, y: O.y + 16 }, "1", "trazo", 13),
+    rotulo({ x: O.x - 11, y: en(0, 1).y - 1 }, "1", "trazo", 13),
+    { tipo: "texto", en: { x: en(3.8, 0).x - 2, y: O.y + 14 }, texto: "x", rol: "trazo", tam: 15, cursiva: true },
+    { tipo: "texto", en: { x: O.x - 14, y: en(0, 4.5).y }, texto: "y", rol: "trazo", tam: 15, cursiva: true },
+  );
+  // la curva va en tramos de línea (el path del renderer es fino)
+  for (let i = 0; i + 1 < pts.length; i++) el.push({ tipo: "linea", de: pts[i], a: pts[i + 1], rol: "trazo", color: ROJO, grosor: 2.6 });
+  return { ancho: Math.round(en(3.8, 0).x + 14), alto: Math.round(en(0, YMIN).y + 8), pasos: 0, elementos: el };
+}
+
+// F9 (1-2020 3ra opción) · bloque que sube por un plano liso de 30° tirado por
+// F paralela al plano, con rayitas de movimiento detrás, como en el facsímil
+// (pág. 2, 500 dpi). Con v constante, W_F = mg·d·sen30° = 2·10·10·0,5 = 100 J (a);
+// se calcula con la inclinación MEDIDA sobre lo dibujado.
+function f9Plano30FuerzaParalela(): Figura {
+  const INC = 30, M = 2, G = 10, DESPL = 10;
+  const P: Pt = { x: 40, y: 224 };
+  const R = avanzar(P, INC, 380);
+  const base: Pt = { x: R.x + 10, y: P.y };
+  const inc = anguloEn(P, base, R);
+  verificarAngulo("inclinación 30°", INC, inc);
+  const pie = avanzar(P, INC, 190);
+  const bloque = bloqueSobre(pie, INC, 64, 42);
+  const caraDelantera: Pt = { x: (bloque[0].x + bloque[3].x) / 2, y: (bloque[0].y + bloque[3].y) / 2 };
+  const puntaF = avanzar(caraDelantera, INC, 66);
+  if (desvioParalelas(caraDelantera, puntaF, P, R) > 1e-6) throw new Error("f9 2020: F no quedó paralela al plano");
+  if (Math.abs(ladoDe(P, R, pie)) > 1e-6) throw new Error("f9 2020: el bloque no apoya en el plano");
+  verificarDistancia("W de F = mg·d·sen(inclinación dibujada) = 100 J", 100, M * G * DESPL * Math.sin((inc * Math.PI) / 180), 1e-6);
+
+  const rayas: Elemento[] = [0, 1, 2, 3, 4].map((i) => {
+    const ini = avanzar(avanzar(bloque[1], INC + 90, 6 + i * 6), INC + 180, 8 + (i % 2) * 6);
+    return { tipo: "linea", de: ini, a: avanzar(ini, INC + 180, 26), rol: "trazo", grosor: 1 };
+  });
+  const a30 = arcoAngulo(P, 0, INC, 46, 62);
+  const el: Elemento[] = [
+    { tipo: "linea", de: P, a: R, rol: "trazo", grosor: 2.2 },
+    { tipo: "linea", de: { x: P.x - 10, y: P.y }, a: base, rol: "trazo", grosor: 2.2 },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#d8d8de" },
+    ...rayas,
+    ...flecha(caraDelantera, puntaF, "dato", 2, 10),
+    { tipo: "texto", en: avanzar(puntaF, INC + 90, 16), texto: "F", rol: "dato", tam: 16, cursiva: true, negrita: true },
+    { tipo: "arco", d: a30.d, rol: "dato" },
+    { tipo: "texto", en: { x: a30.etiquetaEn.x + 6, y: a30.etiquetaEn.y + 3 }, texto: "30°", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+  ];
+  return { ancho: Math.round(base.x + 14), alto: Math.round(P.y + 14), pasos: 0, elementos: el };
+}
+
+// F9 (2-2022 3ra opción) · dos móviles en vías paralelas: A arriba a 10 m/s, B
+// abajo a 5 m/s, los dos hacia la derecha; la perpendicular desde A a la vía
+// de B mide 15 m y B está 30 m más adelante, como en el facsímil (pág. 2,
+// 500 dpi). Con las posiciones DIBUJADAS: (30 − 5t)² + 15² = 25² → t = 2 s y
+// t = 10 s; la segunda vez es 10 s (d).
+function f9MovilesVias15Desfase30(): Figura {
+  const K = 7, VA = 10, VB = 5, SEP = 25;
+  const pie: Pt = { x: 70, y: 142 };
+  const A: Pt = { x: pie.x, y: pie.y - 15 * K };
+  const B: Pt = { x: pie.x + 30 * K, y: pie.y };
+  const fA = { de: { x: A.x + 8, y: A.y }, a: { x: A.x + 42, y: A.y } };
+  const fB = { de: { x: B.x + 8, y: B.y }, a: { x: B.x + 42, y: B.y } };
+  const dirA = anguloHacia(fA.de, fA.a), dirB = anguloHacia(fB.de, fB.a); // sentido de las flechas dibujadas
+  const dx0 = (B.x - A.x) / K, dy = (B.y - A.y) / K;
+  const dv = VB * Math.cos(dirB * Math.PI / 180) - VA * Math.cos(dirA * Math.PI / 180);
+  // (dx0 + dv·t)² + dy² = SEP²
+  const disc = SEP * SEP - dy * dy;
+  if (disc <= 0) throw new Error("f9 2022: con lo dibujado nunca quedan a 25 m");
+  const ts = [(-Math.sqrt(disc) - dx0) / dv, (Math.sqrt(disc) - dx0) / dv].sort((a, b) => a - b);
+  verificarDistancia("primera vez a 25 m = 2 s", 2, ts[0], 1e-9);
+  verificarDistancia("segunda vez a 25 m = 10 s", 10, ts[1], 1e-9);
+  verificarAngulo("la perpendicular de 15 m es recta con las vías", 90, anguloEn(pie, A, B));
+
+  const X1 = 410, rb = 8;
+  const el: Elemento[] = [
+    { tipo: "linea", de: A, a: { x: X1, y: A.y }, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: pie, a: { x: X1, y: pie.y }, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: A, a: pie, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(pie, 90, 0, 9), rol: "trazo" },
+    bolita(A, rb), bolita(B, rb),
+    ...flecha(fA.de, fA.a, "dato", 1.8, 9),
+    ...flecha(fB.de, fB.a, "dato", 1.8, 9),
+    rotulo({ x: A.x - 4, y: A.y - 18 }, "A", "trazo", 14),
+    rotulo({ x: A.x + 34, y: A.y - 16 }, "10 m/s", "dato", 12),
+    rotulo({ x: B.x - 4, y: B.y - 18 }, "B", "trazo", 14),
+    rotulo({ x: B.x + 34, y: B.y - 16 }, "5 m/s", "dato", 12),
+    ...cota({ x: pie.x - 22, y: pie.y }, { x: pie.x - 22, y: A.y }, "15 m", 22),
+    ...cota({ x: pie.x, y: pie.y + 22 }, { x: B.x, y: pie.y + 22 }, "30 m", -13),
+  ];
+  return { ancho: X1 + 10, alto: Math.round(pie.y + 44), pasos: 0, elementos: el };
+}
+
+// F12 (2-2022 3ra opción) · bloque sobre el piso áspero con una esfera
+// ingrávida de carga +q pegada a su cara izquierda, dentro de un campo
+// uniforme horizontal hacia la derecha (cuatro líneas, una por debajo del
+// piso), como en el facsímil (pág. 2, 600 dpi). La normal es mg solo si el
+// campo es horizontal: la masa se calcula con la inclinación MEDIDA de las
+// líneas. qE − μmg = ma → m = 0,1/8 kg = 12,5 g (d).
+function f12BloqueCargaCampoHorizontal(): Figura {
+  const Q = 1e-3, E = 100, MU = 0.5, G = 10, ACEL = 3;
+  const X0 = 30, X1 = 390, PISO = 150;
+  const bloque = [{ x: 180, y: PISO }, { x: 112, y: PISO }, { x: 112, y: PISO - 48 }, { x: 180, y: PISO - 48 }];
+  const carga: Pt = { x: 112, y: PISO - 22 };
+  const lineas = [44, 84, carga.y, PISO + 36].map((y) => ({ de: { x: X0, y }, a: { x: X1, y } }));
+  const phi = (anguloHacia(lineas[0].de, lineas[0].a) * Math.PI) / 180;
+  for (const l of lineas) verificarAngulo("línea de campo horizontal", 0, anguloHacia(l.de, l.a), 1e-6);
+  // eje x hacia la derecha; la fuerza eléctrica sobre +q va con E
+  const fx = Q * E * Math.cos(phi), fy = Q * E * Math.sin(phi);
+  const m = (fx + MU * fy) / (ACEL + MU * G);        // N = mg − fy; ma = fx − μN
+  verificarDistancia("masa del bloque = 12,5 g", 12.5, m * 1000, 1e-9);
+  if (Math.abs(bloque[0].y - PISO) > 1e-9 || Math.abs(carga.x - bloque[1].x) > 1e-9) {
+    throw new Error("f12 2022: el bloque tiene que apoyar en el piso y la esfera en su cara izquierda");
+  }
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [{ x: X0, y: PISO }, { x: X1, y: PISO }, { x: X1, y: PISO + 9 }, { x: X0, y: PISO + 9 }], rol: "trazo", relleno: true, rellenoColor: "#c8c8c8" },
+    { tipo: "linea", de: { x: X0, y: PISO }, a: { x: X1, y: PISO }, rol: "trazo", grosor: 2 },
+    ...lineas.flatMap((l): Elemento[] => l.de.y === carga.y
+      ? [
+        { tipo: "linea", de: l.de, a: { x: bloque[1].x - 12, y: l.de.y }, rol: "trazo", grosor: 1.8 },
+        ...flecha({ x: bloque[0].x, y: l.de.y }, l.a, "trazo", 1.8, 11),
+      ]
+      : flecha(l.de, l.a, "trazo", 1.8, 11)),
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#c9c9cf" },
+    bolita(carga, 12, "#ffffff"),
+    { tipo: "linea", de: { x: carga.x - 6, y: carga.y }, a: { x: carga.x + 6, y: carga.y }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: carga.x, y: carga.y - 6 }, a: { x: carga.x, y: carga.y + 6 }, rol: "trazo", grosor: 1.8 },
+    ...flecha({ x: X1 - 30, y: 18 }, { x: X1 - 8, y: 18 }, "trazo", 1.2, 6),
+    { tipo: "texto", en: { x: X1 - 20, y: 30 }, texto: "E", rol: "trazo", tam: 16, cursiva: true },
+  ];
+  return { ancho: X1 + 16, alto: PISO + 48, pasos: 0, elementos: el };
+}
+
+// F9 (1-2023 3ra opción) · péndulo cargado en un campo uniforme cuyas líneas
+// suben hacia la derecha. Del facsímil (pág. 2, 700 dpi): un α está en el
+// punto de suspensión, entre la vertical punteada y el hilo (que cuelga a la
+// derecha); el otro α, entre una línea de campo y una horizontal punteada
+// trazada desde donde esa línea cruza el hilo. Así el campo queda
+// perpendicular al hilo, que es la dirección de E mínimo:
+// qE = mg·sen α → E = 0,05·10·0,6/10⁻⁵ = 30 kN/C (a). El equilibrio se
+// resuelve con las direcciones DIBUJADAS y se compara con el mínimo.
+function f9PenduloCampo37Perpendicular(): Figura {
+  const ALFA = 37, Q = 10e-6, M = 0.05, G = 10;
+  const X0 = 24, Y0 = 70, X1 = 384, Y1 = 280;
+  const S: Pt = { x: 150, y: 56 };
+  const esfera = avanzar(S, -90 + ALFA, 170);
+  const DIR_E = ALFA;
+  const lineas: { de: Pt; a: Pt }[] = [];
+  for (let k = -6; k <= 6; k++) {
+    const l = recortarRecta(avanzar({ x: 210, y: 160 }, DIR_E + 90, k * 34), DIR_E, X0, Y0, X1, Y1);
+    if (l && distancia(l.de, l.a) > 60) lineas.push(l);
+  }
+  // el α del campo: en el cruce de una línea con el hilo, a media altura
+  const conCruce = lineas
+    .map((l) => ({ l, k: cruce(l.de, l.a, S, esfera) }))
+    .filter(({ k }) => k.y > S.y + 60 && k.y < esfera.y - 40);
+  if (conCruce.length === 0) throw new Error("f9 2023: ninguna línea de campo cruza el hilo a media altura");
+  const { l: lk, k: K } = conCruce[0];
+  const derecha: Pt = { x: K.x + 64, y: K.y };
+  verificarAngulo("α entre la vertical y el hilo", ALFA, anguloEn(S, { x: S.x, y: S.y + 60 }, esfera));
+  verificarAngulo("α entre la línea de campo y la horizontal", ALFA, anguloEn(K, derecha, lk.a));
+
+  // Equilibrio con lo dibujado (eje y hacia arriba): qE·ê + T·û + (0, −mg) = 0
+  const rad = Math.PI / 180;
+  const ang = anguloHacia(lk.de, lk.a) * rad;
+  const e = { x: Math.cos(ang), y: Math.sin(ang) };
+  const aHilo = anguloHacia(esfera, S) * rad;
+  const u = { x: Math.cos(aHilo), y: Math.sin(aHilo) };
+  const det = e.x * u.y - e.y * u.x;
+  const qE = -(M * G * u.x) / det;                   // Cramer sobre qE·e.x + T·u.x = 0 y qE·e.y + T·u.y = mg
+  const T = (M * G * e.x) / det;
+  if (!(qE > 0 && T > 0)) throw new Error(`f9 2023: el dibujo no puede estar en equilibrio (qE = ${qE}, T = ${T})`);
+  const eMin = (M * G * Math.sin(ALFA * rad)) / Q;
+  verificarDistancia("E del dibujo = E mínimo (campo perpendicular al hilo)", eMin, qE / Q, 1e-6);
+  verificarDistancia("E mínimo = 30 kN/C (con sen 37° = 3/5)", 30, (M * G * 0.6) / Q / 1000, 1e-9);
+
+  const soporte: Pt[] = [S, { x: S.x - 16, y: S.y - 26 }, { x: S.x + 16, y: S.y - 26 }];
+  const el: Elemento[] = [
+    ...lineas.flatMap((l): Elemento[] => flecha(l.de, l.a, "trazo", 1.2, 9)),
+    { tipo: "poligono", puntos: soporte, rol: "trazo" },
+    { tipo: "linea", de: { x: S.x - 28, y: S.y - 26 }, a: { x: S.x + 28, y: S.y - 26 }, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: S, a: { x: S.x, y: S.y + 200 }, rol: "trazo", punteada: true, grosor: 1.4 },
+    { tipo: "linea", de: K, a: derecha, rol: "trazo", punteada: true, grosor: 1.4 },
+    { tipo: "linea", de: S, a: avanzar(esfera, ALFA + 90, 12), rol: "trazo", grosor: 2.2 },
+    bolita(esfera, 12),
+    { tipo: "arco", d: arcoAngulo(S, -90, -90 + ALFA, 46).d, rol: "dato" },
+    rotulo(arcoAngulo(S, -90, -90 + ALFA, 46, 30).etiquetaEn, "α", "dato", 15),
+    { tipo: "arco", d: arcoAngulo(K, 0, ALFA, 40).d, rol: "dato" },
+    rotulo(arcoAngulo(K, 0, ALFA, 40, 26).etiquetaEn, "α", "dato", 15),
+  ];
+  return { ancho: X1 + 16, alto: Y1 + 10, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -7054,6 +7526,18 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f10-plano-cuadrado": f10PlanoCuadradoInclinado,
   "f11-campo-electrico": f11CampoElectricoPendulo,
   "f12-proyectil-rampa": f12ProyectilRampa45,
+  // Lote 4-nov-2026: preguntas «de la figura» que el banco no dibujaba. Cada
+  // una contra su facsímil; dos respuestas cambiaron (2010-2 G2 y 1-2010 F2).
+  "g7-paralelas-angulos-30-125": g7ParalelasAngulos30y125,
+  "g7-paralelas-transversales-40-80": g7ParalelasTransversales40y80,
+  "f11-grafica-vt-4-a-0-en-2s": f11GraficaVt4a0en2s,
+  "f17-grafica-xt-15-cruza-3s": f17GraficaXt15cruza3s,
+  "g10-dardo-60-lados-4-3": g10Dardo60Lados4y3,
+  "a2-cubica-raices-menos1-1-2": a2CubicaRaices,
+  "f9-plano-30-fuerza-paralela": f9Plano30FuerzaParalela,
+  "f9-moviles-vias-15-desfase-30": f9MovilesVias15Desfase30,
+  "f12-bloque-carga-campo-horizontal": f12BloqueCargaCampoHorizontal,
+  "f9-pendulo-campo-37-perpendicular": f9PenduloCampo37Perpendicular,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
