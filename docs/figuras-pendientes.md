@@ -385,8 +385,9 @@ Las otras quince, con la cuenta que las confirma:
   cuadrado inscrito en el equilátero (L = 2+√3), **F10** el tiro que da en el
   blanco en caída libre (apuntar directo a A: tanθ = 40/40 → 45°), **F12** el
   choque elástico con M₂ = 2M₁ (−10 y 20).
-- `2020-3op-1`: **G5** las dos tangentes, donde θ = θ obliga a que los arcos BD
-  y DA sean iguales y x sale ½·arco AB = 29°, y **G8** el cuadrado con la
+- `2020-3op-1`: **G5** (corregido el 4-nov-2026 con el facsímil: AP no es
+  tangente sino secante, corta otra vez en Q) donde θ = θ obliga a que los
+  arcos BD y DQ sean iguales y x sale ½·arco AB = 29°, y **G8** el cuadrado con la
   semicircunferencia, donde la parte de arriba da 24 − 4π, la de abajo 4π − 8
   y **el π se cancela**: 16 justo.
 
@@ -702,14 +703,19 @@ con la figura y **ninguna cambió**; el enunciado volvió al texto del original
 
 La tabla de pendientes de esta categoría queda **vacía**.
 
-Al abrir esas mismas páginas completas aparecieron **tres más** sin `figura:`
-(se anotan acá; no se contrastaron a fondo ni se dibujaron):
+Al abrir esas mismas páginas completas aparecieron **tres más** sin `figura:`.
+**Se cerraron el mismo 4-nov-2026** (tercera tanda de `auditor-figuras`). Las
+dos de 2020 son imágenes embebidas (`pdfimages -list`: 402×184 y 223×203 px),
+así que se extrajeron a su resolución nativa y se ampliaron sin interpolar; la
+de 2023 es vectorial y se recortó a 600 dpi. Ninguna respuesta cambió:
 
-| examen | preg. | facsímil | qué pasa |
-|---|---|---|---|
-| `2020-3op-1-2020` | 5 | `163_3ra-op-1-2020.pdf` p.1 (G5) | **modo 4**: el enunciado es solo «Hallar "x", si la medida del arco AB es 58°» y no hay figura ni descripción. Sin el dibujo (circunferencia, E-D-P, θ θ en A, x en P) es irresoluble. Prioridad alta |
-| `2023-3op-1-2023` | 6 | `3-op-1-2023.pdf` p.1 (G6) | ni siquiera promete figura: «formando un ángulo de 60°» no dice entre qué; el facsímil lo pone en el quiebre, entre el tramo en pie y el caído (eso da h = 10 y la parte larga 20, la C del banco) |
-| `2020-3op-1-2020` | 8 | `163_3ra-op-1-2020.pdf` p.1 (G8) | modo 3 a revisar: el paréntesis describe el cuadrado con la semicircunferencia y las dos piezas negras; hay que contrastarlo con el facsímil y dibujarla |
+| examen | preg. | facsímil | qué pasaba | figura | respuesta |
+|---|---|---|---|---|---|
+| `2020-3op-1-2020` | 5 | `163_3ra-op-1-2020.pdf` p.1 (G5) | **modo 3**: el paréntesis decía que PA era tangente en A y x el ángulo entre dos tangentes; en el facsímil AP es **secante** (vuelve a cortar la circunferencia en un punto Q). Se sacó el paréntesis y la explicación se rehízo con tangente PD y secante PQA | `g5-tangente-secante-theta-arco-58` | A (29°), sin cambio: ½[(58° + 2θ) − 2θ] |
+| `2020-3op-1-2020` | 8 | `163_3ra-op-1-2020.pdf` p.1 (G8) | limpia: el paréntesis era fiel (dos piezas negras). Una lectura previa de `agy` decía que solo había una; el facsímil muestra las dos. Se sacó el paréntesis porque lo suple el dibujo | `g8-cuadrado-semicirculo-diagonal-8` | A (16), sin cambio |
+| `2023-3op-1-2023` | 6 | `3-op-1-2023.pdf` p.1 (G6) | ni siquiera prometía figura: el 60° va en el quiebre, entre el tramo en pie y el caído. El facsímil no está a escala (unos 50°); el dibujo sí | `g6-poste-quebrado-30-angulo-60` | C (20), sin cambio |
+
+La tabla de pendientes de esta categoría vuelve a quedar **vacía**.
 
 ## Cómo desbloquear esto: trabajar en local
 

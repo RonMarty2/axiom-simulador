@@ -472,3 +472,10 @@ Reglas operativas en `agentes/ejecutor-agy.md`; acá queda el porqué.
 2026-11-04 · ACIERTO · `pdfimages -list` dice si la figura es vectorial o embebida; luego `pdftoppm -r 600 -x -y -W -H` recorta sin rasterizar toda la página.
 2026-11-04 · ACIERTO · Abrir la página entera del facsímil volvió a destapar 3 figuras sin declarar.
 2026-11-04 · ERROR (entorno) · El hook de agy bloquea Read y Bash cada ~20 lecturas, también dentro de un subagente que tiene que mirar el PDF · lanzar antes las lecturas de texto que sirvan para agy.
+2026-11-04 · ERROR · agy dijo que 2020-3op-1 G8 tenía una sola pieza sombreada; el facsímil tiene dos, como decía el banco · una «contradicción» que trae agy no es evidencia: mirar la imagen antes de tocar el enunciado (habría cambiado una respuesta correcta).
+2026-11-04 · ERROR · El paréntesis del banco de 2020-3op-1 G5 inventaba una tangente donde el facsímil tiene una secante; la respuesta coincidía igual · que la respuesta dé bien no prueba que la descripción en texto sea fiel; redibujar desde el facsímil.
+2026-11-04 · ERROR · Un shoelace que mide un polígono armado aparte no mide lo dibujado · pintar las regiones sombreadas con el mismo `poligono` que se mide.
+2026-11-04 · ACIERTO · Una mutación que no salta puede ser demasiado chica (6° de arco quitan 0,0015 u²) y no un chequeo roto · usar mutaciones del tamaño de un error real.
+2026-11-04 · ACIERTO · Las figuras de 2020 eran JPEG embebidos: `pdfimages -png` y ampliar sin interpolar; subir los dpi de página no agrega nada.
+2026-11-04 · ERROR (entorno) · `npx tsx -e "..."` con `shell: true` rompe las comillas en Windows y hace parecer que toda mutación salta · correr las mutaciones con un `.mts` en archivo.
+2026-11-04 · ACIERTO · Motor de agy en `--solo-texto`: 3 de 3 informes con contenido tras cambiar la regla 6; el reintento con Flash sigue sin ejercitarse.

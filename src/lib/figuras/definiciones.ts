@@ -7492,6 +7492,160 @@ function f10BloqueLanzado6msA5mB(): Figura {
   return { ancho: X1 + 8, alto: yCota + 26, pasos: 0, elementos: el };
 }
 
+// Polígono que sigue un arco (para medir con shoelace lo que el path dibuja).
+function puntosDeArco(centro: Pt, radio: number, a1: number, a2: number, n = 400): Pt[] {
+  const pts: Pt[] = [];
+  for (let i = 1; i < n; i++) pts.push(avanzar(centro, a1 + ((a2 - a1) * i) / n, radio));
+  return pts;
+}
+
+function areaShoelace(poli: Pt[]): number {
+  let doble = 0;
+  for (let i = 0; i < poli.length; i++) {
+    const a = poli[i], b = poli[(i + 1) % poli.length];
+    doble += a.x * b.y - b.x * a.y;
+  }
+  return Math.abs(doble) / 2;
+}
+
+// G5 (1-2020 3ra opción) · del facsímil (pág. 1, imagen embebida 402×184
+// ampliada sin interpolar): la recta E-D-P es tangente en D; E-B-A es secante;
+// la recta AP NO es tangente en A (el banco decía eso): corta la circunferencia
+// en un segundo punto Q, a la derecha. θ = θ en A obliga arco BD = arco DQ = 2θ
+// y x = ½[(58° + 2θ) − 2θ] = 29° (a), sin depender de θ. Se dibuja con θ = 44°
+// (cualquiera sirve; se eligió uno que no sugiera un ángulo recto en A).
+function g5TangenteSecanteThetaArco58(): Figura {
+  const O: Pt = { x: 180, y: 122 };
+  const R = 80;
+  const TH = 44, ARCO_AB = 58;
+  // posiciones angulares (0 = derecha, antihorario): D abajo, B a la izquierda,
+  // A arriba, Q a la derecha
+  const gD = 270, gB = gD - 2 * TH, gA = gB - ARCO_AB, gQ = gD + 2 * TH - 360;
+  const D = avanzar(O, gD, R), B = avanzar(O, gB, R), A = avanzar(O, gA, R), Q = avanzar(O, gQ, R);
+  const tangente: Pt = { x: D.x + 1, y: D.y };
+  const E = cruce(A, B, D, tangente);
+  const P = cruce(A, Q, D, tangente);
+
+  // Lo que la figura afirma, medido sobre los puntos dibujados.
+  verificarAngulo("E-D-P tangente en D (OD ⟂ EP)", 90, anguloEn(D, O, P));
+  verificarAngulo("E-D-P tangente en D (OD ⟂ ED)", 90, anguloEn(D, O, E));
+  verificarAngulo("arco AB = 58°", ARCO_AB, anguloEn(O, A, B));
+  verificarAngulo("θ en A: ∠BAD = ∠DAP", anguloEn(A, B, D), anguloEn(A, D, P), 1e-6);
+  verificarAngulo("x = 29° medido en P", 29, anguloEn(P, D, A), 1e-6);
+  // B entre E y A; Q entre A y P (AP es secante, no tangente)
+  verificarDistancia("B entre E y A", distancia(E, A), distancia(E, B) + distancia(B, A), 1e-6);
+  verificarDistancia("Q entre A y P", distancia(A, P), distancia(A, Q) + distancia(Q, P), 1e-6);
+  if (!(distancia(A, Q) > R / 2)) throw new Error("g5 2020: AP tiene que cortar la circunferencia lejos de A");
+  if (!(E.x < D.x && D.x < P.x)) throw new Error("g5 2020: D tiene que quedar entre E y P");
+
+  const dAB = anguloHacia(A, B), dAD = anguloHacia(A, D), dAP = anguloHacia(A, P);
+  const t1 = arcoAngulo(A, dAB, dAD, 20, 31), t2 = arcoAngulo(A, dAD, dAP, 20, 31);
+  const ax = arcoAngulo(P, 180, anguloHacia(P, A), 30, 44);
+  const medioAB = avanzar(O, (gA + gB) / 2, R + 16);
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "linea", de: E, a: P, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: E, a: A, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: A, a: P, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: A, a: D, rol: "trazo", grosor: 1.6 },
+    ...([[A, "A", 0, -14], [B, "B", -13, -4], [D, "D", 0, 15], [E, "E", -12, 2], [P, "P", 12, 2]] as [Pt, string, number, number][])
+      .flatMap(([p, n, dx, dy]): Elemento[] => [
+        { tipo: "punto", en: p, rol: "trazo", r: 2.4 },
+        rotulo({ x: p.x + dx, y: p.y + dy }, n),
+      ]),
+    { tipo: "arco", d: t1.d, rol: "dato" },
+    { tipo: "arco", d: t2.d, rol: "dato" },
+    rotulo(t1.etiquetaEn, "θ", "dato", 12),
+    rotulo(t2.etiquetaEn, "θ", "dato", 12),
+    { tipo: "texto", en: medioAB, texto: "58°", rol: "dato", tam: 11.5, negrita: true, ancla: "middle" },
+    { tipo: "arco", d: ax.d, rol: "incognita" },
+    rotulo({ x: ax.etiquetaEn.x, y: ax.etiquetaEn.y + 1 }, "x", "incognita", 13),
+  ];
+  return { ancho: Math.round(P.x + 26), alto: Math.round(D.y + 28), pasos: 0, elementos: el };
+}
+
+// G8 (1-2020 3ra opción) · cuadrado ABCD de lado 8 con A arriba a la izquierda
+// y B abajo a la izquierda; diagonal BD y semicircunferencia AOB de diámetro AB
+// hacia adentro, con O (su punto más alejado de AB) en el centro del cuadrado.
+// Del facsímil (pág. 1, imagen embebida 223×203 ampliada sin interpolar) hay
+// DOS piezas negras, como decía el banco: la de arriba (AD, DO y arco OA,
+// 24 − 4π) y el segmento entre la cuerda BO y el arco BO (4π − 8). Suman 16
+// (a). Las áreas se miden con shoelace sobre los contornos dibujados.
+function g8CuadradoSemicirculoDiagonal(): Figura {
+  const K = 24, L = 8 * K;
+  const X0 = 40, Y0 = 30;
+  const A: Pt = { x: X0, y: Y0 }, D: Pt = { x: X0 + L, y: Y0 };
+  const B: Pt = { x: X0, y: Y0 + L }, C: Pt = { x: X0 + L, y: Y0 + L };
+  const M: Pt = { x: X0, y: Y0 + L / 2 };          // centro de la semicircunferencia
+  const r = L / 2;
+  const O = avanzar(M, 0, r);                       // punto de la semi más lejano de AB
+
+  // O sobre la diagonal BD (producto cruz) y en el centro del cuadrado
+  const cruz = (D.x - B.x) * (O.y - B.y) - (D.y - B.y) * (O.x - B.x);
+  verificarDistancia("O sobre la diagonal BD", 0, cruz / L, 1e-6);
+  verificarDistancia("O en el centro del cuadrado", 0, distancia(O, { x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 }), 1e-6);
+  verificarDistancia("la semi pasa por A", r, distancia(M, A), 1e-6);
+  verificarDistancia("la semi pasa por B", r, distancia(M, B), 1e-6);
+
+  const arriba = [A, D, O, ...puntosDeArco(M, r, 0, 90)];
+  const abajo = [B, O, ...puntosDeArco(M, r, 0, -90)];
+  const aArriba = areaShoelace(arriba) / (K * K), aAbajo = areaShoelace(abajo) / (K * K);
+  verificarDistancia("pieza de arriba = 24 − 4π", 24 - 4 * Math.PI, aArriba, 0.01);
+  verificarDistancia("pieza de abajo = 4π − 8", 4 * Math.PI - 8, aAbajo, 0.01);
+  verificarDistancia("área sombreada = 16", 16, aArriba + aAbajo, 0.02);
+
+  // Las piezas se pintan con los MISMOS polígonos que mide el shoelace.
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: arriba, rol: "trazo", relleno: true, rellenoColor: NAVY },
+    { tipo: "poligono", puntos: abajo, rol: "trazo", relleno: true, rellenoColor: NAVY },
+    { tipo: "poligono", puntos: [A, D, C, B], rol: "trazo" },
+    { tipo: "linea", de: B, a: D, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: arcoDe(M, r, 90, -90), rol: "trazo" },
+    ...([[A, "A", -13, -8], [D, "D", 13, -8], [B, "B", -13, 8], [C, "C", 13, 8]] as [Pt, string, number, number][])
+      .flatMap(([p, n, dx, dy]): Elemento[] => [
+        { tipo: "punto", en: p, rol: "trazo", r: 2.6 },
+        rotulo({ x: p.x + dx, y: p.y + dy }, n),
+      ]),
+    { tipo: "punto", en: O, rol: "trazo", r: 2.8 },
+    rotulo({ x: O.x + 14, y: O.y + 4 }, "O"),
+    ...cota({ x: B.x, y: B.y + 26 }, { x: C.x, y: C.y + 26 }, "8 cm", -13),
+  ];
+  return { ancho: X0 + L + 34, alto: Y0 + L + 46, pasos: 0, elementos: el };
+}
+
+// G6 (1-2023 3ra opción) · el poste entero (30 m) y, al lado, el quebrado: el
+// tramo h queda en pie y el caído baja hasta el suelo formando 60° con él, en el
+// quiebre (facsímil pág. 1, vectorial, 600 dpi; el facsímil no está a escala:
+// dibuja ~50°). Con 60°: cos 60° = h / (30 − h) → h = 10 y el tramo caído mide
+// 20 (c). Acá se dibuja a escala: la punta caída sale de cruzar el suelo, y la
+// suma de los dos tramos medidos tiene que dar 30.
+function g6PosteQuebrado30Angulo60(): Figura {
+  const K = 5;                                      // px por metro
+  const SUELO = 176, H = 10;
+  const X_ENTERO = 70, X_QUEBRADO = 190;
+  const baseEntero: Pt = { x: X_ENTERO, y: SUELO }, topeEntero: Pt = { x: X_ENTERO, y: SUELO - 30 * K };
+  const pie: Pt = { x: X_QUEBRADO, y: SUELO }, quiebre: Pt = { x: X_QUEBRADO, y: SUELO - H * K };
+  const punta = hastaY(quiebre, -30, SUELO);        // 60° con la vertical, hacia abajo a la derecha
+
+  verificarAngulo("60° en el quiebre", 60, anguloEn(quiebre, pie, punta));
+  verificarDistancia("los dos tramos suman 30 m", 30, (distancia(pie, quiebre) + distancia(quiebre, punta)) / K, 1e-6);
+  verificarDistancia("el tramo caído (el más largo) mide 20 m", 20, distancia(quiebre, punta) / K, 1e-6);
+
+  const a60 = arcoAngulo(quiebre, -90, anguloHacia(quiebre, punta), 16, 28);
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 20, y: SUELO }, a: { x: punta.x + 50, y: SUELO }, rol: "trazo", grosor: 1.6 },
+    ...rayado(20, punta.x + 50, SUELO),
+    { tipo: "linea", de: baseEntero, a: topeEntero, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: pie, a: quiebre, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: quiebre, a: punta, rol: "trazo", grosor: 2.4 },
+    ...cota({ x: X_ENTERO - 20, y: SUELO }, { x: X_ENTERO - 20, y: topeEntero.y }, "30 m", 22),
+    rotulo({ x: X_QUEBRADO - 12, y: SUELO - (H * K) / 2 }, "h", "dato", 13),
+    { tipo: "arco", d: a60.d, rol: "dato" },
+    rotulo({ x: a60.etiquetaEn.x + 2, y: a60.etiquetaEn.y + 2 }, "60°", "dato", 11),
+  ];
+  return { ancho: Math.round(punta.x + 60), alto: SUELO + 18, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -7677,6 +7831,11 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f11-carro-bloque-cara-delantera-liso": f11CarroBloqueCaraDelanteraLiso,
   "f10-dos-cargas-p-entre-4-6": f10DosCargasPEntre4y6,
   "f10-bloque-lanzado-6ms-a-5m-b": f10BloqueLanzado6msA5mB,
+  // 4-nov-2026, tercera tanda: las tres de geometría que aparecieron al abrir
+  // esas mismas páginas (docs/figuras-pendientes.md).
+  "g5-tangente-secante-theta-arco-58": g5TangenteSecanteThetaArco58,
+  "g8-cuadrado-semicirculo-diagonal-8": g8CuadradoSemicirculoDiagonal,
+  "g6-poste-quebrado-30-angulo-60": g6PosteQuebrado30Angulo60,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).
