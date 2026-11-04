@@ -7358,6 +7358,140 @@ function f9PenduloCampo37Perpendicular(): Figura {
   return { ancho: X1 + 16, alto: Y1 + 10, pasos: 0, elementos: el };
 }
 
+// F11 (2-2022 3ra opción) · carro M con ruedas sobre un piso liso, empujado por
+// F horizontal en su cara trasera; el bloque m va pegado a la cara DELANTERA
+// (la que mira hacia donde apunta F), sin apoyo abajo. Del facsímil (pág. 2,
+// 600 dpi): la flecha curva «Liso» señala el piso. Con lo dibujado, la normal
+// de M sobre m tiene el sentido de F, así que m necesita μ·m·a ≥ m·g:
+// a ≥ g/μ = 25 m/s² y F = (M + m)·a = 1500 N (c).
+function f11CarroBloqueCaraDelanteraLiso(): Figura {
+  const MM = 50, MB = 10, MU = 0.4, G = 10;
+  const PISO = 132, R = 9;
+  const yBase = PISO - R;                                   // fondo de la caja del carro
+  const carro = { x0: 96, x1: 276, y0: yBase - 66, y1: yBase };
+  const bloque = { x0: carro.x1, x1: carro.x1 + 34, y0: carro.y0 + 16, y1: carro.y0 + 48 };
+  const ruedas = [carro.x0 + 34, carro.x1 - 34];
+  const yF = (carro.y0 + carro.y1) / 2;
+  const fDe: Pt = { x: 22, y: yF }, fA: Pt = { x: carro.x0, y: yF };
+
+  // topología: m toca la cara delantera de M y no toca el piso; F llega a la cara trasera
+  if (Math.abs(bloque.x0 - carro.x1) > 1e-9) throw new Error("f11 2022: m no apoya en la cara delantera de M");
+  if (!(bloque.y0 > carro.y0 && bloque.y1 < carro.y1)) throw new Error("f11 2022: m tiene que quedar contra la cara, sin apoyo abajo");
+  if (Math.abs(fA.x - carro.x0) > 1e-9) throw new Error("f11 2022: F tiene que empujar la cara trasera de M");
+  // F hacia la derecha y m a la derecha de M: la normal de M sobre m va con la
+  // aceleración, que es lo que la cuenta de abajo supone.
+  verificarAngulo("F horizontal hacia la cara delantera", 0, anguloHacia(fDe, fA), 1e-9);
+  // Con las direcciones DIBUJADAS (el piso acelera todo hacia +x): la normal sobre m
+  // va del centro de la cara delantera al centro de m; F aporta su componente en x.
+  const rad = Math.PI / 180;
+  const cosN = Math.cos(anguloHacia({ x: carro.x1, y: (bloque.y0 + bloque.y1) / 2 }, { x: (bloque.x0 + bloque.x1) / 2, y: (bloque.y0 + bloque.y1) / 2 }) * rad);
+  const cosF = Math.cos(anguloHacia(fDe, fA) * rad);
+  const aMin = G / (MU * cosN);                              // μ·N ≥ m·g con N = m·a·cosN
+  verificarDistancia("F mínima con lo dibujado = 1500 N", 1500, ((MM + MB) * aMin) / cosF, 1e-9);
+
+  const X1 = 420;
+  const lisoTxt: Pt = { x: 392, y: 34 };
+  const cIni: Pt = { x: 390, y: 50 }, cCtrl: Pt = { x: 384, y: PISO - 4 }, cFin: Pt = { x: ruedas[1] + 4, y: PISO };
+  const angFin = anguloHacia(cCtrl, cFin);
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [{ x: 14, y: PISO }, { x: X1 - 6, y: PISO }, { x: X1 - 6, y: PISO + 9 }, { x: 14, y: PISO + 9 }], rol: "trazo", relleno: true, rellenoColor: "#d4d4d8" },
+    { tipo: "linea", de: { x: 14, y: PISO }, a: { x: X1 - 6, y: PISO }, rol: "trazo", grosor: 2 },
+    ...ruedas.map((cx): Elemento => ({ tipo: "path", d: arcoDe({ x: cx, y: yBase }, R, 180, 360), rol: "trazo" })),
+    { tipo: "poligono", puntos: [{ x: carro.x0, y: carro.y0 }, { x: carro.x1, y: carro.y0 }, { x: carro.x1, y: carro.y1 }, { x: carro.x0, y: carro.y1 }], rol: "trazo", relleno: true, rellenoColor: "#dcdce0" },
+    { tipo: "poligono", puntos: [{ x: bloque.x0, y: bloque.y0 }, { x: bloque.x1, y: bloque.y0 }, { x: bloque.x1, y: bloque.y1 }, { x: bloque.x0, y: bloque.y1 }], rol: "trazo", relleno: true, rellenoColor: "#a8a8b0" },
+    { tipo: "texto", en: { x: (carro.x0 + carro.x1) / 2, y: yF }, texto: "M", rol: "dato", tam: 18, cursiva: true },
+    { tipo: "texto", en: { x: (bloque.x0 + bloque.x1) / 2, y: (bloque.y0 + bloque.y1) / 2 }, texto: "m", rol: "dato", tam: 16, cursiva: true },
+    ...flecha(fDe, fA, "dato", 2, 10),
+    { tipo: "texto", en: { x: 52, y: yF - 16 }, texto: "F", rol: "dato", tam: 16, cursiva: true, negrita: true },
+    { tipo: "path", d: `M ${cIni.x} ${cIni.y} Q ${cCtrl.x} ${cCtrl.y} ${cFin.x} ${cFin.y}`, rol: "trazo" },
+    { tipo: "path", d: cabezaFlecha(cFin, angFin, 9), rol: "trazo", relleno: true },
+    { tipo: "texto", en: lisoTxt, texto: "Liso", rol: "trazo", tam: 14, cursiva: true },
+  ];
+  return { ancho: X1, alto: PISO + 16, pasos: 0, elementos: el };
+}
+
+// F10 (1-2023 3ra opción) · q₁ (+) a la izquierda y q₂ (−) a la derecha sobre
+// una recta; P entre las dos, a 4 m de q₁, y q₁q₂ = 6 m, con las dos cotas
+// desde q₁ como en el facsímil (pág. 2, 600 dpi). El campo se suma como
+// vector con las posiciones DIBUJADAS (k = 9·10⁹): E₁ = 90 y E₂ = 1440 N/C,
+// los dos hacia q₂, total 1530 N/C (c).
+function f10DosCargasPEntre4y6(): Figura {
+  const K = 60, Y = 62, KC = 9e9;
+  const q1 = { en: { x: 40, y: Y } as Pt, q: 16e-8 };
+  const q2 = { en: { x: 40 + 6 * K, y: Y } as Pt, q: -64e-8 };
+  const P: Pt = { x: 40 + 4 * K, y: Y };
+  verificarDistancia("q₁P = 4 m", 4, distancia(q1.en, P) / K, 1e-9);
+  verificarDistancia("q₁q₂ = 6 m", 6, distancia(q1.en, q2.en) / K, 1e-9);
+  // campo en P, eje x a la derecha (y abajo en pantalla, da igual: todo está en la recta)
+  let ex = 0, ey = 0;
+  for (const c of [q1, q2]) {
+    const dx = (P.x - c.en.x) / K, dy = (P.y - c.en.y) / K;
+    const r = Math.hypot(dx, dy);
+    const e = (KC * c.q) / (r * r);                          // con signo: positivo = alejándose de la carga
+    ex += (e * dx) / r; ey += (e * dy) / r;
+  }
+  verificarDistancia("|E| en P = 1530 N/C", 1530, Math.hypot(ex, ey), 1e-6);
+
+  const RC = 12, y4 = Y + 34, y6 = Y + 66;
+  const carga = (c: Pt, signo: "+" | "-"): Elemento[] => [
+    { tipo: "poligono", puntos: Array.from({ length: 28 }, (_, i) => avanzar(c, (i * 360) / 28, RC)), rol: "trazo", relleno: true, rellenoColor: "#ffffff" },
+    { tipo: "linea", de: { x: c.x - 6, y: c.y }, a: { x: c.x + 6, y: c.y }, rol: "trazo", grosor: 1.8 },
+    ...(signo === "+" ? [{ tipo: "linea", de: { x: c.x, y: c.y - 6 }, a: { x: c.x, y: c.y + 6 }, rol: "trazo", grosor: 1.8 } as Elemento] : []),
+  ];
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: q1.en.x + RC, y: Y }, a: { x: q2.en.x - RC, y: Y }, rol: "trazo", grosor: 2 },
+    ...carga(q1.en, "+"),
+    ...carga(q2.en, "-"),
+    { tipo: "punto", en: P, r: 4, rol: "trazo" },
+    { tipo: "texto", en: { x: q1.en.x, y: Y - 26 }, texto: "q₁", rol: "dato", tam: 15, cursiva: true },
+    { tipo: "texto", en: { x: q2.en.x, y: Y - 26 }, texto: "q₂", rol: "dato", tam: 15, cursiva: true },
+    { tipo: "texto", en: { x: P.x, y: Y - 22 }, texto: "P", rol: "trazo", tam: 15 },
+    { tipo: "linea", de: { x: q1.en.x, y: Y + RC }, a: { x: q1.en.x, y: y6 + 6 }, rol: "trazo", grosor: 1 },
+    { tipo: "linea", de: { x: P.x, y: Y }, a: { x: P.x, y: y4 + 6 }, rol: "trazo", grosor: 1 },
+    { tipo: "linea", de: { x: q2.en.x, y: Y + RC }, a: { x: q2.en.x, y: y6 + 6 }, rol: "trazo", grosor: 1 },
+    ...cota({ x: q1.en.x, y: y4 }, { x: P.x, y: y4 }, "4 m", -13),
+    ...cota({ x: q1.en.x, y: y6 }, { x: q2.en.x, y: y6 }, "6 m", -13),
+  ];
+  return { ancho: Math.round(q2.en.x + 34), alto: y6 + 30, pasos: 0, elementos: el };
+}
+
+// F10 (1-2020 3ra opción) · bloque lanzado desde A hacia la IZQUIERDA a 6 m/s
+// sobre el piso áspero; B queda 5 m a la izquierda de A, con la cota entre las
+// dos verticales punteadas como en el facsímil (pág. 2, 600 dpi). Con lo
+// dibujado: Ec(B) = ½·3·6² − 0,2·3·10·5 = 54 − 30 = 24 J (c); el bloque recién
+// se frenaría a los 9 m, así que llega a B.
+function f10BloqueLanzado6msA5mB(): Figura {
+  const K = 66, M = 3, V = 6, MU = 0.2, G = 10;
+  const PISO = 96;
+  const B: Pt = { x: 46, y: PISO }, A: Pt = { x: 46 + 5 * K, y: PISO };
+  const lado = 44;
+  const caja = [{ x: A.x - lado / 2, y: PISO }, { x: A.x + lado / 2, y: PISO }, { x: A.x + lado / 2, y: PISO - lado }, { x: A.x - lado / 2, y: PISO - lado }];
+  const vDe: Pt = { x: A.x + 26, y: PISO - lado - 16 }, vA: Pt = { x: A.x - 30, y: PISO - lado - 16 };
+  const d = distancia(A, B) / K;
+  verificarDistancia("AB = 5 m", 5, d, 1e-9);
+  // la velocidad dibujada tiene que ir de A hacia B
+  verificarAngulo("la velocidad apunta de A hacia B", anguloHacia(A, B), anguloHacia(vDe, vA), 1e-9);
+  const ecB = 0.5 * M * V * V - MU * M * G * d;
+  verificarDistancia("Ec en B = 24 J", 24, ecB, 1e-9);
+  if (!(V * V / (2 * MU * G) > d)) throw new Error("f10 2020: con estos datos el bloque no llega a B");
+
+  const X1 = A.x + 70, yCota = PISO + 30;
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [{ x: 14, y: PISO }, { x: X1, y: PISO }, { x: X1, y: PISO + 9 }, { x: 14, y: PISO + 9 }], rol: "trazo", relleno: true, rellenoColor: "#c8c8cc" },
+    { tipo: "linea", de: { x: 14, y: PISO }, a: { x: X1, y: PISO }, rol: "trazo", grosor: 2 },
+    { tipo: "poligono", puntos: caja, rol: "trazo", relleno: true, rellenoColor: "#dcdce0" },
+    ...[0, 1, 2, 3, 4].map((i): Elemento => ({ tipo: "linea", de: { x: A.x + lado / 2 + 8, y: PISO - lado + 6 + i * 8 }, a: { x: A.x + lado / 2 + 22 + (i % 2) * 8, y: PISO - lado + 6 + i * 8 }, rol: "trazo", grosor: 1 })),
+    ...flecha(vDe, vA, "dato", 2, 10),
+    { tipo: "texto", en: { x: (vDe.x + vA.x) / 2, y: vDe.y - 14 }, texto: "6 m/s", rol: "dato", tam: 13 },
+    { tipo: "linea", de: B, a: { x: B.x, y: yCota + 8 }, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "linea", de: A, a: { x: A.x, y: yCota + 8 }, rol: "trazo", punteada: true, grosor: 1 },
+    ...cota({ x: B.x, y: yCota }, { x: A.x, y: yCota }, "5 m", -13),
+    { tipo: "texto", en: { x: B.x - 12, y: PISO + 20 }, texto: "B", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: A.x + 12, y: PISO + 20 }, texto: "A", rol: "trazo", tam: 14 },
+  ];
+  return { ancho: X1 + 8, alto: yCota + 26, pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -7538,6 +7672,11 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "f9-moviles-vias-15-desfase-30": f9MovilesVias15Desfase30,
   "f12-bloque-carga-campo-horizontal": f12BloqueCargaCampoHorizontal,
   "f9-pendulo-campo-37-perpendicular": f9PenduloCampo37Perpendicular,
+  // 4-nov-2026, segunda tanda: las tres de Ingeniería con figura en el
+  // facsímil que quedaban en la tabla de docs/figuras-pendientes.md.
+  "f11-carro-bloque-cara-delantera-liso": f11CarroBloqueCaraDelanteraLiso,
+  "f10-dos-cargas-p-entre-4-6": f10DosCargasPEntre4y6,
+  "f10-bloque-lanzado-6ms-a-5m-b": f10BloqueLanzado6msA5mB,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

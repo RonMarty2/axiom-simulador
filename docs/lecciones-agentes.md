@@ -467,3 +467,8 @@ Reglas operativas en `agentes/ejecutor-agy.md`; acá queda el porqué.
 2026-11-04 · ACIERTO · Si la figura es una imagen embebida (x-t de 2010, 180×192 px), sacarla a su resolución nativa con `fitz.Pixmap(doc, xref)` y ampliarla sin interpolar la vuelve legible; subir los dpi de la página la achata.
 2026-11-04 · ACIERTO · Abrir la página entera del facsímil, no solo la pregunta, destapó 3 figuras sin declarar en las mismas páginas · mirar la página completa y anotar lo que aparezca.
 2026-11-04 · SUERTE · De las 8 preguntas «resolubles por texto», 7 tenían la respuesta bien y una (2010-1 P17) no; no generalizar que la descripción en texto del banco alcanza.
+2026-11-04 · ERROR · Dos verificaciones de «apoyado en el piso» no podían fallar: el punto se definía como PISO − R y el chequeo sumaba R de vuelta · si la coordenada sale de la misma constante que se verifica, no verifica nada; medir con las direcciones dibujadas y comprobar con una mutación que salta.
+2026-11-04 · ACIERTO · Pedirle a agy (solo texto, con `--base`) «¿con qué cambio salta cada verificación?» encontró una cuenta hecha solo con constantes · incluir esa pregunta en toda revisión de figuras nuevas; revisa la versión del `--base`, no las ediciones posteriores.
+2026-11-04 · ACIERTO · `pdfimages -list` dice si la figura es vectorial o embebida; luego `pdftoppm -r 600 -x -y -W -H` recorta sin rasterizar toda la página.
+2026-11-04 · ACIERTO · Abrir la página entera del facsímil volvió a destapar 3 figuras sin declarar.
+2026-11-04 · ERROR (entorno) · El hook de agy bloquea Read y Bash cada ~20 lecturas, también dentro de un subagente que tiene que mirar el PDF · lanzar antes las lecturas de texto que sirvan para agy.

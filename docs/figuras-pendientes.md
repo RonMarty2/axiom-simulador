@@ -687,13 +687,29 @@ encontrar**: solo aparece abriendo el PDF. Si aparecen más, van acá.
 
 **4-nov-2026**, al abrir los facsímiles de las 10 «de la figura» de Ingeniería,
 aparecieron figuras en la misma página que el banco no declara (no se
-contrastaron ni dibujaron; el enunciado de cada una describe el dibujo en texto):
+contrastaron ni dibujaron; el enunciado de cada una describe el dibujo en texto).
+Eran tres y **se cerraron el mismo 4-nov-2026** (segunda tanda de
+`auditor-figuras`, recortes a 600 dpi de la pág. 2 de cada facsímil; las tres
+figuras son vectoriales, no imagen embebida). Las tres respuestas se rehicieron
+con la figura y **ninguna cambió**; el enunciado volvió al texto del original
+(se sacaron los paréntesis que suplían el dibujo):
 
-| examen | preg. | facsímil | qué trae la figura |
+| examen | preg. | facsímil | figura | respuesta |
+|---|---|---|---|---|
+| `2022-3op-2-2022` | 11 | `3-op-2-2022.pdf` p.2 (F11) | `f11-carro-bloque-cara-delantera-liso` | C (1500 N), sin cambio |
+| `2023-3op-1-2023` | 10 | `3-op-1-2023.pdf` p.2 (F10) | `f10-dos-cargas-p-entre-4-6` | C (1530 N/C), sin cambio |
+| `2020-3op-1-2020` | 10 | `163_3ra-op-1-2020.pdf` p.2 (F10) | `f10-bloque-lanzado-6ms-a-5m-b` | C (24 J), sin cambio |
+
+La tabla de pendientes de esta categoría queda **vacía**.
+
+Al abrir esas mismas páginas completas aparecieron **tres más** sin `figura:`
+(se anotan acá; no se contrastaron a fondo ni se dibujaron):
+
+| examen | preg. | facsímil | qué pasa |
 |---|---|---|---|
-| `2022-3op-2-2022` | 11 | `3-op-2-2022.pdf` p.2 (F11) | bloque M empujado por F, bloque m contra su cara delantera, «Liso» al piso |
-| `2023-3op-1-2023` | 10 | `3-op-1-2023.pdf` p.2 (F10) | q₁, P, q₂ en línea con cotas 4 m y 6 m |
-| `2020-3op-1-2020` | 10 | `163_3ra-op-1-2020.pdf` p.2 (F10) | bloque con 6 m/s hacia la izquierda, B ← 5 m → A |
+| `2020-3op-1-2020` | 5 | `163_3ra-op-1-2020.pdf` p.1 (G5) | **modo 4**: el enunciado es solo «Hallar "x", si la medida del arco AB es 58°» y no hay figura ni descripción. Sin el dibujo (circunferencia, E-D-P, θ θ en A, x en P) es irresoluble. Prioridad alta |
+| `2023-3op-1-2023` | 6 | `3-op-1-2023.pdf` p.1 (G6) | ni siquiera promete figura: «formando un ángulo de 60°» no dice entre qué; el facsímil lo pone en el quiebre, entre el tramo en pie y el caído (eso da h = 10 y la parte larga 20, la C del banco) |
+| `2020-3op-1-2020` | 8 | `163_3ra-op-1-2020.pdf` p.1 (G8) | modo 3 a revisar: el paréntesis describe el cuadrado con la semicircunferencia y las dos piezas negras; hay que contrastarlo con el facsímil y dibujarla |
 
 ## Cómo desbloquear esto: trabajar en local
 
