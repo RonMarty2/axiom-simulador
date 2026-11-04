@@ -48,7 +48,7 @@ export default function AdminDashboard() {
 
         {/* Stats principales */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 14, marginBottom: 28 }}>
-          <BigStat label="Ingresos totales" valor={`Bs. ${stats.ingreso_total_bob}`} change={`+Bs. 100 este mes`} color="#10b981" icon="💰" />
+          <BigStat label="Ingresos totales" valor={`Bs. ${stats.ingreso_total_bob}`} change="acumulado" color="#10b981" icon="💰" />
           <BigStat label="Usuarios totales" valor={stats.total_usuarios} change={`${stats.usuarios_premium} premium · ${stats.usuarios_pro} pro`} color="#6366f1" icon="👥" />
           <BigStat label="Exámenes completados" valor={stats.total_examenes_completados} change={`${stats.examenes_hoy} hoy`} color="#a855f7" icon="📝" />
           <BigStat label="Nota promedio" valor={`${stats.nota_promedio_global}/100`} change="global" color="#f59e0b" icon="📊" />

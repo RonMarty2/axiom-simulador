@@ -39,7 +39,8 @@ const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   },
 };
 
-const PLANES = [
+// El total sale del banco (/api/facultades). Mientras carga, el texto no lleva número.
+const planes = (total: number | null) => [
   {
     id: "gratis",
     nombre: "Gratis",
@@ -48,7 +49,7 @@ const PLANES = [
     descripcion: "Para empezar a medir tu nivel",
     badge: null,
     features: [
-      "Todos los 139 exámenes pasados con enunciados y claves",
+      `${total ? `Todos los ${total} exámenes` : "Todos los exámenes"} pasados con enunciados y claves`,
       "4 simulacros por semana (2 exámenes oficiales y 2 predictivos)",
       "Cronómetro oficial y diagnóstico de nota sobre 100",
       "Ver qué preguntas fallaste al terminar el examen",
@@ -70,7 +71,7 @@ const PLANES = [
     badge: "MÁS POPULAR",
     features: [
       "Todo lo incluido en el Plan Gratis",
-      "Los 139 exámenes resueltos paso a paso («como a lápiz»)",
+      `${total ? `Los ${total} exámenes` : "Los exámenes"} resueltos paso a paso («como a lápiz»)`,
       "Simulacros ilimitados a cualquier hora desde tu celular",
       "Práctica inteligente enfocada en los temas donde más te equivocas",
       "Detección y explicación de las preguntas trampa oficiales de la UMSS",
@@ -81,7 +82,7 @@ const PLANES = [
   },
 ];
 
-const PREGUNTAS_FRECUENTES = [
+const preguntasFrecuentes = (total: number | null) => [
   {
     q: "¿Cómo pago si estoy en Bolivia?",
     a: "Pagas en 2 minutos mediante QR bancario simple. Al seleccionar Premium se genera el código QR oficial de AXIOM, abres la app de tu banco (BNB, BCP, Banco Unión, Fie, etc.), escaneas y transfieres en bolivianos. También aceptamos Binance Pay y RedotPay.",
@@ -92,7 +93,7 @@ const PREGUNTAS_FRECUENTES = [
   },
   {
     q: "¿Los exámenes son realmente los que tomó la San Simón?",
-    a: "Sí. Cada uno de los 139 exámenes fue recopilado de los facsímiles oficiales tomados entre 2005 y 2025 y contrastado con las cartillas de respuestas firmadas por los coordinadores de cada facultad.",
+    a: `Sí. Cada uno de ${total ? `los ${total} exámenes` : "los exámenes"} fue recopilado de los facsímiles oficiales tomados entre 2005 y 2025 y contrastado con las cartillas de respuestas firmadas por los coordinadores de cada facultad.`,
   },
   {
     q: "¿Puedo cancelar o es una suscripción obligatoria?",
@@ -107,6 +108,19 @@ function PreciosInner() {
 
   const [planActual, setPlanActual] = useState<string | null>(null);
   const [faqAbierta, setFaqAbierta] = useState<number | null>(null);
+  const [total, setTotal] = useState<number | null>(null);
+  const PLANES = planes(total);
+  const PREGUNTAS_FRECUENTES = preguntasFrecuentes(total);
+
+  useEffect(() => {
+    fetch("/api/facultades")
+      .then((r) => r.json())
+      .then((d) => {
+        const suma = ((d.facultades ?? []) as { examenes?: number }[]).reduce((a, f) => a + (f.examenes || 0), 0);
+        setTotal(suma || null);
+      })
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -351,7 +365,7 @@ function PreciosInner() {
               </div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, fontSize: 13.5, color: "var(--fg-primary)", display: "flex", flexDirection: "column", gap: 8, fontWeight: 600 }}>
                 <li>✓ Estudias a tu ritmo desde tu celular a cualquier hora</li>
-                <li>✓ 139 exámenes reales con patrones oficiales de la UMSS</li>
+                <li>✓ {total ? `${total} exámenes reales` : "Exámenes reales"} con patrones oficiales de la UMSS</li>
                 <li>✓ Explicaciones paso a paso («como a lápiz») de cada ejercicio</li>
                 <li>✓ Simulador cronometrado idéntico al examen real</li>
               </ul>

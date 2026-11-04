@@ -64,5 +64,148 @@
     },
     "completo": true,
     "notas": "Titulo impreso p.1: 'PRIMER EXAMEN ALGEBRA - ARITMETICA CURSO PROPEDEUTICO GESTION I-2006' (p.2 Geometria-Trigonometria, p.3 Quimica y p.4 Fisica 'CURSO PREPARATORIO GESTION 1-2006', p.5 Biologia). Contrastadas 38/38 y las 190 opciones contra el PDF (capa de texto PyMuPDF y render PyMuPDF a 200 dpi; fracciones de P6, radicales de P5 y P25 y vectores de P28 leidos en el render). Corregido: ORDEN de Fisica, el pendulo es la P4 de Fisica en el PDF (P25 del banco) y estaba como P28; se movio y avion/modulo/vectores pasaron a P26-P28 (cambian los ids -025..-028: las filas de la tabla errores con esos ids apuntan ahora a otra pregunta). P2 divisor (x^2-2x+4) restituido como impreso (4-2x+x^2). Frases recortadas restituidas: P4 'se obtenga', P10 'tres veces mas que', P16 'e identificar de que metal se trata', P17 'es un paso determinante para la formacion del smog fotoquimico', P21 'es el combustible empleado en las cocinas' y 'que libera una gran cantidad de calor', P22 y P23 enunciados completos (estaban resumidos), P25 'ecuacion dimensional' (decia 'dimensionalmente correcta'), P26 'Despues de dejar caer provisiones', P27 coordenadas con punto y coma como el PDF, P36 '(acido desoxirribonucleico)'. Agregados editoriales que se dejaron: P6 '(25 dias en total)', P8 '(en ese orden sobre la recta)', P10 '(el angulo del vertice)', P16 aclaracion de la reduccion con H2O, P17 y P20 masas molares, P17 nota de la errata del PDF '(N2O)' por NO2, EXCEPTO en mayusculas (P31, P33, P36), decimales con coma, P11 se omite un 'AE' suelto que el PDF imprime antes de 'AC=BD'. Sin figuras en el PDF. Sin faltantes. El PDF no trae fecha ni duracion: duracion_minutos 150 es del transcriptor."
+  },
+  "ingenieria/2005-1op-2-2005": {
+    "id": "umss-ingenieria-2005-examen-de-ingreso-2-2005-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/052_ExamenAdmisionPrimeraOpcion2-2005.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Contrastado contra el PDF y corregido el 3-nov-2026. Hecho: P1 con la aclaracion de numeros mixtos; P17, P18 y P19 con texto fiel al PDF y sus 3 figuras dibujadas (f17, f18, f19). Decisiones de Ronald: P18 queda en D (cambio de A a D al ver el dibujo, media vuelta; la cuenta da 1/2 rad/s; no hay clave oficial); P12 queda como FALTANTE (el PDF dice m=-1,0,+1 y no hay clave oficial; el banco habia cambiado los datos). completo:false porque P12 sigue retirada. P11 conserva '(1 lb = 453.6 g)' que el PDF no trae (editorial)."
+  },
+  "ingenieria/2012-1op-1-2012": {
+    "id": "umss-ingenieria-2012-primer-examen-de-ingreso-1-2012",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/119_PrimerExamenIngreso1-2012.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Contrastado contra el PDF y corregido el 3-nov-2026. Hecho: P1 al texto del PDF; P17-P20 opcion E 'Ninguna'; P20 sin articulos agregados; P8-P12 con sus 5 figuras dibujadas y enunciados a la letra del PDF (cotas en el dibujo). La nota vieja sobre P3 era falsa: el render muestra 4 opciones distintas. DUDA ABIERTA: P11, el PDF dice d=raiz3 +- 1 y el banco usa '+' (respuesta A); con '-' saldria E. Ronald decidio dejar '+' y anotarla. P9 y P10: el PDF rotula 4 m vertical y 3 m horizontal pero lo dibuja mas ancho que alto; mandan los rotulos. completo:false mientras P11 siga con duda."
+  },
+  "ingenieria/2018-2op-1-2018": {
+    "id": "umss-ingenieria-2018-examen-de-ingreso-1-2018-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/152_2da-op-1-2018.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Contrastado contra el PDF y corregido el 3-nov-2026 (el facsimil correcto es 152_2da-op-1-2018.pdf; el 157 es del 2019). G5 (dos torres) y F9 (grafica v-t) llevan ahora su figura y F9 el enunciado del PDF ('se muestra en la figura'; la poligonal termina en t=18 s). Respuestas rehechas con la figura a la vista: G5 sigue C y F9 sigue A. F7 y F11 ya tenian figura en el banco. Sin diferencias abiertas."
+  },
+  "ingenieria/2024-Uop-2-2024": {
+    "id": "umss-ingenieria-2024-examen-de-ingreso-2-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/2024-2-Uop.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Contrastado contra el PDF y corregido el 3-nov-2026. Hecho: G7 con su figura (cuadrilatero inscrito; sigue A); G6 sin el parentesis ni los grados que el PDF no trae; F11 y F12 sin las aclaraciones que el PDF solo tiene en el dibujo. DUDA ABIERTA: G6, en el PDF el arco de 180 grados abarca interior y exterior y la expresion cae del lado interior; leida asi saldria 175 (opcion a). Ronald decidio dejar 125 (E), la lectura de angulos exteriores que dibuja g6. completo:false mientras esa lectura siga en duda."
+  },
+  "ingenieria/2005-2op-1-2005": {
+    "id": "umss-ingenieria-2005-examen-de-ingreso-1-2005-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/051_ExamenAdmisionSegundaOpcion1-2005.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'EXAMEN DE INGRESO SEGUNDA OPCION GESTION I-2005'. Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium, 2 lotes). P17-P20 traian figura en el PDF y el banco no la tenia: dibujadas (f17-mesa-polea..., f18-camion-auto..., f19-dos-planos-30..., f20-tres-resistencias...) y los enunciados vueltos a la letra del PDF; las 4 respuestas rehechas con la figura a la vista no cambian. Desviaciones editoriales que se dejaron: P3, P4, P8 y P10 parafraseados sin cambiar datos; P5 con la fraccion en linea; P13 repite 'de una persona adolescente' al principio."
+  },
+  "ingenieria/2005-2op-2-2005": {
+    "id": "umss-ingenieria-2005-examen-de-ingreso-2-2005-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/053_ExamenAdmisionSegundaOpcion2-2005.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'EXAMEN DE INGRESO SEGUNDA OPCION 2-2005'. Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium, 2 lotes). Corregido: P4 y P7 sin las aclaraciones que el PDF no trae ('duplicando cada dia', 'pequeño'). P10 (6 cilindros en triangulo, g10-seis-cilindros-triangulo-x) y P19 (plano inclinado, f19-plano-altura-h-theta-bloque) traian figura en el PDF: dibujadas, respuestas sin cambio. Desviaciones editoriales que se dejaron: P12 agrega la ecuacion 2Mg + O2 -> 2MgO y P.M. MgO=40,3 que el PDF no trae; P14, P16 y P18 parafraseados o resumidos sin cambiar datos."
+  },
+  "ingenieria/2006-parcial1-2-2006": {
+    "id": "umss-ingenieria-2006-primer-parcial-curso-propedeutico-gestion-2-2006",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/061_PrimerParcialCursoPropedeutico2-2006.pdf",
+      "paginas": "1-5"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'CURSO PROPEDEUTICO 2-2006'; el PDF reune los primeros examenes de matematica, geometria-trigonometria, fisica y quimica. Contrastadas 38/38 contra el render a 200 dpi (agy Flash Medium, 5 lotes) y la capa de texto. Corregido: P4 omitia 'que no bailaban' y pedia 'cuantas mujeres habia' (el PDF: 'cuantas mujeres estuvieron en la fiesta'); P21 omitia la ecuacion C6H6 + O2 -> CO2 + H2O. Las respuestas no cambian. Detalles que se dejaron: P17 el PDF imprime las opciones en orden a, b, d, c (158,9 antes de 148,9) y trae un 'a)' suelto en el enunciado; el banco las ordena A a D, la respuesta A no se ve afectada; P8, P10 y P11 el PDF agrega 'grados' tras el angulo; P14 el PDF usa una barra continua sobre toda la expresion. Sin figuras en el PDF."
+  },
+  "ingenieria/2010-1op-1-2010": {
+    "id": "umss-ingenieria-2010-examen-de-ingreso-1-2010-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/098_ExamenAdmisionPrimeraOpcion1-2010.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'VIERNES 19 DE FEBRERO DE 2010'. Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium, 2 lotes). ERROR GRAVE corregido: P12 (circuito) tenia una topologia supuesta sin mirar el PDF (dos ramas en serie, 2,4 ohm, opcion C); en el PDF R3 y R4 cuelgan del riel de A y R1 lleva a R2, asi que R1+R2=4 queda en paralelo con 2 y 4: Req = 1 ohm, opcion D. Cambiados enunciado, respuesta, explicacion y la figura f12-cuatro-resistencias-ab (vista en render). Lectura hecha por Claude sobre la imagen; la segunda lectura con agy volvio vacia. Otros DIF de agy son parafrasis de enunciado sin cambio de datos (P1-P4, P6-P11, P13, P15, P16, P18) y se dejaron. El frontmatter no trae la fecha exacta que si imprime el PDF."
+  },
+  "ingenieria/2014-1op-1-2014": {
+    "id": "umss-ingenieria-2014-examen-de-ingreso-1-2014",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/128_1ra-op-1-2014.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). Corregido: opcion E 'Ninguna' en P13 y P17-P20 (el PDF lo dice asi). P12 traia figura en el PDF y el banco no la tenia: dibujada (f12-pendulo-horizontal-eje-l; el PDF no trae arco punteado, solo hilo y esfera punteados abajo); respuesta D (30 N) rehecha con la figura, sin cambio. P9 y P10 el banco resume 'considerar g=10 m/s2' (sin cambio de datos)."
+  },
+  "ingenieria/2017-1op-1-2017": {
+    "id": "umss-ingenieria-2017-examen-de-ingreso-1-2017-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/146_1ra-op-1-2017.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). Corregido: opcion E 'Ninguna' en P17-P20. P9 (rizo, f9-rizo-rampa-h-tramo-bc-d) y P12 (pendulo conico, f12-pendulo-conico-theta) traian figura en el PDF y el banco no: dibujadas, respuestas C (10 m) y B (45 grados) rehechas con la figura, sin cambio; P9 sin el parentesis editorial. El facsimil dibuja d casi el doble de R en P9: se dibujo a escala con el enunciado (d=R); P12 deja theta a 36 grados como el facsimil. P10 tiene figura, pero el banco agrega las coordenadas de las cargas en el texto (editorial)."
+  },
+  "ingenieria/2011-1op-1-2011": {
+    "id": "umss-ingenieria-2011-examen-de-ingreso-1-2011-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/110_ExamenAdmisionPrimeraOpcion1-2011.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'MARTES 18 DE ENERO DE 2011'. Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). P10 (tiro parabolico, f10-tiro-altura-d-alcance-d) y P12 (circuito con fuente de 12 V y condensadores de 1, 4 y 2 uF, f12-capacitores-1-4-2-uf-fuente-12v) traian figura en el PDF y el banco las reconstruyo en texto sin verla: dibujadas y leidas cable por cable a 600-1200 dpi. La topologia que supuso el banco en P12 no era la real, pero la carga es la misma (12 uF por 12 V = 12 uC, opcion C); respuestas D (80 m) y C sin cambio. Duda declarada: en el facsimil los cables pasan de largo entre las placas de los condensadores (dibujo de Word superpuesto); se leyo que cada condensador corta su cable, la unica lectura que da un circuito. Resumidos o con aclaraciones editoriales P5, P9, P11, P13-P17 (sin cambio de datos)."
+  },
+  "ingenieria/2016-1op-1-2016": {
+    "id": "umss-ingenieria-2016-examen-de-ingreso-1-2016-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/141_1ra-op-1-2016.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). Corregido: opcion E 'Ninguna' en P4, P8, P17 y P20. Las figuras de P5, P6, P7 y P10 ya estaban en el banco (no se recontrastaron contra el PDF en esta pasada). P5 el banco agrega una descripcion del dibujo en el texto (editorial); P4 'de modo de que' vs 'de modo que'."
+  },
+  "ingenieria/2023-1op-1-2023": {
+    "id": "umss-ingenieria-2023-examen-de-ingreso-1-2023-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-03",
+    "fuente": {
+      "archivo": "FCYT/1-op-1-2023.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). Solo diferencias de redaccion, sin cambio de datos (P1, P2, P4, P7, P9, P13-P16, P20); aclaraciones del banco en P5, P10, P11 y P12, que ya tienen figura en el banco (figuras no recontrastadas contra el PDF en esta pasada). No se corrigio nada."
   }
 }

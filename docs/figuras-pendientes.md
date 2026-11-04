@@ -69,6 +69,8 @@ y el facsímil traía igual.
 | `2009-parcial3-2-2009` | `094_…2-2009.pdf` p.4 | P19 | — |
 | `2014-final-2-2014` | `136_final2-2014.pdf` p.4 | P19, P20 | — |
 | `2025-final-1-2025` | `2025-1-preu.pdf` p.12 | P20 | — |
+| `2005-2op-1-2005` | `051_ExamenAdmisionSegundaOpcion1-2005.pdf` p.2 | P17, P20 | **P18, P19** |
+| `2005-2op-2-2005` | `053_ExamenAdmisionSegundaOpcion2-2005.pdf` p.1 y p.2 | — | **P10, P19** |
 
 **13 preguntas, 13 figuras, 10 dibujos**: tres se comparten porque el facsímil
 es literalmente el mismo. `2016-2op-1` P10 usa la del `2016-1op-1` P10 (mismo

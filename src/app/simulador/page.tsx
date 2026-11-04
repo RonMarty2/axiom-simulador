@@ -1,5 +1,7 @@
 "use client";
 
+import { PRECIOS_BOB } from "@/lib/precios";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icono from "../components/Icono";
@@ -406,7 +408,7 @@ export default function SimuladorCreatePage() {
                   whiteSpace: "nowrap",
                 }}
               >
-                Ver planes desde Bs 49 →
+                Ver planes desde Bs {PRECIOS_BOB.pro} →
               </Link>
             )}
           </div>

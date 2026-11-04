@@ -642,9 +642,9 @@ function f10b(): Figura {
 // Hipótesis usada en la resolución: misma altura, sentidos horizontales
 // opuestos (es la única lectura que da un número limpio y coincide exacto
 // con una opción). Marcada para confirmar contra el PDF original.
-// Reconstruida contra el PDF real (19-jul-2026): NO son sentidos horizontales
-// opuestos — es una esfera lanzada HORIZONTAL (30 m/s) y la otra lanzada
-// hacia ABAJO (20 m/s), ambas desde el mismo punto/altura, simultáneas.
+// Corregida el 3-nov-2026 contra el facsímil 2022-1op-2 (F11): la esfera 1 sale
+// con 30 m/s VERTICAL HACIA ARRIBA y la esfera 2 con 20 m/s VERTICAL HACIA ABAJO,
+// ambas desde el borde del acantilado. (La versión anterior la dibujaba horizontal.)
 function f11b(): Figura {
   const borde: Pt = { x: 180, y: 70 };
   const bola1: Pt = { x: 200, y: 70 };
@@ -653,10 +653,10 @@ function f11b(): Figura {
     { tipo: "poligono", puntos: [{ x: 20, y: 70 }, borde, { x: 180, y: 270 }, { x: 20, y: 270 }], rol: "trazo", relleno: true, rellenoColor: "#c7c7d1" },
     { tipo: "punto", en: bola1, rol: "trazo", r: 7 },
     { tipo: "punto", en: bola2, rol: "trazo", r: 7 },
-    // esfera 1: lanzamiento HORIZONTAL a 30 m/s
-    { tipo: "linea", de: avanzar(bola1, 0, 10), a: avanzar(bola1, 0, 80), rol: "resultado", color: ROJO, grosor: 2 },
-    { tipo: "path", d: cabezaFlecha(avanzar(bola1, 0, 80), 0, 7), rol: "resultado", color: ROJO, relleno: true },
-    { tipo: "texto", en: { x: bola1.x + 40, y: bola1.y - 14 }, texto: "30 m/s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
+    // esfera 1: lanzamiento vertical hacia ARRIBA a 30 m/s
+    { tipo: "linea", de: avanzar(bola1, 90, 10), a: avanzar(bola1, 90, 50), rol: "resultado", color: ROJO, grosor: 2 },
+    { tipo: "path", d: cabezaFlecha(avanzar(bola1, 90, 50), 90, 7), rol: "resultado", color: ROJO, relleno: true },
+    { tipo: "texto", en: { x: bola1.x + 34, y: bola1.y - 36 }, texto: "30 m/s", rol: "resultado", color: ROJO, tam: 12, negrita: true },
     // esfera 2: lanzamiento hacia ABAJO a 20 m/s
     { tipo: "linea", de: avanzar(bola2, -90, 10), a: avanzar(bola2, -90, 80), rol: "dato", color: AMBAR, grosor: 2 },
     { tipo: "path", d: cabezaFlecha(avanzar(bola2, -90, 80), -90, 7), rol: "dato", color: AMBAR, relleno: true },
@@ -2117,45 +2117,51 @@ function f24tresParalelo(): Figura {
   return { ancho: 400, alto: 230, pasos: 0, elementos: el };
 }
 
-// ── F12 (1-2010 1ra) · cuatro resistencias, dos ramas en paralelo entre A y B ──
-// El enunciado describe la disposición entera: una rama con R1+R2 en serie y
-// otra con R3+R4 en serie, ambas entre A y B. (3+1) ∥ (2+4) = 4∥6 = 2,4 Ω.
+// ── F12 (1-2010 1ra) · cuatro resistencias entre A y B, como en el facsímil ──
+// Corregida el 3-nov-2026: el banco había supuesto dos ramas en serie y su
+// respuesta (2,4 Ω) no salía del dibujo del PDF. En el PDF, A toca el riel
+// superior a la izquierda de R1; R3 y R4 cuelgan de ese mismo riel; R1 lleva
+// a R2, que baja hasta el riel inferior donde está B. Entonces R1+R2 = 4 Ω
+// queda en paralelo con R3 = 2 Ω y R4 = 4 Ω: 1/Req = 1/4 + 1/2 + 1/4 = 1 → 1 Ω.
 function f12cuatroRamas(): Figura {
-  const A: Pt = { x: 58, y: 118 };
-  const B: Pt = { x: 372, y: 118 };
-  const Y_SUP = 60, Y_INF = 176;
-  const X1 = 140, X2 = 265;             // centros de los resistores de cada rama
+  const Y_SUP = 54, Y_INF = 192;        // rieles
+  const Y_R0 = 92, Y_R1 = 154;          // extremos de los resistores verticales
+  const X3 = 70, X4 = 130, X2 = 360;    // R3, R4 y R2
+  const XA = 175;                       // donde A toca el riel de arriba
+  const A: Pt = { x: XA, y: 22 };
+  const B: Pt = { x: XA, y: 214 };
 
   const el: Elemento[] = [
-    // terminal A y su reparto a las dos ramas
+    // terminal A
     { tipo: "punto", en: A, rol: "trazo", r: 3.4 },
     { tipo: "texto", en: { x: A.x - 17, y: A.y + 5 }, texto: "A", rol: "trazo", tam: 14, negrita: true },
-    { tipo: "linea", de: A, a: { x: A.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
-    { tipo: "linea", de: A, a: { x: A.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
-    // terminal B
+    { tipo: "linea", de: A, a: { x: XA, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    // riel de arriba con R1 entre A y R2
+    { tipo: "linea", de: { x: X3, y: Y_SUP }, a: { x: 215, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: 215, y: Y_SUP }, { x: 295, y: Y_SUP }), rol: "trazo" },
+    { tipo: "texto", en: { x: 255, y: Y_SUP - 15 }, texto: "R₁ = 3 Ω", rol: "trazo", tam: 11, ancla: "middle" },
+    { tipo: "linea", de: { x: 295, y: Y_SUP }, a: { x: X2, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
+    // R3, R4 y R2 bajan al riel de abajo
+    { tipo: "linea", de: { x: X3, y: Y_SUP }, a: { x: X3, y: Y_R0 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X3, y: Y_R0 }, { x: X3, y: Y_R1 }), rol: "trazo" },
+    { tipo: "linea", de: { x: X3, y: Y_R1 }, a: { x: X3, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "texto", en: { x: X3 - 14, y: 127 }, texto: "R₃ = 2 Ω", rol: "trazo", tam: 11, ancla: "end" },
+    { tipo: "linea", de: { x: X4, y: Y_SUP }, a: { x: X4, y: Y_R0 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X4, y: Y_R0 }, { x: X4, y: Y_R1 }), rol: "trazo" },
+    { tipo: "linea", de: { x: X4, y: Y_R1 }, a: { x: X4, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "texto", en: { x: X4 + 14, y: 127 }, texto: "R₄ = 4 Ω", rol: "trazo", tam: 11, ancla: "start" },
+    { tipo: "linea", de: { x: X2, y: Y_SUP }, a: { x: X2, y: Y_R0 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: resistorZigzag({ x: X2, y: Y_R0 }, { x: X2, y: Y_R1 }), rol: "trazo" },
+    { tipo: "linea", de: { x: X2, y: Y_R1 }, a: { x: X2, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "texto", en: { x: X2 - 14, y: 127 }, texto: "R₂ = 1 Ω", rol: "trazo", tam: 11, ancla: "end" },
+    // riel de abajo y terminal B
+    { tipo: "linea", de: { x: X3, y: Y_INF }, a: { x: X2, y: Y_INF }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: { x: XA, y: Y_INF }, a: B, rol: "trazo", grosor: 1.6 },
     { tipo: "punto", en: B, rol: "trazo", r: 3.4 },
     { tipo: "texto", en: { x: B.x + 17, y: B.y + 5 }, texto: "B", rol: "trazo", tam: 14, negrita: true },
-    { tipo: "linea", de: B, a: { x: B.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
-    { tipo: "linea", de: B, a: { x: B.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
-    // rama de arriba: R1 y R2 en serie
-    { tipo: "linea", de: { x: A.x, y: Y_SUP }, a: { x: X1 - 30, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
-    { tipo: "path", d: resistorZigzag({ x: X1 - 30, y: Y_SUP }, { x: X1 + 30, y: Y_SUP }), rol: "trazo" },
-    { tipo: "texto", en: { x: X1, y: Y_SUP - 15 }, texto: "R₁ = 3 Ω", rol: "trazo", tam: 11, ancla: "middle" },
-    { tipo: "linea", de: { x: X1 + 30, y: Y_SUP }, a: { x: X2 - 30, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
-    { tipo: "path", d: resistorZigzag({ x: X2 - 30, y: Y_SUP }, { x: X2 + 30, y: Y_SUP }), rol: "trazo" },
-    { tipo: "texto", en: { x: X2, y: Y_SUP - 15 }, texto: "R₂ = 1 Ω", rol: "trazo", tam: 11, ancla: "middle" },
-    { tipo: "linea", de: { x: X2 + 30, y: Y_SUP }, a: { x: B.x, y: Y_SUP }, rol: "trazo", grosor: 1.6 },
-    // rama de abajo: R3 y R4 en serie
-    { tipo: "linea", de: { x: A.x, y: Y_INF }, a: { x: X1 - 30, y: Y_INF }, rol: "trazo", grosor: 1.6 },
-    { tipo: "path", d: resistorZigzag({ x: X1 - 30, y: Y_INF }, { x: X1 + 30, y: Y_INF }), rol: "trazo" },
-    { tipo: "texto", en: { x: X1, y: Y_INF + 22 }, texto: "R₃ = 2 Ω", rol: "trazo", tam: 11, ancla: "middle" },
-    { tipo: "linea", de: { x: X1 + 30, y: Y_INF }, a: { x: X2 - 30, y: Y_INF }, rol: "trazo", grosor: 1.6 },
-    { tipo: "path", d: resistorZigzag({ x: X2 - 30, y: Y_INF }, { x: X2 + 30, y: Y_INF }), rol: "trazo" },
-    { tipo: "texto", en: { x: X2, y: Y_INF + 22 }, texto: "R₄ = 4 Ω", rol: "trazo", tam: 11, ancla: "middle" },
-    { tipo: "linea", de: { x: X2 + 30, y: Y_INF }, a: { x: B.x, y: Y_INF }, rol: "trazo", grosor: 1.6 },
   ];
 
-  return { ancho: 430, alto: 220, pasos: 0, elementos: el };
+  return { ancho: 430, alto: 236, pasos: 0, elementos: el };
 }
 
 // ── F11/F19 · Atwood con separación inicial h (m1=4 kg, m2=1 kg, h=24 m) ──
@@ -5394,6 +5400,1492 @@ function g5PerimetroCdeColineal(): Figura {
   return { ancho: 420, alto: Math.round(D.y + 32), pasos: 0, elementos: el };
 }
 
+// ── Lote 2-2005 1ra opción (facsímil 052_ExamenAdmisionPrimeraOpcion2-2005.pdf, pág. 2, 600 dpi) ──
+
+// Trazo punteado sobre una poligonal: un tramo sí y uno no (el "path" no
+// soporta `punteada`).
+function punteadoPor(pts: Pt[], rol: Rol, color?: string): Elemento[] {
+  const el: Elemento[] = [];
+  for (let i = 0; i + 1 < pts.length; i += 2) {
+    el.push({ tipo: "linea", de: pts[i], a: pts[i + 1], rol, ...(color ? { color } : {}) });
+  }
+  return el;
+}
+
+// Punto de una elipse de semiejes (rx, ry): así se ve en perspectiva una
+// circunferencia horizontal. phi = 90° es el lado de ATRÁS (arriba en el dibujo).
+function enElipse(O: Pt, rx: number, ry: number, phi: number): Pt {
+  return { x: O.x + rx * Math.cos((phi * Math.PI) / 180), y: O.y - ry * Math.sin((phi * Math.PI) / 180) };
+}
+
+function elipsePath(O: Pt, rx: number, ry: number): string {
+  return `M ${(O.x - rx).toFixed(2)} ${O.y.toFixed(2)} A ${rx} ${ry} 0 1 0 ${(O.x + rx).toFixed(2)} ${O.y.toFixed(2)} A ${rx} ${ry} 0 1 0 ${(O.x - rx).toFixed(2)} ${O.y.toFixed(2)} Z`;
+}
+
+// Flecha de cota vertical con punta en los dos extremos.
+function cotaVertical(x: number, y1: number, y2: number, rol: Rol): Elemento[] {
+  return [
+    { tipo: "linea", de: { x, y: y1 }, a: { x, y: y2 }, rol, grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x, y: Math.min(y1, y2) }, 90, 7), rol, relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x, y: Math.max(y1, y2) }, -90, 7), rol, relleno: true },
+  ];
+}
+
+// F17 · montaña rusa semicircular, carrito en la cima. El facsímil muestra la
+// semicircunferencia apoyada en sus dos extremos, el carrito arriba por FUERA
+// del carril y el radio punteado desde el centro hacia arriba a la izquierda.
+// En la cima el carril solo puede empujar hacia afuera: en el límite N = 0,
+// mg = mv²/R, v = √(gR) = √900 = 30 m/s (C).
+function f17montanaSemicircular(): Figura {
+  const R = 130;
+  const C: Pt = { x: 210, y: 176 };
+  const cima = avanzar(C, 90, R);
+  const carrito = bloqueSobre(cima, 0, 52, 24);
+  const apoyo: Pt = { x: (carrito[0].x + carrito[1].x) / 2, y: (carrito[0].y + carrito[1].y) / 2 };
+  const techo: Pt = { x: (carrito[2].x + carrito[3].x) / 2, y: (carrito[2].y + carrito[3].y) / 2 };
+  const pieIzq = avanzar(C, 180, R);
+  const pieDer = avanzar(C, 0, R);
+  const finRadio = avanzar(C, 135, R);
+  const medioRadio = avanzar(C, 135, R / 2);
+
+  // Lo que el problema necesita de la figura: el carrito va por AFUERA.
+  verificarDistancia("la base del carrito apoya en el carril", R, distancia(C, apoyo), 0.5);
+  if (distancia(C, techo) <= R) throw new Error("Figura inconsistente: el carrito quedó por dentro del carril");
+  verificarDistancia("la semicircunferencia apoya en el suelo", 0, Math.abs(pieIzq.y - pieDer.y) + Math.abs(pieIzq.y - C.y), 0.5);
+
+  const el: Elemento[] = [
+    { tipo: "path", d: arcoDe(C, R, 0, 180), rol: "trazo" },
+    { tipo: "linea", de: { x: pieIzq.x - 18, y: C.y }, a: { x: pieIzq.x + 18, y: C.y }, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: { x: pieDer.x - 18, y: C.y }, a: { x: pieDer.x + 18, y: C.y }, rol: "trazo", grosor: 2 },
+    ...rayado(pieIzq.x - 18, pieIzq.x + 18, C.y),
+    ...rayado(pieDer.x - 18, pieDer.x + 18, C.y),
+    { tipo: "poligono", puntos: carrito, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "punto", en: C, rol: "trazo", r: 2.4 },
+    { tipo: "linea", de: C, a: finRadio, rol: "dato", punteada: true },
+    { tipo: "texto", en: avanzar(medioRadio, 45, 12), texto: "R = 90 m", rol: "dato", tam: 13, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 420, alto: C.y + 24, pasos: 0, elementos: el };
+}
+
+// F18 · disco con un orificio, la bala sale por él y vuelve a entrar por el
+// mismo orificio. El facsímil (600 dpi) dibuja el orificio en DOS lugares
+// diametralmente opuestos unidos por su recorrido punteado por atrás: mientras
+// la bala vuela, el disco da MEDIA vuelta. t = 2·v0y/g = 2π s y ω·t = π, así
+// que ω = 1/2 rad/s (D). El banco decía A (1 rad/s, vuelta entera): esa lectura
+// es la del texto solo, el dibujo dice otra cosa.
+function f18discoOrificio(): Figura {
+  const O: Pt = { x: 252, y: 142 };
+  const A = 190, B = 52;                  // el disco visto en perspectiva
+  const RA = 0.78 * A, RB = 0.78 * B;     // la circunferencia que recorre el orificio
+  const PHI_ENTRA = 180;
+  const GIRO = -180;                      // media vuelta, por atrás (horario visto desde arriba)
+  const H = 118;                          // flecha de la parábola, en px
+
+  const E = enElipse(O, RA, RB, PHI_ENTRA);
+  const X = enElipse(O, RA, RB, PHI_ENTRA + GIRO);
+  const recorrido: Pt[] = [];
+  for (let i = 0; i <= 36; i++) recorrido.push(enElipse(O, RA, RB, PHI_ENTRA + (GIRO * i) / 36));
+
+  verificarDistancia("entrada y salida diametralmente opuestas", 0, distancia({ x: (E.x + X.x) / 2, y: (E.y + X.y) / 2 }, O), 0.5);
+  verificarDistancia("el recorrido del orificio termina donde vuelve a entrar la bala", 0, distancia(recorrido[recorrido.length - 1], X), 0.5);
+  if (recorrido[18].y >= O.y) throw new Error("Figura inconsistente: el orificio debería pasar por detrás del disco");
+
+  // La parábola de la bala, de un orificio al otro.
+  const parabola: Pt[] = [];
+  for (let i = 0; i <= 40; i++) {
+    const t = i / 40;
+    parabola.push({ x: E.x + (X.x - E.x) * t, y: E.y - 4 * H * t * (1 - t) });
+  }
+  verificarDistancia("la bala vuelve a entrar por el orificio", 0, distancia(parabola[parabola.length - 1], X), 0.5);
+
+  const angV0 = (Math.atan2(4 * H, X.x - E.x) * 180) / Math.PI;
+  const puntaV0 = avanzar(E, angV0, 62);
+  verificarAngulo("v₀ tangente a la parábola", anguloHacia(E, parabola[1]), angV0, 1.5);
+  const puntaV0y: Pt = { x: E.x, y: puntaV0.y };
+
+  // Sentido de giro: el frente del disco se mueve al revés que el fondo. La
+  // flecha de ω va por delante; el orificio, por detrás, de E hacia X.
+  const sentido = Math.sign(GIRO);
+  const flecha: Pt[] = [];
+  for (let i = 0; i <= 12; i++) flecha.push(enElipse(O, 0.55 * A, 1.32 * B, 270 - 20 * sentido + (40 * sentido * i) / 12));
+  const ini = flecha[0], fin = flecha[flecha.length - 1];
+  if (Math.sign(fin.x - ini.x) !== -Math.sign(X.x - E.x)) {
+    throw new Error("Figura inconsistente: la flecha de ω gira al revés que el recorrido del orificio");
+  }
+
+  const disco: Pt[] = [];
+  for (let i = 0; i < 72; i++) disco.push(enElipse(O, A, B, i * 5));
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: disco, rol: "trazo", relleno: true, rellenoColor: "#e6e6ee" },
+    ...punteadoPor(recorrido, "trazo"),
+    { tipo: "path", d: elipsePath(E, 8, 3.5), rol: "trazo" },
+    { tipo: "path", d: elipsePath(X, 8, 3.5), rol: "trazo" },
+    // la parábola arranca donde termina la flecha de v₀, para no encimarse
+    ...punteadoPor(parabola.filter((p) => distancia(p, E) > 66), "trazo"),
+    // v0 tangente a la trayectoria y su componente vertical (el dato)
+    { tipo: "linea", de: E, a: puntaV0, rol: "trazo", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(puntaV0, angV0, 8), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: puntaV0.x + 4, y: puntaV0.y - 14 }, texto: "v₀", rol: "trazo", tam: 13, negrita: true },
+    { tipo: "linea", de: E, a: puntaV0y, rol: "dato", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(puntaV0y, 90, 7), rol: "dato", relleno: true },
+    { tipo: "linea", de: puntaV0y, a: puntaV0, rol: "dato", punteada: true, grosor: 1 },
+    { tipo: "texto", en: { x: E.x - 8, y: puntaV0y.y - 4 }, texto: "v₀y = 10π m/s", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    // ω, por delante del disco
+    { tipo: "path", d: `M ${flecha.map((p) => `${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(" L ")}`, rol: "incognita" },
+    { tipo: "path", d: cabezaFlecha(fin, anguloHacia(flecha[flecha.length - 2], fin), 8), rol: "incognita", relleno: true },
+    { tipo: "texto", en: { x: fin.x - 16, y: fin.y + 4 }, texto: "ω", rol: "incognita", tam: 15, negrita: true },
+  ];
+  return { ancho: 480, alto: Math.round(fin.y + 26), pasos: 0, elementos: el };
+}
+
+// F19 · tobogán liso de altura L que termina en horizontal y choca con un
+// péndulo de masa M y largo L; quedan pegados y suben h. El tobogán y el hilo
+// se dibujan con el MISMO largo porque los dos son L = 1 m. Excepción a "a
+// escala": h es la incógnita y vale L/36 (3 px a esta escala); se dibuja el
+// giro a 55° para que se lea, igual que el facsímil, sin que la figura dé la
+// respuesta. v = √(2gL) = √20; v' = 2√20/12; h = v'²/(2g) = 1/36 m (D).
+function f19toboganPendulo(): Figura {
+  const L = 110;                                   // px: 1 m
+  const Y0 = 150;                                  // superficie horizontal
+  const X0 = 96;                                   // borde vertical del tobogán, arriba
+  const Q: Pt = { x: X0 + L, y: Y0 - L };          // centro del cuarto de circunferencia
+  const arriba = avanzar(Q, 180, L);
+  const abajo = avanzar(Q, -90, L);
+  const S = 20;                                    // lado del bloque m
+  const MA = 56, MH = 36;                          // el bloque M
+  const XM = 270;                                  // cara izquierda de M
+  const CM: Pt = { x: XM + MA / 2, y: Y0 - MH / 2 };
+  const Pv: Pt = { x: CM.x, y: CM.y - L };
+  const ALFA = 55;
+  const CF = avanzar(Pv, -90 + ALFA, L);
+
+  verificarDistancia("el tobogán arranca a altura L", L, Y0 - arriba.y, 0.5);
+  verificarDistancia("el tobogán termina en el piso", 0, Math.abs(abajo.y - Y0), 0.5);
+  verificarDistancia("el hilo mide lo mismo que la altura del tobogán", Y0 - arriba.y, distancia(Pv, CM), 0.5);
+  verificarDistancia("el hilo sigue midiendo L en la posición final", Y0 - arriba.y, distancia(Pv, CF), 0.5);
+
+  // m apoyado sobre la curva, del lado de adentro
+  const apoyoM = avanzar(Q, 194, L);
+  const bloqueM = bloqueSobre(apoyoM, 194 - 90, S, S);
+  const techoM: Pt = { x: (bloqueM[2].x + bloqueM[3].x) / 2, y: (bloqueM[2].y + bloqueM[3].y) / 2 };
+  if (distancia(Q, techoM) >= L) throw new Error("Figura inconsistente: el bloque m quedó por fuera del tobogán");
+
+  // Rectángulo girado: centro, ángulo, semiancho y semialto.
+  const girado = (c: Pt, ang: number, a: number, b: number): Pt[] => [
+    avanzar(avanzar(c, ang, -a), ang + 90, -b),
+    avanzar(avanzar(c, ang, a), ang + 90, -b),
+    avanzar(avanzar(c, ang, a), ang + 90, b),
+    avanzar(avanzar(c, ang, -a), ang + 90, b),
+  ];
+  const Mfinal = girado(CF, ALFA, MA / 2, MH / 2);
+  const mFinal = girado(avanzar(avanzar(CF, ALFA + 180, MA / 2 + S / 2), ALFA - 90, MH / 2 - S / 2), ALFA, S / 2, S / 2);
+  const ganchoFinal = avanzar(CF, ALFA + 90, MH / 2);
+  verificarDistancia("m queda pegado a la cara de M", 0, distancia(mFinal[1], Mfinal[0]), 0.5);
+
+  const xCota = 436;
+  const hDibujada = CM.y - CF.y;
+  verificarDistancia("h dibujada = L(1 − cos α)", L * (1 - Math.cos((ALFA * Math.PI) / 180)), hDibujada, 0.5);
+
+  const lados = (pts: Pt[]): Elemento[] =>
+    pts.map((p, i) => ({ tipo: "linea" as const, de: p, a: pts[(i + 1) % pts.length], rol: "trazo" as const, punteada: true, grosor: 1.3 }));
+
+  const el: Elemento[] = [
+    // tobogán y piso
+    { tipo: "path", d: arcoDe(Q, L, 180, 270), rol: "trazo" },
+    { tipo: "linea", de: { x: X0 - 22, y: Y0 }, a: abajo, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "linea", de: abajo, a: { x: Pv.x + 84, y: Y0 }, rol: "trazo", grosor: 2 },
+    ...cotaVertical(X0 - 22, arriba.y, Y0, "dato"),
+    { tipo: "texto", en: { x: X0 - 30, y: (arriba.y + Y0) / 2 }, texto: "L = 1 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "poligono", puntos: bloqueM, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "texto", en: { x: techoM.x + 16, y: techoM.y - 14 }, texto: "m = 2 kg", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    // m justo antes del choque
+    ...lados([{ x: XM - S, y: Y0 }, { x: XM, y: Y0 }, { x: XM, y: Y0 - S }, { x: XM - S, y: Y0 - S }]),
+    // techo, hilo y M en reposo
+    { tipo: "linea", de: { x: Pv.x - 64, y: Pv.y }, a: { x: Pv.x + 64, y: Pv.y }, rol: "trazo", grosor: 2.6 },
+    ...rayado(Pv.x - 64, Pv.x + 64, Pv.y, true),
+    { tipo: "linea", de: Pv, a: { x: CM.x, y: CM.y - MH / 2 }, rol: "trazo", grosor: 1.3 },
+    { tipo: "texto", en: { x: Pv.x - 6, y: Pv.y + 36 }, texto: "L", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "poligono", puntos: girado(CM, 0, MA / 2, MH / 2), rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "texto", en: CM, texto: "M", rol: "trazo", tam: 14, negrita: true },
+    { tipo: "texto", en: { x: CM.x, y: Y0 + 15 }, texto: "M = 10 kg", rol: "dato", tam: 12, negrita: true },
+    // los dos juntos en la posición más alta
+    { tipo: "linea", de: Pv, a: ganchoFinal, rol: "trazo", punteada: true, grosor: 1.1 },
+    ...lados(Mfinal),
+    // m pegado: su cara derecha ES la cara izquierda de M, no se repite (dos punteados encima se ven llenos)
+    ...lados(mFinal).filter((_, i) => i !== 1),
+    // h: subida del centro de M
+    { tipo: "linea", de: { x: XM + MA + 4, y: CM.y }, a: { x: xCota + 6, y: CM.y }, rol: "aux", punteada: true, grosor: 1 },
+    { tipo: "linea", de: { x: Math.max(...Mfinal.map((p) => p.x)) + 4, y: CF.y }, a: { x: xCota + 6, y: CF.y }, rol: "aux", punteada: true, grosor: 1 },
+    ...cotaVertical(xCota, CF.y, CM.y, "incognita"),
+    { tipo: "texto", en: { x: xCota + 10, y: (CF.y + CM.y) / 2 }, texto: "h = ?", rol: "incognita", tam: 12, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 486, alto: Y0 + 30, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2012 1ra opción (facsímil 119_PrimerExamenIngreso1-2012.pdf, "PRIMER
+// EXAMEN DE INGRESO 1-2012", martes 24 de enero de 2012; pág. 1 y 2, 600 dpi) ──
+
+// Distancia con signo de P a la recta a→b (positiva a la izquierda de a→b, en
+// coordenadas de pantalla). Sirve para saber de qué lado de una recta cae algo.
+function ladoDe(a: Pt, b: Pt, p: Pt): number {
+  return ((b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x)) / distancia(a, b);
+}
+
+// G8 · triángulo ABC con A = 105° y C = 45°, AC = 10 m, x = AB. El facsímil
+// (pág. 1) dibuja B arriba a la izquierda, C a la derecha y A abajo, con arcos
+// en los tres vértices y SIN números; su trazo no está a escala (mide ~132° en
+// A y ~13° en C). Acá B sale del CRUCE de los dos rayos que fijan los ángulos
+// del enunciado, y se comprueba la ley de senos sobre lo dibujado:
+// x = 10·sen45°/sen30° = 10√2 ≈ 14,1 (A). El arco de B va sin número: B = 30°
+// es el paso, no el dato.
+function g8TrianguloLeySenos(): Figura {
+  const E = 17;                                 // px por metro
+  const PHI = 30;                               // dirección de AC
+  const A: Pt = { x: 212, y: 222 };
+  const C = avanzar(A, PHI, 10 * E);
+  const B = cruce(A, avanzar(A, PHI + 105, 10), C, avanzar(C, PHI + 180 - 45, 10));
+
+  verificarAngulo("A = 105°", 105, anguloEn(A, B, C));
+  verificarAngulo("C = 45°", 45, anguloEn(C, A, B));
+  verificarAngulo("B = 30° (suma 180°)", 30, anguloEn(B, A, C));
+  verificarDistancia("AC = 10 m", 10 * E, distancia(A, C), 0.5);
+  // B sale del cruce, no de avanzar 10√2: si los ángulos se tocan, esto salta.
+  verificarDistancia("AB = 10√2 m (ley de senos)", 10 * Math.SQRT2 * E, distancia(A, B), 0.5);
+  if (B.y >= C.y || B.x >= A.x) throw new Error("Figura inconsistente: B debería quedar arriba a la izquierda");
+
+  const arcoA = arcoAngulo(A, anguloHacia(A, C), anguloHacia(A, B), 17, 32);
+  const arcoC = arcoAngulo(C, anguloHacia(C, A), anguloHacia(C, B), 30, 46);
+  const arcoB = arcoAngulo(B, anguloHacia(B, A), anguloHacia(B, C), 40);
+  const mAC: Pt = { x: (A.x + C.x) / 2, y: (A.y + C.y) / 2 };
+  const mAB: Pt = { x: (A.x + B.x) / 2, y: (A.y + B.y) / 2 };
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [A, B, C], rol: "trazo" },
+    { tipo: "arco", d: arcoA.d, rol: "dato" },
+    { tipo: "texto", en: arcoA.etiquetaEn, texto: "105°", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arcoC.d, rol: "dato" },
+    { tipo: "texto", en: arcoC.etiquetaEn, texto: "45°", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arcoB.d, rol: "trazo" },
+    { tipo: "texto", en: avanzar(mAC, PHI - 90, 14), texto: "10 m", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: avanzar(mAB, PHI + 105 + 90, 14), texto: "x", rol: "incognita", tam: 14, negrita: true, cursiva: true },
+    rotulo(avanzar(A, -90, 16), "A"),
+    rotulo({ x: B.x - 12, y: B.y - 8 }, "B"),
+    rotulo({ x: C.x + 14, y: C.y + 2 }, "C"),
+  ];
+  return { ancho: 400, alto: 250, pasos: 0, elementos: el };
+}
+
+// F9 y F10 · el mismo plano: cateto vertical 4 m a la IZQUIERDA, cateto
+// horizontal 3 m abajo, la rampa baja hacia la derecha y el bloque apoya cerca
+// de lo alto. OJO: el facsímil (pág. 2, 600 dpi) rotula 4 m y 3 m pero lo
+// dibuja al revés de proporción (más ancho que alto, rampa de ~35°). Mandan
+// los rótulos: con ellos sen θ = 4/5 y salen las opciones B (55 N) y A (250 J).
+// Acá está a escala con los rótulos, así que la rampa sale empinada (53,13°).
+// Son dos constructores porque la fuerza no es la misma: en el F9 tira
+// paralela al plano, en el F10 empuja horizontal desde la derecha.
+function planoTresCuatro(fuerza: "paralela" | "horizontal"): Figura {
+  const E = 34;                                // px por metro
+  const P: Pt = { x: 92, y: 190 };             // ángulo recto
+  const T: Pt = { x: P.x, y: P.y - 4 * E };    // lo alto
+  const Q: Pt = { x: P.x + 3 * E, y: P.y };    // pie de la rampa
+  const bajada = anguloHacia(T, Q);
+
+  verificarAngulo("inclinación con cateto vertical 4 y horizontal 3", (Math.atan2(4, 3) * 180) / Math.PI, anguloEn(Q, P, T));
+
+  const base = avanzar(T, bajada, 0.4 * distancia(T, Q));
+  const bloque = bloqueSobre(base, bajada, 46, 26);
+  // El bloque apoya EN la rampa y del lado de afuera del triángulo.
+  verificarDistancia("el bloque apoya sobre la rampa", 0, Math.abs(ladoDe(T, Q, bloque[0])) + Math.abs(ladoDe(T, Q, bloque[1])), 0.5);
+  if (Math.sign(ladoDe(T, Q, bloque[2])) === Math.sign(ladoDe(T, Q, P))) {
+    throw new Error("Figura inconsistente: el bloque quedó adentro del plano");
+  }
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [P, T, Q], rol: "trazo", relleno: true, rellenoColor: "#f1f0eb" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(P, 0, 90, 10), rol: "trazo" },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#c9c29a" },
+    ...cotaVertical(P.x - 24, T.y, P.y, "dato"),
+    { tipo: "texto", en: { x: P.x - 32, y: (T.y + P.y) / 2 }, texto: "4 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "linea", de: { x: P.x, y: P.y + 22 }, a: { x: Q.x, y: P.y + 22 }, rol: "dato", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: P.x, y: P.y + 22 }, 180, 7), rol: "dato", relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: Q.x, y: P.y + 22 }, 0, 7), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: (P.x + Q.x) / 2, y: P.y + 36 }, texto: "3 m", rol: "dato", tam: 12, negrita: true },
+  ];
+
+  if (fuerza === "paralela") {
+    // Sale de la cara de arriba del bloque y tira rampa ARRIBA.
+    const de: Pt = { x: (bloque[1].x + bloque[2].x) / 2, y: (bloque[1].y + bloque[2].y) / 2 };
+    const a = avanzar(de, anguloHacia(Q, T), 66);
+    if (desvioParalelas(de, a, T, Q) > 0.5) throw new Error("Figura inconsistente: F no es paralela al plano");
+    verificarAngulo("F tira rampa arriba", anguloHacia(Q, T), anguloHacia(de, a));
+    el.push(
+      { tipo: "linea", de, a, rol: "trazo", grosor: 1.8 },
+      { tipo: "path", d: cabezaFlecha(a, anguloHacia(de, a), 8), rol: "trazo", relleno: true },
+      { tipo: "texto", en: avanzar(a, anguloHacia(de, a) - 60, 16), texto: "F", rol: "trazo", tam: 14, negrita: true },
+    );
+    return { ancho: Q.x + 50, alto: P.y + 48, pasos: 0, elementos: el };
+  }
+
+  // Horizontal, desde la derecha, apuntando al centro del bloque. Con la rampa a
+  // 53° la horizontal que sale del centro hacia la derecha cruza la cara de
+  // ARRIBA (bloque[3]→bloque[2]), como en el facsímil, no la de abajo.
+  const centro: Pt = { x: bloque.reduce((s, p) => s + p.x, 0) / 4, y: bloque.reduce((s, p) => s + p.y, 0) / 4 };
+  const cara = cruce(bloque[3], bloque[2], centro, { x: centro.x + 1, y: centro.y });
+  const punta: Pt = { x: cara.x + 5, y: cara.y };
+  const cola: Pt = { x: punta.x + 62, y: punta.y };
+  // Lo DIBUJADO: la recta de la flecha pasa por el centro del bloque y la punta
+  // queda pegada a la cara (a 5 px, del lado de afuera).
+  const pega = cruce(bloque[3], bloque[2], punta, cola);
+  if (pega.x > punta.x || distancia(bloque[3], pega) + distancia(pega, bloque[2]) > distancia(bloque[3], bloque[2]) + 0.5) {
+    throw new Error("Figura inconsistente: la línea de F no pega en la cara del bloque");
+  }
+  verificarDistancia("la punta de F toca el bloque", 5, distancia(punta, pega), 0.5);
+  verificarDistancia("F apunta al centro del bloque", 0, Math.abs(punta.y - centro.y), 0.5);
+  // (verificarAngulo no pliega: atan2 da −180 para "a la izquierda")
+  if (Math.abs(cola.y - punta.y) > 0.01 || punta.x >= cola.x) throw new Error("Figura inconsistente: F no es horizontal hacia la izquierda");
+  // Empuja CONTRA el plano: su componente sobre la normal hacia afuera es negativa.
+  const normalAfuera = anguloHacia(bloque[0], bloque[3]);
+  if (Math.cos(((180 - normalAfuera) * Math.PI) / 180) >= 0) throw new Error("Figura inconsistente: F horizontal no aprieta el bloque contra el plano");
+  el.push(
+    { tipo: "linea", de: cola, a: punta, rol: "trazo", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(punta, 180, 8), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: punta.x + 14, y: punta.y + 16 }, texto: "F", rol: "trazo", tam: 14, negrita: true },
+  );
+  return { ancho: Math.round(cola.x + 16), alto: P.y + 48, pasos: 0, elementos: el };
+}
+
+function f9PlanoTresCuatroParalela(): Figura {
+  return planoTresCuatro("paralela");
+}
+
+function f10PlanoTresCuatroHorizontal(): Figura {
+  return planoTresCuatro("horizontal");
+}
+
+// F11 · barra aislante con +3q a la izquierda (el origen), +q a la derecha
+// (x = d) y la tercera esfera, hueca, sobre la barra. El facsímil (pág. 2)
+// rotula solo +3q, +q y la cota d de centro a centro; el valor de d va en el
+// texto. La esfera del medio se dibuja en la mitad, NO en el equilibrio: su
+// posición es la incógnita.
+function f11BarraTresEsferas(): Figura {
+  const Y = 50, r = 12;
+  const C3q: Pt = { x: 80, y: Y };
+  const Cq: Pt = { x: 340, y: Y };
+  const Cm: Pt = { x: (C3q.x + Cq.x) / 2, y: Y };
+  const yCota = Y + 42;
+  const tramos: [number, number][] = [[C3q.x + r, Cm.x - r], [Cm.x + r, Cq.x - r]];
+
+  const el: Elemento[] = [];
+  for (const [x1, x2] of tramos) {
+    el.push(
+      { tipo: "linea", de: { x: x1, y: Y - 4 }, a: { x: x2, y: Y - 4 }, rol: "trazo", grosor: 1.4 },
+      { tipo: "linea", de: { x: x1, y: Y + 4 }, a: { x: x2, y: Y + 4 }, rol: "trazo", grosor: 1.4 },
+    );
+  }
+  const esfera3q: Elemento = { tipo: "path", d: circuloPath(C3q, r), rol: "trazo", relleno: true, color: "#7a7a84" };
+  const esferaQ: Elemento = { tipo: "path", d: circuloPath(Cq, r), rol: "trazo", relleno: true, color: "#7a7a84" };
+  // la cota, cortada en el medio para que la d no quede tachada
+  const xMedio = (C3q.x + Cq.x) / 2;
+  const cotaIzq: Elemento = { tipo: "linea", de: { x: C3q.x, y: yCota }, a: { x: xMedio - 12, y: yCota }, rol: "dato", grosor: 1.3 };
+  const cotaDer: Elemento = { tipo: "linea", de: { x: xMedio + 12, y: yCota }, a: { x: Cq.x, y: yCota }, rol: "dato", grosor: 1.3 };
+  el.push(
+    esfera3q,
+    esferaQ,
+    { tipo: "path", d: circuloPath(Cm, r), rol: "trazo" },
+    { tipo: "texto", en: { x: C3q.x - r - 6, y: Y }, texto: "+3q", rol: "dato", tam: 13, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: Cq.x + r + 6, y: Y }, texto: "+q", rol: "dato", tam: 13, negrita: true, ancla: "start" },
+    cotaIzq,
+    cotaDer,
+    { tipo: "path", d: cabezaFlecha({ x: C3q.x, y: yCota }, 180, 7), rol: "dato", relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: Cq.x, y: yCota }, 0, 7), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: xMedio, y: yCota }, texto: "d", rol: "dato", tam: 14, negrita: true, cursiva: true },
+  );
+
+  // Lo DIBUJADO: la cota va de centro a centro de las dos esferas fijas, y la
+  // tercera queda sobre la barra, entre las dos, sin tocarlas.
+  const centroDe = (e: Elemento): Pt => {
+    if (e.tipo !== "path") throw new Error("se esperaba un path");
+    const m = e.d.match(/^M ([\d.-]+) ([\d.-]+) A ([\d.]+)/);
+    if (!m) throw new Error("círculo mal formado");
+    return { x: Number(m[1]) - Number(m[3]), y: Number(m[2]) };
+  };
+  if (cotaIzq.tipo !== "linea" || cotaDer.tipo !== "linea") throw new Error("cota mal formada");
+  verificarDistancia("d arranca en el centro de +3q", 0, distancia(cotaIzq.de, { x: centroDe(esfera3q).x, y: yCota }), 0.5);
+  verificarDistancia("d termina en el centro de +q", 0, distancia(cotaDer.a, { x: centroDe(esferaQ).x, y: yCota }), 0.5);
+  if (!(Cm.x - r > C3q.x + r && Cm.x + r < Cq.x - r) || Cm.y !== Y) {
+    throw new Error("Figura inconsistente: la tercera esfera no está sobre la barra entre las dos cargas");
+  }
+  return { ancho: 400, alto: yCota + 22, pasos: 0, elementos: el };
+}
+
+// F12 · tazón esférico en corte (bloque gris con la cavidad semicircular) y
+// dos esferas m en el fondo; punteado el triángulo de lados R entre el centro
+// O del tazón y las dos esferas (facsímil pág. 2). Que los tres lados midan lo
+// mismo es lo que da 30° con la vertical: tan 30° = 1/√3, F = mg/√3 y
+// q² = √3·10⁻¹³ C² (D). Como en el original, R rotula los lados del
+// triángulo: las esferas son puntuales, el radio chico es solo para verlas.
+function f12TazonDosEsferas(): Figura {
+  const Rb = 150, r = 11;
+  const O: Pt = { x: 220, y: 34 };
+  const L = Rb - r;                            // del centro O al centro de cada esfera
+  const A = avanzar(O, -90 - 30, L);
+  const B = avanzar(O, -90 + 30, L);
+
+  verificarDistancia("OA = AB (equilátero)", distancia(O, A), distancia(A, B), 0.5);
+  verificarDistancia("OB = AB (equilátero)", distancia(O, B), distancia(A, B), 0.5);
+  verificarDistancia("las esferas apoyan en la pared del tazón", Rb, distancia(O, A) + r, 0.5);
+  if (A.y <= O.y || B.y <= O.y) throw new Error("Figura inconsistente: las esferas quedaron fuera del tazón");
+
+  const xl = O.x - Rb - 46, xr = O.x + Rb + 46, yb = O.y + Rb + 24;
+  const bloque =
+    `M ${xl} ${O.y} L ${O.x - Rb} ${O.y}` + sigueArco(O, Rb, 180, 360) +
+    ` L ${xr} ${O.y} L ${xr} ${yb} L ${xl} ${yb} Z`;
+
+  const mOA: Pt = { x: (O.x + A.x) / 2, y: (O.y + A.y) / 2 };
+  const mOB: Pt = { x: (O.x + B.x) / 2, y: (O.y + B.y) / 2 };
+  const el: Elemento[] = [
+    { tipo: "path", d: bloque, rol: "trazo", relleno: true, color: "#c4c4cc" },
+    { tipo: "path", d: arcoDe(O, Rb, 180, 360), rol: "trazo" },
+    { tipo: "linea", de: { x: xl, y: O.y }, a: { x: O.x - Rb, y: O.y }, rol: "trazo" },
+    { tipo: "linea", de: { x: O.x + Rb, y: O.y }, a: { x: xr, y: O.y }, rol: "trazo" },
+    { tipo: "linea", de: { x: xl, y: O.y }, a: { x: xl, y: yb }, rol: "trazo" },
+    { tipo: "linea", de: { x: xr, y: O.y }, a: { x: xr, y: yb }, rol: "trazo" },
+    { tipo: "linea", de: { x: xl, y: yb }, a: { x: xr, y: yb }, rol: "trazo" },
+    { tipo: "linea", de: O, a: A, rol: "dato", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: O, a: B, rol: "dato", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: A, a: B, rol: "dato", punteada: true, grosor: 1.2 },
+    { tipo: "path", d: circuloPath(A, r), rol: "trazo", relleno: true },
+    { tipo: "path", d: circuloPath(B, r), rol: "trazo", relleno: true },
+    { tipo: "texto", en: avanzar(mOA, 150, 14), texto: "R", rol: "dato", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: avanzar(mOB, 30, 14), texto: "R", rol: "dato", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: { x: O.x, y: A.y + 18 }, texto: "R", rol: "dato", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: { x: A.x - 10, y: A.y - 22 }, texto: "m", rol: "dato", tam: 14, negrita: true, cursiva: true },
+    { tipo: "texto", en: { x: B.x + 10, y: B.y - 22 }, texto: "m", rol: "dato", tam: 14, negrita: true, cursiva: true },
+  ];
+  return { ancho: xr + 14, alto: yb + 10, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2018 2da opción (facsímil 152_2da-op-1-2018.pdf; ojo, 157_2da-op-1-2018.pdf es de 2019) ──
+
+// G5 · dos torres y el punto medio entre sus ejes. El facsímil (pág. 1, 600 dpi)
+// no rotula nada: torre baja a la izquierda, alta a la derecha y las dos visuales
+// punteadas desde el punto medio del suelo. Acá van rotulados los datos del
+// enunciado (30°, 60°, 12 m) y la altura que se busca. La torre alta NO se
+// construye desde el ángulo: sale de la respuesta (36 m) y de la distancia que
+// fija la torre baja (tan 30° = 12/L, L = 12√3). Las verificaciones miden que
+// desde M se vean de verdad 30° y 60°.
+function g5DosTorresPuntoMedio(): Figura {
+  const H_BAJA = 12, H_ALTA = 36;                 // m; 36 es la respuesta (C)
+  const L = H_BAJA * Math.sqrt(3);
+  const ESC = 5.6, PISO = 236, X_IZQ = 84;
+  const pieIzq: Pt = { x: X_IZQ, y: PISO };
+  const M: Pt = { x: X_IZQ + L * ESC, y: PISO };
+  const pieDer: Pt = { x: X_IZQ + 2 * L * ESC, y: PISO };
+  const cimaIzq: Pt = { x: pieIzq.x, y: PISO - H_BAJA * ESC };
+  const cimaDer: Pt = { x: pieDer.x, y: PISO - H_ALTA * ESC };
+
+  verificarDistancia("M es el punto medio entre los ejes", distancia(pieIzq, M), distancia(M, pieDer), 0.01);
+  verificarAngulo("torre baja vertical", 90, anguloEn(pieIzq, M, cimaIzq), 0.05);
+  verificarAngulo("torre alta vertical", 90, anguloEn(pieDer, M, cimaDer), 0.05);
+  verificarAngulo("elevación a la torre baja = 30°", 30, anguloEn(M, pieIzq, cimaIzq), 0.05);
+  verificarAngulo("elevación a la torre alta = 60°", 60, anguloEn(M, pieDer, cimaDer), 0.05);
+
+  const arco30 = arcoAngulo(M, 180, anguloHacia(M, cimaIzq), 34, 52);
+  const arco60 = arcoAngulo(M, 0, anguloHacia(M, cimaDer), 26, 42);
+  verificarAngulo("el arco rotulado 30° mide 30°", 30, arco30.medida, 0.05);
+  verificarAngulo("el arco rotulado 60° mide 60°", 60, arco60.medida, 0.05);
+
+  // marcas de segmentos iguales (M es punto medio)
+  const marca = (x: number): Elemento => ({ tipo: "linea", de: { x, y: PISO - 5 }, a: { x, y: PISO + 5 }, rol: "dato", grosor: 1.3 });
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: pieIzq.x - 26, y: PISO }, a: { x: pieDer.x + 26, y: PISO }, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: pieIzq, a: cimaIzq, rol: "trazo", grosor: 2.2 },
+    { tipo: "linea", de: pieDer, a: cimaDer, rol: "trazo", grosor: 2.2 },
+    { tipo: "linea", de: M, a: cimaIzq, rol: "trazo", punteada: true, grosor: 1.4 },
+    { tipo: "linea", de: M, a: cimaDer, rol: "trazo", punteada: true, grosor: 1.4 },
+    marca((pieIzq.x + M.x) / 2),
+    marca((M.x + pieDer.x) / 2),
+    { tipo: "punto", en: pieIzq, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: pieDer, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: cimaIzq, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: cimaDer, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: M, rol: "trazo", r: 2.6 },
+    { tipo: "texto", en: { x: M.x, y: PISO + 18 }, texto: "M", rol: "trazo", tam: 12.5, negrita: true },
+    { tipo: "arco", d: arco30.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco30.etiquetaEn, texto: "30°", rol: "dato", tam: 12, negrita: true },
+    { tipo: "arco", d: arco60.d, rol: "dato", color: AMBAR },
+    { tipo: "texto", en: arco60.etiquetaEn, texto: "60°", rol: "dato", tam: 12, negrita: true },
+    ...cotaVertical(pieIzq.x - 18, PISO, cimaIzq.y, "dato"),
+    { tipo: "texto", en: { x: pieIzq.x - 26, y: (PISO + cimaIzq.y) / 2 }, texto: "12 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    ...cotaVertical(pieDer.x + 18, PISO, cimaDer.y, "incognita"),
+    { tipo: "texto", en: { x: pieDer.x + 27, y: (PISO + cimaDer.y) / 2 }, texto: "h", rol: "incognita", tam: 15, negrita: true, cursiva: true, ancla: "start" },
+  ];
+  return { ancho: pieDer.x + 60, alto: PISO + 30, pasos: 0, elementos: el };
+}
+
+// F9 · gráfica velocidad contra tiempo. Leída a 600 dpi (pág. 2): ejes de 0 a
+// 20 s y de 0 a 10 m/s, cuadrícula punteada cada 2 y marcas cada 1; la
+// poligonal pasa por (0,0), (4,8), (10,8), (12,6) y TERMINA en (18,6), todos
+// cruces de la cuadrícula. El paréntesis que tenía el banco decía "hasta
+// t = 20 s"; no cambia la respuesta porque se pide hasta 10 s. Distancia en
+// 10 s = área bajo la poligonal entre 0 y 10 = 16 + 48 = 64 m (a).
+function f9GraficaVtTrapecio(): Figura {
+  const LEIDO: [number, number][] = [[0, 0], [4, 8], [10, 8], [12, 6], [18, 6]];
+  const T_MAX = 20, V_MAX = 10, PASO = 2, T_PEDIDO = 10, DISTANCIA = 64;
+  const ESX = 17, ESY = 16.5, X0 = 64, Y0 = 206;
+  const en = (t: number, v: number): Pt => ({ x: X0 + t * ESX, y: Y0 - v * ESY });
+  const traza = LEIDO.map(([t, v]) => en(t, v));
+
+  // 1. cada vértice DIBUJADO cae en un cruce de la cuadrícula y dentro de los ejes
+  for (const p of traza) {
+    const t = (p.x - X0) / ESX, v = (Y0 - p.y) / ESY;
+    const fuera = (u: number) => Math.abs(u / PASO - Math.round(u / PASO)) > 1e-6;
+    if (fuera(t) || fuera(v) || t < 0 || t > T_MAX || v < 0 || v > V_MAX) {
+      throw new Error(`Figura inconsistente: el vértice (${t}, ${v}) no cae en un cruce de la cuadrícula`);
+    }
+  }
+  // 2. área bajo lo DIBUJADO entre 0 y 10 s (shoelace sobre el polígono) = 64 m
+  const xCorte = en(T_PEDIDO, 0).x;
+  const poli: Pt[] = [traza[0]];
+  for (let i = 0; i + 1 < traza.length; i++) {
+    const p = traza[i], q = traza[i + 1];
+    if (q.x <= xCorte) { poli.push(q); continue; }
+    if (p.x < xCorte) poli.push({ x: xCorte, y: p.y + ((q.y - p.y) * (xCorte - p.x)) / (q.x - p.x) });
+    break;
+  }
+  poli.push({ x: xCorte, y: Y0 }, { x: traza[0].x, y: Y0 });
+  let doble = 0;
+  for (let i = 0; i < poli.length; i++) {
+    const p = poli[i], q = poli[(i + 1) % poli.length];
+    doble += p.x * q.y - q.x * p.y;
+  }
+  const area = Math.abs(doble) / 2 / (ESX * ESY);
+  if (Math.abs(area - DISTANCIA) > 1e-6) {
+    throw new Error(`Figura inconsistente: el área bajo la gráfica hasta ${T_PEDIDO} s da ${area.toFixed(3)} m, no ${DISTANCIA}`);
+  }
+
+  const GRILLA = "#7b8fe0";
+  const el: Elemento[] = [];
+  for (let t = PASO; t < T_MAX; t += PASO) {
+    el.push({ tipo: "linea", de: en(t, 0), a: en(t, V_MAX), rol: "trazo", color: GRILLA, punteada: true, grosor: 0.8 });
+  }
+  for (let v = PASO; v < V_MAX; v += PASO) {
+    el.push({ tipo: "linea", de: en(0, v), a: en(T_MAX, v), rol: "trazo", color: GRILLA, punteada: true, grosor: 0.8 });
+  }
+  for (let t = 1; t < T_MAX; t++) {
+    el.push({ tipo: "linea", de: en(t, 0), a: { x: en(t, 0).x, y: Y0 - 4 }, rol: "trazo", grosor: 0.9 });
+  }
+  for (let v = 1; v < V_MAX; v++) {
+    el.push({ tipo: "linea", de: en(0, v), a: { x: X0 + 4, y: en(0, v).y }, rol: "trazo", grosor: 0.9 });
+  }
+  el.push({ tipo: "poligono", puntos: [en(0, 0), en(T_MAX, 0), en(T_MAX, V_MAX), en(0, V_MAX)], rol: "trazo" });
+  for (let t = 0; t <= T_MAX; t += PASO) {
+    el.push({ tipo: "texto", en: { x: en(t, 0).x, y: Y0 + 13 }, texto: String(t), rol: "trazo", tam: 10.5 });
+  }
+  for (let v = 0; v <= V_MAX; v += PASO) {
+    el.push({ tipo: "texto", en: { x: X0 - 7, y: en(0, v).y }, texto: String(v), rol: "trazo", tam: 10.5, ancla: "end" });
+  }
+  el.push(
+    { tipo: "texto", en: { x: en(T_MAX / 2, 0).x, y: Y0 + 32 }, texto: "tiempo (s)", rol: "trazo", tam: 12.5 },
+    { tipo: "texto", en: { x: X0 - 34, y: en(0, V_MAX / 2).y }, texto: "velocidad (m/s)", rol: "trazo", tam: 12.5, rot: -90 },
+  );
+  for (let i = 0; i + 1 < traza.length; i++) {
+    el.push({ tipo: "linea", de: traza[i], a: traza[i + 1], rol: "trazo", grosor: 2.4 });
+  }
+  return { ancho: en(T_MAX, 0).x + 22, alto: Y0 + 46, pasos: 0, elementos: el };
+}
+
+// ── Lote 2-2024 única opción (facsímil 2024-2-Uop.pdf, viernes 9-ago-2024) ──
+
+// G7 · cuadrilátero ABCD inscrito, con arcos AB = 60°, BC = 110°, CD = 100° y
+// DA = 90° (en el enunciado). El facsímil (pág. 1, 600 dpi) pone A a la derecha,
+// B arriba, C a la izquierda, D abajo y una cruz en el centro, sin rotular
+// arcos; su trazo no respeta las medidas (CD se ve de unos 134° y DA de 56°).
+// Acá cada vértice sale de sumar los arcos desde A = 0°, y los arcos del
+// enunciado van rotulados. Los ángulos que se piden NO: se miden sobre el
+// dibujo y tienen que dar los de la opción a) (105°, 95°, 75°, 85°).
+function g7CuadrilateroInscritoArcos(): Figura {
+  const ARCO = { AB: 60, BC: 110, CD: 100, DA: 90 };
+  if (ARCO.AB + ARCO.BC + ARCO.CD + ARCO.DA !== 360) throw new Error("Figura inconsistente: los arcos no suman 360°");
+  const R = 96;
+  const O: Pt = { x: 200, y: 140 };
+  const pos = { A: 0, B: ARCO.AB, C: ARCO.AB + ARCO.BC, D: ARCO.AB + ARCO.BC + ARCO.CD };
+  const A = avanzar(O, pos.A, R), B = avanzar(O, pos.B, R), C = avanzar(O, pos.C, R), D = avanzar(O, pos.D, R);
+
+  // los arcos, medidos como ángulo central entre los puntos dibujados (todos < 180°)
+  verificarAngulo("arco AB = 60°", 60, anguloEn(O, A, B), 0.05);
+  verificarAngulo("arco BC = 110°", 110, anguloEn(O, B, C), 0.05);
+  verificarAngulo("arco CD = 100°", 100, anguloEn(O, C, D), 0.05);
+  verificarAngulo("arco DA = 90°", 90, anguloEn(O, D, A), 0.05);
+  // los ángulos internos medidos sobre el polígono dibujado son los de la opción a)
+  verificarAngulo("∠A = 105°", 105, anguloEn(A, D, B), 0.05);
+  verificarAngulo("∠B = 95°", 95, anguloEn(B, A, C), 0.05);
+  verificarAngulo("∠C = 75°", 75, anguloEn(C, B, D), 0.05);
+  verificarAngulo("∠D = 85°", 85, anguloEn(D, C, A), 0.05);
+  // la disposición del facsímil
+  if (!(A.x > O.x + 0.9 * R && B.y < O.y - 0.5 * R && C.x < O.x - 0.9 * R && D.y > O.y + 0.9 * R)) {
+    throw new Error("Figura inconsistente: los vértices no quedan A derecha, B arriba, C izquierda, D abajo");
+  }
+
+  const letra = (ang: number, t: string): Elemento =>
+    ({ tipo: "texto", en: avanzar(O, ang, R + 16), texto: t, rol: "trazo", tam: 14, negrita: true, cursiva: true });
+  const arcoRot = (a1: number, a2: number, t: string): Elemento =>
+    ({ tipo: "texto", en: avanzar(O, (a1 + a2) / 2, R + 20), texto: t, rol: "dato", tam: 11.5, negrita: true });
+
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "poligono", puntos: [A, B, C, D], rol: "trazo" },
+    { tipo: "linea", de: { x: O.x - 4, y: O.y }, a: { x: O.x + 4, y: O.y }, rol: "trazo", grosor: 1.2 },
+    { tipo: "linea", de: { x: O.x, y: O.y - 4 }, a: { x: O.x, y: O.y + 4 }, rol: "trazo", grosor: 1.2 },
+    letra(pos.A, "A"), letra(pos.B, "B"), letra(pos.C, "C"), letra(pos.D, "D"),
+    arcoRot(pos.A, pos.B, "60°"),
+    arcoRot(pos.B, pos.C, "110°"),
+    arcoRot(pos.C, pos.D, "100°"),
+    arcoRot(pos.D, 360, "90°"),
+  ];
+  return { ancho: 400, alto: O.y + R + 34, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2005 2da opción (facsímil 051_ExamenAdmisionSegundaOpcion1-2005.pdf,
+// "EXAMEN DE INGRESO SEGUNDA OPCION GESTION I-2005"; pág. 2, 500-600 dpi) ──
+
+// F17 · m3 sobre la mesa; la cuerda sale de su cara, pasa por arriba de la
+// polea del borde y baja hasta m1; m2 cuelga DEBAJO de m1, atado a él. El
+// facsímil dibuja la mesa como una línea con su borde vertical bajo la polea,
+// la flecha del movimiento sobre m3 y "a" hacia abajo junto a m1.
+// (m1 + m2)g − μ·m3·g = (m1 + m2 + m3)a → 40 − 40μ = 16 → μ = 3/5 (d).
+function f17MesaPoleaDosColgantes(): Figura {
+  const Y0 = 120;                          // tablero de la mesa
+  const XE = 250;                          // borde de la mesa
+  const R = 16;
+  const P: Pt = { x: XE + 6, y: Y0 - R };  // centro de la polea, apoyada en la esquina
+  const YC = P.y - R;                      // tramo horizontal de la cuerda
+  const XC = P.x + R;                      // tramo vertical
+  const M3 = { x1: 120, x2: 176, alto: 44 };
+  const L = 36;                            // lado de m1 y m2
+  const Y1 = 168, Y2 = 236;                // techo de m1 y de m2
+  const PIE = 292;                         // hasta dónde baja el borde de la mesa
+
+  // (la tangencia de los dos tramos de cuerda sale de cómo se definen YC y XC;
+  // no se re-verifica porque esa cuenta no puede fallar)
+  if (!(YC > Y0 - M3.alto && YC < Y0)) throw new Error("Figura inconsistente: la cuerda no sale de la cara de m3");
+  if (XC - L / 2 <= XE) throw new Error("Figura inconsistente: los bloques colgantes chocan con el borde de la mesa");
+  if (Y1 <= P.y || Y2 <= Y1 + L || Y2 + L >= PIE) throw new Error("Figura inconsistente: m2 debería colgar debajo de m1 y los dos debajo de la polea");
+
+  const caja = (x1: number, y1: number, ancho: number, alto: number): Pt[] => [
+    { x: x1, y: y1 }, { x: x1 + ancho, y: y1 }, { x: x1 + ancho, y: y1 + alto }, { x: x1, y: y1 + alto },
+  ];
+  const XA = XC + 78;                      // flecha de la aceleración
+
+  const el: Elemento[] = [
+    // mesa: tablero, borde y rayado
+    { tipo: "linea", de: { x: 30, y: Y0 }, a: { x: XE, y: Y0 }, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: { x: XE, y: Y0 }, a: { x: XE, y: PIE }, rol: "trazo", grosor: 2 },
+    ...rayado(30, XE, Y0),
+    // polea
+    { tipo: "linea", de: { x: XE, y: Y0 }, a: P, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: circuloPath(P, R), rol: "trazo" },
+    { tipo: "punto", en: P, rol: "trazo", r: 2 },
+    // m3
+    { tipo: "poligono", puntos: caja(M3.x1, Y0 - M3.alto, M3.x2 - M3.x1, M3.alto), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: (M3.x1 + M3.x2) / 2, y: Y0 - M3.alto / 2 }, texto: "m₃", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: M3.x1 - 10, y: Y0 - M3.alto / 2 }, texto: "4 kg", rol: "dato", tam: 11, negrita: true, ancla: "end" },
+    { tipo: "linea", de: { x: M3.x1 + 4, y: Y0 - M3.alto - 18 }, a: { x: M3.x2 + 14, y: Y0 - M3.alto - 18 }, rol: "trazo", grosor: 1.5 },
+    { tipo: "path", d: cabezaFlecha({ x: M3.x2 + 14, y: Y0 - M3.alto - 18 }, 0, 8), rol: "trazo", relleno: true },
+    // cuerda
+    { tipo: "linea", de: { x: M3.x2, y: YC }, a: { x: P.x, y: YC }, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: arcoDe(P, R, 90, 0), rol: "trazo" },
+    { tipo: "linea", de: { x: XC, y: P.y }, a: { x: XC, y: Y1 }, rol: "trazo", grosor: 1.4 },
+    { tipo: "linea", de: { x: XC, y: Y1 + L }, a: { x: XC, y: Y2 }, rol: "trazo", grosor: 1.4 },
+    // m1 y m2
+    { tipo: "poligono", puntos: caja(XC - L / 2, Y1, L, L), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: XC, y: Y1 + L / 2 }, texto: "m₁", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: XC + L / 2 + 8, y: Y1 + L / 2 }, texto: "2 kg", rol: "dato", tam: 11, negrita: true, ancla: "start" },
+    { tipo: "poligono", puntos: caja(XC - L / 2, Y2, L, L), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: { x: XC, y: Y2 + L / 2 }, texto: "m₂", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: XC + L / 2 + 8, y: Y2 + L / 2 }, texto: "2 kg", rol: "dato", tam: 11, negrita: true, ancla: "start" },
+    // a hacia abajo
+    { tipo: "linea", de: { x: XA, y: Y1 - 8 }, a: { x: XA, y: Y1 + 34 }, rol: "dato", grosor: 1.5 },
+    { tipo: "path", d: cabezaFlecha({ x: XA, y: Y1 + 34 }, -90, 8), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: XA + 8, y: Y1 + 12 }, texto: "a = 2 m/s²", rol: "dato", tam: 11.5, negrita: true, ancla: "start" },
+  ];
+  return { ancho: 430, alto: PIE + 10, pasos: 0, elementos: el };
+}
+
+// F18 · "Antes del choque": el camión a la izquierda va hacia +x y el auto a
+// la derecha viene en sentido contrario; un eje vertical punteado pasa por el
+// camión y el eje +x corre por la ruta, como en el facsímil.
+// 10000·12 − 2000·30 = 12000·v → v = 5 m/s (b).
+function f18CamionAutoAntesDelChoque(): Figura {
+  const Y = 160;                                   // la ruta (eje x)
+  const XO = 98;                                   // eje vertical
+  const RC = 7, RA = 4.5;                          // ruedas del camión y del auto
+  const camion = { x1: 54, x2: 134, arriba: Y - 46, abajo: Y - 2 * RC + 2 };
+  const cabina = { x1: 134, x2: 150, arriba: Y - 34 };
+  const auto = { x1: 290, x2: 350 };
+  const ruedasC: Pt[] = [{ x: 68, y: Y - RC }, { x: 120, y: Y - RC }];
+  const ruedasA: Pt[] = [{ x: 302, y: Y - RA }, { x: 338, y: Y - RA }];
+  const vC = { de: { x: 80, y: camion.arriba - 16 }, a: { x: 130, y: camion.arriba - 16 } };
+  const vA = { de: { x: 342, y: Y - 44 }, a: { x: 298, y: Y - 44 } };
+
+  if (!(vC.a.x > vC.de.x)) throw new Error("Figura inconsistente: el camión debería ir hacia +x");
+  if (!(vA.a.x < vA.de.x)) throw new Error("Figura inconsistente: el auto debería venir en dirección contraria");
+  if (!(auto.x1 > cabina.x2)) throw new Error("Figura inconsistente: antes del choque el auto va por delante del camión");
+  if (!(XO > camion.x1 && XO < camion.x2)) throw new Error("Figura inconsistente: el eje vertical del facsímil pasa por el camión");
+
+  const caja = (x1: number, x2: number, y1: number, y2: number): Pt[] => [
+    { x: x1, y: y1 }, { x: x2, y: y1 }, { x: x2, y: y2 }, { x: x1, y: y2 },
+  ];
+  const el: Elemento[] = [
+    // ejes
+    { tipo: "linea", de: { x: 20, y: Y }, a: { x: 400, y: Y }, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: { x: 400, y: Y }, a: { x: 438, y: Y }, rol: "trazo", punteada: true, grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: 446, y: Y }, 0, 9), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: 430, y: Y + 16 }, texto: "+x", rol: "trazo", tam: 13 },
+    { tipo: "linea", de: { x: XO, y: Y }, a: { x: XO, y: 24 }, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "path", d: `M ${XO - 7} 35 L ${XO} 22 L ${XO + 7} 35`, rol: "trazo" },
+    { tipo: "texto", en: { x: 222, y: 50 }, texto: "Antes del", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: 222, y: 68 }, texto: "choque", rol: "trazo", tam: 14 },
+    // camión
+    { tipo: "poligono", puntos: caja(camion.x1, camion.x2, camion.arriba, camion.abajo), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "poligono", puntos: caja(cabina.x1, cabina.x2, cabina.arriba, camion.abajo), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    ...ruedasC.map((c): Elemento => ({ tipo: "path", d: circuloPath(c, RC), rol: "trazo" })),
+    { tipo: "linea", de: vC.de, a: vC.a, rol: "dato", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(vC.a, 0, 8), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: vC.a.x + 8, y: vC.a.y }, texto: "12 m/s", rol: "dato", tam: 11.5, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: (camion.x1 + cabina.x2) / 2, y: Y + 18 }, texto: "10 000 kg", rol: "dato", tam: 11.5, negrita: true },
+    // auto
+    { tipo: "poligono", puntos: caja(auto.x1, auto.x2, Y - 18, Y - RA), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "poligono", puntos: caja(auto.x1 + 10, auto.x2 - 14, Y - 30, Y - 18), rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    ...ruedasA.map((c): Elemento => ({ tipo: "path", d: circuloPath(c, RA), rol: "trazo" })),
+    { tipo: "linea", de: vA.de, a: vA.a, rol: "dato", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(vA.a, 180, 8), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: vA.a.x - 8, y: vA.a.y }, texto: "30 m/s", rol: "dato", tam: 11.5, negrita: true, ancla: "end" },
+    { tipo: "texto", en: { x: (auto.x1 + auto.x2) / 2, y: Y + 18 }, texto: "2000 kg", rol: "dato", tam: 11.5, negrita: true },
+  ];
+  return { ancho: 460, alto: Y + 32, pasos: 0, elementos: el };
+}
+
+// F19 · dos planos inclinados de 30° unidos por un tramo horizontal liso; la
+// partícula parte de A, a h = 3 m. A sale de cortar el primer plano a la altura
+// h (no se pone a mano), y se mide lo que se recorre bajando: h/sen30° = 6 m.
+// 3 − 0,1·6 = 2,4; 2,4 = h₂ + 0,1·2h₂ → h₂ = 2 m (d). El segundo plano se
+// dibuja más alto que 2 m para que la partícula quepa, sin marcar h₂.
+function f19DosPlanos30TramoHorizontal(): Figura {
+  const E = 26;                                    // px por metro
+  const ALFA = 30, H = 3;
+  const Y0 = 150;                                  // la horizontal
+  const B1: Pt = { x: 235, y: Y0 };                // pie del primer plano
+  const B2: Pt = { x: B1.x + 3 * E, y: Y0 };       // pie del segundo
+  const T1 = avanzar(B1, 180 - ALFA, (H * E) / Math.sin((ALFA * Math.PI) / 180) + 26);
+  const A = hastaY(B1, 180 - ALFA, Y0 - H * E);
+  const T2 = avanzar(B2, ALFA, 6 * E);
+  const izq: Pt = { x: B1.x - 40, y: Y0 }, der: Pt = { x: B2.x + 40, y: Y0 };
+
+  verificarAngulo("primer plano a 30°", ALFA, anguloEn(B1, T1, izq));
+  verificarAngulo("segundo plano a 30°", ALFA, anguloEn(B2, T2, der));
+  verificarDistancia("lo que baja por el primer plano mide h/sen30° = 6 m", 6 * E, distancia(A, B1), 0.01);
+  if (distancia(T1, B1) <= distancia(A, B1)) throw new Error("Figura inconsistente: A debería quedar sobre el primer plano");
+  if (Y0 - T2.y <= 2 * E) throw new Error("Figura inconsistente: el segundo plano no llega a la altura que alcanza la partícula");
+
+  const bajada = -ALFA;
+  const bloque = bloqueSobre(A, bajada, 30, 20);
+  // el macizo del plano queda abajo a la izquierda de la rampa
+  if (Math.sign(ladoDe(T1, B1, bloque[2])) === Math.sign(ladoDe(T1, B1, { x: B1.x - 40, y: Y0 - 5 }))) {
+    throw new Error("Figura inconsistente: el bloque quedó dentro del plano");
+  }
+  const xh = A.x - 34;
+  const arco1 = arcoAngulo(B1, 180 - ALFA, 180, 34, 50);
+  const arco2 = arcoAngulo(B2, ALFA, 0, 34, 50);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 24, y: Y0 }, a: B1, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "linea", de: B2, a: { x: T2.x + 20, y: Y0 }, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "linea", de: T1, a: B1, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: B1, a: B2, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: B2, a: T2, rol: "trazo", grosor: 2 },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#e8e8ef" },
+    { tipo: "texto", en: avanzar(bloque[3], 60, 14), texto: "A", rol: "trazo", tam: 15, negrita: true },
+    { tipo: "linea", de: { x: xh - 4, y: A.y }, a: A, rol: "aux", punteada: true, grosor: 1 },
+    ...cotaVertical(xh, A.y, Y0, "dato"),
+    { tipo: "texto", en: { x: xh - 8, y: (A.y + Y0) / 2 }, texto: "h = 3 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "arco", d: arco1.d, rol: "dato" },
+    { tipo: "texto", en: arco1.etiquetaEn, texto: "30°", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "arco", d: arco2.d, rol: "dato" },
+    { tipo: "texto", en: arco2.etiquetaEn, texto: "30°", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "texto", en: { x: (B1.x + B2.x) / 2, y: Y0 + 16 }, texto: "sin fricción", rol: "trazo", tam: 11 },
+  ];
+  return { ancho: Math.round(T2.x + 30), alto: Y0 + 30, pasos: 0, elementos: el };
+}
+
+// F20 · la corriente I entra por la izquierda, se reparte en tres ramas entre
+// los MISMOS dos rieles (R1 arriba, R2 al medio, R3 abajo) y sale por la
+// derecha. Se verifica eléctricamente sobre lo dibujado: cada extremo de
+// resistor se asigna al riel que toca, se plantea Kirchhoff en el nodo de
+// entrada y sale I1 = 3 A (b).
+function f20TresResistenciasParaleloI(): Figura {
+  const XL = 160, XR = 300;                        // rieles
+  const YS = [56, 110, 164];                       // R1, R2, R3
+  const YM = YS[1];                                // entra y sale a la altura de R2, como en el facsímil
+  const R = [1, 2, 3];
+  const I = 11 / 2;
+  const NOMBRES = ["R₁ = 1 Ω", "R₂ = 2 Ω", "R₃ = 3 Ω"];
+  const ramas = YS.map((y) => ({ de: { x: XL, y }, a: { x: XR, y } }));
+  const entrada: Pt = { x: XL, y: YM }, salida: Pt = { x: XR, y: YM };
+
+  const nodo = (p: Pt): "izq" | "der" => {
+    const enRango = p.y >= YS[0] - 0.01 && p.y <= YS[YS.length - 1] + 0.01;
+    if (Math.abs(p.x - XL) < 0.01 && enRango) return "izq";
+    if (Math.abs(p.x - XR) < 0.01 && enRango) return "der";
+    throw new Error(`Figura inconsistente: el extremo (${p.x}, ${p.y}) queda colgando`);
+  };
+  if (nodo(entrada) !== "izq" || nodo(salida) !== "der") throw new Error("Figura inconsistente: I debería entrar por un riel y salir por el otro");
+  // Potenciales: V en el nodo de entrada, 0 en el de salida.
+  const potencial = (n: "izq" | "der", V: number) => (n === "izq" ? V : 0);
+  const conductancia = ramas.reduce((s, b, i) => s + (potencial(nodo(b.de), 1) - potencial(nodo(b.a), 1)) / R[i], 0);
+  const V = I / conductancia;
+  const I1 = (potencial(nodo(ramas[0].de), V) - potencial(nodo(ramas[0].a), V)) / R[0];
+  verificarDistancia("corriente por R1 en el circuito dibujado (b) 3 A", 3, I1, 1e-9);
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: XL, y: YS[0] }, a: { x: XL, y: YS[2] }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: XR, y: YS[0] }, a: { x: XR, y: YS[2] }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: { x: 70, y: YM }, a: entrada, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: salida, a: { x: XR + 70, y: YM }, rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: entrada, rol: "trazo", r: 3 },
+    { tipo: "punto", en: salida, rol: "trazo", r: 3 },
+    { tipo: "linea", de: { x: 30, y: YM }, a: { x: 62, y: YM }, rol: "dato", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha({ x: 64, y: YM }, 0, 8), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: 74, y: YM - 20 }, texto: "I = 11/2 A", rol: "dato", tam: 12, negrita: true },
+  ];
+  ramas.forEach((b, i) => {
+    el.push({ tipo: "path", d: resistorZigzag(b.de, b.a), rol: "trazo" });
+    el.push({ tipo: "texto", en: { x: (XL + XR) / 2, y: b.de.y - 15 }, texto: NOMBRES[i], rol: "trazo", tam: 11.5 });
+  });
+  return { ancho: XR + 90, alto: YS[2] + 22, pasos: 0, elementos: el };
+}
+
+// ── Lote 2-2005 2da opción (facsímil 053_ExamenAdmisionSegundaOpcion2-2005.pdf,
+// "EXAMEN DE INGRESO SEGUNDA OPCIÓN 2-2005"; pág. 1 y 2, 500-600 dpi) ──
+
+// G10 · seis cilindros de radio r en triángulo 3-2-1 sobre la mesa; x va de la
+// mesa al centro del de arriba (la línea punteada del facsímil sale del
+// centro). Cada centro de una fila sale de ser tangente a los DOS de abajo, no
+// se pone a mano; después se mide x sobre lo dibujado: r + 2·r√3 (a).
+function g10SeisCilindrosTriangulo(): Figura {
+  const r = 26;
+  const Y0 = 206;                                  // la mesa
+  const X0 = 96;                                   // centro del primero de abajo
+  const sobre = (a: Pt, b: Pt): Pt => {
+    const m: Pt = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+    const d = distancia(a, b);
+    return avanzar(m, anguloHacia(a, b) + 90, Math.sqrt(4 * r * r - (d / 2) ** 2));
+  };
+  const fila1: Pt[] = [0, 1, 2].map((i) => ({ x: X0 + 2 * r * i, y: Y0 - r }));
+  const fila2: Pt[] = [sobre(fila1[0], fila1[1]), sobre(fila1[1], fila1[2])];
+  const cima = sobre(fila2[0], fila2[1]);
+  const todos = [...fila1, ...fila2, cima];
+
+  const tangentes: [Pt, Pt][] = [
+    [fila1[0], fila1[1]], [fila1[1], fila1[2]], [fila2[0], fila2[1]],
+    [fila2[0], fila1[0]], [fila2[0], fila1[1]], [fila2[1], fila1[1]], [fila2[1], fila1[2]],
+    [cima, fila2[0]], [cima, fila2[1]],
+  ];
+  for (const [a, b] of tangentes) verificarDistancia("cilindros tangentes", 2 * r, distancia(a, b), 0.01);
+  for (let i = 0; i < todos.length; i++) {
+    for (let j = i + 1; j < todos.length; j++) {
+      if (distancia(todos[i], todos[j]) < 2 * r - 0.01) throw new Error("Figura inconsistente: dos cilindros se pisan");
+    }
+  }
+  verificarDistancia("x medida de la mesa al centro de arriba = r + 2r√3", r + 2 * r * Math.sqrt(3), Y0 - cima.y, 0.01);
+
+  const XX = fila1[2].x + r + 34;                  // línea de la cota x
+  const radioFin = avanzar(fila1[0], 215, r);
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: X0 - r - 30, y: Y0 }, a: { x: XX + 34, y: Y0 }, rol: "trazo", grosor: 2 },
+    ...rayado(X0 - r - 30, XX + 34, Y0),
+    ...todos.map((c): Elemento => ({ tipo: "path", d: circuloPath(c, r), rol: "trazo" })),
+    { tipo: "punto", en: cima, rol: "trazo", r: 2.4 },
+    { tipo: "linea", de: cima, a: { x: XX, y: cima.y }, rol: "incognita", punteada: true, grosor: 1.3 },
+    { tipo: "linea", de: { x: XX, y: cima.y }, a: { x: XX, y: Y0 }, rol: "incognita", grosor: 1.6 },
+    { tipo: "texto", en: { x: XX + 14, y: (cima.y + Y0) / 2 }, texto: "x", rol: "incognita", tam: 16, negrita: true, cursiva: true },
+    { tipo: "punto", en: fila1[0], rol: "trazo", r: 2 },
+    { tipo: "linea", de: fila1[0], a: radioFin, rol: "dato", grosor: 1.4 },
+    { tipo: "texto", en: avanzar(avanzar(fila1[0], 215, r / 2), 125, 9), texto: "r", rol: "dato", tam: 13, negrita: true, cursiva: true },
+  ];
+  return { ancho: Math.round(XX + 50), alto: Y0 + 22, pasos: 0, elementos: el };
+}
+
+// F19 · plano inclinado con el cateto vertical h a la izquierda, θ abajo a la
+// derecha y el bloque arriba con la flecha de su movimiento rampa abajo. El
+// enunciado NO da θ y no hace falta: a velocidad constante la fricción disipa
+// todo mgh = 10 J (a). Se dibuja con la inclinación del trazo del facsímil
+// (~27°) y θ va sin número.
+function f19PlanoAlturaHTheta(): Figura {
+  const TH = 27;
+  const P: Pt = { x: 96, y: 176 };                 // ángulo recto
+  const T: Pt = { x: P.x, y: P.y - 120 };          // lo alto
+  const Q = hastaY(T, -TH, P.y);                   // pie de la rampa
+  const bajada = anguloHacia(T, Q);
+
+  verificarAngulo("inclinación θ del trazo", TH, anguloEn(Q, P, T));
+  const bloque = bloqueSobre(avanzar(T, bajada, 26), bajada, 34, 20);
+  verificarDistancia("el bloque apoya sobre la rampa", 0, Math.abs(ladoDe(T, Q, bloque[0])) + Math.abs(ladoDe(T, Q, bloque[1])), 0.5);
+  if (Math.sign(ladoDe(T, Q, bloque[2])) === Math.sign(ladoDe(T, Q, P))) throw new Error("Figura inconsistente: el bloque quedó adentro del plano");
+
+  const cara = avanzar({ x: (bloque[0].x + bloque[3].x) / 2, y: (bloque[0].y + bloque[3].y) / 2 }, bajada, 4);
+  const punta = avanzar(cara, bajada, 40);
+  if (desvioParalelas(cara, punta, T, Q) > 0.5) throw new Error("Figura inconsistente: la flecha no va paralela al plano");
+  if (!(punta.y > cara.y && punta.x > cara.x)) throw new Error("Figura inconsistente: la flecha debería ir rampa abajo");
+  const arcoT = arcoAngulo(Q, 180, 180 - TH, 40, 56);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [P, T, Q], rol: "trazo", relleno: true, rellenoColor: "#f1f0eb" },
+    { tipo: "cuadradoRecto", d: cuadradoRecto(P, 0, 90, 10), rol: "trazo" },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#d8d8e4" },
+    { tipo: "texto", en: avanzar(bloque[3], 90, 12), texto: "1 kg", rol: "dato", tam: 11.5, negrita: true },
+    { tipo: "linea", de: cara, a: punta, rol: "trazo", grosor: 1.5 },
+    { tipo: "path", d: cabezaFlecha(punta, bajada, 8), rol: "trazo", relleno: true },
+    ...cotaVertical(P.x - 22, T.y, P.y, "dato"),
+    { tipo: "texto", en: { x: P.x - 30, y: (T.y + P.y) / 2 }, texto: "h = 1 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    { tipo: "arco", d: arcoT.d, rol: "trazo" },
+    { tipo: "texto", en: arcoT.etiquetaEn, texto: "θ", rol: "trazo", tam: 14, negrita: true, cursiva: true },
+  ];
+  return { ancho: Math.round(Q.x + 24), alto: P.y + 20, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2011 1ra opción (facsímil 110_ExamenAdmisionPrimeraOpcion1-2011.pdf,
+// "1-2011", pág. 2, 600-1200 dpi) ──
+
+// F10 · el proyectil sale del borde de una terraza de altura D a 45° y cae a D
+// del pie. El facsímil rotula las dos cotas con la MISMA letra D, que es el dato
+// que hace soluble el problema. La parábola es la física (v₀ = 20 m/s, 45°,
+// g = 10) y el punto de caída sale de resolver y(t) = −D, no se pone a mano:
+// si D no fuera 80 m, la caída no quedaría a D del pie y la figura tira.
+// 10√2·t − 5t² = −10√2·t → t = 4√2 s → D = 10√2·4√2 = 80 m (d).
+function f10TiroAlturaDAlcanceD(): Figura {
+  const E = 2.4;                                   // px por metro
+  const V0 = 20, TH = 45, G = 10, D = 80;
+  const vx = V0 * Math.cos((TH * Math.PI) / 180), vy = V0 * Math.sin((TH * Math.PI) / 180);
+  const O: Pt = { x: 150, y: 62 };                 // borde de la terraza
+  const Y0 = O.y + D * E;                          // el piso
+  const pie: Pt = { x: O.x, y: Y0 };
+  const en = (t: number): Pt => ({ x: O.x + vx * t * E, y: O.y - (vy * t - (G / 2) * t * t) * E });
+  const tCaida = (vy + Math.sqrt(vy * vy + 2 * G * D)) / G;
+  const caida = en(tCaida);
+  verificarDistancia("la caída queda en el piso", Y0, caida.y, 0.5);
+  verificarDistancia("la caída queda a D del pie", D * E, caida.x - pie.x, 0.5);
+
+  const N = 44;
+  const curva = Array.from({ length: N + 1 }, (_, i) => en((tCaida * i) / N));
+  const punta = avanzar(O, TH, 46);
+  const arco = arcoAngulo(O, 0, TH, 24, 36);
+  verificarAngulo("arco de 45°", TH, arco.medida);
+  const xv = O.x - 20;                             // cota vertical
+  const yh = Y0 + 16;                              // cota horizontal
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 24, y: O.y }, a: O, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: O, a: pie, rol: "trazo", grosor: 2 },
+    { tipo: "linea", de: pie, a: { x: caida.x + 24, y: Y0 }, rol: "trazo", grosor: 1.4 },
+    ...punteadoPor(curva, "trazo"),
+    { tipo: "linea", de: O, a: { x: O.x + 44, y: O.y }, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "linea", de: O, a: punta, rol: "dato", grosor: 1.8 },
+    { tipo: "path", d: cabezaFlecha(punta, TH, 8), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: punta.x - 8, y: punta.y - 8 }, texto: "v₀ = 20 m/s", rol: "dato", tam: 11.5, negrita: true, ancla: "end" },
+    { tipo: "arco", d: arco.d, rol: "dato" },
+    { tipo: "texto", en: { x: arco.etiquetaEn.x + 6, y: arco.etiquetaEn.y }, texto: "45°", rol: "dato", tam: 11, negrita: true, ancla: "start" },
+    { tipo: "punto", en: caida, rol: "trazo", r: 3 },
+    ...cotaVertical(xv, O.y, Y0, "dato"),
+    { tipo: "texto", en: { x: xv - 8, y: (O.y + Y0) / 2 }, texto: "D", rol: "dato", tam: 14, negrita: true, ancla: "end" },
+    { tipo: "linea", de: { x: pie.x, y: yh }, a: { x: caida.x, y: yh }, rol: "dato", grosor: 1.4 },
+    { tipo: "path", d: cabezaFlecha({ x: pie.x, y: yh }, 180, 7), rol: "dato", relleno: true },
+    { tipo: "path", d: cabezaFlecha({ x: caida.x, y: yh }, 0, 7), rol: "dato", relleno: true },
+    { tipo: "texto", en: { x: (pie.x + caida.x) / 2, y: yh + 14 }, texto: "D", rol: "dato", tam: 14, negrita: true },
+  ];
+  return { ancho: Math.round(caida.x + 40), alto: Math.round(yh + 26), pasos: 0, elementos: el };
+}
+
+// F12 · la fuente de 12 V en el lado izquierdo; un cable vertical al medio con
+// el de 1 μF; arriba a la derecha el de 4 μF sobre el cable de arriba y, debajo,
+// el de 2 μF sobre un cable horizontal que va del cable del medio al lado
+// derecho. En el facsímil los cables pasan de largo entre las placas de los tres
+// capacitores (dibujo de Word superpuesto); se lee cada capacitor cortando su
+// cable, que es lo único que da un circuito.
+// Se verifica sobre lo dibujado: cada extremo se asigna al nodo del cable que
+// toca, la fuente fija 12 V entre sus bornes y los tres quedan entre los MISMOS
+// dos nodos, en paralelo con la fuente: Q = 1 μF · 12 V = 12 μC (c).
+function f12Capacitores124Fuente12(): Figura {
+  const XL = 64, XM = 214, XR = 374;
+  const YT = 52, YM = 142, YB = 232;
+  const cables: [Pt, Pt][] = [
+    [{ x: XL, y: YT }, { x: XM, y: YT }],          // arriba, de la fuente al medio
+    [{ x: XM, y: YT }, { x: XM, y: YM }],          // medio, tramo de arriba
+    [{ x: XR, y: YT }, { x: XR, y: YB }],          // lado derecho
+    [{ x: XL, y: YB }, { x: XR, y: YB }],          // abajo
+  ];
+  const fuente = { mas: { x: XL, y: YT }, menos: { x: XL, y: YB }, V: 12 };
+  const caps = [
+    { C: 1, de: { x: XM, y: YM }, a: { x: XM, y: YB }, rot: "1 μF", lado: -1.9 },
+    { C: 4, de: { x: XM, y: YT }, a: { x: XR, y: YT }, rot: "4 μF", lado: 1.25 },
+    { C: 2, de: { x: XM, y: YM }, a: { x: XR, y: YM }, rot: "2 μF", lado: 1.25 },
+  ];
+
+  // nodos: cables que se tocan (un extremo apoyado sobre el otro) son el mismo nodo
+  const sobre = (p: Pt, [a, b]: [Pt, Pt]) => {
+    const L = distancia(a, b);
+    const t = ((p.x - a.x) * (b.x - a.x) + (p.y - a.y) * (b.y - a.y)) / (L * L);
+    return t >= -1e-9 && t <= 1 + 1e-9 && Math.abs(ladoDe(a, b, p)) < 0.01;
+  };
+  const padre = cables.map((_, i) => i);
+  const raiz = (i: number): number => (padre[i] === i ? i : (padre[i] = raiz(padre[i])));
+  cables.forEach((c, i) => cables.forEach((d, j) => {
+    if (sobre(c[0], d) || sobre(c[1], d)) padre[raiz(i)] = raiz(j);
+  }));
+  const nodo = (p: Pt): number => {
+    const i = cables.findIndex((c) => sobre(p, c));
+    if (i < 0) throw new Error(`Figura inconsistente: el borne (${p.x}, ${p.y}) queda colgando`);
+    return raiz(i);
+  };
+  const nMas = nodo(fuente.mas), nMenos = nodo(fuente.menos);
+  if (nMas === nMenos) throw new Error("Figura inconsistente: la fuente quedó en cortocircuito");
+  const V = (n: number) => {
+    if (n === nMas) return fuente.V;
+    if (n === nMenos) return 0;
+    throw new Error("Figura inconsistente: hay un nodo que no toca la fuente");
+  };
+  for (const c of caps) {
+    if (V(nodo(c.de)) === V(nodo(c.a))) throw new Error(`Figura inconsistente: el de ${c.rot} quedó en cortocircuito`);
+  }
+  const q1 = caps[0].C * Math.abs(V(nodo(caps[0].de)) - V(nodo(caps[0].a)));
+  verificarDistancia("carga del de 1 μF en el circuito dibujado (c) 12 μC", 12, q1, 1e-9);
+
+  const el: Elemento[] = [
+    ...cables.map(([de, a]): Elemento => ({ tipo: "linea", de, a, rol: "trazo", grosor: 1.6 })),
+    ...pila(fuente.mas, fuente.menos, ""),
+    { tipo: "texto", en: { x: XL + 18, y: (YT + YB) / 2 }, texto: "12 V", rol: "dato", color: AMBAR, tam: 11.5, negrita: true, ancla: "start" },
+    ...caps.flatMap((c) => capacitor(c.de, c.a, c.rot, c.lado)),
+    { tipo: "punto", en: { x: XM, y: YT }, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: { x: XM, y: YM }, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: { x: XR, y: YM }, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: { x: XM, y: YB }, rol: "trazo", r: 2.6 },
+  ];
+  return { ancho: XR + 30, alto: YB + 22, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2014 1ra opción (facsímil 128_1ra-op-1-2014.pdf, "EXAMEN-INGRESO
+// 1-2014 (PRIMERA OPCION)", pág. 2, 600 dpi) ──
+
+// F12 · la esfera m a la izquierda con el hilo L horizontal hasta el Eje; desde
+// el Eje baja un hilo punteado hasta la esfera punteada en el punto más bajo.
+// El facsímil no dibuja el arco del recorrido. La posición más baja sale de
+// medir L hacia abajo desde el Eje por separado, y se comprueba que el hilo
+// punteado mide lo mismo que el horizontal.
+// mgL = ½mv² → v² = 20; T = mg + mv²/L = 10 + 20 = 30 N (d).
+function f12PenduloHorizontalEje(): Figura {
+  const L = 150, RE = 13;
+  const eje: Pt = { x: 300, y: 62 };
+  const esfera: Pt = { x: eje.x - L, y: eje.y };
+  const bajo: Pt = { x: eje.x, y: eje.y + L };
+  verificarAngulo("el hilo arranca horizontal", 180, Math.abs(anguloHacia(eje, esfera)));
+  verificarAngulo("el punto más bajo está debajo del Eje", -90, anguloHacia(eje, bajo));
+  verificarDistancia("el hilo punteado mide lo mismo que el horizontal", distancia(eje, esfera), distancia(eje, bajo), 0.01);
+
+  const contorno = Array.from({ length: 21 }, (_, i) => avanzar(bajo, (i * 360) / 20, RE));
+  const el: Elemento[] = [
+    { tipo: "linea", de: avanzar(esfera, 0, RE), a: avanzar(eje, 180, 4), rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: esfera, rol: "trazo", r: RE },
+    { tipo: "path", d: circuloPath(eje, 4), rol: "trazo" },
+    { tipo: "linea", de: avanzar(eje, -90, 4), a: avanzar(bajo, 90, RE), rol: "trazo", punteada: true, grosor: 1.4 },
+    ...punteadoPor(contorno, "trazo"),
+    { tipo: "texto", en: { x: eje.x, y: eje.y - 20 }, texto: "Eje", rol: "trazo", tam: 14 },
+    { tipo: "texto", en: { x: (esfera.x + eje.x) / 2, y: eje.y + 18 }, texto: "L = 1 m", rol: "dato", tam: 12, negrita: true },
+    { tipo: "texto", en: { x: esfera.x, y: esfera.y + RE + 18 }, texto: "m = 1 kg", rol: "dato", tam: 12, negrita: true },
+  ];
+  return { ancho: eje.x + 40, alto: bajo.y + RE + 16, pasos: 0, elementos: el };
+}
+
+// ── Lote 1-2017 1ra opción (facsímil 146_1ra-op-1-2017.pdf, "EXAMEN-INGRESO
+// 1-2017 (1ª OPCION)", pág. 2, 500-700 dpi) ──
+
+// F9 · el bloque arranca en A, arriba de una rampa curva que baja hasta B sobre
+// la horizontal punteada; sigue el tramo BC = d y en C (abajo) entra al rizo de
+// radio R. El facsímil dibuja d casi el doble de R; acá va a escala con lo que
+// dice el enunciado (d = R, h = 27 m) porque d = R es un dato.
+// Se verifica la física sobre lo dibujado: con h, d y R MEDIDOS en el dibujo,
+// v²_cima = 2gh − 2μgd − 4gR tiene que dar justo gR (completa la vuelta al
+// límite). 27 = 0,2R + 2,5R → R = 10 m (c).
+function f9RizoRampaTramoBC(): Figura {
+  const E = 4.5;                                   // px por metro
+  const Y0 = 184;
+  const A: Pt = { x: 112, y: Y0 - 27 * E };
+  const B: Pt = { x: 236, y: Y0 };
+  const C: Pt = { x: B.x + 10 * E, y: Y0 };
+  const O: Pt = { x: C.x, y: Y0 - 10 * E };       // centro del rizo, tangente al piso en C
+  const R = distancia(O, C);
+  const MU = 1 / 5, G = 10;
+  const h = (Y0 - A.y) / E, d = (C.x - B.x) / E, r = R / E;
+  verificarDistancia("BC = R", R, C.x - B.x, 0.01);
+  verificarDistancia("v² en la cima = gR (completa la vuelta justo)", G * r, 2 * G * h - 2 * MU * G * d - 4 * G * r, 1e-6);
+
+  const c1: Pt = { x: A.x + 36, y: A.y + 54 };     // la rampa baja empinada desde A…
+  const c2: Pt = { x: B.x - 54, y: Y0 };           // …y llega horizontal a B
+  const tangA = anguloHacia(A, c1);
+  const bloque = bloqueSobre(A, tangA, 18, 13);
+  const puntaR = avanzar(O, 24, R);
+  const xh = A.x - 26;
+
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: 26, y: Y0 }, a: B, rol: "trazo", punteada: true, grosor: 1 },
+    { tipo: "path", d: `M ${A.x} ${A.y} C ${c1.x} ${c1.y} ${c2.x} ${c2.y} ${B.x} ${B.y}`, rol: "trazo" },
+    { tipo: "linea", de: B, a: { x: C.x + 26, y: Y0 }, rol: "trazo", grosor: 1.8 },
+    { tipo: "path", d: circuloPath(O, R), rol: "trazo" },
+    { tipo: "poligono", puntos: bloque, rol: "trazo", relleno: true, rellenoColor: "#1a1a2e" },
+    { tipo: "linea", de: O, a: puntaR, rol: "dato", grosor: 1.3 },
+    { tipo: "path", d: cabezaFlecha(puntaR, 24, 7), rol: "dato", relleno: true },
+    { tipo: "punto", en: O, rol: "trazo", r: 2 },
+    { tipo: "texto", en: { x: O.x + 8, y: O.y - 16 }, texto: "R", rol: "dato", tam: 13, negrita: true },
+    { tipo: "linea", de: { x: xh - 4, y: A.y }, a: { x: A.x - 6, y: A.y }, rol: "aux", punteada: true, grosor: 1 },
+    ...cotaVertical(xh, A.y, Y0, "dato"),
+    { tipo: "texto", en: { x: xh - 8, y: (A.y + Y0) / 2 }, texto: "h = 27 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    rotulo({ x: A.x - 10, y: A.y - 16 }, "A", "trazo", 15),
+    rotulo({ x: B.x - 6, y: Y0 - 14 }, "B", "trazo", 14),
+    rotulo({ x: C.x - 14, y: Y0 - 13 }, "C", "trazo", 14),
+    ...cota({ x: B.x, y: Y0 + 16 }, { x: C.x, y: Y0 + 16 }, "d = R", -14),
+  ];
+  return { ancho: Math.round(O.x + R + 26), alto: Y0 + 46, pasos: 0, elementos: el };
+}
+
+// F12 · péndulo cónico: soporte rayado en el techo, eje vertical punteado, la
+// cuerda formando θ con el eje y la trayectoria circular punteada (en
+// perspectiva, una elipse) con la piedra en su extremo derecho.
+// Excepción declarada a "a escala": θ es la incógnita y dibujarla a 45° la
+// regalaría; va a 36°, como en el facsímil (medido a 700 dpi).
+// T cosθ = mg, T senθ = mω²L senθ → cosθ = g/(ω²L) = 10/(10√2) → θ = 45° (b).
+function f12PenduloConicoTheta(): Figura {
+  const TH_DIB = 36;
+  const L = 172;
+  const P: Pt = { x: 196, y: 44 };                 // donde se ata la cuerda
+  const piedra = avanzar(P, -90 + TH_DIB, L);
+  const centro: Pt = { x: P.x, y: piedra.y };      // centro de la trayectoria, sobre el eje
+  const rx = L * Math.sin((TH_DIB * Math.PI) / 180), ry = 20;
+  verificarAngulo("θ entre la cuerda y el eje", TH_DIB, anguloEn(P, centro, piedra));
+  verificarDistancia("la piedra está sobre la trayectoria", 1, ((piedra.x - centro.x) / rx) ** 2 + ((piedra.y - centro.y) / ry) ** 2, 1e-6);
+  const arco = arcoAngulo(P, -90, -90 + TH_DIB, 30, 44);
+  verificarAngulo("arco θ", TH_DIB, arco.medida);
+
+  const elipse = Array.from({ length: 41 }, (_, i) => {
+    const a = (i * 2 * Math.PI) / 40;
+    return { x: centro.x + rx * Math.cos(a), y: centro.y + ry * Math.sin(a) };
+  });
+  const medio: Pt = { x: (P.x + piedra.x) / 2, y: (P.y + piedra.y) / 2 };
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: P.x - 44, y: P.y }, a: { x: P.x + 44, y: P.y }, rol: "trazo", grosor: 2 },
+    ...rayado(P.x - 44, P.x + 44, P.y, true),
+    { tipo: "linea", de: P, a: { x: P.x, y: centro.y + 6 }, rol: "trazo", punteada: true, grosor: 1.4 },
+    ...punteadoPor(elipse, "trazo"),
+    { tipo: "linea", de: P, a: piedra, rol: "trazo", grosor: 1.8 },
+    { tipo: "punto", en: piedra, rol: "trazo", r: 7 },
+    { tipo: "arco", d: arco.d, rol: "incognita" },
+    rotulo({ x: arco.etiquetaEn.x + 2, y: arco.etiquetaEn.y + 4 }, "θ", "incognita", 14),
+    { tipo: "texto", en: avanzar(medio, TH_DIB, 14), texto: "√2 m", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: centro.x, y: centro.y + ry + 18 }, texto: "ω = √10 rad/s", rol: "dato", tam: 12, negrita: true },
+  ];
+  return { ancho: Math.round(piedra.x + 50), alto: Math.round(centro.y + ry + 32), pasos: 0, elementos: el };
+}
+
+// ── Lote 2-2023 1ra opción (facsímil 2023-2-1op.pdf, "EXAMEN-INGRESO 2-2023
+// (1ra OPCION)", martes 13 de junio de 2023; pág. 1 G5-G6 y pág. 2 F10-F12,
+// recortes a 500 dpi). El .md traía SVG hechos a mano que el parser prefiere
+// a `figura:`; F10 y F11 no eran la figura del facsímil. ──
+
+// Disco relleno (las bolitas grises del facsímil).
+function bolita(c: Pt, r: number, color = "#c9c9c9"): Elemento {
+  const pts = Array.from({ length: 28 }, (_, i) => avanzar(c, (i * 360) / 28, r));
+  return { tipo: "poligono", puntos: pts, rol: "trazo", relleno: true, rellenoColor: color };
+}
+
+// G5 · satélite a altura h; las dos tangentes tocan la Tierra en B y C, el arco
+// BC (del lado del satélite) es s, y θ va en el centro entre la recta al
+// satélite y el radio a C, como en el facsímil. El facsímil la dibuja en
+// perspectiva (la Tierra como elipse y el satélite corrido a la derecha); acá
+// va de frente y simétrica, que es la misma geometría.
+// s = R·2θ → 2θ = 2640π/3960 = 2π/3, θ = 60°; cos θ = R/(R+h) → h = R = 3960 mi (D).
+function g5SateliteTangentes(): Figura {
+  const R = 92;
+  const TH = ((2640 / 3960) * 180) / 2;           // θ en grados, de los datos
+  const O: Pt = { x: 170, y: 232 };
+  const S = avanzar(O, 90, R / Math.cos((TH * Math.PI) / 180)); // satélite
+  const B = avanzar(O, 90 + TH, R);
+  const C = avanzar(O, 90 - TH, R);
+  const T = avanzar(O, 90, R);                      // pie de h sobre la superficie
+  // Las rectas desde el satélite son tangentes: radio ⟂ tangente en B y en C.
+  verificarAngulo("SB tangente (radio ⟂ en B)", 90, anguloEn(B, O, S));
+  verificarAngulo("SC tangente (radio ⟂ en C)", 90, anguloEn(C, O, S));
+
+  const tierra = Array.from({ length: 72 }, (_, i) => avanzar(O, i * 5, R));
+  const th = arcoAngulo(O, 90 - TH, 90, 24, 36);
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: tierra, rol: "trazo", relleno: true, rellenoColor: "#dbe8f5" },
+    { tipo: "arco", d: arcoDe(O, R, 90 + TH, 90 - TH), rol: "dato", color: ROJO },
+    { tipo: "linea", de: S, a: B, rol: "trazo" },
+    { tipo: "linea", de: S, a: C, rol: "trazo" },
+    { tipo: "linea", de: O, a: B, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: O, a: C, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: O, a: T, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: T, a: S, rol: "incognita", grosor: 2.2 },
+    { tipo: "arco", d: th.d, rol: "trazo" },
+    rotulo({ x: th.etiquetaEn.x + 2, y: th.etiquetaEn.y + 5 }, "θ", "trazo", 13),
+    // el satélite: cuerpo y dos paneles
+    { tipo: "poligono", puntos: [{ x: S.x - 22, y: S.y - 4 }, { x: S.x - 8, y: S.y - 4 }, { x: S.x - 8, y: S.y + 2 }, { x: S.x - 22, y: S.y + 2 }], rol: "trazo", relleno: true, rellenoColor: "#9aa4b2" },
+    { tipo: "poligono", puntos: [{ x: S.x + 8, y: S.y - 4 }, { x: S.x + 22, y: S.y - 4 }, { x: S.x + 22, y: S.y + 2 }, { x: S.x + 8, y: S.y + 2 }], rol: "trazo", relleno: true, rellenoColor: "#9aa4b2" },
+    { tipo: "punto", en: S, rol: "trazo", r: 4.5 },
+    { tipo: "punto", en: B, rol: "trazo", r: 2.5 },
+    { tipo: "punto", en: C, rol: "trazo", r: 2.5 },
+    { tipo: "punto", en: O, rol: "trazo", r: 2 },
+    rotulo(avanzar(O, 90 + TH, R + 16), "B", "trazo", 15),
+    rotulo(avanzar(O, 90 - TH, R + 16), "C", "trazo", 15),
+    rotulo(avanzar(O, 74, R + 13), "s", "dato", 14),
+    rotulo({ x: S.x + 13, y: (S.y + T.y) / 2 + 4 }, "h", "incognita", 14),
+  ];
+  return { ancho: 340, alto: Math.round(O.y + R + 12), pasos: 0, elementos: el };
+}
+
+// G6 · dos circunferencias secantes de radios 8 y 3 (A y B), B sobre la mayor.
+// La recta de los centros se prolonga hasta C, donde la corta la tangente común
+// exterior (D en la mayor, E en la menor); x va de la menor a C. El facsímil
+// no rotula 8 ni 3 (están en el texto) y dibuja las circunferencias achatadas
+// (GeoGebra con ejes distintos); acá van redondas y a escala.
+// C es el centro de homotecia externo: AC/BC = 8/3 con AB = 8 → AC = 12,8,
+// x = AC − 11 = 9/5 (A).
+function g6SecantesTangenteComun(): Figura {
+  const K = 15;                                     // px por cm
+  const R = 8 * K, r = 3 * K;
+  const A: Pt = { x: 22 + R, y: 26 + R };
+  const B: Pt = { x: A.x + R, y: A.y };             // centro de la menor, sobre la mayor
+  const C: Pt = { x: A.x + (R * R) / (R - r), y: A.y };
+  const phi = (Math.acos(R / distancia(A, C)) * 180) / Math.PI;
+  const D = avanzar(A, phi, R);
+  const E = avanzar(B, phi, r);
+  const X0: Pt = { x: B.x + r, y: A.y };            // borde derecho de la menor
+  // Lo que dice el dibujo: DC tangente a las dos, y D, E, C en la misma recta.
+  verificarAngulo("DC tangente a la mayor en D", 90, anguloEn(D, A, C));
+  verificarAngulo("DC tangente a la menor en E", 90, anguloEn(E, B, C));
+  verificarAngulo("D, E y C alineados", 0, desvioParalelas(D, C, E, C), 0.2);
+
+  const dirT = anguloHacia(D, C);
+  const el: Elemento[] = [
+    { tipo: "path", d: circuloPath(A, R), rol: "trazo" },
+    { tipo: "path", d: circuloPath(B, r), rol: "trazo" },
+    { tipo: "linea", de: { x: A.x - R, y: A.y }, a: { x: C.x + 18, y: A.y }, rol: "trazo", grosor: 1.3 },
+    { tipo: "linea", de: avanzar(D, dirT, -34), a: avanzar(C, dirT, 18), rol: "trazo", grosor: 1.3 },
+    { tipo: "linea", de: X0, a: C, rol: "incognita", grosor: 3.2 },
+    { tipo: "punto", en: A, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: B, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: C, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: D, rol: "trazo", r: 2.6 },
+    { tipo: "punto", en: E, rol: "trazo", r: 2.6 },
+    rotulo({ x: A.x, y: A.y - 9 }, "A", "trazo", 14),
+    rotulo({ x: B.x + 10, y: B.y - 8 }, "B", "trazo", 14),
+    rotulo({ x: C.x + 4, y: C.y - 11 }, "C", "trazo", 14),
+    rotulo(avanzar(D, phi, 14), "D", "trazo", 14),
+    rotulo(avanzar(E, phi, 14), "E", "trazo", 14),
+    rotulo({ x: (X0.x + C.x) / 2, y: A.y + 18 }, "x", "incognita", 14),
+  ];
+  return { ancho: Math.round(C.x + 34), alto: Math.round(A.y + R + 14), pasos: 0, elementos: el };
+}
+
+// F10 · plano inclinado cuadrado PQRS visto en perspectiva oblicua, como en el
+// facsímil: PQ arriba y SR abajo (horizontales), el triángulo QFR de costado
+// con QF vertical de 5 m, recto en F y 30° en R entre RQ y RF. B en el medio de
+// PQ (a y a); A en S con V a lo largo de SR; g hacia abajo a la derecha.
+// Excepción declarada a "a escala": es perspectiva, así que el arco de 30° y
+// el recto en F se ven deformados en el plano del papel. Las medidas se
+// verifican en el modelo 3D que se proyecta, no sobre el dibujo.
+// QR = 5/sen 30° = 10 = 2a; B baja 10 m con g sen 30° = 5 m/s² → t = 2 s;
+// A recorre SR/2 = 5 m → V = 2,5 m/s (B).
+function f10PlanoCuadradoInclinado(): Figura {
+  const H = 5, INC = 30;                            // datos: QF = 5 m, 30° en R
+  const rad = Math.PI / 180;
+  type P3 = { x: number; y: number; z: number };
+  const fondo = H / Math.tan(INC * rad);            // RF, horizontal hacia el fondo
+  const lado = Math.hypot(fondo, H);                // QR
+  const S3: P3 = { x: 0, y: 0, z: 0 }, R3: P3 = { x: lado, y: 0, z: 0 };
+  const F3: P3 = { x: lado, y: fondo, z: 0 }, Q3: P3 = { x: lado, y: fondo, z: H };
+  const P3_: P3 = { x: 0, y: fondo, z: H };
+  const d3 = (a: P3, b: P3) => Math.hypot(b.x - a.x, b.y - a.y, b.z - a.z);
+  const ang3 = (v: P3, a: P3, b: P3) => {
+    const u = { x: a.x - v.x, y: a.y - v.y, z: a.z - v.z }, w = { x: b.x - v.x, y: b.y - v.y, z: b.z - v.z };
+    return (Math.acos((u.x * w.x + u.y * w.y + u.z * w.z) / (d3(v, a) * d3(v, b))) * 180) / Math.PI;
+  };
+  // PQRS es un cuadrado de verdad en el espacio, y el triángulo QFR mide lo que rotula.
+  verificarDistancia("SR = QR", lado, d3(S3, R3), 1e-9);
+  verificarDistancia("PQ = QR", lado, d3(P3_, Q3), 1e-9);
+  verificarDistancia("PS = QR", lado, d3(S3, P3_), 1e-9);
+  verificarAngulo("recto en R (SR ⟂ RQ)", 90, ang3(R3, S3, Q3));
+  verificarAngulo("30° en R entre RQ y RF", INC, ang3(R3, Q3, F3));
+  verificarAngulo("recto en F", 90, ang3(F3, Q3, R3));
+
+  const K = 26, KF = 0.62, AF = 40;                 // px por m, escorzo y ángulo del fondo
+  const O: Pt = { x: 44, y: 250 };
+  const pr = (p: P3): Pt => ({
+    x: O.x + K * (p.x + KF * p.y * Math.cos(AF * rad)),
+    y: O.y - K * (p.z + KF * p.y * Math.sin(AF * rad)),
+  });
+  const S = pr(S3), R = pr(R3), F = pr(F3), Q = pr(Q3), P = pr(P3_);
+  const B: Pt = { x: (P.x + Q.x) / 2, y: P.y };
+  verificarAngulo("QF sigue vertical en el papel", 90, anguloHacia(F, Q), 1e-6);
+
+  const uQ = anguloHacia(F, Q), uR = anguloHacia(F, R);
+  const m1 = avanzar(F, uQ, 10), m3 = avanzar(F, uR, 10);
+  const m2: Pt = { x: m1.x + m3.x - F.x, y: m1.y + m3.y - F.y };
+  const a30 = arcoAngulo(R, anguloHacia(R, F), anguloHacia(R, Q), 30, 42);
+  const xg = Q.x + 42;
+  const el: Elemento[] = [
+    { tipo: "linea", de: P, a: Q, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: P, a: S, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: S, a: R, rol: "trazo", grosor: 2.4 },
+    { tipo: "linea", de: R, a: Q, rol: "trazo", grosor: 1.2 },
+    { tipo: "linea", de: R, a: F, rol: "trazo", grosor: 1.2 },
+    { tipo: "linea", de: F, a: Q, rol: "trazo", grosor: 1.4 },
+    { tipo: "path", d: `M ${m1.x.toFixed(2)} ${m1.y.toFixed(2)} L ${m2.x.toFixed(2)} ${m2.y.toFixed(2)} L ${m3.x.toFixed(2)} ${m3.y.toFixed(2)}`, rol: "trazo" },
+    { tipo: "arco", d: a30.d, rol: "dato" },
+    { tipo: "texto", en: { x: a30.etiquetaEn.x + 4, y: a30.etiquetaEn.y + 4 }, texto: "30°", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "texto", en: { x: Q.x + 6, y: (Q.y + F.y) / 2 + 4 }, texto: "5 m", rol: "dato", tam: 12, negrita: true, ancla: "start" },
+    { tipo: "linea", de: { x: xg, y: Q.y + 10 }, a: { x: xg, y: Q.y + 74 }, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d: cabezaFlecha({ x: xg, y: Q.y + 80 }, -90, 8), rol: "trazo", relleno: true },
+    { tipo: "texto", en: { x: xg + 8, y: Q.y + 34 }, texto: "g", rol: "trazo", tam: 14, ancla: "start" },
+    bolita(B, 7),
+    bolita(S, 7),
+    { tipo: "linea", de: { x: S.x + 8, y: S.y }, a: { x: S.x + 38, y: S.y }, rol: "dato", grosor: 1.6 },
+    { tipo: "path", d: cabezaFlecha({ x: S.x + 44, y: S.y }, 0, 8), rol: "dato", relleno: true },
+    rotulo({ x: P.x - 12, y: P.y - 10 }, "P", "trazo", 14),
+    rotulo({ x: Q.x + 4, y: Q.y - 10 }, "Q", "trazo", 14),
+    rotulo({ x: S.x - 6, y: S.y + 22 }, "S", "trazo", 14),
+    rotulo({ x: R.x, y: R.y + 22 }, "R", "trazo", 14),
+    rotulo({ x: B.x, y: B.y - 13 }, "B", "trazo", 14),
+    rotulo({ x: S.x - 4, y: S.y - 14 }, "A", "trazo", 14),
+    rotulo({ x: S.x + 24, y: S.y - 9 }, "V", "dato", 13),
+    rotulo({ x: (P.x + B.x) / 2, y: P.y - 8 }, "a", "dato", 13),
+    rotulo({ x: (B.x + Q.x) / 2, y: P.y - 8 }, "a", "dato", 13),
+  ];
+  return { ancho: Math.round(xg + 28), alto: Math.round(S.y + 30), pasos: 0, elementos: el };
+}
+
+// F11 · péndulo cargado (q = −10 μC) en un campo uniforme. Fiel al facsímil
+// (pág. 2, 500 dpi): las líneas de campo SUBEN hacia la derecha y las flechas
+// apuntan hacia abajo a la izquierda; β está en la pared derecha, entre una
+// línea y la pared (60° → las líneas van a 30° de la horizontal); α en el
+// punto de sujeción, entre la vertical punteada y el hilo, que cuelga a la
+// derecha. Con q negativa, la fuerza eléctrica va contra E: hacia arriba a la
+// derecha, a 60° de la vertical.
+// x: T sen30° = qE sen60° → T = √3·qE; y: mg = T cos30° + qE cos60° = 2qE
+// = 2·(10·10⁻⁶)(4000) = 0,080 N (A). El SVG anterior dibujaba las líneas al
+// revés (subiendo a la izquierda) y con eso daba qE = 0,040 (B).
+function f11CampoElectricoPendulo(): Figura {
+  const X0 = 20, Y0 = 20, X1 = 400, Y1 = 250;
+  const PEND = 30;                                   // las líneas suben 30° (β = 60° con la pared)
+  const DIR_E = 180 + PEND;                          // sentido de las flechas: abajo-izquierda
+  const ALFA = 30, BETA = 60;
+  const t = Math.tan((PEND * Math.PI) / 180);
+  const lineas: { de: Pt; a: Pt }[] = [];
+  for (let c = Y0 + 22; c < Y1 + t * (X1 - X0); c += 50) {
+    // recta y = c − t·(x − X0), recortada al recuadro
+    const xs = Math.max(X0, X0 + (c - Y1) / t), xe = Math.min(X1, X0 + (c - Y0) / t);
+    if (xe - xs < 30) continue;
+    lineas.push({ de: { x: xs, y: c - t * (xs - X0) }, a: { x: xe, y: c - t * (xe - X0) } });
+  }
+  // β se marca donde una línea llega a la pared derecha, a media altura.
+  const enPared = lineas.filter((l) => Math.abs(l.a.x - X1) < 1e-6 && l.a.y > Y0 + 60 && l.a.y < Y1 - 60);
+  if (enPared.length === 0) throw new Error("f11: ninguna línea llega a la pared derecha para marcar β");
+  const lb = enPared[0];
+  const W = lb.a;
+  const abajo: Pt = { x: W.x, y: W.y + 40 };
+  verificarAngulo("β entre la línea de campo y la pared", BETA, anguloEn(W, lb.de, abajo));
+
+  const P: Pt = { x: 180, y: 46 };                   // sujeción, bajo el techo
+  const esfera = avanzar(P, -90 + ALFA, 128);
+  verificarAngulo("α entre la vertical y el hilo", ALFA, anguloEn(P, { x: P.x, y: P.y + 50 }, esfera));
+
+  // Equilibrio con las direcciones DIBUJADAS (eje y hacia arriba): si las
+  // flechas o el hilo quedaran del otro lado, T o el peso saldrían negativos.
+  const rad = Math.PI / 180;
+  const qE = 10e-6 * 4000;
+  const f = { x: -qE * Math.cos(DIR_E * rad), y: -qE * Math.sin(DIR_E * rad) }; // q < 0: contra E
+  const aHilo = anguloHacia(esfera, P) * rad;
+  const u = { x: Math.cos(aHilo), y: Math.sin(aHilo) };
+  const T = -f.x / u.x;
+  const peso = T * u.y + f.y;
+  if (!(T > 0 && peso > 0)) throw new Error(`f11: el dibujo no puede estar en equilibrio (T = ${T}, mg = ${peso})`);
+  verificarDistancia("mg en equilibrio con lo dibujado = 0,080 N", 0.08, peso, 1e-6);
+
+  const el: Elemento[] = [
+    { tipo: "poligono", puntos: [{ x: X0, y: Y0 }, { x: X1, y: Y0 }, { x: X1, y: Y1 }, { x: X0, y: Y1 }], rol: "trazo" },
+    ...lineas.flatMap((l): Elemento[] => {
+      const m: Pt = { x: (l.de.x + l.a.x) / 2, y: (l.de.y + l.a.y) / 2 };
+      return [
+        { tipo: "linea", de: l.de, a: l.a, rol: "trazo", grosor: 1.4 },
+        { tipo: "path", d: cabezaFlecha(avanzar(m, DIR_E, 5), DIR_E, 9), rol: "trazo", relleno: true },
+      ];
+    }),
+    { tipo: "poligono", puntos: [{ x: P.x - 58, y: P.y - 12 }, { x: P.x + 58, y: P.y - 12 }, { x: P.x + 58, y: P.y }, { x: P.x - 58, y: P.y }], rol: "trazo", relleno: true, rellenoColor: "#d5d5d0" },
+    { tipo: "linea", de: { x: P.x - 60, y: P.y }, a: { x: P.x + 60, y: P.y }, rol: "trazo", grosor: 1.8 },
+    { tipo: "linea", de: P, a: { x: P.x, y: P.y + 92 }, rol: "trazo", punteada: true, grosor: 1.2 },
+    { tipo: "linea", de: P, a: avanzar(esfera, 90 + ALFA, 11), rol: "trazo", grosor: 1.6 },
+    bolita(esfera, 11),
+    { tipo: "arco", d: arcoAngulo(P, -90, -90 + ALFA, 30).d, rol: "dato" },
+    rotulo(arcoAngulo(P, -90, -90 + ALFA, 30, 58).etiquetaEn, "α", "dato", 14),
+    { tipo: "arco", d: arcoAngulo(W, DIR_E, -90, 30).d, rol: "dato" },
+    rotulo(avanzar(W, (DIR_E + 270) / 2, 18), "β", "dato", 14),
+    rotulo({ x: 96, y: 154 }, "E", "trazo", 15),
+  ];
+  return { ancho: X1 + 20, alto: Y1 + 20, pasos: 0, elementos: el };
+}
+
+// F12 · lanzamiento horizontal desde A con v₀; B está 10 m debajo de A (pared
+// vertical) y desde B baja la rampa a 45° hasta el piso, con el 45° marcado al
+// pie, entre la rampa y el piso, como en el facsímil. La parábola sale de A y
+// toca la rampa en C. El piso no es un dato: va 4 m debajo de C.
+// ½gt² = 10 + v₀t → t = 2 s; C = (10, 20) desde A → BC = 10√2 m (D).
+function f12ProyectilRampa45(): Figura {
+  const V0 = 5, G = 10, H = 10, K = 9;               // m/s, m/s², m, px por m
+  const A: Pt = { x: 74, y: 44 };
+  const B: Pt = { x: A.x, y: A.y + H * K };
+  const tC = (V0 + Math.sqrt(V0 * V0 + 2 * G * H)) / G; // cruce con la rampa (tan 45° = 1)
+  const tray = (tt: number): Pt => ({ x: A.x + V0 * tt * K, y: A.y + 0.5 * G * tt * tt * K });
+  const C = tray(tC);
+  verificarAngulo("C (donde cae la parábola) está sobre la rampa a 45°", -45, anguloHacia(B, C));
+  const yPiso = C.y + 4 * K;
+  const pie = hastaY(B, -45, yPiso);
+
+  const d = Array.from({ length: 25 }, (_, i) => tray((tC * i) / 24))
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(2)} ${p.y.toFixed(2)}`).join(" ");
+  const a45 = arcoAngulo(pie, 135, 180, 26, 50);
+  const bola: Pt = { x: A.x, y: A.y - 6 };
+  const el: Elemento[] = [
+    { tipo: "linea", de: { x: A.x - 40, y: A.y }, a: A, rol: "trazo", grosor: 2.6 },
+    { tipo: "linea", de: A, a: B, rol: "trazo", grosor: 2.6 },
+    { tipo: "linea", de: { x: B.x - 40, y: B.y }, a: B, rol: "trazo", grosor: 1.6 },
+    { tipo: "linea", de: B, a: pie, rol: "trazo", grosor: 3 },
+    { tipo: "linea", de: { x: pie.x - 120, y: yPiso }, a: pie, rol: "trazo", grosor: 1.6 },
+    { tipo: "path", d, rol: "trazo" },
+    bolita(bola, 6),
+    { tipo: "linea", de: { x: bola.x + 7, y: bola.y }, a: { x: bola.x + 34, y: bola.y }, rol: "dato", grosor: 1.6 },
+    { tipo: "path", d: cabezaFlecha({ x: bola.x + 40, y: bola.y }, 0, 8), rol: "dato", relleno: true },
+    { tipo: "punto", en: C, rol: "trazo", r: 3 },
+    { tipo: "arco", d: a45.d, rol: "dato" },
+    rotulo({ x: a45.etiquetaEn.x, y: a45.etiquetaEn.y + 4 }, "45°", "dato", 11),
+    rotulo({ x: A.x - 14, y: A.y - 12 }, "A", "trazo", 14),
+    rotulo({ x: bola.x + 22, y: bola.y - 10 }, "v₀", "dato", 13),
+    { tipo: "texto", en: { x: A.x - 8, y: (A.y + B.y) / 2 + 4 }, texto: "10 m", rol: "dato", tam: 12, negrita: true, ancla: "end" },
+    rotulo({ x: B.x + 13, y: B.y - 2 }, "B", "trazo", 14),
+    rotulo({ x: C.x + 14, y: C.y - 6 }, "C", "trazo", 14),
+  ];
+  return { ancho: Math.round(pie.x + 24), alto: Math.round(yPiso + 16), pasos: 0, elementos: el };
+}
+
 const CONSTRUCTORES: Record<string, () => Figura> = {
   "f24-tres-resistencias-paralelo": f24tresParalelo,
   "f9-caida-y-lanzamiento-45": f9caidaYLanzamiento,
@@ -5526,6 +7018,42 @@ const CONSTRUCTORES: Record<string, () => Figura> = {
   "g5-rombo-en-triangulo-3-4": g5RomboEnTriangulo34,
   "g8-cuadrado-sobre-hipotenusa": g8CuadradoSobreHipotenusa,
   "g7-dos-circulos-en-cuadrado": g7DosCirculosEnCuadrado,
+  // Lote 2-2005 1ra opción: las tres de Física habían quedado sin dibujo.
+  "f17-montana-rusa-semicircular": f17montanaSemicircular,
+  "f18-disco-orificio-bala": f18discoOrificio,
+  "f19-tobogan-pendulo-balistico": f19toboganPendulo,
+  // Lote 1-2012 1ra opción: G8 y las cuatro de Física estaban solo en texto.
+  "g8-triangulo-105-45-ley-senos": g8TrianguloLeySenos,
+  "f9-plano-4-3-fuerza-paralela": f9PlanoTresCuatroParalela,
+  "f10-plano-4-3-fuerza-horizontal": f10PlanoTresCuatroHorizontal,
+  "f11-barra-tres-esferas-3q-q": f11BarraTresEsferas,
+  "f12-tazon-dos-esferas-equilatero": f12TazonDosEsferas,
+  // Lote 1-2018 2da opción: G5 y F9 tenían figura en el PDF y no en el banco.
+  "g5-dos-torres-punto-medio-30-60": g5DosTorresPuntoMedio,
+  "f9-grafica-vt-trapecio-18s": f9GraficaVtTrapecio,
+  // Lote 2-2024 única opción: G7 estaba solo en texto.
+  "g7-cuadrilatero-inscrito-arcos-60-110-100-90": g7CuadrilateroInscritoArcos,
+  // Lote 1-2005 2da opción: las cuatro de Física tenían figura en el PDF y no en el banco.
+  "f17-mesa-polea-m3-m1-m2-colgantes": f17MesaPoleaDosColgantes,
+  "f18-camion-auto-antes-del-choque": f18CamionAutoAntesDelChoque,
+  "f19-dos-planos-30-tramo-horizontal": f19DosPlanos30TramoHorizontal,
+  "f20-tres-resistencias-paralelo-i-11-2": f20TresResistenciasParaleloI,
+  // Lote 2-2005 2da opción: G10 y F19.
+  "g10-seis-cilindros-triangulo-x": g10SeisCilindrosTriangulo,
+  "f19-plano-altura-h-theta-bloque": f19PlanoAlturaHTheta,
+  // Lote 1-2011, 1-2014 y 1-2017 (1ra opción): figuras de Física que estaban
+  // en el PDF y en el banco solo como texto.
+  "f10-tiro-altura-d-alcance-d": f10TiroAlturaDAlcanceD,
+  "f12-capacitores-1-4-2-uf-fuente-12v": f12Capacitores124Fuente12,
+  "f12-pendulo-horizontal-eje-l": f12PenduloHorizontalEje,
+  "f9-rizo-rampa-h-tramo-bc-d": f9RizoRampaTramoBC,
+  "f12-pendulo-conico-theta": f12PenduloConicoTheta,
+  // Lote 2-2023 1ra opción: las cinco figuras estaban como SVG a mano en el .md.
+  "g5-satelite": g5SateliteTangentes,
+  "g6-secantes": g6SecantesTangenteComun,
+  "f10-plano-cuadrado": f10PlanoCuadradoInclinado,
+  "f11-campo-electrico": f11CampoElectricoPendulo,
+  "f12-proyectil-rampa": f12ProyectilRampa45,
 };
 
 // Cache: la construcción corre una vez por id (las verificaciones también).

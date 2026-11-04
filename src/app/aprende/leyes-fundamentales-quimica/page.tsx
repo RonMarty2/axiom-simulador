@@ -145,7 +145,7 @@ function EscConversionSim() {
       <Titulo accent={COLOR_OK}>Conversor · masa ⇄ moles ⇄ moléculas</Titulo>
 
       <Parrafo>
-        Ingresá masa y masa molar para ver cuántos moles y moléculas tienes:
+        Ingresa masa y masa molar para ver cuántos moles y moléculas tienes:
       </Parrafo>
 
       <Pizarra alto={180}>

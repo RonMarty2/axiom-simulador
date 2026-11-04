@@ -107,10 +107,10 @@ const BANNERS_FACULTADES: Record<string, string> = {
 };
 
 
-const FAQS_LANDING = [
+const faqsLanding = (total: number) => [
   {
     q: "¿Los exámenes del simulador son realmente los que tomó la UMSS?",
-    a: "Sí. Cada uno de los 139 exámenes del banco es un facsímil oficial recopilado y contrastado con las convocatorias reales de la UMSS (Medicina, Tecnología, Ciencias Económicas y Derecho). Cada ejercicio indica el año y la gestión en que fue tomado.",
+    a: `Sí. ${total > 0 ? `Cada uno de los ${total} exámenes` : "Cada examen"} del banco es un facsímil oficial recopilado y contrastado con las convocatorias reales de la UMSS (Medicina, Tecnología, Ciencias Económicas y Derecho). Cada ejercicio indica el año y la gestión en que fue tomado.`,
   },
   {
     q: "¿Por qué AXIOM es más efectivo que las fotocopias de la calle Jordan o Sucre?",
@@ -168,7 +168,10 @@ export default function LandingPage() {
     return `${min}:${seg < 10 ? "0" : ""}${seg}`;
   };
 
-  const totalExamenes = facultades.reduce((acc, f) => acc + (f.examenes || 0), 0) || 150;
+  const totalExamenes = facultades.reduce((acc, f) => acc + (f.examenes || 0), 0);
+  // Si /api/facultades no responde, el total es 0 y la cifra no se muestra (regla 6: nada de números a mano).
+  const hayTotal = totalExamenes > 0;
+  const FAQS_LANDING = faqsLanding(totalExamenes);
   const preguntaActual = PREGUNTAS_DEMO[carreraSel];
 
   return (
@@ -188,7 +191,7 @@ export default function LandingPage() {
             </div>
 
             <h1 className="font-crimson" style={{ fontSize: "clamp(38px, 5.2vw, 64px)", fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1.04, marginBottom: 20, letterSpacing: "-0.025em" }}>
-              Los {totalExamenes} exámenes reales que tomó la UMSS.<br />
+              Los {hayTotal ? `${totalExamenes} ` : ""}exámenes reales que tomó la UMSS.<br />
               <span style={{ color: "var(--accent)" }}>Resueltos paso a paso.</span>
             </h1>
 
@@ -228,17 +231,19 @@ export default function LandingPage() {
                   border: "1.5px solid var(--border)",
                 }}
               >
-                Ver los {totalExamenes} exámenes
+                Ver los {hayTotal ? `${totalExamenes} ` : ""}exámenes
               </a>
             </div>
 
             {/* Hechos de credibilidad verificables */}
             <div style={{ display: "flex", gap: 28, marginTop: 42, paddingTop: 28, borderTop: "1px solid var(--border)", flexWrap: "wrap" }}>
-              <div>
-                <div style={{ fontSize: 26, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1 }}>{totalExamenes}</div>
-                <div style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Exámenes oficiales</div>
-              </div>
-              <div style={{ borderLeft: "1px solid var(--border)", paddingLeft: 24 }}>
+              {hayTotal && (
+                <div>
+                  <div style={{ fontSize: 26, fontWeight: 800, color: "var(--fg-primary)", lineHeight: 1 }}>{totalExamenes}</div>
+                  <div style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Exámenes oficiales</div>
+                </div>
+              )}
+              <div style={hayTotal ? { borderLeft: "1px solid var(--border)", paddingLeft: 24 } : undefined}>
                 <div style={{ fontSize: 26, fontWeight: 800, color: "var(--accent)", lineHeight: 1 }}>2005–2025</div>
                 <div style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Historial completo</div>
               </div>

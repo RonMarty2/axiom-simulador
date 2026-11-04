@@ -5,6 +5,7 @@ import "./globals.css";
 import PWARegister from "./components/PWARegister";
 import BottomNav from "./components/BottomNav";
 import AvisoNavegadorApp from "./components/AvisoNavegadorApp";
+import { totalExamenes } from "@/lib/axiom/total-examenes";
 
 const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
@@ -18,14 +19,16 @@ const atkinson = Atkinson_Hyperlegible({
   variable: "--font-atkinson",
 });
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+  const total = await totalExamenes();
+  return {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://axiom-simulador.com"),
   title: {
     default: "AXIOM — Simulador UMSS | Exámenes Reales Resueltos Paso a Paso",
     template: "%s | AXIOM — Simulador UMSS",
   },
   description:
-    "Plataforma de preparación para el examen de admisión UMSS (Cochabamba). Más de 150 exámenes reales de Medicina, Tecnología, Ciencias Económicas y Derecho resueltos paso a paso.",
+    `Plataforma de preparación para el examen de admisión UMSS (Cochabamba). ${total} exámenes reales de Medicina, Tecnología, Ciencias Económicas y Derecho resueltos paso a paso.`,
   keywords: [
     "examen admision umss 2025",
     "simulador umss cochabamba",
@@ -55,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "AXIOM — Simulador UMSS",
     title: "AXIOM — Simulador UMSS | Exámenes Reales Resueltos Paso a Paso",
     description:
-      "Asegura tu ingreso a la UMSS. Practica con los 139 exámenes reales tomados en San Simón con cronómetro, simulador idéntico y explicaciones paso a paso.",
+      `Asegura tu ingreso a la UMSS. Practica con los ${total} exámenes reales tomados en San Simón con cronómetro, simulador idéntico y explicaciones paso a paso.`,
     images: [
       {
         url: "/images/og-share.jpg",
@@ -69,13 +72,14 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AXIOM — Simulador UMSS | Exámenes Reales Resueltos",
     description:
-      "139 exámenes reales de San Simón resueltos paso a paso. Medicina, Tecnología, Económicas y Derecho.",
+      `${total} exámenes reales de San Simón resueltos paso a paso. Medicina, Tecnología, Económicas y Derecho.`,
     images: ["/images/og-share.jpg"],
   },
   alternates: {
     canonical: "/",
   },
-};
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",

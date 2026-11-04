@@ -64,3 +64,13 @@ El `id` NO se inventa: sacalo corriendo `parseExamenMD` sobre el archivo (o mir�
 3. Lo que quedó sin poder contrastar y por qué.
 4. La entrada que agregaste al registro.
 5. **Lecciones nuevas** para `docs/lecciones-agentes.md`, con la forma `fecha · ERROR|ACIERTO|SUERTE · qué pasó · qué hacer la próxima vez`.
+
+## Auditoría de MUCHOS exámenes: por muestra y por riesgo (decisión de Ronald, 03-11-2026; vale para todos los lotes futuros)
+No se auditan los 100+ exámenes "porque sí". Se hace así, siempre:
+1. **Muestra primero:** 2 lotes de 3 exámenes de años y facultades distintos. Se mide la **tasa de errores** y se separa en tres: respuesta mal, figura faltante o inventada, redacción sin cambio de datos.
+2. **Criterio de parada (de Ronald):** si la muestra sale casi sin errores, se PARA y el resto queda como "no auditado" anotado en la bitácora y en `registro-verificacion.json`. Nunca se sigue por inercia.
+3. **Si hay un error grave, se enfoca en el RIESGO, no en todo:** las preguntas que dependen de una figura o que el banco reconstruyó en texto sin ver el PDF (ahí estuvo el único error grave: 2010 P12, circuito inventado). Antes de lanzar nada, un SCRIPT (no agy) cuenta cuántas preguntas son de ese tipo y estima los tokens; se le muestra el resumen a Ronald.
+4. **Una pregunta de riesgo que no se pudo comprobar** (figura ilegible, agy volvió vacío) queda como sin comprobar, nunca como buena; si la lectura es solo tuya sobre la imagen, decilo.
+5. **Cada decisión de Ronald sobre alcance** (A parar / B solo riesgo) se anota en la bitácora con su fecha, para que otra ventana no la vuelva a preguntar.
+6. **agy usa este agente tal cual** («usa la skill/agente `auditor-facsimil`»): el pedido lleva solo lote, archivos y encargo, no el método.
+7. **Las figuras con circuitos o medidas NO las juzga agy** (devolvio vacio en 2010 P12 y 2011 P12): las ve `auditor-figuras` con el render a la vista. Una figura que nadie pudo ver queda «sin comprobar». Las figuras con circuitos se revisan primero porque ahi estuvo el unico error grave.
