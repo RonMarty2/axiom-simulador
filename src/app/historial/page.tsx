@@ -52,8 +52,8 @@ export default function HistorialPage() {
             </Link>
           </div>
         ) : (
-          <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflow: "hidden" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+          <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflowX: "auto" }}>
+            <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontSize: 14 }}>
               <thead>
                 <tr style={{ background: "var(--bg-subtle)" }}>
                   <th style={th()}>Fecha</th>

@@ -24,6 +24,9 @@ export default function AppHeader() {
   const pathname = usePathname();
   const [usuario, setUsuario] = useState<UsuarioMini | null>(null);
   const [admin, setAdmin] = useState(false);
+  // Hasta que /api/auth/me responde no sabemos si hay sesión: sin esto, con red
+  // lenta se ve «Entrar / Crear cuenta» varios segundos estando logueado.
+  const [sesionLista, setSesionLista] = useState(false);
   const [tester, setTester] = useState(false);
   const [cambioFacLibre, setCambioFacLibre] = useState(false);
   const [picture, setPicture] = useState<string | null>(null);
@@ -60,6 +63,7 @@ export default function AppHeader() {
       .then((r) => r.json())
       .then((d) => {
         setUsuario(d.usuario ?? null);
+        setSesionLista(true);
         setAdmin(!!d.admin);
         setTester(!!d.tester);
         setCambioFacLibre(!!d.cambio_facultad_libre);
@@ -78,7 +82,7 @@ export default function AppHeader() {
           } catch {}
         }
       })
-      .catch(() => null);
+      .catch(() => setSesionLista(true));
   }, [pathname]);
 
   useEffect(() => {
@@ -228,7 +232,7 @@ export default function AppHeader() {
               )}
             </div>
           )}
-          {!usuario && !admin && (
+          {sesionLista && !usuario && !admin && (
             <>
               <Link href="/login" className="axiom-btn-entrar" style={{ padding: "8px 16px", color: "var(--fg-primary)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Entrar</Link>
               <Link href="/login" className="axiom-btn-crear" style={{ padding: "8px 18px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 8, fontSize: 14, fontWeight: 700, whiteSpace: "nowrap" }}>Crear cuenta</Link>
