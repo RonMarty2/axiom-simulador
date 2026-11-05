@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { construirSimulador } from "@/lib/axiom/simulador-builder";
 import { axiomDB } from "@/lib/axiom/db";
+import { ocultarClave } from "@/lib/axiom/ocultar-clave";
 import { getCurrentUser } from "@/lib/session";
 import { getHistorialUsuario } from "@/lib/data-store";
 import {
@@ -92,7 +93,7 @@ export async function POST(req: Request) {
     const { simulador } = await construirSimulador(config, usuarioId);
     await axiomDB.createSimulador(simulador);
 
-    return NextResponse.json({ simulador });
+    return NextResponse.json({ simulador: ocultarClave(simulador) });
   } catch (err) {
     console.error("[api/axiom/simulador POST] error:", err);
     return NextResponse.json(

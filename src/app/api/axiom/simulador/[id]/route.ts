@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { axiomDB } from "@/lib/axiom/db";
 import { getCurrentUser } from "@/lib/session";
+import { supabaseConfigurado } from "@/lib/supabase";
+import { ocultarClave } from "@/lib/axiom/ocultar-clave";
 
 // Si hay usuario logueado, solo puede acceder a SUS simuladores.
 // Los anónimos (id "anon-*") quedan accesibles como antes — no rompe ese flujo.
@@ -25,7 +27,7 @@ export async function GET(
   }
   const bloqueo = await bloqueoCruzado(simulador.usuario_id);
   if (bloqueo) return bloqueo;
-  return NextResponse.json({ simulador });
+  return NextResponse.json({ simulador: ocultarClave(simulador) });
 }
 
 export async function PATCH(
@@ -38,7 +40,9 @@ export async function PATCH(
   // En serverless puede no estar en memoria. Si viene body.simulador, lo
   // recreamos para que el PATCH no falle entre lambdas.
   let simulador = await axiomDB.getSimulador(id);
-  if (!simulador && body.simulador) {
+  // Con base de datos el servidor ya lo tiene: no se acepta uno armado por el
+  // cliente (podría traer respuestas a medida). Solo sin Supabase (desarrollo).
+  if (!simulador && body.simulador && !supabaseConfigurado()) {
     simulador = body.simulador;
     await axiomDB.createSimulador(simulador!);
   }
@@ -78,5 +82,5 @@ export async function PATCH(
   }
 
   await axiomDB.updateSimulador(id, simulador);
-  return NextResponse.json({ simulador });
+  return NextResponse.json({ simulador: ocultarClave(simulador) });
 }

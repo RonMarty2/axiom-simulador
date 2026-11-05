@@ -5,6 +5,7 @@ import { evaluarSimulador } from "@/lib/axiom/simulador-builder";
 import { actualizarErrores } from "@/lib/axiom/errores-db";
 import { agregarHistorial, getUsuario, getHistorialUsuario, actualizarUsuario, type FacultadId } from "@/lib/data-store";
 import { getCurrentUser } from "@/lib/session";
+import { supabaseConfigurado } from "@/lib/supabase";
 import type { Simulador } from "@/lib/axiom/types";
 
 export async function POST(
@@ -22,7 +23,8 @@ export async function POST(
   } catch {
     // body opcional
   }
-  if (!simulador && bodyCliente.simulador) {
+  // Con base de datos no se califica un simulacro armado por el cliente.
+  if (!simulador && bodyCliente.simulador && !supabaseConfigurado()) {
     simulador = bodyCliente.simulador;
     await axiomDB.createSimulador(simulador);
   }
