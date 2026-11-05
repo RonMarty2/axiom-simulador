@@ -152,8 +152,8 @@ function FPP() {
     ptsFront.push(`${sx(x)},${sy(y)}`);
   }
   const puntos = {
-    A: { x: 600, y: 2200, color: LIENZO.fg, etiqueta: "A · sobre la frontera (eficiente)" },
-    B: { x: 700, y: 2000, color: LIENZO.fg, etiqueta: "B · también eficiente" },
+    A: { x: 600, y: 2400, color: LIENZO.fg, etiqueta: "A · sobre la frontera (eficiente)" },
+    B: { x: 800, y: 1800, color: LIENZO.fg, etiqueta: "B · también eficiente" },
     C: { x: 900, y: 2400, color: LIENZO.bad, etiqueta: "C · inalcanzable (afuera)" },
     D: { x: 300, y: 1000, color: LIENZO.warn, etiqueta: "D · ineficiente (adentro)" },
   };

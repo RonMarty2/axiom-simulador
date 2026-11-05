@@ -215,8 +215,8 @@ function EscDirecciones() {
       </WorkedExample>
 
       <Mnemotecnia>
-        <strong>"Proximal = cerca de la PROMA (tronco), Distal = lejos en la
-        DISTAncia."</strong>
+        <strong>"PROXimal = PRÓXIMO al tronco, DISTal = a la DISTancia del
+        tronco."</strong>
       </Mnemotecnia>
     </EscenaRica>
   );

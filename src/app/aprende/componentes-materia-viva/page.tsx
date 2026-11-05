@@ -463,10 +463,10 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="¿Qué bioelementos forman el esqueleto del ADN?"
+        pregunta="¿Qué bioelementos componen la molécula de ADN?"
         opciones={["C, H, O, N, S", "C, H, O, N, P", "C, H, O, S, P", "C, H, O, N"]}
         correctaIdx={1}
-        explicacion="ADN: esqueleto azúcar-fosfato (C, H, O, P) y bases (C, H, O, N)."
+        explicacion="ADN: el esqueleto azúcar-fosfato lleva C, H, O, P y las bases nitrogenadas suman N. En conjunto: C, H, O, N, P."
       />
 
       <AutoCheck

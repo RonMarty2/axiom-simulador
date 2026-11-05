@@ -148,7 +148,7 @@ function EscPasivo() {
           {[
             { x: 90, t: "Difusión simple", d: "atraviesan la bicapa directamente", ej: "O₂, CO₂, gases, agua (poco), lípidos" },
             { x: 290, t: "Difusión facilitada", d: "por proteínas canal o transportadoras", ej: "iones, glucosa, aminoácidos" },
-            { x: 490, t: "Ósmosis", d: "paso de AGUA por aquaporinas", ej: "regulación de volumen" },
+            { x: 490, t: "Ósmosis", d: "paso de AGUA por acuaporinas", ej: "regulación de volumen" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={180} height={140} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={8} />
@@ -286,7 +286,7 @@ function EscOsmosis() {
       <Cuidado>
         El <strong>suero fisiológico (NaCl 0.9%)</strong> es ISOTÓNICO con
         la sangre. Por eso se puede inyectar sin destruir glóbulos rojos.
-        Agua pura inyectada las haría estallar (hemólisis).
+        Agua pura inyectada los haría estallar (hemólisis).
       </Cuidado>
 
       <Mnemotecnia>
