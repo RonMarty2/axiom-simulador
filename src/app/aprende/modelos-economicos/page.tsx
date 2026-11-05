@@ -517,23 +517,23 @@ function Esc07() {
           "consumidores y productores agrícolas",
         ], c: 1, ex: "Modelo simple: familias y empresas en dos mercados." },
         { p: "En el mercado de factores:", o: [
-          "las empresas venden bienes",
           "las familias venden trabajo, tierra, capital",
+          "las empresas venden bienes",
           "el gobierno fija los precios",
           "no circula dinero",
-        ], c: 1, ex: "Las familias son las VENDEDORAS de factores; las empresas, las compradoras." },
+        ], c: 0, ex: "Las familias son las VENDEDORAS de factores; las empresas, las compradoras." },
         { p: "En el flujo circular, los bienes y el dinero:", o: [
           "circulan en el mismo sentido",
-          "circulan en sentidos OPUESTOS",
           "el dinero no circula, solo los bienes",
+          "circulan en sentidos OPUESTOS",
           "solo circula el dinero",
-        ], c: 1, ex: "Esa es la idea de 'circular': lo que va en un sentido (bienes), vuelve en el opuesto (dinero)." },
+        ], c: 2, ex: "Esa es la idea de 'circular': lo que va en un sentido (bienes), vuelve en el opuesto (dinero)." },
         { p: "Un punto FUERA de la FPP representa:", o: [
           "eficiencia máxima",
-          "una situación inalcanzable hoy",
           "ineficiencia",
           "equilibrio óptimo",
-        ], c: 1, ex: "Los recursos actuales no alcanzan: imposible con la tecnología vigente." },
+          "una situación inalcanzable hoy",
+        ], c: 3, ex: "Los recursos actuales no alcanzan: imposible con la tecnología vigente." },
         { p: "Un punto ADENTRO de la FPP indica:", o: [
           "imposibilidad",
           "ineficiencia (se podría producir más sin renunciar a otra cosa)",
@@ -541,23 +541,23 @@ function Esc07() {
           "el punto de equilibrio del mercado",
         ], c: 1, ex: "Hay recursos ociosos: se puede producir más de un bien sin renunciar al otro." },
         { p: "La FPP es cóncava (curva, no recta) porque:", o: [
-          "es una convención gráfica",
           "los recursos no son igualmente productivos en ambos usos",
+          "es una convención gráfica",
           "siempre hay desempleo",
           "el costo de oportunidad es fijo",
-        ], c: 1, ex: "Costo de oportunidad CRECIENTE: cuanto más nos especializamos en un bien, más sacrificamos del otro por cada unidad adicional." },
+        ], c: 0, ex: "Costo de oportunidad CRECIENTE: cuanto más nos especializamos en un bien, más sacrificamos del otro por cada unidad adicional." },
         { p: "Un avance tecnológico en Bolivia que mejora la productividad agrícola:", o: [
           "no afecta la FPP",
-          "desplaza la FPP hacia AFUERA (crecimiento)",
           "desplaza la FPP hacia ADENTRO",
           "vuelve la FPP una recta",
-        ], c: 1, ex: "Más tecnología = más bienes posibles con los mismos recursos. La frontera se expande." },
+          "desplaza la FPP hacia AFUERA (crecimiento)",
+        ], c: 3, ex: "Más tecnología = más bienes posibles con los mismos recursos. La frontera se expande." },
         { p: "Si Bolivia dedica TODA su tierra a gas natural y NADA a alimentos, está:", o: [
           "en el centro de la FPP",
-          "en un extremo de la FPP",
           "fuera de la FPP",
+          "en un extremo de la FPP",
           "adentro de la FPP",
-        ], c: 1, ex: "Los extremos de la FPP son las soluciones especializadas (100% un bien, 0% el otro). En general las economías eligen puntos intermedios." },
+        ], c: 2, ex: "Los extremos de la FPP son las soluciones especializadas (100% un bien, 0% el otro). En general las economías eligen puntos intermedios." },
       ]} />
     </EscenaRica>
   );

@@ -635,10 +635,10 @@ function EscPrac() {
         ], c: 0, ex: "Tomar decisiones = elegir, y elegir = renunciar." },
         { p: "El costo de oportunidad de algo es:", o: [
           "su precio de mercado",
-          "lo que se renuncia para obtenerlo",
           "lo que costó producirlo",
+          "lo que se renuncia para obtenerlo",
           "lo que vale para el comprador",
-        ], c: 1, ex: "Es la mejor alternativa que se descarta. Incluye lo que dejas de ganar." },
+        ], c: 2, ex: "Es la mejor alternativa que se descarta. Incluye lo que dejas de ganar." },
         { p: "Una persona racional decide actuar si:", o: [
           "el beneficio total > costo total",
           "el beneficio marginal > costo marginal",
@@ -647,19 +647,22 @@ function EscPrac() {
         ], c: 1, ex: "Pensamiento marginal (P3): se compara en el margen, no en totales." },
         { p: "La 'mano invisible' de Smith dice que:", o: [
           "el gobierno guía la economía sin que se vea",
-          "los precios coordinan decisiones descentralizadas",
           "los monopolios son buenos para todos",
           "el comercio internacional perjudica",
-        ], c: 1, ex: "P6: los precios guían las decisiones individuales hacia resultados beneficiosos para el conjunto." },
+          "los precios coordinan decisiones descentralizadas",
+        ], c: 3, ex: "P6: los precios guían las decisiones individuales hacia resultados beneficiosos para el conjunto." },
         { p: "Una externalidad es:", o: [
-          "un costo extra del Estado",
           "el impacto de las acciones de uno sobre otro",
+          "un costo extra del Estado",
           "una venta al exterior",
           "una decisión de la junta directiva",
-        ], c: 1, ex: "P7: ejemplos clásicos son la contaminación o el ruido. El mercado no las internaliza solo." },
+        ], c: 0, ex: "P7: ejemplos clásicos son la contaminación o el ruido. El mercado no las internaliza solo." },
         { p: "El nivel de vida de un país depende sobre todo de:", o: [
-          "su geografía", "su cultura", "su productividad", "sus exportaciones",
-        ], c: 2, ex: "P8: productividad = bienes y servicios por hora trabajada." },
+          "su geografía",
+          "su cultura",
+          "sus exportaciones",
+          "su productividad",
+        ], c: 3, ex: "P8: productividad = bienes y servicios por hora trabajada." },
         { p: "Bolivia tuvo hiperinflación en 1985 porque:", o: [
           "los empresarios eran codiciosos",
           "el gobierno imprimió mucho dinero para cubrir déficit",
@@ -668,10 +671,10 @@ function EscPrac() {
         ], c: 1, ex: "P9: el caso clásico latinoamericano. Imprimir dinero NO crea riqueza, crea inflación." },
         { p: "La disyuntiva inflación–desempleo opera:", o: [
           "siempre y para siempre",
-          "a corto plazo",
           "a largo plazo",
+          "a corto plazo",
           "solo en países pobres",
-        ], c: 1, ex: "P10: es de corto plazo. A largo plazo, más dinero = solo más precios." },
+        ], c: 2, ex: "P10: es de corto plazo. A largo plazo, más dinero = solo más precios." },
       ]} />
     </EscenaRica>
   );
