@@ -475,8 +475,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Trabajo de fuerza 50 N que mueve un objeto 3 m en su dirección:",
-      o: ["150 J", "53 J", "47 J", "0 J"],
-      c: 0,
+      o: ["53 J", "47 J", "150 J", "0 J"],
+      c: 2,
       ex: "$W = Fd\\cos0° = 50(3) = 150$ J.",
     },
     {
@@ -487,20 +487,20 @@ function EscPractica() {
     },
     {
       p: "Una pelota cae sin fricción desde 5 m. Velocidad al suelo (g=10):",
-      o: ["10 m/s", "5 m/s", "100 m/s", "1 m/s"],
-      c: 0,
+      o: ["5 m/s", "100 m/s", "1 m/s", "10 m/s"],
+      c: 3,
       ex: "$v = \\sqrt{2gh} = \\sqrt{100} = 10$ m/s.",
     },
     {
       p: "Resorte k=200, compresión 0.1 m. Energía:",
-      o: ["1 J", "2 J", "20 J", "10 J"],
-      c: 0,
+      o: ["2 J", "1 J", "20 J", "10 J"],
+      c: 1,
       ex: "$\\tfrac12(200)(0.01) = 1$ J.",
     },
     {
       p: "Si un cuerpo dobla su velocidad, su energía cinética:",
-      o: ["cuadruplica", "duplica", "queda igual", "se reduce a la mitad"],
-      c: 0,
+      o: ["duplica", "queda igual", "cuadruplica", "se reduce a la mitad"],
+      c: 2,
       ex: "$E_c \\propto v^2$. Doblar v cuadruplica Ec.",
     },
   ], []);

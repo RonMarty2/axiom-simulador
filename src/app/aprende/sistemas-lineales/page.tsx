@@ -753,11 +753,11 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Resuelve: x + y = 7 ; x − y = 1", o: ["(4, 3)", "(3, 4)", "(5, 2)", "(7, 0)"], c: 0, ex: "Sumo: 2x = 8 → x = 4. Y = 3. (4,3)." },
+    { p: "Resuelve: x + y = 7 ; x − y = 1", o: ["(3, 4)", "(5, 2)", "(4, 3)", "(7, 0)"], c: 2, ex: "Sumo: 2x = 8 → x = 4. Y = 3. (4,3)." },
     { p: "Resuelve: 2x + y = 11 ; x − y = 1", o: ["(4, 3)", "(3, 5)", "(5, 1)", "(2, 7)"], c: 0, ex: "Sumo: 3x = 12 → x = 4. Y = 3." },
-    { p: "Si x + 2y = 9 y x = 3, ¿cuánto vale y?", o: ["3", "6", "1.5", "9"], c: 0, ex: "3 + 2y = 9 → 2y = 6 → y = 3." },
+    { p: "Si x + 2y = 9 y x = 3, ¿cuánto vale y?", o: ["6", "1.5", "9", "3"], c: 3, ex: "3 + 2y = 9 → 2y = 6 → y = 3." },
     { p: "Sistema {x − y = 5, 2x − 2y = 9}: ¿qué pasa?", o: ["Tiene sol única", "Sin solución", "Infinitas", "Solo x=5"], c: 1, ex: "La 2ª es la 1ª por 2 daría 10, pero da 9. Contradicción → sin solución." },
-    { p: "Dos números suman 14 y difieren en 6. El mayor es:", o: ["10", "8", "12", "4"], c: 0, ex: "x+y=14, x−y=6. Sumo: 2x=20 → x=10." },
+    { p: "Dos números suman 14 y difieren en 6. El mayor es:", o: ["8", "10", "12", "4"], c: 1, ex: "x+y=14, x−y=6. Sumo: 2x=20 → x=10." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;

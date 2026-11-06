@@ -466,8 +466,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Dos cargas de 2 C cada una a 1 m. Fuerza (k = 9·10⁹):",
-      o: ["3.6·10¹⁰ N", "9·10⁹ N", "0", "1.8·10¹⁰ N"],
-      c: 0,
+      o: ["9·10⁹ N", "0", "3.6·10¹⁰ N", "1.8·10¹⁰ N"],
+      c: 2,
       ex: "$F = 9\\cdot10^9(2)(2)/1 = 3.6\\cdot10^{10}$ N.",
     },
     {
@@ -478,20 +478,20 @@ function EscPractica() {
     },
     {
       p: "Dos capacitores 4 μF y 6 μF en paralelo. C_eq:",
-      o: ["10 μF", "2.4 μF", "5 μF", "2 μF"],
-      c: 0,
+      o: ["2.4 μF", "5 μF", "2 μF", "10 μF"],
+      c: 3,
       ex: "Paralelo: suma directa = 10 μF.",
     },
     {
       p: "Dos capacitores 4 μF y 4 μF en serie:",
-      o: ["2 μF", "8 μF", "4 μF", "16 μF"],
-      c: 0,
+      o: ["8 μF", "2 μF", "4 μF", "16 μF"],
+      c: 1,
       ex: "Serie: $4(4)/(4+4) = 2$ μF.",
     },
     {
       p: "Carga almacenada por un capacitor de 5 μF a 10 V:",
-      o: ["50 μC", "5 μC", "10 μC", "0.5 μC"],
-      c: 0,
+      o: ["5 μC", "10 μC", "50 μC", "0.5 μC"],
+      c: 2,
       ex: "$Q = CV = 5(10) = 50$ μC.",
     },
   ], []);

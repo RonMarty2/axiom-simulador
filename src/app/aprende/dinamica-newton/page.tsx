@@ -493,8 +493,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Fuerza neta para que 5 kg acelere a 3 m/s²:",
-      o: ["15 N", "1.67 N", "8 N", "0 N"],
-      c: 0,
+      o: ["1.67 N", "8 N", "15 N", "0 N"],
+      c: 2,
       ex: "$F = ma = 5(3) = 15$ N.",
     },
     {
@@ -505,20 +505,20 @@ function EscPractica() {
     },
     {
       p: "Si μ=0.4 y N=50 N, fricción cinética:",
-      o: ["20 N", "50 N", "0.4 N", "125 N"],
-      c: 0,
+      o: ["50 N", "0.4 N", "125 N", "20 N"],
+      c: 3,
       ex: "$f = \\mu N = 0.4(50) = 20$ N.",
     },
     {
       p: "Bloque en plano sin fricción de 30°. Aceleración bajando (g=10):",
-      o: ["5 m/s²", "10 m/s²", "8.66 m/s²", "2.5 m/s²"],
-      c: 0,
+      o: ["10 m/s²", "5 m/s²", "8.66 m/s²", "2.5 m/s²"],
+      c: 1,
       ex: "$a = g\\sin\\theta = 10(0.5) = 5$ m/s².",
     },
     {
       p: "Acción y reacción están sobre:",
-      o: ["cuerpos distintos", "mismo cuerpo", "se anulan", "el mismo"],
-      c: 0,
+      o: ["mismo cuerpo", "se anulan", "cuerpos distintos", "el mismo"],
+      c: 2,
       ex: "Por eso no se equilibran ni se cancelan.",
     },
   ], []);

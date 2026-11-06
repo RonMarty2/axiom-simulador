@@ -506,8 +506,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "sen²x + cos²x =",
-      o: ["1", "0", "2", "sen 2x"],
-      c: 0,
+      o: ["0", "2", "1", "sen 2x"],
+      c: 2,
       ex: "Identidad fundamental.",
     },
     {
@@ -518,26 +518,26 @@ function EscPractica() {
     },
     {
       p: "Si cos x = 3/5 y x es agudo, sen x =",
-      o: ["4/5", "3/4", "5/3", "1/5"],
-      c: 0,
+      o: ["3/4", "5/3", "1/5", "4/5"],
+      c: 3,
       ex: "sen²x = 1 - 9/25 = 16/25 → sen x = 4/5 (agudo, positivo).",
     },
     {
       p: "Soluciones de sen x = 1/2 en [0°, 360°]:",
-      o: ["30° y 150°", "30° solo", "30° y 330°", "60° y 120°"],
-      c: 0,
+      o: ["30° solo", "30° y 150°", "30° y 330°", "60° y 120°"],
+      c: 1,
       ex: "sen positivo en cuadrantes I y II. 30° y 180°-30°=150°.",
     },
     {
       p: "cos(60° + 30°) =",
-      o: ["0", "1", "√2/2", "1/2"],
-      c: 0,
+      o: ["1", "√2/2", "0", "1/2"],
+      c: 2,
       ex: "cos(90°) = 0.",
     },
     {
       p: "Simplificar sen(180° − x):",
-      o: ["sen x", "−sen x", "cos x", "−cos x"],
-      c: 0,
+      o: ["−sen x", "cos x", "−cos x", "sen x"],
+      c: 3,
       ex: "sen(180°−x) = sen x (suplementarios).",
     },
   ], []);

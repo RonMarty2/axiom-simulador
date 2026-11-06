@@ -363,8 +363,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "sen 30° + cos 60° =",
-      o: ["1", "1/2", "√3/2", "0"],
-      c: 0,
+      o: ["1/2", "√3/2", "1", "0"],
+      c: 2,
       ex: "sen 30° = 1/2, cos 60° = 1/2. Suma = 1.",
     },
     {
@@ -375,26 +375,26 @@ function EscPractica() {
     },
     {
       p: "Si sen θ = 5/13, ¿cuánto es cos θ? (θ agudo)",
-      o: ["12/13", "13/12", "5/12", "8/13"],
-      c: 0,
+      o: ["13/12", "5/12", "8/13", "12/13"],
+      c: 3,
       ex: "Pitágoras: cat. adyacente² = 13²-5² = 144 → adyacente = 12. cos = 12/13.",
     },
     {
       p: "Una escalera de 10 m apoyada en pared forma 60° con el suelo. ¿A qué altura llega?",
-      o: ["5√3 m", "5 m", "10/√3 m", "4.33 m"],
-      c: 0,
+      o: ["5 m", "5√3 m", "10/√3 m", "4.33 m"],
+      c: 1,
       ex: "Altura = 10·sen 60° = 10·(√3/2) = 5√3 ≈ 8.66 m.",
     },
     {
       p: "tan 45° =",
-      o: ["1", "√2/2", "√3", "1/2"],
-      c: 0,
+      o: ["√2/2", "√3", "1", "1/2"],
+      c: 2,
       ex: "tan 45° = 1 (ángulo notable).",
     },
     {
       p: "Ángulo de elevación al tope de una torre de 30 m, desde 30 m de distancia:",
-      o: ["45°", "30°", "60°", "90°"],
-      c: 0,
+      o: ["30°", "60°", "90°", "45°"],
+      c: 3,
       ex: "tan θ = 30/30 = 1 → θ = 45°.",
     },
   ], []);
