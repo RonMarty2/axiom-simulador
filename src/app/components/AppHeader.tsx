@@ -260,7 +260,7 @@ export default function AppHeader() {
                     {admin ? <Icono nombre="rayo" tamano={15} grosor={2.2} /> : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
                   </div>
                 )}
-                <span style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
+                <span className="axiom-user-nombre" style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
                   {admin ? (usuario ? `${usuario.nombre.split(" ")[0]} · Docente` : "Admin") : usuario?.nombre.split(" ")[0]}
                 </span>
                 <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>

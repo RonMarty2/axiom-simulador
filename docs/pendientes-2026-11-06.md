@@ -100,3 +100,5 @@ Este inventario reúne el trabajo que permanece inconcluso, a medias o interrump
 ## Hallazgos de la prueba en tablet/celular (taller, 6-nov noche)
 - Arreglado SIN SUBIR (a la espera del visto bueno de Ronald): la confirmación de examen pasado en `/practicar` quedaba tapada por la barra inferior (botones «Ahora no»/«Empezar» cortados en tablet 800x1340). Cambio en `src/app/practicar/page.tsx` (padding inferior del overlay). Verificado en tablet; falta mirar el celular chico.
 - PENDIENTE: en celular de 360 px el selector de usuario del encabezado (`AppHeader.tsx`, «Ronald ▾») se corta por la derecha. Revisar también otros anchos.
+
+- 06-11 19:55 (taller): selector «Ronald ▾» a 360 px ARREGLADO sin subir (AppHeader.tsx clase axiom-user-nombre + regla en globals.css ≤400px: queda avatar y flecha). Visto en tablet a 360 px. Falta: OK de Ronald y mirar escritorio (la regla solo actúa ≤400px).

@@ -45,6 +45,8 @@
    no alcanzaba: en Linux (CI) las letras salen mas anchas y volvia a salirse 6 px. Ahora sobran ~25. */
 @media (max-width: 400px) {
   .axiom-header-row { gap: 6px !important; padding-left: 10px !important; padding-right: 10px !important; }
+  /* Con sesion, el nombre junto al avatar se sale en 360 px: queda avatar y flecha. */
+  .axiom-user-nombre { display: none !important; }
   .axiom-logo-texto { font-size: 20px !important; letter-spacing: 0.03em !important; }
   .axiom-btn-entrar { padding-left: 4px !important; padding-right: 4px !important; font-size: 13px !important; }
   .axiom-btn-crear { padding-left: 10px !important; padding-right: 10px !important; font-size: 13px !important; }
