@@ -1,3 +1,4 @@
+import { limitarPeticion } from "@/lib/rate-limit";
 import { after, NextRequest, NextResponse } from "next/server";
 import { crearPago, guardarComprobante, idsConComprobante, getPagos, getPagosUsuario, getFacultad, type FacultadId, type TipoPago } from "@/lib/data-store";
 import { getCurrentUser, isAdmin } from "@/lib/session";
@@ -29,6 +30,8 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   const u = await getCurrentUser();
   if (!u) return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+  const exceso = limitarPeticion(`pagos:${u.id}`, { max: 8, ventanaMs: 10 * 60_000 });
+  if (exceso) return exceso as NextResponse;
 
   const body = await req.json();
   const tipo = (body.tipo ?? "plan") as TipoPago;

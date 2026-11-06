@@ -1,3 +1,4 @@
+import { limitarPeticion } from "@/lib/rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 import { eliminarUsuario } from "@/lib/data-store";
 import { clearSession, getCurrentUser, isAdmin, isTester } from "@/lib/session";
@@ -8,6 +9,8 @@ import { clearSession, getCurrentUser, isAdmin, isTester } from "@/lib/session";
 export async function DELETE(req: NextRequest) {
   const u = await getCurrentUser();
   if (!u) return NextResponse.json({ error: "No autenticado" }, { status: 401 });
+  const exceso = limitarPeticion(`borrar-cuenta:${u.id}`, { max: 5, ventanaMs: 60 * 60_000 });
+  if (exceso) return exceso as NextResponse;
   const body = await req.json().catch(() => ({}));
   if (body.confirmar !== "BORRAR") {
     return NextResponse.json({ error: "Escribe BORRAR para confirmar" }, { status: 400 });

@@ -88,3 +88,30 @@ export function ipDe(req: Request): string {
   if (fwd) return fwd.split(",")[0].trim();
   return req.headers.get("x-real-ip")?.trim() || "desconocida";
 }
+
+/**
+ * Cuenta una petición de un usuario a una ruta y dice si se pasó del tope.
+ * Devuelve null si puede seguir, o la respuesta 429 lista para devolver.
+ * Para rutas de escritura sensibles (pagos, borrar cuenta, cambiar carrera, crear simulacro).
+ */
+export function limitarPeticion(
+  clave: string,
+  { max, ventanaMs }: { max: number; ventanaMs: number },
+): Response | null {
+  // registrarFallo bloquea al llegar al máximo, así que se suma 1 para dejar pasar exactamente `max` peticiones.
+  const opts = { maxIntentos: max + 1, ventanaMs, bloqueoMs: ventanaMs };
+  const l = consultarLimite(clave, opts);
+  if (l.permitido) {
+    const tras = registrarFallo(clave, opts);
+    if (tras.permitido) return null;
+    return respuesta429(tras.esperaSegundos);
+  }
+  return respuesta429(l.esperaSegundos);
+}
+
+function respuesta429(esperaSegundos: number): Response {
+  return new Response(
+    JSON.stringify({ error: `Demasiadas peticiones. Prueba de nuevo en ${Math.max(1, Math.ceil(esperaSegundos / 60))} minutos.` }),
+    { status: 429, headers: { "Content-Type": "application/json", "Retry-After": String(esperaSegundos) } },
+  );
+}

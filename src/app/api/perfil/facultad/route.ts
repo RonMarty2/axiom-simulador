@@ -1,3 +1,4 @@
+import { limitarPeticion } from "@/lib/rate-limit";
 import { NextRequest, NextResponse } from "next/server";
 import { actualizarUsuario, getFacultad, getUsuario, getSuscripcionesActivas, type FacultadId } from "@/lib/data-store";
 import { getCurrentUser, puedeCambiarFacultadLibreEmail } from "@/lib/session";
@@ -7,6 +8,8 @@ export async function POST(req: NextRequest) {
   if (!userSession) {
     return NextResponse.json({ error: "No autenticado" }, { status: 401 });
   }
+  const exceso = limitarPeticion(`facultad:${userSession.id}`, { max: 10, ventanaMs: 60 * 60_000 });
+  if (exceso) return exceso as NextResponse;
   const body = await req.json();
   const facultad = body.facultad as FacultadId | undefined;
   if (!facultad) {

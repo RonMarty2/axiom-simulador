@@ -1,3 +1,4 @@
+import { limitarPeticion } from "@/lib/rate-limit";
 import { NextResponse } from "next/server";
 import { construirSimulador } from "@/lib/axiom/simulador-builder";
 import { axiomDB } from "@/lib/axiom/db";
@@ -36,6 +37,8 @@ export async function POST(req: Request) {
       );
     }
     const usuarioId = user.id;
+    const exceso = limitarPeticion(`simulador:${usuarioId}`, { max: 40, ventanaMs: 10 * 60_000 });
+    if (exceso) return exceso;
 
     // La facultad venía del cliente y no se validaba contra nada: mandando
     // otra en el body se armaba un simulacro con los 139 exámenes de

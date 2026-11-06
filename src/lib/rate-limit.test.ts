@@ -1,6 +1,6 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { consultarLimite, registrarFallo, limpiarLimite, ipDe } from "./rate-limit.ts";
+import { consultarLimite, registrarFallo, limpiarLimite, ipDe, limitarPeticion } from "./rate-limit.ts";
 
 // Cada test usa su propia clave para no pisarse con los demás: el limitador
 // guarda estado en un Map a nivel de módulo.
@@ -69,5 +69,23 @@ describe("ipDe", () => {
 
   test("sin cabeceras devuelve una clave fija, para limitar de más y no de menos", () => {
     assert.equal(ipDe(req({})), "desconocida");
+  });
+});
+
+describe("limitarPeticion", () => {
+  test("deja pasar hasta el tope y después devuelve 429 con Retry-After", () => {
+    const k = clave();
+    const o = { max: 3, ventanaMs: 60_000 };
+    assert.equal(limitarPeticion(k, o), null);
+    assert.equal(limitarPeticion(k, o), null);
+    assert.equal(limitarPeticion(k, o), null);
+    const cuarta = limitarPeticion(k, o);
+    assert.equal(cuarta?.status, 429);
+    assert.ok(Number(cuarta?.headers.get("Retry-After")) > 0);
+  });
+  test("usuarios distintos no se pisan", () => {
+    const o = { max: 1, ventanaMs: 60_000 };
+    limitarPeticion(clave(), o);
+    assert.equal(limitarPeticion(clave(), o), null);
   });
 });
