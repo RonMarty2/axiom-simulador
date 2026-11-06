@@ -29,3 +29,4 @@ No commiteás. Devolvé una lista de qué archivos tocaste y por qué.
 - **Intención de Ronald:** si pide algo que "se note", no lo recortes por regla propia. Las reglas de seguridad (nada falso, sin culpa) se mantienen; la fuerza del diseño la decide él.
 - **Cómo hablarle:** simple, sin jerga (nada de «lote», «worktree», «tope»), una pregunta por vez con respuesta de una palabra, mostrando el resultado antes que la explicación.
 - **Delegar:** `agy` ejecuta (copia aislada, modo `accept-edits`, plan escrito); Claude planifica y verifica.
+- **Tema que Ronald pide dejar (06-11, «respecto al QR que no me dejas en paz»):** si Ronald dice que dejes un tema, sale de las casillas que le tocan a él y pasa a una DECISIÓN PENDIENTE con comparación (qué opción, costo, impuestos); no se le vuelve a pedir ni a insistir. Los planes marcan lo que ya funciona como «se prueba con lo que hay». Frase de control: TEMA QUE RONALD PIDE DEJAR.
