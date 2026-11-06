@@ -1,5 +1,7 @@
 # Estado del trabajo (leer ESTO primero al abrir o retomar una sesión)
 
+> **Lo más reciente (6-nov-2026):** auditoría de lecciones en curso; leer primero [retomar-auditoria-lecciones.md](./retomar-auditoria-lecciones.md).
+
 Un solo archivo, corto, que se reescribe al cerrar cada tanda. Si tenés dudas de qué está hecho, **no confíes en esta lista: comprobalo con los comandos de abajo**. El código y el registro mandan, esto solo es el mapa.
 
 Última actualización: 30-oct-2026, tarde (arreglo final hecho y medido; falta la lectura corta de lo cambiado, la mirada visual y el visto bueno).
