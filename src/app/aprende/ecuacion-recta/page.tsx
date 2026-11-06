@@ -68,7 +68,7 @@ function EscCartesiano() {
         <span style={{ fontSize: 18, fontFamily: "var(--font-crimson), serif", fontWeight: 700 }}>
           d = √((x₂ − x₁)² + (y₂ − y₁)²)
         </span><br /><br />
-        Es Pitágoras aplicado al rectángulo que forman los dos puntos en el
+        Es Pitágoras aplicado al triángulo rectángulo que forman los dos puntos en el
         plano.
       </Definicion>
 
@@ -338,8 +338,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Distancia entre (0,0) y (3,4):",
-      o: ["5", "7", "25", "12"],
-      c: 0,
+      o: ["7", "25", "5", "12"],
+      c: 2,
       ex: "√(9+16) = √25 = 5.",
     },
     {
@@ -350,20 +350,20 @@ function EscPractica() {
     },
     {
       p: "Ordenada al origen de y = -3x + 7:",
-      o: ["7", "-3", "3", "-7"],
-      c: 0,
+      o: ["-3", "3", "-7", "7"],
+      c: 3,
       ex: "b = 7 (donde corta al eje y).",
     },
     {
       p: "Pendiente perpendicular a m = 2/3:",
-      o: ["-3/2", "3/2", "-2/3", "2/3"],
-      c: 0,
+      o: ["3/2", "-3/2", "-2/3", "2/3"],
+      c: 1,
       ex: "Inversa negativa: m' = -3/2 (producto = -1).",
     },
     {
       p: "Distancia del (0,0) a la recta 3x + 4y - 10 = 0:",
-      o: ["2", "10", "1", "5"],
-      c: 0,
+      o: ["10", "1", "2", "5"],
+      c: 2,
       ex: "|0+0-10|/√(9+16) = 10/5 = 2.",
     },
   ], []);

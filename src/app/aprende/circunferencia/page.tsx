@@ -403,8 +403,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Desde un punto exterior a 13 cm del centro de una circunferencia de radio 5 cm, ¿cuánto mide la tangente?",
-      o: ["12 cm", "8 cm", "18 cm", "11 cm"],
-      c: 0,
+      o: ["8 cm", "18 cm", "12 cm", "11 cm"],
+      c: 2,
       ex: "Pitágoras: t² = 13² - 5² = 169 - 25 = 144. t = 12.",
     },
     {
@@ -415,20 +415,20 @@ function EscPractica() {
     },
     {
       p: "Área de un círculo de radio 7 cm:",
-      o: ["49π cm²", "14π cm²", "7π cm²", "98π cm²"],
-      c: 0,
+      o: ["14π cm²", "7π cm²", "98π cm²", "49π cm²"],
+      c: 3,
       ex: "A = πr² = π·49 = 49π.",
     },
     {
       p: "Longitud de una circunferencia de diámetro 10:",
-      o: ["10π", "20π", "100π", "5π"],
-      c: 0,
+      o: ["20π", "10π", "100π", "5π"],
+      c: 1,
       ex: "L = πd = 10π.",
     },
     {
       p: "Desde un punto P se traza secante que corta la circunferencia en A y B con PA=3, PB=12. La tangente desde P mide:",
-      o: ["6", "9", "4", "8"],
-      c: 0,
+      o: ["9", "4", "6", "8"],
+      c: 2,
       ex: "t² = 3·12 = 36 → t = 6.",
     },
   ], []);

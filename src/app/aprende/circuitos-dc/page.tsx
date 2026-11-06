@@ -250,10 +250,9 @@ function EscParaleloSim() {
           preserveAspectRatio="xMidYMid meet"
           style={{ fontFamily: "var(--font-crimson), serif" }}>
           {/* Líneas principales */}
-          <line x1="50" y1="50" x2="350" y2="50" stroke={LIENZO.fg} strokeWidth="2" />
-          <line x1="50" y1="150" x2="350" y2="150" stroke={LIENZO.fg} strokeWidth="2" />
+          <line x1="50" y1="50" x2="260" y2="50" stroke={LIENZO.fg} strokeWidth="2" />
+          <line x1="50" y1="150" x2="260" y2="150" stroke={LIENZO.fg} strokeWidth="2" />
           <line x1="50" y1="50" x2="50" y2="150" stroke={LIENZO.fg} strokeWidth="2" />
-          <line x1="350" y1="50" x2="350" y2="150" stroke={LIENZO.fg} strokeWidth="2" />
           {/* R1 (rama superior) */}
           <line x1="170" y1="50" x2="170" y2="80" stroke={LIENZO.fg} strokeWidth="2" />
           <rect x="155" y="80" width="30" height="40" fill={`${COLOR_EXP}33`} stroke={COLOR_EXP} strokeWidth="2" />
@@ -365,8 +364,8 @@ function EscKirchhoff() {
         <strong>Convención de signos en LVK</strong>:<br />
         • Si recorres la batería de − a +: ΔV = +ε.<br />
         • Si la recorres de + a −: ΔV = −ε.<br />
-        • Si atravesas un resistor en el sentido de la corriente: ΔV = −IR.<br />
-        • Si lo atravesas en sentido contrario: ΔV = +IR.
+        • Si atraviesas un resistor en el sentido de la corriente: ΔV = −IR.<br />
+        • Si lo atraviesas en sentido contrario: ΔV = +IR.
       </Resumen>
     </EscenaRica>
   );
@@ -425,8 +424,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "V=24, R=8. Corriente:",
-      o: ["3 A", "192 A", "1/3 A", "16 A"],
-      c: 0,
+      o: ["192 A", "1/3 A", "3 A", "16 A"],
+      c: 2,
       ex: "I = V/R = 24/8 = 3 A.",
     },
     {
@@ -437,20 +436,20 @@ function EscPractica() {
     },
     {
       p: "Dos resistencias 4Ω y 4Ω en paralelo:",
-      o: ["2 Ω", "8 Ω", "4 Ω", "16 Ω"],
-      c: 0,
+      o: ["8 Ω", "4 Ω", "16 Ω", "2 Ω"],
+      c: 3,
       ex: "Paralelo iguales: R/2 = 4/2 = 2 Ω.",
     },
     {
       p: "Potencia de un resistor 10Ω con 2A:",
-      o: ["40 W", "20 W", "5 W", "100 W"],
-      c: 0,
+      o: ["20 W", "40 W", "5 W", "100 W"],
+      c: 1,
       ex: "P = I²R = 4·10 = 40 W.",
     },
     {
       p: "Si triplicas la resistencia (V constante), la corriente:",
-      o: ["1/3", "triplica", "queda igual", "se anula"],
-      c: 0,
+      o: ["triplica", "queda igual", "1/3", "se anula"],
+      c: 2,
       ex: "I = V/R. Si R triplica, I se hace 1/3.",
     },
   ], []);

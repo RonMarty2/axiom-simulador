@@ -64,7 +64,7 @@ function TrayectoriaEstrobos() {
 function EscIntro() {
   return (
     <EscenaRica>
-      <Titulo>Cinemática 2D · descompongo en X e Y</Titulo>
+      <Titulo>Cinemática 2D · descompones en X e Y</Titulo>
 
       <Hook>
         Cinemática 2D aparece MUCHO en el examen FCyT (5 preguntas observadas
@@ -160,7 +160,7 @@ function EscParabolico() {
       </Resumen>
 
       <Mnemotecnia>
-        <strong>Estrategia general</strong>: descompongo en X e Y, resuelvo
+        <strong>Estrategia general</strong>: descompones en X e Y, resuelves
         cada eje por separado usando las ecuaciones de cinemática 1D. El
         TIEMPO es el "pegamento" que conecta ambos.
       </Mnemotecnia>
@@ -511,8 +511,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Alcance máximo de un tiro parabólico con v₀=20 m/s en θ=45° (g=10):",
-      o: ["40 m", "20 m", "80 m", "60 m"],
-      c: 0,
+      o: ["20 m", "80 m", "40 m", "60 m"],
+      c: 2,
       ex: "$R = v_0^2/g = 400/10 = 40$ m.",
     },
     {
@@ -523,20 +523,20 @@ function EscPractica() {
     },
     {
       p: "Disco gira a 2 vueltas/s. ω en rad/s:",
-      o: ["4π", "2π", "π", "8π"],
-      c: 0,
+      o: ["2π", "π", "8π", "4π"],
+      c: 3,
       ex: "$\\omega = 2\\pi f = 2\\pi(2) = 4\\pi$ rad/s.",
     },
     {
       p: "MCU radio 2 m, ω=3 rad/s. Velocidad tangencial:",
-      o: ["6 m/s", "3 m/s", "1.5 m/s", "2 m/s"],
-      c: 0,
+      o: ["3 m/s", "6 m/s", "1.5 m/s", "2 m/s"],
+      c: 1,
       ex: "$v = \\omega R = 3(2) = 6$ m/s.",
     },
     {
       p: "Aceleración centrípeta del problema anterior:",
-      o: ["18 m/s²", "12 m/s²", "6 m/s²", "9 m/s²"],
-      c: 0,
+      o: ["12 m/s²", "6 m/s²", "18 m/s²", "9 m/s²"],
+      c: 2,
       ex: "$a_c = \\omega^2 R = 9(2) = 18$ m/s².",
     },
   ], []);

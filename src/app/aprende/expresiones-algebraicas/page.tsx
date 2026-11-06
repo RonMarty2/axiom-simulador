@@ -266,7 +266,7 @@ function Esc05_Distrib() {
       </PorQue>
 
       <AutoCheck
-        pregunta="Distribuí: −3(2x − 5)"
+        pregunta="Distribuye: −3(2x − 5)"
         opciones={["−6x − 15", "−6x + 15", "6x + 15", "−6x − 5"]}
         correctaIdx={1}
         explicacion="−3 · 2x = −6x. −3 · (−5) = +15. Total: −6x + 15."
@@ -437,7 +437,7 @@ function Esc08_Errores() {
         Este es el error <strong>#1 de todo el bloque de matemáticas</strong>. La operación de
         elevar al cuadrado NO se distribuye sobre la suma:<br />
         • <strong>(a+b)²</strong> = a² + 2ab + b² (correcto).<br />
-        • a² + b² → solo si a y b son ortogonales (Pitágoras), no en álgebra general.<br /><br />
+        • a² + b² → solo si a = 0 o b = 0 (así el término 2ab se anula); en general NO es igual.<br /><br />
         Verificación numérica: (2+3)² = 25. Pero 2² + 3² = 4 + 9 = 13. ≠. La diferencia es
         el 2·2·3 = 12.
       </Misconception>
@@ -457,7 +457,7 @@ function Esc08_Errores() {
 function Esc09_Practica() {
   const ejs = useMemo(() => [
     { p: "Reduce: 4x + 3 − 2x + 7", o: ["2x + 10", "6x + 10", "2x + 4", "12x"], c: 0, ex: "(4−2)x + (3+7) = 2x + 10." },
-    { p: "Distribuí: 5(2x − 3)", o: ["10x − 3", "10x − 15", "7x − 15", "10x + 15"], c: 1, ex: "5·2x = 10x. 5·(−3) = −15. Total: 10x − 15." },
+    { p: "Distribuye: 5(2x − 3)", o: ["10x − 3", "10x − 15", "7x − 15", "10x + 15"], c: 1, ex: "5·2x = 10x. 5·(−3) = −15. Total: 10x − 15." },
     { p: "Calcula (x + 2)(x + 5)", o: ["x² + 10", "x² + 7x + 10", "x² + 7", "2x + 10"], c: 1, ex: "FOIL: x² + 5x + 2x + 10 = x² + 7x + 10." },
     { p: "(a + 4)² es:", o: ["a² + 16", "a² + 8a + 16", "a² + 4a + 16", "a² − 8a + 16"], c: 1, ex: "(a+b)² = a² + 2ab + b². Acá: a² + 8a + 16." },
     { p: "(x + 6)(x − 6) es:", o: ["x² − 36", "x² + 36", "x² − 12x − 36", "x² − 12"], c: 0, ex: "Diferencia de cuadrados: a² − b² = x² − 36." },

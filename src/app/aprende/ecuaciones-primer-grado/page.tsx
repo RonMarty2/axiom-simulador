@@ -201,7 +201,7 @@ function Esc03_Balanza() {
 
       <PorQue>
         Por eso decimos "pasar un término al otro lado cambiando de signo": en realidad
-        estas restando ese término a AMBOS lados. La regla mnemotécnica es solo un atajo.
+        estás restando ese término a AMBOS lados. La regla mnemotécnica es solo un atajo.
       </PorQue>
     </EscenaRica>
   );
@@ -324,7 +324,7 @@ function Esc07_Verbal() {
       </Parrafo>
 
       <Resumen>
-        1️⃣ Identifica la incógnita y nombrala x.<br />
+        1️⃣ Identifica la incógnita y nómbrala x.<br />
         2️⃣ Traduce cada frase a una operación.<br />
         3️⃣ Iguala lo que dice el problema.<br />
         4️⃣ Resuelve y verifica que tenga sentido.
@@ -412,11 +412,11 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "Resuelve: 2x + 3 = 11", o: ["x = 4", "x = 7", "x = 14", "x = 8"], c: 0, ex: "2x = 8 → x = 4." },
+    { p: "Resuelve: 2x + 3 = 11", o: ["x = 7", "x = 14", "x = 4", "x = 8"], c: 2, ex: "2x = 8 → x = 4." },
     { p: "Resuelve: 5x − 8 = 17", o: ["x = 5", "x = 1.8", "x = 9", "x = 25"], c: 0, ex: "5x = 25 → x = 5." },
-    { p: "Resuelve: 3(x + 4) = 21", o: ["x = 3", "x = 5", "x = 7", "x = 9"], c: 0, ex: "3x + 12 = 21 → 3x = 9 → x = 3." },
-    { p: "Resuelve: x/2 + 5 = 11", o: ["x = 12", "x = 3", "x = 32", "x = 8"], c: 0, ex: "x/2 = 6 → x = 12." },
-    { p: "Un número más 8 es igual a su triple. ¿Cuál es?", o: ["4", "2", "8", "16"], c: 0, ex: "x + 8 = 3x → 8 = 2x → x = 4." },
+    { p: "Resuelve: 3(x + 4) = 21", o: ["x = 5", "x = 7", "x = 9", "x = 3"], c: 3, ex: "3x + 12 = 21 → 3x = 9 → x = 3." },
+    { p: "Resuelve: x/2 + 5 = 11", o: ["x = 3", "x = 12", "x = 32", "x = 8"], c: 1, ex: "x/2 = 6 → x = 12." },
+    { p: "Un número más 8 es igual a su triple. ¿Cuál es?", o: ["2", "8", "4", "16"], c: 2, ex: "x + 8 = 3x → 8 = 2x → x = 4." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;
