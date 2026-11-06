@@ -464,7 +464,7 @@ export default function SimuladorActivoPage() {
                           <button
                             type="button"
                             onClick={() => toggleMarcada(p.id)}
-                            className={`flex-shrink-0 rounded-md border px-2 py-1 text-xs font-medium transition-colors ${
+                            className={`flex min-h-[40px] min-w-[40px] flex-shrink-0 items-center justify-center rounded-md border px-2 py-1 text-sm font-medium transition-colors ${
                               marc ? "border-amber-400 bg-amber-50 text-amber-700" : "border-neutral-300 text-neutral-500 hover:bg-neutral-50"
                             }`}
                           >
