@@ -21,6 +21,9 @@ export default function CuentaPage() {
   const [borrando, setBorrando] = useState(false);
   const [confirmarBorrado, setConfirmarBorrado] = useState("");
   const [errorBorrado, setErrorBorrado] = useState<string | null>(null);
+  const [apodo, setApodo] = useState("");
+  const [guardandoApodo, setGuardandoApodo] = useState(false);
+  const [mensajeApodo, setMensajeApodo] = useState<{ ok: boolean; texto: string } | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -30,6 +33,7 @@ export default function CuentaPage() {
     ]).then(([me, p, f]) => {
       if (!me.usuario) { router.push("/login"); return; }
       setUsuario(me.usuario);
+      setApodo(me.usuario.apodo ?? "");
       setCambioFacultadLibre(!!me.cambio_facultad_libre);
       setPagos(p.pagos ?? []);
       setFacultades(f.facultades ?? []);
@@ -56,6 +60,24 @@ export default function CuentaPage() {
       return;
     }
     router.push(`/cambiar-facultad?destino=${nuevaId}`);
+  };
+
+  const guardarApodo = async () => {
+    setGuardandoApodo(true);
+    setMensajeApodo(null);
+    const r = await fetch("/api/perfil/apodo", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ apodo }),
+    });
+    const d = await r.json().catch(() => ({}));
+    if (r.ok) {
+      setApodo(d.apodo ?? "");
+      setMensajeApodo({ ok: true, texto: d.apodo ? `Listo: en el ranking apareces como «${d.apodo}».` : "Listo: en el ranking apareces como «Alumno anónimo»." });
+    } else {
+      setMensajeApodo({ ok: false, texto: d.error ?? "No se pudo guardar. Inténtalo de nuevo." });
+    }
+    setGuardandoApodo(false);
   };
 
   const borrarCuenta = async () => {
@@ -104,6 +126,36 @@ export default function CuentaPage() {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Apodo del ranking: el nombre real no se muestra (hay alumnos menores). */}
+        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
+          <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Icono nombre="ranking" tamano={16} /> Tu nombre en el ranking</span>
+          </h3>
+          <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 6, marginBottom: 12 }}>
+            Nadie ve tu nombre real. Elige un apodo, o déjalo vacío para aparecer como «Alumno anónimo».
+          </p>
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <input
+              value={apodo}
+              onChange={(e) => setApodo(e.target.value)}
+              maxLength={20}
+              placeholder="Alumno anónimo"
+              aria-label="Tu apodo en el ranking"
+              style={{ flex: "1 1 180px", minWidth: 0, padding: "10px 12px", borderRadius: 10, border: "1px solid var(--border)", background: "var(--bg-base)", color: "var(--fg-primary)", fontSize: 15 }}
+            />
+            <button
+              onClick={guardarApodo}
+              disabled={guardandoApodo}
+              style={{ padding: "10px 18px", borderRadius: 10, border: "none", background: "var(--accent)", color: "white", fontWeight: 700, fontSize: 14, cursor: guardandoApodo ? "default" : "pointer", opacity: guardandoApodo ? 0.6 : 1 }}
+            >
+              {guardandoApodo ? "Guardando…" : "Guardar"}
+            </button>
+          </div>
+          {mensajeApodo && (
+            <p role="status" style={{ fontSize: 13, marginTop: 8, color: mensajeApodo.ok ? "var(--fg-muted)" : "#b91c1c" }}>{mensajeApodo.texto}</p>
+          )}
         </div>
 
         {/* Facultad objetivo */}

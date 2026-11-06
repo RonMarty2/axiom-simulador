@@ -64,6 +64,7 @@ export interface Usuario {
   mejor_nota: number;
   nota_promedio: number;
   avatar_color: string;
+  apodo?: string | null;        // nombre público del ranking; null = "Alumno anónimo" (migración 008)
   plan_vence?: string | null;   // fecha (YYYY-MM-DD) hasta la que la facultad activa está pagada (derivado)
   suscripciones?: SuscripcionActiva[];  // suscripciones activas del usuario (derivado en getCurrentUser)
 }

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/session";
+import { nombrePublico } from "@/lib/apodo";
 
 // Ranking real: empieza vacío. Cuando haya usuarios reales registrando notas
 // via POST, se irán acumulando. Mantenemos in-memory hasta migrar a Supabase.
@@ -64,7 +65,7 @@ export async function POST(request: NextRequest) {
       rankingStore.push({
         id: `rank-${Date.now()}-${Math.random()}`,
         usuario_id: user.id,
-        nombre: user.nombre,
+        nombre: nombrePublico(user.apodo),
         nota,
         fecha: new Date().toISOString(),
       });

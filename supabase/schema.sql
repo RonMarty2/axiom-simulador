@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
   id              TEXT PRIMARY KEY,
   email           TEXT UNIQUE NOT NULL,
   nombre          TEXT NOT NULL,
+  apodo           TEXT,           -- nombre público del ranking (migración 008); NULL = anónimo
   facultad_objetivo TEXT REFERENCES facultades(id) ON DELETE SET NULL,
   plan            TEXT NOT NULL DEFAULT 'gratis' CHECK (plan IN ('gratis', 'pro', 'premium')),
   avatar_color    TEXT,

@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import AppHeader from "../components/AppHeader";
 import Icono, { iconoFacultad, nombreFacultad } from "../components/Icono";
 
 interface UsuarioRanking {
-  id: string;
-  nombre: string;
+  nombre: string; // apodo o "Alumno anónimo": el nombre real ya no sale (hay menores)
+  es_tu: boolean;
   facultad_objetivo: string;
-  plan: string;
   avatar_color: string;
   mejor_nota: number;
   nota_promedio: number;
@@ -103,7 +103,7 @@ function PodioCard({
           padding: "0 4px",
         }}
       >
-        {usuario.nombre}
+        {usuario.nombre}{usuario.es_tu ? " (tú)" : ""}
       </div>
 
       <div
@@ -190,6 +190,12 @@ export default function RankingPage() {
           <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
             Los mejores puntajes medidos en exámenes reales de la UMSS
           </p>
+          <p style={{ color: "var(--fg-muted)", fontSize: 13, marginTop: 6 }}>
+            Nadie ve tu nombre real: apareces con tu apodo o como «Alumno anónimo».{" "}
+            <Link href="/cuenta" style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>
+              Elige tu apodo
+            </Link>
+          </p>
         </div>
 
         {/* Filtros */}
@@ -274,7 +280,7 @@ export default function RankingPage() {
         >
           {restantes.map((u, i) => (
             <div
-              key={u.id}
+              key={i}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -309,7 +315,7 @@ export default function RankingPage() {
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>
-                  {u.nombre}
+                  {u.nombre}{u.es_tu ? " (tú)" : ""}
                 </div>
                 <div style={{ fontSize: 12, color: "var(--fg-muted)", marginTop: 2 }}>
                   <Facultad id={u.facultad_objetivo} /> · {u.examenes_completados} exámenes

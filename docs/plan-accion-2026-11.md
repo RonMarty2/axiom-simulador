@@ -8,7 +8,7 @@ No se hace publicidad, ni animaciones nuevas, ni láminas nuevas, ni la app de P
 - [x] P0. Seguridad del simulacro publicada (hecho: commit `3b96395` en `main`, 6-nov; el disco tenía el mismo cambio sin commit porque otra sesión ya lo había subido). Crear, ver y finalizar un simulacro exige sesión y ser el dueño. Lo que queda de `/api/usuarios` (público, lista nombre real, plan y notas de todos) se arregla junto con P3.
 - [ ] P1. Un pago real probado de punta a punta (QR, aviso por Telegram, aprobación en admin, plan activo).
 - [ ] P2. Contraseña maestra rotada en Vercel.
-- [ ] P3. Ranking sin nombre real por defecto (apodo, anónimo, opción de salir): hay alumnos menores.
+- [x] P3. Ranking sin nombre real (hecho 6-nov, opción A de Ronald): apodo que elige el alumno en «Mi cuenta» o «Alumno anónimo» por defecto; `/api/usuarios` ya no da nombre real, id ni plan. Requiere `supabase/migration-008-apodo.sql` aplicada para poder GUARDAR el apodo.
 - [ ] P4. Ingeniería: los exámenes de riesgo (opción B) contrastados contra el escaneo y registrados.
 - [ ] P5. Medicina: los PDF de Medicina que hay, digitalizados y verificados (hoy hay 1 examen; Rindex muestra 16).
 - [ ] P6. Un examen completo hecho en el celular por `probador-app` sin fallas graves, en Ingeniería y en Medicina.
