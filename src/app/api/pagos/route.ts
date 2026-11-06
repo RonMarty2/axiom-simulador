@@ -4,6 +4,7 @@ import { getCurrentUser, isAdmin } from "@/lib/session";
 import { montoCambioFacultadEn, montoPlanEn, type Moneda } from "@/lib/precios";
 import { METODOS_ACTIVOS, esMetodoActivo, type MetodoActivo } from "@/lib/pagos-config";
 import { avisarPago } from "@/lib/avisos";
+import { motivoLimitePagos } from "@/lib/limite-pagos";
 
 // Los precios viven en src/lib/precios.ts, no acá: estaban escritos tres
 // veces y coincidían de casualidad. El servidor sigue siendo el que MANDA
@@ -48,6 +49,10 @@ export async function POST(req: NextRequest) {
   if (comprobante && (!/^data:image\/(jpeg|png|webp);base64,/.test(comprobante) || comprobante.length > MAX_COMPROBANTE)) {
     return NextResponse.json({ error: "La foto del comprobante no es válida o pesa demasiado" }, { status: 400 });
   }
+
+  // Tope por alumno, contado con los pagos de la base (ver limite-pagos.ts).
+  const motivoLimite = motivoLimitePagos(await getPagosUsuario(u.id));
+  if (motivoLimite) return NextResponse.json({ error: motivoLimite }, { status: 429 });
 
   try {
     return await registrarPago({ usuarioId: u.id, alumno: u.nombre, urlAdmin: `${req.nextUrl.origin}/admin/pagos`, body, tipo, metodo, moneda, referencia, comprobante });
