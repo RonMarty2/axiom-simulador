@@ -6,6 +6,19 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Icono from "../components/Icono";
 import BackLink from "../components/BackLink";
+import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
+
+// Lo que hace falta de cada examen para elegirlo. La UMSS toma varios por año
+// (opciones, convocatorias, parciales): mandar solo el año no alcanza.
+interface ExamenElegible {
+  id: string;
+  anio: number;
+  facultad: string;
+  titulo?: string;
+  opcion?: string;
+  categoria?: string;
+  total_preguntas?: number;
+}
 
 type Modo = "ia_generado" | "examen_real";
 type Dificultad = "facil" | "medio" | "dificil";
@@ -20,6 +33,20 @@ export default function SimuladorCreatePage() {
   const [nombreFacultad, setNombreFacultad] = useState<string>("Ciencias Económicas");
   const [aniosDisponibles, setAniosDisponibles] = useState<number[]>([2023]);
   const [anioSeleccionado, setAnioSeleccionado] = useState<number>(2023);
+  const [examenesFac, setExamenesFac] = useState<ExamenElegible[]>([]);
+  const [examenId, setExamenId] = useState<string | null>(null);
+
+  // Exámenes del año elegido: primero los de ingreso, después los del PRE-U.
+  const delAnio = examenesFac
+    .filter((e) => e.anio === anioSeleccionado)
+    .sort((a, b) => Number(a.categoria === "parcial_curso") - Number(b.categoria === "parcial_curso"));
+  const elegirAnio = (a: number) => {
+    setAnioSeleccionado(a);
+    const primero = examenesFac
+      .filter((e) => e.anio === a)
+      .sort((x, y) => Number(x.categoria === "parcial_curso") - Number(y.categoria === "parcial_curso"))[0];
+    setExamenId(primero?.id ?? null);
+  };
 
   useEffect(() => {
     fetch("/api/auth/me")
@@ -39,7 +66,8 @@ export default function SimuladorCreatePage() {
         fetch("/api/axiom/examenes")
           .then((r) => r.json())
           .then((ed) => {
-            const propios = (ed.examenes ?? []).filter((e: { facultad: string }) => e.facultad === facId);
+            const propios: ExamenElegible[] = (ed.examenes ?? []).filter((e: ExamenElegible) => e.facultad === facId);
+            setExamenesFac(propios);
             const anios = Array.from(
               new Set<number>(propios.map((e: { anio: number }) => Number(e.anio)).filter(Boolean))
             ).sort((a, b) => b - a);
@@ -47,6 +75,10 @@ export default function SimuladorCreatePage() {
             if (anios.length > 0) {
               setAniosDisponibles(anios);
               setAnioSeleccionado(anios[0]);
+              const primero = propios
+                .filter((e) => e.anio === anios[0])
+                .sort((x, y) => Number(x.categoria === "parcial_curso") - Number(y.categoria === "parcial_curso"))[0];
+              setExamenId(primero?.id ?? null);
             }
           })
           .catch(() => {});
@@ -71,7 +103,8 @@ export default function SimuladorCreatePage() {
             modo: "examen_real" as const,
             universidad: "UMSS",
             facultad,
-            anio: anioSeleccionado,
+            // examen_id exacto; el año solo si todavía no cargó la lista.
+            ...(examenId ? { examen_id: examenId } : { anio: anioSeleccionado }),
           };
 
     try {
@@ -345,7 +378,7 @@ export default function SimuladorCreatePage() {
                 <button
                   key={a}
                   type="button"
-                  onClick={() => setAnioSeleccionado(a)}
+                  onClick={() => elegirAnio(a)}
                   style={{
                     padding: "8px 18px",
                     borderRadius: 999,
@@ -365,6 +398,45 @@ export default function SimuladorCreatePage() {
                 </button>
               ))}
             </div>
+            {delAnio.length > 1 && (
+              <>
+                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--fg-primary)", margin: "16px 0 10px" }}>
+                  Elige el examen de la gestión {anioSeleccionado}:
+                </label>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {delAnio.map((e) => {
+                    const { principal, secundaria } = etiquetarExamen(e.titulo, e.opcion);
+                    const activo = examenId === e.id;
+                    return (
+                      <button
+                        key={e.id}
+                        type="button"
+                        onClick={() => setExamenId(e.id)}
+                        aria-pressed={activo}
+                        style={{
+                          textAlign: "left",
+                          padding: "10px 14px",
+                          borderRadius: 10,
+                          border: activo ? "1.5px solid var(--accent)" : "1px solid var(--border)",
+                          background: activo ? "var(--accent-soft)" : "transparent",
+                          color: "var(--fg-primary)",
+                          fontSize: 14,
+                          fontWeight: activo ? 700 : 600,
+                          cursor: "pointer",
+                        }}
+                      >
+                        {principal}
+                        {(secundaria || e.total_preguntas) && (
+                          <span style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--fg-muted)", marginTop: 2 }}>
+                            {[secundaria, e.total_preguntas ? `${e.total_preguntas} preguntas` : null].filter(Boolean).join(" · ")}
+                          </span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )}
             <p style={{ fontSize: 12.5, color: "var(--fg-muted)", marginTop: 10 }}>
               Examen oficial recopilado y contrastado con los patrones originales de la UMSS.
             </p>

@@ -111,8 +111,7 @@ export async function construirSimulador(
         const candidatos = examenesFacultad.filter((e) => e.anio === config.anio);
         if (candidatos.length > 1) {
           throw new Error(
-            `Hay ${candidatos.length} examenes del año ${config.anio} (distintas opciones/convocatorias). ` +
-            `Especificá 'examen_id' para elegir uno: ${candidatos.map((c) => c.id).join(", ")}`
+            `Hay ${candidatos.length} exámenes de la gestión ${config.anio}. Elige uno de la lista para empezar.`
           );
         }
         ex = candidatos[0];
