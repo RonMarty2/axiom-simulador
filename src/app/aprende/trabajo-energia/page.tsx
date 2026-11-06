@@ -335,7 +335,7 @@ function EscConservacion() {
         <div style={{ textAlign: "center", padding: "6px 0" }}>
           <MathText>{"$E_{m,i} = E_{m,f}$"}</MathText>
         </div>
-        Si HAY fricción: <MathText>{"$E_{m,i} = E_{m,f} + E_{disipada}$"}</MathText>, donde la energía disipada es el módulo del trabajo de la fricción (<MathText>{"$E_{disipada} = |W_{fricción}| = f\cdot d$"}</MathText>).
+        Si HAY fricción: <MathText>{"$E_{m,i} = E_{m,f} + E_{disipada}$"}</MathText>, donde la energía disipada es el módulo del trabajo de la fricción (<MathText>{"$E_{disipada} = |W_{fricción}| = f \\cdot d$"}</MathText>).
       </Resumen>
 
       <WorkedExample titulo="Caída libre desde altura">
