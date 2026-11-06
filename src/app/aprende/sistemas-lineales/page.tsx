@@ -325,7 +325,7 @@ function TresCasosAlgebra() {
   // Rectas sacadas de los sistemas reales que aparecen en el texto de la escena.
   const casos = [
     {
-      titulo: "Se cruzan", firma: "x = 6", tipo: "Solución única",
+      titulo: "Se cruzan", firma: "(6, 4)", tipo: "Solución única",
       color: LIENZO.ok,
       rectas: [{ m: -1, b: 10, color: LIENZO.accent }, { m: 1, b: -2, color: LIENZO.ok }],
       punto: { x: 6, y: 4 },
@@ -393,7 +393,7 @@ function BilletesVisual() {
 
       <input type="range" min={0} max={TOTAL} value={cinco}
         onChange={(e) => setCinco(Number(e.target.value))}
-        aria-label="Cantidad de billetes de 5 Bs"
+        aria-label="Cantidad de monedas de 5 Bs"
         style={{ width: "100%", accentColor: LIENZO.accent }} />
 
       <div style={{
@@ -412,7 +412,7 @@ function BilletesVisual() {
       <Hint>
         {cumple
           ? "Las dos ecuaciones se cumplen a la vez: 11 de 2 Bs y 14 de 5 Bs"
-          : "Moviendo el control siempre hay 25 billetes, pero el monto cambia: busca los 92 Bs"}
+          : "Moviendo el control siempre hay 25 monedas, pero el monto cambia: busca los 92 Bs"}
       </Hint>
     </div>
   );
@@ -510,7 +510,7 @@ function Esc01_Intro() {
       </Hook>
 
       <Mnemotecnia>
-        <strong>"S-I-R" · los 3 métodos en orden de preferencia</strong>:<br />
+        <strong>"S-I-R" · los 3 métodos (sigla SIR; en el examen ataca en orden R, S, I)</strong>:<br />
         <strong>R</strong>educción (sumar/restar ecuaciones): la más rápida en el examen.<br />
         <strong>S</strong>ustitución (despejar una y reemplazar): la más versátil.<br />
         <strong>I</strong>gualación (despejar la misma variable en ambas): la más elegante.<br /><br />
@@ -673,14 +673,14 @@ function Esc07_Verbal() {
 
       <BilletesVisual />
 
-      <WorkedExample titulo="Problema de billetes · cobrador de micro La Paz">
-        Un cobrador termina el día con <strong>25 billetes</strong> en la mano (mezcla de
-        2 Bs y 5 Bs) por un total de <strong>92 Bs</strong>. ¿Cuántos billetes de cada tipo
+      <WorkedExample titulo="Problema de monedas · cobrador de micro La Paz">
+        Un cobrador termina el día con <strong>25 monedas</strong> en la mano (mezcla de
+        2 Bs y 5 Bs) por un total de <strong>92 Bs</strong>. ¿Cuántas monedas de cada tipo
         tiene?<br /><br />
 
         <strong>Paso 1 · Definir incógnitas:</strong><br />
-        x = nº de billetes de 2 Bs.<br />
-        y = nº de billetes de 5 Bs.<br /><br />
+        x = nº de monedas de 2 Bs.<br />
+        y = nº de monedas de 5 Bs.<br /><br />
 
         <strong>Paso 2 · Plantear el sistema:</strong><br />
         • Ec.1 (cantidad): x + y = 25.<br />
@@ -689,16 +689,16 @@ function Esc07_Verbal() {
         <strong>Paso 3 · Método de reducción:</strong><br />
         Multiplico Ec.1 por −2: −2x − 2y = −50.<br />
         Sumo con Ec.2: 3y = 42.<br />
-        y = <strong>14 billetes de 5 Bs</strong>.<br /><br />
+        y = <strong>14 monedas de 5 Bs</strong>.<br /><br />
 
         <strong>Paso 4 · Calculo x:</strong><br />
-        x = 25 − 14 = <strong>11 billetes de 2 Bs</strong>.<br /><br />
+        x = 25 − 14 = <strong>11 monedas de 2 Bs</strong>.<br /><br />
 
         <strong>Verificación:</strong><br />
         Cantidad: 11 + 14 = 25 ✓.<br />
         Monto: 11×2 + 14×5 = 22 + 70 = 92 Bs ✓.<br /><br />
 
-        <strong>Truco para mezclas de billetes/monedas:</strong> siempre van DOS ecuaciones:
+        <strong>Truco para mezclas de monedas de dos cortes:</strong> siempre van DOS ecuaciones:
         una de CANTIDAD y otra de VALOR. Reducción es lo más rápido si los coeficientes
         son chicos.
       </WorkedExample>

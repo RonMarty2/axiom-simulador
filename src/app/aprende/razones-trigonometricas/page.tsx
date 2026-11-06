@@ -381,9 +381,9 @@ function EscPractica() {
     },
     {
       p: "Una escalera de 10 m apoyada en pared forma 60° con el suelo. ¿A qué altura llega?",
-      o: ["5√3 m", "5 m", "10/√3 m", "8.66 m"],
+      o: ["5√3 m", "5 m", "10/√3 m", "4.33 m"],
       c: 0,
-      ex: "Altura = 10·sen 60° = 10·(√3/2) = 5√3 ≈ 8.66 m. (Las opciones a y d son equivalentes).",
+      ex: "Altura = 10·sen 60° = 10·(√3/2) = 5√3 ≈ 8.66 m.",
     },
     {
       p: "tan 45° =",

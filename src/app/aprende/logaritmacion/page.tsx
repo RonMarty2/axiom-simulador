@@ -154,7 +154,7 @@ function EscaleraLog({ modo = "basico" }: { modo?: "basico" | "producto" | "coci
           )}
           {modo === "basico" && (
             <text x="240" y={alto - 12} textAnchor="middle" fontSize="15" fill={LIENZO.fgDim}>
-              el logaritmo es en qué escalón estás, no cuánto valés
+              el logaritmo es en qué escalón estás, no cuánto vales
             </text>
           )}
         </svg>

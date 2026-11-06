@@ -467,7 +467,7 @@ function Esc08_Errores() {
       <Cuidado>
         <strong>Error 1:</strong> "Factorizar" pero olvidar verificar. <br />
         <span style={{ fontSize: 13 }}>
-          Siempre desarrollá tu factorización mentalmente para comprobar que vuelve al original.
+          Siempre desarrolla tu factorización mentalmente para comprobar que vuelve al original.
         </span>
       </Cuidado>
       <Cuidado>
@@ -553,7 +553,7 @@ function Esc09_Practica() {
           <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
           <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Eres máquina factorizando."}
-            {ok >= 3 && ok < ejs.length && "Bien. Releí la estrategia (escena 7) para elegir mejor el método."}
+            {ok >= 3 && ok < ejs.length && "Bien. Relee la estrategia (escena 7) para elegir mejor el método."}
             {ok < 3 && "Vuelve a la estrategia (escena 7). Es la clave: probar primero factor común."}
           </div>
         </motion.div>

@@ -63,7 +63,7 @@ function DiscriminanteVisual() {
       }}>
         <span style={{ color }}>{titulo}</span>
         <div style={{ fontSize: 15, color: LIENZO.fgDim, marginTop: 4 }}>
-          Δ = {b}² − 4·{a}·{c} = <strong style={{ color }}>{D}</strong>
+          Δ = ({b})² − 4·({a})·({c}) = <strong style={{ color }}>{D}</strong>
         </div>
       </div>
       <div style={{ textAlign: "center", fontSize: 13, color: LIENZO.fgFaint, fontStyle: "italic" }}>
@@ -515,7 +515,7 @@ function Esc04_Formula() {
         </span>
       </Resumen>
       <Parrafo>
-        Funciona <strong>siempre</strong>, factorice o no. Memorizala: la vas a usar muchísimo.
+        Funciona <strong>siempre</strong>, factorice o no. Memorízala: la vas a usar muchísimo.
       </Parrafo>
 
       <AnatomiaFormula />

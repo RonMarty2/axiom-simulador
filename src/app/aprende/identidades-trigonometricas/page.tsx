@@ -362,7 +362,7 @@ function EscSimplificacion() {
         1. Aplica identidades de reducción para "limpiar" los ángulos
         compuestos (3π−x, π/2−x, etc.).<br />
         2. Cancela factores comunes en numerador y denominador.<br />
-        3. Si quedan sen y cos, considerá usar tan = sen/cos o las identidades
+        3. Si quedan sen y cos, considera usar tan = sen/cos o las identidades
         pitagóricas.<br /><br />
         Reglas finales útiles: sen²+cos²=1, tan=sen/cos, sec=1/cos, csc=1/sen.
       </Mnemotecnia>
@@ -377,7 +377,7 @@ function EscEcuacionesBasicas() {
 
       <Resumen>
         <strong>Estrategia general</strong>:<br />
-        1. Aisla la función trigonométrica (sen x = c, cos x = c, etc.).<br />
+        1. Aísla la función trigonométrica (sen x = c, cos x = c, etc.).<br />
         2. Encuentra UNA solución usando arcsen, arccos, arctan o valores
         notables.<br />
         3. Encuentra TODAS las soluciones en el intervalo pedido usando

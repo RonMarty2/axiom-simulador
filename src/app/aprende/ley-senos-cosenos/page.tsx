@@ -263,11 +263,11 @@ function EscAplicCosenos() {
         Dos lados de un triángulo miden 5 y 8, y el ángulo entre ellos es 60°.
         Encontrar el tercer lado.<br /><br />
 
-        Sea c el lado buscado, opuesto al ángulo de 60°.<br />
-        c² = 5² + 8² − 2(5)(8) cos 60°<br />
-        c² = 25 + 64 − 80 · (1/2)<br />
-        c² = 89 − 40 = 49<br />
-        c = <strong>7</strong>.
+        Sea a el lado buscado, opuesto al ángulo A = 60° (con b = 5 y c = 8).<br />
+        a² = 5² + 8² − 2(5)(8) cos 60°<br />
+        a² = 25 + 64 − 80 · (1/2)<br />
+        a² = 89 − 40 = 49<br />
+        a = <strong>7</strong>.
       </WorkedExample>
       <TrianguloSVG b={5} c={8} angA={60}
         etiquetas={{ A: "60°", B: "B", C: "C", a: "a=7", b: "5", c: "8" }} destacar="a" />

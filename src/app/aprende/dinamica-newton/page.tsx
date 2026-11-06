@@ -254,7 +254,7 @@ function EscTercera() {
         • Caminas: empujas el piso hacia atrás, el piso te empuja hacia
         adelante.<br />
         • Cohete: expulsa gas hacia abajo, el gas lo empuja hacia arriba.<br />
-        • Saltas: empujas el piso, el piso te empuja a tú.
+        • Saltas: empujas el piso, el piso te empuja a ti.
       </Ejemplo>
     </EscenaRica>
   );
@@ -289,7 +289,7 @@ function EscPeso() {
       <Titulo>Peso vs masa · NO son lo mismo</Titulo>
 
       <Definicion termino="Masa (m)">
-        Cantidad de materia. Es invariante (no depende de dónde estes). Unidad: kg.
+        Cantidad de materia. Es invariante (no depende de dónde estés). Unidad: kg.
       </Definicion>
 
       <Definicion termino="Peso (P)">
