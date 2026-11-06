@@ -627,22 +627,22 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es la proporción fenotípica esperada al cruzar Aa × Aa?"
-        opciones={["1:1", "3:1", "1:2:1", "9:3:3:1"]}
-        correctaIdx={1}
+        opciones={["1:1", "1:2:1", "3:1", "9:3:3:1"]}
+        correctaIdx={2}
         explicacion="Monohíbrida heterocigota: 3 dominantes : 1 recesivo."
       />
 
       <AutoCheck
         pregunta="Si ambos padres son Aa, ¿qué % de hijos serán homocigotos recesivos (aa)?"
-        opciones={["25%", "50%", "75%", "100%"]}
-        correctaIdx={0}
+        opciones={["50%", "75%", "25%", "100%"]}
+        correctaIdx={2}
         explicacion="1/4 = 25% según la 2ª ley."
       />
 
       <AutoCheck
         pregunta="Padre tipo O × madre tipo AB. ¿Qué grupos pueden tener los hijos?"
-        opciones={["solo O", "solo AB", "A o B", "A, B, AB u O"]}
-        correctaIdx={2}
+        opciones={["A o B", "solo O", "solo AB", "A, B, AB u O"]}
+        correctaIdx={0}
         explicacion="Padre ii × madre I^A I^B → I^A i (A) o I^B i (B). Nunca O ni AB."
       />
 
@@ -650,18 +650,18 @@ function EscPractica() {
         pregunta="¿Por qué los varones se afectan más por la hemofilia?"
         opciones={[
           "Tienen sangre más débil",
-          "El gen está en el cromosoma Y",
           "Solo tienen un cromosoma X",
+          "El gen está en el cromosoma Y",
           "Tienen menos plaquetas",
         ]}
-        correctaIdx={2}
+        correctaIdx={1}
         explicacion="El gen de la hemofilia está en X. Como los varones (XY) tienen solo un X, si está afectado no tienen otro X para compensar."
       />
 
       <AutoCheck
         pregunta="En la cruza dihíbrida AaBb × AaBb, ¿qué proporción de descendientes muestra fenotipo recesivo en AMBOS genes?"
-        opciones={["1/4", "9/16", "1/16", "3/16"]}
-        correctaIdx={2}
+        opciones={["1/4", "9/16", "3/16", "1/16"]}
+        correctaIdx={3}
         explicacion="9:3:3:1 → solo 1/16 es aabb (recesivo en ambos)."
       />
     </EscenaRica>

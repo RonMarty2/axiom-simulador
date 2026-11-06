@@ -312,15 +312,15 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué músculo es el principal de la respiración?"
-        opciones={["pectoral", "diafragma", "trapecio", "esternocleidomastoideo"]}
-        correctaIdx={1}
+        opciones={["diafragma", "pectoral", "trapecio", "esternocleidomastoideo"]}
+        correctaIdx={0}
         explicacion="El diafragma se contrae y aumenta el volumen torácico para inspirar."
       />
 
       <AutoCheck
         pregunta="¿Cuántos lóbulos tiene el pulmón izquierdo?"
-        opciones={["1", "2", "3", "4"]}
-        correctaIdx={1}
+        opciones={["1", "3", "4", "2"]}
+        correctaIdx={3}
         explicacion="2 (deja lugar al corazón). El derecho tiene 3."
       />
 
@@ -334,12 +334,12 @@ function EscPractica() {
       <AutoCheck
         pregunta="¿Por qué hay poliglobulia en altura?"
         opciones={[
-          "Más sed",
           "Compensa la baja PO₂ ambiental",
+          "Más sed",
           "Más temperatura",
           "Menos comida",
         ]}
-        correctaIdx={1}
+        correctaIdx={0}
         explicacion="Como hay menos O₂ por litro, el cuerpo produce más eritrocitos para captar más O₂."
       />
     </EscenaRica>

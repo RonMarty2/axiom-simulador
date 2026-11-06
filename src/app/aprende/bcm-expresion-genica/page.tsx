@@ -343,34 +343,34 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué enzima sintetiza el ARNm?"
-        opciones={["DNA polimerasa", "ARN polimerasa", "ARN ligasa", "Ribosoma"]}
-        correctaIdx={1}
+        opciones={["DNA polimerasa", "ARN ligasa", "ARN polimerasa", "Ribosoma"]}
+        correctaIdx={2}
         explicacion="ARN polimerasa transcribe ADN → ARNm."
       />
 
       <AutoCheck
         pregunta="¿Qué codón inicia la traducción?"
-        opciones={["UAA", "AUG", "GCC", "UGA"]}
-        correctaIdx={1}
+        opciones={["AUG", "UAA", "GCC", "UGA"]}
+        correctaIdx={0}
         explicacion="AUG codifica metionina y siempre inicia la proteína."
       />
 
       <AutoCheck
         pregunta="¿Qué se pierde en el splicing?"
-        opciones={["exones", "intrones", "cap", "cola poly-A"]}
-        correctaIdx={1}
+        opciones={["exones", "cap", "cola poly-A", "intrones"]}
+        correctaIdx={3}
         explicacion="Los intrones se cortan; los exones se unen y forman el ARNm maduro."
       />
 
       <AutoCheck
         pregunta="¿Por qué decimos que la replicación es semiconservativa?"
         opciones={[
-          "se conserva todo el ADN",
           "cada hebra hija tiene 1 vieja + 1 nueva",
+          "se conserva todo el ADN",
           "se sintetizan solo a la mitad",
           "solo se replica la mitad del genoma",
         ]}
-        correctaIdx={1}
+        correctaIdx={0}
         explicacion="Cada hebra hija conserva 1 hebra parental + 1 hebra recién sintetizada."
       />
     </EscenaRica>

@@ -246,8 +246,8 @@ function Esc04_SumaResta() {
 
       <AutoCheck
         pregunta="Calcula: 6√2 − 2√2"
-        opciones={["4", "4√2", "8√2", "√0"]}
-        correctaIdx={1}
+        opciones={["4", "8√2", "4√2", "√0"]}
+        correctaIdx={2}
         explicacion="Son semejantes. (6−2)√2 = 4√2. La raíz queda igual."
       />
     </EscenaRica>
@@ -413,8 +413,8 @@ function Esc07_MultCoef() {
 
       <AutoCheck
         pregunta="Calcula: 5√3 · 2√7"
-        opciones={["10√21", "10√10", "7√21", "70"]}
-        correctaIdx={0}
+        opciones={["10√10", "7√21", "70", "10√21"]}
+        correctaIdx={3}
         explicacion="Coef: 5·2 = 10. Raíces: √3·√7 = √21 (no se simplifica). Total: 10√21."
       />
     </EscenaRica>
@@ -481,8 +481,8 @@ function Esc08_Div() {
           explicación hablaba de "las opciones a y c", que AutoCheck no rotula. */}
       <AutoCheck
         pregunta="Calcula: √48 / √3"
-        opciones={["√45", "√16 = 4", "16", "4√3"]}
-        correctaIdx={1}
+        opciones={["√16 = 4", "√45", "16", "4√3"]}
+        correctaIdx={0}
         explicacion="Al dividir dos raíces del mismo índice, los radicandos se dividen: √48/√3 = √(48/3) = √16 = 4. Ojo con restar los de adentro (48 − 3 = 45): eso no se hace."
       />
     </EscenaRica>

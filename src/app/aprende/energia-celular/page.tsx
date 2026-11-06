@@ -666,22 +666,22 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Dónde ocurre la glicólisis?"
-        opciones={["núcleo", "citoplasma", "mitocondria", "cloroplasto"]}
-        correctaIdx={1}
+        opciones={["citoplasma", "núcleo", "mitocondria", "cloroplasto"]}
+        correctaIdx={0}
         explicacion="Glicólisis ocurre en el citoplasma (no necesita organelos)."
       />
 
       <AutoCheck
         pregunta="¿Cuántos ATP totales se producen por respiración aeróbica de UNA glucosa?"
-        opciones={["2", "12", "36–38", "100"]}
-        correctaIdx={2}
+        opciones={["2", "12", "100", "36–38"]}
+        correctaIdx={3}
         explicacion="Glicólisis + Krebs + cadena = 36–38 ATP."
       />
 
       <AutoCheck
         pregunta="¿Qué gas LIBERA la fotosíntesis?"
-        opciones={["CO₂", "O₂", "N₂", "H₂"]}
-        correctaIdx={1}
+        opciones={["CO₂", "N₂", "O₂", "H₂"]}
+        correctaIdx={2}
         explicacion="La fotólisis del agua libera O₂ como subproducto."
       />
 
@@ -700,12 +700,12 @@ function EscPractica() {
       <AutoCheck
         pregunta="¿Cuál es la principal función de la fase oscura de la fotosíntesis?"
         opciones={[
+          "fijar CO₂ en glucosa",
           "absorber luz",
           "producir ATP",
-          "fijar CO₂ en glucosa",
           "romper el agua",
         ]}
-        correctaIdx={2}
+        correctaIdx={0}
         explicacion="El ciclo de Calvin fija el CO₂ del aire usando ATP y NADPH para hacer glucosa."
       />
     </EscenaRica>

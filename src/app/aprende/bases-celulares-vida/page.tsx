@@ -300,8 +300,8 @@ function EscAnimalVegetal() {
 
       <AutoCheck
         pregunta="¿Qué organelo tienen las células vegetales y NO las animales?"
-        opciones={["mitocondria", "núcleo", "cloroplasto", "ribosoma"]}
-        correctaIdx={2}
+        opciones={["cloroplasto", "mitocondria", "núcleo", "ribosoma"]}
+        correctaIdx={0}
         explicacion="Cloroplastos hacen fotosíntesis; las plantas y algas los tienen, las células animales no."
       />
     </EscenaRica>
@@ -528,36 +528,36 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es el principal organelo productor de ATP?"
-        opciones={["Núcleo", "Ribosoma", "Mitocondria", "Lisosoma"]}
-        correctaIdx={2}
+        opciones={["Mitocondria", "Ribosoma", "Núcleo", "Lisosoma"]}
+        correctaIdx={0}
         explicacion="La mitocondria es la 'central eléctrica' de la célula. ATP se sintetiza en sus crestas."
       />
 
       <AutoCheck
         pregunta="¿En qué fase de la mitosis se separan las cromátidas hermanas?"
-        opciones={["Profase", "Metafase", "Anafase", "Telofase"]}
-        correctaIdx={2}
+        opciones={["Profase", "Anafase", "Metafase", "Telofase"]}
+        correctaIdx={1}
         explicacion="En anafase, las cromátidas se mueven a los polos opuestos."
       />
 
       <AutoCheck
         pregunta="Si una célula somática humana tiene 46 cromosomas, ¿cuántos tendrán los gametos?"
-        opciones={["46", "92", "23", "24"]}
-        correctaIdx={2}
+        opciones={["23", "46", "92", "24"]}
+        correctaIdx={0}
         explicacion="Los gametos son haploides (n=23). Al fecundarse se vuelven 46 (2n)."
       />
 
       <AutoCheck
         pregunta="¿Qué tipo de transporte requiere ATP?"
-        opciones={["Difusión simple", "Difusión facilitada", "Ósmosis", "Bomba Na⁺/K⁺"]}
-        correctaIdx={3}
+        opciones={["Difusión simple", "Difusión facilitada", "Bomba Na⁺/K⁺", "Ósmosis"]}
+        correctaIdx={2}
         explicacion="La bomba Na/K bombea iones en contra del gradiente, usando ATP."
       />
 
       <AutoCheck
         pregunta="¿Qué organelo tiene ADN propio?"
-        opciones={["Lisosoma", "Aparato de Golgi", "Mitocondria", "RE rugoso"]}
-        correctaIdx={2}
+        opciones={["Lisosoma", "Aparato de Golgi", "RE rugoso", "Mitocondria"]}
+        correctaIdx={3}
         explicacion="Mitocondrias y cloroplastos tienen ADN propio (teoría endosimbiótica)."
       />
     </EscenaRica>

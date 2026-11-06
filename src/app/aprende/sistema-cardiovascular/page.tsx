@@ -474,29 +474,29 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es el marcapasos natural del corazón?"
-        opciones={["Nódulo AV", "Nódulo SA", "Haz de His", "Fibras de Purkinje"]}
-        correctaIdx={1}
+        opciones={["Nódulo SA", "Nódulo AV", "Haz de His", "Fibras de Purkinje"]}
+        correctaIdx={0}
         explicacion="El nódulo sinoauricular (SA) en la aurícula derecha marca el ritmo."
       />
 
       <AutoCheck
         pregunta="¿Qué válvula separa la aurícula izquierda del ventrículo izquierdo?"
-        opciones={["Tricúspide", "Mitral", "Pulmonar", "Aórtica"]}
-        correctaIdx={1}
+        opciones={["Tricúspide", "Pulmonar", "Aórtica", "Mitral"]}
+        correctaIdx={3}
         explicacion="La mitral (o bicúspide). La tricúspide está en el lado derecho."
       />
 
       <AutoCheck
         pregunta="¿Qué cámara recibe sangre venosa de las venas cavas?"
-        opciones={["AI", "AD", "VI", "VD"]}
-        correctaIdx={1}
+        opciones={["AI", "VI", "AD", "VD"]}
+        correctaIdx={2}
         explicacion="La aurícula derecha recibe sangre venosa (sin O₂) por las venas cavas."
       />
 
       <AutoCheck
         pregunta="¿En qué tipo de vaso se produce el intercambio de gases con los tejidos?"
-        opciones={["arterias", "arteriolas", "capilares", "venas"]}
-        correctaIdx={2}
+        opciones={["arterias", "capilares", "arteriolas", "venas"]}
+        correctaIdx={1}
         explicacion="Los capilares tienen una sola capa celular: ideal para intercambio."
       />
     </EscenaRica>

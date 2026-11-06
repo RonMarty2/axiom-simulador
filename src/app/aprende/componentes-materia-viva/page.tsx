@@ -108,12 +108,12 @@ function EscNiveles() {
       <AutoCheck
         pregunta="Ordena de menor a mayor complejidad: tejido, órgano, célula, organismo."
         opciones={[
-          "órgano → tejido → célula → organismo",
           "célula → tejido → órgano → organismo",
+          "órgano → tejido → célula → organismo",
           "organismo → órgano → tejido → célula",
           "tejido → célula → órgano → organismo",
         ]}
-        correctaIdx={1}
+        correctaIdx={0}
         explicacion="Las células forman tejidos, los tejidos forman órganos, los órganos forman organismos."
       />
     </EscenaRica>
@@ -231,8 +231,8 @@ function EscSecundarios() {
 
       <AutoCheck
         pregunta="¿Cuál es el bioelemento central de la clorofila?"
-        opciones={["Fe", "Mg", "Ca", "Cu"]}
-        correctaIdx={1}
+        opciones={["Fe", "Ca", "Cu", "Mg"]}
+        correctaIdx={3}
         explicacion="Mg es el átomo central de la clorofila, igual que el Fe lo es de la hemoglobina."
       />
     </EscenaRica>
@@ -443,36 +443,36 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál NO es un bioelemento primario?"
-        opciones={["C", "Na", "O", "P"]}
-        correctaIdx={1}
+        opciones={["Na", "C", "O", "P"]}
+        correctaIdx={0}
         explicacion="Na es secundario. Los primarios son CHON + S y P."
       />
 
       <AutoCheck
         pregunta="¿Qué propiedad del agua permite que el sudor enfríe el cuerpo?"
-        opciones={["Densidad", "Alto calor de vaporización", "Tensión superficial", "Acidez"]}
-        correctaIdx={1}
+        opciones={["Densidad", "Tensión superficial", "Acidez", "Alto calor de vaporización"]}
+        correctaIdx={3}
         explicacion="Al evaporarse, cada gramo de sudor se lleva mucho calor de la piel (alto calor de vaporización). El calor específico alto es otra cosa: hace que el agua tarde en calentarse."
       />
 
       <AutoCheck
         pregunta="¿Qué oligoelemento es indispensable en la tiroides?"
-        opciones={["Fe", "I", "Zn", "F"]}
-        correctaIdx={1}
+        opciones={["Fe", "Zn", "I", "F"]}
+        correctaIdx={2}
         explicacion="El yodo (I) es indispensable para la síntesis de hormonas tiroideas (T3, T4)."
       />
 
       <AutoCheck
         pregunta="¿Qué bioelementos componen la molécula de ADN?"
-        opciones={["C, H, O, N, S", "C, H, O, N, P", "C, H, O, S, P", "C, H, O, N"]}
-        correctaIdx={1}
+        opciones={["C, H, O, N, P", "C, H, O, N, S", "C, H, O, S, P", "C, H, O, N"]}
+        correctaIdx={0}
         explicacion="ADN: el esqueleto azúcar-fosfato lleva C, H, O, P y las bases nitrogenadas suman N. En conjunto: C, H, O, N, P."
       />
 
       <AutoCheck
         pregunta="Una niña presenta debilidad, fatiga y baja oxigenación en La Paz. Probable déficit:"
-        opciones={["Cu", "Zn", "Fe", "F"]}
-        correctaIdx={2}
+        opciones={["Cu", "Fe", "Zn", "F"]}
+        correctaIdx={1}
         explicacion="Anemia ferropénica (déficit de Fe) → hemoglobina baja → menos transporte de O₂."
       />
     </EscenaRica>

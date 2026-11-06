@@ -348,22 +348,22 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuántos ATP rinde un NADH en la cadena respiratoria?"
-        opciones={["1", "2", "3", "5"]}
-        correctaIdx={2}
+        opciones={["3", "1", "2", "5"]}
+        correctaIdx={0}
         explicacion="~3 ATP por NADH; ~2 ATP por FADH₂."
       />
 
       <AutoCheck
         pregunta="¿Qué proteína es el 'guardián del genoma'?"
-        opciones={["RAS", "MYC", "p53", "BRCA"]}
-        correctaIdx={2}
+        opciones={["RAS", "MYC", "BRCA", "p53"]}
+        correctaIdx={3}
         explicacion="p53 detecta daños en ADN, detiene ciclo y activa apoptosis si es necesario."
       />
 
       <AutoCheck
         pregunta="¿Qué hormona usa receptor intracelular (no de membrana)?"
-        opciones={["insulina", "adrenalina", "cortisol", "glucagón"]}
-        correctaIdx={2}
+        opciones={["insulina", "cortisol", "adrenalina", "glucagón"]}
+        correctaIdx={1}
         explicacion="Las esteroides (cortisol, estrógeno, testosterona) atraviesan la membrana y se unen a receptores nucleares."
       />
 
@@ -372,10 +372,10 @@ function EscPractica() {
         opciones={[
           "inflamación masiva",
           "es accidental",
-          "es ordenada y no causa inflamación",
           "destruye tejidos vecinos",
+          "es ordenada y no causa inflamación",
         ]}
-        correctaIdx={2}
+        correctaIdx={3}
         explicacion="Apoptosis = muerte programada, silenciosa, sin inflamación."
       />
     </EscenaRica>

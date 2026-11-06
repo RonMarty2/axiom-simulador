@@ -615,36 +615,36 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es la unidad básica de la clasificación?"
-        opciones={["Reino", "Familia", "Género", "Especie"]}
-        correctaIdx={3}
+        opciones={["Reino", "Especie", "Familia", "Género"]}
+        correctaIdx={1}
         explicacion="La especie es el nivel más específico y la unidad básica."
       />
 
       <AutoCheck
         pregunta="¿Qué reino tiene pared celular de quitina?"
-        opciones={["Monera", "Plantae", "Fungi", "Protista"]}
-        correctaIdx={2}
+        opciones={["Fungi", "Monera", "Plantae", "Protista"]}
+        correctaIdx={0}
         explicacion="Los hongos tienen quitina; las plantas, celulosa; las bacterias, peptidoglicano."
       />
 
       <AutoCheck
         pregunta="¿Cuál es la forma correcta de escribir el nombre científico?"
-        opciones={["homo sapiens", "Homo Sapiens", "Homo sapiens", "HOMO SAPIENS"]}
-        correctaIdx={2}
+        opciones={["homo sapiens", "Homo Sapiens", "HOMO SAPIENS", "Homo sapiens"]}
+        correctaIdx={3}
         explicacion="Género en mayúscula, especie en minúscula, ambos en cursiva."
       />
 
       <AutoCheck
         pregunta="¿Qué grupo NO pertenece al reino Animalia?"
-        opciones={["esponjas", "medusas", "algas", "estrellas de mar"]}
-        correctaIdx={2}
+        opciones={["algas", "esponjas", "medusas", "estrellas de mar"]}
+        correctaIdx={0}
         explicacion="Las algas son Protista. Esponjas, medusas y estrellas son invertebrados (Animalia)."
       />
 
       <AutoCheck
         pregunta="¿Cuál es el principal rasgo distintivo de los mamíferos?"
-        opciones={["sangre fría", "huevos", "pelo y glándulas mamarias", "branquias"]}
-        correctaIdx={2}
+        opciones={["sangre fría", "pelo y glándulas mamarias", "huevos", "branquias"]}
+        correctaIdx={1}
         explicacion="Pelo y glándulas mamarias (que dan nombre al grupo) son diagnósticos."
       />
     </EscenaRica>

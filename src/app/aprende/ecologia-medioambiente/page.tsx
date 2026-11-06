@@ -528,15 +528,15 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué nivel de organización agrupa todos los individuos de UNA especie en un lugar?"
-        opciones={["Comunidad", "Población", "Ecosistema", "Bioma"]}
-        correctaIdx={1}
+        opciones={["Población", "Comunidad", "Ecosistema", "Bioma"]}
+        correctaIdx={0}
         explicacion="Población = individuos de la misma especie. Comunidad = varias poblaciones."
       />
 
       <AutoCheck
         pregunta="¿Qué tipo de relación es la entre garrapata y perro?"
-        opciones={["Mutualismo", "Comensalismo", "Parasitismo", "Competencia"]}
-        correctaIdx={2}
+        opciones={["Mutualismo", "Comensalismo", "Competencia", "Parasitismo"]}
+        correctaIdx={3}
         explicacion="La garrapata se beneficia (alimentación); el perro se perjudica (enfermedades)."
       />
 
@@ -549,15 +549,15 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué proceso DEVUELVE el CO₂ a la atmósfera?"
-        opciones={["fotosíntesis", "respiración", "fijación de nitrógeno", "transpiración"]}
-        correctaIdx={1}
+        opciones={["respiración", "fotosíntesis", "fijación de nitrógeno", "transpiración"]}
+        correctaIdx={0}
         explicacion="La respiración libera CO₂. La fotosíntesis lo absorbe."
       />
 
       <AutoCheck
         pregunta="¿Cuál es el bioma boliviano del Beni y Pando?"
-        opciones={["Chaco", "Andes", "Amazonía", "Cerrado"]}
-        correctaIdx={2}
+        opciones={["Chaco", "Amazonía", "Andes", "Cerrado"]}
+        correctaIdx={1}
         explicacion="Beni y Pando están en la Amazonía boliviana, junto con el norte de La Paz."
       />
     </EscenaRica>
