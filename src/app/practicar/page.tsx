@@ -8,7 +8,7 @@ import Icono, { iconoFacultad, type NombreIcono } from "../components/Icono";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
-import { esPago } from "@/lib/plan";
+import { esPago, LIMITE_SEMANAL_PASADAS } from "@/lib/plan";
 import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
 import { etiquetaArea } from "@/lib/axiom/areas";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
@@ -92,6 +92,9 @@ function PracticarInner() {
   const [creando, setCreando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [mostrarUpgrade, setMostrarUpgrade] = useState(false);
+  // Examen pasado elegido, a la espera de que el alumno toque «Empezar»: antes
+  // un toque arrancaba el cronómetro y contaba para el límite sin avisar.
+  const [porConfirmar, setPorConfirmar] = useState<{ examenId: string; titulo: string; detalle: string } | null>(null);
 
   useEffect(() => {
     fetch("/api/axiom/errores").then((r) => r.json()).then((d) => {
@@ -363,7 +366,7 @@ function PracticarInner() {
                           icono="documento"
                           titulo={titulo}
                           detalle={detalle}
-                          onClick={() => empezar(base({ modo: "examen_real", examen_id: e.id }))}
+                          onClick={() => setPorConfirmar({ examenId: e.id, titulo, detalle })}
                         />
                       );
                     })}
@@ -424,6 +427,56 @@ function PracticarInner() {
 
       {/* Sin esto, tocar una fila no da ninguna señal hasta que carga el examen:
           el alumno vuelve a tocar y dispara dos simulacros. */}
+      {porConfirmar && !creando && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="confirmar-examen-titulo"
+          onClick={() => setPorConfirmar(null)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 100,
+            background: "rgba(26, 31, 46, 0.55)",
+            display: "flex", alignItems: "flex-end", justifyContent: "center",
+            padding: 16,
+          }}
+        >
+          <div
+            onClick={(ev) => ev.stopPropagation()}
+            style={{ background: "var(--bg-card)", borderRadius: 16, padding: 20, width: "100%", maxWidth: 480, marginBottom: "env(safe-area-inset-bottom)" }}
+          >
+            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
+              Examen real
+            </div>
+            <h2 id="confirmar-examen-titulo" style={{ fontSize: 19, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>
+              {porConfirmar.titulo}
+            </h2>
+            <p style={{ fontSize: 13.5, color: "var(--fg-muted)", marginBottom: 14 }}>{porConfirmar.detalle}</p>
+            <ul style={{ fontSize: 13.5, color: "var(--fg-secondary)", paddingLeft: 18, marginBottom: 18, display: "flex", flexDirection: "column", gap: 4 }}>
+              <li>El cronómetro empieza apenas toques «Empezar».</li>
+              {!esPagoUser && (
+                <li>Con el plan gratis tienes {LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados por semana; este cuenta como uno.</li>
+              )}
+            </ul>
+            <div style={{ display: "flex", gap: 10 }}>
+              <button
+                type="button"
+                onClick={() => setPorConfirmar(null)}
+                style={{ flex: 1, minHeight: 46, borderRadius: 12, border: "1px solid var(--border)", background: "transparent", color: "var(--fg-primary)", fontWeight: 700, fontSize: 15, cursor: "pointer" }}
+              >
+                Ahora no
+              </button>
+              <button
+                type="button"
+                onClick={() => { const id = porConfirmar.examenId; setPorConfirmar(null); empezar(base({ modo: "examen_real", examen_id: id })); }}
+                style={{ flex: 2, minHeight: 46, borderRadius: 12, border: "none", background: "var(--accent)", color: "white", fontWeight: 800, fontSize: 15, cursor: "pointer" }}
+              >
+                Empezar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {creando && (
         <div style={{
           position: "fixed", inset: 0, zIndex: 100,
