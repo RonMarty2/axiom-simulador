@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Icono, { iconoFacultad } from "../components/Icono";
 import { useRouter } from "next/navigation";
 import type { FacultadConBanco } from "@/lib/data-store";
+import { etiquetaArea } from "@/lib/axiom/areas";
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -109,7 +110,7 @@ export default function OnboardingPage() {
                 </p>
                 <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
                   {f.areas.map((a) => (
-                    <span key={a} style={{ fontSize: 9.5, padding: "2px 7px", background: "var(--bg-subtle)", color: "var(--fg-secondary)", borderRadius: 999, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.04em" }}>{a}</span>
+                    <span key={a} style={{ fontSize: 9.5, padding: "2px 7px", background: "var(--bg-subtle)", color: "var(--fg-secondary)", borderRadius: 999, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.04em" }}>{etiquetaArea(a)}</span>
                   ))}
                 </div>
               </button>

@@ -465,4 +465,38 @@ describe("banco de exámenes", () => {
     }
     assert.deepEqual(fallos, [], `precios fuera de src/lib/precios.ts:\n${fallos.join("\n")}`);
   });
+
+  test("el parser de frontmatter remueve comillas envolventes de los campos simples", () => {
+    const md = `---
+universidad: UMSS
+facultad: ingenieria
+anio: 2025
+total_preguntas: 1
+duracion_minutos: 60
+titulo: "Primer Parcial · Curso Propedéutico"
+opcion: '1ra Opción'
+ponderacion:
+  aritmetica_algebra: 1.0
+---
+
+## Pregunta 1
+area: aritmetica_algebra
+tema: algebra
+dificultad: medio
+
+¿Cuánto es $1 + 1$?
+
+- A) 2
+- B) 3
+- C) 4
+- D) 5
+- E) Ninguno
+
+**respuesta:** A
+**explicacion:** $1 + 1 = 2$.
+`;
+    const examen = parseExamenMD(md);
+    assert.equal(examen.titulo, "Primer Parcial · Curso Propedéutico");
+    assert.equal(examen.opcion, "1ra Opción");
+  });
 });

@@ -223,7 +223,7 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
       enFaltantes = true;
       continue;
     }
-    out[key] = val.trim();
+    out[key] = sinComillas(val);
   }
 
   const universidad = String(out.universidad ?? "").trim();
