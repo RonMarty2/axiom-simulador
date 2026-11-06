@@ -263,7 +263,7 @@ export default function SimuladorActivoPage() {
 
       {/* En pantalla ancha (tablet acostada, escritorio) la hoja ocupa la columna
           izquierda y el panel de navegación queda fijo a la derecha. */}
-      <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6 lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-6">
+      <div className="mx-auto max-w-4xl px-3 py-6 sm:px-6 lg:grid lg:max-w-6xl lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-6">
         {/* Pregunta principal */}
         {vista === "una" && (
         <main>
@@ -279,7 +279,7 @@ export default function SimuladorActivoPage() {
             <button
               type="button"
               onClick={() => toggleMarcada(pregunta.id)}
-              className={`ml-auto rounded-lg border px-3 py-1 font-medium transition-colors ${
+              className={`ml-auto min-h-[40px] shrink-0 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
                 marcadas.has(pregunta.id)
                   ? "border-amber-400 bg-amber-50 text-amber-700"
                   : "border-neutral-300 text-neutral-600 hover:bg-neutral-50"
@@ -294,7 +294,7 @@ export default function SimuladorActivoPage() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.2 }}
-            className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm"
+            className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-6"
           >
             <div className="mb-6 text-base leading-relaxed text-neutral-900 sm:text-lg">
               <MathText block>{pregunta.enunciado}</MathText>

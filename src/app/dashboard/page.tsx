@@ -105,18 +105,20 @@ export default function DashboardPage() {
 
         {/* Pieza dominante: una sola acción clara, en tinta sólida */}
         <div style={{
-          background: limiteAlcanzado ? "#7d4a12" : "var(--fg-primary)",
-          borderRadius: 8, padding: "28px 30px", color: "var(--bg-base)", marginBottom: 20,
+          background: limiteAlcanzado ? "#fbf1e1" : "var(--bg-card)",
+          border: `1px solid ${limiteAlcanzado ? "#7d4a12" : "var(--border)"}`,
+          borderLeft: `5px solid ${limiteAlcanzado ? "#7d4a12" : "var(--accent)"}`,
+          borderRadius: 8, padding: "24px 26px", color: "var(--fg-primary)", marginBottom: 20,
           display: "flex", alignItems: "center", gap: 24, flexWrap: "wrap",
         }}>
           <div style={{ flex: 1, minWidth: 240 }}>
-            <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", color: "#c98a63", marginBottom: 10 }}>
+            <div style={{ fontSize: 11.5, fontWeight: 700, letterSpacing: "0.13em", textTransform: "uppercase", color: limiteAlcanzado ? "#7d4a12" : "var(--accent)", marginBottom: 10 }}>
               {limiteAlcanzado ? "Límite semanal alcanzado" : "Tu próximo paso"}
             </div>
             <h2 className="font-crimson" style={{ fontSize: 28, fontWeight: 700, marginBottom: 8, lineHeight: 1.2 }}>
               {limiteAlcanzado ? "Llegaste al límite del plan gratis" : "¿Listo para tu siguiente simulacro?"}
             </h2>
-            <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "rgba(250,247,240,0.75)" }}>
+            <p style={{ fontSize: 14.5, lineHeight: 1.55, color: "var(--fg-muted)" }}>
               {limiteAlcanzado
                 ? `Hiciste ${examenesEstaSemana} simulacros esta semana. Se renueva ${textoProximaRenovacion()}. Pásate a Premium para tenerlos ilimitados.`
                 : `Tienes ${esGratis ? `${restantes} simulacros gratis` : "simulacros ilimitados"} esta semana${esGratis ? ` (se renueva ${textoProximaRenovacion()})` : ""}.`}
