@@ -4,12 +4,10 @@ import { getCurrentUser } from "@/lib/session";
 import { supabaseConfigurado } from "@/lib/supabase";
 import { ocultarClave } from "@/lib/axiom/ocultar-clave";
 
-// Si hay usuario logueado, solo puede acceder a SUS simuladores.
-// Los anónimos (id "anon-*") quedan accesibles como antes — no rompe ese flujo.
+// Hace falta sesión y solo se accede a SUS simuladores (decisión de Ronald, 6-nov-2026).
 async function bloqueoCruzado(simuladorUsuarioId: string | undefined): Promise<NextResponse | null> {
-  if (!simuladorUsuarioId || simuladorUsuarioId.startsWith("anon-")) return null;
   const user = await getCurrentUser();
-  if (!user) return null; // sin sesión, mantenemos comportamiento previo
+  if (!user) return NextResponse.json({ error: "Inicia sesión para continuar." }, { status: 401 });
   if (user.id !== simuladorUsuarioId) {
     return NextResponse.json({ error: "No autorizado" }, { status: 403 });
   }

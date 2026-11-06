@@ -27,7 +27,15 @@ export async function POST(req: Request) {
     }
 
     const user = await getCurrentUser();
-    const usuarioId = user?.id ?? `anon-${Math.random().toString(36).slice(2, 12)}`;
+    // Decisión de Ronald (6-nov-2026): para hacer simulacros hay que tener cuenta.
+    // Sin sesión se podía saltar el límite semanal y tocar simulacros ajenos.
+    if (!user) {
+      return NextResponse.json(
+        { error: "Inicia sesión para hacer simulacros." },
+        { status: 401 }
+      );
+    }
+    const usuarioId = user.id;
 
     // La facultad venía del cliente y no se validaba contra nada: mandando
     // otra en el body se armaba un simulacro con los 139 exámenes de

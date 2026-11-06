@@ -32,13 +32,13 @@ export async function POST(
     return NextResponse.json({ error: "Simulador no encontrado" }, { status: 404 });
   }
 
-  // Bloqueo cruzado: si hay sesión, solo puede finalizar SU simulador.
-  // No tocamos a anónimos (usuario_id "anon-*") para no romper ese flujo.
-  if (simulador.usuario_id && !simulador.usuario_id.startsWith("anon-")) {
-    const user = await getCurrentUser();
-    if (user && user.id !== simulador.usuario_id) {
-      return NextResponse.json({ error: "No autorizado" }, { status: 403 });
-    }
+  // Hace falta sesión y solo se finaliza SU simulador (decisión de Ronald, 6-nov-2026).
+  const user = await getCurrentUser();
+  if (!user) {
+    return NextResponse.json({ error: "Inicia sesión para continuar." }, { status: 401 });
+  }
+  if (user.id !== simulador.usuario_id) {
+    return NextResponse.json({ error: "No autorizado" }, { status: 403 });
   }
 
   if (simulador.estado === "calificado") {
