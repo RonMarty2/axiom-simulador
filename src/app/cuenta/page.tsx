@@ -9,6 +9,7 @@ import Cargando from "../components/Cargando";
 import type { Usuario, Pago, Facultad } from "@/lib/data-store";
 import { etiquetaMetodo } from "@/lib/pagos-config";
 import { formatearMonto } from "@/lib/precios";
+import { refuerzoActivo, setRefuerzoActivo } from "@/lib/refuerzo-storage";
 
 export default function CuentaPage() {
   const router = useRouter();
@@ -21,6 +22,8 @@ export default function CuentaPage() {
   const [borrando, setBorrando] = useState(false);
   const [confirmarBorrado, setConfirmarBorrado] = useState("");
   const [errorBorrado, setErrorBorrado] = useState<string | null>(null);
+  const [animo, setAnimo] = useState(true);
+  useEffect(() => { setAnimo(refuerzoActivo()); }, []);
   const [apodo, setApodo] = useState("");
   const [guardandoApodo, setGuardandoApodo] = useState(false);
   const [mensajeApodo, setMensajeApodo] = useState<{ ok: boolean; texto: string } | null>(null);
@@ -158,6 +161,28 @@ export default function CuentaPage() {
           )}
         </div>
 
+        {/* Mensajes de ánimo: el alumno puede apagarlos (decisión D5). Se guarda en este dispositivo. */}
+        <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}>Mensajes de ánimo</h3>
+              <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 6 }}>
+                Frases cortas cuando avanzas o terminas un simulacro. Si no te gustan, apágalas aquí. Se guarda en este dispositivo.
+              </p>
+            </div>
+            <button
+              type="button"
+              role="switch"
+              aria-checked={animo}
+              aria-label="Mensajes de ánimo"
+              onClick={() => { const nuevo = !animo; setAnimo(nuevo); setRefuerzoActivo(nuevo); }}
+              style={{ flexShrink: 0, width: 52, height: 30, borderRadius: 999, border: "none", cursor: "pointer", padding: 3, background: animo ? "var(--accent)" : "var(--border)", display: "flex", justifyContent: animo ? "flex-end" : "flex-start", alignItems: "center" }}
+            >
+              <span style={{ width: 24, height: 24, borderRadius: "50%", background: "white", display: "block" }} />
+            </button>
+          </div>
+        </div>
+
         {/* Facultad objetivo */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
@@ -212,7 +237,7 @@ export default function CuentaPage() {
               <Link href="/cambiar-facultad" style={{
                 padding: "10px 20px", background: "#1e1b4b", color: "#fbbf24",
                 textDecoration: "none", borderRadius: 10, fontWeight: 800, fontSize: 13,
-                whiteSpace: "nowrap",
+                whiteSpace: "normal", textAlign: "center", maxWidth: "100%", boxSizing: "border-box",
               }}>
                 Ver opciones de cambio →
               </Link>

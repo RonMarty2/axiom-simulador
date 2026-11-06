@@ -102,3 +102,4 @@ Este inventario reúne el trabajo que permanece inconcluso, a medias o interrump
 - PENDIENTE: en celular de 360 px el selector de usuario del encabezado (`AppHeader.tsx`, «Ronald ▾») se corta por la derecha. Revisar también otros anchos.
 
 - 06-11 19:55 (taller): selector «Ronald ▾» a 360 px ARREGLADO sin subir (AppHeader.tsx clase axiom-user-nombre + regla en globals.css ≤400px: queda avatar y flecha). Visto en tablet a 360 px. Falta: OK de Ronald y mirar escritorio (la regla solo actúa ≤400px).
+- 06-11 20:00 (taller): #20, #21 y #22 YA estaban arreglados en el código (inventario desactualizado). #15 (interruptor «Mensajes de ánimo» en /cuenta) HECHO sin subir: visto en tablet 360 px, 800 px y escritorio. En la misma pantalla se corrigió el botón «Ver opciones de cambio →» que se salía de la tarjeta a 360 px. Falta OK de Ronald para subir. Otra ventana (cf89ae39) trabaja en inicio, simulacro y zonas táctiles: no tocar esos archivos.
