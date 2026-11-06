@@ -96,3 +96,7 @@ Este inventario reúne el trabajo que permanece inconcluso, a medias o interrump
 
 5. **Fechas y duraciones de exámenes en el frontmatter:**  
    *Por qué dudé:* Varios exámenes de Ingeniería entre 2005 y 2010 no tienen impresa la duración ni la fecha exacta en el papel del PDF original, y el transcriptor asignó 120 o 150 minutos por deducción. Dudé si reportarlo como dato pendiente de comprobación, pero es una decisión editorial inevitable ante la falta de esos datos en los documentos físicos originales de la UMSS.
+
+## Hallazgos de la prueba en tablet/celular (taller, 6-nov noche)
+- Arreglado SIN SUBIR (a la espera del visto bueno de Ronald): la confirmación de examen pasado en `/practicar` quedaba tapada por la barra inferior (botones «Ahora no»/«Empezar» cortados en tablet 800x1340). Cambio en `src/app/practicar/page.tsx` (padding inferior del overlay). Verificado en tablet; falta mirar el celular chico.
+- PENDIENTE: en celular de 360 px el selector de usuario del encabezado (`AppHeader.tsx`, «Ronald ▾») se corta por la derecha. Revisar también otros anchos.
