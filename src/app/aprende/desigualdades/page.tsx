@@ -387,7 +387,7 @@ function Esc07_Errores() {
         <span style={{ fontSize: 13 }}>Tener las raíces no es la solución. Tienes que probar el signo del polinomio en cada intervalo.</span>
       </Cuidado>
 
-      <Misconception titulo="Trampa · 'x² &lt; 4' NO da '|x| &lt; 4'">
+      <Misconception titulo="Trampa · 'x² &lt; 4' NO da simplemente 'x &lt; 2'">
         Una desigualdad cuadrática NO se "saca raíz directo". <br />
         x² &lt; 4 NO es x &lt; 2. La solución correcta es <strong>−2 &lt; x &lt; 2</strong>
         (es decir, |x| &lt; 2).<br /><br />

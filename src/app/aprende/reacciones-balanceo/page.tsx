@@ -445,8 +445,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Balancea: H₂ + O₂ → H₂O. Coef de H₂:",
-      o: ["2", "1", "3", "4"],
-      c: 0,
+      o: ["1", "3", "2", "4"],
+      c: 2,
       ex: "2 H₂ + O₂ → 2 H₂O.",
     },
     {
@@ -457,20 +457,20 @@ function EscPractica() {
     },
     {
       p: "En Zn → Zn²⁺ + 2e⁻, el Zn:",
-      o: ["se oxida", "se reduce", "ni una", "es agente oxidante"],
-      c: 0,
+      o: ["se reduce", "ni una", "es agente oxidante", "se oxida"],
+      c: 3,
       ex: "Perdió electrones = oxidación. Es agente reductor.",
     },
     {
       p: "Combustión de C₂H₆: necesita ¿moles de O₂ por mol?",
-      o: ["3.5", "2", "5", "7"],
-      c: 0,
+      o: ["2", "3.5", "5", "7"],
+      c: 1,
       ex: "C₂H₆ + 7/2 O₂ → 2 CO₂ + 3 H₂O. Por mol: 3.5 mol O₂. (Multiplicando todo por 2: 2 C₂H₆ + 7 O₂ → 4 CO₂ + 6 H₂O).",
     },
     {
       p: "Agente oxidante:",
-      o: ["se reduce", "se oxida", "cambia color", "evapora"],
-      c: 0,
+      o: ["se oxida", "cambia color", "se reduce", "evapora"],
+      c: 2,
       ex: "Oxida al otro reduciéndose él.",
     },
   ], []);
@@ -488,7 +488,7 @@ function EscPractica() {
 
       <Misconception titulo="Error 2 · invertir agente oxidante/reductor">
         Agente OXIDANTE → se REDUCE (gana electrones). Agente REDUCTOR → se
-        OXIDA (pierde electrones). Es contraintuitivo, prestá atención.
+        OXIDA (pierde electrones). Es contraintuitivo, presta atención.
       </Misconception>
 
       <Misconception titulo="Error 3 · olvidar átomos de O en redox">

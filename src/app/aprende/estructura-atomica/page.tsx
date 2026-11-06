@@ -301,7 +301,7 @@ function EscAufbau() {
 
       <Mnemotecnia>
         <strong>Regla nemotécnica · "Salgan Por Detrás Felices"</strong>:<br />
-        s, p, d, f (en orden alfabético griego). <br /><br />
+        te ayuda a recordar el orden de los subniveles s, p, d, f. <br /><br />
 
         <strong>Principio de Hund</strong>: dentro de un mismo subnivel,
         primero se llena UN electrón en cada orbital (con espines paralelos),
@@ -379,14 +379,12 @@ function EscProblemas() {
         El último electrón tiene n=4, l=1, m=0, s=+1/2. Si A = 2Z + 10,
         encontrar A.<br /><br />
 
-        l = 1 corresponde al subnivel p. Configuración termina en 4p¹.<br />
-        Hasta 4s²: 2+2+6+2+6+2+10+0 = 20 electrones. Falta hasta 4p¹: +13 = 31.<br />
-        Pero esto se calcula con cuidado según el llenado. Si el último es
-        4p¹ con espín +1/2, Z = configuración completa hasta llegar a 4p¹.<br />
-        Aplicando: 1s²2s²2p⁶3s²3p⁶4s²3d¹⁰4p¹ → Z = 31 (Ga).<br />
-        A = 2·31 + 10 = <strong>72</strong>.<br /><br />
-
-        (Respuesta original: 74. Verificar con datos exactos del problema).
+        l = 1 es el subnivel p, y n = 4: el último electrón está en 4p.<br />
+        Los 3 orbitales p tienen m = −1, 0, +1. Por Hund, los tres primeros
+        electrones entran con espín +1/2 en ese orden: m = −1 (1.º), m = 0 (2.º),
+        m = +1 (3.º). Con m = 0 y s = +1/2, es el <strong>2.º electrón de 4p</strong>: 4p².<br />
+        Configuración: 1s²2s²2p⁶3s²3p⁶4s²3d¹⁰4p² → Z = 2+2+6+2+6+2+10+2 = <strong>32</strong>.<br />
+        A = 2·32 + 10 = <strong>74</strong>.
       </WorkedExample>
     </EscenaRica>
   );
@@ -396,8 +394,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Configuración del Na (Z=11):",
-      o: ["1s² 2s² 2p⁶ 3s¹", "1s² 2s² 2p⁶", "1s² 2s² 2p⁷", "1s² 2s²"],
-      c: 0,
+      o: ["1s² 2s² 2p⁶", "1s² 2s² 2p⁷", "1s² 2s² 2p⁶ 3s¹", "1s² 2s²"],
+      c: 2,
       ex: "11 electrones: 2+2+6+1 = 11. Termina en 3s¹.",
     },
     {
@@ -408,20 +406,20 @@ function EscPractica() {
     },
     {
       p: "Si Z=20 y A=40, neutrones:",
-      o: ["20", "40", "60", "10"],
-      c: 0,
+      o: ["40", "60", "10", "20"],
+      c: 3,
       ex: "n = A - Z = 40 - 20 = 20.",
     },
     {
       p: "El más electronegativo de:",
-      o: ["F", "Cl", "Br", "I"],
-      c: 0,
+      o: ["Cl", "F", "Br", "I"],
+      c: 1,
       ex: "El F es el más electronegativo (4.0 en Pauling).",
     },
     {
       p: "Subniveles posibles con n=3:",
-      o: ["s, p, d", "s, p", "s", "s, p, d, f"],
-      c: 0,
+      o: ["s, p", "s", "s, p, d", "s, p, d, f"],
+      c: 2,
       ex: "Con n=3, l puede ser 0, 1, 2 → s, p, d.",
     },
   ], []);

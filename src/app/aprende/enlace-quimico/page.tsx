@@ -551,8 +551,8 @@ function EscPractica() {
   const ejs = useMemo(() => [
     {
       p: "Tipo de enlace en NaCl:",
-      o: ["iónico", "covalente", "metálico", "puente H"],
-      c: 0,
+      o: ["covalente", "metálico", "iónico", "puente H"],
+      c: 2,
       ex: "Metal (Na) + no metal (Cl) → iónico.",
     },
     {
@@ -563,20 +563,20 @@ function EscPractica() {
     },
     {
       p: "Molécula polar:",
-      o: ["H₂O", "CO₂", "CCl₄", "N₂"],
-      c: 0,
+      o: ["CO₂", "CCl₄", "N₂", "H₂O"],
+      c: 3,
       ex: "H₂O es polar por geometría angular. CO₂ y CCl₄ son simétricas.",
     },
     {
       p: "Fuerza intermolecular más fuerte:",
-      o: ["puente H", "London", "dipolo-dipolo", "iónica"],
-      c: 0,
+      o: ["London", "puente H", "dipolo-dipolo", "iónica"],
+      c: 1,
       ex: "Puentes de H son las más fuertes (entre moléculas).",
     },
     {
       p: "Los metales conducen electricidad por:",
-      o: ["mar de electrones", "iones libres", "puente H", "redes cristalinas"],
-      c: 0,
+      o: ["iones libres", "puente H", "mar de electrones", "redes cristalinas"],
+      c: 2,
       ex: "Electrones de valencia libres en el enlace metálico.",
     },
   ], []);
@@ -588,8 +588,9 @@ function EscPractica() {
       <Titulo>Errores y práctica</Titulo>
 
       <Misconception titulo="Error 1 · todo enlace covalente es no polar">
-        Falso. Solo es no polar si los dos átomos tienen MISMA EN (átomos
-        iguales). Si hay diferencia, hay polaridad de enlace.
+        Falso. Es no polar cuando los átomos son iguales (ΔEN = 0, como en
+        H₂ o Cl₂) y también cuando son distintos pero su ΔEN es menor a 0.4
+        (como el C−H). Recién desde ΔEN ≥ 0.4 el enlace es polar.
       </Misconception>
 
       <Misconception titulo="Error 2 · enlace polar = molécula polar">

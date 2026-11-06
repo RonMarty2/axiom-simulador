@@ -418,10 +418,10 @@ function Esc08_Errores() {
 
 function Esc09_Practica() {
   const ejs = useMemo(() => [
-    { p: "f(x)=3x-2. ¿f(4)?", o: ["10", "14", "12", "6"], c: 0, ex: "f(4) = 12 − 2 = 10." },
+    { p: "f(x)=3x-2. ¿f(4)?", o: ["14", "12", "10", "6"], c: 2, ex: "f(4) = 12 − 2 = 10." },
     { p: "Pendiente entre (1,2) y (5,10):", o: ["2", "8", "4", "1/2"], c: 0, ex: "m = (10−2)/(5−1) = 8/4 = 2." },
-    { p: "Vértice de f(x)=x²−6x+5:", o: ["(3, -4)", "(-3, 32)", "(6, 5)", "(3, 5)"], c: 0, ex: "xv = 6/2 = 3. yv = 9 − 18 + 5 = −4." },
-    { p: "Raíces de x² − 5x + 6:", o: ["2 y 3", "1 y 6", "-2 y -3", "5 y 6"], c: 0, ex: "Factorización (x−2)(x−3)." },
+    { p: "Vértice de f(x)=x²−6x+5:", o: ["(-3, 32)", "(6, 5)", "(3, 5)", "(3, -4)"], c: 3, ex: "xv = 6/2 = 3. yv = 9 − 18 + 5 = −4." },
+    { p: "Raíces de x² − 5x + 6:", o: ["1 y 6", "2 y 3", "-2 y -3", "5 y 6"], c: 1, ex: "Factorización (x−2)(x−3)." },
     { p: "f(x)=−x²+4x. ¿Tiene max o min?", o: ["Min", "Max", "Ninguno", "Ambos"], c: 1, ex: "a=−1<0 → abre abajo → MAX." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
