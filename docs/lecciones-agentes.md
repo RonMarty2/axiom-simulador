@@ -479,3 +479,4 @@ Reglas operativas en `agentes/ejecutor-agy.md`; acá queda el porqué.
 2026-11-04 · ACIERTO · Las figuras de 2020 eran JPEG embebidos: `pdfimages -png` y ampliar sin interpolar; subir los dpi de página no agrega nada.
 2026-11-04 · ERROR (entorno) · `npx tsx -e "..."` con `shell: true` rompe las comillas en Windows y hace parecer que toda mutación salta · correr las mutaciones con un `.mts` en archivo.
 2026-11-04 · ACIERTO · Motor de agy en `--solo-texto`: 3 de 3 informes con contenido tras cambiar la regla 6; el reintento con Flash sigue sin ejercitarse.
+2026-11-06 · ACIERTO (regla) · Ronald: «si corregimos cómo se ven las sumas, muéstrame en mi tablet… extrapola a TODO». Antes las mejoras se reportaban solo con texto y él no podía ver el resultado. · Toda mejora visible termina con `node scripts/ver-en-tablet.mjs /<ruta>`, la dirección para la tablet, los pasos en la app y el antes/después; si no se ve, «no aplica». El hook del taller lo vigila.
