@@ -257,7 +257,7 @@ export default function AppHeader() {
                     color: "var(--bg-base)", display: "flex", alignItems: "center", justifyContent: "center",
                     fontWeight: 700, fontSize: 11.5,
                   }}>
-                    {admin ? <Icono nombre="rayo" tamano={15} grosor={2.2} /> : usuario?.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                    {admin ? <Icono nombre="rayo" tamano={15} grosor={2.2} /> : usuario?.nombre.split(" ").filter((n) => /^\p{L}/u.test(n)).map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
                   </div>
                 )}
                 <span className="axiom-user-nombre" style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
