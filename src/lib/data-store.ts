@@ -9,6 +9,7 @@ import fs from "fs/promises";
 import path from "path";
 import { supabaseAdmin, supabaseConfigurado } from "@/lib/supabase";
 import type { MetodoPago } from "@/lib/pagos-config";
+import { diaLaPaz } from "@/lib/plan";
 export type { MetodoPago };
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -512,8 +513,8 @@ export async function getEstadisticasGlobales() {
   const usuariosPro = usuarios.filter((u) => u.plan === "pro").length;
   const usuariosGratis = usuarios.filter((u) => u.plan === "gratis").length;
 
-  const hoy = new Date().toISOString().slice(0, 10);
-  const examenesHoy = historial.filter((h) => h.fecha.startsWith(hoy)).length;
+  const hoy = diaLaPaz();
+  const examenesHoy = historial.filter((h) => diaLaPaz(h.fecha) === hoy).length;
 
   const notaPromedioGlobal = historial.length > 0
     ? Math.round(historial.reduce((s, h) => s + h.nota, 0) / historial.length)

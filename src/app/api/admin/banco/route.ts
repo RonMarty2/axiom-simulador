@@ -91,6 +91,13 @@ export async function POST(req: Request) {
       );
     }
 
+    if (process.env.VERCEL) {
+      return NextResponse.json(
+        { error: "En producción el banco no se guarda desde el panel: los exámenes se cargan por git. Usa el panel solo en tu computadora." },
+        { status: 501 }
+      );
+    }
+
     const dirDestino = path.join(BANCO_DIR, universidad, facultad);
     await fs.mkdir(dirDestino, { recursive: true });
     const archivoDestino = path.join(dirDestino, `${anio}.md`);

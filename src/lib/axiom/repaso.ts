@@ -52,3 +52,8 @@ export function contarDominadasDesde(es: Partial<EstadoRepaso>[], desdeISO: stri
   return es.filter((e) => e.dominada_en && new Date(e.dominada_en).getTime() >= desdeMs).length;
 
 }
+
+/** "Borrar mis errores" quita los errores activos; las ya dominadas se conservan (son logros del alumno). */
+export function conservarDominadas<T extends { dominada_en?: string | null }>(filas: T[]): T[] {
+  return filas.filter((f) => Boolean(f.dominada_en));
+}

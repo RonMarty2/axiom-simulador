@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
 import type { HistorialExamen } from "@/lib/data-store";
+import { mesLaPaz } from "@/lib/plan";
 
 export default function HistorialPage() {
   const router = useRouter();
@@ -26,8 +27,8 @@ export default function HistorialPage() {
   if (loading) return <Cargando />;
 
   const promedioMes = (() => {
-    const mes = new Date().toISOString().slice(0, 7);
-    const delMes = historial.filter((h) => h.fecha.startsWith(mes));
+    const mes = mesLaPaz();
+    const delMes = historial.filter((h) => mesLaPaz(h.fecha) === mes);
     if (delMes.length === 0) return 0;
     return Math.round(delMes.reduce((s, h) => s + h.nota, 0) / delMes.length);
   })();

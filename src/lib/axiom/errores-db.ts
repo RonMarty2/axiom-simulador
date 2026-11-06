@@ -6,7 +6,7 @@
 import { supabaseAdmin, supabaseConfigurado } from "@/lib/supabase";
 import type { PreguntaBanco } from "./types";
 import { esRespuestaCorrecta } from "./respuestas";
-import { programar, type EstadoRepaso } from "./repaso";
+import { programar, conservarDominadas, type EstadoRepaso } from "./repaso";
 
 export interface ErrorRow {
   id: string;
@@ -127,11 +127,15 @@ export async function getErroresUsuario(usuarioId: string): Promise<ErrorRow[]> 
 
 export async function limpiarErroresUsuario(usuarioId: string): Promise<void> {
   if (supabaseConfigurado()) {
-    const { error } = await db().from("errores").delete().eq("usuario_id", usuarioId);
+    let { error } = await db().from("errores").delete().eq("usuario_id", usuarioId).is("dominada_en", null);
+    if (faltaColumna(error)) {
+      // sin la migracion 007 no existe "dominada_en": no hay dominadas que conservar
+      ({ error } = await db().from("errores").delete().eq("usuario_id", usuarioId));
+    }
     if (error) throw error;
     return;
   }
-  memoria.delete(usuarioId);
+  memoria.set(usuarioId, conservarDominadas(memoria.get(usuarioId) ?? []));
 }
 
 export function temasReforzarDeErrores(errores: ErrorRow[], limite = 8): string[] {

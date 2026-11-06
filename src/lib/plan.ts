@@ -10,6 +10,16 @@ import type { PlanId, SuscripcionActiva, Usuario } from "@/lib/data-store";
 export const LIMITE_SEMANAL_PASADAS = 2;        // simulacros de exámenes pasados
 export const LIMITE_SEMANAL_PRONOSTICADAS = 2;  // simulacros predictivos (sin IA)
 
+export function diaLaPaz(fechaOISO?: Date | string): string {
+  const d = typeof fechaOISO === "string" ? new Date(fechaOISO) : (fechaOISO ?? new Date());
+  return new Date(d.getTime() - 14400000).toISOString().slice(0, 10);
+}
+
+export function mesLaPaz(fechaOISO?: Date | string): string {
+  const d = typeof fechaOISO === "string" ? new Date(fechaOISO) : (fechaOISO ?? new Date());
+  return new Date(d.getTime() - 14400000).toISOString().slice(0, 7);
+}
+
 export function esPago(plan: PlanId | null | undefined): boolean {
   return plan != null && plan !== "gratis";
 }
@@ -74,27 +84,40 @@ export function categoriaModo(modo: string): CategoriaModo {
 // ── Semana actual (lunes 00:00) como ISO, para contar uso semanal ─────────────
 
 export function inicioSemanaISO(ahora: Date = new Date()): string {
-  const d = new Date(ahora);
-  const dia = (d.getDay() + 6) % 7; // 0 = lunes
-  d.setDate(d.getDate() - dia);
-  d.setHours(0, 0, 0, 0);
-  return d.toISOString();
+  const dLP = new Date(ahora.getTime() - 4 * 3600000);
+  const diaSemana = (dLP.getUTCDay() + 6) % 7;
+  const lunesLP = Date.UTC(
+    dLP.getUTCFullYear(),
+    dLP.getUTCMonth(),
+    dLP.getUTCDate() - diaSemana,
+    0, 0, 0, 0
+  );
+  return new Date(lunesLP + 4 * 3600000).toISOString();
 }
 
 // Próximo lunes a las 00:00. Útil para decirle al usuario cuándo se renueva
 // su cupo semanal del plan gratis.
 export function proximoLunes(ahora: Date = new Date()): Date {
-  const d = new Date(ahora);
-  const dia = d.getDay(); // 0=domingo, 1=lunes…
-  const diasParaLunes = ((8 - dia) % 7) || 7; // siempre el próximo lunes (no hoy)
-  d.setDate(d.getDate() + diasParaLunes);
-  d.setHours(0, 0, 0, 0);
-  return d;
+  const dLP = new Date(ahora.getTime() - 4 * 3600000);
+  const diaSemana = dLP.getUTCDay();
+  const diasParaLunes = ((8 - diaSemana) % 7) || 7;
+  const proxLunesLP = Date.UTC(
+    dLP.getUTCFullYear(),
+    dLP.getUTCMonth(),
+    dLP.getUTCDate() + diasParaLunes,
+    0, 0, 0, 0
+  );
+  return new Date(proxLunesLP + 4 * 3600000);
 }
 
 // Texto amigable: "el lunes 2 de junio".
 export function textoProximaRenovacion(ahora: Date = new Date()): string {
   const lunes = proximoLunes(ahora);
-  const fecha = new Intl.DateTimeFormat("es-BO", { weekday: "long", day: "numeric", month: "long" }).format(lunes);
+  const fecha = new Intl.DateTimeFormat("es-BO", {
+    timeZone: "America/La_Paz",
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  }).format(lunes);
   return `el ${fecha}`;
 }

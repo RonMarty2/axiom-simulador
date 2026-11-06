@@ -1,6 +1,14 @@
 import { test, describe } from "node:test";
 import assert from "node:assert/strict";
-import { esPago, tieneSuscripcionA, puedeVerResolucionBiblioteca } from "./plan.ts";
+import {
+  esPago,
+  tieneSuscripcionA,
+  puedeVerResolucionBiblioteca,
+  inicioSemanaISO,
+  proximoLunes,
+  diaLaPaz,
+  mesLaPaz,
+} from "./plan.ts";
 import type { Usuario } from "./data-store.ts";
 
 // El permiso por carrera es el que sostiene el modelo de cobro: cada facultad
@@ -64,5 +72,46 @@ describe("esPago", () => {
     assert.equal(esPago(undefined), false);
     assert.equal(esPago("premium"), true);
     assert.equal(esPago("pro"), true);
+  });
+});
+
+describe("inicioSemanaISO y proximoLunes (hora La Paz UTC-4)", () => {
+  test("domingo 23:00 La Paz (2026-11-09T03:00:00Z) pertenece a semana iniciada 2026-11-02T04:00:00.000Z", () => {
+    const d = new Date("2026-11-09T03:00:00Z");
+    assert.equal(inicioSemanaISO(d), "2026-11-02T04:00:00.000Z");
+    assert.equal(proximoLunes(d).toISOString(), "2026-11-09T04:00:00.000Z");
+  });
+
+  test("lunes 00:30 La Paz (2026-11-09T04:30:00Z) abre la semana nueva: inicio 2026-11-09T04:00:00.000Z", () => {
+    const d = new Date("2026-11-09T04:30:00Z");
+    assert.equal(inicioSemanaISO(d), "2026-11-09T04:00:00.000Z");
+    assert.equal(proximoLunes(d).toISOString(), "2026-11-16T04:00:00.000Z");
+  });
+
+  test("el cálculo no cambia con process.env.TZ en UTC o America/La_Paz", () => {
+    const d = new Date("2026-11-09T03:00:00Z");
+    const prevTZ = process.env.TZ;
+    try {
+      process.env.TZ = "UTC";
+      assert.equal(inicioSemanaISO(d), "2026-11-02T04:00:00.000Z");
+      process.env.TZ = "America/La_Paz";
+      assert.equal(inicioSemanaISO(d), "2026-11-02T04:00:00.000Z");
+    } finally {
+      process.env.TZ = prevTZ;
+    }
+  });
+});
+
+describe("diaLaPaz y mesLaPaz", () => {
+  test("2026-11-09T02:00:00Z es dia 2026-11-08 y mes 2026-11", () => {
+    const iso = "2026-11-09T02:00:00Z";
+    assert.equal(diaLaPaz(iso), "2026-11-08");
+    assert.equal(mesLaPaz(iso), "2026-11");
+  });
+
+  test("2026-12-01T02:00:00Z es dia 2026-11-30 y mes 2026-11", () => {
+    const iso = "2026-12-01T02:00:00Z";
+    assert.equal(diaLaPaz(iso), "2026-11-30");
+    assert.equal(mesLaPaz(iso), "2026-11");
   });
 });

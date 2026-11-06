@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { programar, tocaRepasar, proximoRepaso, contarDominadasDesde, type EstadoRepaso } from "./repaso.ts";
+import { conservarDominadas, programar, tocaRepasar, proximoRepaso, contarDominadasDesde, type EstadoRepaso } from "./repaso.ts";
 
 const dia = (n: number) => new Date(Date.UTC(2026, 9, 1 + n, 12));
 const fecha = (n: number) => dia(n).toISOString();
@@ -68,4 +68,14 @@ test("contarDominadasDesde ignora las que no están dominadas y las dominadas an
 test("contarDominadasDesde con lista vacía devuelve 0", () => {
   assert.equal(contarDominadasDesde([], fecha(0)), 0);
 
+});
+
+test("conservarDominadas quita los errores activos y deja las dominadas", () => {
+  const filas = [
+    { pregunta_id: "a", dominada_en: null },
+    { pregunta_id: "b" },
+    { pregunta_id: "c", dominada_en: fecha(3) },
+  ];
+  assert.deepEqual(conservarDominadas(filas).map((f) => f.pregunta_id), ["c"]);
+  assert.deepEqual(conservarDominadas([]), []);
 });

@@ -7,7 +7,7 @@ import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
 import Icono, { type NombreIcono } from "../components/Icono";
 import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
-import { esPago, inicioSemanaISO, textoProximaRenovacion } from "@/lib/plan";
+import { esPago, inicioSemanaISO, textoProximaRenovacion, LIMITE_SEMANAL_PASADAS, LIMITE_SEMANAL_PRONOSTICADAS } from "@/lib/plan";
 import { diasConPractica, textoConstancia } from "@/lib/refuerzo";
 
 export default function DashboardPage() {
@@ -60,8 +60,8 @@ export default function DashboardPage() {
   if (loading || !usuario) return <Cargando />;
 
   const ultimos = historial.slice(0, 5);
-  // Plan gratis: 2 simulacros pasados + 2 predictivos por semana (4 en total).
-  const limiteSemanal = 4;
+  // Plan gratis: 2 simulacros pasados + 2 predictivos por semana (salen de LIMITE_SEMANAL_*).
+  const limiteSemanal = LIMITE_SEMANAL_PASADAS + LIMITE_SEMANAL_PRONOSTICADAS;
   const desdeSemana = inicioSemanaISO();
   const examenesEstaSemana = historial.filter((h) => h.fecha >= desdeSemana).length;
   const esGratis = !esPago(usuario.plan);
@@ -163,7 +163,7 @@ export default function DashboardPage() {
           </div>
 
           <div style={{ display: "grid", gap: 10, alignContent: "start" }}>
-            <Acceso href="/practicar" icono="practicar" titulo="Practicar" detalle="6 modos disponibles" />
+            <Acceso href="/practicar" icono="practicar" titulo="Practicar" detalle="Elige cómo practicar" />
             <Acceso href="/errores" icono="errores" titulo="Mis errores" detalle="Repasa lo que fallaste" />
             <Acceso href="/ranking" icono="ranking" titulo="Ranking" detalle="Top 10 global" />
             <Acceso href="/cuenta" icono="cuenta" titulo="Mi cuenta" detalle={`Plan ${usuario.plan}`} />

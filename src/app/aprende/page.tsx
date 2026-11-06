@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
+import { PRECIOS_BOB } from "@/lib/precios";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import Icono from "../components/Icono";
@@ -41,6 +42,7 @@ export default function AprendePage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [facultad, setFacultad] = useState<Facultad | null>(null);
+  const [totalExamenes, setTotalExamenes] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -55,6 +57,8 @@ export default function AprendePage() {
           .then((f) => {
             const fac = (f.facultades ?? []).find((x: Facultad) => x.id === me.usuario.facultad_objetivo);
             setFacultad(fac ?? null);
+            const nExamenes = (fac as { examenes?: number } | undefined)?.examenes;
+            setTotalExamenes(nExamenes || null);
             setLoading(false);
           })
           .catch(() => setLoading(false));
@@ -104,7 +108,7 @@ export default function AprendePage() {
                   Plan gratis: Unidad 01 de cada área desbloqueada
                 </div>
                 <div style={{ fontSize: 13, color: "var(--fg-secondary)", marginTop: 2 }}>
-                  Accede a los 150 exámenes reales y todas las unidades con un plan activo.
+                  Accede a {totalExamenes ? `los ${totalExamenes} exámenes reales` : "los exámenes reales"} y todas las unidades con un plan activo.
                 </div>
               </div>
               <Link href="/precios" style={{
@@ -112,7 +116,7 @@ export default function AprendePage() {
                 borderRadius: 10, textDecoration: "none", fontWeight: 700, fontSize: 13.5,
                 boxShadow: "var(--shadow-sm)",
               }}>
-                Ver planes desde Bs 49 →
+                Ver planes desde Bs {Math.min(PRECIOS_BOB.pro, PRECIOS_BOB.premium)} →
               </Link>
             </div>
           )}
