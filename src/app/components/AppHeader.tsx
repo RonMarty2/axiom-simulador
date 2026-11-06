@@ -285,7 +285,7 @@ export default function AppHeader() {
                             const r = await fetch("/api/admin/toggle-plan", { method: "POST" });
                             const d = await r.json();
                             if (r.ok) {
-                              alert(`✓ Ahora estas en plan ${d.plan.toUpperCase()} para esta facultad.`);
+                              alert(`✓ Ahora estás en plan ${d.plan.toUpperCase()} para esta facultad.`);
                               window.location.reload();
                             } else {
                               alert(d.error ?? "Error");

@@ -7,6 +7,9 @@ import { useSearchParams } from "next/navigation";
 import AppHeader from "../components/AppHeader";
 import Cargando from "../components/Cargando";
 import { PRECIOS_BOB } from "@/lib/precios";
+import { LIMITE_SEMANAL_PASADAS, LIMITE_SEMANAL_PRONOSTICADAS } from "@/lib/plan";
+
+const LIMITE_SEMANAL_TOTAL = LIMITE_SEMANAL_PASADAS + LIMITE_SEMANAL_PRONOSTICADAS;
 
 const MOTIVOS: Record<string, { titulo: string; texto: string }> = {
   "cambiar-facultad": {
@@ -49,8 +52,8 @@ const planes = (total: number | null) => [
     descripcion: "Para empezar a medir tu nivel",
     badge: null,
     features: [
-      `${total ? `Todos los ${total} exámenes` : "Todos los exámenes"} pasados con enunciados y claves`,
-      "4 simulacros por semana (2 exámenes oficiales y 2 predictivos)",
+      `${total ? (total === 1 ? "El examen pasado" : `Los ${total} exámenes pasados`) : "Los exámenes pasados"} para leer completos`,
+      `${LIMITE_SEMANAL_TOTAL} simulacros por semana (${LIMITE_SEMANAL_PASADAS} de exámenes pasados y ${LIMITE_SEMANAL_PRONOSTICADAS} predictivos)`,
       "Cronómetro oficial y diagnóstico de nota sobre 100",
       "Ver qué preguntas fallaste al terminar el examen",
     ],
@@ -58,7 +61,7 @@ const planes = (total: number | null) => [
       "Sin explicaciones paso a paso de las preguntas",
       "Sin práctica enfocada en tus debilidades",
       "Sin simulacros ilimitados",
-      "Límite de 4 intentos por semana",
+      `Límite de ${LIMITE_SEMANAL_TOTAL} intentos por semana`,
     ],
     cta: "Empezar gratis",
   },
@@ -261,7 +264,7 @@ function PreciosInner() {
                     )}
                   </div>
                   <div style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 6 }}>
-                    {p.precio === 0 ? "Sin tarjeta ni registro obligatorio" : "Pago único por QR sin renovación automática"}
+                    {p.precio === 0 ? "Sin tarjeta: solo necesitas una cuenta" : "Pago único por QR sin renovación automática"}
                   </div>
                 </div>
 

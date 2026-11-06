@@ -108,7 +108,7 @@ export default function AprendePage() {
                   Plan gratis: Unidad 01 de cada área desbloqueada
                 </div>
                 <div style={{ fontSize: 13, color: "var(--fg-secondary)", marginTop: 2 }}>
-                  Accede a {totalExamenes ? `los ${totalExamenes} exámenes reales` : "los exámenes reales"} y todas las unidades con un plan activo.
+                  Leer los exámenes pasados es gratis. Con un plan activo se abren todas las unidades y la explicación paso a paso de {totalExamenes ? (totalExamenes === 1 ? "el examen real" : `los ${totalExamenes} exámenes reales`) : "los exámenes reales"}.
                 </div>
               </div>
               <Link href="/precios" style={{

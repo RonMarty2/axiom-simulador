@@ -480,7 +480,7 @@ function Esc08_MultProps() {
         </div>
         <PorQue>
           Esta es la propiedad que justifica gran parte del álgebra. Cuando
-          factorizas un polinomio o multiplicas (x+2)(x+3), estas usando la
+          factorizas un polinomio o multiplicas (x+2)(x+3), estás usando la
           distributiva. <strong>Memorízala bien.</strong>
         </PorQue>
       </Ejemplo>

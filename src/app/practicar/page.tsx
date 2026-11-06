@@ -436,13 +436,14 @@ function PracticarInner() {
           style={{
             position: "fixed", inset: 0, zIndex: 100,
             background: "rgba(26, 31, 46, 0.55)",
-            display: "flex", alignItems: "flex-end", justifyContent: "center",
+            // al CENTRO (Ronald, 6-nov: abajo lo vio casi al final y la barra inferior lo tapaba)
+            display: "flex", alignItems: "center", justifyContent: "center",
             padding: 16,
           }}
         >
           <div
             onClick={(ev) => ev.stopPropagation()}
-            style={{ background: "var(--bg-card)", borderRadius: 16, padding: 20, width: "100%", maxWidth: 480, marginBottom: "env(safe-area-inset-bottom)" }}
+            style={{ background: "var(--bg-card)", borderRadius: 16, padding: 20, width: "100%", maxWidth: 480 }}
           >
             <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
               Examen real

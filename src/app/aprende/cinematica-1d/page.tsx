@@ -266,7 +266,7 @@ function EscMRU() {
 
       <PorQue>
         Como la velocidad es constante: distancia = velocidad × tiempo. Si
-        empiezas en x₀, después de tiempo t estas en x = x₀ + vt. En un gráfico
+        empiezas en x₀, después de tiempo t estás en x = x₀ + vt. En un gráfico
         x-t, esto es siempre una RECTA (pendiente = v).
       </PorQue>
 

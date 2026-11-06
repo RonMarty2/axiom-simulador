@@ -417,7 +417,7 @@ export default function LandingPage() {
               {/* Pie de la tarjeta interactiva */}
               <div style={{ padding: "14px 24px", background: "var(--bg-subtle)", borderTop: "1px solid var(--border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <span style={{ fontSize: 12, color: "var(--fg-muted)" }}>
-                  {opcionSeleccionada ? "Así de claro te explica AXIOM cada pregunta." : "Haz clic en una opción para probar el simulador."}
+                  {opcionSeleccionada ? "Así de claro te explica AXIOM cada pregunta." : "Toca una opción para probar el simulador."}
                 </span>
                 <Link href="/login" style={{ fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
                   Ver examen completo →

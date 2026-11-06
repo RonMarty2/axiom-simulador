@@ -118,7 +118,7 @@ function PresupuestoFamiliar() {
             color: negativo ? LIENZO.bad : LIENZO.fg, fontWeight: 600,
             fontFamily: "var(--font-crimson), serif" }}>
             {negativo
-              ? `Te estas pasando ${Math.abs(resto)} Bs · imposible`
+              ? `Te estás pasando ${Math.abs(resto)} Bs · imposible`
               : `Resto para alquiler / ahorro / ocio: ${resto} Bs`}
           </div>
         </div>
