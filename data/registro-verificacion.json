@@ -405,5 +405,60 @@
     },
     "completo": false,
     "notas": "Opcion B (muestra por riesgo; el pedido citaba 101_PrimerParcialCursoPre-Facultativo1-2010.pdf pero en disco es 100_PrimerParcialCursoPre-Facultativo1-2010.pdf). Mirada P17 (Fisica F2 en p.2, figura f17-grafica-xt-15-cruza-3s): enunciado, opciones (x=12-3t, x=15+3t, x=15-3t, x=15-5t, Ninguno), grafica x-t (recta de (0, 15) a (4, -5) que corta el eje t en 3 s) y respuesta D (x=15-5t) coinciden con el PDF; sin cambios en el .md."
+  },
+  "ingenieria/2010-parcial1-2-2010": {
+    "id": "umss-ingenieria-2010-primer-parcial-primer-curso-pre-facultativo-gestion-2-2010",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/104_PrimerParcialPrimerCursoPre-Facultativo2-2010.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Mirada P7 (G2 en p.4, figura g7-paralelas-transversales-40-80): enunciado, opciones (50°, 40°, 30°, 20°, ninguno), figura y respuesta B (40°) coinciden fielmente con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.2 del PDF la pregunta P19 (F4: bloque arrastrado por fuerza F a 37°) y en p.4 la P6 (G1: recta con segmentos colineales A-B-C-D-E) tienen dibujo y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2012-2op-1-2012": {
+    "id": "umss-ingenieria-2012-segundo-examen-de-ingreso-1-2012",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/120_SegundoExamenIngreso1-2012.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Mirada P6 (G6 en p.1, figura g6-diametro-aob-angulo-adc): enunciado, opciones (100°, 105°, 110°, 120°, Ninguno), figura y respuesta C (110°) coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.2 del PDF traen figura P11 (F11: electron proyectado en placas paralelas de 2 cm) y P12 (F12: circuito puente de Wheatstone con 5 resistencias R=1 ohm, agy no juzga circuitos), ambas reescritas en texto en el banco."
+  },
+  "ingenieria/2013-final-2-2013": {
+    "id": "umss-ingenieria-2013-examen-final-curso-pre-facultativo-gestion-2-2013",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/127_final2-2013.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 126_ExamenFinalCursoPre-Facultativo2-2013.pdf pero en disco es 127_final2-2013.pdf). Mirada P17 (Fisica 2 en p.4, figura f-bloques-apilados-polea-mesa): enunciado, opciones (10m3, 7m3, 8m3, 11/2 m3, Ninguno), figura y respuesta C (8m3) coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.4 del PDF F3 (P18: masa soltada en rampa semicircular R=5 m hacia resorte con d=6 m), F4 (carro curvo) y F5 (hombre sobre carrito) traen esquema y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2013-parcial2-2-2013": {
+    "id": "umss-ingenieria-2013-segundo-parcial-curso-pre-facultativo-gestion-2-2013",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/126_2doparcial2-2013.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 125_SegundoParcialCursoPre-Facultativo2-2013.pdf pero en disco es 126_2doparcial2-2013.pdf). Miradas P17 (Fisica 2 en p.4: auto en cilindro vertical de 5 m, clave D=75 N) y P20 (Fisica 5 en p.4, figura f-bloques-apilados-polea-mesa: masas 2 kg y 1 kg con masa colgada de 3 kg, clave E=Ninguno): enunciados, opciones y respuestas coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.4 Prob. 1 (P16: libro colgado de 2 alambres) y Prob. 3 (P18: canalon con semicircunferencia) tienen dibujo en el PDF y estan en texto en el banco."
+  },
+  "ingenieria/2014-final-2-2014": {
+    "id": "umss-ingenieria-2014-examen-final-curso-pre-facultativo-gestion-2-2014",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/136_final2-2014.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P19 (F4 en p.4, figura f19-eje-vertical-resorte: clave C=500 N/m) y P20 (F5 en p.4, figura f20-tazon-dos-masas: clave A=R/4): enunciados, opciones, figuras y respuestas coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.4 F3 (P18: cañon sobre puente de 125 m disparando a tanque a distancia d) tiene esquema grafico en el PDF y el banco la describe en texto sin figura."
   }
 }
