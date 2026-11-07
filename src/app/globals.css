@@ -529,3 +529,7 @@ body {
   --mafs-origin-color: #5a6072;
   font-family: inherit;
 }
+
+/* /historial: en pantallas angostas se ocultan columnas secundarias para que el boton quede a la vista */
+@media (max-width: 560px) { .hist-oculta { display: none; } }
+@media (max-width: 900px) { .hist-largo { display: none; } }

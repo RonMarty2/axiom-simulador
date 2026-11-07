@@ -54,15 +54,15 @@ export default function HistorialPage() {
           </div>
         ) : (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflowX: "auto" }}>
-            <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontSize: 14 }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
               <thead>
                 <tr style={{ background: "var(--bg-subtle)" }}>
                   <th style={th()}>Fecha</th>
                   <th style={th()}>Tipo</th>
-                  <th style={th()}>Facultad</th>
+                  <th className="hist-oculta" style={th()}>Facultad</th>
                   <th style={th()}>Nota</th>
-                  <th style={th()}>Correctas</th>
-                  <th style={th()}>Tiempo</th>
+                  <th className="hist-oculta" style={th()}>Correctas</th>
+                  <th className="hist-oculta" style={th()}>Tiempo</th>
                   <th style={th()}></th>
                 </tr>
               </thead>
@@ -70,15 +70,15 @@ export default function HistorialPage() {
                 {historial.map((h) => (
                   <tr key={h.id} style={{ borderTop: "1px solid var(--border)" }}>
                     <td style={td()}>{new Date(h.fecha).toLocaleDateString("es-BO", { day: "numeric", month: "short" })}</td>
-                    <td style={td()}><strong>{modoLabel(h.modo)}</strong>{h.anio_examen && <span style={{ color: "var(--fg-muted)" }}> · {h.anio_examen}</span>}</td>
-                    <td style={td()}><span>{nombreFacultad(h.facultad)}</span></td>
+                    <td style={{ ...td(), whiteSpace: "normal" }}><strong>{modoLabel(h.modo)}</strong>{h.anio_examen && <span style={{ color: "var(--fg-muted)" }}> · {h.anio_examen}</span>}</td>
+                    <td className="hist-oculta" style={td()}><span>{nombreFacultad(h.facultad)}</span></td>
                     <td style={{ ...td(), fontWeight: 800, color: h.nota >= 70 ? "var(--dib-emerald-600)" : h.nota >= 50 ? "var(--dib-amber-600)" : "var(--dib-red-600)" }}>{h.nota}</td>
-                    <td style={td()}>{h.correctas} / {h.correctas + h.incorrectas + h.sin_responder}</td>
-                    <td style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
+                    <td className="hist-oculta" style={td()}>{h.correctas} / {h.correctas + h.incorrectas + h.sin_responder}</td>
+                    <td className="hist-oculta" style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
                     <td style={{ ...td(), textAlign: "right" }}>
                       {h.simulador_id ? (
                         <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ display: "inline-block", whiteSpace: "nowrap", textAlign: "center", padding: "8px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
-                          Ver resolución →
+                          Ver<span className="hist-largo"> resolución</span> →
                         </Link>
                       ) : (
                         <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>—</span>
@@ -96,10 +96,10 @@ export default function HistorialPage() {
 }
 
 function th(): React.CSSProperties {
-  return { padding: "12px 10px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" };
+  return { padding: "12px 8px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" };
 }
 function td(): React.CSSProperties {
-  return { padding: "12px 10px", color: "var(--fg-primary)", whiteSpace: "nowrap" };
+  return { padding: "12px 8px", color: "var(--fg-primary)", whiteSpace: "nowrap" };
 }
 function modoLabel(modo: string): string {
   return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Simulacro inteligente", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;
