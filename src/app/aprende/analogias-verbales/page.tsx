@@ -143,7 +143,7 @@ function EscProcedimiento() {
       <Resumen>
         <strong>1.</strong> Lee el par inicial e <strong>identifica la relación</strong>. Es la clave de
         todo. Ponle un nombre: "función", "causa-efecto", "categoría", etc.<br /><br />
-        <strong>2.</strong> Si te cuesta, formulá una <strong>frase puente</strong>: "la llave SIRVE PARA
+        <strong>2.</strong> Si te cuesta, formula una <strong>frase puente</strong>: "la llave SIRVE PARA
         abrir cosas", "el león VIVE EN la jungla". Esa frase la vas a aplicar a todas las opciones.<br /><br />
         <strong>3.</strong> Prueba la frase puente en cada opción. La que encaja exactamente es la
         respuesta.<br /><br />
@@ -156,7 +156,7 @@ function EscProcedimiento() {
         <strong>F</strong>rase puente · <strong>P</strong>robar en opciones ·
         <strong> P</strong>recisar tipo · <strong>D</strong>escartar parecidas ·
         <strong> V</strong>erificar simetría.<br /><br />
-        Atajo de bolsillo: <strong>"nombrá la relación con un verbo"</strong>. Si puedes decir
+        Atajo de bolsillo: <strong>"nombra la relación con un verbo"</strong>. Si puedes decir
         "A <em>VERBO</em> B" (sirve para, produce, vive en, mide, es tipo de), tienes la frase
         puente.
       </Mnemotecnia>
@@ -191,7 +191,7 @@ function EscProcedimiento() {
       <Misconception titulo="Trampa · pares invertidos">
         Casi siempre hay una opción <strong>con el orden invertido</strong>: si el par es
         martillo:clavo (herramienta:pieza), una opción será clavo:martillo (pieza:herramienta).
-        Parece correcta pero la DIRECCIÓN importa. Siempre chequeá el orden.
+        Parece correcta pero la DIRECCIÓN importa. Siempre comprueba el orden.
       </Misconception>
     </EscenaRica>
   );
@@ -280,7 +280,7 @@ function EscPB() {
         },
         {
           p: "Reloj es a tiempo como…",
-          o: ["Termómetro - Calor", "Calendario - Mes", "Brújula - Dirección", "Cámara - Imagen", "Barómetro - Presión"],
+          o: ["Termómetro - Calor", "Calendario - Mes", "Brújula - Mapa", "Cámara - Imagen", "Barómetro - Presión"],
           c: 4,
           ex: "El reloj MIDE el tiempo. El barómetro MIDE la presión. Instrumento-magnitud. Termómetro NO mide 'calor' sino temperatura.",
         },
@@ -348,7 +348,7 @@ function EscPD() {
       <PracticaFinal ejercicios={[
         {
           p: "(___) es a ruido como mudo es a (___)",
-          o: ["Sonido - hablar", "Silencio - ruido", "Música - melodía", "Grito - calma", "Ruidos - paz"],
+          o: ["Silencio - hablar", "Silencio - ruido", "Música - melodía", "Grito - calma", "Ruidos - paz"],
           c: 0,
           ex: "Silencio es ANTÓNIMO de ruido. Mudo es ANTÓNIMO de hablar. Pares opuestos en cada lado.",
         },
@@ -426,12 +426,12 @@ function EscResumen() {
     <EscenaRica>
       <Titulo>Resumen</Titulo>
       <Resumen>
-        <strong>1.</strong> Antes de mirar las opciones, formulá la <strong>frase puente</strong> que une
+        <strong>1.</strong> Antes de mirar las opciones, formula la <strong>frase puente</strong> que une
         las dos primeras palabras: "A SIRVE PARA B", "A PRODUCE B", "A ES TIPO DE B".<br /><br />
         <strong>2.</strong> Aplica esa frase a cada opción. La que encaja exactamente es la respuesta.<br /><br />
         <strong>3.</strong> Atención a las trampas: hay opciones que parecen funcionar pero rompen el
         TIPO o el CAMPO de la relación.<br /><br />
-        <strong>4.</strong> En las analogías de hábitat, preferí el hábitat NATURAL (jungla, océano) no
+        <strong>4.</strong> En las analogías de hábitat, prefiere el hábitat NATURAL (jungla, océano) no
         el artificial (zoo, circo).<br /><br />
         <strong>5.</strong> Si dos opciones parecen igual de buenas, elige la más SIMÉTRICA: la que
         comparte el mismo campo semántico que el par original (astronomía, animales, profesiones, etc).

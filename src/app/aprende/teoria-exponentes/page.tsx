@@ -315,7 +315,7 @@ function Esc07_Errores() {
       <Misconception titulo="Error #1 en ecuaciones · perder soluciones por raíz par">
         Si tienes x² = 16, no es solo x = 4: TAMBIÉN x = −4 cumple (porque (−4)² = 16). Las
         raíces de índice PAR siempre dan ± dos soluciones. En las raíces de índice IMPAR (³, ⁵)
-        hay una sola.
+        hay una sola. Ojo: la RAÍZ √16 vale solo 4 (el valor positivo); lo que da dos soluciones es la ECUACIÓN x² = 16.
       </Misconception>
 
       <Conexion>

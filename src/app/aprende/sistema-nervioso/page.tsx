@@ -171,8 +171,8 @@ function EscIntro() {
       <Hook>
         Tu cerebro pesa ~1.4 kg pero consume el 20% de todo el O₂ y la
         glucosa de tu cuerpo. Tiene 86 mil millones de neuronas, cada una
-        conectada a otras 1.000–10.000. Si las pusieras en línea, llegarían a
-        la luna varias veces.
+        conectada a otras 1.000–10.000. Si las pusieras en línea, darían unas
+        4 vueltas a la Tierra (~160 000 km).
       </Hook>
 
       <Definicion termino="Sistema nervioso">

@@ -283,7 +283,7 @@ function EscMutaciones() {
           </text>
           {[
             { t: "Silenciosa", d: "cambia base pero NO cambia aa", ej: "GCU → GCC (ambos Alanina)", c: LIENZO.ok },
-            { t: "Misense", d: "cambia 1 aa por otro", ej: "GAA → GUA (Glu → Val)", c: LIENZO.warn },
+            { t: "Missense", d: "cambia 1 aa por otro", ej: "GAA → GUA (Glu → Val)", c: LIENZO.warn },
             { t: "Nonsense", d: "introduce codón STOP prematuro", ej: "UCA → UGA (Ser → Stop)", c: LIENZO.bad },
             { t: "Frameshift", d: "inserción/deleción cambia el marco de lectura", ej: "todo después se traduce mal", c: "#dc2626" },
           ].map((m, i) => (
@@ -298,7 +298,7 @@ function EscMutaciones() {
       </Pizarra>
 
       <Cuidado>
-        La anemia falciforme proviene de una mutación misense (GAG → GUG)
+        La anemia falciforme proviene de una mutación missense (GAG → GUG)
         que cambia Glu por Val en la hemoglobina. Los eritrocitos se deforman
         en hoz → obstruyen capilares.
       </Cuidado>

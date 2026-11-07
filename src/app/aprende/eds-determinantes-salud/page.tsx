@@ -175,7 +175,7 @@ function EscPrevencion() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"Primaria PREVIENE; Secundaria DETECTA; Terciaria CURA o
+        <strong>"Primaria PREVIENE; Secundaria DETECTA y TRATA a tiempo; Terciaria
         REHABILITA."</strong>
       </Mnemotecnia>
 

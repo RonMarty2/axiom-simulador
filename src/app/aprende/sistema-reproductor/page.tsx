@@ -131,8 +131,8 @@ function EscFemenino() {
       </Pizarra>
 
       <Definicion termino="Ovogénesis">
-        A diferencia del varón, la mujer nace con TODOS sus óvulos (~1 millón
-        de ovogonios). Solo ~400 madurarán a lo largo de la vida reproductiva
+        A diferencia del varón, la mujer nace con TODOS sus ovocitos primarios
+        (~1 millón). Solo ~400 madurarán a lo largo de la vida reproductiva
         (uno por mes desde la menarca hasta la menopausia).
       </Definicion>
 

@@ -56,8 +56,8 @@ function EscIntro() {
       </Conexion>
 
       <Mnemotecnia>
-        <strong>"Inspiras 21% O₂, espiras 16% O₂."</strong> Solo retienes ~5%
-        del oxígeno inspirado.
+        <strong>"Inspiras 21% O₂, espiras 16% O₂."</strong> Retienes ~5 puntos
+        de esos 21 (casi un cuarto del oxígeno que inspiras).
       </Mnemotecnia>
     </EscenaRica>
   );

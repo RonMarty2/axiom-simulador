@@ -194,7 +194,7 @@ function Esc05() {
     <EscenaRica>
       <Titulo>4 · Balanza de comprobación</Titulo>
       <Hook>
-        Imaginate que pasaste 200 transacciones del diario al mayor a mano. ¿Cómo sabes si te
+        Imagina que pasaste 200 transacciones del diario al mayor a mano. ¿Cómo sabes si te
         equivocaste en una? <strong>Con la balanza de comprobación.</strong>
       </Hook>
       <Definicion termino="balanza de comprobación">
@@ -280,8 +280,8 @@ function EscCaso() {
           <strong>Etapa 6 · Estados financieros:</strong><br />
           • <strong>Estado de Resultados:</strong> Ventas 12 000, − Costo de harina 4 000, − Depreciación
           125 = Utilidad 7 875 Bs.<br />
-          • <strong>Balance General al 30/04:</strong> Activo 33 000 (Caja 17 000 + Horno neto 14 875 +
-          Harina 1 000) = Pasivo (Préstamo) 5 000 + Patrimonio 28 000. ✓
+          • <strong>Balance General al 30/04:</strong> Activo 32 875 (Caja 17 000 + Horno neto 14 875 +
+          Harina 1 000) = Pasivo (Préstamo) 5 000 + Patrimonio 27 875. ✓
         </p>
         <p style={{ marginTop: 12, marginBottom: 0 }}>
           <strong>Conclusión:</strong> los 75 Bs de la venta del 15/04 son ahora una parte de la

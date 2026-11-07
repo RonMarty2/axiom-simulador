@@ -38,7 +38,7 @@ function EscIntro() {
         lógicamente en este ejercicio, puedes organizarlas en tu propia escritura.
       </PorQue>
       <Cuidado>
-        Prestá especial atención al <strong>título</strong> del ejercicio: te orienta sobre el tema y
+        Presta especial atención al <strong>título</strong> del ejercicio: te orienta sobre el tema y
         ayuda a identificar la primera oración (la que introduce el tema general).
       </Cuidado>
 
@@ -91,7 +91,7 @@ function EscPatrones() {
         (b) Consecuencia o cierre: "por eso…", "por todo lo anterior…".<br />
         (c) Fecha tardía en una secuencia cronológica.<br /><br />
 
-        <strong>Práctica mental:</strong> mira las 4 oraciones y SIN leer las opciones, decidí
+        <strong>Práctica mental:</strong> mira las 4 oraciones y SIN leer las opciones, decide
         cuál sería la 1ra y cuál la última. Después comparas con las opciones: el 80% se
         descarta automáticamente.
       </WorkedExample>
@@ -170,10 +170,10 @@ function EscPB() {
       <Titulo>Práctica B</Titulo>
       <PracticaFinal ejercicios={[
         {
-          p: "\"El ADN\": (1) El ADN es la molécula que contiene la información genética. (2) Tiene una estructura de doble hélice. (3) Fue descubierto por Watson y Crick en 1953. (4) Es responsable de la transmisión de características hereditarias.",
+          p: "\"El ADN\": (1) El ADN es la molécula que contiene la información genética. (2) Tiene una estructura de doble hélice. (3) Su estructura fue propuesta por Watson y Crick en 1953. (4) Es responsable de la transmisión de características hereditarias.",
           o: ["1-4-3-2", "3-1-4-2", "1-2-4-3", "1-3-2-4", "4-2-1-3"],
           c: 1,
-          ex: "Orden cronológico-conceptual: 3 (cuándo fue descubierto) → 1 (qué es) → 4 (qué función cumple) → 2 (cómo es su estructura). El descubrimiento histórico abre, después definimos, luego función y por último detalle estructural.",
+          ex: "Orden cronológico-conceptual: 3 (cuándo se propuso su estructura) → 1 (qué es) → 4 (qué función cumple) → 2 (cómo es su estructura). El hito histórico abre, después definimos, luego función y por último detalle estructural.",
         },
         {
           p: "\"Átomos y Moléculas\": (1) Los átomos se combinan entre sí para formar moléculas. (2) Un átomo es la unidad más pequeña de la materia. (3) Las moléculas pueden estar formadas por uno o más tipos de átomos. (4) Todo lo que existe está compuesto por átomos y moléculas.",

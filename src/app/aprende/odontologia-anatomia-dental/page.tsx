@@ -32,7 +32,7 @@ function EscIntro() {
       <Titulo>Dentición humana · dos juegos en la vida</Titulo>
 
       <Hook>
-        Tu primera muela apareció a los 6 meses; tu última a los 18-25 años
+        Tu primer diente apareció a los 6 meses; tu última a los 18-25 años
         (muela del juicio). En total, dos denticiones: 20 dientes de leche y
         32 permanentes. Cada diente cumple una función específica.
       </Hook>

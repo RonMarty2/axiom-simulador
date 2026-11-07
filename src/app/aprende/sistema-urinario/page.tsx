@@ -97,7 +97,7 @@ function EscSimFiltracion() {
       </div>
 
       <Cuidado>
-        Caso real: si la reabsorción cae a 95%, la orina se cuadruplica (poliuria) →
+        Caso real: si la reabsorción cae a 95%, la orina se quintuplica (poliuria) →
         riesgo de deshidratación. Diabetes mal controlada hace esto: la glucosa
         en orina arrastra agua osmóticamente.
       </Cuidado>

@@ -69,8 +69,8 @@ function EscIntro() {
         <strong>Símbolos</strong>:<br />
         • Congruencia: <strong>≅</strong> (igual + ondulado).<br />
         • Semejanza: <strong>∼</strong> (solo ondulado, "casi pero no igual").<br /><br />
-        Truco: el símbolo de congruencia tiene el "=" arriba porque las medidas
-        son EXACTAMENTE iguales. El de semejanza no.
+        Truco: el símbolo de congruencia lleva el "=" debajo de la onda porque
+        las medidas son EXACTAMENTE iguales. El de semejanza no lo lleva.
       </Mnemotecnia>
     </EscenaRica>
   );

@@ -177,7 +177,7 @@ function Esc05() {
       </Cuidado>
 
       <CasoBolivia>
-        En Bolivia, toda empresa registrada en FUNDEMPRESA está obligada por el <strong>Código de
+        En Bolivia, toda empresa registrada en el Registro de Comercio (hoy a cargo del SEPREC; antes FUNDEMPRESA) está obligada por el <strong>Código de
         Comercio</strong> a llevar contabilidad. Las microempresas del régimen simplificado (RTS) y
         régimen tributario integrado (RTI) tienen exigencias mínimas, pero las del régimen general
         deben presentar Estados Financieros anuales al SIN. Sin esos estados no puedes acceder a

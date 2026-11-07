@@ -191,8 +191,8 @@ function EscHipofisis() {
         Glándula del tamaño de un guisante bajo el cerebro. "Glándula maestra"
         porque controla a otras glándulas. 2 lóbulos:
         <ul style={{ margin: "4px 0 0 18px", padding: 0, fontSize: 14 }}>
-          <li><strong>Anterior (adenohipófisis):</strong> GH, TSH, ACTH, FSH, LH, PRL.</li>
-          <li><strong>Posterior (neurohipófisis):</strong> ADH (antidiurética), oxitocina.</li>
+          <li><strong>Anterior (adenohipófisis):</strong> produce GH, TSH, ACTH, FSH, LH, PRL.</li>
+          <li><strong>Posterior (neurohipófisis):</strong> no fabrica hormonas; almacena y libera ADH (antidiurética) y oxitocina (fabricadas en el hipotálamo).</li>
         </ul>
       </Definicion>
 
@@ -219,7 +219,7 @@ function EscHipofisis() {
       </Pizarra>
 
       <Mnemotecnia>
-        <strong>"Anterior produce 6; Posterior produce 2 (ADH y oxitocina)."</strong>
+        <strong>"Anterior produce 6; Posterior almacena y libera 2 (ADH y oxitocina, fabricadas en el hipotálamo)."</strong>
       </Mnemotecnia>
     </EscenaRica>
   );
@@ -255,7 +255,7 @@ function EscTiroides() {
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>↓ T3 y T4</text>
             <text x={130} y={68} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Engorda, bradicardia, frío</text>
             <text x={130} y={86} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>fatiga, somnolencia, bocio</text>
-            <text x={130} y={110} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">déficit de yodo (Hashimoto)</text>
+            <text x={130} y={110} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">déficit de yodo (bocio)</text>
           </g>
         </svg>
       </Pizarra>
@@ -423,7 +423,7 @@ function EscPractica() {
 
       <Resumen>
         Endocrino = hormonas por sangre. Glándulas clave: hipotálamo (puente
-        nervio-endocrino), hipófisis (maestra, anterior 6 + posterior 2),
+        nervio-endocrino; fabrica ADH y oxitocina), hipófisis (maestra, anterior produce 6 + posterior almacena y libera 2),
         tiroides (metabolismo), paratiroides (Ca²⁺), páncreas (insulina/
         glucagón), suprarrenales (cortisol + adrenalina), gónadas (sexuales).
       </Resumen>
@@ -446,7 +446,7 @@ function EscPractica() {
         pregunta="El bocio endémico se debe a déficit de:"
         opciones={["calcio", "yodo", "hierro", "vitamina D"]}
         correctaIdx={1}
-        explicacion="Sin yodo, la tiroides no produce T3/T4 y se inflama (bocio)."
+        explicacion="Sin yodo, la tiroides no produce T3/T4 y crece compensando (bocio)."
       />
 
       <AutoCheck

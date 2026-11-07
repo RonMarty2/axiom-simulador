@@ -330,7 +330,7 @@ function Esc07_IntInt() {
       </Definicion>
 
       <Ejemplo titulo="Ejemplo intuitivo">
-        Invertes <strong>1000 Bs</strong> al <strong>10%</strong> anual durante <strong>3 años</strong>.<br />
+        Inviertes <strong>1000 Bs</strong> al <strong>10%</strong> anual durante <strong>3 años</strong>.<br />
         Cada año gana 100 Bs (10% de 1000). En 3 años: 300 Bs de interés.<br />
         Capital final = 1000 + 300 = <strong style={{ color: COLOR_OK }}>1300 Bs</strong>.
       </Ejemplo>
@@ -386,7 +386,7 @@ function Esc08_IntFor() {
         • Crédito de vivienda social: <strong>5,5-6,5% anual</strong>.<br /><br />
         Si pides un préstamo de 50.000 Bs a 12% anual por 3 años (interés simple):<br />
         I = (50.000 × 12 × 3) / 100 = <strong>18.000 Bs</strong> de interés.<br />
-        Pagas un total de 68.000 Bs (1.888 Bs por mes).
+        Pagas un total de 68.000 Bs (≈ 1.889 Bs por mes).
       </CasoBolivia>
     </EscenaRica>
   );
