@@ -72,7 +72,7 @@ export default function DebilidadesPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
         <h1 className="font-crimson" style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}><Icono nombre="grafico" tamano={27} /> Mis debilidades</h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 24 }}>
           Aquí ves dónde estás fallando más, según tus simulacros. Practica directo lo que necesitas.

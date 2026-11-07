@@ -96,7 +96,7 @@ export default function ProgresoPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
         <div style={{ marginBottom: 24 }}>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>

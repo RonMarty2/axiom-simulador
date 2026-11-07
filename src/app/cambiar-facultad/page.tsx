@@ -48,7 +48,7 @@ function CambiarFacultadInner() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 880, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 880, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
         <BackLink href="/cuenta" label="Volver a mi cuenta" />
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginTop: 10, marginBottom: 8 }}>
           <Icono nombre="mezclar" tamano={26} /> Cambiar de facultad

@@ -53,7 +53,7 @@ export default function ErroresPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="errores" tamano={27} /> Mis errores</span></h1>
         <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>
           Las preguntas que has fallado. Te las volvemos a preguntar en su fecha: cuando aciertas la misma pregunta 3 veces seguidas, sale de la lista.

@@ -86,7 +86,7 @@ export default function ResueltosPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px 20px 100px" }}>
+      <div style={{ maxWidth: 1100, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px) 100px" }}>
         <div style={{ marginBottom: 28 }}>
           <h1 className="font-crimson" style={{ fontSize: "clamp(28px, 4.5vw, 36px)", fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6, display: "flex", alignItems: "center", gap: 10 }}>
             <Icono nombre="documento" tamano={28} /> <span>Exámenes resueltos</span>

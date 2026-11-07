@@ -105,7 +105,7 @@ export default function CuentaPage() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
         <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 28 }}>Mi cuenta</h1>
 
         {/* flexWrap + flexShrink:0 — en 375px el avatar se aplastaba a elipse

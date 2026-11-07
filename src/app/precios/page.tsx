@@ -136,7 +136,7 @@ function PreciosInner() {
     <div style={{ minHeight: "100vh", background: "var(--bg-base)" }}>
       <AppHeader />
 
-      <main style={{ maxWidth: 1140, margin: "0 auto", padding: "40px 20px 80px" }}>
+      <main style={{ maxWidth: 1140, margin: "0 auto", padding: "40px clamp(16px, 3vw, 24px) 80px" }}>
         
         {/* Banner contextual si vino redirigido por un bloqueo */}
         {banner && (

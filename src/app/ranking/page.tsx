@@ -170,7 +170,7 @@ export default function RankingPage() {
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-base)" }}>
       <AppHeader />
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 20px 100px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px) 100px" }}>
         <div style={{ textAlign: "center", marginBottom: 24 }}>
           <h1
             className="font-crimson"

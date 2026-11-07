@@ -223,7 +223,7 @@ function PracticarInner() {
   return (
     <div style={{ minHeight: "100vh" }}>
       <AppHeader />
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "24px 20px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "24px clamp(16px, 3vw, 24px)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
           <BackLink href={nivel.volverA} label="Volver" />
           <div style={{ minWidth: 0 }}>
@@ -252,16 +252,16 @@ function PracticarInner() {
           <div style={{
             background: `linear-gradient(135deg, var(--accent), var(--accent-hover))`,
             color: "var(--accent-fg)", borderRadius: 14, padding: "14px 18px", marginBottom: 16,
-            display: "flex", alignItems: "center", gap: 14,
+            display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
           }}>
             <span style={{ display: "flex" }}><Icono nombre={iconoFacultad(facultadObj.id)} tamano={28} grosor={1.7} /></span>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: 10.5, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estas postulando a</div>
+            <div style={{ flex: 1, minWidth: 150 }}>
+              <div style={{ fontSize: 10.5, fontWeight: 800, opacity: 0.85, textTransform: "uppercase", letterSpacing: "0.08em" }}>Estás postulando a</div>
               <div style={{ fontSize: 19, fontWeight: 800 }}>{facultadObj.nombre_corto}</div>
             </div>
             <Link
               href="/cambiar-facultad"
-              style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 14px", background: "rgba(255,255,255,0.2)", color: "var(--accent-fg)", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "6px 14px", flexShrink: 0, whiteSpace: "nowrap", background: "rgba(255,255,255,0.2)", color: "var(--accent-fg)", textDecoration: "none", borderRadius: 999, fontSize: 12, fontWeight: 700 }}
             >
               <Icono nombre="candado" tamano={12} /> Cambiar
             </Link>
