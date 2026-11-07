@@ -916,7 +916,7 @@ function ExplicacionExpandible({ texto }: { texto: string }) {
       >
         <span className="text-lg">{abierta ? "▾" : "▸"}</span>
         <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider">
-          <Icono nombre="idea" tamano={13} /> Ver explicación paso a paso
+          <Icono nombre="idea" tamano={13} /> {texto.split("\n").filter((l) => l.trim()).length >= 3 ? "Ver explicación paso a paso" : "Ver explicación"}
         </span>
       </button>
       {abierta && (
