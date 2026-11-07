@@ -232,8 +232,8 @@ function EscLipidos() {
 
       <AutoCheck
         pregunta="¿Qué lípido forma la BICAPA de las membranas celulares?"
-        opciones={["Triglicéridos", "Fosfolípidos", "Esteroides", "Ceras"]}
-        correctaIdx={1}
+        opciones={["Fosfolípidos", "Triglicéridos", "Esteroides", "Ceras"]}
+        correctaIdx={0}
         explicacion="El fosfolípido tiene una punta que ama el agua (la del fosfato) y dos colas que la odian. Por eso se ordenan solos en doble fila: las colas escondidas adentro y las cabezas afuera, tocando el agua de los dos lados. Esa doble fila es la bicapa."
       />
     </EscenaRica>
@@ -692,22 +692,22 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es el monómero de las proteínas?"
-        opciones={["nucleótido", "monosacárido", "aminoácido", "ácido graso"]}
-        correctaIdx={2}
+        opciones={["nucleótido", "monosacárido", "ácido graso", "aminoácido"]}
+        correctaIdx={3}
         explicacion="Las proteínas son cadenas de aminoácidos (20 tipos) unidos por enlaces peptídicos."
       />
 
       <AutoCheck
         pregunta="¿Qué biomolécula almacena MÁS energía por gramo en los animales?"
-        opciones={["almidón", "glucógeno", "celulosa", "triglicéridos"]}
-        correctaIdx={3}
+        opciones={["triglicéridos", "almidón", "glucógeno", "celulosa"]}
+        correctaIdx={0}
         explicacion="Triglicéridos: 9 kcal/g, más del doble que un glúcido. Ojo con la diferencia: el glucógeno también es reserva, pero de corto plazo (hígado y músculo) y rinde menos por gramo. Por eso la pregunta dice 'más energía por gramo' y no solo 'reserva'."
       />
 
       <AutoCheck
         pregunta="La enzima amilasa actúa sobre:"
-        opciones={["proteínas", "almidón", "lípidos", "ácidos nucleicos"]}
-        correctaIdx={1}
+        opciones={["proteínas", "lípidos", "almidón", "ácidos nucleicos"]}
+        correctaIdx={2}
         explicacion="amilasa → 'amil' = almidón. Lipasa → lípidos. Proteasa → proteínas."
       />
     </EscenaRica>

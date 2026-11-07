@@ -262,7 +262,7 @@ function EscGlicolisis() {
 
       <Cuidado>
         La fermentación es <strong>anaeróbica</strong> (sin O₂) y produce
-        MUCHO menos ATP que la respiración aeróbica (2 vs 36+).
+        MUCHO menos ATP que la respiración aeróbica (2 vs 36–38).
       </Cuidado>
     </EscenaRica>
   );
@@ -271,7 +271,7 @@ function EscGlicolisis() {
 function EscKrebs() {
   return (
     <EscenaRica>
-      <Titulo>2. Ciclo de Krebs · ciclo del ácido cítrico</Titulo>
+      <Titulo>3. Ciclo de Krebs · ciclo del ácido cítrico</Titulo>
 
       <Definicion termino="Ciclo de Krebs (Hans Krebs, 1937)">
         Ciclo bioquímico que oxida el ACETIL-CoA hasta CO₂, generando NADH,
@@ -338,7 +338,7 @@ function EscKrebs() {
 function EscCadena() {
   return (
     <EscenaRica>
-      <Titulo>3. Cadena respiratoria · la mayor ganancia</Titulo>
+      <Titulo>4. Cadena respiratoria · la mayor ganancia</Titulo>
 
       <Definicion termino="Cadena respiratoria (transporte de electrones)">
         Los electrones del NADH y FADH₂ bajan por una cadena de proteínas en
@@ -454,6 +454,12 @@ function EscBalanceATP() {
           </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Fíjate que hay dos maneras de repartir: si cuentas solo el ATP que sale
+        directo, la glicólisis da 2; si le sumas lo que después pagan sus NADH
+        en la cadena, da 8. El total es el mismo.
+      </Parrafo>
 
       <Mnemotecnia>
         <strong>"38 ATP por glucosa aeróbica vs 2 ATP anaeróbica."</strong>
@@ -647,7 +653,7 @@ function EscPractica() {
         <strong>Pensar:</strong> que glicólisis es la principal.<br />
         <strong>Realidad:</strong> la glicólisis da solo 2 ATP directos (8 si
         cuentas lo que después pagan sus NADH). La cadena respiratoria aporta
-        32+. Es la principal fuente de ATP en aeróbica.
+        32–34. Es la principal fuente de ATP en aeróbica.
       </Misconception>
 
       <Misconception titulo="Error 4 · 'La fermentación produce más ATP que la respiración'">

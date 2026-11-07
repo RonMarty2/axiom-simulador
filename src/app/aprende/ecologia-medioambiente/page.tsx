@@ -444,7 +444,7 @@ function EscBolivia() {
         Bolivia cuenta con 22 áreas protegidas nacionales que cubren el 17%
         del territorio.
         <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 14 }}>
-          <li><strong>Madidi (La Paz, Beni):</strong> uno de los parques más
+          <li><strong>Madidi (La Paz):</strong> uno de los parques más
             biodiversos del mundo.</li>
           <li><strong>Amboró (Santa Cruz):</strong> ecotonos andino-amazónicos.</li>
           <li><strong>TIPNIS (Cochabamba, Beni):</strong> Territorio Indígena y

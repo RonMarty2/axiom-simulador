@@ -300,8 +300,8 @@ function EscAnimalVegetal() {
 
       <AutoCheck
         pregunta="¿Qué organelo tienen las células vegetales y NO las animales?"
-        opciones={["cloroplasto", "mitocondria", "núcleo", "ribosoma"]}
-        correctaIdx={0}
+        opciones={["mitocondria", "cloroplasto", "núcleo", "ribosoma"]}
+        correctaIdx={1}
         explicacion="Cloroplastos hacen fotosíntesis; las plantas y algas los tienen, las células animales no."
       />
     </EscenaRica>
@@ -542,8 +542,8 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="Si una célula somática humana tiene 46 cromosomas, ¿cuántos tendrán los gametos?"
-        opciones={["23", "46", "92", "24"]}
-        correctaIdx={0}
+        opciones={["46", "92", "24", "23"]}
+        correctaIdx={3}
         explicacion="Los gametos son haploides (n=23). Al fecundarse se vuelven 46 (2n)."
       />
 

@@ -390,7 +390,7 @@ function EscBolivia() {
         de consumo se yoda obligatoriamente.
       </Definicion>
 
-      <Definicion termino="Anemia en altura (Cochabamba, La Paz)">
+      <Definicion termino="Hierro y altura (Cochabamba, La Paz)">
         En zonas de altura, el cuerpo produce más glóbulos rojos para compensar
         la baja PO₂, y cada uno necesita hierro (Fe). Si comes poco hierro,
         aparece la anemia. La quinua y el amaranto son buenas fuentes de Fe.
@@ -443,8 +443,8 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál NO es un bioelemento primario?"
-        opciones={["Na", "C", "O", "P"]}
-        correctaIdx={0}
+        opciones={["C", "Na", "O", "P"]}
+        correctaIdx={1}
         explicacion="Na es secundario. Los primarios son CHON + S y P."
       />
 

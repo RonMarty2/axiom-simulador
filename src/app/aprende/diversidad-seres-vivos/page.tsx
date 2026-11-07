@@ -636,8 +636,8 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Qué grupo NO pertenece al reino Animalia?"
-        opciones={["algas", "esponjas", "medusas", "estrellas de mar"]}
-        correctaIdx={0}
+        opciones={["esponjas", "medusas", "algas", "estrellas de mar"]}
+        correctaIdx={2}
         explicacion="Las algas son Protista. Esponjas, medusas y estrellas son invertebrados (Animalia)."
       />
 

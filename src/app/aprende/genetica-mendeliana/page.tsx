@@ -627,8 +627,8 @@ function EscPractica() {
 
       <AutoCheck
         pregunta="¿Cuál es la proporción fenotípica esperada al cruzar Aa × Aa?"
-        opciones={["1:1", "1:2:1", "3:1", "9:3:3:1"]}
-        correctaIdx={2}
+        opciones={["1:1", "3:1", "1:2:1", "9:3:3:1"]}
+        correctaIdx={1}
         explicacion="Monohíbrida heterocigota: 3 dominantes : 1 recesivo."
       />
 
