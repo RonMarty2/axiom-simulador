@@ -21,3 +21,6 @@ Preguntas 64 (sin texto en el PDF): no las inventes; escribe una línea de comen
 
 ## Entrega
 En `RESPUESTA.md`: al principio una lista de las preguntas con discrepancia o sin clave (número y motivo en 5 palabras). Después UN solo bloque ```python con todas las líneas `q(...)` (sin la cabecera `D = {}` ni `def q`; solo las líneas). No acortes ni resumas: todas completas.
+
+## IMPORTANTE (entrega)
+NO escribas ningún archivo (ni RESPUESTA.md ni ENTREGA_AGY.md): tu RESPUESTA FINAL, el texto de tu último mensaje, ES el contenido completo (la lista inicial y el bloque ```python con las 100 líneas q(...)). El sistema lo guarda solo. No escribas un resumen ni enlaces a archivos: pega el contenido completo en el mensaje.
