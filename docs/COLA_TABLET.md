@@ -1,0 +1,11 @@
+# COLA DE LA TABLET (regla de Ronald, 07-11-2026)
+Toda mejora visible se muestra en la tablet (USB o WiFi) y en 3 vistas: escritorio, celular y tablet. Si la tablet esta ocupada por otra sesion: NO esperar parado; sigue con otra cosa y **anota aqui lo pendiente de mostrar**. Nunca olvidar lo que se queria mostrar.
+Al quedar libre la tablet: la sesion que anoto abre la ruta, mira la captura (800x1340 y 360x740; `wm size reset` al final), y marca la fila. Ronald tambien puede ir revisando esta lista el mismo en su tablet.
+
+| Fecha | Sesion | Ruta/pantalla a mostrar | Que cambio | Vistas pendientes | Estado |
+|---|---|---|---|---|---|
+| 07-11-2026 | axiom visual | /ranking (podio), /cuenta, menu de AppHeader, /errores, /debilidades | Colores a variables, mismo valor salvo /errores (degradé rojo ahora plano `--error`) y /debilidades (ámbar y rojos ahora `--warning`/`--error`) | 800x1340 y 360x740 | HECHO 07-11 7:57: visto en tablet 800x1340 y 360x740 (podio, cuenta, errores y debilidades vacías); falta escritorio |
+| 07-11-2026 | axiom visual | 4-6 lecciones de /aprende (ej. ecuaciones-primer-grado, sistema-cardiovascular, circuitos-dc) | 952 colores de dibujos pasados a `--dib-*`, mismo valor (deben verse IGUAL) | 800x1340 y 360x740 | HECHO parcial 07-11 7:57: operaciones-fundamentales en tablet y 360 px se ve normal; los dibujos con color de otras lecciones no se vieron uno a uno |
+| 07-11-2026 | lagunas /aprende (agy + auditor-pedagogico) | /aprende/gases-ideales (escena Variables y «Comprobamos las CN»), /aprende/logaritmacion (Definicion y Cambio de base), /aprende/trabajo-energia (resorte), /aprende/ecuaciones-segundo-grado, /aprende/razones-trigonometricas, /aprende/electrostatica | 8 textos nuevos de explicacion en 6 lecciones (Ronald aprobo TODO). Ver que no se corten ni desborden formulas | 800x1340, 360x740, escritorio. Hoy bloqueado: localhost:3001 da Build Error en globals.css:3151 (una variable de color mal escrita, de la sesion de colores) | PENDIENTE |
+
+**ORDEN DE RONALD (07-11, opcion A):** 1.º la ventana VISUAL (colores/`--dib-*`/`--podio-*`), 2.º lecciones (/aprende), 3.º el resto por antiguedad. Mientras espera, cada ventana sigue con otra tarea. NADIE sube a main hasta que Ronald lo vea en la tablet y el taller lo ordene.

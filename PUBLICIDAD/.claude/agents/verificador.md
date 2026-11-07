@@ -81,3 +81,6 @@ Tres bloques, cortos:
 3. **Limpio**: qué verificaste y pasó, en una línea por ítem.
 
 Cerrá con una sola pregunta, respondida: **¿lo aprobaría un ingeniero senior tal como está?** Si todo está bien, decilo sin adornos. No inventes hallazgos para llenar el reporte.
+
+## Regla principal de Ronald (6-nov-2026): lo visible se muestra en la tablet
+Si el diff toca `src/**/*.tsx|css` (algo que se ve en pantalla) y la sesión no dejó la dirección para la tablet, los pasos en la app y el antes/después (`node scripts/ver-en-tablet.mjs /<ruta>`), repórtalo como hallazgo: el cambio no está terminado. Ver `CLAUDE.md`, regla 9.

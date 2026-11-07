@@ -19,6 +19,9 @@ Este archivo tenía los hex copiados y quedó desactualizado: el 1-nov se diseñ
 
 Tipografías: Crimson Pro (títulos, números, fórmulas) y Atkinson Hyperlegible (texto y UI). En la app, todo color va por `var(--accent)`, `var(--accent-soft)`, etc., nunca el hex a mano.
 
+## Criterio de Ronald (06-11): un color se cambia en UN solo lugar
+Ronald: «todo es escalable, robusto, fácil de mantener, ¿o sea si mañana quiero otro color será fácil?». Por eso: en pantallas y componentes del alumno **cero hex/rgba escritos a mano**; todo por `var(--...)` de `src/app/globals.css` (acento por `[data-facultad]`, error/aviso/éxito en `:root`). Si falta un token, se agrega UNA vez en `globals.css`, no se escribe el valor en el componente. Medida de salud: `grep -rE '#[0-9a-fA-F]{6}' src/app --include=*.tsx` (sin láminas/aprende/admin) debe tender a 0; las excepciones (podio, premio, FiguraExamen) se listan con su motivo. Al terminar un lote de colores, decirle a Ronald cuántos quedan y dónde.
+
 ## 2. App crema, anuncios oscuros
 La app es crema; los anuncios son de noche azulada (titular serif con palabra en cursiva clara subrayada, tarjeta crema, botón con resplandor). No se mezclan. La única excepción, decidida por Ronald el 1-nov, es el bloque del premio del refuerzo intermitente (detalle en `docs/identidad-visual.md` §4). Otra mezcla se le propone a Ronald, no se decide sola.
 
