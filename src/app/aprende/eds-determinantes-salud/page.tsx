@@ -75,7 +75,7 @@ function EscLalonde() {
             { y: 50, t: "Estilo de vida", per: "43%", d: "fumar, alcohol, dieta, ejercicio, conducción", c: LIENZO.bad },
             { y: 100, t: "Medio ambiente", per: "19%", d: "agua, aire, vivienda, ruido, contaminación", c: LIENZO.warn },
             { y: 150, t: "Biología humana", per: "27%", d: "genética, envejecimiento", c: LIENZO.ok },
-            { y: 200, t: "Sistema sanitario", per: "11%", d: "acceso a médicos, hospitales, medicinas", c: "#06b6d4" },
+            { y: 200, t: "Sistema sanitario", per: "11%", d: "acceso a médicos, hospitales, medicinas", c: "var(--dib-cyan-500)" },
           ].map((d, i) => (
             <g key={i} transform={`translate(80, ${d.y})`}>
               <rect width={parseInt(d.per) * 5} height={36} fill={d.c} opacity={0.4} stroke={d.c} strokeWidth={1.5} rx={4} />
@@ -199,11 +199,11 @@ function EscBolivia() {
             Datos clave (referencia)
           </text>
           {[
-            { t: "Esperanza de vida", v: "~72 años (variable región)", c: "#06b6d4" },
-            { t: "Mortalidad infantil", v: "~22 por mil nac. vivos", c: "#f59e0b" },
+            { t: "Esperanza de vida", v: "~72 años (variable región)", c: "var(--dib-cyan-500)" },
+            { t: "Mortalidad infantil", v: "~22 por mil nac. vivos", c: "var(--dib-amber-500)" },
             { t: "Mortalidad materna", v: "~155 por 100.000 nac.", c: LIENZO.bad },
             { t: "Cobertura vacunal", v: "85-90% (calendarios)", c: LIENZO.ok },
-            { t: "Acceso agua segura", v: "~88% urbano, ~67% rural", c: "#a78bfa" },
+            { t: "Acceso agua segura", v: "~88% urbano, ~67% rural", c: "var(--dib-violet-400)" },
             { t: "Médicos / 1.000 hab", v: "~1.7 (OMS rec.: 2.5)", c: LIENZO.warn },
           ].map((d, i) => (
             <g key={i} transform={`translate(80, ${55 + i * 25})`}>

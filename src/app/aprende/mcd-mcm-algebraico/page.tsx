@@ -543,7 +543,7 @@ function Esc07_Practica() {
                   <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
                     style={{
                       padding: "10px 14px",
-                      background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)",
+                      background: !rev ? "var(--bg-base)" : isOk ? "var(--dib-emerald-100)" : isSel ? "var(--dib-red-100)" : "var(--bg-base)",
                       border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`,
                       borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer",
                       fontFamily: "var(--font-crimson), serif", textAlign: "left",
@@ -552,7 +552,7 @@ function Esc07_Practica() {
               })}
             </div>
             {rev && (
-              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "var(--dib-emerald-50)" : "var(--dib-red-50)", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
                 <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
               </div>
             )}
@@ -561,9 +561,9 @@ function Esc07_Practica() {
       })}
       {Object.keys(resp).length === ejs.length && (
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          style={{ padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominas MCD/MCM algebraicos."}
             {ok >= 3 && ok < ejs.length && "Bien. La clave: factorizar primero."}
             {ok < 3 && "Relee la factorización (lección anterior) y vuelve acá."}

@@ -167,7 +167,7 @@ export default function DebilidadesPage() {
         )}
 
         {error && (
-          <div style={{ marginTop: 16, padding: 14, background: "rgba(239,68,68,0.1)", color: "#b91c1c", borderRadius: 10, fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="alerta" tamano={15} /> {error}</div>
+          <div style={{ marginTop: 16, padding: 14, background: "var(--error-light)", color: "var(--error)", borderRadius: 10, fontSize: 14, display: "flex", alignItems: "center", gap: 8 }}><Icono nombre="alerta" tamano={15} /> {error}</div>
         )}
       </div>
     </div>

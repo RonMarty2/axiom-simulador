@@ -82,7 +82,7 @@ export default function ErroresPage() {
             </div>
 
             {/* CTA: practicar mis errores */}
-            <div style={{ background: "linear-gradient(135deg, #ef4444, #dc2626)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
+            <div style={{ background: "var(--error)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
               <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre="errores" tamano={32} /></div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 16, fontWeight: 800 }}>{paraHoy > 0 ? `Tienes ${paraHoy} ${paraHoy === 1 ? "pregunta" : "preguntas"} para repasar hoy` : "Hoy no te toca repasar"}</div>
@@ -92,7 +92,7 @@ export default function ErroresPage() {
                   {dominadasHoy >= 1 && <div style={{ fontWeight: 700, marginTop: 4 }}>{textoDominadas(dominadasHoy)}</div>}
                 </div>
               </div>
-              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "#dc2626", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}
+              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "var(--error)", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}
             </div>
 
             {/* Lista */}

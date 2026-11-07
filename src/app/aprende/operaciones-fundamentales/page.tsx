@@ -134,10 +134,10 @@ function Esc02_Numeros() {
       </div>
 
       <Definicion termino="Tipos de números">
-        <strong style={{ color: "#3b82f6" }}>Naturales (ℕ):</strong> 1, 2, 3, 4… (para contar).<br />
-        <strong style={{ color: "#10b981" }}>Enteros (ℤ):</strong> los naturales + sus opuestos + el 0: …−3, −2, −1, 0, 1, 2, 3…<br />
-        <strong style={{ color: "#f59e0b" }}>Racionales (ℚ):</strong> los que se pueden escribir como fracción a/b. Incluye 1/2, 0,75, −3, etc.<br />
-        <strong style={{ color: "#8b5cf6" }}>Reales (ℝ):</strong> todo lo de arriba + irracionales (√2, π, e…).
+        <strong style={{ color: "var(--dib-blue-500)" }}>Naturales (ℕ):</strong> 1, 2, 3, 4… (para contar).<br />
+        <strong style={{ color: "var(--dib-emerald-500)" }}>Enteros (ℤ):</strong> los naturales + sus opuestos + el 0: …−3, −2, −1, 0, 1, 2, 3…<br />
+        <strong style={{ color: "var(--dib-amber-500)" }}>Racionales (ℚ):</strong> los que se pueden escribir como fracción a/b. Incluye 1/2, 0,75, −3, etc.<br />
+        <strong style={{ color: "var(--dib-violet-500)" }}>Reales (ℝ):</strong> todo lo de arriba + irracionales (√2, π, e…).
       </Definicion>
 
       <Parrafo>
@@ -161,7 +161,7 @@ function Esc02_Numeros() {
 function Esc03_SumaConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#10b981">Suma: combinar cantidades</Titulo>
+      <Titulo accent="var(--dib-emerald-500)">Suma: combinar cantidades</Titulo>
 
       <Parrafo>
         <strong>Sumar</strong> es la operación más básica: juntas dos (o más) cantidades
@@ -175,7 +175,7 @@ function Esc03_SumaConcepto() {
             <motion.div key={`a${k}`}
               initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: k * 0.1, type: "spring" }}
-              style={{ position: "absolute", left: 50 + k * 32, top: 40, width: 28, height: 28, borderRadius: "50%", background: "#3b82f6", border: "2px solid #1e40af" }} />
+              style={{ position: "absolute", left: 50 + k * 32, top: 40, width: 28, height: 28, borderRadius: "50%", background: "var(--dib-blue-500)", border: "2px solid var(--dib-blue-800)" }} />
           ))}
           <div style={{ position: "absolute", left: 64, top: 80, fontSize: 24, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>3</div>
 
@@ -186,7 +186,7 @@ function Esc03_SumaConcepto() {
             <motion.div key={`b${k}`}
               initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4 + k * 0.1, type: "spring" }}
-              style={{ position: "absolute", left: 210 + k * 32, top: 40, width: 28, height: 28, borderRadius: "50%", background: "#f59e0b", border: "2px solid #b45309" }} />
+              style={{ position: "absolute", left: 210 + k * 32, top: 40, width: 28, height: 28, borderRadius: "50%", background: "var(--dib-amber-500)", border: "2px solid var(--dib-amber-700)" }} />
           ))}
           <div style={{ position: "absolute", left: 222, top: 80, fontSize: 24, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>2</div>
 
@@ -197,7 +197,7 @@ function Esc03_SumaConcepto() {
             <motion.div key={`c${k}`}
               initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1 + k * 0.08, type: "spring" }}
-              style={{ position: "absolute", left: 325 + k * 14, top: 40, width: 28, height: 28, borderRadius: "50%", background: COLOR_OK, border: "2px solid #065f46" }} />
+              style={{ position: "absolute", left: 325 + k * 14, top: 40, width: 28, height: 28, borderRadius: "50%", background: COLOR_OK, border: "2px solid var(--dib-emerald-800)" }} />
           ))}
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4 }}
             style={{ position: "absolute", left: 354, top: 80, fontSize: 28, color: COLOR_OK, fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>5</motion.div>
@@ -231,7 +231,7 @@ function Esc03_SumaConcepto() {
 function Esc04_SumaProps() {
   return (
     <EscenaRica>
-      <Titulo accent="#10b981">Las 3 propiedades de la suma</Titulo>
+      <Titulo accent="var(--dib-emerald-500)">Las 3 propiedades de la suma</Titulo>
       <Parrafo>
         La suma tiene 3 propiedades importantes. No son trucos de memoria:
         son cosas que <em>siempre</em> valen y que vas a usar en todo lo siguiente.
@@ -291,7 +291,7 @@ function Esc04_SumaProps() {
 function Esc05_RestaConcepto() {
   return (
     <EscenaRica>
-      <Titulo accent="#f59e0b">Resta: quitar de un total</Titulo>
+      <Titulo accent="var(--dib-amber-500)">Resta: quitar de un total</Titulo>
 
       <Parrafo>
         <strong>Restar</strong> es lo opuesto a sumar: quitas una cantidad de otra.
@@ -333,7 +333,7 @@ function Esc05_RestaConcepto() {
 function Esc06_RestaNeg() {
   return (
     <EscenaRica>
-      <Titulo accent="#f59e0b">Cuando la resta da negativo</Titulo>
+      <Titulo accent="var(--dib-amber-500)">Cuando la resta da negativo</Titulo>
 
       <Parrafo>
         ¿Qué pasa si quieres restar más de lo que tienes? Por ejemplo, ¿cuánto es
@@ -714,7 +714,7 @@ function Esc13_JerIntro() {
         fontFamily: "var(--font-crimson), serif",
       }}>
         <div style={{
-          padding: "14px 12px", borderRadius: 12, background: "#fee2e2", border: `2px solid ${COLOR_BAD}`,
+          padding: "14px 12px", borderRadius: 12, background: "var(--dib-red-100)", border: `2px solid ${COLOR_BAD}`,
           textAlign: "center",
         }}>
           <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_BAD, marginBottom: 4 }}>SI SUMAS PRIMERO</div>
@@ -722,7 +722,7 @@ function Esc13_JerIntro() {
           <div style={{ fontSize: 11, color: COLOR_BAD, marginTop: 4 }}>(incorrecto)</div>
         </div>
         <div style={{
-          padding: "14px 12px", borderRadius: 12, background: "#d1fae5", border: `2px solid ${COLOR_OK}`,
+          padding: "14px 12px", borderRadius: 12, background: "var(--dib-emerald-100)", border: `2px solid ${COLOR_OK}`,
           textAlign: "center",
         }}>
           <div style={{ fontSize: 13, fontWeight: 800, color: COLOR_OK, marginBottom: 4 }}>SI MULTIPLICAS PRIMERO</div>
@@ -760,10 +760,10 @@ function Esc14_PEMDAS() {
 
       <div style={{ display: "flex", flexDirection: "column", gap: 8, maxWidth: 520, width: "100%" }}>
         {[
-          { letra: "P", nombre: "Paréntesis", det: "Primero todo lo que esté entre ( )", color: "#3b82f6" },
-          { letra: "E", nombre: "Exponentes y raíces", det: "Después las potencias y las raíces", color: "#8b5cf6" },
-          { letra: "MD", nombre: "Multiplicaciones y divisiones", det: "De izquierda a derecha, EN EL ORDEN QUE APARECEN", color: "#10b981" },
-          { letra: "AS", nombre: "Adiciones (sumas) y sustracciones (restas)", det: "También de izquierda a derecha", color: "#f59e0b" },
+          { letra: "P", nombre: "Paréntesis", det: "Primero todo lo que esté entre ( )", color: "var(--dib-blue-500)" },
+          { letra: "E", nombre: "Exponentes y raíces", det: "Después las potencias y las raíces", color: "var(--dib-violet-500)" },
+          { letra: "MD", nombre: "Multiplicaciones y divisiones", det: "De izquierda a derecha, EN EL ORDEN QUE APARECEN", color: "var(--dib-emerald-500)" },
+          { letra: "AS", nombre: "Adiciones (sumas) y sustracciones (restas)", det: "También de izquierda a derecha", color: "var(--dib-amber-500)" },
         ].map((r, k) => (
           <div key={k} style={{
             display: "flex", alignItems: "center", gap: 14,
@@ -994,8 +994,8 @@ function Esc17_Practica() {
                     style={{
                       padding: "10px 14px",
                       background: !reveal ? "var(--bg-base)"
-                        : ok ? "#d1fae5"
-                        : sel ? "#fee2e2"
+                        : ok ? "var(--dib-emerald-100)"
+                        : sel ? "var(--dib-red-100)"
                         : "var(--bg-base)",
                       border: `1.5px solid ${!reveal ? "var(--border)" : ok ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
                       borderRadius: 10, fontSize: 18, fontWeight: 700,
@@ -1013,7 +1013,7 @@ function Esc17_Practica() {
             {reveal && (
               <div style={{
                 marginTop: 10, padding: "10px 12px",
-                background: elegida === ej.correctaIdx ? "#ecfdf5" : "#fef2f2",
+                background: elegida === ej.correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
                 borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5,
               }}>
                 <strong style={{ color: elegida === ej.correctaIdx ? COLOR_OK : COLOR_BAD }}>
@@ -1030,15 +1030,15 @@ function Esc17_Practica() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
           style={{
-            padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+            padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))",
             border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%",
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
             {correctas} / {ejercicios.length} correctas
           </div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {correctas === ejercicios.length && "🎉 ¡Perfecto! Tienes bien dominadas las operaciones fundamentales."}
             {correctas >= 3 && correctas < ejercicios.length && "Muy bien. Repasa los ejercicios que te costaron y vuelve en unos días."}
             {correctas < 3 && "Vuelve a las escenas anteriores y repasa los conceptos. La práctica gana, no te apures."}

@@ -18,21 +18,21 @@ import React from "react";
 // en 519 lugares, muchos dentro de atributos SVG y de props de framer-motion,
 // donde una variable CSS no siempre interpola bien. Lo que sí se hizo es
 // alinear los valores con los tokens de globals.css para que la lección no
-// parezca otra app: el acento era violeta (#6d28d9), de la paleta anterior al
+// parezca otra app: el acento era violeta (var(--dib-violet-700)), de la paleta anterior al
 // rediseño, mientras el resto del producto ya era terracota.
 // Si alguna vez cambian los tokens globales, hay que tocar acá también.
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const LIENZO = {
-  bg: "#faf7f0",          // = --bg-base
-  bgSoft: "#f2ece0",      // = --bg-subtle
-  fg: "#1a1f2e",          // = --fg-primary
-  fgDim: "#5a6072",       // = --fg-muted
-  fgFaint: "#c9bda3",     // = --border-hover (líneas y bordes apenas visibles)
-  accent: "#9c3d1c",      // = --accent (terracota del rediseño)
-  ok: "#1e5f4f",          // = --green
-  warn: "#d97706",        // ámbar quemado
-  bad: "#dc2626",         // rojo
+  bg: "var(--bg-base)",          // = --bg-base
+  bgSoft: "var(--bg-subtle)",      // = --bg-subtle
+  fg: "var(--fg-primary)",          // = --fg-primary
+  fgDim: "var(--fg-muted)",       // = --fg-muted
+  fgFaint: "var(--border-hover)",     // = --border-hover (líneas y bordes apenas visibles)
+  accent: "var(--accent)",      // = --accent (terracota del rediseño)
+  ok: "var(--green)",          // = --green
+  warn: "var(--dib-amber-600)",        // ámbar quemado
+  bad: "var(--dib-red-600)",         // rojo
 };
 
 export function Lienzo({ children }: { children: React.ReactNode }) {

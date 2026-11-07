@@ -285,7 +285,7 @@ function EscMutaciones() {
             { t: "Silenciosa", d: "cambia base pero NO cambia aa", ej: "GCU → GCC (ambos Alanina)", c: LIENZO.ok },
             { t: "Missense", d: "cambia 1 aa por otro", ej: "GAA → GUA (Glu → Val)", c: LIENZO.warn },
             { t: "Nonsense", d: "introduce codón STOP prematuro", ej: "UCA → UGA (Ser → Stop)", c: LIENZO.bad },
-            { t: "Frameshift", d: "inserción/deleción cambia el marco de lectura", ej: "todo después se traduce mal", c: "#dc2626" },
+            { t: "Frameshift", d: "inserción/deleción cambia el marco de lectura", ej: "todo después se traduce mal", c: "var(--dib-red-600)" },
           ].map((m, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 36})`}>
               <rect width={580} height={32} fill={m.c} opacity={0.1} stroke={m.c} strokeWidth={1.5} rx={4} />

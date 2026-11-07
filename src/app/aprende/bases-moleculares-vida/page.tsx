@@ -51,10 +51,10 @@ function EscIntro() {
             Los 4 tipos de biomoléculas
           </text>
           {[
-            { x: 100, t: "Glúcidos", e: "CHO", fn: "energía rápida", ej: "glucosa, almidón", c: "#f59e0b" },
-            { x: 290, t: "Lípidos", e: "CHO (poco O)", fn: "reserva energía, membranas", ej: "grasas, colesterol", c: "#eab308" },
-            { x: 480, t: "Proteínas", e: "CHON(S)", fn: "estructura, enzimas, transporte", ej: "hemoglobina, queratina", c: "#10b981" },
-            { x: 100, y: 145, t: "Ácidos nucleicos", e: "CHONP", fn: "info genética", ej: "ADN, ARN", c: "#a78bfa" },
+            { x: 100, t: "Glúcidos", e: "CHO", fn: "energía rápida", ej: "glucosa, almidón", c: "var(--dib-amber-500)" },
+            { x: 290, t: "Lípidos", e: "CHO (poco O)", fn: "reserva energía, membranas", ej: "grasas, colesterol", c: "var(--dib-yellow-500)" },
+            { x: 480, t: "Proteínas", e: "CHON(S)", fn: "estructura, enzimas, transporte", ej: "hemoglobina, queratina", c: "var(--dib-emerald-500)" },
+            { x: 100, y: 145, t: "Ácidos nucleicos", e: "CHONP", fn: "info genética", ej: "ADN, ARN", c: "var(--dib-violet-400)" },
           ].map((b, i) => (
             <g key={i} transform={`translate(${b.x - 70}, ${b.y || 50})`}>
               <rect width={150} height={90} fill={b.c} opacity={0.1} stroke={b.c} strokeWidth={1.5} rx={10} />
@@ -108,9 +108,9 @@ function EscGlucidos() {
             Clasificación por número de unidades
           </text>
           {[
-            { x: 90, t: "Monosacárido", n: "1", ej: "glucosa, fructosa, galactosa", c: "#f59e0b" },
-            { x: 290, t: "Disacárido", n: "2", ej: "sacarosa, lactosa, maltosa", c: "#fb923c" },
-            { x: 490, t: "Polisacárido", n: "muchas", ej: "almidón, glucógeno, celulosa", c: "#ef4444" },
+            { x: 90, t: "Monosacárido", n: "1", ej: "glucosa, fructosa, galactosa", c: "var(--dib-amber-500)" },
+            { x: 290, t: "Disacárido", n: "2", ej: "sacarosa, lactosa, maltosa", c: "var(--dib-orange-400)" },
+            { x: 490, t: "Polisacárido", n: "muchas", ej: "almidón, glucógeno, celulosa", c: "var(--dib-red-500)" },
           ].map((g, i) => (
             <g key={i} transform={`translate(${g.x}, 50)`}>
               <rect x={-10} y={0} width={180} height={140} fill={g.c} opacity={0.1} stroke={g.c} strokeWidth={1.5} rx={10} />
@@ -311,10 +311,10 @@ function EscProteinas() {
             4 niveles estructurales de las proteínas
           </text>
           {[
-            { x: 90, t: "Primaria", d: "secuencia lineal de aa", c: "#3b82f6" },
-            { x: 290, t: "Secundaria", d: "α-hélice o lámina β (puentes H)", c: "#10b981" },
-            { x: 490, t: "Terciaria", d: "estructura 3D (puentes S-S, otras)", c: "#a78bfa" },
-            { x: 290, t: "Cuaternaria", d: "varias cadenas (hemoglobina: 4)", c: "#ef4444", y: 150 },
+            { x: 90, t: "Primaria", d: "secuencia lineal de aa", c: "var(--dib-blue-500)" },
+            { x: 290, t: "Secundaria", d: "α-hélice o lámina β (puentes H)", c: "var(--dib-emerald-500)" },
+            { x: 490, t: "Terciaria", d: "estructura 3D (puentes S-S, otras)", c: "var(--dib-violet-400)" },
+            { x: 290, t: "Cuaternaria", d: "varias cadenas (hemoglobina: 4)", c: "var(--dib-red-500)", y: 150 },
           ].map((n, i) => (
             <g key={i} transform={`translate(${n.x - 80}, ${n.y || 50})`}>
               <rect width={160} height={90} fill={n.c} opacity={0.1} stroke={n.c} strokeWidth={1.5} rx={10} />
@@ -338,12 +338,12 @@ function EscProteinas() {
             Funciones de las proteínas
           </text>
           {[
-            { x: 100, t: "Estructural", ej: "queratina, colágeno", c: "#3b82f6" },
-            { x: 290, t: "Catalítica", ej: "enzimas", c: "#10b981" },
-            { x: 480, t: "Transporte", ej: "hemoglobina", c: "#ef4444" },
-            { x: 100, y: 130, t: "Defensa", ej: "anticuerpos", c: "#a78bfa" },
-            { x: 290, y: 130, t: "Movimiento", ej: "actina, miosina", c: "#f59e0b" },
-            { x: 480, y: 130, t: "Hormonal", ej: "insulina", c: "#06b6d4" },
+            { x: 100, t: "Estructural", ej: "queratina, colágeno", c: "var(--dib-blue-500)" },
+            { x: 290, t: "Catalítica", ej: "enzimas", c: "var(--dib-emerald-500)" },
+            { x: 480, t: "Transporte", ej: "hemoglobina", c: "var(--dib-red-500)" },
+            { x: 100, y: 130, t: "Defensa", ej: "anticuerpos", c: "var(--dib-violet-400)" },
+            { x: 290, y: 130, t: "Movimiento", ej: "actina, miosina", c: "var(--dib-amber-500)" },
+            { x: 480, y: 130, t: "Hormonal", ej: "insulina", c: "var(--dib-cyan-500)" },
           ].map((f, i) => (
             <g key={i} transform={`translate(${f.x - 70}, ${f.y || 50})`}>
               <rect width={140} height={60} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={8} />
@@ -405,8 +405,8 @@ function EscEnzimas() {
 
           {/* Productos */}
           <g transform="translate(600, 80)">
-            <circle r={12} cx={15} cy={20} fill="#a78bfa" />
-            <circle r={12} cx={50} cy={35} fill="#06b6d4" />
+            <circle r={12} cx={15} cy={20} fill="var(--dib-violet-400)" />
+            <circle r={12} cx={50} cy={35} fill="var(--dib-cyan-500)" />
             <text x={32} y={70} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>productos</text>
           </g>
         </svg>
@@ -530,9 +530,9 @@ function EscDogma() {
           </text>
 
           {[
-            { x: 120, t: "ADN", c: "#3b82f6", y: 110 },
-            { x: 360, t: "ARNm", c: "#10b981", y: 110 },
-            { x: 600, t: "Proteína", c: "#a78bfa", y: 110 },
+            { x: 120, t: "ADN", c: "var(--dib-blue-500)", y: 110 },
+            { x: 360, t: "ARNm", c: "var(--dib-emerald-500)", y: 110 },
+            { x: 600, t: "Proteína", c: "var(--dib-violet-400)", y: 110 },
           ].map((b, i) => (
             <g key={i}>
               <circle cx={b.x} cy={b.y} r={40} fill={b.c} opacity={0.15} stroke={b.c} strokeWidth={2} />

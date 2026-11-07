@@ -43,7 +43,7 @@ function EscSimFiltracion() {
   }, [tfg, reabsorcionPct]);
 
   const estado = tfg >= 90 ? "Normal" : tfg >= 60 ? "Leve daño" : tfg >= 30 ? "Moderado" : tfg >= 15 ? "Grave" : "Falla renal terminal";
-  const colorEstado = tfg >= 90 ? "#10b981" : tfg >= 60 ? "#84cc16" : tfg >= 30 ? "#f59e0b" : tfg >= 15 ? "#ef4444" : "#7f1d1d";
+  const colorEstado = tfg >= 90 ? "var(--dib-emerald-500)" : tfg >= 60 ? "var(--dib-lime-500)" : tfg >= 30 ? "var(--dib-amber-500)" : tfg >= 15 ? "var(--dib-red-500)" : "var(--dib-red-900)";
 
   return (
     <EscenaRica>
@@ -55,42 +55,42 @@ function EscSimFiltracion() {
         indicador de función renal.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ marginBottom: 14 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#60a5fa" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-blue-400)" }}>
             TFG = {tfg} mL/min
           </label>
           <input type="range" min={5} max={150} step={1} value={tfg}
             onChange={(e) => setTfg(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#60a5fa" }} />
+            style={{ width: "100%", accentColor: "var(--dib-blue-400)" }} />
           <div style={{ marginTop: 4, fontSize: 11, color: colorEstado, fontWeight: 600, textAlign: "center" }}>
             {estado}
           </div>
         </div>
 
         <div style={{ marginBottom: 14 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-emerald-500)" }}>
             Reabsorción tubular = {reabsorcionPct}%
           </label>
           <input type="range" min={80} max={99.9} step={0.1} value={reabsorcionPct}
             onChange={(e) => setReabsorcionPct(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#10b981" }} />
+            style={{ width: "100%", accentColor: "var(--dib-emerald-500)" }} />
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+          <div style={{ background: "var(--dib-slate-800)", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-blue-400)" }}>
             <div style={{ fontSize: 10, opacity: 0.7 }}>Filtrado / día</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: "#60a5fa" }}>{calc.filtradoDia}</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "var(--dib-blue-400)" }}>{calc.filtradoDia}</div>
             <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
           </div>
-          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #10b981" }}>
+          <div style={{ background: "var(--dib-slate-800)", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-emerald-500)" }}>
             <div style={{ fontSize: 10, opacity: 0.7 }}>Reabsorbido</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: "#10b981" }}>{calc.reabsorbido}</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "var(--dib-emerald-500)" }}>{calc.reabsorbido}</div>
             <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
           </div>
-          <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid #f59e0b" }}>
+          <div style={{ background: "var(--dib-slate-800)", padding: 10, borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-amber-500)" }}>
             <div style={{ fontSize: 10, opacity: 0.7 }}>Orina final</div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: "#f59e0b" }}>{calc.orinaDia}</div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: "var(--dib-amber-500)" }}>{calc.orinaDia}</div>
             <div style={{ fontSize: 10, opacity: 0.7 }}>L/día</div>
           </div>
         </div>
@@ -151,10 +151,10 @@ function EscOrganos() {
             Camino de la orina
           </text>
           {[
-            { t: "Riñones (2)", d: "filtran sangre, producen orina (~150 g cada uno, forma de poroto)", c: "#dc2626" },
-            { t: "Uréteres (2)", d: "tubos que llevan la orina del riñón a la vejiga (~25 cm)", c: "#f59e0b" },
-            { t: "Vejiga", d: "saco muscular que almacena orina (capacidad ~400 mL)", c: "#a78bfa" },
-            { t: "Uretra", d: "conduce la orina al exterior (3–5 cm mujer, 20 cm varón)", c: "#06b6d4" },
+            { t: "Riñones (2)", d: "filtran sangre, producen orina (~150 g cada uno, forma de poroto)", c: "var(--dib-red-600)" },
+            { t: "Uréteres (2)", d: "tubos que llevan la orina del riñón a la vejiga (~25 cm)", c: "var(--dib-amber-500)" },
+            { t: "Vejiga", d: "saco muscular que almacena orina (capacidad ~400 mL)", c: "var(--dib-violet-400)" },
+            { t: "Uretra", d: "conduce la orina al exterior (3–5 cm mujer, 20 cm varón)", c: "var(--dib-cyan-500)" },
           ].map((o, i) => (
             <g key={i} transform={`translate(80, ${55 + i * 40})`}>
               <rect width={580} height={34} fill={o.c} opacity={0.15} stroke={o.c} strokeWidth={1.5} rx={6} />
@@ -218,8 +218,8 @@ function EscNefrona() {
           <text x={550} y={75} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={600}>TCD</text>
 
           {/* Túbulo colector */}
-          <line x1={600} y1={110} x2={650} y2={220} stroke="#06b6d4" strokeWidth={4} />
-          <text x={640} y={200} textAnchor="middle" fill="#06b6d4" fontSize={11} fontWeight={600}>colector</text>
+          <line x1={600} y1={110} x2={650} y2={220} stroke="var(--dib-cyan-500)" strokeWidth={4} />
+          <text x={640} y={200} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={11} fontWeight={600}>colector</text>
         </svg>
       </Pizarra>
 
@@ -249,7 +249,7 @@ function EscFormacion() {
             3 procesos secuenciales
           </text>
           {[
-            { x: 90, t: "1. Filtración", lug: "glomérulo", d: "~180 L/día. Pasa todo menos eritrocitos y proteínas grandes", c: "#dc2626" },
+            { x: 90, t: "1. Filtración", lug: "glomérulo", d: "~180 L/día. Pasa todo menos eritrocitos y proteínas grandes", c: "var(--dib-red-600)" },
             { x: 90, t: "2. Reabsorción", lug: "TCP, asa, TCD", d: "99% del filtrado vuelve a la sangre (agua, glucosa, sales)", c: LIENZO.ok, y: 100 },
             { x: 90, t: "3. Secreción", lug: "TCP, TCD", d: "el riñón vierte H⁺, K⁺, urea y fármacos a la orina", c: LIENZO.warn, y: 160 },
           ].map((p, i) => (
@@ -304,10 +304,10 @@ function EscComposicion() {
             ¿Qué te dice la orina?
           </text>
           {[
-            { x: 90, c: "#fef3c7", l: "Amarillo claro", d: "hidratado" },
-            { x: 250, c: "#fbbf24", l: "Amarillo medio", d: "normal" },
-            { x: 410, c: "#d97706", l: "Ámbar oscuro", d: "deshidratado" },
-            { x: 570, c: "#dc2626", l: "Rojizo", d: "sangre (hematuria)" },
+            { x: 90, c: "var(--dib-amber-100)", l: "Amarillo claro", d: "hidratado" },
+            { x: 250, c: "var(--dib-amber-400)", l: "Amarillo medio", d: "normal" },
+            { x: 410, c: "var(--dib-amber-600)", l: "Ámbar oscuro", d: "deshidratado" },
+            { x: 570, c: "var(--dib-red-600)", l: "Rojizo", d: "sangre (hematuria)" },
           ].map((c, i) => (
             <g key={i} transform={`translate(${c.x - 60}, 55)`}>
               <rect width={120} height={70} fill={c.c} opacity={0.8} stroke={LIENZO.fg} strokeWidth={1} rx={6} />

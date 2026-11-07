@@ -250,6 +250,68 @@ body {
   --error-light: #f8ebe6;
   --warning: #c07a2a;
   --warning-light: #f8f0e2;
+  /* Paleta de dibujos de láminas y lecciones (06-11). Un solo lugar: cambiar un valor cambia todos los dibujos. */
+  --dib-amber-100: #fef3c7;
+  --dib-amber-200: #fde68a;
+  --dib-amber-300: #fcd34d;
+  --dib-amber-400: #fbbf24;
+  --dib-amber-50: #fffbeb;
+  --dib-amber-500: #f59e0b;
+  --dib-amber-600: #d97706;
+  --dib-amber-700: #b45309;
+  --dib-amber-800: #92400e;
+  --dib-amber-900: #78350f;
+  --dib-blue-400: #60a5fa;
+  --dib-blue-500: #3b82f6;
+  --dib-blue-800: #1e40af;
+  --dib-cyan-500: #06b6d4;
+  --dib-emerald-100: #d1fae5;
+  --dib-emerald-200: #a7f3d0;
+  --dib-emerald-50: #ecfdf5;
+  --dib-emerald-500: #10b981;
+  --dib-emerald-800: #065f46;
+  --dib-gray-200: #e5e7eb;
+  --dib-gray-400: #9ca3af;
+  --dib-gray-700: #374151;
+  --dib-green-500: #22c55e;
+  --dib-green-600: #16a34a;
+  --dib-green-700: #15803d;
+  --dib-lime-500: #84cc16;
+  --dib-neutral-100: #f5f5f5;
+  --dib-orange-400: #fb923c;
+  --dib-orange-500: #f97316;
+  --dib-orange-600: #ea580c;
+  --dib-pink-500: #ec4899;
+  --dib-purple-500: #a855f7;
+  --dib-red-100: #fee2e2;
+  --dib-red-200: #fecaca;
+  --dib-red-300: #fca5a5;
+  --dib-red-400: #f87171;
+  --dib-red-50: #fef2f2;
+  --dib-red-500: #ef4444;
+  --dib-red-600: #dc2626;
+  --dib-red-900: #7f1d1d;
+  --dib-rose-600: #e11d48;
+  --dib-sky-500: #0ea5e9;
+  --dib-slate-200: #e2e8f0;
+  --dib-slate-300: #cbd5e1;
+  --dib-slate-400: #94a3b8;
+  --dib-slate-600: #475569;
+  --dib-slate-800: #1e293b;
+  --dib-slate-900: #0f172a;
+  --dib-violet-400: #a78bfa;
+  --dib-violet-500: #8b5cf6;
+  --dib-violet-600: #7c3aed;
+  --dib-violet-700: #6d28d9;
+  --dib-yellow-500: #eab308;
+  --dib-yellow-600: #ca8a04;
+  --dib-yellow-700: #a16207;
+  /* Podio del ranking y colores de plan: a proposito, se cambian aqui */
+  --podio-oro-borde: #b45309; --podio-oro-claro: #d97706; --podio-oro-oscuro: #92400e; --podio-oro-avatar: #f59e0b;
+  --podio-plata-borde: #64748b; --podio-plata-oscuro: #334155; --podio-plata-avatar: #94a3b8;
+  --podio-bronce-borde: #9c3d1c; --podio-bronce-oscuro: #6b240c; --podio-bronce-avatar: #c2410c;
+  --podio-avatar-bg: #1a1f2e;
+  --plan-premium: #fbbf24; --plan-premium-fuerte: #f59e0b; --plan-pro: #a78bfa; --plan-tinta: #1e1b4b;
   /* Escala de neutros cálida: arranca en el papel y termina en la tinta navy,
      para que los grises no se vean fríos sobre el fondo crema. */
   --neutral-50: #faf7f0;
@@ -362,7 +424,7 @@ body {
 .axiom-shell select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .axiom-shell button {

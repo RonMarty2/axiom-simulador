@@ -60,7 +60,7 @@ export default function ExamenesPage() {
           <div className="mb-4">
             <BackLink href="/" label="Volver a Axiom" />
           </div>
-          <h1 className="text-4xl font-black text-[#171545] sm:text-5xl">
+          <h1 className="text-4xl font-black text-[color:var(--fg-primary)] sm:text-5xl">
             {nombreCarrera ? `Exámenes de ${nombreCarrera}` : "Base de exámenes UMSS"}
           </h1>
           <p className="mt-3 max-w-2xl text-base text-neutral-600 sm:text-lg">
@@ -115,7 +115,7 @@ export default function ExamenesPage() {
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
               >
                 <Link href={`/examenes/${ex.id}`}>
-                  <div className="group h-full cursor-pointer rounded-2xl border border-neutral-200/80 bg-white/82 p-6 shadow-[0_14px_36px_rgba(24,24,70,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-hover)] hover:shadow-xl">
+                  <div className="group h-full cursor-pointer rounded-2xl border border-neutral-200/80 bg-white/82 p-6 shadow-[var(--shadow-md)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[var(--border-hover)] hover:shadow-xl">
                     <div className="mb-3 flex items-center justify-between">
                       <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
                         {ex.universidad}
@@ -130,7 +130,7 @@ export default function ExamenesPage() {
                         distingue una tarjeta de otra: el año solo no alcanza
                         (2008 tiene NUEVE exámenes) y la opción tampoco, porque
                         1/2014 y 2/2014 son las dos "1ra Opción". */}
-                    <h3 className="mb-0.5 text-lg font-bold leading-snug text-[#171545] group-hover:text-[var(--accent)]">
+                    <h3 className="mb-0.5 text-lg font-bold leading-snug text-[color:var(--fg-primary)] group-hover:text-[var(--accent)]">
                       {nombreCarrera
                         ? etiqueta.principal
                         : ETIQUETAS_FACULTAD[ex.facultad] ?? ex.facultad}

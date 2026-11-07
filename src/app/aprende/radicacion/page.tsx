@@ -243,7 +243,7 @@ function Esc03_CuadPerf() {
 function Esc04_Irracional() {
   return (
     <EscenaRica>
-      <Titulo accent="#f59e0b">Cuando la raíz no es entera</Titulo>
+      <Titulo accent="var(--dib-amber-500)">Cuando la raíz no es entera</Titulo>
       <Parrafo>
         ¿Qué pasa si quieres calcular √2? No hay ningún entero que al cuadrado dé 2:
         1² = 1, 2² = 4. La respuesta es un número decimal infinito y no periódico:
@@ -855,8 +855,8 @@ function Esc13_Practica() {
                     style={{
                       padding: "10px 14px",
                       background: !reveal ? "var(--bg-base)"
-                        : ok ? "#d1fae5"
-                        : sel ? "#fee2e2"
+                        : ok ? "var(--dib-emerald-100)"
+                        : sel ? "var(--dib-red-100)"
                         : "var(--bg-base)",
                       border: `1.5px solid ${!reveal ? "var(--border)" : ok ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
                       borderRadius: 10, fontSize: 16, fontWeight: 700,
@@ -874,7 +874,7 @@ function Esc13_Practica() {
             {reveal && (
               <div style={{
                 marginTop: 10, padding: "10px 12px",
-                background: elegida === ej.correctaIdx ? "#ecfdf5" : "#fef2f2",
+                background: elegida === ej.correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
                 borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5,
               }}>
                 <strong style={{ color: elegida === ej.correctaIdx ? COLOR_OK : COLOR_BAD }}>
@@ -891,15 +891,15 @@ function Esc13_Practica() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
           style={{
-            padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+            padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))",
             border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%",
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
             {correctas} / {ejercicios.length} correctas
           </div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {correctas === ejercicios.length && "🎉 ¡Perfecto! Dominas radicales."}
             {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasa los que fallaste."}
             {correctas < 3 && "Vuelve al algoritmo de simplificación (escena 9) y a las equivalencias (escena 6)."}

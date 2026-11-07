@@ -52,17 +52,17 @@ function EscMosaico() {
           {/* hilera superior fosfolípidos */}
           {Array.from({ length: 14 }).map((_, i) => (
             <g key={`up${i}`} transform={`translate(${60 + i * 45}, 60)`}>
-              <circle cx={0} cy={0} r={9} fill="#f59e0b" stroke="#d97706" strokeWidth={1.5} />
-              <line x1={-3} y1={9} x2={-3} y2={48} stroke="#0f172a" strokeWidth={1.5} />
-              <line x1={3} y1={9} x2={3} y2={48} stroke="#0f172a" strokeWidth={1.5} />
+              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={9} x2={-3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={9} x2={3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* hilera inferior */}
           {Array.from({ length: 14 }).map((_, i) => (
             <g key={`dn${i}`} transform={`translate(${60 + i * 45}, 170)`}>
-              <circle cx={0} cy={0} r={9} fill="#f59e0b" stroke="#d97706" strokeWidth={1.5} />
-              <line x1={-3} y1={-9} x2={-3} y2={-48} stroke="#0f172a" strokeWidth={1.5} />
-              <line x1={3} y1={-9} x2={3} y2={-48} stroke="#0f172a" strokeWidth={1.5} />
+              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={-9} x2={-3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={-9} x2={3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* proteína integral */}
@@ -196,7 +196,7 @@ function EscActivo() {
           {/* Na hacia afuera */}
           <text x={360} y={70} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>3 Na⁺ ↑ (afuera)</text>
           {/* K hacia adentro */}
-          <text x={360} y={180} textAnchor="middle" fill="#3b82f6" fontSize={11} fontWeight={700}>2 K⁺ ↓ (adentro)</text>
+          <text x={360} y={180} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={11} fontWeight={700}>2 K⁺ ↓ (adentro)</text>
           {/* ATP */}
           <text x={530} y={125} fill={LIENZO.warn} fontSize={12} fontWeight={700}>+ ATP</text>
           {/* etiquetas medio */}
@@ -263,7 +263,7 @@ function EscOsmosis() {
           </text>
           {[
             { x: 100, t: "Isotónica", d: "[soluto] igual dentro y afuera", ef: "Normal", c: LIENZO.ok, shape: "normal" },
-            { x: 320, t: "Hipotónica", d: "[soluto] MENOR afuera (más agua)", ef: "Se HINCHA (puede estallar)", c: "#06b6d4", shape: "big" },
+            { x: 320, t: "Hipotónica", d: "[soluto] MENOR afuera (más agua)", ef: "Se HINCHA (puede estallar)", c: "var(--dib-cyan-500)", shape: "big" },
             { x: 540, t: "Hipertónica", d: "[soluto] MAYOR afuera (menos agua)", ef: "Se ARRUGA (crenación)", c: LIENZO.bad, shape: "small" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>

@@ -59,9 +59,9 @@ function EscATP() {
             <text x={35} y={56} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>3 fosfatos</text>
           </g>
           {[1, 2, 3].map((n) => (
-            <circle key={n} cx={170 + n * 30} cy={90} r={14} fill="#f59e0b" opacity={0.7} stroke="#d97706" strokeWidth={2} />
+            <circle key={n} cx={170 + n * 30} cy={90} r={14} fill="var(--dib-amber-500)" opacity={0.7} stroke="var(--dib-amber-600)" strokeWidth={2} />
           ))}
-          <text x={170} y={50} fill="#d97706" fontSize={11}>P~P~P</text>
+          <text x={170} y={50} fill="var(--dib-amber-600)" fontSize={11}>P~P~P</text>
 
           {/* Flecha hidrólisis */}
           <line x1={290} x2={400} y1={90} y2={90} stroke={LIENZO.bad} strokeWidth={2} markerEnd="url(#atpArr)" />
@@ -75,8 +75,8 @@ function EscATP() {
             <text x={35} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Ribosa</text>
             <text x={35} y={56} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>2 fosfatos</text>
           </g>
-          <circle cx={550} cy={90} r={14} fill="#f59e0b" opacity={0.7} stroke="#d97706" strokeWidth={2} />
-          <circle cx={580} cy={90} r={14} fill="#f59e0b" opacity={0.7} stroke="#d97706" strokeWidth={2} />
+          <circle cx={550} cy={90} r={14} fill="var(--dib-amber-500)" opacity={0.7} stroke="var(--dib-amber-600)" strokeWidth={2} />
+          <circle cx={580} cy={90} r={14} fill="var(--dib-amber-500)" opacity={0.7} stroke="var(--dib-amber-600)" strokeWidth={2} />
           <text x={620} y={95} fill={LIENZO.fg} fontSize={11}>+ Pi</text>
 
           <defs>
@@ -492,25 +492,25 @@ function EscFotoPanorama() {
             Fotosíntesis dentro del cloroplasto
           </text>
           {/* Sol */}
-          <circle cx={120} cy={100} r={30} fill="#fbbf24" stroke="#d97706" strokeWidth={2} />
+          <circle cx={120} cy={100} r={30} fill="var(--dib-amber-400)" stroke="var(--dib-amber-600)" strokeWidth={2} />
           {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => {
             const rad = (deg * Math.PI) / 180;
             return (
               <line key={i}
                 x1={120 + Math.cos(rad) * 36} y1={100 + Math.sin(rad) * 36}
                 x2={120 + Math.cos(rad) * 50} y2={100 + Math.sin(rad) * 50}
-                stroke="#d97706" strokeWidth={2} />
+                stroke="var(--dib-amber-600)" strokeWidth={2} />
             );
           })}
           <text x={120} y={170} textAnchor="middle" fill={LIENZO.fg} fontSize={12} fontWeight={600}>Luz solar</text>
 
           {/* Cloroplasto */}
           <g transform="translate(300, 60)">
-            <ellipse cx={90} cy={50} rx={90} ry={50} fill="#22c55e" opacity={0.2} stroke="#22c55e" strokeWidth={2} />
+            <ellipse cx={90} cy={50} rx={90} ry={50} fill="var(--dib-green-500)" opacity={0.2} stroke="var(--dib-green-500)" strokeWidth={2} />
             {[0, 1, 2, 3, 4].map((i) => (
-              <ellipse key={i} cx={50 + i * 20} cy={50} rx={6} ry={8} fill="#16a34a" opacity={0.6} />
+              <ellipse key={i} cx={50 + i * 20} cy={50} rx={6} ry={8} fill="var(--dib-green-600)" opacity={0.6} />
             ))}
-            <text x={90} y={110} textAnchor="middle" fill="#16a34a" fontSize={12} fontWeight={700}>Cloroplasto</text>
+            <text x={90} y={110} textAnchor="middle" fill="var(--dib-green-600)" fontSize={12} fontWeight={700}>Cloroplasto</text>
           </g>
 
           {/* Entradas y salidas */}

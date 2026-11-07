@@ -194,7 +194,7 @@ export function PracticaFinal({ ejercicios }: {
                     disabled={rev}
                     style={{
                       padding: "10px 14px", textAlign: "left",
-                      background: !rev ? "#fff" : isOk ? "#ecfdf5" : isSel ? "#fef2f2" : "#fff",
+                      background: !rev ? "#fff" : isOk ? "var(--dib-emerald-50)" : isSel ? "var(--dib-red-50)" : "#fff",
                       border: `1.5px solid ${borde}`, borderRadius: 10,
                       fontSize: 14, fontWeight: 600, color: LIENZO.fg,
                       cursor: rev ? "default" : "pointer", transition: "all 0.15s",
@@ -207,7 +207,7 @@ export function PracticaFinal({ ejercicios }: {
             {rev && (
               <div style={{
                 marginTop: 10, padding: "10px 12px",
-                background: sel === e.c ? "#ecfdf5" : "#fef2f2",
+                background: sel === e.c ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
                 borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.5,
               }}>
                 <strong style={{ color: sel === e.c ? LIENZO.ok : LIENZO.bad }}>
@@ -322,7 +322,7 @@ export function LecturaQuiz({
                     disabled={rev}
                     style={{
                       padding: "10px 14px", textAlign: "left",
-                      background: !rev ? "#fff" : isOk ? "#ecfdf5" : isSel ? "#fef2f2" : "#fff",
+                      background: !rev ? "#fff" : isOk ? "var(--dib-emerald-50)" : isSel ? "var(--dib-red-50)" : "#fff",
                       border: `1.5px solid ${borde}`, borderRadius: 10,
                       fontSize: 14, fontWeight: 500, color: LIENZO.fg,
                       cursor: rev ? "default" : "pointer", transition: "all 0.15s",
@@ -339,7 +339,7 @@ export function LecturaQuiz({
             {rev && (
               <div style={{
                 marginTop: 10, padding: "10px 12px",
-                background: sel === e.c ? "#ecfdf5" : "#fef2f2",
+                background: sel === e.c ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
                 borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.55,
               }}>
                 <strong style={{ color: sel === e.c ? LIENZO.ok : LIENZO.bad }}>
@@ -394,8 +394,8 @@ export function Hook({ children }: { children: React.ReactNode }) {
 // situaciones reales). Conecta la teoría con el mundo que el estudiante conoce.
 export function CasoBolivia({ titulo = "Caso Bolivia", children }: { titulo?: string; children: React.ReactNode }) {
   return (
-    <Bloque acento="#0ea5e9" fondo={LIENZO.bgSoft}>
-      <Etiqueta color="#0ea5e9">{titulo}</Etiqueta>
+    <Bloque acento="var(--dib-sky-500)" fondo={LIENZO.bgSoft}>
+      <Etiqueta color="var(--dib-sky-500)">{titulo}</Etiqueta>
       <div style={{ fontSize: 15, lineHeight: 1.65, color: LIENZO.fg }}>{children}</div>
     </Bloque>
   );
@@ -498,7 +498,7 @@ export function MiniQuiz({
               disabled={reveal}
               style={{
                 padding: "8px 12px", textAlign: "left",
-                background: !reveal ? "#fff" : ok ? "#ecfdf5" : sel ? "#fef2f2" : "#fff",
+                background: !reveal ? "#fff" : ok ? "var(--dib-emerald-50)" : sel ? "var(--dib-red-50)" : "#fff",
                 border: `1.5px solid ${borde}`, borderRadius: 8,
                 fontSize: 13, fontWeight: 500, color: LIENZO.fg,
                 cursor: reveal ? "default" : "pointer",
@@ -511,7 +511,7 @@ export function MiniQuiz({
       {elegida !== null && (
         <div style={{
           marginTop: 8, padding: "8px 10px",
-          background: elegida === correctaIdx ? "#ecfdf5" : "#fef2f2",
+          background: elegida === correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
           borderRadius: 6, fontSize: 12, color: LIENZO.fgDim, lineHeight: 1.5,
         }}>
           {explicacion}
@@ -557,7 +557,7 @@ export function AutoCheck({
               disabled={reveal}
               style={{
                 padding: "10px 14px", textAlign: "left",
-                background: !reveal ? "#fff" : ok ? "#ecfdf5" : sel ? "#fef2f2" : "#fff",
+                background: !reveal ? "#fff" : ok ? "var(--dib-emerald-50)" : sel ? "var(--dib-red-50)" : "#fff",
                 border: `1.5px solid ${borde}`,
                 borderRadius: 10, fontSize: 14, fontWeight: 600,
                 color: LIENZO.fg, cursor: reveal ? "default" : "pointer",
@@ -574,7 +574,7 @@ export function AutoCheck({
       {elegida !== null && (
         <div style={{
           marginTop: 10, padding: "10px 12px",
-          background: elegida === correctaIdx ? "#ecfdf5" : "#fef2f2",
+          background: elegida === correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
           borderRadius: 8, fontSize: 13, color: LIENZO.fg, lineHeight: 1.5,
         }}>
           <strong style={{ color: elegida === correctaIdx ? LIENZO.ok : LIENZO.bad }}>

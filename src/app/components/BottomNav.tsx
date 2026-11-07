@@ -98,7 +98,7 @@ function BotonAccion({ activo }: { activo: boolean }) {
             background: activo ? "var(--accent-hover)" : "var(--accent)",
             color: "var(--accent-fg)",
             border: "3px solid var(--bg-base)",
-            boxShadow: "0 3px 12px rgba(156, 61, 28, 0.35)",
+            boxShadow: "0 3px 12px color-mix(in srgb, var(--accent) 35%, transparent)",
           }}
         >
           <Icono nombre={ACCION.icono} tamano={22} grosor={2.4} />

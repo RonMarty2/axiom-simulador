@@ -123,12 +123,12 @@ function EscPartes() {
           </text>
           {/* Corona */}
           <path d="M 300 50 Q 320 40 360 50 Q 380 60 400 50 Q 420 60 440 50 L 440 130 L 300 130 Z"
-            fill="#f5f5f5" stroke={LIENZO.fg} strokeWidth={2} />
+            fill="var(--dib-neutral-100)" stroke={LIENZO.fg} strokeWidth={2} />
           {/* Cuello */}
-          <rect x={310} y={130} width={120} height={20} fill="#fef3c7" stroke={LIENZO.fg} strokeWidth={2} />
+          <rect x={310} y={130} width={120} height={20} fill="var(--dib-amber-100)" stroke={LIENZO.fg} strokeWidth={2} />
           {/* Raíz */}
-          <path d="M 320 150 L 330 240 L 350 250 L 350 150 Z" fill="#fde68a" stroke={LIENZO.fg} strokeWidth={2} />
-          <path d="M 390 150 L 390 250 L 410 240 L 420 150 Z" fill="#fde68a" stroke={LIENZO.fg} strokeWidth={2} />
+          <path d="M 320 150 L 330 240 L 350 250 L 350 150 Z" fill="var(--dib-amber-200)" stroke={LIENZO.fg} strokeWidth={2} />
+          <path d="M 390 150 L 390 250 L 410 240 L 420 150 Z" fill="var(--dib-amber-200)" stroke={LIENZO.fg} strokeWidth={2} />
 
           {/* Etiquetas */}
           <line x1={300} y1={90} x2={220} y2={90} stroke={LIENZO.accent} strokeWidth={1.5} />
@@ -176,23 +176,23 @@ function EscCapas() {
           </text>
           {/* esmalte corona */}
           <path d="M 280 50 Q 320 35 360 50 Q 400 35 440 50 L 440 130 L 280 130 Z"
-            fill="#ffffff" stroke={LIENZO.fg} strokeWidth={2} />
+            fill="var(--bg-card)" stroke={LIENZO.fg} strokeWidth={2} />
           {/* dentina */}
           <path d="M 300 65 Q 330 55 360 65 Q 390 55 420 65 L 420 230 L 300 230 Z"
-            fill="#fef3c7" stroke={LIENZO.fg} strokeWidth={1.5} />
+            fill="var(--dib-amber-100)" stroke={LIENZO.fg} strokeWidth={1.5} />
           {/* pulpa */}
           <path d="M 340 80 Q 360 75 380 80 L 380 220 Q 365 230 340 220 Z"
-            fill="#fca5a5" stroke={LIENZO.fg} strokeWidth={1.5} />
+            fill="var(--dib-red-300)" stroke={LIENZO.fg} strokeWidth={1.5} />
           {/* cemento + raíz */}
           <path d="M 300 230 Q 330 245 360 230 Q 390 245 420 230 L 420 260 Q 390 270 360 260 Q 330 270 300 260 Z"
-            fill="#fde68a" stroke={LIENZO.fg} strokeWidth={1.5} />
+            fill="var(--dib-amber-200)" stroke={LIENZO.fg} strokeWidth={1.5} />
 
           {/* Etiquetas con números */}
           {[
-            { n: "1", t: "Esmalte", d: "tejido más DURO del cuerpo (96% mineral)", c: "#9ca3af", y: 80 },
-            { n: "2", t: "Dentina", d: "70% mineral, sensible, vivo", c: "#d97706", y: 130 },
-            { n: "3", t: "Pulpa", d: "vasos y nervios, vida del diente", c: "#dc2626", y: 180 },
-            { n: "4", t: "Cemento", d: "cubre la raíz, fija al hueso", c: "#ca8a04", y: 230 },
+            { n: "1", t: "Esmalte", d: "tejido más DURO del cuerpo (96% mineral)", c: "var(--dib-gray-400)", y: 80 },
+            { n: "2", t: "Dentina", d: "70% mineral, sensible, vivo", c: "var(--dib-amber-600)", y: 130 },
+            { n: "3", t: "Pulpa", d: "vasos y nervios, vida del diente", c: "var(--dib-red-600)", y: 180 },
+            { n: "4", t: "Cemento", d: "cubre la raíz, fija al hueso", c: "var(--dib-yellow-600)", y: 230 },
           ].map((c, i) => (
             <g key={i}>
               <circle cx={500} cy={c.y} r={12} fill={c.c} stroke={LIENZO.fg} strokeWidth={1.5} />
@@ -285,10 +285,10 @@ function EscCaries() {
             4 factores · tetrada de Keyes (Newbrun)
           </text>
           {[
-            { x: 120, y: 80, t: "Bacterias", c: "#dc2626" },
-            { x: 290, y: 80, t: "Azúcar", c: "#f59e0b" },
-            { x: 460, y: 80, t: "Diente susceptible", c: "#a78bfa" },
-            { x: 290, y: 150, t: "Tiempo", c: "#06b6d4" },
+            { x: 120, y: 80, t: "Bacterias", c: "var(--dib-red-600)" },
+            { x: 290, y: 80, t: "Azúcar", c: "var(--dib-amber-500)" },
+            { x: 460, y: 80, t: "Diente susceptible", c: "var(--dib-violet-400)" },
+            { x: 290, y: 150, t: "Tiempo", c: "var(--dib-cyan-500)" },
           ].map((f, i) => (
             <g key={i}>
               <circle cx={f.x} cy={f.y} r={45} fill={f.c} opacity={0.25} stroke={f.c} strokeWidth={2} />

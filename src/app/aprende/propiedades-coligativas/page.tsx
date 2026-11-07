@@ -76,10 +76,10 @@ function EscPanorama() {
             ¿Qué le pasa al solvente al agregar soluto no volátil?
           </text>
           {[
-            { x: 80, y: 60, c: "#3b82f6", t: "Presión de vapor", efecto: "↓ baja", form: "ΔP = x_st · P°" },
-            { x: 270, y: 60, c: "#ef4444", t: "Punto ebullición", efecto: "↑ sube", form: "ΔTb = Kb · m" },
-            { x: 460, y: 60, c: "#06b6d4", t: "Punto congelación", efecto: "↓ baja", form: "ΔTc = Kc · m" },
-            { x: 650, y: 60, c: "#a78bfa", t: "Presión osmótica", efecto: "↑ aparece", form: "π = M·R·T" },
+            { x: 80, y: 60, c: "var(--dib-blue-500)", t: "Presión de vapor", efecto: "↓ baja", form: "ΔP = x_st · P°" },
+            { x: 270, y: 60, c: "var(--dib-red-500)", t: "Punto ebullición", efecto: "↑ sube", form: "ΔTb = Kb · m" },
+            { x: 460, y: 60, c: "var(--dib-cyan-500)", t: "Punto congelación", efecto: "↓ baja", form: "ΔTc = Kc · m" },
+            { x: 650, y: 60, c: "var(--dib-violet-400)", t: "Presión osmótica", efecto: "↑ aparece", form: "π = M·R·T" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x - 70}, ${p.y})`}>
               <rect width={140} height={170} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={10} />
@@ -248,8 +248,8 @@ function EscCongelacion() {
           <line x1={80} x2={680} y1={120} y2={120} stroke={LIENZO.fg} strokeWidth={1.5} />
           <line x1={450} y1={130} x2={450} y2={50} stroke={LIENZO.accent} strokeWidth={2} strokeDasharray="4 3" />
           <text x={450} y={45} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>0 °C (pura)</text>
-          <line x1={250} y1={130} x2={250} y2={50} stroke="#06b6d4" strokeWidth={2} strokeDasharray="4 3" />
-          <text x={250} y={45} textAnchor="middle" fill="#06b6d4" fontSize={12} fontWeight={600}>−3.72 °C (1 m NaCl, i = 2)</text>
+          <line x1={250} y1={130} x2={250} y2={50} stroke="var(--dib-cyan-500)" strokeWidth={2} strokeDasharray="4 3" />
+          <text x={250} y={45} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={12} fontWeight={600}>−3.72 °C (1 m NaCl, i = 2)</text>
           <line x1={260} x2={440} y1={80} y2={80} stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#arrDelta2)" />
           <text x={350} y={75} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>ΔTc</text>
           <defs>
@@ -373,18 +373,18 @@ function EscSimulador() {
         3 para CaCl₂; 4 para AlCl₃). Mira cómo cambian ΔTb, ΔTc y π.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ marginBottom: 10 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-emerald-500)" }}>
             Molalidad m = {m.toFixed(1)} mol/kg
           </label>
           <input type="range" min={0.1} max={5} step={0.1} value={m}
             onChange={(e) => setM(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#10b981" }} />
+            style={{ width: "100%", accentColor: "var(--dib-emerald-500)" }} />
         </div>
 
         <div style={{ marginBottom: 14 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#a78bfa" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-violet-400)" }}>
             Factor van&apos;t Hoff i = {i}
           </label>
           <div style={{ display: "flex", gap: 6 }}>
@@ -397,9 +397,9 @@ function EscSimulador() {
               <button key={b.v} onClick={() => setI(b.v)}
                 style={{
                   flex: 1, padding: "6px 4px",
-                  background: i === b.v ? "#a78bfa" : "#1e293b",
-                  color: i === b.v ? "#0f172a" : "#cbd5e1",
-                  border: "1px solid #475569", borderRadius: 6,
+                  background: i === b.v ? "var(--dib-violet-400)" : "var(--dib-slate-800)",
+                  color: i === b.v ? "var(--dib-slate-900)" : "var(--dib-slate-300)",
+                  border: "1px solid var(--dib-slate-600)", borderRadius: 6,
                   cursor: "pointer", fontWeight: 600, fontSize: 11,
                 }}>{b.l}</button>
             ))}
@@ -407,12 +407,12 @@ function EscSimulador() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
-          <ResultCaja t="T ebullición" v={`${calc.Teb} °C`} sub={`ΔTb=${calc.dTb}`} color="#ef4444" />
-          <ResultCaja t="T congelación" v={`${calc.Tcong} °C`} sub={`ΔTc=${calc.dTc}`} color="#06b6d4" />
+          <ResultCaja t="T ebullición" v={`${calc.Teb} °C`} sub={`ΔTb=${calc.dTb}`} color="var(--dib-red-500)" />
+          <ResultCaja t="T congelación" v={`${calc.Tcong} °C`} sub={`ΔTc=${calc.dTc}`} color="var(--dib-cyan-500)" />
           {/* El "aprox M≈m" no le decía nada al alumno, y dos escenas después la
               lección marca como error justamente usar m donde va M. Si el
               simulador hace la aproximación, tiene que decir por qué. */}
-          <ResultCaja t="π osmótica (27°C)" v={`${calc.pi} atm`} sub="usando M ≈ m (ver nota)" color="#a78bfa" />
+          <ResultCaja t="π osmótica (27°C)" v={`${calc.pi} atm`} sub="usando M ≈ m (ver nota)" color="var(--dib-violet-400)" />
         </div>
       </div>
 
@@ -436,7 +436,7 @@ function EscSimulador() {
 
 function ResultCaja({ t, v, sub, color }: { t: string; v: string; sub: string; color: string }) {
   return (
-    <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, border: `2px solid ${color}`, textAlign: "center" }}>
+    <div style={{ background: "var(--dib-slate-800)", padding: 10, borderRadius: 8, border: `2px solid ${color}`, textAlign: "center" }}>
       <div style={{ fontSize: 11, opacity: 0.7 }}>{t}</div>
       <div style={{ fontSize: 16, fontWeight: 700, color }}>{v}</div>
       <div style={{ fontSize: 10, opacity: 0.6 }}>{sub}</div>

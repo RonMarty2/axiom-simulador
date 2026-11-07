@@ -65,24 +65,24 @@ function EscCapas() {
             Corte transversal de la piel
           </text>
           {/* Epidermis */}
-          <rect x={80} y={40} width={560} height={40} fill="#fbbf24" opacity={0.4} stroke="#d97706" strokeWidth={1.5} />
-          <text x={650} y={65} textAnchor="end" fill="#d97706" fontSize={12} fontWeight={700}>EPIDERMIS</text>
+          <rect x={80} y={40} width={560} height={40} fill="var(--dib-amber-400)" opacity={0.4} stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+          <text x={650} y={65} textAnchor="end" fill="var(--dib-amber-600)" fontSize={12} fontWeight={700}>EPIDERMIS</text>
           <text x={650} y={78} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>epitelio plano queratinizado · sin vasos</text>
 
           {/* Dermis */}
-          <rect x={80} y={80} width={560} height={100} fill="#f87171" opacity={0.3} stroke="#dc2626" strokeWidth={1.5} />
-          <text x={650} y={120} textAnchor="end" fill="#dc2626" fontSize={12} fontWeight={700}>DERMIS</text>
+          <rect x={80} y={80} width={560} height={100} fill="var(--dib-red-400)" opacity={0.3} stroke="var(--dib-red-600)" strokeWidth={1.5} />
+          <text x={650} y={120} textAnchor="end" fill="var(--dib-red-600)" fontSize={12} fontWeight={700}>DERMIS</text>
           <text x={650} y={135} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>tejido conjuntivo · vasos, nervios, anexos</text>
           {/* folículo */}
-          <ellipse cx={250} cy={110} rx={8} ry={20} fill="#374151" opacity={0.7} />
-          <line x1={250} y1={90} x2={250} y2={60} stroke="#374151" strokeWidth={3} />
+          <ellipse cx={250} cy={110} rx={8} ry={20} fill="var(--dib-gray-700)" opacity={0.7} />
+          <line x1={250} y1={90} x2={250} y2={60} stroke="var(--dib-gray-700)" strokeWidth={3} />
           {/* glándula */}
-          <circle cx={400} cy={140} r={12} fill="#0ea5e9" opacity={0.6} />
-          <line x1={400} y1={128} x2={400} y2={60} stroke="#0ea5e9" strokeWidth={1.5} />
+          <circle cx={400} cy={140} r={12} fill="var(--dib-sky-500)" opacity={0.6} />
+          <line x1={400} y1={128} x2={400} y2={60} stroke="var(--dib-sky-500)" strokeWidth={1.5} />
 
           {/* Hipodermis */}
-          <rect x={80} y={180} width={560} height={60} fill="#a78bfa" opacity={0.3} stroke="#7c3aed" strokeWidth={1.5} />
-          <text x={650} y={210} textAnchor="end" fill="#7c3aed" fontSize={12} fontWeight={700}>HIPODERMIS</text>
+          <rect x={80} y={180} width={560} height={60} fill="var(--dib-violet-400)" opacity={0.3} stroke="var(--dib-violet-600)" strokeWidth={1.5} />
+          <text x={650} y={210} textAnchor="end" fill="var(--dib-violet-600)" fontSize={12} fontWeight={700}>HIPODERMIS</text>
           <text x={650} y={225} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>tejido adiposo · aislante térmico, reserva</text>
 
           {/* Etiquetas izquierdas */}
@@ -139,9 +139,9 @@ function EscAnexos() {
             Glándulas de la piel
           </text>
           {[
-            { x: 100, t: "Sudoríparas ecrinas", fn: "sudor acuoso (termorregulación)", c: "#06b6d4" },
-            { x: 320, t: "Sudoríparas apocrinas", fn: "sudor + grasas (axila, pubis)", c: "#0ea5e9" },
-            { x: 540, t: "Sebáceas", fn: "sebo (lubrica pelo y piel)", c: "#f59e0b" },
+            { x: 100, t: "Sudoríparas ecrinas", fn: "sudor acuoso (termorregulación)", c: "var(--dib-cyan-500)" },
+            { x: 320, t: "Sudoríparas apocrinas", fn: "sudor + grasas (axila, pubis)", c: "var(--dib-sky-500)" },
+            { x: 540, t: "Sebáceas", fn: "sebo (lubrica pelo y piel)", c: "var(--dib-amber-500)" },
           ].map((g, i) => (
             <g key={i} transform={`translate(${g.x}, 55)`}>
               <rect x={-10} y={0} width={180} height={90} fill={g.c} opacity={0.1} stroke={g.c} strokeWidth={1.5} rx={8} />
@@ -215,8 +215,8 @@ function EscTermo() {
             <text x={130} y={110} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">resultado: pérdida de calor</text>
           </g>
           <g transform="translate(380, 55)">
-            <rect width={260} height={130} fill="#0ea5e9" opacity={0.1} stroke="#0ea5e9" strokeWidth={1.5} rx={10} />
-            <text x={130} y={22} textAnchor="middle" fill="#0ea5e9" fontSize={13} fontWeight={700}>FRÍO</text>
+            <rect width={260} height={130} fill="var(--dib-sky-500)" opacity={0.1} stroke="var(--dib-sky-500)" strokeWidth={1.5} rx={10} />
+            <text x={130} y={22} textAnchor="middle" fill="var(--dib-sky-500)" fontSize={13} fontWeight={700}>FRÍO</text>
             <text x={130} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>• Vasoconstricción cutánea</text>
             <text x={130} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>• Piloerección ("piel de gallina")</text>
             <text x={130} y={84} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>• Tiritar (contracción muscular)</text>

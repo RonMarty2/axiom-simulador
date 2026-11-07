@@ -56,7 +56,7 @@ function EscSimGlucemia() {
   }, []);
 
   const estado = glucemia < 70 ? "Hipoglucemia" : glucemia < 100 ? "Normal" : glucemia < 140 ? "Postprandial" : glucemia < 200 ? "Hiperglucemia" : "Crítica";
-  const colorEstado = glucemia < 70 ? "#06b6d4" : glucemia < 100 ? "#10b981" : glucemia < 140 ? "#84cc16" : glucemia < 200 ? "#f59e0b" : "#ef4444";
+  const colorEstado = glucemia < 70 ? "var(--dib-cyan-500)" : glucemia < 100 ? "var(--dib-emerald-500)" : glucemia < 140 ? "var(--dib-lime-500)" : glucemia < 200 ? "var(--dib-amber-500)" : "var(--dib-red-500)";
 
   const ancho = 600;
   const alto = 140;
@@ -76,7 +76,7 @@ function EscSimGlucemia() {
         El cuerpo tiende a volver a 90 mg/dL con insulina y glucagón.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ textAlign: "center", marginBottom: 12 }}>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Glucemia actual</div>
           <div style={{ fontSize: 32, fontWeight: 700, color: colorEstado, fontFamily: "var(--font-crimson), serif" }}>
@@ -86,28 +86,28 @@ function EscSimGlucemia() {
         </div>
 
         <svg viewBox={`0 0 ${ancho} ${alto + 30}`} width="100%" height="170">
-          <line x1={0} y1={alto - ((100 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((100 - min) / (max - min)) * alto} stroke="#10b981" strokeWidth={1} strokeDasharray="4 3" opacity={0.6} />
-          <text x={5} y={alto - ((100 - min) / (max - min)) * alto - 4} fill="#10b981" fontSize={10}>100</text>
-          <line x1={0} y1={alto - ((70 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((70 - min) / (max - min)) * alto} stroke="#06b6d4" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
-          <text x={5} y={alto - ((70 - min) / (max - min)) * alto - 4} fill="#06b6d4" fontSize={10}>70 (hipo)</text>
-          <line x1={0} y1={alto - ((140 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((140 - min) / (max - min)) * alto} stroke="#f59e0b" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
-          <text x={5} y={alto - ((140 - min) / (max - min)) * alto - 4} fill="#f59e0b" fontSize={10}>140 (hiper)</text>
+          <line x1={0} y1={alto - ((100 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((100 - min) / (max - min)) * alto} stroke="var(--dib-emerald-500)" strokeWidth={1} strokeDasharray="4 3" opacity={0.6} />
+          <text x={5} y={alto - ((100 - min) / (max - min)) * alto - 4} fill="var(--dib-emerald-500)" fontSize={10}>100</text>
+          <line x1={0} y1={alto - ((70 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((70 - min) / (max - min)) * alto} stroke="var(--dib-cyan-500)" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
+          <text x={5} y={alto - ((70 - min) / (max - min)) * alto - 4} fill="var(--dib-cyan-500)" fontSize={10}>70 (hipo)</text>
+          <line x1={0} y1={alto - ((140 - min) / (max - min)) * alto} x2={ancho} y2={alto - ((140 - min) / (max - min)) * alto} stroke="var(--dib-amber-500)" strokeWidth={1} strokeDasharray="4 3" opacity={0.5} />
+          <text x={5} y={alto - ((140 - min) / (max - min)) * alto - 4} fill="var(--dib-amber-500)" fontSize={10}>140 (hiper)</text>
           {historial.length > 1 && (
-            <polyline points={puntos} fill="none" stroke="#60a5fa" strokeWidth={2.5} />
+            <polyline points={puntos} fill="none" stroke="var(--dib-blue-400)" strokeWidth={2.5} />
           )}
         </svg>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginTop: 10 }}>
           <button onClick={comer} style={{
-            padding: "10px 6px", background: "#f59e0b", color: "#0f172a",
+            padding: "10px 6px", background: "var(--dib-amber-500)", color: "var(--dib-slate-900)",
             border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
           }}>Comer (↑)</button>
           <button onClick={insulina} style={{
-            padding: "10px 6px", background: "#3b82f6", color: "#fff",
+            padding: "10px 6px", background: "var(--dib-blue-500)", color: "#fff",
             border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
           }}>Insulina (↓↓)</button>
           <button onClick={ejercicio} style={{
-            padding: "10px 6px", background: "#10b981", color: "#fff",
+            padding: "10px 6px", background: "var(--dib-emerald-500)", color: "#fff",
             border: "none", borderRadius: 6, cursor: "pointer", fontWeight: 700, fontSize: 12,
           }}>Ejercicio (↓)</button>
         </div>
@@ -250,8 +250,8 @@ function EscTiroides() {
             <text x={130} y={110} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">enfermedad de Graves</text>
           </g>
           <g transform="translate(380, 55)">
-            <rect width={260} height={130} fill="#06b6d4" opacity={0.1} stroke="#06b6d4" strokeWidth={1.5} rx={10} />
-            <text x={130} y={22} textAnchor="middle" fill="#06b6d4" fontSize={13} fontWeight={700}>HIPOTIROIDISMO</text>
+            <rect width={260} height={130} fill="var(--dib-cyan-500)" opacity={0.1} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={10} />
+            <text x={130} y={22} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={13} fontWeight={700}>HIPOTIROIDISMO</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>↓ T3 y T4</text>
             <text x={130} y={68} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Engorda, bradicardia, frío</text>
             <text x={130} y={86} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>fatiga, somnolencia, bocio</text>

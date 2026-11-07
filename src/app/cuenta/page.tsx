@@ -122,7 +122,7 @@ export default function CuentaPage() {
             <p style={{ fontSize: 13, color: "var(--fg-muted)", marginTop: 4 }}>Postulando a <strong style={{ color: "var(--accent)" }}>{facultades.find((f) => f.id === usuario.facultad_objetivo)?.nombre_corto ?? usuario.facultad_objetivo}</strong></p>
           </div>
           <div style={{ textAlign: "right", flexShrink: 0 }}>
-            <div style={{ display: "inline-block", padding: "6px 14px", background: usuario.plan === "premium" ? "#fbbf24" : usuario.plan === "pro" ? "#a78bfa" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "#1e1b4b", borderRadius: 999, fontSize: 13, fontWeight: 800, textTransform: "uppercase", marginBottom: 8 }}>{usuario.plan}</div>
+            <div style={{ display: "inline-block", padding: "6px 14px", background: usuario.plan === "premium" ? "var(--plan-premium)" : usuario.plan === "pro" ? "var(--plan-pro)" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "var(--plan-tinta)", borderRadius: 999, fontSize: 13, fontWeight: 800, textTransform: "uppercase", marginBottom: 8 }}>{usuario.plan}</div>
             <div>
               <Link href="/precios" style={{ fontSize: 13, color: "var(--accent)", textDecoration: "none", fontWeight: 700 }}>
                 {usuario.plan === "premium" ? "Tu plan actual" : "Mejorar plan →"}
@@ -226,7 +226,7 @@ export default function CuentaPage() {
             })}
           </div>
 
-          <div style={{ marginTop: 16, padding: 14, background: "linear-gradient(135deg, #fbbf24, #f59e0b)", borderRadius: 12, color: "#1e1b4b" }}>
+          <div style={{ marginTop: 16, padding: 14, background: "linear-gradient(135deg, var(--plan-premium), var(--plan-premium-fuerte))", borderRadius: 12, color: "var(--plan-tinta)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
               <div style={{ flex: 1, minWidth: 200 }}>
                 <div style={{ fontWeight: 800, fontSize: 14, marginBottom: 4 }}>¿Te equivocaste de carrera o quieres cambiar?</div>
@@ -235,7 +235,7 @@ export default function CuentaPage() {
                 </div>
               </div>
               <Link href="/cambiar-facultad" style={{
-                padding: "10px 20px", background: "#1e1b4b", color: "#fbbf24",
+                padding: "10px 20px", background: "var(--plan-tinta)", color: "var(--plan-premium)",
                 textDecoration: "none", borderRadius: 10, fontWeight: 800, fontSize: 13,
                 whiteSpace: "normal", textAlign: "center", maxWidth: "100%", boxSizing: "border-box",
               }}>

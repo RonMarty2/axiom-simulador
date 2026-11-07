@@ -272,7 +272,7 @@ export default function AppHeader() {
                       <div style={{ padding: "10px 12px", borderBottom: "1px solid var(--border)", marginBottom: 4 }}>
                         <div style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{usuario.nombre}</div>
                         <div style={{ fontSize: 11, color: "var(--fg-muted)" }}>{usuario.email}</div>
-                        <div style={{ marginTop: 6, display: "inline-block", padding: "2px 8px", background: usuario.plan === "premium" ? "#fbbf24" : usuario.plan === "pro" ? "#a78bfa" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "#1e1b4b", borderRadius: 999, fontSize: 10, fontWeight: 700, textTransform: "uppercase" }}>{usuario.plan}</div>
+                        <div style={{ marginTop: 6, display: "inline-block", padding: "2px 8px", background: usuario.plan === "premium" ? "var(--plan-premium)" : usuario.plan === "pro" ? "var(--plan-pro)" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "var(--plan-tinta)", borderRadius: 999, fontSize: 10, fontWeight: 700, textTransform: "uppercase" }}>{usuario.plan}</div>
                       </div>
                       <Link href="/debilidades" onClick={() => setOpen(false)} style={menuItem()}>Mis debilidades</Link>
                       <Link href="/resueltos" onClick={() => setOpen(false)} style={menuItem()}>Resueltos</Link>
@@ -291,7 +291,7 @@ export default function AppHeader() {
                               alert(d.error ?? "Error");
                             }
                           }}
-                          style={{ ...menuItem(), display: "block", width: "100%", textAlign: "left", background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", color: "#d97706", fontWeight: 700, cursor: "pointer", marginTop: 4 }}
+                          style={{ ...menuItem(), display: "block", width: "100%", textAlign: "left", background: "rgba(245,158,11,0.08)", border: "1px dashed var(--plan-premium-fuerte)", color: "var(--dib-amber-600)", fontWeight: 700, cursor: "pointer", marginTop: 4 }}
                         >
                           <Icono nombre="probeta" tamano={13} /> Cambiar plan (test)
                         </button>
@@ -345,8 +345,8 @@ export default function AppHeader() {
                   {/* Selector de rol — SOLO desarrollo local. En producción
                       NODE_ENV es "production" y esto no se renderiza. */}
                   {process.env.NODE_ENV !== "production" && (
-                    <div style={{ borderTop: "1px dashed #f59e0b", marginTop: 4, paddingTop: 8 }}>
-                      <div style={{ fontSize: 10, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
+                    <div style={{ borderTop: "1px dashed var(--plan-premium-fuerte)", marginTop: 4, paddingTop: 8 }}>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: "var(--dib-amber-600)", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
                         <Icono nombre="herramienta" tamano={13} /> Cambiar de rol (dev)
                       </div>
                       <a href="/api/auth/dev-login?rol=estudiante" style={{ ...menuItem(), display: "block" }}><Icono nombre="cuenta" tamano={13} /> Estudiante</a>
@@ -354,7 +354,7 @@ export default function AppHeader() {
                       <a href="/api/auth/dev-login?rol=admin" style={{ ...menuItem(), display: "block" }}><Icono nombre="rayo" tamano={13} /> Super Admin</a>
                     </div>
                   )}
-                  <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "#ef4444", cursor: "pointer" }}>
+                  <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "var(--error)", cursor: "pointer" }}>
                     Cerrar sesión
                   </button>
                 </div>

@@ -179,13 +179,13 @@ function EscEstudios() {
             Pirámide de evidencia (de menos a más rigurosa)
           </text>
           {[
-            { y: 50, w: 180, t: "Opinión experta", c: "#9ca3af" },
-            { y: 80, w: 250, t: "Reporte de caso", c: "#a78bfa" },
+            { y: 50, w: 180, t: "Opinión experta", c: "var(--dib-gray-400)" },
+            { y: 80, w: 250, t: "Reporte de caso", c: "var(--dib-violet-400)" },
             { y: 110, w: 320, t: "Transversal (prevalencia)", c: LIENZO.warn },
-            { y: 140, w: 380, t: "Caso-control (retrospectivo)", c: "#f59e0b" },
+            { y: 140, w: 380, t: "Caso-control (retrospectivo)", c: "var(--dib-amber-500)" },
             { y: 170, w: 440, t: "Cohortes (prospectivo)", c: LIENZO.ok },
-            { y: 200, w: 510, t: "Ensayo clínico aleatorizado (ECA)", c: "#16a34a" },
-            { y: 230, w: 570, t: "Revisión sistemática / Meta-análisis", c: "#15803d" },
+            { y: 200, w: 510, t: "Ensayo clínico aleatorizado (ECA)", c: "var(--dib-green-600)" },
+            { y: 230, w: 570, t: "Revisión sistemática / Meta-análisis", c: "var(--dib-green-700)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(${360 - n.w / 2}, ${n.y})`}>
               <rect width={n.w} height={26} fill={n.c} opacity={0.3} stroke={n.c} strokeWidth={1.5} />

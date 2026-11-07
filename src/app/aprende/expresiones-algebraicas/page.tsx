@@ -80,14 +80,14 @@ function Esc02_Termino() {
         <Stage w={400} h={200}>
           <div style={{ position: "absolute", left: 0, top: 50, width: "100%", textAlign: "center", display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              style={{ fontSize: 80, color: "#3b82f6", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>5</motion.span>
+              style={{ fontSize: 80, color: "var(--dib-blue-500)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>5</motion.span>
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
               style={{ fontSize: 80, color: COLOR_BASE, fontWeight: 800, fontFamily: "var(--font-crimson), serif", fontStyle: "italic" }}>x</motion.span>
             <motion.span initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
               style={{ fontSize: 40, color: COLOR_EXP, fontWeight: 700, fontFamily: "var(--font-crimson), serif", marginLeft: 2 }}>2</motion.span>
           </div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1 }}
-            style={{ position: "absolute", left: 60, top: 150, fontSize: 11, color: "#3b82f6", fontWeight: 800, letterSpacing: 1 }}>
+            style={{ position: "absolute", left: 60, top: 150, fontSize: 11, color: "var(--dib-blue-500)", fontWeight: 800, letterSpacing: 1 }}>
             ↑ COEFICIENTE
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
@@ -150,9 +150,9 @@ function Esc03_Semejantes() {
             style={{ position: "absolute", left: 0, top: 65, width: "100%", textAlign: "center" }}>
             <span style={{
               display: "inline-block", padding: "6px 14px", borderRadius: 10,
-              background: c.si ? "linear-gradient(135deg, #d1fae5, #a7f3d0)" : "linear-gradient(135deg, #fee2e2, #fecaca)",
+              background: c.si ? "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))" : "linear-gradient(135deg, var(--dib-red-100), var(--dib-red-200))",
               border: `1.5px solid ${c.si ? COLOR_OK : COLOR_BAD}`,
-              fontSize: 13, fontWeight: 800, color: c.si ? "#065f46" : "#7f1d1d",
+              fontSize: 13, fontWeight: 800, color: c.si ? "var(--dib-emerald-800)" : "var(--dib-red-900)",
             }}>
               {c.si ? "✓ SEMEJANTES" : "✗ NO SEMEJANTES"}
             </span>
@@ -184,7 +184,7 @@ function Esc04_SumaResta() {
       <div onClick={() => setPaso((p) => p >= 3 ? 0 : p + 1)} style={cajaAnim()}>
         <EtiquetaToque>SUMAR 3x + 5x</EtiquetaToque>
         <Stage w={400} h={140}>
-          <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: "#3b82f6", fontFamily: "var(--font-crimson), serif" }}
+          <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: "var(--dib-blue-500)", fontFamily: "var(--font-crimson), serif" }}
             initial={{ left: 60, top: 50 }}
             animate={paso === 0 ? { left: 60, top: 50, opacity: 1, scale: 1 } : paso === 1 ? { left: 160, top: 5, opacity: 1, scale: 1.2 } : paso === 2 ? { left: 200, top: 40, opacity: 0, scale: 1.4 } : { opacity: 0, scale: 0 }}
             transition={{ type: "spring" }}>3</motion.span>
@@ -192,7 +192,7 @@ function Esc04_SumaResta() {
             animate={paso >= 3 ? { left: 240, top: 50 } : { left: 95, top: 50 }}>x</motion.span>
           <motion.span style={{ position: "absolute", left: 145, top: 65, fontSize: 36, color: COLOR_EXP, fontWeight: 700 }}
             animate={paso === 2 ? { left: 215, top: 5, opacity: 1 } : paso < 2 ? { opacity: 1 } : { opacity: 0 }}>+</motion.span>
-          <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: "#3b82f6", fontFamily: "var(--font-crimson), serif" }}
+          <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: "var(--dib-blue-500)", fontFamily: "var(--font-crimson), serif" }}
             initial={{ left: 190, top: 50 }}
             animate={paso === 0 ? { left: 190, top: 50, opacity: 1, scale: 1 } : paso === 1 ? { left: 250, top: 5, opacity: 1, scale: 1.2 } : paso === 2 ? { left: 200, top: 40, opacity: 0, scale: 1.4 } : { opacity: 0, scale: 0 }}
             transition={{ type: "spring", delay: 0.05 }}>5</motion.span>
@@ -200,7 +200,7 @@ function Esc04_SumaResta() {
             animate={paso >= 3 ? { left: 240, top: 50, opacity: 0, scale: 0 } : { left: 230, top: 50, opacity: 1, scale: 1 }}>x</motion.span>
           <motion.span style={{ position: "absolute", fontSize: 50, fontWeight: 800, color: COLOR_OK, fontFamily: "var(--font-crimson), serif" }}
             initial={{ left: 200, top: 5, opacity: 0, scale: 0 }}
-            animate={paso === 2 ? { left: 200, top: 5, opacity: 1, scale: [0, 1.4, 1] } : paso >= 3 ? { left: 195, top: 50, opacity: 1, scale: 1, color: "#3b82f6" } : { opacity: 0, scale: 0 }}
+            animate={paso === 2 ? { left: 200, top: 5, opacity: 1, scale: [0, 1.4, 1] } : paso >= 3 ? { left: 195, top: 50, opacity: 1, scale: 1, color: "var(--dib-blue-500)" } : { opacity: 0, scale: 0 }}
             transition={{ type: "spring", delay: paso === 2 ? 0.3 : 0 }}>8</motion.span>
         </Stage>
         <div style={{ fontSize: 12, color: "var(--fg-muted)", fontStyle: "italic", textAlign: "center", marginTop: 4 }}>
@@ -298,10 +298,10 @@ function Esc06_FOIL() {
             (<span style={{ fontStyle: "italic" }}>x</span> + 2)(<span style={{ fontStyle: "italic" }}>x</span> + 3)
           </div>
           {[
-            { txt: "x · x = x²", color: "#3b82f6" },
-            { txt: "x · 3 = 3x", color: "#10b981" },
-            { txt: "2 · x = 2x", color: "#f59e0b" },
-            { txt: "2 · 3 = 6", color: "#8b5cf6" },
+            { txt: "x · x = x²", color: "var(--dib-blue-500)" },
+            { txt: "x · 3 = 3x", color: "var(--dib-emerald-500)" },
+            { txt: "2 · x = 2x", color: "var(--dib-amber-500)" },
+            { txt: "2 · 3 = 6", color: "var(--dib-violet-500)" },
           ].map((it, k) => (
             <motion.div key={k}
               initial={{ opacity: 0, x: -10 }} animate={paso >= k + 1 ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
@@ -484,7 +484,7 @@ function Esc09_Practica() {
                   <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
                     style={{
                       padding: "10px 14px",
-                      background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)",
+                      background: !rev ? "var(--bg-base)" : isOk ? "var(--dib-emerald-100)" : isSel ? "var(--dib-red-100)" : "var(--bg-base)",
                       border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`,
                       borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer",
                       fontFamily: "var(--font-crimson), serif", textAlign: "left",
@@ -493,7 +493,7 @@ function Esc09_Practica() {
               })}
             </div>
             {rev && (
-              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+              <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "var(--dib-emerald-50)" : "var(--dib-red-50)", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
                 <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
               </div>
             )}
@@ -502,9 +502,9 @@ function Esc09_Practica() {
       })}
       {Object.keys(resp).length === ejs.length && (
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          style={{ padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominas expresiones algebraicas."}
             {ok >= 3 && ok < ejs.length && "Repasa los que fallaste. Los productos notables se vienen pidiendo seguido."}
             {ok < 3 && "Vuelve a las escenas 5 (distributiva) y 6 (FOIL)."}

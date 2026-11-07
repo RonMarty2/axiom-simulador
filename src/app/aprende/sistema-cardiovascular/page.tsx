@@ -46,7 +46,7 @@ function EscSimCorazon() {
   const sistolePhase = phase < 0.35 ? phase / 0.35 : 0;
   const scale = phase < 0.35 ? 1 - 0.15 * Math.sin(sistolePhase * Math.PI) : 1;
   const fase = phase < 0.1 ? "Sístole auricular" : phase < 0.35 ? "Sístole ventricular" : "Diástole";
-  const colorFase = phase < 0.1 ? LIENZO.warn : phase < 0.35 ? LIENZO.bad : "#06b6d4";
+  const colorFase = phase < 0.1 ? LIENZO.warn : phase < 0.35 ? LIENZO.bad : "var(--dib-cyan-500)";
 
   return (
     <EscenaRica>
@@ -57,10 +57,10 @@ function EscSimCorazon() {
         Bradicardia (&lt;60), normal (60-100), taquicardia (&gt;100).
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ marginBottom: 12 }}>
           <label style={{ display: "block", marginBottom: 6, fontWeight: 600 }}>
-            Frecuencia cardíaca: <span style={{ color: "#60a5fa" }}>{fc} lpm</span>
+            Frecuencia cardíaca: <span style={{ color: "var(--dib-blue-400)" }}>{fc} lpm</span>
           </label>
           <input
             type="range" min={40} max={180} step={1} value={fc}
@@ -68,9 +68,9 @@ function EscSimCorazon() {
             style={{ width: "100%" }}
           />
           <div style={{ display: "flex", justifyContent: "space-between", fontSize: 11, opacity: 0.7, marginTop: 4 }}>
-            <span style={{ color: fc < 60 ? "#06b6d4" : "#475569" }}>Bradicardia</span>
-            <span style={{ color: fc >= 60 && fc <= 100 ? "#10b981" : "#475569" }}>Normal</span>
-            <span style={{ color: fc > 100 ? "#ef4444" : "#475569" }}>Taquicardia</span>
+            <span style={{ color: fc < 60 ? "var(--dib-cyan-500)" : "var(--dib-slate-600)" }}>Bradicardia</span>
+            <span style={{ color: fc >= 60 && fc <= 100 ? "var(--dib-emerald-500)" : "var(--dib-slate-600)" }}>Normal</span>
+            <span style={{ color: fc > 100 ? "var(--dib-red-500)" : "var(--dib-slate-600)" }}>Taquicardia</span>
           </div>
         </div>
 
@@ -81,9 +81,9 @@ function EscSimCorazon() {
                 C 110 110, 150 145, 200 175
                 C 250 145, 290 110, 270 80
                 C 250 50, 200 60, 200 90 Z`}
-            fill="#ef4444"
+            fill="var(--dib-red-500)"
             opacity={0.6}
-            stroke="#dc2626"
+            stroke="var(--dib-red-600)"
             strokeWidth={2}
             transform={`translate(200 115) scale(${scale}) translate(-200 -115)`}
             style={{ transition: "transform 50ms linear" }}
@@ -91,7 +91,7 @@ function EscSimCorazon() {
           <text x={200} y={125} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>♥</text>
         </svg>
 
-        <div style={{ padding: 10, background: "#1e293b", borderRadius: 8, textAlign: "center" }}>
+        <div style={{ padding: 10, background: "var(--dib-slate-800)", borderRadius: 8, textAlign: "center" }}>
           <div style={{ fontSize: 11, opacity: 0.7 }}>Fase actual</div>
           <div style={{ fontSize: 16, fontWeight: 700, color: colorFase }}>{fase}</div>
           <div style={{ fontSize: 10, opacity: 0.6, marginTop: 4 }}>
@@ -124,32 +124,32 @@ function EscSimGasto() {
         Es el volumen de sangre que el corazón expulsa por minuto. Normal: ~5 L/min.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ marginBottom: 12 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#f59e0b" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-amber-500)" }}>
             Frecuencia cardíaca (FC) = {fc} lpm
           </label>
           <input type="range" min={40} max={200} step={1} value={fc}
             onChange={(e) => setFc(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#f59e0b" }} />
+            style={{ width: "100%", accentColor: "var(--dib-amber-500)" }} />
         </div>
 
         <div style={{ marginBottom: 14 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-emerald-500)" }}>
             Volumen sistólico (VS) = {vs} mL
           </label>
           <input type="range" min={30} max={150} step={1} value={vs}
             onChange={(e) => setVs(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#10b981" }} />
+            style={{ width: "100%", accentColor: "var(--dib-emerald-500)" }} />
         </div>
 
-        <div style={{ padding: 14, background: "#1e293b", borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+        <div style={{ padding: 14, background: "var(--dib-slate-800)", borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-blue-400)" }}>
           <div style={{ fontSize: 12, opacity: 0.7 }}>GC = FC × VS</div>
-          <div style={{ fontSize: 24, fontWeight: 700, color: "#60a5fa", fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 24, fontWeight: 700, color: "var(--dib-blue-400)", fontFamily: "var(--font-crimson), serif" }}>
             {gc.toLocaleString()} mL/min = {gcL} L/min
           </div>
           <div style={{ fontSize: 11, marginTop: 6,
-            color: gc < 4000 ? "#06b6d4" : gc > 8000 ? "#ef4444" : "#10b981" }}>
+            color: gc < 4000 ? "var(--dib-cyan-500)" : gc > 8000 ? "var(--dib-red-500)" : "var(--dib-emerald-500)" }}>
             {gc < 4000 ? "Bajo (shock?)" : gc > 8000 ? "Elevado (ejercicio)" : "Rango normal"}
           </div>
         </div>
@@ -193,12 +193,12 @@ function EscSangre() {
             Composición de la sangre (en tubo centrifugado)
           </text>
           <g transform="translate(280, 50)">
-            <rect width={160} height={50} fill="#fbbf24" opacity={0.5} stroke="#d97706" strokeWidth={1.5} />
+            <rect width={160} height={50} fill="var(--dib-amber-400)" opacity={0.5} stroke="var(--dib-amber-600)" strokeWidth={1.5} />
             <text x={80} y={32} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={700}>Plasma 55%</text>
             <line y1={50} x1={0} x2={160} y2={50} stroke={LIENZO.fg} strokeWidth={0.5} strokeDasharray="3 2" />
-            <rect y={50} width={160} height={6} fill="#fff" stroke="#a78bfa" strokeWidth={1} />
-            <text x={170} y={56} fill="#a78bfa" fontSize={9}>capa leucocitos+plaquetas (1%)</text>
-            <rect y={56} width={160} height={44} fill="#ef4444" opacity={0.6} stroke="#dc2626" strokeWidth={1.5} />
+            <rect y={50} width={160} height={6} fill="#fff" stroke="var(--dib-violet-400)" strokeWidth={1} />
+            <text x={170} y={56} fill="var(--dib-violet-400)" fontSize={9}>capa leucocitos+plaquetas (1%)</text>
+            <rect y={56} width={160} height={44} fill="var(--dib-red-500)" opacity={0.6} stroke="var(--dib-red-600)" strokeWidth={1.5} />
             <text x={80} y={84} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Eritrocitos 45%</text>
           </g>
         </svg>
@@ -226,21 +226,21 @@ function EscCorazon() {
           {/* corazón */}
           <g transform="translate(240, 50)">
             {/* aurícula derecha */}
-            <rect x={0} y={0} width={100} height={70} fill="#3b82f6" opacity={0.3} stroke="#3b82f6" strokeWidth={1.5} />
-            <text x={50} y={35} textAnchor="middle" fill="#3b82f6" fontSize={11} fontWeight={700}>Aurícula</text>
-            <text x={50} y={50} textAnchor="middle" fill="#3b82f6" fontSize={11} fontWeight={700}>derecha</text>
+            <rect x={0} y={0} width={100} height={70} fill="var(--dib-blue-500)" opacity={0.3} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
+            <text x={50} y={35} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={11} fontWeight={700}>Aurícula</text>
+            <text x={50} y={50} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={11} fontWeight={700}>derecha</text>
             <text x={50} y={64} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>(sangre venosa)</text>
             {/* aurícula izquierda */}
-            <rect x={140} y={0} width={100} height={70} fill="#ef4444" opacity={0.3} stroke="#ef4444" strokeWidth={1.5} />
-            <text x={190} y={35} textAnchor="middle" fill="#ef4444" fontSize={11} fontWeight={700}>Aurícula</text>
-            <text x={190} y={50} textAnchor="middle" fill="#ef4444" fontSize={11} fontWeight={700}>izquierda</text>
+            <rect x={140} y={0} width={100} height={70} fill="var(--dib-red-500)" opacity={0.3} stroke="var(--dib-red-500)" strokeWidth={1.5} />
+            <text x={190} y={35} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11} fontWeight={700}>Aurícula</text>
+            <text x={190} y={50} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11} fontWeight={700}>izquierda</text>
             {/* ventrículo derecho */}
-            <rect x={0} y={80} width={100} height={100} fill="#3b82f6" opacity={0.5} stroke="#3b82f6" strokeWidth={1.5} />
+            <rect x={0} y={80} width={100} height={100} fill="var(--dib-blue-500)" opacity={0.5} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
             <text x={50} y={120} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Ventrículo</text>
             <text x={50} y={138} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>derecho</text>
             <text x={50} y={158} textAnchor="middle" fill="#fff" fontSize={10}>→ pulmones</text>
             {/* ventrículo izquierdo */}
-            <rect x={140} y={80} width={100} height={100} fill="#ef4444" opacity={0.5} stroke="#ef4444" strokeWidth={1.5} />
+            <rect x={140} y={80} width={100} height={100} fill="var(--dib-red-500)" opacity={0.5} stroke="var(--dib-red-500)" strokeWidth={1.5} />
             <text x={190} y={120} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Ventrículo</text>
             <text x={190} y={138} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>izquierdo</text>
             <text x={190} y={158} textAnchor="middle" fill="#fff" fontSize={10}>→ cuerpo</text>
@@ -284,7 +284,7 @@ function EscCiclo() {
             Fases del ciclo cardíaco
           </text>
           {[
-            { x: 90, t: "1. Diástole", d: "relajación · llenado", c: "#06b6d4" },
+            { x: 90, t: "1. Diástole", d: "relajación · llenado", c: "var(--dib-cyan-500)" },
             { x: 290, t: "2. Sístole auricular", d: "aurículas se contraen", c: LIENZO.warn },
             { x: 490, t: "3. Sístole ventricular", d: "ventrículos expulsan sangre", c: LIENZO.bad },
           ].map((f, i) => (
@@ -372,8 +372,8 @@ function EscCirculacion() {
             2 circuitos en serie
           </text>
           <g transform="translate(80, 50)">
-            <rect width={280} height={170} fill="#06b6d4" opacity={0.1} stroke="#06b6d4" strokeWidth={1.5} rx={10} />
-            <text x={140} y={25} textAnchor="middle" fill="#06b6d4" fontSize={13} fontWeight={700}>MENOR (pulmonar)</text>
+            <rect width={280} height={170} fill="var(--dib-cyan-500)" opacity={0.1} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={10} />
+            <text x={140} y={25} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={13} fontWeight={700}>MENOR (pulmonar)</text>
             <text x={140} y={50} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>oxigena la sangre</text>
             <text x={20} y={80} fill={LIENZO.fg} fontSize={11}>VD → arteria pulmonar →</text>
             <text x={20} y={100} fill={LIENZO.fg} fontSize={11}>pulmones (O₂ entra, CO₂ sale)</text>
@@ -420,7 +420,7 @@ function EscPresion() {
             Valores referenciales
           </text>
           {[
-            { x: 90, t: "Hipotensión", v: "&lt;90/60", c: "#06b6d4" },
+            { x: 90, t: "Hipotensión", v: "&lt;90/60", c: "var(--dib-cyan-500)" },
             { x: 280, t: "Normal", v: "120/80", c: LIENZO.ok },
             { x: 470, t: "Hipertensión", v: "≥140/90", c: LIENZO.bad },
           ].map((p, i) => (

@@ -79,12 +79,12 @@ function EscNiveles() {
             De átomo a organismo · 6 niveles
           </text>
           {[
-            { t: "Químico", ej: "átomos, moléculas (H₂O, glucosa, ATP)", c: "#3b82f6" },
-            { t: "Celular", ej: "células (neurona, eritrocito, miocito)", c: "#06b6d4" },
-            { t: "Tisular", ej: "tejidos (muscular, nervioso, conectivo, epitelial)", c: "#10b981" },
-            { t: "Orgánico", ej: "órganos (corazón, hígado, pulmón)", c: "#84cc16" },
-            { t: "Sistémico", ej: "sistemas/aparatos (circulatorio, digestivo, etc.)", c: "#eab308" },
-            { t: "Organísmico", ej: "el organismo completo (tú)", c: "#ef4444" },
+            { t: "Químico", ej: "átomos, moléculas (H₂O, glucosa, ATP)", c: "var(--dib-blue-500)" },
+            { t: "Celular", ej: "células (neurona, eritrocito, miocito)", c: "var(--dib-cyan-500)" },
+            { t: "Tisular", ej: "tejidos (muscular, nervioso, conectivo, epitelial)", c: "var(--dib-emerald-500)" },
+            { t: "Orgánico", ej: "órganos (corazón, hígado, pulmón)", c: "var(--dib-lime-500)" },
+            { t: "Sistémico", ej: "sistemas/aparatos (circulatorio, digestivo, etc.)", c: "var(--dib-yellow-500)" },
+            { t: "Organísmico", ej: "el organismo completo (tú)", c: "var(--dib-red-500)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 38})`}>
               <rect x={0} y={0} width={580} height={32} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={6} />
@@ -256,8 +256,8 @@ function EscCavidades() {
             <text x={80} y={188} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>(est., híg., int.)</text>
 
             {/* pelvica */}
-            <rect x={20} y={200} width={120} height={40} fill="#a78bfa" opacity={0.3} stroke="#a78bfa" strokeWidth={1.5} />
-            <text x={80} y={224} textAnchor="middle" fill="#a78bfa" fontSize={10} fontWeight={700}>Pélvica</text>
+            <rect x={20} y={200} width={120} height={40} fill="var(--dib-violet-400)" opacity={0.3} stroke="var(--dib-violet-400)" strokeWidth={1.5} />
+            <text x={80} y={224} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={10} fontWeight={700}>Pélvica</text>
           </g>
         </svg>
       </Pizarra>

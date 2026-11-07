@@ -163,8 +163,8 @@ function EscAdaptativa() {
             Linfocitos B vs T
           </text>
           <g transform="translate(80, 55)">
-            <rect width={260} height={140} fill="#3b82f6" opacity={0.1} stroke="#3b82f6" strokeWidth={1.5} rx={10} />
-            <text x={130} y={25} textAnchor="middle" fill="#3b82f6" fontSize={13} fontWeight={700}>LINFOCITOS B</text>
+            <rect width={260} height={140} fill="var(--dib-blue-500)" opacity={0.1} stroke="var(--dib-blue-500)" strokeWidth={1.5} rx={10} />
+            <text x={130} y={25} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={13} fontWeight={700}>LINFOCITOS B</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>maduran en médula ósea</text>
             <text x={20} y={70} fill={LIENZO.fg} fontSize={11}>• Producen ANTICUERPOS</text>
             <text x={20} y={90} fill={LIENZO.fg} fontSize={11}>• Inmunidad HUMORAL</text>
@@ -172,8 +172,8 @@ function EscAdaptativa() {
             <text x={20} y={130} fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">(bacterias, toxinas)</text>
           </g>
           <g transform="translate(380, 55)">
-            <rect width={260} height={140} fill="#10b981" opacity={0.1} stroke="#10b981" strokeWidth={1.5} rx={10} />
-            <text x={130} y={25} textAnchor="middle" fill="#10b981" fontSize={13} fontWeight={700}>LINFOCITOS T</text>
+            <rect width={260} height={140} fill="var(--dib-emerald-500)" opacity={0.1} stroke="var(--dib-emerald-500)" strokeWidth={1.5} rx={10} />
+            <text x={130} y={25} textAnchor="middle" fill="var(--dib-emerald-500)" fontSize={13} fontWeight={700}>LINFOCITOS T</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>maduran en timo</text>
             <text x={20} y={70} fill={LIENZO.fg} fontSize={11}>• T helper (CD4): coordinan</text>
             <text x={20} y={90} fill={LIENZO.fg} fontSize={11}>• T citotóxicos (CD8): matan</text>

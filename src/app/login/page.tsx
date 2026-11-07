@@ -38,7 +38,7 @@ function LoginContent() {
           style={{
             display: "flex", alignItems: "center", justifyContent: "center", gap: 12,
             width: "100%", padding: "16px 20px",
-            background: "white", color: "#1f2937",
+            background: "var(--bg-card)", color: "var(--fg-primary)",
             border: "1px solid var(--border)", borderRadius: 14,
             textDecoration: "none", fontWeight: 700, fontSize: 16,
             boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
@@ -60,7 +60,7 @@ function LoginContent() {
         </p>
 
         {error && (
-          <div style={{ marginTop: 16, padding: 12, background: "rgba(239,68,68,0.08)", borderRadius: 10, color: "#b91c1c", fontSize: 13, textAlign: "center" }}>
+          <div style={{ marginTop: 16, padding: 12, background: "var(--error-light)", borderRadius: 10, color: "var(--error)", fontSize: 13, textAlign: "center" }}>
             <span style={{ display: "inline-flex", alignItems: "center", gap: 7, justifyContent: "center" }}><Icono nombre="alerta" tamano={14} /> No se pudo iniciar sesión: {error}</span>
           </div>
         )}

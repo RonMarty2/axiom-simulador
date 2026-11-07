@@ -272,15 +272,15 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
           }}>{unidad.titulo}</h3>
           {!accesible && (
             <span style={{
-              fontSize: 11, fontWeight: 800, color: "#92400e",
-              background: "linear-gradient(135deg, #fde68a, #fcd34d)",
+              fontSize: 11, fontWeight: 800, color: "var(--dib-amber-800)",
+              background: "linear-gradient(135deg, var(--dib-amber-200), var(--dib-amber-300))",
               padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
             }}>🔒 SOLO PREMIUM</span>
           )}
           {esGratis && (
             <span style={{
-              fontSize: 11, fontWeight: 800, color: "#065f46",
-              background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+              fontSize: 11, fontWeight: 800, color: "var(--dib-emerald-800)",
+              background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))",
               padding: "4px 10px", borderRadius: 8, letterSpacing: 0.6,
             }}>GRATIS</span>
           )}
@@ -340,7 +340,7 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
                           <span style={{ opacity: 0.6 }}>🔒</span>
                           {l.titulo}
                         </span>
-                        <span style={{ fontSize: 11, fontWeight: 700, color: "#92400e", letterSpacing: 0.5 }}>
+                        <span style={{ fontSize: 11, fontWeight: 700, color: "var(--dib-amber-800)", letterSpacing: 0.5 }}>
                           DESBLOQUEAR →
                         </span>
                       </Link>
@@ -368,13 +368,13 @@ const leccionEstilo = (variante: "activa" | "bloqueada" | "proximamente"): React
   display: "flex", justifyContent: "space-between", alignItems: "center",
   padding: "12px 14px", borderRadius: 10,
   background: variante === "activa" ? "var(--bg-base)" :
-              variante === "bloqueada" ? "#fffbeb" :
+              variante === "bloqueada" ? "var(--dib-amber-50)" :
               "transparent",
   border: variante === "activa" ? "1px solid var(--border)" :
-          variante === "bloqueada" ? "1px solid #fde68a" :
+          variante === "bloqueada" ? "1px solid var(--dib-amber-200)" :
           "1px dashed transparent",
   color: variante === "activa" ? "var(--fg-primary)" :
-         variante === "bloqueada" ? "#78350f" :
+         variante === "bloqueada" ? "var(--dib-amber-900)" :
          "var(--fg-muted)",
   textDecoration: "none", fontSize: 15, fontWeight: 600,
   cursor: variante === "proximamente" ? "default" : "pointer",

@@ -248,8 +248,8 @@ function Esc03_BuscarDiv() {
                 initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
                 style={{
                   padding: "6px 12px", borderRadius: 10,
-                  background: c.ok ? "#d1fae5" : "#fee2e2",
-                  color: c.ok ? "#065f46" : "#7f1d1d",
+                  background: c.ok ? "var(--dib-emerald-100)" : "var(--dib-red-100)",
+                  color: c.ok ? "var(--dib-emerald-800)" : "var(--dib-red-900)",
                   border: `1.5px solid ${c.ok ? COLOR_OK : COLOR_BAD}`,
                   fontSize: 14,
                 }}>
@@ -290,7 +290,7 @@ function Esc03_BuscarDiv() {
 function Esc04_Multiplo() {
   return (
     <EscenaRica>
-      <Titulo accent="#10b981">¿Qué es un múltiplo?</Titulo>
+      <Titulo accent="var(--dib-emerald-500)">¿Qué es un múltiplo?</Titulo>
       <Parrafo>
         "Múltiplo" es el espejo de "divisor". Mismo concepto, distinta perspectiva.
       </Parrafo>
@@ -344,14 +344,14 @@ function Esc05_Comunes() {
       </Parrafo>
 
       <Ejemplo titulo="Divisores comunes de 12 y 18">
-        Divisores de <strong style={{ color: "#3b82f6" }}>12</strong>: {`{1, 2, 3, 4, 6, 12}`}<br />
-        Divisores de <strong style={{ color: "#f59e0b" }}>18</strong>: {`{1, 2, 3, 6, 9, 18}`}<br /><br />
+        Divisores de <strong style={{ color: "var(--dib-blue-500)" }}>12</strong>: {`{1, 2, 3, 4, 6, 12}`}<br />
+        Divisores de <strong style={{ color: "var(--dib-amber-500)" }}>18</strong>: {`{1, 2, 3, 6, 9, 18}`}<br /><br />
         Los que aparecen en ambas listas: <strong style={{ color: COLOR_OK }}>{`{1, 2, 3, 6}`}</strong>
       </Ejemplo>
 
       <Ejemplo titulo="Múltiplos comunes de 4 y 6">
-        Múltiplos de <strong style={{ color: "#3b82f6" }}>4</strong>: 4, 8, <strong style={{ color: COLOR_OK }}>12</strong>, 16, 20, <strong style={{ color: COLOR_OK }}>24</strong>, 28, …<br />
-        Múltiplos de <strong style={{ color: "#f59e0b" }}>6</strong>: 6, <strong style={{ color: COLOR_OK }}>12</strong>, 18, <strong style={{ color: COLOR_OK }}>24</strong>, 30, …<br /><br />
+        Múltiplos de <strong style={{ color: "var(--dib-blue-500)" }}>4</strong>: 4, 8, <strong style={{ color: COLOR_OK }}>12</strong>, 16, 20, <strong style={{ color: COLOR_OK }}>24</strong>, 28, …<br />
+        Múltiplos de <strong style={{ color: "var(--dib-amber-500)" }}>6</strong>: 6, <strong style={{ color: COLOR_OK }}>12</strong>, 18, <strong style={{ color: COLOR_OK }}>24</strong>, 30, …<br /><br />
         Comunes: <strong style={{ color: COLOR_OK }}>12, 24, 36, …</strong>
       </Ejemplo>
 
@@ -550,7 +550,7 @@ function Esc08_Factorizar() {
           {paso >= 2 && <Paso n={3}>¿15 es divisible por 2? No. Pasamos a 3: 15 ÷ 3 = 5.</Paso>}
           {paso >= 3 && <Paso n={4}>5 ya es primo (no se reduce más).</Paso>}
           {paso >= 4 && (
-            <div style={{ marginTop: 10, padding: 12, background: "#d1fae5", borderRadius: 10, color: "#065f46", fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
+            <div style={{ marginTop: 10, padding: 12, background: "var(--dib-emerald-100)", borderRadius: 10, color: "var(--dib-emerald-800)", fontWeight: 700, fontFamily: "var(--font-crimson), serif" }}>
               <strong>Resultado:</strong> 60 = 2 · 2 · 3 · 5 = <strong>2² · 3 · 5</strong>
             </div>
           )}
@@ -763,7 +763,7 @@ function Esc11_MCMFact() {
       </Ejemplo>
 
       <Ejemplo titulo="Cuando un primo solo aparece en uno">
-        MCM(60, 84) con 60 = 2²·3·<strong style={{ color: "#3b82f6" }}>5</strong> y 84 = 2²·3·<strong style={{ color: "#f59e0b" }}>7</strong>.<br />
+        MCM(60, 84) con 60 = 2²·3·<strong style={{ color: "var(--dib-blue-500)" }}>5</strong> y 84 = 2²·3·<strong style={{ color: "var(--dib-amber-500)" }}>7</strong>.<br />
         Tomo TODOS los primos: 2, 3, 5, 7. Cada uno con su mayor exponente.<br />
         <strong>MCM = 2² · 3 · 5 · 7 = 4·3·5·7 = 420</strong>
       </Ejemplo>
@@ -997,8 +997,8 @@ function Esc15_Practica() {
                     style={{
                       padding: "10px 14px",
                       background: !reveal ? "var(--bg-base)"
-                        : ok ? "#d1fae5"
-                        : sel ? "#fee2e2"
+                        : ok ? "var(--dib-emerald-100)"
+                        : sel ? "var(--dib-red-100)"
                         : "var(--bg-base)",
                       border: `1.5px solid ${!reveal ? "var(--border)" : ok ? COLOR_OK : sel ? COLOR_BAD : "var(--border)"}`,
                       borderRadius: 10, fontSize: 16, fontWeight: 700,
@@ -1016,7 +1016,7 @@ function Esc15_Practica() {
             {reveal && (
               <div style={{
                 marginTop: 10, padding: "10px 12px",
-                background: elegida === ej.correctaIdx ? "#ecfdf5" : "#fef2f2",
+                background: elegida === ej.correctaIdx ? "var(--dib-emerald-50)" : "var(--dib-red-50)",
                 borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5,
               }}>
                 <strong style={{ color: elegida === ej.correctaIdx ? COLOR_OK : COLOR_BAD }}>
@@ -1033,15 +1033,15 @@ function Esc15_Practica() {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
           style={{
-            padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)",
+            padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))",
             border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%",
             textAlign: "center",
           }}
         >
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>
             {correctas} / {ejercicios.length} correctas
           </div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {correctas === ejercicios.length && "🎉 ¡Perfecto! Ya dominas MCD y MCM."}
             {correctas >= 3 && correctas < ejercicios.length && "Bien. Repasa los que fallaste, en un día vuelve."}
             {correctas < 3 && "Vale la pena releer las escenas 8 y 9 (factorización + MCD). El método te va a salir."}

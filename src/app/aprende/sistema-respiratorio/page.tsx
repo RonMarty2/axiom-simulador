@@ -74,13 +74,13 @@ function EscVias() {
             Camino del aire (de arriba abajo)
           </text>
           {[
-            { t: "Fosas nasales", d: "filtran, calientan, humidifican aire", c: "#3b82f6" },
-            { t: "Faringe", d: "compartida con digestivo (cruce)", c: "#06b6d4" },
-            { t: "Laringe", d: "cuerdas vocales (voz) + epiglotis", c: "#10b981" },
-            { t: "Tráquea", d: "tubo con anillos cartilaginosos", c: "#84cc16" },
-            { t: "Bronquios (2)", d: "derecho e izquierdo, a cada pulmón", c: "#eab308" },
-            { t: "Bronquiolos", d: "ramificaciones progresivas", c: "#f59e0b" },
-            { t: "Alvéolos", d: "saquitos donde ocurre intercambio", c: "#ef4444" },
+            { t: "Fosas nasales", d: "filtran, calientan, humidifican aire", c: "var(--dib-blue-500)" },
+            { t: "Faringe", d: "compartida con digestivo (cruce)", c: "var(--dib-cyan-500)" },
+            { t: "Laringe", d: "cuerdas vocales (voz) + epiglotis", c: "var(--dib-emerald-500)" },
+            { t: "Tráquea", d: "tubo con anillos cartilaginosos", c: "var(--dib-lime-500)" },
+            { t: "Bronquios (2)", d: "derecho e izquierdo, a cada pulmón", c: "var(--dib-yellow-500)" },
+            { t: "Bronquiolos", d: "ramificaciones progresivas", c: "var(--dib-amber-500)" },
+            { t: "Alvéolos", d: "saquitos donde ocurre intercambio", c: "var(--dib-red-500)" },
           ].map((p, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 28})`}>
               <rect width={580 - i * 25} height={22} fill={p.c} opacity={0.2} stroke={p.c} strokeWidth={1.5} rx={4} />
@@ -116,18 +116,18 @@ function EscPulmones() {
             Pulmón izquierdo vs derecho
           </text>
           <g transform="translate(150, 55)">
-            <rect width={150} height={150} fill="#ef4444" opacity={0.15} stroke="#ef4444" strokeWidth={2} rx={20} />
-            <text x={75} y={30} textAnchor="middle" fill="#ef4444" fontSize={12} fontWeight={700}>PULMÓN</text>
-            <text x={75} y={48} textAnchor="middle" fill="#ef4444" fontSize={12} fontWeight={700}>DERECHO</text>
+            <rect width={150} height={150} fill="var(--dib-red-500)" opacity={0.15} stroke="var(--dib-red-500)" strokeWidth={2} rx={20} />
+            <text x={75} y={30} textAnchor="middle" fill="var(--dib-red-500)" fontSize={12} fontWeight={700}>PULMÓN</text>
+            <text x={75} y={48} textAnchor="middle" fill="var(--dib-red-500)" fontSize={12} fontWeight={700}>DERECHO</text>
             <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>3 lóbulos</text>
             <text x={75} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(superior, medio,</text>
             <text x={75} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>inferior)</text>
             <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">más grande</text>
           </g>
           <g transform="translate(420, 55)">
-            <rect width={150} height={150} fill="#3b82f6" opacity={0.15} stroke="#3b82f6" strokeWidth={2} rx={20} />
-            <text x={75} y={30} textAnchor="middle" fill="#3b82f6" fontSize={12} fontWeight={700}>PULMÓN</text>
-            <text x={75} y={48} textAnchor="middle" fill="#3b82f6" fontSize={12} fontWeight={700}>IZQUIERDO</text>
+            <rect width={150} height={150} fill="var(--dib-blue-500)" opacity={0.15} stroke="var(--dib-blue-500)" strokeWidth={2} rx={20} />
+            <text x={75} y={30} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={12} fontWeight={700}>PULMÓN</text>
+            <text x={75} y={48} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={12} fontWeight={700}>IZQUIERDO</text>
             <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>2 lóbulos</text>
             <text x={75} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(superior, inferior)</text>
             <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">más chico (corazón)</text>
@@ -173,8 +173,8 @@ function EscMecanica() {
             <text x={20} y={124} fill={LIENZO.fg} fontSize={11}>• ↓ presión → entra aire</text>
           </g>
           <g transform="translate(380, 55)">
-            <rect width={260} height={130} fill="#06b6d4" opacity={0.1} stroke="#06b6d4" strokeWidth={1.5} rx={10} />
-            <text x={130} y={25} textAnchor="middle" fill="#06b6d4" fontSize={13} fontWeight={700}>ESPIRACIÓN</text>
+            <rect width={260} height={130} fill="var(--dib-cyan-500)" opacity={0.1} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={10} />
+            <text x={130} y={25} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={13} fontWeight={700}>ESPIRACIÓN</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>(pasiva en reposo)</text>
             <text x={20} y={70} fill={LIENZO.fg} fontSize={11}>• Diafragma se relaja (sube)</text>
             <text x={20} y={88} fill={LIENZO.fg} fontSize={11}>• Costillas bajan</text>

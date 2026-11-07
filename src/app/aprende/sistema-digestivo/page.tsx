@@ -136,7 +136,7 @@ function EscEstomago() {
           {[
             { x: 100, t: "HCl", d: "ácido clorhídrico, mata gérmenes, activa pepsina", c: LIENZO.bad },
             { x: 100, t: "Pepsina", d: "digiere proteínas", c: LIENZO.warn, y: 90 },
-            { x: 410, t: "Moco", d: "protege la pared del propio ácido", c: "#06b6d4" },
+            { x: 410, t: "Moco", d: "protege la pared del propio ácido", c: "var(--dib-cyan-500)" },
             { x: 410, t: "Factor intrínseco", d: "permite absorción de vitamina B12", c: LIENZO.ok, y: 90 },
           ].map((s, i) => (
             <g key={i} transform={`translate(${s.x}, ${s.y || 50})`}>
@@ -265,15 +265,15 @@ function EscAnexos() {
               "metaboliza nutrientes, desintoxica",
               "guarda glucógeno, vit. A, D, B12",
               "produce proteínas plasmáticas (albúmina, factores coagulación)",
-            ], c: "#a16207" },
+            ], c: "var(--dib-yellow-700)" },
             { y: 130, t: "Vesícula biliar", fns: [
               "almacena y concentra bilis",
               "la libera al duodeno al comer grasas",
-            ], c: "#10b981" },
+            ], c: "var(--dib-emerald-500)" },
             { y: 190, t: "Páncreas (digestivo)", fns: [
               "jugo pancreático: amilasa, lipasa, tripsina",
               "bicarbonato neutraliza ácido del quimo",
-            ], c: "#a78bfa" },
+            ], c: "var(--dib-violet-400)" },
           ].map((o, i) => (
             <g key={i} transform={`translate(80, ${o.y})`}>
               <rect width={580} height={o.fns.length * 18 + 22} fill={o.c} opacity={0.08} stroke={o.c} strokeWidth={1.5} rx={6} />

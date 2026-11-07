@@ -78,10 +78,10 @@ function EscMetodo() {
             LOS 4 PASOS, SIEMPRE EN ESTE ORDEN
           </text>
           {[
-            { n: "1", t1: "Balancear", t2: "ecuación", c: "#3b82f6" },
-            { n: "2", t1: "Convertir DATO", t2: "a moles", c: "#10b981" },
-            { n: "3", t1: "Relación molar", t2: "(coeficientes)", c: "#f59e0b" },
-            { n: "4", t1: "Convertir moles", t2: "a UNIDAD pedida", c: "#ef4444" },
+            { n: "1", t1: "Balancear", t2: "ecuación", c: "var(--dib-blue-500)" },
+            { n: "2", t1: "Convertir DATO", t2: "a moles", c: "var(--dib-emerald-500)" },
+            { n: "3", t1: "Relación molar", t2: "(coeficientes)", c: "var(--dib-amber-500)" },
+            { n: "4", t1: "Convertir moles", t2: "a UNIDAD pedida", c: "var(--dib-red-500)" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${100 + i * 170}, 100)`}>
               <circle r={30} fill={p.c} opacity={0.2} stroke={p.c} strokeWidth={2} />
@@ -149,14 +149,14 @@ function EscSimulador() {
         los valores con la relación 1 : 2 : 1 : 2.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ textAlign: "center", fontSize: 18, fontWeight: 700, marginBottom: 12 }}>
           CH₄ + 2 O₂ → CO₂ + 2 H₂O
         </div>
 
         <div style={{ marginBottom: 12 }}>
           <label style={{ display: "block", marginBottom: 6, fontWeight: 600 }}>
-            Gramos de CH₄: <span style={{ color: "#60a5fa" }}>{gCH4} g</span>
+            Gramos de CH₄: <span style={{ color: "var(--dib-blue-400)" }}>{gCH4} g</span>
           </label>
           <input
             type="range"
@@ -170,15 +170,15 @@ function EscSimulador() {
         </div>
 
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-          <Caja label="moles CH₄ (dato)" valor={calc.n} unidad="mol" color="#3b82f6" />
-          <Caja label="masa O₂ requerida" valor={calc.gO2} unidad="g" color="#f59e0b" />
-          <Caja label="masa CO₂ formada" valor={calc.gCO2} unidad="g" color="#10b981" />
-          <Caja label="masa H₂O formada" valor={calc.gH2O} unidad="g" color="#06b6d4" />
+          <Caja label="moles CH₄ (dato)" valor={calc.n} unidad="mol" color="var(--dib-blue-500)" />
+          <Caja label="masa O₂ requerida" valor={calc.gO2} unidad="g" color="var(--dib-amber-500)" />
+          <Caja label="masa CO₂ formada" valor={calc.gCO2} unidad="g" color="var(--dib-emerald-500)" />
+          <Caja label="masa H₂O formada" valor={calc.gH2O} unidad="g" color="var(--dib-cyan-500)" />
         </div>
 
-        <div style={{ marginTop: 12, padding: 10, background: "#1e293b", borderRadius: 8, textAlign: "center" }}>
+        <div style={{ marginTop: 12, padding: 10, background: "var(--dib-slate-800)", borderRadius: 8, textAlign: "center" }}>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Moléculas de CO₂ producidas</div>
-          <div style={{ fontSize: 18, fontWeight: 700, color: "#a78bfa" }}>{calc.molecCO2}</div>
+          <div style={{ fontSize: 18, fontWeight: 700, color: "var(--dib-violet-400)" }}>{calc.molecCO2}</div>
         </div>
       </div>
 
@@ -193,7 +193,7 @@ function EscSimulador() {
 
 function Caja({ label, valor, unidad, color }: { label: string; valor: string; unidad: string; color: string }) {
   return (
-    <div style={{ background: "#1e293b", padding: 10, borderRadius: 8, border: `2px solid ${color}` }}>
+    <div style={{ background: "var(--dib-slate-800)", padding: 10, borderRadius: 8, border: `2px solid ${color}` }}>
       <div style={{ fontSize: 11, opacity: 0.7 }}>{label}</div>
       <div style={{ fontSize: 18, fontWeight: 700, color }}>{valor} <span style={{ fontSize: 12 }}>{unidad}</span></div>
     </div>
@@ -381,10 +381,10 @@ function EscGases() {
             Conversiones con gases en CN
           </text>
           {[
-            { x: 90, t: "masa (g)", c: "#3b82f6" },
-            { x: 280, t: "moles", c: "#10b981" },
-            { x: 470, t: "volumen (L)", c: "#f59e0b" },
-            { x: 660, t: "moléculas", c: "#a78bfa" },
+            { x: 90, t: "masa (g)", c: "var(--dib-blue-500)" },
+            { x: 280, t: "moles", c: "var(--dib-emerald-500)" },
+            { x: 470, t: "volumen (L)", c: "var(--dib-amber-500)" },
+            { x: 660, t: "moléculas", c: "var(--dib-violet-400)" },
           ].map((p, i) => (
             <g key={i}>
               <rect x={p.x - 50} y={70} width={100} height={36} fill={p.c} opacity={0.2} stroke={p.c} strokeWidth={2} rx={8} />

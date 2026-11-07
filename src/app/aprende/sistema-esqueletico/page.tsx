@@ -103,11 +103,11 @@ function EscEstructura() {
           </text>
           {/* dibujo fémur */}
           <g transform="translate(280, 50)">
-            <ellipse cx={80} cy={20} rx={50} ry={20} fill="#e5e7eb" stroke={LIENZO.fg} strokeWidth={1.5} />
-            <rect x={60} y={30} width={40} height={130} fill="#e5e7eb" stroke={LIENZO.fg} strokeWidth={1.5} />
-            <ellipse cx={80} cy={170} rx={50} ry={20} fill="#e5e7eb" stroke={LIENZO.fg} strokeWidth={1.5} />
+            <ellipse cx={80} cy={20} rx={50} ry={20} fill="var(--dib-gray-200)" stroke={LIENZO.fg} strokeWidth={1.5} />
+            <rect x={60} y={30} width={40} height={130} fill="var(--dib-gray-200)" stroke={LIENZO.fg} strokeWidth={1.5} />
+            <ellipse cx={80} cy={170} rx={50} ry={20} fill="var(--dib-gray-200)" stroke={LIENZO.fg} strokeWidth={1.5} />
             {/* médula */}
-            <rect x={72} y={35} width={16} height={120} fill="#fbbf24" opacity={0.5} />
+            <rect x={72} y={35} width={16} height={120} fill="var(--dib-amber-400)" opacity={0.5} />
           </g>
           {/* etiquetas */}
           <line x1={280} y1={70} x2={210} y2={70} stroke={LIENZO.accent} strokeWidth={1} />

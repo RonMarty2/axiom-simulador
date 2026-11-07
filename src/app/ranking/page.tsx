@@ -25,25 +25,25 @@ function Facultad({ id }: { id: string }) {
 
 const COLORES_PODIO = {
   1: {
-    borde: "#b45309",
-    fondo: "linear-gradient(180deg, #d97706 0%, #92400e 100%)",
-    medalla: "#b45309",
-    avatarBg: "#1a1f2e",
-    avatarBorder: "#f59e0b",
+    borde: "var(--podio-oro-borde)",
+    fondo: "linear-gradient(180deg, var(--podio-oro-claro) 0%, var(--podio-oro-oscuro) 100%)",
+    medalla: "var(--podio-oro-borde)",
+    avatarBg: "var(--podio-avatar-bg)",
+    avatarBorder: "var(--podio-oro-avatar)",
   },
   2: {
-    borde: "#64748b",
-    fondo: "linear-gradient(180deg, #64748b 0%, #334155 100%)",
-    medalla: "#64748b",
-    avatarBg: "#1a1f2e",
-    avatarBorder: "#94a3b8",
+    borde: "var(--podio-plata-borde)",
+    fondo: "linear-gradient(180deg, var(--podio-plata-borde) 0%, var(--podio-plata-oscuro) 100%)",
+    medalla: "var(--podio-plata-borde)",
+    avatarBg: "var(--podio-avatar-bg)",
+    avatarBorder: "var(--podio-plata-avatar)",
   },
   3: {
-    borde: "#9c3d1c",
-    fondo: "linear-gradient(180deg, #9c3d1c 0%, #6b240c 100%)",
-    medalla: "#9c3d1c",
-    avatarBg: "#1a1f2e",
-    avatarBorder: "#c2410c",
+    borde: "var(--podio-bronce-borde)",
+    fondo: "linear-gradient(180deg, var(--podio-bronce-borde) 0%, var(--podio-bronce-oscuro) 100%)",
+    medalla: "var(--podio-bronce-borde)",
+    avatarBg: "var(--podio-avatar-bg)",
+    avatarBorder: "var(--podio-bronce-avatar)",
   },
 };
 

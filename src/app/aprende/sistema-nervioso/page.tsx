@@ -89,13 +89,13 @@ function EscSimPotencial() {
         Repolarización: sale K⁺. Hiperpolarización breve antes de volver al reposo.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <button
           onClick={() => { if (!running) { setT(0); setRunning(true); } }}
           disabled={running}
           style={{
             padding: "10px 22px",
-            background: running ? "#475569" : "#6d28d9",
+            background: running ? "var(--dib-slate-600)" : "var(--dib-violet-700)",
             color: "#fff", border: "none", borderRadius: 8,
             cursor: running ? "default" : "pointer",
             fontWeight: 600, fontSize: 14, marginBottom: 12,
@@ -105,25 +105,25 @@ function EscSimPotencial() {
         </button>
 
         <svg viewBox="0 0 700 240" width="100%" height="240">
-          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - (-70 * 0.8) + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>-70 mV</text>
-          <line x1={60} y1={100 - 0 * 0.8} x2={640} y2={100 - 0 * 0.8} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - 0 * 0.8 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>0 mV</text>
-          <line x1={60} y1={100 - 30 * 0.8} x2={640} y2={100 - 30 * 0.8} stroke="#475569" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="#94a3b8" fontSize={10}>+30 mV</text>
+          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - (-70 * 0.8) + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>-70 mV</text>
+          <line x1={60} y1={100 - 0 * 0.8} x2={640} y2={100 - 0 * 0.8} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - 0 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>0 mV</text>
+          <line x1={60} y1={100 - 30 * 0.8} x2={640} y2={100 - 30 * 0.8} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
+          <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>+30 mV</text>
 
           {/* El umbral: el mnemotécnico de abajo lo promete y no estaba dibujado. */}
-          <line x1={60} y1={100 - (-55 * 0.8)} x2={640} y2={100 - (-55 * 0.8)} stroke="#f59e0b" strokeWidth={1} strokeDasharray="2 4" />
-          <text x={50} y={100 - (-55 * 0.8) + 4} textAnchor="end" fill="#f59e0b" fontSize={10}>-55 mV</text>
+          <line x1={60} y1={100 - (-55 * 0.8)} x2={640} y2={100 - (-55 * 0.8)} stroke="var(--dib-amber-500)" strokeWidth={1} strokeDasharray="2 4" />
+          <text x={50} y={100 - (-55 * 0.8) + 4} textAnchor="end" fill="var(--dib-amber-500)" fontSize={10}>-55 mV</text>
 
-          <line x1={60} y1={20} x2={60} y2={220} stroke="#94a3b8" strokeWidth={1.5} />
-          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="#94a3b8" strokeWidth={1.5} />
+          <line x1={60} y1={20} x2={60} y2={220} stroke="var(--dib-slate-400)" strokeWidth={1.5} />
+          <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="var(--dib-slate-400)" strokeWidth={1.5} />
 
           {points.length > 1 && (
             <polyline
               points={points.join(" ")}
               fill="none"
-              stroke="#60a5fa"
+              stroke="var(--dib-blue-400)"
               strokeWidth={3}
             />
           )}
@@ -135,18 +135,18 @@ function EscSimPotencial() {
             const x = 60 + ((ms * 10) / 100) * 580;
             return (
               <g key={ms}>
-                <line x1={x} y1={100 - (-70 * 0.8)} x2={x} y2={100 - (-70 * 0.8) + 5} stroke="#94a3b8" strokeWidth={1} />
-                <text x={x} y={100 - (-70 * 0.8) + 16} textAnchor="middle" fill="#94a3b8" fontSize={9}>{ms}</text>
+                <line x1={x} y1={100 - (-70 * 0.8)} x2={x} y2={100 - (-70 * 0.8) + 5} stroke="var(--dib-slate-400)" strokeWidth={1} />
+                <text x={x} y={100 - (-70 * 0.8) + 16} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={9}>{ms}</text>
               </g>
             );
           })}
-          <text x={350} y={235} textAnchor="middle" fill="#94a3b8" fontSize={10}>tiempo (ms)</text>
-          <text x={20} y={120} textAnchor="middle" fill="#94a3b8" fontSize={10} transform="rotate(-90 20 120)">voltaje (mV)</text>
+          <text x={350} y={235} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={10}>tiempo (ms)</text>
+          <text x={20} y={120} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={10} transform="rotate(-90 20 120)">voltaje (mV)</text>
         </svg>
 
-        <div style={{ padding: 10, background: "#1e293b", borderRadius: 8, marginTop: 10, textAlign: "center" }}>
+        <div style={{ padding: 10, background: "var(--dib-slate-800)", borderRadius: 8, marginTop: 10, textAlign: "center" }}>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Voltaje actual</div>
-          <div style={{ fontSize: 22, fontWeight: 700, color: currentV > 0 ? "#ef4444" : currentV < -75 ? "#06b6d4" : "#60a5fa" }}>
+          <div style={{ fontSize: 22, fontWeight: 700, color: currentV > 0 ? "var(--dib-red-500)" : currentV < -75 ? "var(--dib-cyan-500)" : "var(--dib-blue-400)" }}>
             {currentV.toFixed(1)} mV
           </div>
           <div style={{ fontSize: 11, opacity: 0.7 }}>
@@ -238,7 +238,7 @@ function EscNeurona() {
           {/* axón */}
           <line x1={230} y1={110} x2={550} y2={110} stroke={LIENZO.warn} strokeWidth={4} />
           {[280, 330, 380, 430, 480].map((x, i) => (
-            <ellipse key={i} cx={x} cy={110} rx={18} ry={6} fill="#fbbf24" opacity={0.5} />
+            <ellipse key={i} cx={x} cy={110} rx={18} ry={6} fill="var(--dib-amber-400)" opacity={0.5} />
           ))}
           {/* terminales */}
           {[
@@ -382,11 +382,11 @@ function EscSNC() {
             Partes del SNC
           </text>
           {[
-            { t: "Cerebro", d: "pensamiento, memoria, lenguaje, movimiento voluntario", c: "#a78bfa" },
-            { t: "Cerebelo", d: "coordinación, equilibrio, motricidad fina", c: "#10b981" },
-            { t: "Tronco encefálico", d: "funciones vitales: respiración, latido, reflejos", c: "#ef4444" },
-            { t: "Diencéfalo (tálamo, hipotálamo)", d: "relevo sensorial, homeostasis, hormonas", c: "#f59e0b" },
-            { t: "Médula espinal", d: "vía de impulsos, reflejos", c: "#06b6d4" },
+            { t: "Cerebro", d: "pensamiento, memoria, lenguaje, movimiento voluntario", c: "var(--dib-violet-400)" },
+            { t: "Cerebelo", d: "coordinación, equilibrio, motricidad fina", c: "var(--dib-emerald-500)" },
+            { t: "Tronco encefálico", d: "funciones vitales: respiración, latido, reflejos", c: "var(--dib-red-500)" },
+            { t: "Diencéfalo (tálamo, hipotálamo)", d: "relevo sensorial, homeostasis, hormonas", c: "var(--dib-amber-500)" },
+            { t: "Médula espinal", d: "vía de impulsos, reflejos", c: "var(--dib-cyan-500)" },
           ].map((p, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 38})`}>
               <rect width={580} height={32} fill={p.c} opacity={0.2} stroke={p.c} strokeWidth={1.5} rx={6} />
@@ -439,32 +439,32 @@ function EscSNC() {
               </text>
 
               {/* Cada lóbulo: su arco de contorno, cerrado contra el centro. */}
-              <path d={`${arco(fx, fy, ax, ay)} L ${CX} ${CY} Z`} fill="#a78bfa" opacity={0.25} stroke="#a78bfa" strokeWidth={1} />
-              <path d={`${arco(ax, ay, bx, by)} L ${CX} ${CY} Z`} fill="#10b981" opacity={0.25} stroke="#10b981" strokeWidth={1} />
-              <path d={`${arco(bx, by, cx2, cy2)} L ${CX} ${CY} Z`} fill="#f59e0b" opacity={0.25} stroke="#f59e0b" strokeWidth={1} />
-              <path d={`${arco(cx2, cy2, fx, fy)} L ${CX} ${CY} Z`} fill="#ef4444" opacity={0.25} stroke="#ef4444" strokeWidth={1} />
+              <path d={`${arco(fx, fy, ax, ay)} L ${CX} ${CY} Z`} fill="var(--dib-violet-400)" opacity={0.25} stroke="var(--dib-violet-400)" strokeWidth={1} />
+              <path d={`${arco(ax, ay, bx, by)} L ${CX} ${CY} Z`} fill="var(--dib-emerald-500)" opacity={0.25} stroke="var(--dib-emerald-500)" strokeWidth={1} />
+              <path d={`${arco(bx, by, cx2, cy2)} L ${CX} ${CY} Z`} fill="var(--dib-amber-500)" opacity={0.25} stroke="var(--dib-amber-500)" strokeWidth={1} />
+              <path d={`${arco(cx2, cy2, fx, fy)} L ${CX} ${CY} Z`} fill="var(--dib-red-500)" opacity={0.25} stroke="var(--dib-red-500)" strokeWidth={1} />
 
               {/* Contorno y nariz, para que se vea hacia dónde mira. */}
               <ellipse cx={CX} cy={CY} rx={RX} ry={RY} fill="none" stroke={LIENZO.fgDim} strokeWidth={2} />
               <path d={`M ${fx + 3} ${CY - 14} L ${fx - 20} ${CY + 5} L ${fx + 2} ${CY + 13}`} fill="none" stroke={LIENZO.fgDim} strokeWidth={2} />
 
               {/* Rótulos, en el centro de masa aproximado de cada porción. */}
-              <text x={280} y={92} textAnchor="middle" fill="#a78bfa" fontSize={11.5} fontWeight={700}>Frontal</text>
+              <text x={280} y={92} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={11.5} fontWeight={700}>Frontal</text>
               <text x={280} y={106} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>razona, planifica</text>
 
-              <text x={390} y={78} textAnchor="middle" fill="#10b981" fontSize={11.5} fontWeight={700}>Parietal</text>
+              <text x={390} y={78} textAnchor="middle" fill="var(--dib-emerald-500)" fontSize={11.5} fontWeight={700}>Parietal</text>
               <text x={390} y={92} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>tacto, temperatura</text>
 
-              <text x={482} y={118} textAnchor="middle" fill="#f59e0b" fontSize={11.5} fontWeight={700}>Occipital</text>
+              <text x={482} y={118} textAnchor="middle" fill="var(--dib-amber-500)" fontSize={11.5} fontWeight={700}>Occipital</text>
               <text x={482} y={132} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>visión</text>
 
-              <text x={340} y={162} textAnchor="middle" fill="#ef4444" fontSize={11.5} fontWeight={700}>Temporal</text>
+              <text x={340} y={162} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11.5} fontWeight={700}>Temporal</text>
               <text x={340} y={176} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>oído, memoria</text>
 
               {/* La ínsula está tapada por los otros cuatro: va señalada. */}
-              <circle cx={CX - 40} cy={CY + 2} r={9} fill="#06b6d4" opacity={0.55} stroke="#06b6d4" strokeWidth={1.5} />
-              <line x1={CX - 40} y1={CY + 11} x2={CX - 40} y2={207} stroke="#06b6d4" strokeWidth={1} strokeDasharray="3 2" />
-              <text x={CX - 40} y={220} textAnchor="middle" fill="#06b6d4" fontSize={10}>Ínsula: tapada por los otros cuatro (gusto, dolor)</text>
+              <circle cx={CX - 40} cy={CY + 2} r={9} fill="var(--dib-cyan-500)" opacity={0.55} stroke="var(--dib-cyan-500)" strokeWidth={1.5} />
+              <line x1={CX - 40} y1={CY + 11} x2={CX - 40} y2={207} stroke="var(--dib-cyan-500)" strokeWidth={1} strokeDasharray="3 2" />
+              <text x={CX - 40} y={220} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={10}>Ínsula: tapada por los otros cuatro (gusto, dolor)</text>
 
               <text x={150} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">frente</text>
               <text x={592} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">nuca</text>
@@ -538,8 +538,8 @@ function EscSNP() {
           <text x={460} y={163} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={700}>Simpático</text>
           <text x={460} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>lucha o huye (alerta)</text>
 
-          <rect x={510} y={140} width={180} height={62} fill="#06b6d4" opacity={0.12} stroke="#06b6d4" strokeWidth={1.5} rx={8} />
-          <text x={600} y={163} textAnchor="middle" fill="#06b6d4" fontSize={12} fontWeight={700}>Parasimpático</text>
+          <rect x={510} y={140} width={180} height={62} fill="var(--dib-cyan-500)" opacity={0.12} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={8} />
+          <text x={600} y={163} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={12} fontWeight={700}>Parasimpático</text>
           <text x={600} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>descansa y digiere</text>
 
           <text x={185} y={165} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">El somático no se</text>

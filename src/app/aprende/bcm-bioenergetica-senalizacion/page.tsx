@@ -189,10 +189,10 @@ function EscCiclo() {
           </text>
           {/* Círculo ciclo */}
           <circle cx={360} cy={130} r={80} fill="none" stroke={LIENZO.accent} strokeWidth={3} />
-          <text x={310} y={80} fill="#3b82f6" fontSize={12} fontWeight={700}>G1</text>
-          <text x={420} y={80} fill="#10b981" fontSize={12} fontWeight={700}>S</text>
-          <text x={440} y={170} fill="#f59e0b" fontSize={12} fontWeight={700}>G2</text>
-          <text x={280} y={170} fill="#ef4444" fontSize={12} fontWeight={700}>M</text>
+          <text x={310} y={80} fill="var(--dib-blue-500)" fontSize={12} fontWeight={700}>G1</text>
+          <text x={420} y={80} fill="var(--dib-emerald-500)" fontSize={12} fontWeight={700}>S</text>
+          <text x={440} y={170} fill="var(--dib-amber-500)" fontSize={12} fontWeight={700}>G2</text>
+          <text x={280} y={170} fill="var(--dib-red-500)" fontSize={12} fontWeight={700}>M</text>
 
           {/* Checkpoints */}
           <circle cx={400} cy={70} r={10} fill={LIENZO.warn} stroke={LIENZO.fg} strokeWidth={1} />

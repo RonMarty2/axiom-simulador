@@ -85,14 +85,14 @@ function EscTaxonomia() {
             Categorías taxonómicas (ejemplo: humano)
           </text>
           {[
-            { t: "Dominio", ej: "Eukarya", c: "#3b82f6" },
-            { t: "Reino", ej: "Animalia", c: "#06b6d4" },
-            { t: "Filo", ej: "Chordata (varilla de sostén en la espalda)", c: "#10b981" },
-            { t: "Clase", ej: "Mammalia (mama, pelo)", c: "#84cc16" },
-            { t: "Orden", ej: "Primates", c: "#eab308" },
-            { t: "Familia", ej: "Hominidae", c: "#f59e0b" },
-            { t: "Género", ej: "Homo", c: "#f97316" },
-            { t: "Especie", ej: "sapiens", c: "#ef4444" },
+            { t: "Dominio", ej: "Eukarya", c: "var(--dib-blue-500)" },
+            { t: "Reino", ej: "Animalia", c: "var(--dib-cyan-500)" },
+            { t: "Filo", ej: "Chordata (varilla de sostén en la espalda)", c: "var(--dib-emerald-500)" },
+            { t: "Clase", ej: "Mammalia (mama, pelo)", c: "var(--dib-lime-500)" },
+            { t: "Orden", ej: "Primates", c: "var(--dib-yellow-500)" },
+            { t: "Familia", ej: "Hominidae", c: "var(--dib-amber-500)" },
+            { t: "Género", ej: "Homo", c: "var(--dib-orange-500)" },
+            { t: "Especie", ej: "sapiens", c: "var(--dib-red-500)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 30})`}>
               <rect x={0} y={0} width={580 - i * 25} height={24} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={4} />
@@ -412,8 +412,8 @@ function EscPlantae() {
             { x: 380, t: "Angiospermas", d: "semilla en fruto + flor", ej: "rosas, manzano, maíz", y: 130 },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
-              <rect x={-10} y={0} width={260} height={75} fill="#22c55e" opacity={0.08} stroke="#22c55e" strokeWidth={1.5} rx={8} />
-              <text x={120} y={22} textAnchor="middle" fill="#22c55e" fontSize={12} fontWeight={700}>{p.t}</text>
+              <rect x={-10} y={0} width={260} height={75} fill="var(--dib-green-500)" opacity={0.08} stroke="var(--dib-green-500)" strokeWidth={1.5} rx={8} />
+              <text x={120} y={22} textAnchor="middle" fill="var(--dib-green-500)" fontSize={12} fontWeight={700}>{p.t}</text>
               <text x={120} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{p.d}</text>
               <text x={120} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{p.ej}</text>
             </g>

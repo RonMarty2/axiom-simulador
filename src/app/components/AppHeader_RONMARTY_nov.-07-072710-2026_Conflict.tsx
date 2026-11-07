@@ -1,0 +1,446 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Icono, { iconoFacultad } from "./Icono";
+
+interface SuscripcionMini { facultad: string; vence: string }
+
+interface UsuarioMini {
+  id: string;
+  nombre: string;
+  email: string;
+  plan: string;
+  avatar_color: string;
+  facultad_objetivo?: string | null;
+  suscripciones?: SuscripcionMini[];
+}
+
+interface FacultadMini { id: string; nombre_corto: string; emoji: string; color: string }
+
+export default function AppHeader() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [usuario, setUsuario] = useState<UsuarioMini | null>(null);
+  const [admin, setAdmin] = useState(false);
+  // Hasta que /api/auth/me responde no sabemos si hay sesión: sin esto, con red
+  // lenta se ve «Entrar / Crear cuenta» varios segundos estando logueado.
+  const [sesionLista, setSesionLista] = useState(false);
+  const [tester, setTester] = useState(false);
+  const [cambioFacLibre, setCambioFacLibre] = useState(false);
+  const [picture, setPicture] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
+  const [facultades, setFacultades] = useState<FacultadMini[]>([]);
+  const [selOpen, setSelOpen] = useState(false);
+  const [cambiando, setCambiando] = useState(false);
+  const [menuMovil, setMenuMovil] = useState(false);
+
+  // Cerrar menú móvil al navegar
+  useEffect(() => { setMenuMovil(false); }, [pathname]);
+
+  // Cerrar los desplegables al tocar/clickear afuera — antes se quedaban
+  // abiertos para siempre hasta volver a tocar el mismo botón, y si abrías
+  // el segundo con el primero todavía abierto, quedaban los dos superpuestos.
+  useEffect(() => {
+    if (!open && !selOpen) return;
+    const cerrarSiEsAfuera = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest("[data-axiom-dropdown]")) return;
+      setOpen(false);
+      setSelOpen(false);
+    };
+    document.addEventListener("mousedown", cerrarSiEsAfuera);
+    document.addEventListener("touchstart", cerrarSiEsAfuera);
+    return () => {
+      document.removeEventListener("mousedown", cerrarSiEsAfuera);
+      document.removeEventListener("touchstart", cerrarSiEsAfuera);
+    };
+  }, [open, selOpen]);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((r) => r.json())
+      .then((d) => {
+        setUsuario(d.usuario ?? null);
+        setSesionLista(true);
+        setAdmin(!!d.admin);
+        setTester(!!d.tester);
+        setCambioFacLibre(!!d.cambio_facultad_libre);
+        setPicture(d.picture ?? null);
+        if (d.usuario?.facultad_objetivo) {
+          document.documentElement.setAttribute("data-facultad", d.usuario.facultad_objetivo);
+          try {
+            localStorage.setItem("axiom_facultad", d.usuario.facultad_objetivo);
+            document.cookie = `axiom_facultad=${encodeURIComponent(d.usuario.facultad_objetivo)}; path=/; max-age=31536000; SameSite=Lax`;
+          } catch {}
+        } else {
+          document.documentElement.removeAttribute("data-facultad");
+          try {
+            localStorage.removeItem("axiom_facultad");
+            document.cookie = "axiom_facultad=; path=/; max-age=0; SameSite=Lax";
+          } catch {}
+        }
+      })
+      .catch(() => setSesionLista(true));
+  }, [pathname]);
+
+  useEffect(() => {
+    fetch("/api/facultades").then((r) => r.json()).then((d) => setFacultades(d.facultades ?? [])).catch(() => {});
+  }, []);
+
+  const facInfo = (id?: string | null) => facultades.find((f) => f.id === id);
+
+  const cambiarFacultad = async (facultad: string) => {
+    if (cambiando || facultad === usuario?.facultad_objetivo) { setSelOpen(false); return; }
+    setCambiando(true);
+    try {
+      const r = await fetch("/api/perfil/facultad", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ facultad }),
+      });
+      if (r.ok) {
+        document.documentElement.setAttribute("data-facultad", facultad);
+        try {
+          localStorage.setItem("axiom_facultad", facultad);
+          document.cookie = `axiom_facultad=${encodeURIComponent(facultad)}; path=/; max-age=31536000; SameSite=Lax`;
+        } catch {}
+        // Recarga dura: la mayoría de las páginas son "use client" con su
+        // propio fetch en useEffect — router.refresh() no las re-dispara,
+        // solo re-renderiza partes de servidor. Sin esto quedaban con datos
+        // de la facultad vieja hasta cerrar y volver a abrir la pestaña.
+        window.location.reload();
+        return;
+      }
+    } finally {
+      setCambiando(false);
+    }
+  };
+
+  const cerrarSesion = async () => {
+    await fetch("/api/auth/logout", { method: "POST" });
+    setUsuario(null);
+    setAdmin(false);
+    router.push("/");
+  };
+
+  return (
+    <header style={{ background: "var(--bg-glass)", borderBottom: "1px solid var(--border)", position: "sticky", top: 0, zIndex: 50, backdropFilter: "blur(8px)" }}>
+      <div className="axiom-header-row" style={{ maxWidth: 1280, margin: "0 auto", padding: "12px 24px", display: "flex", alignItems: "center", gap: 24 }}>
+        <Link href={admin ? "/admin" : usuario ? "/dashboard" : "/"} style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
+          <span style={{ color: "var(--accent)", display: "flex" }}><Icono nombre="rayo" tamano={21} grosor={2.2} /></span>
+          <span className="font-crimson axiom-logo-texto" style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)", letterSpacing: "0.06em" }}>AXIOM</span>
+        </Link>
+
+        {/* Nav inline (desktop) — se oculta en móvil vía CSS */}
+        <nav className="axiom-nav-desktop">
+          {usuario && !admin && (
+            <>
+              {/* Cinco links como máximo: con ocho el nav se partía en dos
+                  líneas en cualquier pantalla menor a ~1200px. El resto vive
+                  en el menú del avatar. */}
+              <Link href="/dashboard" style={navLink(pathname === "/dashboard")}>Inicio</Link>
+              <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>Aprende</Link>
+              <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>Láminas</Link>
+              <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
+              <Link href="/historial" style={navLink(pathname === "/historial")}>Exámenes</Link>
+            </>
+          )}
+          {admin && (
+            <>
+              <Link href="/admin" style={navLink(pathname === "/admin")}>Dashboard</Link>
+              <Link href="/admin/facultades" style={navLink(pathname?.startsWith("/admin/facultades"))}>Facultades</Link>
+              <Link href="/admin/banco" style={navLink(pathname?.startsWith("/admin/banco"))}>Banco</Link>
+              <Link href="/admin/usuarios" style={navLink(pathname === "/admin/usuarios")}>Usuarios</Link>
+              <Link href="/admin/pagos" style={navLink(pathname === "/admin/pagos")}>Pagos</Link>
+            </>
+          )}
+          {!usuario && !admin && (
+            <>
+              <Link href="/#facultades" style={navLink(false)}>Facultades</Link>
+              <Link href="/precios" style={navLink(pathname === "/precios")}>Precios</Link>
+            </>
+          )}
+        </nav>
+
+        {/* Botón hamburguesa — solo visible en móvil */}
+        <button
+          className="axiom-nav-hamburger"
+          onClick={() => setMenuMovil(!menuMovil)}
+          aria-label="Menú"
+          style={{
+            marginLeft: "auto", marginRight: 8,
+            background: "transparent", border: "none", cursor: "pointer",
+            padding: 8, color: "var(--fg-primary)",
+          }}
+        >
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+            {menuMovil ? (
+              <>
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </>
+            ) : (
+              <>
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </>
+            )}
+          </svg>
+        </button>
+
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          {/* Selector de suscripciones: solo si el usuario tiene 2+ facultades activas */}
+          {usuario && !admin && (usuario.suscripciones?.length ?? 0) >= 2 && (
+            <div data-axiom-dropdown style={{ position: "relative" }}>
+              <button
+                onClick={() => { setSelOpen(!selOpen); setOpen(false); }}
+                disabled={cambiando}
+                style={{ display: "flex", alignItems: "center", gap: 6, padding: "7px 12px", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}
+              >
+                <Icono nombre={usuario.facultad_objetivo ? iconoFacultad(usuario.facultad_objetivo) : "birrete"} tamano={15} />
+                <span className="axiom-fac-selector-text">{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
+                <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
+              </button>
+              {selOpen && (
+                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
+                  <div style={{ padding: "6px 10px", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>Tus suscripciones</div>
+                  {usuario.suscripciones?.map((s) => {
+                    const fi = facInfo(s.facultad);
+                    const activa = s.facultad === usuario.facultad_objetivo;
+                    return (
+                      <button
+                        key={s.facultad}
+                        onClick={() => cambiarFacultad(s.facultad)}
+                        style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", textAlign: "left", padding: "8px 10px", background: activa ? "var(--accent-soft)" : "transparent", border: "none", borderRadius: 6, cursor: "pointer" }}
+                      >
+                        <Icono nombre={fi ? iconoFacultad(fi.id) : "birrete"} tamano={17} />
+                        <span style={{ flex: 1 }}>
+                          <span style={{ display: "block", fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{fi?.nombre_corto ?? s.facultad}</span>
+                          <span style={{ fontSize: 11, color: "var(--fg-muted)" }}>Activa hasta {s.vence}</span>
+                        </span>
+                        {activa && <span style={{ color: "var(--accent)", fontWeight: 800 }}>✓</span>}
+                      </button>
+                    );
+                  })}
+                  <Link href="/precios" onClick={() => setSelOpen(false)} style={{ display: "block", padding: "8px 10px", marginTop: 4, borderTop: "1px solid var(--border)", fontSize: 13, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}>
+                    <Icono nombre="mas" tamano={13} /> Agregar otra facultad
+                  </Link>
+                </div>
+              )}
+            </div>
+          )}
+          {sesionLista && !usuario && !admin && (
+            <>
+              <Link href="/login" className="axiom-btn-entrar" style={{ padding: "8px 16px", color: "var(--fg-primary)", textDecoration: "none", fontSize: 14, fontWeight: 600 }}>Entrar</Link>
+              <Link href="/login" className="axiom-btn-crear" style={{ padding: "8px 18px", background: "var(--accent)", color: "white", textDecoration: "none", borderRadius: 8, fontSize: 14, fontWeight: 700, whiteSpace: "nowrap" }}>Crear cuenta</Link>
+            </>
+          )}
+          {(usuario || admin) && (
+            <div data-axiom-dropdown style={{ position: "relative" }}>
+              <button
+                onClick={() => { setOpen(!open); setSelOpen(false); }}
+                style={{
+                  display: "flex", alignItems: "center", gap: 8, padding: "6px 12px 6px 6px",
+                  background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 999, cursor: "pointer",
+                }}
+              >
+                {picture ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={picture} alt="" style={{ width: 30, height: 30, borderRadius: "50%", objectFit: "cover" }} />
+                ) : (
+                  <div style={{
+                    width: 30, height: 30, borderRadius: "50%",
+                    background: "var(--fg-primary)",
+                    color: "var(--bg-base)", display: "flex", alignItems: "center", justifyContent: "center",
+                    fontWeight: 700, fontSize: 11.5,
+                  }}>
+                    {admin ? <Icono nombre="rayo" tamano={15} grosor={2.2} /> : usuario?.nombre.split(" ").filter((n) => /^\p{L}/u.test(n)).map((n) => n[0]).join("").slice(0, 2).toUpperCase()}
+                  </div>
+                )}
+                <span className="axiom-user-nombre" style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
+                  {admin ? (usuario ? `${usuario.nombre.split(" ")[0]} · Docente` : "Admin") : usuario?.nombre.split(" ")[0]}
+                </span>
+                <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
+              </button>
+              {open && (
+                <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 200, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
+                  {usuario && !admin && (
+                    <>
+                      <div style={{ padding: "10px 12px", borderBottom: "1px solid var(--border)", marginBottom: 4 }}>
+                        <div style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-primary)" }}>{usuario.nombre}</div>
+                        <div style={{ fontSize: 11, color: "var(--fg-muted)" }}>{usuario.email}</div>
+                        <div style={{ marginTop: 6, display: "inline-block", padding: "2px 8px", background: usuario.plan === "premium" ? "#fbbf24" : usuario.plan === "pro" ? "#a78bfa" : "var(--bg-subtle)", color: usuario.plan === "gratis" ? "var(--fg-muted)" : "#1e1b4b", borderRadius: 999, fontSize: 10, fontWeight: 700, textTransform: "uppercase" }}>{usuario.plan}</div>
+                      </div>
+                      <Link href="/debilidades" onClick={() => setOpen(false)} style={menuItem()}>Mis debilidades</Link>
+                      <Link href="/resueltos" onClick={() => setOpen(false)} style={menuItem()}>Resueltos</Link>
+                      <Link href="/errores" onClick={() => setOpen(false)} style={menuItem()}>Mis errores</Link>
+                      <Link href="/precios" onClick={() => setOpen(false)} style={menuItem()}>Planes</Link>
+                      <Link href="/cuenta" onClick={() => setOpen(false)} style={menuItem()}>Mi cuenta</Link>
+                      {(admin || tester) && (
+                        <button
+                          onClick={async () => {
+                            const r = await fetch("/api/admin/toggle-plan", { method: "POST" });
+                            const d = await r.json();
+                            if (r.ok) {
+                              alert(`✓ Ahora estás en plan ${d.plan.toUpperCase()} para esta facultad.`);
+                              window.location.reload();
+                            } else {
+                              alert(d.error ?? "Error");
+                            }
+                          }}
+                          style={{ ...menuItem(), display: "block", width: "100%", textAlign: "left", background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", color: "#d97706", fontWeight: 700, cursor: "pointer", marginTop: 4 }}
+                        >
+                          <Icono nombre="probeta" tamano={13} /> Cambiar plan (test)
+                        </button>
+                      )}
+                    </>
+                  )}
+                  {/* Selector de FACULTAD para probar — visible solo para
+                      admins y testers (cambio_facultad_libre). Cambia de
+                      carrera sin pagar, para revisar el contenido. */}
+                  {cambioFacLibre && facultades.length > 0 && (
+                    <div style={{ borderTop: "1px dashed var(--border)", marginTop: 4, paddingTop: 8 }}>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: "var(--accent)", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
+                        <Icono nombre="birrete" tamano={13} /> Cambiar facultad (prueba)
+                      </div>
+                      {facultades.map((f) => {
+                        const activa = f.id === usuario?.facultad_objetivo;
+                        return (
+                          <button
+                            key={f.id}
+                            onClick={async () => {
+                              if (activa || cambiando) return;
+                              setCambiando(true);
+                              const r = await fetch("/api/perfil/facultad", {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ facultad: f.id }),
+                              });
+                              if (r.ok) {
+                                window.location.reload();
+                                return;
+                              }
+                              setCambiando(false);
+                            }}
+                            style={{
+                              ...menuItem(), display: "flex", alignItems: "center", gap: 8,
+                              width: "100%", textAlign: "left", background: "transparent",
+                              border: "none", cursor: activa ? "default" : "pointer",
+                              fontWeight: activa ? 800 : 500,
+                              color: activa ? "var(--accent)" : "var(--fg-primary)",
+                            }}
+                          >
+                            <Icono nombre={iconoFacultad(f.id)} tamano={15} />
+                            <span style={{ flex: 1 }}>{f.nombre_corto}</span>
+                            {activa && <span style={{ color: "var(--accent)" }}>✓</span>}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Selector de rol — SOLO desarrollo local. En producción
+                      NODE_ENV es "production" y esto no se renderiza. */}
+                  {process.env.NODE_ENV !== "production" && (
+                    <div style={{ borderTop: "1px dashed #f59e0b", marginTop: 4, paddingTop: 8 }}>
+                      <div style={{ fontSize: 10, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, padding: "0 12px 6px" }}>
+                        <Icono nombre="herramienta" tamano={13} /> Cambiar de rol (dev)
+                      </div>
+                      <a href="/api/auth/dev-login?rol=estudiante" style={{ ...menuItem(), display: "block" }}><Icono nombre="cuenta" tamano={13} /> Estudiante</a>
+                      <a href="/api/auth/dev-login?rol=tester" style={{ ...menuItem(), display: "block" }}><Icono nombre="birrete" tamano={13} /> Ronald (tester)</a>
+                      <a href="/api/auth/dev-login?rol=admin" style={{ ...menuItem(), display: "block" }}><Icono nombre="rayo" tamano={13} /> Super Admin</a>
+                    </div>
+                  )}
+                  <button onClick={cerrarSesion} style={{ ...menuItem(), background: "transparent", border: "none", width: "100%", textAlign: "left", color: "var(--error)", cursor: "pointer" }}>
+                    Cerrar sesión
+                  </button>
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* MENÚ MÓVIL — drawer que se abre con la hamburguesa */}
+      {menuMovil && (
+        <div
+          className="axiom-nav-hamburger"
+          style={{
+            flexDirection: "column",
+            padding: "8px 16px 16px",
+            background: "var(--bg-card)",
+            borderTop: "1px solid var(--border)",
+            gap: 2,
+          }}
+        >
+          {usuario && !admin && (
+            <>
+              {/* En móvil, Inicio/Aprende/Láminas/Practicar/Exámenes ya están
+                  en la barra inferior: acá van solo los secundarios. */}
+              <Link href="/debilidades" style={menuMovilItem(pathname === "/debilidades")} onClick={() => setMenuMovil(false)}>Mis debilidades</Link>
+              <Link href="/resueltos" style={menuMovilItem(pathname?.startsWith("/resueltos"))} onClick={() => setMenuMovil(false)}>Resueltos</Link>
+              <Link href="/errores" style={menuMovilItem(pathname === "/errores")} onClick={() => setMenuMovil(false)}>Mis errores</Link>
+              <Link href="/ranking" style={menuMovilItem(pathname === "/ranking")} onClick={() => setMenuMovil(false)}>Ranking</Link>
+              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>Planes</Link>
+              <Link href="/cuenta" style={menuMovilItem(pathname === "/cuenta")} onClick={() => setMenuMovil(false)}>Mi cuenta</Link>
+            </>
+          )}
+          {admin && (
+            <>
+              <Link href="/admin" style={menuMovilItem(pathname === "/admin")} onClick={() => setMenuMovil(false)}>Dashboard</Link>
+              <Link href="/admin/facultades" style={menuMovilItem(pathname?.startsWith("/admin/facultades"))} onClick={() => setMenuMovil(false)}>Facultades</Link>
+              <Link href="/admin/banco" style={menuMovilItem(pathname?.startsWith("/admin/banco"))} onClick={() => setMenuMovil(false)}>Banco</Link>
+              <Link href="/admin/usuarios" style={menuMovilItem(pathname === "/admin/usuarios")} onClick={() => setMenuMovil(false)}>Usuarios</Link>
+              <Link href="/admin/pagos" style={menuMovilItem(pathname === "/admin/pagos")} onClick={() => setMenuMovil(false)}>Pagos</Link>
+            </>
+          )}
+          {!usuario && !admin && (
+            <>
+              <Link href="/#facultades" style={menuMovilItem(false)} onClick={() => setMenuMovil(false)}>Facultades</Link>
+              <Link href="/precios" style={menuMovilItem(pathname === "/precios")} onClick={() => setMenuMovil(false)}>Precios</Link>
+            </>
+          )}
+        </div>
+      )}
+    </header>
+  );
+}
+
+function menuMovilItem(active?: boolean | null): React.CSSProperties {
+  return {
+    display: "block",
+    padding: "12px 14px",
+    color: active ? "var(--accent)" : "var(--fg-primary)",
+    textDecoration: "none",
+    fontSize: 16,
+    fontWeight: active ? 700 : 600,
+    borderRadius: 10,
+    background: active ? "var(--accent-soft)" : "transparent",
+  };
+}
+
+function navLink(active?: boolean | null): React.CSSProperties {
+  return {
+    padding: "6px 10px",
+    color: active ? "var(--accent)" : "var(--fg-primary)",
+    textDecoration: "none",
+    fontSize: 14,
+    fontWeight: active ? 700 : 500,
+    borderRadius: 6,
+    background: active ? "var(--accent-soft)" : "transparent",
+  };
+}
+
+function menuItem(): React.CSSProperties {
+  return {
+    display: "block",
+    padding: "8px 12px",
+    color: "var(--fg-primary)",
+    textDecoration: "none",
+    fontSize: 13,
+    borderRadius: 6,
+  };
+}

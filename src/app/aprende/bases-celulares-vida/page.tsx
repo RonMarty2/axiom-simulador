@@ -156,26 +156,26 @@ function EscMembrana() {
           {/* fosfolípidos hilera superior */}
           {Array.from({ length: 14 }).map((_, i) => (
             <g key={`up${i}`} transform={`translate(${80 + i * 45}, 60)`}>
-              <circle cx={0} cy={0} r={9} fill="#f59e0b" stroke="#d97706" strokeWidth={1.5} />
-              <line x1={-3} y1={9} x2={-3} y2={48} stroke="#0f172a" strokeWidth={1.5} />
-              <line x1={3} y1={9} x2={3} y2={48} stroke="#0f172a" strokeWidth={1.5} />
+              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={9} x2={-3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={9} x2={3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* fosfolípidos hilera inferior */}
           {Array.from({ length: 14 }).map((_, i) => (
             <g key={`dn${i}`} transform={`translate(${80 + i * 45}, 170)`}>
-              <circle cx={0} cy={0} r={9} fill="#f59e0b" stroke="#d97706" strokeWidth={1.5} />
-              <line x1={-3} y1={-9} x2={-3} y2={-48} stroke="#0f172a" strokeWidth={1.5} />
-              <line x1={3} y1={-9} x2={3} y2={-48} stroke="#0f172a" strokeWidth={1.5} />
+              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={-9} x2={-3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={-9} x2={3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* proteína integral */}
           <rect x={295} y={75} width={35} height={80} fill={LIENZO.accent} opacity={0.6} rx={8} />
           {/* etiqueta */}
-          <text x={200} y={45} fill="#d97706" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
-          <text x={200} y={205} fill="#d97706" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
+          <text x={200} y={45} fill="var(--dib-amber-600)" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
+          <text x={200} y={205} fill="var(--dib-amber-600)" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
           <text x={500} y={120} fill={LIENZO.accent} fontSize={11} fontStyle="italic">proteína integral</text>
-          <text x={500} y={138} fill="#0f172a" fontSize={11} fontStyle="italic">colas hidrofóbicas</text>
+          <text x={500} y={138} fill="var(--dib-slate-900)" fontSize={11} fontStyle="italic">colas hidrofóbicas</text>
         </svg>
       </Pizarra>
 
@@ -212,15 +212,15 @@ function EscOrganelos() {
             Organelos esenciales y su función
           </text>
           {[
-            { t: "Núcleo", fn: "ADN, control celular", c: "#a78bfa", y: 40 },
-            { t: "Mitocondria", fn: "respiración, ATP", c: "#ef4444", y: 70 },
-            { t: "Ribosomas", fn: "síntesis de proteínas", c: "#10b981", y: 100 },
-            { t: "RE rugoso", fn: "proteínas para exportar", c: "#3b82f6", y: 130 },
-            { t: "RE liso", fn: "síntesis de lípidos", c: "#06b6d4", y: 160 },
-            { t: "Aparato de Golgi", fn: "empaqueta y exporta", c: "#f59e0b", y: 190 },
-            { t: "Lisosomas", fn: "digestión intracelular", c: "#eab308", y: 220 },
-            { t: "Cloroplastos", fn: "fotosíntesis (plantas y algas)", c: "#22c55e", y: 250 },
-            { t: "Pared celular", fn: "rigidez (plantas, hongos, bacterias)", c: "#84cc16", y: 280 },
+            { t: "Núcleo", fn: "ADN, control celular", c: "var(--dib-violet-400)", y: 40 },
+            { t: "Mitocondria", fn: "respiración, ATP", c: "var(--dib-red-500)", y: 70 },
+            { t: "Ribosomas", fn: "síntesis de proteínas", c: "var(--dib-emerald-500)", y: 100 },
+            { t: "RE rugoso", fn: "proteínas para exportar", c: "var(--dib-blue-500)", y: 130 },
+            { t: "RE liso", fn: "síntesis de lípidos", c: "var(--dib-cyan-500)", y: 160 },
+            { t: "Aparato de Golgi", fn: "empaqueta y exporta", c: "var(--dib-amber-500)", y: 190 },
+            { t: "Lisosomas", fn: "digestión intracelular", c: "var(--dib-yellow-500)", y: 220 },
+            { t: "Cloroplastos", fn: "fotosíntesis (plantas y algas)", c: "var(--dib-green-500)", y: 250 },
+            { t: "Pared celular", fn: "rigidez (plantas, hongos, bacterias)", c: "var(--dib-lime-500)", y: 280 },
           ].map((o, i) => (
             <g key={i}>
               <circle cx={70} cy={o.y} r={10} fill={o.c} opacity={0.4} stroke={o.c} strokeWidth={1.5} />
@@ -327,20 +327,20 @@ function EscCiclo() {
           {/* Pie chart simplificado */}
           <g transform="translate(200, 130)">
             {/* G1 - 50% */}
-            <path d="M 0 -70 A 70 70 0 1 1 0 70 L 0 0 Z" fill="#3b82f6" opacity={0.5} />
+            <path d="M 0 -70 A 70 70 0 1 1 0 70 L 0 0 Z" fill="var(--dib-blue-500)" opacity={0.5} />
             {/* S - 25% */}
-            <path d="M 0 70 A 70 70 0 0 1 -70 0 L 0 0 Z" fill="#10b981" opacity={0.5} />
+            <path d="M 0 70 A 70 70 0 0 1 -70 0 L 0 0 Z" fill="var(--dib-emerald-500)" opacity={0.5} />
             {/* G2 - 15% */}
-            <path d="M -70 0 A 70 70 0 0 1 -41.1 -56.6 L 0 0 Z" fill="#f59e0b" opacity={0.5} />
+            <path d="M -70 0 A 70 70 0 0 1 -41.1 -56.6 L 0 0 Z" fill="var(--dib-amber-500)" opacity={0.5} />
             {/* M - 10% */}
-            <path d="M -41.1 -56.6 A 70 70 0 0 1 0 -70 L 0 0 Z" fill="#ef4444" opacity={0.5} />
+            <path d="M -41.1 -56.6 A 70 70 0 0 1 0 -70 L 0 0 Z" fill="var(--dib-red-500)" opacity={0.5} />
           </g>
           {/* leyenda */}
           {[
-            { c: "#3b82f6", t: "G1 · crecimiento (~50%)" },
-            { c: "#10b981", t: "S · síntesis de ADN (~25%)" },
-            { c: "#f59e0b", t: "G2 · preparación (~15%)" },
-            { c: "#ef4444", t: "M · mitosis (~10%)" },
+            { c: "var(--dib-blue-500)", t: "G1 · crecimiento (~50%)" },
+            { c: "var(--dib-emerald-500)", t: "S · síntesis de ADN (~25%)" },
+            { c: "var(--dib-amber-500)", t: "G2 · preparación (~15%)" },
+            { c: "var(--dib-red-500)", t: "M · mitosis (~10%)" },
           ].map((l, i) => (
             <g key={i} transform={`translate(400, ${70 + i * 32})`}>
               <rect width={20} height={20} fill={l.c} opacity={0.5} />
@@ -390,11 +390,11 @@ function EscMitosis() {
             Las 4 fases de la mitosis (PMAT)
           </text>
           {[
-            { x: 90, t: "Profase", d: "cromatina se condensa, desaparece membrana nuclear", c: "#3b82f6" },
-            { x: 280, t: "Metafase", d: "cromosomas se alinean en el ecuador", c: "#10b981" },
-            { x: 470, t: "Anafase", d: "se separan cromátidas hermanas, van a los polos", c: "#f59e0b" },
-            { x: 90, y: 160, t: "Telofase", d: "se forman 2 núcleos hijos, citocinesis", c: "#ef4444" },
-            { x: 360, y: 160, t: "Resultado", d: "2 células diploides (2n), idénticas a la madre", c: "#a78bfa" },
+            { x: 90, t: "Profase", d: "cromatina se condensa, desaparece membrana nuclear", c: "var(--dib-blue-500)" },
+            { x: 280, t: "Metafase", d: "cromosomas se alinean en el ecuador", c: "var(--dib-emerald-500)" },
+            { x: 470, t: "Anafase", d: "se separan cromátidas hermanas, van a los polos", c: "var(--dib-amber-500)" },
+            { x: 90, y: 160, t: "Telofase", d: "se forman 2 núcleos hijos, citocinesis", c: "var(--dib-red-500)" },
+            { x: 360, y: 160, t: "Resultado", d: "2 células diploides (2n), idénticas a la madre", c: "var(--dib-violet-400)" },
           ].map((f, i) => (
             <g key={i} transform={`translate(${f.x}, ${f.y || 50})`}>
               <rect x={-10} y={0} width={180} height={90} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={10} />

@@ -122,8 +122,8 @@ function EscFemenino() {
             { t: "Vulva (labios, clítoris)", d: "estructuras externas" },
           ].map((o, i) => (
             <g key={i} transform={`translate(80, ${45 + i * 27})`}>
-              <rect width={580} height={23} fill="#ec4899" opacity={0.08} stroke="#ec4899" strokeWidth={1} rx={4} />
-              <text x={15} y={15} fill="#ec4899" fontSize={11} fontWeight={700}>{o.t}:</text>
+              <rect width={580} height={23} fill="var(--dib-pink-500)" opacity={0.08} stroke="var(--dib-pink-500)" strokeWidth={1} rx={4} />
+              <text x={15} y={15} fill="var(--dib-pink-500)" fontSize={11} fontWeight={700}>{o.t}:</text>
               <text x={210} y={15} fill={LIENZO.fg} fontSize={11}>{o.d}</text>
             </g>
           ))}
@@ -164,7 +164,7 @@ function EscCiclo() {
             { x: 80, t: "Menstrual", d: "días 1-5", des: "descamación del endometrio", c: LIENZO.bad },
             { x: 235, t: "Folicular", d: "días 6-13", des: "FSH madura folículo; estrógenos suben", c: LIENZO.warn },
             { x: 390, t: "OVULACIÓN", d: "día 14", des: "LH dispara liberación del óvulo", c: LIENZO.ok },
-            { x: 545, t: "Lútea", d: "días 15-28", des: "cuerpo lúteo → progesterona", c: "#a78bfa" },
+            { x: 545, t: "Lútea", d: "días 15-28", des: "cuerpo lúteo → progesterona", c: "var(--dib-violet-400)" },
           ].map((f, i) => (
             <g key={i} transform={`translate(${f.x}, 55)`}>
               <rect x={-10} y={0} width={145} height={130} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={8} />
@@ -211,11 +211,11 @@ function EscFecundacion() {
             Etapas del desarrollo
           </text>
           {[
-            { x: 80, t: "Cigoto", d: "1 célula", c: "#dc2626" },
+            { x: 80, t: "Cigoto", d: "1 célula", c: "var(--dib-red-600)" },
             { x: 200, t: "Mórula", d: "16 células (sin diferenciar)", c: LIENZO.warn },
             { x: 350, t: "Blástula", d: "esfera hueca", c: LIENZO.ok },
             { x: 480, t: "Gástrula", d: "3 capas: ecto/meso/endodermo", c: LIENZO.accent },
-            { x: 620, t: "Embrión", d: "órganos en formación", c: "#a78bfa" },
+            { x: 620, t: "Embrión", d: "órganos en formación", c: "var(--dib-violet-400)" },
           ].map((e, i) => (
             <g key={i} transform={`translate(${e.x - 50}, 55)`}>
               <circle cx={50} cy={40} r={30} fill={e.c} opacity={0.3} stroke={e.c} strokeWidth={2} />

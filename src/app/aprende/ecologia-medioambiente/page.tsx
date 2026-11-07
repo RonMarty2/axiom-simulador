@@ -73,12 +73,12 @@ function EscNiveles() {
             Del individuo a la biosfera
           </text>
           {[
-            { t: "Individuo", d: "un ser vivo", c: "#3b82f6" },
-            { t: "Población", d: "individuos de UNA especie en un lugar", c: "#06b6d4" },
-            { t: "Comunidad", d: "varias poblaciones en un lugar (biocenosis)", c: "#10b981" },
-            { t: "Ecosistema", d: "comunidad + ambiente físico (biotopo)", c: "#84cc16" },
-            { t: "Bioma", d: "conjunto de ecosistemas similares", c: "#eab308" },
-            { t: "Biosfera", d: "todos los ecosistemas del planeta", c: "#f59e0b" },
+            { t: "Individuo", d: "un ser vivo", c: "var(--dib-blue-500)" },
+            { t: "Población", d: "individuos de UNA especie en un lugar", c: "var(--dib-cyan-500)" },
+            { t: "Comunidad", d: "varias poblaciones en un lugar (biocenosis)", c: "var(--dib-emerald-500)" },
+            { t: "Ecosistema", d: "comunidad + ambiente físico (biotopo)", c: "var(--dib-lime-500)" },
+            { t: "Bioma", d: "conjunto de ecosistemas similares", c: "var(--dib-yellow-500)" },
+            { t: "Biosfera", d: "todos los ecosistemas del planeta", c: "var(--dib-amber-500)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 42})`}>
               <rect x={0} y={0} width={480 + i * 20} height={32} fill={n.c} opacity={0.2} stroke={n.c} strokeWidth={1.5} rx={6} />
@@ -158,12 +158,12 @@ function EscRelaciones() {
           </text>
           {[
             { c: "Mutualismo", a: "+ / +", ej: "abeja-flor, líquenes", col: LIENZO.ok },
-            { c: "Comensalismo", a: "+ / 0", ej: "rémora-tiburón", col: "#06b6d4" },
-            { c: "Inquilinismo", a: "+ / 0", ej: "ave nido en árbol", col: "#0ea5e9" },
+            { c: "Comensalismo", a: "+ / 0", ej: "rémora-tiburón", col: "var(--dib-cyan-500)" },
+            { c: "Inquilinismo", a: "+ / 0", ej: "ave nido en árbol", col: "var(--dib-sky-500)" },
             { c: "Depredación", a: "+ / −", ej: "puma caza vicuña", col: LIENZO.bad },
             { c: "Parasitismo", a: "+ / −", ej: "garrapata-perro", col: LIENZO.warn },
-            { c: "Competencia", a: "− / −", ej: "puma y zorro por la vizcacha", col: "#dc2626" },
-            { c: "Amensalismo", a: "0 / −", ej: "Penicillium → bacterias", col: "#7c3aed" },
+            { c: "Competencia", a: "− / −", ej: "puma y zorro por la vizcacha", col: "var(--dib-red-600)" },
+            { c: "Amensalismo", a: "0 / −", ej: "Penicillium → bacterias", col: "var(--dib-violet-600)" },
           ].map((r, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 32})`}>
               <rect width={580} height={26} fill={r.col} opacity={0.1} stroke={r.col} strokeWidth={1} rx={4} />
@@ -207,11 +207,11 @@ function EscTroficas() {
             Niveles tróficos
           </text>
           {[
-            { x: 80, t: "Productor", e: "1°", c: "#22c55e", ej: "pasto" },
-            { x: 220, t: "Consumidor I", e: "2°", c: "#eab308", ej: "saltamontes" },
-            { x: 360, t: "Consumidor II", e: "3°", c: "#f59e0b", ej: "sapo" },
-            { x: 500, t: "Consumidor III", e: "4°", c: "#ef4444", ej: "serpiente" },
-            { x: 640, t: "Descomponedor", e: "", c: "#a78bfa", ej: "bacteria, hongo" },
+            { x: 80, t: "Productor", e: "1°", c: "var(--dib-green-500)", ej: "pasto" },
+            { x: 220, t: "Consumidor I", e: "2°", c: "var(--dib-yellow-500)", ej: "saltamontes" },
+            { x: 360, t: "Consumidor II", e: "3°", c: "var(--dib-amber-500)", ej: "sapo" },
+            { x: 500, t: "Consumidor III", e: "4°", c: "var(--dib-red-500)", ej: "serpiente" },
+            { x: 640, t: "Descomponedor", e: "", c: "var(--dib-violet-400)", ej: "bacteria, hongo" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x - 60}, 55)`}>
               <rect width={120} height={70} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
@@ -284,10 +284,10 @@ function EscPiramides() {
               <text x={0} y={0} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{p.n}</text>
               {/* pirámide */}
               {[
-                { y: 30, w: 30, c: "#ef4444" },
-                { y: 50, w: 50, c: "#f59e0b" },
-                { y: 75, w: 80, c: "#eab308" },
-                { y: 105, w: 120, c: "#22c55e" },
+                { y: 30, w: 30, c: "var(--dib-red-500)" },
+                { y: 50, w: 50, c: "var(--dib-amber-500)" },
+                { y: 75, w: 80, c: "var(--dib-yellow-500)" },
+                { y: 105, w: 120, c: "var(--dib-green-500)" },
               ].map((nv, j) => (
                 <rect key={j} x={-nv.w / 2} y={nv.y} width={nv.w} height={20}
                   fill={nv.c} opacity={0.5} stroke={nv.c} strokeWidth={1.5} />
@@ -328,38 +328,38 @@ function EscCiclos() {
           </text>
           {/* Atmósfera */}
           <g transform="translate(280, 40)">
-            <rect width={160} height={45} fill="#0ea5e9" opacity={0.2} stroke="#0ea5e9" strokeWidth={1.5} rx={6} />
-            <text x={80} y={28} textAnchor="middle" fill="#0ea5e9" fontSize={12} fontWeight={700}>CO₂ atmosférico</text>
+            <rect width={160} height={45} fill="var(--dib-sky-500)" opacity={0.2} stroke="var(--dib-sky-500)" strokeWidth={1.5} rx={6} />
+            <text x={80} y={28} textAnchor="middle" fill="var(--dib-sky-500)" fontSize={12} fontWeight={700}>CO₂ atmosférico</text>
           </g>
           {/* Plantas */}
           <g transform="translate(80, 130)">
-            <rect width={130} height={40} fill="#22c55e" opacity={0.2} stroke="#22c55e" strokeWidth={1.5} rx={6} />
-            <text x={65} y={25} textAnchor="middle" fill="#22c55e" fontSize={11} fontWeight={700}>Plantas</text>
+            <rect width={130} height={40} fill="var(--dib-green-500)" opacity={0.2} stroke="var(--dib-green-500)" strokeWidth={1.5} rx={6} />
+            <text x={65} y={25} textAnchor="middle" fill="var(--dib-green-500)" fontSize={11} fontWeight={700}>Plantas</text>
           </g>
           {/* Animales */}
           <g transform="translate(290, 130)">
-            <rect width={130} height={40} fill="#f59e0b" opacity={0.2} stroke="#f59e0b" strokeWidth={1.5} rx={6} />
-            <text x={65} y={25} textAnchor="middle" fill="#f59e0b" fontSize={11} fontWeight={700}>Animales</text>
+            <rect width={130} height={40} fill="var(--dib-amber-500)" opacity={0.2} stroke="var(--dib-amber-500)" strokeWidth={1.5} rx={6} />
+            <text x={65} y={25} textAnchor="middle" fill="var(--dib-amber-500)" fontSize={11} fontWeight={700}>Animales</text>
           </g>
           {/* Combustibles */}
           <g transform="translate(500, 130)">
-            <rect width={150} height={40} fill="#374151" opacity={0.5} stroke="#374151" strokeWidth={1.5} rx={6} />
-            <text x={75} y={25} textAnchor="middle" fill="#374151" fontSize={11} fontWeight={700}>Combustibles fósiles</text>
+            <rect width={150} height={40} fill="var(--dib-gray-700)" opacity={0.5} stroke="var(--dib-gray-700)" strokeWidth={1.5} rx={6} />
+            <text x={75} y={25} textAnchor="middle" fill="var(--dib-gray-700)" fontSize={11} fontWeight={700}>Combustibles fósiles</text>
           </g>
 
           {/* flechas */}
-          <line x1={300} x2={150} y1={85} y2={130} stroke="#22c55e" strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={200} y={100} fill="#22c55e" fontSize={11} fontWeight={600}>Fotosíntesis</text>
+          <line x1={300} x2={150} y1={85} y2={130} stroke="var(--dib-green-500)" strokeWidth={2} markerEnd="url(#cArr)" />
+          <text x={200} y={100} fill="var(--dib-green-500)" fontSize={11} fontWeight={600}>Fotosíntesis</text>
 
-          <line x1={210} x2={290} y1={150} y2={150} stroke="#374151" strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={250} y={143} fill="#374151" fontSize={10}>comer</text>
+          <line x1={210} x2={290} y1={150} y2={150} stroke="var(--dib-gray-700)" strokeWidth={2} markerEnd="url(#cArr)" />
+          <text x={250} y={143} fill="var(--dib-gray-700)" fontSize={10}>comer</text>
 
-          <line x1={140} x2={300} y1={130} y2={85} stroke="#ef4444" strokeWidth={2} markerEnd="url(#cArr)" />
-          <line x1={355} x2={365} y1={130} y2={85} stroke="#ef4444" strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={420} y={100} fill="#ef4444" fontSize={11} fontWeight={600}>Respiración</text>
+          <line x1={140} x2={300} y1={130} y2={85} stroke="var(--dib-red-500)" strokeWidth={2} markerEnd="url(#cArr)" />
+          <line x1={355} x2={365} y1={130} y2={85} stroke="var(--dib-red-500)" strokeWidth={2} markerEnd="url(#cArr)" />
+          <text x={420} y={100} fill="var(--dib-red-500)" fontSize={11} fontWeight={600}>Respiración</text>
 
-          <line x1={575} x2={400} y1={130} y2={85} stroke="#dc2626" strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={500} y={110} fill="#dc2626" fontSize={11} fontWeight={600}>Combustión</text>
+          <line x1={575} x2={400} y1={130} y2={85} stroke="var(--dib-red-600)" strokeWidth={2} markerEnd="url(#cArr)" />
+          <text x={500} y={110} fill="var(--dib-red-600)" fontSize={11} fontWeight={600}>Combustión</text>
 
           <defs>
             <marker id="cArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -400,12 +400,12 @@ function EscProblemas() {
             6 problemas globales clave
           </text>
           {[
-            { t: "Calentamiento global", c: "#ef4444", d: "↑ CO₂, CH₄ por combustibles fósiles" },
-            { t: "Cambio climático", c: "#f59e0b", d: "consecuencia: clima extremo, sequías" },
-            { t: "Capa de ozono", c: "#a78bfa", d: "CFCs destruyen O₃; mayor UV" },
-            { t: "Deforestación", c: "#7c3aed", d: "↓ pulmones del planeta, biodiversidad" },
-            { t: "Contaminación", c: "#06b6d4", d: "agua, aire, suelo (plásticos, residuos)" },
-            { t: "Pérdida biodiversidad", c: "#ec4899", d: "6ª extinción masiva en curso" },
+            { t: "Calentamiento global", c: "var(--dib-red-500)", d: "↑ CO₂, CH₄ por combustibles fósiles" },
+            { t: "Cambio climático", c: "var(--dib-amber-500)", d: "consecuencia: clima extremo, sequías" },
+            { t: "Capa de ozono", c: "var(--dib-violet-400)", d: "CFCs destruyen O₃; mayor UV" },
+            { t: "Deforestación", c: "var(--dib-violet-600)", d: "↓ pulmones del planeta, biodiversidad" },
+            { t: "Contaminación", c: "var(--dib-cyan-500)", d: "agua, aire, suelo (plásticos, residuos)" },
+            { t: "Pérdida biodiversidad", c: "var(--dib-pink-500)", d: "6ª extinción masiva en curso" },
           ].map((p, i) => (
             <g key={i} transform={`translate(80, ${55 + i * 30})`}>
               <rect width={580} height={24} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1} rx={4} />
@@ -460,10 +460,10 @@ function EscBolivia() {
             4 ecorregiones de Bolivia
           </text>
           {[
-            { x: 90, t: "Amazonía", c: "#16a34a", d: "Pando, Beni, norte La Paz" },
-            { x: 240, t: "Chaco", c: "#ca8a04", d: "Tarija, Santa Cruz, Chuquisaca" },
-            { x: 390, t: "Andes/Altiplano", c: "#3b82f6", d: "La Paz, Oruro, Potosí" },
-            { x: 540, t: "Cerrado", c: "#e11d48", d: "Santa Cruz oriente" },
+            { x: 90, t: "Amazonía", c: "var(--dib-green-600)", d: "Pando, Beni, norte La Paz" },
+            { x: 240, t: "Chaco", c: "var(--dib-yellow-600)", d: "Tarija, Santa Cruz, Chuquisaca" },
+            { x: 390, t: "Andes/Altiplano", c: "var(--dib-blue-500)", d: "La Paz, Oruro, Potosí" },
+            { x: 540, t: "Cerrado", c: "var(--dib-rose-600)", d: "Santa Cruz oriente" },
           ].map((e, i) => (
             <g key={i} transform={`translate(${e.x}, 50)`}>
               <rect x={-10} y={0} width={140} height={90} fill={e.c} opacity={0.1} stroke={e.c} strokeWidth={1.5} rx={8} />

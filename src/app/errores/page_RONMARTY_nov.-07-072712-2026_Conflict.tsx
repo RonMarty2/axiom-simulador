@@ -1,0 +1,114 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import Icono from "../components/Icono";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import AppHeader from "../components/AppHeader";
+import Cargando from "../components/Cargando";
+import { inicioDiaLaPazISO, textoDominadas } from "@/lib/refuerzo";
+
+interface ErrorGuardado {
+  pregunta_id: string;
+  enunciado: string;
+  area: string;
+  tema: string;
+  facultad: string;
+  veces_fallado: number;
+  ultima_vez: string;
+}
+
+export default function ErroresPage() {
+  const router = useRouter();
+  const [errores, setErrores] = useState<ErrorGuardado[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const [porArea, setPorArea] = useState<Record<string, number>>({});
+  // repaso con fecha (repaso.ts): cuantas tocan hoy y cuando es el proximo
+  const [paraHoy, setParaHoy] = useState(0);
+  const [proximo, setProximo] = useState<string | null>(null);
+  const [dominadas, setDominadas] = useState(0);
+  const [dominadasHoy, setDominadasHoy] = useState(0);
+
+  useEffect(() => {
+    fetch("/api/auth/me").then((r) => r.json()).then((d) => {
+      if (!d.usuario) { router.push("/login"); return; }
+      // Errores guardados en la base de datos, atados a la cuenta del usuario.
+      const desde = encodeURIComponent(inicioDiaLaPazISO(new Date().toISOString()));
+      fetch(`/api/axiom/errores?desde=${desde}`)
+        .then((r) => r.json())
+        .then((data) => {
+          setErrores(Array.isArray(data.errores) ? data.errores : []);
+          setPorArea(data.por_area ?? {});
+          setParaHoy(data.para_hoy ?? 0);
+          setProximo(data.proximo_repaso ?? null);
+          setDominadas(data.dominadas ?? 0);
+          setDominadasHoy(data.dominadas_desde ?? 0);
+        })
+        .catch(() => {})
+        .finally(() => setLoading(false));
+    });
+  }, [router]);
+
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      <AppHeader />
+      <div style={{ maxWidth: 980, margin: "0 auto", padding: "32px clamp(16px, 3vw, 24px)" }}>
+        <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="errores" tamano={27} /> Mis errores</span></h1>
+        <p style={{ color: "var(--fg-muted)", marginBottom: 28 }}>
+          Las preguntas que has fallado. Te las volvemos a preguntar en su fecha: cuando aciertas la misma pregunta 3 veces seguidas, sale de la lista.
+          {dominadas > 0 && <> Ya dominaste {dominadas} {dominadas === 1 ? "pregunta" : "preguntas"}.</>}
+        </p>
+
+        {loading ? <Cargando /> : errores.length === 0 ? (
+          <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 60, textAlign: "center", border: "1px solid var(--border)" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--green)" }}><Icono nombre="check" tamano={52} grosor={1.6} /></div>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 6 }}>¡No tienes errores aún!</h3>
+            <p style={{ color: "var(--fg-muted)", fontSize: 14, marginBottom: 18 }}>Cuando falles una pregunta, la guardaremos aquí para que la repases.</p>
+            <Link href="/practicar" style={{ display: "inline-block", padding: "12px 24px", background: "var(--accent)", color: "white", borderRadius: 10, textDecoration: "none", fontWeight: 700 }}>
+              Hacer un simulacro
+            </Link>
+          </div>
+        ) : (
+          <>
+            {/* Stats por área */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 28 }}>
+              {Object.entries(porArea).map(([area, count]) => (
+                <div key={area} style={{ background: "var(--bg-card)", borderRadius: 12, padding: 14, border: "1px solid var(--border)" }}>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>{area}</div>
+                  <div style={{ fontSize: 24, fontWeight: 800, color: "var(--fg-primary)" }}>{count}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA: practicar mis errores */}
+            <div style={{ background: "var(--error)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
+              <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre="errores" tamano={32} /></div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: 16, fontWeight: 800 }}>{paraHoy > 0 ? `Tienes ${paraHoy} ${paraHoy === 1 ? "pregunta" : "preguntas"} para repasar hoy` : "Hoy no te toca repasar"}</div>
+                <div style={{ fontSize: 13, opacity: 0.9 }}>
+                  {paraHoy > 0 ? "Las mismas preguntas que fallaste, para que no se te olviden."
+                    : proximo ? `Tu próximo repaso es el ${new Date(proximo).toLocaleDateString("es-BO", { weekday: "long", day: "numeric", month: "long" })}.` : "Vuelve después de tu próximo examen."}
+                  {dominadasHoy >= 1 && <div style={{ fontWeight: 700, marginTop: 4 }}>{textoDominadas(dominadasHoy)}</div>}
+                </div>
+              </div>
+              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "#dc2626", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}
+            </div>
+
+            {/* Lista */}
+            <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
+              {errores.slice(0, 20).map((e, i) => (
+                <div key={e.pregunta_id} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none" }}>
+                  <div style={{ display: "flex", gap: 8, marginBottom: 6, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)" }}>
+                    <span>{e.area}</span> · <span>{e.tema}</span> · <span>Fallada {e.veces_fallado}x</span>
+                  </div>
+                  <div style={{ fontSize: 14, color: "var(--fg-primary)" }}>{e.enunciado.slice(0, 200)}{e.enunciado.length > 200 ? "…" : ""}</div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}

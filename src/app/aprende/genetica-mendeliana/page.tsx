@@ -304,7 +304,7 @@ function EscSimulador() {
         Elige el genotipo de cada padre y mira los descendientes.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           <div>
             <div style={{ fontSize: 13, fontWeight: 700, marginBottom: 6 }}>Padre 1</div>
@@ -324,13 +324,13 @@ function EscSimulador() {
 
         <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "60px 1fr 1fr", gap: 4, fontFamily: "var(--font-crimson), serif" }}>
           <div></div>
-          <div style={{ background: "#1e293b", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{b1}</div>
-          <div style={{ background: "#1e293b", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{b2}</div>
+          <div style={{ background: "var(--dib-slate-800)", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{b1}</div>
+          <div style={{ background: "var(--dib-slate-800)", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{b2}</div>
           {[a1, a2].map((rA, i) => (
             <React.Fragment key={`row${i}`}>
-              <div style={{ background: "#1e293b", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{rA}</div>
+              <div style={{ background: "var(--dib-slate-800)", padding: 8, textAlign: "center", borderRadius: 4, fontWeight: 700 }}>{rA}</div>
               {cells.grid[i].map((c, j) => {
-                const color = c === "AA" ? "#10b981" : c === "Aa" ? "#f59e0b" : "#ef4444";
+                const color = c === "AA" ? "var(--dib-emerald-500)" : c === "Aa" ? "var(--dib-amber-500)" : "var(--dib-red-500)";
                 return (
                   <div key={`c${i}${j}`} style={{
                     background: `${color}33`, border: `2px solid ${color}`,
@@ -343,12 +343,12 @@ function EscSimulador() {
           ))}
         </div>
 
-        <div style={{ marginTop: 14, padding: 12, background: "#1e293b", borderRadius: 8 }}>
+        <div style={{ marginTop: 14, padding: 12, background: "var(--dib-slate-800)", borderRadius: 8 }}>
           <div style={{ fontSize: 12, opacity: 0.7, marginBottom: 6 }}>Resultado:</div>
           <div style={{ display: "flex", gap: 12, fontSize: 13 }}>
-            <span style={{ color: "#10b981" }}>{cells.AA}/4 AA</span>
-            <span style={{ color: "#f59e0b" }}>{cells.Aa}/4 Aa</span>
-            <span style={{ color: "#ef4444" }}>{cells.aa}/4 aa</span>
+            <span style={{ color: "var(--dib-emerald-500)" }}>{cells.AA}/4 AA</span>
+            <span style={{ color: "var(--dib-amber-500)" }}>{cells.Aa}/4 Aa</span>
+            <span style={{ color: "var(--dib-red-500)" }}>{cells.aa}/4 aa</span>
           </div>
           <div style={{ fontSize: 11, opacity: 0.6, marginTop: 6 }}>
             Fenotipo: {cells.AA + cells.Aa}/4 dominante : {cells.aa}/4 recesivo
@@ -368,9 +368,9 @@ function SelectorAlelo({ v, onChange }: { v: "A" | "a"; onChange: (v: "A" | "a")
           onClick={() => onChange(opt)}
           style={{
             width: 36, height: 36,
-            background: v === opt ? (opt === "A" ? "#10b981" : "#ef4444") : "#1e293b",
-            color: v === opt ? "#0f172a" : "#cbd5e1",
-            border: "1px solid #475569", borderRadius: 6,
+            background: v === opt ? (opt === "A" ? "var(--dib-emerald-500)" : "var(--dib-red-500)") : "var(--dib-slate-800)",
+            color: v === opt ? "var(--dib-slate-900)" : "var(--dib-slate-300)",
+            border: "1px solid var(--dib-slate-600)", borderRadius: 6,
             cursor: "pointer", fontWeight: 700, fontSize: 16,
             fontFamily: "var(--font-crimson), serif",
           }}
@@ -400,7 +400,7 @@ function EscLey3() {
           {[
             { x: 90, t: "9/16", f: "amarillo + liso", c: LIENZO.ok, sub: "A_B_" },
             { x: 250, t: "3/16", f: "amarillo + rugoso", c: LIENZO.warn, sub: "A_bb" },
-            { x: 410, t: "3/16", f: "verde + liso", c: "#06b6d4", sub: "aaB_" },
+            { x: 410, t: "3/16", f: "verde + liso", c: "var(--dib-cyan-500)", sub: "aaB_" },
             { x: 570, t: "1/16", f: "verde + rugoso", c: LIENZO.bad, sub: "aabb" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>
@@ -512,10 +512,10 @@ function EscABO() {
             4 grupos sanguíneos y sus genotipos
           </text>
           {[
-            { x: 90, t: "A", g: "I^A I^A o I^A i", c: "#ef4444" },
-            { x: 250, t: "B", g: "I^B I^B o I^B i", c: "#3b82f6" },
-            { x: 410, t: "AB", g: "I^A I^B", c: "#a78bfa" },
-            { x: 570, t: "O", g: "i i", c: "#84cc16" },
+            { x: 90, t: "A", g: "I^A I^A o I^A i", c: "var(--dib-red-500)" },
+            { x: 250, t: "B", g: "I^B I^B o I^B i", c: "var(--dib-blue-500)" },
+            { x: 410, t: "AB", g: "I^A I^B", c: "var(--dib-violet-400)" },
+            { x: 570, t: "O", g: "i i", c: "var(--dib-lime-500)" },
           ].map((b, i) => (
             <g key={i} transform={`translate(${b.x}, 55)`}>
               <circle cx={70} cy={40} r={36} fill={b.c} opacity={0.3} stroke={b.c} strokeWidth={2.5} />

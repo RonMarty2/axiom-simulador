@@ -160,24 +160,24 @@ function EscContraccion() {
           <text x={140} y={50} textAnchor="middle" fill={LIENZO.fg} fontSize={12} fontWeight={700}>RELAJADO</text>
           <line x1={50} y1={70} x2={50} y2={120} stroke={LIENZO.fg} strokeWidth={2} />
           <line x1={230} y1={70} x2={230} y2={120} stroke={LIENZO.fg} strokeWidth={2} />
-          <line x1={60} y1={80} x2={100} y2={80} stroke="#3b82f6" strokeWidth={3} />
-          <line x1={180} y1={80} x2={220} y2={80} stroke="#3b82f6" strokeWidth={3} />
-          <rect x={105} y={95} width={75} height={6} fill="#ef4444" />
+          <line x1={60} y1={80} x2={100} y2={80} stroke="var(--dib-blue-500)" strokeWidth={3} />
+          <line x1={180} y1={80} x2={220} y2={80} stroke="var(--dib-blue-500)" strokeWidth={3} />
+          <rect x={105} y={95} width={75} height={6} fill="var(--dib-red-500)" />
           <text x={140} y={140} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>sarcómero largo</text>
 
           {/* Contraído */}
           <text x={490} y={50} textAnchor="middle" fill={LIENZO.fg} fontSize={12} fontWeight={700}>CONTRAÍDO</text>
           <line x1={430} y1={70} x2={430} y2={120} stroke={LIENZO.fg} strokeWidth={2} />
           <line x1={550} y1={70} x2={550} y2={120} stroke={LIENZO.fg} strokeWidth={2} />
-          <line x1={440} y1={80} x2={490} y2={80} stroke="#3b82f6" strokeWidth={3} />
-          <line x1={490} y1={80} x2={540} y2={80} stroke="#3b82f6" strokeWidth={3} />
-          <rect x={445} y={95} width={100} height={6} fill="#ef4444" />
+          <line x1={440} y1={80} x2={490} y2={80} stroke="var(--dib-blue-500)" strokeWidth={3} />
+          <line x1={490} y1={80} x2={540} y2={80} stroke="var(--dib-blue-500)" strokeWidth={3} />
+          <rect x={445} y={95} width={100} height={6} fill="var(--dib-red-500)" />
           <text x={490} y={140} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>sarcómero corto</text>
 
           {/* Leyenda */}
-          <line x1={80} y1={175} x2={120} y2={175} stroke="#3b82f6" strokeWidth={3} />
+          <line x1={80} y1={175} x2={120} y2={175} stroke="var(--dib-blue-500)" strokeWidth={3} />
           <text x={130} y={179} fill={LIENZO.fg} fontSize={11}>actina (delgada)</text>
-          <rect x={290} y={170} width={50} height={6} fill="#ef4444" />
+          <rect x={290} y={170} width={50} height={6} fill="var(--dib-red-500)" />
           <text x={350} y={179} fill={LIENZO.fg} fontSize={11}>miosina (gruesa)</text>
         </svg>
       </Pizarra>

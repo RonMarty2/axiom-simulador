@@ -276,7 +276,7 @@ function EscSimulador() {
         molaridad y los pasos para prepararla.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ marginBottom: 12 }}>
           <label style={{ display: "block", marginBottom: 6, fontWeight: 600, fontSize: 13 }}>
             Compuesto:
@@ -288,9 +288,9 @@ function EscSimulador() {
                 onClick={() => setMCompuesto(c.M)}
                 style={{
                   padding: "6px 12px",
-                  background: M_compuesto === c.M ? "#a78bfa" : "#1e293b",
-                  color: M_compuesto === c.M ? "#0f172a" : "#cbd5e1",
-                  border: "1px solid #475569",
+                  background: M_compuesto === c.M ? "var(--dib-violet-400)" : "var(--dib-slate-800)",
+                  color: M_compuesto === c.M ? "var(--dib-slate-900)" : "var(--dib-slate-300)",
+                  border: "1px solid var(--dib-slate-600)",
                   borderRadius: 6,
                   cursor: "pointer",
                   fontWeight: 600,
@@ -304,28 +304,28 @@ function EscSimulador() {
         </div>
 
         <div style={{ marginBottom: 10 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#10b981" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-emerald-500)" }}>
             Masa soluto: {gSoluto} g
           </label>
           <input type="range" min={1} max={200} step={1} value={gSoluto}
             onChange={(e) => setGSoluto(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#10b981" }} />
+            style={{ width: "100%", accentColor: "var(--dib-emerald-500)" }} />
         </div>
 
         <div style={{ marginBottom: 12 }}>
-          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "#f59e0b" }}>
+          <label style={{ display: "block", fontSize: 13, marginBottom: 4, color: "var(--dib-amber-500)" }}>
             Volumen solución: {VmL} mL = {Vlitros.toFixed(2)} L
           </label>
           <input type="range" min={50} max={2000} step={50} value={VmL}
             onChange={(e) => setVmL(Number(e.target.value))}
-            style={{ width: "100%", accentColor: "#f59e0b" }} />
+            style={{ width: "100%", accentColor: "var(--dib-amber-500)" }} />
         </div>
 
-        <div style={{ padding: 14, background: "#1e293b", borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+        <div style={{ padding: 14, background: "var(--dib-slate-800)", borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-blue-400)" }}>
           <div style={{ fontSize: 11, opacity: 0.7 }}>
             n = {gSoluto} / {M_compuesto} = {mol.toFixed(3)} mol
           </div>
-          <div style={{ fontSize: 24, fontWeight: 700, color: "#60a5fa", marginTop: 4, fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 24, fontWeight: 700, color: "var(--dib-blue-400)", marginTop: 4, fontFamily: "var(--font-crimson), serif" }}>
             M = {molaridad.toFixed(3)} mol/L
           </div>
         </div>

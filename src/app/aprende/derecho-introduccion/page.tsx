@@ -196,10 +196,10 @@ function EscFuentes() {
           {[
             { t: "Constitución", d: "norma fundamental del Estado", c: LIENZO.bad },
             { t: "Ley", d: "dictada por el Órgano Legislativo (Asamblea)", c: LIENZO.warn },
-            { t: "Decretos / reglamentos", d: "dictados por el Ejecutivo", c: "#a78bfa" },
+            { t: "Decretos / reglamentos", d: "dictados por el Ejecutivo", c: "var(--dib-violet-400)" },
             { t: "Costumbre", d: "uso reiterado con conciencia de obligatoriedad", c: LIENZO.ok },
-            { t: "Jurisprudencia", d: "sentencias reiteradas de tribunales", c: "#06b6d4" },
-            { t: "Doctrina", d: "opiniones de juristas; fuente indirecta", c: "#84cc16" },
+            { t: "Jurisprudencia", d: "sentencias reiteradas de tribunales", c: "var(--dib-cyan-500)" },
+            { t: "Doctrina", d: "opiniones de juristas; fuente indirecta", c: "var(--dib-lime-500)" },
           ].map((f, i) => (
             <g key={i} transform={`translate(80, ${50 + i * 26})`}>
               <rect width={580} height={22} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1} rx={4} />
@@ -245,12 +245,12 @@ function EscJerarquia() {
             Jerarquía en Bolivia (Art. 410 CPE)
           </text>
           {[
-            { y: 50, w: 180, t: "Constitución (CPE) + tratados DD.HH.", c: "#dc2626" },
-            { y: 90, w: 270, t: "Tratados internacionales", c: "#f59e0b" },
-            { y: 130, w: 360, t: "Leyes (Ley, Ley orgánica, código)", c: "#84cc16" },
-            { y: 170, w: 450, t: "Decretos supremos, resoluciones del Ejecutivo", c: "#10b981" },
-            { y: 210, w: 540, t: "Normas departamentales y municipales", c: "#06b6d4" },
-            { y: 250, w: 600, t: "Resoluciones administrativas, actos individuales", c: "#a78bfa" },
+            { y: 50, w: 180, t: "Constitución (CPE) + tratados DD.HH.", c: "var(--dib-red-600)" },
+            { y: 90, w: 270, t: "Tratados internacionales", c: "var(--dib-amber-500)" },
+            { y: 130, w: 360, t: "Leyes (Ley, Ley orgánica, código)", c: "var(--dib-lime-500)" },
+            { y: 170, w: 450, t: "Decretos supremos, resoluciones del Ejecutivo", c: "var(--dib-emerald-500)" },
+            { y: 210, w: 540, t: "Normas departamentales y municipales", c: "var(--dib-cyan-500)" },
+            { y: 250, w: 600, t: "Resoluciones administrativas, actos individuales", c: "var(--dib-violet-400)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(${360 - n.w / 2}, ${n.y})`}>
               <rect width={n.w} height={32} fill={n.c} opacity={0.3} stroke={n.c} strokeWidth={1.5} rx={6} />

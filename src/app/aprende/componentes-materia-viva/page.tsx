@@ -79,15 +79,15 @@ function EscNiveles() {
       <Pizarra alto={300}>
         <svg width="100%" height="100%" viewBox="0 0 720 300" preserveAspectRatio="xMidYMid meet">
           {[
-            { y: 30, t: "Átomo", ej: "C, H, O, N", c: "#3b82f6" },
-            { y: 60, t: "Molécula", ej: "H₂O, glucosa, ATP", c: "#06b6d4" },
-            { y: 90, t: "Macromolécula", ej: "proteína, ADN", c: "#10b981" },
-            { y: 120, t: "Organelo", ej: "mitocondria, núcleo", c: "#84cc16" },
-            { y: 150, t: "Célula", ej: "neurona, glóbulo rojo", c: "#eab308" },
-            { y: 180, t: "Tejido", ej: "muscular, nervioso", c: "#f59e0b" },
-            { y: 210, t: "Órgano", ej: "corazón, hígado", c: "#f97316" },
-            { y: 240, t: "Sistema/aparato", ej: "circulatorio, digestivo", c: "#ef4444" },
-            { y: 270, t: "Organismo", ej: "un ser vivo completo", c: "#a78bfa" },
+            { y: 30, t: "Átomo", ej: "C, H, O, N", c: "var(--dib-blue-500)" },
+            { y: 60, t: "Molécula", ej: "H₂O, glucosa, ATP", c: "var(--dib-cyan-500)" },
+            { y: 90, t: "Macromolécula", ej: "proteína, ADN", c: "var(--dib-emerald-500)" },
+            { y: 120, t: "Organelo", ej: "mitocondria, núcleo", c: "var(--dib-lime-500)" },
+            { y: 150, t: "Célula", ej: "neurona, glóbulo rojo", c: "var(--dib-yellow-500)" },
+            { y: 180, t: "Tejido", ej: "muscular, nervioso", c: "var(--dib-amber-500)" },
+            { y: 210, t: "Órgano", ej: "corazón, hígado", c: "var(--dib-orange-500)" },
+            { y: 240, t: "Sistema/aparato", ej: "circulatorio, digestivo", c: "var(--dib-red-500)" },
+            { y: 270, t: "Organismo", ej: "un ser vivo completo", c: "var(--dib-violet-400)" },
           ].map((n, i) => (
             <g key={i} transform={`translate(60, ${n.y - 12})`}>
               <rect width={30} height={20} fill={n.c} opacity={0.3} stroke={n.c} strokeWidth={1.5} rx={4} />
@@ -136,12 +136,12 @@ function EscPrimarios() {
             6 bioelementos primarios — CHONSP
           </text>
           {[
-            { x: 100, sym: "C", per: "18%", t: "Carbono", rol: "esqueleto orgánico", c: "#374151" },
-            { x: 240, sym: "H", per: "10%", t: "Hidrógeno", rol: "agua, biomoléculas", c: "#60a5fa" },
-            { x: 380, sym: "O", per: "65%", t: "Oxígeno", rol: "respiración, H₂O", c: "#ef4444" },
-            { x: 520, sym: "N", per: "3%", t: "Nitrógeno", rol: "proteínas, ADN", c: "#10b981" },
-            { x: 170, sym: "S", per: "0.3%", t: "Azufre", rol: "aa cisteína, metionina", c: "#eab308", y: 150 },
-            { x: 450, sym: "P", per: "1%", t: "Fósforo", rol: "ADN, ATP, huesos", c: "#a78bfa", y: 150 },
+            { x: 100, sym: "C", per: "18%", t: "Carbono", rol: "esqueleto orgánico", c: "var(--dib-gray-700)" },
+            { x: 240, sym: "H", per: "10%", t: "Hidrógeno", rol: "agua, biomoléculas", c: "var(--dib-blue-400)" },
+            { x: 380, sym: "O", per: "65%", t: "Oxígeno", rol: "respiración, H₂O", c: "var(--dib-red-500)" },
+            { x: 520, sym: "N", per: "3%", t: "Nitrógeno", rol: "proteínas, ADN", c: "var(--dib-emerald-500)" },
+            { x: 170, sym: "S", per: "0.3%", t: "Azufre", rol: "aa cisteína, metionina", c: "var(--dib-yellow-500)", y: 150 },
+            { x: 450, sym: "P", per: "1%", t: "Fósforo", rol: "ADN, ATP, huesos", c: "var(--dib-violet-400)", y: 150 },
           ].map((e, i) => (
             <g key={i} transform={`translate(${e.x}, ${e.y || 50})`}>
               <circle cx={50} cy={40} r={32} fill={e.c} opacity={0.2} stroke={e.c} strokeWidth={2.5} />
@@ -202,16 +202,16 @@ function EscSecundarios() {
             Funciones biológicas clave
           </text>
           {[
-            { x: 90, t: "Ca", f: "huesos, dientes, contracción muscular, coagulación", c: "#84cc16" },
-            { x: 90, t: "Na", f: "conducción nerviosa, equilibrio osmótico", c: "#06b6d4", y: 95 },
-            { x: 90, t: "K", f: "contracción muscular (corazón), nervios", c: "#a78bfa", y: 140 },
-            { x: 90, t: "Mg", f: "clorofila, activación enzimática", c: "#10b981", y: 185 },
-            { x: 90, t: "Cl", f: "jugo gástrico (HCl), equilibrio osmótico", c: "#f59e0b", y: 230 },
-            { x: 410, t: "Fe", f: "hemoglobina (transporte de O₂)", c: "#ef4444" },
-            { x: 410, t: "I", f: "hormonas tiroideas", c: "#8b5cf6", y: 95 },
-            { x: 410, t: "Zn", f: "más de 200 enzimas, insulina", c: "#3b82f6", y: 140 },
-            { x: 410, t: "Cu", f: "hemocianina (algunos animales)", c: "#f97316", y: 185 },
-            { x: 410, t: "F", f: "esmalte dental (previene caries)", c: "#06b6d4", y: 230 },
+            { x: 90, t: "Ca", f: "huesos, dientes, contracción muscular, coagulación", c: "var(--dib-lime-500)" },
+            { x: 90, t: "Na", f: "conducción nerviosa, equilibrio osmótico", c: "var(--dib-cyan-500)", y: 95 },
+            { x: 90, t: "K", f: "contracción muscular (corazón), nervios", c: "var(--dib-violet-400)", y: 140 },
+            { x: 90, t: "Mg", f: "clorofila, activación enzimática", c: "var(--dib-emerald-500)", y: 185 },
+            { x: 90, t: "Cl", f: "jugo gástrico (HCl), equilibrio osmótico", c: "var(--dib-amber-500)", y: 230 },
+            { x: 410, t: "Fe", f: "hemoglobina (transporte de O₂)", c: "var(--dib-red-500)" },
+            { x: 410, t: "I", f: "hormonas tiroideas", c: "var(--dib-violet-500)", y: 95 },
+            { x: 410, t: "Zn", f: "más de 200 enzimas, insulina", c: "var(--dib-blue-500)", y: 140 },
+            { x: 410, t: "Cu", f: "hemocianina (algunos animales)", c: "var(--dib-orange-500)", y: 185 },
+            { x: 410, t: "F", f: "esmalte dental (previene caries)", c: "var(--dib-cyan-500)", y: 230 },
           ].map((e, i) => (
             <g key={i} transform={`translate(${e.x}, ${e.y || 50})`}>
               <circle cx={20} cy={15} r={14} fill={e.c} opacity={0.3} stroke={e.c} strokeWidth={2} />
@@ -262,12 +262,12 @@ function EscAgua() {
             6 propiedades clave del agua
           </text>
           {[
-            { x: 90, t: "Solvente", d: "polar disuelve polar", c: "#06b6d4" },
-            { x: 290, t: "Cohesión", d: "puentes H entre moléculas", c: "#3b82f6" },
-            { x: 490, t: "Adhesión", d: "se pega a superficies", c: "#a78bfa" },
-            { x: 90, t: "Calor de vaporización", d: "el sudor enfría al evaporarse", c: "#ef4444", y: 130 },
-            { x: 290, t: "Densidad anomalía", d: "hielo flota", c: "#06b6d4", y: 130 },
-            { x: 490, t: "Tensión superficial", d: "insectos caminan sobre agua", c: "#10b981", y: 130 },
+            { x: 90, t: "Solvente", d: "polar disuelve polar", c: "var(--dib-cyan-500)" },
+            { x: 290, t: "Cohesión", d: "puentes H entre moléculas", c: "var(--dib-blue-500)" },
+            { x: 490, t: "Adhesión", d: "se pega a superficies", c: "var(--dib-violet-400)" },
+            { x: 90, t: "Calor de vaporización", d: "el sudor enfría al evaporarse", c: "var(--dib-red-500)", y: 130 },
+            { x: 290, t: "Densidad anomalía", d: "hielo flota", c: "var(--dib-cyan-500)", y: 130 },
+            { x: 490, t: "Tensión superficial", d: "insectos caminan sobre agua", c: "var(--dib-emerald-500)", y: 130 },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
               <rect x={-10} y={0} width={160} height={65} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
