@@ -16,3 +16,7 @@ AVISO del lote 3: en la lista, los números de prefijo de varios PDF vinieron co
 
 Por cada examen: contrasta enunciado, opciones y figura de las preguntas de riesgo con el PDF; corrige el .md del banco solo si el PDF lo demuestra; registra el examen en `data/registro-verificacion.json` con `completo:false` y anota qué preguntas se miraron (no pongas `completo:true`: solo se miró lo de riesgo). Si una figura no puedes comprobarla, déjala anotada como pendiente; agy NO juzga figuras de circuitos: ponlas como pendiente de `auditor-figuras`.
 No toques otros exámenes, lecciones ni código. Devuelve «Lecciones nuevas» y una tabla: examen | preguntas miradas | cambios | pendientes.
+
+## Reglas de ejecución (el lote 4 anterior salió vacío por no leerlas)
+- NO ejecutes tsc, lint ni tests ni ningún comando: la terminal está bloqueada y esos controles los corre el script después. Si escribes «NO SE» en vez de hacer el trabajo, el lote se pierde.
+- El trabajo es abrir cada PDF, leer las preguntas de riesgo, editar el .md del banco solo si el PDF lo demuestra, y AGREGAR las 6 entradas a `data/registro-verificacion.json` (formato de las entradas ya existentes de 2008 a 2010, fecha 2026-11-07, `completo:false`). La entrega es ese cambio en el JSON.
