@@ -267,7 +267,7 @@ export default function SimuladorActivoPage() {
         {/* Pregunta principal */}
         {vista === "una" && (
         <main>
-          <div className="mb-4 flex items-center gap-2 text-xs">
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
             <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
               {indice + 1} / {preguntas.length}
             </span>
