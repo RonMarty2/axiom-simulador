@@ -526,5 +526,71 @@
     },
     "completo": false,
     "notas": "Opcion B (muestra por riesgo). Mirada P6 (G6 en p.1, figura g5-rombo-en-triangulo-3-4: rombo en triangulo rectangulo de lados 3 y 4 pidiendo perimetro, clave E=Ninguno): enunciado, opciones, figura y clave coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G7 (P7: observador y poste de altura 2raiz(12) a 30° y 60°) y en p.2 F11 (P11: plano inclinado a 30° con fuerza horizontal de 40raiz(3) N) y F12 (P12: tobogan desde 6 m con tramo horizontal a 1 m) tienen dibujo en el PDF y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2016-2op-1-2016": {
+    "id": "umss-ingenieria-2016-examen-de-ingreso-1-2016-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/142_2da-op-1-2016.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 1-2016 (2ª OPCION) Jueves, 10 de Marzo de 2016'. Miradas P5 (G5 en p.1, figura g5-cuarto-circulo-area-4pi: clave D=4-2raiz(2)), P8 (G8 en p.1, figura g8-cuadrilatero-theta-5: clave D=5sen(theta)) y P10 (F10 en p.2, figura f10-colgante-dos-poleas-fijas: clave B=4 kg): enunciados, opciones, figuras y respuestas coinciden con el PDF; sin cambios en el .md. Sin pendientes de auditor-figuras: las 3 figuras del PDF ya estan dibujadas en el banco."
+  },
+  "ingenieria/2016-2op-2-2016": {
+    "id": "umss-ingenieria-2016-examen-de-ingreso-2-2016-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/145_2da-op-2-2016.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 1-2016 (2ª OPCION) Martes, 23 de Agosto de 2016' (errata de imprenta en p.1 dice 1-2016; el encabezado de p.2 dice correctamente 'EXAMEN-INGRESO 2-2016 (2ª OPCION)'). Miradas P5 (G5 en p.1, figura g5-bisectriz-16-8: clave C=8raiz(3)), P6 (G6 en p.1, figura g6-recta-biseca-cuadrado: clave D=10/7) y P11 (F11 en p.2, figura f11-dos-bloques-mesa-hueco: clave B=9/2 m/s2): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.2 del PDF F12 (P12: choque elastico unidimensional con diagrama vectorial de esferas m1 y m2) tiene dibujo en el PDF y el banco la tiene en texto sin figura."
+  },
+  "ingenieria/2017-1op-2-2017": {
+    "id": "umss-ingenieria-2017-examen-de-ingreso-2-2017-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/149_1ra-op-2-2017.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 2-2017 (1ª OPCION) Miercoles, 14 de Junio de 2017'. Miradas P7 (G7 en p.1, figura g7-cuatro-circulos-en-circulo: clave B=raiz(2)+1) y P9 (F9 en p.2: bloques A y B separados 50 m moviendose en sentidos contrarios, clave C=7,5 s): opciones, figura y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G6 (P6: torre vertical observada por A y B con angulo AOB recto), y en p.2 F9 (P9: bloques A y B con cota 50 m) y F11 (P11: salpicadura de gotas a 60° con cota de 2 m en el suelo) tienen figura en el PDF y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2017-2op-1-2017": {
+    "id": "umss-ingenieria-2017-examen-de-ingreso-1-2017-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/147_2da-op-1-2017.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 1-2017 (2ª OPCION) Martes, 21 de Febrero de 2017'. Miradas P6 (G6 en p.1, figura g6-dos-cuadrados-sombra-izquierda: clave A=1/13), P7 (G7 en p.1, figura g7-muro-almena-theta: clave C=3/28) y P9 (F9 en p.2, figura f9-caida-y-lanzamiento-45: clave D=45°): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.2 del PDF F11 (P11: dos esferas M1 y M2 antes del choque) tiene esquema grafico en el PDF y el banco la describe en texto sin figura."
+  },
+  "ingenieria/2017-2op-2-2017": {
+    "id": "umss-ingenieria-2017-examen-de-ingreso-2-2017-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/150_2da-op-2-2017.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 2-2017 (2ª OPCION) Viernes, 7 de Julio de 2017' (nota: el encabezado de p.2 dice erróneamente 1ª OPCION pero la fecha y p.1 confirman 2da Opción). Mirada P5 (G5 en p.1, figura g5-triangulo-5-12-13-cuadrado: clave B=4320/289): enunciado, opciones, figura y clave coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G6 (P6: circunferencia mayor con cuadrado inscrito y circunferencia menor) y G7 (P7: triangulo equilatero de lado 6 con sombreado de lados 3 y 4), y en p.2 F12 (P12: persona gritando hacia un muro a distancia d) tienen dibujo en el PDF y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2017-3op-1-2017": {
+    "id": "umss-ingenieria-2017-examen-de-ingreso-1-2017-3ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/148_3ra-op-1-2017.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Titulo impreso en p.1: 'EXAMEN-INGRESO 1-2017 (3ª OPCION) Viernes, 3 de Marzo de 2017'. Miradas P6 (G6 en p.1, figura g6-dos-cuadrados-sombra-derecha: clave A=9/44), P7 (G7 en p.1, figura g7-torre-2theta-theta: clave C=10raiz(2)) y P11 (F11 en p.2, figura f11-pared-de-la-muerte: clave C=20 m/s): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G5 (P5: cuadrado ABCD con diagonales y cuartos de circunferencia) y en p.2 F9 (P9: trayectoria parabolica con cotas de 5 m de altura inicial y 5 m de alcance) tienen dibujo en el PDF y estan en texto sin figura en el banco."
   }
 }
