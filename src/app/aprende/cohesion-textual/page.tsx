@@ -225,12 +225,12 @@ function EscPB() {
         {
           p: "\"La investigación científica es crucial para la medicina, ____ permite descubrir tratamientos. ____, se basa en la colaboración. ____, es vital financiar proyectos.\"",
           o: [
-            "porque - A pesar de - Por eso",
             "ya que - Además - Por lo tanto",
+            "porque - A pesar de - Por eso",
             "aunque - Pero - Así que",
             "en consecuencia - Sin embargo - A pesar de",
           ],
-          c: 1,
+          c: 0,
           ex: "Causa ('ya que permite') + Adición ('Además, se basa') + Conclusión ('Por lo tanto, es vital').",
         },
         {
@@ -248,33 +248,33 @@ function EscPB() {
           p: "\"La diversidad cultural enriquece nuestras sociedades, ____ aporta diferentes perspectivas. ____, es importante respetar estas diferencias. ____, fomenta la inclusión.\"",
           o: [
             "porque - Pero - A pesar de",
-            "ya que - Además - Por eso",
             "aunque - Sin embargo - Por lo tanto",
+            "ya que - Además - Por eso",
             "de hecho - En consecuencia - Así que",
           ],
-          c: 1,
+          c: 2,
           ex: "Causa + adición + conclusión. Las tres oraciones suman ideas positivas: sin oposición.",
         },
         {
           p: "\"La música tiene impacto en nuestras emociones, ____ puede alegrar el día. ____, también puede ser consuelo en momentos difíciles. ____, es un lenguaje universal.\"",
           o: [
             "porque - Pero - Sin embargo",
-            "ya que - Además - Por eso",
             "aunque - Por lo tanto - A pesar de",
             "de hecho - Así que - En consecuencia",
+            "ya que - Además - Por eso",
           ],
-          c: 1,
+          c: 3,
           ex: "Causa + adición + conclusión. Patrón clásico.",
         },
         {
           p: "\"Los viajes son una forma de aprender sobre el mundo, ____ permiten conocer culturas. ____, son una oportunidad para reflexionar. ____, es importante aprovechar estas experiencias.\"",
           o: [
             "porque - Pero - Así que",
-            "ya que - Además - Por eso",
             "aunque - Sin embargo - A pesar de",
+            "ya que - Además - Por eso",
             "de hecho - Por lo tanto - Así que",
           ],
-          c: 1,
+          c: 2,
           ex: "Mismo patrón. Cuando un texto encadena razones positivas sin oposición, este es el patrón estándar.",
         },
       ]} />
@@ -291,33 +291,33 @@ function EscPC() {
           p: "\"La sostenibilidad es un objetivo clave, ____ debemos cuidar nuestro planeta. ____, es responsabilidad de todos. ____, se requieren cambios diarios.\"",
           o: [
             "porque - Pero - A pesar de",
-            "ya que - Además - Por lo tanto",
             "aunque - Sin embargo - Por eso",
+            "ya que - Además - Por lo tanto",
             "en consecuencia - Por lo tanto - A pesar de",
           ],
-          c: 1,
+          c: 2,
           ex: "Causa + adición + conclusión.",
         },
         {
           p: "\"Las habilidades de comunicación son esenciales en el trabajo, ____ facilitan el trabajo en equipo. ____, son clave para resolver conflictos. ____, es fundamental desarrollarlas.\"",
           o: [
-            "porque - Pero - A pesar de",
             "ya que - Además - Por eso",
+            "porque - Pero - A pesar de",
             "aunque - Sin embargo - Por lo tanto",
             "de hecho - Así que - En consecuencia",
           ],
-          c: 1,
+          c: 0,
           ex: "Patrón estándar.",
         },
         {
           p: "\"La alimentación saludable es fundamental, ____ proporciona la energía necesaria. ____, ayuda a prevenir enfermedades. ____, debemos educar sobre hábitos.\"",
           o: [
             "porque - Pero - Sin embargo",
-            "ya que - Además - Por eso",
             "aunque - Por lo tanto - A pesar de",
             "de hecho - Así que - En consecuencia",
+            "ya que - Además - Por eso",
           ],
-          c: 1,
+          c: 3,
           ex: "Causa + adición + conclusión.",
         },
         {
@@ -334,12 +334,12 @@ function EscPC() {
         {
           p: "\"El arte tiene un papel fundamental, ____ nos permite expresar emociones. ____, fomenta la creatividad. ____, es importante apoyar a los artistas.\"",
           o: [
-            "porque - Pero - Sin embargo",
             "ya que - Además - Por eso",
+            "porque - Pero - Sin embargo",
             "aunque - Por lo tanto - A pesar de",
             "de hecho - Así que - En consecuencia",
           ],
-          c: 1,
+          c: 0,
           ex: "Mismo patrón. Como ves, cuando hay 3 oraciones que SUMAN sin oposición, casi siempre la respuesta es 'ya que - Además - Por eso' (causa + adición + conclusión).",
         },
       ]} />

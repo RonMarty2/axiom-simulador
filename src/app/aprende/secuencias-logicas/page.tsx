@@ -249,7 +249,7 @@ function EscNC() {
         { p: "2, 5, 10, 17, 26, …", o: ["35", "34", "37", "36", "Ninguna"], c: 2, ex: "Diferencias: 3, 5, 7, 9 (impares crecientes). Siguiente diferencia: 11. 26 + 11 = 37. (Equivale a n² + 1: 1+1, 4+1, 9+1, 16+1, 25+1, 36+1=37.)" },
         { p: "1, 2, 4, 7, 11, …", o: ["16", "17", "15", "14", "Ninguna"], c: 0, ex: "Aditivo creciente +1, +2, +3, +4, +5. 11 + 5 = 16." },
         { p: "7, 10, 8, 11, 9, 12, …", o: ["13", "10", "14", "11", "Ninguna"], c: 1, ex: "Alternancia +3, −2: 7(+3)10(−2)8(+3)11(−2)9(+3)12(−2)10. El siguiente término es 10." },
-        { p: "8, 16, 32, 64, …", o: ["96", "128", "112", "100", "Ninguna"], c: 1, ex: "×2. 64 × 2 = 128." },
+        { p: "8, 16, 32, 64, …", o: ["96", "112", "100", "128", "Ninguna"], c: 3, ex: "×2. 64 × 2 = 128." },
       ]} />
     </EscenaRica>
   );
@@ -286,11 +286,11 @@ function EscMix() {
       </Parrafo>
       <PracticaFinal ejercicios={[
         { p: "1A, 2B, 3C, 4D, …", o: ["5E", "6F", "5F", "5D", "Ninguna"], c: 0, ex: "Número +1, letra +1. 5E." },
-        { p: "A1, B2, C3, D4, …", o: ["E5", "E6", "F5", "D5", "Ninguna"], c: 0, ex: "Mismo patrón con orden invertido: E5." },
-        { p: "2B, 4D, 6F, 8H, …", o: ["10J", "10I", "12J", "10H", "Ninguna"], c: 0, ex: "Número +2, letra +2. 10J." },
-        { p: "3C, 6F, 9I, 12L, …", o: ["15O", "15N", "18O", "15M", "Ninguna"], c: 0, ex: "Número +3, letra +3. 15O." },
-        { p: "1A, 3C, 5E, 7G, …", o: ["9I", "9H", "11I", "9J", "Ninguna"], c: 0, ex: "Número +2, letra +2. 9I." },
-        { p: "4D, 8H, 12L, 16P, …", o: ["20T", "20S", "24T", "20R", "Ninguna"], c: 0, ex: "Número +4, letra +4. 20T." },
+        { p: "A1, B2, C3, D4, …", o: ["E6", "E5", "F5", "D5", "Ninguna"], c: 1, ex: "Mismo patrón con orden invertido: E5." },
+        { p: "2B, 4D, 6F, 8H, …", o: ["10I", "12J", "10J", "10H", "Ninguna"], c: 2, ex: "Número +2, letra +2. 10J." },
+        { p: "3C, 6F, 9I, 12L, …", o: ["15N", "18O", "15M", "15O", "Ninguna"], c: 3, ex: "Número +3, letra +3. 15O." },
+        { p: "1A, 3C, 5E, 7G, …", o: ["9H", "9I", "11I", "9J", "Ninguna"], c: 1, ex: "Número +2, letra +2. 9I." },
+        { p: "4D, 8H, 12L, 16P, …", o: ["20S", "24T", "20T", "20R", "Ninguna"], c: 2, ex: "Número +4, letra +4. 20T." },
       ]} />
     </EscenaRica>
   );

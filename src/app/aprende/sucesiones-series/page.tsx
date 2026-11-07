@@ -346,10 +346,10 @@ function Esc07_Errores() {
 function Esc08_Practica() {
   const ejs = useMemo(() => [
     { p: "PA con a₁=5, d=3. ¿a₁₀?", o: ["32", "30", "35", "27"], c: 0, ex: "a₁₀ = 5 + 9·3 = 32." },
-    { p: "Suma de 1+2+…+50:", o: ["1275", "2550", "1250", "1300"], c: 0, ex: "S = 51·50/2 = 1275." },
-    { p: "PG con a₁=3, r=2. ¿a₅?", o: ["48", "32", "24", "96"], c: 0, ex: "a₅ = 3·2⁴ = 48." },
-    { p: "Suma 1+3+9+27+81:", o: ["121", "243", "80", "100"], c: 0, ex: "PG: 1·(3⁵−1)/(3−1) = 242/2 = 121." },
-    { p: "¿2, 5, 8, 11 es PA o PG?", o: ["PA d=3", "PG r=3", "Ambas", "Ninguna"], c: 0, ex: "Suma siempre 3 → PA con d=3." },
+    { p: "Suma de 1+2+…+50:", o: ["2550", "1275", "1250", "1300"], c: 1, ex: "S = 51·50/2 = 1275." },
+    { p: "PG con a₁=3, r=2. ¿a₅?", o: ["32", "24", "48", "96"], c: 2, ex: "a₅ = 3·2⁴ = 48." },
+    { p: "Suma 1+3+9+27+81:", o: ["243", "80", "100", "121"], c: 3, ex: "PG: 1·(3⁵−1)/(3−1) = 242/2 = 121." },
+    { p: "¿2, 5, 8, 11 es PA o PG?", o: ["PG r=3", "PA d=3", "Ambas", "Ninguna"], c: 1, ex: "Suma siempre 3 → PA con d=3." },
   ], []);
   const [resp, setResp] = useState<Record<number, number>>({});
   const ok = Object.entries(resp).filter(([k, v]) => ejs[+k].c === v).length;

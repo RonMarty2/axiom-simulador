@@ -132,22 +132,22 @@ function Esc05() {
         (la moneda del país).<br /><br />
         <strong>3. Periodo contable</strong>: la información se presenta en períodos regulares
         (anualmente, trimestralmente, etc.).<br /><br />
-        <strong>4. Partida doble</strong>: cada transacción afecta al menos dos cuentas (un débito y un
-        crédito), manteniendo el equilibrio.<br /><br />
+        <strong>4. Empresa en marcha</strong>: se supone que el negocio seguirá funcionando en el futuro,
+        salvo prueba en contrario.<br /><br />
         <strong>5. Devengado</strong>: las operaciones se registran cuando se genera la obligación o el
         derecho, NO cuando ocurre el pago.
       </Resumen>
       <Ejemplo titulo="Principio del devengado">
-        Si firmo un contrato en diciembre por un servicio que cobraré en enero, lo registro en
+        Un servicio prestado en diciembre y cobrado en enero se registra en
         diciembre (cuando se devengó), no en enero (cuando me pagan).
       </Ejemplo>
 
       <Mnemotecnia>
-        <strong>"E-U-P-P-D"</strong> · los 5 principios PCGA:<br />
+        <strong>"E-U-P-E-D"</strong> · los 5 principios PCGA:<br />
         <strong>E</strong>ntidad económica · <strong>U</strong>nidad monetaria ·
-        <strong> P</strong>eriodo contable · <strong>P</strong>artida doble ·
+        <strong> P</strong>eriodo contable · <strong>E</strong>mpresa en marcha ·
         <strong> D</strong>evengado.<br /><br />
-        Frase: <em>"Empresa Usa Plata Por Definición"</em>.
+        Frase: <em>"Empresa Usa Períodos En Desarrollo"</em>.
       </Mnemotecnia>
 
       <Misconception titulo="Devengado vs efectivo NO son lo mismo">
