@@ -207,5 +207,137 @@
     },
     "completo": true,
     "notas": "Contrastadas 20/20 contra el render a 200 dpi (agy Flash Medium). Solo diferencias de redaccion, sin cambio de datos (P1, P2, P4, P7, P9, P13-P16, P20); aclaraciones del banco en P5, P10, P11 y P12, que ya tienen figura en el banco (figuras no recontrastadas contra el PDF en esta pasada). No se corrigio nada."
+  },
+  "ingenieria/2023-3op-1-2023": {
+    "id": "umss-ingenieria-2023-examen-de-ingreso-1-2023-3ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/3-op-1-2023.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 1-2023 (3ra OPCION) Jueves, 7 de Febrero del 2023'. Contrastadas 20/20 contra el facsimil. Las 100 opciones coinciden fielmente. Se verificaron las 6 figuras: G5 (g5-dos-triangulos-base-negra), G6 (g6-poste-quebrado-30-angulo-60), G7 (g7-cinco-cuadrados-escalera), G8 (g8-octogono-secantes), F9 (f9-pendulo-campo-37-perpendicular), F10 (f10-dos-cargas-p-entre-4-6); todas estan registradas en el catalogo y coinciden con el PDF. Sin errores de transcripcion."
+  },
+  "ingenieria/2022-3op-2-2022": {
+    "id": "umss-ingenieria-2022-examen-de-ingreso-2-2022-3ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/3-op-2-2022.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 2-2022 (3ra OPCION) Viernes, 5 de Agosto del 2022'. Contrastadas 20/20 contra el facsimil. Coinciden todas las preguntas y opciones. Figuras verificadas contra el PDF: G7 (g7-camaras-angulos-2a-a-2a), F9 (f9-moviles-vias-15-desfase-30), F10 (f10-parabolico-hmax), F11 (f11-carro-bloque-cara-delantera-liso), F12 (f12-bloque-carga-campo-horizontal); G8 es un esquema cartesiano en el IV cuadrante autosuficiente en texto. Sin errores de transcripcion."
+  },
+  "ingenieria/2022-1op-2-2022": {
+    "id": "umss-ingenieria-2022-examen-de-ingreso-2-2022-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/1-op-2-2022.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 2-2022 (1ª OPCION) Martes, 31 de Mayo del 2022'. Contrastadas 20/20 contra el facsimil. Coinciden todas las preguntas y opciones. Figuras verificadas contra el PDF: G5 (g5-equilatero-inscrito), G6 (g6-cuadrilatero-incirculos), F9 (f9-movil-tres-instantes), F10 (f10-bloques-en-contacto), F11 (f11-acantilado-dos-esferas), F12 (f12-bloque-fuerza-horizontal); todas existentes y coincidentes. En P11 ya constaba la clave corregida a 150 m (opcion A)."
+  },
+  "ingenieria/2023-2op-2-2023": {
+    "id": "umss-ingenieria-2023-examen-de-ingreso-2-2023-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/2023-2-2op.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 2-2023 (2da OPCION) Martes, 11 de Julio del 2023'. Contrastadas 20/20 contra el facsimil. Corregido: en Q13 las opciones impresas son A) -1,86 B) -0,5 C) -1 D) Ninguna E) -0,93; la transcripcion habia permutado D y E para forzar Ninguna al final; se restituyo el orden fiel y la clave pasa a E (-0,93). En Q14 las opciones impresas son A) 13,85 B) 128 C) Ninguna D) 64 E) 6,4; se restituyo el orden fiel y la respuesta pasa a E (6,4). Figuras contrastadas: P5 (g5-secantes), P9 (f10-plano-cuadrado), P10 (f12-proyectil-rampa), P11 (f11-campo-electrico); coinciden con el PDF."
+  },
+  "ingenieria/2023-2op-1-2023": {
+    "id": "umss-ingenieria-2023-examen-de-ingreso-1-2023-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/2-op-1-2023.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 1-2023 (2da OPCION) Jueves, 19 de Enero del 2023'. Contrastadas 20/20 contra el facsimil. Corregido: en P10 la opcion E impresa es raiz(13) (estaba transcrita como Ninguno). En P12 el circuito con fuentes de 12V y 5V y amperimetro en rama izquierda fue resuelto exactamente (tension nodo superior 6 V, corriente 3 A, opcion B); se corrigio respuesta provisional E a B y se actualizo la resolucion paso a paso. Figuras G5, G6, G7, F9 y F12 verificadas en el catalogo."
+  },
+  "ingenieria/2020-3op-1-2020": {
+    "id": "umss-ingenieria-2020-examen-de-ingreso-1-2020-3ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/163_3ra-op-1-2020.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'UNIVERSIDAD MAYOR DE SAN SIMÓN FACULTAD DE CIENCIAS Y TECNOLOGÍA EXAMEN INGRESO 1-2020 (3ª OPCIÓN) JUEVES 06 DE FEBRERO DE 2020'. Contrastadas 20/20 contra el facsimil. Coinciden todas las preguntas y opciones. Figuras verificadas contra el PDF: G5 (g5-tangente-secante-theta-arco-58), G8 (g8-cuadrado-semicirculo-diagonal-8), F9 (f9-plano-30-fuerza-paralela), F10 (f10-bloque-lanzado-6ms-a-5m-b); todas presentes en el catalogo e impecables con el facsimil. Sin errores de transcripcion pendientes."
+  },
+  "ingenieria/2023-1op-2-2023": {
+    "id": "umss-ingenieria-2023-examen-de-ingreso-2-2023-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/2023-2-1op.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Titulo p.1: 'EXAMEN-INGRESO 2-2023 (1ra OPCION) Martes, 13 de Junio del 2023'. Contrastadas 20/20 preguntas y opciones contra el facsimil. Todas las figuras estan declaradas y dibujadas en el motor: G5 (g5-satelite), G6 (g6-secantes), F10 (f10-plano-cuadrado), F11 (f11-campo-electrico), F12 (f12-proyectil-rampa). Duda abierta en P11 (F11): el PDF muestra lineas de campo E hacia abajo a la izquierda y carga q=-4 uC en equilibrio, lo que requiere fuerza electrica hacia arriba y a la derecha equilibrando mg (E=10^4 N/C, mg=2*q*E=0.080 N, opcion A), mientras la transcripcion original tenia marcada B (0.040 N). Al no contar con clave oficial publicada, se marca completo: false pendiente de confirmacion de clave oficial."
+  },
+  "ingenieria/2018-2op-2-2018": {
+    "id": "umss-ingenieria-2018-examen-de-ingreso-2-2018-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/155_2da-op-2-2018.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Titulo p.1: 'EXAMEN-INGRESO 2-2018 (2ª OPCIÓN) jueves, 26 de julio de 2018'. Contrastadas 20/20 preguntas y opciones contra el facsimil; los textos y opciones coinciden con el PDF. P2 tiene figura declarada (a2-cubica-raices-menos1-1-2). Pendiente de dibujo de figuras: P5 (pentagono regular y hexagono regular adyacentes con angulo x), P6 (rectangulo inscrito en semicircunferencia con lado 4 y diagonal r), P7 (rectas m // n cortadas por transversales con angulo 80° y bisectrices), que en el facsimil tienen figura grafica y en el banco solo estan descritas entre parentesis. Se marca completo: false pendiente de pasar a auditor-figuras para su implementacion."
+  },
+  "ingenieria/2016-1op-2-2016": {
+    "id": "umss-ingenieria-2016-examen-de-ingreso-2-2016-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/144_1ra-op-2-2016.pdf",
+      "paginas": "1-2"
+    },
+    "completo": true,
+    "notas": "Titulo p.1: 'EXAMEN-INGRESO 1-2016 (1ª OPCION) Miércoles, 10 de Agosto de 2016' (cabecera p.2 indica '2-2016'). Contrastadas 20/20 preguntas y opciones contra el facsimil; coinciden exactamente. Todas las figuras estan declaradas y disponibles en el motor: G5 (g5-bisectriz-17-8), G6 (g6-recta-biseca-cuadrado), F10 (f10-tres-bloques-cable2) y F11 (f11-dos-bloques-mesa-hueco). Sin correcciones pendientes ni dudas de lectura."
+  },
+  "ingenieria/2024-final-1-2024": {
+    "id": "umss-ingenieria-2024-examen-final-curso-pre-u-gestion-1-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/2024-1-preu.pdf",
+      "paginas": "13-18"
+    },
+    "completo": false,
+    "notas": "Titulo p.13: 'FINAL 1-2024 (PRE-U) Sábado 3 de agosto del 2024 / Domingo 4 de agosto del 2024'. Contrastadas 40/40 preguntas y opciones contra el facsimil. Textos y claves coinciden. Figuras existentes en motor: P6 (g6-thales-de-paralelo-cb), P7 (f7-secantes-arcos-bde), P20 (f20-dos-fuentes-nodo-comun). P16 tiene ilustracion de odometro en el PDF con errata tipografica impresa original ('6 km/h, 7.2 m/s' en vez de 26 km/h, dando respuesta E). Pendiente de dibujo de figuras: P17 (F2: plano inclinado liso de altura 2 m que empalma con plano horizontal rugoso de longitud d) y P19 (F4: bloques de 4 kg y 8 kg unidos por cuerda en plano inclinado de 37°). Se marca completo: false pendiente de implementacion de figuras P17 y P19."
+  },
+  "ingenieria/2016-3op-1-2016": {
+    "id": "umss-ingenieria-2016-examen-de-ingreso-1-2016-3ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/143_2ra-op-1-2016.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Titulo p.1: 'EXAMEN-INGRESO 1-2016 (3ª OPCION) Jueves, 31 de Marzo de 2016' (archivo con errata de tipeo en nombre '143_2ra-op-1-2016.pdf'). Contrastadas 20/20 preguntas y opciones contra el facsimil; los textos y opciones coinciden. Figuras existentes en motor: P5 (g5-hexagono-tres-sectores), P6 (g6-cuadrado-triangulo-sombra-30), P8 (g8-cuadrado-punto-medio-cevianas). Pendiente de dibujo de figuras: P10 (F10: bloque en plano horizontal rugoso halado por fuerza a 45°), P11 (F11: dos esferas suspendidas verticalmente a distancia d), P12 (F12: dos esferas metalicas separadas 2 m). Se marca completo: false pendiente de pasar a auditor-figuras."
+  },
+  "ingenieria/2022-2op-2-2022": {
+    "id": "umss-ingenieria-2022-examen-de-ingreso-2-2022-2da-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-06",
+    "fuente": {
+      "archivo": "FCYT/2-op-2-2022.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Titulo p.1: 'EXAMEN-INGRESO 2-2022 (2da OPCION) Martes, 28 de Junio del 2022'. Contrastadas 20/20 preguntas y opciones contra el facsimil; coinciden con el PDF. Figuras existentes en motor: P7 (g7-dos-cuadrados-arcos), P9 (f9-parabolico-hmax), P10 (f10-circuito-4r-10v-3r-5v), P11 (f11-atwood-separacion-h). Pendiente de dibujo de figura: P12 (F12: nino deslizandose sobre superficie esferica a 37° con rozamiento). Se marca completo: false pendiente de implementacion de figura P12."
   }
 }
