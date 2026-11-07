@@ -724,5 +724,93 @@
     },
     "completo": false,
     "notas": "Opcion B (auditoria por riesgo). Titulo impreso en p.1: 'UNIVERSIDAD MAYOR DE SAN SIMON FACULTAD DE CIENCIAS Y TECNOLOGIA EXAMEN-INGRESO 1-2025 3op Jueves, 20 de febrero del 2025'. Examen incompleto en el banco: solo contiene 12 de las 20 preguntas del PDF (faltan A1-A3, G5-G8 y Q16). Mirada P5 del banco (F12 del PDF: bloque de 10 kg en rampa con tramo BC rugoso de 6 m y resorte k, clave B=1/3): el banco resume el enunciado y agrega entre parentesis la cota de 3 m que estaba en la figura. Pendiente de auditor-figuras: P5/F12 tiene figura en el PDF y en el banco esta solo en texto; ademas las preguntas G6 y G8 del PDF (ambas de geometria con figuras de areas sombreadas) faltan por completo en el banco y deben transcribirse con sus figuras."
+  },
+  "ingenieria/2013-parcial1-1-2013": {
+    "id": "umss-ingenieria-2013-primer-parcial-curso-pre-facultativo-gestion-1-2013",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/121_PrimerParcialCursoPre-Facultativo2-2013.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el archivo en disco se llama 121_PrimerParcialCursoPre-Facultativo2-2013.pdf pero su titulo impreso en p.1 es 'PRIMER PARCIAL PROPEDEUTICO I-2013 (8 y 9 de JUNIO DE 2013)' y '1º Parcial Pre-Facultativo 1-2013'). Miradas P16 (F1 en p.4: tiro horizontal opuesto v0A=50 y v0B=2, clave A=52 m) y P19 (F4 en p.4: plano inclinado altura 2 m y base 4 m, clave C=raiz(2) s): enunciados y opciones coinciden con el PDF; el banco incorporo las cotas de la figura en texto. Pendiente de auditor-figuras: en p.4 del PDF las 5 preguntas de Fisica F1 (P16: proyectiles opuestos), F2 (P17: esquiador), F3 (P18: beisbol), F4 (P19: plano 2x4) y F5 (P20: mesa con poleas y masa colgante) tienen dibujo en el facsimil y estan solo en texto en el banco."
+  },
+  "ingenieria/2024-parcial1-1-2024": {
+    "id": "umss-ingenieria-2024-primer-parcial-curso-pre-u-gestion-1-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2024-1-preu.pdf",
+      "paginas": "1-6"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2024-1-preu.pdf p.1-6, titulo impreso 'PRIMER PARCIAL 1-2024 (PRE-U)'). Miradas P6 (G1 en p.2, figura g6-cuadrado-tres-arcos: cuadrado lado 4 con tres arcos, clave D=5pi/2), P8 (G3 en p.2, figura g8-trapecio-base-media: base media CD y diagonal EB, clave A=5) y P9 (G4 en p.2, figura g9-circunferencia-angulos: arcos opuestos de 60°, clave C=-270°): enunciados, opciones, figuras y claves coinciden con el PDF. Pendiente de auditor-figuras: en p.2 del PDF G2 (P7: triangulo rectangulo con 3 equilateros adosados) y G5 (P10: secante y tangente a circunferencia), y en p.4 F3 (P18: disco con orificio), F4 (P19: tren y trabajador) y F5 (P20: catalina y rueda de bicicleta) tienen dibujo en el facsimil y estan solo en texto en el banco."
+  },
+  "ingenieria/2024-parcial2-1-2024": {
+    "id": "umss-ingenieria-2024-segundo-parcial-curso-pre-u-gestion-1-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2024-1-preu.pdf",
+      "paginas": "7-12"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2024-1-preu.pdf p.7-12, titulo impreso 'SEGUNDO PARCIAL 1-2024 (PRE-U)'). Mirada P20 (F5 en p.10: persona levantando bloque de 15 kg con polea y F=160 N, clave D=480 J): enunciado y opciones coinciden, pero el banco omitio 'como se muestra en la figura' y no tiene dibujo. Pendiente de auditor-figuras: en p.8 del PDF G1 (P6: cuadro y angulo de vision), G2 (P7: pentagono regular), G4 (P9: torre y auto) y G5 (P10: reloj a las 13:30), y en p.10 F2 (P17: maquina de Atwood), F3 (P18: plano inclinado rugoso) y F5 (P20: polea a 60°) traen dibujo en el PDF y estan solo en texto en el banco."
+  },
+  "ingenieria/2024-parcial1-2-2024": {
+    "id": "umss-ingenieria-2024-primer-parcial-curso-pre-u-gestion-2-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2024-2-preu.pdf",
+      "paginas": "1-6"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2024-2-preu.pdf p.1-6, titulo impreso 'PRIMER PARCIAL 2-2024 (PRE-U)'). Miradas P6 (G1 en p.2, figura g6-paralelas-transversal-2x-s: paralelas L1 y L2 con transversal, clave C=215°), P8 (G3 en p.2, figura g8-lunas-de-hipocrates: lunas de Hipocrates sobre triangulo 6-8-10, clave C=24 cm2) y P9 (G4 en p.2, figura g9-trapecio-cuartos: lados en 4 partes iguales, clave D=b): enunciados, opciones, figuras y claves coinciden con el PDF. Pendiente de auditor-figuras: en p.2 del PDF G2 (P7: triangulo con paralelas OT y RQ) y en p.4 F3 (P18: auto y moto) traen dibujo en el facsimil y el banco las tiene en texto sin figura."
+  },
+  "ingenieria/2024-parcial2-2-2024": {
+    "id": "umss-ingenieria-2024-segundo-parcial-curso-pre-u-gestion-2-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2024-2-preu.pdf",
+      "paginas": "7-12"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2024-2-preu.pdf p.7-12, titulo impreso 'SEGUNDO PARCIAL 2-2024 (PRE-U)'). Mirada P16 (F1 en p.10: electron entre placas de 2 cm y 4 cm, clave B=7.0 mm): enunciado y opciones coinciden; el banco omitio 'como se muestra en la figura' e incorporo las cotas al texto. Pendiente de auditor-figuras: en p.8 del PDF G5 (P10: topografo, bandera y edificio) y en p.10 F1 (P16: placas paralelas), F3 (P18: plano inclinado y bloque con cuerda), F4 (P19: plano con cargas qA y qB colgadas) y F5 (P20: plano inclinado con dos masas mA y mB y polea) traen dibujo en el PDF y estan solo en texto en el banco."
+  },
+  "ingenieria/2024-final-2-2024": {
+    "id": "umss-ingenieria-2024-examen-final-curso-pre-u-gestion-2-2024",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2024-2-preu.pdf",
+      "paginas": "13-18"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2024-2-preu.pdf p.13-18, titulo impreso 'FINAL 2-2024 (PRE-U)'). Mirada P18 (F3 en p.16: polea movil con m1=8 kg y fija con m2=2 kg, clave B=2.45 m/s2; 4.90 m/s2): enunciado y opciones coinciden; el banco omitio 'como se muestra en la figura' y agrego descripcion editorial en texto. Pendiente de auditor-figuras: en p.16 del PDF F1 (P16: dos autos al encuentro) y F3 (P18: polea movil y fija) tienen dibujo y el banco las describe en texto; ademas F5 (P20: circuito con fuentes de 12 V y 5 V) tiene esquema grafico de circuito y esta en texto sin figura."
+  },
+  "ingenieria/2025-parcial2-1-2025": {
+    "id": "umss-ingenieria-2025-segundo-parcial-curso-pre-u-gestion-1-2025",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2025-1-preu.pdf",
+      "paginas": "5-8"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2025-1-preu.pdf p.5-8, titulo impreso '2do-Parcial-PREU-1-10225'). Mirada P18 (F3 en p.8, figura f18-placas-particula-estacionaria: particula en equilibrio entre placas horizontales de 2 cm, clave E=Ninguno): enunciado, opciones, figura y clave coinciden con el PDF. Pendiente de auditor-figuras: en p.8 del PDF F4 (P19: plano inclinado 30° con fuerza horizontal) y F5 (P20: bloque en plano 37° con F horizontal) traen esquema grafico en el PDF y el banco las describe solo en texto."
+  },
+  "ingenieria/2025-final-1-2025": {
+    "id": "umss-ingenieria-2025-examen-final-curso-pre-u-gestion-1-2025",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/2025-1-preu.pdf",
+      "paginas": "9-12"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; compilado 2025-1-preu.pdf p.9-12, titulo impreso 'Final-PREU-1-10225'). Miradas P18 (F3 en p.12: dos cargas positivas en (0, 0.3) y (0, -0.3) actuando sobre Q en (0.4, 0), clave C=0.46 N, en el PDF es texto sin figura), P19 (F4 en p.12, figura f19-atwood-separacion-h: Atwood con m1=4 kg y m2=1 kg separadas h=24 m, clave A=12 m/s) y P20 (F5 en p.12, figura f20-cinco-amperimetros: circuito con 5 amperimetros y A1=10 A, clave A=20 ohm): enunciados, opciones, figuras y claves coinciden con el PDF. Pendiente de auditor-figuras: en p.10 del PDF G1 (P6: triangulo rectangulo con 3 equilateros adosados) y G3 (P8: globo aerostatico a 60° y 75°) traen esquema grafico con indicacion expresa 'Ver figura' y estan solo en texto en el banco."
   }
 }
