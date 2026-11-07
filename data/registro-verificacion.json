@@ -339,5 +339,71 @@
     },
     "completo": false,
     "notas": "Titulo p.1: 'EXAMEN-INGRESO 2-2022 (2da OPCION) Martes, 28 de Junio del 2022'. Contrastadas 20/20 preguntas y opciones contra el facsimil; coinciden con el PDF. Figuras existentes en motor: P7 (g7-dos-cuadrados-arcos), P9 (f9-parabolico-hmax), P10 (f10-circuito-4r-10v-3r-5v), P11 (f11-atwood-separacion-h). Pendiente de dibujo de figura: P12 (F12: nino deslizandose sobre superficie esferica a 37° con rozamiento). Se marca completo: false pendiente de implementacion de figura P12."
+  },
+  "ingenieria/2008-parcial1-1-2008": {
+    "id": "umss-ingenieria-2008-primer-parcial-curso-propedeutico-gestion-1-2008",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/076_PrimerParcialCursoPropedeutico1-2008.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 075_PrimerParcialCursoPropedeutico1-2008.pdf pero en disco es 076_PrimerParcialCursoPropedeutico1-2008.pdf). Mirada P7 (G2 en p.2, figura g7-paralelas-angulos-30-125): enunciado, opciones (100°, 95°, 90°, 96°, ninguno), figura y clave E (30°) coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.2 del PDF tambien traen figura P6 (G1: segmento colineal A-B-C-D-E), P8 (G3: figura 2, triangulo ABC con ceviana BP; el PDF incluye ademas el dato 'y en B vale 40°' omitido en la reescritura editorial) y P9 (G4: figura 3, pentagono concavo A-B-C-O-D con angulo 90° en O), reescritas en texto sin figura en el banco."
+  },
+  "ingenieria/2008-parcial2-2-2008": {
+    "id": "umss-ingenieria-2008-segundo-parcial-primer-curso-pre-facultativo-gestion-2-2008",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/081_SegundoParcialPrimerCursoPre-Facultativo2-2008.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P6 (G1 en p.2, figura f6-secantes-potencia-punto) y P7 (G2 en p.2, figura g7-dos-cuerdas-potencia): datos, opciones y respuestas (P6: A=10; P7: D=12) coinciden con el PDF; sin cambios en el .md. Observacion para auditor-figuras sobre f6-secantes-potencia-punto (P6): el constructor dibuja el punto externo A a la izquierda (en el PDF esta a la derecha, simetria que no altera el calculo) y ubica el rotulo '25' en el tramo BC en lugar de la secante completa AC=25 m (el dibujo del PDF solo rotula los puntos A, B, C, E, O, F)."
+  },
+  "ingenieria/2009-parcial3-2-2009": {
+    "id": "umss-ingenieria-2009-tercer-parcial-primer-curso-pre-facultativo-gestion-2-2009",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/094_TercerParcialPrimerCursoPre-Facultativo2-2009.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Mirada P19 (Fisica 4 en p.4, figura f19-tres-resistores-puente): enunciado del PDF ('La resistencia equivalente, del circuito mostrado en ohm, es:') y opciones (7, 10, 3, 5, Ninguno) coinciden con los datos del banco; sin cambios en el .md. Pendiente de auditor-figuras: por regla operativa agy no juzga figuras de circuitos (P19, f19-tres-resistores-puente); ademas, en p.4 del PDF la pregunta P16 (Fisica 1: tres cargas puntuales sobre el eje x de -4.00 nC, 5.00 nC y 3.00 nC con cotas de 0.500 m y 0.800 m) trae figura que no esta dibujada en el banco."
+  },
+  "ingenieria/2009-unica-2-2009": {
+    "id": "umss-ingenieria-2009-examen-de-ingreso-2-2009-unica-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/090_ExamenAdmisionUnicaOpcion2-2009.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 097_ExamenAdmisionUnicaOpcion2-2009.pdf pero en disco es 090_ExamenAdmisionUnicaOpcion2-2009.pdf). Mirada P11 (Fisica 11 en p.2, figura f11-grafica-vt-4-a-0-en-2s): enunciado, opciones (-7, -16, -15, -12, Ninguno), grafica v-t (recta desde (0, 4) hasta (2.5, -1) que cruza v=0 en t=2 s) y respuesta B (-16 J) coinciden con el PDF; sin cambios en el .md."
+  },
+  "ingenieria/2010-2curso-final-2-2010": {
+    "id": "umss-ingenieria-2010-examen-final-segundo-curso-pre-facultativo-gestion-2-2010",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/109_ExamenFinalSegundoCursoPre-Facultativo2-2010.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 107_ExamenFinalSegundoCursoPre-Facultativo2-2010.pdf pero en disco es 109_ExamenFinalSegundoCursoPre-Facultativo2-2010.pdf). Mirada P24 (Fisica F6 en p.2, figura f24-tres-resistencias-paralelo): opciones (0.5 ohm, 5 ohm, 2 ohm, 1 ohm, Ninguno) coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: por regla operativa agy no juzga figuras de circuitos (P24, f24-tres-resistencias-paralelo; en el PDF p.2 el esquema muestra tres ramas verticales de 2 ohm, 2 ohm y 1 ohm sin fuente de tension impresa). Ademas, en p.2 del PDF traen figura P19 (F1: auto a 20 m/s hacia pared), P20 (F2: esfera sobre mesa de 4.9 m), P21 (F3: polea con bloques A y B a 3 m del suelo) y P23 (F5: esferita positiva de 200 g y 40 uC colgada del techo con carga negativa de 90 uC situada 1 m debajo atrayendola hacia abajo; el texto del banco describe una carga del mismo signo arriba repeliendola, con igual resultado 34.4 N), todas sin figura en el banco."
+  },
+  "ingenieria/2010-parcial1-1-2010": {
+    "id": "umss-ingenieria-2010-primer-parcial-curso-pre-facultativo-gestion-1-2010",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/100_PrimerParcialCursoPre-Facultativo1-2010.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; el pedido citaba 101_PrimerParcialCursoPre-Facultativo1-2010.pdf pero en disco es 100_PrimerParcialCursoPre-Facultativo1-2010.pdf). Mirada P17 (Fisica F2 en p.2, figura f17-grafica-xt-15-cruza-3s): enunciado, opciones (x=12-3t, x=15+3t, x=15-3t, x=15-5t, Ninguno), grafica x-t (recta de (0, 15) a (4, -5) que corta el eje t en 3 s) y respuesta D (x=15-5t) coinciden con el PDF; sin cambios en el .md."
   }
 }
