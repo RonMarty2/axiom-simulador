@@ -136,7 +136,7 @@ function Esc02_Numeros() {
       <Definicion termino="Tipos de números">
         <strong style={{ color: "#3b82f6" }}>Naturales (ℕ):</strong> 1, 2, 3, 4… (para contar).<br />
         <strong style={{ color: "#10b981" }}>Enteros (ℤ):</strong> los naturales + sus opuestos + el 0: …−3, −2, −1, 0, 1, 2, 3…<br />
-        <strong style={{ color: "#f59e0b" }}>Racionales (ℚ):</strong> los que se pueden escribir como fracción a/b. Incluye 1/2, 0.75, −3, etc.<br />
+        <strong style={{ color: "#f59e0b" }}>Racionales (ℚ):</strong> los que se pueden escribir como fracción a/b. Incluye 1/2, 0,75, −3, etc.<br />
         <strong style={{ color: "#8b5cf6" }}>Reales (ℝ):</strong> todo lo de arriba + irracionales (√2, π, e…).
       </Definicion>
 
@@ -609,7 +609,7 @@ function Esc10_DivConcepto() {
       </PorQue>
 
       <Cuidado>
-        La división <strong>NO es conmutativa</strong>: <strong>12 ÷ 3 = 4</strong>, pero <strong>3 ÷ 12 = 0.25</strong>.<br />
+        La división <strong>NO es conmutativa</strong>: <strong>12 ÷ 3 = 4</strong>, pero <strong>3 ÷ 12 = 0,25</strong>.<br />
         Tampoco es asociativa. El orden importa muchísimo.
       </Cuidado>
     </EscenaRica>
@@ -738,8 +738,9 @@ function Esc13_JerIntro() {
 
       <PorQue>
         ¿Por qué la multiplicación va antes que la suma? Porque <strong>multiplicar es una
-        suma agrupada</strong>: <em>3 × 4 = 4+4+4</em> ya es una "unidad". Si fuera lo contrario,
-        no habría forma de escribir "el doble de algo más uno" sin paréntesis.
+        suma agrupada</strong>: <em>3 × 4 = 4+4+4</em> ya es una "unidad". Además, por
+        <strong> economía de escritura en álgebra</strong>, este convenio permite escribir
+        expresiones como <em>2x + 5</em> o <em>3x² + 2x + 1</em> sin un solo paréntesis.
       </PorQue>
     </EscenaRica>
   );

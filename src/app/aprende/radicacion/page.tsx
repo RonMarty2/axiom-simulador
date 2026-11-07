@@ -809,16 +809,16 @@ function Esc13_Practica() {
       explicacion: "Son todos semejantes. (2+5−1)√3 = 6√3.",
     },
     {
-      pregunta: "Racionalizá: 6/√2",
-      opciones: ["6√2", "3√2", "√3", "12/2"],
+      pregunta: "Racionaliza: 6/√2",
+      opciones: ["6√2", "3√2", "√3", "2√6"],
       correctaIdx: 1,
       explicacion: "6/√2 · √2/√2 = 6√2/2 = 3√2.",
     },
     {
       pregunta: "Reescribe 27^(2/3) sin exponente fraccionario",
-      opciones: ["³√27 · 2 = 6", "(³√27)² = 9", "27 · 27 / 3 = 243", "no se puede"],
+      opciones: ["(√27)³", "(³√27)²", "2 · ³√27", "3 · √27"],
       correctaIdx: 1,
-      explicacion: "27^(2/3) = (³√27)² = 3² = 9.",
+      explicacion: "El denominador (3) pasa a ser el índice de la raíz y el numerador (2) queda como exponente: 27^(2/3) = (³√27)².",
     },
   ], []);
 

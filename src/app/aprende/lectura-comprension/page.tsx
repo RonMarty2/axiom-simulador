@@ -47,7 +47,7 @@ function EscEstrategia() {
 
       <Definicion termino="comprensión lectora">
         No es solo captar el significado literal, sino también las <strong>relaciones entre las ideas</strong>{" "}
-        que permiten una interpretación coherente y precisa (RAE).
+        que permiten una interpretación coherente y precisa.
       </Definicion>
 
       <Resumen>

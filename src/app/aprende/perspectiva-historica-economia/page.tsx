@@ -33,10 +33,11 @@ function Esc01() {
       <Titulo>Aristóteles y el origen del término</Titulo>
       <Parrafo>
         La palabra <strong>"economía"</strong> viene del griego <em>oikonomia</em>: de <em>oikos</em> (casa)
-        y <em>nomos</em> (ley). Significa, literalmente, "el que administra una casa".
+        y <em>nomos</em> (ley). Significa, literalmente, "administración de una casa" (o "administrar una casa").
       </Parrafo>
       <Definicion termino="economía según Aristóteles">
-        "La ciencia del abastecimiento, que trata del arte de la adquisición". Una rama del conocimiento
+        La ciencia de la administración doméstica para abastecer las necesidades de la casa (que él
+        distinguía de la <em>crematística</em> o "arte de la adquisición"). Una rama del conocimiento
         que abarcaba sólo el campo de las comunidades familiares: producción y distribución en su forma
         más simple.
       </Definicion>
@@ -124,7 +125,7 @@ function Esc04() {
         <strong>5.</strong> La economía estudia las <strong>leyes sociales</strong> que regulan producción y distribución.
       </Resumen>
       <PorQue>
-        Marx ("Introducción a la Crítica de la Economía Política"): "La estructura de la distribución se
+        Marx ("Contribución a la crítica de la economía política", 1859): "La estructura de la distribución se
         determina por la estructura de la producción".
       </PorQue>
     </EscenaRica>

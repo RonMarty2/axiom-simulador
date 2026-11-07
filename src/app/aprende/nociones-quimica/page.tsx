@@ -369,11 +369,11 @@ function EscTemp() {
         ¿Cuál es la diferencia entre 30°C y 134°F?<br /><br />
 
         Convertimos 134°F a °C: (5/9)(134 − 32) = (5/9)(102) = 56.67°C.<br />
-        Diferencia: 56.67 − 30 = 26.67°C.<br /><br />
+        Diferencia: 56.67 − 30 = <strong>26.67°C</strong>.<br /><br />
 
-        Si la opción "Ninguno" estaba presente, probablemente esa era la
-        respuesta porque no encajaba con las 4 opciones dadas. (Las
-        diferencias no se convierten igual que las temperaturas absolutas).
+        También puedes pasar 30°C a °F: (9/5)(30) + 32 = 86°F, y restar
+        134 − 86 = <strong>48°F</strong> (que equivale a 48 × 5/9 = 26.67°C).
+        Para restar temperaturas, primero lleva ambas a la misma escala.
       </WorkedExample>
 
       <Cuidado>
@@ -409,8 +409,9 @@ function EscDensidad() {
 
       <Definicion termino="Gravedad específica (densidad relativa)">
         Razón entre la densidad de una sustancia y la del agua:<br />
-        γ = ρ_sustancia / ρ_agua.<br /><br />
+        d_r = ρ_sustancia / ρ_agua.<br /><br />
         Es ADIMENSIONAL (sin unidades). Cuanto mayor, más densa que el agua.
+        (No la confundas con γ, que en Física representa el peso específico).
       </Definicion>
 
       <WorkedExample titulo="Caso del facsímil Q5 PREU 2025">

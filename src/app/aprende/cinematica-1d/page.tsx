@@ -277,19 +277,19 @@ function EscMRU() {
       <GraficoMRU />
 
       <WorkedExample titulo="Problema de persecución (estilo facsímil)">
-        Un auto A va a 30 m/s. Dos segundos después, desde el mismo punto, sale
-        un auto B con aceleración 5 m/s². ¿A qué distancia se encuentran?<br /><br />
+        Un auto A va a velocidad constante de 20 m/s. Dos segundos después,
+        desde el mismo punto, sale un auto B a velocidad constante de 30 m/s.
+        ¿A qué distancia se encuentran?<br /><br />
 
-        <strong>Posición de A:</strong> <MathText>{"$x_A = 30t$"}</MathText> (MRU).<br />
-        <strong>Posición de B:</strong> <MathText>{"$x_B = \\tfrac12(5)(t-2)^2$"}</MathText> (MRUA desde t=2).<br /><br />
+        <strong>Posición de A:</strong> <MathText>{"$x_A = 20t$"}</MathText> (MRU).<br />
+        <strong>Posición de B:</strong> <MathText>{"$x_B = 30(t-2)$"}</MathText> (MRU desde t=2 s).<br /><br />
 
-        <strong>Igualar:</strong> <MathText>{"$30t = 2.5(t-2)^2$"}</MathText>
+        <strong>Igualar:</strong> <MathText>{"$20t = 30(t-2)$"}</MathText>
         <div style={{ textAlign: "center", padding: "6px 0" }}>
-          <MathText>{"$t^2 - 16t + 4 = 0$"}</MathText>
+          <MathText>{"$20t = 30t - 60 \\ \\Rightarrow\\ 10t = 60 \\ \\Rightarrow\\ t = 6\\text{ s}$"}</MathText>
         </div>
-        <MathText>{"$t = \\dfrac{16+\\sqrt{240}}{2} \\approx 15.75\\text{ s}$"}</MathText><br /><br />
 
-        <strong>Posición:</strong> x_A = 30 · 15.75 ≈ <strong>472.5 m</strong>.
+        <strong>Posición:</strong> <MathText>{"$x_A = 20 \\cdot 6 = 120\\text{ m}$"}</MathText> (y <MathText>{"$x_B = 30 \\cdot (6-2) = 120\\text{ m}$"}</MathText>). Se encuentran a <strong>120 m</strong>.
       </WorkedExample>
     </EscenaRica>
   );
@@ -409,11 +409,11 @@ function EscEcuaciones() {
       <Titulo>Aplicando las 4 ecuaciones</Titulo>
 
       <WorkedExample titulo="Problema completo">
-        Una pelota parte del reposo y rueda con aceleración 5.33 m/s². ¿Qué
+        Una pelota parte del reposo y rueda con aceleración <MathText>{"$a = \\dfrac{16}{3}\\text{ m/s}^2 \\approx 5.33\\text{ m/s}^2$"}</MathText>. ¿Qué
         distancia cubre en los primeros 5 s?<br /><br />
 
-        Datos: v₀ = 0, a = 5.33 m/s², t = 5 s. Buscamos x.<br />
-        Usando ec. 2: <MathText>{"$x = 0 \\cdot 5 + \\tfrac12(5.33)(25) = 66.67\\text{ m}$"}</MathText><br /><br />
+        Datos: v₀ = 0, a = 16/3 m/s², t = 5 s. Buscamos x.<br />
+        Usando ec. 2: <MathText>{"$x = 0 \\cdot 5 + \\tfrac12\\left(\\dfrac{16}{3}\\right)(25) = \\dfrac{200}{3} \\approx 66.67\\text{ m}$"}</MathText> (si usas 5.33 redondeado da 66.63 m).<br /><br />
 
         Esto replica el problema F11 del facsímil 2op-2-2025.
       </WorkedExample>
@@ -544,9 +544,9 @@ function EscProblemasTipo() {
         los primeros 5 s?<br /><br />
 
         Entre 5 y 10 s recorre: <MathText>{"$\\Delta x = \\tfrac12 a(10^2-5^2) = 37.5a$"}</MathText><br />
-        Igualando a 200: <MathText>{"$a = \\dfrac{200}{37.5} = 5.33\\text{ m/s}^2$"}</MathText><br /><br />
+        Igualando a 200: <MathText>{"$a = \\dfrac{200}{37.5} = \\dfrac{16}{3} \\approx 5.33\\text{ m/s}^2$"}</MathText><br /><br />
 
-        Primeros 5 s: <MathText>{"$x = \\tfrac12(5.33)(25) = 66.67\\text{ m}$"}</MathText>
+        Primeros 5 s: <MathText>{"$x = \\tfrac12\\left(\\dfrac{16}{3}\\right)(25) = \\dfrac{200}{3} \\approx 66.67\\text{ m}$"}</MathText> (con 5.33 redondeado da 66.63 m).
       </WorkedExample>
 
       <WorkedExample titulo="Persecución · F9 3op-2025">

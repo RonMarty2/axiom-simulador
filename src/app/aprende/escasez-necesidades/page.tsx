@@ -249,7 +249,7 @@ function Esc04_Aladino() {
       </Ejemplo>
       <Parrafo>
         Pero la realidad es muy distinta. Bienes libres quedan muy pocos, y{" "}
-        <strong>el ejemplo más claro es el aire</strong>: está ahí para todos, sin que nadie
+        <strong>el ejemplo clásico es el aire</strong>: está ahí para todos, sin que nadie
         tenga que trabajar para producirlo. Incluso el agua, en las sociedades modernas, se
         transformó en un bien económico: su obtención y distribución requieren trabajo.
       </Parrafo>
@@ -459,10 +459,10 @@ function Esc10_Practica() {
           ex: "Esa es la ley de la escasez: la base de toda la economía.",
         },
         {
-          p: "Según Meyers, el único bien claramente libre es:",
+          p: "Según Meyers, el ejemplo clásico de bien libre es:",
           o: ["El agua", "Los alimentos", "El aire", "El sol"],
           c: 2,
-          ex: "El aire. Incluso el agua, hoy, requiere tratamiento → bien económico.",
+          ex: "El aire es el ejemplo clásico. Incluso el agua, hoy, requiere tratamiento → bien económico.",
         },
         {
           p: "Una persona millonaria, ¿enfrenta escasez?",
@@ -488,7 +488,7 @@ function Esc10_Practica() {
           p: "Un bien que tiene PRECIO es típicamente:",
           o: ["Un bien libre", "Un bien económico", "Un bien intermedio", "Un bien moral"],
           c: 1,
-          ex: "El precio nace de la escasez: si algo tiene precio, es escaso y requirió trabajo. Bien económico.",
+          ex: "El precio nace de la escasez: un bien económico es escaso y por eso tiene precio.",
         },
         {
           p: "La frase 'civilizar es despertar nuevas necesidades' es de:",
