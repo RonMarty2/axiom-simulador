@@ -32,10 +32,10 @@ export function useAjustesFiguras(): AjustesFiguras {
 }
 
 const T = "#1a1a2e";      // trazo principal (navy)
-const ACC = "#6d28d9";    // acento violeta
-const OK = "#059669";     // verde
-const BAD = "#dc2626";    // rojo
-const WARN = "#d97706";   // ámbar
+const ACC = "var(--dib-violet-700)";    // acento violeta
+const OK = "var(--dib-emerald-600)";     // verde
+const BAD = "var(--dib-red-600)";    // rojo
+const WARN = "var(--dib-amber-600)";   // ámbar
 
 // Colores por rol para las figuras del motor de geometría.
 const COLOR_ROL: Record<Rol, string> = {

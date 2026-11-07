@@ -23,8 +23,8 @@ interface Resp {
 
 function colorPorNota(n: number): string {
   if (n >= 70) return "var(--green)";
-  if (n >= 50) return "#f59e0b";
-  return "#ef4444";
+  if (n >= 50) return "var(--dib-amber-500)";
+  return "var(--dib-red-500)";
 }
 
 export default function DebilidadesPage() {
@@ -142,7 +142,7 @@ export default function DebilidadesPage() {
                 <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><Icono nombre="check" tamano={15} /> Lo que ya dominas</span></h2>
                 <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                   {fuertes.map((s) => (
-                    <span key={s.seccion} style={{ padding: "8px 14px", background: "rgba(16,185,129,0.1)", color: "#059669", borderRadius: 999, fontSize: 13, fontWeight: 700 }}>
+                    <span key={s.seccion} style={{ padding: "8px 14px", background: "rgba(16,185,129,0.1)", color: "var(--dib-emerald-600)", borderRadius: 999, fontSize: 13, fontWeight: 700 }}>
                       ✓ {etiquetaArea(s.seccion)} {s.promedio}%
                     </span>
                   ))}

@@ -25,8 +25,8 @@ import { REFUERZO } from "@/lib/refuerzo-config";
 
 function colorPorNota(n: number): string {
   if (n >= 70) return "var(--green)";
-  if (n >= 50) return "#d97706";
-  return "#dc2626";
+  if (n >= 50) return "var(--dib-amber-600)";
+  return "var(--dib-red-600)";
 }
 
 function formatearFecha(iso: string): string {
@@ -131,7 +131,7 @@ export default function ProgresoPage() {
                 <Tarjeta
                   titulo="Desde el primero"
                   valor={`${stats.evolucion > 0 ? "+" : ""}${stats.evolucion}`}
-                  color={stats.evolucion > 0 ? "var(--green)" : stats.evolucion < 0 ? "#dc2626" : "var(--fg-muted)"}
+                  color={stats.evolucion > 0 ? "var(--green)" : stats.evolucion < 0 ? "var(--dib-red-600)" : "var(--fg-muted)"}
                 />
               )}
               {stats.diasPractica > 0 && (

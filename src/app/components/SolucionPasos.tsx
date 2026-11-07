@@ -163,7 +163,7 @@ export default function SolucionPasos({ explicacion, figura, colorFac }: Props) 
             border: "1px solid rgba(16,185,129,0.35)",
             fontSize: 14,
             fontWeight: 700,
-            color: "#059669",
+            color: "var(--dib-emerald-600)",
           }}
         >
           ✓ {conclusion}

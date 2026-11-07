@@ -187,7 +187,7 @@ export default function CuentaPage() {
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 8, flexWrap: "wrap", gap: 8 }}>
             <h3 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)" }}><span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Icono nombre="birrete" tamano={16} /> Tu facultad objetivo</span></h3>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "#b45309", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 4, padding: "4px 10px", background: "rgba(251,191,36,0.15)", color: "var(--dib-amber-700)", borderRadius: 999, fontSize: 11, fontWeight: 800 }}>
               <Icono nombre="candado" tamano={11} /> CAMBIO PAGADO
             </span>
           </div>
@@ -218,8 +218,8 @@ export default function CuentaPage() {
                     {activa
                       ? <div style={{ fontSize: 10, fontWeight: 700, color: f.color, textTransform: "uppercase" }}>✓ Tu carrera actual</div>
                       : cambioFacultadLibre
-                        ? <div style={{ fontSize: 10, fontWeight: 700, color: "#059669", textTransform: "uppercase" }}>Cambiar</div>
-                        : <div style={{ fontSize: 10, fontWeight: 700, color: "#b45309", textTransform: "uppercase" }}><Icono nombre="candado" tamano={11} /> Cambiar (pago)</div>}
+                        ? <div style={{ fontSize: 10, fontWeight: 700, color: "var(--dib-emerald-600)", textTransform: "uppercase" }}>Cambiar</div>
+                        : <div style={{ fontSize: 10, fontWeight: 700, color: "var(--dib-amber-700)", textTransform: "uppercase" }}><Icono nombre="candado" tamano={11} /> Cambiar (pago)</div>}
                   </div>
                 </button>
               );
@@ -270,7 +270,7 @@ export default function CuentaPage() {
                     <td style={{ padding: "10px 14px" }}>{etiquetaMetodo(p.metodo)}</td>
                     <td style={{ padding: "10px 14px", textAlign: "right", fontWeight: 700 }}>{formatearMonto(p.monto, p.moneda)}</td>
                     <td style={{ padding: "10px 14px", textAlign: "center" }}>
-                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "#059669" : p.estado === "pendiente" ? "#b45309" : "#dc2626", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
+                      <span style={{ display: "inline-block", padding: "3px 10px", background: p.estado === "aprobado" ? "var(--green)15" : p.estado === "pendiente" ? "#f59e0b15" : "#ef444415", color: p.estado === "aprobado" ? "var(--dib-emerald-600)" : p.estado === "pendiente" ? "var(--dib-amber-700)" : "var(--dib-red-600)", borderRadius: 999, fontSize: 11, fontWeight: 700, textTransform: "uppercase" }}>{p.estado}</span>
                     </td>
                   </tr>
                 ))}
@@ -297,7 +297,7 @@ export default function CuentaPage() {
             <button
               onClick={borrarCuenta}
               disabled={borrando || confirmarBorrado.trim() !== "BORRAR"}
-              style={{ padding: "10px 18px", background: "#dc2626", color: "white", border: "none", borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer", opacity: confirmarBorrado.trim() === "BORRAR" ? 1 : 0.4 }}
+              style={{ padding: "10px 18px", background: "var(--dib-red-600)", color: "white", border: "none", borderRadius: 10, fontSize: 14, fontWeight: 700, cursor: "pointer", opacity: confirmarBorrado.trim() === "BORRAR" ? 1 : 0.4 }}
             >
               {borrando ? "Borrando..." : "Borrar mi cuenta para siempre"}
             </button>

@@ -275,7 +275,7 @@ function PreguntaResuelta({
             <span style={{
               fontSize: 10, padding: "2px 8px", borderRadius: 999, fontWeight: 700, textTransform: "uppercase",
               background: pregunta.dificultad === "facil" ? "var(--green)15" : pregunta.dificultad === "medio" ? "#f59e0b15" : "#ef444415",
-              color: pregunta.dificultad === "facil" ? "#059669" : pregunta.dificultad === "medio" ? "#d97706" : "#dc2626",
+              color: pregunta.dificultad === "facil" ? "var(--dib-emerald-600)" : pregunta.dificultad === "medio" ? "var(--dib-amber-600)" : "var(--dib-red-600)",
             }}>
               {pregunta.dificultad === "facil" ? "Fácil" : pregunta.dificultad === "medio" ? "Medio" : "Difícil"}
             </span>

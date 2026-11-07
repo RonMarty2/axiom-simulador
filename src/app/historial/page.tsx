@@ -72,7 +72,7 @@ export default function HistorialPage() {
                     <td style={td()}>{new Date(h.fecha).toLocaleDateString("es-BO", { day: "numeric", month: "short" })}</td>
                     <td style={td()}><strong>{modoLabel(h.modo)}</strong>{h.anio_examen && <span style={{ color: "var(--fg-muted)" }}> · {h.anio_examen}</span>}</td>
                     <td style={td()}><span>{nombreFacultad(h.facultad)}</span></td>
-                    <td style={{ ...td(), fontWeight: 800, color: h.nota >= 70 ? "#059669" : h.nota >= 50 ? "#d97706" : "#dc2626" }}>{h.nota}</td>
+                    <td style={{ ...td(), fontWeight: 800, color: h.nota >= 70 ? "var(--dib-emerald-600)" : h.nota >= 50 ? "var(--dib-amber-600)" : "var(--dib-red-600)" }}>{h.nota}</td>
                     <td style={td()}>{h.correctas} / {h.correctas + h.incorrectas + h.sin_responder}</td>
                     <td style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
                     <td style={{ ...td(), textAlign: "right" }}>

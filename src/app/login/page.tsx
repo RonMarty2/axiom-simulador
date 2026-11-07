@@ -68,21 +68,21 @@ function LoginContent() {
         {/* Panel de desarrollo: SOLO aparece en local (npm run dev). En Vercel
             producción NODE_ENV es "production" y este bloque no se renderiza. */}
         {process.env.NODE_ENV !== "production" && (
-          <div style={{ marginTop: 24, padding: 16, background: "rgba(245,158,11,0.08)", border: "1px dashed #f59e0b", borderRadius: 12 }}>
-            <div style={{ fontSize: 11, fontWeight: 800, color: "#d97706", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>
+          <div style={{ marginTop: 24, padding: 16, background: "rgba(245,158,11,0.08)", border: "1px dashed var(--dib-amber-500)", borderRadius: 12 }}>
+            <div style={{ fontSize: 11, fontWeight: 800, color: "var(--dib-amber-600)", textTransform: "uppercase", letterSpacing: 1, marginBottom: 4 }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Icono nombre="herramienta" tamano={12} /> Solo desarrollo local</span>
             </div>
             <div style={{ fontSize: 12.5, color: "var(--fg-muted)", marginBottom: 12, lineHeight: 1.5 }}>
               Entra sin Google para previsualizar. No aparece en producción.
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-              <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("#3b82f6")}>
+              <a href="/api/auth/dev-login?rol=estudiante" style={devBtn("var(--dib-blue-500)")}>
                 <Icono nombre="cuenta" tamano={15} /> Entrar como Estudiante (plan gratis)
               </a>
               <a href="/api/auth/dev-login?rol=tester" style={devBtn("var(--green)")}>
                 <Icono nombre="birrete" tamano={15} /> Entrar como Ronald (tester + cambio libre)
               </a>
-              <a href="/api/auth/dev-login?rol=admin" style={devBtn("#a855f7")}>
+              <a href="/api/auth/dev-login?rol=admin" style={devBtn("var(--dib-purple-500)")}>
                 <Icono nombre="rayo" tamano={15} /> Entrar como Super Admin
               </a>
             </div>
