@@ -104,3 +104,7 @@ Este inventario reúne el trabajo que permanece inconcluso, a medias o interrump
 - 06-11 19:55 (taller): selector «Ronald ▾» a 360 px ARREGLADO sin subir (AppHeader.tsx clase axiom-user-nombre + regla en globals.css ≤400px: queda avatar y flecha). Visto en tablet a 360 px. Falta: OK de Ronald y mirar escritorio (la regla solo actúa ≤400px).
 - 06-11 20:00 (taller): #20, #21 y #22 YA estaban arreglados en el código (inventario desactualizado). #15 (interruptor «Mensajes de ánimo» en /cuenta) HECHO sin subir: visto en tablet 360 px, 800 px y escritorio. En la misma pantalla se corrigió el botón «Ver opciones de cambio →» que se salía de la tarjeta a 360 px. Falta OK de Ronald para subir. Otra ventana (cf89ae39) trabaja en inicio, simulacro y zonas táctiles: no tocar esos archivos.
 - 06-11 20:20 (taller): #24 HECHO: tope de peticiones por usuario en pagos (8/10 min), borrar cuenta (5/hora), cambiar facultad (10/hora) y crear simulacro (40/10 min). #25 sigue abierto: el contador vive en la memoria de cada instancia de Vercel.
+
+---
+## Actualización 7-nov-2026 (comprobado contra el código)
+Ya estaban hechos aunque la tabla los lista: #6 (Biología), #8 (errores de /aprende), #14 (ranking con apodo), #15 (interruptor de mensajes de ánimo), #18, #19, #20, #21, #22, #31. Quedan en pie los que dependen de Ronald (P1 QR, P2 clave) y los grandes: #2/#3/#4 (exámenes contra PDF, otra sesión), #7, #9, #11 a #13, #16, #17, #24 a #26.
