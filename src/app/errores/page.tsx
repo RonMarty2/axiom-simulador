@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Icono from "../components/Icono";
+import MathText from "../components/MathText";
+import { etiquetaArea } from "@/lib/axiom/areas";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -16,6 +18,14 @@ interface ErrorGuardado {
   facultad: string;
   veces_fallado: number;
   ultima_vez: string;
+}
+
+// recorta a 200 caracteres sin dejar una formula $...$ abierta a la mitad
+function recortar(t: string): string {
+  if (t.length <= 200) return t;
+  let c = t.slice(0, 200);
+  if ((c.match(/\$/g) ?? []).length % 2 === 1) c = c.slice(0, c.lastIndexOf("$"));
+  return c.trimEnd() + "…";
 }
 
 export default function ErroresPage() {
@@ -75,7 +85,7 @@ export default function ErroresPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 10, marginBottom: 28 }}>
               {Object.entries(porArea).map(([area, count]) => (
                 <div key={area} style={{ background: "var(--bg-card)", borderRadius: 12, padding: 14, border: "1px solid var(--border)" }}>
-                  <div style={{ fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>{area}</div>
+                  <div style={{ fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>{etiquetaArea(area)}</div>
                   <div style={{ fontSize: 24, fontWeight: 800, color: "var(--fg-primary)" }}>{count}</div>
                 </div>
               ))}
@@ -83,7 +93,7 @@ export default function ErroresPage() {
 
             {/* CTA: practicar mis errores */}
             <div style={{ background: "var(--error)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ display: "flex", color: "var(--accent)" }}><Icono nombre="errores" tamano={32} /></div>
+              <div style={{ display: "flex", color: "white" }}><Icono nombre="errores" tamano={32} /></div>
               <div style={{ flex: 1 }}>
                 <div style={{ fontSize: 16, fontWeight: 800 }}>{paraHoy > 0 ? `Tienes ${paraHoy} ${paraHoy === 1 ? "pregunta" : "preguntas"} para repasar hoy` : "Hoy no te toca repasar"}</div>
                 <div style={{ fontSize: 13, opacity: 0.9 }}>
@@ -102,7 +112,7 @@ export default function ErroresPage() {
                   <div style={{ display: "flex", gap: 8, marginBottom: 6, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)" }}>
                     <span>{e.area}</span> · <span>{e.tema}</span> · <span>Fallada {e.veces_fallado}x</span>
                   </div>
-                  <div style={{ fontSize: 14, color: "var(--fg-primary)" }}>{e.enunciado.slice(0, 200)}{e.enunciado.length > 200 ? "…" : ""}</div>
+                  <div style={{ fontSize: 14, color: "var(--fg-primary)" }}><MathText>{recortar(e.enunciado)}</MathText></div>
                 </div>
               ))}
             </div>

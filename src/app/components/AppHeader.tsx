@@ -202,7 +202,7 @@ export default function AppHeader() {
               >
                 <Icono nombre={usuario.facultad_objetivo ? iconoFacultad(usuario.facultad_objetivo) : "birrete"} tamano={15} />
                 <span className="axiom-fac-selector-text">{facInfo(usuario.facultad_objetivo)?.nombre_corto ?? "Facultad"}</span>
-                <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
+                <span className="axiom-chev" style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
               {selOpen && (
                 <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 240, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>
@@ -263,7 +263,7 @@ export default function AppHeader() {
                 <span className="axiom-user-nombre" style={{ fontSize: 13, fontWeight: 600, color: "var(--fg-primary)" }}>
                   {admin ? (usuario ? `${usuario.nombre.split(" ")[0]} · Docente` : "Admin") : usuario?.nombre.split(" ")[0]}
                 </span>
-                <span style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
+                <span className="axiom-chev" style={{ fontSize: 10, color: "var(--fg-muted)" }}>▼</span>
               </button>
               {open && (
                 <div style={{ position: "absolute", top: "100%", right: 0, marginTop: 6, minWidth: 200, maxWidth: "calc(100vw - 24px)", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 10, boxShadow: "var(--shadow-md)", padding: 6, zIndex: 100 }}>

@@ -54,7 +54,7 @@ export default function HistorialPage() {
           </div>
         ) : (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflowX: "auto" }}>
-            <table style={{ width: "100%", minWidth: 520, borderCollapse: "collapse", fontSize: 14 }}>
+            <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontSize: 14 }}>
               <thead>
                 <tr style={{ background: "var(--bg-subtle)" }}>
                   <th style={th()}>Fecha</th>
@@ -77,7 +77,7 @@ export default function HistorialPage() {
                     <td style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
                     <td style={{ ...td(), textAlign: "right" }}>
                       {h.simulador_id ? (
-                        <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ display: "inline-block", textAlign: "center", padding: "8px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
+                        <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ display: "inline-block", whiteSpace: "nowrap", textAlign: "center", padding: "8px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
                           Ver resolución →
                         </Link>
                       ) : (
@@ -99,7 +99,7 @@ function th(): React.CSSProperties {
   return { padding: "12px 10px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" };
 }
 function td(): React.CSSProperties {
-  return { padding: "12px 10px", color: "var(--fg-primary)" };
+  return { padding: "12px 10px", color: "var(--fg-primary)", whiteSpace: "nowrap" };
 }
 function modoLabel(modo: string): string {
   return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Simulacro inteligente", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;
