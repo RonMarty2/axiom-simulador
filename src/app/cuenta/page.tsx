@@ -1,4 +1,5 @@
 "use client";
+import { iniciales } from "@/lib/iniciales";
 
 import { useEffect, useState } from "react";
 import Icono, { iconoFacultad } from "../components/Icono";
@@ -112,7 +113,7 @@ export default function CuentaPage() {
             y "Mejorar plan" se partía en dos renglones. */}
         <div style={{ background: "var(--bg-card)", borderRadius: 14, padding: 24, border: "1px solid var(--border)", marginBottom: 20, display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap" }}>
           <div style={{ width: 80, height: 80, flexShrink: 0, borderRadius: "50%", background: usuario.avatar_color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 28 }}>
-            {usuario.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+            {iniciales(usuario.nombre)}
           </div>
           <div style={{ flex: 1, minWidth: 150 }}>
             <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg-primary)" }}>{usuario.nombre}</h2>

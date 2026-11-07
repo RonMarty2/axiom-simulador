@@ -1,4 +1,5 @@
 "use client";
+import { iniciales } from "@/lib/iniciales";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -83,7 +84,7 @@ export default function AdminUsuarios() {
                   <td style={{ padding: "10px 14px" }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
                       <div style={{ width: 34, height: 34, borderRadius: "50%", background: u.avatar_color, color: "white", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 700, fontSize: 12 }}>
-                        {u.nombre.split(" ").map((n) => n[0]).join("").slice(0, 2)}
+                        {iniciales(u.nombre)}
                       </div>
                       <div>
                         <div style={{ fontWeight: 700, color: "var(--fg-primary)" }}>{u.nombre}</div>

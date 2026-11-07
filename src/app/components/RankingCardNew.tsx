@@ -1,4 +1,5 @@
 "use client";
+import { iniciales } from "@/lib/iniciales";
 
 import { motion } from "framer-motion";
 import Icono from "./Icono";
@@ -44,13 +45,7 @@ export default function RankingCardNew({
   // Oro/plata/bronce: en un ranking el color ES el dato, no decoración.
 const COLOR_MEDALLA = ["#d99c1a", "#8d8d8d", "#b3702c"];
 
-  const getInitials = (name: string) =>
-    name
-      .split(" ")
-      .slice(0, 2)
-      .map((n) => n[0])
-      .join("")
-      .toUpperCase();
+  const getInitials = (name: string) => iniciales(name);
 
   return (
     <motion.div

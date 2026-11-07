@@ -22,7 +22,7 @@ function LoginContent() {
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-      <div style={{ width: "100%", maxWidth: 440, background: "var(--bg-card)", borderRadius: 20, padding: 40, boxShadow: "var(--shadow-lg)" }}>
+      <div style={{ width: "100%", maxWidth: 440, background: "var(--bg-card)", borderRadius: 20, padding: "32px clamp(16px, 5vw, 40px)", boxShadow: "var(--shadow-lg)" }}>
         <div style={{ textAlign: "center", marginBottom: 28 }}>
           <div style={{ display: "flex", justifyContent: "center", marginBottom: 12, color: "var(--accent)" }}><Icono nombre="rayo" tamano={44} grosor={1.6} /></div>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 8 }}>

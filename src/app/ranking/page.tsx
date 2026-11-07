@@ -1,4 +1,5 @@
 "use client";
+import { iniciales } from "@/lib/iniciales";
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -84,11 +85,7 @@ function PodioCard({
           boxShadow: "var(--shadow-sm)",
         }}
       >
-        {usuario.nombre
-          .split(" ")
-          .map((n) => n[0])
-          .join("")
-          .slice(0, 2)}
+        {iniciales(usuario.nombre)}
       </div>
 
       <div
@@ -307,11 +304,7 @@ export default function RankingPage() {
                   fontSize: 13,
                 }}
               >
-                {u.nombre
-                  .split(" ")
-                  .map((n) => n[0])
-                  .join("")
-                  .slice(0, 2)}
+                {iniciales(u.nombre)}
               </div>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>
