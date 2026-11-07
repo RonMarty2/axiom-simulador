@@ -20,3 +20,6 @@ No toques otros exámenes, lecciones ni código. Devuelve «Lecciones nuevas» y
 ## Reglas de ejecución (el lote 4 anterior salió vacío por no leerlas)
 - NO ejecutes tsc, lint ni tests ni ningún comando: la terminal está bloqueada y esos controles los corre el script después. Si escribes «NO SE» en vez de hacer el trabajo, el lote se pierde.
 - El trabajo es abrir cada PDF, leer las preguntas de riesgo, editar el .md del banco solo si el PDF lo demuestra, y AGREGAR las 6 entradas a `data/registro-verificacion.json` (formato de las entradas ya existentes de 2008 a 2010, fecha 2026-11-07, `completo:false`). La entrega es ese cambio en el JSON.
+
+## Variante solo lectura (Flash, cuota de Argon agotada)
+No edites archivos. En `RESPUESTA.md` entrega, por examen: preguntas miradas, si enunciado/opciones/figura/clave coinciden con el PDF (cita lo que dice el PDF cuando haya diferencia), nombre real del PDF, y la entrada JSON lista para pegar en `data/registro-verificacion.json` (mismo formato que las existentes, `completo:false`, fecha 2026-11-07). Yo (Claude) la pego.
