@@ -132,7 +132,7 @@ export default function HeroSectionNew({ stats }: HeroSectionNewProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <Link href="/simulador">
+          <Link href="/practicar">
             <motion.button
               whileHover={{
                 scale: 1.03,

@@ -39,7 +39,7 @@ export default function Header({ user }: HeaderProps) {
           <Link href="/examenes" className="transition-colors hover:text-[#171545]">
             Exámenes
           </Link>
-          <Link href="/simulador" className="transition-colors hover:text-[#171545]">
+          <Link href="/practicar" className="transition-colors hover:text-[#171545]">
             Simulador
           </Link>
           <Link href="/progreso" className="transition-colors hover:text-[#171545]">
@@ -65,7 +65,7 @@ export default function Header({ user }: HeaderProps) {
             Acceder
           </Link>
           <Link
-            href="/simulador"
+            href="/practicar"
             className="rounded-full bg-black px-5 py-2.5 text-sm font-bold text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] transition-all hover:scale-105 hover:bg-violet-700"
           >
             Empezar

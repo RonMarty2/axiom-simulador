@@ -57,7 +57,7 @@ export default function CTANew() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <Link href="/simulador">
+          <Link href="/practicar">
             <motion.button
               whileHover={{
                 scale: 1.08,
