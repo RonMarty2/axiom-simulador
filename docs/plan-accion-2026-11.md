@@ -72,3 +72,4 @@ Van en el **Día 1 · Sesión C** (después de P0 y P3), con agy escribiendo y C
 Lo demás pasó: `npm run test:pantallas` 24 de 24 y ningún desborde a 375 ni a 360. Capturas (temporales) en la carpeta `scratchpad\caps\` de la sesión 825b6f8b. Seguridad ya revisada: el resto de las rutas (pagos, admin, cuenta, login) salió sin problemas; `admin/banco` POST ya responde 501 en Vercel.
 - [ ] Lote 1 de opción B lanzado por el taller el 06-11 20:50 (6 exámenes: 2023-3op-1, 2022-3op-2, 2022-1op-2, 2023-2op-2, 2023-2op-1, 2020-3op-1). La ventana de pantallas NO lo repita.
 - [ ] Lote 2 (2023-1op-2, 2018-2op-2, 2016-1op-2, 2024-final-1, 2016-3op-1, 2022-2op-2) e inventario de las ~440 fotos lanzados por el taller 06-11 21:00.
+- [ ] Transcribir exámenes recientes de Económicas desde fotos (II-2024 a II-2026): ver docs/pendientes-2026-11.md, hallazgo del 06-11.
