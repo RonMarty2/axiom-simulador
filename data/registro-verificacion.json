@@ -460,5 +460,71 @@
     },
     "completo": false,
     "notas": "Opcion B (muestra por riesgo). Miradas P19 (F4 en p.4, figura f19-eje-vertical-resorte: clave C=500 N/m) y P20 (F5 en p.4, figura f20-tazon-dos-masas: clave A=R/4): enunciados, opciones, figuras y respuestas coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.4 F3 (P18: cañon sobre puente de 125 m disparando a tanque a distancia d) tiene esquema grafico en el PDF y el banco la describe en texto sin figura."
+  },
+  "ingenieria/2014-parcial1-2-2014": {
+    "id": "umss-ingenieria-2014-primer-parcial-curso-pre-facultativo-gestion-2-2014",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/134_1erparcial2-2014.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P7 (G2 en p.2, figura g7-sector-60-segmento: sector r=5 cm, angulo 60°, clave C=25pi/6 - 25raiz(3)/4) y P10 (G5 en p.2, figura g10-dardo-60-lados-4-3: dardo concavo simetrico de 60° y lados 4 y 3, clave A=4raiz(3)-2raiz(5)): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.3 del PDF F2 (P17: dos autos A y B en paralelo con esquema de posiciones a t=0 y t=t) tiene dibujo en el PDF y el banco la describe solo en texto sin figura."
+  },
+  "ingenieria/2014-parcial2-2-2014": {
+    "id": "umss-ingenieria-2014-segundo-parcial-curso-pre-facultativo-gestion-2-2014",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/135_2doparcial2-2014.pdf",
+      "paginas": "1-5"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P16 (F1 en p.4: bloques A y B conectados por cuerda y polea con F=20 N, clave C=30 m/s2) y P19 (F4 en p.4, figura f19-pendulos-choque-elastico: pendulos L=2 m con m1=2 kg a 90° y m2=4 kg vertical en reposo, clave B=8/9 m): enunciados, opciones y respuestas coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.4 del PDF F1 (P16: esquema de bloques A sobre B con polea) y F5 (P20: flecha hacia bloque de madera) tienen dibujo en el PDF y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2014-unica-2-2014": {
+    "id": "umss-ingenieria-2014-examen-de-ingreso-2-2014",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/133_unica2-2014.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo; la lista antigua citaba 130_ExamenAdmisionUnicaOpcion2-2014.pdf, pero el archivo real en disco es 133_unica2-2014.pdf, confirmado por el titulo impreso 'EXAMEN-INGRESO 2-2014 (UNICA OPCION) MIERCOLES, 13 de Agosto de 2014'). Mirada P12 (F12 en p.2, figura f12-energia-rampa-friccion: bloque soltado en rampa A a 6 m, tramo horizontal rugoso de 9 m con mu=1/3, rampa B hasta altura h, clave A=3 m): enunciado, opciones, figura y clave coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G7 (P7: triangulo equilatero de lado 13 con 2 cuadrados identicos inscritos apilados) y en p.2 F10 (P10: mesa con poleas fija/movil, contrapeso CP y libros de 60 N) tienen dibujo en el PDF y estan en texto entre parentesis sin figura en el banco."
+  },
+  "ingenieria/2015-1op-1-2015": {
+    "id": "umss-ingenieria-2015-examen-de-ingreso-1-2015",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/137_1ra-op-1-2015.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P5 (G5 en p.1, figura g5-rombo-en-triangulo-3-4: rombo en triangulo rectangulo de lados 3 y 4, clave D=80/27) y P7 (G7 en p.1, figura g7-dos-circulos-en-cuadrado: 2 circunferencias tangentes entre si y al cuadrado de lado raiz(2)+1, clave E=Ninguno): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G6 (P6: observador y poste de altura raiz(12) a 30° y 60°) y en p.2 F10 (P10: cuatro masas m1..m4 con tres poleas), F11 (P11: pendulo conico L=2 m a 60°) y F12 (P12: plano inclinado a 45° con bloque y resorte k=10 N/m) tienen dibujo en el PDF y estan en texto sin figura en el banco."
+  },
+  "ingenieria/2015-1op-2-2015": {
+    "id": "umss-ingenieria-2015-examen-de-ingreso-2-2015-1ra-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/139_1ra-op-2-2015.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Miradas P7 (G7 en p.1, figura g7-diagonales-be-menos-ed: trapecio con AE=8, EC=3, DB=5, AB||DC, clave A=25/11), P8 (G8 en p.1, figura g8-cuadrado-sobre-hipotenusa: cuadrado sobre hipotenusa de triangulo isosceles de catetos 2, distancia AB, clave B=2raiz(5)) y P12 (F12 en p.2, figura f20-tazon-dos-masas: masa m1 en tazon semiesferico liso de radio R contra m2=2m1, clave C=R/9): enunciados, opciones, figuras y claves coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G6 (P6: dos rectangulos semejantes anidados con diagonal compartida de 13 y 14) tiene dibujo en el PDF y esta en texto sin figura en el banco."
+  },
+  "ingenieria/2015-2op-1-2015": {
+    "id": "umss-ingenieria-2015-examen-de-ingreso-1-2015-segunda-opcion",
+    "nivel": "contra-facsimil",
+    "fecha": "2026-11-07",
+    "fuente": {
+      "archivo": "FCYT/138_2da-op-1-2015.pdf",
+      "paginas": "1-2"
+    },
+    "completo": false,
+    "notas": "Opcion B (muestra por riesgo). Mirada P6 (G6 en p.1, figura g5-rombo-en-triangulo-3-4: rombo en triangulo rectangulo de lados 3 y 4 pidiendo perimetro, clave E=Ninguno): enunciado, opciones, figura y clave coinciden con el PDF; sin cambios en el .md. Pendiente de auditor-figuras: en p.1 del PDF G7 (P7: observador y poste de altura 2raiz(12) a 30° y 60°) y en p.2 F11 (P11: plano inclinado a 30° con fuerza horizontal de 40raiz(3) N) y F12 (P12: tobogan desde 6 m con tramo horizontal a 1 m) tienen dibujo en el PDF y estan en texto sin figura en el banco."
   }
 }
