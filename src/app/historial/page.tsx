@@ -40,7 +40,7 @@ export default function HistorialPage() {
         <div style={{ marginBottom: 24 }}>
           <h1 className="font-crimson" style={{ fontSize: 32, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 6 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><Icono nombre="aprende" tamano={27} /> Mis exámenes</span></h1>
           <p style={{ color: "var(--fg-muted)" }}>Todos los simulacros que has hecho. Toca cualquiera para volver a ver la resolución.</p>
-          <p style={{ color: "var(--fg-muted)", fontSize: 13, marginTop: 4 }}>{historial.length} exámenes completados · Promedio este mes: {promedioMes}/100</p>
+          <p style={{ color: "var(--fg-muted)", fontSize: 13, marginTop: 4 }}>{historial.length} {historial.length === 1 ? "examen completado" : "exámenes completados"} · Promedio este mes: {promedioMes}/100</p>
         </div>
 
         {historial.length === 0 ? (
@@ -54,7 +54,7 @@ export default function HistorialPage() {
           </div>
         ) : (
           <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)", overflowX: "auto" }}>
-            <table style={{ width: "100%", minWidth: 640, borderCollapse: "collapse", fontSize: 14 }}>
+            <table style={{ width: "100%", minWidth: 520, borderCollapse: "collapse", fontSize: 14 }}>
               <thead>
                 <tr style={{ background: "var(--bg-subtle)" }}>
                   <th style={th()}>Fecha</th>
@@ -77,7 +77,7 @@ export default function HistorialPage() {
                     <td style={td()}>{Math.round(h.tiempo_segundos / 60)} min</td>
                     <td style={{ ...td(), textAlign: "right" }}>
                       {h.simulador_id ? (
-                        <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ padding: "6px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
+                        <Link href={`/simulador/${h.simulador_id}/resultados`} style={{ display: "inline-block", textAlign: "center", padding: "8px 12px", background: "var(--accent)", color: "white", borderRadius: 8, fontWeight: 700, fontSize: 12, textDecoration: "none" }}>
                           Ver resolución →
                         </Link>
                       ) : (
@@ -96,10 +96,10 @@ export default function HistorialPage() {
 }
 
 function th(): React.CSSProperties {
-  return { padding: "12px 16px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" };
+  return { padding: "12px 10px", textAlign: "left", fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase", letterSpacing: "0.06em" };
 }
 function td(): React.CSSProperties {
-  return { padding: "12px 16px", color: "var(--fg-primary)" };
+  return { padding: "12px 10px", color: "var(--fg-primary)" };
 }
 function modoLabel(modo: string): string {
   return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Simulacro inteligente", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;

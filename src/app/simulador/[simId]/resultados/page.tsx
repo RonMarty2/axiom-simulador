@@ -459,7 +459,7 @@ export default function ResultadosPage() {
                   </div>
                 </div>
                 <div className="rounded-xl border border-emerald-200 bg-white p-3">
-                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">Tu fortaleza</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">{mejor[1] >= 50 ? "Tu fortaleza" : "Lo que mejor te fue"}</div>
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
                     {etiquetaArea(mejor[0])} — {mejor[1]}%
                   </div>
@@ -822,11 +822,11 @@ function PreguntaRevision({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3, delay: Math.min(totalMostrados * 0.05, 0.5) }}
-      className={`rounded-2xl border bg-white p-5 shadow-sm ${
+      className={`rounded-2xl border bg-white p-3 shadow-sm sm:p-5 ${
         correcta ? "border-emerald-200" : sinResponder ? "border-neutral-300" : "border-red-200"
       }`}
     >
-      <div className="mb-3 flex items-center gap-2 text-xs">
+      <div className="mb-3 flex flex-wrap items-center gap-2 text-xs">
         <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
           {indice + 1}
         </span>
@@ -922,7 +922,7 @@ function ExplicacionExpandible({ texto }: { texto: string }) {
       {abierta && (
         // line-height holgado: las fracciones \dfrac en línea miden ~35px
         // contra los ~23px de un renglón normal y se montan entre sí.
-        <div className="px-4 pb-4 text-sm text-neutral-800" style={{ lineHeight: 2.9 }}>
+        <div className="px-3 pb-4 text-sm text-neutral-800 sm:px-4" style={{ lineHeight: 2.9 }}>
           <MathText block>{texto}</MathText>
         </div>
       )}
