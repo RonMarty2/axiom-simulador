@@ -379,7 +379,8 @@ function Esc02_Def() {
         log₃(81) = 4 porque 3⁴ = 81.
       </Ejemplo>
       <Cuidado>
-        El argumento <strong>siempre debe ser positivo</strong>. log(0) y log(número negativo) NO existen.
+        El argumento <strong>siempre debe ser positivo</strong>: una potencia de base positiva nunca da 0 ni negativos, así que log(0) y log(−5) NO existen.<br />
+        La base tampoco puede ser 1: 1 elevado a cualquier número da 1, así que log<sub>1</sub>(5) no tendría respuesta. Y no puede ser negativa: (−2)<sup>½</sup> = √−2 no es un número real.
       </Cuidado>
       <PorQue>
         Piensa así: log y potencia son operaciones inversas, como suma/resta o mult/div.
@@ -525,6 +526,12 @@ function Esc07_Cambio() {
         </span>
       </Resumen>
       <Parrafo>
+        <strong>De dónde sale la fórmula.</strong><br />
+        Paso 1: si x = log<sub>a</sub>(b), entonces aˣ = b.<br />
+        Paso 2: aplica log<sub>c</sub> a ambos lados: log<sub>c</sub>(aˣ) = log<sub>c</sub>(b). Con la propiedad de la potencia (el exponente baja multiplicando): x · log<sub>c</sub>(a) = log<sub>c</sub>(b).<br />
+        Paso 3: divide entre log<sub>c</sub>(a): x = log<sub>c</sub>(b) / log<sub>c</sub>(a).
+      </Parrafo>
+      <Parrafo>
         Útil para calcular logaritmos en cualquier base usando solo log₁₀ o ln (que tu calculadora tiene).
       </Parrafo>
       <Ejemplo>
@@ -641,13 +648,13 @@ function Esc10_Practica() {
                 const isOk = j === e.c; const isSel = sel === j;
                 return (
                   <button key={j} onClick={() => !rev && setResp({ ...resp, [i]: j })} disabled={rev}
-                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "#d1fae5" : isSel ? "#fee2e2" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}>
+                    style={{ padding: "10px 14px", background: !rev ? "var(--bg-base)" : isOk ? "var(--dib-emerald-100)" : isSel ? "var(--dib-red-100)" : "var(--bg-base)", border: `1.5px solid ${!rev ? "var(--border)" : isOk ? COLOR_OK : isSel ? COLOR_BAD : "var(--border)"}`, borderRadius: 10, fontSize: 14, fontWeight: 700, color: COLOR_BASE, cursor: rev ? "default" : "pointer", fontFamily: "var(--font-crimson), serif", textAlign: "left" }}>
                     {op}{rev && isOk && " ✓"}{rev && isSel && !isOk && " ✗"}
                   </button>
                 );
               })}
             </div>
-            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "#ecfdf5" : "#fef2f2", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
+            {rev && <div style={{ marginTop: 10, padding: "10px 12px", background: sel === e.c ? "var(--dib-emerald-50)" : "var(--dib-red-50)", borderRadius: 8, fontSize: 13, color: COLOR_BASE, lineHeight: 1.5 }}>
               <strong style={{ color: sel === e.c ? COLOR_OK : COLOR_BAD }}>{sel === e.c ? "¡Correcto!" : "Veamos:"}</strong>{" "}{e.ex}
             </div>}
           </div>
@@ -655,9 +662,9 @@ function Esc10_Practica() {
       })}
       {Object.keys(resp).length === ejs.length && (
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
-          style={{ padding: 18, background: "linear-gradient(135deg, #d1fae5, #a7f3d0)", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
-          <div style={{ fontSize: 22, color: "#065f46", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
-          <div style={{ fontSize: 14, color: "#065f46", marginTop: 6 }}>
+          style={{ padding: 18, background: "linear-gradient(135deg, var(--dib-emerald-100), var(--dib-emerald-200))", border: `2px solid ${COLOR_OK}`, borderRadius: 14, maxWidth: 580, width: "100%", textAlign: "center" }}>
+          <div style={{ fontSize: 22, color: "var(--dib-emerald-800)", fontWeight: 800, fontFamily: "var(--font-crimson), serif" }}>{ok} / {ejs.length} correctas</div>
+          <div style={{ fontSize: 14, color: "var(--dib-emerald-800)", marginTop: 6 }}>
             {ok === ejs.length && "🎉 Dominas logaritmos."}
             {ok < ejs.length && "Memoriza las 3 propiedades + cambio de base."}
           </div>

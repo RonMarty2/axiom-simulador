@@ -37,9 +37,10 @@ function EscIntro() {
       <Titulo>Estado gaseoso · materia "libre"</Titulo>
 
       <Hook>
-        En Cochabamba (2570 msnm), el aire pesa menos que en Santa Cruz. ¿Por
-        qué? El gas ideal explica esto y muchísimo más: bomba de bicicleta,
-        globos aerostáticos, presión arterial, hasta los airbags.
+        En Cochabamba (2570 msnm) tienes menos aire encima que en Santa Cruz,
+        así que la presión es menor. Y con menos presión, el aire es menos
+        denso: eso lo explica el gas ideal. También explica la bomba de
+        bicicleta, los globos aerostáticos y los airbags.
       </Hook>
 
       <Definicion termino="Gas ideal">
@@ -117,6 +118,11 @@ function EscVariables() {
           ))}
         </svg>
       </Pizarra>
+
+      <Definicion termino="Condiciones normales (CN)">
+        Presión de 1 atm y temperatura de 0 °C (273 K). En CN, 1 mol de
+        cualquier gas ocupa 22.4 L (lo comprobarás con PV = nRT más adelante).
+      </Definicion>
 
       <Cuidado>
         <strong>TODO debe estar en Kelvin para los gases.</strong> Usar °C en
@@ -401,6 +407,11 @@ function EscIdeal() {
         primero.
       </Cuidado>
 
+      <Resumen>
+        Comprobamos las condiciones normales (CN): 1 mol a 1 atm y 273 K.<br />
+        V = nRT / P = (1 × 0.082 × 273) / 1 ≈ <strong>22.4 L</strong>
+      </Resumen>
+
       <Pizarra alto={180}>
         <svg width="100%" height="100%" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
@@ -457,21 +468,21 @@ function EscSimulador() {
         PV = nRT. Nota la proporcionalidad directa con n y T, e inversa con P.
       </Parrafo>
 
-      <div style={{ background: "#0f172a", borderRadius: 12, padding: 16, color: "#e2e8f0", maxWidth: 620, width: "100%" }}>
+      <div style={{ background: "var(--dib-slate-900)", borderRadius: 12, padding: 16, color: "var(--dib-slate-200)", maxWidth: 620, width: "100%" }}>
         <div style={{ textAlign: "center", fontSize: 18, fontWeight: 700, marginBottom: 14, fontFamily: "var(--font-crimson), serif" }}>
           PV = nRT
         </div>
 
         <Slider label={`Presión P = ${P.toFixed(1)} atm`} value={P} min={0.5} max={5} step={0.1}
-          onChange={setP} color="#a78bfa" />
+          onChange={setP} color="var(--dib-violet-400)" />
         <Slider label={`Temperatura T = ${T} K (${T - 273} °C)`} value={T} min={200} max={600} step={10}
-          onChange={setT} color="#f59e0b" />
+          onChange={setT} color="var(--dib-amber-500)" />
         <Slider label={`Moles n = ${n.toFixed(2)} mol`} value={n} min={0.1} max={5} step={0.1}
-          onChange={setN} color="#10b981" />
+          onChange={setN} color="var(--dib-emerald-500)" />
 
-        <div style={{ marginTop: 16, padding: 14, background: "#1e293b", borderRadius: 8, textAlign: "center", border: "2px solid #60a5fa" }}>
+        <div style={{ marginTop: 16, padding: 14, background: "var(--dib-slate-800)", borderRadius: 8, textAlign: "center", border: "2px solid var(--dib-blue-400)" }}>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Volumen calculado</div>
-          <div style={{ fontSize: 28, fontWeight: 700, color: "#60a5fa", fontFamily: "var(--font-crimson), serif" }}>
+          <div style={{ fontSize: 28, fontWeight: 700, color: "var(--dib-blue-400)", fontFamily: "var(--font-crimson), serif" }}>
             V = {V.toFixed(2)} L
           </div>
           <div style={{ fontSize: 11, opacity: 0.6, marginTop: 4 }}>
@@ -527,9 +538,9 @@ function EscDalton() {
             Composición del aire seco a 1 atm
           </text>
           {[
-            { x: 80, w: 468, c: "#3b82f6", lab: "N₂", per: "78%", press: "0.78 atm" },
-            { x: 548, w: 126, c: "#ef4444", lab: "O₂", per: "21%", press: "0.21 atm" },
-            { x: 674, w: 6, c: "#a78bfa", lab: "otros", per: "1%", press: "0.01 atm" },
+            { x: 80, w: 468, c: "var(--dib-blue-500)", lab: "N₂", per: "78%", press: "0.78 atm" },
+            { x: 548, w: 126, c: "var(--dib-red-500)", lab: "O₂", per: "21%", press: "0.21 atm" },
+            { x: 674, w: 6, c: "var(--dib-violet-400)", lab: "otros", per: "1%", press: "0.01 atm" },
           ].map((g, i) => (
             <g key={i}>
               <rect x={g.x} y={60} width={g.w} height={50} fill={g.c} opacity={0.5} stroke={g.c} strokeWidth={2} />
