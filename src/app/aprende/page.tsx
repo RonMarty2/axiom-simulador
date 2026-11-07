@@ -85,7 +85,7 @@ export default function AprendePage() {
           <BackLink href="/dashboard" label="Volver" />
           <h1 className="font-crimson" style={{
             fontSize: 36, fontWeight: 800, color: "var(--fg-primary)",
-            margin: "8px 0 4px",
+            lineHeight: 1.15, margin: "8px 0 4px",
           }}>
             Aprende paso a paso
           </h1>
