@@ -67,3 +67,5 @@ __pycache__/
 # Salida de npm run test:pantallas (Playwright)
 test-results/
 playwright-report/
+# copias que Synology crea cuando dos PC cambian el mismo archivo: nunca se suben
+*_Conflict*
