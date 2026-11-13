@@ -1,5 +1,6 @@
 import crypto from "crypto";
-import { getFacultad } from "@/lib/data-store";
+import { getFacultad, formatoVigente } from "@/lib/data-store";
+import { repartirCuotas, type FormatoExamen } from "@/lib/formatos-examen";
 import { cargarBanco } from "./banco-loader";
 import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
@@ -65,7 +66,9 @@ export async function construirSimulador(
   // Formato oficial de la facultad: la cantidad de preguntas la define la
   // facultad (preguntas_examen), NO el usuario.
   const facData = await getFacultad(config.facultad);
-  const cantidadFormato = facData?.preguntas_examen ?? 20;
+  // Ficha de formato vigente (áreas, pesos, minutos); si no hay, se usa el comportamiento de siempre.
+  const ficha = await formatoVigente(config.facultad.toLowerCase());
+  const cantidadFormato = ficha?.preguntas ?? facData?.preguntas_examen ?? 20;
 
   const examenesFacultad = banco.filter(
     (e) =>
@@ -131,11 +134,14 @@ export async function construirSimulador(
       const pool = config.area
         ? poolFacultad.filter((p) => p.area === config.area)
         : poolFacultad;
+      const porFormato = !!ficha && !config.area;
       if (pool.length === 0) {
         throw new Error(`No hay preguntas disponibles${config.area ? ` para ${config.area}` : ""}`);
       }
       const cantidad = Math.min(config.cantidad_preguntas ?? cantidadFormato, pool.length);
-      preguntas = mezclar(pool).slice(0, cantidad);
+      preguntas = porFormato && ficha
+        ? armarPorFormato(pool, ficha, cantidad)
+        : mezclar(pool).slice(0, cantidad);
       break;
     }
 
@@ -163,7 +169,9 @@ export async function construirSimulador(
       }
       // Selecciona pesando por frecuencia (los temas más comunes aparecen más)
       const cantidad = config.cantidad_preguntas ?? cantidadFormato;
-      preguntas = seleccionarPonderado(pool, frecuencia, cantidad);
+      preguntas = ficha
+        ? armarPorFormato(pool, ficha, Math.min(cantidad, pool.length))
+        : seleccionarPonderado(pool, frecuencia, cantidad);
       break;
     }
 
@@ -182,7 +190,9 @@ export async function construirSimulador(
   // Duracion: examenOrigen si existe, sino 2 min por pregunta (por defecto)
   const duracion =
     examenOrigen?.duracion_minutos ??
-    Math.max(15, preguntas.length * 2);
+    (ficha && (config.modo === "mixto" || config.modo === "predictivo")
+      ? Math.max(1, Math.round((ficha.minutos * preguntas.length) / ficha.preguntas))
+      : Math.max(15, preguntas.length * 2));
 
   const simulador: Simulador = {
     id: `sim-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`,
@@ -352,4 +362,33 @@ async function simuladorDeRepaso(config: ConfiguracionSimulacion, usuarioId: str
     fecha_inicio: ahora.toISOString(),
     duracion_minutos: Math.max(10, preguntas.length * 2),
   };
+}
+
+/**
+ * Arma el set siguiendo las áreas y pesos de la ficha de formato: cuota por área (repartirCuotas),
+ * toma al azar de cada área y, si no llega a `cantidad`, completa con el resto del pool.
+ */
+function armarPorFormato(
+  pool: PreguntaBanco[],
+  ficha: FormatoExamen,
+  cantidad: number
+): PreguntaBanco[] {
+  const porArea = new Map<string, PreguntaBanco[]>();
+  for (const p of pool) {
+    const k = p.area ?? "";
+    if (!porArea.has(k)) porArea.set(k, []);
+    porArea.get(k)!.push(p);
+  }
+  const disponibles: Record<string, number> = {};
+  for (const a of ficha.areas) disponibles[a.id] = porArea.get(a.id)?.length ?? 0;
+  const cuotas = repartirCuotas(ficha, disponibles, cantidad);
+  const elegidas: PreguntaBanco[] = [];
+  for (const [area, n] of Object.entries(cuotas)) {
+    elegidas.push(...mezclar(porArea.get(area) ?? []).slice(0, n));
+  }
+  if (elegidas.length < cantidad) {
+    const ya = new Set(elegidas);
+    elegidas.push(...mezclar(pool.filter((p) => !ya.has(p))).slice(0, cantidad - elegidas.length));
+  }
+  return mezclar(elegidas).slice(0, cantidad);
 }

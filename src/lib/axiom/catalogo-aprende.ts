@@ -250,8 +250,9 @@ const BLOQUES_INGENIERIA: Bloque[] = [
 ];
 
 // Estructura oficial de la Prueba de Suficiencia Académica (PSA) Medicina UMSS:
-// 7 asignaturas: Morfofunción, Biología Celular, Introducción a la Investigación,
-// Química, Física, Matemáticas y Comprensión Lectora (Res. 08/2026).
+// 7 áreas: Morfofunción, Biología Celular, Química, Física, Matemáticas,
+// Comprensión Lectora y Educación en Salud e Investigación (Res. 08/2026;
+// convocatoria PSA 2027 confirmó el nombre de la 7.ª, ver docs/plan-medicina-psa.md).
 const MORFOFUNCION_UNIDADES: Unidad[] = [
   { numero: "01", titulo: "Introducción a la Morfofunción", lecciones: [{ slug: "morfofuncion-introduccion", titulo: "Niveles de organización y homeostasis", tags: ["✨ Animada"] }] },
   { numero: "02", titulo: "Sistema tegumentario", lecciones: [{ slug: "sistema-tegumentario", titulo: "Piel, epidermis y dermis", tags: ["✨ Animada"] }] },
@@ -296,7 +297,7 @@ const BLOQUES_MEDICINA: Bloque[] = [
   },
   {
     id: "investigacion",
-    titulo: "Introducción a la Investigación",
+    titulo: "Educación en Salud e Investigación",
     descripcion: "Método científico, bioética, epidemiología y análisis crítico en salud.",
     unidades: INVESTIGACION_MED_UNIDADES,
   },

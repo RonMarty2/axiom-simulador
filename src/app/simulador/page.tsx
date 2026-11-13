@@ -18,6 +18,7 @@ interface ExamenElegible {
   opcion?: string;
   categoria?: string;
   total_preguntas?: number;
+  formato_nombre?: string;
 }
 
 type Modo = "ia_generado" | "examen_real";
@@ -429,6 +430,11 @@ export default function SimuladorCreatePage() {
                         {(secundaria || e.total_preguntas) && (
                           <span style={{ display: "block", fontSize: 12, fontWeight: 500, color: "var(--fg-muted)", marginTop: 2 }}>
                             {[secundaria, e.total_preguntas ? `${e.total_preguntas} preguntas` : null].filter(Boolean).join(" · ")}
+                          </span>
+                        )}
+                        {e.formato_nombre && (
+                          <span style={{ display: "inline-block", fontSize: 11, fontWeight: 600, color: "var(--fg-muted)", border: "1px solid var(--border)", borderRadius: 999, padding: "1px 8px", marginTop: 6 }}>
+                            Formato {e.formato_nombre}
                           </span>
                         )}
                       </button>

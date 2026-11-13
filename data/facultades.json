@@ -54,7 +54,7 @@
     "color": "#881337",
     "color_secundario": "#9f1239",
     "emoji": "⚕️",
-    "descripcion": "Carreras: Medicina, Enfermería, Fisioterapia, Nutrición. Admisión por Prueba de Suficiencia Académica (PSA) con 7 asignaturas: Matemáticas, Física, Química, Comprensión Lectora, Morfofunción, Biología Celular e Introducción a la Investigación.",
+    "descripcion": "Carreras: Medicina, Enfermería, Fisioterapia, Nutrición. Admisión por Prueba de Suficiencia Académica (PSA) con 7 asignaturas: Matemáticas, Física, Química, Comprensión Lectora, Morfofunción, Biología Celular y Educación en Salud e Investigación.",
     "areas": [
       "morfofuncion",
       "biologia_celular",
@@ -75,6 +75,7 @@
     },
     "duracion_minutos": 120,
     "preguntas_examen": 100,
+    "fecha_examen": "2027-01-19",
     "ano_inicio_banco": 2020
   },
   {

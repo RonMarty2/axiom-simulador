@@ -1,0 +1,62 @@
+[
+  {
+    "id": "psa-2027",
+    "facultad": "medicina",
+    "nombre": "PSA 2027",
+    "areas": [
+      {
+        "id": "morfofuncion",
+        "peso": 0.2
+      },
+      {
+        "id": "biologia_celular",
+        "peso": 0.2
+      },
+      {
+        "id": "investigacion",
+        "peso": 0.15
+      },
+      {
+        "id": "quimica",
+        "peso": 0.15
+      },
+      {
+        "id": "fisica",
+        "peso": 0.1
+      },
+      {
+        "id": "matematicas",
+        "peso": 0.1
+      },
+      {
+        "id": "comprension_lectora",
+        "peso": 0.1
+      }
+    ],
+    "preguntas": 100,
+    "minutos": 120,
+    "estimado": true,
+    "vigente": true,
+    "fuente": "Convocatoria PSA 2027 (UMSS Medicina): no publica el número de preguntas ni la ponderación; cifras estimadas."
+  },
+  {
+    "id": "curso-basico",
+    "facultad": "medicina",
+    "nombre": "Curso Básico",
+    "areas": [
+      {
+        "id": "morfofuncion",
+        "peso": 0.5
+      },
+      {
+        "id": "biologia_celular",
+        "peso": 0.5
+      }
+    ],
+    "preguntas": 98,
+    "minutos": 90,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Promedio de los 5 exámenes reales de data/examenes/umss/medicina (scripts/generar-formato-curso-basico.mjs)."
+  }
+]

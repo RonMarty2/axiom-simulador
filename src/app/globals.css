@@ -84,6 +84,10 @@
   .ax-cifras > *:nth-last-child(-n+2) {
     border-bottom: none !important;
   }
+  /* Con la casilla «Días al examen» hay 5 casillas: la primera ocupa el ancho entero. */
+  .ax-cifras-5 > *:first-child { grid-column: 1 / -1; }
+  .ax-cifras-5 > *:nth-child(odd) { border-right: none !important; }
+  .ax-cifras-5 > *:nth-child(even) { border-right: 1px solid var(--border) !important; }
 }
 
 /* ═══ MODO PWA — cuando la app corre standalone, forzar comportamiento app ═══

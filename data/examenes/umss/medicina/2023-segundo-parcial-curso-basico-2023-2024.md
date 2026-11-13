@@ -18,6 +18,7 @@ faltantes:
     motivo: pagina-ausente
     fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, págs. 64 a 72
     detalle: La pregunta 88 no está impresa en el facsímil (la numeración salta). La cartilla del patrón trae la letra A para ella.
+formato: curso-basico
 ---
 
 <!--

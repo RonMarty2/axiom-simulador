@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getFacultades, actualizarFacultad } from "@/lib/data-store";
+import { getFacultades, actualizarFacultad, getFormatos } from "@/lib/data-store";
 import { listarMetadata } from "@/lib/axiom/banco-loader";
 import { isAdmin } from "@/lib/session";
 
 export async function GET() {
   const facultades = await getFacultades();
+  const formatos = await getFormatos();
 
   // Cuántos exámenes tiene cada una. La landing anuncia las cuatro facultades,
   // pero hoy Medicina y Derecho no tienen ninguno: el alumno elegía su
@@ -23,7 +24,11 @@ export async function GET() {
   }
 
   return NextResponse.json({
-    facultades: facultades.map((f) => ({ ...f, examenes: porFacultad[f.id] ?? 0 })),
+    facultades: facultades.map((f) => ({
+      ...f,
+      examenes: porFacultad[f.id] ?? 0,
+      formato: formatos.find((x) => x.facultad === f.id && x.vigente) ?? null,
+    })),
   });
 }
 

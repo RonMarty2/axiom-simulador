@@ -78,6 +78,7 @@ export async function listarMetadata(): Promise<ExamenMetadata[]> {
     opcion: e.opcion,
     titulo: e.titulo,
     categoria: e.categoria,
+    formato: e.formato,
     secciones_pendientes: e.secciones_pendientes,
     faltantes: e.faltantes,
     // Las secciones declaradas pero todavía sin transcribir se suman acá con

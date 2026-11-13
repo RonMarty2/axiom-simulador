@@ -10,6 +10,7 @@ import path from "path";
 import { supabaseAdmin, supabaseConfigurado } from "@/lib/supabase";
 import type { MetodoPago } from "@/lib/pagos-config";
 import { diaLaPaz } from "@/lib/plan";
+import { vigenteDe, porIdDe, type FormatoExamen } from "@/lib/formatos-examen";
 export type { MetodoPago };
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -35,6 +36,8 @@ export interface Facultad {
   ponderacion: Record<string, number>;
   duracion_minutos: number;
   preguntas_examen: number;
+  /** Fecha del examen de admisión, AAAA-MM-DD. Opcional: solo si la convocatoria la publica. */
+  fecha_examen?: string;
   ano_inicio_banco: number;
 }
 
@@ -154,6 +157,32 @@ async function loadJson<T>(file: string): Promise<T> {
 
 function db() {
   return supabaseAdmin();
+}
+
+// ─────────────────────────────────────────────────────────────
+// FORMATOS DE EXAMEN (fichas por formato real; ver docs/plan-formatos-examen.md)
+// ─────────────────────────────────────────────────────────────
+
+let _formatos: FormatoExamen[] | null = null;
+
+export async function getFormatos(): Promise<FormatoExamen[]> {
+  if (!_formatos) {
+    try {
+      _formatos = await loadJson<FormatoExamen[]>(path.join(DATA_DIR, "formatos-examen.json"));
+    } catch {
+      _formatos = [];
+    }
+  }
+  return _formatos;
+}
+
+/** Ficha vigente de la facultad, o null si todavía no tiene (entonces rige facultades.json). */
+export async function formatoVigente(facultadId: string): Promise<FormatoExamen | null> {
+  return vigenteDe(await getFormatos(), facultadId);
+}
+
+export async function formatoPorId(id: string): Promise<FormatoExamen | null> {
+  return porIdDe(await getFormatos(), id);
 }
 
 // ─────────────────────────────────────────────────────────────

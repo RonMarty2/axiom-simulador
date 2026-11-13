@@ -10,6 +10,14 @@ import type { Usuario, Facultad, HistorialExamen } from "@/lib/data-store";
 import { esPago, inicioSemanaISO, textoProximaRenovacion, LIMITE_SEMANAL_PASADAS, LIMITE_SEMANAL_PRONOSTICADAS } from "@/lib/plan";
 import { diasConPractica, textoConstancia } from "@/lib/refuerzo";
 
+/** Días de calendario entre hoy (hora local) y una fecha AAAA-MM-DD. Negativo si ya pasó. */
+function diasHasta(fechaIso: string): number {
+  const [y, m, d] = fechaIso.split("-").map(Number);
+  const hoy = new Date();
+  const msDia = 86400000;
+  return Math.round((Date.UTC(y, m - 1, d) - Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate())) / msDia);
+}
+
 export default function DashboardPage() {
   const router = useRouter();
   const [usuario, setUsuario] = useState<Usuario | null>(null);
@@ -72,6 +80,7 @@ export default function DashboardPage() {
     new Date().toISOString(),
   );
   const lineaConstancia = textoConstancia(diasPractica7);
+  const diasParaExamen = facultad?.fecha_examen ? diasHasta(facultad.fecha_examen) : null;
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -88,6 +97,11 @@ export default function DashboardPage() {
             <p style={{ color: "var(--fg-muted)", fontSize: 15 }}>
               Postulas a <strong style={{ color: "var(--fg-primary)" }}>{facultad?.nombre_corto}</strong>. Sigue practicando.
             </p>
+            {facultad?.fecha_examen && (
+              <p style={{ color: "var(--fg-muted)", fontSize: 13.5, marginTop: 2 }}>
+                Examen de admisión: {new Date(facultad.fecha_examen + "T12:00:00").toLocaleDateString("es-BO", { day: "numeric", month: "long", year: "numeric" })}
+              </p>
+            )}
             {lineaConstancia && (
               <p style={{ color: "var(--accent)", fontSize: 13.5, fontWeight: 600, marginTop: 4, fontVariantNumeric: "lining-nums" }}>
                 {lineaConstancia}
@@ -95,7 +109,10 @@ export default function DashboardPage() {
             )}
           </div>
 
-          <div className="ax-cifras" style={{ display: "flex", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 6 }}>
+          <div className={`ax-cifras${diasParaExamen !== null && diasParaExamen >= 0 ? " ax-cifras-5" : ""}`} style={{ display: "flex", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 6 }}>
+            {diasParaExamen !== null && diasParaExamen >= 0 && (
+              <Cifra label="Días al examen" valor={diasParaExamen} color="var(--accent)" />
+            )}
             <Cifra label="Exámenes" valor={usuario.examenes_completados} />
             <Cifra label="Mejor nota" valor={usuario.mejor_nota} color="var(--green)" />
             <Cifra label="Promedio" valor={usuario.nota_promedio} />

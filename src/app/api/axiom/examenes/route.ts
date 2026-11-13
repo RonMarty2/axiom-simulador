@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { listarMetadata } from "@/lib/axiom/banco-loader";
 import { getCurrentUser } from "@/lib/session";
+import { formatoPorId } from "@/lib/data-store";
 
 // El banco tiene los exámenes de TODAS las carreras juntos (139 de Ingeniería
 // contra 1 de Económicas hoy). Si se devuelve entero, al alumno de Económicas
@@ -18,7 +19,17 @@ export async function GET() {
 
     // Sin sesión (o sin carrera elegida todavía) no hay con qué filtrar: se
     // devuelve el banco completo, que es como se muestra públicamente.
-    const examenes = facultad ? todos.filter((e) => e.facultad === facultad) : todos;
+    const filtrados = facultad ? todos.filter((e) => e.facultad === facultad) : todos;
+
+    // Etiqueta del formato (ej: "Curso Básico") solo para los exámenes que lo
+    // declaran en el frontmatter. Sin formato, el examen sale igual que antes.
+    const examenes = await Promise.all(
+      filtrados.map(async (e) => {
+        if (!e.formato) return e;
+        const formato = await formatoPorId(e.formato);
+        return formato ? { ...e, formato_nombre: formato.nombre } : e;
+      })
+    );
 
     return NextResponse.json({ examenes, facultad, total_banco: todos.length });
   } catch (error) {

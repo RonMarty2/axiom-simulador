@@ -40,6 +40,7 @@ interface FrontmatterCrudo {
   categoria?: string;    // "admision" (default) | "parcial_curso" — separa Examenes de Admision de Parciales/Finales de Curso Propedeutico
   secciones_pendientes?: Record<string, string>;   // { area: motivo } — secciones del examen que todavia no se transcribieron
   faltantes?: PreguntaFaltante[];                  // preguntas que el examen tomo y no se pudieron transcribir
+  formato?: string;                                // id de la ficha en data/formatos-examen.json (ej: "curso-basico")
 }
 
 const FRONTMATTER_REGEX = /^---\s*\r?\n([\s\S]*?)\r?\n---\s*\r?\n([\s\S]*)$/;
@@ -95,6 +96,7 @@ export function parseExamenMD(contenido: string): ExamenBanco {
     faltantes: front.faltantes,
     opcion: front.opcion,
     titulo: front.titulo,
+    formato: front.formato,
     categoria: front.categoria ?? "admision",
     preguntas,
   };
@@ -248,6 +250,7 @@ function parseFrontmatter(raw: string): FrontmatterCrudo {
     faltantes: validarFaltantes(faltantes),
     opcion: out.opcion ? String(out.opcion) : undefined,
     titulo: out.titulo ? String(out.titulo) : undefined,
+    formato: out.formato ? String(out.formato) : undefined,
     categoria: out.categoria ? String(out.categoria) : undefined,
   };
 }

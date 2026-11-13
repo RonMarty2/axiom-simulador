@@ -14,6 +14,7 @@ faltantes:
     motivo: sin-respuesta
     fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, págs. 73 a 81
     detalle: La cartilla del patrón no trae letra para la pregunta 100 (la lista termina en 99 y le sigue un 1 suelto), así que no hay clave oficial que cargar.
+formato: curso-basico
 ---
 
 <!--

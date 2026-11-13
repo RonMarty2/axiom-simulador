@@ -108,6 +108,8 @@ export interface ExamenBanco {
   // especifica en el frontmatter — retrocompatible. /resueltos usa este
   // campo para mostrar un toggle entre ambas categorias.
   categoria?: string;
+  // Id de la ficha de formato en data/formatos-examen.json (ej: "curso-basico").
+  formato?: string;
   // Secciones que el examen SÍ tomó pero que todavía no están transcriptas,
   // con el motivo: { historia: "no-esta-en-ningun-pdf" }. Los facsímiles vienen
   // partidos por materia entre varios PDF, así que es normal tener Matemáticas
@@ -132,6 +134,7 @@ export interface ExamenMetadata {
   opcion?: string;
   titulo?: string;
   categoria?: string;
+  formato?: string;
   // Secciones que el examen SÍ tomó pero que todavía no están transcriptas,
   // con el motivo: { historia: "no-esta-en-ningun-pdf" }. Los facsímiles vienen
   // partidos por materia entre varios PDF, así que es normal tener Matemáticas

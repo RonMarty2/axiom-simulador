@@ -14,6 +14,7 @@ faltantes:
     motivo: pagina-ausente
     fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, págs. 82 a 91
     detalle: La pregunta 53 no aparece en el facsímil (salto de página entre la 52 y la 54); no se pudo recuperar el enunciado. La cartilla trae la letra E.
+formato: curso-basico
 ---
 
 <!--

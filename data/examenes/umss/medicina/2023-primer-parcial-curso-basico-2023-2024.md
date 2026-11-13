@@ -22,6 +22,7 @@ faltantes:
     motivo: pagina-ausente
     fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, págs. 55 a 63
     detalle: La pregunta 62 no está impresa en el facsímil (la numeración salta). La cartilla del patrón trae una letra para ella (C).
+formato: curso-basico
 ---
 
 <!--

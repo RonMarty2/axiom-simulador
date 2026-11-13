@@ -19,6 +19,7 @@ faltantes:
     motivo: sin-respuesta
     fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, pág. 100
     detalle: La facultad aceptó A o C (la cartilla del patrón tiene dos marcas). Son correctas la 1 y la 3, sin letra propia en la clave.
+formato: curso-basico
 ---
 
 <!--

@@ -3,11 +3,11 @@
   "_uso": "Cada pregunta de Medicina se verifica contra el libro de SU gestión, no contra 'la literatura': un dato puede cambiar de edición a edición.",
   "materias": ["Morfofunción", "Biología Celular", "Educación en Salud e Investigación"],
   "gestiones": {
-    "2021-2022": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Biología celular y molecular. Junqueira y Carneiro", "educacion_salud": "Facultad de Medicina (texto de la cátedra)" },
-    "2022-2023": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Introducción a la Biología Celular. Alberts", "educacion_salud": "Facultad de Medicina (texto de la cátedra)" },
-    "2023-2024": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "educacion_salud": null },
-    "2024-2025": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "educacion_salud": null },
-    "2025-2026": { "morfofuncion": "Anatomía y Fisiología. Saladin, 6.ª ed.", "biologia_celular": "Biología Celular Biomédica. Alfonso Calvo, 1.ª ed.", "educacion_salud": "Educación en Salud e Investigación, Curso Básico 2025-2026 (Facultad de Medicina, UMSS)" }
+    "2021-2022": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Biología celular y molecular. Junqueira y Carneiro", "investigacion": "Facultad de Medicina (texto de la cátedra)" },
+    "2022-2023": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson", "biologia_celular": "Introducción a la Biología Celular. Alberts", "investigacion": "Facultad de Medicina (texto de la cátedra)" },
+    "2023-2024": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "investigacion": null },
+    "2024-2025": { "morfofuncion": "Principios de Anatomía y Fisiología. Tortora, Derrickson, 15.ª ed.", "biologia_celular": "Introducción a la Biología Celular. Alberts, 5.ª ed.", "investigacion": null },
+    "2025-2026": { "morfofuncion": "Anatomía y Fisiología. Saladin, 6.ª ed.", "biologia_celular": "Biología Celular Biomédica. Alfonso Calvo, 1.ª ed.", "investigacion": "Educación en Salud e Investigación, Curso Básico 2025-2026 (Facultad de Medicina, UMSS)" }
   },
   "notas": [
     "La bibliografía cambió de libro en 2025-2026 en las DOS materias grandes: Tortora a Saladin, Alberts a Calvo. El contenido de las lecciones tiene que declarar contra qué edición está escrito.",

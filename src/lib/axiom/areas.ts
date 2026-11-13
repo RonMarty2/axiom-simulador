@@ -23,7 +23,7 @@ export const ETIQUETAS_AREA: Record<string, string> = {
   // Curso Básico de Medicina (UMSS): las tres materias reales del examen.
   morfofuncion: "Morfofunción",
   biologia_celular: "Biología Celular",
-  educacion_salud: "Educación en Salud e Investigación",
+  investigacion: "Educación en Salud e Investigación",
   civica: "Cívica",
   historia: "Historia",
   estrategias_aprendizaje: "Estrategias de Aprendizaje",

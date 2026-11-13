@@ -12,6 +12,7 @@ import { esPago, LIMITE_SEMANAL_PASADAS } from "@/lib/plan";
 import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
 import { etiquetaArea } from "@/lib/axiom/areas";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
+import { textoFormato, type FormatoExamen } from "@/lib/formatos-examen";
 import type {
   ConfiguracionSimulacion,
   ModoSimulacion,
@@ -80,7 +81,7 @@ function PracticarInner() {
   const anioParam = params.get("anio");
 
   const [usuario, setUsuario] = useState<Usuario | null>(null);
-  const [facultades, setFacultades] = useState<Facultad[]>([]);
+  const [facultades, setFacultades] = useState<(Facultad & { formato?: FormatoExamen | null })[]>([]);
   const [materias, setMaterias] = useState<Materia[]>([]);
   const [facultadSeleccionada, setFacultadSeleccionada] = useState<string>("");
   const [examenes, setExamenes] = useState<ExamenMini[]>([]);
@@ -186,7 +187,9 @@ function PracticarInner() {
   const aviso =
     modo === "por_tema" ? "Incluye todas las preguntas disponibles de ese tema."
     : modo === "ia_generado" && facultadObj
-      ? `Seguirá el formato oficial de ${facultadObj.nombre_corto}: ${facultadObj.preguntas_examen ?? "—"} preguntas en ${facultadObj.duracion_minutos ?? "—"} minutos.`
+      ? facultadObj.formato
+        ? textoFormato(facultadObj.formato) + (facultadObj.formato.estimado ? " La convocatoria no publica el número oficial." : "")
+        : `Seguirá el formato oficial de ${facultadObj.nombre_corto}: ${facultadObj.preguntas_examen ?? "—"} preguntas en ${facultadObj.duracion_minutos ?? "—"} minutos.`
     : modo === "mis_errores" && paraHoy > 0 ? `Se arma con ${paraHoy === 1 ? "la pregunta" : `las ${paraHoy} preguntas`} que fallaste y hoy te toca repasar. Si la aciertas 3 veces seguidas, sale de la lista.`
     : null;
 

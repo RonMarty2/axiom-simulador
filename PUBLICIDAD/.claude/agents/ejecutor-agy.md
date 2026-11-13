@@ -23,6 +23,9 @@ Si hacés algo con Claude que pasó por la pregunta 2, **decile a Ronald en una 
 
 **Cómo se delega un agente existente:** el pedido dice «Leé `agentes/<agente>.md` y seguilo al pie de la letra. Tarea: …». `agy` lo carga; Claude no. Lo que `agy` no puede (correr `tsc`, lint, tests, abrir la app) lo hace el script con `--despues` o lo hace Claude con el resultado en la mano.
 
+## Si agy no está disponible (Ronald, 3 y 13-nov)
+Con 429 en sus modelos no se espera ni se lee a mano: el mismo pedido va a un agente de Claude barato (Haiku lectura/mecánico, Sonnet con criterio) como albañil, y Claude (modelo potente) revisa y presenta. Decirle a Ronald en una línea quién fue el albañil y por qué. Lanzar `agy` solo para destrabar el hook no sirve: con cuota agotada devuelve vacío en 0,2 min.
+
 ## Objetivo (repetirlo siempre)
 Ahorrar tokens de Claude sin perder calidad. **Claude no hace el trabajo mecánico: encarga, revisa barato, decide.** Claude planifica y verifica; `agy` ejecuta (regla de `docs/estado-trabajo.md`).
 
