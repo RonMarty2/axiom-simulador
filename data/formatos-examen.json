@@ -53,10 +53,34 @@
         "peso": 0.5
       }
     ],
-    "preguntas": 98,
+    "preguntas": 100,
     "minutos": 90,
     "estimado": false,
     "vigente": false,
-    "fuente": "Promedio de los 5 exámenes reales de data/examenes/umss/medicina (scripts/generar-formato-curso-basico.mjs)."
+    "fuente": "Encabezado impreso de los exámenes del Curso Básico 2023-2025 (100 preguntas, 90 min; I:50 + II:50)."
+  },
+  {
+    "id": "curso-basico-2025-26",
+    "facultad": "medicina",
+    "nombre": "Curso Básico 2025-26",
+    "areas": [
+      {
+        "id": "morfofuncion",
+        "peso": 0.5
+      },
+      {
+        "id": "biologia_celular",
+        "peso": 0.3
+      },
+      {
+        "id": "investigacion",
+        "peso": 0.2
+      }
+    ],
+    "preguntas": 100,
+    "minutos": 90,
+    "estimado": true,
+    "vigente": false,
+    "fuente": "Exámenes del Curso Básico 2025-26 (primer parcial, final, segundo parcial); ponderación según cartilla; minutos supuestos."
   }
 ]

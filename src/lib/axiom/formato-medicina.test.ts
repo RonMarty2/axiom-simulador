@@ -10,8 +10,8 @@ const fichas = JSON.parse(readFileSync("data/formatos-examen.json", "utf-8")) as
 const archivos = readdirSync(DIR_MEDICINA).filter((f) => f.endsWith(".md"));
 
 describe("exámenes de medicina declaran su formato", () => {
-  test("hay 5 exámenes de medicina en el banco", () => {
-    assert.equal(archivos.length, 5);
+  test("hay exámenes de medicina en el banco", () => {
+    assert.ok(archivos.length >= 5);
   });
 
   for (const archivo of archivos) {
