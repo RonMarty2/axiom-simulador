@@ -24,6 +24,7 @@ export const ETIQUETAS_AREA: Record<string, string> = {
   morfofuncion: "Morfofunción",
   biologia_celular: "Biología Celular",
   investigacion: "Educación en Salud e Investigación",
+  comprension_lectora: "Comprensión Lectora",
   civica: "Cívica",
   historia: "Historia",
   estrategias_aprendizaje: "Estrategias de Aprendizaje",

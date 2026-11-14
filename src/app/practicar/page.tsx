@@ -67,11 +67,12 @@ const MODOS: {
   // ofrezca el upgrade que corresponde en vez de la lista de planes a secas.
   motivo?: string;
 }[] = [
-  { v: "examen_real", icono: "documento", t: "Examen real", d: "Un examen pasado completo, tal cual fue tomado", siguiente: "anio" },
-  { v: "mixto", icono: "mezclar", t: "Mixto", d: "Preguntas aleatorias de varios años", siguiente: null },
+  { v: "predictivo", icono: "chispa", t: "Simular examen de ingreso", d: "Como el examen que vas a rendir: mismas áreas, misma cantidad de preguntas y mismo tiempo", siguiente: null },
+  { v: "examen_real", icono: "documento", t: "Exámenes anteriores", d: "Un examen de años pasados completo, tal cual fue tomado", siguiente: "anio" },
+  { v: "mixto", icono: "mezclar", t: "Mezcla de años", d: "Preguntas al azar de exámenes de varios años", siguiente: null },
   { v: "por_tema", icono: "etiqueta", t: "Por tema", d: "Solo preguntas de un tema específico", siguiente: "tema" },
   { v: "mis_errores", icono: "errores", t: "Mis errores", d: "Repasa donde fallaste", siguiente: "dificultad", premium: true, motivo: "errores" },
-  { v: "ia_generado", icono: "chispa", t: "Simulacro inteligente", d: "La IA arma un examen nuevo, parecido al que probablemente caiga este año", siguiente: "dificultad", premium: true, motivo: "ia-infinita" },
+  { v: "ia_generado", icono: "chispa", t: "Simulacro inteligente", d: "La IA crea preguntas nuevas con la estructura del examen y tus puntos débiles", siguiente: "dificultad", premium: true, motivo: "ia-infinita" },
 ];
 
 function PracticarInner() {
@@ -209,13 +210,13 @@ function PracticarInner() {
     if (modo === "examen_real" && anioParam) {
       return {
         volverA: "/practicar?modo=examen_real",
-        padre: { label: "Examen real", href: "/practicar?modo=examen_real" },
+        padre: { label: "Exámenes anteriores", href: "/practicar?modo=examen_real" },
         titulo: anioParam,
         sub: "Toca el examen que quieres rendir",
       };
     }
     if (modo === "examen_real") {
-      return { volverA: "/practicar", padre: raiz, titulo: "Examen real", sub: "Elige la gestión" };
+      return { volverA: "/practicar", padre: raiz, titulo: "Exámenes anteriores", sub: "Elige la gestión" };
     }
     if (modo === "por_tema") {
       return { volverA: "/practicar", padre: raiz, titulo: "Por tema", sub: "Toca el tema que quieres practicar" };
@@ -297,6 +298,7 @@ function PracticarInner() {
                 : m.v === "mis_errores" && paraHoy > 0 ? `Repasa donde fallaste (${paraHoy} para hoy)`
                 : m.v === "mis_errores" && errores > 0 ? "Hoy no te toca repasar ninguna"
                 : sinErrores ? "Completa un examen para guardar errores"
+                : m.v === "predictivo" && facultadObj?.formato ? textoFormato(facultadObj.formato)
                 : m.d;
               return (
                 <Fila
@@ -449,7 +451,7 @@ function PracticarInner() {
             style={{ background: "var(--bg-card)", borderRadius: 16, padding: 20, width: "100%", maxWidth: 480 }}
           >
             <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
-              Examen real
+              Examen anterior
             </div>
             <h2 id="confirmar-examen-titulo" style={{ fontSize: 19, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>
               {porConfirmar.titulo}

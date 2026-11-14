@@ -91,7 +91,7 @@ function LoginContent() {
 
         <p style={{ marginTop: 22, textAlign: "center", fontSize: 13, color: "var(--fg-muted)", lineHeight: 1.5 }}>
           Al entrar se crea tu cuenta automáticamente.<br/>
-          Empiezas con plan <strong>Gratis</strong> (2 simulacros de exámenes pasados y 2 predictivos por semana).
+          Empiezas con plan <strong>Gratis</strong> (2 simulacros de exámenes pasados y 2 de simular el examen de ingreso por semana).
         </p>
 
         <div style={{ marginTop: 28, textAlign: "center" }}>

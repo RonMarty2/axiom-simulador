@@ -53,7 +53,7 @@ const planes = (total: number | null) => [
     badge: null,
     features: [
       `${total ? (total === 1 ? "El examen pasado" : `Los ${total} exámenes pasados`) : "Los exámenes pasados"} para leer completos`,
-      `${LIMITE_SEMANAL_TOTAL} simulacros por semana (${LIMITE_SEMANAL_PASADAS} de exámenes pasados y ${LIMITE_SEMANAL_PRONOSTICADAS} predictivos)`,
+      `${LIMITE_SEMANAL_TOTAL} simulacros por semana (${LIMITE_SEMANAL_PASADAS} de exámenes pasados y ${LIMITE_SEMANAL_PRONOSTICADAS} de simular el examen de ingreso)`,
       "Cronómetro oficial y diagnóstico de nota sobre 100",
       "Ver qué preguntas fallaste al terminar el examen",
     ],

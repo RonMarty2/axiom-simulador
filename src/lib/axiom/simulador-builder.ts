@@ -134,14 +134,12 @@ export async function construirSimulador(
       const pool = config.area
         ? poolFacultad.filter((p) => p.area === config.area)
         : poolFacultad;
-      const porFormato = !!ficha && !config.area;
       if (pool.length === 0) {
         throw new Error(`No hay preguntas disponibles${config.area ? ` para ${config.area}` : ""}`);
       }
       const cantidad = Math.min(config.cantidad_preguntas ?? cantidadFormato, pool.length);
-      preguntas = porFormato && ficha
-        ? armarPorFormato(pool, ficha, cantidad)
-        : mezclar(pool).slice(0, cantidad);
+      // «Mezcla de años»: al azar, sin repartir por áreas. El reparto por áreas y pesos es de «Simular examen de ingreso» (predictivo).
+      preguntas = mezclar(pool).slice(0, cantidad);
       break;
     }
 

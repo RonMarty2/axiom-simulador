@@ -229,9 +229,9 @@ function Acceso({ href, icono, titulo, detalle }: { href: string; icono: NombreI
 
 function modoLabel(modo: string): string {
   return ({
-    examen_real: "Examen real",
-    mixto: "Simulacro mixto",
-    predictivo: "Simulacro inteligente",
+    examen_real: "Examen anterior",
+    mixto: "Mezcla de años",
+    predictivo: "Simular examen de ingreso",
     por_tema: "Por tema",
     mis_errores: "Mis errores",
     ia_generado: "Simulacro inteligente",

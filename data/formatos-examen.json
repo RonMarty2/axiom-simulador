@@ -82,5 +82,309 @@
     "estimado": true,
     "vigente": false,
     "fuente": "Exámenes del Curso Básico 2025-26 (primer parcial, final, segundo parcial); ponderación según cartilla; minutos supuestos."
+  },
+  {
+    "id": "fcyt-admision-2005",
+    "facultad": "ingenieria",
+    "nombre": "Admisión FCyT 2005",
+    "areas": [
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.35
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.15
+      },
+      {
+        "id": "fisica",
+        "peso": 0.25
+      },
+      {
+        "id": "quimica",
+        "peso": 0.25
+      }
+    ],
+    "preguntas": 20,
+    "minutos": 120,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes de admisión FCyT 2005 (4 exámenes: 20 preguntas, 120 min, 4 áreas sin biología)."
+  },
+  {
+    "id": "fcyt-admision-5-areas",
+    "facultad": "ingenieria",
+    "nombre": "Admisión FCyT 5 áreas (2006-2025)",
+    "areas": [
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.2
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.2
+      },
+      {
+        "id": "fisica",
+        "peso": 0.2
+      },
+      {
+        "id": "quimica",
+        "peso": 0.2
+      },
+      {
+        "id": "biologia",
+        "peso": 0.2
+      }
+    ],
+    "preguntas": 20,
+    "minutos": 120,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes de admisión FCyT 2006-2025 (65 exámenes: 20 preguntas, 120 min, 5 áreas)."
+  },
+  {
+    "id": "fcyt-admision-2025-2",
+    "facultad": "ingenieria",
+    "nombre": "Admisión FCyT 2-2025",
+    "areas": [
+      {
+        "id": "matematicas",
+        "peso": 0.27
+      },
+      {
+        "id": "fisica",
+        "peso": 0.3
+      },
+      {
+        "id": "quimica",
+        "peso": 0.27
+      },
+      {
+        "id": "biologia",
+        "peso": 0.16
+      }
+    ],
+    "preguntas": 15,
+    "minutos": 120,
+    "estimado": true,
+    "vigente": true,
+    "fuente": "Exámenes de admisión FCyT 2-2025 y 3ra opción (4 archivos parciales de 4 a 15 preguntas, 120 min); estructura completa y vigencia por confirmar."
+  },
+  {
+    "id": "fcyt-curso-2006-2008",
+    "facultad": "ingenieria",
+    "nombre": "Curso Preuniversitario FCyT 2006-2008",
+    "areas": [
+      {
+        "id": "biologia",
+        "peso": 0.35
+      },
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.16
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.16
+      },
+      {
+        "id": "fisica",
+        "peso": 0.16
+      },
+      {
+        "id": "quimica",
+        "peso": 0.17
+      }
+    ],
+    "preguntas": 38,
+    "minutos": 150,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes del curso preuniversitario FCyT 2006-2008 (23 exámenes, 30 a 42 preguntas, 150 min)."
+  },
+  {
+    "id": "fcyt-curso-2009-2014",
+    "facultad": "ingenieria",
+    "nombre": "Curso Preuniversitario FCyT 2009-2014",
+    "areas": [
+      {
+        "id": "biologia",
+        "peso": 0.31
+      },
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.1725
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.1725
+      },
+      {
+        "id": "fisica",
+        "peso": 0.1725
+      },
+      {
+        "id": "quimica",
+        "peso": 0.1725
+      }
+    ],
+    "preguntas": 30,
+    "minutos": 130,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes del curso preuniversitario FCyT 2009-2014 (34 exámenes, 25 a 34 preguntas, 120 a 150 min)."
+  },
+  {
+    "id": "fcyt-curso-2024",
+    "facultad": "ingenieria",
+    "nombre": "Curso Preuniversitario FCyT 2024",
+    "areas": [
+      {
+        "id": "biologia",
+        "peso": 0.225
+      },
+      {
+        "id": "estrategias_aprendizaje",
+        "peso": 0.225
+      },
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.1375
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.1375
+      },
+      {
+        "id": "fisica",
+        "peso": 0.1375
+      },
+      {
+        "id": "quimica",
+        "peso": 0.1375
+      }
+    ],
+    "preguntas": 40,
+    "minutos": 150,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes del curso preuniversitario FCyT 2024 (6 exámenes, 30 a 40 preguntas, 120 a 150 min)."
+  },
+  {
+    "id": "fcyt-curso-2025",
+    "facultad": "ingenieria",
+    "nombre": "Curso Preuniversitario FCyT 2025",
+    "areas": [
+      {
+        "id": "aritmetica_algebra",
+        "peso": 0.25
+      },
+      {
+        "id": "geometria_trigonometria",
+        "peso": 0.25
+      },
+      {
+        "id": "fisica",
+        "peso": 0.25
+      },
+      {
+        "id": "quimica",
+        "peso": 0.25
+      }
+    ],
+    "preguntas": 20,
+    "minutos": 100,
+    "estimado": false,
+    "vigente": false,
+    "fuente": "Exámenes del curso preuniversitario FCyT 2025 (parcial 1, parcial 2, final: 20 preguntas, 100 min)."
+  },
+  {
+    "id": "fce-admision-2011-2012",
+    "facultad": "economicas",
+    "nombre": "Admisión FCE 2011-2012",
+    "areas": [
+      {
+        "id": "matematicas",
+        "peso": 0.72
+      },
+      {
+        "id": "lenguaje",
+        "peso": 0.28
+      }
+    ],
+    "preguntas": 14,
+    "minutos": 60,
+    "estimado": true,
+    "vigente": false,
+    "fuente": "Transcripciones parciales de admisión FCE 2011-2012 (4 exámenes, 13-14 preguntas cargadas, 60-70 min); sin confirmar: no hay exámenes 2025-26 en el banco."
+  },
+  {
+    "id": "fce-admision-2013-2014",
+    "facultad": "economicas",
+    "nombre": "Admisión FCE 2013-2014",
+    "areas": [
+      {
+        "id": "matematicas",
+        "peso": 0.43
+      },
+      {
+        "id": "historia",
+        "peso": 0.4
+      },
+      {
+        "id": "lenguaje",
+        "peso": 0.17
+      }
+    ],
+    "preguntas": 24,
+    "minutos": 60,
+    "estimado": true,
+    "vigente": false,
+    "fuente": "Transcripciones parciales de admisión FCE 2013-2014 (5 exámenes, 22-24 preguntas cargadas, 60 min); sin confirmar: no hay exámenes 2025-26 en el banco."
+  },
+  {
+    "id": "fce-admision-2023",
+    "facultad": "economicas",
+    "nombre": "Admisión FCE 2023",
+    "areas": [
+      {
+        "id": "matematicas",
+        "peso": 1
+      }
+    ],
+    "preguntas": 10,
+    "minutos": 60,
+    "estimado": true,
+    "vigente": false,
+    "fuente": "Transcripción parcial de admisión FCE 2023 (1 examen, 10 preguntas de matemáticas, 60 min); sin confirmar: no hay exámenes 2025-26 en el banco."
+  },
+  {
+    "id": "derecho-provisoria",
+    "facultad": "derecho",
+    "nombre": "Admisión Derecho (provisoria)",
+    "areas": [
+      {
+        "id": "civica",
+        "peso": 0.35
+      },
+      {
+        "id": "historia",
+        "peso": 0.3
+      },
+      {
+        "id": "verbal",
+        "peso": 0.25
+      },
+      {
+        "id": "razonamiento",
+        "peso": 0.1
+      }
+    ],
+    "preguntas": 100,
+    "minutos": 180,
+    "estimado": true,
+    "vigente": true,
+    "fuente": "Cifras de facultades.json sin respaldo en convocatoria ni exámenes en el banco."
   }
 ]

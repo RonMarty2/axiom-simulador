@@ -25,6 +25,14 @@ MODELOS = {"mecanico": "Gemini 3.8 Flash (Low)",
            "lectura": "Gemini 3.8 Flash (Medium)",
            "criterio": "Gemini 4 Argon (Medium)",
            "criterio-alto": "Gemini 4 Argon (High)"}
+# 13-11: la tabla de modelos es UNICA y vive en la central (_AGENTES_CENTRAL\motor_agy\MODELOS.json: titular + suplentes por nivel,
+# con la cuota anotada POR MODELO). Si la central no esta a mano, vale la tabla de arriba.
+try:
+    sys.path.insert(0, os.environ.get("AGENTES_CENTRAL_MOTOR") or os.path.join(os.path.expanduser("~"), "SynologyDrive", "12.NUBES", "_AGENTES_CENTRAL", "motor_agy"))
+    import modelos as _mod
+    MODELOS = dict(MODELOS, **_mod.titulares())
+except Exception:
+    _mod = None
 CONTROLES_DEFAULT = ["npx tsc --noEmit", "npm run lint", "npm test"]
 
 REGLAS_AGY = """
@@ -164,6 +172,11 @@ def main():
         f.write(texto)
 
     modelo = previo["modelo"] if previo and not a.nivel else MODELOS[a.nivel]
+    if _mod and not (previo and not a.nivel):      # 13-11: titular anotado sin cuota -> primer suplente con cuota
+        _eleg = _mod.elegir(a.nivel)
+        if _eleg and _eleg != modelo:
+            print(f"[escalera de modelos: {modelo} esta sin cuota; se usa el suplente {_eleg}]", file=sys.stderr)
+            modelo = _eleg
     cmd = [AGY, "--sandbox", "--model", modelo, "--mode", "plan" if a.solo_texto else "accept-edits",
            "--output-format", "stream-json", "--print-timeout", f"{a.timeout}s", "-p", texto]
     if previo:
@@ -242,7 +255,9 @@ def main():
     if not a.solo_texto and not cambiados:
         estado += " PERO NO CREO NI CAMBIO NADA"
     if any("quota" in (e or "").lower() or "429" in (e or "") for e in errores) or "quota" in (res.get("response") or "").lower():
-        estado += " SIN CUOTA EN ESTE MODELO: probar otro (agy models)"
+        estado += " SIN CUOTA EN ESTE MODELO: quedo anotado; RELANZA el mismo comando y el motor usara el suplente"
+        if _mod:
+            _mod.marcar(modelo, " ".join(str(e) for e in errores) + str(res.get("error", "")))
     estado += "".join(" | " + x for x in verificar_entrega(carpeta, pedido, res, modelo, suf))
     vueltas = list((previo or {}).get("vueltas") or [])
     if previo:

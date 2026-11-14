@@ -102,5 +102,5 @@ function td(): React.CSSProperties {
   return { padding: "12px 8px", color: "var(--fg-primary)", whiteSpace: "nowrap" };
 }
 function modoLabel(modo: string): string {
-  return ({ examen_real: "Examen real", mixto: "Mixto", predictivo: "Simulacro inteligente", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;
+  return ({ examen_real: "Examen anterior", mixto: "Mezcla de años", predictivo: "Simular examen de ingreso", por_tema: "Por tema", mis_errores: "Mis errores", ia_generado: "Simulacro inteligente" } as Record<string, string>)[modo] ?? modo;
 }
