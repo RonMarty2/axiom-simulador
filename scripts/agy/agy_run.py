@@ -33,6 +33,10 @@ try:
     MODELOS = dict(MODELOS, **_mod.titulares())
 except Exception:
     _mod = None
+try:      # 13-11: vigilante central (mira la corrida, deja AVANCE.txt y corta si agy se pierde); sin la central, se corre como antes
+    import vigilante as _vig
+except Exception:
+    _vig = None
 CONTROLES_DEFAULT = ["npx tsc --noEmit", "npm run lint", "npm test"]
 
 REGLAS_AGY = """
@@ -186,8 +190,11 @@ def main():
     env = dict(os.environ, AXIOM_AGY_TRABAJO=TRABAJO)
 
     def correr(cmd_, archivo):
-        with open(archivo, "w", encoding="utf-8") as out:
-            p = subprocess.run(cmd_, cwd=ARRANQUE, stdout=out, stderr=subprocess.STDOUT, env=env)
+        if _vig:
+            p = _vig.correr(cmd_, ARRANQUE, archivo, env)
+        else:
+            with open(archivo, "w", encoding="utf-8") as out:
+                p = subprocess.run(cmd_, cwd=ARRANQUE, stdout=out, stderr=subprocess.STDOUT, env=env)
         r_, errs = {}, []
         for linea in open(archivo, encoding="utf-8", errors="replace"):
             try:
@@ -207,20 +214,26 @@ def main():
     tokens_total = (res.get("usage") or {}).get("total_tokens") or 0
     cambiados, _ = diff_de(repo)
     reintento = False
-    if not previo and not a.solo_texto and not cambiados and errores:
+    if not previo and not a.solo_texto and not cambiados and errores and "vigilante" not in str(res.get("finished_reason")):
         reintento = True      # una sola vez; gasta cuota de Gemini, no de Claude
         aviso = ("\n\nATENCION: en tu intento anterior usaste la terminal, fue BLOQUEADA y te detuviste sin hacer la tarea. "
                  "Errores: " + " | ".join(errores[:2]) + "\nHazla ahora usando SOLO herramientas de archivos.")
         proc, res, errores2 = correr(cmd[:-1] + [cmd[-1] + aviso], os.path.join(carpeta, "run2.jsonl"))
         errores += ["[reintento] " + x for x in errores2]
         tokens_total += (res.get("usage") or {}).get("total_tokens") or 0
-    if a.solo_texto and not (res.get("response") or "").strip() and res.get("conversation_id"):
-        # respaldo (propuesta_motor_axiom.md): respuesta vacia en modo texto -> una vez, misma conversacion, Flash Medium
+    cortada = str(res.get("finished_reason") or "")
+    if (a.solo_texto or cortada) and not (res.get("response") or "").strip() and res.get("conversation_id"):
+        # respaldo (propuesta_motor_axiom.md): respuesta vacia en modo texto -> una vez, misma conversacion, Flash Medium.
+        # 13-11 RESCATE: tambien si la corrida fue CORTADA (tiempo o vigilante) y vino vacia: 5 min para que entregue lo que ya tiene.
         reintento = True
         pide = ("Tu respuesta anterior salio VACIA. No escribas archivos (se niegan). Pega AHORA, como texto en este mensaje, "
                 "el informe completo con el formato pedido; si no terminaste, entrega lo que ya tienes y lista lo que falta.")
+        if cortada:
+            pide = ("Tu trabajo fue CORTADO (" + cortada[:150] + ") y tu respuesta salio VACIA. NO leas ni busques nada mas y no sigas la tarea. "
+                    "Pega AHORA, como texto en este mensaje: (a) que alcanzaste a hacer y en que archivos, (b) que encontraste, "
+                    "(c) que falta exactamente, (d) por que no terminaste. Nunca vacia.")
         cmd_r = [AGY, "--sandbox", "--model", MODELOS["lectura"], "--mode", "plan", "--output-format", "stream-json",
-                 "--print-timeout", f"{a.timeout}s", "--conversation", res["conversation_id"]]
+                 "--print-timeout", "300s" if cortada else f"{a.timeout}s", "--conversation", res["conversation_id"]]
         for p_ in a.leer + [repo]:
             cmd_r += ["--add-dir", p_]
         cmd_r += ["-p", pide]
@@ -229,6 +242,8 @@ def main():
         tokens_total += (res2.get("usage") or {}).get("total_tokens") or 0
         if (res2.get("response") or "").strip():
             res = res2
+            if cortada:      # el rescate es un informe parcial: el estado sigue diciendo que la tarea NO termino
+                res = dict(res2, status="ERROR", finished_reason=cortada + " · LA TAREA NO TERMINO · RESCATE (informe parcial)")
     minutos = round((time.time() - t0) / 60, 1)
     with open(os.path.join(carpeta, f"RESPUESTA{suf}.md"), "w", encoding="utf-8") as f:
         f.write(res.get("response", "(sin respuesta: ver run.jsonl)"))
