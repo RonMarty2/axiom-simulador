@@ -69,6 +69,7 @@ export interface PreguntaBanco {
   fecha_creacion?: string;
   creado_por?: string;
   materia_id?: string;              // referencia a materias.json
+  prestada?: { desde: string; etiqueta: string; nota: string };
 }
 
 export type MotivoFaltante =

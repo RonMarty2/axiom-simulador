@@ -1,0 +1,16 @@
+[
+  {
+    "id": "medicina-desde-ingenieria",
+    "activo": true,
+    "destino": "medicina",
+    "origen": "ingenieria",
+    "areas": {
+      "quimica": "quimica",
+      "fisica": "fisica",
+      "aritmetica_algebra": "matematicas",
+      "geometria_trigonometria": "matematicas"
+    },
+    "etiqueta": "Pregunta de práctica de Ingeniería",
+    "nota": "Provisional hasta tener el temario oficial de la PSA 2027."
+  }
+]

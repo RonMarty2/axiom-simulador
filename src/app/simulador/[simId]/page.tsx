@@ -80,11 +80,15 @@ export default function SimuladorActivoPage() {
     setFinalizando(true);
     try {
       const local = leerSimulador(simId);
-      await fetch(`/api/axiom/simulador/${simId}/finalizar`, {
+      const r = await fetch(`/api/axiom/simulador/${simId}/finalizar`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ simulador: local }),
       });
+      if (r.ok) {
+        const data = await r.json().catch(() => null);
+        if (data?.simulador) guardarSimulador(data.simulador);
+      }
       router.push(`/simulador/${simId}/resultados`);
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
@@ -297,6 +301,7 @@ export default function SimuladorActivoPage() {
             className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-6"
           >
             <div className="mb-6 text-base leading-relaxed text-neutral-900 sm:text-lg">
+              {pregunta.prestada && <EtiquetaPrestada prestada={pregunta.prestada} />}
               <MathText block>{pregunta.enunciado}</MathText>
               <Afirmaciones lista={pregunta.afirmaciones} />
             </div>
@@ -458,6 +463,7 @@ export default function SimuladorActivoPage() {
                             {numeroGlobal}
                           </span>
                           <div className="min-w-0 flex-1 text-sm font-medium leading-relaxed text-neutral-900 sm:text-base">
+                            {p.prestada && <EtiquetaPrestada prestada={p.prestada} />}
                             <MathText block>{p.enunciado}</MathText>
                             <Afirmaciones lista={p.afirmaciones} />
                           </div>
@@ -722,6 +728,28 @@ export default function SimuladorActivoPage() {
             </div>
           </motion.div>
         </div>
+      )}
+    </div>
+  );
+}
+
+function EtiquetaPrestada({ prestada }: { prestada: NonNullable<PreguntaBanco["prestada"]> }) {
+  const [abierta, setAbierta] = useState(true);
+  return (
+    <div className="mb-2 max-w-full">
+      <button
+        type="button"
+        onClick={() => setAbierta((v) => !v)}
+        aria-expanded={abierta}
+        title={prestada.nota}
+        className="inline-flex max-w-full items-center gap-1 rounded-md border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-left text-[11px] font-semibold leading-snug text-neutral-600 transition-colors hover:border-neutral-300 hover:bg-neutral-200/70"
+      >
+        <span className="break-words">{prestada.etiqueta}</span>
+      </button>
+      {abierta && prestada.nota && (
+        <p className="mt-1 text-[11px] font-normal leading-snug text-neutral-500 break-words">
+          {prestada.nota}
+        </p>
       )}
     </div>
   );

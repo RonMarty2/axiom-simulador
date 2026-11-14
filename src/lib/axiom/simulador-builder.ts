@@ -1,6 +1,12 @@
 import crypto from "crypto";
 import { getFacultad, formatoVigente } from "@/lib/data-store";
 import { repartirCuotas, type FormatoExamen } from "@/lib/formatos-examen";
+import {
+  ampliarPoolConPrestadas,
+  cargarReglasCompartidas,
+  reglasActivasPara,
+  type ReglaPreguntasCompartidas,
+} from "@/lib/preguntas-compartidas";
 import { cargarBanco } from "./banco-loader";
 import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
@@ -21,7 +27,8 @@ export interface ResultadoConstruccion {
 
 export async function construirSimulador(
   config: ConfiguracionSimulacion,
-  usuarioId: string
+  usuarioId: string,
+  opciones?: { reglasCompartidas?: readonly ReglaPreguntasCompartidas[] }
 ): Promise<ResultadoConstruccion> {
   // "mis_errores": vuelve a preguntar LAS MISMAS preguntas falladas que hoy tocan repasar (repaso.ts).
   if (config.modo === "mis_errores") return { simulador: await simuladorDeRepaso(config, usuarioId) };
@@ -159,8 +166,36 @@ export async function construirSimulador(
     }
 
     case "predictivo": {
-      // Predictivo estadístico: pondera temas por frecuencia histórica
-      const pool = poolFacultad;
+      // Predictivo estadístico: pondera temas por frecuencia histórica.
+      // Si hay regla activa en data/preguntas-compartidas.json para esta facultad,
+      // se amplía el pool SOLO en predictivo con copias diferenciables de la facultad origen.
+      const reglas = opciones?.reglasCompartidas ?? cargarReglasCompartidas();
+      const activas = reglasActivasPara(reglas, facL);
+      const origenesExtra = new Map<string, PreguntaBanco[]>();
+      if (ficha && activas.length > 0) {
+        for (const r of activas) {
+          const origL = r.origen.toLowerCase();
+          if (!origenesExtra.has(origL)) {
+            const exOrig = banco
+              .filter(
+                (e) =>
+                  e.universidad.toLowerCase() === uniL &&
+                  e.facultad.toLowerCase() === origL
+              )
+              .flatMap((e) => e.preguntas);
+            const indOrig = await listarPreguntas({ facultad: origL });
+            origenesExtra.set(origL, [...exOrig, ...indOrig]);
+          }
+        }
+      }
+      const pool = ampliarPoolConPrestadas({
+        modo: config.modo,
+        facultad: facL,
+        pool: poolFacultad,
+        preguntasOrigen: (orig) => origenesExtra.get(orig.toLowerCase()) ?? [],
+        ficha,
+        reglas,
+      });
       const frecuencia = new Map<string, number>();
       for (const p of pool) {
         frecuencia.set(p.tema, (frecuencia.get(p.tema) ?? 0) + 1);

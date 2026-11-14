@@ -9,6 +9,7 @@ import Afirmaciones from "../../../components/Afirmaciones";
 import Icono from "../../../components/Icono";
 import Cargando from "../../../components/Cargando";
 import type { PreguntaBanco, Simulador } from "@/lib/axiom/types";
+import { guardarSimulador } from "@/lib/sim-storage";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
 import { etiquetaArea } from "@/lib/axiom/areas";
@@ -136,6 +137,7 @@ export default function ResultadosPage() {
           throw new Error(data.error ?? "Error");
         }
         setSimulador(data.simulador);
+        if (data.simulador) guardarSimulador(data.simulador);
         // Los errores ya se guardan en la base de datos al finalizar el examen
         // (server-side), atados a la cuenta del usuario.
       })
@@ -854,6 +856,8 @@ function PreguntaRevision({
         </span>
       </div>
 
+      {pregunta.prestada && <EtiquetaPrestada prestada={pregunta.prestada} />}
+
       <div className="mb-4 text-sm leading-relaxed text-neutral-800 sm:text-base">
         <MathText block>{pregunta.enunciado}</MathText>
         <Afirmaciones lista={pregunta.afirmaciones} />
@@ -901,6 +905,28 @@ function PreguntaRevision({
         <ExplicacionExpandible texto={pregunta.explicacion} />
       )}
     </motion.div>
+  );
+}
+
+function EtiquetaPrestada({ prestada }: { prestada: NonNullable<PreguntaBanco["prestada"]> }) {
+  const [abierta, setAbierta] = useState(true);
+  return (
+    <div className="mb-3 max-w-full">
+      <button
+        type="button"
+        onClick={() => setAbierta((v) => !v)}
+        aria-expanded={abierta}
+        title={prestada.nota}
+        className="inline-flex max-w-full items-center gap-1 rounded-md border border-neutral-200 bg-neutral-100 px-2 py-0.5 text-left text-[11px] font-semibold leading-snug text-neutral-600 transition-colors hover:border-neutral-300 hover:bg-neutral-200/70"
+      >
+        <span className="break-words">{prestada.etiqueta}</span>
+      </button>
+      {abierta && prestada.nota && (
+        <p className="mt-1 text-[11px] font-normal leading-snug text-neutral-500 break-words">
+          {prestada.nota}
+        </p>
+      )}
+    </div>
   );
 }
 
