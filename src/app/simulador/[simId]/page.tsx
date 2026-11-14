@@ -76,6 +76,23 @@ export default function SimuladorActivoPage() {
     return ordenAreas.map((a) => porArea[a]);
   }, [preguntas]);
 
+  // La hoja actual se guarda por examen: al recargar, el alumno vuelve a la
+  // hoja donde estaba y no puede reabrir las que ya cerró (pasar de hoja es
+  // irreversible). Antes vivía solo en memoria y la recarga volvía a la hoja 1.
+  const claveHoja = `axiom-hoja-${simId}`;
+  useEffect(() => {
+    if (cargando || grupos.length === 0) return;
+    try {
+      const guardada = Number(localStorage.getItem(claveHoja));
+      if (guardada > 0) setAreaActualIdx(Math.min(guardada, grupos.length - 1));
+    } catch {}
+  }, [cargando, grupos.length, claveHoja]);
+  useEffect(() => {
+    try {
+      if (areaActualIdx > 0) localStorage.setItem(claveHoja, String(areaActualIdx));
+    } catch {}
+  }, [areaActualIdx, claveHoja]);
+
   const finalizar = useCallback(async () => {
     setFinalizando(true);
     try {
