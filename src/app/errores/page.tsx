@@ -110,7 +110,7 @@ export default function ErroresPage() {
               {errores.slice(0, 20).map((e, i) => (
                 <div key={e.pregunta_id} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none" }}>
                   <div style={{ display: "flex", gap: 8, marginBottom: 6, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)" }}>
-                    <span>{e.area}</span> · <span>{e.tema}</span> · <span>Fallada {e.veces_fallado}x</span>
+                    <span>{etiquetaArea(e.area)}</span> · <span>{e.tema}</span> · <span>Fallada {e.veces_fallado}x</span>
                   </div>
                   <div style={{ fontSize: 14, color: "var(--fg-primary)" }}><MathText>{recortar(e.enunciado)}</MathText></div>
                 </div>

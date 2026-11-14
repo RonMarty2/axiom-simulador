@@ -1,6 +1,9 @@
 import fs from "fs/promises";
 import path from "path";
+import { formatoVigente } from "@/lib/data-store";
+import { temaActualDeArea, temasPorCarrera, type TemaCarrera } from "./areas";
 import { parseExamenMD } from "./banco-parser";
+import { listarPreguntas } from "./preguntas-store";
 import type { ExamenBanco, ExamenMetadata, PreguntaBanco } from "./types";
 
 const BANCO_DIR = path.join(process.cwd(), "data", "examenes");
@@ -105,20 +108,45 @@ export async function listarTemas(
   facultad: string
 ): Promise<{ tema: string; area: string; cantidad: number }[]> {
   const banco = await cargarBanco();
+  const facL = facultad.toLowerCase();
+  const ficha = await formatoVigente(facL);
   const conteo = new Map<string, { tema: string; area: string; cantidad: number }>();
   for (const e of banco) {
     if (
       e.universidad.toLowerCase() !== universidad.toLowerCase() ||
-      e.facultad.toLowerCase() !== facultad.toLowerCase()
+      e.facultad.toLowerCase() !== facL
     ) continue;
     for (const p of e.preguntas) {
-      const key = `${p.area}::${p.tema}`;
+      const areaActual = temaActualDeArea(facL, p.area, ficha);
+      const key = `${areaActual}::${p.tema}`;
       const prev = conteo.get(key);
       if (prev) prev.cantidad++;
-      else conteo.set(key, { tema: p.tema, area: p.area, cantidad: 1 });
+      else conteo.set(key, { tema: p.tema, area: areaActual, cantidad: 1 });
     }
   }
   return Array.from(conteo.values()).sort((a, b) => b.cantidad - a.cantidad);
+}
+
+export async function listarTemasPorCarrera(
+  universidad: string,
+  facultad: string
+): Promise<TemaCarrera[]> {
+  const banco = await cargarBanco();
+  const uniL = universidad.toLowerCase();
+  const facL = facultad.toLowerCase();
+  const ficha = await formatoVigente(facL);
+  const individuales = await listarPreguntas({ facultad: facL });
+  const preguntas: PreguntaBanco[] = [
+    ...banco
+      .filter(
+        (e) =>
+          e.universidad.toLowerCase() === uniL &&
+          e.facultad.toLowerCase() === facL
+      )
+      .flatMap((e) => e.preguntas),
+    ...individuales,
+  ];
+  return temasPorCarrera(facL, preguntas, ficha);
 }
 
 function resumirAreas(preguntas: PreguntaBanco[]): { area: string; cantidad: number }[] {

@@ -10,7 +10,7 @@ import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { esPago, LIMITE_SEMANAL_PASADAS } from "@/lib/plan";
 import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
-import { etiquetaArea } from "@/lib/axiom/areas";
+import { etiquetaArea, type TemaCarrera } from "@/lib/axiom/areas";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
 import { textoFormato, type FormatoExamen } from "@/lib/formatos-examen";
 import type {
@@ -84,12 +84,14 @@ function PracticarInner() {
   const [usuario, setUsuario] = useState<Usuario | null>(null);
   const [facultades, setFacultades] = useState<(Facultad & { formato?: FormatoExamen | null })[]>([]);
   const [materias, setMaterias] = useState<Materia[]>([]);
+  const [temasCarrera, setTemasCarrera] = useState<TemaCarrera[]>([]);
   const [facultadSeleccionada, setFacultadSeleccionada] = useState<string>("");
   const [examenes, setExamenes] = useState<ExamenMini[]>([]);
   const [errores, setErrores] = useState(0);
   // de esos, los que hoy tocan repasar (repaso.ts): «Mis errores» se arma solo con ellos
   const [paraHoy, setParaHoy] = useState(0);
-  const [temasReforzar, setTemasReforzar] = useState<string[]>([]);
+  const [erroresPorTema, setErroresPorTema] = useState<Record<string, number>>({});
+  const [erroresHoyPorTema, setErroresHoyPorTema] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
   const [creando, setCreando] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -102,7 +104,8 @@ function PracticarInner() {
     fetch("/api/axiom/errores").then((r) => r.json()).then((d) => {
       setErrores(d.total ?? 0);
       setParaHoy(d.para_hoy ?? 0);
-      setTemasReforzar(d.temas_reforzar ?? []);
+      setErroresPorTema(d.por_area ?? {});
+      setErroresHoyPorTema(d.por_area_hoy ?? {});
     }).catch(() => {});
     Promise.all([
       fetch("/api/auth/me").then((r) => r.json()),
@@ -129,7 +132,10 @@ function PracticarInner() {
     if (!facultadSeleccionada) return;
     fetch(`/api/axiom/banco/info?universidad=UMSS&facultad=${facultadSeleccionada}`)
       .then((r) => r.json())
-      .then((d) => setExamenes(d.examenes ?? []));
+      .then((d) => {
+        setExamenes(d.examenes ?? []);
+        setTemasCarrera(d.temas_carrera ?? []);
+      });
     fetch(`/api/materias?facultad=${facultadSeleccionada}`)
       .then((r) => r.json())
       .then((d) => setMaterias(d.materias ?? []));
@@ -220,6 +226,9 @@ function PracticarInner() {
     }
     if (modo === "por_tema") {
       return { volverA: "/practicar", padre: raiz, titulo: "Por tema", sub: "Toca el tema que quieres practicar" };
+    }
+    if (modo === "mis_errores") {
+      return { volverA: "/practicar", padre: raiz, titulo: "Mis errores", sub: "Elige el tema que quieres repasar" };
     }
     return { volverA: "/practicar", padre: raiz, titulo: m?.t ?? "Simulacro", sub: "Elige la dificultad" };
   })();
@@ -385,21 +394,68 @@ function PracticarInner() {
         {/* NIVEL 2 · tema */}
         {modo === "por_tema" && (
           <Lista>
-            {materias.length === 0 && <Vacio>No hay temas cargados para esta facultad.</Vacio>}
-            {materias.map((m) => (
-              <Fila
-                key={m.id}
-                icono="etiqueta"
-                titulo={m.nombre}
-                detalle={etiquetaArea(m.area)}
-                onClick={() => empezar(base({ modo: "por_tema", tema: m.id }))}
-              />
-            ))}
+            {facultadObj?.formato ? (
+              <>
+                {temasCarrera.length === 0 && <Vacio>No hay temas cargados para esta facultad.</Vacio>}
+                {temasCarrera.map((t) => (
+                  <Fila
+                    key={t.id}
+                    icono="etiqueta"
+                    titulo={t.nombre}
+                    detalle={`${t.cantidad} ${t.cantidad === 1 ? "pregunta" : "preguntas"}`}
+                    onClick={() => empezar(base({ modo: "por_tema", tema: t.id }))}
+                  />
+                ))}
+              </>
+            ) : (
+              <>
+                {materias.length === 0 && <Vacio>No hay temas cargados para esta facultad.</Vacio>}
+                {materias.map((m) => (
+                  <Fila
+                    key={m.id}
+                    icono="etiqueta"
+                    titulo={m.nombre}
+                    detalle={etiquetaArea(m.area)}
+                    onClick={() => empezar(base({ modo: "por_tema", tema: m.id }))}
+                  />
+                ))}
+              </>
+            )}
+          </Lista>
+        )}
+
+        {/* NIVEL 2 · temas de errores */}
+        {modo === "mis_errores" && (
+          <Lista>
+            {Object.keys(erroresPorTema).length === 0 && (
+              <Vacio>No tienes errores pendientes para repasar hoy.</Vacio>
+            )}
+            {Object.entries(erroresPorTema).map(([temaId, totalTema]) => {
+              const hoyTema = erroresHoyPorTema[temaId] ?? 0;
+              return (
+                <Fila
+                  key={temaId}
+                  icono="etiqueta"
+                  titulo={etiquetaArea(temaId)}
+                  detalle={
+                    hoyTema > 0
+                      ? `${hoyTema} para hoy · ${totalTema} ${totalTema === 1 ? "error guardado" : "errores guardados"}`
+                      : `Hoy al día · ${totalTema} ${totalTema === 1 ? "error guardado" : "errores guardados"}`
+                  }
+                  disabled={hoyTema === 0}
+                  onClick={() => empezar(base({
+                    modo: "mis_errores",
+                    tema: temaId,
+                    area: temaId,
+                  }))}
+                />
+              );
+            })}
           </Lista>
         )}
 
         {/* NIVEL 2 · dificultad */}
-        {(modo === "ia_generado" || modo === "mis_errores") && (
+        {modo === "ia_generado" && (
           <Lista>
             {([
               ["facil", "Fácil", "Para agarrar confianza"],
@@ -413,7 +469,6 @@ function PracticarInner() {
                 onClick={() => empezar(base({
                   modo,
                   dificultad: v,
-                  ...(modo === "mis_errores" && temasReforzar.length ? { temas_reforzar: temasReforzar } : {}),
                 }))}
               />
             ))}

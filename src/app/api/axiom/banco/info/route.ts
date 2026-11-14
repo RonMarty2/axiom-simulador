@@ -3,7 +3,9 @@ import {
   listarFacultades,
   listarMetadata,
   listarTemas,
+  listarTemasPorCarrera,
 } from "@/lib/axiom/banco-loader";
+import type { TemaCarrera } from "@/lib/axiom/areas";
 
 export async function GET(req: Request) {
   const url = new URL(req.url);
@@ -25,6 +27,7 @@ export async function GET(req: Request) {
     facultades: string[];
     examenes: typeof examenesFiltrados;
     temas?: { tema: string; area: string; cantidad: number }[];
+    temas_carrera?: TemaCarrera[];
   } = {
     universidad,
     facultad,
@@ -34,6 +37,7 @@ export async function GET(req: Request) {
 
   if (facultad) {
     respuesta.temas = await listarTemas(universidad, facultad);
+    respuesta.temas_carrera = await listarTemasPorCarrera(universidad, facultad);
   }
 
   return NextResponse.json(respuesta);

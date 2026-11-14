@@ -1,5 +1,6 @@
 import crypto from "crypto";
-import { getFacultad, formatoVigente } from "@/lib/data-store";
+import { getFacultad, getMateriasFacultad, formatoVigente } from "@/lib/data-store";
+import { filtrarPorTemaActual, temaActualDeArea } from "./areas";
 import { repartirCuotas, type FormatoExamen } from "@/lib/formatos-examen";
 import {
   ampliarPoolConPrestadas,
@@ -154,14 +155,26 @@ export async function construirSimulador(
       if (!config.tema) {
         throw new Error("Modo 'por_tema' requiere 'tema'");
       }
-      const pool = poolFacultad.filter((p) => p.tema === config.tema);
+      let pool = filtrarPorTemaActual(facL, poolFacultad, config.tema, ficha);
+      if (pool.length === 0) {
+        const materias = await getMateriasFacultad(facL);
+        const mat = materias.find((m) => m.id === config.tema);
+        if (mat) {
+          pool = filtrarPorTemaActual(facL, poolFacultad, mat.area, ficha);
+        }
+      }
       if (pool.length === 0) {
         throw new Error(`No hay preguntas del tema '${config.tema}'`);
       }
       const cantidad = config.cantidad_preguntas
         ? Math.min(config.cantidad_preguntas, pool.length)
         : pool.length;
-      preguntas = mezclar(pool).slice(0, cantidad);
+      preguntas = mezclar(pool)
+        .slice(0, cantidad)
+        .map((p) => ({
+          ...p,
+          area: temaActualDeArea(facL, p.area, ficha),
+        }));
       break;
     }
 
@@ -366,7 +379,14 @@ function seleccionarPonderado<T extends { tema: string }>(
 async function simuladorDeRepaso(config: ConfiguracionSimulacion, usuarioId: string): Promise<Simulador> {
   const ahora = new Date();
   const facL = config.facultad.toLowerCase();
-  const errores = (await getErroresUsuario(usuarioId)).filter((e) => (e.pregunta?.facultad ?? "").toLowerCase() === facL);
+  const ficha = await formatoVigente(facL);
+  const erroresFacultad = (await getErroresUsuario(usuarioId)).filter(
+    (e) => (e.pregunta?.facultad ?? "").toLowerCase() === facL
+  );
+  const filtroTema = config.tema || config.area || "";
+  const errores = filtroTema
+    ? filtrarPorTemaActual(facL, erroresFacultad, filtroTema, ficha)
+    : erroresFacultad;
   const tocan = errores
     .filter((e) => tocaRepasar(e, ahora))
     .sort((a, b) => (a.proximo ?? a.fecha).localeCompare(b.proximo ?? b.fecha))
@@ -383,7 +403,13 @@ async function simuladorDeRepaso(config: ConfiguracionSimulacion, usuarioId: str
   }
   const actuales = new Map<string, PreguntaBanco>();
   for (const ex of await cargarBanco()) for (const p of ex.preguntas) actuales.set(p.id, p);
-  const preguntas = tocan.map((e) => actuales.get(e.pregunta_id) ?? e.pregunta);
+  const preguntas = tocan.map((e) => {
+    const base = actuales.get(e.pregunta_id) ?? e.pregunta;
+    return {
+      ...base,
+      area: temaActualDeArea(facL, base.area || e.area || "general", ficha),
+    };
+  });
   return {
     id: `sim-${Date.now()}-${crypto.randomBytes(4).toString("hex")}`,
     usuario_id: usuarioId,
