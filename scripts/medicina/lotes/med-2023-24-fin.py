@@ -117,7 +117,7 @@ faltantes = f"""  - numero: 100
 front = f"""---
 universidad: UMSS
 facultad: medicina
-anio: 2023
+anio: 2024
 categoria: parcial_curso
 titulo: Examen Final · Curso Básico 2023-2024
 duracion_minutos: 90

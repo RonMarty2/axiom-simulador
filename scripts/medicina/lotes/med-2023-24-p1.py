@@ -109,7 +109,7 @@ faltantes = "".join(
 front = f"""---
 universidad: UMSS
 facultad: medicina
-anio: 2023
+anio: 2024
 categoria: parcial_curso
 titulo: Primer Parcial · Curso Básico 2023-2024
 duracion_minutos: 90

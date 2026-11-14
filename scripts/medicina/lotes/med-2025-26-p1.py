@@ -113,7 +113,7 @@ FALT_YAML = "\n".join(
 front = f"""---
 universidad: UMSS
 facultad: medicina
-anio: 2025
+anio: 2026
 categoria: parcial_curso
 titulo: Primer Parcial · Curso Básico 2025-2026
 fecha_examen: 2025-12-22

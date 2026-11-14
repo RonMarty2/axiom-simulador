@@ -25,3 +25,14 @@ describe("exámenes de medicina declaran su formato", () => {
     });
   }
 });
+
+describe("gestión de los exámenes del Curso Básico", () => {
+  for (const archivo of archivos) {
+    test(`${archivo}: el anio es el año en que termina el curso`, () => {
+      const examen = parseExamenMD(readFileSync(join(DIR_MEDICINA, archivo), "utf-8"));
+      const m = examen.titulo?.match(/\b20\d{2}-(20\d{2})\b/);
+      assert.ok(m, "el título debe llevar el curso (ej. 2025-2026)");
+      assert.equal(examen.anio, Number(m[1]));
+    });
+  }
+});
