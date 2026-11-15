@@ -1,0 +1,9 @@
+# Corrección (vuelta 2) de scripts/audio/fonetica_es.py
+
+Probé tu módulo contra el texto real de dos capítulos (Calvo y Saladin). Las pruebas pasan, pero hay estos fallos. Corrígelos en el mismo módulo, agrega cada caso a probar_fonetica_es.py con su salida exacta y no cambies nada más.
+
+1. **Siglos romanos (lo hacía la versión vieja y se perdió):** «siglo XX» y «siglo xx» -> «siglo veinte»; «siglos XIX y XX» -> «siglos diecinueve y veinte»; I a XXI. Solo detrás de «siglo/siglos».
+2. **Números de figura, tabla, cuadro, capítulo y sección:** después de figura|fig.|figs.|tabla|cuadro|capítulo|sección (en cualquier mayúscula/minúscula), «5-1» y «17.1» se leen «cinco punto uno» y «diecisiete punto uno» (forma «uno»), NUNCA como rango («cinco a una» está mal). Casos: «FIGURA 5-1 Endocitosis» -> «FIGURA cinco punto uno Endocitosis»; «Tabla 3.2» -> «Tabla tres punto dos»; «CAPÍTULO 17.1» -> «CAPÍTULO diecisiete punto uno».
+3. **Nombre unido a número por guion:** «caveolina-1» -> «caveolina uno»; «Y-X-X-ψ» -> «Y X X psi». Agrega las griegas que faltan: ψ psi, ξ xi, ν ni, κ kappa, η eta, ζ dseta, ι iota, ο ómicron, υ ípsilon (y sus mayúsculas Ψ Φ Γ Λ Θ Π).
+4. **No puede quedar ningún dígito:** cualquier número que quede tras las reglas (también pegado a letras, como «p1803») se convierte a palabras, separando letras y cifras con espacio («p1803» -> «p mil ochocientos tres»). Caso: «aproximadamente 100 nm (fig. 5-1)» -> «aproximadamente cien nanómetros».
+5. **Linter (`revisar`), referencias visuales:** el extractor une las líneas, así que el pie «FIGURA 5-1 ...» queda en medio del párrafo y NO es un error (se lee, decisión A de Ronald). Reporta solo las referencias del cuerpo: «fig.»/«figs.», «(figura N», y «figura|tabla|cuadro N» precedida por en/la/el/ver/véase/como/muestra. NO reportes «FIGURA N» ni «Figura N» seguida de mayúscula.
