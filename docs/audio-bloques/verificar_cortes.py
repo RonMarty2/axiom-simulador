@@ -1,7 +1,7 @@
-"""Comprueba la lista de cortes de agy: cada cita_ini/cita_fin tiene que estar al inicio de su línea.
+"""Comprueba la lista de cortes de agy: cada cita_ini/cita_fin tiene que estar dentro de su línea (el corte puede empezar a mitad).
 Uso: python verificar_cortes.py <RESPUESTA.md> <carpeta _TEXTO_LITERAL_VERIFICADO>"""
 import sys, re, pathlib, csv, io
-resp = pathlib.Path(sys.argv[1]).read_text(encoding='utf-8')
+resp = ''.join(pathlib.Path(x).read_text(encoding='utf-8') for x in sys.argv[1].split(','))
 base = pathlib.Path(sys.argv[2])
 m = re.search(r'```csv\s*\n(.*?)```', resp, re.S)
 if not m: sys.exit('sin bloque csv')
@@ -17,8 +17,8 @@ for f in filas:
     if i == 0: continue
     ok = True
     for n, c in ((i, f['cita_ini']), (j, f['cita_fin'])):
-        w = norm(c)[:4]
-        if not (1 <= n <= len(L)) or norm(L[n-1])[:len(w)] != w:
+        w = ' '.join(norm(c))
+        if not (1 <= n <= len(L)) or w not in ' '.join(norm(L[n-1])):
             ok = False; print(f'CITA MAL {a} L{n}: «{c}» vs «{L[n-1][:60] if 1<=n<=len(L) else "fuera"}»')
     if not ok: malos += 1; continue
     pal = sum(len(x.split()) for x in L[i-1:j])
