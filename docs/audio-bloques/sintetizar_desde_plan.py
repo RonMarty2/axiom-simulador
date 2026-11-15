@@ -352,6 +352,96 @@ def _sha1_texto(texto: str) -> str:
     return hashlib.sha1(texto.encode("utf-8")).hexdigest()
 
 
+def _cargar_textos_reextraidos(ruta_textos_json: Path) -> dict[int, dict]:
+    """Carga el JSON generado por reextraer_errores.py indexado por `j`."""
+    ruta = ruta_textos_json.resolve()
+    if not ruta.is_file():
+        raise FileNotFoundError(f"No existe el archivo --textos: {ruta}")
+    datos = json.loads(ruta.read_text(encoding="utf-8"))
+    if not isinstance(datos, list):
+        raise ValueError(f"El archivo --textos debe ser una lista JSON: {ruta}")
+    por_j: dict[int, dict] = {}
+    for entry in datos:
+        j = int(entry["j"])
+        por_j[j] = entry
+    return por_j
+
+
+def _cargar_manifiesto_previo(ruta_manifiesto: Path) -> dict[int, dict]:
+    """Lee un manifiesto previo de _cache_v2 si existe, indexado por `j`."""
+    if not ruta_manifiesto.is_file():
+        return {}
+    try:
+        datos = json.loads(ruta_manifiesto.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    if not isinstance(datos, list):
+        return {}
+    return {int(entry["j"]): entry for entry in datos if "j" in entry}
+
+
+def _es_parte_copiada_vieja(
+    destino_wav: Path,
+    cand_viejo: Path | None,
+    reg_previo: dict | None,
+    sha1_nuevo: str,
+) -> bool:
+    """Indica si `destino_wav` corresponde a una copia vieja o texto distinto y debe rehacerse."""
+    if reg_previo is not None:
+        accion_prev = reg_previo.get("accion")
+        if accion_prev in ("REUSAR_ANTERIOR", "REUSAR"):
+            return True
+        if reg_previo.get("origen") is not None:
+            return True
+        if reg_previo.get("texto_fuente") != "reextraido":
+            return True
+        if reg_previo.get("sha1") != sha1_nuevo:
+            return True
+        return False
+
+    if cand_viejo is not None and cand_viejo.is_file() and destino_wav.is_file():
+        return destino_wav.read_bytes() == cand_viejo.read_bytes()
+    return False
+
+
+def _sintetizar_y_validar_parte(
+    j: int,
+    texto_bloque: str,
+    destino_wav: Path,
+    dir_cache_v2: Path,
+    modelo: str,
+    keys_pool: list[str],
+    estado_pool: dict[str, int],
+    fn_sintesis: Callable[..., None],
+    seco: bool,
+    prefijo: str,
+    etiqueta_log: str = "",
+) -> None:
+    """Sanitiza y sintetiza una parte hacia `_cache_v2`, respetando `--seco`."""
+    texto_limpio = sanitizar_texto_para_tts(texto_bloque)
+    palabras = len(texto_limpio.split())
+    extra = f"{etiqueta_log}, " if etiqueta_log else ""
+    if seco:
+        print(
+            f"{prefijo}SINTETIZAR parte_{j:03d}.wav ({extra}{palabras} palabras, modelo={modelo})"
+        )
+        return
+
+    dir_cache_v2.mkdir(parents=True, exist_ok=True)
+    print(f"SINTETIZAR parte_{j:03d}.wav ({extra}{palabras} palabras, modelo={modelo})...")
+    fn_sintesis(
+        texto_limpio=texto_limpio,
+        destino_wav=destino_wav,
+        modelo=modelo,
+        keys_pool=keys_pool,
+        estado_pool=estado_pool,
+    )
+    if not _wav_valido(destino_wav):
+        raise RuntimeError(
+            f"El WAV sintetizado para parte_{j:03d}.wav es invalido o <= {TAMANO_MIN_WAV} bytes."
+        )
+
+
 def procesar_capitulo(
     ruta_motor_audio: Path,
     ruta_plan_json: Path,
@@ -359,6 +449,7 @@ def procesar_capitulo(
     seco: bool = False,
     modelo: str = MODELO_DEFECTO,
     sintetizar_fn: Callable[..., None] | None = None,
+    ruta_textos_json: Path | None = None,
 ) -> dict:
     """
     Ejecuta el plan de un capitulo hacia _cache_v2 y _AUDIO_V2 sin tocar _cache ni los audios publicados.
@@ -425,6 +516,18 @@ def procesar_capitulo(
                         f"(plan={inicio_plan!r}, actual={inicio_actual!r}). Capitulo abortado."
                     )
 
+    textos_reextraidos = (
+        _cargar_textos_reextraidos(ruta_textos_json)
+        if ruta_textos_json is not None
+        else None
+    )
+    ruta_manifiesto = dir_cache_v2 / "manifiesto.json"
+    manifiesto_previo = (
+        _cargar_manifiesto_previo(ruta_manifiesto)
+        if textos_reextraidos is not None
+        else {}
+    )
+
     keys_pool = cargar_pool_keys(motor)
     estado_pool: dict[str, int] = {
         "key_idx": 0,
@@ -440,6 +543,7 @@ def procesar_capitulo(
     copiados_viejos = 0
     retomados = 0
     pendientes_error: list[dict] = []
+    pendientes_revisar: list[dict] = []
     registros_manifiesto: list[dict] = []
 
     for item in items:
@@ -454,6 +558,7 @@ def procesar_capitulo(
             if bloques_actuales is not None
             else None
         )
+        texto_fuente_bloque: str | None = None
 
         # Determinar accion/origen/modelo logicos para este bloque
         if accion == "REUSAR":
@@ -478,7 +583,6 @@ def procesar_capitulo(
         elif accion == "SINTETIZAR" and motivo_lower == "nuevo":
             assert bloques_actuales is not None
             bloque_completo = bloques_actuales[j - 1]
-            texto_limpio = sanitizar_texto_para_tts(bloque_completo)
             modelo_bloque = modelo
             origen_manifiesto = None
             accion_manifiesto = "SINTETIZAR"
@@ -489,32 +593,104 @@ def procesar_capitulo(
                     f"{prefijo}RETOMAR parte_{j:03d}.wav (sintesis previa >{TAMANO_MIN_WAV} bytes)"
                 )
             else:
-                palabras = len(bloque_completo.split())
-                if seco:
-                    print(
-                        f"{prefijo}SINTETIZAR parte_{j:03d}.wav ({palabras} palabras, modelo={modelo})"
-                    )
-                else:
-                    dir_cache_v2.mkdir(parents=True, exist_ok=True)
-                    print(
-                        f"SINTETIZAR parte_{j:03d}.wav ({palabras} palabras, modelo={modelo})..."
-                    )
-                    fn_sintesis(
-                        texto_limpio=texto_limpio,
-                        destino_wav=destino_wav,
-                        modelo=modelo,
-                        keys_pool=keys_pool,
-                        estado_pool=estado_pool,
-                    )
-                    if not _wav_valido(destino_wav):
-                        raise RuntimeError(
-                            f"El WAV sintetizado para parte_{j:03d}.wav es invalido o <= {TAMANO_MIN_WAV} bytes."
-                        )
+                _sintetizar_y_validar_parte(
+                    j=j,
+                    texto_bloque=bloque_completo,
+                    destino_wav=destino_wav,
+                    dir_cache_v2=dir_cache_v2,
+                    modelo=modelo,
+                    keys_pool=keys_pool,
+                    estado_pool=estado_pool,
+                    fn_sintesis=fn_sintesis,
+                    seco=seco,
+                    prefijo=prefijo,
+                )
                 sintetizados += 1
 
         elif accion == "SINTETIZAR" and motivo_lower.startswith("error audible"):
             parte_vieja = _extraer_parte_anterior(motivo, j)
-            if solo_nuevos:
+            if textos_reextraidos is not None:
+                info_texto = textos_reextraidos.get(j)
+                estado_reext = (
+                    str(info_texto.get("estado") or "").strip().upper()
+                    if info_texto is not None
+                    else "REVISAR"
+                )
+                if estado_reext == "OK":
+                    assert info_texto is not None
+                    texto_nuevo = str(info_texto.get("texto_nuevo") or "").strip()
+                    if not texto_nuevo:
+                        raise ValueError(
+                            f"Bloque j={j} en --textos marcado OK pero sin texto_nuevo."
+                        )
+                    sha1_bloque = _sha1_texto(texto_nuevo)
+                    texto_fuente_bloque = "reextraido"
+                    modelo_bloque = modelo
+                    origen_manifiesto = None
+                    accion_manifiesto = "SINTETIZAR"
+
+                    cand_viejo = dir_cache_vieja / parte_vieja
+                    reg_previo = manifiesto_previo.get(j)
+                    es_copia_vieja = _es_parte_copiada_vieja(
+                        destino_wav=destino_wav,
+                        cand_viejo=cand_viejo,
+                        reg_previo=reg_previo,
+                        sha1_nuevo=sha1_bloque,
+                    )
+
+                    if _wav_valido(destino_wav) and not es_copia_vieja:
+                        retomados += 1
+                        print(
+                            f"{prefijo}RETOMAR parte_{j:03d}.wav (reextraido ya sintetizado)"
+                        )
+                    else:
+                        etiqueta = "reextraido, rehace copia vieja" if _wav_valido(destino_wav) else "reextraido"
+                        _sintetizar_y_validar_parte(
+                            j=j,
+                            texto_bloque=texto_nuevo,
+                            destino_wav=destino_wav,
+                            dir_cache_v2=dir_cache_v2,
+                            modelo=modelo,
+                            keys_pool=keys_pool,
+                            estado_pool=estado_pool,
+                            fn_sintesis=fn_sintesis,
+                            seco=seco,
+                            prefijo=prefijo,
+                            etiqueta_log=etiqueta,
+                        )
+                        sintetizados += 1
+                else:
+                    origen_wav = _resolver_origen_wav(motor, dir_cache_vieja, parte_vieja, j)
+                    modelo_bloque = None
+                    origen_manifiesto = origen_wav.name
+                    accion_manifiesto = "REUSAR_ANTERIOR"
+                    motivo_rev = (
+                        str(info_texto.get("motivo") or "REVISAR")
+                        if info_texto is not None
+                        else "sin entrada en --textos"
+                    )
+                    pendientes_revisar.append(
+                        {
+                            "j": j,
+                            "motivo": motivo_rev,
+                            "texto_inicio": texto_inicio,
+                        }
+                    )
+
+                    if _wav_valido(destino_wav):
+                        retomados += 1
+                        print(
+                            f"{prefijo}RETOMAR parte_{j:03d}.wav (REVISAR, copia previa existente)"
+                        )
+                    else:
+                        if not seco:
+                            dir_cache_v2.mkdir(parents=True, exist_ok=True)
+                            shutil.copy2(origen_wav, destino_wav)
+                        copiados_viejos += 1
+                        print(
+                            f"{prefijo}REUSAR_ANTERIOR parte_{j:03d}.wav <- {origen_wav.name} (REVISAR)"
+                        )
+            elif solo_nuevos:
                 origen_wav = _resolver_origen_wav(motor, dir_cache_vieja, parte_vieja, j)
                 modelo_bloque = None
                 origen_manifiesto = origen_wav.name
@@ -553,23 +729,23 @@ def procesar_capitulo(
                 f"accion={accion!r}, motivo={motivo!r}"
             )
 
-        registros_manifiesto.append(
-            {
-                "j": j,
-                "accion": accion_manifiesto,
-                "origen": origen_manifiesto,
-                "modelo": modelo_bloque,
-                "texto_inicio": texto_inicio,
-                "sha1": sha1_bloque,
-            }
-        )
+        registro = {
+            "j": j,
+            "accion": accion_manifiesto,
+            "origen": origen_manifiesto,
+            "modelo": modelo_bloque,
+            "texto_inicio": texto_inicio,
+            "sha1": sha1_bloque,
+        }
+        if texto_fuente_bloque is not None:
+            registro["texto_fuente"] = texto_fuente_bloque
+        registros_manifiesto.append(registro)
 
     partes_wav = [dir_cache_v2 / f"parte_{j:03d}.wav" for j in range(1, len(items) + 1)]
     armado = False
     mp3_generado = False
     ruta_wav_final = dir_audio_v2 / f"{capitulo}.wav"
     ruta_mp3_final = dir_audio_v2 / f"{capitulo}.mp3"
-    ruta_manifiesto = dir_cache_v2 / "manifiesto.json"
 
     if pendientes_error:
         print("")
@@ -611,11 +787,27 @@ def procesar_capitulo(
             f"{', '.join(faltantes[:10])}"
         )
 
+    if pendientes_revisar:
+        print("")
+        print(
+            f"Pendientes de revision por reextraccion ({len(pendientes_revisar)}):"
+        )
+        for p in pendientes_revisar:
+            print(
+                f"  parte_{int(p['j']):03d}.wav | {p.get('motivo', '')} | {p.get('texto_inicio', '')}"
+            )
+
+    pendientes_total = (
+        len(pendientes_revisar)
+        if textos_reextraidos is not None
+        else len(pendientes_error)
+    )
+
     print("")
     print(
         f"Resumen ({capitulo}): total={len(items)}, reusados={reusados}, "
         f"sintetizados={sintetizados}, copiados_viejos={copiados_viejos}, "
-        f"retomados={retomados}, pendientes={len(pendientes_error)}, "
+        f"retomados={retomados}, pendientes={pendientes_total}, "
         f"modelo={modelo}, rotaciones_429={estado_pool['rotaciones_429']}, "
         f"rondas_agotadas={estado_pool['rondas_agotadas']}, armado={armado}"
     )
@@ -628,7 +820,8 @@ def procesar_capitulo(
         "sintetizados": sintetizados,
         "copiados_viejos": copiados_viejos,
         "retomados": retomados,
-        "pendientes": len(pendientes_error),
+        "pendientes": pendientes_total,
+        "pendientes_revisar": pendientes_revisar,
         "rotaciones_429": estado_pool["rotaciones_429"],
         "rondas_agotadas": estado_pool["rondas_agotadas"],
         "armado": armado,
@@ -659,6 +852,11 @@ def main(argv: list[str] | None = None) -> int:
         help="En bloques 'error audible...', copia el wav viejo de 'antes parte_XXX' en lugar de sintetizar",
     )
     parser.add_argument(
+        "--textos",
+        default=None,
+        help="Ruta a reextraido/<capitulo>.json para sintetizar bloques 'error audible' OK",
+    )
+    parser.add_argument(
         "--seco",
         action="store_true",
         help="No llama a la API ni copia archivos; imprime que haria",
@@ -677,6 +875,7 @@ def main(argv: list[str] | None = None) -> int:
             solo_nuevos=args.solo_nuevos,
             seco=args.seco,
             modelo=args.modelo,
+            ruta_textos_json=Path(args.textos) if args.textos else None,
         )
     except Exception as exc:
         print(f"Error: {exc}", file=sys.stderr)

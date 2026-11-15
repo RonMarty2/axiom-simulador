@@ -439,6 +439,264 @@ class TestSintetizarDesdePlan(unittest.TestCase):
             self.assertIn("rotaciones_429=2", salida)
             self.assertIn("rondas_agotadas=1", salida)
 
+    def test_textos_sintetiza_ok_y_copia_revisar_sin_tocar_cache(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raiz = Path(tmp)
+            motor, cache, textos, plan_dir = self._preparar_entorno(raiz)
+            datos = self._construir_capitulo_falso(motor, cache, textos, plan_dir)
+            capitulo = datos["capitulo"]
+            dir_cache_cap = datos["dir_cache_cap"]
+
+            # Agrega un quinto bloque con error audible que quedara en REVISAR
+            b5 = _hacer_bloque("E5", "cincuenta unidades residual")
+            ruta_md = textos / f"{capitulo}.md"
+            ruta_md.write_text(
+                ruta_md.read_text(encoding="utf-8") + f"\n\n{b5}\n",
+                encoding="utf-8",
+            )
+            wav_5 = _escribir_wav_falso(dir_cache_cap / "parte_005.wav", 55)
+            plan = json.loads(datos["ruta_plan"].read_text(encoding="utf-8"))
+            plan.append(
+                {
+                    "j": 5,
+                    "accion": "SINTETIZAR",
+                    "origen": None,
+                    "motivo": "error audible (residuo; antes parte_005.wav)",
+                    "texto_inicio": _resumir(b5),
+                }
+            )
+            datos["ruta_plan"].write_text(
+                json.dumps(plan, ensure_ascii=False, indent=2), encoding="utf-8"
+            )
+
+            texto_nuevo_4 = "Concentracion de Na mas en membrana celular corregida."
+            ruta_textos_reext = raiz / "reextraido.json"
+            ruta_textos_reext.write_text(
+                json.dumps(
+                    [
+                        {
+                            "j": 4,
+                            "estado": "OK",
+                            "motivo": "",
+                            "similitud": 1.0,
+                            "pagina": 12,
+                            "texto_viejo": datos["bloques"][3],
+                            "texto_nuevo": texto_nuevo_4,
+                        },
+                        {
+                            "j": 5,
+                            "estado": "REVISAR",
+                            "motivo": "caracter residual",
+                            "similitud": 0.95,
+                            "pagina": 13,
+                            "texto_viejo": b5,
+                            "texto_nuevo": "50 unidades",
+                        },
+                    ],
+                    ensure_ascii=False,
+                    indent=2,
+                ),
+                encoding="utf-8",
+            )
+
+            bytes_cache_antes = {
+                p.name: p.read_bytes() for p in sorted(dir_cache_cap.glob("*.wav"))
+            }
+
+            llamadas: list[dict] = []
+            wav_sintetizado = _bytes_wav_falso(88)
+
+            def fake_sintesis(texto_limpio, destino_wav, modelo, keys_pool, estado_pool):
+                llamadas.append({"destino": destino_wav.name, "texto": texto_limpio})
+                destino_wav.parent.mkdir(parents=True, exist_ok=True)
+                destino_wav.write_bytes(wav_sintetizado)
+
+            buf = io.StringIO()
+            with mock.patch.object(sp, "sintetizar_bloque_tts", side_effect=fake_sintesis):
+                with contextlib.redirect_stdout(buf):
+                    rc = sp.main(
+                        [
+                            str(motor),
+                            str(datos["ruta_plan"]),
+                            "--textos",
+                            str(ruta_textos_reext),
+                        ]
+                    )
+
+            self.assertEqual(rc, 0)
+            self.assertEqual([c["destino"] for c in llamadas], ["parte_003.wav", "parte_004.wav"])
+            self.assertEqual(llamadas[1]["texto"], sp.sanitizar_texto_para_tts(texto_nuevo_4))
+
+            dir_v2 = motor / "_cache_v2" / datos["carpeta_cache"]
+            self.assertEqual((dir_v2 / "parte_004.wav").read_bytes(), wav_sintetizado)
+            self.assertEqual((dir_v2 / "parte_005.wav").read_bytes(), wav_5)
+            self.assertTrue((motor / "_AUDIO_V2" / f"{capitulo}.wav").is_file())
+
+            manifiesto = {
+                int(m["j"]): m
+                for m in json.loads((dir_v2 / "manifiesto.json").read_text(encoding="utf-8"))
+            }
+            self.assertEqual(manifiesto[4]["accion"], "SINTETIZAR")
+            self.assertEqual(manifiesto[4]["texto_fuente"], "reextraido")
+            self.assertEqual(
+                manifiesto[4]["sha1"],
+                hashlib.sha1(texto_nuevo_4.encode("utf-8")).hexdigest(),
+            )
+            self.assertEqual(manifiesto[5]["accion"], "REUSAR_ANTERIOR")
+            self.assertEqual(manifiesto[5]["origen"], "parte_005.wav")
+
+            salida = buf.getvalue()
+            self.assertIn("Pendientes de revision por reextraccion (1):", salida)
+            self.assertIn("parte_005.wav", salida)
+            self.assertIn("pendientes=1", salida)
+
+            # _cache/ original intacto
+            bytes_cache_despues = {
+                p.name: p.read_bytes() for p in sorted(dir_cache_cap.glob("*.wav"))
+            }
+            self.assertEqual(bytes_cache_antes, bytes_cache_despues)
+
+    def test_textos_rehace_parte_que_era_copia_vieja_y_no_repite_ya_reextraida(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raiz = Path(tmp)
+            motor, cache, textos, plan_dir = self._preparar_entorno(raiz)
+            datos = self._construir_capitulo_falso(motor, cache, textos, plan_dir)
+
+            wav_v1 = _bytes_wav_falso(77)
+
+            def fake_sintesis_1(texto_limpio, destino_wav, modelo, keys_pool, estado_pool):
+                destino_wav.parent.mkdir(parents=True, exist_ok=True)
+                destino_wav.write_bytes(wav_v1)
+
+            # Paso 1: --solo-nuevos deja parte_004.wav como REUSAR_ANTERIOR en _cache_v2 y manifiesto.json
+            with mock.patch.object(sp, "sintetizar_bloque_tts", side_effect=fake_sintesis_1):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    rc1 = sp.main([str(motor), str(datos["ruta_plan"]), "--solo-nuevos"])
+            self.assertEqual(rc1, 0)
+
+            dir_v2 = motor / "_cache_v2" / datos["carpeta_cache"]
+            self.assertEqual(
+                (dir_v2 / "parte_004.wav").read_bytes(),
+                datos["bytes_cache"]["parte_004.wav"],
+            )
+
+            # Paso 2: --textos con j=4 OK debe rehacer parte_004.wav usando texto_nuevo
+            texto_nuevo_4 = "Texto corregido para sodio e iones sin errores."
+            ruta_textos_reext = raiz / "reextraido.json"
+            ruta_textos_reext.write_text(
+                json.dumps(
+                    [
+                        {
+                            "j": 4,
+                            "estado": "OK",
+                            "motivo": "",
+                            "similitud": 1.0,
+                            "pagina": 5,
+                            "texto_viejo": datos["bloques"][3],
+                            "texto_nuevo": texto_nuevo_4,
+                        }
+                    ],
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            llamadas_2: list[str] = []
+            wav_v2 = _bytes_wav_falso(91)
+
+            def fake_sintesis_2(texto_limpio, destino_wav, modelo, keys_pool, estado_pool):
+                llamadas_2.append(destino_wav.name)
+                destino_wav.parent.mkdir(parents=True, exist_ok=True)
+                destino_wav.write_bytes(wav_v2)
+
+            with mock.patch.object(sp, "sintetizar_bloque_tts", side_effect=fake_sintesis_2):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    rc2 = sp.main(
+                        [
+                            str(motor),
+                            str(datos["ruta_plan"]),
+                            "--textos",
+                            str(ruta_textos_reext),
+                        ]
+                    )
+            self.assertEqual(rc2, 0)
+            self.assertEqual(llamadas_2, ["parte_004.wav"])
+            self.assertEqual((dir_v2 / "parte_004.wav").read_bytes(), wav_v2)
+
+            manifiesto = {
+                int(m["j"]): m
+                for m in json.loads((dir_v2 / "manifiesto.json").read_text(encoding="utf-8"))
+            }
+            self.assertEqual(manifiesto[4]["accion"], "SINTETIZAR")
+            self.assertEqual(manifiesto[4]["texto_fuente"], "reextraido")
+            self.assertEqual(
+                manifiesto[4]["sha1"],
+                hashlib.sha1(texto_nuevo_4.encode("utf-8")).hexdigest(),
+            )
+
+            # Paso 3: segunda ejecucion con mismo --textos retoma parte_004 sin re-sintetizar
+            llamadas_3: list[str] = []
+
+            def fake_sintesis_3(**kwargs):
+                llamadas_3.append(kwargs["destino_wav"].name)
+
+            with mock.patch.object(sp, "sintetizar_bloque_tts", side_effect=fake_sintesis_3):
+                with contextlib.redirect_stdout(io.StringIO()):
+                    rc3 = sp.main(
+                        [
+                            str(motor),
+                            str(datos["ruta_plan"]),
+                            "--textos",
+                            str(ruta_textos_reext),
+                        ]
+                    )
+            self.assertEqual(rc3, 0)
+            self.assertEqual(llamadas_3, [])
+
+    def test_textos_seco_no_llama_api_ni_escribe_archivos(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            raiz = Path(tmp)
+            motor, cache, textos, plan_dir = self._preparar_entorno(raiz)
+            datos = self._construir_capitulo_falso(motor, cache, textos, plan_dir)
+
+            ruta_textos_reext = raiz / "reextraido.json"
+            ruta_textos_reext.write_text(
+                json.dumps(
+                    [
+                        {
+                            "j": 4,
+                            "estado": "OK",
+                            "motivo": "",
+                            "similitud": 1.0,
+                            "pagina": 5,
+                            "texto_viejo": datos["bloques"][3],
+                            "texto_nuevo": "Texto corregido sin errores.",
+                        }
+                    ]
+                ),
+                encoding="utf-8",
+            )
+
+            llamadas: list[str] = []
+            buf = io.StringIO()
+            with mock.patch.object(
+                sp, "sintetizar_bloque_tts", side_effect=lambda **k: llamadas.append("x")
+            ):
+                with contextlib.redirect_stdout(buf):
+                    rc = sp.main(
+                        [
+                            str(motor),
+                            str(datos["ruta_plan"]),
+                            "--textos",
+                            str(ruta_textos_reext),
+                            "--seco",
+                        ]
+                    )
+            self.assertEqual(rc, 0)
+            self.assertEqual(llamadas, [])
+            self.assertFalse((motor / "_cache_v2").exists())
+            self.assertIn("[SECO]", buf.getvalue())
+
 
 def main() -> int:
     if hasattr(sys.stdout, "reconfigure"):
