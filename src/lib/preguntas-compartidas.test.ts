@@ -84,7 +84,7 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
       assert.deepEqual(p.prestada, {
         desde: "ingenieria",
         etiqueta: "Pregunta de práctica de Ingeniería",
-        nota: "Provisional hasta tener el temario oficial de la PSA 2027.",
+        nota: "Viene de un examen de Ingeniería y es de un tema que pide la lista oficial de la PSA 2027.",
       });
     }
 
@@ -202,11 +202,10 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     }
   });
 
-  test("(e) mixto, por_tema y examen_real nunca incluyen preguntas prestadas (ni si la ficha no pide el área)", () => {
+  test("(e) mixto y examen_real nunca incluyen preguntas prestadas (ni si la ficha no pide el área)", () => {
     const reglas = cargarReglasCompartidas();
     const modosSinPrestadas: ModoSimulacion[] = [
       "mixto",
-      "por_tema",
       "examen_real",
       "ia_generado",
       "mis_errores",
@@ -242,5 +241,34 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     });
     assert.equal(poolSinAreas.some((p) => p.prestada !== undefined), false);
     assert.equal(poolSinAreas.length, poolMedicina.length);
+  });
+
+  test("(f) por_tema también presta (15-nov-2026), con el área de Medicina", () => {
+    const reglas = cargarReglasCompartidas();
+    const pool = ampliarPoolConPrestadas({
+      modo: "por_tema",
+      facultad: "medicina",
+      pool: poolMedicina,
+      banco,
+      ficha: fichaPsa2027,
+      reglas,
+    });
+    const prestadas = pool.filter((p) => p.prestada !== undefined);
+    assert.ok(prestadas.length > 0, "por_tema debe incluir prestadas");
+    for (const p of prestadas) assert.ok(["matematicas", "fisica", "quimica"].includes(p.area), p.area);
+  });
+
+  test("(g) temas fuera de la Lista PSA 2027 (temas_excluidos) no se prestan", () => {
+    const [regla] = reglasActivasPara(cargarReglasCompartidas(), "medicina");
+    assert.ok(regla && (regla.temas_excluidos ?? []).length > 0);
+    const base = poolIngenieria.find((p) => p.area === "quimica");
+    assert.ok(base);
+    const fuera = { ...base, id: "x-hess", tema: "ley-de-hess-calor-de-formacion" };
+    const dentro = { ...base, id: "x-sol", tema: "molaridad-dilucion" };
+    const ids = prestarPreguntas([fuera, dentro], regla, fichaPsa2027).map((p) => p.id);
+    assert.deepEqual(ids, ["prestada:x-sol"]);
+    const todas = prestarPreguntas(poolIngenieria, regla, fichaPsa2027);
+    const res = (regla.temas_excluidos ?? []).map((t) => new RegExp(t, "i"));
+    assert.equal(todas.some((p) => res.some((r) => r.test(p.tema ?? ""))), false);
   });
 });

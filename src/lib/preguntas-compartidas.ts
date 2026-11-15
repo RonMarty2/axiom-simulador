@@ -11,6 +11,8 @@ export interface ReglaPreguntasCompartidas {
   areas: Record<string, string>;
   etiqueta: string;
   nota: string;
+  /** Patrones (regex, sin mayúsculas) sobre `tema`: lo que calza NO se presta (fuera de la lista oficial). */
+  temas_excluidos?: string[];
 }
 
 const RUTA_REGLAS_DEFAULT = path.join(process.cwd(), "data", "preguntas-compartidas.json");
@@ -62,10 +64,12 @@ export function prestarPreguntas(
 
   const idsVistos = new Set<string>();
   const prestadas: PreguntaBanco[] = [];
+  const excluidos = (regla.temas_excluidos ?? []).map((t) => new RegExp(t, "i"));
 
   for (const p of preguntasOrigen) {
     const areaDestino = regla.areas[p.area];
     if (!areaDestino || !areasValidas.has(areaDestino)) continue;
+    if (excluidos.some((re) => re.test(p.tema ?? ""))) continue;
 
     const id = p.id.startsWith("prestada:") ? p.id : `prestada:${p.id}`;
     if (idsVistos.has(id)) continue;
@@ -106,12 +110,12 @@ export interface OpcionesAmpliarPool {
 }
 
 /**
- * Amplía el pool SOLO en modo `predictivo` cuando existe una regla activa para `facultad`
+ * Amplía el pool SOLO en los modos `predictivo` y `por_tema` (este desde el 15-nov-2026) cuando existe una regla activa para `facultad`
  * y la ficha vigente incluye las áreas destino. En cualquier otro modo devuelve una copia
  * superficial del pool sin preguntas prestadas.
  */
 export function ampliarPoolConPrestadas(opts: OpcionesAmpliarPool): PreguntaBanco[] {
-  if (opts.modo !== "predictivo" || !opts.ficha) {
+  if ((opts.modo !== "predictivo" && opts.modo !== "por_tema") || !opts.ficha) {
     return [...opts.pool];
   }
   const reglas = opts.reglas ?? cargarReglasCompartidas();
