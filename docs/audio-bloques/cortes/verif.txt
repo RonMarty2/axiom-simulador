@@ -1,0 +1,107 @@
+ok Tema_01_Biologia_Celular_LITERAL_TTS.md 37-39/39 bibliografia 546 pal (final) Lecturas recomendadas al final del tema
+ok Tema_02_Biologia_Celular_LITERAL_TTS.md 41-43/59 bibliografia 734 pal (medio) Lecturas recomendadas intercaladas antes de sección ADN reco
+ok Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS.md 65-71/71 autoevaluacion 1085 pal (final) Preguntas de autoevaluación con respuestas al final
+ok Tema_03_Biologia_Celular_LITERAL_TTS.md 77-78/93 bibliografia 409 pal (medio) Lecturas recomendadas
+ok Tema_03_Biologia_Celular_LITERAL_TTS.md 79-87/93 actividad 1848 pal (medio) Actividad práctica y problema con respuestas de determinació
+ok Tema_03_Biologia_Celular_LITERAL_TTS.md 87-93/93 autoevaluacion 1299 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_04_Biologia_Celular_LITERAL_TTS.md 83-85/93 bibliografia 707 pal (medio) Lecturas recomendadas antes de recuadro Ecuación de Nernst
+ok Tema_04_Biologia_Celular_LITERAL_TTS.md 87-93/93 autoevaluacion 1084 pal (final) Preguntas de autoevaluación con respuestas tras recuadro con
+ok Tema_05_Biologia_Celular_LITERAL_TTS.md 73-75/83 bibliografia 823 pal (medio) Lecturas recomendadas
+ok Tema_05_Biologia_Celular_LITERAL_TTS.md 75-83/83 autoevaluacion 1247 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_06_Biologia_Celular_LITERAL_TTS.md 129-134/143 bibliografia 285 pal (medio) Lecturas recomendadas
+ok Tema_06_Biologia_Celular_LITERAL_TTS.md 135-143/143 autoevaluacion 639 pal (final) Preguntas de autoevaluación con respuestas
+CITA MAL Tema_07_Biologia_Celular_LITERAL_TTS.md L114: «Biol. dos mil diez diez,: a000562.»
+ok Tema_07_Biologia_Celular_LITERAL_TTS.md 115-120/131 actividad 557 pal (medio) Actividades prácticas 1 y 2
+ok Tema_07_Biologia_Celular_LITERAL_TTS.md 121-130/131 autoevaluacion 1074 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_07_Biologia_Celular_LITERAL_TTS.md 131-131/131 bibliografia 30 pal (final) Nota al pie bibliográfica suelta tras la autoevaluación
+ok Tema_08_Biologia_Celular_LITERAL_TTS.md 97-102/109 bibliografia 253 pal (medio) Lecturas recomendadas
+ok Tema_08_Biologia_Celular_LITERAL_TTS.md 103-109/109 autoevaluacion 547 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_09_Biologia_Celular_LITERAL_TTS.md 69-72/81 bibliografia 251 pal (medio) Lecturas recomendadas
+ok Tema_09_Biologia_Celular_LITERAL_TTS.md 73-81/81 autoevaluacion 726 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_10_Biologia_Celular_LITERAL_TTS.md 67-70/79 bibliografia 265 pal (medio) Lecturas recomendadas
+ok Tema_10_Biologia_Celular_LITERAL_TTS.md 71-79/79 autoevaluacion 348 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_11_Biologia_Celular_LITERAL_TTS.md 65-70/79 bibliografia 308 pal (medio) Lecturas recomendadas
+ok Tema_11_Biologia_Celular_LITERAL_TTS.md 71-79/79 autoevaluacion 965 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_12_Biologia_Celular_LITERAL_TTS.md 85-88/93 bibliografia 272 pal (medio) Lecturas recomendadas
+ok Tema_12_Biologia_Celular_LITERAL_TTS.md 89-93/93 autoevaluacion 465 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_13_Biologia_Celular_LITERAL_TTS.md 85-88/97 bibliografia 296 pal (medio) Lecturas recomendadas
+ok Tema_13_Biologia_Celular_LITERAL_TTS.md 89-97/97 autoevaluacion 532 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_14_Biologia_Celular_LITERAL_TTS.md 77-80/87 bibliografia 254 pal (medio) Lecturas recomendadas
+ok Tema_14_Biologia_Celular_LITERAL_TTS.md 81-87/87 autoevaluacion 772 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_15_Biologia_Celular_LITERAL_TTS.md 85-88/93 bibliografia 211 pal (medio) Lecturas recomendadas
+ok Tema_15_Biologia_Celular_LITERAL_TTS.md 89-93/93 autoevaluacion 373 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_16_Biologia_Celular_LITERAL_TTS.md 93-96/103 bibliografia 247 pal (medio) Lecturas recomendadas
+ok Tema_16_Biologia_Celular_LITERAL_TTS.md 97-103/103 autoevaluacion 1010 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_17_Biologia_Celular_LITERAL_TTS.md 89-92/99 bibliografia 200 pal (medio) Lecturas recomendadas
+ok Tema_17_Biologia_Celular_LITERAL_TTS.md 93-99/99 autoevaluacion 692 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_18_Biologia_Celular_LITERAL_TTS.md 55-58/63 bibliografia 189 pal (medio) Lecturas recomendadas
+ok Tema_18_Biologia_Celular_LITERAL_TTS.md 59-63/63 autoevaluacion 817 pal (final) Preguntas de autoevaluación con respuestas
+ok Tema_01_Morfo_Saladin_LITERAL_TTS.md 1-1/79 indice 309 pal (inicio) Esquema del capítulo con números de página
+ok Tema_01_Morfo_Saladin_LITERAL_TTS.md 63-79/79 guia 1852 pal (final) Encabezado repetido en L63 y guía de estudio con autoevaluac
+ok Tema_02_Morfo_Saladin_LITERAL_TTS.md 1-1/91 indice 284 pal (inicio) Esquema del capítulo con números de página
+CITA MAL Tema_02_Morfo_Saladin_LITERAL_TTS.md L91: «los temas estudiados Consultar o saladin6»
+ok Tema_03_Morfo_Saladin_LITERAL_TTS.md 1-1/93 indice 212 pal (inicio) Esquema del capítulo con números de página
+ok Tema_03_Morfo_Saladin_LITERAL_TTS.md 87-93/93 guia 1881 pal (final) Guía de estudio y autoevaluación final
+CITA MAL Tema_04_Morfo_Saladin_LITERAL_TTS.md L1: «célula bacteriana rota , SEM,.»
+ok Tema_04_Morfo_Saladin_LITERAL_TTS.md 75-81/81 guia 2086 pal (final) Guía de estudio y autoevaluación final
+ok Tema_05_Morfo_Saladin_LITERAL_TTS.md 1-1/99 indice 323 pal (inicio) Esquema del capítulo con números de página
+ok Tema_05_Morfo_Saladin_LITERAL_TTS.md 93-99/99 guia 1847 pal (final) Guía de estudio y autoevaluación final
+ok Tema_06_Morfo_Saladin_LITERAL_TTS.md 1-1/77 indice 233 pal (inicio) Esquema del capítulo con números de página
+ok Tema_06_Morfo_Saladin_LITERAL_TTS.md 71-77/77 guia 1476 pal (final) Guía de estudio y autoevaluación final
+ok Tema_07_Morfo_Saladin_LITERAL_TTS.md 1-1/79 indice 214 pal (inicio) Esquema del capítulo con números de página
+ok Tema_07_Morfo_Saladin_LITERAL_TTS.md 79-79/79 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_08_Morfo_Saladin_LITERAL_TTS.md 1-1/109 indice 278 pal (inicio) Esquema del capítulo con números de página
+ok Tema_08_Morfo_Saladin_LITERAL_TTS.md 109-109/109 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_09_Morfo_Saladin_LITERAL_TTS.md 1-1/77 indice 207 pal (inicio) Esquema del capítulo con números de página
+ok Tema_09_Morfo_Saladin_LITERAL_TTS.md 77-77/77 encabezado 3 pal (final) Encabezado repetido al final
+ok Tema_10_Morfo_Saladin_LITERAL_TTS.md 1-1/151 indice 400 pal (inicio) Esquema del capítulo con números de página
+ok Tema_10_Morfo_Saladin_LITERAL_TTS.md 151-151/151 encabezado 981 pal (final) Encabezado repetido al final pegado al cuerpo
+ok Tema_11_Morfo_Saladin_LITERAL_TTS.md 1-1/107 indice 307 pal (inicio) Esquema del capítulo con números de página
+ok Tema_11_Morfo_Saladin_LITERAL_TTS.md 107-107/107 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_12_Morfo_Saladin_LITERAL_TTS.md 1-1/105 indice 370 pal (inicio) Esquema del capítulo con números de página
+ok Tema_12_Morfo_Saladin_LITERAL_TTS.md 105-105/105 encabezado 4 pal (final) Encabezado repetido al final
+ok Tema_13_Morfo_Saladin_LITERAL_TTS.md 1-1/77 indice 219 pal (inicio) Esquema del capítulo con números de página
+ok Tema_13_Morfo_Saladin_LITERAL_TTS.md 77-77/77 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_14_Morfo_Saladin_LITERAL_TTS.md 1-1/121 indice 320 pal (inicio) Esquema del capítulo con números de página
+ok Tema_14_Morfo_Saladin_LITERAL_TTS.md 121-121/121 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_15_Morfo_Saladin_LITERAL_TTS.md 1-1/57 indice 185 pal (inicio) Esquema del capítulo con números de página
+ok Tema_15_Morfo_Saladin_LITERAL_TTS.md 57-57/57 encabezado 10 pal (final) Encabezado repetido al final
+ok Atlas_A_Morfo_Saladin_LITERAL_TTS.md 3-3/47 indice 82 pal (inicio) Sumario de secciones con paginación
+ok Atlas_A_Morfo_Saladin_LITERAL_TTS.md 41-47/47 guia 1366 pal (final) Guía de estudio y autoevaluación final
+ok Atlas_B_Morfo_Saladin_LITERAL_TTS.md 1-1/43 indice 86 pal (inicio) Esquema del atlas con números de página
+ok Atlas_B_Morfo_Saladin_LITERAL_TTS.md 43-43/43 autoevaluacion 165 pal (final) Examen de reconocimiento muscular con claves al final
+ok Tema_16_Morfo_Saladin_LITERAL_TTS.md 1-1/119 indice 304 pal (inicio) ESQUEMA DEL CAPÍTULO y pie de figura inicial
+ok Tema_16_Morfo_Saladin_LITERAL_TTS.md 3-5/119 encabezado 11 pal (inicio) Encabezados de capítulo y parte antes del cuerpo
+ok Tema_16_Morfo_Saladin_LITERAL_TTS.md 119-119/119 encabezado 6 pal (final) Encabezado repetido al final (sin autoevaluación final)
+ok Tema_17_Morfo_Saladin_LITERAL_TTS.md 1-1/85 indice 445 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_17_Morfo_Saladin_LITERAL_TTS.md 85-85/85 encabezado 4 pal (final) Encabezado repetido al final (sin autoevaluación final)
+ok Tema_18_Morfo_Saladin_LITERAL_TTS.md 1-1/67 indice 358 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_18_Morfo_Saladin_LITERAL_TTS.md 67-67/67 encabezado 6 pal (final) Encabezado repetido al final (sin autoevaluación final)
+ok Tema_19_Morfo_Saladin_LITERAL_TTS.md 1-1/65 indice 330 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_19_Morfo_Saladin_LITERAL_TTS.md 65-65/65 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_20_Morfo_Saladin_LITERAL_TTS.md 1-1/109 indice 318 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_20_Morfo_Saladin_LITERAL_TTS.md 109-109/109 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_21_Morfo_Saladin_LITERAL_TTS.md 1-1/85 indice 289 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_21_Morfo_Saladin_LITERAL_TTS.md 85-85/85 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_22_Morfo_Saladin_LITERAL_TTS.md 1-1/77 indice 341 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_22_Morfo_Saladin_LITERAL_TTS.md 77-77/77 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_23_Morfo_Saladin_LITERAL_TTS.md 1-1/63 indice 376 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_23_Morfo_Saladin_LITERAL_TTS.md 63-63/63 encabezado 5 pal (final) Encabezado repetido al final (sin autoevaluación final)
+ok Tema_24_Morfo_Saladin_LITERAL_TTS.md 1-1/41 indice 229 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_24_Morfo_Saladin_LITERAL_TTS.md 41-41/41 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_25_Morfo_Saladin_LITERAL_TTS.md 1-1/87 indice 455 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_25_Morfo_Saladin_LITERAL_TTS.md 87-87/87 encabezado 5 pal (final) Encabezado repetido al final (sin autoevaluación final)
+ok Tema_26_Morfo_Saladin_LITERAL_TTS.md 1-1/61 indice 262 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_26_Morfo_Saladin_LITERAL_TTS.md 61-61/61 encabezado 5 pal (final) Encabezado de parte repetido al final
+ok Tema_27_Morfo_Saladin_LITERAL_TTS.md 1-1/57 autoevaluacion 212 pal (inicio) Resto de autoevaluación del capítulo 26 al inicio
+ok Tema_27_Morfo_Saladin_LITERAL_TTS.md 3-3/57 indice 341 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_27_Morfo_Saladin_LITERAL_TTS.md 57-57/57 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_28_Morfo_Saladin_LITERAL_TTS.md 1-1/71 autoevaluacion 396 pal (inicio) Resto de autoevaluación del capítulo 27 al inicio
+ok Tema_28_Morfo_Saladin_LITERAL_TTS.md 3-3/71 indice 314 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_28_Morfo_Saladin_LITERAL_TTS.md 71-71/71 encabezado 5 pal (final) Encabezado repetido al final
+ok Tema_29_Morfo_Saladin_LITERAL_TTS.md 1-1/63 autoevaluacion 550 pal (inicio) Resto de autoevaluación del capítulo 28 al inicio
+ok Tema_29_Morfo_Saladin_LITERAL_TTS.md 3-3/63 indice 251 pal (inicio) ESQUEMA DEL CAPÍTULO y encabezado inicial
+ok Tema_29_Morfo_Saladin_LITERAL_TTS.md 63-63/63 encabezado 5 pal (final) Encabezado de parte repetido al final
+FALTAN []
+filas mal 3 de 104
+palabras por tipo {'bibliografia': 6280, 'autoevaluacion': 14998, 'actividad': 2405, 'indice': 8642, 'guia': 10508, 'encabezado': 1105}
