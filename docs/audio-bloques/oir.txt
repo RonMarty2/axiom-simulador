@@ -1,0 +1,24 @@
+== Tema_04_Biologia_Celul parte_033 [miles]
+TEXTO: ...es y macromoléculas , de peso molecular menor que dos coma cero cero cero Da, entre dos células vecinas. La estructura de l...
+OIDO :  Canales de las uniones de tipo GAP Este tipo de estructuras, también conocidas  con el nombre de uniones en hendidura o nexos, están formadas por numerosos canales y están  implicadas en la comunicación intercellular, pues permiten el paso de iones y macromoléculas  de peso molecular menor que 2,000 das entre dos células vecinas. La estructura de las  uniones de tipo GAP se explica con mayor detalle en el capítulo 6.
+
+== Tema_04_Biologia_Celul parte_001 [Na+]
+TEXTO: ...activo, sus tipos y el funcionamiento de la bomba Na+ o K+ ATPasa. • Relacionar la alteración de los me...
+OIDO :  Capítulo 4. Microtransporte a través de la membrana plasmática.  Tarek Ahami, Diego Peñafiel, Estefania Maldonado, Alfonso Calvo.  Objetivos de aprendizaje. Conocer los mecanismos de la difusión simple y el transporte facilitado  a través de la membrana plasmática. Conocer los fundamentos del transporte activo,  sus tipos y el funcionamiento de la bomba sodio KATP-ASA-ATP-ASA. Relacionar la alteración de  los mecanismos de transporte con el desarrollo de algunas enfermedades. Comprender los fundamentos  que determinan la génesis del potencial de membrana en reposo. Conocer las distintas  fases del potencial de acción y cómo se propaga.
+
+== Tema_04_Biologia_Celul parte_093 [μm]
+TEXTO: ... este ión deben ser muy bajos , cero,un a cero,un μmol o l, pues, de lo contrario, se uniría a los Pi ...
+OIDO :  Los niveles intracellulares de este yon deben ser muy bajos, 0,1 a 0,1 milimol, o litros,  pues de lo contrario se uniría a los PI libres dando lugar a fosfato de calcio.  Una de las funciones de la CA2 más ATP-ASA es permitir la adecuada relajación del miocardio  a través de la expulsión de CA2 más citosólico hacia el exterior celular.  Existen hormonas potenciadoras de este transporte, como por ejemplo el calcitriol.
+
+== Tema_04_Biologia_Celul parte_006 [CO2]
+TEXTO: ...rana. Algunas sustancias como los gases , O2, N2, CO2, las moléculas hidrófobas , benceno, y las sustan...
+OIDO :  ¡Difusión simple! Como hemos indicado, la difusión simple es el transporte a favor de  gradiente, desde el lado de la membrana donde hay una alta concentración de soluto, hacia  el lado con una baja concentración, sin necesidad de ningún transportador en la membrana.  Algunas sustancias, como los gases, O2, N2, CO2, las moléculas hidrófobas, benzeno,  y las sustancias hidrófilas polares, pero no cargadas, el agua y los alcoles, presentan  liposolubilidad, por lo que pueden pasar directamente a través de la doble capa lipídica, y difundir  a través de la membrana.
+
+== Tema_04_Biologia_Celul parte_042 [alfa]
+TEXTO: ...les de agua. Cada monómero consta de seis hélices α transmembrana con una secuencia conservada de ami...
+OIDO :  Hasta hoy se han identificado 13 aquaporinas, acupe 0, acupe 12, en diferentes tejidos.  Se encuentran principalmente en el riñón, siendo también abundantes en eritrocitos,  epitelio intestinal, células gliales del cerebro, etc.  Las acupe forman un poro central, a través del cual pasa la molécula de agua, figura 4 a 9.  El tipo más abundante de aquaporinas es la acupe 1.  Se trata de un complejo tetramérico, compuesto por 4 canales de agua.  Cada monómero consta de 6 élises alfa transmembrana, con una secuencia conservada de aminoácidos en Tandem,  la cual incluye secuencias aminoacíricas asparragina, prolina, alanina, NPA, B, figura 4 a 9.
+
+== Tema_04_Biologia_Celul parte_022 [p. ej.]
+TEXTO: ...concentración extracelular de solutos disminuye , p. ej., debido a dilución, convirtiéndose en una solució...
+OIDO :  Ejemplo, debido a una pérdida de agua, convirtiéndose en una solución hipertónica, el agua difunde  al exterior por osmosis, haciendo que las células se deshidraten y encojan, lo que altera su  función. Cuando la concentración extraselular de solutos disminuye, por ejemplo, debido  a dilución, convirtiéndose en una solución hipotónica, el agua difunde osmóticamente  hacia el interior de las células, haciendo que se hinchen y pudiendo provocar así  la rotura de la membrana y, por lo tanto, causando lisis celular, figura 4A4.
+
