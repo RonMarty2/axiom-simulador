@@ -1,0 +1,898 @@
+=== PDF p.30 (libro p.29) ===
+2.2. CIENCIAS NATURALES: FÍSICA                                                                                                                                                            Planes y Programas de Educación Secundaria Comunitaria Productiva
+
+ENFOQUE DEL ÁREA
+El estudio de la Física debe promover un pensamiento fenomenológico de los procesos naturales, es decir enfatizar la enseñanza en el pensar contemplando la naturaleza,
+introduciendo dosificadamente las medidas cuantitativas sin perder el enfoque del enseñar a pensar a través del método científico.
+Así el enfoque es investigativo, experimental, aplicativo y transformador; tomando los recursos estratégicos nacionales como parte fundamental para el estudio de los
+fenómenos naturales y comprender los procesos del mundo. Las relaciones entre ciencia, tecnología, sociedad, medio ambiente y el conocimiento de los problemas a
+los que se enfrenta la humanidad, sus causas y medidas necesarias para avanzar hacia un futuro sostenible y contribuir a las condiciones de vida mediante el desarrollo
+científico y tecnológico. Desde este punto de vista la Física tiene un carácter:
+
+ · Investigativo, que establece procedimientos sistemáticos y organizados para comprender la Naturaleza y el Cosmos.
+ · Experimental, donde la práctica productiva respaldada con la argumentación, es indispensable para construir los hechos científicos.
+ · Aplicada, porque tiene que ver con la aplicación de los conocimientos y las tecnologías en la vida diaria.
+ · Transformador de los recursos estratégicos, con el cuidado respeto y protección a la Madre Tierra desarrollando prácticas científicas en la transformación de recursos
+
+   naturales.
+PERFIL DE SALIDA DEL TERCER AÑO DE ESCOLARIDAD
+
+ · Comprende la diferencia entre Física, Química y Matemática, además de las características de cada una en un trabajo científico.
+ · Adquiere destrezas para realizar prácticas de laboratorio productivo de acuerdo a su entorno.
+ · Realiza operaciones básicas en cuanto a medidas, cantidades escalares y vectoriales además de conceptos básicos de las características fundamentales de las Ondas,
+
+   Óptica Geométrica y nociones de Calor y Temperatura.
+ · Comprende la importancia de la aplicación de conocimientos científicos para mejorar su comunidad con respeto a la Madre Tierra.
+CONTENIDOS DEL TERCER AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                            SEGUNDO TRIMESTRE                                            TERCER TRIMESTRE
+
+MATEMÁTICA APLICADA A LA FÍSICA EN MEDICIONES               ANÁLISIS VECTORIAL I (MÉTODOS GRÁFICOS)                      ONDAS
+ · Cifras significativas y redondeo de valores               · Magnitudes Escalares y vectoriales                         · Características de una onda (longitud de onda, Periodo
+ · Notación científica y prefijos numéricos                  · Clasificación de vectores                                     y frecuencia)
+ · Magnitudes y unidades de medida                           · Operaciones vectoriales por métodos gráficos (triángulo,   · Clasificación de las ondas en la Madre Tierra y la Naturaleza
+ · Conversión de unidades                                       polígono y paralelogramo)                                    y Cosmos (Ondas Mecánicas y Electromagnéticas)
+ · Determinación de perímetros, áreas y volúmenes                                                                         · Ondas de sonido
+                                                            EXPERIENCIA PRÁCTICA PRODUCTIVA                               · Velocidad del sonido en diferentes materiales.
+MEDICIONES Y ERRORES EN LAS                   EXPERIENCIAS   · Laboratorio: Magnitudes vectoriales en la tierra y el      · Manifestación de la luz como onda, velocidad de la luz
+PRODUCTIVAS                                                     cosmos (Método del polígono)                              · Espectro electromagnético
+                                                                                                                          · Efecto fotoeléctrico
+ · Precisión y exactitud                                    ANÁLISIS VECTORIAL II (MÉTODOS ANALÍTICOS)                    · El satélite TKSAT-1 (Túpac Katari) y las telecomunicaciones
+ · Errores, tipos y clasificación de errores                 · Resolución de vectores por métodos trigonométricos            en Bolivia
+                                                             · Descomposición vectorial en el plano y en el espacio
+TRIGONOMETRÍA BÁSICA APLICADA A LA FÍSICA                    · Vectores unitarios (operaciones)                          EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                                             · Producto escalar y vectorial                               · Laboratorio: Apreciación de las ondas en el entorno
+· Teorema de Pitágoras                                                                                                    · Laboratorio: El espectro electromagnético en la
+· Funciones trigonométricas                                                                                                  naturaleza
+· Ley de senos y cosenos
+
+                                                            29
+=== PDF p.31 (libro p.30) ===
+                                             EXPERIENCIA PRÁCTICA PRODUCTIVA                         EXPERIENCIA PRÁCTICA PRODUCTIVA                             ÓPTICA GEOMÉTRICA
+                                                                                                     · Vector desplazamiento desde el domicilio hasta la Unidad   · Leyes de reflexión
+                                             · Laboratorio: Determinación errores en las mediciones                                                               · Índice de refracción
+                                                (Medición de volúmenes, medición de ángulos de          Educativa                                                 · Leyes de refracción
+                                                inclinación, etc.)                                                                                                · Espejos planos
+                                                                                                                                                                  · Espejos esféricos
+                                             · Laboratorio: Cuantificación de las magnitudes en los                                                               · Ecuaciones de espejos
+                                                fenómenos de la naturaleza (Medición Directa)                                                                     · Lentes delgadas
+                                                                                                                                                                  · Tipos de lentes
+                                                                                                                                                                  · Ecuación de lentes
+
+Educación Secundaria Comunitaria Productiva                                                                                                                      EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                                                                                                                                                  · La luz como fenómeno de interacción con los seres de la
+                                                                                                                                                                     naturaleza
+
+                                                                                                                                                                 CALOR Y TEMPERATURA
+
+                                                                                                                                                                  · Escalas termométricas
+                                                                                                                                                                  · Dilatación térmica de los cuerpos (lineal, superficial y
+
+                                                                                                                                                                     volumétrica)
+                                                                                                                                                                  · Calor específico de los cuerpos
+                                                                                                                                                                  · Impacto del Cambio Climático en Bolivia
+
+                                                                                                                                                                 EXPERIENCIA PRÁCTICA PRODUCTIVA
+
+                                                                                                                                                                  · Incidencia del calor en la naturaleza y su influencia en los
+                                                                                                                                                                     cambios de la materia
+
+                                                                                                                                                                  · Manifestación de los cambios de temperatura en los
+                                                                                                                                                                     cuerpos en la Madre Tierra
+
+                                             PERFIL DE SALIDA DEL CUARTO AÑO DE ESCOLARIDAD
+                                              · Comprende los principios básicos de la Mecánica Newtoniana, es decir Cinemática de la partícula en 1 y 2 dimensiones.
+                                              · Aplica estrategias personales, coherentes con los procedimientos de la ciencia, en las prácticas de Laboratorio.
+                                              · Resuelve problemas básicos de cinemática de forma cuantitativa y cualitativa.
+                                              · Participa en la planificación y realización en equipo de actividades científicas, valorando las aportaciones propias y ajenas.
+                                             CONTENIDOS DEL CUARTO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                        SEGUNDO TRIMESTRE                                                          TERCER TRIMESTRE
+
+                                             EL MOVIMIENTO COMO PRINCIPIO FUNDAMENTAL DEL            MOVIMIENTO VERTICAL COMO                    FENÓMENO        MOVIMIENTO CIRCULAR UNIFORME (MCU)
+                                             UNIVERSO Y EL COSMOS                                    GRAVITACIONAL
+                                                                                                                                                                  · Características del MCU (Nociones del estudio de la
+                                              · Movimiento                                            · Características del movimiento vertical                      circunferencia)
+                                              · Elementos del movimiento: posición, trayectoria,      · La aceleración de la gravedad
+                                                                                                      · Modelos matemáticos (Ecuaciones)                          · Modelos matemáticos (Ecuaciones): Desplazamiento
+                                                 desplazamiento.                                                                                                     lineal y angular, velocidad lineal y angular, el período y la
+                                              · Sistemas de referencia                                                                                               frecuencia, aceleración centrípeta
+
+                                                                                                     30
+=== PDF p.32 (libro p.31) ===
+· Distancia y Desplazamiento                               · Análisis de gráficas en función a las ecuaciones del EXPERIENCIA PRÁCTICA PRODUCTIVA
+· Rapidez y Velocidad
+                                                           movimiento vertical                                            · Laboratorio: Determinación de la velocidad angular.
+
+EXPERIENCIA PRÁCTICA PRODUCTIVA                            EXPERIENCIA PRÁCTICA PRODUCTIVA                                MOVIMIENTO CIRCULAR UNIFORMEMENTE VARIADO              Planes y Programas de Educación Secundaria Comunitaria Productiva
+ · Uso de simuladores, aplicaciones y programas             · Laboratorio: El péndulo simple en la determinación de       (MCUV)
+    interactivos para la apreciación del movimiento            la gravedad vinculadas a las actividades cotidianas de la
+                                                               comunidad                                                   · Características del MCUV
+MOVIMIENTO RECTILÍNEO UNIFORME (MRU)                        · Laboratorio: Movimiento vertical ­ caída libre en la         · Modelos matemáticos (Ecuaciones) del MCUV
+ · Características del MRU                                     Madre Tierra                                                · Transmisión del movimiento
+ · Modelo matemático (Ecuaciones)
+ · Representaciones graficas del MRU (v-t; x-t)            MOVIMIENTO DE PARABÓLICO                                       EXPERIENCIA PRÁCTICA PRODUCTIVA
+ · Tiempo de encuentro y de alcance en el MRU               · Características del movimiento parabólico: Movimiento        · Transmisión del movimiento circular
+ · Aplicación del MRU en la vida cotidiana                     compuesto
+                                                            · Principio de independencia de los movimientos
+EXPERIENCIA PRÁCTICA PRODUCTIVA                             · Modelos matemáticos (Ecuaciones): tiempo de vuelo,
+ · Laboratorio: Movimiento rectilíneo uniforme en la vida      altura máxima, alcance horizontal, ángulo de tiro y
+    comunitaria                                                ecuación de la trayectoria
+
+MOVIMIENTO RECTILÍNEO UNIFORMEMENTE VARIADO                EXPERIENCIA PRÁCTICA PRODUCTIVA
+(MRUV)                                                      · Laboratorio: Movimiento compuesto en los cuerpos de
+                                                               la Madre Tierra
+ · Características del MRUV
+ · Aceleración y desaceleración
+ · Modelos matemáticos (Ecuaciones)
+ · Representaciones graficas del MRUV (v-t; x-t; a-t).
+ · Aplicación del MRUV en la vida cotidiana
+
+EXPERIENCIA PRÁCTICA PRODUCTIVA
+
+· Laboratorio: Movimiento rectilíneo uniformemente
+   variado (Estudio de las variables del movimiento)
+
+PERFIL DE SALIDA DEL QUINTO AÑO DE ESCOLARIDAD
+
+ · Comprende y entiende las Leyes de Newton, trabajo energía y potencia, Impulso, cantidad de Movimiento y principios de la mecánica de fluidos.
+ · Realiza prácticas de laboratorio donde verifica los modelos Físicos empleados en su descripción.
+ · Resuelve problemas comprendiendo "la Física del problema" aplicando el Razonamiento lógico y sentido común basado en las Leyes del movimiento.
+ · Reconoce y valora las aportaciones de la ciencia para la mejora de las condiciones de existencia de los seres humanos, aprecia la importancia de la formación en este
+
+   ámbito y la utiliza en las actividades cotidianas.
+
+                                                                                31
+=== PDF p.33 (libro p.32) ===
+                                             CONTENIDOS DEL QUINTO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                               SEGUNDO TRIMESTRE                                              TERCER TRIMESTRE
+
+Educación Secundaria Comunitaria Productiva  FUERZAS EN EQUILIBRIO Y SU INTERACCIÓN CON LA                  EL TRABAJO MECÁNICO Y SUS APLICACIONES EN EL                   IMPULSO Y CANTIDAD DE MOVIMIENTO
+                                             NATURALEZA                                                     ENTORNO INDUSTRIAL                                              · Impulso mecánico
+                                                                                                                                                                            · Cantidad de movimiento lineal
+                                              · Nociones de estática                                         · Concepto de trabajo mecánico                                 · Impulso y cantidad de movimiento
+                                              · Concepto y clases de fuerza                                  · Trabajo efectuado por una fuerza constante                   · Conservación de la cantidad de movimiento
+                                              · Diferencia entre masa y peso                                 · Trabajo efectuado por una fuerza variable                    · Colisiones elásticas en una dimensión
+                                              · Diagramas de cuerpo libre                                    · EXPERIENCIA PRÁCTICA PRODUCTIVA                              · Colisiones elásticas en dos dimensiones
+                                              · Leyes de Newton (primera y tercera)                          · Laboratorio: Trabajo realizado por una fuerza                · Coeficiente de restitución
+                                              · Condiciones de equilibrio                                                                                                   · Colisiones inelásticas
+                                              · Maquinas Simples                                            EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                                                                                             · Laboratorio: Trabajo realizado por una fuerza.              EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                             EXPERIENCIA PRÁCTICA PRODUCTIVA                                                                                                · Laboratorio: Conservación del momento lineal
+                                              · Laboratorio: Máquinas simples (equilibrio de la balanza     LA ENERGÍA MECÁNICA SOSTENIBLE Y SUSTENTABLE EN LA
+                                                 en el punto de apoyo).                                     COMUNIDAD                                                      HIDROSTÁTICA
+                                              · Laboratorio: Inercia usando diferentes masas (1ra Ley                                                                       · Nociones básicas de Mecánica de fluidos (densidad,
+                                                 de Newton)                                                  · Concepto de Energía                                             densidad relativa, peso específico)
+                                              · Laboratorio: Ley de acción y reacción (Tercera Ley de        · Energías Alternativas                                        · Presión de fluidos en reposo
+                                                 Newton)                                                     · Producción de energía Eólica y Fotovoltaica en Bolivia:      · Presión atmosférica
+                                                                                                                                                                            · Principio de Pascal
+                                             DINÁMICA LINEAL EN LOS PROCESOS PRODUCTIVOS                        Parques y Plantas                                           · Prensa hidráulica
+                                              · Análisis de las causas generadoras del movimiento            · Energía Mecánica: Energía cinética, energía potencial        · Principio de Pascal
+                                              · Segunda Ley de Newton                                                                                                       · Prensa hidráulica
+                                              · Fuerzas de rozamiento o fricción                                gravitatoria y energía potencial elástica                   · Principio de Arquímedes
+                                              · Poleas                                                       · Conservación de la energía mecánica
+                                              · Ley de Hooke                                                 · Teorema del trabajo ­ energía                               EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                                                                                                                                                            · Medida del volumen de un cuerpo irregular (Principio de
+                                             EXPERIENCIA PRÁCTICA PRODUCTIVA                                EXPERIENCIA PRÁCTICA PRODUCTIVA                                    Arquímedes)
+                                              · Laboratorio: La Máquina de Atwood utilizada en               · Laboratorio: Rizo de la muerte (conservación de la           · Laboratorio: Determinación de densidades
+                                                 beneficio Sociocomunitario                                     energía)
+                                              · La fuerza generadora de movimiento (Segunda Ley de           · Laboratorio: Plano inclinado (Energía cinética y potencial  HIDRODINÁMICA
+                                                 Newton)                                                                                                                    · Flujo de fluido en movimiento
+                                                                                                            POTENCIA MECÁNICA EN EL DESARROLLO INDUSTRIAL                   · Ecuación de continuidad para fluidos
+                                             DINÁMICA CIRCULAR EN EL AVANCE TECNOLÓGICO                      · Concepto de potencia mecánica                                · Ecuación de Bernoulli y su aplicación
+                                              · Características de la dinámica circular                      · Relación entre la potencia y la velocidad                    · Teorema de Torricelli
+                                              · Fuerza centrípeta y centrifuga                               · Rendimiento de una máquina
+                                              · Curvas peraltadas                                                                                                          EXPERIENCIA PRÁCTICA PRODUCTIVA
+                                              · Ley de la gravitación universal                                                                                             · Cálculo del caudal
+                                              · Leyes de Kepler (Ley de las órbitas, Ley de las áreas, Ley
+                                                 de los periodos)
+
+                                                                                                            32
+=== PDF p.34 (libro p.33) ===
+PERFIL DE SALIDA DEL SEXTO AÑO DE ESCOLARIDAD                                                                                                                                              Planes y Programas de Educación Secundaria Comunitaria Productiva
+
+ · Comprende y entiende fenómenos eléctricos y magnéticos; puede describirlos y cuantificarlos de forma básica mediante la comprensión de la Física del fenómeno a
+   través del método científico.
+
+ · Utiliza herramientas matemáticas como álgebra básica en la resolución de problemas.
+ · Asimila los principios fundamentales del método científico gracias a su participación en las prácticas de laboratorio.
+ · Reconoce y valora las aportaciones de la ciencia para la mejora de las condiciones de existencia de los seres humanos, apreciar la importancia de la formación en este
+
+   ámbito y la utiliza en las actividades cotidianas.
+CONTENIDOS DEL SEXTO AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                                SEGUNDO TRIMESTRE                                               TERCER TRIMESTRE
+
+ELECTROSTÁTICA COMO FENÓMENO DE LA NATURALEZA                   ELECTRODINÁMICA EN LOS PROCESOS PRODUCTIVOS DE LA               CIRCUITOS DE CORRIENTE ELÉCTRICA PARA EL AVANCE
+ · Nociones básicas de los fenómenos eléctricos                 REGIÓN                                                          TECNOLÓGICO
+ · Carga eléctrica en el átomo
+ · Fenómenos de electrización                                    · Movimiento de las cargas eléctricas                           · Definiciones de nodo y malla
+ · Ley cualitativa y cuantitativa de la electrostática (Ley de   · Sentido de la corriente eléctrica                             · Leyes de Kirchhoff
+    Coulomb)                                                     · Velocidad de la corriente eléctrica                           · Ley nodos y mallas
+                                                                 · Intensidad de la corriente eléctrica
+EXPERIENCIA PRÁCTICA PRODUCTIVA                                                                                                 EXPERIENCIA PRÁCTICA PRODUCTIVA
+ · Laboratorio: Fenomenología del campo eléctrico,              EXPERIENCIA PRÁCTICA PRODUCTIVA                                  · Laboratorio: Armado de circuitos eléctricos aplicados
+    magnético en la Madre Tierra y el Cosmos (Electrostática)    · Laboratorio: La corriente eléctrica para el bienestar de la      como fuente de energía para la vida
+                                                                    comunidad (Amperímetro, Voltímetro y Multímetro)             · Laboratorio: Ley de Kirchhoff (Ley de Mallas)
+CAMPO ELÉCTRICO Y LAS FUERZAS ELÉCTRICAS
+ · Intensidad del campo eléctrico                               RESISTENCIA ELÉCTRICA Y DIFERENCIA DE POTENCIAL                 FUNDAMENTOS TEÓRICOS DE CAMPO MAGNÉTICO Y
+ · Campo eléctrico de una carga puntual y sus aplicaciones.      · Resistencia eléctrica y resistores                           ELECTROMAGNETISMO EN LA NATURALEZA
+ · Líneas de fuerza de un campo eléctrico                        · Ley de Pouillet
+ · Principio de superposición                                    · Resistividad                                                  · Campos magnéticos producidos por materiales
+                                                                 · Conductividad                                                    ferromagnéticos
+EXPERIENCIA PRÁCTICA PRODUCTIVA                                  · Asociación de resistencias: serie, paralelo y mixto
+ · Laboratorio: Los fenómenos eléctricos como fuente de          · Generadores y fuerza electromotriz                            · Campos magnéticos producidos por corrientes eléctricas
+    energía para la vida (Construcción de un generador de        · Ley de Ohm                                                    · Fuerza sobre una carga eléctrica en un campo magnético
+    Van de Graaff)
+                                                                EXPERIENCIA PRÁCTICA PRODUCTIVA                                     uniforme
+POTENCIAL ELECTRICO Y CAPACITANCIA                               · Laboratorio: Ley de Ohm y la resistencia eléctrica.           · Aplicaciones del electromagnetismo
+ · Definición de potencial eléctrico                             · Laboratorio: Uso de las Resistencias eléctricas en los
+ · Diferencia de potencial                                          procesos industriales de la comunidad (Resistencias en      EXPERIENCIA PRÁCTICA PRODUCTIVA
+ · Relación entre potencial y campo eléctrico                       serie y paralelo)                                            · Laboratorio: Principio de funcionamiento de un
+ · Definición de capacitancia                                                                                                       electroimán natural y generador de energía.
+ · Capacitores (condensadores) y su clasificación por           LA ENERGÍA Y POTENCIA DE LA CORRIENTE ELÉCTRICA EN               · Los motores como herramientas de trabajo en el diario
+    material                                                    NUESTRA COMUNIDAD                                                   vivir c
+ · Asociación de capacitores: serie, paralelo y mixto
+                                                                 · Efectos producidos por la corriente eléctrica
+EXPERIENCIA PRÁCTICA PRODUCTIVA                                  · Energía y potencia eléctrica
+ · Laboratorio: Carga y descarga de un condensador               · Ley de Joule
+    electrolítico                                                · Rendimiento de la corriente eléctrica
+                                                                 · Motores y transformadores
+
+                                                                33
+=== PDF p.35 (libro p.34) ===
+                                             LECTURAS SUGERIDAS
+
+                                             Año de escolaridad                                                                                     Lectura
+                                             Tercero de secundaria  Breve historia del tiempo: del Big Bang a los agujeros negros, Steven Hawking
+                                             Cuarto de secundaria   La Teoría del todo: El origen y el destino del universo, Steven Hawking
+                                             Quinto de secundaria   El Futuro de la Humanidad, Kaku, Michio
+                                             Sexto de secundaria    Física de lo Imposibles, Kaku, Michio
+
+Educación Secundaria Comunitaria Productiva  2.3. CIENCIAS NATURALES: QUÍMICA
+
+                                             ENFOQUE DE ÁREA
+
+                                             La Química es complementaria a otras ciencias y enfatiza la trasformación de la materia, por ello su importancia radica en función a las necesidades del ser humano,
+                                             por lo que impulsa la investigación, experimental, creativo en la preservación del medio ambiente, por que promueve un espíritu de preservación de la vida en las y los
+                                             estudiantes, desarrollando el manejo adecuado de la materia en los procesos socioproductivos para su transformación sustentable de la naturaleza. Desde este punto de
+                                             vista el Área de Química adquiere un carácter:
+
+                                              · Investigativo, al crear procedimientos sistemáticos y organizado para comprender la naturaleza y su comportamiento.
+                                              · Experimental, porque la práctica productiva respaldada con la argumentación, es indispensable para construir los hechos científicos.
+                                              · Creativo, la capacidad para crear nuevas ideas con un propósito determinado, a partir de un análisis sistemático para responder problemáticas sociocomunitarios.
+                                              · Preservación de medio ambiente, se refiere a reflexionar de las distintas maneras el cuidado ambiental en la manipulación de la materia
+                                             PERFIL DE SALIDA DEL TERCER AÑO DE ESCOLARIDAD
+
+                                              · Analiza los compuestos binarios, ternarios, de uso tecnológico e industrial de manera responsable.
+                                              · Determina de manera experimental los conocimientos adquiridos en la práctica de laboratorio de los compuestos inorgánicos.
+                                              · Plantea de forma creativa la notación y nomenclatura de los compuestos Químicos en su aplicación.
+                                              · Valora el medio ambiente en la aplicación de las sustancias Químicas usadas en la vida cotidiana.
+                                             CONTENIDOS DEL TERCER AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                        SEGUNDO TRIMESTRE                                                      TERCER TRIMESTRE
+
+                                             NOTACIÓN Y NOMENCLATURA DE COMPUESTOS BINARIOS          NOTACIÓN Y NOMENCLATURA DE COMPUESTOS TERNARIOS                NOTACIÓN Y NOMENCLATURA DE SALES INORGÁNICAS DE
+                                             OXIGENADOS E HIDROGENADOS DE USO TÉCNOLÓGICO E          BÁSICOS Y ÁCIDOS DE USO TECNOLÓGICO E INDUSTRIAL               USO TECNOLÓGICO E INDUSTRIAL
+                                             INDUSTRIAL
+                                                                                                     Hidróxidos o bases                                             Iones monoatómicos y poliatómicos, Sales inorgánicas
+                                             Compuestos binarios oxigenados                           · Hidróxidos dobles                                            · Propiedades y características de las sales inorgánicas
+                                              · Óxidos básicos                                        · Propiedades y aplicaciones en la industria                   · Clasificación de las Sales:Hidrosales y Oxisales
+                                              · Casos especiales de Óxidos: Peróxidos, Superóxidos,                                                                  · Sales Neutras, ácidas, básicas, dobles y mixtas
+                                                 óxidos salinos, dobles                              Ácidos oxácidos                                                 · Casos especiales de las sales: Tiosales, sulfosales,
+                                              · Óxidos o Anhídridos                                   · Casos especiales de los oxácidos (meta, orto, piro y otros      peroxosales, halogenosales
+                                              · Usos y aplicaciones de los óxidos en las industrias      hidratados                                                  · Sales hidratadas
+                                                                                                      · Derivados de los Oxácidos: Tioácidos sulfoácidos,            · Sales complejas
+                                             Compuestos binarios hidrógenados                            peroxóacidos ,halogenoácidos                                · Litio y sus propiedades en la vida cotidiana
+                                              · Hidruros metálicos                                    · Propiedades y aplicaciones de los oxácidos en la industria
+
+                                                                                                     34
+=== PDF p.36 (libro p.35) ===
+ · Hidruros No Metálicos: Ácidos Hidrácidos, Hidruros        Experiencia práctica productiva                                Experiencia práctica productiva
+    volátiles derivados del amoníaco
+                                                              · Laboratorio: Obtención de bases y oxácidos e                 · Laboratorio: Obtención de los distintos sales
+ · Usos y aplicaciones en la Industria                           identificación cualitativa con el uso de indicadores        · Laboratorio: Determinación de la composición del
+
+Experiencia práctica productiva                               · Laboratorio: Análisis de los efectos de la lluvia ácida en      sulfato de cobre hidratado, como un producto de uso
+ · Laboratorio: Obtención y aplicación de los compuestos         el medio ambiente                                              industrial
+    binarios (cal viva y ácido sulfhídrico, amoníaco)                                                                        · Experiencia productiva: El salar de Uyuni y su importancia
+ · Experiencia productiva: Síntesis y reconocimiento del      · Experiencia productiva: Preparación de compuestos               en la producción industrial
+    amoniaco en la agroindustria                                 binarios, ternarios del azufre de aplicación industrial
+ · Experiencia productiva: Cuidado de la salud
+                                                                                                                                                                                           Planes y Programas de Educación Secundaria Comunitaria Productiva
+PERFIL DE SALIDA DEL CUARTO AÑO DE ESCOLARIDAD
+ · Precisa mediante la investigación los elementos existentes de la tabla periódica.
+ · Establece los métodos de igualación en la práctica de laboratorio fortaleciendo el balance de ecuaciones Químicas.
+ · Categoriza de manera creativa la configuración electrónica y reacciones Químicas de la naturaleza.
+ · Valora la preservación del medio ambiente en el proceso de reacciones Químicas.
+CONTENIDOS DEL CUARTO AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                             SEGUNDO TRIMESTRE                                              TERCER TRIMESTRE
+
+TABLA PERIÓDICA DE LOS ELEMENTOS QUÍMICOS EN LA              ENLACES QUÍMICOS EN LOS COMPUESTOS DE LA                       IGUALACIÓN DE ECUACIONES QUÍMICAS EN PROCESOS
+NATURALEZA                                                   NATURALEZA                                                     PRODUCTIVOS
+                                                             · Regla del Octeto
+ · Historia de la Tabla periódica                                                                                            · Escala redox
+ · Clasificación de los elementos                             · Clases de enlaces: Enlace iónico, covalente, coordinado      · Reglas para determinar números de oxidación en los
+ · Descripción de la tabla periódica moderna (Grupos y           y metálico
+                                                                                                                                compuestos Químicos
+    periodos).                                                · Estructura de Lewis                                          · Métodos de igualación
+ · Propiedades periódicas: Radio atómico, radio iónico,       · Fuerzas intermoleculares: Puente de hidrógeno fuerzas
+                                                                                                                                 Oxidación - Reducción
+    afinidad electrónica, electronegatividad, energía de         de Van Der Walls, Dipolo                                        Ión electrón (ácido, básico)
+    ionización, carácter metálico.                            · Propiedades de las sustancias iónicas y covalente en el          Algebraico
+ · Importancia de la tabla periódica en la preservación del
+    medio ambiente                                               medio ambiente                                             Experiencia práctica productiva
+                                                                                                                             · Laboratorio: Reconocimiento del Agente oxidante y
+Experiencia práctica productiva                              Experiencia práctica productiva                                    reductor del permanganato de potasio
+ · Experiencia productiva: Construcción de la tabla           · Estudio de las Propiedades iónicas y covalentes
+    periódica didactizado                                                                                                   ÁTOMOS MOLES Y MOLÉCULAS DE LAS SUSTANCIAS
+ · Experiencia productiva: La Química en los alimentos       REACCIONES QUÍMICAS EN PROCESOS PRODUCTIVOS                     · Masa atómica absoluta relativa
+    del contexto                                              · Reacción química-Ecuación química                            · Masa molecular
+                                                              · Clases de Reacciones                                         · Mol y número de Avogadro
+ESTRUCTURA DEL ÁTOMO Y CONFIGURACIÓN                              Por su mecanismo atómico: Síntesis, descomposición,        · Volumen Molar
+ELECTRÓNICA EN ARMONÍA CON EL COSMOS                               simple sustitución, doble sustitución                     · Densidad absoluta y relativa
+                                                                  Reacciones por el cambio en el número de oxidación:
+ · Modelos atómicos: Daltón,Thomson ,Perrin ,Rutherford,           Redox, No rédox                                          Experiencia práctica productiva
+    Sommerfeld Bohr, Shodinger, Plank                             Reacciones por el cambio de energía calorífica:            · Laboratorio: Determinación de densidad de sólidos y
+                                                                   Exotérmica y endotérmica                                     líquidos
+                                                                  Reacciones por su extensión: Reversible e Irreversible
+
+                                                             35
+=== PDF p.37 (libro p.36) ===
+                                              · Propiedades del Núcleo: Número atómico, masa                  Otras reacciones: Combustión, neutralización precipitación  · Experiencia productiva: Identificación de ácido base con
+                                                 atómica, Isótopos, Isóbaros e isótonos                   · Factores que afectan en los procesos productivos en las          materiales del contexto
+
+                                              · Propiedades de la nube electrónica: isoelectrónicos          reacciones
+                                              · Radioactividad y sus clases
+                                              · Fisión y fusión nuclear                                  Experiencia práctica productiva
+                                              · Configuración Electrónica de los elementos de la
+                                                                                                          · Laboratorio: Demostración de las clases de reacciones
+                                                 naturaleza y el cosmos                                      químicas
+                                              · Números Cuánticos: Principal, azimutal, magnético y
+                                                                                                          · Experiencia productiva: Reacción de combustión y su
+                                                 spin                                                        forma de obtención de energía
+
+                                             Experiencia práctica productiva                              · Experiencia productiva: Saberes y conocimientos en los
+                                              · Laboratorio: Modelos atómicos                                procesos productivos
+
+Educación Secundaria Comunitaria Productiva  PERFIL DE SALIDA DEL QUINTO AÑO DE ESCOLARIDAD
+                                              · Valora mediante un análisis investigativo los cálculos estequiométricos y las leyes gravitacionales que respondan a las necesidades y problemáticas.
+                                              · Relaciona los problemas cuantitativos para la práctica de laboratorio mediante el uso de ecuaciones de menara responsable.
+                                              · Desarrolla las leyes volumétricas y soluciones del uso cotidiano en el proceso socioprocutivo.
+                                              · Interpreta la importancia del medio ambiente en la aplicación de la estequiometria y las leyes ponderales en el uso cotidiano.
+                                             CONTENIDOS DEL QUINTO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                            SEGUNDO TRIMESTRE                                                TERCER TRIMESTRE
+
+                                             ESTEQUIOMETRÍA                                              SOLUCIONES DE USO COTIDIANO                                      PROPIEDADES COLIGATIVAS DE LAS SOLUCIONES EN LA
+                                                                                                                                                                          COMUNIDAD
+                                             LEYES GRAVIMÉTRICAS                                          · Soluciones y sus características
+                                              · Ley de Conservación de la Masa (Lavosier)                 · Clasificación de las soluciones:                               · Propiedades de las soluciones
+                                              · Pureza de los reactivos                                                                                                    · Disminución de la Presión de vapor
+                                              · Rendimiento de la reacción                                    Según el estado físico del disolvente: Sólidas, líquidas     · Descenso crioscópico
+                                                  Ley de las Proporciones Definidas (Proust)                   y gaseosas                                                  · Aumento ebulloscópico
+                                              · Reactivo límite y sobrante                                                                                                 · Ley de Raoult
+                                              · Composición centesimal de sustancias                          Según la concentración del soluto: Diluidas                  · Presión osmótica en la comunidad
+                                              · Determinación de fórmulas empíricas y moleculares              concentradas, saturadas y sobresaturadas
+                                                  Ley de las Proporciones Múltiples (Daltón)                                                                              Experiencia práctica productiva
+                                                  Ley de los Proporciones Recíprocas (Risther)            · Unidades de concentración física:                              · Laboratorio: Determinación de las propiedades
+                                              · Determinación de pesos equivalentes                           Porcentaje (% m)                                                coligativas
+                                              · Aplicaciones de las leyes estequiométricas en los             Porcentaje (% v)
+                                                 procesos productivos                                         Partes por millón (ppm)                                     CINÉTICA Y EQUILIBRIO QUÍMICO EN PROCESOS
+                                                                                                                                                                          PRODUCTIVOS
+                                             Experiencia práctica productiva                              · Unidades de concentración química
+                                              · Laboratorio: Cálculos estequiométricos en la                  Molaridad (M)                                                · Velocidad de reacción
+                                                 transformación de las sustancias                             Normalidad (N)                                               · Ley de masas
+                                              · Laboratorio: Ley de la conservación de la materia como        Molalidad (m.)                                               · Constante de equilibrio
+                                                 principio fundamental del proceso Químico de la Tierra       Fracción molar (X)                                           · Cálculos de Kc y Kp
+                                              · Experiencia productiva: Obtención del dióxido de                                                                           · Equilibrio Químico en los procesos productivos
+                                                 carbono por desplazamiento del agua                      · Solubilidad
+                                                                                                          · Dilución de las soluciones                                    Experiencia práctica productiva
+                                                                                                          · Estequiometría de las soluciones                               · Laboratorio: Determinación de la cinética en la Química
+
+                                                                                                         Experiencia práctica productiva
+
+                                                                                                          · Laboratorio: Preparación de soluciones de diferente
+
+                                                                                                         36
+=== PDF p.38 (libro p.37) ===
+EL ESTADO GASEOSO                                             concentración                                           EQULIBRIO ÁCIDO BASE EN LOS PROCESOS PRODUCTIVOS
+                                                                                                                       · Teorías: Arhenius ,Bronsted-lowry,Lewis
+LEYES VOLUMÉTRICAS EN LA MADRE TIERRA                       · Experiencia productiva: Determinación de la pureza del   · Escalas de pH y pOH
+                                                               aceite acético en el vinagre                            · Indicadores ácido -base
+ · Propiedades de los gases
+ · Estudio de las variables: Presión, Temperatura, Volumen  · Experiencia productiva: Elaboración del yogurt          Experiencia práctica productiva
+ · Leyes volumétricas:                                      · Experiencia productiva: Elaboración de detergentes       · Laboratorio: Determinación de pH de las sustancias a
+                                                                                                                          partir de distintos indicadores
+     Ley de Boyle                                                                                                      · Experiencia productiva: Determinación del estudio del        Planes y Programas de Educación Secundaria Comunitaria Productiva
+     Ley de Charles                                                                                                       suelo para la producción de alimentos del contexto
+     Ley de Gay Lussac
+     Ley combinada
+     Ecuación de Estado
+     Ley de difusión de Graham
+     Ley de Avogadro
+     Ley de las Presiones Parciales (Daltón)
+     Ley de los volúmenes de combinación
+     Estequiometría de Gases
+
+Experiencia práctica productiva
+
+ · Experiencia productiva: Aplicación del estado de los
+    gases en la vida
+
+ · Laboratorio: Determinación de la Ley Boyle, Gay-Lussac
+ · Experiencia productiva: Investigación de la
+
+    contaminación del medio ambiente por gases
+ · Experiencia productiva: Determinación de electrólisis
+
+    con materiales del contexto
+
+PERFIL DE SALIDA DEL SEXTO AÑO DE ESCOLARIDAD
+
+· Establece mediante la investigación de la Química del carbono, la composición, clasificación y propiedades existentes en la naturaleza.
+
+· Aplica los cálculos en la destilación con el uso de laboratorio y la obtención de derivados de funciones Orgánicos.
+
+· Relaciona creativamente las funciones Orgánicas oxigenadas y sales de la industria alimentaria en la obtención de los hidrocarburos.
+
+· Argumenta la importancia de la Química Orgánica en la industria en la preservación del medio ambiente.
+
+CONTENIDOS DEL SEXTO AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                            SEGUNDO TRIMESTRE                                          TERCER TRIMESTRE
+
+QUÍMICA DEL CARBONO                                         FUNCIONES ORGÁNICAS OXIGENADAS EN LA INDUSTRIA Y          SUSTANCIAS ORGÁNICAS NITROGENADAS Y SALES
+ · Diferencia de compuestos orgánicos e inorgánicos         MEDICINA                                                  ORGÁNICAS DE USO INDUSTRIAL Y ALIMENTARIA
+ · Composición de las sustancias orgánicas
+ · Propiedades del átomo del carbono                         · Notación Nomenclatura de alcoholes                      · Notación y Nomenclatura de aminas, amidas y nitrilos
+ · Hibridación y su clasificación                            · Notación Nomenclatura de éteres                         · Propiedades Físicas y Químicas
+ · Enlace sigma y pi                                         · Notación Nomenclatura de aldehídos y cetonas            · Síntesis de sustancias orgánicas en la industria y medicina
+ · Clases de fórmulas                                        · Notación Nomenclatura de ácidos Carboxílicos            · Obtención y sus aplicaciones de la seguridad alimentaria
+ · Importancia de la Química del carbono en la naturaleza    · Notación Nomenclatura de esteres                        · La urea y su aplicación en la producción agroindustrial
+                                                             · Propiedades físicas y químicas
+                                                             · Obtención de sustancias orgánicas oxigenadas
+
+                                                            37
+=== PDF p.39 (libro p.38) ===
+                                             Experiencia práctica productiva                          · Usos y Aplicaciones en la industria y medicina             Experiencia práctica productiva
+
+                                              · Laboratorio: Diferencia entre compuestos orgánicos e  Experiencia práctica productiva                              · Experiencia productiva: Contaminación de la Madre
+                                                 inorgánicos                                                                                                          Tierra por plásticos
+                                                                                                       · Experiencia productiva: Obtención del alcohol a partir
+                                             LOS HIDROCARBUROS Y SU IMPORTANCIA                           de la fermentación de sustancias                         · Laboratorio: Saponificación
+                                              · Notación y nomenclatura de los hidrocarburos                                                                       · Experiencia productiva: Abonos orgánicos: descripción
+                                                 saturados e insaturados y compuestos cíclicos         · Laboratorio: Extracción del aceite esencial de eucalipto
+                                              · Alcanos, Alquenos y Alquinos                              que beneficia a la salud                                    de la planta de urea
+                                              · Propiedades física y químicas                                                                                      · Laboratorio: Fibras sintéticas
+                                              · El Petróleo y sus derivados
+                                              · Índice de octanos
+                                              · Importancia y uso de los hidrocarburos
+
+                                             Experiencia práctica productiva
+
+Educación Secundaria Comunitaria Productiva  · Laboratorio: Obtención del metano, eteno y etino.
+                                             · Experiencia productiva: Preparación del acetileno, un
+
+                                                hidrocarburo de importancia industrial
+
+                                             LECTURAS SUGERIDAS
+
+                                             Año de escolaridad                                                              Lectura
+                                             Tercero de secundaria
+                                             Cuarto de secundaria             Mi vida es Química, MaiThi Nguyen Kim
+                                             Quinto de secundaria             La cuchara Menguanta, Sam Kean
+                                             Sexto de secundaria              Mujeres, Hombres y Molécula, Santiago Alvares
+                                                                              Que se le van las vitaminas, Deborah Garcia
+
+                                             2.4. MATEMÁTICA
+
+                                             ENFOQUE DEL ÁREA
+
+                                             En el marco del Modelo Educativo Sociocomunitario Productivo, en Educación Secundaria Comunitaria Productiva, la matemática está orientada a la aplicación,
+                                             investigación y la trasformación en la producción, lo cual tiene incidencia directa en la ciencia y tecnología de forma pertinente y relevante, decodificando los fenómenos
+                                             de la realidad a través del lenguaje matemático, caracterizado por números, formas, letras, símbolos, medidas y el cálculo, que contribuyen al desarrollo tecnológico y
+                                             productivo. En ese sentido el enfoque del área de matemática es aplicativo, investigativo y transformador:
+
+                                              · Aplicativo, porque el estudiante aplica sus conocimientos de matemática en la resolución de situaciones problema de diversa índole.
+                                              · Investigativo, porque se constituye en un componente dinamizador de los saberes y conocimientos matemáticos para el desarrollo de la ciencia y tecnología.
+                                              · Transformador, porque integra la aplicación e investigación matemática, para la transformación de la realidad en función a las necesidades productivas de la comunidad
+
+                                                educativa.
+                                             PERFIL DE SALIDA DEL PRIMER AÑO DE ESCOLARIDAD
+
+                                             · Resuelve problemas del contexto con números enteros y racionales, demostrando responsabilidad y compromiso social.
+
+                                             · Comprende la importancia de la investigación, para fortalecer saberes y conocimientos de la aplicación del cálculo de áreas, perímetros, razones y proporciones en
+                                               procesos productivos y el desarrollo de valores sociocomunitarios.
+
+                                                                                                      38
+=== PDF p.40 (libro p.39) ===
+ · Conoce la potencialidad productiva de su región y promueve el fortalecimiento de su pensamiento lógico matemático a través de la geometría y el laboratorio
+   matemático aplicados a procesos productivos y la transformación de su realidad.
+
+CONTENIDOS DEL PRIMER AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                         SEGUNDO TRIMESTRE                                            TERCER TRIMESTRE
+
+NÚMEROS ENTEROS APLICADOS A LA COTIDIANIDAD              NÚMEROS RACIONALES EN LA COMUNIDAD                           LA FORMA, EL NÚMERO Y LA SEMEJANZA DE LA GEOMETRÍA
+ · El origen de los números enteros                                                                                   EN LA COMUNIDAD
+ · El conjunto de los números enteros                     · El origen de los números racionales                                                                                    Planes y Programas de Educación Secundaria Comunitaria Productiva
+ · Representación de los números enteros en la recta      · El conjunto de los números racionales                      · Triángulos y su clasificación
+    numérica                                              · Los números racionales en la recta numérica                · Congruencia de triángulos en el entorno
+ · Operaciones con números enteros                        · Representación gráfica y relación de orden de los          · Criterios para la congruencia de triángulos: (LLL, LAL,
+     Adición y sustracción
+     Multiplicación y división                               números racionales                                           ALA)
+     Potenciación y radicación                            · Simplificación de fracciones                               · Planteamiento y resolución de problemas relacionados a
+ · Problemas aplicados al contexto y la tecnología        · Fracciones propias, impropias y mixtas
+     Cálculo mental con números enteros                                                                                   la congruencia de triángulos
+                                                              Operaciones con números racionales                       · Triángulos semejantes
+LOS NÚMEROS ENTEROS Y SU RELACIÓN CON LA                      Adición y sustracción                                    · Criterios de semejanza de triángulos: (AAA, LLL, LAL)
+GEOMETRÍA                                                     Multiplicación y división                                · Rectas y puntos notables
+                                                              Potenciación y radicación                                · Problemas aplicados al contexto y la tecnología
+ · Definiciones básicas de geometría plana               · Problemas aplicados al contexto y la tecnología.
+ · La recta, semirecta y segmento                                                                                     PERÍMETROS, ÁREAS Y FORMAS GEOMÉTRICAS APLICADAS
+ · Operaciones con segmentos                             NÚMEROS DECIMALES COMO CONSECUENCIA DE LOS                   EN LA VIDA COTIDIANA
+ · Definición de ángulo                                  RACIONALES
+ · Clasificación de ángulos                                                                                            · Perímetro de polígonos regulares e irregulares
+ · Problemas con ángulos aplicados al contexto            · Números decimales en la comunidad               enteros,   · Áreas de figuras planas: triángulos, polígonos regulares
+                                                          · Definición de números decimales
+REPRESENTACIÓN GRÁFICA DE LAS FORMAS EN EL PLANO          · Operaciones con números decimales                             e irregulares
+CARTESIANO                                                                                                             · Círculo y circunferencia
+                                                              Fracción generatriz                                      · Problemas aplicados al contexto y la tecnología
+ · Plano cartesiano                                           Operaciones combinadas con números
+ · Par ordenado                                                                                                       LABORATORIO MATEMÁTICO
+ · Puntos, segmentos, rectas y polígonos                       racionales y decimales                                  · GeoGebra
+ · Distancias entre dos puntos en rectas horizontales y  · Notación científica                                             Representación de los números enteros y racionales.
+                                                         · Problemas aplicados al contexto y la tecnología                 Gráfica de figuras planas
+    verticales.                                                                                                        · Manejo de la calculadora
+ · Rectas paralelas y perpendiculares                    RAZONES, PROPORCIONES Y REGLA DE TRES APLICADOS A             · Taller de pensamiento lógico
+ · Problemas aplicados al contexto y la tecnología       LA COMUNIDAD                                                      Ajedrez I
+                                                                                                                            Nociones básicas
+                                                         · Razones y proporciones                                           Problemas de razonamiento (mate en 1, mate en dos,
+                                                         · Porcentaje                                                        etc.)
+                                                         · Regla de tres simple                                            Sudoku
+                                                         · Regla de tres compuesta
+                                                         · Problemas aplicados al contexto y la tecnología
+
+PERFIL DE SALIDA DEL SEGUNDO AÑO DE ESCOLARIDAD
+
+ · Soluciona problemas del contexto y la tecnología, aplicando operaciones con expresiones algebraicas, ecuaciones de primer grado y el cálculo de distancias demostrando
+   armonía y equilibrio.
+
+ · Valora la importancia de la investigación como una capacidad sustancial en su formación integral y lo aplica en la consolidación de saberes y conocimientos de números
+   racionales, irracionales y reales.
+
+                                                         39
+=== PDF p.41 (libro p.40) ===
+                                              · Identifica las potencialidades productivas de su región, realizando cálculos y mediciones en procesos productivos y aplica el laboratorio matemático en el fortalecimiento
+                                                de su pensamiento lógico matemático como una capacidad importante para la trasformación de su realidad.
+
+                                             CONTENIDOS DEL SEGUNDO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                         SEGUNDO TRIMESTRE                                          TERCER TRIMESTRE
+
+Educación Secundaria Comunitaria Productiva  LOS NÚMEROS RACIONALES Y SUS APLICACIONES                OPERACIONES CON EXPRESIONES ALGEBRAICAS EN EL              INTRODUCCIÓN A LA TRIGONOMETRÍA Y SU APLICACIÓN
+                                              · Operaciones con números racionales                    DESARROLLO DE LA CIENCIA Y LA TECNOLOGÍA                   EN EL CALCULO DE DISTANCIAS
+                                              · Operaciones combinadas con números enteros,
+                                                 racionales y decimales                                · Clasificación de expresiones algebraicas y su notación   · Triángulos y su clasificación
+                                              · Problemas números racionales aplicados al contexto y   · Operaciones con expresiones algebraicas                  · Suma de ángulos internos de un triángulo cualquiera
+                                                 la tecnología                                                                                                    · Triángulo rectángulo
+                                                                                                           Adición y sustracción
+                                             EL CONJUNTO DE LOS NÚMEROS IRRACIONALES Y REALES              Multiplicación                                             Teorema de Pitágoras
+                                              · Los números irracionales y su clasificación                División                                                   Razones trigonométricas
+                                              · Operaciones con números irracionales                        Método clásico                                        · Problemas aplicados al contexto y la tecnología
+                                              · Racionalización                                             Método de Horner
+                                              · Los números reales y su relación de orden                   Método de divisiones sucesivas(Ruffini)              LAS FORMAS EN EL ESPACIO TRIDIMENSIONAL Y LOS
+                                              · Propiedades de los números reales                          Teorema del resto                                     RECURSOS TECNOLÓGICOS
+                                              · Operaciones con los números reales                     · Operaciones algebraicas combinadas
+                                              · Números trascendentes                                  · Problemas aplicados al contexto y la tecnología          · El espacio tridimensional: punto, recta, segmento y plano
+                                              · Problemas aplicados al contexto y la tecnología                                                                   · Clasificación de los cuerpos geométricos
+                                                                                                      ECUACIONES DE PRIMER GRADO EN LA COMUNIDAD                  · Características de los cuerpos geométricos
+                                             EL ÁLGEBRA Y SU RELACIÓN CON LAS ACTIVIDADES DE LA                                                                   · Áreas y volúmenes de cuerpos geométricos
+                                             VIDA COTIDIANA                                            · Definición de igualdad, identidad y ecuación
+                                                                                                       · Definición de ecuaciones de primer grado Lenguaje       LABORATORIO MATEMÁTICO
+                                              · Nociones básicas de álgebra                                                                                       · GeoGebra
+                                              · Expresiones algebraicas y la modelización                 matemático                                                  Gráficas de ecuaciones
+                                              · Estudio de Variables y Constantes                      · Elementos de una ecuación                                    Gráficas de problemas de resolución con triángulos.
+                                              · Término algebraico                                     · Resolución de ecuaciones                                 · Taller de pensamiento lógico
+                                              · Términos semejantes, reducción y su aplicación         · Aplicación de ecuaciones en la resolución de problemas   · Ajedrez II
+                                              · Clasificación de expresiones algebraicas                                                                               Nociones básicas de ajedrez
+                                              · Grado relativo y absoluto de un monomio y un              aplicados al contexto y la tecnología                        Problemas de razonamiento (mate en dos, mate en
+                                                                                                                                                                        tres, etc.)
+                                                 polinomio                                                                                                        · Sudoku
+                                              · Valor numérico
+                                              · Problemas aplicados al contexto y la tecnología
+
+                                             PERFIL DE SALIDA DEL TERCER AÑO DE ESCOLARIDAD
+
+                                             · Resuelve problemas del contexto y la tecnología, aplicando ecuaciones algebraicas, productos, cocientes notables y factorización promoviendo la práctica de valores
+                                               sociocomunitarios de convivencia armónica en la comunidad educativa.
+
+                                             · Investiga la aplicación de la potenciación y radicación algebraica en el desarrollo de la ciencia y la tecnología con conciencia crítica y reflexiva en beneficio de la
+                                               comunidad.
+
+                                             · Analiza los procesos productivos en situaciones concretas del contexto con responsabilidad social y fortalece su pensamiento lógico matemático a través del laboratorio
+                                               matemático como una capacidad importante en la transformación de su realidad.
+
+                                                                                                      40
+=== PDF p.42 (libro p.41) ===
+CONTENIDOS DEL TERCER AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                         SEGUNDO TRIMESTRE                                              TERCER TRIMESTRE
+
+ECUACIONES APLICADAS AL CONTEXTO Y LA TECNOLOGÍA         FACTORIZACIÓN DE EXPRESIONES ALGEBRAICAS EN                    POTENCIACIÓN Y RADICACIÓN ALGEBRAICA EN EL                   Planes y Programas de Educación Secundaria Comunitaria Productiva
+ · Términos semejantes y su relación con la producción   PROCESOS PRODUCTIVOS                                           DESARROLLO DE LA CIENCIA Y LA TECNOLOGÍA
+ · Operaciones con expresiones algebraicas
+ · Resolución de ecuaciones de primer grado               · Factorización de Polinomios (Ruffini)                        · Teoría de exponentes y sus propiedades
+ · Resolución de problemas del contexto con ecuaciones    · Casos combinados de factorización                            · Reducción de expresiones algebraicas aplicando las
+    de primer grado                                       · Interpretación geométrica y aplicación de la factorización
+                                                                                                                            diferentes propiedades de potenciación
+PRODUCTOS Y COCIENTES NOTABLES APLICADOS AL              FRACCIONES ALGEBRAICAS Y SUS OPERACIONES                        · Radicales (raíz de índice natural de una expresión
+DESARROLLO DE LA TECNOLOGÍA                               · Fracción algebraica
+                                                          · Equivalencia de fracciones algebraicas                          algebraica)
+ · Productos notables (identidades algebraicas)           · Mínimo Común Múltiplo (M.C.M)                                · Introducción de factores dentro del radical
+ · Cocientes notables                                     · Máximo Común Divisor (M.C.D.)                                · Extracción de factores de un radical y transformación de
+ · Triángulo de Pascal                                    · Simplificación de fracciones
+ · Deducción del binomio a la n- ésima potencia           · Operaciones básicas con fracciones algebraicas                  radicales
+ · Relación de los productos y cocientes notables en la       Suma y resta                                               · Operaciones con radicales
+                                                              Multiplicación                                             · Transformación de un radical doble en radicales simples
+    geometría y su aplicación en el contexto                  División                                                   · Racionalización
+                                                              Fracciones complejas                                       · Resolución de problemas aplicados al contexto y la
+FACTORIZACIÓN DE LAS EXPRESIONES ALGEBRAICAS EN           · Operaciones combinadas
+PROCESOS PRODUCTIVOS                                      · Descomposición de una fracción en fracciones simples            tecnología
+                                                          · Problemas de aplicación con fracciones algebraicas
+Casos de factorización                                                                                                  ECUACIONES ALGEBRAICAS EN LA COMUNIDAD
+ · Factor común
+ · Factor común por agrupación de términos                                                                               · Ecuaciones lineales
+ · Método de identidades algebraicas                                                                                     · Ecuaciones con coeficiente fraccionario
+ · Factorización de Binomios                                                                                             · Ecuaciones fraccionarias
+     Diferencia de cuadrados                                                                                             · Ecuaciones literales
+     Suma y diferencia de cubos                                                                                          · Ecuaciones de 2do grado con soluciones reales.
+ · Factorización de trinomios                                                                                            · Resolución de problemas aplicados al contexto y la
+     Trinomio cuadrado perfecto
+     Trinomio de la forma: x² + bx + c                                                                                      tecnología
+     Trinomio de la forma: ax² + bx + c
+     Aspa simple                                                                                                        LABORATORIO MATEMÁTICO
+ · Trinomio por adición y sustracción
+                                                                                                                         · Geogebra
+                                                                                                                             Gráficas de ecuaciones
+
+                                                                                                                         · Taller de pensamiento lógico
+                                                                                                                             Ajedrez III
+                                                                                                                              Nociones básicas de ajedrez
+                                                                                                                              Problemas de razonamiento (mate en tres, calcula la
+                                                                                                                               mejor jugada, etc.)
+
+                                                                                                                         · Sudoku
+
+PERFIL DE SALIDA DEL CUARTO AÑO DE ESCOLARIDAD
+
+ · Utiliza métodos apropiados para la resolución de sistemas de ecuaciones, ecuaciones de segundo grado, desigualdades, función exponencial y logarítmica aplicados al
+   contexto y la tecnología demostrando responsabilidad y compromiso social en la toma de decisiones.
+
+ · Emplea técnicas de investigación de matemática financiera, sucesiones, progresiones aritméticas y geométricas en procesos productivos para la transformación de su
+   realidad.
+
+                                                         41
+=== PDF p.43 (libro p.42) ===
+                                              · Aplica la matemática en la elaboración de proyectos socioproductivos que beneficien a la comunidad educativa con igualdad de condiciones, fortalecimiento su
+                                                pensamiento lógico matemático a través del laboratorio matemático y la aplicación de números imaginarios y complejos.
+
+                                             CONTENIDOS DEL CUARTO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                        SEGUNDO TRIMESTRE                                              TERCER TRIMESTRE
+
+Educación Secundaria Comunitaria Productiva  ECUACIONES ALGEBRAICAS APLICADAS A LA RESOLUCIÓN        ECUACIONES DE SEGUNDO GRADO Y FUNCIÓN CUADRÁTICA               SUCESIONES, PROGRESIONES ARITMÉTICAS - GEOMÉTRICAS
+                                             DE PROBLEMAS Y DESARROLLO DE LA CIENCIA Y               EN LA RESOLUCIÓN DE PROBLEMAS DEL CONTEXTO                      · Sucesión de Fibonacci
+                                             TECNOLOGÍA                                                                                                              · Sucesiones numéricas
+                                                                                                      · Función cuadrática y sus características                     · Sumatorias y sus propiedades
+                                              · Ecuaciones lineales                                   · Métodos de resolución de una ecuación cuadrática:            · Progresiones aritméticas
+                                              · Resolución de problemas aplicados al contexto y la                                                                   · Progresiones geométricas
+                                                                                                          Completando cuadrados                                      · Progresiones armónicas
+                                                 tecnología                                               Factorización                                              · Suma en una sucesión geométrica -infinita decreciente.
+                                                                                                          Fórmula general                                            · Problemas del contexto aplicados la ciencia y la
+                                             SISTEMAS DE ECUACIONES LINEALES                              Po ­ shen loh                                                 tecnología
+                                                                                                      · Análisis de la discriminante
+                                             EN LA ACTIVIDAD PRODUCTIVA DE LA REGIÓN                  · Soluciones imaginarias, propiedades y operaciones           MATEMÁTICA FINANCIERA
+                                              · Sistemas de ecuaciones de primer grado con dos        · Propiedades de las raíces de una ecuación cuadrática         · Importancia de la matemática financiera
+                                                 incógnitas                                           · Aplicaciones                                                 · Valor del dinero en el tiempo
+                                              · Métodos de resolución:                                · Sistemas de ecuaciones de segundo grado                      · Interés y tasa de interés
+                                                  Sustitución                                         · Comparación de una función cuadrática con una ecuación       · Interés simple
+                                                  Igualación                                             cuadrática                                                  · Tasa, tiempo, capital, valor, valor final, valor actual y
+                                                  Reducción                                           · Resolución de problemas aplicados al contexto y la              descuentos a interés simple.
+                                                  Determinantes                                          tecnología                                                  · Interés compuesto en actividades financieras
+                                                  Gráfico                                                                                                            · Créditos, inversiones y utilidades
+                                              · Sistemas de ecuaciones de primer grado con tres      DESIGUALDADES E INECUACIONES                                    · Emprendimientos productivos
+                                                 incógnitas                                           · Desigualdad e inecuación
+                                              · Método de resolución                                  · Intervalo real y representación gráfica de los intervalos.  LA LÓGICA Y EL DESARROLLO DEL PENSAMIENTO LÓGICO
+                                                  Reducción                                           · Inecuaciones lineales de una variable                       MATEMÁTICO
+                                                  Determinantes                                       · Inecuaciones con valor absoluto
+                                              · Resolución de problemas aplicados al contexto y la    · Inecuaciones cuadráticas y de grado superior                 · Proposiciones simples y compuestas
+                                                 tecnología                                           · Inecuaciones lineales de dos variables                       · Notaciones y conectivos lógicos
+                                                                                                      · Sistema de inecuaciones                                      · Operaciones proposicionales
+                                             NÚMEROS IMAGINARIOS Y COMPLEJOS EN LA                    · Resolución de problemas aplicados al contexto y la           · Tablas de valor de verdad
+                                             NATURALEZA                                                  tecnología                                                  · Clasificación de fórmulas proposicionales (tautologia,
+
+                                              · El conjunto de los números complejos                 FUNCIÓN EXPONENCIAL Y LOGARÍTMICA                                  Contradicción y Contingencia)
+                                              · Unidad Imaginaria y sus propiedades                   · Logaritmos                                                   · Equivalencia lógica
+                                              · Potencias de la unidad imaginaria                     · Sistema de logaritmos                                        · Álgebra de proposiciones
+                                              · Números complejos y su representación gráfica         · Propiedades de logaritmos
+                                              · Expresión binómica de los números complejos           · Función logaritmo                                           LABORATORIO MATEMÁTICO
+                                              · Propiedades                                           · Ecuaciones logarítmicas                                      · GeoGebra y graficador de Malmath
+                                              · Operaciones (adición, sustracción, multiplicación y   · Propiedades de los exponentes
+                                                                                                      · Función exponencial                                              Graficas de ecuaciones
+                                                 división)                                            · Ecuaciones exponenciales                                         Graficas en matemática financiera
+                                              · Operaciones combinadas                                                                                               · Taller de pensamiento lógico
+                                              · Resolución de problemas aplicados al contexto y la                                                                       Ajedrez IV
+
+                                                 tecnología
+
+                                                                                                     42
+=== PDF p.44 (libro p.43) ===
+                                                              · Sistemas de ecuaciones logarítmicas y exponenciales         Nociones básicas de ajedrez
+                                                              · Resolución de problemas aplicados al contexto y la          Problemas de razonamiento (combinaciones, etc)
+                                                                                                                            Sudoku
+                                                                 tecnología                                                 Cubo Rubik
+
+PERFIL DE SALIDA DEL QUINTO AÑO DE ESCOLARIDAD                                                                                                                                         Planes y Programas de Educación Secundaria Comunitaria Productiva
+
+ · Resuelve problemas del contexto y la tecnología aplicando conceptos básicos de trigonometría y geometría analítica generando el bienestar común y la justicia social
+   en la comunidad.
+
+ · Aplica métodos de investigación en estadística y análisis combinatorio en beneficio de la comunidad educativa y la promoción de la ciencia y la tecnología.
+ · Valora la importancia y aplicación de la trigonometría e identidades trigonométricas en la ciencia y la tecnología, fortificando su pensamiento lógico a través del
+
+   laboratorio matemático para la transformación de su realidad.
+CONTENIDOS DEL QUINTO AÑO DE ESCOLARIDAD
+
+PRIMER TRIMESTRE                                              SEGUNDO TRIMESTRE                                            TERCER TRIMESTRE
+
+APLICACIÓN DE LAS PROGRESIONES EN LA COTIDIANIDAD             TRIGONOMETRÍA Y SU APLICACIÓN EN LA TECNOLOGÍA               IDENTIDADES TRIGONOMÉTRICAS Y SU VALOR EN LA
+ · Progresiones y sucesiones                                   · Definición de trigonometría                               PRODUCTIVIDAD
+ · Resolución de problemas aplicados al contexto y la          · Angulo trigonométrico y medida angular
+    tecnología                                                 · Sistemas de medición de ángulos: Sexagesimal y circular.   · Identidades trigonométricas fundamentales
+                                                               · Conversión de un sistema a otro                            · Transformación de expresiones trigonométricas
+ANÁLISIS COMBINATORIO EN SITUACIONES CONCRETAS                 · Longitud de arco y área sector circular                    · Identidades de la suma y diferencia de dos ángulos
+ · Principios básicos de conteo                                · Razones trigonométricas                                    · Identidades de ángulos dobles
+ · Factorial de un número natural y sus propiedades.           · Ángulos notables                                           · Identidades de Ángulo mitad
+ · Permutaciones simples                                       · Círculo trigonométrico y líneas trigonométricas            · Transformación de suma a producto y de producto a
+ · Permutaciones con repetición                                · Funciones trigonométricas en el plano cartesiano
+ · Variaciones simples                                         · Funciones trigonométricas pares e impares                     suma
+ · Variaciones con repetición                                  · Gráficas funciones trigonométricas y sus propiedades       · Demostración de identidades trigonométricas
+ · Combinaciones simples                                          periódicas
+ · Números combinatorios                                       · Problemas de Trigonometría aplicados al contexto y la     ECUACIONES TRIGONOMÉTRICAS
+ · Binomio de Newton                                              tecnología                                                · Raíces de una ecuación trigonométrica
+ · Binomio de Newton                                                                                                        · Resolución de ecuaciones trigonométricas elementales
+                                                              TRIÁNGULOS RECTÁNGULOS EN EL DESARROLLO DE LA                    (lineales)
+ESTADÍSTICA DESCRIPTIVA EN PROCESOS PRODUCTIVOS Y             CIENCIA Y LA TECNOLOGÍA                                       · Resolución de ecuaciones trigonométricas no
+FENÓMENOS SOCIALES                                                                                                             elementales (cuadráticas)
+                                                               · Definición                                                 · Resolución de problemas con ecuaciones trigonométricas
+ · Definiciones fundamentales de Estadística                   · Teorema de Pitágoras
+ · Recolección y organización de datos                         · Funciones trigonométricas (seno, coseno y tangente)       INTRODUCCIÓN A LA GEOMETRÍA ANALÍTICA APLICADA AL
+ · Tipos de variable: cuantitativa (discretas y continuas) y   · Resolución gráfica y analítica de triángulos rectángulos  CONTEXTO Y A LA TECNOLOGÍA
+                                                               · Resolución de problemas aplicados al contexto y la
+    cualitativas                                                                                                            · Sistemas de coordenadas rectangulares y su relación con
+ · Tablas de frecuencia y gráficos estadísticos                   tecnología                                                   los saberes ancestrales
+ · Medidas de tendencia central
+ · Cuartiles, deciles y percentiles                           TRIÁNGULOS OBLICUÁNGULOS EN EL DESARROLLO DE LA               · Distancia entre dos puntos
+ · Medidas de dispersión                                      CIENCIA Y LA TECNOLOGÍA                                       · División de un segmento en una razón dada
+ · Ajuste de curvas y regresión lineal                                                                                      · Área de un polígono
+                                                               · Teorema de Seno                                            · Área de un polígono
+
+                                                              43
+=== PDF p.45 (libro p.44) ===
+                                             · Representación gráfica e interpretación de la            · Teorema de Coseno                                      · Pendiente de una recta
+                                                información                                             · Resolución de triángulos oblicuángulos                 · Ángulo entre dos rectas
+                                                                                                        · Resolución de problemas aplicados al contexto y la     · Condiciones de paralelismo y perpendicularidad.
+                                             · Manejo de datos estadísticos en Excel                                                                             · Resolución de problemas aplicados al contexto y la
+                                                                                                           tecnología
+                                                                                                                                                                    tecnología
+
+Educación Secundaria Comunitaria Productiva                                                                                                                      LABORATORIO MATEMÁTICO
+
+                                                                                                                                                                  · Geogebra
+                                                                                                                                                                      Gráficas en estadística
+                                                                                                                                                                      Gráficas en trigonometría
+                                                                                                                                                                      Gráficas en geometría analítica
+
+                                                                                                                                                                  · Taller de pensamiento lógico
+                                                                                                                                                                      Ajedrez V
+                                                                                                                                                                      Ejercicios de razonamiento (combinaciones y mates).
+
+                                             PERFIL DE SALIDA DEL SEXTO AÑO DE ESCOLARIDAD
+
+                                              · Aplica métodos correctos de resolución de problemas del contexto, con geometría analítica, calculo, teoría de conjuntos, propiedades y fundamentos básicos de la
+                                                matemática, desarrollando valores de reciprocidad y complementariedad.
+
+                                              · Investiga saberes y conocimientos de la línea recta, la circunferencia la parábola y la hipérbola aplicados a la ciencia y la tecnología fortaleciendo su formación integral.
+                                              · Propone transformaciones sociales a través de la aplicación de las derivadas e integrales en procesos productivos con responsabilidad y justicia social fortaleciendo su
+
+                                                pensamiento lógico a través del laboratorio matemático.
+                                             CONTENIDOS DEL SEXTO AÑO DE ESCOLARIDAD
+
+                                             PRIMER TRIMESTRE                                           SEGUNDO TRIMESTRE                                        TERCER TRIMESTRE
+
+                                             GEOMETRÍA ANALÍTICA                                        LA ELIPSE E HIPÉRBOLA APLICADOS A LA CIENCIA Y           ÁLGEBRA Y TRIGONOMETRÍA PREUNIVERSITARIA
+                                                                                                        TECNOLOGÍA                                                · Operaciones con números reales
+                                             LA LÍNEA RECTA APLICADA A PROCESOS PRODUCTIVOS                                                                       · Exponentes y radicales
+                                              · Definición y antecedentes                                · Elipse                                                 · Operaciones con expresiones algebraicas
+                                              · Ecuaciones de la recta                                       Definición                                           · Resolución de ecuaciones y sistemas de ecuaciones
+                                                  Ecuación punto pendiente                                   Elementos                                            · Desigualdades e inecuaciones
+                                                  Ecuación de la recta que pasa por dos puntos.              Ecuaciones                                           · Ecuaciones exponenciales y logarítmicas
+                                                  Ecuación de la recta abscisa y ordenada en el origen       Propiedades de la elipse                             · Resolución de triángulos rectángulos y oblicuángulos
+                                                  Forma general de la ecuación de una recta                                                                       · Identidades y ecuaciones trigonométricas
+                                                  Forma normal de la ecuación de la recta                · Hipérbola                                              · Progresiones y análisis combinatorio
+                                              · Aplicaciones de la forma normal                              Definición                                           · Cálculo del término n-simo aplicando el Binomio de
+                                              · Distancia de un punto a una recta                            Elementos                                               Newton
+                                              · Distancia entre rectas paralelas                             Ecuaciones                                           · Resolución de exámenes para diferentes instituciones
+                                              · Resolución de problemas aplicados al contexto y la           Propiedades de la hipérbola                             superiores
+                                                 tecnología                                                  Resolución de problemas aplicados al contexto y la
+                                                                                                              tecnología                                         LABORATORIO MATEMÁTICO
+                                             LA CIRCUNFERENCIA Y LOS SABERES CULTURALES                                                                           · GeoGebra
+                                              · Definición de circunferencia                            TEORÍA DE CONJUNTOS EN SITUACIONES CONCRETAS DE LA
+                                              · Elementos                                               COMUNIDAD
+
+                                                                                                         · Conjunto, elemento y relación de pertenencia
+
+                                                                                                        44
+=== PDF p.46 (libro p.45) ===
+ · Ecuaciones de la circunferencia                          · Agrupamiento de elementos                              Problemas del lugar geométrico relacionados a las
+     Ecuación canónica                                      · Notación de conjuntos numéricos                        cónicas con software especializado
+     Ecuación ordinaria de la circunferencia                · Determinación de un conjunto por extensión o
+     Ecuación general de la circunferencia                                                                       · Taller de pensamiento lógico
+                                                               comprensión                                           Ajedrez VI
+ · Circunferencia que pasa por tres puntos                  · Diagramas de Venn                                       Ejercicio de razonamiento (combinaciones y mates)
+ · Familia de circunferencias                               · Conjuntos especiales: unitario, vacío, universal
+ · Eje radial entre circunferencias                         · Relación entre conjuntos                                                                                   Planes y Programas de Educación Secundaria Comunitaria Productiva
+ · Tangente a una circunferencia                            · Operaciones entre conjuntos
+ · Resolución de problemas aplicados al contexto y la       · Leyes de operaciones con conjuntos
+                                                            · Cardinalidad y problemas
+    tecnología                                              · Aplicación de la teoría de conjuntos en problemas
+
+PARÁBOLA Y SU RELACIÓN CON SITUACIONES COTIDIANAS              cotidianos
+
+ · Definición de Parábola                                  INTRODUCCIÓN AL ANÁLISIS MATEMÁTICO
+ · Elementos                                                · Análisis de funciones reales
+ · Ecuaciones de la parábola                                · Limites
+                                                            · Derivadas
+     La Parábola en el eje vertical                         · Integrales
+     La Parábola en el eje horizontal
+     Ecuaciones de la parábola con vértice(h,k) fuera del
+
+      origen.
+     Ecuación de la parábola en su forma general.
+ · Parábola que pasa por tres puntos
+ · Tangente a una parábola
+ · La función cuadrática y aplicaciones de la parábola.
+ · Resolución de problemas aplicados al contexto y la
+    tecnología
+
+LECTURAS SUGERIDAS
+
+                  Año de escolaridad                                        Lectura                                                        Película sugerida
+Primero de secundaria
+                                      Malditas matemáticas Alicia en el país de las matemáticas. Autor:          El pato Donal en el país de las matemáticas
+Segundo de secundaria                 Carlo Frabetti                                                             Buscando a Bobby Fisher
+Tercero de secundaria                 Circo matemático. Autor: martin gardnet
+Cuarto de secundaria                                                                                             La soledad de los números primos
+Quinto de secundaria                  Los diez magníficos. Autor: Anna Cerasoli                                  Buscando a Bobby Fisher
+Sexto de secundaria                   Malditas matemáticas Alicia en el país de las matemáticas. Autor:
+                                      Carlo Frabetti                                                             La teoría del todo
+                                                                                                                 La jugada maestra
+                                      Juega a los dados Dios. Autor: Stephen Hawking                             Una mente maravillosa
+                                      El hombre que calculaba. Autor: Malba Tahan                                La jugada maestra
+                                                                                                                 La teoría del todo
+                                      Matemagia. Autor:Adrián Paenza                                             La jugada maestra
+                                      El hombre que calculaba. Autor: Malba Tahan                                Midiendo el mundo
+                                                                                                                 La jugada maestra
+                                      Juega a los dados Dios. Autor: Stephen Hawking
+                                      El hombre que calculaba. Autor: Malba Tahan
+
+                                      Historia del tiempo. Autor: Stephen Hawking
+                                      El hombre que calculaba. Autor: Malba Tahan
+
+                                                           45
+
