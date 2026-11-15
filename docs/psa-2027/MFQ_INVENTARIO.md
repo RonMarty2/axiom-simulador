@@ -825,15 +825,15 @@
      Paso 1 · Equilibrio de torques respecto al codo: $F \cdot d_F = R \cdot d_R \Rightarrow F(5) = 40(30)$.
      Paso 2 · $F = \dfrac{1200}{5} = 240\ \text{N}$. Comprobación: la ventaja mecánica es $\frac{5}{30} = \frac{1}{6}$, luego $F = 6 \times 40 = 240\ \text{N}$.
 
-2. Una barra uniforme de $4\ \text{m}$ y peso despreciable está apoyada en su centro. En el extremo izquierdo se cuelga un peso de $60\ \text{N}$. ¿A qué distancia del apoyo (hacia la derecha) debe colocarse un peso de $40\ \text{N}$ para equilibrarla?
+2. Una barra uniforme de $4\ \text{m}$ y peso despreciable está apoyada en su centro. En el extremo izquierdo se cuelga un peso de $60\ \text{N}$. ¿A qué distancia del apoyo (hacia la derecha) debe colocarse un peso de $80\ \text{N}$ para equilibrarla?
    - A) $1{,}5\ \text{m}$
    - B) $2{,}0\ \text{m}$
    - C) $3{,}0\ \text{m}$
-   - D) $2{,}5\ \text{m}$
-   - **Respuesta:** C
+   - D) $1{,}0\ \text{m}$
+   - **Respuesta:** A
    - **Resolución:**
-     Paso 1 · Brazo izquierdo $= 2\ \text{m}$. Por suma de momentos nula: $60(2) = 40 \cdot x \Rightarrow x = \dfrac{120}{40} = 3\ \text{m}$.
-     Paso 2 · Comprobación: torque horario $40 \times 3 = 120\ \text{N}\cdot\text{m}$ iguala al antihorario $60 \times 2 = 120\ \text{N}\cdot\text{m}$.
+     Paso 1 · Brazo izquierdo $= 2\ \text{m}$. Por suma de momentos nula: $60(2) = 80 \cdot x \Rightarrow x = \dfrac{120}{80} = 1{,}5\ \text{m}$ (cabe: el brazo derecho mide $2\ \text{m}$).
+     Paso 2 · Comprobación: torque horario $80 \times 1{,}5 = 120\ \text{N}\cdot\text{m}$ iguala al antihorario $60 \times 2 = 120\ \text{N}\cdot\text{m}$.
 
 3. Un bloque de $100\ \text{N}$ cuelga de un cable vertical y es jalado horizontalmente hasta que el cable forma $37^\circ$ con la vertical ($\cos 37^\circ = 0{,}8$, $\text{sen}\,37^\circ = 0{,}6$). ¿Cuál es la tensión del cable?
    - A) $125\ \text{N}$
@@ -899,7 +899,7 @@
      Paso 1 · Por la Ley de Gravitación Universal ($F \propto \dfrac{1}{d^2}$): al triplicar $d$, la fuerza disminuye por $3^2 = 9$.
      Paso 2 · $F' = \dfrac{36}{9} = 4\ \text{N}$. Comprobación: $4 \times 3^2 = 36\ \text{N}$.
 
-4. Un planeta orbita alrededor de su estrella a una distancia media $4$ veces mayor que la distancia Tierra-Sol ($r = 4\ \text{UA}$). Según la 3ra Ley de Kepler, ¿cuál es su período orbital en años terrestres?
+4. Un planeta orbita alrededor de una estrella de igual masa que el Sol, a una distancia media $4$ veces mayor que la distancia Tierra-Sol ($r = 4\ \text{UA}$). Según la 3ra Ley de Kepler, ¿cuál es su período orbital en años terrestres?
    - A) $4\ \text{años}$
    - B) $8\ \text{años}$
    - C) $16\ \text{años}$
