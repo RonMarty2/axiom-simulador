@@ -9,3 +9,8 @@ Scripts: `script_agy/` (de agy, pedido `scripts/agy/pedidos/2026-11-15-bloques-a
 - **Problema serio:** en 24 de 50 capítulos el texto actual tiene distinta cantidad de bloques que la caché (`coincide.py`; ej. Calvo t7: texto 282 / audio 223; Saladin cap 1: 260/264). El texto se editó después de sintetizar, así que `parte_NNN` NO corresponde al bloque NNN del texto: borrar una parte por número rompería el capítulo. El script de agy además busca la caché con el nombre del texto; la de Saladin se llama `Morfo_Cap_NN_Saladin_LITERAL_TTS` (y `Morfo_Atlas_B_...`).
 - Nada se tocó: ni textos, ni caché, ni audios.
 - Opción A (cuentaA.py): 393 partes en los 26 capítulos que coinciden, con iones, μ o miles. Las que más tienen: Calvo t4 83/204, Saladin cap 24 49/169 y cap 18 43/264.
+
+## 15-nov, después: el contenido no está limpio
+- 34 de 50 textos traen al final «Lecturas recomendadas»/bibliografía (se leen citas en voz alta), «Actividad práctica» y «Preguntas de autoevaluación» con respuestas (Calvo t7: ~2.000 de 21.800 palabras; Saladin cap 5: «Guía de estudio y autoevaluación», ~1.850). No se comprobó todavía si está el libro completo.
+- agy EN CURSO (tarea bxt4id7k3): inventario de secciones que no sirven + cobertura contra los PDF. Pedido `scripts/agy/pedidos/2026-11-15-inventario-contenido-audio.md`; salida en `%LOCALAPPDATA%\axiom-agy\` carpeta `*_lectura` más nueva, RESPUESTA.md.
+- Si la basura está al final, se quita borrando las últimas partes del audio sin rehacer nada más.
