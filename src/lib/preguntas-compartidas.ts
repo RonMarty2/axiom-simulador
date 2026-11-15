@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { FormatoExamen } from "./formatos-examen.ts";
 import type { ExamenBanco, ModoSimulacion, PreguntaBanco } from "./axiom/types.ts";
+import { parseExamenMD } from "./axiom/banco-parser.ts";
 
 export interface ReglaPreguntasCompartidas {
   id: string;
@@ -13,6 +14,23 @@ export interface ReglaPreguntasCompartidas {
   nota: string;
   /** Patrones (regex, sin mayúsculas) sobre `tema`: lo que calza NO se presta (fuera de la lista oficial). */
   temas_excluidos?: string[];
+  /**
+   * Si está, las preguntas NO salen de los exámenes de `origen` sino de este archivo de
+   * `data/practica/` (formato .md del banco). Para preguntas de práctica escritas por AXIOM
+   * que no son de un examen pasado y por eso no van en `data/examenes/` (15-nov-2026).
+   */
+  archivo?: string;
+}
+
+const DIR_PRACTICA = path.join(process.cwd(), "data", "practica");
+
+/** Preguntas de un archivo de práctica (`data/practica/<archivo>`); [] si no existe o no se puede leer. */
+export function cargarPreguntasArchivo(archivo: string, dir: string = DIR_PRACTICA): PreguntaBanco[] {
+  try {
+    return parseExamenMD(readFileSync(path.join(dir, path.basename(archivo)), "utf-8")).preguntas;
+  } catch {
+    return [];
+  }
 }
 
 const RUTA_REGLAS_DEFAULT = path.join(process.cwd(), "data", "preguntas-compartidas.json");

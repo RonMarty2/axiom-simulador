@@ -25,5 +25,19 @@
       "moivre",
       "sistemas-de-numeracion"
     ]
+  },
+  {
+    "id": "medicina-practica-psa-2027-mfq",
+    "activo": true,
+    "destino": "medicina",
+    "origen": "practica-psa-2027",
+    "archivo": "medicina-psa-2027-mfq.md",
+    "areas": {
+      "matematicas": "matematicas",
+      "fisica": "fisica",
+      "quimica": "quimica"
+    },
+    "etiqueta": "Pregunta de práctica PSA 2027",
+    "nota": "No es de un examen pasado: es una pregunta de práctica sobre un tema de la lista oficial de la PSA 2027."
   }
 ]

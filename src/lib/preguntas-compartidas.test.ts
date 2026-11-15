@@ -7,6 +7,7 @@ import {
   reglasActivasPara,
   prestarPreguntas,
   ampliarPoolConPrestadas,
+  cargarPreguntasArchivo,
 } from "./preguntas-compartidas.ts";
 import { vigenteDe, porIdDe, repartirCuotas, type FormatoExamen } from "./formatos-examen.ts";
 import { parseExamenMD } from "./axiom/banco-parser.ts";
@@ -56,9 +57,9 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     assert.ok(fichaPsa2027, "debe existir ficha vigente de medicina (psa-2027)");
     const reglas = cargarReglasCompartidas();
     const activas = reglasActivasPara(reglas, "medicina");
-    assert.equal(activas.length, 1);
-    assert.equal(activas[0].id, "medicina-desde-ingenieria");
-    assert.equal(activas[0].origen, "ingenieria");
+    // Desde el 15-nov-2026 hay dos reglas activas: Ingeniería y la práctica PSA 2027 (data/practica).
+    assert.deepEqual(activas.map((r) => r.id).sort(), ["medicina-desde-ingenieria", "medicina-practica-psa-2027-mfq"]);
+    assert.equal(activas.find((r) => r.id === "medicina-desde-ingenieria")?.origen, "ingenieria");
 
     const poolAmpliado = ampliarPoolConPrestadas({
       modo: "predictivo",
@@ -270,5 +271,39 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     const todas = prestarPreguntas(poolIngenieria, regla, fichaPsa2027);
     const res = (regla.temas_excluidos ?? []).map((t) => new RegExp(t, "i"));
     assert.equal(todas.some((p) => res.some((r) => r.test(p.tema ?? ""))), false);
+  });
+});
+
+describe("práctica PSA 2027 (data/practica, 15-nov-2026)", () => {
+  const regla = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-mfq");
+
+  test("el archivo trae las 98 preguntas DENTRO de la convocatoria, solo de Matemática, Física y Química", () => {
+    assert.ok(regla?.archivo, "debe existir la regla con archivo");
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    assert.equal(ps.length, 98);
+    assert.deepEqual([...new Set(ps.map((p) => p.area))].sort(), ["fisica", "matematicas", "quimica"]);
+    for (const p of ps) {
+      assert.equal(p.opciones.length, 4, p.id);
+      assert.ok(p.opciones.some((o) => o.letra === p.respuesta_correcta), p.id);
+    }
+  });
+
+  test("entran a «Por tema» de Medicina con su etiqueta propia y sin tocar los exámenes", () => {
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    const pool = ampliarPoolConPrestadas({
+      modo: "por_tema",
+      facultad: "medicina",
+      pool: [],
+      preguntasOrigen: (orig) => (orig === "practica-psa-2027" ? ps : []),
+      ficha: fichaPsa2027,
+    });
+    const propias = pool.filter((p) => p.prestada?.etiqueta === "Pregunta de práctica PSA 2027");
+    assert.equal(propias.length, 98);
+    assert.ok(propias.every((p) => p.id.startsWith("prestada:")));
+  });
+
+  test("no aparece como examen en data/examenes", () => {
+    const titulos = cargarFacultad("medicina").map((e) => e.titulo ?? "");
+    assert.ok(!titulos.some((t) => /Práctica PSA 2027/.test(t)));
   });
 });

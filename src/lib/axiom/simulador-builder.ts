@@ -4,6 +4,7 @@ import { filtrarPorTemaActual, temaActualDeArea } from "./areas";
 import { repartirCuotas, type FormatoExamen } from "@/lib/formatos-examen";
 import {
   ampliarPoolConPrestadas,
+  cargarPreguntasArchivo,
   cargarReglasCompartidas,
   reglasActivasPara,
   type ReglaPreguntasCompartidas,
@@ -111,7 +112,9 @@ export async function construirSimulador(
     if (ficha && activas.length > 0) {
       for (const r of activas) {
         const origL = r.origen.toLowerCase();
-        if (!origenesExtra.has(origL)) {
+        if (r.archivo) {
+          origenesExtra.set(origL, cargarPreguntasArchivo(r.archivo));
+        } else if (!origenesExtra.has(origL)) {
           const exOrig = banco
             .filter(
               (e) =>
