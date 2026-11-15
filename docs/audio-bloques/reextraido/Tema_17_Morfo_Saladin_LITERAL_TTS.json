@@ -6,7 +6,7 @@
     "similitud": 1.0,
     "pagina": 672,
     "texto_viejo": "Su función en la movilización de ácidos grasos reduce la dependencia de la glucosa en la mayor parte de las células, de modo que no compiten con el encéfalo, que depende en gran medida de la glucosa. La somatotropina también estimula la síntesis de glucosa en el hígado. • Equilibrio hidroelectrolítico. La somatotropina promueve la retención de Na+, K+ y Cl– en los riñones, mejora la absorción de Ca2+ en el intestino delgado y hace que estos electrólitos estén disponibles para los tejidos en crecimiento.",
-    "texto_nuevo": "Su función en la movilización de ácidos grasos reduce la dependencia de la glucosa en la mayor parte de las células, de modo que no compiten con el encéfalo, que depende en gran medida de la glucosa. La somatotropina también estimula la síntesis de glucosa en el hígado. • Equilibrio hidroelectrolítico. La somatotropina promueve la retención de Na más, K más y Cl– en los riñones, mejora la absorción de Ca dos más en el intestino delgado y hace que estos electrólitos estén disponibles para los tejidos en crecimiento."
+    "texto_nuevo": "Su función en la movilización de ácidos grasos reduce la dependencia de la glucosa en la mayor parte de las células, de modo que no compiten con el encéfalo, que depende en gran medida de la glucosa. La somatotropina también estimula la síntesis de glucosa en el hígado. • Equilibrio hidroelectrolítico. La somatotropina promueve la retención de Na más, K más y Cl menos en los riñones, mejora la absorción de Ca dos más en el intestino delgado y hace que estos electrólitos estén disponibles para los tejidos en crecimiento."
   },
   {
     "j": 90,
@@ -64,12 +64,12 @@
   },
   {
     "j": 186,
-    "estado": "REVISAR",
-    "motivo": "caracter residual en texto nuevo ('+')",
+    "estado": "OK",
+    "motivo": "",
     "similitud": 0.9773,
     "pagina": 689,
     "texto_viejo": "Uno de los genes activados por T3 es para la enzima Na+-K+ ATPasa , la bomba de Na+ y K+,. Como se vio en el capítulo tres , p. noventa y siete, un efecto de esta bomba consiste en generar calor, por lo que es responsable del efecto calorigénico de la hormona tiroidea.",
-    "texto_nuevo": "Uno de los genes activados por T tres es para la enzima Na+-K más ATPasa, la bomba de Na más y K más. Como se vio en el capítulo tres, un efecto de esta bomba consiste en generar calor, por lo que es responsable del efecto calorigénico de la hormona tiroidea."
+    "texto_nuevo": "Uno de los genes activados por T tres es para la enzima Na más K más ATPasa, la bomba de Na más y K más. Como se vio en el capítulo tres, un efecto de esta bomba consiste en generar calor, por lo que es responsable del efecto calorigénico de la hormona tiroidea."
   },
   {
     "j": 194,

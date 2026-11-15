@@ -66,10 +66,10 @@
     "j": 229,
     "estado": "REVISAR",
     "motivo": "caracter residual en texto nuevo ('+')",
-    "similitud": 0.9888,
+    "similitud": 0.9239,
     "pagina": 911,
     "texto_viejo": "Tejido que respira Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Compuestos carbamino Cl– Cl– siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento un coma cinco por ciento CO2 + Hb CO2 + H2O O2 + HHb HbO2 + H+ H2CO3 HCO3– + H+ HCO3– – Cl– Cotransporte bidireccional HCO3– HbCO2 CAH Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta cien Tejidos sistémicos Alveolos Porcentaje de saturación de O2 de hemoglobina ml O2 o cien ml de sangre Presión parcial de O2 , Po2, en mmHg veintidós por ciento FIGURA veintidós coma dos cuatro Curva de disociación de la oxihemoglobina.",
-    "texto_nuevo": "Tejido que respira Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Compuestos carbamino Cl– Cl– siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb CO dos + H dos O O dos + HHb HbO dos + H más H dos CO tres HCO tres– + H más HCO tres– – Cl– Cotransporte bidireccional HCO tres– HbCO dos CAH Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta mil cien Tejidos sistémicos Alveolos Porcentaje de saturación de O dos de hemoglobina ml O dos sobre cien ml de sangre Presión parcial de O dos, Po dos, en mmHg veintidós por ciento FIGURA veintidós punto veinticuatro Curva de disociación de la oxihemoglobina."
+    "texto_nuevo": "Tejido que respira Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Compuestos carbamino Cl menos Cl menos siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb CO dos + H dos O O dos + HHb HbO dos + H más H dos CO tres H C O tres menos + H más H C O tres menos – Cl menos Cotransporte bidireccional H C O tres menos HbCO dos CAH Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta mil cien Tejidos sistémicos Alveolos Porcentaje de saturación de O dos de hemoglobina ml O dos sobre cien ml de sangre Presión parcial de O dos, Po dos, en mmHg veintidós por ciento FIGURA veintidós punto veinticuatro Curva de disociación de la oxihemoglobina."
   },
   {
     "j": 232,
@@ -87,7 +87,7 @@
     "similitud": 0.9809,
     "pagina": 912,
     "texto_viejo": "Esta reacción ocurre con lentitud en el plasma sanguíneo pero mucho más rápido en los eritrocitos, donde la enzima anhidrasa carbónica la cataliza. Un cotransporte bidireccional al que se le denomina intercambiador de cloruro y bicarbonato bombea entonces la mayor parte del HCO3 – fuera del eritrocito en un intercambio por Cl– del plasma sanguíneo. A este intercambio se le denomina desplazamiento de cloruro. La mayor parte del H+ se fi ja a la hemoglobina o la oxihemoglobina, lo que amortigua el pH intracelular.",
-    "texto_nuevo": "Esta reacción ocurre con lentitud en el plasma sanguíneo pero mucho más rápido en los eritrocitos, donde la enzima anhidrasa carbónica la cataliza. Un cotransporte bidireccional al que se le denomina intercambiador de cloruro y bicarbonato bombea entonces la mayor parte del HCO tres – fuera del eritrocito en un intercambio por Cl– del plasma sanguíneo. A este intercambio se le denomina desplazamiento de cloruro. La mayor parte del H más se fija a la hemoglobina o la oxihemoglobina, lo que amortigua el pH intracelular."
+    "texto_nuevo": "Esta reacción ocurre con lentitud en el plasma sanguíneo pero mucho más rápido en los eritrocitos, donde la enzima anhidrasa carbónica la cataliza. Un cotransporte bidireccional al que se le denomina intercambiador de cloruro y bicarbonato bombea entonces la mayor parte del HCO tres – fuera del eritrocito en un intercambio por Cl menos del plasma sanguíneo. A este intercambio se le denomina desplazamiento de cloruro. La mayor parte del H más se fija a la hemoglobina o la oxihemoglobina, lo que amortigua el pH intracelular."
   },
   {
     "j": 234,
@@ -101,11 +101,11 @@
   {
     "j": 237,
     "estado": "REVISAR",
-    "motivo": "primera palabra distinta ('como' vs 'las'); caracter residual en texto nuevo ('+')",
-    "similitud": 0.9565,
+    "motivo": "similitud 0.8862 < 0.92; primera palabra distinta ('como' vs 'las'); caracter residual en texto nuevo ('+')",
+    "similitud": 0.8862,
     "pagina": 912,
     "texto_viejo": "Como se muestra en la fi gura veintidós coma dos seis, las reacciones que ocurren en los pulmones son, en esencia, lo inverso del interMembrana respiratoria Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento un coma cinco por ciento CO2 + Hb HbO2 + H+ HCO3– + H+ HbCO2 CAH CO2 + H2O H2CO3 Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica O2 + HHb Cl– Cl– Cotransporte bidireccional HCO3– – Cl– HCO3– Desplazamiento de cloruro FIGURA veintidós coma dos seis Intercambio gaseoso alveolar.",
-    "texto_nuevo": "las reacciones que ocurren en los pulmones son, en esencia, lo inverso del interMembrana respiratoria Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb HbO dos + H más HCO tres– + H más HbCO dos CAH CO dos + H dos O H dos CO tres Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica O dos + HHb Cl– Cl– Cotransporte bidireccional HCO tres– – Cl– HCO tres– Desplazamiento de cloruro FIGURA veintidós punto veintiséis Intercambio gaseoso alveolar."
+    "texto_nuevo": "las reacciones que ocurren en los pulmones son, en esencia, lo inverso del interMembrana respiratoria Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb HbO dos + H más H C O tres menos + H más HbCO dos CAH CO dos + H dos O H dos CO tres Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica O dos + HHb Cl menos Cl menos Cotransporte bidireccional H C O tres menos – Cl menos H C O tres menos Desplazamiento de cloruro FIGURA veintidós punto veintiséis Intercambio gaseoso alveolar."
   },
   {
     "j": 239,

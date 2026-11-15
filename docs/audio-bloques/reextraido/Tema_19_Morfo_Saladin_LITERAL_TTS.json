@@ -15,7 +15,7 @@
     "similitud": 0.9375,
     "pagina": 757,
     "texto_viejo": "Su potencial inicia casi a los –sesenta mV y asciende, mostrando una polarización gradual llamada potencial de marcapasos , fi gura diecinueve coma un tres,. Esto se debe sobre todo a un infl ujo lento de Na+, sin una salida de K+ que lo compense. Cuando el potencial de marcapasos alcanza un umbral de –cuarenta mV, los canales de calcio con compuerta habilitada por voltaje se abren y el Ca2+ fl uye al interior desde el líquido extracelular.",
-    "texto_nuevo": "Su potencial inicia casi a los –sesenta mV y asciende, mostrando una polarización gradual llamada potencial de marcapasos. Esto se debe sobre todo a un influjo lento de Na más, sin una salida de K más que lo compense. Cuando el potencial de marcapasos alcanza un umbral de –cuarenta mV, los canales de calcio con compuerta habilitada por voltaje se abren y el Ca dos más fluye al interior desde el líquido extracelular."
+    "texto_nuevo": "Su potencial inicia casi a los menos sesenta mV y asciende, mostrando una polarización gradual llamada potencial de marcapasos. Esto se debe sobre todo a un influjo lento de Na más, sin una salida de K más que lo compense. Cuando el potencial de marcapasos alcanza un umbral de menos cuarenta mV, los canales de calcio con compuerta habilitada por voltaje se abren y el Ca dos más fluye al interior desde el líquido extracelular."
   },
   {
     "j": 105,
@@ -33,7 +33,7 @@
     "similitud": 0.9531,
     "pagina": 757,
     "texto_viejo": "+diez a diez –veinte a treinta –cuarenta a cincuenta –sesenta a setenta .ocho .cuatro un coma dos un coma seis Potencial de membrana , mV, Tiempo , segundos, Influjo lento de Na+ Influjo de Ca2+–Na + Salida de K+ Potencial de acción Potencial de marcapasos Umbral FIGURA diecinueve coma un tres Potenciales de marcapasos y de acción en el nódulo SA. CONOCIMIENTO MÁS A FONDO diecinueve coma dos Aplicación clínica Arritmias cardiacas El aleteo , o taquisistolia, auricular, que representa contracciones ventriculares prematuras, consta de arritmias cardiacas comunes.",
-    "texto_nuevo": "veintidós a igual a no; rhytm igual a ritmo. +diez a diez –veinte a treinta –cuarenta a cincuenta –sesenta a setenta punto ocho punto cuatro uno punto dos uno punto seis Potencial de membrana, mV, Tiempo, segundos, Influjo lento de Na más Influjo de Ca dos más–Na + Salida de K más Potencial de acción Potencial de marcapasos Umbral FIGURA diecinueve punto trece Potenciales de marcapasos y de acción en el nódulo SA. CONOCIMIENTO MÁS A FONDO diecinueve punto dos Aplicación clínica Arritmias cardiacas El aleteo, o taquisistolia, auricular, que representa contracciones ventriculares prematuras, consta de arritmias cardiacas comunes."
+    "texto_nuevo": "veintidós a igual a no; rhytm igual a ritmo. más diez a diez menos veinte a treinta menos cuarenta a cincuenta menos sesenta a setenta punto ocho punto cuatro uno punto dos uno punto seis Potencial de membrana, mV, Tiempo, segundos, Influjo lento de Na más Influjo de Ca dos+–Na + Salida de K más Potencial de acción Potencial de marcapasos Umbral FIGURA diecinueve punto trece Potenciales de marcapasos y de acción en el nódulo SA. CONOCIMIENTO MÁS A FONDO diecinueve punto dos Aplicación clínica Arritmias cardiacas El aleteo, o taquisistolia, auricular, que representa contracciones ventriculares prematuras, consta de arritmias cardiacas comunes."
   },
   {
     "j": 116,
@@ -42,16 +42,16 @@
     "similitud": 0.9634,
     "pagina": 758,
     "texto_viejo": "Los cardiocitos tienen un potencial de acción en descanso estable de –noventa mV y suelen despolarizarse sólo cuando se les estimula, a diferencia de las células del nódulo SA. Un estímulo abre los canales de sodio con compuerta habilitada por voltaje, lo que causa un infl ujo de Na+ y la despolarización de la célula a su umbral. El voltaje de umbral abre con rapidez canales de Na+ adicionales y desencadena un ciclo de retroalimentación positiva como el visto en el disparo de una neurona , consúltese la p. cuatrocientos cincuenta y cinco,.",
-    "texto_nuevo": "Los cardiocitos tienen un potencial de acción en descanso estable de –noventa mV y suelen despolarizarse sólo cuando se les estimula, a diferencia de las células del nódulo SA. Un estímulo abre los canales de sodio con compuerta habilitada por voltaje, lo que causa un influjo de Na más y la despolarización de la célula a su umbral. El voltaje de umbral abre con rapidez canales de Na más adicionales y desencadena un ciclo de retroalimentación positiva como el visto en el disparo de una neurona, consúltese la página cuatrocientos cincuenta y cinco. El"
+    "texto_nuevo": "Los cardiocitos tienen un potencial de acción en descanso estable de menos noventa mV y suelen despolarizarse sólo cuando se les estimula, a diferencia de las células del nódulo SA. Un estímulo abre los canales de sodio con compuerta habilitada por voltaje, lo que causa un influjo de Na más y la despolarización de la célula a su umbral. El voltaje de umbral abre con rapidez canales de Na más adicionales y desencadena un ciclo de retroalimentación positiva como el visto en el disparo de una neurona, consúltese la página cuatrocientos cincuenta y cinco. El"
   },
   {
     "j": 117,
     "estado": "REVISAR",
-    "motivo": "primera palabra distinta ('el' vs 'potencial'); caracter residual en texto nuevo ('+')",
+    "motivo": "primera palabra distinta ('el' vs 'potencial')",
     "similitud": 0.9919,
     "pagina": 758,
     "texto_viejo": "El potencial de acción alcanza un máximo a casi +treinta mV, los canales de Na+ se cierran con rapidez y la fase de elevación del potencial de acción es muy breve. A medida que los potenciales de acción se dispersan por la membrana plasmática, abren canales de sodio lentos con compuerta habilitada por voltaje que admiten una pequeña cantidad de Ca2+ del líquido extracelular en la célula.",
-    "texto_nuevo": "potencial de acción alcanza un máximo a casi +treinta mV, los canales de Na más se cierran con rapidez y la fase de elevación del potencial de acción es muy breve. A medida que los potenciales de acción se dispersan por la membrana plasmática, abren canales de sodio lentos con compuerta habilitada por voltaje que admiten una pequeña cantidad de Ca dos más del líquido extracelular en la célula."
+    "texto_nuevo": "potencial de acción alcanza un máximo a casi más treinta mV, los canales de Na más se cierran con rapidez y la fase de elevación del potencial de acción es muy breve. A medida que los potenciales de acción se dispersan por la membrana plasmática, abren canales de sodio lentos con compuerta habilitada por voltaje que admiten una pequeña cantidad de Ca dos más del líquido extracelular en la célula."
   },
   {
     "j": 118,
@@ -64,21 +64,21 @@
   },
   {
     "j": 119,
-    "estado": "REVISAR",
-    "motivo": "caracter residual en texto nuevo ('+')",
+    "estado": "OK",
+    "motivo": "",
     "similitud": 1.0,
     "pagina": 758,
     "texto_viejo": "El influjo de Na+ despolariza la membrana y lleva a la abertura de aún más canales de Na+, con lo cual crea un ciclo de retroalimentación positiva y un aumento rápido en el voltaje de la membrana. Los canales de Na+ se cierran cuando la célula se despolariza, y el voltaje alcanza como máximo casi +treinta mV. El Ca2+ que entra a través de canales de Ca2+ lentos prolonga la despolarización de la membrana y crea una meseta, o situación estable.",
-    "texto_nuevo": "El influjo de Na más despolariza la membrana y lleva a la abertura de aún más canales de Na más, con lo cual crea un ciclo de retroalimentación positiva y un aumento rápido en el voltaje de la membrana. Los canales de Na más se cierran cuando la célula se despolariza, y el voltaje alcanza como máximo casi +treinta mV. El Ca dos más que entra a través de canales de Ca dos más lentos prolonga la despolarización de la membrana y crea una meseta, o situación estable."
+    "texto_nuevo": "El influjo de Na más despolariza la membrana y lleva a la abertura de aún más canales de Na más, con lo cual crea un ciclo de retroalimentación positiva y un aumento rápido en el voltaje de la membrana. Los canales de Na más se cierran cuando la célula se despolariza, y el voltaje alcanza como máximo casi más treinta mV. El Ca dos más que entra a través de canales de Ca dos más lentos prolonga la despolarización de la membrana y crea una meseta, o situación estable."
   },
   {
     "j": 120,
-    "estado": "REVISAR",
-    "motivo": "caracter residual en texto nuevo ('+')",
+    "estado": "OK",
+    "motivo": "",
     "similitud": 1.0,
     "pagina": 758,
     "texto_viejo": "La meseta cae un poco debido a la fuga de algunos K+, pero la mayoría de los canales de K+ permanecen cerrados hasta el final de dicha meseta. Los canales de Ca2+ se cierran y se transportan al Ca2+ fuera de la célula, mientras que los canales de K+ se abren y la salida rápida de K+ devuelve las membranas a su potencial en descanso. Potencial de membrana , mV, +veinte a veinte –cuarenta a sesenta –ochenta Relajación miocárdica FIGURA diecinueve coma un cuatro Potencial de acción de un cardiocito ventricular.",
-    "texto_nuevo": "La meseta cae un poco debido a la fuga de algunos K más, pero la mayoría de los canales de K más permanecen cerrados hasta el final de dicha meseta. Los canales de Ca dos más se cierran y se transportan al Ca dos más fuera de la célula, mientras que los canales de K más se abren y la salida rápida de K más devuelve las membranas a su potencial en descanso. Potencial de membrana, mV, +veinte a veinte –cuarenta a sesenta –ochenta Relajación miocárdica FIGURA diecinueve punto catorce Potencial de acción de un cardiocito ventricular."
+    "texto_nuevo": "La meseta cae un poco debido a la fuga de algunos K más, pero la mayoría de los canales de K más permanecen cerrados hasta el final de dicha meseta. Los canales de Ca dos más se cierran y se transportan al Ca dos más fuera de la célula, mientras que los canales de K más se abren y la salida rápida de K más devuelve las membranas a su potencial en descanso. Potencial de membrana, mV, más veinte a veinte menos cuarenta a sesenta menos ochenta Relajación miocárdica FIGURA diecinueve punto catorce Potencial de acción de un cardiocito ventricular."
   },
   {
     "j": 122,

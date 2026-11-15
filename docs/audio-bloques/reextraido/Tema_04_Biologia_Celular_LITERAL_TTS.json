@@ -15,7 +15,7 @@
     "similitud": 1.0,
     "pagina": 172,
     "texto_viejo": "Cl– diez a seis K+ diez a diez Na+ diez a doce Como ya se ha apuntado en el capítulo anterior, la propia composición de la membrana plasmática desempeña también un papel importante en la permeabilidad. Una alta proporción de colesterol confiere a la membrana una menor permeabilidad y una mayor coherencia mecánica para que sea una barrera más eficaz. Por ejemplo, la membrana de las células epiteliales de la rama ascendente del asa de Henle posee una composición con niveles elevados de colesterol, lo que le confiere una impermeabilidad al agua fisiológicamente relevante en el proceso de reabsorción renal.",
-    "texto_nuevo": "Cl– diez a seis K más diez a diez Na más diez a doce Como ya se ha apuntado en el capítulo anterior, la propia composición de la membrana plasmática desempeña también un papel importante en la permeabilidad. Una alta proporción de colesterol confiere a la membrana una menor permeabilidad y una mayor coherencia mecánica para que sea una barrera más eficaz. Por ejemplo, la membrana de las células epiteliales de la rama ascendente del asa de Henle posee una composición con niveles elevados de colesterol, lo que le confiere una impermeabilidad al agua fisiológicamente relevante en el proceso de reabsorción renal."
+    "texto_nuevo": "Cl menos diez a seis K más diez a diez Na más diez a doce Como ya se ha apuntado en el capítulo anterior, la propia composición de la membrana plasmática desempeña también un papel importante en la permeabilidad. Una alta proporción de colesterol confiere a la membrana una menor permeabilidad y una mayor coherencia mecánica para que sea una barrera más eficaz. Por ejemplo, la membrana de las células epiteliales de la rama ascendente del asa de Henle posee una composición con niveles elevados de colesterol, lo que le confiere una impermeabilidad al agua fisiológicamente relevante en el proceso de reabsorción renal."
   },
   {
     "j": 24,
@@ -33,7 +33,7 @@
     "similitud": 0.994,
     "pagina": 175,
     "texto_viejo": "FIGURA cuatro a cinco Canal de membrana , flecha,. Los canales forman poros hidrófilos que permiten el flujo de sustancias que no pueden atravesar la doble capa por difusión simple. , Ilustración de: E. Maldonado., Canales iónicos Los canales iónicos llevan a cabo un transporte rápido de determinados iones. La estructura proteica del interior del poro está formada por aminoácidos de cadena lateral hidrófila que permiten el paso selectivo de un soluto. De hecho, existe una gran variedad de canales especializados en el transporte de determinados iones, como K+, Na+, Cl– o Ca2+.",
-    "texto_nuevo": "FIGURA cuatro punto cinco Canal de membrana, flecha. Los canales forman poros hidrófilos que permiten el flujo de sustancias que no pueden atravesar la doble capa por difusión simple. Ilustración de: E. Maldonado. Canales iónicos Los canales iónicos llevan a cabo un transporte rápido de determinados iones. La estructura proteica del interior del poro está formada por aminoácidos de cadena lateral hidrófila que permiten el paso selectivo de un soluto. De hecho, existe una gran variedad de canales especializados en el transporte de determinados iones, como K más, Na más, Cl– o Ca dos más."
+    "texto_nuevo": "FIGURA cuatro punto cinco Canal de membrana, flecha. Los canales forman poros hidrófilos que permiten el flujo de sustancias que no pueden atravesar la doble capa por difusión simple. Ilustración de: E. Maldonado. Canales iónicos Los canales iónicos llevan a cabo un transporte rápido de determinados iones. La estructura proteica del interior del poro está formada por aminoácidos de cadena lateral hidrófila que permiten el paso selectivo de un soluto. De hecho, existe una gran variedad de canales especializados en el transporte de determinados iones, como K más, Na más, Cl menos o Ca dos más."
   },
   {
     "j": 31,
@@ -78,7 +78,7 @@
     "similitud": 1.0,
     "pagina": 177,
     "texto_viejo": "Maldonado., Muchas enfermedades se asocian a defectos en el funcionamiento de los canales iónicos, como la fibrosis quística , alteración de canales de Cl–, algunos tipos de epilepsia , alteración de canales de Na+ y K+, enfermedades",
-    "texto_nuevo": "Maldonado. Muchas enfermedades se asocian a defectos en el funcionamiento de los canales iónicos, como la fibrosis quística, alteración de canales de Cl–, algunos tipos de epilepsia, alteración de canales de Na más y K más, enfermedades"
+    "texto_nuevo": "Maldonado. Muchas enfermedades se asocian a defectos en el funcionamiento de los canales iónicos, como la fibrosis quística, alteración de canales de Cl menos, algunos tipos de epilepsia, alteración de canales de Na más y K más, enfermedades"
   },
   {
     "j": 38,
@@ -294,7 +294,7 @@
     "similitud": 1.0,
     "pagina": 195,
     "texto_viejo": "Axones, miocitos esqueléticos menos ochenta mV Miocitos auriculares o ventriculares menos noventa mV La excitabilidad eléctrica es una propiedad que presentan algunas células, como las nerviosas, las musculares, los islotes de Langerhans, etc. Estas células se caracterizan por tener canales iónicos , de Na+, Ca2+, K+ o Cl–, que dependen del voltaje. Ciertos estímulos son capaces de generar un potencial de acción, que consiste en un cambio del Vm que siempre es despolarizante; es decir, el potencial de membrana varía de valores negativos a positivos.",
-    "texto_nuevo": "Axones, miocitos esqueléticos menos ochenta mV Miocitos auriculares o ventriculares menos noventa mV La excitabilidad eléctrica es una propiedad que presentan algunas células, como las nerviosas, las musculares, los islotes de Langerhans, etc. Estas células se caracterizan por tener canales iónicos, de Na más, Ca dos más, K más o Cl–, que dependen del voltaje. Ciertos estímulos son capaces de generar un potencial de acción, que consiste en un cambio del Vm que siempre es despolarizante; es decir, el potencial de membrana varía de valores negativos a positivos."
+    "texto_nuevo": "Axones, miocitos esqueléticos menos ochenta mV Miocitos auriculares o ventriculares menos noventa mV La excitabilidad eléctrica es una propiedad que presentan algunas células, como las nerviosas, las musculares, los islotes de Langerhans, etc. Estas células se caracterizan por tener canales iónicos, de Na más, Ca dos más, K más o Cl menos, que dependen del voltaje. Ciertos estímulos son capaces de generar un potencial de acción, que consiste en un cambio del Vm que siempre es despolarizante; es decir, el potencial de membrana varía de valores negativos a positivos."
   },
   {
     "j": 123,
@@ -312,7 +312,7 @@
     "similitud": 0.9818,
     "pagina": 196,
     "texto_viejo": "característico del LIC es que posee K+ como catión principal , tabla cuatro a cuatro,. Los aniones citoplasmáticos son, fundamentalmente, macromoléculas que no pueden salir de la célula , proteinatos y A R N, entre otras,. Tabla cuatro a cuatro Distribución de los iones Na+, K+ y Cl– en el LIC y el LEC del axón de calamar y la neurona de mamífero Concentraciones iónicas expresadas en mM Para comprender el porqué del potencial de membrana debemos tener en cuenta tres aspectos importantes: • La dirección de la difusión de las sustancias.",
-    "texto_nuevo": "característico del LIC es que posee K más como catión principal. Los aniones citoplasmáticos son, fundamentalmente, macromoléculas que no pueden salir de la célula, proteinatos y A R N, entre otras. Tabla cuatro punto cuatro Distribución de los iones Na más, K más y Cl– en el LIC y el LEC del axón de calamar y la neurona de mamífero Concentraciones iónicas expresadas en mM Para comprender el porqué del potencial de membrana debemos tener en cuenta tres aspectos importantes: • La dirección de la difusión de las sustancias."
+    "texto_nuevo": "característico del LIC es que posee K más como catión principal. Los aniones citoplasmáticos son, fundamentalmente, macromoléculas que no pueden salir de la célula, proteinatos y A R N, entre otras. Tabla cuatro punto cuatro Distribución de los iones Na más, K más y Cl menos en el LIC y el LEC del axón de calamar y la neurona de mamífero Concentraciones iónicas expresadas en mM Para comprender el porqué del potencial de membrana debemos tener en cuenta tres aspectos importantes: • La dirección de la difusión de las sustancias."
   },
   {
     "j": 127,
@@ -321,7 +321,7 @@
     "similitud": 1.0,
     "pagina": 196,
     "texto_viejo": "El K+ en el citoplasma actúa como contraión de los aniones atrapados en el LIC, mientras que el Cl– es el contraión del Na+ en el LEC. • Debemos tener en cuenta que el potencial , o voltaje, es la tendencia a atraerse entre sí de los iones con cargas opuestas. La intensidad de la corriente, que se mide en amperios , A, se produce por el movimiento de un ión hacia otro de carga opuesta.",
-    "texto_nuevo": "El K más en el citoplasma actúa como contraión de los aniones atrapados en el LIC, mientras que el Cl– es el contraión del Na más en el LEC. • Debemos tener en cuenta que el potencial, o voltaje, es la tendencia a atraerse entre sí de los iones con cargas opuestas. La intensidad de la corriente, que se mide en amperios, A, se produce por el movimiento de un ión hacia otro de carga opuesta."
+    "texto_nuevo": "El K más en el citoplasma actúa como contraión de los aniones atrapados en el LIC, mientras que el Cl menos es el contraión del Na más en el LEC. • Debemos tener en cuenta que el potencial, o voltaje, es la tendencia a atraerse entre sí de los iones con cargas opuestas. La intensidad de la corriente, que se mide en amperios, A, se produce por el movimiento de un ión hacia otro de carga opuesta."
   },
   {
     "j": 128,
@@ -357,7 +357,7 @@
     "similitud": 1.0,
     "pagina": 197,
     "texto_viejo": "Aunque aproximadamente el ochenta por ciento del valor del Vm depende del K+, hay otros iones que también participan: Na+ y Cl–. El Na+ entra en la célula por un doble gradiente: gradiente de concentración y gradiente eléctrico. La entrada de Na+ en la célula tiene un efecto despolarizante, esto es, hace que el potencial de membrana sea menos negativo.",
-    "texto_nuevo": "Aunque aproximadamente el ochenta por ciento del valor del Vm depende del K más, hay otros iones que también participan: Na más y Cl–. El Na más entra en la célula por un doble gradiente: gradiente de concentración y gradiente eléctrico. La entrada de Na más en la célula tiene un efecto despolarizante, esto es, hace que el potencial de membrana sea menos negativo."
+    "texto_nuevo": "Aunque aproximadamente el ochenta por ciento del valor del Vm depende del K más, hay otros iones que también participan: Na más y Cl menos. El Na más entra en la célula por un doble gradiente: gradiente de concentración y gradiente eléctrico. La entrada de Na más en la célula tiene un efecto despolarizante, esto es, hace que el potencial de membrana sea menos negativo."
   },
   {
     "j": 132,
@@ -366,7 +366,7 @@
     "similitud": 1.0,
     "pagina": 197,
     "texto_viejo": "La contribución del Cl– al Vm es pequeña, ya que el Cl– que entra en la célula por medio del gradiente de concentración sale a través de sistemas de contratransporte; de ahí que las variaciones que se puedan producir en la concentración de Cl– del LEC no afecten prácticamente al Vm. Además, la entrada de Cl– en la célula puede ser repelida por el potencial negativo de membrana, por lo que este anión suele entrar asociado a cationes como el Na+.",
-    "texto_nuevo": "La contribución del Cl– al Vm es pequeña, ya que el Cl– que entra en la célula por medio del gradiente de concentración sale a través de sistemas de contratransporte; de ahí que las variaciones que se puedan producir en la concentración de Cl– del LEC no afecten prácticamente al Vm. Además, la entrada de Cl– en la célula puede ser repelida por el potencial negativo de membrana, por lo que este anión suele entrar asociado a cationes como el Na más."
+    "texto_nuevo": "La contribución del Cl menos al Vm es pequeña, ya que el Cl menos que entra en la célula por medio del gradiente de concentración sale a través de sistemas de contratransporte; de ahí que las variaciones que se puedan producir en la concentración de Cl menos del LEC no afecten prácticamente al Vm. Además, la entrada de Cl menos en la célula puede ser repelida por el potencial negativo de membrana, por lo que este anión suele entrar asociado a cationes como el Na más."
   },
   {
     "j": 133,
@@ -375,7 +375,7 @@
     "similitud": 1.0,
     "pagina": 197,
     "texto_viejo": "Si aumentara la permeabilidad celular al Cl–, se produciría una hiperpolarización , potencial de membrana más negativo de lo habitual,. Como se ha señalado repetidamente a lo largo del presente capítulo, la bomba Na+ o K+ ATPasa es la responsable de mantener las diferencias de concentración de Na+ y de K+ a través de la membrana celular, ya que, a pesar de que la célula sea poco permeable al Na+, si este ión continúa entrando, se producirían un hinchamiento y lisis celular por un efecto osmótico.",
-    "texto_nuevo": "Si aumentara la permeabilidad celular al Cl–, se produciría una hiperpolarización, potencial de membrana más negativo de lo habitual. Como se ha señalado repetidamente a lo largo del presente capítulo, la bomba Na más o K más ATPasa es la responsable de mantener las diferencias de concentración de Na más y de K más a través de la membrana celular, ya que, a pesar de que la célula sea poco permeable al Na más, si este ión continúa entrando, se producirían un hinchamiento y lisis celular por un efecto osmótico."
+    "texto_nuevo": "Si aumentara la permeabilidad celular al Cl menos, se produciría una hiperpolarización, potencial de membrana más negativo de lo habitual. Como se ha señalado repetidamente a lo largo del presente capítulo, la bomba Na más o K más ATPasa es la responsable de mantener las diferencias de concentración de Na más y de K más a través de la membrana celular, ya que, a pesar de que la célula sea poco permeable al Na más, si este ión continúa entrando, se producirían un hinchamiento y lisis celular por un efecto osmótico."
   },
   {
     "j": 134,
@@ -402,7 +402,7 @@
     "similitud": 0.9624,
     "pagina": 197,
     "texto_viejo": "En mil novecientos noventa y un, el fisiólogo Bert Sakman y el biofísico Erwin Neher , ambos alemanes, recibieron el Premio Nobel en Fisiología o Medicina por el desarrollo de la técnica del patch clamp, que permite medir corrientes iónicas de un solo canal. Para ello, se utiliza una micropipeta con una punta de aproximadamente un μm de diámetro; se presiona y se realiza una suave succión, de modo que se pueda conseguir bajo la punta de la pipeta una superficie de membrana",
-    "texto_nuevo": "Sakman y el biofísico Erwin Neher, ambos alemanes, recibieron el Premio Nobel en Fisiología o Medicina por el desarrollo de la técnica del patch clamp, que permite medir corrientes iónicas de un solo canal. Para ello, se utiliza una micropipeta con una punta de aproximadamente un micrómetros de diámetro; se presiona y se realiza una suave succión, de modo que se pueda conseguir bajo la punta de la pipeta una superficie de membrana"
+    "texto_nuevo": "Sakman y el biofísico Erwin Neher, ambos alemanes, recibieron el Premio Nobel en Fisiología o Medicina por el desarrollo de la técnica del patch clamp, que permite medir corrientes iónicas de un solo canal. Para ello, se utiliza una micropipeta con una punta de aproximadamente un micrómetro de diámetro; se presiona y se realiza una suave succión, de modo que se pueda conseguir bajo la punta de la pipeta una superficie de membrana"
   },
   {
     "j": 137,
@@ -415,12 +415,12 @@
   },
   {
     "j": 138,
-    "estado": "REVISAR",
-    "motivo": "caracter residual en texto nuevo ('+')",
+    "estado": "OK",
+    "motivo": "",
     "similitud": 0.994,
     "pagina": 198,
     "texto_viejo": "Por lo tanto, no existen estados en los que un canal se halle parcialmente abierto o cerrado de modo que conduzca más o menos corriente; en este sentido, sigue la ley del todo o nada: el canal está abierto o cerrado. En el caso de los canales de Na+ dependientes de voltaje, al fijar el potencial de membrana en +cincuenta mV, se genera una corriente de un pA , diez a doce A,. FIGURA cuatro a veinte Técnica del patch clamp. Esta técnica permite medir la corriente iónica que fluye únicamente a través de uno o dos canales.",
-    "texto_nuevo": "Por lo tanto, no existen estados en los que un canal se halle parcialmente abierto o cerrado de modo que conduzca más o menos corriente; en este sentido, sigue la ley del todo o nada: el canal está abierto o cerrado. En el caso de los canales de Na más dependientes de voltaje, al fijar el potencial de membrana en +cincuenta mV, se genera una corriente de una pA, diez a doce A. FIGURA cuatro punto veinte Técnica del patch clamp. Esta técnica permite medir la corriente iónica que fluye únicamente a través de uno o dos canales."
+    "texto_nuevo": "Por lo tanto, no existen estados en los que un canal se halle parcialmente abierto o cerrado de modo que conduzca más o menos corriente; en este sentido, sigue la ley del todo o nada: el canal está abierto o cerrado. En el caso de los canales de Na más dependientes de voltaje, al fijar el potencial de membrana en más cincuenta mV, se genera una corriente de una pA, diez a doce A. FIGURA cuatro punto veinte Técnica del patch clamp. Esta técnica permite medir la corriente iónica que fluye únicamente a través de uno o dos canales."
   },
   {
     "j": 139,
@@ -519,7 +519,7 @@
     "similitud": 0.9886,
     "pagina": 202,
     "texto_viejo": "Dado que ambas toxinas tienen unas elevadas especificidad y afinidad por el conducto de Na+ dependiente de voltaje, si previamente son marcadas radiactivamente, se puede cuantificar la densidad de dichos canales en las membranas excitables. Potencial de acción Alan Hodgkin y Andrew Huxley estudiaron cómo se generaban los potenciales de acción, para lo cual emplearon el axón gigante de calamar. Este axón posee un diámetro que, en algunas especies, puede llegar a un mm, unas dimensiones enormes si las comparamos con el diámetro del axón amielínico de mamífero, que es de aproximadamente cero,cinco a un μm.",
-    "texto_nuevo": "Dado que ambas toxinas tienen unas elevadas especificidad y afinidad por el conducto de Na más dependiente de voltaje, si previamente son marcadas radiactivamente, se puede cuantificar la densidad de dichos canales en las membranas excitables. Potencial de acción Alan Hodgkin y Andrew Huxley estudiaron cómo se generaban los potenciales de acción, para lo cual emplearon el axón gigante de calamar. Este axón posee un diámetro que, en algunas especies, puede llegar a un mm, unas dimensiones enormes si las comparamos con el diámetro del axón amielínico de mamífero, que es de aproximadamente cero coma cinco a un micrómetros. En mil novecientos sesenta y dos"
+    "texto_nuevo": "Dado que ambas toxinas tienen unas elevadas especificidad y afinidad por el conducto de Na más dependiente de voltaje, si previamente son marcadas radiactivamente, se puede cuantificar la densidad de dichos canales en las membranas excitables. Potencial de acción Alan Hodgkin y Andrew Huxley estudiaron cómo se generaban los potenciales de acción, para lo cual emplearon el axón gigante de calamar. Este axón posee un diámetro que, en algunas especies, puede llegar a un mm, unas dimensiones enormes si las comparamos con el diámetro del axón amielínico de mamífero, que es de aproximadamente cero coma cinco a un micrómetro. En mil novecientos sesenta y dos"
   },
   {
     "j": 155,
@@ -577,12 +577,12 @@
   },
   {
     "j": 162,
-    "estado": "REVISAR",
-    "motivo": "caracter residual en texto nuevo ('+')",
+    "estado": "OK",
+    "motivo": "",
     "similitud": 0.9541,
     "pagina": 204,
     "texto_viejo": "subumbral. Podemos afirmar que el potencial de acción se produce cuando la tasa de entrada de Na+ por los canales dependientes de voltaje es mayor a la tasa de salida del K+ por los canales de fuga. La despolarización alcanza un máximo de unos +cuarenta mV , fig. cuatro a veinticinco; v. también fig. cuatro a veintidós , secuencia dos,. • Fase de repolarización. La repolarización , v. secuencia tres en fig.",
-    "texto_nuevo": "subumbral. Podemos afirmar que el potencial de acción se produce cuando la tasa de entrada de Na más por los canales dependientes de voltaje es mayor a la tasa de salida del K más por los canales de fuga. La despolarización alcanza un máximo de unos +cuarenta mV, fig. cuatro punto veinticinco, secuencia dos. • Fase de repolarización. La repolarización v. secuencia tres en fig."
+    "texto_nuevo": "subumbral. Podemos afirmar que el potencial de acción se produce cuando la tasa de entrada de Na más por los canales dependientes de voltaje es mayor a la tasa de salida del K más por los canales de fuga. La despolarización alcanza un máximo de unos más cuarenta mV, fig. cuatro punto veinticinco, secuencia dos. • Fase de repolarización. La repolarización v. secuencia tres en fig."
   },
   {
     "j": 163,
@@ -681,6 +681,6 @@
     "similitud": 0.9859,
     "pagina": 206,
     "texto_viejo": "Madrid: Pearson; dos mil siete., Tabla cuatro a seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero,cinco a un μm un m o s Axón gigante de calamar un coma cero cero cero μm veinticinco a treinta m o s",
-    "texto_nuevo": "Madrid: Pearson; dos mil siete. Tabla cuatro punto seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero coma cinco a un micrómetros un m o s Axón gigante de calamar mil micrómetros veinticinco a treinta m o s"
+    "texto_nuevo": "Madrid: Pearson; dos mil siete. Tabla cuatro punto seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero coma cinco a un micrómetro un m o s Axón gigante de calamar mil micrómetros veinticinco a treinta m o s"
   }
 ]
