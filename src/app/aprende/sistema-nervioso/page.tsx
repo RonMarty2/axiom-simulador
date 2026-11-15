@@ -12,7 +12,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-05"
+      unidad="MED-06"
       tituloUnidad="Sistema nervioso · El centro de control"
       escenas={[
         { titulo: "Panorama del sistema nervioso", componente: EscIntro },

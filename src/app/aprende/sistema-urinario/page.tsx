@@ -12,7 +12,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-11"
+      unidad="MED-13"
       tituloUnidad="Sistema urinario · Filtración y excreción"
       escenas={[
         { titulo: "Función excretora · panorama", componente: EscIntro },

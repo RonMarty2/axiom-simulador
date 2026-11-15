@@ -12,7 +12,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-06"
+      unidad="MED-08"
       tituloUnidad="Sistema endocrino · Hormonas"
       escenas={[
         { titulo: "Endocrino vs nervioso", componente: EscIntro },

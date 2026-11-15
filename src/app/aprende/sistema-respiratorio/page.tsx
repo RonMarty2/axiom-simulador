@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-09"
+      unidad="MED-11"
       tituloUnidad="Sistema respiratorio · Intercambio gaseoso"
       escenas={[
         { titulo: "Respiración · panorama", componente: EscIntro },

@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-03"
+      unidad="MED-04"
       tituloUnidad="Sistema esquelético · Huesos y articulaciones"
       escenas={[
         { titulo: "Esqueleto · sostén del cuerpo", componente: EscIntro },

@@ -60,7 +60,7 @@ const GEOMETRIA_TRIGONOMETRIA_UNIDADES: Unidad[] = [
 ];
 
 // Física — área propia del banco de exámenes de Ingeniería. Códigos de
-// unidad en cada page.tsx: FIS-01 a FIS-07.
+// unidad en cada page.tsx: FIS-01 a FIS-11.
 const FISICA_UNIDADES: Unidad[] = [
   { numero: "01", titulo: "Vectores", lecciones: [{ slug: "vectores-fisica", titulo: "Magnitudes escalares vs vectoriales", tags: ["✨ Animada"] }] },
   { numero: "02", titulo: "Cinemática en una dimensión", lecciones: [{ slug: "cinematica-1d", titulo: "Posición, velocidad, aceleración, MRU y MRUA", tags: ["✨ Animada"] }] },
@@ -69,10 +69,14 @@ const FISICA_UNIDADES: Unidad[] = [
   { numero: "05", titulo: "Trabajo y energía", lecciones: [{ slug: "trabajo-energia", titulo: "Trabajo · concepto y fórmula", tags: ["✨ Animada"] }] },
   { numero: "06", titulo: "Electrostática", lecciones: [{ slug: "electrostatica", titulo: "Carga eléctrica · conceptos básicos", tags: ["✨ Animada"] }] },
   { numero: "07", titulo: "Circuitos de corriente continua", lecciones: [{ slug: "circuitos-dc", titulo: "Corriente eléctrica · concepto", tags: ["✨ Animada"] }] },
+  { numero: "08", titulo: "Dinámica circular y gravitación", lecciones: [{ slug: "dinamica-circular-gravitacion", titulo: "MCU, fuerza centrípeta y Kepler" }] },
+  { numero: "09", titulo: "Calor y temperatura", lecciones: [{ slug: "calor-temperatura", titulo: "Escalas, dilatación y calorimetría" }] },
+  { numero: "10", titulo: "Impulso y choques", lecciones: [{ slug: "impulso-cantidad-movimiento", titulo: "Cantidad de movimiento y colisiones" }] },
+  { numero: "11", titulo: "Ondas y sonido", lecciones: [{ slug: "ondas-sonido", titulo: "Ondas, sonido, eco y ecografía" }] },
 ];
 
 // Química — área propia del banco de exámenes de Ingeniería. Códigos de
-// unidad en cada page.tsx: QUI-01 a QUI-10.
+// unidad en cada page.tsx: QUI-01 a QUI-11.
 const QUIMICA_UNIDADES: Unidad[] = [
   { numero: "01", titulo: "Nociones fundamentales de química", lecciones: [{ slug: "nociones-quimica", titulo: "¿Qué es la química? Clasificación de la materia", tags: ["✨ Animada"] }] },
   { numero: "02", titulo: "Nomenclatura inorgánica", lecciones: [{ slug: "nomenclatura-inorganica", titulo: "Mapa de compuestos inorgánicos", tags: ["✨ Animada"] }] },
@@ -84,6 +88,7 @@ const QUIMICA_UNIDADES: Unidad[] = [
   { numero: "08", titulo: "Gases ideales", lecciones: [{ slug: "gases-ideales", titulo: "Leyes y ecuación de estado" }] },
   { numero: "09", titulo: "Soluciones", lecciones: [{ slug: "soluciones", titulo: "Unidades de concentración" }] },
   { numero: "10", titulo: "Propiedades coligativas", lecciones: [{ slug: "propiedades-coligativas", titulo: "Cambios por soluto" }] },
+  { numero: "11", titulo: "Ácidos y bases", lecciones: [{ slug: "acido-base", titulo: "Teorías, pH, pOH y titulación" }] },
 ];
 
 // Biología — quinta área del examen de Ingeniería (20% de la nota, ver
@@ -255,17 +260,19 @@ const BLOQUES_INGENIERIA: Bloque[] = [
 // convocatoria PSA 2027 confirmó el nombre de la 7.ª, ver docs/plan-medicina-psa.md).
 const MORFOFUNCION_UNIDADES: Unidad[] = [
   { numero: "01", titulo: "Introducción a la Morfofunción", lecciones: [{ slug: "morfofuncion-introduccion", titulo: "Niveles de organización y homeostasis", tags: ["✨ Animada"] }] },
-  { numero: "02", titulo: "Sistema tegumentario", lecciones: [{ slug: "sistema-tegumentario", titulo: "Piel, epidermis y dermis", tags: ["✨ Animada"] }] },
-  { numero: "03", titulo: "Sistema esquelético", lecciones: [{ slug: "sistema-esqueletico", titulo: "Huesos, esqueleto axil y apendicular", tags: ["✨ Animada"] }] },
-  { numero: "04", titulo: "Sistema muscular", lecciones: [{ slug: "sistema-muscular", titulo: "Músculo esquelético, contracción y palancas", tags: ["✨ Animada"] }] },
-  { numero: "05", titulo: "Sistema nervioso", lecciones: [{ slug: "sistema-nervioso", titulo: "Neuronas, sinapsis y sistema central y periférico", tags: ["✨ Animada"] }] },
-  { numero: "06", titulo: "Sistema endocrino", lecciones: [{ slug: "sistema-endocrino", titulo: "Hormonas, hipotálamo e hipófisis", tags: ["✨ Animada"] }] },
-  { numero: "07", titulo: "Sistema cardiovascular", lecciones: [{ slug: "sistema-cardiovascular", titulo: "Corazón, vasos y ciclo cardíaco", tags: ["✨ Animada"] }] },
-  { numero: "08", titulo: "Sistema linfático e inmune", lecciones: [{ slug: "sistema-linfatico-inmune", titulo: "Linfa, ganglios e inmunidad", tags: ["✨ Animada"] }] },
-  { numero: "09", titulo: "Sistema respiratorio", lecciones: [{ slug: "sistema-respiratorio", titulo: "Vías aéreas, ventilación e intercambio gaseoso", tags: ["✨ Animada"] }] },
-  { numero: "10", titulo: "Sistema digestivo", lecciones: [{ slug: "sistema-digestivo", titulo: "Tubo digestivo, digestión y absorción", tags: ["✨ Animada"] }] },
-  { numero: "11", titulo: "Sistema urinario", lecciones: [{ slug: "sistema-urinario", titulo: "Riñones, nefrona y filtración glomerular", tags: ["✨ Animada"] }] },
-  { numero: "12", titulo: "Sistema reproductor", lecciones: [{ slug: "sistema-reproductor", titulo: "Aparatos reproductores y gametogénesis", tags: ["✨ Animada"] }] },
+  { numero: "02", titulo: "Histología", lecciones: [{ slug: "histologia", titulo: "Los cuatro tejidos, glándulas y membranas" }] },
+  { numero: "03", titulo: "Sistema tegumentario", lecciones: [{ slug: "sistema-tegumentario", titulo: "Piel, epidermis y dermis", tags: ["✨ Animada"] }] },
+  { numero: "04", titulo: "Sistema esquelético", lecciones: [{ slug: "sistema-esqueletico", titulo: "Huesos, esqueleto axil y apendicular", tags: ["✨ Animada"] }] },
+  { numero: "05", titulo: "Sistema muscular", lecciones: [{ slug: "sistema-muscular", titulo: "Músculo esquelético, contracción y palancas", tags: ["✨ Animada"] }] },
+  { numero: "06", titulo: "Sistema nervioso", lecciones: [{ slug: "sistema-nervioso", titulo: "Neuronas, sinapsis y sistema central y periférico", tags: ["✨ Animada"] }] },
+  { numero: "07", titulo: "Órganos de los sentidos", lecciones: [{ slug: "organos-sentidos", titulo: "Receptores, gusto, olfato, oído y vista" }] },
+  { numero: "08", titulo: "Sistema endocrino", lecciones: [{ slug: "sistema-endocrino", titulo: "Hormonas, hipotálamo e hipófisis", tags: ["✨ Animada"] }] },
+  { numero: "09", titulo: "Sistema cardiovascular", lecciones: [{ slug: "sistema-cardiovascular", titulo: "Corazón, vasos y ciclo cardíaco", tags: ["✨ Animada"] }] },
+  { numero: "10", titulo: "Sistema linfático e inmune", lecciones: [{ slug: "sistema-linfatico-inmune", titulo: "Linfa, ganglios e inmunidad", tags: ["✨ Animada"] }] },
+  { numero: "11", titulo: "Sistema respiratorio", lecciones: [{ slug: "sistema-respiratorio", titulo: "Vías aéreas, ventilación e intercambio gaseoso", tags: ["✨ Animada"] }] },
+  { numero: "12", titulo: "Sistema digestivo", lecciones: [{ slug: "sistema-digestivo", titulo: "Tubo digestivo, digestión y absorción", tags: ["✨ Animada"] }] },
+  { numero: "13", titulo: "Sistema urinario", lecciones: [{ slug: "sistema-urinario", titulo: "Riñones, nefrona y filtración glomerular", tags: ["✨ Animada"] }] },
+  { numero: "14", titulo: "Sistema reproductor", lecciones: [{ slug: "sistema-reproductor", titulo: "Aparatos reproductores y gametogénesis", tags: ["✨ Animada"] }] },
 ];
 
 const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
@@ -274,6 +281,8 @@ const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
   { numero: "03", titulo: "Bioenergética y señalización celular", lecciones: [{ slug: "bcm-bioenergetica-senalizacion", titulo: "ATP, respiración y transducción de señales", tags: ["✨ Animada"] }] },
   { numero: "04", titulo: "Bases moleculares de la vida", lecciones: [{ slug: "bases-moleculares-vida", titulo: "Biomoléculas: glúcidos, lípidos, proteínas, ácidos nucleicos" }] },
   { numero: "05", titulo: "Bases celulares y ciclo celular", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y división celular" }] },
+  { numero: "06", titulo: "Especializaciones de membrana", lecciones: [{ slug: "bcm-especializaciones-membrana", titulo: "Uniones celulares, adhesión y matriz extracelular" }] },
+  { numero: "07", titulo: "Células madre", lecciones: [{ slug: "bcm-celulas-madre", titulo: "Tipos, potencialidad y aplicaciones terapéuticas" }] },
 ];
 
 const INVESTIGACION_MED_UNIDADES: Unidad[] = [

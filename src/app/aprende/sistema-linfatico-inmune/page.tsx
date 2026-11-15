@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-08"
+      unidad="MED-10"
       tituloUnidad="Sistema linfático e inmunidad"
       escenas={[
         { titulo: "Linfático · drenaje y defensa", componente: EscIntro },

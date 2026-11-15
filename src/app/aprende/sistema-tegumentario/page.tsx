@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-02"
+      unidad="MED-03"
       tituloUnidad="Sistema tegumentario · Piel y anexos"
       escenas={[
         { titulo: "La piel · órgano más grande", componente: EscIntro },

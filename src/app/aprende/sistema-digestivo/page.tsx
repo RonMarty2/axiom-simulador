@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-10"
+      unidad="MED-12"
       tituloUnidad="Sistema digestivo · De la boca al ano"
       escenas={[
         { titulo: "Digestión · panorama", componente: EscIntro },

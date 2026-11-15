@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-12"
+      unidad="MED-14"
       tituloUnidad="Sistema reproductor · Femenino y masculino"
       escenas={[
         { titulo: "Reproducción sexual · panorama", componente: EscIntro },

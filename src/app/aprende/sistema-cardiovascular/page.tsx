@@ -12,7 +12,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-07"
+      unidad="MED-09"
       tituloUnidad="Sistema cardiovascular · Corazón y vasos"
       escenas={[
         { titulo: "Sangre · líquido vital", componente: EscSangre },

@@ -11,7 +11,7 @@ import {
 export default function Page() {
   return (
     <LeccionShell
-      unidad="MED-04"
+      unidad="MED-05"
       tituloUnidad="Sistema muscular · Movimiento del cuerpo"
       escenas={[
         { titulo: "Músculos · panorama", componente: EscIntro },
