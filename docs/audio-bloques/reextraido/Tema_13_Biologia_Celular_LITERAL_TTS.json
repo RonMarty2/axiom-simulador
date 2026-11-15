@@ -1,0 +1,65 @@
+[
+  {
+    "j": 71,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 1.0,
+    "pagina": 558,
+    "texto_viejo": "En el botón terminal de la neurona presináptica, la despolarización de la membrana plasmática da lugar a la apertura de los canales de Ca+dos, lo que desencadena la exocitosis de las vesículas sinápticas, liberándose al espacio sináptico neurotransmisores, como la acetilcolina. El receptor de acetilcolina en la neurona postsináptica es una proteína de canal que, tras abrirse, permite la entrada de Na+, generando así un nuevo potencial de acción y la despolarización de dicha neurona.",
+    "texto_nuevo": "En el botón terminal de la neurona presináptica, la despolarización de la membrana plasmática da lugar a la apertura de los canales de Ca+dos, lo que desencadena la exocitosis de las vesículas sinápticas, liberándose al espacio sináptico neurotransmisores, como la acetilcolina. El receptor de acetilcolina en la neurona postsináptica es una proteína de canal que, tras abrirse, permite la entrada de Na más, generando así un nuevo potencial de acción y la despolarización de dicha neurona."
+  },
+  {
+    "j": 85,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 562,
+    "texto_viejo": "células receptoras de olores están situadas en el epitelio olfatorio y son neuronas bipolares modificadas, con capacidad de despolarizarse. Cuando una molécula olfatoria se une a los receptores del olor, se activan proteínas G que aumentan los niveles de AMPc en el citoplasma, lo que resulta en la apertura de canales de Na+ y la despolarización de la membrana plasmática, iniciando así el impulso nervioso hacia el cerebro. Por lo tanto, en este caso, la señalización y transmisión de la señal no implica una transcripción génica.",
+    "texto_nuevo": "células receptoras de olores están situadas en el epitelio olfatorio y son neuronas bipolares modificadas, con capacidad de despolarizarse. Cuando una molécula olfatoria se une a los receptores del olor, se activan proteínas G que aumentan los niveles de AMPc en el citoplasma, lo que resulta en la apertura de canales de Na más y la despolarización de la membrana plasmática, iniciando así el impulso nervioso hacia el cerebro. Por lo tanto, en este caso, la señalización y transmisión de la señal no implica una transcripción génica."
+  },
+  {
+    "j": 86,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('b' vs 'activacion')",
+    "similitud": 0.9726,
+    "pagina": 562,
+    "texto_viejo": "Existen unos un coma cero cero cero tipos de receptores olfatorios, cada uno de los cuales es capaz de reconocer un grupo concreto de sustancias volátiles que pueden activar a dicho receptor. Cada célula olfatoria contiene un solo tipo de estos receptores específicos y está especializada, por lo tanto, en reconocer un grupo de sustancias capaces de unirse al receptor y activarlo. En muchas células el AMPc actúa mediante unión a la proteína quinasa A , PKA, produciendo de este modo su activación , v. fig. trece a quince, B,.",
+    "texto_nuevo": "Existen unos mil tipos de receptores olfatorios, cada uno de los cuales es capaz de reconocer un grupo concreto de sustancias volátiles que pueden activar a dicho receptor. Cada célula olfatoria contiene un solo tipo de estos receptores específicos y está especializada, por lo tanto, en reconocer un grupo de sustancias capaces de unirse al receptor y activarlo. En muchas células el AMPc actúa mediante unión a la proteína quinasa A, PKA, produciendo de este modo su activación."
+  },
+  {
+    "j": 106,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('a' vs 'que')",
+    "similitud": 0.9944,
+    "pagina": 566,
+    "texto_viejo": "trece a diecinueve, que es capaz de transformar una señal externa luminosa en una señal química mediada por proteínas G. En este caso, el tipo de señalización que tiene lugar es diferente a lo explicado hasta ahora, ya que las células en reposo , en condiciones de oscuridad, mantienen activada la proteína guanilato ciclasa y, por lo tanto, altos niveles citoplásmáticos de GMPc. Esto permite a su vez la entrada de iones Na+, haciendo así que la célula esté en constante despolarización. En estas condiciones, los bastones emiten señales hacia el cerebro que son interpretadas como oscuridad.",
+    "texto_nuevo": "que es capaz de transformar una señal externa luminosa en una señal química mediada por proteínas G. En este caso, el tipo de señalización que tiene lugar es diferente a lo explicado hasta ahora, ya que las células en reposo, en condiciones de oscuridad, mantienen activada la proteína guanilato ciclasa y, por lo tanto, altos niveles citoplásmáticos de GMPc. Esto permite a su vez la entrada de iones Na más, haciendo así que la célula esté en constante despolarización. En estas condiciones, los bastones emiten señales hacia el cerebro que son interpretadas como oscuridad."
+  },
+  {
+    "j": 107,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9941,
+    "pagina": 566,
+    "texto_viejo": "La llegada de la luz estimula a la rodopsina, y esta a una proteína Gi , inhibitoria, que activa a una fosfodiesterasa , enzima con actividad opuesta a la guanilato ciclasa,. La fosfodiesterasa disminuye los niveles intracelulares del GMPc, provocando un cierre de los canales de Na+; por lo tanto, los bastones se hiperpolarizan y disminuyen las señales emitidas hacia el cerebro, lo cual se interpreta como un aumento de la luz. FIGURA trece a diecinueve Señalización intracelular mediada por la rodopsina , que comprende el retinal y la opsina, en los conos de la retina.",
+    "texto_nuevo": "La llegada de la luz estimula a la rodopsina, y esta a una proteína Gi, inhibitoria, que activa a una fosfodiesterasa, enzima con actividad opuesta a la guanilato ciclasa. La fosfodiesterasa disminuye los niveles intracelulares del GMPc, provocando un cierre de los canales de Na más; por lo tanto, los bastones se hiperpolarizan y disminuyen las señales emitidas hacia el cerebro, lo cual se interpreta como un aumento de la luz. FIGURA trece punto diecinueve Señalización intracelular mediada por la rodopsina, que comprende el retinal y la opsina, en los conos de la retina."
+  },
+  {
+    "j": 108,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 566,
+    "texto_viejo": "En situación de reposo , oscuridad, se produce una despolarización de la membrana por la entrada de Na+. La estimulación de la rodopsina por la luz activa a su vez a una fosfodiesterasa que disminuye los niveles de GMPc y se cierran los canales de Na+, produciéndose una hiperpolarización. , Ilustración de: A. Calvo., Regulación de canales iónicos por proteínas G",
+    "texto_nuevo": "En situación de reposo, oscuridad, se produce una despolarización de la membrana por la entrada de Na más. La estimulación de la rodopsina por la luz activa a su vez a una fosfodiesterasa que disminuye los niveles de GMPc y se cierran los canales de Na más, produciéndose una hiperpolarización. Ilustración de: A. Calvo. Regulación de canales iónicos por proteínas G"
+  },
+  {
+    "j": 109,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9868,
+    "pagina": 567,
+    "texto_viejo": "Finalmente, otra opción es que la proteína G no interaccione con una enzima de membrana, sino que regule la apertura de un canal iónico. Por ejemplo, los nervios que causan bradicardia , ralentización del ritmo cardíaco, producen acetilcolina, que llega a las células de músculo cardíaco y se une a un receptor asociado a proteínas G. El complejo βγ de la proteína G interactúa entonces con un canal de K+ y lo abre, permitiendo el flujo hacia el interior de este ión.",
+    "texto_nuevo": "Finalmente, otra opción es que la proteína G no interaccione con una enzima de membrana, sino que regule la apertura de un canal iónico. Por ejemplo, los nervios que causan bradicardia, ralentización del ritmo cardíaco, producen acetilcolina, que llega a las células de músculo cardíaco y se une a un receptor asociado a proteínas G. El complejo beta gamma de la proteína G interactúa entonces con un canal de K más y lo abre, permitiendo el flujo hacia el interior de este ión."
+  }
+]

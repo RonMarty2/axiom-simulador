@@ -1,0 +1,38 @@
+[
+  {
+    "j": 31,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('a' vs 'expresion')",
+    "similitud": 0.9787,
+    "pagina": 89,
+    "texto_viejo": "• A D N genómico , cincuenta coma cero cero cero pares de bases,: su uso está destinado principalmente al estudio de pérdidas o ganancias génicas , arrays de CGH, véase más adelante,. FIGURA E2-nueve A. Esquema de la preparación de muestras para un microarray de expresión. El A R N mensajero de muestras sanas y patológicas se convierte mediante retrotranscripción en ADNc marcado con un fluorocromo que emite luz verde , para la muestra sana, o rojo , para la patológica,.",
+    "texto_nuevo": "expresión génica. • A D N genómico, cincuenta mil pares de bases: su uso está destinado principalmente al estudio de pérdidas o ganancias génicas, arrays de CGH, véase más adelante. FIGURA E dos a nueve A. Esquema de la preparación de muestras para un microarray de expresión. El A R N mensajero de muestras sanas y patológicas se convierte mediante retrotranscripción en ADNc marcado con un fluorocromo que emite luz verde, para la muestra sana, o rojo, para la patológica."
+  },
+  {
+    "j": 141,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 113,
+    "texto_viejo": "La fuerza centrífuga relativa , RCF, del inglés relative centrifugal force, que se expresa en relación con la fuerza gravitacional g, se calcula como: La constante un coma un un nueve depende de la aceleración gravitacional y la RCF se expresa en unidades × g. Por ejemplo, una fuerza centrífuga relativa de quinientos × g significa que se aplica una fuerza quinientos veces mayor a la fuerza gravitacional. La velocidad con la que sedimentan las partículas depende de su masa y de su densidad, así como de la densidad y viscosidad del medio en el que se encuentran.",
+    "texto_nuevo": "La fuerza centrífuga relativa, RCF, del inglés relative centrifugal force, que se expresa en relación con la fuerza gravitacional g, se calcula como: La constante mil ciento diecinueve depende de la aceleración gravitacional y la RCF se expresa en unidades por g. Por ejemplo, una fuerza centrífuga relativa de quinientos por g significa que se aplica una fuerza quinientas veces mayor a la fuerza gravitacional. La velocidad con la que sedimentan las partículas depende de su masa y de su densidad, así como de la densidad y viscosidad del medio en el que se encuentran."
+  },
+  {
+    "j": 145,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9885,
+    "pagina": 114,
+    "texto_viejo": "Cuando el segundo sobrenadante es centrifugado a mayor velocidad, precipita la denominada fracción microsómica, que contiene fragmentos del retículo endoplasmático y de la membrana. La centrifugación del tercer sobrenadante permite la precipitación de los ribosomas, mientras que en el sobrenadante quedan las moléculas solubles del citosol , v. fig. e2-veintidós,. Cuando se requieren fuerzas superiores a veinte coma cero cero cero × g, se utilizan ultracentrífugas que trabajan en vacío para evitar el sobrecalentamiento de la muestra y del equipo. FIGURA E2-veintidós Esquema de una centrifugación diferencial. El homogenado es sometido a sucesivas centrifugaciones.",
+    "texto_nuevo": "Cuando el segundo sobrenadante es centrifugado a mayor velocidad, precipita la denominada fracción microsómica, que contiene fragmentos del retículo endoplasmático y de la membrana. La centrifugación del tercer sobrenadante permite la precipitación de los ribosomas, mientras que en el sobrenadante quedan las moléculas solubles del citosol, v. fig. e dos a veintidós. Cuando se requieren fuerzas superiores a veinte mil por g, se utilizan ultracentrífugas que trabajan en vacío para evitar el sobrecalentamiento de la muestra y del equipo. FIGURA E dos a veintidós Esquema de una centrifugación diferencial. El homogenado es sometido a sucesivas centrifugaciones."
+  },
+  {
+    "j": 152,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 116,
+    "texto_viejo": "Si la centrifugación es demasiado prolongada, todas las partículas sedimentarán en la base del tubo. Los gradientes se preparan con diferentes sustancias. La sacarosa es una de las más utilizadas, en concentraciones variables desde cinco por ciento , un coma cero un siete g o ml, hasta cincuenta por ciento , un coma dos tres g o ml,. El cloruro de cesio es el componente preferido para la separación de ácidos nucleicos , A D N, A R N,. La centrifugación diferencial también puede aplicarse a suspensiones de células enteras.",
+    "texto_nuevo": "Si la centrifugación es demasiado prolongada, todas las partículas sedimentarán en la base del tubo. Los gradientes se preparan con diferentes sustancias. La sacarosa es una de las más utilizadas, en concentraciones variables desde cinco por ciento, uno coma cero uno siete g o ml, hasta cincuenta por ciento, uno coma dos tres g o ml. El cloruro de cesio es el componente preferido para la separación de ácidos nucleicos, A D N, A R N. La centrifugación diferencial también puede aplicarse a suspensiones de células enteras."
+  }
+]

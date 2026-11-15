@@ -1,0 +1,155 @@
+[
+  {
+    "j": 7,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9752,
+    "pagina": 259,
+    "texto_viejo": "Microvellosidades Las microvellosidades son proyecciones digitiformes de la superficie apical de las células epiteliales que sirven para aumentar la superficie de absorción , fig. seis a dos, A,. Estas estructuras tienen aproximadamente un μm de largo y cero coma cero ocho μm de ancho. En su interior, están estabilizadas por un fascículo de veinte a treinta filamentos de actina, unidos entre sí por villina y fimbrina y fijados a la membrana celular por medio de miosina I y calmodulina.",
+    "texto_nuevo": "Microvellosidades Las microvellosidades son proyecciones digitiformes de la superficie apical de las células epiteliales que sirven para aumentar la superficie de absorción. Estas estructuras tienen aproximadamente un micrómetros de largo y cero coma cero ocho micrómetros de ancho. En su interior, están estabilizadas por un fascículo de veinte a treinta filamentos de actina, unidos entre sí por villina y fimbrina y fijados a la membrana celular por medio de miosina I y calmodulina."
+  },
+  {
+    "j": 21,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9796,
+    "pagina": 261,
+    "texto_viejo": "La familia de las cadherinas constituye una familia de proteínas cuya estructura está compuesta por setecientos a setecientos cincuenta aminoácidos. Son proteínas de paso simple y presentan cinco dominios extracelulares, cuatro de los cuales son homólogos y contienen sitios de unión al Ca2+, fig. seis a cuatro, A,. Las cadherinas forman homodímeros y presentan uniones homófilas dependientes de Ca2+. Al grupo de las cadherinas pertenecen más de cuarenta proteínas diferentes, entre las que cabe destacar la cadherina E , que se encuentra en las células epiteliales, fig.",
+    "texto_nuevo": "La familia de las cadherinas constituye una familia de proteínas cuya estructura está compuesta por setecientos a setecientos cincuenta aminoácidos. Son proteínas de paso simple y presentan cinco dominios extracelulares, cuatro de los cuales son homólogos y contienen sitios de unión al Ca dos más. Las cadherinas forman homodímeros y presentan uniones homófilas dependientes de Ca dos más. Al grupo de las cadherinas pertenecen más de cuarenta proteínas diferentes, entre las que cabe destacar la cadherina E, que se encuentra en las células epiteliales, fig."
+  },
+  {
+    "j": 25,
+    "estado": "REVISAR",
+    "motivo": "no se encontro ancla en el crudo",
+    "similitud": 0.0,
+    "pagina": null,
+    "texto_viejo": "La zonula adherens consiste en un cinturón celular con función adherente de cero,un a cero,cinco μm de espesor, situado normalmente en la zona apical de las membranas laterales celulares, que desempeña un papel esencial en el anclaje de células epiteliales , fig. seis a cinco, A,. Las cadherinas , llamadas desmocolinas y desmogleínas, constituyen las proteínas transmembrana de estas estructuras, cuya porción citoplasmática se une a una placa de adhesión que contiene desmoplaquina, placofilina y placoglobina , catenina γ, fig. seis a cinco, B,.",
+    "texto_nuevo": ""
+  },
+  {
+    "j": 28,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9793,
+    "pagina": 263,
+    "texto_viejo": "La macula adherens , también denominada desmosoma, es una unión puntiforme con un tamaño de cero,un a cero,cinco μm que se sitúa normalmente en las membranas laterales de las células epiteliales, proporcionando anclaje entre ellas , fig. seis a cinco, C,. También existen este tipo de uniones en los discos intercalares que unen los cardiomiocitos adyacentes en el corazón, donde cumplen una función importante en el mantenimiento estructural del tejido cardíaco. Las proteínas transmembrana que forman los desmosomas también son cadherinas , desmocolinas y desmogleínas,.",
+    "texto_nuevo": "La macula adherens, también denominada desmosoma, es una unión puntiforme con un tamaño de cero coma uno a cero coma cinco micrómetros que se sitúa normalmente en las membranas laterales de las células epiteliales, proporcionando anclaje entre ellas. También existen este tipo de uniones en los discos intercalares que unen los cardiomiocitos adyacentes en el corazón, donde cumplen una función importante en el mantenimiento estructural del tejido cardíaco. Las proteínas transmembrana que forman los desmosomas también son cadherinas, desmocolinas y desmogleínas."
+  },
+  {
+    "j": 36,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9591,
+    "pagina": 265,
+    "texto_viejo": "Las integrinas son una familia de proteínas que participan en la adhesión permanente o transitoria célula-MEC y célula-célula. Son heterodímeros compuestos por dos subunidades diferentes: subunidad α y subunidad β , fig. seis a siete, A,. La subunidad α posee sitios de unión para cationes bivalentes , Ca2+, Mg2+,. Estas moléculas se unen tanto a componentes de la MEC como a proteínas del citoesqueleto intracelular por medio de su interacción con proteínas como la vinculina, la actinina α y la talina, que interactúan generalmente con filamentos de actina, pero también con filamentos intermedios de queratina.",
+    "texto_nuevo": "Las integrinas son una familia de proteínas que participan en la adhesión permanente o transitoria célula-MEC y célula-célula. Son heterodímeros compuestos por dos subunidades diferentes: subunidad alfa y subunidad beta. La subunidad alfa posee sitios de unión para cationes bivalentes, Ca dos más, Mg dos más. Estas moléculas se unen tanto a componentes de la MEC como a proteínas del citoesqueleto intracelular por medio de su interacción con proteínas como la vinculina, la actinina alfa y la talina, que interactúan generalmente con filamentos de actina, pero también con filamentos intermedios de queratina."
+  },
+  {
+    "j": 48,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9524,
+    "pagina": 267,
+    "texto_viejo": "Las selectinas son moléculas de adhesión dependientes de Ca2+, con afinidad para unirse a hidratos de carbono presentes en otras células , fig. seis a ocho, A,. No se encuentran formando estructuras complejas de unión, sino que intervienen en contactos moleculares no visibles al microscopio que, generalmente, son de tipo temporal. Participan frecuentemente en las uniones de los leucocitos a las células endoteliales facilitando su salida de los vasos sanguíneos hacia un foco inflamatorio , fig. seis a ocho, B,. FIGURA seis a ocho Selectinas. A.",
+    "texto_nuevo": "Las selectinas son moléculas de adhesión dependientes de Ca dos más, con afinidad para unirse a hidratos de carbono presentes en otras células. No se encuentran formando estructuras complejas de unión, sino que intervienen en contactos moleculares no visibles al microscopio que, generalmente, son de tipo temporal. Participan frecuentemente en las uniones de los leucocitos a las células endoteliales facilitando su salida de los vasos sanguíneos hacia un foco inflamatorio. FIGURA seis punto ocho Selectinas. A."
+  },
+  {
+    "j": 53,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9759,
+    "pagina": 268,
+    "texto_viejo": "Las moléculas de adhesión de la superfamilia de las inmunoglobulinas IgSF-CAM , fig. seis a nueve, poseen en su estructura dominios organizados en forma de lazo, que se asemejan a los que están presentes en las inmunoglobulinas. Establecen uniones heterófilas , interactuando con integrinas y selectinas, u homófilas , uniéndose entonces a otras IgSF-CAM, fig. seis a diez,. Las IgSF-CAM no tienen sitios de unión para el Ca2+ y median uniones celulares, normalmente de tipo temporal. Esta superfamilia de proteínas interviene en la adhesión de células del sistema inmunitario.",
+    "texto_nuevo": "Las moléculas de adhesión de la superfamilia de las inmunoglobulinas IgSF-CAM poseen en su estructura dominios organizados en forma de lazo, que se asemejan a los que están presentes en las inmunoglobulinas. Establecen uniones heterófilas, interactuando con integrinas y selectinas, u homófilas, uniéndose entonces a otras IgSF-CAM. Las IgSF-CAM no tienen sitios de unión para el Ca dos más y median uniones celulares, normalmente de tipo temporal. Esta superfamilia de proteínas interviene en la adhesión de células del sistema inmunitario."
+  },
+  {
+    "j": 56,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('c' vs 'electronica')",
+    "similitud": 0.96,
+    "pagina": 269,
+    "texto_viejo": "La unión ocluyente , también llamada unión estrecha, es una zona de contacto con forma de cinturón, de un μm de ancho, que se encuentra casi con exclusividad en los epitelios , fig. seis a once,. Este cinturón ocluyente está formado por un entramado de proteínas que une las membranas de células contiguas, quedando el espacio intercelular ocluido por un sistema de crestas de cierre anastomosadas y de complejidad variable, como se comprueba, de forma particularmente llamativa, en las imágenes de criofractura para microscopía electrónica , v. fig. seis a once, C,.",
+    "texto_nuevo": "La unión ocluyente, también llamada unión estrecha, es una zona de contacto con forma de cinturón, de un micrómetros de ancho, que se encuentra casi con exclusividad en los epitelios. Este cinturón ocluyente está formado por un entramado de proteínas que une las membranas de células contiguas, quedando el espacio intercelular ocluido por un sistema de crestas de cierre anastomosadas y de complejidad variable, como se comprueba, de forma particularmente llamativa, en las imágenes de criofractura para microscopía electrónica."
+  },
+  {
+    "j": 66,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 271,
+    "texto_viejo": "La formación de estas uniones es Ca2+ independiente, pero la permeabilidad del canal está regulada por el Ca2+ y el pH, de modo que se reduce al descender el pH o al aumentar la concentración intracelular de Ca2+. Cuando se produce un daño celular, el Ca2+ invade la célula en forma masiva e instantánea, por lo que el cierre de estos canales impide que el posible daño se transmita a células vecinas.",
+    "texto_nuevo": "La formación de estas uniones es Ca dos más independiente, pero la permeabilidad del canal está regulada por el Ca dos más y el pH, de modo que se reduce al descender el pH o al aumentar la concentración intracelular de Ca dos más. Cuando se produce un daño celular, el Ca dos más invade la célula en forma masiva e instantánea, por lo que el cierre de estos canales impide que el posible daño se transmita a células vecinas."
+  },
+  {
+    "j": 69,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9941,
+    "pagina": 272,
+    "texto_viejo": "La familia de los genes que codifican para las conexinas posee muchos miembros, los cuales se designan de acuerdo con su peso molecular. Existen diversas enfermedades que se han asociado a mutaciones de las conexinas. La conexina veintiséis forma uniones comunicantes en la cóclea y facilita el reciclaje del ión K+. Las mutaciones en la conexina veintiséis podrían ser responsables de más del veinte por ciento de los casos de sordera en la infancia. Las dos mutaciones más frecuentes son la 30delG y 167delT, que se dan en más del cincuenta por ciento de los casos.",
+    "texto_nuevo": "La familia de los genes que codifican para las conexinas posee muchos miembros, los cuales se designan de acuerdo con su peso molecular. Existen diversas enfermedades que se han asociado a mutaciones de las conexinas. La conexina veintiséis forma uniones comunicantes en la cóclea y facilita el reciclaje del ión K más. Las mutaciones en la conexina veintiséis podrían ser responsables de más del veinte por ciento de los casos de sordera en la infancia. Las dos mutaciones más frecuentes son la treinta delG y ciento sesenta y siete delT, que se dan en más del cincuenta por ciento de los casos."
+  },
+  {
+    "j": 73,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('a' vs 'mide')",
+    "similitud": 0.9799,
+    "pagina": 273,
+    "texto_viejo": "Membrana basal En el límite entre el epitelio y el tejido conjuntivo subyacente existe una fina capa extracelular de soporte, rica en proteínas y polisacáridos y de espesor variable , cero,cinco a un,cinco μm, denominada tradicionalmente membrana basal. En ocasiones, la membrana basal es tan gruesa que, en las preparaciones histológicas, se distingue como un engrosamiento que limita el epitelio del tejido conjuntivo, como ocurre por ejemplo en la membrana de Descemet del epitelio posterior de la córnea , que mide diez μm, fig. seis a trece, A,.",
+    "texto_nuevo": "Membrana basal En el límite entre el epitelio y el tejido conjuntivo subyacente existe una fina capa extracelular de soporte, rica en proteínas y polisacáridos y de espesor variable, cero coma cinco a uno coma cinco micrómetros, denominada tradicionalmente membrana basal. En ocasiones, la membrana basal es tan gruesa que, en las preparaciones histológicas, se distingue como un engrosamiento que limita el epitelio del tejido conjuntivo, como ocurre por ejemplo en la membrana de Descemet del epitelio posterior de la córnea, que mide diez micrómetros."
+  },
+  {
+    "j": 86,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 275,
+    "texto_viejo": "El síndrome de Alport se da en un de cada diez coma cero cero cero individuos, siendo varones la mayor parte de los casos, en los cuales la enfermedad es más grave que en las mujeres, al ser una enfermedad ligada al sexo. La clínica de este síndrome se caracteriza por afectar a distintos órganos.",
+    "texto_nuevo": "El síndrome de Alport se da en uno de cada diez mil individuos, siendo varones la mayor parte de los casos, en los cuales la enfermedad es más grave que en las mujeres, al ser una enfermedad ligada al sexo. La clínica de este síndrome se caracteriza por afectar a distintos órganos."
+  },
+  {
+    "j": 97,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9865,
+    "pagina": 277,
+    "texto_viejo": "Cada molécula está compuesta por tres cadenas polipeptídicas, denominadas cadenas α, enrolladas helicoidalmente para formar una triple hélice dextrógira, excepto en los extremos. Las cadenas α poseen alrededor de un coma cero cero cero residuos de aminoácidos y una composición poco común, siendo la glicina , treinta y tres coma cinco por ciento, la prolina , doce por ciento, y la hidroxiprolina , diez por ciento, los aminoácidos más abundantes. Algunos aminoácidos, como la hidroxiprolina y la hidroxilisina, son característicos del colágeno; tienen, además, secuencias repetidas en las cadenas: Gly-X-Y , siendo X frecuentemente prolina, e Y, frecuentemente hidroxiprolina,.",
+    "texto_nuevo": "Cada molécula está compuesta por tres cadenas polipeptídicas, denominadas cadenas alfa, enrolladas helicoidalmente para formar una triple hélice dextrógira, excepto en los extremos. Las cadenas alfa poseen alrededor de mil residuos de aminoácidos y una composición poco común, siendo la glicina, treinta y tres coma cinco por ciento, la prolina, doce por ciento, y la hidroxiprolina, diez por ciento, los aminoácidos más abundantes. Algunos aminoácidos, como la hidroxiprolina y la hidroxilisina, son característicos del colágeno; tienen, además, secuencias repetidas en las cadenas: Gly-X Y, siendo X frecuentemente prolina, e Y, frecuentemente hidroxiprolina."
+  },
+  {
+    "j": 122,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 281,
+    "texto_viejo": "Los pacientes con síndrome de Marfan, que poseen mutaciones en la proteína fibrilina, tienen miembros largos y finos y presentan aracnodactilia , dedos largos parecidos a patas de araña, trastornos visuales y aneurisma de la aorta. La incidencia del síndrome de Marfan es de un por cada diez coma cero cero cero habitantes, siendo un trastorno que se hereda de manera autosómica dominante. La causa más frecuente de mortalidad en estos pacientes es la patología del sistema cardiovascular asociada.",
+    "texto_nuevo": "Los pacientes con síndrome de Marfan, que poseen mutaciones en la proteína fibrilina, tienen miembros largos y finos y presentan aracnodactilia, dedos largos parecidos a patas de araña, trastornos visuales y aneurisma de la aorta. La incidencia del síndrome de Marfan es de uno por cada diez mil habitantes, siendo un trastorno que se hereda de manera autosómica dominante. La causa más frecuente de mortalidad en estos pacientes es la patología del sistema cardiovascular asociada."
+  },
+  {
+    "j": 127,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9948,
+    "pagina": 282,
+    "texto_viejo": "En la mayoría de los casos, los GAG están sulfatados , SO42– o SO3–, por lo que, junto a la presencia de grupos hidroxilo y ácido o carboxilo , COO–, hace que la carga neta de estas moléculas sea muy negativa, atrayendo así iones Na+. La alta concentración de Na+ atrae, a su vez, líquido extracelular, proporcionando turgencia y favoreciendo la resistencia a fuerzas de compresión. A medida que estas moléculas están más próximas entre sí, su carga negativa las repele, lo que favorece que tengan una textura resbaladiza, como demuestran el humor vítreo del ojo y el líquido sinovial.",
+    "texto_nuevo": "En la mayoría de los casos, los GAG están sulfatados, SO cuarenta y dos– o SO tres–, por lo que, junto a la presencia de grupos hidroxilo y ácido o carboxilo, COO–, hace que la carga neta de estas moléculas sea muy negativa, atrayendo así iones Na más. La alta concentración de Na más atrae, a su vez, líquido extracelular, proporcionando turgencia y favoreciendo la resistencia a fuerzas de compresión. A medida que estas moléculas están más próximas entre sí, su carga negativa las repele, lo que favorece que tengan una textura resbaladiza, como demuestran el humor vítreo del ojo y el líquido sinovial."
+  },
+  {
+    "j": 128,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 282,
+    "texto_viejo": "La presencia de tipos específicos de GAG en diferentes tejidos confiere atributos especiales a la matriz extracelular. El hialuronato es el único GAG no sulfatado; puede tener hasta veinticinco coma cero cero cero unidades repetidas de disacáridos, con una longitud de dos coma cinco micrómetros, y es de gran importancia para la formación de agregados de proteoglucanos. A la vez que en el tejido conjuntivo laxo, se encuentra en el líquido sinovial de las articulaciones, el humor vítreo del ojo, el cordón umbilical y el cartílago.",
+    "texto_nuevo": "La presencia de tipos específicos de GAG en diferentes tejidos confiere atributos especiales a la matriz extracelular. El hialuronato es el único GAG no sulfatado; puede tener hasta veinticinco mil unidades repetidas de disacáridos, con una longitud de dos coma cinco micrómetros, y es de gran importancia para la formación de agregados de proteoglucanos. A la vez que en el tejido conjuntivo laxo, se encuentra en el líquido sinovial de las articulaciones, el humor vítreo del ojo, el cordón umbilical y el cartílago."
+  },
+  {
+    "j": 142,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9936,
+    "pagina": 286,
+    "texto_viejo": "Existe una distrofia muscular congénita causada por el déficit de la cadena α2 de la laminina, que se hereda de manera autosómica recesiva. Esta enfermedad tiene una baja incidencia , cero coma siete por cada cien coma cero cero cero habitantes, y la sintomatología se puede observar desde el nacimiento, con una hipotonía grave generalizada. Los niños que nacen con esta enfermedad no pueden caminar solos debido a una extrema debilidad y a la falta de tono muscular; incluso se describen cuadros de insuficiencia respiratoria, al fallar también la musculatura que permite la respiración.",
+    "texto_nuevo": "Existe una distrofia muscular congénita causada por el déficit de la cadena alfa dos de la laminina, que se hereda de manera autosómica recesiva. Esta enfermedad tiene una baja incidencia, cero coma siete por cada cien mil habitantes, y la sintomatología se puede observar desde el nacimiento, con una hipotonía grave generalizada. Los niños que nacen con esta enfermedad no pueden caminar solos debido a una extrema debilidad y a la falta de tono muscular; incluso se describen cuadros de insuficiencia respiratoria, al fallar también la musculatura que permite la respiración."
+  }
+]

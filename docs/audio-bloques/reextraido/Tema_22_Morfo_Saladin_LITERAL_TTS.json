@@ -1,0 +1,218 @@
+[
+  {
+    "j": 6,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9855,
+    "pagina": 883,
+    "texto_viejo": "El exceso de CO2 reacciona con el agua y libera iones hidrógeno , CO2 + H2O → H2CO3 → HCO3 – + H+,; por tanto, si el aparato respiratorio no se mantiene al ritmo de la producción de CO2, se acumula H+ y los líquidos corporales tienen un pH tan bajo que es anormal , acidosis,. cinco. Los pulmones dan un paso en la síntesis de un vasoconstrictor llamado angiotensina II, que ayuda a regular la presión arterial. seis.",
+    "texto_nuevo": "El exceso de CO dos reacciona con el agua y libera iones hidrógeno, CO dos + H dos O da H dos CO tres da HCO tres – + H más; por tanto, si el aparato respiratorio no se mantiene al ritmo de la producción de CO dos, se acumula H más y los líquidos corporales tienen un pH tan bajo que es anormal, acidosis. cinco. Los pulmones dan un paso en la síntesis de un vasoconstrictor llamado angiotensina II, que ayuda a regular la presión arterial."
+  },
+  {
+    "j": 26,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9781,
+    "pagina": 885,
+    "texto_viejo": "Tiene tres regiones principales: nasofaringe, orofaringe y laringofaringe , fi gura veintidós.3c,. La nasofaringe es posterior a las coanas y se encuentra arriba del velo del paladar. Recibe el conducto auditivo , trompa de Eustaquio, de los oídos medios, y alberga a la amígdala faríngea. El aire inhalado da un giro de 90º hacia abajo mientras pasa por la nasofaringe. Por lo general, las partículas grandes , mayor que diez μm, no pueden seguir este camino debido a la inercia.",
+    "texto_nuevo": "Tiene tres regiones principales: nasofaringe, orofaringe y laringofaringe. La nasofaringe es posterior a las coanas y se encuentra arriba del velo del paladar. Recibe el conducto auditivo, trompa de Eustaquio, de los oídos medios, y alberga a la amígdala faríngea. El aire inhalado da un giro de noventa º hacia abajo mientras pasa por la nasofaringe. Por lo general, las partículas grandes, mayor que diez micrómetros, no pueden seguir este camino debido a la inercia."
+  },
+  {
+    "j": 61,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 890,
+    "texto_viejo": "Los bronquiolos tienen epitelio cúbico ciliado y una capa bien desarrollada de músculo liso en Cilios Célula caliciforme cuatro μm FIGURA veintidós coma ocho Epitelio traqueal que muestra células ciliadas y células caliciformes no ciliadas , SEM,. Las pequeñas protuberancias en las células caliciformes son microvellosidades. ●¿Cuál es la función de las células caliciformes?",
+    "texto_nuevo": "Los bronquiolos tienen epitelio cúbico ciliado y una capa bien desarrollada de músculo liso en Cilios Célula caliciforme cuatro micrómetros FIGURA veintidós punto ocho Epitelio traqueal que muestra células ciliadas y células caliciformes no ciliadas, SEM. Las pequeñas protuberancias en las células caliciformes son microvellosidades. ●¿Cuál es la función de las células caliciformes?"
+  },
+  {
+    "j": 78,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9809,
+    "pagina": 894,
+    "texto_viejo": "Tienen un grosor total de sólo cero coma cinco μm, en contraste con los siete coma cinco μm de diámetro de los eritrocitos que pasan por los capilares. Es muy importante evitar que el líquido se acumule en los alveolos, porque los gases se difunden con demasiada lentitud a través del líquido para airear de manera sufi ciente la sangre. Con excepción de una pequeña película de humedad en la pared alveolar, los alveolos se mantienen secos debido a la absorción del exceso de líquido por parte de los capilares sanguíneos.",
+    "texto_nuevo": "Tienen un grosor total de sólo cero coma cinco micrómetros, en contraste con los siete punto cinco micrómetros de diámetro de los eritrocitos que pasan por los capilares. Es muy importante evitar que el líquido se acumule en los alveolos, porque los gases se difunden con demasiada lentitud a través del líquido para airear de manera suficiente la sangre. Con excepción de una pequeña película de humedad en la pared alveolar, los alveolos se mantienen secos debido a la absorción del exceso de líquido por parte de los capilares sanguíneos."
+  },
+  {
+    "j": 203,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('a' vs 'difusion')",
+    "similitud": 0.9589,
+    "pagina": 907,
+    "texto_viejo": "La membrana respiratoria entre la sangre y el aire alveolar tiene sólo cero coma cinco μm de grosor en casi todos los lugares , mucho menos que los siete a ocho μm de diámetro de un solo eritrocito,. Por tanto, presenta pocos obstáculos para su difusión , fi gura veintidós.22a,.",
+    "texto_nuevo": "La membrana respiratoria entre la sangre y el aire alveolar tiene sólo cero coma cinco micrómetros de grosor en casi todos los lugares, mucho menos que los siete a ocho micrómetros de diámetro de un solo eritrocito. Por tanto, presenta pocos obstáculos para su difusión."
+  },
+  {
+    "j": 213,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9048 < 0.92",
+    "similitud": 0.9048,
+    "pagina": 909,
+    "texto_viejo": "Casi noventa y ocho coma cinco por ciento de éste se encuentra fi jado a la hemoglobina de los eritrocitos, y un coma cinco por ciento está disuelto en el plasma sanguíneo. La hemoglobina se especializa en el transporte de oxígeno. Consta de cuatro cadenas de proteína , globina, cada una con un grupo hem , véase la fi gura ocho coma cinco, p. seiscientos ochenta y cinco,. Cada hem puede fi jar un O2 al ion ferroso , Fe2+, en su centro; por tanto, una molécula de hemoglobina puede llevar hasta cuatro O2.",
+    "texto_nuevo": "Casi noventa y ocho punto cinco por ciento de éste se encuentra fijado a la hemoglobina de los eritrocitos, y uno punto cinco por ciento está disuelto en el plasma sanguíneo. La hemoglobina se especializa en el transporte de oxígeno. Consta de cuatro cadenas de proteína, globina, cada una con un grupo hem. Cada hem puede fijar un O dos al ion ferroso, Fe dos más, en su centro; por tanto, una molécula de hemoglobina puede llevar hasta cuatro O dos."
+  },
+  {
+    "j": 221,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9778,
+    "pagina": 910,
+    "texto_viejo": "Casi noventa por ciento del CO2 está hidratado , reacciona con agua, para formar ácido carbónico, que luego se disocia en bicarbonato y iones hidrógeno: CO2 + H2O → H2CO3 → HCO3 + H+ Más adelante se abunda sobre el tema. dos. Casi cinco por ciento se une a los grupos amino de las proteínas plasmáticas y la hemoglobina para formar compuestos carbamino, sobre todo carbaminohemoglobina , HbCO2,. La reacción con la hemoglobina puede simbolizarse Hb + CO2 → HbCO2.",
+    "texto_nuevo": "Casi noventa por ciento del CO dos está hidratado, reacciona con agua, para formar ácido carbónico, que luego se disocia en bicarbonato y iones hidrógeno: CO dos + H dos O da H dos CO tres da HCO tres + H más Más adelante se abunda sobre el tema. dos. Casi cinco por ciento se une a los grupos amino de las proteínas plasmáticas y la hemoglobina para formar compuestos carbamino, sobre todo carbaminohemoglobina, HbCO dos. La reacción con la hemoglobina puede simbolizarse Hb + CO dos da HbCO dos."
+  },
+  {
+    "j": 229,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9888,
+    "pagina": 911,
+    "texto_viejo": "Tejido que respira Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Compuestos carbamino Cl– Cl– siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento un coma cinco por ciento CO2 + Hb CO2 + H2O O2 + HHb HbO2 + H+ H2CO3 HCO3– + H+ HCO3– – Cl– Cotransporte bidireccional HCO3– HbCO2 CAH Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta cien Tejidos sistémicos Alveolos Porcentaje de saturación de O2 de hemoglobina ml O2 o cien ml de sangre Presión parcial de O2 , Po2, en mmHg veintidós por ciento FIGURA veintidós coma dos cuatro Curva de disociación de la oxihemoglobina.",
+    "texto_nuevo": "Tejido que respira Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Compuestos carbamino Cl– Cl– siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb CO dos + H dos O O dos + HHb HbO dos + H más H dos CO tres HCO tres– + H más HCO tres– – Cl– Cotransporte bidireccional HCO tres– HbCO dos CAH Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta mil cien Tejidos sistémicos Alveolos Porcentaje de saturación de O dos de hemoglobina ml O dos sobre cien ml de sangre Presión parcial de O dos, Po dos, en mmHg veintidós por ciento FIGURA veintidós punto veinticuatro Curva de disociación de la oxihemoglobina."
+  },
+  {
+    "j": 232,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9938,
+    "pagina": 912,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento Carga del dióxido de carbono La respiración aeróbica produce una molécula de CO2 por cada una de O2 que consume. Por lo tanto, el líquido tisular contiene una PCO2 elevada y, por lo general, hay un gradiente de CO2 de cuarenta y seis → cuarenta mmHg del líquido tisular a la sangre. Por tanto, el CO2 se difunde en la circulación sanguínea, donde se le transporta en las tres formas ya indicadas. La mayor parte de él reacciona con el agua para producir iones bicarbonato , HCO3 –, e hidrógeno , H+,.",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento Carga del dióxido de carbono La respiración aeróbica produce una molécula de CO dos por cada una de O dos que consume. Por lo tanto, el líquido tisular contiene una PCO dos elevada y, por lo general, hay un gradiente de CO dos de cuarenta y seis da cuarenta mmHg del líquido tisular a la sangre. Por tanto, el CO dos se difunde en la circulación sanguínea, donde se le transporta en las tres formas ya indicadas. La mayor parte de él reacciona con el agua para producir iones bicarbonato, HCO tres –, e hidrógeno, H más."
+  },
+  {
+    "j": 233,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9809,
+    "pagina": 912,
+    "texto_viejo": "Esta reacción ocurre con lentitud en el plasma sanguíneo pero mucho más rápido en los eritrocitos, donde la enzima anhidrasa carbónica la cataliza. Un cotransporte bidireccional al que se le denomina intercambiador de cloruro y bicarbonato bombea entonces la mayor parte del HCO3 – fuera del eritrocito en un intercambio por Cl– del plasma sanguíneo. A este intercambio se le denomina desplazamiento de cloruro. La mayor parte del H+ se fi ja a la hemoglobina o la oxihemoglobina, lo que amortigua el pH intracelular.",
+    "texto_nuevo": "Esta reacción ocurre con lentitud en el plasma sanguíneo pero mucho más rápido en los eritrocitos, donde la enzima anhidrasa carbónica la cataliza. Un cotransporte bidireccional al que se le denomina intercambiador de cloruro y bicarbonato bombea entonces la mayor parte del HCO tres – fuera del eritrocito en un intercambio por Cl– del plasma sanguíneo. A este intercambio se le denomina desplazamiento de cloruro. La mayor parte del H más se fija a la hemoglobina o la oxihemoglobina, lo que amortigua el pH intracelular."
+  },
+  {
+    "j": 234,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9613,
+    "pagina": 912,
+    "texto_viejo": "Descarga de oxígeno Cundo el H+ se fi ja a la oxihemoglobina , HbO2, reduce la afi nidad de la hemoglobina por el O2 y tiende a hacer que ésta lo libere. El consumo de oxígeno en los tejidos que respiran mantiene baja la PO2 del líquido tisular, de modo que suele haber un gradiente de presión de noventa y cinco → cuarenta mmHg de oxígeno de la sangre arterial al líquido tisular. Por tanto, el oxígeno liberado , junto con parte del que se transporta como gas disuelto en el plasma, se difunde de la sangre al tejido tisular.",
+    "texto_nuevo": "Descarga de oxígeno Cundo el H más se fija a la oxihemoglobina, HbO dos, reduce la afinidad de la hemoglobina por el O dos y tiende a hacer que ésta lo libere. El consumo de oxígeno en los tejidos que respiran mantiene baja la PO dos del líquido tisular, de modo que suele haber un gradiente de presión de noventa y cinco da cuarenta mmHg de oxígeno de la sangre arterial al líquido tisular. Por tanto, el oxígeno liberado, junto con parte del que se transporta como gas disuelto en el plasma, se difunde de la sangre al tejido tisular."
+  },
+  {
+    "j": 237,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('como' vs 'las'); caracter residual en texto nuevo ('+')",
+    "similitud": 0.9565,
+    "pagina": 912,
+    "texto_viejo": "Como se muestra en la fi gura veintidós coma dos seis, las reacciones que ocurren en los pulmones son, en esencia, lo inverso del interMembrana respiratoria Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento un coma cinco por ciento CO2 + Hb HbO2 + H+ HCO3– + H+ HbCO2 CAH CO2 + H2O H2CO3 Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica O2 + HHb Cl– Cl– Cotransporte bidireccional HCO3– – Cl– HCO3– Desplazamiento de cloruro FIGURA veintidós coma dos seis Intercambio gaseoso alveolar.",
+    "texto_nuevo": "las reacciones que ocurren en los pulmones son, en esencia, lo inverso del interMembrana respiratoria Sangre capilar Gas CO dos disuelto CO dos + proteína plasmática CO dos CO dos CO dos O dos O dos Gas O dos disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho punto cinco por ciento uno punto cinco por ciento CO dos + Hb HbO dos + H más HCO tres– + H más HbCO dos CAH CO dos + H dos O H dos CO tres Clave Hb Hemoglobina HbCO dos Carbaminohemoglobina HbO dos Oxihemoglobina HHb Desoxihemoglobina CAH Anhidrasa carbónica O dos + HHb Cl– Cl– Cotransporte bidireccional HCO tres– – Cl– HCO tres– Desplazamiento de cloruro FIGURA veintidós punto veintiséis Intercambio gaseoso alveolar."
+  },
+  {
+    "j": 239,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9577,
+    "pagina": 913,
+    "texto_viejo": "CAPÍTULO veintidós El aparato respiratorio cambio gaseoso sistémico. A medida que la hemoglobina carga oxígeno, declina su afi nidad por el H+. Los iones hidrógeno se disocian de la hemoglobina y se fi jan a los iones bicarbonato , HCO3 –, transportados por el plasma en los eritrocitos. Se lleva a los iones cloruro de regreso de los eritrocitos , un desplazamiento inverso de cloruro,. La reacción de H+ y HCO3 – invierte la de hidratación y genera CO2 libre.",
+    "texto_nuevo": "CAPÍTULO veintidós El aparato respiratorio cambio gaseoso sistémico. A medida que la hemoglobina carga oxígeno, declina su afinidad por el H más. Los iones hidrógeno se disocian de la hemoglobina y se fijan a los iones bicarbonato, HCO tres –, transportados por el plasma en los eritrocitos. Se lleva a los iones cloruro de regreso de los eritrocitos, un desplazamiento inverso de cloruro. La reacción de H más y HCO tres – invierte la de hidratación y genera CO dos libre."
+  },
+  {
+    "j": 242,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9787,
+    "pagina": 913,
+    "texto_viejo": "Cuando la temperatura aumenta, la curva de disociación de la oxihemoglobina se desplaza a la derecha , fi gura veintidós.27a,; en otras palabras, la temperatura elevada promueve la descarga de oxígeno. Los tejidos activos son más calientes que los menos activos y, por tanto, extraen más oxígeno de la sangre que pasa por ellos. tres. El efecto de Bohr. Los tejidos activos también generan CO2 adicional, que eleva la concentración de H+ y reduce el pH de la sangre.",
+    "texto_nuevo": "Cuando la temperatura aumenta, la curva de disociación de la oxihemoglobina se desplaza a la derecha; en otras palabras, la temperatura elevada promueve la descarga de oxígeno. Los tejidos activos son más calientes que los menos activos y, por tanto, extraen más oxígeno de la sangre que pasa por ellos. tres. El efecto de Bohr. Los tejidos activos también generan CO dos adicional, que eleva la concentración de H más y reduce el pH de la sangre."
+  },
+  {
+    "j": 245,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9565,
+    "pagina": 913,
+    "texto_viejo": "La velocidad de carga del CO2 también se ajusta a las necesidades variables de los tejidos. Una baja concentración de oxihemoglobina , HbO2, permite que la sangre transporte más CO2, fenómeno conocido como efecto de Haldane.veintiocho Ocurre por dos razones: un la HbO2 no fi ja el CO2 tan bien como la desoxihemoglobina , HHb,; dos la HHb fi ja más iones hidrógeno que la HbO2, y al eliminar el H+ de la solución, la HHb desplaza a la derecha la reacción de ácido carbónico , H2O + CO2 → HCO3 – + H+,.",
+    "texto_nuevo": "La velocidad de carga del CO dos también se ajusta a las necesidades variables de los tejidos. Una baja concentración de oxihemoglobina, HbO dos, permite que la sangre transporte más CO dos, fenómeno conocido como efecto de Haldane. Ocurre por dos razones: uno la HbO dos no fija el CO dos tan bien como la desoxihemoglobina, HHb; dos la HHb fija más iones hidrógeno que la HbO dos, y al eliminar el H más de la solución, la HHb desplaza a la derecha la reacción de ácido carbónico, H dos O + CO dos da HCO tres – + H más."
+  },
+  {
+    "j": 251,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 914,
+    "texto_viejo": "Los quimiorreceptores centrales del bulbo raquídeo producen casi setenta y cinco por ciento del cambio en la respiración inducido por los desplazamientos del pH, y el H+ no cruza la barrera hematoencefálica con facilidad. Sin embargo, el CO2 sí lo hace y una vez que se encuentra en el líquido cefalorraquídeo reacciona con el agua para producir ácido carbónico, que se disocia en bicarbonato y iones hidrógeno. El líquido cefaloraquídeo contiene pocas proteínas para amortiguar los iones hidrógeno, de modo que la mayor parte del H+ permanece libre, y recibe una fuerte estimulación de los quimiorreceptores centrales.",
+    "texto_nuevo": "Los quimiorreceptores centrales del bulbo raquídeo producen casi setenta y cinco por ciento del cambio en la respiración inducido por los desplazamientos del pH, y el H más no cruza la barrera hematoencefálica con facilidad. Sin embargo, el CO dos sí lo hace y una vez que se encuentra en el líquido cefalorraquídeo reacciona con el agua para producir ácido carbónico, que se disocia en bicarbonato y iones hidrógeno. El líquido cefaloraquídeo contiene pocas proteínas para amortiguar los iones hidrógeno, de modo que la mayor parte del H más permanece libre, y recibe una fuerte estimulación de los quimiorreceptores centrales."
+  },
+  {
+    "j": 252,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.984,
+    "pagina": 914,
+    "texto_viejo": "Los iones hidrógeno también son una posible estimulación para los quimiorreceptores periféricos, que producen casi veinticinco por ciento de la respuesta respiratoria a los cambios en el pH. Vale la pena preguntar cómo se sabe que es el H+ el que estimula a los quimiorreceptores centrales y no el CO2 que se difunde en el líquido cefalorraquídeo. En experimentos, es posible modifi car el pH o la PCO2 del líquido mientras se mantienen las otras variables sin cambio. Cuando sólo cambia el pH, hay un fuerte efecto en la respiración; cuando sólo la PCO2 cambia, el efecto es más débil.",
+    "texto_nuevo": "Los iones hidrógeno también son una posible estimulación para los quimiorreceptores periféricos, que producen casi veinticinco por ciento de la respuesta respiratoria a los cambios en el pH. Vale la pena preguntar cómo se sabe que es el H más el que estimula a los quimiorreceptores centrales y no el CO dos que se difunde en el líquido cefalorraquídeo. En experimentos, es posible modificar el pH o la PCO dos del líquido mientras se mantienen las otras variables sin cambio. Cuando sólo cambia el pH, hay un fuerte efecto en la respiración; cuando sólo la PCO dos cambia, el efecto es más débil."
+  },
+  {
+    "j": 253,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9846,
+    "pagina": 914,
+    "texto_viejo": "Por tanto, aunque estas dos variables suelen cambiar juntas, se puede ver que los quimioreceptores reaccionan sobre todo ante el H+. Un pH sanguíneo menor de siete coma tres cinco recibe el nombre de acidosis, y uno mayor de siete coma cuatro cinco, el de alcalosis. La PCO2 de la sangre arterial suele ir de treinta y siete a cuarenta y tres mmHg. A una PCO2 menor de treinta y siete mmHg se le denomina hipocapnia29 y es la causa más común de alcalosis.",
+    "texto_nuevo": "Por tanto, aunque estas dos variables suelen cambiar juntas, se puede ver que los quimioreceptores reaccionan sobre todo ante el H más. Un pH sanguíneo menor de siete punto treinta y cinco recibe el nombre de acidosis, y uno mayor de siete punto cuarenta y cinco, el de alcalosis. La PCO dos de la sangre arterial suele ir de treinta y siete a cuarenta y tres mmHg. A una PCO dos menor de treinta y siete mmHg se le denomina hipocapnia y es la causa más común de alcalosis."
+  },
+  {
+    "j": 255,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9889,
+    "pagina": 914,
+    "texto_viejo": "A medida que el CO2 se elimina, la reacción del ácido carbónico se desplaza a la izquierda. CO2 + H2O → H2CO3 → HCO3 – + H+ Por tanto, se consume el H+ de la derecha y, a medida que la concentración de H+ declina, el pH se eleva y lo ideal es que regrese la sangre del rango ácido a la normalidad. La respuesta correctiva para la alcalosis es la hipoventilación, que permite que el CO2 se acumule en los líquidos del cuerpo con mayor rapidez que con la que se exhala.",
+    "texto_nuevo": "A medida que el CO dos se elimina, la reacción del ácido carbónico se desplaza a la izquierda. CO dos + H dos O da H dos CO tres da HCO tres – + H más Por tanto, se consume el H más de la derecha y, a medida que la concentración de H más declina, el pH se eleva y lo ideal es que regrese la sangre del rango ácido a la normalidad. La respuesta correctiva para la alcalosis es la hipoventilación, que permite que el CO dos se acumule en los líquidos del cuerpo con mayor rapidez que con la que se exhala."
+  },
+  {
+    "j": 256,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('cuadro' vs 'kussmaul'); caracter residual en texto nuevo ('+')",
+    "similitud": 0.9701,
+    "pagina": 914,
+    "texto_viejo": "La hipoventilación desplaza la reacción a la derecha, elevando la concentración de H+ y reduciendo el pH a la normalidad. CO2 + H2O → H2CO3 → HCO3 – + H+ Aunque los cambios en el pH suelen deberse a cambios en la PCO2, pueden tener otras causas. Por ejemplo, en la diabetes, la rápida oxidación de las grasas libera cuerpos cetónicos ácidos, lo que causa un pH bajo anormal, al que se le denomina cetoacidosis. Ésta tiende a inducir una forma de disnea, la respiración de Kussmaul , véase el cuadro veintidós coma tres,.",
+    "texto_nuevo": "La hipoventilación desplaza la reacción a la derecha, elevando la concentración de H más y reduciendo el pH a la normalidad. CO dos + H dos O da H dos CO tres da HCO tres – + H más Aunque los cambios en el pH suelen deberse a cambios en la PCO dos, pueden tener otras causas. Por ejemplo, en la diabetes, la rápida oxidación de las grasas libera cuerpos cetónicos ácidos, lo que causa un pH bajo anormal, al que se le denomina cetoacidosis. Ésta tiende a inducir una forma de disnea, la respiración de Kussmaul"
+  },
+  {
+    "j": 257,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9809,
+    "pagina": 914,
+    "texto_viejo": "La hiperventilación no puede reducir la concentración de cuerpos cetónicos en la sangre, pero al eliminar CO2 reduce la concentración de H+ generado por CO2 y compensa hasta cierto grado el H+ liberado por los cuerpos cetónicos. Dióxido de carbono Aunque la PCO2 arterial tiene una fuerte infl uencia en la respiración, es sobre todo indirecta, mediada por sus efectos en el pH del líquido cefalorraquídeo. Pero la evidencia experimental ya descrita muestra que el CO2 tiene algún efecto aunque el pH permanezca estable.",
+    "texto_nuevo": "La hiperventilación no puede reducir la concentración de cuerpos cetónicos en la sangre, pero al eliminar CO dos reduce la concentración de H más generado por CO dos y compensa hasta cierto grado el H más liberado por los cuerpos cetónicos. Dióxido de carbono Aunque la PCO dos arterial tiene una fuerte influencia en la respiración, es sobre todo indirecta, mediada por sus efectos en el pH del líquido cefalorraquídeo. Pero la evidencia experimental ya descrita muestra que el CO dos tiene algún efecto aunque el pH permanezca estable."
+  },
+  {
+    "j": 259,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9466,
+    "pagina": 914,
+    "texto_viejo": "A altitudes reducidas, casi nunca se presenta esta PO2 baja, aunque se contenga la respiración de manera prolongada. Una caída moderada en la PO2 estimula a los quimiorreceptores periféricos, pero otro efecto lo evita: a medida que la concentración de HbO2 cae, la hemoglobina fi ja más H+ , véase la fi gura veintidós coma dos cinco,. Esto eleva el pH sanguíneo, lo que inhibe la respiración y contrarresta el efecto de la PO2 baja.",
+    "texto_nuevo": "A altitudes reducidas, casi nunca se presenta esta PO dos baja, aunque se contenga la respiración de manera prolongada. Una caída moderada en la PO dos estimula a los quimiorreceptores periféricos, pero otro efecto lo evita: a medida que la concentración de HbO dos cae, la hemoglobina fija más H más. Esto eleva el pH sanguíneo, lo que inhibe la respiración y contrarresta el efecto de la PO dos baja."
+  },
+  {
+    "j": 264,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 915,
+    "texto_viejo": "Por tanto, los centros respiratorios aumentan la temperatura porque se les informa que se ha indicado a los músculos que se muevan o porque en realidad se están moviendo. El aumento en la ventilación pulmonar mantiene los valores de los gases sanguíneos en sus concentraciones normales, a pesar del elevado consumo de O2 y la mayor generación de CO2 por parte de los músculos. En resumen, el principal estímulo químico en la ventilación pulmonar es el H+ en el líquido cefalorraquídeo y el líquido tisular del encéfalo.",
+    "texto_nuevo": "Por tanto, los centros respiratorios aumentan la temperatura porque se les informa que se ha indicado a los músculos que se muevan o porque en realidad se están moviendo. El aumento en la ventilación pulmonar mantiene los valores de los gases sanguíneos en sus concentraciones normales, a pesar del elevado consumo de O dos y la mayor generación de CO dos por parte de los músculos. En resumen, el principal estímulo químico en la ventilación pulmonar es el H más en el líquido cefalorraquídeo y el líquido tisular del encéfalo."
+  },
+  {
+    "j": 265,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 915,
+    "texto_viejo": "Estos iones hidrógeno pueden surgir sobre todo por la difusión de CO2 en el líquido cefalorraquídeo y el encéfalo y la generación de H+ mediante la reacción del ácido carbónico. Por tanto, la PCO2 de la sangre arterial es una fuerza impulsora importante en la respiración, aunque su acción sobre los quimiorreceptores es indirecta. La ventilación se ajusta para mantener el pH arterial en casi siete coma cuatro cero y la PO2 arterial en casi cuarenta mmHg. Esto también asegura de manera automática que la sangre tenga por lo menos una saturación de noventa y siete por ciento de O2.",
+    "texto_nuevo": "Estos iones hidrógeno pueden surgir sobre todo por la difusión de CO dos en el líquido cefalorraquídeo y el encéfalo y la generación de H más mediante la reacción del ácido carbónico. Por tanto, la PCO dos de la sangre arterial es una fuerza impulsora importante en la respiración, aunque su acción sobre los quimiorreceptores es indirecta. La ventilación se ajusta para mantener el pH arterial en casi siete punto cuarenta y la PO dos arterial en casi cuarenta mmHg. Esto también asegura de manera automática que la sangre tenga por lo menos una saturación de noventa y siete por ciento de O dos."
+  }
+]

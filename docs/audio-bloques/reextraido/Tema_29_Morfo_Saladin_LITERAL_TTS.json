@@ -1,0 +1,29 @@
+[
+  {
+    "j": 19,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9811,
+    "pagina": 1133,
+    "texto_viejo": "La fecundación por parte de dos o más espermatozoides, que se denomina poliespermia, produciría un conjunto triploide , 3n, o mayor de cromosomas y el óvulo moriría. Por tanto, es importante que el óvulo evite esto, y tiene dos mecanismos para hacerlo: un bloqueo rápido y uno lento de la poliespermia. En el bloqueo rápido, la unión del esperma y el óvulo abre los canales de Na+ en la membrana del ovario. El infl ujo rápido de Na+ despolariza la membrana e inhibe la unión de cualquier espermatozoide adicional.",
+    "texto_nuevo": "La fecundación por parte de dos o más espermatozoides, que se denomina poliespermia, produciría un conjunto triploide, tres n, o mayor de cromosomas y el óvulo moriría. Por tanto, es importante que el óvulo evite esto, y tiene dos mecanismos para hacerlo: un bloqueo rápido y uno lento de la poliespermia. En el bloqueo rápido, la unión del esperma y el óvulo abre los canales de Na más en la membrana del ovario. El influjo rápido de Na más despolariza la membrana e inhibe la unión de cualquier espermatozoide adicional."
+  },
+  {
+    "j": 20,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1133,
+    "texto_viejo": "El bloqueo lento involucra vesículas secretoras llamadas gránulos corticales, ubicadas debajo de la membrana. La penetración del espermatozoide libera una descarga de Ca2+; esto, a su vez, estimula una reacción cortical en que los gránulos corticales liberan su secreción debajo de la zona pelúcida. La secreción se hincha con agua, empuja cualquier espermatozoide restante fuera del óvulo y crea una membrana de fecundación impenetrable entre el óvulo y la zona pelúcida. Aplicación de lo aprendido ¿Qué similitudes pueden verse entre el bloqueo lento a la poliespermia y la liberación de acetilcolina de las vesículas sinápticas de una neurona?",
+    "texto_nuevo": "El bloqueo lento involucra vesículas secretoras llamadas gránulos corticales, ubicadas debajo de la membrana. La penetración del espermatozoide libera una descarga de Ca dos más; esto, a su vez, estimula una reacción cortical en que los gránulos corticales liberan su secreción debajo de la zona pelúcida. La secreción se hincha con agua, empuja cualquier espermatozoide restante fuera del óvulo y crea una membrana de fecundación impenetrable entre el óvulo y la zona pelúcida. Aplicación de lo aprendido ¿Qué similitudes pueden verse entre el bloqueo lento a la poliespermia y la liberación de acetilcolina de las vesículas sinápticas de una neurona?"
+  },
+  {
+    "j": 82,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9134 < 0.92",
+    "similitud": 0.9134,
+    "pagina": 1142,
+    "texto_viejo": "Bombeada por el corazón fetal, la sangre fl uye en la placenta por medio de las arterias umbilicales y luego regresa al feto por la vena umbilical. Las vellosidades coriónicas están llenas con sangre fetal y rodeadas por sangre materna , véase la fi gura veintinueve.7c,. Esos dos fl ujos sanguíneos no se mezclan, a menos que haya daño en la barrera placentaria. Ésta sólo mide tres coma cinco μm de grueso , la mitad del diámetro de un eritrocito,.",
+    "texto_nuevo": "Bombeada por el corazón fetal, la sangre fluye en la placenta por medio de las arterias umbilicales y luego regresa al feto por la vena umbilical. Las vellosidades coriónicas están llenas con sangre fetal y rodeadas por sangre materna. Esos dos flujos sanguíneos no se mezclan, a menos que haya daño en la barrera placentaria. Ésta sólo mide tres punto cinco micrómetros de grueso, la mitad del diámetro de un eritrocito."
+  }
+]

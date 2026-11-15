@@ -1,0 +1,389 @@
+[
+  {
+    "j": 23,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.987,
+    "pagina": 709,
+    "texto_viejo": "CUADRO dieciocho coma un Propiedades generales de la sangre Característica Valores típicos para adultos sanos Fracción media del peso corporal ocho por ciento Volumen en el cuerpo adulto Mujer: cuatro a cinco litros; hombre: cinco a seis litros Volumen o peso corporal ochenta a ochenta y cinco ml o kg Temperatura media 38ºC , cien.4ºF, pH siete coma tres cinco a siete coma cuatro cinco Viscosidad , en relación con el agua, Leucocitos: cuatro coma cinco a cinco coma cinco; plasma: dos coma cero Osmolaridad doscientos ochenta a doscientos noventa y seis mosm o L Salinidad media , sobre todo NaCl, cero coma nueve por ciento Hematócrito Mujer: treinta y siete a cuarenta y ocho por ciento; hombre: cuarenta y cinco a cincuenta y dos por ciento Hemoglobina Mujer: doce a dieciséis g o cien ml; hombre: trece a dieciocho g o cien ml Cifra media de eritrocitos Mujer: cuatro coma dos a cinco coma cuatro millones o µl; hombre cuatro coma seis a seis coma dos millones o µl Cifra de trombocitos ciento treinta cero a trescientos sesenta cero o µl Cifra total de leucocitos cinco cero a diez cero o µl Los valores varían ligeramente según el método de análisis empleado.",
+    "texto_nuevo": "CUADRO dieciocho punto uno Propiedades generales de la sangre Característica Valores típicos para adultos sanos Fracción media del peso corporal ocho por ciento Volumen en el cuerpo adulto Mujer: cuatro a cinco litros; hombre: cinco a seis litros Volumen o peso corporal ochenta a ochenta y cinco ml o kg Temperatura media treinta y ocho ºC, cien.cuatro ºF, pH siete punto treinta y cinco a siete punto cuarenta y cinco Viscosidad, en relación con el agua, Leucocitos: cuatro punto cinco a cinco punto cinco; plasma: dos punto cero Osmolaridad doscientos ochenta a doscientos noventa y seis mosm o L Salinidad media, sobre todo NaCl, cero coma nueve por ciento Hematócrito Mujer: treinta y siete a cuarenta y ocho por ciento; hombre: cuarenta y cinco a cincuenta y dos por ciento Hemoglobina Mujer: doce a dieciséis g o cien ml; hombre: trece a dieciocho g o cien ml Cifra media de eritrocitos Mujer: cuatro punto dos a cinco punto cuatro millones o microlitros; hombre cuatro punto seis a seis punto dos millones o microlitros Cifra de trombocitos ciento treinta mil a trescientos sesenta mil o microlitros Cifra total de leucocitos cinco mil a diez mil o microlitros Los valores varían ligeramente según el método de análisis empleado."
+  },
+  {
+    "j": 27,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('defi' vs 'deficiencia'); caracter residual en texto nuevo ('+')",
+    "similitud": 0.98,
+    "pagina": 710,
+    "texto_viejo": "Una defi ciencia de eritrocitos o proteínas reduce la viscosidad y causa que la sangre fl uya con facilidad, mientras que un exceso hace que lo haga con demaCUADRO dieciocho coma dos Composición del plasma sanguíneo Componente sanguíneo Valores típicos para adultos sanos Agua noventa y dos por ciento del peso Proteínas Total: seis a nueve g o cien ml Albúmina sesenta por ciento de las proteínas totales, tres coma dos a cinco coma cinco g o cien ml Globulinas treinta y seis por ciento de las proteínas totales, dos coma tres a tres coma cinco g o cien ml Fibrinógeno cuatro por ciento de las proteínas totales, cero coma dos a cero coma tres g o cien ml Nutrientes Glucosa , dextrosa, setenta a ciento diez mg o cien ml Aminoácidos treinta y tres a cincuenta y un mg o cien ml Ácido láctico seis a dieciséis mg o cien ml Lípidos totales cuatrocientos cincuenta a ochocientos cincuenta mg o cien ml Colesterol ciento veinte a doscientos veinte mg o cien ml Ácidos grasos ciento noventa a cuatrocientos veinte mg o cien ml Lipoproteínas de alta densidad , HDL, treinta a ochenta mg o cien ml Lipoproteínas de baja densidad , LDL, sesenta y dos a ciento ochenta y cinco mg o cien ml Triglicéridos , grasas neutras, cuarenta a ciento cincuenta mg o cien ml Fosfolípidos seis a doce mg o cien ml Hierro cincuenta a ciento cincuenta μg o cien ml Oligoelementos Trazas Vitaminas Trazas Electrólitos Sodio , Na+, ciento treinta y cinco a ciento cuarenta y cinco meq o L Calcio , Ca2+, nueve coma dos a diez coma cuatro meq o L Potasio , K+, tres coma cinco a cinco coma cero meq o L Magnesio , Mg2+, un coma tres a dos coma un meq o L Cloruro , Cl menos , cien a ciento seis meq o L Bicarbonato , HCO3 menos , veintitrés coma un a veintiséis coma siete meq o L Fosfato , HPO4 dos+, un coma cuatro a dos coma siete meq o L Sulfato , SO42 menos , cero coma seis a un coma dos meq o L Desechos nitrogenosos Urea diez a veinte mg o cien ml Ácido úrico un coma cinco a ocho coma cero mg o cien ml Creatinina cero coma seis a un coma cinco mg o cien ml Creatina cero coma dos a cero coma ocho mg o cien ml Amoniaco cero coma cero dos a cero coma cero nueve mg o cien ml Bilirrubina cero a un coma cero mg o cien ml Otros componentes CO2 disuelto dos coma seis dos ml o cien ml O2 disuelto cero coma dos nueve ml o cien ml N2 disuelto cero coma nueve ocho ml o cien ml Enzimas de valor diagnóstico – Hormonas – Este cuadro está limitado a sustancias de la mayor relevancia para este capítulo y posteriores.",
+    "texto_nuevo": "Una deficiencia de eritrocitos o proteínas reduce la viscosidad y causa que la sangre fluya con facilidad, mientras que un exceso hace que lo haga con demaCUADRO dieciocho punto dos Composición del plasma sanguíneo Componente sanguíneo Valores típicos para adultos sanos Agua noventa y dos por ciento del peso Proteínas Total: seis a nueve g o cien ml Albúmina sesenta por ciento de las proteínas totales, tres punto dos a cinco punto cinco g o cien ml Globulinas treinta y seis por ciento de las proteínas totales, dos punto tres a tres punto cinco g o cien ml Fibrinógeno cuatro por ciento de las proteínas totales, cero coma dos a cero coma tres g o cien ml Nutrientes Glucosa, dextrosa, setenta a ciento diez mg o cien ml Aminoácidos treinta y tres a cincuenta y un mg o cien ml Ácido láctico seis a dieciséis mg o cien ml Lípidos totales cuatrocientos cincuenta a ochocientos cincuenta mg o cien ml Colesterol ciento veinte a doscientos veinte mg o cien ml Ácidos grasos ciento noventa a cuatrocientos veinte mg o cien ml Lipoproteínas de alta densidad, HDL, treinta a ochenta mg o cien ml Lipoproteínas de baja densidad, LDL, sesenta y dos a ciento ochenta y cinco mg o cien ml Triglicéridos, grasas neutras, cuarenta a ciento cincuenta mg o cien ml Fosfolípidos seis a doce mg o cien ml Hierro cincuenta a ciento cincuenta microgramos o cien ml Oligoelementos Trazas Vitaminas Trazas Electrólitos Sodio, Na más, ciento treinta y cinco a ciento cuarenta y cinco meq o L Calcio, Ca dos más, nueve punto dos a diez punto cuatro meq o L Potasio, K más, tres punto cinco a cinco punto cero meq o L Magnesio, Mg dos más, uno punto tres a dos punto uno meq o L Cloruro, Cl menos, cien a ciento seis meq o L Bicarbonato, HCO tres menos, veintitrés punto uno a veintiséis punto siete meq o L Fosfato, HPO cuatro dos+, uno punto cuatro a dos punto siete meq o L Sulfato, S O cuarenta y dos menos, cero coma seis a uno punto dos meq o L Desechos nitrogenosos Urea diez a veinte mg o cien ml Ácido úrico uno punto cinco a ocho punto cero mg o cien ml Creatinina cero coma seis a uno punto cinco mg o cien ml Creatina cero coma dos a cero coma ocho mg o cien ml Amoniaco cero coma cero dos a cero coma cero nueve mg o cien ml Bilirrubina cero a uno punto cero mg o cien ml Otros componentes CO dos disuelto dos punto sesenta y dos ml o cien ml O dos disuelto cero coma dos nueve ml o cien ml N dos disuelto cero coma nueve ocho ml o cien ml Enzimas de valor diagnóstico – Hormonas – Este cuadro está limitado a sustancias de la mayor relevancia para este capítulo y posteriores."
+  },
+  {
+    "j": 47,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('p' vs 'carencia')",
+    "similitud": 0.9669,
+    "pagina": 712,
+    "texto_viejo": "Mide ~siete coma cinco μm de diámetro y dos coma cero μm de grueso en el anillo , véase fi gura dieciocho coma cuatro,. Aunque la mayoría de las células, incluidos los leucocitos, tienen una gran cantidad de organelos, durante la maduración los eritrocitos pierden sus núcleos y otros organelos y, por tanto, en gran medida carecen de estructura interna. Vistos con un microscopio de transmisión de electrones, el interior de un eritrocito tiene un color gris uniforme. Como carecen de mitocondrias, dependen por completo de la fermentación anaeróbica para producir A T P.",
+    "texto_nuevo": "Mide ~siete punto cinco micrómetros de diámetro y dos punto cero micrómetros de grueso en el anillo. Aunque la mayoría de las células, incluidos los leucocitos, tienen una gran cantidad de organelos, durante la maduración los eritrocitos pierden sus núcleos y otros organelos y, por tanto, en gran medida carecen de estructura interna. Vistos con un microscopio de transmisión de electrones, el interior de un eritrocito tiene un color gris uniforme. Como carecen de mitocondrias, dependen por completo de la fermentación anaeróbica para producir A T P. La carencia"
+  },
+  {
+    "j": 52,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 713,
+    "texto_viejo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Grupos hemo a b C CH3 C C C C C C C C C C C N N N N CH CH CH CH CH2 COOH CH3 CH3 CH2 CH2 CH2 COOH CH2 CH3 HC C C C C HC Fe2+ CH2 Beta Alfa Alfa Beta pequeños, no son bicóncavos sino que están comprimidos, con una forma ovoide o de lágrima, y recobran su forma bicóncava cuando vuelven a entrar en los vasos sanguíneos más grandes, pero en ellos no se recoge oxígeno.",
+    "texto_nuevo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Grupos hemo a b C CH tres C C C C C C C C C C C N N N N CH CH CH CH CH dos COOH CH tres CH tres CH dos CH dos CH dos COOH CH dos CH tres HC C C C C HC Fe dos más CH dos Beta Alfa Alfa Beta pequeños, no son bicóncavos sino que están comprimidos, con una forma ovoide o de lágrima, y recobran su forma bicóncava cuando vuelven a entrar en los vasos sanguíneos más grandes, pero en ellos no se recoge oxígeno."
+  },
+  {
+    "j": 54,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9645,
+    "pagina": 713,
+    "texto_viejo": "Dos de ellas, las cadenas alfa , α, tienen ciento cuarenta y un aminoácidos de largo, y las otras dos, las cadenas beta , β, ciento cuarenta y seis. Cada cadena está conjugada con una porción sin proteínas denominada grupo hemo, que fi ja el oxígeno a un ion ferroso , Fe2+, en el centro. Cada hemo puede transportar una molécula de O2; por tanto, la molécula de hemoglobina como b Pared capilar siete μm Eritrocitos c Vista de la superficie siete coma cinco μm dos coma cero μm Vista transversal a FIGURA dieciocho coma cuatro Estructura de los eritrocitos.",
+    "texto_nuevo": "Dos de ellas, las cadenas alfa, alfa, tienen ciento cuarenta y un aminoácidos de largo, y las otras dos, las cadenas beta, beta, ciento cuarenta y seis. Cada cadena está conjugada con una porción sin proteínas denominada grupo hemo, que fija el oxígeno a un ion ferroso, Fe dos más, en el centro. Cada hemo puede transportar una molécula de O dos; por tanto, la molécula de hemoglobina como b Pared capilar siete micrómetros Eritrocitos c Vista de la superficie siete punto cinco micrómetros dos punto cero micrómetros Vista transversal a FIGURA dieciocho punto cuatro Estructura de los eritrocitos."
+  },
+  {
+    "j": 55,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 713,
+    "texto_viejo": "a Dimensiones y forma de un eritrocito. b Eritrocitos en la punta de una aguja hipodérmica , SEM,. c Eritrocitos en un capilar sanguíneo , TEM,. Obsérvese la ausencia de organelos u otras características internas de las células. ●¿Por qué los eritrocitos son tan delgados en el centro? FIGURA dieciocho coma cinco Estructura de la hemoglobina. a La molécula de hemoglobina consta de dos proteínas alfa y dos beta, cada una conjugada a un grupo hemo sin proteínas. b Estructura del grupo hemo. El oxígeno se une al Fe2+ en el centro del hemo.",
+    "texto_nuevo": "a Dimensiones y forma de un eritrocito. b Eritrocitos en la punta de una aguja hipodérmica, SEM. c Eritrocitos en un capilar sanguíneo, TEM. Obsérvese la ausencia de organelos u otras características internas de las células. ●¿Por qué los eritrocitos son tan delgados en el centro? FIGURA dieciocho punto cinco Estructura de la hemoglobina. a La molécula de hemoglobina consta de dos proteínas alfa y dos beta, cada una conjugada a un grupo hemo sin proteínas. b Estructura del grupo hemo. El oxígeno se une al Fe dos más en el centro del hemo."
+  },
+  {
+    "j": 60,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 714,
+    "texto_viejo": "La concentración de hemoglobina de sangre entera suele ser de trece a dieciocho g o cien ml en hombres y de doce a dieciséis g o cien ml en mujeres. La cifra de eritrocitos suele ser de cuatro coma seis a seis coma dos millones de eritrocitos o μl en hombres y de cuatro coma dos a cinco coma cuatro millones o μl en mujeres. Suele expresarse como células por milímetro cúbico , mm3,; un μl igual a un mm3. Es importante observar que estos valores tienden a ser menores en mujeres.",
+    "texto_nuevo": "La concentración de hemoglobina de sangre entera suele ser de trece a dieciocho g o cien ml en hombres y de doce a dieciséis g o cien ml en mujeres. La cifra de eritrocitos suele ser de cuatro punto seis a seis punto dos millones de eritrocitos o microlitros en hombres y de cuatro punto dos a cinco punto cuatro millones o microlitros en mujeres. Suele expresarse como células por milímetro cúbico, mm tres; un microlitros igual a un mm tres. Es importante observar que estos valores tienden a ser menores en mujeres."
+  },
+  {
+    "j": 67,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 1.0,
+    "pagina": 715,
+    "texto_viejo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Se ingiere una mezcla de Fe2++ y Fe3+ El ácido estomacal convierte al Fe3+ en Fe2+ El Fe2+ se fija a la gastroferrina Gastroferrina La gastroferrina transporta Fe2+ al intestino delgado y lo libera para reabsorción En el plasma sanguíneo, el Fe2+ se fija a la transferrina En el hígado, alguna transferrina libera Fe2+ para almacenamiento El Fe2+ se fija a la apoferritina para almacenarse como ferritina La transferrina restante se distribuye a otros órganos donde el Fe2+ se usa para elaborar hemoglobina, mioglobina, etc.",
+    "texto_nuevo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Se ingiere una mezcla de Fe dos++ y Fe tres más El ácido estomacal convierte al Fe tres más en Fe dos más El Fe dos más se fija a la gastroferrina Gastroferrina La gastroferrina transporta Fe dos más al intestino delgado y lo libera para reabsorción En el plasma sanguíneo, el Fe dos más se fija a la transferrina En el hígado, alguna transferrina libera Fe dos más para almacenamiento El Fe dos más se fija a la apoferritina para almacenarse como ferritina La transferrina restante se distribuye a otros órganos donde el Fe dos más se usa para elaborar hemoglobina, mioglobina, etc."
+  },
+  {
+    "j": 68,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 715,
+    "texto_viejo": "Plasma sanguíneo Transferrina Ferritina Apoferritina Fe2+ Fe3+ ósea tuviera prisa por reabastecer los eritrocitos perdidos y liberara en la circulación muchos eritrocitos en desarrollo un poco antes de tiempo,. Metabolismo del hierro El hierro es una parte importante de la molécula de hemoglobina y, por tanto, uno de los requisitos nutricionales clave para la eritropoyesis.",
+    "texto_nuevo": "Plasma sanguíneo Transferrina Ferritina Apoferritina Fe dos más Fe tres más ósea tuviera prisa por reabastecer los eritrocitos perdidos y liberara en la circulación muchos eritrocitos en desarrollo un poco antes de tiempo . Metabolismo del hierro El hierro es una parte importante de la molécula de hemoglobina y, por tanto, uno de los requisitos nutricionales clave para la eritropoyesis."
+  },
+  {
+    "j": 70,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('gura' vs 'figura')",
+    "similitud": 0.9752,
+    "pagina": 715,
+    "texto_viejo": "Una mujer embarazada necesita veinte a cuarenta y ocho mg o día, sobre todo en los últimos tres meses, para satisfacer no sólo sus propias necesidades sino también las del feto. El hierro de la dieta está presente en dos formas: iones férricos , Fe3+, y ferrosos , Fe2+,. El ácido estomacal convierte el Fe3+ en Fe2+, la única forma que lo puede absorber el intestino delgado , fi gura dieciocho coma siete,.",
+    "texto_nuevo": "Una mujer embarazada necesita veinte a cuarenta y ocho mg o día, sobre todo en los últimos tres meses, para satisfacer no sólo sus propias necesidades sino también las del feto. El hierro de la dieta está presente en dos formas: iones férricos, Fe tres más, y ferrosos, Fe dos más. El ácido estomacal convierte el Fe tres más en Fe dos más, la única forma que lo puede absorber el intestino delgado figura dieciocho."
+  },
+  {
+    "j": 71,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9605,
+    "pagina": 715,
+    "texto_viejo": "Una proteína llamada gastroferritina,ocho producida por el estómago, fi ja el Fe2+ y lo transporta al intestino delgado, donde es absorbido en la sangre, se fi ja a una proteína plasmática llamada transferrina, y viaja a la médula ósea, el hígado y otros tejidos. La médula ósea usa Fe2+ para la síntesis de hemoglobina; el músculo, para elaborar mioglobina, una proteína que almacena oxígeno, y casi todas las células, para elaborar moléculas de transporte de electrones, denominadas citocromos, en sus mitocondrias.",
+    "texto_nuevo": "Una proteína llamada gastroferritina, producida por el estómago, fija el Fe dos más y lo transporta al intestino delgado, donde es absorbido en la sangre, se fija a una proteína plasmática llamada transferrina, y viaja a la médula ósea, el hígado y otros tejidos. La médula ósea usa Fe dos más para la síntesis de hemoglobina; el músculo, para elaborar mioglobina, una proteína que almacena oxígeno, y casi todas las células, para elaborar moléculas de transporte de electrones, denominadas citocromos, en sus mitocondrias."
+  },
+  {
+    "j": 72,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9804,
+    "pagina": 715,
+    "texto_viejo": "El hígado fi ja el exceso de hierro a una proteína llamada apoferritina9 y forma ferritina, un complejo para el almacenamiento de hierro que libera Fe2+ en la circulación cuando es necesario. Algunos otros requisitos nutricionales para la eritropoyesis son la vitamina B12 y el ácido fólico, necesarios para la división celular rápida y la síntesis de DNA que ocurre en la eritropoyesis, y la vitamina C y el cobre, cofactores para algunas de las enzimas que sintetizan hemoglobina.",
+    "texto_nuevo": "El hígado fija el exceso de hierro a una proteína llamada apoferritina y forma ferritina, un complejo para el almacenamiento de hierro que libera Fe dos más en la circulación cuando es necesario. Algunos otros requisitos nutricionales para la eritropoyesis son la vitamina B doce y el ácido fólico, necesarios para la división celular rápida y la síntesis de DNA que ocurre en la eritropoyesis, y la vitamina C y el cobre, cofactores para algunas de las enzimas que sintetizan hemoglobina."
+  },
+  {
+    "j": 74,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 715,
+    "texto_viejo": "Aparte de la pérdida de sangre, la hipoxemia puede deberse a muchas causas, como una baja concentración de oxígeno en la atmósfera. Por ejemplo, si se viaja de la costa a una zona elevada, la menor concentración de O2 en ésta produciría hipoxemia temporal y estimularía la secreción de EPO y eritropoyesis. La sangre de un adulto promedio contiene casi cinco millones de eritrocitos por μl; en cambio, las personas que viven en lugares más elevados tienen de siete a ocho millones de eritrocitos por μl.",
+    "texto_nuevo": "Aparte de la pérdida de sangre, la hipoxemia puede deberse a muchas causas, como una baja concentración de oxígeno en la atmósfera. Por ejemplo, si se viaja de la costa a una zona elevada, la menor concentración de O dos en ésta produciría hipoxemia temporal y estimularía la secreción de EPO y eritropoyesis. La sangre de un adulto promedio contiene casi cinco millones de eritrocitos por microlitros; en cambio, las personas que viven en lugares más elevados tienen de siete a ocho millones de eritrocitos por microlitros."
+  },
+  {
+    "j": 75,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9811,
+    "pagina": 715,
+    "texto_viejo": "Otra causa de hipoxemia es un aumento abrupto en el consumo de oxígeno del cuerpo , p. ej., si una persona inactiva practica tenis o ejercicio aeróbico, los músculos consumen oxígeno con mayor rapidez y crean un estado de hipoxemia que estimula la eritropoyesis,. Las cifras de los atletas de alto rendimiento suelen ser de hasta seis coma cinco millones de eritrocitos por μl. diez cerulo igual a azul-verde, el color del cobre oxidado; plasm igual a plasma; ina igual a proteína. once hypo igual a bajo nivel de; ox igual a oxígeno; haimia igual a sangre.",
+    "texto_nuevo": "Otra causa de hipoxemia es un aumento abrupto en el consumo de oxígeno del cuerpo, por ejemplo, si una persona inactiva practica tenis o ejercicio aeróbico, los músculos consumen oxígeno con mayor rapidez y crean un estado de hipoxemia que estimula la eritropoyesis. Las cifras de los atletas de alto rendimiento suelen ser de hasta seis punto cinco millones de eritrocitos por microlitros. diez cerulo igual a azul-verde, el color del cobre oxidado; plasm igual a plasma; ina igual a proteína. once hypo igual a bajo nivel de; ox igual a oxígeno; haimia igual a sangre."
+  },
+  {
+    "j": 79,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 716,
+    "texto_viejo": "Sin un núcleo o ribosomas, un eritrocito no puede sintetizar nueva espectrina, por lo que muchos eritrocitos mueren en el bazo, al que se le ha denominado la tumba de los eritrocitos. El bazo tiene canales pequeños, de hasta tres μm de diámetro, que imponen una prueba a la capacidad de los eritrocitos viejos y frágiles para doblarse en ese órgano. Las células viejas quedan atrapadas, se rompen y destruyen. Un bazo agrandado y con dolor a la palpación puede indicar enfermedades en que los eritrocitos se desdoblan con rapidez.",
+    "texto_nuevo": "Sin un núcleo o ribosomas, un eritrocito no puede sintetizar nueva espectrina, por lo que muchos eritrocitos mueren en el bazo, al que se le ha denominado la tumba de los eritrocitos. El bazo tiene canales pequeños, de hasta tres micrómetros de diámetro, que imponen una prueba a la capacidad de los eritrocitos viejos y frágiles para doblarse en ese órgano. Las células viejas quedan atrapadas, se rompen y destruyen. Un bazo agrandado y con dolor a la palpación puede indicar enfermedades en que los eritrocitos se desdoblan con rapidez."
+  },
+  {
+    "j": 86,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9697,
+    "pagina": 717,
+    "texto_viejo": "El exceso recibe el nombre de policitemia,quince y a la defi ciencia de eritrocitos o hemoglobina se le llama anemia.dieciséis Policitemia La policitemia primaria , policitemia verdadera, se debe a cáncer en la línea eritropoyética de la médula ósea roja. Puede producir una cifra de eritrocitos de hasta once millones por μl, y un hematócrito de hasta cincuenta por ciento.",
+    "texto_nuevo": "El exceso recibe el nombre de policitemia, y a la deficiencia de eritrocitos o hemoglobina se le llama anemia. Policitemia La policitemia primaria, policitemia verdadera, se debe a cáncer en la línea eritropoyética de la médula ósea roja. Puede producir una cifra de eritrocitos de hasta once millones por microlitros, y un hematócrito de hasta cincuenta por ciento."
+  },
+  {
+    "j": 87,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9836,
+    "pagina": 717,
+    "texto_viejo": "La policitemia de todas las demás causas, llamada secundaria, se caracteriza por cifras de hasta seis a ocho millones de eritrocitos por μl, y puede deberse a deshidratación, ya que se pierde agua de la circulación sanguínea mientras los eritrocitos permanecen y se concentran de manera anormal. Con mayor frecuencia se debe a tabaquismo, contaminación atmosférica, enfi sema, altitud elevada, ejercicio aeróbico excesivo u otros factores que crean un estado de hipoxemia y estimulan la secreción de eritropoyetina. Los principales peligros de la policitemia son el mayor volumen sanguíneo, la presión arterial elevada y el aumento en la viscosidad.",
+    "texto_nuevo": "La policitemia de todas las demás causas, llamada secundaria, se caracteriza por cifras de hasta seis a ocho millones de eritrocitos por microlitros, y puede deberse a deshidratación, ya que se pierde agua de la circulación sanguínea mientras los eritrocitos permanecen y se concentran de manera anormal. Con mayor frecuencia se debe a tabaquismo, contaminación atmosférica, enfisema, altitud elevada, ejercicio aeróbico excesivo u otros factores que crean un estado de hipoxemia y estimulan la secreción de eritropoyetina. Los principales peligros de la policitemia son el mayor volumen sanguíneo, la presión arterial elevada y el aumento en la viscosidad."
+  },
+  {
+    "j": 104,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 718,
+    "texto_viejo": "dieciocho ad igual a junto a; gluten igual a pegamento. siete μm FIGURA dieciocho coma un cero Drepanocitosis. Se muestra un eritrocito deformado y tres eritrocitos normales.",
+    "texto_nuevo": "dieciocho ad igual a junto a; gluten igual a pegamento. siete micrómetros FIGURA dieciocho punto diez Drepanocitosis. Se muestra un eritrocito deformado y tres eritrocitos normales."
+  },
+  {
+    "j": 149,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 724,
+    "texto_viejo": "Forma y función Los leucocitos o glóbulos blancos son los elementos formes menos abundantes , sólo hay un total de cinco cero a diez cero leucocitos por μl, y no se puede vivir demasiado tiempo sin ellos, porque brindan protección contra infecciones y otras enfermedades. Los leucocitos se reconocen con facilidad en frotis de sangre porque tienen núcleos notorios que se tiñen con luz violeta o púrpura oscura con las tinturas más comunes para sangre.",
+    "texto_nuevo": "Forma y función Los leucocitos o glóbulos blancos son los elementos formes menos abundantes, sólo hay un total de cinco mil a diez mil leucocitos por microlitros, y no se puede vivir demasiado tiempo sin ellos, porque brindan protección contra infecciones y otras enfermedades. Los leucocitos se reconocen con facilidad en frotis de sangre porque tienen núcleos notorios que se tiñen con luz violeta o púrpura oscura con las tinturas más comunes para sangre."
+  },
+  {
+    "j": 154,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9434,
+    "pagina": 724,
+    "texto_viejo": "Los gránulos específi cos de los neutrófi los no se tiñen demasiado con ninguna tinta, y contienen enzimas y otras sustancias químicas empleadas en la defensa contra los patógenos. Los dos tipos restantes de leucocitos , monocitos y linfocitos, reciben el nombre de agranulocitos porque carecen de gránulos específi cos, que son poco notorios bajo el microscopio de luz, por lo que estas células tienen citoplasma de aspecto claro. diecinueve azuro igual a azul; phil igual a con afinidad por. cinco μm Núcleo Lisosomas FIGURA dieciocho coma un siete Estructura de un leucocito , TEM,. Eosinófilo.",
+    "texto_nuevo": "Los gránulos específicos de los neutrófilos no se tiñen demasiado con ninguna tinta, y contienen enzimas y otras sustancias químicas empleadas en la defensa contra los patógenos. Los dos tipos restantes de leucocitos, monocitos y linfocitos, reciben el nombre de agranulocitos porque carecen de gránulos específicos, que son poco notorios bajo el microscopio de luz, por lo que estas células tienen citoplasma de aspecto claro. diecinueve azuro igual a azul; phil igual a con afinidad por. cinco micrómetros Núcleo Lisosomas FIGURA dieciocho punto diecisiete Estructura de un leucocito, TEM. Eosinófilo."
+  },
+  {
+    "j": 156,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9545,
+    "pagina": 725,
+    "texto_viejo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Granulocitos • Los neutrófi los son los leucocitos más abundantes: por lo general hay casi cuatro ciento cincuenta células por μl y constituyen sesenta a setenta por ciento de los leucocitos circulantes. El núcleo es muy visible y, en un neutrófi lo maduro, por lo general consta de tres a cinco lóbulos conectados por hebras nucleares delgadas. Estas hebras resultan en ocasiones tan delicadas que apenas son visibles, por lo que parece que el neutrófi - lo cuenta con varios núcleos.",
+    "texto_nuevo": "CAPÍTULO dieciocho El aparato circulatorio: sangre Granulocitos • Los neutrófilos son los leucocitos más abundantes: por lo general hay casi cuatro mil ciento cincuenta células por microlitros y constituyen sesenta a setenta por ciento de los leucocitos circulantes. El núcleo es muy visible y, en un neutrófilo maduro, por lo general consta de tres a cinco lóbulos conectados por hebras nucleares delgadas. Estas hebras resultan en ocasiones tan delicadas que apenas son visibles, por lo que parece que el neutrófi - lo cuenta con varios núcleos."
+  },
+  {
+    "j": 158,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9217,
+    "pagina": 725,
+    "texto_viejo": "La cifra de neutrófi los aumenta , un trastorno denominado neutrofi lia, como respuesta a infecciones bacterianas. La tarea principal consiste en destruir las bacterias, lo que se realiza de las maneras descritas en el capítulo veintiuno. • Es más difícil encontrar a los eosinófi los en un frotis sanguíneo, porque sólo representan de dos a cuatro por ciento del total de los leucocitos , por lo general alcanzan las ciento setenta células por μl,.",
+    "texto_nuevo": "La cifra de neutrófilos aumenta, un trastorno denominado neutrofilia, como respuesta a infecciones bacterianas. La tarea principal consiste en destruir las bacterias, lo que se realiza de las maneras descritas en el capítulo veintiuno. • Es más difícil encontrar a los eosinófilos en un frotis sanguíneo, porque sólo representan de dos a cuatro por ciento del total de los leucocitos, por lo general alcanzan las ciento setenta células por microlitros."
+  },
+  {
+    "j": 161,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 725,
+    "texto_viejo": "Se encuentran casi cuarenta células por μl, y suelen constituir menos de cero coma cinco por ciento de la cifra de leucocitos. Se les reconoce sobre todo por la abundancia de gránulos muy gruesos, de color violeta oscuro. El núcleo está casi apartado de la vista por esos gránulos, pero es grande, pálido y suele tener forma de S o U.",
+    "texto_nuevo": "Se encuentran casi cuarenta células por microlitros, y suelen constituir menos de cero coma cinco por ciento de la cifra de leucocitos. Se les reconoce sobre todo por la abundancia de gránulos muy gruesos, de color violeta oscuro. El núcleo está casi apartado de la vista por esos gránulos, pero es grande, pálido y suele tener forma de S o U."
+  },
+  {
+    "j": 163,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9371,
+    "pagina": 725,
+    "texto_viejo": "También libera señales químicas que atraen a los eosinófi los y neutrófi los a un sitio infectado. Agranulocitos • Los linfocitos son los leucocitos más abundantes después de los neutrófi los y, por tanto, se les distingue pronto cuando se examina un frotis sanguíneo. Hay casi dos doscientos células por μl, y representan veinticinco a treinta y tres por ciento de la cifra de leucocitos. Hay varias subclases de linfocitos con diferentes funciones inmunitarias , consúltese el capítulo veintiuno, pero su aspecto es similar bajo el microscopio de luz.",
+    "texto_nuevo": "También libera señales químicas que atraen a los eosinófilos y neutrófilos a un sitio infectado. Agranulocitos • Los linfocitos son los leucocitos más abundantes después de los neutrófilos y, por tanto, se les distingue pronto cuando se examina un frotis sanguíneo. Hay casi dos mil doscientas células por microlitros, y representan veinticinco a treinta y tres por ciento de la cifra de leucocitos. Hay varias subclases de linfocitos con diferentes funciones inmunitarias, consúltese el capítulo veintiuno, pero su aspecto es similar bajo el microscopio de luz."
+  },
+  {
+    "j": 164,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9147 < 0.92; ultima palabra distinta ('gura' vs 'sanguineo')",
+    "similitud": 0.9147,
+    "pagina": 725,
+    "texto_viejo": "Incluyen los leucocitos más pequeños , de cinco a diecisiete μm de diámetro, y su tamaño varía de menor que el de los eritrocitos a dos veces y media mayor que el de éstos. En ocasiones se les clasifi ca en tres clases de tamaño , cuadro dieciocho coma seis, pero hay gradaciones entre ellos. Los linfocitos medianos y grandes suelen verse en tejidos conjuntivos fi brosos y sólo en ocasiones en el torrente sanguíneo , véase la fi gura dieciocho coma un,.",
+    "texto_nuevo": "Incluyen los leucocitos más pequeños, de cinco a diecisiete micrómetros de diámetro, y su tamaño varía de menor que el de los eritrocitos a dos veces y media mayor que el de éstos. En ocasiones se les clasifica en tres clases de tamaño, pero hay gradaciones entre ellos. Los linfocitos medianos y grandes suelen verse en tejidos conjuntivos fibrosos y sólo en ocasiones en el torrente sanguíneo"
+  },
+  {
+    "j": 167,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9324,
+    "pagina": 725,
+    "texto_viejo": "Hay casi cuatrocientos sesenta células por μl, y representan entre tres y ocho por ciento de la cifra de leucocitos. El núcleo es grande y muy visible, a menudo de color violeta claro; suele ser ovoide, con forma de riñón o de herradura. El citoplasma es abundante y contiene gránulos escasos y fi nos. En frotis sanguíneos preparados, los monocitos suelen asumir formas muy anguladas o en pico , véase la fi gura dieciocho coma un,. La cifra de monocitos aumenta con la infl amación y las infecciones virales.",
+    "texto_nuevo": "Hay casi cuatrocientas sesenta células por microlitros, y representan entre tres y ocho por ciento de la cifra de leucocitos. El núcleo es grande y muy visible, a menudo de color violeta claro; suele ser ovoide, con forma de riñón o de herradura. El citoplasma es abundante y contiene gránulos escasos y finos. En frotis sanguíneos preparados, los monocitos suelen asumir formas muy anguladas o en pico. La cifra de monocitos aumenta con la inflamación y las infecciones virales."
+  },
+  {
+    "j": 169,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 726,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento CUADRO dieciocho coma seis Los leucocitos , glóbulos blancos, Neutrófilos Porcentaje de leucocitos sesenta a setenta por ciento Cifra media cuatro ciento cincuenta células o μl Diámetro nueve a doce μm Aspecto • Núcleo que suele tener tres a cinco lóbulos dispuestos en forma de S o C • Gránulos rojizos a violeta en el citoplasma Cifra diferencial • Aumenta en infecciones bacterianas Funciones • Fagocita bacterias • Libera sustancias químicas antimicrobianas Eosinófilos Porcentaje de leucocitos dos a cuatro por ciento Cifra media ciento sesenta y cinco células o μl Diámetro diez a14 μm Aspecto • Núcleo que suele tener dos lóbulos grandes conectados por una hebra delgada • Gránulos grandes naranja rosados en el citoplasma Cifra diferencial • Fluctúa en gran medida del día a la noche, por estación y con la fase del ciclo menstrual • Aumenta en infecciones parasitarias, alergias, enfermedades colagenosas y del bazo y el sistema nervioso central Funciones • Fagocita complejos antígeno-anticuerpo, alergenos y sustancias químicas inflamatorias • Libera enzimas que debilitan o destruyen parásitos como lombrices Basófilos Porcentaje de leucocitos menor que cero coma cinco por ciento Cifra media cuarenta y cuatro células o μl Diámetro ocho a diez μm Aspecto • Núcleo con forma de S o U, pero suele ser pálido y ocultarse de la vista • Gránulos gruesos, abundantes, de color violeta oscuro en el citoplasma Cifra diferencial • Con estabilidad relativa • Aumenta en varicela, sinusitis, diabetes mellitus, mixedema y policitemia Funciones • Secreta histamina , un vasodilatador, que aumenta la circulación sanguínea a un tejido • Secreta heparina , un anticoagulante, que promueve la movilidad de otros leucocitos al evitar la coagulación diez μm Neutrófilos diez μm Eosinófilo diez μm Basófilo",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento CUADRO dieciocho punto seis Los leucocitos, glóbulos blancos, Neutrófilos Porcentaje de leucocitos sesenta a setenta por ciento Cifra media cuatro mil ciento cincuenta células o microlitros Diámetro nueve a doce micrómetros Aspecto • Núcleo que suele tener tres a cinco lóbulos dispuestos en forma de S o C • Gránulos rojizos a violeta en el citoplasma Cifra diferencial • Aumenta en infecciones bacterianas Funciones • Fagocita bacterias • Libera sustancias químicas antimicrobianas Eosinófilos Porcentaje de leucocitos dos a cuatro por ciento Cifra media ciento sesenta y cinco células o microlitros Diámetro diez a catorce micrómetros Aspecto • Núcleo que suele tener dos lóbulos grandes conectados por una hebra delgada • Gránulos grandes naranja rosados en el citoplasma Cifra diferencial • Fluctúa en gran medida del día a la noche, por estación y con la fase del ciclo menstrual • Aumenta en infecciones parasitarias, alergias, enfermedades colagenosas y del bazo y el sistema nervioso central Funciones • Fagocita complejos antígeno-anticuerpo, alergenos y sustancias químicas inflamatorias • Libera enzimas que debilitan o destruyen parásitos como lombrices Basófilos Porcentaje de leucocitos menor que cero coma cinco por ciento Cifra media cuarenta y cuatro células o microlitros Diámetro ocho a diez micrómetros Aspecto • Núcleo con forma de S o U, pero suele ser pálido y ocultarse de la vista • Gránulos gruesos, abundantes, de color violeta oscuro en el citoplasma Cifra diferencial • Con estabilidad relativa • Aumenta en varicela, sinusitis, diabetes mellitus, mixedema y policitemia Funciones • Secreta histamina, un vasodilatador, que aumenta la circulación sanguínea a un tejido • Secreta heparina, un anticoagulante, que promueve la movilidad de otros leucocitos al evitar la coagulación diez micrómetros Neutrófilos diez micrómetros Eosinófilo diez micrómetros Basófilo"
+  },
+  {
+    "j": 172,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 727,
+    "texto_viejo": "CUADRO dieciocho coma seis Los leucocitos , glóbulos blancos, continuación, Linfocitos Porcentaje de leucocitos veinticinco a treinta y tres por ciento Cifra media dos ciento ochenta y cinco células o μl Diámetro Clase pequeña cinco a ocho μm Clase media diez a doce μm Clase grande catorce a diecisiete μm Aspecto • Núcleo redondo, con ligeros hoyuelos en un lado, de color violeta oscuro uniforme o moteado • En linfocitos pequeños, el núcleo ocupa casi toda la célula y sólo deja un ligero anillo de citoplasma azul claro • En linfocitos grandes, el citoplasma es más abundante; puede ser difícil diferenciar a los linfocitos grandes de los monocitos Cifra diferencial • Aumenta en diferentes infecciones y respuestas inmunológicas Funciones • Varias clases funcionales suelen ser indistinguibles bajo el microscopio de luz • Destruye células cancerosas, las células interfieren con virus y células extrañas • Presenta antígenos para activar otras células del sistema inmunitario • Coordina las acciones de otras células inmunitarias • Secreta anticuerpos • Sirve como memoria inmunitaria Monocitos Porcentaje de leucocitos tres a ocho por ciento Cifra media cuatrocientos cincuenta y seis células o μl Diámetro doce a quince μm Aspecto • Núcleo ovoide, con forma de riñón o de herradura, de color violeta • Citoplasma abundante con gránulos escasos y finos • En ocasiones muy grandes con forma de estrella o polígono Cifra diferencial • Aumenta en infecciones virales e inflamación Funciones • Se diferencia en macrófagos , células fagocitarias grandes de los tejidos, • Fagocita patógenos, neutrófilos muertos y desechos de células muertas • Presenta antígenos para activar otras células del sistema inmunitario El aspecto se relaciona con frotis sanguíneos teñidos con tinción de Wright.",
+    "texto_nuevo": "CUADRO dieciocho punto seis Los leucocitos, glóbulos blancos, continuación, Linfocitos Porcentaje de leucocitos veinticinco a treinta y tres por ciento Cifra media dos mil ciento ochenta y cinco células o microlitros Diámetro Clase pequeña cinco a ocho micrómetros Clase media diez a doce micrómetros Clase grande catorce a diecisiete micrómetros Aspecto • Núcleo redondo, con ligeros hoyuelos en un lado, de color violeta oscuro uniforme o moteado • En linfocitos pequeños, el núcleo ocupa casi toda la célula y sólo deja un ligero anillo de citoplasma azul claro • En linfocitos grandes, el citoplasma es más abundante; puede ser difícil diferenciar a los linfocitos grandes de los monocitos Cifra diferencial • Aumenta en diferentes infecciones y respuestas inmunológicas Funciones • Varias clases funcionales suelen ser indistinguibles bajo el microscopio de luz • Destruye células cancerosas, las células interfieren con virus y células extrañas • Presenta antígenos para activar otras células del sistema inmunitario • Coordina las acciones de otras células inmunitarias • Secreta anticuerpos • Sirve como memoria inmunitaria Monocitos Porcentaje de leucocitos tres a ocho por ciento Cifra media cuatrocientas cincuenta y seis células o microlitros Diámetro doce a quince micrómetros Aspecto • Núcleo ovoide, con forma de riñón o de herradura, de color violeta • Citoplasma abundante con gránulos escasos y finos • En ocasiones muy grandes con forma de estrella o polígono Cifra diferencial • Aumenta en infecciones virales e inflamación Funciones • Se diferencia en macrófagos, células fagocitarias grandes de los tejidos, • Fagocita patógenos, neutrófilos muertos y desechos de células muertas • Presenta antígenos para activar otras células del sistema inmunitario El aspecto se relaciona con frotis sanguíneos teñidos con tinción de Wright."
+  },
+  {
+    "j": 173,
+    "estado": "REVISAR",
+    "motivo": "no se encontro ancla en el crudo",
+    "similitud": 0.0,
+    "pagina": null,
+    "texto_viejo": "diez μm Linfocito diez μm Monocito",
+    "texto_nuevo": ""
+  },
+  {
+    "j": 180,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9625,
+    "pagina": 729,
+    "texto_viejo": "Aplicación de lo aprendido En ocasiones se escribe que los eritrocitos no viven tanto como los leucocitos porque no tienen un núcleo y, por tanto, no pueden repararse ni mantenerse. Explique la falla en este argumento. Trastornos leucocíticos La cifra total de leucocitos suele ser de cinco cero a diez cero leucocitos por μl. Una cifra menor a este rango, denominada leucopenia,veinte ocurre en la intoxicación por plomo, arsénico y mercurio; en la enfermedad por radiación, y en enfermedades infecciosas como sarampión, rubeola, varicela, polio, infl uenza, fi ebre tifoidea y sida.",
+    "texto_nuevo": "Aplicación de lo aprendido En ocasiones se escribe que los eritrocitos no viven tanto como los leucocitos porque no tienen un núcleo y, por tanto, no pueden repararse ni mantenerse. Explique la falla en este argumento. Trastornos leucocíticos La cifra total de leucocitos suele ser de cinco mil a diez mil leucocitos por microlitros. Una cifra menor a este rango, denominada leucopenia, ocurre en la intoxicación por plomo, arsénico y mercurio; en la enfermedad por radiación, y en enfermedades infecciosas como sarampión, rubeola, varicela, polio, influenza, fiebre tifoidea y sida."
+  },
+  {
+    "j": 181,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 729,
+    "texto_viejo": "También puede producirse por glucocorticoides, fármacos anticancerosos o inmunodepresores administrados a pacientes sometidos a trasplante de órganos. Debido a que los leucocitos son células protectoras, la leucopenia representa un riesgo elevado de infección y cáncer. Una cifra superior a diez cero leucocitos por μl, llamada leucocitosis,veintiuno suele indicar infección, alergia u otras enfermedades, pero también puede ocurrir como respuesta a deshidratación o perturbaciones emocionales.",
+    "texto_nuevo": "También puede producirse por glucocorticoides, fármacos anticancerosos o inmunodepresores administrados a pacientes sometidos a trasplante de órganos. Debido a que los leucocitos son células protectoras, la leucopenia representa un riesgo elevado de infección y cáncer. Una cifra superior a diez mil leucocitos por microlitros, llamada leucocitosis, suele indicar infección, alergia u otras enfermedades, pero también puede ocurrir como respuesta a deshidratación o perturbaciones emocionales."
+  },
+  {
+    "j": 193,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 730,
+    "texto_viejo": "El aparato circulatorio se desarrolló en una etapa muy temprana en la evolución de los animales y con él evolucionaron los mecanismos para detener las fugas, que pueden llegar a ser fatales. La hemostasia22 es el cese de la hemorragia y, aunque es posible que los mecanismos hemostáticos no puedan detener la hemorragia de un vaso sanguíneo grande, son muy efectivos para cerrar roturas de los pequeños. Los trombocitos veintidós haim igual a sangre; stasis igual a detención. Trombocitos Neutrófilos Linfocito Eritrocitos a Monocito setenta y cinco μm b FIGURA dieciocho coma un nueve Sangre normal y leucémica.",
+    "texto_nuevo": "El aparato circulatorio se desarrolló en una etapa muy temprana en la evolución de los animales y con él evolucionaron los mecanismos para detener las fugas, que pueden llegar a ser fatales. La hemostasia es el cese de la hemorragia y, aunque es posible que los mecanismos hemostáticos no puedan detener la hemorragia de un vaso sanguíneo grande, son muy efectivos para cerrar roturas de los pequeños. Los trombocitos veintidós haim igual a sangre; stasis igual a detención. Trombocitos Neutrófilos Linfocito Eritrocitos a Monocito setenta y cinco micrómetros b FIGURA dieciocho punto diecinueve Sangre normal y leucémica."
+  },
+  {
+    "j": 195,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 731,
+    "texto_viejo": "CAPÍTULO dieciocho El aparato circulatorio: sangre desempeñan varias funciones en la hemostasia, de modo que se empieza por estudiar su forma y función. Forma y función de los trombocitos Los trombocitos23 , denominados también plaquetas, no son células sino fragmentos de células de la médula llamados megacariocitos. Los trombocitos son los segundos elementos formes más abundantes, después de los eritrocitos, y una cifra normal de una punción en el dedo va de ciento treinta cero a cuatrocientos cero trombocitos por μl , con un promedio de doscientos cincuenta cero,.",
+    "texto_nuevo": "CAPÍTULO dieciocho El aparato circulatorio: sangre desempeñan varias funciones en la hemostasia, de modo que se empieza por estudiar su forma y función. Forma y función de los trombocitos Los trombocitos, denominados también plaquetas, no son células sino fragmentos de células de la médula llamados megacariocitos. Los trombocitos son los segundos elementos formes más abundantes, después de los eritrocitos, y una cifra normal de una punción en el dedo va de ciento treinta mil a cuatrocientos mil trombocitos por microlitros, con un promedio de doscientos cincuenta mil."
+  },
+  {
+    "j": 196,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('a' vs 'trombocitica')",
+    "similitud": 0.9461,
+    "pagina": 731,
+    "texto_viejo": "Sin embargo, la cifra de trombocitos puede variar mucho en diferentes condiciones fi siológicas y en las muestras de sangre tomadas de varios lugares del cuerpo. A pesar de sus cantidades, los trombocitos son tan pequeños , dos a cuatro μm de diámetro, que contribuyen aún menos que los leucocitos al volumen sanguíneo. Los trombocitos tienen una estructura interna compleja que incluye lisosomas, mitocondrias, microtúbulos y microfi - lamentos, gránulos llenos con secreciones trombocíticas y un sistema de canales denominado sistema canalicular abierto, que se abre en la superfi cie trombocítica , fi gura dieciocho.20a,.",
+    "texto_nuevo": "Sin embargo, la cifra de trombocitos puede variar mucho en diferentes condiciones fisiológicas y en las muestras de sangre tomadas de varios lugares del cuerpo. A pesar de sus cantidades, los trombocitos son tan pequeños, dos a cuatro micrómetros de diámetro, que contribuyen aún menos que los leucocitos al volumen sanguíneo. Los trombocitos tienen una estructura interna compleja que incluye lisosomas, mitocondrias, microtúbulos y microfi - lamentos, gránulos llenos con secreciones trombocíticas y un sistema de canales denominado sistema canalicular abierto, que se abre en la superficie trombocítica."
+  },
+  {
+    "j": 199,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('b' vs 'cromosomas')",
+    "similitud": 0.9764,
+    "pagina": 731,
+    "texto_viejo": "Algunos citoblastos hemopoyéticos producen receptores para la hormona trombopoyetina, con lo que se convierten en megacarioblastos, células relacionadas con la línea de producción de trombocitos que duplican el DNA varias veces sin pasar por división nuclear o citoplásmica. El resultado es un megacariocito,veinticuatro una célula gigante de hasta ciento cincuenta μm de diámetro, visible a simple vista, con un enorme núcleo de varios lóbulos y diversos conjuntos de cromosomas , fi gura dieciocho.20b,.",
+    "texto_nuevo": "Algunos citoblastos hemopoyéticos producen receptores para la hormona trombopoyetina, con lo que se convierten en megacarioblastos, células relacionadas con la línea de producción de trombocitos que duplican el DNA varias veces sin pasar por división nuclear o citoplásmica. El resultado es un megacariocito, una célula gigante de hasta ciento cincuenta micrómetros de diámetro, visible a simple vista, con un enorme núcleo de varios lóbulos y diversos conjuntos de cromosomas."
+  },
+  {
+    "j": 202,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9379,
+    "pagina": 731,
+    "texto_viejo": "Cualquier elemento que interfi era con la producción de trombocitos puede crear una peligrosa defi ciencia denominada trombocitopenia25 , consúltese el cuadro dieciocho coma ocho,. veintitrés thrombo igual a coágulo; kyto igual a célula. veinticuatro mega igual a grande; karyo igual a nuez, núcleo; kyto igual a célula. veinticinco thrombo igual a coágulo; kyto igual a célula; penia igual a carencia. Trombocitos Leucocito Eritrocito Megacariocito Seudópodo Sistema canicular abierto Gránulos Mitocondria dos μm a b Flujo de sangre Protrombocitos Endotelio Sinusoide de médula ósea FIGURA dieciocho coma dos cero Trombocitos. a Estructura de los trombocitos sanguíneos , TEM,.",
+    "texto_nuevo": "Cualquier elemento que interfiera con la producción de trombocitos puede crear una peligrosa deficiencia denominada trombocitopenia. veintitrés thrombo igual a coágulo; kyto igual a célula. veinticuatro mega igual a grande; karyo igual a nuez, núcleo; kyto igual a célula. veinticinco thrombo igual a coágulo; kyto igual a célula; penia igual a carencia. Trombocitos Leucocito Eritrocito Megacariocito Seudópodo Sistema canicular abierto Gránulos Mitocondria dos micrómetros a b Flujo de sangre Protrombocitos Endotelio Sinusoide de médula ósea FIGURA dieciocho punto veinte Trombocitos. a Estructura de los trombocitos sanguíneos, TEM."
+  },
+  {
+    "j": 216,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.961,
+    "pagina": 733,
+    "texto_viejo": "El vaso sanguíneo dañado y los tejidos perivasculares liberan una mezcla de lipoproteínas denominada tromboplastina27 hística , factor III,. El factor III se combina con el VII para formar un complejo que, en presencia de Ca2+, activa el factor X. Las rutas extrínseca e intrínseca sólo difi eren en la manera en que llegan al factor X activo. Por tanto, antes de examinar su ruta común desde el factor X al fi nal, debe considerarse cómo la ruta intrínseca alcanza este paso.",
+    "texto_nuevo": "El vaso sanguíneo dañado y los tejidos perivasculares liberan una mezcla de lipoproteínas denominada tromboplastina hística, factor III. El factor III se combina con el VII para formar un complejo que, en presencia de Ca dos más, activa el factor X. Las rutas extrínseca e intrínseca sólo difieren en la manera en que llegan al factor X activo. Por tanto, antes de examinar su ruta común desde el factor X al final, debe considerarse cómo la ruta intrínseca alcanza este paso."
+  },
+  {
+    "j": 217,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9829,
+    "pagina": 733,
+    "texto_viejo": "El mecanismo intrínseco aparece en el diagrama del extremo superior derecho de la fi gura dieciocho coma dos tres. Todo lo que se necesita para iniciarlo está presente en el plasma o los trombocitos. Cuando éstos se desgranulan, liberan factor XII , factor de Hageman, nombre del paciente en que se descubrió,. Una cascada de reacciones lleva a los factores XI, IX y VIII activados, en este orden , cada uno sirve como una enzima que cataliza el siguiente paso, y por último, al factor X. Esta ruta también requiere Ca2+ y PF3. Cómo se completa la coagulación.",
+    "texto_nuevo": "El mecanismo intrínseco aparece en el diagrama del extremo superior derecho de la figura dieciocho punto veintitrés. Todo lo que se necesita para iniciarlo está presente en el plasma o los trombocitos. Cuando éstos se desgranulan, liberan factor XII, factor de Hageman, nombre del paciente en que se descubrió. Una cascada de reacciones lleva a los factores XI, IX y VIII activados, en este orden, cada uno sirve como una enzima que cataliza el siguiente paso, y por último, al factor X. Esta ruta también requiere Ca dos más y PF tres. Cómo se completa la coagulación."
+  },
+  {
+    "j": 218,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9503,
+    "pagina": 733,
+    "texto_viejo": "Una vez que el factor X está activado, los acontecimientos restantes son idénticos en los mecanismos intrínsecos y extrínsecos. El factor X se combina con los factores III y V en la presencia de Ca2+ y PF3 para producir activador de la protrombina, que actúa sobre una globulina denominada protrombina , factor II, y la convierte en la enzima trombina. La trombina fragmenta el fi brinógeno en hebras más cortas de fi brina y el factor XIII entrecruza estas hebras para crear un agregado denso, el polímero de fi brina, que forma la estructura del coágulo sanguíneo.",
+    "texto_nuevo": "Una vez que el factor X está activado, los acontecimientos restantes son idénticos en los mecanismos intrínsecos y extrínsecos. El factor X se combina con los factores III y V en la presencia de Ca dos más y PF tres para producir activador de la protrombina, que actúa sobre una globulina denominada protrombina, factor II, y la convierte en la enzima trombina. La trombina fragmenta el fibrinógeno en hebras más cortas de fibrina y el factor XIII entrecruza estas hebras para crear un agregado denso, el polímero de fibrina, que forma la estructura del coágulo sanguíneo."
+  },
+  {
+    "j": 222,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 733,
+    "texto_viejo": "FIGURA dieciocho coma dos dos Un coágulo sanguíneo , SEM,. Los trombocitos , en anaranjado, están atrapados en una malla pegajosa de proteínas. ●¿Cuál es el nombre de esta proteína?",
+    "texto_nuevo": "FIGURA dieciocho punto veintidós Un coágulo sanguíneo, SEM. Los trombocitos, en anaranjado, están atrapados en una malla pegajosa de proteínas. ●¿Cuál es el nombre de esta proteína?"
+  },
+  {
+    "j": 225,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 734,
+    "texto_viejo": "Factor XI , activo, Inactivo Factor IX , activo, Inactivo Factor VIII , activo, Inactivo Mecanismo extrínseco Mecanismo intrínseco Factor III Factor V Ca2+ PF3 Factor V Factor XIII Ca2+ Factor XII Tejidos perivasculares dañados Ca2+ Trombocitos Ca2+, PF3 Activador de la protrombina Polímero de fibrina Protrombina , factor II, Fibrinógeno Fibrina Trombina Tromboplastina , factor III, Factor VII Inactivo Factor X , activo, FIGURA dieciocho coma dos tres Las rutas de la coagulación. La mayoría de los factores de la coagulación actúa como enzimas que convierten el siguiente factor de una forma inactiva en una activa.",
+    "texto_nuevo": "Factor XI, activo, Inactivo Factor IX, activo, Inactivo Factor VIII, activo, Inactivo Mecanismo extrínseco Mecanismo intrínseco Factor III Factor V Ca dos más PF tres Factor V Factor XIII Ca dos más Factor XII Tejidos perivasculares dañados Ca dos más Trombocitos Ca dos más, PF tres Activador de la protrombina Polímero de fibrina Protrombina, factor II, Fibrinógeno Fibrina Trombina Tromboplastina, factor III, Factor VII Inactivo Factor X, activo, FIGURA dieciocho punto veintitrés Las rutas de la coagulación. La mayoría de los factores de la coagulación actúa como enzimas que convierten el siguiente factor de una forma inactiva en una activa."
+  },
+  {
+    "j": 249,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('y' vs 'pagina')",
+    "similitud": 0.9825,
+    "pagina": 737,
+    "texto_viejo": "setecientos setenta y un, Talasemia Grupo de anemias congénitas más común en personas de origen griego, italiano y de otras zonas del Mediterráneo; se muestra deficiencia o ausencia de hemoglobina alfa o beta y cifras de eritrocitos que pueden ser menores a dos millones por μl Trombocitopenia Cifra de trombocitos menor de cien cero o μl. Algunas causas son destrucción de la médula ósea por radiación, fármacos, toxinas o leucemia. Entre los signos se incluyen zonas hemorrágicas en la piel o hematomas como respuesta a traumatismos menores Trastornos descritos en otros lugares Anemia, p. seiscientos ochenta y nueve Hipoxemia, p.",
+    "texto_nuevo": "página setecientos setenta y uno Talasemia Grupo de anemias congénitas más común en personas de origen griego, italiano y de otras zonas del Mediterráneo; se muestra deficiencia o ausencia de hemoglobina alfa o beta y cifras de eritrocitos que pueden ser menores a dos millones por microlitros Trombocitopenia Cifra de trombocitos menor de cien mil o microlitros. Algunas causas son destrucción de la médula ósea por radiación, fármacos, toxinas o leucemia. Entre los signos se incluyen zonas hemorrágicas en la piel o hematomas como respuesta a traumatismos menores Trastornos descritos en otros lugares Anemia, página seiscientos ochenta y nueve Hipoxemia, p."
+  },
+  {
+    "j": 261,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 738,
+    "texto_viejo": "Algunos anticoagulantes de origen animal también funcionan al disolver la fibrina: una sanguijuela gigante del Amazonas, Haementeria, produce uno de esos anticoagulantes, llamado hementina, que también se ha producido con éxito con bacterias modificadas mediante ingeniería genética y se usa para disolver coágulos sanguíneos en pacientes cardiacos. FIGURA dieciocho coma dos seis Un uso moderno de las sanguijuelas. Empleo de dos sanguijuelas medicinales para retirar sangre coagulada de un hematoma posquirúrgico. A pesar de su gran tamaño, las sanguijuelas secretan un anestésico natural y su mordida es indolora.",
+    "texto_nuevo": "Algunos anticoagulantes de origen animal también funcionan al disolver la fibrina: una sanguijuela gigante del Amazonas, Haementeria, produce uno de esos anticoagulantes, llamado hementina, que también se ha producido con éxito con bacterias modificadas mediante ingeniería genética y se usa para disolver coágulos sanguíneos en pacientes cardiacos. FIGURA dieciocho punto veintiséis Un uso moderno de las sanguijuelas. Empleo de dos sanguijuelas medicinales para retirar sangre coagulada de un hematoma posquirúrgico. A pesar de su gran tamaño, las sanguijuelas secretan un anestésico natural y su mordida es indolora."
+  }
+]
