@@ -6,8 +6,8 @@ Tema_02_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL CAPÍTULO dos coma u
 Tema_02_Morfo_Saladin_LITERAL_TTS.md;85;91;guia;Guía de estudio y autoevaluación: Capítulo;los temas estudiados Consultar o saladin6;Guía de estudio y autoevaluación final
 Tema_03_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL CAPÍTULO tres coma un;una célula pancreática , SEM,.;Esquema del capítulo con números de página
 Tema_03_Morfo_Saladin_LITERAL_TTS.md;87;93;guia;Guía de estudio y autoevaluación: Capítulo;los temas estudiados Consultar o saladin6;Guía de estudio y autoevaluación final
-Tema_04_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL CAPÍTULO cuatro coma un;célula bacteriana rota , SEM,.;Esquema del capítulo con números de página
-Tema_04_Morfo_Saladin_LITERAL_TTS.md;75;81;guia;Guía de estudio y autoevaluación: Capítulo;los temas estudiados Consultar o saladin6;Guía de estudio y autoevaluación final
+Tema_04_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;Módulo dos: Células y química ESQUEMA DEL CAPÍTULO;célula bacteriana rota , TEM,.;Esquema del capítulo con números de página
+Tema_04_Morfo_Saladin_LITERAL_TTS.md;73;81;guia;PARTE UNO Organización corporal;los temas estudiados Consultar o saladin6;Guía de estudio y autoevaluación final
 Tema_05_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL CAPÍTULO cinco coma un;el microscopio electrónico de barrido. CAPÍTULO;Esquema del capítulo con números de página
 Tema_05_Morfo_Saladin_LITERAL_TTS.md;93;99;guia;Guía de estudio y autoevaluación: Capítulo;los temas estudiados Consultar o saladin6;Guía de estudio y autoevaluación final
 Tema_06_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL CAPÍTULO seis coma un;surge de su folículo , SEM,.;Esquema del capítulo con números de página
@@ -33,7 +33,7 @@ Tema_15_Morfo_Saladin_LITERAL_TTS.md;57;57;encabezado;CAPÍTULO quince El sistem
 Atlas_A_Morfo_Saladin_LITERAL_TTS.md;3;3;indice;A.un Terminología anatómica general veintinueve •;y siete Guía de estudio cuarenta;Sumario de secciones con paginación
 Atlas_A_Morfo_Saladin_LITERAL_TTS.md;41;47;guia;Guía de estudio y autoevaluación: Atlas;su comprensión de los temas estudiados;Guía de estudio y autoevaluación final
 Atlas_B_Morfo_Saladin_LITERAL_TTS.md;1;1;indice;ESQUEMA DEL ATLAS B.un Anatomía regional;DE SUPERFICIE Módulo seis: Sistema muscular;Esquema del atlas con números de página
-Atlas_B_Morfo_Saladin_LITERAL_TTS.md;43;43;autoevaluacion;FIGURA B.veinticinco Examen de reconocimiento muscular.;corva r Esplenio de la cabeza;Examen de reconocimiento muscular con claves al final
+Atlas_B_Morfo_Saladin_LITERAL_TTS.md;41;43;autoevaluacion;PARTE DOS Soporte y movimiento a Vista anterior b Vista posterior;corva r Esplenio de la cabeza;Examen de reconocimiento muscular con claves al final
 ```
 
 Se verificaron los 17 archivos del lote sin omitir ninguno y sin editar disco.
