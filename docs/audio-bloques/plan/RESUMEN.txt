@@ -1,0 +1,66 @@
+=== CAPITULOS MAPEABLES ===
+Capitulo                                         | Bloques | Reusar | Sint.nuevo | Sint.error
+--------------------------------------------------------------------------------------------
+Atlas_B_Morfo_Saladin_LITERAL_TTS                |      39 |     39 |          0 |          0
+Tema_01_Biologia_Celular_LITERAL_TTS             |      81 |     78 |          1 |          2
+Tema_02_Biologia_Celular_LITERAL_TTS             |     118 |    110 |          0 |          8
+Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS     |     153 |    148 |          1 |          4
+Tema_03_Biologia_Celular_LITERAL_TTS             |     148 |    143 |          1 |          4
+Tema_04_Biologia_Celular_LITERAL_TTS             |     189 |    112 |          1 |         76
+Tema_05_Biologia_Celular_LITERAL_TTS             |     159 |    141 |          1 |         17
+Tema_06_Biologia_Celular_LITERAL_TTS             |     144 |    126 |          1 |         17
+Tema_08_Morfo_Saladin_LITERAL_TTS                |     266 |    265 |          1 |          0
+Tema_09_Morfo_Saladin_LITERAL_TTS                |     193 |    191 |          1 |          1
+Tema_12_Biologia_Celular_LITERAL_TTS             |     183 |    177 |          1 |          5
+Tema_13_Biologia_Celular_LITERAL_TTS             |     153 |    145 |          1 |          7
+Tema_15_Morfo_Saladin_LITERAL_TTS                |     119 |    118 |          1 |          0
+Tema_17_Morfo_Saladin_LITERAL_TTS                |     309 |    295 |          1 |         13
+Tema_18_Morfo_Saladin_LITERAL_TTS                |     262 |    218 |          1 |         43
+Tema_19_Morfo_Saladin_LITERAL_TTS                |     248 |    226 |          1 |         21
+Tema_20_Morfo_Saladin_LITERAL_TTS                |     376 |    363 |          2 |         11
+Tema_21_Morfo_Saladin_LITERAL_TTS                |     301 |    290 |          2 |          9
+Tema_22_Morfo_Saladin_LITERAL_TTS                |     308 |    282 |          2 |         24
+Tema_23_Morfo_Saladin_LITERAL_TTS                |     255 |    226 |          2 |         27
+Tema_24_Morfo_Saladin_LITERAL_TTS                |     168 |    117 |          2 |         49
+Tema_25_Morfo_Saladin_LITERAL_TTS                |     317 |    300 |          1 |         16
+Tema_26_Morfo_Saladin_LITERAL_TTS                |     288 |    271 |          1 |         16
+Tema_27_Morfo_Saladin_LITERAL_TTS                |     197 |    192 |          1 |          4
+Tema_28_Morfo_Saladin_LITERAL_TTS                |     270 |    264 |          2 |          4
+Tema_29_Morfo_Saladin_LITERAL_TTS                |     270 |    265 |          2 |          3
+--------------------------------------------------------------------------------------------
+TOTAL MAPEABLES                                  |    5514 |   5102 |         31 |        381
+
+=== SIN_MAPA (no se tocan) ===
+Atlas_A_Morfo_Saladin_LITERAL_TTS: texto_viejo 74 / audio 77 (texto_actual 56) [cantidad distinta de bloques viejos y wavs]
+Tema_01_Morfo_Saladin_LITERAL_TTS: texto_viejo 260 / audio 264 (texto_actual 236) [cantidad distinta de bloques viejos y wavs]
+Tema_02_Morfo_Saladin_LITERAL_TTS: texto_viejo 312 / audio 315 (texto_actual 287) [cantidad distinta de bloques viejos y wavs]
+Tema_03_Morfo_Saladin_LITERAL_TTS: texto_viejo 251 / audio 253 (texto_actual 228) [cantidad distinta de bloques viejos y wavs]
+Tema_04_Morfo_Saladin_LITERAL_TTS: texto_viejo 238 / audio 242 (texto_actual 212) [cantidad distinta de bloques viejos y wavs]
+Tema_05_Morfo_Saladin_LITERAL_TTS: texto_viejo 265 / audio 266 (texto_actual 242) [cantidad distinta de bloques viejos y wavs]
+Tema_06_Morfo_Saladin_LITERAL_TTS: texto_viejo 215 / audio 217 (texto_actual 197) [cantidad distinta de bloques viejos y wavs]
+Tema_07_Biologia_Celular_LITERAL_TTS: texto_viejo 282 / audio 223 (texto_actual 256) [cantidad distinta de bloques viejos y wavs]
+Tema_07_Morfo_Saladin_LITERAL_TTS: texto_viejo 188 / audio 189 (texto_actual 187) [cantidad distinta de bloques viejos y wavs]
+Tema_08_Biologia_Celular_LITERAL_TTS: texto_viejo 144 / audio 146 (texto_actual 134) [cantidad distinta de bloques viejos y wavs]
+Tema_09_Biologia_Celular_LITERAL_TTS: texto_viejo 138 / audio 139 (texto_actual 126) [cantidad distinta de bloques viejos y wavs]
+Tema_10_Biologia_Celular_LITERAL_TTS: texto_viejo 132 / audio 135 (texto_actual 125) [cantidad distinta de bloques viejos y wavs]
+Tema_10_Morfo_Saladin_LITERAL_TTS: texto_viejo 320 / audio 321 (texto_actual 319) [cantidad distinta de bloques viejos y wavs]
+Tema_11_Biologia_Celular_LITERAL_TTS: texto_viejo 154 / audio 156 (texto_actual 138) [cantidad distinta de bloques viejos y wavs]
+Tema_11_Morfo_Saladin_LITERAL_TTS: texto_viejo 284 / audio 288 (texto_actual 283) [cantidad distinta de bloques viejos y wavs]
+Tema_12_Morfo_Saladin_LITERAL_TTS: texto_viejo 297 / audio 300 (texto_actual 296) [cantidad distinta de bloques viejos y wavs]
+Tema_13_Morfo_Saladin_LITERAL_TTS: texto_viejo 202 / audio 203 (texto_actual 201) [cantidad distinta de bloques viejos y wavs]
+Tema_14_Biologia_Celular_LITERAL_TTS: texto_viejo 178 / audio 180 (texto_actual 165) [cantidad distinta de bloques viejos y wavs]
+Tema_14_Morfo_Saladin_LITERAL_TTS: texto_viejo 329 / audio 330 (texto_actual 327) [cantidad distinta de bloques viejos y wavs]
+Tema_15_Biologia_Celular_LITERAL_TTS: texto_viejo 146 / audio 149 (texto_actual 137) [cantidad distinta de bloques viejos y wavs]
+Tema_16_Biologia_Celular_LITERAL_TTS: texto_viejo 191 / audio 193 (texto_actual 175) [cantidad distinta de bloques viejos y wavs]
+Tema_16_Morfo_Saladin_LITERAL_TTS: texto_viejo 375 / audio 377 (texto_actual 373) [cantidad distinta de bloques viejos y wavs]
+Tema_17_Biologia_Celular_LITERAL_TTS: texto_viejo 185 / audio 189 (texto_actual 174) [cantidad distinta de bloques viejos y wavs]
+Tema_18_Biologia_Celular_LITERAL_TTS: texto_viejo 122 / audio 123 (texto_actual 109) [cantidad distinta de bloques viejos y wavs]
+
+=== TOTALES GLOBALES ===
+Capitulos analizados: 50
+Capitulos mapeables : 26
+Capitulos SIN_MAPA  : 24
+Bloques nuevos totales (mapeables): 5514
+Reusar              : 5102
+Sintetizar (nuevo)  : 31
+Sintetizar (error)  : 381

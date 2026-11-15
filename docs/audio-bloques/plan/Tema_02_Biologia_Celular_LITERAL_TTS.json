@@ -1,0 +1,828 @@
+[
+  {
+    "j": 1,
+    "accion": "REUSAR",
+    "origen": "parte_001.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "CAPÍTULO dos Cómo se estudian las células. Métodos y técnica"
+  },
+  {
+    "j": 2,
+    "accion": "REUSAR",
+    "origen": "parte_002.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Valorar la utilidad diagnóstica de las técnicas explicadas"
+  },
+  {
+    "j": 3,
+    "accion": "REUSAR",
+    "origen": "parte_003.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunas otras técnicas más propias de la biología molecular "
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_004.wav)",
+    "texto_inicio": "Microscopía óptica convencional El microscopio es un element"
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El segundo problema se soluciona mediante la utilización de "
+  },
+  {
+    "j": 6,
+    "accion": "REUSAR",
+    "origen": "parte_006.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Técnicas en histología y biología celular. Barcelona: Elsevi"
+  },
+  {
+    "j": 7,
+    "accion": "REUSAR",
+    "origen": "parte_007.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En microscopía, la calidad de la imagen viene determinada, p"
+  },
+  {
+    "j": 8,
+    "accion": "REUSAR",
+    "origen": "parte_008.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "poder de resolución, que se define como la capacidad que tie"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_009.wav)",
+    "texto_inicio": "El LR para el microscopio óptico convencional es de ∼cero co"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_010.wav)",
+    "texto_inicio": "Las células , diez a cien μm, el n úcleo celular , ∼diez μm,"
+  },
+  {
+    "j": 11,
+    "accion": "REUSAR",
+    "origen": "parte_011.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "dos a dos,. AN se define, a su vez, como el producto del índ"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_012.wav)",
+    "texto_inicio": "En condiciones óptimas, poniendo todos estos datos en la ecu"
+  },
+  {
+    "j": 13,
+    "accion": "REUSAR",
+    "origen": "parte_013.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando un tren de ondas lumínicas que están en fase atravies"
+  },
+  {
+    "j": 14,
+    "accion": "REUSAR",
+    "origen": "parte_014.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "obteniéndose así un LR más pequeño. Algunos microscopios uti"
+  },
+  {
+    "j": 15,
+    "accion": "REUSAR",
+    "origen": "parte_015.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se puede obtener contraste básicamente mediante dos métodos:"
+  },
+  {
+    "j": 16,
+    "accion": "REUSAR",
+    "origen": "parte_016.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El uso combinado de varios colorantes, como por ejemplo la h"
+  },
+  {
+    "j": 17,
+    "accion": "REUSAR",
+    "origen": "parte_017.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando un tren de ondas en fase atraviesa un tejido sin teñi"
+  },
+  {
+    "j": 18,
+    "accion": "REUSAR",
+    "origen": "parte_018.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunos microscopios, como el de contraste de fases, poseen "
+  },
+  {
+    "j": 19,
+    "accion": "REUSAR",
+    "origen": "parte_019.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "fig. dos a tres,."
+  },
+  {
+    "j": 20,
+    "accion": "REUSAR",
+    "origen": "parte_020.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a tres Microscopía de contraste de fases. A. Las "
+  },
+  {
+    "j": 21,
+    "accion": "REUSAR",
+    "origen": "parte_021.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "C, procedente de: El uso de estos microscopios tiene ventaja"
+  },
+  {
+    "j": 22,
+    "accion": "REUSAR",
+    "origen": "parte_022.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "dos a tres,. Microscopía de fluorescencia y confocal La micr"
+  },
+  {
+    "j": 23,
+    "accion": "REUSAR",
+    "origen": "parte_023.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunas estructuras de los tejidos son autofluorescentes, co"
+  },
+  {
+    "j": 24,
+    "accion": "REUSAR",
+    "origen": "parte_024.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a cuatro A. Partes esenciales del microscopio de "
+  },
+  {
+    "j": 25,
+    "accion": "REUSAR",
+    "origen": "parte_025.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Existen gran cantidad de fluorocromos con distintas propieda"
+  },
+  {
+    "j": 26,
+    "accion": "REUSAR",
+    "origen": "parte_026.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Un fluorocromo muy utilizado es la fluoresceína, que se exci"
+  },
+  {
+    "j": 27,
+    "accion": "REUSAR",
+    "origen": "parte_027.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Otra ventaja esencial es que el microscopio confocal permite"
+  },
+  {
+    "j": 28,
+    "accion": "REUSAR",
+    "origen": "parte_028.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para ello el haz láser se hace pasar por un pinhole, un pequ"
+  },
+  {
+    "j": 29,
+    "accion": "REUSAR",
+    "origen": "parte_029.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto hace que la calidad de las imágenes sea mucho mayor que"
+  },
+  {
+    "j": 30,
+    "accion": "REUSAR",
+    "origen": "parte_030.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El acoplamiento de los diferentes stacks en una computadora "
+  },
+  {
+    "j": 31,
+    "accion": "REUSAR",
+    "origen": "parte_031.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Microscopía electrónica Funcionamiento y tipos El microscopi"
+  },
+  {
+    "j": 32,
+    "accion": "REUSAR",
+    "origen": "parte_032.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la parte superior de la columna se encuentra el cátodo, c"
+  },
+  {
+    "j": 33,
+    "accion": "REUSAR",
+    "origen": "parte_033.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El haz atraviesa la muestra y es modificado entonces por una"
+  },
+  {
+    "j": 34,
+    "accion": "REUSAR",
+    "origen": "parte_034.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a cinco Partes del microscopio electrónico de tra"
+  },
+  {
+    "j": 35,
+    "accion": "REUSAR",
+    "origen": "parte_035.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para que el haz de electrones atraviese la muestra, esta tie"
+  },
+  {
+    "j": 36,
+    "accion": "REUSAR",
+    "origen": "parte_036.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "pantalla como una zona oscura , también llamada electrodensa"
+  },
+  {
+    "j": 37,
+    "accion": "REUSAR",
+    "origen": "parte_037.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la imagen se observa una proliferación de células endotel"
+  },
+  {
+    "j": 38,
+    "accion": "REUSAR",
+    "origen": "parte_038.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En este caso, las muestras , situadas en la base del microsc"
+  },
+  {
+    "j": 39,
+    "accion": "REUSAR",
+    "origen": "parte_039.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El impacto del haz primario de electrones sobre la muestra h"
+  },
+  {
+    "j": 40,
+    "accion": "REUSAR",
+    "origen": "parte_040.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a siete A. Esquema del funcionamiento del microsc"
+  },
+  {
+    "j": 41,
+    "accion": "REUSAR",
+    "origen": "parte_041.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se puede observar material biológico como bacterias, virus, "
+  },
+  {
+    "j": 42,
+    "accion": "REUSAR",
+    "origen": "parte_042.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a ocho A. Dibujo que muestra una visión lateral d"
+  },
+  {
+    "j": 43,
+    "accion": "REUSAR",
+    "origen": "parte_043.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ej., bacterias, virus, macromoléculas, etc., de tal manera q"
+  },
+  {
+    "j": 44,
+    "accion": "REUSAR",
+    "origen": "parte_044.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las muestras congeladas a tan bajas temperaturas se fractura"
+  },
+  {
+    "j": 45,
+    "accion": "REUSAR",
+    "origen": "parte_045.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a nueve A. Procedimiento para realizar la técnica"
+  },
+  {
+    "j": 46,
+    "accion": "REUSAR",
+    "origen": "parte_046.wav",
+    "motivo": "texto identico",
+    "texto_inicio": ", B, imagen procedente de: Portada de la revista Molecular B"
+  },
+  {
+    "j": 47,
+    "accion": "REUSAR",
+    "origen": "parte_047.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La sublimación produce un efecto de grabado, que consiste en"
+  },
+  {
+    "j": 48,
+    "accion": "REUSAR",
+    "origen": "parte_048.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Procesamiento de muestras para microscopía óptica y electrón"
+  },
+  {
+    "j": 49,
+    "accion": "REUSAR",
+    "origen": "parte_049.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Fijación La fijación de los tejidos permite detener los proc"
+  },
+  {
+    "j": 50,
+    "accion": "REUSAR",
+    "origen": "parte_050.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El tejido se expone a temperaturas inferiores a menos setent"
+  },
+  {
+    "j": 51,
+    "accion": "REUSAR",
+    "origen": "parte_051.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ej., en el caso de las biopsias intraoperatorias,. En la fij"
+  },
+  {
+    "j": 52,
+    "accion": "REUSAR",
+    "origen": "parte_052.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El tetróxido de osmio , OsO4, es un fijador oxidante muy uti"
+  },
+  {
+    "j": 53,
+    "accion": "REUSAR",
+    "origen": "parte_053.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El objetivo de la inclusión es eliminar el agua de los tejid"
+  },
+  {
+    "j": 54,
+    "accion": "REUSAR",
+    "origen": "parte_054.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La inclusión puede tener lugar en parafina , para muestras p"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_055.wav)",
+    "texto_inicio": "Como en el caso de la parafina, es necesario realizar un pro"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_056.wav)",
+    "texto_inicio": "Para microscopía electrónica se hacen cortes finos , diez a "
+  },
+  {
+    "j": 57,
+    "accion": "REUSAR",
+    "origen": "parte_057.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Hay muestras que no precisan de los procesos de inclusión y "
+  },
+  {
+    "j": 58,
+    "accion": "REUSAR",
+    "origen": "parte_058.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como hemos indicado previamente, las estructuras biológicas "
+  },
+  {
+    "j": 59,
+    "accion": "REUSAR",
+    "origen": "parte_059.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el caso de muestras de citología exfoliativa, el método m"
+  },
+  {
+    "j": 60,
+    "accion": "REUSAR",
+    "origen": "parte_060.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Técnicas inmunohistoquímicas Las técnicas inmunohistoquímica"
+  },
+  {
+    "j": 61,
+    "accion": "REUSAR",
+    "origen": "parte_061.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estas alteraciones pueden ser detectadas mediante inmunohist"
+  },
+  {
+    "j": 62,
+    "accion": "REUSAR",
+    "origen": "parte_062.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la práctica, los anticuerpos para las proteínas utilizada"
+  },
+  {
+    "j": 63,
+    "accion": "REUSAR",
+    "origen": "parte_063.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "dos. Técnicas indirectas: el anticuerpo primario no está con"
+  },
+  {
+    "j": 64,
+    "accion": "REUSAR",
+    "origen": "parte_064.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por ello, es más conveniente desde el punto de vista técnico"
+  },
+  {
+    "j": 65,
+    "accion": "REUSAR",
+    "origen": "parte_065.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a diez A. Esquema de la inmunohistoquímica direct"
+  },
+  {
+    "j": 66,
+    "accion": "REUSAR",
+    "origen": "parte_066.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "dos a once,: • Desparafinación e hidratación los tejidos. • "
+  },
+  {
+    "j": 67,
+    "accion": "REUSAR",
+    "origen": "parte_067.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Lavado de la preparación para eliminar las inmunoglobulina"
+  },
+  {
+    "j": 68,
+    "accion": "REUSAR",
+    "origen": "parte_068.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El procedimiento de marcaje indirecto con anticuerpos secund"
+  },
+  {
+    "j": 69,
+    "accion": "REUSAR",
+    "origen": "parte_069.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Posteriormente se utilizan colorantes de contraste, como la "
+  },
+  {
+    "j": 70,
+    "accion": "REUSAR",
+    "origen": "parte_070.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA dos a doce La inmunohistoquímica es una herramienta m"
+  },
+  {
+    "j": 71,
+    "accion": "REUSAR",
+    "origen": "parte_071.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El marcaje de anticuerpos con moléculas fluorescentes no req"
+  },
+  {
+    "j": 72,
+    "accion": "REUSAR",
+    "origen": "parte_075.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tecnología del A D N recombinante y aislamiento de ácidos nu"
+  },
+  {
+    "j": 73,
+    "accion": "REUSAR",
+    "origen": "parte_076.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Existen diferentes métodos para aislar A D N , y A R N,; los"
+  },
+  {
+    "j": 74,
+    "accion": "REUSAR",
+    "origen": "parte_077.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estos geles están constituidos por matrices porosas en las q"
+  },
+  {
+    "j": 75,
+    "accion": "REUSAR",
+    "origen": "parte_078.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los fragmentos de A D N generados mediante P C R , v. Reacci"
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_079.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Determinar que el tamaño de los fragmentos de A D N o A R N "
+  },
+  {
+    "j": 77,
+    "accion": "REUSAR",
+    "origen": "parte_080.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para ello se utiliza la propiedad física de la absorbancia, "
+  },
+  {
+    "j": 78,
+    "accion": "REUSAR",
+    "origen": "parte_081.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La longitud recorrida en el gel depende del tamaño de cada u"
+  },
+  {
+    "j": 79,
+    "accion": "REUSAR",
+    "origen": "parte_082.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las secuencias que la mayor parte de las enzimas reconocen t"
+  },
+  {
+    "j": 80,
+    "accion": "REUSAR",
+    "origen": "parte_083.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los cortes originados por algunas enzimas dejan extremos esc"
+  },
+  {
+    "j": 81,
+    "accion": "REUSAR",
+    "origen": "parte_084.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA E2-dos A. El A D N puede ser cortado por diversas enz"
+  },
+  {
+    "j": 82,
+    "accion": "REUSAR",
+    "origen": "parte_085.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Mediante este procedimiento se pueden clonar genes de interé"
+  },
+  {
+    "j": 83,
+    "accion": "REUSAR",
+    "origen": "parte_086.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El A D N se introduce en bacterias en forma de plásmido modi"
+  },
+  {
+    "j": 84,
+    "accion": "REUSAR",
+    "origen": "parte_087.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La clonación permite crear vectores con genes de uso terapéu"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_088.wav)",
+    "texto_inicio": "Reacción en cadena de la polimerasa En el año mil noveciento"
+  },
+  {
+    "j": 86,
+    "accion": "REUSAR",
+    "origen": "parte_089.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Previamente, es necesario conocer la secuencia de los nucleó"
+  },
+  {
+    "j": 87,
+    "accion": "REUSAR",
+    "origen": "parte_090.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La desnaturalización consiste en la separación de las dos he"
+  },
+  {
+    "j": 88,
+    "accion": "REUSAR",
+    "origen": "parte_091.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el paso de hibridación se disminuye la temperatura de la "
+  },
+  {
+    "j": 89,
+    "accion": "REUSAR",
+    "origen": "parte_092.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Si la temperatura de hibridación es inferior a la óptima, lo"
+  },
+  {
+    "j": 90,
+    "accion": "REUSAR",
+    "origen": "parte_093.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta enzima, llamada así porque se aisló de la bacteria term"
+  },
+  {
+    "j": 91,
+    "accion": "REUSAR",
+    "origen": "parte_094.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En cada repetición del ciclo se produce un aumento exponenci"
+  },
+  {
+    "j": 92,
+    "accion": "REUSAR",
+    "origen": "parte_095.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "moléculas amplificadas en el ciclo anterior sirven de molde "
+  },
+  {
+    "j": 93,
+    "accion": "REUSAR",
+    "origen": "parte_096.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La mezcla de reacción contiene el A D N que se quiere amplif"
+  },
+  {
+    "j": 94,
+    "accion": "REUSAR",
+    "origen": "parte_097.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El producto de la amplificación se analiza por electroforesi"
+  },
+  {
+    "j": 95,
+    "accion": "REUSAR",
+    "origen": "parte_098.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la P C R multiplex se amplifican varios fragmentos simult"
+  },
+  {
+    "j": 96,
+    "accion": "REUSAR",
+    "origen": "parte_099.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La RT-P C R es una variante de la P C R que utiliza la enzim"
+  },
+  {
+    "j": 97,
+    "accion": "REUSAR",
+    "origen": "parte_100.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto puede ser de gran utilidad cuando se quieren analizar v"
+  },
+  {
+    "j": 98,
+    "accion": "REUSAR",
+    "origen": "parte_101.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "que el producto se amplifica, emiten un nivel de fluorescenc"
+  },
+  {
+    "j": 99,
+    "accion": "REUSAR",
+    "origen": "parte_102.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "También permite diagnosticar la presencia de gérmenes patóge"
+  },
+  {
+    "j": 100,
+    "accion": "REUSAR",
+    "origen": "parte_103.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Además de su utilidad en el seguimiento de las terapias retr"
+  },
+  {
+    "j": 101,
+    "accion": "REUSAR",
+    "origen": "parte_104.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El A R N vírico se detecta en muestras de plasma sanguíneo m"
+  },
+  {
+    "j": 102,
+    "accion": "REUSAR",
+    "origen": "parte_105.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA E2-cuatro Ejemplo de amplificación por RT-P C R del g"
+  },
+  {
+    "j": 103,
+    "accion": "REUSAR",
+    "origen": "parte_106.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Facultad de Ciencias Biomédicas, Universidad Austral., Finge"
+  },
+  {
+    "j": 104,
+    "accion": "REUSAR",
+    "origen": "parte_107.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El conjunto de polimorfismos específicos de cada persona se "
+  },
+  {
+    "j": 105,
+    "accion": "REUSAR",
+    "origen": "parte_108.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El polimorfismo se define como la existencia simultánea, en "
+  },
+  {
+    "j": 106,
+    "accion": "REUSAR",
+    "origen": "parte_109.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para determinar la presencia de una u otra variante, la zona"
+  },
+  {
+    "j": 107,
+    "accion": "REUSAR",
+    "origen": "parte_110.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "BMC Cancer dos mil nueve;nueve:cuatrocientos seis., Existen "
+  },
+  {
+    "j": 108,
+    "accion": "REUSAR",
+    "origen": "parte_111.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como se mencionó en el apartado de la P C R, el fragmento qu"
+  },
+  {
+    "j": 109,
+    "accion": "REUSAR",
+    "origen": "parte_112.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los polimorfismos son de gran utilidad en medicina forense, "
+  },
+  {
+    "j": 110,
+    "accion": "REUSAR",
+    "origen": "parte_113.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este es un campo novedoso, aunque sujeto a controversias, de"
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_114.wav)",
+    "texto_inicio": "El uso del ADNmt es ventajoso, ya que en cada célula existen"
+  },
+  {
+    "j": 112,
+    "accion": "REUSAR",
+    "origen": "parte_115.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por ejemplo, en los casos de agresión sexual, permiten ident"
+  },
+  {
+    "j": 113,
+    "accion": "REUSAR",
+    "origen": "parte_116.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Secuenciación de A D N Junto con la P C R, la secuenciación "
+  },
+  {
+    "j": 114,
+    "accion": "REUSAR",
+    "origen": "parte_117.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunos ejemplos de los usos que tiene la secuenciación del "
+  },
+  {
+    "j": 115,
+    "accion": "REUSAR",
+    "origen": "parte_118.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los secuenciadores de alto rendimiento de final del siglo ve"
+  },
+  {
+    "j": 116,
+    "accion": "REUSAR",
+    "origen": "parte_119.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se realizan cuatro reacciones de secuenciación. En ellas, la"
+  },
+  {
+    "j": 117,
+    "accion": "REUSAR",
+    "origen": "parte_120.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Puesto que en la reacción coexisten los nucleótidos d y los "
+  },
+  {
+    "j": 118,
+    "accion": "REUSAR",
+    "origen": "parte_121.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Una modificación que sufrió esta técnica fue la adición de m"
+  }
+]

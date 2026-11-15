@@ -1,0 +1,1325 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_001.wav)",
+    "texto_inicio": "CAPÍTULO cuatro Microtransporte a través de la membrana plas"
+  },
+  {
+    "j": 2,
+    "accion": "REUSAR",
+    "origen": "parte_002.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Introducción Como se ha estudiado en el capítulo anterior, l"
+  },
+  {
+    "j": 3,
+    "accion": "REUSAR",
+    "origen": "parte_003.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En cambio, existe otro tipo de transporte que implica una de"
+  },
+  {
+    "j": 4,
+    "accion": "REUSAR",
+    "origen": "parte_004.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las sustancias liposolubles pueden atravesar la membrana pla"
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Transporte pasivo En este tipo de transporte las sustancias "
+  },
+  {
+    "j": 6,
+    "accion": "REUSAR",
+    "origen": "parte_006.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Difusión simple Como hemos indicado, la difusión simple es e"
+  },
+  {
+    "j": 7,
+    "accion": "REUSAR",
+    "origen": "parte_007.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En cambio, las sustancias polares grandes no cargadas , como"
+  },
+  {
+    "j": 8,
+    "accion": "REUSAR",
+    "origen": "parte_008.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Varios son los factores que afectan a la difusión simple: • "
+  },
+  {
+    "j": 9,
+    "accion": "REUSAR",
+    "origen": "parte_009.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Liposolubilidad: se mide por el cociente de reparto Kr, qu"
+  },
+  {
+    "j": 10,
+    "accion": "REUSAR",
+    "origen": "parte_010.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se refiere a la fuerza impulsora de la difusión, de forma qu"
+  },
+  {
+    "j": 11,
+    "accion": "REUSAR",
+    "origen": "parte_011.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Carga: las sustancias cargadas tienen una mayor dificultad"
+  },
+  {
+    "j": 12,
+    "accion": "REUSAR",
+    "origen": "parte_012.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La permeabilidad de una sustancia es un parámetro determinad"
+  },
+  {
+    "j": 13,
+    "accion": "REUSAR",
+    "origen": "parte_013.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tabla cuatro a un Permeabilidad , P, de la membrana plasmáti"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_014.wav)",
+    "texto_inicio": "Cl– diez a seis K+ diez a diez Na+ diez a doce Como ya se ha"
+  },
+  {
+    "j": 15,
+    "accion": "REUSAR",
+    "origen": "parte_015.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para comprender completamente el transporte de solutos a tra"
+  },
+  {
+    "j": 16,
+    "accion": "REUSAR",
+    "origen": "parte_016.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La difusión del agua a través de la membrana posee un compor"
+  },
+  {
+    "j": 17,
+    "accion": "REUSAR",
+    "origen": "parte_017.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta difusión del agua es lo que se conoce como ósmosis, que"
+  },
+  {
+    "j": 18,
+    "accion": "REUSAR",
+    "origen": "parte_018.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para entender las diferencias entre ambos procesos, planteem"
+  },
+  {
+    "j": 19,
+    "accion": "REUSAR",
+    "origen": "parte_019.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por lo tanto, podemos decir que la dirección del agua, debid"
+  },
+  {
+    "j": 20,
+    "accion": "REUSAR",
+    "origen": "parte_020.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a tres Diferencia entre difusión de solutos y "
+  },
+  {
+    "j": 21,
+    "accion": "REUSAR",
+    "origen": "parte_021.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Maldonado., El movimiento del agua a través de la membrana e"
+  },
+  {
+    "j": 22,
+    "accion": "REUSAR",
+    "origen": "parte_022.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ej., debido a una pérdida de agua, convirtiéndose en una sol"
+  },
+  {
+    "j": 23,
+    "accion": "REUSAR",
+    "origen": "parte_023.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a cuatro Efecto de la diferencia de osmolarida"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_024.wav)",
+    "texto_inicio": "Maldonado., El mecanismo por el cual las células solucionan "
+  },
+  {
+    "j": 25,
+    "accion": "REUSAR",
+    "origen": "parte_025.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las proteínas que se encargan de la difusión facilitada pued"
+  },
+  {
+    "j": 26,
+    "accion": "REUSAR",
+    "origen": "parte_026.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "cuatro a cinco, permiten el paso de moléculas de pequeño tam"
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_027.wav)",
+    "texto_inicio": "FIGURA cuatro a cinco Canal de membrana , flecha,. Los canal"
+  },
+  {
+    "j": 28,
+    "accion": "REUSAR",
+    "origen": "parte_028.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estos canales no siempre están abiertos, sino que son regula"
+  },
+  {
+    "j": 29,
+    "accion": "REUSAR",
+    "origen": "parte_029.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Según el tipo de regulación, los canales iónicos se pueden d"
+  },
+  {
+    "j": 30,
+    "accion": "REUSAR",
+    "origen": "parte_030.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Canales quimiosensibles: se regulan mediante la unión de u"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_031.wav)",
+    "texto_inicio": "controlando así el flujo de un ión específico , fig. cuatro "
+  },
+  {
+    "j": 32,
+    "accion": "REUSAR",
+    "origen": "parte_032.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando se produce un cambio en el potencial de membrana, se "
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_033.wav)",
+    "texto_inicio": "• Canales de las uniones de tipo gap: este tipo de estructur"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_034.wav)",
+    "texto_inicio": "Este tipo de canales constituye la unidad funcional de la si"
+  },
+  {
+    "j": 35,
+    "accion": "REUSAR",
+    "origen": "parte_035.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a seis Canales mecanosensibles. A. Imagen de m"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_036.wav)",
+    "texto_inicio": "Según la dirección de la oscilación de los cilios, los filam"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_037.wav)",
+    "texto_inicio": "Maldonado., Muchas enfermedades se asocian a defectos en el "
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_038.wav)",
+    "texto_inicio": "cardiovasculares , alteraciones de canales de Ca+, y neuromu"
+  },
+  {
+    "j": 39,
+    "accion": "REUSAR",
+    "origen": "parte_039.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se dedujo, entonces, que tenía que haber canales especializa"
+  },
+  {
+    "j": 40,
+    "accion": "REUSAR",
+    "origen": "parte_040.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Hoy en día, se sabe que ambos mecanismos , difusión simple a"
+  },
+  {
+    "j": 41,
+    "accion": "REUSAR",
+    "origen": "parte_041.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Un aspecto importante de las AQP es que permiten el paso de "
+  },
+  {
+    "j": 42,
+    "accion": "REUSAR",
+    "origen": "parte_042.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Hasta hoy, se han identificado trece acuaporinas , AQP0-AQP1"
+  },
+  {
+    "j": 43,
+    "accion": "REUSAR",
+    "origen": "parte_043.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a nueve Acuaporinas. A. El dibujo superior dem"
+  },
+  {
+    "j": 44,
+    "accion": "REUSAR",
+    "origen": "parte_044.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el riñón, el órgano encargado de la homeostasis hídrica, "
+  },
+  {
+    "j": 45,
+    "accion": "REUSAR",
+    "origen": "parte_045.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La AQP2, en cambio, es abundante en la membrana basolateral "
+  },
+  {
+    "j": 46,
+    "accion": "REUSAR",
+    "origen": "parte_046.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La ADH es una hormona producida en los núcleos supraóptico y"
+  },
+  {
+    "j": 47,
+    "accion": "REUSAR",
+    "origen": "parte_047.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El receptor V2 de la ADH, situado en la membrana basolateral"
+  },
+  {
+    "j": 48,
+    "accion": "REUSAR",
+    "origen": "parte_048.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Una vez que la AQP2 está en la membrana apical, esta se vuel"
+  },
+  {
+    "j": 49,
+    "accion": "REUSAR",
+    "origen": "parte_049.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando existe una alteración en esa secuencia, se da un cuad"
+  },
+  {
+    "j": 50,
+    "accion": "REUSAR",
+    "origen": "parte_050.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a diez Regulación del paso de agua a través de"
+  },
+  {
+    "j": 51,
+    "accion": "REUSAR",
+    "origen": "parte_051.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las porinas se ubican en la membrana externa de las mitocond"
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_052.wav)",
+    "texto_inicio": "Las porinas son canales bastante inespecíficos que permiten "
+  },
+  {
+    "j": 53,
+    "accion": "REUSAR",
+    "origen": "parte_053.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El modelo de funcionamiento de estos transportadores se basa"
+  },
+  {
+    "j": 54,
+    "accion": "REUSAR",
+    "origen": "parte_054.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La especificidad se determina por el encaje preciso entre el"
+  },
+  {
+    "j": 55,
+    "accion": "REUSAR",
+    "origen": "parte_055.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a once Representación esquemática de un transp"
+  },
+  {
+    "j": 56,
+    "accion": "REUSAR",
+    "origen": "parte_056.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "cuatro a doce,; es decir, que cuando el número de solutos au"
+  },
+  {
+    "j": 57,
+    "accion": "REUSAR",
+    "origen": "parte_057.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En este sentido, los transportadores catalizan un proceso de"
+  },
+  {
+    "j": 58,
+    "accion": "REUSAR",
+    "origen": "parte_058.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La cinética del transporte se ajusta así a la ecuación de Mi"
+  },
+  {
+    "j": 59,
+    "accion": "REUSAR",
+    "origen": "parte_059.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a doce Diferencia entre la cinética de la difu"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_060.wav)",
+    "texto_inicio": "cuatro a trece,: • Transporte de tipo uniporte, que correspo"
+  },
+  {
+    "j": 61,
+    "accion": "REUSAR",
+    "origen": "parte_061.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Un ejemplo de antiporte es el transporte de HCO3– o Cl–, que"
+  },
+  {
+    "j": 62,
+    "accion": "REUSAR",
+    "origen": "parte_062.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a trece Diferencia entre el uniporte y el tran"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_063.wav)",
+    "texto_inicio": "Hay dos grandes familias de proteínas encargadas del transpo"
+  },
+  {
+    "j": 64,
+    "accion": "REUSAR",
+    "origen": "parte_064.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estos cotransportadores se encuentran en las membranas de la"
+  },
+  {
+    "j": 65,
+    "accion": "REUSAR",
+    "origen": "parte_065.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La unión de glucosa en el sitio específico provoca un cambio"
+  },
+  {
+    "j": 66,
+    "accion": "REUSAR",
+    "origen": "parte_066.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta diversidad viene determinada por el patrón de expresión"
+  },
+  {
+    "j": 67,
+    "accion": "REUSAR",
+    "origen": "parte_067.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "contraste, la tasa del transporte de glucosa mediada por GLU"
+  },
+  {
+    "j": 68,
+    "accion": "REUSAR",
+    "origen": "parte_068.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La velocidad de transporte de GLUT2 es menor que la de GLUT1"
+  },
+  {
+    "j": 69,
+    "accion": "REUSAR",
+    "origen": "parte_069.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Debido a su elevada Km, cuando la glucemia , nivel de glucos"
+  },
+  {
+    "j": 70,
+    "accion": "REUSAR",
+    "origen": "parte_070.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto tiene una consecuencia fisiológica de gran importancia,"
+  },
+  {
+    "j": 71,
+    "accion": "REUSAR",
+    "origen": "parte_071.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Aunque tiene alta afinidad por la glucosa y funciona a la má"
+  },
+  {
+    "j": 72,
+    "accion": "REUSAR",
+    "origen": "parte_072.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tras la liberación de insulina , en situación de hiperglucem"
+  },
+  {
+    "j": 73,
+    "accion": "REUSAR",
+    "origen": "parte_073.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La disfunción de GLUT4 se asocia a la diabetes mellitus de t"
+  },
+  {
+    "j": 74,
+    "accion": "REUSAR",
+    "origen": "parte_074.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En pacientes con este tipo de diabetes, la insulina no es ca"
+  },
+  {
+    "j": 75,
+    "accion": "REUSAR",
+    "origen": "parte_075.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Así, el consumo de una dieta hipocalórica, junto con una dis"
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_076.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La glucosa es el nutriente principal del cerebro y GLUT1 es "
+  },
+  {
+    "j": 77,
+    "accion": "REUSAR",
+    "origen": "parte_077.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las manifestaciones clínicas aparecen ya en la infancia, pue"
+  },
+  {
+    "j": 78,
+    "accion": "REUSAR",
+    "origen": "parte_078.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Transporte activo Como ya se ha explicado, los transportador"
+  },
+  {
+    "j": 79,
+    "accion": "REUSAR",
+    "origen": "parte_079.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este transporte es energéticamente desfavorable , endergónic"
+  },
+  {
+    "j": 80,
+    "accion": "REUSAR",
+    "origen": "parte_080.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El transporte activo es unidireccional , no cambia su sentid"
+  },
+  {
+    "j": 81,
+    "accion": "REUSAR",
+    "origen": "parte_081.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El transporte activo se puede clasificar en directo o indire"
+  },
+  {
+    "j": 82,
+    "accion": "REUSAR",
+    "origen": "parte_082.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ATPasa P La ATPasa P , del inglés phosphorylation, es una pr"
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_083.wav)",
+    "texto_inicio": "Como posibles tipos de ATPasas P en el ser humano encontramo"
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_084.wav)",
+    "texto_inicio": "ellas, a excepción de la H+ ATPasa, están formadas por cuatr"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_085.wav)",
+    "texto_inicio": "Esta ATPasa es responsable de que se mantengan las diferenci"
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_086.wav)",
+    "texto_inicio": "En la conformación E1, la proteína está abierta hacia el int"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_087.wav)",
+    "texto_inicio": "En primer lugar, la unión de tres iones Na+ a la proteína en"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_088.wav)",
+    "texto_inicio": "La bomba alterna entre dos conformaciones: E1 y E2. En la co"
+  },
+  {
+    "j": 89,
+    "accion": "REUSAR",
+    "origen": "parte_089.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto es así porque, como ya se ha indicado, resulta impresci"
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_090.wav)",
+    "texto_inicio": "concentraciones de Na+ en el líquido extracelular , frente a"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_091.wav)",
+    "texto_inicio": "Este compuesto es muy tóxico en altas dosis, pero en dosis t"
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_092.wav)",
+    "texto_inicio": "Como efecto indirecto, inhibe la bomba Na+ o K+ ATPasa a niv"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones, mu; antes parte_093.wav)",
+    "texto_inicio": "Los niveles intracelulares de este ión deben ser muy bajos ,"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_094.wav)",
+    "texto_inicio": "Esta es una hormona lipófila de origen esteroideo que actúa "
+  },
+  {
+    "j": 95,
+    "accion": "REUSAR",
+    "origen": "parte_095.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Es un transportador activo que puede ser revertido, en cuyo "
+  },
+  {
+    "j": 96,
+    "accion": "REUSAR",
+    "origen": "parte_096.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta ATPasa tiene un componente de membrana llamado F0 que e"
+  },
+  {
+    "j": 97,
+    "accion": "REUSAR",
+    "origen": "parte_097.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ATPasa V La ATPasa V , vacuolar, se encuentra en vacuolas de"
+  },
+  {
+    "j": 98,
+    "accion": "REUSAR",
+    "origen": "parte_098.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los endosomas tardíos y los lisosomas son orgánulos que cont"
+  },
+  {
+    "j": 99,
+    "accion": "REUSAR",
+    "origen": "parte_099.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Transportadores ABC Los transportadores ABC , de inglés A T "
+  },
+  {
+    "j": 100,
+    "accion": "REUSAR",
+    "origen": "parte_100.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En su mayoría se ubican en la membrana plasmática, pero tamb"
+  },
+  {
+    "j": 101,
+    "accion": "REUSAR",
+    "origen": "parte_101.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estos transportadores expulsan xenobióticos, antibióticos y "
+  },
+  {
+    "j": 102,
+    "accion": "REUSAR",
+    "origen": "parte_102.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta proteína es una bomba que utiliza A T P para expulsar u"
+  },
+  {
+    "j": 103,
+    "accion": "REUSAR",
+    "origen": "parte_103.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las células madre , células de vida larga y expuestas, por l"
+  },
+  {
+    "j": 104,
+    "accion": "REUSAR",
+    "origen": "parte_104.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "orgánicos,. El MDR2 se expresa en órganos excretores como el"
+  },
+  {
+    "j": 105,
+    "accion": "REUSAR",
+    "origen": "parte_105.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El gen CFTR codifica para una proteína de canal que permite "
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_106.wav)",
+    "texto_inicio": "Por ejemplo, las células epiteliales de las vías respiratori"
+  },
+  {
+    "j": 107,
+    "accion": "REUSAR",
+    "origen": "parte_107.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En los pacientes con fibrosis quística, las mutaciones en CF"
+  },
+  {
+    "j": 108,
+    "accion": "REUSAR",
+    "origen": "parte_108.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta acumulación estática dificulta la respiración y favorec"
+  },
+  {
+    "j": 109,
+    "accion": "REUSAR",
+    "origen": "parte_109.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La ausencia de transporte de Cl– también afecta a otros órga"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_110.wav)",
+    "texto_inicio": "Se ha reportado que la esperanza de vida se sitúa en torno a"
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_111.wav)",
+    "texto_inicio": "Se pueden diferenciar dos tipos: el cotransporte y el contra"
+  },
+  {
+    "j": 112,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_112.wav)",
+    "texto_inicio": "El SGLT1 se encuentra, esencialmente, en la membrana apical "
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones, miles como decimal; antes parte_113.wav)",
+    "texto_inicio": "En la membrana apical, los transportadores SGLT incorporan g"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_114.wav)",
+    "texto_inicio": "Por lo tanto, el transporte de Na+ o glucosa es un cotranspo"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_115.wav)",
+    "texto_inicio": "FIGURA cuatro a diecisiete Cotransporte de Na+ o glucosa. Lo"
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_116.wav)",
+    "texto_inicio": "Algunos ejemplos de este transporte activo secundario son el"
+  },
+  {
+    "j": 117,
+    "accion": "REUSAR",
+    "origen": "parte_117.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Importancia de los canales iónicos en la generación del pote"
+  },
+  {
+    "j": 118,
+    "accion": "REUSAR",
+    "origen": "parte_118.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se produce por una asimetría en la distribución de cargas , "
+  },
+  {
+    "j": 119,
+    "accion": "REUSAR",
+    "origen": "parte_119.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Después, se coloca otro electrodo en el líquido extracelular"
+  },
+  {
+    "j": 120,
+    "accion": "REUSAR",
+    "origen": "parte_120.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tabla cuatro a dos Valor del potencial de membrana en reposo"
+  },
+  {
+    "j": 121,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_121.wav)",
+    "texto_inicio": "Axones, miocitos esqueléticos menos ochenta mV Miocitos auri"
+  },
+  {
+    "j": 122,
+    "accion": "REUSAR",
+    "origen": "parte_122.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tras la despolarización, se produce un período de repolariza"
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (miles como decimal; antes parte_123.wav)",
+    "texto_inicio": "Tabla cuatro a tres Duración del potencial de acción en dist"
+  },
+  {
+    "j": 124,
+    "accion": "REUSAR",
+    "origen": "parte_124.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Potencial de membrana en reposo , Vm, La composición química"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_125.wav)",
+    "texto_inicio": "característico del LIC es que posee K+ como catión principal"
+  },
+  {
+    "j": 126,
+    "accion": "REUSAR",
+    "origen": "parte_126.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como hemos indicado previamente, la difusión va desde donde "
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_127.wav)",
+    "texto_inicio": "El K+ en el citoplasma actúa como contraión de los aniones a"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_128.wav)",
+    "texto_inicio": "La membrana plasmática posee canales de fuga de K+, lo que h"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_129.wav)",
+    "texto_inicio": "La cantidad de K+ que sale es osmóticamente inapreciable, pe"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_130.wav)",
+    "texto_inicio": "El potencial de membrana se puede calcular utilizando la ecu"
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_131.wav)",
+    "texto_inicio": "Aunque aproximadamente el ochenta por ciento del valor del V"
+  },
+  {
+    "j": 132,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_132.wav)",
+    "texto_inicio": "La contribución del Cl– al Vm es pequeña, ya que el Cl– que "
+  },
+  {
+    "j": 133,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_133.wav)",
+    "texto_inicio": "Si aumentara la permeabilidad celular al Cl–, se produciría "
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_134.wav)",
+    "texto_inicio": "Netamente, la bomba Na+ o K+ ATPasa saca una carga positiva "
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_135.wav)",
+    "texto_inicio": "Excitabilidad eléctrica y canales dependientes de voltaje La"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_136.wav)",
+    "texto_inicio": "En mil novecientos noventa y un, el fisiólogo Bert Sakman y "
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_137.wav)",
+    "texto_inicio": "que esté aislada del medio circundante. Esta superficie de l"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_138.wav)",
+    "texto_inicio": "Por lo tanto, no existen estados en los que un canal se hall"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_139.wav)",
+    "texto_inicio": ", Ilustración de: E. Maldonado., Los canales de Na+ dependie"
+  },
+  {
+    "j": 140,
+    "accion": "REUSAR",
+    "origen": "parte_140.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la región transmembrana de S4 existen aminoácidos con car"
+  },
+  {
+    "j": 141,
+    "accion": "REUSAR",
+    "origen": "parte_141.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La selección de iones con la carga adecuada se produce, prin"
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_142.wav)",
+    "texto_inicio": "compuerta de inactivación está abierta, pero la de activació"
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_143.wav)",
+    "texto_inicio": "A este estado del canal se le denomina estado activado, y es"
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_144.wav)",
+    "texto_inicio": "Los canales de K+ dependientes de voltaje tienen una sola co"
+  },
+  {
+    "j": 145,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_145.wav)",
+    "texto_inicio": "Antes de llegar de nuevo al potencial en reposo, sigue salie"
+  },
+  {
+    "j": 146,
+    "accion": "REUSAR",
+    "origen": "parte_146.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El aumento de voltaje causado por la apertura de la compuert"
+  },
+  {
+    "j": 147,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_147.wav)",
+    "texto_inicio": "Finalmente, destacaremos que la compuerta de inactivación de"
+  },
+  {
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_148.wav)",
+    "texto_inicio": "Tabla cuatro a cinco Densidad de canales de Na+ dependientes"
+  },
+  {
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_149.wav)",
+    "texto_inicio": "Cuando el potencial de membrana está en reposo, la compuerta"
+  },
+  {
+    "j": 150,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_150.wav)",
+    "texto_inicio": "Por esta razón, se recupera el potencial de membrana en repo"
+  },
+  {
+    "j": 151,
+    "accion": "REUSAR",
+    "origen": "parte_151.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se trata de una enfermedad autosómica dominante que afecta a"
+  },
+  {
+    "j": 152,
+    "accion": "REUSAR",
+    "origen": "parte_152.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Existen diversas sustancias que alteran el funcionamiento no"
+  },
+  {
+    "j": 153,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_153.wav)",
+    "texto_inicio": "La saxitoxina , STX, que posee dos grupos guanidino, es prod"
+  },
+  {
+    "j": 154,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones, mu; antes parte_154.wav)",
+    "texto_inicio": "Dado que ambas toxinas tienen unas elevadas especificidad y "
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_155.wav)",
+    "texto_inicio": "En mil novecientos sesenta y dos, Hodgkin publicó un trabajo"
+  },
+  {
+    "j": 156,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_156.wav)",
+    "texto_inicio": "Los potenciales de acción se utilizan para transportar señal"
+  },
+  {
+    "j": 157,
+    "accion": "REUSAR",
+    "origen": "parte_157.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como hemos visto al principio del presente capítulo, existen"
+  },
+  {
+    "j": 158,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_158.wav)",
+    "texto_inicio": "Movimiento iónico a través de la membrana axonal durante el "
+  },
+  {
+    "j": 159,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_159.wav)",
+    "texto_inicio": "Cuando una región de la membrana está ligeramente despolariz"
+  },
+  {
+    "j": 160,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_160.wav)",
+    "texto_inicio": "Esto es así porque existe un importante factor que rompe el "
+  },
+  {
+    "j": 161,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_161.wav)",
+    "texto_inicio": "Tras la fase de reposo, cuando la membrana plasmática se des"
+  },
+  {
+    "j": 162,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_162.wav)",
+    "texto_inicio": "subumbral. Podemos afirmar que el potencial de acción se pro"
+  },
+  {
+    "j": 163,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_163.wav)",
+    "texto_inicio": "cuatro a veintidós, se produce debido a la inactivación de l"
+  },
+  {
+    "j": 164,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_164.wav)",
+    "texto_inicio": "Como ya hemos comentado, existe una diferencia en la velocid"
+  },
+  {
+    "j": 165,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_165.wav)",
+    "texto_inicio": "La hiperpolarización se produce en la mayoría de las neurona"
+  },
+  {
+    "j": 166,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_166.wav)",
+    "texto_inicio": "La recuperación del potencial de membrana en reposo no depen"
+  },
+  {
+    "j": 167,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_167.wav)",
+    "texto_inicio": "Así, una fibra nerviosa puede transmitir entre ciento cinco "
+  },
+  {
+    "j": 168,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_168.wav)",
+    "texto_inicio": "Después de un potencial de acción, no se puede generar otro "
+  },
+  {
+    "j": 169,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_169.wav)",
+    "texto_inicio": "FIGURA cuatro a veinticinco Modificación de la conductancia "
+  },
+  {
+    "j": 170,
+    "accion": "REUSAR",
+    "origen": "parte_170.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Durante este proceso, la onda despolarizante pierde intensid"
+  },
+  {
+    "j": 171,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_171.wav)",
+    "texto_inicio": "En el cono axónico, la generación de potenciales de acción s"
+  },
+  {
+    "j": 172,
+    "accion": "REUSAR",
+    "origen": "parte_172.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se diferencian dos tipos de propagación del impulso nervioso"
+  },
+  {
+    "j": 173,
+    "accion": "REUSAR",
+    "origen": "parte_173.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "cuatro a veintiséis,. La vaina de mielina es un excelente ai"
+  },
+  {
+    "j": 174,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu; antes parte_174.wav)",
+    "texto_inicio": "membrana que contiene mielina. La mielina está compuesta, a "
+  },
+  {
+    "j": 175,
+    "accion": "REUSAR",
+    "origen": "parte_175.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Solo en estas zonas de la membrana pueden los iones fluir co"
+  },
+  {
+    "j": 176,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (iones; antes parte_176.wav)",
+    "texto_inicio": "La salida de K+ en el lado izquierdo de cuatro y cinco provo"
+  },
+  {
+    "j": 177,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "error audible (mu, miles como decimal; antes parte_177.wav)",
+    "texto_inicio": "Madrid: Pearson; dos mil siete., Tabla cuatro a seis Velocid"
+  },
+  {
+    "j": 178,
+    "accion": "REUSAR",
+    "origen": "parte_178.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cuatro a veintisiete Estructura de una neurona mielin"
+  },
+  {
+    "j": 179,
+    "accion": "REUSAR",
+    "origen": "parte_179.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto sucede en los nódulos de Ranvier, al ser el único lugar"
+  },
+  {
+    "j": 180,
+    "accion": "REUSAR",
+    "origen": "parte_180.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El potencial de acción se transmite finalmente de una neuron"
+  },
+  {
+    "j": 181,
+    "accion": "REUSAR",
+    "origen": "parte_181.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estructuralmente, podemos diferenciar dos tipos de sinapsis:"
+  },
+  {
+    "j": 182,
+    "accion": "REUSAR",
+    "origen": "parte_182.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Sinapsis química: en este tipo de sinapsis, las neuronas p"
+  },
+  {
+    "j": 183,
+    "accion": "REUSAR",
+    "origen": "parte_183.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El neurotransmisor se une a receptores anclados en la membra"
+  },
+  {
+    "j": 184,
+    "accion": "REUSAR",
+    "origen": "parte_184.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como ejemplo de una enfermedad donde se produce una alteraci"
+  },
+  {
+    "j": 185,
+    "accion": "REUSAR",
+    "origen": "parte_185.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "cuatro a veintiocho,. La etiología de la EM es desconocida, "
+  },
+  {
+    "j": 186,
+    "accion": "REUSAR",
+    "origen": "parte_186.wav",
+    "motivo": "texto identico",
+    "texto_inicio": ", Imagen procedente de: Popescu y Lucchinetti. BMC Neurology"
+  },
+  {
+    "j": 187,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las lesiones suelen afectar preferentemente a ciertas zonas "
+  },
+  {
+    "j": 188,
+    "accion": "REUSAR",
+    "origen": "parte_192.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Ecuación de Nernst El gradiente electroquímico de un ión det"
+  },
+  {
+    "j": 189,
+    "accion": "REUSAR",
+    "origen": "parte_193.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se puede calcular utilizando la ecuación de Nernst: En el eq"
+  }
+]
