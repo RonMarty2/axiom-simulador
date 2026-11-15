@@ -20,6 +20,8 @@ Adaptador fonético, NO redactor. Fuente de verdad del método: `examenes pasado
 8. **Páginas escaneadas:** pasar OCR y revisar el texto antes de sintetizar; nunca mandar basura a la voz.
 9. Español de Bolivia, tuteo. No se meten marcas `<short pause>` salvo que el código de síntesis las use.
 
+16. **Si se acaba una cuota externa (voz de Google, agy), la ventana NO se detiene: deja en espera solo lo que la necesita y sigue con lo demás** (Ronald, 15-11: «cuando solo usaba Antigravity, se quedaba en standby esperando cuota y por mientras hacía lo demás que se podía: unir, verificar»). Al cortarse la voz: (a) parar los reintentos inútiles; (b) hacer YA lo que no usa esa cuota: escuchar con Whisper lo recién grabado, rearmar y unir los capítulos completos, cortar textos de lo que falta (regla 10), preparar el plan de la siguiente tanda; (c) dejar un vigilante que pruebe la cuota cada ~30 min y relance la grabación sola desde donde quedó, con aviso visible en la barra; nunca «lo hago en la próxima tanda» si se puede hacer ahora.
+
 ## Después de producir
 Pasar el linter sobre el TEXTO (no la ruta) y correr Whisper sobre el audio; informar a Ronald con ficha técnica (libro, páginas, palabras, linter, Whisper). No sintetizar sin su confirmación.
 

@@ -84,10 +84,10 @@
     "j": 162,
     "estado": "REVISAR",
     "motivo": "caracter residual en texto nuevo ('+')",
-    "similitud": 0.9576,
+    "similitud": 0.939,
     "pagina": 1044,
     "texto_viejo": "La coenzima Q es un transbordador que transfi ere electrones desde la primera NADH + H+ NAD+ Complejo de enzimas un FADH2 FAD FMN FMN Fe-S Fe-S CoQ CoQ Cyt b Fe-S Cyt c Cyt b Fe-S Cyt c Cyt c Cyt c Cu Cyt a Cyt a Cu Cyt a Cyt a Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres un o dos O2 + dos H+ H2O Energía libre relativa , kcal o mol, FIGURA veintiséis coma cinco Cadena mitocondrial de transporte de electrones.",
-    "texto_nuevo": "La coenzima Q es un transbordador que transfiere electrones desde la primera NADH + H más N A D más Complejo de enzimas uno FADH dos FAD FMN FMN Fe-S Fe-S CoQ CoQ Cyt b Fe-S Cyt c Cyt b Fe-S Cyt c Cyt c Cyt c Cu Cyt a Cyt a Cu Cyt a Cyt a Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres uno o dos O dos más dos H más H dos O Energía libre relativa, kcal o mol, FIGURA veintiséis punto cinco Cadena mitocondrial de transporte de electrones."
+    "texto_nuevo": "La coenzima Q es un transbordador que transfiere electrones desde la primera NADH + H más N A D más Complejo de enzimas uno FADH dos FAD FMN FMN Fe-S Fe-S CoQ CoQ Cyt b Fe-S Cyt c Cyt b Fe-S Cyt c Cyt c Cyt c Cu Cyt a Cyt a Cu Cyt a Cyt a Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres uno o dos O dos más dos H más H dos O Energía libre relativa, kilocalorías por mol, FIGURA veintiséis punto cinco Cadena mitocondrial de transporte de electrones."
   },
   {
     "j": 164,

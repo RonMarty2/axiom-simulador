@@ -12,10 +12,10 @@
     "j": 75,
     "estado": "OK",
     "motivo": "",
-    "similitud": 1.0,
+    "similitud": 0.9365,
     "pagina": 934,
     "texto_viejo": "En varones, GFR igual a NFP × Kf igual a diez × doce coma cinco igual a ciento veinticinco ml o min. En mujeres jóvenes adultas, la GFR es de casi ciento cinco ml o min. Arteria cortical radial Arteriola aferente a c b Glomérulo Arteriola eferente cien μm cinco μm Cuerpo celular de podocito Plasma sanguíneo Eritrocito Célula endotelial Poro de filtración Podocito Pedículos , separados por estrechas ranuras de filtración, Pedículos Ranuras de filtración cero coma cinco μm Espacio capsular Membrana basal FIGURA veintitrés coma un cero Estructura del glomérulo.",
-    "texto_nuevo": "En varones, GFR igual a NFP por Kf igual a diez por doce punto cinco igual a ciento veinticinco ml o min. En mujeres jóvenes adultas, la GFR es de casi ciento cinco ml o min. Arteria cortical radial Arteriola aferente a c b Glomérulo Arteriola eferente cien micrómetros cinco micrómetros Cuerpo celular de podocito Plasma sanguíneo Eritrocito Célula endotelial Poro de filtración Podocito Pedículos, separados por estrechas ranuras de filtración, Pedículos Ranuras de filtración cero coma cinco micrómetros Espacio capsular Membrana basal FIGURA veintitrés punto diez Estructura del glomérulo."
+    "texto_nuevo": "En varones, GFR igual a NFP por Kf igual a diez por doce punto cinco igual a ciento veinticinco mililitros por minuto. En mujeres jóvenes adultas, la GFR es de casi ciento cinco mililitros por minuto. Arteria cortical radial Arteriola aferente a c b Glomérulo Arteriola eferente cien micrómetros cinco micrómetros Cuerpo celular de podocito Plasma sanguíneo Eritrocito Célula endotelial Poro de filtración Podocito Pedículos, separados por estrechas ranuras de filtración, Pedículos Ranuras de filtración cero coma cinco micrómetros Espacio capsular Membrana basal FIGURA veintitrés punto diez Estructura del glomérulo."
   },
   {
     "j": 110,
@@ -147,37 +147,37 @@
     "j": 159,
     "estado": "OK",
     "motivo": "",
-    "similitud": 1.0,
+    "similitud": 0.9718,
     "pagina": 943,
     "texto_viejo": "La mayor parte de la extremidad es muy permeable al agua, pero no al NaCl; por tanto, el agua pasa por ósmosis del túbulo hacia el líquido extracelular, dejando NaCl atrás. El contenido del túbulo aumenta su osmolaridad, alcanzando casi un doscientos mosm o L para el momento en que el líquido toma la curva en el extremo inferior del asa. En contraste, la mayor parte de la extremidad ascendente , su segmento grueso, es impermeable al agua, pero tiene bombas de transporte activo que cotransportan Na+, K+ y Cl– hacia el líquido extracelular.",
-    "texto_nuevo": "La mayor parte de la extremidad es muy permeable al agua, pero no al NaCl; por tanto, el agua pasa por ósmosis del túbulo hacia el líquido extracelular, dejando NaCl atrás. El contenido del túbulo aumenta su osmolaridad, alcanzando casi mil doscientos mosm o L para el momento en que el líquido toma la curva en el extremo inferior del asa. En contraste, la mayor parte de la extremidad ascendente, su segmento grueso, es impermeable al agua, pero tiene bombas de transporte activo que cotransportan Na más, K más y Cl menos hacia el líquido extracelular."
+    "texto_nuevo": "La mayor parte de la extremidad es muy permeable al agua, pero no al NaCl; por tanto, el agua pasa por ósmosis del túbulo hacia el líquido extracelular, dejando NaCl atrás. El contenido del túbulo aumenta su osmolaridad, alcanzando casi mil doscientos miliosmoles por litro para el momento en que el líquido toma la curva en el extremo inferior del asa. En contraste, la mayor parte de la extremidad ascendente, su segmento grueso, es impermeable al agua, pero tiene bombas de transporte activo que cotransportan Na más, K más y Cl menos hacia el líquido extracelular."
   },
   {
     "j": 173,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 1.0,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('l' vs 'litro')",
+    "similitud": 0.9711,
     "pagina": 944,
     "texto_viejo": "Cuanta más sal tiene el líquido en la extremidad ascendente, más sal bombea el túbulo hacia el líquido extracelular. Cuanto mayor es la cantidad de sal bombeada hacia afuera de la extremidad ascendente, más sal tiene el líquido extracelular en la médula renal. H2O Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– H2O H2O H2O H2O FIGURA veintitrés coma dos cero El multiplicador en contracorriente del asa de Henle. Los números en el túbulo corresponden a mosm o L.",
-    "texto_nuevo": "Cuanta más sal tiene el líquido en la extremidad ascendente, más sal bombea el túbulo hacia el líquido extracelular. Cuanto mayor es la cantidad de sal bombeada hacia afuera de la extremidad ascendente, más sal tiene el líquido extracelular en la médula renal. H dos O Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos H dos O H dos O H dos O H dos O FIGURA veintitrés punto veinte El multiplicador en contracorriente del asa de Henle. Los números en el túbulo corresponden a mosm o L."
+    "texto_nuevo": "Cuanta más sal tiene el líquido en la extremidad ascendente, más sal bombea el túbulo hacia el líquido extracelular. Cuanto mayor es la cantidad de sal bombeada hacia afuera de la extremidad ascendente, más sal tiene el líquido extracelular en la médula renal. H dos O Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos H dos O H dos O H dos O H dos O FIGURA veintitrés punto veinte El multiplicador en contracorriente del asa de Henle. Los números en el túbulo corresponden a miliosmoles por litro."
   },
   {
     "j": 174,
     "estado": "OK",
     "motivo": "",
-    "similitud": 1.0,
+    "similitud": 0.9701,
     "pagina": 945,
     "texto_viejo": "CAPÍTULO veintitrés El aparato urinario Médula Corteza Asa de Henle Túbulo colector Vaso recto Osmolaridad de líquido extracelular , mosm o L, un doscientos Urea Urea Urea Urea Urea Urea Urea H2O NaCl NaCl NaCl NaCl Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Transporte activo Difusión a través de un canal de membrana H2O H2O H2O H2O H2O H2O Clave FIGURA veintitrés coma dos un Relación funcional del asa de Henle, los vasos rectos y el túbulo colector.",
-    "texto_nuevo": "CAPÍTULO veintitrés El aparato urinario Médula Corteza Asa de Henle Túbulo colector Vaso recto Osmolaridad de líquido extracelular, mosm o L, mil doscientos Urea Urea Urea Urea Urea Urea Urea H dos O NaCl NaCl NaCl NaCl Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Transporte activo Difusión a través de un canal de membrana H dos O H dos O H dos O H dos O H dos O H dos O Clave FIGURA veintitrés punto veintiuno Relación funcional del asa de Henle, los vasos rectos y el túbulo colector."
+    "texto_nuevo": "CAPÍTULO veintitrés El aparato urinario Médula Corteza Asa de Henle Túbulo colector Vaso recto Osmolaridad de líquido extracelular, miliosmoles por litro, mil doscientos Urea Urea Urea Urea Urea Urea Urea H dos O NaCl NaCl NaCl NaCl Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Transporte activo Difusión a través de un canal de membrana H dos O H dos O H dos O H dos O H dos O H dos O Clave FIGURA veintitrés punto veintiuno Relación funcional del asa de Henle, los vasos rectos y el túbulo colector."
   },
   {
     "j": 175,
     "estado": "OK",
     "motivo": "",
-    "similitud": 1.0,
+    "similitud": 0.9618,
     "pagina": 945,
     "texto_viejo": "Estas tres estructuras funcionan juntas para mantener un gradiente de osmolaridad en la médula renal. Las cantidades en el túbulo y el vaso recto están en mosm o L. CUADRO veintitrés coma un Hormonas que afectan la función renal Hormona Destinos renales Efectos Aldosterona Asa de Henle, DCT, túbulo colector Promueve la reabsorción de Na+ y la secreción de K+. Promueve de manera indirecta la reabsorción de Cl – y H2O.",
-    "texto_nuevo": "Estas tres estructuras funcionan juntas para mantener un gradiente de osmolaridad en la médula renal. Las cantidades en el túbulo y el vaso recto están en mosm o L. CUADRO veintitrés punto uno Hormonas que afectan la función renal Hormona Destinos renales Efectos Aldosterona Asa de Henle, DCT, túbulo colector Promueve la reabsorción de Na más y la secreción de K más. Promueve de manera indirecta la reabsorción de Cl – y H dos O."
+    "texto_nuevo": "Estas tres estructuras funcionan juntas para mantener un gradiente de osmolaridad en la médula renal. Las cantidades en el túbulo y el vaso recto están en miliosmoles por litro. CUADRO veintitrés punto uno Hormonas que afectan la función renal Hormona Destinos renales Efectos Aldosterona Asa de Henle, DCT, túbulo colector Promueve la reabsorción de Na más y la secreción de K más. Promueve de manera indirecta la reabsorción de Cl – y H dos O."
   },
   {
     "j": 177,
@@ -190,21 +190,21 @@
   },
   {
     "j": 182,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 0.9323,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9008 < 0.92",
+    "similitud": 0.9008,
     "pagina": 946,
     "texto_viejo": "• Gravedad específi ca. Es la relación entre la densidad , g o ml, de una sustancia y la del agua destilada. Esta última tiene gravedad específi ca de un coma cero cero cero, y la de la orina va de un coma cero cero un cuando está muy diluida a un coma cero dos ocho cuando está muy concentrada. La multiplicación de los últimos dos dígitos de la gravedad específi ca por la constante de proporcionalidad dos coma seis da un estimado de los gramos de materia sólida por litro de orina.",
-    "texto_nuevo": "• Gravedad específica. Es la relación entre la densidad, g o ml, de una sustancia y la del agua destilada. Esta última tiene gravedad específica de mil, y la de la orina va de mil un cuando está muy diluida a mil veintiocho cuando está muy concentrada. La multiplicación de los últimos dos dígitos de la gravedad específica por la constante de proporcionalidad dos punto seis da un estimado de los gramos de materia sólida por litro de orina."
+    "texto_nuevo": "• Gravedad específica. Es la relación entre la densidad, gramos por mililitro, de una sustancia y la del agua destilada. Esta última tiene gravedad específica de mil, y la de la orina va de mil un cuando está muy diluida a mil veintiocho cuando está muy concentrada. La multiplicación de los últimos dos dígitos de la gravedad específica por la constante de proporcionalidad dos punto seis da un estimado de los gramos de materia sólida por litro de orina."
   },
   {
     "j": 183,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 0.9748,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8000 < 0.92",
+    "similitud": 0.8,
     "pagina": 946,
     "texto_viejo": "Por ejemplo, la gravedad específi ca de un coma cero dos cinco indica concentración de solutos de veinticinco × dos coma seis igual a sesenta y cinco g o L. • Osmolaridad. La de la orina puede ir de cincuenta mosm o L en una persona muy hidratada a un doscientos mosm o L en una que está deshidratada. Si se le compara con la osmolaridad de la sangre , trescientos mosm o L, la orina puede ser hipotónica o hipertónica. • pH.",
-    "texto_nuevo": "Por ejemplo, la gravedad específica de mil veinticinco indica concentración de solutos de veinticinco por dos punto seis igual a sesenta y cinco g o L. • Osmolaridad. La de la orina puede ir de cincuenta mosm o L en una persona muy hidratada a mil doscientos mosm o L en una que está deshidratada. Si se le compara con la osmolaridad de la sangre, trescientos mosm o L, la orina puede ser hipotónica o hipertónica. • pH."
+    "texto_nuevo": "Por ejemplo, la gravedad específica de mil veinticinco indica concentración de solutos de veinticinco por dos punto seis igual a sesenta y cinco gramos por litro. • Osmolaridad. La de la orina puede ir de cincuenta miliosmoles por litro en una persona muy hidratada a mil doscientos miliosmoles por litro en una que está deshidratada. Si se le compara con la osmolaridad de la sangre, trescientos miliosmoles por litro, la orina puede ser hipotónica o hipertónica. • pH."
   },
   {
     "j": 186,
@@ -226,12 +226,12 @@
   },
   {
     "j": 195,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 0.9966,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.5668 < 0.92",
+    "similitud": 0.5668,
     "pagina": 947,
     "texto_viejo": "CUADRO veintitrés coma dos Propiedades y composición de la orina Propiedades físicas Gravedad específica un coma cero cero un a un coma cero dos ocho Osmolaridad cincuenta a un doscientos mosm o L pH seis coma cero , rango: cuatro coma cinco a ocho coma dos, Soluto Concentración Producción Iones inorgánicos Cloruro quinientos treinta y tres mg o dL seis coma cuatro g o día Sodio trescientos treinta y tres mg o dL cuatro coma cero g o día Potasio ciento sesenta y seis mg o dL dos coma cero g o día Fosfato ochenta y tres mg o dL un g o día Amoniaco sesenta mg o dL cero coma seis ocho g o día Calcio diecisiete mg o dL cero coma dos g o día Magnesio trece mg o dL cero coma un seis g o día Desechos nitrogenados Urea un coma ocho g o dL veintiuno g o día Creatinina ciento cincuenta mg o dL un coma ocho g o día Ácido úrico cuarenta mg o dL cero coma cinco g o día Urobilina ciento veinticinco μg o dL un coma cinco dos mg o día Bilirrubina veinte μg o dL cero coma dos cuatro mg o día Otros solutos orgánicos Aminoácidos doscientos ochenta y ocho μg o dL tres coma cinco mg o día Cetonas diecisiete μg o dL cero coma dos un mg o día Carbohidratos nueve μg o dL cero coma un un mg o día Lípidos un coma seis μg o dL cero coma cero dos mg o día Valores típicos para un adulto joven.",
-    "texto_nuevo": "CUADRO veintitrés punto dos Propiedades y composición de la orina Propiedades físicas Gravedad específica mil uno a mil veintiocho Osmolaridad cincuenta a mil doscientos mosm o L pH seis punto cero, rango: cuatro punto cinco a ocho punto dos, Soluto Concentración Producción Iones inorgánicos Cloruro quinientos treinta y tres mg o dL seis punto cuatro g o día Sodio trescientos treinta y tres mg o dL cuatro punto cero g o día Potasio ciento sesenta y seis mg o dL dos punto cero g o día Fosfato ochenta y tres mg o dL un g o día Amoniaco sesenta mg o dL cero coma seis ocho g o día Calcio diecisiete mg o dL cero coma dos g o día Magnesio trece mg o dL cero coma uno seis g o día Desechos nitrogenados Urea uno punto ocho g o dL veintiún g o día Creatinina ciento cincuenta mg o dL uno punto ocho g o día Ácido úrico cuarenta mg o dL cero coma cinco g o día Urobilina ciento veinticinco microgramos o dL uno punto cincuenta y dos mg o día Bilirrubina veinte microgramos o dL cero coma dos cuatro mg o día Otros solutos orgánicos Aminoácidos doscientos ochenta y ocho microgramos o dL tres punto cinco mg o día Cetonas diecisiete microgramos o dL cero coma dos uno mg o día Carbohidratos nueve microgramos o dL cero coma uno uno mg o día Lípidos uno punto seis microgramos o dL cero coma cero dos mg o día Valores típicos para un adulto joven."
+    "texto_nuevo": "CUADRO veintitrés punto dos Propiedades y composición de la orina Propiedades físicas Gravedad específica mil uno a mil veintiocho Osmolaridad cincuenta a mil doscientos miliosmoles por litro pH seis punto cero, rango: cuatro punto cinco a ocho punto dos, Soluto Concentración Producción Iones inorgánicos Cloruro quinientos treinta y tres miligramos por decilitro seis punto cuatro gramos por día Sodio trescientos treinta y tres miligramos por decilitro cuatro punto cero gramos por día Potasio ciento sesenta y seis miligramos por decilitro dos punto cero gramos por día Fosfato ochenta y tres miligramos por decilitro un gramo por día Amoniaco sesenta miligramos por decilitro cero coma seis ocho gramos por día Calcio diecisiete miligramos por decilitro cero coma dos gramos por día Magnesio trece miligramos por decilitro cero coma uno seis gramos por día Desechos nitrogenados Urea uno punto ocho gramos por decilitro veintiún gramos por día Creatinina ciento cincuenta miligramos por decilitro uno punto ocho gramos por día Ácido úrico cuarenta miligramos por decilitro cero coma cinco gramos por día Urobilina ciento veinticinco microgramos por decilitro uno punto cincuenta y dos miligramos por día Bilirrubina veinte microgramos por decilitro cero coma dos cuatro miligramos por día Otros solutos orgánicos Aminoácidos doscientos ochenta y ocho microgramos por decilitro tres punto cinco miligramos por día Cetonas diecisiete microgramos por decilitro cero coma dos uno miligramos por día Carbohidratos nueve microgramos por decilitro cero coma uno uno miligramos por día Lípidos uno punto seis microgramos por decilitro cero coma cero dos miligramos por día Valores típicos para un adulto joven."
   },
   {
     "j": 254,

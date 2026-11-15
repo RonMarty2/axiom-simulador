@@ -51,3 +51,10 @@ npx tsc --noEmit && npm run lint && npm test && npm run build
 ## Qué devolvés
 
 Ruta, lista de tarjetas con el dispositivo visual de cada una, capturas a 375px si pudiste sacarlas, y cualquier decisión que Ronald tenga que tomar. No commitees: la lámina espera su revisión.
+
+## Lección nueva = TODOS los ayudantes que corresponden (Ronald, 15-11: «¿están usando todos los agentes que tenemos para hacerlo bien?»)
+Vale igual si la escribe Claude o agy (el pedido a agy debe citar estos archivos de `agentes/`):
+1. Texto de la explicación: `redactor-explicaciones.md`. Láminas y reglas pedagógicas: este archivo.
+2. Animación: conceptos que se miran (Bio, Medicina, Química descriptiva) → `animador-conceptos.md`; ejemplos con cuentas (Mat, Fís, Quím) → `animador-resolucion.md`.
+3. Antes de dar la lección por buena (lo hace Claude, no agy): `resolutor-exacto` comprueba cada cuenta del ejemplo; `auditor-pedagogico` y `auditor-figuras` revisan la lección. Se anota en BITACORA.md qué ayudante revisó cada lección.
+Sin esos tres pasos, la lección no entra a la app ni a la cola de la tablet.

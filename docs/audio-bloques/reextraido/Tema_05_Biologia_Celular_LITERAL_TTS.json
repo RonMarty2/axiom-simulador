@@ -57,10 +57,10 @@
     "j": 112,
     "estado": "OK",
     "motivo": "",
-    "similitud": 1.0,
+    "similitud": 0.9939,
     "pagina": 241,
     "texto_viejo": ", A y B, procedentes de: SynapseWeb, Harris KM: C, ilustración de: E. Maldonado., Desde la red Trans del Golgi surgen vesículas que contienen en su membrana proteínas estructurales y transportadoras propias de las vesículas sinápticas. Estas vesículas son transportadas a lo largo del axón mediante transporte anterógrado rápido , doscientos a cuatrocientos μm o día, utilizando los neurotúbulos y neurofilamentos. Cuando han llegado al terminal presináptico, se fusionan con la membrana plasmática para liberar los componentes de las vesículas sinápticas, lo que constituye un proceso de exocitosis constitutiva.",
-    "texto_nuevo": "A y B, procedentes de: SynapseWeb, Harris KM:. C, ilustración de: E. Maldonado. Desde la red Trans del Golgi surgen vesículas que contienen en su membrana proteínas estructurales y transportadoras propias de las vesículas sinápticas. Estas vesículas son transportadas a lo largo del axón mediante transporte anterógrado rápido, doscientos a cuatrocientos micrómetros o día, utilizando los neurotúbulos y neurofilamentos. Cuando han llegado al terminal presináptico, se fusionan con la membrana plasmática para liberar los componentes de las vesículas sinápticas, lo que constituye un proceso de exocitosis constitutiva."
+    "texto_nuevo": "A y B, procedentes de: SynapseWeb, Harris KM:. C, ilustración de: E. Maldonado. Desde la red Trans del Golgi surgen vesículas que contienen en su membrana proteínas estructurales y transportadoras propias de las vesículas sinápticas. Estas vesículas son transportadas a lo largo del axón mediante transporte anterógrado rápido, doscientos a cuatrocientos micrómetros por día, utilizando los neurotúbulos y neurofilamentos. Cuando han llegado al terminal presináptico, se fusionan con la membrana plasmática para liberar los componentes de las vesículas sinápticas, lo que constituye un proceso de exocitosis constitutiva."
   },
   {
     "j": 113,

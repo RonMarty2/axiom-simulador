@@ -64,12 +64,12 @@
   },
   {
     "j": 105,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 1.0,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8438 < 0.92",
+    "similitud": 0.8438,
     "pagina": 789,
     "texto_viejo": "CUADRO veinte coma un Velocidad sanguínea en el circuito sistémico Vaso Diámetro típico de la luz Velocidad Aorta dos coma cinco cm un doscientos mm o s Arteriolas veinticinco a cincuenta μm quince mm o s Capilares cinco a nueve μm cero coma cuatro mm o s Vénulas veinte μm cinco mm o s Vena cava inferior tres cm ochenta mm o s Velocidad sistólica máxima en la aorta; velocidad media o estable en otros vasos. a b a b Externa Media Interna Luz treinta μm FIGURA veinte coma un un Flujo laminar y efecto del radio vascular.",
-    "texto_nuevo": "CUADRO veinte punto uno Velocidad sanguínea en el circuito sistémico Vaso Diámetro típico de la luz Velocidad Aorta dos punto cinco cm mil doscientos mm o s Arteriolas veinticinco a cincuenta micrómetros quince mm o s Capilares cinco a nueve micrómetros cero coma cuatro mm o s Vénulas veinte micrómetros cinco mm o s Vena cava inferior tres cm ochenta mm o s Velocidad sistólica máxima en la aorta; velocidad media o estable en otros vasos. a b a b Externa Media Interna Luz treinta micrómetros FIGURA veinte punto once Flujo laminar y efecto del radio vascular."
+    "texto_nuevo": "CUADRO veinte punto uno Velocidad sanguínea en el circuito sistémico Vaso Diámetro típico de la luz Velocidad Aorta dos punto cinco cm mil doscientos milímetros por segundo Arteriolas veinticinco a cincuenta micrómetros quince milímetros por segundo Capilares cinco a nueve micrómetros cero coma cuatro milímetros por segundo Vénulas veinte micrómetros cinco milímetros por segundo Vena cava inferior tres cm ochenta milímetros por segundo Velocidad sistólica máxima en la aorta; velocidad media o estable en otros vasos. a b a b Externa Media Interna Luz treinta micrómetros FIGURA veinte punto once Flujo laminar y efecto del radio vascular."
   },
   {
     "j": 110,

@@ -1,0 +1,750 @@
+candidatas 118
+== Tema_01_Biologia_Celular_LITERAL_TTS j=26 sim=0.86 palabras=134/130
+   texto «uno punto uno» / oído «1 1»
+   texto «diez» / oído «10»
+   texto «cien» / oído «100»
+   texto «cero coma dos» / oído «0 2»
+   texto «dos» / oído «2»
+   texto «citoesqueleto» / oído «cito esqueleto»
+   texto «ausente pared» / oído «aucente parez»
+   texto «peptidoglucano» / oído «reptidoglucano»
+== Tema_01_Biologia_Celular_LITERAL_TTS j=38 sim=0.94 palabras=80/78
+   texto «intracelular» / oído «intracellular»
+   texto «v» / oído «b»
+   texto «trece» / oído «13»
+   texto «más» / oído «»
+   texto «menos» / oído «»
+   texto «ósmosis» / oído «osmosis»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=4 sim=0.96 palabras=97/95
+   texto «mil quinientas» / oído «1500»
+   texto «ciento cincuenta» / oído «150»
+   texto «doscientas» / oído «200»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=9 sim=0.89 palabras=53/53
+   texto «cero coma dos» / oído «aproximadamente 0 2»
+   texto «diez» / oído «10»
+   texto «veinte ángstroms» / oído «20 angstroms»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=10 sim=0.82 palabras=92/89
+   texto «diez» / oído «10»
+   texto «cien» / oído «100»
+   texto «n úcleo» / oído «núcleo»
+   texto «diez» / oído «10»
+   texto «cero coma cinco» / oído «0 5»
+   texto «cero coma cinco» / oído «0 5»
+   texto «diez» / oído «10»
+   texto «etc» / oído «etcétera»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=12 sim=0.85 palabras=78/75
+   texto «cero coma dos cuatro» / oído «0 24»
+   texto «dos punto dos» / oído «2 2»
+   texto «cero coma dos» / oído «0 2»
+   texto «cero coma dos» / oído «aproximadamente 0 2 micrómetros»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=55 sim=0.98 palabras=97/97
+   texto «tres» / oído «3»
+   texto «cinco» / oído «5»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=56 sim=0.93 palabras=99/97
+   texto «diez» / oído «10»
+   texto «cien» / oído «100»
+   texto «m e t» / oído «met»
+   texto «seis» / oído «6»
+   texto «ocho» / oído «8»
+   texto «veinte» / oído «20»
+== Tema_02_Biologia_Celular_LITERAL_TTS j=111 sim=0.91 palabras=85/79
+   texto «a d n» / oído «adn»
+   texto «a d n» / oído «adn»
+   texto «a d n» / oído «adn»
+   texto «y» / oído «ye»
+== Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS j=141 sim=0.93 palabras=95/95
+   texto «como» / oído «cómo»
+   texto «mil ciento diecinueve» / oído «1119»
+   texto «quinientos» / oído «500»
+   texto «» / oído «a»
+   texto «quinientas» / oído «500»
+   texto «sedimentan» / oído «se alimentan»
+== Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS j=145 sim=0.91 palabras=96/94
+   texto «v fig e dos» / oído «vea cefigue 2»
+   texto «veintidós» / oído «22»
+   texto «veinte mil» / oído «20 000»
+   texto «e dos» / oído «e2»
+   texto «veintidós» / oído «22»
+== Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS j=152 sim=0.73 palabras=87/75
+   texto «sedimentarán» / oído «se alimentarán»
+   texto «cinco por ciento uno coma cero uno siete g o ml» / oído «5 1 017 gramos sobre mililitro»
+   texto «cincuenta por ciento uno coma dos tres g o ml» / oído «50 1 23 gramos sobre mililitro»
+   texto «a d n a r n» / oído «adn arn»
+== Tema_03_Biologia_Celular_LITERAL_TTS j=52 sim=0.97 palabras=94/92
+   texto «treinta y siete» / oído «37»
+   texto «diez» / oído «10»
+== Tema_03_Biologia_Celular_LITERAL_TTS j=78 sim=0.89 palabras=86/89
+   texto «fosfatidilserina» / oído «fosfatidil serina»
+   texto «intracelular» / oído «intracellular»
+   texto «ca dos» / oído «calcio 2»
+   texto «escramblasa» / oído «escranblasa»
+   texto «fosfatidilserina» / oído «fosfatidil serina»
+   texto «escramblasa» / oído «escranblasa»
+   texto «fosfatidilserina» / oído «fosfatidil serina»
+== Tema_03_Biologia_Celular_LITERAL_TTS j=109 sim=0.95 palabras=98/98
+   texto «uno» / oído «1»
+   texto «dos» / oído «2»
+   texto «bicóncavo» / oído «bicóncabo»
+   texto «siete» / oído «7»
+   texto «pigmento» / oído «pigmentos»
+== Tema_03_Biologia_Celular_LITERAL_TTS j=124 sim=0.87 palabras=46/46
+   texto «esferocitosis» / oído «esferositosis»
+   texto «chauffard» / oído «chaufart»
+   texto «dos mil» / oído «2 000»
+   texto «diez mil» / oído «10 000»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=1 sim=0.92 palabras=96/97
+   texto «cuatro» / oído «4»
+   texto «ajami» / oído «ahami»
+   texto «estefanía» / oído «estefania»
+   texto «na más» / oído «n mas»
+   texto «más atpasa» / oído «mas atp asa»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=14 sim=0.89 palabras=102/104
+   texto «cl diez» / oído «clos c l 10»
+   texto «seis» / oído «6»
+   texto «diez» / oído «10»
+   texto «diez» / oído «10»
+   texto «diez» / oído «10»
+   texto «doce» / oído «12»
+   texto «del asa» / oído «»
+   texto «henle» / oído «lasa de genle»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=24 sim=0.94 palabras=89/87
+   texto «iones» / oído «llones»
+   texto «iones» / oído «llones»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kmas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=27 sim=0.91 palabras=95/89
+   texto «cuatro punto cinco» / oído «4 5»
+   texto «e» / oído «»
+   texto «iónicos» / oído «yónicos»
+   texto «iónicos» / oído «yónicos»
+   texto «más» / oído «»
+   texto «más» / oído «»
+   texto «ca dos más» / oído «k2»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=31 sim=0.92 palabras=71/70
+   texto «ión» / oído «yón»
+   texto «acetilcolina» / oído «acetylcolina»
+   texto «de na» / oído «dna»
+   texto «postsináptica» / oído «postcináptica»
+   texto «ión» / oído «yón»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=33 sim=0.96 palabras=71/70
+   texto «dos mil» / oído «2000»
+   texto «seis» / oído «6»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=34 sim=0.98 palabras=64/64
+   texto «cardiomiocitos» / oído «cardiomiositos»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=36 sim=0.91 palabras=73/70
+   texto «cilios» / oído «hílios»
+   texto «maldonado» / oído «»
+   texto «cuatro punto siete» / oído «4 7»
+   texto «nicotínico» / oído «nicotímico»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=37 sim=0.85 palabras=37/34
+   texto «fibrosis quística» / oído «fibrosisquística»
+   texto «cl» / oído «cloro»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kamas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=38 sim=0.90 palabras=98/98
+   texto «ca más» / oído «k mas»
+   texto «eatons» / oído «ethens»
+   texto «ca más» / oído «k mas»
+   texto «na más» / oído «n mas»
+   texto «acetilcolina» / oído «acetylcolina»
+   texto «acuaporinas» / oído «aquaporinas»
+   texto «túbulo» / oído «tubulo»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=52 sim=0.91 palabras=86/85
+   texto «cinco mil da» / oído «5 000 daltons»
+   texto «once» / oído «11»
+   texto «muchas sustancias» / oído «mucha sustancia»
+   texto «por difusión» / oído «tordifusión»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=63 sim=0.95 palabras=100/97
+   texto «na más» / oído «namas»
+   texto «na más» / oído «namas»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=83 sim=0.81 palabras=36/36
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+   texto «dos más» / oído «2 mas»
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=84 sim=0.83 palabras=95/79
+   texto «más atpasa» / oído «»
+   texto «dos alfa» / oído «2α»
+   texto «dos beta» / oído «2β»
+   texto «alfa» / oído «α»
+   texto «ser fosforiladas» / oído «serfos foriladas»
+   texto «iones» / oído «guiones»
+   texto «más» / oído «»
+   texto «más atpasa» / oído «»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=85 sim=0.74 palabras=107/99
+   texto «atpasa» / oído «atp asa»
+   texto «intray extracelulares» / oído «intra y extraselulares»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kamas»
+   texto «potencial» / oído «potencián»
+   texto «na más v» / oído «namas b»
+   texto «hidrólisis» / oído «hidrólicis»
+   texto «a t p» / oído «atp»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=86 sim=0.84 palabras=74/67
+   texto «e uno» / oído «e1»
+   texto «na más» / oído «namas»
+   texto «e dos» / oído «e2»
+   texto «k más» / oído «camas»
+   texto «cuatro punto quince» / oído «4 15»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=87 sim=0.86 palabras=108/99
+   texto «e uno» / oído «e1»
+   texto «a t p» / oído «atp»
+   texto «e uno» / oído «e1»
+   texto «e dos» / oído «e2»
+   texto «e dos» / oído «e2»
+   texto «e dos» / oído «e2»
+   texto «e uno» / oído «e1»
+   texto «cuatro punto quince» / oído «4 15»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=88 sim=0.82 palabras=91/82
+   texto «e uno» / oído «e1»
+   texto «e dos» / oído «e2»
+   texto «e uno» / oído «e1»
+   texto «na más» / oído «namas»
+   texto «e dos» / oído «e2»
+   texto «k más» / oído «camas»
+   texto «veinticinco por ciento» / oído «25»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=90 sim=0.86 palabras=102/102
+   texto «» / oído «las»
+   texto «na» / oído «sodio»
+   texto «intracelular» / oído «intracellular»
+   texto «k más» / oído «potasio»
+   texto «intracelular» / oído «intracellular»
+   texto «na» / oído «sodio»
+   texto «k más atpasa» / oído «potasio atp asa»
+   texto «ouabaína» / oído «guabaína»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=91 sim=0.82 palabras=103/93
+   texto «arritmias» / oído «arrítmias»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «camas»
+   texto «ca dos más intracelular» / oído «ca2mas intracellular»
+   texto «cardiomiocitos» / oído «cardiomyocitos»
+   texto «na más» / oído «namas»
+   texto «ca dos más» / oído «ca2mas»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=92 sim=0.75 palabras=88/79
+   texto «inhibe la» / oído «inhibela»
+   texto «más o k más atpasa» / oído «µkµ atp asa»
+   texto «atpasa» / oído «atp asa»
+   texto «ca dos más atpasa» / oído «kµµµ temeasa»
+   texto «ca dos más» / oído «kµµµ»
+   texto «extracelular» / oído «extraselular»
+   texto «sarcoplásmico» / oído «wisconsinzarcoplasmico»
+   texto «ca dos más» / oído «k2mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=93 sim=0.79 palabras=80/74
+   texto «intracelulares» / oído «intracellulares»
+   texto «ión» / oído «yon»
+   texto «cero coma uno» / oído «0 1»
+   texto «cero coma cero uno» / oído «0 001»
+   texto «mol o l» / oído «por litro»
+   texto «pi libres» / oído «pí libros»
+   texto «ca dos» / oído «k2»
+   texto «ca dos» / oído «k2»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=94 sim=0.92 palabras=76/72
+   texto «ca dos más» / oído «k2mas»
+   texto «identifica» / oído «identificada»
+   texto «hidrólisis» / oído «hidrólicis»
+   texto «a t p» / oído «atp»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=110 sim=0.93 palabras=93/88
+   texto «sitúa» / oído «situa»
+   texto «veinticinco» / oído «25»
+   texto «cuarenta y cinco» / oído «45»
+   texto «más e h más» / oído «eh»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=113 sim=0.93 palabras=76/75
+   texto «epiteliales» / oído «epitaliales»
+   texto «na más» / oído «namas»
+   texto «intracelular» / oído «intracellular»
+   texto «nueve mil» / oído «9 000»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=114 sim=0.91 palabras=91/88
+   texto «na más» / oído «namas»
+   texto «na más» / oído «namas»
+   texto «k más atpasa» / oído «camas atp asa»
+   texto «na más» / oído «namas»
+   texto «glut» / oído «glute»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=115 sim=0.89 palabras=91/89
+   texto «cuatro punto diecisiete cotransporte» / oído «4 17 contransporte»
+   texto «na más» / oído «namas»
+   texto «na más» / oído «namas»
+   texto «basolateral contratransporte» / oído «vasolateral contra transporte»
+   texto «ión» / oído «ion»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=116 sim=0.75 palabras=96/83
+   texto «na más» / oído «namas»
+   texto «ca dos más» / oído «sea 2mas»
+   texto «na más» / oído «namas»
+   texto «ca dos más» / oído «namas»
+   texto «extracelular» / oído «extracellular»
+   texto «na más» / oído «namas»
+   texto «h más» / oído «hmas»
+   texto «cuatro punto dieciocho» / oído «4 18»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=121 sim=0.87 palabras=88/84
+   texto «miocitos» / oído «miositos»
+   texto «ochenta mv miocitos» / oído «80 milivoltios miositos»
+   texto «noventa mv» / oído «90 milivoltios»
+   texto «iónicos» / oído «yónicos»
+   texto «más ca dos más» / oído «ca2»
+   texto «más» / oído «»
+   texto «vm» / oído «bm»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=123 sim=0.82 palabras=89/88
+   texto «cuatro punto tres tabla cuatro punto tres» / oído «4 3»
+   texto «uno» / oído «1»
+   texto «dos» / oído «2»
+   texto «cinco» / oído «5»
+   texto «diez» / oído «10»
+   texto «auriculoventricular» / oído «aurículo ventricular»
+   texto «sincitio» / oído «sin sitio»
+   texto «sincitio» / oído «sin sitio»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=125 sim=0.82 palabras=88/88
+   texto «lic» / oído «leak»
+   texto «más» / oído «mas»
+   texto «citoplasmáticos» / oído «hitoplasmáticos»
+   texto «a r n» / oído «arn»
+   texto «cuatro punto cuatro» / oído «4 4»
+   texto «na más» / oído «n amas»
+   texto «más» / oído «mas»
+   texto «» / oído «menos»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=127 sim=0.92 palabras=75/75
+   texto «más» / oído «mas»
+   texto «contraión» / oído «contrayón»
+   texto «lic» / oído «leak»
+   texto «contraión» / oído «contrayón»
+   texto «más» / oído «mas»
+   texto «lec» / oído «leak»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=128 sim=0.89 palabras=101/101
+   texto «más» / oído «mas»
+   texto «ión» / oído «ion»
+   texto «más» / oído «mas»
+   texto «lic» / oído «leak»
+   texto «lec» / oído «leak»
+   texto «más» / oído «mas»
+   texto «contraiones intracelulares» / oído «contraallones intracellulares»
+   texto «más» / oído «mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=129 sim=0.92 palabras=92/90
+   texto «k más» / oído «camas»
+   texto «k más» / oído «camas»
+   texto «lic» / oído «leak»
+   texto «vm» / oído «uvm»
+   texto «vm» / oído «uvm»
+   texto «lic» / oído «leak»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=130 sim=0.93 palabras=96/93
+   texto «membrana» / oído «membranas»
+   texto «k más» / oído «camas»
+   texto «lic» / oído «leak»
+   texto «k más» / oído «camas»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=131 sim=0.93 palabras=64/63
+   texto «ochenta por ciento» / oído «80»
+   texto «vm» / oído «bm»
+   texto «iones» / oído «yones»
+   texto «» / oído «menos»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=132 sim=0.91 palabras=82/81
+   texto «cl» / oído «cloruro»
+   texto «vm» / oído «uvm»
+   texto «cl» / oído «cloruro»
+   texto «cl» / oído «cloruro»
+   texto «vm» / oído «uvm»
+   texto «cl» / oído «cloruro»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=133 sim=0.90 palabras=90/91
+   texto «cl» / oído «cloro»
+   texto «más» / oído «mas»
+   texto «más atpasa» / oído «mas atp asa»
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+   texto «ión» / oído «guión»
+   texto «lisis» / oído «lisi»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=134 sim=0.77 palabras=93/92
+   texto «más» / oído «mas»
+   texto «más atpasa» / oído «mas atp asa»
+   texto «el lec» / oído «ls»
+   texto «más» / oído «mas»
+   texto «el lic» / oído «l y c»
+   texto «más» / oído «mas»
+   texto «el lec» / oído «ls»
+   texto «más» / oído «mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=135 sim=0.93 palabras=85/83
+   texto «excitabilidad» / oído «exitabilidad»
+   texto «iónicos» / oído «yónicos»
+   texto «iónicos» / oído «yónicos»
+   texto «na más» / oído «neamas»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=137 sim=0.99 palabras=90/89
+   texto «más» / oído «»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=139 sim=0.84 palabras=74/81
+   texto «na más» / oído «namas»
+   texto «cnadv» / oído «c n a d u v»
+   texto «más» / oído «mas»
+   texto «ckdv» / oído «c k d u v»
+   texto «ante proteínas» / oído «anteproteinas»
+   texto «uno» / oído «1»
+   texto «seis» / oído «6»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=142 sim=0.87 palabras=78/79
+   texto «compuerta» / oído «con puerta»
+   texto «de activación» / oído «deactivación»
+   texto «na» / oído «n a»
+   texto «cero mv» / oído «0 milivoltios»
+   texto «setenta mv» / oído «70 milivoltios»
+   texto «cincuenta mv» / oído «50 milivoltios»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=143 sim=0.89 palabras=82/78
+   texto «ión» / oído «ion»
+   texto «lic» / oído «leak»
+   texto «cuatro punto veintiuno» / oído «4 21»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «camas»
+   texto «na más» / oído «namas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=144 sim=0.84 palabras=97/98
+   texto «más» / oído «mas»
+   texto «ión» / oído «llon»
+   texto «cuatro punto veintidós a» / oído «4 22a»
+   texto «secuencia» / oído «sequencia»
+   texto «na más» / oído «n a mas»
+   texto «más» / oído «mas»
+   texto «na más» / oído «n a mas»
+   texto «na más» / oído «n a mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=145 sim=0.95 palabras=42/42
+   texto «más» / oído «mas»
+   texto «más» / oído «mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=149 sim=0.95 palabras=85/85
+   texto «más» / oído «mas»
+   texto «dichos» / oído «bichos»
+   texto «na más» / oído «n mas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=150 sim=0.93 palabras=102/99
+   texto «na más» / oído «namas»
+   texto «k más» / oído «camas»
+   texto «iónicos» / oído «yónicos»
+   texto «episódica» / oído «episodica»
+   texto «i» / oído «1»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=153 sim=0.95 palabras=88/84
+   texto «del na más» / oído «»
+   texto «cuatro punto veintitrés» / oído «4 23»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=156 sim=0.98 palabras=83/85
+   texto «na» / oído «n a»
+   texto «» / oído «a»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=158 sim=0.88 palabras=72/69
+   texto «uno» / oído «1»
+   texto «hallan» / oído «hayan»
+   texto «k más» / oído «camas»
+   texto «unas cien» / oído «una 100»
+   texto «na más» / oído «eneamas»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=159 sim=0.90 palabras=92/88
+   texto «na» / oído «sodio»
+   texto «na» / oído «sodio»
+   texto «lic» / oído «leak»
+   texto «na» / oído «sodio»
+   texto «na» / oído «sodio»
+   texto «hodgkin figura cuatro punto veinticuatro» / oído «hotkin»
+   texto «hodgkin» / oído «hotkin»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=160 sim=0.96 palabras=74/74
+   texto «hodgkin» / oído «hodkin»
+   texto «más» / oído «mas»
+   texto «lec» / oído «lek»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=161 sim=0.92 palabras=56/57
+   texto «k más» / oído «camas»
+   texto «na» / oído «n a»
+   texto «na» / oído «n a»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=163 sim=0.93 palabras=59/61
+   texto «na» / oído «n a»
+   texto «na» / oído «n a»
+   texto «lic» / oído «leak»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=164 sim=0.89 palabras=68/69
+   texto «k más» / oído «camas»
+   texto «na» / oído «n a»
+   texto «na» / oído «n a»
+   texto «k más» / oído «camas»
+   texto «fase» / oído «la base»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=165 sim=0.90 palabras=80/77
+   texto «por que» / oído «porque»
+   texto «cuatro» / oído «4»
+   texto «cuatro» / oído «4»
+   texto «veinticinco» / oído «25»
+   texto «k más» / oído «camas»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=166 sim=0.86 palabras=82/74
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kmas»
+   texto «a t p» / oído «atp»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kmas»
+   texto «na más» / oído «namas»
+   texto «k más» / oído «kmas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=167 sim=0.94 palabras=90/88
+   texto «ciento cinco» / oído «105»
+   texto «quinientos seis» / oído «506»
+   texto «iones» / oído «diones»
+   texto «períodos» / oído «periodos»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=168 sim=0.87 palabras=99/97
+   texto «de na» / oído «dna»
+   texto «compuerta» / oído «con puerta»
+   texto «período» / oído «periodo»
+   texto «período» / oído «periodo»
+   texto «pra» / oído «pea»
+   texto «período» / oído «periodo»
+   texto «de na» / oído «dna»
+   texto «k más» / oído «camas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=169 sim=0.94 palabras=89/88
+   texto «cuatro punto veinticinco» / oído «4 25»
+   texto «más» / oído «mas»
+   texto «na más» / oído «n amas»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=171 sim=0.97 palabras=94/94
+   texto «ión» / oído «yón»
+   texto «ranvier v» / oído «rambier ve»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=176 sim=0.81 palabras=89/84
+   texto «k más» / oído «camas»
+   texto «cuatro» / oído «4»
+   texto «cinco» / oído «5»
+   texto «ranvier» / oído «rambier»
+   texto «k más» / oído «camas»
+   texto «cuatro» / oído «4»
+   texto «cinco» / oído «5»
+   texto «figs tres punto quince» / oído «figuras 3 15»
+== Tema_04_Biologia_Celular_LITERAL_TTS j=177 sim=0.63 palabras=51/44
+   texto «dos mil siete» / oído «2007»
+   texto «cuatro punto seis» / oído «4 6»
+   texto «cero coma cinco» / oído «0 5»
+   texto «un» / oído «1»
+   texto «un m o s axón» / oído «uno ms axon»
+   texto «mil» / oído «1 000»
+   texto «veinticinco» / oído «25»
+   texto «treinta m o s» / oído «30 ms»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=34 sim=0.91 palabras=90/88
+   texto «orgánulos» / oído «organulos»
+   texto «intracelulares» / oído «intracellulares»
+   texto «orgánulos» / oído «organulos»
+   texto «orgánulos» / oído «organulos»
+   texto «más» / oído «»
+   texto «» / oído «atp atp»
+   texto «t p atpasa» / oído «s»
+   texto «más» / oído «»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=60 sim=0.90 palabras=83/81
+   texto «cavéolas» / oído «caveolas»
+   texto «cero coma uno cinco» / oído «0 15»
+   texto «cinco coma cero» / oído «5 0»
+   texto «lamelipodios» / oído «la melipodios»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=66 sim=0.82 palabras=94/91
+   texto «cinco punto trece» / oído «5 13»
+   texto «bacillus anthracis» / oído «vacilus antracis»
+   texto «cinco» / oído «5»
+   texto «quinientos» / oído «500»
+   texto «mayer scholl et al plospathogenes dos mil cinco uno tres» / oído «major shole etal plus patoyens 2005 1 3»
+   texto «veintitrés» / oído «23»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=102 sim=0.94 palabras=94/93
+   texto «ca dos» / oído «calcio 2»
+   texto «intracelular» / oído «intracellular»
+   texto «uno coma cinco» / oído «1 5»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=106 sim=0.94 palabras=78/77
+   texto «postsináptica» / oído «postcináptica»
+   texto «iónicos» / oído «yónicos»
+   texto «de na» / oído «dna»
+   texto «ión» / oído «ion»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=107 sim=0.89 palabras=94/92
+   texto «k más» / oído «kmas»
+   texto «inhiben» / oído «inhiven»
+   texto «intracelular» / oído «intracellular»
+   texto «más» / oído «mas»
+   texto «postsináptica» / oído «post sináptica»
+   texto «k más» / oído «kmas»
+   texto «de» / oído «»
+   texto «v» / oído «ver»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=112 sim=0.94 palabras=87/88
+   texto «synapseweb harris» / oído «synapsis web haris»
+   texto «doscientos» / oído «200»
+   texto «cuatrocientos» / oído «400»
+   texto «o» / oído «por»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=113 sim=0.97 palabras=97/96
+   texto «ach» / oído «aceh»
+   texto «h más» / oído «hmas»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=117 sim=0.86 palabras=101/95
+   texto «cinco punto veintitrés» / oído «5 23»
+   texto «uno» / oído «1»
+   texto «ca dos» / oído «k2»
+   texto «a» / oído «»
+   texto «cam quinasa» / oído «camkinasa»
+   texto «dos» / oído «2»
+   texto «tres» / oído «3»
+   texto «cuatro» / oído «4»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=120 sim=0.86 palabras=94/91
+   texto «ca dos más» / oído «k2mas»
+   texto «ca dos más» / oído «k2mas»
+   texto «vy tsnare» / oído «b y t sner»
+   texto «ca dos más» / oído «k2mas»
+   texto «snare» / oído «ner»
+   texto «vy» / oído «b y»
+   texto «snare» / oído «sner»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=126 sim=0.92 palabras=87/84
+   texto «acetilcolina ach» / oído «acetylcolina aceh»
+   texto «acetil coa» / oído «acetylcoa»
+   texto «acetiltransferasa» / oído «acetyltransferasa»
+   texto «ach» / oído «aceh»
+   texto «h más» / oído «»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=128 sim=0.87 palabras=88/84
+   texto «na más» / oído «namas»
+   texto «ión» / oído «illon»
+   texto «cinco punto veinticuatro» / oído «5 24»
+   texto «uno» / oído «1»
+   texto «na más» / oído «namas»
+   texto «catalizada» / oído «fatalizada»
+   texto «dos» / oído «2»
+   texto «h más» / oído «hmas»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=129 sim=0.91 palabras=74/74
+   texto «tres» / oído «3»
+   texto «ca dos más» / oído «calcio 2 mas»
+   texto «cuatro» / oído «4»
+   texto «cinco» / oído «5»
+   texto «acetilcolinesterasa» / oído «acetylcolinesteraza»
+== Tema_05_Biologia_Celular_LITERAL_TTS j=131 sim=0.96 palabras=98/96
+   texto «de na» / oído «dna»
+   texto «simporte» / oído «sinporte»
+   texto «de na» / oído «dna»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=7 sim=0.85 palabras=73/71
+   texto «microvellosidades» / oído «microbellosidades»
+   texto «microvellosidades» / oído «microbellosidades»
+   texto «micrómetros» / oído «micrómetro»
+   texto «cero coma cero ocho» / oído «0 08»
+   texto «veinte» / oído «20»
+   texto «treinta» / oído «30»
+   texto «villina» / oído «vigina»
+   texto «miosina i» / oído «miocina 1»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=21 sim=0.88 palabras=85/84
+   texto «cadherinas» / oído «caderinas»
+   texto «setecientos» / oído «700»
+   texto «setecientos cincuenta» / oído «750»
+   texto «ca» / oído «calcio»
+   texto «cadherinas» / oído «caderinas»
+   texto «ca» / oído «calcio»
+   texto «cadherinas» / oído «caderinas»
+   texto «cuarenta» / oído «40»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=28 sim=0.88 palabras=81/79
+   texto «macula» / oído «mácula»
+   texto «cero coma uno» / oído «0 1»
+   texto «cero coma cinco» / oído «0 5»
+   texto «cardiomiocitos» / oído «cardiomiozitos»
+   texto «cardíaco» / oído «cardiaco»
+   texto «cadherinas» / oído «caderinas»
+   texto «desmogleínas» / oído «desmogleinas»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=36 sim=0.91 palabras=94/90
+   texto «cationes» / oído «caciones»
+   texto «ca dos más mg dos más» / oído «k2m mg2m»
+   texto «citoesqueleto intracelular» / oído «sitioesqueleto intracellular»
+   texto «queratina» / oído «keratina»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=48 sim=0.95 palabras=76/75
+   texto «ca» / oído «calcio»
+   texto «seis punto ocho» / oído «6 8»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=53 sim=0.97 palabras=83/82
+   texto «ca dos más» / oído «calcio 2mas»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=66 sim=0.91 palabras=80/76
+   texto «ca dos» / oído «k2»
+   texto «ca dos» / oído «k2»
+   texto «intracelular» / oído «intracellular»
+   texto «ca dos» / oído «k2»
+   texto «ca dos» / oído «k2»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=69 sim=0.84 palabras=102/96
+   texto «veintiséis» / oído «26»
+   texto «del ión k más» / oído «de león camas»
+   texto «veintiséis» / oído «26»
+   texto «veinte por ciento» / oído «20»
+   texto «treinta delg» / oído «30 del g»
+   texto «ciento sesenta y siete delt» / oído «167 del t»
+   texto «cincuenta por ciento» / oído «50»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=86 sim=0.95 palabras=52/53
+   texto «diez» / oído «10»
+   texto «varones» / oído «varón es»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=97 sim=0.84 palabras=93/83
+   texto «hélice» / oído «élice»
+   texto «treinta y tres coma cinco por ciento» / oído «33 5»
+   texto «doce por ciento» / oído «12»
+   texto «diez por ciento» / oído «10»
+   texto «hidroxilisina» / oído «hidroxilicina»
+   texto «gly x y» / oído «glic xi»
+   texto «y» / oído «i»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=122 sim=0.95 palabras=75/75
+   texto «aorta» / oído «orta»
+   texto «uno» / oído «1»
+   texto «diez mil» / oído «10 000»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=127 sim=0.91 palabras=104/100
+   texto «so cuarenta y dos» / oído «so42»
+   texto «so tres» / oído «so3»
+   texto «coo» / oído «co o menos»
+   texto «más» / oído «»
+   texto «más» / oído «»
+   texto «turgencia» / oído «urgencia»
+   texto «vítreo» / oído «vitreo»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=128 sim=0.92 palabras=83/82
+   texto «hialuronato» / oído «ialuronato»
+   texto «veinticinco mil» / oído «25 000»
+   texto «dos coma cinco» / oído «2 5»
+   texto «vítreo» / oído «vitreo»
+== Tema_06_Biologia_Celular_LITERAL_TTS j=142 sim=0.92 palabras=91/90
+   texto «alfa dos» / oído «α2»
+   texto «cero coma siete» / oído «0 7»
+   texto «cien mil» / oído «100 000»
+   texto «incluso» / oído «los niños»
+== Tema_09_Morfo_Saladin_LITERAL_TTS j=82 sim=0.76 palabras=67/73
+   texto «radiocubital gínglimo humerocubital artrodia» / oído «radio cubital hínglimo húmero cubital artródia»
+   texto «trapeciometacarpiana» / oído «trapecio metacarpiana»
+   texto «condílea metacarpofalángica» / oído «con dilea metacarpofalánjica»
+   texto «escápula» / oído «escapula»
+   texto «» / oído «húmero»
+   texto «humeroescapular» / oído «húmero escapular»
+   texto «nueve punto once seis» / oído «9 11 6»
+   texto «sinoviales» / oído «y noviales»
+== Tema_12_Biologia_Celular_LITERAL_TTS j=51 sim=0.90 palabras=84/84
+   texto «cero coma dos cinco» / oído «0 25»
+   texto «cinco» / oído «5»
+   texto «nueve» / oído «9»
+   texto «del» / oído «de la»
+   texto «figs» / oído «fix c»
+== Tema_12_Biologia_Celular_LITERAL_TTS j=120 sim=0.91 palabras=95/94
+   texto «miosina ii» / oído «miocina 2»
+   texto «quince» / oído «15»
+   texto «uno coma seis» / oído «1 6»
+   texto «trescientos» / oído «300»
+   texto «cuatrocientas» / oído «400»
+   texto «miosina» / oído «miocina»
+== Tema_12_Biologia_Celular_LITERAL_TTS j=127 sim=0.94 palabras=91/90
+   texto «anisotrópicas» / oído «anizotrópicas»
+   texto «z» / oído «zeta»
+   texto «z» / oído «zeta»
+   texto «dos coma cinco» / oído «2 5»
+== Tema_12_Biologia_Celular_LITERAL_TTS j=128 sim=0.93 palabras=98/97
+   texto «cero coma cuatro» / oído «0 4»
+   texto «gruesos» / oído «cruesos»
+   texto «miosina» / oído «miocina»
+   texto «miosina» / oído «miocina»
+   texto «miosina» / oído «miocina»
+== Tema_12_Biologia_Celular_LITERAL_TTS j=140 sim=0.89 palabras=95/94
+   texto «acetilcolina» / oído «acetylcolina»
+   texto «más» / oído «»
+   texto «uno» / oído «1»
+   texto «invaginaciones» / oído «invarginaciones»
+   texto «túbulos» / oído «tubulos»
+   texto «dos» / oído «2»
+   texto «túbulo» / oído «tubulo»
+   texto «sitúan» / oído «situan»
+== Tema_13_Biologia_Celular_LITERAL_TTS j=85 sim=0.98 palabras=87/86
+   texto «na más» / oído «namas»
+== Tema_13_Biologia_Celular_LITERAL_TTS j=107 sim=0.89 palabras=94/92
+   texto «esta» / oído «ésta»
+   texto «inhibitoria» / oído «inibitoria»
+   texto «enzima» / oído «encima»
+   texto «intracelulares» / oído «intracellulares»
+   texto «na más» / oído «namas»
+   texto «trece punto diecinueve» / oído «13 19»
+   texto «intracelular» / oído «intracellular»
+   texto «opsina» / oído «obstina»
+== Tema_13_Biologia_Celular_LITERAL_TTS j=108 sim=0.93 palabras=61/61
+   texto «na más» / oído «n amas»
+   texto «na más» / oído «n amas»
+== Tema_13_Biologia_Celular_LITERAL_TTS j=109 sim=0.95 palabras=83/82
+   texto «cardíaco» / oído «cardiaco»
+   texto «cardíaco» / oído «cardiaco»
+   texto «gamma» / oído «gama»
+   texto «más» / oído «»
+   texto «ión» / oído «yón»

@@ -21,10 +21,10 @@
     "j": 61,
     "estado": "REVISAR",
     "motivo": "primera palabra distinta ('menor' vs 'del')",
-    "similitud": 0.9886,
+    "similitud": 0.931,
     "pagina": 965,
     "texto_viejo": "menor que un Na+ K+ Cl– Ca2+ Pi Osmolaridad , mosm o L, meq o L, b Líquido intracelular a Plasma sanguíneo FIGURA veinticuatro coma siete Concentraciones de electrólitos en el plasma sanguíneo y el líquido intracelular. De manera colectiva, Pi representa fosfatos inorgánicos en las formas de PO4 tres–, HPO4 dos– y H2PO4 –. Las concentraciones de electrólitos , barras verdes, están dadas en meq o L. Las concentraciones en mmol o L son las mismas para Na+, K+ y Cl–; una mitad de los valores ilustrados son para Ca2+ y una tercera parte para PO4 tres–.",
-    "texto_nuevo": "del ECF. menor que uno Na más K más Cl menos Ca dos más Pi Osmolaridad, mosm o L, meq o L, b Líquido intracelular a Plasma sanguíneo FIGURA veinticuatro punto siete Concentraciones de electrólitos en el plasma sanguíneo y el líquido intracelular. De manera colectiva, Pi representa fosfatos inorgánicos en las formas de PO cuatro tres–, HPO cuatro dos– y H dos PO cuatro –. Las concentraciones de electrólitos, barras verdes, están dadas en meq o L. Las concentraciones en mmol o L son las mismas para Na más, K más y Cl menos; una mitad de los valores ilustrados son para Ca dos más y una tercera parte para PO cuatro tres–."
+    "texto_nuevo": "del ECF. menor que uno Na más K más Cl menos Ca dos más Pi Osmolaridad, miliosmoles por litro, meq o L, b Líquido intracelular a Plasma sanguíneo FIGURA veinticuatro punto siete Concentraciones de electrólitos en el plasma sanguíneo y el líquido intracelular. De manera colectiva, Pi representa fosfatos inorgánicos en las formas de PO cuatro tres–, HPO cuatro dos– y H dos PO cuatro –. Las concentraciones de electrólitos, barras verdes, están dadas en meq o L. Las concentraciones en milimoles por litro son las mismas para Na más, K más y Cl menos; una mitad de los valores ilustrados son para Ca dos más y una tercera parte para PO cuatro tres–."
   },
   {
     "j": 64,

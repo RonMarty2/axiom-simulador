@@ -201,10 +201,10 @@
     "j": 93,
     "estado": "OK",
     "motivo": "",
-    "similitud": 0.9848,
+    "similitud": 0.9692,
     "pagina": 189,
     "texto_viejo": "Los niveles intracelulares de este ión deben ser muy bajos , cero,un a cero,un μmol o l, pues, de lo contrario, se uniría a los Pi libres dando lugar a fosfato de calcio. Una de las funciones de la Ca2+ ATPasa es permitir la adecuada relajación del miocardio a través de la expulsión de Ca2+ citosólico hacia el exterior celular. Existen hormonas potenciadoras de este transporte, como por ejemplo el calcitriol.",
-    "texto_nuevo": "Los niveles intracelulares de este ión deben ser muy bajos, cero coma uno a cero coma cero uno mu mol o l, pues, de lo contrario, se uniría a los Pi libres dando lugar a fosfato de calcio. Una de las funciones de la Ca dos más ATPasa es permitir la adecuada relajación del miocardio a través de la expulsión de Ca dos más citosólico hacia el exterior celular. Existen hormonas potenciadoras de este transporte, como por ejemplo el calcitriol."
+    "texto_nuevo": "Los niveles intracelulares de este ión deben ser muy bajos, cero coma uno a cero coma cero uno micromoles por litro, pues, de lo contrario, se uniría a los Pi libres dando lugar a fosfato de calcio. Una de las funciones de la Ca dos más ATPasa es permitir la adecuada relajación del miocardio a través de la expulsión de Ca dos más citosólico hacia el exterior celular. Existen hormonas potenciadoras de este transporte, como por ejemplo el calcitriol."
   },
   {
     "j": 94,
@@ -676,11 +676,11 @@
   },
   {
     "j": 177,
-    "estado": "OK",
-    "motivo": "",
-    "similitud": 0.9859,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8406 < 0.92; ultima palabra distinta ('s' vs 'segundo')",
+    "similitud": 0.8406,
     "pagina": 206,
     "texto_viejo": "Madrid: Pearson; dos mil siete., Tabla cuatro a seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero,cinco a un μm un m o s Axón gigante de calamar un coma cero cero cero μm veinticinco a treinta m o s",
-    "texto_nuevo": "Madrid: Pearson; dos mil siete. Tabla cuatro punto seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero coma cinco a un micrómetro un m o s Axón gigante de calamar mil micrómetros veinticinco a treinta m o s"
+    "texto_nuevo": "Madrid: Pearson; dos mil siete. Tabla cuatro punto seis Velocidad de propagación del potencial de acción en fibras amielínicas Fibra amielínica Diámetro de la fibra Velocidad de propagación Humano cero coma cinco a un micrómetro un metro por segundo Axón gigante de calamar mil micrómetros veinticinco a treinta metros por segundo"
   }
 ]
