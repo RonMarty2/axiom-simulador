@@ -57,8 +57,12 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     assert.ok(fichaPsa2027, "debe existir ficha vigente de medicina (psa-2027)");
     const reglas = cargarReglasCompartidas();
     const activas = reglasActivasPara(reglas, "medicina");
-    // Desde el 15-nov-2026 hay dos reglas activas: Ingeniería y la práctica PSA 2027 (data/practica).
-    assert.deepEqual(activas.map((r) => r.id).sort(), ["medicina-desde-ingenieria", "medicina-practica-psa-2027-mfq"]);
+    // Desde el 15-nov-2026 hay tres reglas activas: Ingeniería y la práctica PSA 2027 (data/practica: MFQ y Comprensión Lectora).
+    assert.deepEqual(activas.map((r) => r.id).sort(), [
+      "medicina-desde-ingenieria",
+      "medicina-practica-psa-2027-lectura",
+      "medicina-practica-psa-2027-mfq",
+    ]);
     assert.equal(activas.find((r) => r.id === "medicina-desde-ingenieria")?.origen, "ingenieria");
 
     const poolAmpliado = ampliarPoolConPrestadas({
@@ -305,5 +309,38 @@ describe("práctica PSA 2027 (data/practica, 15-nov-2026)", () => {
   test("no aparece como examen en data/examenes", () => {
     const titulos = cargarFacultad("medicina").map((e) => e.titulo ?? "");
     assert.ok(!titulos.some((t) => /Práctica PSA 2027/.test(t)));
+  });
+});
+
+describe("práctica PSA 2027 · Comprensión Lectora (data/practica, 15-nov-2026)", () => {
+  const regla = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-lectura");
+
+  test("el archivo trae 20 preguntas de comprension_lectora, 4 opciones y clave válida", () => {
+    assert.ok(regla?.archivo, "debe existir la regla con archivo");
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    assert.equal(ps.length, 20);
+    assert.deepEqual([...new Set(ps.map((p) => p.area))], ["comprension_lectora"]);
+    for (const p of ps) {
+      assert.equal(p.opciones.length, 4, p.id);
+      assert.ok(p.opciones.some((o) => o.letra === p.respuesta_correcta), p.id);
+    }
+  });
+
+  test("tiene origen propio: no pisa al archivo de MFQ cuando el simulacro carga los dos", () => {
+    const mfq = cargarReglasCompartidas().find((r) => r.id === "medicina-practica-psa-2027-mfq");
+    assert.notEqual(regla!.origen.toLowerCase(), mfq!.origen.toLowerCase());
+  });
+
+  test("entran al simulacro (predictivo) de Medicina con la etiqueta de práctica PSA 2027", () => {
+    const ps = cargarPreguntasArchivo(regla!.archivo!);
+    const pool = ampliarPoolConPrestadas({
+      modo: "predictivo",
+      facultad: "medicina",
+      pool: [],
+      preguntasOrigen: (orig) => (orig === regla!.origen ? ps : []),
+      ficha: fichaPsa2027,
+    });
+    const lectura = pool.filter((p) => p.area === "comprension_lectora" && p.prestada?.etiqueta === "Pregunta de práctica PSA 2027");
+    assert.equal(lectura.length, 20);
   });
 });
