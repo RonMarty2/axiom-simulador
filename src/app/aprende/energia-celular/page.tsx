@@ -278,15 +278,15 @@ function EscKrebs() {
         FADH₂ y un poco de ATP. Ocurre en la MATRIZ mitocondrial.
       </Definicion>
 
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={215}>
+        <svg width="100%" height="100%" viewBox="0 0 720 215" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Ciclo del ácido cítrico (simplificado)
           </text>
           {/* Ciclo */}
           <circle cx={300} cy={130} r={70} fill="none" stroke={LIENZO.accent} strokeWidth={2.5} strokeDasharray="6 4" />
           <text x={300} y={130} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>Krebs</text>
-          <text x={300} y={148} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>(8 reacciones)</text>
+          <text x={300} y={148} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>(8 reacciones)</text>
 
           {/* Entra Acetil-CoA */}
           <g transform="translate(140, 100)">
@@ -315,10 +315,6 @@ function EscKrebs() {
           </g>
           <line x1={370} x2={440} y1={155} y2={165} stroke={LIENZO.fg} strokeWidth={2} markerEnd="url(#kArr)" />
 
-          <text x={360} y={225} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            Como entra 1 acetil-CoA por cada media glucosa: multiplicar todo × 2
-          </text>
-
           <defs>
             <marker id="kArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
@@ -326,6 +322,10 @@ function EscKrebs() {
           </defs>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Como entra 1 acetil-CoA por cada media glucosa: multiplicar todo × 2.
+      </Parrafo>
 
       <Mnemotecnia>
         <strong>"Por GLUCOSA: 2 vueltas al ciclo de Krebs"</strong> (porque hay
@@ -410,15 +410,15 @@ function EscBalanceATP() {
     <EscenaRica>
       <Titulo>Balance final · cuánto ATP gana 1 glucosa</Titulo>
 
-      <Pizarra alto={290}>
-        <svg width="100%" height="100%" viewBox="0 0 720 290" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={260}>
+        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             ATP por glucosa (respiración aeróbica)
           </text>
           {["Etapa", "ATP directo", "NADH (≈3 ATP)", "FADH₂ (≈2 ATP)", "Total"].map((h, i) => (
             <g key={i}>
               <rect x={30 + i * 132} y={40} width={130} height={30} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
-              <text x={30 + i * 132 + 65} y={60} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>{h}</text>
+              <text x={30 + i * 132 + 65} y={60} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h}</text>
             </g>
           ))}
           {/* Faltaba la fila del paso de transición y por eso la tabla no
@@ -449,11 +449,13 @@ function EscBalanceATP() {
               })}
             </g>
           ))}
-          <text x={360} y={268} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            En la célula real varía entre 30 y 38, porque mover los NADH hacia la mitocondria cuesta energía. Para el examen: 36–38.
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        En la célula real varía entre 30 y 38, porque mover los NADH hacia la
+        mitocondria cuesta energía. Para el examen: 36–38.
+      </Parrafo>
 
       <Parrafo>
         Fíjate que hay dos maneras de repartir: si cuentas solo el ATP que sale
@@ -607,19 +609,25 @@ function EscComparacion() {
             { c: "Reactivos", r: "Glucosa + O₂", f: "CO₂ + H₂O" },
             { c: "Productos", r: "CO₂ + H₂O", f: "Glucosa + O₂" },
             { c: "Lugar", r: "Citoplasma + mitocondria", f: "Cloroplasto" },
-            { c: "Ocurre en", r: "Casi todos (bacterias: en su membrana)", f: "Plantas, algas, cianobac." },
+            { c: "Ocurre en", r: "Casi todos*", f: "Plantas, algas, cianob." },
           ].map((row, i) => (
             <g key={i}>
               {[row.c, row.r, row.f].map((v, j) => (
                 <g key={j}>
                   <rect x={60 + j * 200} y={68 + i * 28} width={195} height={28} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={86 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={60 + j * 200 + 97} y={86 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>
           ))}
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        *La respiración ocurre en casi todos los seres vivos (en las bacterias,
+        en su membrana plasmática). La fotosíntesis ocurre en plantas, algas y
+        cianobacterias.
+      </Parrafo>
 
       <Resumen>
         Fotosíntesis FABRICA glucosa con luz; respiración la ROMPE para hacer

@@ -202,15 +202,15 @@ function EscIntercambio() {
     <EscenaRica>
       <Titulo>Intercambio gaseoso · alvéolo ↔ sangre</Titulo>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={180}>
+        <svg width="100%" height="100%" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Difusión por gradiente de presión
           </text>
           {/* alvéolo */}
           <circle cx={200} cy={110} r={50} fill={LIENZO.ok} opacity={0.2} stroke={LIENZO.ok} strokeWidth={2} />
           <text x={200} y={105} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>Alvéolo</text>
-          <text x={200} y={125} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>aire</text>
+          <text x={200} y={125} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>aire</text>
 
           {/* capilar */}
           <rect x={350} y={90} width={300} height={40} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={1.5} rx={20} />
@@ -223,10 +223,6 @@ function EscIntercambio() {
           <line x1={345} y1={125} x2={250} y2={125} stroke={LIENZO.bad} strokeWidth={2} markerEnd="url(#exArr)" />
           <text x={297} y={142} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>CO₂</text>
 
-          <text x={360} y={185} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            O₂ del aire alveolar → sangre; CO₂ de la sangre → aire alveolar
-          </text>
-
           <defs>
             <marker id="exArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
@@ -234,6 +230,10 @@ function EscIntercambio() {
           </defs>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        O₂ del aire alveolar → sangre; CO₂ de la sangre → aire alveolar.
+      </Parrafo>
 
       <Definicion termino="Hematosis (hemato + osis)">
         Intercambio gaseoso alveolar. El O₂ pasa al eritrocito y se une a la

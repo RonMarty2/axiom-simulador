@@ -262,26 +262,33 @@ function EscOsmosis() {
             Qué le pasa a una célula según el medio
           </text>
           {[
-            { x: 100, t: "Isotónica", d: "[soluto] igual dentro y afuera", ef: "Normal", c: LIENZO.ok, shape: "normal" },
-            { x: 320, t: "Hipotónica", d: "[soluto] MENOR afuera (más agua)", ef: "Se HINCHA (puede estallar)", c: "var(--dib-cyan-500)", shape: "big" },
-            { x: 540, t: "Hipertónica", d: "[soluto] MAYOR afuera (menos agua)", ef: "Se ARRUGA (crenación)", c: LIENZO.bad, shape: "small" },
+            { x: 30, t: "Isotónica", d: "[soluto] igual fuera", ef: "Normal", c: LIENZO.ok, shape: "normal" },
+            { x: 255, t: "Hipotónica", d: "[soluto] MENOR afuera", ef: "Se HINCHA (puede estallar)", c: "var(--dib-cyan-500)", shape: "big" },
+            { x: 480, t: "Hipertónica", d: "[soluto] MAYOR afuera", ef: "Se ARRUGA (crenación)", c: LIENZO.bad, shape: "small" },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>
-              <rect x={-10} y={0} width={180} height={160} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
-              <text x={80} y={22} textAnchor="middle" fill={p.c} fontSize={12} fontWeight={700}>{p.t}</text>
+              <rect x={0} y={0} width={210} height={160} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
+              <text x={105} y={22} textAnchor="middle" fill={p.c} fontSize={12} fontWeight={700}>{p.t}</text>
               {/* célula */}
-              {p.shape === "normal" && <circle cx={80} cy={75} r={28} fill={LIENZO.bad} opacity={0.4} stroke={LIENZO.bad} strokeWidth={1.5} />}
-              {p.shape === "big" && <circle cx={80} cy={75} r={40} fill={LIENZO.bad} opacity={0.4} stroke={LIENZO.bad} strokeWidth={1.5} />}
+              {p.shape === "normal" && <circle cx={105} cy={75} r={28} fill={LIENZO.bad} opacity={0.4} stroke={LIENZO.bad} strokeWidth={1.5} />}
+              {p.shape === "big" && <circle cx={105} cy={75} r={40} fill={LIENZO.bad} opacity={0.4} stroke={LIENZO.bad} strokeWidth={1.5} />}
               {p.shape === "small" && (
-                <path d="M 60 65 Q 70 55 80 60 Q 95 50 100 70 Q 105 90 80 90 Q 60 90 60 80 Z"
+                <path d="M 85 65 Q 95 55 105 60 Q 120 50 125 70 Q 130 90 105 90 Q 85 90 85 80 Z"
                   fill={LIENZO.bad} opacity={0.4} stroke={LIENZO.bad} strokeWidth={1.5} />
               )}
-              <text x={80} y={130} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.d}</text>
-              <text x={80} y={148} textAnchor="middle" fill={p.c} fontSize={11} fontWeight={600}>{p.ef}</text>
+              <text x={105} y={130} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d}</text>
+              <text x={105} y={148} textAnchor="middle" fill={p.c} fontSize={11} fontWeight={600}>{p.ef}</text>
             </g>
           ))}
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        En solución isotónica la concentración de soluto es igual dentro y
+        afuera; en la hipotónica es menor afuera (hay más agua, entra y la
+        célula se hincha); en la hipertónica es mayor afuera (hay menos agua,
+        sale y la célula se arruga).
+      </Parrafo>
 
       <Cuidado>
         El <strong>suero fisiológico (NaCl 0.9%)</strong> es ISOTÓNICO con

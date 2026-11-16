@@ -155,35 +155,35 @@ function EscCiclo() {
         días (rango 21-35).
       </Definicion>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={195}>
+        <svg width="100%" height="100%" viewBox="0 0 720 195" preserveAspectRatio="xMidYMid meet">
+          <text x={360} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             4 fases del ciclo
           </text>
           {[
-            { x: 80, t: "Menstrual", d: "días 1-5", des: "descamación del endometrio", c: LIENZO.bad },
-            { x: 235, t: "Folicular", d: "días 6-13", des: "FSH madura folículo; estrógenos suben", c: LIENZO.warn },
-            { x: 390, t: "OVULACIÓN", d: "día 14", des: "LH dispara liberación del óvulo", c: LIENZO.ok },
-            { x: 545, t: "Lútea", d: "días 15-28", des: "cuerpo lúteo → progesterona", c: "var(--dib-violet-400)" },
+            { x: 20, t: "Menstrual", d: "días 1-5", des: "descamación;del endometrio", c: LIENZO.bad },
+            { x: 192, t: "Folicular", d: "días 6-13", des: "FSH madura folículo;estrógenos suben", c: LIENZO.warn },
+            { x: 364, t: "OVULACIÓN", d: "día 14", des: "LH dispara;liberación del óvulo", c: LIENZO.ok },
+            { x: 536, t: "Lútea", d: "días 15-28", des: "cuerpo lúteo →;progesterona", c: "var(--dib-violet-400)" },
           ].map((f, i) => (
-            <g key={i} transform={`translate(${f.x}, 55)`}>
-              <rect x={-10} y={0} width={145} height={130} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={8} />
-              <text x={62} y={22} textAnchor="middle" fill={f.c} fontSize={12} fontWeight={700}>{f.t}</text>
-              <text x={62} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{f.d}</text>
-              <text x={62} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{f.des.split(";")[0]}</text>
+            <g key={i} transform={`translate(${f.x}, 50)`}>
+              <rect x={0} y={0} width={165} height={125} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={8} />
+              <text x={82.5} y={22} textAnchor="middle" fill={f.c} fontSize={12} fontWeight={700}>{f.t}</text>
+              <text x={82.5} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{f.d}</text>
+              <text x={82.5} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{f.des.split(";")[0]}</text>
               {f.des.split(";")[1] && (
-                <text x={62} y={92} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{f.des.split(";")[1]}</text>
+                <text x={82.5} y={93} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{f.des.split(";")[1]}</text>
               )}
             </g>
           ))}
-          <text x={360} y={210} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            Eje hipotálamo (GnRH) → hipófisis (FSH, LH) → ovarios (estrógeno, progesterona)
-          </text>
-          <text x={360} y={230} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={600}>
-            Si hay fecundación: el cuerpo lúteo persiste y la menstruación NO ocurre
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Eje hipotálamo (GnRH) → hipófisis (FSH, LH) → ovarios (estrógeno,
+        progesterona). Si hay fecundación: el cuerpo lúteo persiste y la
+        menstruación NO ocurre.
+      </Parrafo>
 
       <Mnemotecnia>
         <strong>"FSH = folículo madura. LH = libera (ovulación). Progesterona
@@ -205,34 +205,33 @@ function EscFecundacion() {
         Y = varón).
       </Definicion>
 
-      <Pizarra alto={220}>
-        <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={180}>
+        <svg width="100%" height="100%" viewBox="0 0 720 180" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Etapas del desarrollo
           </text>
           {[
-            { x: 80, t: "Cigoto", d: "1 célula", c: "var(--dib-red-600)" },
-            { x: 200, t: "Mórula", d: "16 células (sin diferenciar)", c: LIENZO.warn },
-            { x: 350, t: "Blástula", d: "esfera hueca", c: LIENZO.ok },
-            { x: 480, t: "Gástrula", d: "3 capas: ecto/meso/endodermo", c: LIENZO.accent },
-            { x: 620, t: "Embrión", d: "órganos en formación", c: "var(--dib-violet-400)" },
+            { x: 80, t: "Cigoto", d1: "1 célula", d2: "", c: "var(--dib-red-600)" },
+            { x: 220, t: "Mórula", d1: "16 células", d2: "(sin diferenciar)", c: LIENZO.warn },
+            { x: 360, t: "Blástula", d1: "esfera hueca", d2: "", c: LIENZO.ok },
+            { x: 500, t: "Gástrula", d1: "3 capas:", d2: "ecto/meso/endodermo", c: LIENZO.accent },
+            { x: 640, t: "Embrión", d1: "órganos en", d2: "formación", c: "var(--dib-violet-400)" },
           ].map((e, i) => (
-            <g key={i} transform={`translate(${e.x - 50}, 55)`}>
+            <g key={i} transform={`translate(${e.x - 50}, 50)`}>
               <circle cx={50} cy={40} r={30} fill={e.c} opacity={0.3} stroke={e.c} strokeWidth={2} />
-              <text x={50} y={45} textAnchor="middle" fill={e.c} fontSize={11} fontWeight={700}>{e.t}</text>
-              <text x={50} y={90} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{e.d}</text>
+              <text x={50} y={44} textAnchor="middle" fill={e.c} fontSize={11} fontWeight={700}>{e.t}</text>
+              <text x={50} y={90} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{e.d1}</text>
+              {e.d2 && <text x={50} y={106} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{e.d2}</text>}
             </g>
           ))}
-          <text x={360} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            Las 3 capas (gástrula) darán origen a TODOS los tejidos
-          </text>
-          <text x={360} y={200} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>
-            <tspan fill={LIENZO.accent} fontWeight={600}>Ectodermo</tspan>: piel, SN ·
-            <tspan fill={LIENZO.ok} fontWeight={600}> Mesodermo</tspan>: huesos, corazón ·
-            <tspan fill={LIENZO.warn} fontWeight={600}> Endodermo</tspan>: digestivo, pulmón
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Las 3 capas (gástrula) darán origen a TODOS los tejidos:{" "}
+        <strong>Ectodermo</strong> (piel, SN), <strong>Mesodermo</strong>{" "}
+        (huesos, corazón) y <strong>Endodermo</strong> (digestivo, pulmón).
+      </Parrafo>
 
       <Definicion termino="3 trimestres del embarazo">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>

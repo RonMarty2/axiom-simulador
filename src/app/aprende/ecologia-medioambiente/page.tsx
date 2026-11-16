@@ -201,8 +201,8 @@ function EscTroficas() {
         aire y del suelo, y los descomponedores la devuelven.
       </Definicion>
 
-      <Pizarra alto={230}>
-        <svg width="100%" height="100%" viewBox="0 0 720 230" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={145}>
+        <svg width="100%" height="100%" viewBox="0 0 720 145" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Niveles tróficos
           </text>
@@ -218,23 +218,13 @@ function EscTroficas() {
               <text x={60} y={20} textAnchor="middle" fill={p.c} fontSize={11} fontWeight={700}>{p.t}</text>
               <text x={60} y={40} textAnchor="middle" fill={p.c} fontSize={14} fontWeight={700}
                 fontFamily="var(--font-crimson), serif">{p.e}</text>
-              <text x={60} y={58} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{p.ej}</text>
+              <text x={60} y={58} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{p.ej}</text>
             </g>
           ))}
           {/* flechas */}
           {[140, 280, 420, 560].map((x, i) => (
             <line key={i} x1={x} x2={x + 20} y1={90} y2={90} stroke={LIENZO.fg} strokeWidth={2} markerEnd="url(#trArr)" />
           ))}
-
-          <text x={360} y={160} textAnchor="middle" fill={LIENZO.warn} fontSize={12} fontWeight={600}>
-            Regla del 10%: cada nivel solo retiene 10% de la energía del anterior
-          </text>
-          <text x={360} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>
-            (el 90% se pierde como calor, respiración o no asimilado)
-          </text>
-          <text x={360} y={210} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={600}>
-            Por eso hay POCOS depredadores top y MUCHOS productores.
-          </text>
 
           <defs>
             <marker id="trArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -243,6 +233,12 @@ function EscTroficas() {
           </defs>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        <strong>Regla del 10%:</strong> cada nivel solo retiene 10% de la
+        energía del anterior (el 90% se pierde como calor, respiración o no
+        asimilado). Por eso hay POCOS depredadores top y MUCHOS productores.
+      </Parrafo>
 
       <Definicion termino="Red trófica">
         En la realidad, los organismos comen y son comidos por MUCHAS especies.

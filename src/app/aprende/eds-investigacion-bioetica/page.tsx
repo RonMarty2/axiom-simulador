@@ -139,8 +139,8 @@ function EscEstad() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={198}>
+        <svg width="100%" height="100%" viewBox="0 0 720 198" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Curva normal (distribución de Gauss)
           </text>
@@ -151,11 +151,12 @@ function EscEstad() {
           <text x={360} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>media (μ)</text>
           <text x={235} y={185} textAnchor="middle" fill={LIENZO.warn} fontSize={11}>−1σ</text>
           <text x={485} y={185} textAnchor="middle" fill={LIENZO.warn} fontSize={11}>+1σ</text>
-          <text x={360} y={195} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">
-            68% dentro de ±1σ, 95% ±2σ, 99.7% ±3σ
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        68% dentro de ±1σ, 95% dentro de ±2σ y 99.7% dentro de ±3σ.
+      </Parrafo>
 
       <Cuidado>
         En salud, la mayoría de las variables (peso, T, presión, hemoglobina)
@@ -196,8 +197,8 @@ function EscSistema() {
           </text>
           {[
             { x: 90, t: "PRIMER nivel", d: "centros de salud, postas. 80% problemas resueltos aquí.", c: LIENZO.ok },
-            { x: 290, t: "SEGUNDO nivel", d: "hospitales generales municipales/provinciales.", c: LIENZO.warn },
-            { x: 490, t: "TERCER nivel", d: "hospitales especializados (Viedma, Obrero, CNS).", c: LIENZO.bad },
+            { x: 290, t: "SEGUNDO nivel", d: "hospitales generales. municipales y provinciales.", c: LIENZO.warn },
+            { x: 490, t: "TERCER nivel", d: "hospitales especializados. (Viedma, Obrero, CNS).", c: LIENZO.bad },
           ].map((p, i) => (
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={180} height={120} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />

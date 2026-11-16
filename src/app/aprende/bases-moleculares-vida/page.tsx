@@ -45,39 +45,32 @@ function EscIntro() {
         Se clasifican en 4 grandes grupos según su función y composición.
       </Definicion>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={235}>
+        <svg width="100%" height="100%" viewBox="0 0 720 235" preserveAspectRatio="xMidYMid meet">
+          <text x={360} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Los 4 tipos de biomoléculas
           </text>
           {[
-            { x: 100, t: "Glúcidos", e: "CHO", fn: "energía rápida", ej: "glucosa, almidón", c: "var(--dib-amber-500)" },
-            { x: 290, t: "Lípidos", e: "CHO (poco O)", fn: "reserva energía, membranas", ej: "grasas, colesterol", c: "var(--dib-yellow-500)" },
-            { x: 480, t: "Proteínas", e: "CHON(S)", fn: "estructura, enzimas, transporte", ej: "hemoglobina, queratina", c: "var(--dib-emerald-500)" },
-            { x: 100, y: 145, t: "Ácidos nucleicos", e: "CHONP", fn: "info genética", ej: "ADN, ARN", c: "var(--dib-violet-400)" },
+            { x: 45, y: 42, t: "Glúcidos", e: "CHO", fn: "energía rápida", ej: "glucosa, almidón", c: "var(--dib-amber-500)" },
+            { x: 375, y: 42, t: "Lípidos", e: "CHO (poco O)", fn: "reserva energía, membranas", ej: "grasas, colesterol", c: "var(--dib-yellow-500)" },
+            { x: 45, y: 138, t: "Proteínas", e: "CHON(S)", fn: "estructura, enzimas, transporte", ej: "hemoglobina, queratina", c: "var(--dib-emerald-500)" },
+            { x: 375, y: 138, t: "Ácidos nucleicos", e: "CHONP", fn: "info genética", ej: "ADN, ARN", c: "var(--dib-violet-400)" },
           ].map((b, i) => (
-            <g key={i} transform={`translate(${b.x - 70}, ${b.y || 50})`}>
-              <rect width={150} height={90} fill={b.c} opacity={0.1} stroke={b.c} strokeWidth={1.5} rx={10} />
-              <text x={75} y={22} textAnchor="middle" fill={b.c} fontSize={13} fontWeight={700}>{b.t}</text>
-              <text x={75} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>Elementos: {b.e}</text>
-              <text x={75} y={58} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{b.fn}</text>
-              <text x={75} y={78} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">ej: {b.ej}</text>
+            <g key={i} transform={`translate(${b.x}, ${b.y})`}>
+              <rect width={300} height={85} fill={b.c} opacity={0.1} stroke={b.c} strokeWidth={1.5} rx={10} />
+              <text x={150} y={22} textAnchor="middle" fill={b.c} fontSize={13} fontWeight={700}>{b.t}</text>
+              <text x={150} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Elementos: {b.e}</text>
+              <text x={150} y={57} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{b.fn}</text>
+              <text x={150} y={74} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">ej: {b.ej}</text>
             </g>
           ))}
-          <text x={500} y={190} fill={LIENZO.warn} fontSize={12} fontWeight={600}>
-            Casi todas se arman como un collar:
-          </text>
-          <text x={500} y={207} fill={LIENZO.fgDim} fontSize={11}>
-            piezas chicas (monómeros) enganchadas
-          </text>
-          <text x={500} y={222} fill={LIENZO.fgDim} fontSize={11}>
-            en cadenas largas (polímeros).
-          </text>
-          <text x={500} y={239} fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            Los lípidos son la excepción.
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Casi todas se arman como un collar: piezas chicas (monómeros)
+        enganchadas en cadenas largas (polímeros). Los lípidos son la excepción.
+      </Parrafo>
 
       <Mnemotecnia>
         <strong>"Glúcidos = azúcar; Lípidos = grasa; Proteínas = las obreras (hacen casi todo);
@@ -102,47 +95,44 @@ function EscGlucidos() {
         "hidratos de carbono"). Fórmula general: <strong>(CH₂O)n</strong>.
       </Definicion>
 
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={205}>
+        <svg width="100%" height="100%" viewBox="0 0 720 205" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Clasificación por número de unidades
           </text>
           {[
-            { x: 90, t: "Monosacárido", n: "1", ej: "glucosa, fructosa, galactosa", c: "var(--dib-amber-500)" },
-            { x: 290, t: "Disacárido", n: "2", ej: "sacarosa, lactosa, maltosa", c: "var(--dib-orange-400)" },
-            { x: 490, t: "Polisacárido", n: "muchas", ej: "almidón, glucógeno, celulosa", c: "var(--dib-red-500)" },
+            { x: 45, t: "Monosacárido", n: "1", ej: "glucosa, fructosa, galactosa", c: "var(--dib-amber-500)" },
+            { x: 260, t: "Disacárido", n: "2", ej: "sacarosa, lactosa, maltosa", c: "var(--dib-orange-400)" },
+            { x: 475, t: "Polisacárido", n: "muchas", ej: "almidón, glucógeno, celulosa", c: "var(--dib-red-500)" },
           ].map((g, i) => (
             <g key={i} transform={`translate(${g.x}, 50)`}>
-              <rect x={-10} y={0} width={180} height={140} fill={g.c} opacity={0.1} stroke={g.c} strokeWidth={1.5} rx={10} />
-              <text x={80} y={25} textAnchor="middle" fill={g.c} fontSize={13} fontWeight={700}>{g.t}</text>
-              <text x={80} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>n = {g.n}</text>
+              <rect x={0} y={0} width={195} height={140} fill={g.c} opacity={0.1} stroke={g.c} strokeWidth={1.5} rx={10} />
+              <text x={97.5} y={25} textAnchor="middle" fill={g.c} fontSize={13} fontWeight={700}>{g.t}</text>
+              <text x={97.5} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>n = {g.n}</text>
               {/* representación visual */}
               {g.t === "Monosacárido" && (
-                <circle cx={80} cy={80} r={14} fill={g.c} opacity={0.6} />
+                <circle cx={97.5} cy={80} r={14} fill={g.c} opacity={0.6} />
               )}
               {g.t === "Disacárido" && (
                 <>
-                  <circle cx={68} cy={80} r={12} fill={g.c} opacity={0.6} />
-                  <circle cx={92} cy={80} r={12} fill={g.c} opacity={0.6} />
+                  <circle cx={85.5} cy={80} r={12} fill={g.c} opacity={0.6} />
+                  <circle cx={109.5} cy={80} r={12} fill={g.c} opacity={0.6} />
                 </>
               )}
               {g.t === "Polisacárido" && [0, 1, 2, 3, 4].map((j) => (
-                <circle key={j} cx={50 + j * 15} cy={80} r={8} fill={g.c} opacity={0.6} />
+                <circle key={j} cx={67.5 + j * 15} cy={80} r={8} fill={g.c} opacity={0.6} />
               ))}
-              <text x={80} y={115} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{g.ej}</text>
+              <text x={97.5} y={118} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{g.ej}</text>
             </g>
           ))}
-          <text x={360} y={212} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={600}>
-            Enlace entre monosacáridos: enlace glucosídico
-          </text>
-          <text x={360} y={232} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>
-            glucosa + fructosa → sacarosa + H₂O
-          </text>
-          <text x={360} y={248} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">
-            al unirse dos azúcares, sale una molécula de agua
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Enlace entre monosacáridos: <strong>enlace glucosídico</strong>. Por
+        ejemplo, glucosa + fructosa → sacarosa + H₂O (al unirse dos azúcares,
+        sale una molécula de agua).
+      </Parrafo>
 
       <Definicion termino="Glucosa (C₆H₁₂O₆)">
         El monosacárido más importante. Combustible principal de las células,

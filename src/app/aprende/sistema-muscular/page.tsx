@@ -212,8 +212,8 @@ function EscUnion() {
         neurotransmisor es la <strong>acetilcolina (ACh)</strong>.
       </Definicion>
 
-      <Pizarra alto={170}>
-        <svg width="100%" height="100%" viewBox="0 0 720 170" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={135}>
+        <svg width="100%" height="100%" viewBox="0 0 720 135" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Impulso eléctrico → contracción
           </text>
@@ -227,17 +227,18 @@ function EscUnion() {
           {[1, 2, 3].map((i) => (
             <circle key={i} cx={200 + i * 25} cy={90} r={5} fill={LIENZO.accent} />
           ))}
-          <text x={250} y={115} textAnchor="middle" fill={LIENZO.accent} fontSize={10}>ACh</text>
+          <text x={250} y={115} textAnchor="middle" fill={LIENZO.accent} fontSize={11}>ACh</text>
           {/* Músculo */}
           <g transform="translate(450, 50)">
             <rect width={180} height={50} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={2} rx={6} />
             <text x={90} y={30} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>Fibra muscular</text>
           </g>
-          <text x={360} y={150} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            La ACh llega al músculo, lo despolariza, libera Ca²⁺ → contracción
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        La ACh llega al músculo, lo despolariza, libera Ca²⁺ → contracción.
+      </Parrafo>
 
       <Cuidado>
         <strong>Curare</strong> (veneno indígena) bloquea los receptores de ACh →

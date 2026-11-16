@@ -103,21 +103,28 @@ function EscProcaEuca() {
             { c: "Núcleo", p: "Sin membrana", e: "Con membrana" },
             { c: "Tamaño", p: "1–10 μm", e: "10–100 μm" },
             { c: "ADN", p: "Circular en citoplasma", e: "Lineal en núcleo" },
-            { c: "Organelos", p: "Solo ribosomas (70S)", e: "Muchos (mit., cloro., RE)" },
-            { c: "Pared", p: "Peptidoglicano (bacteria)", e: "Celulosa (plantas), quitina (hongos)" },
-            { c: "Ejemplos", p: "Bacterias, arqueas", e: "Plantas, animales, hongos, protistas" },
+            { c: "Organelos", p: "Solo ribosomas (70S)", e: "Muchos con membrana" },
+            { c: "Pared", p: "Peptidoglicano (bact.)", e: "Celulosa o quitina" },
+            { c: "Ejemplos", p: "Bacterias, arqueas", e: "Plantas, hongos, anim.*" },
           ].map((row, i) => (
             <g key={i}>
               {[row.c, row.p, row.e].map((v, j) => (
                 <g key={j}>
                   <rect x={60 + j * 200} y={73 + i * 28} width={195} height={28} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>
           ))}
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        En eucariotas hay muchos organelos membranosos (mitocondrias,
+        cloroplastos, retículo endoplasmático); la pared celular es de celulosa
+        (plantas) o quitina (hongos), mientras que en bacterias es de
+        peptidoglicano. *Incluyen plantas, animales, hongos y protistas.
+      </Parrafo>
 
       <Definicion termino="Procariota (pro = antes, karyo = núcleo)">
         Célula SIN núcleo verdadero. ADN circular libre en citoplasma. Sin
@@ -458,21 +465,26 @@ function EscMeiosis() {
             { c: "Divisiones", m: "1", me: "2" },
             { c: "Células hijas", m: "2", me: "4" },
             { c: "Cromosomas hija", m: "2n (igual)", me: "n (mitad)" },
-            { c: "Variabilidad", m: "No (idénticas)", me: "Sí (recombinación)" },
-            { c: "Tipo de célula", m: "somática", me: "células germinales → gametos" },
+            { c: "Variabilidad", m: "No (idénticas)", me: "Sí (recombina)" },
+            { c: "Tipo de célula", m: "somática", me: "germinales → gametos" },
             { c: "Función", m: "crecer, reparar", me: "reproducir" },
           ].map((row, i) => (
             <g key={i}>
               {[row.c, row.m, row.me].map((v, j) => (
                 <g key={j}>
                   <rect x={60 + j * 200} y={73 + i * 28} width={195} height={28} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>
           ))}
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        En la meiosis hay variabilidad genética por recombinación y ocurre en
+        células germinales para producir gametos.
+      </Parrafo>
 
       <Definicion termino="Recombinación genética (crossing-over)">
         Durante la profase I de la meiosis, los cromosomas homólogos
