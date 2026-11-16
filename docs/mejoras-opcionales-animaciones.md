@@ -103,3 +103,9 @@ Criterios: 1 = comprobación que no detectaría un error; 2 = cambio de base sin
 - [3] T7 (1 casos): Habla de "la base del ejercicio" sin haberla definido ni explicar por qué es el 2 y no el 4 de la lista.
 
 Total: 61 hallazgos distintos.
+
+## Lección BCM 08 «Respuesta inmunitaria» (Calvo 17) · 15-nov-2026 · NO se hacen ahora
+Decidido A (quedan como están) por la regla 10: pesan más los temas sin preguntas.
+- Partir escenas cargadas: la 6 (activación de linfocitos T) y la 9 (tolerancia). También están cargadas la 3 (isotipos y monoclonales) y la 7 (linfocitos B y complemento).
+- Letras chicas en los diagramas en tablet y escritorio: desde el arreglo del 15-nov el dibujo se ajusta al alto de la Pizarra (212-224 px). Para agrandar las etiquetas, subir el `alto` de la Pizarra o reubicar los rótulos. También aplica a `bcm-celulas-madre`.
+- Hallazgo #12 de la auditoría: siglas sin desarrollar (el libro tampoco las desarrolla).
