@@ -118,3 +118,21 @@ Auditoría sobre [LISTA_CONTENIDOS_PSA2027.txt](file:///C:/Users/lmigu/SynologyD
 - **DENTRO:** 98 de 105 (Matemática 38/40, Física 42/45, Química 18/20).
 - **DUDOSA:** 7 de 105 — **M2.4** (falta «módulo»), **M2.5** (falta «conjugado»), **F3.5** (falta «potencia óptica / dioptrías»), **F4.5** (falta «calorimetría / equilibrio térmico / mezclas»), **F9.3** (falta «fuerza magnética sobre conductor con corriente»), **Q2.3** (falta «Principio de Le Chatelier»), **Q2.5** (faltan «catalizador» y «energía de activación»).
 - **FUERA:** 0 de 105.
+
+## Unidades de geometría y trigonometría enlazadas a Medicina (commit c58c6a9) → cita en 4096.pdf (16-nov-2026)
+Regla: solo entra lo que figura en la lista oficial (LISTA_CONTENIDOS_PSA2027: Matemáticas = 4096.pdf libro p. 38-45 = PDF p. 39-46). Citas literales de `docs/psa-2027/4096_p29-45_texto.txt` (línea · página PDF/libro), buscadas solo en las páginas de Matemáticas.
+
+| Unidad (/aprende) | Cita literal | Línea · PDF/libro | Veredicto |
+|---|---|---|---|
+| `segmentos-angulos` | «La recta, semirecta y segmento» · «Definición de ángulo» · «Clasificación de ángulos» | L536, L538-539 · 40/39 | DENTRO |
+| `triangulos` | «Triángulos y su clasificación» · «Suma de ángulos internos de un triángulo cualquiera» | L523 · 40/39; L581 · 41/40 | DENTRO |
+| `congruencia-semejanza` | «Criterios para la congruencia de triángulos: (LLL, LAL, …» · «Criterios de semejanza de triángulos: (AAA, LLL, LAL)» | L525, L532 · 40/39 | DENTRO |
+| `poligonos-cuadrilateros` | «Perímetro de polígonos regulares e irregulares» · «Áreas de figuras planas: triángulos, polígonos regulares» | L539-540 · 40/39 | DENTRO (cuadriláteros como figura plana; «cuadrilátero» no aparece literal) |
+| `circunferencia` | «Círculo y circunferencia» | L543 · 40/39 | DENTRO |
+| `razones-trigonometricas` | «Razones trigonométricas» · «Ángulos notables» | L759, L760 · 44/43 | DENTRO |
+| `identidades-trigonometricas` | «Identidades trigonométricas fundamentales» · «Identidades de ángulos dobles» | L756, L759 · 44/43 | DENTRO |
+| `ley-senos-cosenos` | «Teorema de Seno» · «Teorema de Coseno» · «Resolución de triángulos oblicuángulos» | L783 · 44/43; L787-788 · 45/44 | DENTRO |
+| `ecuacion-recta` | «INTRODUCCIÓN A LA GEOMETRÍA ANALÍTICA…» · «Distancia entre dos puntos» · «Pendiente de una recta» | L774, L780 · 44/43; L787 · 45/44 | DENTRO |
+| `circunferencia-parabola-analitica` | «Ecuación ordinaria de la circunferencia» · «Definición de Parábola» · «Ecuaciones de la parábola» | L844, L857, L859 · 46/45 | DENTRO |
+
+Resultado: 10 dentro, 0 fuera, 0 dudosas. La misma regla se aplica a la lección de Estadística y a cada hueco que se llene.
