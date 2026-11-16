@@ -35,9 +35,9 @@ function EscMetodo() {
         Procedimiento ordenado para generar conocimiento verificable. Pasos:
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={334}>
+        <svg width="100%" height="100%" viewBox="0 0 360 385" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Etapas del método científico
           </text>
           {[
@@ -49,9 +49,9 @@ function EscMetodo() {
             { t: "6. Conclusiones", d: "acepta o rechaza la hipótesis" },
             { t: "7. Comunicación", d: "publicación científica" },
           ].map((e, i) => (
-            <g key={i} transform={`translate(80, ${50 + i * 22})`}>
-              <text x={15} y={15} fill={LIENZO.accent} fontSize={11} fontWeight={700}>{e.t}:</text>
-              <text x={170} y={15} fill={LIENZO.fg} fontSize={11}>{e.d}</text>
+            <g key={i} transform={`translate(16, ${48 + i * 47})`}>
+              <text x={0} y={14} fill={LIENZO.accent} fontSize={13} fontWeight={700}>{e.t}:</text>
+              <text x={12} y={32} fill={LIENZO.fg} fontSize={13}>{e.d}</text>
             </g>
           ))}
         </svg>
@@ -139,18 +139,18 @@ function EscEstad() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={198}>
-        <svg width="100%" height="100%" viewBox="0 0 720 198" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={187}>
+        <svg width="100%" height="100%" viewBox="0 0 360 216" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Curva normal (distribución de Gauss)
           </text>
-          <line x1={80} x2={640} y1={170} y2={170} stroke={LIENZO.fg} strokeWidth={1.5} />
-          <path d="M 80 170 Q 250 170 360 70 Q 470 170 640 170" fill={LIENZO.accent} opacity={0.2}
+          <line x1={20} x2={340} y1={175} y2={175} stroke={LIENZO.fg} strokeWidth={1.5} />
+          <path d="M 20 175 Q 117 175 180 75 Q 243 175 340 175" fill={LIENZO.accent} opacity={0.2}
             stroke={LIENZO.accent} strokeWidth={2} />
-          <line x1={360} y1={170} x2={360} y2={70} stroke={LIENZO.fg} strokeWidth={1} strokeDasharray="3 3" />
-          <text x={360} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>media (μ)</text>
-          <text x={235} y={185} textAnchor="middle" fill={LIENZO.warn} fontSize={11}>−1σ</text>
-          <text x={485} y={185} textAnchor="middle" fill={LIENZO.warn} fontSize={11}>+1σ</text>
+          <line x1={180} y1={175} x2={180} y2={75} stroke={LIENZO.fg} strokeWidth={1} strokeDasharray="3 3" />
+          <text x={180} y={64} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>media (μ)</text>
+          <text x={109} y={196} textAnchor="middle" fill={LIENZO.warn} fontSize={13}>−1σ</text>
+          <text x={251} y={196} textAnchor="middle" fill={LIENZO.warn} fontSize={13}>+1σ</text>
         </svg>
       </Pizarra>
 
@@ -190,23 +190,21 @@ function EscSistema() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={288}>
+        <svg width="100%" height="100%" viewBox="0 0 360 332" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             3 niveles de atención
           </text>
           {[
-            { x: 90, t: "PRIMER nivel", d: "centros de salud, postas. 80% problemas resueltos aquí.", c: LIENZO.ok },
-            { x: 290, t: "SEGUNDO nivel", d: "hospitales generales. municipales y provinciales.", c: LIENZO.warn },
-            { x: 490, t: "TERCER nivel", d: "hospitales especializados. (Viedma, Obrero, CNS).", c: LIENZO.bad },
+            { t: "PRIMER nivel", d1: "centros de salud, postas.", d2: "80% problemas resueltos aquí.", c: LIENZO.ok },
+            { t: "SEGUNDO nivel", d1: "hospitales generales.", d2: "municipales y provinciales.", c: LIENZO.warn },
+            { t: "TERCER nivel", d1: "hospitales especializados.", d2: "(Viedma, Obrero, CNS).", c: LIENZO.bad },
           ].map((p, i) => (
-            <g key={i} transform={`translate(${p.x}, 55)`}>
-              <rect x={-10} y={0} width={180} height={120} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
-              <text x={80} y={22} textAnchor="middle" fill={p.c} fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={80} y={70} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d.split(".")[0]}</text>
-              {p.d.split(".")[1] && (
-                <text x={80} y={88} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d.split(".")[1]}</text>
-              )}
+            <g key={i} transform={`translate(16, ${44 + i * 94})`}>
+              <rect width={328} height={82} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
+              <text x={164} y={24} textAnchor="middle" fill={p.c} fontSize={14} fontWeight={700}>{p.t}</text>
+              <text x={164} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{p.d1}</text>
+              <text x={164} y={67} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{p.d2}</text>
             </g>
           ))}
         </svg>
@@ -226,21 +224,24 @@ function EscBioetica() {
     <EscenaRica>
       <Titulo>Bioética · 4 principios (Beauchamp-Childress)</Titulo>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={309}>
+        <svg width="100%" height="100%" viewBox="0 0 360 356" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             4 principios de la bioética clínica
           </text>
           {[
-            { x: 90, y: 50, t: "1. Autonomía", d: "respetar las decisiones del paciente informado", c: LIENZO.accent },
-            { x: 410, y: 50, t: "2. Beneficencia", d: "buscar el bien del paciente", c: LIENZO.ok },
-            { x: 90, y: 150, t: "3. No maleficencia", d: "primum non nocere · no causar daño", c: LIENZO.bad },
-            { x: 410, y: 150, t: "4. Justicia", d: "distribución equitativa de recursos", c: LIENZO.warn },
+            { y: 44, h: 78, t: "1. Autonomía", d1: "respetar las decisiones", d2: "del paciente informado", c: LIENZO.accent },
+            { y: 132, h: 62, t: "2. Beneficencia", d1: "buscar el bien del paciente", d2: "", c: LIENZO.ok },
+            { y: 204, h: 62, t: "3. No maleficencia", d1: "primum non nocere · no causar daño", d2: "", c: LIENZO.bad },
+            { y: 276, h: 62, t: "4. Justicia", d1: "distribución equitativa de recursos", d2: "", c: LIENZO.warn },
           ].map((p, i) => (
-            <g key={i} transform={`translate(${p.x}, ${p.y})`}>
-              <rect width={220} height={80} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
-              <text x={110} y={25} textAnchor="middle" fill={p.c} fontSize={13} fontWeight={700}>{p.t}</text>
-              <text x={110} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d}</text>
+            <g key={i} transform={`translate(16, ${p.y})`}>
+              <rect width={328} height={p.h} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
+              <text x={164} y={22} textAnchor="middle" fill={p.c} fontSize={14} fontWeight={700}>{p.t}</text>
+              <text x={164} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{p.d1}</text>
+              {p.d2 && (
+                <text x={164} y={63} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{p.d2}</text>
+              )}
             </g>
           ))}
         </svg>

@@ -66,22 +66,27 @@ function EscLalonde() {
         grupos. Es la base de la salud pública moderna.
       </Definicion>
 
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            ¿De qué depende tu salud? (% aproximado)
+      <Pizarra alto={321}>
+        <svg width="100%" height="100%" viewBox="0 0 360 370" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            ¿De qué depende tu salud?
+          </text>
+          <text x={180} y={39} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            (% aproximado)
           </text>
           {[
-            { y: 50, t: "Estilo de vida", per: "43%", d: "fumar, alcohol, dieta, ejercicio, conducción", c: LIENZO.bad },
-            { y: 100, t: "Medio ambiente", per: "19%", d: "agua, aire, vivienda, ruido, contaminación", c: LIENZO.warn },
-            { y: 150, t: "Biología humana", per: "27%", d: "genética, envejecimiento", c: LIENZO.ok },
-            { y: 200, t: "Sistema sanitario", per: "11%", d: "acceso a médicos, hospitales, medicinas", c: "var(--dib-cyan-500)" },
+            { y: 58, t: "Estilo de vida", per: "43%", d1: "fumar, alcohol, dieta,", d2: "ejercicio, conducción", c: LIENZO.bad },
+            { y: 140, t: "Medio ambiente", per: "19%", d1: "agua, aire, vivienda,", d2: "ruido, contaminación", c: LIENZO.warn },
+            { y: 222, t: "Biología humana", per: "27%", d1: "genética, envejecimiento", d2: "", c: LIENZO.ok },
+            { y: 287, t: "Sistema sanitario", per: "11%", d1: "acceso a médicos,", d2: "hospitales, medicinas", c: "var(--dib-cyan-500)" },
           ].map((d, i) => (
-            <g key={i} transform={`translate(80, ${d.y})`}>
-              <rect width={parseInt(d.per) * 5} height={36} fill={d.c} opacity={0.4} stroke={d.c} strokeWidth={1.5} rx={4} />
-              <text x={15} y={22} fill={LIENZO.fg} fontSize={11} fontWeight={700}>{d.t} ({d.per})</text>
-              {/* los ejemplos van después de la etiqueta más larga, aunque la barra sea corta */}
-              <text x={Math.max(parseInt(d.per) * 5, 175) + 20} y={22} fill={LIENZO.fgDim} fontSize={11}>{d.d}</text>
+            <g key={i} transform={`translate(16, ${d.y})`}>
+              <rect width={parseInt(d.per) * 6} height={28} fill={d.c} opacity={0.4} stroke={d.c} strokeWidth={1.5} rx={4} />
+              <text x={10} y={19} fill={LIENZO.fg} fontSize={13} fontWeight={700}>{d.t} ({d.per})</text>
+              <text x={10} y={46} fill={LIENZO.fgDim} fontSize={13}>{d.d1}</text>
+              {d.d2 && (
+                <text x={10} y={63} fill={LIENZO.fgDim} fontSize={13}>{d.d2}</text>
+              )}
             </g>
           ))}
         </svg>
@@ -111,9 +116,9 @@ function EscSociales() {
         y ENVEJECEN. Generan inequidades en salud. Comisión OMS-Marmot (2008).
       </Definicion>
 
-      <Pizarra alto={220}>
-        <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={334}>
+        <svg width="100%" height="100%" viewBox="0 0 360 385" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Principales DSS
           </text>
           {[
@@ -125,9 +130,9 @@ function EscSociales() {
             { t: "Apoyo social", d: "redes familiares, comunidad" },
             { t: "Género, etnia, discriminación", d: "afectan acceso a recursos" },
           ].map((d, i) => (
-            <g key={i} transform={`translate(80, ${55 + i * 22})`}>
-              <text x={15} y={15} fill={LIENZO.accent} fontSize={11} fontWeight={700}>{d.t}:</text>
-              <text x={290} y={15} fill={LIENZO.fg} fontSize={11}>{d.d}</text>
+            <g key={i} transform={`translate(16, ${48 + i * 47})`}>
+              <text x={0} y={14} fill={LIENZO.accent} fontSize={13} fontWeight={700}>{d.t}:</text>
+              <text x={12} y={32} fill={LIENZO.fg} fontSize={13}>{d.d}</text>
             </g>
           ))}
         </svg>
@@ -152,24 +157,25 @@ function EscPrevencion() {
     <EscenaRica>
       <Titulo>3 niveles de prevención (Leavell-Clark)</Titulo>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Antes, durante y después de la enfermedad
+      <Pizarra alto={302}>
+        <svg width="100%" height="100%" viewBox="0 0 360 348" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Antes, durante y después
+          </text>
+          <text x={180} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            de la enfermedad
           </text>
           {[
-            { x: 90, t: "PRIMARIA", momento: "ANTES de la enfermedad", acc: "vacunas, educación, dieta, ejercicio", c: LIENZO.ok },
-            { x: 290, t: "SECUNDARIA", momento: "INICIO de la enfermedad", acc: "diagnóstico precoz, screening, papanicolaou, mamografía", c: LIENZO.warn },
-            { x: 490, t: "TERCIARIA", momento: "DESPUÉS de instalada", acc: "tratamiento, rehabilitación, evitar complicaciones", c: LIENZO.bad },
+            { t: "PRIMARIA", momento: "ANTES de la enfermedad", acc1: "vacunas, educación,", acc2: "dieta, ejercicio", c: LIENZO.ok },
+            { t: "SECUNDARIA", momento: "INICIO de la enfermedad", acc1: "diagnóstico precoz, screening,", acc2: "papanicolaou, mamografía", c: LIENZO.warn },
+            { t: "TERCIARIA", momento: "DESPUÉS de instalada", acc1: "tratamiento, rehabilitación,", acc2: "evitar complicaciones", c: LIENZO.bad },
           ].map((p, i) => (
-            <g key={i} transform={`translate(${p.x}, 55)`}>
-              <rect x={-10} y={0} width={180} height={150} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
-              <text x={80} y={22} textAnchor="middle" fill={p.c} fontSize={13} fontWeight={700}>{p.t}</text>
-              <text x={80} y={50} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{p.momento}</text>
-              <text x={80} y={90} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.acc.split(",").slice(0, 2).join(",")}</text>
-              {p.acc.split(",").length > 2 && (
-                <text x={80} y={108} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.acc.split(",").slice(2).join(",")}</text>
-              )}
+            <g key={i} transform={`translate(16, ${54 + i * 96})`}>
+              <rect x={0} y={0} width={328} height={84} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
+              <text x={14} y={24} textAnchor="start" fill={p.c} fontSize={13} fontWeight={700}>{p.t}</text>
+              <text x={314} y={24} textAnchor="end" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">{p.momento}</text>
+              <text x={14} y={49} textAnchor="start" fill={LIENZO.fg} fontSize={13}>{p.acc1}</text>
+              <text x={14} y={68} textAnchor="start" fill={LIENZO.fg} fontSize={13}>{p.acc2}</text>
             </g>
           ))}
         </svg>
@@ -194,9 +200,9 @@ function EscBolivia() {
     <EscenaRica>
       <Titulo>Indicadores de salud en Bolivia</Titulo>
 
-      <Pizarra alto={220}>
-        <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={338}>
+        <svg width="100%" height="100%" viewBox="0 0 360 390" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Datos clave (referencia)
           </text>
           {[
@@ -207,10 +213,10 @@ function EscBolivia() {
             { t: "Acceso agua segura", v: "~88% urbano, ~67% rural", c: "var(--dib-violet-400)" },
             { t: "Médicos / 1.000 hab", v: "~1.7 (OMS rec.: 2.5)", c: LIENZO.warn },
           ].map((d, i) => (
-            <g key={i} transform={`translate(80, ${55 + i * 25})`}>
-              <rect width={580} height={22} fill={d.c} opacity={0.08} stroke={d.c} strokeWidth={1} rx={4} />
-              <text x={15} y={15} fill={d.c} fontSize={11} fontWeight={700}>{d.t}</text>
-              <text x={300} y={15} fill={LIENZO.fg} fontSize={11}>{d.v}</text>
+            <g key={i} transform={`translate(16, ${44 + i * 56})`}>
+              <rect width={328} height={48} fill={d.c} opacity={0.08} stroke={d.c} strokeWidth={1} rx={4} />
+              <text x={14} y={19} fill={d.c} fontSize={13} fontWeight={700}>{d.t}</text>
+              <text x={14} y={39} fill={LIENZO.fg} fontSize={13}>{d.v}</text>
             </g>
           ))}
         </svg>

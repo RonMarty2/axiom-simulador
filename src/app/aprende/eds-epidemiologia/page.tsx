@@ -66,26 +66,26 @@ function EscTasas() {
         Suele expresarse por 1.000 o 100.000 habitantes.
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={300}>
+        <svg width="100%" height="100%" viewBox="0 0 360 346" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Prevalencia vs incidencia
           </text>
-          <g transform="translate(80, 55)">
-            <rect width={260} height={130} fill={LIENZO.warn} opacity={0.1} stroke={LIENZO.warn} strokeWidth={1.5} rx={10} />
-            <text x={130} y={22} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>PREVALENCIA</text>
-            <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>casos TOTALES</text>
-            <text x={130} y={70} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>= casos / población</text>
-            <text x={130} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>en un momento dado</text>
-            <text x={130} y={115} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">¿cuántos enfermos hay HOY?</text>
+          <g transform="translate(16, 42)">
+            <rect width={328} height={136} fill={LIENZO.warn} opacity={0.1} stroke={LIENZO.warn} strokeWidth={1.5} rx={10} />
+            <text x={164} y={24} textAnchor="middle" fill={LIENZO.warn} fontSize={14} fontWeight={700}>PREVALENCIA</text>
+            <text x={164} y={48} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>casos TOTALES</text>
+            <text x={164} y={72} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>= casos / población</text>
+            <text x={164} y={94} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>en un momento dado</text>
+            <text x={164} y={118} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">¿cuántos enfermos hay HOY?</text>
           </g>
-          <g transform="translate(380, 55)">
-            <rect width={260} height={130} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
-            <text x={130} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>INCIDENCIA</text>
-            <text x={130} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>casos NUEVOS</text>
-            <text x={130} y={70} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>= casos nuevos / pob</text>
-            <text x={130} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>en un periodo</text>
-            <text x={130} y={115} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">¿cuántos se enferman cada año?</text>
+          <g transform="translate(16, 192)">
+            <rect width={328} height={136} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
+            <text x={164} y={24} textAnchor="middle" fill={LIENZO.ok} fontSize={14} fontWeight={700}>INCIDENCIA</text>
+            <text x={164} y={48} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>casos NUEVOS</text>
+            <text x={164} y={72} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>= casos nuevos / pob</text>
+            <text x={164} y={94} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>en un periodo</text>
+            <text x={164} y={118} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">¿cuántos se enferman cada año?</text>
           </g>
         </svg>
       </Pizarra>
@@ -218,23 +218,26 @@ function EscEstudios() {
     <EscenaRica>
       <Titulo>Tipos de estudios epidemiológicos</Titulo>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Pirámide de evidencia (de menos a más rigurosa)
+      <Pizarra alto={291}>
+        <svg width="100%" height="100%" viewBox="0 0 360 336" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Pirámide de evidencia
+          </text>
+          <text x={180} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            (de menos a más rigurosa)
           </text>
           {[
-            { y: 50, w: 180, t: "Opinión experta", c: "var(--dib-gray-400)" },
-            { y: 80, w: 250, t: "Reporte de caso", c: "var(--dib-violet-400)" },
-            { y: 110, w: 320, t: "Transversal (prevalencia)", c: LIENZO.warn },
-            { y: 140, w: 380, t: "Caso-control (retrospectivo)", c: "var(--dib-amber-500)" },
-            { y: 170, w: 440, t: "Cohortes (prospectivo)", c: LIENZO.ok },
-            { y: 200, w: 510, t: "Ensayo clínico aleatorizado (ECA)", c: "var(--dib-green-600)" },
-            { y: 230, w: 570, t: "Revisión sistemática / Meta-análisis", c: "var(--dib-green-700)" },
+            { y: 54, w: 148, t: "Opinión experta", c: "var(--dib-gray-400)" },
+            { y: 92, w: 180, t: "Reporte de caso", c: "var(--dib-violet-400)" },
+            { y: 130, w: 216, t: "Transversal (prevalencia)", c: LIENZO.warn },
+            { y: 168, w: 252, t: "Caso-control (retrospectivo)", c: "var(--dib-amber-500)" },
+            { y: 206, w: 284, t: "Cohortes (prospectivo)", c: LIENZO.ok },
+            { y: 244, w: 316, t: "Ensayo clínico aleatorizado (ECA)", c: "var(--dib-green-600)" },
+            { y: 282, w: 346, t: "Revisión sistemática / Meta-análisis", c: "var(--dib-green-700)" },
           ].map((n, i) => (
-            <g key={i} transform={`translate(${360 - n.w / 2}, ${n.y})`}>
-              <rect width={n.w} height={26} fill={n.c} opacity={0.3} stroke={n.c} strokeWidth={1.5} />
-              <text x={n.w / 2} y={17} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>{n.t}</text>
+            <g key={i} transform={`translate(${180 - n.w / 2}, ${n.y})`}>
+              <rect width={n.w} height={32} fill={n.c} opacity={0.3} stroke={n.c} strokeWidth={1.5} />
+              <text x={n.w / 2} y={21} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>{n.t}</text>
             </g>
           ))}
         </svg>
@@ -277,34 +280,40 @@ function EscSenEsp() {
         <strong>E = VN / (VN + FP)</strong>
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={250}>
+        <svg width="100%" height="100%" viewBox="0 0 360 288" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Tabla 2 × 2 de un test diagnóstico
           </text>
           {/* tabla */}
-          <text x={360} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={12} fontWeight={700}>Enfermedad</text>
-          <text x={260} y={75} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={600}>Presente</text>
-          <text x={460} y={75} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={600}>Ausente</text>
+          <text x={201} y={52} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>Enfermedad</text>
+          <text x={124} y={72} textAnchor="middle" fill={LIENZO.bad} fontSize={13} fontWeight={600}>Presente</text>
+          <text x={278} y={72} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={600}>Ausente</text>
 
-          <g transform="translate(120, 90)">
-            <text x={0} y={30} fill={LIENZO.fg} fontSize={11} fontWeight={600}>Test +</text>
-            <rect x={60} y={0} width={170} height={50} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={1.5} />
-            <text x={145} y={25} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>VP (Verdadero+)</text>
-            <text x={145} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(enfermo detectado)</text>
-            <rect x={240} y={0} width={170} height={50} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={1.5} />
-            <text x={325} y={25} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>FP (Falso+)</text>
-            <text x={325} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(sano marcado enfermo)</text>
+          <g transform="translate(0, 86)">
+            <text x={24} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>Test</text>
+            <text x={24} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>+</text>
+            <rect x={50} y={0} width={148} height={86} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={1.5} />
+            <text x={124} y={24} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>VP (Verdadero+)</text>
+            <text x={124} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>(enfermo</text>
+            <text x={124} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>detectado)</text>
+            <rect x={204} y={0} width={148} height={86} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={1.5} />
+            <text x={278} y={24} textAnchor="middle" fill={LIENZO.bad} fontSize={13} fontWeight={700}>FP (Falso+)</text>
+            <text x={278} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>(sano marcado</text>
+            <text x={278} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>enfermo)</text>
           </g>
 
-          <g transform="translate(120, 150)">
-            <text x={0} y={30} fill={LIENZO.fg} fontSize={11} fontWeight={600}>Test −</text>
-            <rect x={60} y={0} width={170} height={45} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={1.5} />
-            <text x={145} y={22} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>FN (Falso−)</text>
-            <text x={145} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(enfermo no detectado)</text>
-            <rect x={240} y={0} width={170} height={45} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={1.5} />
-            <text x={325} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>VN (Verdadero−)</text>
-            <text x={325} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(sano confirmado)</text>
+          <g transform="translate(0, 182)">
+            <text x={24} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>Test</text>
+            <text x={24} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>−</text>
+            <rect x={50} y={0} width={148} height={86} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={1.5} />
+            <text x={124} y={24} textAnchor="middle" fill={LIENZO.bad} fontSize={13} fontWeight={700}>FN (Falso−)</text>
+            <text x={124} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>(enfermo no</text>
+            <text x={124} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>detectado)</text>
+            <rect x={204} y={0} width={148} height={86} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={1.5} />
+            <text x={278} y={24} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>VN (Verdadero−)</text>
+            <text x={278} y={48} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>(sano</text>
+            <text x={278} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>confirmado)</text>
           </g>
         </svg>
       </Pizarra>

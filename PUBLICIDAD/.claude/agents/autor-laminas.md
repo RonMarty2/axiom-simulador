@@ -59,4 +59,4 @@ Vale igual si la escribe Claude o agy (el pedido a agy debe citar estos archivos
 3. Antes de dar la lección por buena (lo hace Claude, no agy): `resolutor-exacto` comprueba cada cuenta del ejemplo; `auditor-pedagogico` y `auditor-figuras` revisan la lección. Se anota en BITACORA.md qué ayudante revisó cada lección.
 Sin esos tres pasos, la lección no entra a la app ni a la cola de la tablet.
 
-> **Dibujos legibles en celular (16-11):** todo dibujo se diseña pensando en 360 px de ancho: su texto debe verse a 11 px o más en pantalla (con viewBox de 720, letra de 22 o más), o se parte/apila en celular. Lo comprueba auditor-pantallas-movil (regla 6).
+> **Dibujos legibles en celular (16-11):** todo dibujo se diseña pensando en 360 px de ancho: su texto debe verse a 11 px o más en pantalla (con viewBox de 720, letra de 22 o más), o se parte/apila en celular. Lo comprueba auditor-pantallas-movil (regla 6). **Alto (16-11, Estadística):** con «Ver en grande» y el celular girado (740×360) manda el alto: la letra queda en tamaño × 360 / alto del viewBox, así que con viewBox de 360 de ancho y letra 13 el alto no pasa de 425; si no entra, se parte en dos Pizarras.
