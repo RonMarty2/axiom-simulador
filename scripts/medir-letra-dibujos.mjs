@@ -66,6 +66,9 @@ for (const raiz of ["src/app/aprende", "src/app/laminas"]) {
         linea, viewBox: `${W}x${H}`,
         letraMinViewBox: fmin,
         letraMinPx: +(fmin * escala).toFixed(1),
+        // «Ver en grande» con el celular girado (740x360): el dibujo ocupa la
+        // pantalla entera y ya no cuenta el alto de la Pizarra.
+        letraGrandePx: +(fmin * Math.min(740 / W, 360 / H)).toFixed(1),
       });
     }
   }
@@ -81,6 +84,7 @@ for (const r of malos) {
 const orden = [...porArchivo].sort((a, b) => a[1].peor - b[1].peor);
 console.log(`Dibujos medidos: ${filas.length} · con letra < ${MIN} px a 360: ${malos.length} · en ${porArchivo.size} archivos`);
 for (const [a, v] of orden) console.log(`${v.peor.toFixed(1).padStart(5)} px  ${String(v.dibujos).padStart(3)} dibujos  ${a}`);
+console.log(`En grande y girado (740x360), con letra < ${MIN} px: ${filas.filter((r) => r.letraGrandePx < MIN).length}`);
 if (sinResolver.length) console.log(`Sin medir (ancho no resuelto): ${sinResolver.length}\n  ` + sinResolver.join("\n  "));
 if (SALIDA) writeFileSync(SALIDA, JSON.stringify({ min: MIN, ancho: ANCHO, filas, sinResolver }, null, 2));
 export { filas, malos };
