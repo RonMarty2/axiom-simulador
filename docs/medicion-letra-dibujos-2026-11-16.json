@@ -1,0 +1,1714 @@
+{
+  "min": 11,
+  "ancho": 312,
+  "filas": [
+    {
+      "archivo": "src/app/aprende/analogias-verbales/page.tsx",
+      "linea": 41,
+      "viewBox": "480x160",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/aseveraciones-cuantificadores/page.tsx",
+      "linea": 64,
+      "viewBox": "480x240",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 52,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 92,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 152,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 210,
+      "viewBox": "720x310",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 266,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 323,
+      "viewBox": "720x240",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 388,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-celulares-vida/page.tsx",
+      "linea": 447,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 49,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 106,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 192,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 270,
+      "viewBox": "360x270",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 309,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 336,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 382,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 459,
+      "viewBox": "720x300",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 527,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bases-moleculares-vida/page.tsx",
+      "linea": 602,
+      "viewBox": "720x280",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-bioenergetica-senalizacion/page.tsx",
+      "linea": 79,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-bioenergetica-senalizacion/page.tsx",
+      "linea": 131,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-bioenergetica-senalizacion/page.tsx",
+      "linea": 186,
+      "viewBox": "720x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-bioenergetica-senalizacion/page.tsx",
+      "linea": 246,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-bioenergetica-senalizacion/page.tsx",
+      "linea": 293,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
+      "linea": 75,
+      "viewBox": "720x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
+      "linea": 134,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
+      "linea": 180,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
+      "linea": 240,
+      "viewBox": "720x150",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
+      "linea": 280,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-membrana-transporte/page.tsx",
+      "linea": 48,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-membrana-transporte/page.tsx",
+      "linea": 144,
+      "viewBox": "720x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-membrana-transporte/page.tsx",
+      "linea": 186,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-membrana-transporte/page.tsx",
+      "linea": 260,
+      "viewBox": "720x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/cinematica-1d/page.tsx",
+      "linea": 43,
+      "viewBox": "480x200",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/cinematica-2d/page.tsx",
+      "linea": 336,
+      "viewBox": "480x260",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/cinematica-2d/page.tsx",
+      "linea": 464,
+      "viewBox": "480x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/circuitos-dc/page.tsx",
+      "linea": 90,
+      "viewBox": "400x200",
+      "letraMinViewBox": 13,
+      "letraMinPx": 10.1
+    },
+    {
+      "archivo": "src/app/aprende/circuitos-dc/page.tsx",
+      "linea": 176,
+      "viewBox": "400x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 8.6
+    },
+    {
+      "archivo": "src/app/aprende/circuitos-dc/page.tsx",
+      "linea": 249,
+      "viewBox": "400x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/circunferencia/page.tsx",
+      "linea": 40,
+      "viewBox": "400x220",
+      "letraMinViewBox": 13,
+      "letraMinPx": 10.1
+    },
+    {
+      "archivo": "src/app/aprende/clasificacion-estados/page.tsx",
+      "linea": 48,
+      "viewBox": "480x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 80,
+      "viewBox": "720x300",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 134,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 200,
+      "viewBox": "720x280",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 260,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 312,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/componentes-materia-viva/page.tsx",
+      "linea": 359,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/congruencia-semejanza/page.tsx",
+      "linea": 238,
+      "viewBox": "400x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 8.6
+    },
+    {
+      "archivo": "src/app/aprende/derecho-introduccion/page.tsx",
+      "linea": 52,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/derecho-introduccion/page.tsx",
+      "linea": 108,
+      "viewBox": "720x160",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/derecho-introduccion/page.tsx",
+      "linea": 141,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/derecho-introduccion/page.tsx",
+      "linea": 192,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/derecho-introduccion/page.tsx",
+      "linea": 243,
+      "viewBox": "720x280",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 49,
+      "viewBox": "480x240",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 106,
+      "viewBox": "480x180",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 160,
+      "viewBox": "480x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 220,
+      "viewBox": "480x190",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 269,
+      "viewBox": "480x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 327,
+      "viewBox": "480x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 83,
+      "viewBox": "720x310",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 137,
+      "viewBox": "720x210",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 189,
+      "viewBox": "720x270",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 255,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 316,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 359,
+      "viewBox": "720x180",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 402,
+      "viewBox": "720x230",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 468,
+      "viewBox": "720x260",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/diversidad-seres-vivos/page.tsx",
+      "linea": 543,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 71,
+      "viewBox": "720x310",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 112,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 155,
+      "viewBox": "720x300",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 205,
+      "viewBox": "720x230",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 274,
+      "viewBox": "720x250",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 325,
+      "viewBox": "720x230",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 398,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/ecologia-medioambiente/page.tsx",
+      "linea": 458,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-determinantes-salud/page.tsx",
+      "linea": 70,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-determinantes-salud/page.tsx",
+      "linea": 114,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/eds-determinantes-salud/page.tsx",
+      "linea": 155,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-determinantes-salud/page.tsx",
+      "linea": 197,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/eds-epidemiologia/page.tsx",
+      "linea": 70,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-epidemiologia/page.tsx",
+      "linea": 123,
+      "viewBox": "720x210",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/eds-epidemiologia/page.tsx",
+      "linea": 177,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/eds-epidemiologia/page.tsx",
+      "linea": 236,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 62,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 188,
+      "viewBox": "720x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 313,
+      "viewBox": "720x175",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 630,
+      "viewBox": "360x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 666,
+      "viewBox": "360x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 719,
+      "viewBox": "360x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/eds-estadistica-descriptiva/page.tsx",
+      "linea": 780,
+      "viewBox": "360x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/eds-investigacion-bioetica/page.tsx",
+      "linea": 39,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/eds-investigacion-bioetica/page.tsx",
+      "linea": 143,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/eds-investigacion-bioetica/page.tsx",
+      "linea": 193,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/eds-investigacion-bioetica/page.tsx",
+      "linea": 229,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/electrostatica/page.tsx",
+      "linea": 47,
+      "viewBox": "480x180",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/electrostatica/page.tsx",
+      "linea": 191,
+      "viewBox": "480x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/electrostatica/page.tsx",
+      "linea": 311,
+      "viewBox": "480x190",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/electrostatica/page.tsx",
+      "linea": 371,
+      "viewBox": "480x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 50,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 121,
+      "viewBox": "720x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 167,
+      "viewBox": "720x300",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 208,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 282,
+      "viewBox": "720x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 351,
+      "viewBox": "720x210",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 414,
+      "viewBox": "720x290",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 490,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 542,
+      "viewBox": "720x230",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/energia-celular/page.tsx",
+      "linea": 594,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 79,
+      "viewBox": "480x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 144,
+      "viewBox": "480x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 212,
+      "viewBox": "480x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 280,
+      "viewBox": "480x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 360,
+      "viewBox": "480x230",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/enlace-quimico/page.tsx",
+      "linea": 465,
+      "viewBox": "480x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/escasez-necesidades/page.tsx",
+      "linea": 44,
+      "viewBox": "480x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/estequiometria/page.tsx",
+      "linea": 75,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/estequiometria/page.tsx",
+      "linea": 227,
+      "viewBox": "720x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/estequiometria/page.tsx",
+      "linea": 322,
+      "viewBox": "720x140",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/estequiometria/page.tsx",
+      "linea": 379,
+      "viewBox": "720x160",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 80,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 172,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 248,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 302,
+      "viewBox": "720x180",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 347,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 416,
+      "viewBox": "720x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/gases-ideales/page.tsx",
+      "linea": 536,
+      "viewBox": "720x180",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 53,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 108,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 154,
+      "viewBox": "720x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 228,
+      "viewBox": "720x240",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 396,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 455,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/genetica-mendeliana/page.tsx",
+      "linea": 510,
+      "viewBox": "720x230",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/identidades-trigonometricas/page.tsx",
+      "linea": 46,
+      "viewBox": "480x270",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/identidades-trigonometricas/page.tsx",
+      "linea": 86,
+      "viewBox": "480x245",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/identidades-trigonometricas/page.tsx",
+      "linea": 121,
+      "viewBox": "480x200",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/logaritmacion/page.tsx",
+      "linea": 24,
+      "viewBox": "480x190",
+      "letraMinViewBox": 30,
+      "letraMinPx": 19.5
+    },
+    {
+      "archivo": "src/app/aprende/modelos-economicos/page.tsx",
+      "linea": 44,
+      "viewBox": "480x360",
+      "letraMinViewBox": 9,
+      "letraMinPx": 5.9
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 77,
+      "viewBox": "720x290",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 129,
+      "viewBox": "720x280",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 185,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 231,
+      "viewBox": "720x290",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 294,
+      "viewBox": "720x300",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/morfofuncion-introduccion/page.tsx",
+      "linea": 352,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/odontologia-anatomia-dental/page.tsx",
+      "linea": 72,
+      "viewBox": "720x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/odontologia-anatomia-dental/page.tsx",
+      "linea": 120,
+      "viewBox": "720x280",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/odontologia-anatomia-dental/page.tsx",
+      "linea": 173,
+      "viewBox": "720x280",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/odontologia-anatomia-dental/page.tsx",
+      "linea": 231,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/odontologia-anatomia-dental/page.tsx",
+      "linea": 283,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/organizacion-admin/page.tsx",
+      "linea": 38,
+      "viewBox": "480x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/poligonos-cuadrilateros/page.tsx",
+      "linea": 47,
+      "viewBox": "400x220",
+      "letraMinViewBox": 14,
+      "letraMinPx": 10.9
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 463,
+      "viewBox": "480x220",
+      "letraMinViewBox": 44,
+      "letraMinPx": 28.6
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 559,
+      "viewBox": "480x220",
+      "letraMinViewBox": 44,
+      "letraMinPx": 28.6
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 656,
+      "viewBox": "480x220",
+      "letraMinViewBox": 38,
+      "letraMinPx": 24.7
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 750,
+      "viewBox": "480x220",
+      "letraMinViewBox": 44,
+      "letraMinPx": 28.6
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 859,
+      "viewBox": "480x240",
+      "letraMinViewBox": 40,
+      "letraMinPx": 26
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 943,
+      "viewBox": "480x220",
+      "letraMinViewBox": 48,
+      "letraMinPx": 31.2
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 1026,
+      "viewBox": "480x240",
+      "letraMinViewBox": 42,
+      "letraMinPx": 27.3
+    },
+    {
+      "archivo": "src/app/aprende/potenciacion/page.tsx",
+      "linea": 1114,
+      "viewBox": "480x220",
+      "letraMinViewBox": 32,
+      "letraMinPx": 20.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 74,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 132,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 183,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 244,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 305,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/propiedades-coligativas/page.tsx",
+      "linea": 464,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/razones-trigonometricas/page.tsx",
+      "linea": 43,
+      "viewBox": "400x220",
+      "letraMinViewBox": 13,
+      "letraMinPx": 10.1
+    },
+    {
+      "archivo": "src/app/aprende/reacciones-balanceo/page.tsx",
+      "linea": 49,
+      "viewBox": "480x265",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/reacciones-balanceo/page.tsx",
+      "linea": 122,
+      "viewBox": "480x240",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/reacciones-balanceo/page.tsx",
+      "linea": 205,
+      "viewBox": "480x230",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/reacciones-balanceo/page.tsx",
+      "linea": 290,
+      "viewBox": "480x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/reacciones-balanceo/page.tsx",
+      "linea": 365,
+      "viewBox": "480x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/secuencias-logicas/page.tsx",
+      "linea": 42,
+      "viewBox": "480x140",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/segmentos-angulos/page.tsx",
+      "linea": 92,
+      "viewBox": "400x120",
+      "letraMinViewBox": 14,
+      "letraMinPx": 10.9
+    },
+    {
+      "archivo": "src/app/aprende/segmentos-angulos/page.tsx",
+      "linea": 231,
+      "viewBox": "400x180",
+      "letraMinViewBox": 14,
+      "letraMinPx": 10.9
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 77,
+      "viewBox": "400x200",
+      "letraMinViewBox": 14,
+      "letraMinPx": 10.9
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 191,
+      "viewBox": "720x170",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 222,
+      "viewBox": "720x260",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 282,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 326,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 370,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-cardiovascular/page.tsx",
+      "linea": 418,
+      "viewBox": "720x170",
+      "letraMinViewBox": 12,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/sistema-digestivo/page.tsx",
+      "linea": 89,
+      "viewBox": "720x150",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-digestivo/page.tsx",
+      "linea": 132,
+      "viewBox": "720x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-digestivo/page.tsx",
+      "linea": 180,
+      "viewBox": "720x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-digestivo/page.tsx",
+      "linea": 258,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-endocrino/page.tsx",
+      "linea": 143,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-endocrino/page.tsx",
+      "linea": 200,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-endocrino/page.tsx",
+      "linea": 240,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-endocrino/page.tsx",
+      "linea": 290,
+      "viewBox": "720x200",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-endocrino/page.tsx",
+      "linea": 348,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-esqueletico/page.tsx",
+      "linea": 65,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-esqueletico/page.tsx",
+      "linea": 100,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-esqueletico/page.tsx",
+      "linea": 165,
+      "viewBox": "720x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-esqueletico/page.tsx",
+      "linea": 213,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-esqueletico/page.tsx",
+      "linea": 253,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-linfatico-inmune/page.tsx",
+      "linea": 75,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-linfatico-inmune/page.tsx",
+      "linea": 120,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-linfatico-inmune/page.tsx",
+      "linea": 161,
+      "viewBox": "720x220",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-linfatico-inmune/page.tsx",
+      "linea": 213,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-linfatico-inmune/page.tsx",
+      "linea": 257,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-muscular/page.tsx",
+      "linea": 64,
+      "viewBox": "720x280",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-muscular/page.tsx",
+      "linea": 107,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-muscular/page.tsx",
+      "linea": 155,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-muscular/page.tsx",
+      "linea": 216,
+      "viewBox": "720x170",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 107,
+      "viewBox": "700x240",
+      "letraMinViewBox": 9,
+      "letraMinPx": 4
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 184,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 222,
+      "viewBox": "720x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 317,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 380,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 436,
+      "viewBox": "720x230",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 4.1
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 519,
+      "viewBox": "720x240",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 4.5
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 570,
+      "viewBox": "720x290",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-nervioso/page.tsx",
+      "linea": 641,
+      "viewBox": "720x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-reproductor/page.tsx",
+      "linea": 64,
+      "viewBox": "720x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-reproductor/page.tsx",
+      "linea": 112,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-reproductor/page.tsx",
+      "linea": 159,
+      "viewBox": "720x250",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-reproductor/page.tsx",
+      "linea": 209,
+      "viewBox": "720x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-respiratorio/page.tsx",
+      "linea": 72,
+      "viewBox": "720x260",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-respiratorio/page.tsx",
+      "linea": 114,
+      "viewBox": "720x230",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-respiratorio/page.tsx",
+      "linea": 162,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-respiratorio/page.tsx",
+      "linea": 206,
+      "viewBox": "720x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-tegumentario/page.tsx",
+      "linea": 63,
+      "viewBox": "720x260",
+      "letraMinViewBox": 9,
+      "letraMinPx": 3.9
+    },
+    {
+      "archivo": "src/app/aprende/sistema-tegumentario/page.tsx",
+      "linea": 137,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-tegumentario/page.tsx",
+      "linea": 168,
+      "viewBox": "720x270",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-tegumentario/page.tsx",
+      "linea": 205,
+      "viewBox": "720x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-urinario/page.tsx",
+      "linea": 149,
+      "viewBox": "720x230",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sistema-urinario/page.tsx",
+      "linea": 196,
+      "viewBox": "720x260",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-urinario/page.tsx",
+      "linea": 247,
+      "viewBox": "720x230",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/sistema-urinario/page.tsx",
+      "linea": 302,
+      "viewBox": "720x190",
+      "letraMinViewBox": 10,
+      "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/soluciones/page.tsx",
+      "linea": 51,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/soluciones/page.tsx",
+      "linea": 102,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/soluciones/page.tsx",
+      "linea": 216,
+      "viewBox": "720x160",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/soluciones/page.tsx",
+      "linea": 361,
+      "viewBox": "720x170",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/soluciones/page.tsx",
+      "linea": 446,
+      "viewBox": "720x180",
+      "letraMinViewBox": 11,
+      "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/trabajo-energia/page.tsx",
+      "linea": 52,
+      "viewBox": "480x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/trabajo-energia/page.tsx",
+      "linea": 117,
+      "viewBox": "480x200",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/trabajo-energia/page.tsx",
+      "linea": 227,
+      "viewBox": "480x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/trabajo-energia/page.tsx",
+      "linea": 286,
+      "viewBox": "480x220",
+      "letraMinViewBox": 10,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/trabajo-energia/page.tsx",
+      "linea": 430,
+      "viewBox": "480x190",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/triangulos/page.tsx",
+      "linea": 59,
+      "viewBox": "400x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 9.4
+    },
+    {
+      "archivo": "src/app/aprende/triangulos/page.tsx",
+      "linea": 342,
+      "viewBox": "400x310",
+      "letraMinViewBox": 12,
+      "letraMinPx": 9.4
+    },
+    {
+      "archivo": "src/app/aprende/vectores-fisica/page.tsx",
+      "linea": 41,
+      "viewBox": "400x220",
+      "letraMinViewBox": 12,
+      "letraMinPx": 9.4
+    }
+  ]
+}
