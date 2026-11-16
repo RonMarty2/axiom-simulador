@@ -10,7 +10,7 @@ import { join } from "node:path";
 // El 16-11-2026 había 328 dibujos por debajo (medición en
 // docs/medicion-letra-dibujos-2026-11-16.json). El número no puede subir:
 // cada tanda de arreglos baja TECHO al valor nuevo.
-const TECHO = 306;
+const TECHO = 298;
 // Segundo techo: «Ver en grande» con el celular girado (740x360). El 16-11
 // eran 82; tras A1, 34; tras A2 y A2b, 13 (los 13 que quedan no son de Medicina).
 const TECHO_GRANDE = 13;

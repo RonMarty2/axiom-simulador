@@ -48,22 +48,22 @@ function EscTeoria() {
         </ol>
       </Definicion>
 
-      <Pizarra alto={170}>
-        <svg width="100%" height="100%" viewBox="0 0 720 170" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={269}>
+        <svg width="100%" height="100%" viewBox="0 0 360 310" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={16} fontWeight={700}>
             Hitos en el descubrimiento celular
           </text>
           {[
-            { x: 90, año: "1665", per: "Hooke", evt: "ve células en corcho" },
-            { x: 240, año: "1838", per: "Schleiden", evt: "células en plantas" },
-            { x: 390, año: "1839", per: "Schwann", evt: "células en animales" },
-            { x: 540, año: "1855", per: "Virchow", evt: "Omnis cellula e cellula" },
+            { y: 76, año: "1665", per: "Hooke", evt: "ve células en corcho" },
+            { y: 140, año: "1838", per: "Schleiden", evt: "células en plantas" },
+            { y: 204, año: "1839", per: "Schwann", evt: "células en animales" },
+            { y: 268, año: "1855", per: "Virchow", evt: "Omnis cellula e cellula" },
           ].map((h, i) => (
-            <g key={i} transform={`translate(${h.x}, 60)`}>
-              <circle r={20} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={2} />
-              <text textAnchor="middle" dy={5} fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h.año}</text>
-              <text textAnchor="middle" y={45} fill={LIENZO.fg} fontSize={12} fontWeight={700}>{h.per}</text>
-              <text textAnchor="middle" y={60} fill={LIENZO.fgDim} fontSize={11}>{h.evt}</text>
+            <g key={i} transform={`translate(48, ${h.y})`}>
+              <circle r={24} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={2} />
+              <text textAnchor="middle" dy={5} fill={LIENZO.accent} fontSize={13} fontWeight={700}>{h.año}</text>
+              <text x={40} y={-4} fill={LIENZO.fg} fontSize={14} fontWeight={700}>{h.per}</text>
+              <text x={40} y={16} fill={LIENZO.fgDim} fontSize={13}>{h.evt}</text>
             </g>
           ))}
         </svg>
@@ -88,34 +88,81 @@ function EscProcaEuca() {
     <EscenaRica>
       <Titulo>Dos grandes grupos · procariota y eucariota</Titulo>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Comparación procariota vs eucariota
+      <Pizarra alto={277}>
+        <svg width="100%" height="100%" viewBox="0 0 360 320" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Comparación procariota vs eucariota (1/2)
           </text>
-          {["Característica", "Procariota", "Eucariota"].map((h, i) => (
+          <rect x={10} y={36} width={340} height={24} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+          <text x={180} y={53} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>Característica</text>
+          {["Procariota", "Eucariota"].map((h, i) => (
             <g key={i}>
-              <rect x={60 + i * 200} y={45} width={195} height={28} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
-              <text x={60 + i * 200 + 97} y={64} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h}</text>
+              <rect x={10 + i * 170} y={60} width={170} height={24} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+              <text x={10 + i * 170 + 85} y={77} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{h}</text>
             </g>
           ))}
           {[
-            { c: "Núcleo", p: "Sin membrana", e: "Con membrana" },
-            { c: "Tamaño", p: "1–10 μm", e: "10–100 μm" },
-            { c: "ADN", p: "Circular en citoplasma", e: "Lineal en núcleo" },
-            { c: "Organelos", p: "Solo ribosomas (70S)", e: "Muchos con membrana" },
-            { c: "Pared", p: "Peptidoglicano (bact.)", e: "Celulosa o quitina" },
-            { c: "Ejemplos", p: "Bacterias, arqueas", e: "Plantas, hongos, anim.*" },
-          ].map((row, i) => (
+            { c: "Núcleo", p: ["Sin membrana"], e: ["Con membrana"] },
+            { c: "Tamaño", p: ["1–10 μm"], e: ["10–100 μm"] },
+            { c: "ADN", p: ["Circular en", "citoplasma"], e: ["Lineal en", "núcleo"] },
+          ].map((row, i) => {
+            const y0 = 92 + i * 72;
+            return (
+              <g key={i}>
+                <rect x={10} y={y0} width={340} height={24} fill={LIENZO.accent} opacity={0.07} stroke={LIENZO.fgFaint} strokeWidth={1} />
+                <text x={180} y={y0 + 17} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>{row.c}</text>
+                {[row.p, row.e].map((lines, j) => (
+                  <g key={j}>
+                    <rect x={10 + j * 170} y={y0 + 24} width={170} height={40} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
+                    {lines.length === 1 ? (
+                      <text x={10 + j * 170 + 85} y={y0 + 49} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                    ) : (
+                      <>
+                        <text x={10 + j * 170 + 85} y={y0 + 40} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                        <text x={10 + j * 170 + 85} y={y0 + 57} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[1]}</text>
+                      </>
+                    )}
+                  </g>
+                ))}
+              </g>
+            );
+          })}
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={277}>
+        <svg width="100%" height="100%" viewBox="0 0 360 320" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Comparación procariota vs eucariota (2/2)
+          </text>
+          <rect x={10} y={36} width={340} height={24} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+          <text x={180} y={53} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>Característica</text>
+          {["Procariota", "Eucariota"].map((h, i) => (
             <g key={i}>
-              {[row.c, row.p, row.e].map((v, j) => (
-                <g key={j}>
-                  <rect x={60 + j * 200} y={73 + i * 28} width={195} height={28} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
-                </g>
-              ))}
+              <rect x={10 + i * 170} y={60} width={170} height={24} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+              <text x={10 + i * 170 + 85} y={77} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{h}</text>
             </g>
           ))}
+          {[
+            { c: "Organelos", p: ["Solo ribosomas", "(70S)"], e: ["Muchos con", "membrana"] },
+            { c: "Pared", p: ["Peptidoglicano", "(bact.)"], e: ["Celulosa o", "quitina"] },
+            { c: "Ejemplos", p: ["Bacterias,", "arqueas"], e: ["Plantas, hongos,", "anim.*"] },
+          ].map((row, i) => {
+            const y0 = 92 + i * 72;
+            return (
+              <g key={i}>
+                <rect x={10} y={y0} width={340} height={24} fill={LIENZO.accent} opacity={0.07} stroke={LIENZO.fgFaint} strokeWidth={1} />
+                <text x={180} y={y0 + 17} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>{row.c}</text>
+                {[row.p, row.e].map((lines, j) => (
+                  <g key={j}>
+                    <rect x={10 + j * 170} y={y0 + 24} width={170} height={40} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
+                    <text x={10 + j * 170 + 85} y={y0 + 40} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                    <text x={10 + j * 170 + 85} y={y0 + 57} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[1]}</text>
+                  </g>
+                ))}
+              </g>
+            );
+          })}
         </svg>
       </Pizarra>
 
@@ -155,34 +202,35 @@ function EscMembrana() {
         Modelo: "mosaico fluido" (Singer y Nicolson, 1972).
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={230}>
+        <svg width="100%" height="100%" viewBox="0 0 360 265" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={16} fontWeight={700}>
             Bicapa fosfolipídica
           </text>
           {/* fosfolípidos hilera superior */}
-          {Array.from({ length: 14 }).map((_, i) => (
-            <g key={`up${i}`} transform={`translate(${80 + i * 45}, 60)`}>
-              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
-              <line x1={-3} y1={9} x2={-3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
-              <line x1={3} y1={9} x2={3} y2={48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+          {Array.from({ length: 11 }).map((_, i) => i !== 2 && (
+            <g key={`up${i}`} transform={`translate(${30 + i * 30}, 74)`}>
+              <circle cx={0} cy={0} r={8} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={8} x2={-3} y2={40} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={8} x2={3} y2={40} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* fosfolípidos hilera inferior */}
-          {Array.from({ length: 14 }).map((_, i) => (
-            <g key={`dn${i}`} transform={`translate(${80 + i * 45}, 170)`}>
-              <circle cx={0} cy={0} r={9} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
-              <line x1={-3} y1={-9} x2={-3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
-              <line x1={3} y1={-9} x2={3} y2={-48} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+          {Array.from({ length: 11 }).map((_, i) => i !== 2 && (
+            <g key={`dn${i}`} transform={`translate(${30 + i * 30}, 186)`}>
+              <circle cx={0} cy={0} r={8} fill="var(--dib-amber-500)" stroke="var(--dib-amber-600)" strokeWidth={1.5} />
+              <line x1={-3} y1={-8} x2={-3} y2={-40} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
+              <line x1={3} y1={-8} x2={3} y2={-40} stroke="var(--dib-slate-900)" strokeWidth={1.5} />
             </g>
           ))}
           {/* proteína integral */}
-          <rect x={295} y={75} width={35} height={80} fill={LIENZO.accent} opacity={0.6} rx={8} />
-          {/* etiqueta */}
-          <text x={200} y={45} fill="var(--dib-amber-600)" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
-          <text x={200} y={205} fill="var(--dib-amber-600)" fontSize={11} fontStyle="italic">cabezas polares (hidrofílicas)</text>
-          <text x={500} y={120} fill={LIENZO.accent} fontSize={11} fontStyle="italic">proteína integral</text>
-          <text x={500} y={138} fill="var(--dib-slate-900)" fontSize={11} fontStyle="italic">colas hidrofóbicas</text>
+          <rect x={74} y={66} width={32} height={128} fill={LIENZO.accent} opacity={0.6} rx={8} />
+          {/* etiquetas */}
+          <text x={180} y={50} textAnchor="middle" fill="var(--dib-amber-600)" fontSize={13} fontStyle="italic">cabezas polares (hidrofílicas)</text>
+          <text x={228} y={135} textAnchor="middle" fill="var(--dib-slate-900)" fontSize={13} fontStyle="italic">colas hidrofóbicas</text>
+          <text x={238} y={216} textAnchor="middle" fill="var(--dib-amber-600)" fontSize={13} fontStyle="italic">cabezas polares (hidrofílicas)</text>
+          <line x1={90} y1={197} x2={90} y2={230} stroke={LIENZO.accent} strokeWidth={1.5} />
+          <text x={90} y={246} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontStyle="italic">proteína integral</text>
         </svg>
       </Pizarra>
 
@@ -213,26 +261,42 @@ function EscOrganelos() {
     <EscenaRica>
       <Titulo>Tour por la célula eucariota</Titulo>
 
-      <Pizarra alto={310}>
-        <svg width="100%" height="100%" viewBox="0 0 720 310" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Organelos esenciales y su función
+      <Pizarra alto={269}>
+        <svg width="100%" height="100%" viewBox="0 0 360 310" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Organelos esenciales y su función (1/2)
           </text>
           {[
-            { t: "Núcleo", fn: "ADN, control celular", c: "var(--dib-violet-400)", y: 40 },
-            { t: "Mitocondria", fn: "respiración, ATP", c: "var(--dib-red-500)", y: 70 },
-            { t: "Ribosomas", fn: "síntesis de proteínas", c: "var(--dib-emerald-500)", y: 100 },
-            { t: "RE rugoso", fn: "proteínas para exportar", c: "var(--dib-blue-500)", y: 130 },
-            { t: "RE liso", fn: "síntesis de lípidos", c: "var(--dib-cyan-500)", y: 160 },
-            { t: "Aparato de Golgi", fn: "empaqueta y exporta", c: "var(--dib-amber-500)", y: 190 },
-            { t: "Lisosomas", fn: "digestión intracelular", c: "var(--dib-yellow-500)", y: 220 },
-            { t: "Cloroplastos", fn: "fotosíntesis (plantas y algas)", c: "var(--dib-green-500)", y: 250 },
-            { t: "Pared celular", fn: "rigidez (plantas, hongos, bacterias)", c: "var(--dib-lime-500)", y: 280 },
+            { t: "Núcleo", fn: "ADN, control celular", c: "var(--dib-violet-400)", y: 58 },
+            { t: "Mitocondria", fn: "respiración, ATP", c: "var(--dib-red-500)", y: 110 },
+            { t: "Ribosomas", fn: "síntesis de proteínas", c: "var(--dib-emerald-500)", y: 162 },
+            { t: "RE rugoso", fn: "proteínas para exportar", c: "var(--dib-blue-500)", y: 214 },
+            { t: "RE liso", fn: "síntesis de lípidos", c: "var(--dib-cyan-500)", y: 266 },
           ].map((o, i) => (
             <g key={i}>
-              <circle cx={70} cy={o.y} r={10} fill={o.c} opacity={0.4} stroke={o.c} strokeWidth={1.5} />
-              <text x={100} y={o.y + 4} fill={o.c} fontSize={12} fontWeight={700}>{o.t}</text>
-              <text x={300} y={o.y + 4} fill={LIENZO.fg} fontSize={12}>{o.fn}</text>
+              <circle cx={26} cy={o.y} r={10} fill={o.c} opacity={0.4} stroke={o.c} strokeWidth={1.5} />
+              <text x={46} y={o.y + 4} fill={o.c} fontSize={14} fontWeight={700}>{o.t}</text>
+              <text x={46} y={o.y + 22} fill={LIENZO.fg} fontSize={13}>{o.fn}</text>
+            </g>
+          ))}
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={225}>
+        <svg width="100%" height="100%" viewBox="0 0 360 260" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Organelos esenciales y su función (2/2)
+          </text>
+          {[
+            { t: "Aparato de Golgi", fn: "empaqueta y exporta", c: "var(--dib-amber-500)", y: 58 },
+            { t: "Lisosomas", fn: "digestión intracelular", c: "var(--dib-yellow-500)", y: 110 },
+            { t: "Cloroplastos", fn: "fotosíntesis (plantas y algas)", c: "var(--dib-green-500)", y: 162 },
+            { t: "Pared celular", fn: "rigidez (plantas, hongos, bacterias)", c: "var(--dib-lime-500)", y: 214 },
+          ].map((o, i) => (
+            <g key={i}>
+              <circle cx={26} cy={o.y} r={10} fill={o.c} opacity={0.4} stroke={o.c} strokeWidth={1.5} />
+              <text x={46} y={o.y + 4} fill={o.c} fontSize={14} fontWeight={700}>{o.t}</text>
+              <text x={46} y={o.y + 22} fill={LIENZO.fg} fontSize={13}>{o.fn}</text>
             </g>
           ))}
         </svg>
@@ -269,30 +333,41 @@ function EscAnimalVegetal() {
     <EscenaRica>
       <Titulo>Célula animal vs vegetal</Titulo>
 
-      <Pizarra alto={200}>
-        <svg width="100%" height="100%" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={333}>
+        <svg width="100%" height="100%" viewBox="0 0 360 384" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Diferencias clave (presencia / forma)
           </text>
-          {["Característica", "Animal", "Vegetal"].map((h, i) => (
+          <rect x={10} y={34} width={340} height={22} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+          <text x={180} y={50} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>Característica</text>
+          {["Animal", "Vegetal"].map((h, i) => (
             <g key={i}>
-              <rect x={60 + i * 200} y={45} width={195} height={28} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
-              <text x={60 + i * 200 + 97} y={64} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h}</text>
+              <rect x={10 + i * 170} y={56} width={170} height={22} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+              <text x={10 + i * 170 + 85} y={72} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{h}</text>
             </g>
           ))}
           {[
-            { c: "Pared celular", a: "✗", v: "✓ (celulosa)" },
-            { c: "Cloroplastos", a: "✗", v: "✓" },
-            { c: "Vacuolas grandes", a: "✗ (pequeñas)", v: "✓ (gigante)" },
-            { c: "Centríolos", a: "✓", v: "✗" },
-            { c: "Lisosomas", a: "✓", v: "raros" },
-            { c: "Forma", a: "redondeada/irregular", v: "rectangular/poligonal" },
+            { c: "Pared celular", a: ["✗"], v: ["✓ (celulosa)"], y: 84, h: 22 },
+            { c: "Cloroplastos", a: ["✗"], v: ["✓"], y: 130, h: 22 },
+            { c: "Vacuolas grandes", a: ["✗ (pequeñas)"], v: ["✓ (gigante)"], y: 176, h: 22 },
+            { c: "Centríolos", a: ["✓"], v: ["✗"], y: 222, h: 22 },
+            { c: "Lisosomas", a: ["✓"], v: ["raros"], y: 268, h: 22 },
+            { c: "Forma", a: ["redondeada/", "irregular"], v: ["rectangular/", "poligonal"], y: 314, h: 38 },
           ].map((row, i) => (
             <g key={i}>
-              {[row.c, row.a, row.v].map((v, j) => (
+              <rect x={10} y={row.y} width={340} height={20} fill={LIENZO.accent} opacity={0.07} stroke={LIENZO.fgFaint} strokeWidth={1} />
+              <text x={180} y={row.y + 14} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>{row.c}</text>
+              {[row.a, row.v].map((lines, j) => (
                 <g key={j}>
-                  <rect x={60 + j * 200} y={73 + i * 20} width={195} height={20} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={87 + i * 20} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
+                  <rect x={10 + j * 170} y={row.y + 20} width={170} height={row.h} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
+                  {lines.length === 1 ? (
+                    <text x={10 + j * 170 + 85} y={row.y + 35} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                  ) : (
+                    <>
+                      <text x={10 + j * 170 + 85} y={row.y + 35} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                      <text x={10 + j * 170 + 85} y={row.y + 52} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[1]}</text>
+                    </>
+                  )}
                 </g>
               ))}
             </g>
@@ -326,13 +401,13 @@ function EscCiclo() {
         prepararse) y <strong>división</strong> (mitosis o meiosis).
       </Definicion>
 
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={298}>
+        <svg width="100%" height="100%" viewBox="0 0 360 344" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={16} fontWeight={700}>
             Fases del ciclo celular (en %)
           </text>
           {/* Pie chart simplificado */}
-          <g transform="translate(200, 130)">
+          <g transform="translate(180, 122)">
             {/* G1 - 50% */}
             <path d="M 0 -70 A 70 70 0 1 1 0 70 L 0 0 Z" fill="var(--dib-blue-500)" opacity={0.5} />
             {/* S - 25% */}
@@ -349,9 +424,9 @@ function EscCiclo() {
             { c: "var(--dib-amber-500)", t: "G2 · preparación (~15%)" },
             { c: "var(--dib-red-500)", t: "M · mitosis (~10%)" },
           ].map((l, i) => (
-            <g key={i} transform={`translate(400, ${70 + i * 32})`}>
+            <g key={i} transform={`translate(44, ${214 + i * 30})`}>
               <rect width={20} height={20} fill={l.c} opacity={0.5} />
-              <text x={30} y={15} fill={LIENZO.fg} fontSize={12}>{l.t}</text>
+              <text x={30} y={15} fill={LIENZO.fg} fontSize={14}>{l.t}</text>
             </g>
           ))}
         </svg>
@@ -391,25 +466,23 @@ function EscMitosis() {
         Ocurre en células SOMÁTICAS (no sexuales): piel, sangre, hueso, etc.
       </Definicion>
 
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={352}>
+        <svg width="100%" height="100%" viewBox="0 0 360 406" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Las 4 fases de la mitosis (PMAT)
           </text>
           {[
-            { x: 90, t: "Profase", d: "cromatina se condensa, desaparece membrana nuclear", c: "var(--dib-blue-500)" },
-            { x: 280, t: "Metafase", d: "cromosomas se alinean en el ecuador", c: "var(--dib-emerald-500)" },
-            { x: 470, t: "Anafase", d: "se separan cromátidas hermanas, van a los polos", c: "var(--dib-amber-500)" },
-            { x: 90, y: 160, t: "Telofase", d: "se forman 2 núcleos hijos, citocinesis", c: "var(--dib-red-500)" },
-            { x: 360, y: 160, t: "Resultado", d: "2 células diploides (2n), idénticas a la madre", c: "var(--dib-violet-400)" },
+            { t: "Profase", d1: "cromatina se condensa,", d2: "desaparece membrana nuclear", c: "var(--dib-blue-500)" },
+            { t: "Metafase", d1: "cromosomas se alinean", d2: "en el ecuador", c: "var(--dib-emerald-500)" },
+            { t: "Anafase", d1: "se separan cromátidas hermanas,", d2: "van a los polos", c: "var(--dib-amber-500)" },
+            { t: "Telofase", d1: "se forman 2 núcleos hijos,", d2: "citocinesis", c: "var(--dib-red-500)" },
+            { t: "Resultado", d1: "2 células diploides (2n),", d2: "idénticas a la madre", c: "var(--dib-violet-400)" },
           ].map((f, i) => (
-            <g key={i} transform={`translate(${f.x}, ${f.y || 50})`}>
-              <rect x={-10} y={0} width={180} height={90} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={10} />
-              <text x={80} y={22} textAnchor="middle" fill={f.c} fontSize={13} fontWeight={700}>{f.t}</text>
-              <text x={80} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{f.d.split(",")[0]}</text>
-              {f.d.split(",")[1] && (
-                <text x={80} y={72} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{f.d.split(",")[1]}</text>
-              )}
+            <g key={i} transform={`translate(12, ${40 + i * 72})`}>
+              <rect x={0} y={0} width={336} height={64} fill={f.c} opacity={0.1} stroke={f.c} strokeWidth={1.5} rx={10} />
+              <text x={168} y={20} textAnchor="middle" fill={f.c} fontSize={14} fontWeight={700}>{f.t}</text>
+              <text x={168} y={39} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{f.d1}</text>
+              <text x={168} y={56} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{f.d2}</text>
             </g>
           ))}
         </svg>
@@ -450,30 +523,41 @@ function EscMeiosis() {
         produce los gametos.
       </Definicion>
 
-      <Pizarra alto={250}>
-        <svg width="100%" height="100%" viewBox="0 0 720 250" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+      <Pizarra alto={333}>
+        <svg width="100%" height="100%" viewBox="0 0 360 384" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Mitosis vs Meiosis · diferencias clave
           </text>
-          {["Característica", "Mitosis", "Meiosis"].map((h, i) => (
+          <rect x={10} y={34} width={340} height={22} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+          <text x={180} y={50} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>Característica</text>
+          {["Mitosis", "Meiosis"].map((h, i) => (
             <g key={i}>
-              <rect x={60 + i * 200} y={45} width={195} height={28} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
-              <text x={60 + i * 200 + 97} y={64} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h}</text>
+              <rect x={10 + i * 170} y={56} width={170} height={22} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+              <text x={10 + i * 170 + 85} y={72} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{h}</text>
             </g>
           ))}
           {[
-            { c: "Divisiones", m: "1", me: "2" },
-            { c: "Células hijas", m: "2", me: "4" },
-            { c: "Cromosomas hija", m: "2n (igual)", me: "n (mitad)" },
-            { c: "Variabilidad", m: "No (idénticas)", me: "Sí (recombina)" },
-            { c: "Tipo de célula", m: "somática", me: "germinales → gametos" },
-            { c: "Función", m: "crecer, reparar", me: "reproducir" },
+            { c: "Divisiones", m: ["1"], me: ["2"], y: 84, h: 22 },
+            { c: "Células hijas", m: ["2"], me: ["4"], y: 130, h: 22 },
+            { c: "Cromosomas hija", m: ["2n (igual)"], me: ["n (mitad)"], y: 176, h: 22 },
+            { c: "Variabilidad", m: ["No (idénticas)"], me: ["Sí (recombina)"], y: 222, h: 22 },
+            { c: "Tipo de célula", m: ["somática"], me: ["germinales →", "gametos"], y: 268, h: 38 },
+            { c: "Función", m: ["crecer, reparar"], me: ["reproducir"], y: 330, h: 22 },
           ].map((row, i) => (
             <g key={i}>
-              {[row.c, row.m, row.me].map((v, j) => (
+              <rect x={10} y={row.y} width={340} height={20} fill={LIENZO.accent} opacity={0.07} stroke={LIENZO.fgFaint} strokeWidth={1} />
+              <text x={180} y={row.y + 14} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>{row.c}</text>
+              {[row.m, row.me].map((lines, j) => (
                 <g key={j}>
-                  <rect x={60 + j * 200} y={73 + i * 28} width={195} height={28} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={91 + i * 28} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
+                  <rect x={10 + j * 170} y={row.y + 20} width={170} height={row.h} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
+                  {lines.length === 1 ? (
+                    <text x={10 + j * 170 + 85} y={row.y + 35} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                  ) : (
+                    <>
+                      <text x={10 + j * 170 + 85} y={row.y + 35} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[0]}</text>
+                      <text x={10 + j * 170 + 85} y={row.y + 52} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>{lines[1]}</text>
+                    </>
+                  )}
                 </g>
               ))}
             </g>
