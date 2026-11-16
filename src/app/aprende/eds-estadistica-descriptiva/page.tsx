@@ -58,42 +58,57 @@ function EscConceptos() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Población, muestra y las dos ramas de la estadística
-          </text>
-
-          <circle cx={155} cy={112} r={74} fill={LIENZO.accent} opacity={0.12} stroke={LIENZO.accent} strokeWidth={1.8} />
-          <text x={155} y={84} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>POBLACIÓN (N)</text>
-          <text x={155} y={106} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Todos los elementos</text>
-          <text x={155} y={124} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Parámetros: μ, σ</text>
-          <text x={155} y={142} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Estudio total = censo</text>
-
-          <line x1={238} x2={462} y1={94} y2={94} stroke={LIENZO.fg} strokeWidth={1.6} markerEnd="url(#arrEst)" />
-          <text x={350} y={84} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>
-            Muestreo (selección)
-          </text>
-
-          <line x1={462} x2={238} y1={134} y2={134} stroke={LIENZO.ok} strokeWidth={1.6} markerEnd="url(#arrInf)" />
-          <text x={350} y={154} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={600}>
-            Estadística inferencial
-          </text>
-
-          <circle cx={565} cy={112} r={60} fill={LIENZO.ok} opacity={0.12} stroke={LIENZO.ok} strokeWidth={1.8} />
-          <text x={565} y={90} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>MUESTRA (n)</text>
-          <text x={565} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Parte representativa</text>
-          <text x={565} y={128} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Estadígrafos: X̄, s</text>
-          <text x={565} y={146} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Descriptiva resume n</text>
-
+      <Pizarra alto={286}>
+        <svg width="100%" height="100%" viewBox="0 0 360 330" preserveAspectRatio="xMidYMid meet">
           <defs>
             <marker id="arrEst" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
             </marker>
+          </defs>
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Población, muestra y las dos
+          </text>
+          <text x={180} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            ramas de la estadística (1/2)
+          </text>
+
+          <circle cx={180} cy={150} r={94} fill={LIENZO.accent} opacity={0.12} stroke={LIENZO.accent} strokeWidth={1.8} />
+          <text x={180} y={124} textAnchor="middle" fill={LIENZO.accent} fontSize={14} fontWeight={700}>POBLACIÓN (N)</text>
+          <text x={180} y={146} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>Todos los elementos</text>
+          <text x={180} y={168} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>Parámetros: μ, σ</text>
+          <text x={180} y={190} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>Estudio total = censo</text>
+
+          <line x1={100} x2={100} y1={252} y2={312} stroke={LIENZO.fg} strokeWidth={1.6} markerEnd="url(#arrEst)" />
+          <text x={114} y={286} textAnchor="start" fill={LIENZO.fg} fontSize={13} fontWeight={600}>
+            Muestreo (selección)
+          </text>
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={273}>
+        <svg width="100%" height="100%" viewBox="0 0 360 315" preserveAspectRatio="xMidYMid meet">
+          <defs>
             <marker id="arrInf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.ok} />
             </marker>
           </defs>
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Población, muestra y las dos
+          </text>
+          <text x={180} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            ramas de la estadística (2/2)
+          </text>
+
+          <line x1={100} x2={100} y1={114} y2={58} stroke={LIENZO.ok} strokeWidth={1.6} markerEnd="url(#arrInf)" />
+          <text x={114} y={90} textAnchor="start" fill={LIENZO.ok} fontSize={13} fontWeight={600}>
+            Estadística inferencial
+          </text>
+
+          <circle cx={180} cy={212} r={86} fill={LIENZO.ok} opacity={0.12} stroke={LIENZO.ok} strokeWidth={1.8} />
+          <text x={180} y={186} textAnchor="middle" fill={LIENZO.ok} fontSize={14} fontWeight={700}>MUESTRA (n)</text>
+          <text x={180} y={208} textAnchor="middle" fill={LIENZO.fg} fontSize={13}>Parte representativa</text>
+          <text x={180} y={230} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>Estadígrafos: X̄, s</text>
+          <text x={180} y={252} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>Descriptiva resume n</text>
         </svg>
       </Pizarra>
 
@@ -184,35 +199,59 @@ function EscVariables() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={220}>
-        <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Las 4 escalas de medición (de débil a fuerte)
+      <Pizarra alto={221}>
+        <svg width="100%" height="100%" viewBox="0 0 360 255" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Las 4 escalas de medición (1/2)
+          </text>
+          <text x={180} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontWeight={600}>
+            (de débil a fuerte)
           </text>
           {[
             {
-              x: 40, y: 120, h: 82, t: "1. Nominal", l1: "Solo categorías (=, ≠)",
+              w: 236, t: "1. Nominal", l1: "Solo categorías (=, ≠)",
               l2: "Números = etiquetas", ej: "Grupo sanguíneo", c: LIENZO.fgDim,
             },
             {
-              x: 204, y: 95, h: 107, t: "2. Ordinal", l1: "+ Orden (<, >)",
+              w: 264, t: "2. Ordinal", l1: "+ Orden (<, >)",
               l2: "Distancia NO constante", ej: "Leve / mod. / grave", c: LIENZO.warn,
             },
+          ].map((e, i) => (
+            <g key={i} transform={`translate(20, ${54 + i * 98})`}>
+              <rect width={e.w} height={88} fill={e.c} opacity={0.12} stroke={e.c} strokeWidth={1.6} rx={8} />
+              <text x={e.w / 2} y={22} textAnchor="middle" fill={e.c} fontSize={14} fontWeight={700}>{e.t}</text>
+              <text x={e.w / 2} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>{e.l1}</text>
+              <text x={e.w / 2} y={60} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>{e.l2}</text>
+              <text x={e.w / 2} y={78} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontStyle="italic">{e.ej}</text>
+            </g>
+          ))}
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={221}>
+        <svg width="100%" height="100%" viewBox="0 0 360 255" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Las 4 escalas de medición (2/2)
+          </text>
+          <text x={180} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontWeight={600}>
+            (de débil a fuerte)
+          </text>
+          {[
             {
-              x: 368, y: 70, h: 132, t: "3. Intervalo", l1: "+ Distancia igual",
+              w: 292, t: "3. Intervalo", l1: "+ Distancia igual",
               l2: "Cero arbitrario", ej: "Temperatura (°C, K)", c: LIENZO.accent,
             },
             {
-              x: 532, y: 45, h: 157, t: "4. Razón", l1: "+ Cero absoluto",
+              w: 320, t: "4. Razón", l1: "+ Cero absoluto",
               l2: "Permite razones (2×)", ej: "Peso, talla, tiempo", c: LIENZO.ok,
             },
           ].map((e, i) => (
-            <g key={i} transform={`translate(${e.x}, ${e.y})`}>
-              <rect width={148} height={e.h} fill={e.c} opacity={0.12} stroke={e.c} strokeWidth={1.6} rx={8} />
-              <text x={74} y={22} textAnchor="middle" fill={e.c} fontSize={12} fontWeight={700}>{e.t}</text>
-              <text x={74} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>{e.l1}</text>
-              <text x={74} y={58} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{e.l2}</text>
-              <text x={74} y={e.h - 12} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{e.ej}</text>
+            <g key={i} transform={`translate(20, ${54 + i * 98})`}>
+              <rect width={e.w} height={88} fill={e.c} opacity={0.12} stroke={e.c} strokeWidth={1.6} rx={8} />
+              <text x={e.w / 2} y={22} textAnchor="middle" fill={e.c} fontSize={14} fontWeight={700}>{e.t}</text>
+              <text x={e.w / 2} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>{e.l1}</text>
+              <text x={e.w / 2} y={60} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>{e.l2}</text>
+              <text x={e.w / 2} y={78} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontStyle="italic">{e.ej}</text>
             </g>
           ))}
         </svg>
@@ -309,20 +348,35 @@ function EscMuestreo() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={175}>
-        <svg width="100%" height="100%" viewBox="0 0 720 175" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
-            Ejemplo de muestreo sistemático · N = 12, n = 4 → k = 12 / 4 = 3
+      <Pizarra alto={286}>
+        <svg width="100%" height="100%" viewBox="0 0 360 330" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <marker id="arrSist" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.ok} />
+            </marker>
+          </defs>
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Ejemplo de muestreo sistemático
           </text>
-          <text x={360} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>
-            Arranque al azar i = 2 (entre 1 y 3). Se eligen: 2, 5, 8, 11
+          <text x={180} y={39} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+            N = 12, n = 4 → k = 12 / 4 = 3
           </text>
+          <text x={180} y={60} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
+            Arranque al azar i = 2 (entre 1 y 3).
+          </text>
+          <text x={180} y={77} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
+            Se eligen: 2, 5, 8, 11
+          </text>
+
           {Array.from({ length: 12 }, (_, idx) => {
             const num = idx + 1;
             const sel = num === 2 || num === 5 || num === 8 || num === 11;
-            const x = 53 + idx * 52;
+            const col = idx % 6;
+            const row = Math.floor(idx / 6);
+            const x = 29 + col * 52;
+            const y = row === 0 ? 136 : 238;
             return (
-              <g key={num} transform={`translate(${x}, 66)`}>
+              <g key={num} transform={`translate(${x}, ${y})`}>
                 <rect
                   width={42}
                   height={38}
@@ -337,7 +391,7 @@ function EscMuestreo() {
                   y={24}
                   textAnchor="middle"
                   fill={sel ? LIENZO.ok : LIENZO.fg}
-                  fontSize={13}
+                  fontSize={14}
                   fontWeight={sel ? 700 : 500}
                 >
                   {num}
@@ -345,24 +399,24 @@ function EscMuestreo() {
               </g>
             );
           })}
-          {[0, 1, 2].map((j) => {
-            const x1 = 53 + (1 + j * 3) * 52 + 21;
-            const x2 = 53 + (4 + j * 3) * 52 + 21;
-            const xm = (x1 + x2) / 2;
-            return (
-              <g key={j}>
-                <path
-                  d={`M ${x1} 110 Q ${xm} 142 ${x2} 110`}
-                  fill="none"
-                  stroke={LIENZO.ok}
-                  strokeWidth={1.6}
-                />
-                <text x={xm} y={145} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>
-                  +k (+3)
-                </text>
-              </g>
-            );
-          })}
+
+          {/* Salto 2 -> 5 */}
+          <path d="M 102 132 Q 180 104 258 132" fill="none" stroke={LIENZO.ok} strokeWidth={1.6} markerEnd="url(#arrSist)" />
+          <text x={180} y={106} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>
+            +k (+3)
+          </text>
+
+          {/* Salto 5 -> 8 */}
+          <path d="M 258 178 L 258 206 L 102 206 L 102 234" fill="none" stroke={LIENZO.ok} strokeWidth={1.6} markerEnd="url(#arrSist)" />
+          <text x={180} y={200} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>
+            +k (+3)
+          </text>
+
+          {/* Salto 8 -> 11 */}
+          <path d="M 102 280 Q 180 308 258 280" fill="none" stroke={LIENZO.ok} strokeWidth={1.6} markerEnd="url(#arrSist)" />
+          <text x={180} y={312} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>
+            +k (+3)
+          </text>
         </svg>
       </Pizarra>
 
@@ -626,19 +680,19 @@ function EscGraficos() {
         </div>
       </WorkedExample>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={208}>
         <svg width="100%" height="100%" viewBox="0 0 360 240" preserveAspectRatio="xMidYMid meet">
-          <text x={185} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+          <text x={185} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Diagrama de barras (n = 20)
           </text>
           <line x1={75} x2={330} y1={195} y2={195} stroke={LIENZO.fg} strokeWidth={1.5} />
-          <line x1={75} x2={75} y1={195} y2={45} stroke={LIENZO.fg} strokeWidth={1.5} />
+          <line x1={75} x2={75} y1={195} y2={42} stroke={LIENZO.fg} strokeWidth={1.5} />
           {[0, 3, 6, 9].map((v) => {
             const y = 195 - v * 15;
             return (
               <g key={v}>
                 <line x1={71} x2={75} y1={y} y2={y} stroke={LIENZO.fg} strokeWidth={1} />
-                <text x={66} y={y + 4} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>{v}</text>
+                <text x={64} y={y + 5} textAnchor="end" fill={LIENZO.fgDim} fontSize={13}>{v}</text>
               </g>
             );
           })}
@@ -653,8 +707,8 @@ function EscGraficos() {
             return (
               <g key={b.label}>
                 <rect x={b.x} y={y} width={38} height={h} fill={b.c} opacity={0.28} stroke={b.c} strokeWidth={1.5} />
-                <text x={b.x + 19} y={y - 6} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={700}>{b.n}</text>
-                <text x={b.x + 19} y={212} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>{b.label}</text>
+                <text x={b.x + 19} y={y - 7} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>{b.n}</text>
+                <text x={b.x + 19} y={215} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={600}>{b.label}</text>
               </g>
             );
           })}
@@ -662,29 +716,29 @@ function EscGraficos() {
         </svg>
       </Pizarra>
 
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="360 0 360 240" preserveAspectRatio="xMidYMid meet">
-          <text x={540} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+      <Pizarra alto={234}>
+        <svg width="100%" height="100%" viewBox="0 0 360 270" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Diagrama circular (360°)
           </text>
           {/* O: -90° a 72° (162°) */}
-          <path d="M 495 125 L 495 51 A 74 74 0 0 1 517.9 195.4 Z" fill={LIENZO.accent} opacity={0.32} stroke={LIENZO.accent} strokeWidth={1.4} />
+          <path d="M 180 122 L 180 46 A 76 76 0 0 1 203.5 194.3 Z" fill={LIENZO.accent} opacity={0.32} stroke={LIENZO.accent} strokeWidth={1.4} />
           {/* A: 72° a 180° (108°) */}
-          <path d="M 495 125 L 517.9 195.4 A 74 74 0 0 1 421 125 Z" fill={LIENZO.ok} opacity={0.32} stroke={LIENZO.ok} strokeWidth={1.4} />
+          <path d="M 180 122 L 203.5 194.3 A 76 76 0 0 1 104 122 Z" fill={LIENZO.ok} opacity={0.32} stroke={LIENZO.ok} strokeWidth={1.4} />
           {/* B: 180° a 252° (72°) */}
-          <path d="M 495 125 L 421 125 A 74 74 0 0 1 472.1 54.6 Z" fill={LIENZO.warn} opacity={0.32} stroke={LIENZO.warn} strokeWidth={1.4} />
+          <path d="M 180 122 L 104 122 A 76 76 0 0 1 156.5 49.7 Z" fill={LIENZO.warn} opacity={0.32} stroke={LIENZO.warn} strokeWidth={1.4} />
           {/* AB: 252° a 270° (18°) */}
-          <path d="M 495 125 L 472.1 54.6 A 74 74 0 0 1 495 51 Z" fill={LIENZO.bad} opacity={0.38} stroke={LIENZO.bad} strokeWidth={1.4} />
+          <path d="M 180 122 L 156.5 49.7 A 76 76 0 0 1 180 46 Z" fill={LIENZO.bad} opacity={0.38} stroke={LIENZO.bad} strokeWidth={1.4} />
 
           {[
-            { y: 78, t: "O · 45% (162°)", c: LIENZO.accent },
-            { y: 108, t: "A · 30% (108°)", c: LIENZO.ok },
-            { y: 138, t: "B · 20% (72°)", c: LIENZO.warn },
-            { y: 168, t: "AB · 5% (18°)", c: LIENZO.bad },
+            { x: 26, y: 216, t: "O · 45% (162°)", c: LIENZO.accent },
+            { x: 194, y: 216, t: "A · 30% (108°)", c: LIENZO.ok },
+            { x: 26, y: 244, t: "B · 20% (72°)", c: LIENZO.warn },
+            { x: 194, y: 244, t: "AB · 5% (18°)", c: LIENZO.bad },
           ].map((l) => (
-            <g key={l.t} transform={`translate(585, ${l.y})`}>
-              <rect width={12} height={12} rx={3} fill={l.c} opacity={0.45} stroke={l.c} strokeWidth={1.2} />
-              <text x={18} y={10} fill={LIENZO.fg} fontSize={11} fontWeight={600}>{l.t}</text>
+            <g key={l.t} transform={`translate(${l.x}, ${l.y})`}>
+              <rect width={13} height={13} rx={3} fill={l.c} opacity={0.45} stroke={l.c} strokeWidth={1.2} />
+              <text x={20} y={11} fill={LIENZO.fg} fontSize={13} fontWeight={600}>{l.t}</text>
             </g>
           ))}
         </svg>
@@ -715,9 +769,9 @@ function EscGraficos() {
         </ul>
       </Definicion>
 
-      <Pizarra alto={240}>
+      <Pizarra alto={208}>
         <svg width="100%" height="100%" viewBox="0 0 360 240" preserveAspectRatio="xMidYMid meet">
-          <text x={190} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+          <text x={185} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             Histograma y polígono (peso en kg)
           </text>
           <line x1={55} x2={345} y1={195} y2={195} stroke={LIENZO.fg} strokeWidth={1.5} />
@@ -727,7 +781,7 @@ function EscGraficos() {
             return (
               <g key={v}>
                 <line x1={51} x2={55} y1={y} y2={y} stroke={LIENZO.fg} strokeWidth={1} />
-                <text x={47} y={y + 4} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>{v}</text>
+                <text x={46} y={y + 5} textAnchor="end" fill={LIENZO.fgDim} fontSize={13}>{v}</text>
               </g>
             );
           })}
@@ -735,7 +789,7 @@ function EscGraficos() {
             { lbl: "50", x: 100 }, { lbl: "55", x: 140 }, { lbl: "60", x: 180 },
             { lbl: "65", x: 220 }, { lbl: "70", x: 260 }, { lbl: "75", x: 300 },
           ].map((t) => (
-            <text key={t.lbl} x={t.x} y={211} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{t.lbl}</text>
+            <text key={t.lbl} x={t.x} y={215} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>{t.lbl}</text>
           ))}
           {[
             { x: 100, n: 2 },
@@ -776,37 +830,37 @@ function EscGraficos() {
         </svg>
       </Pizarra>
 
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="360 0 360 240" preserveAspectRatio="xMidYMid meet">
-          <text x={555} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+      <Pizarra alto={208}>
+        <svg width="100%" height="100%" viewBox="0 0 360 240" preserveAspectRatio="xMidYMid meet">
+          <text x={185} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Ojiva · Frecuencia acumulada Hᵢ (%)
           </text>
-          <line x1={430} x2={690} y1={195} y2={195} stroke={LIENZO.fg} strokeWidth={1.5} />
-          <line x1={430} x2={430} y1={195} y2={42} stroke={LIENZO.fg} strokeWidth={1.5} />
+          <line x1={70} x2={330} y1={195} y2={195} stroke={LIENZO.fg} strokeWidth={1.5} />
+          <line x1={70} x2={70} y1={195} y2={42} stroke={LIENZO.fg} strokeWidth={1.5} />
           {[0, 25, 50, 75, 100].map((v) => {
             const y = 195 - v * 1.4;
             return (
               <g key={v}>
-                <line x1={426} x2={430} y1={y} y2={y} stroke={LIENZO.fg} strokeWidth={1} />
-                <text x={422} y={y + 4} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>{v}%</text>
+                <line x1={66} x2={70} y1={y} y2={y} stroke={LIENZO.fg} strokeWidth={1} />
+                <text x={61} y={y + 5} textAnchor="end" fill={LIENZO.fgDim} fontSize={13}>{v}%</text>
               </g>
             );
           })}
           {[
-            { lbl: "50", x: 430 }, { lbl: "55", x: 480 }, { lbl: "60", x: 530 },
-            { lbl: "65", x: 580 }, { lbl: "70", x: 630 }, { lbl: "75", x: 680 },
+            { lbl: "50", x: 70 }, { lbl: "55", x: 120 }, { lbl: "60", x: 170 },
+            { lbl: "65", x: 220 }, { lbl: "70", x: 270 }, { lbl: "75", x: 320 },
           ].map((t) => (
-            <text key={t.lbl} x={t.x} y={211} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{t.lbl}</text>
+            <text key={t.lbl} x={t.x} y={215} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>{t.lbl}</text>
           ))}
           {/* H = 0%, 10%, 35%, 70%, 90%, 100% -> y = 195 - H*1.4 */}
           <polyline
-            points="430,195 480,181 530,146 580,97 630,69 680,55"
+            points="70,195 120,181 170,146 220,97 270,69 320,55"
             fill="none"
             stroke={LIENZO.ok}
             strokeWidth={2.4}
           />
           {[
-            [430, 195], [480, 181], [530, 146], [580, 97], [630, 69], [680, 55],
+            [70, 195], [120, 181], [170, 146], [220, 97], [270, 69], [320, 55],
           ].map(([cx, cy], i) => (
             <circle key={i} cx={cx} cy={cy} r={3.5} fill={LIENZO.ok} />
           ))}
