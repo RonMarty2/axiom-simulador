@@ -29,6 +29,7 @@ Lo largo y mecánico va a agy (skill `ejecutor-agy`); Claude decide y revisa con
 - Una configuración `examenes/psa-2027` con: materias, temas (del Paso 1), peso de cada materia en el examen y tiempo.
 - Ruta de estudio (lección → práctica → repaso), simulacro con el mismo formato y proporciones, y avance del estudiante por tema.
 - Audios conectados a las lecciones (hoy `src/` no los usa).
+- **Antes de construir (15-nov):** un plan corto del simulacro (qué verá el alumno: materias, cantidad de preguntas, tiempo y de dónde salen) se lleva a Ronald, y se construye recién con su OK. Los temas se pesan con `analista-temas` contra la Lista PSA 2027 y los exámenes viejos; las cuentas nuevas pasan por `resolutor-exacto`. «Organizar exámenes» es agruparlos, no reescribirlos (CLAUDE.md, regla 10).
 
 ## Paso 5 · Probar antes de abrir
 `probador-app` + `auditor-pantallas-movil`; prueba en tablet por la cola (`docs/COLA_TABLET.md`). Ronald da el OK final antes de publicar.
