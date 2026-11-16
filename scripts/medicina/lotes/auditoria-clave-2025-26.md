@@ -43,6 +43,11 @@ Sigue pendiente: 1er parcial 21 (bolsa subescapular: depende de la figura del li
 - 2do parcial: 2, 9, 16, 20, 25, 42, 63, 64, 67, 70, 75, 92, 98.
 - Final: 1, 9, 21, 22, 52, 54, 97.
 
+**16-nov, segunda vuelta de metodología** (agy `20261116-102858_auditoria` leyó las imágenes de «Temas faltantes» pp. 31-37 = libro 101-107; pedido `scripts/agy/pedidos/2026-11-16-clave-eds-cualitativa.md`; Claude comprobó la cita de la p. 103 en la imagen):
+- 2do parcial 98 (clave B): af1 F, af2 V, af3 F → **B, se confirma la clave**. Temas faltantes p. 34 (libro 104): «recolección de datos sobre relatos narrativos, historias de vida y experiencias de personas… Los datos se obtienen de autobiografías, biografías, entrevistas y testimonios de personas», no de los investigadores.
+- Final 97 (clave D): af2 también V con EdS p. 134 (el diagrama circular «se usa para representar variables de tipo cualitativas o cuantitativas discretas») → V V V = **D, se confirma la clave**.
+- 2do parcial 42 y 92 siguen sin veredicto: p. 33 (libro 103) da «Los tipos más comunes… teoría fundamentada, etnográficos, investigación-acción, narrativos y estudios de caso, entre otros». Como la lista queda abierta, los «cartográficos» no se pueden descartar. El libro no habla de variables numéricas ni de generalizar resultados estadísticos (P92 af1/af3). Ninguna de las dos contradice la clave.
+
 Por qué: rótulos de figuras sin texto (huesos, músculos), preguntas sobre ODS concretos (el texto de la cátedra solo los nombra en general), y datos que el buscador no encontró. Ninguna contradice la clave con lo que sí se decidió.
 
 ## Qué NO se auditó
