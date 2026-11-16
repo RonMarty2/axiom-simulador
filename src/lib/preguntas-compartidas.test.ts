@@ -270,11 +270,31 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
     assert.ok(base);
     const fuera = { ...base, id: "x-hess", tema: "ley-de-hess-calor-de-formacion" };
     const dentro = { ...base, id: "x-sol", tema: "molaridad-dilucion" };
-    const ids = prestarPreguntas([fuera, dentro], regla, fichaPsa2027).map((p) => p.id);
+    // Aquí se prueba solo la exclusión por patrón; la lista permitida se prueba en (h).
+    const soloExcluidos = { ...regla, temas_permitidos: undefined };
+    const ids = prestarPreguntas([fuera, dentro], soloExcluidos, fichaPsa2027).map((p) => p.id);
     assert.deepEqual(ids, ["prestada:x-sol"]);
     const todas = prestarPreguntas(poolIngenieria, regla, fichaPsa2027);
     const res = (regla.temas_excluidos ?? []).map((t) => new RegExp(t, "i"));
     assert.equal(todas.some((p) => res.some((r) => r.test(p.tema ?? ""))), false);
+  });
+
+  test("(h) con temas_permitidos solo se presta lo clasificado DENTRO del temario PSA 2027", () => {
+    const [regla] = reglasActivasPara(cargarReglasCompartidas(), "medicina");
+    assert.ok(regla?.temas_permitidos && regla.temas_permitidos.length > 0, "la regla debe traer la lista");
+    const base = poolIngenieria.find((p) => p.area === "fisica");
+    assert.ok(base);
+    const r2 = { ...regla, temas_permitidos: ["mru-encuentro"] };
+    const ids = prestarPreguntas(
+      [{ ...base, id: "x-ok", tema: "mru-encuentro" }, { ...base, id: "x-nuevo", tema: "tema-sin-clasificar" }],
+      r2,
+      fichaPsa2027
+    ).map((p) => p.id);
+    assert.deepEqual(ids, ["prestada:x-ok"]);
+    const permitidos = new Set(regla.temas_permitidos);
+    const todas = prestarPreguntas(poolIngenieria, regla, fichaPsa2027);
+    assert.ok(todas.length > 0);
+    assert.equal(todas.every((p) => permitidos.has(p.tema ?? "")), true);
   });
 });
 

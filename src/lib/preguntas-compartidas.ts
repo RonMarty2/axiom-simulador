@@ -15,6 +15,12 @@ export interface ReglaPreguntasCompartidas {
   /** Patrones (regex, sin mayúsculas) sobre `tema`: lo que calza NO se presta (fuera de la lista oficial). */
   temas_excluidos?: string[];
   /**
+   * Si está, SOLO se prestan las preguntas cuyo `tema` figura aquí (lista exacta, clasificada
+   * contra el temario oficial). Un tema nuevo del banco queda fuera hasta que se clasifique
+   * (Ronald, 15-nov-2026: «lo que no figura en el PDF no se presta»).
+   */
+  temas_permitidos?: string[];
+  /**
    * Si está, las preguntas NO salen de los exámenes de `origen` sino de este archivo de
    * `data/practica/` (formato .md del banco). Para preguntas de práctica escritas por AXIOM
    * que no son de un examen pasado y por eso no van en `data/examenes/` (15-nov-2026).
@@ -83,11 +89,13 @@ export function prestarPreguntas(
   const idsVistos = new Set<string>();
   const prestadas: PreguntaBanco[] = [];
   const excluidos = (regla.temas_excluidos ?? []).map((t) => new RegExp(t, "i"));
+  const permitidos = regla.temas_permitidos ? new Set(regla.temas_permitidos) : null;
 
   for (const p of preguntasOrigen) {
     const areaDestino = regla.areas[p.area];
     if (!areaDestino || !areasValidas.has(areaDestino)) continue;
     if (excluidos.some((re) => re.test(p.tema ?? ""))) continue;
+    if (permitidos && !permitidos.has(p.tema ?? "")) continue;
 
     const id = p.id.startsWith("prestada:") ? p.id : `prestada:${p.id}`;
     if (idsVistos.has(id)) continue;

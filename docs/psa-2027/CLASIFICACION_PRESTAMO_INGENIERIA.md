@@ -1,0 +1,183 @@
+# Clasificación del préstamo Ingeniería → Medicina contra el temario PSA 2027
+
+15-nov-2026. Fuente: `docs/psa-2027/4096_p29-45_texto.txt`. Clasificó agy (Hydrogen High, ids `20261115-212635/212637/212639_auditoria`); revisó Claude.
+Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive en `data/preguntas-compartidas.json` (`temas_permitidos`).
+
+## Cómo leer esto
+- Los números de línea que citó agy NO coinciden con el temario (p. ej. «dinamica-ascensor → Principio de Pascal»): no son prueba. Los D se comprobaron por muestra de nombre de tema (30 de 30 dentro del temario).
+- **Rescatados (24, Química):** agy los marcó F («pertenece a Física»), pero el temario de Física trae Calor y Temperatura (escalas termométricas, calor específico), Ondas (longitud de onda, espectro EM), Efecto fotoeléctrico y Conversión de unidades. Entran a la lista.
+- **Excluidos (?, F no rescatados):** quedan fuera hasta que Ronald decida; regla: lo que no figura en el PDF no se presta. Un tema nuevo del banco también queda fuera hasta clasificarlo.
+- Efecto: 2559 → 2392 preguntas prestadas (Matemática 1265→1121, Química 642→636, Física 652→635).
+
+## Rescatados
+- calorimetria-calor-especifico
+- calorimetria-calor-especifico-desconocido
+- calorimetria-cambios-de-estado
+- calorimetria-equilibrio-termico
+- calorimetria-metal-agua
+- calorimetria-mezcla-agua
+- calorimetria-mezcla-hielo-agua
+- calorimetria-rendimiento-de-calor
+- calorimetria-temperatura-equilibrio
+- calorimetria-temperatura-inicial
+- conversion-de-unidades-masa
+- conversion-temperatura-celsius-fahrenheit
+- efecto-fotoelectrico
+- escala-temperatura-lineal
+- escala-termometrica-lineal
+- escalas-de-temperatura-lineales
+- escalas-temperatura-conversion-lineal
+- escalas-termometricas
+- escalas-termometricas-conversion
+- escalas-termometricas-conversion-lineal
+- frecuencia-longitud-onda
+- ondas-electromagneticas-frecuencia-longitud-onda
+- ondas-electromagneticas-longitud-de-onda
+- ondas-electromagneticas-longitud-onda
+
+## Excluidos (materia · clase · tema · motivo de agy)
+- fisica · F · analisis-dimensional · Análisis dimensional no figura en el temario
+- fisica · F · analisis-dimensional-cinematica · Análisis dimensional no figura en el temario
+- fisica · F · analisis-dimensional-ecuacion-fisica · Análisis dimensional no figura en el temario
+- fisica · F · analisis-dimensional-ecuaciones-correctas · Análisis dimensional no figura en el temario
+- fisica · F · analisis-dimensional-pendulo · Análisis dimensional no figura en el temario
+- fisica · F · analisis-dimensional-velocidad-cuadratica · Análisis dimensional no figura en el temario
+- fisica · ? · capacitores-serie-energia · Capacitores en serie sí; energía almacenada no
+- fisica · ? · cinematica-PA-2op-2-2025 · Nombre ambiguo, no especifica subtema de cinemática
+- fisica · ? · circuitos-puente · Circuito puente no explícito; aplica Kirchhoff
+- fisica · ? · circuitos-puente-wheatstone-resistencia-equivalente · Circuito puente no explícito; aplica Kirchhoff
+- fisica · ? · circuitos-resistencias-puente · Circuito puente no explícito; aplica Kirchhoff
+- fisica · ? · dinamica-marco-no-inercial-resorte · Marco no inercial no figura; aplica Newton
+- fisica · ? · energia-electrostatica-cargas-puntuales · Potencial eléctrico sí; energía electrostática no explícita
+- fisica · ? · friccion-marco-no-inercial-plano-inclinado · Marco no inercial no figura; aplica Newton
+- fisica · F · movimiento-armonico-resorte-aceleracion · Movimiento armónico simple no figura en temario
+- fisica · ? · producto-mixto-volumen-paralelepipedo · Producto escalar y vectorial sí; mixto no
+- fisica · ? · resorte-amortiguador-friccion-energia · Ambiguo si amortiguador es resorte o viscoso
+- quimica · F · conteo-celular-microscopio · Contenido de Biología, no figura en Química
+- quimica · ? · densidad-peso-especifico · Densidad en l.335; peso específico en Física
+- quimica · ? · densidad-picnometro-peso-especifico · Picnómetro en l.338; peso específico en Física
+- quimica · ? · energia-fotones · Planck citado en l.338; fotones ambiguo
+- quimica · ? · momento-dipolar-moleculas · Dipolo en l.321; momento dipolar ambiguo
+- quimica · ? · relaciones-longitud-atomos-nanometros · Combina átomos (l.333) con conversión de unidades
+- matematicas · ? · angulo-entre-secantes-externas · Ángulos exteriores en circunferencia no figuran explícitos
+- matematicas · ? · angulo-entre-tangentes-arco · Ángulos con tangentes en circunferencia no explícitos
+- matematicas · ? · angulo-formado-cuerdas-secantes-circunferencia · Ángulos en circunferencia no figuran explícitos
+- matematicas · ? · angulo-inscrito-central · Ángulo inscrito en circunferencia no figura explícito
+- matematicas · ? · angulo-inscrito-circunferencia · Ángulo inscrito en circunferencia no figura explícito
+- matematicas · ? · angulo-inscrito-cuerdas-paralelas · Ángulo inscrito en circunferencia no figura explícito
+- matematicas · ? · angulo-secantes-circunferencia · Ángulo entre secantes no figura explícito
+- matematicas · ? · angulo-secantes-poligono-regular · Ángulo entre secantes en polígonos no explícito
+- matematicas · ? · angulo-tangente-cuerda-bisectriz · Ángulo semiinscrito en circunferencia no figura explícito
+- matematicas · ? · angulo-tangente-secante-circunferencia · Ángulo entre tangente y secante no explícito
+- matematicas · ? · angulo-tangentes-exteriores · Ángulo entre tangentes no figura explícito
+- matematicas · ? · angulos-cuerdas-circunferencia-arcos · Ángulos entre cuerdas no figuran explícitos
+- matematicas · ? · angulos-de-poligono-regular-convexo · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · angulos-de-poligonos-regulares · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · angulos-en-la-circunferencia · Ángulos en circunferencia no figuran explícitos
+- matematicas · ? · angulos-entre-secantes-circunferencia · Ángulos entre secantes no figuran explícitos
+- matematicas · ? · angulos-inscritos-arco-menor · Ángulos inscritos no figuran explícitos
+- matematicas · ? · angulos-inscritos-circunferencia · Ángulos inscritos no figuran explícitos
+- matematicas · ? · angulos-inscritos-semicircunferencia · Ángulos inscritos no figuran explícitos
+- matematicas · ? · angulos-interiores-poligonos-regulares · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · angulos-paralelas-transversal-cuadrilatero-ciclico · Cuadrilátero cíclico no figura en el temario
+- matematicas · ? · angulos-secantes-circunferencia · Ángulos entre secantes no figuran explícitos
+- matematicas · ? · angulos-tangente-secante-circunferencia · Ángulos tangente y secante no explícitos
+- matematicas · ? · angulos-tangentes-arcos-circunferencia · Ángulos con tangentes no figuran explícitos
+- matematicas · ? · arco-tangentes-circunferencia · Ángulos y arcos con tangentes no explícitos
+- matematicas · ? · base-media-del-trapecio · Trapecios y semejanza figuran; base media no explícita
+- matematicas · ? · bisectrices-interior-exterior-teoremas · Bisectriz y semejanza figuran; teorema métrico no explícito
+- matematicas · ? · cuadrilatero-incirculos · Cuadriláteros circunscritos (Pitot) no figuran explícitos
+- matematicas · ? · cuadrilatero-inscrito-angulos-arcos · Cuadrilátero inscrito en circunferencia no figura explícito
+- matematicas · ? · cubicas-producto-raices-relaciones-vieta · Vieta figura para cuadráticas, no para cúbicas
+- matematicas · ? · cuerdas-que-se-cortan · Teorema de cuerdas no figura explícito
+- matematicas · ? · cuerdas-que-se-cruzan · Teorema de cuerdas no figura explícito
+- matematicas · ? · cuerdas-que-se-cruzan-circulo · Teorema de cuerdas no figura explícito
+- matematicas · ? · cuerdas-secantes-circunferencia · Teoremas de cuerdas y secantes no explícitos
+- matematicas · ? · definiciones-mcd-mcm-primos · MCD/MCM figura en álgebra; primos no figura
+- matematicas · ? · diagonales-de-poligonos · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · diagonales-igual-lados · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · F · diagonales-medias-poligono · Diagonales medias de polígonos no figura en temario
+- matematicas · ? · diagonales-poligono · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · diagonales-poligonos-consecutivos · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · diagonales-suma-elementos-poligono · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · divisibilidad-sophie-germain · Factorización figura; criterio de divisibilidad no explícito
+- matematicas · ? · division-defecto-exceso · División entera figura; defecto y exceso no explícito
+- matematicas · ? · divisores-comunes-mcd · MCD figura en álgebra; aritmético no explícito
+- matematicas · F · divisores-descomposicion-canonica · Descomposición canónica y divisores no figuran
+- matematicas · F · divisores-pares-descomposicion-prima · Descomposición prima y divisores no figuran
+- matematicas · ? · ecuacion-cubica-raices-irracionales-conjugadas · Ruffini figura; raíces conjugadas de cúbica no
+- matematicas · ? · ecuacion-cubica-relacion-raices · Vieta figura para cuadráticas, no para cúbicas
+- matematicas · ? · ecuaciones-cubicas-relacion-raices-coeficientes · Vieta figura para cuadráticas, no para cúbicas
+- matematicas · ? · excentro-bisectrices-exteriores · Puntos notables figura; excentro no explícito
+- matematicas · ? · fracciones-continuas · Fracciones complejas en 643; continuas no explícitas
+- matematicas · ? · funciones-trigonometricas-inversas · Funciones trigonométricas inversas no figuran explícitas
+- matematicas · ? · funciones-trigonometricas-inversas-identidades · Funciones trigonométricas inversas no figuran explícitas
+- matematicas · ? · hexagono-regular-diagonales · Polígonos figura; diagonales no figuran explícitas
+- matematicas · ? · identidades-algebraicas-interpolacion · Identidades algebraicas figuran; interpolación no figura
+- matematicas · ? · identidades-valores-principales-trampa · Nombre ambiguo; podría incluir trigonométricas inversas
+- matematicas · ? · mcd-aplicado · MCD figura en álgebra; aritmético no explícito
+- matematicas · ? · mcd-aplicado-envases · MCD figura en álgebra; aritmético no explícito
+- matematicas · ? · mcd-envases-capacidad · MCD figura en álgebra; aritmético no explícito
+- matematicas · ? · mcd-mcm-diferencia · MCD/MCM figuran en álgebra; numéricos no explícitos
+- matematicas · ? · mcd-mcm-numeros · MCD/MCM figuran en álgebra; numéricos no explícitos
+- matematicas · ? · mcd-producto-diferencia · MCD figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-aplicado · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-aplicado-fechas · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-ciclistas-pista-circular · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-encuentro-periodico · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-encuentros-periodicos · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-suma-numeros · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mcm-viajeros · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · mediana-trapecio-relacion-areas · Trapecios y áreas figuran; mediana no explícita
+- matematicas · ? · minimo-comun-multiplo-calendario · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · minimo-comun-multiplo-problema-aplicado · MCM figura en álgebra; numérico no explícito
+- matematicas · ? · minimo-comun-multiplo-rango · MCM figura en álgebra; numérico no explícito
+- matematicas · F · numero-de-divisores · Cantidad de divisores no figura en temario
+- matematicas · F · numero-de-divisores-de-un-entero · Cantidad de divisores no figura en temario
+- matematicas · F · numero-de-divisores-factorizacion · Cantidad de divisores no figura en temario
+- matematicas · F · numero-divisores · Cantidad de divisores no figura en temario
+- matematicas · F · numero-divisores-descomposicion-prima · Cantidad de divisores no figura en temario
+- matematicas · F · numero-divisores-factorizacion · Cantidad de divisores no figura en temario
+- matematicas · F · numero-divisores-primos · Cantidad de divisores primos no figura en temario
+- matematicas · ? · numeros-complejos-forma-polar-potencia · Complejos figura en forma binómica, no polar
+- matematicas · ? · pentagono-regular-tangente-secante-angulos · Polígonos y tangente figuran; ángulos secantes no explícitos
+- matematicas · ? · perimetro-postes-equidistantes-divisores-comunes · Perímetro figura; MCD aritmético no explícito
+- matematicas · ? · poligono-angulo-interior · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · poligono-angulo-interior-central · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · poligono-angulo-interior-exterior · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · poligono-concavo-suma-angulos · Polígonos figura; ángulos en cóncavos no explícitos
+- matematicas · ? · poligono-diagonales · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · poligono-diagonales-lados · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · poligono-diagonales-proporcion · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · poligono-regular-angulo-central · Polígonos figura; ángulo central no explícito
+- matematicas · ? · poligono-regular-angulo-interior · Polígonos figura; fórmulas de ángulos no explícitas
+- matematicas · ? · poligono-regular-angulos-diagonales · Polígonos figura; ángulos y diagonales no explícitos
+- matematicas · ? · poligono-regular-suma-angulos-interiores · Polígonos figura; suma de ángulos no explícita
+- matematicas · ? · poligono-suma-angulos-cuadruplicar · Polígonos figura; suma de ángulos no explícita
+- matematicas · ? · poligono-suma-angulos-duplicar-lados · Polígonos figura; suma de ángulos no explícita
+- matematicas · ? · poligono-suma-angulos-interiores · Polígonos figura; suma de ángulos no explícita
+- matematicas · ? · poligonos-angulos-exteriores · Polígonos figura; ángulos exteriores no explícitos
+- matematicas · ? · poligonos-diagonales · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · poligonos-diagonales-vertices · Polígonos figura; fórmulas de diagonales no explícitas
+- matematicas · ? · poligonos-regulares-angulo-vertice-compartido · Polígonos figura; ángulos interiores no explícitos
+- matematicas · ? · poligonos-suma-angulos-interiores · Polígonos figura; suma de ángulos no explícita
+- matematicas · ? · polinomio-suma-raices-vieta · Vieta figura en cuadráticas, no grado superior
+- matematicas · ? · polinomios-raices-racionales-irracionales · Ruffini figura; raíces irracionales conjugadas no explícitas
+- matematicas · ? · potencia-de-un-punto · Circunferencia y semejanza figuran; potencia no explícita
+- matematicas · ? · potencia-de-un-punto-secante · Circunferencia y semejanza figuran; potencia no explícita
+- matematicas · ? · potencia-de-un-punto-secante-diametro · Circunferencia y semejanza figuran; potencia no explícita
+- matematicas · ? · potencia-de-un-punto-tangente-secante · Circunferencia y semejanza figuran; potencia no explícita
+- matematicas · ? · raices-irracionales-polinomio-grado4 · Ruffini figura; raíces irracionales grado 4 no
+- matematicas · ? · raices-irracionales-polinomio-grado5 · Ruffini figura; raíces irracionales grado 5 no
+- matematicas · F · romboide-angulo-vectorial · Método vectorial no figura en matemática
+- matematicas · ? · sistema-ecuaciones-lineales-4x4 · Sistemas figuran solo hasta tres incógnitas
+- matematicas · ? · suma-arcotangentes · Funciones trigonométricas inversas no figuran explícitas
+- matematicas · F · tangentes-secante-cuadrilatero-armonico · Cuadrilátero armónico no figura en el temario
+- matematicas · ? · tangentes-secante-punto-externo · Teorema tangente-secante no figura explícito
+- matematicas · F · teoria-numeros-divisores-exponentes · Teoría de números y divisores no figuran
+- matematicas · ? · trapecio-base-media-diagonal · Trapecios figuran; base media no explícita
+- matematicas · ? · trapecio-circunscrito · Cuadriláteros circunscritos (Pitot) no figuran explícitos
+- matematicas · ? · trapecio-mediana-segmento-diagonales · Trapecios figuran; segmento entre diagonales no explícito
+- matematicas · ? · trapecio-paralela-media · Trapecios figuran; paralela media no explícita
+- matematicas · ? · trapecio-segmento-medio · Trapecios figuran; segmento medio no explícito
+- matematicas · ? · trapecios-medianas · Trapecios figuran; mediana de trapecio no explícita
