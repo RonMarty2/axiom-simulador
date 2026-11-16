@@ -1,7 +1,7 @@
 # Clasificación del préstamo Ingeniería → Medicina contra el temario PSA 2027
 
 15-nov-2026. Fuente: `docs/psa-2027/4096_p29-45_texto.txt`. Clasificó agy (Hydrogen High, ids `20261115-212635/212637/212639_auditoria`); revisó Claude.
-Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive en `data/preguntas-compartidas.json` (`temas_permitidos`).
+Resultado: 2053 de 2053 temas clasificados. La lista permitida (1926 temas) vive en `data/preguntas-compartidas.json` (`temas_permitidos`).
 
 ## Cómo leer esto
 - Los números de línea que citó agy NO coinciden con el temario (p. ej. «dinamica-ascensor → Principio de Pascal»): no son prueba. Los D se comprobaron por muestra de nombre de tema (30 de 30 dentro del temario).
@@ -34,6 +34,27 @@ Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive
 - ondas-electromagneticas-frecuencia-longitud-onda
 - ondas-electromagneticas-longitud-de-onda
 - ondas-electromagneticas-longitud-onda
+
+## Rescatados por MCD/MCM (18, Matemática, decisión A del 16-nov)
+Marcados «?» por agy, pero el temario trae «Mínimo Común Múltiplo (M.C.M)» y «Máximo Común Divisor (M.C.D.)».
+- divisores-comunes-mcd
+- mcd-aplicado
+- mcd-aplicado-envases
+- mcd-envases-capacidad
+- mcd-mcm-diferencia
+- mcd-mcm-numeros
+- mcd-producto-diferencia
+- mcm-aplicado
+- mcm-aplicado-fechas
+- mcm-ciclistas-pista-circular
+- mcm-encuentro-periodico
+- mcm-encuentros-periodicos
+- mcm-suma-numeros
+- mcm-viajeros
+- minimo-comun-multiplo-calendario
+- minimo-comun-multiplo-problema-aplicado
+- minimo-comun-multiplo-rango
+- perimetro-postes-equidistantes-divisores-comunes
 
 ## Excluidos (materia · clase · tema · motivo de agy)
 - fisica · F · analisis-dimensional · Análisis dimensional no figura en el temario
@@ -102,7 +123,6 @@ Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive
 - matematicas · ? · diagonales-suma-elementos-poligono · Polígonos figura; fórmulas de diagonales no explícitas
 - matematicas · ? · divisibilidad-sophie-germain · Factorización figura; criterio de divisibilidad no explícito
 - matematicas · ? · division-defecto-exceso · División entera figura; defecto y exceso no explícito
-- matematicas · ? · divisores-comunes-mcd · MCD figura en álgebra; aritmético no explícito
 - matematicas · F · divisores-descomposicion-canonica · Descomposición canónica y divisores no figuran
 - matematicas · F · divisores-pares-descomposicion-prima · Descomposición prima y divisores no figuran
 - matematicas · ? · ecuacion-cubica-raices-irracionales-conjugadas · Ruffini figura; raíces conjugadas de cúbica no
@@ -115,23 +135,7 @@ Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive
 - matematicas · ? · hexagono-regular-diagonales · Polígonos figura; diagonales no figuran explícitas
 - matematicas · ? · identidades-algebraicas-interpolacion · Identidades algebraicas figuran; interpolación no figura
 - matematicas · ? · identidades-valores-principales-trampa · Nombre ambiguo; podría incluir trigonométricas inversas
-- matematicas · ? · mcd-aplicado · MCD figura en álgebra; aritmético no explícito
-- matematicas · ? · mcd-aplicado-envases · MCD figura en álgebra; aritmético no explícito
-- matematicas · ? · mcd-envases-capacidad · MCD figura en álgebra; aritmético no explícito
-- matematicas · ? · mcd-mcm-diferencia · MCD/MCM figuran en álgebra; numéricos no explícitos
-- matematicas · ? · mcd-mcm-numeros · MCD/MCM figuran en álgebra; numéricos no explícitos
-- matematicas · ? · mcd-producto-diferencia · MCD figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-aplicado · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-aplicado-fechas · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-ciclistas-pista-circular · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-encuentro-periodico · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-encuentros-periodicos · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-suma-numeros · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · mcm-viajeros · MCM figura en álgebra; numérico no explícito
 - matematicas · ? · mediana-trapecio-relacion-areas · Trapecios y áreas figuran; mediana no explícita
-- matematicas · ? · minimo-comun-multiplo-calendario · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · minimo-comun-multiplo-problema-aplicado · MCM figura en álgebra; numérico no explícito
-- matematicas · ? · minimo-comun-multiplo-rango · MCM figura en álgebra; numérico no explícito
 - matematicas · F · numero-de-divisores · Cantidad de divisores no figura en temario
 - matematicas · F · numero-de-divisores-de-un-entero · Cantidad de divisores no figura en temario
 - matematicas · F · numero-de-divisores-factorizacion · Cantidad de divisores no figura en temario
@@ -141,7 +145,6 @@ Resultado: 2053 de 2053 temas clasificados. La lista permitida (1908 temas) vive
 - matematicas · F · numero-divisores-primos · Cantidad de divisores primos no figura en temario
 - matematicas · ? · numeros-complejos-forma-polar-potencia · Complejos figura en forma binómica, no polar
 - matematicas · ? · pentagono-regular-tangente-secante-angulos · Polígonos y tangente figuran; ángulos secantes no explícitos
-- matematicas · ? · perimetro-postes-equidistantes-divisores-comunes · Perímetro figura; MCD aritmético no explícito
 - matematicas · ? · poligono-angulo-interior · Polígonos figura; fórmulas de ángulos no explícitas
 - matematicas · ? · poligono-angulo-interior-central · Polígonos figura; fórmulas de ángulos no explícitas
 - matematicas · ? · poligono-angulo-interior-exterior · Polígonos figura; fórmulas de ángulos no explícitas
