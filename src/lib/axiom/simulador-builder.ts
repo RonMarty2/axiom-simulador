@@ -4,12 +4,11 @@ import { filtrarPorTemaActual, temaActualDeArea } from "./areas";
 import { repartirCuotas, type FormatoExamen } from "@/lib/formatos-examen";
 import {
   ampliarPoolConPrestadas,
-  cargarPreguntasArchivo,
   cargarReglasCompartidas,
   reglasActivasPara,
   type ReglaPreguntasCompartidas,
 } from "@/lib/preguntas-compartidas";
-import { cargarBanco } from "./banco-loader";
+import { cargarBanco, preguntasDeOrigenes } from "./banco-loader";
 import { listarPreguntas } from "./preguntas-store";
 import { generarPreguntasIA } from "./generador-ia";
 import { esRespuestaCorrecta } from "./respuestas";
@@ -108,25 +107,7 @@ export async function construirSimulador(
   const ampliarConPrestadas = async (modo: ModoSimulacion): Promise<PreguntaBanco[]> => {
     const reglas = opciones?.reglasCompartidas ?? cargarReglasCompartidas();
     const activas = reglasActivasPara(reglas, facL);
-    const origenesExtra = new Map<string, PreguntaBanco[]>();
-    if (ficha && activas.length > 0) {
-      for (const r of activas) {
-        const origL = r.origen.toLowerCase();
-        if (r.archivo) {
-          origenesExtra.set(origL, cargarPreguntasArchivo(r.archivo));
-        } else if (!origenesExtra.has(origL)) {
-          const exOrig = banco
-            .filter(
-              (e) =>
-                e.universidad.toLowerCase() === uniL &&
-                e.facultad.toLowerCase() === origL
-            )
-            .flatMap((e) => e.preguntas);
-          const indOrig = await listarPreguntas({ facultad: origL });
-          origenesExtra.set(origL, [...exOrig, ...indOrig]);
-        }
-      }
-    }
+    const origenesExtra = await preguntasDeOrigenes(banco, uniL, activas, ficha);
     return ampliarPoolConPrestadas({
       modo,
       facultad: facL,

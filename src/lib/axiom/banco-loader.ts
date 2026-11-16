@@ -4,6 +4,13 @@ import { formatoVigente } from "@/lib/data-store";
 import { temaActualDeArea, temasPorCarrera, type TemaCarrera } from "./areas";
 import { parseExamenMD } from "./banco-parser";
 import { listarPreguntas } from "./preguntas-store";
+import {
+  ampliarPoolConPrestadas,
+  cargarPreguntasArchivo,
+  cargarReglasCompartidas,
+  reglasActivasPara,
+  type ReglaPreguntasCompartidas,
+} from "@/lib/preguntas-compartidas";
 import type { ExamenBanco, ExamenMetadata, PreguntaBanco } from "./types";
 
 const BANCO_DIR = path.join(process.cwd(), "data", "examenes");
@@ -146,7 +153,47 @@ export async function listarTemasPorCarrera(
       .flatMap((e) => e.preguntas),
     ...individuales,
   ];
-  return temasPorCarrera(facL, preguntas, ficha);
+  // Las prestadas (data/preguntas-compartidas.json) también se eligen por tema: sin esto,
+  // «Por tema» de Medicina no listaba Física, Matemáticas, Química ni Comprensión Lectora (15-nov-2026).
+  const reglas = cargarReglasCompartidas();
+  const origenes = await preguntasDeOrigenes(banco, uniL, reglasActivasPara(reglas, facL), ficha);
+  const pool = ampliarPoolConPrestadas({
+    modo: "por_tema",
+    facultad: facL,
+    pool: preguntas,
+    preguntasOrigen: (orig) => origenes.get(orig.toLowerCase()) ?? [],
+    ficha,
+    reglas,
+  });
+  return temasPorCarrera(facL, pool, ficha);
+}
+
+/**
+ * Preguntas de cada `origen` de las reglas de préstamo activas: el archivo de práctica si la
+ * regla lo trae, o los exámenes e individuales de esa facultad. Sin ficha vigente no se presta nada.
+ * La usan `construirSimulador` y `listarTemasPorCarrera`, para que el simulacro y la lista coincidan.
+ */
+export async function preguntasDeOrigenes(
+  banco: ExamenBanco[],
+  uniL: string,
+  activas: readonly ReglaPreguntasCompartidas[],
+  ficha: unknown
+): Promise<Map<string, PreguntaBanco[]>> {
+  const origenes = new Map<string, PreguntaBanco[]>();
+  if (!ficha) return origenes;
+  for (const r of activas) {
+    const origL = r.origen.toLowerCase();
+    if (r.archivo) {
+      origenes.set(origL, cargarPreguntasArchivo(r.archivo));
+    } else if (!origenes.has(origL)) {
+      const exOrig = banco
+        .filter((e) => e.universidad.toLowerCase() === uniL && e.facultad.toLowerCase() === origL)
+        .flatMap((e) => e.preguntas);
+      const indOrig = await listarPreguntas({ facultad: origL });
+      origenes.set(origL, [...exOrig, ...indOrig]);
+    }
+  }
+  return origenes;
 }
 
 function resumirAreas(preguntas: PreguntaBanco[]): { area: string; cantidad: number }[] {
