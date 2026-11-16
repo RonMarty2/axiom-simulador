@@ -218,44 +218,52 @@ function EscCorazon() {
     <EscenaRica>
       <Titulo>Corazón · músculo de 4 cámaras</Titulo>
 
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            4 cámaras + 4 válvulas
+      <Pizarra alto={243}>
+        <svg width="100%" height="100%" viewBox="0 0 360 280" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Las 4 cámaras del corazón
           </text>
           {/* corazón */}
-          <g transform="translate(240, 50)">
+          <g transform="translate(22, 46)">
             {/* aurícula derecha */}
-            <rect x={0} y={0} width={100} height={70} fill="var(--dib-blue-500)" opacity={0.3} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
-            <text x={50} y={35} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={11} fontWeight={700}>Aurícula</text>
-            <text x={50} y={50} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={11} fontWeight={700}>derecha</text>
-            <text x={50} y={64} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>(sangre venosa)</text>
+            <rect x={0} y={0} width={145} height={86} fill="var(--dib-blue-500)" opacity={0.3} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
+            <text x={72.5} y={28} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={14} fontWeight={700}>Aurícula</text>
+            <text x={72.5} y={46} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={14} fontWeight={700}>derecha</text>
+            <text x={72.5} y={68} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>(sangre venosa)</text>
             {/* aurícula izquierda */}
-            <rect x={140} y={0} width={100} height={70} fill="var(--dib-red-500)" opacity={0.3} stroke="var(--dib-red-500)" strokeWidth={1.5} />
-            <text x={190} y={35} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11} fontWeight={700}>Aurícula</text>
-            <text x={190} y={50} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11} fontWeight={700}>izquierda</text>
-            {/* ventrículo derecho */}
-            <rect x={0} y={80} width={100} height={100} fill="var(--dib-blue-500)" opacity={0.5} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
-            <text x={50} y={120} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Ventrículo</text>
-            <text x={50} y={138} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>derecho</text>
-            <text x={50} y={158} textAnchor="middle" fill="#fff" fontSize={10}>→ pulmones</text>
-            {/* ventrículo izquierdo */}
-            <rect x={140} y={80} width={100} height={100} fill="var(--dib-red-500)" opacity={0.5} stroke="var(--dib-red-500)" strokeWidth={1.5} />
-            <text x={190} y={120} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Ventrículo</text>
-            <text x={190} y={138} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>izquierdo</text>
-            <text x={190} y={158} textAnchor="middle" fill="#fff" fontSize={10}>→ cuerpo</text>
+            <rect x={171} y={0} width={145} height={86} fill="var(--dib-red-500)" opacity={0.3} stroke="var(--dib-red-500)" strokeWidth={1.5} />
+            <text x={243.5} y={34} textAnchor="middle" fill="var(--dib-red-500)" fontSize={14} fontWeight={700}>Aurícula</text>
+            <text x={243.5} y={52} textAnchor="middle" fill="var(--dib-red-500)" fontSize={14} fontWeight={700}>izquierda</text>
             {/* válvulas */}
-            <text x={50} y={78} textAnchor="middle" fill={LIENZO.warn} fontSize={9}>v. tricúspide</text>
-            <text x={190} y={78} textAnchor="middle" fill={LIENZO.warn} fontSize={9}>v. mitral</text>
+            <text x={72.5} y={104} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={600}>v. tricúspide</text>
+            <text x={243.5} y={104} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={600}>v. mitral</text>
+            {/* ventrículo derecho */}
+            <rect x={0} y={114} width={145} height={104} fill="var(--dib-blue-500)" opacity={0.5} stroke="var(--dib-blue-500)" strokeWidth={1.5} />
+            <text x={72.5} y={148} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>Ventrículo</text>
+            <text x={72.5} y={166} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>derecho</text>
+            <text x={72.5} y={192} textAnchor="middle" fill="#fff" fontSize={13}>→ pulmones</text>
+            {/* ventrículo izquierdo */}
+            <rect x={171} y={114} width={145} height={104} fill="var(--dib-red-500)" opacity={0.5} stroke="var(--dib-red-500)" strokeWidth={1.5} />
+            <text x={243.5} y={148} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>Ventrículo</text>
+            <text x={243.5} y={166} textAnchor="middle" fill="#fff" fontSize={14} fontWeight={700}>izquierdo</text>
+            <text x={243.5} y={192} textAnchor="middle" fill="#fff" fontSize={13}>→ cuerpo</text>
           </g>
+        </svg>
+      </Pizarra>
 
-          {/* Leyenda */}
-          <text x={530} y={70} fill={LIENZO.fg} fontSize={12} fontWeight={600}>4 válvulas:</text>
-          <text x={530} y={90} fill={LIENZO.fg} fontSize={11}>• Tricúspide (AD↔VD)</text>
-          <text x={530} y={108} fill={LIENZO.fg} fontSize={11}>• Pulmonar (VD→art. pulm.)</text>
-          <text x={530} y={126} fill={LIENZO.fg} fontSize={11}>• Mitral o bicúspide (AI↔VI)</text>
-          <text x={530} y={144} fill={LIENZO.fg} fontSize={11}>• Aórtica (VI→aorta)</text>
-          <text x={530} y={180} fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">Impiden retroceso</text>
+      <Pizarra alto={178}>
+        <svg width="100%" height="100%" viewBox="0 0 360 205" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
+            Las 4 válvulas cardíacas
+          </text>
+          <rect x={12} y={42} width={336} height={150} fill={LIENZO.accent} opacity={0.07} stroke={LIENZO.accent} strokeWidth={1.5} rx={10} />
+          <text x={28} y={72} fill={LIENZO.fg} fontSize={14}>• Tricúspide (AD↔VD)</text>
+          <text x={28} y={98} fill={LIENZO.fg} fontSize={14}>• Pulmonar (VD→art. pulm.)</text>
+          <text x={28} y={124} fill={LIENZO.fg} fontSize={14}>• Mitral o bicúspide (AI↔VI)</text>
+          <text x={28} y={150} fill={LIENZO.fg} fontSize={14}>• Aórtica (VI→aorta)</text>
+          <text x={180} y={178} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">
+            Impiden retroceso
+          </text>
         </svg>
       </Pizarra>
 

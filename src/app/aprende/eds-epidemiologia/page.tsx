@@ -119,30 +119,75 @@ function EscCadena() {
     <EscenaRica>
       <Titulo>Cadena epidemiológica · cómo se propaga</Titulo>
 
-      <Pizarra alto={210}>
-        <svg width="100%" height="100%" viewBox="0 0 720 210" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={25} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Eslabones de la cadena de transmisión
+      <Pizarra alto={351}>
+        <svg width="100%" height="100%" viewBox="0 0 360 405" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Cadena de transmisión (1/2):
+          </text>
+          <text x={180} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            del agente a la salida
           </text>
           {[
-            { x: 80, t: "Agente", d: "virus, bacteria, hongo" },
-            { x: 220, t: "Reservorio", d: "humano, animal, ambiente" },
-            { x: 360, t: "Vía de salida", d: "respiratoria, fecal-oral" },
-            { x: 500, t: "Mecanismo de transmisión", d: "directa, indirecta, vector" },
-            { x: 640, t: "Huésped susceptible", d: "no inmunizado" },
+            { cy: 96, t1: "Agente", t2: "", d1: "virus, bacteria,", d2: "hongo" },
+            { cy: 212, t1: "Reservorio", t2: "", d1: "humano, animal,", d2: "ambiente" },
+            { cy: 328, t1: "Vía de", t2: "salida", d1: "respiratoria,", d2: "fecal-oral" },
           ].map((p, i) => (
             <g key={i}>
-              <circle cx={p.x} cy={100} r={32} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
-              <text x={p.x} y={97} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>{p.t}</text>
-              <text x={p.x} y={150} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>{p.d.split(",")[0]}</text>
-              <text x={p.x} y={163} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>{p.d.split(",").slice(1).join(",")}</text>
-              {i < 4 && (
-                <line x1={p.x + 34} x2={p.x + 100} y1={100} y2={100} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#chArr)" />
+              <circle cx={94} cy={p.cy} r={46} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
+              {p.t2 ? (
+                <>
+                  <text x={94} y={p.cy - 3} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{p.t1}</text>
+                  <text x={94} y={p.cy + 13} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{p.t2}</text>
+                </>
+              ) : (
+                <text x={94} y={p.cy + 5} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{p.t1}</text>
+              )}
+              <text x={160} y={p.cy - 2} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{p.d1}</text>
+              <text x={160} y={p.cy + 15} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{p.d2}</text>
+              {i < 2 && (
+                <line x1={94} x2={94} y1={p.cy + 48} y2={p.cy + 68} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#chArr1)" />
               )}
             </g>
           ))}
+          <line x1={94} x2={94} y1={376} y2={398} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#chArr1)" />
           <defs>
-            <marker id="chArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <marker id="chArr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
+            </marker>
+          </defs>
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={299}>
+        <svg width="100%" height="100%" viewBox="0 0 360 345" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Cadena de transmisión (2/2):
+          </text>
+          <text x={180} y={38} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            mecanismo y huésped
+          </text>
+          <line x1={94} x2={94} y1={50} y2={72} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#chArr2)" />
+          {[
+            { cy: 130, t1: "Mecanismo de", t2: "transmisión", d1: "directa, indirecta,", d2: "vector" },
+            { cy: 276, t1: "Huésped", t2: "susceptible", d1: "no inmunizado", d2: "" },
+          ].map((p, i) => (
+            <g key={i}>
+              <circle cx={94} cy={p.cy} r={54} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
+              <text x={94} y={p.cy - 4} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{p.t1}</text>
+              <text x={94} y={p.cy + 13} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{p.t2}</text>
+              {p.d2 ? (
+                <>
+                  <text x={166} y={p.cy - 4} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{p.d1}</text>
+                  <text x={166} y={p.cy + 13} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{p.d2}</text>
+                </>
+              ) : (
+                <text x={166} y={p.cy + 5} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{p.d1}</text>
+              )}
+            </g>
+          ))}
+          <line x1={94} x2={94} y1={186} y2={218} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#chArr2)" />
+          <defs>
+            <marker id="chArr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
             </marker>
           </defs>

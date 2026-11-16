@@ -10,10 +10,10 @@ import { join } from "node:path";
 // El 16-11-2026 había 328 dibujos por debajo (medición en
 // docs/medicion-letra-dibujos-2026-11-16.json). El número no puede subir:
 // cada tanda de arreglos baja TECHO al valor nuevo.
-const TECHO = 328;
+const TECHO = 324;
 // Segundo techo: «Ver en grande» con el celular girado (740x360). El 16-11
-// eran 82; tras la tanda A1 (49 dibujos de Medicina a letra 11), 34.
-const TECHO_GRANDE = 34;
+// eran 82; tras A1, 34; tras A2 y A2b, 13 (los 13 que quedan no son de Medicina).
+const TECHO_GRANDE = 13;
 
 test("dibujos con letra menor a 11 px a 360 px: no suben", () => {
   const salida = join(mkdtempSync(join(tmpdir(), "letra-")), "m.json");

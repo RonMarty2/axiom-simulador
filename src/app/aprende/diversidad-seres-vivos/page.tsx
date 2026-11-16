@@ -185,38 +185,41 @@ function EscReinos() {
         que es lo que sigue.
       </Parrafo>
 
-      <Pizarra alto={270}>
-        <svg width="100%" height="100%" viewBox="0 0 720 270" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={255}>
+        <svg width="100%" height="100%" viewBox="0 0 720 255" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Comparación de los 5 reinos
           </text>
           {["Reino", "Tipo célula", "Nutrición", "N° células", "Ejemplo"].map((h, i) => (
             <g key={i}>
-              <rect x={30 + i * 132} y={40} width={130} height={28} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
-              <text x={30 + i * 132 + 65} y={59} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>{h}</text>
+              <rect x={20 + i * 137} y={40} width={134} height={28} fill={LIENZO.accent} opacity={0.15} stroke={LIENZO.accent} strokeWidth={1} />
+              <text x={20 + i * 137 + 67} y={59} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h}</text>
             </g>
           ))}
           {[
             ["Monera", "Procariota", "Variada", "Unicelular", "Bacterias"],
             ["Protista", "Eucariota", "Variada", "Uni o pluri", "Amebas, algas"],
-            ["Fungi", "Eucariota", "Heterótrofa (absorción)", "Pluricelular*", "Hongos, levaduras"],
+            ["Fungi", "Eucariota", "Heter. (absorción)", "Pluricelular*", "Hongos, levaduras"],
             ["Plantae", "Eucariota", "Autótrofa (foto)", "Pluricelular", "Plantas"],
-            ["Animalia", "Eucariota", "Heterótrofa (ingestión)", "Pluricelular", "Animales"],
+            ["Animalia", "Eucariota", "Heter. (ingestión)", "Pluricelular", "Animales"],
           ].map((row, i) => (
             <g key={i}>
               {row.map((v, j) => (
                 <g key={j}>
-                  <rect x={30 + j * 132} y={68 + i * 35} width={130} height={35} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={30 + j * 132 + 65} y={90 + i * 35} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <rect x={20 + j * 137} y={68 + i * 35} width={134} height={35} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
+                  <text x={20 + j * 137 + 67} y={90 + i * 35} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>
           ))}
-          <text x={360} y={255} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">
-            *Levaduras son unicelulares pero también Fungi.
-          </text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        Fungi tiene nutrición heterótrofa por absorción y Animalia heterótrofa
+        por ingestión. *Las levaduras son unicelulares pero también pertenecen a
+        Fungi.
+      </Parrafo>
 
       <Definicion termino="Tipos de nutrición">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
@@ -464,51 +467,51 @@ function EscAnimalia() {
         mueven).
       </Definicion>
 
-      <Pizarra alto={260}>
-        <svg width="100%" height="100%" viewBox="0 0 720 260" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            División fundamental: invertebrados vs vertebrados
+      <Pizarra alto={286}>
+        <svg width="100%" height="100%" viewBox="0 0 360 330" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+            Invertebrados (95%) · sin columna vertebral
           </text>
-          {/* Invertebrados */}
-          <g transform="translate(60, 40)">
-            <rect width={290} height={200} fill={LIENZO.bad} opacity={0.08} stroke={LIENZO.bad} strokeWidth={1.5} rx={10} />
-            <text x={145} y={22} textAnchor="middle" fill={LIENZO.bad} fontSize={13} fontWeight={700}>INVERTEBRADOS (95%)</text>
-            <text x={145} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>SIN columna vertebral</text>
-            {[
-              { t: "Poríferos", ej: "esponjas" },
-              { t: "Cnidarios", ej: "medusas, corales" },
-              { t: "Platelmintos", ej: "tenia, planaria" },
-              { t: "Nematodos", ej: "lombriz intestinal" },
-              { t: "Anélidos", ej: "lombriz de tierra" },
-              { t: "Moluscos", ej: "caracol, pulpo" },
-              { t: "Artrópodos*", ej: "insectos, arañas, cangrejos" },
-              { t: "Equinodermos", ej: "estrella de mar" },
-            ].map((g, i) => (
-              <g key={i} transform={`translate(15, ${60 + i * 17})`}>
-                <text fill={LIENZO.fg} fontSize={10} fontWeight={600}>{g.t}:</text>
-                <text x={100} fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{g.ej}</text>
-              </g>
-            ))}
-            <text x={145} y={205} textAnchor="middle" fill={LIENZO.warn} fontSize={9}>*Artrópodos ≈ 85% de las especies animales</text>
-          </g>
-          {/* Vertebrados */}
-          <g transform="translate(380, 40)">
-            <rect width={290} height={200} fill={LIENZO.ok} opacity={0.08} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
-            <text x={145} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>VERTEBRADOS (5%)</text>
-            <text x={145} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>CON columna vertebral</text>
-            {[
-              { t: "Peces", ej: "trucha, atún" },
-              { t: "Anfibios", ej: "rana, salamandra" },
-              { t: "Reptiles", ej: "tortuga, lagarto, serpiente" },
-              { t: "Aves", ej: "cóndor, gallina" },
-              { t: "Mamíferos", ej: "humano, llama, vicuña" },
-            ].map((g, i) => (
-              <g key={i} transform={`translate(15, ${65 + i * 25})`}>
-                <text fill={LIENZO.fg} fontSize={11} fontWeight={600}>{g.t}:</text>
-                <text x={90} fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{g.ej}</text>
-              </g>
-            ))}
-          </g>
+          <rect x={12} y={40} width={336} height={248} fill={LIENZO.bad} opacity={0.08} stroke={LIENZO.bad} strokeWidth={1.5} rx={10} />
+          {[
+            { t: "Poríferos", ej: "esponjas" },
+            { t: "Cnidarios", ej: "medusas, corales" },
+            { t: "Platelmintos", ej: "tenia, planaria" },
+            { t: "Nematodos", ej: "lombriz intestinal" },
+            { t: "Anélidos", ej: "lombriz de tierra" },
+            { t: "Moluscos", ej: "caracol, pulpo" },
+            { t: "Artrópodos*", ej: "insectos, arañas, cangrejos" },
+            { t: "Equinodermos", ej: "estrella de mar" },
+          ].map((g, i) => (
+            <g key={i} transform={`translate(22, ${68 + i * 28})`}>
+              <text fill={LIENZO.fg} fontSize={13} fontWeight={600}>{g.t}:</text>
+              <text x={114} fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">{g.ej}</text>
+            </g>
+          ))}
+          <text x={180} y={310} textAnchor="middle" fill={LIENZO.warn} fontSize={13}>
+            *Artrópodos ≈ 85% de las especies animales
+          </text>
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={195}>
+        <svg width="100%" height="100%" viewBox="0 0 360 225" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={24} textAnchor="middle" fill={LIENZO.fg} fontSize={13} fontWeight={700}>
+            Vertebrados (5%) · con columna vertebral
+          </text>
+          <rect x={12} y={42} width={336} height={168} fill={LIENZO.ok} opacity={0.08} stroke={LIENZO.ok} strokeWidth={1.5} rx={10} />
+          {[
+            { t: "Peces", ej: "trucha, atún" },
+            { t: "Anfibios", ej: "rana, salamandra" },
+            { t: "Reptiles", ej: "tortuga, lagarto, serpiente" },
+            { t: "Aves", ej: "cóndor, gallina" },
+            { t: "Mamíferos", ej: "humano, llama, vicuña" },
+          ].map((g, i) => (
+            <g key={i} transform={`translate(24, ${74 + i * 29})`}>
+              <text fill={LIENZO.fg} fontSize={13} fontWeight={600}>{g.t}:</text>
+              <text x={96} fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">{g.ej}</text>
+            </g>
+          ))}
         </svg>
       </Pizarra>
 

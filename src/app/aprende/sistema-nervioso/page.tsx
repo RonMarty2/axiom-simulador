@@ -418,7 +418,7 @@ function EscSNC() {
           cráneo, 0° la nuca, 90° la base. */}
       <Pizarra alto={230}>
         {(() => {
-          const CX = 370, CY = 125, RX = 165, RY = 78;
+          const CX = 370, CY = 124, RX = 185, RY = 78;
           const enElipse = (grados: number) => {
             const t = (grados * Math.PI) / 180;
             return [CX + RX * Math.cos(t), CY + RY * Math.sin(t)] as const;
@@ -449,29 +449,34 @@ function EscSNC() {
               <path d={`M ${fx + 3} ${CY - 14} L ${fx - 20} ${CY + 5} L ${fx + 2} ${CY + 13}`} fill="none" stroke={LIENZO.fgDim} strokeWidth={2} />
 
               {/* Rótulos, en el centro de masa aproximado de cada porción. */}
-              <text x={280} y={92} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={11.5} fontWeight={700}>Frontal</text>
-              <text x={280} y={106} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>razona, planifica</text>
+              <text x={265} y={92} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={12} fontWeight={700}>Frontal</text>
+              <text x={265} y={107} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>razona, planifica</text>
 
-              <text x={390} y={78} textAnchor="middle" fill="var(--dib-emerald-500)" fontSize={11.5} fontWeight={700}>Parietal</text>
-              <text x={390} y={92} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>tacto, temperatura</text>
+              <text x={390} y={76} textAnchor="middle" fill="var(--dib-emerald-500)" fontSize={12} fontWeight={700}>Parietal</text>
+              <text x={390} y={91} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>tacto, temperatura</text>
 
-              <text x={482} y={118} textAnchor="middle" fill="var(--dib-amber-500)" fontSize={11.5} fontWeight={700}>Occipital</text>
-              <text x={482} y={132} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>visión</text>
+              <text x={500} y={116} textAnchor="middle" fill="var(--dib-amber-500)" fontSize={12} fontWeight={700}>Occipital</text>
+              <text x={500} y={131} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>visión</text>
 
-              <text x={340} y={162} textAnchor="middle" fill="var(--dib-red-500)" fontSize={11.5} fontWeight={700}>Temporal</text>
-              <text x={340} y={176} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9.5}>oído, memoria</text>
+              <text x={340} y={160} textAnchor="middle" fill="var(--dib-red-500)" fontSize={12} fontWeight={700}>Temporal</text>
+              <text x={340} y={175} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>oído, memoria</text>
 
               {/* La ínsula está tapada por los otros cuatro: va señalada. */}
-              <circle cx={CX - 40} cy={CY + 2} r={9} fill="var(--dib-cyan-500)" opacity={0.55} stroke="var(--dib-cyan-500)" strokeWidth={1.5} />
-              <line x1={CX - 40} y1={CY + 11} x2={CX - 40} y2={207} stroke="var(--dib-cyan-500)" strokeWidth={1} strokeDasharray="3 2" />
-              <text x={CX - 40} y={220} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={10}>Ínsula: tapada por los otros cuatro (gusto, dolor)</text>
+              <circle cx={CX - 35} cy={CY + 4} r={9} fill="var(--dib-cyan-500)" opacity={0.55} stroke="var(--dib-cyan-500)" strokeWidth={1.5} />
+              <line x1={CX - 35} y1={CY + 13} x2={CX - 35} y2={205} stroke="var(--dib-cyan-500)" strokeWidth={1} strokeDasharray="3 2" />
+              <text x={CX - 35} y={219} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={11} fontWeight={600}>Ínsula</text>
 
-              <text x={150} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">frente</text>
-              <text x={592} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">nuca</text>
+              <text x={140} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">frente</text>
+              <text x={600} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">nuca</text>
             </svg>
           );
         })()}
       </Pizarra>
+
+      <Parrafo>
+        <strong>Ínsula:</strong> tapada por los otros cuatro lóbulos (gusto,
+        dolor, autoconciencia).
+      </Parrafo>
 
       <Mnemotecnia>
         <strong>"Frontal piensa, Parietal siente, Temporal escucha, Occipital
@@ -515,8 +520,8 @@ function EscSNP() {
           Autónomo Parasimpático. Dibujado así, el alumno cuenta TRES
           subdivisiones del SNP, y son dos: simpático y parasimpático cuelgan
           del autónomo. Ahora el dibujo tiene los dos niveles. */}
-      <Pizarra alto={240}>
-        <svg width="100%" height="100%" viewBox="0 0 720 240" preserveAspectRatio="xMidYMid meet">
+      <Pizarra alto={220}>
+        <svg width="100%" height="100%" viewBox="0 0 720 220" preserveAspectRatio="xMidYMid meet">
           <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
             Subdivisiones del SNP
           </text>
@@ -531,25 +536,23 @@ function EscSNP() {
           <text x={525} y={88} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>involuntario (órganos, glándulas)</text>
 
           {/* Nivel 2: solo el autónomo se abre */}
-          <path d="M 525 107 L 525 122 L 460 122 L 460 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
-          <path d="M 525 107 L 525 122 L 600 122 L 600 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
+          <path d="M 525 107 L 525 122 L 437.5 122 L 437.5 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
+          <path d="M 525 107 L 525 122 L 617.5 122 L 617.5 140" fill="none" stroke={LIENZO.warn} strokeWidth={1.5} />
 
-          <rect x={370} y={140} width={180} height={62} fill={LIENZO.bad} opacity={0.12} stroke={LIENZO.bad} strokeWidth={1.5} rx={8} />
-          <text x={460} y={163} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={700}>Simpático</text>
-          <text x={460} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>lucha o huye (alerta)</text>
+          <rect x={355} y={140} width={165} height={62} fill={LIENZO.bad} opacity={0.12} stroke={LIENZO.bad} strokeWidth={1.5} rx={8} />
+          <text x={437.5} y={163} textAnchor="middle" fill={LIENZO.bad} fontSize={12} fontWeight={700}>Simpático</text>
+          <text x={437.5} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>lucha o huye (alerta)</text>
 
-          <rect x={510} y={140} width={180} height={62} fill="var(--dib-cyan-500)" opacity={0.12} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={8} />
-          <text x={600} y={163} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={12} fontWeight={700}>Parasimpático</text>
-          <text x={600} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>descansa y digiere</text>
-
-          <text x={185} y={165} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">El somático no se</text>
-          <text x={185} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10.5} fontStyle="italic">subdivide: mandas tú.</text>
-
-          <text x={360} y={225} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            El SNP se parte en DOS, no en tres: simpático y parasimpático son las dos mitades del autónomo
-          </text>
+          <rect x={535} y={140} width={165} height={62} fill="var(--dib-cyan-500)" opacity={0.12} stroke="var(--dib-cyan-500)" strokeWidth={1.5} rx={8} />
+          <text x={617.5} y={163} textAnchor="middle" fill="var(--dib-cyan-500)" fontSize={12} fontWeight={700}>Parasimpático</text>
+          <text x={617.5} y={183} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>descansa y digiere</text>
         </svg>
       </Pizarra>
+
+      <Parrafo>
+        El somático no se subdivide: mandas tú. El SNP se parte en DOS, no en
+        tres: simpático y parasimpático son las dos mitades del autónomo.
+      </Parrafo>
 
       <Definicion termino="12 pares craneales + 31 pares espinales">
         <ul style={{ margin: "0 0 0 18px", padding: 0, fontSize: 14 }}>
@@ -637,54 +640,93 @@ function EscReflejo() {
           los cinco elementos, y el estímulo y la respuesta quedan afuera,
           como flechas. El título decía "(rodilla)" mientras el Hook y la
           definición hablan de la sartén caliente. */}
-      <Pizarra alto={200}>
-        <svg width="100%" height="100%" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid meet">
-          <text x={360} y={22} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
-            Arco reflejo · la mano y la sartén caliente
+      <Pizarra alto={325}>
+        <svg width="100%" height="100%" viewBox="0 0 360 375" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Arco reflejo (1/2):
+          </text>
+          <text x={180} y={37} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            entrada hasta la médula
           </text>
 
-          {/* Lo que entra y lo que sale: no son parte del circuito. */}
-          <text x={12} y={100} fill={LIENZO.bad} fontSize={10} fontWeight={700}>Sartén</text>
-          <text x={12} y={112} fill={LIENZO.bad} fontSize={10} fontWeight={700}>caliente</text>
-          <line x1={52} x2={68} y1={100} y2={100} stroke={LIENZO.bad} strokeWidth={1.5} markerEnd="url(#refArrIn)" />
+          <text x={90} y={92} textAnchor="end" fill={LIENZO.bad} fontSize={13} fontWeight={700}>Sartén</text>
+          <text x={90} y={108} textAnchor="end" fill={LIENZO.bad} fontSize={13} fontWeight={700}>caliente</text>
+          <line x1={98} x2={132} y1={97} y2={97} stroke={LIENZO.bad} strokeWidth={1.5} markerEnd="url(#refArrIn1)" />
 
           {[
-            { x: 108, t1: "Receptor", t2: "(piel)" },
-            { x: 240, t1: "Neurona", t2: "sensitiva" },
-            { x: 372, t1: "Médula", t2: "espinal" },
-            { x: 504, t1: "Neurona", t2: "motora" },
-            { x: 636, t1: "Efector", t2: "(músculo)" },
+            { cy: 97, t1: "Receptor", t2: "(piel)", num: 1 },
+            { cy: 205, t1: "Neurona", t2: "sensitiva", num: 2 },
+            { cy: 313, t1: "Médula", t2: "espinal", num: 3 },
           ].map((n, i) => (
             <g key={i}>
-              <circle cx={n.x} cy={100} r={32} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
-              <text x={n.x} y={97} textAnchor="middle" fill={LIENZO.accent} fontSize={10.5} fontWeight={700}>{n.t1}</text>
-              <text x={n.x} y={110} textAnchor="middle" fill={LIENZO.accent} fontSize={10.5} fontWeight={700}>{n.t2}</text>
-              <text x={n.x} y={150} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{i + 1}</text>
-              {i < 4 && (
-                <line x1={n.x + 34} x2={n.x + 98} y1={100} y2={100} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#refArr)" />
+              <circle cx={178} cy={n.cy} r={42} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
+              <text x={178} y={n.cy - 4} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{n.t1}</text>
+              <text x={178} y={n.cy + 13} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{n.t2}</text>
+              <text x={236} y={n.cy + 5} textAnchor="start" fill={LIENZO.fgDim} fontSize={13}>{n.num}</text>
+              {i < 2 && (
+                <line x1={178} x2={178} y1={n.cy + 44} y2={n.cy + 64} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#refArr1)" />
               )}
             </g>
           ))}
 
-          <line x1={670} x2={688} y1={100} y2={100} stroke={LIENZO.ok} strokeWidth={1.5} markerEnd="url(#refArrOut)" />
-          <text x={694} y={96} textAnchor="end" fill={LIENZO.ok} fontSize={10} fontWeight={700}>La mano</text>
-          <text x={710} y={108} textAnchor="end" fill={LIENZO.ok} fontSize={10} fontWeight={700}>se retira</text>
-
           <defs>
-            <marker id="refArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <marker id="refArr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
             </marker>
-            <marker id="refArrIn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <marker id="refArrIn1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.bad} />
             </marker>
-            <marker id="refArrOut" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          </defs>
+        </svg>
+      </Pizarra>
+
+      <Pizarra alto={364}>
+        <svg width="100%" height="100%" viewBox="0 0 360 420" preserveAspectRatio="xMidYMid meet">
+          <text x={180} y={20} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            Arco reflejo (2/2):
+          </text>
+          <text x={180} y={37} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>
+            salida desde la médula al músculo
+          </text>
+
+          {[
+            { cy: 92, t1: "Médula", t2: "espinal", num: 3 },
+            { cy: 198, t1: "Neurona", t2: "motora", num: 4 },
+            { cy: 304, t1: "Efector", t2: "(músculo)", num: 5 },
+          ].map((n, i) => (
+            <g key={i}>
+              <circle cx={156} cy={n.cy} r={42} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={1.5} />
+              <text x={156} y={n.cy - 4} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{n.t1}</text>
+              <text x={156} y={n.cy + 13} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>{n.t2}</text>
+              <text x={98} y={n.cy + 5} textAnchor="end" fill={LIENZO.fgDim} fontSize={13}>{n.num}</text>
+              {i < 2 && (
+                <line x1={156} x2={156} y1={n.cy + 44} y2={n.cy + 62} stroke={LIENZO.fg} strokeWidth={1.5} markerEnd="url(#refArr2)" />
+              )}
+            </g>
+          ))}
+
+          <line x1={201} x2={239} y1={304} y2={304} stroke={LIENZO.ok} strokeWidth={1.5} markerEnd="url(#refArrOut2)" />
+          <text x={247} y={299} textAnchor="start" fill={LIENZO.ok} fontSize={13} fontWeight={700}>La mano</text>
+          <text x={247} y={316} textAnchor="start" fill={LIENZO.ok} fontSize={13} fontWeight={700}>se retira</text>
+
+          <text x={180} y={372} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">
+            Fíjate que el cerebro no aparece:
+          </text>
+          <text x={180} y={389} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">
+            la orden sale de la médula, y por eso
+          </text>
+          <text x={180} y={406} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} fontStyle="italic">
+            llega antes que el dolor
+          </text>
+
+          <defs>
+            <marker id="refArr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.fg} />
+            </marker>
+            <marker id="refArrOut2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
               <path d="M 0 0 L 10 5 L 0 10 z" fill={LIENZO.ok} />
             </marker>
           </defs>
-
-          <text x={360} y={180} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">
-            Fíjate que el cerebro no aparece: la orden sale de la médula, y por eso llega antes que el dolor
-          </text>
         </svg>
       </Pizarra>
 
