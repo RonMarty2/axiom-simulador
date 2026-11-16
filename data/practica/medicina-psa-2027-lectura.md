@@ -4,7 +4,7 @@ facultad: medicina
 anio: 2027
 titulo: Práctica PSA 2027 · Comprensión Lectora
 categoria: practica
-total_preguntas: 20
+total_preguntas: 40
 ---
 
 <!--
@@ -547,6 +547,546 @@ A lo largo de las primeras semanas, los riñones perciben la menor oxigenación 
 Paso 2 · Opción B: falla porque no trata del regreso a tierras bajas ni de la detención hormonal en los riñones.
 Paso 3 · Opción C: falla porque no parafrasea la función pulmonar, sino los efectos de la viscosidad sanguínea sobre el corazón.
 Paso 4 · Opción D: falla porque califica la adaptación como un mecanismo compensatorio útil dentro de un límite saludable, no como dañina desde el primer día.
+Respuesta: A.
+
+---
+
+## Pregunta 21
+area: comprension_lectora
+tema: psa-lectura-reconocimiento-textual
+dificultad: media
+
+**El escudo compartido de las vacunas**
+
+Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad. Al introducir fragmentos inofensivos o formas debilitadas del microorganismo, el organismo genera defensas específicas y memoria inmunitaria. De este modo, si en el futuro entras en contacto con el patógeno real, tu cuerpo responde con rapidez y evita complicaciones graves. Sin embargo, el alcance de una vacuna no termina en quien la recibe: cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.
+
+Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal. Cuando la cobertura comunitaria es alta, la cadena de transmisión se interrumpe antes de alcanzar a estos grupos vulnerables. Por el contrario, si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.
+
+¿Cuál es el propósito comunicativo principal del texto?
+
+- A) Narrar la historia del descubrimiento de las primeras vacunas contra infecciones graves.
+- B) Explicar cómo actúan las vacunas en el individuo y cómo la inmunidad colectiva protege a personas vulnerables.
+- C) Debatir las sanciones legales que deberían aplicarse a quienes rechazan vacunarse en una comunidad.
+- D) Enumerar las diferencias químicas entre fragmentos inofensivos y formas debilitadas de microorganismos.
+
+**respuesta:** B
+**explicacion:** Paso 1 · El pasaje expone el mecanismo individual y su efecto comunitario: «Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad.» y «Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas.»
+Paso 2 · Opción A: falla porque el texto no relata hechos históricos ni menciona descubrimientos antiguos.
+Paso 3 · Opción C: falla porque el pasaje describe consecuencias biológicas de la baja cobertura, no sanciones legales.
+Paso 4 · Opción D: falla porque solo nombra ambos tipos de preparación vacunal sin comparar su composición química.
+Respuesta: B.
+
+---
+
+## Pregunta 22
+area: comprension_lectora
+tema: psa-lectura-informacion-explicita
+dificultad: media
+
+**El escudo compartido de las vacunas**
+
+Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad. Al introducir fragmentos inofensivos o formas debilitadas del microorganismo, el organismo genera defensas específicas y memoria inmunitaria. De este modo, si en el futuro entras en contacto con el patógeno real, tu cuerpo responde con rapidez y evita complicaciones graves. Sin embargo, el alcance de una vacuna no termina en quien la recibe: cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.
+
+Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal. Cuando la cobertura comunitaria es alta, la cadena de transmisión se interrumpe antes de alcanzar a estos grupos vulnerables. Por el contrario, si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.
+
+Según el texto, ¿qué grupo depende de la barrera indirecta generada por la inmunidad colectiva?
+
+- A) Los adultos que ya padecieron la enfermedad y conservan defensas naturales activas.
+- B) Las personas que deciden posponer la dosis por temor a reacciones leves pasajeras.
+- C) El personal clínico encargado de preparar fragmentos inofensivos en el laboratorio.
+- D) Quienes tienen contraindicada la vacuna por su edad temprana, alergias o bajas defensas.
+
+**respuesta:** D
+**explicacion:** Paso 1 · El segundo párrafo precisa con otros términos quiénes integran ese grupo: «actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal.»
+Paso 2 · Opción A: falla porque quien ya superó la enfermedad adquirió defensas propias, no depende de no vacunarse por motivos médicos.
+Paso 3 · Opción B: falla porque el texto refiere impedimentos médicos reales, no temores a reacciones leves.
+Paso 4 · Opción C: falla porque el texto no menciona al personal de laboratorio ni lo señala como población impedida de vacunarse.
+Respuesta: D.
+
+---
+
+## Pregunta 23
+area: comprension_lectora
+tema: psa-lectura-inferencia
+dificultad: alta
+
+**El escudo compartido de las vacunas**
+
+Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad. Al introducir fragmentos inofensivos o formas debilitadas del microorganismo, el organismo genera defensas específicas y memoria inmunitaria. De este modo, si en el futuro entras en contacto con el patógeno real, tu cuerpo responde con rapidez y evita complicaciones graves. Sin embargo, el alcance de una vacuna no termina en quien la recibe: cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.
+
+Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal. Cuando la cobertura comunitaria es alta, la cadena de transmisión se interrumpe antes de alcanzar a estos grupos vulnerables. Por el contrario, si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.
+
+A partir del texto, ¿qué se puede inferir si en una comunidad desciende de forma sostenida la cantidad de personas vacunadas?
+
+- A) Quienes tienen contraindicada la vacuna por motivos médicos quedan más expuestos a contagiarse en un brote.
+- B) Las vacunas pierden su capacidad de generar memoria inmunitaria en quienes ya completaron sus dosis.
+- C) El patógeno se vuelve inofensivo porque ya no necesita multiplicarse dentro de personas susceptibles.
+- D) Los recién nacidos desarrollan defensas inmediatas para compensar la menor cobertura comunitaria.
+
+**respuesta:** A
+**explicacion:** Paso 1 · Se deduce al unir la vulnerabilidad de quienes no pueden vacunarse con la consecuencia de la caída en la cobertura: «si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.»
+Paso 2 · Opción B: falla porque la disminución de la cobertura comunitaria no anula la memoria inmunitaria en quienes ya recibieron la vacuna.
+Paso 3 · Opción C: falla porque ocurre lo opuesto: al haber más personas susceptibles, el patógeno encuentra vías para multiplicarse y generar brotes.
+Paso 4 · Opción D: falla porque el texto indica que los recién nacidos dependen de la barrera colectiva, no que desarrollen defensas espontáneas.
+Respuesta: A.
+
+---
+
+## Pregunta 24
+area: comprension_lectora
+tema: psa-lectura-jerarquia-ideas
+dificultad: alta
+
+**El escudo compartido de las vacunas**
+
+Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad. Al introducir fragmentos inofensivos o formas debilitadas del microorganismo, el organismo genera defensas específicas y memoria inmunitaria. De este modo, si en el futuro entras en contacto con el patógeno real, tu cuerpo responde con rapidez y evita complicaciones graves. Sin embargo, el alcance de una vacuna no termina en quien la recibe: cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.
+
+Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal. Cuando la cobertura comunitaria es alta, la cadena de transmisión se interrumpe antes de alcanzar a estos grupos vulnerables. Por el contrario, si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.
+
+Dentro de la estructura del segundo párrafo, ¿qué relación guarda la mención de los recién nacidos y de los pacientes con tratamientos oncológicos respecto a la idea principal del párrafo?
+
+- A) Introduce un contraargumento que cuestiona la eficacia de las vacunas en edades tempranas.
+- B) Presenta la conclusión general que resume cómo se interrumpen los brotes infecciosos.
+- C) Aporta ejemplos específicos que concretan quiénes integran el grupo protegido de manera indirecta.
+- D) Explica el mecanismo celular mediante el cual el organismo fabrica memoria inmunitaria.
+
+**respuesta:** C
+**explicacion:** Paso 1 · La primera oración plantea la idea general sobre quienes no pueden vacunarse y la segunda la ejemplifica: «Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos»
+Paso 2 · Opción A: falla porque esa enumeración no cuestiona las vacunas, sino que ilustra por qué algunas personas no pueden recibirlas.
+Paso 3 · Opción B: falla porque el efecto de la cobertura alta o baja sobre la transmisión se expone en las dos oraciones finales.
+Paso 4 · Opción D: falla porque el mecanismo de respuesta inmunitaria individual se describió en el primer párrafo, no en esa enumeración.
+Respuesta: C.
+
+---
+
+## Pregunta 25
+area: comprension_lectora
+tema: psa-lectura-significado-contextual
+dificultad: media
+
+**El escudo compartido de las vacunas**
+
+Las vacunas preparan al sistema inmunitario para reconocer un agente infeccioso sin necesidad de sufrir la enfermedad. Al introducir fragmentos inofensivos o formas debilitadas del microorganismo, el organismo genera defensas específicas y memoria inmunitaria. De este modo, si en el futuro entras en contacto con el patógeno real, tu cuerpo responde con rapidez y evita complicaciones graves. Sin embargo, el alcance de una vacuna no termina en quien la recibe: cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.
+
+Este fenómeno, conocido como inmunidad colectiva o de rebaño, actúa como una barrera indirecta para quienes no pueden vacunarse por razones médicas. Entre ellos se encuentran los recién nacidos que aún no alcanzan la edad indicada, las personas con defensas muy debilitadas por tratamientos oncológicos y quienes presentan alergias graves a algún componente vacunal. Cuando la cobertura comunitaria es alta, la cadena de transmisión se interrumpe antes de alcanzar a estos grupos vulnerables. Por el contrario, si muchas personas rechazan vacunarse y la cobertura desciende, el patógeno vuelve a encontrar rutas abiertas para propagarse y provoca brotes que ponen en riesgo sobre todo a los más frágiles.
+
+En el primer párrafo, la palabra «susceptibles» se refiere a las personas que:
+
+- A) se muestran emocionalmente sensibles ante las campañas de salud pública.
+- B) carecen de defensas específicas y pueden contraer la infección con facilidad.
+- C) presentan reacciones alérgicas moderadas frente a fragmentos inofensivos.
+- D) ya recibieron la vacuna y conservan memoria inmunitaria de largo plazo.
+
+**respuesta:** B
+**explicacion:** Paso 1 · El contexto opone a quienes adquieren inmunidad con quienes permiten que el patógeno siga multiplicándose: «cuando una proporción amplia de la comunidad adquiere inmunidad, la circulación del agente infeccioso disminuye de forma notable porque encuentra menos personas susceptibles donde multiplicarse.»
+Paso 2 · Opción A: falla porque confunde el sentido biológico de vulnerabilidad al contagio con sensibilidad emocional.
+Paso 3 · Opción C: falla porque la frase alude a personas donde el microorganismo puede multiplicarse, no a reacciones alérgicas.
+Paso 4 · Opción D: falla porque quienes conservan memoria inmunitaria frenan al patógeno, mientras que las personas susceptibles facilitan su propagación.
+Respuesta: B.
+
+---
+
+## Pregunta 26
+area: comprension_lectora
+tema: psa-lectura-reconocimiento-textual
+dificultad: media
+
+**Cómo hidratar a un niño con diarrea usando sales orales**
+
+Durante un episodio de diarrea aguda, el intestino pierde con rapidez agua y electrolitos indispensables, lo que puede conducir a la deshidratación en pocas horas, especialmente en niños pequeños. Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido. Las sales de rehidratación oral combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas. La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.
+
+Para preparar el suero correctamente, disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración. Ofrécelo en sorbos frecuentes y con cuchara si el niño tiene náuseas. Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.
+
+Por la manera en que combina explicación fisiológica y pautas prácticas de cuidado, el texto se caracteriza por ser:
+
+- A) puramente narrativo, porque relata el caso clínico de un niño atendido en urgencias.
+- B) estrictamente argumentativo, porque defiende una reforma legal sobre venta de medicamentos.
+- C) expositivo e instructivo, porque aclara cómo actúa el suero oral e indica cómo prepararlo y cuándo acudir al médico.
+- D) exclusivamente descriptivo, porque enumera los componentes químicos del envase sin señalar acciones.
+
+**respuesta:** C
+**explicacion:** Paso 1 · El primer párrafo explica el mecanismo de absorción y el segundo da indicaciones directas de uso: «La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua» y «disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase».
+Paso 2 · Opción A: falla porque no hay relato ni personajes de un caso clínico particular.
+Paso 3 · Opción B: falla porque no plantea ninguna tesis ni debate sobre normas farmacéuticas.
+Paso 4 · Opción D: falla porque el segundo párrafo da instrucciones directas en modo imperativo («disuelve», «Ofrécelo», «Acude»).
+Respuesta: C.
+
+---
+
+## Pregunta 27
+area: comprension_lectora
+tema: psa-lectura-informacion-explicita
+dificultad: media
+
+**Cómo hidratar a un niño con diarrea usando sales orales**
+
+Durante un episodio de diarrea aguda, el intestino pierde con rapidez agua y electrolitos indispensables, lo que puede conducir a la deshidratación en pocas horas, especialmente en niños pequeños. Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido. Las sales de rehidratación oral combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas. La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.
+
+Para preparar el suero correctamente, disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración. Ofrécelo en sorbos frecuentes y con cuchara si el niño tiene náuseas. Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.
+
+De acuerdo con el texto, ¿por qué resulta insuficiente ofrecer únicamente agua pura a un niño con diarrea aguda?
+
+- A) Porque la absorción del líquido en el intestino requiere la presencia simultánea de sodio.
+- B) Porque el agua hervida pierde sus minerales esenciales durante el proceso de enfriamiento.
+- C) Porque el consumo de líquidos sin azúcar provoca fiebre alta y vómitos repetidos.
+- D) Porque el organismo rechaza cualquier bebida líquida mientras persisten las náuseas.
+
+**respuesta:** A
+**explicacion:** Paso 1 · El primer párrafo lo afirma y la opción correcta lo expresa con sinónimos: «Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido.»
+Paso 2 · Opción B: falla porque el texto recomienda usar agua hervida y fría al preparar el suero, sin atribuirle pérdida de eficacia al enfriamiento.
+Paso 3 · Opción C: falla porque la fiebre y los vómitos se mencionan como señales de alarma de la enfermedad, no como efecto del agua pura.
+Paso 4 · Opción D: falla porque el texto aconseja ofrecer el suero en sorbos frecuentes con cuchara cuando hay náuseas, no afirma un rechazo total.
+Respuesta: A.
+
+---
+
+## Pregunta 28
+area: comprension_lectora
+tema: psa-lectura-inferencia
+dificultad: alta
+
+**Cómo hidratar a un niño con diarrea usando sales orales**
+
+Durante un episodio de diarrea aguda, el intestino pierde con rapidez agua y electrolitos indispensables, lo que puede conducir a la deshidratación en pocas horas, especialmente en niños pequeños. Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido. Las sales de rehidratación oral combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas. La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.
+
+Para preparar el suero correctamente, disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración. Ofrécelo en sorbos frecuentes y con cuchara si el niño tiene náuseas. Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.
+
+A partir del texto, ¿qué consecuencia puede esperarse si un cuidador disuelve el sobre de sales en la mitad del agua indicada o le agrega jugo dulce?
+
+- A) El suero adquiere una temperatura más baja que calma de inmediato las náuseas del niño.
+- B) La glucosa del jugo duplica la velocidad del transportador intestinal sin alterar el equilibrio corporal.
+- C) La solución se vuelve idéntica al agua pura y deja de aportar electrolitos al organismo.
+- D) Se rompe el equilibrio de concentración necesario para que el intestino absorba adecuadamente el agua y las sales.
+
+**respuesta:** D
+**explicacion:** Paso 1 · Se deduce al relacionar la composición equilibrada con la regla de preparación: «combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas.» y «disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración.»
+Paso 2 · Opción A: falla porque ni el volumen reducido ni el jugo dulce guardan relación con la temperatura de la bebida.
+Paso 3 · Opción B: falla porque el texto prohíbe añadir azúcar o jugos precisamente porque alteran la concentración de la mezcla.
+Paso 4 · Opción C: falla porque reducir el agua o agregar jugo concentra y descompensa la solución, no la vuelve agua pura sin electrolitos.
+Respuesta: D.
+
+---
+
+## Pregunta 29
+area: comprension_lectora
+tema: psa-lectura-jerarquia-ideas
+dificultad: alta
+
+**Cómo hidratar a un niño con diarrea usando sales orales**
+
+Durante un episodio de diarrea aguda, el intestino pierde con rapidez agua y electrolitos indispensables, lo que puede conducir a la deshidratación en pocas horas, especialmente en niños pequeños. Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido. Las sales de rehidratación oral combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas. La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.
+
+Para preparar el suero correctamente, disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración. Ofrécelo en sorbos frecuentes y con cuchara si el niño tiene náuseas. Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.
+
+¿Cuál es el papel de la oración final del segundo párrafo («Acude de inmediato...») dentro de la organización de ideas de ese párrafo?
+
+- A) Contradice la recomendación previa de preparar el sobre con agua hervida y fría en el hogar.
+- B) Precisa los criterios clínicos concretos que respaldan la advertencia de buscar atención médica urgente.
+- C) Resume la función fisiológica de la glucosa y el potasio en la pared del intestino.
+- D) Introduce una alternativa casera para reemplazar las sales orales cuando hay vómitos repetidos.
+
+**respuesta:** B
+**explicacion:** Paso 1 · La penúltima oración advierte sobre las señales de alarma y la última detalla cuáles son: «Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.»
+Paso 2 · Opción A: falla porque la hidratación casera y la consulta ante signos graves se complementan, no se contradicen.
+Paso 3 · Opción C: falla porque el mecanismo de la glucosa y los minerales corresponde al primer párrafo.
+Paso 4 · Opción D: falla porque no propone un reemplazo casero del suero, sino acudir de inmediato a un centro de salud.
+Respuesta: B.
+
+---
+
+## Pregunta 30
+area: comprension_lectora
+tema: psa-lectura-funcion-elemento-textual
+dificultad: media
+
+**Cómo hidratar a un niño con diarrea usando sales orales**
+
+Durante un episodio de diarrea aguda, el intestino pierde con rapidez agua y electrolitos indispensables, lo que puede conducir a la deshidratación en pocas horas, especialmente en niños pequeños. Dar solo agua pura no basta para revertir esa pérdida, porque el organismo necesita absorber sodio junto con líquido. Las sales de rehidratación oral combinan agua segura, sales minerales como el sodio y el potasio, y glucosa en proporciones equilibradas. La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.
+
+Para preparar el suero correctamente, disuelve el sobre completo en el volumen exacto de agua hervida y fría indicado en el envase, sin añadir azúcar ni jugos que alteren la concentración. Ofrécelo en sorbos frecuentes y con cuchara si el niño tiene náuseas. Sin embargo, la rehidratación en casa no sustituye la valoración médica ante señales de alarma. Acude de inmediato a un centro de salud si observas ojos hundidos, boca muy seca, llanto sin lágrimas, decaimiento extremo, incapacidad para beber, vómitos repetidos, fiebre alta o presencia de sangre en las deposiciones.
+
+¿Para qué se emplean los dos puntos en la última oración del primer párrafo («La glucosa cumple una función clave en la pared intestinal: activa un transportador...»)?
+
+- A) Para enumerar las señales de alarma que obligan a acudir a un centro de salud.
+- B) Para introducir una objeción que niega la utilidad del sodio en la rehidratación.
+- C) Para explicar de manera precisa en qué consiste el papel fundamental recién mencionado.
+- D) Para señalar un ejemplo de alimento sólido que agrava la pérdida de electrolitos.
+
+**respuesta:** C
+**explicacion:** Paso 1 · Los dos puntos desarrollan y detallan la «función clave» anunciada antes del signo: «La glucosa cumple una función clave en la pared intestinal: activa un transportador que introduce sodio hacia el interior del cuerpo y arrastra consigo el agua, permitiendo reponer el volumen perdido incluso mientras la diarrea continúa.»
+Paso 2 · Opción A: falla porque las señales de alarma aparecen al final del segundo párrafo, no en esa oración.
+Paso 3 · Opción B: falla porque la explicación posterior confirma la importancia del sodio al ingresar junto con la glucosa.
+Paso 4 · Opción D: falla porque la oración no menciona alimentos sólidos en ningún momento.
+Respuesta: C.
+
+---
+
+## Pregunta 31
+area: comprension_lectora
+tema: psa-lectura-reconocimiento-textual
+dificultad: media
+
+**Grietas en la pared: la vinchuca y la enfermedad de Chagas**
+
+En diversas comunidades rurales de los valles interandinos, las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas. Durante el día, este vector permanece oculto en grietas de las paredes y detrás de objetos cercanos a las camas; por la noche, sale para alimentarse de sangre. Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.
+
+Aunque la infección inicial suele pasar inadvertida o provocar síntomas leves, el parásito puede alojarse durante años en el organismo y dañar de forma silenciosa el corazón o el aparato digestivo. Por ello, las estrategias de prevención no dependen únicamente del rociado periódico con insecticidas, cuyo efecto resulta temporal si el entorno sigue siendo favorable al insecto. El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.
+
+¿Cómo está organizada la información entre el primer y el segundo párrafo del texto?
+
+- A) El primer párrafo plantea cifras de contagio y el segundo las refuta con testimonios rurales.
+- B) El primer párrafo describe el daño cardíaco crónico y el segundo detalla el ciclo de vida de la vinchuca.
+- C) El primer párrafo compara insectos de los valles y el segundo recomienda fármacos para uso cotidiano.
+- D) El primer párrafo explica cómo habita y transmite el parásito el vector, y el segundo aborda las secuelas y la prevención.
+
+**respuesta:** D
+**explicacion:** Paso 1 · El pasaje se divide entre el mecanismo de refugio y contagio y las consecuencias y medidas preventivas: «Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca» y «El mejoramiento físico de la vivienda constituye una medida duradera».
+Paso 2 · Opción A: falla porque el texto no incluye cifras ni testimonios de pobladores.
+Paso 3 · Opción B: falla porque el daño al corazón se trata en el segundo párrafo, no en el primero.
+Paso 4 · Opción C: falla porque no compara distintos insectos ni propone medicamentos de uso diario.
+Respuesta: D.
+
+---
+
+## Pregunta 32
+area: comprension_lectora
+tema: psa-lectura-informacion-explicita
+dificultad: media
+
+**Grietas en la pared: la vinchuca y la enfermedad de Chagas**
+
+En diversas comunidades rurales de los valles interandinos, las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas. Durante el día, este vector permanece oculto en grietas de las paredes y detrás de objetos cercanos a las camas; por la noche, sale para alimentarse de sangre. Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.
+
+Aunque la infección inicial suele pasar inadvertida o provocar síntomas leves, el parásito puede alojarse durante años en el organismo y dañar de forma silenciosa el corazón o el aparato digestivo. Por ello, las estrategias de prevención no dependen únicamente del rociado periódico con insecticidas, cuyo efecto resulta temporal si el entorno sigue siendo favorable al insecto. El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.
+
+Según el primer párrafo, ¿de qué manera entra el parásito de la enfermedad de Chagas al cuerpo humano?
+
+- A) Mediante las deposiciones del insecto que penetran por la lesión, los ojos o las mucosas al rascarse la zona.
+- B) Directamente a través de la saliva que la vinchuca inyecta en la piel durante el momento de la picadura.
+- C) Por la inhalación continua del polvo desprendido de paredes de adobe sin revoque durante el descanso.
+- D) Al ingerir alimentos o agua que entraron en contacto con techos de paja y corrales cercanos al hogar.
+
+**respuesta:** A
+**explicacion:** Paso 1 · La última oración del primer párrafo describe ese mecanismo y la opción lo parafrasea: «Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.»
+Paso 2 · Opción B: falla porque el texto indica que el parásito entra por las heces sobre la piel, no por la saliva inyectada al picar.
+Paso 3 · Opción C: falla porque el texto no describe transmisión por inhalación de polvo de adobe.
+Paso 4 · Opción D: falla porque el pasaje no menciona transmisión por alimentos ni agua contaminados.
+Respuesta: A.
+
+---
+
+## Pregunta 33
+area: comprension_lectora
+tema: psa-lectura-significado-contextual
+dificultad: media
+
+**Grietas en la pared: la vinchuca y la enfermedad de Chagas**
+
+En diversas comunidades rurales de los valles interandinos, las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas. Durante el día, este vector permanece oculto en grietas de las paredes y detrás de objetos cercanos a las camas; por la noche, sale para alimentarse de sangre. Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.
+
+Aunque la infección inicial suele pasar inadvertida o provocar síntomas leves, el parásito puede alojarse durante años en el organismo y dañar de forma silenciosa el corazón o el aparato digestivo. Por ello, las estrategias de prevención no dependen únicamente del rociado periódico con insecticidas, cuyo efecto resulta temporal si el entorno sigue siendo favorable al insecto. El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.
+
+En el segundo párrafo, la frase «corta de raíz» significa que el mejoramiento físico de la vivienda:
+
+- A) arranca la vegetación silvestre que rodea los techos de paja en los valles.
+- B) reduce de forma pasajera la molestia causada por las picaduras nocturnas.
+- C) elimina desde su causa original la convivencia habitual con el insecto transmisor.
+- D) sustituye el uso de insecticidas sin modificar las grietas ni los corrales.
+
+**respuesta:** C
+**explicacion:** Paso 1 · La expresión cierra una enumeración que suprime los refugios del vector de forma permanente: «se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.»
+Paso 2 · Opción A: falla porque la expresión es figurada y no alude a retirar plantas o raíces vegetales.
+Paso 3 · Opción B: falla porque el párrafo califica la medida como duradera, en contraste con el efecto temporal del insecticida.
+Paso 4 · Opción D: falla porque el mejoramiento consiste precisamente en revocar paredes, sellar fisuras y alejar los corrales.
+Respuesta: C.
+
+---
+
+## Pregunta 34
+area: comprension_lectora
+tema: psa-lectura-jerarquia-ideas
+dificultad: alta
+
+**Grietas en la pared: la vinchuca y la enfermedad de Chagas**
+
+En diversas comunidades rurales de los valles interandinos, las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas. Durante el día, este vector permanece oculto en grietas de las paredes y detrás de objetos cercanos a las camas; por la noche, sale para alimentarse de sangre. Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.
+
+Aunque la infección inicial suele pasar inadvertida o provocar síntomas leves, el parásito puede alojarse durante años en el organismo y dañar de forma silenciosa el corazón o el aparato digestivo. Por ello, las estrategias de prevención no dependen únicamente del rociado periódico con insecticidas, cuyo efecto resulta temporal si el entorno sigue siendo favorable al insecto. El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.
+
+En el segundo párrafo, ¿cuál enunciado expresa la idea principal sobre la prevención, mientras que el resto corresponde a ejemplos concretos de su aplicación?
+
+- A) Alisar y revocar las paredes interiores para cerrar las grietas donde se oculta la vinchuca.
+- B) El mejoramiento físico de la vivienda brinda una prevención duradera al suprimir los refugios del vector.
+- C) Reemplazar los techos precarios por materiales que no favorezcan la presencia del insecto.
+- D) Alejar los corrales de animales domésticos de los dormitorios donde descansan las personas.
+
+**respuesta:** B
+**explicacion:** Paso 1 · La oración introduce el principio general antes de los dos puntos y luego enumera sus acciones concretas: «El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce»
+Paso 2 · Opción A: falla porque revocar y alisar las paredes es una de las acciones particulares enumeradas después de los dos puntos.
+Paso 3 · Opción C: falla porque el reemplazo de techos precarios es otro ejemplo específico subordinado a la idea general.
+Paso 4 · Opción D: falla porque alejar los corrales es una medida puntual dentro de la lista de aplicaciones concretas.
+Respuesta: B.
+
+---
+
+## Pregunta 35
+area: comprension_lectora
+tema: psa-lectura-idea-central
+dificultad: media
+
+**Grietas en la pared: la vinchuca y la enfermedad de Chagas**
+
+En diversas comunidades rurales de los valles interandinos, las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas. Durante el día, este vector permanece oculto en grietas de las paredes y detrás de objetos cercanos a las camas; por la noche, sale para alimentarse de sangre. Al picar, la vinchuca suele defecar sobre la piel, y el parásito ingresa al organismo cuando la persona se rasca e introduce las heces infectadas en la herida, en los ojos o en las mucosas.
+
+Aunque la infección inicial suele pasar inadvertida o provocar síntomas leves, el parásito puede alojarse durante años en el organismo y dañar de forma silenciosa el corazón o el aparato digestivo. Por ello, las estrategias de prevención no dependen únicamente del rociado periódico con insecticidas, cuyo efecto resulta temporal si el entorno sigue siendo favorable al insecto. El mejoramiento físico de la vivienda constituye una medida duradera: al revocar y alisar las paredes, sellar las fisuras, reemplazar techos precarios y alejar los corrales de animales del dormitorio, se eliminan los escondites donde la vinchuca se reproduce y se corta de raíz el contacto cotidiano con las familias.
+
+¿Qué enunciado sintetiza mejor la idea central del texto completo?
+
+- A) Las viviendas rurales de los valles deben abandonarse por completo para evitar las picaduras nocturnas de insectos.
+- B) El uso periódico de insecticidas en los dormitorios basta para erradicar de forma definitiva la transmisión del Chagas.
+- C) La infección causada por la picadura de la vinchuca solo produce molestias pasajeras en la piel y en los ojos.
+- D) La vinchuca habita en casas precarias y transmite un parásito grave, por lo que mejorar la vivienda previene el Chagas.
+
+**respuesta:** D
+**explicacion:** Paso 1 · Reúne el problema de hábitat y transmisión del primer párrafo con la respuesta preventiva del segundo: «las viviendas construidas con adobe sin revoque, techos de paja o pisos de tierra ofrecen refugio ideal a la vinchuca, un insecto de hábitos nocturnos que transmite el parásito causante de la enfermedad de Chagas» y «El mejoramiento físico de la vivienda constituye una medida duradera».
+Paso 2 · Opción A: falla porque el texto propone mejorar y revocar las viviendas, no abandonarlas ni mudarse.
+Paso 3 · Opción B: falla porque el segundo párrafo advierte que el efecto de los insecticidas es temporal si persiste el entorno favorable.
+Paso 4 · Opción C: falla porque el texto señala que el parásito puede causar daños silenciosos en el corazón o el aparato digestivo.
+Respuesta: D.
+
+---
+
+## Pregunta 36
+area: comprension_lectora
+tema: psa-lectura-reconocimiento-textual
+dificultad: alta
+
+**Por qué conviene restringir la publicidad infantil de bebidas azucaradas**
+
+Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública. A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos. Además, la infancia constituye una etapa decisiva en la formación de hábitos alimentarios que suelen mantenerse en la vida adulta. Cuando los anuncios asocian estos productos con personajes animados, colores llamativos o regalos, moldean preferencias tempranas que resultan difíciles de corregir después desde la consulta médica.
+
+Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial, por lo que quedan expuestos a mensajes diseñados para estimular el consumo impulsivo. Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.
+
+¿Qué rasgo estructural permite identificar al texto como argumentativo?
+
+- A) Plantea una tesis a favor de restringir la publicidad, ofrece razones que la respaldan y responde a un contraargumento.
+- B) Enumera en orden cronológico los pasos necesarios para elaborar bebidas con menor contenido de azúcar en el hogar.
+- C) Compara de modo neutral diversas leyes vigentes sobre bebidas azucaradas sin adoptar una postura propia.
+- D) Narra en primera persona la experiencia de un paciente infantil atendido por trastornos metabólicos.
+
+**respuesta:** A
+**explicacion:** Paso 1 · Desde la primera oración se formula la tesis y en el segundo párrafo se refuta una objeción contraria: «Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública.» y «Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica».
+Paso 2 · Opción B: falla porque no hay instrucciones ni pasos de preparación de bebidas.
+Paso 3 · Opción C: falla porque el autor no es neutral ni compara leyes: defiende abiertamente la necesidad de limitar la publicidad.
+Paso 4 · Opción D: falla porque no existe relato en primera persona ni historia clínica individual.
+Respuesta: A.
+
+---
+
+## Pregunta 37
+area: comprension_lectora
+tema: psa-lectura-inferencia
+dificultad: alta
+
+**Por qué conviene restringir la publicidad infantil de bebidas azucaradas**
+
+Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública. A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos. Además, la infancia constituye una etapa decisiva en la formación de hábitos alimentarios que suelen mantenerse en la vida adulta. Cuando los anuncios asocian estos productos con personajes animados, colores llamativos o regalos, moldean preferencias tempranas que resultan difíciles de corregir después desde la consulta médica.
+
+Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial, por lo que quedan expuestos a mensajes diseñados para estimular el consumo impulsivo. Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.
+
+A partir del primer párrafo, ¿qué se puede inferir sobre la diferencia entre ingerir azúcar en bebidas y consumirlo en alimentos sólidos?
+
+- A) Los alimentos sólidos carecen por completo de efectos negativos sobre la salud dental infantil.
+- B) Las bebidas azucaradas aportan mayor sensación de llenura y reducen el apetito durante el resto del día.
+- C) Al absorberse rápido y no dar saciedad, las bebidas facilitan ingerir exceso de azúcar sin advertirlo pronto.
+- D) Los jugos envasados solo resultan dañinos cuando se combinan con alimentos sólidos en la misma comida.
+
+**respuesta:** C
+**explicacion:** Paso 1 · Se deduce de los efectos contrastados con los alimentos sólidos en el primer párrafo: «A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos.»
+Paso 2 · Opción A: falla porque el pasaje compara absorción y saciedad, no afirma que los sólidos sean inofensivos para los dientes.
+Paso 3 · Opción B: falla porque contradice directamente lo expuesto: el texto indica que el azúcar disuelto se absorbe «sin generar saciedad».
+Paso 4 · Opción D: falla porque el texto no condiciona el daño de los jugos envasados a su combinación con sólidos.
+Respuesta: C.
+
+---
+
+## Pregunta 38
+area: comprension_lectora
+tema: psa-lectura-jerarquia-ideas
+dificultad: alta
+
+**Por qué conviene restringir la publicidad infantil de bebidas azucaradas**
+
+Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública. A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos. Además, la infancia constituye una etapa decisiva en la formación de hábitos alimentarios que suelen mantenerse en la vida adulta. Cuando los anuncios asocian estos productos con personajes animados, colores llamativos o regalos, moldean preferencias tempranas que resultan difíciles de corregir después desde la consulta médica.
+
+Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial, por lo que quedan expuestos a mensajes diseñados para estimular el consumo impulsivo. Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.
+
+En el segundo párrafo, ¿qué jerarquía argumentativa tiene la idea de que «elegir qué beben los hijos corresponde únicamente a las familias y no al Estado»?
+
+- A) Constituye la tesis principal que el autor defiende a lo largo de ambos párrafos.
+- B) Representa la conclusión final con la que el autor cierra su propuesta sanitaria.
+- C) Funciona como un dato estadístico que demuestra la ineficacia de las leyes en el hogar.
+- D) Opera como una objeción contraria que el autor expone para luego refutarla con otro argumento.
+
+**respuesta:** D
+**explicacion:** Paso 1 · El párrafo presenta esa postura como argumento opositor y de inmediato la rebate: «Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial»
+Paso 2 · Opción A: falla porque la tesis del autor es la opuesta, formulada al inicio del primer párrafo a favor de regular la publicidad.
+Paso 3 · Opción B: falla porque la conclusión final sostiene que restringir la propaganda protege el cuidado en el hogar, no que el Estado deba abstenerse.
+Paso 4 · Opción C: falla porque es una postura de quienes se oponen a la medida, no una cifra ni un dato estadístico.
+Respuesta: D.
+
+---
+
+## Pregunta 39
+area: comprension_lectora
+tema: psa-lectura-idea-central
+dificultad: media
+
+**Por qué conviene restringir la publicidad infantil de bebidas azucaradas**
+
+Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública. A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos. Además, la infancia constituye una etapa decisiva en la formación de hábitos alimentarios que suelen mantenerse en la vida adulta. Cuando los anuncios asocian estos productos con personajes animados, colores llamativos o regalos, moldean preferencias tempranas que resultan difíciles de corregir después desde la consulta médica.
+
+Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial, por lo que quedan expuestos a mensajes diseñados para estimular el consumo impulsivo. Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.
+
+¿Cuál de las siguientes opciones sintetiza mejor la postura y los fundamentos principales del texto?
+
+- A) Es necesario prohibir de inmediato la venta de refrescos y jugos envasados para evitar trastornos metabólicos.
+- B) Limitar la publicidad infantil de bebidas azucaradas cuida la salud y los hábitos tempranos sin sustituir la autoridad familiar.
+- C) Las familias son las únicas responsables de la dieta infantil, por lo que toda regulación publicitaria resulta innecesaria.
+- D) Los personajes animados y los colores llamativos provocan caries dentales aunque el niño no consuma bebidas azucaradas.
+
+**respuesta:** B
+**explicacion:** Paso 1 · Integra la tesis inicial y el cierre del texto: «Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública.» y «Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres»
+Paso 2 · Opción A: falla porque el texto aclara explícitamente que limitar la publicidad «no prohíbe la venta de bebidas».
+Paso 3 · Opción C: falla porque resume la objeción que el autor refuta en el segundo párrafo.
+Paso 4 · Opción D: falla porque los colores y personajes moldean preferencias hacia las bebidas azucaradas, no causan caries por sí mismos.
+Respuesta: B.
+
+---
+
+## Pregunta 40
+area: comprension_lectora
+tema: psa-lectura-funcion-elemento-textual
+dificultad: alta
+
+**Por qué conviene restringir la publicidad infantil de bebidas azucaradas**
+
+Regular y limitar la publicidad de bebidas azucaradas dirigida a niños es una medida necesaria de salud pública. A diferencia de los alimentos sólidos, el azúcar disuelto en refrescos y jugos envasados se absorbe con rapidez sin generar saciedad, lo que favorece el aumento de peso, la aparición de caries y el riesgo futuro de trastornos metabólicos. Además, la infancia constituye una etapa decisiva en la formación de hábitos alimentarios que suelen mantenerse en la vida adulta. Cuando los anuncios asocian estos productos con personajes animados, colores llamativos o regalos, moldean preferencias tempranas que resultan difíciles de corregir después desde la consulta médica.
+
+Quienes se oponen a esta restricción argumentan que elegir qué beben los hijos corresponde únicamente a las familias y no al Estado. Sin embargo, esa objeción pasa por alto que los niños pequeños aún no poseen la madurez crítica para diferenciar el entretenimiento de la persuasión comercial, por lo que quedan expuestos a mensajes diseñados para estimular el consumo impulsivo. Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.
+
+¿Qué función cumple la expresión «por el contrario» en la oración final del segundo párrafo?
+
+- A) Opone el verdadero efecto de la medida, que protege el cuidado del hogar, a la idea de que suplantaría a los padres.
+- B) Introduce un nuevo argumento de quienes rechazan cualquier límite sobre la venta de bebidas en escuelas.
+- C) Enumera los distintos trastornos metabólicos que pueden surgir por el consumo frecuente de jugos envasados.
+- D) Explica las causas biológicas por las que el azúcar disuelto se absorbe con rapidez sin generar saciedad.
+
+**respuesta:** A
+**explicacion:** Paso 1 · La locución contrasta lo que la medida no hace con lo que sí logra: «Restringir este tipo de propaganda no prohíbe la venta de bebidas ni sustituye la autoridad de los padres; por el contrario, evita que la presión publicitaria compita en desigualdad de condiciones con el cuidado cotidiano en el hogar.»
+Paso 2 · Opción B: falla porque no presenta una objeción opositora ni menciona escuelas, sino el cierre de la respuesta del autor.
+Paso 3 · Opción C: falla porque los efectos sobre el peso, las caries y el metabolismo se exponen en el primer párrafo, no en esa cláusula.
+Paso 4 · Opción D: falla porque la absorción rápida sin saciedad es el primer argumento inicial del texto, ajeno al conector final.
 Respuesta: A.
 
 ---

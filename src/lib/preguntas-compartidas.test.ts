@@ -338,7 +338,7 @@ describe("práctica PSA 2027 · Comprensión Lectora (data/practica, 15-nov-2026
   test("el archivo trae 20 preguntas de comprension_lectora, 4 opciones y clave válida", () => {
     assert.ok(regla?.archivo, "debe existir la regla con archivo");
     const ps = cargarPreguntasArchivo(regla!.archivo!);
-    assert.equal(ps.length, 20);
+    assert.equal(ps.length, 40);
     assert.deepEqual([...new Set(ps.map((p) => p.area))], ["comprension_lectora"]);
     for (const p of ps) {
       assert.equal(p.opciones.length, 4, p.id);
@@ -361,6 +361,6 @@ describe("práctica PSA 2027 · Comprensión Lectora (data/practica, 15-nov-2026
       ficha: fichaPsa2027,
     });
     const lectura = pool.filter((p) => p.area === "comprension_lectora" && p.prestada?.etiqueta === "Pregunta de práctica PSA 2027");
-    assert.equal(lectura.length, 20);
+    assert.equal(lectura.length, 40);
   });
 });
