@@ -1,0 +1,31 @@
+{
+ "capitulo": 12,
+ "titulo_capitulo": "El citoesqueleto",
+ "palabras_texto": 14358,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 69,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Microtúbulos",
+   "palabra": 146,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Microfilamentos de actina y filamentos gruesos de miosina",
+   "palabra": 6489,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Filamentos intermedios",
+   "palabra": 11381,
+   "narrable": true
+  }
+ ]
+}

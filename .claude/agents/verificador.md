@@ -83,4 +83,5 @@ Tres bloques, cortos:
 Cerrá con una sola pregunta, respondida: **¿lo aprobaría un ingeniero senior tal como está?** Si todo está bien, decilo sin adornos. No inventes hallazgos para llenar el reporte.
 
 ## Regla principal de Ronald (6-nov-2026): lo visible se muestra en la tablet
+> **16-11, Ronald: solo si la tablet está conectada (`adb devices`); si no, basta la emulación en navegador a 3 tamaños, sin mencionar la tablet ni frenar nada.**
 Si el diff toca `src/**/*.tsx|css` (algo que se ve en pantalla) y la sesión no dejó la dirección para la tablet, los pasos en la app y el antes/después (`node scripts/ver-en-tablet.mjs /<ruta>`), repórtalo como hallazgo: el cambio no está terminado. Ver `CLAUDE.md`, regla 9.

@@ -1,0 +1,37 @@
+{
+ "capitulo": 4,
+ "titulo_capitulo": "Microtransporte a través de la membrana plasmática",
+ "palabras_texto": 14779,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 94,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Transporte pasivo",
+   "palabra": 308,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Transporte activo",
+   "palabra": 334,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Importancia de los canales iónicos en la generación del potencial de membrana",
+   "palabra": 2388,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Ecuación de Nernst",
+   "palabra": 9961,
+   "narrable": true
+  }
+ ]
+}

@@ -26,6 +26,7 @@ El PDF fuente trae la clave de la facultad, y la facultad también se equivoca: 
 ## Qué ya se aprendió de las claves (no lo redescubras)
 
 - Una marca doble oficial ("A o C") suele ser una pregunta con **dos afirmaciones verdaderas sin letra propia** (pasó en las preguntas 60 y 91 del 2do parcial 2024-25: la 1 y la 3 verdaderas). Si tu derivación da "dos de tres", no es un error tuyo: confirmá que el examen las declaró en `faltantes`.
+- **Decisión de Ronald (16-11, P92 del final 2025-26):** una pregunta con «dos de tres» verdaderas y sin letra que las junte NO se queda en el simulador con nota: pasa a `faltantes`, como la P60 y la P91 de 2024-25. Aplicalo solo, sin volver a preguntar. Si falta el libro de una gestión (p. ej. Tortora 15.ª o Alberts 5.ª para 2023-24 y 2024-25), ese año se deja sin auditar y se anota «falta el libro»; no se audita con otro libro.
 - Un error de lectura de la cartilla se delata solo: una letra imposible para el número de afirmaciones, o una letra que te obliga a un veredicto absurdo en las tres afirmaciones a la vez. Antes de acusar a la facultad, releé la imagen de esa fila.
 - Cuando el veredicto de una afirmación depende de una cifra exacta (un porcentaje, un número de pares, un diámetro), es donde más se equivocan los libros de otra edición. Marcalas "depende de la edición" en vez de "falsa".
 

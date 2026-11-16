@@ -1,4 +1,6 @@
 # COLA DE LA TABLET (regla de Ronald, 07-11-2026)
+> **16-11, Ronald: la tablet NO frena ni estorba.** Solo se usa si `adb devices` la muestra conectada; si no, se comprueba con emulación en el navegador (3 tamaños) y se sigue. Esta cola es opcional: no bloquea nada ni la subida a main.
+
 Toda mejora visible se muestra en la tablet (USB o WiFi) y en 3 vistas: escritorio, celular y tablet. Si la tablet esta ocupada por otra sesion: NO esperar parado; sigue con otra cosa y **anota aqui lo pendiente de mostrar**. Nunca olvidar lo que se queria mostrar.
 Al quedar libre la tablet: la sesion que anoto abre la ruta, mira la captura (800x1340 y 360x740; `wm size reset` al final), y marca la fila. Ronald tambien puede ir revisando esta lista el mismo en su tablet.
 

@@ -1,0 +1,43 @@
+{
+ "capitulo": 5,
+ "titulo_capitulo": "Macrotransporte a través de la membrana plasmática: endocitosis y exocitosis",
+ "palabras_texto": 12699,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 93,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Endocitosis",
+   "palabra": 159,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Exocitosis",
+   "palabra": 198,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Gemación y fusión de vesículas en los procesos de endocitosis y exocitosis",
+   "palabra": 6798,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Exocitosis y endocitosis en la sinapsis neuronal",
+   "palabra": 8070,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Mecanismos de infección que dependen del macrotransporte a través de la membrana plasmática",
+   "palabra": 10901,
+   "narrable": true
+  }
+ ]
+}

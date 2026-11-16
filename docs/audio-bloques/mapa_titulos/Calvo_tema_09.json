@@ -1,0 +1,55 @@
+{
+ "capitulo": 9,
+ "titulo_capitulo": "Síntesis y modificación de proteínas",
+ "palabras_texto": 9874,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 84,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Maquinaria para la síntesis proteica",
+   "palabra": 474,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Código genético",
+   "palabra": 1778,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Proceso de síntesis proteica en los ribosomas",
+   "palabra": 2429,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Estructura tridimensional, plegamiento y localización de las proteínas",
+   "palabra": 4545,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Modificaciones postraduccionales y regulación de la función proteica",
+   "palabra": 6808,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Degradación de proteínas",
+   "palabra": 8543,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Uso biomédico de proteínas recombinantes",
+   "palabra": 9215,
+   "narrable": true
+  }
+ ]
+}

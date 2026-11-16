@@ -1,0 +1,31 @@
+{
+ "capitulo": 13,
+ "titulo_capitulo": "Mecanismos de señalización celular",
+ "palabras_texto": 12049,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Mecanismos generales de señalización intracelular",
+   "palabra": 65,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Tipos de señalización celular mediados por la secreción de moléculas",
+   "palabra": 1580,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Receptores de señales y señalización intracelular",
+   "palabra": 4597,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Señalización a través de contactos célula-célula y célula-sustrato",
+   "palabra": 11228,
+   "narrable": true
+  }
+ ]
+}

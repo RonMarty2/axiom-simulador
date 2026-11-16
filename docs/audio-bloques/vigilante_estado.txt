@@ -103,3 +103,38 @@
 15-23:22 Resumen (Tema_13_Biologia_Celular_LITERAL_TTS): total=153, reusados=0, sintetizados=0, copiados_viejos=0, retomados=153, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 15-23:22 Resumen (Tema_15_Morfo_Saladin_LITERAL_TTS): total=119, reusados=0, sintetizados=0, copiados_viejos=0, retomados=119, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 15-23:52 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=68, rondas_agotadas=10).
+16-06:22 vigilante relanzado tras apagado (fase 2 = Libro 3)
+16-06:22 cuota OK, grabando
+16-06:23 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=81, reusados=0, sintetizados=0, copiados_viejos=0, retomados=81, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:24 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=148, reusados=0, sintetizados=0, copiados_viejos=0, retomados=148, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:25 Resumen (Tema_04_Biologia_Celular_LITERAL_TTS): total=189, reusados=0, sintetizados=0, copiados_viejos=0, retomados=189, pendientes=11, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:26 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=159, reusados=0, sintetizados=0, copiados_viejos=0, retomados=159, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:26 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=144, reusados=0, sintetizados=0, copiados_viejos=0, retomados=144, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:27 Resumen (Tema_08_Morfo_Saladin_LITERAL_TTS): total=266, reusados=0, sintetizados=0, copiados_viejos=0, retomados=266, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:28 Resumen (Tema_09_Morfo_Saladin_LITERAL_TTS): total=193, reusados=0, sintetizados=0, copiados_viejos=0, retomados=193, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:28 Resumen (Tema_12_Biologia_Celular_LITERAL_TTS): total=183, reusados=0, sintetizados=0, copiados_viejos=0, retomados=183, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:29 Resumen (Tema_13_Biologia_Celular_LITERAL_TTS): total=153, reusados=0, sintetizados=0, copiados_viejos=0, retomados=153, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-06:29 Resumen (Tema_15_Morfo_Saladin_LITERAL_TTS): total=119, reusados=0, sintetizados=0, copiados_viejos=0, retomados=119, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-07:35 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=17, rondas_agotadas=10).
+16-08:06 cuota OK, grabando
+16-08:06 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:06 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=81, reusados=0, sintetizados=0, copiados_viejos=0, retomados=81, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:07 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=118, reusados=0, sintetizados=0, copiados_viejos=0, retomados=118, pendientes=1, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:07 Resumen (Tema_02_Parte_2_Biologia_Celular_LITERAL_TTS): total=153, reusados=0, sintetizados=0, copiados_viejos=0, retomados=153, pendientes=1, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:08 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=148, reusados=0, sintetizados=0, copiados_viejos=0, retomados=148, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:08 Resumen (Tema_04_Biologia_Celular_LITERAL_TTS): total=189, reusados=0, sintetizados=0, copiados_viejos=0, retomados=189, pendientes=11, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:09 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=159, reusados=0, sintetizados=0, copiados_viejos=0, retomados=159, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:10 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=144, reusados=0, sintetizados=0, copiados_viejos=0, retomados=144, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:11 Resumen (Tema_08_Morfo_Saladin_LITERAL_TTS): total=266, reusados=0, sintetizados=0, copiados_viejos=0, retomados=266, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:11 Resumen (Tema_09_Morfo_Saladin_LITERAL_TTS): total=193, reusados=0, sintetizados=0, copiados_viejos=0, retomados=193, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:12 Resumen (Tema_12_Biologia_Celular_LITERAL_TTS): total=183, reusados=0, sintetizados=0, copiados_viejos=0, retomados=183, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-08:12 Resumen (Tema_13_Biologia_Celular_LITERAL_TTS): total=153, reusados=0, sintetizados=0, copiados_viejos=0, retomados=153, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+16-09:35 vigilante DETENIDO (se agrega filtro de aceptacion); se relanza con filtro
+16-09:16 vigilante RELANZADO con filtro de aceptacion (sesion 084b7aa5)
+16-09:16 cuota OK, grabando
+16-09:16 31 capitulos esperan aceptacion de texto; reviso en 30 min
+16-09:26 vigilante RELANZADO (despierta al aparecer un informe de aceptacion nuevo; sesion 084b7aa5)
+16-09:26 cuota OK, grabando
+16-10:02 EdS EdS_Parte1_LITERAL_TTS: Concatenando 96 fragmentos en archivo máster...
+16-10:02 EdS EdS_Parte1_LITERAL_TTS: [EXITO] Archivo WAV generado: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte1_LITERAL_TTS.wav
+16-10:02 EdS EdS_Parte1_LITERAL_TTS: [EXITO] Versión MP3 comprimida: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte1_LITERAL_TTS.mp3

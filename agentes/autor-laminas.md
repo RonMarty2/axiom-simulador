@@ -58,3 +58,5 @@ Vale igual si la escribe Claude o agy (el pedido a agy debe citar estos archivos
 2. Animación: conceptos que se miran (Bio, Medicina, Química descriptiva) → `animador-conceptos.md`; ejemplos con cuentas (Mat, Fís, Quím) → `animador-resolucion.md`.
 3. Antes de dar la lección por buena (lo hace Claude, no agy): `resolutor-exacto` comprueba cada cuenta del ejemplo; `auditor-pedagogico` y `auditor-figuras` revisan la lección. Se anota en BITACORA.md qué ayudante revisó cada lección.
 Sin esos tres pasos, la lección no entra a la app ni a la cola de la tablet.
+
+> **Dibujos legibles en celular (16-11):** todo dibujo se diseña pensando en 360 px de ancho: su texto debe verse a 11 px o más en pantalla (con viewBox de 720, letra de 22 o más), o se parte/apila en celular. Lo comprueba auditor-pantallas-movil (regla 6).

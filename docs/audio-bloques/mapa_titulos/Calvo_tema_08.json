@@ -1,0 +1,37 @@
+{
+ "capitulo": 8,
+ "titulo_capitulo": "El núcleo. Parte II: transcripción y maduración del ARN y estructura del nucléolo",
+ "palabras_texto": 10815,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 88,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Síntesis del ARN: transcripción",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "El nucléolo: expresión morfológica del proceso de transcripción",
+   "palabra": 4277,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Maduración del ARN",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Metabolismo del ARN maduro",
+   "palabra": null,
+   "narrable": true
+  }
+ ]
+}

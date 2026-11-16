@@ -1,0 +1,25 @@
+{
+ "capitulo": 1,
+ "titulo_capitulo": "Introducción a la biología de las células",
+ "palabras_texto": 6399,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Organización celular de distintos organismos",
+   "palabra": 638,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Organización de agentes subcelulares patógenos",
+   "palabra": 3458,
+   "narrable": true
+  }
+ ]
+}

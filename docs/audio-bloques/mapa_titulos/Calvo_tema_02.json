@@ -1,0 +1,115 @@
+{
+ "capitulo": 2,
+ "titulo_capitulo": "Cómo se estudian las células. Métodos y técnicas básicas en biología celular",
+ "palabras_texto": 9514,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 119,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Microscopía óptica convencional",
+   "palabra": 221,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Microscopía electrónica",
+   "palabra": 2390,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Procesamiento de muestras para microscopía óptica y electrónica",
+   "palabra": 3821,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Tecnología del ADN recombinante y aislamiento de ácidos nucleicos",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Reacción en cadena de la polimerasa",
+   "palabra": 5768,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Fingerprint de ADN",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Secuenciación de ADN",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Hibridación in situ de ácidos nucleicos",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Terapia génica",
+   "palabra": 6765,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Microarrays y microchips para estudios genómicos de expresión a gran escala",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Transferencia de ADN a células y embriones de mamíferos. Desarrollo de animales transgénicos y knock out",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Técnicas citogenéticas",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Producción de anticuerpos policlonales y monoclonales",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "ELISA",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Citometría de flujo",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Cultivos celulares",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Fraccionamiento celular y centrifugación diferencial",
+   "palabra": null,
+   "narrable": true
+  }
+ ]
+}

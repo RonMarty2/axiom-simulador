@@ -1,0 +1,37 @@
+{
+ "capitulo": 10,
+ "titulo_capitulo": "Sistema de endomembranas celulares: retículo endoplasmático, aparato de Golgi y lisosomas",
+ "palabras_texto": 9960,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 108,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Retículo endoplasmático rugoso",
+   "palabra": 236,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Retículo endoplasmático liso",
+   "palabra": 3507,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Aparato de Golgi",
+   "palabra": 3922,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Lisosomas",
+   "palabra": 4141,
+   "narrable": true
+  }
+ ]
+}

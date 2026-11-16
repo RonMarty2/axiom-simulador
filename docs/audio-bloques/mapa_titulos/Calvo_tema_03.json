@@ -1,0 +1,67 @@
+{
+ "capitulo": 3,
+ "titulo_capitulo": "Estructura de la membrana plasmática",
+ "palabras_texto": 11712,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 54,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Modelos estructurales de la membrana: perspectiva histórica",
+   "palabra": 472,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Singer y Nicolson: estructura en mosaico fluido",
+   "palabra": 1049,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Lípidos de membrana",
+   "palabra": 1856,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Balsas lipídicas",
+   "palabra": 6278,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "El mosaico proteico",
+   "palabra": 6829,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "La cubierta de glúcidos: estructura y función del glucocáliz",
+   "palabra": 10782,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Determinación de la temperatura de fusión de las membranas biológicas",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Cuestiones",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "titulo": "Respuestas",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

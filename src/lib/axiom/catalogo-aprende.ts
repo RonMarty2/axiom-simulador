@@ -280,7 +280,7 @@ const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
   { numero: "02", titulo: "Expresión génica", lecciones: [{ slug: "bcm-expresion-genica", titulo: "Transcripción, traducción y código genético", tags: ["✨ Animada"] }] },
   { numero: "03", titulo: "Bioenergética y señalización celular", lecciones: [{ slug: "bcm-bioenergetica-senalizacion", titulo: "ATP, respiración y transducción de señales", tags: ["✨ Animada"] }] },
   { numero: "04", titulo: "Bases moleculares de la vida", lecciones: [{ slug: "bases-moleculares-vida", titulo: "Biomoléculas: glúcidos, lípidos, proteínas, ácidos nucleicos" }] },
-  { numero: "05", titulo: "Bases celulares y ciclo celular", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y división celular" }] },
+  { numero: "05", titulo: "Bases celulares y ciclo celular", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y división celular" }, { slug: "bio-citoesqueleto", titulo: "El citoesqueleto: microtúbulos, microfilamentos y filamentos intermedios" }] },
   { numero: "06", titulo: "Especializaciones de membrana", lecciones: [{ slug: "bcm-especializaciones-membrana", titulo: "Uniones celulares, adhesión y matriz extracelular" }] },
   { numero: "07", titulo: "Células madre", lecciones: [{ slug: "bcm-celulas-madre", titulo: "Tipos, potencialidad y aplicaciones terapéuticas" }] },
   { numero: "08", titulo: "Respuesta inmunitaria", lecciones: [{ slug: "bcm-respuesta-inmunitaria", titulo: "Anticuerpos, CPH, linfocitos T y B y tolerancia" }] },

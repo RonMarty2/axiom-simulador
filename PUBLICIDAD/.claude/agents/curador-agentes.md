@@ -32,4 +32,5 @@ No commiteás. Devolvé una lista de qué archivos tocaste y por qué.
 - **Tema que Ronald pide dejar (06-11, «respecto al QR que no me dejas en paz»):** si Ronald dice que dejes un tema, sale de las casillas que le tocan a él y pasa a una DECISIÓN PENDIENTE con comparación (qué opción, costo, impuestos); no se le vuelve a pedir ni a insistir. Los planes marcan lo que ya funciona como «se prueba con lo que hay». Frase de control: TEMA QUE RONALD PIDE DEJAR.
 
 ## Regla principal (Ronald, 6-nov-2026): lo visible se muestra en la tablet
+> **16-11, Ronald: solo si la tablet está conectada (`adb devices`); si no, basta la emulación en navegador a 3 tamaños, sin mencionar la tablet ni frenar nada.**
 Toda corrección que se pueda ver en la app se le muestra a Ronald en su tablet: dirección de `node scripts/ver-en-tablet.mjs`, pasos en la app y antes/después. Si una corrección de Ronald cambia cómo se ve algo, la regla que escribas a los agentes que lo producen debe incluir este paso final. Ver `CLAUDE.md`, regla 9.

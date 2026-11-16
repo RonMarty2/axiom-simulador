@@ -65,3 +65,9 @@ Usa el toolkit en `skills/ffmpeg/scripts/` para evitar errores de sintaxis en te
 - **Efectos de sonido:** se generan en `motion/axiom-v1/mix.py` y se ubican con `warp.py`. Música de fondo solo si Ronald trae un archivo libre de derechos.
 - **Un efecto inaudible no se arregla subiendo el volumen, sino cambiando el sonido.** Verifícalo con `volumedetect` por tramos.
 - ffmpeg de Windows no acepta `-pattern_type glob`: usa `f_%04d.png`.
+
+## APROVECHAR LA CUOTA DEL POOL SIN GRABAR DOS VECES (Ronald, 16-11: «deberíamos estar aprovechando el tiempo… para aprovechar la cuota de nuestro pool de APIs ¿no deberíamos lanzar la creación de los audiolibros de una vez?»)
+- La cuota de voz del pool que no se usa en el día se pierde: la grabación NO espera a que estén listos todos los capítulos. Trabaja en CADENA: apenas un capítulo pasa las 8 revisiones de texto de `libro-audio-auditor` (aceptacion.py, veredicto de texto APRUEBA), entra a la cola de grabación ese mismo día.
+- Lo que NO pasa la aceptación NO se graba (grabar texto con errores obliga a regrabar = cuota gastada dos veces). El vigilante de grabación salta los capítulos sin informe de aceptación aprobado.
+- Orden: primero los capítulos más limpios (menos fallas reales), mientras en paralelo se corrigen los demás por script.
+- Lo ya grabado con texto viejo no se tira: al corregir el texto se regraban solo los bloques que cambiaron (regla 14 de libro-audio-tts).

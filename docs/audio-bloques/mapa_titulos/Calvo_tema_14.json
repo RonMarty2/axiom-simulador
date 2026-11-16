@@ -1,0 +1,49 @@
+{
+ "capitulo": 14,
+ "titulo_capitulo": "Ciclo celular y destinos vitales de la célula",
+ "palabras_texto": 13084,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 78,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Fases del ciclo celular",
+   "palabra": 436,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Regulación del ciclo celular: puntos de control",
+   "palabra": 3269,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Regulación en cada punto de control y consecuencias del avance a la siguiente fase",
+   "palabra": 6136,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Elementos de retrocontrol del ciclo celular",
+   "palabra": 8717,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Elementos extrínsecos que influyen en el control del ciclo celular",
+   "palabra": 11609,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Destinos vitales de la célula y respuestas celulares al estrés",
+   "palabra": 12328,
+   "narrable": true
+  }
+ ]
+}

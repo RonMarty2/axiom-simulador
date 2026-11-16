@@ -1,0 +1,79 @@
+{
+ "capitulo": 7,
+ "titulo_capitulo": "El núcleo. Parte I: organización de la cromatina y conservación de la información genética",
+ "palabras_texto": 19497,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 113,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Envoltura nuclear. Poros nucleares",
+   "palabra": 496,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Organización del núcleo en interfase",
+   "palabra": 2737,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Estructura de la cromatina en interfase. Histonas",
+   "palabra": 3444,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Eucromatina y heterocromatina",
+   "palabra": 5288,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Cromosomas",
+   "palabra": 5397,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Complejidad del ADN humano. Tipos de secuencias en el ADN",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Proyecto genoma humano",
+   "palabra": 12473,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Replicación del ADN genómico",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Estabilidad y reordenamiento del ADN genómico",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Recombinación homóloga",
+   "palabra": 16428,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Mutación y reparación del ADN genómico",
+   "palabra": null,
+   "narrable": true
+  }
+ ]
+}

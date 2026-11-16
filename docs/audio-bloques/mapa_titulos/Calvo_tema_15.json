@@ -1,0 +1,19 @@
+{
+ "capitulo": 15,
+ "titulo_capitulo": "División celular y muerte programada",
+ "palabras_texto": 10961,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "División celular",
+   "palabra": 2,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Muerte celular programada (apoptosis)",
+   "palabra": 84,
+   "narrable": true
+  }
+ ]
+}

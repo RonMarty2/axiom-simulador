@@ -1,0 +1,49 @@
+{
+ "capitulo": 11,
+ "titulo_capitulo": "Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo",
+ "palabras_texto": 10835,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Estructura y composición de las mitocondrias",
+   "palabra": 100,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Genoma mitocondrial",
+   "palabra": 846,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Incorporación de proteínas a la mitocondria",
+   "palabra": 1807,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Metabolismo oxidativo mitocondrial",
+   "palabra": 3089,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Especies reactivas de oxígeno y defensa antioxidante mitocondrial",
+   "palabra": 6740,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Patologías relacionadas con la mitocondria",
+   "palabra": 7559,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Peroxisomas. Estructura y participación en el metabolismo oxidativo",
+   "palabra": 9158,
+   "narrable": true
+  }
+ ]
+}

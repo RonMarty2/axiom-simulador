@@ -1,0 +1,55 @@
+{
+  "_léeme": "Excepciones revisadas a mano (aceptacion.py, aplicar_excepciones). Cada una dice qué hallazgo cubre, por qué no es falla y quién lo revisó con el libro delante. Solo se aplican si la revisión lista todas sus fallas.",
+  "EdS_Parte1_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Diferencias entre Promoción de la Salud y Prevención",
+      "motivo": "tabla del libro (pág. 20) narrada fila por fila, regla 7; las palabras añadidas son los encabezados de columna",
+      "reviso": "Claude 16-11"
+    }
+  ],
+  "EdS_Parte2_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Variable independiente X uno y Variable X dos",
+      "motivo": "esquema de la pág. 72 transcrito de la imagen y dicho en palabras (regla 2, opción A); falta revisión de auditor-figuras",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Estudio en grupo variable independiente",
+      "motivo": "esquema de la pág. 72 dicho en palabras (regla 2)",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Circular del cordón umbilical variable independiente",
+      "motivo": "esquema de la págs. 72-73 dicho en palabras (regla 2)",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "[Esquema transcrito desde la imagen",
+      "motivo": "los mismos 3 esquemas: en el libro usan X1/V.I, la voz dice «X uno», «variable independiente»",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "El autor es moral y legamente responsable",
+      "motivo": "créditos legales del Bloque 3 (pág. 77), fuera de esta parte y no narrables (regla 10)",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "este libro, así como del respeto a los derechos de autor",
+      "motivo": "mismo texto legal de créditos (regla 10)",
+      "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "La estadística ha cobrado gran importancia",
+      "motivo": "pág. 84, inicio del Bloque 3: está narrado en EdS_Parte3_1 (comprobado), no es omisión de esta parte",
+      "reviso": "Claude 16-11"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+ "capitulo": 17,
+ "titulo_capitulo": "Bases celulares de la respuesta inmunitaria",
+ "palabras_texto": 13779,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Propiedades generales del sistema inmunitario. Inmunidad innata y adaptativa",
+   "palabra": 102,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Reconocimiento del antígeno",
+   "palabra": 1231,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Activación linfocitaria",
+   "palabra": 7192,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Mecanismos efectores",
+   "palabra": 10420,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Regulación de la respuesta inmunitaria",
+   "palabra": 11972,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Disfunciones del sistema inmunitario y sus consecuencias",
+   "palabra": 12767,
+   "narrable": true
+  }
+ ]
+}

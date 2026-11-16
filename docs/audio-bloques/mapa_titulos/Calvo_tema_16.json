@@ -1,0 +1,79 @@
+{
+ "capitulo": 16,
+ "titulo_capitulo": "Biología celular del cáncer",
+ "palabras_texto": 14065,
+ "titulos": [
+  {
+   "nivel": 1,
+   "titulo": "Introducción",
+   "palabra": 109,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Epidemiología y factores de riesgo",
+   "palabra": 390,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Características de las células tumorales",
+   "palabra": 842,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Tipos de cáncer",
+   "palabra": 1547,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Inducción del cáncer por carcinógenos y microorganismos",
+   "palabra": 1907,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Bases genéticas del cáncer",
+   "palabra": 3136,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Alteraciones epigenéticas",
+   "palabra": 7041,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Virus oncogénicos",
+   "palabra": 8015,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Carcinogénesis. Modelo del cáncer de colon",
+   "palabra": 9101,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Angiogénesis y metástasis",
+   "palabra": 9955,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Evasión del sistema inmunitario",
+   "palabra": 10663,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "titulo": "Tratamientos del cáncer",
+   "palabra": 11509,
+   "narrable": true
+  }
+ ]
+}

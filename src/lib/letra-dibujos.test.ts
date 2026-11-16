@@ -11,12 +11,18 @@ import { join } from "node:path";
 // docs/medicion-letra-dibujos-2026-11-16.json). El número no puede subir:
 // cada tanda de arreglos baja TECHO al valor nuevo.
 const TECHO = 328;
+// Segundo techo: «Ver en grande» con el celular girado (740x360). El 16-11
+// eran 82 (69 de Medicina en el informe de agy). Baja con las tandas A1/A2.
+const TECHO_GRANDE = 82;
 
 test("dibujos con letra menor a 11 px a 360 px: no suben", () => {
   const salida = join(mkdtempSync(join(tmpdir(), "letra-")), "m.json");
   execFileSync(process.execPath, ["scripts/medir-letra-dibujos.mjs", "--json", salida], { stdio: "ignore" });
-  const { filas } = JSON.parse(readFileSync(salida, "utf8")) as { filas: { letraMinPx: number }[] };
+  const { filas } = JSON.parse(readFileSync(salida, "utf8")) as { filas: { letraMinPx: number; letraGrandePx: number }[] };
   const malos = filas.filter((f) => f.letraMinPx < 11).length;
+  const grandes = filas.filter((f) => f.letraGrandePx < 11).length;
+  assert.ok(grandes <= TECHO_GRANDE, `Hay ${grandes} dibujos con letra < 11 px en grande y girado (techo ${TECHO_GRANDE}).`);
+  if (grandes < TECHO_GRANDE) console.log(`En grande bajó a ${grandes}: actualiza TECHO_GRANDE`);
   assert.ok(
     malos <= TECHO,
     `Hay ${malos} dibujos con letra < 11 px a 360 (techo ${TECHO}). Corre node scripts/medir-letra-dibujos.mjs y agranda la letra del dibujo nuevo (regla 6 de auditor-pantallas-movil).`,
