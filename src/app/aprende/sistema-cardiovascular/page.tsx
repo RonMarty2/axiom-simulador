@@ -197,7 +197,7 @@ function EscSangre() {
             <text x={80} y={32} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={700}>Plasma 55%</text>
             <line y1={50} x1={0} x2={160} y2={50} stroke={LIENZO.fg} strokeWidth={0.5} strokeDasharray="3 2" />
             <rect y={50} width={160} height={6} fill="#fff" stroke="var(--dib-violet-400)" strokeWidth={1} />
-            <text x={170} y={56} fill="var(--dib-violet-400)" fontSize={9}>capa leucocitos+plaquetas (1%)</text>
+            <text x={170} y={56} fill="var(--dib-violet-400)" fontSize={11}>capa leucocitos+plaquetas (1%)</text>
             <rect y={56} width={160} height={44} fill="var(--dib-red-500)" opacity={0.6} stroke="var(--dib-red-600)" strokeWidth={1.5} />
             <text x={80} y={84} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Eritrocitos 45%</text>
           </g>
@@ -344,7 +344,7 @@ function EscVasos() {
               {[row.c, row.a, row.c2, row.v].map((v, j) => (
                 <g key={j}>
                   <rect x={30 + j * 165} y={68 + i * 33} width={163} height={33} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={30 + j * 165 + 81} y={88 + i * 33} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={30 + j * 165 + 81} y={88 + i * 33} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>

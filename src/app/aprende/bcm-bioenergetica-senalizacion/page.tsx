@@ -83,20 +83,20 @@ function EscEnzimas() {
           {/* curva T */}
           <line x1={80} y1={170} x2={300} y2={170} stroke={LIENZO.fg} strokeWidth={1.5} />
           <line x1={80} y1={170} x2={80} y2={60} stroke={LIENZO.fg} strokeWidth={1.5} />
-          <text x={70} y={65} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>act</text>
-          <text x={300} y={185} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>T</text>
+          <text x={70} y={65} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>act</text>
+          <text x={300} y={185} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>T</text>
           <path d="M 80 170 Q 150 170 190 90 Q 230 70 240 170" fill="none" stroke={LIENZO.bad} strokeWidth={2} />
           <text x={190} y={50} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={600}>óptima 37 °C</text>
-          <text x={190} y={195} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>T humana</text>
+          <text x={190} y={195} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>T humana</text>
 
           {/* curva pH */}
           <line x1={420} y1={170} x2={640} y2={170} stroke={LIENZO.fg} strokeWidth={1.5} />
           <line x1={420} y1={170} x2={420} y2={60} stroke={LIENZO.fg} strokeWidth={1.5} />
-          <text x={410} y={65} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>act</text>
-          <text x={640} y={185} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>pH</text>
+          <text x={410} y={65} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>act</text>
+          <text x={640} y={185} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>pH</text>
           <path d="M 420 170 Q 480 170 510 90 Q 540 70 555 170" fill="none" stroke={LIENZO.ok} strokeWidth={2} />
           <text x={510} y={50} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={600}>óptimo</text>
-          <text x={510} y={195} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>cada enzima tiene su pH</text>
+          <text x={510} y={195} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>cada enzima tiene su pH</text>
         </svg>
       </Pizarra>
 
@@ -141,8 +141,8 @@ function EscSenalizacion() {
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={150} height={120} fill={LIENZO.accent} opacity={0.1} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
               <text x={65} y={22} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={65} y={50} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.d}</text>
-              <text x={65} y={90} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{p.ej}</text>
+              <text x={65} y={50} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d}</text>
+              <text x={65} y={90} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{p.ej}</text>
             </g>
           ))}
         </svg>
@@ -196,13 +196,13 @@ function EscCiclo() {
 
           {/* Checkpoints */}
           <circle cx={400} cy={70} r={10} fill={LIENZO.warn} stroke={LIENZO.fg} strokeWidth={1} />
-          <text x={425} y={62} fill={LIENZO.warn} fontSize={10} fontWeight={600}>G1/S checkpoint</text>
+          <text x={425} y={62} fill={LIENZO.warn} fontSize={11} fontWeight={600}>G1/S checkpoint</text>
 
           <circle cx={440} cy={190} r={10} fill={LIENZO.warn} stroke={LIENZO.fg} strokeWidth={1} />
-          <text x={460} y={195} fill={LIENZO.warn} fontSize={10} fontWeight={600}>G2/M checkpoint</text>
+          <text x={460} y={195} fill={LIENZO.warn} fontSize={11} fontWeight={600}>G2/M checkpoint</text>
 
           <circle cx={280} cy={190} r={10} fill={LIENZO.warn} stroke={LIENZO.fg} strokeWidth={1} />
-          <text x={260} y={210} fill={LIENZO.warn} fontSize={10} fontWeight={600}>Mitosis checkpoint</text>
+          <text x={260} y={210} fill={LIENZO.warn} fontSize={11} fontWeight={600}>Mitosis checkpoint</text>
         </svg>
       </Pizarra>
 
@@ -299,14 +299,14 @@ function EscApoptosis() {
             <text x={130} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>APOPTOSIS</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>programada, ordenada</text>
             <text x={130} y={62} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>sin inflamación</text>
-            <text x={130} y={82} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>requiere ATP</text>
+            <text x={130} y={82} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>requiere ATP</text>
           </g>
           <g transform="translate(380, 55)">
             <rect width={260} height={90} fill={LIENZO.bad} opacity={0.1} stroke={LIENZO.bad} strokeWidth={1.5} rx={10} />
             <text x={130} y={22} textAnchor="middle" fill={LIENZO.bad} fontSize={13} fontWeight={700}>NECROSIS</text>
             <text x={130} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>accidental, desordenada</text>
             <text x={130} y={62} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>con inflamación</text>
-            <text x={130} y={82} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>por daño físico/químico</text>
+            <text x={130} y={82} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>por daño físico/químico</text>
           </g>
         </svg>
       </Pizarra>

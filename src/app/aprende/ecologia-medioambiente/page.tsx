@@ -292,8 +292,8 @@ function EscPiramides() {
                 <rect key={j} x={-nv.w / 2} y={nv.y} width={nv.w} height={20}
                   fill={nv.c} opacity={0.5} stroke={nv.c} strokeWidth={1.5} />
               ))}
-              <text x={0} y={150} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.t}</text>
-              <text x={0} y={166} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9} fontStyle="italic">{p.base}</text>
+              <text x={0} y={150} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.t}</text>
+              <text x={0} y={166} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{p.base}</text>
             </g>
           ))}
         </svg>
@@ -352,7 +352,7 @@ function EscCiclos() {
           <text x={200} y={100} fill="var(--dib-green-500)" fontSize={11} fontWeight={600}>Fotosíntesis</text>
 
           <line x1={210} x2={290} y1={150} y2={150} stroke="var(--dib-gray-700)" strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={250} y={143} fill="var(--dib-gray-700)" fontSize={10}>comer</text>
+          <text x={250} y={143} fill="var(--dib-gray-700)" fontSize={11}>comer</text>
 
           <line x1={140} x2={300} y1={130} y2={85} stroke="var(--dib-red-500)" strokeWidth={2} markerEnd="url(#cArr)" />
           <line x1={355} x2={365} y1={130} y2={85} stroke="var(--dib-red-500)" strokeWidth={2} markerEnd="url(#cArr)" />
@@ -468,7 +468,7 @@ function EscBolivia() {
             <g key={i} transform={`translate(${e.x}, 50)`}>
               <rect x={-10} y={0} width={140} height={90} fill={e.c} opacity={0.1} stroke={e.c} strokeWidth={1.5} rx={8} />
               <text x={60} y={22} textAnchor="middle" fill={e.c} fontSize={12} fontWeight={700}>{e.t}</text>
-              <text x={60} y={56} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{e.d}</text>
+              <text x={60} y={56} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{e.d}</text>
             </g>
           ))}
         </svg>

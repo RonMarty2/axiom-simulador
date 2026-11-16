@@ -67,12 +67,12 @@ function EscCapas() {
           {/* Epidermis */}
           <rect x={80} y={40} width={560} height={40} fill="var(--dib-amber-400)" opacity={0.4} stroke="var(--dib-amber-600)" strokeWidth={1.5} />
           <text x={650} y={65} textAnchor="end" fill="var(--dib-amber-600)" fontSize={12} fontWeight={700}>EPIDERMIS</text>
-          <text x={650} y={78} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>epitelio plano queratinizado · sin vasos</text>
+          <text x={650} y={78} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>epitelio plano queratinizado · sin vasos</text>
 
           {/* Dermis */}
           <rect x={80} y={80} width={560} height={100} fill="var(--dib-red-400)" opacity={0.3} stroke="var(--dib-red-600)" strokeWidth={1.5} />
           <text x={650} y={120} textAnchor="end" fill="var(--dib-red-600)" fontSize={12} fontWeight={700}>DERMIS</text>
-          <text x={650} y={135} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>tejido conjuntivo · vasos, nervios, anexos</text>
+          <text x={650} y={135} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>tejido conjuntivo · vasos, nervios, anexos</text>
           {/* folículo */}
           <ellipse cx={250} cy={110} rx={8} ry={20} fill="var(--dib-gray-700)" opacity={0.7} />
           <line x1={250} y1={90} x2={250} y2={60} stroke="var(--dib-gray-700)" strokeWidth={3} />
@@ -83,12 +83,12 @@ function EscCapas() {
           {/* Hipodermis */}
           <rect x={80} y={180} width={560} height={60} fill="var(--dib-violet-400)" opacity={0.3} stroke="var(--dib-violet-600)" strokeWidth={1.5} />
           <text x={650} y={210} textAnchor="end" fill="var(--dib-violet-600)" fontSize={12} fontWeight={700}>HIPODERMIS</text>
-          <text x={650} y={225} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>tejido adiposo · aislante térmico, reserva</text>
+          <text x={650} y={225} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>tejido adiposo · aislante térmico, reserva</text>
 
           {/* Etiquetas izquierdas */}
-          <text x={70} y={55} textAnchor="end" fill={LIENZO.fgDim} fontSize={9}>0.05–1.5 mm</text>
-          <text x={70} y={130} textAnchor="end" fill={LIENZO.fgDim} fontSize={9}>1–4 mm</text>
-          <text x={70} y={210} textAnchor="end" fill={LIENZO.fgDim} fontSize={9}>variable</text>
+          <text x={70} y={55} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>0.05–1.5 mm</text>
+          <text x={70} y={130} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>1–4 mm</text>
+          <text x={70} y={210} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>variable</text>
         </svg>
       </Pizarra>
 

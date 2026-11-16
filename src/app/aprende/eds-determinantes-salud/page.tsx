@@ -80,7 +80,8 @@ function EscLalonde() {
             <g key={i} transform={`translate(80, ${d.y})`}>
               <rect width={parseInt(d.per) * 5} height={36} fill={d.c} opacity={0.4} stroke={d.c} strokeWidth={1.5} rx={4} />
               <text x={15} y={22} fill={LIENZO.fg} fontSize={11} fontWeight={700}>{d.t} ({d.per})</text>
-              <text x={parseInt(d.per) * 5 + 20} y={22} fill={LIENZO.fgDim} fontSize={10}>{d.d}</text>
+              {/* los ejemplos van después de la etiqueta más larga, aunque la barra sea corta */}
+              <text x={Math.max(parseInt(d.per) * 5, 175) + 20} y={22} fill={LIENZO.fgDim} fontSize={11}>{d.d}</text>
             </g>
           ))}
         </svg>
@@ -165,9 +166,9 @@ function EscPrevencion() {
               <rect x={-10} y={0} width={180} height={150} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={8} />
               <text x={80} y={22} textAnchor="middle" fill={p.c} fontSize={13} fontWeight={700}>{p.t}</text>
               <text x={80} y={50} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{p.momento}</text>
-              <text x={80} y={90} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.acc.split(",").slice(0, 2).join(",")}</text>
+              <text x={80} y={90} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.acc.split(",").slice(0, 2).join(",")}</text>
               {p.acc.split(",").length > 2 && (
-                <text x={80} y={108} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.acc.split(",").slice(2).join(",")}</text>
+                <text x={80} y={108} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.acc.split(",").slice(2).join(",")}</text>
               )}
             </g>
           ))}

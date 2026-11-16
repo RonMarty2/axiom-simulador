@@ -67,8 +67,8 @@ function EscConceptos() {
           <circle cx={155} cy={112} r={74} fill={LIENZO.accent} opacity={0.12} stroke={LIENZO.accent} strokeWidth={1.8} />
           <text x={155} y={84} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>POBLACIÓN (N)</text>
           <text x={155} y={106} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Todos los elementos</text>
-          <text x={155} y={124} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>Parámetros: μ, σ</text>
-          <text x={155} y={142} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>Estudio total = censo</text>
+          <text x={155} y={124} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Parámetros: μ, σ</text>
+          <text x={155} y={142} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Estudio total = censo</text>
 
           <line x1={238} x2={462} y1={94} y2={94} stroke={LIENZO.fg} strokeWidth={1.6} markerEnd="url(#arrEst)" />
           <text x={350} y={84} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>
@@ -83,8 +83,8 @@ function EscConceptos() {
           <circle cx={565} cy={112} r={60} fill={LIENZO.ok} opacity={0.12} stroke={LIENZO.ok} strokeWidth={1.8} />
           <text x={565} y={90} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>MUESTRA (n)</text>
           <text x={565} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>Parte representativa</text>
-          <text x={565} y={128} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>Estadígrafos: X̄, s</text>
-          <text x={565} y={146} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>Descriptiva resume n</text>
+          <text x={565} y={128} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Estadígrafos: X̄, s</text>
+          <text x={565} y={146} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>Descriptiva resume n</text>
 
           <defs>
             <marker id="arrEst" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
@@ -210,9 +210,9 @@ function EscVariables() {
             <g key={i} transform={`translate(${e.x}, ${e.y})`}>
               <rect width={148} height={e.h} fill={e.c} opacity={0.12} stroke={e.c} strokeWidth={1.6} rx={8} />
               <text x={74} y={22} textAnchor="middle" fill={e.c} fontSize={12} fontWeight={700}>{e.t}</text>
-              <text x={74} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontWeight={600}>{e.l1}</text>
-              <text x={74} y={58} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{e.l2}</text>
-              <text x={74} y={e.h - 12} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{e.ej}</text>
+              <text x={74} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>{e.l1}</text>
+              <text x={74} y={58} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{e.l2}</text>
+              <text x={74} y={e.h - 12} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{e.ej}</text>
             </g>
           ))}
         </svg>
@@ -357,7 +357,7 @@ function EscMuestreo() {
                   stroke={LIENZO.ok}
                   strokeWidth={1.6}
                 />
-                <text x={xm} y={145} textAnchor="middle" fill={LIENZO.ok} fontSize={10} fontWeight={700}>
+                <text x={xm} y={145} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>
                   +k (+3)
                 </text>
               </g>

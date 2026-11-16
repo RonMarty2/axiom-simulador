@@ -76,8 +76,8 @@ function EscTiposHuesos() {
             <g key={i} transform={`translate(${h.x}, ${h.y || 50})`}>
               <rect x={-10} y={0} width={180} height={85} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
               <text x={80} y={22} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{h.t}</text>
-              <text x={80} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{h.d}</text>
-              <text x={80} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{h.ej}</text>
+              <text x={80} y={42} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{h.d}</text>
+              <text x={80} y={66} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{h.ej}</text>
             </g>
           ))}
         </svg>
@@ -112,15 +112,15 @@ function EscEstructura() {
           {/* etiquetas */}
           <line x1={280} y1={70} x2={210} y2={70} stroke={LIENZO.accent} strokeWidth={1} />
           <text x={205} y={73} textAnchor="end" fill={LIENZO.accent} fontSize={11} fontWeight={600}>Epífisis proximal</text>
-          <text x={205} y={87} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>(hueso esponjoso)</text>
+          <text x={205} y={87} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>(hueso esponjoso)</text>
 
           <line x1={340} y1={130} x2={500} y2={130} stroke={LIENZO.accent} strokeWidth={1} />
           <text x={505} y={123} fill={LIENZO.accent} fontSize={11} fontWeight={600}>Diáfisis</text>
-          <text x={505} y={137} fill={LIENZO.fgDim} fontSize={10}>(hueso compacto)</text>
+          <text x={505} y={137} fill={LIENZO.fgDim} fontSize={11}>(hueso compacto)</text>
 
           <line x1={355} y1={140} x2={500} y2={150} stroke={LIENZO.warn} strokeWidth={1} />
           <text x={505} y={155} fill={LIENZO.warn} fontSize={11} fontWeight={600}>Médula ósea</text>
-          <text x={505} y={169} fill={LIENZO.fgDim} fontSize={10}>(amarilla en adulto)</text>
+          <text x={505} y={169} fill={LIENZO.fgDim} fontSize={11}>(amarilla en adulto)</text>
 
           <line x1={280} y1={210} x2={210} y2={210} stroke={LIENZO.accent} strokeWidth={1} />
           <text x={205} y={213} textAnchor="end" fill={LIENZO.accent} fontSize={11} fontWeight={600}>Epífisis distal</text>
@@ -223,7 +223,7 @@ function EscArticulaciones() {
               <rect x={-10} y={0} width={180} height={120} fill={a.c} opacity={0.1} stroke={a.c} strokeWidth={1.5} rx={8} />
               <text x={80} y={22} textAnchor="middle" fill={a.c} fontSize={12} fontWeight={700}>{a.t}</text>
               <text x={80} y={50} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{a.mov}</text>
-              <text x={80} y={85} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{a.ej}</text>
+              <text x={80} y={85} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{a.ej}</text>
             </g>
           ))}
         </svg>

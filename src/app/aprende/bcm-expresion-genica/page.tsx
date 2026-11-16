@@ -79,8 +79,8 @@ function EscReplicacion() {
           {/* hebra parental */}
           <line x1={80} y1={80} x2={300} y2={80} stroke={LIENZO.accent} strokeWidth={3} />
           <line x1={80} y1={140} x2={300} y2={140} stroke={LIENZO.accent} strokeWidth={3} />
-          <text x={70} y={85} textAnchor="end" fill={LIENZO.accent} fontSize={10} fontWeight={600}>3&apos;</text>
-          <text x={70} y={145} textAnchor="end" fill={LIENZO.accent} fontSize={10} fontWeight={600}>5&apos;</text>
+          <text x={70} y={85} textAnchor="end" fill={LIENZO.accent} fontSize={11} fontWeight={600}>3&apos;</text>
+          <text x={70} y={145} textAnchor="end" fill={LIENZO.accent} fontSize={11} fontWeight={600}>5&apos;</text>
 
           {/* horquilla */}
           <line x1={300} y1={80} x2={450} y2={50} stroke={LIENZO.warn} strokeWidth={3} />
@@ -91,12 +91,12 @@ function EscReplicacion() {
           {/* Etiquetas */}
           <text x={400} y={42} fill={LIENZO.warn} fontSize={11} fontWeight={600}>Hebra líder (continua)</text>
           <text x={400} y={185} fill={LIENZO.warn} fontSize={11} fontWeight={600}>Hebra rezagada (fragmentos de Okazaki)</text>
-          <text x={400} y={65} fill={LIENZO.ok} fontSize={9}>nueva</text>
-          <text x={400} y={160} fill={LIENZO.ok} fontSize={9}>nueva</text>
+          <text x={400} y={65} fill={LIENZO.ok} fontSize={11}>nueva</text>
+          <text x={400} y={160} fill={LIENZO.ok} fontSize={11}>nueva</text>
 
           {/* DNA pol */}
           <circle cx={450} cy={62} r={10} fill={LIENZO.bad} opacity={0.7} />
-          <text x={465} y={66} fill={LIENZO.bad} fontSize={9}>DNA pol</text>
+          <text x={465} y={66} fill={LIENZO.bad} fontSize={11}>DNA pol</text>
           <circle cx={450} cy={158} r={10} fill={LIENZO.bad} opacity={0.7} />
         </svg>
       </Pizarra>
@@ -187,9 +187,9 @@ function EscTraduccion() {
           {/* ARNm */}
           <line x1={140} y1={150} x2={580} y2={150} stroke={LIENZO.warn} strokeWidth={3} />
           {["AUG", "GCU", "CAA", "GGG", "UAA"].map((c, i) => (
-            <text key={i} x={170 + i * 80} y={170} textAnchor="middle" fill={LIENZO.warn} fontSize={10} fontWeight={600}>{c}</text>
+            <text key={i} x={170 + i * 80} y={170} textAnchor="middle" fill={LIENZO.warn} fontSize={11} fontWeight={600}>{c}</text>
           ))}
-          <text x={130} y={155} textAnchor="end" fill={LIENZO.warn} fontSize={10} fontWeight={600}>ARNm</text>
+          <text x={130} y={155} textAnchor="end" fill={LIENZO.warn} fontSize={11} fontWeight={600}>ARNm</text>
           {/* proteína */}
           <g transform="translate(280, 60)">
             {[0, 1, 2, 3].map((i) => (
@@ -251,7 +251,7 @@ function EscCodigo() {
               <rect x={-50} y={0} width={100} height={75} fill={p.col} opacity={0.15} stroke={p.col} strokeWidth={1.5} rx={8} />
               <text x={0} y={22} textAnchor="middle" fill={p.col} fontSize={14} fontWeight={700} fontFamily="var(--font-crimson), serif">{p.c}</text>
               <text x={0} y={45} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.n}</text>
-              <text x={0} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{p.aa}</text>
+              <text x={0} y={62} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{p.aa}</text>
             </g>
           ))}
         </svg>

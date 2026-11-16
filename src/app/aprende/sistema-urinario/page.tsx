@@ -199,10 +199,10 @@ function EscNefrona() {
           </text>
           {/* Corpúsculo */}
           <g transform="translate(120, 60)">
-            <circle r={35} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={2} />
-            <text textAnchor="middle" dy={-5} fill={LIENZO.bad} fontSize={10} fontWeight={700}>Corpúsculo</text>
-            <text textAnchor="middle" dy={8} fill={LIENZO.bad} fontSize={10}>(glomérulo</text>
-            <text textAnchor="middle" dy={20} fill={LIENZO.bad} fontSize={10}>+ cápsula)</text>
+            <circle r={42} fill={LIENZO.bad} opacity={0.3} stroke={LIENZO.bad} strokeWidth={2} />
+            <text textAnchor="middle" dy={-5} fill={LIENZO.bad} fontSize={11} fontWeight={700}>Corpúsculo</text>
+            <text textAnchor="middle" dy={8} fill={LIENZO.bad} fontSize={11}>(glomérulo</text>
+            <text textAnchor="middle" dy={20} fill={LIENZO.bad} fontSize={11}>+ cápsula)</text>
           </g>
 
           {/* Tubo contorneado proximal */}
@@ -256,7 +256,7 @@ function EscFormacion() {
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
               <rect width={550} height={45} fill={p.c} opacity={0.1} stroke={p.c} strokeWidth={1.5} rx={6} />
               <text x={15} y={20} fill={p.c} fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={15} y={36} fill={LIENZO.fgDim} fontSize={10}>en: {p.lug}</text>
+              <text x={15} y={36} fill={LIENZO.fgDim} fontSize={11}>en: {p.lug}</text>
               <text x={170} y={28} fill={LIENZO.fg} fontSize={11}>{p.d}</text>
             </g>
           ))}
@@ -312,7 +312,7 @@ function EscComposicion() {
             <g key={i} transform={`translate(${c.x - 60}, 55)`}>
               <rect width={120} height={70} fill={c.c} opacity={0.8} stroke={LIENZO.fg} strokeWidth={1} rx={6} />
               <text x={60} y={92} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontWeight={600}>{c.l}</text>
-              <text x={60} y={106} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{c.d}</text>
+              <text x={60} y={106} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{c.d}</text>
             </g>
           ))}
         </svg>

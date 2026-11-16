@@ -142,17 +142,17 @@ function EscPlanos() {
           {/* Plano sagital (vertical, divide izquierda/derecha) */}
           <line x1={360} y1={30} x2={360} y2={260} stroke={LIENZO.bad} strokeWidth={1.5} strokeDasharray="6 4" />
           <text x={250} y={55} fill={LIENZO.bad} fontSize={11} fontWeight={700}>Plano SAGITAL</text>
-          <text x={250} y={68} fill={LIENZO.fgDim} fontSize={10}>derecha ↔ izquierda</text>
+          <text x={250} y={68} fill={LIENZO.fgDim} fontSize={11}>derecha ↔ izquierda</text>
 
           {/* Plano coronal/frontal (vertical, divide anterior/posterior) */}
           <line x1={200} y1={140} x2={520} y2={140} stroke={LIENZO.ok} strokeWidth={1.5} strokeDasharray="6 4" />
           <text x={530} y={130} fill={LIENZO.ok} fontSize={11} fontWeight={700}>Plano CORONAL</text>
-          <text x={530} y={143} fill={LIENZO.fgDim} fontSize={10}>frente ↔ espalda</text>
+          <text x={530} y={143} fill={LIENZO.fgDim} fontSize={11}>frente ↔ espalda</text>
 
           {/* Plano transversal (horizontal) */}
           <ellipse cx={360} cy={200} rx={140} ry={20} fill="none" stroke={LIENZO.accent} strokeWidth={1.5} strokeDasharray="6 4" />
           <text x={510} y={195} fill={LIENZO.accent} fontSize={11} fontWeight={700}>Plano TRANSVERSAL</text>
-          <text x={510} y={208} fill={LIENZO.fgDim} fontSize={10}>superior ↔ inferior</text>
+          <text x={510} y={208} fill={LIENZO.fgDim} fontSize={11}>superior ↔ inferior</text>
         </svg>
       </Pizarra>
 
@@ -236,28 +236,29 @@ function EscCavidades() {
           <g transform="translate(280, 50)">
             {/* cráneo */}
             <rect x={50} y={0} width={60} height={50} fill={LIENZO.accent} opacity={0.3} stroke={LIENZO.accent} strokeWidth={1.5} />
-            <text x={80} y={28} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>Craneal</text>
+            <text x={80} y={28} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>Craneal</text>
             {/* raquídea/vertebral */}
             <rect x={73} y={50} width={14} height={180} fill={LIENZO.accent} opacity={0.3} stroke={LIENZO.accent} strokeWidth={1.5} />
-            <text x={140} y={130} fill={LIENZO.accent} fontSize={10} fontWeight={700}>Raquídea</text>
+            <line x1={18} x2={73} y1={221} y2={221} stroke={LIENZO.accent} strokeWidth={1} />
+            <text x={14} y={225} textAnchor="end" fill={LIENZO.accent} fontSize={11} fontWeight={700}>Raquídea</text>
 
             {/* torácica */}
             <rect x={0} y={60} width={160} height={70} fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={1.5} />
-            <text x={80} y={102} textAnchor="middle" fill={LIENZO.ok} fontSize={10} fontWeight={700}>Torácica</text>
-            <text x={80} y={120} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>(pulm, corazón)</text>
+            <text x={80} y={102} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>Torácica</text>
+            <text x={80} y={120} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>(pulm, corazón)</text>
 
             {/* diafragma */}
             <line x1={0} x2={160} y1={135} y2={135} stroke={LIENZO.bad} strokeWidth={2} />
-            <text x={170} y={135} fill={LIENZO.bad} fontSize={10} fontWeight={700}>diafragma</text>
+            <text x={170} y={135} fill={LIENZO.bad} fontSize={11} fontWeight={700}>diafragma</text>
 
             {/* abdominal */}
             <rect x={0} y={140} width={160} height={60} fill={LIENZO.warn} opacity={0.3} stroke={LIENZO.warn} strokeWidth={1.5} />
-            <text x={80} y={170} textAnchor="middle" fill={LIENZO.warn} fontSize={10} fontWeight={700}>Abdominal</text>
-            <text x={80} y={188} textAnchor="middle" fill={LIENZO.fgDim} fontSize={9}>(est., híg., int.)</text>
+            <text x={80} y={170} textAnchor="middle" fill={LIENZO.warn} fontSize={11} fontWeight={700}>Abdominal</text>
+            <text x={80} y={188} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>(est., híg., int.)</text>
 
             {/* pelvica */}
             <rect x={20} y={200} width={120} height={40} fill="var(--dib-violet-400)" opacity={0.3} stroke="var(--dib-violet-400)" strokeWidth={1.5} />
-            <text x={80} y={224} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={10} fontWeight={700}>Pélvica</text>
+            <text x={80} y={224} textAnchor="middle" fill="var(--dib-violet-400)" fontSize={11} fontWeight={700}>Pélvica</text>
           </g>
         </svg>
       </Pizarra>

@@ -283,7 +283,7 @@ function EscMonera() {
               </g>
 
               <text x={70} y={96} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{b.d}</text>
-              <text x={70} y={114} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{b.ej}</text>
+              <text x={70} y={114} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{b.ej}</text>
             </g>
           ))}
         </svg>
@@ -325,8 +325,8 @@ function EscProtista() {
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={170} height={90} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
               <text x={75} y={22} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={75} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{p.d}</text>
-              <text x={75} y={72} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{p.ej}</text>
+              <text x={75} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{p.d}</text>
+              <text x={75} y={72} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{p.ej}</text>
             </g>
           ))}
         </svg>
@@ -368,8 +368,8 @@ function EscFungi() {
             <g key={i} transform={`translate(${p.x}, 55)`}>
               <rect x={-10} y={0} width={170} height={100} fill={LIENZO.warn} opacity={0.08} stroke={LIENZO.warn} strokeWidth={1.5} rx={8} />
               <text x={75} y={22} textAnchor="middle" fill={LIENZO.warn} fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={75} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{p.d}</text>
-              <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{p.ej}</text>
+              <text x={75} y={45} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{p.d}</text>
+              <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{p.ej}</text>
             </g>
           ))}
         </svg>
@@ -414,8 +414,8 @@ function EscPlantae() {
             <g key={i} transform={`translate(${p.x}, ${p.y || 50})`}>
               <rect x={-10} y={0} width={260} height={75} fill="var(--dib-green-500)" opacity={0.08} stroke="var(--dib-green-500)" strokeWidth={1.5} rx={8} />
               <text x={120} y={22} textAnchor="middle" fill="var(--dib-green-500)" fontSize={12} fontWeight={700}>{p.t}</text>
-              <text x={120} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{p.d}</text>
-              <text x={120} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={10} fontStyle="italic">{p.ej}</text>
+              <text x={120} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{p.d}</text>
+              <text x={120} y={60} textAnchor="middle" fill={LIENZO.fg} fontSize={11} fontStyle="italic">{p.ej}</text>
             </g>
           ))}
         </svg>

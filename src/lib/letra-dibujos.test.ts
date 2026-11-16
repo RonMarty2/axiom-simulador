@@ -12,8 +12,8 @@ import { join } from "node:path";
 // cada tanda de arreglos baja TECHO al valor nuevo.
 const TECHO = 328;
 // Segundo techo: «Ver en grande» con el celular girado (740x360). El 16-11
-// eran 82 (69 de Medicina en el informe de agy). Baja con las tandas A1/A2.
-const TECHO_GRANDE = 82;
+// eran 82; tras la tanda A1 (49 dibujos de Medicina a letra 11), 34.
+const TECHO_GRANDE = 34;
 
 test("dibujos con letra menor a 11 px a 360 px: no suben", () => {
   const salida = join(mkdtempSync(join(tmpdir(), "letra-")), "m.json");

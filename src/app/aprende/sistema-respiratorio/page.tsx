@@ -122,7 +122,7 @@ function EscPulmones() {
             <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>3 lóbulos</text>
             <text x={75} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(superior, medio,</text>
             <text x={75} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>inferior)</text>
-            <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">más grande</text>
+            <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">más grande</text>
           </g>
           <g transform="translate(420, 55)">
             <rect width={150} height={150} fill="var(--dib-blue-500)" opacity={0.15} stroke="var(--dib-blue-500)" strokeWidth={2} rx={20} />
@@ -130,7 +130,7 @@ function EscPulmones() {
             <text x={75} y={48} textAnchor="middle" fill="var(--dib-blue-500)" fontSize={12} fontWeight={700}>IZQUIERDO</text>
             <text x={75} y={75} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>2 lóbulos</text>
             <text x={75} y={95} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>(superior, inferior)</text>
-            <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">más chico (corazón)</text>
+            <text x={75} y={135} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">más chico (corazón)</text>
           </g>
         </svg>
       </Pizarra>

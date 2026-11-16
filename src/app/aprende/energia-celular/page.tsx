@@ -355,8 +355,8 @@ function EscCadena() {
           {/* Membrana */}
           <line x1={80} x2={680} y1={100} y2={100} stroke={LIENZO.fg} strokeWidth={2} />
           <line x1={80} x2={680} y1={160} y2={160} stroke={LIENZO.fg} strokeWidth={2} />
-          <text x={70} y={75} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>intermembrana</text>
-          <text x={70} y={185} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>matriz</text>
+          <text x={80} y={92} fill={LIENZO.fgDim} fontSize={11}>espacio intermembrana</text>
+          <text x={80} y={178} fill={LIENZO.fgDim} fontSize={11}>matriz</text>
 
           {/* Complejos I-IV */}
           {[1, 2, 3, 4].map((n, i) => (
@@ -369,19 +369,19 @@ function EscCadena() {
           {/* ATP sintasa */}
           <g transform="translate(630, 100)">
             <rect x={-30} y={0} width={60} height={60} fill={LIENZO.ok} opacity={0.4} stroke={LIENZO.ok} strokeWidth={1.5} />
-            <text x={0} y={28} textAnchor="middle" fill={LIENZO.ok} fontSize={9} fontWeight={700}>ATP</text>
-            <text x={0} y={40} textAnchor="middle" fill={LIENZO.ok} fontSize={9} fontWeight={700}>sintasa</text>
+            <text x={0} y={28} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>ATP</text>
+            <text x={0} y={40} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>sintasa</text>
           </g>
 
           {/* Flechas H+ */}
           <path d="M 120 145 Q 100 130 120 115" fill="none" stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={90} y={130} fill={LIENZO.warn} fontSize={10} fontWeight={700}>H⁺</text>
+          <text x={90} y={130} fill={LIENZO.warn} fontSize={11} fontWeight={700}>H⁺</text>
           <path d="M 380 145 Q 360 130 380 115" fill="none" stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#cArr)" />
           <path d="M 510 145 Q 490 130 510 115" fill="none" stroke={LIENZO.warn} strokeWidth={2} markerEnd="url(#cArr)" />
 
           {/* H+ baja por ATP sintasa */}
           <path d="M 625 70 Q 605 105 625 175" fill="none" stroke={LIENZO.ok} strokeWidth={2} markerEnd="url(#cArr)" />
-          <text x={580} y={130} fill={LIENZO.ok} fontSize={11} fontWeight={700}>ADP+Pi → ATP</text>
+          <text x={630} y={200} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={700}>ADP+Pi → ATP</text>
 
           <defs>
             <marker id="cArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">

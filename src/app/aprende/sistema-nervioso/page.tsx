@@ -106,15 +106,15 @@ function EscSimPotencial() {
 
         <svg viewBox="0 0 700 240" width="100%" height="240">
           <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - (-70 * 0.8) + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>-70 mV</text>
+          <text x={50} y={100 - (-70 * 0.8) + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={11}>-70 mV</text>
           <line x1={60} y1={100 - 0 * 0.8} x2={640} y2={100 - 0 * 0.8} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - 0 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>0 mV</text>
+          <text x={50} y={100 - 0 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={11}>0 mV</text>
           <line x1={60} y1={100 - 30 * 0.8} x2={640} y2={100 - 30 * 0.8} stroke="var(--dib-slate-600)" strokeWidth={1} strokeDasharray="4 3" />
-          <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={10}>+30 mV</text>
+          <text x={50} y={100 - 30 * 0.8 + 4} textAnchor="end" fill="var(--dib-slate-400)" fontSize={11}>+30 mV</text>
 
           {/* El umbral: el mnemotécnico de abajo lo promete y no estaba dibujado. */}
           <line x1={60} y1={100 - (-55 * 0.8)} x2={640} y2={100 - (-55 * 0.8)} stroke="var(--dib-amber-500)" strokeWidth={1} strokeDasharray="2 4" />
-          <text x={50} y={100 - (-55 * 0.8) + 4} textAnchor="end" fill="var(--dib-amber-500)" fontSize={10}>-55 mV</text>
+          <text x={636} y={100 - (-55 * 0.8) - 4} textAnchor="end" fill="var(--dib-amber-500)" fontSize={11}>umbral -55 mV</text>
 
           <line x1={60} y1={20} x2={60} y2={220} stroke="var(--dib-slate-400)" strokeWidth={1.5} />
           <line x1={60} y1={100 - (-70 * 0.8)} x2={640} y2={100 - (-70 * 0.8)} stroke="var(--dib-slate-400)" strokeWidth={1.5} />
@@ -136,12 +136,12 @@ function EscSimPotencial() {
             return (
               <g key={ms}>
                 <line x1={x} y1={100 - (-70 * 0.8)} x2={x} y2={100 - (-70 * 0.8) + 5} stroke="var(--dib-slate-400)" strokeWidth={1} />
-                <text x={x} y={100 - (-70 * 0.8) + 16} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={9}>{ms}</text>
+                <text x={x} y={100 - (-70 * 0.8) + 16} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={11}>{ms}</text>
               </g>
             );
           })}
-          <text x={350} y={235} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={10}>tiempo (ms)</text>
-          <text x={20} y={120} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={10} transform="rotate(-90 20 120)">voltaje (mV)</text>
+          <text x={350} y={235} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={11}>tiempo (ms)</text>
+          <text x={20} y={120} textAnchor="middle" fill="var(--dib-slate-400)" fontSize={11} transform="rotate(-90 20 120)">voltaje (mV)</text>
         </svg>
 
         <div style={{ padding: 10, background: "var(--dib-slate-800)", borderRadius: 8, marginTop: 10, textAlign: "center" }}>
@@ -234,7 +234,7 @@ function EscNeurona() {
           ))}
           {/* soma */}
           <circle cx={200} cy={110} r={30} fill={LIENZO.accent} opacity={0.3} stroke={LIENZO.accent} strokeWidth={2} />
-          <text x={200} y={115} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={700}>Soma</text>
+          <text x={200} y={115} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={700}>Soma</text>
           {/* axón */}
           <line x1={230} y1={110} x2={550} y2={110} stroke={LIENZO.warn} strokeWidth={4} />
           {[280, 330, 380, 430, 480].map((x, i) => (
@@ -259,10 +259,10 @@ function EscNeurona() {
           {/* etiquetas */}
           <text x={100} y={45} fill={LIENZO.accent} fontSize={11} fontWeight={600}>Dendritas (entrada)</text>
           <text x={380} y={95} fill={LIENZO.warn} fontSize={11} fontWeight={600} textAnchor="middle">Axón (conducción)</text>
-          <text x={380} y={140} fill={LIENZO.fgDim} fontSize={10} textAnchor="middle">vainas de mielina ↑</text>
+          <text x={380} y={140} fill={LIENZO.fgDim} fontSize={11} textAnchor="middle">vainas de mielina ↑</text>
           {/* Arrancaba en x=650 con el lienzo de 720 de ancho: se cortaba. */}
           <text x={700} y={165} textAnchor="end" fill={LIENZO.bad} fontSize={11} fontWeight={600}>Terminales (salida)</text>
-          <text x={700} y={179} textAnchor="end" fill={LIENZO.fgDim} fontSize={10}>(sinapsis)</text>
+          <text x={700} y={179} textAnchor="end" fill={LIENZO.fgDim} fontSize={11}>(sinapsis)</text>
         </svg>
       </Pizarra>
 
@@ -330,7 +330,7 @@ function EscImpulso() {
               390 (cx 460, rx 70): quedaban 40 px de vacío que no era ni
               hendidura ni célula. Va pegado a la membrana. */}
           <line x1={390} y1={70} x2={390} y2={130} stroke={LIENZO.warn} strokeWidth={1.5} strokeDasharray="4 3" />
-          <text x={330} y={155} textAnchor="middle" fill={LIENZO.warn} fontSize={10}>hendidura</text>
+          <text x={330} y={155} textAnchor="middle" fill={LIENZO.warn} fontSize={11}>hendidura</text>
           {/* neurotransmisores */}
           {[292, 310, 330, 355, 372].map((x, i) => (
             <circle key={i} cx={x} cy={100 + (i % 2) * 8} r={4} fill={LIENZO.bad} />
@@ -345,7 +345,7 @@ function EscImpulso() {
           {[{ y: 84 }, { y: 100 }, { y: 116 }].map((rcp, i) => (
             <rect key={i} x={386} y={rcp.y} width={10} height={9} rx={2} fill={LIENZO.ok} stroke={LIENZO.ok} strokeWidth={1} />
           ))}
-          <text x={392} y={175} fill={LIENZO.ok} fontSize={10}>receptores (sobre la membrana)</text>
+          <text x={392} y={175} fill={LIENZO.ok} fontSize={11}>receptores (sobre la membrana)</text>
           {/* Faltaba la flecha: "Impulso →" era texto suelto a la derecha de todo. */}
           <line x1={130} x2={545} y1={45} y2={45} stroke={LIENZO.fgDim} strokeWidth={1.5} markerEnd="url(#sinArr)" opacity={0.7} />
           <text x={340} y={40} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>sentido del impulso</text>

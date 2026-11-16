@@ -100,7 +100,7 @@ function EscBoca() {
               <rect width={140} height={70} fill={LIENZO.accent} opacity={0.08} stroke={LIENZO.accent} strokeWidth={1.5} rx={6} />
               <text x={70} y={22} textAnchor="middle" fill={LIENZO.accent} fontSize={12} fontWeight={700}>{d.t}</text>
               <text x={70} y={42} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{d.n} dientes</text>
-              <text x={70} y={58} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">{d.fn}</text>
+              <text x={70} y={58} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">{d.fn}</text>
             </g>
           ))}
         </svg>
@@ -134,15 +134,15 @@ function EscEstomago() {
             Secreciones del estómago
           </text>
           {[
-            { x: 100, t: "HCl", d: "ácido clorhídrico, mata gérmenes, activa pepsina", c: LIENZO.bad },
-            { x: 100, t: "Pepsina", d: "digiere proteínas", c: LIENZO.warn, y: 90 },
-            { x: 410, t: "Moco", d: "protege la pared del propio ácido", c: "var(--dib-cyan-500)" },
-            { x: 410, t: "Factor intrínseco", d: "permite absorción de vitamina B12", c: LIENZO.ok, y: 90 },
+            { x: 50, t: "HCl", d: "ácido clorhídrico, mata gérmenes, activa pepsina", c: LIENZO.bad },
+            { x: 50, t: "Pepsina", d: "digiere proteínas", c: LIENZO.warn, y: 105 },
+            { x: 370, t: "Moco", d: "protege la pared del propio ácido", c: "var(--dib-cyan-500)" },
+            { x: 370, t: "Factor intrínseco", d: "permite absorción de vitamina B12", c: LIENZO.ok, y: 105 },
           ].map((s, i) => (
             <g key={i} transform={`translate(${s.x}, ${s.y || 50})`}>
-              <rect x={-10} y={0} width={280} height={32} fill={s.c} opacity={0.1} stroke={s.c} strokeWidth={1} rx={6} />
-              <text x={5} y={22} fill={s.c} fontSize={11} fontWeight={700}>{s.t}:</text>
-              <text x={100} y={22} fill={LIENZO.fg} fontSize={11}>{s.d}</text>
+              <rect x={-10} y={0} width={300} height={46} fill={s.c} opacity={0.1} stroke={s.c} strokeWidth={1} rx={6} />
+              <text x={5} y={18} fill={s.c} fontSize={11} fontWeight={700}>{s.t}</text>
+              <text x={5} y={36} fill={LIENZO.fg} fontSize={11}>{s.d}</text>
             </g>
           ))}
         </svg>

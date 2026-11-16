@@ -67,20 +67,20 @@ function EscMosaico() {
           ))}
           {/* proteína integral */}
           <rect x={250} y={75} width={40} height={80} fill={LIENZO.accent} opacity={0.7} stroke={LIENZO.accent} strokeWidth={1.5} rx={8} />
-          <text x={270} y={50} textAnchor="middle" fill={LIENZO.accent} fontSize={10} fontWeight={600}>proteína integral</text>
+          <text x={270} y={50} textAnchor="middle" fill={LIENZO.accent} fontSize={11} fontWeight={600}>proteína integral</text>
           {/* canal */}
           <rect x={430} y={75} width={20} height={80} fill={LIENZO.ok} opacity={0.7} rx={4} />
           <rect x={418} y={100} width={44} height={30} fill="none" stroke={LIENZO.ok} strokeWidth={1} />
-          <text x={440} y={50} textAnchor="middle" fill={LIENZO.ok} fontSize={10} fontWeight={600}>canal</text>
+          <text x={440} y={50} textAnchor="middle" fill={LIENZO.ok} fontSize={11} fontWeight={600}>canal</text>
           {/* colesterol */}
           <rect x={350} y={85} width={8} height={60} fill={LIENZO.warn} opacity={0.8} />
-          <text x={354} y={50} textAnchor="middle" fill={LIENZO.warn} fontSize={10} fontWeight={600}>colesterol</text>
+          <text x={354} y={50} textAnchor="middle" fill={LIENZO.warn} fontSize={11} fontWeight={600}>colesterol</text>
           {/* glúcido */}
           <line x1={550} y1={60} x2={550} y2={40} stroke={LIENZO.bad} strokeWidth={1.5} />
           <circle cx={550} cy={35} r={5} fill={LIENZO.bad} />
           <circle cx={543} cy={28} r={4} fill={LIENZO.bad} />
           <circle cx={557} cy={28} r={4} fill={LIENZO.bad} />
-          <text x={585} y={32} fill={LIENZO.bad} fontSize={10} fontWeight={600}>glicocálix</text>
+          <text x={585} y={32} fill={LIENZO.bad} fontSize={11} fontWeight={600}>glicocálix</text>
         </svg>
       </Pizarra>
 
@@ -154,10 +154,10 @@ function EscPasivo() {
               <rect x={-10} y={0} width={180} height={140} fill={LIENZO.ok} opacity={0.1} stroke={LIENZO.ok} strokeWidth={1.5} rx={8} />
               <text x={80} y={22} textAnchor="middle" fill={LIENZO.ok} fontSize={12} fontWeight={700}>{p.t}</text>
               <text x={80} y={55} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.d}</text>
-              <text x={80} y={95} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10} fontStyle="italic">ej:</text>
-              <text x={80} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.ej.split(",").slice(0, 2).join(", ")}</text>
+              <text x={80} y={95} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11} fontStyle="italic">ej:</text>
+              <text x={80} y={110} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.ej.split(",").slice(0, 2).join(", ")}</text>
               {p.ej.split(",").length > 2 && (
-                <text x={80} y={125} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{p.ej.split(",").slice(2).join(",")}</text>
+                <text x={80} y={125} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{p.ej.split(",").slice(2).join(",")}</text>
               )}
             </g>
           ))}
@@ -191,8 +191,8 @@ function EscActivo() {
           <line x1={80} x2={640} y1={100} y2={100} stroke={LIENZO.fg} strokeWidth={1.5} />
           <line x1={80} x2={640} y1={140} y2={140} stroke={LIENZO.fg} strokeWidth={1.5} />
           {/* bomba */}
-          <rect x={320} y={90} width={80} height={60} fill={LIENZO.accent} opacity={0.4} stroke={LIENZO.accent} strokeWidth={2} rx={8} />
-          <text x={360} y={125} textAnchor="middle" fill="#fff" fontSize={10} fontWeight={700}>Na/K ATPasa</text>
+          <rect x={315} y={90} width={90} height={60} fill={LIENZO.accent} opacity={0.4} stroke={LIENZO.accent} strokeWidth={2} rx={8} />
+          <text x={360} y={125} textAnchor="middle" fill="#fff" fontSize={11} fontWeight={700}>Na/K ATPasa</text>
           {/* Na hacia afuera */}
           <text x={360} y={70} textAnchor="middle" fill={LIENZO.bad} fontSize={11} fontWeight={700}>3 Na⁺ ↑ (afuera)</text>
           {/* K hacia adentro */}
@@ -200,8 +200,8 @@ function EscActivo() {
           {/* ATP */}
           <text x={530} y={125} fill={LIENZO.warn} fontSize={12} fontWeight={700}>+ ATP</text>
           {/* etiquetas medio */}
-          <text x={150} y={85} fill={LIENZO.fgDim} fontSize={10}>exterior</text>
-          <text x={150} y={160} fill={LIENZO.fgDim} fontSize={10}>citoplasma</text>
+          <text x={150} y={85} fill={LIENZO.fgDim} fontSize={11}>exterior</text>
+          <text x={150} y={160} fill={LIENZO.fgDim} fontSize={11}>citoplasma</text>
         </svg>
       </Pizarra>
 

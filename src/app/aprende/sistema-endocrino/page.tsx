@@ -160,7 +160,7 @@ function EscIntro() {
               {[row.c, row.n, row.e].map((v, j) => (
                 <g key={j}>
                   <rect x={60 + j * 200} y={71 + i * 22} width={195} height={22} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={86 + i * 22} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={60 + j * 200 + 97} y={86 + i * 22} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>

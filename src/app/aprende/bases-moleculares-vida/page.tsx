@@ -387,7 +387,7 @@ function EscEnzimas() {
           <path d="M 100 110 Q 100 60 180 60 L 230 60 Q 240 90 220 105 L 280 105 Q 290 130 270 150 L 100 150 Z"
             fill={LIENZO.ok} opacity={0.3} stroke={LIENZO.ok} strokeWidth={2} />
           <text x={170} y={130} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>Enzima</text>
-          <text x={250} y={85} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>sitio activo</text>
+          <text x={250} y={85} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>sitio activo</text>
 
           {/* Sustrato */}
           <g transform="translate(420, 90)">
@@ -611,7 +611,7 @@ function EscComparativa() {
           ))}
           {[
             ["Glúcido", "monosacárido", "glucosídico", "energía rápida", "4 kcal/g"],
-            ["Lípido", "no tiene (no es polímero); se arma con glicerol + ácidos grasos", "éster", "reserva, membranas", "9 kcal/g"],
+            ["Lípido", "glicerol + ác. grasos\n(no es polímero)", "éster", "reserva, membranas", "9 kcal/g"],
             ["Proteína", "aminoácido", "peptídico", "estructura, enzimas", "4 kcal/g"],
             ["Ácido nucleico", "nucleótido", "fosfodiéster", "info genética", "—"],
           ].map((row, i) => (
@@ -619,7 +619,9 @@ function EscComparativa() {
               {row.map((v, j) => (
                 <g key={j}>
                   <rect x={20 + j * 138} y={70 + i * 50} width={134} height={50} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={20 + j * 138 + 67} y={98 + i * 50} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
+                  <text x={20 + j * 138 + 67} y={98 + i * 50 - (v.split("\n").length - 1) * 7} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>
+                    {v.split("\n").map((l, k) => <tspan key={k} x={20 + j * 138 + 67} dy={k ? 14 : 0}>{l}</tspan>)}
+                  </text>
                 </g>
               ))}
             </g>

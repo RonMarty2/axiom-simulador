@@ -63,7 +63,7 @@ function EscTeoria() {
               <circle r={20} fill={LIENZO.accent} opacity={0.2} stroke={LIENZO.accent} strokeWidth={2} />
               <text textAnchor="middle" dy={5} fill={LIENZO.accent} fontSize={11} fontWeight={700}>{h.año}</text>
               <text textAnchor="middle" y={45} fill={LIENZO.fg} fontSize={12} fontWeight={700}>{h.per}</text>
-              <text textAnchor="middle" y={60} fill={LIENZO.fgDim} fontSize={10}>{h.evt}</text>
+              <text textAnchor="middle" y={60} fill={LIENZO.fgDim} fontSize={11}>{h.evt}</text>
             </g>
           ))}
         </svg>
@@ -285,7 +285,7 @@ function EscAnimalVegetal() {
               {[row.c, row.a, row.v].map((v, j) => (
                 <g key={j}>
                   <rect x={60 + j * 200} y={73 + i * 20} width={195} height={20} fill="none" stroke={LIENZO.fgFaint} strokeWidth={1} />
-                  <text x={60 + j * 200 + 97} y={87 + i * 20} textAnchor="middle" fill={LIENZO.fg} fontSize={10}>{v}</text>
+                  <text x={60 + j * 200 + 97} y={87 + i * 20} textAnchor="middle" fill={LIENZO.fg} fontSize={11}>{v}</text>
                 </g>
               ))}
             </g>

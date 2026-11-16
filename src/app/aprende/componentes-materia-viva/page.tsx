@@ -149,7 +149,7 @@ function EscPrimarios() {
                 fontFamily="var(--font-crimson), serif">{e.sym}</text>
               <text x={50} y={88} textAnchor="middle" fill={LIENZO.fg} fontSize={12} fontWeight={700}>{e.t}</text>
               <text x={50} y={102} textAnchor="middle" fill={LIENZO.accent} fontSize={11}>{e.per}</text>
-              <text x={50} y={116} textAnchor="middle" fill={LIENZO.fgDim} fontSize={10}>{e.rol}</text>
+              <text x={50} y={116} textAnchor="middle" fill={LIENZO.fgDim} fontSize={11}>{e.rol}</text>
             </g>
           ))}
         </svg>
