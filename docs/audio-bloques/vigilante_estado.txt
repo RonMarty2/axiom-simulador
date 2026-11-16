@@ -143,3 +143,5 @@
 16-10:55 EdS EdS_Parte2_LITERAL_TTS: [EXITO] Archivo WAV generado: examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO/_AUDIO_V2/EdS_Parte2_LITERAL_TTS.wav
 16-11:25 cuota OK, grabando
 16-11:26 29 capitulos esperan aceptacion de texto; reviso en 30 min
+16-11:56 cuota OK, grabando
+16-11:56 29 capitulos esperan aceptacion de texto; reviso en 30 min
