@@ -165,6 +165,24 @@ def main():
     controles_a_correr = a.despues or ([] if a.solo_texto else CONTROLES_DEFAULT)
 
     pedido = open(a.pedido, encoding="utf-8").read()
+    # 15-11 noche (copiloto; 2 entregas vacias en Audiolibros: «file does not exist»): lo que .gitignore excluye (ej. examenes pasados/
+    # MEDICINA) NO esta en la copia de agy. Si el pedido nombra rutas que existen en el repo real y faltan en la copia, se agregan solas
+    # como --leer (solo lectura) y se le dice a agy donde leerlas. Vale para toda ventana y todo pedido, no solo para el audio.
+    faltan = []
+    for m_ in re.findall(r"[\w .\-]+(?:[/\\][\w .\-]+)+[/\\]?", pedido):     # \w ya incluye tildes
+        rel = m_.strip().strip("/\\").replace("\\", "/")
+        if not rel or os.path.isabs(rel) or ":" in rel:
+            continue
+        real, copia = os.path.join(REPO, rel), os.path.join(repo, rel)
+        if os.path.exists(real) and not os.path.exists(copia):
+            d_ = os.path.normpath(real if os.path.isdir(real) else os.path.dirname(real))
+            if d_ not in faltan and os.path.normcase(d_) not in [os.path.normcase(x) for x in a.leer]:
+                faltan.append(d_)
+    if faltan:
+        a.leer += faltan
+        print("[--leer agregado solo: el pedido nombra carpetas que no viajan a la copia (gitignore): " + "; ".join(faltan) + "]", file=sys.stderr)
+        pedido += ("\n\nOJO: estas carpetas NO estan en tu copia (las excluye .gitignore). Leelas en su ruta REAL, solo lectura: "
+                   + "; ".join(faltan) + "\n")
     if previo:
         texto = (f"CORRECCION de Claude sobre tu entrega anterior (misma tarea, mismas reglas, misma copia {repo}). "
                  f"Corrige SOLO esto:\n\n{pedido}\n\n"

@@ -41,3 +41,6 @@ En viewport `mobile` (375x812) y después en `desktop`:
 - **Lecciones nuevas** (obligatorio, aunque sea "ninguna").
 
 No commitees ni subas nada.
+
+## Cuenta para probar lo de pago (15-11)
+- **Para probar pantallas de pago (lecciones, simulador premium) NUNCA se simula una cuenta ni se crea un pago (Ronald, 15-11: «en axiom tenemos una cuenta capaz de cambiar a free, premium, carrera, que nos sirve para esas cosas»):** en local `/api/auth/dev-login?rol=tester`, se elige la facultad y en el menú de la cuenta el botón de plan (`POST /api/admin/toggle-plan`) alterna Gratis/Premium; en producción la cuenta del dueño (`DUENO_EMAIL`, siempre tester) por `/api/auth/master-login`. Cambiar de facultad también es libre para tester.
