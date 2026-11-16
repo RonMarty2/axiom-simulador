@@ -290,6 +290,7 @@ const INVESTIGACION_MED_UNIDADES: Unidad[] = [
   { numero: "01", titulo: "Investigación científica y bioética", lecciones: [{ slug: "eds-investigacion-bioetica", titulo: "Método científico, variables y bioética en salud", tags: ["✨ Animada"] }] },
   { numero: "02", titulo: "Epidemiología básica", lecciones: [{ slug: "eds-epidemiologia", titulo: "Indicadores, prevalencia, incidencia y causalidad" }] },
   { numero: "03", titulo: "Determinantes de la salud", lecciones: [{ slug: "eds-determinantes-salud", titulo: "Salud pública y determinantes sociales" }] },
+  { numero: "04", titulo: "Estadística descriptiva", lecciones: [{ slug: "eds-estadistica-descriptiva", titulo: "Variables, tablas de frecuencia y gráficos" }] },
 ];
 
 const BLOQUES_MEDICINA: Bloque[] = [
