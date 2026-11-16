@@ -53,7 +53,8 @@ faltantes:
   44 = B, 46 = B, 95 = C, 97 = B y 100 = A. 95, 97 y 100 van a `faltantes` (la facultad aceptó dos letras).
   La 94 también va a `faltantes`: la cartilla da D pero la afirmación 2 es falsa y no hay letra defendible.
   Veredictos propios hechos de memoria y contrastados con Saladin y Calvo solo donde la explicación cita el libro.
-  Preguntas con "Nota: Revisión pendiente" (la clave oficial parece discrepar): 37, 88.
+  AUDITORÍA DE CLAVE (16-nov-2026, auditor-clave-oficial, con el libro abierto): 88 confirmada con Calvo
+  p. 409. 37: CLAVE OFICIAL DUDOSA (Calvo p. 370; ver nota). Detalle: scripts/medicina/lotes/auditoria-clave-2025-26.md.
   Se transcribe la clave oficial. La pregunta 84 dice "es incorrecto": la letra marca la afirmación incorrecta.
 
   SIN ENUNCIADO · las preguntas 2, 3, 5, 6, 8, 9, 10, 11, 14, 21, 23, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 76, 77, 78, 79, 80, 81, 82, 83, 85, 86, 87, 88, 89, 90 no traen enunciado impreso (empiezan directo en
@@ -652,9 +653,9 @@ Considera las siguientes afirmaciones:
 - 2) La proteína de supervivencia de motoneuronas (SMN) es un componente esencial en la maduración de las snRNP que se localiza en cuerpos Cajal.
 
 **respuesta:** D
-**explicacion:** Afirmación 1 (falsa): Los cinco ARN nucleares pequeños del espliceosoma son U1, U2, U4, U5 y U6; la afirmación incluye U3 y U7 (Calvo, ARN).
-Afirmación 2 (falsa): La clave oficial da esta afirmación como falsa (mira la nota de revisión pendiente, porque el libro de la gestión parece decir lo contrario).
-Nota: Revisión pendiente: la clave oficial marca D (ambas falsas). Calvo (Biología Celular, Tema 8, línea 61) dice que la proteína SMN es un componente esencial en la maduración de las snRNP y se localiza en el citoplasma y en los cuerpos de Cajal, por lo que la afirmación 2 sería verdadera y la letra sería B.
+**explicacion:** Afirmación 1 (falsa): Calvo, p. 370: «Existen cinco tipos de ARN nucleares pequeños que forman parte de las snRNP: U1, U2, U4, U5 y U6». La afirmación pone U3 y U7.
+Afirmación 2 (falsa según la clave oficial): mira la nota.
+Nota: Clave oficial dudosa. Calvo, p. 370: «La proteína de supervivencia de motoneuronas (SMN…) es un componente esencial en la maduración de las snRNP que se localiza tanto en el citoplasma como en los cuerpos de Cajal». Con el libro la afirmación 2 es verdadera y la letra sería B; la cartilla oficial marca D. Se deja la clave oficial porque es contra la que se califica.
 
 ---
 
@@ -1550,10 +1551,9 @@ Considera las siguientes afirmaciones:
 - 3) La hidroxilación permite dar a las fibras colágenas la consistencia estructural necesaria para servir como tejido de sostén.
 
 **respuesta:** D
-**explicacion:** Afirmación 1 (verdadera): La hidroxilación añade un grupo hidroxilo al anillo de una prolina (Calvo, proteínas).
-Afirmación 2 (verdadera): La clave oficial da esta afirmación como verdadera.
-Afirmación 3 (verdadera): La hidroxilación de prolina y lisina da estabilidad a las fibras de colágeno (Calvo, tejido conjuntivo).
-Nota: Revisión pendiente: de memoria la hidroxilación de la prolina del colágeno no se considera reversible; en dos búsquedas en Calvo no se encontró la palabra «reversible» junto a hidroxilación. Se transcribe la clave oficial (D).
+**explicacion:** Afirmación 1 (verdadera): Calvo, p. 409: «La hidroxilación es un tipo de modificación postraduccional donde se añade un grupo hidroxilo al anillo de una prolina».
+Afirmación 2 (verdadera): Calvo, p. 409: «Esta reacción está catalizada por una prolilhidroxilasa y es de carácter reversible».
+Afirmación 3 (verdadera): Calvo, p. 410: la hidroxiprolina del colágeno «permite dar a las fibras colágenas la consistencia estructural necesaria para servir de soporte estructural de los tejidos de sostén».
 
 ---
 

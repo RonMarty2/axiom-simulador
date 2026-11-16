@@ -40,3 +40,21 @@ Pedido de Ronald (13-nov): Medicina es prioridad y es lo más verde. Revisar la 
 
 ## 5. Estado de agy
 Sin cuota (Argon y Flash) hasta ~19:00 del 13-nov. Lo que no depende de agy (fase A) se hace ahora; lo demás se lanza al volver la cuota.
+
+## 6. Fase B hecha (16-nov-2026): huecos ordenados por peso en el examen
+Cruce del temario oficial (LISTA_CONTENIDOS_PSA2027 + 4096.pdf + títulos de EdS) contra `/aprende` y láminas: agy (lectura, entrega `20261116-092251_cruce-temario`, revisado por Claude con grep). Conteo de preguntas del pool «Por tema» por script (3433). Peso = peso estimado del área (data/formatos-examen.json, psa-2027) × parte del temario del área. Los conteos de preguntas por tema son por palabra clave en la etiqueta `tema` (aproximados).
+
+| # | Hueco | Área (peso) | Lección | Preguntas | Peso aprox. en el examen |
+|---|---|---|---|---|---|
+| 1 | Estadística descriptiva (EdS Parte III, pág. 84-189: más de la mitad del compendio) | EdS (15 %) | NINGUNA | ~20 de 56 (gráficos, Sturges, intervalos, escalas, muestreo) | ~8 % |
+| 2 | Educación en Salud (EdS Parte I, pág. 2-31) | EdS (15 %) | solo `eds-determinantes-salud`, a medias | pocas (prevención, niveles de atención, ODS) | ~2-3 %; el texto fuente de pág. 2-31 NO está en disco |
+| 3 | Biología Celular: citoesqueleto (cap. 12) sin lección; núcleo/cromatina (7), endomembranas (10), ciclo celular (14), apoptosis (15) solo a medias | BC (20 %) | 1 NO + 4 a medias | 383 en total | ~1,4 % cada capítulo |
+| 4 | Química: orgánica, tabla periódica, cinética y equilibrio | Quím (15 %) | NINGUNA | orgánica ~9, periódica ~6 | ~1,2 % cada uno |
+| 5 | Morfofunción: articulaciones, médula/encéfalo/autónomo, sangre, reproductor: dentro de unidades más grandes (a medias) | Morfo (20 %) | a medias | 443 en total | bajo: ya hay unidad |
+| 6 | Física: mediciones, estática, hidrostática, óptica, magnetismo | Fís (10 %) | NINGUNA | 4-9 cada uno | ~0,7 % cada uno |
+| 7 | Matemáticas: geometría plana, trigonometría y analítica TIENEN lección en /aprende pero no están enlazadas a Medicina (arreglo barato); sin lección: lógica/conjuntos, complejos, combinatoria, estadística, cuerpos 3D, cónicas, análisis | Mat (10 %) | 3 sin enlazar + 7 NO | 2-9 cada uno | ~0,6 % cada uno |
+| 8 | Comprensión Lectora: la lección `lectura-comprension` usa textos de Economía; 6 de 7 habilidades a medias. Las 40 preguntas de práctica ya cubren las 7 | CL (10 %) | a medias | 40 | — |
+
+Fuera del temario (posible limpieza, decisión de Ronald): `bases-moleculares-vida` en BC y 5 unidades de razonamiento verbal en Comprensión (`expresion-oracion`, `analogias-verbales`, `aseveraciones-cuantificadores`, `silogismos`, `secuencias-logicas`).
+Pendiente opcional: clasificar cada etiqueta `tema` en su capítulo oficial (2.º pedido a agy) para conteos exactos; no cambia el orden de arriba.
+**Siguiente:** hueco 1, lección de Estadística descriptiva desde EdS Parte III (`examenes pasados/MEDICINA/PSA_2027_FUENTES/EdS_p84-*_limpio.txt`).

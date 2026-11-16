@@ -37,8 +37,10 @@ formato: curso-basico-2025-26
   jefa de departamento de Morfología y de la coordinación general), círculos rellenados, 100 de 100 letras,
   leídas en cuatro columnas a 260 dpi. Se contrastó pregunta por pregunta con un veredicto propio, confirmado con
   Saladin (Morfo) y Calvo (Biología Celular) donde el texto estaba en el repo; Investigación no tiene libro y su
-  veredicto es propio. Preguntas con "Nota: Revisión pendiente" (la clave oficial parece discrepar o no se
-  pudo confirmar): 63, 73, 78, 80, 82, 83, 85, 92, 94, 99. Se transcribe la clave oficial.
+  veredicto es propio. AUDITORÍA DE CLAVE (16-nov-2026, auditor-clave-oficial, con el libro abierto): 63, 73, 78, 80, 82, 83,
+  85 y 94 quedaron confirmadas con Saladin, Calvo o el texto de la cátedra (la cita va en la explicación).
+  92: CLAVE OFICIAL DUDOSA (EdS p. 127; ver nota). 99: redacción ambigua, se sostiene la clave. Se transcribe
+  la clave oficial. Detalle: scripts/medicina/lotes/auditoria-clave-2025-26.md.
 
   SIN ENUNCIADO · las preguntas 15, 17, 21, 22, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 61, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 no traen enunciado impreso (empiezan
   directo en "1.-"). El banco exige uno, así que se les puso "Considera las siguientes afirmaciones:" (texto
@@ -1084,10 +1086,10 @@ Origen del musculo esfínter anal externo:
 - 3) Cuerpo perineal
 
 **respuesta:** C
-**explicacion:** Afirmación 1 (falsa): El orificio anal no es origen de un músculo.
-Afirmación 2 (falsa): El sacro no es el origen del esfínter anal externo.
-Afirmación 3 (verdadera): El cuerpo perineal es el origen que da la clave oficial.
-Nota: Revisión pendiente: Saladin (cap. 10 y 25) nombra el esfínter anal externo pero no da su origen en el texto verificado; el veredicto es la clave oficial.
+**explicacion:** Saladin, p. 369 (esfínter anal externo): «O: cóccix; cuerpo perineal I: enreda el conducto y el orificio anal».
+Afirmación 1 (falsa): el orificio anal es la inserción, no el origen.
+Afirmación 2 (falsa): el origen es el cóccix, no el sacro.
+Afirmación 3 (verdadera): el cuerpo perineal es uno de sus orígenes.
 
 ---
 
@@ -1265,10 +1267,9 @@ Es cierto sobre el Bazo:
 - 3) Esta protegido por las costillas 8 a 10
 
 **respuesta:** A
-**explicacion:** Afirmación 1 (verdadera): El bazo es el órgano linfático más grande, de hasta 12 cm y 160 g (Saladin, cap. 21).
-Afirmación 2 (falsa): Se localiza en la región hipocondriaca IZQUIERDA (Saladin, cap. 21).
-Afirmación 3 (falsa): Las costillas que lo protegen no son la 8 a 10 según la clave oficial.
-Nota: Revisión pendiente: Saladin (cap. 21) confirma las afirmaciones 1 y 2; no se encontró en el texto verificado cuáles costillas protegen el bazo (de memoria son la 9 a la 11), así que la 3 sigue la clave oficial.
+**explicacion:** Afirmación 1 (verdadera): Saladin, p. 848: «El bazo es el órgano linfático más grande del cuerpo, con una medida de hasta 12 cm de largo y con un peso de 160 gramos».
+Afirmación 2 (falsa): Saladin, p. 848: «se localiza en la región hipocondriaca izquierda», no en la derecha.
+Afirmación 3 (falsa): Saladin, p. 849: «Está protegido por las costillas 10 a 12», no por la 8 a 10.
 
 ---
 
@@ -1357,10 +1358,9 @@ Considera las siguientes afirmaciones:
 - 3) El tratamiento contra la replicación del virus de poliomavirus del carcinoma de las células de Merkel, incluye la administración de interferón y ribavirina.
 
 **respuesta:** B
-**explicacion:** Afirmación 1 (falsa): El sarcoma de Kaposi y el Epstein-Barr son herpesvirus, no flavivirus.
-Afirmación 2 (verdadera): Se cita el tratamiento de HTLV-1 con interferón y aciclovir según la clave oficial.
-Afirmación 3 (falsa): El poliomavirus de Merkel no tiene tratamiento antivírico específico; no incluye interferón y ribavirina.
-Nota: Revisión pendiente: la afirmación 2 sigue la clave oficial; no se localizó el pasaje de HTLV-1 en Calvo (de memoria, el tratamiento de HTLV-1 usa zidovudina e interferón).
+**explicacion:** Afirmación 1 (falsa): Calvo, p. 675: «los dos herpesvirus humanos que pueden causar cáncer son el virus del sarcoma de Kaposi (KSHV) y el virus de Epstein-Barr (EBV)». Son herpesvirus, no flavivirus.
+Afirmación 2 (verdadera): Calvo, p. 676, sobre el HTLV-1: «El tratamiento antivírico incluye el uso de interferón y aciclovir».
+Afirmación 3 (falsa): Calvo, p. 675, sobre el poliomavirus de Merkel: «No existen fármacos antivíricos específicos contra la infección por estos virus».
 
 ---
 
@@ -1394,10 +1394,10 @@ Considera las siguientes afirmaciones:
 - 3) El Sindrome de Gardner tiene herencia Autosómica recesiva y tiene como tumores asociados ampulomas, lipomas, osteomas y hiperplasia del epitelio retiniano.
 
 **respuesta:** A
-**explicacion:** Afirmación 1 (verdadera): La poliposis adenomatosa familiar es autosómica dominante y se asocia al cáncer colorrectal.
-Afirmación 2 (falsa): La clave oficial no da el Turcot como verdadero con esta descripción.
-Afirmación 3 (falsa): El síndrome de Gardner es autosómico DOMINANTE, no recesivo.
-Nota: Revisión pendiente: la afirmación 2 (Turcot autosómico dominante con tumores cerebrales) es verdadera en parte de los casos; se sigue la clave oficial.
+**explicacion:** Calvo, p. 679 (tabla de síndromes hereditarios): «Poliposis familiar adenomatosa Autosómica dominante Cáncer colorrectal · Síndrome de Turcot Autosómica recesiva Tumores cerebrales · Síndrome de Gardner Autosómica dominante Ampulomas, lipomas, osteomas, hiperplasia del epitelio retiniano».
+Afirmación 1 (verdadera): coincide con la tabla.
+Afirmación 2 (falsa): en Calvo el Turcot figura como autosómico recesivo, no dominante.
+Afirmación 3 (falsa): en Calvo el Gardner figura como autosómico dominante, no recesivo.
 
 ---
 
@@ -1431,10 +1431,9 @@ Considera las siguientes afirmaciones:
 - 3) PGD2a favorece la ovulación y el parto.
 
 **respuesta:** A
-**explicacion:** Afirmación 1 (verdadera): El TGF-β inhibe la proliferación de células epiteliales y de otros tipos, entre ellas neuroectodérmicas según la clave.
-Afirmación 2 (falsa): El óxido nítrico tiene vida media de segundos, no de 5 a 10 minutos.
-Afirmación 3 (falsa): La PGF2α es la que favorece ovulación y parto, no la PGD2α.
-Nota: Revisión pendiente: la afirmación 1 sigue la clave oficial; no se localizó el pasaje en Calvo.
+**explicacion:** Afirmación 1 (verdadera): Calvo, p. 610: el TGF-β1 «inhibe el crecimiento de las células epiteliales y neuroectodérmicas».
+Afirmación 2 (falsa): Calvo, p. 547: «El NO tiene una vida media muy corta (5-10 s)»: son segundos, no minutos.
+Afirmación 3 (falsa): Calvo, p. 552: la que «favorece la ovulación» es la PGF2α; la PGD2 interviene en las reacciones alérgicas.
 
 ---
 
@@ -1450,10 +1449,9 @@ Considera las siguientes afirmaciones:
 - 3) Los puntos de control del ciclo celular están situados en el final de la fase G1, al inicio de la fase G2 y al final de la fase M.
 
 **respuesta:** A
-**explicacion:** Afirmación 1 (verdadera): El punto R (de restricción) marca el inicio de un nuevo ciclo en G1 según la clave oficial.
-Afirmación 2 (falsa): El punto de control M es la transición de metafase a anafase, no de anafase a metafase.
-Afirmación 3 (falsa): Los puntos de control no están donde dice la afirmación (final de G1, G2 y M según el original).
-Nota: Revisión pendiente: de memoria, los puntos de control principales son G1/S, G2/M y el del huso (metafase-anafase), no los del enunciado; se sigue la clave oficial.
+**explicacion:** Afirmación 1 (verdadera): Calvo, p. 590: «el punto G1 sea considerado el inicio del ciclo celular y otros nombres que lo designan son punto de restricción o punto R».
+Afirmación 2 (falsa): Calvo, p. 601: «El punto de control M se corresponde con la transición de la metafase a la anafase», no de la anafase a la metafase.
+Afirmación 3 (falsa): Calvo, p. 590: «Los puntos de control del ciclo celular están situados en el final de la fase G1, el final de la fase G2 y en la mitad de la fase M», no al inicio de G2 ni al final de M.
 
 ---
 
@@ -1487,10 +1485,9 @@ Considera las siguientes afirmaciones:
 - 3) No existen fármacos antivíricos específicos contra la infección del poliomavirus del carcinoma de las células de Merkel.
 
 **respuesta:** C
-**explicacion:** Afirmación 1 (falsa): La metilación de lisina o arginina en histonas H3 y H4 se asocia a represión, no la de H2 y H4 con «glisina».
-Afirmación 2 (falsa): La pérdida de acetilación de H3 y H4 silencia genes supresores; la afirmación mezcla histonas y condiciones.
-Afirmación 3 (verdadera): No existen fármacos antivíricos específicos contra el poliomavirus del carcinoma de Merkel.
-Nota: Revisión pendiente: las afirmaciones 1 y 2 siguen la clave oficial; el texto del original tiene erratas (histonas H2, «glisina»).
+**explicacion:** Afirmación 1 (falsa): Calvo, p. 673: «La metilación de determinados residuos de lisina o arginina de las histonas H3 y H4 se asocia a un patrón de transcripción represor». La afirmación dice glicina e histona H2.
+Afirmación 2 (falsa): Calvo, p. 673: «la pérdida de la acetilación de H3 y H4 produce el silenciamiento de GST como p21, sin que la isla CpG en su región 5’ esté hipermetilada». La afirmación cambia las histonas, el gen y la región.
+Afirmación 3 (verdadera): Calvo, p. 675: «No existen fármacos antivíricos específicos contra la infección por estos virus» (poliomavirus de Merkel).
 
 ---
 
@@ -1615,10 +1612,10 @@ Objetivos de la Representación Gráfica.
 - 3) Construir gráficas según el tipo de variable o característica.
 
 **respuesta:** C
-**explicacion:** Afirmación 1 (falsa): La clave oficial no da este objetivo como verdadero.
-Afirmación 2 (falsa): Las gráficas no sustituyen totalmente a las tablas de frecuencias.
-Afirmación 3 (verdadera): Construir gráficas según el tipo de variable es un objetivo.
-Nota: Revisión pendiente: de mi lectura, la afirmación 1 («diferenciar las formas de representación») también parece un objetivo, lo que dejaría «dos de tres», sin letra en la clave. Se transcribe la clave oficial.
+**explicacion:** Afirmación 1 (falsa según la clave oficial): mira la nota.
+Afirmación 2 (falsa): el texto no dice que las gráficas sustituyan a las tablas; dice que las tablas «no es suficiente» y que las gráficas ayudan a una comprensión más efectiva (p. 128).
+Afirmación 3 (verdadera): es uno de los objetivos del capítulo: «Construir gráficas e interpretarlas según el tipo de variable o característica» (p. 127).
+Nota: Clave oficial dudosa. El texto de la cátedra (Educación en Salud e Investigación 2025-2026, p. 127) también pone como objetivo «Diferenciar las formas de representación gráfica para un conjunto de datos», que es la afirmación 1. Con el libro serían verdaderas la 1 y la 3, una combinación que no tiene letra en esta clave; la cartilla oficial marca C. Se deja la clave oficial porque es contra la que se califica.
 
 ---
 
@@ -1652,10 +1649,10 @@ Características del Diagrama de Barras.
 - 3) La longitud es definida por las frecuencias absolutas o relativas.
 
 **respuesta:** C
-**explicacion:** Afirmación 1 (falsa): La clave oficial no da esta descripción de las barras como verdadera.
-Afirmación 2 (falsa): La clave oficial no da esta afirmación como verdadera.
-Afirmación 3 (verdadera): La longitud de la barra la definen las frecuencias absolutas o relativas.
-Nota: Revisión pendiente: de mi lectura, las afirmaciones 1 y 2 describen bien las barras (anchura fija), lo que haría verdaderas las tres (D). Se transcribe la clave oficial.
+**explicacion:** Educación en Salud e Investigación 2025-2026, p. 132: «El diagrama de barras consiste en líneas gruesas que constituyen rectángulos de anchura variable que representan los valores que toma la variable, y de longitud definida por las frecuencias absolutas o relativas».
+Afirmación 1 (falsa): la anchura es variable, no fija.
+Afirmación 2 (falsa): la anchura es variable, no fija.
+Afirmación 3 (verdadera): la longitud la definen las frecuencias absolutas o relativas.
 
 ---
 
@@ -1746,7 +1743,7 @@ Elección de Gráficas según Categorías.
 **explicacion:** Afirmación 1 (verdadera): Con 3 categorías cualitativas se puede usar el diagrama circular.
 Afirmación 2 (verdadera): Con 6 categorías se debe usar el diagrama de barras.
 Afirmación 3 (verdadera): El diagrama de barras aplica con menos de 4 categorías según el original.
-Nota: Revisión pendiente: las afirmaciones 1 y 3 parecen chocar entre sí (con 3 categorías sirven las dos gráficas); se transcribe la clave oficial.
+Nota: Educación en Salud e Investigación 2025-2026, p. 134: «Si el número de categorías sobre las cuales se está realizando la distribución de los porcentajes es superior a 4, no se recomienda la construcción del diagrama circular y, en su defecto, se debe usar el diagrama de barras». Eso respalda la 1 y la 2. El texto no limita el diagrama de barras a menos de 4 categorías: la 3 es verdadera solo en el sentido de que las barras también sirven con pocas categorías. Así la lee la clave oficial (D).
 
 ---
 

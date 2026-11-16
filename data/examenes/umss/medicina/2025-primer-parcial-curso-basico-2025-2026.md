@@ -41,8 +41,10 @@ faltantes:
   CLAVE · leída de la cartilla "PATRÓN 22/12/2025 1.a Parcial Curso Básico" (pág. 117, firmada por la
   coordinadora general), círculos rellenados, 100 de 100 letras, leídas en cuatro columnas a 260 dpi.
   Se contrastó pregunta por pregunta con un veredicto propio, hecho DE MEMORIA (los libros de la
-  gestión no están en el repo). Preguntas con "Nota: Revisión pendiente" (la clave oficial parece
-  discrepar): 21, 82, 99. Se transcribe la clave oficial.
+  gestión no están en el repo). AUDITORÍA DE CLAVE (16-nov-2026, auditor-clave-oficial,
+  con el libro abierto): 82 confirmada con Calvo p. 79. 99: CLAVE OFICIAL DUDOSA (EdS p. 62; ver nota).
+  21 sigue pendiente (depende de la figura del libro). Se transcribe la clave oficial.
+  Detalle: scripts/medicina/lotes/auditoria-clave-2025-26.md.
   Preguntas 81, 82, 83, 86, 88 y 90 dicen "señale lo incorrecto": la letra marca la incorrecta.
 
   SIN ENUNCIADO · las preguntas 1, 4, 6, 8, 9, 11, 14, 17, 18, 19, 20, 21, 23, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 52, 55 no traen enunciado impreso (empiezan directo en
@@ -1428,10 +1430,9 @@ RT-PCR, señale el incorrecto:
 - 3) Se aplica a varios fragmentos simultaneamente.
 
 **respuesta:** C
-**explicacion:** Afirmación 1 (es correcta): Usa transcriptasa inversa para pasar de ARN a ADN (correcta).
-Afirmación 2 (es correcta): Permite analizar la expresión de ARNm (correcta).
-Afirmación 3 (es la incorrecta (la que pide el enunciado)): La clave oficial la da como la incorrecta.
-Nota: Revisión pendiente: Calvo (Tema 2) define la RT-PCR como una variante de la PCR que usa transcriptasa inversa para obtener ADNc y evaluar la expresión de un gen; la amplificación simultánea de varios fragmentos la atribuye a la PCR multiplex, lo que explicaría que la clave marque la 3 como incorrecta. No lo dice el libro de forma directa.
+**explicacion:** Afirmación 1 (es correcta): Calvo, p. 79: «La RT-PCR es una variante de la PCR que utiliza la enzima transcriptasa inversa (o retrotranscriptasa) para obtener ADN complementario (ADNc) a partir del ARN».
+Afirmación 2 (es correcta): Calvo, p. 79: así «se puede evaluar la cantidad de ARN mensajero (ARNm), es decir, la expresión de un gen concreto».
+Afirmación 3 (es la incorrecta, la que pide el enunciado): amplificar varios fragmentos a la vez es propio de otra variante: «En la PCR multiplex se amplifican varios fragmentos simultáneamente» (Calvo, p. 79).
 
 ---
 
@@ -1717,10 +1718,10 @@ Según Neupert (1977), ¿cuál es el objetivo del marco teórico?
 - 3) Elaborar el informe final.
 
 **respuesta:** D
-**explicacion:** Afirmación 1 (verdadera): La clave oficial da esta afirmación como verdadera.
-Afirmación 2 (verdadera): La clave oficial da esta afirmación como verdadera.
-Afirmación 3 (verdadera): La clave oficial da esta afirmación como verdadera.
-Nota: Revisión pendiente: ninguna de las tres opciones parece ser el objetivo del marco teórico (describir la población, presentar datos y elaborar el informe son otras etapas), lo que daría E; la cartilla marca D. Confirma con el texto de la cátedra.
+**explicacion:** Afirmación 1 (verdadera según la clave oficial): describir la población no es el objetivo del marco teórico.
+Afirmación 2 (verdadera según la clave oficial): presentar los datos recolectados tampoco lo es.
+Afirmación 3 (verdadera según la clave oficial): elaborar el informe final tampoco lo es.
+Nota: Clave oficial dudosa. El texto de la cátedra (Educación en Salud e Investigación 2025-2026, p. 62) dice: «El marco teórico tiene como objetivo situar el problema y el resultado de su análisis dentro del conjunto de conocimientos existentes, y orientar, en general, todo el proceso de investigación (Neupert, 1977)». Ninguna de las tres opciones es ese objetivo, así que con el libro la letra sería E; la cartilla oficial marca D. Se deja la clave oficial porque es contra la que se califica.
 
 ---
 
