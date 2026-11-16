@@ -3,6 +3,55 @@
   "ancho": 312,
   "filas": [
     {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 41,
+      "viewBox": "340x210",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 278,
+      "viewBox": "340x210",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 575,
+      "viewBox": "340x210",
+      "letraMinViewBox": 8,
+      "letraMinPx": 7.3
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 722,
+      "viewBox": "340x210",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 858,
+      "viewBox": "340x210",
+      "letraMinViewBox": 8,
+      "letraMinPx": 7.3
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 1064,
+      "viewBox": "340x210",
+      "letraMinViewBox": 9,
+      "letraMinPx": 8.3
+    },
+    {
+      "archivo": "src/app/aprende/acido-base/page.tsx",
+      "linea": 1235,
+      "viewBox": "340x210",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.8
+    },
+    {
       "archivo": "src/app/aprende/analogias-verbales/page.tsx",
       "linea": 41,
       "viewBox": "480x160",
@@ -178,6 +227,83 @@
       "letraMinPx": 4.3
     },
     {
+      "archivo": "src/app/aprende/bcm-celulas-madre/page.tsx",
+      "linea": 45,
+      "viewBox": "360x160",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/bcm-celulas-madre/page.tsx",
+      "linea": 261,
+      "viewBox": "360x160",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/bcm-celulas-madre/page.tsx",
+      "linea": 457,
+      "viewBox": "360x160",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 57,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 171,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.4
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 271,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 365,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 438,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.4
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 511,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 583,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/bcm-especializaciones-membrana/page.tsx",
+      "linea": 642,
+      "viewBox": "360x220",
+      "letraMinViewBox": 9,
+      "letraMinPx": 7.8
+    },
+    {
       "archivo": "src/app/aprende/bcm-expresion-genica/page.tsx",
       "linea": 75,
       "viewBox": "720x220",
@@ -239,6 +365,97 @@
       "viewBox": "720x240",
       "letraMinViewBox": 10,
       "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 50,
+      "viewBox": "360x204",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.4
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 368,
+      "viewBox": "360x204",
+      "letraMinViewBox": 8.2,
+      "letraMinPx": 7.1
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 653,
+      "viewBox": "360x204",
+      "letraMinViewBox": 8.4,
+      "letraMinPx": 7.3
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 911,
+      "viewBox": "360x204",
+      "letraMinViewBox": 8,
+      "letraMinPx": 6.9
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 1063,
+      "viewBox": "360x204",
+      "letraMinViewBox": 8.8,
+      "letraMinPx": 7.6
+    },
+    {
+      "archivo": "src/app/aprende/bcm-respuesta-inmunitaria/page.tsx",
+      "linea": 1226,
+      "viewBox": "360x204",
+      "letraMinViewBox": 7.8,
+      "letraMinPx": 6.8
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 67,
+      "viewBox": "360x176",
+      "letraMinViewBox": 8,
+      "letraMinPx": 6.9
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 249,
+      "viewBox": "360x176",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 372,
+      "viewBox": "360x176",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 485,
+      "viewBox": "360x176",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 559,
+      "viewBox": "360x176",
+      "letraMinViewBox": 7.5,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 648,
+      "viewBox": "360x176",
+      "letraMinViewBox": 7.5,
+      "letraMinPx": 6.5
+    },
+    {
+      "archivo": "src/app/aprende/calor-temperatura/page.tsx",
+      "linea": 722,
+      "viewBox": "360x176",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
     },
     {
       "archivo": "src/app/aprende/cinematica-1d/page.tsx",
@@ -381,6 +598,62 @@
       "letraMinPx": 4.8
     },
     {
+      "archivo": "src/app/aprende/desigualdades/page.tsx",
+      "linea": 33,
+      "viewBox": "480xInfinity",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 261,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 474,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 638,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 821,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 1018,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10.5,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 1198,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-circular-gravitacion/page.tsx",
+      "linea": 1361,
+      "viewBox": "360x200",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
       "archivo": "src/app/aprende/dinamica-newton/page.tsx",
       "linea": 49,
       "viewBox": "480x240",
@@ -419,6 +692,13 @@
       "archivo": "src/app/aprende/dinamica-newton/page.tsx",
       "linea": 327,
       "viewBox": "480x240",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/dinamica-newton/page.tsx",
+      "linea": 399,
+      "viewBox": "480xInfinity",
       "letraMinViewBox": 11,
       "letraMinPx": 7.2
     },
@@ -540,6 +820,27 @@
       "viewBox": "720x170",
       "letraMinViewBox": 10,
       "letraMinPx": 4.3
+    },
+    {
+      "archivo": "src/app/aprende/ecuaciones-primer-grado/page.tsx",
+      "linea": 51,
+      "viewBox": "480x260",
+      "letraMinViewBox": 14,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/ecuaciones-segundo-grado/page.tsx",
+      "linea": 284,
+      "viewBox": "240x190",
+      "letraMinViewBox": 12,
+      "letraMinPx": 15.6
+    },
+    {
+      "archivo": "src/app/aprende/ecuaciones-segundo-grado/page.tsx",
+      "linea": 361,
+      "viewBox": "480x190",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
     },
     {
       "archivo": "src/app/aprende/eds-determinantes-salud/page.tsx",
@@ -948,6 +1249,62 @@
       "letraMinPx": 4.8
     },
     {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 47,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.2,
+      "letraMinPx": 7.1
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 158,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8,
+      "letraMinPx": 6.9
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 315,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8,
+      "letraMinPx": 6.9
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 395,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.4
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 461,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.4,
+      "letraMinPx": 7.3
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 558,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 7.4
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 633,
+      "viewBox": "360x220",
+      "letraMinViewBox": 7.8,
+      "letraMinPx": 6.8
+    },
+    {
+      "archivo": "src/app/aprende/histologia/page.tsx",
+      "linea": 717,
+      "viewBox": "360x220",
+      "letraMinViewBox": 8.2,
+      "letraMinPx": 7.1
+    },
+    {
       "archivo": "src/app/aprende/identidades-trigonometricas/page.tsx",
       "linea": 46,
       "viewBox": "480x270",
@@ -969,11 +1326,130 @@
       "letraMinPx": 7.8
     },
     {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 119,
+      "viewBox": "360x166",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 338,
+      "viewBox": "360x166",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 489,
+      "viewBox": "360x166",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 646,
+      "viewBox": "360x166",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 853,
+      "viewBox": "360x166",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 1065,
+      "viewBox": "360x166",
+      "letraMinViewBox": 11,
+      "letraMinPx": 9.5
+    },
+    {
+      "archivo": "src/app/aprende/impulso-cantidad-movimiento/page.tsx",
+      "linea": 1253,
+      "viewBox": "360x166",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/ley-senos-cosenos/page.tsx",
+      "linea": 86,
+      "viewBox": "480xInfinity",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
       "archivo": "src/app/aprende/logaritmacion/page.tsx",
       "linea": 24,
       "viewBox": "480x190",
       "letraMinViewBox": 30,
       "letraMinPx": 19.5
+    },
+    {
+      "archivo": "src/app/aprende/logaritmacion/page.tsx",
+      "linea": 108,
+      "viewBox": "480x300",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/logaritmacion/page.tsx",
+      "linea": 178,
+      "viewBox": "480x300",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/logaritmacion/page.tsx",
+      "linea": 222,
+      "viewBox": "480x300",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/logaritmacion/page.tsx",
+      "linea": 264,
+      "viewBox": "480x300",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/mcd-mcm-algebraico/page.tsx",
+      "linea": 30,
+      "viewBox": "480x250",
+      "letraMinViewBox": 14,
+      "letraMinPx": 9.1
+    },
+    {
+      "archivo": "src/app/aprende/mcd-mcm-algebraico/page.tsx",
+      "linea": 98,
+      "viewBox": "480x250",
+      "letraMinViewBox": 11,
+      "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/mcd-mcm-algebraico/page.tsx",
+      "linea": 140,
+      "viewBox": "480x250",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/mcd-mcm-algebraico/page.tsx",
+      "linea": 179,
+      "viewBox": "480x250",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/mcd-mcm-algebraico/page.tsx",
+      "linea": 233,
+      "viewBox": "480x250",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
     },
     {
       "archivo": "src/app/aprende/modelos-economicos/page.tsx",
@@ -1060,11 +1536,123 @@
       "letraMinPx": 4.8
     },
     {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 85,
+      "viewBox": "360x152",
+      "letraMinViewBox": 10,
+      "letraMinPx": 8.7
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 271,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 415,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 528,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 608,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 699,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 835,
+      "viewBox": "360x152",
+      "letraMinViewBox": 8.8,
+      "letraMinPx": 7.6
+    },
+    {
+      "archivo": "src/app/aprende/ondas-sonido/page.tsx",
+      "linea": 930,
+      "viewBox": "360x152",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 8.2
+    },
+    {
       "archivo": "src/app/aprende/organizacion-admin/page.tsx",
       "linea": 38,
       "viewBox": "480x260",
       "letraMinViewBox": 11,
       "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 35,
+      "viewBox": "540x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 5.8
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 200,
+      "viewBox": "540x210",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 5.5
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 342,
+      "viewBox": "540x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 5.8
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 479,
+      "viewBox": "540x210",
+      "letraMinViewBox": 9.5,
+      "letraMinPx": 5.5
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 589,
+      "viewBox": "540x210",
+      "letraMinViewBox": 8.5,
+      "letraMinPx": 4.9
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 715,
+      "viewBox": "540x210",
+      "letraMinViewBox": 9,
+      "letraMinPx": 5.2
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 879,
+      "viewBox": "540x210",
+      "letraMinViewBox": 11,
+      "letraMinPx": 6.4
+    },
+    {
+      "archivo": "src/app/aprende/organos-sentidos/page.tsx",
+      "linea": 998,
+      "viewBox": "540x210",
+      "letraMinViewBox": 10,
+      "letraMinPx": 5.8
     },
     {
       "archivo": "src/app/aprende/poligonos-cuadrilateros/page.tsx",
@@ -1212,6 +1800,41 @@
       "viewBox": "480x200",
       "letraMinViewBox": 11,
       "letraMinPx": 7.2
+    },
+    {
+      "archivo": "src/app/aprende/repartos-proporcionales/page.tsx",
+      "linea": 43,
+      "viewBox": "480x150",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/repartos-proporcionales/page.tsx",
+      "linea": 100,
+      "viewBox": "480x150",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/repartos-proporcionales/page.tsx",
+      "linea": 140,
+      "viewBox": "480x150",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/repartos-proporcionales/page.tsx",
+      "linea": 195,
+      "viewBox": "480x150",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/repartos-proporcionales/page.tsx",
+      "linea": 232,
+      "viewBox": "480x150",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
     },
     {
       "archivo": "src/app/aprende/secuencias-logicas/page.tsx",
@@ -1620,6 +2243,41 @@
       "letraMinPx": 4.3
     },
     {
+      "archivo": "src/app/aprende/sistemas-lineales/page.tsx",
+      "linea": 94,
+      "viewBox": "480x216",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/sistemas-lineales/page.tsx",
+      "linea": 161,
+      "viewBox": "480x216",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/sistemas-lineales/page.tsx",
+      "linea": 204,
+      "viewBox": "480x216",
+      "letraMinViewBox": 13,
+      "letraMinPx": 8.5
+    },
+    {
+      "archivo": "src/app/aprende/sistemas-lineales/page.tsx",
+      "linea": 265,
+      "viewBox": "480x216",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
+      "archivo": "src/app/aprende/sistemas-lineales/page.tsx",
+      "linea": 438,
+      "viewBox": "480x216",
+      "letraMinViewBox": 12,
+      "letraMinPx": 7.8
+    },
+    {
       "archivo": "src/app/aprende/soluciones/page.tsx",
       "linea": 51,
       "viewBox": "720x170",
@@ -1653,6 +2311,20 @@
       "viewBox": "720x180",
       "letraMinViewBox": 11,
       "letraMinPx": 4.8
+    },
+    {
+      "archivo": "src/app/aprende/sucesiones-series/page.tsx",
+      "linea": 27,
+      "viewBox": "480xInfinity",
+      "letraMinViewBox": 22,
+      "letraMinPx": 14.3
+    },
+    {
+      "archivo": "src/app/aprende/sucesiones-series/page.tsx",
+      "linea": 72,
+      "viewBox": "480xInfinity",
+      "letraMinViewBox": 20,
+      "letraMinPx": 13
     },
     {
       "archivo": "src/app/aprende/trabajo-energia/page.tsx",
@@ -1710,5 +2382,9 @@
       "letraMinViewBox": 12,
       "letraMinPx": 9.4
     }
+  ],
+  "sinResolver": [
+    "src/app/aprende/cinematica-1d/page.tsx:449 ${W}",
+    "src/app/aprende/sistemas-lineales/page.tsx:302 ${w}"
   ]
 }

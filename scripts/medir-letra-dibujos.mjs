@@ -28,13 +28,28 @@ function paginas(dir) {
 }
 
 const filas = [];
+const sinResolver = [];
 for (const raiz of ["src/app/aprende", "src/app/laminas"]) {
   for (const f of paginas(raiz)) {
     const s = readFileSync(f, "utf8");
-    const re = /<svg\b[^>]*viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"/g;
+    // viewBox fijo ("0 0 720 210") o calculado ({`0 0 ${W} ${alto}`}): las
+    // constantes se buscan en el mismo archivo (const W = 720). Si el alto no
+    // se resuelve, se toma el dibujo como limitado por el ancho, que es lo que
+    // pasó en los 235 del 16-11.
+    const constante = (t) => {
+      t = t.trim();
+      if (/^[\d.]+$/.test(t)) return +t;
+      const n = t.match(/^\$\{\s*([A-Za-z_]\w*)\s*\}$/);
+      if (!n) return NaN;
+      const c = s.match(new RegExp(`(?:const|let)\\s+${n[1]}\\s*=\\s*([\\d.]+)\\b`));
+      return c ? +c[1] : NaN;
+    };
+    const re = /<svg\b[^>]*?viewBox=(?:"|\{`)(-?[\d.]+) (-?[\d.]+) (\$\{\s*\w+\s*\}|[\d.]+) (\$\{\s*\w+\s*\}|[\d.]+)/g;
     let m;
     while ((m = re.exec(s))) {
-      const W = +m[3], H = +m[4];
+      const W = constante(m[3]);
+      const H = constante(m[4]) || Infinity;
+      if (!(W > 0)) { sinResolver.push(`${f.replace(/\\/g, "/")}:${s.slice(0, m.index).split("\n").length} ${m[3]}`); continue; }
       if (W < 100) continue; // íconos y marcadores
       const fin = s.indexOf("</svg>", m.index);
       const cuerpo = s.slice(m.index, fin < 0 ? undefined : fin);
@@ -66,4 +81,6 @@ for (const r of malos) {
 const orden = [...porArchivo].sort((a, b) => a[1].peor - b[1].peor);
 console.log(`Dibujos medidos: ${filas.length} · con letra < ${MIN} px a 360: ${malos.length} · en ${porArchivo.size} archivos`);
 for (const [a, v] of orden) console.log(`${v.peor.toFixed(1).padStart(5)} px  ${String(v.dibujos).padStart(3)} dibujos  ${a}`);
-if (SALIDA) writeFileSync(SALIDA, JSON.stringify({ min: MIN, ancho: ANCHO, filas }, null, 2));
+if (sinResolver.length) console.log(`Sin medir (ancho no resuelto): ${sinResolver.length}\n  ` + sinResolver.join("\n  "));
+if (SALIDA) writeFileSync(SALIDA, JSON.stringify({ min: MIN, ancho: ANCHO, filas, sinResolver }, null, 2));
+export { filas, malos };
