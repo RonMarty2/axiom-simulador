@@ -27,7 +27,7 @@ Evidencia por pregunta: `clave-<examen>.jsonl` en esta carpeta (veredicto, cita,
 |---|---|---|---|---|
 | 1er parcial · 99 | D | E | **Clave oficial dudosa** | EdS p. 62: «El marco teórico tiene como objetivo situar el problema y el resultado de su análisis dentro del conjunto de conocimientos existentes, y orientar… todo el proceso de investigación (Neupert, 1977)». Ninguna de las 3 opciones lo es. |
 | 2do parcial · 37 | D | B | **Clave oficial dudosa** | Calvo p. 370: SMN «se localiza tanto en el citoplasma como en los cuerpos de Cajal» → la afirmación 2 es verdadera. |
-| Final · 92 | C | 1 y 3 (sin letra) | **Clave oficial dudosa** | EdS p. 127: los objetivos son «Diferenciar las formas de representación gráfica…» (af. 1) y «Construir gráficas e interpretarlas según el tipo de variable…» (af. 3). Dos de tres: como en P60/P91 de 2024-25, candidata a `faltantes`. |
+| Final · 92 | C | 1 y 3 (sin letra) | **Clave oficial dudosa** | EdS p. 127: los objetivos son «Diferenciar las formas de representación gráfica…» (af. 1) y «Construir gráficas e interpretarlas según el tipo de variable…» (af. 3). Dos de tres: como en P60/P91 de 2024-25, candidata a `faltantes`. 16-11, decisión de Ronald: pasa a `faltantes` (dos de tres sin letra). |
 | Final · 49 | A | (D literal) | Errata del original, no error | EdS p. 113: el primer intervalo es «cerrado en ambos extremos [45 – 50]». El contenido de la af. 1 es cierto; la notación «(li-Is]» es errata de imprenta. |
 | Final · 41 | C | (A literal) | No es error | EdS p. 98: «los métodos estadísticos ofrecen dos tipos de muestreo: probabilístico y no probabilístico». agy lo tomó demasiado al pie de la letra. |
 | 2do parcial · 96 | C | (F en af. 3) | Ambigua | Temas faltantes p. 34: «No se construye un marco teórico sino que se analiza el contenido de la información, que se convierte en estructuras…». La lectura de la clave (af. 3) es defendible. |
@@ -54,3 +54,6 @@ Por qué: rótulos de figuras sin texto (huesos, músculos), preguntas sobre ODS
 - 16-nov · ACIERTO · comprobar cada cita contra el libro por script: 707/709 literales; así se puede confiar en la cita sin releer el libro.
 - 16-nov · ACIERTO · las notas «de memoria» se equivocaron en las dos direcciones (2do parcial 88: «no es reversible», y el libro dice que sí lo es). Una nota sin página no sirve como prueba.
 - 16-nov · SUERTE · «Temas faltantes de EdS» (escaneado) salió legible con Tesseract `spa` a 200 dpi; no generalizar a escaneos peores.
+
+## 2023-24 y 2024-25: sin auditar
+Falta el libro de esas gestiones: Tortora 15.ª / Alberts 5.ª. No están en la PC ni en el Drive del curso (que solo trae Calvo, EdS, Saladin y el temario). Por decisión de Ronald (16-11) no se auditan con otro libro.

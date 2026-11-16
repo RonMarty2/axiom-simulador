@@ -12,6 +12,11 @@ ponderacion:
   biologia_celular: 0.3
   investigacion: 0.2
 formato: curso-basico-2025-26
+faltantes:
+  - numero: 92
+    motivo: sin-respuesta
+    fuente: examenes pasados/MEDICINA/examenes-2021-2026/MED_Examenes-curso-basico-2021-2026_William-Osler.pdf, pág. 132
+    detalle: La cartilla del patrón marca C (solo la 3), pero el texto de la cátedra (Educación en Salud e Investigación 2025-2026, p. 127) pone como objetivo «Diferenciar las formas de representación gráfica para un conjunto de datos», que es la afirmación 1. Con el libro son verdaderas la 1 y la 3, y esa combinación no tiene letra en la clave.
 ---
 
 <!--
@@ -39,7 +44,7 @@ formato: curso-basico-2025-26
   Saladin (Morfo) y Calvo (Biología Celular) donde el texto estaba en el repo; Investigación no tiene libro y su
   veredicto es propio. AUDITORÍA DE CLAVE (16-nov-2026, auditor-clave-oficial, con el libro abierto): 63, 73, 78, 80, 82, 83,
   85 y 94 quedaron confirmadas con Saladin, Calvo o el texto de la cátedra (la cita va en la explicación).
-  92: CLAVE OFICIAL DUDOSA (EdS p. 127; ver nota). 99: redacción ambigua, se sostiene la clave. Se transcribe
+  92: dos de tres verdaderas sin letra (EdS p. 127): va a faltantes (decisión de Ronald, 16-11). 99: redacción ambigua, se sostiene la clave. Se transcribe
   la clave oficial. Detalle: scripts/medicina/lotes/auditoria-clave-2025-26.md.
 
   SIN ENUNCIADO · las preguntas 15, 17, 21, 22, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 61, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90 no traen enunciado impreso (empiezan
@@ -1597,25 +1602,6 @@ Muestreo Bola de Nieve.
 **explicacion:** Afirmación 1 (verdadera): Se usa cuando no se conocen los elementos de la población pero se sabe que existen.
 Afirmación 2 (verdadera): Los individuos localizados llevan a otros hasta completar la muestra.
 Afirmación 3 (verdadera): Es útil para poblaciones de difícil acceso, como sectas o personas que cometieron delitos.
-
----
-
-## Pregunta 92
-area: investigacion
-tema: objetivos-de-la-representacion-grafica
-dificultad: medio
-
-Objetivos de la Representación Gráfica.
-
-- 1) Diferenciar las formas de representación para un conjunto de datos.
-- 2) Sustituir totalmente el uso de tablas de frecuencias en los informes.
-- 3) Construir gráficas según el tipo de variable o característica.
-
-**respuesta:** C
-**explicacion:** Afirmación 1 (falsa según la clave oficial): mira la nota.
-Afirmación 2 (falsa): el texto no dice que las gráficas sustituyan a las tablas; dice que las tablas «no es suficiente» y que las gráficas ayudan a una comprensión más efectiva (p. 128).
-Afirmación 3 (verdadera): es uno de los objetivos del capítulo: «Construir gráficas e interpretarlas según el tipo de variable o característica» (p. 127).
-Nota: Clave oficial dudosa. El texto de la cátedra (Educación en Salud e Investigación 2025-2026, p. 127) también pone como objetivo «Diferenciar las formas de representación gráfica para un conjunto de datos», que es la afirmación 1. Con el libro serían verdaderas la 1 y la 3, una combinación que no tiene letra en esta clave; la cartilla oficial marca C. Se deja la clave oficial porque es contra la que se califica.
 
 ---
 
