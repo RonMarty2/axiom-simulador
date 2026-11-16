@@ -135,7 +135,31 @@ export function Pizarra({
   onClick?: () => void;
   children: React.ReactNode;
 }) {
-  return (
+  // En celular los dibujos (casi todos de 720 de ancho) quedan con letra de
+  // 4-5 px. «Ver en grande» pone ESTE mismo recuadro a pantalla completa: no se
+  // copia el dibujo, así la animación sigue donde iba. En horizontal la letra
+  // llega a 11 px o más en el 76 % de los dibujos (medición 16-11,
+  // docs/medicion-letra-dibujos-2026-11-16.json). Tablet y escritorio no cambian.
+  const celular = useMedia("(max-width: 767px), (max-height: 500px)"); // celular girado: ancho > 767 pero bajo
+  const vertical = useMedia("(orientation: portrait)");
+  const [grande, setGrande] = React.useState(false);
+  const abierto = grande && celular;
+
+  React.useEffect(() => {
+    if (!abierto) return;
+    const antes = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const esc = (e: KeyboardEvent) => { if (e.key === "Escape") setGrande(false); };
+    window.addEventListener("keydown", esc);
+    return () => { document.body.style.overflow = antes; window.removeEventListener("keydown", esc); };
+  }, [abierto]);
+
+  const botonBase: React.CSSProperties = {
+    minHeight: 44, padding: "0 16px", borderRadius: 22, fontSize: 14, fontWeight: 600,
+    border: `1px solid ${LIENZO.fgFaint}`, background: LIENZO.bgSoft, color: LIENZO.fg, cursor: "pointer",
+  };
+
+  const lamina = (
     <div
       onClick={onClick}
       role={onClick ? "button" : undefined}
@@ -144,11 +168,11 @@ export function Pizarra({
       style={{
         position: "relative",
         width: "100%",
-        height: alto,
+        height: abierto ? "100%" : alto,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        margin: "8px 0",
+        margin: abierto ? 0 : "8px 0",
         cursor: onClick ? "pointer" : "default",
         userSelect: "none",
         outline: "none",
@@ -158,6 +182,52 @@ export function Pizarra({
       {children}
     </div>
   );
+
+  if (!celular) return lamina;
+
+  return (
+    <div style={{ width: "100%" }}>
+      <div
+        role={abierto ? "dialog" : undefined}
+        aria-modal={abierto || undefined}
+        aria-label={abierto ? "Dibujo en grande" : undefined}
+        style={abierto ? {
+          position: "fixed", inset: 0, zIndex: 1000, background: LIENZO.bg,
+          display: "flex", flexDirection: "column", padding: "8px 8px 12px",
+        } : undefined}
+      >
+        {abierto && (
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, flexShrink: 0 }}>
+            <span style={{ fontSize: 13, color: LIENZO.fgDim, lineHeight: 1.3 }}>
+              {vertical ? "Gira el celular para leerlo mejor." : ""}
+            </span>
+            <button type="button" onClick={() => setGrande(false)} style={botonBase}>Cerrar</button>
+          </div>
+        )}
+        <div style={abierto ? { flex: 1, minHeight: 0, display: "flex" } : undefined}>{lamina}</div>
+      </div>
+      {abierto && <div style={{ height: alto + 16 }} aria-hidden />}
+      {!abierto && (
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: -4 }}>
+          <button type="button" onClick={(e) => { e.stopPropagation(); setGrande(true); }} style={botonBase}>
+            Ver en grande
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function useMedia(consulta: string) {
+  const [si, setSi] = React.useState(false);
+  React.useEffect(() => {
+    const mq = window.matchMedia(consulta);
+    const cambio = () => setSi(mq.matches);
+    cambio();
+    mq.addEventListener("change", cambio);
+    return () => mq.removeEventListener("change", cambio);
+  }, [consulta]);
+  return si;
 }
 
 // Botón "Siguiente" minimalista. No es un CTA gritón.
