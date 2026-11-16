@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Atlas_B_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 09:41:59
+- **Fecha:** 2026-11-16 14:51:43
 - **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 5, 6, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -13,7 +13,7 @@
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 3 / 2984 palabras | Crédito: ratorio o ilustración de libro: el propio cuerpo. Para; Crédito: ado en la ilustración de la izquierda y orientado de l; Crédito: ado en la ilustración de la derecha y orientado de la |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 28 / 2984 palabras | Llamada tras puntuación: y movimiento B.un Anatomía; Llamada tras puntuación: ndividuales. B.dos Importanc; Llamada tras puntuación: se la figura A.cinco, p. trein (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 5 / 2984 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: consúltese la figura; Ref. visual: véase la figura; Ref. visual: la figura ocho coma cuatro dos |
-| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 2 / 2984 palabras | Dígito sin convertir: figura A-6a, p. trei; Unidad/símbolo suelto: mm |
+| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 1 / 2984 palabras | Dígito sin convertir: figura A-6a, p. trei |
 | 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 16 / 2984 palabras | Sigla en mayúsculas: ATLAS; Título pegado al párrafo: vidad torácica. FIGURA B.once Corte transversal del tórax.; Título pegado al párrafo: idad abdominal. FIGURA B.trece Corte transversal del abdom (+4 más en Detalle) |
 | 8 | Palabras partidas y ligaduras | texto | APRUEBA | 0 / 2984 palabras | — |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -45,9 +45,8 @@
 - Ref. visual: véase la figura
 - Ref. visual: la figura ocho coma cuatro dos
 
-### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (2 fallas / 2984 palabras)
+### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (1 fallas / 2984 palabras)
 - Dígito sin convertir: figura A-6a, p. trei
-- Unidad/símbolo suelto: mm
 
 ### 7. Siglas, números de sección y títulos en su línea (16 fallas / 2984 palabras)
 - Sigla en mayúsculas: ATLAS

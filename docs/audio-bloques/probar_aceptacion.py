@@ -206,6 +206,19 @@ class TestAceptacionObligatoria(unittest.TestCase):
             res = self._evaluar_texto(Path(tmpdir), "Caso_FP_Nombres", texto)
             self.assertNotIn("Dígito sin convertir", " ".join(_rev(res, 6).ejemplos))
 
+    def test_falso_positivo_sigla_palabra_en_json_no_falla_rev_7(self):
+        """Calibración rev. 7: siglas clasificadas 'palabra' en siglas_clasificadas.json no cuentan como falla."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            texto_ok = TEXTO_LIMPIO + "\nLas proteínas SNARE y el neurotransmisor GABA actúan en la sinapsis.\n"
+            res_ok = self._evaluar_texto(tmp, "Caso_FP_Sigla_Palabra", texto_ok)
+            self.assertEqual(_rev(res_ok, 7).estado, "APRUEBA")
+
+            texto_mal = TEXTO_LIMPIO + "\nEl factor XYZ sigue sin clasificarse.\n"
+            res_mal = self._evaluar_texto(tmp, "Caso_Sigla_Desconocida", texto_mal)
+            self.assertEqual(_rev(res_mal, 7).estado, "FALLA")
+            self.assertTrue(any("Sigla en mayúsculas: XYZ" in ej for ej in _rev(res_mal, 7).ejemplos))
+
     def test_dato_sin_convertir_sigue_fallando_rev_6(self):
         with tempfile.TemporaryDirectory() as tmpdir:
             texto = TEXTO_LIMPIO + "\nHay 35 células en el paso 3a del experimento.\n"
@@ -363,6 +376,38 @@ class TestAceptacionObligatoria(unittest.TestCase):
         self.assertTrue(any("Temas de conexión" in e for e in r.ejemplos))
         self.assertEqual(ac._revision_3_relleno("Texto narrado del capítulo, sin recuadro.\n").estado, "APRUEBA")
         self.assertTrue(ac._PDF_FIN_NARRABLE_RE.search("Temas de conexión: el tejido óseo"))
+
+    def test_rev7_recuadro_conocimiento_mas_a_fondo_en_frase_falla_y_movido_aprueba(self):
+        """16-nov, Ronald «a»: recuadro CONOCIMIENTO MÁS A FONDO en medio de una frase falla rev. 7; movido aprueba."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            pdf_recuadro = (
+                PDF_BASE
+                + "Este hábitat arbóreo tal vez les dio la capacidad de agarrarse a las ramas.\n"
+                + "CONOCIMIENTO MÁS A FONDO 1.1\n"
+                + "Medicina evolutiva\n"
+                + "Vestigios de la evolución humana\n"
+                + "Una de las líneas clásicas de evidencia en favor de la evolución son las estructuras vestigiales.\n"
+            )
+            texto_mal = (
+                TEXTO_LIMPIO
+                + "\nEste hábitat arbóreo tal vez les dio CONOCIMIENTO MÁS A FONDO un coma un "
+                "Medicina evolutiva Vestigios de la evolución humana "
+                "Una de las líneas clásicas de evidencia en favor de la evolución son las estructuras vestigiales. "
+                "la capacidad de agarrarse a las ramas.\n"
+            )
+            res_mal = self._evaluar_texto(tmp, "Caso_Fondo_Pegado", texto_mal, pdf_texto=pdf_recuadro)
+            self.assertEqual(_rev(res_mal, 7).estado, "FALLA")
+            self.assertTrue(any("Recuadro pegado al párrafo" in ej for ej in _rev(res_mal, 7).ejemplos))
+
+            texto_ok = (
+                TEXTO_LIMPIO
+                + "\nEste hábitat arbóreo tal vez les dio la capacidad de agarrarse a las ramas.\n\n"
+                "Conocimiento más a fondo uno punto uno. Medicina evolutiva: Vestigios de la evolución humana\n"
+                "Una de las líneas clásicas de evidencia en favor de la evolución son las estructuras vestigiales.\n"
+            )
+            res_ok = self._evaluar_texto(tmp, "Caso_Fondo_Movido", texto_ok, pdf_texto=pdf_recuadro)
+            self.assertEqual(_rev(res_ok, 7).estado, "APRUEBA")
 
     def test_cli_con_rutas_con_espacios(self):
         with tempfile.TemporaryDirectory() as tmpdir:

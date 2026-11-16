@@ -76,6 +76,7 @@ MAX_EJEMPLOS = 10  # Máximo de ejemplos mostrados por revisión en la tabla e i
 
 DIR_SCRIPT = Path(__file__).resolve().parent
 DIR_ACEPTACION_DEFECTO = DIR_SCRIPT / "aceptacion"
+RUTA_SIGLAS_CLASIFICADAS = DIR_SCRIPT / "siglas_clasificadas.json"
 RUTA_HERRAMIENTAS_CENTRAL = Path(
     r"C:\Users\lmigu\SynologyDrive\12.NUBES\_AGENTES_CENTRAL\herramientas"
 )
@@ -283,6 +284,10 @@ _REV7_TITULO_PEGADO_RE = re.compile(
     r"(?<=[.!?])\s+(?:Objetivos\s+de\s+aprendizaje|Resultados\s+esperados\s+del\s+aprendizaje|FIGURA\s+|CUADRO\s+|TABLA\s+)"
     rf"|(?<=[.!?])\s+{_NUM_PAL_PAT}\s+(?:punto|coma)\s+{_NUM_PAL_PAT}\s+[A-ZÁÉÍÓÚÑ]"
 )
+_REV7_RECUADRO_PEGADO_RE = re.compile(
+    r"CONOCIMIENTO\s+M[ÁA]S\s+A\s+FONDO\b"
+    r"|(?<=[^\n])Conocimiento\s+m[áa]s\s+a\s+fondo\s+[^.\n]+\.\s+(?:Medicina\s+evolutiva|Aplicaci[oó]n\s+cl[ií]nica|Historia\s+m[eé]dica)\s*:"
+)
 _REV7_SIGLA_CAPS_RE = re.compile(r"\b[A-Z]{2,6}\b")
 
 # Revisión 8: Palabras partidas y ligaduras
@@ -406,6 +411,23 @@ def _cargar_siglas_medicina() -> list[str]:
     except Exception:
         pass
     return list(SIGLAS_BASE)
+
+
+def _cargar_siglas_palabra(ruta: Path = RUTA_SIGLAS_CLASIFICADAS) -> frozenset[str]:
+    """Carga siglas clasificadas como 'palabra' en siglas_clasificadas.json (falsos positivos rev. 7)."""
+    if not ruta.is_file():
+        return frozenset()
+    try:
+        datos = json.loads(ruta.read_text(encoding="utf-8"))
+    except Exception:
+        return frozenset()
+    if not isinstance(datos, dict):
+        return frozenset()
+    return frozenset(
+        str(k)
+        for k, v in datos.items()
+        if isinstance(k, str) and isinstance(v, dict) and v.get("tipo") == "palabra"
+    )
 
 
 def _normalizar_para_ngramas(texto: str) -> list[str]:
@@ -1002,11 +1024,18 @@ def _revision_6_simbolos_iones_miles(texto: str, *, modo_whisper: bool = False) 
 
 
 def _revision_7_siglas_secciones_titulos(
-    texto: str, siglas: list[str], *, modo_whisper: bool = False
+    texto: str,
+    siglas: list[str],
+    *,
+    modo_whisper: bool = False,
+    siglas_palabra: frozenset[str] | None = None,
 ) -> ResultadoRevision:
     """Revisión 7: siglas sin espaciar, números de sección sueltos y títulos en su línea."""
     hallazgos: list[str] = []
     sin_etq = _ETIQUETA_VOZ_RE.sub(" ", texto)
+    palabras_sigla = (
+        _cargar_siglas_palabra() if siglas_palabra is None else siglas_palabra
+    )
 
     # 1. Siglas conocidas sin deletrear
     siglas_set = set(siglas)
@@ -1026,7 +1055,12 @@ def _revision_7_siglas_secciones_titulos(
             continue
         for m in _REV7_SIGLA_CAPS_RE.finditer(linea):
             tok = m.group(0)
-            if tok in siglas_set or tok in ROMANOS_IGNORAR or tok in PALABRAS_MAYUS_IGNORAR:
+            if (
+                tok in siglas_set
+                or tok in ROMANOS_IGNORAR
+                or tok in PALABRAS_MAYUS_IGNORAR
+                or tok in palabras_sigla
+            ):
                 continue
             hallazgos.append(f"Sigla en mayúsculas: {tok}")
 
@@ -1042,6 +1076,10 @@ def _revision_7_siglas_secciones_titulos(
         for m in _REV7_TITULO_PEGADO_RE.finditer(sin_etq):
             ctx = sin_etq[max(0, m.start() - 15) : min(len(sin_etq), m.end() + 35)]
             hallazgos.append(f"Título pegado al párrafo: {_recortar(ctx, 70)}")
+
+        for m in _REV7_RECUADRO_PEGADO_RE.finditer(sin_etq):
+            ctx = sin_etq[max(0, m.start() - 15) : min(len(sin_etq), m.end() + 45)]
+            hallazgos.append(f"Recuadro pegado al párrafo: {_recortar(ctx, 70)}")
 
         total_palabras = len(sin_etq.split())
         if total_palabras >= MIN_PALABRAS_EXIGIR_TITULOS:

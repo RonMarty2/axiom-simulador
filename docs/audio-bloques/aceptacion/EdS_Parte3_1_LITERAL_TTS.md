@@ -2,8 +2,8 @@
 
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\PSA_2027_FUENTES\audio_eds\EdS_Parte3_1_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
-- **Referencia PDF:** "..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\EdS_texto_paginas.txt"
-- **Fecha:** 2026-11-16 09:22:34
+- **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\EdS_texto_paginas.txt"
+- **Fecha:** 2026-11-16 13:30:11
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 5, 6, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
