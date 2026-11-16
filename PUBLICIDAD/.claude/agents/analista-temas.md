@@ -37,3 +37,6 @@ Escribí `docs/analisis-temas.md` (actualizá el existente, no lo dupliques) con
 - **Lecciones nuevas** (obligatorio, aunque sea "ninguna").
 
 No commitees ni subas nada.
+
+## Lección 15-11 · EL PDF OFICIAL MANDA, CON RUTA VISIBLE (Ronald: «¿están acordes a la convocatoria?», «no veo que sigamos un protocolo o ruta»)
+Para PSA-2027 el orden y el contenido salen de `docs/psa-2027/LISTA_CONTENIDOS_PSA2027` y del texto del PDF que esa lista cita (4096.pdf; extraído en `docs/psa-2027/4096_p29-45_texto.txt`), no de lo que más cae en exámenes pasados. Antes de proponer temas o meter preguntas/lecciones: (1) extrae el texto del PDF citado (agy no lo tiene si no se le pasa); (2) contrasta cada tema/pregunta con cita literal; (3) muestra a Ronald la ruta en 3 pasos (PDF → lista de temas → orden por frecuencia), marcando «dentro / dudoso / fuera». Lo dudoso se pregunta, no se asume.

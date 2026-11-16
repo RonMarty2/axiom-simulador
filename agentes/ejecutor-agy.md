@@ -91,3 +91,7 @@ Dos o más pedidos a la vez funcionan si **tocan archivos distintos**. Lo que va
 ## Pendiente (no hecho)
 - Métricas por tipo (aceptado a la primera, tokens): la original las tiene; acá no, todavía.
 - Pedidos modelo por tipo (`mecanico` de arreglos, `criterio` de módulos puros).
+
+- **15-11 noche · NUNCA CORTAR A AGY POR TU RELOJ** (Ronald: «¿por qué cortarás de manera arbitraria? ¿y si un trabajo sí requiere mucho tiempo?»). Un trabajo que avanza no se corta. Corta solo el vigilante (`_AGENTES_CENTRAL\motor_agy\vigilante.py`) por señales: 10 min sin línea nueva, 40 errores o 1.000.000 de tokens, y rescata lo hecho. Mientras esperas, lee `AVANCE.txt` de la carpeta de la tarea y dale a Ronald esos números. Si un trabajo necesita más, sube los topes al lanzar (`AGY_TOPE_TOKENS`, `AGY_TOPE_QUIETO_MIN`) y di por qué. Detalle: `_AGENTES_CENTRAL\skills\ejecutor-agy\SKILL.md`, lección del 15-11 noche.
+
+- **15-11 noche (copiloto):** dos entregas de agy vacias en Audiolibros («file does not exist»): `examenes pasados/MEDICINA` esta en .gitignore y NO viaja a la copia de agy. Ahora `agy_run.py` agrega solo `--leer` con la ruta real de toda carpeta que el pedido nombre y falte en la copia (lo avisa en pantalla). Si agy igual dice «no existe», revisar ese aviso antes de relanzar. Una entrega con `errores_agy: file does not exist` NO es revision: no se da por hecha.
