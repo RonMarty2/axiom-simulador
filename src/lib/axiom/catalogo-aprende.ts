@@ -326,8 +326,17 @@ const BLOQUES_MEDICINA: Bloque[] = [
   {
     id: "matematicas",
     titulo: "Matemáticas: aritmética y álgebra",
-    descripcion: "Operaciones fundamentales, razones y proporciones, ecuaciones, funciones y exponentes.",
-    unidades: MATEMATICAS_UNIDADES,
+    descripcion: "Operaciones fundamentales, razones y proporciones, ecuaciones, funciones, exponentes, geometría y trigonometría.",
+    // Geometría plana, trigonometría y analítica figuran en 4096.pdf pág. 38-45 (temario PSA 2027).
+    // Las lecciones ya existían para Ingeniería; van dentro de Matemáticas (unidades 12+) para que
+    // Medicina siga mostrando las 7 áreas del examen (fase B, 16-nov-2026).
+    unidades: [
+      ...MATEMATICAS_UNIDADES,
+      ...GEOMETRIA_TRIGONOMETRIA_UNIDADES.map((u, i) => ({
+        ...u,
+        numero: String(MATEMATICAS_UNIDADES.length + i + 1).padStart(2, "0"),
+      })),
+    ],
   },
   {
     id: "comprension-lectora",
