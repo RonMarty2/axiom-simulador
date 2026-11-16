@@ -102,3 +102,4 @@
 15-23:22 Resumen (Tema_12_Biologia_Celular_LITERAL_TTS): total=183, reusados=0, sintetizados=0, copiados_viejos=0, retomados=183, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 15-23:22 Resumen (Tema_13_Biologia_Celular_LITERAL_TTS): total=153, reusados=0, sintetizados=0, copiados_viejos=0, retomados=153, pendientes=3, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 15-23:22 Resumen (Tema_15_Morfo_Saladin_LITERAL_TTS): total=119, reusados=0, sintetizados=0, copiados_viejos=0, retomados=119, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+15-23:52 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=68, rondas_agotadas=10).
