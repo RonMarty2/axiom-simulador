@@ -283,6 +283,7 @@ const BIOLOGIA_CELULAR_MED_UNIDADES: Unidad[] = [
   { numero: "05", titulo: "Bases celulares y ciclo celular", lecciones: [{ slug: "bases-celulares-vida", titulo: "Célula, organelos y división celular" }] },
   { numero: "06", titulo: "Especializaciones de membrana", lecciones: [{ slug: "bcm-especializaciones-membrana", titulo: "Uniones celulares, adhesión y matriz extracelular" }] },
   { numero: "07", titulo: "Células madre", lecciones: [{ slug: "bcm-celulas-madre", titulo: "Tipos, potencialidad y aplicaciones terapéuticas" }] },
+  { numero: "08", titulo: "Respuesta inmunitaria", lecciones: [{ slug: "bcm-respuesta-inmunitaria", titulo: "Anticuerpos, CPH, linfocitos T y B y tolerancia" }] },
 ];
 
 const INVESTIGACION_MED_UNIDADES: Unidad[] = [

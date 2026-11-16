@@ -44,7 +44,7 @@ function DiagramaCelulaMadre() {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
-      className="w-full h-auto block"
+      className="block h-full w-auto max-w-full"
       role="img"
       aria-label="Autorrenovación y diferenciación de una célula madre mediante células precursoras hacia una célula somática especializada"
     >
@@ -260,7 +260,7 @@ function DiagramaPotencialidad() {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
-      className="w-full h-auto block"
+      className="block h-full w-auto max-w-full"
       role="img"
       aria-label="Jerarquía de potencialidad de las células madre según Calvo: totipotentes, pluripotentes y multipotentes"
     >
@@ -456,7 +456,7 @@ function DiagramaMecanismoParacrino() {
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
-      className="w-full h-auto block"
+      className="block h-full w-auto max-w-full"
       role="img"
       aria-label="Mecanismos terapéuticos de las células madre trasplantadas: diferenciación directa limitada frente a efecto trófico o paracrino"
     >
