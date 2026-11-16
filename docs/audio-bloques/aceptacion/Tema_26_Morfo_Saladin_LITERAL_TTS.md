@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_26_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 15:02:30
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
+- **Fecha:** 2026-11-16 18:42:25
+- **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 39 párrafos | P5 (83.8%): CAPÍTULO veintiséis Nutrición y metabolismo Por supuesto, los péptidos enteroencef... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 39 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 52 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 10 / 24609 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 10 / 24609 palabras | Llamada numérica: gluconeogénesis8; Llamada tras puntuación: ida: • Grelina.un Es secret; Llamada tras puntuación: asa. • Leptina.dos Los adipo (+7 más en Detalle) |
@@ -22,9 +22,6 @@
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 
 ## Detalle de hallazgos (hasta 10 por revisión)
-
-### 1. Literalidad (texto vs PDF crudo) (1 fallas / 39 párrafos)
-- P5 (83.8%): CAPÍTULO veintiséis Nutrición y metabolismo Por supuesto, los péptidos enteroencef...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (10 fallas / 24609 palabras)
 - Autoevaluación: Antes de proseguir

@@ -3,13 +3,13 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_24_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 15:01:13
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 6, 7, 8)
+- **Fecha:** 2026-11-16 18:33:21
+- **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 21 párrafos | P15 (89.9%): CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico El sis...; P17 (87.2%): CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico H2CO3... |
-| 2 | Omisiones (PDF -> texto) | texto | FALLA | 1 / 35 párrafos PDF | PDF#23 (71.4%): ●Si el pH del líquido tubular se redujera, ¿cómo cambiaría la concentración de Na+? |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 21 párrafos | — |
+| 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 35 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 6 / 14017 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 9 / 14017 palabras | Llamada numérica: hipernatremia3; Llamada tras puntuación: ración cutánea,un agua que; Llamada tras puntuación: n, hipovolemia,dos ocurre cu (+6 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 14017 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |
@@ -22,13 +22,6 @@
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 
 ## Detalle de hallazgos (hasta 10 por revisión)
-
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 21 párrafos)
-- P15 (89.9%): CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico El sis...
-- P17 (87.2%): CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico H2CO3...
-
-### 2. Omisiones (PDF -> texto) (1 fallas / 35 párrafos PDF)
-- PDF#23 (71.4%): ●Si el pH del líquido tubular se redujera, ¿cómo cambiaría la concentración de Na+?
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (6 fallas / 14017 palabras)
 - Autoevaluación: Antes de proseguir

@@ -3,13 +3,13 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_18_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:58:28
+- **Fecha:** 2026-11-16 18:09:37
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 3 / 43 párrafos | P2 (88.5%): dieciocho punto uno Introducción Resultados esperados del aprendizaje Cuando haya...; P5 (83.4%): PARTE CUATRO Regulación y mantenimiento en el cuerpo, consúltese el recuadro Conoc...; P8 (69.6%): FIGURA dieciocho coma tres Niños de Angola con kwashiorkor. Obsérvense las extremi... |
-| 2 | Omisiones (PDF -> texto) | texto | FALLA | 2 / 56 párrafos PDF | PDF#4 (82.1%): e) Describir en términos generales cómo se produce la sangre. Funciones del aparat...; PDF#8 (82.0%): en el cuerpo (consúltese el recuadro “Conocimiento más a fon- do 22.5”, p. 890). L... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 43 párrafos | P2 (88.5%): dieciocho punto uno Introducción Resultados esperados del aprendizaje Cuando haya...; P8 (69.6%): FIGURA dieciocho coma tres Niños de Angola con kwashiorkor. Obsérvense las extremi... |
+| 2 | Omisiones (PDF -> texto) | texto | FALLA | 1 / 56 párrafos PDF | PDF#4 (82.1%): e) Describir en términos generales cómo se produce la sangre. Funciones del aparat... |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 10 / 22227 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 27 / 22227 palabras | Llamada numérica: cardiovascular1; Llamada numérica: mieloide6; Llamada numérica: apoferritina9 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 11 / 22227 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: En el cuadro dieciocho coma un; Ref. visual: como se observa; Ref. visual: En la figura dieciocho coma nueve (+6 más en Detalle) |
@@ -23,14 +23,12 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (3 fallas / 43 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (2 fallas / 43 párrafos)
 - P2 (88.5%): dieciocho punto uno Introducción Resultados esperados del aprendizaje Cuando haya...
-- P5 (83.4%): PARTE CUATRO Regulación y mantenimiento en el cuerpo, consúltese el recuadro Conoc...
 - P8 (69.6%): FIGURA dieciocho coma tres Niños de Angola con kwashiorkor. Obsérvense las extremi...
 
-### 2. Omisiones (PDF -> texto) (2 fallas / 56 párrafos PDF)
+### 2. Omisiones (PDF -> texto) (1 fallas / 56 párrafos PDF)
 - PDF#4 (82.1%): e) Describir en términos generales cómo se produce la sangre. Funciones del aparat...
-- PDF#8 (82.0%): en el cuerpo (consúltese el recuadro “Conocimiento más a fon- do 22.5”, p. 890). L...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (10 fallas / 22227 palabras)
 - Autoevaluación: Antes de proseguir

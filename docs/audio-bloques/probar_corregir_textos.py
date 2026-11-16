@@ -143,6 +143,12 @@ class TestSiglas(unittest.TestCase):
         self.assertEqual(res.cambios, 1)
         self.assertEqual(res.no_resueltos, [])
 
+    def test_convierte_jak_y_stat_como_palabra(self) -> None:
+        res = C.corregir_siglas("JAK y STAT")
+        self.assertEqual(res.texto, "jak y stat")
+        self.assertEqual(res.cambios, 2)
+        self.assertEqual(res.no_resueltos, [])
+
     def test_siglas_sin_json_sigue_igual_que_hoy(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             res = C.corregir_siglas(
@@ -152,6 +158,42 @@ class TestSiglas(unittest.TestCase):
             self.assertEqual(res.texto, "El DNA y A M P c")
             self.assertEqual(res.cambios, 1)
             self.assertEqual(res.no_resueltos, ["Sigla fuera de lista: DNA"])
+
+
+class TestSepararPiesFigura(unittest.TestCase):
+    def test_separa_pie_figura_e18_un(self) -> None:
+        entrada = "Se hallan en tejidos adultos. FIGURA E18-un Jerarquía de las células madre hematopoyéticas."
+        esperado = "Se hallan en tejidos adultos.\nFIGURA E18-un Jerarquía de las células madre hematopoyéticas."
+        res = C.separar_pies_figura(entrada)
+        self.assertEqual(res.texto, esperado)
+        self.assertEqual(res.cambios, 1)
+        self.assertEqual(res.no_resueltos, [])
+
+    def test_separa_pie_figura_a_dos_y_cuadro_a_un(self) -> None:
+        entrada = (
+            "Las palmas miran hacia el frente. FIGURA A.dos Supinación y pronación del antebrazo. "
+            "Se resumen a continuación. CUADRO A.un Términos direccionales."
+        )
+        esperado = (
+            "Las palmas miran hacia el frente.\nFIGURA A.dos Supinación y pronación del antebrazo.\n"
+            "Se resumen a continuación.\nCUADRO A.un Términos direccionales."
+        )
+        # Nota: tras «antebrazo.» no viene FIGURA/CUADRO/TABLA sino «Se resumen», así que solo separa los dos pies.
+        esperado_real = (
+            "Las palmas miran hacia el frente.\nFIGURA A.dos Supinación y pronación del antebrazo. "
+            "Se resumen a continuación.\nCUADRO A.un Términos direccionales."
+        )
+        res = C.separar_pies_figura(entrada)
+        self.assertEqual(res.texto, esperado_real)
+        self.assertEqual(res.cambios, 2)
+        self.assertEqual(res.no_resueltos, [])
+
+    def test_no_cambia_figura_en_minusculas_en_medio_de_frase(self) -> None:
+        entrada = "En este esquema la figura muestra el recorrido del nervio."
+        res = C.separar_pies_figura(entrada)
+        self.assertEqual(res.texto, entrada)
+        self.assertEqual(res.cambios, 0)
+        self.assertEqual(res.no_resueltos, [])
 
 
 class TestUnidadesEnPalabras(unittest.TestCase):

@@ -3,13 +3,13 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_25_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 15:01:36
+- **Fecha:** 2026-11-16 18:38:04
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 52 párrafos | P42 (58.9%): PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O C HO No ocurre digest... |
-| 2 | Omisiones (PDF -> texto) | texto | FALLA | 2 / 74 párrafos PDF | PDF#5 (82.1%): c) Describir el proceso químico básico que sustenta toda la digestión química, y m...; PDF#58 (77.0%): H N H O C HO H N H O C HO No ocurre digestión química La pepsina ( ) hidroliza cie... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 52 párrafos | P42 (70.2%): PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O C HO No ocurre digest... |
+| 2 | Omisiones (PDF -> texto) | texto | FALLA | 1 / 74 párrafos PDF | PDF#5 (82.1%): c) Describir el proceso químico básico que sustenta toda la digestión química, y m... |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 14 / 26221 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 26 / 26221 palabras | Llamada numérica: caries7; Llamada numérica: antros10; Llamada numérica: emético12 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 6 / 26221 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: véase la figura; Ref. visual: véase también la figura; Ref. visual: en el cuadro veinte a ocho (+1 más en Detalle) |
@@ -24,11 +24,10 @@
 ## Detalle de hallazgos (hasta 10 por revisión)
 
 ### 1. Literalidad (texto vs PDF crudo) (1 fallas / 52 párrafos)
-- P42 (58.9%): PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O C HO No ocurre digest...
+- P42 (70.2%): PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O C HO No ocurre digest...
 
-### 2. Omisiones (PDF -> texto) (2 fallas / 74 párrafos PDF)
+### 2. Omisiones (PDF -> texto) (1 fallas / 74 párrafos PDF)
 - PDF#5 (82.1%): c) Describir el proceso químico básico que sustenta toda la digestión química, y m...
-- PDF#58 (77.0%): H N H O C HO H N H O C HO No ocurre digestión química La pepsina ( ) hidroliza cie...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (14 fallas / 26221 palabras)
 - Autoevaluación: Antes de proseguir

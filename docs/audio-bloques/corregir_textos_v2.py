@@ -1916,6 +1916,25 @@ def mover_recuadros_fondo(
     return ResultadoPaso(actual, cambios, _dedup_ordenado(no_resueltos))
 
 
+_NUM_PIE_FIGURA_PAT = (
+    rf"(?:"
+    rf"[A-Z](?:[.\-–—−]?(?:\d+(?:[.\-–—−](?:\d+|{_NUM_PAL_R5}))*|(?:{_NUM_PAL_R5}))"
+    rf"|\s+(?:punto|coma)\s+(?:{_NUM_PAL_R5}|\d+))"
+    rf"|\d+(?:[.\-–—−](?:\d+|{_NUM_PAL_R5}))*[a-zA-Z]?"
+    rf"|{_NUM_PAL_R5}(?:[.\-–—−](?:\d+|{_NUM_PAL_R5})|\s+(?:punto|coma|y|a|al|{_NUM_PAL_R5}))*"
+    rf")"
+)
+_RE_PIE_FIGURA_PEGADO = re.compile(
+    rf"(?P<fin>[.!?](?:[»”\"'\)]+)?)[ \t]+(?=(?:FIGURA|CUADRO|TABLA)[ \t]+{_NUM_PIE_FIGURA_PAT}\b)"
+)
+
+
+def separar_pies_figura(texto: str) -> ResultadoPaso:
+    """R7 (regla 18): pone los pies de FIGURA/CUADRO/TABLA en una línea nueva tras fin de frase."""
+    nuevo, cambios = _RE_PIE_FIGURA_PEGADO.subn(r"\g<fin>\n", texto)
+    return ResultadoPaso(nuevo, cambios, [])
+
+
 # ============================================================================
 # ORQUESTACIÓN, RESPALDO Y REPORTE
 # ============================================================================
@@ -1932,6 +1951,7 @@ _PASOS: tuple[tuple[str, Callable[[str], ResultadoPaso]], ...] = (
     ("R6_griegas", corregir_griegas),
     ("R6_iones_siglas", corregir_iones_residuales),
     ("R6_pdf_crudo", reportar_errores_pdf_crudo),
+    ("R7_pies_figura", separar_pies_figura),
     ("R7_siglas", corregir_siglas),
 )
 

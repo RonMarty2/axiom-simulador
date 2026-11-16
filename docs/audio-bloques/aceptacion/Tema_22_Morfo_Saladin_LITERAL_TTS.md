@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_22_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 15:00:43
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
+- **Fecha:** 2026-11-16 18:25:57
+- **Veredicto final:** **FALLA** (revisiones con fallas: 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 3 / 46 párrafos | P22 (88.8%): CAPÍTULO veintidós El aparato respiratorio El diafragma se eleva Esternón Esternón...; P30 (62.7%): CUADRO veintidós coma cuatro Composición del aire inspirado, atmosférico, y alveol...; P32 (85.5%): PARTE CUATRO Regulación y mantenimiento los, sino también buena perfusión de sus c... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 46 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | FALLA | 62 / 115 párrafos PDF | PDF#2 (0.0%): a) Identificar las tres líneas de defensa del cuerpo contra los patógenos. b) Dife...; PDF#3 (0.0%): c) Describir las funciones defensivas de cada tipo de leucocito. d) Describir la f...; PDF#4 (0.0%): e) Describir el proceso de inflamación y explicar lo que produ- ce sus signos prin... (+7 más en Detalle) |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 9 / 25943 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas; Crédito: senta una ilustración de la ley de Henry y tiene efect |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 22 / 25943 palabras | Llamada numérica: cornetes2; Llamada numérica: cuneiformes8; Llamada numérica: tráquea9 (+7 más en Detalle) |
@@ -22,11 +22,6 @@
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 
 ## Detalle de hallazgos (hasta 10 por revisión)
-
-### 1. Literalidad (texto vs PDF crudo) (3 fallas / 46 párrafos)
-- P22 (88.8%): CAPÍTULO veintidós El aparato respiratorio El diafragma se eleva Esternón Esternón...
-- P30 (62.7%): CUADRO veintidós coma cuatro Composición del aire inspirado, atmosférico, y alveol...
-- P32 (85.5%): PARTE CUATRO Regulación y mantenimiento los, sino también buena perfusión de sus c...
 
 ### 2. Omisiones (PDF -> texto) (62 fallas / 115 párrafos PDF)
 - PDF#2 (0.0%): a) Identificar las tres líneas de defensa del cuerpo contra los patógenos. b) Dife...

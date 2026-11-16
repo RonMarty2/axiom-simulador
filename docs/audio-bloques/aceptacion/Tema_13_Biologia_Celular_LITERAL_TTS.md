@@ -3,19 +3,19 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_13_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:55:41
+- **Fecha:** 2026-11-16 17:43:23
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 5, 6, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 42 párrafos | P8 (87.5%): FIGURA trece a tres Mecanismos de transmisión de la señal en el interior celular:...; P26 (89.2%): FIGURA trece a quince A. Estructura de los receptores asociados a proteínas G y se... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 42 párrafos | P8 (87.5%): FIGURA trece a tres Mecanismos de transmisión de la señal en el interior celular:... |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 53 párrafos PDF | — |
-| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 1 / 12231 palabras | Encabezado/autor/portada: Alfonso Calvo |
-| 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 12231 palabras | — |
-| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 3 / 12231 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: La tabla trece a un; Ref. visual: La tabla trece a dos; Ref. visual: La tabla trece a tres |
-| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 65 / 12231 palabras | Símbolo '+': a G D P + Pi, que; Símbolo '+': es de Ca+dos, lo; Símbolo '+': ón de Ca+dos y D (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 21 / 12231 palabras | Título pegado al párrafo: a continuación. FIGURA trece a un Estrategias de señalizac; Título pegado al párrafo: os diferentes,. FIGURA trece a dos Estrategias básicas de; Título pegado al párrafo: hidrófobas, B,. FIGURA trece a tres Mecanismos de transmis (+7 más en Detalle) |
-| 8 | Palabras partidas y ligaduras | texto | APRUEBA | 0 / 12231 palabras | — |
+| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 1 / 12173 palabras | Encabezado/autor/portada: Alfonso Calvo |
+| 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 12173 palabras | — |
+| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 3 / 12173 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: La tabla trece a un; Ref. visual: La tabla trece a dos; Ref. visual: La tabla trece a tres |
+| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 65 / 12173 palabras | Símbolo '+': a G D P + Pi, que; Símbolo '+': es de Ca+dos, lo; Símbolo '+': ón de Ca+dos y D (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 21 / 12173 palabras | Título pegado al párrafo: a continuación. FIGURA trece a un Estrategias de señalizac; Título pegado al párrafo: os diferentes,. FIGURA trece a dos Estrategias básicas de; Título pegado al párrafo: hidrófobas, B,. FIGURA trece a tres Mecanismos de transmis (+7 más en Detalle) |
+| 8 | Palabras partidas y ligaduras | texto | APRUEBA | 0 / 12173 palabras | — |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 11 | Volumen y silencios (ffmpeg) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -23,19 +23,18 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 42 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (1 fallas / 42 párrafos)
 - P8 (87.5%): FIGURA trece a tres Mecanismos de transmisión de la señal en el interior celular:...
-- P26 (89.2%): FIGURA trece a quince A. Estructura de los receptores asociados a proteínas G y se...
 
-### 3. Relleno leído (biblio, autoeval, créditos, portada) (1 fallas / 12231 palabras)
+### 3. Relleno leído (biblio, autoeval, créditos, portada) (1 fallas / 12173 palabras)
 - Encabezado/autor/portada: Alfonso Calvo
 
-### 5. Figuras y tablas (sin 'ver figura', descripción) (3 fallas / 12231 palabras)
+### 5. Figuras y tablas (sin 'ver figura', descripción) (3 fallas / 12173 palabras)
 - Ref. visual: La tabla trece a un
 - Ref. visual: La tabla trece a dos
 - Ref. visual: La tabla trece a tres
 
-### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (65 fallas / 12231 palabras)
+### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (65 fallas / 12173 palabras)
 - Símbolo '+': a G D P + Pi, que
 - Símbolo '+': es de Ca+dos, lo
 - Símbolo '+': ón de Ca+dos y D
@@ -47,7 +46,7 @@
 - Símbolo '+': l del Ca+dos en l
 - Símbolo '+': A G y Ca+dos para
 
-### 7. Siglas, números de sección y títulos en su línea (21 fallas / 12231 palabras)
+### 7. Siglas, números de sección y títulos en su línea (21 fallas / 12173 palabras)
 - Título pegado al párrafo: a continuación. FIGURA trece a un Estrategias de señalizac
 - Título pegado al párrafo: os diferentes,. FIGURA trece a dos Estrategias básicas de
 - Título pegado al párrafo: hidrófobas, B,. FIGURA trece a tres Mecanismos de transmis

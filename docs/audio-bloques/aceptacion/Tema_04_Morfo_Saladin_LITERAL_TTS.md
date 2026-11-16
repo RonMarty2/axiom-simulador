@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_04_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:52:49
+- **Fecha:** 2026-11-16 17:11:49
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 38 párrafos | P6 (85.7%): PARTE UNO Organización corporal La estructura del D N A, que suele describirse com... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 38 párrafos | P6 (88.0%): PARTE UNO Organización corporal La estructura del D N A, que suele describirse com... |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 31 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 10 / 17790 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas; Crédito: da por la fotografía de Franklin, pronto pudieron ensam (+1 más en Detalle) |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 27 / 17790 palabras | Llamada numérica: smos2; Llamada numérica: homocigotos15; Llamada numérica: pleiotropía18 (+7 más en Detalle) |
@@ -24,7 +24,7 @@
 ## Detalle de hallazgos (hasta 10 por revisión)
 
 ### 1. Literalidad (texto vs PDF crudo) (1 fallas / 38 párrafos)
-- P6 (85.7%): PARTE UNO Organización corporal La estructura del D N A, que suele describirse com...
+- P6 (88.0%): PARTE UNO Organización corporal La estructura del D N A, que suele describirse com...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (10 fallas / 17790 palabras)
 - Autoevaluación: Antes de proseguir

@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_02_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:52:14
+- **Fecha:** 2026-11-16 17:05:14
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 7 / 46 párrafos | P18 (88.7%): PARTE UNO Organización corporal de Avogadro,diez que es de seis coma cero dos tres...; P19 (80.3%): des de hidrógeno y hidroxilo. Debido a que un en diez millones de moléculas se ion...; P22 (83.6%): PARTE UNO Organización corporal diez. ¿Cuál es una ventaja del porcentaje sobre la... (+4 más en Detalle) |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 46 párrafos | P32 (84.2%): de hidrógeno, en lugar del carbono adyacente, de modo que puede agregarse hidrógen...; P45 (44.4%): PARTE UNO Organización corporal treinta andro igual a hombre; geno igual a producc... |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 43 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 8 / 24330 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 24 / 24330 palabras | Llamada numérica: coloides9; Llamada numérica: catabolismo11; Llamada numérica: anabolismo13 (+7 más en Detalle) |
@@ -23,13 +23,8 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (7 fallas / 46 párrafos)
-- P18 (88.7%): PARTE UNO Organización corporal de Avogadro,diez que es de seis coma cero dos tres...
-- P19 (80.3%): des de hidrógeno y hidroxilo. Debido a que un en diez millones de moléculas se ion...
-- P22 (83.6%): PARTE UNO Organización corporal diez. ¿Cuál es una ventaja del porcentaje sobre la...
-- P30 (86.2%): compuesto de la madera, el algodón y el papel. Se compone de miles de monómeros de...
-- P32 (81.6%): de hidrógeno, en lugar del carbono adyacente, de modo que puede agregarse hidrógen...
-- P36 (88.4%): Conocimiento más a fondo dos punto cuatro. Aplicación clínica: Colesterol bueno y...
+### 1. Literalidad (texto vs PDF crudo) (2 fallas / 46 párrafos)
+- P32 (84.2%): de hidrógeno, en lugar del carbono adyacente, de modo que puede agregarse hidrógen...
 - P45 (44.4%): PARTE UNO Organización corporal treinta andro igual a hombre; geno igual a producc...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (8 fallas / 24330 palabras)

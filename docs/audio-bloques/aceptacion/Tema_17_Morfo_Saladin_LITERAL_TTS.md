@@ -3,13 +3,13 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_17_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:57:40
+- **Fecha:** 2026-11-16 18:04:11
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 53 párrafos | P18 (0.0%): quince thyr igual a escudo; oid igual a parecido a. dieciséis genic igual a que pr...; P28 (87.9%): PARTE TRES Integración y control Síntesis hormonal Todas las hormonas están hechas... |
-| 2 | Omisiones (PDF -> texto) | texto | FALLA | 2 / 65 párrafos PDF | PDF#37 (83.6%): CAPÍTULO 17 Sistema endocrino Tirosina Tiroglobulina MIT DIT CH2 OH CH2 OH CH2 OH...; PDF#49 (82.4%): CAPÍTULO 17 Sistema endocrino 17.7 Trastornos endocrinos Resultados esperados del... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 53 párrafos | P18 (0.0%): quince thyr igual a escudo; oid igual a parecido a. dieciséis genic igual a que pr... |
+| 2 | Omisiones (PDF -> texto) | texto | FALLA | 1 / 65 párrafos PDF | PDF#49 (82.4%): CAPÍTULO 17 Sistema endocrino 17.7 Trastornos endocrinos Resultados esperados del... |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 14 / 26632 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 26 / 26632 palabras | Llamada numérica: paraventriculares7; Llamada numérica: pineal13; Llamada numérica: glomerulosa17 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 16 / 26632 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: en el cuadro diecisiete coma dos; Ref. visual: en el cuadro diecisiete coma cuatro; Ref. visual: En la figura diecisiete coma seis (+7 más en Detalle) |
@@ -23,12 +23,10 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 53 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (1 fallas / 53 párrafos)
 - P18 (0.0%): quince thyr igual a escudo; oid igual a parecido a. dieciséis genic igual a que pr...
-- P28 (87.9%): PARTE TRES Integración y control Síntesis hormonal Todas las hormonas están hechas...
 
-### 2. Omisiones (PDF -> texto) (2 fallas / 65 párrafos PDF)
-- PDF#37 (83.6%): CAPÍTULO 17 Sistema endocrino Tirosina Tiroglobulina MIT DIT CH2 OH CH2 OH CH2 OH...
+### 2. Omisiones (PDF -> texto) (1 fallas / 65 párrafos PDF)
 - PDF#49 (82.4%): CAPÍTULO 17 Sistema endocrino 17.7 Trastornos endocrinos Resultados esperados del...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (14 fallas / 26632 palabras)

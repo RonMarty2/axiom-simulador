@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_04_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:52:37
+- **Fecha:** 2026-11-16 17:09:38
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 43 párrafos | P22 (89.1%): ellas, a excepción de la hidrógeno ATPasa, están formadas por cuatro subunidades,...; P27 (80.9%): FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa. Los transportadores S... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 43 párrafos | P27 (82.6%): FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa. Los transportadores S... |
 | 2 | Omisiones (PDF -> texto) | texto | FALLA | 1 / 52 párrafos PDF | PDF#23 (84.4%): ATPasa P La ATPasa P (del inglés phosphorylation) es una proteína integral de memb... |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 1 / 14713 palabras | Encabezado/autor/portada: Alfonso Calvo |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 4 / 14713 palabras | Llamada tras puntuación: uy bajos, cero,un a cero,un; Llamada tras puntuación: cero,un a cero,un μmol o l,; Llamada tras puntuación: madamente cero,cinco a un micr (+1 más en Detalle) |
@@ -23,9 +23,8 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 43 párrafos)
-- P22 (89.1%): ellas, a excepción de la hidrógeno ATPasa, están formadas por cuatro subunidades,...
-- P27 (80.9%): FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa. Los transportadores S...
+### 1. Literalidad (texto vs PDF crudo) (1 fallas / 43 párrafos)
+- P27 (82.6%): FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa. Los transportadores S...
 
 ### 2. Omisiones (PDF -> texto) (1 fallas / 52 párrafos PDF)
 - PDF#23 (84.4%): ATPasa P La ATPasa P (del inglés phosphorylation) es una proteína integral de memb...

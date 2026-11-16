@@ -281,8 +281,9 @@ _REV7_SECCION_COMA_RE = re.compile(
     rf"(?m)(?:^|[.!?]\s+){_NUM_PAL_PAT}\s+coma\s+{_NUM_PAL_PAT}(?:\s+coma\s+{_NUM_PAL_PAT})*\s+[A-ZÁÉÍÓÚÑ]"
 )
 _REV7_TITULO_PEGADO_RE = re.compile(
-    r"(?<=[.!?])\s+(?:Objetivos\s+de\s+aprendizaje|Resultados\s+esperados\s+del\s+aprendizaje|FIGURA\s+|CUADRO\s+|TABLA\s+)"
-    rf"|(?<=[.!?])\s+{_NUM_PAL_PAT}\s+(?:punto|coma)\s+{_NUM_PAL_PAT}\s+[A-ZÁÉÍÓÚÑ]"
+    # [ \t]+ y no \s+: un título que ya empieza en línea nueva NO está pegado (regla 18).
+    r"(?<=[.!?])[ \t]+(?:Objetivos\s+de\s+aprendizaje|Resultados\s+esperados\s+del\s+aprendizaje|FIGURA\s+|CUADRO\s+|TABLA\s+)"
+    rf"|(?<=[.!?])[ \t]+{_NUM_PAL_PAT}\s+(?:punto|coma)\s+{_NUM_PAL_PAT}\s+[A-ZÁÉÍÓÚÑ]"
 )
 _REV7_RECUADRO_PEGADO_RE = re.compile(
     r"CONOCIMIENTO\s+M[ÁA]S\s+A\s+FONDO\b"
@@ -430,6 +431,194 @@ def _cargar_siglas_palabra(ruta: Path = RUTA_SIGLAS_CLASIFICADAS) -> frozenset[s
     )
 
 
+_MAPA_UNIDADES_SIMBOLO_NGRAM: dict[str, str] = {
+    "μm": "um",
+    "µm": "um",
+    "nm": "nm",
+    "mmHg": "mmhg",
+    "mm": "mm",
+    "cm": "cm",
+    "mL": "ml",
+    "ml": "ml",
+    "mg": "mg",
+    "kg": "kg",
+    "kDa": "kda",
+    "kPa": "kpa",
+    "pH": "ph",
+    "μg": "ug",
+    "µg": "ug",
+    "μl": "ul",
+    "µl": "ul",
+    "μL": "ul",
+    "µL": "ul",
+}
+_UNIDADES_SIMBOLO_NGRAM_PAT = "|".join(
+    re.escape(k) for k in sorted(_MAPA_UNIDADES_SIMBOLO_NGRAM, key=len, reverse=True)
+)
+_RE_UNIDAD_SIMBOLO_NGRAM = re.compile(
+    rf"(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\u0370-\u03ff\u00b5])"
+    rf"(?P<u>{_UNIDADES_SIMBOLO_NGRAM_PAT})"
+    rf"(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\d\u0370-\u03ff\u00b5])"
+)
+_RE_GRADOS_CF_NGRAM = re.compile(
+    r"[°º]\s*(?P<escala>[CF])(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])"
+)
+_MAPA_UNIDADES_PALABRA_NGRAM: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"\bmilimetros?\s+de\s+mercurio\b"), "mmhg"),
+    (re.compile(r"\bgrados?\s+celsius\b"), "gradoscelsius"),
+    (re.compile(r"\bgrados?\s+fahrenheit\b"), "gradosfahrenheit"),
+    (re.compile(r"\bpe\s+hache\b"), "ph"),
+    (re.compile(r"\bmicrometros?\b"), "um"),
+    (re.compile(r"\bnanometros?\b"), "nm"),
+    (re.compile(r"\bmilimetros?\b"), "mm"),
+    (re.compile(r"\bcentimetros?\b"), "cm"),
+    (re.compile(r"\bmililitros?\b"), "ml"),
+    (re.compile(r"\bmiligramos?\b"), "mg"),
+    (re.compile(r"\bkilogramos?\b"), "kg"),
+    (re.compile(r"\bkilodalton(?:es|s)?\b"), "kda"),
+    (re.compile(r"\bkilopascal(?:es)?\b"), "kpa"),
+    (re.compile(r"\bmicrogramos?\b"), "ug"),
+    (re.compile(r"\bmicrolitros?\b"), "ul"),
+)
+_MAPA_GRIEGAS_NGRAM: dict[str, str] = {
+    "α": "alfa",
+    "β": "beta",
+    "γ": "gamma",
+    "Γ": "gamma",
+    "δ": "delta",
+    "Δ": "delta",
+    "∆": "delta",
+    "ε": "epsilon",
+    "ζ": "zeta",
+    "η": "eta",
+    "θ": "theta",
+    "ϑ": "theta",
+    "Θ": "theta",
+    "κ": "kappa",
+    "λ": "lambda",
+    "Λ": "lambda",
+    "μ": "mi",
+    "µ": "mi",
+    "ξ": "xi",
+    "Ξ": "xi",
+    "π": "pi",
+    "Π": "pi",
+    "σ": "sigma",
+    "ς": "sigma",
+    "Σ": "sigma",
+    "τ": "tau",
+    "φ": "fi",
+    "ϕ": "fi",
+    "Φ": "fi",
+    "χ": "ji",
+    "ψ": "psi",
+    "Ψ": "psi",
+    "ω": "omega",
+    "Ω": "omega",
+    "Ω": "omega",
+}
+_RE_PREFIJO_UNIDAD_MU_NGRAM = re.compile(
+    r"^(?:mol|Eq|Osm|[mglLsMVAWΩΩ])(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])"
+)
+_RE_GRIEGA_NGRAM = re.compile(
+    "[" + "".join(re.escape(k) for k in _MAPA_GRIEGAS_NGRAM) + "]"
+)
+_RE_I_GRIEGA_NGRAM = re.compile(
+    r"(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])i\s+griega(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])",
+    re.IGNORECASE,
+)
+_RE_SIGLA_CON_C_NGRAM = re.compile(
+    r"(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])([AG])\s+M\s+P\s+c(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ])"
+)
+_EXPANSIONES_SIGLAS_MIX_NGRAM: dict[str, str] = {
+    "ADNbc": "ADN bicatenario",
+    "ADNmc": "ADN monocatenario",
+    "ARNbc": "ARN bicatenario",
+    "ARNmc": "ARN monocatenario",
+    "ARNm": "ARN mensajero",
+    "ARNt": "ARN de transferencia",
+    "ARNr": "ARN ribosomico",
+}
+_RE_SIGLAS_MIX_NGRAM = re.compile(
+    r"(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\d])(?:"
+    + "|".join(re.escape(k) for k in _EXPANSIONES_SIGLAS_MIX_NGRAM)
+    + r")(?![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\d])"
+)
+_CACHE_LECTURAS_SIGLAS_NGRAM: tuple[Path, int, tuple[tuple[re.Pattern[str], str], ...]] | None = None
+
+
+def _quitar_tildes_bajar(texto: str) -> str:
+    """Convierte a minúsculas sin tildes preservando la ñ."""
+    descompuesto = unicodedata.normalize("NFD", texto.lower())
+    chars: list[str] = []
+    i = 0
+    while i < len(descompuesto):
+        ch = descompuesto[i]
+        if ch == "n" and i + 1 < len(descompuesto) and descompuesto[i + 1] == "\u0303":
+            chars.append("ñ")
+            i += 2
+            continue
+        if unicodedata.category(ch) != "Mn":
+            chars.append(ch)
+        i += 1
+    return "".join(chars)
+
+
+def _cargar_lecturas_siglas_ngram(
+    ruta: Path = RUTA_SIGLAS_CLASIFICADAS,
+) -> tuple[tuple[re.Pattern[str], str], ...]:
+    """Compila pares (patron_lectura, sigla_norm) para entradas 'palabra' y 'formula'."""
+    global _CACHE_LECTURAS_SIGLAS_NGRAM
+    if not ruta.is_file():
+        return ()
+    try:
+        mtime_ns = ruta.stat().st_mtime_ns
+    except OSError:
+        return ()
+    if (
+        _CACHE_LECTURAS_SIGLAS_NGRAM is not None
+        and _CACHE_LECTURAS_SIGLAS_NGRAM[0] == ruta
+        and _CACHE_LECTURAS_SIGLAS_NGRAM[1] == mtime_ns
+    ):
+        return _CACHE_LECTURAS_SIGLAS_NGRAM[2]
+    try:
+        datos = json.loads(ruta.read_text(encoding="utf-8"))
+    except Exception:
+        return ()
+    if not isinstance(datos, dict):
+        return ()
+
+    pares: list[tuple[str, str]] = []
+    for sigla, info in datos.items():
+        if not isinstance(sigla, str) or not isinstance(info, dict):
+            continue
+        if info.get("tipo") not in ("palabra", "formula"):
+            continue
+        lectura = info.get("lectura")
+        if not isinstance(lectura, str) or not lectura.strip():
+            continue
+        sigla_norm = _quitar_tildes_bajar(sigla.strip())
+        lectura_norm = " ".join(_quitar_tildes_bajar(lectura).split())
+        if not sigla_norm or not lectura_norm or lectura_norm == sigla_norm:
+            continue
+        pares.append((lectura_norm, sigla_norm))
+
+    pares.sort(key=lambda par: len(par[0]), reverse=True)
+    compilados = tuple(
+        (
+            re.compile(
+                rf"(?<![a-zñ])"
+                + r"\s+".join(re.escape(tok) for tok in lect.split())
+                + rf"(?![a-zñ])"
+            ),
+            sigla_norm,
+        )
+        for lect, sigla_norm in pares
+    )
+    _CACHE_LECTURAS_SIGLAS_NGRAM = (ruta, mtime_ns, compilados)
+    return compilados
+
+
 def _normalizar_para_ngramas(texto: str) -> list[str]:
     """Convierte texto escrito o TTS en tokens alfabéticos canónicos sin números ni símbolos expandidos."""
     t = unicodedata.normalize("NFC", texto)
@@ -446,23 +635,35 @@ def _normalizar_para_ngramas(texto: str) -> list[str]:
     t = re.sub(r"\bp\.\s*ej\.", "por ejemplo", t, flags=re.IGNORECASE)  # «p. ej.» -> «por ejemplo»
     t = re.sub(r"\b([A-ZÁÉÍÓÚÑ]{1,5})-([A-ZÁÉÍÓÚÑ]{1,5})\b", r"\1\2", t)  # «PN-TB» = «P N T B»
     t = re.sub(r"\b([A-ZÁÉÍÓÚÑ]{2,})/([A-ZÁÉÍÓÚÑ]{2,})\b", r"\1 o \2", t)  # «OPS/OMS» = «O P S o O M S»
-    # Colapsar siglas deletreadas en mayúsculas («A D N» -> «ADN»)
+    # Unidades en símbolo a clave canónica antes de griegas y minúsculas
+    t = _RE_GRADOS_CF_NGRAM.sub(
+        lambda m: " gradoscelsius " if m.group("escala") == "C" else " gradosfahrenheit ",
+        t,
+    )
+    t = _RE_UNIDAD_SIMBOLO_NGRAM.sub(
+        lambda m: f" {_MAPA_UNIDADES_SIMBOLO_NGRAM[m.group('u')]} ",
+        t,
+    )
+    # Griegas por su nombre (respetando prefijo μ de unidad no listado)
+    t = _RE_GRIEGA_NGRAM.sub(
+        lambda m: (
+            m.group(0)
+            if m.group(0) in ("μ", "µ") and _RE_PREFIJO_UNIDAD_MU_NGRAM.match(t[m.end() :])
+            else f" {_MAPA_GRIEGAS_NGRAM[m.group(0)]} "
+        ),
+        t,
+    )
+    # Colapsar siglas deletreadas («C P H» -> «CPH», «P i griega i griega» -> «PYY», «A M P c» -> «AMPc»)
+    t = _RE_I_GRIEGA_NGRAM.sub("Y", t)
+    t = _RE_SIGLA_CON_C_NGRAM.sub(r"\1MPc", t)
     t = _RE_COLAPSAR_SIGLA_ESPACIADA.sub(lambda m: m.group(0).replace(" ", ""), t)
+    t = _RE_SIGLAS_MIX_NGRAM.sub(lambda m: _EXPANSIONES_SIGLAS_MIX_NGRAM[m.group(0)], t)
 
-    # Normalizar a minúsculas sin tildes preservando ñ
-    descompuesto = unicodedata.normalize("NFD", t.lower())
-    chars: list[str] = []
-    i = 0
-    while i < len(descompuesto):
-        ch = descompuesto[i]
-        if ch == "n" and i + 1 < len(descompuesto) and descompuesto[i + 1] == "\u0303":
-            chars.append("ñ")
-            i += 2
-            continue
-        if unicodedata.category(ch) != "Mn":
-            chars.append(ch)
-        i += 1
-    plano = "".join(chars)
+    plano = _quitar_tildes_bajar(t)
+    for patron_u, clave_u in _MAPA_UNIDADES_PALABRA_NGRAM:
+        plano = patron_u.sub(clave_u, plano)
+    for patron_s, sigla_s in _cargar_lecturas_siglas_ngram():
+        plano = patron_s.sub(sigla_s, plano)
 
     crudos = _RE_TOKEN_ALFA.findall(plano)
     # Eliminar «y» conectiva entre palabras numéricas («cincuenta y tres») y excluir números/símbolos

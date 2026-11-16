@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_08_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:53:43
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
+- **Fecha:** 2026-11-16 17:22:27
+- **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 3 / 48 párrafos | P20 (74.1%): FIGURA ocho a nueve Diversos hongos del genero Amanita, como A. phalloides, produc...; P45 (85.8%): Las células contienen unos cuarenta a cincuenta tipos de A R N de transferencia qu...; P46 (80.0%): El A R N de transferencia también se caracteriza por una alta frecuencia de modifi... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 48 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 46 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 3 / 10626 palabras | Cita bibliográfica: et al; Cita bibliográfica: Wiley; Crédito: croscopía procedente de: Miller O. J Cell Biol mil nov |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 1 / 10626 palabras | Llamada tras puntuación: n;noventa y un:quince a veintis |
@@ -22,11 +22,6 @@
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 
 ## Detalle de hallazgos (hasta 10 por revisión)
-
-### 1. Literalidad (texto vs PDF crudo) (3 fallas / 48 párrafos)
-- P20 (74.1%): FIGURA ocho a nueve Diversos hongos del genero Amanita, como A. phalloides, produc...
-- P45 (85.8%): Las células contienen unos cuarenta a cincuenta tipos de A R N de transferencia qu...
-- P46 (80.0%): El A R N de transferencia también se caracteriza por una alta frecuencia de modifi...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (3 fallas / 10626 palabras)
 - Cita bibliográfica: et al

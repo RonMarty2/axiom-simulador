@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_09_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:54:04
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 5, 7)
+- **Fecha:** 2026-11-16 17:26:33
+- **Veredicto final:** **FALLA** (revisiones con fallas: 3, 5, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 34 párrafos | P10 (87.6%): Proceso de síntesis proteica en los ribosomas Una vez descritos los elementos esen...; P15 (88.9%): FIGURA nueve a nueve Elongación del proceso de traducción. Se produce la entrada d... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 34 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 46 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 1 / 9830 palabras | Encabezado/autor/portada: Alfonso Calvo |
 | 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 9830 palabras | — |
@@ -22,10 +22,6 @@
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 
 ## Detalle de hallazgos (hasta 10 por revisión)
-
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 34 párrafos)
-- P10 (87.6%): Proceso de síntesis proteica en los ribosomas Una vez descritos los elementos esen...
-- P15 (88.9%): FIGURA nueve a nueve Elongación del proceso de traducción. Se produce la entrada d...
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (1 fallas / 9830 palabras)
 - Encabezado/autor/portada: Alfonso Calvo

@@ -3,14 +3,14 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_10_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:55:06
+- **Fecha:** 2026-11-16 17:33:31
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
 | 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 79 párrafos | P12 (86.8%): diez apo igual a a partir de; neuro igual a nervio; osis igual a proceso. once ret... |
 | 2 | Omisiones (PDF -> texto) | texto | FALLA | 3 / 67 párrafos PDF | PDF#1 (50.0%): e) Del tobillo. 9. El doblado hacia atrás de la cintura incluye la __________ de l...; PDF#2 (31.2%): e) flexión. 10. El manguito de los rotadores incluye los tendones de todos los sig...; PDF#3 (7.4%): e) El redondo menor. 11. Al lubricante de una diartrosis se le denomina __________... |
-| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 10 / 27867 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
+| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 11 / 27867 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas; Encabezado/autor/portada: PARTE DOS Soporte y movimiento cuarenta y nueve anconeus igual a codo. |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 27 / 27867 palabras | Llamada numérica: músculo2; Llamada numérica: fusiformes8; Llamada numérica: peniformes9 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 23 / 27867 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: en la figura diez coma cuatro y; Ref. visual: en la figura diez coma cuatro; Ref. visual: La figura diez coma cinco (+7 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 9 / 27867 palabras | Dígito sin convertir: uras diez.31b y diez c; Dígito sin convertir: gura diez.20c: el elev; Dígito sin convertir: gura diez.23b y d. Nom (+5 más en Detalle) |
@@ -31,9 +31,10 @@
 - PDF#2 (31.2%): e) flexión. 10. El manguito de los rotadores incluye los tendones de todos los sig...
 - PDF#3 (7.4%): e) El redondo menor. 11. Al lubricante de una diartrosis se le denomina __________...
 
-### 3. Relleno leído (biblio, autoeval, créditos, portada) (10 fallas / 27867 palabras)
+### 3. Relleno leído (biblio, autoeval, créditos, portada) (11 fallas / 27867 palabras)
 - Autoevaluación: Antes de proseguir
 - Autoevaluación: Responda las siguientes preguntas
+- Encabezado/autor/portada: PARTE DOS Soporte y movimiento cuarenta y nueve anconeus igual a codo.
 
 ### 4. Notas al pie (llamadas y glosas) (27 fallas / 27867 palabras)
 - Llamada numérica: músculo2

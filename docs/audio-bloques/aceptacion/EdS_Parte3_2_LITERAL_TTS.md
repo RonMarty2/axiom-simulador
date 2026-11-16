@@ -3,13 +3,13 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\PSA_2027_FUENTES\audio_eds\EdS_Parte3_2_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\EdS_texto_paginas.txt"
-- **Fecha:** 2026-11-16 13:30:12
+- **Fecha:** 2026-11-16 19:09:04
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 5, 6, 7)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 95 / 256 párrafos | P8 (71.4%): Tabla. Para cada Institución, se dan: Calidad académica, Antigüedad en años. uno:...; P13 (24.0%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A...; P18 (20.8%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A... (+7 más en Detalle) |
-| 2 | Omisiones (PDF -> texto) | texto | FALLA | 50 / 165 párrafos PDF | PDF#2 (33.3%): En la tabla 21 sólo se muestran los datos para las primeras 10 insti-; PDF#5 (33.3%): las demás frecuencias. Como se observa en la tabla 22, los totales de; PDF#8 (0.0%): De las tablas anteriores se deduce que en la categoría de buena calidad (+7 más en Detalle) |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 93 / 256 párrafos | P8 (71.4%): Tabla. Para cada Institución, se dan: Calidad académica, Antigüedad en años. uno:...; P13 (24.0%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A...; P18 (20.8%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A... (+7 más en Detalle) |
+| 2 | Omisiones (PDF -> texto) | texto | FALLA | 50 / 168 párrafos PDF | PDF#2 (33.3%): En la tabla 21 sólo se muestran los datos para las primeras 10 insti-; PDF#5 (33.3%): las demás frecuencias. Como se observa en la tabla 22, los totales de; PDF#8 (0.0%): De las tablas anteriores se deduce que en la categoría de buena calidad (+7 más en Detalle) |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | APRUEBA | 0 / 9464 palabras | — |
 | 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 9464 palabras | — |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 16 / 9464 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: en la tabla veintidós; Ref. visual: En la tabla veintidós; Ref. visual: la tabla veintidós (+7 más en Detalle) |
@@ -23,7 +23,7 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (95 fallas / 256 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (93 fallas / 256 párrafos)
 - P8 (71.4%): Tabla. Para cada Institución, se dan: Calidad académica, Antigüedad en años. uno:...
 - P13 (24.0%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A...
 - P18 (20.8%): Tabla. Para cada Calidad académica, se dan: Antigüedad, años: diez a diecinueve, A...
@@ -35,7 +35,7 @@
 - P39 (0.0%): equis barra igual a sigma, i igual a uno hasta n, x i n i, sobre n
 - P40 (75.0%): Donde n i es frecuencia absoluta para cada valor de la variable.
 
-### 2. Omisiones (PDF -> texto) (50 fallas / 165 párrafos PDF)
+### 2. Omisiones (PDF -> texto) (50 fallas / 168 párrafos PDF)
 - PDF#2 (33.3%): En la tabla 21 sólo se muestran los datos para las primeras 10 insti-
 - PDF#5 (33.3%): las demás frecuencias. Como se observa en la tabla 22, los totales de
 - PDF#8 (0.0%): De las tablas anteriores se deduce que en la categoría de buena calidad

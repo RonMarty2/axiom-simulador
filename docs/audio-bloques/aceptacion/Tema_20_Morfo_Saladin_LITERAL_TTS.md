@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_20_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:59:48
+- **Fecha:** 2026-11-16 18:18:31
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 67 párrafos | P7 (85.5%): dos ana igual a por completo; eury igual a ancho. tres meta igual a más allá de; s...; P40 (0.0%): doce jugul igual a cuello, garganta. |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 3 / 67 párrafos | P7 (85.5%): dos ana igual a por completo; eury igual a ancho. tres meta igual a más allá de; s...; P21 (88.8%): veinte punto tres Intercambio capilar Resultados esperados del aprendizaje Cuando...; P40 (0.0%): doce jugul igual a cuello, garganta. |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 71 párrafos PDF | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 18 / 31017 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas; Crédito: a un ocho Ilustración de De Motu Cordis, de William Ha (+1 más en Detalle) |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 41 / 31017 palabras | Llamada numérica: metaarteriolas3; Llamada numérica: aneurisma2; Llamada numérica: subclavia8 (+7 más en Detalle) |
@@ -23,8 +23,9 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 67 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (3 fallas / 67 párrafos)
 - P7 (85.5%): dos ana igual a por completo; eury igual a ancho. tres meta igual a más allá de; s...
+- P21 (88.8%): veinte punto tres Intercambio capilar Resultados esperados del aprendizaje Cuando...
 - P40 (0.0%): doce jugul igual a cuello, garganta.
 
 ### 3. Relleno leído (biblio, autoeval, créditos, portada) (18 fallas / 31017 palabras)

@@ -199,6 +199,45 @@ class TestAceptacionObligatoria(unittest.TestCase):
             self.assertEqual(_rev(res, 1).estado, "FALLA")
             self.assertGreater(_rev(res, 1).fallas, 0)
 
+    def test_rev1_caso_real_adaptaciones_foneticas_aprueba(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            pdf = (
+                PDF_BASE
+                + "\nLas moléculas del CPH de clase I miden 10 μm, expresan la subunidad α1 "
+                "a pH 7,4 y 37 °C con grupos COOH, la hormona PYY y la vía JAK y STAT.\n"
+                "CONOCIMIENTO MÁS A FONDO 1.1\n"
+                "Medicina evolutiva\n"
+                "Vestigios de la evolución humana\n"
+            )
+            texto_tts = (
+                TEXTO_LIMPIO
+                + "\nLas moléculas del C P H de clase I miden diez micrómetros, expresan la subunidad alfa uno "
+                "a pe hache siete coma cuatro y treinta y siete grados Celsius con grupos ce o o hache, "
+                "la hormona P i griega i griega y la vía jak y stat.\n\n"
+                "Conocimiento más a fondo uno punto uno. Medicina evolutiva: Vestigios de la evolución humana\n"
+            )
+            res = self._evaluar_texto(tmp, "Caso_Rev1_Adaptaciones_OK", texto_tts, pdf_texto=pdf)
+            self.assertEqual(_rev(res, 1).estado, "APRUEBA")
+            self.assertEqual(_rev(res, 1).fallas, 0)
+            self.assertEqual(_rev(res, 2).estado, "APRUEBA")
+
+    def test_rev1_parafrasis_real_con_adaptaciones_sigue_fallando(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            pdf = (
+                PDF_BASE
+                + "\nLas moléculas del CPH de clase I miden 10 μm y expresan la subunidad α1 en la membrana.\n"
+            )
+            texto_parafraseado = (
+                TEXTO_LIMPIO
+                + "\nLos complejos proteicos del C P H de clase I alcanzan diez micrómetros y muestran "
+                "el receptor alfa uno sobre la superficie externa.\n"
+            )
+            res = self._evaluar_texto(tmp, "Caso_Rev1_Parafrasis_Falla", texto_parafraseado, pdf_texto=pdf)
+            self.assertEqual(_rev(res, 1).estado, "FALLA")
+            self.assertGreater(_rev(res, 1).fallas, 0)
+
     def test_falso_positivo_nombres_propios_con_digito_no_falla_rev_6(self):
         """Calibración 16-nov: E6, E7, H5N1, p53, CD4 son nombres propios, no dígitos sin convertir."""
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -438,6 +477,16 @@ def main() -> int:
     ac._configurar_stdout_utf8()
     resultado = unittest.main(module=__name__, exit=False, verbosity=2)
     return 0 if resultado.result.wasSuccessful() else 1
+
+
+class TestRev7TituloEnLineaAparte(unittest.TestCase):
+    """16-nov: un pie que ya empieza en línea nueva no cuenta como pegado (falso positivo en Calvo 18)."""
+
+    def test_pie_en_linea_nueva_no_esta_pegado(self):
+        self.assertIsNone(ac._REV7_TITULO_PEGADO_RE.search("en los tejidos adultos.\nFIGURA E18-un Jerarquía"))
+
+    def test_pie_pegado_sigue_detectado(self):
+        self.assertIsNotNone(ac._REV7_TITULO_PEGADO_RE.search("en los tejidos adultos. FIGURA E18-un Jerarquía"))
 
 
 if __name__ == "__main__":

@@ -3,12 +3,12 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_12_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 14:55:37
+- **Fecha:** 2026-11-16 17:41:56
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 2 / 54 párrafos | P8 (83.1%): Resultados esperados del aprendizaje Cuando haya completado esta sección, el estud...; P40 (89.6%): PARTE TRES Integración y control Axón de una neurona presináptica Neurona postsiná... |
+| 1 | Literalidad (texto vs PDF crudo) | texto | FALLA | 1 / 54 párrafos | P8 (83.1%): Resultados esperados del aprendizaje Cuando haya completado esta sección, el estud... |
 | 2 | Omisiones (PDF -> texto) | texto | FALLA | 9 / 9 párrafos PDF | PDF#1 (75.0%): 11.7 Músculos cardiaco y liso Resultados esperados del aprendizaje Cuando haya com...; PDF#2 (20.0%): a) Describir las diferencias estructurales y fisiológicas entre el músculo cardiac...; PDF#3 (7.5%): c) Describir las diferencias estructurales y fisiológicas entre el músculo liso y... (+6 más en Detalle) |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 12 / 24848 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 25 / 24848 palabras | Llamada numérica: ganglio1; Llamada numérica: somática3; Llamada numérica: anterógrado13 (+7 más en Detalle) |
@@ -23,9 +23,8 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 1. Literalidad (texto vs PDF crudo) (2 fallas / 54 párrafos)
+### 1. Literalidad (texto vs PDF crudo) (1 fallas / 54 párrafos)
 - P8 (83.1%): Resultados esperados del aprendizaje Cuando haya completado esta sección, el estud...
-- P40 (89.6%): PARTE TRES Integración y control Axón de una neurona presináptica Neurona postsiná...
 
 ### 2. Omisiones (PDF -> texto) (9 fallas / 9 párrafos PDF)
 - PDF#1 (75.0%): 11.7 Músculos cardiaco y liso Resultados esperados del aprendizaje Cuando haya com...
