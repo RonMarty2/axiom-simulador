@@ -293,6 +293,7 @@ const INVESTIGACION_MED_UNIDADES: Unidad[] = [
   { numero: "02", titulo: "Epidemiología básica", lecciones: [{ slug: "eds-epidemiologia", titulo: "Indicadores, prevalencia, incidencia y causalidad" }] },
   { numero: "03", titulo: "Determinantes de la salud", lecciones: [{ slug: "eds-determinantes-salud", titulo: "Salud pública y determinantes sociales" }] },
   { numero: "04", titulo: "Estadística descriptiva", lecciones: [{ slug: "eds-estadistica-descriptiva", titulo: "Variables, tablas de frecuencia y gráficos" }] },
+  { numero: "05", titulo: "Promoción, prevención y sistema de salud", lecciones: [{ slug: "eds-promocion-sistema-salud", titulo: "Carta de Ottawa, ODS, SAFCI-SUS y niveles de atención" }] },
 ];
 
 const BLOQUES_MEDICINA: Bloque[] = [

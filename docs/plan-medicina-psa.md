@@ -47,7 +47,7 @@ Cruce del temario oficial (LISTA_CONTENIDOS_PSA2027 + 4096.pdf + títulos de EdS
 | # | Hueco | Área (peso) | Lección | Preguntas | Peso aprox. en el examen |
 |---|---|---|---|---|---|
 | 1 | Estadística descriptiva (EdS Parte III, pág. 84-189: más de la mitad del compendio) | EdS (15 %) | NINGUNA | ~20 de 56 (gráficos, Sturges, intervalos, escalas, muestreo) | ~8 % |
-| 2 | Educación en Salud (EdS Parte I, pág. 2-31) | EdS (15 %) | solo `eds-determinantes-salud`, a medias | pocas (prevención, niveles de atención, ODS) | ~2-3 %; **espera fuente, Ronald no la tiene (16-11)**: no se inventa contenido |
+| 2 | Educación en Salud (EdS Parte I, pág. 2-31) | EdS (15 %) | `eds-determinantes-salud` (03) + `eds-promocion-sistema-salud` (05, 17-11) | pocas (prevención, niveles de atención, ODS) | ~2-3 %; **HECHO (17-11)** desde `EDUCACION EN SALUD E INVESTIGACION.pdf` p. 2-31 y P41-P50 del 1er parcial 2025-26 |
 | 3 | Biología Celular: citoesqueleto (cap. 12) sin lección; núcleo/cromatina (7), endomembranas (10), ciclo celular (14), apoptosis (15) solo a medias | BC (20 %) | 1 NO + 4 a medias | 383 en total | ~1,4 % cada capítulo |
 | 4 | Química: orgánica, tabla periódica, cinética y equilibrio | Quím (15 %) | NINGUNA | orgánica ~9, periódica ~6 | ~1,2 % cada uno |
 | 5 | Morfofunción: articulaciones, médula/encéfalo/autónomo, sangre, reproductor: dentro de unidades más grandes (a medias) | Morfo (20 %) | a medias | 443 en total | bajo: ya hay unidad |
