@@ -73,6 +73,7 @@ const FISICA_UNIDADES: Unidad[] = [
   { numero: "09", titulo: "Calor y temperatura", lecciones: [{ slug: "calor-temperatura", titulo: "Escalas, dilatación y calorimetría" }] },
   { numero: "10", titulo: "Impulso y choques", lecciones: [{ slug: "impulso-cantidad-movimiento", titulo: "Cantidad de movimiento y colisiones" }] },
   { numero: "11", titulo: "Ondas y sonido", lecciones: [{ slug: "ondas-sonido", titulo: "Ondas, sonido, eco y ecografía" }] },
+  { numero: "12", titulo: "Mediciones y errores", lecciones: [{ slug: "mediciones-fisica", titulo: "Cifras significativas, notación científica, conversión y errores" }] },
 ];
 
 // Química — área propia del banco de exámenes de Ingeniería. Códigos de
