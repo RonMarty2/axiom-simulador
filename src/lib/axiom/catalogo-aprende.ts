@@ -77,6 +77,7 @@ const FISICA_UNIDADES: Unidad[] = [
   { numero: "13", titulo: "Estática y máquinas simples", lecciones: [{ slug: "estatica-fisica", titulo: "DCL, equilibrio, torque, palancas y poleas" }] },
   { numero: "14", titulo: "Hidrostática y fluidos", lecciones: [{ slug: "hidrostatica-fluidos", titulo: "Presión, Pascal, Arquímedes, continuidad y Torricelli" }] },
   { numero: "15", titulo: "Óptica geométrica", lecciones: [{ slug: "optica-geometrica", titulo: "Reflexión, refracción (Snell), espejos y lentes" }] },
+  { numero: "16", titulo: "Magnetismo y electromagnetismo", lecciones: [{ slug: "magnetismo-electromagnetismo", titulo: "Campo magnético, fuerza de Lorentz, órbita circular e inducción" }] },
 ];
 
 // Química — área propia del banco de exámenes de Ingeniería. Códigos de
