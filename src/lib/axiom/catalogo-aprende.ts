@@ -89,6 +89,7 @@ const QUIMICA_UNIDADES: Unidad[] = [
   { numero: "09", titulo: "Soluciones", lecciones: [{ slug: "soluciones", titulo: "Unidades de concentración" }] },
   { numero: "10", titulo: "Propiedades coligativas", lecciones: [{ slug: "propiedades-coligativas", titulo: "Cambios por soluto" }] },
   { numero: "11", titulo: "Ácidos y bases", lecciones: [{ slug: "acido-base", titulo: "Teorías, pH, pOH y titulación" }] },
+  { numero: "12", titulo: "Química orgánica", lecciones: [{ slug: "quimica-organica", titulo: "Hidrocarburos, funciones y nomenclatura" }] },
 ];
 
 // Biología — quinta área del examen de Ingeniería (20% de la nota, ver

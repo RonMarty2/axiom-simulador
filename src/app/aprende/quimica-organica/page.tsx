@@ -1086,6 +1086,11 @@ function EscEjerciciosBanco() {
         <div>
           <strong>Respuesta: B (C₁₂H₃₂N₄).</strong>
         </div>
+        <p>
+          <strong>Ojo:</strong> es la respuesta oficial, pero esa molécula no puede existir. Con 12 carbonos y 4
+          nitrógenos caben como máximo 2(12) + 2 + 4 = 30 hidrógenos, y la fórmula tiene 32. El error está en los
+          datos del examen, no en tu cuenta: en el examen marca B.
+        </p>
       </WorkedExample>
     </EscenaRica>
   );
@@ -1156,7 +1161,7 @@ function EscPractica() {
       </Resumen>
 
       <AutoCheck
-        pregunta="[Práctica PSA 2027 · Q4.1 (Pregunta 94)] ¿Qué tipo de hibridación presenta el átomo de carbono en el metano (CH₄) y cuántos enlaces σ forma?"
+        pregunta="¿Qué tipo de hibridación presenta el átomo de carbono en el metano (CH₄) y cuántos enlaces σ forma?"
         opciones={[
           "sp³ y 4 enlaces σ",
           "sp² y 4 enlaces σ",
@@ -1168,7 +1173,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="[Práctica PSA 2027 · Q4.2 (Pregunta 95)] ¿Cuál es la fórmula molecular de un alqueno acíclico con 5 átomos de carbono?"
+        pregunta="¿Cuál es la fórmula molecular de un alqueno acíclico con 5 átomos de carbono?"
         opciones={[
           "C₅H₁₂",
           "C₅H₁₀",
@@ -1180,7 +1185,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="[Práctica PSA 2027 · Q4.3 (Pregunta 96)] Identifica el grupo funcional característico de los aldehídos."
+        pregunta="Identifica el grupo funcional característico de los aldehídos."
         opciones={[
           "—OH",
           "—CO— (en carbono secundario)",
@@ -1192,7 +1197,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="[Práctica PSA 2027 · Q4.4 (Pregunta 97)] ¿Cuál es el nombre IUPAC del compuesto CH₃—CH₂—COOH?"
+        pregunta="¿Cuál es el nombre IUPAC del compuesto CH₃—CH₂—COOH?"
         opciones={[
           "Ácido etanoico",
           "Propanona",
@@ -1204,7 +1209,7 @@ function EscPractica() {
       />
 
       <AutoCheck
-        pregunta="[Práctica PSA 2027 · Q4.5 (Pregunta 98)] La urea, CO(NH₂)₂, principal producto nitrogenado de excreción proteica en humanos, pertenece a la función orgánica:"
+        pregunta="La urea, CO(NH₂)₂, principal producto nitrogenado de excreción proteica en humanos, pertenece a la función orgánica:"
         opciones={[
           "Amina",
           "Amida",
