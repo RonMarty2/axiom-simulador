@@ -75,6 +75,7 @@ const FISICA_UNIDADES: Unidad[] = [
   { numero: "11", titulo: "Ondas y sonido", lecciones: [{ slug: "ondas-sonido", titulo: "Ondas, sonido, eco y ecografía" }] },
   { numero: "12", titulo: "Mediciones y errores", lecciones: [{ slug: "mediciones-fisica", titulo: "Cifras significativas, notación científica, conversión y errores" }] },
   { numero: "13", titulo: "Estática y máquinas simples", lecciones: [{ slug: "estatica-fisica", titulo: "DCL, equilibrio, torque, palancas y poleas" }] },
+  { numero: "14", titulo: "Hidrostática y fluidos", lecciones: [{ slug: "hidrostatica-fluidos", titulo: "Presión, Pascal, Arquímedes, continuidad y Torricelli" }] },
 ];
 
 // Química — área propia del banco de exámenes de Ingeniería. Códigos de
