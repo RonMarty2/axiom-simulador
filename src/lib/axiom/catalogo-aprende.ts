@@ -345,6 +345,11 @@ const BLOQUES_MEDICINA: Bloque[] = [
         ...u,
         numero: String(MATEMATICAS_UNIDADES.length + i + 1).padStart(2, "0"),
       })),
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 1).padStart(2, "0"),
+        titulo: "Lógica y conjuntos",
+        lecciones: [{ slug: "logica-conjuntos", titulo: "Proposiciones, De Morgan, Venn y cardinalidad" }],
+      },
     ],
   },
   {
