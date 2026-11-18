@@ -49,7 +49,7 @@ def main():
             sys.path.insert(0, _c); import alcance as _alc; break
     if _alc is None:
         sys.exit("ALTO: no encuentro motor_agy/alcance.py (candados); no se aplica sin candado.")
-    alto = _alc.puerta_aplicar(os.path.join(TRABAJO, rid), archivos, "--sin-alcance" in sys.argv)
+    alto = _alc.puerta_aplicar(os.path.join(TRABAJO, rid), archivos, "--sin-alcance" in sys.argv, "--sin-segunda" in sys.argv)
     if alto:
         print("[CANDADO] " + ("NO SE APLICA:" if "--si" in sys.argv else "esto impediria aplicar:"))
         for m in alto:
