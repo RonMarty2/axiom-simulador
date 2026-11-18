@@ -41,6 +41,21 @@ def main():
     sucios = {l[3:].strip().strip('"') for l in git("status", "--porcelain").stdout.splitlines()}
     choque = [f for f in archivos if f in sucios]
     print("Archivos del parche:\n  " + "\n  ".join(archivos))
+    # 18-11 CANDADOS (Ronald: «Claude es el cerebro; que no pasen errores de agy»): alcance + veredicto de Claude
+    _alc = None
+    for _c in [os.environ.get("AGENTES_CENTRAL_MOTOR") or "", os.path.join(os.path.expanduser("~"), "SynologyDrive", "12.NUBES", "_AGENTES_CENTRAL", "motor_agy"),
+               os.path.join(os.path.expanduser("~"), "SynologyDrive", "_AGENTES_CENTRAL", "motor_agy")]:
+        if _c and os.path.exists(os.path.join(_c, "alcance.py")):
+            sys.path.insert(0, _c); import alcance as _alc; break
+    if _alc is None:
+        sys.exit("ALTO: no encuentro motor_agy/alcance.py (candados); no se aplica sin candado.")
+    alto = _alc.puerta_aplicar(os.path.join(TRABAJO, rid), archivos, "--sin-alcance" in sys.argv)
+    if alto:
+        print("[CANDADO] " + ("NO SE APLICA:" if "--si" in sys.argv else "esto impediria aplicar:"))
+        for m in alto:
+            print("  - " + m)
+        if "--si" in sys.argv:
+            sys.exit(1)
     if choque:
         sys.exit("ALTO: main tiene cambios sin commitear en estos archivos (otra sesion): " + ", ".join(choque))
     chk = git("apply", "--check", "-", entrada=parche)

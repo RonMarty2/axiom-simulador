@@ -161,6 +161,7 @@ def main():
     ap.add_argument("--base", action="append", default=[], help="archivo del arbol de trabajo (sin commitear) que la copia debe traer ya puesto (repetible)")
     ap.add_argument("--despues", action="append", default=[])
     ap.add_argument("--solo-texto", action="store_true")
+    ap.add_argument("--tocar", action="append", default=[], help="18-11 CANDADO: archivo o patron del repo que agy PUEDE cambiar (repetible); aplicar.py rechaza lo que quede fuera")
     ap.add_argument("--timeout", type=int, default=900)
     ap.add_argument("--seguir", default="", help="id de una entrega: corrige en LA MISMA conversacion de agy")
     a = ap.parse_args()
@@ -191,6 +192,13 @@ def main():
     controles_a_correr = a.despues or ([] if a.solo_texto else CONTROLES_DEFAULT)
 
     pedido = open(a.pedido, encoding="utf-8").read()
+    try:   # 18-11: candados de edicion (central motor_agy/alcance.py)
+        import alcance as _alc
+        if a.tocar:
+            _alc.guardar(carpeta, a.tocar)
+        pedido = _alc.texto_para_agy(_alc.leer(carpeta)) + pedido
+    except ImportError:
+        print("[!] sin motor central: no hay candado de alcance para esta entrega")
     # 15-11 noche (copiloto; 2 entregas vacias en Audiolibros: «file does not exist»): lo que .gitignore excluye (ej. examenes pasados/
     # MEDICINA) NO esta en la copia de agy. Si el pedido nombra rutas que existen en el repo real y faltan en la copia, se agregan solas
     # como --leer (solo lectura) y se le dice a agy donde leerlas. Vale para toda ventana y todo pedido, no solo para el audio.
