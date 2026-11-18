@@ -29,4 +29,4 @@ Escenas sugeridas: 1) historia y clasificación (metales, no metales, metaloides
 4. El único ejercicio «del banco» es 2011-parcial1-2-2011 P13 con respuesta C.
 5. Responde al final, en máximo 30 líneas: qué escenas hiciste y qué dudas quedaron.
 
-REPITE PORQUE: dos corridas seguidas se cortaron al arrancar por reinicio del servidor, sin crear nada (anterior: 20261118-074322_leccion y la siguiente), ahora con otro nivel
+REPITE PORQUE: las corridas anteriores se cortaron por cuota de la primera cuenta, sin crear nada (anterior: 20261118-074943_leccion); el lanzador ya turna dos cuentas

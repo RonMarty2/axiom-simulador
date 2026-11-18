@@ -28,7 +28,13 @@ MODELOS = {"mecanico": "Gemini 3.8 Flash (Low)",
 # 13-11: la tabla de modelos es UNICA y vive en la central (_AGENTES_CENTRAL\motor_agy\MODELOS.json: titular + suplentes por nivel,
 # con la cuota anotada POR MODELO). Si la central no esta a mano, vale la tabla de arriba.
 try:
-    sys.path.insert(0, os.environ.get("AGENTES_CENTRAL_MOTOR") or os.path.join(os.path.expanduser("~"), "SynologyDrive", "12.NUBES", "_AGENTES_CENTRAL", "motor_agy"))
+    # 18-11: en una PC la central esta en SynologyDrive/12.NUBES, en la otra en SynologyDrive directo: se prueban las dos
+    # (sin esto, en RonMarty-9fb9 no habia escalera de modelos ni cuentas: agy se quedaba en el modelo agotado).
+    for _c in ([os.environ.get("AGENTES_CENTRAL_MOTOR")] if os.environ.get("AGENTES_CENTRAL_MOTOR") else []) + [
+            os.path.join(os.path.expanduser("~"), "SynologyDrive", "12.NUBES", "_AGENTES_CENTRAL", "motor_agy"),
+            os.path.join(os.path.expanduser("~"), "SynologyDrive", "_AGENTES_CENTRAL", "motor_agy")]:
+        if os.path.exists(os.path.join(_c, "modelos.py")):
+            sys.path.insert(0, _c); break
     import modelos as _mod
     MODELOS = dict(MODELOS, **_mod.titulares())
 except Exception:
@@ -37,6 +43,26 @@ try:      # 13-11: vigilante central (mira la corrida, deja AVANCE.txt y corta s
     import vigilante as _vig
 except Exception:
     _vig = None
+try:      # 18-11 (Ronald: «una de las ventanas dice que agy no funciona»): las DOS cuentas de agy se turnan, igual que en el motor central
+    import cuentas as _cuentas
+except Exception:
+    _cuentas = None
+
+
+def _cuenta_para(nivel, previa=""):
+    try:
+        if not _cuentas:
+            return ""
+        forzada = os.environ.get("AGY_CUENTA_FORZADA", "")
+        c = _cuentas.para_lanzar(nivel, forzada or previa, lambda n, x: bool(_mod and n and _mod.elegir_en(n, x)))
+        if c:
+            os.environ["AGY_CUENTA_CONSULTA"] = c
+            if len(_cuentas.guardadas()) == 2:
+                print(f"[cuentas de agy: este pedido sale con la cuenta {c}]", file=sys.stderr)
+        return c
+    except BaseException as e:
+        print(f"[cuentas de agy: no se pudo elegir cuenta ({e}); sigue la que estaba]", file=sys.stderr)
+        return ""
 CONTROLES_DEFAULT = ["npx tsc --noEmit", "npm run lint", "npm test"]
 
 REGLAS_AGY = """
@@ -193,6 +219,7 @@ def main():
     with open(os.path.join(carpeta, f"PEDIDO{suf}.md"), "w", encoding="utf-8") as f:
         f.write(texto)
 
+    cuenta = _cuenta_para(a.nivel or (previo or {}).get("nivel", ""), (previo or {}).get("cuenta", ""))
     modelo = previo["modelo"] if previo and not a.nivel else MODELOS[a.nivel]
     if _mod and not (previo and not a.nivel):      # 13-11: titular anotado sin cuota -> primer suplente con cuota
         _eleg = _mod.elegir(a.nivel)
@@ -287,15 +314,30 @@ def main():
         estado += " RESPUESTA VACIA"
     if not a.solo_texto and not cambiados:
         estado += " PERO NO CREO NI CAMBIO NADA"
-    if any("quota" in (e or "").lower() or "429" in (e or "") for e in errores) or "quota" in (res.get("response") or "").lower():
+    _err = " ".join(str(e) for e in errores) + " " + str(res.get("error", ""))
+    if "quota" in _err.lower() or "429" in _err or "quota" in (res.get("response") or "").lower():
         estado += " SIN CUOTA EN ESTE MODELO: quedo anotado; RELANZA el mismo comando y el motor usara el suplente"
         if _mod:
-            _mod.marcar(modelo, " ".join(str(e) for e in errores) + str(res.get("error", "")))
+            _mod.marcar(modelo, _err)
+        # 18-11: la cuota se acabo al arrancar (0 tokens): se repite SOLO, primero con la otra cuenta, luego con el suplente (tope 3)
+        if _mod and not tokens_total and not previo and a.nivel:
+            _saltos = int(os.environ.get("AGY_SALTOS", "0"))
+            _otra = _cuentas.otra_de(cuenta) if (_cuentas and cuenta) else ""
+            _sig = _mod.elegir(a.nivel)
+            if _otra and _mod.elegir_en(a.nivel, _otra) and not os.environ.get("AGY_CUENTA_FORZADA") and _saltos < 3:
+                print(f"[cuentas de agy: la cuenta {cuenta} no tiene cuota para {a.nivel}; se repite con la cuenta {_otra}]", file=sys.stderr)
+                raise SystemExit(subprocess.run([sys.executable, os.path.abspath(__file__)] + sys.argv[1:],
+                                                env=dict(os.environ, AGY_CUENTA_FORZADA=_otra, AGY_CUENTA_CONSULTA=_otra,
+                                                         AGY_SALTOS=str(_saltos + 1))).returncode)
+            if _sig and _sig != modelo and _saltos < 3:
+                print(f"[escalera de modelos: {modelo} sin cuota (anotado); se repite con {_sig}]", file=sys.stderr)
+                raise SystemExit(subprocess.run([sys.executable, os.path.abspath(__file__)] + sys.argv[1:],
+                                                env=dict(os.environ, AGY_SALTOS=str(_saltos + 1))).returncode)
     estado += "".join(" | " + x for x in verificar_entrega(carpeta, pedido, res, modelo, suf))
     vueltas = list((previo or {}).get("vueltas") or [])
     if previo:
         vueltas.append({"id": rid, "estado_agy": estado, "minutos": minutos, "errores_agy": errores})
-    entrega = {"id": a.seguir or rid, "estado_agy": estado, "reintento": reintento, "errores_agy": errores, "modelo": modelo,
+    entrega = {"id": a.seguir or rid, "estado_agy": estado, "reintento": reintento, "errores_agy": errores, "modelo": modelo, "cuenta": cuenta, "nivel": a.nivel or (previo or {}).get("nivel", ""),
                "minutos": minutos, "tokens_agy": tokens_total, "archivos_cambiados": cambiados,
                "controles": [s.splitlines()[0] + " " + s.splitlines()[1] for s in salidas],
                "revisar": ["DIFF.txt", "CONTROLES.txt", "ENTREGA_AGY.md (en repo/)"],
