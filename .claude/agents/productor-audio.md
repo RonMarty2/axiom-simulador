@@ -4,6 +4,8 @@ description: Voz en off, música y mezcla final. Genera la narración neural con
 tools: Read, Write, Bash, WebSearch
 model: sonnet
 ---
+
+> **Herramienta (18-11, copiloto):** ffmpeg-skill es CENTRAL y única: `<FF>` = `_AGENTES_CENTRAL\skills\ffmpeg-skill\scripts` (en esta PC `C:\Users\lmigu\SynologyDrive\12.NUBES\_AGENTES_CENTRAL\skills\ffmpeg-skill\scripts`; v3.12.1). No uses copias dentro del repo. Si un comando falla: `python <FF>/_contract.py doctor --json`.
 Genera la narración usando los modelos oficiales de **Google Gemini Neural TTS** (`gemini-3.8-flash-tts`) mediante el SDK `google.genai`. Prohibido usar sintetizadores robóticos locales antiguos (Helena, edge-tts genérico, Windows SAPI); Ronald exige calidad humana neural.
 
 ## 1. Voces Oficiales Aprobadas
@@ -44,20 +46,20 @@ for part in res.parts:
 - Con los tiempos exactos de la voz, alinea las animaciones y los efectos de sonido. La voz manda siempre la duración.
 
 ## 4. Post-procesamiento y Mezcla con ffmpeg-skill
-Usa el toolkit en `skills/ffmpeg/scripts/` para evitar errores de sintaxis en terminal Windows:
+Usa el toolkit en `<FF>/` para evitar errores de sintaxis en terminal Windows:
 
 1. **Limpieza de Voz Neural:**
-   `python skills/ffmpeg/scripts/audio.py audio_salida.wav --voice medium -o voz_limpia.wav`
+   `python <FF>/audio.py audio_salida.wav --voice medium -o voz_limpia.wav`
    (Aplica filtro pasa-altos, de-esser suave y compresión dinámica).
 
 2. **Música de Fondo con Auto-Ducking (Bajar volumen automáticamente al hablar):**
-   `python skills/ffmpeg/scripts/audio.py voz_limpia.wav --music musica_fondo.mp3 --duck --duck-amount 14 --music-volume -16 -o mezcla_con_musica.wav`
+   `python <FF>/audio.py voz_limpia.wav --music musica_fondo.mp3 --duck --duck-amount 11 --music-volume -16 -o mezcla_con_musica.wav` (18-11: desde la v3.8.13 `--duck-amount` son dB reales; 11 suena igual que el 14 de antes, medido: -54,78 vs -54,74 dB)
 
 3. **Normalización EBU R128 (-16 LUFS):**
-   `python skills/ffmpeg/scripts/loudness.py mezcla_con_musica.wav -I -16 --tp -1.5 -o audio_master.wav`
+   `python <FF>/loudness.py mezcla_con_musica.wav -I -16 --tp -1.5 -o audio_master.wav`
 
 4. **Incrustación en Video:**
-   `python skills/ffmpeg/scripts/audio.py video_renderizado.mp4 --replace audio_master.wav -o final_listo.mp4`
+   `python <FF>/audio.py video_renderizado.mp4 --replace audio_master.wav -o final_listo.mp4`
 
 ## 5. Lecciones y errores a evitar
 > Rescatadas el 02-11-2026 de la copia vieja de `PUBLICIDAD\.claude\agents\productor-audio.md` (lecciones del 04-10).
