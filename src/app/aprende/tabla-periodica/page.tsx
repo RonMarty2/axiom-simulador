@@ -134,7 +134,7 @@ function EscHistoriaClasificacion() {
             Comportamiento intermedio · Semiconductores eléctricos
           </text>
           <text x={24} y={240} fill={LIENZO.fgDim} fontSize={13}>
-            Elementos: B, Si, Ge, As, Sb, Te y Po (At)
+            Elementos: B, Si, Ge, As, Sb, Te y Po
           </text>
 
           {/* 4. Gases nobles */}

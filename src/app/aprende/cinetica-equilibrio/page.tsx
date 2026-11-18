@@ -181,7 +181,7 @@ function EscVelocidadFactores() {
             activación, recuperándose intactas al final:
             <ul style={{ margin: "4px 0 0 18px", padding: 0, fontSize: 14 }}>
               <li>
-                <strong>Catalizador positivo (o promotor):</strong> disminuye{" "}
+                <strong>Catalizador positivo:</strong> disminuye{" "}
                 <em>Eₐ</em> y aumenta la velocidad (ej. hierro en el proceso
                 Haber, V₂O₅ en el proceso de contacto o enzimas biológicas).
               </li>

@@ -46,8 +46,8 @@ function EscCarbono() {
 
       <Definicion termino="Composición y diferencia entre compuestos orgánicos e inorgánicos">
         La <strong>química del carbono (química orgánica)</strong> estudia los
-        compuestos que contienen carbono con enlaces covalentes carbono-carbono
-        y carbono-hidrógeno (con excepción de óxidos simples como CO y CO₂,
+        compuestos que contienen carbono con enlaces covalentes (casi siempre
+        carbono-carbono y carbono-hidrógeno) (con excepción de óxidos simples como CO y CO₂,
         ácido carbónico, carbonatos, bicarbonatos y cianuros metálicos, que se
         estudian como inorgánicos).
         <ul style={{ margin: "6px 0 0 18px", padding: 0, fontSize: 15 }}>
@@ -243,11 +243,11 @@ function EscCarbono() {
           {/* 4. Desarrollada y 5. Topologica */}
           <rect x={14} y={178} width={196} height={124} rx={8} fill={LIENZO.bgSoft} stroke={LIENZO.fgFaint} strokeWidth={1.4} />
           <text x={112} y={198} textAnchor="middle" fill={LIENZO.warn} fontSize={13} fontWeight={700}>4. Desarrollada</text>
-          <text x={112} y={222} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>H   H   H   H</text>
-          <text x={112} y={238} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>|   |   |   |</text>
+          <text x={112} y={222} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} style={{ whiteSpace: "pre" }}>H   H   H   H</text>
+          <text x={112} y={238} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} style={{ whiteSpace: "pre" }}>|   |   |   |</text>
           <text x={112} y={255} textAnchor="middle" fill={LIENZO.fg} fontSize={14} fontWeight={700}>H—C—C—C—C—H</text>
-          <text x={112} y={272} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>|   |   |   |</text>
-          <text x={112} y={290} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>H   H   H   H</text>
+          <text x={112} y={272} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} style={{ whiteSpace: "pre" }}>|   |   |   |</text>
+          <text x={112} y={290} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13} style={{ whiteSpace: "pre" }}>H   H   H   H</text>
 
           <rect x={220} y={178} width={126} height={124} rx={8} fill={LIENZO.bgSoft} stroke={LIENZO.fgFaint} strokeWidth={1.4} />
           <text x={283} y={198} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>5. Topológica</text>
@@ -427,15 +427,17 @@ function EscHidrocarburos() {
           <text x={180} y={54} textAnchor="middle" fill={LIENZO.ok} fontSize={14} fontWeight={700}>
             Alcano ramificado: 2-metilpentano
           </text>
-          <text x={180} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
-            1        2       3       4       5
-          </text>
+          <text x={86} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>1</text>
+          <text x={131} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>2</text>
+          <text x={177} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>3</text>
+          <text x={225} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>4</text>
+          <text x={274} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>5</text>
           <text x={180} y={96} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             CH₃ — CH — CH₂ — CH₂ — CH₃
           </text>
-          <line x1={122} x2={122} y1={102} y2={118} stroke={LIENZO.ok} strokeWidth={2} />
-          <rect x={96} y={120} width={52} height={24} rx={5} fill={LIENZO.ok} opacity={0.18} stroke={LIENZO.ok} strokeWidth={1.4} />
-          <text x={122} y={137} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>CH₃</text>
+          <line x1={131} x2={131} y1={102} y2={118} stroke={LIENZO.ok} strokeWidth={2} />
+          <rect x={105} y={120} width={52} height={24} rx={5} fill={LIENZO.ok} opacity={0.18} stroke={LIENZO.ok} strokeWidth={1.4} />
+          <text x={131} y={137} textAnchor="middle" fill={LIENZO.ok} fontSize={13} fontWeight={700}>CH₃</text>
           <text x={242} y={136} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
             Radical metil en C-2
           </text>
@@ -445,15 +447,17 @@ function EscHidrocarburos() {
           <text x={180} y={194} textAnchor="middle" fill={LIENZO.accent} fontSize={14} fontWeight={700}>
             Alqueno ramificado: 4-metil-2-penteno
           </text>
-          <text x={180} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
-            1        2      3       4       5
-          </text>
+          <text x={94} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>1</text>
+          <text x={139} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>2</text>
+          <text x={178} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>3</text>
+          <text x={221} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>4</text>
+          <text x={266} y={216} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>5</text>
           <text x={180} y={236} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             CH₃ — CH = CH — CH — CH₃
           </text>
-          <line x1={236} x2={236} y1={242} y2={258} stroke={LIENZO.accent} strokeWidth={2} />
-          <rect x={210} y={260} width={52} height={24} rx={5} fill={LIENZO.accent} opacity={0.18} stroke={LIENZO.accent} strokeWidth={1.4} />
-          <text x={236} y={277} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>CH₃</text>
+          <line x1={221} x2={221} y1={242} y2={258} stroke={LIENZO.accent} strokeWidth={2} />
+          <rect x={195} y={260} width={52} height={24} rx={5} fill={LIENZO.accent} opacity={0.18} stroke={LIENZO.accent} strokeWidth={1.4} />
+          <text x={221} y={277} textAnchor="middle" fill={LIENZO.accent} fontSize={13} fontWeight={700}>CH₃</text>
           <text x={112} y={276} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
             Manda el C=C (en C-2)
           </text>
@@ -655,9 +659,9 @@ function EscOxigenadas() {
           <text x={180} y={56} textAnchor="middle" fill={LIENZO.accent} fontSize={14} fontWeight={700}>
             Ácido carboxílico · Grupo —COOH · Ácido ...-oico
           </text>
-          <text x={180} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>
-            3        2        1
-          </text>
+          <text x={123} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>3</text>
+          <text x={172} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>2</text>
+          <text x={229} y={76} textAnchor="middle" fill={LIENZO.fgDim} fontSize={13}>1</text>
           <text x={180} y={98} textAnchor="middle" fill={LIENZO.fg} fontSize={15} fontWeight={700}>
             CH₃ — CH₂ — COOH
           </text>
@@ -941,7 +945,7 @@ function EscEjerciciosBanco() {
             C = 4,65 / 2,325 = <strong>2</strong>; H = 6,97 / 2,325 ={" "}
             <strong>3</strong>; O = 2,325 / 2,325 = <strong>1</strong>. La
             fórmula empírica es <strong>C₂H₃O</strong>, cuya masa empírica es
-            2(12) + 3(1) + 16 = <strong>43,05 g/mol</strong>.
+            2(12,011) + 3(1,008) + 16,00 = <strong>43,05 g/mol</strong>.
           </li>
           <li>
             <strong>Paso 5 · Factor multiplicador (k) y fórmula molecular:</strong>{" "}
@@ -1181,7 +1185,7 @@ function EscPractica() {
           "C₅H₆",
         ]}
         correctaIdx={1}
-        explicacion="Paso 1 · La fórmula general de los alquenos acíclicos (con un doble enlace) es CₙH₂ₙ. Paso 2 · Para n = 5: C₅H₂₍₅₎ = C₅H₁₀. Verificación: el pentano (C₅H₁₂) pierde 2 átomos de H al formar un doble enlace. Respuesta: B."
+        explicacion="Paso 1 · La fórmula general de los alquenos acíclicos (con un doble enlace) es CₙH₂ₙ. Paso 2 · Para n = 5: C₅H₂₍₅₎ = C₅H₁₀. Verificación: el pentano (C₅H₁₂) pierde 2 átomos de H al formar un doble enlace. Respuesta: C₅H₁₀."
       />
 
       <AutoCheck
@@ -1229,7 +1233,7 @@ function EscPractica() {
           "C₆H₇N",
         ]}
         correctaIdx={3}
-        explicacion="Paso 1 · Masa de C = 8,52 × (12/44) = 2,324 mg (0,1936 mmol); masa de H = 2,03 × (2/18) = 0,226 mg (0,226 mmol). Paso 2 · Masa de N = 3 − 2,324 − 0,226 = 0,451 mg (0,451/14 = 0,0322 mmol). Paso 3 · Dividiendo entre 0,0322 mmol resulta C = 6, H = 7, N = 1 → C₆H₇N. Respuesta: C₆H₇N."
+        explicacion="Paso 1 · Masa de C = 8,52 × (12/44) = 2,324 mg (0,1936 mmol); masa de H = 2,03 × (2/18) = 0,226 mg (0,226 mmol). Paso 2 · Masa de N = 3 − 2,3236 − 0,2256 ≈ 0,451 mg (0,451/14 = 0,0322 mmol). Paso 3 · Dividiendo entre 0,0322 mmol resulta C = 6, H = 7, N = 1 → C₆H₇N. Respuesta: C₆H₇N."
       />
     </EscenaRica>
   );
