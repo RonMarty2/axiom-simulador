@@ -1,317 +1,317 @@
 [
   {
     "j": 1,
-    "accion": "REUSAR",
-    "origen": "parte_001.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "CAPÍTULO cinco Macrotransporte a través de la membrana plasm"
   },
   {
     "j": 2,
-    "accion": "REUSAR",
-    "origen": "parte_002.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Introducción En el capítulo anterior se han estudiado aquell"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "estudiado aquellos mecanismos de transporte a través de la m"
   },
   {
     "j": 3,
-    "accion": "REUSAR",
-    "origen": "parte_003.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas pérdidas de membrana son compensadas mediante procesos"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "pérdida de porciones de membrana que son incorporadas al int"
   },
   {
     "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "celular se fusionan con la membrana plasmática, vertiéndose "
+  },
+  {
+    "j": 5,
     "accion": "REUSAR",
     "origen": "parte_004.wav",
     "motivo": "texto identico",
     "texto_inicio": "Como detallaremos más adelante, muchos microorganismos patóg"
   },
   {
-    "j": 5,
+    "j": 6,
     "accion": "REUSAR",
     "origen": "parte_005.wav",
     "motivo": "texto identico",
     "texto_inicio": "Endocitosis El proceso por el cual las células captan e inte"
   },
   {
-    "j": 6,
-    "accion": "REUSAR",
-    "origen": "parte_006.wav",
-    "motivo": "texto identico",
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El primero se denomina pinocitosis, y consiste en la ingesti"
   },
   {
-    "j": 7,
-    "accion": "REUSAR",
-    "origen": "parte_007.wav",
-    "motivo": "texto identico",
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En la imagen central se observa una depresión revestida en f"
   },
   {
-    "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Mediante la pinocitosis, se incorporan al citoplasma tanto f"
-  },
-  {
     "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta clasificación de la endocitosis es, probablemente, una "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se pueden considerar tres tipos de pinocitosis: un la mediad"
   },
   {
     "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La endocitosis es un campo en el que se está llevando a cabo"
+  },
+  {
+    "j": 11,
     "accion": "REUSAR",
     "origen": "parte_010.wav",
     "motivo": "texto identico",
     "texto_inicio": "El tipo más conocido de pinocitosis es la endocitosis en ves"
   },
   {
-    "j": 11,
+    "j": 12,
     "accion": "REUSAR",
     "origen": "parte_011.wav",
     "motivo": "texto identico",
     "texto_inicio": "Sin embargo, cada vez hay más datos que muestran que la endo"
   },
   {
-    "j": 12,
+    "j": 13,
     "accion": "REUSAR",
     "origen": "parte_012.wav",
     "motivo": "texto identico",
     "texto_inicio": "Los mecanismos moleculares de este tipo de endocitosis son b"
   },
   {
-    "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Se han descrito numerosas moléculas que entran en la célula "
   },
   {
-    "j": 14,
-    "accion": "REUSAR",
-    "origen": "parte_014.wav",
-    "motivo": "texto identico",
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El colesterol es una molécula esencial para la síntesis de m"
   },
   {
-    "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras producirse la endocitosis de las vesículas de clatrina "
-  },
-  {
     "j": 16,
-    "accion": "REUSAR",
-    "origen": "parte_016.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA cinco a dos Molécula de LDL. Estas moléculas, de form"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras producirse la endocitosis de las vesículas de clatrina,"
   },
   {
     "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras la internalización de la vesícula recubierta de clatrin"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a dos Molécula de L D L. Estas moléculas, de fo"
   },
   {
     "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Maldonado., Cuando las células no pueden captar colesterol, "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la internalización de la vesícula recubierta de clatrin"
   },
   {
     "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando las células no pueden captar colesterol, este se acum"
+  },
+  {
+    "j": 20,
     "accion": "REUSAR",
     "origen": "parte_019.wav",
     "motivo": "texto identico",
     "texto_inicio": "Estas altas concentraciones provocan que el colesterol se de"
   },
   {
-    "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "pacientes antes de alcanzar los veinte años de edad. Esta en"
   },
   {
-    "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esquema de los receptores normales de LDL, que se unen a la "
-  },
-  {
     "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Imagen macroscópica de la sección transversal de una arteria"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esquema de los receptores normales de L D L, que se unen a l"
   },
   {
     "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "trescientos setenta y dos, Issue nueve mil seiscientos cuare"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Imagen macroscópica de la sección transversal de una arteria"
   },
   {
     "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las manifestaciones clínicas de la enfermedad incluyen atero"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dicho aumento se debe a que los bajos niveles citoplasmático"
   },
   {
     "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Muchos receptores transmembrana de la membrana plasmática, e"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El conocimiento de los mecanismos de la hipercolesterolemia "
   },
   {
     "j": 26,
-    "accion": "REUSAR",
-    "origen": "parte_026.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Una vez que las moléculas de LDL se han unido a sus receptor"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Uno de estos péptidos está constituido únicamente por cuatro"
   },
   {
     "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_027.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Modelo molecular de las estructuras primaria y secundaria de"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que las moléculas de L D L se han unido a sus recept"
   },
   {
     "j": 28,
-    "accion": "REUSAR",
-    "origen": "parte_028.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De entre ellas, la más importante es el complejo adaptina, q"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Modelo molecular de las estructuras primaria y secundaria de"
   },
   {
     "j": 29,
-    "accion": "REUSAR",
-    "origen": "parte_029.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La adaptina se une a los trisqueliones de clatrina y a los r"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La formación de la depresión revestida está facilitada por e"
   },
   {
     "j": 30,
-    "accion": "REUSAR",
-    "origen": "parte_030.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para que la vesícula se pueda separar de la membrana plasmát"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para la separación de la vesícula, se requiere la participac"
   },
   {
     "j": 31,
-    "accion": "REUSAR",
-    "origen": "parte_031.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se cree que la dinamina distorsiona la estructura de la bica"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que la vesícula se pueda separar de la membrana plasmát"
   },
   {
     "j": 32,
-    "accion": "REUSAR",
-    "origen": "parte_032.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El proceso de endocitosis en vesículas recubiertas por clatr"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez se ha separado la vesícula, la cubierta de clatrina "
   },
   {
     "j": 33,
-    "accion": "REUSAR",
-    "origen": "parte_033.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "D. También se muestra una vesícula internalizada que aún no "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la secuencia de imágenes se puede ver cómo el material de"
   },
   {
     "j": 34,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_034.wav)",
-    "texto_inicio": "Estos orgánulos son intermediarios del proceso endocítico y "
+    "motivo": "nuevo",
+    "texto_inicio": "El endosoma es un orgánulo constituido por túbulos y vesícul"
   },
   {
     "j": 35,
-    "accion": "REUSAR",
-    "origen": "parte_035.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA cinco a ocho Participación del endosoma en la endocit"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos orgánulos muestran un ambiente ácido gracias a las bom"
   },
   {
     "j": 36,
-    "accion": "REUSAR",
-    "origen": "parte_036.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El tráfico de vesículas entre el Golgi y el endosoma está me"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a ocho Participación del endosoma en la endocit"
   },
   {
     "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El tráfico de vesículas entre el Golgi y el endosoma está me"
+  },
+  {
+    "j": 38,
     "accion": "REUSAR",
     "origen": "parte_037.wav",
     "motivo": "texto identico",
     "texto_inicio": "Los receptores pueden entonces ser devueltos a la membrana m"
   },
   {
-    "j": 38,
-    "accion": "REUSAR",
-    "origen": "parte_038.wav",
-    "motivo": "texto identico",
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Se cree que fragmentos de los endosomas tempranos migran, ac"
   },
   {
-    "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Al final, los endosomas tardíos se fusionan con vesículas ca"
   },
   {
-    "j": 40,
-    "accion": "REUSAR",
-    "origen": "parte_040.wav",
-    "motivo": "texto identico",
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a nueve Imagen de microscopía electrónica de tr"
   },
   {
-    "j": 41,
-    "accion": "REUSAR",
-    "origen": "parte_041.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por lo tanto, los receptores que participan en la endocitosi"
-  },
-  {
     "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a diez Posibles destinos para los receptores en"
   },
   {
     "j": 43,
-    "accion": "REUSAR",
-    "origen": "parte_043.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando la LDL se disocia en el endosoma temprano, los recept"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando la L D L se disocia en el endosoma temprano, los rece"
   },
   {
     "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De esta manera, la apotransferrina , transferrina no unida a"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De esta manera, la apotransferrina, transferrina no unida a "
   },
   {
     "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Estos receptores solo se acumulan en las depresiones revesti"
   },
   {
@@ -330,9 +330,9 @@
   },
   {
     "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La membrana de las cavéolas es parecida a la que presentan l"
   },
   {
@@ -344,30 +344,30 @@
   },
   {
     "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a once A. Esquema donde se representa el mecani"
   },
   {
     "j": 51,
-    "accion": "REUSAR",
-    "origen": "parte_051.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los heptámeros se transportan al Golgi, donde se desfosforil"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "donde se desfosforilan. En la red Trans del Golgi, la membra"
   },
   {
     "j": 52,
-    "accion": "REUSAR",
-    "origen": "parte_052.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En el proceso de invaginación y estrangulación de la cavéola"
   },
   {
     "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El gen que codifica para la caveolina-tres se encuentra en e"
   },
   {
@@ -379,16 +379,16 @@
   },
   {
     "j": 55,
-    "accion": "REUSAR",
-    "origen": "parte_055.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Entre las manifestaciones clínicas de esta afección se inclu"
   },
   {
     "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Esta patología se caracteriza por contracciones musculares i"
   },
   {
@@ -400,713 +400,692 @@
   },
   {
     "j": 58,
-    "accion": "REUSAR",
-    "origen": "parte_058.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El SV40 se une a su receptor de membrana , se cree que lo ha"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El SV40 se une a su receptor de membrana, se cree que lo hac"
   },
   {
     "j": 59,
-    "accion": "REUSAR",
-    "origen": "parte_059.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Los niveles de expresión de caveolina-un se relacionan direc"
   },
   {
     "j": 60,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (mu; antes parte_060.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "Estos datos sugieren que las cavéolas son el principal sitio"
   },
   {
     "j": 61,
-    "accion": "REUSAR",
-    "origen": "parte_061.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El tipo celular en el que más se ha estudiado esta forma de "
   },
   {
     "j": 62,
-    "accion": "REUSAR",
-    "origen": "parte_062.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a doce Imagen de microscopía electrónica que mu"
   },
   {
     "j": 63,
-    "accion": "REUSAR",
-    "origen": "parte_063.wav",
-    "motivo": "texto identico",
-    "texto_inicio": ", Reproducida de Grimmer, S. et al. Jounal of Cell Science c"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Actualmente, se están estudiando otras funciones de la macro"
   },
   {
     "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "cinco a doce, que son agentes que activan la proteína quinas"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En los mamíferos hay tres tipos celulares con capacidad fago"
   },
   {
     "j": 65,
-    "accion": "REUSAR",
-    "origen": "parte_065.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Además, los macrófagos desempeñan una función muy importante"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a trece Imagen de microscopía electrónica de tr"
   },
   {
     "j": 66,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (mu; antes parte_066.wav)",
-    "texto_inicio": "FIGURA cinco a trece Imagen de microscopía electrónica de tr"
+    "motivo": "nuevo",
+    "texto_inicio": "Las membranas de los seudópodos terminan por confluir y fusi"
   },
   {
     "j": 67,
-    "accion": "REUSAR",
-    "origen": "parte_067.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto provoca que la célula emita unas extensiones citoplasmá"
-  },
-  {
-    "j": 68,
-    "accion": "REUSAR",
-    "origen": "parte_068.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las moléculas que activan la fagocitosis se denominan opsoni"
-  },
-  {
-    "j": 69,
     "accion": "REUSAR",
     "origen": "parte_069.wav",
     "motivo": "texto identico",
     "texto_inicio": "En el caso de la fosfatidilserina, las células que están en "
   },
   {
-    "j": 70,
+    "j": 68,
     "accion": "REUSAR",
     "origen": "parte_070.wav",
     "motivo": "texto identico",
     "texto_inicio": "FIGURA cinco a catorce Proceso de fagocitosis por parte de u"
   },
   {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Las enzimas lisosómicas matan y digieren al microorganismo f"
   },
   {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Antes de que se produzca la fusión de los lisosomas, hay mol"
   },
   {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA cinco a quince Cuerpo residual , flecha, en el interi"
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El cuerpo residual es la última estación en la ruta de diges"
   },
   {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a dieciséis Corte histológico de mama que muest"
   },
   {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Transcitosis Como se ha comentado con anterioridad, la trans"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por este motivo, el calostro contiene inmunoglobulinas del t"
+  },
+  {
     "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los restos de macrófagos y neutrófilos necrosados forman ent"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El pe hache neutro del fluido extracelular provoca que la Ig"
   },
   {
     "j": 76,
-    "accion": "REUSAR",
-    "origen": "parte_076.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En los recién nacidos, el sistema inmunitario no está aún de"
-  },
-  {
-    "j": 77,
-    "accion": "REUSAR",
-    "origen": "parte_077.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De los endosomas, parten vesículas de transporte exocíticas "
-  },
-  {
-    "j": 78,
-    "accion": "REUSAR",
-    "origen": "parte_078.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA cinco a diecisiete Transcitosis. El dibujo de la izqu"
-  },
-  {
-    "j": 79,
-    "accion": "REUSAR",
-    "origen": "parte_079.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Durante el embarazo, con el desarrollo de las glándulas mama"
   },
   {
-    "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este mismo proceso ocurre en otros epitelios, como el de las"
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, sin duda, el proceso de transcitosis más importante es"
   },
   {
-    "j": 81,
-    "accion": "REUSAR",
-    "origen": "parte_081.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El transporte de macromoléculas en uno y otro sentido se rea"
-  },
-  {
-    "j": 82,
+    "j": 78,
     "accion": "REUSAR",
     "origen": "parte_082.wav",
     "motivo": "texto identico",
     "texto_inicio": "Exocitosis La exocitosis constituye el proceso de fusión de "
   },
   {
-    "j": 83,
-    "accion": "REUSAR",
-    "origen": "parte_083.wav",
-    "motivo": "texto identico",
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Por su parte, la exocitosis regulada es propia de células es"
   },
   {
-    "j": 84,
+    "j": 80,
     "accion": "REUSAR",
     "origen": "parte_084.wav",
     "motivo": "texto identico",
     "texto_inicio": "Exocitosis constitutiva La exocitosis constitutiva es la rut"
   },
   {
-    "j": 85,
+    "j": 81,
     "accion": "REUSAR",
     "origen": "parte_085.wav",
     "motivo": "texto identico",
     "texto_inicio": "Entre las moléculas que salen al medio extracelular por esta"
   },
   {
-    "j": 86,
+    "j": 82,
     "accion": "REUSAR",
     "origen": "parte_086.wav",
     "motivo": "texto identico",
     "texto_inicio": "Cuando las vesículas de secreción se unen con la membrana pl"
   },
   {
-    "j": 87,
+    "j": 83,
     "accion": "REUSAR",
     "origen": "parte_087.wav",
     "motivo": "texto identico",
     "texto_inicio": "Las sustancias que se secretan son sintetizadas previamente "
   },
   {
-    "j": 88,
-    "accion": "REUSAR",
-    "origen": "parte_088.wav",
-    "motivo": "texto identico",
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Gemación y fusión de vesículas en los procesos de endocitosi"
   },
   {
-    "j": 89,
-    "accion": "REUSAR",
-    "origen": "parte_089.wav",
-    "motivo": "texto identico",
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Hay que tener en cuenta, no obstante, que las proteínas que "
   },
   {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El recubrimiento de C O P I I participa en el transporte de "
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "poco después de ocurrir la gemación de la vesícula, los coat"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas son activas cuando llevan G T P unido, mient"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Nos centraremos, a modo de ejemplo, en la formación de vesíc"
+  },
+  {
     "j": 90,
-    "accion": "REUSAR",
-    "origen": "parte_090.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las vesículas que contienen COPI viajan a través de los saco"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La A R F-G T P recluta y une proteínas adaptadoras que comie"
   },
   {
     "j": 91,
-    "accion": "REUSAR",
-    "origen": "parte_091.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En cuanto a las proteínas GTPasas monoméricas, intervienen d"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se piensa que este proceso de gemación y formación de la cub"
   },
   {
     "j": 92,
-    "accion": "REUSAR",
-    "origen": "parte_092.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para pasar del estado inactivo al activo se requiere de la a"
-  },
-  {
-    "j": 93,
-    "accion": "REUSAR",
-    "origen": "parte_093.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En condiciones basales, antes de que comience el proceso de "
-  },
-  {
-    "j": 94,
-    "accion": "REUSAR",
-    "origen": "parte_094.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ensamblaje de la clatrina sobre las proteínas adaptadoras"
-  },
-  {
-    "j": 95,
     "accion": "REUSAR",
     "origen": "parte_095.wav",
     "motivo": "texto identico",
     "texto_inicio": "ocurrir también en la endocitosis mediada por receptor que t"
   },
   {
-    "j": 96,
-    "accion": "REUSAR",
-    "origen": "parte_096.wav",
-    "motivo": "texto identico",
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Existen dos familias de proteínas responsables del reconocim"
   },
   {
-    "j": 97,
-    "accion": "REUSAR",
-    "origen": "parte_097.wav",
-    "motivo": "texto identico",
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Esto inicia el proceso de reclutamiento de proteínas adaptad"
   },
   {
-    "j": 98,
-    "accion": "REUSAR",
-    "origen": "parte_098.wav",
-    "motivo": "texto identico",
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En su dominio citoplasmático presentan una estructura helico"
   },
   {
-    "j": 99,
-    "accion": "REUSAR",
-    "origen": "parte_099.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En este estado, la proteína se puede unir a otras , los efec"
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este estado, la proteína se puede unir a otras, los efect"
   },
   {
-    "j": 100,
-    "accion": "REUSAR",
-    "origen": "parte_100.wav",
-    "motivo": "texto identico",
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA cinco a veinte Mecanismo propuesto para el trasvase d"
   },
   {
-    "j": 101,
-    "accion": "REUSAR",
-    "origen": "parte_101.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras la fusión de membranas, el GTP se hidroliza a GDP y Rab"
-  },
-  {
-    "j": 102,
+    "j": 98,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_102.wav)",
-    "texto_inicio": "Tras el anclaje, y ante el estímulo adecuado , un incremento"
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que la vesícula llega a la membrana diana, Rab inter"
   },
   {
-    "j": 103,
-    "accion": "REUSAR",
-    "origen": "parte_103.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "También se cree que el enrollamiento de las hélices de las S"
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que dicha fusión se lleve a cabo, las membranas han de "
   },
   {
-    "j": 104,
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, antes de la fusión, es necesario desplazar las molécul"
+  },
+  {
+    "j": 101,
     "accion": "REUSAR",
     "origen": "parte_104.wav",
     "motivo": "texto identico",
     "texto_inicio": "Exocitosis y endocitosis en la sinapsis neuronal El ejemplo "
   },
   {
-    "j": 105,
-    "accion": "REUSAR",
-    "origen": "parte_105.wav",
-    "motivo": "texto identico",
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El espacio que separa la célula presináptica de la postsináp"
   },
   {
-    "j": 106,
+    "j": 103,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_106.wav)",
-    "texto_inicio": "El carácter excitador o inhibidor viene dado por el receptor"
+    "motivo": "nuevo",
+    "texto_inicio": "carácter excitador o inhibidor viene dado por el receptor al"
   },
   {
-    "j": 107,
+    "j": 104,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_107.wav)",
-    "texto_inicio": "Por su parte, los canales permeables para el K+ o el Cl– inh"
+    "motivo": "nuevo",
+    "texto_inicio": "Por su parte, los canales permeables para el potasio o el cl"
   },
   {
-    "j": 108,
+    "j": 105,
     "accion": "REUSAR",
     "origen": "parte_108.wav",
     "motivo": "texto identico",
     "texto_inicio": "Estos receptores están formados por una proteína de siete do"
   },
   {
-    "j": 109,
-    "accion": "REUSAR",
-    "origen": "parte_109.wav",
-    "motivo": "texto identico",
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En su interior podemos distinguir abundantes mitocondrias y "
   },
   {
-    "j": 110,
-    "accion": "REUSAR",
-    "origen": "parte_110.wav",
-    "motivo": "texto identico",
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "una repetida liberación de vesículas sinápticas. Cabe pensar"
   },
   {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el botón presináptico, B, se aprecian varias mitocondrias"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esquema que muestra el proceso molecular propuesto para la f"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Posteriormente, estos componentes son endocitados, mediante "
+  },
+  {
     "j": 111,
-    "accion": "REUSAR",
-    "origen": "parte_111.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el botón presináptico , B, se aprecian varias mitocondria"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aquí resulta clave el papel de las mitocondrias del botón te"
   },
   {
     "j": 112,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (mu; antes parte_112.wav)",
-    "texto_inicio": ", A y B, procedentes de: SynapseWeb, Harris KM: C, ilustraci"
+    "motivo": "nuevo",
+    "texto_inicio": ". Algunas vesículas están ancladas a la membrana gracias a l"
   },
   {
     "j": 113,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_113.wav)",
-    "texto_inicio": "Posteriormente, estos componentes son endocitados , mediante"
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando este se une, se pone en marcha toda la maquinaria que"
   },
   {
     "j": 114,
-    "accion": "REUSAR",
-    "origen": "parte_114.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aquí resulta clave el papel de las mitocondrias del botón te"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a veintitrés Esquema de la maquinaria exocítica"
   },
   {
     "j": 115,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_115.wav)",
-    "texto_inicio": ", figs. cinco a veintidós y cinco a veintitrés,. Algunas ves"
+    "motivo": "nuevo",
+    "texto_inicio": "Para que la liberación del neurotransmisor se lleve a cabo, "
   },
   {
     "j": 116,
-    "accion": "REUSAR",
-    "origen": "parte_116.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando este se une, se pone en marcha toda la maquinaria que"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la primera se produce una aproximación, un, de la vesícul"
   },
   {
     "j": 117,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_117.wav)",
-    "texto_inicio": "FIGURA cinco a veintitrés Esquema de la maquinaria exocítica"
+    "motivo": "nuevo",
+    "texto_inicio": "Por otro lado, el calcio que ha entrado en el botón terminal"
   },
   {
     "j": 118,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_118.wav)",
-    "texto_inicio": "Maldonado y A. Calvo., Para que la liberación del neurotrans"
+    "motivo": "nuevo",
+    "texto_inicio": "El siguiente paso es la fusión de las membranas, proceso en "
   },
   {
     "j": 119,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_119.wav)",
-    "texto_inicio": "En la primera se produce una aproximación , un, de la vesícu"
+    "motivo": "nuevo",
+    "texto_inicio": "Este proceso requiere la energía proporcionada por la activi"
   },
   {
     "j": 120,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_120.wav)",
-    "texto_inicio": "Por otro lado, el Ca2+ que ha entrado en el botón terminal s"
-  },
-  {
-    "j": 121,
-    "accion": "REUSAR",
-    "origen": "parte_121.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El siguiente paso es la fusión de las membranas, proceso en "
-  },
-  {
-    "j": 122,
-    "accion": "REUSAR",
-    "origen": "parte_122.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La actividad de este complejo permite separar , cinco, de nu"
-  },
-  {
-    "j": 123,
     "accion": "REUSAR",
     "origen": "parte_123.wav",
     "motivo": "texto identico",
     "texto_inicio": "Sin embargo, el proceso de endocitosis es mucho más lento qu"
   },
   {
-    "j": 124,
+    "j": 121,
     "accion": "REUSAR",
     "origen": "parte_124.wav",
     "motivo": "texto identico",
     "texto_inicio": "Esta teoría defiende que, durante la exocitosis, la membrana"
   },
   {
-    "j": 125,
+    "j": 122,
     "accion": "REUSAR",
     "origen": "parte_125.wav",
     "motivo": "texto identico",
     "texto_inicio": "intercambia moléculas de neurotransmisor con protones. De es"
   },
   {
-    "j": 126,
+    "j": 123,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_126.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "La unión neuromuscular es la sinapsis química que se produce"
   },
   {
-    "j": 127,
-    "accion": "REUSAR",
-    "origen": "parte_127.wav",
-    "motivo": "texto identico",
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Los protones han sido introducidos previamente en las vesícu"
   },
   {
-    "j": 128,
+    "j": 125,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_128.wav)",
-    "texto_inicio": "Tras dicha unión, el receptor, que es un canal para el Na+, "
+    "motivo": "nuevo",
+    "texto_inicio": "Tras dicha unión, el receptor, que es un canal para el sodio"
   },
   {
-    "j": 129,
+    "j": 126,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_129.wav)",
-    "texto_inicio": "tres, cuando el Ca2+ penetra en el terminal, la vesícula sin"
+    "motivo": "nuevo",
+    "texto_inicio": "tres, cuando el calcio penetra en el terminal, la vesícula s"
   },
   {
-    "j": 130,
-    "accion": "REUSAR",
-    "origen": "parte_130.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto se consigue mediante la actividad de una enzima, la ace"
-  },
-  {
-    "j": 131,
+    "j": 127,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_131.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "sin actividad biológica. Posteriormente, la colina es captad"
   },
   {
-    "j": 132,
+    "j": 128,
     "accion": "REUSAR",
     "origen": "parte_132.wav",
     "motivo": "texto identico",
     "texto_inicio": "Los transportadores de serotonina, dopamina y noradrenalina "
   },
   {
-    "j": 133,
+    "j": 129,
     "accion": "REUSAR",
     "origen": "parte_133.wav",
     "motivo": "texto identico",
     "texto_inicio": "Al administrar estos fármacos, los niveles de dichos neurotr"
   },
   {
-    "j": 134,
+    "j": 130,
     "accion": "REUSAR",
     "origen": "parte_134.wav",
     "motivo": "texto identico",
     "texto_inicio": "En la mayoría de los casos, está causada por la presencia de"
   },
   {
-    "j": 135,
+    "j": 131,
     "accion": "REUSAR",
     "origen": "parte_135.wav",
     "motivo": "texto identico",
     "texto_inicio": "La musculatura más frecuentemente afectada es la ocular extr"
   },
   {
-    "j": 136,
+    "j": 132,
     "accion": "REUSAR",
     "origen": "parte_136.wav",
     "motivo": "texto identico",
     "texto_inicio": "Otros tratamientos se basan en reducir la respuesta inmunita"
   },
   {
-    "j": 137,
+    "j": 133,
     "accion": "REUSAR",
     "origen": "parte_137.wav",
     "motivo": "texto identico",
     "texto_inicio": "La neurotoxina de esta bacteria está compuesta por dos subun"
   },
   {
-    "j": 138,
+    "j": 134,
     "accion": "REUSAR",
     "origen": "parte_138.wav",
     "motivo": "texto identico",
     "texto_inicio": "La enfermedad se presenta con debilidad de la musculatura in"
   },
   {
-    "j": 139,
+    "j": 135,
     "accion": "REUSAR",
     "origen": "parte_139.wav",
     "motivo": "texto identico",
     "texto_inicio": "Mecanismos de infección que dependen del macrotransporte a t"
   },
   {
-    "j": 140,
-    "accion": "REUSAR",
-    "origen": "parte_140.wav",
-    "motivo": "texto identico",
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Los patógenos, agentes causantes de enfermedades infecciosas"
   },
   {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "endocítica pasando por diversos compartimentos endosómicos y"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "al citoplasma celular. El proceso difiere según el tipo de v"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En su bicapa lipídica hay dos tipos de proteínas integrales "
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A continuación, pasa por diversos compartimentos hasta llega"
+  },
+  {
     "j": 141,
-    "accion": "REUSAR",
-    "origen": "parte_141.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras esta, los virus siguen la ruta endocítica pasando por d"
-  },
-  {
-    "j": 142,
-    "accion": "REUSAR",
-    "origen": "parte_142.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El virus de la gripe , como se explicó en el capítulo un, es"
-  },
-  {
-    "j": 143,
-    "accion": "REUSAR",
-    "origen": "parte_143.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras la unión con el receptor, el virus sufre un proceso de "
-  },
-  {
-    "j": 144,
-    "accion": "REUSAR",
-    "origen": "parte_144.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "ribonucleoproteínas a un complejo de poro nuclear y la inter"
   },
   {
-    "j": 145,
-    "accion": "REUSAR",
-    "origen": "parte_145.wav",
-    "motivo": "texto identico",
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La liberación del A R N de su cubierta proteica se produce t"
   },
   {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como se vio en el apartado Fagocitosis de este mismo capítul"
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La tuberculosis es una enfermedad que afecta de forma caract"
+  },
+  {
+    "j": 145,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la infección, los macrófagos secretan determinadas molé"
+  },
+  {
     "j": 146,
-    "accion": "REUSAR",
-    "origen": "parte_146.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las bacterias presentan un tamaño mucho mayor que el de los "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "una pared de linfocitos T, células N K y macrófagos. Las mic"
   },
   {
     "j": 147,
-    "accion": "REUSAR",
-    "origen": "parte_147.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un ejemplo clásico de bacteria intracelular es el Mycobacter"
-  },
-  {
-    "j": 148,
-    "accion": "REUSAR",
-    "origen": "parte_148.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Además, los bacilos fagocitados forman intermediarios reacti"
-  },
-  {
-    "j": 149,
-    "accion": "REUSAR",
-    "origen": "parte_149.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "una pared de linfocitos T, células NK y macrófagos. Las mico"
-  },
-  {
-    "j": 150,
     "accion": "REUSAR",
     "origen": "parte_150.wav",
     "motivo": "texto identico",
     "texto_inicio": "Cuando se ingieren dichos alimentos, la bacteria es capaz de"
   },
   {
-    "j": 151,
-    "accion": "REUSAR",
-    "origen": "parte_151.wav",
-    "motivo": "texto identico",
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "capítulo doce,; finalmente, la célula se va extendiendo alre"
   },
   {
-    "j": 152,
-    "accion": "REUSAR",
-    "origen": "parte_152.wav",
-    "motivo": "texto identico",
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El mecanismo de secreción de tipo III de algunas bacterias i"
   },
   {
-    "j": 153,
-    "accion": "REUSAR",
-    "origen": "parte_153.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El bajo pH activa la listeriolisina O , una toxina, y la fos"
+    "j": 150,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una característica llamativa de Listeria es su facultad de m"
   },
   {
-    "j": 154,
-    "accion": "REUSAR",
-    "origen": "parte_154.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De esta manera, Listeria es capaz de diseminarse por las cél"
+    "j": 151,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El otro mecanismo de invasión de células sin capacidad fagoc"
   },
   {
-    "j": 155,
+    "j": 152,
     "accion": "REUSAR",
     "origen": "parte_155.wav",
     "motivo": "texto identico",
     "texto_inicio": "la cual, la bacteria, que no se adhiere a la célula hospedad"
   },
   {
-    "j": 156,
+    "j": 153,
     "accion": "REUSAR",
     "origen": "parte_156.wav",
     "motivo": "texto identico",
     "texto_inicio": "Las bacterias, una vez engullidas, pueden replicarse dentro "
   },
   {
-    "j": 157,
+    "j": 154,
     "accion": "REUSAR",
     "origen": "parte_157.wav",
     "motivo": "texto identico",
     "texto_inicio": "Así lo hace, por ejemplo, Toxoplasma gondii, un parásito int"
   },
   {
-    "j": 158,
-    "accion": "REUSAR",
-    "origen": "parte_158.wav",
-    "motivo": "texto identico",
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "De esta forma, Toxoplasma queda alojado en el interior de la"
   },
   {
-    "j": 159,
+    "j": 156,
     "accion": "SINTETIZAR",
     "origen": null,
     "motivo": "nuevo",

@@ -522,11 +522,7 @@ def procesar_capitulo(
         else None
     )
     ruta_manifiesto = dir_cache_v2 / "manifiesto.json"
-    manifiesto_previo = (
-        _cargar_manifiesto_previo(ruta_manifiesto)
-        if textos_reextraidos is not None
-        else {}
-    )
+    manifiesto_previo = _cargar_manifiesto_previo(ruta_manifiesto)
 
     keys_pool = cargar_pool_keys(motor)
     estado_pool: dict[str, int] = {
@@ -561,6 +557,13 @@ def procesar_capitulo(
         texto_fuente_bloque: str | None = None
 
         # Determinar accion/origen/modelo logicos para este bloque
+        reg_previo = manifiesto_previo.get(j)
+        sha1_coincide = (
+            reg_previo is None
+            or sha1_bloque is None
+            or reg_previo.get("sha1") == sha1_bloque
+        )
+
         if accion == "REUSAR":
             origen_nombre = str(item.get("origen") or "").strip()
             origen_wav = _resolver_origen_wav(motor, dir_cache_vieja, origen_nombre, j)
@@ -568,7 +571,11 @@ def procesar_capitulo(
             origen_manifiesto: str | None = origen_wav.name
             accion_manifiesto = "REUSAR"
 
-            if _wav_valido(destino_wav):
+            if (
+                _wav_valido(destino_wav)
+                and sha1_coincide
+                and (reg_previo is None or reg_previo.get("origen") == origen_wav.name)
+            ):
                 retomados += 1
                 print(
                     f"{prefijo}RETOMAR parte_{j:03d}.wav (ya existe >{TAMANO_MIN_WAV} bytes)"
@@ -587,7 +594,11 @@ def procesar_capitulo(
             origen_manifiesto = None
             accion_manifiesto = "SINTETIZAR"
 
-            if _wav_valido(destino_wav):
+            if (
+                _wav_valido(destino_wav)
+                and sha1_coincide
+                and (reg_previo is None or reg_previo.get("accion") == "SINTETIZAR")
+            ):
                 retomados += 1
                 print(
                     f"{prefijo}RETOMAR parte_{j:03d}.wav (sintesis previa >{TAMANO_MIN_WAV} bytes)"

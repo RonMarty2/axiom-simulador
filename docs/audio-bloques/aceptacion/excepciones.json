@@ -59,5 +59,27 @@
       "motivo": "única diferencia con el PDF: se quitó la frase «En la tabla 1-1 se muestran las diferencias…» (referencia visual, regla 2 opción A; la tabla se narra completa justo antes)",
       "reviso": "Claude 19-11"
     }
+  ],
+  "Tema_03_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 4,
+      "contiene": "alfa beta,dos",
+      "motivo": "notación molecular (dímero alfa-beta-2 de espectrina), no llamada de nota al pie",
+      "reviso": "Claude 19-11"
+    }
+  ],
+  "Tema_06_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Especializaciones de la membrana plasmática e interacción de la célula con su ento",
+      "motivo": "portada del capítulo: se quitó el nombre del autor (regla 10 de libro-audio-tts); el título y los objetivos están completos",
+      "reviso": "Claude 19-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Cita bibliográfica: Masson",
+      "motivo": "«tinción tricrómica de Masson» es técnica histológica del cuerpo del capítulo, no cita editorial",
+      "reviso": "Claude 19-11"
+    }
   ]
 }

@@ -880,7 +880,12 @@ def _limpiar_paginas_pdf_crudo(texto_pdf: str) -> list[str]:
         if en_seccion_excluida:
             # 16-nov (EdS): los capítulos del Libro 3 abren con «PARTE» o un título en MAYÚSCULAS, no «CAPÍTULO N»;
             # sin esto se descartaba casi todo el tramo págs. 38-74 tras el primer «Para la reflexión».
-            if re.match(r"^(?:CAP[IÍ]TULO\s+\d+|\d+\.\d+\s+[A-ZÁÉÍÓÚÑ]|PARTE\b|[A-ZÁÉÍÓÚÑÜ¿?¡!,:\s]{15,}$)", s):
+            # 19-nov (Calvo Tema 2 Parte 2): tras «Lecturas recomendadas» (pág. 74-75) siguen las secciones en línea
+            # de técnicas moleculares («Tecnología del ADN recombinante…», «FIGURA E2-…»).
+            if re.match(
+                r"^(?:CAP[IÍ]TULO\s+\d+|\d+\.\d+\s+[A-ZÁÉÍÓÚÑ]|PARTE\b|FIGURA\s+E\d+-|Tecnolog[ií]a\s+del\s+ADN\s+recombinante|[A-ZÁÉÍÓÚÑÜ¿?¡!,:\s]{15,}$)",
+                s,
+            ):
                 en_seccion_excluida = False
             else:
                 continue

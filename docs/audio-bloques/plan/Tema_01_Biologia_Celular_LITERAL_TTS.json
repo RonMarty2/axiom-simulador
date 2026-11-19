@@ -1,10 +1,10 @@
 [
   {
     "j": 1,
-    "accion": "REUSAR",
-    "origen": "parte_001.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Introducción a la biología de las células Alfonso Calvo Obje"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Introducción a la biología de las células Objetivos de apren"
   },
   {
     "j": 2,
@@ -18,7 +18,7 @@
     "accion": "REUSAR",
     "origen": "parte_003.wav",
     "motivo": "texto identico",
-    "texto_inicio": "En el siglo diecisiete, Robert Hooke , mil seiscientos trein"
+    "texto_inicio": "En el siglo diecisiete, Robert Hooke, mil seiscientos treint"
   },
   {
     "j": 4,
@@ -50,17 +50,17 @@
   },
   {
     "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "bioinformáticas. Con los datos del genoma humano completo se"
   },
   {
     "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Organización celular de distintos organismos Los organismos "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los organismos vivos se caracterizan por su capacidad de cre"
   },
   {
     "j": 10,
@@ -71,24 +71,24 @@
   },
   {
     "j": 11,
-    "accion": "REUSAR",
-    "origen": "parte_011.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El A D N posee la información necesaria para sintetizar las "
   },
   {
     "j": 12,
-    "accion": "REUSAR",
-    "origen": "parte_012.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La división celular tiene lugar por mecanismos complejos que"
   },
   {
     "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A continuación hablaremos brevemente de la organización biol"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El conocimiento de la estructura de estos agentes patógenos "
   },
   {
     "j": 14,
@@ -99,9 +99,9 @@
   },
   {
     "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Como ejemplo general, comentaremos brevemente la estructura "
   },
   {
@@ -113,454 +113,412 @@
   },
   {
     "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Los picos de fiebre alta y los escalofríos típicamente asoci"
   },
   {
     "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA un a dos Imagen de un frotis de sangre donde se obser"
-  },
-  {
-    "j": 19,
-    "accion": "REUSAR",
-    "origen": "parte_019.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La organización de estos organismos es la de una típica célu"
   },
   {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los tratamientos incluyen anfotericina B y antifúngicos imid"
+  },
+  {
     "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay ciertas especies de hongos que son muy importantes desde"
-  },
-  {
-    "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Candida albicans es una especie de hongo unicelular , levadu"
-  },
-  {
-    "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Si la inmunodepresión es muy severa, esta levadura es capaz "
   },
   {
-    "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "un a tres, está constituido por especies oportunistas que da"
-  },
-  {
-    "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas levaduras se pueden cultivar con facilidad en el labor"
-  },
-  {
-    "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la tabla un a un se muestran las diferencias estructurale"
-  },
-  {
-    "j": 26,
+    "j": 21,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (mu; antes parte_026.wav)",
+    "motivo": "nuevo",
+    "texto_inicio": "Este hongo puede provocar asma aspergilar, bronquitis, otiti"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Organización de las células procariotas Los procariotas son "
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Tabla un a un Resumen de las diferencias entre células eucar"
   },
   {
-    "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_027.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Algunas bacterias poseen mesosomas , orgánulos primitivos, B"
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Algunas bacterias poseen mesosomas, orgánulos primitivos, Ba"
   },
   {
-    "j": 28,
+    "j": 25,
     "accion": "REUSAR",
     "origen": "parte_028.wav",
     "motivo": "texto identico",
     "texto_inicio": "FIGURA un a cuatro Esquema de la organización celular de las"
   },
   {
-    "j": 29,
+    "j": 26,
     "accion": "REUSAR",
     "origen": "parte_029.wav",
     "motivo": "texto identico",
     "texto_inicio": "Dependiendo del tipo, podrán fermentar, respirar, fotosintet"
   },
   {
-    "j": 30,
+    "j": 27,
     "accion": "REUSAR",
     "origen": "parte_030.wav",
     "motivo": "texto identico",
     "texto_inicio": "están rodeados por una membrana nuclear, de tal modo que el "
   },
   {
-    "j": 31,
+    "j": 28,
     "accion": "REUSAR",
     "origen": "parte_031.wav",
     "motivo": "texto identico",
     "texto_inicio": "Estas secuencias circulares de A D N son mucho más pequeñas "
   },
   {
-    "j": 32,
+    "j": 29,
     "accion": "REUSAR",
     "origen": "parte_032.wav",
     "motivo": "texto identico",
     "texto_inicio": "El componente esencial de la pared es el peptidoglucano, que"
   },
   {
-    "j": 33,
+    "j": 30,
     "accion": "REUSAR",
     "origen": "parte_033.wav",
     "motivo": "texto identico",
     "texto_inicio": "Algunas bacterias poseen por encima de estas estructuras un "
   },
   {
-    "j": 34,
+    "j": 31,
     "accion": "REUSAR",
     "origen": "parte_034.wav",
     "motivo": "texto identico",
-    "texto_inicio": "Los pili , pilus en singular, tienen una estructura similar "
+    "texto_inicio": "Los pili, pilus en singular, tienen una estructura similar a"
   },
   {
-    "j": 35,
-    "accion": "REUSAR",
-    "origen": "parte_035.wav",
-    "motivo": "texto identico",
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Existen innumerables ejemplos de bacterias patógenas; de ent"
   },
   {
-    "j": 36,
+    "j": 33,
     "accion": "REUSAR",
     "origen": "parte_036.wav",
     "motivo": "texto identico",
     "texto_inicio": "En el pasado, cuando se desconocía que la úlcera gástrica po"
   },
   {
-    "j": 37,
-    "accion": "REUSAR",
-    "origen": "parte_037.wav",
-    "motivo": "texto identico",
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Otro ejemplo que consideraremos es Vibrio cholerae, un bacil"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto conlleva el inicio de una cascada de señalización intra"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "enterica serovariedad enteritidis, es el agente causal de la"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La bacteria Escherichia coli es un bacilo gramnegativo, anae"
   },
   {
     "j": 38,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_038.wav)",
-    "texto_inicio": "La subunidad B de la toxina colérica se une a los gangliósid"
+    "motivo": "nuevo",
+    "texto_inicio": "Esta bacteria se ha empleado para el estudio de numerosos pr"
   },
   {
     "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Salmonella es un género de bacterias gramnegativas, en forma"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "pneumoniae entra en cuerpo por inhalación provocando infecci"
   },
   {
     "j": 40,
     "accion": "REUSAR",
-    "origen": "parte_040.wav",
+    "origen": "parte_044.wav",
     "motivo": "texto identico",
-    "texto_inicio": "capítulo cinco, e invadir las células epiteliales, o ser fag"
+    "texto_inicio": "instituto Venter, EE. UU., ha conseguido sintetizar en el la"
   },
   {
     "j": 41,
-    "accion": "REUSAR",
-    "origen": "parte_041.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "E coli es la bacteria más utilizada en ingeniería genética p"
-  },
-  {
-    "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En humanos, los micoplasmas pueden colonizar superficies muc"
-  },
-  {
-    "j": 43,
-    "accion": "REUSAR",
-    "origen": "parte_043.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La especie Mycoplasma genitalium tiene solamente cuatrocient"
-  },
-  {
-    "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "instituto Venter , EE. UU., ha conseguido sintetizar en el l"
-  },
-  {
-    "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Organización de agentes subcelulares patógenos Virus Estruct"
   },
   {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por encima, algunos pueden presentar una envoltura lipoprote"
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los virus de A D N pueden ser de cadena doble, bicatenarios,"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otros virus de A D N bicatenario son los adenovirus, que pro"
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los virus de A R N, o ribovirus, también pueden ser bicatena"
+  },
+  {
     "j": 46,
-    "accion": "REUSAR",
-    "origen": "parte_046.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su cubierta, llamada cápside, está formada por unidades , fu"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Algunos ejemplos de virus A R N monocatenario positivo son l"
   },
   {
     "j": 47,
-    "accion": "REUSAR",
-    "origen": "parte_047.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para simplificar, vamos a dividir los virus en tres clases d"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "tres. El tercer tipo incluye virus que codifican para la enz"
   },
   {
     "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los poxvirus , como el virus de la viruela, son virus de A D"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Representación de un adenovirus. B. Esquema de un bacteriófa"
   },
   {
     "j": 49,
-    "accion": "REUSAR",
-    "origen": "parte_049.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La familia de los parvovirus , que provocan artritis y erite"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta envoltura procede de la célula huésped en donde se repl"
   },
   {
     "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otros, en cambio, presentan polaridad negativa contraria a l"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las partículas víricas infecciosas no codifican su propia po"
   },
   {
     "j": 51,
     "accion": "REUSAR",
-    "origen": "parte_051.wav",
+    "origen": "parte_057.wav",
     "motivo": "texto identico",
-    "texto_inicio": "Virus A R N monocatenario negativo se encuentran, por ejempl"
+    "texto_inicio": "núcleo en forma de episoma, sin integrarse en el genoma del "
   },
   {
     "j": 52,
-    "accion": "REUSAR",
-    "origen": "parte_052.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "tres. El tercer tipo incluye virus que codifican para la enz"
-  },
-  {
-    "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA un a cinco Estructura de algunos virus. A. Representa"
-  },
-  {
-    "j": 54,
-    "accion": "REUSAR",
-    "origen": "parte_054.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay ciertos virus que poseen una envoltura lipídica por enci"
-  },
-  {
-    "j": 55,
-    "accion": "REUSAR",
-    "origen": "parte_055.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Virus del papiloma humano El virus del papiloma humano , H P"
-  },
-  {
-    "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tras la entrada del A D N en la célula, se produce la transc"
-  },
-  {
-    "j": 57,
-    "accion": "REUSAR",
-    "origen": "parte_057.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "núcleo en forma de episoma , sin integrarse en el genoma del"
-  },
-  {
-    "j": 58,
     "accion": "REUSAR",
     "origen": "parte_058.wav",
     "motivo": "texto identico",
     "texto_inicio": "La transmisión del H P V ocurre típicamente a través de cont"
   },
   {
-    "j": 59,
+    "j": 53,
     "accion": "REUSAR",
     "origen": "parte_059.wav",
     "motivo": "texto identico",
     "texto_inicio": "En estas células, la presencia del genoma vírico conduce a u"
   },
   {
-    "j": 60,
+    "j": 54,
     "accion": "REUSAR",
     "origen": "parte_060.wav",
     "motivo": "texto identico",
     "texto_inicio": "Aunque hay numerosos tipos de papilomavirus, cada variante m"
   },
   {
-    "j": 61,
+    "j": 55,
     "accion": "REUSAR",
     "origen": "parte_061.wav",
     "motivo": "texto identico",
     "texto_inicio": "La alta prevalencia de las infecciones de H P V entre las mu"
   },
   {
-    "j": 62,
-    "accion": "REUSAR",
-    "origen": "parte_062.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Virus de la gripe El virus de la gripe , o Influenza, es de "
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Virus de la gripe El virus de la gripe, o Influenza, es de t"
   },
   {
-    "j": 63,
-    "accion": "REUSAR",
-    "origen": "parte_063.wav",
-    "motivo": "texto identico",
+    "j": 57,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La cápside está recubierta por una envoltura en la que queda"
   },
   {
-    "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En humanos la infección comienza típicamente en las vías res"
   },
   {
-    "j": 65,
-    "accion": "REUSAR",
-    "origen": "parte_065.wav",
-    "motivo": "texto identico",
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Allí, el A R N monocatenario negativo puede ser transcrito p"
   },
   {
-    "j": 66,
-    "accion": "REUSAR",
-    "origen": "parte_066.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "un a siete, paso 5a,; otras , neuraminidasa y hemaglutinina,"
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El A R N monocatenario negativo generado por replicación, ju"
   },
   {
-    "j": 67,
-    "accion": "REUSAR",
-    "origen": "parte_067.wav",
-    "motivo": "texto identico",
+    "j": 61,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "membrana donde se encuentran la neuraminidasa y la aglutinin"
   },
   {
-    "j": 68,
+    "j": 62,
     "accion": "REUSAR",
     "origen": "parte_068.wav",
     "motivo": "texto identico",
     "texto_inicio": "Si dos cadenas distintas de ácido nucleico vírico infectan l"
   },
   {
-    "j": 69,
-    "accion": "REUSAR",
-    "origen": "parte_069.wav",
-    "motivo": "texto identico",
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La generación de la variante H uno N uno está ligada a la ep"
   },
   {
-    "j": 70,
-    "accion": "REUSAR",
-    "origen": "parte_070.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "un a ocho, infecta células que expresan C D cuatro en su sup"
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Virus de la inmunodeficiencia humana, V I H, El virus de inm"
   },
   {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dentro de la cápside, el virus contiene tres enzimas: la tra"
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El genoma del V I H es de tipo A R N monocatenario positivo,"
   },
   {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La unión al receptor permite entonces la formación de un por"
+    "j": 66,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para el proceso de adhesión, la proteína vírica gp120 debe u"
   },
   {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
+    "j": 67,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA un a ocho Esquema de la estructura del virus del V I "
   },
   {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
+    "j": 68,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La cadena de A D N sirve como molde para generar el A D N bi"
   },
   {
-    "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "un a ocho, B, paso cuatro, que se traducen en el citoplasma "
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas estructurales del V I H son codificadas por lo"
   },
   {
-    "j": 76,
-    "accion": "REUSAR",
-    "origen": "parte_076.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "capítulo ocho, para poder formar las proteínas funcionales. "
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Viroides El término viroide se usa para describir un grupo d"
   },
   {
-    "j": 77,
+    "j": 71,
     "accion": "REUSAR",
     "origen": "parte_077.wav",
     "motivo": "texto identico",
     "texto_inicio": "Los viroides poseen normalmente de doscientos cincuenta a cu"
   },
   {
-    "j": 78,
-    "accion": "REUSAR",
-    "origen": "parte_078.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos agentes entran en el sistema vascular de la planta , e"
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos agentes entran en el sistema vascular de la planta, el"
   },
   {
-    "j": 79,
+    "j": 73,
     "accion": "REUSAR",
     "origen": "parte_079.wav",
     "motivo": "texto identico",
     "texto_inicio": "A pesar de que estas enfermedades son relativamente infrecue"
   },
   {
-    "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Aunque no se han elucidado plenamente los detalles de esta t"
   },
   {
-    "j": 81,
+    "j": 75,
     "accion": "SINTETIZAR",
     "origen": null,
     "motivo": "nuevo",

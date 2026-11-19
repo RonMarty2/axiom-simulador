@@ -71,6 +71,15 @@ def detectar_error_audible(texto_bloque: str) -> list[str]:
     return razones
 
 
+def _normalizar_para_comparar_cache(texto_bloque: str) -> str:
+    """
+    Normaliza espacios en blanco y espacios sueltos antes de puntuacion
+    (p. ej. 'Hooke , mil' -> 'Hooke, mil') que no alteran la lectura del TTS.
+    """
+    sin_espacio_punt = re.sub(r"\s+([,.;:?!])", r"\1", texto_bloque)
+    return re.sub(r"\s+", " ", sin_espacio_punt).strip()
+
+
 def resumir_inicio(texto_bloque: str, max_chars: int = LARGO_INICIO) -> str:
     """Devuelve los primeros max_chars caracteres en una sola linea."""
     limpio = re.sub(r"\s+", " ", texto_bloque).strip()
@@ -159,8 +168,10 @@ def planificar_capitulo(
         )
 
     indice_viejo_por_texto: dict[str, int] = {}
+    indice_viejo_norm: dict[str, int] = {}
     for i, b_viejo in enumerate(bloques_viejos, start=1):
         indice_viejo_por_texto.setdefault(b_viejo, i)
+        indice_viejo_norm.setdefault(_normalizar_para_comparar_cache(b_viejo), i)
 
     plan: list[dict] = []
     reusar = 0
@@ -169,6 +180,8 @@ def planificar_capitulo(
 
     for j, b_nuevo in enumerate(bloques_nuevos, start=1):
         i_viejo = indice_viejo_por_texto.get(b_nuevo)
+        if i_viejo is None:
+            i_viejo = indice_viejo_norm.get(_normalizar_para_comparar_cache(b_nuevo))
         inicio = resumir_inicio(b_nuevo)
 
         if i_viejo is None:

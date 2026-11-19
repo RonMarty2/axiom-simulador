@@ -1,24 +1,24 @@
 [
   {
     "j": 1,
-    "accion": "REUSAR",
-    "origen": "parte_001.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO tres Estructura de la membrana plasmática Carlos Br"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO tres Estructura de la membrana plasmática Objetivos"
   },
   {
     "j": 2,
-    "accion": "REUSAR",
-    "origen": "parte_002.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Introducción Clásicamente, el término membrana era empleado "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "era empleado en anatomía e histología para designar a las lá"
   },
   {
     "j": 3,
-    "accion": "REUSAR",
-    "origen": "parte_003.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De esta manera, los espacios extrae intracelulares pueden te"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La envoltura encargada de esta tarea es una membrana biológi"
   },
   {
     "j": 4,
@@ -36,590 +36,590 @@
   },
   {
     "j": 6,
-    "accion": "REUSAR",
-    "origen": "parte_006.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Asimismo, se hará corresponder la estructura con la función "
   },
   {
     "j": 7,
-    "accion": "REUSAR",
-    "origen": "parte_007.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Modelos estructurales de la membrana: perspectiva histórica "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "membrana plasmática solo es posible gracias a la microscopía"
   },
   {
     "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El científico comprobó que, mientras que las sustancias lipo"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En mil ochocientos noventa y cinco, presumió la existencia d"
   },
   {
     "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a un Desarrollo histórico del modelo estructural"
   },
   {
     "j": 10,
-    "accion": "REUSAR",
-    "origen": "parte_010.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En mil novecientos veinticinco, Gorter y Grendel extrajeron "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este experimento condujo a la conclusión de que la membrana "
   },
   {
     "j": 11,
-    "accion": "REUSAR",
-    "origen": "parte_011.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Años después, se descubrieron varias propiedades de la membr"
-  },
-  {
-    "j": 12,
-    "accion": "REUSAR",
-    "origen": "parte_012.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "dos una mayor permeabilidad a las moléculas hidrosolubles. E"
   },
   {
-    "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La biología celular pudo finalmente comprobar la existencia "
   },
   {
-    "j": 14,
-    "accion": "REUSAR",
-    "origen": "parte_014.wav",
-    "motivo": "texto identico",
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Él mismo fue quien hizo corresponder el espacio menos teñido"
   },
   {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "obtenidos durante la década de los sesenta. Entre los hechos"
+  },
+  {
     "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Singer y Nicolson: estructura en mosaico fluido Frente a su "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla tres a un Contenido en lípidos, proteínas y glúcidos d"
   },
   {
     "j": 16,
-    "accion": "REUSAR",
-    "origen": "parte_016.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El otro es la presencia de proteínas de membrana globulares,"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este método, primero se congelan las células y, después, "
   },
   {
     "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "tres a dos,. En este método, primero se congelan las células"
-  },
-  {
-    "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "También se observó que la superficie de ambas monocapas pres"
   },
   {
-    "j": 19,
-    "accion": "REUSAR",
-    "origen": "parte_019.wav",
-    "motivo": "texto identico",
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a dos A. Representación esquemática de la parte "
   },
   {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La denominación de este modelo de mosaico fluido hace alusió"
+  },
+  {
     "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "B, ©mil novecientos ochenta y un Rockefeller University Pres"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la misma década, este modelo se reforzó al ponerse de man"
   },
   {
     "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De una manera fácil de entender, los científicos describiero"
-  },
-  {
-    "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "No obstante, otras proteínas se presentan como unidades glob"
-  },
-  {
-    "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a tres Esquema de la membrana según el modelo de"
   },
   {
-    "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Maldonado., Por lo tanto, el armazón básico de las membranas"
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, el armazón básico de las membranas biológicas "
   },
   {
-    "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Lípidos de membrana Bicapa lipídica Los lípidos de membrana "
   },
   {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "decir que son compuestos dotados de una parte polar e hidróf"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "envuelve, mientras que las partes hidrófobas se ven forzadas"
+  },
+  {
     "j": 26,
-    "accion": "REUSAR",
-    "origen": "parte_026.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas últimas regiones, a diferencia de las hidrófilas, no s"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su formación tiene lugar fácilmente cuando las unidades lipí"
   },
   {
     "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_027.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dependiendo de cuál sea la forma de las moléculas lipídicas,"
-  },
-  {
-    "j": 28,
-    "accion": "REUSAR",
-    "origen": "parte_028.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a cuatro Agregados de lípidos. Las moléculas lip"
   },
   {
-    "j": 29,
+    "j": 28,
     "accion": "REUSAR",
     "origen": "parte_029.wav",
     "motivo": "texto identico",
     "texto_inicio": "La bicapa lipídica presenta dos propiedades fundamentales re"
   },
   {
-    "j": 30,
+    "j": 29,
     "accion": "REUSAR",
     "origen": "parte_030.wav",
     "motivo": "texto identico",
     "texto_inicio": "Además, el sistema inmunitario, a través de las proteínas de"
   },
   {
-    "j": 31,
-    "accion": "REUSAR",
-    "origen": "parte_031.wav",
-    "motivo": "texto identico",
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "lipídica están aún en contacto con el agua. Este inconvenien"
   },
   {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La formulación de ciertos agentes terapéuticos en liposomas "
+  },
+  {
     "j": 32,
-    "accion": "REUSAR",
-    "origen": "parte_032.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se trata de un sistema artificial de membranas utilizado com"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La posibilidad de emplear liposomas con ligandos específicos"
   },
   {
     "j": 33,
-    "accion": "REUSAR",
-    "origen": "parte_033.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Además, el tratamiento sistémico plantea el problema de una "
-  },
-  {
-    "j": 34,
-    "accion": "REUSAR",
-    "origen": "parte_034.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a seis A. Lípidos de membrana: glicerofosfolípid"
   },
   {
-    "j": 35,
+    "j": 34,
     "accion": "REUSAR",
     "origen": "parte_035.wav",
     "motivo": "texto identico",
     "texto_inicio": "Este hecho es el principal condicionante de que el grosor de"
   },
   {
-    "j": 36,
-    "accion": "REUSAR",
-    "origen": "parte_036.wav",
-    "motivo": "texto identico",
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Esto hace que, a nivel de la insaturación, la cadena sufra u"
   },
   {
-    "j": 37,
+    "j": 36,
     "accion": "REUSAR",
     "origen": "parte_037.wav",
     "motivo": "texto identico",
     "texto_inicio": "Los ácidos grasos insaturados más frecuentes son los ácidos "
   },
   {
-    "j": 38,
+    "j": 37,
     "accion": "REUSAR",
     "origen": "parte_038.wav",
     "motivo": "texto identico",
     "texto_inicio": "En este compuesto, los grupos hidroxilo primero y segundo de"
   },
   {
-    "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "ácido fosfórico. El ácido fosfatídico actúa de precursor a p"
   },
   {
-    "j": 40,
-    "accion": "REUSAR",
-    "origen": "parte_040.wav",
-    "motivo": "texto identico",
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En las membranas mitocondrial interna y bacteriana es posibl"
   },
   {
-    "j": 41,
+    "j": 40,
     "accion": "REUSAR",
     "origen": "parte_041.wav",
     "motivo": "texto identico",
     "texto_inicio": "Esfingolípidos Los esfingolípidos tienen una estructura anál"
   },
   {
-    "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Es posible distinguir dos clases de esfingolípidos, según el"
   },
   {
-    "j": 43,
+    "j": 42,
     "accion": "REUSAR",
     "origen": "parte_043.wav",
     "motivo": "texto identico",
-    "texto_inicio": "La vaina de mielina , con un cociente proteína o lípido de c"
+    "texto_inicio": "La vaina de mielina, con un cociente proteína o lípido de ce"
   },
   {
-    "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La pérdida de la mielina hace más lenta e, incluso, interrum"
   },
   {
-    "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "del C-un de la ceramida. Los osoesfingolípidos se subdividen"
   },
   {
-    "j": 46,
+    "j": 45,
     "accion": "REUSAR",
     "origen": "parte_046.wav",
     "motivo": "texto identico",
     "texto_inicio": "Hasta ahora, se han identificado más de cuarenta gangliósido"
   },
   {
-    "j": 47,
-    "accion": "REUSAR",
-    "origen": "parte_047.wav",
-    "motivo": "texto identico",
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Algunos osoesfingolípidos son puntos de entrada de ciertos p"
   },
   {
-    "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Pertenecen al grupo de los esteroides, con entre veintisiete"
   },
   {
-    "j": 49,
+    "j": 48,
     "accion": "REUSAR",
     "origen": "parte_049.wav",
     "motivo": "texto identico",
     "texto_inicio": "En células eucariotas de plantas y hongos predominan los est"
   },
   {
-    "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a siete Estructura esquemática del colesterol, u"
   },
   {
-    "j": 51,
-    "accion": "REUSAR",
-    "origen": "parte_051.wav",
-    "motivo": "texto identico",
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Una de las más importantes, ya señalada en el modelo de Sing"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las difusiones lateral y transbicapa se produce el interc"
   },
   {
     "j": 52,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (miles como decimal; antes parte_052.wav)",
-    "texto_inicio": "En las difusiones lateral y transbicapa se produce el interc"
-  },
-  {
-    "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
+    "motivo": "nuevo",
     "texto_inicio": "mismas condiciones experimentales es extremadamente lento, s"
   },
   {
-    "j": 54,
-    "accion": "REUSAR",
-    "origen": "parte_054.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Maldonado., Agentes que influyen en la fluidez de la membran"
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Agentes que influyen en la fluidez de la membrana Las membra"
   },
   {
-    "j": 55,
+    "j": 54,
     "accion": "REUSAR",
     "origen": "parte_055.wav",
     "motivo": "texto identico",
     "texto_inicio": "Para que una membrana desempeñe su función normal, tiene que"
   },
   {
-    "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "○ Tipo de ácidos grasos , fig. tres a nueve,. Dos son las ca"
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "○ Tipo de ácidos grasos. Dos son las características de los "
   },
   {
-    "j": 57,
-    "accion": "REUSAR",
-    "origen": "parte_057.wav",
-    "motivo": "texto identico",
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Una menor longitud de cadena reduce la tendencia de interacc"
   },
   {
-    "j": 58,
+    "j": 57,
     "accion": "REUSAR",
     "origen": "parte_058.wav",
     "motivo": "texto identico",
     "texto_inicio": "En esta posición, el anillo esteroide, plano y rígido, inmov"
   },
   {
-    "j": 59,
-    "accion": "REUSAR",
-    "origen": "parte_059.wav",
-    "motivo": "texto identico",
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Dicho de otro modo, en términos de Tm: el colesterol ejerce "
   },
   {
-    "j": 60,
-    "accion": "REUSAR",
-    "origen": "parte_060.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este hecho se entiende fácilmente con la representación espa"
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aquellos que tienen grupos acilo saturados de cadena larga, "
   },
   {
-    "j": 61,
-    "accion": "REUSAR",
-    "origen": "parte_061.wav",
-    "motivo": "texto identico",
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a diez Distribución de las moléculas de colester"
   },
   {
-    "j": 62,
+    "j": 61,
     "accion": "REUSAR",
     "origen": "parte_062.wav",
     "motivo": "texto identico",
     "texto_inicio": "De hecho, la membrana luminal de las células epiteliales de "
   },
   {
-    "j": 63,
+    "j": 62,
     "accion": "REUSAR",
     "origen": "parte_063.wav",
     "motivo": "texto identico",
     "texto_inicio": "Esta capacidad de mantener la fluidez de la membrana relativ"
   },
   {
-    "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La alteración de la fluidez de la membrana del eritrocito co"
   },
   {
-    "j": 65,
+    "j": 64,
     "accion": "REUSAR",
     "origen": "parte_065.wav",
     "motivo": "texto identico",
     "texto_inicio": "La acantocitosis puede darse en una gran variedad de situaci"
   },
   {
-    "j": 66,
-    "accion": "REUSAR",
-    "origen": "parte_066.wav",
-    "motivo": "texto identico",
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a once A. Frotis de sangre periférica en el que "
   },
   {
-    "j": 67,
+    "j": 66,
     "accion": "REUSAR",
     "origen": "parte_067.wav",
     "motivo": "texto identico",
     "texto_inicio": "No obstante, se piensa que comparten una fisiopatología comú"
   },
   {
-    "j": 68,
+    "j": 67,
     "accion": "REUSAR",
     "origen": "parte_068.wav",
     "motivo": "texto identico",
     "texto_inicio": "Por su parte, esta alteración de la composición lipídica en "
   },
   {
-    "j": 69,
+    "j": 68,
     "accion": "REUSAR",
     "origen": "parte_069.wav",
     "motivo": "texto identico",
     "texto_inicio": "inducen apoptosis por vía mitocondrial. La mitocondria es un"
   },
   {
-    "j": 70,
-    "accion": "REUSAR",
-    "origen": "parte_070.wav",
-    "motivo": "texto identico",
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "De acuerdo con estos resultados, fármacos como las estatinas"
   },
   {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Por su parte, en la hemimembrana P residen las moléculas lip"
   },
   {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La asimetría de la bicapa lipídica se remonta a la síntesis "
   },
   {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a trece Biosíntesis de los componentes lipídicos"
   },
   {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La distribución equitativa entre las dos monocapas de los lí"
   },
   {
-    "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "De esta tarea se encarga la flipasa, otra translocasa que ca"
   },
   {
-    "j": 76,
+    "j": 75,
     "accion": "REUSAR",
     "origen": "parte_076.wav",
     "motivo": "texto identico",
     "texto_inicio": "En primer lugar, la concentración de la fosfatidilserina en "
   },
   {
-    "j": 77,
+    "j": 76,
     "accion": "REUSAR",
     "origen": "parte_077.wav",
     "motivo": "texto identico",
     "texto_inicio": "capítulo trece,. En los animales, la localización de la fosf"
   },
   {
-    "j": 78,
+    "j": 77,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (iones; antes parte_078.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "La exposición de fosfatidilserina en la monocapa externa es "
   },
   {
-    "j": 79,
-    "accion": "REUSAR",
-    "origen": "parte_079.wav",
-    "motivo": "texto identico",
+    "j": 78,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Balsas lipídicas Hace unos años se descubrió que, además de "
   },
   {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a catorce Representación de un microdominio o ba"
+  },
+  {
     "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las balsas lipídicas se identificaron por primera vez en la "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "la hemimembrana E se caracterizan por el predominio de esfin"
   },
   {
     "j": 81,
-    "accion": "REUSAR",
-    "origen": "parte_081.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En cambio, los glicerofosfolípidos, dotados habitualmente de"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "parecen comportarse como una balsa fluida, pero ordenada, qu"
   },
   {
     "j": 82,
-    "accion": "REUSAR",
-    "origen": "parte_082.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La clave de este hecho reside en las desmesuradas ventajas q"
-  },
-  {
-    "j": 83,
     "accion": "REUSAR",
     "origen": "parte_083.wav",
     "motivo": "texto identico",
     "texto_inicio": "notablemente la probabilidad de interacción. Los receptores "
   },
   {
-    "j": 84,
+    "j": 83,
     "accion": "REUSAR",
     "origen": "parte_084.wav",
     "motivo": "texto identico",
     "texto_inicio": "Además, por la elevada concentración de osoesfingolípidos y "
   },
   {
-    "j": 85,
+    "j": 84,
     "accion": "REUSAR",
     "origen": "parte_085.wav",
     "motivo": "texto identico",
     "texto_inicio": "Las caveolinas son proteínas de unión al colesterol y se con"
   },
   {
-    "j": 86,
+    "j": 85,
     "accion": "REUSAR",
     "origen": "parte_086.wav",
     "motivo": "texto identico",
     "texto_inicio": "El mosaico proteico Las proteínas, normalmente, suponen un c"
   },
   {
-    "j": 87,
-    "accion": "REUSAR",
-    "origen": "parte_087.wav",
-    "motivo": "texto identico",
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La cantidad y el tipo de proteínas de membrana son muy varia"
   },
   {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "de solubilidad muy variable que depende, fundamentalmente, d"
+  },
+  {
     "j": 88,
-    "accion": "REUSAR",
-    "origen": "parte_088.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El criterio clásico de clasificación de las proteínas de mem"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De forma indirecta, este hecho experimental refleja el grado"
   },
   {
     "j": 89,
-    "accion": "REUSAR",
-    "origen": "parte_089.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a quince Criterio clásico de clasificación de la"
   },
   {
@@ -631,58 +631,58 @@
   },
   {
     "j": 91,
-    "accion": "REUSAR",
-    "origen": "parte_091.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Poseen una o varias porciones hidrófobas que se sitúan en el"
   },
   {
     "j": 92,
-    "accion": "REUSAR",
-    "origen": "parte_092.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "tres a dieciséis, un y dos, en función de las veces que atra"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas pueden ser de paso único o múltiple en funci"
   },
   {
     "j": 93,
-    "accion": "REUSAR",
-    "origen": "parte_093.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "un, proteína integral de paso único con un segmento transmem"
   },
   {
     "j": 94,
-    "accion": "REUSAR",
-    "origen": "parte_094.wav",
-    "motivo": "texto identico",
-    "texto_inicio": ", Ilustración de: E. Maldonado., La manera en que una proteí"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La manera en que una proteína integral se asocia a la bicapa"
   },
   {
     "j": 95,
-    "accion": "REUSAR",
-    "origen": "parte_095.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Un motivo estructural común a muchas proteínas transmembrana"
   },
   {
     "j": 96,
-    "accion": "REUSAR",
-    "origen": "parte_096.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otro motivo estructural frecuente es el barril β o barril ce"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro motivo estructural frecuente es el barril beta o barril"
   },
   {
     "j": 97,
-    "accion": "REUSAR",
-    "origen": "parte_097.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Es más, uno de los mecanismos por los que las bacterias pued"
   },
   {
     "j": 98,
-    "accion": "REUSAR",
-    "origen": "parte_098.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "A diferencia de las proteínas integrales, las proteínas peri"
   },
   {
@@ -701,335 +701,321 @@
   },
   {
     "j": 101,
-    "accion": "REUSAR",
-    "origen": "parte_101.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Las proteínas ancladas a lípidos, encontradas tanto en la mo"
   },
   {
     "j": 102,
-    "accion": "REUSAR",
-    "origen": "parte_102.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el segundo de los casos, la proteína sufre la adición de "
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Muchas de estas proteínas actúan como enzimas. Tal es el cas"
   },
   {
     "j": 103,
-    "accion": "REUSAR",
-    "origen": "parte_103.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Son traducidas en el retículo endoplasmático rugoso , RER, e"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Son traducidas en el retículo endoplasmático rugoso, R E R, "
   },
   {
     "j": 104,
-    "accion": "REUSAR",
-    "origen": "parte_104.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las proteínas de unión a GPI son especialmente frecuentes en"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas de unión a G P I son especialmente frecuentes "
   },
   {
     "j": 105,
-    "accion": "REUSAR",
-    "origen": "parte_105.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se ha detectado la desaparición de más de veinte proteínas d"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este gen está implicado en la síntesis de G P I, de modo que"
   },
   {
     "j": 106,
-    "accion": "REUSAR",
-    "origen": "parte_106.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El problema es que, una vez activado, el complemento no dist"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su función es la de proteger a los eritrocitos de la hemólis"
   },
   {
     "j": 107,
-    "accion": "REUSAR",
-    "origen": "parte_107.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ello, a la mañana siguiente, estos pacientes presentan c"
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, su déficit favorece que los pacientes presente"
   },
   {
     "j": 108,
-    "accion": "REUSAR",
-    "origen": "parte_108.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "nombre, pero no la única ni la más grave. El déficit de otra"
   },
   {
     "j": 109,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (mu; antes parte_109.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "En parte, este hecho se debe a: un, la facilidad con la que "
   },
   {
     "j": 110,
-    "accion": "REUSAR",
-    "origen": "parte_110.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Basta con provocar hemólisis a través de la exposición a un "
   },
   {
     "j": 111,
-    "accion": "REUSAR",
-    "origen": "parte_111.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "El estudio de las proteínas de la membrana del eritrocito me"
   },
   {
     "j": 112,
-    "accion": "REUSAR",
-    "origen": "parte_112.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Se orienta en la bicapa de manera que su extremo hidrófilo c"
   },
   {
     "j": 113,
-    "accion": "REUSAR",
-    "origen": "parte_113.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a la existencia de estos grupos aniónicos en su super"
-  },
-  {
-    "j": 114,
-    "accion": "REUSAR",
-    "origen": "parte_114.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a diecisiete A. Dibujo de la membrana plasmática"
   },
   {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este caso, los dominios Ny C-terminales están orientados "
+  },
+  {
     "j": 115,
-    "accion": "REUSAR",
-    "origen": "parte_115.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "tres a diecisiete, A, es una proteína integral de paso múlti"
-  },
-  {
-    "j": 116,
-    "accion": "REUSAR",
-    "origen": "parte_116.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para llevar a cabo esta función, los dímeros de banda tres s"
-  },
-  {
-    "j": 117,
-    "accion": "REUSAR",
-    "origen": "parte_117.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "hecho, del total de CO2 que viaja en sangre, el sistema band"
   },
   {
-    "j": 118,
-    "accion": "REUSAR",
-    "origen": "parte_118.wav",
-    "motivo": "texto identico",
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Entre ellas, cabe destacar la espectrina, la anquirina, la p"
   },
   {
-    "j": 119,
-    "accion": "REUSAR",
-    "origen": "parte_119.wav",
-    "motivo": "texto identico",
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "A su vez, dos de estos dímeros se asocian por sus extremos p"
   },
   {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dibujo de la estructura de una molécula de espectrina. Se tr"
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El resultado es un retículo de citoesqueleto deformable y el"
+  },
+  {
     "j": 120,
-    "accion": "REUSAR",
-    "origen": "parte_120.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA tres a dieciocho A. Dibujo de la estructura de una mo"
-  },
-  {
-    "j": 121,
-    "accion": "REUSAR",
-    "origen": "parte_121.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Maldonado., El resultado es un retículo de citoesqueleto def"
-  },
-  {
-    "j": 122,
     "accion": "REUSAR",
     "origen": "parte_122.wav",
     "motivo": "texto identico",
     "texto_inicio": "citoesqueleto a la membrana. En este caso, los principales p"
   },
   {
-    "j": 123,
+    "j": 121,
     "accion": "REUSAR",
     "origen": "parte_123.wav",
     "motivo": "texto identico",
     "texto_inicio": "De forma general, esta red citosólica recibe el nombre de có"
   },
   {
-    "j": 124,
+    "j": 122,
     "accion": "SINTETIZAR",
     "origen": null,
-    "motivo": "error audible (miles como decimal; antes parte_124.wav)",
+    "motivo": "nuevo",
     "texto_inicio": "La esferocitosis hereditaria o enfermedad de Minkowski-Chauf"
   },
   {
-    "j": 125,
-    "accion": "REUSAR",
-    "origen": "parte_125.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El principal mecanismo molecular que subyace a la patología "
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La transformación esferocítica es el resultado de un fallo e"
   },
   {
-    "j": 126,
-    "accion": "REUSAR",
-    "origen": "parte_126.wav",
-    "motivo": "texto identico",
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "FIGURA tres a diecinueve A. Frotis de sangre periférica de u"
   },
   {
-    "j": 127,
+    "j": 125,
     "accion": "REUSAR",
     "origen": "parte_127.wav",
     "motivo": "texto identico",
     "texto_inicio": "De este hecho fisiopatológico se deduce que el bazo tiene un"
   },
   {
-    "j": 128,
-    "accion": "REUSAR",
-    "origen": "parte_128.wav",
-    "motivo": "texto identico",
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Es una membranopatía menos frecuente que la esferocitosis y "
   },
   {
-    "j": 129,
+    "j": 127,
     "accion": "REUSAR",
     "origen": "parte_129.wav",
     "motivo": "texto identico",
     "texto_inicio": "Es por eso por lo que hasta el noventa por ciento de los pac"
   },
   {
-    "j": 130,
+    "j": 128,
     "accion": "REUSAR",
     "origen": "parte_130.wav",
     "motivo": "texto identico",
     "texto_inicio": "deformabilidad y su elasticidad,. En aquellos casos en los q"
   },
   {
-    "j": 131,
+    "j": 129,
     "accion": "REUSAR",
     "origen": "parte_131.wav",
     "motivo": "texto identico",
     "texto_inicio": "Algunas proteínas de membrana pueden realizar movimientos de"
   },
   {
-    "j": 132,
+    "j": 130,
     "accion": "REUSAR",
     "origen": "parte_132.wav",
     "motivo": "texto identico",
     "texto_inicio": "Esto quiere decir que, dada una proteína determinada, sus do"
   },
   {
-    "j": 133,
+    "j": 131,
     "accion": "REUSAR",
     "origen": "parte_133.wav",
     "motivo": "texto identico",
     "texto_inicio": "En parte, esta afirmación se relaciona con las balsas lipídi"
   },
   {
-    "j": 134,
+    "j": 132,
     "accion": "REUSAR",
     "origen": "parte_134.wav",
     "motivo": "texto identico",
     "texto_inicio": "Suelen ser tipos celulares altamente especializados, pero ta"
   },
   {
-    "j": 135,
+    "j": 133,
     "accion": "REUSAR",
     "origen": "parte_135.wav",
     "motivo": "texto identico",
     "texto_inicio": "Uno de los más simples consiste en la formación de agregados"
   },
   {
-    "j": 136,
+    "j": 134,
     "accion": "REUSAR",
     "origen": "parte_136.wav",
     "motivo": "texto identico",
     "texto_inicio": "En muchas ocasiones, se establecen auténticas barreras de se"
   },
   {
-    "j": 137,
-    "accion": "REUSAR",
-    "origen": "parte_137.wav",
-    "motivo": "texto identico",
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "La cubierta de glúcidos: estructura y función del glucocáliz"
   },
   {
-    "j": 138,
-    "accion": "REUSAR",
-    "origen": "parte_138.wav",
-    "motivo": "texto identico",
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "Con independencia del número y la longitud de la cadena de m"
   },
   {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "mecánicas, manteniendo los cuerpos extraños y la superficie "
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "una célula con la matriz. Reconocimiento y fijación de moléc"
+  },
+  {
     "j": 139,
-    "accion": "REUSAR",
-    "origen": "parte_139.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De esta manera, una de las posibles funciones del glucocáliz"
-  },
-  {
-    "j": 140,
-    "accion": "REUSAR",
-    "origen": "parte_140.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El papel que desempeñan en este sentido se traduce en dos gr"
-  },
-  {
-    "j": 141,
-    "accion": "REUSAR",
-    "origen": "parte_141.wav",
-    "motivo": "texto identico",
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
     "texto_inicio": "En la mayoría de los tipos celulares, el glucocáliz forma un"
   },
   {
-    "j": 142,
+    "j": 140,
     "accion": "REUSAR",
     "origen": "parte_142.wav",
     "motivo": "texto identico",
     "texto_inicio": "El glucocáliz del enterocito posee enzimas que participan en"
   },
   {
-    "j": 143,
+    "j": 141,
     "accion": "REUSAR",
     "origen": "parte_143.wav",
     "motivo": "texto identico",
     "texto_inicio": "Este virus expresa en su superficie la hemaglutinina, una gl"
   },
   {
-    "j": 144,
+    "j": 142,
     "accion": "REUSAR",
     "origen": "parte_144.wav",
     "motivo": "texto identico",
     "texto_inicio": "Ciertos glucolípidos y glucoproteínas del glucocáliz permite"
   },
   {
-    "j": 145,
+    "j": 143,
     "accion": "REUSAR",
     "origen": "parte_145.wav",
     "motivo": "texto identico",
     "texto_inicio": "La zona pelúcida es una capa de glucoproteínas que rodea al "
   },
   {
-    "j": 146,
+    "j": 144,
     "accion": "REUSAR",
     "origen": "parte_146.wav",
     "motivo": "texto identico",
     "texto_inicio": "Por lo mismo, la destrucción de la ZP3 después de la entrada"
   },
   {
-    "j": 147,
+    "j": 145,
     "accion": "REUSAR",
     "origen": "parte_147.wav",
     "motivo": "texto identico",
     "texto_inicio": "permitan abandonar el tumor en el que se originó y migrar ha"
   },
   {
-    "j": 148,
+    "j": 146,
     "accion": "SINTETIZAR",
     "origen": null,
     "motivo": "nuevo",
