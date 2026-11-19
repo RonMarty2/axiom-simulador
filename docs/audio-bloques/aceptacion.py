@@ -633,6 +633,14 @@ def _normalizar_para_ngramas(texto: str) -> list[str]:
     )
     # 16-nov (calibración EdS): adaptaciones permitidas que la voz lee distinto del libro
     t = re.sub(r"\bp\.\s*ej\.", "por ejemplo", t, flags=re.IGNORECASE)  # «p. ej.» -> «por ejemplo»
+    # 19-nov: iones en el PDF (Na+, K+, Ca2+, Cl−, H+, Mg2+) que fonetica_es convierte a «sodio», «potasio», «calcio», etc.
+    t = re.sub(r"\bNa\s*(?:\+|m[aá]s)\b", " sodio ", t)
+    t = re.sub(r"\bK\s*(?:\+|m[aá]s)\b", " potasio ", t)
+    t = re.sub(r"\bCa\s*(?:2\s*\+|\+\s*2|dos\s+m[aá]s|\+\s*dos)\b", " calcio ", t)
+    t = re.sub(r"\bMg\s*(?:2\s*\+|\+\s*2|dos\s+m[aá]s|\+\s*dos)\b", " magnesio ", t)
+    t = re.sub(r"\bCl\s*(?:[-−]|menos)\b", " cloro ", t)
+    t = re.sub(r"\bH\s*(?:\+|m[aá]s)\b", " hidrogeno ", t)
+    t = re.sub(r"/", " o ", t)  # «Na+/glucosa» -> «sodio o glucosa»
     t = re.sub(r"\b([A-ZÁÉÍÓÚÑ]{1,5})-([A-ZÁÉÍÓÚÑ]{1,5})\b", r"\1\2", t)  # «PN-TB» = «P N T B»
     t = re.sub(r"\b([A-ZÁÉÍÓÚÑ]{2,})/([A-ZÁÉÍÓÚÑ]{2,})\b", r"\1 o \2", t)  # «OPS/OMS» = «O P S o O M S»
     # Unidades en símbolo a clave canónica antes de griegas y minúsculas
@@ -1165,6 +1173,10 @@ def _revision_5_figuras_tablas(texto: str, *, modo_whisper: bool = False) -> Res
         for m in _REV5_TABLA_MD_RE.finditer(sin_etq):
             hallazgos.append(f"Tabla cruda: {_recortar(m.group(0), 60)}")
     for m in _REV5_AUMENTO_VISUAL_RE.finditer(sin_etq):
+        # 19-nov: «puntas de flecha» / «punta de la flecha» en filamentos de actina/miosina es metáfora anatómica, no flecha visual
+        ctx_v = sin_etq[max(0, m.start() - 18) : min(len(sin_etq), m.end() + 10)]
+        if re.search(r"\bpuntas?\s+de\s+(?:la\s+)?flecha", ctx_v, re.IGNORECASE):
+            continue
         hallazgos.append(f"Detalle solo visual: {m.group(0).strip()}")
 
     palabras = len(sin_etq.split())

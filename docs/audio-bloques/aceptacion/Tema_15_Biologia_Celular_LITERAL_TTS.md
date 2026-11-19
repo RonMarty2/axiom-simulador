@@ -1,64 +1,22 @@
 # Aceptación: Tema_15_Biologia_Celular_LITERAL_TTS
 
-- **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_15_Biologia_Celular_LITERAL_TTS.md"
+- **Texto:** "C:\SynologyDrive\SynologyDrive\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_15_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
-- **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-16 17:51:44
-- **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 5, 6, 7, 8)
+- **Referencia PDF:** "C:\SynologyDrive\SynologyDrive\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
+- **Fecha:** 2026-11-19 16:44:27
+- **Veredicto final:** **APRUEBA** (solo texto (revisiones 9-12 de audio sin revisar))
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 42 párrafos | — |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 43 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 41 párrafos PDF | — |
-| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 1 / 10733 palabras | Encabezado/autor/portada: Alfonso Calvo |
-| 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 3 / 10733 palabras | Llamada tras puntuación: ión t, catorce:dieciocho, en linfo; Llamada tras puntuación: su vez, en: b.un iniciador; Llamada tras puntuación: caspasas, y b.dos efectoras |
-| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 2 / 10733 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: fig. quince a diez; Detalle solo visual: flecha |
-| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 16 / 10733 palabras | Dígito sin convertir: lulas con 2n cromosom; Dígito sin convertir: mosomas y 4c de A D N; Dígito sin convertir: hijas con 2n cromosom (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 15 / 10733 palabras | Título pegado al párrafo: s y c de A D N. FIGURA quince a un Diferencias entre la di; Título pegado al párrafo: ase y telofase. FIGURA quince a dos Fases de la mitosis.; Título pegado al párrafo: de la mitosis. FIGURA quince a tres A. Imágenes de micros (+7 más en Detalle) |
-| 8 | Palabras partidas y ligaduras | texto | FALLA | 2 / 10733 palabras | Corte por guion: DR- cinco; Corte por guion: Bcl- dos |
+| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | APRUEBA | 0 / 10733 palabras | — |
+| 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 10733 palabras | — |
+| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 10733 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |
+| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | APRUEBA | 0 / 10733 palabras | — |
+| 7 | Siglas, números de sección y títulos en su línea | texto | APRUEBA | 0 / 10733 palabras | — |
+| 8 | Palabras partidas y ligaduras | texto | APRUEBA | 0 / 10733 palabras | — |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 11 | Volumen y silencios (ffmpeg) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 12 | Voz y modelo únicos (manifiesto) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
-
-## Detalle de hallazgos (hasta 10 por revisión)
-
-### 3. Relleno leído (biblio, autoeval, créditos, portada) (1 fallas / 10733 palabras)
-- Encabezado/autor/portada: Alfonso Calvo
-
-### 4. Notas al pie (llamadas y glosas) (3 fallas / 10733 palabras)
-- Llamada tras puntuación: ión t, catorce:dieciocho, en linfo
-- Llamada tras puntuación: su vez, en: b.un iniciador
-- Llamada tras puntuación: caspasas, y b.dos efectoras
-
-### 5. Figuras y tablas (sin 'ver figura', descripción) (2 fallas / 10733 palabras)
-- Ref. visual: fig. quince a diez
-- Detalle solo visual: flecha
-
-### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (16 fallas / 10733 palabras)
-- Dígito sin convertir: lulas con 2n cromosom
-- Dígito sin convertir: mosomas y 4c de A D N
-- Dígito sin convertir: hijas con 2n cromosom
-- Dígito sin convertir: mosomas y 2c de A D N
-- Dígito sin convertir: o pasa de 2c a 4c. La
-- Dígito sin convertir: a de 2c a 4c. La meio
-- Dígito sin convertir: e existen 2n complejo
-- Dígito sin convertir: istinto a 2n. En huma
-- Dígito sin convertir: ploidías, 3n, 4n, etc
-- Dígito sin convertir: días, 3n, 4n, etc., s
-
-### 7. Siglas, números de sección y títulos en su línea (15 fallas / 10733 palabras)
-- Título pegado al párrafo: s y c de A D N. FIGURA quince a un Diferencias entre la di
-- Título pegado al párrafo: ase y telofase. FIGURA quince a dos Fases de la mitosis.
-- Título pegado al párrafo: de la mitosis. FIGURA quince a tres A. Imágenes de micros
-- Título pegado al párrafo: isión meiótica. FIGURA quince a cuatro Subfases de la prof
-- Título pegado al párrafo: de una pérdida. FIGURA quince a cinco Entrecruzamiento abe
-- Título pegado al párrafo: una inversión. FIGURA quince a seis Fenómeno de inversión
-- Título pegado al párrafo: polo del huso. FIGURA quince a siete Fases de la primera
-- Título pegado al párrafo: de fecundación. FIGURA quince a ocho Fases de la segunda d
-- Título pegado al párrafo: nadas hormonas. FIGURA quince a nueve Fenómeno de la no di
-- Título pegado al párrafo: espermatozoide. FIGURA quince a diez Espermatogénesis y ov
-
-### 8. Palabras partidas y ligaduras (2 fallas / 10733 palabras)
-- Corte por guion: DR- cinco
-- Corte por guion: Bcl- dos

@@ -81,5 +81,95 @@
       "motivo": "«tinción tricrómica de Masson» es técnica histológica del cuerpo del capítulo, no cita editorial",
       "reviso": "Claude 19-11"
     }
+  ],
+  "Tema_04_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa",
+      "motivo": "texto literal del libro (págs. 193-194); baja de 90 % por expansión fonética de iones (Na+/K+/Ca2+/H+ -> sodio/potasio/calcio/hidrógeno)",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "ATPasa P La ATPasa P (del inglés phosphorylation)",
+      "motivo": "presente íntegro en el TTS; baja de 90 % por expansión fonética de Na+/K+, Ca2+, H+/K+, H+ a nombres en palabras",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "ellas, a excepción de la H+ ATPasa",
+      "motivo": "párrafo presente íntegro en el TTS; baja de 90 % por quitar referencia visual a la figura 4-15 (regla 2 opción A) y expansión fonética de H+/Na+/K+",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 5,
+      "contiene": "Detalle solo visual: flecha",
+      "motivo": "«ouabaína, del somalí, veneno de flecha»: etimología literal del libro, no flecha de figura",
+      "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Tema_12_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 5,
+      "contiene": "Detalle solo visual: flecha",
+      "motivo": "«puntas de flecha» es la metáfora anatómica clásica de la polaridad de filamentos de actina/miosina (texto literal del libro, no flecha de diagrama)",
+      "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Tema_13_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA trece a tres Mecanismos de transmisión de la señal",
+      "motivo": "pie literal de la FIGURA 13-3 (pág. 544); baja de 90 % porque «13-3» en palabras es «trece a tres» y el pie es corto",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Señalización hormonal Las hormonas producidas por las células endocrinas",
+      "motivo": "presente íntegro en el TTS; baja de 90 % por quitar referencia visual a la tabla 13-3 (regla 2 opción A)",
+      "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Atlas_B_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Compare los arcos de la parte b con la anatomía del esqueleto de la figura 8.42",
+      "motivo": "presente en el TTS; baja de 90 % por quitar referencia visual «de la figura 8.42 (p. 272)» (regla 2 opción A)",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: ratorio o ilustración de libro",
+      "motivo": "texto literal del cuerpo («modelo de laboratorio o ilustración de libro: el propio cuerpo»), no crédito editorial",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: ado en la ilustración de la izquierda",
+      "motivo": "texto literal del cuerpo explicando la orientación anatómica, no crédito editorial",
+      "reviso": "Antigravity 19-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: ado en la ilustración de la derecha",
+      "motivo": "texto literal del cuerpo explicando la orientación anatómica, no crédito editorial",
+      "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Tema_14_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Ciclo celular y destinos vitales de la célula Carlos Bravo Vicente Fresquet",
+      "motivo": "portada del capítulo: se quitaron los nombres de los autores (regla 10 de libro-audio-tts); título y objetivos completos",
+      "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Tema_10_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Distribución adecuada de las distintas macromoléculas Como hemos mencionado anteri",
+      "motivo": "párrafo presente íntegro en el TTS; baja de 90 % únicamente por quitar la frase de referencia visual «La figura 10-15 muestra el recorrido…» (regla 2 opción A)",
+      "reviso": "Antigravity 19-11"
+    }
   ]
 }

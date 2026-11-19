@@ -86,3 +86,6 @@ After init writes PRODUCT.md, resume without rerunning `impeccable context`; ini
 **Doctor:** `/impeccable doctor` reports and repairs drift between this project's Impeccable artifacts (PRODUCT.md, DESIGN.md and its sidecar, config, surface briefs, the hook) and what this version reads. Load [reference/doctor.md](reference/doctor.md) when the user invokes it, or when they ask what is out of date, stale, or needs refreshing. A `CONTEXT_STALE` directive in Setup's output is the cheap subset of the same report; act on it there per its own instructions rather than running doctor unasked.
 
 **Never repair drift as a side effect of a design task.** A `CONTEXT_STALE` finding is reported, not acted on, unless the user asks. The one exception is a finding marked `auto`, which the next write to that file performs anyway.
+## AJUSTE AXIOM (19-11-2026, Ronald eligió A; NO es del paquete original: si se actualiza impeccable, volver a pegar esta sección)
+- Nunca diseñar una pantalla desde cero: antes, buscar una plantilla o pieza ya probada (las de Axiom primero; Astryx si el piloto sale bien: `npx astryx build "<idea en INGLÉS>"`, su buscador no entiende español). Evaluación y límites (React 19, StyleX solo para plantillas): `docs\repos\astryx.md`.
+- Pantallas existentes NO se migran a Astryx (beta 0.7) sin OK de Ronald.
