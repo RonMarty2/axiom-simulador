@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_20_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:18:31
+- **Fecha:** 2026-11-19 07:51:53
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 41 / 31017 palabras | Llamada numérica: metaarteriolas3; Llamada numérica: aneurisma2; Llamada numérica: subclavia8 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 16 / 31017 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: la figura veinte coma un dos; Ref. visual: la figura veinte coma un seis; Ref. visual: En la figura veinte coma un ocho (+7 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 27 / 31017 palabras | Dígito sin convertir: aquí como 3salida., E; Dígito sin convertir: oncótica: 28entrada –; Dígito sin convertir: entrada – 8salida igu (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 26 / 31017 palabras | Sigla en mayúsculas: RUWD; Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 5 / 31017 palabras | Sigla en mayúsculas: RUWD; Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS (+2 más en Detalle) |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 30 / 31017 palabras | Corte por guion: quí- treinta; Ligadura partida: fl uyan; Ligadura partida: fl uctuaciones (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -70,17 +70,12 @@
 - Dígito sin convertir: ncótica – 20entrada Pr
 - Dígito sin convertir: ción neta 13salida La
 
-### 7. Siglas, números de sección y títulos en su línea (26 fallas / 31017 palabras)
+### 7. Siglas, números de sección y títulos en su línea (5 fallas / 31017 palabras)
 - Sigla en mayúsculas: RUWD
 - Sigla en mayúsculas: FONDO
 - Sigla en mayúsculas: TEMAS
 - Sigla en mayúsculas: TODOS
-- Título pegado al párrafo: a experimental. veinte punto uno Anatomía general de los vasos sanguí
-- Título pegado al párrafo: te transversal. FIGURA veinte coma seis Estructura de un c
-- Título pegado al párrafo: del sinusoide. FIGURA veinte coma ocho Distribución típic
-- Título pegado al párrafo: ción sanguínea. veinte punto dos Presión arterial, resistencia y circ
-- Título pegado al párrafo: n, el corazón,. CUADRO veinte coma un Velocidad sanguínea
-- Título pegado al párrafo: pared vascular. FIGURA veinte coma un dos La capacidad de
+- Recuadro pegado al párrafo: recto interno CONOCIMIENTO MÁS A FONDO veinte coma cinco Aplicación...
 
 ### 8. Palabras partidas y ligaduras (30 fallas / 31017 palabras)
 - Corte por guion: quí- treinta

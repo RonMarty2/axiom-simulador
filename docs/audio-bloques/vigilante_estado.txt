@@ -147,3 +147,100 @@
 16-11:56 29 capitulos esperan aceptacion de texto; reviso en 30 min
 16-12:26 cuota OK, grabando
 16-12:27 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:40 cuota OK, grabando
+19-07:40 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:40 cuota OK, grabando
+19-07:40 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:45 cuota OK, grabando
+19-07:45 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:45 cuota OK, grabando
+19-07:45 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:47 cuota OK, grabando
+19-07:47 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:48 cuota OK, grabando
+19-07:48 cuota OK, grabando
+19-07:48 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:48 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:49 cuota OK, grabando
+19-07:49 cuota OK, grabando
+19-07:50 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:50 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:51 cuota OK, grabando
+19-07:51 cuota OK, grabando
+19-07:51 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:51 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:52 cuota OK, grabando
+19-07:52 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:52 cuota OK, grabando
+19-07:52 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:53 cuota OK, grabando
+19-07:53 cuota OK, grabando
+19-07:53 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:53 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:55 cuota OK, grabando
+19-07:55 cuota OK, grabando
+19-07:55 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:55 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:56 cuota OK, grabando
+19-07:56 cuota OK, grabando
+19-07:56 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:56 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:58 cuota OK, grabando
+19-07:58 cuota OK, grabando
+19-07:58 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-07:59 cuota OK, grabando
+19-07:59 cuota OK, grabando
+19-08:00 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:00 29 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:01 cuota OK, grabando
+19-08:01 cuota OK, grabando
+19-08:01 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:01 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:01 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:03 cuota OK, grabando
+19-08:03 cuota OK, grabando
+19-08:04 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:04 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:04 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:04 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:10 cuota OK, grabando
+19-08:11 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:11 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:23 cuota OK, grabando
+19-08:23 cuota OK, grabando
+19-08:23 cuota OK, grabando
+19-08:23 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:23 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:23 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:23 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:23 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:24 cuota OK, grabando
+19-08:24 cuota OK, grabando
+19-08:24 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:24 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:24 cuota OK, grabando
+19-08:24 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:24 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:24 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:25 cuota OK, grabando
+19-08:25 cuota OK, grabando
+19-08:25 cuota OK, grabando
+19-08:25 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:25 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:25 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:25 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:26 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:26 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:40 cuota OK, grabando
+19-08:41 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:41 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:56 cuota OK, grabando
+19-08:56 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-08:56 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-08:56 cuota OK, grabando
+19-08:56 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-09:10 cuota OK, grabando
+19-09:10 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.
+19-09:10 1 capitulos esperan aceptacion de texto; reviso en 30 min
+19-09:11 cuota OK, grabando
+19-09:11 Error: Cantidad de bloques del texto actual (75) no coincide con el plan (81) en 'Tema_01_Biologia_Celular_LITERAL_TTS'.

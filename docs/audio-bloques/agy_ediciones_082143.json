@@ -1,0 +1,965 @@
+[
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Cita bibliográfica: et al | n= 3 (1/2)",
+  "veredicto": "real",
+  "buscar": "al microscopio electrónico., C, reproducida a partir de: Burrell M A et al. Atlas de ultraestructura celular. dos.ª ed. Navarra: eunsa; dos mil once; A Centríolos",
+  "reemplazar": "al microscopio electrónico. A Centríolos",
+  "motivo": "Cita bibliográfica de figura leída en voz alta; se elimina sin romper el texto."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Cita bibliográfica: et al | n= 3 (2/2)",
+  "veredicto": "real",
+  "buscar": "una hilera de puntas de flecha., B, prodecente de: Waller G S, et al. J Biol Chem mil novecientos noventa y cinco;doscientos setenta:quince mil trescientos cuarenta y ocho a cincuenta y dos., La propiedad fundamental",
+  "reemplazar": "una hilera de puntas de flecha. La propiedad fundamental",
+  "motivo": "Cita bibliográfica de figura leída en voz alta; se elimina manteniendo la continuidad."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Cita bibliográfica: Saunders | n= 1",
+  "veredicto": "real",
+  "buscar": "fases sucesivas de crecimiento., C, reproducida a partir de: Don W. Fawcett. The Cell. Philadelphia: Saunders Company, mil novecientos ochenta y un.,\n\nAlgunas patologías",
+  "reemplazar": "fases sucesivas de crecimiento.\n\nAlgunas patologías",
+  "motivo": "Cita bibliográfica de figura leída en voz alta; se elimina."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Crédito: n dos mil © Addison Wesley Longman Inc.; | n= 1",
+  "veredicto": "real",
+  "buscar": "vecientos noventa y cuatro, trescientos setenta y dos:quinientos quince a quinientos dieciocho McMillan Magazines, Ltd.; B, W.M. Becker et al. The World of the Cell cuatro. ª Ed. San Francisco, C A, Addison Wesley Longman dos mil © Addison Wesley Longman Inc.; C Este proceso se repite",
+  "reemplazar": "Este proceso se repite",
+  "motivo": "Crédito editorial y copyright leídos en voz alta; se eliminan."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Encabezado/autor/portada: Alfonso Calvo | n= 1",
+  "veredicto": "real",
+  "buscar": "CAPÍTULO doce\n\nEl citoesqueleto Alfonso Calvo José J. Abad Luis Montuenga Objetivos de aprendizaje",
+  "reemplazar": "CAPÍTULO doce\n\nEl citoesqueleto Objetivos de aprendizaje",
+  "motivo": "Nombres de autores de portada leídos en voz alta; se eliminan."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ientos setenta:quince mil tresc | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "Waller G S, et al. J Biol Chem mil novecientos noventa y cinco;doscientos setenta:quince mil trescientos cuarenta y ocho a cincuenta y dos., La propiedad",
+  "reemplazar": "Waller G S, et al. J Biol Chem mil novecientos noventa y cinco;doscientos setenta:quince mil trescientos cuarenta y ocho a cincuenta y dos., La propiedad",
+  "motivo": "No es llamada de nota al pie sino número de volumen y páginas de una cita bibliográfica ya cubierta en rev 3."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 5 (1/2)",
+  "veredicto": "real",
+  "buscar": "Las flechas indican el cilio primario de cada una de las células, en verde intenso, el tallo ciliar; en rojo, el cuerpo basal; el color azul revela la presencia de los núcleos celulares,.",
+  "reemplazar": "",
+  "motivo": "Descripción puramente visual de colores y flechas en imagen de fluorescencia; se elimina."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 5 (2/2)",
+  "veredicto": "real",
+  "buscar": "A. Imagen de microscopía de fluorescencia de las colas de actina, flechas, formadas por Lysteria monocytogenes, que se desplaza por el citoplasma celular. La bacteria aparece en esta imagen de color rojo, la actina en verde y los núcleos celulares en color azul.",
+  "reemplazar": "A. Imagen de microscopía de fluorescencia de las colas de actina formadas por Lysteria monocytogenes, que se desplaza por el citoplasma celular.",
+  "motivo": "Se quita la mención a flechas y colores puramente visuales manteniendo la descripción biológica."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': T P y Mg+dos y se | n= 1",
+  "veredicto": "real",
+  "buscar": "en concentraciones suficientes, G T P y Mg+dos y se trabaja con una temperatura adecuada",
+  "reemplazar": "en concentraciones suficientes, G T P y magnesio dos más y se trabaja con una temperatura adecuada",
+  "motivo": "Símbolo '+' en ion Mg2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a G P D + Pi, poc | n= 1",
+  "veredicto": "real",
+  "buscar": "el de la alfa-tubulina, se disocia a G P D + Pi, poco después de la adición.",
+  "reemplazar": "el de la alfa-tubulina, se disocia a G P D más Pi, poco después de la adición.",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ubulina + Pi, es | n= 1",
+  "veredicto": "real",
+  "buscar": "hidrólisis del G T P, que da lugar a G D P-tubulina + Pi, es mayor que la velocidad",
+  "reemplazar": "hidrólisis del G T P, que da lugar a G D P-tubulina más Pi, es mayor que la velocidad",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': n G D P + Pi en l | n= 1",
+  "veredicto": "real",
+  "buscar": "la disociación de G T P en G D P + Pi en la beta-tubulina debilita",
+  "reemplazar": "la disociación de G T P en G D P más Pi en la beta-tubulina debilita",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': y tres + cero; e | n= 1",
+  "veredicto": "real",
+  "buscar": "Se caracteriza por tener una estructura de tipo noventa y tres + cero; es decir,",
+  "reemplazar": "Se caracteriza por tener una estructura de tipo nueve por tres más cero; es decir,",
+  "motivo": "Símbolo '+' pasado a palabra «más» (y se corrige «noventa y tres» por «nueve por tres»)."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + dos, nu | n= 1",
+  "veredicto": "real",
+  "buscar": "es decir, de tipo noventa y dos + dos, nueve dobletes de microtúbulos periféricos",
+  "reemplazar": "es decir, de tipo nueve por dos más dos, nueve dobletes de microtúbulos periféricos",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + cero, s | n= 1",
+  "veredicto": "real",
+  "buscar": "mientras que los del tipo noventa y dos + cero, sin el par central de microtúbulos,",
+  "reemplazar": "mientras que los del tipo nueve por dos más cero, sin el par central de microtúbulos,",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + cero s | n= 0",
+  "veredicto": "falso_positivo",
+  "buscar": "Los cilios inmóviles noventa y dos + cero\n\nse encuentran normalmente como cilios únicos",
+  "reemplazar": "Los cilios inmóviles noventa y dos + cero\n\nse encuentran normalmente como cilios únicos",
+  "motivo": "Conteo n=0 en el reporte; el caso real está en la línea siguiente."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + cero en | n= 1",
+  "veredicto": "real",
+  "buscar": "por ejemplo, hay cilios del tipo noventa y dos + cero en el nódulo primitivo del embrión",
+  "reemplazar": "por ejemplo, hay cilios del tipo nueve por dos más cero en el nódulo primitivo del embrión",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + dos que | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "También hay cilios inmóviles del tipo noventa y dos + dos que carecen de brazos de dineína,",
+  "reemplazar": "También hay cilios inmóviles del tipo nueve por dos más dos que carecen de brazos de dineína,",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a y dos + dos que | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "contiene un axonema de estructura noventa y dos + dos que recorre toda la cola.",
+  "reemplazar": "contiene un axonema de estructura nueve por dos más dos que recorre toda la cola.",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: beta- tubulina | n= 1",
+  "veredicto": "real",
+  "buscar": "En efecto, las unidades de alfa- y beta- tubulina también se pueden desprender",
+  "reemplazar": "En efecto, las unidades de alfa- y beta-tubulina también se pueden desprender",
+  "motivo": "Espacio tras guion en palabra compuesta; se une «beta-tubulina»."
+ },
+ {
+  "capitulo": "Tema_12_Biologia_Celular",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: dos- calmodulina | n= 1",
+  "veredicto": "real",
+  "buscar": "unión entre el Ca+dos y la proteína calmodulina, formando el complejo Ca+dos- calmodulina, que activa a su vez",
+  "reemplazar": "unión entre el calcio dos más y la proteína calmodulina, formando el complejo calcio dos más-calmodulina, que activa a su vez",
+  "motivo": "Espacio tras guion y símbolo '+' en ion calcio; se corrige a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Encabezado/autor/portada: Alfonso Calvo | n= 1",
+  "veredicto": "real",
+  "buscar": "CAPÍTULO trece\n\nMecanismos de señalización celular Alfonso Calvo Objetivos de aprendizaje",
+  "reemplazar": "CAPÍTULO trece\n\nMecanismos de señalización celular Objetivos de aprendizaje",
+  "motivo": "Nombre del autor de portada leído en voz alta; se elimina."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La tabla trece a un | n= 1",
+  "veredicto": "real",
+  "buscar": "proliferación en las células de un tejido. La tabla trece a un recoge algunos de los principales factores de crecimiento y algunos de sus efectos. Las diferentes células",
+  "reemplazar": "proliferación en las células de un tejido. Las diferentes células",
+  "motivo": "Referencia visual a tabla; se elimina la oración sin romper el párrafo."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La tabla trece a dos | n= 1",
+  "veredicto": "real",
+  "buscar": "pueden ejercer el mismo efecto,. La tabla trece a dos recoge ejemplos de algunas citoquinas relevantes. La importancia de las citoquinas",
+  "reemplazar": "pueden ejercer el mismo efecto. La importancia de las citoquinas",
+  "motivo": "Referencia visual a tabla; se elimina la oración."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La tabla trece a tres | n= 1",
+  "veredicto": "real",
+  "buscar": "hormona foliculoestimulante, F S H, etc. La tabla trece a tres recoge ejemplos de algunas hormonas peptídicas, el órgano que las produce y su función principal en el organismo.\n\ndos. Hormonas liposolubles:",
+  "reemplazar": "hormona foliculoestimulante, F S H, etc.\n\ndos. Hormonas liposolubles:",
+  "motivo": "Referencia visual a tabla; se elimina la oración."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a G D P + Pi, que | n= 1",
+  "veredicto": "real",
+  "buscar": "se produce una disociación del G T P hacia G D P + Pi, quedándose la proteína unida a G D P.",
+  "reemplazar": "se produce una disociación del G T P hacia G D P más Pi, quedándose la proteína unida a G D P.",
+  "motivo": "Símbolo '+' pasado a palabra «más»."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': es de Ca+dos, lo | n= 1",
+  "veredicto": "real",
+  "buscar": "da lugar a la apertura de los canales de Ca+dos, lo que desencadena la exocitosis",
+  "reemplazar": "da lugar a la apertura de los canales de calcio dos más, lo que desencadena la exocitosis",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ón de Ca+dos y D | n= 1",
+  "veredicto": "real",
+  "buscar": "tras la activación de la enzima fosfolipasa C y producción de Ca+dos y D A G. R E L,",
+  "reemplazar": "tras la activación de la enzima fosfolipasa C y producción de calcio dos más y D A G. R E L,",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a del Ca+dos alma | n= 1",
+  "veredicto": "real",
+  "buscar": "el canal se abre, permitiendo así la salida masiva del Ca+dos almacenado en el R E L.",
+  "reemplazar": "el canal se abre, permitiendo así la salida masiva del calcio dos más almacenado en el R E L.",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ar de Ca+dos, ya | n= 1",
+  "veredicto": "real",
+  "buscar": "El R E L actúa como reservorio intracelular de Ca+dos, ya que su membrana posee bombas ATPasas",
+  "reemplazar": "El R E L actúa como reservorio intracelular de calcio dos más, ya que su membrana posee bombas ATPasas",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': mente Ca+dos desd | n= 1",
+  "veredicto": "real",
+  "buscar": "bombas ATPasas que introducen continuamente Ca+dos desde el citoplasma, en contra de gradiente,",
+  "reemplazar": "bombas ATPasas que introducen continuamente calcio dos más desde el citoplasma, en contra de gradiente,",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': es de Ca+dos en e | n= 1",
+  "veredicto": "real",
+  "buscar": "Los niveles de Ca+dos en el citoplasma en ausencia de señalización intracelular son muy bajos,",
+  "reemplazar": "Los niveles de calcio dos más en el citoplasma en ausencia de señalización intracelular son muy bajos,",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ,. El Ca+dos actú | n= 1",
+  "veredicto": "real",
+  "buscar": "canales iónicos del R E L, diez menos tres mM,. El Ca+dos actúa en el citoplasma como un segundo mensajero",
+  "reemplazar": "canales iónicos del R E L, diez menos tres mM,. El calcio dos más actúa en el citoplasma como un segundo mensajero",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l del Ca+dos en l | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "El papel del Ca+dos en la señalización celular se discute detalladamente más adelante.",
+  "reemplazar": "El papel del calcio dos más en la señalización celular se discute detalladamente más adelante.",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l del Ca+dos en l | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "Papel del Ca+dos en la señalización intracelular Aunque tratamos en este apartado la señalización intracelular mediada por el Ca+dos,",
+  "reemplazar": "Papel del calcio dos más en la señalización intracelular Aunque tratamos en este apartado la señalización intracelular mediada por el calcio dos más,",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_13_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': A G y Ca+dos para | n= 1",
+  "veredicto": "real",
+  "buscar": "P K C coopera con los segundos mensajeros D A G y Ca+dos para producir una variedad de respuestas:",
+  "reemplazar": "P K C coopera con los segundos mensajeros D A G y calcio dos más para producir una variedad de respuestas:",
+  "motivo": "Símbolo '+' en ion Ca2+ pasado a palabras."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 4 (1/2)",
+  "veredicto": "real",
+  "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuáles son las diferencias anatómicas y funcionales entre el sistema nervioso autónomo y el somático? dos. ¿De qué manera los efe",
+  "reemplazar": "",
+  "motivo": "Sección de autoevaluación leída en voz alta; debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 4 (2/2)",
+  "veredicto": "real",
+  "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: tres. Explique por qué a la división simpática también se le denomina división toracolumbar, aunque sus ganglios paravertebrales se ex",
+  "reemplazar": "",
+  "motivo": "Sección de autoevaluación leída en voz alta; debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: suprarrenales6 | n= 1",
+  "veredicto": "real",
+  "buscar": "Glándulas suprarrenales Las dos glándulas suprarrenales6 descansan como sombreros",
+  "reemplazar": "Glándulas suprarrenales Las dos glándulas suprarrenales descansan como sombreros",
+  "motivo": "Llamada de nota al pie «6» pegada a la palabra; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: simpatomiméticos12 | n= 1",
+  "veredicto": "real",
+  "buscar": "Los simpatomiméticos12 son fármacos que mejoran la acción simpática.",
+  "reemplazar": "Los simpatomiméticos son fármacos que mejoran la acción simpática.",
+  "motivo": "Llamada de nota al pie «12» pegada a la palabra; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: simpatolíticos13 | n= 1",
+  "veredicto": "real",
+  "buscar": "Los simpatolíticos13 son sustancias que suprimen la acción simpática",
+  "reemplazar": "Los simpatolíticos son sustancias que suprimen la acción simpática",
+  "motivo": "Llamada de nota al pie «13» pegada a la palabra; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: jos viscerales:un respuesta | n= 1",
+  "veredicto": "real",
+  "buscar": "El A N S es responsable de los reflejos viscerales:un respuestas inconscientes, autónomas,",
+  "reemplazar": "El A N S es responsable de los reflejos viscerales: respuestas inconscientes, autónomas,",
+  "motivo": "Llamada de nota al pie «un» tras dos puntos; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: barorrefl ejo.dos Éste esti | n= 1",
+  "veredicto": "real",
+  "buscar": "Por ejemplo, la presión arterial elevada activa un barorrefl ejo.dos Éste estimula los receptores",
+  "reemplazar": "Por ejemplo, la presión arterial elevada activa un barorreflejo. Éste estimula los receptores",
+  "motivo": "Llamada de nota al pie «dos» tras punto y ligadura partida; se corrige."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: aravertebrales,tres que está | n= 1",
+  "veredicto": "real",
+  "buscar": "ganglios nerviosos paravertebrales,tres que está cerca de ellas.",
+  "reemplazar": "ganglios nerviosos paravertebrales, que está cerca de ellas.",
+  "motivo": "Llamada de nota al pie «tres» tras coma; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: vio esplácnico.cuatro Algunas f | n= 1",
+  "veredicto": "real",
+  "buscar": "tres La ruta del nervio esplácnico.cuatro Algunas fibras que surgen de los nervios raquídeos",
+  "reemplazar": "tres La ruta del nervio esplácnico. Algunas fibras que surgen de los nervios raquídeos",
+  "motivo": "Llamada de nota al pie «cuatro» tras punto; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ganglio ótico,ocho cerca del | n= 1",
+  "veredicto": "real",
+  "buscar": "y termina en el ganglio ótico,ocho cerca del agujero oval.",
+  "reemplazar": "y termina en el ganglio ótico, cerca del agujero oval.",
+  "motivo": "Llamada de nota al pie «ocho» tras coma; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: vioso entérico.nueve A diferen | n= 1",
+  "veredicto": "real",
+  "buscar": "al que se denomina sistema nervioso entérico.nueve A diferencia del A N S,",
+  "reemplazar": "al que se denomina sistema nervioso entérico. A diferencia del A N S,",
+  "motivo": "Llamada de nota al pie «nueve» tras punto; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: e Hirschsprung.diez Durante e | n= 1",
+  "veredicto": "real",
+  "buscar": "al que se denomina enfermedad de Hirschsprung.diez Durante el desarrollo embrionario normal,",
+  "reemplazar": "al que se denomina enfermedad de Hirschsprung. Durante el desarrollo embrionario normal,",
+  "motivo": "Llamada de nota al pie «diez» tras punto; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La figura doce coma dos | n= 1",
+  "veredicto": "real",
+  "buscar": "Repaso • La figura doce coma dos, p. cuatrocientos cuarenta y un, proporciona una perspectiva de la manera en que el sistema nervioso autónomo, A N S, se amolda en el esquema del sistema nervioso como un todo.",
+  "reemplazar": "",
+  "motivo": "Referencia visual a figura y página; se elimina el punto."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro quince coma un | n= 1",
+  "veredicto": "real",
+  "buscar": "Éstas y otras diferencias entre los sistemas nerviosos autónomos se resumen en el cuadro quince coma un.",
+  "reemplazar": "",
+  "motivo": "Referencia visual a cuadro; se elimina la oración."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura quince coma cinco | n= 1",
+  "veredicto": "real",
+  "buscar": "Aparecen numeradas en la figura quince coma cinco para que correspondan con las siguientes descripciones:",
+  "reemplazar": "Se corresponden con las siguientes descripciones:",
+  "motivo": "Referencia visual a figura; se quita manteniendo el enlace con la lista."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro quince coma dos | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro quince coma dos se presenta un resumen de la inervación a los tres ganglios colaterales principales, y desde ellos.",
+  "reemplazar": "",
+  "motivo": "Referencia visual a cuadro; se elimina la oración."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura quince coma un | n= 1",
+  "veredicto": "real",
+  "buscar": "ganglios terminales en el órgano de destino, o cerca de él, como se vio en la figura quince coma un.,",
+  "reemplazar": "ganglios terminales en el órgano de destino, o cerca de él.",
+  "motivo": "Referencia visual a figura; se elimina la cláusula."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro quince coma tres | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro quince coma tres se presenta una comparación de las divisiones simpática y parasimpática del A N S.",
+  "reemplazar": "",
+  "motivo": "Referencia visual a cuadro; se elimina la oración."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro quince coma cinco | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "En el cuadro quince coma cinco se presenta un resumen de los efectos de la estimulación simpática y parasimpática en diferentes órga",
+  "reemplazar": "",
+  "motivo": "Referencia visual a cuadro; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro quince coma cinco | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "Aplicación de lo aprendido En el cuadro quince coma cinco se observa que el sistema nervioso simpático tiene efecto alfa-adrenérgico",
+  "reemplazar": "Aplicación de lo aprendido El sistema nervioso simpático tiene efecto alfa-adrenérgico",
+  "motivo": "Referencia visual a cuadro; se elimina la mención manteniendo la pregunta."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro quince coma seis | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro quince coma seis se describen algunas disfunciones del sistema nervioso autónomo.",
+  "reemplazar": "",
+  "motivo": "Referencia visual a cuadro; se elimina."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: prefi eren | n= 1",
+  "veredicto": "real",
+  "buscar": "viscerales como parte del A N S, pero la mayoría prefi eren reservar la denominación A N S",
+  "reemplazar": "viscerales como parte del A N S, pero la mayoría prefieren reservar la denominación A N S",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «prefieren»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: barorrefl ejo | n= 1",
+  "veredicto": "real",
+  "buscar": "la presión arterial elevada activa un barorrefl ejo.dos Éste estimula",
+  "reemplazar": "la presión arterial elevada activa un barorreflejo. Éste estimula",
+  "motivo": "Ligadura 'fl' partida por espacio (y llamada de nota); se une «barorreflejo»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi je | n= 1",
+  "veredicto": "real",
+  "buscar": "se considera fibra colinérgica, y cualquier receptor que se fi je a ella es un receptor colinérgico.",
+  "reemplazar": "se considera fibra colinérgica, y cualquier receptor que se fije a ella es un receptor colinérgico.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «fije»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarse | n= 2",
+  "veredicto": "real",
+  "buscar": "la ACh excita el músculo liso intestinal al fi jarse a un tipo de receptor muscarínico, e inhibe el músculo cardiaco al fi jarse a un tipo diferente.",
+  "reemplazar": "la ACh excita el músculo liso intestinal al fijarse a un tipo de receptor muscarínico, e inhibe el músculo cardiaco al fijarse a un tipo diferente.",
+  "motivo": "Ligadura 'fi' partida por espacio en ambas ocurrencias; se une «fijarse»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi nes | n= 1",
+  "veredicto": "real",
+  "buscar": "la N E liberada por una fibra simpática tiene varios fi nes: un La fibra nerviosa reabsorbe",
+  "reemplazar": "la N E liberada por una fibra simpática tiene varios fines: un La fibra nerviosa reabsorbe",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «fines»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: unifi cada | n= 1",
+  "veredicto": "real",
+  "buscar": "Integración y control general unifi cada. La salivación es un buen ejemplo.",
+  "reemplazar": "Integración y control general unificada. La salivación es un buen ejemplo.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «unificada»."
+ },
+ {
+  "capitulo": "Tema_15_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 1",
+  "veredicto": "real",
+  "buscar": "Más aún, como no hay sufi ciente sangre en el cuerpo para distribuirla por igual",
+  "reemplazar": "Más aún, como no hay suficiente sangre en el cuerpo para distribuirla por igual",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «suficiente»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 3 (1/2)",
+  "veredicto": "real",
+  "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Enliste cinco rutas de pérdida de agua. ¿Cuál es responsable de la pérdida mayor? ¿Cuál es la más controlable?",
+  "reemplazar": "",
+  "motivo": "Sección de autoevaluación leída en voz alta; debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 3 (2/2)",
+  "veredicto": "real",
+  "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. ¿Cuál considera que tendría el efecto más grave y por qué: un aumento de cinco meq o L en la concentración plasmática de sodio,",
+  "reemplazar": "",
+  "motivo": "Sección de autoevaluación leída en voz alta; debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: hipernatremia3 | n= 1",
+  "veredicto": "real",
+  "buscar": "La hipernatremia3 es la concentración de sodio en el plasma por arriba de ciento cuarenta y cinco meq o L.",
+  "reemplazar": "La hipernatremia es la concentración de sodio en el plasma por arriba de ciento cuarenta y cinco meq o L.",
+  "motivo": "Llamada de nota al pie «3» pegada a la palabra; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ración cutánea,un agua que | n= 1",
+  "veredicto": "real",
+  "buscar": "se pierden como transpiración cutánea,un agua que se difunde a través de la epidermis",
+  "reemplazar": "se pierden como transpiración cutánea, agua que se difunde a través de la epidermis",
+  "motivo": "Llamada de nota al pie «un» tras coma; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: n, hipovolemia,dos ocurre cu | n= 1",
+  "veredicto": "real",
+  "buscar": "La reducción del volumen, hipovolemia,dos ocurre cuando se pierden cantidades proporcionales de agua y sodio",
+  "reemplazar": "La reducción del volumen, hipovolemia, ocurre cuando se pierden cantidades proporcionales de agua y sodio",
+  "motivo": "Llamada de nota al pie «dos» tras coma; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: elación veinte:un de HCO3 – | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "Normal Muerte Muerte tiene una relación veinte:un de HCO3 – a H2CO3.",
+  "reemplazar": "Normal Muerte Muerte tiene una relación veinte:un de HCO3 – a H2CO3.",
+  "motivo": "Es la proporción 20:1 («veinte a uno»), no una llamada de nota al pie."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: elación veinte:un entre los | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "A un pe hache normal de siete coma cuatro cero, hay una relación veinte:un entre los iones bicarbonato,",
+  "reemplazar": "A un pe hache normal de siete coma cuatro cero, hay una relación veinte:un entre los iones bicarbonato,",
+  "motivo": "Es la proporción 20:1 («veinte a uno»), no una llamada de nota al pie."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: s parenterales.cuatro La más co | n= 1",
+  "veredicto": "real",
+  "buscar": "reciben el nombre de rutas parenterales.cuatro La más común de éstas es la intravenosa, IV,",
+  "reemplazar": "reciben el nombre de rutas parenterales. La más común de éstas es la intravenosa, IV,",
+  "motivo": "Llamada de nota al pie «cuatro» tras punto; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . dos hypo igual a debajo de lo normal; uol igual a volumen; haemia igua... | n= 1",
+  "veredicto": "real",
+  "buscar": "dos hypo igual a debajo de lo normal; uol igual a volumen; haemia igual a sangre.\n\n",
+  "reemplazar": "",
+  "motivo": "Glosa de nota al pie etimológica leída en voz alta; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . tres natr igual a sodio; haemia igual a sangre. | n= 1",
+  "veredicto": "real",
+  "buscar": "tres natr igual a sodio; haemia igual a sangre.\n\n",
+  "reemplazar": "",
+  "motivo": "Glosa de nota al pie etimológica leída en voz alta; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . cuatro para igual a además de; enter igual a intestino. | n= 1",
+  "veredicto": "real",
+  "buscar": "cuatro para igual a además de; enter igual a intestino.\n\n",
+  "reemplazar": "",
+  "motivo": "Glosa de nota al pie etimológica leída en voz alta; se elimina."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C6H12O6 + seis O2 | n= 1",
+  "veredicto": "real",
+  "buscar": "la respiración aeróbica: C6H12O6 + seis O2 → seis CO2 + seis H2O",
+  "reemplazar": "la respiración aeróbica: glucosa más seis moléculas de oxígeno producen seis moléculas de dióxido de carbono más seis moléculas de agua",
+  "motivo": "Fórmula química con '+' y '→' pasada a palabras."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': rmal mV + – mV + | n= 1",
+  "veredicto": "real",
+  "buscar": "Potencial de membrana en reposo, R M P, normal mV + – mV + – mV + – R M P a Normopotasemia b Hiperpotasemia c Hipopotasemia",
+  "reemplazar": "",
+  "motivo": "Etiquetas sueltas de diagrama con símbolos '+' y '–'; se eliminan."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': no: CO2 + H2O H2C | n= 1",
+  "veredicto": "real",
+  "buscar": "y hidrógeno: CO2 + H2O H2CO3 HCO3 –+ hidrógeno",
+  "reemplazar": "e hidrógeno: dióxido de carbono más agua forman ácido carbónico, que se disocia en bicarbonato más hidrógeno",
+  "motivo": "Ecuación química con símbolos '+' y '–' pasada a palabras."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': O4 dos– + hidróge | n= 1",
+  "veredicto": "real",
+  "buscar": "H2PO4 – HPO4 dos– + hidrógeno",
+  "reemplazar": "fosfato diácido en equilibrio con fosfato monoácido más hidrógeno",
+  "motivo": "Ecuación química con '+' y '–' pasada a palabras."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': o menos + hidróge | n= 1",
+  "veredicto": "real",
+  "buscar": "–ce o o hache → –ce o o menos + hidrógeno",
+  "reemplazar": "carboxilo se disocia en carboxilato más hidrógeno",
+  "motivo": "Ecuación química con '+' y '→' pasada a palabras."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l. –NH2 + hidróge | n= 1",
+  "veredicto": "real",
+  "buscar": "–NH2 + hidrógeno → –NH3 +",
+  "reemplazar": "grupo amino más hidrógeno produce grupo amonio",
+  "motivo": "Ecuación química con '+' y '→' pasada a palabras."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: FONDO | n= 1",
+  "veredicto": "real",
+  "buscar": "CONOCIMIENTO MÁS A FONDO veinticuatro coma dos Aplicación clínica Tratamiento de reemplazo de líquidos",
+  "reemplazar": "Conocimiento más a fondo veinticuatro coma dos. Aplicación clínica: Tratamiento de reemplazo de líquidos.",
+  "motivo": "Título de recuadro en mayúsculas sostenidas; se normaliza."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Recuadro pegado al párrafo: y acidobásico CONOCIMIENTO MÁS A FONDO veinticuatro coma dos Aplica... | n= 1",
+  "veredicto": "real",
+  "buscar": "eleva la concentración de calcio libre\n\nCAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico CONOCIMIENTO MÁS A FONDO",
+  "reemplazar": "eleva la concentración de calcio libre.\n\nCONOCIMIENTO MÁS A FONDO",
+  "motivo": "Encabezado de página pegado antes del recuadro; se elimina el encabezado."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fl otado | n= 1",
+  "veredicto": "real",
+  "buscar": "y excretado líquido amniótico, y de haber fl otado en él durante meses.",
+  "reemplazar": "y excretado líquido amniótico, y de haber flotado en él durante meses.",
+  "motivo": "Ligadura 'fl' partida por espacio; se une «flotado»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 4 (1/2)",
+  "veredicto": "real",
+  "buscar": "sobre todo a través de la orina y, en caso de sudoración sufi ciente, la que produce humedad obvia",
+  "reemplazar": "sobre todo a través de la orina y, en caso de sudoración suficiente, la que produce humedad obvia",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «suficiente»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi cientes | n= 1",
+  "veredicto": "real",
+  "buscar": "se sintetizan para instalar en la membrana plasmática sufi cientes bombas de sodio-potasio",
+  "reemplazar": "se sintetizan para instalar en la membrana plasmática suficientes bombas de sodio-potasio",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «suficientes»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: défi cit | n= 1",
+  "veredicto": "real",
+  "buscar": "ambos son signos de que el cuerpo padece défi cit de agua,.",
+  "reemplazar": "ambos son signos de que el cuerpo padece déficit de agua.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «déficit»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi caces | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "de líquido, pero sólo son efi caces por cuarenta a cuarenta y cinco minutos.",
+  "reemplazar": "de líquido, pero sólo son eficaces por cuarenta a cuarenta y cinco minutos.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficaces»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi caces | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "porque los riñones son muy efi caces para compensar la ingesta excesiva",
+  "reemplazar": "porque los riñones son muy eficaces para compensar la ingesta excesiva",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficaces»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi caz | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "Ésta es una manera efi caz de compensar la hipertensión,",
+  "reemplazar": "Ésta es una manera eficaz de compensar la hipertensión,",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficaz»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi caz | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "Este proceso es muy efi caz para corregir desequilibrios acidobásicos",
+  "reemplazar": "Este proceso es muy eficaz para corregir desequilibrios acidobásicos",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficaz»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi cacia | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "y, por lo tanto, no pueden concentrar orina con la misma efi cacia que un adulto,",
+  "reemplazar": "y, por lo tanto, no pueden concentrar orina con la misma eficacia que un adulto,",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficacia»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: efi cacia | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "en el que funciona mejor; su efi cacia se reduce en gran medida",
+  "reemplazar": "en el que funciona mejor; su eficacia se reduce en gran medida",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «eficacia»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fl ujograma | n= 1",
+  "veredicto": "real",
+  "buscar": "Para conocer un fl ujograma de la homeostasis del calcio p. doscientos veintitrés,;",
+  "reemplazar": "Para conocer un flujograma de la homeostasis del calcio;",
+  "motivo": "Ligadura 'fl' partida por espacio (y se quita referencia de página)."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jado | n= 2 (1/2)",
+  "veredicto": "real",
+  "buscar": "Luego el hidrógeno fi jado o libre se excreta en la orina.",
+  "reemplazar": "Luego el hidrógeno fijado o libre se excreta en la orina.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «fijado»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jado | n= 2 (2/2)",
+  "veredicto": "real",
+  "buscar": "la mayor parte de su hidrógeno permanece fi jado a él y no reduce el pe hache",
+  "reemplazar": "la mayor parte de su hidrógeno permanece fijado a él y no reduce el pe hache",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «fijado»."
+ },
+ {
+  "capitulo": "Tema_24_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarlo | n= 1",
+  "veredicto": "real",
+  "buscar": "Los otros sistemas de amortiguador sólo reducen su concentración al fi jarlo a otra sustancia química.",
+  "reemplazar": "Los otros sistemas de amortiguador sólo reducen su concentración al fijarlo a otra sustancia química.",
+  "motivo": "Ligadura 'fi' partida por espacio; se une «fijarlo»."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero uno | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "uno: tres coma cinco, tres coma seis, menos cero coma uno, menos cero coma cero cero uno.",
+  "reemplazar": "uno: tres coma cinco, tres coma seis, menos cero coma uno, menos cero coma cero cero uno.",
+  "motivo": "Es el decimal -0.001 (cubo de -0.1), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma siete dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma siete dos nueve.",
+  "reemplazar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma siete dos nueve.",
+  "motivo": "Es el decimal 0.729 (cubo de 0.9), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma dos uno seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma dos uno seis.",
+  "reemplazar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma dos uno seis.",
+  "motivo": "Es el decimal 0.216 (cubo de 0.6), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero dos siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero dos siete.",
+  "reemplazar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero dos siete.",
+  "motivo": "Es el decimal -0.027 (cubo de -0.3), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero seis cuatro | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "siete: cuatro coma cero, tres coma seis, cero coma cuatro, cero coma cero seis cuatro.",
+  "reemplazar": "siete: cuatro coma cero, tres coma seis, cero coma cuatro, cero coma cero seis cuatro.",
+  "motivo": "Es el decimal 0.064 (cubo de 0.4), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero tres seis | n= 3",
+  "veredicto": "falso_positivo",
+  "buscar": "Total: cero coma cero tres seis.\n\nAplicando la fórmula del coeficiente de asimetría de Fisher",
+  "reemplazar": "Total: cero coma cero tres seis.\n\nAplicando la fórmula del coeficiente de asimetría de Fisher",
+  "motivo": "Es el decimal 0.036 (suma de los cubos), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero uno siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "igual a cero coma cero tres seis dividido entre dos coma cero uno igual a cero coma cero uno siete nueve",
+  "reemplazar": "igual a cero coma cero tres seis dividido entre dos coma cero uno igual a cero coma cero uno siete nueve",
+  "motivo": "Es el decimal 0.0179, no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma seis cinco seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma seis cinco seis uno.",
+  "reemplazar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma seis cinco seis uno.",
+  "motivo": "Es el decimal 0.6561 (cuarta potencia de 0.9), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma uno dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma uno dos nueve seis.",
+  "reemplazar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma uno dos nueve seis.",
+  "motivo": "Es el decimal 0.1296 (cuarta potencia de 0.6), no un número en miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero ocho | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero cero ocho uno.",
+  "reemplazar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero cero ocho uno.",
+  "motivo": "Es el decimal 0.0081 (cuarta potencia de -0.3), no un número en miles."
+ }
+]

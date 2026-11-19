@@ -51,5 +51,13 @@
       "motivo": "pág. 84, inicio del Bloque 3: está narrado en EdS_Parte3_1 (comprobado), no es omisión de esta parte",
       "reviso": "Claude 16-11"
     }
+  ],
+  "Tema_01_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Organización de las células procariotas Los procariotas",
+      "motivo": "única diferencia con el PDF: se quitó la frase «En la tabla 1-1 se muestran las diferencias…» (referencia visual, regla 2 opción A; la tabla se narra completa justo antes)",
+      "reviso": "Claude 19-11"
+    }
   ]
 }

@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_22_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:25:57
+- **Fecha:** 2026-11-19 07:52:45
 - **Veredicto final:** **FALLA** (revisiones con fallas: 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 22 / 25943 palabras | Llamada numérica: cornetes2; Llamada numérica: cuneiformes8; Llamada numérica: tráquea9 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 17 / 25943 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: en la figura cinco coma siete; Ref. visual: véase figura; Ref. visual: véase la figura (+7 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 52 / 25943 palabras | Dígito sin convertir: n giro de 90º hacia ab; Dígito sin convertir: veintidós.5b. Se da s; Dígito sin convertir: veintidós.22b,. Los ga (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 16 / 25943 palabras | Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS; Sigla en mayúsculas: TODOS (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 4 / 25943 palabras | Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS; Sigla en mayúsculas: TODOS (+1 más en Detalle) |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 17 / 25943 palabras | Corte por guion: concentracio- veintisiete; Ligadura partida: humidifi que; Ligadura partida: fl uyera (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -76,17 +76,11 @@
 - Símbolo '+': i hasta +treinta
 - Símbolo '+': ulmonar +tres mil
 
-### 7. Siglas, números de sección y títulos en su línea (16 fallas / 25943 palabras)
+### 7. Siglas, números de sección y títulos en su línea (4 fallas / 25943 palabras)
 - Sigla en mayúsculas: FONDO
 - Sigla en mayúsculas: TEMAS
 - Sigla en mayúsculas: TODOS
-- Título pegado al párrafo: o de capítulos. veintidós punto uno Anatomía del aparato respirator...
-- Título pegado al párrafo: o respiratorio. FIGURA veintidós coma dos Anatomía de la r
-- Título pegado al párrafo: n broncoscopio. FIGURA veintidós coma seis Acción de algun
-- Título pegado al párrafo: la fotografía. FIGURA veintidós coma un un Histología del
-- Título pegado al párrafo: n la funcional. veintidós punto dos Ventilación pulmonar Resultados...
-- Título pegado al párrafo: la resistencia. CUADRO veintidós coma un Leyes de los gase
-- Título pegado al párrafo: oceso de medir. FIGURA veintidós coma un siete Espirometrí
+- Recuadro pegado al párrafo: jo somático proCONOCIMIENTO MÁS A FONDO veintidós coma dos Aplicaci...
 
 ### 8. Palabras partidas y ligaduras (17 fallas / 25943 palabras)
 - Corte por guion: concentracio- veintisiete

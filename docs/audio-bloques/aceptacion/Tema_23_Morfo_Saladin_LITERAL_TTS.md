@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_23_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:29:22
+- **Fecha:** 2026-11-19 07:53:32
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 33 / 20693 palabras | Llamada numérica: azoemia1; Llamada numérica: pelvis2; Llamada numérica: miogénico11 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 1 / 20693 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: Como se observa |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 30 / 20693 palabras | Dígito sin convertir: eintitrés.5b se prese; Dígito sin convertir: N F P, de 60salida – 1; Dígito sin convertir: 0salida – 18entrada – (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 10 / 20693 palabras | Sigla en mayúsculas: HN; Sigla en mayúsculas: TEMAS; Sigla en mayúsculas: TODOS (+6 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 4 / 20693 palabras | Sigla en mayúsculas: HN; Sigla en mayúsculas: TEMAS; Sigla en mayúsculas: TODOS |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 14 / 20693 palabras | Corte por guion: pre- dieciocho; Ligadura partida: fi nas; Ligadura partida: fi jados (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -63,16 +63,10 @@
 - Símbolo '+': P A D P + Pi Gluc
 - Símbolo '×': ticinco × dos com
 
-### 7. Siglas, números de sección y títulos en su línea (10 fallas / 20693 palabras)
+### 7. Siglas, números de sección y títulos en su línea (4 fallas / 20693 palabras)
 - Sigla en mayúsculas: HN
 - Sigla en mayúsculas: TEMAS
 - Sigla en mayúsculas: TODOS
-- Título pegado al párrafo: an en negritas. FIGURA veintitrés coma dos Los principales
-- Título pegado al párrafo: ión glomerular. FIGURA veintitrés coma un dos Las fuerzas
-- Título pegado al párrafo: orción tubular. FIGURA veintitrés coma un ocho El transpor
-- Título pegado al párrafo: án en mosm o L. CUADRO veintitrés coma un Hormonas que afe
-- Título pegado al párrafo: miel de abeja. CUADRO veintitrés coma dos Propiedades y c
-- Título pegado al párrafo: igual a caída. CUADRO veintitrés coma tres Algunos trasto
 
 ### 8. Palabras partidas y ligaduras (14 fallas / 20693 palabras)
 - Corte por guion: pre- dieciocho

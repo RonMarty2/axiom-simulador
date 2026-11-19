@@ -1,0 +1,713 @@
+[
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: et al",
+  "veredicto": "real",
+  "buscar": "con la óptica del microscopio de luz., Dibujos procedentes de: Montuenga et al. Técnicas en histología y biología celular. Barcelona: Elsevier; dos mil nueve., Para la conducción",
+  "reemplazar": "con la óptica del microscopio de luz. Para la conducción",
+  "motivo": "Crédito y cita bibliográfica de figura que no debe leerse en audio (aparece 3 veces en el capítulo)."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: Elsevier",
+  "veredicto": "real",
+  "buscar": "observadas con el microscopio electrónico de barrido., A, dibujo procedente de: Montuenga et al. Técnicas en histología y biología celular. Barcelona: Elsevier; dos mil nueve. Técnicas especiales en microscopía",
+  "reemplazar": "observadas con el microscopio electrónico de barrido. Técnicas especiales en microscopía",
+  "motivo": "Forma parte del mismo crédito bibliográfico de figura que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Crédito: rido., A, dibujo procedente de: Montuenga et al. Técnicas en",
+  "veredicto": "real",
+  "buscar": "observadas con el microscopio electrónico de barrido., A, dibujo procedente de: Montuenga et al. Técnicas en histología y biología celular. Barcelona: Elsevier; dos mil nueve.",
+  "reemplazar": "observadas con el microscopio electrónico de barrido.",
+  "motivo": "Crédito de procedencia de dibujo que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Encabezado/autor/portada: Alfonso Calvo",
+  "veredicto": "real",
+  "buscar": "Cómo se estudian las células. Métodos y técnicas básicas en biología celular Alfonso Calvo Jackeline Agorreta Raúl Catena Ángela María Suburo Mariana García María Isabel Zudaire Objetivos de aprendizaje",
+  "reemplazar": "Cómo se estudian las células. Métodos y técnicas básicas en biología celular\n\nObjetivos de aprendizaje",
+  "motivo": "Lista de autores de la portada del capítulo que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: acterias, cero,cinco a diez mi",
+  "veredicto": "real",
+  "buscar": "las bacterias, cero,cinco a diez micrómetros, etc., pueden ser observados",
+  "reemplazar": "las bacterias, cero coma cinco a diez micrómetros, etc., pueden ser observados",
+  "motivo": "No es llamada al pie, sino un decimal escrito con coma sin la palabra 'coma', lo que provoca pausa en el TTS."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: pecífica, 2n, siendo",
+  "veredicto": "real",
+  "buscar": "de copias de la secuencia específica, 2n, siendo n el número de ciclos",
+  "reemplazar": "de copias de la secuencia específica, dos ene, siendo n el número de ciclos",
+  "motivo": "Dígito '2' sin convertir a texto antes de 'n'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '∼': l es de ∼cero com",
+  "veredicto": "real",
+  "buscar": "El L R para el microscopio óptico convencional es de ∼cero coma dos micrómetros.",
+  "reemplazar": "El L R para el microscopio óptico convencional es de aproximadamente cero coma dos micrómetros.",
+  "motivo": "Símbolo '∼' sin convertir a 'aproximadamente'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '∼': elular, ∼diez mic",
+  "veredicto": "real",
+  "buscar": "Las células, diez a cien micrómetros, el n úcleo celular, ∼diez micrómetros, las mitocondrias",
+  "reemplazar": "Las células, diez a cien micrómetros, el núcleo celular, aproximadamente diez micrómetros, las mitocondrias",
+  "motivo": "Símbolo '∼' sin convertir a 'aproximadamente' (y corrige 'n úcleo')."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '∼': osomas, ∼cero com",
+  "veredicto": "real",
+  "buscar": "las mitocondrias y lisosomas, ∼cero coma cinco micrómetros, las bacterias",
+  "reemplazar": "las mitocondrias y lisosomas, aproximadamente cero coma cinco micrómetros, las bacterias",
+  "motivo": "Símbolo '∼' sin convertir a 'aproximadamente'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '∼': iores a ∼cero com",
+  "veredicto": "real",
+  "buscar": "límites de resolución inferiores a ∼cero coma dos para un microscopio óptico convencional.",
+  "reemplazar": "límites de resolución inferiores a aproximadamente cero coma dos para un microscopio óptico convencional.",
+  "motivo": "Símbolo '∼' sin convertir a 'aproximadamente'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Letra griega: μ",
+  "veredicto": "real",
+  "buscar": "a partir de una muestra muy pequeña, menos de un μg de A D N,.",
+  "reemplazar": "a partir de una muestra muy pequeña, menos de un microgramo de A D N,.",
+  "motivo": "Letra griega 'μ' sin convertir en 'μg'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Posible mil como decimal: coma cinco cero cero",
+  "veredicto": "real",
+  "buscar": "consiguen aumentar la imagen unas un coma cinco cero cero veces, en el caso de un microscopio óptico convencional, y unas ciento cincuenta.cero a doscientos.cero veces",
+  "reemplazar": "consiguen aumentar la imagen unas mil quinientas veces, en el caso de un microscopio óptico convencional, y unas ciento cincuenta mil a doscientas mil veces",
+  "motivo": "Miles convertidos erróneamente como decimales ('1.500' -> 'un coma cinco cero cero' y '150.000 a 200.000' -> 'ciento cincuenta.cero a doscientos.cero')."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Posible mil como decimal: coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "ya que en cada célula existen hasta un coma cero cero cero copias, superando enormemente",
+  "reemplazar": "ya que en cada célula existen hasta mil copias, superando enormemente",
+  "motivo": "Mil ('1.000') convertido erróneamente como decimal."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: un coma cinco cero cero",
+  "veredicto": "real",
+  "buscar": "consiguen aumentar la imagen unas un coma cinco cero cero veces, en el caso",
+  "reemplazar": "consiguen aumentar la imagen unas mil quinientas veces, en el caso",
+  "motivo": "Duplicado del hallazgo 'coma cinco cero cero'."
+ },
+ {
+  "capitulo": "Tema_02_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: un coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "en cada célula existen hasta un coma cero cero cero copias, superando",
+  "reemplazar": "en cada célula existen hasta mil copias, superando",
+  "motivo": "Duplicado del hallazgo 'coma cero cero cero'."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Crédito: membrana procedente de: Robertson J D. Membrane struc",
+  "veredicto": "real",
+  "buscar": "E. Maldonado. Imagen de microscopía electrónica de la unidad de membrana procedente de: Robertson J D. Membrane structure. J Cell Biol mil novecientos ochenta y un;noventa y un, tres,:ciento ochenta y nueve a doscientos cuatro,. En mil novecientos veinticinco",
+  "reemplazar": "En mil novecientos veinticinco",
+  "motivo": "Crédito y cita bibliográfica de figura que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Crédito: onado. B, ©mil novecientos ochenta y un R",
+  "veredicto": "real",
+  "buscar": "sobresalen de la monocapa interna. E. Maldonado. B, ©mil novecientos ochenta y un Rockefeller University Press. Originally published in Journal of Cell Biology.noventa y un:ciento ochenta y nueve a doscientos cuatro.doi:diez coma un cero ocho tres o jcb.noventa y uno coma tres.189s, La denominación",
+  "reemplazar": "sobresalen de la monocapa interna. La denominación",
+  "motivo": "Crédito, copyright y DOI de figura que no deben leerse en audio."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Encabezado/autor/portada: Alfonso Calvo",
+  "veredicto": "real",
+  "buscar": "Estructura de la membrana plasmática Carlos Bravo Alfonso Calvo Objetivos de aprendizaje",
+  "reemplazar": "Estructura de la membrana plasmática\n\nObjetivos de aprendizaje",
+  "motivo": "Autores de la portada del capítulo que no deben leerse en audio."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: tos cuatro.doi:diez coma un c",
+  "veredicto": "real",
+  "buscar": "ciento ochenta y nueve a doscientos cuatro.doi:diez coma un cero ocho tres o jcb.noventa y uno coma tres.189s,",
+  "reemplazar": "",
+  "motivo": "Forma parte del crédito/DOI de figura que debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: os, alfa beta,dos, y son es",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: 'alfa beta,dos,' es el nombre de la subunidad αβ2 entre comas, no una llamada de nota al pie."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: os, alfa beta,dos de espect",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: 'alfa beta,dos' es el nombre de la subunidad αβ2, no una llamada de nota al pie."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: coma tres.189s, La deno",
+  "veredicto": "real",
+  "buscar": "jcb.noventa y uno coma tres.189s, La denominación de este modelo",
+  "reemplazar": "La denominación de este modelo",
+  "motivo": "Parte del DOI en crédito de figura que debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Ion mal leído: HCO3 menos",
+  "veredicto": "real",
+  "buscar": "contratransporte de los iones cloruro y bicarbonato, Cl menos y HCO3 menos, por lo que también",
+  "reemplazar": "contratransporte de los iones cloruro y bicarbonato, Cl menos y H C O tres menos, por lo que también",
+  "motivo": "Fórmula iónica 'HCO3 menos' con dígito y sigla pegados."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Posible mil como decimal: coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "moléculas adyacentes unos diez coma cero cero cero.cero veces o segundo por difusión lateral.",
+  "reemplazar": "moléculas adyacentes unas diez mil veces por segundo por difusión lateral.",
+  "motivo": "Mil ('10.000') convertido erróneamente como decimal."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: diez coma un cero ocho",
+  "veredicto": "real",
+  "buscar": "doscientos cuatro.doi:diez coma un cero ocho tres o jcb.noventa y uno coma tres.189s,",
+  "reemplazar": "",
+  "motivo": "Parte del DOI '10.1083' en crédito de figura que debe eliminarse."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: diez coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "incidencia de un caso por cada dos coma cero cero cero a diez coma cero cero cero nacimientos.",
+  "reemplazar": "incidencia de un caso por cada dos mil a diez mil nacimientos.",
+  "motivo": "Miles ('2.000 a 10.000') convertidos erróneamente como decimales."
+ },
+ {
+  "capitulo": "Tema_03_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: dos coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "por cada dos coma cero cero cero a diez coma cero cero cero nacimientos.",
+  "reemplazar": "por cada dos mil a diez mil nacimientos.",
+  "motivo": "Duplicado del hallazgo anterior ('2.000')."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: et al",
+  "veredicto": "real",
+  "buscar": "producción de anticuerpos monoclonales., Dibujos procedentes de: Montuenga et al. Técnicas en histología y biología celular. Barcelona: Elsevier; dos mil nueve., ¿Cuáles son las ventajas",
+  "reemplazar": "producción de anticuerpos monoclonales. ¿Cuáles son las ventajas",
+  "motivo": "Crédito y cita bibliográfica de figura que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: Elsevier",
+  "veredicto": "real",
+  "buscar": "Dibujos procedentes de: Montuenga et al. Técnicas en histología y biología celular. Barcelona: Elsevier; dos mil nueve.,",
+  "reemplazar": "",
+  "motivo": "Forma parte del mismo crédito bibliográfico de figura."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: ivos como 32P, 33P, 3H",
+  "veredicto": "real",
+  "buscar": "se sustituyen por isótopos radiactivos como 32P, 33P, 3H, 35S, 125I, y no radiactivo",
+  "reemplazar": "se sustituyen por isótopos radiactivos como treinta y dos P, treinta y tres P, tres H, treinta y cinco S, ciento veinticinco I, y no radiactivo",
+  "motivo": "Isótopos radiactivos con dígitos sin convertir (cubre los 5 hallazgos de dígitos en esta línea)."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': D cuatro+, provoc",
+  "veredicto": "real",
+  "buscar": "el número de linfocitos C D cuatro+, provocando inmunodepresión",
+  "reemplazar": "el número de linfocitos C D cuatro más, provocando inmunodepresión",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': D cuatro+ y, por",
+  "veredicto": "real",
+  "buscar": "de la población de linfocitos C D cuatro+ y, por lo tanto",
+  "reemplazar": "de la población de linfocitos C D cuatro más y, por lo tanto",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': D cuatro+ expresa",
+  "veredicto": "real",
+  "buscar": "¿cuántos linfocitos C D cuatro+ expresan interferón gamma",
+  "reemplazar": "¿cuántos linfocitos C D cuatro más expresan interferón gamma",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': D cuatro+ o I N F",
+  "veredicto": "real",
+  "buscar": "en el verde pero no en el rojo, C D cuatro+ o I N F menos, al contrario de lo que ocurre con la C, C D cuatro menos o I N F más,. La población positiva para ambos marcadores corresponde a la D, C D cuatro+ o I N F más,",
+  "reemplazar": "en el verde pero no en el rojo, C D cuatro más o I N F menos, al contrario de lo que ocurre con la C, C D cuatro menos o I N F más,. La población positiva para ambos marcadores corresponde a la D, C D cuatro más o I N F más,",
+  "motivo": "Símbolo '+' sin convertir a 'más' en dos ocurrencias."
+ },
+ {
+  "capitulo": "Tema_02_Parte_2_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "Sin líneas de título propias (regla 18) en 11816 palabras",
+  "veredicto": "real",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falta estructurar los títulos de sección en líneas propias (regla 18) a lo largo del capítulo."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: Srinivasan I, Brodsky F M, McConnell S K, dos mil",
+  "veredicto": "real",
+  "buscar": "estado más avanzado del proceso de endocitosis. Shieh J C, Schaar B T, Srinivasan I, Brodsky F M, McConnell S K, dos mil once, Endocytosis Regulates Cell Soma Translocation and the Distribution of Adhesion Proteins in Migrating Neurons. PLoS O N E seis, tres,:e diecisiete mil ochocientos dos, Pinocitosis",
+  "reemplazar": "estado más avanzado del proceso de endocitosis.\n\nPinocitosis",
+  "motivo": "Cita bibliográfica de figura que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Crédito: onado. B, imagen procedente de: La caveolina es sintetizada",
+  "veredicto": "real",
+  "buscar": "interconectadas entre sí, en el citoplasma celular. E. Maldonado. B, imagen procedente de: La caveolina es sintetizada",
+  "reemplazar": "interconectadas entre sí, en el citoplasma celular. La caveolina es sintetizada",
+  "motivo": "Crédito de imagen ('E. Maldonado. B, imagen procedente de:') que no debe leerse."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Crédito: osómica., Imagen procedente de: SynapseWeb, Harris K M: FIG",
+  "veredicto": "real",
+  "buscar": "osómica., Imagen procedente de: SynapseWeb, Harris K M:",
+  "reemplazar": "osómica.",
+  "motivo": "Crédito de imagen que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Encabezado/autor/portada: Alfonso Calvo",
+  "veredicto": "real",
+  "buscar": "Macrotransporte a través de la membrana plasmática: endocitosis y exocitosis Álvaro Martín Diego Peñafiel Alfonso Calvo Objetivos de aprendizaje",
+  "reemplazar": "Macrotransporte a través de la membrana plasmática: endocitosis y exocitosis\n\nObjetivos de aprendizaje",
+  "motivo": "Autores de la portada del capítulo que no deben leerse en audio."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: a de tipo 1C, que se",
+  "veredicto": "real",
+  "buscar": "distrofia muscular congénita de tipo 1C, que se caracteriza",
+  "reemplazar": "distrofia muscular congénita de tipo uno C, que se caracteriza",
+  "motivo": "Dígito '1' sin convertir en '1C'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '×': de tres × ciento",
+  "veredicto": "real",
+  "buscar": "tienen una masa de tres × ciento seis Da, presentan un núcleo",
+  "reemplazar": "tienen una masa de tres por diez a la seis daltons, presentan un núcleo",
+  "motivo": "Símbolo '×' sin convertir y potencia '10^6' leída como 'ciento seis'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': en G D P+Pi. Nos",
+  "veredicto": "real",
+  "buscar": "para que puedan disociar el G T P en G D P+Pi. Nos centraremos",
+  "reemplazar": "para que puedan disociar el G T P en G D P más Pi. Nos centraremos",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': en G D P+Pi, lo q",
+  "veredicto": "real",
+  "buscar": "hidrolizándose G T P en G D P+Pi, lo que conlleva un cambio",
+  "reemplazar": "hidrolizándose G T P en G D P más Pi, lo que conlleva un cambio",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': en G D P+Pi y se",
+  "veredicto": "real",
+  "buscar": "induce la disociación del G T P en G D P+Pi y se desensambla",
+  "reemplazar": "induce la disociación del G T P en G D P más Pi y se desensambla",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '∼': e hache ∼ cinco,",
+  "veredicto": "real",
+  "buscar": "En el ambiente ácido del endosoma, pe hache ∼ cinco, la H A cataliza",
+  "reemplazar": "En el ambiente ácido del endosoma, pe hache aproximadamente cinco, la H A cataliza",
+  "motivo": "Símbolo '∼' sin convertir a 'aproximadamente'."
+ },
+ {
+  "capitulo": "Tema_05_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Ion sin convertir: P+",
+  "veredicto": "real",
+  "buscar": "en G D P+Pi",
+  "reemplazar": "en G D P más Pi",
+  "motivo": "Mismo caso que 'Símbolo +': el detector lo interpreta como ion 'P+'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: Masson",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: 'tinción tricrómica de Masson' es el nombre propio de una técnica histológica, no una cita bibliográfica."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Cita bibliográfica: et al",
+  "veredicto": "real",
+  "buscar": "retículo endoplasmático rugoso., A y B, procedentes de: Burrell M A et al. Atlas de ultraestructura celular. Pamplona: eunsa; dos mil once; C La molécula",
+  "reemplazar": "retículo endoplasmático rugoso. La molécula",
+  "motivo": "Crédito y cita bibliográfica de figura que no debe leerse en audio."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Encabezado/autor/portada: Alfonso Calvo",
+  "veredicto": "real",
+  "buscar": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno M.ª Elena Bodegas Alfonso Calvo Objetivos de aprendizaje",
+  "reemplazar": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno\n\nObjetivos de aprendizaje",
+  "motivo": "Autores de la portada del capítulo que no deben leerse en audio."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: erente de cero,un a cero,ci",
+  "veredicto": "real",
+  "buscar": "cinturón celular con función adherente de cero,un a cero,cinco micrómetros de espesor",
+  "reemplazar": "cinturón celular con función adherente de cero coma uno a cero coma cinco micrómetros de espesor",
+  "motivo": "Decimales con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: tamaño de cero,un a cero,ci",
+  "veredicto": "real",
+  "buscar": "es una unión puntiforme con un tamaño de cero,un a cero,cinco micrómetros que se sitúa",
+  "reemplazar": "es una unión puntiforme con un tamaño de cero coma uno a cero coma cinco micrómetros que se sitúa",
+  "motivo": "Decimales con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: icación, de un,cinco a dos nan",
+  "veredicto": "real",
+  "buscar": "un conducto directo de comunicación, de un,cinco a dos nanómetros de diámetro",
+  "reemplazar": "un conducto directo de comunicación, de uno coma cinco a dos nanómetros de diámetro",
+  "motivo": "Decimal con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: variable, cero,cinco a un,cinc",
+  "veredicto": "real",
+  "buscar": "rica en proteínas y polisacáridos y de espesor variable, cero,cinco a un,cinco micrómetros, denominada tradicionalmente",
+  "reemplazar": "rica en proteínas y polisacáridos y de espesor variable, cero coma cinco a uno coma cinco micrómetros, denominada tradicionalmente",
+  "motivo": "Decimales con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: ibrillas, cero,dos a cero,ci",
+  "veredicto": "real",
+  "buscar": "y están compuestas por fibrillas, cero,dos a cero,cinco micrómetros de diámetro",
+  "reemplazar": "y están compuestas por fibrillas, cero coma dos a cero coma cinco micrómetros de diámetro",
+  "motivo": "Decimales con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: ámetro de cero,cinco a dos mic",
+  "veredicto": "real",
+  "buscar": "finas redes de fibras delgadas con un diámetro de cero,cinco a dos micrómetros.",
+  "reemplazar": "finas redes de fibras delgadas con un diámetro de cero coma cinco a dos micrómetros.",
+  "motivo": "Decimal con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: delgadas, cero,dos a un micr",
+  "veredicto": "real",
+  "buscar": "Las fibras elásticas son, típicamente, más delgadas, cero,dos a un micrómetro, que las fibras de colágeno",
+  "reemplazar": "Las fibras elásticas son, típicamente, más delgadas, cero coma dos a un micrómetro, que las fibras de colágeno",
+  "motivo": "Decimal con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: es son la 30delG y 167",
+  "veredicto": "real",
+  "buscar": "Las dos mutaciones más frecuentes son la 30delG y 167delT, que se dan en más del cincuenta por ciento",
+  "reemplazar": "Las dos mutaciones más frecuentes son la treinta del G y ciento sesenta y siete del T, que se dan en más del cincuenta por ciento",
+  "motivo": "Nombres de mutaciones con dígitos sin convertir (cubre ambos hallazgos de dígitos)."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: diez coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "El síndrome de Alport se da en un de cada diez coma cero cero cero individuos",
+  "reemplazar": "El síndrome de Alport se da en uno de cada diez mil individuos",
+  "motivo": "Mil ('10.000') convertido como decimal y 'un' en lugar de 'uno'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: diez coma cero cero cero (2)",
+  "veredicto": "real",
+  "buscar": "La incidencia del síndrome de Marfan es de un por cada diez coma cero cero cero habitantes",
+  "reemplazar": "La incidencia del síndrome de Marfan es de uno por cada diez mil habitantes",
+  "motivo": "Mil ('10.000') convertido como decimal y 'un' en lugar de 'uno'."
+ },
+ {
+  "capitulo": "Tema_06_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: un coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "Las cadenas alfa poseen alrededor de un coma cero cero cero residuos de aminoácidos",
+  "reemplazar": "Las cadenas alfa poseen alrededor de mil residuos de aminoácidos",
+  "motivo": "Mil ('1.000') convertido erróneamente como decimal (cubre también 'Uso de un coma')."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "Crédito: ratorio o ilustración de libro: el propio cuerpo. Para",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: es texto didáctico del autor sobre el aprendizaje de la anatomía, no un crédito de imagen."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "Crédito: ado en la ilustración de la izquierda y orientado de l",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: es descripción de la orientación anatómica del corte en el pie de figura, no un crédito."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "Crédito: ado en la ilustración de la derecha y orientado de la",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: es descripción de la orientación anatómica del corte en el pie de figura, no un crédito."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: B.un / B.dos / A.cinco / B.tres / B.nueve / B.diecinueve / B.quince (28 fallas)",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo repetido: son códigos de sección y figuras del Atlas B (ej. 'B.un', 'FIGURA B.dos'), no llamadas de nota al pie."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "Dígito sin convertir: figura A-6a, p. trei",
+  "veredicto": "real",
+  "buscar": "consúltese la figura A-6a, p. treinta y tres",
+  "reemplazar": "consúltese la figura A-seis a, p. treinta y tres",
+  "motivo": "Dígito '6' sin convertir en 'A-6a'."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "Sigla en mayúsculas: ATLAS",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo: 'ATLAS' es una palabra completa en mayúsculas del encabezado ('ATLAS B'), no una sigla."
+ },
+ {
+  "capitulo": "Atlas_B_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "Sin líneas de título propias (regla 18) en 2984 palabras",
+  "veredicto": "real",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falta estructurar los títulos de sección en líneas propias (regla 18)."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "Encabezado/autor/portada: Alfonso Calvo",
+  "veredicto": "real",
+  "buscar": "Microtransporte a través de la membrana plasmática Tarek Ajami Diego Peñafiel Estefanía Maldonado Alfonso Calvo Objetivos de aprendizaje",
+  "reemplazar": "Microtransporte a través de la membrana plasmática\n\nObjetivos de aprendizaje",
+  "motivo": "Autores de la portada del capítulo que no deben leerse en audio."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: uy bajos, cero,un a cero,un",
+  "veredicto": "real",
+  "buscar": "Los niveles intracelulares de este ión deben ser muy bajos, cero,un a cero,un μmol o l,",
+  "reemplazar": "Los niveles intracelulares de este ión deben ser muy bajos, cero coma uno a cero coma uno micromoles por litro,",
+  "motivo": "Decimales sin 'coma' y unidad 'μmol o l' sin convertir (cubre también el segundo hallazgo 'cero,un a cero,un μmol o l,')."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: madamente cero,cinco a un micr",
+  "veredicto": "real",
+  "buscar": "el diámetro del axón amielínico de mamífero, que es de aproximadamente cero,cinco a un micrómetro.",
+  "reemplazar": "el diámetro del axón amielínico de mamífero, que es de aproximadamente cero coma cinco a un micrómetro.",
+  "motivo": "Decimal con coma sin la palabra 'coma'."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "Llamada tras puntuación: ón Humano cero,cinco a un micr",
+  "veredicto": "real",
+  "buscar": "Velocidad de propagación Humano cero,cinco a un micrómetro un m o s Axón gigante de calamar un coma cero cero cero micrómetros",
+  "reemplazar": "Velocidad de propagación Humano cero coma cinco a un micrómetro un metro por segundo Axón gigante de calamar mil micrómetros",
+  "motivo": "Decimal sin 'coma' y mil ('1.000') convertido como decimal."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': e A D P + Pi, den",
+  "veredicto": "real",
+  "buscar": "formación de A T P a partir de A D P + Pi, denominamos",
+  "reemplazar": "formación de A T P a partir de A D P más Pi, denominamos",
+  "motivo": "Símbolo '+' sin convertir a 'más'."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': rana en +cincuent",
+  "veredicto": "real",
+  "buscar": "al fijar el potencial de membrana en +cincuenta mV, se genera",
+  "reemplazar": "al fijar el potencial de membrana en más cincuenta milivoltios, se genera",
+  "motivo": "Símbolo '+' sin convertir a 'más' (y unidad 'mV')."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': de unos +cuarenta",
+  "veredicto": "real",
+  "buscar": "La despolarización alcanza un máximo de unos +cuarenta mV,",
+  "reemplazar": "La despolarización alcanza un máximo de unos más cuarenta milivoltios,",
+  "motivo": "Símbolo '+' sin convertir a 'más' (y unidad 'mV')."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Símbolo '+': D cuatro+ o C D o",
+  "veredicto": "real",
+  "buscar": "mediada por células T autorreactivas, C D cuatro+ o C D ocho+, en personas",
+  "reemplazar": "mediada por células T autorreactivas, C D cuatro más o C D ocho más, en personas",
+  "motivo": "Símbolo '+' sin convertir a 'más' (cubre ambos hallazgos de C D cuatro+ y C D ocho+)."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Letra griega: μ",
+  "veredicto": "real",
+  "buscar": "Fibras nerviosas N.grados de canales o μm2 No mielinizadas",
+  "reemplazar": "Fibras nerviosas Número de canales por micrómetro cuadrado No mielinizadas",
+  "motivo": "Letra griega 'μ' sin convertir en 'μm2' (y 'N.grados' mal convertido)."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Posible mil como decimal: coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "peso molecular menor que dos coma cero cero cero Da, entre dos células vecinas.",
+  "reemplazar": "peso molecular menor que dos mil daltons, entre dos células vecinas.",
+  "motivo": "Mil ('2.000') convertido erróneamente como decimal."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Miles como decimal: un coma cero cero cero",
+  "veredicto": "real",
+  "buscar": "unidad funcional de la sinapsis eléctrica, que es un coma cero cero cero veces más rápida",
+  "reemplazar": "unidad funcional de la sinapsis eléctrica, que es mil veces más rápida",
+  "motivo": "Mil ('1.000') convertido erróneamente como decimal."
+ },
+ {
+  "capitulo": "Tema_04_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "Posible mil como decimal: coma un cero cero",
+  "veredicto": "real",
+  "buscar": "Nódulo auriculoventricular un coma un cero cero Sincitio auricular",
+  "reemplazar": "Nódulo auriculoventricular mil cien Sincitio auricular",
+  "motivo": "Mil ('1.100') convertido erróneamente como decimal."
+ }
+]

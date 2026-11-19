@@ -5,6 +5,8 @@
 cd "$(dirname "$0")/../.."
 M="examenes pasados/MEDICINA/LIBROS DE MEDICINA/_MOTOR_AUDIO"; E=docs/audio-bloques/vigilante_estado.txt
 export PYTHONIOENCODING=utf-8
+# 19-nov: tarea programada de Windows lo relanza cada 30 min; si ya terminó hoy, no hace nada
+tail -1 "$E" 2>/dev/null | grep -q "^$(date +%d)-.*TERMINADO" && exit 0
 while true; do
   if python docs/audio-bloques/probar_cuota_tts.py "$M" > /dev/null 2>&1; then
     echo "$(date +%d-%H:%M) cuota OK, grabando" >> "$E"; corte=0; saltados=0

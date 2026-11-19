@@ -3,8 +3,8 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_27_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:47:14
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
+- **Fecha:** 2026-11-19 07:56:17
+- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 31 / 16428 palabras | Llamada numérica: escroto11; Llamada numérica: epidídimo21; Llamada numérica: próstata22 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 1 / 16428 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: la figura cuatro coma un seis |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 19 / 16428 palabras | Dígito sin convertir: l es casi 2ºC más frí; Dígito sin convertir: se vuelve 90ºC en sent; Dígito sin convertir: diploide, 2n, lo que (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 8 / 16428 palabras | Título pegado al párrafo: cer testicular. FIGURA veintisiete coma un Síndrome de ins; Título pegado al párrafo: betes tipo dos? CUADRO veintisiete coma un Genitales exter; Título pegado al párrafo: gual a costura. FIGURA veintisiete coma seis Perineo mascu (+5 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | APRUEBA | 0 / 16428 palabras | — |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 13 / 16428 palabras | Ligadura partida: específi cos; Ligadura partida: sufi ciente; Ligadura partida: fl agelos (+4 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -70,16 +70,6 @@
 - Símbolo '×': asi dos × cuatro
 - Símbolo '×': cuatro × tres ce
 - Símbolo '+': tículos + + + + +
-
-### 7. Siglas, números de sección y títulos en su línea (8 fallas / 16428 palabras)
-- Título pegado al párrafo: cer testicular. FIGURA veintisiete coma un Síndrome de ins
-- Título pegado al párrafo: betes tipo dos? CUADRO veintisiete coma un Genitales exter
-- Título pegado al párrafo: gual a costura. FIGURA veintisiete coma seis Perineo mascu
-- Título pegado al párrafo: ineo masculino. FIGURA veintisiete coma siete Escroto y co
-- Título pegado al párrafo: ón espermático. FIGURA veintisiete coma un cero Histología
-- Título pegado al párrafo: gual a bellota. FIGURA veintisiete coma un dos Anatomía de
-- Título pegado al párrafo: spermatozoides. FIGURA veintisiete coma un siete Espermato
-- Título pegado al párrafo: de la erección. FIGURA veintisiete coma un nueve Acción de
 
 ### 8. Palabras partidas y ligaduras (13 fallas / 16428 palabras)
 - Ligadura partida: específi cos

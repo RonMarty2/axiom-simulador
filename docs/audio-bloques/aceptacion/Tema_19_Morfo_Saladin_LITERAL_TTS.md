@@ -3,8 +3,8 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_19_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:14:16
-- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 7, 8)
+- **Fecha:** 2026-11-19 07:51:21
+- **Veredicto final:** **FALLA** (revisiones con fallas: 1, 3, 4, 5, 6, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 42 / 20272 palabras | Llamada numérica: cardiovascular2; Llamada numérica: aurículas7; Llamada numérica: ventrículos8 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 14 / 20272 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: véanse también las figuras; Ref. visual: en el cuadro diecinueve coma tres; Ref. visual: en la figura diecinueve coma un cero (+7 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 27 / 20272 palabras | Dígito sin convertir: iecinueve.10c., En cua; Dígito sin convertir: S2 S3 S3 1a 1b 1c S1; Dígito sin convertir: S3 S3 1a 1b 1c S1 1a (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 12 / 20272 palabras | Título pegado al párrafo: parasimpáticas. diecinueve punto uno Revisión general del sistema c...; Título pegado al párrafo: el plano medio? diecinueve punto dos Anatomía macroscópica del cora...; Título pegado al párrafo: bécula carnosa? FIGURA diecinueve coma seis Vórtice miocár (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | APRUEBA | 0 / 20272 palabras | — |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 15 / 20272 palabras | Corte por guion: vál- un; Corte por guion: hipocalce- treinta; Ligadura partida: fl uía (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -67,18 +67,6 @@
 - Dígito sin convertir: ntricular 1c Sístole
 - Dígito sin convertir: ntricular 1a Llenado
 - Dígito sin convertir: do rápido 1b Diastasi
-
-### 7. Siglas, números de sección y títulos en su línea (12 fallas / 20272 palabras)
-- Título pegado al párrafo: parasimpáticas. diecinueve punto uno Revisión general del sistema c...
-- Título pegado al párrafo: el plano medio? diecinueve punto dos Anatomía macroscópica del cora...
-- Título pegado al párrafo: bécula carnosa? FIGURA diecinueve coma seis Vórtice miocár
-- Título pegado al párrafo: culo izquierdo. FIGURA diecinueve coma nueve Ruta de la ci
-- Título pegado al párrafo: ique coronario? diecinueve punto tres El músculo cardiaco y sistema...
-- Título pegado al párrafo: o aun sin ella? diecinueve punto cuatro Actividad eléctrica y contr...
-- Título pegado al párrafo: trokardiogramm. FIGURA diecinueve coma un cinco Electrocar
-- Título pegado al párrafo: za la aurícula. FIGURA diecinueve coma un seis Relación de
-- Título pegado al párrafo: coma un siete. CUADRO diecinueve coma un Ejemplos de la i
-- Título pegado al párrafo: le ventricular. diecinueve punto cinco Flujo sanguíneo, tonos cardi...
 
 ### 8. Palabras partidas y ligaduras (15 fallas / 20272 palabras)
 - Corte por guion: vál- un

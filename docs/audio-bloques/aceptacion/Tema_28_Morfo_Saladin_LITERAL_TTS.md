@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_28_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:52:31
+- **Fecha:** 2026-11-19 07:57:01
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 26 / 22176 palabras | Llamada numérica: infundíbulo4; Llamada numérica: útero6; Llamada numérica: miometrio7 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 2 / 22176 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: véase la figura; Detalle solo visual: flecha |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 12 / 22176 palabras | Dígito sin convertir: figura A.5a, p. trei; Dígito sin convertir: ogénesis, 2n 2n n n n; Dígito sin convertir: nesis, 2n 2n n n n n (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 11 / 22176 palabras | Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS; Título pegado al párrafo: a instrumento. FIGURA veintiocho coma un El aparato repro (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 3 / 22176 palabras | Sigla en mayúsculas: FONDO; Sigla en mayúsculas: TEMAS; Recuadro pegado al párrafo: yen a la estimuCONOCIMIENTO MÁS A FONDO veintiocho coma un Aplicaci... |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 20 / 22176 palabras | Corte por guion: trom- dos; Corte por guion: meioGonado- liberina; Corte por guion: progestero- veinticinco (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -63,17 +63,10 @@
 - Miles como decimal: cuatro cero coma cero nueve cero
 - Miles como decimal: cero coma un cero cero
 
-### 7. Siglas, números de sección y títulos en su línea (11 fallas / 22176 palabras)
+### 7. Siglas, números de sección y títulos en su línea (3 fallas / 22176 palabras)
 - Sigla en mayúsculas: FONDO
 - Sigla en mayúsculas: TEMAS
-- Título pegado al párrafo: a instrumento. FIGURA veintiocho coma un El aparato repro
-- Título pegado al párrafo: gual a vientre. FIGURA veintiocho coma dos Estructura del
-- Título pegado al párrafo: del endometrio. FIGURA veintiocho coma siete Irrigación sa
-- Título pegado al párrafo: uido menstrual. CUADRO veintiocho coma un Fases del ciclo
-- Título pegado al párrafo: l del embarazo. FIGURA veintiocho coma un siete Etapas de
-- Título pegado al párrafo: apas del parto. FIGURA veintiocho coma dos un Parto. a Cor
-- Título pegado al párrafo: amamantamiento. CUADRO veintiocho coma cuatro Comparación
-- Título pegado al párrafo: ra un lactante? CUADRO veintiocho coma cinco Algunos trast
+- Recuadro pegado al párrafo: yen a la estimuCONOCIMIENTO MÁS A FONDO veintiocho coma un Aplicaci...
 
 ### 8. Palabras partidas y ligaduras (20 fallas / 22176 palabras)
 - Corte por guion: trom- dos

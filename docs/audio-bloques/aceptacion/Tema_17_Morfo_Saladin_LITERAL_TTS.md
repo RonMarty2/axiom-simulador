@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_17_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:04:11
+- **Fecha:** 2026-11-19 07:50:17
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 26 / 26632 palabras | Llamada numérica: paraventriculares7; Llamada numérica: pineal13; Llamada numérica: glomerulosa17 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 16 / 26632 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: en el cuadro diecisiete coma dos; Ref. visual: en el cuadro diecisiete coma cuatro; Ref. visual: En la figura diecisiete coma seis (+7 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 13 / 26632 palabras | Dígito sin convertir: y catorce.12b, p. quin; Dígito sin convertir: iecisiete.11b, que pre; Dígito sin convertir: iecisiete.9b. cuatro (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 27 / 26632 palabras | Sigla en mayúsculas: CUADO; Sigla en mayúsculas: HO; Sigla en mayúsculas: NH (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 12 / 26632 palabras | Sigla en mayúsculas: CUADO; Sigla en mayúsculas: HO; Sigla en mayúsculas: NH (+3 más en Detalle) |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 31 / 26632 palabras | Corte por guion: paí- treinta; Ligadura partida: específi cos; Ligadura partida: fi jarlos (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -69,17 +69,13 @@
 - Símbolo '+': o hache + CH2 O o
 - Símbolo '+': , T4, H + FIGURA
 
-### 7. Siglas, números de sección y títulos en su línea (27 fallas / 26632 palabras)
+### 7. Siglas, números de sección y títulos en su línea (12 fallas / 26632 palabras)
 - Sigla en mayúsculas: CUADO
 - Sigla en mayúsculas: HO
 - Sigla en mayúsculas: NH
 - Sigla en mayúsculas: HC
 - Sigla en mayúsculas: TEMAS
 - Sigla en mayúsculas: TODOS
-- Título pegado al párrafo: ción endocrina. diecisiete punto uno Revisión general del sistema e...
-- Título pegado al párrafo: ino y nervioso. diecisiete punto dos Hipotálamo e hipófisis Resulta...
-- Título pegado al párrafo: somatotropina. CUADRO diecisiete coma dos Nombres y abrev
-- Título pegado al párrafo: al a sustancia. CUADRO diecisiete coma cuatro Hormonas hip
 
 ### 8. Palabras partidas y ligaduras (31 fallas / 26632 palabras)
 - Corte por guion: paí- treinta

@@ -3,19 +3,19 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_24_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:33:21
+- **Fecha:** 2026-11-19 08:25:57
 - **Veredicto final:** **FALLA** (revisiones con fallas: 3, 4, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
-| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 21 párrafos | — |
+| 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 19 párrafos | — |
 | 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 35 párrafos PDF | — |
-| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 6 / 14017 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
-| 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 9 / 14017 palabras | Llamada numérica: hipernatremia3; Llamada tras puntuación: ración cutánea,un agua que; Llamada tras puntuación: n, hipovolemia,dos ocurre cu (+6 más en Detalle) |
-| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 14017 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |
-| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 23 / 14017 palabras | Símbolo '+': C6H12O6 + seis O2; Símbolo '+': eis CO2 + seis H2; Símbolo '+': rmal mV + – mV + (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 8 / 14017 palabras | Sigla en mayúsculas: FONDO; Título pegado al párrafo: do en el edema? FIGURA veinticuatro coma dos Ingesta y exc; Título pegado al párrafo: guíneo estable. CUADRO veinticuatro coma un Formas de dese (+5 más en Detalle) |
-| 8 | Palabras partidas y ligaduras | texto | FALLA | 16 / 14017 palabras | Ligadura partida: fl otado; Ligadura partida: sufi ciente; Ligadura partida: défi cit (+7 más en Detalle) |
+| 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | FALLA | 2 / 13879 palabras | Autoevaluación: Antes de proseguir; Autoevaluación: Responda las siguientes preguntas |
+| 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 2 / 13879 palabras | Llamada tras puntuación: elación veinte:un de HCO3 –; Llamada tras puntuación: elación veinte:un entre los |
+| 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 13879 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |
+| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 12 / 13879 palabras | Símbolo '+': HCO3 – + hidróge; Símbolo '+': pirado, + H2O Por; Símbolo '+': en CO2 + H2O, pa (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 1 / 13879 palabras | Recuadro pegado al párrafo: y acidobásico Conocimiento más a fondo veinticuatro coma dos. Aplic... |
+| 8 | Palabras partidas y ligaduras | texto | FALLA | 2 / 13879 palabras | Ligadura partida: sufi ciente |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 11 | Volumen y silencios (ffmpeg) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -23,51 +23,28 @@
 
 ## Detalle de hallazgos (hasta 10 por revisión)
 
-### 3. Relleno leído (biblio, autoeval, créditos, portada) (6 fallas / 14017 palabras)
+### 3. Relleno leído (biblio, autoeval, créditos, portada) (2 fallas / 13879 palabras)
 - Autoevaluación: Antes de proseguir
 - Autoevaluación: Responda las siguientes preguntas
 
-### 4. Notas al pie (llamadas y glosas) (9 fallas / 14017 palabras)
-- Llamada numérica: hipernatremia3
-- Llamada tras puntuación: ración cutánea,un agua que
-- Llamada tras puntuación: n, hipovolemia,dos ocurre cu
+### 4. Notas al pie (llamadas y glosas) (2 fallas / 13879 palabras)
 - Llamada tras puntuación: elación veinte:un de HCO3 –
 - Llamada tras puntuación: elación veinte:un entre los
-- Llamada tras puntuación: s parenterales.cuatro La más co
-- Nota al pie leída: . dos hypo igual a debajo de lo normal; uol igual a volumen; haemia igua...
-- Nota al pie leída: . tres natr igual a sodio; haemia igual a sangre.
-- Nota al pie leída: . cuatro para igual a además de; enter igual a intestino.
 
-### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (23 fallas / 14017 palabras)
-- Símbolo '+': C6H12O6 + seis O2
-- Símbolo '+': eis CO2 + seis H2
-- Símbolo '+': rmal mV + – mV +
-- Símbolo '+': + – mV + – mV +
-- Símbolo '+': + – mV + – R M P
-- Símbolo '+': no: CO2 + H2O H2C
-- Símbolo '+': 3 HCO3 –+ hidróge
-- Símbolo '+': O4 dos– + hidróge
-- Símbolo '+': o menos + hidróge
-- Símbolo '+': l. –NH2 + hidróge
+### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (12 fallas / 13879 palabras)
+- Símbolo '+': HCO3 – + hidróge
+- Símbolo '+': pirado, + H2O Por
+- Símbolo '+': en CO2 + H2O, pa
+- Símbolo '+': rbonato + CO2 HCO
+- Símbolo '+': a Clave + CO2 un
+- Símbolo '+': dio NH3 + sodio O
+- Símbolo '+': rbonato + bicarbo
+- Símbolo '+': rbonato + cloruro
+- Símbolo '+': o NH4Cl + hidróge
+- Símbolo '+': Na2HPO4 + hidróge
 
-### 7. Siglas, números de sección y títulos en su línea (8 fallas / 14017 palabras)
-- Sigla en mayúsculas: FONDO
-- Título pegado al párrafo: do en el edema? FIGURA veinticuatro coma dos Ingesta y exc
-- Título pegado al párrafo: guíneo estable. CUADRO veinticuatro coma un Formas de dese
-- Título pegado al párrafo: os metabólicos. FIGURA veinticuatro coma nueve Efectos de
-- Título pegado al párrafo: en la sangre,. FIGURA veinticuatro coma un cero Secreción
-- Título pegado al párrafo: hasta la orina. FIGURA veinticuatro coma un dos La relació
-- Título pegado al párrafo: ache del E C F? CUADRO veinticuatro coma dos Algunas causa
-- Recuadro pegado al párrafo: y acidobásico CONOCIMIENTO MÁS A FONDO veinticuatro coma dos Aplica...
+### 7. Siglas, números de sección y títulos en su línea (1 fallas / 13879 palabras)
+- Recuadro pegado al párrafo: y acidobásico Conocimiento más a fondo veinticuatro coma dos. Aplic...
 
-### 8. Palabras partidas y ligaduras (16 fallas / 14017 palabras)
-- Ligadura partida: fl otado
+### 8. Palabras partidas y ligaduras (2 fallas / 13879 palabras)
 - Ligadura partida: sufi ciente
-- Ligadura partida: défi cit
-- Ligadura partida: efi caces
-- Ligadura partida: efi caz
-- Ligadura partida: efi cacia
-- Ligadura partida: sufi cientes
-- Ligadura partida: fl ujograma
-- Ligadura partida: fi jado
-- Ligadura partida: fi jarlo

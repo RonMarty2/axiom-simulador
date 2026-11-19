@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_18_Morfo_Saladin_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Saladin_texto_paginas.txt"
-- **Fecha:** 2026-11-16 18:09:37
+- **Fecha:** 2026-11-19 07:50:45
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 3, 4, 5, 6, 7, 8)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -14,7 +14,7 @@
 | 4 | Notas al pie (llamadas y glosas) | texto | FALLA | 27 / 22227 palabras | Llamada numérica: cardiovascular1; Llamada numérica: mieloide6; Llamada numérica: apoferritina9 (+7 más en Detalle) |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | FALLA | 11 / 22227 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | Ref. visual: En el cuadro dieciocho coma un; Ref. visual: como se observa; Ref. visual: En la figura dieciocho coma nueve (+6 más en Detalle) |
 | 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 85 / 22227 palabras | Dígito sin convertir: ura media 38ºC, cien.4; Dígito sin convertir: 8ºC, cien.4ºF, pe hac; Símbolo '+': HPO4 dos+, uno co (+7 más en Detalle) |
-| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 26 / 22227 palabras | Sigla en mayúsculas: HC; Sigla en mayúsculas: FONDO; Título pegado al párrafo: erdido la vida. dieciocho punto uno Introducción Resultados esperad... (+7 más en Detalle) |
+| 7 | Siglas, números de sección y títulos en su línea | texto | FALLA | 6 / 22227 palabras | Sigla en mayúsculas: HC; Sigla en mayúsculas: FONDO; Recuadro pegado al párrafo: e bloquear los CONOCIMIENTO MÁS A FONDO dieciocho coma dos Historia... (+1 más en Detalle) |
 | 8 | Palabras partidas y ligaduras | texto | FALLA | 68 / 22227 palabras | Ligadura partida: específi co; Ligadura partida: Neutrófi los; Ligadura partida: Eosinófi los (+7 más en Detalle) |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
 | 10 | Cortes (título, cierre, 3-20 min, sin desvanecido) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -69,17 +69,11 @@
 - Símbolo '+': n como O+ para el
 - Símbolo '+': s son Rh+ y quinc
 
-### 7. Siglas, números de sección y títulos en su línea (26 fallas / 22227 palabras)
+### 7. Siglas, números de sección y títulos en su línea (6 fallas / 22227 palabras)
 - Sigla en mayúsculas: HC
 - Sigla en mayúsculas: FONDO
-- Título pegado al párrafo: erdido la vida. dieciocho punto uno Introducción Resultados esperad...
-- Título pegado al párrafo: os eritrocitos. CUADRO dieciocho coma un Propiedades gener
-- Título pegado al párrafo: sangre entera. CUADRO dieciocho coma tres Principales pro
-- Título pegado al párrafo: deshidratación. FIGURA dieciocho coma tres Niños de Angola
-- Título pegado al párrafo: la hemopoyesis? dieciocho punto dos Eritrocitos Resultados esperado...
-- Título pegado al párrafo: s en el centro? FIGURA dieciocho coma cinco Estructura de
-- Título pegado al párrafo: ual a proteína. FIGURA dieciocho coma siete Metabolismo de
-- Título pegado al párrafo: ación negativa. FIGURA dieciocho coma nueve Vida y muerte
+- Recuadro pegado al párrafo: e bloquear los CONOCIMIENTO MÁS A FONDO dieciocho coma dos Historia...
+- Recuadro pegado al párrafo: mantenimiento CONOCIMIENTO MÁS A FONDO dieciocho coma seis Aplicaci...
 
 ### 8. Palabras partidas y ligaduras (68 fallas / 22227 palabras)
 - Ligadura partida: específi co
