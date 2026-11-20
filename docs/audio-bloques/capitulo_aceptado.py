@@ -33,6 +33,11 @@ def informe_vigente(nombre: str, carpeta: str = INFORMES) -> bool:
             txt = m.group(1)
             if not os.path.isabs(txt):  # aceptacion.py escribe rutas relativas a la raíz del repo
                 txt = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", txt)
+            elif not os.path.isfile(txt):  # 19-11: informe hecho en OTRA PC (ruta absoluta de esa PC): se busca en esta
+                raiz = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+                partes = re.split(r"[\\/]", txt)
+                if "examenes pasados" in partes:
+                    txt = os.path.join(raiz, *partes[partes.index("examenes pasados"):])
             return os.path.isfile(txt) and os.path.getmtime(ruta) >= os.path.getmtime(txt)
     return False
 

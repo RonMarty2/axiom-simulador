@@ -3,3 +3,13 @@
 2026-11-19 16:44:46 · cerrado agy 71476: CORRECTO: el proceso con PID 69788 (proceso secundario de PID 71476)
 ha sido terminado.
 CORRECTO: el proceso con PID 45972 (proceso secundario de PID 
+2026-11-19 17:17:35 · [1/26] Atlas_B_Morfo_Saladin_LITERAL_TTS.json: ERROR 1 en 1967 s ·   [Cuota] Todas las claves (9) agotadas o con error en modelo gemini-3.1-flash-tts-preview; esperando 30s para reintentar... · Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=228, rondas_agotadas=22).
+2026-11-19 17:17:35 · [2/26] grabando Tema_01_Biologia_Celular_LITERAL_TTS.json
+2026-11-19 17:17:45 · [2/26] Tema_01_Biologia_Celular_LITERAL_TTS.json: OK en 10 s · Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts
+2026-11-19 17:17:45 · [3/26] grabando Tema_02_Biologia_Celular_LITERAL_TTS.json
+2026-11-19 19:35:59 · INICIO cola oculta, candado puesto
+2026-11-19 19:35:59 · [1/26] grabando Atlas_B_Morfo_Saladin_LITERAL_TTS.json
+2026-11-19 19:37:18 · PARADA por copiloto: grababa capítulos sin aceptación (Atlas_B); queda el vigilante como único grabador
+2026-11-20 16:12:44 · INICIO cola oculta, candado puesto
+2026-11-20 16:12:44 · [1/26] grabando Atlas_B_Morfo_Saladin_LITERAL_TTS.json
+2026-11-20 16:13:31 · PARADA por copiloto RONMARTY: el vigilante de la otra PC es el único grabador (no pisar)

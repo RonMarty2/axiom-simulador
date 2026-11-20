@@ -23,8 +23,8 @@ def log(t):
 
 
 def vivo(pid):
-    r = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/FO", "CSV", "/NH"], capture_output=True, text=True, creationflags=NOWIN)
-    return str(pid) in r.stdout
+    r = subprocess.run(["tasklist", "/FI", f"PID eq {pid}", "/FO", "CSV", "/NH"], capture_output=True, text=True, encoding="mbcs", errors="replace", creationflags=NOWIN)
+    return str(pid) in (r.stdout or "")
 
 
 def opt(k):
