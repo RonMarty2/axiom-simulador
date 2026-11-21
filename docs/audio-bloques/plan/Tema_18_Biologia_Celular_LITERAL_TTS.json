@@ -1,0 +1,758 @@
+[
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO dieciocho Las células madre y sus aplicaciones tera"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Células madre: definición y clasificación Definición Las cél"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otra característica fundamental que comparten todas las célu"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Respecto al tejido del que son aisladas, podemos distinguir "
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cuanto a su potencial de diferenciación, se pueden distin"
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Y las células madre multipotentes son aquellas capaces de pr"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante el desarrollo del embrión, las células embrionarias "
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "experimentales se han obtenido a partir de las ES, mientras "
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas células se han denominado iPS, induced pluripotent ste"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre las principales funciones de estas células destaca, de"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "De este modo, en la mayoría de los tejidos permanecería una "
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Plasticidad de las células madre Si bien la existencia de cé"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es importante destacar que para que una célula madre pueda c"
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No todos los trabajos publicados muestran evidencias consist"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos mecanismos serían: • La heterogeneidad de la población"
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien los fenómenos de fusión ocurren con una frecuencia m"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Por último, una cuarta hipótesis consiste en que existan e"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fuentes tisulares de células madre Como ya se ha descrito, s"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La presencia de múltiples progenitores en estos tejidos, así"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para una mayor comprensión, se describen a continuación las "
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Células madre pluripotentes Entre ellas cabe destacar las ES"
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunas de las aproximaciones que se están estudiando para l"
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mediante este procedimiento se consigue inducir cambios de e"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por último, cabe destacar el reciente descubrimiento de las "
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Asimismo, también se han obtenido posteriormente a partir de"
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las iPS se generaron en un principio mediante la sobreexpres"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, las iPS son capaces de derivar hacia tipos celulares"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Células madre adultas Como se comentó previamente, se ha des"
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También se ha demostrado más recientemente la presencia de o"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Recientemente, se han clasificado atendiendo a su capacidad "
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "denominadas B O E C, blood outgrowth endothelial cells,. Así"
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante este cultivo tiene lugar una homogeneización de la p"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las M S C obtenidas después del cultivo in vitro de células "
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre ellas encontramos las denominadas M A P C, V S E L, mi"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El cordón umbilical se ha utilizado desde hace más de veinte"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por último, de entre los diversos tipos de tejidos a partir "
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, mediante su cultivo in vitro, es posible la obtenció"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Potencial y limitaciones de las células madre Uno de los may"
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por todo ello, la aplicación de las células madre con capaci"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, la conclusión general a la que se ha llegado es"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados de los estudios experimentales realizados con cél"
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la mayoría de los casos, especialmente en los ensayos clí"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Uno de los más significativos lo constituyen tal vez las cél"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "las células son trasplantadas en los tejidos, su contribució"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el caso de la inyección intravenosa, muchas de las célula"
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otro aspecto importante es el de la inducción de su diferenc"
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En vista de estas limitaciones, se han abordado distintas es"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se debe recalcar que uno de los principales mecanismos impli"
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E18-tres Mecanismos implicados en el potencial terapé"
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En vista de estos resultados, una estrategia terapéutica muy"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para lograr esto, es necesario seguir investigando en los me"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de la terapia celular en combinación con otras es"
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Terapia génica En general, el objetivo de la terapia génica "
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, por ejemplo, determinados virus solo infectan las célul"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, de los casi quinientos ensayos clínicos que se han real"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se han utilizado, por ejemplo, fibroblastos, linfocitos o cé"
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Con todo, esta terapia ha presentado problemas graves, como "
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otros ejemplos a nivel experimental son los estudios realiza"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se inyectaron M S C modificadas que sobreexpresaban el facto"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Bioingeniería La bioingeniería, ingeniería de tejidos, consi"
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El fundamento de esta estrategia consiste en el crecimiento "
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los soportes naturales más ampliamente utilizados son: hidro"
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ellas,. También es posible utilizar M E C obtenida a partir "
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se han probado distintos tratamientos químicos sobre las pro"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En contraste, cuando se utilizan sin previa modificación, la"
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, otras características como la tasa de degradaci"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos ejemplos de materiales sintéticos biodegradables uti"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otra modificación interesante de dichas matrices sintéticas "
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además de la disponibilidad de soportes apropiados, la recon"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, la endotelización del injerto, su colonización y rec"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "estructuras histológicamente comparables a los vasos sanguín"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Asimismo, se están incorporando en el diseño de los nuevos b"
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se ha demostrado que es posible recelularizar estos órganos,"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El desarrollo de la ingeniería de tejidos como una práctica "
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo tanto, es necesario ampliar nuestros conocimientos, a"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También se precisa de biorreactores más eficaces que reprodu"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En conclusión, se puede decir que las limitaciones, tanto en"
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación clínica de las células madre: presente y futuro C"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Del mismo modo, las células madre podrían servir como eficac"
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hasta el momento, las células aplicadas a los pacientes han "
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aunque el material de partida para establecer cultivos prima"
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "productos en el mercado que abarcan desde soportes de fibrin"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A partir de estas, se aíslan tanto queratinocitos como fibro"
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Enfermedades y lesiones oculares Existen células madre deriv"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En situaciones en las que la córnea está afectada, tales com"
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Son necesarios, no obstante, estudios adicionales acerca de "
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el caso de otras enfermedades como la diabetes, las cardi"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Enfermedades cardiovasculares Tras el trasplante de H S C en"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Actualmente, la utilización de fármacos tiene carácter palia"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el caso de las ES y de las iPS, se ha demostrado su difer"
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A pesar de esto, también se ha determinado, en la mayoría de"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También se han comenzado recientemente ensayos con células d"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La terapia celular en pacientes con infarto agudo de miocard"
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Diabetes mellitus tipo uno La diabetes mellitus tipo uno ocu"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Inicialmente, se consiguió cierto éxito ya que, tras un año "
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre ellas cabe destacar el uso de las células madre presen"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por otro lado, se ha analizado el potencial inmunomodulador "
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La estimulación de la propia neurogénesis in vivo mediante e"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hasta ahora, el tratamiento más común ha sido la levodopa, a"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "encontrándose además efectos secundarios tales como la disqu"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se ha analizado en modelos de infarto cerebral el potencial "
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En este caso, aunque el ensayo resultó relativamente factibl"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En vista de los resultados obtenidos y de la complejidad de "
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conclusiones Los recientes avances realizados en el ámbito d"
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, debe considerarse que, a pesar del potencial qu"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Igualmente, es importante realizar nuevos estudios para la i"
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por otro lado, es importante considerar que el potencial de "
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Podemos concluir, por lo tanto, que la terapia celular const"
+ }
+]

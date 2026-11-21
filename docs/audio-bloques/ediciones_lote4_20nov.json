@@ -1,0 +1,1082 @@
+[
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': n-G D P + Pi. El | n= 1",
+  "veredicto": "real",
+  "buscar": "hidroliza el G T P unido a Ran en el citoplasma, dando lugar a Ran-G D P + Pi. El intercambiador",
+  "reemplazar": "hidroliza el G T P unido a Ran en el citoplasma, dando lugar a Ran-G D P más Pi. El intercambiador",
+  "motivo": "Confirmado en Calvo pág. 298 («Ran-GDP + Pi»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l signo + o – ant | n= 1",
+  "veredicto": "real",
+  "buscar": "Las ganancias o pérdidas de cromosomas completos se indican con el signo + o – antes del cromosoma implicado,",
+  "reemplazar": "Las ganancias o pérdidas de cromosomas completos se indican con el signo más o menos antes del cromosoma implicado,",
+  "motivo": "Confirmado en Calvo pág. 316 («signo + o –»); convertir «+» y «–» a «más» y «menos»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': griega,+veintiun | n= 2",
+  "veredicto": "real",
+  "buscar": "cuarenta y siete,X i griega,+veintiuno sería el cariotipo correspondiente a un varón",
+  "reemplazar": "cuarenta y siete,X i griega, más veintiuno sería el cariotipo correspondiente a un varón",
+  "motivo": "Confirmado en Calvo pág. 316 («47,XY,+21»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': griega,+veintiun | n= 2",
+  "veredicto": "real",
+  "buscar": "o cuarenta y siete,X i griega,+veintiuno, o síndrome de Down es la causa más frecuente",
+  "reemplazar": "o cuarenta y siete,X i griega, más veintiuno, o síndrome de Down es la causa más frecuente",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XY,+21»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': iete,XX,+veintiun | n= 1",
+  "veredicto": "real",
+  "buscar": "La trisomía veintiuno, cuarenta y siete,XX,+veintiuno ",
+  "reemplazar": "La trisomía veintiuno, cuarenta y siete,XX, más veintiuno ",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XX,+21»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': iete,XX,+trece o | n= 1",
+  "veredicto": "real",
+  "buscar": "recurrencia familiar. La trisomía trece, cuarenta y siete,XX,+trece ",
+  "reemplazar": "recurrencia familiar. La trisomía trece, cuarenta y siete,XX, más trece ",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XX,+13»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': griega,+trece, e | n= 1",
+  "veredicto": "real",
+  "buscar": "o cuarenta y siete,X i griega,+trece, es la causa del síndrome de Patau, con una prevalencia de uno cada diez coma cero cero cero nacidos vivos",
+  "reemplazar": "o cuarenta y siete,X i griega, más trece, es la causa del síndrome de Patau, con una prevalencia de uno cada diez mil nacidos vivos",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XY,+13» y «10.000»); convertir «+» a «más» y «diez coma cero cero cero» a «diez mil»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': iete,XX,+diecioch | n= 1",
+  "veredicto": "real",
+  "buscar": "polidactilia y microftalmía. La trisomía dieciocho, cuarenta y siete,XX,+dieciocho ",
+  "reemplazar": "polidactilia y microftalmía. La trisomía dieciocho, cuarenta y siete,XX, más dieciocho ",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XX,+18»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': griega,+diecioch | n= 1",
+  "veredicto": "real",
+  "buscar": "o cuarenta y siete,X i griega,+dieciocho, es la causa del síndrome de Edwards. Su prevalencia es de uno cada seis coma cero cero cero nacidos vivos",
+  "reemplazar": "o cuarenta y siete,X i griega, más dieciocho, es la causa del síndrome de Edwards. Su prevalencia es de uno cada seis mil nacidos vivos",
+  "motivo": "Confirmado en Calvo pág. 318 («47,XY,+18» y «6.000»); convertir «+» a «más» y «seis coma cero cero cero» a «seis mil»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': no en G + C es de | n= 1",
+  "veredicto": "real",
+  "buscar": "El contenido del genoma humano en G + C es de aproximadamente el cuarenta y un por ciento,",
+  "reemplazar": "El contenido del genoma humano en G más C es de aproximadamente el cuarenta y un por ciento,",
+  "motivo": "Confirmado en Calvo pág. 321 («en G + C»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 2",
+  "veredicto": "real",
+  "buscar": "inhibidor multiquinasa sorafenib. a. Se observa una lesión sólida antes del tratamiento, flecha,.",
+  "reemplazar": "inhibidor multiquinasa sorafenib. a. Se observa una lesión sólida antes del tratamiento.",
+  "motivo": "Confirmado en Calvo pág. 691 («(flecha)»); quitar la indicación puramente visual."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 2",
+  "veredicto": "real",
+  "buscar": "tras dos meses de tratamiento, flecha,., Por cortesía de: Dr. Ignacio Gil-Bazo, Departamento de Oncología de la Clínica de la Universidad de Navarra.,",
+  "reemplazar": "tras dos meses de tratamiento.",
+  "motivo": "Confirmado en Calvo pág. 691; quitar «, flecha,» y el crédito «Por cortesía de: Dr. Ignacio Gil-Bazo...» al final del pie de figura."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: RAR | n= 3",
+  "veredicto": "real",
+  "buscar": "de ácido retinoico induce la degradación de P M L o RAR alfa y consigue que se diferencien",
+  "reemplazar": "de ácido retinoico induce la degradación de P M L o R A R alfa y consigue que se diferencien",
+  "motivo": "Confirmado en Calvo pág. 669 («PML/RARα»); deletrear la sigla «RAR» con espacios («R A R»)."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: RAR | n= 3",
+  "veredicto": "real",
+  "buscar": "se forma una proteína oncogénica de fusión P M L o RAR alfa. C. Imagen microscópica",
+  "reemplazar": "se forma una proteína oncogénica de fusión P M L o R A R alfa. C. Imagen microscópica",
+  "motivo": "Confirmado en Calvo pág. 669 («PML/RARα»); deletrear «RAR» como «R A R» (nota: quitar también la cita «Liso V, Bennett J...» truncada al final de este pie)."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Título pegado al párrafo: lar del cáncer. Objetivos de aprendizaje • Conocer el impacto que t... | n= 1",
+  "veredicto": "real",
+  "buscar": "Biología celular del cáncer. Objetivos de aprendizaje • Conocer el impacto que tiene el cáncer",
+  "reemplazar": "Biología celular del cáncer.\n\nObjetivos de aprendizaje\n• Conocer el impacto que tiene el cáncer",
+  "motivo": "Confirmado en Calvo pág. 651; separar el título «Objetivos de aprendizaje» en su propia línea (regla 18)."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla cuatro | n= 2",
+  "veredicto": "real",
+  "buscar": "el conjunto de datos. Los intervalos para el ejemplo de la tabla cuatro serían:",
+  "reemplazar": "el conjunto de datos. Los intervalos para el ejemplo serían:",
+  "motivo": "Confirmado en EdS pág. 112; quitar la referencia visual «de la tabla cuatro» sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla cuatro | n= 2",
+  "veredicto": "real",
+  "buscar": "o el histograma de frecuencias relativas, como se muestra en las gráficas uno y dos para los datos de la tabla cuatro, que representan el tiempo",
+  "reemplazar": "o el histograma de frecuencias relativas, para los datos que representan el tiempo",
+  "motivo": "Confirmado en EdS pág. 128; quitar las referencias visuales a «las gráficas uno y dos» y «la tabla cuatro» sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla veintidós | n= 1",
+  "veredicto": "real",
+  "buscar": "A partir de los resultados de la tabla veintidós, la mayor antigüedad parece estar asociada",
+  "reemplazar": "A partir de los resultados, la mayor antigüedad parece estar asociada",
+  "motivo": "Confirmado en EdS pág. 141; quitar la referencia visual «de la tabla veintidós» sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla treinta y tres | n= 2",
+  "veredicto": "real",
+  "buscar": "de mujeres que asisten al gimnasio, presentada en la tabla treinta y tres, los cuartiles son",
+  "reemplazar": "de mujeres que asisten al gimnasio, los cuartiles son",
+  "motivo": "Confirmado en EdS pág. 173; quitar la referencia visual «presentada en la tabla treinta y tres,» sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla treinta y tres | n= 2",
+  "veredicto": "real",
+  "buscar": "de mujeres que asisten al gimnasio, presentados en la tabla treinta y tres, la varianza sería:",
+  "reemplazar": "de mujeres que asisten al gimnasio, la varianza sería:",
+  "motivo": "Confirmado en EdS pág. 176; quitar la referencia visual «presentados en la tabla treinta y tres,» sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla treinta y tres | n= 3",
+  "veredicto": "real",
+  "buscar": "Por ejemplo, para los datos de la tabla treinta y tres, sobre la talla, en centímetros, de un grupo de mujeres",
+  "reemplazar": "Por ejemplo, para los datos sobre la talla, en centímetros, de un grupo de mujeres",
+  "motivo": "Confirmado en EdS pág. 172; quitar la referencia visual «de la tabla treinta y tres,» (la otra cita del contexto ya se corrigió en «en la tabla treinta y tres»)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 6",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento Antes de proseguir ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 822; quitar encabezado de parte y título de autoevaluación (recortar también la pregunta «●¿Cuáles células...?» previa y las preguntas 1-5 hasta 21.2)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 6",
+  "veredicto": "real",
+  "buscar": "para que tenga oportunidad de descansar y sanar. Antes de proseguir ",
+  "reemplazar": "para que tenga oportunidad de descansar y sanar. ",
+  "motivo": "Confirmado en Saladin pág. 830; quitar «Antes de proseguir» (recortar el bloque completo de preguntas 6-9 hasta 21.3)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 6",
+  "veredicto": "real",
+  "buscar": "Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Elabore una lista de las funciones del sistema linfático.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 822; quitar consigna y primera pregunta de autoevaluación (recortar el resto de preguntas 1-5 hasta 21.2)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 6",
+  "veredicto": "real",
+  "buscar": "Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. ¿Qué son los macrófagos?",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 830; quitar consigna y primera pregunta de autoevaluación (recortar el resto de preguntas 6-9 hasta 21.3)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Crédito: e, b, fue tomada de R. G. Kessel y R. H. Kardon, Tissu | n= 1",
+  "veredicto": "real",
+  "buscar": ", La parte, b, fue tomada de R. G. Kessel y R. H. Kardon, Tissues and Organs: A Text-Atlas of Scanning Electron Microscopy, W. H. Freeman, mil novecientos setenta y nueve,.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 834 (Fig. 21.21); quitar el crédito bibliográfico de la figura."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: patógenos8 | n= 1",
+  "veredicto": "real",
+  "buscar": "Los patógenos8 son virus, bacterias, hongos y otros microbios que causan enfermedades.",
+  "reemplazar": "Los patógenos son virus, bacterias, hongos y otros microbios que causan enfermedades.",
+  "motivo": "Confirmado en Saladin pág. 822 (nota al pie 8); quitar el número de llamada pegado a «patógenos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: paracrinos15 | n= 1",
+  "veredicto": "real",
+  "buscar": "Se trata de los efectos paracrinos15 y autocrinos,dieciséis respectivamente, para distinguirlos",
+  "reemplazar": "Se trata de los efectos paracrinos y autocrinos, respectivamente, para distinguirlos",
+  "motivo": "Confirmado en Saladin pág. 828 (notas al pie 15 y 16); quitar las llamadas «15» y «dieciséis»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: diapédesis17 | n= 1",
+  "veredicto": "real",
+  "buscar": "acción a la que se le denomina diapédesis17 o emigración, e ingresan en el líquido tisular",
+  "reemplazar": "acción a la que se le denomina diapédesis o emigración, e ingresan en el líquido tisular",
+  "motivo": "Confirmado en Saladin pág. 829 (nota al pie 17); quitar la llamada «17» pegada a «diapédesis»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: inmunitario20 | n= 1",
+  "veredicto": "real",
+  "buscar": "En el resto de este capítulo se abordan el sistema inmunitario20 y la inmunidad específica,",
+  "reemplazar": "En el resto de este capítulo se abordan el sistema inmunitario y la inmunidad específica,",
+  "motivo": "Confirmado en Saladin pág. 830 (nota al pie 20); quitar la llamada «20» pegada a «inmunitario»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: antígeno21 | n= 1",
+  "veredicto": "real",
+  "buscar": "Antígenos Un antígeno21 es cualquier molécula que activa una respuesta inmunitaria.",
+  "reemplazar": "Antígenos Un antígeno es cualquier molécula que activa una respuesta inmunitaria.",
+  "motivo": "Confirmado en Saladin pág. 831 (nota al pie 21); quitar la llamada «21» pegada a «antígeno»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: anamnésica25 | n= 1",
+  "veredicto": "real",
+  "buscar": "generan una respuesta secundaria o anamnésica25 muy rápida si hay una nueva exposición",
+  "reemplazar": "generan una respuesta secundaria o anamnésica muy rápida si hay una nueva exposición",
+  "motivo": "Confirmado en Saladin pág. 841 (nota al pie 25); quitar la llamada «25» pegada a «anamnésica»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: laxis28 | n= 1",
+  "veredicto": "real",
+  "buscar": "La anafi laxis28 es una reacción de tipo I inmediata y grave. La anafi laxis local puede aliviarse",
+  "reemplazar": "La anafilaxis es una reacción de tipo I inmediata y grave. La anafilaxis local puede aliviarse",
+  "motivo": "Confirmado en Saladin pág. 843 (nota al pie 28); quitar la llamada «28» y unir la ligadura «anafilaxis»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: sistémico34 | n= 1",
+  "veredicto": "real",
+  "buscar": "Lupus eritematoso sistémico34 Formación de autoanticuerpos contra el D N A y otros antígenos",
+  "reemplazar": "Lupus eritematoso sistémico Formación de autoanticuerpos contra el D N A y otros antígenos",
+  "motivo": "Confirmado en Saladin pág. 848 (nota al pie 34); quitar la llamada «34» pegada a «sistémico»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: de Langerhans.tres, Juegan u | n= 1",
+  "veredicto": "real",
+  "buscar": "En la piel, suele llamárseles células de Langerhans.tres, Juegan un papel importante al alertar",
+  "reemplazar": "En la piel, suele llamárseles células de Langerhans. Juegan un papel importante al alertar",
+  "motivo": "Confirmado en Saladin pág. 815 (nota al pie 3); quitar la llamada «tres,» tras «Langerhans.»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: rches de Peyer.cuatro Órganos l | n= 1",
+  "veredicto": "real",
+  "buscar": "la parte distal del intestino delgado, forma grupos llamados parches de Peyer.cuatro Órganos linfáticos",
+  "reemplazar": "la parte distal del intestino delgado, forma grupos llamados parches de Peyer. Órganos linfáticos",
+  "motivo": "Confirmado en Saladin pág. 815 (nota al pie 4); quitar la llamada «cuatro» tras «Peyer.»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro dieciocho coma seis | n= 1",
+  "veredicto": "real",
+  "buscar": "Se puede hacer un repaso más fácil acerca de los tipos, el aspecto y las funciones de los leucocitos en el cuadro dieciocho coma seis, p. seiscientos noventa y ocho,.",
+  "reemplazar": "",
+  "motivo": "Quitar la oración de referencia visual al cuadro 18.6 y número de página."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: véase también la figura | n= 1",
+  "veredicto": "real",
+  "buscar": "del diafragma, y en sentido posterolateral al estómago, figura veintiuno coma un cuatro; véase también la figura B.seis, p. trescientos ochenta y seis,.",
+  "reemplazar": "del diafragma, y en sentido posterolateral al estómago.",
+  "motivo": "Confirmado en Saladin pág. 821; quitar las referencias visuales «figura 21.14; véase también la figura B.6, p. 386»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro dieciocho a seis | n= 1",
+  "veredicto": "real",
+  "buscar": "Leucocitos Los cinco tipos de leucocitos se describen en el cuadro dieciocho a seis, p. seiscientos noventa y ocho,. A continuación",
+  "reemplazar": "Leucocitos A continuación",
+  "motivo": "Confirmado en Saladin pág. 823; quitar la oración de referencia visual al cuadro 18-6 y número de página."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintiuno coma un | n= 2",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento sitos de la inflamación. Ésta es mediada por varios tipos de células y sustancias químicas que se presentan en el cuadro veintiuno coma un.",
+  "reemplazar": "Ésta es mediada por varios tipos de células y sustancias químicas.",
+  "motivo": "Confirmado en Saladin pág. 828; quitar el encabezado de parte, el resto cortado «sitos de la inflamación.» (unido en REV 8) y la referencia visual «que se presentan en el cuadro veintiuno coma un»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintiuno coma un | n= 2",
+  "veredicto": "real",
+  "buscar": "matan células cancerosas Estos agentes tienen funciones adicionales en la inflamación, descritos en el cuadro veintiuno coma un.",
+  "reemplazar": "matan células cancerosas Estos agentes tienen funciones adicionales en la inflamación.",
+  "motivo": "Confirmado en Saladin pág. 842 (nota del Cuadro 21.4); quitar la referencia visual «, descritos en el cuadro veintiuno coma un»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintiuno coma cuatro | n= 1",
+  "veredicto": "real",
+  "buscar": "Estos agentes de inflamación tienen funciones adicionales en la inmunidad específica descrita en el cuadro veintiuno coma cuatro.",
+  "reemplazar": "Estos agentes de inflamación tienen funciones adicionales en la inmunidad específica.",
+  "motivo": "Confirmado en Saladin pág. 828 (nota del Cuadro 21.1); quitar la referencia visual «descrita en el cuadro veintiuno coma cuatro»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la figura veintiuno coma un nueve | n= 1",
+  "veredicto": "real",
+  "buscar": "por la explosión respiratoria descrita antes. En la figura veintiuno coma un nueve se muestran los principales pasos de la acción de los neutrófi los.",
+  "reemplazar": "por la explosión respiratoria descrita antes.",
+  "motivo": "Confirmado en Saladin pág. 829; quitar la oración de referencia visual a la figura 21.19."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintiuno coma cinco | n= 1",
+  "veredicto": "real",
+  "buscar": "se presentan, en el cuadro veintiuno coma cinco, p. ochocientos cuarenta y dos, un resumen y una comparación entre los tipos",
+  "reemplazar": "se presentan un resumen y una comparación entre los tipos",
+  "motivo": "Confirmado en Saladin pág. 831; quitar la referencia visual «, en el cuadro veintiuno coma cinco, p. ochocientos cuarenta y dos,»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: el cuadro veintiuno coma cuatro | n= 3",
+  "veredicto": "real",
+  "buscar": "Debido a que la terminología relacionada con las células y las sustancias químicas que intervienen en los procesos inmunitarios es muy compleja, tal vez sea útil tener como referencia el cuadro veintiuno coma cuatro, p. ochocientos cuarenta y dos, mientras se leen las siguientes explicaciones.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 833; quitar la oración de referencia visual al cuadro 21.4 (la otra cita del contexto ya se corrigió en «en el cuadro veintiuno coma cuatro»)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura veintiuno coma dos dos | n= 1",
+  "veredicto": "real",
+  "buscar": "Activación de los linfocitos T La activación de los linfocitos T se presenta en la figura veintiuno coma dos dos. Empieza cuando",
+  "reemplazar": "Activación de los linfocitos T Empieza cuando",
+  "motivo": "Confirmado en Saladin pág. 835; quitar la oración de referencia visual a la figura 21.22."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro veintiuno coma cuatro | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro veintiuno coma cuatro se presenta un resumen de muchos de los agentes celulares y químicos que participan en las inmunidades humoral y celular.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 841; quitar la oración de referencia visual al cuadro 21.4 (la oración siguiente sobre el cuadro 21.5 también debe quitarse)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '~': s tiene ~cuatroci | n= 1",
+  "veredicto": "real",
+  "buscar": "Las dos cadenas pesadas tiene ~cuatrocientos aminoácidos de largo, y las dos cadenas ligeras",
+  "reemplazar": "Las dos cadenas pesadas tiene aproximadamente cuatrocientos aminoácidos de largo, y las dos cadenas ligeras",
+  "motivo": "Confirmado en Saladin pág. 838 («~400 aminoácidos»); convertir el símbolo «~» a «aproximadamente»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ica dos +m dos +m | n= 1",
+  "veredicto": "real",
+  "buscar": "a, Linfocito B b Célula plasmática dos +m",
+  "reemplazar": "a, Linfocito B b Célula plasmática",
+  "motivo": "Confirmado en Saladin pág. 839 (Fig. 21.26, «2 +m» por «2 μm»); quitar la barra de escala visual corrupta de la micrografía."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': +m dos +m Retícu | n= 1",
+  "veredicto": "real",
+  "buscar": " dos +m Retículo endoplásmico rugoso FIGURA veintiuno coma dos seis",
+  "reemplazar": " Retículo endoplásmico rugoso FIGURA veintiuno coma dos seis",
+  "motivo": "Confirmado en Saladin pág. 839 (Fig. 21.26, segunda marca «2 +m» por «2 μm»); quitar la barra de escala visual corrupta."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Letra griega: μ | n= 3",
+  "veredicto": "real",
+  "buscar": "la cifra de neutrófi los en la sangre puede subir de cuatro cero y cinco cero hasta veinticinco cero células por μl, trastorno",
+  "reemplazar": "la cifra de neutrófilos en la sangre puede subir de cuatro mil y cinco mil hasta veinticinco mil células por microlitro, trastorno",
+  "motivo": "Confirmado en Saladin pág. 830 («4 000 y 5 000 hasta 25 000 células por μl»); convertir «μl» a «microlitro», corregir los miles truncados y unir «neutrófilos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Letra griega: μ | n= 3",
+  "veredicto": "real",
+  "buscar": "Una cifra normal de T H es de seiscientos a un doscientos células por μl, pero un criterio para sida es una cifra menor de doscientos por μl.",
+  "reemplazar": "Una cifra normal de T H es de seiscientos a mil doscientos células por microlitro, pero un criterio para sida es una cifra menor de doscientos por microlitro.",
+  "motivo": "Confirmado en Saladin pág. 845 («600 a 1 200 células por μl... menor de 200 por μl»); convertir «μl» a «microlitro» y «un doscientos» a «mil doscientos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: TEMAS | n= 3",
+  "veredicto": "real",
+  "buscar": "Efectos de los SISTEMAS LINFÁTICO E INMUNITARIO en otros sistemas de órganos TEMAS DE CONEXIÓN ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 849; por decisión de Ronald (16-11) los recuadros «Temas de conexión» no se leen y se quitan del texto TTS."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: TODOS | n= 1",
+  "veredicto": "real",
+  "buscar": "TODOS LOS SISTEMAS Los vasos linfáticos drenan el exceso de líquido tisular, evitan el edema y eliminan desechos celulares y patógenos.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 849; quitar el cuerpo de «TODOS LOS SISTEMAS» del recuadro «Temas de conexión»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Recuadro pegado al párrafo: de una fiebre. CONOCIMIENTO MÁS A FONDO veintiuno coma dos Aplicaci... | n= 1",
+  "veredicto": "real",
+  "buscar": "FIGURA veintiuno coma un ocho El curso de una fiebre. CONOCIMIENTO MÁS A FONDO veintiuno coma dos Aplicación clínica Síndrome de Reye",
+  "reemplazar": "FIGURA veintiuno coma un ocho El curso de una fiebre.\n\nConocimiento más a fondo veintiuno coma dos. Aplicación clínica: Síndrome de Reye\n",
+  "motivo": "Confirmado en Saladin pág. 827; separar el título del recuadro «Conocimiento más a fondo» en su propia línea (regla 18)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: propó- trece | n= 1",
+  "veredicto": "real",
+  "buscar": "se logran los tres propó- trece R. Douglas Reye, mil novecientos doce a mil novecientos setenta y siete, patólogo australiano.",
+  "reemplazar": "se logran los tres propósitos de la inflamación.",
+  "motivo": "Confirmado en Saladin págs. 827-828 («los tres propó-» + «sitos de la inflamación.»); unir la palabra partida y quitar la nota al pie 13 intercalada."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fl uya | n= 1",
+  "veredicto": "real",
+  "buscar": "Las válvulas de los vasos linfáticos, como las de las venas, evitan que el líquido fl uya hacia atrás.",
+  "reemplazar": "Las válvulas de los vasos linfáticos, como las de las venas, evitan que el líquido fluya hacia atrás.",
+  "motivo": "Confirmado en Saladin pág. 813; unir ligadura partida «fl uya» en «fluya»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 15",
+  "veredicto": "real",
+  "buscar": "Se desarrollan a partir de monocitos que han emigrado de la circulación sanguínea. Fagocitan desechos tisulares, neutrófi los Troncos linfáticos",
+  "reemplazar": "Se desarrollan a partir de monocitos que han emigrado de la circulación sanguínea. Fagocitan desechos tisulares, neutrófilos Troncos linfáticos",
+  "motivo": "Confirmado en Saladin pág. 813; unir ligadura partida «neutrófi los» en «neutrófilos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 15",
+  "veredicto": "real",
+  "buscar": "Los queratinocitos, neutrófi los, macrófagos y otras células también producen péptidos a los que se les denomina defensinas",
+  "reemplazar": "Los queratinocitos, neutrófilos, macrófagos y otras células también producen péptidos a los que se les denomina defensinas",
+  "motivo": "Confirmado en Saladin pág. 822; unir ligadura partida «neutrófi los» en «neutrófilos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi nas | n= 1",
+  "veredicto": "real",
+  "buscar": "No deben confundirse con las fibras reticulares, que son fibras de colágeno fi nas, ramificadas, comunes",
+  "reemplazar": "No deben confundirse con las fibras reticulares, que son fibras de colágeno finas, ramificadas, comunes",
+  "motivo": "Confirmado en Saladin pág. 815; unir ligadura partida «fi nas» en «finas»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: ramifi cada | n= 1",
+  "veredicto": "real",
+  "buscar": "La médula consta de una red ramifi cada de cordones medulares compuestos de linfocitos, células plasmáticas,",
+  "reemplazar": "La médula consta de una red ramificada de cordones medulares compuestos de linfocitos, células plasmáticas,",
+  "motivo": "Confirmado en Saladin pág. 817; unir ligadura partida «ramifi cada» en «ramificada»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 19",
+  "veredicto": "real",
+  "buscar": "Estas defensas incluyen leucocitos y macrófagos, proteínas antimicrobianas, vigilancia inmunitaria, inflamación y fi ebre.",
+  "reemplazar": "Estas defensas incluyen leucocitos y macrófagos, proteínas antimicrobianas, vigilancia inmunitaria, inflamación y fiebre.",
+  "motivo": "Confirmado en Saladin pág. 822; unir ligadura partida «fi ebre» en «fiebre»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 19",
+  "veredicto": "real",
+  "buscar": "Fiebre La fi ebre es una elevación anormal de la temperatura corporal; también se le conoce como pirexia.",
+  "reemplazar": "Fiebre La fiebre es una elevación anormal de la temperatura corporal; también se le conoce como pirexia.",
+  "motivo": "Confirmado en Saladin pág. 825; unir ligadura partida «fi ebre» en «fiebre»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi lo | n= 19",
+  "veredicto": "real",
+  "buscar": "Por desgracia, el neutrófi lo, también muere por la acción de estas sustancias.",
+  "reemplazar": "Por desgracia, el neutrófilo, también muere por la acción de estas sustancias.",
+  "motivo": "Confirmado en Saladin pág. 823; unir ligadura partida «neutrófi lo» en «neutrófilo» (las citas plurales del mismo hallazgo ya se corrigieron en «neutrófi los»)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: eosinófi los | n= 7",
+  "veredicto": "real",
+  "buscar": "dos. Los eosinófi los se encuentran sobre todo en las mucosas, y protegen contra parásitos, alergenos,",
+  "reemplazar": "dos. Los eosinófilos se encuentran sobre todo en las mucosas, y protegen contra parásitos, alergenos,",
+  "motivo": "Confirmado en Saladin pág. 823; unir ligadura partida «eosinófi los» en «eosinófilos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: eosinófi los | n= 7",
+  "veredicto": "real",
+  "buscar": "leucotrienos que activan y atraen neutrófi los y eosinófi los; el vasodilatador histamina,",
+  "reemplazar": "leucotrienos que activan y atraen neutrófilos y eosinófilos; el vasodilatador histamina,",
+  "motivo": "Confirmado en Saladin pág. 823; unir ligaduras partidas «neutrófi los» y «eosinófi los»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 7",
+  "veredicto": "real",
+  "buscar": "Promueven la acción de los basófi los y los mastocitos, consúltese el siguiente párrafo,.",
+  "reemplazar": "Promueven la acción de los basófilos y los mastocitos.",
+  "motivo": "Confirmado en Saladin pág. 823; unir «basófi los» en «basófilos» y quitar la remisión «consúltese el siguiente párrafo»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 7",
+  "veredicto": "real",
+  "buscar": "tres. Los basófi los secretan sustancias químicas que ayudan a la movilidad y la acción de otros leucocitos:",
+  "reemplazar": "tres. Los basófilos secretan sustancias químicas que ayudan a la movilidad y la acción de otros leucocitos:",
+  "motivo": "Confirmado en Saladin pág. 823; unir ligadura partida «basófi los» en «basófilos»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: específi cas | n= 5",
+  "veredicto": "real",
+  "buscar": "pero también hay formas especializadas con ubicaciones más específi cas: microglia en el sistema nervioso central,",
+  "reemplazar": "pero también hay formas especializadas con ubicaciones más específicas: microglia en el sistema nervioso central,",
+  "motivo": "Confirmado en Saladin pág. 823; unir ligadura partida «específi cas» en «específicas»."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: específi cas | n= 5",
+  "veredicto": "real",
+  "buscar": "Las rutas alterna y de la lectina no requieren anticuerpos y, por consiguiente, pertenecen a las defensas inespecífi cas.",
+  "reemplazar": "Las rutas alterna y de la lectina no requieren anticuerpos y, por consiguiente, pertenecen a las defensas inespecíficas.",
+  "motivo": "Confirmado en Saladin pág. 824; unir ligadura partida «inespecífi cas» en «inespecíficas»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 4",
+  "veredicto": "real",
+  "buscar": "Aplicación de lo aprendido ¿De qué manera la estructura y la función de las pleuras se parecen a las del pericardio? Antes de proseguir ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 866; quitar «Aplicación de lo aprendido» y «Antes de proseguir» (recortar también el bloque de preguntas 1-5 hasta 22.2)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 4",
+  "veredicto": "real",
+  "buscar": "veintiséis takhy igual a rápido; pnoi igual a respiración. Antes de proseguir ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 877; quitar la nota al pie 26 y «Antes de proseguir» (recortar también notas 24-25 previas y preguntas 6-10)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 4",
+  "veredicto": "real",
+  "buscar": "Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Se inhala una partícula de polvo",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 866; quitar consigna y arranque de autoevaluación (recortar el resto de preguntas 1-5 hasta 22.2)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 4",
+  "veredicto": "real",
+  "buscar": "Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. Explique por qué",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 877; quitar consigna y arranque de autoevaluación (recortar el resto de preguntas 6-10)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: cornetes2 | n= 1",
+  "veredicto": "real",
+  "buscar": "La mayor parte está ocupado por tres pliegues de tejido, los cornetes2 nasales superior, medio e inferior,",
+  "reemplazar": "La mayor parte está ocupado por tres pliegues de tejido, los cornetes nasales superior, medio e inferior,",
+  "motivo": "Confirmado en Saladin pág. 857 (nota al pie 2); quitar la llamada «2» pegada a «cornetes»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: cuneiformes8 | n= 1",
+  "veredicto": "real",
+  "buscar": "Un par de cartílagos cuneiformes8 sirve como soporte para tejidos suaves entre el aritenoides",
+  "reemplazar": "Un par de cartílagos cuneiformes sirve como soporte para tejidos suaves entre el aritenoides",
+  "motivo": "Confirmado en Saladin pág. 859 (nota al pie 8); quitar la llamada «8» pegada a «cuneiformes»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: tráquea9 | n= 1",
+  "veredicto": "real",
+  "buscar": "Tráquea La tráquea9 es un tubo rígido de casi doce centímetros, cuatro coma cinco pulgadas,",
+  "reemplazar": "Tráquea La tráquea es un tubo rígido de casi doce centímetros, cuatro coma cinco pulgadas,",
+  "motivo": "Confirmado en Saladin pág. 860 (nota al pie 9); quitar la llamada «9» pegada a «tráquea»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada numérica: hipocapnia29 | n= 1",
+  "veredicto": "real",
+  "buscar": "A una PCO2 menor de treinta y siete milímetros de mercurio se le denomina hipocapnia29 y es la causa",
+  "reemplazar": "A una PCO2 menor de treinta y siete milímetros de mercurio se le denomina hipocapnia y es la causa",
+  "motivo": "Confirmado en Saladin pág. 886 (nota al pie 29); quitar la llamada «29» pegada a «hipocapnia»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: iores o coanas.un La parte | n= 1",
+  "veredicto": "real",
+  "buscar": "hasta un par de aperturas llamadas aperturas nasales posteriores o coanas.un La parte facial de la nariz",
+  "reemplazar": "hasta un par de aperturas llamadas aperturas nasales posteriores o coanas. La parte facial de la nariz",
+  "motivo": "Confirmado en Saladin pág. 856 (nota al pie 1); quitar la llamada «un» tras «coanas.»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: mina epiglotis.tres En descan | n= 1",
+  "veredicto": "real",
+  "buscar": "protegida por un colgajo de tejido al que se le denomina epiglotis.tres En descanso, la epiglotis",
+  "reemplazar": "protegida por un colgajo de tejido al que se le denomina epiglotis. En descanso, la epiglotis",
+  "motivo": "Confirmado en Saladin pág. 857 (nota al pie 3); quitar la llamada «tres» tras «epiglotis.»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ílago tiroides,cuatro recibe es | n= 1",
+  "veredicto": "real",
+  "buscar": "El más grande, el cartílago tiroides,cuatro recibe ese nombre por su forma de escudo.",
+  "reemplazar": "El más grande, el cartílago tiroides, recibe ese nombre por su forma de escudo.",
+  "motivo": "Confirmado en Saladin pág. 859 (nota al pie 4); quitar la llamada «cuatro» tras «tiroides,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: lago cricoides,cinco que conec | n= 1",
+  "veredicto": "real",
+  "buscar": "Debajo del cartílago tiroides se encuentra otro con forma de anillo, el cartílago cricoides,cinco que conecta",
+  "reemplazar": "Debajo del cartílago tiroides se encuentra otro con forma de anillo, el cartílago cricoides, que conecta",
+  "motivo": "Confirmado en Saladin pág. 859 (nota al pie 5); quitar la llamada «cinco» tras «cricoides,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: os aritenoides,seis y adjunto | n= 1",
+  "veredicto": "real",
+  "buscar": "Posterior al cartílago tiroides se encuentran dos cartílagos aritenoides,seis y adjuntos a sus extremos",
+  "reemplazar": "Posterior al cartílago tiroides se encuentran dos cartílagos aritenoides, y adjuntos a sus extremos",
+  "motivo": "Confirmado en Saladin pág. 859 (nota al pie 6); quitar la llamada «seis» tras «aritenoides,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: s corniculados.siete Estos dos | n= 1",
+  "veredicto": "real",
+  "buscar": "se halla un par de pequeños huesos, los cartílagos corniculados.siete Estos dos tipos de cartílagos intervienen",
+  "reemplazar": "se halla un par de pequeños huesos, los cartílagos corniculados. Estos dos tipos de cartílagos intervienen",
+  "motivo": "Confirmado en Saladin pág. 859 (nota al pie 7); quitar la llamada «siete» tras «corniculados.»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura cinco coma siete | n= 1",
+  "veredicto": "real",
+  "buscar": "El epitelio respiratorio es similar al que se ve en la figura cinco coma siete, p. ciento cincuenta,.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 857; quitar la oración de referencia visual a la figura 5.7 y página."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: véase figura | n= 1",
+  "veredicto": "real",
+  "buscar": "la carina,diez que dirige el flujo de aire a la izquierda o la derecha, véase figura diez carina igual a media cáscara de nuez; quilla.",
+  "reemplazar": "la carina, que dirige el flujo de aire a la izquierda o la derecha.",
+  "motivo": "Confirmado en Saladin pág. 861; quitar la llamada «diez», la referencia «véase figura» y la glosa de nota al pie 10."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: véase la figura | n= 1",
+  "veredicto": "real",
+  "buscar": "es ocupado por el hígado, bazo y estómago, véase la figura B.cinco, p. trescientos ochenta y cinco,.",
+  "reemplazar": "es ocupado por el hígado, bazo y estómago.",
+  "motivo": "Confirmado en Saladin pág. 862; quitar la referencia visual «, véase la figura B.cinco, p. trescientos ochenta y cinco,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: el cuadro diez coma cuatro | n= 1",
+  "veredicto": "real",
+  "buscar": "El músculo principal es el diafragma, consulte el cuadro diez coma cuatro, p. trescientos treinta y tres,.",
+  "reemplazar": "El músculo principal es el diafragma.",
+  "motivo": "Confirmado en Saladin pág. 868; quitar la referencia visual «, consulte el cuadro diez coma cuatro, p. trescientos treinta y tres,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro veintidós coma un | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro veintidós coma un se presenta una lista de ellas, puede ser una referencia útil mientras se recorre la fisiología del aparato respiratorio.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 871; quitar la oración de referencia visual al cuadro 22.1."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la figura veintidós coma un seis | n= 1",
+  "veredicto": "real",
+  "buscar": "En la figura veintidós coma un seis se siguen los eventos y los cambios de presión que ocurren en todo un ciclo respiratorio.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 872; quitar la oración de referencia visual a la figura 22.16."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintidós coma dos y | n= 1",
+  "veredicto": "real",
+  "buscar": "Las medidas representativas para un adulto sano se dan en el cuadro veintidós coma dos y ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 875; quitar la primera mitad de la oración de referencia visual al cuadro 22.2 y figura 22.18."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura veintidós coma un ocho | n= 1",
+  "veredicto": "real",
+  "buscar": "se explican en la figura veintidós coma un ocho. Los valores para las mujeres",
+  "reemplazar": "Los valores para las mujeres",
+  "motivo": "Confirmado en Saladin pág. 875; quitar la segunda mitad de la oración de referencia visual a la figura 22.18."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro veintidós coma tres | n= 1",
+  "veredicto": "real",
+  "buscar": "En el cuadro veintidós coma tres se defi - nen los términos clínicos para algunas de estas variaciones.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 876; quitar la oración de referencia visual al cuadro 22.3."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: el cuadro veintidós coma dos | n= 2",
+  "veredicto": "real",
+  "buscar": "indica inspiración cuando se eleva y espiración cuando desciende. Compárese con el cuadro veintidós coma dos.",
+  "reemplazar": "indica inspiración cuando se eleva y espiración cuando desciende.",
+  "motivo": "Confirmado en Saladin pág. 876 (pie de Fig. 22.18); quitar «Compárese con el cuadro veintidós coma dos.» (la otra cita ya se corrigió arriba)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: n giro de 90º hacia ab | n= 1",
+  "veredicto": "real",
+  "buscar": "El aire inhalado da un giro de 90º hacia abajo mientras pasa por la nasofaringe.",
+  "reemplazar": "El aire inhalado da un giro de noventa grados hacia abajo mientras pasa por la nasofaringe.",
+  "motivo": "Confirmado en Saladin pág. 857 («90º»); convertir dígito y símbolo de grados a palabras («noventa grados»)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: veintidós.5b. Se da s | n= 1",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento veintidós.5b. Se da seguimiento a los bronquios",
+  "reemplazar": "Se da seguimiento a los bronquios",
+  "motivo": "Confirmado en Saladin pág. 862; quitar encabezado de parte y resto de referencia visual «22.5b)» cortado por salto de página."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: veintidós.22b,. Los ga | n= 1",
+  "veredicto": "real",
+  "buscar": "de manera similar a lo que sucede en la neumonía; figura veintidós.22b,. Los gases tienen",
+  "reemplazar": "de manera similar a lo que sucede en la neumonía. Los gases tienen",
+  "motivo": "Confirmado en Saladin pág. 879; quitar la referencia visual «; figura veintidós.22b,»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: veintidós.11b. Los pas | n= 1",
+  "veredicto": "real",
+  "buscar": "en lugar de mostrar la textura esponjosa normal que se observa en la figura veintidós.11b. Los pasajes",
+  "reemplazar": "en lugar de mostrar la textura esponjosa normal. Los pasajes",
+  "motivo": "Confirmado en Saladin pág. 888; quitar la referencia visual «que se observa en la figura veintidós.11b»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': no, CO2 + H2O → H | n= 1",
+  "veredicto": "real",
+  "buscar": "reacciona con el agua y libera iones hidrógeno, CO2 + H2O → H2CO3 → ",
+  "reemplazar": "reacciona con el agua y libera iones hidrógeno, C O dos más H dos O produce H dos C O tres, que produce ",
+  "motivo": "Confirmado en Saladin pág. 855 («CO2 + H2O → H2CO3 →»); convertir símbolos «+» y «→» y fórmulas a palabras."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': HCO3 – + hidróge | n= 4",
+  "veredicto": "real",
+  "buscar": "HCO3 – + hidrógeno,; por tanto, si el aparato respiratorio no se mantiene",
+  "reemplazar": "H C O tres menos más hidrógeno; por tanto, si el aparato respiratorio no se mantiene",
+  "motivo": "Confirmado en Saladin pág. 855 («HCO3– + H+»); convertir símbolos «–» y «+» y fórmula del ion a palabras."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': HCO3 – + hidróge | n= 4",
+  "veredicto": "real",
+  "buscar": "la reacción de ácido carbónico, H2O + CO2 → HCO3 – + hidrógeno,. Un metabolismo elevado",
+  "reemplazar": "la reacción de ácido carbónico, H dos O más C O dos produce H C O tres menos más hidrógeno. Un metabolismo elevado",
+  "motivo": "Confirmado en Saladin págs. 885-886 («H2O + CO2 → HCO3– + H+»); convertir símbolos y fórmulas a palabras."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': tiva de +tres mil | n= 1",
+  "veredicto": "real",
+  "buscar": "debajo de la presión atmosférica; una presión relativa de +tres milímetros de mercurio está tres",
+  "reemplazar": "debajo de la presión atmosférica; una presión relativa de más tres milímetros de mercurio está tres",
+  "motivo": "Confirmado en Saladin pág. 872 («+3 mmHg»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a casi +tres mil | n= 1",
+  "veredicto": "real",
+  "buscar": "Esta retracción comprime los pulmones y eleva la presión intrapulmonar a casi +tres milímetros de mercurio.",
+  "reemplazar": "Esta retracción comprime los pulmones y eleva la presión intrapulmonar a casi más tres milímetros de mercurio.",
+  "motivo": "Confirmado en Saladin pág. 872 («+3 mmHg»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': i hasta +treinta | n= 1",
+  "veredicto": "real",
+  "buscar": "En la respiración forzada, los músculos accesorios elevan la presión intrapulmonar casi hasta +treinta milímetros de mercurio.",
+  "reemplazar": "En la respiración forzada, los músculos accesorios elevan la presión intrapulmonar casi hasta más treinta milímetros de mercurio.",
+  "motivo": "Confirmado en Saladin pág. 872 («+30 mmHg»); convertir el símbolo «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ulmonar +tres mil | n= 1",
+  "veredicto": "real",
+  "buscar": "Presión intrapleural –cuatro milímetros de mercurio Presión intrapulmonar +tres milímetros de mercurio Presión intrapleural",
+  "reemplazar": "Presión intrapleural menos cuatro milímetros de mercurio Presión intrapulmonar más tres milímetros de mercurio Presión intrapleural",
+  "motivo": "Confirmado en Saladin pág. 873 (Fig. 22.16); convertir «–» a «menos» y «+» a «más»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: TEMAS | n= 2",
+  "veredicto": "real",
+  "buscar": "Efectos del APARATO RESPIRATORIO en otros sistemas de órganos TEMAS DE CONEXIÓN ",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 891; por decisión de Ronald (16-11) quitar el recuadro «Temas de conexión» (recortar también el resto de sistemas hasta Sistema endocrino)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: TODOS | n= 1",
+  "veredicto": "real",
+  "buscar": "TODOS LOS SISTEMAS Entrega oxígeno a los tejidos y elimina su dióxido de carbono; mantiene el equilibrio acidobásico apropiado en los tejidos.",
+  "reemplazar": "",
+  "motivo": "Confirmado en Saladin pág. 891; quitar el bloque «TODOS LOS SISTEMAS» del recuadro «Temas de conexión» (y el resto del recuadro en el capítulo)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 7,
+  "hallazgo": "- Recuadro pegado al párrafo: jo somático proCONOCIMIENTO MÁS A FONDO veintidós coma dos Aplicaci... | n= 1",
+  "veredicto": "real",
+  "buscar": "reflejo de insuflación, de Hering-Breuer,doce un reflejo somático proCONOCIMIENTO MÁS A FONDO veintidós coma dos Aplicación clínica",
+  "reemplazar": "reflejo de insuflación, de Hering-Breuer, un reflejo somático pro\n\nConocimiento más a fondo veintidós coma dos. Aplicación clínica",
+  "motivo": "Confirmado en Saladin págs. 870-871; quitar llamada «doce» y separar el recuadro en su línea (mover el recuadro tras el párrafo para unir «pro-» + «tector»)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: concentracio- veintisiete | n= 1",
+  "veredicto": "real",
+  "buscar": "mantiene bajas las concentracio- veintisiete Christian Bohr, mil ochocientos cincuenta y cinco a mil novecientos once, fisiólogo danés.",
+  "reemplazar": "mantiene bajas las concentracio-",
+  "motivo": "Confirmado en Saladin págs. 885-886; quitar nota al pie 27 intercalada (quitar también nota 28 y reubicar Fig. 22.27 para unir «concentracio-» + «nes de oxihemoglobina»)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: humidifi que | n= 1",
+  "veredicto": "real",
+  "buscar": "Por tanto, los cornetes permiten que la nariz limpie, caliente y humidifi que el aire",
+  "reemplazar": "Por tanto, los cornetes permiten que la nariz limpie, caliente y humidifique el aire",
+  "motivo": "Confirmado en Saladin pág. 857; unir ligadura partida «humidifi que» en «humidifique»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fl uyera | n= 1",
+  "veredicto": "real",
+  "buscar": "de manera más efectiva que si el aire fl uyera sin obstrucciones por el espacio cavernoso.",
+  "reemplazar": "de manera más efectiva que si el aire fluyera sin obstrucciones por el espacio cavernoso.",
+  "motivo": "Confirmado en Saladin pág. 857; unir ligadura partida «fl uyera» en «fluyera»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 4",
+  "veredicto": "real",
+  "buscar": "se difunden con demasiada lentitud a través del líquido para airear de manera sufi ciente la sangre.",
+  "reemplazar": "se difunden con demasiada lentitud a través del líquido para airear de manera suficiente la sangre.",
+  "motivo": "Confirmado en Saladin pág. 866; unir ligadura partida «sufi ciente» en «suficiente»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 4",
+  "veredicto": "real",
+  "buscar": "aumentan sólo unos milímetros en cada dirección, pero esto es sufi ciente para aumentar el volumen total",
+  "reemplazar": "aumentan sólo unos milímetros en cada dirección, pero esto es suficiente para aumentar el volumen total",
+  "motivo": "Confirmado en Saladin pág. 872; unir ligadura partida «sufi ciente» en «suficiente»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fl uya | n= 1",
+  "veredicto": "real",
+  "buscar": "reduce el volumen torácico y eleva la presión, de modo que el aire fl uya hacia Esternocleidomastoideo,",
+  "reemplazar": "reduce el volumen torácico y eleva la presión, de modo que el aire fluya hacia Esternocleidomastoideo,",
+  "motivo": "Confirmado en Saladin pág. 867; unir ligadura partida «fl uya» en «fluya»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: anafi láctico | n= 1",
+  "veredicto": "real",
+  "buscar": "Muchas personas se han sofocado por una broncoconstricción extrema debida a choque anafi láctico o asma,",
+  "reemplazar": "Muchas personas se han sofocado por una broncoconstricción extrema debida a choque anafiláctico o asma,",
+  "motivo": "Confirmado en Saladin pág. 874; unir ligadura partida «anafi láctico» en «anafiláctico»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: reinsufl ación | n= 1",
+  "veredicto": "real",
+  "buscar": "los alveolos se colapsarían con cada espiración y resistirían con fuerza a la reinsufl ación.",
+  "reemplazar": "los alveolos se colapsarían con cada espiración y resistirían con fuerza a la reinsuflación.",
+  "motivo": "Confirmado en Saladin pág. 874; unir ligadura partida «reinsufl ación» en «reinsuflación»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: interfi eren | n= 2",
+  "veredicto": "real",
+  "buscar": "Los trastornos obstructivos son los que interfi eren con el flujo de aire al estrechar o bloquear",
+  "reemplazar": "Los trastornos obstructivos son los que interfieren con el flujo de aire al estrechar o bloquear",
+  "motivo": "Confirmado en Saladin pág. 876; unir ligadura partida «interfi eren» en «interfieren»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: interfi eren | n= 2",
+  "veredicto": "real",
+  "buscar": "Esto ocurre en enfermedades como enfisema y neumonía, que interfi eren con el intercambio gaseoso alveolar,",
+  "reemplazar": "Esto ocurre en enfermedades como enfisema y neumonía, que interfieren con el intercambio gaseoso alveolar,",
+  "motivo": "Confirmado en Saladin pág. 886; unir ligadura partida «interfi eren» en «interfieren»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: tráfi co | n= 1",
+  "veredicto": "real",
+  "buscar": "Este tráfi co de ida y vuelta del O2 y el CO2 a través de la membrana respiratoria",
+  "reemplazar": "Este tráfico de ida y vuelta del O2 y el CO2 a través de la membrana respiratoria",
+  "motivo": "Confirmado en Saladin pág. 878; unir ligadura partida «tráfi co» en «tráfico»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jado | n= 1",
+  "veredicto": "real",
+  "buscar": "Casi noventa y ocho coma cinco por ciento de éste se encuentra fi jado a la hemoglobina de los eritrocitos,",
+  "reemplazar": "Casi noventa y ocho coma cinco por ciento de éste se encuentra fijado a la hemoglobina de los eritrocitos,",
+  "motivo": "Confirmado en Saladin pág. 881; unir ligadura partida «fi jado» en «fijado»."
+ }
+]

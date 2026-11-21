@@ -1,0 +1,1227 @@
+[
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO diecisiete Bases celulares de la respuesta inmunita"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Comprender el papel de la inmunidad en la defensa frente a"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Propiedades generales del sistema inmunitario. Inmunidad inn"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero además, los mecanismos que normalmente protegen al orga"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "producir una respuesta inmunitaria que genere anticuerpos co"
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Gracias a la vacunación generalizada se han podido erradicar"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las vacunas se pueden clasificar en dos grupos: a las atenua"
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La vacunación con antígenos específicos utiliza, por lo gene"
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Forman parte de la inmunidad innata las barreras físicas y q"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-un Componentes del sistema inmunitario innato. En"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las características que la definen son la especificidad prec"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Todas las células del sistema inmunitario se originan en la "
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, en el caso de una infección, las citoquinas pro"
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-dos Células del sistema inmunitario: estirpe miel"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La inmunidad humoral está mediada por los anticuerpos, que s"
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respuesta defensiva contra los microorganismos intracelul"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Todas las respuestas inmunitarias normalmente disminuyen con"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "mecanismos para garantizar la tolerancia del sistema inmunit"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las células que forman parte del sistema inmunitario adaptat"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dentro de los linfocitos T distinguimos los linfocitos T coo"
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los linfocitos T cooperadores se caracterizan por la expresi"
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las células presentadoras de Ag, C P A, juegan un papel esen"
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la activación de una respuesta inmunitaria adaptativa pod"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e17-tres,. FIGURA E17-tres Proceso de activación de una resp"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre estas familias de sensores de patógenos se encuentran "
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los C L R están presentes en la parte extracelular de la mem"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como ya hemos mencionado, una de las principales característ"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por su parte, los linfocitos T reconocen el Ag a través de u"
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Anticuerpos Estructura y tipos Los anticuerpos son una famil"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los anticuerpos, producidos por los linfocitos B, son secret"
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las funciones efectoras de los anticuerpos permiten la elimi"
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En este experimento, extrajeron el suero de conejos a los qu"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Todas las moléculas de anticuerpo comparten las mismas carac"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas cadenas contienen una serie de dominios homólogos de u"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "en el caso de las cadenas pesadas, que participa en el recon"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, cada anticuerpo presenta dos regiones de unión al Ag de"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las regiones hipervariables son las que confieren al anticue"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A su vez, los isotipos IgA e IgG se pueden dividir en subcla"
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "efectoras distintas. Por ejemplo, la IgA es la Ig predominan"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La inmunoglobulina M, IgM, denominada también macroglobulina"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "IgE es mediadora de las reacciones de hipersensibilidad inme"
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En los humanos, aproximadamente el sesenta por ciento de los"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta propiedad será dependiente de las regiones V del anticu"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto constituye lo que se denomina el repertorio de anticuer"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La unión estrecha entre el anticuerpo y el Ag permitirá la n"
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los linfocitos que produzcan anticuerpos con mayor afinidad "
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero además, los anticuerpos, en concreto los subtipos IgM o"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas cadenas presentan una porción citoplasmática que conti"
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capacidad de una inmunoglobulina de presentarse anclada e"
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capacidad de los anticuerpos para reconocer Ag con gran a"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": ", con una única especificidad,. Esta técnica, basada en que "
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Uso de anticuerpos en biomedicina El desarrollo de técnicas "
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los anticuerpos monoclonales, como se explicó en el capítulo"
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También permiten valorar la presencia de proteínas cuyo nive"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El campo de la terapia biológica con anticuerpos es también "
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "inoculado el Ag de interés. Se utilizan para el tratamiento "
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos ejemplos son: transtuzumab, anti-Her-dos, contra el "
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otro campo en el que se utiliza terapia biológica con anticu"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tercer campo en el que hemos indicado que los anticuerpos"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Complejo principal de histocompatibilidad Los linfocitos T p"
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El locus del C P H tiene un alto contenido en genes sumament"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "individuos de la población. Cada una de las variantes comune"
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después de unas veinte generaciones, cada miembro de una cep"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando se realizan trasplantes entre ratones de una cepa con"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La identificación de los genes responsables de los rechazos "
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Posteriormente, se observó que otros genes del C P H control"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, basados en las homologías estructurales y en sus secuen"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Del mismo modo, los genes Ir, responsables de la respuesta i"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ej., H L A-A1, H L A-B7, H L A-DR4, y todos los individuos h"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los estudios de cristalografía de las moléculas del C P H de"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e17-seis,: una cadena alfa codificada por el C P H, de unos "
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al observar la estructura de esta cadena alfa, encontramos q"
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es importante destacar que el mayor grado de polimorfismo se"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por su parte, las moléculas de clase II están compuestas por"
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En este caso, la cadena alfa uno ofrece una hélice alfa y cu"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al igual que en el caso de las moléculas de clase I, los dom"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El receptor de la célula T, R C T, Los linfocitos T reconoce"
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "R C T del linfocito T es doble, ya que por un lado ha de rec"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los mismos mecanismos de recombinación somática son los que "
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas proteínas aparecen asociadas de forma no covalente con"
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La porción extracelular, en concreto el dominio formado por "
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, el R C T no se secreta y, al contrario que las "
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La molécula CD3 está formada por tres tipos de proteínas que"
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además de estas moléculas que forman parte del receptor, exi"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los correceptores C D cuatro y C D ocho Las proteínas C D cu"
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, las principales funciones de C D cuatro y C D ocho son "
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dado que esta interacción actúa junto con el R C T en el rec"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Moléculas accesorias en las células T Las moléculas del comp"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas moléculas se denominan moléculas accesorias, que se un"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta propiedad permite que la interacción entre estas célula"
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-ocho Moléculas accesorias y correceptores implica"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dentro de la familia de CD28 existen otros miembros, como CT"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otras moléculas coestimuladoras, como CD40L, se encuentran e"
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las diferentes subpoblaciones leucocitarias han de moverse d"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los linfocitos ruedan en contacto con la pared del endotelio"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "endotelial, fase de arresto, tras la cual se produce el proc"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Existe una rara enfermedad autosómica recesiva que se caract"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Procesamiento antigénico y presentación del antígeno a los l"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta actividad de los linfocitos T se desencadena tras el re"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es importante destacar que los Ag han de sufrir un procesami"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta importante función requiere que la activación de los C "
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por el contrario, los linfocitos T C D ocho positivo han de "
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo tanto, la presentación antigénica para los linfocitos"
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Vía de procesamiento del antígeno de clase I La mayor parte "
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El proteasoma lleva a cabo la importante función de degradar"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este complejo es muy eficaz en el transporte de péptidos de "
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La unión específica de alguno de los péptidos transportados "
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta es la forma en la que el sistema inmunitario, a través "
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-diez Procesamiento del antígeno por la vía de cla"
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por otro lado, en el R E R se está produciendo la síntesis d"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El C P H de clase II, junto a la cadena invariante, migrará "
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e17-once,. FIGURA E17-once Procesamiento del antígeno por la"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Activación de los linfocitos T El reconocimiento del Ag por "
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, los linfocitos T C D cuatro positivo, tras el reconocim"
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El reconocimiento del Ag por el receptor de los linfocitos T"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La fosforilación de la proteína zap-setenta inicia la activa"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este proceso de activación, iniciado por el R C T tras el re"
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e17-ocho, que las moléculas de la familia B7 pueden, a su ve"
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La presencia de motivos de inhibición I T I M, del inglés im"
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el caso de los linfocitos T C D cuatro positivo, cuando e"
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La integración de estas señales, así como el microambiente d"
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, distinguimos: a los linfocitos Th1, que expresan el fac"
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Existe cierta plasticidad entre estos tipos celulares, de ma"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La segunda señal proviene de la interacción entre las molécu"
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "puede observar, la activación de los linfocitos T es un proc"
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tras el reconocimiento del Ag, expresado, p. ej., en una cél"
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-catorce Mecanismo de acción de los linfocitos T C"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Activación de los linfocitos B El linfocito B reconoce el Ag"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como indicamos con anterioridad al hablar del receptor de la"
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas señales promueven el inicio del ciclo celular y la pro"
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El linfocito B, tras la interacción con el Ag a través de su"
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "entonces la expresión de la molécula CD40L en su superficie."
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tras este proceso de proliferación y diferenciación a célula"
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la figura e17-quince se muestra un esquema que refleja la"
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mecanismos efectores Citoquinas El desarrollo de una respues"
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las citoquinas se unen a receptores específicos presentes en"
+ },
+ {
+  "j": 137,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos receptores son muy diversos, pero pueden agruparse en "
+ },
+ {
+  "j": 138,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Existen diferentes quinasas en su forma inactiva asociadas a"
+ },
+ {
+  "j": 139,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-dieciséis Inducción de la expresión de genes dian"
+ },
+ {
+  "j": 140,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como ya hemos comentado, los linfocitos T C D cuatro positiv"
+ },
+ {
+  "j": 141,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, el I F N-gamma producido por los linfocitos Th1"
+ },
+ {
+  "j": 142,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El sistema del complemento, fig. e17-diecisiete, es uno de l"
+ },
+ {
+  "j": 143,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayoría de estas proteínas son producidas en los hepatoci"
+ },
+ {
+  "j": 144,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La vía clásica se inicia con la formación del complejo antíg"
+ },
+ {
+  "j": 145,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "actividad proinflamatoria y, por lo tanto, pueden favorecer "
+ },
+ {
+  "j": 146,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Respuestas efectoras mediadas por células Según se ha explic"
+ },
+ {
+  "j": 147,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre las células que contribuyen a esta función efectora ce"
+ },
+ {
+  "j": 148,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Linfocitos T citotóxicos C D ocho positivo: estas células "
+ },
+ {
+  "j": 149,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La forma en la que las células N K eliminan a las células di"
+ },
+ {
+  "j": 150,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero, al contrario que los linfocitos T C D ocho positivo, e"
+ },
+ {
+  "j": 151,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, la interacción del receptor NKG2 de la célula N"
+ },
+ {
+  "j": 152,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "C D ocho positivo. Estas células dejan de transmitir señales"
+ },
+ {
+  "j": 153,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aunque la célula lítica no tiene especificidad por un Ag, el"
+ },
+ {
+  "j": 154,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Regulación de la respuesta inmunitaria Cuando el sistema inm"
+ },
+ {
+  "j": 155,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada vez que un Ag entra en el organismo, el sistema inmunit"
+ },
+ {
+  "j": 156,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Con respecto a la primera decisión sobre si responder o no a"
+ },
+ {
+  "j": 157,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La primera se produce porque, durante la maduración de los l"
+ },
+ {
+  "j": 158,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Existe la posibilidad de que algunos de estos linfocitos aut"
+ },
+ {
+  "j": 159,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tras la activación de una respuesta inmune frente a un patóg"
+ },
+ {
+  "j": 160,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ante situaciones en las que un Ag, propio o extraño, se encu"
+ },
+ {
+  "j": 161,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "sistema inmunitario ha conseguido la eliminación de un patóg"
+ },
+ {
+  "j": 162,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como se ha comentado más arriba, existe otro sistema de tole"
+ },
+ {
+  "j": 163,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mecanismos de tolerancia central y tolerancia periférica. To"
+ },
+ {
+  "j": 164,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Disfunciones del sistema inmunitario y sus consecuencias La "
+ },
+ {
+  "j": 165,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las alergias y el asma son el resultado de una respuesta inm"
+ },
+ {
+  "j": 166,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respuesta alérgica está relacionada con la producción de "
+ },
+ {
+  "j": 167,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta enfermedad tiene un impacto muy importante en los siste"
+ },
+ {
+  "j": 168,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "síntomas muy variados dependiendo del tejido sobre el que se"
+ },
+ {
+  "j": 169,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tabla e17-dos Ejemplos de enfermedades autoinmunitarias Enfe"
+ },
+ {
+  "j": 170,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Enfermedad de Graves Receptor de T S H Hipertiroidismo Como "
+ },
+ {
+  "j": 171,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El origen de la enfermedad no se conoce, pero se considera u"
+ },
+ {
+  "j": 172,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA E17-veinte Imagen radiológica de las manos de un paci"
+ },
+ {
+  "j": 173,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La inmunodeficiencia combinada severa, S C I D, es una enfer"
+ },
+ {
+  "j": 174,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este es el caso de la infección por el virus del S I D A, qu"
+ },
+ {
+  "j": 175,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En este sentido, el desarrollo de agentes inmunodepresores h"
+ }
+]

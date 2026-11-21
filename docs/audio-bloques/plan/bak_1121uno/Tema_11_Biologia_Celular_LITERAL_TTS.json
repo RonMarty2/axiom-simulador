@@ -1,0 +1,954 @@
+[
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO once Mitocondrias y peroxisomas. Bioenergética y me"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Describir los mecanismos responsables de las principales p"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estructura y composición de las mitocondrias Las mitocondria"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El número de mitocondrias por célula varía según el tipo cel"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta membrana contiene unas proteínas integrales denominadas"
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como se comentará más adelante, esta secuencia es reconocida"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a un A. Estructura de la mitocondria. B. Imagen "
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además de las proteínas de la cadena respiratoria, la membra"
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La presencia de las crestas anteriormente mencionadas increm"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, las mitocondrias de células que tienen mayor demanda de"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ácido cítrico o ciclo de Krebs. También hay metabolitos, com"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El A D N mitocondrial, ADNmt, presenta una serie de caracter"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A diferencia del A D N nuclear, el ADNmt no se encuentra aso"
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El ADNmt codifica treinta y siete genes: trece correspondien"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No todas las proteínas necesarias para la función y la biosí"
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En humanos carece de intrones y ambas cadenas están casi com"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La cadena pesada, H, codifica para doce polipéptidos, los do"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Muchos de los genes que codifican para polipéptidos carecen "
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El código genético mitocondrial es más flexible o relajado q"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, el codón de terminación U G A es leído como tri"
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a cuatro Código genético mitocondrial. N indica "
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En eucariotas unicelulares la división está ligada al ciclo "
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante la división celular las mitocondrias sufren una segr"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, tras la fertilización, las mitocondrias paternas que"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto sugiere la existencia de mecanismos específicos que coo"
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las proteínas que deben ser transportadas a las mitocondrias"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Todas las proteínas que se localizarán en la matriz mitocond"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre estas proteínas se encuentran algunas de la membrana i"
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este complejo reconoce a las proteínas en el citoplasma, fac"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tanto la estructura como la función del complejo tom están m"
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a cinco Sistemas de transporte de proteínas a la"
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los componentes del complejo TIM23 pueden dividirse en dos g"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El segundo grupo de componentes del complejo TIM23, Tim14, T"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto se consigue mediante la acción de una serie de chaperon"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "capítulo quince, resulta en la permeabilización de la membra"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ej., caspasa tres, las cuales provocan la fragmentación de n"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las caspasas efectoras se pueden activar por dos vías difere"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La formación de los poros en la membrana externa de la mitoc"
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas proteínas realizan su función secuestrando e inhibiend"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En respuesta a diferentes señales de estrés o tras la activa"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En presencia de A T P se producirá la activación de la caspa"
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Metabolismo oxidativo mitocondrial Como se ha comentado ante"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El ciclo de Krebs, también conocido como ciclo del ácido cít"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cada vuelta del ciclo se consume un grupo acetilo del ace"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el siguiente paso del ciclo, el citrato es isomerizado a "
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En esta reacción, la energía del enlace tioéster de la succi"
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es interesante mencionar que, a diferencia de las demás enzi"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como se mencionó anteriormente, el N A D H y el FADH2 formad"
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ácidos grasos y esteroides, y el succinato es esencial para "
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En presencia de adecuadas concentraciones de sus componentes"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, por ejemplo, la piruvato deshidrogenasa, punto de contr"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como ya se ha comentado, otro origen metabólico del N A D H "
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien los ácidos grasos de cadena corta y media pueden atr"
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien la acil-CoA representa la forma activada de los ácid"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "del ácido graso de la acil-CoA a una molécula de menor tamañ"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Finalmente, la carnitina que se ha intercambiado por la CoA "
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tras la oxidación, se produce la ruptura enzimática del enla"
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la fosforilación oxidativa interviene una serie de transp"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A grandes rasgos, en la fosforilación oxidativa se pueden di"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la segunda parte de la fosforilación oxidativa, el comple"
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El FADH2 es generado en el ciclo de Krebs en la oxidación de"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay otras dos enzimas, la glicerol fosfato deshidrogenasa y "
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La coenzima Q, también llamada ubiquinona, es una quinona hi"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La adición de un protón y un electrón genera la forma semiqu"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a nueve Cadena de transporte electrónico mitocon"
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a diez Estados de oxidación de las quinonas. El "
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los grupos sulfoférricos se anclan a las cadenas polipeptídi"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como se mencionó anteriormente, existe una segunda ruta de a"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La segunda bomba de protones de la cadena respiratoria es la"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El mecanismo que media la transferencia de electrones desde "
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Uno de ellos pasa primero al centro Fe2S2 y después al citoc"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el ciclo Q, por lo tanto, se oxidan dos moléculas de QH2 "
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este complejo está formado por trece subunidades con una mas"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los centros de cobre alternan entre las formas reducidas, co"
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a doce Complejo IV del sistema de transporte ele"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La adición de dos electrones más y dos protones rompe el pue"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como hemos comentado con anterioridad, la energía liberada d"
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "un gradiente de carga y de protones, gradiente electroquímic"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La síntesis de A T P se lleva a cabo por el complejo V, un g"
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El domino F O es una estructura integral de membrana que con"
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se puede considerar que la enzima está compuesta por una par"
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La rotación de la subunidad gamma, localizada en el centro d"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como hemos visto, la síntesis de A T P tiene lugar en la mat"
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este transportador es una proteína de treinta kilodaltons mu"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A pesar de que ambos nucleótidos se unen con igual afinidad "
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El potencial de membrana establecido durante la transferenci"
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este proceso también depende energéticamente del gradiente o"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien la transferencia de cuatro electrones a una molécula"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El peróxido de hidrógeno no es un radical libre per se, pero"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Uno de los puntos en la cadena de transporte electrónico don"
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, los fosfolípidos de las membranas pueden sufrir"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas reacciones pueden llevar a la fragmentación y formació"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto se debe a que el ADNmt está más próximo que el A D N ge"
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para contrarrestar los efectos nocivos de los radicales libr"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A su vez, el H2O2 producido por la superóxido dismutasa es e"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta proteína es una selenoenzima, localizada tanto en el ci"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Patologías relacionadas con la mitocondria Se consideran enf"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como se ha indicado previamente, el ADNmt puede experimentar"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando no hay mutaciones en el ADNmt todas las células tendr"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La manifestación clínica de la enfermedad mitocondrial y el "
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Todos estos hechos explican que las enfermedades mitocondria"
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por otra parte, cada vez se describen más enfermedades mitoc"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las consecuencias patológicas de las enfermedades mitocondri"
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La gravedad de la afectación se ve condicionada por el tipo "
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre las enfermedades debidas a mutaciones puntuales del AD"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otro ejemplo de enfermedad asociada a mutaciones puntuales, "
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La M E R R F se caracteriza por la aparición de convulsiones"
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El síndrome de encefalomiopatía mitocondrial con acidosis lá"
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA once a quince Fibras rojas rotas: técnica de Gomori. "
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La deleción más común, presente hasta en un cincuenta por ci"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, se ha observado que el porcentaje de moléculas de AD"
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un ejemplo de este tipo de enfermedades son las que se asoci"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aunque no se puede descartar la implicación de otros genes n"
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "caracterizada es el síndrome de Leigh, la patología mitocond"
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La administración de vitaminas, como las del complejo B, coe"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Peroxisomas. Estructura y participación en el metabolismo ox"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos orgánulos, generados a partir del retículo endoplasmát"
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Morfológicamente también conviene destacar que dentro del pe"
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El transporte de proteínas a los peroxisomas presenta alguna"
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos receptores dirigirán a los complejos hacia la superfic"
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se ha propuesto que la membrana del peroxisoma presenta una "
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, aún no se han identificado transportadores para"
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, los ácidos grasos de cadena muy larga solamente"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cambio, los peroxisomas son capaces de oxidar compuestos "
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los plasmalógenos son fosfolípidos con un sustituyente éter "
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los primeros pasos de su síntesis tienen lugar en los peroxi"
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "reacción catalizada por la alquil-D H A P sintasa presente e"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, la ausencia de cadena respiratoria en los perox"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se ha estimado que aproximadamente el treinta y cinco por ci"
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El más importante es la catalasa, enzima mencionada con ante"
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una característica de los peroxisomas es que pueden adaptars"
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este proceso y los genes implicados en él se han caracteriza"
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta afectación multiorgánica es reflejo de la presencia de "
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "las cuales se ve comprometida la capacidad de llevar a cabo "
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las enfermedades asociadas a defectos en la biogénesis de lo"
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El gen responsable de la enfermedad es ABCD1, que se localiz"
+ }
+]

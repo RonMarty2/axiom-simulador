@@ -1,2221 +1,2193 @@
 [
-  {
-    "j": 1,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "nuevo",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento d Elaborar una lista"
-  },
-  {
-    "j": 2,
-    "accion": "REUSAR",
-    "origen": "parte_003.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Digestión, el desdoblamiento mecánico y químico de los alime"
-  },
-  {
-    "j": 3,
-    "accion": "REUSAR",
-    "origen": "parte_004.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se logra mediante la acción de cortar y moler que realizan l"
-  },
-  {
-    "j": 4,
-    "accion": "REUSAR",
-    "origen": "parte_005.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Algunos nutrimentos ya están presentes en forma útil en la c"
-  },
-  {
-    "j": 5,
-    "accion": "REUSAR",
-    "origen": "parte_006.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Incluye la boca, la faringe, el esófago, el estómago, el int"
-  },
-  {
-    "j": 6,
-    "accion": "REUSAR",
-    "origen": "parte_007.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mayor parte del material que contiene no ha entrado a nin"
-  },
-  {
-    "j": 7,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "setenta y un, ayuda a explicar la activación y desactivación"
-  },
-  {
-    "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, cuando se come un trozo de carne, la miosina de"
-  },
-  {
-    "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_010.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a que la carne y las proteínas humanas estás hechas d"
-  },
-  {
-    "j": 10,
-    "accion": "REUSAR",
-    "origen": "parte_011.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Al estudio del tubo digestivo y al diagnóstico y tratamiento"
-  },
-  {
-    "j": 11,
-    "accion": "REUSAR",
-    "origen": "parte_012.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo que es absorbido p"
-  },
-  {
-    "j": 12,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mayor parte del tubo digestivo sigue el plan de estructur"
-  },
-  {
-    "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_014.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El recubrimiento interno del tubo digestivo, al que se denom"
-  },
-  {
-    "j": 14,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto mejora la efi ciencia de la digestión y la absorción de"
-  },
-  {
-    "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_016.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La capa muscular externa, consta de dos capas de músculo cer"
-  },
-  {
-    "j": 16,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La serosa está compuesta por una capa delgada de tejido areo"
-  },
-  {
-    "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El esófago, el estómago y el intestino tienen una red nervio"
-  },
-  {
-    "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_019.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El sistema nervioso entérico está compuesto por dos redes de"
-  },
-  {
-    "j": 19,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Intestino delgado Colon ascendente Ciego Apéndice Colon desc"
-  },
-  {
-    "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento glionares simpáticas"
-  },
-  {
-    "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Relación con el peritoneo En el procesamiento de alimentos, "
-  },
-  {
-    "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Más aún, los mesenterios proporcionan paso a los vasos sangu"
-  },
-  {
-    "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Después de alcanzar un órgano como el estómago y el intestin"
-  },
-  {
-    "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "treinta y seis a treinta y siete,. Submucosa: Glándula esofá"
-  },
-  {
-    "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_026.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Dos mesenterios an"
-  },
-  {
-    "j": 26,
-    "accion": "REUSAR",
-    "origen": "parte_027.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En su extremo inferior, el epiplón mayor se voltea sobre sí "
-  },
-  {
-    "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_028.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los epiplones tienen un aspecto desorganizado, debido en par"
-  },
-  {
-    "j": 28,
-    "accion": "REUSAR",
-    "origen": "parte_029.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando un órgano está rodeado por mesenterio , serosa, en am"
-  },
-  {
-    "j": 29,
-    "accion": "REUSAR",
-    "origen": "parte_030.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Regulación del tubo digestivo La movilidad y la secreción de"
-  },
-  {
-    "j": 30,
-    "accion": "REUSAR",
-    "origen": "parte_031.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los refl ejos largos , vasovagales, actúan a través de fi br"
-  },
-  {
-    "j": 31,
-    "accion": "REUSAR",
-    "origen": "parte_032.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las hormonas se secretan en la sangre y estimulan partes más"
-  },
-  {
-    "j": 32,
-    "accion": "REUSAR",
-    "origen": "parte_033.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas membranas contienen las arterias y venas mesentéricas."
-  },
-  {
-    "j": 33,
-    "accion": "REUSAR",
-    "origen": "parte_034.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veinticinco coma dos De la boca al esófago Resultados espera"
-  },
-  {
-    "j": 34,
-    "accion": "REUSAR",
-    "origen": "parte_035.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Entre sus funciones se incluyen la ingestión, el gusto y otr"
-  },
-  {
-    "j": 35,
-    "accion": "REUSAR",
-    "origen": "parte_036.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este epitelio está queratinizado en áreas sujetas a la mayor"
-  },
-  {
-    "j": 36,
-    "accion": "REUSAR",
-    "origen": "parte_037.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su carnosidad se debe, sobre todo, a la grasa subcutánea, lo"
-  },
-  {
-    "j": 37,
-    "accion": "REUSAR",
-    "origen": "parte_038.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los labios están divididos en tres áreas: un el área cutánea"
-  },
-  {
-    "j": 38,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "tres la mucosa labial es la superfi cie más interna del labi"
-  },
-  {
-    "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_040.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su superfi cie está cubierta con epitelio pavimentoso estrat"
-  },
-  {
-    "j": 40,
-    "accion": "REUSAR",
-    "origen": "parte_041.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Labio superior Vestíbulo Lengua Frenillo lingual Labio infer"
-  },
-  {
-    "j": 41,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Las dos terceras p"
-  },
-  {
-    "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_043.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los músculos intrínsecos, los cuales se encuentran por compl"
-  },
-  {
-    "j": 43,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las amígdalas linguales están contenidas en la raíz. El pala"
-  },
-  {
-    "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La úvula,seis visible en la parte posterior de la boca, tien"
-  },
-  {
-    "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_046.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los dientes Los dientes , o piezas dentales, reciben el nomb"
-  },
-  {
-    "j": 46,
-    "accion": "REUSAR",
-    "origen": "parte_047.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De la línea media a la parte posterior de cada maxilar, hay "
-  },
-  {
-    "j": 47,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los premolares y molares , muelas, tienen superfi cies ampli"
-  },
-  {
-    "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_049.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para conocer un corte sagital, véase la figura B.dos , p. tr"
-  },
-  {
-    "j": 49,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento gonfosis, entre el d"
-  },
-  {
-    "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_051.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La corona es la parte que se encuentra arriba de la encía; l"
-  },
-  {
-    "j": 51,
-    "accion": "REUSAR",
-    "origen": "parte_052.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mayor parte de la pieza dental consta de un tejido amaril"
-  },
-  {
-    "j": 52,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las células de la dentina , odontoblastos, recubren la cavid"
-  },
-  {
-    "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_054.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos espacios son ocupados por la pulpa: una masa de tejido"
-  },
-  {
-    "j": 54,
-    "accion": "REUSAR",
-    "origen": "parte_055.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta superfi cie en un prea Dientes de leche , bebé, Esmalte"
-  },
-  {
-    "j": 55,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA veinticinco coma siete Estructura de un diente y su a"
-  },
-  {
-    "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_057.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Nombres de los dientes Edad de erupción , meses, Segundo mol"
-  },
-  {
-    "j": 57,
-    "accion": "REUSAR",
-    "origen": "parte_058.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo molar tiene dos bo"
-  },
-  {
-    "j": 58,
-    "accion": "REUSAR",
-    "origen": "parte_059.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Veinte dientes de leche o temporales erupcionan de los seis "
-  },
-  {
-    "j": 59,
-    "accion": "REUSAR",
-    "origen": "parte_060.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los terceros molares , muela del juicio, erupcionan entre lo"
-  },
-  {
-    "j": 60,
-    "accion": "REUSAR",
-    "origen": "parte_061.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Masticación La masticación divide la comida en pedazos lo ba"
-  },
-  {
-    "j": 61,
-    "accion": "REUSAR",
-    "origen": "parte_062.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los músculos masetero y temporal producen una acción de apla"
-  },
-  {
-    "j": 62,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_063.wav)",
-    "texto_inicio": "Se trata de una solución hipotónica con noventa y siete a no"
-  },
-  {
-    "j": 63,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• Lipasa lingual, una enzima que empieza la digestión de la "
-  },
-  {
-    "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_065.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CONOCIMIENTO MÁS A FONDO veinticinco coma un Aplicación clín"
-  },
-  {
-    "j": 65,
-    "accion": "REUSAR",
-    "origen": "parte_066.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A las cavidades erosionadas de los dientes se les conoce com"
-  },
-  {
-    "j": 66,
-    "accion": "REUSAR",
-    "origen": "parte_067.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi todos los individuos presentan gingivitis en algún mome"
-  },
-  {
-    "j": 67,
-    "accion": "REUSAR",
-    "origen": "parte_068.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento da de pequeñas glánd"
-  },
-  {
-    "j": 68,
-    "accion": "REUSAR",
-    "origen": "parte_069.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "ciento sesenta y nueve, con un sistema de conductos en forma"
-  },
-  {
-    "j": 69,
-    "accion": "REUSAR",
-    "origen": "parte_070.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El conducto parotídeo pasa en el aspecto superfi cial sobre "
-  },
-  {
-    "j": 70,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las glándulas sublinguales, localizadas en el piso de la boc"
-  },
-  {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos núcleos integran la información con la proveniente de "
-  },
-  {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En contraste, la estimulación simpática mejora por un moment"
-  },
-  {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La salivación empieza cuando se fi ltran el agua y los elect"
-  },
-  {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La faringe Descrita en el capítulo veintidós, la faringe es "
-  },
-  {
-    "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_076.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se ha retirado parte de la mandíbula para exponer la glándul"
-  },
-  {
-    "j": 76,
-    "accion": "REUSAR",
-    "origen": "parte_077.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo superfi cial de mú"
-  },
-  {
-    "j": 77,
-    "accion": "REUSAR",
-    "origen": "parte_078.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El esófago Es un tubo muscular recto de veinticinco a treint"
-  },
-  {
-    "j": 78,
-    "accion": "REUSAR",
-    "origen": "parte_079.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A su apertura en el estómago se le denomina orifi cio cardia"
-  },
-  {
-    "j": 79,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La pared del esófago está organizada en las capas de tejido "
-  },
-  {
-    "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_081.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La capa muscular externa está compuesta por músculo estriado"
-  },
-  {
-    "j": 81,
-    "accion": "REUSAR",
-    "origen": "parte_082.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Deglución La deglución es una acción compleja que requiere l"
-  },
-  {
-    "j": 82,
-    "accion": "REUSAR",
-    "origen": "parte_083.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fase bucal está bajo control voluntario; la lengua reúne "
-  },
-  {
-    "j": 83,
-    "accion": "REUSAR",
-    "origen": "parte_084.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tres acciones bloquean a la comida y la bebida para que no r"
-  },
-  {
-    "j": 84,
-    "accion": "REUSAR",
-    "origen": "parte_085.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que el bolo entra en el esófago, lo estira y activa"
-  },
-  {
-    "j": 85,
-    "accion": "REUSAR",
-    "origen": "parte_086.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Histología de la glándula salival sublingual. PARTE CUATRO"
-  },
-  {
-    "j": 86,
-    "accion": "REUSAR",
-    "origen": "parte_087.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Constricción Constricción Relajación Onda peristáltica Contr"
-  },
-  {
-    "j": 87,
-    "accion": "REUSAR",
-    "origen": "parte_088.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "●¿Qué acciones evitan que la faringe regrese la comida a la "
-  },
-  {
-    "j": 88,
-    "accion": "REUSAR",
-    "origen": "parte_089.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo ción muscular que "
-  },
-  {
-    "j": 89,
-    "accion": "REUSAR",
-    "origen": "parte_090.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Adelante del bolo, el músculo circular se relaja mientras el"
-  },
-  {
-    "j": 90,
-    "accion": "REUSAR",
-    "origen": "parte_091.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, la peristalsis impulsa las porciones de aliment"
-  },
-  {
-    "j": 91,
-    "accion": "REUSAR",
-    "origen": "parte_092.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Elabore una lista de todas las funciones de la lengua que pu"
-  },
-  {
-    "j": 92,
-    "accion": "REUSAR",
-    "origen": "parte_093.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Describa los mecanismos que impiden que la comida entre en l"
-  },
-  {
-    "j": 93,
-    "accion": "REUSAR",
-    "origen": "parte_094.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "f Describir las tres fases de la función gástrica, y la mane"
-  },
-  {
-    "j": 94,
-    "accion": "REUSAR",
-    "origen": "parte_095.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi a fi nales del siglo diecinueve, las autoridades en med"
-  },
-  {
-    "j": 95,
-    "accion": "REUSAR",
-    "origen": "parte_096.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Anatomía macroscópica El estómago tiene forma de J , fi gura"
-  },
-  {
-    "j": 96,
-    "accion": "REUSAR",
-    "origen": "parte_097.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El estómago está dividido en cuatro regiones: un la región c"
-  },
-  {
-    "j": 97,
-    "accion": "REUSAR",
-    "origen": "parte_098.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El píloro está rodeado por un anillo grueso de músculo liso,"
-  },
-  {
-    "j": 98,
-    "accion": "REUSAR",
-    "origen": "parte_099.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Toda la sangre drenada del estómago y los intestinos entra e"
-  },
-  {
-    "j": 99,
-    "accion": "REUSAR",
-    "origen": "parte_100.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento FIGURA veinticinco c"
-  },
-  {
-    "j": 100,
-    "accion": "REUSAR",
-    "origen": "parte_101.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Anatomía microscóp"
-  },
-  {
-    "j": 101,
-    "accion": "REUSAR",
-    "origen": "parte_102.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La lámina propia está ocupada casi por completo por glándula"
-  },
-  {
-    "j": 102,
-    "accion": "REUSAR",
-    "origen": "parte_103.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dos o tres glándulas tubulares se abren en la parte inferior"
-  },
-  {
-    "j": 103,
-    "accion": "REUSAR",
-    "origen": "parte_104.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En las glándulas gástricas, se les denomina células del cuel"
-  },
-  {
-    "j": 104,
-    "accion": "REUSAR",
-    "origen": "parte_105.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• Las células parietales, que se encuentran sobre todo en la"
-  },
-  {
-    "j": 105,
-    "accion": "REUSAR",
-    "origen": "parte_106.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• La células enteroendocrinas, se concentran de manera espec"
-  },
-  {
-    "j": 106,
-    "accion": "REUSAR",
-    "origen": "parte_107.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Secreciones gástricas Las glándulas gástricas producen de do"
-  },
-  {
-    "j": 107,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_108.wav)",
-    "texto_inicio": "Las reacciones que producen HCl , fi gura veinticinco coma u"
-  },
-  {
-    "j": 108,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_109.wav)",
-    "texto_inicio": "Las células parietales contienen anhidrasa carbónica , CAH, "
-  },
-  {
-    "j": 109,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_110.wav)",
-    "texto_inicio": "La secreción de HCl no afecta al pH dentro de la célula pari"
-  },
-  {
-    "j": 110,
-    "accion": "REUSAR",
-    "origen": "parte_111.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a este último, la sangre que deja el estómago tiene u"
-  },
-  {
-    "j": 111,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_112.wav)",
-    "texto_inicio": "tres Convierte los iones férricos ingeridos , Fe3+, en iones"
-  },
-  {
-    "j": 112,
-    "accion": "REUSAR",
-    "origen": "parte_113.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento a Pared estomacal Lu"
-  },
-  {
-    "j": 113,
-    "accion": "REUSAR",
-    "origen": "parte_114.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Glándula pilórica del extremo inferior del estómago. Obsér"
-  },
-  {
-    "j": 114,
-    "accion": "REUSAR",
-    "origen": "parte_115.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo HCl Pepsinógeno , "
-  },
-  {
-    "j": 115,
-    "accion": "REUSAR",
-    "origen": "parte_116.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a que la pepsina digiere la proteína, y el propio pep"
-  },
-  {
-    "j": 116,
-    "accion": "REUSAR",
-    "origen": "parte_117.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El resto se digiere en el intestino delgado. Factor intrínse"
-  },
-  {
-    "j": 117,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_118.wav)",
-    "texto_inicio": "La digestión puede continuar después de la eliminación del e"
-  },
-  {
-    "j": 118,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_119.wav)",
-    "texto_inicio": "El HCO3 – regresa a la sangre. A cambio, el Cl– entra en la "
-  },
-  {
-    "j": 119,
-    "accion": "REUSAR",
-    "origen": "parte_120.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento intrínseco por vía o"
-  },
-  {
-    "j": 120,
-    "accion": "REUSAR",
-    "origen": "parte_121.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Varias de ellas son péptidos producidos en el tubo digestivo"
-  },
-  {
-    "j": 121,
-    "accion": "REUSAR",
-    "origen": "parte_122.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el cuadro veinticinco coma un se presenta un resumen de v"
-  },
-  {
-    "j": 122,
-    "accion": "REUSAR",
-    "origen": "parte_123.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Pronto, el estómago muestra un ritmo de contracciones perist"
-  },
-  {
-    "j": 123,
-    "accion": "REUSAR",
-    "origen": "parte_124.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El antro contiene casi treinta ml de quimo. Cuando una onda "
-  },
-  {
-    "j": 124,
-    "accion": "REUSAR",
-    "origen": "parte_125.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En caso contrario, si el duodeno se llena demasiado, se inhi"
-  },
-  {
-    "j": 125,
-    "accion": "REUSAR",
-    "origen": "parte_126.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El vómito suele inducirse por sobreestiramiento del estómago"
-  },
-  {
-    "j": 126,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_127.wav)",
-    "texto_inicio": "CUADRO veinticinco coma un Principales secreciones de las gl"
-  },
-  {
-    "j": 127,
-    "accion": "REUSAR",
-    "origen": "parte_128.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Por lo general, la"
-  },
-  {
-    "j": 128,
-    "accion": "REUSAR",
-    "origen": "parte_129.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El vómito ocurre cuando la contracción abdominal y la presió"
-  },
-  {
-    "j": 129,
-    "accion": "REUSAR",
-    "origen": "parte_130.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En casos de vómito frecuente, como en el trastorno alimentic"
-  },
-  {
-    "j": 130,
-    "accion": "REUSAR",
-    "origen": "parte_131.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las úlceras pépticas pueden ocurrir con mayor frecuencia en "
-  },
-  {
-    "j": 131,
-    "accion": "REUSAR",
-    "origen": "parte_132.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mayoría de las úlceras se relaciona con una bacteria resi"
-  },
-  {
-    "j": 132,
-    "accion": "REUSAR",
-    "origen": "parte_133.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En alguna época, el medicamento más prescrito en Estados Uni"
-  },
-  {
-    "j": 133,
-    "accion": "REUSAR",
-    "origen": "parte_134.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Éste es un tratamiento mucho más corto, menos costoso, y cur"
-  },
-  {
-    "j": 134,
-    "accion": "REUSAR",
-    "origen": "parte_135.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por lo general, una úlcera gastroesofágica suele tener forma"
-  },
-  {
-    "j": 135,
-    "accion": "REUSAR",
-    "origen": "parte_136.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento cientes o semiincons"
-  },
-  {
-    "j": 136,
-    "accion": "REUSAR",
-    "origen": "parte_137.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El estómago no absorbe ninguna cantidad signifi cativa de nu"
-  },
-  {
-    "j": 137,
-    "accion": "REUSAR",
-    "origen": "parte_138.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Entonces ¿por qué el estómago humano no se digiere a sí mism"
-  },
-  {
-    "j": 138,
-    "accion": "REUSAR",
-    "origen": "parte_139.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A pesar de estas otras protecciones, las células epiteliales"
-  },
-  {
-    "j": 139,
-    "accion": "REUSAR",
-    "origen": "parte_140.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Regulación de la función gástrica Los sistemas nervioso y en"
-  },
-  {
-    "j": 140,
-    "accion": "REUSAR",
-    "origen": "parte_141.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fase cefálica Es la etapa en que el estómago responde a l"
-  },
-  {
-    "j": 141,
-    "accion": "REUSAR",
-    "origen": "parte_142.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los alimentos ingeridos estimulan la actividad de dos manera"
-  },
-  {
-    "j": 142,
-    "accion": "REUSAR",
-    "origen": "parte_143.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La gastrina es una hormona producida por células G enteroend"
-  },
-  {
-    "j": 143,
-    "accion": "REUSAR",
-    "origen": "parte_144.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los péptidos pequeños también amortiguan el ácido estomacal "
-  },
-  {
-    "j": 144,
-    "accion": "REUSAR",
-    "origen": "parte_145.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fase intestinal Es una etapa en la que el duodeno respond"
-  },
-  {
-    "j": 145,
-    "accion": "REUSAR",
-    "origen": "parte_146.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, pronto el ácido y las grasas semidigeridas en e"
-  },
-  {
-    "j": 146,
-    "accion": "REUSAR",
-    "origen": "parte_147.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El quimo también estimula a las células enteroendocrinas duo"
-  },
-  {
-    "j": 147,
-    "accion": "REUSAR",
-    "origen": "parte_148.wav",
-    "motivo": "texto identico",
-    "texto_inicio": ". dos Fase gástrica La comida estira el estómago y activa lo"
-  },
-  {
-    "j": 148,
-    "accion": "REUSAR",
-    "origen": "parte_149.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "+ – Estimulación Inhibición Reducida o sin efecto Clave – – "
-  },
-  {
-    "j": 149,
-    "accion": "REUSAR",
-    "origen": "parte_150.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA veinticinco coma un ocho Control de la retroalimentac"
-  },
-  {
-    "j": 150,
-    "accion": "REUSAR",
-    "origen": "parte_151.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si bien su nombre más aceptado es péptido gástrico inhibidor"
-  },
-  {
-    "j": 151,
-    "accion": "REUSAR",
-    "origen": "parte_152.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Explique cómo las glándulas gástricas producen ácido hidrocl"
-  },
-  {
-    "j": 152,
-    "accion": "REUSAR",
-    "origen": "parte_153.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Describir las secreciones y funciones digestivas del hígad"
-  },
-  {
-    "j": 153,
-    "accion": "REUSAR",
-    "origen": "parte_154.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El hígado El hígado , fi gura veinticinco coma un nueve, es "
-  },
-  {
-    "j": 154,
-    "accion": "REUSAR",
-    "origen": "parte_155.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Anatomía macroscópica El hígado tiene cuatro lóbulos: derech"
-  },
-  {
-    "j": 155,
-    "accion": "REUSAR",
-    "origen": "parte_156.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Desde la vista inferior, también se aprecia un lóbulo cuadra"
-  },
-  {
-    "j": 156,
-    "accion": "REUSAR",
-    "origen": "parte_157.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El aspecto posterior del hígado tiene un surco profundo que "
-  },
-  {
-    "j": 157,
-    "accion": "REUSAR",
-    "origen": "parte_158.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se abriera un libro hasta que su portada y su contraporta"
-  },
-  {
-    "j": 158,
-    "accion": "REUSAR",
-    "origen": "parte_159.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los hepatocitos tienen un borde en cepillo de microvellosida"
-  },
-  {
-    "j": 159,
-    "accion": "REUSAR",
-    "origen": "parte_160.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Al mismo tiempo, s"
-  },
-  {
-    "j": 160,
-    "accion": "REUSAR",
-    "origen": "parte_161.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Convergen en el lado inferior del hígado para formar el cond"
-  },
-  {
-    "j": 161,
-    "accion": "REUSAR",
-    "origen": "parte_162.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta papila contiene un esfínter hepatopancreático , esfínte"
-  },
-  {
-    "j": 162,
-    "accion": "REUSAR",
-    "origen": "parte_163.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Circulación El hígado recibe sangre de dos fuentes: casi set"
-  },
-  {
-    "j": 163,
-    "accion": "REUSAR",
-    "origen": "parte_164.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "diecisiete Abraham Vater , mil seiscientos ochenta y cuatro "
-  },
-  {
-    "j": 164,
-    "accion": "REUSAR",
-    "origen": "parte_165.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Macrófago hepático H"
-  },
-  {
-    "j": 165,
-    "accion": "REUSAR",
-    "origen": "parte_166.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "●En el capítulo veinte, identifique dos vasos sanguíneos que"
-  },
-  {
-    "j": 166,
-    "accion": "REUSAR",
-    "origen": "parte_167.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La sangre arterial unida por el hígado sale de la aorta por "
-  },
-  {
-    "j": 167,
-    "accion": "REUSAR",
-    "origen": "parte_168.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De esta forma, hay una mezcla inusual de sangre venosa y art"
-  },
-  {
-    "j": 168,
-    "accion": "REUSAR",
-    "origen": "parte_169.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tiene casi diez cm de largo y está recubierta en el interior"
-  },
-  {
-    "j": 169,
-    "accion": "REUSAR",
-    "origen": "parte_170.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las bacterias del intestino grueso metabolizan la bilirrubin"
-  },
-  {
-    "j": 170,
-    "accion": "REUSAR",
-    "origen": "parte_171.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Éstos y la lecitina, un fosfolípido, ayudan a la digesConduc"
-  },
-  {
-    "j": 171,
-    "accion": "REUSAR",
-    "origen": "parte_172.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento tión y absorción de "
-  },
-  {
-    "j": 172,
-    "accion": "REUSAR",
-    "origen": "parte_173.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Entre comidas, la vesícula biliar absorbe agua y electrólito"
-  },
-  {
-    "j": 173,
-    "accion": "REUSAR",
-    "origen": "parte_174.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi veinte por ciento de la bilis que no se reabsorbe, se e"
-  },
-  {
-    "j": 174,
-    "accion": "REUSAR",
-    "origen": "parte_175.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El páncreas El páncreas , fi gura veinticinco coma dos un, e"
-  },
-  {
-    "j": 175,
-    "accion": "REUSAR",
-    "origen": "parte_176.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su parte endocrina está constituida por los islotes pancreát"
-  },
-  {
-    "j": 176,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_177.wav)",
-    "texto_inicio": "Este conducto corre a lo largo de la parte media de la glánd"
-  },
-  {
-    "j": 177,
-    "accion": "REUSAR",
-    "origen": "parte_178.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CONOCIMIENTO MÁS A FONDO veinticinco coma tres Aplicación cl"
-  },
-  {
-    "j": 178,
-    "accion": "REUSAR",
-    "origen": "parte_179.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los cálculos biliares causan dolor excruciante cuando obstru"
-  },
-  {
-    "j": 179,
-    "accion": "REUSAR",
-    "origen": "parte_180.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La reobstrucción puede prevenirse al insertar una endoprótes"
-  },
-  {
-    "j": 180,
-    "accion": "REUSAR",
-    "origen": "parte_181.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo jugo pancreático e"
-  },
-  {
-    "j": 181,
-    "accion": "REUSAR",
-    "origen": "parte_182.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los ácinos secretan las enzimas y los zimógenos, mientras qu"
-  },
-  {
-    "j": 182,
-    "accion": "REUSAR",
-    "origen": "parte_183.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "También convierte los otros dos zimógenos en quimotripsina y"
-  },
-  {
-    "j": 183,
-    "accion": "REUSAR",
-    "origen": "parte_184.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sus funciones digestivas específi - cas se explican más adel"
-  },
-  {
-    "j": 184,
-    "accion": "REUSAR",
-    "origen": "parte_185.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La colecistocinina19 , CCK, secretada por la mucosa del duod"
-  },
-  {
-    "j": 185,
-    "accion": "REUSAR",
-    "origen": "parte_186.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La secretina estimula los conductos del hígado y el páncreas"
-  },
-  {
-    "j": 186,
-    "accion": "REUSAR",
-    "origen": "parte_187.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Enterocinasa Quimotripsina Carboxipeptidasa Quimotripsinógen"
-  },
-  {
-    "j": 187,
-    "accion": "REUSAR",
-    "origen": "parte_188.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CUADRO veinticinco coma dos Secreciones exocrinas del páncre"
-  },
-  {
-    "j": 188,
-    "accion": "REUSAR",
-    "origen": "parte_189.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Así, lo que se queda"
-  },
-  {
-    "j": 189,
-    "accion": "REUSAR",
-    "origen": "parte_190.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Qué hace que el hígado contribuya a la digestión? quince. S"
-  },
-  {
-    "j": 190,
-    "accion": "REUSAR",
-    "origen": "parte_191.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Establecer la manera en que la mucosa del intestino delgad"
-  },
-  {
-    "j": 191,
-    "accion": "REUSAR",
-    "origen": "parte_192.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para realizar estas funciones de manera efi ciente y complet"
-  },
-  {
-    "j": 192,
-    "accion": "REUSAR",
-    "origen": "parte_193.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se divide en tres regiones , fi gura veinticinco coma dos cu"
-  },
-  {
-    "j": 193,
-    "accion": "REUSAR",
-    "origen": "parte_194.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Junto con el páncreas, la mayor parte del duodeno es retrope"
-  },
-  {
-    "j": 194,
-    "accion": "REUSAR",
-    "origen": "parte_195.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su nombre alude al hecho de que los primeros anatomistas sol"
-  },
-  {
-    "j": 195,
-    "accion": "REUSAR",
-    "origen": "parte_196.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El íleon22 forma el último sesenta por ciento del intestino "
-  },
-  {
-    "j": 196,
-    "accion": "REUSAR",
-    "origen": "parte_197.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo yeyuno, su pared e"
-  },
-  {
-    "j": 197,
-    "accion": "REUSAR",
-    "origen": "parte_198.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La capa muscular del íleon está engrosada en este punto para"
-  },
-  {
-    "j": 198,
-    "accion": "REUSAR",
-    "origen": "parte_199.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El yeyuno y el íleon son intraperitoneales y, por lo tanto, "
-  },
-  {
-    "j": 199,
-    "accion": "REUSAR",
-    "origen": "parte_200.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto es posible por su gran longitud y por tres tipos de pli"
-  },
-  {
-    "j": 200,
-    "accion": "REUSAR",
-    "origen": "parte_201.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los pliegues circulares aumentan la superfi - cie en un fact"
-  },
-  {
-    "j": 201,
-    "accion": "REUSAR",
-    "origen": "parte_202.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los pliegues más largos de la pared intestinal son transvers"
-  },
-  {
-    "j": 202,
-    "accion": "REUSAR",
-    "origen": "parte_203.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos pliegues empiezan en el duodeno, alcanzan su mayor alt"
-  },
-  {
-    "j": 203,
-    "accion": "REUSAR",
-    "origen": "parte_204.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las vellosidades son más largas en el duodeno y se vuelven c"
-  },
-  {
-    "j": 204,
-    "accion": "REUSAR",
-    "origen": "parte_205.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Incrustado en este tejido se encuentran una arteriola, una r"
-  },
-  {
-    "j": 205,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_206.wav)",
-    "texto_inicio": "Los enterocitos tienen un borde en cepillo afelpado con micr"
-  },
-  {
-    "j": 206,
-    "accion": "REUSAR",
-    "origen": "parte_207.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este proceso, denominado digestión por contacto, es una razó"
-  },
-  {
-    "j": 207,
-    "accion": "REUSAR",
-    "origen": "parte_208.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mitad inferior está dominada por citoblastos en división."
-  },
-  {
-    "j": 208,
-    "accion": "REUSAR",
-    "origen": "parte_209.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Peyer , mil seiscientos cincuenta y tres a mil setecientos d"
-  },
-  {
-    "j": 209,
-    "accion": "REUSAR",
-    "origen": "parte_210.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Glándulas duodenales"
-  },
-  {
-    "j": 210,
-    "accion": "REUSAR",
-    "origen": "parte_211.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo con abundante bica"
-  },
-  {
-    "j": 211,
-    "accion": "REUSAR",
-    "origen": "parte_212.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este líquido presenta un pH de siete coma cuatro a siete com"
-  },
-  {
-    "j": 212,
-    "accion": "REUSAR",
-    "origen": "parte_213.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Motilidad intestinal Las contracciones del intestino delgado"
-  },
-  {
-    "j": 213,
-    "accion": "REUSAR",
-    "origen": "parte_214.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La segmentación es un movimiento en el que constricciones es"
-  },
-  {
-    "j": 214,
-    "accion": "REUSAR",
-    "origen": "parte_215.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a que las contracciones son menos frecuentes en senti"
-  },
-  {
-    "j": 215,
-    "accion": "REUSAR",
-    "origen": "parte_216.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas ondas de contracción sucesivas, superpuestas, reciben "
-  },
-  {
-    "j": 216,
-    "accion": "REUSAR",
-    "origen": "parte_217.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La válvula ileocecal suele estar cerrada, pero la comida en "
-  },
-  {
-    "j": 217,
-    "accion": "REUSAR",
-    "origen": "parte_218.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dibuje una vellosidad e indique epitelio, borde en cepillo, "
-  },
-  {
-    "j": 218,
-    "accion": "REUSAR",
-    "origen": "parte_219.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento veinte. Distinga ent"
-  },
-  {
-    "j": 219,
-    "accion": "REUSAR",
-    "origen": "parte_220.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En esencia, la digestión química y la absorción de nutriment"
-  },
-  {
-    "j": 220,
-    "accion": "REUSAR",
-    "origen": "parte_221.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La celulosa es indigerible y no se le considera en este apar"
-  },
-  {
-    "j": 221,
-    "accion": "REUSAR",
-    "origen": "parte_222.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La amilasa salival funciona mejor a un pH de seis coma ocho "
-  },
-  {
-    "j": 222,
-    "accion": "REUSAR",
-    "origen": "parte_223.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por lo tanto, la amilasa funciona más tiempo cuando el volum"
-  },
-  {
-    "j": 223,
-    "accion": "REUSAR",
-    "origen": "parte_224.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi cincuenta por ciento del almidón dietético es digerido "
-  },
-  {
-    "j": 224,
-    "accion": "REUSAR",
-    "origen": "parte_225.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La maltosa también está presente en algunos alimentos, pero "
-  },
-  {
-    "j": 225,
-    "accion": "REUSAR",
-    "origen": "parte_226.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, en la mayor parte de la población mundial, la p"
-  },
-  {
-    "j": 226,
-    "accion": "REUSAR",
-    "origen": "parte_227.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi ochenta por ciento del azúcar absorbida es glucosa, que"
-  },
-  {
-    "j": 227,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_228.wav)",
-    "texto_inicio": "El agua transporta más glucosa y otros nutrimentos con ella "
-  },
-  {
-    "j": 228,
-    "accion": "REUSAR",
-    "origen": "parte_229.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dentro del enterocito, la Almidón Digestión por contacto Abs"
-  },
-  {
-    "j": 229,
-    "accion": "REUSAR",
-    "origen": "parte_230.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo mayor parte de la "
-  },
-  {
-    "j": 230,
-    "accion": "REUSAR",
-    "origen": "parte_231.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Proteínas Los aminoácidos absorbidos en el intestino delgado"
-  },
-  {
-    "j": 231,
-    "accion": "REUSAR",
-    "origen": "parte_232.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Allí, la pepsina hidroliza cualquier enlace peptídico entre "
-  },
-  {
-    "j": 232,
-    "accion": "REUSAR",
-    "origen": "parte_233.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el intestino delgado, las enzimas pancreáticas tripsina y"
-  },
-  {
-    "j": 233,
-    "accion": "REUSAR",
-    "origen": "parte_234.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La absorción de aminoácidos es similar a la de monosacáridos"
-  },
-  {
-    "j": 234,
-    "accion": "REUSAR",
-    "origen": "parte_235.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las células de absorción de los lactantes pueden tomar intac"
-  },
-  {
-    "j": 235,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_236.wav)",
-    "texto_inicio": "A medida Cotransporte bidireccional Cotransporte unidireccio"
-  },
-  {
-    "j": 236,
-    "accion": "REUSAR",
-    "origen": "parte_237.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La glucosa también se absorbe junto con el agua a través de "
-  },
-  {
-    "j": 237,
-    "accion": "REUSAR",
-    "origen": "parte_238.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De manera única entre los mamíferos, siguen bebiendo leche e"
-  },
-  {
-    "j": 238,
-    "accion": "REUSAR",
-    "origen": "parte_239.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si consumen leche, la lactosa pasa sin digerir al intestino "
-  },
-  {
-    "j": 239,
-    "accion": "REUSAR",
-    "origen": "parte_240.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La intolerancia a la lactosa ocurre en casi quince por cient"
-  },
-  {
-    "j": 240,
-    "accion": "REUSAR",
-    "origen": "parte_241.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las personas con intolerancia a la lactosa pueden consumir p"
-  },
-  {
-    "j": 241,
-    "accion": "REUSAR",
-    "origen": "parte_242.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O"
-  },
-  {
-    "j": 242,
-    "accion": "REUSAR",
-    "origen": "parte_243.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "O C HO H H N H N H C O OH H H N O C OH H H N O C OH O C OH H"
-  },
-  {
-    "j": 243,
-    "accion": "REUSAR",
-    "origen": "parte_244.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "O C OH H H N O C OH H H N O C OH H H N La carboxipeptidasa ,"
-  },
-  {
-    "j": 244,
-    "accion": "REUSAR",
-    "origen": "parte_245.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Boca Estómago Intestino delgado Acciones de las enzimas panc"
-  },
-  {
-    "j": 245,
-    "accion": "REUSAR",
-    "origen": "parte_246.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo que el intestino m"
-  },
-  {
-    "j": 246,
-    "accion": "REUSAR",
-    "origen": "parte_247.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La lipasa lingual, secretada por las glándulas salivales int"
-  },
-  {
-    "j": 247,
-    "accion": "REUSAR",
-    "origen": "parte_248.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando el quimo entra en el duodeno, su grasa se encuentra e"
-  },
-  {
-    "j": 248,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_249.wav)",
-    "texto_inicio": "La agitación producida por la segmentación intestinal divide"
-  },
-  {
-    "j": 249,
-    "accion": "REUSAR",
-    "origen": "parte_250.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por lo tanto, los productos de la acción de la lipasa son do"
-  },
-  {
-    "j": 250,
-    "accion": "REUSAR",
-    "origen": "parte_251.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las micelas pasan por el conducto colédoco hacia el duodeno,"
-  },
-  {
-    "j": 251,
-    "accion": "REUSAR",
-    "origen": "parte_252.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin micelas, el intestino delgado sólo absorbe de cuarenta a"
-  },
-  {
-    "j": 252,
-    "accion": "REUSAR",
-    "origen": "parte_253.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El complejo de Golgi los combina con una pequeña cantidad de"
-  },
-  {
-    "j": 253,
-    "accion": "REUSAR",
-    "origen": "parte_254.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La linfa intestinal, blanca y grasa , quilo, fl uye por vaso"
-  },
-  {
-    "j": 254,
-    "accion": "REUSAR",
-    "origen": "parte_255.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ácidos nucleicos Los ácidos nucleicos, DNA y RNA, están pres"
-  },
-  {
-    "j": 255,
-    "accion": "REUSAR",
-    "origen": "parte_256.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Vitaminas Se absorben sin cambios; las vitaminas solubles en"
-  },
-  {
-    "j": 256,
-    "accion": "REUSAR",
-    "origen": "parte_257.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El complejo B12-IF se fi ja entonces a receptores en las cél"
-  },
-  {
-    "j": 257,
-    "accion": "REUSAR",
-    "origen": "parte_258.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Emulsificación Hidró"
-  },
-  {
-    "j": 258,
-    "accion": "REUSAR",
-    "origen": "parte_259.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Glóbulo de grasa Monoglicéridos Centro del lípido Micelas Ác"
-  },
-  {
-    "j": 259,
-    "accion": "REUSAR",
-    "origen": "parte_260.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Borde en cepillo Célula de absorción Vaso quilífero Quilomic"
-  },
-  {
-    "j": 260,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_261.wav)",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo activa en el íleon"
-  },
-  {
-    "j": 261,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_262.wav)",
-    "texto_inicio": "El hierro y el calcio son inusuales en el sentido de que se "
-  },
-  {
-    "j": 262,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_263.wav)",
-    "texto_inicio": "El Fe2+ se transporta a la superfi cie basal de la célula y "
-  },
-  {
-    "j": 263,
-    "accion": "REUSAR",
-    "origen": "parte_264.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El exceso de hierro dietético, si se absorbe, se fi ja de ma"
-  },
-  {
-    "j": 264,
-    "accion": "REUSAR",
-    "origen": "parte_265.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el duodeno, el calcio se absorbe por la ruta transcelular"
-  },
-  {
-    "j": 265,
-    "accion": "REUSAR",
-    "origen": "parte_266.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La recaptura de calcio transcelular se realiza bajo infl uen"
-  },
-  {
-    "j": 266,
-    "accion": "REUSAR",
-    "origen": "parte_267.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Así, aumenta la absorción de calcio dietético y eleva la con"
-  },
-  {
-    "j": 267,
-    "accion": "REUSAR",
-    "origen": "parte_268.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Agua El aparato digestivo es uno de los varios sistemas que "
-  },
-  {
-    "j": 268,
-    "accion": "REUSAR",
-    "origen": "parte_269.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El agua se absorbe por ósmosis, después de la absorción de s"
-  },
-  {
-    "j": 269,
-    "accion": "REUSAR",
-    "origen": "parte_270.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El estreñimiento ocurre cuando el movimiento fecal es lento,"
-  },
-  {
-    "j": 270,
-    "accion": "REUSAR",
-    "origen": "parte_271.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Cuáles son los productos finales de la digestión enzimática"
-  },
-  {
-    "j": 271,
-    "accion": "REUSAR",
-    "origen": "parte_272.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Qué le sucede a las células epiteliales muertas que se desp"
-  },
-  {
-    "j": 272,
-    "accion": "REUSAR",
-    "origen": "parte_273.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El intestino grueso , fi gura veinticinco coma tres un, reci"
-  },
-  {
-    "j": 273,
-    "accion": "REUSAR",
-    "origen": "parte_274.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ciego es una bolsa cerrada en el cuadrante abdominal infe"
-  },
-  {
-    "j": 274,
-    "accion": "REUSAR",
-    "origen": "parte_275.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El colon ascendente empieza en la válvula ileocecal y pasa h"
-  },
-  {
-    "j": 275,
-    "accion": "REUSAR",
-    "origen": "parte_276.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por consiguiente, entre el colon ascendente, el transverso y"
-  },
-  {
-    "j": 276,
-    "accion": "REUSAR",
-    "origen": "parte_277.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A pesar de su nombre, el recto tiene tres curvas laterales, "
-  },
-  {
-    "j": 277,
-    "accion": "REUSAR",
-    "origen": "parte_278.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que las heces atraviesan el conducto, presionan los"
-  },
-  {
-    "j": 278,
-    "accion": "REUSAR",
-    "origen": "parte_279.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aunque rodea por completo el colon, tal como lo hace en el i"
-  },
-  {
-    "j": 279,
-    "accion": "REUSAR",
-    "origen": "parte_280.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ano, como la uretra, está regulado por dos esfínteres: un"
-  },
-  {
-    "j": 280,
-    "accion": "REUSAR",
-    "origen": "parte_281.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A menudo, la serosa del colon transverso al sigmoide tiene a"
-  },
-  {
-    "j": 281,
-    "accion": "REUSAR",
-    "origen": "parte_282.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Son más profundas que las del intestino delgado y tienen may"
-  },
-  {
-    "j": 282,
-    "accion": "REUSAR",
-    "origen": "parte_283.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Ángulo cólico dere"
-  },
-  {
-    "j": 283,
-    "accion": "REUSAR",
-    "origen": "parte_284.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Explique sus respuestas. PARTE CUATRO Regulación y mantenimi"
-  },
-  {
-    "j": 284,
-    "accion": "REUSAR",
-    "origen": "parte_285.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a estas bacterias se obtienen más nutrimentos del ali"
-  },
-  {
-    "j": 285,
-    "accion": "REUSAR",
-    "origen": "parte_286.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El intestino grueso contiene de siete a diez litros de gas, "
-  },
-  {
-    "j": 286,
-    "accion": "REUSAR",
-    "origen": "parte_287.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los fl atos están compuestos por nitrógeno , N2, dióxido de "
-  },
-  {
-    "j": 287,
-    "accion": "REUSAR",
-    "origen": "parte_288.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "No cambia de manera química los residuos sino que reabsorbe "
-  },
-  {
-    "j": 288,
-    "accion": "REUSAR",
-    "origen": "parte_289.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El tipo más común de movilidad colónica es un tipo de segmen"
-  },
-  {
-    "j": 289,
-    "accion": "REUSAR",
-    "origen": "parte_290.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A menudo se activan por los refl ejos gastrocólico y duodeno"
-  },
-  {
-    "j": 290,
-    "accion": "REUSAR",
-    "origen": "parte_291.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El proceso incluye dos refl ejos: un. El refl ejo de defecac"
-  },
-  {
-    "j": 291,
-    "accion": "REUSAR",
-    "origen": "parte_292.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sus principales eventos , fi gura veinticinco coma tres dos,"
-  },
-  {
-    "j": 292,
-    "accion": "REUSAR",
-    "origen": "parte_293.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, el esfínter anal externo, como el uretral exter"
-  },
-  {
-    "j": 293,
-    "accion": "REUSAR",
-    "origen": "parte_294.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se suprime la urgencia de defecar, las contracciones cesa"
-  },
-  {
-    "j": 294,
-    "accion": "REUSAR",
-    "origen": "parte_295.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Antes de proseguir"
-  },
-  {
-    "j": 295,
-    "accion": "REUSAR",
-    "origen": "parte_296.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Impulsos de la corteza cerebral Fibras sensitivas Receptores"
-  },
-  {
-    "j": 296,
-    "accion": "REUSAR",
-    "origen": "parte_297.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento CUADRO veinticinco c"
-  },
-  {
-    "j": 297,
-    "accion": "REUSAR",
-    "origen": "parte_298.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El hígado enfermo vierte líquido en el abdomen. Casi veintic"
-  },
-  {
-    "j": 298,
-    "accion": "REUSAR",
-    "origen": "parte_299.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A menudo hereditaria Diverticulitis Presencia de hernias inf"
-  },
-  {
-    "j": 299,
-    "accion": "REUSAR",
-    "origen": "parte_300.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Produce gran malabsorción de la mayor parte de los nutriment"
-  },
-  {
-    "j": 300,
-    "accion": "REUSAR",
-    "origen": "parte_301.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tiende a ser congénita pero no se conocen bien las causas ex"
-  },
-  {
-    "j": 301,
-    "accion": "REUSAR",
-    "origen": "parte_302.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo CONOCIMIENTO MÁS A"
-  },
-  {
-    "j": 302,
-    "accion": "REUSAR",
-    "origen": "parte_303.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se llamó a un doctor del ejército fronterizo estacionado en "
-  },
-  {
-    "j": 303,
-    "accion": "REUSAR",
-    "origen": "parte_304.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En un periodo de meses, la herida expulsó piezas de hueso, c"
-  },
-  {
-    "j": 304,
-    "accion": "REUSAR",
-    "origen": "parte_305.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las autoridades de la ciudad decidieron que ya no podían sos"
-  },
-  {
-    "j": 305,
-    "accion": "REUSAR",
-    "origen": "parte_306.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Beaumont nunca asistió a una escuela de medicina y tenía poc"
-  },
-  {
-    "j": 306,
-    "accion": "REUSAR",
-    "origen": "parte_307.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Puso trozos de carne en una cadena dentro del estómago y los"
-  },
-  {
-    "j": 307,
-    "accion": "REUSAR",
-    "origen": "parte_308.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Beaumont también demostró que el jugo gástrico es secretado "
-  },
-  {
-    "j": 308,
-    "accion": "REUSAR",
-    "origen": "parte_309.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tenía una esposa y una hija en Canadá a quienes pocas veces "
-  },
-  {
-    "j": 309,
-    "accion": "REUSAR",
-    "origen": "parte_310.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Martin estaba muy molesto, Beaumont observó que ocurría poca"
-  },
-  {
-    "j": 310,
-    "accion": "REUSAR",
-    "origen": "parte_311.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A partir de los métodos en que Beaumont fue pionero, Pavlov "
-  },
-  {
-    "j": 311,
-    "accion": "REUSAR",
-    "origen": "parte_312.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Martin vivió en la miseria en una pequeña choza con su espos"
-  },
-  {
-    "j": 312,
-    "accion": "REUSAR",
-    "origen": "parte_313.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Efectos del APARATO DIGESTIVO en otros sistemas de órganos T"
-  },
-  {
-    "j": 313,
-    "accion": "REUSAR",
-    "origen": "parte_314.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "APARATO URINARIO El hígado sintetiza la urea excretada por l"
-  },
-  {
-    "j": 314,
-    "accion": "REUSAR",
-    "origen": "parte_315.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "SISTEMAS LINFÁTICO E INMUNITARIO El intestino delgado es la "
-  },
-  {
-    "j": 315,
-    "accion": "REUSAR",
-    "origen": "parte_316.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "SISTEMA ÓSEO El depósito y el mantenimiento de hueso depende"
-  },
-  {
-    "j": 316,
-    "accion": "REUSAR",
-    "origen": "parte_317.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "SISTEMA NERVIOSO Los péptidos enteroencefálicos producidos e"
-  },
-  {
-    "j": 317,
-    "accion": "REUSAR",
-    "origen": "parte_318.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "APARATO CIRCULATORIO La absorción del líquido intestinal da "
-  }
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento d Elaborar una lista"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Digestión, el desdoblamiento mecánico y químico de los alime"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se logra mediante la acción de cortar y moler que realizan l"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos nutrimentos ya están presentes en forma útil en la c"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Incluye la boca, la faringe, el esófago, el estómago, el int"
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "sesenta, y su influencia en la relación entre polímeros y mo"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Se encuentran paralelos cercanos entre el control neuromus"
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, cuando se come un trozo de carne, la miosina de"
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que la carne y las proteínas humanas estás hechas d"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al estudio del tubo digestivo y al diagnóstico y tratamiento"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo que es absorbido p"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayor parte del tubo digestivo sigue el plan de estructur"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El recubrimiento interno del tubo digestivo, al que se denom"
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto mejora la eficiencia de la digestión y la absorción de "
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capa muscular externa, consta de dos capas de músculo cer"
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La serosa está compuesta por una capa delgada de tejido areo"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El esófago, el estómago y el intestino tienen una red nervio"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El sistema nervioso entérico está compuesto por dos redes de"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Intestino delgado Colon ascendente Ciego Apéndice Colon desc"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento glionares simpáticas"
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Relación con el peritoneo En el procesamiento de alimentos, "
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Más aún, los mesenterios proporcionan paso a los vasos sangu"
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después de alcanzar un órgano como el estómago y el intestin"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "treinta y seis a treinta y siete,. Submucosa: Glándula esofá"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Dos mesenterios an"
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el margen superior, la capa vuelta hacia arriba continúa "
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los epiplones se adhieren a perforaciones o áreas inflamadas"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando un órgano cae contra la pared posterior del cuerpo y "
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En los reflejos cortos, mientéricos, el estiramiento o la es"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tubo digestivo también produce cuantiosas hormonas como l"
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Los epiplones mayor y menor. b Epiplón mayor e intestino d"
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Antes de proseguir R"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veinticinco punto dos De la boca al esófago Resultados esper"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre sus funciones se incluyen la ingestión, el gusto y otr"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este epitelio está queratinizado en áreas sujetas a la mayor"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su carnosidad se debe, sobre todo, a la grasa subcutánea, lo"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los labios están divididos en tres áreas: un el área cutánea"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "tres la mucosa labial es la superficie más interna del labio"
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los tipos de papilas y el sentido del gusto se analiza en el"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Labio superior Vestíbulo Lengua Frenillo lingual Labio infer"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Las dos terceras p"
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los músculos intrínsecos, los cuales se encuentran por compl"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El paladar Separa la cavidad bucal de la nasal, permite resp"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La úvula,seis visible en la parte posterior de la boca, tien"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los dientes Los dientes, o piezas dentales, reciben el nombr"
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los incisivos son dientes que cortan como cinceles y que se "
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada pieza dental está insertada en un hueco de conexión al "
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento gonfosis, entre el d"
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La corona es la parte que se encuentra arriba de la encía; l"
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayor parte de la pieza dental consta de un tejido amaril"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El esmalte no es un tejido sino una secreción libre de célul"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos nervios y vasos entran en la pieza a través del agujer"
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada una de las figuras muestra sólo los dientes superiores."
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Nombres de los dientes Edad de erupción, meses, Segundo mola"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo molar tiene dos bo"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Veinte dientes de leche o temporales erupcionan de los seis "
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el curso de la evolución humana, el rostro se ha vuelto m"
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La masticación requiere poca conciencia porque la comida est"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Saliva y glándulas salivales La saliva humedece y limpia la "
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Electrólitos, sales de sodio, potasio, cloruro, fosfato y "
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA veinticinco coma ocho Dientes permanentes y temporale"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veinticinco punto uno. Aplicación c"
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A las cavidades erosionadas de los dientes se les conoce com"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi todos los individuos presentan gingivitis en algún mome"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Secretan saliva a una velocidad constante, se esté comiendo "
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los ácinos secretores en las ramas externas del árbol en alg"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La parotiditis, paperas, es la inflamación e hinchazón de un"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Salivación Las glándulas salivales extrínsecas secretan entr"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La irritación del estómago y el esófago por comida condiment"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por esto, la boca puede sentirse pegajosa o húmeda bajo cond"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La amilasa salival empieza a digerir el almidón a medida que"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La faringe Descrita en el capítulo veintidós, la faringe es "
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se ha retirado parte de la mandíbula para exponer la glándul"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo superficial de mús"
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El esófago Es un tubo muscular recto de veinticinco a treint"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El alimento hace una breve pausa en este punto antes de entr"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La submucosa contiene glándulas esofágicas que secretan moco"
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aquí, está cubierto con una capa de adventicia de tejido con"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este centro se comunica con los músculos de la faringe y el "
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando el bolo alcanza un tamaño crítico, la epiglotis se in"
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tres acciones bloquean a la comida y la bebida para que no r"
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que el bolo entra en el esófago, lo estira y activa"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "b Histología de la glándula salival sublingual. PARTE CUATRO"
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Constricción Constricción Relajación Onda peristáltica Contr"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●¿Qué acciones evitan que la faringe regrese la comida a la "
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo ción muscular que "
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La última acción tira de la pared del esófago hacia arriba, "
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo general, el líquido alcanza el estómago en un lapso d"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mencione en orden los tejidos por los que pasaría la línea. "
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veinticinco punto tres El estómago Resultados esperados del "
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El estómago es un saco muscular en la cavidad abdominal supe"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos atribuían la digestión a un espíritu supernatural en"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La curvatura menor del estómago está en el margen que abarca"
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cuatro la región pilórica es una bolsa un poco estrecha en e"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Está irrigado con sangre por ramas del tronco celiaco, consú"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento FIGURA veinticinco c"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Anatomía microscóp"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capa muscular externa tiene tres capas, en lugar de dos: "
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En las regiones cardiaca y pilórica, se les denomina glándul"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Las células regenerativas, citoblastos, se encuentran en l"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se encuentran sobre todo en las glándulas gástricas, pero un"
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay por lo menos ocho tipos de células enteroendocrinas en e"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ácido hidroclorhídrico El jugo gástrico tiene una elevada co"
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las células parietales contienen anhidrasa carbónica, C A H,"
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La secreción de HCl no afecta al pe hache dentro de la célul"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a este último, la sangre que deja el estómago tiene u"
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "tres Convierte los iones férricos ingeridos, hierro, en ione"
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento a Pared estomacal Lu"
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "b Glándula pilórica del extremo inferior del estómago. Obsér"
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo HCl Pepsinógeno, z"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que la pepsina digiere la proteína, y el propio pep"
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El resto se digiere en el intestino delgado. Factor intrínse"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La digestión puede continuar después de la eliminación del e"
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El HCO3 – regresa a la sangre. A cambio, el cloruro entra en"
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento intrínseco por vía o"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Varias de ellas son péptidos producidos en el tubo digestivo"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el cuadro veinticinco coma un se presenta un resumen de v"
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pronto, el estómago muestra un ritmo de contracciones perist"
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El antro contiene casi treinta mililitros de quimo. Cuando u"
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En caso contrario, si el duodeno se llena demasiado, se inhi"
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El vómito suele inducirse por sobreestiramiento del estómago"
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO veinticinco coma un Principales secreciones de las gl"
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Por lo general, la"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El vómito ocurre cuando la contracción abdominal y la presió"
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En casos de vómito frecuente, como en el trastorno alimentic"
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las úlceras pépticas pueden ocurrir con mayor frecuencia en "
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayoría de las úlceras se relaciona con una bacteria resi"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En alguna época, el medicamento más prescrito en Estados Uni"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Éste es un tratamiento mucho más corto, menos costoso, y cur"
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo general, una úlcera gastroesofágica suele tener forma"
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento cientes o semiincons"
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El alcohol se absorbe sobre todo en el intestino delgado, de"
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cubierta mucosa. El grueso moco alcalino resiste la acción d"
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La desactivación de estos mecanismos protectores puede lleva"
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas fases se superponen y las tres pueden presentarse al m"
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi dos terceras partes de la secreción gástrica ocurren du"
+ },
+ {
+  "j": 137,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La histamina es una secreción paracrina de las células enter"
+ },
+ {
+  "j": 138,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una proteína dietética se digiere, se desdobla en péptidos m"
+ },
+ {
+  "j": 139,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debajo del pe hache de dos, el ácido estomacal inhibe las cé"
+ },
+ {
+  "j": 140,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El estiramiento del duodeno acentúa los reflejos vasovagos q"
+ },
+ {
+  "j": 141,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, pronto el ácido y las grasas semidigeridas en e"
+ },
+ {
+  "j": 142,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El quimo también estimula a las células enteroendocrinas duo"
+ },
+ {
+  "j": 143,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "dos Fase gástrica La comida estira el estómago y activa los "
+ },
+ {
+  "j": 144,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "+ – Estimulación Inhibición Reducida o sin efecto Clave – – "
+ },
+ {
+  "j": 145,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA veinticinco coma un ocho Control de la retroalimentac"
+ },
+ {
+  "j": 146,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento lidad. El efecto es "
+ },
+ {
+  "j": 147,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien su nombre más aceptado es péptido gástrico inhibidor"
+ },
+ {
+  "j": 148,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Explique cómo las glándulas gástricas producen ácido hidrocl"
+ },
+ {
+  "j": 149,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veinticinco punto cuatro El hígado, la vesícula biliar y el "
+ },
+ {
+  "j": 150,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El intestino delgado no sólo recibe quimo del estómago, tamb"
+ },
+ {
+  "j": 151,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es la glándula más grande del cuerpo: pesa casi uno coma cua"
+ },
+ {
+  "j": 152,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Están separados entre sí por un ligamento falciforme,trece u"
+ },
+ {
+  "j": 153,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una apertura irregular entre éstos, el hilio portal, hepatis"
+ },
+ {
+  "j": 154,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Anatomía microscópica El interior del hígado está lleno con "
+ },
+ {
+  "j": 155,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada placa de hepatocitos es un epitelio de una a dos célula"
+ },
+ {
+  "j": 156,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después de una comida, los hepatocitos absorben glucosa, ami"
+ },
+ {
+  "j": 157,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Al mismo tiempo, s"
+ },
+ {
+  "j": 158,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Convergen en el lado inferior del hígado para formar el cond"
+ },
+ {
+  "j": 159,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta papila contiene un esfínter hepatopancreático, esfínter"
+ },
+ {
+  "j": 160,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Circulación El hígado recibe sangre de dos fuentes: casi set"
+ },
+ {
+  "j": 161,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "diecisiete Abraham Vater, mil seiscientos ochenta y cuatro a"
+ },
+ {
+  "j": 162,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Macrófago hepático H"
+ },
+ {
+  "j": 163,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●En el capítulo veinte, identifique dos vasos sanguíneos que"
+ },
+ {
+  "j": 164,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La sangre arterial unida por el hígado sale de la aorta por "
+ },
+ {
+  "j": 165,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "De esta forma, hay una mezcla inusual de sangre venosa y art"
+ },
+ {
+  "j": 166,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tiene casi diez centímetros de largo y está recubierta en el"
+ },
+ {
+  "j": 167,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las bacterias del intestino grueso metabolizan la bilirrubin"
+ },
+ {
+  "j": 168,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Éstos y la lecitina, un fosfolípido, ayudan a la digesConduc"
+ },
+ {
+  "j": 169,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento tión y absorción de "
+ },
+ {
+  "j": 170,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre comidas, la vesícula biliar absorbe agua y electrólito"
+ },
+ {
+  "j": 171,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi veinte por ciento de la bilis que no se reabsorbe, se e"
+ },
+ {
+  "j": 172,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El páncreas El páncreas, figura veinticinco coma dos un, es "
+ },
+ {
+  "j": 173,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi noventa y nueve por ciento del páncreas es tejido exocr"
+ },
+ {
+  "j": 174,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo tanto, el esfínter hepatopancreático controla la libe"
+ },
+ {
+  "j": 175,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veinticinco punto tres. Aplicación "
+ },
+ {
+  "j": 176,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los cálculos biliares causan dolor excruciante cuando obstru"
+ },
+ {
+  "j": 177,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La reobstrucción puede prevenirse al insertar una endoprótes"
+ },
+ {
+  "j": 178,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo general hay un conducto pancreático accesorio que se "
+ },
+ {
+  "j": 179,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El bicarbonato amortigua el HCl que llega del estómago. Los "
+ },
+ {
+  "j": 180,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otras enzimas pancreáticas son la amilasa pancreática que di"
+ },
+ {
+  "j": 181,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Regulación de la secreción Los principales responsables de l"
+ },
+ {
+  "j": 182,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La colecistocinina19, C C K, secretada por la mucosa del duo"
+ },
+ {
+  "j": 183,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La secretina estimula los conductos del hígado y el páncreas"
+ },
+ {
+  "j": 184,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El páncreas secreta tripsinógeno, y la enterocinasa secretad"
+ },
+ {
+  "j": 185,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO veinticinco coma dos Secreciones exocrinas del páncre"
+ },
+ {
+  "j": 186,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Así, lo que se queda"
+ },
+ {
+  "j": 187,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "¿Qué hace que el hígado contribuya a la digestión? quince. S"
+ },
+ {
+  "j": 188,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veinticinco punto cinco El intestino delgado Resultados espe"
+ },
+ {
+  "j": 189,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para realizar estas funciones de manera eficiente y completa"
+ },
+ {
+  "j": 190,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El duodeno constituye los primeros veinticinco centímetros, "
+ },
+ {
+  "j": 191,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aquí se neutraliza el ácido estomacal, los ácidos biliares d"
+ },
+ {
+  "j": 192,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su nombre alude al hecho de que los primeros anatomistas sol"
+ },
+ {
+  "j": 193,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El íleon22 forma el último sesenta por ciento del intestino "
+ },
+ {
+  "j": 194,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo yeyuno, su pared e"
+ },
+ {
+  "j": 195,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capa muscular del íleon está engrosada en este punto para"
+ },
+ {
+  "j": 196,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El yeyuno y el íleon son intraperitoneales y, por lo tanto, "
+ },
+ {
+  "j": 197,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si la mucosa fuera lisa, como el interior de una manguera, t"
+ },
+ {
+  "j": 198,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de lo aprendido El intestino delgado presenta alg"
+ },
+ {
+  "j": 199,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hacen que el quimo fl uya en una ruta en especial a lo largo"
+ },
+ {
+  "j": 200,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al examinar la mucosa de cerca parece como si estuviera cubi"
+ },
+ {
+  "j": 201,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al igual que las células epiteliales del estómago, las del i"
+ },
+ {
+  "j": 202,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El núcleo de la vellosidad también tiene unas cuantas célula"
+ },
+ {
+  "j": 203,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No son secretadas en la luz; en cambio, el quimo debe poners"
+ },
+ {
+  "j": 204,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la mitad superior, constan de enterocitos y células calic"
+ },
+ {
+  "j": 205,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Secretan una gran cantidad de moco veintitrés Johann K. Peye"
+ },
+ {
+  "j": 206,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Glándulas duodenales"
+ },
+ {
+  "j": 207,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo con abundante bica"
+ },
+ {
+  "j": 208,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este líquido presenta un pe hache de siete coma cuatro a sie"
+ },
+ {
+  "j": 209,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Motilidad intestinal Las contracciones del intestino delgado"
+ },
+ {
+  "j": 210,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es el tipo más común de contracción intestinal. Su efecto es"
+ },
+ {
+  "j": 211,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando se han absorbido casi todos los nutrimentos y no qued"
+ },
+ {
+  "j": 212,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un segundo complejo expele luego los residuos y las bacteria"
+ },
+ {
+  "j": 213,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Antes de proseguir Responda las siguientes preguntas para pr"
+ },
+ {
+  "j": 214,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada onda desciende una parte del intestino y lleva su conte"
+ },
+ {
+  "j": 215,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veinticinco punto seis Digestión química y absorción Resulta"
+ },
+ {
+  "j": 216,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero antes de estudiar las funciones del intestino grueso, s"
+ },
+ {
+  "j": 217,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Primero, el almidón se digiere en oligosacáridos de hasta oc"
+ },
+ {
+  "j": 218,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se desnaturaliza con rapidez después de entrar en contacto c"
+ },
+ {
+  "j": 219,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que el ácido, la pepsina y las contracciones de mez"
+ },
+ {
+  "j": 220,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su digestión se completa cuando el quimo entra en contacto c"
+ },
+ {
+  "j": 221,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los digieren las enzimas del borde en cepillo sucrasa y lact"
+ },
+ {
+  "j": 222,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi ochenta por ciento del azúcar absorbida es glucosa, que"
+ },
+ {
+  "j": 223,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El agua transporta más glucosa y otros nutrimentos con ella "
+ },
+ {
+  "j": 224,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dentro del enterocito, la Almidón Digestión por contacto Abs"
+ },
+ {
+  "j": 225,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo mayor parte de la "
+ },
+ {
+  "j": 226,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Proteínas Los aminoácidos absorbidos en el intestino delgado"
+ },
+ {
+  "j": 227,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Allí, la pepsina hidroliza cualquier enlace peptídico entre "
+ },
+ {
+  "j": 228,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por último, éstos son separados, de aminoácido en aminoácido"
+ },
+ {
+  "j": 229,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También es posible absorber dipéptidos y tripéptidos, pero s"
+ },
+ {
+  "j": 230,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto permite que la IgA de la leche materna pase a la circul"
+ },
+ {
+  "j": 231,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida Cotransporte bidireccional Cotransporte unidireccio"
+ },
+ {
+  "j": 232,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La glucosa también se absorbe junto con el agua a través de "
+ },
+ {
+  "j": 233,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veinticinco punto cuatro. Aplicació"
+ },
+ {
+  "j": 234,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, este extraño hábito está muy limitado a persona"
+ },
+ {
+  "j": 235,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si consumen leche, la lactosa pasa sin digerir al intestino "
+ },
+ {
+  "j": 236,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La intolerancia a la lactosa ocurre en casi quince por cient"
+ },
+ {
+  "j": 237,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las personas con intolerancia a la lactosa pueden consumir p"
+ },
+ {
+  "j": 238,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O"
+ },
+ {
+  "j": 239,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "O C HO H H N H N H C O o hache H H N O C o hache H H N O C o"
+ },
+ {
+  "j": 240,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "O C o hache H H N O C o hache H H N O C o hache H H N La car"
+ },
+ {
+  "j": 241,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Boca Estómago Intestino delgado Acciones de las enzimas panc"
+ },
+ {
+  "j": 242,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo que el intestino m"
+ },
+ {
+  "j": 243,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aquí se le une la lipasa gástrica, que hace una mayor contri"
+ },
+ {
+  "j": 244,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cambio, ciertos compuestos de la bilis, lecitina y ácidos"
+ },
+ {
+  "j": 245,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después de una comida, en el intestino delgado hay sufi - ci"
+ },
+ {
+  "j": 246,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La absorción de estos productos y otros lípidos depende de g"
+ },
+ {
+  "j": 247,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a sus superficies hidrofílicas, cargadas, las micelas"
+ },
+ {
+  "j": 248,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dentro de los enterocitos, se transporta a los F F A y los m"
+ },
+ {
+  "j": 249,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si bien algunos F F A entran en los capilares sanguíneos, lo"
+ },
+ {
+  "j": 250,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de lo aprendido Explique por qué el conducto linf"
+ },
+ {
+  "j": 251,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Portadoras de membrana hacen que estos productos atraviesen "
+ },
+ {
+  "j": 252,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una excepción es la vitamina B12, una molécula demasiado gra"
+ },
+ {
+  "j": 253,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintiocho mic igual a grano; ella igual a pequeña."
+ },
+ {
+  "j": 254,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Emulsificación Hidró"
+ },
+ {
+  "j": 255,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Glóbulo de grasa Monoglicéridos Centro del lípido Micelas Ác"
+ },
+ {
+  "j": 256,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Borde en cepillo Célula de absorción Vaso quilífero Quilomic"
+ },
+ {
+  "j": 257,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo activa en el íleon"
+ },
+ {
+  "j": 258,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El hierro y el calcio son inusuales en el sentido de que se "
+ },
+ {
+  "j": 259,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El hierro se transporta a la superficie basal de la célula y"
+ },
+ {
+  "j": 260,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de lo aprendido Las mujeres jóvenes tienen cuatro"
+ },
+ {
+  "j": 261,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto mantiene baja la concentración intracelular de calcio l"
+ },
+ {
+  "j": 262,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como respuesta a una caída en la concentración de calcio en "
+ },
+ {
+  "j": 263,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Así, aumenta la absorción de calcio dietético y eleva la con"
+ },
+ {
+  "j": 264,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Agua El aparato digestivo es uno de los varios sistemas que "
+ },
+ {
+  "j": 265,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El agua se absorbe por ósmosis, después de la absorción de s"
+ },
+ {
+  "j": 266,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El estreñimiento ocurre cuando el movimiento fecal es lento,"
+ },
+ {
+  "j": 267,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintidós. Mencione las dos enzimas digestivas presentes en "
+ },
+ {
+  "j": 268,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento veinticinco coma sie"
+ },
+ {
+  "j": 269,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El intestino grueso recibe casi quinientos mililitros de res"
+ },
+ {
+  "j": 270,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Adjunto a su extremo inferior se encuentra el apéndice, un t"
+ },
+ {
+  "j": 271,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Da un giro de noventa grados en el ángulo cólico derecho, he"
+ },
+ {
+  "j": 272,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La cavidad pélvica es más estrecha que la abdominal, de modo"
+ },
+ {
+  "j": 273,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuenta con tres dobleces hacia dentro denominados pliegues r"
+ },
+ {
+  "j": 274,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las venas hemorroidales notorias forman plexos superficiales"
+ },
+ {
+  "j": 275,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tono muscular de la tenia del colon contrae el colon a lo"
+ },
+ {
+  "j": 276,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El colon ascendente y el descendente son retroperitoneales y"
+ },
+ {
+  "j": 277,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este último proporciona más resistencia a la abrasión causad"
+ },
+ {
+  "j": 278,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Ángulo cólico dere"
+ },
+ {
+  "j": 279,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Flora bacteriana y g"
+ },
+ {
+  "j": 280,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a estas bacterias se obtienen más nutrimentos del ali"
+ },
+ {
+  "j": 281,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El intestino grueso contiene de siete a diez litros de gas, "
+ },
+ {
+  "j": 282,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los fl atos están compuestos por nitrógeno, N2, dióxido de c"
+ },
+ {
+  "j": 283,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No cambia de manera química los residuos sino que reabsorbe "
+ },
+ {
+  "j": 284,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tipo más común de movilidad colónica es un tipo de segmen"
+ },
+ {
+  "j": 285,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A menudo se activan por los reflejos gastrocólico y duodenoc"
+ },
+ {
+  "j": 286,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El proceso incluye dos reflejos: un. El reflejo de defecació"
+ },
+ {
+  "j": 287,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sus principales eventos, figura veinticinco coma tres dos, s"
+ },
+ {
+  "j": 288,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, el esfínter anal externo, como el uretral exter"
+ },
+ {
+  "j": 289,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se suprime la urgencia de defecar, las contracciones cesa"
+ },
+ {
+  "j": 290,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo Antes de proseguir"
+ },
+ {
+  "j": 291,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Impulsos de la corteza cerebral Fibras sensitivas Receptores"
+ },
+ {
+  "j": 292,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento CUADRO veinticinco c"
+ },
+ {
+  "j": 293,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El hígado enfermo vierte líquido en el abdomen. Casi veintic"
+ },
+ {
+  "j": 294,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A menudo hereditaria Diverticulitis Presencia de hernias inf"
+ },
+ {
+  "j": 295,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Produce gran malabsorción de la mayor parte de los nutriment"
+ },
+ {
+  "j": 296,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tiende a ser congénita pero no se conocen bien las causas ex"
+ },
+ {
+  "j": 297,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veinticinco El aparato digestivo CONOCIMIENTO MÁS A"
+ },
+ {
+  "j": 298,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se llamó a un doctor del ejército fronterizo estacionado en "
+ },
+ {
+  "j": 299,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En un periodo de meses, la herida expulsó piezas de hueso, c"
+ },
+ {
+  "j": 300,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las autoridades de la ciudad decidieron que ya no podían sos"
+ },
+ {
+  "j": 301,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Beaumont nunca asistió a una escuela de medicina y tenía poc"
+ },
+ {
+  "j": 302,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Puso trozos de carne en una cadena dentro del estómago y los"
+ },
+ {
+  "j": 303,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Beaumont también demostró que el jugo gástrico es secretado "
+ },
+ {
+  "j": 304,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tenía una esposa y una hija en Canadá a quienes pocas veces "
+ },
+ {
+  "j": 305,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Martin estaba muy molesto, Beaumont observó que ocurría poca"
+ },
+ {
+  "j": 306,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A partir de los métodos en que Beaumont fue pionero, Pavlov "
+ },
+ {
+  "j": 307,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Martin vivió en la miseria en una pequeña choza con su espos"
+ },
+ {
+  "j": 308,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Efectos del APARATO DIGESTIVO en otros sistemas de órganos T"
+ },
+ {
+  "j": 309,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "APARATO URINARIO El hígado sintetiza la urea excretada por l"
+ },
+ {
+  "j": 310,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "SISTEMAS LINFÁTICO E INMUNITARIO El intestino delgado es la "
+ },
+ {
+  "j": 311,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "SISTEMA ÓSEO El depósito y el mantenimiento de hueso depende"
+ },
+ {
+  "j": 312,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "SISTEMA NERVIOSO Los péptidos enteroencefálicos producidos e"
+ },
+ {
+  "j": 313,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "APARATO CIRCULATORIO La absorción del líquido intestinal da "
+ }
 ]

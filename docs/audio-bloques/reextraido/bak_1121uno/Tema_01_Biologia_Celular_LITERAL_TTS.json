@@ -1,0 +1,20 @@
+[
+  {
+    "j": 26,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9958,
+    "pagina": 41,
+    "texto_viejo": "Tabla un a un Resumen de las diferencias entre células eucariotas y procariotas Eucariotas Procariotas Tamaño de la célula , diámetro promedio, diez a cien μm cero,dos a dos μm Localización del genoma Dentro del núcleo, recubierto por la envoltura nuclear En el citoplasma, sin envoltura nuclear Estructura del genoma Lineal, segmentado en cromosomas, asociados a histonas Un solo cromosoma circular; sin histonas Citoesqueleto Presente Ausente Pared celular En células animales, inexistente; en plantas, celulosa; en algunos hongos, quitina; en levaduras, glucanos y mananos Peptidoglucano y otras estructuras Movilidad Cilios y flagelos en algunas células animales Flagelos rotatorios de locomoción División celular Mitosis o meiosis Fisión binaria Ribosomas ochenta S en el citoplasma setenta S Orgánulos cubiertos de membrana Núcleo, mitocondrias, retículo endoplasmático, aparato de Golgi, endosomas, vacuolas; cloroplastos , en plantas fotosintéticas, Ninguno.",
+    "texto_nuevo": "Tabla uno punto uno Resumen de las diferencias entre células eucariotas y procariotas Eucariotas Procariotas Tamaño de la célula, diámetro promedio, diez a cien micrómetros cero coma dos a dos micrómetros Localización del genoma Dentro del núcleo, recubierto por la envoltura nuclear En el citoplasma, sin envoltura nuclear Estructura del genoma Lineal, segmentado en cromosomas, asociados a histonas Un solo cromosoma circular; sin histonas Citoesqueleto Presente Ausente Pared celular En células animales, inexistente; en plantas, celulosa; en algunos hongos, quitina; en levaduras, glucanos y mananos Peptidoglucano y otras estructuras Movilidad Cilios y flagelos en algunas células animales Flagelos rotatorios de locomoción División celular Mitosis o meiosis Fisión binaria Ribosomas ochenta S en el citoplasma setenta S Orgánulos cubiertos de membrana Núcleo, mitocondrias, retículo endoplasmático, aparato de Golgi, endosomas, vacuolas; cloroplastos, en plantas fotosintéticas, Ninguno."
+  },
+  {
+    "j": 38,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 44,
+    "texto_viejo": "La subunidad B de la toxina colérica se une a los gangliósidos en la superficie de la célula, mientras que la subunidad A penetra en el citosol. Esto conlleva el inicio de una cascada de señalización intracelular que aumenta los niveles de AMPc , v. capítulo trece, lo cual altera el balance normal de electrólitos: los niveles de Na+ y Cl menos aumentan en la luz intestinal, y entonces arrastran agua hacia la luz por ósmosis, provocando diarrea y vómitos.",
+    "texto_nuevo": "La subunidad B de la toxina colérica se une a los gangliósidos en la superficie de la célula, mientras que la subunidad A penetra en el citosol. Esto conlleva el inicio de una cascada de señalización intracelular que aumenta los niveles de AMPc, v. capítulo trece, lo cual altera el balance normal de electrólitos: los niveles de Na más y Cl menos aumentan en la luz intestinal, y entonces arrastran agua hacia la luz por ósmosis, provocando diarrea y vómitos."
+  }
+]

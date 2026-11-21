@@ -1,0 +1,74 @@
+[
+  {
+    "j": 4,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 57,
+    "texto_viejo": "Microscopía óptica convencional El microscopio es un elemento imprescindible para el conocimiento y análisis de las células y tejidos. En el estudio de las células se presentan dos problemas fundamentales: su pequeño tamaño y el hecho de que la mayoría de las estructuras celulares son translúcidas, por lo que no se pueden distinguir con claridad. El primer problema se soluciona por medio de los microscopios, que consiguen aumentar la imagen unas un coma cinco cero cero veces, en el caso de un microscopio óptico convencional, y unas ciento cincuenta.cero a doscientos.cero veces en el caso del microscopio electrónico.",
+    "texto_nuevo": "Microscopía óptica convencional El microscopio es un elemento imprescindible para el conocimiento y análisis de las células y tejidos. En el estudio de las células se presentan dos problemas fundamentales: su pequeño tamaño y el hecho de que la mayoría de las estructuras celulares son translúcidas, por lo que no se pueden distinguir con claridad. El primer problema se soluciona por medio de los microscopios, que consiguen aumentar la imagen unas mil quinientas veces, en el caso de un microscopio óptico convencional, y unas ciento cincuenta mil a doscientas mil veces en el caso del microscopio electrónico."
+  },
+  {
+    "j": 9,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 58,
+    "texto_viejo": "El LR para el microscopio óptico convencional es de ∼cero coma dos μm. Todo lo que esté separado por una distancia menor, o tenga un tamaño inferior a esta medida, no podrá ser observado con claridad al microscopio óptico. El LR para el microscopio electrónico de transmisión es de diez a veinte ángstroms.",
+    "texto_nuevo": "El LR para el microscopio óptico convencional es de aproximadamente cero coma dos micrómetros. Todo lo que esté separado por una distancia menor, o tenga un tamaño inferior a esta medida, no podrá ser observado con claridad al microscopio óptico. El LR para el microscopio electrónico de transmisión es de diez a veinte ángstroms."
+  },
+  {
+    "j": 10,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9926,
+    "pagina": 58,
+    "texto_viejo": "Las células , diez a cien μm, el n úcleo celular , ∼diez μm, las mitocondrias y lisosomas , ∼cero coma cinco μm, las bacterias , cero,cinco a diez μm, etc., pueden ser observados al microscopio óptico; en cambio, estructuras como los ribosomas , veinticinco nanómetros, los virus , treinta a cien nanómetros, la membrana plasmática , siete nanómetros, etc., solo se pueden observar con el microscopio electrónico. Matemáticamente el LR se define como el cociente entre la longitud de onda empleada , λ, multiplicada por una constante k, dividido por la apertura numérica , AN, del objetivo , fig.",
+    "texto_nuevo": "Las células, diez a cien micrómetros, el n úcleo celular, aproximadamente diez micrómetros, las mitocondrias y lisosomas, aproximadamente cero coma cinco micrómetros, las bacterias, cero coma cinco a diez micrómetros, etc. pueden ser observados al microscopio óptico; en cambio, estructuras como los ribosomas, veinticinco nanómetros, los virus, treinta a cien nanómetros, la membrana plasmática, siete nanómetros, etc. solo se pueden observar con el microscopio electrónico. Matemáticamente el LR se define como el cociente entre la longitud de onda empleada, lambda, multiplicada por una constante k, dividido por la apertura numérica, AN, del objetivo fig."
+  },
+  {
+    "j": 12,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9919,
+    "pagina": 58,
+    "texto_viejo": "En condiciones óptimas, poniendo todos estos datos en la ecuación, obtendríamos un LR para el microscopio óptico convencional de cero coma dos cuatro μm. FIGURA dos a dos Definición matemática del límite de resolución , LR,. En las mejores condiciones ópticas, el LR del microscopio óptico está en torno a cero coma dos μm. La naturaleza ondulante de la luz establece que no se puedan alcanzar límites de resolución inferiores a ∼cero coma dos para un microscopio óptico convencional.",
+    "texto_nuevo": "En condiciones óptimas, poniendo todos estos datos en la ecuación, obtendríamos un LR para el microscopio óptico convencional de cero coma dos cuatro micrómetros. FIGURA dos punto dos Definición matemática del límite de resolución, LR. En las mejores condiciones ópticas, el LR del microscopio óptico está en torno a cero coma dos micrómetros. La naturaleza ondulante de la luz establece que no se puedan alcanzar límites de resolución inferiores a aproximadamente cero coma dos para un microscopio óptico convencional."
+  },
+  {
+    "j": 55,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 69,
+    "texto_viejo": "Como en el caso de la parafina, es necesario realizar un proceso previo de deshidratación. Las resinas son sustancias líquidas cuando se encuentran en su forma monomérica, y polimerizan tras tratamientos de calor o tratamientos con luz ultravioleta, dando lugar a polímeros sólidos de gran dureza que permiten hacer cortes muy finos. Asimismo, esta técnica de inclusión permite realizar cortes semifinos , un μm de espesor, que pueden ser observados al microscopio de luz. Microtomía Los cortes histológicos para microscopía óptica se realizan con un aparato denominado microtomo, y habitualmente tienen entre tres y cinco μm de grosor.",
+    "texto_nuevo": "Como en el caso de la parafina, es necesario realizar un proceso previo de deshidratación. Las resinas son sustancias líquidas cuando se encuentran en su forma monomérica, y polimerizan tras tratamientos de calor o tratamientos con luz ultravioleta, dando lugar a polímeros sólidos de gran dureza que permiten hacer cortes muy finos. Asimismo, esta técnica de inclusión permite realizar cortes semifinos, un micrómetro de espesor, que pueden ser observados al microscopio de luz. Microtomía Los cortes histológicos para microscopía óptica se realizan con un aparato denominado microtomo, y habitualmente tienen entre tres y cinco micrómetros de grosor."
+  },
+  {
+    "j": 56,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9941,
+    "pagina": 69,
+    "texto_viejo": "Para microscopía electrónica se hacen cortes finos , diez a cien nanómetros, con un aparato denominado ultramicrotomo. Los cortes de parafina se recogen en portaobjetos de vidrio; sin embargo, los cortes finos se colocan en redes de cobre o níquel para su observación al M E T. En el caso de las muestras fijadas por congelación, los cortes suelen ser más gruesos , grosor mínimo de entre seis y ocho μm, y se utiliza un aparato denominado criostato, que mantiene las muestras a una temperatura de menos veinte °C durante el corte. Estas muestras no requieren el paso de deshidratación.",
+    "texto_nuevo": "Para microscopía electrónica se hacen cortes finos, diez a cien nanómetros, con un aparato denominado ultramicrotomo. Los cortes de parafina se recogen en portaobjetos de vidrio; sin embargo, los cortes finos se colocan en redes de cobre o níquel para su observación al M E T. En el caso de las muestras fijadas por congelación, los cortes suelen ser más gruesos, grosor mínimo de entre seis y ocho micrómetros, y se utiliza un aparato denominado criostato, que mantiene las muestras a una temperatura de menos veinte grados Celsius durante el corte. Estas muestras no requieren el paso de deshidratación."
+  },
+  {
+    "j": 85,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('n' vs 'es')",
+    "similitud": 0.9859,
+    "pagina": 78,
+    "texto_viejo": "Reacción en cadena de la polimerasa En el año mil novecientos ochenta y cinco, el investigador norteamericano Kary Mullis desarrolló el método de la reacción en cadena de la polimerasa , P C R, del inglés polymerase chain reaction, por el que recibió el premio Nobel de Química en mil novecientos noventa y tres. La técnica se basa en multiplicar de forma exponencial un segmento determinado de A D N, a partir de una muestra muy pequeña , menos de un μg de A D N,.",
+    "texto_nuevo": "Reacción en cadena de la polimerasa En el año mil novecientos ochenta y cinco, el investigador norteamericano Kary Mullis desarrolló el método de la reacción en cadena de la polimerasa, P C R, del inglés polymerase chain reaction, por el que recibió el premio Nobel de Química en mil novecientos noventa y tres. La técnica se basa en multiplicar de forma exponencial un segmento determinado de A D N, a partir de una muestra muy pequeña, menos de un microgramo de A D N. Previamente, es"
+  },
+  {
+    "j": 111,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9814,
+    "pagina": 82,
+    "texto_viejo": "El uso del ADNmt es ventajoso, ya que en cada célula existen hasta un coma cero cero cero copias, superando enormemente a las dos copias del A D N genómico. Esto permite la obtención de A D N aun en casos de muestras muy escasas, con A D N degradado o que sufrieron el paso del tiempo , p. ej., restos esqueléticos,. Además puede resultar útil para determinar la filiación por vía materna. Las STR del cromosoma Y son muy convenientes para estudiar el patrón genético de un individuo masculino.",
+    "texto_nuevo": "El uso del ADNmt es ventajoso, ya que en cada célula existen hasta mil copias, superando enormemente a las dos copias del A D N genómico. Esto permite la obtención de A D N aun en casos de muestras muy escasas, con A D N degradado o que sufrieron el paso del tiempo, por ejemplo, restos esqueléticos. Además puede resultar útil para determinar la filiación por vía materna. Las STR del cromosoma Y son muy convenientes para estudiar el patrón genético de un individuo masculino."
+  }
+]

@@ -1,0 +1,236 @@
+[
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "buscar": "con el diecisiete por ciento del genoma y más de quinientos coma cero cero cero copias.",
+  "reemplazar": "con el diecisiete por ciento del genoma y más de quinientas mil copias.",
+  "motivo": "En Calvo pág. 324 dice «500.000 copias»; el punto de miles se leyó como decimal (regla 3)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "buscar": "formado por transposones A D N, con alrededor de trescientos coma cero cero cero copias.",
+  "reemplazar": "formado por transposones A D N, con alrededor de trescientas mil copias.",
+  "motivo": "En Calvo pág. 324 dice «300.000 copias»; el punto de miles se leyó como decimal (regla 3)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "buscar": "permitían obtener fragmentos de secuencia inferiores a un coma cero cero cero nucleótidos, por lo que era necesario",
+  "reemplazar": "permitían obtener fragmentos de secuencia inferiores a mil nucleótidos, por lo que era necesario",
+  "motivo": "En Calvo pág. 326 dice «1.000 nucleótidos»; corrige en una sola edición las tres alertas superpuestas de rev. 6 (regla 3)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "buscar": "pero en la meiosis su tasa de aparición es entre cien y un coma cero cero cero veces superior.",
+  "reemplazar": "pero en la meiosis su tasa de aparición es entre cien y mil veces superior.",
+  "motivo": "En Calvo pág. 336 dice «entre 100 y 1.000 veces superior»; corrige en una sola edición las tres alertas superpuestas de rev. 6 (regla 3)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "cuando se permite que la fi ebre siga su curso en lugar",
+  "reemplazar": "cuando se permite que la fiebre siga su curso en lugar",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "usar antipiréticos, reductores de fi ebre, como el ácido acetilsalicílico.",
+  "reemplazar": "usar antipiréticos, reductores de fiebre, como el ácido acetilsalicílico.",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "La fi ebre es benéfica porque: un promueve la actividad",
+  "reemplazar": "La fiebre es benéfica porque: un promueve la actividad",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "el ibuprofeno reducen la fi ebre al inhibir la síntesis de prostaglandina",
+  "reemplazar": "el ibuprofeno reducen la fiebre al inhibir la síntesis de prostaglandina",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "ácido acetilsalicílico para controlar la fi ebre puede tener consecuencias fatales",
+  "reemplazar": "ácido acetilsalicílico para controlar la fiebre puede tener consecuencias fatales",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "En la etapa de la fi ebre a la que se le denomina inicio,",
+  "reemplazar": "En la etapa de la fiebre a la que se le denomina inicio,",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 854 / imp. 826, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "La fi ebre superior a cuarenta coma cinco grados Celsius",
+  "reemplazar": "La fiebre superior a cuarenta coma cinco grados Celsius",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 855 / imp. 827, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "y la fi ebre de cuarenta y cuatro a cuarenta y seis grados Celsius",
+  "reemplazar": "y la fiebre de cuarenta y cuatro a cuarenta y seis grados Celsius",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 855 / imp. 827, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento Los neutrófi los también reclutan",
+  "reemplazar": "PARTE CUATRO Regulación y mantenimiento Los neutrófilos también reclutan",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. PDF 858 / imp. 830, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "macrófagos y neutrófi los adicionales al secretar citocinas,",
+  "reemplazar": "macrófagos y neutrófilos adicionales al secretar citocinas,",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. PDF 858 / imp. 830, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "células anfitrionas dañadas y neutrófi los muertos o a punto de morir.",
+  "reemplazar": "células anfitrionas dañadas y neutrófilos muertos o a punto de morir.",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. PDF 858 / imp. 830, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "A medida que la batalla avanza, todos los neutrófi los y la mayor parte",
+  "reemplazar": "A medida que la batalla avanza, todos los neutrófilos y la mayor parte",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. PDF 858 / imp. 830, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "las cuales permiten que los linfocitos T se fi jen a otras células",
+  "reemplazar": "las cuales permiten que los linfocitos T se fijen a otras células",
+  "motivo": "Ligadura «fi» partida en «fijen» (Saladin pág. PDF 862 / imp. 834, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "comprobar dos veces para qué se ha fi jado a una A P C que despliega",
+  "reemplazar": "comprobar dos veces para qué se ha fijado a una A P C que despliega",
+  "motivo": "Ligadura «fi» partida en «fijado» (Saladin pág. PDF 863 / imp. 835, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "ejercen tres efectos: un atraen neutrófi los y linfocitos citolíticos naturales;",
+  "reemplazar": "ejercen tres efectos: un atraen neutrófilos y linfocitos citolíticos naturales;",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. PDF 863 / imp. 835, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "se detiene a menos que un linfocito T cooperador se fi je a este complejo",
+  "reemplazar": "se detiene a menos que un linfocito T cooperador se fije a este complejo",
+  "motivo": "Ligadura «fi» partida en «fije» (Saladin pág. PDF 865 / imp. 837, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "Por consiguiente, transfi ere inmunidad de la madre al feto.",
+  "reemplazar": "Por consiguiente, transfiere inmunidad de la madre al feto.",
+  "motivo": "Ligadura «fi» partida en «transfiere» (Saladin pág. PDF 867 / imp. 839, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "pensar que cada proteína del cuerpo es codifi cada por un gen,",
+  "reemplazar": "pensar que cada proteína del cuerpo es codificada por un gen,",
+  "motivo": "Ligadura «fi» partida en «codificada» (Saladin pág. PDF 867 / imp. 839, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "un virus que permite que esos agentes se fi jen a células humanas.",
+  "reemplazar": "un virus que permite que esos agentes se fijen a células humanas.",
+  "motivo": "Ligadura «fi» partida en «fijen» (Saladin pág. PDF 867 / imp. 839, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "o la acción fagocitaria de los eosinófi los en los tejidos conjuntivos.",
+  "reemplazar": "o la acción fagocitaria de los eosinófilos en los tejidos conjuntivos.",
+  "motivo": "Ligadura «fi» partida en «eosinófilos» (Saladin pág. PDF 868 / imp. 840, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "como complementos, macrófagos o eosinófi los.",
+  "reemplazar": "como complementos, macrófagos o eosinófilos.",
+  "motivo": "Ligadura «fi» partida en «eosinófilos» (Saladin pág. PDF 869 / imp. 841, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "se fijan a IgE en las membranas de los basófi los y los mastocitos,",
+  "reemplazar": "se fijan a IgE en las membranas de los basófilos y los mastocitos,",
+  "motivo": "Ligadura «fi» partida en «basófilos» (Saladin pág. PDF 871 / imp. 843, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "son inadecuados para contrarrestar el choque anafi láctico, pero la epinefrina",
+  "reemplazar": "son inadecuados para contrarrestar el choque anafiláctico, pero la epinefrina",
+  "motivo": "Ligadura «fi» partida en «anafiláctico» (Saladin pág. PDF 871 / imp. 843, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "cuando las IgG e IgM atacan antígenos fi jados a las superficies celulares.",
+  "reemplazar": "cuando las IgG e IgM atacan antígenos fijados a las superficies celulares.",
+  "motivo": "Ligadura «fi» partida en «fijados» (Saladin pág. PDF 871 / imp. 843, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "reacciones a las transfusiones sanguíneas, el pénfi go vulgar, p. ciento sesenta y siete,",
+  "reemplazar": "reacciones a las transfusiones sanguíneas, el pénfigo vulgar, p. ciento sesenta y siete,",
+  "motivo": "Ligadura «fi» partida en «pénfigo» (Saladin pág. PDF 871 / imp. 843, regla 6; fuera del tope de 10 ejemplos)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "se fija a la superficie celular de receptores e interfi ere con su función,",
+  "reemplazar": "se fija a la superficie celular de receptores e interfiere con su función,",
+  "motivo": "Ligadura «fi» partida en «interfiere» (Saladin pág. PDF 871 / imp. 843, regla 6; fuera del tope de 10 ejemplos)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "Por ejemplo, en la fi ebre reumática, una infección por estreptococos",
+  "reemplazar": "Por ejemplo, en la fiebre reumática, una infección por estreptococos",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 872 / imp. 844, regla 6)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "el sistema inmunitario deja de responder con sufi ciente vigor.",
+  "reemplazar": "el sistema inmunitario deja de responder con suficiente vigor.",
+  "motivo": "Ligadura «fi» partida en «suficiente» (Saladin pág. PDF 872 / imp. 844, regla 6; fuera del tope de 10 ejemplos)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "buscar": "episodios parecidos a la gripe con escalofrío y fi ebre, a medida que el H I V",
+  "reemplazar": "episodios parecidos a la gripe con escalofrío y fiebre, a medida que el H I V",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. PDF 873 / imp. 845, regla 6)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "La reacción con la hemoglobina puede simbolizarse Hb + CO2 → HbCO2.",
+  "reemplazar": "La reacción con la hemoglobina puede simbolizarse Hb más CO2 produce HbCO2.",
+  "motivo": "Símbolo «+» (y «→») sin verbalizar en fórmula del cuerpo (Saladin pág. PDF 910 / imp. 882, regla 4)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "en los capilares sistémicos. Tejido que respira Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Compuestos carbamino cloruro cloruro siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento uno coma cinco por ciento CO2 + Hb CO2 + H2O O2 + HHb HbO2 + hidrógeno H2CO3 bicarbonato + hidrógeno bicarbonato – cloruro Cotransporte bidireccional bicarbonato HbCO2 C A H Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina C A H Anhidrasa carbónica Desplazamiento de cloruro cero veinte cuarenta sesenta ochenta cien Tejidos sistémicos Alveolos Porcentaje de saturación de O2 de hemoglobina mililitros O2 o cien mililitros de sangre Presión parcial de O2, Po2, en milímetros de mercurio veintidós por ciento FIGURA veintidós coma dos cuatro",
+  "reemplazar": "en los capilares sistémicos.\nFIGURA veintidós coma dos cuatro",
+  "motivo": "Contiene 6 símbolos «+» dentro de etiquetas visuales sueltas de los diagramas 22.24 y 22.25; se quitan las etiquetas y se conserva el pie oficial (regla 2)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "lo inverso del interMembrana respiratoria Sangre capilar Gas CO2 disuelto CO2 + proteína plasmática CO2 CO2 CO2 O2 O2 Gas O2 disuelto Aire alveolar Compuestos carbamino siete por ciento veintitrés por ciento setenta por ciento noventa y ocho coma cinco por ciento uno coma cinco por ciento CO2 + Hb HbO2 + hidrógeno bicarbonato + hidrógeno HbCO2 C A H CO2 + H2O H2CO3 Clave Hb Hemoglobina HbCO2 Carbaminohemoglobina HbO2 Oxihemoglobina HHb Desoxihemoglobina C A H Anhidrasa carbónica O2 + HHb cloruro cloruro Cotransporte bidireccional bicarbonato – cloruro bicarbonato Desplazamiento de cloruro FIGURA veintidós coma dos seis",
+  "reemplazar": "lo inverso del intercambio gaseoso sistémico.\nFIGURA veintidós coma dos seis",
+  "motivo": "Contiene 6 símbolos «+» dentro de etiquetas visuales sueltas de la figura 22.26; se quitan las etiquetas y se conserva el pie oficial (regla 2). [Claude: se une la palabra partida «inter…cambio gaseoso sistémico» (Saladin p. 912) y se quita su resto tras la figura.]"
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "la reacción del ácido carbónico se desplaza a la izquierda. CO2 + H2O → H2CO3 → HCO3 – + hidrógeno Por tanto, se consume",
+  "reemplazar": "la reacción del ácido carbónico se desplaza a la izquierda. C O dos más H dos O produce H dos C O tres, que produce H C O tres menos más hidrógeno. Por tanto, se consume",
+  "motivo": "Dos símbolos «+» en fórmula química del cuerpo sobre acidosis (Saladin pág. PDF 914 / imp. 886, regla 4)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "y reduciendo el pe hache a la normalidad. CO2 + H2O → H2CO3 → HCO3 – + hidrógeno Aunque los cambios",
+  "reemplazar": "y reduciendo el pe hache a la normalidad. C O dos más H dos O produce H dos C O tres, que produce H C O tres menos más hidrógeno. Aunque los cambios",
+  "motivo": "Dos símbolos «+» en fórmula química del cuerpo sobre alcalosis (Saladin pág. PDF 914 / imp. 886, regla 4)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "buscar": "CAPÍTULO veintidós El aparato respiratorio cambio gaseoso sistémico. A medida que la hemoglobina carga oxígeno",
+  "reemplazar": "A medida que la hemoglobina carga oxígeno",
+  "motivo": "Claude: resto de la palabra partida (unida antes de la figura 22.26) + encabezado de página."
+ }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "j": 25,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9831,
+    "pagina": 1097,
+    "texto_viejo": "Está compuesto sobre todo por haces de músculo liso que pasa hacia abajo, desde el fondo, y se enreda en espiral alrededor del cuerpo del útero. El miometrio es menos muscular y más fi broso cerca del cuello uterino; este último es casi por completo colagenoso. Las células musculares del miometrio miden casi cuarenta μm de largo en cuanto termina la menstruación, pero tienen el doble de largo en la mitad del ciclo menstrual y diez veces más durante el embarazo. La función del miometrio es producir las contracciones del parto que ayudan a expeler el feto.",
+    "texto_nuevo": "Está compuesto sobre todo por haces de músculo liso que pasa hacia abajo, desde el fondo, y se enreda en espiral alrededor del cuerpo del útero. El miometrio es menos muscular y más fibroso cerca del cuello uterino; este último es casi por completo colagenoso. Las células musculares del miometrio miden casi cuarenta micrómetros de largo en cuanto termina la menstruación, pero tienen el doble de largo en la mitad del ciclo menstrual y diez veces más durante el embarazo. La función del miometrio es producir las contracciones del parto que ayudan a expeler el feto."
+  },
+  {
+    "j": 31,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1097,
+    "texto_viejo": "cuatro μm FIGURA veintiocho coma cuatro Recubrimiento epitelial de la trompa de Falopio. Las células secretoras se muestran en rojo y verde, y los cilios de las células ciliadas en amarillo , SEM,. ●¿Qué propósitos tienen estos cilios? siete myo igual a músculo; metr igual a útero. ocho endo igual a dentro. nueve uesic igual a vejiga.",
+    "texto_nuevo": "cuatro micrómetros FIGURA veintiocho punto cuatro Recubrimiento epitelial de la trompa de Falopio. Las células secretoras se muestran en rojo y verde, y los cilios de las células ciliadas en amarillo, SEM. ●¿Qué propósitos tienen estos cilios? siete myo igual a músculo; metr igual a útero. ocho endo igual a dentro. nueve uesic igual a vejiga."
+  },
+  {
+    "j": 39,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1098,
+    "texto_viejo": "veinte μm veinte μm a Células normales b Células cancerosas , CIN III, FIGURA veintiocho coma cinco Pruebas de Papanicolaou. Se trata de frotis de células epiteliales pavimentosas obtenidas del cuello uterino. En las células cancerosas, se observa la pérdida de volumen celular y el núcleo muy agrandado. diez George N. Papanicolaou , mil ochocientos ochenta y tres a mil novecientos sesenta y dos, médico y citólogo griego estadounidense. once uagin igual a vaina. doce hyster igual a matriz; ektomia igual a extirpación.",
+    "texto_nuevo": "veinte micrómetros veinte micrómetros a Células normales b Células cancerosas, CIN III, FIGURA veintiocho punto cinco Pruebas de Papanicolaou. Se trata de frotis de células epiteliales pavimentosas obtenidas del cuello uterino. En las células cancerosas, se observa la pérdida de volumen celular y el núcleo muy agrandado. diez George N. Papanicolaou, mil ochocientos ochenta y tres a mil novecientos sesenta y dos, médico y citólogo griego estadounidense. once uagin igual a vaina. doce hyster igual a matriz; ektomia igual a extirpación."
+  },
+  {
+    "j": 106,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1107,
+    "texto_viejo": "Sin embargo, suele variar de veinte a cuarenta y cinco días, de modo Túnica albugínea del ovario Folículos primordiales Células foliculares Folículos primarios a Ovocitos Células granulosas Núcleo de ovocito Ovocito , óvulo, Zona pelúcida Cúmulo oófero Antro Teca folicular b cincuenta μm cien μm FIGURA veintiocho coma un dos Folículos ováricos. a Obsérvese la muy delgada capa de células pavimentosas alrededor del ovocito en un folículo primordial, y la capa única de células cúbicas en un folículo primario. b Un folículo maduro , de Graaf,. Justo antes de la ovulación, el diámetro de este folículo crece hasta veinticinco mm.",
+    "texto_nuevo": "Sin embargo, suele variar de veinte a cuarenta y cinco días, de modo Túnica albugínea del ovario Folículos primordiales Células foliculares Folículos primarios a Ovocitos Células granulosas Núcleo de ovocito Ovocito, óvulo, Zona pelúcida Cúmulo oófero Antro Teca folicular b cincuenta micrómetros cien micrómetros FIGURA veintiocho punto doce Folículos ováricos. a Obsérvese la muy delgada capa de células pavimentosas alrededor del ovocito en un folículo primordial, y la capa única de células cúbicas en un folículo primario. b Un folículo maduro, de Graaf. Justo antes de la ovulación, el diámetro de este folículo crece hasta veinticinco mm."
+  }
+]

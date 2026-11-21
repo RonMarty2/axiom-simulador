@@ -1,0 +1,1087 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO trece Mecanismos de señalización celular Objetivos "
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "no se encuentran aisladas en el organismo, sino inmersas en "
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las señales pueden ser de distinta naturaleza, como neurotra"
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a un Estrategias de señalización intracelular. "
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Señalización autocrina: señalización de tipo local, en la "
+  },
+  {
+    "j": 6,
+    "accion": "REUSAR",
+    "origen": "parte_006.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "endocrinos. Las hormonas viajan por el torrente circulatorio"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Contactos directos célula-célula o célula-sustrato En este c"
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los receptores pueden estar localizados: un en la membrana p"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La transcripción de estos genes y la posterior traducción en"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por eso, a este proceso se le llama cascada de señalización "
+  },
+  {
+    "j": 11,
+    "accion": "REUSAR",
+    "origen": "parte_012.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "moléculas intermediarias de señalización, en inglés, mecanis"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto es, de hecho, lo que ocurre en algunas patologías, como"
+  },
+  {
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro sistema de activación o inactivación frecuente es la un"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que ha finalizado la señalización, se produce una di"
+  },
+  {
+    "j": 15,
+    "accion": "REUSAR",
+    "origen": "parte_016.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Al analizar los procesos de comunicación celular no hay que "
+  },
+  {
+    "j": 16,
+    "accion": "REUSAR",
+    "origen": "parte_017.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Pero la concurrencia de otras señales puede resultar en la d"
+  },
+  {
+    "j": 17,
+    "accion": "REUSAR",
+    "origen": "parte_018.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el corazón, la acetilcolina da lugar a la disminución del"
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "debe, por un lado, a la presencia de diferentes tipos de rec"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a tres Mecanismos de transmisión de la señal en"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tipos de señalización celular mediados por la secreción de m"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "mediadores locales, de actuación paracrina o autocrina, neur"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las diferentes células que componen un tejido producen un co"
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Mientras que el F G F y el T G F-beta promueven la mitosis d"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla trece a un Ejemplos de factores de crecimiento y su ac"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "F G F Factores de crecimiento de los fibroblastos Favorecen "
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Actúa a través del receptor de E G F T G F-beta Factor de cr"
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "F G F, factor de crecimiento de los fibroblastos; T G F-beta"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Durante la carcinogénesis de muchos tumores epiteliales, las"
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "receptores de membrana de esos factores, favoreciéndose ento"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En mil novecientos noventa y ocho, los investigadores R. Fur"
+  },
+  {
+    "j": 31,
+    "accion": "REUSAR",
+    "origen": "parte_031.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La pared vascular posee una capa de músculo liso que rodea e"
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión al receptor produce una cascada de señales intracel"
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El NO tiene una vida media muy corta, cinco a diez s, ya que"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El G M P c actúa en el interior de la célula muscular, causa"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a siete Señalización intracelular mediada por e"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El infarto de miocardio se produce por falta de riego, isque"
+  },
+  {
+    "j": 37,
+    "accion": "REUSAR",
+    "origen": "parte_037.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Un modo de facilitar el paso de la sangre a través de las co"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a ocho Las placas de ateroma en las arterias co"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La estimulación sexual conduce a la liberación del neurotran"
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La viagra®, sulfato de sildenafilo, es un fármaco inhibidor "
+  },
+  {
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su efecto regula la proliferación y diferenciación de las cé"
+  },
+  {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las citoquinas pueden ejercer su acción de modo autocrino o "
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Ejemplos de citocinas y algunos de sus efectos Citoquina Nom"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Activación de neutrófilos, macrófagos y eosinófilos. Citotox"
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Todos los eicosanoides se sintetizan a partir del ácido araq"
+  },
+  {
+    "j": 46,
+    "accion": "REUSAR",
+    "origen": "parte_046.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA trece a nueve Estructura del ácido araquidónico y de "
+  },
+  {
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a diez Síntesis y principales tipos de eicosano"
+  },
+  {
+    "j": 48,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen varios tipos de P G, entre las cuales se podría dest"
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los mastocitos producen grandes cantidades de PGD2, que dese"
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tromboxanos, T X, Deben su nombre a que se descubrieron inic"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El LTB4 tiene un efecto quimiotáctico sobre leucocitos y es "
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, se sabe que la aspirina, ácido acetilsalicílico"
+  },
+  {
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este fármaco tiene también efectos secundarios, como por eje"
+  },
+  {
+    "j": 54,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a once Estructura del ácido acetilsalicílico y "
+  },
+  {
+    "j": 55,
+    "accion": "REUSAR",
+    "origen": "parte_055.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como se explicó en el capítulo cinco, los neurotransmisores "
+  },
+  {
+    "j": 56,
+    "accion": "REUSAR",
+    "origen": "parte_056.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Otros receptores de neurotransmisores están acoplados a prot"
+  },
+  {
+    "j": 57,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen dos grandes grupos de hormonas, en función de su nat"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "dos. Hormonas liposolubles: son hormonas hidrófobas, muchas "
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla trece a tres Ejemplos de hormonas, órganos de origen y"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "implica la transcripción de determinados genes. Los receptor"
+  },
+  {
+    "j": 61,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un ejemplo bien conocido es la señalización por medio de hor"
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las células diana, la testosterona posee un receptor loca"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La señalización llevada a cabo por la cinco-D H T tiene luga"
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a catorce Señalización mediada por receptores c"
+  },
+  {
+    "j": 65,
+    "accion": "REUSAR",
+    "origen": "parte_066.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Si se produce una disminución de los niveles de esta hormona"
+  },
+  {
+    "j": 66,
+    "accion": "REUSAR",
+    "origen": "parte_067.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El tipo de terapia más frecuente para pacientes en los que n"
+  },
+  {
+    "j": 67,
+    "accion": "REUSAR",
+    "origen": "parte_068.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Señalización por medio de receptores de membrana Los recepto"
+  },
+  {
+    "j": 68,
+    "accion": "REUSAR",
+    "origen": "parte_069.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En los receptores catalíticos o asociados a proteínas G, la "
+  },
+  {
+    "j": 69,
+    "accion": "REUSAR",
+    "origen": "parte_070.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Receptores asociados a proteínas de canal Las señales celula"
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el botón terminal de la neurona presináptica, la despolar"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Receptores asociados a proteínas G: transducción de la señal"
+  },
+  {
+    "j": 72,
+    "accion": "REUSAR",
+    "origen": "parte_073.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Son proteínas ancladas a la membrana plasmática por el lado "
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "tanto, las proteínas G acoplan las señales externas a las in"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Poseen un dominio extracelular que se une al ligando y un do"
+  },
+  {
+    "j": 75,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a quince A. Estructura de los receptores asocia"
+  },
+  {
+    "j": 76,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Solo entonces la proteína G puede unirse al receptor a travé"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los receptores que actúan vía A M P cíclico, A M P c, están "
+  },
+  {
+    "j": 78,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En cambio, cuando la adrenalina se une a un receptor alfa-ad"
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El A M P c actúa como segundo mensajero de la señal, siendo "
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La alteración del proceso de inactivación puede ocasionar pa"
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La bacteria produce una toxina que altera la subunidad alfa "
+  },
+  {
+    "j": 82,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si no se aplica un tratamiento adecuado, esta situación pued"
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando la actividad de Gia es bloqueada por la toxina pertus"
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El A M P c puede tener diversos efectos intracelulares, algu"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "células receptoras de olores están situadas en el epitelio o"
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen unos mil tipos de receptores olfatorios, cada uno de"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "P K A es un tetrámero formado por dos subunidades homodiméri"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un ejemplo es la fosforilación, con la consiguiente activaci"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la fosforilación, creb se une al A D N en regiones regu"
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Activación de la enzima fosfolipasa C-beta El complejo alfa-"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tanto el IP3 como el D A G están involucrados en la transduc"
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a dieciséis Señalización intracelular mediada p"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Actividad del inositol trifosfato, IP3, El IP3 es una molécu"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El R E L actúa como reservorio intracelular de calcio dos má"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El papel del calcio dos más en la señalización celular se di"
+  },
+  {
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Activar a la familia de proteínas quinasas C, P K C, que s"
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los ésteres de forbol, productos derivados de plantas, son c"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El calcio dos más desempeña un papel fundamental en la señal"
+  },
+  {
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La apertura de canales de calcio dos más del R E L tiene lug"
+  },
+  {
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "membrana del R E L llamados receptores de rianodina, porque "
+  },
+  {
+    "j": 101,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La señalización mediada por el calcio puede ser mimetizada e"
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión de estos iones modifica la conformación estructural"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando el espermatozoide se une al ovocito, tras haber penet"
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El contenido de estos gránulos digiere las cubiertas del ovo"
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otros ejemplos también representativos de la señalización me"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Activación de la enzima guanilato ciclasa Las proteínas G pu"
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas células contienen un fotorreceptor ligado a proteínas "
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En estas condiciones, los bastones emiten señales hacia el c"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a diecinueve Señalización intracelular mediada "
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Finalmente, otra opción es que la proteína G no interaccione"
+  },
+  {
+    "j": 111,
+    "accion": "REUSAR",
+    "origen": "parte_110.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto tiene como consecuencia la activación de un proceso de "
+  },
+  {
+    "j": 112,
+    "accion": "REUSAR",
+    "origen": "parte_111.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Receptores enzimáticos o catalíticos. Vías de transducción d"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una gran parte de estos receptores, tras ser activados por e"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a veinte Señalización intracelular activada por"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Finalmente, hay un tipo de receptores que no posee directame"
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Nos centraremos en los R T K, ya que muchos de estos recepto"
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la unión con el ligando, que suele ser una molécula dim"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas poseen dominios llamados SH2, nombre que pro"
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las cadenas alfa son enteramente extracelulares y tienen la "
+  },
+  {
+    "j": 120,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Transducción de la señal mediante la vía de Ras-M A P K Una "
+  },
+  {
+    "j": 121,
+    "accion": "REUSAR",
+    "origen": "parte_119.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "intracelulares. Esta familia de GTPasas incluye también a la"
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Ras es una proteína análoga en cierto modo a la subunidad al"
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que Sos añade G T P a Ras, intercambiándose por el G"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La vía Ras-Raf-mek-erk se llama vía de las quinasas activada"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La fosforilación de erk no solo ocurre por acción de Ras vía"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Muchas de estas mutaciones impiden la capacidad de Ras para "
+  },
+  {
+    "j": 127,
+    "accion": "REUSAR",
+    "origen": "parte_125.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se ha comprobado que algunos fármacos diseñados para bloquea"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "cáncer renal. En melanoma, donde las mutaciones hiperactivan"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Además, tras la fosforilación del receptor, otras enzimas ll"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La fosfolipasa C-gamma genera IP3 y D A G, por lo que aument"
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La generación de PIP3 es fundamental para la activación de u"
+  },
+  {
+    "j": 132,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que A K T sea funcional debe ser fosforilado por otra p"
+  },
+  {
+    "j": 133,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "capítulo quince, mediante la fosforilación, en este caso ina"
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA trece a veintiuno Activación de la enzima PI3K y de l"
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando las mutaciones en pten impiden que esta proteína sea "
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta vía tiene como punto de partida la fosforilación de las"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, la fosforilación de I R S-un puede activar la c"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "capítulo cuatro, está guardado en vesículas citoplasmáticas,"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "de insulina decrecen, tras la normalización de la glucemia, "
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Vías activadas por receptores no enzimáticos asociados a pro"
+  },
+  {
+    "j": 141,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "capítulo diecisiete, y algunas hormonas peptídicas, como la "
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "stat, del inglés signal transducers and activators of transc"
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "introducen en el núcleo, activando genes de respuesta y func"
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro tipo de receptores relacionados con vías de diferenciac"
+  },
+  {
+    "j": 145,
+    "accion": "REUSAR",
+    "origen": "parte_143.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Otra vía relacionada con el desarrollo embrionario y el desa"
+  },
+  {
+    "j": 146,
+    "accion": "REUSAR",
+    "origen": "parte_144.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Además, las investigaciones recientes han demostrado que las"
+  },
+  {
+    "j": 147,
+    "accion": "REUSAR",
+    "origen": "parte_145.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Uno de los componentes del heterodímero se parece a los rece"
+  },
+  {
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "proteínas G. En la vía de señalización de Wnt participa la p"
+  },
+  {
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La activación del T N F-alfa se relaciona con la respuesta i"
+  },
+  {
+    "j": 150,
+    "accion": "REUSAR",
+    "origen": "parte_148.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Señalización a través de contactos célula-célula y célulasus"
+  },
+  {
+    "j": 151,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Así, la mayoría de las células necesitan estar ancladas al s"
+  },
+  {
+    "j": 152,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta proteína se autofosforila y atrae a su vez a otras prot"
+  },
+  {
+    "j": 153,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Notch regula procesos de diferenciación celular en el desarr"
+  },
+  {
+    "j": 154,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro ejemplo de comunicación mediante contactos directos cél"
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como conclusión, podemos decir que las células utilizan una "
+  }
+]

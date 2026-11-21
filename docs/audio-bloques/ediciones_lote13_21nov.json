@@ -1,0 +1,1316 @@
+[
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cinco coma dos cuatro Una | n= 2",
+    "veredicto": "real",
+    "buscar": "FIGURA cinco coma dos cuatro Una neurona y neurogliocitos de una muestra extendida de médula espinal.\nCUADRO cinco coma un cero Tejido nervioso FIGURA cinco coma dos cuatro Una neurona y neurogliocitos de una muestra extendida de médula espinal.",
+    "reemplazar": "FIGURA cinco punto veinticuatro Una neurona y neurogliocitos de una muestra extendida de médula espinal.\nCUADRO cinco punto diez Tejido nervioso",
+    "motivo": "Número de figura 5.24 mal convertido dígito a dígito (disparó detector de miles con 'Una'), cuadro 5.10 como 'un cero' y pie de figura duplicado pegado al cuadro."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: estino delgado. FIGURA cinco coma cinco Epitelio cuboidal | n= 1",
+    "veredicto": "real",
+    "buscar": "del intestino delgado. FIGURA cinco coma cinco Epitelio cuboidal simple en túbulos renales.",
+    "reemplazar": "del intestino delgado.\nFIGURA cinco punto cinco Epitelio cuboidal simple en túbulos renales.",
+    "motivo": "Pie de figura pegado en la misma línea tras punto; se separa en su propia línea y se normaliza el número."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: estino delgado. FIGURA cinco coma siete Epitelio cilíndric | n= 1",
+    "veredicto": "real",
+    "buscar": "mucosa, del intestino delgado. FIGURA cinco coma siete Epitelio cilíndrico seudoestratificado y ciliado en la mucosa de la tráquea.",
+    "reemplazar": "mucosa, del intestino delgado.\nFIGURA cinco punto siete Epitelio cilíndrico seudoestratificado y ciliado en la mucosa de la tráquea.",
+    "motivo": "Pie de figura pegado en la misma línea tras punto; se separa en su propia línea y se normaliza el número."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: planta del pie. FIGURA cinco coma nueve Epitelio pavimento | n= 1",
+    "veredicto": "real",
+    "buscar": "en la planta del pie. FIGURA cinco coma nueve Epitelio pavimentoso estratificado y no queratinizado en la mucosa vaginal.",
+    "reemplazar": "en la planta del pie.\nFIGURA cinco punto nueve Epitelio pavimentoso estratificado y no queratinizado en la mucosa vaginal.",
+    "motivo": "Pie de figura pegado en la misma línea tras punto; se separa en su propia línea y se normaliza el número."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: ula sudorípara. FIGURA cinco coma un un Epitelio transicio | n= 1",
+    "veredicto": "real",
+    "buscar": "conducto de una glándula sudorípara. FIGURA cinco coma un un Epitelio transicional en un riñón.",
+    "reemplazar": "conducto de una glándula sudorípara.\nFIGURA cinco punto once Epitelio transicional en un riñón.",
+    "motivo": "Pie de figura 5.11 pegado tras punto y leído como 'un un'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: erio extendida. FIGURA cinco coma un cinco Tejido reticula | n= 1",
+    "veredicto": "real",
+    "buscar": "muestra de mesenterio extendida. FIGURA cinco coma un cinco Tejido reticular del bazo.",
+    "reemplazar": "muestra de mesenterio extendida.\nFIGURA cinco punto quince Tejido reticular del bazo.",
+    "motivo": "Pie de figura 5.15 pegado tras punto y leído como 'un cinco'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: r de un tendón. FIGURA cinco coma un siete Tejido conjunti | n= 1",
+    "veredicto": "real",
+    "buscar": "conjuntivo denso regular de un tendón. FIGURA cinco coma un siete Tejido conjuntivo denso irregular en la dermis.",
+    "reemplazar": "conjuntivo denso regular de un tendón.\nFIGURA cinco punto diecisiete Tejido conjuntivo denso irregular en la dermis.",
+    "motivo": "Pie de figura 5.17 pegado tras punto y leído como 'un siete'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: de un bronquio. FIGURA cinco coma dos cero Cartílago elást | n= 1",
+    "veredicto": "real",
+    "buscar": "Cartílago hialino de un bronquio. FIGURA cinco coma dos cero Cartílago elástico",
+    "reemplazar": "Cartílago hialino de un bronquio.\nFIGURA cinco punto veinte Cartílago elástico",
+    "motivo": "Pie de figura 5.20 pegado tras punto y leído como 'dos cero'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: ón de la oreja. FIGURA cinco coma dos un Fibrocartílago de | n= 1",
+    "veredicto": "real",
+    "buscar": "del pabellón de la oreja. FIGURA cinco coma dos un Fibrocartílago de un disco intervertebral.",
+    "reemplazar": "del pabellón de la oreja.\nFIGURA cinco punto veintiuno Fibrocartílago de un disco intervertebral.",
+    "motivo": "Pie de figura 5.21 pegado tras punto y leído como 'dos un'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: sculo estriado. FIGURA cinco coma dos seis Músculo cardiac | n= 1",
+    "veredicto": "real",
+    "buscar": "FIGURA cinco coma dos cinco Músculo estriado. FIGURA cinco coma dos seis",
+    "reemplazar": "FIGURA cinco punto veinticinco Músculo estriado.\nFIGURA cinco punto veintiséis",
+    "motivo": "Pie de figura 5.26 pegado tras punto y leído dígito a dígito; se separa en su línea y se normalizan los números."
+  },
+  {
+    "capitulo": "Tema_05_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: sculo cardiaco. FIGURA cinco coma dos siete Músculo liso d | n= 1",
+    "veredicto": "real",
+    "buscar": "Músculo cardiaco. FIGURA cinco coma dos siete Músculo liso de la pared intestinal.",
+    "reemplazar": "Músculo cardiaco.\nFIGURA cinco punto veintisiete Músculo liso de la pared intestinal.",
+    "motivo": "Pie de figura 5.27 pegado tras punto y leído como 'dos siete'; se separa en su línea y se normaliza."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura trece | n= 1",
+    "veredicto": "real",
+    "buscar": "que completan la ruta hacia la corteza cerebral, compárese con la figura trece.5a, p. cuatrocientos ochenta y cinco,. En el corte transversal cerca del núcleo cuneiforme",
+    "reemplazar": "que completan la ruta hacia la corteza cerebral. En el corte transversal cerca del núcleo cuneiforme",
+    "motivo": "Referencia visual a figura 13.5a y página; se elimina sin romper la oración (cubre también el dígito 'trece.5a' de REV 6)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro catorce coma un | n= 2 (1/2)",
+    "veredicto": "real",
+    "buscar": "se extienden al bulbo raquídeo. Las funciones de los nervios individuales se detallan en el cuadro catorce coma un, pp. quinientos cuarenta y ocho a quinientos cincuenta y cinco,. Otra característica vista en el corte transversal",
+    "reemplazar": "se extienden al bulbo raquídeo. Otra característica vista en el corte transversal",
+    "motivo": "Oración puramente de remisión al cuadro 14.1 y páginas; se elimina sin afectar el hilo."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro catorce coma un | n= 2 (2/2)",
+    "veredicto": "real",
+    "buscar": "Las funciones de estos cuatro nervios, detallados en el cuadro catorce coma un, incluyen las funciones sensitivas de la audición, el equilibrio y el gusto",
+    "reemplazar": "Las funciones de estos cuatro nervios incluyen las funciones sensitivas de la audición, el equilibrio y el gusto",
+    "motivo": "Inciso de referencia visual al cuadro 14.1; se quita conservando la oración completa."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (1/7)",
+    "veredicto": "real",
+    "buscar": "dos pares de troncos gruesos llamados pedúnculos cerebelares, los bordes de corte en la mitad superior de la figura catorce.9b. Estos elementos conectan el cerebelo",
+    "reemplazar": "dos pares de troncos gruesos llamados pedúnculos cerebelares. Estos elementos conectan el cerebelo",
+    "motivo": "Referencia visual a figura 14.9b; se elimina sin romper la oración (cubre también REV 6 'catorce.9b')."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (2/7)",
+    "veredicto": "real",
+    "buscar": "vía espinocerebelar anterior de la médula espinal, consúltese la p. cuatrocientos ochenta y seis,. La mitad anterior de la protuberancia, mitad inferior de la figura catorce.9b, está dominada por vías de materia blanca",
+    "reemplazar": "vía espinocerebelar anterior de la médula espinal. La mitad anterior de la protuberancia está dominada por vías de materia blanca",
+    "motivo": "Remisión a página y referencia visual a figura 14.9b; se eliminan manteniendo la oración (cubre también REV 6 'catorce.9b')."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (3/7)",
+    "veredicto": "real",
+    "buscar": "b Vista posterolateral. Codificadas en color para equipararlas con los orígenes embrionarios de la figura catorce coma cuatro. El límite entre los pedúnculos cerebelares medio e inferior es indistinto.",
+    "reemplazar": "b Vista posterolateral. El límite entre los pedúnculos cerebelares medio e inferior es indistinto.",
+    "motivo": "Frase puramente visual sobre codificación de color y remisión a figura 14.4; se elimina (cubre también 'la figura catorce coma cuatro')."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (4/7)",
+    "veredicto": "real",
+    "buscar": "descritos en el capítulo trece.\n\nCAPÍTULO catorce El encéfalo y los pares craneales Los pares craneales V al VIII empiezan y terminan en la protuberancia, aunque sólo se ve el nervio trigémino, V, en el nivel de la figura catorce.9b. Los otros tres emergen",
+    "reemplazar": "descritos en el capítulo trece.\n\nLos pares craneales V al VIII empiezan y terminan en la protuberancia. Los otros tres emergen",
+    "motivo": "Encabezado de página incrustado y referencia visual a figura 14.9b; se eliminan (cubre también REV 6 'catorce.9b')."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (5/7)",
+    "veredicto": "real",
+    "buscar": "los pares craneales III, motor ocular común, y IV, patético,. Sólo el primero de éstos se ve en el corte transversal de la figura catorce.9a., El núcleo geniculado medial visto en la figura no es parte del mesencéfalo, sino del tálamo, que se encuentra en el plano de este corte., La parte del mesencéfalo posterior al acueducto mesencefálico",
+    "reemplazar": "los pares craneales III, motor ocular común, y IV, patético. La parte del mesencéfalo posterior al acueducto mesencefálico",
+    "motivo": "Dos frases puramente visuales referidas al corte de la figura 14.9a; se eliminan (cubre también REV 6 'catorce.9a')."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (6/7)",
+    "veredicto": "real",
+    "buscar": "a través de todos los niveles del tallo encefálico, apareciendo en los tres niveles de la figura catorce coma nueve. Ocupa una gran parte del espacio",
+    "reemplazar": "a través de todos los niveles del tallo encefálico. Ocupa una gran parte del espacio",
+    "motivo": "Cláusula de referencia visual a figura 14.9; se quita sin afectar el sentido (cubre también 'la figura catorce coma nueve' 1/2)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce | n= 7 (7/7)",
+    "veredicto": "real",
+    "buscar": "información de respuesta de la formación reticular a la médula espinal. ●Localice los componentes de la formación reticular en las tres partes de la figura catorce coma nueve.\n\nCAPÍTULO catorce El encéfalo y los pares craneales funciones sensitivas, lingüísticas",
+    "reemplazar": "información de respuesta de la formación reticular a la médula espinal.\n\nfunciones sensitivas, lingüísticas",
+    "motivo": "Consigna visual de pie de figura ('●Localice...') y encabezado de página; se eliminan (cubre también 'la figura catorce coma nueve' 2/2)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce coma cuatro | n= 1",
+    "veredicto": "real",
+    "buscar": "b Vista posterolateral. Codificadas en color para equipararlas con los orígenes embrionarios de la figura catorce coma cuatro. El límite entre los pedúnculos cerebelares medio e inferior es indistinto.",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura catorce' (instancia 3/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura catorce coma nueve | n= 2",
+    "veredicto": "real",
+    "buscar": "a través de todos los niveles del tallo encefálico, apareciendo en los tres niveles de la figura catorce coma nueve. Ocupa una gran parte del espacio",
+    "reemplazar": null,
+    "motivo": "Mismas dos referencias visuales ya eliminadas en el hallazgo 'la figura catorce' (instancias 6/7 y 7/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: el FIGURA catorce coma un dos | n= 1",
+    "veredicto": "real",
+    "buscar": "sensaciones de hambre y saciedad. Un núcleo en particular, el FIGURA catorce coma un dos El diencéfalo. Sólo se muestran algunos de los núcleos del tálamo y el hipotálamo, y sólo se presentan algunas de sus funciones en las listas, que no están completas.\n\nPARTE TRES Integración y control núcleo arqueado,",
+    "reemplazar": "sensaciones de hambre y saciedad.\n\nFIGURA catorce punto doce El diencéfalo. Sólo se muestran algunos de los núcleos del tálamo y el hipotálamo, y sólo se presentan algunas de sus funciones en las listas, que no están completas.\n\nUn núcleo en particular, el núcleo arqueado,",
+    "motivo": "Pie de figura 14.12 y encabezado de página incrustados en medio de una frase ('el núcleo arqueado'); se reubica el pie en su línea, se quita el encabezado y se recompone la oración."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En el cuadro catorce coma un | n= 1",
+    "veredicto": "real",
+    "buscar": "Cuadro de los pares craneales En el cuadro catorce coma un se describen e ilustran los doce pares craneales.",
+    "reemplazar": "Cuadro de los pares craneales\nSe describen e ilustran los doce pares craneales.",
+    "motivo": "Referencia visual al cuadro 14.1 y subtítulo pegado; se separa el subtítulo y se elimina 'En el cuadro catorce coma un'."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En el cuadro catorce coma dos | n= 1",
+    "veredicto": "real",
+    "buscar": "PARTE TRES Integración y control Al igual que una máquina con muchas partes móviles, el sistema nervioso es susceptible de sufrir problemas de funcionamiento. En el cuadro catorce coma dos se presenta una lista de algunos trastornos bien conocidos del encéfalo y los pares craneales. Los efectos del envejecimiento en el S N C se describen en la página mil ciento veintisiete.\nCUADRO catorce coma dos",
+    "reemplazar": "Al igual que una máquina con muchas partes móviles, el sistema nervioso es susceptible de sufrir problemas de funcionamiento. Se presenta una lista de algunos trastornos bien conocidos del encéfalo y los pares craneales.\nCUADRO catorce punto dos",
+    "motivo": "Encabezado de página, referencia al cuadro 14.2 y remisión a página 1127; se limpian y se normaliza 'CUADRO catorce punto dos'."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a catorce.1b y c; fig | n= 1",
+    "veredicto": "real",
+    "buscar": "está separado de él por la hendidura cerebral de Bichat, figura catorce.1b y c; figura ocho coma nueve,. También está marcado por circunvoluciones",
+    "reemplazar": "está separado de él por la hendidura cerebral de Bichat. También está marcado por circunvoluciones",
+    "motivo": "Referencia visual a figuras 14.1b-c y 8.9 con dígito sin convertir; se elimina sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura trece.5a, p. cuat | n= 1",
+    "veredicto": "real",
+    "buscar": "que completan la ruta hacia la corteza cerebral, compárese con la figura trece.5a, p. cuatrocientos ochenta y cinco,. En el corte transversal cerca del núcleo cuneiforme",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura trece' (REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a catorce.9b. Estos e | n= 1",
+    "veredicto": "real",
+    "buscar": "dos pares de troncos gruesos llamados pedúnculos cerebelares, los bordes de corte en la mitad superior de la figura catorce.9b. Estos elementos conectan el cerebelo",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura catorce' (instancia 1/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a catorce.9b, está do | n= 1",
+    "veredicto": "real",
+    "buscar": "vía espinocerebelar anterior de la médula espinal, consúltese la p. cuatrocientos ochenta y seis,. La mitad anterior de la protuberancia, mitad inferior de la figura catorce.9b, está dominada por vías de materia blanca",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura catorce' (instancia 2/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a catorce.9b. Los otr | n= 1",
+    "veredicto": "real",
+    "buscar": "descritos en el capítulo trece.\n\nCAPÍTULO catorce El encéfalo y los pares craneales Los pares craneales V al VIII empiezan y terminan en la protuberancia, aunque sólo se ve el nervio trigémino, V, en el nivel de la figura catorce.9b. Los otros tres emergen",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura catorce' (instancia 4/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a catorce.9a., El núc | n= 1",
+    "veredicto": "real",
+    "buscar": "los pares craneales III, motor ocular común, y IV, patético,. Sólo el primero de éstos se ve en el corte transversal de la figura catorce.9a., El núcleo geniculado medial visto en la figura no es parte del mesencéfalo, sino del tálamo, que se encuentra en el plano de este corte., La parte del mesencéfalo posterior al acueducto mesencefálico",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'la figura catorce' (instancia 5/7, REV 5)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: rable con 4½ páginas | n= 1",
+    "veredicto": "real",
+    "buscar": "dan al cerebro una superficie de casi dos mil quinientos cm2, comparable con 4½ páginas de este libro.",
+    "reemplazar": "dan al cerebro una superficie de casi dos mil quinientos centímetros cuadrados, comparable con cuatro y media páginas de este libro.",
+    "motivo": "Confirmado en Saladin p. 530 ('2500 cm2, comparable con 4½ páginas'); se convierten unidad y número mixto a palabras."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: IVV | n= 1",
+    "veredicto": "real",
+    "buscar": "Antebrazo Cuello Codo IIIIIIV Dedos de las manos I II III IVV Lateral Medial",
+    "reemplazar": "Antebrazo Cuello Codo II III IV Dedos de las manos I II III IV V Lateral Medial",
+    "motivo": "Confirmado en Saladin p. 542 (homúnculo sensitivo, figura 14.22b): números romanos de dedos pegados sin espacio."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO | n= 1",
+    "veredicto": "real",
+    "buscar": "Neuralgia del trigémino, p. quinientos cincuenta y seis CONOCIMIENTO MÁS A FONDO catorce coma cinco Aplicación clínica Imágenes mentales Encerrado como está, en el cráneo,",
+    "reemplazar": "Neuralgia del trigémino, p. quinientos cincuenta y seis\n\nConocimiento más a fondo catorce punto cinco. Aplicación clínica: Imágenes mentales\nEncerrado como está, en el cráneo,",
+    "motivo": "Recuadro pegado al párrafo y en mayúsculas; se separa en su línea con título normalizado (cubre también el hallazgo siguiente de REV 7)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: ncuenta y seis CONOCIMIENTO MÁS A FONDO catorce coma cinco Aplicaci... | n= 1",
+    "veredicto": "real",
+    "buscar": "Neuralgia del trigémino, p. quinientos cincuenta y seis CONOCIMIENTO MÁS A FONDO catorce coma cinco Aplicación clínica Imágenes mentales Encerrado como está, en el cráneo,",
+    "reemplazar": null,
+    "motivo": "Mismo recuadro pegado ya separado y normalizado en el hallazgo 'FONDO' (REV 7)."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: secre- veintiuno | n= 1",
+    "veredicto": "real",
+    "buscar": "la presión arterial, la secre- veintiuno thalam igual a madriguera, cámara.\n\nCAPÍTULO catorce El encéfalo y los pares craneales a Tálamo b Hipotálamo",
+    "reemplazar": null,
+    "motivo": "Palabra partida 'secreción' confirmada en Saladin p. 529-530 ('secre-' ... 'ción y movilidad digestivas'), pero su segunda mitad queda tras >900 chars de etiquetas de la figura 14.12 fuera del contexto; requiere reordenar la figura y quitar nota 21 y encabezado en el capítulo completo."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: por- veintidós | n= 1",
+    "veredicto": "real",
+    "buscar": "Se le comprende menos que a los otros lóbulos por- veintidós haben igual a tira, rienda; ul igual a pequeña. veintitrés insula igual a isla.\n\nCAPÍTULO catorce El encéfalo y los pares craneales que es menos accesible",
+    "reemplazar": "Se le comprende menos que a los otros lóbulos porque es menos accesible",
+    "motivo": "Confirmado en Saladin p. 530-531 ('porque'): se quitan notas al pie 22 y 23 y encabezado de página, y se une la palabra."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: impor- veinticinco | n= 1",
+    "veredicto": "real",
+    "buscar": "Sus componentes con mayor impor- veinticinco caudate igual a con forma de cola. veintiséis putam igual a vaina, cáscara. veintisiete lent igual a lenteja; cul igual a pequeño. veintiocho limbus igual a borde.\nFIGURA catorce coma un cinco",
+    "reemplazar": null,
+    "motivo": "Palabra partida 'importancia' confirmada en Saladin p. 533-534 ('impor-' ... 'tancia anatómica'), pero su segunda mitad queda tras >900 chars de figuras 14.15-14.16 fuera del contexto; requiere reordenar las figuras y quitar notas 25-28 y encabezado en el capítulo completo."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: sig- treinta | n= 1",
+    "veredicto": "real",
+    "buscar": "Los músculos se relajan y se reducen los sig- treinta circa igual a cerca, casi; dia igual a día, veinticuatro horas.\nFIGURA catorce coma un nueve Etapas del sueño y actividad cerebral.",
+    "reemplazar": null,
+    "motivo": "Palabra partida 'signos' confirmada en Saladin p. 536-537 ('sig-' ... 'nos vitales'), pero su segunda mitad queda tras >900 chars de figura 14.19 y sus etiquetas fuera del contexto; requiere reordenar la figura y quitar nota 30 y encabezado en el capítulo completo."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sofi sticado | n= 1",
+    "veredicto": "real",
+    "buscar": "El de los humanos es el encéfalo más sofi sticado, cuando se compara con otros,",
+    "reemplazar": "El de los humanos es el encéfalo más sofisticado, cuando se compara con otros,",
+    "motivo": "Ligadura 'fi' partida en 'sofisticado'; se une."
+  },
+  {
+    "capitulo": "Tema_14_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: superfl ua | n= 1",
+    "veredicto": "real",
+    "buscar": "purga información superfl ua de la memoria al debilitar o eliminar otras sinapsis. Hay cierta evidencia experimental que relaciona el sueño con la memoria: cuando se enseña a las personas una nueva tarea motoPARTE TRES Integración y control ra y",
+    "reemplazar": "purga información superflua de la memoria al debilitar o eliminar otras sinapsis. Hay cierta evidencia experimental que relaciona el sueño con la memoria: cuando se enseña a las personas una nueva tarea motora y",
+    "motivo": "Ligadura 'fl' partida en 'superflua' y encabezado 'PARTE TRES Integración y control' incrustado dentro de 'motora' (confirmado en Saladin p. 537-538)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5 (1/5)",
+    "veredicto": "real",
+    "buscar": "un par de ligamentos que dan soporte al ovario y el útero. Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior: un. Defina gónada y gameto. Explique la relación entre ambos términos. dos. Defina hombre, mujer, espermatozoide y ovario. tres. ¿Qué son los conductos mesonéfricos y paramesonéfricos? ¿Qué factores determinan? ¿Cuál se desarrolla y cuál se revierte en el feto? cuatro. ¿Cuál estructura masculina se desarrolla del tubérculo genital y los pliegues urogenitales? ¿Qué se desarrolla de los pliegues labioescrotales? cinco. Describa la ruta tomada durante el descenso de las gónadas masculinas.\n\nveintisiete punto dos Anatomía",
+    "reemplazar": "un par de ligamentos que dan soporte al ovario y el útero.\n\nveintisiete punto dos Anatomía",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 5); se elimina según regla 10."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5 (2/5)",
+    "veredicto": "real",
+    "buscar": "al pene se analizan más adelante, junto con el mecanismo de la erección. Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior: seis. Establezca los nombres y las ubicaciones de los dos músculos que ayudan a regular la temperatura de los testículos. siete. Mencione tres tipos de células en los testículos, y describa sus ubicaciones y funciones. ocho. Mencione en orden todos los conductos que siguen los espermatozoides, desde el momento en que se forman en los testículos hasta el momento de la eyaculación. nueve. Describa las ubicaciones y las funciones de las vesículas seminales, la próstata y las glándulas bulbouretrales. diez. Mencione los tejidos eréctiles del pene, y describa sus ubicaciones en relación con los demás.\n\nveintisiete punto tres Pubertad",
+    "reemplazar": "al pene se analizan más adelante, junto con el mecanismo de la erección.\n\nveintisiete punto tres Pubertad",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 6 a 10); se elimina según regla 10."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5 (3/5)",
+    "veredicto": "real",
+    "buscar": "con E D siguen teniendo la capacidad de eyacular.\n\nPARTE CINCO Reproducción y desarrollo Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior: once. Establezca la fuente, el órgano de destino y el efecto de la GnRH. doce. Identifique las células de destino y los efectos de la F S H y la L H. trece. Explique cómo afectan las hormonas testiculares la secreción de F S H y L H. catorce. Describa los principales efectos de los andrógenos en el cuerpo. quince. Defina el climaterio masculino.\n\nveintisiete punto cuatro Espermatozoides",
+    "reemplazar": "con E D siguen teniendo la capacidad de eyacular.\n\nveintisiete punto cuatro Espermatozoides",
+    "motivo": "Encabezado de página y bloque de autoevaluación 'Antes de proseguir' (preguntas 11 a 15); se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5 (4/5)",
+    "veredicto": "real",
+    "buscar": "burocracia y ha realizado pocas acciones.\n\nCAPÍTULO veintisiete Aparato reproductor masculino Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior: dieciséis. Mencione las etapas de las espermatogénesis, desde el espermatogonio hasta el espermatozoide. ¿Cómo difieren en la cantidad de cromosomas por célula y cromátides por cromosoma? diecisiete. Describa las dos partes principales de un espermatozoide y establezca cuáles organelos y componentes citoesqueléticos contiene cada uno. dieciocho. Elabore una lista de las principales contribuciones de las vesículas seminales y la próstata al semen, y establezca las funciones de estos componentes.\n\nveintisiete punto cinco Respuesta",
+    "reemplazar": "burocracia y ha realizado pocas acciones.\n\nveintisiete punto cinco Respuesta",
+    "motivo": "Encabezado de página y bloque de autoevaluación 'Antes de proseguir' (preguntas 16 a 18); se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5 (5/5)",
+    "veredicto": "real",
+    "buscar": "se describen en el capítulo veintinueve, p. mil ciento veintinueve,. Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior: diecinueve. Explique la manera como la circulación sanguínea peniana cambia durante la excitación sexual y por qué el pene se agranda y endurece. veinte. Establezca las funciones del sistema nervioso simpático, parasimpático y somático en la respuesta sexual masculina.\n\nCAPÍTULO veintisiete Aparato reproductor masculino CUADRO veintisiete coma dos",
+    "reemplazar": "se describen en el capítulo veintinueve.\n\nCUADRO veintisiete punto dos",
+    "motivo": "Remisión a página, bloque de autoevaluación (preguntas 19 a 20) y encabezado de página; se eliminan y se normaliza el título del cuadro."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas | n= 5",
+    "veredicto": "real",
+    "buscar": "un par de ligamentos que dan soporte al ovario y el útero. Antes de proseguir Responda las siguientes preguntas para comprobar su comprensión de la sección anterior:",
+    "reemplazar": null,
+    "motivo": "Mismos cinco bloques de autoevaluación ya eliminados en el hallazgo 'Antes de proseguir' (REV 3)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: escroto11 | n= 1",
+    "veredicto": "real",
+    "buscar": "El escroto11 es una bolsa colgante de piel, músculo y tejido conjuntivo fibroso,",
+    "reemplazar": "El escroto es una bolsa colgante de piel, músculo y tejido conjuntivo fibroso,",
+    "motivo": "Llamada de nota al pie 11 pegada a 'escroto'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: epidídimo21 | n= 1",
+    "veredicto": "real",
+    "buscar": "Conducto del epidídimo. El epidídimo21 es un sitio de maduración y almacenamiento de espermatozoides.",
+    "reemplazar": "Conducto del epidídimo. El epidídimo es un sitio de maduración y almacenamiento de espermatozoides.",
+    "motivo": "Llamada de nota al pie 21 pegada a 'epidídimo'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: próstata22 | n= 1",
+    "veredicto": "real",
+    "buscar": "dos. La próstata22 rodea la uretra y los conductos eyaculadores en sentido inmediato inferior a la vejiga urinaria,",
+    "reemplazar": "dos. La próstata rodea la uretra y los conductos eyaculadores en sentido inmediato inferior a la vejiga urinaria,",
+    "motivo": "Llamada de nota al pie 22 pegada a 'próstata'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: pene24 | n= 1",
+    "veredicto": "real",
+    "buscar": "El pene El pene24 sirve para depositar semen en la vagina.",
+    "reemplazar": "El pene\nEl pene sirve para depositar semen en la vagina.",
+    "motivo": "Llamada de nota al pie 24 pegada a 'pene' y subtítulo pegado; se limpia la llamada y se separa el subtítulo."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: glande25 | n= 1",
+    "veredicto": "real",
+    "buscar": "La mitad de él es una raíz interna y la mitad es un tallo y un glande25 visibles desde el exterior.",
+    "reemplazar": "La mitad de él es una raíz interna y la mitad es un tallo y un glande visibles desde el exterior.",
+    "motivo": "Llamada de nota al pie 25 pegada a 'glande'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: adolescencia27 | n= 1",
+    "veredicto": "real",
+    "buscar": "En este libro se usa adolescencia27 en el sentido del periodo del inicio de la secreción de gonadotropinas",
+    "reemplazar": "En este libro se usa adolescencia en el sentido del periodo del inicio de la secreción de gonadotropinas",
+    "motivo": "Llamada de nota al pie 27 pegada a 'adolescencia'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: pubertad28 | n= 1",
+    "veredicto": "real",
+    "buscar": "logra la estatura completa del adulto. La pubertad28 representa los primeros años de la adolescencia,",
+    "reemplazar": "logra la estatura completa del adulto. La pubertad representa los primeros años de la adolescencia,",
+    "motivo": "Llamada de nota al pie 28 pegada a 'pubertad'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: meiosis29 | n= 1",
+    "veredicto": "real",
+    "buscar": "Debido a esto, la meiosis29 recibe en ocasiones el nombre de división por reducción.",
+    "reemplazar": "Debido a esto, la meiosis recibe en ocasiones el nombre de división por reducción.",
+    "motivo": "Llamada de nota al pie 29 pegada a 'meiosis'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: acrosoma30 | n= 1",
+    "veredicto": "real",
+    "buscar": "con material genético inactivo. El acrosoma30 es un lisosoma con forma de un gorro que cubre la mitad apical del núcleo.",
+    "reemplazar": "con material genético inactivo. El acrosoma es un lisosoma con forma de un gorro que cubre la mitad apical del núcleo.",
+    "motivo": "Llamada de nota al pie 30 pegada a 'acrosoma'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: coito32 | n= 1",
+    "veredicto": "real",
+    "buscar": "El acto sexual es también conocido como coito32 o cópula.treinta y tres Bases anatómicas",
+    "reemplazar": "El acto sexual es también conocido como coito o cópula.\nBases anatómicas",
+    "motivo": "Llamadas de notas al pie 32 y 33 (confirmado en Saladin p. 1055) y subtítulo pegado; se eliminan las llamadas y se separa el subtítulo."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: helicinas34 | n= 1",
+    "veredicto": "real",
+    "buscar": "a lo largo del núcleo del cuerpo cavernoso y cede arterias helicinas34 más pequeñas, que penetran la trabécula",
+    "reemplazar": "a lo largo del núcleo del cuerpo cavernoso y cede arterias helicinas más pequeñas, que penetran la trabécula",
+    "motivo": "Llamada de nota al pie 34 pegada a 'helicinas'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: orgasmo35 | n= 1",
+    "veredicto": "real",
+    "buscar": "Orgasmo y eyaculación El orgasmo35 o clímax, es una reacción corta pero intensa que dura tres a quince segundos",
+    "reemplazar": "Orgasmo y eyaculación\nEl orgasmo o clímax, es una reacción corta pero intensa que dura tres a quince segundos",
+    "motivo": "Llamada de nota al pie 35 pegada a 'orgasmo' y subtítulo pegado; se elimina la llamada y se separa el subtítulo."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: eyaculación36 | n= 1",
+    "veredicto": "real",
+    "buscar": "el aspecto más significativo del orgasmo masculino es la eyaculación36 de semen en la vagina.",
+    "reemplazar": "el aspecto más significativo del orgasmo masculino es la eyaculación de semen en la vagina.",
+    "motivo": "Llamada de nota al pie 36 pegada a 'eyaculación'; se elimina."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ios, o gónadas,tres son órgan | n= 1",
+    "veredicto": "real",
+    "buscar": "Los órganos sexuales primarios, o gónadas,tres son órganos que producen los gametos, testículos en el hombre",
+    "reemplazar": "Los órganos sexuales primarios, o gónadas, son órganos que producen los gametos, testículos en el hombre",
+    "motivo": "Llamada de nota al pie 3 pegada tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: na gubernáculo,ocho desde la | n= 1",
+    "veredicto": "real",
+    "buscar": "al que se le denomina gubernáculo,ocho desde la gónada hasta el piso de la cavidad abdominopélvica. Conforme sigue creciendo el gubernáculo masculino, pasa entre los músculos ocho gubern igual a timón, guiar. Conducto paramesonéfrico",
+    "reemplazar": "al que se le denomina gubernáculo, desde la gónada hasta el piso de la cavidad abdominopélvica. Conforme sigue creciendo el gubernáculo masculino, pasa entre los músculos\nConducto paramesonéfrico",
+    "motivo": "Llamada de nota al pie 8 tras coma y su glosa etimológica al pie de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: roceso vaginal.nueve El gubern | n= 1",
+    "veredicto": "real",
+    "buscar": "un pliegue que se extiende en el escroto como proceso vaginal.nueve El gubernáculo y el proceso vaginal crean una ruta",
+    "reemplazar": "un pliegue que se extiende en el escroto como proceso vaginal. El gubernáculo y el proceso vaginal crean una ruta",
+    "motivo": "Llamada de nota al pie 9 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: riptorquidismo.diez En la may | n= 1",
+    "veredicto": "real",
+    "buscar": "nacen con testículos sin descender, o criptorquidismo.diez En la mayor parte de estos casos, los testículos descienden",
+    "reemplazar": "nacen con testículos sin descender, o criptorquidismo. En la mayor parte de estos casos, los testículos descienden",
+    "motivo": "Llamada de nota al pie 10 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: rafe perineal,doce que tambi | n= 1",
+    "veredicto": "real",
+    "buscar": "marcada en el exterior por una división denominada rafe perineal,doce que también se extiende en sentido anterior",
+    "reemplazar": "marcada en el exterior por una división denominada rafe perineal, que también se extiende en sentido anterior",
+    "motivo": "Llamada de nota al pie 12 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: culo cremáster:trece tiras del | n= 1",
+    "veredicto": "real",
+    "buscar": "un. El músculo cremáster:trece tiras del músculo abdominal oblicuo interno que cubre como una malla",
+    "reemplazar": "un. El músculo cremáster: tiras del músculo abdominal oblicuo interno que cubre como una malla",
+    "motivo": "Llamada de nota al pie 13 tras dos puntos; se elimina conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: músculo dartos:catorce una capa | n= 1",
+    "veredicto": "real",
+    "buscar": "dos. El músculo dartos:catorce una capa subcutánea de músculo liso. También se contrae cuando hace frío,",
+    "reemplazar": "dos. El músculo dartos: una capa subcutánea de músculo liso. También se contrae cuando hace frío,",
+    "motivo": "Llamada de nota al pie 14 tras dos puntos; se elimina conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o pampiniforme:quince una red e | n= 1",
+    "veredicto": "real",
+    "buscar": "tres. El plexo pampiniforme:quince una red extensa de venas de los testículos que rodean la arteria testicular",
+    "reemplazar": "tres. El plexo pampiniforme: una red extensa de venas de los testículos que rodean la arteria testicular",
+    "motivo": "Llamada de nota al pie 15 tras dos puntos; se elimina conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: nica albugínea.dieciséis El tabiqu | n= 1",
+    "veredicto": "real",
+    "buscar": "a la que se le denomina túnica albugínea.dieciséis El tabique de tejido conjuntivo se extiende de la cápsula hacia el parénquima, dividiéndola en doscientos cincuenta a trescientos lobulillos con forma de cuña. Cada lobulillo contiene uno de tres túbulos seminíferos17,",
+    "reemplazar": "a la que se le denomina túnica albugínea. El tabique de tejido conjuntivo se extiende de la cápsula hacia el parénquima, dividiéndola en doscientos cincuenta a trescientos lobulillos con forma de cuña. Cada lobulillo contiene uno de tres túbulos seminíferos,",
+    "motivo": "Llamadas de notas al pie 16 tras punto y 17 pegada a 'seminíferos'; se eliminan conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dos zygot igual a yugo, pareja. | n= 1",
+    "veredicto": "real",
+    "buscar": "los padres deben producir gametos1, células sexuales, que unen un gamet igual a novio. dos zygot igual a yugo, pareja. tres gon igual a semilla.\n\nPARTE CINCO Reproducción y desarrollo Las características sexuales secundarias",
+    "reemplazar": "los padres deben producir gametos, células sexuales, que unen\n\nLas características sexuales secundarias",
+    "motivo": "Llamada de nota 1, glosas etimológicas 1 a 3 y encabezado de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro meso igual a medio; nephro igual a riñón. | n= 1",
+    "veredicto": "real",
+    "buscar": "identificación errónea del sexo de un bebé al nacer. cuatro meso igual a medio; nephro igual a riñón. cinco Kaspar F. Wolff, mil setecientos treinta y tres a mil setecientos noventa y cuatro, anatomista alemán. seis para igual a a lo largo de. siete Johannes P. Müller, mil ochocientos un a mil ochocientos cincuenta y ocho, médico alemán. Espermatozoide Óvulo",
+    "reemplazar": "identificación errónea del sexo de un bebé al nacer.\nEspermatozoide Óvulo",
+    "motivo": "Bloque de notas al pie 4 a 7 (glosas etimológicas y biográficas); se elimina (cubre también la nota 6 siguiente)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . seis para igual a a lo largo de. | n= 1",
+    "veredicto": "real",
+    "buscar": "identificación errónea del sexo de un bebé al nacer. cuatro meso igual a medio; nephro igual a riñón. cinco Kaspar F. Wolff, mil setecientos treinta y tres a mil setecientos noventa y cuatro, anatomista alemán. seis para igual a a lo largo de.",
+    "reemplazar": null,
+    "motivo": "Mismo bloque de notas al pie 4 a 7 ya eliminado en el hallazgo anterior (REV 4)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez krypt igual a escondido; orkhi igual a testículo; id igual a cual... | n= 1",
+    "veredicto": "real",
+    "buscar": "y se vuelve la túnica vaginal. ●¿Por qué a esta estructura masculina se le denomina túnica vaginal? nueve uagin igual a vagina. diez krypt igual a escondido; orkhi igual a testículo; id igual a cualidad.\n\nCAPÍTULO veintisiete Aparato reproductor masculino Fascia del cordón espermático",
+    "reemplazar": "y se vuelve la túnica vaginal.\n\nFascia del cordón espermático",
+    "motivo": "Pregunta de autoevaluación de pie de figura, glosas etimológicas 9 y 10 y encabezado de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce raphe igual a costura. | n= 1",
+    "veredicto": "real",
+    "buscar": "El testículo izquierdo suele estar suspendido más once scrotum igual a bolsa. doce raphe igual a costura.\nFIGURA veintisiete coma seis",
+    "reemplazar": "El testículo izquierdo suele estar suspendido más\nFIGURA veintisiete punto seis",
+    "motivo": "Glosas etimológicas 11 y 12 al pie de página; se eliminan y se normaliza el número de figura."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece cremaster igual a suspender. | n= 1",
+    "veredicto": "real",
+    "buscar": "en el momento en que alcanza los testículos. trece cremaster igual a suspender. catorce dartos igual a cubierto con piel. quince pampin igual a tijereta, zarcillo; form igual a con forma de. dieciséis alb igual a blanca. diecisiete semin igual a semilla, espermatozoide; fer igual a portar. dieciocho Franz von Leydig, mil ochocientos veintiuno a mil novecientos ocho, anatomista alemán.\n\nCAPÍTULO veintisiete Aparato reproductor masculino Conducto deferente",
+    "reemplazar": "en el momento en que alcanza los testículos.\n\nConducto deferente",
+    "motivo": "Bloque de notas al pie 13 a 18 y encabezado de página; se eliminan (cubre también notas 15 y 17 siguientes)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince pampin igual a tijereta, zarcillo; form igual a con forma de. | n= 1",
+    "veredicto": "real",
+    "buscar": "trece cremaster igual a suspender. catorce dartos igual a cubierto con piel. quince pampin igual a tijereta, zarcillo; form igual a con forma de.",
+    "reemplazar": null,
+    "motivo": "Mismo bloque de notas al pie 13 a 18 ya eliminado en el hallazgo de nota 13 (REV 4)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete semin igual a semilla, espermatozoide; fer igual a portar. | n= 1",
+    "veredicto": "real",
+    "buscar": "dieciséis alb igual a blanca. diecisiete semin igual a semilla, espermatozoide; fer igual a portar. dieciocho Franz von Leydig,",
+    "reemplazar": null,
+    "motivo": "Mismo bloque de notas al pie 13 a 18 ya eliminado en el hallazgo de nota 13 (REV 4)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte sustentacul igual a soporte. | n= 1",
+    "veredicto": "real",
+    "buscar": "bien inervado por fibras nerviosas simpáticas. veintiuno epi igual a sobre; di igual a dos. diecinueve Enrico Sertoli, mil ochocientos cuarenta y dos a mil novecientos diez, histólogo italiano. veinte sustentacul igual a soporte.\n\nCAPÍTULO veintisiete Aparato reproductor masculino Vejiga urinaria",
+    "reemplazar": "bien inervado por fibras nerviosas simpáticas.\n\nVejiga urinaria",
+    "motivo": "Bloque de notas al pie 21, 19 y 20 y encabezado de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura cuatro coma un seis | n= 1",
+    "veredicto": "real",
+    "buscar": "profase, metafase, anafase y telofase. Se recomienda revisar la figura cuatro coma un seis, p. ciento treinta y tres, debido a las importantes similitudes y diferencias entre mitosis y meiosis. Hay tres diferencias importantes:",
+    "reemplazar": "profase, metafase, anafase y telofase. Hay tres diferencias importantes:",
+    "motivo": "Oración puramente de remisión a la figura 4.16 y página; se elimina sin romper el flujo."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: l es casi 2ºC más frí | n= 1",
+    "veredicto": "real",
+    "buscar": "como un solo vaso, para mayor simplicidad,. La sangre arterial es casi 2ºC más fría",
+    "reemplazar": "como un solo vaso, para mayor simplicidad. La sangre arterial es casi dos grados Celsius más fría",
+    "motivo": "Temperatura '2ºC' sin convertir a palabras (confirmado en Saladin p. 1042); se pasa a 'dos grados Celsius' y se limpia ',.'."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: se vuelve 90ºC en sent | n= 1",
+    "veredicto": "real",
+    "buscar": "En la superficie corporal, el pene se vuelve 90ºC en sentido posterior y continúa hacia dentro,",
+    "reemplazar": "En la superficie corporal, el pene se vuelve noventa grados en sentido posterior y continúa hacia dentro,",
+    "motivo": "Confirmado en Saladin p. 1047: el PDF imprime '90ºC' por errata tipográfica de ángulo de 90°; se convierte a 'noventa grados'."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: diploide, 2n, lo que | n= 1",
+    "veredicto": "real",
+    "buscar": "La célula madre es diploide, 2n, lo que significa que tiene veintiséis cromosomas en veintitrés pares homólogos p. ciento treinta y cuatro,",
+    "reemplazar": "La célula madre es diploide, dos n, lo que significa que tiene veintiséis cromosomas en veintitrés pares homólogos,",
+    "motivo": "Dígito en '2n' sin convertir y remisión 'p. ciento treinta y cuatro' residual; se escribe 'dos n' y se quita la página."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: matozoide 2n 2n 2n n | n= 1",
+    "veredicto": "real",
+    "buscar": "Meiosis II Meiosis I Espermatozoide 2n 2n 2n n n Luz de túbulo seminífero",
+    "reemplazar": "Meiosis II Meiosis I Espermatozoide Luz de túbulo seminífero",
+    "motivo": "Rótulos visuales repetidos '2n 2n 2n n n' del diagrama de figura 27.15 (confirmado en Saladin p. 1052); se eliminan (cubre los 3 hallazgos seguidos)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ozoide 2n 2n 2n n n L | n= 1",
+    "veredicto": "real",
+    "buscar": "Meiosis II Meiosis I Espermatozoide 2n 2n 2n n n Luz de túbulo seminífero",
+    "reemplazar": null,
+    "motivo": "Segundo rótulo '2n' del mismo grupo ya eliminado en el hallazgo anterior (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ide 2n 2n 2n n n Luz | n= 1",
+    "veredicto": "real",
+    "buscar": "Meiosis II Meiosis I Espermatozoide 2n 2n 2n n n Luz de túbulo seminífero",
+    "reemplazar": null,
+    "motivo": "Tercer rótulo '2n' del mismo grupo ya eliminado en el hallazgo anterior (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ogénesis. 2n indica c | n= 1",
+    "veredicto": "real",
+    "buscar": "Barrera hematotesticular FIGURA veintisiete coma un cinco Espermatogénesis. 2n indica células diploides y n indica células haploides.",
+    "reemplazar": "Barrera hematotesticular\nFIGURA veintisiete punto quince Espermatogénesis. Dos n indica células diploides y n indica células haploides.",
+    "motivo": "Dígito en '2n' dentro del pie de figura 27.15; se convierte a 'Dos n', se separa el pie en su línea y se normaliza el número."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '×': asi dos × cuatro | n= 1",
+    "veredicto": "real",
+    "buscar": "Mide casi dos × cuatro × tres centímetros, y es un agregado de treinta a cincuenta glándulas",
+    "reemplazar": "Mide casi dos por cuatro por tres centímetros, y es un agregado de treinta a cincuenta glándulas",
+    "motivo": "Símbolos '×' sin convertir a 'por' (confirmado en Saladin p. 1046: '2 × 4 × 3 cm'); corrige ambos hallazgos de '×'."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '×': cuatro × tres ce | n= 1",
+    "veredicto": "real",
+    "buscar": "Mide casi dos × cuatro × tres centímetros, y es un agregado de treinta a cincuenta glándulas",
+    "reemplazar": null,
+    "motivo": "Segundo símbolo '×' de la misma medida ya convertido en el hallazgo anterior (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': tículos + + + + + | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": "Células intersticiales Testículos Estimulación Inhibición Las células de Sertoli secretan inhibina,",
+    "motivo": "Signos '+' visuales sobre las flechas del diagrama de figura 27.13 (Saladin p. 1048); se eliminan los nueve signos en bloque."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': culos + + + + + + | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Segundo signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': los + + + + + + + | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Tercer signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': s + + + + + + + E | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Cuarto signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + + Est | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Quinto signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + Estim | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Sexto signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + Estimul | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Séptimo signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': ibición + + Las c | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Octavo signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': ición + + Las cél | n= 1",
+    "veredicto": "real",
+    "buscar": "Células intersticiales Testículos + + + + + + + Estimulación Inhibición + + Las células de Sertoli secretan inhibina,",
+    "reemplazar": null,
+    "motivo": "Noveno signo '+' del mismo diagrama ya eliminado en el primer hallazgo de símbolo '+' (REV 6)."
+  },
+  {
+    "capitulo": "Tema_27_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '~': eza, de ~cuatro a | n= 1",
+    "veredicto": "real",
+    "buscar": "Un hombre joven produce casi trescientos cero espermatozoides por minuto, o cuatrocientos millones al día. El espermatozoide El espermatozoide tiene dos partes: una cabeza con forma de pera y una cola larga. La cabeza, de ~cuatro a cinco micrómetros de largo",
+    "reemplazar": "Un hombre joven produce casi trescientos mil espermatozoides por minuto, o cuatrocientos millones al día.\nEl espermatozoide\nEl espermatozoide tiene dos partes: una cabeza con forma de pera y una cola larga. La cabeza, de aproximadamente cuatro a cinco micrómetros de largo",
+    "motivo": "Confirmado en Saladin p. 1053: '~4 a 5 μm' -> 'aproximadamente cuatro a cinco micrómetros' y '300 000' mal convertido como 'trescientos cero' -> 'trescientos mil'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 4 (1/4)",
+    "veredicto": "real",
+    "buscar": "dos milímetros de largo y tiene dieciséis días de edad en este momento. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuánto tiempo después de la eyaculación el espermatozoide alcanza al óvulo? ¿Qué tan pronto puede fecundar al óvulo? ¿Cuál es la causa de la diferencia? dos. Describa dos maneras como un óvulo fecundado evita la entrada de exceso de espermatozoides. tres. En el blastocito, ¿cómo se denomina a las células que con el tiempo dan lugar al embrión? ¿Cuáles son las células que realizan la implantación? cuatro. ¿Qué característica importante distingue a un embrión de un preembrión?\n\nveintinueve punto dos Etapas",
+    "reemplazar": "dos milímetros de largo y tiene dieciséis días de edad en este momento.\n\nveintinueve punto dos Etapas",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 4); se elimina según regla 10."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 4 (2/4)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cinco. Explique la diferencia entre nutrición trofoblástica y placentaria. seis. Identifique las dos fuentes de sangre para la placenta. ¿En qué lugar estas dos circulaciones sanguíneas se acercan más entre sí? ¿Qué las mantiene separadas? siete. Describa las funciones de la placenta, el amnios, el corion, el saco vitelino y la alantoides. ocho. ¿Qué característica del desarrollo distingue a un feto de un embrión? ¿A qué edad gestacional se presenta? nueve. Identifique las tres derivaciones circulatorias del feto. ¿Por qué la sangre toma estos atajos antes del nacimiento?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 5 a 9); se elimina sin solapar las notas al pie 7 y 8 siguientes."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 4 (3/4)",
+    "veredicto": "real",
+    "buscar": "un de cada nueve a la edad de cuarenta y ocho años. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diez. ¿De qué manera la insuflación de los pulmones al nacer afecta la ruta del flujo sanguíneo a través del corazón? once. ¿Por qué el síndrome de dificultad respiratoria es común en neonatos prematuros? doce. Defina la falta de disyunción y explique cómo causa aneuploidia. Mencione dos síndromes que resultan de ésta.\nFIGURA veintinueve coma un cuatro",
+    "reemplazar": "uno de cada nueve a la edad de cuarenta y ocho años.\nFIGURA veintinueve punto catorce",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 10 a 12); se elimina y se corrigen 'uno de cada nueve' y 'veintinueve punto catorce'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 4 (4/4)",
+    "veredicto": "real",
+    "buscar": "hacerlo de forma adecuada y digna.\n\nPARTE CINCO Reproducción y desarrollo Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: trece. Defina envejecimiento y senescencia. catorce. Enliste algunos tejidos y órganos donde los cambios en los tejidos conjuntivos colagenosos y elásticos llevan a la senescencia.",
+    "reemplazar": "hacerlo de forma adecuada y digna.",
+    "motivo": "Encabezado de página y bloque de autoevaluación 'Antes de proseguir' (preguntas 13 a 14); se eliminan sin solapar el recuadro 29.4 siguiente."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas | n= 4",
+    "veredicto": "real",
+    "buscar": "dos milímetros de largo y tiene dieciséis días de edad en este momento. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior:",
+    "reemplazar": null,
+    "motivo": "Mismos cuatro bloques de autoevaluación ya eliminados en el hallazgo 'Antes de proseguir' (REV 3)."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE CINCO Reproducción y desarrollo denomina cavidad amniótica. | n= 1",
+    "veredicto": "real",
+    "buscar": "creando un espacio estrecho entre ellos, al que se tres syn igual a con, unión; kyto igual a célula.\n\nFIGURA veintinueve coma tres Gemelos dicigóticos con placentas separadas.\n\nPARTE CINCO Reproducción y desarrollo denomina cavidad amniótica.",
+    "reemplazar": "creando un espacio estrecho entre ellos, al que se denomina cavidad amniótica.\n\nFIGURA veintinueve punto tres Gemelos dicigóticos con placentas separadas.",
+    "motivo": "Confirmado en Saladin p. 1107-1108: se quitan nota al pie 3 y encabezado, se recompone la oración partida y se deja la figura 29.3 en su línea."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: deciduales5 | n= 1",
+    "veredicto": "real",
+    "buscar": "los productos de la concepción cambian a la nutrición trofoblástica, en que consumen las denominadas células deciduales5 del endometrio.",
+    "reemplazar": "los productos de la concepción cambian a la nutrición trofoblástica, en que consumen las denominadas células deciduales del endometrio.",
+    "motivo": "Llamada de nota al pie 5 pegada a 'deciduales'; se elimina."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: placenta6 | n= 1",
+    "veredicto": "real",
+    "buscar": "la circulación fetal y la materna.\n\nCAPÍTULO veintinueve Desarrollo humano y envejecimiento La placenta6 es el sistema de soporte vital del feto.",
+    "reemplazar": "la circulación fetal y la materna.\n\nLa placenta es el sistema de soporte vital del feto.",
+    "motivo": "Encabezado de página y llamada de nota al pie 6 pegada a 'placenta'; se eliminan."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: lanugo8 | n= 1",
+    "veredicto": "real",
+    "buscar": "se acumula meconio7, heces fetales, en el intestino. Se pueden oír los latidos cardiacos con un estetoscopio diecinueve centímetros; cuatrocientos sesenta g Cuerpo cubierto con vello fino denominado lanugo8 y con secreción sebácea",
+    "reemplazar": "se acumula meconio, heces fetales, en el intestino. Se pueden oír los latidos cardiacos con un estetoscopio diecinueve centímetros; cuatrocientos sesenta g Cuerpo cubierto con vello fino denominado lanugo y con secreción sebácea",
+    "motivo": "Llamadas de notas al pie 7 ('meconio7') y 8 ('lanugo8'); se eliminan."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: teratógenos12 | n= 1",
+    "veredicto": "real",
+    "buscar": "Teratógenos Los teratógenos12 son agentes que causan deformidades anatómicas en el feto.",
+    "reemplazar": "Teratógenos\nLos teratógenos son agentes que causan deformidades anatómicas en el feto.",
+    "motivo": "Llamada de nota al pie 12 pegada a 'teratógenos' y subtítulo pegado; se limpia la llamada y se separa el subtítulo."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: progeria18 | n= 1",
+    "veredicto": "real",
+    "buscar": "Un defecto genético llamativo denominado progeria18 se caracteriza por una senescencia demasiado acelerada.",
+    "reemplazar": "Un defecto genético llamativo denominado progeria se caracteriza por una senescencia demasiado acelerada.",
+    "motivo": "Llamada de nota al pie 18 pegada a 'progeria'; se elimina."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: vitro20 | n= 1",
+    "veredicto": "real",
+    "buscar": "La denominación fecundación in vitro20 alude al hecho de que la unión de gametos ocurre en recipientes de vidrio",
+    "reemplazar": "La denominación fecundación in vitro alude al hecho de que la unión de gametos ocurre en recipientes de vidrio",
+    "motivo": "Llamada de nota al pie 20 pegada a 'vitro'; se elimina."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o blastómeros.un Éstos se | n= 1",
+    "veredicto": "real",
+    "buscar": "produce las dos primeras células hijas o blastómeros.un Éstos se dividen al mismo tiempo a intervalos",
+    "reemplazar": "produce las dos primeras células hijas o blastómeros. Éstos se dividen al mismo tiempo a intervalos",
+    "motivo": "Llamada de nota al pie 1 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: tiotrofoblasto.tres, Un sinci | n= 1",
+    "veredicto": "real",
+    "buscar": "una masa de varios núcleos a la que se denomina sincitiotrofoblasto.tres, Un sincitio es cualquier cuerpo",
+    "reemplazar": "una masa de varios núcleos a la que se denomina sincitiotrofoblasto. Un sincitio es cualquier cuerpo",
+    "motivo": "Llamada de nota al pie 3 tras punto y coma residual de paréntesis; se eliminan conservando el punto."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: arazo ectópico.cuatro La mayorí | n= 1",
+    "veredicto": "real",
+    "buscar": "lugar diferente del útero, produciendo un embarazo ectópico.cuatro La mayoría de los casos son embarazos tubáricos,",
+    "reemplazar": "lugar diferente del útero, produciendo un embarazo ectópico. La mayoría de los casos son embarazos tubáricos,",
+    "motivo": "Llamada de nota al pie 4 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ación de Apgar,nueve y es un b | n= 1",
+    "veredicto": "real",
+    "buscar": "El total, cero a diez, se denomina puntuación de Apgar,nueve y es un buen predictor de la supervivencia infantil.",
+    "reemplazar": "El total, cero a diez, se denomina puntuación de Apgar, y es un buen predictor de la supervivencia infantil.",
+    "motivo": "Llamada de nota al pie 9 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: alía congénita,diez es la est | n= 1",
+    "veredicto": "real",
+    "buscar": "Un defecto de nacimiento, o anomalía congénita,diez es la estructura o posición anormal de un órgano al nacer,",
+    "reemplazar": "Un defecto de nacimiento, o anomalía congénita, es la estructura o posición anormal de un órgano al nacer,",
+    "motivo": "Llamada de nota al pie 10 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: de teratología.once Estos pro | n= 1",
+    "veredicto": "real",
+    "buscar": "El estudio de los defectos de nacimiento recibe el nombre de teratología.once Estos problemas son la causa más común",
+    "reemplazar": "El estudio de los defectos de nacimiento recibe el nombre de teratología. Estos problemas son la causa más común",
+    "motivo": "Llamada de nota al pie 11 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: La aneuploidia,trece la presen | n= 1",
+    "veredicto": "real",
+    "buscar": "La aneuploidia,trece la presencia de un cromosoma adicional o la falta de uno, es responsable de casi cincuenta por ciento",
+    "reemplazar": "La aneuploidia, la presencia de un cromosoma adicional o la falta de uno, es responsable de casi cincuenta por ciento",
+    "motivo": "Llamada de nota al pie 13 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: de Klinefelter.catorce Las perso | n= 1",
+    "veredicto": "real",
+    "buscar": "una combinación X X i griega y el síndrome de Klinefelter.catorce Las personas con este síndrome son hombres estériles,",
+    "reemplazar": "una combinación X X i griega y el síndrome de Klinefelter. Las personas con este síndrome son hombres estériles,",
+    "motivo": "Llamada de nota al pie 14 tras punto; se elimina conservando el punto."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: rome de Turner,dieciséis con una c | n= 1",
+    "veredicto": "real",
+    "buscar": "el resultado es una mujer con síndrome de Turner,dieciséis con una combinación X O, O representa la ausencia",
+    "reemplazar": "el resultado es una mujer con síndrome de Turner, con una combinación X O, O representa la ausencia",
+    "motivo": "Llamada de nota al pie 16 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: los telómeros,diecinueve sellos en | n= 1",
+    "veredicto": "real",
+    "buscar": "Gran parte de la evidencia señala a los telómeros,diecinueve sellos en el extremo de un cromosoma análogos",
+    "reemplazar": "Gran parte de la evidencia señala a los telómeros, sellos en el extremo de un cromosoma análogos",
+    "motivo": "Llamada de nota al pie 19 tras coma; se elimina conservando la coma."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dos troph igual a que nutre. | n= 1",
+    "veredicto": "real",
+    "buscar": "denominadas trofoblastos;dos una masa un blast igual a germen, retoño; mero igual a parte. dos troph igual a que nutre.\nCUADRO veintinueve coma un",
+    "reemplazar": "denominadas trofoblastos; una masa\nCUADRO veintinueve punto uno",
+    "motivo": "Llamada de nota 2 tras punto y coma y glosas etimológicas 1 y 2; se eliminan y se normaliza el título del cuadro."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cinco decid igual a caída. | n= 1",
+    "veredicto": "real",
+    "buscar": "cesa por completo para el final de la semana doce. cinco decid igual a caída.\n\nPARTE CINCO Reproducción y desarrollo Saco vitelino",
+    "reemplazar": "cesa por completo para el final de la semana doce.\n\nSaco vitelino",
+    "motivo": "Glosa etimológica de nota al pie 5 y encabezado de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . seis plak igual a algo fino y plano. | n= 1",
+    "veredicto": "real",
+    "buscar": "conectan al embrión mediante el cordón umbilical. seis plak igual a algo fino y plano. cuatro ocho doce dieciséis",
+    "reemplazar": "conectan al embrión mediante el cordón umbilical.\ncuatro ocho doce dieciséis",
+    "motivo": "Glosa etimológica de nota al pie 6; se elimina."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho lan igual a pelusa, lana. | n= 1",
+    "veredicto": "real",
+    "buscar": " siete mekon igual a jugo de adormidera, opio; alude a un aspecto de alquitrán negro, similar al opio. ocho lan igual a pelusa, lana.\nCUADRO veintinueve coma cuatro",
+    "reemplazar": "\nCUADRO veintinueve punto cuatro",
+    "motivo": "Glosas etimológicas de notas al pie 7 y 8; se eliminan y se normaliza el título del cuadro."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . once terat igual a monstruo; logi igual a estudio. | n= 1",
+    "veredicto": "real",
+    "buscar": "no suele causar defectos de nacimiento, sino aborto espon- diez con igual a unión, contacto; gen igual a engendrar. once terat igual a monstruo; logi igual a estudio. doce terat igual a monstruo; gen igual a que genera.\n\nCAPÍTULO veintinueve Desarrollo humano y envejecimiento táneo.",
+    "reemplazar": "no suele causar defectos de nacimiento, sino aborto espontáneo.",
+    "motivo": "Glosas etimológicas 10 a 12, encabezado de página y palabra partida 'espontáneo' (confirmado en Saladin p. 1120-1121; cubre también REV 8 'espon- diez')."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece an igual a no, sin; eu igual a bien, normalidad; plod igual a de... | n= 1",
+    "veredicto": "real",
+    "buscar": "rudimentarias a causa de este teratógeno. trece an igual a no, sin; eu igual a bien, normalidad; plod igual a de diplo igual a doble.\n\nPARTE CINCO Reproducción y desarrollo pareja, recibe el nombre de monosomía,",
+    "reemplazar": "rudimentarias a causa de este teratógeno.\n\npareja, recibe el nombre de monosomía,",
+    "motivo": "Glosa etimológica de nota al pie 13 y encabezado de página; se eliminan."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince gynaiko igual a mujer; mast igual a mama; ia igual a cualidad. | n= 1",
+    "veredicto": "real",
+    "buscar": "en el primer cuerpo polar,. Si el catorce Harry F. Klinefelter Jr., mil novecientos doce a mil novecientos noventa, médico estadounidense. quince gynaiko igual a mujer; mast igual a mama; ia igual a cualidad. a Disyunción normal",
+    "reemplazar": "en el primer cuerpo polar. Si el\na Disyunción normal",
+    "motivo": "Notas al pie 14 y 15 al pie de página; se eliminan y se limpia ',.'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecinueve telo igual a fin; mer igual a parte. | n= 1",
+    "veredicto": "real",
+    "buscar": "Con la edad, una cantidad creciente dieciocho pro igual a antes de; ger igual a viejo; ia igual a cualidad. diecinueve telo igual a fin; mer igual a parte.\nFIGURA veintinueve coma un siete",
+    "reemplazar": "Con la edad, una cantidad creciente\nFIGURA veintinueve punto diecisiete",
+    "motivo": "Glosas etimológicas de notas al pie 18 y 19; se eliminan y se normaliza el número de figura."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura | n= 1",
+    "veredicto": "real",
+    "buscar": "rodea a una cavidad corporal, c,.\n\nCAPÍTULO veintinueve Desarrollo humano y envejecimiento nal, y la segmentación del mesodermo en bloques de tejido llamados somitas, véase la figura veintinueve.11a y b, las cuales dan lugar a la columna vertebral,",
+    "reemplazar": "rodea a una cavidad corporal, c.\n\nnal, y la segmentación del mesodermo en bloques de tejido llamados somitas, las cuales dan lugar a la columna vertebral,",
+    "motivo": "Encabezado de página y referencia visual a figura 29.11a y b; se eliminan (cubre también REV 6 'intinueve.11a y b')."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: diploide, 2n,. La fec | n= 1",
+    "veredicto": "real",
+    "buscar": "con el del óvulo, produciendo un conjunto diploide, 2n,. La fecundación por parte de dos o más",
+    "reemplazar": "con el del óvulo, produciendo un conjunto diploide, dos n. La fecundación por parte de dos o más",
+    "motivo": "Dígito en '2n' sin convertir y puntuación residual ',.'; se escribe 'dos n'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: riploide, 3n, o mayor | n= 1",
+    "veredicto": "real",
+    "buscar": "que se denomina poliespermia, produciría un conjunto triploide, 3n, o mayor de cromosomas y el óvulo moriría.",
+    "reemplazar": "que se denomina poliespermia, produciría un conjunto triploide, tres n, o mayor de cromosomas y el óvulo moriría.",
+    "motivo": "Dígito en '3n' sin convertir; se escribe 'tres n'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.4c en una f | n= 1",
+    "veredicto": "real",
+    "buscar": "la conversión del disco embrionario plano mostrado en la figura veintinueve.4c en una forma un poco cilíndrica.",
+    "reemplazar": "la conversión del disco embrionario plano en una forma un poco cilíndrica.",
+    "motivo": "Referencia visual con dígito sin convertir ('mostrado en la figura veintinueve.4c'); se elimina sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.6b, que más | n= 1",
+    "veredicto": "real",
+    "buscar": "la aparición del tubo neural, figura veintinueve.6b, que más adelante se convierte en el encéfalo",
+    "reemplazar": "la aparición del tubo neural, que más adelante se convierte en el encéfalo",
+    "motivo": "Referencia visual con dígito sin convertir ('figura veintinueve.6b'); se elimina conservando la oración."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.4c en una e | n= 1",
+    "veredicto": "real",
+    "buscar": "casi a la mitad de las figuras de la izquierda. La parte, a, corresponde a la figura veintinueve.4c en una etapa un poco posterior de desarrollo. Obsérvese la tendencia general",
+    "reemplazar": "casi a la mitad de las figuras de la izquierda. Obsérvese la tendencia general",
+    "motivo": "Frase de remisión visual a otra figura ('figura veintinueve.4c') dentro del pie de figura 29.6; se elimina."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.11a y b, las | n= 1",
+    "veredicto": "real",
+    "buscar": "rodea a una cavidad corporal, c,.\n\nCAPÍTULO veintinueve Desarrollo humano y envejecimiento nal, y la segmentación del mesodermo en bloques de tejido llamados somitas, véase la figura veintinueve.11a y b, las cuales dan lugar a la columna vertebral,",
+    "reemplazar": null,
+    "motivo": "Misma referencia visual ya eliminada en el hallazgo 'véase la figura' (REV 5)."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.11c. La cabe | n= 1",
+    "veredicto": "real",
+    "buscar": "El corazón y el hígado son muy grandes y forman los brotes ventrales notorios que se observan en la figura veintinueve.11c. La cabeza mide casi la mitad",
+    "reemplazar": "El corazón y el hígado son muy grandes y forman los brotes ventrales notorios. La cabeza mide casi la mitad",
+    "motivo": "Referencia visual con dígito sin convertir ('que se observan en la figura veintinueve.11c'); se elimina sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.4a. Mientra | n= 1",
+    "veredicto": "real",
+    "buscar": "La acumulación de líquido forma el blastocele mostrado en la figura veintinueve.4a. Mientras se implantan,",
+    "reemplazar": "La acumulación de líquido forma el blastocele. Mientras se implantan,",
+    "motivo": "Referencia visual con dígito sin convertir ('mostrado en la figura veintinueve.4a'); se elimina sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: intinueve.10a. La sang | n= 1",
+    "veredicto": "real",
+    "buscar": "tiene poco oxígeno y mucho dióxido de carbono y otros desechos fetales; por tanto, se les asignó el color azul en la figura veintinueve.10a. La sangre arterial descarga sus desechos",
+    "reemplazar": "tiene poco oxígeno y mucho dióxido de carbono y otros desechos fetales. La sangre arterial descarga sus desechos",
+    "motivo": "Cláusula visual sobre el color asignado en la figura 29.10a; se elimina sin afectar el contenido."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': , madre + lactant | n= 1",
+    "veredicto": "real",
+    "buscar": "La concentración total, madre + lactante, más baja de IgG se presenta a los cinco a seis meses de edad,",
+    "reemplazar": "La concentración total, madre más lactante, más baja de IgG se presenta a los cinco a seis meses de edad,",
+    "motivo": "Símbolo '+' sin convertir a palabras (confirmado en Saladin p. 1120); se cambia a 'más'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '~': o es de ~cincuent | n= 1",
+    "veredicto": "real",
+    "buscar": "Cuando se usan óvulos donados, el porcentaje de éxito es de ~cincuenta por ciento en receptoras",
+    "reemplazar": "Cuando se usan óvulos donados, el porcentaje de éxito es de aproximadamente cincuenta por ciento en receptoras",
+    "motivo": "Símbolo '~' sin convertir a palabras; se cambia a 'aproximadamente'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Concordancia: un centímetros | n= 1",
+    "veredicto": "real",
+    "buscar": "Surco neural Somitas a tres semanas cero coma un centímetros Línea primitiva c siete semanas",
+    "reemplazar": "Surco neural Somitas a tres semanas cero coma un centímetro Línea primitiva c siete semanas",
+    "motivo": "Confirmado en Saladin p. 1116 ('0.1 cm'): concordancia 'un centímetros' -> 'un centímetro'."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO | n= 1",
+    "veredicto": "real",
+    "buscar": " CONOCIMIENTO MÁS A FONDO veintinueve coma cuatro Aplicación clínica Tecnología reproductiva: bebés de laboratorio Las parejas heterosexuales",
+    "reemplazar": "\n\nConocimiento más a fondo veintinueve punto cuatro. Aplicación clínica: Tecnología reproductiva: bebés de laboratorio\nLas parejas heterosexuales",
+    "motivo": "Recuadro pegado al párrafo y en mayúsculas; se separa en su línea con título normalizado (cubre también el hallazgo siguiente de REV 7)."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: a senescencia. CONOCIMIENTO MÁS A FONDO veintinueve coma cuatro Apl... | n= 1",
+    "veredicto": "real",
+    "buscar": " CONOCIMIENTO MÁS A FONDO veintinueve coma cuatro Aplicación clínica Tecnología reproductiva: bebés de laboratorio Las parejas heterosexuales",
+    "reemplazar": null,
+    "motivo": "Mismo recuadro pegado ya separado y normalizado en el hallazgo 'FONDO' (REV 7)."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: espon- diez | n= 1",
+    "veredicto": "real",
+    "buscar": "no suele causar defectos de nacimiento, sino aborto espon- diez con igual a unión, contacto; gen igual a engendrar. once terat igual a monstruo; logi igual a estudio. doce terat igual a monstruo; gen igual a que genera.\n\nCAPÍTULO veintinueve Desarrollo humano y envejecimiento táneo.",
+    "reemplazar": null,
+    "motivo": "Misma palabra partida 'espontáneo' y notas 10 a 12 ya corregidas en el hallazgo de nota 11 (REV 4)."
+  },
+  {
+    "capitulo": "Tema_29_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi bróticas | n= 1",
+    "veredicto": "real",
+    "buscar": "las arterias y las venas umbilicales se colapsan y se vuelven fi bróticas. La parte proximal de cada arteria umbilical",
+    "reemplazar": "las arterias y las venas umbilicales se colapsan y se vuelven fibróticas. La parte proximal de cada arteria umbilical",
+    "motivo": "Confirmado en Saladin p. 1119: ligadura 'fi' partida en 'fibróticas'; se une."
+  }
+]

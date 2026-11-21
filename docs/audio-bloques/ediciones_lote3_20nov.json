@@ -1,0 +1,758 @@
+[
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: es, solo el un,cinco a dos por | n= 1",
+  "veredicto": "real",
+  "buscar": "codificante, exones,; esto es, solo el un,cinco a dos por ciento del genoma humano",
+  "reemplazar": "codificante, exones; esto es, solo el uno coma cinco a dos por ciento del genoma humano",
+  "motivo": "En el original es «(exones); esto es, solo el 1,5-2%» (pág. 320); la coma decimal quedó sin convertir y «un» debe ser «uno coma cinco»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: fig. siete a once | n= 1",
+  "veredicto": "real",
+  "buscar": "que forman un cromosoma metafásico, cromátidas hermanas; v. fig. siete a once, son, si no se han producido",
+  "reemplazar": "que forman un cromosoma metafásico, cromátidas hermanas, son, si no se han producido",
+  "motivo": "Referencia visual «v. fig. 7-11» (pág. 312); se elimina sin alterar la oración."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura siete a veinte | n= 1",
+  "veredicto": "real",
+  "buscar": "participar en la replicación de millones de pares de bases. Todo el proceso en procariotas queda esquematizado en la figura siete a veinte.",
+  "reemplazar": "participar en la replicación de millones de pares de bases.",
+  "motivo": "Oración de referencia visual a la figura 7-20 (pág. 330); se quita completa."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 2",
+  "veredicto": "real",
+  "buscar": "C. Imagen de la envoltura nuclear. La flecha negra indica la lámina nuclear, y la flecha roja, un poro. La presencia de envoltura nuclear",
+  "reemplazar": "C. Imagen de la envoltura nuclear. La presencia de envoltura nuclear",
+  "motivo": "Indicaciones puramente visuales de flechas de colores en el pie de la figura 7-1 (pág. 293); se eliminan ambas en conjunto."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: Flecha | n= 1",
+  "veredicto": "real",
+  "buscar": "numerosos poros nucleares. Flecha, poro nuclear; M B-I, membrana nuclear interna; M B-E, membrana nuclear externa. El N P C está formado",
+  "reemplazar": "numerosos poros nucleares. El N P C está formado",
+  "motivo": "Leyenda visual de flecha y siglas de etiqueta en la figura 7-2 (pág. 296); se elimina."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: des o con 2n cromosom | n= 1",
+  "veredicto": "real",
+  "buscar": "completos de cromosomas, células diploides o con 2n cromosomas,. Uno de ellos se hereda",
+  "reemplazar": "completos de cromosomas, células diploides o con dos n cromosomas,. Uno de ellos se hereda",
+  "motivo": "Dígito sin convertir en «2n» (pág. 311); se pasa a «dos n»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: omosomas, 2n, y cada | n= 1",
+  "veredicto": "real",
+  "buscar": "En el caso de la especie humana tenemos cuarenta y seis cromosomas, 2n, y cada uno de los juegos",
+  "reemplazar": "En el caso de la especie humana tenemos cuarenta y seis cromosomas, dos n, y cada uno de los juegos",
+  "motivo": "Dígito sin convertir en «2n» (pág. 311); se pasa a «dos n»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: disómico, 2n,. Las an | n= 1",
+  "veredicto": "real",
+  "buscar": "respecto al número normal diploide, individuo disómico, 2n,. Las aneuploidías presentan",
+  "reemplazar": "respecto al número normal diploide, individuo disómico, dos n,. Las aneuploidías presentan",
+  "motivo": "Dígito sin convertir en «2n» (pág. 318); se pasa a «dos n»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: ulisomía, 2n-dos, es | n= 1",
+  "veredicto": "real",
+  "buscar": "La ausencia completa de un par cromosómico, nulisomía, 2n-dos, es incompatible con la vida.",
+  "reemplazar": "La ausencia completa de un par cromosómico, nulisomía, dos n menos dos, es incompatible con la vida.",
+  "motivo": "Dígito y signo menos sin convertir en «2n-2» (pág. 318); se pasa a «dos n menos dos»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: onosomía, 2n-un,; cua | n= 1",
+  "veredicto": "real",
+  "buscar": "Cuando falta uno de los dos cromosomas de un par se denomina monosomía, 2n-un,;",
+  "reemplazar": "Cuando falta uno de los dos cromosomas de un par se denomina monosomía, dos n menos uno,;",
+  "motivo": "Dígito, signo menos y «un» en «2n-1» (pág. 318); se pasa a «dos n menos uno»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: trisomía, 2n + un,; s | n= 1",
+  "veredicto": "real",
+  "buscar": "cuando tenemos tres copias de un cromosoma, trisomía, 2n + un,;",
+  "reemplazar": "cuando tenemos tres copias de un cromosoma, trisomía, dos n más uno,;",
+  "motivo": "Dígito, símbolo «+» y «un» en «2n + 1» (pág. 318); se pasa a «dos n más uno»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: trasomía, 2n + dos, y | n= 1",
+  "veredicto": "real",
+  "buscar": "si hay cuatro copias, tetrasomía, 2n + dos, y",
+  "reemplazar": "si hay cuatro copias, tetrasomía, dos n más dos, y",
+  "motivo": "Dígito y símbolo «+» en «2n + 2» (pág. 318); se pasa a «dos n más dos»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: ntasomía, 2n + tres, | n= 1",
+  "veredicto": "real",
+  "buscar": "si hay cinco, pentasomía, 2n + tres, etc. En el cáncer aparecen",
+  "reemplazar": "si hay cinco, pentasomía, dos n más tres, etc. En el cáncer aparecen",
+  "motivo": "Dígito y símbolo «+» en «2n + 3» (pág. 318); se pasa a «dos n más tres»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: ploidías, 3n, sesenta | n= 1",
+  "veredicto": "real",
+  "buscar": "Las más frecuentes serían las triploidías, 3n, sesenta y nueve cromosomas,",
+  "reemplazar": "Las más frecuentes serían las triploidías, tres n, sesenta y nueve cromosomas,",
+  "motivo": "Dígito sin convertir en «3n» (pág. 319); se pasa a «tres n»."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: ploidías, 4n, noventa | n= 1",
+  "veredicto": "real",
+  "buscar": "y las tetraploidías, 4n, noventa y dos cromosomas,.",
+  "reemplazar": "y las tetraploidías, cuatro n, noventa y dos cromosomas,.",
+  "motivo": "Dígito sin convertir en «4n» (pág. 319); se pasa a «cuatro n»."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Cita bibliográfica: et al | n= 1",
+  "veredicto": "real",
+  "buscar": "D. Imagen a mayor aumento que muestra las partes del nucléolo., A y B, imágenes procedentes de: Departamento de Histología de la Universidad de Navarra;",
+  "reemplazar": "D. Imagen a mayor aumento que muestra las partes del nucléolo.",
+  "motivo": "Crédito y cita bibliográfica en el pie de la figura 8-10 (pág. 365); primera mitad del crédito eliminada."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Cita bibliográfica: Wiley | n= 1",
+  "veredicto": "real",
+  "buscar": " C y D, procedentes de: Hernandez-Verdun D et al. Wiley Interdiscip Rev A R N dos mil diez;un:cuatrocientos quince a treinta y un., A nivel ultraestructural,",
+  "reemplazar": " A nivel ultraestructural,",
+  "motivo": "Cita bibliográfica «Hernandez-Verdun D et al. Wiley...» en el pie de la figura 8-10 (pág. 365); segunda mitad del crédito eliminada."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Crédito: croscopía procedente de: Miller O. J Cell Biol mil nov | n= 1",
+  "veredicto": "real",
+  "buscar": "es cotranscripcional., Imagen de microscopía procedente de: Miller O. J Cell Biol mil novecientos ochenta y un;noventa y un:quince a veintisiete. Calvo.,",
+  "reemplazar": "es cotranscripcional.",
+  "motivo": "Crédito y cita bibliográfica de Miller y Calvo en el pie de la figura 8-11 (pág. 366); se elimina completo."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: fig. ocho a veintidós | n= 1",
+  "veredicto": "real",
+  "buscar": "intercalados entre los componentes fibrilares, v. más adelante fig. ocho a veintidós,. Estos subdominios",
+  "reemplazar": "intercalados entre los componentes fibrilares. Estos subdominios",
+  "motivo": "Referencia visual «v. más adelante fig. 8-22» (pág. 365); se elimina sin alterar la oración."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura ocho a once | n= 1",
+  "veredicto": "real",
+  "buscar": "una unidad de transcripción del ADNr. La interpretación molecular de estas estructuras se explica en la figura ocho a once.",
+  "reemplazar": "una unidad de transcripción del ADNr.",
+  "motivo": "Oración de referencia visual a la figura 8-11 (pág. 366); se elimina completa."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: Como se observa | n= 1",
+  "veredicto": "real",
+  "buscar": "se denominan exones. Como se observa en la electronografía, este proceso tiene lugar de manera simultánea a la transcripción.",
+  "reemplazar": "se denominan exones. Este proceso tiene lugar de manera simultánea a la transcripción.",
+  "motivo": "Referencia visual «Como se observa en la electronografía» en el pie de la figura 8-13 (pág. 369); se elimina conservando el dato biológico."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 5",
+  "veredicto": "real",
+  "buscar": "ocho a diez A. Imagen de un nucléolo, flecha, en una neurona, observado al microscopio óptico. B. Imagen de microscopía electrónica de un nucléolo, flecha,.",
+  "reemplazar": "ocho a diez A. Imagen de un nucléolo en una neurona, observado al microscopio óptico. B. Imagen de microscopía electrónica de un nucléolo.",
+  "motivo": "Indicadores visuales «(flecha)» en los paneles A y B de la figura 8-10 (pág. 365); se eliminan sin romper las frases."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 5",
+  "veredicto": "real",
+  "buscar": "G C, del inglés granular component, el centro fibrilar, asterisco, y el componente fibrilar denso, flecha,.",
+  "reemplazar": "G C, del inglés granular component, el centro fibrilar y el componente fibrilar denso.",
+  "motivo": "Indicadores visuales «(asterisco)» y «(flecha)» en el panel C de la figura 8-10 (pág. 365); se eliminan sin romper la frase."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: la R N P 45S. El ensa | n= 1",
+  "veredicto": "real",
+  "buscar": "que participan en su maduración, dando lugar a la R N P 45S. El ensamblaje de los componentes",
+  "reemplazar": "que participan en su maduración, dando lugar a la R N P cuarenta y cinco S. El ensamblaje de los componentes",
+  "motivo": "Dígito sin convertir en «45S» (pág. 366); se pasa a «cuarenta y cinco S»."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cero cero cero | n= 4",
+  "veredicto": "real",
+  "buscar": "solo utiliza una pequeña fracción de los aproximadamente veinticinco coma cero cero cero genes del genoma humano.",
+  "reemplazar": "solo utiliza una pequeña fracción de los aproximadamente veinticinco mil genes del genoma humano.",
+  "motivo": "En el original es «25.000 genes» (pág. 354); el punto de miles se leyó como decimal."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: veinte coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "Respecto al tamaño, existen intrones de cincuenta a veinte coma cero cero cero nucleótidos",
+  "reemplazar": "Respecto al tamaño, existen intrones de cincuenta a veinte mil nucleótidos",
+  "motivo": "En el original es «50 a 20.000 nucleótidos» (pág. 369); el punto de miles se leyó como decimal."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: un coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "y exones de cien a un coma cero cero cero nucleótidos, aunque en la mayoría de los casos",
+  "reemplazar": "y exones de cien a mil nucleótidos, aunque en la mayoría de los casos",
+  "motivo": "En el original es «100 a 1.000 nucleótidos» (pág. 369); el punto de miles se leyó como decimal."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Uso de 'un coma': un coma | n= 2",
+  "veredicto": "real",
+  "buscar": "Se estima que en el genoma humano existen aproximadamente un coma cero cero cero micro-A R N distintos.",
+  "reemplazar": "Se estima que en el genoma humano existen aproximadamente mil micro-A R N distintos.",
+  "motivo": "En el original es «1.000 micro-ARN distintos» (pág. 381); el punto de miles se leyó como decimal («un coma cero cero cero»)."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: alfa- tropomiosina | n= 1",
+  "veredicto": "real",
+  "buscar": "Cada tipo muscular contiene un tipo distinto de alfa- tropomiosina, pero todos ellos se obtienen",
+  "reemplazar": "Cada tipo muscular contiene un tipo distinto de alfa-tropomiosina, pero todos ellos se obtienen",
+  "motivo": "Palabra partida por guion de salto de línea en «α-tropomiosina» (pág. 373); se quita el espacio."
+ },
+ {
+  "capitulo": "Tema_08_Biologia_Celular",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: siete- metilguanosina | n= 1",
+  "veredicto": "real",
+  "buscar": "se modifica por la adición de un residuo de siete- metilguanosina a través de un enlace",
+  "reemplazar": "se modifica por la adición de un residuo de siete-metilguanosina a través de un enlace",
+  "motivo": "Palabra partida por guion de salto de línea en «7-metilguanosina» (pág. 374); se quita el espacio."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Encabezado/autor/portada: Alfonso Calvo | n= 1",
+  "veredicto": "real",
+  "buscar": "celular del cáncer Ignacio Gil-Bazo Iosune Baraibar Eduardo Castañón Estanislao Nistal Eva Bandrés Xabier Agirre Felipe Prósper Alfonso Calvo Objetivos",
+  "reemplazar": "celular del cáncer. Objetivos",
+  "motivo": "Lista de autores al inicio del capítulo 16 (pág. 651); se quita conservando el título y los objetivos de aprendizaje."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ciento cinco n.cinco Buenos Ai | n= 1",
+  "veredicto": "real",
+  "buscar": "en cara y tronco., Con autorización de Archivos Argentinos de pediatría V.ciento cinco n.cinco",
+  "reemplazar": "en cara y tronco.",
+  "motivo": "Primera parte del crédito/autorización bibliográfica en el pie de la figura 16-5 (pág. 664); se elimina."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: res sep. o oct.dos mil siete | n= 1",
+  "veredicto": "real",
+  "buscar": " Buenos Aires sep. o oct.dos mil siete., El síndrome de Cockayne se produce",
+  "reemplazar": " El síndrome de Cockayne se produce",
+  "motivo": "Segunda parte del crédito/autorización bibliográfica en el pie de la figura 16-5 (pág. 664); se elimina."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La tabla dieciséis a un | n= 1",
+  "veredicto": "real",
+  "buscar": "diaria. La tabla dieciséis a un recoge una lista de los agentes carcinogénicos de origen químico más frecuentes y el tipo de tumor con el que se asocian.",
+  "reemplazar": "diaria.",
+  "motivo": "Oración de referencia visual a la tabla 16-1 (pág. 659); se elimina completa."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: La tabla dieciséis a dos | n= 1",
+  "veredicto": "real",
+  "buscar": "con el cáncer. La tabla dieciséis a dos recoge una lista de enfermedades hereditarias asociadas a la alteración en la reparación del A D N.",
+  "reemplazar": "con el cáncer.",
+  "motivo": "Oración de referencia visual a la tabla 16-2 (pág. 661); se elimina completa."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la tabla dieciséis a tres | n= 1",
+  "veredicto": "real",
+  "buscar": "elementos de ambas. En la tabla dieciséis a tres se establece una relación de los principales virus capaces de generar cáncer en humanos,",
+  "reemplazar": "elementos de ambas.",
+  "motivo": "Primera parte de la oración de referencia visual a la tabla 16-3 (pág. 675); se elimina."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la tabla dieciséis a tres | n= 1",
+  "veredicto": "real",
+  "buscar": " la familia de virus a los que pertenecen y el tipo de tumor al que pueden dar lugar. Resumimos a continuación",
+  "reemplazar": " Resumimos a continuación",
+  "motivo": "Segunda parte de la oración de referencia visual a la tabla 16-3 (pág. 675); se elimina para completar el corte."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 4",
+  "veredicto": "real",
+  "buscar": "En el pulmón de los fumadores habituales se encuentran depósitos negros, flecha, derivados de la combustión del tabaco,",
+  "reemplazar": "En el pulmón de los fumadores habituales se encuentran depósitos negros derivados de la combustión del tabaco,",
+  "motivo": "Indicador visual «(flecha)» en el pie de la figura 16-2 (pág. 657); se elimina sin alterar la oración."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 5,
+  "hallazgo": "- Detalle solo visual: flecha | n= 4",
+  "veredicto": "real",
+  "buscar": "con disminución del tamaño de algunos nódulos y desaparición de otros, flechas,. a. Antes del tratamiento.",
+  "reemplazar": "con disminución del tamaño de algunos nódulos y desaparición de otros. a. Antes del tratamiento.",
+  "motivo": "Indicador visual «(flechas)» en el pie de la figura 16-18 (pág. 691); se elimina sin alterar la oración."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: itosinas, 5mC, en tim | n= 1",
+  "veredicto": "real",
+  "buscar": "a lo largo de la evolución, que ha convertido las cinco-metilcitosinas, 5mC, en timinas.",
+  "reemplazar": "a lo largo de la evolución, que ha convertido las cinco-metilcitosinas, cinco eme C, en timinas.",
+  "motivo": "Dígito sin convertir en «5mC» (pág. 672); se pasa a «cinco eme C» para evitar lectura errónea como metros."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: orque las 5mC son mut | n= 1",
+  "veredicto": "real",
+  "buscar": "Esto ocurre porque las 5mC son mutagénicas, causando transiciones C-T.",
+  "reemplazar": "Esto ocurre porque las cinco eme C son mutagénicas, causando transiciones C-T.",
+  "motivo": "Dígito sin convertir en «5mC» (pág. 673); se pasa a «cinco eme C»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: en en las 5mC. La mut | n= 1",
+  "veredicto": "real",
+  "buscar": "se producen en las 5mC. La mutación de G a T se ha observado también en dinucleótidos",
+  "reemplazar": "se producen en las cinco eme C. La mutación de G a T se ha observado también en dinucleótidos",
+  "motivo": "Dígito sin convertir en «5mC» (pág. 673); se pasa a «cinco eme C»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: S, cuatro-1BB, CD40, | n= 1",
+  "veredicto": "real",
+  "buscar": "de señalización, p. ej., CD28, I C O S, cuatro-1BB, CD40, OX40, CD27, v. capítulo",
+  "reemplazar": "de señalización, p. ej., C D veintiocho, I C O S, cuatro-uno B B, C D cuarenta, O X cuarenta, C D veintisiete, v. capítulo",
+  "motivo": "Dígitos y siglas sin convertir en «CD28, 4-1BB, CD40, OX40, CD27» (pág. 685); se pasan a palabras y letras espaciadas."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C D ocho+. La fag | n= 1",
+  "veredicto": "real",
+  "buscar": "tipo I para ser reconocidos por los linfocitos T C D ocho+. La fagocitosis de células tumorales",
+  "reemplazar": "tipo I para ser reconocidos por los linfocitos T C D ocho positivo. La fagocitosis de células tumorales",
+  "motivo": "Símbolo «+» sin convertir en «CD8+» (pág. 683); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': D cuatro+, v. cap | n= 1",
+  "veredicto": "real",
+  "buscar": "incorporar también al C P H de tipo II y ser reconocidos entonces por los linfocitos T C D cuatro+, v. capítulo diecisiete,.",
+  "reemplazar": "incorporar también al C P H de tipo II y ser reconocidos entonces por los linfocitos T C D cuatro positivo, v. capítulo diecisiete,.",
+  "motivo": "Símbolo «+» sin convertir en «CD4+» (pág. 683); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C D ocho+ mediant | n= 1",
+  "veredicto": "real",
+  "buscar": "fragmentos de células tumorales fagocitadas pueden ser presentados a linfocitos T C D ocho+ mediante un fenómeno de presentación cruzada.",
+  "reemplazar": "fragmentos de células tumorales fagocitadas pueden ser presentados a linfocitos T C D ocho positivo mediante un fenómeno de presentación cruzada.",
+  "motivo": "Símbolo «+» sin convertir en «CD8+» (pág. 683); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma ocho cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "próstata, doscientos veinte coma ocho cero cero casos, el de pulmón, ciento quince coma seis un cero, y el colorrectal, sesenta y nueve coma cero nueve cero,",
+  "reemplazar": "próstata, doscientos veinte mil ochocientos casos, el de pulmón, ciento quince mil seiscientos diez, y el colorrectal, sesenta y nueve mil noventa,",
+  "motivo": "En el original son «220.800», «115.610» y «69.090» (pág. 654); los puntos de miles se convirtieron como coma decimal."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma ocho cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "mama, doscientos treinta y un coma ocho cero cero casos, el de pulmón, ciento cinco coma cinco nueve cero, y el colorrectal, sesenta y tres coma seis un cero,",
+  "reemplazar": "mama, doscientos treinta y un mil ochocientos casos, el de pulmón, ciento cinco mil quinientos noventa, y el colorrectal, sesenta y tres mil seiscientos diez,",
+  "motivo": "En el original son «231.800», «105.590» y «63.610» (pág. 654); los puntos de miles se convirtieron como coma decimal."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma siete cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "muerte en ambos sexos, ciento cincuenta y ocho coma cero cuatro cero casos, seguido del cáncer colorrectal, cuarenta y nueve coma siete cero cero,.",
+  "reemplazar": "muerte en ambos sexos, ciento cincuenta y ocho mil cuarenta casos, seguido del cáncer colorrectal, cuarenta y nueve mil setecientos,.",
+  "motivo": "En el original son «158.040 casos» y «49.700» (pág. 654); los puntos de miles se convirtieron como coma decimal."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "Esta patología se da en un de cada doscientos cincuenta coma cero cero cero habitantes en Europa.",
+  "reemplazar": "Esta patología se da en uno de cada doscientos cincuenta mil habitantes en Europa.",
+  "motivo": "En el original es «1 de cada 250.000 habitantes» (pág. 663); se corrigen «uno» y el punto de miles «doscientos cincuenta mil»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: RAR | n= 5",
+  "veredicto": "real",
+  "buscar": "Un ejemplo claro es la proteína oncogénica de fusión P M L o RAR alfa, que aparece en la mayoría",
+  "reemplazar": "Un ejemplo claro es la proteína oncogénica de fusión P M L R A R alfa, que aparece en la mayoría",
+  "motivo": "Sigla «RAR» sin espaciar y barra «/» mal convertida en «o» en «PML/RARα» (pág. 668)."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: RAR | n= 5",
+  "veredicto": "real",
+  "buscar": ", RAR alfa,. Esta proteína de fusión altera el programa de diferenciación de los promielocitos",
+  "reemplazar": ", R A R alfa,. Esta proteína de fusión altera el programa de diferenciación de los promielocitos",
+  "motivo": "Sigla en mayúsculas «RAR» sin espaciar en «(RARα)» (pág. 669); se espacia como «R A R»."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: alfa- catenina | n= 1",
+  "veredicto": "real",
+  "buscar": "esta se encuentra unida a la cadherina E y a la alfa- catenina en la membrana plasmática.",
+  "reemplazar": "esta se encuentra unida a la cadherina E y a la alfa-catenina en la membrana plasmática.",
+  "motivo": "Palabra partida por guion de salto de línea en «α-catenina» (pág. 678); se quita el espacio."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: atones, H-2K, H-2D y | n= 1",
+  "veredicto": "real",
+  "buscar": "determinantes del rechazo de injertos en ratones, H-2K, H-2D y H-2L, son homólogos a los genes del C P H",
+  "reemplazar": "determinantes del rechazo de injertos en ratones, H-dos K, H-dos D y H-dos L, son homólogos a los genes del C P H",
+  "motivo": "Dígito sin convertir en «H-2K, H-2D y H-2L» (pág. 711); se convierten los tres términos en conjunto."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: , H-2K, H-2D y H-2L, | n= 1",
+  "veredicto": "real",
+  "buscar": "determinantes del rechazo de injertos en ratones, H-2K, H-2D y H-2L, son homólogos a los genes del C P H",
+  "reemplazar": "determinantes del rechazo de injertos en ratones, H-dos K, H-dos D y H-dos L, son homólogos a los genes del C P H",
+  "motivo": "Dígito sin convertir en «H-2D» (pág. 711); misma frase que el hallazgo anterior, corregido en conjunto."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Dígito sin convertir: H-2D y H-2L, son hom | n= 1",
+  "veredicto": "real",
+  "buscar": "determinantes del rechazo de injertos en ratones, H-2K, H-2D y H-2L, son homólogos a los genes del C P H",
+  "reemplazar": "determinantes del rechazo de injertos en ratones, H-dos K, H-dos D y H-dos L, son homólogos a los genes del C P H",
+  "motivo": "Dígito sin convertir en «H-2L» (pág. 711); misma frase que el hallazgo anterior, corregido en conjunto."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '×': gstroms × diez án | n= 1",
+  "veredicto": "real",
+  "buscar": "Este bolsillo tiene un tamaño de aproximadamente veinticinco ángstroms × diez",
+  "reemplazar": "Este bolsillo tiene un tamaño de aproximadamente veinticinco ángstroms por diez",
+  "motivo": "Símbolo «×» sin convertir en «25 Å × 10 Å × 11 Å» (pág. 712); se pasa a «por»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '×': gstroms × once án | n= 1",
+  "veredicto": "real",
+  "buscar": " ángstroms × once ángstroms, y es capaz de albergar un péptido de ocho a diez",
+  "reemplazar": " ángstroms por once ángstroms, y es capaz de albergar un péptido de ocho a diez",
+  "motivo": "Segundo símbolo «×» sin convertir en «25 Å × 10 Å × 11 Å» (pág. 712); se pasa a «por»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': D cuatro+, linfoc | n= 2",
+  "veredicto": "real",
+  "buscar": "podemos distinguir las células T C D cuatro+, linfocitos T cooperadores,",
+  "reemplazar": "podemos distinguir las células T C D cuatro positivo, linfocitos T cooperadores,",
+  "motivo": "Símbolo «+» sin convertir en «CD4+» (pág. 714); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': D cuatro+, linfoc | n= 2",
+  "veredicto": "real",
+  "buscar": "será distinto si se trata de un linfocito T C D cuatro+, linfocito T cooperador,",
+  "reemplazar": "será distinto si se trata de un linfocito T C D cuatro positivo, linfocito T cooperador,",
+  "motivo": "Símbolo «+» sin convertir en «CD4+» (pág. 716); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C D ocho+, linfoc | n= 2",
+  "veredicto": "real",
+  "buscar": "y T C D ocho+, linfocitos T citotóxicos,. Moléculas accesorias en las células T",
+  "reemplazar": "y T C D ocho positivo, linfocitos T citotóxicos,. Moléculas accesorias en las células T",
+  "motivo": "Símbolo «+» sin convertir en «CD8+» (pág. 714); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C D ocho+, linfoc | n= 2",
+  "veredicto": "real",
+  "buscar": "o de un linfocito T C D ocho+, linfocito T citotóxico,.",
+  "reemplazar": "o de un linfocito T C D ocho positivo, linfocito T citotóxico,.",
+  "motivo": "Símbolo «+» sin convertir en «CD8+» (pág. 716); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': D cuatro+ activan | n= 1",
+  "veredicto": "real",
+  "buscar": "Así, los linfocitos T C D cuatro+ activan a los macrófagos para que destruyan los microbios fagocitados.",
+  "reemplazar": "Así, los linfocitos T C D cuatro positivo activan a los macrófagos para que destruyan los microbios fagocitados.",
+  "motivo": "Símbolo «+» sin convertir en «CD4+» (pág. 716); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': D cuatro+ interac | n= 1",
+  "veredicto": "real",
+  "buscar": "Además, los linfocitos T C D cuatro+ interaccionan con los linfocitos B y estimulan su proliferación,",
+  "reemplazar": "Además, los linfocitos T C D cuatro positivo interaccionan con los linfocitos B y estimulan su proliferación,",
+  "motivo": "Símbolo «+» sin convertir en «CD4+» (pág. 716); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': C D ocho+ son cap | n= 1",
+  "veredicto": "real",
+  "buscar": "Por otro lado, los linfocitos T C D ocho+ son capaces de eliminar las células infectadas con microbios",
+  "reemplazar": "Por otro lado, los linfocitos T C D ocho positivo son capaces de eliminar las células infectadas con microbios",
+  "motivo": "Símbolo «+» sin convertir en «CD8+» (pág. 716); se pasa a «positivo»."
+ },
+ {
+  "capitulo": "Tema_17_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: ROR | n= 1",
+  "veredicto": "real",
+  "buscar": "que expresan el factor ROR gamma t y producen las citoquinas proinflamatorias I L-diecisiete,",
+  "reemplazar": "que expresan el factor R O R gamma t y producen las citoquinas proinflamatorias I L-diecisiete,",
+  "motivo": "Sigla en mayúsculas «ROR» sin espaciar en «RORγt» (pág. 721); se espacia como «R O R»."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla cuatro | n= 2",
+  "veredicto": "real",
+  "buscar": "Por ejemplo, en la tabla cuatro se presenta el tiempo en minutos requerido por un grupo de personas para realizar una actividad.",
+  "reemplazar": "Por ejemplo, se presenta el tiempo en minutos requerido por un grupo de personas para realizar una actividad.",
+  "motivo": "Referencia visual «en la tabla cuatro» en el cuerpo del texto (pág. 111); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla cuatro | n= 2",
+  "veredicto": "real",
+  "buscar": "Siguiendo el ejemplo presentado en la tabla cuatro, la amplitud del intervalo sería:",
+  "reemplazar": "Siguiendo el ejemplo presentado, la amplitud del intervalo sería:",
+  "motivo": "Referencia visual «en la tabla cuatro» en el cuerpo del texto (pág. 112); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla cuatro | n= 5",
+  "veredicto": "real",
+  "buscar": "Para el ejemplo de la tabla cuatro, el número de intervalos es:",
+  "reemplazar": "Para el ejemplo, el número de intervalos es:",
+  "motivo": "Referencia visual «de la tabla cuatro» en el cuerpo del texto (pág. 111); se quita sin agregar palabras."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla ocho | n= 1",
+  "veredicto": "real",
+  "buscar": "de la variable X en la muestra o la población. Las frecuencias absolutas para el grupo de personas que realizan una actividad se ilustran en la tabla ocho.",
+  "reemplazar": "de la variable X en la muestra o la población.",
+  "motivo": "Oración de referencia visual a la tabla ocho (pág. 120), seguida inmediatamente por esa tabla; se elimina."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla nueve | n= 1",
+  "veredicto": "real",
+  "buscar": "El cálculo de frecuencias relativas estimadas para el grupo de personas que realizan una actividad se presenta en la tabla nueve.",
+  "reemplazar": "",
+  "motivo": "Oración de referencia visual a la tabla nueve (pág. 120), seguida inmediatamente por esa tabla; se elimina."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la tabla doce | n= 1",
+  "veredicto": "real",
+  "buscar": "En la tabla doce se muestra el consolidado de frecuencias correspondientes al ejemplo del tiempo que requiere un grupo de personas en realizar una actividad.",
+  "reemplazar": "",
+  "motivo": "Oración de referencia visual a la tabla doce (pág. 122), seguida inmediatamente por esa tabla; se elimina."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla dieciséis | n= 1",
+  "veredicto": "real",
+  "buscar": "Retomando el ejemplo de la tabla dieciséis sobre el grupo de profesionales que asisten a los estudiantes",
+  "reemplazar": "Retomando el ejemplo sobre el grupo de profesionales que asisten a los estudiantes",
+  "motivo": "Referencia visual «de la tabla dieciséis» en el cuerpo del texto (pág. 134); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla veintidós | n= 1",
+  "veredicto": "real",
+  "buscar": "la tabla de contingencia o tabulación cruzada se describe en la tabla veintidós, con la síntesis de los datos",
+  "reemplazar": "la tabla de contingencia o tabulación cruzada se describe con la síntesis de los datos",
+  "motivo": "Referencia visual «en la tabla veintidós» en el cuerpo del texto (pág. 140); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la tabla veintidós | n= 1",
+  "veredicto": "real",
+  "buscar": "En la tabla veintidós se observa que la mayor cantidad de instituciones educativas, sesenta y cuatro, tienen calidad muy buena, y que la antigüedad",
+  "reemplazar": "La mayor cantidad de instituciones educativas, sesenta y cuatro, tienen calidad muy buena, y la antigüedad",
+  "motivo": "Referencia visual «En la tabla veintidós se observa que» (pág. 141); se quita conservando los datos."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla veintidós | n= 4",
+  "veredicto": "real",
+  "buscar": "la tabla de contingencia o tabulación cruzada se describe en la tabla veintidós, con la síntesis de los datos",
+  "reemplazar": "la tabla de contingencia o tabulación cruzada se describe con la síntesis de los datos",
+  "motivo": "Coincidencia solapada de «en la tabla veintidós» y «En la tabla veintidós» (págs. 140-141); cubierta por las correcciones previas."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla veintidós a | n= 1",
+  "veredicto": "real",
+  "buscar": "Al convertir las frecuencias de la tabla veintidós a porcentajes de fila o de columna, es posible tener",
+  "reemplazar": "Al convertir las frecuencias a porcentajes de fila o de columna, es posible tener",
+  "motivo": "Referencia visual «de la tabla veintidós» en el cuerpo del texto (pág. 142); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla doce | n= 3",
+  "veredicto": "real",
+  "buscar": "Retomando la información de la tabla doce, donde se analiza el tiempo que tarda un grupo de personas",
+  "reemplazar": "Retomando la información donde se analiza el tiempo que tarda un grupo de personas",
+  "motivo": "Referencia visual «de la tabla doce» en el cuerpo del texto (pág. 150); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla doce | n= 2",
+  "veredicto": "real",
+  "buscar": "Para el ejemplo mencionado anteriormente en la tabla doce, sobre el tiempo que tarda un grupo de personas",
+  "reemplazar": "Para el ejemplo mencionado anteriormente sobre el tiempo que tarda un grupo de personas",
+  "motivo": "Referencia visual «en la tabla doce» en el cuerpo del texto (pág. 153); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla doce | n= 2",
+  "veredicto": "real",
+  "buscar": "Al retomar el ejemplo mencionado anteriormente en la tabla doce, sobre el tiempo que tarda un grupo de personas",
+  "reemplazar": "Al retomar el ejemplo mencionado anteriormente sobre el tiempo que tarda un grupo de personas",
+  "motivo": "Referencia visual «en la tabla doce» en el cuerpo del texto (pág. 157); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En la tabla treinta | n= 1",
+  "veredicto": "real",
+  "buscar": "En la tabla treinta se observa que el color con mayor frecuencia es el azul, por tanto, la moda",
+  "reemplazar": "El color con mayor frecuencia es el azul, por tanto, la moda",
+  "motivo": "Referencia visual «En la tabla treinta se observa que» (pág. 156); se quita conservando el resultado."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla treinta y tres | n= 4",
+  "veredicto": "real",
+  "buscar": "Ejemplo: en la tabla treinta y tres se presentan los datos ordenados de la estatura, en centímetros,",
+  "reemplazar": "Ejemplo: se presentan los datos ordenados de la estatura, en centímetros,",
+  "motivo": "Referencia visual «en la tabla treinta y tres» en el cuerpo del texto (pág. 165); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla treinta y tres | n= 5",
+  "veredicto": "real",
+  "buscar": "para el ejemplo de la estatura de las mujeres, presentado en la tabla treinta y tres, se detalla a continuación:",
+  "reemplazar": "para el ejemplo de la estatura de las mujeres se detalla a continuación:",
+  "motivo": "Referencia visual «presentado en la tabla treinta y tres» (pág. 167); se quita sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la tabla treinta y cuatro | n= 1",
+  "veredicto": "real",
+  "buscar": "Por ejemplo, en la tabla treinta y cuatro se presenta la puntuación de la evaluación de desempeño",
+  "reemplazar": "Por ejemplo, se presenta la puntuación de la evaluación de desempeño",
+  "motivo": "Referencia visual «en la tabla treinta y cuatro» en el cuerpo del texto (pág. 175); se quita sin romper la oración."
+ }
+]

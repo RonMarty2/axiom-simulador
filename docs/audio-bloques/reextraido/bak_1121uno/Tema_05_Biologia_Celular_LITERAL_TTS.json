@@ -1,0 +1,155 @@
+[
+  {
+    "j": 34,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 222,
+    "texto_viejo": "Estos orgánulos son intermediarios del proceso endocítico y tienen la función primordial de clasificar las sustancias endocitadas y dirigirlas hacia diferentes rutas intracelulares. Son, asimismo, orgánulos donde se produce el desacoplamiento ligando-receptor. Aparte de la localización, los endosomas se diferencian por su contenido interno y por su pH. Estos orgánulos muestran un ambiente ácido gracias a las bombas de protones , H+, dependientes de A T P , ATPasa-V, que introducen H+ desde el citosol al lumen. Los endosomas tardíos son los que tienen un pH más ácido.",
+    "texto_nuevo": "Estos orgánulos son intermediarios del proceso endocítico y tienen la función primordial de clasificar las sustancias endocitadas y dirigirlas hacia diferentes rutas intracelulares. Son, asimismo, orgánulos donde se produce el desacoplamiento ligando-receptor. Aparte de la localización, los endosomas se diferencian por su contenido interno y por su pH. Estos orgánulos muestran un ambiente ácido gracias a las bombas de protones, H más, dependientes de A T P, ATPasa-V, que introducen H más desde el citosol al lumen. Los endosomas tardíos son los que tienen un pH más ácido."
+  },
+  {
+    "j": 60,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9867,
+    "pagina": 229,
+    "texto_viejo": "Estos datos sugieren que las cavéolas son el principal sitio de intercambio de colesterol entre la membrana plasmática y las moléculas de HDL, aunque aún no se ha confirmado. Macropinocitosis Por su parte, la macropinocitosis es el proceso de endocitosis de fase fluida en grandes vesículas , macropinosomas, de entre cero coma un cinco y cinco coma cero μm de diámetro , fig. cinco a doce,. Se basa en la formación de evaginaciones de membrana, a modo de lamelipodios, basadas a su vez en la polimerización de la actina.",
+    "texto_nuevo": "Estos datos sugieren que las cavéolas son el principal sitio de intercambio de colesterol entre la membrana plasmática y las moléculas de HDL, aunque aún no se ha confirmado. Macropinocitosis Por su parte, la macropinocitosis es el proceso de endocitosis de fase fluida en grandes vesículas, macropinosomas, de entre cero coma uno cinco y cinco coma cero micrómetros de diámetro. Se basa en la formación de evaginaciones de membrana, a modo de lamelipodios, basadas a su vez en la polimerización de la actina."
+  },
+  {
+    "j": 66,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9935,
+    "pagina": 231,
+    "texto_viejo": "FIGURA cinco a trece Imagen de microscopía electrónica de transmisión de un neutrófilo que ha fagocitado a la bacteria Bacillus anthracis. La flecha indica una espora, y la punta de flecha, una bacteria germinada. El recuadro superior muestra con más aumento la espora y la bacteria germinada. Barra en la imagen: cinco μm; barra en el recuadro: quinientos nanómetros. , Procedente de: Mayer-Scholl et al. PlosPathogenes dos mil cinco;un, tres,:e23., El mecanismo de fagocitosis se desencadena por la unión de determinadas moléculas de membrana a receptores específicos de la célula fagocítica.",
+    "texto_nuevo": "FIGURA cinco punto trece Imagen de microscopía electrónica de transmisión de un neutrófilo que ha fagocitado a la bacteria Bacillus anthracis. La flecha indica una espora, y la punta de flecha, una bacteria germinada. El recuadro superior muestra con más aumento la espora y la bacteria germinada. Barra en la imagen: cinco micrómetros; barra en el recuadro: quinientos nanómetros. Procedente de: Mayer-Scholl et al. PlosPathogenes dos mil cinco;uno, tres:e veintitrés. El mecanismo de fagocitosis se desencadena por la unión de determinadas moléculas de membrana a receptores específicos de la célula fagocítica."
+  },
+  {
+    "j": 102,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 239,
+    "texto_viejo": "Tras el anclaje, y ante el estímulo adecuado , un incremento del Ca2+ intracelular en la exocitosis regulada, las SNARE interaccionan más estrechamente entre sí y reducen la distancia entre las membranas a un coma cinco nanómetros. A esta distancia, los lípidos pueden fluir de una membrana a otra, y así se disgregan y se fusionan. Pero, antes de la fusión, es necesario desplazar las moléculas de agua que se interponen entre las dos bicapas; para ello, se necesita energía, lo que implicaría reacciones catalizadas por proteínas especializadas en la fusión de membranas.",
+    "texto_nuevo": "Tras el anclaje, y ante el estímulo adecuado, un incremento del Ca dos más intracelular en la exocitosis regulada, las SNARE interaccionan más estrechamente entre sí y reducen la distancia entre las membranas a uno coma cinco nanómetros. A esta distancia, los lípidos pueden fluir de una membrana a otra, y así se disgregan y se fusionan. Pero, antes de la fusión, es necesario desplazar las moléculas de agua que se interponen entre las dos bicapas; para ello, se necesita energía, lo que implicaría reacciones catalizadas por proteínas especializadas en la fusión de membranas."
+  },
+  {
+    "j": 106,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 240,
+    "texto_viejo": "El carácter excitador o inhibidor viene dado por el receptor al que se unen en la membrana de la neurona postsináptica y por el efecto que producen en ella. Estos receptores son proteínas transmembrana que actúan como canales iónicos regulados por el neurotransmisor, y son selectivos para determinados iones. Así, la apertura de canales de Na+ permite la entrada de este ión al interior celular, causando un incremento del potencial eléctrico y la despolarización de la membrana.",
+    "texto_nuevo": "El carácter excitador o inhibidor viene dado por el receptor al que se unen en la membrana de la neurona postsináptica y por el efecto que producen en ella. Estos receptores son proteínas transmembrana que actúan como canales iónicos regulados por el neurotransmisor, y son selectivos para determinados iones. Así, la apertura de canales de Na más permite la entrada de este ión al interior celular, causando un incremento del potencial eléctrico y la despolarización de la membrana."
+  },
+  {
+    "j": 107,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 240,
+    "texto_viejo": "Por su parte, los canales permeables para el K+ o el Cl– inhiben la transmisión nerviosa, pues negativizan el interior celular, dificultando la despolarización de la membrana. En resumen, la sinapsis excitadora es aquella en la que una corriente intracelular de Na+ despolariza la membrana postsináptica; y la inhibidora es aquella en la que la corriente, ya sea de K+ o de Cl–, hiperpolariza la neurona , v. capítulo cuatro,. Pero no solo existen estos neurotransmisores. Hay otros, de estructura más compleja y conocidos como neuropéptidos, que se unen a receptores metabotrópicos.",
+    "texto_nuevo": "Por su parte, los canales permeables para el K más o el Cl menos inhiben la transmisión nerviosa, pues negativizan el interior celular, dificultando la despolarización de la membrana. En resumen, la sinapsis excitadora es aquella en la que una corriente intracelular de Na más despolariza la membrana postsináptica; y la inhibidora es aquella en la que la corriente, ya sea de K más o de Cl menos, hiperpolariza la neurona, v. capítulo cuatro. Pero no solo existen estos neurotransmisores. Hay otros, de estructura más compleja y conocidos como neuropéptidos, que se unen a receptores metabotrópicos."
+  },
+  {
+    "j": 112,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9939,
+    "pagina": 241,
+    "texto_viejo": ", A y B, procedentes de: SynapseWeb, Harris KM: C, ilustración de: E. Maldonado., Desde la red Trans del Golgi surgen vesículas que contienen en su membrana proteínas estructurales y transportadoras propias de las vesículas sinápticas. Estas vesículas son transportadas a lo largo del axón mediante transporte anterógrado rápido , doscientos a cuatrocientos μm o día, utilizando los neurotúbulos y neurofilamentos. Cuando han llegado al terminal presináptico, se fusionan con la membrana plasmática para liberar los componentes de las vesículas sinápticas, lo que constituye un proceso de exocitosis constitutiva.",
+    "texto_nuevo": "A y B, procedentes de: SynapseWeb, Harris KM:. C, ilustración de: E. Maldonado. Desde la red Trans del Golgi surgen vesículas que contienen en su membrana proteínas estructurales y transportadoras propias de las vesículas sinápticas. Estas vesículas son transportadas a lo largo del axón mediante transporte anterógrado rápido, doscientos a cuatrocientos micrómetros por día, utilizando los neurotúbulos y neurofilamentos. Cuando han llegado al terminal presináptico, se fusionan con la membrana plasmática para liberar los componentes de las vesículas sinápticas, lo que constituye un proceso de exocitosis constitutiva."
+  },
+  {
+    "j": 113,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 241,
+    "texto_viejo": "Posteriormente, estos componentes son endocitados , mediante vesículas recubiertas de clatrina, y pueden seguir dos vías: formar directamente vesículas sinápticas, o bien fusionarse con un endosoma, que funcionaría como estación intermedia. Una vez formadas por una u otra ruta, las vesículas se cargan de neurotransmisor mediante una proteína de contratransporte que intercambia protones con la molécula de neurotransmisor , Ach, dopamina, GABA u otros, que es sintetizada en el propio terminal. El transporte del neurotransmisor se lleva a cabo gracias al gradiente de protones creado por bombas de H+ que se encuentran en la membrana de la vesícula.",
+    "texto_nuevo": "Posteriormente, estos componentes son endocitados, mediante vesículas recubiertas de clatrina, y pueden seguir dos vías: formar directamente vesículas sinápticas, o bien fusionarse con un endosoma, que funcionaría como estación intermedia. Una vez formadas por una u otra ruta, las vesículas se cargan de neurotransmisor mediante una proteína de contratransporte que intercambia protones con la molécula de neurotransmisor, Ach, dopamina, GABA u otros, que es sintetizada en el propio terminal. El transporte del neurotransmisor se lleva a cabo gracias al gradiente de protones creado por bombas de H más que se encuentran en la membrana de la vesícula."
+  },
+  {
+    "j": 115,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('figs' vs 'algunas')",
+    "similitud": 0.9714,
+    "pagina": 242,
+    "texto_viejo": ", figs. cinco a veintidós y cinco a veintitrés,. Algunas vesículas están ancladas a la membrana gracias a la unión parcial del complejo SNARE; dichas vesículas se encuentran en un estado de prefusión que permite la liberación rápida del neurotransmisor una vez llega el potencial de acción. FIGURA cinco a veintidós Esquema que representa el complejo SNARE de la sinapsis neuronal. La sinaptobrevina , v-SNARE, se encuentra anclada con la sintaxina y la SNAP-veinticinco , t-SNARE,. La sinaptotagmina , con sus dominios C2A y C2B, es una proteína integral de la membrana vesicular que actúa como sensor de Ca2+.",
+    "texto_nuevo": ". Algunas vesículas están ancladas a la membrana gracias a la unión parcial del complejo SNARE; dichas vesículas se encuentran en un estado de prefusión que permite la liberación rápida del neurotransmisor una vez llega el potencial de acción. FIGURA cinco punto veintidós Esquema que representa el complejo SNARE de la sinapsis neuronal. La sinaptobrevina, v-SNARE, se encuentra anclada con la sintaxina y la SNAP veinticinco, t-SNARE. La sinaptotagmina, con sus dominios C dos A y C dos B, es una proteína integral de la membrana vesicular que actúa como sensor de Ca dos más."
+  },
+  {
+    "j": 117,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9888,
+    "pagina": 243,
+    "texto_viejo": "FIGURA cinco a veintitrés Esquema de la maquinaria exocítica de una vesícula sináptica con la membrana del terminal axónico. un, la vesícula se encuentra anclada al citoesqueleto por la sinapsina. La llegada de Ca2+ activa a la calmodulina y esta a la CAM-quinasa, que libera a la vesícula. dos, la vesícula desciende hasta la membrana plasmática y las SNARE interactúan entre sí. tres, acoplamiento de las SNARE y fusión de las membranas. cuatro, el complejo NSF o α-SNAP, utilizando A T P, desensambla el complejo de fusión. cinco, la vesícula vuelve al interior citoplasmático. , Ilustración de: E.",
+    "texto_nuevo": "FIGURA cinco punto veintitrés Esquema de la maquinaria exocítica de una vesícula sináptica con la membrana del terminal axónico. uno, la vesícula se encuentra anclada al citoesqueleto por la sinapsina. La llegada de Ca dos más activa a la calmodulina y esta a la CAM-quinasa, que libera a la vesícula. dos, la vesícula desciende hasta la membrana plasmática y las SNARE interactúan entre sí. tres, acoplamiento de las SNARE y fusión de las membranas. cuatro, el complejo NSF o alfa SNAP, utilizando A T P, desensambla el complejo de fusión. cinco, la vesícula vuelve al interior citoplasmático. Ilustración de: E."
+  },
+  {
+    "j": 118,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('a' vs 'en')",
+    "similitud": 0.9722,
+    "pagina": 243,
+    "texto_viejo": "Maldonado y A. Calvo., Para que la liberación del neurotransmisor se lleve a cabo, la neurona debe ser previamente excitada por un potencial de acción que la recorra y que llegue hasta el botón presináptico. En este punto, el potencial activa canales de Ca2+ dependientes de voltaje y se produce un incremento brusco y súbito de la concentración de Ca2+ intracelular. El proceso de fusión de las vesículas sinápticas se puede dividir en cinco etapas , v. fig. cinco a veintitrés,.",
+    "texto_nuevo": "Maldonado y A. Calvo. Para que la liberación del neurotransmisor se lleve a cabo, la neurona debe ser previamente excitada por un potencial de acción que la recorra y que llegue hasta el botón presináptico. En este punto, el potencial activa canales de Ca dos más dependientes de voltaje y se produce un incremento brusco y súbito de la concentración de Ca dos más intracelular. El proceso de fusión de las vesículas sinápticas se puede dividir en cinco etapas. En"
+  },
+  {
+    "j": 119,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('en' vs 'la')",
+    "similitud": 0.9937,
+    "pagina": 243,
+    "texto_viejo": "En la primera se produce una aproximación , un, de la vesícula desde una zona más interna del citoplasma, donde está anclada mediante la unión de la sinapsina al citoesqueleto, hacia la membrana plasmática. Parte del Ca2+ que entra en el terminal se une a la calmodulina, una proteína que, tras dicha unión, sufre un cambio conformacional que le permite activar a la CAM quinasa. Esta enzima fosforila a la sinapsina, separándose entonces del citoesqueleto y dejando libre a la vesícula para que esta pueda ser exocitada.",
+    "texto_nuevo": "la primera se produce una aproximación, uno, de la vesícula desde una zona más interna del citoplasma, donde está anclada mediante la unión de la sinapsina al citoesqueleto, hacia la membrana plasmática. Parte del Ca dos más que entra en el terminal se une a la calmodulina, una proteína que, tras dicha unión, sufre un cambio conformacional que le permite activar a la CAM quinasa. Esta enzima fosforila a la sinapsina, separándose entonces del citoesqueleto y dejando libre a la vesícula para que esta pueda ser exocitada."
+  },
+  {
+    "j": 120,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 243,
+    "texto_viejo": "Por otro lado, el Ca2+ que ha entrado en el botón terminal se une también a la sinaptotagmina, proteína sensora de calcio unida a la vesícula sináptica. Cuando la sinaptotagmina no está unida a Ca2+ impide la interacción de las vy tSNARE. La unión al Ca2+ promueve un cambio conformacional que deja libre a las SNARE para que se unan entre sí. La vesícula, por lo tanto, desciende , dos, y las vy t-SNARE, interactuando entre sí , tres, facilitan el anclaje de la vesícula a la membrana plasmática.",
+    "texto_nuevo": "Por otro lado, el Ca dos más que ha entrado en el botón terminal se une también a la sinaptotagmina, proteína sensora de calcio unida a la vesícula sináptica. Cuando la sinaptotagmina no está unida a Ca dos más impide la interacción de las vy tSNARE. La unión al Ca dos más promueve un cambio conformacional que deja libre a las SNARE para que se unan entre sí. La vesícula, por lo tanto, desciende, dos, y las vy t-SNARE, interactuando entre sí, tres, facilitan el anclaje de la vesícula a la membrana plasmática."
+  },
+  {
+    "j": 126,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9877,
+    "pagina": 244,
+    "texto_viejo": "La unión neuromuscular es la sinapsis química que se produce entre una motoneurona y una fibra muscular esquelética, y es la responsable de la contracción muscular. El neurotransmisor de esta sinapsis es la acetilcolina , Ach, que es sintetizada a partir de acetil-CoA y colina en el terminal presináptico, en una reacción catalizada por la enzima colina acetiltransferasa , fig. cinco a veinticuatro,. La Ach se incorpora a vesículas de endocitosis mediante un transporte acoplado de tipo antiporte, por el cual se introduce el neurotransmisor a costa de expulsar protones , H+,.",
+    "texto_nuevo": "La unión neuromuscular es la sinapsis química que se produce entre una motoneurona y una fibra muscular esquelética, y es la responsable de la contracción muscular. El neurotransmisor de esta sinapsis es la acetilcolina, Ach, que es sintetizada a partir de acetil-CoA y colina en el terminal presináptico, en una reacción catalizada por la enzima colina acetiltransferasa. La Ach se incorpora a vesículas de endocitosis mediante un transporte acoplado de tipo antiporte, por el cual se introduce el neurotransmisor a costa de expulsar protones, H más."
+  },
+  {
+    "j": 128,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9934,
+    "pagina": 244,
+    "texto_viejo": "Tras dicha unión, el receptor, que es un canal para el Na+, se abre y provoca una entrada de este ión que despolariza la membrana e inicia el proceso de contracción muscular. FIGURA cinco a veinticuatro El esquema representa el proceso general de la sinapsis colinérgica en la unión neuromuscular. un, incorporación, mediante un cotransporte dependiente de Na+, de colina al botón terminal. Síntesis de acetilcolina , Ach, catalizada por la colina acetiltransferasa. dos, incorporación de Ach a la vesícula sináptica mediante un antiporte con H+.",
+    "texto_nuevo": "Tras dicha unión, el receptor, que es un canal para el Na más, se abre y provoca una entrada de este ión que despolariza la membrana e inicia el proceso de contracción muscular. FIGURA cinco punto veinticuatro El esquema representa el proceso general de la sinapsis colinérgica en la unión neuromuscular. uno, incorporación, mediante un cotransporte dependiente de Na más, de colina al botón terminal. Síntesis de acetilcolina, Ach, catalizada por la colina acetiltransferasa. dos, incorporación de Ach a la vesícula sináptica mediante un antiporte con H más."
+  },
+  {
+    "j": 129,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 244,
+    "texto_viejo": "tres, cuando el Ca2+ penetra en el terminal, la vesícula sináptica es exocitada y la Ach se libera al espacio sináptico. cuatro, unión del neurotransmisor a sus receptores en la membrana de la célula muscular. cinco, degradación de la Ach por la acetilcolinesterasa , AchE,. , Ilustración de: E. Maldonado., Para que el estímulo de la Ach no sea excesivo en intensidad ni en duración, el neurotransmisor debe ser rápidamente eliminado del espacio sináptico.",
+    "texto_nuevo": "tres, cuando el Ca dos más penetra en el terminal, la vesícula sináptica es exocitada y la Ach se libera al espacio sináptico. cuatro, unión del neurotransmisor a sus receptores en la membrana de la célula muscular. cinco, degradación de la Ach por la acetilcolinesterasa, AchE. Ilustración de: E. Maldonado. Para que el estímulo de la Ach no sea excesivo en intensidad ni en duración, el neurotransmisor debe ser rápidamente eliminado del espacio sináptico."
+  },
+  {
+    "j": 131,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 245,
+    "texto_viejo": "sin actividad biológica. Posteriormente, la colina es captada por un transportador de membrana presináptico de tipo simporte acoplado al transporte de Na+, que la reintroduce en el citoplasma del botón terminal para su reciclaje. Por último, en el proceso de eliminación de neurotransmisores del espacio sináptico, muchos de ellos , pero no la Ach, se reciclan intactos, introduciéndose de nuevo en la neurona presináptica. Ejemplos de estos neurotransmisores son el GABA, la noradrenalina, la dopamina y la serotonina. Este sistema de transportadores es de tipo simporte y acopla la incorporación del neurotransmisor a la introducción de Na+.",
+    "texto_nuevo": "sin actividad biológica. Posteriormente, la colina es captada por un transportador de membrana presináptico de tipo simporte acoplado al transporte de Na más, que la reintroduce en el citoplasma del botón terminal para su reciclaje. Por último, en el proceso de eliminación de neurotransmisores del espacio sináptico, muchos de ellos, pero no la Ach, se reciclan intactos, introduciéndose de nuevo en la neurona presináptica. Ejemplos de estos neurotransmisores son el GABA, la noradrenalina, la dopamina y la serotonina. Este sistema de transportadores es de tipo simporte y acopla la incorporación del neurotransmisor a la introducción de Na más."
+  }
+]

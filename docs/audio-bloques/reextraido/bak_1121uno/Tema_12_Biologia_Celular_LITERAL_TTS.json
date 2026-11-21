@@ -1,0 +1,47 @@
+[
+  {
+    "j": 51,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 503,
+    "texto_viejo": "Cilios Los cilios son proyecciones celulares cilíndricas de unos cero coma dos cinco μm de ancho y aproximadamente cinco μm de longitud, situados en la superficie libre de las células; están formados por un eje de nueve dobletes de microtúbulos periféricos que quedan rodeando a dos microtúbulos centrales. Esta estructura se denomina axonema, y está rodeada por la membrana plasmática. Existen dos tipos de cilios, que se diferencian por la estructura del axonema y por la función que desempeñan: a los cilios móviles , figs.",
+    "texto_nuevo": "Cilios Los cilios son proyecciones celulares cilíndricas de unos cero coma dos cinco micrómetros de ancho y aproximadamente cinco micrómetros de longitud, situados en la superficie libre de las células; están formados por un eje de nueve dobletes de microtúbulos periféricos que quedan rodeando a dos microtúbulos centrales. Esta estructura se denomina axonema, y está rodeada por la membrana plasmática. Existen dos tipos de cilios, que se diferencian por la estructura del axonema y por la función que desempeñan: a los cilios móviles figs."
+  },
+  {
+    "j": 120,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 520,
+    "texto_viejo": "el extremo barbado , el de crecimiento, queda hacia el positivo . Por lo tanto, existe también una polaridad en la interacción de estos filamentos, lo cual es importante, como se verá más adelante, para la contracción muscular. En el músculo estriado, las moléculas de miosina II se asocian entre sí para formar un filamento grueso de quince nanómetros de espesor y un coma seis μm de longitud, que incluye trescientos a cuatrocientos moléculas entrelazadas entre sí longitudinalmente. Las moléculas de miosina se agrupan de modo escalonado y dejando las cabezas globulares hacia el exterior del filamento.",
+    "texto_nuevo": "el extremo barbado, el de crecimiento, queda hacia el positivo . Por lo tanto, existe también una polaridad en la interacción de estos filamentos, lo cual es importante, como se verá más adelante, para la contracción muscular. En el músculo estriado, las moléculas de miosina II se asocian entre sí para formar un filamento grueso de quince nanómetros de espesor y uno coma seis micrómetros de longitud, que incluye trescientos a cuatrocientas moléculas entrelazadas entre sí longitudinalmente. Las moléculas de miosina se agrupan de modo escalonado y dejando las cabezas globulares hacia el exterior del filamento."
+  },
+  {
+    "j": 127,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9822,
+    "pagina": 521,
+    "texto_viejo": "Al microscopio electrónico se puede observar que las miofibrillas del músculo esquelético presentan un patrón de bandas claras y oscuras. Las bandas oscuras se denominan A , de anisotrópicas con luz polarizada, mientras que las claras se llaman I , de isotrópicas, v. fig. doce a veinte,. En las bandas claras , I, existe en realidad una zona oscura situada en posición central, a la que se denomina disco o línea Z. El sarcómero se define como la unidad comprendida entre dos discos Z, lo que corresponde aproximadamente a dos coma cinco μm de longitud en situación de relajación.",
+    "texto_nuevo": "Al microscopio electrónico se puede observar que las miofibrillas del músculo esquelético presentan un patrón de bandas claras y oscuras. Las bandas oscuras se denominan A, de anisotrópicas con luz polarizada, mientras que las claras se llaman I, de isotrópicas. En las bandas claras, I, existe en realidad una zona oscura situada en posición central, a la que se denomina disco o línea Z. El sarcómero se define como la unidad comprendida entre dos discos Z, lo que corresponde aproximadamente a dos coma cinco micrómetros de longitud en situación de relajación."
+  },
+  {
+    "j": 128,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 521,
+    "texto_viejo": "La contracción muscular implica una reducción de la longitud del sarcómero de aproximadamente cero coma cuatro μm. En la banda oscura , A, también se puede observar una zona algo más clara situada en el centro, llamada zona H. En las bandas A se sitúan los filamentos gruesos de miosina. Los microfilamentos de actina se disponen paralelos a los de miosina, rodeándolos en las zonas periféricas, donde se sitúan las cabezas de miosina, lo cual permite la interacción entre ambos filamentos. Estos filamentos están formados por actina F junto a una multitud de proteínas que se asocian al filamento.",
+    "texto_nuevo": "La contracción muscular implica una reducción de la longitud del sarcómero de aproximadamente cero coma cuatro micrómetros. En la banda oscura, A, también se puede observar una zona algo más clara situada en el centro, llamada zona H. En las bandas A se sitúan los filamentos gruesos de miosina. Los microfilamentos de actina se disponen paralelos a los de miosina, rodeándolos en las zonas periféricas, donde se sitúan las cabezas de miosina, lo cual permite la interacción entre ambos filamentos. Estos filamentos están formados por actina F junto a una multitud de proteínas que se asocian al filamento."
+  },
+  {
+    "j": 140,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 523,
+    "texto_viejo": "Los terminales axónicos vierten el neurotransmisor acetilcolina en la unión neuromuscular, que es reconocida por receptores específicos en la membrana muscular , llamada sarcolema,. Esta unión hace que se abran los canales de Na+, provocando la despolarización de la membrana , paso un, que se propaga rápidamente a toda la célula a través de unas invaginaciones de la membrana a las que se denomina túbulos T , transversales con respecto a la orientación de las microfibrillas, paso dos,. En paralelo a cada túbulo T se sitúan dos túbulos de retículo sarcoplásmico, formando las llamadas tríadas del sarcómero.",
+    "texto_nuevo": "Los terminales axónicos vierten el neurotransmisor acetilcolina en la unión neuromuscular, que es reconocida por receptores específicos en la membrana muscular, llamada sarcolema. Esta unión hace que se abran los canales de Na más, provocando la despolarización de la membrana, paso uno, que se propaga rápidamente a toda la célula a través de unas invaginaciones de la membrana a las que se denomina túbulos T, transversales con respecto a la orientación de las microfibrillas, paso dos. En paralelo a cada túbulo T se sitúan dos túbulos de retículo sarcoplásmico, formando las llamadas tríadas del sarcómero."
+  }
+]

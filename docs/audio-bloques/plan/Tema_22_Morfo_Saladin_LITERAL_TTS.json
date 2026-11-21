@@ -1,2158 +1,2095 @@
 [
-  {
-    "j": 1,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "nuevo",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Repaso • La expos"
-  },
-  {
-    "j": 2,
-    "accion": "REUSAR",
-    "origen": "parte_003.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "trescientos treinta y tres, además de muchos músculos acceso"
-  },
-  {
-    "j": 3,
-    "accion": "REUSAR",
-    "origen": "parte_004.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• La difusión y los factores que afectan su velocidad , p. n"
-  },
-  {
-    "j": 4,
-    "accion": "REUSAR",
-    "origen": "parte_005.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El término respiración puede signifi car ventilación de los "
-  },
-  {
-    "j": 5,
-    "accion": "REUSAR",
-    "origen": "parte_006.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Es fundamental en el intercambio de oxígeno y dióxido de car"
-  },
-  {
-    "j": 6,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_007.wav)",
-    "texto_inicio": "El exceso de CO2 reacciona con el agua y libera iones hidróg"
-  },
-  {
-    "j": 7,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La respiración crea gradientes de presión entre el tórax y e"
-  },
-  {
-    "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Dentro de los pulmones, el aire circula a lo largo de una ru"
-  },
-  {
-    "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_010.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La división conductora del aparato respiratorio está integra"
-  },
-  {
-    "j": 10,
-    "accion": "REUSAR",
-    "origen": "parte_011.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se debe al hecho de que casi todo el metabolismo, de manera "
-  },
-  {
-    "j": 11,
-    "accion": "REUSAR",
-    "origen": "parte_012.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El aparato respiratorio y el sistema cardiovascular colabora"
-  },
-  {
-    "j": 12,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Como se analiza en los dos capítulos siguientes, el aparato "
-  },
-  {
-    "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_014.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento parte del aparato re"
-  },
-  {
-    "j": 14,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Nariz La nariz tiene varias funciones: calienta, limpia y hu"
-  },
-  {
-    "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_016.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mitad inferior recibe soporte de los cartílagos lateral y"
-  },
-  {
-    "j": 16,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La pared divisoria es una placa vertical, el tabique nasal, "
-  },
-  {
-    "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cavidad nasal Orificios nasales Bóveda del paladar Laringe T"
-  },
-  {
-    "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_019.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA veintidós coma dos Anatomía de la región nasal. a Ana"
-  },
-  {
-    "j": 19,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio etmoides y esfeno"
-  },
-  {
-    "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este espacio está cubierto con epitelio pavimentoso estratif"
-  },
-  {
-    "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debajo de cada cornete se encuentra un pasaje de aire estrec"
-  },
-  {
-    "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por tanto, los cornetes permiten que la nariz limpie, calien"
-  },
-  {
-    "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A ambos se les denomina epitelio cilíndrico seudoestratifi c"
-  },
-  {
-    "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Suministran el moco producido por las células caliciformes. "
-  },
-  {
-    "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_026.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cada treinta a sesenta minutos, el tejido eréctil de un lado"
-  },
-  {
-    "j": 26,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_027.wav)",
-    "texto_inicio": "Tiene tres regiones principales: nasofaringe, orofaringe y l"
-  },
-  {
-    "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_028.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Chocan con la pared posterior de la nasofaringe y se pegan a"
-  },
-  {
-    "j": 28,
-    "accion": "REUSAR",
-    "origen": "parte_029.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La nasofaringe sólo pasa aire y está cubierta por epitelio c"
-  },
-  {
-    "j": 29,
-    "accion": "REUSAR",
-    "origen": "parte_030.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La apertura superior de la laringe está protegida por un col"
-  },
-  {
-    "j": 30,
-    "accion": "REUSAR",
-    "origen": "parte_031.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, las cuerdas vocales falsas de la laringe, que s"
-  },
-  {
-    "j": 31,
-    "accion": "REUSAR",
-    "origen": "parte_032.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La epiglotis mantiene la leche lejos del fl ujo de aire, com"
-  },
-  {
-    "j": 32,
-    "accion": "REUSAR",
-    "origen": "parte_033.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Orofaringe Nasofaringe Laringofaringe Cartílago del tabique "
-  },
-  {
-    "j": 33,
-    "accion": "REUSAR",
-    "origen": "parte_034.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio tienda mientras p"
-  },
-  {
-    "j": 34,
-    "accion": "REUSAR",
-    "origen": "parte_035.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cubre los aspectos anterior y lateral de la laringe. La manz"
-  },
-  {
-    "j": 35,
-    "accion": "REUSAR",
-    "origen": "parte_036.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Posterior al cartílago tiroides se encuentran dos cartílagos"
-  },
-  {
-    "j": 36,
-    "accion": "REUSAR",
-    "origen": "parte_037.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En sentido superior, una hoja amplia, el ligamento tirohioid"
-  },
-  {
-    "j": 37,
-    "accion": "REUSAR",
-    "origen": "parte_038.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La pared interior de la laringe tiene dos pliegues a cada la"
-  },
-  {
-    "j": 38,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Contienen los ligamentos vocales y están cubiertas con epite"
-  },
-  {
-    "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_040.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "ocho cune igual a cuña; forme igual a con forma de. Epigloti"
-  },
-  {
-    "j": 40,
-    "accion": "REUSAR",
-    "origen": "parte_041.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Las paredes de la la"
-  },
-  {
-    "j": 41,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El aire forzado entre las cuerdas vocales aducidas las hace "
-  },
-  {
-    "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_043.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aunque éstas, por sí solas, producen sonido, no dan lugar a "
-  },
-  {
-    "j": 43,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Recibe soporte de dieciséis a veinte anillos con forma de C "
-  },
-  {
-    "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Vista superior de la laringe, observada con un laringoscop"
-  },
-  {
-    "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_046.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio cartílago hialino"
-  },
-  {
-    "j": 46,
-    "accion": "REUSAR",
-    "origen": "parte_047.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los músculos traqueales se contraen o relajan para ajustar e"
-  },
-  {
-    "j": 47,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El tejido conjuntivo debajo del epitelio traqueal contiene n"
-  },
-  {
-    "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_049.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El cartílago traqueal inferior tiene un borde medio interno,"
-  },
-  {
-    "j": 49,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Corte longitudinal de la tráquea que muestra la acción del"
-  },
-  {
-    "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_051.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si las vías respiratorias superiores se ven obstruidas, tal "
-  },
-  {
-    "j": 51,
-    "accion": "REUSAR",
-    "origen": "parte_052.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando un paciente está en un ventilador y el aire se introd"
-  },
-  {
-    "j": 52,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento veintidós.5b . Se da"
-  },
-  {
-    "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_054.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La superfi cie mediastinal muestra una hendidura llamada hil"
-  },
-  {
-    "j": 54,
-    "accion": "REUSAR",
-    "origen": "parte_055.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El pulmón derecho es más corto que el izquierdo porque el hí"
-  },
-  {
-    "j": 55,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El pulmón derecho tiene tres lóbulos: superior, medio e infe"
-  },
-  {
-    "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_057.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A partir de la bifurcación de la tráquea, el bronquio princi"
-  },
-  {
-    "j": 57,
-    "accion": "REUSAR",
-    "origen": "parte_058.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cede un bronquio lobular superior y uno inferior a los dos l"
-  },
-  {
-    "j": 58,
-    "accion": "REUSAR",
-    "origen": "parte_059.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cada segmento broncopulmonar se identifi ca mediante un colo"
-  },
-  {
-    "j": 59,
-    "accion": "REUSAR",
-    "origen": "parte_060.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La lámina propia tiene una cantidad abundante de glándulas m"
-  },
-  {
-    "j": 60,
-    "accion": "REUSAR",
-    "origen": "parte_061.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las ramas de la arteria pulmonar siguen de cerca al árbol br"
-  },
-  {
-    "j": 61,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_062.wav)",
-    "texto_inicio": "Los bronquiolos tienen epitelio cúbico ciliado y una capa bi"
-  },
-  {
-    "j": 62,
-    "accion": "REUSAR",
-    "origen": "parte_063.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio las paredes. Las "
-  },
-  {
-    "j": 63,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, sí tienen cilios, de modo que el moco que drena"
-  },
-  {
-    "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_065.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Bronquios lobulares Vértice Lóbulo superior Arterias pulmona"
-  },
-  {
-    "j": 65,
-    "accion": "REUSAR",
-    "origen": "parte_066.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Cada bronquiolo term"
-  },
-  {
-    "j": 66,
-    "accion": "REUSAR",
-    "origen": "parte_067.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los conductos alveolares y las divisiones más pequeñas tiene"
-  },
-  {
-    "j": 67,
-    "accion": "REUSAR",
-    "origen": "parte_068.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La distinción entre un conducto alveolar y un vestía Bronqui"
-  },
-  {
-    "j": 68,
-    "accion": "REUSAR",
-    "origen": "parte_069.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Pero en las personas vivas, el pulmón llena por completo est"
-  },
-  {
-    "j": 69,
-    "accion": "REUSAR",
-    "origen": "parte_070.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio bulo es su forma:"
-  },
-  {
-    "j": 70,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En resumen, la ruta del fl ujo de aire es como sigue: los pr"
-  },
-  {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Luego empieza la división respiratoria; todos los pasajes si"
-  },
-  {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los mamíferos, con su metabolismo rápido, nunca hubieran evo"
-  },
-  {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Células delgadas, extensas a las que se les denomina células"
-  },
-  {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para comparar ambos tipos de células, piense en una cantidad"
-  },
-  {
-    "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_076.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin surfactante, las paredes de un alveolo desinfl ado tende"
-  },
-  {
-    "j": 76,
-    "accion": "REUSAR",
-    "origen": "parte_077.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento pegarse como hojas d"
-  },
-  {
-    "j": 77,
-    "accion": "REUSAR",
-    "origen": "parte_078.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hasta cien millones de macrófagos alveolares mueren al día m"
-  },
-  {
-    "j": 78,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_079.wav)",
-    "texto_inicio": "Tienen un grosor total de sólo cero coma cinco μm, en contra"
-  },
-  {
-    "j": 79,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su presión sanguínea media es de sólo diez mmHg, y la presió"
-  },
-  {
-    "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_081.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Pleuras La superfi cie del pulmón consta de una membrana ser"
-  },
-  {
-    "j": 81,
-    "accion": "REUSAR",
-    "origen": "parte_082.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ésta no contiene un pulmón, sino que lo envuelve, como la fu"
-  },
-  {
-    "j": 82,
-    "accion": "REUSAR",
-    "origen": "parte_083.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Reducción de la fricción. El líquido pleural actúa como un l"
-  },
-  {
-    "j": 83,
-    "accion": "REUSAR",
-    "origen": "parte_084.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aplicación de lo aprendido ¿De qué manera la estructura y la"
-  },
-  {
-    "j": 84,
-    "accion": "REUSAR",
-    "origen": "parte_085.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Describa la histología del epitelio y la lámina propia de la"
-  },
-  {
-    "j": 85,
-    "accion": "REUSAR",
-    "origen": "parte_086.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintidós coma dos Ventilación pulmonar Resultados esperados"
-  },
-  {
-    "j": 86,
-    "accion": "REUSAR",
-    "origen": "parte_087.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "e Explicar la importancia del espacio muerto anatómico para "
-  },
-  {
-    "j": 87,
-    "accion": "REUSAR",
-    "origen": "parte_088.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La respiración tranquila alude a la respiración relajada, in"
-  },
-  {
-    "j": 88,
-    "accion": "REUSAR",
-    "origen": "parte_089.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su músculo se ajusta al diámetro de las vías respiratorias, "
-  },
-  {
-    "j": 89,
-    "accion": "REUSAR",
-    "origen": "parte_090.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Recuerde la analogía de la jeringa de la página setecientos "
-  },
-  {
-    "j": 90,
-    "accion": "REUSAR",
-    "origen": "parte_091.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La acción de los músculos respiratorios es muy parecida a la"
-  },
-  {
-    "j": 91,
-    "accion": "REUSAR",
-    "origen": "parte_092.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las negritas indican los músculos respiratorios principales;"
-  },
-  {
-    "j": 92,
-    "accion": "REUSAR",
-    "origen": "parte_093.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento fuera. A continuació"
-  },
-  {
-    "j": 93,
-    "accion": "REUSAR",
-    "origen": "parte_094.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Éstos se encuentran en su volumen mínimo. Cuando el diafragm"
-  },
-  {
-    "j": 94,
-    "accion": "REUSAR",
-    "origen": "parte_095.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El diafragma por sí solo es responsable de casi dos terceras"
-  },
-  {
-    "j": 95,
-    "accion": "REUSAR",
-    "origen": "parte_096.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Durante la respiración tranquila, los músculos escalenos del"
-  },
-  {
-    "j": 96,
-    "accion": "REUSAR",
-    "origen": "parte_097.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas acciones aumentan los diámetros transversal , izquierd"
-  },
-  {
-    "j": 97,
-    "accion": "REUSAR",
-    "origen": "parte_098.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La inspiración profunda es apoyada por los erectores de la e"
-  },
-  {
-    "j": 98,
-    "accion": "REUSAR",
-    "origen": "parte_099.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La espiración normal es un proceso pasivo que ahorra energía"
-  },
-  {
-    "j": 99,
-    "accion": "REUSAR",
-    "origen": "parte_100.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El único esfuerzo muscular que interviene en la espiración n"
-  },
-  {
-    "j": 100,
-    "accion": "REUSAR",
-    "origen": "parte_101.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estas acciones reducen las dimensiones del tórax y expelen a"
-  },
-  {
-    "j": 101,
-    "accion": "REUSAR",
-    "origen": "parte_102.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "No sólo la presión abdominal afecta a la presión torácica; t"
-  },
-  {
-    "j": 102,
-    "accion": "REUSAR",
-    "origen": "parte_103.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Control neural de la respiración Los latidos y la respiració"
-  },
-  {
-    "j": 103,
-    "accion": "REUSAR",
-    "origen": "parte_104.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay dos razones para esta dependencia del encéfalo: un a dif"
-  },
-  {
-    "j": 104,
-    "accion": "REUSAR",
-    "origen": "parte_105.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio a voluntad. El ot"
-  },
-  {
-    "j": 105,
-    "accion": "REUSAR",
-    "origen": "parte_106.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay uno a cada lado, izquierdo y derecho, del tallo encefáli"
-  },
-  {
-    "j": 106,
-    "accion": "REUSAR",
-    "origen": "parte_107.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la respiración tranquila , llamada eupnea, el circuito de"
-  },
-  {
-    "j": 107,
-    "accion": "REUSAR",
-    "origen": "parte_108.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, con el tiempo las neuronas I van desactivándose"
-  },
-  {
-    "j": 108,
-    "accion": "REUSAR",
-    "origen": "parte_109.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El grupo respiratorio ventral , VRG, genera el ritmo de la r"
-  },
-  {
-    "j": 109,
-    "accion": "REUSAR",
-    "origen": "parte_110.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El DRG obtiene información de los centros encefálicos más el"
-  },
-  {
-    "j": 110,
-    "accion": "REUSAR",
-    "origen": "parte_111.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento una fuente externa. "
-  },
-  {
-    "j": 111,
-    "accion": "REUSAR",
-    "origen": "parte_112.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la eupnea, este patrón oscilante de actividad neural, que"
-  },
-  {
-    "j": 112,
-    "accion": "REUSAR",
-    "origen": "parte_113.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Al parecer, el DRG es un centro integrador que recibe inform"
-  },
-  {
-    "j": 113,
-    "accion": "REUSAR",
-    "origen": "parte_114.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El grupo pontino recibe información de centros encefálicos m"
-  },
-  {
-    "j": 114,
-    "accion": "REUSAR",
-    "origen": "parte_115.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aplicación de lo aprendido Algunas autoridades en el tema al"
-  },
-  {
-    "j": 115,
-    "accion": "REUSAR",
-    "origen": "parte_116.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estimulación central y periférica de los centros respiratori"
-  },
-  {
-    "j": 116,
-    "accion": "REUSAR",
-    "origen": "parte_117.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que caen las concentraciones de CO2, el pH se eleva"
-  },
-  {
-    "j": 117,
-    "accion": "REUSAR",
-    "origen": "parte_118.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Están concentrados a cada lado del bulbo raquídeo, en un pun"
-  },
-  {
-    "j": 118,
-    "accion": "REUSAR",
-    "origen": "parte_119.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Responden al contenido de O2 y CO2 en la sangre, pero sobre "
-  },
-  {
-    "j": 119,
-    "accion": "REUSAR",
-    "origen": "parte_120.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La dilatación excesiva desencadena el refl ejo de insufl aci"
-  },
-  {
-    "j": 120,
-    "accion": "REUSAR",
-    "origen": "parte_121.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Algunas personas sufren un trastorno al que se le llama sínd"
-  },
-  {
-    "j": 121,
-    "accion": "REUSAR",
-    "origen": "parte_122.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "doce Heinrich Ewald Hering , mil ochocientos sesenta y seis "
-  },
-  {
-    "j": 122,
-    "accion": "REUSAR",
-    "origen": "parte_123.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio tector que inhibe"
-  },
-  {
-    "j": 123,
-    "accion": "REUSAR",
-    "origen": "parte_124.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Transmiten señales a través de los nervios vagos al DRG, y é"
-  },
-  {
-    "j": 124,
-    "accion": "REUSAR",
-    "origen": "parte_125.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay límites para el control voluntario. Los niños temperamen"
-  },
-  {
-    "j": 125,
-    "accion": "REUSAR",
-    "origen": "parte_126.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Presión, resistencia y flujo de aire Ahora que se conocen lo"
-  },
-  {
-    "j": 126,
-    "accion": "REUSAR",
-    "origen": "parte_127.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el cuadro veintidós coma un se presenta una lista de ella"
-  },
-  {
-    "j": 127,
-    "accion": "REUSAR",
-    "origen": "parte_128.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "setecientos treinta y cuatro, el fl ujo , F, de un fl uido e"
-  },
-  {
-    "j": 128,
-    "accion": "REUSAR",
-    "origen": "parte_129.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CUADRO veintidós coma un Leyes de los gases en la fisiología"
-  },
-  {
-    "j": 129,
-    "accion": "REUSAR",
-    "origen": "parte_130.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "catorce Jaques A. C. Charles , mil setecientos cuarenta y se"
-  },
-  {
-    "j": 130,
-    "accion": "REUSAR",
-    "origen": "parte_131.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los quimiorreceptores periféricos en el arco aórtico y los c"
-  },
-  {
-    "j": 131,
-    "accion": "REUSAR",
-    "origen": "parte_132.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento La presión que deter"
-  },
-  {
-    "j": 132,
-    "accion": "REUSAR",
-    "origen": "parte_133.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este hecho se resume en la ley de Boyle, que establece que, "
-  },
-  {
-    "j": 133,
-    "accion": "REUSAR",
-    "origen": "parte_134.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por el contrario, si la presión intrapulmonar aumenta sobre "
-  },
-  {
-    "j": 134,
-    "accion": "REUSAR",
-    "origen": "parte_135.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Pero lo que importa para el fl ujo de aire es la diferencia "
-  },
-  {
-    "j": 135,
-    "accion": "REUSAR",
-    "origen": "parte_136.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la fi gura veintidós coma un seis se siguen los eventos y"
-  },
-  {
-    "j": 136,
-    "accion": "REUSAR",
-    "origen": "parte_137.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Considérense las dos capas de la pleura: la pleura parietal "
-  },
-  {
-    "j": 137,
-    "accion": "REUSAR",
-    "origen": "parte_138.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos alveolos están unidos de manera mecánica por sus pared"
-  },
-  {
-    "j": 138,
-    "accion": "REUSAR",
-    "origen": "parte_139.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Parte de este cambio de presión se traslada al interior de l"
-  },
-  {
-    "j": 139,
-    "accion": "REUSAR",
-    "origen": "parte_140.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Como se entiende a partir de la ley de Charles , véase el cu"
-  },
-  {
-    "j": 140,
-    "accion": "REUSAR",
-    "origen": "parte_141.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un volumen inhalado de quinientos ml se expande a quinientos"
-  },
-  {
-    "j": 141,
-    "accion": "REUSAR",
-    "origen": "parte_142.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aplicación de lo aprendido Cuando se inhala, ¿el tórax se ex"
-  },
-  {
-    "j": 142,
-    "accion": "REUSAR",
-    "origen": "parte_143.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la respiración forzada, los músculos accesorios elevan la"
-  },
-  {
-    "j": 143,
-    "accion": "REUSAR",
-    "origen": "parte_144.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin la presión intrapleural negativa que mantenga los pulmon"
-  },
-  {
-    "j": 144,
-    "accion": "REUSAR",
-    "origen": "parte_145.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio El diafragma se e"
-  },
-  {
-    "j": 145,
-    "accion": "REUSAR",
-    "origen": "parte_146.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la espiración, la cavidad torácica se contrae en las tres"
-  },
-  {
-    "j": 146,
-    "accion": "REUSAR",
-    "origen": "parte_147.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las presiones mostradas aquí se basan en una presión atmosfé"
-  },
-  {
-    "j": 147,
-    "accion": "REUSAR",
-    "origen": "parte_148.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento todo el pulmón recib"
-  },
-  {
-    "j": 148,
-    "accion": "REUSAR",
-    "origen": "parte_149.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Pero ¿qué determina la resistencia? Tres factores tienen una"
-  },
-  {
-    "j": 149,
-    "accion": "REUSAR",
-    "origen": "parte_150.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La adrenalina y los nervios simpáticos , noradrenalina, esti"
-  },
-  {
-    "j": 150,
-    "accion": "REUSAR",
-    "origen": "parte_151.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto signifi ca la facilidad con la que se expanden los pulm"
-  },
-  {
-    "j": 151,
-    "accion": "REUSAR",
-    "origen": "parte_152.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La distensibilidad se ve reducida por neumopatías degenerati"
-  },
-  {
-    "j": 152,
-    "accion": "REUSAR",
-    "origen": "parte_153.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las moléculas de agua son atraídas entre sí por enlaces de h"
-  },
-  {
-    "j": 153,
-    "accion": "REUSAR",
-    "origen": "parte_154.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La solución a este problema lleva de regreso a las células a"
-  },
-  {
-    "j": 154,
-    "accion": "REUSAR",
-    "origen": "parte_155.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que un alveolo empieza a desinfl arse, los surfacta"
-  },
-  {
-    "j": 155,
-    "accion": "REUSAR",
-    "origen": "parte_156.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que se agolpan en un área pequeña y resisten la dis"
-  },
-  {
-    "j": 156,
-    "accion": "REUSAR",
-    "origen": "parte_157.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Casi ciento cincuenta ml de él llena la división conductora "
-  },
-  {
-    "j": 157,
-    "accion": "REUSAR",
-    "origen": "parte_158.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El espacio muerto fi siológico , total, es la suma del espac"
-  },
-  {
-    "j": 158,
-    "accion": "REUSAR",
-    "origen": "parte_159.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Éste sobrepasa al aire que se desperdicia al llenar un mayor"
-  },
-  {
-    "j": 159,
-    "accion": "REUSAR",
-    "origen": "parte_160.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio alveolos. Al mult"
-  },
-  {
-    "j": 160,
-    "accion": "REUSAR",
-    "origen": "parte_161.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Siempre hay algún aire sobrante al que se le denomina volume"
-  },
-  {
-    "j": 161,
-    "accion": "REUSAR",
-    "origen": "parte_162.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Espirometría: medición de la ventilación pulmonar Los médico"
-  },
-  {
-    "j": 162,
-    "accion": "REUSAR",
-    "origen": "parte_163.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las medidas representativas para un adulto sano se dan en el"
-  },
-  {
-    "j": 163,
-    "accion": "REUSAR",
-    "origen": "parte_164.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Más allá de la cantidad inhalada de manera normal, por lo ge"
-  },
-  {
-    "j": 164,
-    "accion": "REUSAR",
-    "origen": "parte_165.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otras cuatro medidas a las que se les denomina capacidades r"
-  },
-  {
-    "j": 165,
-    "accion": "REUSAR",
-    "origen": "parte_166.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La capacidad CUADRO veintidós coma dos Volumen respiratorio "
-  },
-  {
-    "j": 166,
-    "accion": "REUSAR",
-    "origen": "parte_167.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA veintidós coma un siete Espirometría. El espirómetro "
-  },
-  {
-    "j": 167,
-    "accion": "REUSAR",
-    "origen": "parte_168.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento vital, que es la cap"
-  },
-  {
-    "j": 168,
-    "accion": "REUSAR",
-    "origen": "parte_169.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los trastornos obstructivos son los que interfi eren con el "
-  },
-  {
-    "j": 169,
-    "accion": "REUSAR",
-    "origen": "parte_170.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un adulto sano debe tener la capacidad de expeler de setenta"
-  },
-  {
-    "j": 170,
-    "accion": "REUSAR",
-    "origen": "parte_171.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Puede medirse de manera directa con un espirómetro u obtener"
-  },
-  {
-    "j": 171,
-    "accion": "REUSAR",
-    "origen": "parte_172.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Variaciones en el ritmo respiratorio La respiración relajada"
-  },
-  {
-    "j": 172,
-    "accion": "REUSAR",
-    "origen": "parte_173.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El lector debe estar familiarizado con éstos antes de seguir"
-  },
-  {
-    "j": 173,
-    "accion": "REUSAR",
-    "origen": "parte_174.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Luego se abre de manera súbita la glotis y se libera una exp"
-  },
-  {
-    "j": 174,
-    "accion": "REUSAR",
-    "origen": "parte_175.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su mecanismo es similar al de la tos, excepto que la glotis "
-  },
-  {
-    "j": 175,
-    "accion": "REUSAR",
-    "origen": "parte_176.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Volumen pulmonar , ml, Capacidad inspiratoria Volumen corrie"
-  },
-  {
-    "j": 176,
-    "accion": "REUSAR",
-    "origen": "parte_177.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio once. Suponga el "
-  },
-  {
-    "j": 177,
-    "accion": "REUSAR",
-    "origen": "parte_178.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintidós coma tres Intercambio y transporte gaseoso Resulta"
-  },
-  {
-    "j": 178,
-    "accion": "REUSAR",
-    "origen": "parte_179.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "f Explicar cómo el intercambio gaseoso se ajusta a las neces"
-  },
-  {
-    "j": 179,
-    "accion": "REUSAR",
-    "origen": "parte_180.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, es necesario comprender la composición del aire"
-  },
-  {
-    "j": 180,
-    "accion": "REUSAR",
-    "origen": "parte_181.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este último constituye de cero a cuatro por ciento, dependie"
-  },
-  {
-    "j": 181,
-    "accion": "REUSAR",
-    "origen": "parte_182.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La contribución separada de cada gas en una mezcla es su pre"
-  },
-  {
-    "j": 182,
-    "accion": "REUSAR",
-    "origen": "parte_183.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintiuno dys igual a dificultad; pnoi igual a respiración. "
-  },
-  {
-    "j": 183,
-    "accion": "REUSAR",
-    "origen": "parte_184.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Qué núcleo respiratorio del tallo encefálico es indispensab"
-  },
-  {
-    "j": 184,
-    "accion": "REUSAR",
-    "origen": "parte_185.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Al aplicar la ley de"
-  },
-  {
-    "j": 185,
-    "accion": "REUSAR",
-    "origen": "parte_186.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Es posible tomar una muestra de éste con un aparato que reco"
-  },
-  {
-    "j": 186,
-    "accion": "REUSAR",
-    "origen": "parte_187.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "dos El aire recién inspirado se mezcla con aire residual dej"
-  },
-  {
-    "j": 187,
-    "accion": "REUSAR",
-    "origen": "parte_188.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aplicación de lo aprendido Considerado como un todo , no sól"
-  },
-  {
-    "j": 188,
-    "accion": "REUSAR",
-    "origen": "parte_189.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para que el dióxido de carbono deje la sangre, debe pasar en"
-  },
-  {
-    "j": 189,
-    "accion": "REUSAR",
-    "origen": "parte_190.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En cualquier lugar en que el aire y el agua entren en contac"
-  },
-  {
-    "j": 190,
-    "accion": "REUSAR",
-    "origen": "parte_191.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La ley de Henry establece que en la interfaz aire-agua, para"
-  },
-  {
-    "j": 191,
-    "accion": "REUSAR",
-    "origen": "parte_192.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cada gas de una mezcla se comporta de manera independiente; "
-  },
-  {
-    "j": 192,
-    "accion": "REUSAR",
-    "origen": "parte_193.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En reposo, cuando la sangre circula a su menor velocidad, un"
-  },
-  {
-    "j": 193,
-    "accion": "REUSAR",
-    "origen": "parte_194.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Diversas variables afectan la efi ciencia del intercambio ga"
-  },
-  {
-    "j": 194,
-    "accion": "REUSAR",
-    "origen": "parte_195.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Él inventó la primera cámara de presión capaz de simular los"
-  },
-  {
-    "j": 195,
-    "accion": "REUSAR",
-    "origen": "parte_196.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ignoraron el consejo de Bert de respirar de manera continua "
-  },
-  {
-    "j": 196,
-    "accion": "REUSAR",
-    "origen": "parte_197.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CUADRO veintidós coma cuatro Composición del aire inspirado "
-  },
-  {
-    "j": 197,
-    "accion": "REUSAR",
-    "origen": "parte_198.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las concentraciones pueden variar dependiendo de las condici"
-  },
-  {
-    "j": 198,
-    "accion": "REUSAR",
-    "origen": "parte_199.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta dilución del oxígeno ocurre porque las venas pulmonares"
-  },
-  {
-    "j": 199,
-    "accion": "REUSAR",
-    "origen": "parte_200.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos cambios se resumen a continuación y en la parte media "
-  },
-  {
-    "j": 200,
-    "accion": "REUSAR",
-    "origen": "parte_201.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, la PO2 atmosférica es de ciento cincuenta y nue"
-  },
-  {
-    "j": 201,
-    "accion": "REUSAR",
-    "origen": "parte_202.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En contraste, en una cámara de oxígeno hiperbárica un pacien"
-  },
-  {
-    "j": 202,
-    "accion": "REUSAR",
-    "origen": "parte_203.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El dióxido de carbono es casi veinte veces más soluble que e"
-  },
-  {
-    "j": 203,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (mu; antes parte_204.wav)",
-    "texto_inicio": "La membrana respiratoria entre la sangre y el aire alveolar "
-  },
-  {
-    "j": 204,
-    "accion": "REUSAR",
-    "origen": "parte_205.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, en trastornos cardiacos como la insufi ciencia "
-  },
-  {
-    "j": 205,
-    "accion": "REUSAR",
-    "origen": "parte_206.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Bajo estas circunstancias, la sangre que dejan los pulmones "
-  },
-  {
-    "j": 206,
-    "accion": "REUSAR",
-    "origen": "parte_207.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El intercambio gaseoso no sólo requiere buena ventilación de"
-  },
-  {
-    "j": 207,
-    "accion": "REUSAR",
-    "origen": "parte_208.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b La Pco2 de la sangre que llega es al principio más elevada"
-  },
-  {
-    "j": 208,
-    "accion": "REUSAR",
-    "origen": "parte_209.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento los, sino también bu"
-  },
-  {
-    "j": 209,
-    "accion": "REUSAR",
-    "origen": "parte_210.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto estimula la vasoconstricción local, lo que cambia la ru"
-  },
-  {
-    "j": 210,
-    "accion": "REUSAR",
-    "origen": "parte_211.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Más aún, los cambios en el Intercambio gaseoso alveolar Tran"
-  },
-  {
-    "j": 211,
-    "accion": "REUSAR",
-    "origen": "parte_212.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "●Siga la ruta de la presión parcial de oxígeno del aire espi"
-  },
-  {
-    "j": 212,
-    "accion": "REUSAR",
-    "origen": "parte_213.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio fl ujo sanguíneo "
-  },
-  {
-    "j": 213,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_214.wav)",
-    "texto_inicio": "Casi noventa y ocho coma cinco por ciento de éste se encuent"
-  },
-  {
-    "j": 214,
-    "accion": "REUSAR",
-    "origen": "parte_215.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si una o más moléculas de O2 están fi jadas a la hemoglobina"
-  },
-  {
-    "j": 215,
-    "accion": "REUSAR",
-    "origen": "parte_216.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La relación entre la saturación de hemoglobina y PO2 se mues"
-  },
-  {
-    "j": 216,
-    "accion": "REUSAR",
-    "origen": "parte_217.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La velocidad de carga depende de la inclinación del gradient"
-  },
-  {
-    "j": 217,
-    "accion": "REUSAR",
-    "origen": "parte_218.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En una cámara hiperbárica con cien por ciento de oxígeno, el"
-  },
-  {
-    "j": 218,
-    "accion": "REUSAR",
-    "origen": "parte_219.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b En la neumonía, las membranas respiratorias , paredes alve"
-  },
-  {
-    "j": 219,
-    "accion": "REUSAR",
-    "origen": "parte_220.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento veintidós coma dos c"
-  },
-  {
-    "j": 220,
-    "accion": "REUSAR",
-    "origen": "parte_221.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto, a su vez, promueve la recaptación del tercero y luego "
-  },
-  {
-    "j": 221,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_222.wav)",
-    "texto_inicio": "Casi noventa por ciento del CO2 está hidratado , reacciona c"
-  },
-  {
-    "j": 222,
-    "accion": "REUSAR",
-    "origen": "parte_223.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El dióxido de carbono no compite con el oxígeno porque CO2 y"
-  },
-  {
-    "j": 223,
-    "accion": "REUSAR",
-    "origen": "parte_224.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CONOCIMIENTO MÁS A FONDO veintidós coma cuatro Aplicación cl"
-  },
-  {
-    "j": 224,
-    "accion": "REUSAR",
-    "origen": "parte_225.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por tanto, el CO tiende a unirse a la hemoglobina por mucho "
-  },
-  {
-    "j": 225,
-    "accion": "REUSAR",
-    "origen": "parte_226.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Perfusión ajustada a cambios en el flujo sanguíneo Po2 red"
-  },
-  {
-    "j": 226,
-    "accion": "REUSAR",
-    "origen": "parte_227.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los ciclos de retroalimentación negativa ajustan el flujo de"
-  },
-  {
-    "j": 227,
-    "accion": "REUSAR",
-    "origen": "parte_228.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Las cantidades re"
-  },
-  {
-    "j": 228,
-    "accion": "REUSAR",
-    "origen": "parte_229.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Intercambio gaseoso sistémico El intercambio gaseoso sistémi"
-  },
-  {
-    "j": 229,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_230.wav)",
-    "texto_inicio": "Tejido que respira Sangre capilar Gas CO2 disuelto CO2 + pro"
-  },
-  {
-    "j": 230,
-    "accion": "REUSAR",
-    "origen": "parte_231.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta curva muestra la cantidad de hemoglobina saturada con o"
-  },
-  {
-    "j": 231,
-    "accion": "REUSAR",
-    "origen": "parte_232.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "FIGURA veintidós coma dos cinco Intercambio gaseoso sistémic"
-  },
-  {
-    "j": 232,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_233.wav)",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Carga del dióxido de"
-  },
-  {
-    "j": 233,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_234.wav)",
-    "texto_inicio": "Esta reacción ocurre con lentitud en el plasma sanguíneo per"
-  },
-  {
-    "j": 234,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_235.wav)",
-    "texto_inicio": "Descarga de oxígeno Cundo el H+ se fi ja a la oxihemoglobina"
-  },
-  {
-    "j": 235,
-    "accion": "REUSAR",
-    "origen": "parte_236.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que la sangre llega a los capilares sistémicos, su "
-  },
-  {
-    "j": 236,
-    "accion": "REUSAR",
-    "origen": "parte_237.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El oxígeno que queda en la sangre después de que ha atravesa"
-  },
-  {
-    "j": 237,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_238.wav)",
-    "texto_inicio": "Como se muestra en la fi gura veintidós coma dos seis, las r"
-  },
-  {
-    "j": 238,
-    "accion": "REUSAR",
-    "origen": "parte_239.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los colores de las flechas y sus grosores representan las mi"
-  },
-  {
-    "j": 239,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_240.wav)",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio cambio gaseoso si"
-  },
-  {
-    "j": 240,
-    "accion": "REUSAR",
-    "origen": "parte_241.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Éste se difunde en los alveolos para que se le exhale, como "
-  },
-  {
-    "j": 241,
-    "accion": "REUSAR",
-    "origen": "parte_242.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, en los músculos estriados bajo ejercicio, el co"
-  },
-  {
-    "j": 242,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_243.wav)",
-    "texto_inicio": "Cuando la temperatura aumenta, la curva de disociación de la"
-  },
-  {
-    "j": 243,
-    "accion": "REUSAR",
-    "origen": "parte_244.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los iones hidrógeno debilitan el enlace entre la hemoglobina"
-  },
-  {
-    "j": 244,
-    "accion": "REUSAR",
-    "origen": "parte_245.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, en los capilares sistémicos, la PO2 es más baja"
-  },
-  {
-    "j": 245,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_246.wav)",
-    "texto_inicio": "La velocidad de carga del CO2 también se ajusta a las necesi"
-  },
-  {
-    "j": 246,
-    "accion": "REUSAR",
-    "origen": "parte_247.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un metabolismo elevado mantiene bajas las concentracio- vein"
-  },
-  {
-    "j": 247,
-    "accion": "REUSAR",
-    "origen": "parte_248.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "diez°C veinte°C treinta y ocho°C cuarenta y tres°C Normal bo"
-  },
-  {
-    "j": 248,
-    "accion": "REUSAR",
-    "origen": "parte_249.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Para una Po2 determinada, la hemoglobina descarga más oxíg"
-  },
-  {
-    "j": 249,
-    "accion": "REUSAR",
-    "origen": "parte_250.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento nes de oxihemoglobin"
-  },
-  {
-    "j": 250,
-    "accion": "REUSAR",
-    "origen": "parte_251.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto sólo es posible porque los centros respiratorios del ta"
-  },
-  {
-    "j": 251,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_252.wav)",
-    "texto_inicio": "Los quimiorreceptores centrales del bulbo raquídeo producen "
-  },
-  {
-    "j": 252,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_253.wav)",
-    "texto_inicio": "Los iones hidrógeno también son una posible estimulación par"
-  },
-  {
-    "j": 253,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_254.wav)",
-    "texto_inicio": "Por tanto, aunque estas dos variables suelen cambiar juntas,"
-  },
-  {
-    "j": 254,
-    "accion": "REUSAR",
-    "origen": "parte_255.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La causa más común de acidosis es la hipercapnia, una PCO2 m"
-  },
-  {
-    "j": 255,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_256.wav)",
-    "texto_inicio": "A medida que el CO2 se elimina, la reacción del ácido carbón"
-  },
-  {
-    "j": 256,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_257.wav)",
-    "texto_inicio": "La hipoventilación desplaza la reacción a la derecha, elevan"
-  },
-  {
-    "j": 257,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_258.wav)",
-    "texto_inicio": "La hiperventilación no puede reducir la concentración de cue"
-  },
-  {
-    "j": 258,
-    "accion": "REUSAR",
-    "origen": "parte_259.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Al principio del ejercicio, la concentración creciente de CO"
-  },
-  {
-    "j": 259,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_260.wav)",
-    "texto_inicio": "A altitudes reducidas, casi nunca se presenta esta PO2 baja,"
-  },
-  {
-    "j": 260,
-    "accion": "REUSAR",
-    "origen": "parte_261.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A casi tres trescientos m , diez ochocientos pies, la PO2 ca"
-  },
-  {
-    "j": 261,
-    "accion": "REUSAR",
-    "origen": "parte_262.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto ocurre en enfermedades como enfi sema y neumonía, que i"
-  },
-  {
-    "j": 262,
-    "accion": "REUSAR",
-    "origen": "parte_263.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Respiración y eje"
-  },
-  {
-    "j": 263,
-    "accion": "REUSAR",
-    "origen": "parte_264.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Al parecer, el aumento en la respiración tiene otras causas:"
-  },
-  {
-    "j": 264,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_265.wav)",
-    "texto_inicio": "Por tanto, los centros respiratorios aumentan la temperatura"
-  },
-  {
-    "j": 265,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (iones; antes parte_266.wav)",
-    "texto_inicio": "Estos iones hidrógeno pueden surgir sobre todo por la difusi"
-  },
-  {
-    "j": 266,
-    "accion": "REUSAR",
-    "origen": "parte_267.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Bajo circunstancias normales, la PO2 arterial tiene poco efe"
-  },
-  {
-    "j": 267,
-    "accion": "REUSAR",
-    "origen": "parte_268.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Por qué es diferente la composición del aire alveolar del a"
-  },
-  {
-    "j": 268,
-    "accion": "REUSAR",
-    "origen": "parte_269.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Defina hipocapnia e hipercapnia. Mencione los desequilibrios"
-  },
-  {
-    "j": 269,
-    "accion": "REUSAR",
-    "origen": "parte_270.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "b Describir las tres enfermedades pulmonares obstructivas cr"
-  },
-  {
-    "j": 270,
-    "accion": "REUSAR",
-    "origen": "parte_271.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Desequilibrios del oxígeno La hipoxia es una defi ciencia de"
-  },
-  {
-    "j": 271,
-    "accion": "REUSAR",
-    "origen": "parte_272.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Algunas de sus causas principales incluyen defi ciencia atmo"
-  },
-  {
-    "j": 272,
-    "accion": "REUSAR",
-    "origen": "parte_273.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• La hipoxia histotóxica se presenta cuando una sustancia tó"
-  },
-  {
-    "j": 273,
-    "accion": "REUSAR",
-    "origen": "parte_274.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento La hipoxia está marc"
-  },
-  {
-    "j": 274,
-    "accion": "REUSAR",
-    "origen": "parte_275.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El exceso de oxígeno genera peróxido de hidrógeno y radicale"
-  },
-  {
-    "j": 275,
-    "accion": "REUSAR",
-    "origen": "parte_276.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Enfermedad pulmonar obstructiva crónica Por enfermedad pulmo"
-  },
-  {
-    "j": 276,
-    "accion": "REUSAR",
-    "origen": "parte_277.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Entre los síntomas se incluyen congestión, aumento de la sec"
-  },
-  {
-    "j": 277,
-    "accion": "REUSAR",
-    "origen": "parte_278.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Es mortal en casi cuarenta por ciento de los casos en person"
-  },
-  {
-    "j": 278,
-    "accion": "REUSAR",
-    "origen": "parte_279.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Es especialmente peligrosa para lactantes, personas de edad "
-  },
-  {
-    "j": 279,
-    "accion": "REUSAR",
-    "origen": "parte_280.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Es más común en personas obesas y en hombres. Tuberculosis ,"
-  },
-  {
-    "j": 280,
-    "accion": "REUSAR",
-    "origen": "parte_281.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "noventa Cáncer pulmonar, p. ochocientos ochenta y nueve Asma"
-  },
-  {
-    "j": 281,
-    "accion": "REUSAR",
-    "origen": "parte_282.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "setecientos cuarenta y tres, ochocientos ochenta y nueve Sín"
-  },
-  {
-    "j": 282,
-    "accion": "REUSAR",
-    "origen": "parte_283.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Con moco adicional y menor cantidad de cilios para desalojar"
-  },
-  {
-    "j": 283,
-    "accion": "REUSAR",
-    "origen": "parte_284.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el enfi sema, las paredes alveolares se rompen y el pulmó"
-  },
-  {
-    "j": 284,
-    "accion": "REUSAR",
-    "origen": "parte_285.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los pasajes de aire se abren de manera adecuada durante la i"
-  },
-  {
-    "j": 285,
-    "accion": "REUSAR",
-    "origen": "parte_286.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio ve atrapado en lo"
-  },
-  {
-    "j": 286,
-    "accion": "REUSAR",
-    "origen": "parte_287.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "cuatrocientos dieciséis, es responsable de la debilidad de l"
-  },
-  {
-    "j": 287,
-    "accion": "REUSAR",
-    "origen": "parte_288.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tabaquismo y cáncer pulmonar El cáncer pulmonar , fi gura ve"
-  },
-  {
-    "j": 288,
-    "accion": "REUSAR",
-    "origen": "parte_289.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En su etapa temprana, las células basales del epitelio bronq"
-  },
-  {
-    "j": 289,
-    "accion": "REUSAR",
-    "origen": "parte_290.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La forma menos común , de diez a veinte por ciento de carcin"
-  },
-  {
-    "j": 290,
-    "accion": "REUSAR",
-    "origen": "parte_291.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que un tumor invade la pared bronquial y crece alre"
-  },
-  {
-    "j": 291,
-    "accion": "REUSAR",
-    "origen": "parte_292.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento los fumadores que ap"
-  },
-  {
-    "j": 292,
-    "accion": "REUSAR",
-    "origen": "parte_293.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Describa las cuatro clases de hipoxia. veintitrés. Mencione "
-  },
-  {
-    "j": 293,
-    "accion": "REUSAR",
-    "origen": "parte_294.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ya en el siglo cinco a.C., Aristóteles describió buceadores "
-  },
-  {
-    "j": 294,
-    "accion": "REUSAR",
-    "origen": "parte_295.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otra razón por la que un esnórquel no puede usarse a grandes"
-  },
-  {
-    "j": 295,
-    "accion": "REUSAR",
-    "origen": "parte_296.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los tanques de buceo también tienen reguladores que ajustan "
-  },
-  {
-    "j": 296,
-    "accion": "REUSAR",
-    "origen": "parte_297.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En tierra, el nitrógeno no presenta problemas fisiológicos; "
-  },
-  {
-    "j": 297,
-    "accion": "REUSAR",
-    "origen": "parte_298.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un buceador puede marearse, sentir euforia y desorientarse d"
-  },
-  {
-    "j": 298,
-    "accion": "REUSAR",
-    "origen": "parte_299.wav",
-    "motivo": "texto identico",
-    "texto_inicio": ", ¿Cuál ley de los gases se demuestra aquí?, Es imperativo q"
-  },
-  {
-    "j": 299,
-    "accion": "REUSAR",
-    "origen": "parte_300.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La embolia cerebral resultante puede causar disfunción motor"
-  },
-  {
-    "j": 300,
-    "accion": "REUSAR",
-    "origen": "parte_301.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Murió en el hospital, en parte porque el caso se confundió c"
-  },
-  {
-    "j": 301,
-    "accion": "REUSAR",
-    "origen": "parte_302.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Cuál es la diferencia?, Aunque no se contenga la respiració"
-  },
-  {
-    "j": 302,
-    "accion": "REUSAR",
-    "origen": "parte_303.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuando la presión cae, el nitrógeno disuelto en los tejidos "
-  },
-  {
-    "j": 303,
-    "accion": "REUSAR",
-    "origen": "parte_304.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un buceador puede doblarse de dolor debido a las burbujas en"
-  },
-  {
-    "j": 304,
-    "accion": "REUSAR",
-    "origen": "parte_305.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La enfermedad por descompresión se trata al poner al individ"
-  },
-  {
-    "j": 305,
-    "accion": "REUSAR",
-    "origen": "parte_306.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Efectos del APARATO RESPIRATORIO en otros sistemas de órgano"
-  },
-  {
-    "j": 306,
-    "accion": "REUSAR",
-    "origen": "parte_307.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "SISTEMA LINFÁTICO E INMUNITARIO La bomba torácica promueve e"
-  },
-  {
-    "j": 307,
-    "accion": "REUSAR",
-    "origen": "parte_308.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "APARATO CIRCULATORIO La bomba torácica ayuda al retorno veno"
-  },
-  {
-    "j": 308,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "nuevo",
-    "texto_inicio": "SISTEMA NERVIOSO La respiración afecta al pH del líquido cef"
-  }
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Repaso • La expos"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "trescientos treinta y cinco a trescientos cuarenta y un,. • "
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Una revisión de la estructura de la hemoglobina, p. seisci"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respiración celular se presentó en el capítulo dos y se c"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tiene una función en el sentido del olfato, importante para "
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El exceso de CO2 reacciona con el agua y libera iones hidróg"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respiración crea gradientes de presión entre el tórax y e"
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Dentro de los pulmones, el aire circula a lo largo de una ru"
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La división respiratoria consta de los alveolos y otras regi"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayor parte de la síntesis de A T P requiere oxígeno y ge"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos dos aparatos no sólo tienen una cercanía espacial en l"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintidós punto uno Anatomía del aparato respiratorio Result"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento parte del aparato re"
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Nariz La nariz tiene varias funciones: calienta, limpia y hu"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mitad inferior recibe soporte de los cartílagos lateral y"
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El vómer forma la parte inferior del tabique, la lámina perp"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cavidad nasal Orificios nasales Bóveda del paladar Laringe T"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA veintidós coma dos Anatomía de la región nasal. a Ana"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio etmoides y esfeno"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este espacio está cubierto con epitelio pavimentoso estratif"
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La estrechez de estos pasajes y la turbulencia causada por l"
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los olores son detectados por las células sensitivas en el e"
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sus células caliciformes, con forma de cáliz, secretan moco,"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La lámina propia también está poblada por linfocitos y célul"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, el flujo preponderante de aire se desplaza de la "
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por lo general, las partículas grandes, mayor que diez micró"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La nasofaringe sólo pasa aire y está cubierta por epitelio c"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En descanso, la epiglotis permanece casi vertical. Sin embar"
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En lactantes, la laringe se encuentra un poco elevada en la "
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento FIGURA veintidós com"
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Orofaringe Nasofaringe Laringofaringe Cartílago del tabique "
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio tienda mientras p"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cubre los aspectos anterior y lateral de la laringe. La manz"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Posterior al cartílago tiroides se encuentran dos cartílagos"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En sentido superior, una hoja amplia, el ligamento tirohioid"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La pared interior de la laringe tiene dos pliegues a cada la"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Contienen los ligamentos vocales y están cubiertas con epite"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se han eliminado casi todos los músculos para mostrar los ca"
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Las paredes de la la"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El aire forzado entre las cuerdas vocales aducidas las hace "
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aunque éstas, por sí solas, producen sonido, no dan lugar a "
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Recibe soporte de dieciséis a veinte anillos con forma de C "
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Vista superior de la laringe, observada con un laringoscop"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio cartílago hialino"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los músculos traqueales se contraen o relajan para ajustar e"
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capa más externa de la tráquea, a la que se le denomina a"
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Laringe Tráquea Carina Bronquios principales Bronquios lobul"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veintidós punto uno. Aplicación clí"
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si la apertura se deja mucho tiempo, la mucosa de las vías r"
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se da seguimiento a los bronquios en la exposición del tema "
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La superficie mediastinal muestra una hendidura llamada hili"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El pulmón izquierdo, aunque más alto, es más angosto que el "
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una muesca profunda, a la que se le denomina surco horizonta"
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A partir de la bifurcación de la tráquea, el bronquio princi"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cede un bronquio lobular superior y uno inferior a los dos l"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada segmento broncopulmonar se identifica mediante un color"
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La lámina propia tiene una cantidad abundante de glándulas m"
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las ramas de la arteria pulmonar siguen de cerca al árbol br"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los bronquiolos tienen epitelio cúbico ciliado y una capa bi"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio las paredes. Las "
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, sí tienen cilios, de modo que el moco que drena"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Bronquios lobulares Vértice Lóbulo superior Arterias pulmona"
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Cada bronquiolo term"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los conductos terminan en sacos alveolares, que son grupos c"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta fotografía está orientada de la misma manera que el cue"
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●Desde una perspectiva histológica, ¿cómo se puede saber que"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En resumen, la ruta del flujo de aire es como sigue: los pri"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Luego empieza la división respiratoria; todos los pasajes si"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los mamíferos, con su metabolismo rápido, nunca hubieran evo"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su delgadez permite una rápida difusión de gases entre el ai"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las células alveolares grandes tienen dos funciones: un repa"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin surfactante, las paredes de un alveolo desinflado tender"
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento pegarse como hojas d"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hasta cien millones de macrófagos alveolares mueren al día m"
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tienen un grosor total de sólo cero coma cinco micrómetros, "
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su presión sanguínea media es de sólo diez milímetros de mer"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pleuras La superficie del pulmón consta de una membrana sero"
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ésta no contiene un pulmón, sino que lo envuelve, como la fu"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Reducción de la fricción. El líquido pleural actúa como un l"
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Describa la ruta que toma, mencionando todos los pasajes aér"
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Compare el epitelio de los bronquiolos con el de los alveolo"
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintidós punto dos Ventilación pulmonar Resultados esperado"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e Explicar la importancia del espacio muerto anatómico para "
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respiración tranquila alude a la respiración relajada, in"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su músculo se ajusta al diámetro de las vías respiratorias, "
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Recuerde la analogía de la jeringa de la página setecientos "
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La acción de los músculos respiratorios es muy parecida a la"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las negritas indican los músculos respiratorios principales;"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento fuera. A continuació"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando el diafragma se contrae, se tensa y aplasta un poco, "
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El diafragma por sí solo es responsable de casi dos terceras"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante la respiración tranquila, los músculos escalenos del"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la respiración profunda, el diámetro A P puede aumentar h"
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La inspiración profunda es apoyada por los erectores de la e"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La espiración normal es un proceso pasivo que ahorra energía"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El único esfuerzo muscular que interviene en la espiración n"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estas acciones reducen las dimensiones del tórax y expelen a"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No sólo la presión abdominal afecta a la presión torácica; t"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Control neural de la respiración Los latidos y la respiració"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay dos razones para esta dependencia del encéfalo: un a dif"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio a voluntad. El ot"
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay uno a cada lado, izquierdo y derecho, del tallo encefáli"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la respiración tranquila, llamada eupnea, el circuito de "
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, con el tiempo las neuronas I van desactivándose"
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El grupo respiratorio ventral, V R G, genera el ritmo de la "
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El D R G obtiene información de los centros encefálicos más "
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La información adicional proveniente de los centros nervioso"
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento una fuente externa. "
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la eupnea, este patrón oscilante de actividad neural, que"
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respiración puede ser más rápida o lenta, más superficial"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al parecer, el D R G es un centro integrador que recibe info"
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Más aún, cada lado de la protuberancia tiene un grupo respir"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El P R G adapta la respiración a circunstancias especiales c"
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estimulación central y periférica de los centros respiratori"
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que caen las concentraciones de CO2, el pe hache se"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Están concentrados a cada lado del bulbo raquídeo, en un pun"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los cuerpos carotídeos se comunican con el tallo encefálico "
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La dilatación excesiva desencadena el reflejo de insuflación"
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunas personas sufren un trastorno al que se le llama sínd"
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio tector que inhibe"
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Transmiten señales a través de los nervios vagos al D R G, y"
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay límites para el control voluntario. Los niños temperamen"
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Presión, resistencia y flujo de aire Ahora que se conocen lo"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Presión y flujo de aire El flujo de aire respiratorio está r"
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO veintidós coma un Leyes de los gases en la fisiología"
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "catorce Jaques A. C. Charles, mil setecientos cuarenta y sei"
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los quimiorreceptores periféricos en el arco aórtico y los c"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento La presión que deter"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este hecho se resume en la ley de Boyle, que establece que, "
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por el contrario, si la presión intrapulmonar aumenta sobre "
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero lo que importa para el flujo de aire es la diferencia e"
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Inspiración Considérese el flujo de aire hacia el interior d"
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sus superficies no están juntas en un sentido anatómico, per"
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, todo el pulmón se expande junto con la caja torác"
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Parte de este cambio de presión se traslada al interior de l"
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, ésta no es la única fuerza que expande los pulm"
+ },
+ {
+  "j": 137,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto significa que en un día frío, cuando la temperatura ext"
+ },
+ {
+  "j": 138,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la respiración tranquila, las dimensiones de la caja torá"
+ },
+ {
+  "j": 139,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta retracción comprime los pulmones y eleva la presión int"
+ },
+ {
+  "j": 140,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, si la pared torácica está perforada, la inspira"
+ },
+ {
+  "j": 141,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio El diafragma se e"
+ },
+ {
+  "j": 142,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la espiración, la cavidad torácica se contrae en las tres"
+ },
+ {
+  "j": 143,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las presiones mostradas aquí se basan en una presión atmosfé"
+ },
+ {
+  "j": 144,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento todo el pulmón recib"
+ },
+ {
+  "j": 145,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tres factores tienen una importancia particular: un. Diámetr"
+ },
+ {
+  "j": 146,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La adrenalina y los nervios simpáticos, noradrenalina, estim"
+ },
+ {
+  "j": 147,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto significa la facilidad con la que se expanden los pulmo"
+ },
+ {
+  "j": 148,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La distensibilidad se ve reducida por neumopatías degenerati"
+ },
+ {
+  "j": 149,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las moléculas de agua son atraídas entre sí por enlaces de h"
+ },
+ {
+  "j": 150,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un surfactante es un agente que rompe los enlaces de hidróge"
+ },
+ {
+  "j": 151,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si el alveolo sólo estuviera cubierto con una película de ag"
+ },
+ {
+  "j": 152,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los bebés prematuros tienen una deficiencia de surfactante p"
+ },
+ {
+  "j": 153,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El espacio muerto suele ser de casi un mililitro por cada cu"
+ },
+ {
+  "j": 154,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto reduce al máximo el espacio muerto, de modo que una can"
+ },
+ {
+  "j": 155,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio alveolos. Al mult"
+ },
+ {
+  "j": 156,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Siempre hay algún aire sobrante al que se le denomina volume"
+ },
+ {
+  "j": 157,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Espirometría: medición de la ventilación pulmonar Los médico"
+ },
+ {
+  "j": 158,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los valores para las mujeres son un poco menores debido al t"
+ },
+ {
+  "j": 159,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "De manera similar, con el máximo esfuerzo se pueden exhalar "
+ },
+ {
+  "j": 160,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otras cuatro medidas a las que se les denomina capacidades r"
+ },
+ {
+  "j": 161,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La capacidad CUADRO veintidós coma dos Volumen respiratorio "
+ },
+ {
+  "j": 162,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El espirómetro registra el volumen de todo el aire inhalado "
+ },
+ {
+  "j": 163,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento vital, que es la cap"
+ },
+ {
+  "j": 164,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los trastornos obstructivos son los que interfieren con el f"
+ },
+ {
+  "j": 165,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un adulto sano debe tener la capacidad de expeler de setenta"
+ },
+ {
+  "j": 166,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Puede medirse de manera directa con un espirómetro u obtener"
+ },
+ {
+  "j": 167,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Variaciones en el ritmo respiratorio La respiración relajada"
+ },
+ {
+  "j": 168,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otras variaciones en la ventilación pulmonar sirven para hab"
+ },
+ {
+  "j": 169,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El estornudo es desencadenado por irritantes en la cavidad n"
+ },
+ {
+  "j": 170,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Volumen pulmonar, mililitros, Capacidad inspiratoria Volumen"
+ },
+ {
+  "j": 171,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio once. Suponga el "
+ },
+ {
+  "j": 172,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintidós punto tres Intercambio y transporte gaseoso Result"
+ },
+ {
+  "j": 173,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "f Explicar cómo el intercambio gaseoso se ajusta a las neces"
+ },
+ {
+  "j": 174,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, es necesario comprender la composición del aire"
+ },
+ {
+  "j": 175,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Este último constituye de cero a cuatro por ciento, dependie"
+ },
+ {
+  "j": 176,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La contribución separada de cada gas en una mezcla es su pre"
+ },
+ {
+  "j": 177,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintiuno dys igual a dificultad; pnoi igual a respiración. "
+ },
+ {
+  "j": 178,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Explique por qué la eupnea requiere pocas o nulas acciones p"
+ },
+ {
+  "j": 179,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Al aplicar la ley de"
+ },
+ {
+  "j": 180,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ésta es la composición del aire que se inhala, pero no la de"
+ },
+ {
+  "j": 181,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "dos El aire recién inspirado se mezcla con aire residual dej"
+ },
+ {
+  "j": 182,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de lo aprendido Considerado como un todo, no sólo"
+ },
+ {
+  "j": 183,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para que el dióxido de carbono deje la sangre, debe pasar en"
+ },
+ {
+  "j": 184,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cualquier lugar en que el aire y el agua entren en contac"
+ },
+ {
+  "j": 185,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La ley de Henry establece que en la interfaz aire-agua, para"
+ },
+ {
+  "j": 186,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada gas de una mezcla se comporta de manera independiente; "
+ },
+ {
+  "j": 187,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En reposo, cuando la sangre circula a su menor velocidad, un"
+ },
+ {
+  "j": 188,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veintidós punto tres. Historia de l"
+ },
+ {
+  "j": 189,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Él inventó la primera cámara de presión capaz de simular los"
+ },
+ {
+  "j": 190,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ignoraron el consejo de Bert de respirar de manera continua "
+ },
+ {
+  "j": 191,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO veintidós coma cuatro Composición del aire inspirado,"
+ },
+ {
+  "j": 192,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las concentraciones pueden variar dependiendo de las condici"
+ },
+ {
+  "j": 193,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta dilución del oxígeno ocurre porque las venas pulmonares"
+ },
+ {
+  "j": 194,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos cambios se resumen a continuación: Sangre que entra Sa"
+ },
+ {
+  "j": 195,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, la PO2 atmosférica es de ciento cincuenta y nue"
+ },
+ {
+  "j": 196,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En contraste, en una cámara de oxígeno hiperbárica un pacien"
+ },
+ {
+  "j": 197,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El dióxido de carbono es casi veinte veces más soluble que e"
+ },
+ {
+  "j": 198,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La membrana respiratoria entre la sangre y el aire alveolar "
+ },
+ {
+  "j": 199,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los gases tienen que viajar aún más entre la sangre y el air"
+ },
+ {
+  "j": 200,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, varios trastornos pulmonares disminuyen la supe"
+ },
+ {
+  "j": 201,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a La Po2 del aire alveolar es al principio más elevada que l"
+ },
+ {
+  "j": 202,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento los, sino también bu"
+ },
+ {
+  "j": 203,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto estimula la vasoconstricción local, lo que cambia la ru"
+ },
+ {
+  "j": 204,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Más aún, los cambios en el Intercambio gaseoso alveolar Tran"
+ },
+ {
+  "j": 205,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●Siga la ruta de la presión parcial de oxígeno del aire espi"
+ },
+ {
+  "j": 206,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio flujo sanguíneo a"
+ },
+ {
+  "j": 207,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi noventa y ocho coma cinco por ciento de éste se encuent"
+ },
+ {
+  "j": 208,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si una o más moléculas de O2 están fijadas a la hemoglobina,"
+ },
+ {
+  "j": 209,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La relación entre la saturación de hemoglobina y PO2 se mues"
+ },
+ {
+  "j": 210,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La velocidad de carga depende de la inclinación del gradient"
+ },
+ {
+  "j": 211,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto representa una ilustración de la ley de Henry y tiene e"
+ },
+ {
+  "j": 212,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "c En el enfisema, las membranas alveolares se rompen y alveo"
+ },
+ {
+  "j": 213,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No se trata de una relación lineal simple. A una PO2 baja la"
+ },
+ {
+  "j": 214,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En los niveles elevados de PO2, la curva alcanza un nivel po"
+ },
+ {
+  "j": 215,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Casi noventa por ciento del CO2 está hidratado, reacciona co"
+ },
+ {
+  "j": 216,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El dióxido de carbono no compite con el oxígeno porque CO2 y"
+ },
+ {
+  "j": 217,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veintidós punto cuatro. Aplicación "
+ },
+ {
+  "j": 218,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, el C O tiende a unirse a la hemoglobina por mucho"
+ },
+ {
+  "j": 219,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una concentración atmosférica de cero coma un por ciento de "
+ },
+ {
+  "j": 220,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Perfusión ajustada a cambios en el flujo sanguíneo Po2 red"
+ },
+ {
+  "j": 221,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los ciclos de retroalimentación negativa ajustan el flujo de"
+ },
+ {
+  "j": 222,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Las cantidades re"
+ },
+ {
+  "j": 223,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA veintidós coma dos cuatro Curva de disociación de la "
+ },
+ {
+  "j": 224,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●¿Cuál sería el coeficiente de utilización aproximado si el "
+ },
+ {
+  "j": 225,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Carga del dióxido de"
+ },
+ {
+  "j": 226,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta reacción ocurre con lentitud en el plasma sanguíneo per"
+ },
+ {
+  "j": 227,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Descarga de oxígeno Cundo el hidrógeno se fija a la oxihemog"
+ },
+ {
+  "j": 228,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que la sangre llega a los capilares sistémicos, su "
+ },
+ {
+  "j": 229,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El oxígeno que queda en la sangre después de que ha atravesa"
+ },
+ {
+  "j": 230,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA veintidós coma dos seis Intercambio gaseoso alveolar."
+ },
+ {
+  "j": 231,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que la hemoglobina carga oxígeno, declina su afinid"
+ },
+ {
+  "j": 232,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ajuste a las necesidades metabólicas de los tejidos individu"
+ },
+ {
+  "j": 233,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que un tejido activo consume oxígeno con rapidez, l"
+ },
+ {
+  "j": 234,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los tejidos activos también generan CO2 adicional, que eleva"
+ },
+ {
+  "j": 235,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El efecto es menos pronunciado a la PO2 elevada que se prese"
+ },
+ {
+  "j": 236,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una temperatura corporal elevada, como en la fiebre, estimul"
+ },
+ {
+  "j": 237,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una baja concentración de oxihemoglobina, HbO2, permite que "
+ },
+ {
+  "j": 238,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un metabolismo elevado mantiene bajas las concentraciones di"
+ },
+ {
+  "j": 239,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Para una Po2 determinada, la hemoglobina descarga más oxíg"
+ },
+ {
+  "j": 240,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento nes de oxihemoglobin"
+ },
+ {
+  "j": 241,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto sólo es posible porque los centros respiratorios del ta"
+ },
+ {
+  "j": 242,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los quimiorreceptores centrales del bulbo raquídeo producen "
+ },
+ {
+  "j": 243,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los iones hidrógeno también son una posible estimulación par"
+ },
+ {
+  "j": 244,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando sólo cambia el pe hache, hay un fuerte efecto en la r"
+ },
+ {
+  "j": 245,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A una PCO2 menor de treinta y siete milímetros de mercurio s"
+ },
+ {
+  "j": 246,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La respuesta homeostásica correctiva a la acidosis es la hip"
+ },
+ {
+  "j": 247,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, se consume el hidrógeno de la derecha y, a medida"
+ },
+ {
+  "j": 248,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "C O dos más H dos O produce H dos C O tres, que produce H C "
+ },
+ {
+  "j": 249,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La hiperventilación no puede reducir la concentración de cue"
+ },
+ {
+  "j": 250,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al principio del ejercicio, la concentración creciente de CO"
+ },
+ {
+  "j": 251,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A altitudes reducidas, casi nunca se presenta esta PO2 baja,"
+ },
+ {
+  "j": 252,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A casi tres trescientos m, diez ochocientos pies, la PO2 cae"
+ },
+ {
+  "j": 253,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto ocurre en enfermedades como enfisema y neumonía, que in"
+ },
+ {
+  "j": 254,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio Respiración y eje"
+ },
+ {
+  "j": 255,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al parecer, el aumento en la respiración tiene otras causas:"
+ },
+ {
+  "j": 256,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, los centros respiratorios aumentan la temperatura"
+ },
+ {
+  "j": 257,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos iones hidrógeno pueden surgir sobre todo por la difusi"
+ },
+ {
+  "j": 258,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto también asegura de manera automática que la sangre teng"
+ },
+ {
+  "j": 259,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El aumento de la respiración durante el ejercicio es resulta"
+ },
+ {
+  "j": 260,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "¿Cuáles son las tres maneras en que la sangre transporta el "
+ },
+ {
+  "j": 261,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintidós punto cuatro Trastornos respiratorios Resultados e"
+ },
+ {
+  "j": 262,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los efectos del envejecimiento sobre el aparato respiratorio"
+ },
+ {
+  "j": 263,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunas de sus causas principales incluyen deficiencia atmos"
+ },
+ {
+  "j": 264,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• La hipoxia histotóxica se presenta cuando una sustancia tó"
+ },
+ {
+  "j": 265,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento La hipoxia está marc"
+ },
+ {
+  "j": 266,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El exceso de oxígeno genera peróxido de hidrógeno y radicale"
+ },
+ {
+  "j": 267,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Enfermedad pulmonar obstructiva crónica Por enfermedad pulmo"
+ },
+ {
+  "j": 268,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre los síntomas se incluyen congestión, aumento de la sec"
+ },
+ {
+  "j": 269,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es mortal en casi cuarenta por ciento de los casos en person"
+ },
+ {
+  "j": 270,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es especialmente peligrosa para lactantes, personas de edad "
+ },
+ {
+  "j": 271,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Es más común en personas obesas y en hombres. Tuberculosis, "
+ },
+ {
+  "j": 272,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "noventa Cáncer pulmonar, p. ochocientos ochenta y nueve Asma"
+ },
+ {
+  "j": 273,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "setecientos cuarenta y tres, ochocientos ochenta y nueve Sín"
+ },
+ {
+  "j": 274,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Con moco adicional y menor cantidad de cilios para desalojar"
+ },
+ {
+  "j": 275,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, hay una superficie menor de membrana respiratoria"
+ },
+ {
+  "j": 276,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO veintidós El aparato respiratorio ve atrapado en lo"
+ },
+ {
+  "j": 277,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cuatrocientos dieciséis, es responsable de la debilidad de l"
+ },
+ {
+  "j": 278,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tabaquismo y cáncer pulmonar El cáncer pulmonar, figura vein"
+ },
+ {
+  "j": 279,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En su etapa temprana, las células basales del epitelio bronq"
+ },
+ {
+  "j": 280,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La forma menos común, de diez a veinte por ciento de carcino"
+ },
+ {
+  "j": 281,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que un tumor invade la pared bronquial y crece alre"
+ },
+ {
+  "j": 282,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE CUATRO Regulación y mantenimiento los fumadores que ap"
+ },
+ {
+  "j": 283,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mencione y compare dos C O P D y describa algunos de los efe"
+ },
+ {
+  "j": 284,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo veintidós punto cinco. Aplicación c"
+ },
+ {
+  "j": 285,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La física indica que esto es imposible, por una razón: esos "
+ },
+ {
+  "j": 286,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ésta es una razón por la que se usan tanques de aire presuri"
+ },
+ {
+  "j": 287,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En cambio, usan aire comprimido, una mezcla de veintiuno por"
+ },
+ {
+  "j": 288,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el encéfalo causa narcosis por nitrógeno, o lo que Jacque"
+ },
+ {
+  "j": 289,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La presión ambiental, circundante, cae con rapidez a medida "
+ },
+ {
+  "j": 290,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Luego de pasar por el corazón, los émbolos entran en la circ"
+ },
+ {
+  "j": 291,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que la cubeta estaba bajo el agua, el aire que cont"
+ },
+ {
+  "j": 292,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "¿Cuál es la diferencia?, Aunque no se contenga la respiració"
+ },
+ {
+  "j": 293,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando la presión cae, el nitrógeno disuelto en los tejidos "
+ },
+ {
+  "j": 294,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un buceador puede doblarse de dolor debido a las burbujas en"
+ },
+ {
+  "j": 295,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La enfermedad por descompresión se trata al poner al individ"
+ },
+ {
+  "j": 296,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "APARATO REPRODUCTOR La maniobra de Valsalva ayuda en el part"
+ },
+ {
+  "j": 297,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "SISTEMA TEGUMENTARIO Los trastornos respiratorios pueden cau"
+ },
+ {
+  "j": 298,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "APARATO CIRCULATORIO La bomba torácica ayuda al retorno veno"
+ },
+ {
+  "j": 299,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "SISTEMA NERVIOSO La respiración afecta al pe hache del líqui"
+ }
 ]

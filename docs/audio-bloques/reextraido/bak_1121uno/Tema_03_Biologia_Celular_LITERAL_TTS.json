@@ -1,0 +1,38 @@
+[
+  {
+    "j": 52,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.994,
+    "pagina": 135,
+    "texto_viejo": "En las difusiones lateral y transbicapa se produce el intercambio azaroso de posición entre dos moléculas de lípido. La diferencia entre ambos movimientos es que, mientras que en la difusión lateral las moléculas de lípido están situadas dentro de la misma hemimembrana, en el flip-flop se produce el traspaso de una monocapa a otra. A treinta y siete °C, una molécula de lípido individual puede llegar a intercambiar su ubicación con otras moléculas adyacentes unos diez coma cero cero cero.cero veces o segundo por difusión lateral. En cambio, el movimiento de flip-flop en las",
+    "texto_nuevo": "En las difusiones lateral y transbicapa se produce el intercambio azaroso de posición entre dos moléculas de lípido. La diferencia entre ambos movimientos es que, mientras que en la difusión lateral las moléculas de lípido están situadas dentro de la misma hemimembrana, en el flip-flop se produce el traspaso de una monocapa a otra. A treinta y siete grados Celsius, una molécula de lípido individual puede llegar a intercambiar su ubicación con otras moléculas adyacentes unos diez millones veces o segundo por difusión lateral. En cambio, el movimiento de flip-flop en las"
+  },
+  {
+    "j": 78,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 142,
+    "texto_viejo": "La exposición de fosfatidilserina en la monocapa externa es esencial para la activación de la vía terminal de la coagulación de la sangre. Durante la activación plaquetaria, se piensa que la elevación de la concentración intracelular de Ca2+ conduce a una mayor activación de la escramblasa frente a la flipasa, de manera que, nuevamente, la hemimembrana E expone cantidades sobreelevadas de fosfatidilserina. En el síndrome de Scott, un trastorno hemorrágico heredable, el defecto de la escramblasa se traduce en una deficiente externalización de fosfatidilserina.",
+    "texto_nuevo": "La exposición de fosfatidilserina en la monocapa externa es esencial para la activación de la vía terminal de la coagulación de la sangre. Durante la activación plaquetaria, se piensa que la elevación de la concentración intracelular de Ca dos más conduce a una mayor activación de la escramblasa frente a la flipasa, de manera que, nuevamente, la hemimembrana E expone cantidades sobreelevadas de fosfatidilserina. En el síndrome de Scott, un trastorno hemorrágico heredable, el defecto de la escramblasa se traduce en una deficiente externalización de fosfatidilserina."
+  },
+  {
+    "j": 109,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 149,
+    "texto_viejo": "En parte, este hecho se debe a: un, la facilidad con la que se pueden obtener muestras de sangre periférica, y dos lo sencillo que es llegar a preparaciones de membrana purificadas , conocidas como fantasmas de eritrocito,. En los mamíferos, las células de la línea roja tienen forma de disco bicóncavo de unos siete μm de diámetro y carecen de núcleo, mitocondrias y sistema endomembranoso. Esto les permite albergar la mayor cantidad posible de hemoglobina, pigmento sanguíneo encargado del transporte de oxígeno a los tejidos. Por ello, su membrana plasmática puede ser purificada sin contaminación con membranas internas.",
+    "texto_nuevo": "En parte, este hecho se debe a: uno la facilidad con la que se pueden obtener muestras de sangre periférica, y dos lo sencillo que es llegar a preparaciones de membrana purificadas, conocidas como fantasmas de eritrocito. En los mamíferos, las células de la línea roja tienen forma de disco bicóncavo de unos siete micrómetros de diámetro y carecen de núcleo, mitocondrias y sistema endomembranoso. Esto les permite albergar la mayor cantidad posible de hemoglobina, pigmento sanguíneo encargado del transporte de oxígeno a los tejidos. Por ello, su membrana plasmática puede ser purificada sin contaminación con membranas internas."
+  },
+  {
+    "j": 124,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9737,
+    "pagina": 152,
+    "texto_viejo": "La esferocitosis hereditaria o enfermedad de Minkowski-Chauffard se caracteriza por la presencia de eritrocitos esféricos o esferocitos , fig. tres a diecinueve,. Es la membranopatía congénita más frecuente, con una incidencia de un caso por cada dos coma cero cero cero a diez coma cero cero cero nacimientos. Su patrón de herencia es, generalmente, autosómico dominante.",
+    "texto_nuevo": "La esferocitosis hereditaria o enfermedad de Minkowski-Chauffard se caracteriza por la presencia de eritrocitos esféricos o esferocitos. Es la membranopatía congénita más frecuente, con una incidencia de un caso por cada dos mil a diez mil nacimientos. Su patrón de herencia es, generalmente, autosómico dominante."
+  }
+]

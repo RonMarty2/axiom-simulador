@@ -1,0 +1,1283 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO cuatro Microtransporte a través de la membrana plas"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "la membrana constituye una barrera semipermeable que permite"
+  },
+  {
+    "j": 3,
+    "accion": "REUSAR",
+    "origen": "parte_003.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En cambio, existe otro tipo de transporte que implica una de"
+  },
+  {
+    "j": 4,
+    "accion": "REUSAR",
+    "origen": "parte_004.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las sustancias liposolubles pueden atravesar la membrana pla"
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Transporte pasivo En este tipo de transporte las sustancias "
+  },
+  {
+    "j": 6,
+    "accion": "REUSAR",
+    "origen": "parte_006.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Difusión simple Como hemos indicado, la difusión simple es e"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En cambio, las sustancias polares grandes no cargadas, como "
+  },
+  {
+    "j": 8,
+    "accion": "REUSAR",
+    "origen": "parte_008.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Varios son los factores que afectan a la difusión simple: • "
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Liposolubilidad: se mide por el cociente de reparto Kr, qu"
+  },
+  {
+    "j": 10,
+    "accion": "REUSAR",
+    "origen": "parte_011.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Carga: las sustancias cargadas tienen una mayor dificultad"
+  },
+  {
+    "j": 11,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La permeabilidad de una sustancia es un parámetro determinad"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "cloruro diez a seis potasio diez a diez sodio diez a doce Co"
+  },
+  {
+    "j": 13,
+    "accion": "REUSAR",
+    "origen": "parte_015.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para comprender completamente el transporte de solutos a tra"
+  },
+  {
+    "j": 14,
+    "accion": "REUSAR",
+    "origen": "parte_016.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La difusión del agua a través de la membrana posee un compor"
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta difusión del agua es lo que se conoce como ósmosis, que"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si la concentración inicial de solutos en A es mayor que en "
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a tres Diferencia entre difusión de solutos y "
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La concentración de solutos suele ser mayor en el interior c"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ej., debido a una pérdida de agua, convirtiéndose en una sol"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a cuatro Efecto de la diferencia de osmolarida"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El mecanismo por el cual las células solucionan el problema "
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas que se encargan de la difusión facilitada pued"
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su apertura suele estar regulada, es decir, no se trata simp"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a cinco Canal de membrana. Los canales forman "
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos canales no siempre están abiertos, sino que son regula"
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Según el tipo de regulación, los canales iónicos se pueden d"
+  },
+  {
+    "j": 27,
+    "accion": "REUSAR",
+    "origen": "parte_030.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Canales quimiosensibles: se regulan mediante la unión de u"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "controlando así el flujo de un ión específico. Por ejemplo, "
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando se produce un cambio en el potencial de membrana, se "
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "implicadas en la comunicación intercelular, pues permiten el"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "macromoléculas, de peso molecular menor que dos mil daltons,"
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a seis Canales mecanosensibles. A. Imagen de m"
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión del ligando provoca la apertura del canal y el fluj"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "cardiovasculares, alteraciones de canales de calcio, y neuro"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se dedujo, entonces, que tenía que haber canales especializa"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a ocho Canal de agua. Obsérvese cómo las moléc"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como se sabe, los protones existen en los fluidos en forma d"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Hasta hoy, se han identificado trece acuaporinas, AQP0-AQP12"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El dibujo superior demuestra la estructura abierta o lineal "
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el riñón, el órgano encargado de la homeostasis hídrica, "
+  },
+  {
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La AQP2, en cambio, es abundante en la membrana basolateral "
+  },
+  {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La A D H es una hormona producida en los núcleos supraóptico"
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El receptor V2 de la A D H, situado en la membrana basolater"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que la AQP2 está en la membrana apical, esta se vuel"
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un tipo de diabetes insípida es la nefrógena, que, si es con"
+  },
+  {
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a diez Regulación del paso de agua a través de"
+  },
+  {
+    "j": 47,
+    "accion": "REUSAR",
+    "origen": "parte_051.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las porinas se ubican en la membrana externa de las mitocond"
+  },
+  {
+    "j": 48,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las porinas son canales bastante inespecíficos que permiten "
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El modelo de funcionamiento de estos transportadores se basa"
+  },
+  {
+    "j": 50,
+    "accion": "REUSAR",
+    "origen": "parte_054.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La especificidad se determina por el encaje preciso entre el"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a once Representación esquemática de un transp"
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La cinética del transporte es diferente a la de la difusión "
+  },
+  {
+    "j": 53,
+    "accion": "REUSAR",
+    "origen": "parte_057.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En este sentido, los transportadores catalizan un proceso de"
+  },
+  {
+    "j": 54,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La cinética del transporte se ajusta así a la ecuación de Mi"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se puede establecer una clasificación de las permeasas, váli"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un ejemplo de simporte es el transporte de sodio o glucosa, "
+  },
+  {
+    "j": 57,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a trece Diferencia entre el uniporte y el tran"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Hay dos grandes familias de proteínas encargadas del transpo"
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos cotransportadores se encuentran en las membranas de la"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión de glucosa en el sitio específico provoca un cambio"
+  },
+  {
+    "j": 61,
+    "accion": "REUSAR",
+    "origen": "parte_066.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta diversidad viene determinada por el patrón de expresión"
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "contraste, la tasa del transporte de glucosa mediada por GLU"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La velocidad de transporte de GLUT2 es menor que la de GLUT1"
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Debido a su elevada Km, cuando la glucemia, nivel de glucosa"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "GLUT4 se expresa en el músculo esquelético y los adipocitos."
+  },
+  {
+    "j": 66,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los transportadores GLUT4 se mantienen secuestrados en vesíc"
+  },
+  {
+    "j": 67,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La importancia de este fenómeno reside en que, tras la inges"
+  },
+  {
+    "j": 68,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La disfunción de GLUT4 se asocia a la diabetes mellitus de t"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En pacientes con este tipo de diabetes, la insulina no es ca"
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De hecho, la diabetes mellitus de tipo dos se asocia a obesi"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este sentido, es interesante conocer que el ejercicio aum"
+  },
+  {
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De hecho, algunas mutaciones que afectan al gen que codifica"
+  },
+  {
+    "j": 73,
+    "accion": "REUSAR",
+    "origen": "parte_078.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Transporte activo Como ya se ha explicado, los transportador"
+  },
+  {
+    "j": 74,
+    "accion": "REUSAR",
+    "origen": "parte_079.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este transporte es energéticamente desfavorable, endergónico"
+  },
+  {
+    "j": 75,
+    "accion": "REUSAR",
+    "origen": "parte_080.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El transporte activo es unidireccional, no cambia su sentido"
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_081.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El transporte activo se puede clasificar en directo o indire"
+  },
+  {
+    "j": 77,
+    "accion": "REUSAR",
+    "origen": "parte_082.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ATPasa P La ATPasa P, del inglés phosphorylation, es una pro"
+  },
+  {
+    "j": 78,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como posibles tipos de ATPasas P en el ser humano encontramo"
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ellas, a excepción de la hidrógeno ATPasa, están formadas po"
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta ATPasa es responsable de que se mantengan las diferenci"
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la conformación E1, la proteína está abierta hacia el int"
+  },
+  {
+    "j": 82,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Entonces, dos iones potasio se unen a la enzima y activan su"
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta bomba iónica es de gran importancia para el organismo, "
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "concentraciones de sodio en el líquido extracelular, frente "
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este compuesto es muy tóxico en altas dosis, pero en dosis t"
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como efecto indirecto, inhibe la bomba sodio o potasio ATPas"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los niveles intracelulares de este ión deben ser muy bajos, "
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta es una hormona lipófila de origen esteroideo que actúa "
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Es un transportador activo que puede ser revertido, en cuyo "
+  },
+  {
+    "j": 90,
+    "accion": "REUSAR",
+    "origen": "parte_096.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta ATPasa tiene un componente de membrana llamado F0 que e"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ATPasa V La ATPasa V, vacuolar, se encuentra en vacuolas de "
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los endosomas tardíos y los lisosomas son orgánulos que cont"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Transportadores A B C Los transportadores A B C, de inglés A"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En su mayoría se ubican en la membrana plasmática, pero tamb"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos transportadores expulsan xenobióticos, antibióticos y "
+  },
+  {
+    "j": 96,
+    "accion": "REUSAR",
+    "origen": "parte_102.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta proteína es una bomba que utiliza A T P para expulsar u"
+  },
+  {
+    "j": 97,
+    "accion": "REUSAR",
+    "origen": "parte_103.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las células madre, células de vida larga y expuestas, por lo"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "orgánicos,. El MDR2 se expresa en órganos excretores como el"
+  },
+  {
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El gen C F T R codifica para una proteína de canal que permi"
+  },
+  {
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, las células epiteliales de las vías respiratori"
+  },
+  {
+    "j": 101,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En los pacientes con fibrosis quística, las mutaciones en C "
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta acumulación estática dificulta la respiración y favorec"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La ausencia de transporte de cloruro también afecta a otros "
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se ha reportado que la esperanza de vida se sitúa en torno a"
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se pueden diferenciar dos tipos: el cotransporte y el contra"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El SGLT1 se encuentra, esencialmente, en la membrana apical "
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la membrana apical, los transportadores S G L T incorpora"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, el transporte de sodio o glucosa es un cotrans"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a diecisiete Cotransporte de sodio o glucosa. "
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Algunos ejemplos de este transporte activo secundario son el"
+  },
+  {
+    "j": 111,
+    "accion": "REUSAR",
+    "origen": "parte_117.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Importancia de los canales iónicos en la generación del pote"
+  },
+  {
+    "j": 112,
+    "accion": "REUSAR",
+    "origen": "parte_118.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se produce por una asimetría en la distribución de cargas, i"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Después, se coloca otro electrodo en el líquido extracelular"
+  },
+  {
+    "j": 114,
+    "accion": "REUSAR",
+    "origen": "parte_120.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Tabla cuatro a dos Valor del potencial de membrana en reposo"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Axones, miocitos esqueléticos menos ochenta mV Miocitos auri"
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la despolarización, se produce un período de repolariza"
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla cuatro a tres Duración del potencial de acción en dist"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Potencial de membrana en reposo, Vm, La composición química "
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "característico del L I C es que posee potasio como catión pr"
+  },
+  {
+    "j": 120,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como hemos indicado previamente, la difusión va desde donde "
+  },
+  {
+    "j": 121,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El potasio en el citoplasma actúa como contraión de los anio"
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La membrana plasmática posee canales de fuga de potasio, lo "
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ello, en el citosol se acumula un exceso de carga negati"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este contexto, se comprende que el Vm refleja el trabajo "
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Debido a la salida de potasio de la célula, el L I C queda c"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aunque aproximadamente el ochenta por ciento del valor del V"
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La contribución del cloruro al Vm es pequeña, ya que el clor"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si aumentara la permeabilidad celular al cloruro, se produci"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Netamente, la bomba sodio o potasio ATPasa saca una carga po"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Excitabilidad eléctrica y canales dependientes de voltaje La"
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En mil novecientos noventa y un, el fisiólogo Bert Sakman y "
+  },
+  {
+    "j": 132,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "que esté aislada del medio circundante. Esta superficie de l"
+  },
+  {
+    "j": 133,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, no existen estados en los que un canal se hall"
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los canales de sodio dependientes de voltaje, CNaDV, son mon"
+  },
+  {
+    "j": 135,
+    "accion": "REUSAR",
+    "origen": "parte_140.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la región transmembrana de S4 existen aminoácidos con car"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La selección de iones con la carga adecuada se produce, prin"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "compuerta de inactivación está abierta, pero la de activació"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A este estado del canal se le denomina estado activado, y es"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a veintidós A. Potencial de membrana en funció"
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Antes de llegar de nuevo al potencial en reposo, sigue salie"
+  },
+  {
+    "j": 141,
+    "accion": "REUSAR",
+    "origen": "parte_146.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El aumento de voltaje causado por la apertura de la compuert"
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Finalmente, destacaremos que la compuerta de inactivación de"
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla cuatro a cinco Densidad de canales de sodio dependient"
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando el potencial de membrana está en reposo, la compuerta"
+  },
+  {
+    "j": 145,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por esta razón, se recupera el potencial de membrana en repo"
+  },
+  {
+    "j": 146,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se trata de una enfermedad autosómica dominante que afecta a"
+  },
+  {
+    "j": 147,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen diversas sustancias que alteran el funcionamiento no"
+  },
+  {
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La saxitoxina, S T X, que posee dos grupos guanidino, es pro"
+  },
+  {
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dado que ambas toxinas tienen unas elevadas especificidad y "
+  },
+  {
+    "j": 150,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En mil novecientos sesenta y dos, Hodgkin publicó un trabajo"
+  },
+  {
+    "j": 151,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los potenciales de acción se utilizan para transportar señal"
+  },
+  {
+    "j": 152,
+    "accion": "REUSAR",
+    "origen": "parte_157.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como hemos visto al principio del presente capítulo, existen"
+  },
+  {
+    "j": 153,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Movimiento iónico a través de la membrana axonal durante el "
+  },
+  {
+    "j": 154,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando una región de la membrana está ligeramente despolariz"
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto es así porque existe un importante factor que rompe el "
+  },
+  {
+    "j": 156,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la fase de reposo, cuando la membrana plasmática se des"
+  },
+  {
+    "j": 157,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "subumbral. Podemos afirmar que el potencial de acción se pro"
+  },
+  {
+    "j": 158,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De esta forma, se detiene el flujo de sodio hacia el L I C y"
+  },
+  {
+    "j": 159,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hiperpolarización se produce en la mayoría de las neurona"
+  },
+  {
+    "j": 160,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De hecho, Hodgkin y Huxley demostraron que, en ausencia de A"
+  },
+  {
+    "j": 161,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una actividad neuronal intensa puede alterar significativame"
+  },
+  {
+    "j": 162,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A este período de tiempo se le denomina período refractario "
+  },
+  {
+    "j": 163,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a veinticinco Modificación de la conductancia "
+  },
+  {
+    "j": 164,
+    "accion": "REUSAR",
+    "origen": "parte_170.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Durante este proceso, la onda despolarizante pierde intensid"
+  },
+  {
+    "j": 165,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el cono axónico, la generación de potenciales de acción s"
+  },
+  {
+    "j": 166,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se diferencian dos tipos de propagación del impulso nervioso"
+  },
+  {
+    "j": 167,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La vaina de mielina de las neuronas del sistema nervioso cen"
+  },
+  {
+    "j": 168,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "membrana que contiene mielina. La mielina está compuesta, a "
+  },
+  {
+    "j": 169,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Solo en estas zonas de la membrana pueden los iones fluir co"
+  },
+  {
+    "j": 170,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La salida de potasio en el lado izquierdo de cuatro y cinco "
+  },
+  {
+    "j": 171,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla cuatro a seis Velocidad de propagación del potencial d"
+  },
+  {
+    "j": 172,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cuatro a veintisiete Estructura de una neurona mielin"
+  },
+  {
+    "j": 173,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto sucede en los nódulos de Ranvier, al ser el único lugar"
+  },
+  {
+    "j": 174,
+    "accion": "REUSAR",
+    "origen": "parte_180.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El potencial de acción se transmite finalmente de una neuron"
+  },
+  {
+    "j": 175,
+    "accion": "REUSAR",
+    "origen": "parte_181.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estructuralmente, podemos diferenciar dos tipos de sinapsis:"
+  },
+  {
+    "j": 176,
+    "accion": "REUSAR",
+    "origen": "parte_182.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Sinapsis química: en este tipo de sinapsis, las neuronas p"
+  },
+  {
+    "j": 177,
+    "accion": "REUSAR",
+    "origen": "parte_183.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El neurotransmisor se une a receptores anclados en la membra"
+  },
+  {
+    "j": 178,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como ejemplo de una enfermedad donde se produce una alteraci"
+  },
+  {
+    "j": 179,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La etiología de la E M es desconocida, pero se piensa que es"
+  },
+  {
+    "j": 180,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La mayoría de los estudios sobre la etiopatogenia de la E M "
+  },
+  {
+    "j": 181,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las lesiones suelen afectar preferentemente a ciertas zonas "
+  },
+  {
+    "j": 182,
+    "accion": "REUSAR",
+    "origen": "parte_192.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Ecuación de Nernst El gradiente electroquímico de un ión det"
+  },
+  {
+    "j": 183,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se puede calcular utilizando la ecuación de Nernst: En el eq"
+  }
+]

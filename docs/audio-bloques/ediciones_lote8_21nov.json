@@ -1,0 +1,1685 @@
+[
+  {
+    "capitulo": "Tema_07_Biologia_Celular",
+    "revision": 1,
+    "hallazgo": "P14 (89.1%): FIGURA siete a seis Estructura del nucleosoma. FIGURA siete a siete Niveles de emp...",
+    "veredicto": "real",
+    "buscar": "superficie., A y B, procedentes de: Olins, D. E. & Olins, A. L. Chromatin history: our view from the bridge. Nature Reviews Molecular Cell Biology.,",
+    "reemplazar": "superficie.",
+    "motivo": "Resto de crédito bibliográfico de imagen en FIGURA 7-8; el resto del párrafo es literal (baja de 89.1% por expansión fonética y retiro de créditos previos)."
+  },
+  {
+    "capitulo": "Tema_07_Biologia_Celular",
+    "revision": 6,
+    "hallazgo": "Símbolo '∼': ular de ∼un con u",
+    "veredicto": "real",
+    "buscar": "En vertebrados, se muestra como una masa molecular de ∼un con una estructura cilíndrica de simetría octogonal",
+    "reemplazar": "En vertebrados, se muestra como una masa molecular de aproximadamente uno con una estructura cilíndrica de simetría octogonal",
+    "motivo": "En el PDF (pág. 297) aparece truncado al margen como '∼1'; conversión literal fonética sin inventar cifra (reglas 1, 3 y 4)."
+  },
+  {
+    "capitulo": "Tema_16_Biologia_Celular",
+    "revision": 1,
+    "hallazgo": "P20 (63.6%): FIGURA dieciséis a siete Mecanismos de transformación de protooncogenes en oncogen...",
+    "veredicto": "real",
+    "buscar": "FIGURA dieciséis a siete Mecanismos de transformación de protooncogenes en oncogenes. C. Bravo.",
+    "reemplazar": "FIGURA dieciséis a siete Mecanismos de transformación de protooncogenes en oncogenes.",
+    "motivo": "Resto de crédito de ilustración ('C. Bravo.') al final del pie de FIGURA 16-7 (Calvo pág. 667); el texto restante es literal."
+  },
+  {
+    "capitulo": "Tema_16_Biologia_Celular",
+    "revision": 2,
+    "hallazgo": "PDF#11 (82.3%): Carcinógenos de origen químico Nuestro organismo está sometido a un número crecien...",
+    "veredicto": "falso_positivo",
+    "buscar": "Carcinógenos de origen químico Nuestro organismo está sometido a un número creciente de compuestos químicos que tienen diverso grado de potencial carcinogénico",
+    "reemplazar": null,
+    "motivo": "Falso positivo: la única frase omitida respecto a Calvo pág. 659 es la referencia visual 'La tabla 16-1 recoge una lista...', retirada según regla 2."
+  },
+  {
+    "capitulo": "Tema_16_Biologia_Celular",
+    "revision": 3,
+    "hallazgo": "Crédito: iento. B. Imagen de T A C de un paciente con carcin",
+    "veredicto": "falso_positivo",
+    "buscar": "a. Antes del tratamiento. b. Tras el tratamiento. B. Imagen de T A C de un paciente con carcinoma renal de células claras",
+    "reemplazar": null,
+    "motivo": "Pie de figura clínica legítimo (imagen de TAC de paciente con carcinoma renal), no es crédito editorial."
+  },
+  {
+    "capitulo": "Tema_21_Morfo_Saladin",
+    "revision": 1,
+    "hallazgo": "P35 (89.3%): Mencione cuatro tipos de linfocitos que intervienen en la inmunidad celular. ¿Cuál...",
+    "veredicto": "real",
+    "buscar": " Mencione cuatro tipos de linfocitos que intervienen en la inmunidad celular. ¿Cuál de éstos también es importante para la inmunidad humoral? dieciocho. ¿Cuáles son las tres fases de una respuesta inmunitaria? diecinueve. Explique por qué los linfocitos T citotóxicos son activados por un rango más amplio de células anfitrionas que los linfocitos T cooperadores. veinte. Describa algunas maneras en que los linfocitos T citotóxicos destruyen a las células de destino. ",
+    "reemplazar": "",
+    "motivo": "Bloque residual de preguntas de autoevaluación (preguntas 17 a 20 de Saladin); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_22_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Crédito: senta una ilustración de la ley de Henry y tiene efect",
+    "veredicto": "falso_positivo",
+    "buscar": "Esto representa una ilustración de la ley de Henry y tiene efectos importantes en el buceo, la aviación, el montañismo",
+    "reemplazar": null,
+    "motivo": "Texto legítimo del cuerpo ('ilustración' significa ejemplo de la ley de Henry, no crédito de imagen)."
+  },
+  {
+    "capitulo": "Tema_22_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma siete ocho seis",
+    "veredicto": "falso_positivo",
+    "buscar": "entonces P N dos es cero coma siete ocho seis por setecientos sesenta milímetros de mercurio igual a quinientos noventa y siete",
+    "reemplazar": null,
+    "motivo": "Decimal real de fórmula (78,6% = 0,786; 0,786 × 760 mmHg = 597 mmHg), no es separador de miles mal leído."
+  },
+  {
+    "capitulo": "EdS_Parte3_1",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: ejercicios de aplicación",
+    "veredicto": "falso_positivo",
+    "buscar": "acompañados de ejemplos prácticos y culminando con ejercicios de aplicación; de esta manera, siendo una herramienta didáctica",
+    "reemplazar": null,
+    "motivo": "Mención descriptiva en la presentación del libro sobre su estructura didáctica, no es sección de autoevaluación."
+  },
+  {
+    "capitulo": "EdS_Parte3_1",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: uno coma seis nueve ocho",
+    "veredicto": "falso_positivo",
+    "buscar": "m igual a uno más tres coma tres por uno coma seis nueve ocho nueve",
+    "reemplazar": null,
+    "motivo": "Decimal real en fórmula de Sturges (log10(50) = 1,6989 en EdS pág. 111), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_1",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cinco coma seis cero seis",
+    "veredicto": "falso_positivo",
+    "buscar": "m igual a uno más cinco coma seis cero seis tres siete",
+    "reemplazar": null,
+    "motivo": "Decimal real en fórmula de Sturges (3,3 × 1,6989 = 5,60637 en EdS pág. 111), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_1",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: seis coma seis cero seis",
+    "veredicto": "falso_positivo",
+    "buscar": "m igual a seis coma seis cero seis tres siete",
+    "reemplazar": null,
+    "motivo": "Decimal real en fórmula de Sturges (1 + 5,60637 = 6,60637 en EdS pág. 111), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_1",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cuatro coma dos ocho cinco",
+    "veredicto": "falso_positivo",
+    "buscar": "Si m igual a siete, la amplitud del intervalo es C igual a treinta dividido entre siete, C igual a cuatro coma dos ocho cinco siete minutos, aproximadamente.",
+    "reemplazar": null,
+    "motivo": "Decimal real en cálculo de amplitud de intervalo (30/7 = 4,2857 en EdS pág. 112), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero cero uno",
+    "veredicto": "falso_positivo",
+    "buscar": "x i menos equis barra, al cubo.\nuno: tres coma cinco, tres coma seis, menos cero coma uno, menos cero coma cero cero uno.",
+    "reemplazar": null,
+    "motivo": "Decimal real de tabla de Fisher (-0,001 en Tablas 36 y 37, EdS págs. 187 y 189), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma siete dos nueve",
+    "veredicto": "falso_positivo",
+    "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma siete dos nueve.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 36 de asimetría de Fisher (0,9^3 = 0,729 y -0,9^3 = -0,729 en EdS pág. 187), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma dos uno seis",
+    "veredicto": "falso_positivo",
+    "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma dos uno seis.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 36 de asimetría de Fisher (0,6^3 = 0,216 y -0,6^3 = -0,216 en EdS pág. 187), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero dos siete",
+    "veredicto": "falso_positivo",
+    "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero dos siete.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 36 de asimetría de Fisher ((-0,3)^3 = -0,027 en EdS pág. 187), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero seis cuatro",
+    "veredicto": "falso_positivo",
+    "buscar": "siete: cuatro coma cero, tres coma seis, cero coma cuatro, cero coma cero seis cuatro.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 36 de asimetría de Fisher (0,4^3 = 0,064 en EdS pág. 187), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero tres seis",
+    "veredicto": "falso_positivo",
+    "buscar": "Total: cero coma cero tres seis.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 36 y fórmula de Fisher (total = 0,036 en EdS pág. 187), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero uno siete",
+    "veredicto": "falso_positivo",
+    "buscar": "igual a cero coma cero tres seis dividido entre dos coma cero uno igual a cero coma cero uno siete nueve",
+    "reemplazar": null,
+    "motivo": "Decimal real en resultado del coeficiente de asimetría de Fisher (0,036 / 2,01 = 0,0179), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma seis cinco seis",
+    "veredicto": "falso_positivo",
+    "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma seis cinco seis uno.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 37 de curtosis de Fisher (0,9^4 = 0,6561 en EdS pág. 189), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma uno dos nueve",
+    "veredicto": "falso_positivo",
+    "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma uno dos nueve seis.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 37 de curtosis de Fisher (0,6^4 = 0,1296 en EdS pág. 189), no es separador de miles."
+  },
+  {
+    "capitulo": "EdS_Parte3_3",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cero coma cero cero ocho",
+    "veredicto": "falso_positivo",
+    "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, cero coma cero cero ocho uno.",
+    "reemplazar": null,
+    "motivo": "Decimal real de Tabla 37 de curtosis de Fisher ((-0,3)^4 = 0,0081 en EdS pág. 189), no es separador de miles."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione por lo menos cinco tejidos que se encuentran en un hueso. dos. Elabore una lista de tres o más funciones del sistema óseo, además de brindar soporte al cuerpo y proteger algunos de los órganos internos. tres. Mencione las cuatro formas óseas y proporcione un ejemplo de cada una. cuatro. Explique la diferencia entre hueso compacto y esponjoso, y describa la relación espacial que guardan entre ellas. cinco. Establezca los términos anatómicos para cuerpo, cabeza, zona de crecimiento y cobertura fibrosa de un hueso largo.",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 5); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. Suponga que se tienen micrografías sin rótulos, hechas con un microscopio de electrones, de los cuatro tipos de células óseas y sus tejidos vecinos. Mencione las cuatro células y explique la manera en que se podrían distinguir cada una de las otras tres. siete. Mencione tres componentes orgánicos de la matriz ósea. ocho. ¿Cómo se llaman los cristales minerales de los huesos, y de qué están hechos? nueve. Dibuje un corte transversal de una osteona y rotule sus partes principales. diez. ¿Cuáles son los dos tipos de médula ósea? ¿Qué significa el término tejido hemopoyético? ¿Qué tipo de médula ósea es adecuada para esta descripción?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 6 a 10); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: once. Describa las etapas de la osificación intramembranosa. Mencione un hueso que esté formado de esta manera. doce. Describa la manera en que un modelo de cartílago se transforma en un hueso largo en osificación endocondral. trece. Describa las cinco zonas de una metáfisis y las principales diferencias entre ellas. catorce. ¿Cómo explica la ley de Wolff algunas de las diferencias estructurales entre los huesos de un niño pequeño y los de un adulto joven?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 11 a 14); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: quince. Describa el papel del colágeno y los cristales semilla en la mineralización ósea. dieciséis. ¿Por qué es importante regular la concentración de calcio en la sangre dentro de un rango tan estrecho? diecisiete. ¿Qué efecto tiene la calcitonina en la concentración de calcio en la sangre y cómo produce este efecto? Responda la misma pregunta en relación con la hormona paratiroidea. dieciocho. ¿Cómo se sintetiza la vitamina D y qué efecto tiene en la concentración de calcio en la sangre?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 15 a 18); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecinueve. Mencione y describa cinco tipos de fracturas óseas. veinte. ¿Por qué es más probable que la osteomielitis ocurra en una fractura abierta que en una cerrada? veintiuno. ¿Qué es un callo? ¿Cómo contribuye a la reparación de una fractura?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 19 a 21); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione por lo menos cinco tejidos",
+    "reemplazar": null,
+    "motivo": "Mismos 5 bloques de autoevaluación ya eliminados en los hallazgos 'Antes de proseguir' (duplicado de detector)."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (1/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Una capa delgada de tejido conjuntivo reticular, denominada endostio",
+    "reemplazar": "Una capa delgada de tejido conjuntivo reticular, denominada endostio",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (2/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento ósea. Los osteocitos vecinos están conectados donde se unen sus extensiones",
+    "reemplazar": "ósea. Los osteocitos vecinos están conectados donde se unen sus extensiones",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (3/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento a Hueso compacto y esponjoso en un corte frontal de la articulación",
+    "reemplazar": "a Hueso compacto y esponjoso en un corte frontal de la articulación",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (4/11)",
+    "veredicto": "real",
+    "buscar": "\nPARTE DOS Soporte y movimiento\n\nsiete punto tres Desarrollo óseo",
+    "reemplazar": "\nsiete punto tres Desarrollo óseo",
+    "motivo": "Encabezado corriente de página suelto antes del subtítulo 7.3; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (5/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Pronto ocurre el agrandamiento y la muerte de los condrocitos en la epífisis",
+    "reemplazar": "Pronto ocurre el agrandamiento y la muerte de los condrocitos en la epífisis",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (6/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Aplicación de lo aprendido ¿En una osteona determinada, cuáles laminillas",
+    "reemplazar": "Aplicación de lo aprendido ¿En una osteona determinada, cuáles laminillas",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (7/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento En promedio, los atletas y las personas que participan en trabajos manuales",
+    "reemplazar": "En promedio, los atletas y las personas que participan en trabajos manuales",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (8/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento tamiento de reemplazo de hormonas, la falta de glándulas paratiroideas",
+    "reemplazar": "tamiento de reemplazo de hormonas, la falta de glándulas paratiroideas",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (9/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Homeostasis del fosfato El adulto promedio tiene de quinientos a ochocientos",
+    "reemplazar": "Homeostasis del fosfato El adulto promedio tiene de quinientos a ochocientos",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (10/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento avanzada el plazo de recuperación es más prolongado. El proceso de curación",
+    "reemplazar": "avanzada el plazo de recuperación es más prolongado. El proceso de curación",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (11/11)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento CONOCIMIENTO MÁS A FONDO siete coma cuatro",
+    "reemplazar": "CONOCIMIENTO MÁS A FONDO siete coma cuatro",
+    "motivo": "Encabezado corriente de página incrustado antes del recuadro 7.4; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: osteoblastos11",
+    "veredicto": "real",
+    "buscar": "dos. Los osteoblastos11 son células que forman hueso. Tienen forma cúbica",
+    "reemplazar": "dos. Los osteoblastos son células que forman hueso. Tienen forma cúbica",
+    "motivo": "Llamada de nota al pie ('11') pegada a 'osteoblastos'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: osteoclastos13",
+    "veredicto": "real",
+    "buscar": "cuatro. Los osteoclastos13 son células que disuelven el hueso, se hallan en",
+    "reemplazar": "cuatro. Los osteoclastos son células que disuelven el hueso, se hallan en",
+    "motivo": "Llamada de nota al pie ('13') pegada a 'osteoclastos'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: intramembranosa20",
+    "veredicto": "real",
+    "buscar": "Osificación intramembranosa La osificación intramembranosa20 produce los huesos planos",
+    "reemplazar": "Osificación intramembranosa La osificación intramembranosa produce los huesos planos",
+    "motivo": "Llamada de nota al pie ('20') pegada a 'intramembranosa'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: endocondral22",
+    "veredicto": "real",
+    "buscar": "Osificación endocondral La osificación endocondral22 es un proceso en que el hueso",
+    "reemplazar": "Osificación endocondral La osificación endocondral es un proceso en que el hueso",
+    "motivo": "Llamada de nota al pie ('22') pegada a 'endocondral'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: acondroplásico25",
+    "veredicto": "real",
+    "buscar": "El enanismo acondroplásico25 es un trastorno en que los huesos largos de las extremidades",
+    "reemplazar": "El enanismo acondroplásico es un trastorno en que los huesos largos de las extremidades",
+    "motivo": "Llamada de nota al pie ('25') pegada a 'acondroplásico'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: cálculo28",
+    "veredicto": "real",
+    "buscar": "resultado de la calcificación de las paredes arteriales. Un cálculo28 es una masa",
+    "reemplazar": "resultado de la calcificación de las paredes arteriales. Un cálculo es una masa",
+    "motivo": "Llamada de nota al pie ('28') pegada a 'cálculo'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: hipercalcemia31",
+    "veredicto": "real",
+    "buscar": "Por otra parte, la hipercalcemia31 es el exceso de sodio en la sangre.",
+    "reemplazar": "Por otra parte, la hipercalcemia es el exceso de sodio en la sangre.",
+    "motivo": "Llamada de nota al pie ('31') pegada a 'hipercalcemia'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: callo35",
+    "veredicto": "real",
+    "buscar": "dos Formación de un callo35 blando. Los fibroblastos depositan colágeno en",
+    "reemplazar": "dos Formación de un callo blando. Los fibroblastos depositan colágeno en",
+    "motivo": "Llamada de nota al pie ('35') pegada a 'callo'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o tejido óseo,tres es un tej",
+    "veredicto": "real",
+    "buscar": "Huesos y tejido óseo El hueso, o tejido óseo,tres es un tejido conjuntivo cuya matriz",
+    "reemplazar": "Huesos y tejido óseo El hueso, o tejido óseo, es un tejido conjuntivo cuya matriz",
+    "motivo": "Llamada de nota al pie convertida a texto ('tres') pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o un esqueleto.un Los hueso",
+    "veredicto": "real",
+    "buscar": "nada ha simbolizado con tanta frecuencia la muerte como un cráneo o un esqueleto.un Los huesos y los dientes",
+    "reemplazar": "nada ha simbolizado con tanta frecuencia la muerte como un cráneo o un esqueleto. Los huesos y los dientes",
+    "motivo": "Llamada de nota al pie convertida a texto ('un') pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma un",
+    "veredicto": "real",
+    "buscar": "En la figura siete coma un se muestra la anatomía general de un hueso largo, una gran parte del cual",
+    "reemplazar": "Se muestra la anatomía general de un hueso largo, una gran parte del cual",
+    "motivo": "Referencia visual a figura 7.1 en el cuerpo; se quita según regla 2 (la segunda coincidencia es 'siete coma un dos', tratada aparte)."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma dos",
+    "veredicto": "real",
+    "buscar": "En la figura siete coma dos se muestra un hueso plano del cráneo. Tiene una construcción parecida a un emparedado",
+    "reemplazar": "Un hueso plano del cráneo tiene una construcción parecida a un emparedado",
+    "motivo": "Referencia visual a figura 7.2 en el cuerpo; se elimina conservando el sujeto de la frase siguiente."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma siete",
+    "veredicto": "real",
+    "buscar": "en algunas ocasiones se denominan huesos dérmicos. En la figura siete coma siete se muestran las etapas del proceso. un Parte del tejido",
+    "reemplazar": "en algunas ocasiones se denominan huesos dérmicos. un Parte del tejido",
+    "motivo": "Referencia visual a figura 7.7 en el cuerpo; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma nueve",
+    "veredicto": "real",
+    "buscar": "En la figura siete coma nueve se muestran los pasos siguientes en la osificación endocondral. En esta figura como ejemplo se usa un metacarpo",
+    "reemplazar": "Para los pasos siguientes en la osificación endocondral, como ejemplo se usa un metacarpo",
+    "motivo": "Referencias visuales a figura 7.9 ('En la figura siete coma nueve', 'En esta figura') en el cuerpo; se quitan según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura siete coma nueve (2/3)",
+    "veredicto": "real",
+    "buscar": "en todas las direcciones. En el paso cuatro de la figura siete coma nueve se muestra el aspecto del hueso al momento de nacer. En huesos con dos centros",
+    "reemplazar": "en todas las direcciones. En huesos con dos centros",
+    "motivo": "Referencia visual al paso 4 de la figura 7.9 en el cuerpo; se quita según regla 2 (la 1.ª coincidencia se corrige en 'En la figura siete coma nueve')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura siete coma nueve (3/3)",
+    "veredicto": "real",
+    "buscar": "que da a la cavidad medular es la metáfisis. En el paso cuatro de la figura siete coma nueve se observa el cartílago, la región azul, y cada metáfisis, presentes de color violeta,.",
+    "reemplazar": "que da a la cavidad medular es la metáfisis.",
+    "motivo": "Referencia puramente visual (colores azul y violeta de figura 7.9); se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura ocho coma tres cuatro",
+    "veredicto": "real",
+    "buscar": ", figura siete coma un un; compárese con la radiografía de la mano de un adulto en la figura ocho coma tres cuatro, p. doscientos sesenta y cuatro,. La placa epifisaria",
+    "reemplazar": ". La placa epifisaria",
+    "motivo": "Referencias visuales a figuras 7.11 y 8.34 con número de página; se quitan según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma un dos",
+    "veredicto": "real",
+    "buscar": " En la figura siete coma un dos se muestra la estructura histológica de la metáfisis y los siguientes pasos en la conversión de cartílago en hueso.",
+    "reemplazar": "",
+    "motivo": "Frase introductoria puramente visual a figura 7.12 antes de la lista numerada; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura siete coma ocho",
+    "veredicto": "real",
+    "buscar": "se quedan atrapados en él como osteocitos, de manera parecida al proceso ilustrado en la figura siete coma ocho; depositan matriz en capas",
+    "reemplazar": "se quedan atrapados en él como osteocitos; depositan matriz en capas",
+    "motivo": "Referencia visual a figura 7.8 en el cuerpo; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura siete coma cinco",
+    "veredicto": "real",
+    "buscar": "funcional. En la figura siete coma cinco, en que se ve que la trabécula",
+    "reemplazar": "funcional. La trabécula",
+    "motivo": "Referencia visual a figura 7.5 en el cuerpo; se quita conservando la explicación sobre líneas de tensión."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: el cuadro siete coma dos y",
+    "veredicto": "real",
+    "buscar": "enfermedad de Paget, osteogénesis imperfecta y osteoporosis, consúltense el cuadro siete coma dos y el recuadro Conocimiento más a fondo siete coma cuatro,.",
+    "reemplazar": "enfermedad de Paget, osteogénesis imperfecta y osteoporosis.",
+    "motivo": "Remisión visual a cuadro 7.2 y recuadro 7.4 en el cuerpo; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ras siete.17a y b,. En",
+    "veredicto": "real",
+    "buscar": "pierde su alineación respecto a las demás, figuras siete.17a y b,. En una fractura conminuta",
+    "reemplazar": "pierde su alineación respecto a las demás. En una fractura conminuta",
+    "motivo": "Referencia visual con dígitos sin convertir ('figuras siete.17a y b'); se quita según reglas 2 y 3."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: o cifosis.20b y c,. La",
+    "veredicto": "real",
+    "buscar": "se comprimen y la columna se deforma en un trastorno llamado cifosis.20b y c,. Las fracturas de cadera",
+    "reemplazar": "se comprimen y la columna se deforma en un trastorno llamado cifosis. Las fracturas de cadera",
+    "motivo": "Resto de referencia visual a figura 7.20b y c con dígitos sin convertir pegado a 'cifosis'; se quita."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO",
+    "veredicto": "real",
+    "buscar": "CONOCIMIENTO MÁS A FONDO siete coma tres Aplicación clínica Tejido óseo y equilibrio de pe hache",
+    "reemplazar": null,
+    "motivo": "Dos apariciones de 'CONOCIMIENTO MÁS A FONDO' en mayúsculas; se corrigen en los dos hallazgos de 'Recuadro pegado al párrafo'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO",
+    "veredicto": "real",
+    "buscar": "HO HO CH2 HO o hache CH2 HO o hache o hache CH2 siete-dehidrocolesterol",
+    "reemplazar": "siete-dehidrocolesterol",
+    "motivo": "Etiquetas químicas sueltas extraídas del diagrama estructural de la figura 7.14 (cuatro apariciones de 'HO' + 'CH2'); ilegibles en audio."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: llo. Sin un traCONOCIMIENTO MÁS A FONDO siete coma tres Aplicación...",
+    "veredicto": "real",
+    "buscar": "por cirugía en cabeza o cuello. Sin un traCONOCIMIENTO MÁS A FONDO siete coma tres Aplicación clínica Tejido óseo y equilibrio de pe hache",
+    "reemplazar": "por cirugía en cabeza o cuello. Sin un tra\n\nConocimiento más a fondo siete punto tres. Aplicación clínica: Tejido óseo y equilibrio de pe hache\n",
+    "motivo": "Título de recuadro en mayúsculas pegado al párrafo (nota: el recuadro interrumpe la palabra 'tra'/'tamiento' que sigue en la línea siguiente)."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: e y movimiento CONOCIMIENTO MÁS A FONDO siete coma cuatro Aplicació...",
+    "veredicto": "real",
+    "buscar": "CONOCIMIENTO MÁS A FONDO siete coma cuatro Aplicación clínica Osteoporosis La enfermedad ósea más común es la osteoporosis",
+    "reemplazar": "Conocimiento más a fondo siete punto cuatro. Aplicación clínica: Osteoporosis\nLa enfermedad ósea más común es la osteoporosis",
+    "motivo": "Título de recuadro en mayúsculas pegado al párrafo; se normaliza y separa en su propia línea (regla 18)."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (1/3)",
+    "veredicto": "real",
+    "buscar": "pero juntas producen un material de gran fuerza y fl exibilidad. En el hueso, el polímero es el colágeno",
+    "reemplazar": "pero juntas producen un material de gran fuerza y flexibilidad. En el hueso, el polímero es el colágeno",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (2/3)",
+    "veredicto": "real",
+    "buscar": "Esta deficiencia de minerales y la fl exibilidad son los problemas centrales en el raquitismo",
+    "reemplazar": "Esta deficiencia de minerales y la flexibilidad son los problemas centrales en el raquitismo",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (3/3)",
+    "veredicto": "real",
+    "buscar": "El componente de proteínas otorga al hueso fl exibilidad. Sin proteínas, un hueso sería demasiado quebradizo",
+    "reemplazar": "El componente de proteínas otorga al hueso flexibilidad. Sin proteínas, un hueso sería demasiado quebradizo",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: osifi cada",
+    "veredicto": "real",
+    "buscar": "a lo largo del extremo de un hueso, ya que aún no está osifi cada",
+    "reemplazar": "a lo largo del extremo de un hueso, ya que aún no está osificada",
+    "motivo": "Palabra partida por ligadura 'fi' ('osifi cada' -> 'osificada')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: calcifi cada (1/2)",
+    "veredicto": "real",
+    "buscar": "en el hueso, los osteocitos están incrustados en matriz calcifi cada y tienen poco espacio",
+    "reemplazar": "en el hueso, los osteocitos están incrustados en matriz calcificada y tienen poco espacio",
+    "motivo": "Palabra partida por ligadura 'fi' ('calcifi cada' -> 'calcificada')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: calcifi cada (2/2)",
+    "veredicto": "real",
+    "buscar": "es una masa calcifi cada en un órgano que, de otra manera, sería blanda",
+    "reemplazar": "es una masa calcificada en un órgano que, de otra manera, sería blanda",
+    "motivo": "Palabra partida por ligadura 'fi' ('calcifi cada' -> 'calcificada')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fortifi cada",
+    "veredicto": "real",
+    "buscar": "se agrega a la dieta, sobre todo en la leche fortifi cada, como una salvaguarda para personas",
+    "reemplazar": "se agrega a la dieta, sobre todo en la leche fortificada, como una salvaguarda para personas",
+    "motivo": "Palabra partida por ligadura 'fi' ('fortifi cada' -> 'fortificada')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente",
+    "veredicto": "real",
+    "buscar": "que no tienen luz solar sufi ciente como para iniciar la síntesis en la piel.",
+    "reemplazar": "que no tienen luz solar suficiente como para iniciar la síntesis en la piel.",
+    "motivo": "Palabra partida por ligadura 'fi' ('sufi ciente' -> 'suficiente')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: interfi ere",
+    "veredicto": "real",
+    "buscar": "que se fija al calcio intestinal e interfi ere con su absorción. Otras bebidas gaseosas",
+    "reemplazar": "que se fija al calcio intestinal e interfiere con su absorción. Otras bebidas gaseosas",
+    "motivo": "Palabra partida por ligadura 'fi' ('interfi ere' -> 'interfiere')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: alfi leres (1/2)",
+    "veredicto": "real",
+    "buscar": "exposición quirúrgica del hueso y el uso de placas, tornillos o alfi leres para realinear los fragmentos.",
+    "reemplazar": "exposición quirúrgica del hueso y el uso de placas, tornillos o alfileres para realinear los fragmentos.",
+    "motivo": "Palabra partida por ligadura 'fi' ('alfi leres' -> 'alfileres')."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: alfi leres (2/2)",
+    "veredicto": "real",
+    "buscar": "Las fracturas de cadera suelen tratarse con alfi leres, y se alienta la ambulación temprana",
+    "reemplazar": "Las fracturas de cadera suelen tratarse con alfileres, y se alienta la ambulación temprana",
+    "motivo": "Palabra partida por ligadura 'fi' ('alfi leres' -> 'alfileres')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuál es la diferencia entre artrología y quinesiología? dos. ¿Cuál es la diferencia entre una sinostosis, una sinartrosis y una anfiartrosis? tres. Defina sutura, gonfosis y sindesmosis, y explique qué tienen en común estas tres articulaciones. cuatro. Mencione los tres tipos de sutura y describa cuáles son sus diferencias. cinco. Mencione dos sincondrosis y dos sínfisis. seis. Proporcione ejemplos de articulaciones que se vuelven sinostosis con la edad.",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 6); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: siete. Describa los papeles del cartílago articular y el líquido sinovial en la movilidad de las articulaciones. ocho. Proporcione un ejemplo anatómico de cada clase de palanca y explique por qué cada ejemplo pertenece a esa clase. nueve. Mencione un ejemplo de cada una de las seis clases de articulaciones sinoviales y establezca cuántos ejes de rotación tiene cada ejemplo. diez. Suponga que se cambia un foco en el techo. Mencione cada articulación que participa en el movimiento y las acciones articulares que ocurren. once. ¿Dónde están el esfuerzo, el fulcro y la resistencia en la dorsiflexión? ¿Qué clase de palanca hace que el pie actúe como lo hace en la dorsiflexión? ¿Esperaría que tengan una ventaja mecánica mayor o menor de uno coma cero? ¿Por qué?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 7 a 11); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: doce. ¿Qué evita que el cóndilo mandibular salga de su fosa en dirección posterior? trece. Explique la manera en que el tendón del bíceps sujeta la articulación del hombro. catorce. Identifique las tres articulaciones que se encuentran en el codo y mencione los movimientos en que participa cada articulación. quince. ¿Qué evita que el fémur se separe de la tibia en sentido posterior? dieciséis. ¿Qué evita que la tibia se separe del astrágalo en sentido lateral?",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 12 a 16); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuál es la diferencia",
+    "reemplazar": null,
+    "motivo": "Mismos 3 bloques de autoevaluación ya eliminados en los hallazgos 'Antes de proseguir' (duplicado de detector)."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (1/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Las articulaciones se clasifican de acuerdo con la manera",
+    "reemplazar": "Las articulaciones se clasifican de acuerdo con la manera",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (2/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento de la matriz ósea de la mandíbula en el tejido dental.",
+    "reemplazar": "de la matriz ósea de la mandíbula en el tejido dental.",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (3/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento En algunas diartrosis, en el interior de la cápsula articular",
+    "reemplazar": "En algunas diartrosis, en el interior de la cápsula articular",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (4/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento que no generan velocidad máxima, pero tienen el poder",
+    "reemplazar": "que no generan velocidad máxima, pero tienen el poder",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (5/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento • Fuerza y tensión de ligamentos y cápsulas articulares.",
+    "reemplazar": "• Fuerza y tensión de ligamentos y cápsulas articulares.",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (6/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento nen movimiento limitado. Las articulaciones planas se encuentran",
+    "reemplazar": "nen movimiento limitado. Las articulaciones planas se encuentran",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (7/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Elevación y depresión La elevación",
+    "reemplazar": "Elevación y depresión La elevación",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (8/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento de disco del radio gira sobre el cóndilo humeral",
+    "reemplazar": "de disco del radio gira sobre el cóndilo humeral",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (9/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento to del pulgar difiere de la de los otros cuatro dedos.",
+    "reemplazar": "to del pulgar difiere de la de los otros cuatro dedos.",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (10/15)",
+    "veredicto": "real",
+    "buscar": "\nPARTE DOS Soporte y movimiento\n\nnueve punto tres Anatomía de diartrosis seleccionadas",
+    "reemplazar": "\nnueve punto tres Anatomía de diartrosis seleccionadas",
+    "motivo": "Encabezado corriente de página suelto antes del subtítulo 9.3; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (11/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento mano de modo tal que pueda realizar una tarea:",
+    "reemplazar": "mano de modo tal que pueda realizar una tarea:",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (12/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento ligamentos extracapsulares incluyen dos ligamentos colaterales",
+    "reemplazar": "ligamentos extracapsulares incluyen dos ligamentos colaterales",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (13/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Fémur Superficie rotuliana Cóndilo lateral Cóndilo medial",
+    "reemplazar": "Fémur Superficie rotuliana Cóndilo lateral Cóndilo medial",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (14/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento CUADRO nueve coma un Algunos trastornos articulares comunes",
+    "reemplazar": "CUADRO nueve coma un Algunos trastornos articulares comunes",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento (15/15)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Sin embargo, una prótesis no es tan fuerte como una articulación",
+    "reemplazar": "Sin embargo, una prótesis no es tan fuerte como una articulación",
+    "motivo": "Encabezado corriente de página incrustado en el texto; se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: sinartrosis4",
+    "veredicto": "real",
+    "buscar": "A una articulación fibrosa también se le denomina sinartrosis4 o articulación sinartrodial.",
+    "reemplazar": "A una articulación fibrosa también se le denomina sinartrosis o articulación sinartrodial.",
+    "motivo": "Llamada de nota al pie ('4') pegada a 'sinartrosis'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: sindesmosis6",
+    "veredicto": "real",
+    "buscar": "Sindesmosis Una sindesmosis6 es una articulación fibrosa en que dos huesos están unidos",
+    "reemplazar": "Sindesmosis Una sindesmosis es una articulación fibrosa en que dos huesos están unidos",
+    "motivo": "Llamada de nota al pie ('6') pegada a 'sindesmosis'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: artrosis7",
+    "veredicto": "real",
+    "buscar": "En una articulación cartilaginosa, también denominada anfi artrosis7 o articulación anfiartrodial",
+    "reemplazar": "En una articulación cartilaginosa, también denominada anfiartrosis o articulación anfiartrodial",
+    "motivo": "Llamada de nota al pie ('7') y ligadura partida ('anfi artrosis7' -> 'anfiartrosis')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: sincondrosis8",
+    "veredicto": "real",
+    "buscar": "Sincondrosis Una sincondrosis8 es una articulación en que los huesos están unidos por cartílago hialino.",
+    "reemplazar": "Sincondrosis Una sincondrosis es una articulación en que los huesos están unidos por cartílago hialino.",
+    "motivo": "Llamada de nota al pie ('8') pegada a 'sincondrosis'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: diartrosis10",
+    "veredicto": "real",
+    "buscar": "El tipo más familiar de articulación es la sinovial, también llamada diartrosis10 o articulación diartrodial.",
+    "reemplazar": "El tipo más familiar de articulación es la sinovial, también llamada diartrosis o articulación diartrodial.",
+    "motivo": "Llamada de nota al pie ('10') pegada a 'diartrosis'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: retracción17",
+    "veredicto": "real",
+    "buscar": "en el plano transversal, horizontal, y la retracción17 el movimiento posterior.",
+    "reemplazar": "en el plano transversal, horizontal, y la retracción el movimiento posterior.",
+    "motivo": "Llamada de nota al pie ('17') pegada a 'retracción'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: circunducción18",
+    "veredicto": "real",
+    "buscar": "Circunducción En la circunducción18 una parte final de una extremidad permanece inmóvil",
+    "reemplazar": "Circunducción En la circunducción una parte final de una extremidad permanece inmóvil",
+    "motivo": "Llamada de nota al pie ('18') pegada a 'circunducción'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: supinación19",
+    "veredicto": "real",
+    "buscar": "exposición posterior sobre los movimientos del pie. La supinación19 a Abducción b Aducción",
+    "reemplazar": "exposición posterior sobre los movimientos del pie. La supinación a Abducción b Aducción",
+    "motivo": "Llamada de nota al pie ('19') pegada a 'supinación'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: inversión23",
+    "veredicto": "real",
+    "buscar": "en los tiros en suspensión optimizan. La inversión23 es un movimiento del pie que desplaza las plantas",
+    "reemplazar": "en los tiros en suspensión optimizan. La inversión es un movimiento del pie que desplaza las plantas",
+    "motivo": "Llamada de nota al pie ('23') pegada a 'inversión'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: eversión24",
+    "veredicto": "real",
+    "buscar": "para que se enfrenten entre sí, y la eversión24 las aparta de manera lateral, figuras nueve.22b y c,.",
+    "reemplazar": "para que se enfrenten entre sí, y la eversión las aparta de manera lateral.",
+    "motivo": "Llamada de nota al pie ('24') pegada a 'eversión' y referencia visual 'figuras nueve.22b y c'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro ocho coma dos",
+    "veredicto": "real",
+    "buscar": "descritas en el capítulo ocho y enumeradas de manera general en el cuadro ocho coma dos, p. doscientos treinta y seis,.",
+    "reemplazar": "descritas en el capítulo ocho.",
+    "motivo": "Referencia visual a cuadro 8.2 con número de página; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura ocho",
+    "veredicto": "real",
+    "buscar": "temporal y parietal. En la figura ocho.10b, p. doscientos cuarenta y tres, puede observarse la orilla biselada del hueso temporal. Las suturas planas",
+    "reemplazar": "temporal y parietal. Las suturas planas",
+    "motivo": "Frase puramente visual a figura 8.10b con dígitos y número de página; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura nueve (1/2)",
+    "veredicto": "real",
+    "buscar": "operan con una V M mucho menor de un; en la figura nueve.8b se muestra un caso con V M mayor de un. En el capítulo diez",
+    "reemplazar": "operan con una V M mucho menor de un. En el capítulo diez",
+    "motivo": "Referencia visual a figura 9.8b con dígito sin convertir; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura nueve (2/2)",
+    "veredicto": "real",
+    "buscar": "al movimiento del pulgar se le denomina abducción radial, como en la figura nueve.21c,. Otro movimiento",
+    "reemplazar": "al movimiento del pulgar se le denomina abducción radial. Otro movimiento",
+    "motivo": "Referencia visual a figura 9.21c con dígito sin convertir; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura nueve",
+    "veredicto": "real",
+    "buscar": "A partir de la figura nueve.29c, el conocimiento de los prefijos, infra-, supra-, pre-, y de los términos superficial y profundo",
+    "reemplazar": "El conocimiento de los prefijos, infra-, supra-, pre-, y de los términos superficial y profundo",
+    "motivo": "Tercera aparición ('A partir de la figura nueve.29c,'); las otras dos se corrigen en 'en la figura nueve'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro nueve coma un",
+    "veredicto": "real",
+    "buscar": "pero en casos extremos llega a requerirse yeso o cirugía. Los esguinces y otros trastornos articulares se describen en el cuadro\n\nnueve coma un.",
+    "reemplazar": "pero en casos extremos llega a requerirse yeso o cirugía.",
+    "motivo": "Referencia visual a cuadro 9.1 partida por salto de párrafo (por eso contextos mostró n=0); se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura ocho.10b, p. dosc",
+    "veredicto": "real",
+    "buscar": "En la figura ocho.10b, p. doscientos cuarenta y tres, puede observarse la orilla biselada",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo de Rev 5 'En la figura ocho'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: Clavícula 1a. costill",
+    "veredicto": "real",
+    "buscar": "Cuerpo de la vértebra Clavícula 1a. costilla a c b Cartílago costal Esternón",
+    "reemplazar": "Cuerpo de la vértebra Clavícula primera costilla a c b Cartílago costal Esternón",
+    "motivo": "Abreviatura ordinal con dígito ('1a.' -> 'primera')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ue une la 1a. costill",
+    "veredicto": "real",
+    "buscar": "representada por el cartílago costal que une la 1a. costilla con el esternón.",
+    "reemplazar": "representada por el cartílago costal que une la primera costilla con el esternón.",
+    "motivo": "Abreviatura ordinal con dígito ('1a.' -> 'primera')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.4b y c, com",
+    "veredicto": "real",
+    "buscar": ", figura nueve.4b y c, como en la sínfisis púbica, en que los huesos púbicos",
+    "reemplazar": ", como en la sínfisis púbica, en que los huesos púbicos",
+    "motivo": "Referencia visual con dígito sin convertir ('figura nueve.4b y c'); se quita según reglas 2 y 3."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.8b se muest",
+    "veredicto": "real",
+    "buscar": "en la figura nueve.8b se muestra un caso con V M mayor de un.",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo de Rev 5 'en la figura nueve (1/2)'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.13a, es el a",
+    "veredicto": "real",
+    "buscar": "Abducción y aducción Abducción14, figura nueve.13a, es el alejamiento de la línea media",
+    "reemplazar": "Abducción y aducción Abducción es el alejamiento de la línea media",
+    "motivo": "Llamada de nota ('14') y referencia visual con dígito sin convertir ('figura nueve.13a'); se quitan."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.13b, es el m",
+    "veredicto": "real",
+    "buscar": "Aducción15, figura nueve.13b, es el movimiento en el plano frontal de regreso a la línea media.",
+    "reemplazar": "Aducción es el movimiento en el plano frontal de regreso a la línea media.",
+    "motivo": "Llamada de nota ('15') y referencia visual con dígito sin convertir ('figura nueve.13b'); se quitan."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.14a, es un m",
+    "veredicto": "real",
+    "buscar": "La elevación, figura nueve.14a, es un movimiento que sube de manera vertical",
+    "reemplazar": "La elevación es un movimiento que sube de manera vertical",
+    "motivo": "Referencia visual con dígito sin convertir ('figura nueve.14a'); se quita según reglas 2 y 3."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.15a, es el m",
+    "veredicto": "real",
+    "buscar": "Protracción y retracción La protracción16, figura nueve.15a, es el movimiento anterior de la parte de un cuerpo",
+    "reemplazar": "Protracción y retracción La protracción es el movimiento anterior de la parte de un cuerpo",
+    "motivo": "Llamada de nota ('16') y referencia visual con dígito sin convertir ('figura nueve.15a'); se quitan."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.18b, es el m",
+    "veredicto": "real",
+    "buscar": "el radio es paralelo al cúbito. La pronación20, figura nueve.18b, es el movimiento opuesto",
+    "reemplazar": "el radio es paralelo al cúbito. La pronación es el movimiento opuesto",
+    "motivo": "Llamada de nota ('20') y referencia visual con dígito sin convertir ('figura nueve.18b'); se quitan."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO",
+    "veredicto": "real",
+    "buscar": "CONOCIMIENTO MÁS A FONDO nueve coma tres Aplicación clínica Dislocación del hombro",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo 'Recuadro pegado al párrafo' siguiente."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: o que se encuenCONOCIMIENTO MÁS A FONDO nueve coma tres Aplicación...",
+    "veredicto": "real",
+    "buscar": "El deltoides es el músculo largo que se encuenCONOCIMIENTO MÁS A FONDO nueve coma tres Aplicación clínica Dislocación del hombro Las dislocaciones",
+    "reemplazar": "El deltoides es el músculo largo que se encuen\n\nConocimiento más a fondo nueve punto tres. Aplicación clínica: Dislocación del hombro\nLas dislocaciones",
+    "motivo": "Título de recuadro en mayúsculas pegado al párrafo (nota: el recuadro corta la palabra 'encuentra' cuya cola 'tra por arriba del hombro' queda después)."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: des- cinco",
+    "veredicto": "real",
+    "buscar": "que consta de fibras de colágeno que se extienden des- cinco gompho igual a clavo, clavija; osis igual a proceso.",
+    "reemplazar": null,
+    "motivo": "Palabra 'desde' partida entre la nota al pie 5, FIGURA 9.3 y el párrafo siguiente ('de la matriz ósea...'); requiere reordenar el bloque de figura/nota."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: expli- dieciséis",
+    "veredicto": "real",
+    "buscar": "Aplicación de lo aprendido Elija un ejemplo de circunducción y expli- dieciséis pro igual a hacia delante",
+    "reemplazar": null,
+    "motivo": "Palabra 'explique' (dentro de ejercicio 'Aplicación de lo aprendido') partida entre notas 16-18 y FIGURA 9.12 ('que por qué este movimiento...'); requiere reordenar o retirar el ejercicio completo."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: anfi artrosis",
+    "veredicto": "real",
+    "buscar": "también denominada anfi artrosis7 o articulación anfiartrodial",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo de Rev 4 'artrosis7' ('anfi artrosis7' -> 'anfiartrosis')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brocartílago (1/5)",
+    "veredicto": "real",
+    "buscar": "Sínfisis En una sínfisis,nueve dos huesos están unidos por fi brocartílago",
+    "reemplazar": "Sínfisis En una sínfisis, dos huesos están unidos por fibrocartílago",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi brocartílago' -> 'fibrocartílago') y llamada de nota ',nueve'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brocartílago (2/5)",
+    "veredicto": "real",
+    "buscar": "este cartílago se ve infiltrado por haces de colágeno para formar fi brocartílago. Cada disco intervertebral",
+    "reemplazar": "este cartílago se ve infiltrado por haces de colágeno para formar fibrocartílago. Cada disco intervertebral",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi brocartílago' -> 'fibrocartílago')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brocartílago (3/5)",
+    "veredicto": "real",
+    "buscar": "en el interior de la cápsula articular crece fi brocartílago y forma una almohadilla entre los huesos",
+    "reemplazar": "en el interior de la cápsula articular crece fibrocartílago y forma una almohadilla entre los huesos",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi brocartílago' -> 'fibrocartílago')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brocartílago (4/5)",
+    "veredicto": "real",
+    "buscar": "la cavidad tiene un anillo de fi brocartílago denominado labio glenoideo alrededor de su margen",
+    "reemplazar": "la cavidad tiene un anillo de fibrocartílago denominado labio glenoideo alrededor de su margen",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi brocartílago' -> 'fibrocartílago')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brocartílago (5/5)",
+    "veredicto": "real",
+    "buscar": "debido a un anillo de fi brocartílago en forma de herradura, el labio acetabular, adjunto a su borde.",
+    "reemplazar": "debido a un anillo de fibrocartílago en forma de herradura, el labio acetabular, adjunto a su borde.",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi brocartílago' -> 'fibrocartílago')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (1/3)",
+    "veredicto": "real",
+    "buscar": "el efecto colectivo de todos los veintitrés discos da a la columna una fl exibilidad considerable.",
+    "reemplazar": "el efecto colectivo de todos los veintitrés discos da a la columna una flexibilidad considerable.",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (2/3)",
+    "veredicto": "real",
+    "buscar": "la declinación en la fl exibilidad que acompaña a la edad y el efecto discapacitante",
+    "reemplazar": "la declinación en la flexibilidad que acompaña a la edad y el efecto discapacitante",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exibilidad (3/3)",
+    "veredicto": "real",
+    "buscar": "la evaluación física de un paciente es la fl exibilidad o rango de movimiento de la articulación",
+    "reemplazar": "la evaluación física de un paciente es la flexibilidad o rango de movimiento de la articulación",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exibilidad' -> 'flexibilidad')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi sioterapeutas",
+    "veredicto": "real",
+    "buscar": "son las articulaciones más importantes para los profesionistas como fi sioterapeutas y terapeutas ocupacionales",
+    "reemplazar": "son las articulaciones más importantes para los profesionistas como fisioterapeutas y terapeutas ocupacionales",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi sioterapeutas' -> 'fisioterapeutas')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi broblastos",
+    "veredicto": "real",
+    "buscar": "La membrana sinovial está compuesta sobre todo por células parecidas a fi broblastos que secretan el líquido",
+    "reemplazar": "La membrana sinovial está compuesta sobre todo por células parecidas a fibroblastos que secretan el líquido",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi broblastos' -> 'fibroblastos')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar",
+    "veredicto": "real",
+    "buscar": "Por ejemplo, la rodilla se puede fl exionar a un arco de ciento treinta a ciento cuarenta grados",
+    "reemplazar": "Por ejemplo, la rodilla se puede flexionar a un arco de ciento treinta a ciento cuarenta grados",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exionar' -> 'flexionar')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionan (1/2)",
+    "veredicto": "real",
+    "buscar": "que limitan su movimiento. A medida que se fl exionan los nudillos, los ligamentos en el lado anterior",
+    "reemplazar": "que limitan su movimiento. A medida que se flexionan los nudillos, los ligamentos en el lado anterior",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exionan' -> 'flexionan')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionan (2/2)",
+    "veredicto": "real",
+    "buscar": "y se cierra el puño, estas articulaciones se fl exionan en el plano sagital.",
+    "reemplazar": "y se cierra el puño, estas articulaciones se flexionan en el plano sagital.",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exionan' -> 'flexionan')."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exione",
+    "veredicto": "real",
+    "buscar": "se endurecen y evitan que la articulación se fl exione más allá de casi noventa grados.",
+    "reemplazar": "se endurecen y evitan que la articulación se flexione más allá de casi noventa grados.",
+    "motivo": "Palabra partida por ligadura 'fl' ('fl exione' -> 'flexione')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione las cuatro regiones principales y las dos intumescencias de la médula espinal. dos. Describa el extremo distal, inferior, de la médula espinal y el contenido del canal vertebral del nivel L2 al S5. tres. Dibuje un corte transversal de la médula espinal que muestre las astas anterior y posterior. ¿Dónde se encuentran las materias gris y blanca y dónde las columnas y las vías? cuatro. Proporcione una explicación anatómica de las razones por las que un accidente cerebrovascular en el hemisferio derecho del cerebro puede paralizar las extremidades en el lado izquierdo del cuerpo. cinco. Identifique cada una de las siguientes vías medulares: el fascículo grácil y las vías corticoespinal lateral, reticuloespinal lateral y espinotalámica, indicando si es ascendente o descendente, cuál es su origen y su destino y cuáles son sus propósitos sensitivos o motores.",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 5); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. ¿Qué son las raíces anterior y posterior de un nervio raquídeo?, y ¿cuál es sensitiva y cuál motora? siete. ¿Dónde se localizan los neurosomas de la raíz posterior y dónde los de la raíz anterior? ocho. Elabore una lista de los cinco plexos de los nervios raquídeos y determine dónde está localizado cada uno. nueve. Establezca cuál plexo da lugar a cada uno de los nervios siguientes: axilar, ilioinguinal, obturador, frénico, pudendo, radial y ciático mayor.",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 6 a 9); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/3)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diez. Mencione cinco componentes estructurales de un arco reflejo somático típico. ¿Cuál de ellos está ausente de un arco monosináptico? once. Establezca la función de cada uno de los siguientes elementos en un huso muscular: fibra intrafusal, terminación anuloespiral y motoneurona gamma. doce. Explique la manera como las fibras nerviosas de un tendón perciben el grado de tensión en un músculo. trece. ¿Por qué debe relacionarse el reflejo flexor, pero no el miotáctico, con el arco reflejo polisináptico? catorce. Explique por qué el reflejo de extensión cruzada debe acompañar al reflejo de retirada de la pierna.",
+    "reemplazar": "",
+    "motivo": "Bloque de autoevaluación 'Antes de proseguir' (preguntas 10 a 14); se elimina por regla 10."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione las cuatro regiones",
+    "reemplazar": null,
+    "motivo": "Mismos 3 bloques de autoevaluación ya eliminados en los hallazgos 'Antes de proseguir' (duplicado de detector)."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: equina1",
+    "veredicto": "real",
+    "buscar": "Dicho haz recibe el nombre de cauda equina1 menos por su parecido con una cola de caballo menos",
+    "reemplazar": "Dicho haz recibe el nombre de cauda equina menos por su parecido con una cola de caballo menos",
+    "motivo": "Llamada de nota al pie ('1') pegada a 'equina'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: meninges2",
+    "veredicto": "real",
+    "buscar": "están cubiertos por tres membranas de tejido conjuntivo fibroso: las meninges2 las cuales separan",
+    "reemplazar": "están cubiertos por tres membranas de tejido conjuntivo fibroso: las meninges las cuales separan",
+    "motivo": "Llamada de nota al pie ('2') pegada a 'meninges'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: aracnoides3",
+    "veredicto": "real",
+    "buscar": "La aracnoides3 consta de una capa de epitelio pavimentoso, que se adhiere al interior de la duramadre",
+    "reemplazar": "La aracnoides consta de una capa de epitelio pavimentoso, que se adhiere al interior de la duramadre",
+    "motivo": "Llamada de nota al pie ('3') pegada a 'aracnoides'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: piamadre4",
+    "veredicto": "real",
+    "buscar": "La piamadre4 es una membrana delicada y transparente que sigue de cerca los contornos de la médula espinal",
+    "reemplazar": "La piamadre es una membrana delicada y transparente que sigue de cerca los contornos de la médula espinal",
+    "motivo": "Llamada de nota al pie ('4') pegada a 'piamadre'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: decusación8",
+    "veredicto": "real",
+    "buscar": "Varias de estas vías experimentan decusación8 mientras pasan hacia abajo o hacia arriba",
+    "reemplazar": "Varias de estas vías experimentan decusación mientras pasan hacia abajo o hacia arriba",
+    "motivo": "Llamada de nota al pie ('8') pegada a 'decusación'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: contralaterales9",
+    "veredicto": "real",
+    "buscar": "se encuentran en lados opuestos del cuerpo, se dice que son contralaterales9 entre sí.",
+    "reemplazar": "se encuentran en lados opuestos del cuerpo, se dice que son contralaterales entre sí.",
+    "motivo": "Llamada de nota al pie ('9') pegada a 'contralaterales'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: grácil11",
+    "veredicto": "real",
+    "buscar": "• El fascículo grácil11 porta señales de la parte media del tórax hacia abajo del cuerpo.",
+    "reemplazar": "• El fascículo grácil porta señales de la parte media del tórax hacia abajo del cuerpo.",
+    "motivo": "Llamada de nota al pie ('11') pegada a 'grácil'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: cinestesia12",
+    "veredicto": "real",
+    "buscar": "identificar con precisión, y sobre todo cinestesia12 o propiosensibilidad de las extremidades inferiores",
+    "reemplazar": "identificar con precisión, y sobre todo cinestesia o propiosensibilidad de las extremidades inferiores",
+    "motivo": "Llamada de nota al pie ('12') pegada a 'cinestesia'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: cuneiforme13",
+    "veredicto": "real",
+    "buscar": "• El fascículo cuneiforme13 se une al grácil en el nivel T6, ocupa la porción lateral",
+    "reemplazar": "• El fascículo cuneiforme se une al grácil en el nivel T6, ocupa la porción lateral",
+    "motivo": "Llamada de nota al pie ('13') pegada a 'cuneiforme'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: lemnisco14",
+    "veredicto": "real",
+    "buscar": "los sistemas grácil y cuneiforme se decusan y forman el lemnisco14 medial, una vía de fibras nerviosas",
+    "reemplazar": "los sistemas grácil y cuneiforme se decusan y forman el lemnisco medial, una vía de fibras nerviosas",
+    "motivo": "Llamada de nota al pie ('14') pegada a 'lemnisco'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: La figura trece",
+    "veredicto": "real",
+    "buscar": "La figura trece.2a muestra la relación entre la médula espinal y la vértebra y el nervio raquídeo; en la figura trece.2b se ve la médula de manera más detallada. Ésta,",
+    "reemplazar": "La médula espinal,",
+    "motivo": "Referencias visuales a figuras 13.2a y 13.2b con dígitos sin convertir; se quitan conservando el sujeto de la frase siguiente."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura trece",
+    "veredicto": "real",
+    "buscar": "en la figura trece.2b se ve la médula de manera más detallada.",
+    "reemplazar": null,
+    "motivo": "Ambas apariciones se corrigen en 'La figura trece' (13.2b) y 'en la figura trece coma un cinco' (13.15)."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro trece coma un y",
+    "veredicto": "real",
+    "buscar": "son ipsolaterales.diez Resúmenes con las principales vías de la médula espinal aparecen en el cuadro trece coma un y la figura trece coma cuatro. Téngase",
+    "reemplazar": "son ipsolaterales. Téngase",
+    "motivo": "Llamada de nota '.diez' y referencia visual a cuadro 13.1 y figura 13.4; se quitan según reglas 2 y 10."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura trece coma cuatro",
+    "veredicto": "real",
+    "buscar": "aparecen en el cuadro trece coma un y la figura trece coma cuatro. Téngase en cuenta",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo 'en el cuadro trece coma un y'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: La figura trece coma nueve",
+    "veredicto": "real",
+    "buscar": "entran y salen del ganglio. La figura trece coma nueve muestra un tipo de ganglio nervioso relacionado con los nervios raquídeos. Nervios raquídeos",
+    "reemplazar": "entran y salen del ganglio. Nervios raquídeos",
+    "motivo": "Frase puramente visual a figura 13.9; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: La figura trece coma un cero",
+    "veredicto": "real",
+    "buscar": "La figura trece coma un cero muestra una vista general de tales plexos, que se ilustran y describen en los cuadros trece coma tres a trece coma seis. ",
+    "reemplazar": "",
+    "motivo": "Frase puramente visual a figura 13.10 y cuadros 13.3-13.6; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura trece coma un cinco",
+    "veredicto": "real",
+    "buscar": "Las subdivisiones de este plexo son raíces, troncos, divisiones y cordones, con código de color en la figura trece coma un cinco,. Las cinco raíces",
+    "reemplazar": "Las subdivisiones de este plexo son raíces, troncos, divisiones y cordones. Las cinco raíces",
+    "motivo": "Referencia visual ('con código de color en la figura trece coma un cinco'); se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura trece coma dos un",
+    "veredicto": "real",
+    "buscar": " ●¿Se esperaría que este arco reflejo muestre más demora sináptica o menos que los de la figura trece coma dos un? ¿Por qué?",
+    "reemplazar": "",
+    "motivo": "Pregunta de autoevaluación visual en pie de figura que remite a figura 13.21; se quita según reglas 2 y 10."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En el cuadro trece coma siete y",
+    "veredicto": "real",
+    "buscar": " En el cuadro trece coma siete y en el recuadro Conocimiento más a fondo trece coma cinco se describen algunas lesiones y otros trastornos de la médula espinal y los nervios raquídeos.",
+    "reemplazar": "",
+    "motivo": "Remisión visual a cuadro 13.7 y recuadro 13.5; se quita según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Detalle solo visual: flecha",
+    "veredicto": "real",
+    "buscar": "músculo cuadríceps femoral, flecha roja larga, mientras que los músculos del tendón de la corva muestran inhibición recíproca, flecha azul larga, de modo",
+    "reemplazar": "músculo cuadríceps femoral, mientras que los músculos del tendón de la corva muestran inhibición recíproca, de modo",
+    "motivo": "Dos detalles exclusivamente visuales ('flecha roja larga', 'flecha azul larga'); se quitan según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura trece.2a muestra",
+    "veredicto": "real",
+    "buscar": "La figura trece.2a muestra la relación entre la médula espinal y la vértebra",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo de Rev 5 'La figura trece'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura trece.2b se ve la",
+    "veredicto": "real",
+    "buscar": "en la figura trece.2b se ve la médula de manera más detallada.",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo de Rev 5 'La figura trece'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ia, grupo 1a, que sur",
+    "veredicto": "real",
+    "buscar": "un. Una fibra aferente primaria, grupo 1a, que surge de terminaciones anuloespirales",
+    "reemplazar": "un. Una fibra aferente primaria, grupo uno a, que surge de terminaciones anuloespirales",
+    "motivo": "Dígito sin convertir en clasificación fisiológica ('grupo 1a' -> 'grupo uno a')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': uscular + + + – –",
+    "veredicto": "real",
+    "buscar": "Fibra nerviosa motora alfa al cuadríceps E P S P I P S P Huso muscular + + + – – Un golpe en el ligamento rotuliano",
+    "reemplazar": "Fibra nerviosa motora alfa al cuadríceps E P S P I P S P Huso muscular. Un golpe en el ligamento rotuliano",
+    "motivo": "Signos gráficos de sinapsis ('+ + + – –') extraídos del diagrama de figura 13.21; ilegibles en audio."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': cular + + + – – U",
+    "veredicto": "real",
+    "buscar": "Huso muscular + + + – – Un golpe en el ligamento rotuliano estimula las terminaciones",
+    "reemplazar": null,
+    "motivo": "Misma secuencia de símbolos de diagrama '+ + + – –' ya eliminada en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': lar + + + – – Un",
+    "veredicto": "real",
+    "buscar": "Huso muscular + + + – – Un golpe en el ligamento rotuliano estimula las terminaciones nerviosas",
+    "reemplazar": null,
+    "motivo": "Misma secuencia de símbolos de diagrama '+ + + – –' ya eliminada en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': derecha + + + + +",
+    "veredicto": "real",
+    "buscar": "estimula a los receptores del dolor en la pierna derecha + + + + + + + + + – – + FIGURA trece coma dos dos",
+    "reemplazar": "estimula a los receptores del dolor en la pierna derecha. FIGURA trece coma dos dos",
+    "motivo": "Signos gráficos de sinapsis ('+ + + + + + + + + – – +') extraídos del diagrama de figura 13.22; ilegibles en audio."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': recha + + + + + +",
+    "veredicto": "real",
+    "buscar": "dolor en la pierna derecha + + + + + + + + + – – + FIGURA trece coma dos dos",
+    "reemplazar": null,
+    "motivo": "Misma secuencia de símbolos de diagrama '+ + + + + + + + + – – +' ya eliminada en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': cha + + + + + + +",
+    "veredicto": "real",
+    "buscar": "en la pierna derecha + + + + + + + + + – – + FIGURA trece coma dos dos Reflejos",
+    "reemplazar": null,
+    "motivo": "Misma secuencia de símbolos de diagrama '+ + + + + + + + + – – +' ya eliminada en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': a + + + + + + + +",
+    "veredicto": "real",
+    "buscar": "la pierna derecha + + + + + + + + + – – + FIGURA trece coma dos dos Reflejos flexor",
+    "reemplazar": null,
+    "motivo": "Misma secuencia de símbolos de diagrama '+ + + + + + + + + – – +' ya eliminada en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO",
+    "veredicto": "real",
+    "buscar": "CONOCIMIENTO MÁS A FONDO trece coma cinco Aplicación clínica Traumatismo de la médula espinal",
+    "reemplazar": null,
+    "motivo": "Corregido junto con el hallazgo 'Recuadro pegado al párrafo' siguiente."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: inientos siete CONOCIMIENTO MÁS A FONDO trece coma cinco Aplicación...",
+    "veredicto": "real",
+    "buscar": "Cuadriplejía, p. quinientos siete CONOCIMIENTO MÁS A FONDO trece coma cinco Aplicación clínica Traumatismo de la médula espinal En Estados Unidos",
+    "reemplazar": "Cuadriplejía, p. quinientos siete\n\nConocimiento más a fondo trece punto cinco. Aplicación clínica: Traumatismo de la médula espinal\nEn Estados Unidos",
+    "motivo": "Título de recuadro en mayúsculas pegado al párrafo; se normaliza y separa en su propia línea (regla 18)."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: insignifi cante",
+    "veredicto": "real",
+    "buscar": "La materia gris tiene un color insignifi cante porque contiene poca mielina",
+    "reemplazar": "La materia gris tiene un color insignificante porque contiene poca mielina",
+    "motivo": "Palabra partida por ligadura 'fi' ('insignifi cante' -> 'insignificante')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jo",
+    "veredicto": "real",
+    "buscar": "que denota el punto de origen en el encéfalo, seguida del sufi jo -espinal.",
+    "reemplazar": "que denota el punto de origen en el encéfalo, seguida del sufijo -espinal.",
+    "motivo": "Palabra partida por ligadura 'fi' ('sufi jo' -> 'sufijo')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi na",
+    "veredicto": "real",
+    "buscar": "para movimientos precisos de las extremidades, que requieren coordinación fi na. Las fibras del sistema",
+    "reemplazar": "para movimientos precisos de las extremidades, que requieren coordinación fina. Las fibras del sistema",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi na' -> 'fina')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi cos",
+    "veredicto": "real",
+    "buscar": "sin embargo, antes de analizar estos nervios específi cos es necesario conocer la estructura",
+    "reemplazar": "sin embargo, antes de analizar estos nervios específicos es necesario conocer la estructura",
+    "motivo": "Palabra partida por ligadura 'fi' ('específi cos' -> 'específicos')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi gs",
+    "veredicto": "real",
+    "buscar": "convergen para formar la raíz posterior, dorsal, fi gs. trece coma nueve, trece coma un un y trece coma un dos,. A una corta distancia",
+    "reemplazar": "convergen para formar la raíz posterior, dorsal. A una corta distancia",
+    "motivo": "Referencia visual con ligadura partida ('fi gs. trece coma nueve...'); se quita completa según regla 2."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no",
+    "veredicto": "real",
+    "buscar": "Los husos son muy abundantes en músculos que requieren control fi no. Los músculos de la mano y el pie",
+    "reemplazar": "Los husos son muy abundantes en músculos que requieren control fino. Los músculos de la mano y el pie",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi no' -> 'fino')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi la",
+    "veredicto": "real",
+    "buscar": "casi cinco fibras de cadena nuclear, que tienen una sola fi la de núcleos en la región contráctil.",
+    "reemplazar": "casi cinco fibras de cadena nuclear, que tienen una sola fila de núcleos en la región contráctil.",
+    "motivo": "Palabra partida por ligadura 'fi' ('fi la' -> 'fila')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: neurosífi lis",
+    "veredicto": "real",
+    "buscar": "exageración, inhibición o ausencia de reflejos, p. ej., neurosífi lis, diabetes mellitus, esclerosis múltiple",
+    "reemplazar": "exageración, inhibición o ausencia de reflejos, p. ej., neurosífilis, diabetes mellitus, esclerosis múltiple",
+    "motivo": "Palabra partida por ligadura 'fi' ('neurosífi lis' -> 'neurosífilis')."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: benéfi co",
+    "veredicto": "real",
+    "buscar": "de una manera más equitativa en todo el músculo, lo que resulta benéfi co en acciones como mantener",
+    "reemplazar": "de una manera más equitativa en todo el músculo, lo que resulta benéfico en acciones como mantener",
+    "motivo": "Palabra partida por ligadura 'fi' ('benéfi co' -> 'benéfico')."
+  }
+]

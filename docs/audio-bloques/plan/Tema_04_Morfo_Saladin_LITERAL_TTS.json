@@ -1,0 +1,1402 @@
+[
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "GENÉTICA Y FUNCIÓN CELULAR C A P Í T U L O Repaso • La princ"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Este capítulo también trata de la mitosis, en la que los m"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Con las mejoras en el microscopio, los biólogos de finales d"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El bioquímico suizo Johann Friedrich Miescher, mil ochocient"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hoy, a este material se le llama ácido desoxirribonucleico, "
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La siguiente descripción del D N A es, en gran medida, resul"
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para poner esto en perspectiva, si uno imaginara que se ampl"
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada nucleótido se compone de un azúcar, un grupo fosfato y "
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "E n varios capítulos de este libro se analizan rasgos heredi"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La herencia ha sido tema de interés para la humanidad desde "
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A partir de ese simple pero brillante principio, la genética"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La genética molecular emplea las técnicas de la bioquímica p"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal La estructura del D N A, que"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La formación de pares de cada pirimidina peque- Adenina, A, "
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "b Las cinco bases nitrogenadas que se encuentran en el D N A"
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada una de las dos cadenas principales de azúcar y fosfato "
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aplicación de lo aprendido ¿Cuál sería la secuencia de bases"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Rosalind Franklin, mil novecientos veinte a mil noveciento"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo cuatro punto uno. Historia médica: "
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Watson, de veintitrés años de edad, acababa de completar su "
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mediante una técnica llamada difracción de rayos X, Franklin"
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al combinar lo que ya sabían con la geometría molecular reve"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Franklin publicó sus hallazgos en un artículo aparte, casi a"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ña, de un solo anillo, con una purina grande, de doble anill"
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al hecho de que una cadena determine la secuencia de bases d"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Más adelante, se confronta el hecho de que ésta es una defin"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos consideran que la parte no codificante del D N A es "
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay una enorme cantidad de D N A en un núcleo: casi dos m, s"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En las células que no están en división, la cromatina es tan"
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada cuenta es un grupo de ocho proteínas en forma de disco "
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En promedio, los filamentos de cromatina repiten este dos na"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Contenido nuclear de una célula germinal de un embrión hum"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "patrón casi ochocientos cero veces y se dividen en segmentos"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Pero aun a este grado de compactación, un solo cromosoma cru"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Luego, el filamento de treinta nanómetros está organizado en"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No es una estructura estática, sino que cambia de un momento"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando una célula se prepara para dividirse, hace una copia "
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, en su etapa más compacta, cada filamento de croma"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La estructura de un cromosoma durante la primera etapa de la"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estructura y función del R N A Antes de terminar esta secció"
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otros tipos de R N A que actúan como reguladores no se han t"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En contraste, el D N A promedia más de cien millones de pare"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El R N A contiene tres bases nitrogenadas iguales a las del "
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El R N A es una molécula desechable que funciona sobre todo "
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "f Describir algunas maneras como un gen puede activarse o de"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después del descubrimiento de la doble hélice, los biólogos "
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Además, ahora se sabe que cierto porcentaje de los genes hum"
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que los especialistas en biología molecular aprende"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La secuencia de aminoácidos de una proteína es determinada p"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El genoma es todo el D N A, tanto el que codifica como el qu"
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las únicas partes desconocidas son regiones cortas y densas "
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre los des- CUADRO cuatro coma un Comparación entre D N A"
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cubrimientos revolucionarios logrados a partir del Human Gen"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• En promedio, la longitud de los genes es de tres cero base"
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Algunos cromosomas contienen muchos genes, diecisiete, die"
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Código genético Resulta notable que el cuerpo pueda elaborar"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las computadoras almacenan y transmiten este tipo de informa"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El código mínimo para simbolizar veinte aminoácidos incluye "
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para el objetivo de este libro, no es necesario tabular todo"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo cuatro punto dos. Aplicación clínic"
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Porque el conocimiento del genoma propio puede cambiar de ma"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La genómica ha empezado a proporcionar una base para la elec"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se espera que estas células modificadas proliferen y proporc"
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "¿O debe permitirse que una compañía de seguros lo sepa antes"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal teína. A partir de ese cuadr"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los otros tres, U A G, U G A y U A A, son codones de detenci"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Síntesis de proteínas Ahora se puede seguir adelante para es"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, distintos genes son activados en diferentes cél"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayoría de las moléculas de mRNA migra del núcleo al cito"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayor parte de la traducción se realiza en el citoplasma,"
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "De la misma manera en que es posible transcribir, copiar, un"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Lee las bases de una cadena del D N A y elabora el R N A cor"
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al final del gen, se encuentra una secuencia de bases que si"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para recordar estos términos, servirá recordar que los intro"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ésta es una explicación parcial de la manera como el cuerpo "
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante su síntesis en el núcleo, el mRNA adquiere una parte"
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "R N A de transferencia, tRNA, molécula de R N A relativament"
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "libres en el citosol y llevarlos a los ribosomas para que se"
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al primer tRNA que se fija a un ribosoma al principio de la "
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las dos subunidades sólo se unen entre sí cuando traducen mR"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para recordar el orden de estos sitios, se puede considerar "
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Gen, D N A, PremRNA Intrón Exón mRNA dos mRNA un mRNA tres P"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tRNA tiene un extremo que acepta aminoácidos y se fija a "
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Polirribosoma más Pi mRNA Cabeza de mRNA Subunidades ribosóm"
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ducción de proteínas que serán empacadas en lisosomas de ves"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entonces, la subunidad grande del ribosoma se une al complej"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al llegar el siguiente tRNA, que porta otro aminoácido, se f"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A continuación, el ribosoma continúa su deslizamiento para l"
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El ribosoma transfiere el Met-Gly a la Thr y crea otro enlac"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se utiliza una molécula de A T P para fijar el aminoácido al"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, U G C no es el único codón que se puede unir a A "
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entonces el ribosoma se disocia en sus dos subunidades, pero"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El E R modifica esta proteína y la empaca en vesículas de tr"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Después de que un ribosoma se aleja de la secuencia líder, o"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En un momento dado, no solamente se traduce cada mRNA con la"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hasta veinticinco por ciento del peso magro de las células s"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para que sea funcional, la proteína debe enrollarse y plegar"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como en el sentido coloquial de la palabra, una chaperona es"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, si será empacada en un lisosoma o la célula la "
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "uno A medida que se ensambla una proteína en la superficie d"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la modificación postraducción, la cadena se pliega sobre "
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al parecer, esta proteína ayuda a seleccionar las proteínas "
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cuatro El aparato de Golgi modifica aún más la proteína, a m"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cinco La cisterna final de Golgi, más lejos del E R, forma n"
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "na terminada, o tan sólo se divide en vesículas, para ser re"
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Regulación genética Los genes no generan productos a un ritm"
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No se puede considerar aquí a todas éstas, pero un ejemplo p"
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Núcleo E R rugoso Aparato de Golgi Lisosoma Ribosomas Proteí"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los ribosomas sintetizan algunas proteínas en el E R rugoso;"
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal pasos que llevan de la estim"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "cuatro Esta unión permite que la R N A polimerasa se fije al"
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunas de ellas atraen y colocan R N A polimerasa para que "
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay varias maneras adicionales, cuyo estudio queda fuera del"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No hay genes para estos productos celulares, pero su síntesi"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto sólo puede ocurrir si están activos los genes que codif"
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO cuatro coma tres Algunos destinos y funciones de las "
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La hormona prolactina desencadena reacciones intracelulares "
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "gran efecto en resultados tan complejos como el comportamien"
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Antes de que una célula se divida, su D N A debe duplicarse "
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No hay un gen para generar testosterona, pero el D N A regul"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal genes a cada célula hija. Co"
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los pasos fundamentales del proceso de replicación son los s"
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las moléculas de la enzima D N A polimerasa se desplazan a l"
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La D N A polimerasa se aleja de la bifurcación de replicació"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Mientras el núcleo sintetiza D N A, en el citoplasma se sint"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la realidad, miles de moléculas de polimerasa trabajan al"
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a En la bifurcación de replicación, la D N A helicasa desenr"
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "d La D N A ligasa cierra los huecos para unir los segmentos "
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Profase Metafase Anafase Telofase Citocinesis G2 Segunda fas"
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si no se hiciera nada para corregir esos errores, cada gener"
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Como resultado, sólo persiste un error por cada mil millones"
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una razón es que, a veces, una nueva secuencia de bases codi"
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No obstante, la hemoglobina es completamente funcional en am"
+ },
+ {
+  "j": 137,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resulta obvio que la sustitución de algunos aminoácidos es m"
+ },
+ {
+  "j": 138,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Durante este periodo, la célula sintetiza proteínas, crece y"
+ },
+ {
+  "j": 139,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los dos conjuntos idénticos de moléculas de D N A quedan dis"
+ },
+ {
+  "j": 140,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También revisa la fidelidad de la replicación del D N A y po"
+ },
+ {
+  "j": 141,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La duración del ciclo celular varía mucho entre un tipo de c"
+ },
+ {
+  "j": 142,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal con rapidez, las óseas y car"
+ },
+ {
+  "j": 143,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La incapacidad para detener el ciclo y entrar en G0 es carac"
+ },
+ {
+  "j": 144,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, esta última está restringida a una sola función"
+ },
+ {
+  "j": 145,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el inicio de la mitosis, los cromosomas se acortan, engro"
+ },
+ {
+  "j": 146,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los centriolos empiezan a producir microtúbulos elongados, a"
+ },
+ {
+  "j": 147,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los cromosomas están alineados en el ecuador de la célula, d"
+ },
+ {
+  "j": 148,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Inicia con la activación de las enzimas que separan a las do"
+ },
+ {
+  "j": 149,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las cromátides hijas suelen ser idénticas, y cada célula hij"
+ },
+ {
+  "j": 150,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada nuevo núcleo forma un nucleolo, lo que indica que ha em"
+ },
+ {
+  "j": 151,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto crea una cresta llamada surco de división alrededor del"
+ },
+ {
+  "j": 152,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las células se dividen cuando: un crecen a tal grado que con"
+ },
+ {
+  "j": 153,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Áster Los cromosomas se condensan y la membrana nuclear se r"
+ },
+ {
+  "j": 154,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada polo, futura célula hija, ahora tiene un conjunto idént"
+ },
+ {
+  "j": 155,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En los dibujos, se ilustra una célula hipotética con sólo do"
+ },
+ {
+  "j": 156,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 157,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la siguiente exposición, se examinan algunos principios b"
+ },
+ {
+  "j": 158,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cuando se organizan éstos por tamaño y otras características"
+ },
+ {
+  "j": 159,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los cromosomas X y Y son los cromosomas sexuales o de género"
+ },
+ {
+  "j": 160,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, los óvulos y los espermatozoides son haploides,"
+ },
+ {
+  "j": 161,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "somas, sin pares. Los óvulos y los espermatozoides, así las "
+ },
+ {
+  "j": 162,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Genes y alelos La ubicación de un gen particular en un cromo"
+ },
+ {
+  "j": 163,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, los alelos recesivos sólo se expresan cuando los "
+ },
+ {
+  "j": 164,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El alelo para la barba partida es dominante; se representa c"
+ },
+ {
+  "j": 165,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si los cromosomas homólogos tienen diferentes alelos para es"
+ },
+ {
+  "j": 166,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La única manera como la mayoría de los alelos recesivos pued"
+ },
+ {
+  "j": 167,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las cuatro celdas del cuadro muestran los genotipos y fenoti"
+ },
+ {
+  "j": 168,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La barba no partida, que es más común, sólo se forma cuando "
+ },
+ {
+  "j": 169,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal C C y Cc, pero una combinaci"
+ },
+ {
+  "j": 170,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el caso de algunas enfermedades hereditarias, se realizan"
+ },
+ {
+  "j": 171,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Utilice un cuadro de Punnett y uno o más genotipos hipotétic"
+ },
+ {
+  "j": 172,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay un alelo recesivo, simbolizado con una i minúscula. Los "
+ },
+ {
+  "j": 173,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, una persona que heredó el alelo I A de un padre"
+ },
+ {
+  "j": 174,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "noventa y nueve, resulta un buen ejemplo. Los individuos con"
+ },
+ {
+  "j": 175,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Son resultado de la expresión combinada de todos los genes p"
+ },
+ {
+  "j": 176,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un rasgo poligénico, como el color de los ojos, es determina"
+ },
+ {
+  "j": 177,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Entre los múltiples efectos fenotípicos de este trastorno es"
+ },
+ {
+  "j": 178,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Vinculación sexual Los rasgos ligados, vinculados, al sexo s"
+ },
+ {
+  "j": 179,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si una mujer hereda el alelo recesivo de ceguera al color, c"
+ },
+ {
+  "j": 180,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Porque sólo su madre contribuye con un cromosoma X para él. "
+ },
+ {
+  "j": 181,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se cree que el cromosoma X porta casi doscientos sesenta gen"
+ },
+ {
+  "j": 182,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se podría pronosticar que, debido a que es dominante, cualqu"
+ },
+ {
+  "j": 183,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otra razón por la que no es invariable entre genotipo y feno"
+ },
+ {
+  "j": 184,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fenotipo tres, oscurecimiento de la orina cuando es dejada e"
+ },
+ {
+  "j": 185,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA cuatro coma dos un Herencia ligada al sexo de ceguera"
+ },
+ {
+  "j": 186,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "PARTE UNO Organización corporal Ningún gen puede producir un"
+ },
+ {
+  "j": 187,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La verdad es que la dominancia y la recesividad tienen poca "
+ },
+ {
+  "j": 188,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fenotipo, ojos de color café, De la dieta, entorno, Fenilala"
+ },
+ {
+  "j": 189,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo cuatro punto tres. Aplicación clíni"
+ },
+ {
+  "j": 190,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las noticias temibles son que resulte maligno, lo que signif"
+ },
+ {
+  "j": 191,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hipócrates fue el primero en usarla de esta manera, después "
+ },
+ {
+  "j": 192,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A los cánceres se les denomina por el tejido donde se origin"
+ },
+ {
+  "j": 193,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Más o menos noventa por ciento de los cánceres son carcinoma"
+ },
+ {
+  "j": 194,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mayoría de los casos se debe a mutaciones que surgen por "
+ },
+ {
+  "j": 195,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A los oncólogos les interesan en especial dos familias de ge"
+ },
+ {
+  "j": 196,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un gen supresor de tumores, T S, es como un pedal de freno. "
+ },
+ {
+  "j": 197,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "tres coma cinco centímetros de enzimas que reparan el D N A "
+ },
+ {
+  "j": 198,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se toma tiempo para que muchas mutaciones se acumulen, por l"
+ },
+ {
+  "j": 199,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los tumores malignos reemplazan el tejido funcional en órgan"
+ },
+ {
+  "j": 200,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un área de intensa investigación hoy en día, relacionada con"
+ }
+]

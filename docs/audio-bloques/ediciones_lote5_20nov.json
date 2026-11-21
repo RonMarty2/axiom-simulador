@@ -1,0 +1,893 @@
+[
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '∼': ular de ∼un con u | n= 1",
+  "veredicto": "no_verificado",
+  "buscar": "En vertebrados, se muestra como una masa molecular de ∼un con una estructura cilíndrica de simetría octogonal",
+  "reemplazar": null,
+  "motivo": "En Calvo_texto_paginas.txt p. 297 el original aparece truncado como «∼1» sin dígitos ni unidad; verificar en el PDF original antes de reemplazar."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ad de G + C es ma | n= 1",
+  "veredicto": "real",
+  "buscar": "ya que existen regiones en las cuales la densidad de G + C es mayor y en las que se concentran",
+  "reemplazar": "ya que existen regiones en las cuales la densidad de G más C es mayor y en las que se concentran",
+  "motivo": "Convertir símbolo «+» a palabra («G más C»), confirmado en Calvo p. 321."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': do en G + C: L1 y | n= 1",
+  "veredicto": "real",
+  "buscar": "comprobar la existencia de cinco isocoros o fracciones según su contenido en G + C: L1 y L2",
+  "reemplazar": "comprobar la existencia de cinco isocoros o fracciones según su contenido en G más C: L1 y L2",
+  "motivo": "Convertir símbolo «+» a palabra («G más C»), confirmado en Calvo p. 322."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': do en G + C, y H1 | n= 1",
+  "veredicto": "real",
+  "buscar": "L, de low, o bajo contenido en G + C, y H1, H2 y H3",
+  "reemplazar": "L, de low, o bajo contenido en G más C, y H1, H2 y H3",
+  "motivo": "Convertir símbolo «+» a palabra («G más C»), confirmado en Calvo p. 322."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': do en G + C,. Por | n= 1",
+  "veredicto": "real",
+  "buscar": "H, de high, o alto contenido en G + C,. Por ejemplo, el isocoro H3 ocupa la menor proporción",
+  "reemplazar": "H, de high, o alto contenido en G más C,. Por ejemplo, el isocoro H3 ocupa la menor proporción",
+  "motivo": "Convertir símbolo «+» a palabra («G más C»), confirmado en Calvo p. 322."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cero cero cero | n= 20",
+  "veredicto": "real",
+  "buscar": "Una célula puede tener alrededor de dos coma cero cero cero poros de este tipo, aunque el número de poros no es estático",
+  "reemplazar": "Una célula puede tener alrededor de dos mil poros de este tipo, aunque el número de poros no es estático",
+  "motivo": "Mil leído como decimal (Calvo p. 295: «2.000 poros»); n=20 indica más apariciones fuera de las 2 muestras del contexto."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cero cero cero | n= 20",
+  "veredicto": "real",
+  "buscar": "En total, la longitud completa de los más de tres coma cero cero cero millones de nucleótidos que conforman las cadenas",
+  "reemplazar": "En total, la longitud completa de los más de tres mil millones de nucleótidos que conforman las cadenas",
+  "motivo": "Mil leído como decimal (Calvo p. 303: «3.000 millones de nucleótidos»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma dos cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "El genoma humano nuclear haploide tiene un tamaño de aproximadamente tres coma dos cero cero millones de nucleótidos",
+  "reemplazar": "El genoma humano nuclear haploide tiene un tamaño de aproximadamente tres mil doscientos millones de nucleótidos",
+  "motivo": "Mil leído como decimal (Calvo p. 320: «3.200 millones de nucleótidos»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cinco cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "en el genoma humano puede haber unos veinte coma cero cero cero seudogenes formados a partir de la duplicación de unos dos coma cinco cero cero genes.",
+  "reemplazar": "en el genoma humano puede haber unos veinte mil seudogenes formados a partir de la duplicación de unos dos mil quinientos genes.",
+  "motivo": "Miles leídos como decimales (Calvo p. 322: «20.000 seudogenes» y «2.500 genes»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cinco cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "secuencia de doscientos cincuenta a doscientos ochenta pb con un coma cinco cero cero.cero copias, lo que le hace ser la secuencia más repetida",
+  "reemplazar": "secuencia de doscientos cincuenta a doscientos ochenta pb con un millón quinientas mil copias, lo que le hace ser la secuencia más repetida",
+  "motivo": "Millones leídos como decimal mal convertido (Calvo p. 323: «1.500.000 copias»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: dos coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "Esto da lugar a una fibra de trescientos nanómetros de diámetro con un empaquetamiento total de unas dos coma cero cero cero veces.",
+  "reemplazar": "Esto da lugar a una fibra de trescientos nanómetros de diámetro con un empaquetamiento total de unas dos mil veces.",
+  "motivo": "Mil leído como decimal (Calvo p. 305: «2.000 veces»); la otra aparición («2.000 poros») ya se corrige arriba."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: tres coma cero cero cero | n= 4",
+  "veredicto": "real",
+  "buscar": "secuenciación de grandes genomas completos como el humano, de más de tres coma cero cero cero millones de nucleótidos, el haploide,.",
+  "reemplazar": "secuenciación de grandes genomas completos como el humano, de más de tres mil millones de nucleótidos, el haploide,.",
+  "motivo": "Mil leído como decimal (Calvo p. 325: «3.000 millones de nucleótidos»); la primera muestra ya se corrige arriba."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Crédito: iento. B. Imagen de T A C de un paciente con carcin | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "B. Imagen de T A C de un paciente con carcinoma renal de células claras con afectación metastásica pulmonar",
+  "reemplazar": null,
+  "motivo": "Es parte del pie clínico de la fig. 16-18 B (Calvo p. 691), no un crédito de imagen; el crédito real al final del pie ya no figura en el contexto."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 7,
+  "hallazgo": "- Sigla en mayúsculas: RAR | n= 1",
+  "veredicto": "real",
+  "buscar": "la presencia del oncogén de fusión P M L o RAR alfa produce una regulación negativa de varios genes",
+  "reemplazar": "la presencia del oncogén de fusión P M L o R A R alfa produce una regulación negativa de varios genes",
+  "motivo": "Sigla «RAR» sin deletrear (Calvo p. 673: «PML/RARα»); espaciar como «R A R»."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: ejercicios de aplicación | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "se desarrollan los temas desde lo conceptual, acompañados de ejemplos prácticos y culminando con ejercicios de aplicación; de esta manera",
+  "reemplazar": null,
+  "motivo": "Es texto de la Introducción del libro describiendo su enfoque didáctico (EdS p. 84), no una sección de autoevaluación."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: uno coma seis nueve ocho | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a uno más tres coma tres por uno coma seis nueve ocho nueve",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 111: «1,6989», logaritmo de 50), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cinco coma seis cero seis | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a uno más cinco coma seis cero seis tres siete",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 111: «5,60637»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: seis coma seis cero seis | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a seis coma seis cero seis tres siete",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 111: «6,60637»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cuatro coma dos ocho cinco | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "C igual a treinta dividido entre siete, C igual a cuatro coma dos ocho cinco siete minutos, aproximadamente.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 112: «4.285714286...» = 30/7), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla treinta y cinco | n= 2",
+  "veredicto": "real",
+  "buscar": "Retomando la información de la tabla treinta y cinco sobre la estatura en centímetros de un grupo de mujeres que asisten al gimnasio",
+  "reemplazar": "Retomando la información sobre la estatura en centímetros de un grupo de mujeres que asisten al gimnasio",
+  "motivo": "Quitar referencia visual «de la tabla treinta y cinco» (EdS p. 178) sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la tabla treinta y cinco | n= 2",
+  "veredicto": "real",
+  "buscar": "Para el ejemplo de la tabla treinta y cinco sobre la talla de un grupo de mujeres que asisten al gimnasio, la media aritmética fue",
+  "reemplazar": "Para el ejemplo sobre la talla de un grupo de mujeres que asisten al gimnasio, la media aritmética fue",
+  "motivo": "Quitar referencia visual «de la tabla treinta y cinco» (EdS p. 179) sin romper la oración."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: uno coma siete cinco tres | n= 0",
+  "veredicto": "no_verificado",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "n=0 y sin contexto: la cadena ya no aparece en el texto actual del capítulo."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: ocho coma siete cinco dos | n= 0",
+  "veredicto": "no_verificado",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "n=0 y sin contexto: la cadena ya no aparece en el texto actual del capítulo."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero uno | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "uno: tres coma cinco, tres coma seis, menos cero coma uno, menos cero coma cero cero uno.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS pp. 187 y 189: «-0,001»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma siete dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma siete dos nueve.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 187: «0,729» y «-0,729»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma dos uno seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma dos uno seis.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 187: «0,216» y «-0,216»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero dos siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero dos siete.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 187: «-0,027»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero seis cuatro | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "siete: cuatro coma cero, tres coma seis, cero coma cuatro, cero coma cero seis cuatro.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 187: «0,064»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero tres seis | n= 3",
+  "veredicto": "falso_positivo",
+  "buscar": "igual a cero coma cero tres seis sobre, siete por cero coma seis al cubo,",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 187: «0,036»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero uno siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "igual a cero coma cero tres seis dividido entre dos coma cero uno igual a cero coma cero uno siete nueve",
+  "reemplazar": null,
+  "motivo": "Decimal real del cálculo de asimetría de Fisher (EdS p. 187: 0,036 / 2,01 = 0,0179), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma seis cinco seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma seis cinco seis uno.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 189: «0,6561»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma uno dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma uno dos nueve seis.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 189: «0,1296»), no un número de miles."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero ocho | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, cero coma cero cero ocho uno.",
+  "reemplazar": null,
+  "motivo": "Decimal real en el original (EdS p. 189: «0,0081»), no un número de miles."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 5",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento Antes de proseguir  ¿Cuál se considera que debe ser el efecto más notorio de pinzar la gran vena linfática?",
+  "reemplazar": "",
+  "motivo": "Encabezado y bloque de autoevaluación (Saladin p. 822); retirar también las preguntas 2 a 5 hasta sección 21.2 (y la pregunta ● previa de fig. 21.14)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 5",
+  "veredicto": "real",
+  "buscar": "de las inmunidades celular y humoral.  Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior:",
+  "reemplazar": "de las inmunidades celular y humoral.",
+  "motivo": "Cabecera de autoevaluación (Saladin p. 833); retirar también las preguntas 10 a 16 fuera del contexto hasta sección 21.4."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 4",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecisiete.",
+  "reemplazar": "",
+  "motivo": "Encabezado y autoevaluación (Saladin p. 836); retirar también el resto de preguntas 17 a 20 hasta FIGURA 21.22 (la 1.ª muestra ya se cubrió arriba)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: a linfadenitis.seis De manera | n= 1",
+  "veredicto": "real",
+  "buscar": "trastorno al que se le denomina linfadenitis.seis De manera seis lymph igual a agua; aden igual a glándula; itis igual a inflamación.",
+  "reemplazar": "trastorno al que se le denomina linfadenitis. De manera",
+  "motivo": "Quitar llamada de nota al pie «seis» y la glosa etimológica 6 incrustada en el cuerpo (Saladin p. 819)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: linfadenopatía.siete Los gangl | n= 1",
+  "veredicto": "real",
+  "buscar": "relacionadas con los ganglios linfáticos es linfadenopatía.siete Los ganglios linfáticos son sitios comunes",
+  "reemplazar": "relacionadas con los ganglios linfáticos es linfadenopatía. Los ganglios linfáticos son sitios comunes",
+  "motivo": "Quitar llamada de nota al pie «siete» tras puntuación (Saladin p. 820)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: a opsonización:nueve recubre l | n= 1",
+  "veredicto": "real",
+  "buscar": "La C3b los ayuda mediante la opsonización:nueve recubre las células microbianas para que sirvan",
+  "reemplazar": "La C3b los ayuda mediante la opsonización: recubre las células microbianas para que sirvan",
+  "motivo": "Quitar llamada de nota al pie «nueve» tras dos puntos (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: tro. Citólisis.diez La C3b di | n= 1",
+  "veredicto": "real",
+  "buscar": "para hacerlas más apetitosas. cuatro. Citólisis.diez La C3b divide otra proteína de complemento, C5",
+  "reemplazar": "para hacerlas más apetitosas. cuatro. Citólisis. La C3b divide otra proteína de complemento, C5",
+  "motivo": "Quitar llamada de nota al pie «diez» tras puntuación (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: enos endógenos.doce A su vez, | n= 1",
+  "veredicto": "real",
+  "buscar": "secretan varios polipéptidos que actúan como pirógenos endógenos.doce A su vez, éstos estimulan a las neuronas",
+  "reemplazar": "secretan varios polipéptidos que actúan como pirógenos endógenos. A su vez, éstos estimulan a las neuronas",
+  "motivo": "Quitar llamada de nota al pie «doce» tras puntuación (Saladin p. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ndrome de Reye.trece Reconocid | n= 1",
+  "veredicto": "real",
+  "buscar": "continúa con un trastorno grave denominado síndrome de Reye.trece Reconocida por primera vez en mil novecientos",
+  "reemplazar": "continúa con un trastorno grave denominado síndrome de Reye. Reconocida por primera vez en mil novecientos",
+  "motivo": "Quitar llamada de nota al pie «trece» tras puntuación (Saladin p. 827)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: n extravasadas.dieciocho En los ca | n= 1",
+  "veredicto": "real",
+  "buscar": "han dejado la circulación sanguínea están extravasadas.dieciocho En los casos que ya se han revisado",
+  "reemplazar": "han dejado la circulación sanguínea están extravasadas. En los casos que ya se han revisado",
+  "motivo": "Quitar llamada de nota al pie «dieciocho» tras puntuación (Saladin p. 829)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: como abscesos.diecinueve El pus su | n= 1",
+  "veredicto": "real",
+  "buscar": "se acumula en cavidades de tejidos conocidas como abscesos.diecinueve El pus suele absorberse, pero en ocasiones",
+  "reemplazar": "se acumula en cavidades de tejidos conocidas como abscesos. El pus suele absorberse, pero en ocasiones",
+  "motivo": "Quitar llamada de nota al pie «diecinueve» tras puntuación (Saladin p. 830)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . diez cito igual a célula; lisis igual a descomposición. | n= 1",
+  "veredicto": "real",
+  "buscar": "de manera continua el nueve opson igual a alimento cocinado; iza igual a proceso; cion igual a acción. diez cito igual a célula; lisis igual a descomposición.",
+  "reemplazar": "de manera continua el",
+  "motivo": "Quitar notas al pie etimológicas 9 y 10 incrustadas a mitad de oración (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . doce endo igual a dentro; gen igual a generado en. | n= 1",
+  "veredicto": "real",
+  "buscar": " once pyro igual a fuego; gen igual a que genera; exo igual a por fuera; gen igual a generado en. doce endo igual a dentro; gen igual a generado en.",
+  "reemplazar": "",
+  "motivo": "Quitar notas al pie etimológicas 11 y 12 incrustadas a mitad de oración (Saladin p. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro veintiuno coma cinco | n= 1",
+  "veredicto": "real",
+  "buscar": "humoral como en la celular.  En el cuadro veintiuno coma cinco se comparan las principales características de ambas clases de inmunidad.",
+  "reemplazar": "humoral como en la celular.",
+  "motivo": "Quitar oración de referencia visual al cuadro 21.5 (Saladin p. 841)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: En el cuadro veintiuno coma seis | n= 1",
+  "veredicto": "real",
+  "buscar": "muy notorias. En el cuadro veintiuno coma seis se describen algunos trastornos adicionales de los sistemas linfático e inmunitario.",
+  "reemplazar": "muy notorias.",
+  "motivo": "Quitar oración de referencia visual al cuadro 21.6 (Saladin p. 847)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 10",
+  "veredicto": "real",
+  "buscar": "un. Los neutrófi los pasan la mayor parte de su vida recorriendo los tejidos conjuntivos y matando bacterias.",
+  "reemplazar": "un. Los neutrófilos pasan la mayor parte de su vida recorriendo los tejidos conjuntivos y matando bacterias.",
+  "motivo": "Unir ligadura partida «neutrófi los» -> «neutrófilos» (Saladin p. 823); n=10 indica otras apariciones fuera del contexto."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 10",
+  "veredicto": "real",
+  "buscar": "También activa y atrae neutrófi los y macrófagos, los dos agentes celulares clave de la destrucción de patógenos",
+  "reemplazar": "También activa y atrae neutrófilos y macrófagos, los dos agentes celulares clave de la destrucción de patógenos",
+  "motivo": "Unir ligadura partida «neutrófi los» -> «neutrófilos» (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi lo | n= 13",
+  "veredicto": "real",
+  "buscar": "Cuando un neutrófi lo detecta bacterias en el área inmediata, sus lisosomas migran a la superficie celular",
+  "reemplazar": "Cuando un neutrófilo detecta bacterias en el área inmediata, sus lisosomas migran a la superficie celular",
+  "motivo": "Unir ligadura partida «neutrófi lo» -> «neutrófilo» (Saladin p. 823); la primera muestra coincidía con «neutrófi los» arriba."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 5",
+  "veredicto": "real",
+  "buscar": "Los mastocitos, un tipo de células de tejido conjuntivo parecido a los basófi los, también producen",
+  "reemplazar": "Los mastocitos, un tipo de células de tejido conjuntivo parecido a los basófilos, también producen",
+  "motivo": "Unir ligadura partida «basófi los» -> «basófilos» (Saladin p. 823)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 5",
+  "veredicto": "real",
+  "buscar": "la acción de los basófi los y los mastocitos al estimularlos para que liberen esas secreciones.",
+  "reemplazar": "la acción de los basófilos y los mastocitos al estimularlos para que liberen esas secreciones.",
+  "motivo": "Unir ligadura partida «basófi los» -> «basófilos» (Saladin p. 823)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: eosinófi los | n= 5",
+  "veredicto": "real",
+  "buscar": "estas sustancias. Los eosinófi los promueven",
+  "reemplazar": "estas sustancias. Los eosinófilos promueven",
+  "motivo": "Unir ligadura partida «eosinófi los» -> «eosinófilos» (Saladin p. 823)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: eosinófi los | n= 5",
+  "veredicto": "real",
+  "buscar": "puede presentarse una cifra elevada de eosinófi los, o eosinofilia. La tarea de los eosinófi los ya se describió antes.",
+  "reemplazar": "puede presentarse una cifra elevada de eosinófilos, o eosinofilia. La tarea de los eosinófilos ya se describió antes.",
+  "motivo": "Unir ligadura partida «eosinófi los» -> «eosinófilos» en ambas apariciones (Saladin p. 830)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: proinfl amatorias | n= 1",
+  "veredicto": "real",
+  "buscar": "La C5a se une a la C3a en sus acciones proinfl amatorias, pero C5b juega un papel más importante",
+  "reemplazar": "La C5a se une a la C3a en sus acciones proinflamatorias, pero C5b juega un papel más importante",
+  "motivo": "Unir ligadura partida «proinfl amatorias» -> «proinflamatorias» (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarse | n= 4",
+  "veredicto": "real",
+  "buscar": "al que ahora se le denomina C5b678, sigue adelante para fi jarse a diecisiete moléculas de complemento C9",
+  "reemplazar": "al que ahora se le denomina C5b678, sigue adelante para fijarse a diecisiete moléculas de complemento C9",
+  "motivo": "Unir ligadura partida «fi jarse» -> «fijarse» (Saladin p. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarse | n= 4",
+  "veredicto": "real",
+  "buscar": "pero pueden estimular una respuesta al fi jarse a una macromolécula anfitriona y crear un complejo único",
+  "reemplazar": "pero pueden estimular una respuesta al fijarse a una macromolécula anfitriona y crear un complejo único",
+  "motivo": "Unir ligadura partida «fi jarse» -> «fijarse» (Saladin p. 831)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 17",
+  "veredicto": "real",
+  "buscar": "perteneciente a la fi ebre, p. ej., como en ataque febril,. La fi ebre se debe a traumatismo, infecciones, reacciones medicamentosas",
+  "reemplazar": "perteneciente a la fiebre, p. ej., como en ataque febril,. La fiebre se debe a traumatismo, infecciones, reacciones medicamentosas",
+  "motivo": "Unir ligadura partida «fi ebre» -> «fiebre» en ambas apariciones del fragmento (Saladin p. 826); n=17 indica otras apariciones en el capítulo."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebres | n= 1",
+  "veredicto": "real",
+  "buscar": "o lisis si cae con lentitud. Aunque casi todas las fi ebres son",
+  "reemplazar": "o lisis si cae con lentitud. Aunque casi todas las fiebres son",
+  "motivo": "Unir ligadura partida «fi ebres» -> «fiebres» (Saladin p. 827)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: benéfi cas | n= 1",
+  "veredicto": "real",
+  "buscar": "benéfi cas, la temperatura excesiva puede ser peligrosa porque acelera diferentes rutas enzimáticas",
+  "reemplazar": "benéficas, la temperatura excesiva puede ser peligrosa porque acelera diferentes rutas enzimáticas",
+  "motivo": "Unir ligadura partida «benéfi cas» -> «benéficas» (Saladin p. 827)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi jo | n= 1",
+  "veredicto": "real",
+  "buscar": "Las palabras que terminan con el sufi jo –itis denotan inflamación de órganos y tejidos específi cos: artritis",
+  "reemplazar": "Las palabras que terminan con el sufijo –itis denotan inflamación de órganos y tejidos específicos: artritis",
+  "motivo": "Unir ligaduras partidas «sufi jo» -> «sufijo» y «específi cos» -> «específicos» (Saladin p. 827)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 2",
+  "veredicto": "real",
+  "buscar": "en las presiones de los gases sanguíneos o el pe hache. Antes de proseguir",
+  "reemplazar": "en las presiones de los gases sanguíneos o el pe hache.",
+  "motivo": "Inicio de autoevaluación (Saladin p. 887); retirar también las preguntas 13 a 21 fuera del contexto hasta sección 22.4."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 2",
+  "veredicto": "real",
+  "buscar": "los pacientes sobreviven cinco años después del diagnóstico. Antes de proseguir",
+  "reemplazar": "los pacientes sobreviven cinco años después del diagnóstico.",
+  "motivo": "Inicio de autoevaluación (Saladin p. 890); retirar también las preguntas 22 a 24 fuera del contexto."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 2",
+  "veredicto": "real",
+  "buscar": " Responda las siguientes preguntas para probar su comprensión de la sección anterior: trece.",
+  "reemplazar": "",
+  "motivo": "Instrucción de autoevaluación (Saladin p. 887); retirar junto con el resto de las preguntas 13 a 21 hasta sección 22.4."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 2",
+  "veredicto": "real",
+  "buscar": " Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintidós.",
+  "reemplazar": "",
+  "motivo": "Instrucción de autoevaluación (Saladin p. 890); retirar junto con el resto de las preguntas 22 a 24."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Crédito: senta una ilustración de la ley de Henry y tiene efect | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "Esto representa una ilustración de la ley de Henry y tiene efectos importantes en el buceo, la aviación",
+  "reemplazar": null,
+  "motivo": "No es crédito de imagen: «ilustración» significa ejemplo o demostración de la ley de Henry en el pie de la fig. 22.21 (Saladin p. 881)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: ra de Valsalva.once Ésta cons | n= 1",
+  "veredicto": "real",
+  "buscar": "de manera consciente o inconsciente, la maniobra de Valsalva.once Ésta consiste en respirar hondo",
+  "reemplazar": "de manera consciente o inconsciente, la maniobra de Valsalva. Ésta consiste en respirar hondo",
+  "motivo": "Quitar llamada de nota al pie «once» tras puntuación (Saladin p. 868)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: de atelectasia,diecisiete que tambi | n= 1",
+  "veredicto": "real",
+  "buscar": "todo el pulmón recibe el nombre de atelectasia,diecisiete que también puede ser resultado de obstrucción",
+  "reemplazar": "todo el pulmón recibe el nombre de atelectasia, que también puede ser resultado de obstrucción",
+  "motivo": "Quitar llamada de nota al pie «diecisiete» tras coma (Saladin p. 874)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: a espirometría.dieciocho Para ello | n= 1",
+  "veredicto": "real",
+  "buscar": "El proceso para realizar esas mediciones es la espirometría.dieciocho Para ello, se hace que el sujeto respire",
+  "reemplazar": "El proceso para realizar esas mediciones es la espirometría. Para ello, se hace que el sujeto respire",
+  "motivo": "Quitar llamada de nota al pie «dieciocho» tras puntuación (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Llamada tras puntuación: , es la eupnea.diecinueve Se caract | n= 1",
+  "veredicto": "real",
+  "buscar": "La respiración relajada, tranquila, es la eupnea.diecinueve Se caracterizar por un volumen corriente",
+  "reemplazar": "La respiración relajada, tranquila, es la eupnea. Se caracterizar por un volumen corriente",
+  "motivo": "Quitar llamada de nota al pie «diecinueve» tras puntuación (Saladin p. 876)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . tres epi igual a sobre; glott igual a lengüeta; is igual a elemento an... | n= 1",
+  "veredicto": "real",
+  "buscar": "que resbala por una dos corn igual a cuerno; et igual a pequeño. tres epi igual a sobre; glott igual a lengüeta; is igual a elemento anatómico.",
+  "reemplazar": "que resbala por una",
+  "motivo": "Quitar notas al pie etimológicas 2 y 3 incrustadas a mitad de oración (Saladin p. 857)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . cuatro thyr igual a escudo; eides igual a con forma de. | n= 1",
+  "veredicto": "real",
+  "buscar": "nombre colectivo de glotis. cuatro thyr igual a escudo; eides igual a con forma de. cinco kriko igual a anillo; eides igual a con forma de.",
+  "reemplazar": "nombre colectivo de glotis.",
+  "motivo": "Quitar notas al pie etimológicas 4 y 5 incrustadas tras el párrafo (Saladin p. 859)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . seis arytain igual a cazo, cucharón; eides igual a con forma de. | n= 1",
+  "veredicto": "real",
+  "buscar": " seis arytain igual a cazo, cucharón; eides igual a con forma de. siete corn igual a cuerno; ul igual a pequeño; ad igual a que posee.",
+  "reemplazar": "",
+  "motivo": "Quitar notas al pie etimológicas 6 y 7 incrustadas en bloque (Saladin p. 859)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . ocho cune igual a cuña; forme igual a con forma de. | n= 1",
+  "veredicto": "real",
+  "buscar": " ocho cune igual a cuña; forme igual a con forma de. Epiglotis Hioides Cartílago tiroides",
+  "reemplazar": " Epiglotis Hioides Cartílago tiroides",
+  "motivo": "Quitar nota al pie etimológica 8 incrustada antes de los rótulos de fig. 22.4 (Saladin p. 859)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . diecinueve eu igual a bien, normal; pnoi igual a respiración. | n= 1",
+  "veredicto": "real",
+  "buscar": "el estornudo en el bulbo raquídeo. diecinueve eu igual a bien, normal; pnoi igual a respiración.",
+  "reemplazar": "el estornudo en el bulbo raquídeo.",
+  "motivo": "Quitar nota al pie etimológica 19 incrustada al cierre del párrafo (Saladin p. 876)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la figura veintidós coma dos cero | n= 1",
+  "veredicto": "real",
+  "buscar": "Estos cambios se resumen a continuación y en la parte media de la figura veintidós coma dos cero: Sangre que entra",
+  "reemplazar": "Estos cambios se resumen a continuación: Sangre que entra",
+  "motivo": "Quitar referencia visual a la figura 22.20 sin romper la oración (Saladin p. 879)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: Como se observa | n= 1",
+  "veredicto": "real",
+  "buscar": "PARTE CUATRO Regulación y mantenimiento veintidós coma dos cuatro. Como se observa, no se trata de una relación lineal simple.",
+  "reemplazar": "No se trata de una relación lineal simple.",
+  "motivo": "Quitar encabezado de página, resto de «figura 22.24» y referencia visual «Como se observa» (Saladin p. 882)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la figura veintidós coma dos cinco | n= 3",
+  "veredicto": "real",
+  "buscar": "en los capilares sistémicos parte inferior, y la figura veintidós coma dos cinco,. Tejido que respira",
+  "reemplazar": "en los capilares sistémicos. Tejido que respira",
+  "motivo": "Quitar resto de paréntesis visual «parte inferior, y la figura veintidós coma dos cinco» (Saladin p. 883)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: la figura veintidós coma dos cinco | n= 3",
+  "veredicto": "real",
+  "buscar": "Los procesos ilustrados en la figura veintidós coma dos cinco facilitan la comprensión del intercambio gaseoso alveolar",
+  "reemplazar": "Los procesos facilitan la comprensión del intercambio gaseoso alveolar",
+  "motivo": "Quitar referencia visual «ilustrados en la figura veintidós coma dos cinco» sin añadir texto (Saladin p. 884)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en la figura veintidós coma dos cinco | n= 2",
+  "veredicto": "real",
+  "buscar": "Intercambio gaseoso alveolar. Los colores de las flechas y sus grosores representan las mismas variables que en la figura veintidós coma dos cinco.",
+  "reemplazar": "Intercambio gaseoso alveolar.",
+  "motivo": "Quitar oración puramente visual del pie de la fig. 22.26 que remite a la fig. 22.25 (Saladin p. 884); la 1.ª muestra ya se cubre arriba."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 5,
+  "hallazgo": "- Ref. visual: en el cuadro veintidós coma cinco | n= 1",
+  "veredicto": "real",
+  "buscar": "En este capítulo ya se han mencionado varias y en el cuadro veintidós coma cinco se describen de manera breve otras.",
+  "reemplazar": "En este capítulo ya se han mencionado varias.",
+  "motivo": "Quitar remisión visual al cuadro 22.5 sin romper la oración (Saladin p. 887)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '×': iración × doce re | n= 1",
+  "veredicto": "real",
+  "buscar": "por ejemplo, trescientos cincuenta mililitros o respiración × doce respiraciones por minuto igual a cuatro doscientos mililitros o min.",
+  "reemplazar": "por ejemplo, trescientos cincuenta mililitros por respiración por doce respiraciones por minuto igual a cuatro mil doscientos mililitros por minuto.",
+  "motivo": "Convertir «×» a «por», unidades «/respiración» y «/min» y corregir «cuatro doscientos» -> «cuatro mil doscientos» (Saladin p. 875: «350 ml/respiración × 12 respiraciones por minuto = 4 200 ml/min»)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': , E R V + T V + I | n= 1",
+  "veredicto": "real",
+  "buscar": "dos o más volúmenes respiratorios: capacidad vital, E R V +",
+  "reemplazar": "dos o más volúmenes respiratorios: capacidad vital, E R V más",
+  "motivo": "Convertir símbolo «+» a palabra («más») en la fórmula de capacidad vital (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': V + T V + I R V, | n= 2",
+  "veredicto": "real",
+  "buscar": "T V + I R V, capacidad inspiratoria,",
+  "reemplazar": "T V más I R V, capacidad inspiratoria,",
+  "motivo": "Convertir segundo símbolo «+» a palabra («más») en la fórmula de capacidad vital (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': V + T V + I R V, | n= 2",
+  "veredicto": "real",
+  "buscar": "T V + I R V, Capacidad inspiratoria, I C,",
+  "reemplazar": "T V más I R V, Capacidad inspiratoria, I C,",
+  "motivo": "Convertir segundo símbolo «+» a palabra («más») en Cuadro 22.2 (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': ia, T V + I R V, | n= 1",
+  "veredicto": "real",
+  "buscar": " T V + I R V, capacidad residual funcional,",
+  "reemplazar": " T V más I R V, capacidad residual funcional,",
+  "motivo": "Convertir símbolo «+» a palabra («más») en la fórmula de capacidad inspiratoria (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': al, R V + E R V, | n= 1",
+  "veredicto": "real",
+  "buscar": " R V + E R V, y capacidad pulmonar total,",
+  "reemplazar": " R V más E R V, y capacidad pulmonar total,",
+  "motivo": "Convertir símbolo «+» a palabra («más») en la fórmula de capacidad residual funcional (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': al, R V + V C,. L | n= 1",
+  "veredicto": "real",
+  "buscar": " R V + V C,. La capacidad CUADRO veintidós coma dos",
+  "reemplazar": " R V más V C,. La capacidad CUADRO veintidós coma dos",
+  "motivo": "Convertir símbolo «+» a palabra («más») en la fórmula de capacidad pulmonar total (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': a E R V + T V + I | n= 1",
+  "veredicto": "real",
+  "buscar": "la respiración más profunda posible, V C igual a E R V +",
+  "reemplazar": "la respiración más profunda posible, V C igual a E R V más",
+  "motivo": "Convertir primer símbolo «+» a palabra («más») en Cuadro 22.2 (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l a T V + I R V, | n= 1",
+  "veredicto": "real",
+  "buscar": "espiración total normal, I C igual a T V + I R V, Capacidad residual",
+  "reemplazar": "espiración total normal, I C igual a T V más I R V, Capacidad residual",
+  "motivo": "Convertir símbolo «+» a palabra («más») en Cuadro 22.2 (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l a R V + E R V, | n= 1",
+  "veredicto": "real",
+  "buscar": "espiración corriente normal, F R C igual a R V + E R V, Capacidad pulmonar",
+  "reemplazar": "espiración corriente normal, F R C igual a R V más E R V, Capacidad pulmonar",
+  "motivo": "Convertir símbolo «+» a palabra («más») en Cuadro 22.2 (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': l a R V + V C, di | n= 1",
+  "veredicto": "real",
+  "buscar": "que pueden contener los pulmones, T L C igual a R V + V C, dieciocho spir igual a respirar; metria igual a proceso de medir.",
+  "reemplazar": "que pueden contener los pulmones, T L C igual a R V más V C,",
+  "motivo": "Convertir símbolo «+» a «más» y retirar la nota al pie 18 incrustada al final del Cuadro 22.2 (Saladin p. 875)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Corte por guion: concentracio- veintiocho | n= 1",
+  "veredicto": "real",
+  "buscar": "elevado mantiene bajas las concentracio- veintiocho John Scott Haldane, mil ochocientos sesenta a mil novecientos treinta y seis, fisiólogo escocés.",
+  "reemplazar": "elevado mantiene bajas las concentraciones",
+  "motivo": "Palabra «concentraciones» partida por salto de página con nota 28 y fig. 22.27 en medio (Saladin pp. 885-886); quitar nota 28 aquí y reubicar/unir el resto «nes de oxihemoglobina» que quedó tras la fig. 22.27."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 2",
+  "veredicto": "real",
+  "buscar": "un eritrocito pasa por un capilar alveolar en casi cero coma siete cinco segundos, tiempo sufi ciente,.",
+  "reemplazar": "un eritrocito pasa por un capilar alveolar en casi cero coma siete cinco segundos, tiempo suficiente,.",
+  "motivo": "Unir ligadura partida «sufi ciente» -> «suficiente» (Saladin p. 878)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: sufi ciente | n= 2",
+  "veredicto": "real",
+  "buscar": "no pueden alcanzar el equilibrio con la rapidez sufi ciente para mantener el paso del flujo de la sangre.",
+  "reemplazar": "no pueden alcanzar el equilibrio con la rapidez suficiente para mantener el paso del flujo de la sangre.",
+  "motivo": "Unir ligadura partida «sufi ciente» -> «suficiente» (Saladin p. 879)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jadas | n= 1",
+  "veredicto": "real",
+  "buscar": "Si una o más moléculas de O2 están fi jadas a la hemoglobina, al compuesto se le denomina oxihemoglobina",
+  "reemplazar": "Si una o más moléculas de O2 están fijadas a la hemoglobina, al compuesto se le denomina oxihemoglobina",
+  "motivo": "Unir ligadura partida «fi jadas» -> «fijadas» (Saladin p. 881)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 1",
+  "veredicto": "real",
+  "buscar": "Una temperatura corporal elevada, como en la fi ebre, estimula la síntesis de B P G, al igual que la tiroxina",
+  "reemplazar": "Una temperatura corporal elevada, como en la fiebre, estimula la síntesis de B P G, al igual que la tiroxina",
+  "motivo": "Unir ligadura partida «fi ebre» -> «fiebre» (Saladin p. 885)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi bróticos | n= 1",
+  "veredicto": "real",
+  "buscar": "Los pulmones se vuelven fi bróticos y menos elásticos; en casos avanzados, partes del pulmón se vuelven bolsas",
+  "reemplazar": "Los pulmones se vuelven fibróticos y menos elásticos; en casos avanzados, partes del pulmón se vuelven bolsas",
+  "motivo": "Unir ligadura partida «fi bróticos» -> «fibróticos» (Saladin p. 888)."
+ }
+]

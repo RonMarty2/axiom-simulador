@@ -20,16 +20,22 @@ fi
 echo "$H $W" > "$L"; trap '[ "$(cat "$L" 2>/dev/null)" = "$H $W" ] && rm -f "$L"' EXIT
 echo "$(date +%d-%H:%M) vigilante arranca en $H" >> "$E"
 
+# 20-11 (copiloto, Ronald: «¿no se chocó con la portátil?»): si OTRA PC tomó el candado mientras este bucle dormía, este sale
+sigo_dueno() { [ "$(cat "$L" 2>/dev/null)" = "$H $W" ] || { echo "$(date +%d-%H:%M) $H deja de grabar: el candado ahora es de $(cat "$L" 2>/dev/null)" >> "$E"; exit 0; }; }
 while true; do
+  sigo_dueno
   if python docs/audio-bloques/probar_cuota_tts.py "$M" > /dev/null 2>&1; then
     if [ -f docs/audio-bloques/cola_audio.lock ]; then echo "$(date +%d-%H:%M) graba la cola oculta (candado); espero" >> "$E"; sleep 1800; continue; fi
     echo "$(date +%d-%H:%M) cuota OK, grabando" >> "$E"; corte=0; saltados=0
     for p in docs/audio-bloques/plan/*.json; do
+      sigo_dueno
       b=$(basename "$p"); t=docs/audio-bloques/reextraido/$b; [ -f "$t" ] || continue
       # Filtro 16-nov: solo se graba lo que pasó las revisiones de texto 1 a 8 (informe en aceptacion/)
       python docs/audio-bloques/capitulo_aceptado.py "${b%.json}" || { saltados=$((saltados+1)); continue; }
       out=$(python docs/audio-bloques/sintetizar_desde_plan.py "$M" "$p" --textos "$t" 2>&1 | grep "Resumen\|Error\|ALTO")
       echo "$out" | sed "s/^/$(date +%d-%H:%M) /" >> "$E"
+      # 20-11 (copiloto): plan viejo (el texto cambio despues del plan) -> se salta y se anota; no frena a los demas
+      if echo "$out" | grep -q "no coincide"; then echo "$(date +%d-%H:%M) PLAN VIEJO ${b%.json}: regenerar con plan_sintesis.py o plan_todo_nuevo.py --forzar" >> "$E"; continue; fi
       if echo "$out" | grep -q "Error"; then corte=1; break; fi
     done
     # Fase 2: Libro 3 (EdS), un capitulo por archivo; salta los que ya tienen .wav en _AUDIO_V2

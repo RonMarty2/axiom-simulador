@@ -1,0 +1,38 @@
+[
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "En el siguiente ejemplo se demuestra el procedimiento para la elaboración de una tabla de contingencia:",
+  "reemplazar": "En el siguiente ejemplo se demuestra el procedimiento para la elaboración de una tabla de contingencia:\n\nUn informe sobre instituciones de educación superior de una región muestra, entre sus resultados, la calidad académica de la institución y la antigüedad en años de funcionamiento. La calidad académica corresponde a una variable cualitativa, calificada como excelente, muy buena y buena. La antigüedad, como variable cuantitativa continua, oscila entre diez y cuarenta y nueve años. La muestra fue de trescientas instituciones. Sólo se muestran los datos para las primeras diez instituciones.",
+  "motivo": "omisión real p.140 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "Total: cien por ciento, cien por ciento, cien por ciento, cien por ciento.",
+  "reemplazar": "Total: cien por ciento, cien por ciento, cien por ciento, cien por ciento.\n\nDe las tablas anteriores se deduce que en la categoría de buena calidad académica, el cincuenta por ciento de las instituciones tiene antigüedad entre diez y diecinueve años, el cuarenta y siete coma seis por ciento entre veinte y veintinueve años, el dos coma cuatro por ciento entre treinta y treinta y nueve años y ninguna entre cuarenta y cuarenta y nueve años. Mientras que en las instituciones menos antiguas, ubicadas entre diez y diecinueve años, el cincuenta y tres coma ocho por ciento tuvieron buena calidad académica, cuarenta y tres coma cinco por ciento como muy buena y dos coma siete por ciento como excelente.",
+  "motivo": "omisión real p.143 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre cuatro, n. Donde K es el número del cuartil, k igual a uno, dos, tres, y n el número total de datos.",
+  "reemplazar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre cuatro, n. Donde K es el número del cuartil, k igual a uno, dos, tres, y n el número total de datos.\n\ntres. Si i no es un número entero, se debe redondear al entero siguiente y el valor que ocupa esta posición será el cuartil requerido. Si i es un número entero, el cuartil es el promedio de los valores i e i más uno.",
+  "motivo": "omisión real p.162 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "Su interpretación significa que el cincuenta por ciento de los neonatos prematuros presentaron una talla máxima de treinta y siete coma cinco centímetros, igual a la mediana.",
+  "reemplazar": "Su interpretación significa que el cincuenta por ciento de los neonatos prematuros presentaron una talla máxima de treinta y siete coma cinco centímetros, igual a la mediana.\n\nPara el Q tres, la posición será: i igual a, tres dividido entre cuatro, ocho igual a seis y sería el promedio entre los valores ubicados en las posiciones seis y siete. Esto es, Q tres igual a, treinta y ocho más treinta y ocho, sobre dos igual a treinta y ocho centímetros. Su interpretación significa que el setenta y cinco por ciento de los neonatos prematuros presentaron una talla máxima de treinta y ocho centímetros.",
+  "motivo": "omisión real p.164 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre diez, por n. Donde K es el número del decil, k igual a uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, y n el número total de datos.",
+  "reemplazar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre diez, por n. Donde K es el número del decil, k igual a uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, y n el número total de datos.\n\ntres. Si la posición i no es un número entero, se debe redondear al entero siguiente y el valor que ocupa esta posición será el cuartil requerido. Si la posición i es un número entero, el decil es el promedio de los valores i e i más uno.",
+  "motivo": "omisión real p.167 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "buscar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre cien, por n. Donde K es el número del percentil, k igual a uno, dos, tres, cuatro, cinco… diez, once, doce… noventa y ocho, noventa y nueve, y n el número total de datos.",
+  "reemplazar": "dos. Calcular la posición i con la ecuación: i igual a, k dividido entre cien, por n. Donde K es el número del percentil, k igual a uno, dos, tres, cuatro, cinco… diez, once, doce… noventa y ocho, noventa y nueve, y n el número total de datos.\n\ntres. Si i no es un número entero, se debe redondear al entero siguiente y el valor que ocupa esta posición será el cuartil requerido. Si i es un número entero, el percentil es el promedio de los valores i e i más uno.",
+  "motivo": "omisión real p.168 (agy tanda 7, verificada por Claude contra EdS_texto_paginas)"
+ }
+]

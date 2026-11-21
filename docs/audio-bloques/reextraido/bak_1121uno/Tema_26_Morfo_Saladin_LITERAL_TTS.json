@@ -1,0 +1,146 @@
+[
+  {
+    "j": 127,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9006 < 0.92",
+    "similitud": 0.9006,
+    "pagina": 1040,
+    "texto_viejo": "Por lo tanto, las enzimas del catabolismo de la glucosa no pueden funcionar sin sus coenzimas. Las dos coenzimas de importancia especial para el catabolismo de la glucosa son NAD+ , dinucleótido de nicotinamidaadenina, y FAD , dinucleótido de fl avina-adenina,. Ambos se derivan de las vitaminas B: NAD+ de la niacina y FAD de la ribofl avina. Se retiran los átomos de hidrógeno de los intermediarios metabólicos en pares , es decir, dos protones y dos electrones , dos H+ y dos e menos , a la vez, y se les transfi ere a una coenzima.",
+    "texto_nuevo": "Por lo tanto, las enzimas del catabolismo de la glucosa no pueden funcionar sin sus coenzimas. Las dos coenzimas de importancia especial para el catabolismo de la glucosa son N A D más, dinucleótido de nicotinamidaadenina, y FAD, dinucleótido de flavina-adenina. Ambos se derivan de las vitaminas B: N A D más de la niacina y FAD de la riboflavina. Se retiran los átomos de hidrógeno de los intermediarios metabólicos en pares, es decir, dos protones y dos electrones, dos H más y dos e menos, a la vez, y se les transfiere a una coenzima."
+  },
+  {
+    "j": 129,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8861 < 0.92; caracter residual en texto nuevo ('+')",
+    "similitud": 0.8861,
+    "pagina": 1041,
+    "texto_viejo": "CAPÍTULO veintiséis Nutrición y metabolismo FAD + dos H → FADH2 y NAD+ + dos H → NADH + H+ El FAD fi ja dos protones y dos electrones para volverse FADH2. Sin embargo, NAD+ fi ja los dos electrones pero sólo uno de los protones para volverse NADH. El otro protón sigue siendo un ion hidrógeno libre, H+ , o H2O+, pero en este capítulo se representa como H+,. Glucólisis Después de entrar en una célula, la glucosa inicia diversas conversiones denominadas glucólisis4 , fi gura veintiséis coma tres, que consisten en lo siguiente: un Fosforilización.",
+    "texto_nuevo": "CAPÍTULO veintiséis Nutrición y metabolismo FAD + dos H da FADH dos y N A D más + dos H da NADH + H más El FAD fija dos protones y dos electrones para volverse FADH dos. Sin embargo, N A D más fija los dos electrones pero sólo uno de los protones para volverse NADH. El otro protón sigue siendo un ion hidrógeno libre, H más, o H dos O más, pero en este capítulo se representa como H más. Glucólisis Después de entrar en una célula, la glucosa inicia diversas conversiones denominadas glucólisis, que consisten en lo siguiente: uno Fosforilización."
+  },
+  {
+    "j": 134,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9535,
+    "pagina": 1041,
+    "texto_viejo": "La lisis de la glucólisis ocurre cuando la fructuosa un coma seis-difosfato se divide en dos moléculas de tres Glucosa Glucosa seis fosfato Glucógeno Grasa Fructuosa seis fosfato Fructuosa un coma seis difosfato dos PGAL dos NAD+ dos NADH + dos H+ dos H2O dos ácido pirúvico dos NADH + dos H+ dos NAD+ O2 faltante O2 presente dos ácido láctico Respiración aeróbica Fermentación anaeróbica cinco Desfosforilación un Fosforilación dos Preparación tres División cuatro Oxidación Pi A T P A T P A T P A T P A T P A T P ADP ADP ADP dos ADP Clave Átomos de carbono Grupos fosfato FIGURA veintiséis coma tres Glucólisis y fermentación anaeróbica.",
+    "texto_nuevo": "La lisis de la glucólisis ocurre cuando la fructuosa uno coma seis-difosfato se divide en dos moléculas de tres Glucosa Glucosa seis fosfato Glucógeno Grasa Fructuosa seis fosfato Fructuosa uno coma seis difosfato dos PGAL dos N A D más dos NADH + dos H más dos H dos O dos ácido pirúvico dos NADH + dos H más dos N A D más O dos faltante O dos presente dos ácido láctico Respiración aeróbica Fermentación anaeróbica cinco Desfosforilación uno Fosforilación dos Preparación tres División cuatro Oxidación Pi A T P A T P A T P A T P A T P A T P ADP ADP ADP dos ADP Clave Átomos de carbono Grupos fosfato FIGURA veintiséis punto tres Glucólisis y fermentación anaeróbica."
+  },
+  {
+    "j": 136,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.956,
+    "pagina": 1042,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento carbonos , C3,. Mediante una ligera reorganización de una de ellas , que no se muestra en la fi gura, esto genera dos moléculas de PGAL , fosfogliceraldehído, también denominado gliceraldehído tres-fosfato,. cuatro Oxidación. Cada PGAL se oxida mediante el retiro de un par de átomos de hidrógeno. El NAD+ recoge los electrones y un protón y el otro protón se libera en el citosol, dando NADH + H+. En este paso, también se agrega un grupo fosfato , Pi, a cada uno de los fragmentos de C3.",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento carbonos, C tres. Mediante una ligera reorganización de una de ellas, que no se muestra en la figura, esto genera dos moléculas de PGAL, fosfogliceraldehído, también denominado gliceraldehído tres-fosfato. cuatro Oxidación. Cada PGAL se oxida mediante el retiro de un par de átomos de hidrógeno. El N A D más recoge los electrones y un protón y el otro protón se libera en el citosol, dando NADH + H más. En este paso, también se agrega un grupo fosfato, Pi, a cada uno de los fragmentos de C tres."
+  },
+  {
+    "j": 138,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9804,
+    "pagina": 1042,
+    "texto_viejo": "Los productos fi nales de la glucólisis son, por tanto: dos ácido pirúvico + dos NADH + dos H+ + dos A T P Obsérvese que en realidad se producen cuatro A T P , paso cinco, pero se consumieron dos A T P para iniciar la glucólisis , pasos un y dos, de modo que la ganancia neta es de dos A T P por glucosa. Parte de la energía que se encontraba en la glucosa está contenida en este A T P, parte en el NADH y parte se pierde como calor.",
+    "texto_nuevo": "Los productos finales de la glucólisis son, por tanto: dos ácido pirúvico + dos NADH + dos H más + dos A T P Obsérvese que en realidad se producen cuatro A T P, paso cinco, pero se consumieron dos A T P para iniciar la glucólisis, pasos uno y dos, de modo que la ganancia neta es de dos A T P por glucosa. Parte de la energía que se encontraba en la glucosa está contenida en este A T P, parte en el NADH y parte se pierde como calor."
+  },
+  {
+    "j": 151,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9216,
+    "pagina": 1043,
+    "texto_viejo": "Las reacciones de la matriz pueden resumirse de la siguiente manera: dos piruvato + seis H2O → seis O2 + dos ADP + dos Pi → dos A T P + ocho NAD+ + ocho H2 → ocho NADH + ocho H+ + dos FAD + dos H2 → dos FADH2 No queda nada de la materia orgánica de la glucosa, pues todos sus átomos de carbono se han apartado como CO2.",
+    "texto_nuevo": "Las reacciones de la matriz pueden resumirse de la siguiente manera: dos piruvato + seis H dos O da seis O dos más dos ADP + dos Pi da dos A T P + ocho N A D más + ocho H dos da ocho NADH + ocho H más + dos FAD + dos H dos da dos FADH dos No queda nada de la materia orgánica de la glucosa, pues todos sus átomos de carbono se han apartado como CO dos."
+  },
+  {
+    "j": 153,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9091 < 0.92; caracter residual en texto nuevo ('+')",
+    "similitud": 0.9091,
+    "pagina": 1043,
+    "texto_viejo": "Ácido pirúvico , C3, CO2 NAD+ NADH + H+ Grupo acetil , C2, Acetil-CoA Coenzima A H2O Ácido cítrico , C6, Ácido oxaloacético , C4, H2O , C6, NAD+ NADH + H+ H2O CO2 , C5, NAD+ NADH + H+ CO2 , C4, C4, FAD FADH2 , C4, H2O , C4, NADH + H+ NAD+ GTP GDP Ocurre en la matriz mitocondrial A T P A T P ADP Ciclo del ácido cítrico Pi Pi FIGURA veintiséis coma cuatro Reacciones de la matriz mitocondrial. Los pasos de reacción con números se explican en el texto.",
+    "texto_nuevo": "Ácido pirúvico, C tres, CO dos N A D más NADH + H más Grupo acetil, C dos, Acetil-CoA Coenzima A H dos O Ácido cítrico, C seis, Ácido oxaloacético, C cuatro, H dos O, C seis, N A D más NADH + H más H dos O CO dos, C cinco, N A D más NADH + H más CO dos, C cuatro, C cuatro, FAD FADH dos, C cuatro, H dos O, C cuatro, NADH + H más N A D más GTP GDP Ocurre en la matriz mitocondrial A T P A T P ADP Ciclo del ácido cítrico Pi Pi FIGURA veintiséis punto cuatro Reacciones de la matriz mitocondrial. Los pasos de reacción con números se explican en el texto."
+  },
+  {
+    "j": 159,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9926,
+    "pagina": 1044,
+    "texto_viejo": "Cada átomo de oxígeno , la mitad de una molécula de O2, acepta dos electrones , dos e menos , del citocromo a3 y dos protones , dos H+, de la matriz mitocondrial. El resultado es una molécula de agua. un o dos O2 + dos e menos + dos H+ → H2O Ésta es la fuente primaria de agua metabólica del cuerpo , agua sintetizada en el organismo, no ingerida en la comida o la bebida,. Esta reacción también explica por qué el cuerpo requiere oxígeno.",
+    "texto_nuevo": "Cada átomo de oxígeno, la mitad de una molécula de O dos, acepta dos electrones, dos e menos, del citocromo a tres y dos protones, dos H más, de la matriz mitocondrial. El resultado es una molécula de agua. uno o dos O dos más dos e menos + dos H más da H dos O Ésta es la fuente primaria de agua metabólica del cuerpo, agua sintetizada en el organismo, no ingerida en la comida o la bebida. Esta reacción también explica por qué el cuerpo requiere oxígeno."
+  },
+  {
+    "j": 161,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('gura' vs 'figura')",
+    "similitud": 0.9764,
+    "pagina": 1044,
+    "texto_viejo": "El primer complejo incluye FMN y cinco o más centros Fe-S; el segundo incluye citocromos b y c1 y un centro Fe-S; y el tercero, dos centros de cobre y citocromos a y a3. De manera colectiva, cada complejo actúa como una bomba de protones que retira H+ de la matriz mitocondrial y lo bombea en el espacio entre las membranas mitocondriales interna y externa , fi gura veintiséis coma seis,.",
+    "texto_nuevo": "El primer complejo incluye FMN y cinco o más centros Fe-S; el segundo incluye citocromos b y c uno y un centro Fe-S; y el tercero, dos centros de cobre y citocromos a y a tres. De manera colectiva, cada complejo actúa como una bomba de protones que retira H más de la matriz mitocondrial y lo bombea en el espacio entre las membranas mitocondriales interna y externa figura veintiséis."
+  },
+  {
+    "j": 162,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.939,
+    "pagina": 1044,
+    "texto_viejo": "La coenzima Q es un transbordador que transfi ere electrones desde la primera NADH + H+ NAD+ Complejo de enzimas un FADH2 FAD FMN FMN Fe-S Fe-S CoQ CoQ Cyt b Fe-S Cyt c Cyt b Fe-S Cyt c Cyt c Cyt c Cu Cyt a Cyt a Cu Cyt a Cyt a Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres un o dos O2 + dos H+ H2O Energía libre relativa , kcal o mol, FIGURA veintiséis coma cinco Cadena mitocondrial de transporte de electrones.",
+    "texto_nuevo": "La coenzima Q es un transbordador que transfiere electrones desde la primera NADH + H más N A D más Complejo de enzimas uno FADH dos FAD FMN FMN Fe-S Fe-S CoQ CoQ Cyt b Fe-S Cyt c Cyt b Fe-S Cyt c Cyt c Cyt c Cu Cyt a Cyt a Cu Cyt a Cyt a Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres uno o dos O dos más dos H más H dos O Energía libre relativa, kilocalorías por mol, FIGURA veintiséis punto cinco Cadena mitocondrial de transporte de electrones."
+  },
+  {
+    "j": 164,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9726,
+    "pagina": 1045,
+    "texto_viejo": "CAPÍTULO veintiséis Nutrición y metabolismo Matriz Membrana interna Espacio intermembrana Membrana externa Membrana interna Espacio intermembrana NADH + H+ NAD+ dos H+ un o dos O2 + dos H+ H2O tres ADP + tres Pi tres A T P seis H+ 2e– 2e– 2e– Matriz Cresta Membrana externa dos H+ dos H+ CoQ Cyt c A T P sintasa Complejo de enzimas Complejo de enzimas Complejo de enzimas bomba a la segunda y el citocromo c lanza electrones de la segunda bomba a la tercera.",
+    "texto_nuevo": "CAPÍTULO veintiséis Nutrición y metabolismo Matriz Membrana interna Espacio intermembrana Membrana externa Membrana interna Espacio intermembrana NADH + H más N A D más dos H más uno o dos O dos más dos H más H dos O tres ADP + tres Pi tres A T P seis H más dos e– dos e– dos e– Matriz Cresta Membrana externa dos H más dos H más CoQ Cyt c A T P sintasa Complejo de enzimas Complejo de enzimas Complejo de enzimas bomba a la segunda y el citocromo c lanza electrones de la segunda bomba a la tercera."
+  },
+  {
+    "j": 165,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1045,
+    "texto_viejo": "Estas bombas crean concentración muy elevada de H+ , bajo pH, y carga positiva entre las membranas, en comparación con la baja concentración de H+ y carga negativa en la matriz mitocondrial. Es decir, crean un gradiente electroquímico muy inclinado a través de la membrana mitocondrial interna. Si la membrana interna fuera muy permeable al H+, estos iones tendrían fuerte tendencia a difundirse hacia abajo de este gradiente y de regreso a la matriz.",
+    "texto_nuevo": "Estas bombas crean concentración muy elevada de H más, bajo pH, y carga positiva entre las membranas, en comparación con la baja concentración de H más y carga negativa en la matriz mitocondrial. Es decir, crean un gradiente electroquímico muy inclinado a través de la membrana mitocondrial interna. Si la membrana interna fuera muy permeable al H más, estos iones tendrían fuerte tendencia a difundirse hacia abajo de este gradiente y de regreso a la matriz."
+  },
+  {
+    "j": 166,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9663,
+    "pagina": 1045,
+    "texto_viejo": "Sin embargo, la membrana interna sólo es permeable a H+ mediante proteínas de canal específi cas denominadas A T P sintasa , separadas del sistema de transporte de electrones,. A medida que el H+ fl uye por estos canales, crea una corriente eléctrica , que, como se puede recordar, sólo está moviendo partículas cargadas,. La A T P sintasa desencadena la energía de esta corriente para canalizar la síntesis de A T P. Este proceso recibe el nombre de mecanismo quimioosmótico,siete lo que sugiere que el empuje es creado por el gradiente electroquímico del H+.",
+    "texto_nuevo": "Sin embargo, la membrana interna sólo es permeable a H más mediante proteínas de canal específicas denominadas A T P sintasa, separadas del sistema de transporte de electrones. A medida que el H más fluye por estos canales, crea una corriente eléctrica, que, como se puede recordar, sólo está moviendo partículas cargadas. La A T P sintasa desencadena la energía de esta corriente para canalizar la síntesis de A T P. Este proceso recibe el nombre de mecanismo quimioosmótico, lo que sugiere que el empuje es creado por el gradiente electroquímico del H más."
+  },
+  {
+    "j": 171,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1046,
+    "texto_viejo": "Hay alguna incertidumbre acerca de cuánto H+ debe bombearse entre las membranas mitocondriales para generar un A T P, y parte de la energía de la corriente de H+ se consume al bombear A T P de la matriz mitocondrial al citosol e intercambiarlo por más materias primas , ADP y Pi, bombeadas del citosol a la mitocondria. Más aún, el NADH generado por la glucólisis no puede entrar en la mitocondria y donar sus electrones de manera directa a la cadena de transporte de electrones.",
+    "texto_nuevo": "Hay alguna incertidumbre acerca de cuánto H más debe bombearse entre las membranas mitocondriales para generar un A T P, y parte de la energía de la corriente de H más se consume al bombear A T P de la matriz mitocondrial al citosol e intercambiarlo por más materias primas, ADP y Pi, bombeadas del citosol a la mitocondria. Más aún, el NADH generado por la glucólisis no puede entrar en la mitocondria y donar sus electrones de manera directa a la cadena de transporte de electrones."
+  },
+  {
+    "j": 175,
+    "estado": "REVISAR",
+    "motivo": "no se encontro ancla en el crudo",
+    "similitud": 0.0,
+    "pagina": null,
+    "texto_viejo": "La respiración aeróbica de la glucosa se puede representar en la siguiente ecuación de resumen: dos NADH + dos H+ dos piruvato Citosol Mitocondria dos NADH + dos H+ seis NADH + seis H+ Ciclo del ácido cítrico dos FADH2 Cadena de transporte de electrones H2O O2 Glucólisis Total treinta y seis a treinta y ocho A T P A T P A T P A T P A T P A T P A T P A T P A T P A T P , neto, veintiocho a treinta CO2 Glucosa FIGURA veintiséis coma siete Resumen de las fuentes de A T P generado por la oxidación completa de la glucosa.",
+    "texto_nuevo": ""
+  },
+  {
+    "j": 275,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1056,
+    "texto_viejo": "En dosis bajas, deprime las sinapsis inhibitorias y crea sensaciones de confianza, euforia y mareo. Sin embargo, a medida que la dosis se eleva, los productos del desdoblamiento del etanol mejoran la difusión de K+ fuera de las neuronas, hiperpolarizándolas y haciendo que respondan menos a los neurotransmisores. Por tanto, se altera la sincronización de la comunicación entre las neuronas, lo que produce síntomas de intoxicación como dificultad para articular el habla, mala coordinación y mayor tiempo de reacción.",
+    "texto_nuevo": "En dosis bajas, deprime las sinapsis inhibitorias y crea sensaciones de confianza, euforia y mareo. Sin embargo, a medida que la dosis se eleva, los productos del desdoblamiento del etanol mejoran la difusión de K más fuera de las neuronas, hiperpolarizándolas y haciendo que respondan menos a los neurotransmisores. Por tanto, se altera la sincronización de la comunicación entre las neuronas, lo que produce síntomas de intoxicación como dificultad para articular el habla, mala coordinación y mayor tiempo de reacción."
+  }
+]

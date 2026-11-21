@@ -1,0 +1,1094 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO cinco Macrotransporte a través de la membrana plasm"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "estudiado aquellos mecanismos de transporte a través de la m"
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "pérdida de porciones de membrana que son incorporadas al int"
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "celular se fusionan con la membrana plasmática, vertiéndose "
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_004.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Como detallaremos más adelante, muchos microorganismos patóg"
+  },
+  {
+    "j": 6,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Endocitosis El proceso por el cual las células captan e inte"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El primero se denomina pinocitosis, y consiste en la ingesti"
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la imagen central se observa una depresión revestida en f"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se pueden considerar tres tipos de pinocitosis: un la mediad"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La endocitosis es un campo en el que se está llevando a cabo"
+  },
+  {
+    "j": 11,
+    "accion": "REUSAR",
+    "origen": "parte_010.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El tipo más conocido de pinocitosis es la endocitosis en ves"
+  },
+  {
+    "j": 12,
+    "accion": "REUSAR",
+    "origen": "parte_011.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Sin embargo, cada vez hay más datos que muestran que la endo"
+  },
+  {
+    "j": 13,
+    "accion": "REUSAR",
+    "origen": "parte_012.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los mecanismos moleculares de este tipo de endocitosis son b"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se han descrito numerosas moléculas que entran en la célula "
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El colesterol es una molécula esencial para la síntesis de m"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras producirse la endocitosis de las vesículas de clatrina,"
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a dos Molécula de L D L. Estas moléculas, de fo"
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la internalización de la vesícula recubierta de clatrin"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando las células no pueden captar colesterol, este se acum"
+  },
+  {
+    "j": 20,
+    "accion": "REUSAR",
+    "origen": "parte_019.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estas altas concentraciones provocan que el colesterol se de"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "pacientes antes de alcanzar los veinte años de edad. Esta en"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esquema de los receptores normales de L D L, que se unen a l"
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Imagen macroscópica de la sección transversal de una arteria"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dicho aumento se debe a que los bajos niveles citoplasmático"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El conocimiento de los mecanismos de la hipercolesterolemia "
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Uno de estos péptidos está constituido únicamente por cuatro"
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que las moléculas de L D L se han unido a sus recept"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Modelo molecular de las estructuras primaria y secundaria de"
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La formación de la depresión revestida está facilitada por e"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para la separación de la vesícula, se requiere la participac"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que la vesícula se pueda separar de la membrana plasmát"
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez se ha separado la vesícula, la cubierta de clatrina "
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la secuencia de imágenes se puede ver cómo el material de"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El endosoma es un orgánulo constituido por túbulos y vesícul"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos orgánulos muestran un ambiente ácido gracias a las bom"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a ocho Participación del endosoma en la endocit"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El tráfico de vesículas entre el Golgi y el endosoma está me"
+  },
+  {
+    "j": 38,
+    "accion": "REUSAR",
+    "origen": "parte_037.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los receptores pueden entonces ser devueltos a la membrana m"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se cree que fragmentos de los endosomas tempranos migran, ac"
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Al final, los endosomas tardíos se fusionan con vesículas ca"
+  },
+  {
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a nueve Imagen de microscopía electrónica de tr"
+  },
+  {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a diez Posibles destinos para los receptores en"
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando la L D L se disocia en el endosoma temprano, los rece"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De esta manera, la apotransferrina, transferrina no unida a "
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos receptores solo se acumulan en las depresiones revesti"
+  },
+  {
+    "j": 46,
+    "accion": "REUSAR",
+    "origen": "parte_046.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Si no fuera así, las células sufrirían un crecimiento incont"
+  },
+  {
+    "j": 47,
+    "accion": "REUSAR",
+    "origen": "parte_047.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las células, además de la endocitosis en vesículas recubiert"
+  },
+  {
+    "j": 48,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La membrana de las cavéolas es parecida a la que presentan l"
+  },
+  {
+    "j": 49,
+    "accion": "REUSAR",
+    "origen": "parte_049.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Además de constituir el principal componente estructural de "
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a once A. Esquema donde se representa el mecani"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "donde se desfosforilan. En la red Trans del Golgi, la membra"
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el proceso de invaginación y estrangulación de la cavéola"
+  },
+  {
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El gen que codifica para la caveolina-tres se encuentra en e"
+  },
+  {
+    "j": 54,
+    "accion": "REUSAR",
+    "origen": "parte_054.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta enfermedad, de herencia autosómica dominante, cursa con"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Entre las manifestaciones clínicas de esta afección se inclu"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta patología se caracteriza por contracciones musculares i"
+  },
+  {
+    "j": 57,
+    "accion": "REUSAR",
+    "origen": "parte_057.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por otra parte, la endocitosis mediante cavéolas es utilizad"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El SV40 se une a su receptor de membrana, se cree que lo hac"
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los niveles de expresión de caveolina-un se relacionan direc"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos datos sugieren que las cavéolas son el principal sitio"
+  },
+  {
+    "j": 61,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El tipo celular en el que más se ha estudiado esta forma de "
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a doce Imagen de microscopía electrónica que mu"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Actualmente, se están estudiando otras funciones de la macro"
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En los mamíferos hay tres tipos celulares con capacidad fago"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a trece Imagen de microscopía electrónica de tr"
+  },
+  {
+    "j": 66,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las membranas de los seudópodos terminan por confluir y fusi"
+  },
+  {
+    "j": 67,
+    "accion": "REUSAR",
+    "origen": "parte_069.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el caso de la fosfatidilserina, las células que están en "
+  },
+  {
+    "j": 68,
+    "accion": "REUSAR",
+    "origen": "parte_070.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA cinco a catorce Proceso de fagocitosis por parte de u"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las enzimas lisosómicas matan y digieren al microorganismo f"
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Antes de que se produzca la fusión de los lisosomas, hay mol"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El cuerpo residual es la última estación en la ruta de diges"
+  },
+  {
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a dieciséis Corte histológico de mama que muest"
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Transcitosis Como se ha comentado con anterioridad, la trans"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por este motivo, el calostro contiene inmunoglobulinas del t"
+  },
+  {
+    "j": 75,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El pe hache neutro del fluido extracelular provoca que la Ig"
+  },
+  {
+    "j": 76,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Durante el embarazo, con el desarrollo de las glándulas mama"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, sin duda, el proceso de transcitosis más importante es"
+  },
+  {
+    "j": 78,
+    "accion": "REUSAR",
+    "origen": "parte_082.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Exocitosis La exocitosis constituye el proceso de fusión de "
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por su parte, la exocitosis regulada es propia de células es"
+  },
+  {
+    "j": 80,
+    "accion": "REUSAR",
+    "origen": "parte_084.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Exocitosis constitutiva La exocitosis constitutiva es la rut"
+  },
+  {
+    "j": 81,
+    "accion": "REUSAR",
+    "origen": "parte_085.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Entre las moléculas que salen al medio extracelular por esta"
+  },
+  {
+    "j": 82,
+    "accion": "REUSAR",
+    "origen": "parte_086.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando las vesículas de secreción se unen con la membrana pl"
+  },
+  {
+    "j": 83,
+    "accion": "REUSAR",
+    "origen": "parte_087.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las sustancias que se secretan son sintetizadas previamente "
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Gemación y fusión de vesículas en los procesos de endocitosi"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Hay que tener en cuenta, no obstante, que las proteínas que "
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El recubrimiento de C O P I I participa en el transporte de "
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "poco después de ocurrir la gemación de la vesícula, los coat"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas son activas cuando llevan G T P unido, mient"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Nos centraremos, a modo de ejemplo, en la formación de vesíc"
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La A R F-G T P recluta y une proteínas adaptadoras que comie"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se piensa que este proceso de gemación y formación de la cub"
+  },
+  {
+    "j": 92,
+    "accion": "REUSAR",
+    "origen": "parte_095.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ocurrir también en la endocitosis mediada por receptor que t"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen dos familias de proteínas responsables del reconocim"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto inicia el proceso de reclutamiento de proteínas adaptad"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En su dominio citoplasmático presentan una estructura helico"
+  },
+  {
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este estado, la proteína se puede unir a otras, los efect"
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a veinte Mecanismo propuesto para el trasvase d"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez que la vesícula llega a la membrana diana, Rab inter"
+  },
+  {
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que dicha fusión se lleve a cabo, las membranas han de "
+  },
+  {
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, antes de la fusión, es necesario desplazar las molécul"
+  },
+  {
+    "j": 101,
+    "accion": "REUSAR",
+    "origen": "parte_104.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Exocitosis y endocitosis en la sinapsis neuronal El ejemplo "
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El espacio que separa la célula presináptica de la postsináp"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "carácter excitador o inhibidor viene dado por el receptor al"
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por su parte, los canales permeables para el potasio o el cl"
+  },
+  {
+    "j": 105,
+    "accion": "REUSAR",
+    "origen": "parte_108.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estos receptores están formados por una proteína de siete do"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En su interior podemos distinguir abundantes mitocondrias y "
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "una repetida liberación de vesículas sinápticas. Cabe pensar"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el botón presináptico, B, se aprecian varias mitocondrias"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esquema que muestra el proceso molecular propuesto para la f"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Posteriormente, estos componentes son endocitados, mediante "
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aquí resulta clave el papel de las mitocondrias del botón te"
+  },
+  {
+    "j": 112,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": ". Algunas vesículas están ancladas a la membrana gracias a l"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando este se une, se pone en marcha toda la maquinaria que"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA cinco a veintitrés Esquema de la maquinaria exocítica"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para que la liberación del neurotransmisor se lleve a cabo, "
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la primera se produce una aproximación, un, de la vesícul"
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por otro lado, el calcio que ha entrado en el botón terminal"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El siguiente paso es la fusión de las membranas, proceso en "
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este proceso requiere la energía proporcionada por la activi"
+  },
+  {
+    "j": 120,
+    "accion": "REUSAR",
+    "origen": "parte_123.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Sin embargo, el proceso de endocitosis es mucho más lento qu"
+  },
+  {
+    "j": 121,
+    "accion": "REUSAR",
+    "origen": "parte_124.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta teoría defiende que, durante la exocitosis, la membrana"
+  },
+  {
+    "j": 122,
+    "accion": "REUSAR",
+    "origen": "parte_125.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "intercambia moléculas de neurotransmisor con protones. De es"
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión neuromuscular es la sinapsis química que se produce"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los protones han sido introducidos previamente en las vesícu"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras dicha unión, el receptor, que es un canal para el sodio"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "tres, cuando el calcio penetra en el terminal, la vesícula s"
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "sin actividad biológica. Posteriormente, la colina es captad"
+  },
+  {
+    "j": 128,
+    "accion": "REUSAR",
+    "origen": "parte_132.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los transportadores de serotonina, dopamina y noradrenalina "
+  },
+  {
+    "j": 129,
+    "accion": "REUSAR",
+    "origen": "parte_133.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Al administrar estos fármacos, los niveles de dichos neurotr"
+  },
+  {
+    "j": 130,
+    "accion": "REUSAR",
+    "origen": "parte_134.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En la mayoría de los casos, está causada por la presencia de"
+  },
+  {
+    "j": 131,
+    "accion": "REUSAR",
+    "origen": "parte_135.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La musculatura más frecuentemente afectada es la ocular extr"
+  },
+  {
+    "j": 132,
+    "accion": "REUSAR",
+    "origen": "parte_136.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Otros tratamientos se basan en reducir la respuesta inmunita"
+  },
+  {
+    "j": 133,
+    "accion": "REUSAR",
+    "origen": "parte_137.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La neurotoxina de esta bacteria está compuesta por dos subun"
+  },
+  {
+    "j": 134,
+    "accion": "REUSAR",
+    "origen": "parte_138.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La enfermedad se presenta con debilidad de la musculatura in"
+  },
+  {
+    "j": 135,
+    "accion": "REUSAR",
+    "origen": "parte_139.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Mecanismos de infección que dependen del macrotransporte a t"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los patógenos, agentes causantes de enfermedades infecciosas"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "endocítica pasando por diversos compartimentos endosómicos y"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "al citoplasma celular. El proceso difiere según el tipo de v"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En su bicapa lipídica hay dos tipos de proteínas integrales "
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A continuación, pasa por diversos compartimentos hasta llega"
+  },
+  {
+    "j": 141,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ribonucleoproteínas a un complejo de poro nuclear y la inter"
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La liberación del A R N de su cubierta proteica se produce t"
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como se vio en el apartado Fagocitosis de este mismo capítul"
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La tuberculosis es una enfermedad que afecta de forma caract"
+  },
+  {
+    "j": 145,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tras la infección, los macrófagos secretan determinadas molé"
+  },
+  {
+    "j": 146,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "una pared de linfocitos T, células N K y macrófagos. Las mic"
+  },
+  {
+    "j": 147,
+    "accion": "REUSAR",
+    "origen": "parte_150.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando se ingieren dichos alimentos, la bacteria es capaz de"
+  },
+  {
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "capítulo doce,; finalmente, la célula se va extendiendo alre"
+  },
+  {
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El mecanismo de secreción de tipo III de algunas bacterias i"
+  },
+  {
+    "j": 150,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una característica llamativa de Listeria es su facultad de m"
+  },
+  {
+    "j": 151,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El otro mecanismo de invasión de células sin capacidad fagoc"
+  },
+  {
+    "j": 152,
+    "accion": "REUSAR",
+    "origen": "parte_155.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "la cual, la bacteria, que no se adhiere a la célula hospedad"
+  },
+  {
+    "j": 153,
+    "accion": "REUSAR",
+    "origen": "parte_156.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las bacterias, una vez engullidas, pueden replicarse dentro "
+  },
+  {
+    "j": 154,
+    "accion": "REUSAR",
+    "origen": "parte_157.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Así lo hace, por ejemplo, Toxoplasma gondii, un parásito int"
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De esta forma, Toxoplasma queda alojado en el interior de la"
+  },
+  {
+    "j": 156,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los lisosomas se fusionan con la membrana plasmática y, de e"
+  }
+]

@@ -267,6 +267,24 @@ class TestUnComa(unittest.TestCase):
         self.assertTrue(any("un coma cinco cero cero" in x for x in res.no_resueltos))
 
 
+
+class TestUnNumero(unittest.TestCase):
+    # 21-11: el número 1 suelto se lee «uno» (caso real Tema_02 BC: «V I H-un», «la calle un»).
+    def test_convierte_un_numero_a_uno(self) -> None:
+        entrada = ("gen env del V I H-un a partir. La calle un es el marcador. receptor tipo un de T G F. "
+                   "FIGURA un a un Esquema. CAPÍTULO un\nTemas. Paso un: la traducción.")
+        esperado = ("gen env del V I H-uno a partir. La calle uno es el marcador. receptor tipo uno de T G F. "
+                    "FIGURA uno a uno Esquema. CAPÍTULO uno\nTemas. Paso uno: la traducción.")
+        res = C.corregir_un_numero(entrada)
+        self.assertEqual(res.texto, esperado)
+        self.assertEqual(res.cambios, 7)
+
+    def test_respeta_un_articulo_y_un_poco(self) -> None:
+        entrada = "Una región un poco negativa; tenía un perro; compara a un paciente."
+        res = C.corregir_un_numero(entrada)
+        self.assertEqual(res.texto, entrada)
+        self.assertEqual(res.cambios, 0)
+
 class TestIonesResiduales(unittest.TestCase):
     def test_convierte_iones_pegados_a_sigla_y_respeta_guiones(self) -> None:
         entrada = "Se reducen NAD+, NADP+ y FAD+ en presencia de TNF-α y COX-un."

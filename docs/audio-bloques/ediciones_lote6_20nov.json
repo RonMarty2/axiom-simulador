@@ -1,0 +1,578 @@
+[
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Símbolo '∼': ular de ∼un con u | n= 1",
+  "veredicto": "no_verificado",
+  "buscar": "se muestra como una masa molecular de ∼un con una estructura cilíndrica",
+  "reemplazar": null,
+  "motivo": "En Calvo_texto_paginas.txt pág. 297 la extracción ya aparece truncada como «∼1» sin dígitos ni unidad; requiere revisar el PDF original."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Posible mil como decimal: coma cero cero cero | n= 15",
+  "veredicto": "real",
+  "buscar": "indicaban que había alrededor de cien coma cero cero cero genes,",
+  "reemplazar": "indicaban que había alrededor de cien mil genes,",
+  "motivo": "En Calvo pág. 321 figura «100.000 genes» (millar leído como decimal); los demás casos visibles del contexto se corrigen en sus entradas específicas."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: diez coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "en la que el empaquetamiento máximo final es de diez coma cero cero cero veces.",
+  "reemplazar": "en la que el empaquetamiento máximo final es de diez mil veces.",
+  "motivo": "En Calvo pág. 305 figura «10.000 veces» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: diez coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "el genoma humano sufre una hidrólisis lenta de unas diez coma cero cero cero purinas al día",
+  "reemplazar": "el genoma humano sufre una hidrólisis lenta de unas diez mil purinas al día",
+  "motivo": "En Calvo pág. 340 figura «10.000 purinas al día» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: un coma cero cero cero | n= 4",
+  "veredicto": "real",
+  "buscar": "el cromosoma X es muy grande y posee más de un coma cero cero cero genes, mientras que el Y",
+  "reemplazar": "el cromosoma X es muy grande y posee más de mil genes, mientras que el Y",
+  "motivo": "En Calvo pág. 308 figura «más de 1.000 genes» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Uso de 'un coma': un coma | n= 4",
+  "veredicto": "real",
+  "buscar": "relativamente frecuente en varones, un cada un coma cero cero cero nacidos vivos, y se caracteriza",
+  "reemplazar": "relativamente frecuente en varones, uno cada mil nacidos vivos, y se caracteriza",
+  "motivo": "En Calvo pág. 319 figura «1 cada 1.000 nacidos vivos» (corrige también «un cada» → «uno cada»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cinco coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "Su frecuencia es de un cada cinco coma cero cero cero niñas nacidas vivas.",
+  "reemplazar": "Su frecuencia es de uno cada cinco mil niñas nacidas vivas.",
+  "motivo": "En Calvo pág. 319 figura «1 cada 5.000 niñas nacidas vivas» (corrige millar y «un cada» → «uno cada»)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: veinte coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "actualmente este valor se estima que estaría entre veinte coma cero cero cero y",
+  "reemplazar": "actualmente este valor se estima que estaría entre veinte mil y",
+  "motivo": "En Calvo pág. 321 figura «entre 20.000 y 40.000» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cuarenta coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "cuarenta coma cero cero cero, sin tener en cuenta los datos del Proyecto encode",
+  "reemplazar": "cuarenta mil, sin tener en cuenta los datos del Proyecto encode",
+  "motivo": "En Calvo pág. 321 figura «entre 20.000 y 40.000» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cincuenta coma cero cero cero | n= 1",
+  "veredicto": "real",
+  "buscar": "En total hay unas cuatrocientos cincuenta coma cero cero cero copias que ocupan",
+  "reemplazar": "En total hay unas cuatrocientos cincuenta mil copias que ocupan",
+  "motivo": "En Calvo pág. 324 figura «450.000 copias» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: tres coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "donde el genoma nuclear haploide tiene unos tres coma cero cero cero millones de nucleótidos,",
+  "reemplazar": "donde el genoma nuclear haploide tiene unos tres mil millones de nucleótidos,",
+  "motivo": "En Calvo pág. 328 figura «unos 3.000 millones de nucleótidos» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_07_Biologia_Celular",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: tres coma cero cero cero | n= 2",
+  "veredicto": "real",
+  "buscar": "en cada ciclo de replicación surgieran tres coma cero cero cero errores, algo inaceptable.",
+  "reemplazar": "en cada ciclo de replicación surgieran tres mil errores, algo inaceptable.",
+  "motivo": "En Calvo pág. 328 figura «3.000 errores» (punto de miles)."
+ },
+ {
+  "capitulo": "Tema_16_Biologia_Celular",
+  "revision": 3,
+  "hallazgo": "- Crédito: iento. B. Imagen de T A C de un paciente con carcin | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "B. Imagen de T A C de un paciente con carcinoma renal de células claras",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el pie descriptivo de la figura 16-18 B (Calvo pág. 691), no un crédito de imagen."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: ejercicios de aplicación | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "acompañados de ejemplos prácticos y culminando con ejercicios de aplicación;",
+  "reemplazar": null,
+  "motivo": "Falso positivo: pertenece a la presentación didáctica del libro (EdS pág. IX), no a una sección de autoevaluación."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: uno coma seis nueve ocho | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a uno más tres coma tres por uno coma seis nueve ocho nueve",
+  "reemplazar": null,
+  "motivo": "Falso positivo: en EdS pág. 111 es el decimal 1,6989 (logaritmo de 50), no un millar."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cinco coma seis cero seis | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a uno más cinco coma seis cero seis tres siete",
+  "reemplazar": null,
+  "motivo": "Falso positivo: en EdS pág. 111 es el decimal 5,60637 (3,3 × 1,6989), no un millar."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: seis coma seis cero seis | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "m igual a seis coma seis cero seis tres siete",
+  "reemplazar": null,
+  "motivo": "Falso positivo: en EdS pág. 111 es el decimal 6,60637, no un millar."
+ },
+ {
+  "capitulo": "EdS_Parte3_1",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cuatro coma dos ocho cinco | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "C igual a cuatro coma dos ocho cinco siete minutos, aproximadamente.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: en EdS pág. 112 es el decimal 4,2857... (30/7), no un millar."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: uno coma siete cinco tres | n= 0",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo (n=0 en contexto): proviene del decimal 1,75 (posición 7/4 de Q1 en EdS pág. 163) seguido del número de paso 3."
+ },
+ {
+  "capitulo": "EdS_Parte3_2",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: ocho coma siete cinco dos | n= 0",
+  "veredicto": "falso_positivo",
+  "buscar": null,
+  "reemplazar": null,
+  "motivo": "Falso positivo (n=0 en contexto): proviene del decimal 8,75 (1×35/4 en EdS pág. 165) seguido del número de paso 2."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero uno | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres coma cinco, tres coma seis, menos cero coma uno, menos cero coma cero cero uno.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal -0,001 en las tablas 36 y 37 (EdS págs. 187 y 189)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma siete dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma siete dos nueve.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,729 (y -0,729) en la tabla 36 (EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma dos uno seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma dos uno seis.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,216 (y -0,216) en la tabla 36 (EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero dos siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, menos cero coma cero dos siete.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal -0,027 en la tabla 36 (EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero seis cuatro | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "siete: cuatro coma cero, tres coma seis, cero coma cuatro, cero coma cero seis cuatro.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,064 en la tabla 36 (EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero tres seis | n= 3",
+  "veredicto": "falso_positivo",
+  "buscar": "igual a cero coma cero tres seis sobre, siete por cero coma seis al cubo,",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,036 (total de tabla 36 y fórmula de Fisher, EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero uno siete | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "dividido entre dos coma cero uno igual a cero coma cero uno siete nueve",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,0179 (coeficiente de asimetría de Fisher, EdS pág. 187)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma seis cinco seis | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "dos: cuatro coma cinco, tres coma seis, cero coma nueve, cero coma seis cinco seis uno.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,6561 en la tabla 37 (EdS pág. 189)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma uno dos nueve | n= 2",
+  "veredicto": "falso_positivo",
+  "buscar": "tres: cuatro coma dos, tres coma seis, cero coma seis, cero coma uno dos nueve seis.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,1296 en la tabla 37 (EdS pág. 189)."
+ },
+ {
+  "capitulo": "EdS_Parte3_3",
+  "revision": 6,
+  "hallazgo": "- Miles como decimal: cero coma cero cero ocho | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "seis: tres coma tres, tres coma seis, menos cero coma tres, cero coma cero cero ocho uno.",
+  "reemplazar": null,
+  "motivo": "Falso positivo: es el decimal 0,0081 en la tabla 37 (EdS pág. 189)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 2",
+  "veredicto": "real",
+  "buscar": "CAPÍTULO veintiuno Los sistemas linfático e inmunitario Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior:",
+  "reemplazar": "",
+  "motivo": "Encabezado de página y cabecera de autoevaluación en Saladin pág. 843; debe quitarse junto con las preguntas 21-23 (la 23 queda truncada en el contexto)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 2",
+  "veredicto": "real",
+  "buscar": "veintiuno. ¿Cuál es la diferencia entre un linfocito B y una célula plasmática?",
+  "reemplazar": "",
+  "motivo": "Pregunta 21 del bloque «Antes de proseguir» (Saladin pág. 843); las preguntas de repaso no van al audio."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 2",
+  "veredicto": "real",
+  "buscar": "veintidós. Describa cuatro maneras en que un anticuerpo actúa contra un antígeno.",
+  "reemplazar": "",
+  "motivo": "Pregunta 22 del bloque «Antes de proseguir» (Saladin pág. 843); la pregunta 23 siguiente queda fuera del contexto y también debe quitarse."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Antes de proseguir | n= 2",
+  "veredicto": "real",
+  "buscar": "en la página mil ciento veintiocho. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior:",
+  "reemplazar": "en la página mil ciento veintiocho.",
+  "motivo": "Cabecera de autoevaluación «Antes de proseguir» en Saladin pág. 847."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Autoevaluación: Responda las siguientes preguntas | n= 2",
+  "veredicto": "real",
+  "buscar": "veinticuatro. ¿Cuál es la diferencia entre las hipersensitividades subaguda y aguda? Proporcione un ejemplo de cada una.",
+  "reemplazar": "",
+  "motivo": "Pregunta 24 del bloque «Antes de proseguir» (Saladin pág. 847); las preguntas 25-28 quedan truncadas fuera del contexto y también deben quitarse."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . quince para igual a al lado de; krin igual a segregar. | n= 1",
+  "veredicto": "real",
+  "buscar": "Entre éstas catorce cito igual a célula; kin igual a mover. quince para igual a al lado de; krin igual a segregar.",
+  "reemplazar": "Entre éstas",
+  "motivo": "Notas al pie etimológicas 14 y 15 incrustadas en medio de una oración (Saladin pág. 828)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . quince para igual a al lado de; krin igual a segregar. | n= 1",
+  "veredicto": "real",
+  "buscar": " dieciséis auto igual a que actúa sobre sí mismo; krin igual a segregar.",
+  "reemplazar": "",
+  "motivo": "Nota al pie etimológica 16 contigua a las notas 14 y 15 (Saladin pág. 828)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . diecisiete dia igual a a través de; peda igual a saltar; sis igual a a... | n= 1",
+  "veredicto": "real",
+  "buscar": "antes. diecisiete dia igual a a través de; peda igual a saltar; sis igual a acción. dieciocho extra igual a fuera de; uas igual a vaso.",
+  "reemplazar": "antes.",
+  "motivo": "Notas al pie etimológicas 17 y 18 leídas dentro del cuerpo (Saladin pág. 829)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 4,
+  "hallazgo": "- Nota al pie leída: . veinte immuno igual a libre, sin obligación. | n= 1",
+  "veredicto": "real",
+  "buscar": "en ocasiones sólo lo diecinueve ab igual a a partir de; sces, de cedere, igual a ir. veinte immuno igual a libre, sin obligación.",
+  "reemplazar": "en ocasiones sólo lo",
+  "motivo": "Notas al pie etimológicas 19 y 20 incrustadas en medio de la oración (Saladin pág. 830); conviene retirar también el encabezado de página que las sigue."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi lo | n= 10",
+  "veredicto": "real",
+  "buscar": "explosión respiratoria: el neutrófi lo absorbe oxígeno con rapidez y lo reduce a aniones",
+  "reemplazar": "explosión respiratoria: el neutrófilo absorbe oxígeno con rapidez y lo reduce a aniones",
+  "motivo": "Ligadura «fi» partida en «neutrófilo» (Saladin pág. 823)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi lo | n= 10",
+  "veredicto": "real",
+  "buscar": "forman una zona de la muerte química alrededor del neutrófi lo que destruye muchas bacterias",
+  "reemplazar": "forman una zona de la muerte química alrededor del neutrófilo que destruye muchas bacterias",
+  "motivo": "Ligadura «fi» partida en «neutrófilo» (Saladin pág. 823)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 3",
+  "veredicto": "real",
+  "buscar": "La C3a estimula a mastocitos y basófi los para que secreten histamina y otras sustancias",
+  "reemplazar": "La C3a estimula a mastocitos y basófilos para que secreten histamina y otras sustancias",
+  "motivo": "Ligadura «fi» partida en «basófilos» (Saladin pág. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: basófi los | n= 3",
+  "veredicto": "real",
+  "buscar": "leucotrienos y otras citocinas secretadas por basófi los, mastocitos y células dañadas",
+  "reemplazar": "leucotrienos y otras citocinas secretadas por basófilos, mastocitos y células dañadas",
+  "motivo": "Ligadura «fi» partida en «basófilos» (Saladin pág. 829)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 8",
+  "veredicto": "real",
+  "buscar": "tres. Fagocitosis. Los neutrófi los y los macrófagos fagocitan bacterias, virus y otros patógenos.",
+  "reemplazar": "tres. Fagocitosis. Los neutrófilos y los macrófagos fagocitan bacterias, virus y otros patógenos.",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. 824)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 8",
+  "veredicto": "real",
+  "buscar": "A medida que los neutrófi los y los macrófagos atacan a esos patógenos, secretan varios polipéptidos",
+  "reemplazar": "A medida que los neutrófilos y los macrófagos atacan a esos patógenos, secretan varios polipéptidos",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: neutrófi los | n= 8",
+  "veredicto": "real",
+  "buscar": "A medida que encuentran bacterias, los neutrófi los las fagocitan y digieren con avidez,",
+  "reemplazar": "A medida que encuentran bacterias, los neutrófilos las fagocitan y digieren con avidez,",
+  "motivo": "Ligadura «fi» partida en «neutrófilos» (Saladin pág. 829, visible en el contexto de Rev. 4)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 14",
+  "veredicto": "real",
+  "buscar": "no hay un criterio exacto para lo que constituye una fi ebre, una temperatura que es febril",
+  "reemplazar": "no hay un criterio exacto para lo que constituye una fiebre, una temperatura que es febril",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 14",
+  "veredicto": "real",
+  "buscar": "Suele considerarse que la fi ebre es un efecto secundario indeseable de la enfermedad,",
+  "reemplazar": "Suele considerarse que la fiebre es un efecto secundario indeseable de la enfermedad,",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 14",
+  "veredicto": "real",
+  "buscar": "Los pirógenos exógenos11, agentes productores de fi ebre, como los glucolípidos",
+  "reemplazar": "Los pirógenos exógenos, agentes productores de fiebre, como los glucolípidos",
+  "motivo": "Ligadura «fi» partida en «fiebre» y llamada de nota al pie «11» pegada a «exógenos» (Saladin pág. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi ebre | n= 14",
+  "veredicto": "real",
+  "buscar": "de superficie de bacterias y virus, suelen ser los responsables de iniciar la fi ebre.",
+  "reemplazar": "de superficie de bacterias y virus, suelen ser los responsables de iniciar la fiebre.",
+  "motivo": "Ligadura «fi» partida en «fiebre» (Saladin pág. 826)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi broblastos | n= 1",
+  "veredicto": "real",
+  "buscar": "un agente que estimula a los fi broblastos para que se multipliquen y sinteticen colágeno.",
+  "reemplazar": "un agente que estimula a los fibroblastos para que se multipliquen y sinteticen colágeno.",
+  "motivo": "Ligadura «fi» partida en «fibroblastos» (Saladin pág. 830)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: específi co | n= 1",
+  "veredicto": "real",
+  "buscar": "un. Especificidad. La inmunidad se dirige contra un patógeno específi co. La inmunidad ante un patógeno",
+  "reemplazar": "un. Especificidad. La inmunidad se dirige contra un patógeno específico. La inmunidad ante un patógeno",
+  "motivo": "Ligadura «fi» partida en «específico» (Saladin pág. 830)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: inespecífi cas | n= 2",
+  "veredicto": "real",
+  "buscar": "el tiempo de reacción para la inflamación y otras enfermedades inespecífi cas es igual de largo",
+  "reemplazar": "el tiempo de reacción para la inflamación y otras enfermedades inespecíficas es igual de largo",
+  "motivo": "Ligadura «fi» partida en «inespecíficas» (Saladin pág. 830)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: inespecífi cas | n= 2",
+  "veredicto": "real",
+  "buscar": "El resultado es una mezcla de respuestas inespecífi cas e inmunitarias. Las reacciones de tipo IV",
+  "reemplazar": "El resultado es una mezcla de respuestas inespecíficas e inmunitarias. Las reacciones de tipo IV",
+  "motivo": "Ligadura «fi» partida en «inespecíficas» (Saladin pág. 844)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarse | n= 2",
+  "veredicto": "real",
+  "buscar": "por sí solo puede estimular una respuesta inmunitaria sin necesidad de fi jarse a una molécula anfitriona.",
+  "reemplazar": "por sí solo puede estimular una respuesta inmunitaria sin necesidad de fijarse a una molécula anfitriona.",
+  "motivo": "Ligadura «fi» partida en «fijarse» (Saladin pág. 832)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: fi jarse | n= 2",
+  "veredicto": "real",
+  "buscar": "por consiguiente, puede fi jarse a moléculas de antígeno de dos o más células enemigas a la vez",
+  "reemplazar": "por consiguiente, puede fijarse a moléculas de antígeno de dos o más células enemigas a la vez",
+  "motivo": "Ligadura «fi» partida en «fijarse» (Saladin pág. 840)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: anafi láctico | n= 3",
+  "veredicto": "real",
+  "buscar": "Esto puede causar muerte debido a choque anafi láctico. Linfocitos Las principales células",
+  "reemplazar": "Esto puede causar muerte debido a choque anafiláctico. Linfocitos Las principales células",
+  "motivo": "Ligadura «fi» partida en «anafiláctico» (Saladin pág. 832)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: anafi láctico | n= 3",
+  "veredicto": "real",
+  "buscar": "El choque anafi láctico es una hipersensitividad aguda, grave y extendida que se presenta",
+  "reemplazar": "El choque anafiláctico es una hipersensitividad aguda, grave y extendida que se presenta",
+  "motivo": "Ligadura «fi» partida en «anafiláctico» (Saladin pág. 843)."
+ },
+ {
+  "capitulo": "Tema_21_Morfo_Saladin",
+  "revision": 8,
+  "hallazgo": "- Ligadura partida: específi cas | n= 3",
+  "veredicto": "real",
+  "buscar": "ahora pueden revisarse características más específi cas de las inmunidades celular y humoral.",
+  "reemplazar": "ahora pueden revisarse características más específicas de las inmunidades celular y humoral.",
+  "motivo": "Ligadura «fi» partida en «específicas» (Saladin pág. 833)."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 3,
+  "hallazgo": "- Crédito: senta una ilustración de la ley de Henry y tiene efect | n= 1",
+  "veredicto": "falso_positivo",
+  "buscar": "Esto representa una ilustración de la ley de Henry y tiene efectos importantes en el buceo,",
+  "reemplazar": null,
+  "motivo": "Falso positivo: «ilustración» significa ejemplo/demostración en el pie de la figura 22.21 (Saladin pág. 881), no un crédito de imagen."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '×': nientos × doce ig | n= 1",
+  "veredicto": "real",
+  "buscar": "el M R V es quinientos × doce igual a seis cero mililitros o min.",
+  "reemplazar": "el M R V es quinientos por doce igual a seis mil mililitros por minuto.",
+  "motivo": "En Saladin pág. 876 figura «500 × 12 = 6 000 ml/min»; corrige «×», el millar truncado («seis cero» → «seis mil») y la unidad «o min» → «por minuto»."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '×': ho seis × setecie | n= 1",
+  "veredicto": "real",
+  "buscar": "entonces PN2 es cero coma siete ocho seis × setecientos sesenta milímetros de mercurio",
+  "reemplazar": "entonces P N dos es cero coma siete ocho seis por setecientos sesenta milímetros de mercurio",
+  "motivo": "En Saladin pág. 877 figura «PN2 es 0.786 × 760 mmHg»; pasa «×» y la fórmula «PN2» a palabras."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolos '+' y '≈' en ley de Dalton (7 hallazgos en la misma ecuación: PN2 + PO2 + PH2O + PCO2 ≈ 597 + 159 + 3,7 + 0,3)",
+  "veredicto": "real",
+  "buscar": "en el párrafo anterior, PN2 + PO2 + PH2O + PCO2 ≈ quinientos noventa y siete + ciento cincuenta y nueve + tres coma siete + cero coma tres",
+  "reemplazar": "en el párrafo anterior, P N dos más P O dos más P H dos O más P C O dos aproximadamente igual a quinientos noventa y siete más ciento cincuenta y nueve más tres coma siete más cero coma tres",
+  "motivo": "En Saladin pág. 878 figura «PN2 + PO2 + PH2O + PCO2 ≈ 597 + 159 + 3.7 + 0.3»; convierte los 6 signos «+», «≈» y las fórmulas a palabras en un solo reemplazo."
+ },
+ {
+  "capitulo": "Tema_22_Morfo_Saladin",
+  "revision": 6,
+  "hallazgo": "- Símbolo '+': no: CO2 + H2O → H | n= 1",
+  "veredicto": "real",
+  "buscar": "que luego se disocia en bicarbonato y iones hidrógeno: CO2 + H2O → H2CO3 → HCO3 + hidrógeno Más adelante",
+  "reemplazar": "que luego se disocia en bicarbonato y iones hidrógeno: C O dos más H dos O produce H dos C O tres, que produce H C O tres más hidrógeno. Más adelante",
+  "motivo": "En Saladin pág. 882 figura «CO2 + H2O → H2CO3 → HCO3 + H+»; convierte «+», «→» y las fórmulas químicas a palabras."
+ }
+]

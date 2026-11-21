@@ -1,0 +1,1024 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO tres Estructura de la membrana plasmática Objetivos"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "era empleado en anatomía e histología para designar a las lá"
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La envoltura encargada de esta tarea es una membrana biológi"
+  },
+  {
+    "j": 4,
+    "accion": "REUSAR",
+    "origen": "parte_004.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El análisis bioquímico y ultraestructural de las membranas b"
+  },
+  {
+    "j": 5,
+    "accion": "REUSAR",
+    "origen": "parte_005.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Otros de los procesos que tienen lugar en las membranas son:"
+  },
+  {
+    "j": 6,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Asimismo, se hará corresponder la estructura con la función "
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "membrana plasmática solo es posible gracias a la microscopía"
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En mil ochocientos noventa y cinco, presumió la existencia d"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a un Desarrollo histórico del modelo estructural"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este experimento condujo a la conclusión de que la membrana "
+  },
+  {
+    "j": 11,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "dos una mayor permeabilidad a las moléculas hidrosolubles. E"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La biología celular pudo finalmente comprobar la existencia "
+  },
+  {
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Él mismo fue quien hizo corresponder el espacio menos teñido"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "obtenidos durante la década de los sesenta. Entre los hechos"
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla tres a un Contenido en lípidos, proteínas y glúcidos d"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este método, primero se congelan las células y, después, "
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "También se observó que la superficie de ambas monocapas pres"
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a dos A. Representación esquemática de la parte "
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La denominación de este modelo de mosaico fluido hace alusió"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la misma década, este modelo se reforzó al ponerse de man"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a tres Esquema de la membrana según el modelo de"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, el armazón básico de las membranas biológicas "
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Lípidos de membrana Bicapa lipídica Los lípidos de membrana "
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "decir que son compuestos dotados de una parte polar e hidróf"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "envuelve, mientras que las partes hidrófobas se ven forzadas"
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su formación tiene lugar fácilmente cuando las unidades lipí"
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a cuatro Agregados de lípidos. Las moléculas lip"
+  },
+  {
+    "j": 28,
+    "accion": "REUSAR",
+    "origen": "parte_029.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La bicapa lipídica presenta dos propiedades fundamentales re"
+  },
+  {
+    "j": 29,
+    "accion": "REUSAR",
+    "origen": "parte_030.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Además, el sistema inmunitario, a través de las proteínas de"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "lipídica están aún en contacto con el agua. Este inconvenien"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La formulación de ciertos agentes terapéuticos en liposomas "
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La posibilidad de emplear liposomas con ligandos específicos"
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a seis A. Lípidos de membrana: glicerofosfolípid"
+  },
+  {
+    "j": 34,
+    "accion": "REUSAR",
+    "origen": "parte_035.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este hecho es el principal condicionante de que el grosor de"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto hace que, a nivel de la insaturación, la cadena sufra u"
+  },
+  {
+    "j": 36,
+    "accion": "REUSAR",
+    "origen": "parte_037.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los ácidos grasos insaturados más frecuentes son los ácidos "
+  },
+  {
+    "j": 37,
+    "accion": "REUSAR",
+    "origen": "parte_038.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En este compuesto, los grupos hidroxilo primero y segundo de"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ácido fosfórico. El ácido fosfatídico actúa de precursor a p"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las membranas mitocondrial interna y bacteriana es posibl"
+  },
+  {
+    "j": 40,
+    "accion": "REUSAR",
+    "origen": "parte_041.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esfingolípidos Los esfingolípidos tienen una estructura anál"
+  },
+  {
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Es posible distinguir dos clases de esfingolípidos, según el"
+  },
+  {
+    "j": 42,
+    "accion": "REUSAR",
+    "origen": "parte_043.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La vaina de mielina, con un cociente proteína o lípido de ce"
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La pérdida de la mielina hace más lenta e, incluso, interrum"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "del C-un de la ceramida. Los osoesfingolípidos se subdividen"
+  },
+  {
+    "j": 45,
+    "accion": "REUSAR",
+    "origen": "parte_046.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Hasta ahora, se han identificado más de cuarenta gangliósido"
+  },
+  {
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Algunos osoesfingolípidos son puntos de entrada de ciertos p"
+  },
+  {
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pertenecen al grupo de los esteroides, con entre veintisiete"
+  },
+  {
+    "j": 48,
+    "accion": "REUSAR",
+    "origen": "parte_049.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En células eucariotas de plantas y hongos predominan los est"
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a siete Estructura esquemática del colesterol, u"
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una de las más importantes, ya señalada en el modelo de Sing"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las difusiones lateral y transbicapa se produce el interc"
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "mismas condiciones experimentales es extremadamente lento, s"
+  },
+  {
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Agentes que influyen en la fluidez de la membrana Las membra"
+  },
+  {
+    "j": 54,
+    "accion": "REUSAR",
+    "origen": "parte_055.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Para que una membrana desempeñe su función normal, tiene que"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "○ Tipo de ácidos grasos. Dos son las características de los "
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una menor longitud de cadena reduce la tendencia de interacc"
+  },
+  {
+    "j": 57,
+    "accion": "REUSAR",
+    "origen": "parte_058.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En esta posición, el anillo esteroide, plano y rígido, inmov"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dicho de otro modo, en términos de Tm: el colesterol ejerce "
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aquellos que tienen grupos acilo saturados de cadena larga, "
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a diez Distribución de las moléculas de colester"
+  },
+  {
+    "j": 61,
+    "accion": "REUSAR",
+    "origen": "parte_062.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "De hecho, la membrana luminal de las células epiteliales de "
+  },
+  {
+    "j": 62,
+    "accion": "REUSAR",
+    "origen": "parte_063.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esta capacidad de mantener la fluidez de la membrana relativ"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La alteración de la fluidez de la membrana del eritrocito co"
+  },
+  {
+    "j": 64,
+    "accion": "REUSAR",
+    "origen": "parte_065.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La acantocitosis puede darse en una gran variedad de situaci"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a once A. Frotis de sangre periférica en el que "
+  },
+  {
+    "j": 66,
+    "accion": "REUSAR",
+    "origen": "parte_067.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "No obstante, se piensa que comparten una fisiopatología comú"
+  },
+  {
+    "j": 67,
+    "accion": "REUSAR",
+    "origen": "parte_068.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por su parte, esta alteración de la composición lipídica en "
+  },
+  {
+    "j": 68,
+    "accion": "REUSAR",
+    "origen": "parte_069.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "inducen apoptosis por vía mitocondrial. La mitocondria es un"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De acuerdo con estos resultados, fármacos como las estatinas"
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por su parte, en la hemimembrana P residen las moléculas lip"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La asimetría de la bicapa lipídica se remonta a la síntesis "
+  },
+  {
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a trece Biosíntesis de los componentes lipídicos"
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La distribución equitativa entre las dos monocapas de los lí"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De esta tarea se encarga la flipasa, otra translocasa que ca"
+  },
+  {
+    "j": 75,
+    "accion": "REUSAR",
+    "origen": "parte_076.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En primer lugar, la concentración de la fosfatidilserina en "
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_077.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "capítulo trece,. En los animales, la localización de la fosf"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La exposición de fosfatidilserina en la monocapa externa es "
+  },
+  {
+    "j": 78,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Balsas lipídicas Hace unos años se descubrió que, además de "
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a catorce Representación de un microdominio o ba"
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "la hemimembrana E se caracterizan por el predominio de esfin"
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "parecen comportarse como una balsa fluida, pero ordenada, qu"
+  },
+  {
+    "j": 82,
+    "accion": "REUSAR",
+    "origen": "parte_083.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "notablemente la probabilidad de interacción. Los receptores "
+  },
+  {
+    "j": 83,
+    "accion": "REUSAR",
+    "origen": "parte_084.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Además, por la elevada concentración de osoesfingolípidos y "
+  },
+  {
+    "j": 84,
+    "accion": "REUSAR",
+    "origen": "parte_085.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las caveolinas son proteínas de unión al colesterol y se con"
+  },
+  {
+    "j": 85,
+    "accion": "REUSAR",
+    "origen": "parte_086.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El mosaico proteico Las proteínas, normalmente, suponen un c"
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La cantidad y el tipo de proteínas de membrana son muy varia"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "de solubilidad muy variable que depende, fundamentalmente, d"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De forma indirecta, este hecho experimental refleja el grado"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a quince Criterio clásico de clasificación de la"
+  },
+  {
+    "j": 90,
+    "accion": "REUSAR",
+    "origen": "parte_090.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por lo tanto, son difíciles de aislar por técnicas estándar "
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Poseen una o varias porciones hidrófobas que se sitúan en el"
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas pueden ser de paso único o múltiple en funci"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "un, proteína integral de paso único con un segmento transmem"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La manera en que una proteína integral se asocia a la bicapa"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un motivo estructural común a muchas proteínas transmembrana"
+  },
+  {
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro motivo estructural frecuente es el barril beta o barril"
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Es más, uno de los mecanismos por los que las bacterias pued"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A diferencia de las proteínas integrales, las proteínas peri"
+  },
+  {
+    "j": 99,
+    "accion": "REUSAR",
+    "origen": "parte_099.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Estas proteínas se encuentran unidas covalentemente a molécu"
+  },
+  {
+    "j": 100,
+    "accion": "REUSAR",
+    "origen": "parte_100.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por otro lado, y en consonancia con las proteínas periférica"
+  },
+  {
+    "j": 101,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas ancladas a lípidos, encontradas tanto en la mo"
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Muchas de estas proteínas actúan como enzimas. Tal es el cas"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Son traducidas en el retículo endoplasmático rugoso, R E R, "
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas de unión a G P I son especialmente frecuentes "
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Este gen está implicado en la síntesis de G P I, de modo que"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Su función es la de proteger a los eritrocitos de la hemólis"
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo tanto, su déficit favorece que los pacientes presente"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "nombre, pero no la única ni la más grave. El déficit de otra"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En parte, este hecho se debe a: un, la facilidad con la que "
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Basta con provocar hemólisis a través de la exposición a un "
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El estudio de las proteínas de la membrana del eritrocito me"
+  },
+  {
+    "j": 112,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se orienta en la bicapa de manera que su extremo hidrófilo c"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a diecisiete A. Dibujo de la membrana plasmática"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este caso, los dominios Ny C-terminales están orientados "
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "hecho, del total de CO2 que viaja en sangre, el sistema band"
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Entre ellas, cabe destacar la espectrina, la anquirina, la p"
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A su vez, dos de estos dímeros se asocian por sus extremos p"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Dibujo de la estructura de una molécula de espectrina. Se tr"
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El resultado es un retículo de citoesqueleto deformable y el"
+  },
+  {
+    "j": 120,
+    "accion": "REUSAR",
+    "origen": "parte_122.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "citoesqueleto a la membrana. En este caso, los principales p"
+  },
+  {
+    "j": 121,
+    "accion": "REUSAR",
+    "origen": "parte_123.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "De forma general, esta red citosólica recibe el nombre de có"
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La esferocitosis hereditaria o enfermedad de Minkowski-Chauf"
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La transformación esferocítica es el resultado de un fallo e"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA tres a diecinueve A. Frotis de sangre periférica de u"
+  },
+  {
+    "j": 125,
+    "accion": "REUSAR",
+    "origen": "parte_127.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "De este hecho fisiopatológico se deduce que el bazo tiene un"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Es una membranopatía menos frecuente que la esferocitosis y "
+  },
+  {
+    "j": 127,
+    "accion": "REUSAR",
+    "origen": "parte_129.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Es por eso por lo que hasta el noventa por ciento de los pac"
+  },
+  {
+    "j": 128,
+    "accion": "REUSAR",
+    "origen": "parte_130.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "deformabilidad y su elasticidad,. En aquellos casos en los q"
+  },
+  {
+    "j": 129,
+    "accion": "REUSAR",
+    "origen": "parte_131.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunas proteínas de membrana pueden realizar movimientos de"
+  },
+  {
+    "j": 130,
+    "accion": "REUSAR",
+    "origen": "parte_132.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Esto quiere decir que, dada una proteína determinada, sus do"
+  },
+  {
+    "j": 131,
+    "accion": "REUSAR",
+    "origen": "parte_133.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En parte, esta afirmación se relaciona con las balsas lipídi"
+  },
+  {
+    "j": 132,
+    "accion": "REUSAR",
+    "origen": "parte_134.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Suelen ser tipos celulares altamente especializados, pero ta"
+  },
+  {
+    "j": 133,
+    "accion": "REUSAR",
+    "origen": "parte_135.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Uno de los más simples consiste en la formación de agregados"
+  },
+  {
+    "j": 134,
+    "accion": "REUSAR",
+    "origen": "parte_136.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En muchas ocasiones, se establecen auténticas barreras de se"
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La cubierta de glúcidos: estructura y función del glucocáliz"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Con independencia del número y la longitud de la cadena de m"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "mecánicas, manteniendo los cuerpos extraños y la superficie "
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "una célula con la matriz. Reconocimiento y fijación de moléc"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la mayoría de los tipos celulares, el glucocáliz forma un"
+  },
+  {
+    "j": 140,
+    "accion": "REUSAR",
+    "origen": "parte_142.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El glucocáliz del enterocito posee enzimas que participan en"
+  },
+  {
+    "j": 141,
+    "accion": "REUSAR",
+    "origen": "parte_143.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este virus expresa en su superficie la hemaglutinina, una gl"
+  },
+  {
+    "j": 142,
+    "accion": "REUSAR",
+    "origen": "parte_144.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Ciertos glucolípidos y glucoproteínas del glucocáliz permite"
+  },
+  {
+    "j": 143,
+    "accion": "REUSAR",
+    "origen": "parte_145.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La zona pelúcida es una capa de glucoproteínas que rodea al "
+  },
+  {
+    "j": 144,
+    "accion": "REUSAR",
+    "origen": "parte_146.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por lo mismo, la destrucción de la ZP3 después de la entrada"
+  },
+  {
+    "j": 145,
+    "accion": "REUSAR",
+    "origen": "parte_147.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "permitan abandonar el tumor en el que se originó y migrar ha"
+  },
+  {
+    "j": 146,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ello, las células cancerosas sacan un doble partido de l"
+  }
+]

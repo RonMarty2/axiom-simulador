@@ -3,7 +3,7 @@
 - **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\PSA_2027_FUENTES\audio_eds\EdS_Parte3_3_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
 - **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\EdS_texto_paginas.txt"
-- **Fecha:** 2026-11-19 08:26:00
+- **Fecha:** 2026-11-21 11:34:08
 - **Veredicto final:** **FALLA** (revisiones con fallas: 1, 2, 6)
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
@@ -13,7 +13,7 @@
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | APRUEBA | 0 / 1183 palabras | — |
 | 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 1183 palabras | — |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 1183 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |
-| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 25 / 1183 palabras | Miles como decimal: cero coma cero cero uno; Miles como decimal: cero coma siete dos nueve; Miles como decimal: cero coma dos uno seis (+7 más en Detalle) |
+| 6 | Símbolos, iones, fórmulas, unidades, griegas, miles | texto | FALLA | 3 / 1183 palabras | Miles como decimal: uno coma dos cero ocho; Miles como decimal: uno coma siete nueve dos |
 | 7 | Siglas, números de sección y títulos en su línea | texto | APRUEBA | 0 / 1183 palabras | — |
 | 8 | Palabras partidas y ligaduras | texto | APRUEBA | 0 / 1183 palabras | — |
 | 9 | Audio = texto (Whisper pista entera) | audio | sin revisar | sin revisar (No se pasó audio) | sin revisar |
@@ -46,14 +46,6 @@
 - PDF#21 (0.0%): la función “Análisis de datos” se debe generar la base de datos,
 - PDF#22 (0.0%): o característica que se está estudiando y facilitar la toma de decisio-
 
-### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (25 fallas / 1183 palabras)
-- Miles como decimal: cero coma cero cero uno
-- Miles como decimal: cero coma siete dos nueve
-- Miles como decimal: cero coma dos uno seis
-- Miles como decimal: cero coma cero dos siete
-- Miles como decimal: cero coma cero seis cuatro
-- Miles como decimal: cero coma cero tres seis
-- Miles como decimal: cero coma cero uno siete
-- Miles como decimal: cero coma seis cinco seis
-- Miles como decimal: cero coma uno dos nueve
-- Miles como decimal: cero coma cero cero ocho
+### 6. Símbolos, iones, fórmulas, unidades, griegas, miles (3 fallas / 1183 palabras)
+- Miles como decimal: uno coma dos cero ocho
+- Miles como decimal: uno coma siete nueve dos

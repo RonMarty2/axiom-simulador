@@ -1,0 +1,38 @@
+[
+  {
+    "j": 57,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1071,
+    "texto_viejo": "CAPÍTULO veintisiete Aparato reproductor masculino Conducto deferente Cordón espermático Cabeza del epidídimo Cabeza del epidídimo Testículo cubierto por la túnica albugínea Cola del epidídimo Escroto , doblado hacia abajo, Conductillo eferente Conducto deferente Red testicular Cuerpo del epidídimo Cola del epidídimo a, b Cordón espermático Vasos sanguíneos y nervios Túbulo seminífero Lobulillo Tabique Túnica vaginal Túnica albugínea dos cm Células intersticiales Vaso sanguíneo Células germinales Célula de Sertoli Colas de espermatozoides a cincuenta μm Células intersticiales b Pared de tejido conjuntivo del túbulo Células germinales Luz del túbulo Núcleo de célula sustentacular Espermátides Túbulos seminíferos Vaso sanguíneo FIGURA veintisiete coma nueve Testículos y estructuras relacionadas.",
+    "texto_nuevo": "CAPÍTULO veintisiete Aparato reproductor masculino Conducto deferente Cordón espermático Cabeza del epidídimo Cabeza del epidídimo Testículo cubierto por la túnica albugínea Cola del epidídimo Escroto, doblado hacia abajo, Conductillo eferente Conducto deferente Red testicular Cuerpo del epidídimo Cola del epidídimo a b Cordón espermático Vasos sanguíneos y nervios Túbulo seminífero Lobulillo Tabique Túnica vaginal Túnica albugínea dos cm Células intersticiales Vaso sanguíneo Células germinales Célula de Sertoli Colas de espermatozoides a cincuenta micrómetros Células intersticiales b Pared de tejido conjuntivo del túbulo Células germinales Luz del túbulo Núcleo de célula sustentacular Espermátides Túbulos seminíferos Vaso sanguíneo FIGURA veintisiete punto nueve Testículos y estructuras relacionadas."
+  },
+  {
+    "j": 135,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9814,
+    "pagina": 1081,
+    "texto_viejo": "La cabeza, de ~cuatro a cinco μm de largo y tres μm de ancho en su parte más amplia, contiene tres estructuras: núcleo, acrosoma y cuerpo basal con un fl agelo. El más importante es el núcleo, que llena casi toda la cabeza y conCabeza Parte media de la cola Parte principal de la cola Extremo de la cola Acrosoma Núcleo Cuerpo basal Mitocondria Axonema a b dos μm FIGURA veintisiete coma un seis Espermiogénesis. En este proceso, las espermátides descartan el exceso de citoplasma, dan lugar a colas y se vuelven espermatozoides. FIGURA veintisiete coma un siete Espermatozoide maduro.",
+    "texto_nuevo": "La cabeza, de aproximadamente cuatro a cinco micrómetros de largo y tres micrómetros de ancho en su parte más amplia, contiene tres estructuras: núcleo, acrosoma y cuerpo basal con un flagelo. El más importante es el núcleo, que llena casi toda la cabeza y conCabeza Parte media de la cola Parte principal de la cola Extremo de la cola Acrosoma Núcleo Cuerpo basal Mitocondria Axonema a b dos micrómetros FIGURA veintisiete punto dieciséis Espermiogénesis. En este proceso, las espermátides descartan el exceso de citoplasma, dan lugar a colas y se vuelven espermatozoides. FIGURA veintisiete punto diecisiete Espermatozoide maduro."
+  },
+  {
+    "j": 138,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9639,
+    "pagina": 1082,
+    "texto_viejo": "La pieza media, un cilindro de cinco a nueve μm de largo y de la mitad de ancho que la cabeza, es la parte más gruesa. Contiene cuantiosas mitocondrias grandes que rodean de manera estrecha el axonema del fl agelo. Producen el A T P necesario para la agitación de la cola cuando el espermatozoide migra hacia arriba en el aparato reproductor femenino. La pieza principal, de cuarenta a cuarenta y cinco μm de largo, constituye la mayor parte de la cola y consta del axonema rodeado por una vaina de fi bras de soporte.",
+    "texto_nuevo": "La pieza media, un cilindro de cinco a nueve micrómetros de largo y de la mitad de ancho que la cabeza, es la parte más gruesa. Contiene cuantiosas mitocondrias grandes que rodean de manera estrecha el axonema del flagelo. Producen el A T P necesario para la agitación de la cola cuando el espermatozoide migra hacia arriba en el aparato reproductor femenino. La pieza principal, de cuarenta a cuarenta y cinco micrómetros de largo, constituye la mayor parte de la cola y consta del axonema rodeado por una vaina de fibras de soporte."
+  },
+  {
+    "j": 139,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1082,
+    "texto_viejo": "La pieza media, de cuatro a cinco μm de largo, sólo incluye el axonema y es la parte más estrecha del espermatozoide. El semen El líquido expelido durante el orgasmo recibe el nombre de semen31 , líquido seminal,. En una eyaculación típica se descargan dos a cinco ml de semen, compuesto por casi diez por ciento de espermatozoides y secreciones del conducto espermático, treinta por ciento de líquido prostático, sesenta por ciento de líquido de la vesícula seminal, y cantidades mínimas de líquido bulbouretral.",
+    "texto_nuevo": "La pieza media, de cuatro a cinco micrómetros de largo, sólo incluye el axonema y es la parte más estrecha del espermatozoide. El semen El líquido expelido durante el orgasmo recibe el nombre de semen, líquido seminal. En una eyaculación típica se descargan dos a cinco ml de semen, compuesto por casi diez por ciento de espermatozoides y secreciones del conducto espermático, treinta por ciento de líquido prostático, sesenta por ciento de líquido de la vesícula seminal, y cantidades mínimas de líquido bulbouretral."
+  }
+]

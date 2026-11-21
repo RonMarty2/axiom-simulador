@@ -1,0 +1,2099 @@
+[
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: la osteología,dos el estudi | n= 1",
+    "veredicto": "real",
+    "buscar": "tres capítulos es la osteología,dos el estudio de los huesos.",
+    "reemplazar": "tres capítulos es la osteología, el estudio de los huesos.",
+    "motivo": "Llamada de nota al pie 'dos' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: inada endostio,ocho recubre l | n= 1",
+    "veredicto": "real",
+    "buscar": "conjuntivo reticular, denominada endostio,ocho recubre la cavidad medular",
+    "reemplazar": "conjuntivo reticular, denominada endostio, recubre la cavidad medular",
+    "motivo": "Llamada de nota al pie 'ocho' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: po, o diáfisis,cuatro y una cab | n= 1",
+    "veredicto": "real",
+    "buscar": "un hueso largo son su cuerpo, o diáfisis,cuatro y una cabeza",
+    "reemplazar": "un hueso largo son su cuerpo, o diáfisis, y una cabeza",
+    "motivo": "Llamada de nota al pie 'cuatro' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o, la epífisis.cinco La diáfis | n= 1",
+    "veredicto": "real",
+    "buscar": "expandida en cada extremo, la epífisis.cinco La diáfisis proporciona",
+    "reemplazar": "expandida en cada extremo, la epífisis. La diáfisis proporciona",
+    "motivo": "Llamada de nota al pie 'cinco' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: nada periostio.seis Se trata | n= 1",
+    "veredicto": "real",
+    "buscar": "con una diáfisis denominada periostio.seis Se trata de una capa fibrosa",
+    "reemplazar": "con una diáfisis denominada periostio. Se trata de una capa fibrosa",
+    "motivo": "Llamada de nota al pie 'seis' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: a llama diploe.nueve Un golpe | n= 1",
+    "veredicto": "real",
+    "buscar": "esponjosa del cráneo se la llama diploe.nueve Un golpe moderado en el cráneo",
+    "reemplazar": "esponjosa del cráneo se la llama diploe. Un golpe moderado en el cráneo",
+    "motivo": "Llamada de nota al pie 'nueve' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: os canalículos.doce Cada oste | n= 1",
+    "veredicto": "real",
+    "buscar": "conductos delgados denominados canalículos.doce Cada osteocito tiene",
+    "reemplazar": "conductos delgados denominados canalículos. Cada osteocito tiene",
+    "motivo": "Llamada de nota al pie 'doce' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ,seis, o hache,dos,; diez po | n= 1",
+    "veredicto": "real",
+    "buscar": "sal de fosfato cálcico, Ca10, PO4,seis, o hache,dos,; diez por ciento carbonato cálcico, CaCO3,",
+    "reemplazar": "sal de fosfato cálcico, C a diez, P O cuatro seis, O H dos; diez por ciento carbonato cálcico, C a C O tres,",
+    "motivo": "Fórmulas químicas Ca10(PO4)6(OH)2 y CaCO3 mal convertidas con puntuación extra y dígitos."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: calcio, nueve.dos a diez.cu | n= 1",
+    "veredicto": "real",
+    "buscar": "Resorción en los riñones calcio, nueve.dos a ",
+    "reemplazar": "Resorción en los riñones calcio, nueve coma dos a ",
+    "motivo": "Rango numérico real (9,2 a 10,4 mg/100 mL) con punto decimal en vez de 'coma'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: eve.dos a diez.cuatro miligramo | n= 1",
+    "veredicto": "real",
+    "buscar": "diez.cuatro miligramos o cien mililitros, Sangre Depósito",
+    "reemplazar": "diez coma cuatro miligramos por cien mililitros, Sangre Depósito",
+    "motivo": "Punto decimal ('diez.cuatro') y barra convertida en 'o' en lugar de 'por'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ,seis, o hache,dos Carbonato | n= 1",
+    "veredicto": "real",
+    "buscar": "Hidroxiapatita Ca10, PO4,seis, o hache,dos Carbonato de calcio CaCO3 Hueso",
+    "reemplazar": "Hidroxiapatita C a diez, P O cuatro seis, O H dos. Carbonato de calcio C a C O tres. Hueso",
+    "motivo": "Fórmulas químicas Ca10(PO4)6(OH)2 y CaCO3 mal adaptadas para TTS."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dos osteo igual a hueso; logi igual a estudio de. | n= 1",
+    "veredicto": "real",
+    "buscar": "huesos en el un skeleto igual a desecado. dos osteo igual a hueso; logi igual a estudio de. tres os, osse, osteo igual a hueso.\n\nUna capa",
+    "reemplazar": "huesos en el\n\nUna capa",
+    "motivo": "Glosas etimológicas de notas al pie 1, 2 y 3 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cinco epi igual a arriba, sobre; physis igual a crecimiento. | n= 1",
+    "veredicto": "real",
+    "buscar": "en la diáfisis? cuatro dia igual a a través; physis igual a crecimiento; se le llamó así por una cresta en el cuerpo de la tibia. cinco epi igual a arriba, sobre; physis igual a crecimiento.",
+    "reemplazar": "en la diáfisis?",
+    "motivo": "Glosas etimológicas de notas al pie 4 y 5 incrustadas al final de página."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho endo igual a dentro; osteo igual a hueso. | n= 1",
+    "veredicto": "real",
+    "buscar": " seis peri igual a alrededor; osteo igual a hueso. siete William Sharpey, mil ochocientos dos a mil ochocientos ochenta, histólogo escocés. ocho endo igual a dentro; osteo igual a hueso.\n\nCAPÍTULO siete Tejido óseo pueden crecer",
+    "reemplazar": "\n\npueden crecer",
+    "motivo": "Notas al pie 6, 7 y 8 más encabezado de página 'CAPÍTULO siete Tejido óseo'."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez osteo igual a hueso; genic igual a producción. | n= 1",
+    "veredicto": "real",
+    "buscar": "osteoblastos en la superficie nueve di igual a dos; plo igual a multiplicado por. diez osteo igual a hueso; genic igual a producción.",
+    "reemplazar": "osteoblastos en la superficie",
+    "motivo": "Glosas etimológicas de notas al pie 9 y 10 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce canal igual a canal, conducto; culi igual a pequeño. | n= 1",
+    "veredicto": "real",
+    "buscar": " once osteo igual a hueso; blasto igual a forma, producción. doce canal igual a canal, conducto; culi igual a pequeño. Sutura Hueso compacto",
+    "reemplazar": " Sutura Hueso compacto",
+    "motivo": "Glosas etimológicas de notas al pie 11 y 12 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece osteo igual a hueso; klast igual a destruir. | n= 1",
+    "veredicto": "real",
+    "buscar": "glucoproteínas. trece osteo igual a hueso; klast igual a destruir. catorce J. Howship, mil setecientos ochenta y un a mil ochocientos cuarenta y un, cirujano inglés. Célula osteogénica",
+    "reemplazar": "glucoproteínas. Célula osteogénica",
+    "motivo": "Notas al pie 13 y 14 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete spic igual a espiga, dardo; ula igual a pequeña. | n= 1",
+    "veredicto": "real",
+    "buscar": "del húmero y el fémur. diecisiete spic igual a espiga, dardo; ula igual a pequeña. dieciocho trabe igual a placa; ula igual a pequeña.",
+    "reemplazar": "del húmero y el fémur.",
+    "motivo": "Glosas etimológicas de notas al pie 17 y 18 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecinueve hemo igual a sangre; poietic igual a formación. | n= 1",
+    "veredicto": "real",
+    "buscar": " diecinueve hemo igual a sangre; poietic igual a formación. Trocánter mayor Hueso compacto",
+    "reemplazar": " Trocánter mayor Hueso compacto",
+    "motivo": "Glosa etimológica de nota al pie 19 incrustada en el texto."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte intra igual a dentro de; membran igual a membrana. | n= 1",
+    "veredicto": "real",
+    "buscar": "básico es el mismo. veinte intra igual a dentro de; membran igual a membrana. veintiuno osteo igual a hueso; eid igual a con el aspecto de. veintidós endo igual a dentro; khondro igual a cartílago.\nFIGURA siete coma seis",
+    "reemplazar": "básico es el mismo.\nFIGURA siete coma seis",
+    "motivo": "Glosas etimológicas de notas al pie 20, 21 y 22 incrustadas antes de la figura."
+  },
+  {
+    "capitulo": "Tema_07_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En el cuadro siete coma dos | n= 1",
+    "veredicto": "real",
+    "buscar": "Otros trastornos óseos En el cuadro siete coma dos se presenta un resumen de varios tratamientos óseos adicionales. La enfermedad ósea más común,",
+    "reemplazar": "Otros trastornos óseos\nLa enfermedad ósea más común,",
+    "motivo": "Referencia visual al cuadro 7.2 eliminada y subtítulo separado en su línea."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: la artrología.un Al estudi | n= 1",
+    "veredicto": "real",
+    "buscar": "y la disfunción articular es la artrología.un Al estudio del movimiento",
+    "reemplazar": "y la disfunción articular es la artrología. Al estudio del movimiento",
+    "motivo": "Llamada de nota al pie 'un' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: quinesiología,dos una rama | n= 1",
+    "veredicto": "real",
+    "buscar": "y huesos, se le denomina quinesiología,dos una rama de la biomecánica",
+    "reemplazar": "y huesos, se le denomina quinesiología, una rama de la biomecánica",
+    "motivo": "Llamada de nota al pie 'dos' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: , o sinostosis,tres carece de | n= 1",
+    "veredicto": "real",
+    "buscar": "Una articulación ósea, o sinostosis,tres carece de movimiento y se forma",
+    "reemplazar": "Una articulación ósea, o sinostosis, carece de movimiento y se forma",
+    "motivo": "Llamada de nota al pie 'tres' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: o en un madero.cinco El diente | n= 1",
+    "veredicto": "real",
+    "buscar": "similitud con un clavo en un madero.cinco El diente se mantiene con firmeza",
+    "reemplazar": "similitud con un clavo en un madero. El diente se mantiene con firmeza",
+    "motivo": "Llamada de nota al pie 'cinco' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: clara de huevo.once Esta sust | n= 1",
+    "veredicto": "real",
+    "buscar": "similar a la de la clara de huevo.once Esta sustancia nutre los cartílagos",
+    "reemplazar": "similar a la de la clara de huevo. Esta sustancia nutre los cartílagos",
+    "motivo": "Llamada de nota al pie 'once' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: nomina menisco,doce debido a | n= 1",
+    "veredicto": "real",
+    "buscar": "A cada una se le denomina menisco,doce debido a su forma de luna creciente.",
+    "reemplazar": "A cada una se le denomina menisco, debido a su forma de luna creciente.",
+    "motivo": "Llamada de nota al pie 'doce' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: hiperextensión.trece Por ejemp | n= 1",
+    "veredicto": "real",
+    "buscar": "de la posición cero es la hiperextensión.trece Por ejemplo, si se sostiene",
+    "reemplazar": "de la posición cero es la hiperextensión. Por ejemplo, si se sostiene",
+    "motivo": "Llamada de nota al pie 'trece' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un arthro igual a articulación; logi igual a estudio. | n= 1",
+    "veredicto": "real",
+    "buscar": "a medida que envejecen. un arthro igual a articulación; logi igual a estudio. dos kinesio igual a acción de mover; logi igual a estudio.\nFIGURA nueve coma un",
+    "reemplazar": "a medida que envejecen.\nFIGURA nueve coma un",
+    "motivo": "Glosas etimológicas de notas al pie 1 y 2 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro syn igual a unión; arthro igual a articulación; osis igual a pr... | n= 1",
+    "veredicto": "real",
+    "buscar": "fibrosas: suturas, gonfosis tres syn igual a unión; osteo igual a hueso; osis igual a proceso. cuatro syn igual a unión; arthro igual a articulación; osis igual a proceso. Tejido conjuntivo fibroso",
+    "reemplazar": "fibrosas: suturas, gonfosis Tejido conjuntivo fibroso",
+    "motivo": "Glosas etimológicas de notas al pie 3 y 4 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . siete amphi igual a en todos lados; arthro igual a articulación; osis... | n= 1",
+    "veredicto": "real",
+    "buscar": "de sincondrosis es la seis syn igual a unión; desmo igual a banda, atadura; osis igual a proceso. siete amphi igual a en todos lados; arthro igual a articulación; osis igual a proceso. ocho syn igual a unión; khondro igual a cartílago; osis igual a proceso. Sínfisis púbica",
+    "reemplazar": "de sincondrosis es la Sínfisis púbica",
+    "motivo": "Glosas etimológicas de notas al pie 6, 7 y 8 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . nueve syn igual a unión; physis igual a crecimiento. | n= 1",
+    "veredicto": "real",
+    "buscar": "de la cavidad articular. nueve syn igual a unión; physis igual a crecimiento. diez dia igual a separado, aparte; arthro igual a articulación; osis igual a proceso.",
+    "reemplazar": "de la cavidad articular.",
+    "motivo": "Glosas etimológicas de notas al pie 9 y 10 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . once ovi igual a huevo. | n= 1",
+    "veredicto": "real",
+    "buscar": " once ovi igual a huevo.\n\nEn algunas diartrosis, en el interior de la cápsula",
+    "reemplazar": "\n\nEn algunas diartrosis, en el interior de la cápsula",
+    "motivo": "Glosa etimológica de nota al pie 11 incrustada en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce men igual a luna, creciente; iskos igual a pequeño. | n= 1",
+    "veredicto": "real",
+    "buscar": "en un músculo opuesto. doce men igual a luna, creciente; iskos igual a pequeño. Falange proximal",
+    "reemplazar": "en un músculo opuesto. Falange proximal",
+    "motivo": "Glosa etimológica de nota al pie 12 incrustada en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece hyper igual a excesivo, más allá de lo normal. | n= 1",
+    "veredicto": "real",
+    "buscar": "sobre la cara o la nuca. trece hyper igual a excesivo, más allá de lo normal. catorce ab igual a lejos; duc igual a conducir o llevar; tion igual a acción.",
+    "reemplazar": "sobre la cara o la nuca.",
+    "motivo": "Glosas etimológicas de notas al pie 13 y 14 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince ad igual a hacia; duc igual a conducir o llevar; tion igual a a... | n= 1",
+    "veredicto": "real",
+    "buscar": " quince ad igual a hacia; duc igual a conducir o llevar; tion igual a acción.\n\nElevación y depresión",
+    "reemplazar": "\n\nElevación y depresión",
+    "motivo": "Glosa etimológica de nota al pie 15 incrustada en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dieciocho circum igual a alrededor; duc igual a conducir o llevar; tio... | n= 1",
+    "veredicto": "real",
+    "buscar": "Extensión Flexión de cadera diecisiete re igual a hacia atrás; trac igual a tirar de; tion igual a acción. dieciocho circum igual a alrededor; duc igual a conducir o llevar; tion igual a acción.\nFIGURA nueve coma un dos",
+    "reemplazar": "Extensión Flexión de cadera\nFIGURA nueve coma un dos",
+    "motivo": "Glosas etimológicas de notas al pie 17 y 18 incrustadas antes de la figura."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecinueve supin igual a permanecer de espaldas; tion igual a acción. | n= 1",
+    "veredicto": "real",
+    "buscar": "FIGURA nueve coma un seis Circunducción. diecinueve supin igual a permanecer de espaldas; tion igual a acción. veinte pron igual a doblar hacia delante; tion igual a acción.\n\nde disco del radio",
+    "reemplazar": "FIGURA nueve coma un seis Circunducción.\n\nde disco del radio",
+    "motivo": "Glosas etimológicas de notas al pie 19 y 20 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ras nueve.19d y e, Una | n= 1",
+    "veredicto": "real",
+    "buscar": "en que se mira hacia el frente, figuras nueve.19d y e, Una rotación enérgica",
+    "reemplazar": "en que se mira hacia el frente. Una rotación enérgica",
+    "motivo": "Referencia visual con dígitos sin convertir ('figuras nueve.19d y e') eliminada."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.20a y b,. Pa | n= 1",
+    "veredicto": "real",
+    "buscar": "y después de morder se retrae, figura nueve.20a y b,. Para morder se debe",
+    "reemplazar": "y después de morder se retrae. Para morder se debe",
+    "motivo": "Referencia visual con dígitos sin convertir ('figura nueve.20a y b') eliminada."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ón medial.20c y d. Mov | n= 1",
+    "veredicto": "real",
+    "buscar": "de la posición cero, excursión medial.20c y d. Movimientos especiales de la mano",
+    "reemplazar": "de la posición cero, excursión medial.\nMovimientos especiales de la mano",
+    "motivo": "Resto de referencia visual ('.20c y d.') eliminado y subtítulo en su línea."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.21a y b,. A | n= 1",
+    "veredicto": "real",
+    "buscar": "y la flexión radial, hacia el pulgar, figura nueve.21a y b,. A menudo estos",
+    "reemplazar": "y la flexión radial, hacia el pulgar. A menudo estos",
+    "motivo": "Referencia visual con dígitos sin convertir ('figura nueve.21a y b') eliminada."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ura nueve.21a y b,. Si | n= 1",
+    "veredicto": "real",
+    "buscar": "es la abducción y su unión, la aducción, figura nueve.21a y b,. Sin embargo, el",
+    "reemplazar": "es la abducción y su unión, la aducción. Sin embargo, el",
+    "motivo": "Referencia visual con dígitos sin convertir ('figura nueve.21a y b') eliminada."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: nueve coma un un Seis | n= 1",
+    "veredicto": "real",
+    "buscar": "Radio Cúbito FIGURA nueve coma un un Seis tipos de articulaciones sinoviales.",
+    "reemplazar": "Radio Cúbito\nFIGURA nueve punto once Seis tipos de articulaciones sinoviales.",
+    "motivo": "Número de figura 9.11 mal convertido ('nueve coma un un') corregido a 'nueve punto once' y en su línea."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: des- cinco | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Palabra partida ('des-de') cortada por nota al pie 5 y FIGURA 9.3; la continuación queda fuera del contexto y requiere unir el párrafo alrededor de la figura."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: expli- dieciséis | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Palabra partida ('expli-que') en recuadro 'Aplicación de lo aprendido', cortada por nota al pie 16 y FIGURA 9.12; la continuación queda fuera del contexto."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi sioterapia | n= 1",
+    "veredicto": "real",
+    "buscar": "sinoviales La quinesiología, la fi sioterapia y otros",
+    "reemplazar": "sinoviales La quinesiología, la fisioterapia y otros",
+    "motivo": "Ligadura 'fi' partida en 'fisioterapia'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi cos | n= 1",
+    "veredicto": "real",
+    "buscar": "campos médicos y científi cos tienen un",
+    "reemplazar": "campos médicos y científicos tienen un",
+    "motivo": "Ligadura 'fi' partida en 'científicos'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi co | n= 2",
+    "veredicto": "real",
+    "buscar": "vocabulario específi co para los movimientos de las diartrosis.",
+    "reemplazar": "vocabulario específico para los movimientos de las diartrosis.",
+    "motivo": "Ligadura 'fi' partida en 'específico' (la segunda coincidencia es 'específi cos', cubierta abajo)."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente | n= 1",
+    "veredicto": "real",
+    "buscar": "Se hiperabduce el brazo si se le eleva lo sufi ciente para cruzarlo un poco",
+    "reemplazar": "Se hiperabduce el brazo si se le eleva lo suficiente para cruzarlo un poco",
+    "motivo": "Ligadura 'fi' partida en 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi cos | n= 1",
+    "veredicto": "real",
+    "buscar": "en la terminología de los movimientos específi cos de las articulaciones,",
+    "reemplazar": "en la terminología de los movimientos específicos de las articulaciones,",
+    "motivo": "Ligadura 'fi' partida en 'específicos'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl ojo | n= 1",
+    "veredicto": "real",
+    "buscar": "Se trata de un ligamento un poco fl ojo, de modo que es dudoso que tenga un papel significativo en el manteniCAPÍTULO nueve Articulaciones miento del fémur",
+    "reemplazar": "Se trata de un ligamento un poco flojo, de modo que es dudoso que tenga un papel significativo en el mantenimiento del fémur",
+    "motivo": "Ligadura 'fl' partida en 'flojo' y encabezado de página incrustado en medio de 'mantenimiento'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi bular | n= 1",
+    "veredicto": "real",
+    "buscar": "cuando la articulación está extendida, que son el ligamento fi bular colateral, lateral,",
+    "reemplazar": "cuando la articulación está extendida, que son el ligamento fibular colateral, lateral,",
+    "motivo": "Ligadura 'fi' partida en 'fibular'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: tectum15 | n= 1",
+    "veredicto": "real",
+    "buscar": "la región del mesencéfalo, denominada tectum15 y cruza al lado contralateral",
+    "reemplazar": "la región del mesencéfalo, denominada tectum y cruza al lado contralateral",
+    "motivo": "Llamada numérica de nota al pie 15 pegada a 'tectum'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: poliomielitis16 | n= 1",
+    "veredicto": "real",
+    "buscar": "esclerosis lateral amiotrófica\nLa poliomielitis16 y la esclerosis",
+    "reemplazar": "esclerosis lateral amiotrófica\nLa poliomielitis y la esclerosis",
+    "motivo": "Llamada numérica de nota al pie 16 pegada a 'poliomielitis'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: amiotrófica17 | n= 1",
+    "veredicto": "real",
+    "buscar": "lateral amiotrófica17 son enfermedades que incluyen la destrucción",
+    "reemplazar": "lateral amiotrófica son enfermedades que incluyen la destrucción",
+    "motivo": "Llamada numérica de nota al pie 17 pegada a 'amiotrófica'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: ganglio19 | n= 1",
+    "veredicto": "real",
+    "buscar": "Si un nervio parece una hebra, un ganglio19 nervioso se asemeja a un nudo",
+    "reemplazar": "Si un nervio parece una hebra, un ganglio nervioso se asemeja a un nudo",
+    "motivo": "Llamada numérica de nota al pie 19 pegada a 'ganglio'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: zoster20 | n= 1",
+    "veredicto": "real",
+    "buscar": "es causada por el virus varicela-zoster20 y produce un exantema pruriginoso",
+    "reemplazar": "es causada por el virus varicela-zoster y produce un exantema pruriginoso",
+    "motivo": "Llamada numérica de nota al pie 20 pegada a 'varicela-zoster'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: espina bífida,cinco un defect | n= 1",
+    "veredicto": "real",
+    "buscar": "bebé de cada mil nace con espina bífida,cinco un defecto congénito en el cual",
+    "reemplazar": "bebé de cada mil nace con espina bífida, un defecto congénito en el cual",
+    "motivo": "Llamada de nota al pie 'cinco' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s o fascículos.siete Vías medu | n= 1",
+    "veredicto": "real",
+    "buscar": "llamadas vías medulares o fascículos.siete Vías medulares Conocer las ubicaciones",
+    "reemplazar": "llamadas vías medulares o fascículos.\nVías medulares\nConocer las ubicaciones",
+    "motivo": "Llamada de nota al pie 'siete' pegada tras punto y subtítulo separado en su línea."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: de Lou Gehrig,dieciocho en honor | n= 1",
+    "veredicto": "real",
+    "buscar": "conocida como enfermedad de Lou Gehrig,dieciocho en honor al beisbolista",
+    "reemplazar": "conocida como enfermedad de Lou Gehrig, en honor al beisbolista",
+    "motivo": "Llamada de nota al pie 'dieciocho' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un cauda igual a cola; equin igual a caballo. | n= 1",
+    "veredicto": "real",
+    "buscar": "y estructuras relacionadas. un cauda igual a cola; equin igual a caballo. dos mening igual a membrana.\n\nCAPÍTULO trece Médula espinal, nervios raquídeos y reflejos somáticos de los huesos",
+    "reemplazar": "y estructuras relacionadas.\n\nde los huesos",
+    "motivo": "Notas al pie 1 y 2 más encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . tres arakhn igual a araña, telaraña; eides igual a con forma de. | n= 1",
+    "veredicto": "real",
+    "buscar": "café más claro o ámbar. tres arakhn igual a araña, telaraña; eides igual a con forma de. cuatro pia igual a piadosa; a través de una mala traducción, ahora significa tierna. delgada o suave.",
+    "reemplazar": "café más claro o ámbar.",
+    "motivo": "Glosas etimológicas de notas al pie 3 y 4 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cinco bi igual a dos; fid igual a hendir. | n= 1",
+    "veredicto": "real",
+    "buscar": " cinco bi igual a dos; fid igual a hendir. seis kyst igual a saco, vejiga urinaria.\n\nConocimiento más a fondo trece punto uno.",
+    "reemplazar": "\n\nConocimiento más a fondo trece punto uno.",
+    "motivo": "Glosas etimológicas de notas al pie 5 y 6 incrustadas antes del recuadro."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho decuss igual a cruzar, formar una X. | n= 1",
+    "veredicto": "real",
+    "buscar": "señales de vibración, dolor siete fascicul igual a pequeño haz. ocho decuss igual a cruzar, formar una X. nueve contra igual a opuesto; later igual a lado.",
+    "reemplazar": "señales de vibración, dolor",
+    "motivo": "Glosas etimológicas de notas al pie 7, 8 y 9 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez ipso igual a lo mismo; later igual a lado. | n= 1",
+    "veredicto": "real",
+    "buscar": " diez ipso igual a lo mismo; later igual a lado. once gracil igual a delgado.\n\nPARTE TRES Integración y control Vías descendentes",
+    "reemplazar": "\n\nVías descendentes",
+    "motivo": "Glosas etimológicas de notas al pie 10 y 11 más encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece cune igual a cuña; forme igual a con forma de. | n= 1",
+    "veredicto": "real",
+    "buscar": "b Vía espinotalámica. trece cune igual a cuña; forme igual a con forma de. doce kine igual a mover; aisthesia igual a percepción.\n\nPARTE TRES Integración y control y el tórax.",
+    "reemplazar": "b Vía espinotalámica.\n\ny el tórax.",
+    "motivo": "Glosas etimológicas de notas al pie 13 y 12 más encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince tectum igual a techo. | n= 1",
+    "veredicto": "real",
+    "buscar": "lo que las induce a catorce lemniscus igual a cinta. quince tectum igual a techo.\n\nCAPÍTULO trece Médula espinal, nervios raquídeos y reflejos somáticos ponerse rígidas",
+    "reemplazar": "lo que las induce a ponerse rígidas",
+    "motivo": "Notas al pie 14 y 15 más encabezado de página incrustados en medio de la oración."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete skler igual a duro; osis igual a proceso patológico; a igua... | n= 1",
+    "veredicto": "real",
+    "buscar": "que integra un nervio como un dieciséis polio igual a gris; myel igual a médula; itis igual a inflamación. diecisiete skler igual a duro; osis igual a proceso patológico; a igual a sin; myo igual a músculo; tropho igual a nutrición. dieciocho Lou Gehrig, mil novecientos tres a mil novecientos cuarenta y un, beisbolista del equipo Yanquis de Nueva York.\n\nFIGURA trece coma siete",
+    "reemplazar": "que integra un nervio como un\n\nFIGURA trece coma siete",
+    "motivo": "Notas al pie 16, 17 y 18 incrustadas antes de la figura."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte uaru igual a pústula; cella igual a pequeña; zoster igual a cin... | n= 0",
+    "veredicto": "no_verificado",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Aparece con n=0 y sin fragmento de contexto en el archivo de contextos (posiblemente precedido por salto de línea en vez de '. '); requiere revisión directa en el archivo del capítulo."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: trece coma un nueve Un | n= 1",
+    "veredicto": "real",
+    "buscar": "somáticos pueden ocurrir veintitrés derm igual a piel; tom igual a corte, segmento.\nFIGURA trece coma un nueve Un mapa del dermatoma",
+    "reemplazar": "somáticos pueden ocurrir\nFIGURA trece punto diecinueve Un mapa del dermatoma",
+    "motivo": "Nota al pie 23 eliminada y número de figura 13.19 corregido de 'trece coma un nueve' a 'trece punto diecinueve'."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: trece coma dos cero Un | n= 1",
+    "veredicto": "real",
+    "buscar": "Fibra de bolsa nuclear FIGURA trece coma dos cero Un huso muscular y su inervación.\n\nCAPÍTULO trece Médula espinal, nervios raquídeos y reflejos somáticos Reflejo miotático",
+    "reemplazar": "Fibra de bolsa nuclear\nFIGURA trece punto veinte Un huso muscular y su inervación.\n\nReflejo miotático",
+    "motivo": "Número de figura 13.20 corregido a 'trece punto veinte' en su línea y encabezado de página eliminado."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Título pegado al párrafo: pierna derecha. FIGURA trece coma dos dos Reflejos flexor | n= 1",
+    "veredicto": "real",
+    "buscar": "receptores del dolor en la pierna derecha. FIGURA trece coma dos dos Reflejos flexor",
+    "reemplazar": "receptores del dolor en la pierna derecha.\nFIGURA trece punto veintidós Reflejos flexor",
+    "motivo": "Título de figura separado con salto de línea y número 13.22 corregido a 'trece punto veintidós'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 7",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Bloques reales de autoevaluación (n=7), pero el contexto trunca las preguntas; requiere recorte completo de cada bloque en el archivo del capítulo."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas | n= 7",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Mismos 7 bloques de autoevaluación de 'Antes de proseguir'; requiere recorte completo de cada bloque."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Crédito: cal. Esta ilustración de un manuscrito médico del sigl | n= 1",
+    "veredicto": "falso_positivo",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Es el pie de figura oficial de FIGURA 1.2 (Hombre zodiacal), no un crédito de imagen; la pregunta con viñeta que le sigue sí es autoevaluación."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Crédito: ubular. b Dibujo de Hooke de las células del corcho | n= 1",
+    "veredicto": "falso_positivo",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Es el pie de figura oficial de FIGURA 1.4 (Microscopio compuesto de Hooke), no un crédito de imagen."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal | n= 12",
+    "veredicto": "real",
+    "buscar": "PARTE UNO Organización corporal N inguna rama de la ciencia se aplica",
+    "reemplazar": "Ninguna rama de la ciencia se aplica",
+    "motivo": "Encabezado de parte incrustado al inicio y letra capitular partida 'N inguna' (aparición 1 de 3 mostradas; n=12 en el capítulo)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal | n= 12",
+    "veredicto": "real",
+    "buscar": "\n\nPARTE UNO Organización corporal Claudio Galeno, cerca de ciento treinta",
+    "reemplazar": "\n\nClaudio Galeno, cerca de ciento treinta",
+    "motivo": "Encabezado de página incrustado (aparición 2 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal | n= 12",
+    "veredicto": "real",
+    "buscar": "De humani corporis fabrica.\n\nPARTE UNO Organización corporal adelante observó delgados",
+    "reemplazar": "De humani corporis fabrica.\n\nadelante observó delgados",
+    "motivo": "Encabezado de página incrustado (aparición 3 de 3 mostradas; faltan las demás de n=12 fuera de este contexto)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: auscultación2 | n= 1",
+    "veredicto": "real",
+    "buscar": "Palpación1 es la percepción de la estructura con las manos, como cuando se palpa un ganglio linfático edematoso o se toma el pulso. La auscultación2 consiste",
+    "reemplazar": "Palpación es la percepción de la estructura con las manos, como cuando se palpa un ganglio linfático edematoso o se toma el pulso. La auscultación consiste",
+    "motivo": "Llamadas numéricas de nota al pie 1 y 2 pegadas a 'Palpación' y 'auscultación'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: anatomía3 | n= 1",
+    "veredicto": "real",
+    "buscar": "sus relaciones. En sí, las palabras anatomía3 y ",
+    "reemplazar": "sus relaciones. En sí, las palabras anatomía y ",
+    "motivo": "Llamada numérica de nota al pie 3 pegada a 'anatomía'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: disección4 | n= 1",
+    "veredicto": "real",
+    "buscar": "disección4 significan apartar mediante corte; hasta el siglo",
+    "reemplazar": "disección significan apartar mediante corte; hasta el siglo",
+    "motivo": "Llamada numérica de nota al pie 4 pegada a 'disección'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: citología7 | n= 1",
+    "veredicto": "real",
+    "buscar": "llama histología6, anatomía microscópica,. La histopatología es la exploración de tejidos bajo el microscopio, en busca de alguna enfermedad. La citología7",
+    "reemplazar": "llama histología, anatomía microscópica,. La histopatología es la exploración de tejidos bajo el microscopio, en busca de alguna enfermedad. La citología",
+    "motivo": "Llamadas numéricas de nota al pie 6 y 7 pegadas a 'histología' y 'citología'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: siología8 | n= 1",
+    "veredicto": "real",
+    "buscar": "Fisiología: el estudio de la función La fi siología8 utiliza los métodos",
+    "reemplazar": "Fisiología: el estudio de la función La fisiología utiliza los métodos",
+    "motivo": "Llamada numérica 8 pegada y ligadura 'fi' partida en 'fisiología'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: organelos13 | n= 1",
+    "veredicto": "real",
+    "buscar": "los capítulos tres y cuatro. Los organelos13 son estructuras microscópicas",
+    "reemplazar": "los capítulos tres y cuatro. Los organelos son estructuras microscópicas",
+    "motivo": "Llamada numérica de nota al pie 13 pegada a 'organelos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: holismo14 | n= 1",
+    "veredicto": "real",
+    "buscar": "la secuencia genética de D N A. El holismo14 es la teoría complementaria",
+    "reemplazar": "la secuencia genética de D N A. El holismo es la teoría complementaria",
+    "motivo": "Llamada numérica de nota al pie 14 pegada a 'holismo'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: metabolismo15 | n= 1",
+    "veredicto": "real",
+    "buscar": "les proporcionan energía. El metabolismo15 es la suma de todos los cambios químicos",
+    "reemplazar": "les proporcionan energía. El metabolismo es la suma de todos los cambios químicos",
+    "motivo": "Llamada numérica de nota al pie 15 pegada a 'metabolismo'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: tomográfica20 | n= 1",
+    "veredicto": "real",
+    "buscar": "antes se le denominaba exploración tomográfica20 axial computarizada, C A T,",
+    "reemplazar": "antes se le denominaba exploración tomográfica axial computarizada, C A T,",
+    "motivo": "Llamada numérica de nota al pie 20 pegada a 'tomográfica'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: ecografía21 | n= 1",
+    "veredicto": "real",
+    "buscar": "imágenes cerebrales. Ecografía La ecografía21 es el segundo método de obtención",
+    "reemplazar": "imágenes cerebrales.\nEcografía\nLa ecografía es el segundo método de obtención",
+    "motivo": "Llamada numérica 21 pegada a 'ecografía' y subtítulo separado en su línea."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: car un cadáver,cinco un cuerpo | n= 1",
+    "veredicto": "real",
+    "buscar": "de los estudiantes consiste en disecar un cadáver,cinco un cuerpo humano muerto.",
+    "reemplazar": "de los estudiantes consiste en disecar un cadáver, un cuerpo humano muerto.",
+    "motivo": "Llamada de nota al pie 'cinco' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: anos prensiles,diez capaces d | n= 1",
+    "veredicto": "real",
+    "buscar": "Los pulgares opuestos hicieron las manos prensiles,diez capaces de apretar ramas",
+    "reemplazar": "Los pulgares opuestos hicieron las manos prensiles, capaces de apretar ramas",
+    "motivo": "Llamada de nota al pie 'diez' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: es: anabolismo,dieciséis por el qu | n= 1",
+    "veredicto": "real",
+    "buscar": "Consta de dos clases de reacciones: anabolismo,dieciséis por el que se sintetizan",
+    "reemplazar": "Consta de dos clases de reacciones: anabolismo, por el que se sintetizan",
+    "motivo": "Llamada de nota al pie 'dieciséis' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: y catabolismo,diecisiete por el qu | n= 1",
+    "veredicto": "real",
+    "buscar": "síntesis de proteínas, y catabolismo,diecisiete por el que se desdoblan o degradan",
+    "reemplazar": "síntesis de proteínas, y catabolismo, por el que se desdoblan o degradan",
+    "motivo": "Llamada de nota al pie 'diecisiete' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: la homeostasis,dieciocho que es la | n= 1",
+    "veredicto": "real",
+    "buscar": "Esta tendencia es resultado de la homeostasis,dieciocho que es la capacidad",
+    "reemplazar": "Esta tendencia es resultado de la homeostasis, que es la capacidad",
+    "motivo": "Llamada de nota al pie 'dieciocho' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: omina epónimos,diecinueve que aport | n= 1",
+    "veredicto": "real",
+    "buscar": "de las personas se les denomina epónimos,diecinueve que aportan poca información",
+    "reemplazar": "de las personas se les denomina epónimos, que aportan poca información",
+    "motivo": "Llamada de nota al pie 'diecinueve' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dos auscult igual a escuchar; ation igual a proceso. | n= 1",
+    "veredicto": "real",
+    "buscar": "estudiar más de un cadáver? un palp igual a tocar, sentir; ation igual a proceso. dos auscult igual a escuchar; ation igual a proceso. tres ana igual a apartar; tome igual a cortar.",
+    "reemplazar": "estudiar más de un cadáver?",
+    "motivo": "Glosas etimológicas de notas al pie 1, 2 y 3 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro dis igual a apartar; sec igual a cortar. | n= 1",
+    "veredicto": "real",
+    "buscar": " cuatro dis igual a apartar; sec igual a cortar. cinco de cadere igual a caer o morir.\n\nCAPÍTULO uno Temas principales de anatomía y fisiología Por supuesto, la disección",
+    "reemplazar": "\n\nPor supuesto, la disección",
+    "motivo": "Notas al pie 4 y 5 más encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . seis histo igual a tejido; logos igual a estudio. | n= 1",
+    "veredicto": "real",
+    "buscar": "y una autoexploración de mamas. seis histo igual a tejido; logos igual a estudio. siete cyto igual a célula; logos igual a estudio.",
+    "reemplazar": "y una autoexploración de mamas.",
+    "motivo": "Glosas etimológicas de notas al pie 6 y 7 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho physio igual a naturaleza; logos igual a estudio. | n= 1",
+    "veredicto": "real",
+    "buscar": " ocho physio igual a naturaleza; logos igual a estudio.",
+    "reemplazar": "",
+    "motivo": "Glosa etimológica de nota al pie 8 incrustada al final de página."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . nueve arbor igual a árbol; eo igual a perteneciente. | n= 0",
+    "veredicto": "real",
+    "buscar": "en los que cumplían una función.\n\nnueve arbor igual a árbol; eo igual a perteneciente.\n\nCAPÍTULO uno Temas principales de anatomía y fisiología Pero el techo",
+    "reemplazar": "en los que cumplían una función.\n\nPero el techo",
+    "motivo": "Nota al pie 9 (marcada n=0 por ir tras salto de línea) hallada en el contexto de 'desafi ante', más encabezado de página."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez prehens igual a aprehender. | n= 1",
+    "veredicto": "real",
+    "buscar": "rodear y afianzar objetos. diez prehens igual a aprehender. once estereo igual a sólido, en tres dimensiones; scopio igual a visión.\nFIGURA uno coma seis",
+    "reemplazar": "rodear y afianzar objetos.\nFIGURA uno coma seis",
+    "motivo": "Glosas etimológicas de notas al pie 10 y 11 incrustadas antes de la figura."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece elo igual a pequeño. | n= 1",
+    "veredicto": "real",
+    "buscar": "Jerarquía estructural del cuerpo. trece elo igual a pequeño.\n\nPARTE UNO Organización corporal sus engranes y barras",
+    "reemplazar": "Jerarquía estructural del cuerpo.\n\nsus engranes y barras",
+    "motivo": "Nota al pie 13 y encabezado de página incrustados."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . catorce holo igual a todo, completo. | n= 1",
+    "veredicto": "real",
+    "buscar": "efectos benéficos y dañinos. catorce holo igual a todo, completo.\n\nConocimiento más a fondo uno punto dos.",
+    "reemplazar": "efectos benéficos y dañinos.\n\nConocimiento más a fondo uno punto dos.",
+    "motivo": "Glosa etimológica de nota al pie 14 incrustada antes del recuadro."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dieciséis ana igual a arriba. | n= 1",
+    "veredicto": "real",
+    "buscar": "Riñón en herradura quince metabol igual a cambio; ismo igual a proceso. dieciséis ana igual a arriba. diecisiete cata igual a abajo.\nFIGURA uno coma ocho",
+    "reemplazar": "Riñón en herradura\nFIGURA uno coma ocho",
+    "motivo": "Glosas etimológicas de notas al pie 15, 16 y 17 incrustadas antes de la figura."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte tomo igual a sección, corte, rebanada; graphic igual a pertenec... | n= 1",
+    "veredicto": "real",
+    "buscar": "semanas de gestación. veinte tomo igual a sección, corte, rebanada; graphic igual a perteneciente a un registro. veintiuno eco igual a sonido reflejado; graphe igual a proceso de grabación.",
+    "reemplazar": "semanas de gestación.",
+    "motivo": "Glosas etimológicas de notas al pie 20 y 21 incrustadas al final del capítulo."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura uno coma ocho | n= 1",
+    "veredicto": "real",
+    "buscar": "en un mismo riñón. En la figura uno coma ocho se ilustran algunas variaciones comunes en la anatomía humana y en el recuadro Conocimiento más a fondo uno coma dos se describe una variación de gran efecto e importancia clínica.",
+    "reemplazar": "en un mismo riñón.",
+    "motivo": "Oración completa de referencia visual a figura 1.8 y recuadro 1.2 eliminada."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: el cuadro uno coma dos | n= 1",
+    "veredicto": "real",
+    "buscar": "identificar la formación del plural; por ello, vale la pena tomar como referencia el cuadro uno coma dos. En algunos casos,",
+    "reemplazar": "identificar la formación del plural. En algunos casos,",
+    "motivo": "Cláusula de referencia visual al cuadro 1.2 eliminada sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: enos cero.5ºC respect | n= 1",
+    "veredicto": "real",
+    "buscar": "en un rango de más o menos cero.5ºC respecto del",
+    "reemplazar": "en un rango de más o menos cero coma cinco grados Celsius respecto del",
+    "motivo": "Decimal y unidad '0.5ºC' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: librio de 37ºC. La sud | n= 1",
+    "veredicto": "real",
+    "buscar": "punto de equilibrio de 37ºC. La sudación y la vasodilatación",
+    "reemplazar": "punto de equilibrio de treinta y siete grados Celsius. La sudación y la vasodilatación",
+    "motivo": "Cifra y unidad '37ºC' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: debajo de 37ºC, las mi | n= 1",
+    "veredicto": "real",
+    "buscar": "y la temperatura corporal cae debajo de 37ºC, las mismas células nerviosas",
+    "reemplazar": "y la temperatura corporal cae debajo de treinta y siete grados Celsius, las mismas células nerviosas",
+    "motivo": "Cifra y unidad '37ºC' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: lentada a 127ºC, 260ºF, | n= 1",
+    "veredicto": "real",
+    "buscar": "minutos en una cámara calentada a 127ºC,",
+    "reemplazar": "minutos en una cámara calentada a ciento veintisiete grados Celsius,",
+    "motivo": "Cifra y unidad '127ºC' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: a 127ºC, 260ºF, junto | n= 1",
+    "veredicto": "real",
+    "buscar": " 260ºF, junto con un perro, un bistec",
+    "reemplazar": " doscientos sesenta grados Fahrenheit, junto con un perro, un bistec",
+    "motivo": "Cifra y unidad '260ºF' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: al a casi 45ºC, 113ºF, | n= 1",
+    "veredicto": "real",
+    "buscar": "Este círculo vicioso se vuelve letal a casi 45ºC,",
+    "reemplazar": "Este círculo vicioso se vuelve letal a casi cuarenta y cinco grados Celsius,",
+    "motivo": "Cifra y unidad '45ºC' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: asi 45ºC, 113ºF,. Por t | n= 1",
+    "veredicto": "real",
+    "buscar": " 113ºF,. Por tanto, los ciclos de retroalimentación",
+    "reemplazar": " ciento trece grados Fahrenheit. Por tanto, los ciclos de retroalimentación",
+    "motivo": "Cifra y unidad '113ºF' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '×': scientos×, debido | n= 1",
+    "veredicto": "real",
+    "buscar": "una amplificación mucho más útil, hasta doscientos×, debido a la técnica",
+    "reemplazar": "una amplificación mucho más útil, hasta doscientos por, debido a la técnica",
+    "motivo": "Símbolo '×' convertido a palabra ('por')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': color, + o, voca | n= 1",
+    "veredicto": "real",
+    "buscar": "por ejemplo, crom-, color, + o, vocal para combinación, integran la forma",
+    "reemplazar": "por ejemplo, crom, color, más o, vocal para combinación, integran la forma",
+    "motivo": "Símbolo '+' convertido a palabra ('más')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': studio, + ia, pro | n= 1",
+    "veredicto": "real",
+    "buscar": "por ejemplo, logos, estudio, + ia, proceso, forman",
+    "reemplazar": "por ejemplo, logos, estudio, más ia, proceso, forman",
+    "motivo": "Símbolo '+' convertido a palabra ('más')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO | n= 1",
+    "veredicto": "real",
+    "buscar": "anatomía que la apoye. CONOCIMIENTO MÁS A FONDO uno coma cinco Aplicación clínica Imágenes médicas El desarrollo",
+    "reemplazar": "anatomía que la apoye.\n\nConocimiento más a fondo uno punto cinco. Aplicación clínica: Imágenes médicas\nEl desarrollo",
+    "motivo": "Título de recuadro en mayúsculas pegado al párrafo; normalizado y separado en su propia línea."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: que la apoye. CONOCIMIENTO MÁS A FONDO uno coma cinco Aplicación cl... | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto por la normalización y separación en línea propia del hallazgo anterior ('FONDO')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi namente | n= 1",
+    "veredicto": "real",
+    "buscar": "se toman muestras de tejido, se segmentan fi namente, se les aplican tintes",
+    "reemplazar": "se toman muestras de tejido, se segmentan finamente, se les aplican tintes",
+    "motivo": "Ligadura 'fi' partida en 'finamente'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no | n= 2",
+    "veredicto": "real",
+    "buscar": "La ultraestructura alude al detalle fi no, en el nivel molecular, visto",
+    "reemplazar": "La ultraestructura alude al detalle fino, en el nivel molecular, visto",
+    "motivo": "Ligadura 'fi' partida en 'fino' (la segunda coincidencia es 'fi nos', cubierta en su propio hallazgo)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siología | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto junto con la llamada numérica 'siología8' en REV 4 ('La fi siología8' -> 'La fisiología')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siopatología | n= 2",
+    "veredicto": "real",
+    "buscar": "la fisiología hormonal, y la fi siopatología, los mecanismos de la enfermedad,",
+    "reemplazar": "la fisiología hormonal, y la fisiopatología, los mecanismos de la enfermedad,",
+    "motivo": "Ligadura 'fi' partida en 'fisiopatología' (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siopatología | n= 2",
+    "veredicto": "real",
+    "buscar": "la muerte. En esencia, la fi siopatología es el estudio de las condiciones",
+    "reemplazar": "la muerte. En esencia, la fisiopatología es el estudio de las condiciones",
+    "motivo": "Ligadura 'fi' partida en 'fisiopatología' (2 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi sioterapia | n= 1",
+    "veredicto": "real",
+    "buscar": "con fármacos vegetales, sales, fi sioterapia y sanación mediante la fe.",
+    "reemplazar": "con fármacos vegetales, sales, fisioterapia y sanación mediante la fe.",
+    "motivo": "Ligadura 'fi' partida en 'fisioterapia'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi lósofos | n= 2",
+    "veredicto": "real",
+    "buscar": "veintidós a.C., fue uno de los primeros fi lósofos en escribir acerca de la anatomía",
+    "reemplazar": "veintidós a.C., fue uno de los primeros filósofos en escribir acerca de la anatomía",
+    "motivo": "Ligadura 'fi' partida en 'filósofos' (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi lósofos | n= 2",
+    "veredicto": "real",
+    "buscar": "la ciencia por un camino azaroso. Los fi lósofos Francis Bacon, mil quinientos",
+    "reemplazar": "la ciencia por un camino azaroso. Los filósofos Francis Bacon, mil quinientos",
+    "motivo": "Ligadura 'fi' partida en 'filósofos' (2 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi cas | n= 2",
+    "veredicto": "real",
+    "buscar": "cuantiosos tratados sobre enfermedades específi cas. Entre los musulmanes,",
+    "reemplazar": "cuantiosos tratados sobre enfermedades específicas. Entre los musulmanes,",
+    "motivo": "Ligadura 'fi' partida en 'específicas' (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi cas | n= 2",
+    "veredicto": "real",
+    "buscar": "la fisiología de la respiración: bajo condiciones específi cas, el volumen de un gas,",
+    "reemplazar": "la fisiología de la respiración: bajo condiciones específicas, el volumen de un gas,",
+    "motivo": "Ligadura 'fi' partida en 'específicas' (2 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siólogo | n= 4",
+    "veredicto": "real",
+    "buscar": "el anatomista Andreas Vesalius y el fi siólogo William Harvey. Andreas Vesalius,",
+    "reemplazar": "el anatomista Andreas Vesalius y el fisiólogo William Harvey. Andreas Vesalius,",
+    "motivo": "Ligadura 'fi' partida en 'fisiólogo' (1 de 3 mostradas; n=4 en el capítulo)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siólogo | n= 4",
+    "veredicto": "real",
+    "buscar": "o la de un hepatocito para un fi siólogo,. El conocimiento se expresa",
+    "reemplazar": "o la de un hepatocito para un fisiólogo. El conocimiento se expresa",
+    "motivo": "Ligadura 'fi' partida en 'fisiólogo' (2 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siólogo | n= 4",
+    "veredicto": "real",
+    "buscar": "internas relativamente estables. El fi siólogo francés Claude Bernard, mil ochocientos",
+    "reemplazar": "internas relativamente estables. El fisiólogo francés Claude Bernard, mil ochocientos",
+    "motivo": "Ligadura 'fi' partida en 'fisiólogo' (3 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi cos | n= 10",
+    "veredicto": "real",
+    "buscar": "cincuenta y tres, fueron los primeros científi cos occidentales en darse cuenta",
+    "reemplazar": "cincuenta y tres, fueron los primeros científicos occidentales en darse cuenta",
+    "motivo": "Ligadura 'fi' partida en 'científicos' (1 de 3 mostradas; n=10 en el capítulo)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi cos | n= 10",
+    "veredicto": "real",
+    "buscar": "setecientos tres, inglés, diseñó instrumentos científi cos de varios tipos e hizo",
+    "reemplazar": "setecientos tres, inglés, diseñó instrumentos científicos de varios tipos e hizo",
+    "motivo": "Ligadura 'fi' partida en 'científicos' (2 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi cos | n= 10",
+    "veredicto": "real",
+    "buscar": "observaciones eran leídas con avidez por los científi cos, pero el entusiasmo",
+    "reemplazar": "observaciones eran leídas con avidez por los científicos, pero el entusiasmo",
+    "motivo": "Ligadura 'fi' partida en 'científicos' (3 de 3 mostradas; quedan 6 adicionales en el capítulo además de la cubierta en 'efi caz')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi nos | n= 1",
+    "veredicto": "real",
+    "buscar": "una fuente de iluminación y controles gruesos y fi nos de enfoque. Sus microscopios",
+    "reemplazar": "una fuente de iluminación y controles gruesos y finos de enfoque. Sus microscopios",
+    "motivo": "Ligadura 'fi' partida en 'finos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: insignifi cante | n= 1",
+    "veredicto": "real",
+    "buscar": "para las clases altas, tan entretenido e insignifi cante como un caleidoscopio.",
+    "reemplazar": "para las clases altas, tan entretenido e insignificante como un caleidoscopio.",
+    "motivo": "Ligadura 'fi' partida en 'insignificante'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi losófi | n= 1",
+    "veredicto": "real",
+    "buscar": "en gran medida las bases fi losófi cas de la medicina moderna, la práctica",
+    "reemplazar": "en gran medida las bases filosóficas de la medicina moderna, la práctica",
+    "motivo": "Doble ligadura 'fi' partida en 'filosóficas'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: inefi caces | n= 1",
+    "veredicto": "real",
+    "buscar": "La mayoría de médicos eran ignorantes, inefi caces y presuntuosos. Su práctica",
+    "reemplazar": "La mayoría de médicos eran ignorantes, ineficaces y presuntuosos. Su práctica",
+    "motivo": "Ligadura 'fi' partida en 'ineficaces'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co | n= 19",
+    "veredicto": "real",
+    "buscar": "entre ellos. Un dato científi co es información que cualquier persona",
+    "reemplazar": "entre ellos. Un dato científico es información que cualquier persona",
+    "motivo": "Ligadura 'fi' partida en 'científico' (aparición singular visible en contexto; los 3 ejemplos de la lista coinciden con 'científi cos'; n=19 incluye ambas formas)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co | n= 19",
+    "veredicto": "real",
+    "buscar": "técnica, porque ninguno de ellos fue un científi co, sino por crear",
+    "reemplazar": "técnica, porque ninguno de ellos fue un científico, sino por crear",
+    "motivo": "Ligadura 'fi' partida en 'científico' (segunda aparición singular visible en el archivo de contextos)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co | n= 19",
+    "veredicto": "real",
+    "buscar": "probabilidad. La revisión científica externa Cuando un científi co hace",
+    "reemplazar": "probabilidad. La revisión científica externa Cuando un científico hace",
+    "motivo": "Ligadura 'fi' partida en 'científico' (tercera aparición singular visible en el archivo de contextos; las restantes de n=19 requieren reemplazo global de 'científi co')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi losofía | n= 2",
+    "veredicto": "real",
+    "buscar": "quienes debatían de manera interminable la fi losofía antigua sin crear nada nuevo.",
+    "reemplazar": "quienes debatían de manera interminable la filosofía antigua sin crear nada nuevo.",
+    "motivo": "Ligadura 'fi' partida en 'filosofía' (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi losofía | n= 2",
+    "veredicto": "real",
+    "buscar": "Se ven ecos de la fi losofía de Bacon en el análisis del método científi - co que se presenta",
+    "reemplazar": "Se ven ecos de la filosofía de Bacon en el análisis del método científico que se presenta",
+    "motivo": "Ligadura 'fi' partida en 'filosofía' (2 de 2) y corte por guion más ligadura en 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl orecen | n= 1",
+    "veredicto": "real",
+    "buscar": "establecieron academias de ciencias que aún fl orecen. Bacon y Descartes merecen",
+    "reemplazar": "establecieron academias de ciencias que aún florecen. Bacon y Descartes merecen",
+    "motivo": "Ligadura 'fl' partida en 'florecen'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi camente | n= 1",
+    "veredicto": "real",
+    "buscar": "cuando se asegura que algo es científi camente verdadero, se debe tener capacidad",
+    "reemplazar": "cuando se asegura que algo es científicamente verdadero, se debe tener capacidad",
+    "motivo": "Ligadura 'fi' partida en 'científicamente'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi caz | n= 2",
+    "veredicto": "real",
+    "buscar": "determinar si el fármaco resultó más efi caz que el placebo. • Pruebas estadísticas.",
+    "reemplazar": "determinar si el fármaco resultó más eficaz que el placebo. • Pruebas estadísticas.",
+    "motivo": "Ligadura 'fi' partida en 'eficaz' (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi caz | n= 2",
+    "veredicto": "real",
+    "buscar": "el grupo de plaCAPÍTULO un Temas principales de anatomía y fisiología cebo una de diez por ciento? ¿Bastaría para concluir que el tratamiento resultó efi caz? Los científi cos",
+    "reemplazar": "el grupo de placebo una de diez por ciento? ¿Bastaría para concluir que el tratamiento resultó eficaz? Los científicos",
+    "motivo": "Ligadura 'fi' partida en 'eficaz' (2 de 2) y 'científicos', más encabezado incrustado en medio de 'placebo'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi nanciamiento | n= 1",
+    "veredicto": "real",
+    "buscar": "una solicitud de fi nanciamiento a fi n de apoyar un proyecto de investigación",
+    "reemplazar": "una solicitud de financiamiento a fin de apoyar un proyecto de investigación",
+    "motivo": "Ligaduras 'fi' partidas en 'financiamiento' y 'fin'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: desafi ante | n= 1",
+    "veredicto": "real",
+    "buscar": "del bosque es un mundo desafi ante, con una luz tenue y moteada,",
+    "reemplazar": "del bosque es un mundo desafiante, con una luz tenue y moteada,",
+    "motivo": "Ligadura 'fi' partida en 'desafiante'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sofi sticada | n= 1",
+    "veredicto": "real",
+    "buscar": "la base para una organización social más sofi sticada. Nada de esto busca implicar",
+    "reemplazar": "la base para una organización social más sofisticada. Nada de esto busca implicar",
+    "motivo": "Ligadura 'fi' partida en 'sofisticada'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi cacia | n= 1",
+    "veredicto": "real",
+    "buscar": "la suma de sus partes,. Para lograr una mayor efi cacia, un proveedor de cuidados",
+    "reemplazar": "la suma de sus partes,. Para lograr una mayor eficacia, un proveedor de cuidados",
+    "motivo": "Ligadura 'fi' partida en 'eficacia'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: especifi que | n= 1",
+    "veredicto": "real",
+    "buscar": "son para un adulto joven y sano, a menos que se especifi que lo contrario.",
+    "reemplazar": "son para un adulto joven y sano, a menos que se especifique lo contrario.",
+    "motivo": "Ligadura 'fi' partida en 'especifique'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi jó | n= 1",
+    "veredicto": "real",
+    "buscar": "Suponga que es un día frío de invierno y que fi jó el termostato a veinte grados",
+    "reemplazar": "Suponga que es un día frío de invierno y que fijó el termostato a veinte grados",
+    "motivo": "Ligadura 'fi' partida en 'fijó'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: barorrefl ejo | n= 1",
+    "veredicto": "real",
+    "buscar": "Esta corrección reflexiva de la presión arterial, barorrefl ejo, ilustra tres componentes",
+    "reemplazar": "Esta corrección reflexiva de la presión arterial, barorreflejo, ilustra tres componentes",
+    "motivo": "Ligadura 'fl' partida en 'barorreflejo'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi ebre | n= 1",
+    "veredicto": "real",
+    "buscar": "del punto de equilibrio homeostático. Por ejemplo, considérese la fi ebre. La elevación",
+    "reemplazar": "del punto de equilibrio homeostático. Por ejemplo, considérese la fiebre. La elevación",
+    "motivo": "Ligadura 'fi' partida en 'fiebre'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: codifi có | n= 1",
+    "veredicto": "real",
+    "buscar": "Federative Committee on Anatomical Terminology, lo codifi có en mil novecientos noventa y ocho,",
+    "reemplazar": "Federative Committee on Anatomical Terminology, lo codificó en mil novecientos noventa y ocho,",
+    "motivo": "Ligadura 'fi' partida en 'codificó'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jo | n= 7",
+    "veredicto": "real",
+    "buscar": "• Es posible agregar un sufi jo al final de una palabra para modificar",
+    "reemplazar": "• Es posible agregar un sufijo al final de una palabra para modificar",
+    "motivo": "Ligadura 'fi' partida en 'sufijo' (aparición 1 de 5 singulares; las 2 plurales se corrigen en 'sufi jos')."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jo | n= 7",
+    "veredicto": "real",
+    "buscar": "y un sufi jo, se presentan juntos con tanta frecuencia que se les trata en conjunto como un sufi jo compuesto;",
+    "reemplazar": "y un sufijo, se presentan juntos con tanta frecuencia que se les trata en conjunto como un sufijo compuesto;",
+    "motivo": "Ligadura 'fi' partida en 'sufijo' (apariciones 2 y 3 de 5 singulares)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jo | n= 7",
+    "veredicto": "real",
+    "buscar": "el sufi jo compuesto -logía, el estudio de,. Para resumir estos principios",
+    "reemplazar": "el sufijo compuesto -logía, el estudio de,. Para resumir estos principios",
+    "motivo": "Ligadura 'fi' partida en 'sufijo' (aparición 4 de 5 singulares; la 5.ª queda fuera del contexto o repetida en el párrafo)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jos | n= 2",
+    "veredicto": "real",
+    "buscar": "significados debido tan sólo a sus sufi jos. A menudo, dos o más sufi jos, o una raíz",
+    "reemplazar": "significados debido tan sólo a sus sufijos. A menudo, dos o más sufijos, o una raíz",
+    "motivo": "Ligaduras 'fi' partidas en ambas apariciones de 'sufijos'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir | n= 5",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Bloques reales de autoevaluación (n=5), pero el contexto trunca las preguntas; requiere recorte completo de cada bloque en el archivo del capítulo."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas | n= 5",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Mismos 5 bloques de autoevaluación de 'Antes de proseguir'; requiere recorte completo de cada bloque."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE DOS Soporte y movimiento cuarenta y nueve anconeus igual a codo. | n= 1",
+    "veredicto": "real",
+    "buscar": "Anterior Posterior cuarenta y seis supra igual a sobre; spin igual a espina de la escápula. cuarenta y siete infra igual a debajo; spin igual a espina de la escápula. cuarenta y ocho sub igual a debajo.\n\nPARTE DOS Soporte y movimiento cuarenta y nueve anconeus igual a codo.\nCUADRO diez coma un cero",
+    "reemplazar": "Anterior Posterior\n\nCUADRO diez coma un cero",
+    "motivo": "Encabezado de página 'PARTE DOS Soporte y movimiento' y glosas de notas al pie 46 a 49 eliminadas."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: músculo2 | n= 1",
+    "veredicto": "real",
+    "buscar": "mientras que la palabra músculo2 significa pequeño ratón, al parecer",
+    "reemplazar": "mientras que la palabra músculo significa pequeño ratón, al parecer",
+    "motivo": "Llamada numérica de nota al pie 2 pegada a 'músculo'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: fusiformes8 | n= 1",
+    "veredicto": "real",
+    "buscar": "• Los músculos fusiformes8 son gruesos en la parte media y puntiagudos",
+    "reemplazar": "• Los músculos fusiformes son gruesos en la parte media y puntiagudos",
+    "motivo": "Llamada numérica de nota al pie 8 pegada a 'fusiformes'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: peniformes9 | n= 1",
+    "veredicto": "real",
+    "buscar": "• Los músculos peniformes9 tienen forma de pluma. Sus fascículos se insertan",
+    "reemplazar": "• Los músculos peniformes tienen forma de pluma. Sus fascículos se insertan",
+    "motivo": "Llamada numérica de nota al pie 9 pegada a 'peniformes'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: sinergista12 | n= 1",
+    "veredicto": "real",
+    "buscar": "es el braquial. dos. Un sinergista12 es un músculo que ayuda al músculo",
+    "reemplazar": "es el braquial. dos. Un sinergista es un músculo que ayuda al músculo",
+    "motivo": "Llamada numérica de nota al pie 12 pegada a 'sinergista'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: antagonista13 | n= 1",
+    "veredicto": "real",
+    "buscar": "sea más coordinada y específica. tres. Un antagonista13 es un músculo que se opone",
+    "reemplazar": "sea más coordinada y específica. tres. Un antagonista es un músculo que se opone",
+    "motivo": "Llamada numérica de nota al pie 13 pegada a 'antagonista'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: superciliar16 | n= 1",
+    "veredicto": "real",
+    "buscar": "Nervio motor ocular común Corrugador superciliar16 Tira de las cejas en sentido medial",
+    "reemplazar": "Nervio motor ocular común Corrugador superciliar Tira de las cejas en sentido medial",
+    "motivo": "Llamada numérica de nota al pie 16 pegada a 'superciliar'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: modiolo18 | n= 1",
+    "veredicto": "real",
+    "buscar": "inserciones en un cordón complejo llamado modiolo18 o columela, en sentido lateral",
+    "reemplazar": "inserciones en un cordón complejo llamado modiolo o columela, en sentido lateral",
+    "motivo": "Llamada numérica de nota al pie 18 pegada a 'modiolo'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: externos42 | n= 1",
+    "veredicto": "real",
+    "buscar": "Nervios frénicos Intercostales externos42 Cuando los escalenos fijan la costilla un,",
+    "reemplazar": "Nervios frénicos Intercostales externos Cuando los escalenos fijan la costilla uno,",
+    "motivo": "Llamada numérica de nota al pie 42 pegada a 'externos' y 'costilla un' corregido a 'costilla uno'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: lumbricales50 | n= 1",
+    "veredicto": "real",
+    "buscar": "Nervio cubital Cuatro músculos lumbricales50 Extiende las articulaciones interfalángicas;",
+    "reemplazar": "Nervio cubital Cuatro músculos lumbricales Extiende las articulaciones interfalángicas;",
+    "motivo": "Llamada numérica de nota al pie 50 pegada a 'lumbricales'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: lata53 | n= 1",
+    "veredicto": "real",
+    "buscar": "Inervación Tensor de la fascia lata53 Extiende la rodilla, gira la tibia en sentido lateral,",
+    "reemplazar": "Inervación Tensor de la fascia lata Extiende la rodilla, gira la tibia en sentido lateral,",
+    "motivo": "Llamada numérica de nota al pie 53 pegada a 'lata'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: omina miología,un mientras | n= 1",
+    "veredicto": "real",
+    "buscar": "aún menos. El estudio de este sistema se denomina miología,un ",
+    "reemplazar": "aún menos. El estudio de este sistema se denomina miología, ",
+    "motivo": "Llamada de nota al pie 'un' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s: • Endomisio.tres Es una cu | n= 1",
+    "veredicto": "real",
+    "buscar": "son los siguientes: • Endomisio.tres Es una cubierta delgada de tejido conjuntivo",
+    "reemplazar": "son los siguientes: • Endomisio. Es una cubierta delgada de tejido conjuntivo",
+    "motivo": "Llamada de nota al pie 'tres' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s. • Perimisio.cuatro Es un tej | n= 1",
+    "veredicto": "real",
+    "buscar": "y las fibras musculares. • Perimisio.cuatro Es un tejido conjuntivo más grueso",
+    "reemplazar": "y las fibras musculares. • Perimisio. Es un tejido conjuntivo más grueso",
+    "motivo": "Llamada de nota al pie 'cuatro' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: dos fascículos,cinco los cuale | n= 1",
+    "veredicto": "real",
+    "buscar": "envuelve fibras musculares en haces llamados fascículos,cinco los cuales se observan",
+    "reemplazar": "envuelve fibras musculares en haces llamados fascículos, los cuales se observan",
+    "motivo": "Llamada de nota al pie 'cinco' pegada tras coma."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: n,. • Epimisio.seis Se trata | n= 1",
+    "veredicto": "real",
+    "buscar": "consúltese la p. quinientos un,. • Epimisio.seis Se trata de una vaina fibrosa",
+    "reemplazar": "consúltese la p. quinientos un,. • Epimisio. Se trata de una vaina fibrosa",
+    "motivo": "Llamada de nota al pie 'seis' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: isio. • Fascia.siete Es una ho | n= 1",
+    "veredicto": "real",
+    "buscar": "para formar el perimisio. • Fascia.siete Es una hoja de tejido conjuntivo",
+    "reemplazar": "para formar el perimisio. • Fascia. Es una hoja de tejido conjuntivo",
+    "motivo": "Llamada de nota al pie 'siete' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: da aponeurosis.diez Este térm | n= 1",
+    "veredicto": "real",
+    "buscar": "el tendón es una hoja amplia llamada aponeurosis.diez Este término se usaba",
+    "reemplazar": "el tendón es una hoja amplia llamada aponeurosis. Este término se usaba",
+    "motivo": "Llamada de nota al pie 'diez' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: a aponeurótica.catorce Frontal E | n= 1",
+    "veredicto": "real",
+    "buscar": "por una amplia aponeurosis: la galea aponeurótica.catorce Frontal Eleva las cejas",
+    "reemplazar": "por una amplia aponeurosis: la galea aponeurótica. Frontal Eleva las cejas",
+    "motivo": "Llamada de nota al pie 'catorce' pegada tras punto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un myo igual a músculo; logi igual a estudio de. | n= 1",
+    "veredicto": "real",
+    "buscar": "visualizarlos y recordarlos. un myo igual a músculo; logi igual a estudio de. dos mus igual a ratón; cul igual a pequeño. Repaso",
+    "reemplazar": "visualizarlos y recordarlos.\nRepaso",
+    "motivo": "Glosas etimológicas de notas al pie 1 y 2 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . nueve penn igual a pluma; forme igual a con forma de. | n= 1",
+    "veredicto": "real",
+    "buscar": "palmares interóseos de ocho fusu igual a huso; forme igual a con forma de. nueve penn igual a pluma; forme igual a con forma de. Fusiforme Paralelo",
+    "reemplazar": "palmares interóseos de Fusiforme Paralelo",
+    "motivo": "Glosas etimológicas de notas al pie 8 y 9 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro peri igual a alrededor de; myo, mys igual a músculo. | n= 1",
+    "veredicto": "real",
+    "buscar": "visible de cada ilustración. cuatro peri igual a alrededor de; myo, mys igual a músculo. cinco fasc igual a haz; cul igual a pequeño.",
+    "reemplazar": "visible de cada ilustración.",
+    "motivo": "Glosas etimológicas de notas al pie 4 y 5 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . seis epi igual a sobre; myo, mys igual a músculo. | n= 1",
+    "veredicto": "real",
+    "buscar": " seis epi igual a sobre; myo, mys igual a músculo. siete fascia igual a banda que ata.\n\nPARTE DOS Soporte y movimiento Tibia",
+    "reemplazar": "\n\nTibia",
+    "motivo": "Glosas etimológicas de notas al pie 6 y 7 más encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez apo igual a a partir de; neuro igual a nervio; osis igual a proceso. | n= 0",
+    "veredicto": "no_verificado",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Aparece con n=0 y sin fragmento de contexto en el archivo de contextos (posiblemente precedido por salto de línea en vez de '. '); requiere revisión directa en el archivo del capítulo."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece anti igual a contra; agon igual a combate; ist igual a que hace. | n= 1",
+    "veredicto": "real",
+    "buscar": "tiene ahí su origen y su doce syn igual a junto; erg igual a trabajo; ist igual a que hace. trece anti igual a contra; agon igual a combate; ist igual a que hace.\n\nCAPÍTULO diez El sistema muscular inserción, en tanto",
+    "reemplazar": "tiene ahí su origen y su inserción, en tanto",
+    "motivo": "Notas al pie 12 y 13 más encabezado de página incrustados en medio de la oración."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince orb igual a círculo; ocul igual a ojo. | n= 1",
+    "veredicto": "real",
+    "buscar": "Platisma Nasal Risorio\n\nPARTE DOS Soporte y movimiento catorce galea igual a casco; apo igual a sobre; neuro igual a nervio. quince orb igual a círculo; ocul igual a ojo.",
+    "reemplazar": "Platisma Nasal Risorio\n\n",
+    "motivo": "Encabezado de página y notas al pie 14 y 15 incrustados en el texto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete nas igual a de la nariz. | n= 1",
+    "veredicto": "real",
+    "buscar": " dieciséis corrug igual a onda, arruga; superciliar igual a sobre las cejas. diecisiete nas igual a de la nariz.",
+    "reemplazar": "",
+    "motivo": "Glosas etimológicas de notas al pie 16 y 17 incrustadas en el texto."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecinueve cigo igual a unión, enlace, se refiere al hueso cigomático,. | n= 1",
+    "veredicto": "real",
+    "buscar": " dieciocho modiolus igual a eje. diecinueve cigo igual a unión, enlace, se refiere al hueso cigomático,.\nCUADRO diez coma un",
+    "reemplazar": "CUADRO diez coma un",
+    "motivo": "Glosas etimológicas de notas al pie 18 y 19 incrustadas antes del cuadro."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura diez coma cuatro y | n= 1",
+    "veredicto": "real",
+    "buscar": "denominada tendón. Por ejemplo, obsérvense los dos extremos del bíceps braquial en la figura diez coma cuatro y las fotografías de las figuras diez.31b y diez coma tres siete. Es posible palpar",
+    "reemplazar": "denominada tendón. Es posible palpar",
+    "motivo": "Oración de referencia visual a las figuras 10.4, 10.31b y 10.37 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura diez coma cuatro | n= 3",
+    "veredicto": "real",
+    "buscar": "la cabeza lateral del tríceps braquial en la figura diez coma cuatro,. Sin embargo, bajo el microscopio,",
+    "reemplazar": "la cabeza lateral del tríceps braquial. Sin embargo, bajo el microscopio,",
+    "motivo": "Referencia visual a la figura 10.4 eliminada (aparición 2 de 3; la 1.ª se cubre en el hallazgo anterior)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura diez coma cuatro | n= 3",
+    "veredicto": "real",
+    "buscar": "Las cuatro categorías de acción muscular se ilustran en la figura diez coma cuatro: un. El músculo",
+    "reemplazar": "Las cuatro categorías de acción muscular: uno. El músculo",
+    "motivo": "Referencia visual a la figura 10.4 eliminada y 'un.' corregido a 'uno.' (aparición 3 de 3)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: La figura diez coma cinco | n= 1",
+    "veredicto": "real",
+    "buscar": "Nomenclatura de los músculos La figura diez coma cinco muestra una revisión general de los principales músculos superficiales; el aprendizaje de los nombres de éstos",
+    "reemplazar": "Nomenclatura de los músculos\nEl aprendizaje de los nombres de éstos",
+    "motivo": "Cláusula de referencia visual a la figura 10.5 eliminada y subtítulo separado en su línea."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: La figura diez coma seis | n= 1",
+    "veredicto": "real",
+    "buscar": "de cualquiera de esos músculos. La figura diez coma seis muestra algunos de los músculos de la cabeza y el cuello. Aquí se analizan",
+    "reemplazar": "de cualquiera de esos músculos.\nAquí se analizan",
+    "motivo": "Oración de referencia visual a la figura 10.6 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura nueve coma dos cero | n= 1",
+    "veredicto": "real",
+    "buscar": "entre los dientes posteriores. Los últimos cuatro de estos movimientos se muestran en la figura nueve coma dos cero, p. doscientos noventa y seis,. Todos estos músculos",
+    "reemplazar": "entre los dientes posteriores. Todos estos músculos",
+    "motivo": "Oración de referencia visual a la figura 9.20 y página eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura diez coma ocho | n= 1",
+    "veredicto": "real",
+    "buscar": "es profundo en relación con el milohioideo y puede verse en la figura diez coma ocho. Elevador de la escápula",
+    "reemplazar": "es profundo en relación con el milohioideo. Elevador de la escápula",
+    "motivo": "Referencia visual 'y puede verse en la figura diez coma ocho' eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma seis | n= 1",
+    "veredicto": "real",
+    "buscar": "el del tórax no actúa sobre el cuello, pero se muestra en el cuadro diez coma seis. Trapecio39",
+    "reemplazar": "el del tórax no actúa sobre el cuello. Trapecio",
+    "motivo": "Referencia visual al cuadro 10.6 y llamada numérica '39' en 'Trapecio39' eliminadas."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma ocho | n= 1",
+    "veredicto": "real",
+    "buscar": "lo flexiona en sentido lateral. Consúltense también las funciones en el movimiento de la escápula en el cuadro diez coma ocho O: protuberancia",
+    "reemplazar": "lo flexiona en sentido lateral. O: protuberancia",
+    "motivo": "Referencia visual al cuadro 10.8 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura diez coma un siete | n= 1",
+    "veredicto": "real",
+    "buscar": "FIGURA diez coma un ocho Músculos que actúan sobre la columna vertebral. Son más profundos que los músculos de la figura diez coma un siete, los de la derecha lo son más que los de la izquierda.",
+    "reemplazar": "FIGURA diez punto dieciocho Músculos que actúan sobre la columna vertebral.",
+    "motivo": "Remisión visual a figura 10.17 eliminada y número de figura 10.18 corregido a 'diez punto dieciocho'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura diez | n= 5",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Subcadena cubierta por los hallazgos específicos de 'en la figura diez coma cuatro', 'diez coma ocho' y 'diez.20c'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma tres | n= 1",
+    "veredicto": "real",
+    "buscar": "para girar y retraer la escápula, consúltense también sus papeles en los movimientos de la cabeza y el cuello, expuestos en el cuadro diez coma tres, O: protuberancia",
+    "reemplazar": "para girar y retraer la escápula. O: protuberancia",
+    "motivo": "Referencia visual al cuadro 10.3 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura | n= 6",
+    "veredicto": "real",
+    "buscar": "Vista lateral. Para conocer las vistas posterior y anterior de estos músculos, véase la figura diez.23b y d. Nombre Acción",
+    "reemplazar": "Vista lateral. Nombre Acción",
+    "motivo": "Referencia visual 'véase la figura diez.23b y d' eliminada (1 de 3 mostradas; las otras 3 de n=6 se cubren en 'consúltese el cuadro', 'figura B-19b' y 'diez.40a')."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura | n= 6",
+    "veredicto": "real",
+    "buscar": "resultado del movimiento repetitivo, consúltese el recuadro Conocimiento más a fondo diez coma cuatro y véase la figura diez coma tres cero,. Las fascias",
+    "reemplazar": "resultado del movimiento repetitivo. Las fascias",
+    "motivo": "Referencia visual a recuadro 10.4 y figura 10.30 eliminada (2 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura | n= 6",
+    "veredicto": "real",
+    "buscar": "flexor radial del carpo en el lado lateral, véase la figura B.19a, p. trescientos noventa y cinco,. El último",
+    "reemplazar": "flexor radial del carpo en el lado lateral. El último",
+    "motivo": "Referencia visual 'véase la figura B.19a, p. 395' eliminada (3 de 3 mostradas)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véanse las figuras | n= 1",
+    "veredicto": "real",
+    "buscar": "el braquial y el bíceps braquial, véanse las figuras diez.23c y d,. El bíceps braquial",
+    "reemplazar": "el braquial y el bíceps braquial. El bíceps braquial",
+    "motivo": "Referencia visual 'véanse las figuras diez.23c y d' eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: consúltese el cuadro | n= 1",
+    "veredicto": "real",
+    "buscar": "al cóndilo lateral de la tibia, véase la figura diez coma tres cuatro y consúltese el cuadro diez coma un cuatro,. El tensor",
+    "reemplazar": "al cóndilo lateral de la tibia. El tensor",
+    "motivo": "Referencia visual a figura 10.34 y cuadro 10.14 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma un cuatro | n= 2",
+    "veredicto": "real",
+    "buscar": "extensores y flexores de la rodilla, respectivamente, y se les trata en el cuadro diez coma un cuatro. Los cinco músculos",
+    "reemplazar": "extensores y flexores de la rodilla, respectivamente. Los cinco músculos",
+    "motivo": "Referencia visual al cuadro 10.14 eliminada (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma un cuatro | n= 2",
+    "veredicto": "real",
+    "buscar": "El cuarto músculo, el poplíteo, se describió en el cuadro diez coma un cuatro porque actúa sobre la rodilla",
+    "reemplazar": "El cuarto músculo, el poplíteo, actúa sobre la rodilla",
+    "motivo": "Referencia visual al cuadro 10.14 eliminada sin romper la oración (2 de 2)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro diez coma un cinco | n= 1",
+    "veredicto": "real",
+    "buscar": "actúan sobre el tobillo y el pie y se revisan en el cuadro diez coma un cinco, pero el poplíteo",
+    "reemplazar": "actúan sobre el tobillo y el pie, pero el poplíteo",
+    "motivo": "Referencia visual al cuadro 10.15 eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: uras diez.31b y diez c | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto al eliminar la oración de referencia visual en el hallazgo 'en la figura diez coma cuatro y' de REV 5."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura diez.20c: el elev | n= 1",
+    "veredicto": "real",
+    "buscar": "integrado por dos pares de músculos que se muestran en la figura diez.20c: el elevador del ano",
+    "reemplazar": "integrado por dos pares de músculos: el elevador del ano",
+    "motivo": "Referencia visual con dígitos sin convertir ('en la figura diez.20c') eliminada."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura diez.23b y d. Nom | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto al eliminar la referencia visual en el hallazgo 'véase la figura' (1) de REV 5."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: uras diez.23c y d,. El | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto al eliminar la referencia visual en el hallazgo 'véanse las figuras' de REV 5."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura B.19a, p. tres | n= 1",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Cubierto al eliminar la referencia visual en el hallazgo 'véase la figura' (3) de REV 5."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura B-19b, p. tres | n= 2",
+    "veredicto": "real",
+    "buscar": "con firmeza los dedos, véase la figura B-19b, p. trescientos noventa y cinco,. Sirve a los dedos",
+    "reemplazar": "con firmeza los dedos. Sirve a los dedos",
+    "motivo": "Referencia visual con dígitos sin convertir ('véase la figura B-19b, p. 395') eliminada (1 de 2)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura B-19b, p. tres | n= 2",
+    "veredicto": "real",
+    "buscar": "un tendón tenso a cada lado de él, figura B-19b, p. trescientos noventa y cinco,. Esta depresión",
+    "reemplazar": "un tendón tenso a cada lado de él. Esta depresión",
+    "motivo": "Referencia visual con dígitos sin convertir ('figura B-19b, p. 395') eliminada (2 de 2)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: xionado a 45º en relac | n= 1",
+    "veredicto": "real",
+    "buscar": "su máxima fuerza cuando el muslo está flexionado a 45º en relación con el tronco.",
+    "reemplazar": "su máxima fuerza cuando el muslo está flexionado a cuarenta y cinco grados en relación con el tronco.",
+    "motivo": "Ángulo '45º' sin convertir a palabras."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura diez.40a y d,. Po | n= 1",
+    "veredicto": "real",
+    "buscar": "actúan sobre la rodilla, véase la figura diez.40a y d,. Poplíteo58 Gira la tibia",
+    "reemplazar": "actúan sobre la rodilla. Poplíteo Gira la tibia",
+    "motivo": "Referencia visual 'véase la figura diez.40a y d' y llamada numérica '58' en 'Poplíteo58' eliminadas."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FIGURE | n= 1",
+    "veredicto": "real",
+    "buscar": "dura entre la carne y el hueso? FIGURE diez coma un tres Músculos de la respiración.",
+    "reemplazar": "dura entre la carne y el hueso?\nFIGURA diez punto trece Músculos de la respiración.",
+    "motivo": "Errata 'FIGURE' corregida a 'FIGURA', separada en su línea y número 10.13 corregido a 'diez punto trece'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO | n= 3",
+    "veredicto": "real",
+    "buscar": null,
+    "reemplazar": null,
+    "motivo": "Las 3 apariciones se normalizan y separan en su línea en los 3 hallazgos de recuadro pegado siguientes."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: a toracolumbar CONOCIMIENTO MÁS A FONDO diez coma dos Aplicación cl... | n= 1",
+    "veredicto": "real",
+    "buscar": "Dorsal ancho Fascia toracolumbar CONOCIMIENTO MÁS A FONDO diez coma dos Aplicación clínica Levantamiento de objetos pesados y lesiones de espalda Cuando se está",
+    "reemplazar": "Dorsal ancho Fascia toracolumbar\n\nConocimiento más a fondo diez punto dos. Aplicación clínica: Levantamiento de objetos pesados y lesiones de espalda\nCuando se está",
+    "motivo": "Recuadro 10.2 separado en su propia línea con título normalizado."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: e y movimiento CONOCIMIENTO MÁS A FONDO diez coma cuatro Aplicación... | n= 1",
+    "veredicto": "real",
+    "buscar": "Vista posterior\n\nPARTE DOS Soporte y movimiento CONOCIMIENTO MÁS A FONDO diez coma cuatro Aplicación clínica Síndrome del túnel carpiano Los movimientos",
+    "reemplazar": "Vista posterior\n\nConocimiento más a fondo diez punto cuatro. Aplicación clínica: Síndrome del túnel carpiano\nLos movimientos",
+    "motivo": "Encabezado de página eliminado y recuadro 10.4 separado en su propia línea con título normalizado."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: de un médico. CONOCIMIENTO MÁS A FONDO diez coma cinco Aplicación c... | n= 1",
+    "veredicto": "real",
+    "buscar": "atención urgente de un médico. CONOCIMIENTO MÁS A FONDO diez coma cinco Aplicación clínica Lesiones atléticas comunes Aunque el sistema",
+    "reemplazar": "atención urgente de un médico.\n\nConocimiento más a fondo diez punto cinco. Aplicación clínica: Lesiones atléticas comunes\nAunque el sistema",
+    "motivo": "Recuadro 10.5 separado en su propia línea con título normalizado."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar | n= 5",
+    "veredicto": "real",
+    "buscar": "de la pantorrilla posterior suele fl exionar la rodilla, pero si el cuadríceps",
+    "reemplazar": "de la pantorrilla posterior suele flexionar la rodilla, pero si el cuadríceps",
+    "motivo": "Ligadura 'fl' partida en 'flexionar' (aparición 1 de 5; la 2.ª es 'fl exionará', cubierta abajo)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar | n= 5",
+    "veredicto": "real",
+    "buscar": "articular particular. Por ejemplo, al fl exionar el codo, el músculo principal",
+    "reemplazar": "articular particular. Por ejemplo, al flexionar el codo, el músculo principal",
+    "motivo": "Ligadura 'fl' partida en 'flexionar' (aparición 3 de 5; quedan 2 apariciones adicionales fuera del recorte)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionará | n= 1",
+    "veredicto": "real",
+    "buscar": "evita la flexión de la rodilla, el gastroctemio fl exionará el tobillo y causará",
+    "reemplazar": "evita la flexión de la rodilla, el gastroctemio flexionará el tobillo y causará",
+    "motivo": "Ligadura 'fl' partida en 'flexionará'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi jador | n= 2",
+    "veredicto": "real",
+    "buscar": "sus papeles se invierten. cuatro. Un fi jador es un músculo que evita que un hueso",
+    "reemplazar": "sus papeles se invierten. cuatro. Un fijador es un músculo que evita que un hueso",
+    "motivo": "Ligadura 'fi' partida en 'fijador' (la segunda coincidencia es 'fi jadores', cubierta en el siguiente hallazgo)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi jadores | n= 1",
+    "veredicto": "real",
+    "buscar": "en sentido lateral. Sin embargo, hay músculos fi jadores, los romboides, que unen",
+    "reemplazar": "en sentido lateral. Sin embargo, hay músculos fijadores, los romboides, que unen",
+    "motivo": "Ligadura 'fi' partida en 'fijadores'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fotográfi co | n= 1",
+    "veredicto": "real",
+    "buscar": "animales disecados o un atlas fotográfi co mientras se lee acerca de esos músculos.",
+    "reemplazar": "animales disecados o un atlas fotográfico mientras se lee acerca de esos músculos.",
+    "motivo": "Ligadura 'fi' partida en 'fotográfico'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi jarse | n= 1",
+    "veredicto": "real",
+    "buscar": "directa de un músculo puede fi jarse mejor en la memoria que un texto descriptivo",
+    "reemplazar": "directa de un músculo puede fijarse mejor en la memoria que un texto descriptivo",
+    "motivo": "Ligadura 'fi' partida en 'fijarse'."
+  }
+]

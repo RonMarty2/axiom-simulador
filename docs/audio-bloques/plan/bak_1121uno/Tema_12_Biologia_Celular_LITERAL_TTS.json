@@ -1,0 +1,1199 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO doce El citoesqueleto Objetivos de aprendizaje • Co"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "de polímeros proteicos que proporcionan soporte estructural "
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "de estos tres tipos de estructuras tiene una composición esp"
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Microtúbulos Estructura de los microtúbulos. Tubulogénesis i"
+  },
+  {
+    "j": 5,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si se añade alfa- y beta-tubulina monomérica en concentracio"
+  },
+  {
+    "j": 6,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las primeras fases de la polimerización, el ensamblaje se"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Finalmente se llega a un estado de equilibrio, en el que el "
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los experimentos in vitro han demostrado que el crecimiento "
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA doce a dos Proceso de tubulogénesis in vitro, en el q"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "C. Intercambio rotatorio, treadmilling, en los microtúbulos."
+  },
+  {
+    "j": 11,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se sabe que para que tenga lugar la polimerización, el heter"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando la beta-tubulina contiene G T P es estable, pero cuan"
+  },
+  {
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A este fenómeno se le llama intercambio rotatorio, treadmill"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "acortamiento súbito. La interpretación de este fenómeno no e"
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En cambio, si la concentración de G T P-tubulina disminuye e"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tubulogénesis in vivo. Funciones de los microtúbulos en la c"
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La génesis de nuevos microtúbulos en el citoplasma celular d"
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA doce a cuatro Los centros organizadores de microtúbul"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De modo similar a la tubulogénesis in vitro, la disociación "
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, a diferencia de lo que acontece con los microtúbulos a"
+  },
+  {
+    "j": 21,
+    "accion": "REUSAR",
+    "origen": "parte_022.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las principales funciones de los microtúbulos celulares son:"
+  },
+  {
+    "j": 22,
+    "accion": "REUSAR",
+    "origen": "parte_023.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Participan en los procesos de endocitosis y exocitosis. • "
+  },
+  {
+    "j": 23,
+    "accion": "REUSAR",
+    "origen": "parte_024.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El taxol es una sustancia extraída de la corteza del tejo, T"
+  },
+  {
+    "j": 24,
+    "accion": "REUSAR",
+    "origen": "parte_025.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Actualmente se han desarrollado variantes del taxol, mediant"
+  },
+  {
+    "j": 25,
+    "accion": "REUSAR",
+    "origen": "parte_026.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este compuesto detiene la mitosis en metafase, en la que los"
+  },
+  {
+    "j": 26,
+    "accion": "REUSAR",
+    "origen": "parte_027.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ej., para el tratamiento de algunos tumores cutáneos, ya que"
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En estas enfermedades se produce un infiltrado leucocitario "
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "dinamismo normal de los microtúbulos. Estas sustancias se in"
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen dos tipos de M A P: un. Motoras: son proteínas que c"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los movimientos de vesículas han sido muy estudiados en neur"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las quinesinas son una familia de proteínas motoras, identif"
+  },
+  {
+    "j": 32,
+    "accion": "REUSAR",
+    "origen": "parte_033.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "movimiento tiene lugar desde el soma hacia el terminal nervi"
+  },
+  {
+    "j": 33,
+    "accion": "REUSAR",
+    "origen": "parte_034.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Este segundo pie realiza el mismo movimiento momentos despué"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el segundo grupo de M A P, sin función motora, se incluye"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La proteína tau está muy involucrada en el desarrollo de div"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El Alzheimer no es la única enfermedad en la que se han enco"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA doce a seis A. Los microtúbulos se pueden agrupar for"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los microtúbulos de cada triplete se denominan A, correspond"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las células en interfase poseen un par de centríolos, en pos"
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "parejas aparece como una estructura radial, correspondiente "
+  },
+  {
+    "j": 41,
+    "accion": "REUSAR",
+    "origen": "parte_043.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Papel de los centríolos en la organización del huso mitótico"
+  },
+  {
+    "j": 42,
+    "accion": "REUSAR",
+    "origen": "parte_044.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La formación del huso mitótico implica la estabilización de "
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Durante la metafase, los microtúbulos sitúan a los cromosoma"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la anafase A, o anafase temprana, los microtúbulos cineto"
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA doce a siete La dinámica de microtúbulos desempeña un"
+  },
+  {
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La polimerización de los microtúbulos, junto con su separaci"
+  },
+  {
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La adición de unidades de tubulina en los extremos positivo "
+  },
+  {
+    "j": 48,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El efecto resultante es un arrastre de los polos del huso ha"
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen dos tipos de cilios, que se diferencian por la estru"
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "se encuentran normalmente como cilios únicos, un cilio por c"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las secciones transversales al nivel del tallo y del cuerpo "
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Navarra: eunsa, mil novecientos noventa y un., Los cilios co"
+  },
+  {
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "respiratorio. Otras células que presentan cilios móviles son"
+  },
+  {
+    "j": 54,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los microtúbulos del par central, denominados singletes, no "
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La dineína es la proteína responsable de generar el movimien"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Función Los cilios motores tienen un tipo de movimiento llam"
+  },
+  {
+    "j": 57,
+    "accion": "REUSAR",
+    "origen": "parte_062.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "ej., las del epitelio respiratorio, realicen su función corr"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El humo del tabaco daña las células epiteliales disminuyendo"
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas estructurales del cilio no son propiamente las"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las señales olfatorias dependen del correcto funcionamiento "
+  },
+  {
+    "j": 61,
+    "accion": "REUSAR",
+    "origen": "parte_066.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "cilios inmóviles de neuronas modificadas del epitelio olfato"
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los ratones knock out para algunos genes B B S también posee"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los cilios situados en las células del nódulo primitivo del "
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si se traza una línea vertical que atraviesa el axonema de u"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En cambio, las células del lado izquierdo no reciben ese flu"
+  },
+  {
+    "j": 66,
+    "accion": "REUSAR",
+    "origen": "parte_071.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA doce a doce El correcto funcionamiento de los cilios "
+  },
+  {
+    "j": 67,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si este sistema de control falla, se pueden producir alterac"
+  },
+  {
+    "j": 68,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los espermatozoides están formados por la cabeza, que contie"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "intermedia y principal se encuentran las fibras densas: comp"
+  },
+  {
+    "j": 70,
+    "accion": "REUSAR",
+    "origen": "parte_075.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Ciliogénesis La formación de cilios se denomina ciliogénesis"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En células epiteliales ciliadas el proceso de ciliogénesis p"
+  },
+  {
+    "j": 72,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En otros casos se forma una verdadera vacuola citoplasmática"
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Algunas patologías relacionadas con disfunciones en los cili"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta patología puede provocar bronquitis y sinusitis crónica"
+  },
+  {
+    "j": 75,
+    "accion": "REUSAR",
+    "origen": "parte_081.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "No obstante, se han descrito otras causas, como la ausencia "
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_082.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En un principio se pensó que estos cilios no tenían una func"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el cilio se localizan las policistinas, codificadas por l"
+  },
+  {
+    "j": 78,
+    "accion": "REUSAR",
+    "origen": "parte_084.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El riñón poliquístico es una de las enfermedades hereditaria"
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Microfilamentos de actina y filamentos gruesos de miosina Es"
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "musculares existe una compleja red de microfilamentos en la "
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "También participan en la contracción de las fibras de múscul"
+  },
+  {
+    "j": 82,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Participan en el desplazamiento intracelular de vesículas,"
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las unidades aisladas de actina se denominan actina G, globu"
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "polimerizarse o despolimerizarse experimentalmente in vitro."
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La actina-A D P tiende a desprenderse del microfilamento en "
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La interpretación molecular que explica por qué los microfil"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los microfilamentos sufren también el fenómeno del intercamb"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las células agrupan los polímeros de microfilamentos para fo"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "favorece que el citoplasma adquiera mayor consistencia, y se"
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El correcto funcionamiento de estas proteínas es esencial pa"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto origina complejos A D F o cofilina-A D P-actina G libre"
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La A D F o cofilina puede, además, unirse a lo largo de los "
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El complejo proteico Arp2 o tres, formado por varias proteín"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Así, Rho puede contribuir a la formación de fibras de estrés"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Filamina es una proteína que entrecruza los filamentos de "
+  },
+  {
+    "j": 96,
+    "accion": "REUSAR",
+    "origen": "parte_103.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las mutaciones que dan lugar al síndrome de Wiskott-Aldrich "
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Fimbrina y villina: se sitúan en las microvellosidades y o"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Miosinas I y V: proteínas motoras que son responsables del"
+  },
+  {
+    "j": 99,
+    "accion": "REUSAR",
+    "origen": "parte_107.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA doce a diecisiete Esquema de diferentes modos en los "
+  },
+  {
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "phalloides no se debe a la faloidina, ya que esta casi no es"
+  },
+  {
+    "j": 101,
+    "accion": "REUSAR",
+    "origen": "parte_109.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Utilización de la actina de la célula huésped por microorgan"
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "tratados como leche, verduras, quesos, etc. Lysteria es un b"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De este modo, Lysteria puede introducirse en una célula veci"
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pedestales de actina formados por la bacteria Escherichia co"
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La interacción de la bacteria con proteínas de la membrana a"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La miosina es una proteína ubicua, encontrada abundantemente"
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El primer tipo de miosina que se descubrió fue la miosina II"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Representación de las moléculas de miosina I, II y V. B. Ima"
+  },
+  {
+    "j": 109,
+    "accion": "REUSAR",
+    "origen": "parte_118.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La hidrólisis de A T P genera la energía suficiente para pro"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si estas cabezas motoras se añaden in vitro junto a actina F"
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "el extremo barbado, el de crecimiento, queda hacia el positi"
+  },
+  {
+    "j": 112,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cada filamento grueso posee por tanto un ramillete de molécu"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La miosina I se dispone en forma sencilla, con una sola cola"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La miosina V posee dos cabezas y dos colas, pero el enrollam"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estructura del sarcómero en el músculo esquelético y contrac"
+  },
+  {
+    "j": 116,
+    "accion": "REUSAR",
+    "origen": "parte_126.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "modo altamente organizado, permitiendo así la contracción ef"
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Al microscopio electrónico se puede observar que las miofibr"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La contracción muscular implica una reducción de la longitud"
+  },
+  {
+    "j": 119,
+    "accion": "REUSAR",
+    "origen": "parte_129.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La tropomiosina, que se enrolla como un fino cordón sobre el"
+  },
+  {
+    "j": 120,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La contracción se produce porque los filamentos de miosina, "
+  },
+  {
+    "j": 121,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El arrastre de los filamentos de actina implica que las cabe"
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En una etapa posterior, se pierde el Pi, paso un, quedando l"
+  },
+  {
+    "j": 123,
+    "accion": "REUSAR",
+    "origen": "parte_133.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "provoca el movimiento de tipo bisagra, paso dos, que desplaz"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El A T P se disocia entonces en A D P y Pi, paso cuatro, y l"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Representación de un filamento longitudinal de actina que mu"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En situación de reposo, la miosina no contacta directamente "
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "sitios de unión de la actina-miosina. Pero durante la contra"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En condiciones de reposo, el calcio dos más permanece secues"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los terminales axónicos vierten el neurotransmisor acetilcol"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La despolarización de la membrana en los túbulos T, que está"
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Una vez finalizada la contracción, los iones calcio dos más "
+  },
+  {
+    "j": 132,
+    "accion": "REUSAR",
+    "origen": "parte_143.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el músculo cardíaco también existe estriación y un sistem"
+  },
+  {
+    "j": 133,
+    "accion": "REUSAR",
+    "origen": "parte_144.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La contracción en el músculo cardíaco tiene lugar de modo in"
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El funcionamiento básico de la contracción del músculo cardí"
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La capacidad contráctil es debida a un conjunto de haces de "
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las células musculares lisas están conectadas entre sí media"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el proceso de contracción se encuentran algunas diferenci"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La quinasa de las cadenas ligeras de miosina, M L C K, del i"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "M L C, del inglés myosin Light chain, favoreciendo el ensamb"
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Señalización intracelular que regula la contracción muscular"
+  },
+  {
+    "j": 141,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "M L C, cadena ligera de la miosina, myosin light chain,; M L"
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "musculares lisas, pero la dinámica de unión actina-miosina y"
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La migración celular en un sustrato conlleva los siguientes "
+  },
+  {
+    "j": 144,
+    "accion": "REUSAR",
+    "origen": "parte_155.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los extremos positivo de los filamentos se sitúan junto a la"
+  },
+  {
+    "j": 145,
+    "accion": "REUSAR",
+    "origen": "parte_156.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "A la vez, las fibras de estrés de la parte trasera de la cél"
+  },
+  {
+    "j": 146,
+    "accion": "REUSAR",
+    "origen": "parte_157.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las interacciones de actinamiosina hacen que el cuerpo celul"
+  },
+  {
+    "j": 147,
+    "accion": "REUSAR",
+    "origen": "parte_158.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA doce a veinticinco A. Movimiento secuencial de célula"
+  },
+  {
+    "j": 148,
+    "accion": "REUSAR",
+    "origen": "parte_159.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El movimiento ameboide es un tipo de movimiento que está res"
+  },
+  {
+    "j": 149,
+    "accion": "REUSAR",
+    "origen": "parte_160.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Cuando una célula avanza con este tipo de movimiento, el cit"
+  },
+  {
+    "j": 150,
+    "accion": "REUSAR",
+    "origen": "parte_161.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Algunas patologías relacionadas con anomalías estructurales "
+  },
+  {
+    "j": 151,
+    "accion": "REUSAR",
+    "origen": "parte_162.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La distrofia muscular de Duchenne es una enfermedad genética"
+  },
+  {
+    "j": 152,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "sarcoplasma. Los varones con una mutación en dicho gen sufre"
+  },
+  {
+    "j": 153,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los pacientes pueden mostrar cardiomiopatía por afectación d"
+  },
+  {
+    "j": 154,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La distrofia muscular de Becker también se produce por mutac"
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Filamentos intermedios Estructura y ensamblaje Los filamento"
+  },
+  {
+    "j": 156,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Las proteínas que constituyen los filamentos intermedios s"
+  },
+  {
+    "j": 157,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se han identificado más de cincuenta proteínas distintas que"
+  },
+  {
+    "j": 158,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La proteína ácida neurofibrilar glial es característica de l"
+  },
+  {
+    "j": 159,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A pesar de que existen diferencias en peso molecular y en se"
+  },
+  {
+    "j": 160,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El punto de partida es la formación de dímeros, generalmente"
+  },
+  {
+    "j": 161,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "proteicas del mismo tipo enrolladas una sobre la otra a modo"
+  },
+  {
+    "j": 162,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los tetrámeros se unen entre sí por sus extremos para formar"
+  },
+  {
+    "j": 163,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos filamentos ayudan a fijar el núcleo celular en la posi"
+  },
+  {
+    "j": 164,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La plectina se expresa abundantemente en células de epitelio"
+  },
+  {
+    "j": 165,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "epiteliales, constituyen una familia de filamentos intermedi"
+  },
+  {
+    "j": 166,
+    "accion": "REUSAR",
+    "origen": "parte_178.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Incluso los diferentes estratos de la epidermis presentan di"
+  },
+  {
+    "j": 167,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, en el diagnóstico de metástasis en pacientes en"
+  },
+  {
+    "j": 168,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Del mismo modo, la expresión de vimentina podría indicar que"
+  },
+  {
+    "j": 169,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las mutaciones en las C K provocan diferentes enfermedades, "
+  },
+  {
+    "j": 170,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta patología se ha reproducido en ratones mediante técnica"
+  },
+  {
+    "j": 171,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "se manifiesta en queratomas, callosidades que pueden formar "
+  }
+]

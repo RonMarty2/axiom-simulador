@@ -1,0 +1,1667 @@
+[
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ón corporal A.un Terminolo",
+    "veredicto": "real",
+    "buscar": "ORIENTACIÓN GENERAL PARA LA ANATOMÍA HUMANA Módulo un: Orientación corporal\n\nA.un Terminología anatómica general",
+    "reemplazar": "ORIENTACIÓN GENERAL PARA LA ANATOMÍA HUMANA Módulo uno: Orientación corporal\n\nA punto uno Terminología anatómica general",
+    "motivo": "Normalizar sección 'A.un' a 'A punto uno' y 'Módulo un' a 'Módulo uno' para evitar lectura de punto y falso disparo de rev. 4."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: supo- sición",
+    "veredicto": "real",
+    "buscar": "Posición anatómica La terminología direccional de la anatomía se basa en la supo- sición acerca de cierta posición del cuerpo que se considera.",
+    "reemplazar": "Posición anatómica La terminología direccional de la anatomía se basa en la suposición acerca de cierta posición del cuerpo que se considera.",
+    "motivo": "Unir palabra partida por guion 'supo- sición' -> 'suposición'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ente, figura A.un,. Sin est",
+    "veredicto": "real",
+    "buscar": "La posición anatómica es una postura en que una persona per- manece erguida, con los pies planos sobre el piso y cercanos entre sí, los brazos a los lados, y las palmas y la cara dirigidas hacia el frente, figura A.un,.",
+    "reemplazar": "La posición anatómica es una postura en que una persona permanece erguida, con los pies planos sobre el piso y cercanos entre sí, los brazos a los lados, y las palmas y la cara dirigidas hacia el frente.",
+    "motivo": "Quitar referencia visual ', figura A.un,' y unir 'per- manece' -> 'permanece'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: resul- taría",
+    "veredicto": "real",
+    "buscar": "Sin este marco de referencia, resul- taría una vaguedad decir que una estructura, como el esternón, la glándula tiroides o la aorta, se encuentra arriba del cora- zón, porque sería diferente si el sujeto está de pie",
+    "reemplazar": "Sin este marco de referencia, resultaría una vaguedad decir que una estructura, como el esternón, la glándula tiroides o la aorta, se encuentra arriba del corazón, porque sería diferente si el sujeto está de pie",
+    "motivo": "Unir palabras partidas por guion 'resul- taría' -> 'resultaría' y 'cora- zón' -> 'corazón'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: ante- rior",
+    "veredicto": "real",
+    "buscar": "al indicar que el esternón es ante- rior al corazón se invita al observador a imaginar que el cuerpo se encuentra en la posición anatómica y que no se le dice arri- ba del corazón tan sólo porque el cuerpo esté acostado.",
+    "reemplazar": "al indicar que el esternón es anterior al corazón se invita al observador a imaginar que el cuerpo se encuentra en la posición anatómica y que no se le dice arriba del corazón tan sólo porque el cuerpo esté acostado.",
+    "motivo": "Unir palabras partidas por guion 'ante- rior' -> 'anterior' y 'arri- ba' -> 'arriba'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: gu- ra",
+    "veredicto": "real",
+    "buscar": "la aurícula izquierda del corazón aparece hacia el lado derecho de la fi gu- ra, y aunque el apéndice se localice en el cuadrante inferior derecho",
+    "reemplazar": "la aurícula izquierda del corazón aparece hacia el lado derecho de la figura, y aunque el apéndice se localice en el cuadrante inferior derecho",
+    "motivo": "Unir ligadura y guion 'fi gu- ra' -> 'figura'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s, fi gu- ra A.dos,. La dife",
+    "veredicto": "real",
+    "buscar": "Cuando el antebrazo está en pronación, la palma mira hacia atrás, fi gu- ra A.dos,. La diferencia tiene una importancia particular",
+    "reemplazar": "Cuando el antebrazo está en pronación, la palma mira hacia atrás. La diferencia tiene una importancia particular",
+    "motivo": "Quitar referencia visual ', fi gu- ra A.dos,' (resuelve también rev. 8 'fi gu' y 'gu- ra' 2a aparición)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: úbito FIGURA A.un Posición",
+    "veredicto": "real",
+    "buscar": "Radio Cúbito FIGURA A.un Posición anatómica. Los pies están planos sobre el piso y juntos, los brazos se mantienen hacia abajo y en posición supina, y el rostro hacia el frente.\nFIGURA A.dos Supinación y pronación del antebrazo.",
+    "reemplazar": "Radio Cúbito\n\nFIGURA A punto uno Posición anatómica. Los pies están planos sobre el piso y juntos, los brazos se mantienen hacia abajo y en posición supina, y el rostro hacia el frente.\nFIGURA A punto dos Supinación y pronación del antebrazo.",
+    "motivo": "Separar pie de figura en su línea y normalizar 'A.un'/'A.dos' a 'A punto uno'/'A punto dos' (cubre también rev. 4 'FIGURA A.dos')."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: pro- na",
+    "veredicto": "real",
+    "buscar": "Observar las diferencias en la relación entre el radio y el cúbito.\n\nPARTE UNO Organización corporal por completo. Una persona está en decúbito supino, posición supina, si está boca arriba y en decúbito prono, posición pro- na, si está boca abajo.",
+    "reemplazar": "Observar las diferencias en la relación entre el radio y el cúbito.\n\npor completo. Una persona está en decúbito supino, posición supina, si está boca arriba y en decúbito prono, posición prona, si está boca abajo.",
+    "motivo": "Unir 'pro- na' -> 'prona' y quitar encabezado incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: sagital1",
+    "veredicto": "real",
+    "buscar": "Los tres principales planos anatómicos son el sagital, el frontal y el transversal, figura A.tres,. Un plano sagital1 pasa de manera vertical por el cuerpo o un órgano y lo divide en las porciones derecha e izquierda.",
+    "reemplazar": "Los tres principales planos anatómicos son el sagital, el frontal y el transversal. Un plano sagital pasa de manera vertical por el cuerpo o un órgano y lo divide en las porciones derecha e izquierda.",
+    "motivo": "Quitar llamada de nota 'sagital1' -> 'sagital' y referencia visual ', figura A.tres,'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: parasagitales.dos Un plano",
+    "veredicto": "real",
+    "buscar": "La cabeza y los órga- nos pélvicos suelen ilustrarse en el plano medio, figura A.4a,. Otros planos sagitales paralelos a éstos, fuera de la línea media, dividen al cuerpo en porciones derecha e izquierda desiguales. A estos planos suele denominárseles planos parasagitales.dos Un plano frontal también se extiende de manera vertical",
+    "reemplazar": "La cabeza y los órganos pélvicos suelen ilustrarse en el plano medio. Otros planos sagitales paralelos a éstos, fuera de la línea media, dividen al cuerpo en porciones derecha e izquierda desiguales. A estos planos suele denominárseles planos parasagitales. Un plano frontal también se extiende de manera vertical",
+    "motivo": "Quitar llamada '.dos', quitar referencia visual ', figura A.4a,' (rev. 6) y unir 'órga- nos' -> 'órganos' (rev. 8)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura A.4b,. Un pla",
+    "veredicto": "real",
+    "buscar": "Por lo general, el contenido de las cavidades torácica y abdominal es ilustrado en corte frontal, figura A.4b,. Un plano transversal, horizontal, atraviesa el cuerpo o un órgano de manera perpendicular a su eje largo, figura A.4c, y lo divide en sus porciones superior, arriba, e inferior, abajo,.",
+    "reemplazar": "Por lo general, el contenido de las cavidades torácica y abdominal es ilustrado en corte frontal. Un plano transversal, horizontal, atraviesa el cuerpo o un órgano de manera perpendicular a su eje largo y lo divide en sus porciones superior, arriba, e inferior, abajo,.",
+    "motivo": "Quitar referencias visuales ', figura A.4b,' y ', figura A.4c,' (cubre ambos hallazgos rev. 6)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: en el cuadro A.un se presen",
+    "veredicto": "real",
+    "buscar": "se les conoce como términos de localización de la anatomía; en el cuadro A.un se presenta un resumen de los más utilizados.",
+    "reemplazar": "se les conoce como términos de localización de la anatomía.",
+    "motivo": "Quitar referencia visual al cuadro A.1 en el cuerpo del texto."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: ros- tral",
+    "veredicto": "real",
+    "buscar": "anterior y posterior, ros- tral y caudal, superior e inferior, medial y lateral, proximal y distal, ipsolateral y contralateral, y superficial y profundo. Las localizaciones intermedias suelen indicarse mediante la com- binación de esos términos;",
+    "reemplazar": "anterior y posterior, rostral y caudal, superior e inferior, medial y lateral, proximal y distal, ipsolateral y contralateral, y superficial y profundo. Las localizaciones intermedias suelen indicarse mediante la combinación de esos términos;",
+    "motivo": "Unir 'ros- tral' -> 'rostral' y 'com- binación' -> 'combinación'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ersal FIGURA A.tres Planos an",
+    "veredicto": "real",
+    "buscar": "a Corte sagital c Corte transversal FIGURA A.tres Planos anatómicos de referencia. ● ¿Qué otro nombre se da al plano sagital particular que se ilustra en esta figura?\nFIGURA A.cuatro Vistas del cuerpo en los tres planos anatómicos principales.",
+    "reemplazar": "a Corte sagital c Corte transversal\n\nFIGURA A punto tres Planos anatómicos de referencia. ● ¿Qué otro nombre se da al plano sagital particular que se ilustra en esta figura?\nFIGURA A punto cuatro Vistas del cuerpo en los tres planos anatómicos principales.",
+    "motivo": "Separar pie de figura y normalizar 'A.tres'/'A.cuatro' a 'A punto tres'/'A punto cuatro' (cubre también rev. 4 'FIGURA A.cuatro')."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un sagitta igual a flecha.",
+    "veredicto": "real",
+    "buscar": "c Corte transversal de la cabeza en el nivel de los ojos. un sagitta igual a flecha. dos para igual a a un lado de.\n\nla extremidad, el omóplato o la cadera",
+    "reemplazar": "c Corte transversal de la cabeza en el nivel de los ojos.\n\nla extremidad, el omóplato o la cadera",
+    "motivo": "Quitar glosas etimológicas de notas al pie 1 y 2."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Detalle solo visual: flecha",
+    "veredicto": "falso_positivo",
+    "buscar": "c Corte transversal de la cabeza en el nivel de los ojos. un sagitta igual a flecha. dos para igual a a un lado de.",
+    "reemplazar": null,
+    "motivo": "No es referencia visual a una flecha de figura sino la glosa etimológica de 'sagitta', ya eliminada en rev. 4."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: tron- co",
+    "veredicto": "real",
+    "buscar": "Pero cuando se describe el tron- co y se hace referencia a la estructura que se halla arriba o debajo de otra, se prefi ere usar los términos superior e inferior.",
+    "reemplazar": "Pero cuando se describe el tronco y se hace referencia a la estructura que se halla arriba o debajo de otra, se prefiere usar los términos superior e inferior.",
+    "motivo": "Unir 'tron- co' -> 'tronco' y ligadura 'prefi ere' -> 'prefiere'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: super- fi",
+    "veredicto": "real",
+    "buscar": "En la anatomía de la mayor parte de los demás animales, ventral denota la super- fi cie más cercana al piso y dorsal la más alejada.",
+    "reemplazar": "En la anatomía de la mayor parte de los demás animales, ventral denota la superficie más cercana al piso y dorsal la más alejada.",
+    "motivo": "Unir palabra partida 'super- fi cie' -> 'superficie' (cubre también rev. 8 'fi cie')."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: com- pararlos",
+    "veredicto": "real",
+    "buscar": "se disecan otros animales para com- pararlos con la anatomía humana. El término dorsal tiene la misma raíz que dorso, que deno- ta la superficie superior del pie y la parte posterior de la mano. Al considerar la manera como se paran los gatos, las superfi - cies correspondientes",
+    "reemplazar": "se disecan otros animales para compararlos con la anatomía humana. El término dorsal tiene la misma raíz que dorso, que denota la superficie superior del pie y la parte posterior de la mano. Al considerar la manera como se paran los gatos, las superficies correspondientes",
+    "motivo": "Unir 'com- pararlos' -> 'compararlos', 'deno- ta' -> 'denota' y 'superfi - cies' -> 'superficies'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: rmino dorso. A.dos A.dos Pr",
+    "veredicto": "real",
+    "buscar": "aún se usa el término dorso. A.dos\n\nA.dos Principales regiones corporales\n\nEl conocimiento de la anatomía externa y de los puntos de referencia del cuerpo es importante para realizar una explora- ción física y muchos otros procedimientos clínicos. Para facili- tar el estudio",
+    "reemplazar": "aún se usa el término dorso.\n\nA punto dos Principales regiones corporales\n\nEl conocimiento de la anatomía externa y de los puntos de referencia del cuerpo es importante para realizar una exploración física y muchos otros procedimientos clínicos. Para facilitar el estudio",
+    "motivo": "Quitar 'A.dos' duplicado, normalizar título a 'A punto dos' y unir 'explora- ción' y 'facili- tar'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: en la figura A.cinco. Región a",
+    "veredicto": "real",
+    "buscar": "En los siguientes párrafos se describen las áreas pequeñas dentro de las regiones principa- les y están ilustradas en la figura A.cinco. Región axial La región axial abarca cabeza, cuello, región cervical,tres y tron- co. Este último se subdivide en región torácica, arriba del dia- fragma, y región abdominal, debajo de dicho músculo.",
+    "reemplazar": "En los siguientes párrafos se describen las áreas pequeñas dentro de las regiones principales. Región axial La región axial abarca cabeza, cuello, región cervical, y tronco. Este último se subdivide en región torácica, arriba del diafragma, y región abdominal, debajo de dicho músculo.",
+    "motivo": "Quitar ref. visual 'en la figura A.cinco' y llamada ',tres', y unir 'principa- les', 'tron- co' y 'dia- fragma'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: como se observa en la figura",
+    "veredicto": "real",
+    "buscar": "y cuadrante inferior izquierdo, L L Q, como se observa en la figura A.6a y b. Por lo regular se utiliza el esquema de cuadrantes para describir el sitio de un dolor o una anormalidad abdominales.\nCUADRO A.un Términos direccionales en la anatomía humana",
+    "reemplazar": "y cuadrante inferior izquierdo, L L Q. Por lo regular se utiliza el esquema de cuadrantes para describir el sitio de un dolor o una anormalidad abdominales.\nCUADRO A punto uno Términos direccionales en la anatomía humana",
+    "motivo": "Quitar ref. visual 'como se observa en la figura A.6a y b' (rev. 5 y 6) y normalizar 'CUADRO A.un' -> 'CUADRO A punto uno' (rev. 4)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . tres cervic igual a cuello.",
+    "veredicto": "real",
+    "buscar": "Sólo en seres humanos; la definición es diferente para otros animales. tres cervic igual a cuello.\n\nPARTE UNO Organización corporal Extremidad superior R. axilar, axila,",
+    "reemplazar": "Sólo en seres humanos; la definición es diferente para otros animales.\n\nExtremidad superior R. axilar, axila,",
+    "motivo": "Quitar glosa de nota 3 y encabezado incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: pie, FIGURA A.cinco Los cuerp",
+    "veredicto": "real",
+    "buscar": "Superficie plantar, planta del pie, FIGURA A.cinco Los cuerpos femenino y masculino adultos, R igual a región,.\n\nTambién se puede dividir al abdomen en nueve regiones definidas por cuatro líneas que se intersecan y forman una especie de cuadrícula, figura A.6c y d,. A cada línea vertical",
+    "reemplazar": "Superficie plantar, planta del pie,\n\nFIGURA A punto cinco Los cuerpos femenino y masculino adultos, R igual a región,.\n\nTambién se puede dividir al abdomen en nueve regiones definidas por cuatro líneas que se intersecan y forman una especie de cuadrícula. A cada línea vertical",
+    "motivo": "Normalizar 'FIGURA A.cinco' -> 'FIGURA A punto cinco' en su línea y quitar ref. visual ', figura A.6c y d,' (rev. 6)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s la subcostal,cuatro porque co",
+    "veredicto": "real",
+    "buscar": "La línea horizontal superior es la subcostal,cuatro porque conecta los bordes inferiores de los cartílagos costales inferio- res, cartílago que conecta la décima costilla de cada lado con el extremo inferior del esternón,. La línea horizontal inferior es la bicipital o intertubercular,cinco porque pasa de izquierda a dere- cha entre las tuberosidades",
+    "reemplazar": "La línea horizontal superior es la subcostal, porque conecta los bordes inferiores de los cartílagos costales inferiores, cartílago que conecta la décima costilla de cada lado con el extremo inferior del esternón,. La línea horizontal inferior es la bicipital o intertubercular, porque pasa de izquierda a derecha entre las tuberosidades",
+    "motivo": "Quitar llamadas ',cuatro' y ',cinco' y unir 'inferio- res' y 'dere- cha'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: a c d FIGURA A.seis Los cuatr",
+    "veredicto": "real",
+    "buscar": "Hígado Vesícula biliar Uretra c d FIGURA A.seis Los cuatro cuadrantes y las nueve regiones del abdomen.",
+    "reemplazar": "Hígado Vesícula biliar Uretra c d\n\nFIGURA A punto seis Los cuatro cuadrantes y las nueve regiones del abdomen.",
+    "motivo": "Separar pie de figura y normalizar 'FIGURA A.seis' -> 'FIGURA A punto seis'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro sub igual a debajo; cost igual a costilla.",
+    "veredicto": "real",
+    "buscar": "d Anatomía interna correlacionada con las nueve regiones. cuatro sub igual a debajo; cost igual a costilla. cinco inter igual a entre; tubercul igual a pequeña inflamación.\n\nPARTE UNO Organización corporal Las tres regiones en cada columna lateral de la cuadrícula son, de arriba abajo, hipocondrial,seis lumbar e inguinal7, iliaca,. Las tres regiones mediales, de arriba abajo, son epigástrica,ocho umbi- lical e hipogástrica, púbica,.",
+    "reemplazar": "d Anatomía interna correlacionada con las nueve regiones.\n\nLas tres regiones en cada columna lateral de la cuadrícula son, de arriba abajo, hipocondrial, lumbar e inguinal, iliaca,. Las tres regiones mediales, de arriba abajo, son epigástrica, umbilical e hipogástrica, púbica,.",
+    "motivo": "Quitar notas 4-5, encabezado 'PARTE UNO', llamadas ',seis', '7', ',ocho' y unir 'umbi- lical'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: antebra- quial,nueve la muñeca",
+    "veredicto": "real",
+    "buscar": "Región apendicular La región apendicular del cuerpo se compone de las extremi- dades superiores e inferiores. Las extremidades superiores son el brazo, región braquial, el antebrazo, región antebra- quial,nueve la muñeca, región carpiana,",
+    "reemplazar": "Región apendicular La región apendicular del cuerpo se compone de las extremidades superiores e inferiores. Las extremidades superiores son el brazo, región braquial, el antebrazo, región antebraquial, la muñeca, región carpiana,",
+    "motivo": "Quitar llamada ',nueve' y unir 'extremi- dades' y 'antebra- quial'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: tér- minos",
+    "veredicto": "real",
+    "buscar": "En tér- minos anatómicos estrictos, brazo es la parte de la extremidad superior entre el omóplato",
+    "reemplazar": "En términos anatómicos estrictos, brazo es la parte de la extremidad superior entre el omóplato",
+    "motivo": "Unir 'tér- minos' -> 'términos'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: compren- dida",
+    "veredicto": "real",
+    "buscar": "Cada segmento de las extremidades es la región compren- dida entre una articulación y la siguiente. Por ejemplo, el brazo es el segmento entre las articulaciones del hombro y el codo, mientras que el antebrazo es el que se halla entre las articula- ciones del codo y la muñeca. Al fl exionar los dedos, se puede ver con facilidad",
+    "reemplazar": "Cada segmento de las extremidades es la región comprendida entre una articulación y la siguiente. Por ejemplo, el brazo es el segmento entre las articulaciones del hombro y el codo, mientras que el antebrazo es el que se halla entre las articulaciones del codo y la muñeca. Al flexionar los dedos, se puede ver con facilidad",
+    "motivo": "Unir 'compren- dida', 'articula- ciones' y ligadura 'fl exionar'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: vísceras10",
+    "veredicto": "real",
+    "buscar": "los movimientos de las articulaciones. A.tres\n\nA.tres Cavidades y membranas corporales\n\nEl organismo tiene múltiples cavidades corporales, figura A.siete, cuadro A.dos, cada una de ellas cubierta por una membrana, y contiene órganos llamados vísceras10 en su interior.",
+    "reemplazar": "los movimientos de las articulaciones.\n\nA punto tres Cavidades y membranas corporales\n\nEl organismo tiene múltiples cavidades corporales, cada una de ellas cubierta por una membrana, y contiene órganos llamados vísceras en su interior.",
+    "motivo": "Quitar 'A.tres' duplicado, normalizar título a 'A punto tres', quitar ref. visual 'figura A.siete, cuadro A.dos' y llamada 'vísceras10'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: espi- nal",
+    "veredicto": "real",
+    "buscar": "contiene la médula espi- nal. Estas dos cavidades son continuas entre sí y están cubier- tas por tres capas de membranas llamadas meninges.",
+    "reemplazar": "contiene la médula espinal. Estas dos cavidades son continuas entre sí y están cubiertas por tres capas de membranas llamadas meninges.",
+    "motivo": "Unir 'espi- nal' -> 'espinal' y 'cubier- tas' -> 'cubiertas'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . siete inguin igual a ingle.",
+    "veredicto": "real",
+    "buscar": "Más adelante, se forma una seis hipo igual a debajo; condr igual a cartílago. siete inguin igual a ingle. ocho epi igual a arriba; gastro igual a estómago. nueve ante igual a frente a, delante de; braqui igual a brazo. diez de viscus igual a órgano del cuerpo. Cavidad craneana Conducto vertebral",
+    "reemplazar": "Más adelante, se forma una\n\nCavidad craneana Conducto vertebral",
+    "motivo": "Quitar glosas etimológicas de notas 6, 7, 8, 9 y 10 (cubre también rev. 4 'nueve ante')."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: erior FIGURA A.siete Las princ",
+    "veredicto": "real",
+    "buscar": "a Vista lateral izquierda b Vista anterior FIGURA A.siete Las principales cavidades del cuerpo.\n\nlámina muscular, el diafragma, que divide al celoma en cavi- dad torácica, superior, y cavidad abdominopélvica, inferior. Ambas cavidades están cubiertas por membranas serosas que secretan una película húmeda lubricante similar al suero san- guíneo, el adjetivo seroso proviene de suero,.",
+    "reemplazar": "a Vista lateral izquierda b Vista anterior\n\nFIGURA A punto siete Las principales cavidades del cuerpo.\n\nlámina muscular, el diafragma, que divide al celoma en cavidad torácica, superior, y cavidad abdominopélvica, inferior. Ambas cavidades están cubiertas por membranas serosas que secretan una película húmeda lubricante similar al suero sanguíneo, el adjetivo seroso proviene de suero,.",
+    "motivo": "Separar y normalizar 'FIGURA A.siete' -> 'FIGURA A punto siete' y unir 'cavi- dad' y 'san- guíneo'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: no11, figura A.siete,. Se trat",
+    "veredicto": "real",
+    "buscar": "La cavidad torácica está dividida por una cavidad llamada mediastino11, figura A.siete,. Se trata de la región que se encuentra entre los pulmones y que se extiende desde la base del cuello hasta el diafragma. Está ocupado por el corazón, los vasos san- guíneos principales que nacen de él",
+    "reemplazar": "La cavidad torácica está dividida por una cavidad llamada mediastino. Se trata de la región que se encuentra entre los pulmones y que se extiende desde la base del cuello hasta el diafragma. Está ocupado por el corazón, los vasos sanguíneos principales que nacen de él",
+    "motivo": "Quitar llamada 'mediastino11' y ref. visual ', figura A.siete,', y unir 'san- guíneos'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura A.8a, la cual",
+    "veredicto": "real",
+    "buscar": "El corazón está envuelto por una membrana de doble capa: el pericardio;doce la capa interna es la superficie del propio cora- zón y recibe el nombre de pericardio visceral; la externa es el pericardio parietal, saco pericárdico, que está separado del visceral por un espacio denominado cavidad pericárdica, figura A.8a, la cual es lubricada por el líquido pericárdico. Los pulmones se encuentran a los lados derecho e izquier- do de la cavidad torácica. Cada uno está cubierto por una membrana serosa denominada pleura13, figura A.8b,.",
+    "reemplazar": "El corazón está envuelto por una membrana de doble capa: el pericardio; la capa interna es la superficie del propio corazón y recibe el nombre de pericardio visceral; la externa es el pericardio parietal, saco pericárdico, que está separado del visceral por un espacio denominado cavidad pericárdica, la cual es lubricada por el líquido pericárdico. Los pulmones se encuentran a los lados derecho e izquierdo de la cavidad torácica. Cada uno está cubierto por una membrana serosa denominada pleura.",
+    "motivo": "Quitar llamadas ';doce'/'13', quitar refs. visuales 'figura A.8a' y 'figura A.8b' (rev. 6) y unir 'cora- zón' e 'izquier- do' (rev. 8)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: parietal14",
+    "veredicto": "real",
+    "buscar": "La pleura visceral es la superficie externa del pulmón y la pleura parietal14 recubre la parte interior de la caja torácica; entre ambas hay un pequeño espacio llamado cavidad pleural, véase la figura B-once, p. trescientos noventa, lubricado por líquido pleural escurridizo.",
+    "reemplazar": "La pleura visceral es la superficie externa del pulmón y la pleura parietal recubre la parte interior de la caja torácica; entre ambas hay un pequeño espacio llamado cavidad pleural, lubricado por líquido pleural escurridizo.",
+    "motivo": "Quitar llamada 'parietal14' y ref. visual 'véase la figura B-once, p. trescientos noventa,' (rev. 5)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ceral FIGURA A.ocho Capas par",
+    "veredicto": "real",
+    "buscar": "Cavidad pleural Pleura visceral FIGURA A.ocho Capas parietal y visceral de membranas de doble pared.\nCUADRO A.dos Cavidades y membranas corporales Nombre de la cavidad",
+    "reemplazar": "Cavidad pleural Pleura visceral\n\nFIGURA A punto ocho Capas parietal y visceral de membranas de doble pared.\nCUADRO A punto dos Cavidades y membranas corporales Nombre de la cavidad",
+    "motivo": "Separar pie de figura y normalizar 'A.ocho'/'A.dos' a 'A punto ocho'/'A punto dos' (cubre también rev. 4 'CUADRO A.dos')."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce peri igual a alrededor de; cardio igual a corazón.",
+    "veredicto": "real",
+    "buscar": "recto, órganos reproductores Peritoneo once mediastino igual a en medio de. doce peri igual a alrededor de; cardio igual a corazón. trece pleur igual a costilla, costado. catorce pariet igual a pared.\n\nPARTE UNO Organización corporal parietal recubre el interior de una cavidad corporal. Este patrón se repite en otras partes, como en la cavidad abdomino- pélvica.",
+    "reemplazar": "recto, órganos reproductores Peritoneo\n\nparietal recubre el interior de una cavidad corporal. Este patrón se repite en otras partes, como en la cavidad abdominopélvica.",
+    "motivo": "Quitar notas 11-14 (cubre también 'catorce pariet'), encabezado 'PARTE UNO' y unir 'abdomino- pélvica'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: ver las figuras",
+    "veredicto": "real",
+    "buscar": "se extiende hasta el nivel de la parte ósea denominada borde de la pelvis, ver las figuras B-siete, p. trescientos ochenta y siete y ocho a treinta y cinco, p. doscientos sesenta y cinco,.",
+    "reemplazar": "se extiende hasta el nivel de la parte ósea denominada borde de la pelvis.",
+    "motivo": "Quitar referencia visual 'ver las figuras B-siete... y ocho a treinta y cinco...'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: mina peritoneo.quince Su capa e",
+    "veredicto": "real",
+    "buscar": "pero es mucho más estrecha y está inclinada hacia atrás, ver la figura A.7a,; contiene el recto, la vejiga urinaria, la uretra y los órganos reproductores. La cavidad abdominopélvica cuenta con una membrana serosa de dos capas a la que se le denomina peritoneo.quince Su capa exterior, el peritoneo parietal, recubre la pared de la cavi- dad.",
+    "reemplazar": "pero es mucho más estrecha y está inclinada hacia atrás; contiene el recto, la vejiga urinaria, la uretra y los órganos reproductores. La cavidad abdominopélvica cuenta con una membrana serosa de dos capas a la que se le denomina peritoneo. Su capa exterior, el peritoneo parietal, recubre la pared de la cavidad.",
+    "motivo": "Quitar ref. visual 'ver la figura A.7a,' (rev. 5 y 6), llamada '.quince' (rev. 4) y unir 'cavi- dad' (rev. 8)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: apropia- do",
+    "veredicto": "real",
+    "buscar": "mantenerlas suspendidas de la propia capa, con lo cual las mantiene en su lugar apropia- do. Se llama cavidad peritoneal al espacio",
+    "reemplazar": "mantenerlas suspendidas de la propia capa, con lo cual las mantiene en su lugar apropiado. Se llama cavidad peritoneal al espacio",
+    "motivo": "Unir 'apropia- do' -> 'apropiado'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: al16, figura A.nueve,. Entre e",
+    "veredicto": "real",
+    "buscar": "sólo están cubiertos por peritoneo en el lado que da a la cavidad perito- neal. Se dice que su posición es retroperitoneal16, figura A.nueve,. Entre estos órganos se cuentan riñones, uréteres, glándulas suprarrenales, la mayor parte del páncreas y segmentos abdo- minales de dos principales vasos sanguíneos: la aorta y la vena cava inferior, véase la figura B-seis, p. trescientos ochenta y seis,.",
+    "reemplazar": "sólo están cubiertos por peritoneo en el lado que da a la cavidad peritoneal. Se dice que su posición es retroperitoneal. Entre estos órganos se cuentan riñones, uréteres, glándulas suprarrenales, la mayor parte del páncreas y segmentos abdominales de dos principales vasos sanguíneos: la aorta y la vena cava inferior.",
+    "motivo": "Quitar llamada '16', refs. visuales 'figura A.nueve' y 'véase la figura B-seis' (rev. 5) y unir 'perito- neal' y 'abdo- minales' (rev. 8)."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: perito- neales.diecisiete Los intes",
+    "veredicto": "real",
+    "buscar": "por hojas peritoneales; se dice que son intraperito- neales.diecisiete Los intestinos están fijos a la pared abdominal posterior, dorsal, por medio de una membrana translúcida, el mesente- rio posterior,dieciocho que es un doblez interno del peritoneo. Al mesenterio posterior del intestino grueso se le denomina meso- colon.",
+    "reemplazar": "por hojas peritoneales; se dice que son intraperitoneales. Los intestinos están fijos a la pared abdominal posterior, dorsal, por medio de una membrana translúcida, el mesenterio posterior, que es un doblez interno del peritoneo. Al mesenterio posterior del intestino grueso se le denomina mesocolon.",
+    "motivo": "Quitar llamadas '.diecisiete' y ',dieciocho' y unir 'intraperito- neales', 'mesente- rio' y 'meso- colon'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: nos, figuras A.diez y B-cuatr",
+    "veredicto": "real",
+    "buscar": "el ejemplo más importante de éste es una membrana grasa llamada epi- plón mayor, que cuelga, como una pera, del margen inferolate- ral del estómago y desciende sobre los intestinos, figuras A.diez y B-cuatro, p. trescientos ochenta y cuatro,.",
+    "reemplazar": "el ejemplo más importante de éste es una membrana grasa llamada epiplón mayor, que cuelga, como una pera, del margen inferolateral del estómago y desciende sobre los intestinos.",
+    "motivo": "Quitar ref. visual ', figuras A.diez y B-cuatro...' y unir 'epi- plón' e 'inferolate- ral'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: rosa, figura A.diez,. Por tan",
+    "veredicto": "real",
+    "buscar": "del estómago al hígado, donde el perito- neo visceral hace contacto con un órgano, como el estómago o el intestino delgado, se divide y lo envuelve, de modo que forma una capa externa del órgano a la que se conoce como serosa, figura A.diez,. Por tanto, el peritoneo visceral está forma- do por mesenterios y serosas. quince peri igual a alrededor; toneo igual a distendido. dieciséis retro igual a detrás. diecisiete intra igual a dentro. dieciocho meso igual a en el medio; entero igual a intestino. Anterior Posterior",
+    "reemplazar": "del estómago al hígado, donde el peritoneo visceral hace contacto con un órgano, como el estómago o el intestino delgado, se divide y lo envuelve, de modo que forma una capa externa del órgano a la que se conoce como serosa. Por tanto, el peritoneo visceral está formado por mesenterios y serosas.\n\nAnterior Posterior",
+    "motivo": "Quitar ref. visual ', figura A.diez,', notas 15-18 (cubre rev. 4 'quince peri' y 'diecisiete intra') y unir 'perito- neo' y 'forma- do'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ntral FIGURA A.nueve Corte tra",
+    "veredicto": "real",
+    "buscar": "Epiplón u otro mesenterio ventral FIGURA A.nueve Corte transversal del abdomen.",
+    "reemplazar": "Epiplón u otro mesenterio ventral\n\nFIGURA A punto nueve Corte transversal del abdomen.",
+    "motivo": "Separar pie de figura y normalizar 'FIGURA A.nueve' -> 'FIGURA A punto nueve'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: consi- dera",
+    "veredicto": "real",
+    "buscar": "A ciertos espacios entre las membranas corporales se les consi- dera espacios potenciales; este nombre se debe a que, en con- diciones normales, las membranas se encuentran presionadas con firmeza entre sí y no queda espacio real entre ellas. Sin embargo, las membranas no tienen una unión física y en con- diciones anormales, pueden separarse",
+    "reemplazar": "A ciertos espacios entre las membranas corporales se les considera espacios potenciales; este nombre se debe a que, en condiciones normales, las membranas se encuentran presionadas con firmeza entre sí y no queda espacio real entre ellas. Sin embargo, las membranas no tienen una unión física y en condiciones anormales, pueden separarse",
+    "motivo": "Unir 'consi- dera' y las dos apariciones de 'con- diciones'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: pleu- ras",
+    "veredicto": "real",
+    "buscar": "Por lo general, las pleu- ras parietal y visceral están presionadas entre sí, sin un espacio entre ellas, pero en condiciones patológicas, puede acumular- se aire o líquido seroso entre las membranas y formar un espa- cio.",
+    "reemplazar": "Por lo general, las pleuras parietal y visceral están presionadas entre sí, sin un espacio entre ellas, pero en condiciones patológicas, puede acumularse aire o líquido seroso entre las membranas y formar un espacio.",
+    "motivo": "Unir 'pleu- ras', 'acumular- se' y 'espa- cio'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: anos, figura A.once, y un sis",
+    "veredicto": "real",
+    "buscar": "ocupa este espacio y separa las mucosas entre sí. A.cuatro\n\nA.cuatro Sistemas de órganos\n\nEl cuerpo humano tiene once sistemas de órganos, figura A.once, y un sistema inmunitario, al que se describe con más propiedad co- mo una población de células que habitan varios órganos y no como un sistema de órganos. Estos sistemas son clasifica- dos según la siguiente lista, por sus funciones principales",
+    "reemplazar": "ocupa este espacio y separa las mucosas entre sí.\n\nA punto cuatro Sistemas de órganos\n\nEl cuerpo humano tiene once sistemas de órganos y un sistema inmunitario, al que se describe con más propiedad como una población de células que habitan varios órganos y no como un sistema de órganos. Estos sistemas son clasificados según la siguiente lista, por sus funciones principales",
+    "motivo": "Quitar 'A.cuatro' duplicado, normalizar título a 'A punto cuatro', quitar ref. visual ', figura A.once,' y unir 'co- mo' y 'clasifica- dos'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: mas- culina",
+    "veredicto": "real",
+    "buscar": "p. ej., la uretra mas- culina es parte de los sistemas urinario y reproductor; la faringe es parte de los sistemas respiratorio y digestivo, y las glándulas mamarias pueden considerarse parte de los sistemas tegumenta- rio y reproductor femenino,.",
+    "reemplazar": "p. ej., la uretra masculina es parte de los sistemas urinario y reproductor; la faringe es parte de los sistemas respiratorio y digestivo, y las glándulas mamarias pueden considerarse parte de los sistemas tegumentario y reproductor femenino,.",
+    "motivo": "Unir 'mas- culina' -> 'masculina' y 'tegumenta- rio' -> 'tegumentario'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: rosas FIGURA A.diez Membranas",
+    "veredicto": "real",
+    "buscar": "Duodeno Serosas FIGURA A.diez Membranas serosas de la cavidad abdominal. Corte sagital, vista lateral izquierda. ● ¿Está la vejiga urinaria en la cavidad peritoneal?\n\nPARTE UNO Organización corporal Sistema tegumentario",
+    "reemplazar": "Duodeno Serosas\n\nFIGURA A punto diez Membranas serosas de la cavidad abdominal. Corte sagital, vista lateral izquierda. ● ¿Está la vejiga urinaria en la cavidad peritoneal?\n\nSistema tegumentario",
+    "motivo": "Separar pie de figura, normalizar 'FIGURA A.diez' -> 'FIGURA A punto diez' y quitar encabezado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ásico FIGURA A.once Los siste",
+    "veredicto": "real",
+    "buscar": "equilibrio electrolítico y acidobásico FIGURA A.once Los sistemas de órganos humanos.\n\nSistema endocrino",
+    "reemplazar": "equilibrio electrolítico y acidobásico\n\nFIGURA A punto once Los sistemas de órganos humanos.\n\nSistema endocrino",
+    "motivo": "Separar pie de figura y normalizar 'FIGURA A.once' -> 'FIGURA A punto once'."
+  },
+  {
+    "capitulo": "Atlas_A_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: lidad FIGURA A.once Los siste",
+    "veredicto": "real",
+    "buscar": "coordinación, control motriz y sensibilidad FIGURA A.once Los sistemas de órganos humanos, continuación,.",
+    "reemplazar": "coordinación, control motriz y sensibilidad\n\nFIGURA A punto once Los sistemas de órganos humanos, continuación,.",
+    "motivo": "Separar pie de figura y normalizar 'FIGURA A.once' -> 'FIGURA A punto once'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Defina capacidad de respuesta a estímulos, conductividad, contractilidad, extensibilidad y elasticidad. Explique por qué cada una de estas propiedades es necesaria para la función muscular. dos. ¿En qué se diferencia el músculo estriado de los otros tipos de músculos? tres. Mencione y defina las tres capas del tejido conjuntivo colagenoso de un músculo estriado.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/7)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cuatro. ¿Qué términos especiales se dan a la membrana plasmática, el citoplasma y el E R liso de una célula muscular? cinco. ¿Cuál es la diferencia entre un miofilamento y una miofibrilla? seis. Liste cinco proteínas de los miofilamentos y describa su disposición física. siete. Elabore un diagrama del patrón con que se superponen los miofilamentos, para mostrar cómo son responsables de las bandas A, I y H y los discos Z.\n\n",
+    "reemplazar": "",
+    "motivo": "Quitar encabezado 'PARTE DOS Soporte y movimiento' y bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: ocho. ¿Qué diferencia esperaría hallar entre una unidad motora donde la fuerza muscular es más importante que el control fino y otra unidad donde este último es prioritario? nueve. Describa la diferencia entre acetilcolina, un receptor de acetilcolina y la acetilcolinesterasa. Explique dónde se encuentra cada una y refiera su función. diez. ¿Qué explica el potencial de membrana en reposo que se ve en neuronas y células musculares no estimuladas? once. ¿Cuál es la diferencia entre un potencial de membrana en reposo y un potencial de acción?",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: doce. ¿Qué cambio produce la ACh en el receptor de ACh? ¿Qué efecto eléctrico produce en la fibra muscular? trece. ¿De qué manera regulan la troponina y la tropomiosina la interacción entre miosina y actina? catorce. Describa las funciones del A T P en los golpes de potencia y recuperación de la miosina. quince. ¿Qué pasos son necesarios para que un músculo contraído regrese a su longitud en descanso?",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: dieciséis. Establezca tres o más razones por las cuales la fuerza del espasmo muscular puede variar incluso cuando la intensidad del estímulo permanezca constante. diecisiete. Explique el papel de la contracción tónica en la acción normal del músculo. dieciocho. Describa una actividad cotidiana que no incluya los brazos y en la cual los músculos cambien de contracción isométrica a isotónica. diecinueve. Describa una actividad cotidiana que no incluya los brazos y que requiera contracción concéntrica y una que la requiera excéntrica.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (6/7)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veinte. ¿Cuál es el par de moléculas de las que el A D P toma prestado un grupo fosfato para volverse A T P? ¿Cuál es la enzima que cataliza cada transferencia? veintiuno. En un periodo largo de ejercicio muy intenso, ¿por qué el músculo genera A T P por fermentación anaeróbica y luego cambia a la respiración aeróbica? veintidós. Liste cuatro causas de fatiga muscular. veintitrés. Enumere tres causas de déficit de oxígeno. veinticuatro. ¿Cuáles propiedades de las fibras glucolíticas rápidas y oxidativas lentas las adaptan para diferentes propósitos fisiológicos?\n\n",
+    "reemplazar": "",
+    "motivo": "Quitar encabezado 'PARTE DOS Soporte y movimiento' y bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (7/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veinticinco. Explique por qué los discos intercalados son importantes para la función del músculo cardiaco. veintiséis. Explique por qué es importante para el músculo cardiaco tener contracciones más duraderas que el músculo estriado. veintisiete. ¿Cuál es la diferencia, en inervación y comportamiento contráctil, entre el músculo liso unitario y el multiunitario? veintiocho. ¿Cuál es la diferencia entre el músculo liso y el estriado en relación con su fuente de calcio y su receptor de calcio? veintinueve. Explique por qué la respuesta de tensión-relajación es un factor importante en la función del músculo liso.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Defina capacidad",
+    "reemplazar": null,
+    "motivo": "Duplicado de los 7 bloques 'Antes de proseguir' ya eliminados arriba."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: mioblastos2",
+    "veredicto": "real",
+    "buscar": "donde varias células germinales conocidas como mioblastos2 se funden para producir cada fibra, y cada mioblasto contribuye con un núcleo.",
+    "reemplazar": "donde varias células germinales conocidas como mioblastos se funden para producir cada fibra, y cada mioblasto contribuye con un núcleo.",
+    "motivo": "Quitar llamada de nota 'mioblastos2' -> 'mioblastos'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: mortis8",
+    "veredicto": "real",
+    "buscar": "Rigor mortis8 es el endurecimiento de los músculos y la rigidez del cuerpo que empieza tres a cuatro horas después de la muerte.",
+    "reemplazar": "Rigor mortis es el endurecimiento de los músculos y la rigidez del cuerpo que empieza tres a cuatro horas después de la muerte.",
+    "motivo": "Quitar llamada de nota 'mortis8' -> 'mortis'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: miastenia17",
+    "veredicto": "real",
+    "buscar": "La miastenia17 grave suele presentarse en mujeres entre los veinte y cuarenta años.",
+    "reemplazar": "La miastenia grave suele presentarse en mujeres entre los veinte y cuarenta años.",
+    "motivo": "Quitar llamada de nota 'miastenia17' -> 'miastenia'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s el sarcolema,un y su cito",
+    "veredicto": "real",
+    "buscar": "La membrana plasmática de una fibra muscular es el sarcolema,un y su citoplasma es el sarcoplasma",
+    "reemplazar": "La membrana plasmática de una fibra muscular es el sarcolema, y su citoplasma es el sarcoplasma",
+    "motivo": "Quitar llamada de nota ',un' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: llamada titina.tres Flanquean",
+    "veredicto": "real",
+    "buscar": "están compuestos por una proteína grande y elástica llamada titina.tres Flanquean cada filamento grueso",
+    "reemplazar": "están compuestos por una proteína grande y elástica llamada titina. Flanquean cada filamento grueso",
+    "motivo": "Quitar llamada de nota '.tres' conservando el punto."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: lamada banda H,cuatro donde no",
+    "veredicto": "real",
+    "buscar": "En el medio de la banda A hay una región más clara llamada banda H,cuatro donde no se alcanzan los fi lamenFilamento grueso Filamento delgado",
+    "reemplazar": "En el medio de la banda A hay una región más clara llamada banda H, donde no se alcanzan los filamen\n\nFilamento grueso Filamento delgado",
+    "motivo": "Quitar llamada ',cuatro', unir ligadura 'fi lamen' y separar rótulos de figura (continúa 'tos delgados' tras la figura 11.5, p. 406-407 de Saladin)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: as, la línea M.cinco Cada band",
+    "veredicto": "real",
+    "buscar": "cuatro H igual a helle igual a brillante.\n\nCAPÍTULO once Tejido muscular tos delgados. En medio de la banda H, los filamentos gruesos están enlazados entre sí a través de un complejo transverso y oscuro de proteínas, la línea M.cinco Cada banda I clara está bisecada por un estrecho disco Z6, línea Z, de tono oscuro, que proporciona anclaje para los filamentos delgados y elásticos.",
+    "reemplazar": "tos delgados. En medio de la banda H, los filamentos gruesos están enlazados entre sí a través de un complejo transverso y oscuro de proteínas, la línea M. Cada banda I clara está bisecada por un estrecho disco Z, línea Z, de tono oscuro, que proporciona anclaje para los filamentos delgados y elásticos.",
+    "motivo": "Quitar glosa de nota 4, encabezado de página 'CAPÍTULO once Tejido muscular', llamada '.cinco' y llamada 'Z6'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s un sarcómero,siete la unidad",
+    "veredicto": "real",
+    "buscar": "Cada segmento de una miofibrilla que se encuentra entre un disco Z y el siguiente es un sarcómero,siete la unidad contráctil y funcional de la fibra muscular.",
+    "reemplazar": "Cada segmento de una miofibrilla que se encuentra entre un disco Z y el siguiente es un sarcómero, la unidad contráctil y funcional de la fibra muscular.",
+    "motivo": "Quitar llamada de nota ',siete' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: toria temporal,nueve porque es",
+    "veredicto": "real",
+    "buscar": "Este fenómeno recibe dos nombres: sumatoria temporal,nueve porque es resultado de dos estímulos que llegan casi juntos",
+    "reemplazar": "Este fenómeno recibe dos nombres: sumatoria temporal, porque es resultado de dos estímulos que llegan casi juntos",
+    "motivo": "Quitar llamada de nota ',nueve' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ión isométrica,diez que es un",
+    "veredicto": "real",
+    "buscar": "A esta fase se le denomina contracción isométrica,diez que es una contracción sin cambio en la longitud.",
+    "reemplazar": "A esta fase se le denomina contracción isométrica, que es una contracción sin cambio en la longitud.",
+    "motivo": "Quitar llamada de nota ',diez' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ción isotónica,once que se da",
+    "veredicto": "real",
+    "buscar": "La contracción isotónica,once que se da con un cambio en la longitud pero no en la tensión",
+    "reemplazar": "La contracción isotónica, que se da con un cambio en la longitud pero no en la tensión",
+    "motivo": "Quitar llamada de nota ',once' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s autorrítmico,doce por su ca",
+    "veredicto": "real",
+    "buscar": "Se dice que el músculo cardiaco es autorrítmico,doce por su capacidad para contraerse de manera rítmica e independiente.",
+    "reemplazar": "Se dice que el músculo cardiaco es autorrítmico, por su capacidad para contraerse de manera rítmica e independiente.",
+    "motivo": "Quitar llamada de nota ',doce' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: da calmodulina,trece relaciona",
+    "veredicto": "real",
+    "buscar": "se fija a una proteína similar llamada calmodulina,trece relacionada con la miosina. La trece Acrónimo de calcium modulating protein, proteína moduladora del calcio. Varicosidades Uniones intercelulares comunicantes",
+    "reemplazar": "se fija a una proteína similar llamada calmodulina, relacionada con la miosina. La\n\nVaricosidades Uniones intercelulares comunicantes",
+    "motivo": "Quitar llamada ',trece' y glosa de nota 13 incrustada antes de los rótulos de la figura 11.23."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: douzy-Déjérine,dieciséis M D, un r",
+    "veredicto": "real",
+    "buscar": "Una forma menos grave de distrofia muscular es la fascioescapulohumeral, de Landouzy-Déjérine,dieciséis M D, un rasgo autosómico dominante",
+    "reemplazar": "Una forma menos grave de distrofia muscular es la fascioescapulohumeral, de Landouzy-Déjérine, M D, un rasgo autosómico dominante",
+    "motivo": "Quitar llamada de nota ',dieciséis' conservando la coma."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . dos myo igual a ratón, músculo; blasto igual a germen.",
+    "veredicto": "real",
+    "buscar": "lo distinguen de los músculos cardiaco y liso? un sarko igual a carne, tejido conjuntivo; lemma igual a membrana fina. dos myo igual a ratón, músculo; blasto igual a germen.\n\nPARTE DOS Soporte y movimiento lite no especializadas",
+    "reemplazar": "lo distinguen de los músculos cardiaco y liso?\n\nlite no especializadas",
+    "motivo": "Quitar glosas etimológicas de notas 1-2 y encabezado incrustado 'PARTE DOS Soporte y movimiento'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . siete sarko igual a carne; mero igual a parte, segmento.",
+    "veredicto": "real",
+    "buscar": " cinco M igual a Mittel igual a medio. seis Z igual a Zwichenscheibe igual a entre discos. siete sarko igual a carne; mero igual a parte, segmento.\nCUADRO once coma un Componentes estructurales",
+    "reemplazar": "\nCUADRO once coma un Componentes estructurales",
+    "motivo": "Quitar glosas etimológicas de notas 5, 6 y 7 antes del cuadro 11.1."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho rigor igual a rigidez; mortis igual a de la muerte.",
+    "veredicto": "real",
+    "buscar": "cuarenta y ocho a sesenta horas. ocho rigor igual a rigidez; mortis igual a de la muerte.\n\nCAPÍTULO once Tejido muscular calcio calcio AChE",
+    "reemplazar": "cuarenta y ocho a sesenta horas.\n\ncalcio calcio AChE",
+    "motivo": "Quitar glosa de nota 8 y encabezado de página 'CAPÍTULO once Tejido muscular'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . nueve tempor igual a relacionado con el tiempo.",
+    "veredicto": "real",
+    "buscar": "no incrementa la tensión muscular. nueve tempor igual a relacionado con el tiempo.\n\nCAPÍTULO once Tejido muscular de la suavidad de las contracciones musculares",
+    "reemplazar": "no incrementa la tensión muscular.\n\nde la suavidad de las contracciones musculares",
+    "motivo": "Quitar glosa de nota 9 y encabezado de página 'CAPÍTULO once Tejido muscular'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez iso igual a igual, uniforme; metr igual a longitud.",
+    "veredicto": "real",
+    "buscar": "fases de la acción muscular normal. diez iso igual a igual, uniforme; metr igual a longitud. once iso igual a igual, uniforme; ton igual a tensión. a b c d Estímulos Espasmo",
+    "reemplazar": "fases de la acción muscular normal.\n\na b c d Estímulos Espasmo",
+    "motivo": "Quitar glosas etimológicas de notas 10 y 11."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce auto igual a independiente, por sí mismo.",
+    "veredicto": "real",
+    "buscar": "las poderosas contracciones del parto. doce auto igual a independiente, por sí mismo.\n\nCAPÍTULO once Tejido muscular El músculo liso no siempre está inervado",
+    "reemplazar": "las poderosas contracciones del parto.\n\nEl músculo liso no siempre está inervado",
+    "motivo": "Quitar glosa de nota 12 y encabezado de página 'CAPÍTULO once Tejido muscular'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete my igual a ratón, músculo; stheneia igual a vigor, fuerza.",
+    "veredicto": "real",
+    "buscar": "rbicular del ojo. dieciséis Louis T. J. Landouzy, mil ochocientos cuarenta y cinco a mil novecientos diecisiete, y Joseph J. Déjérine, mil ochocientos cuarenta y nueve a mil novecientos diecisiete, neurólogos franceses. diecisiete my igual a ratón, músculo; stheneia igual a vigor, fuerza.",
+    "reemplazar": "rbicular del ojo.",
+    "motivo": "Quitar notas al pie 16 y 17 al cierre del capítulo."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura once coma dos",
+    "veredicto": "real",
+    "buscar": "de proteínas paralelas a las que se denomina miofilamentos, véase la parte izquierda de la figura once coma dos,. Hay tres tipos de miofilamentos:",
+    "reemplazar": "de proteínas paralelas a las que se denomina miofilamentos. Hay tres tipos de miofilamentos:",
+    "motivo": "Quitar referencia visual ', véase la parte izquierda de la figura once coma dos,'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once coma tres",
+    "veredicto": "real",
+    "buscar": "Se muestran unos cuantos miofilamentos que se proyectan a partir de la miofibrilla de la izquierda. Su estructura más fina se muestra en la figura once coma tres. ●¿Por qué es importante",
+    "reemplazar": "Se muestran unos cuantos miofilamentos que se proyectan a partir de la miofibrilla de la izquierda. ●¿Por qué es importante",
+    "motivo": "Quitar remisión visual 'Su estructura más fina se muestra en la figura once coma tres.' (cubre también rev. 5 'en la figura once')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro once coma un",
+    "veredicto": "real",
+    "buscar": "para lograr el acortamiento general de la célula. La terminología de la estructura de una fibra muscular se resume en el cuadro once coma un. Esa lista es una referencia útil mientras se estudia el mecanismo de la contracción.",
+    "reemplazar": "para lograr el acortamiento general de la célula.",
+    "motivo": "Quitar remisión al cuadro 11.1 en el cuerpo del texto."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En el cuadro once coma dos",
+    "veredicto": "real",
+    "buscar": "y causa su contracción. En el cuadro once coma dos se presenta un resumen para referencia futura. Células que reaccionan a estímulos eléctricos",
+    "reemplazar": "y causa su contracción. Células que reaccionan a estímulos eléctricos",
+    "motivo": "Quitar remisión al cuadro 11.2 en el cuerpo del texto."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once coma ocho",
+    "veredicto": "real",
+    "buscar": "llevan a potenciales de acción en la fibra muscular. Los pasos de la estimulación se muestran en la figura once coma ocho. un Una señal nerviosa",
+    "reemplazar": "llevan a potenciales de acción en la fibra muscular. un Una señal nerviosa",
+    "motivo": "Quitar remisión visual a la figura 11.8 (cubre también 'la figura once coma ocho' 1a aparición y 'en la figura once')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once coma nueve",
+    "veredicto": "real",
+    "buscar": "preparándoles para su contracción. Los pasos de ese proceso del acoplamiento se muestran en la figura once coma nueve. seis Una onda de potenciales",
+    "reemplazar": "preparándoles para su contracción. seis Una onda de potenciales",
+    "motivo": "Quitar remisión visual a la figura 11.9 (cubre también 'la figura once coma nueve' 1a aparición y 'en la figura once')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura once coma un cero",
+    "veredicto": "real",
+    "buscar": "el acortamiento de cada sarcómero como un todo. En la figura once coma un cero se muestran los pasos individuales de este mecanismo. diez La cabeza de miosina",
+    "reemplazar": "el acortamiento de cada sarcómero como un todo. diez La cabeza de miosina",
+    "motivo": "Quitar remisión visual a la figura 11.10 (cubre también 'la figura once coma un cero' 1a aparición y 'En la figura once' 1a aparición)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura once coma ocho (2/2)",
+    "veredicto": "real",
+    "buscar": "la liberación y la fijación de los iones calcio. Consúltense los pasos numerados correspondientes en la explicación del texto. Los números de esta figura empiezan donde terminan los de la figura once coma ocho.\n\nCAPÍTULO once Tejido muscular Tropomiosina",
+    "reemplazar": "la liberación y la fijación de los iones calcio.\n\nTropomiosina",
+    "motivo": "Quitar remisión visual entre figuras y encabezado de página 'CAPÍTULO once Tejido muscular'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura once coma nueve (2/2)",
+    "veredicto": "real",
+    "buscar": "genera tensión en el músculo. Consúltense los pasos numerados correspondientes en la explicación del texto. Los números de esta figura empiezan donde terminan los de la figura once coma nueve. Esquina inferior izquierda: diagrama de un sarcómero contraído",
+    "reemplazar": "genera tensión en el músculo. Esquina inferior izquierda: diagrama de un sarcómero contraído",
+    "motivo": "Quitar remisión visual entre figuras 11.10 y 11.9."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once coma un un",
+    "veredicto": "real",
+    "buscar": "una fibra muscular se relaja y recupera su longitud en descanso. Esto se logra mediante los pasos mostrados en la figura once coma un un. catorce Las señales nerviosas",
+    "reemplazar": "una fibra muscular se relaja y recupera su longitud en descanso. catorce Las señales nerviosas",
+    "motivo": "Quitar remisión visual a la figura 11.11 (cubre también 'en la figura once')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once coma un dos",
+    "veredicto": "real",
+    "buscar": "A este principio se le denomina relación longitudtensión. Las razones que lo explican se observan en la figura once coma un dos. Si una fibra está muy contraída en reposo",
+    "reemplazar": "A este principio se le denomina relación longitudtensión. Si una fibra está muy contraída en reposo",
+    "motivo": "Quitar remisión visual a la figura 11.12 (cubre también 'en la figura once')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura once coma un cero (2/2)",
+    "veredicto": "real",
+    "buscar": "de los filamentos delgados por parte de la miosina. Consúltense los pasos numerados correspondientes en la explicación del texto. Los números de esta figura empiezan donde terminan los de la figura once coma un cero.\n\nPARTE DOS Soporte y movimiento cular está demasiado extendida",
+    "reemplazar": "de los filamentos delgados por parte de la miosina.\n\ncular está demasiado extendida",
+    "motivo": "Quitar remisión visual entre figuras y encabezado 'PARTE DOS Soporte y movimiento'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: En la figura once (2/2)",
+    "veredicto": "real",
+    "buscar": "Una estimulación de alta frecuencia produce espasmos más fuertes que una de baja frecuencia. En la figura once.15a, se observa que cuando se estimula a un músculo a baja frecuencia",
+    "reemplazar": "Una estimulación de alta frecuencia produce espasmos más fuertes que una de baja frecuencia. Cuando se estimula a un músculo a baja frecuencia",
+    "motivo": "Quitar referencia visual 'En la figura once.15a, se observa que' conservando la oración (cubre también rev. 6 'once.15a')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura once (6/6)",
+    "veredicto": "real",
+    "buscar": "A una frecuencia aún mayor, veinte a cuarenta estímulos por segundo en la figura once.15c, cada nuevo estímulo llega antes de que termine el espasmo previo.",
+    "reemplazar": "A una frecuencia aún mayor, veinte a cuarenta estímulos por segundo, cada nuevo estímulo llega antes de que termine el espasmo previo.",
+    "motivo": "Quitar referencia visual 'en la figura once.15c' (cubre también rev. 6 'once.15c')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro once coma seis",
+    "veredicto": "real",
+    "buscar": "El sistema muscular sufre menos enfermedades que cualquiera otro de los sistemas de órganos, pero varias de sus disfunciones más comunes aparecen en el cuadro once coma seis. Los efectos del envejecimiento",
+    "reemplazar": "El sistema muscular sufre menos enfermedades que cualquiera otro de los sistemas de órganos. Los efectos del envejecimiento",
+    "motivo": "Quitar remisión visual al cuadro 11.6 sin romper la oración."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura once.3c y d, de",
+    "veredicto": "real",
+    "buscar": "dos. Los filamentos delgados, figura once.3c y d, de siete nanómetros de diámetro, están compuestos sobre todo",
+    "reemplazar": "dos. Los filamentos delgados, de siete nanómetros de diámetro, están compuestos sobre todo",
+    "motivo": "Quitar referencia visual ', figura once.3c y d,' que contenía dígitos sin convertir."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura once.15a, se obse",
+    "veredicto": "real",
+    "buscar": "En la figura once.15a, se observa que cuando se estimula a un músculo a baja frecuencia",
+    "reemplazar": null,
+    "motivo": "Cubierto por la eliminación de la referencia visual 'En la figura once (2/2)' en rev. 5."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: gura once.15c, cada nu",
+    "veredicto": "real",
+    "buscar": "veinte a cuarenta estímulos por segundo en la figura once.15c, cada nuevo estímulo llega antes",
+    "reemplazar": null,
+    "motivo": "Cubierto por la eliminación de la referencia visual 'en la figura once (6/6)' en rev. 5."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': pico de +setenta",
+    "veredicto": "real",
+    "buscar": "su voltaje salta con rapidez del R M P de –noventa mV a un pico de +setenta y cinco mV; mientras, el sodio entra",
+    "reemplazar": "su voltaje salta con rapidez del R M P de menos noventa milivoltios a un pico de más setenta y cinco milivoltios; mientras, el sodio entra",
+    "motivo": "Verificado en Saladin p. 412 ('–90 mV a un pico de +75 mV'): convertir signos '–'/'+' y unidad 'mV' a palabras."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': a A D P + Pi; act",
+    "veredicto": "real",
+    "buscar": "Hidrólisis de A T P a A D P + Pi; activación y elevación de la cabeza de miosina",
+    "reemplazar": "Hidrólisis de A T P a A D P más Pi; activación y elevación de la cabeza de miosina",
+    "motivo": "Convertir símbolo '+' a 'más' (regla 4)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': e A T P + C P es",
+    "veredicto": "real",
+    "buscar": "FIGURA once coma un ocho Modos de síntesis de A T P durante el ejercicio.\n\nPARTE DOS Soporte y movimiento suministro total de A T P + C P es sufi ciente para dar energía por un minuto",
+    "reemplazar": "FIGURA once coma un ocho Modos de síntesis de A T P durante el ejercicio.\n\nsuministro total de A T P más C P es suficiente para dar energía por un minuto",
+    "motivo": "Convertir '+' a 'más', quitar encabezado 'PARTE DOS Soporte y movimiento' y unir 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': e A D P + Pi. A m",
+    "veredicto": "real",
+    "buscar": "La hidrólisis de A T P genera una cantidad creciente de A D P + Pi. A medida que se acumulan",
+    "reemplazar": "La hidrólisis de A T P genera una cantidad creciente de A D P más Pi. A medida que se acumulan",
+    "motivo": "Convertir símbolo '+' a 'más' (regla 4)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Letra griega: μ",
+    "veredicto": "real",
+    "buscar": "Además, su concentración de ácido láctico permanecía por debajo de seis μl o kilogramos durante el ejercicio de resistencia intenso, mientras que la mayoría de los atletas de élite tienen concentraciones de doce a veinte μl o kilogramos.",
+    "reemplazar": "Además, su concentración de ácido láctico permanecía por debajo de seis microlitros por kilogramo durante el ejercicio de resistencia intenso, mientras que la mayoría de los atletas de élite tienen concentraciones de doce a veinte microlitros por kilogramo.",
+    "motivo": "Verificado en Saladin p. 425 ('6 μl/kg' y '12 a 20 μl/kg'): convertir ambas apariciones a 'microlitros por kilogramo'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: , ácidos nucleiCONOCIMIENTO MÁS A FONDO once coma un Aplicación clí...",
+    "veredicto": "real",
+    "buscar": "hay aniones como proteínas, ácidos nucleiCONOCIMIENTO MÁS A FONDO once coma un Aplicación clínica Toxinas neuromusculares y parálisis Las toxinas que interfieren",
+    "reemplazar": "hay aniones como proteínas, ácidos nuclei\n\nConocimiento más a fondo once punto uno. Aplicación clínica: Toxinas neuromusculares y parálisis\n\nLas toxinas que interfieren",
+    "motivo": "Separar recuadro en su propia línea con título normalizado (cubre también rev. 7 'FONDO' 1/2)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: i una fibra musCONOCIMIENTO MÁS A FONDO once coma dos Aplicación cl...",
+    "veredicto": "real",
+    "buscar": "Por tanto, la contracción es débil. Por otra parte, si una fibra musCONOCIMIENTO MÁS A FONDO once coma dos Aplicación clínica Rigor mortis ",
+    "reemplazar": "Por tanto, la contracción es débil. Por otra parte, si una fibra mus\n\nConocimiento más a fondo once punto dos. Aplicación clínica: Rigor mortis\n\n",
+    "motivo": "Separar recuadro en su propia línea con título normalizado (cubre también rev. 7 'FONDO' 2/2)."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO",
+    "veredicto": "real",
+    "buscar": "aniones como proteínas, ácidos nucleiCONOCIMIENTO MÁS A FONDO once coma un Aplicación clínica",
+    "reemplazar": null,
+    "motivo": "Duplicado de los 2 recuadros 'CONOCIMIENTO MÁS A FONDO' ya normalizados en rev. 7."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: insignifi cante",
+    "veredicto": "real",
+    "buscar": "Otros autores consideran que la elasticidad de estos componentes es insignifi cante en los humanos y que el repliegue",
+    "reemplazar": "Otros autores consideran que la elasticidad de estos componentes es insignificante en los humanos y que el repliegue",
+    "motivo": "Unir ligadura partida 'insignifi cante' -> 'insignificante'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi jarse",
+    "veredicto": "real",
+    "buscar": "que bloquea los sitios activos de la actina, de modo que la miosina no puede fi jarse a ella cuando el músculo no está estimulado.",
+    "reemplazar": "que bloquea los sitios activos de la actina, de modo que la miosina no puede fijarse a ella cuando el músculo no está estimulado.",
+    "motivo": "Unir ligadura partida 'fi jarse' -> 'fijarse'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi lamenFilamento",
+    "veredicto": "real",
+    "buscar": "región más clara llamada banda H,cuatro donde no se alcanzan los fi lamenFilamento grueso Filamento delgado",
+    "reemplazar": null,
+    "motivo": "Cubierto junto con la llamada 'banda H,cuatro' en rev. 4."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi caz (1/2)",
+    "veredicto": "real",
+    "buscar": "Por lo general, la contracción muscular efi caz requiere la activación de varias unidades motoras a la vez.",
+    "reemplazar": "Por lo general, la contracción muscular eficaz requiere la activación de varias unidades motoras a la vez.",
+    "motivo": "Unir ligadura partida 'efi caz' -> 'eficaz'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi caz (2/2)",
+    "veredicto": "real",
+    "buscar": "Los filamentos elásticos del sarcómero también ayudan a mantener sufi ciente superposición entre los miofilamentos para asegurar una contracción efi caz cuando se requiera que el músculo entre en acción.",
+    "reemplazar": "Los filamentos elásticos del sarcómero también ayudan a mantener suficiente superposición entre los miofilamentos para asegurar una contracción eficaz cuando se requiera que el músculo entre en acción.",
+    "motivo": "Unir ligaduras partidas 'sufi ciente' -> 'suficiente' y 'efi caz' -> 'eficaz'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no (1/5)",
+    "veredicto": "real",
+    "buscar": "Donde se necesita un control fi no, se cuenta con unidades motoras pequeñas.",
+    "reemplazar": "Donde se necesita un control fino, se cuenta con unidades motoras pequeñas.",
+    "motivo": "Unir ligadura partida 'fi no' -> 'fino'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no (2/5)",
+    "veredicto": "real",
+    "buscar": "Donde es más importante la fuerza que el control fi no, se tienen unidades motoras grandes.",
+    "reemplazar": "Donde es más importante la fuerza que el control fino, se tienen unidades motoras grandes.",
+    "motivo": "Unir ligadura partida 'fi no' -> 'fino'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no (3/5)",
+    "veredicto": "real",
+    "buscar": "Por tanto, las unidades motoras pequeñas proporcionan un grado de control fi no. Al activar o desactivar algunas motoneuronas",
+    "reemplazar": "Por tanto, las unidades motoras pequeñas proporcionan un grado de control fino. Al activar o desactivar algunas motoneuronas",
+    "motivo": "Unir ligadura partida 'fi no' -> 'fino'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no (4/5)",
+    "veredicto": "real",
+    "buscar": "Los movimientos fi nos del ojo y la mano, por tanto, dependen de pequeñas unidades motoras",
+    "reemplazar": "Los movimientos finos del ojo y la mano, por tanto, dependen de pequeñas unidades motoras",
+    "motivo": "Unir ligadura partida 'fi nos' -> 'finos' (cubre también rev. 8 'fi nos')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi no (5/5)",
+    "veredicto": "real",
+    "buscar": "Sus miocitos son pequeños, lo que permite un control fi no de tejidos y órganos como un solo pelo",
+    "reemplazar": "Sus miocitos son pequeños, lo que permite un control fino de tejidos y órganos como un solo pelo",
+    "motivo": "Unir ligadura partida 'fi no' -> 'fino'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi nos",
+    "veredicto": "real",
+    "buscar": "Los movimientos fi nos del ojo y la mano, por tanto, dependen de pequeñas unidades motoras",
+    "reemplazar": null,
+    "motivo": "Cubierto por 'fi no (4/5)'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar",
+    "veredicto": "real",
+    "buscar": "estrechamiento de las bandas I.\n\nPARTE DOS Soporte y movimiento fl exionar para tomar una posición de baja energía, es como si el codo se fl exionara para tirar de la cuerda",
+    "reemplazar": "estrechamiento de las bandas I.\n\nflexionar para tomar una posición de baja energía, es como si el codo se flexionara para tirar de la cuerda",
+    "motivo": "Unir 'fl exionar' y 'fl exionara' y quitar encabezado 'PARTE DOS Soporte y movimiento'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionara",
+    "veredicto": "real",
+    "buscar": "es como si el codo se fl exionara para tirar de la cuerda y subir un poco el ancla.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'fl exionar' arriba."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi cacia (1/2)",
+    "veredicto": "real",
+    "buscar": "los músculos de la espalda se extienden de manera excesiva y no pueden contraerse con efi cacia para enderezar la espina",
+    "reemplazar": "los músculos de la espalda se extienden de manera excesiva y no pueden contraerse con eficacia para enderezar la espina",
+    "motivo": "Unir ligadura partida 'efi cacia' -> 'eficacia'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: efi cacia (2/2)",
+    "veredicto": "real",
+    "buscar": "órganos huecos como el estómago y la vejiga pueden llenarse y luego expeler su contenido con efi cacia. El músculo estriado",
+    "reemplazar": "órganos huecos como el estómago y la vejiga pueden llenarse y luego expeler su contenido con eficacia. El músculo estriado",
+    "motivo": "Unir ligadura partida 'efi cacia' -> 'eficacia'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (1-2/7)",
+    "veredicto": "real",
+    "buscar": "Los filamentos elásticos del sarcómero también ayudan a mantener sufi ciente superposición",
+    "reemplazar": null,
+    "motivo": "Apariciones 1 y 2 ya cubiertas por 'efi caz (2/2)' y rev. 6 'e A T P + C P es'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (3/7)",
+    "veredicto": "real",
+    "buscar": "que se denomina sistema de glucógeno-ácido láctico, produce sufi ciente A T P para treinta a cuarenta segundos",
+    "reemplazar": "que se denomina sistema de glucógeno-ácido láctico, produce suficiente A T P para treinta a cuarenta segundos",
+    "motivo": "Unir ligadura partida 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (4/7)",
+    "veredicto": "real",
+    "buscar": "en condiciones de entregar a los músculos oxígeno con la sufi ciente rapidez como para que la respiración aeróbica",
+    "reemplazar": "en condiciones de entregar a los músculos oxígeno con la suficiente rapidez como para que la respiración aeróbica",
+    "motivo": "Unir ligadura partida 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (5/7)",
+    "veredicto": "real",
+    "buscar": "unas cuantas veces a la semana, es sufi ciente para estimular el crecimiento muscular.",
+    "reemplazar": "unas cuantas veces a la semana, es suficiente para estimular el crecimiento muscular.",
+    "motivo": "Unir ligadura partida 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (6/7)",
+    "veredicto": "real",
+    "buscar": "Si los músculos no tienen la actividad sufi ciente, se desacondicionan: se debilitan y se fatigan con mayor facilidad.",
+    "reemplazar": "Si los músculos no tienen la actividad suficiente, se desacondicionan: se debilitan y se fatigan con mayor facilidad.",
+    "motivo": "Unir ligadura partida 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi ciente (7/7)",
+    "veredicto": "real",
+    "buscar": "y cinco cada contracción debe durar lo sufi ciente para expeler la sangre desde la cámara.",
+    "reemplazar": "y cinco cada contracción debe durar lo suficiente para expeler la sangre desde la cámara.",
+    "motivo": "Unir ligadura partida 'sufi ciente' -> 'suficiente'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siólogos",
+    "veredicto": "real",
+    "buscar": "Por tanto, los fi siólogos hablan de diferentes tipos de contracción muscular: isométrica en comparación con isotónica",
+    "reemplazar": "Por tanto, los fisiólogos hablan de diferentes tipos de contracción muscular: isométrica en comparación con isotónica",
+    "motivo": "Unir ligadura partida 'fi siólogos' -> 'fisiólogos'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: transfi ere (1/3)",
+    "veredicto": "real",
+    "buscar": "un. La miocinasa transfi ere Pi de un A D P a otro, convirtiendo el último en A T P.",
+    "reemplazar": "un. La miocinasa transfiere Pi de un A D P a otro, convirtiendo el último en A T P.",
+    "motivo": "Unir ligadura partida 'transfi ere' -> 'transfiere'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: transfi ere (2/3)",
+    "veredicto": "real",
+    "buscar": "de modo que sus movimientos, propulsados por la miosina, se transfi eren al sarcolema y acortan la célula.",
+    "reemplazar": "de modo que sus movimientos, propulsados por la miosina, se transfieren al sarcolema y acortan la célula.",
+    "motivo": "Unir ligadura partida 'transfi eren' -> 'transfieren' (cubre también rev. 8 'transfi eren')."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: transfi ere (3/3)",
+    "veredicto": "real",
+    "buscar": "A través de los cuerpos densos y el citoesqueleto, la fuerza se transfi ere a la membrana plasmática y toda la célula se acorta.",
+    "reemplazar": "A través de los cuerpos densos y el citoesqueleto, la fuerza se transfiere a la membrana plasmática y toda la célula se acorta.",
+    "motivo": "Unir ligadura partida 'transfi ere' -> 'transfiere'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: transfi eren",
+    "veredicto": "real",
+    "buscar": "de modo que sus movimientos, propulsados por la miosina, se transfi eren al sarcolema y acortan la célula.",
+    "reemplazar": null,
+    "motivo": "Cubierto por 'transfi ere (2/3)'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: défi cit",
+    "veredicto": "real",
+    "buscar": "Esto se debe a que el cuerpo tiene un défi cit de oxígeno que debe reponerse. El défi cit de oxígeno es la diferencia entre la velocidad de consumo de oxígeno",
+    "reemplazar": "Esto se debe a que el cuerpo tiene un déficit de oxígeno que debe reponerse. El déficit de oxígeno es la diferencia entre la velocidad de consumo de oxígeno",
+    "motivo": "Unir las dos apariciones consecutivas de 'défi cit' -> 'déficit'."
+  },
+  {
+    "capitulo": "Tema_11_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: específi co",
+    "veredicto": "real",
+    "buscar": "las varicosidades de fibra nerviosa no están relacionadas con un miocito específi co, sino que estimulan a varios de ellos a la vez",
+    "reemplazar": "las varicosidades de fibra nerviosa no están relacionadas con un miocito específico, sino que estimulan a varios de ellos a la vez",
+    "motivo": "Unir ligadura partida 'específi co' -> 'específico'."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: des- cinco",
+    "veredicto": "real",
+    "buscar": "que consta de fibras de colágeno que se extienden des- cinco gompho igual a clavo, clavija; osis igual a proceso. Madera Unión en cola de milano",
+    "reemplazar": "que consta de fibras de colágeno que se extienden des\n\nMadera Unión en cola de milano",
+    "motivo": "Quitar glosa de nota 5 incrustada tras palabra partida 'des-' (en Saladin pp. 281-282 continúa 'de la matriz ósea' tras la figura 9.3)."
+  },
+  {
+    "capitulo": "Tema_09_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: expli- dieciséis",
+    "veredicto": "real",
+    "buscar": "Aplicación de lo aprendido Elija un ejemplo de circunducción y expli- dieciséis pro igual a hacia delante; trac igual a tirar de; tion igual a acción. a Extensión Flexión",
+    "reemplazar": "Aplicación de lo aprendido Elija un ejemplo de circunducción y expli\n\na Extensión Flexión",
+    "motivo": "Quitar glosa de nota 16 incrustada tras palabra partida 'expli-' (en Saladin p. 292 continúa 'que por qué' tras la figura 9.12)."
+  },
+  {
+    "capitulo": "Tema_13_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte uaru igual a pústula; cella igual a pequeña; zoster igual a cin...",
+    "veredicto": "real",
+    "buscar": "mayores de sesenta años de edad.\n\nveinte uaru igual a pústula; cella igual a pequeña; zoster igual a cintura. veintiuno herpes igual a que repta.\n\nCAPÍTULO trece Médula espinal, nervios raquídeos y reflejos somáticos CUADRO trece coma tres El plexo cervical",
+    "reemplazar": "mayores de sesenta años de edad.\n\nCUADRO trece coma tres El plexo cervical",
+    "motivo": "Quitar glosas etimológicas de notas 20-21 y encabezado de página 'CAPÍTULO trece Médula espinal, nervios raquídeos y reflejos somáticos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: un. ¿Cuál es la diferencia entre anatomía y fisiología? ¿Cómo se apoyan entre sí estas dos ciencias? dos. Indique el método que se aplicaría para cada uno de los siguientes casos: escuchar a un paciente en busca de un soplo cardiaco; estudiar la estructura microscópica del hígado; examen microscópico del tejido hepático en busca de signos de hepatitis; aprendizaje de los vasos sanguíneos en un cadáver, y una autoexploración de mamas.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: tres. ¿De qué manera los seguidores de Galeno pasaron por alto su consejo? ¿Cómo se aplica éste al lector y a este libro? cuatro. Describa dos formas en que Vesalius mejoró la educación médica y estableció estándares que siguen siendo relevantes hoy en día. cinco. ¿De qué manera influyen en los conceptos actuales de la forma y la función humanas los trabajos de inventores que van de Hooke a Zeiss?",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: seis. Describa el proceso general del método inductivo. siete. Describa algunas posibles fuentes de sesgo en la investigación biomédica. Indique algunas maneras de minimizarlo. ocho. ¿Hay más información en un dato científico individual o en una teoría? Explique por qué.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: nueve. Defina adaptación y presión selectiva. ¿Por qué estos conceptos son importantes para la comprensión de la anatomía y la fisiología humanas? diez. Seleccione dos características del ser humano y explique su posible origen en las adaptaciones de los primates a la vida arborícola. once. Seleccione otras dos características del ser humano y explique su posible origen en las adaptaciones de los primates a un hábitat de pastizales.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: doce. En la jerarquía de la estructura humana, ¿cuál es el nivel que se encuentra entre el sistema de órganos y el tejido? ¿Y cuál entre la célula y la molécula? trece. ¿Cuál es la importancia de los tejidos en la definición de un órgano? catorce. ¿Por qué el reduccionismo es un punto de vista necesario, pero no suficiente, para comprender por completo la enfermedad de un paciente? quince. ¿Por qué el estudiante de medicina debe observar varios cadáveres y no quedar satisfecho con la disección de uno solo?",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (6/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: dieciséis. Mencione cuatro criterios biológicos y uno clínico para definir la vida. Explique cómo es que una persona puede estar muerta desde el punto de vista clínico, pero viva desde el biológico. diecisiete. ¿Qué significa equilibrio dinámico? ¿Por qué sería incorrecto decir que la homeostasis evita el cambio interno? dieciocho. Explique por qué los mecanismos de estabilización reciben el nombre de retroalimentación negativa. diecinueve. Explique por qué es probable que la retroalimentación positiva perturbe más la homeostasis que la negativa.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (7a/7)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veinte. Explique por qué la terminología anatómica moderna se basa de manera tan amplia en el griego y el latín. veintiuno. Distinga entre un epónimo y un acrónimo. Y explique por qué ambos presentan dificultades para la interpretación de términos anatómicos. ",
+    "reemplazar": "",
+    "motivo": "Quitar primera mitad del bloque 7 de 'Antes de proseguir' (dividido para mantenerse bajo 900 caracteres)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (7b/7)",
+    "veredicto": "real",
+    "buscar": "veintidós. Divida cada una de las siguientes palabras en sus raíces, prefijos y sufijos, y establezca su significado de acuerdo con el ejemplo de gastroenterología analizado antes: pericardio, apendectomía, subcutáneo, fonocardiograma, otorrinolaringología. Para ayudarse, consulte la lista de elementos semánticos que aparece en las páginas finales del libro. veintitrés. Escriba la forma singular de cada una de las siguientes palabras: bíceps, escafoides, acidosis. Escríbase la forma plural de: encefalitis, herpes, iris, tiroides.",
+    "reemplazar": "",
+    "motivo": "Quitar segunda mitad del bloque 7 de 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: un. ¿Cuál es la diferencia",
+    "reemplazar": null,
+    "motivo": "Duplicado de los 7 bloques 'Antes de proseguir' ya eliminados arriba."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Crédito: cal. Esta ilustración de un manuscrito médico del sigl",
+    "veredicto": "falso_positivo",
+    "buscar": "FIGURA uno coma dos Hombre zodiacal. Esta ilustración de un manuscrito médico del siglo quince refleja que en la Edad Media",
+    "reemplazar": null,
+    "motivo": "Es parte del pie de figura oficial de la figura 1.2, no un crédito de autoría."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Crédito: ubular. b Dibujo de Hooke de las células del corcho",
+    "veredicto": "falso_positivo",
+    "buscar": "FIGURA uno coma cuatro Microscopio compuesto de Hooke. a El microscopio compuesto tenía una lente en cada extremo de un cuerpo tubular. b Dibujo de Hooke de las células del corcho",
+    "reemplazar": null,
+    "motivo": "Es la descripción oficial del inciso b del pie de la figura 1.4 (Saladin p. 6), no un crédito."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (1/8)",
+    "veredicto": "real",
+    "buscar": "si los hechos de mañana no la comprueban.\n\nPARTE UNO Organización corporal El método hipotético-deductivo",
+    "reemplazar": "si los hechos de mañana no la comprueban.\n\nEl método hipotético-deductivo",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (2/8)",
+    "veredicto": "real",
+    "buscar": "y cambian con el tiempo; fue una\n\nPARTE UNO Organización corporal idea original de Charles Darwin",
+    "reemplazar": "y cambian con el tiempo; fue una idea original de Charles Darwin",
+    "motivo": "Quitar encabezado incrustado 'PARTE UNO Organización corporal' que partía la oración."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (3/8)",
+    "veredicto": "real",
+    "buscar": "dos factores de gran importancia en la evolución del ser humano.\n\nPARTE UNO Organización corporal traseras para mirar alrededor",
+    "reemplazar": "dos factores de gran importancia en la evolución del ser humano.\n\ntraseras para mirar alrededor",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (4/8)",
+    "veredicto": "real",
+    "buscar": "principales arterias cerca del corazón.\n\nPARTE UNO Organización corporal resultan tóxicos en caso de que se acumulen.",
+    "reemplazar": "principales arterias cerca del corazón.\n\nresultan tóxicos en caso de que se acumulen.",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (5/8)",
+    "veredicto": "real",
+    "buscar": "¿De qué manera la vasodilatación reduce la temperatura corporal?\n\nPARTE UNO Organización corporal chamiento de los vasos sanguíneos.",
+    "reemplazar": "¿De qué manera la vasodilatación reduce la temperatura corporal?\n\nchamiento de los vasos sanguíneos.",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (6/8)",
+    "veredicto": "real",
+    "buscar": "Retroalimentación positiva en el parto.\n\nPARTE UNO Organización corporal\n\nuno punto siete El lenguaje de la medicina",
+    "reemplazar": "Retroalimentación positiva en el parto.\n\nuno punto siete El lenguaje de la medicina",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (7/8)",
+    "veredicto": "real",
+    "buscar": "-yx -yces calyx, calyces cáliz, cálices\n\nPARTE UNO Organización corporal La palabra digiti en el nombre de un músculo",
+    "reemplazar": "-yx -yces calyx, calyces cáliz, cálices\n\nLa palabra digiti en el nombre de un músculo",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Encabezado/autor/portada: PARTE UNO Organización corporal (8/8)",
+    "veredicto": "real",
+    "buscar": "y los músculos que mueven los ojos aparecen en verde.\n\nPARTE UNO Organización corporal a b Al proceso de exploración",
+    "reemplazar": "y los músculos que mueven los ojos aparecen en verde.\n\na b Al proceso de exploración",
+    "motivo": "Quitar encabezado de página incrustado 'PARTE UNO Organización corporal'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (1/12)",
+    "veredicto": "real",
+    "buscar": "fueron pioneras en el establecimiento del pensamiento científi co. Ayudaron a reemplazar la superstición",
+    "reemplazar": "fueron pioneras en el establecimiento del pensamiento científico. Ayudaron a reemplazar la superstición",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (2/12)",
+    "veredicto": "real",
+    "buscar": "porque ninguno de ellos fue un científico, sino por crear nuevos hábitos para el pensamiento científi co.",
+    "reemplazar": "porque ninguno de ellos fue un científico, sino por crear nuevos hábitos para el pensamiento científico.",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (3/12)",
+    "veredicto": "real",
+    "buscar": "Al decir científi co, se quiere decir que este razonamiento se basa en suposiciones y métodos",
+    "reemplazar": "Al decir científico, se quiere decir que este razonamiento se basa en suposiciones y métodos",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (4/12)",
+    "veredicto": "real",
+    "buscar": "Los métodos de la ciencia son muy variables. Método científi co alude menos a los procedimientos observacionales",
+    "reemplazar": "Los métodos de la ciencia son muy variables. Método científico alude menos a los procedimientos observacionales",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (5/12)",
+    "veredicto": "real",
+    "buscar": "se depende de una apreciación de la forma en que piensan los científi cos, cómo establecen las normas",
+    "reemplazar": "se depende de una apreciación de la forma en que piensan los científicos, cómo establecen las normas",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (6/12)",
+    "veredicto": "real",
+    "buscar": "que apoyen una hipótesis o, bien, causen que los científi cos la modifiquen o la abandonen",
+    "reemplazar": "que apoyen una hipótesis o, bien, causen que los científicos la modifiquen o la abandonen",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (7/12)",
+    "veredicto": "real",
+    "buscar": "es probable que otros científi cos traten de reproducirlos para ver si el autor está en lo correcto.",
+    "reemplazar": "es probable que otros científicos traten de reproducirlos para ver si el autor está en lo correcto.",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (8/12)",
+    "veredicto": "real",
+    "buscar": "Por tanto, en cada etapa, desde la planeación hasta después de la publicación, los científi cos están sujetos a un intenso escrutinio",
+    "reemplazar": "Por tanto, en cada etapa, desde la planeación hasta después de la publicación, los científicos están sujetos a un intenso escrutinio",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (9/12)",
+    "veredicto": "real",
+    "buscar": "Los legos tienden a usar la palabra teoría para designar lo que un científi co llamaría hipótesis",
+    "reemplazar": "Los legos tienden a usar la palabra teoría para designar lo que un científico llamaría hipótesis",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (10/12)",
+    "veredicto": "real",
+    "buscar": "ha resultado un método muy productivo; por supuesto, es fundamental para el razonamiento científi co. Pero el concepto reduccionista",
+    "reemplazar": "ha resultado un método muy productivo; por supuesto, es fundamental para el razonamiento científico. Pero el concepto reduccionista",
+    "motivo": "Unir ligadura partida 'científi co' -> 'científico'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (11/12)",
+    "veredicto": "real",
+    "buscar": "Las personas a quienes los términos científi cos les parecen confusos y difíciles de pronunciar",
+    "reemplazar": "Las personas a quienes los términos científicos les parecen confusos y difíciles de pronunciar",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi co (12/12)",
+    "veredicto": "real",
+    "buscar": "Los términos científi cos suelen integrarse con uno o más de los siguientes elementos:",
+    "reemplazar": "Los términos científicos suelen integrarse con uno o más de los siguientes elementos:",
+    "motivo": "Unir ligadura partida 'científi cos' -> 'científicos'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: científi cos",
+    "veredicto": "real",
+    "buscar": "se depende de una apreciación de la forma en que piensan los científi cos, cómo establecen las normas",
+    "reemplazar": null,
+    "motivo": "Duplicado de las 6 apariciones en plural ya cubiertas dentro de 'científi co' (5, 6, 7, 8, 11 y 12)."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi siólogo",
+    "veredicto": "real",
+    "buscar": "El fi siólogo estadounidense Walter Cannon, mil ochocientos setenta y un a mil novecientos cuarenta y cinco, creó el término homeostasis",
+    "reemplazar": "El fisiólogo estadounidense Walter Cannon, mil ochocientos setenta y un a mil novecientos cuarenta y cinco, creó el término homeostasis",
+    "motivo": "Unir ligadura partida 'fi siólogo' -> 'fisiólogo'."
+  },
+  {
+    "capitulo": "Tema_01_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: sufi jo",
+    "veredicto": "real",
+    "buscar": "logía igual a un sufi jo compuesto que significa el estudio de. Este tipo de disección de las palabras",
+    "reemplazar": "logía igual a un sufijo compuesto que significa el estudio de. Este tipo de disección de las palabras",
+    "motivo": "Unir ligadura partida 'sufi jo' -> 'sufijo'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/5)",
+    "veredicto": "real",
+    "buscar": "PARTE DOS Soporte y movimiento Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Elabore una lista de funciones del sistema muscular diferentes del movimiento del cuerpo. dos. Describa la relación que existe entre endomisio, perimisio y epimisio. ¿Cuál de ellos separa un fascículo de otro?, y ¿cuál separa un músculo de otro? tres. Distinga entre anejos musculares directos e indirectos a los huesos. cuatro. Defina el origen, la inserción, el vientre, la acción y la inervación. cinco. Describa las cinco formas musculares básicas, disposición de los fascículos,. seis. Distinga entre un sinergista, un antagonista y un fijador y explique cómo cada uno de ellos puede afectar la acción de un músculo principal.\n\n",
+    "reemplazar": "",
+    "motivo": "Quitar encabezado 'PARTE DOS Soporte y movimiento' y bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: siete. Mencione dos músculos que elevan el labio superior y dos que deprimen el inferior. ocho. Mencione los cuatro pares de músculos de la masticación y establezca en qué lugar de la mandíbula se insertan. nueve. Distinga entre las funciones de los músculos suprahioideos e infrahioideos. diez. Elabore una lista de los músculos de extensión y flexión del cuello.",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: once. ¿Cuáles músculos intercostales se emplean con más frecuencia: los internos o los externos? Explique. doce. Describa cómo afecta la ventilación pulmonar a la presión abdominal, y viceversa. trece. Mencione un músculo mayor superficial y dos músculos mayores profundos en la espalda. catorce. Defina el perineo, el triángulo urogenital y el triángulo anal. quince. Mencione un músculo en el espacio perineal superficial, otro en el diafragma urogenital y otro más en el diafragma pélvico y establezca la función de cada uno.\n\n",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4a/5)",
+    "veredicto": "real",
+    "buscar": "CAPÍTULO diez El sistema muscular Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: dieciséis. Mencione un músculo que se inserta en la escápula y desempeña un papel significativo en cada una de las acciones siguientes: a Empujar un automóvil que se ha detenido b Remar en una canoa c Cuadrar los hombros en una posición militar d Levantar los hombros para cargar en ellos una caja pesada e Bajar los hombros para levantar una maleta ",
+    "reemplazar": "",
+    "motivo": "Quitar encabezado 'CAPÍTULO diez El sistema muscular' y primera mitad del bloque 4 de 'Antes de proseguir' (dividido para mantenerse bajo 900 caracteres)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4b/5)",
+    "veredicto": "real",
+    "buscar": "diecisiete. Describa tres acciones contrastantes del deltoides. dieciocho. Mencione los cuatro músculos del manguito de los rotadores y describa las superficies escapulares contra las que recaen. diecinueve. Mencione los músculos principales de la flexión y la extensión del codo. veinte. Identifique tres funciones del bíceps braquial. veintiuno. Mencione tres músculos extrínsecos y dos intrínsecos que flexionan las falanges.\n\n",
+    "reemplazar": "",
+    "motivo": "Quitar segunda mitad del bloque 4 de 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/5)",
+    "veredicto": "real",
+    "buscar": " Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintidós. En medio de una caminata, se tiene un pie en el piso y se está por estirar la otra pierna hacia delante. ¿Qué músculos producen los movimientos de la pierna? veintitrés. Mencione los músculos que cruzan las articulaciones de la cadera y la rodilla y producen acciones de ambos. veinticuatro. Elabore una lista de las principales acciones de los músculos de los compartimientos anterior, medial y posterior del muslo. veinticinco. Describa el papel que desempeñan la flexión plantar y la dorsiflexión en la caminata. ¿Cuáles músculos producen estas acciones?",
+    "reemplazar": "",
+    "motivo": "Quitar bloque de autoevaluación 'Antes de proseguir' (regla 10)."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Elabore una lista",
+    "reemplazar": null,
+    "motivo": "Duplicado de los 5 bloques 'Antes de proseguir' ya eliminados arriba."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez apo igual a a partir de; neuro igual a nervio; osis igual a proceso.",
+    "veredicto": "real",
+    "buscar": "una incisión, fasciotomía, para aliviar la presión.\n\ndiez apo igual a a partir de; neuro igual a nervio; osis igual a proceso. once retinac igual a contenedor; cul igual a pequeño. Escápula Vientres",
+    "reemplazar": "una incisión, fasciotomía, para aliviar la presión.\n\nEscápula Vientres",
+    "motivo": "Quitar glosas etimológicas de notas al pie 10 y 11."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar (1/2)",
+    "veredicto": "real",
+    "buscar": "se superpone al músculo braquial y trabaja con él como un sinergista para fl exionar el codo. Sin embargo",
+    "reemplazar": "se superpone al músculo braquial y trabaja con él como un sinergista para flexionar el codo. Sin embargo",
+    "motivo": "Unir ligadura partida 'fl exionar' -> 'flexionar'."
+  },
+  {
+    "capitulo": "Tema_10_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl exionar (2/2)",
+    "veredicto": "real",
+    "buscar": "pero no empujar, p. ej., un solo músculo no puede fl exionar y extender el codo,. A su vez",
+    "reemplazar": "pero no empujar, p. ej., un solo músculo no puede flexionar y extender el codo,. A su vez",
+    "motivo": "Unir ligadura partida 'fl exionar' -> 'flexionar'."
+  }
+]

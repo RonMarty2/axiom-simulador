@@ -250,11 +250,12 @@ _REV6_COMA_CERO_CERO_RE = re.compile(
     r"\bcoma\s+(?:cero\s+cero\s+cero|\w+\s+cero\s+cero)\b",
     re.IGNORECASE,
 )
-_REV6_MILES_PALABRAS_RE = re.compile(
-    rf"\b{_NUM_PAL_PAT}(?:\s+{_NUM_PAL_PAT})*\s+coma\s+"
-    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\s+"
-    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\s+"
-    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\b",
+_REV6_MILES_PALABRAS_RE = re.compile(  # 21-11: [ \t] no cruza líneas; excluye "cero coma..." (<1) y decimales de 4+ cifras
+    rf"\b(?!cero[ \t]+coma\b){_NUM_PAL_PAT}(?:[ \t]+{_NUM_PAL_PAT})*[ \t]+coma[ \t]+"
+    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)[ \t]+"
+    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)[ \t]+"
+    r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\b"
+    r"(?![ \t]+(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\b)",
     re.IGNORECASE,
 )
 _REV6_UN_COMA_RE = re.compile(r"\b(?:un|veinti[uú]n)\s+coma\b", re.IGNORECASE)
@@ -978,7 +979,7 @@ def _revision_1_literalidad(texto: str, ruta_pdf_texto: Path | None) -> Resultad
 
 # Revisión 2: material que el audio omite a propósito (regla 10 de libro-audio-tts)
 GAP_MAX_CLUSTER_ANCLAS = 25  # párrafos de PDF sin ancla que cortan un cluster
-_PDF_FIN_NARRABLE_RE = re.compile(r"Para probar sus conocimientos|^\s*Cuestiones\b|^\s*Respuestas\b|Autoevaluaci[oó]n|^\s*Bibliograf[ií]a|^\s*Referencias(\s+bibliogr[aá]ficas)?\s*$|^\s*Temas de conexi[oó]n\b", re.I)
+_PDF_FIN_NARRABLE_RE = re.compile(r"Para probar (?:sus|los) conocimientos|^\s*Cuestiones\b|^\s*Respuestas\b|Autoevaluaci[oó]n|^\s*Bibliograf[ií]a|^\s*Referencias(\s+bibliogr[aá]ficas)?\s*$|^\s*Temas de conexi[oó]n\b", re.I)
 # 16-nov (calibración EdS): fuentes de figura, URLs y citas sueltas del PDF no se narran (regla 10): no son omisión.
 _PDF_NO_NARRABLE_RE = re.compile(r"^\s*Antes de proseguir|Responda las siguientes preguntas|Glosario|ESQUEMA DEL CAP[ÍI]TULO"
                                  r"|^\s*Fuente\s*:|https?://|www\.|Disponible en\s*:|Recuperado de|\bet al\b", re.I)
@@ -1193,6 +1194,15 @@ def _revision_5_figuras_tablas(texto: str, *, modo_whisper: bool = False) -> Res
     )
 
 
+# 21-11 (copiloto): el número 1 leído «un» suelto («V I H-un», «tipo un,», «FIGURA un a un»).
+_REV6_UN_NUMERO_RE = re.compile(
+    r"(?:\w-|\b(?:tipo|calle|clase|grupo|fase|fig\.|figura|tabla|capítulo|parte|nivel|estadio|grado|"
+    r"número|carril|paso|columna|fila|cromosoma|canal|receptor|complejo|fotosistema|región)\s+(?:uno\s+a\s+)?)"
+    r"un\b(?!\s+poco\b)",
+    re.IGNORECASE,
+)
+
+
 def _revision_6_simbolos_iones_miles(texto: str, *, modo_whisper: bool = False) -> ResultadoRevision:
     """Revisión 6: símbolos, iones mal leídos, leyendas de fórmula, unidades, griegas y miles."""
     hallazgos: list[str] = []
@@ -1227,6 +1237,8 @@ def _revision_6_simbolos_iones_miles(texto: str, *, modo_whisper: bool = False) 
         hallazgos.append(f"Uso de 'un coma': {m.group(0)}")
     for m in _REV6_CONCORDANCIA_UN_RE.finditer(sin_etq):
         hallazgos.append(f"Concordancia: {m.group(0)}")
+    for m in _REV6_UN_NUMERO_RE.finditer(sin_etq):
+        hallazgos.append(f"Número 1 leído 'un' (va 'uno'): {m.group(0)}")
 
     palabras = len(sin_etq.split())
     return ResultadoRevision(

@@ -6,6 +6,12 @@
       "contiene": "Diferencias entre Promoción de la Salud y Prevención",
       "motivo": "tabla del libro (pág. 20) narrada fila por fila, regla 7; las palabras añadidas son los encabezados de columna",
       "reviso": "Claude 16-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "promedio de 799 casos/mes",
+      "motivo": "el párrafo está en el texto (línea «promedio de setecientos noventa y nueve casos por mes… coinfección con V I H»); la similitud baja por cifras verbalizadas",
+      "reviso": "Claude 21-11"
     }
   ],
   "EdS_Parte2_LITERAL_TTS": [
@@ -170,6 +176,468 @@
       "contiene": "Distribución adecuada de las distintas macromoléculas Como hemos mencionado anteri",
       "motivo": "párrafo presente íntegro en el TTS; baja de 90 % únicamente por quitar la frase de referencia visual «La figura 10-15 muestra el recorrido…» (regla 2 opción A)",
       "reviso": "Antigravity 19-11"
+    }
+  ],
+  "Tema_02_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "FIGURA E2-4 Ejemplo de amplificación por RT-PCR",
+      "motivo": "el pie está en el texto («FIGURA E2-cuatro … V I H-uno»); la similitud baja por la verbalización de siglas y del número",
+      "reviso": "Claude 21-11"
+    }
+  ],
+  "Tema_07_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA siete a seis Estructura del nucleosoma",
+      "motivo": "pies literales de las figuras 7-6, 7-7 y 7-8 (pág. 299); baja de 90 % por verbalización de números de figura y retiro de créditos editoriales (reglas 2, 3 y 10)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_16_Biologia_Celular_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA dieciséis a siete Mecanismos de transformación",
+      "motivo": "pie literal de la FIGURA 16-7 (pág. 667); baja de 90 % porque '16-7' en palabras es 'dieciséis a siete' y se retiró el crédito 'C. Bravo' (reglas 3 y 10)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Carcinógenos de origen químico Nuestro organismo",
+      "motivo": "párrafo presente íntegro en el TTS (pág. 659); baja de 90 % únicamente por quitar la referencia visual 'La tabla 16-1 recoge una lista...' (regla 2 opción A)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: iento. B. Imagen de T A C de un paciente",
+      "motivo": "pie de figura clínica legítimo (imagen de TAC de paciente con carcinoma renal, pág. 683), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_22_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 3,
+      "contiene": "Crédito: senta una ilustración de la ley de Henry",
+      "motivo": "texto legítimo del cuerpo ('Esto representa una ilustración de la ley de Henry'), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma siete ocho seis",
+      "motivo": "decimal real de fórmula de presión parcial (78,6 % = 0,786; 0,786 × 760 mmHg = 597 mmHg), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "EdS_Parte3_1_LITERAL_TTS": [
+    {
+      "rev": 3,
+      "contiene": "Autoevaluación: ejercicios de aplicación",
+      "motivo": "mención descriptiva en la presentación del bloque sobre su estructura didáctica, no es sección de autoevaluación",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma seis nueve ocho",
+      "motivo": "decimal real en fórmula de Sturges (log10(50) = 1,6989, pág. 111), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cinco coma seis cero seis",
+      "motivo": "decimal real en fórmula de Sturges (3,3 × 1,6989 = 5,60637, pág. 111), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: seis coma seis cero seis",
+      "motivo": "decimal real en fórmula de Sturges (1 + 5,60637 = 6,60637, pág. 111), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cuatro coma dos ocho cinco",
+      "motivo": "decimal real en cálculo de amplitud de intervalo (30 / 7 = 4,2857, pág. 112), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "EdS_Parte3_3_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero cero uno",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma siete dos nueve",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma dos uno seis",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero dos siete",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero seis cuatro",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero tres seis",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero uno siete",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma seis cinco seis",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma uno dos nueve",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero cero ocho",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero dos cinco",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma seis cero cinco",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cero coma cero nueve siete",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: menos dos coma nueve cero",
+      "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_21_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Reconocimiento del antígeno Coestimulación Selección clonal",
+      "motivo": "rótulos y pie literal de la FIGURA 21.22 (pág. 831); baja de 90 % por deletreo de siglas (M H C, A P C, T C, T H, T M, N K) y retiro de las preguntas de autoevaluación 17-20 (reglas 5 y 10)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_01_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 3,
+      "contiene": "Crédito: cal. Esta ilustración de un manuscrito médico",
+      "motivo": "pie oficial de la FIGURA 1.2 (Hombre zodiacal, pág. 4), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: ubular. b Dibujo de Hooke de las células del corcho",
+      "motivo": "pie oficial de la FIGURA 1.4 (Microscopio compuesto de Hooke, pág. 6), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Por qué los estudiantes de medicina deben estudiar más de un cadáver",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 1.1 y glosa de nota al pie '1 palp = tocar' (pág. 3), eliminadas según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_07_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA siete coma un tres Enanismo acondroplásico",
+      "motivo": "pie literal de la FIGURA 7.13 (pág. 217); baja de 90 % por verbalización de números y retiro de crédito fotográfico (reglas 3 y 10)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Describir las características generales de un hueso largo y un hueso plano",
+      "motivo": "objetivo e) e inicio de sección 7.1 presentes en el TTS (pág. 206); baja de 90 % por retiro de encabezado y verbalización de numeración",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Cuál es la importancia funcional de que un hueso largo sea más ancho",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 7.4 (pág. 210), eliminada según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Cuáles son las dos zonas de la figura que son responsables del crecimiento",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 7.11 (pág. 216), eliminada según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "CAPÍTULO 7 Tejido óseo osificación intramembranosa",
+      "motivo": "párrafo presente en el TTS (pág. 223); baja de 90 % por eliminación del encabezado de página 'CAPÍTULO 7 Tejido óseo' y preguntas de repaso vecinas (regla 10)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_09_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Las mejoras en la tecnología han llevado a prótesis de larga duración",
+      "motivo": "párrafo presente íntegro en el TTS (pág. 308); baja de 90 % por verbalización de cifras (75 % -> setenta y cinco por ciento, 20 -> veinte) y retiro de referencia visual a figura 9.31 (reglas 2 y 3)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_13_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Se esperaría que este arco reflejo muestre más demora sináptica",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 13.22 (pág. 504), eliminada según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Atlas_A_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "FIGURA A punto cinco Los cuerpos femenino y masculino adultos",
+      "motivo": "pie literal de la FIGURA A.5 (pág. 31); baja de 90 % por verbalización ('A.5' -> 'A punto cinco', 'R = región' -> 'R igual a región') y retiro de créditos fotográficos (reglas 3, 4 y 10)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Atlas A Exploración de MRI a color de todo el cuerpo",
+      "motivo": "portada del Atlas A y subtítulo A.1 presentes en el TTS (pág. 28); baja de 90 % por deletreo de sigla (M R I) y numeración verbalizada",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Cavidad pélvica Vejiga, recto, órganos reproductores Peritoneo",
+      "motivo": "contenido de la tabla presente en el TTS (pág. 38); baja de 90 % por retiro de la glosa de nota al pie '11 mediastino = en medio'",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_10_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Del tobillo. 9. El doblado hacia atrás de la cintura incluye",
+      "motivo": "preguntas de autoevaluación del cierre del capítulo 9 en la página compartida de apertura (pág. 313), excluidas según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "flexión. 10. El manguito de los rotadores incluye los tendones",
+      "motivo": "preguntas de autoevaluación del cierre del capítulo 9 en la página compartida de apertura (pág. 313), excluidas según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "El redondo menor. 11. Al lubricante de una diartrosis se le denomina",
+      "motivo": "preguntas de autoevaluación del cierre del capítulo 9 en la página compartida de apertura (pág. 313), excluidas según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_11_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Qué características evidentes en el tejido de esta fotografía lo distinguen",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 11.3 (pág. 405), eliminada según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Propagación de los potenciales de acción hacia los túbulos T Liberación de calcio",
+      "motivo": "rótulos y pasos de la FIGURA 11.12 presentes en el TTS (pág. 414); baja de 90 % por expansión fonética de iones y siglas (Ca2+ -> calcio dos más, ATP -> A T P)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "CAPÍTULO 11 Tejido muscular Ca2+ Ca2+ AChE Ca2+ Ca2+ Cese de la estimulación",
+      "motivo": "rótulos y pasos de la FIGURA 11.13 presentes en el TTS (pág. 415); baja de 90 % por retiro del encabezado de página y expansión fonética de Ca2+ y AChE",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "CAPÍTULO 11 Tejido muscular tes pueden formarse en cualquier lugar",
+      "motivo": "párrafo presente en el TTS (pág. 435); baja de 90 % por eliminación del encabezado de página 'CAPÍTULO 11 Tejido muscular' y preguntas de repaso vecinas (regla 10)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "APARATO REPRODUCTOR Los músculos participan en la respuesta sexual",
+      "motivo": "recuadro 'Temas de conexión' al final del capítulo 11 (pág. 436), excluido según decisión A del 16-11 (regla 10/19)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_03_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Resultados esperados del aprendizaje Cuando haya completado esta sección",
+      "motivo": "objetivos de aprendizaje de la sección 3.2 presentes íntegros (pág. 84, 89,9 % vs 90 %); baja 0,1 % por verbalización de '3.2' -> 'tres punto dos'",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Por qué estos poros nucleares deben tener un diámetro mayor",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 3.24 (pág. 102), eliminada según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_04_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "La estructura del D N A, que suele describirse como doble hélice",
+      "motivo": "párrafo presente íntegro en el TTS (pág. 117); baja de 90 % por deletreo de siglas (D N A, R N A) y retiro de encabezado de página",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: da por la fotografía de Franklin, pronto pudieron ensam",
+      "motivo": "texto narrativo sobre la fotografía de difracción de rayos X de Rosalind Franklin (recuadro 4.1, pág. 119), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 3,
+      "contiene": "Crédito: asombrosa ilustración de la forma en que se puede conf",
+      "motivo": "texto narrativo ('una asombrosa ilustración de la forma en que...'), no es crédito editorial",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "La estructura del DNA, que suele describirse como una doble hélice",
+      "motivo": "párrafo presente íntegro en el TTS (pág. 117); baja de 90 % por deletreo de siglas (D N A, R N A) y retiro de referencia visual a figura 4.1 (reglas 2 y 5)",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_06_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Resultados esperados del aprendizaje Cuando haya completado esta sección",
+      "motivo": "objetivos de aprendizaje de la sección 6.1 presentes íntegros (pág. 180, 89,0 % vs 90 %); baja 1 % por verbalización de '6.1' -> 'seis punto uno'",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Describir los colores normales y patológicos que puede tener la piel",
+      "motivo": "objetivos c) y d) de la sección 6.1 presentes íntegros en el TTS (pág. 180); baja de 90 % por formato de lista sin paréntesis",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "9 pap = pezón; ila = pequeño. 10 reti = red",
+      "motivo": "glosas etimológicas de las notas al pie 9 a 14 al final de la pág. 183, excluidas según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_05_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: cinco coma dos cuatro Una",
+      "motivo": "número de la FIGURA 5.24 seguido del artículo 'Una' ('FIGURA cinco coma dos cuatro Una glándula...', pág. 163), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Pronostique y dibuje un bosquejo del aspecto de una glándula acinar simple",
+      "motivo": "ejercicio de autoevaluación con viñeta al pie de la figura 5.29 y glosa de nota al pie 31 (pág. 166), eliminados según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_14_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Localice los componentes de la formación reticular en las tres partes",
+      "motivo": "ejercicio de autoevaluación con viñeta al pie de la figura 14.9 (pág. 521), eliminado según regla 10",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_23_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Cómo se produce en el cuerpo cada uno de estos desechos",
+      "motivo": "pregunta de autoevaluación con viñeta al pie de la figura 23.2 y glosa de nota al pie 1 (pág. 897), eliminadas según regla 10",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "18 mmHgentrada NFP 10 salida Presión de filtración neta",
+      "motivo": "rótulos numéricos de la FIGURA 23.12 presentes en el TTS (pág. 908); baja de 90 % por verbalización de números y unidades (mmHg -> milímetros de mercurio)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "HCO3– Ácido úrico H2O Na+ K+ Cl– H2O Túbulo colector Asa de Henle",
+      "motivo": "rótulos químicos de la FIGURA 23.22 presentes en el TTS (pág. 918); baja de 90 % por expansión fonética de iones (Na+ -> sodio, K+ -> potasio, Cl– -> cloruro, HCO3– -> bicarbonato)",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 5,
+      "contiene": "Ref. visual: Como se observa",
+      "motivo": "conector discursivo del texto ('Como se observa más adelante', pág. 904), no es referencia a figura ni tabla",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Posible mil como decimal: coma cero cero cero",
+      "motivo": "decimal real de gravedad específica del agua destilada (1,000 en Saladin pág. 918), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma cero cero cero",
+      "motivo": "decimal real de gravedad específica del agua destilada (1,000 en Saladin pág. 918), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma cero cero uno",
+      "motivo": "decimal real de gravedad específica de la orina diluida (1,001 en Saladin págs. 918-919), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma cero dos ocho",
+      "motivo": "decimal real de gravedad específica de la orina concentrada (1,028 en Saladin págs. 918-919), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Miles como decimal: uno coma cero dos cinco",
+      "motivo": "decimal real de gravedad específica de la orina (1,025 en Saladin pág. 918), no es separador de miles",
+      "reviso": "Antigravity 21-11"
+    }
+  ],
+  "Tema_25_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "Ion mal leído: CO2 más",
+      "motivo": "reacción química 'CO2 + H2O' leída 'CO2 más H2O' (pág. 984), no es un ion CO2+",
+      "reviso": "Antigravity 21-11"
     }
   ]
 }

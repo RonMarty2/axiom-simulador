@@ -1,0 +1,1136 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Los efectos del ritmo respiratorio en la PCO2 y el pe hach"
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se llega al mundo empapado, luego de haber deglutido y excre"
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las personas obesas y de edad avanzada tienen hasta cuarenta"
+  },
+  {
+    "j": 5,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los principales compartimientos de líquidos son: sesenta y c"
+  },
+  {
+    "j": 6,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El líquido se intercambia de manera continua entre compartim"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si surge un desequilibrio local, por lo general la ósmosis l"
+  },
+  {
+    "j": 8,
+    "accion": "REUSAR",
+    "origen": "parte_009.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los electrólitos tienen la función principal en el control d"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si la cantidad, osmolaridad, concentración de electrólitos o"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Equilibrio acidobásico, donde el cuerpo se deshace de ácido,"
+  },
+  {
+    "j": 11,
+    "accion": "REUSAR",
+    "origen": "parte_012.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Dichos equilibrios son tan importantes que el tratamiento a "
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "veinticuatro punto uno Equilibrio hídrico Resultados esperad"
+  },
+  {
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento dos quinientos milil"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las rutas de la pérdida de agua son más variadas: • un quini"
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "No es lo mismo que el sudor, porque no se trata de una secre"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Líquido tisular Tubo digestivo Circulación sanguínea Circula"
+  },
+  {
+    "j": 17,
+    "accion": "REUSAR",
+    "origen": "parte_018.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "El exceso de líquido tisular es recogido por el sistema linf"
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El trabajo pesado y prolongado puede elevar la pérdida respi"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La pérdida obligatoria de agua es la excreción inevitable: a"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El hipotálamo tiene por lo menos tres grupos de neuronas lla"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El aumento de dos a tres por ciento en la osmolaridad plasmá"
+  },
+  {
+    "j": 23,
+    "accion": "REUSAR",
+    "origen": "parte_024.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La menor salivación produce una sensación seca y pegajosa en"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta última detiene la respuesta de los osmorreceptores, pro"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Uno de ellos es el enfriamiento y la humidificación de la bo"
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si el agua se drena por completo pero el estómago no se infl"
+  },
+  {
+    "j": 27,
+    "accion": "REUSAR",
+    "origen": "parte_028.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Sensación de sed Ingestión de agua Rehidrata la sangre Osmol"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento de líquido, pero sól"
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tanto, nunca restauran el volumen de líquido o la osmola"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si el glomérulo o los túbulos renales filtran una sustancia "
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La regulación del equilibrio hídrico mediante el control de "
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como respuesta a ésta, las células de los túbulos colectores"
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tanto, el mecanismo de la vasopresina forma un ciclo de "
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Trastornos del equilibrio hídrico El cuerpo entra en estado "
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La reducción del volumen, hipovolemia, ocurre cuando se pier"
+  },
+  {
+    "j": 36,
+    "accion": "REUSAR",
+    "origen": "parte_038.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ej., cuando un sujeto se pierde en un desierto o naufraga en"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tres razones, los lactantes son más vulnerables a la des"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, supóngase que se juega un partido de tenis exte"
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto eleva la osmolaridad del tejido tisular, de modo que el"
+  },
+  {
+    "j": 41,
+    "accion": "REUSAR",
+    "origen": "parte_044.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "H2O H2O H2O H2O Células secretoras de la glándula sudorípara"
+  },
+  {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Conocimiento más a fondo veinticuatro punto uno. Aplicación "
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Además, el aire frío es seco y aumenta la pérdida de agua re"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aunque no se tenga sed, es benéfico tomar grandes cantidades"
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Los efectos más grav"
+  },
+  {
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Sin embargo, la insuficiencia renal y otras causas pueden ll"
+  },
+  {
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto ocurre si se pierde una gran cantidad de agua y sal a t"
+  },
+  {
+    "j": 48,
+    "accion": "REUSAR",
+    "origen": "parte_051.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Secuestro de líquidos Es un trastorno en que el exceso de lí"
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otro ejemplo es la efusión pleural, causada por algunas infe"
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Suponga que no hubiera mecanismos para detener la sensación "
+  },
+  {
+    "j": 51,
+    "accion": "REUSAR",
+    "origen": "parte_054.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Volumen de sangre, L, Ingesta de líquidos, L o día, Muerte N"
+  },
+  {
+    "j": 52,
+    "accion": "REUSAR",
+    "origen": "parte_055.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "CUADRO veinticuatro coma un Formas de desequilibrio de líqui"
+  },
+  {
+    "j": 53,
+    "accion": "REUSAR",
+    "origen": "parte_056.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 54,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los electrólitos tienen importancia fisiológica por varias r"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los principales cationes son sodio, sodio, potasio, potasio,"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El plasma sanguíneo es el líquido más accesible para medicio"
+  },
+  {
+    "j": 57,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Sodio Funciones El sodio es uno de los principales iones res"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los gradientes de sodio a través de la membrana plasmática p"
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "De manera colectiva, Pi representa fosfatos inorgánicos en l"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento Homeostasis Cada adu"
+  },
+  {
+    "j": 61,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La aldosterona, la hormona que retiene la sal, tiene la func"
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En diez a treinta minutos, se sintetizan para instalar en la"
+  },
+  {
+    "j": 63,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un varón adulto promedio excreta cinco g de sodio al día, pe"
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La aldosterona no sólo tiene un ligero efecto sobre el volum"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aunque la aldosterona aumenta la reabsorción tubular de sodi"
+  },
+  {
+    "j": 66,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por sí sola, la vasopresina no puede reducir la concentració"
+  },
+  {
+    "j": 67,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La angiotensina II, en contraste, activa al cotransporte bid"
+  },
+  {
+    "j": 68,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las concentraciones elevadas de glucocorticoides promueven l"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "●¿Qué se requiere, además de aldosterona, para aumentar el v"
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El deseo de comer sal se presenta en personas con bajas cant"
+  },
+  {
+    "j": 71,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hipernatremia es la concentración de sodio en el plasma p"
+  },
+  {
+    "j": 72,
+    "accion": "REUSAR",
+    "origen": "parte_076.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La hiponatremia, menos de ciento treinta meq o L, suele ser "
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Potasio Funciones El potasio es el catión más abundante del "
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El diagrama circular arriba de cada célula representa el vol"
+  },
+  {
+    "j": 75,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las variaciones en la excreción de potasio se controlan más "
+  },
+  {
+    "j": 76,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La aldosterona regula el equilibrio del potasio junto con el"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, puede crecer con rapidez cuando una lesión por "
+  },
+  {
+    "j": 78,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por lo general, el potasio entra y sale de manera continua d"
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta es una condición muy peligrosa que puede producir con r"
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hiperpotasemia también puede tener un inicio más lento po"
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hipopotasemia, menos de tres coma cinco meq o L, se debe "
+  },
+  {
+    "j": 82,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Con la pérdida de estos cationes del citoplasma, las células"
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estos iones se requieren para la formación de ácido estomaca"
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se requiere un gran gasto de energía para mantenerlos separa"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este último caso, los riñones retienen el potasio al excr"
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si el calcio y el fosfato estuvieran muy concentrados en una"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Homeostasis La concentración de calcio se regula mediante la"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Reduce la permeabilidad de las membranas plasmáticas al sodi"
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La contracción tónica ocurre cuando la concentración de calc"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Son un componente de ácidos nucleicos, fosfolípidos, A T P, "
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La concentración de fosfato en plasma suele mantenerse en ca"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La reducción de la concentración de fosfato en el E C F redu"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Responda la misma pregunta para una disminución de cinco meq"
+  },
+  {
+    "j": 95,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento veinticuatro coma tr"
+  },
+  {
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "e Explicar la manera en que las vías respiratorias y urinari"
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La sangre y el líquido tisular suelen tener un pe hache de s"
+  },
+  {
+    "j": 98,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aplicación de lo aprendido En la circulación sistémica, la s"
+  },
+  {
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un ácido débil como el carbónico, H2CO3, se ioniza sólo un p"
+  },
+  {
+    "j": 100,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En términos generales, un amortiguador es cualquier mecanism"
+  },
+  {
+    "j": 101,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El aparato respiratorio ejerce efecto en minutos pero no pue"
+  },
+  {
+    "j": 102,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La cantidad de ácido o base que puede neutralizar un sistema"
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El ácido carbónico, H2CO3, se forma por la hidratación de di"
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En un pe hache de siete coma cuatro, el sistema de bicarbona"
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En contraste, en el cuerpo el sistema de bicarbonato funcion"
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tanto, el sistema amortiguador de fosfato tiene efecto a"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el líquido intracelular, la producción constante de ácido"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La capacidad de amortiguamiento de las proteínas se debe a c"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "¿Y en los eritrocitos? Control respiratorio del pe hache La "
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Como se explicó en el capítulo veintidós, la elevación de la"
+  },
+  {
+    "j": 112,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto permite que el CO2 metabólico se acumule en el E C F co"
+  },
+  {
+    "j": 113,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La esencia de este mecanismo es que los túbulos renales secr"
+  },
+  {
+    "j": 114,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los iones hidrógeno aparecen en color para que se pueda segu"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto sólo puede suceder si hay un gradiente de concentración"
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En una persona con equilibrio acidobásico normal, todos los "
+  },
+  {
+    "j": 117,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Sin embargo, las células del túbulo contorneado proximal tie"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento El efecto es el mism"
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tanto, la orina contiene un ligero exceso de hidrógeno l"
+  },
+  {
+    "j": 120,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un ion hidrógeno reemplaza uno de los iones sodio en el amor"
+  },
+  {
+    "j": 121,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Debido a que hay mucho cloruro en el líquido tubular, sería "
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En contraste, el NH4Cl es un ácido débil: la mayor parte de "
+  },
+  {
+    "j": 123,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A un pe hache normal de siete coma cuatro, el E C F Sangre d"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "dos El H2CO3 se descompone en H2O y CO2, que entra en la cél"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ocho El sodio es retirado por la bomba de sodio-potasio en l"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los símbolos de colores del hidrógeno permiten seguir el hid"
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por otra parte, una deficiencia de hidrógeno causa que el H2"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la acidosis, el hidrógeno se difunde hacia abajo de su gr"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la alcalosis, la concentración de hidrógeno extracelular "
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La ganancia neta en Cotransporte bidireccional Difusión a tr"
+  },
+  {
+    "j": 132,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las diferencias esenciales son el mecanismo de amortiguamien"
+  },
+  {
+    "j": 133,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento cargas intracelulare"
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto ocurre en trastornos como el enfisema, en que hay reduc"
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Usualmente, los pacientes terminales también presentan acido"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "a En la acidosis, el hidrógeno se difunde en las células y h"
+  },
+  {
+    "j": 137,
+    "accion": "REUSAR",
+    "origen": "parte_143.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "CUADRO veinticuatro coma dos Algunas causas de acidosis y al"
+  },
+  {
+    "j": 138,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolític"
+  },
+  {
+    "j": 139,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Si hay exceso de CO2, hipercapnia, la ventilación pulmonar s"
+  },
+  {
+    "j": 140,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por ejemplo, en la acidosis diabética los pulmones no pueden"
+  },
+  {
+    "j": 141,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La compensación renal es el ajuste del pe hache mediante el "
+  },
+  {
+    "j": 142,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los riñones no pueden actuar con la suficiente rapidez para "
+  },
+  {
+    "j": 143,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por tanto, en la acidosis, los túbulos renales secretan más "
+  },
+  {
+    "j": 144,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto se debe en parte a que hay más HCO3 – en la sangre y el"
+  },
+  {
+    "j": 145,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el cuadro veinticuatro coma tres se presentan y explican "
+  },
+  {
+    "j": 146,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE CUATRO Regulación y mantenimiento CUADRO veinticuatro "
+  },
+  {
+    "j": 147,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El hidrógeno se difunde hacia afuera para compensar y esto r"
+  },
+  {
+    "j": 148,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El hidrógeno se difunde hacia adentro para reemplazar el pot"
+  },
+  {
+    "j": 149,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La reabsorción de sodio se equipara a la secreción de hidróg"
+  },
+  {
+    "j": 150,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El hidrógeno retenido en el E C F causa acidosis Acidosis → "
+  },
+  {
+    "j": 151,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Conocimiento más a fondo veinticuatro punto dos. Aplicación "
+  },
+  {
+    "j": 152,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Beber más agua es el método más sencillo de reemplazo de líq"
+  },
+  {
+    "j": 153,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La más común de éstas es la intravenosa, IV, pero por varias"
+  },
+  {
+    "j": 154,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La solución salina normal, isotónica, cero coma nueve por ci"
+  },
+  {
+    "j": 155,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hipercloremia puede, a su vez, producir acidosis. La solu"
+  },
+  {
+    "j": 156,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La acidosis puede tratarse con solución de lactato sódico co"
+  },
+  {
+    "j": 157,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Nunca deben administrarse soluciones con elevadas cantidades"
+  },
+  {
+    "j": 158,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los expansores del volumen de plasma son soluciones o coloid"
+  },
+  {
+    "j": 159,
+    "accion": "REUSAR",
+    "origen": "parte_166.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Un paciente en ayuno pierde de los tejidos hasta setenta a o"
+  },
+  {
+    "j": 160,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ej., si un paciente no ha comido en varios días y no puede a"
+  },
+  {
+    "j": 161,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Sin embargo, si el paciente tiene insuficiencia renal, la ex"
+  },
+  {
+    "j": 162,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La delicadeza del tratamiento de reemplazo de líquidos desta"
+  }
+]

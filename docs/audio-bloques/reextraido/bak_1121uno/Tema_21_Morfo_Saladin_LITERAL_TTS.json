@@ -1,0 +1,83 @@
+[
+  {
+    "j": 44,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 843,
+    "texto_viejo": "Pero un examen cuidadoso, bajo el microscopio, de médula menos turbia demuestra que tiene un grado sorprendente de estructura y que está compuesta por varios tejidos que satisfacen los criterios para considerársele como un órgano, aunque sea muy suave. tres Theodor Langerhans , mil ochocientos treinta y nueve a mil novecientos quince, patólogo alemán. cuatro Johann Conrad Peyer , mil seiscientos cincuenta y tres a mil setecientos doce, anatomista suizo. Macrófagos Seudópodos Bacterias cinco μm Vellosidades intestinales Folículos linfáticos FIGURA veintiuno coma siete Macrófagos que fagocitan una bacteria.",
+    "texto_nuevo": "Pero un examen cuidadoso, bajo el microscopio, de médula menos turbia demuestra que tiene un grado sorprendente de estructura y que está compuesta por varios tejidos que satisfacen los criterios para considerársele como un órgano, aunque sea muy suave. tres Theodor Langerhans, mil ochocientos treinta y nueve a mil novecientos quince, patólogo alemán. cuatro Johann Conrad Peyer, mil seiscientos cincuenta y tres a mil setecientos doce, anatomista suizo. Macrófagos Seudópodos Bacterias cinco micrómetros Vellosidades intestinales Folículos linfáticos FIGURA veintiuno punto siete Macrófagos que fagocitan una bacteria."
+  },
+  {
+    "j": 47,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('gura' vs 'figura')",
+    "similitud": 0.9634,
+    "pagina": 844,
+    "texto_viejo": "Su papel en la vida de los linfocitos se describe más adelante. La médula ósea roja es un material suave, de organización laxa, muy vascular, separada del tejido óseo por el endostio del hueso. Produce todas las clases de elementos que conforman la sangre; su color rojo viene de la gran cantidad de eritrocitos. Cuantiosas arterias pequeñas entran en el agujero nutricio de la superfi cie ósea, penetran en el hueso y se vacían en sinusoides grandes , cuarenta y cinco a ochenta μm de ancho, de la médula , fi gura veintiuno coma nueve,.",
+    "texto_nuevo": "Su papel en la vida de los linfocitos se describe más adelante. La médula ósea roja es un material suave, de organización laxa, muy vascular, separada del tejido óseo por el endostio del hueso. Produce todas las clases de elementos que conforman la sangre; su color rojo viene de la gran cantidad de eritrocitos. Cuantiosas arterias pequeñas entran en el agujero nutricio de la superficie ósea, penetran en el hueso y se vacían en sinusoides grandes, cuarenta y cinco a ochenta micrómetros de ancho, de la médula figura veintiuno."
+  },
+  {
+    "j": 66,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 847,
+    "texto_viejo": "Arteria y vena Linfocitos Vénula Trabécula Macrófago Senos medulares Venas reticulares Fibras reticulares Vasos linfáticos eferentes b a Corteza Médula Vasos linfáticos aferentes Estroma: Linfocitos Cordones medulares c diez μm Trabécula Tejido reticular Cápsula Seno subescapular Folículo linfático Centro germinal Senos corticales Seno medular Cordón medular FIGURA veintiuno coma un dos Anatomía de un ganglio linfático. a Ganglio linfático con bisección parcial que muestra la ruta del flujo linfático. b Detalle de la región mostrada en el recuadro de la parte , a,. c Estroma de fibra reticular y células inmunitarias en un seno medular , SEM,.",
+    "texto_nuevo": "Arteria y vena Linfocitos Vénula Trabécula Macrófago Senos medulares Venas reticulares Fibras reticulares Vasos linfáticos eferentes b a Corteza Médula Vasos linfáticos aferentes Estroma: Linfocitos Cordones medulares c diez micrómetros Trabécula Tejido reticular Cápsula Seno subescapular Folículo linfático Centro germinal Senos corticales Seno medular Cordón medular FIGURA veintiuno punto doce Anatomía de un ganglio linfático. a Ganglio linfático con bisección parcial que muestra la ruta del flujo linfático. b Detalle de la región mostrada en el recuadro de la parte, a. c Estroma de fibra reticular y células inmunitarias en un seno medular, SEM."
+  },
+  {
+    "j": 92,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9681,
+    "pagina": 851,
+    "texto_viejo": "Aquí, las enzimas catalizan una reacción a la que se denomina explosión respiratoria: el neutrófi lo absorbe oxígeno con rapidez y lo reduce a aniones superoxidasa , O2•–, que reaccionan con H+ para formar peróxido de hidrógeno , H2O2,. Otra enzima lisosómica produce hipoclorito , HClO, el ingrediente activo en el blanqueador con cloro, a partir de los iones cloruro del líquido tisular. El superóxido, el peróxido de hidrógeno y el hipoclorito son muy tóxicos; forman una zona de la muerte química alrededor del neutrófi lo que destruye muchas bacterias más de las que podría destruir con la sola fagocitosis.",
+    "texto_nuevo": "Aquí, las enzimas catalizan una reacción a la que se denomina explosión respiratoria: el neutrófilo absorbe oxígeno con rapidez y lo reduce a aniones superoxidasa, O dos•–, que reaccionan con H más para formar peróxido de hidrógeno, H dos O dos. Otra enzima lisosómica produce hipoclorito, HClO, el ingrediente activo en el blanqueador con cloro, a partir de los iones cloruro del líquido tisular. El superóxido, el peróxido de hidrógeno y el hipoclorito son muy tóxicos; forman una zona de la muerte química alrededor del neutrófilo que destruye muchas bacterias más de las que podría destruir con la sola fagocitosis."
+  },
+  {
+    "j": 144,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8929 < 0.92; ultima palabra distinta ('lia' vs 'neutrofilia')",
+    "similitud": 0.8929,
+    "pagina": 858,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento Los neutrófi los también reclutan macrófagos y neutrófi los adicionales al secretar citocinas, como si gritaran ¡Vengan aquí! para atraer refuerzos. Los macrófagos activados y los linfocitos T en el tejido infl amado secretan citocinas conocidas como factores estimulantes de colonias, que promueven la producción de más leucocitos , leucopoyesis, en la médula ósea roja. Después de unas horas de iniciada la infl amación, la cifra de neutrófi los en la sangre puede subir de cuatro cero y cinco cero hasta veinticinco cero células por μl , trastorno al que se le denomina neutrofi lia,.",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento Los neutrófilos también reclutan macrófagos y neutrófilos adicionales al secretar citocinas, como si gritaran ¡Vengan aquí! para atraer refuerzos. Los macrófagos activados y los linfocitos T en el tejido inflamado secretan citocinas conocidas como factores estimulantes de colonias, que promueven la producción de más leucocitos, leucopoyesis, en la médula ósea roja. Después de unas horas de iniciada la inflamación, la cifra de neutrófilos en la sangre puede subir de cuatro mil y cinco mil hasta veinticinco mil células por microlitros, trastorno al que se le denomina neutrofilia."
+  },
+  {
+    "j": 186,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 862,
+    "texto_viejo": "Fagocitosis del antígeno Lisosoma Fagosoma Mezcla de antígeno y enzima en el fagolisosoma Se degrada el antígeno Los residuos de antígeno se vacían median exocitosis Fragmentos procesados de antígeno , epítopos, desplegados en la superficie del macrófago El lisosoma se funde con el fagosoma Epítopos Proteína del MHC a b Linfocitos T cooperadores diez μm Macrófagos Célula reticular FIGURA veintiuno coma dos un La acción de las células presentadoras de antígenos , APC,. a Etapas en el procesamiento y la presentación de un antígeno por APC como un macrófago.",
+    "texto_nuevo": "Fagocitosis del antígeno Lisosoma Fagosoma Mezcla de antígeno y enzima en el fagolisosoma Se degrada el antígeno Los residuos de antígeno se vacían median exocitosis Fragmentos procesados de antígeno, epítopos, desplegados en la superficie del macrófago El lisosoma se funde con el fagosoma Epítopos Proteína del MHC a b Linfocitos T cooperadores diez micrómetros Macrófagos Célula reticular FIGURA veintiuno punto veintiuno La acción de las células presentadoras de antígenos, APC. a Etapas en el procesamiento y la presentación de un antígeno por APC como un macrófago."
+  },
+  {
+    "j": 207,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 865,
+    "texto_viejo": "También llamados inmunoglobulinas , Ig, los anticuerpos son gammaglobulinas defensivas que se encuentran en el plasma sanguíneo, los líquidos tisulares, Factor de activación de macrófago Otras citocinas Interleucina-dos Otras citocinas lnterleucina-un Otras citocinas Actividad de macrófagos Quimiotaxia de leucocitos Inflamación Selección clonal de linfocitos B Selección clonal de linfocitos T citotóxicos Defensa inespecífica Inmunidad humoral Inmunidad celular Macrófago, linfocito B u otra célula presentadora de antígenos Linfocito T cooperador , T4, a diez μm b Célula cancerosa Linfocito T Linfocito T Célula cancerosa que muere FIGURA veintiuno coma dos tres El papel de los linfocitos T cooperadores en la defensa y la inmunidad.",
+    "texto_nuevo": "También llamados inmunoglobulinas, Ig, los anticuerpos son gammaglobulinas defensivas que se encuentran en el plasma sanguíneo, los líquidos tisulares, Factor de activación de macrófago Otras citocinas Interleucina dos Otras citocinas lnterleucina uno Otras citocinas Actividad de macrófagos Quimiotaxia de leucocitos Inflamación Selección clonal de linfocitos B Selección clonal de linfocitos T citotóxicos Defensa inespecífica Inmunidad humoral Inmunidad celular Macrófago, linfocito B u otra célula presentadora de antígenos Linfocito T cooperador, T cuatro, a diez micrómetros b Célula cancerosa Linfocito T Linfocito T Célula cancerosa que muere FIGURA veintiuno punto veintitrés El papel de los linfocitos T cooperadores en la defensa y la inmunidad."
+  },
+  {
+    "j": 264,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 873,
+    "texto_viejo": "Sin embargo, a medida que el virus destruye cada vez más células, los signos y síntomas se tornan más pronunciados: sudores nocturnos, fatiga, cefalea, pérdida extrema de peso y linfadenitis. Una cifra normal de TH es de seiscientos a un doscientos células por μl, pero un criterio para sida es una cifra menor de doscientos por μl.",
+    "texto_nuevo": "Sin embargo, a medida que el virus destruye cada vez más células, los signos y síntomas se tornan más pronunciados: sudores nocturnos, fatiga, cefalea, pérdida extrema de peso y linfadenitis. Una cifra normal de TH es de seiscientos a mil doscientas células por microlitros, pero un criterio para sida es una cifra menor de doscientos por microlitros."
+  },
+  {
+    "j": 274,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9928,
+    "pagina": 874,
+    "texto_viejo": "Cada virus puede invadir a un nuevo linfocito y producir una cantidad similar de descendientes. ●¿Cuál de las moléculas de la parte , a, es el destino del fármaco zidovudina , AZT,? ¿Cómo inhibe la AZT la dispersión del HIV? Envoltura: Matriz Cápside RNA Retrotranscriptasa a b Ampollas protoplásmicas de linfocito T moribundo Virus emergentes un μm Glucoproteína Fosfolípido FIGURA veintiuno coma tres dos Sarcoma de Kaposi. Lesiones típicas en la cara y el cuello de una persona con sida.",
+    "texto_nuevo": "Cada virus puede invadir a un nuevo linfocito y producir una cantidad similar de descendientes. ●¿Cuál de las moléculas de la parte, a, es el destino del fármaco zidovudina, AZT? ¿Cómo inhibe la AZT la dispersión del HIV? Envoltura: Matriz Cápside RNA Retrotranscriptasa a b Ampollas protoplásmicas de linfocito T moribundo Virus emergentes un micrómetro Glucoproteína Fosfolípido FIGURA veintiuno punto treinta y dos Sarcoma de Kaposi. Lesiones típicas en la cara y el cuello de una persona con sida."
+  }
+]

@@ -950,6 +950,38 @@ def corregir_un_coma(texto: str) -> ResultadoPaso:
     return ResultadoPaso(nuevo, cambios, _dedup_ordenado(no_resueltos))
 
 
+# 21-11 (copiloto): «1» leído «un» donde va solo, como número: «V I H-un», «la calle un»,
+# «receptor tipo un de», «capítulo un,». En castellano se dice «uno». Excepción: «un poco».
+_SUST_NUMERADOS = (
+    r"tipo|calle|clase|grupo|fase|fig\.|figura|tabla|capítulo|parte|nivel|estadio|grado|"
+    r"número|carril|paso|columna|fila|cromosoma|canal|receptor|complejo|fotosistema|región"
+)
+_RE_UN_NUMERO = re.compile(
+    r"(?P<pre>\w-|\b(?:" + _SUST_NUMERADOS + r")\s+)(?P<un>un)\b(?!\s+poco\b)",
+    re.IGNORECASE,
+)
+
+_RE_UN_FIGURA_GUION = re.compile(
+    r"(?P<pre>\b(?:figura|tabla|fig\.)\s+uno\s+a\s+)(?P<un>un)\b",
+    re.IGNORECASE,
+)
+
+
+def corregir_un_numero(texto: str) -> ResultadoPaso:
+    """R6: «X-un» y «capítulo/tipo/calle… un» (el número 1) se leen «uno»."""
+    cambios = 0
+
+    def _repl(m: re.Match[str]) -> str:
+        nonlocal cambios
+        cambios += 1
+        return m.group("pre") + _normalizar_un_en_token(m.group("un"))
+
+    nuevo = _RE_UN_NUMERO.sub(_repl, texto)
+    # «FIGURA uno a un» (figura 1-1): el segundo «un» también es número.
+    nuevo = _RE_UN_FIGURA_GUION.sub(_repl, nuevo)
+    return ResultadoPaso(nuevo, cambios, [])
+
+
 def corregir_unidades_en_palabras(texto: str) -> ResultadoPaso:
     """R6: expande unidades sueltas o tras número en palabras con concordancia de 'un/una'."""
     cambios = 0
@@ -1947,6 +1979,7 @@ _PASOS: tuple[tuple[str, Callable[[str], ResultadoPaso]], ...] = (
     ("R6_conversiones_rotas", corregir_conversiones_rotas),
     ("R7_recuadros_fondo", mover_recuadros_fondo),
     ("R6_un_coma", corregir_un_coma),
+    ("R6_un_numero", corregir_un_numero),
     ("R6_unidades", corregir_unidades_en_palabras),
     ("R6_griegas", corregir_griegas),
     ("R6_iones_siglas", corregir_iones_residuales),

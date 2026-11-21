@@ -1,0 +1,191 @@
+[
+  {
+    "j": 74,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9143 < 0.92; ultima palabra distinta ('gura' vs 'figura')",
+    "similitud": 0.9143,
+    "pagina": 754,
+    "texto_viejo": "Estructura del músculo cardiaco El corazón está integrado sobre todo por músculo estriado, pero muy distinto del músculo estriado esquelético que se estudió; específi camente, difi ere en los aspectos estructurales y funcionales. Y tendría que serlo si se requiere bombear de manera infalible, más de una vez cada segundo, al menos durante ocho o nueve décadas. Los cardiocitos , cardiomiocitos, son células cortas, gruesas y ramifi cadas, por lo general de cincuenta a cien μm de largo y diez a veinte μm de ancho , fi gura diecinueve coma un un,.",
+    "texto_nuevo": "Estructura del músculo cardiaco El corazón está integrado sobre todo por músculo estriado, pero muy distinto del músculo estriado esquelético que se estudió; específicamente, difiere en los aspectos estructurales y funcionales. Y tendría que serlo si se requiere bombear de manera infalible, más de una vez cada segundo, al menos durante ocho o nueve décadas. Los cardiocitos, cardiomiocitos, son células cortas, gruesas y ramificadas, por lo general de cincuenta a cien micrómetros de largo y diez a veinte micrómetros de ancho figura diecinueve."
+  },
+  {
+    "j": 104,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9375,
+    "pagina": 757,
+    "texto_viejo": "Su potencial inicia casi a los –sesenta mV y asciende, mostrando una polarización gradual llamada potencial de marcapasos , fi gura diecinueve coma un tres,. Esto se debe sobre todo a un infl ujo lento de Na+, sin una salida de K+ que lo compense. Cuando el potencial de marcapasos alcanza un umbral de –cuarenta mV, los canales de calcio con compuerta habilitada por voltaje se abren y el Ca2+ fl uye al interior desde el líquido extracelular.",
+    "texto_nuevo": "Su potencial inicia casi a los menos sesenta mV y asciende, mostrando una polarización gradual llamada potencial de marcapasos. Esto se debe sobre todo a un influjo lento de Na más, sin una salida de K más que lo compense. Cuando el potencial de marcapasos alcanza un umbral de menos cuarenta mV, los canales de calcio con compuerta habilitada por voltaje se abren y el Ca dos más fluye al interior desde el líquido extracelular."
+  },
+  {
+    "j": 105,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 757,
+    "texto_viejo": "Esto produce la fase de crecimiento , despolarización, del potencial de acción, que llega poco a poco a su máximo arriba de cero mV. En este punto se abren los canales de K+, el cual deja la célula. Ello hace que el citosol sea cada vez más negativo y crea la fase de caída , repolarización, del potencial de acción. Si se completa la repolarización, los canales de K+ se cierran y el potencial de marcapasos inicia otra vez, en su camino a producir el latido siguiente. Cada despolarización del nódulo SA representa un latido.",
+    "texto_nuevo": "Esto produce la fase de crecimiento, despolarización, del potencial de acción, que llega poco a poco a su máximo arriba de cero mV. En este punto se abren los canales de K más, el cual deja la célula. Ello hace que el citosol sea cada vez más negativo y crea la fase de caída, repolarización, del potencial de acción. Si se completa la repolarización, los canales de K más se cierran y el potencial de marcapasos inicia otra vez, en su camino a producir el latido siguiente. Cada despolarización del nódulo SA representa un latido."
+  },
+  {
+    "j": 107,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9531,
+    "pagina": 757,
+    "texto_viejo": "+diez a diez –veinte a treinta –cuarenta a cincuenta –sesenta a setenta .ocho .cuatro un coma dos un coma seis Potencial de membrana , mV, Tiempo , segundos, Influjo lento de Na+ Influjo de Ca2+–Na + Salida de K+ Potencial de acción Potencial de marcapasos Umbral FIGURA diecinueve coma un tres Potenciales de marcapasos y de acción en el nódulo SA. CONOCIMIENTO MÁS A FONDO diecinueve coma dos Aplicación clínica Arritmias cardiacas El aleteo , o taquisistolia, auricular, que representa contracciones ventriculares prematuras, consta de arritmias cardiacas comunes.",
+    "texto_nuevo": "veintidós a igual a no; rhytm igual a ritmo. más diez a diez menos veinte a treinta menos cuarenta a cincuenta menos sesenta a setenta punto ocho punto cuatro uno punto dos uno punto seis Potencial de membrana, mV, Tiempo, segundos, Influjo lento de Na más Influjo de Ca dos+–Na + Salida de K más Potencial de acción Potencial de marcapasos Umbral FIGURA diecinueve punto trece Potenciales de marcapasos y de acción en el nódulo SA. CONOCIMIENTO MÁS A FONDO diecinueve punto dos Aplicación clínica Arritmias cardiacas El aleteo, o taquisistolia, auricular, que representa contracciones ventriculares prematuras, consta de arritmias cardiacas comunes."
+  },
+  {
+    "j": 116,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('y' vs 'el')",
+    "similitud": 0.9634,
+    "pagina": 758,
+    "texto_viejo": "Los cardiocitos tienen un potencial de acción en descanso estable de –noventa mV y suelen despolarizarse sólo cuando se les estimula, a diferencia de las células del nódulo SA. Un estímulo abre los canales de sodio con compuerta habilitada por voltaje, lo que causa un infl ujo de Na+ y la despolarización de la célula a su umbral. El voltaje de umbral abre con rapidez canales de Na+ adicionales y desencadena un ciclo de retroalimentación positiva como el visto en el disparo de una neurona , consúltese la p. cuatrocientos cincuenta y cinco,.",
+    "texto_nuevo": "Los cardiocitos tienen un potencial de acción en descanso estable de menos noventa mV y suelen despolarizarse sólo cuando se les estimula, a diferencia de las células del nódulo SA. Un estímulo abre los canales de sodio con compuerta habilitada por voltaje, lo que causa un influjo de Na más y la despolarización de la célula a su umbral. El voltaje de umbral abre con rapidez canales de Na más adicionales y desencadena un ciclo de retroalimentación positiva como el visto en el disparo de una neurona, consúltese la página cuatrocientos cincuenta y cinco. El"
+  },
+  {
+    "j": 117,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('el' vs 'potencial')",
+    "similitud": 0.9919,
+    "pagina": 758,
+    "texto_viejo": "El potencial de acción alcanza un máximo a casi +treinta mV, los canales de Na+ se cierran con rapidez y la fase de elevación del potencial de acción es muy breve. A medida que los potenciales de acción se dispersan por la membrana plasmática, abren canales de sodio lentos con compuerta habilitada por voltaje que admiten una pequeña cantidad de Ca2+ del líquido extracelular en la célula.",
+    "texto_nuevo": "potencial de acción alcanza un máximo a casi más treinta mV, los canales de Na más se cierran con rapidez y la fase de elevación del potencial de acción es muy breve. A medida que los potenciales de acción se dispersan por la membrana plasmática, abren canales de sodio lentos con compuerta habilitada por voltaje que admiten una pequeña cantidad de Ca dos más del líquido extracelular en la célula."
+  },
+  {
+    "j": 118,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9529,
+    "pagina": 758,
+    "texto_viejo": "Este Ca2+ se fi ja a canales de Ca2+ con compuerta habilitada por ligandos en el retículo sarcoplásmico , SR, los cuales abre y libera mayor cantidad de Ca2+ del SR en el citosol. Esta segunda oleada de Ca2+ se fi ja a troponina y activa la contracción, como lo hace en el músculo estriado , consúltese la p. cuatrocientos doce,. El SR proporciona de noventa a noventa y ocho por ciento del Ca2+ necesario para la contracción miocárdica. .quince .treinta Potencial de acción Contracción miocárdica Meseta Periodo refractario absoluto Canales de Na+ abiertos con compuerta habilitada por voltaje.",
+    "texto_nuevo": "Este Ca dos más se fija a canales de Ca dos más con compuerta habilitada por ligandos en el retículo sarcoplásmico, SR, los cuales abre y libera mayor cantidad de Ca dos más del SR en el citosol. Esta segunda oleada de Ca dos más se fija a troponina y activa la contracción, como lo hace en el músculo estriado, consúltese la página cuatrocientos doce. El SR proporciona de noventa a noventa y ocho por ciento del Ca dos más necesario para la contracción miocárdica..quince punto treinta Potencial de acción Contracción miocárdica Meseta Periodo refractario absoluto Canales de Na más abiertos con compuerta habilitada por voltaje."
+  },
+  {
+    "j": 119,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 758,
+    "texto_viejo": "El influjo de Na+ despolariza la membrana y lleva a la abertura de aún más canales de Na+, con lo cual crea un ciclo de retroalimentación positiva y un aumento rápido en el voltaje de la membrana. Los canales de Na+ se cierran cuando la célula se despolariza, y el voltaje alcanza como máximo casi +treinta mV. El Ca2+ que entra a través de canales de Ca2+ lentos prolonga la despolarización de la membrana y crea una meseta, o situación estable.",
+    "texto_nuevo": "El influjo de Na más despolariza la membrana y lleva a la abertura de aún más canales de Na más, con lo cual crea un ciclo de retroalimentación positiva y un aumento rápido en el voltaje de la membrana. Los canales de Na más se cierran cuando la célula se despolariza, y el voltaje alcanza como máximo casi más treinta mV. El Ca dos más que entra a través de canales de Ca dos más lentos prolonga la despolarización de la membrana y crea una meseta, o situación estable."
+  },
+  {
+    "j": 120,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 758,
+    "texto_viejo": "La meseta cae un poco debido a la fuga de algunos K+, pero la mayoría de los canales de K+ permanecen cerrados hasta el final de dicha meseta. Los canales de Ca2+ se cierran y se transportan al Ca2+ fuera de la célula, mientras que los canales de K+ se abren y la salida rápida de K+ devuelve las membranas a su potencial en descanso. Potencial de membrana , mV, +veinte a veinte –cuarenta a sesenta –ochenta Relajación miocárdica FIGURA diecinueve coma un cuatro Potencial de acción de un cardiocito ventricular.",
+    "texto_nuevo": "La meseta cae un poco debido a la fuga de algunos K más, pero la mayoría de los canales de K más permanecen cerrados hasta el final de dicha meseta. Los canales de Ca dos más se cierran y se transportan al Ca dos más fuera de la célula, mientras que los canales de K más se abren y la salida rápida de K más devuelve las membranas a su potencial en descanso. Potencial de membrana, mV, más veinte a veinte menos cuarenta a sesenta menos ochenta Relajación miocárdica FIGURA diecinueve punto catorce Potencial de acción de un cardiocito ventricular."
+  },
+  {
+    "j": 122,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 759,
+    "texto_viejo": "CAPÍTULO diecinueve El aparato circulatorio: el corazón En el músculo estriado y las neuronas, un potencial de acción regresa al potencial en descanso en dos ms; sin embargo, en el músculo cardiaco, la despolarización se prolonga durante doscientos a doscientos cincuenta ms , a un ritmo cardiaco de setenta a ochenta bpm, lo cual produce una meseta larga en el potencial de acción , tal vez debido a que los canales de Ca2+ del SR se cierran con lentitud o porque el SR se demora mucho en eliminar el Ca2+ del citosol,.",
+    "texto_nuevo": "CAPÍTULO diecinueve El aparato circulatorio: el corazón En el músculo estriado y las neuronas, un potencial de acción regresa al potencial en descanso en dos ms; sin embargo, en el músculo cardiaco, la despolarización se prolonga durante doscientos a doscientos cincuenta ms, a un ritmo cardiaco de setenta a ochenta bpm, lo cual produce una meseta larga en el potencial de acción, tal vez debido a que los canales de Ca dos más del SR se cierran con lentitud o porque el SR se demora mucho en eliminar el Ca dos más del citosol."
+  },
+  {
+    "j": 124,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9834,
+    "pagina": 759,
+    "texto_viejo": "Al fi nal de la meseta se cierran los canales de Ca2+ y se abren los de K+. El potasio se difunde con rapidez fuera de la célula y el Ca2+ regresa al líquido extracelular y el SR. A su vez, el voltaje de membrana cae rápidamente y la tensión muscular declina poco después. El músculo cardiaco tiene un periodo refractario absoluto de doscientos cincuenta ms, comparado con un a dos ms en el músculo estriado. Este largo periodo evita la suma de ondas y la contracción tónica, que detendrían la acción de bombeo del corazón.",
+    "texto_nuevo": "Al final de la meseta se cierran los canales de Ca dos más y se abren los de K más. El potasio se difunde con rapidez fuera de la célula y el Ca dos más regresa al líquido extracelular y el SR. A su vez, el voltaje de membrana cae rápidamente y la tensión muscular declina poco después. El músculo cardiaco tiene un periodo refractario absoluto de doscientos cincuenta ms, comparado con uno a dos ms en el músculo estriado. Este largo periodo evita la suma de ondas y la contracción tónica, que detendrían la acción de bombeo del corazón."
+  },
+  {
+    "j": 136,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 761,
+    "texto_viejo": "CUADRO diecinueve coma un Ejemplos de la interpretación diagnóstica de electrocardiogramas anormales Aspecto Significado sugerido Onda P alargada Hipertrofia auricular, a menudo como resultado de estenosis de la válvula mitral , constricción, Onda P faltante o invertida Daño al nódulo SA; el nódulo AV ha tomado su papel de ser marcapasos Dos o más ondas P por ciclo Extrasístole y bloqueo cardiaco QRS adicional, deformada o en ocasiones invertida, sin onda P antecedente Contracción ventricular prematura , PVC, extrasístole, Onda Q alargada Infarto al miocardio Onda R alargada Hipertrofia ventricular Ondas T anormales Aplastadas en la hipoxia y elevadas en la leucemia , exceso de K+, Segmento PQ de longitud anormal Cicatrización del miocardio auricular, lo cual fuerza a que los impulsos omitan las rutas normales de conducción y tomen rutas alternas más lentas al nódulo AV Segmento ST anormal Elevado sobre la línea base en el infarto al miocardio y deprimido en la hipoxia miocárdica P P P P a Ritmo sinusoidal , normal, b Ritmo nodal: no hay actividad en el nódulo SA c Bloqueo cardiaco d Contracción ventricular prematura e Fibrilación ventricular FIGURA diecinueve coma un siete Electrocardiogramas normal y patológico.",
+    "texto_nuevo": "CUADRO diecinueve punto uno Ejemplos de la interpretación diagnóstica de electrocardiogramas anormales Aspecto Significado sugerido Onda P alargada Hipertrofia auricular, a menudo como resultado de estenosis de la válvula mitral, constricción, Onda P faltante o invertida Daño al nódulo SA; el nódulo AV ha tomado su papel de ser marcapasos Dos o más ondas P por ciclo Extrasístole y bloqueo cardiaco QRS adicional, deformada o en ocasiones invertida, sin onda P antecedente Contracción ventricular prematura, PVC, extrasístole, Onda Q alargada Infarto al miocardio Onda R alargada Hipertrofia ventricular Ondas T anormales Aplastadas en la hipoxia y elevadas en la leucemia, exceso de K más, Segmento PQ de longitud anormal Cicatrización del miocardio auricular, lo cual fuerza a que los impulsos omitan las rutas normales de conducción y tomen rutas alternas más lentas al nódulo AV Segmento ST anormal Elevado sobre la línea base en el infarto al miocardio y deprimido en la hipoxia miocárdica P P P P a Ritmo sinusoidal, normal, b Ritmo nodal: no hay actividad en el nódulo SA c Bloqueo cardiaco d Contracción ventricular prematura e Fibrilación ventricular FIGURA diecinueve punto diecisiete Electrocardiogramas normal y patológico."
+  },
+  {
+    "j": 189,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 768,
+    "texto_viejo": "En valores típicos en reposo, CO igual a setenta y cinco latidos o minuto × setenta ml o latido igual a cinco coma dos cinco cero ml o minuto. Por tanto, el volumen total del cuerpo , de cuatro a seis litros, pasa por el corazón cada minuto; o para verlo de otra manera, un eritrocito que deja el ventrículo izquierdo regresa a él casi un minuto después. El gasto cardiaco no es constante, sino varía con el estado de actividad del cuerpo.",
+    "texto_nuevo": "En valores típicos en reposo, CO igual a setenta y cinco latidos o minuto por setenta ml o latido igual a cinco mil doscientos cincuenta ml o minuto. Por tanto, el volumen total del cuerpo, de cuatro a seis litros, pasa por el corazón cada minuto; o para verlo de otra manera, un eritrocito que deja el ventrículo izquierdo regresa a él casi un minuto después. El gasto cardiaco no es constante, sino varía con el estado de actividad del cuerpo."
+  },
+  {
+    "j": 198,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9483,
+    "pagina": 769,
+    "texto_viejo": "Las fi bras posganglionares simpáticas son adrenérgicas: liberan norepinefrina, que se une a fi bras beta adrenérgicas en el corazón, lo cual activa el sistema de segundo mensajero del monofosfato de adenosina cíclico , cAMP, en los cardiocitos y las células nodulares. A su vez, el AMP cíclico activa una enzima que abre el canal de Ca2+ en la membrana plasmática.",
+    "texto_nuevo": "Las fibras posganglionares simpáticas son adrenérgicas: liberan norepinefrina, que se une a fibras beta adrenérgicas en el corazón, lo cual activa el sistema de segundo mensajero del monofosfato de adenosina cíclico, cAMP, en los cardiocitos y las células nodulares. A su vez, el AMP cíclico activa una enzima que abre el canal de Ca dos más en la membrana plasmática."
+  },
+  {
+    "j": 199,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.979,
+    "pagina": 769,
+    "texto_viejo": "El infl ujo de Ca2+ acelera la despolarización del nódulo SA y la contracción de las cámaras, de modo que acelera el corazón; además, el cAMP acelera la recaptura de Ca2+ del retículo sarcoplásmico y, por ende, permite a los cardiocitos relajarse con más rapidez. Al acelerar tanto la contracción como la relajación, la norepinefrina y el cAMP aumentan el ritmo cardiaco. En realidad, la estimulación adrenérgica puede elevar el ritmo cardiaco hasta doscientos treinta bpm.",
+    "texto_nuevo": "El influjo de Ca dos más acelera la despolarización del nódulo SA y la contracción de las cámaras, de modo que acelera el corazón; además, el cAMP acelera la recaptura de Ca dos más del retículo sarcoplásmico y, por ende, permite a los cardiocitos relajarse con más rapidez. Al acelerar tanto la contracción como la relajación, la norepinefrina y el cAMP aumentan el ritmo cardiaco. En realidad, la estimulación adrenérgica puede elevar el ritmo cardiaco hasta doscientos treinta bpm."
+  },
+  {
+    "j": 201,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.984,
+    "pagina": 769,
+    "texto_viejo": "Por tanto, se ve que a ritmos cardiacos muy elevados, la diástole es demasiado breve para completar el llenado de los ventrículos; en consecuencia, se reducen el volumen sistólico y el gasto cardiaco. En contraste, los nervios vagos parasimpáticos tienen efectos colinérgicos inhibidores en los nódulos SA y AV. Por su parte, la acetilcolina , ACh, se fi ja a receptores muscarínicos y abre las compuertas de K+ en las células nodulares. A medida que el K+ sale de las células, éstas se hiperpolarizan y se activan con menor frecuencia, de modo que el corazón se desacelera.",
+    "texto_nuevo": "Por tanto, se ve que a ritmos cardiacos muy elevados, la diástole es demasiado breve para completar el llenado de los ventrículos; en consecuencia, se reducen el volumen sistólico y el gasto cardiaco. En contraste, los nervios vagos parasimpáticos tienen efectos colinérgicos inhibidores en los nódulos SA y AV. Por su parte, la acetilcolina, ACh, se fija a receptores muscarínicos y abre las compuertas de K más en las células nodulares. A medida que el K más sale de las células, éstas se hiperpolarizan y se activan con menor frecuencia, de modo que el corazón se desacelera."
+  },
+  {
+    "j": 209,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('que' vs 'hipercapnia'); caracter residual en texto nuevo ('+')",
+    "similitud": 0.9753,
+    "pagina": 769,
+    "texto_viejo": "Si la circulación a los tejidos es demasiado lenta para eliminar el CO2 con la rapidez con que los tejidos lo producen, el CO2 se acumulará en la sangre y el líquido cefalorraquídeo , CSF, y producirá un estado de hipercapnia , exceso de CO2,. Más aún, el CO2 genera iones hidrógeno al reaccionar con el agua: CO2 + H2O → HCO3 menos + H+. Los iones hidrógeno reducen el pH de la sangre y el CSF y pueden crear un estado de acidosis , pH menor que siete coma tres cinco,.",
+    "texto_nuevo": "Si la circulación a los tejidos es demasiado lenta para eliminar el CO dos con la rapidez con que los tejidos lo producen, el CO dos se acumulará en la sangre y el líquido cefalorraquídeo, CSF, y producirá un estado de hipercapnia, exceso de CO dos. Más aún, el CO dos genera iones hidrógeno al reaccionar con el agua: CO dos + H dos O da HCO tres menos + H más. Los iones hidrógeno reducen el pH de la sangre y el CSF y pueden crear un estado de acidosis, pH menor que siete punto treinta y cinco. La hipercapnia"
+  },
+  {
+    "j": 213,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9773,
+    "pagina": 770,
+    "texto_viejo": "El electrólito con el mayor efecto cronotrópico es el potasio , K+,. En la hiperpotasemia,treinta y un un exceso de potasio, el K+ se difunde en los cardiocitos y mantiene alto el voltaje de membrana, a la vez que inhibe la repolarización de los cardiocitos. El miocardio se vuelve menos excitable, el ritmo cardiaco se hace lento e irregular y el corazón puede pararse en la diástole. En la hipopotasemia, una defi ciencia de potasio, el K+ se difunde fuera de los cardiocitos y se hiperpolariza , el potencial de membrana es más negativo de lo normal,.",
+    "texto_nuevo": "El electrólito con el mayor efecto cronotrópico es el potasio, K más. En la hiperpotasemia, un exceso de potasio, el K más se difunde en los cardiocitos y mantiene alto el voltaje de membrana, a la vez que inhibe la repolarización de los cardiocitos. El miocardio se vuelve menos excitable, el ritmo cardiaco se hace lento e irregular y el corazón puede pararse en la diástole. En la hipopotasemia, una deficiencia de potasio, el K más se difunde fuera de los cardiocitos y se hiperpolariza, el potencial de membrana es más negativo de lo normal."
+  },
+  {
+    "j": 220,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 770,
+    "texto_viejo": "Esto no resulta sorprendente porque el Ca2+ no sólo es esencial para el acoplamiento estimulación-contracción del músculo, sino también porque prolonga la meseta del potencial de acción del miocardio. Por tanto, los desequilibrios de calcio afectan el ritmo cardiaco, como ya se ha visto, y la fuerza de la contracción. En la hipercalcemia, el Ca2+ se difunde en los cardiocitos y produce contracciones fuertes y prolongadas. En casos extremos, puede causar paro cardiaco en la sístole.",
+    "texto_nuevo": "Esto no resulta sorprendente porque el Ca dos más no sólo es esencial para el acoplamiento estimulación-contracción del músculo, sino también porque prolonga la meseta del potencial de acción del miocardio. Por tanto, los desequilibrios de calcio afectan el ritmo cardiaco, como ya se ha visto, y la fuerza de la contracción. En la hipercalcemia, el Ca dos más se difunde en los cardiocitos y produce contracciones fuertes y prolongadas. En casos extremos, puede causar paro cardiaco en la sístole."
+  },
+  {
+    "j": 222,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 771,
+    "texto_viejo": "CAPÍTULO diecinueve El aparato circulatorio: el corazón mia, los cardiocitos pierden Ca2+ en el líquido extracelular, lo que lleva a un latido débil e irregular y puede originar paro cardiaco en la diástole. Sin embargo, como se explicó en el capítulo siete, es probable que una fuerte hipocalcemia lleve a la muerte debido a parálisis del músculo estriado y sofocación, antes de sentirse los efectos cardiacos. Los agentes que afectan la disponibilidad del calcio tienen no sólo los efectos cronotrópicos examinados, sino también efectos inotrópicos.",
+    "texto_nuevo": "CAPÍTULO diecinueve El aparato circulatorio: el corazón mia, los cardiocitos pierden Ca dos más en el líquido extracelular, lo que lleva a un latido débil e irregular y puede originar paro cardiaco en la diástole. Sin embargo, como se explicó en el capítulo siete, es probable que una fuerte hipocalcemia lleve a la muerte debido a parálisis del músculo estriado y sofocación, antes de sentirse los efectos cardiacos. Los agentes que afectan la disponibilidad del calcio tienen no sólo los efectos cronotrópicos examinados, sino también efectos inotrópicos."
+  },
+  {
+    "j": 224,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9615,
+    "pagina": 771,
+    "texto_viejo": "A su vez, los glucósidos digitálicos, estimulantes cardiacos de la planta digitalia, también elevan la concentración de calcio intracelular y la fuerza de la contracción y se usan para tratar la insufi ciencia cardiaca congestiva. La hiperpotasemia tiene un efecto inotrópico negativo porque reduce la fuerza de los potenciales de acción miocárdicos y, por tanto, disminuye la liberación de Ca2+ en el sarcoplasma. El corazón se dilata y se vuelve fl ácido; sin embargo, la hipopotasemia tiene poco efecto en la contractilidad.",
+    "texto_nuevo": "A su vez, los glucósidos digitálicos, estimulantes cardiacos de la planta digitalia, también elevan la concentración de calcio intracelular y la fuerza de la contracción y se usan para tratar la insuficiencia cardiaca congestiva. La hiperpotasemia tiene un efecto inotrópico negativo porque reduce la fuerza de los potenciales de acción miocárdicos y, por tanto, disminuye la liberación de Ca dos más en el sarcoplasma. El corazón se dilata y se vuelve flácido; sin embargo, la hipopotasemia tiene poco efecto en la contractilidad."
+  }
+]

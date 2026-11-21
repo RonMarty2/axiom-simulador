@@ -1,0 +1,443 @@
+[
+  {
+    "j": 36,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 962,
+    "texto_viejo": "El agua corporal total declina, pero la osmolariH2O Eleva la osmolaridad sanguínea Deshidratación Ciclo de retroalimentación negativa Estimula a los neurorreceptores hipotalámicos H2O Na+ Na+ Estimula a la neurohipófisis para que libere vasopresina Estimula a los túbulos contorneado distal y colector Aumenta la reabsorción de agua Reduce el volumen de orina Aumenta la relación Na+:H2O en la orina Sed Ingestión de agua Ciclo de retroalimentación negativa FIGURA veinticuatro coma cuatro La acción de la vasopresina. Las rutas mostradas en rojo representan retroalimentación negativa. dos hypo igual a debajo de lo normal; uol igual a volumen; haemia igual a sangre.",
+    "texto_nuevo": "El agua corporal total declina, pero la osmolariH dos O Eleva la osmolaridad sanguínea Deshidratación Ciclo de retroalimentación negativa Estimula a los neurorreceptores hipotalámicos H dos O Na más Na más Estimula a la neurohipófisis para que libere vasopresina Estimula a los túbulos contorneado distal y colector Aumenta la reabsorción de agua Reduce el volumen de orina Aumenta la relación Na más:H dos O en la orina Sed Ingestión de agua Ciclo de retroalimentación negativa FIGURA veinticuatro punto cuatro La acción de la vasopresina. Las rutas mostradas en rojo representan retroalimentación negativa. dos hypo igual a debajo de lo normal; uol igual a volumen; haemia igual a sangre."
+  },
+  {
+    "j": 57,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9774,
+    "pagina": 965,
+    "texto_viejo": "Los principales cationes son sodio , Na+, potasio , K+, calcio , Ca2+, e hidrógeno , H+,; los principales aniones son el cloruro , Cl–, el bicarbonato , HCO3 –, y los fosfatos , Pi,. La regulación del hidrógeno y el bicarbonato se analiza más adelante, junto con el equilibrio acidobásico. Aquí se estudian los otros cinco. En la fi gura veinticuatro coma siete se comparan las concentraciones típicas de estos iones en el plasma sanguíneo y el líquido intracelular.",
+    "texto_nuevo": "Los principales cationes son sodio, Na más, potasio, K más, calcio, Ca dos más, e hidrógeno, H más; los principales aniones son el cloruro, Cl menos, el bicarbonato, HCO tres –, y los fosfatos, Pi. La regulación del hidrógeno y el bicarbonato se analiza más adelante, junto con el equilibrio acidobásico. Aquí se estudian los otros cinco. En la figura veinticuatro punto siete se comparan las concentraciones típicas de estos iones en el plasma sanguíneo y el líquido intracelular."
+  },
+  {
+    "j": 61,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('menor' vs 'del')",
+    "similitud": 0.931,
+    "pagina": 965,
+    "texto_viejo": "menor que un Na+ K+ Cl– Ca2+ Pi Osmolaridad , mosm o L, meq o L, b Líquido intracelular a Plasma sanguíneo FIGURA veinticuatro coma siete Concentraciones de electrólitos en el plasma sanguíneo y el líquido intracelular. De manera colectiva, Pi representa fosfatos inorgánicos en las formas de PO4 tres–, HPO4 dos– y H2PO4 –. Las concentraciones de electrólitos , barras verdes, están dadas en meq o L. Las concentraciones en mmol o L son las mismas para Na+, K+ y Cl–; una mitad de los valores ilustrados son para Ca2+ y una tercera parte para PO4 tres–.",
+    "texto_nuevo": "del ECF. menor que uno Na más K más Cl menos Ca dos más Pi Osmolaridad, miliosmoles por litro, meq o L, b Líquido intracelular a Plasma sanguíneo FIGURA veinticuatro punto siete Concentraciones de electrólitos en el plasma sanguíneo y el líquido intracelular. De manera colectiva, Pi representa fosfatos inorgánicos en las formas de PO cuatro tres–, HPO cuatro dos– y H dos PO cuatro –. Las concentraciones de electrólitos, barras verdes, están dadas en meq o L. Las concentraciones en milimoles por litro son las mismas para Na más, K más y Cl menos; una mitad de los valores ilustrados son para Ca dos más y una tercera parte para PO cuatro tres–."
+  },
+  {
+    "j": 64,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9639,
+    "pagina": 966,
+    "texto_viejo": "Esta sustancia es un esteroide que se fi ja a receptores nucleares y activa la transcripción de un gen para la bomba de Na+-K+. En diez a treinta minutos, se sintetizan para instalar en la membrana plasmática sufi cientes bombas de Na+-K+ para producir un efecto notable: la concentración de sodio en la orina empieza a caer y la de potasio a aumentar a medida que los túbulos reabsorben más sodio y secretan más iones hidrógeno y potasio. El agua y el cloruro siguen al sodio de manera pasiva.",
+    "texto_nuevo": "Esta sustancia es un esteroide que se fija a receptores nucleares y activa la transcripción de un gen para la bomba de Na más K más. En diez a treinta minutos, se sintetizan para instalar en la membrana plasmática suficientes bombas de Na más K más para producir un efecto notable: la concentración de sodio en la orina empieza a caer y la de potasio a aumentar a medida que los túbulos reabsorben más sodio y secretan más iones hidrógeno y potasio. El agua y el cloruro siguen al sodio de manera pasiva."
+  },
+  {
+    "j": 69,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 966,
+    "texto_viejo": "La angiotensina II, en contraste, activa al cotransporte bidireccional Na+-H+ en el PCT y, por tanto, se aumenta la reabsorción de sodio y se reduce la diuresis de sodio. Otras varias hormonas afectan a la homeostasis del sodio. El estrógeno imita el efecto de la aldosterona y causa que las mujeres retengan agua durante el embarazo y parte del ciclo menstrual. La progesterona reduce la reabsorción de sodio y tiene efecto diurético.",
+    "texto_nuevo": "La angiotensina II, en contraste, activa al cotransporte bidireccional Na más H más en el PCT y, por tanto, se aumenta la reabsorción de sodio y se reduce la diuresis de sodio. Otras varias hormonas afectan a la homeostasis del sodio. El estrógeno imita el efecto de la aldosterona y causa que las mujeres retengan agua durante el embarazo y parte del ciclo menstrual. La progesterona reduce la reabsorción de sodio y tiene efecto diurético."
+  },
+  {
+    "j": 70,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 966,
+    "texto_viejo": "Las concentraciones elevadas de glucocorticoides promueven la reabsorción de sodio y producen Hipotensión H2O Aumento en la reabsorción de Na+ Estimula a los túbulos renales Pérdida de Na+ y H2O en la orina Apoya el volumen de líquidos y la concentración de Na+ existentes dependiendo de la ingesta oral Ciclo de retroalimentación negativa Estimula a la corteza suprarrenal para que secrete aldosterona Hiperpotasemia K+ Aumenta la secreción de K+ Hiponatremia Na+ K+ Más K+ en la orina Renina Angiotensina FIGURA veinticuatro coma ocho La acción de la aldosterona. La ruta mostrada en rojo representa retroalimentación negativa.",
+    "texto_nuevo": "Las concentraciones elevadas de glucocorticoides promueven la reabsorción de sodio y producen Hipotensión H dos O Aumento en la reabsorción de Na más Estimula a los túbulos renales Pérdida de Na más y H dos O en la orina Apoya el volumen de líquidos y la concentración de Na más existentes dependiendo de la ingesta oral Ciclo de retroalimentación negativa Estimula a la corteza suprarrenal para que secrete aldosterona Hiperpotasemia K más Aumenta la secreción de K más Hiponatremia Na más K más Más K más en la orina Renina Angiotensina FIGURA veinticuatro punto ocho La acción de la aldosterona. La ruta mostrada en rojo representa retroalimentación negativa."
+  },
+  {
+    "j": 72,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 1.0,
+    "pagina": 967,
+    "texto_viejo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico K+ Concentración elevada de K+ extracelular Menor difusión de K+ hacia afuera de la célula RMP elevado , células despolarizadas de manera parcial, Células más excitables Concentración reducida de K+ extracelular Mayor difusión de K+ hacia afuera de la célula RMP reducido , células hiperpolarizadas, Células menos excitables Concentraciones de K+ en equilibrio Difusión igual dentro y fuera de la célula Potencial de membrana en reposo , RMP, normal mV + – mV + – mV + – RMP a Normopotasemia b Hiperpotasemia c Hipopotasemia edema.",
+    "texto_nuevo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico K más Concentración elevada de K más extracelular Menor difusión de K más hacia afuera de la célula RMP elevado, células despolarizadas de manera parcial, Células más excitables Concentración reducida de K más extracelular Mayor difusión de K más hacia afuera de la célula RMP reducido, células hiperpolarizadas, Células menos excitables Concentraciones de K más en equilibrio Difusión igual dentro y fuera de la célula Potencial de membrana en reposo, RMP, normal mV + – mV + – mV + – RMP a Normopotasemia b Hiperpotasemia c Hipopotasemia edema."
+  },
+  {
+    "j": 76,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.982,
+    "pagina": 967,
+    "texto_viejo": "Potasio Funciones El potasio es el catión más abundante del líquido intracelular y el determinante más fuerte de la osmolaridad intracelular y el volumen celular. Junto con el sodio, produce los potenciales de membrana en reposo y los potenciales de acción de las células nerviosas y musculares , fi gura veinticuatro.9a,. El potasio es tan importante como el sodio para la bomba de Na+-K+ y sus funciones de cotransporte y termogénesis , producción de calor,. Es un cofactor esencial para la síntesis de proteínas y algunos otros procesos metabólicos.",
+    "texto_nuevo": "Potasio Funciones El potasio es el catión más abundante del líquido intracelular y el determinante más fuerte de la osmolaridad intracelular y el volumen celular. Junto con el sodio, produce los potenciales de membrana en reposo y los potenciales de acción de las células nerviosas y musculares. El potasio es tan importante como el sodio para la bomba de Na más K más y sus funciones de cotransporte y termogénesis, producción de calor. Es un cofactor esencial para la síntesis de proteínas y algunos otros procesos metabólicos."
+  },
+  {
+    "j": 82,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('b' vs 'accion')",
+    "similitud": 0.982,
+    "pagina": 968,
+    "texto_viejo": "Por lo general, el potasio entra y sale de manera continua de las células a velocidades iguales , saliendo por difusión y entrando por el funcionamiento de la bomba de Na+-K+, pero en la hiperpotasemia hay menos diferencia de concentración entre el ICF y el ECF, de modo que la difusión del potasio hacia afuera es reducida. Una cantidad mayor de potasio permanece en la célula, y la membrana plasmática, por lo tanto, tiene un potencial en reposo menos negativo y más cercano al umbral en que deshabilita los potenciales de acción , fi gura veinticuatro.9b,.",
+    "texto_nuevo": "Por lo general, el potasio entra y sale de manera continua de las células a velocidades iguales, saliendo por difusión y entrando por el funcionamiento de la bomba de Na más K más, pero en la hiperpotasemia hay menos diferencia de concentración entre el ICF y el ECF, de modo que la difusión del potasio hacia afuera es reducida. Una cantidad mayor de potasio permanece en la célula, y la membrana plasmática, por lo tanto, tiene un potencial en reposo menos negativo y más cercano al umbral en que deshabilita los potenciales de acción."
+  },
+  {
+    "j": 87,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 968,
+    "texto_viejo": "Cloruro Funciones Los iones cloruro son los aniones más abundantes del ECF y, por tanto, contribuyen en mucho a su osmolaridad. Estos iones se requieren para la formación de ácido estomacal , HCl, e intervienen en el desplazamiento del cloruro que acompaña a la carga y descarga de dióxido de carbono por parte de los eritrocitos , consúltese el capítulo veintidós,. Por un mecanismo similar, que se explica más adelante, los iones cloruro son importantes en la regulación del pH corporal. Homeostasis Los iones cloruro se unen con fuerza a Na+, K+ y Ca2+.",
+    "texto_nuevo": "Cloruro Funciones Los iones cloruro son los aniones más abundantes del ECF y, por tanto, contribuyen en mucho a su osmolaridad. Estos iones se requieren para la formación de ácido estomacal, HCl, e intervienen en el desplazamiento del cloruro que acompaña a la carga y descarga de dióxido de carbono por parte de los eritrocitos, consúltese el capítulo veintidós. Por un mecanismo similar, que se explica más adelante, los iones cloruro son importantes en la regulación del pH corporal. Homeostasis Los iones cloruro se unen con fuerza a Na más, K más y Ca dos más."
+  },
+  {
+    "j": 91,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9832,
+    "pagina": 969,
+    "texto_viejo": "Si el calcio y el fosfato estuvieran muy concentrados en una célula, los cristales de fosfato de calcio se precipitarían en el citoplasma. Para mantener una concentración elevada de fosfato pero evitar la cristalización del fosfato de calcio, las células deben bombear Ca2+ fuera y mantenerlo a baja concentración intracelular, o de otra manera secuestrar el Ca2+ en el retículo endoplásmico liso y liberarlo sólo cuando se necesite. Las células que almacenan Ca2+ a menudo tienen una proteína llamada calsecuestrina, que fi ja el Ca2+ almacenado y evita que intervenga en reacciones químicas.",
+    "texto_nuevo": "Si el calcio y el fosfato estuvieran muy concentrados en una célula, los cristales de fosfato de calcio se precipitarían en el citoplasma. Para mantener una concentración elevada de fosfato pero evitar la cristalización del fosfato de calcio, las células deben bombear Ca dos más fuera y mantenerlo a baja concentración intracelular, o de otra manera secuestrar el Ca dos más en el retículo endoplásmico liso y liberarlo sólo cuando se necesite. Las células que almacenan Ca dos más a menudo tienen una proteína llamada calsecuestrina, que fija el Ca dos más almacenado y evita que intervenga en reacciones químicas."
+  },
+  {
+    "j": 103,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9938,
+    "pagina": 970,
+    "texto_viejo": "Aplicación de lo aprendido En la circulación sistémica, la sangre arterial tiene un pH medio de siete coma cuatro cero y la venosa uno de siete coma tres cinco. ¿Qué se considera que causa la diferencia? Ácidos, bases y amortiguadores El pH de una solución se determina tan sólo por sus iones hidrógeno , H+,. Un ácido es cualquier sustancia química que libera H+ en una solución. Un ácido fuerte como el hidroclorhídrico , HCl, se ioniza con facilidad, cede la mayor parte de sus iones hidrógeno y puede reducir de manera marcada el pH de una solución.",
+    "texto_nuevo": "Aplicación de lo aprendido En la circulación sistémica, la sangre arterial tiene un pH medio de siete punto cuarenta y la venosa uno de siete punto treinta y cinco. ¿Qué se considera que causa la diferencia? Ácidos, bases y amortiguadores El pH de una solución se determina tan sólo por sus iones hidrógeno, H más. Un ácido es cualquier sustancia química que libera H más en una solución. Un ácido fuerte como el hidroclorhídrico, HCl, se ioniza con facilidad, cede la mayor parte de sus iones hidrógeno y puede reducir de manera marcada el pH de una solución."
+  },
+  {
+    "j": 104,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9595,
+    "pagina": 970,
+    "texto_viejo": "Un ácido débil como el carbónico , H2CO3, se ioniza sólo un poco y mantiene la mayor parte de su hidrógeno en un enlace químico que no afecta el pH. Una base es cualquier sustancia química que acepta H+. Una base fuerte como el ion hidróxido , OH–, tiene fuerte tendencia a unirse al H+ y elevar el pH, mientras que una base débil como el ion bicarbonato , HCO3 –, se fi ja menos al H+ disponible y tiene menos efecto en el pH.",
+    "texto_nuevo": "Un ácido débil como el carbónico, H dos CO tres, se ioniza sólo un poco y mantiene la mayor parte de su hidrógeno en un enlace químico que no afecta el pH. Una base es cualquier sustancia química que acepta H más. Una base fuerte como el ion hidróxido, O H menos, tiene fuerte tendencia a unirse al H más y elevar el pH, mientras que una base débil como el ion bicarbonato, HCO tres –, se fija menos al H más disponible y tiene menos efecto en el pH."
+  },
+  {
+    "j": 106,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9647,
+    "pagina": 970,
+    "texto_viejo": "El aparato respiratorio ejerce efecto en minutos pero no puede modifi car el pH tanto como lo hace el aparato urinario. Un amortiguador químico es una sustancia que fi ja H+ y lo elimina de la solución cuando su concentración empieza a aumentar, o libera H+ en ella cuando cae. Los amortiguadores químicos pueden restaurar el pH normal en una fracción de segundo. Funcionan como mezclas llamadas sistemas amortiguadores compuestas por un ácido y una base débiles. Los tres principales sistemas de amortiguadores químicos del cuerpo son los de bicarbonato, fosfato y proteínas.",
+    "texto_nuevo": "El aparato respiratorio ejerce efecto en minutos pero no puede modificar el pH tanto como lo hace el aparato urinario. Un amortiguador químico es una sustancia que fija H más y lo elimina de la solución cuando su concentración empieza a aumentar, o libera H más en ella cuando cae. Los amortiguadores químicos pueden restaurar el pH normal en una fracción de segundo. Funcionan como mezclas llamadas sistemas amortiguadores compuestas por un ácido y una base débiles. Los tres principales sistemas de amortiguadores químicos del cuerpo son los de bicarbonato, fosfato y proteínas."
+  },
+  {
+    "j": 108,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9806,
+    "pagina": 970,
+    "texto_viejo": "El ácido carbónico , H2CO3, se forma por la hidratación de dióxido de carbono y luego se disocia en bicarbonato , HCO3 –, y H+: CO2 + H2O H2CO3 HCO3 –+ H+ Se trata de una reacción reversible. Cuando procede a la derecha, el ácido carbónico actúa como ácido débil al liberar H+ y reducir el pH. Cuando procede a la izquierda, el bicarbonato actúa como base débil al fi jar H+, retirar los iones de la solución y elevar el pH.",
+    "texto_nuevo": "El ácido carbónico, H dos CO tres, se forma por la hidratación de dióxido de carbono y luego se disocia en bicarbonato, HCO tres –, y H más: CO dos + H dos O H dos CO tres HCO tres –+ H más Se trata de una reacción reversible. Cuando procede a la derecha, el ácido carbónico actúa como ácido débil al liberar H más y reducir el pH. Cuando procede a la izquierda, el bicarbonato actúa como base débil al fijar H más, retirar los iones de la solución y elevar el pH."
+  },
+  {
+    "j": 109,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 970,
+    "texto_viejo": "En un pH de siete coma cuatro, el sistema de bicarbonato no suele tener una capacidad de amortiguamiento muy fuerte fuera del cuerpo. Está demasiado lejos de su pH óptimo de seis coma un. Si se agrega un ácido fuerte a una probeta con una solución de ácido carbónico y bicarbonato a un pH de siete coma cuatro, la reacción anterior sólo se desplaza un poco a la izquierda. Permanecería una gran cantidad de H+ excedente y el pH sería muy bajo.",
+    "texto_nuevo": "En un pH de siete punto cuatro, el sistema de bicarbonato no suele tener una capacidad de amortiguamiento muy fuerte fuera del cuerpo. Está demasiado lejos de su pH óptimo de seis punto uno. Si se agrega un ácido fuerte a una probeta con una solución de ácido carbónico y bicarbonato a un pH de siete punto cuatro, la reacción anterior sólo se desplaza un poco a la izquierda. Permanecería una gran cantidad de H más excedente y el pH sería muy bajo."
+  },
+  {
+    "j": 110,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.984,
+    "pagina": 970,
+    "texto_viejo": "En contraste, en el cuerpo el sistema de bicarbonato funciona muy bien, porque los pulmones y los riñones eliminan de manera constante el CO2 y evitan que se alcance un equilibrio. Esto mantiene la reacción en desplazamiento hacia la izquierda, y se neutraliza una cantidad mayor de H+. Por el contrario, si es necesario reducir el pH, los riñones excretan HCO3 –, mantienen esta reacción con un desplazamiento hacia la derecha y elevan la concentración de H+ del líquido extracelular. Así, puede verse que los amortiguadores fi siológicos y químicos del cuerpo funcionan juntos para mantener el equilibrio acidobásico.",
+    "texto_nuevo": "En contraste, en el cuerpo el sistema de bicarbonato funciona muy bien, porque los pulmones y los riñones eliminan de manera constante el CO dos y evitan que se alcance un equilibrio. Esto mantiene la reacción en desplazamiento hacia la izquierda, y se neutraliza una cantidad mayor de H más. Por el contrario, si es necesario reducir el pH, los riñones excretan HCO tres –, mantienen esta reacción con un desplazamiento hacia la derecha y elevan la concentración de H más del líquido extracelular. Así, puede verse que los amortiguadores fisiológicos y químicos del cuerpo funcionan juntos para mantener el equilibrio acidobásico."
+  },
+  {
+    "j": 111,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9787,
+    "pagina": 971,
+    "texto_viejo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico El sistema amortiguador de fosfato Es una solución de HPO4 dos– y H2PO4 –. Funciona de manera muy parecida al sistema de bicarbonato. La siguiente reacción puede proceder a la derecha para liberar H+ y reducir el pH o a la izquierda para fi jar H+ y elevar el pH. H2PO4 – HPO4 dos– + H+ El pH óptimo para este sistema es seis coma ocho, cerca del pH real del ECF , siete coma cuatro,.",
+    "texto_nuevo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico El sistema amortiguador de fosfato Es una solución de HPO cuatro dos– y H dos PO cuatro –. Funciona de manera muy parecida al sistema de bicarbonato. La siguiente reacción puede proceder a la derecha para liberar H más y reducir el pH o a la izquierda para fijar H más y elevar el pH. H dos PO cuatro – HPO cuatro dos– + H más El pH óptimo para este sistema es seis punto ocho, cerca del pH real del ECF siete."
+  },
+  {
+    "j": 114,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9497,
+    "pagina": 971,
+    "texto_viejo": "La capacidad de amortiguamiento de las proteínas se debe a ciertos grupos laterales de sus residuos de aminoácidos. Algunos tienen grupos laterales carboxilo , –COOH, que liberan H+ cuando el pH empieza a elevarse y, por tanto, lo reducen. –COOH → –COO– + H+ Otros tienen grupos laterales de aminoácidos , –NH2, que fi jan H+ cuando el pH cae demasiado, por lo que elevan el pH a lo normal. –NH2 + H+ → –NH3 + Aplicación de lo aprendido ¿Qué proteína se considera que es el amortiguador más importante en el plasma sanguíneo? ¿Y en los eritrocitos?",
+    "texto_nuevo": "La capacidad de amortiguamiento de las proteínas se debe a ciertos grupos laterales de sus residuos de aminoácidos. Algunos tienen grupos laterales carboxilo, –COOH, que liberan H más cuando el pH empieza a elevarse y, por tanto, lo reducen. –COOH da –C O O menos + H más Otros tienen grupos laterales de aminoácidos, –NH dos, que fijan H más cuando el pH cae demasiado, por lo que elevan el pH a lo normal. –NH dos + H más da –NH tres + Aplicación de lo aprendido ¿Qué proteína se considera que es el amortiguador más importante en el plasma sanguíneo? ¿Y en los eritrocitos?"
+  },
+  {
+    "j": 115,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 971,
+    "texto_viejo": "Control respiratorio del pH La ecuación para el sistema amortiguador de bicarbonato muestra que la adición de CO2 a los líquidos corporales eleva la concentración de H+ y reduce el pH, mientras que la eliminación del CO2 tiene el efecto opuesto. Ésta es la base de la fuerte capacidad de amortiguamiento del aparato respiratorio. Por cierto, este aparato puede neutralizar dos o tres veces más ácido que los amortiguadores químicos. El dióxido de carbono se produce de manera constante a través del metabolismo aeróbico y suele eliminarse por los pulmones a velocidad equivalente.",
+    "texto_nuevo": "Control respiratorio del pH La ecuación para el sistema amortiguador de bicarbonato muestra que la adición de CO dos a los líquidos corporales eleva la concentración de H más y reduce el pH, mientras que la eliminación del CO dos tiene el efecto opuesto. Ésta es la base de la fuerte capacidad de amortiguamiento del aparato respiratorio. Por cierto, este aparato puede neutralizar dos o tres veces más ácido que los amortiguadores químicos. El dióxido de carbono se produce de manera constante a través del metabolismo aeróbico y suele eliminarse por los pulmones a velocidad equivalente."
+  },
+  {
+    "j": 116,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9886,
+    "pagina": 971,
+    "texto_viejo": "Como se explicó en el capítulo veintidós, la elevación de las concentraciones de CO2 y la caída del pH estimulan a los quimiorreceptores periféricos y centrales, lo que favorece el aumento en la ventilación pulmonar. Así se expele el exceso de CO2 y, por tanto, se reduce la concentración de H+. El H+ libre se vuelve parte de las moléculas de agua producidas por esta reacción. HCO3 – + H+ → H2CO3 → CO2 , espirado, + H2O Por el contrario, una caída en la concentración de H+ eleva el pH y reduce la ventilación pulmonar.",
+    "texto_nuevo": "Como se explicó en el capítulo veintidós, la elevación de las concentraciones de CO dos y la caída del pH estimulan a los quimiorreceptores periféricos y centrales, lo que favorece el aumento en la ventilación pulmonar. Así se expele el exceso de CO dos y, por tanto, se reduce la concentración de H más. El H más libre se vuelve parte de las moléculas de agua producidas por esta reacción. HCO tres – + H más da H dos CO tres da CO dos, espirado, + H dos O Por el contrario, una caída en la concentración de H más eleva el pH y reduce la ventilación pulmonar."
+  },
+  {
+    "j": 118,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9326,
+    "pagina": 971,
+    "texto_viejo": "La esencia de este mecanismo es que los túbulos renales secretan H+ en el líquido tubular, donde la mayor parte de él se fi ja a amortiguadores de bicarbonato, amoniaco y fosfato. Luego el H+ fi jado o libre se excreta en la orina. Por tanto, los riñones, en contraste con los pulmones, en realidad expelen H+ del cuerpo. Los otros sistemas de amortiguador sólo reducen su concentración al fi jarlo a otra sustancia química. En la fi gura veinticuatro coma un cero se muestra la manera en que los túbulos renales secretan y neutralizan H+.",
+    "texto_nuevo": "La esencia de este mecanismo es que los túbulos renales secretan H más en el líquido tubular, donde la mayor parte de él se fija a amortiguadores de bicarbonato, amoniaco y fosfato. Luego el H más fijado o libre se excreta en la orina. Por tanto, los riñones, en contraste con los pulmones, en realidad expelen H más del cuerpo. Los otros sistemas de amortiguador sólo reducen su concentración al fijarlo a otra sustancia química. En la figura veinticuatro punto diez se muestra la manera en que los túbulos renales secretan y neutralizan H más."
+  },
+  {
+    "j": 119,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 971,
+    "texto_viejo": "Los iones hidrógeno aparecen en color para que se pueda seguirlos desde la sangre , paso un, hasta el líquido tubular , paso seis,. Obsérvese que no sólo se transporta el H+ libre por las células del túbulo; en realidad, el H+ viaja en la forma de ácido carbónico y moléculas de agua. La secreción tubular de H+ tiene lugar en el paso seis, donde el ion se bombea hacia afuera de la célula tubular, hacia el líquido tubular.",
+    "texto_nuevo": "Los iones hidrógeno aparecen en color para que se pueda seguirlos desde la sangre, paso uno, hasta el líquido tubular, paso seis. Obsérvese que no sólo se transporta el H más libre por las células del túbulo; en realidad, el H más viaja en la forma de ácido carbónico y moléculas de agua. La secreción tubular de H más tiene lugar en el paso seis, donde el ion se bombea hacia afuera de la célula tubular, hacia el líquido tubular."
+  },
+  {
+    "j": 120,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 971,
+    "texto_viejo": "Esto sólo puede suceder si hay un gradiente de concentración lo bastante inclinado entre una concentración elevada de H+ dentro de la célula y una menor en el líquido tubular. Si el pH de este líquido cae por debajo de cuatro coma cinco, la concentración de H+ en él es tan elevada que la secreción tubular cesa. Por tanto, el pH de cuatro coma cinco es el pH límite para la secreción tubular. Esto tiene una importancia agregada más adelante en esta exposición.",
+    "texto_nuevo": "Esto sólo puede suceder si hay un gradiente de concentración lo bastante inclinado entre una concentración elevada de H más dentro de la célula y una menor en el líquido tubular. Si el pH de este líquido cae por debajo de cuatro punto cinco, la concentración de H más en él es tan elevada que la secreción tubular cesa. Por tanto, el pH de cuatro punto cinco es el pH límite para la secreción tubular. Esto tiene una importancia agregada más adelante en esta exposición."
+  },
+  {
+    "j": 121,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9799,
+    "pagina": 971,
+    "texto_viejo": "En una persona con equilibrio acidobásico normal, todos los iones bicarbonato , HCO3 –, del líquido tubular se consumen para neutralizar H+; por tanto, no hay HCO3 – en la orina. El glomérulo fi ltra los iones bicarbonato, que desaparecen de manera gradual del líquido tubular y aparecen en la sangre capilar peritubular. Aparecen como si el HCO3 – fuera reabsorbido por los túbulos renales, pero no es así; en realidad, los túbulos renales no pueden reabsorber el HCO3 – de manera directa.",
+    "texto_nuevo": "En una persona con equilibrio acidobásico normal, todos los iones bicarbonato, HCO tres –, del líquido tubular se consumen para neutralizar H más; por tanto, no hay HCO tres – en la orina. El glomérulo filtra los iones bicarbonato, que desaparecen de manera gradual del líquido tubular y aparecen en la sangre capilar peritubular. Aparecen como si el HCO tres – fuera reabsorbido por los túbulos renales, pero no es así; en realidad, los túbulos renales no pueden reabsorber el HCO tres – de manera directa."
+  },
+  {
+    "j": 123,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 972,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento El efecto es el mismo que si las células tubulares hubieran reabsorbido el bicarbonato. Obsérvese que por cada ion bicarbonato que entra en los capilares peritubulares, también lo hace un ion sodio. Por tanto, la reabsorción de Na+ en los túbulos renales es parte del proceso de neutralización de ácido. Cuanto más ácido excretan los riñones, menos sodio contiene la orina. Los túbulos secretan un poco más H+ del que el bicarbonato disponible puede neutralizar. Por tanto, la orina contiene un ligero exceso de H+ libre, que le da un pH de cinco a seis.",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento El efecto es el mismo que si las células tubulares hubieran reabsorbido el bicarbonato. Obsérvese que por cada ion bicarbonato que entra en los capilares peritubulares, también lo hace un ion sodio. Por tanto, la reabsorción de Na más en los túbulos renales es parte del proceso de neutralización de ácido. Cuanto más ácido excretan los riñones, menos sodio contiene la orina. Los túbulos secretan un poco más H más del que el bicarbonato disponible puede neutralizar. Por tanto, la orina contiene un ligero exceso de H más libre, que le da un pH de cinco a seis."
+  },
+  {
+    "j": 124,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9693,
+    "pagina": 972,
+    "texto_viejo": "Pero si todo el exceso de H+ secretado por los túbulo permaneciera en esta forma iónica libre, el pH del líquido tubular caería debajo del pH límite de cuatro coma cinco, y la secreción de H+ se detendría. Esto debe evitarse, y hay amortiguadores adicionales en el líquido tubular para hacerlo. El fi ltrado glomerular contiene Na2HPO4 , fosfato de sodio dibásico, que reacciona con parte del H+ , fi gura veinticuatro coma un un,. Un ion hidrógeno reemplaza uno de los iones sodio en el amortiguador, formando NaH2PO4 , fosfato de sodio monobásico,.",
+    "texto_nuevo": "Pero si todo el exceso de H más secretado por los túbulo permaneciera en esta forma iónica libre, el pH del líquido tubular caería debajo del pH límite de cuatro punto cinco, y la secreción de H más se detendría. Esto debe evitarse, y hay amortiguadores adicionales en el líquido tubular para hacerlo. El filtrado glomerular contiene Na dos HPO cuatro, fosfato de sodio dibásico, que reacciona con parte del H más. Un ion hidrógeno reemplaza uno de los iones sodio en el amortiguador, formando NaH dos PO cuatro, fosfato de sodio monobásico."
+  },
+  {
+    "j": 125,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9677,
+    "pagina": 972,
+    "texto_viejo": "Éste se excreta en la orina, y el Na+ desplazado se transporta en la célula tubular y de allí a la circulación sanguínea. Además, las células tubulares catabolizan ciertos aminoácidos y liberan amoniaco , NH3, como producto , fi gura veinticuatro coma un un,. El amoniaco se difunde en el líquido tubular, donde actúa como base para neutralizar ácido. Reacciona con H+ y Cl– , el anión más abundante en el fi ltrado glomerular, para formar cloruro de amonio , NH4Cl, que se excreta en la orina.",
+    "texto_nuevo": "Éste se excreta en la orina, y el Na más desplazado se transporta en la célula tubular y de allí a la circulación sanguínea. Además, las células tubulares catabolizan ciertos aminoácidos y liberan amoniaco, NH tres, como producto. El amoniaco se difunde en el líquido tubular, donde actúa como base para neutralizar ácido. Reacciona con H más y Cl menos, el anión más abundante en el filtrado glomerular, para formar cloruro de amonio, NH cuatro Cl, que se excreta en la orina."
+  },
+  {
+    "j": 126,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 972,
+    "texto_viejo": "Debido a que hay mucho cloruro en el líquido tubular, sería interesante preguntar por qué no tan sólo se excreta el H+ como ácido clorhídrico , HCl,. ¿Por qué se requiere el amoniaco? La razón es que el HCl es muy ácido , se disocia casi por completo, de modo que la mayor parte de su hidrógeno estaría en la forma de H+,. El pH del líquido tubular caería debajo del pH límite y evitaría la excreción de más ácido.",
+    "texto_nuevo": "Debido a que hay mucho cloruro en el líquido tubular, sería interesante preguntar por qué no tan sólo se excreta el H más como ácido clorhídrico, HCl. ¿Por qué se requiere el amoniaco? La razón es que el HCl es muy ácido, se disocia casi por completo, de modo que la mayor parte de su hidrógeno estaría en la forma de H más. El pH del líquido tubular caería debajo del pH límite y evitaría la excreción de más ácido."
+  },
+  {
+    "j": 128,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.9596,
+    "pagina": 972,
+    "texto_viejo": "A un pH normal de siete coma cuatro, el ECF Sangre de capilar peritubular Células tubulares renales , túbulo contorneado proximal, Líquido tubular K+ Na+ NaHCO3 HCO3 – Na+ CAH Orina Filtrado glomerular CAH CO2 Respiración aeróbica Na+ HCO3– + CO2 HCO3 – H2CO3 H2O H2O H2CO3 H2CO3 H2O H+ H+ H+ Cotransporte bidireccional Difusión a través de un canal de membrana Difusión a través del lípido de membrana Clave + CO2 un El H+ en la sangre reacciona con el HCO3– para formar H2CO3. dos El H2CO3 se descompone en H2O y CO2, que entra en la célula tubular.",
+    "texto_nuevo": "A un pH normal de siete punto cuatro, el ECF Sangre de capilar peritubular Células tubulares renales, túbulo contorneado proximal, Líquido tubular K más Na más NaHCO tres HCO tres – Na más CAH Orina Filtrado glomerular CAH CO dos Respiración aeróbica Na más H C O tres menos + CO dos HCO tres – H dos CO tres H dos O H dos O H dos CO tres H dos CO tres H dos O H más H más H más Cotransporte bidireccional Difusión a través de un canal de membrana Difusión a través del lípido de membrana Clave + CO dos uno El H más en la sangre reacciona con el H C O tres menos para formar H dos CO tres. dos El H dos CO tres se descompone en H dos O y CO dos, que entra en la célula tubular."
+  },
+  {
+    "j": 129,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 972,
+    "texto_viejo": "tres Las células tubulares adquieren CO2 de la sangre, el líquido tubular y su propia respiración aeróbica. cuatro La anhidrasa carbónica , CAH, combina H2O y CO2 para volver a formar H2CO3. cinco El H2CO3 se ioniza para formar HCO3 – , que vuelve a la sangre, y H+. seis El cotransporte bidireccional Na+-H+ intercambia H+ por Na+. siete El NaHCO3 del filtrado glomerular se descompone en Na+ y HCO3 –. El Na+ es bombeado a la célula tubular. ocho El Na+ es retirado por la bomba de Na+-K+ en la base de la célula.",
+    "texto_nuevo": "tres Las células tubulares adquieren CO dos de la sangre, el líquido tubular y su propia respiración aeróbica. cuatro La anhidrasa carbónica, CAH, combina H dos O y CO dos para volver a formar H dos CO tres. cinco El H dos CO tres se ioniza para formar HCO tres –, que vuelve a la sangre, y H más. seis El cotransporte bidireccional Na más H más intercambia H más por Na más. siete El NaHCO tres del filtrado glomerular se descompone en Na más y HCO tres –. El Na más es bombeado a la célula tubular. ocho El Na más es retirado por la bomba de Na más K más en la base de la célula."
+  },
+  {
+    "j": 130,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 972,
+    "texto_viejo": "nueve El HCO3 – reacciona con el H+ de la célula tubular para formar H2CO3. diez La CAH en el borde en cepillo descompone el H2CO3 en H2O y CO2 de nuevo. once El CO2 entra en la célula tubular y el H2O se excreta en la orina , llevando el H+ que estaba al principio en la sangre,. FIGURA veinticuatro coma un cero Secreción y neutralización de los iones hidrógeno en los riñones. Los símbolos de colores del hidrógeno permiten seguir el hidrógeno del H+ en la sangre al H2O en la orina.",
+    "texto_nuevo": "nueve El HCO tres – reacciona con el H más de la célula tubular para formar H dos CO tres. diez La CAH en el borde en cepillo descompone el H dos CO tres en H dos O y CO dos de nuevo. once El CO dos entra en la célula tubular y el H dos O se excreta en la orina, llevando el H más que estaba al principio en la sangre. FIGURA veinticuatro punto diez Secreción y neutralización de los iones hidrógeno en los riñones. Los símbolos de colores del hidrógeno permiten seguir el hidrógeno del H más en la sangre al H dos O en la orina."
+  },
+  {
+    "j": 131,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 972,
+    "texto_viejo": "●Si el pH del líquido tubular se redujera, ¿cómo cambiaría la concentración de Na+?",
+    "texto_nuevo": "●Si el pH del líquido tubular se redujera, ¿cómo cambiaría la concentración de Na más?"
+  },
+  {
+    "j": 132,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9324,
+    "pagina": 973,
+    "texto_viejo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico H2CO3 HCO3– pH siete coma cuatro cinco siete coma tres cinco Alcalosis Acidosis ocho coma cero seis coma ocho Normal Muerte Muerte tiene una relación veinte:un de HCO3 – a H2CO3. El exceso de iones hidrógeno convierte HCO3 – en H2CO3 e inclina la balanza a un pH más bajo. Un pH menor de siete coma tres cinco se considera estado de acidosis. Por otra parte, una defi ciencia de H+ causa que el H2CO3 se disocie en H+ y HCO3 –, lo que inclina la balanza a un pH más elevado.",
+    "texto_nuevo": "CAPÍTULO veinticuatro Equilibrios hídrico, hidroelectrolítico y acidobásico H dos CO tres H C O tres menos pH siete punto cuarenta y cinco siete punto treinta y cinco Alcalosis Acidosis ocho punto cero seis punto ocho Normal Muerte Muerte tiene una relación veinte:uno de HCO tres – a H dos CO tres. El exceso de iones hidrógeno convierte HCO tres – en H dos CO tres e inclina la balanza a un pH más bajo. Un pH menor de siete punto treinta y cinco se considera estado de acidosis. Por otra parte, una deficiencia de H más causa que el H dos CO tres se disocie en H más y HCO tres –, lo que inclina la balanza a un pH más elevado."
+  },
+  {
+    "j": 133,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('a' vs 'afuera')",
+    "similitud": 0.9737,
+    "pagina": 973,
+    "texto_viejo": "Un pH superior a siete coma cuatro cinco es un estado de alcalosis. Cualquiera de estos desequilibrios tiene efectos mortales. Una persona no puede vivir más que unas horas si el pH de su sangre es menor de siete coma cero o superior a siete coma siete, y un pH menor de seis coma ocho o superior a ocho coma cero lleva a la muerte casi inmediata. En la acidosis, el H+ se difunde hacia abajo de su gradiente de concentración en las células, y para mantener el equilibrio eléctrico, el K+ se difunde hacia afuera , fi gura veinticuatro.13a,.",
+    "texto_nuevo": "Un pH superior a siete punto cuarenta y cinco es un estado de alcalosis. Cualquiera de estos desequilibrios tiene efectos mortales. Una persona no puede vivir más que unas horas si el pH de su sangre es menor de siete punto cero o superior a siete punto siete, y un pH menor de seis punto ocho o superior a ocho punto cero lleva a la muerte casi inmediata. En la acidosis, el H más se difunde hacia abajo de su gradiente de concentración en las células, y para mantener el equilibrio eléctrico, el K más se difunde hacia afuera."
+  },
+  {
+    "j": 134,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('b' vs 'reemplazarlo')",
+    "similitud": 0.9831,
+    "pagina": 973,
+    "texto_viejo": "El H+ es amortiguado por las proteínas intracelulares, de modo que este intercambio produce pérdida neta de cationes de la célula. Esto lleva a que el potencial de membrana en reposo sea más negativo de lo usual , se hiperpolarice, y haga más difícil la estimulación de las células nerviosas y musculares. Por esto, la acidosis deprime el sistema nervioso central y causa síntomas como confusión, desorientación y coma. En la alcalosis, la concentración de H+ extracelular es baja. Los iones hidrógeno se difunden fuera de las células y el K+ entra para reemplazarlo , fi gura veinticuatro.13b,.",
+    "texto_nuevo": "El H más es amortiguado por las proteínas intracelulares, de modo que este intercambio produce pérdida neta de cationes de la célula. Esto lleva a que el potencial de membrana en reposo sea más negativo de lo usual, se hiperpolarice, y haga más difícil la estimulación de las células nerviosas y musculares. Por esto, la acidosis deprime el sistema nervioso central y causa síntomas como confusión, desorientación y coma. En la alcalosis, la concentración de H más extracelular es baja. Los iones hidrógeno se difunden fuera de las células y el K más entra para reemplazarlo."
+  },
+  {
+    "j": 135,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9189 < 0.92; caracter residual en texto nuevo ('+')",
+    "similitud": 0.9189,
+    "pagina": 973,
+    "texto_viejo": "La ganancia neta en Cotransporte bidireccional Difusión a través de un canal de membrana Difusión a través del lípido de membrana Clave Sangre del capilar peritubular Células del túbulo renal , túbulo contorneado proximal, Líquido tubular K+ Na+ Na+ NH3 + Na+ Orina HCO3– + HCO3– H+ H+ H2CO3 HCO3– + Cl– NH4Cl + H+ Na2HPO4 + H+ NaH2PO4 + Filtrado glomerular Catabolismo de aminoácidos NH3 H2CO3 FIGURA veinticuatro coma un un Amortiguamiento de ácido en la orina.",
+    "texto_nuevo": "La ganancia neta en Cotransporte bidireccional Difusión a través de un canal de membrana Difusión a través del lípido de membrana Clave Sangre del capilar peritubular Células del túbulo renal, túbulo contorneado proximal, Líquido tubular K más Na más Na más NH tres + Na más Orina H C O tres menos + H C O tres menos H más H más H dos CO tres H C O tres menos + Cl menos NH cuatro Cl + H más Na dos HPO cuatro + H más NaH dos PO cuatro + Filtrado glomerular Catabolismo de aminoácidos NH tres H dos CO tres FIGURA veinticuatro punto once Amortiguamiento de ácido en la orina."
+  },
+  {
+    "j": 140,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 974,
+    "texto_viejo": "Usualmente, los pacientes terminales también presentan acidosis. La alcalosis metabólica es un trastorno raro, pero puede deberse al uso excesivo de bicarbonato , ya sea en antiácidos orales o en soluciones intravenosas, o por la pérdida de ácido gástrico a causa de vómito crónico. Acidosis a b H+ H+ K+ K+ Proteína Proteína que lleva a Hiperpotasemia Alcalosis que lleva a Hipopotasemia FIGURA veinticuatro coma un tres La relación entre desequilibrios acidobásicos y de potasio.",
+    "texto_nuevo": "Usualmente, los pacientes terminales también presentan acidosis. La alcalosis metabólica es un trastorno raro, pero puede deberse al uso excesivo de bicarbonato, ya sea en antiácidos orales o en soluciones intravenosas, o por la pérdida de ácido gástrico a causa de vómito crónico. Acidosis a b H más H más K más K más Proteína Proteína que lleva a Hiperpotasemia Alcalosis que lleva a Hipopotasemia FIGURA veinticuatro punto trece La relación entre desequilibrios acidobásicos y de potasio."
+  },
+  {
+    "j": 141,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 974,
+    "texto_viejo": "a En la acidosis, el H+ se difunde en las células y hace que salga K+, lo que eleva la concentración de éste en el líquido extracelular. b En la alcalosis, el H+ se difunde fuera de las células y el K+ entra para reemplazarlo, reduciendo la concentración de K+ en el ECF. ●¿Cómo cambiaría la parte , a, para mostrar el efecto de la hiperpotasemia en el pH del ECF?",
+    "texto_nuevo": "a En la acidosis, el H más se difunde en las células y hace que salga K más, lo que eleva la concentración de éste en el líquido extracelular. b En la alcalosis, el H más se difunde fuera de las células y el K más entra para reemplazarlo, reduciendo la concentración de K más en el ECF. ●¿Cómo cambiaría la parte, a, para mostrar el efecto de la hiperpotasemia en el pH del ECF?"
+  },
+  {
+    "j": 145,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 975,
+    "texto_viejo": "Por ejemplo, en la acidosis diabética los pulmones no pueden reducir la concentración de cuerpos cetónicos en la sangre, aunque se puede de alguna manera compensar el H+ que liberan las cetonas al aumentar la ventilación pulmonar y exhalar CO2 adicional. El sistema respiratorio puede ajustar un pH sanguíneo de siete coma cero de regreso a siete coma dos o siete coma tres, pero no hasta el siete coma cuatro normal. Aunque el aparato respiratorio tiene efecto amortiguador muy poderoso, su capacidad para estabilizar el pH está, por tanto, limitada.",
+    "texto_nuevo": "Por ejemplo, en la acidosis diabética los pulmones no pueden reducir la concentración de cuerpos cetónicos en la sangre, aunque se puede de alguna manera compensar el H más que liberan las cetonas al aumentar la ventilación pulmonar y exhalar CO dos adicional. El sistema respiratorio puede ajustar un pH sanguíneo de siete punto cero de regreso a siete punto dos o siete punto tres, pero no hasta el siete punto cuatro normal. Aunque el aparato respiratorio tiene efecto amortiguador muy poderoso, su capacidad para estabilizar el pH está, por tanto, limitada."
+  },
+  {
+    "j": 146,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 975,
+    "texto_viejo": "La compensación renal es el ajuste del pH mediante el cambio de la velocidad de secreción de H+ por parte de los túbulos renales. Los riñones son más lentos para responder a los desequilibrios acidobásicos, pero mejores para restaurar un pH por completo normal. Por lo general, la orina tiene pH de cinco a seis, pero en la acidosis puede caer hasta cuatro coma cinco por el exceso de H+, mientras que en la alcalosis puede aumentar hasta ocho coma dos a causa del exceso de HCO3 –.",
+    "texto_nuevo": "La compensación renal es el ajuste del pH mediante el cambio de la velocidad de secreción de H más por parte de los túbulos renales. Los riñones son más lentos para responder a los desequilibrios acidobásicos, pero mejores para restaurar un pH por completo normal. Por lo general, la orina tiene pH de cinco a seis, pero en la acidosis puede caer hasta cuatro punto cinco por el exceso de H más, mientras que en la alcalosis puede aumentar hasta ocho punto dos a causa del exceso de HCO tres –."
+  },
+  {
+    "j": 147,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9836,
+    "pagina": 975,
+    "texto_viejo": "Los riñones no pueden actuar con la sufi ciente rapidez para compensar los desequilibrios a corto plazo, como la acidosis que podría deberse a un ataque de asma que dure un o dos horas, o la alcalosis por un breve episodio de hiperventilación emocional. Sin embargo, son efectivos para compensar desequilibrios acidobásicos que duran unos días o más. En la acidosis, los túbulos renales aumentan la velocidad de secreción de H+. El H+ adicional en el líquido tubular debe amortiguarse; de otra manera, el pH del líquido puede exceder el pH límite y la secreción de H+ se detendría.",
+    "texto_nuevo": "Los riñones no pueden actuar con la suficiente rapidez para compensar los desequilibrios a corto plazo, como la acidosis que podría deberse a un ataque de asma que dure uno o dos horas, o la alcalosis por un breve episodio de hiperventilación emocional. Sin embargo, son efectivos para compensar desequilibrios acidobásicos que duran unos días o más. En la acidosis, los túbulos renales aumentan la velocidad de secreción de H más. El H más adicional en el líquido tubular debe amortiguarse; de otra manera, el pH del líquido puede exceder el pH límite y la secreción de H más se detendría."
+  },
+  {
+    "j": 148,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 975,
+    "texto_viejo": "Por tanto, en la acidosis, los túbulos renales secretan más amoniaco para amortiguar el H+ agregado, y la cantidad de cloruro de amonio en la orina puede aumentar hasta siete a diez veces la cantidad normal. Aplicación de lo aprendido Suponga que se miden el pH y la concentración de cloruro de amonio de la orina en una persona con enfisema y en un individuo sano. ¿Cómo se esperaría que ambos difieran, y por qué? En la alcalosis, la concentración de bicarbonato y el pH de la orina son elevados.",
+    "texto_nuevo": "Por tanto, en la acidosis, los túbulos renales secretan más amoniaco para amortiguar el H más agregado, y la cantidad de cloruro de amonio en la orina puede aumentar hasta siete a diez veces la cantidad normal. Aplicación de lo aprendido Suponga que se miden el pH y la concentración de cloruro de amonio de la orina en una persona con enfisema y en un individuo sano. ¿Cómo se esperaría que ambos difieran, y por qué? En la alcalosis, la concentración de bicarbonato y el pH de la orina son elevados."
+  },
+  {
+    "j": 149,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9486,
+    "pagina": 975,
+    "texto_viejo": "Esto se debe en parte a que hay más HCO3 – en la sangre y el fi ltrado glomerular, y también a que no hay sufi ciente H+ en el líquido tubular para neutralizar el HCO3 – en el fi ltrado. Desequilibrios acidobásicos en relación con los hídricos e hidroelectrolíticos En la exposición anterior, una vez más se destaca un tema analizado al principio de este capítulo: no se pueden comprender o tratar los desequilibrios acidobásicos, hídricos e hidroelectrolíticos de manera aislada de los demás, porque cada uno de ellos con frecuencia afecta a los otros dos.",
+    "texto_nuevo": "Esto se debe en parte a que hay más HCO tres – en la sangre y el filtrado glomerular, y también a que no hay suficiente H más en el líquido tubular para neutralizar el HCO tres – en el filtrado. Desequilibrios acidobásicos en relación con los hídricos e hidroelectrolíticos En la exposición anterior, una vez más se destaca un tema analizado al principio de este capítulo: no se pueden comprender o tratar los desequilibrios acidobásicos, hídricos e hidroelectrolíticos de manera aislada de los demás, porque cada uno de ellos con frecuencia afecta a los otros dos."
+  },
+  {
+    "j": 152,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9583,
+    "pagina": 976,
+    "texto_viejo": "PARTE CUATRO Regulación y mantenimiento CUADRO veinticuatro coma tres Algunas relaciones entre los equilibrios hídrico, hidroelectrolítico y acidobásico Causa Posible efecto Razón Acidosis → Hiperpotasemia El H+ se difunde y desplaza al K+ , véase la figura veinticuatro.13a,. Mientras el K+ deja el ICF, aumenta la concentración de K+ en el ECF Hiperpotasemia → Acidosis Lo opuesto de lo anterior. La concentración elevada de K+ en el ECF causa que se difunda menos K+ de lo normal fuera de las células.",
+    "texto_nuevo": "PARTE CUATRO Regulación y mantenimiento CUADRO veinticuatro punto tres Algunas relaciones entre los equilibrios hídrico, hidroelectrolítico y acidobásico Causa Posible efecto Razón Acidosis da Hiperpotasemia El H más se difunde y desplaza al K más. Mientras el K más deja el ICF, aumenta la concentración de K más en el ECF Hiperpotasemia da Acidosis Lo opuesto de lo anterior. La concentración elevada de K más en el ECF causa que se difunda menos K más de lo normal fuera de las células."
+  },
+  {
+    "j": 153,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9859,
+    "pagina": 976,
+    "texto_viejo": "El H+ se difunde hacia afuera para compensar y esto reduce el pH extracelular Alcalosis → Hipopotasemia El H+ se difunde del ICF al ECF. Más K+ permanece en el ICF para compensar la pérdida de H+, causando una caída en la concentración de K+ en el ECF Hipopotasemia → Alcalosis Lo opuesto de lo anterior. La baja concentración de K+ en el ECF causa que el K+ se difunda fuera de las células.",
+    "texto_nuevo": "El H más se difunde hacia afuera para compensar y esto reduce el pH extracelular Alcalosis da Hipopotasemia El H más se difunde del ICF al ECF. Más K más permanece en el ICF para compensar la pérdida de H más, causando una caída en la concentración de K más en el ECF Hipopotasemia da Alcalosis Lo opuesto de lo anterior. La baja concentración de K más en el ECF causa que el K más se difunda fuera de las células."
+  },
+  {
+    "j": 154,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9785,
+    "pagina": 976,
+    "texto_viejo": "El H+ se difunde hacia adentro para reemplazar el K+, reduciendo la concentración de H+ del ECF y elevando su pH Acidosis → Hipocloremia Se secreta más Cl – como NH4Cl para amortiguar el exceso de ácido en los túbulos renales, dejando menos Cl– en el ECF Alcalosis → Hipercloremia Se reabsorbe más Cl– de los túbulos renales, de modo que el Cl– ingerido se acumula en el ECF en lugar de excretarse Hipercloremia → Acidosis Se retiene más H+ en la sangre para equilibrar el exceso de Cl–, causando acidosis hiperclorémica Hipovolemia → Alcalosis El riñón reabsorbe más Na+.",
+    "texto_nuevo": "El H más se difunde hacia adentro para reemplazar el K más, reduciendo la concentración de H más del ECF y elevando su pH Acidosis da Hipocloremia Se secreta más Cl – como NH cuatro Cl para amortiguar el exceso de ácido en los túbulos renales, dejando menos Cl menos en el ECF Alcalosis da Hipercloremia Se reabsorbe más Cl menos de los túbulos renales, de modo que el Cl menos ingerido se acumula en el ECF en lugar de excretarse Hipercloremia da Acidosis Se retiene más H más en la sangre para equilibrar el exceso de Cl menos, causando acidosis hiperclorémica Hipovolemia da Alcalosis El riñón reabsorbe más Na más."
+  },
+  {
+    "j": 155,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9512,
+    "pagina": 976,
+    "texto_viejo": "La reabsorción de Na+ se equipara a la secreción de H+ , véase la figura veinticuatro coma un cero, de modo que se secreta más H+ y se eleva el pH del ECF Hipervolemia → Acidosis Se reabsorbe menos Na+, de modo que se secreta menos H+ en los túbulos renales.",
+    "texto_nuevo": "La reabsorción de Na más se equipara a la secreción de H más, de modo que se secreta más H más y se eleva el pH del ECF Hipervolemia da Acidosis Se reabsorbe menos Na más, de modo que se secreta menos H más en los túbulos renales."
+  },
+  {
+    "j": 156,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9841,
+    "pagina": 976,
+    "texto_viejo": "El H+ retenido en el ECF causa acidosis Acidosis → Hipocalcemia La acidosis hace que más Ca2+ se fije a una proteína plasmática y a iones citrato, lo que reduce la concentración de Ca2+ libre, ionizado, y causa síntomas de hipocalcemia Alcalosis → Hipercalcemia La alcalosis hace que más Ca2+ se disocie de una proteína plasmática y de iones citrato, lo que eleva la concentración de Ca2+ libre",
+    "texto_nuevo": "El H más retenido en el ECF causa acidosis Acidosis da Hipocalcemia La acidosis hace que más Ca dos más se fije a una proteína plasmática y a iones citrato, lo que reduce la concentración de Ca dos más libre, ionizado, y causa síntomas de hipocalcemia Alcalosis da Hipercalcemia La alcalosis hace que más Ca dos más se disocie de una proteína plasmática y de iones citrato, lo que eleva la concentración de Ca dos más libre"
+  }
+]

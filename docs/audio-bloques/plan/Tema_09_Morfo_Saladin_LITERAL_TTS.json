@@ -1,1353 +1,1220 @@
 [
-  {
-    "j": 1,
-    "accion": "REUSAR",
-    "origen": "parte_002.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "ARTICULACIONES PARTE DOS: SOPORTE Y MOVIMIENTO C A P Í T U L"
-  },
-  {
-    "j": 2,
-    "accion": "REUSAR",
-    "origen": "parte_003.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones A cualquier punto donde confl "
-  },
-  {
-    "j": 3,
-    "accion": "REUSAR",
-    "origen": "parte_004.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El nombre de una articulación suele derivarse de los nombres"
-  },
-  {
-    "j": 4,
-    "accion": "REUSAR",
-    "origen": "parte_005.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Articulaciones como las de hombros, codos y rodillas son mue"
-  },
-  {
-    "j": 5,
-    "accion": "REUSAR",
-    "origen": "parte_006.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La columna vertebral, por ejemplo, sólo tiene un movimiento "
-  },
-  {
-    "j": 6,
-    "accion": "REUSAR",
-    "origen": "parte_007.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la vida cotidiana se tiene mayor conciencia de las articu"
-  },
-  {
-    "j": 7,
-    "accion": "REUSAR",
-    "origen": "parte_008.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esta revisión de la anatomía y los movimientos articulares p"
-  },
-  {
-    "j": 8,
-    "accion": "REUSAR",
-    "origen": "parte_009.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
-  },
-  {
-    "j": 9,
-    "accion": "REUSAR",
-    "origen": "parte_010.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "dos kinesio igual a acción de mover; logi igual a estudio. F"
-  },
-  {
-    "j": 10,
-    "accion": "REUSAR",
-    "origen": "parte_011.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "• El entendimiento de la acción articular requiere conocimie"
-  },
-  {
-    "j": 11,
-    "accion": "REUSAR",
-    "origen": "parte_012.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento Las articulaciones se clasifi"
-  },
-  {
-    "j": 12,
-    "accion": "REUSAR",
-    "origen": "parte_013.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Articulaciones óseas Una articulación ósea, o sinostosis,tre"
-  },
-  {
-    "j": 13,
-    "accion": "REUSAR",
-    "origen": "parte_014.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las epífi sis y diáfi sis de los huesos largos están unidas "
-  },
-  {
-    "j": 14,
-    "accion": "REUSAR",
-    "origen": "parte_015.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Hay tres tipos de articulaciones fi brosas: suturas, gonfosi"
-  },
-  {
-    "j": 15,
-    "accion": "REUSAR",
-    "origen": "parte_016.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones y sindesmosis. En las suturas "
-  },
-  {
-    "j": 16,
-    "accion": "REUSAR",
-    "origen": "parte_017.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el capítulo ocho no se estudiaron a fondo las diferencias"
-  },
-  {
-    "j": 17,
-    "accion": "REUSAR",
-    "origen": "parte_018.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las suturas dentadas aparecen como líneas onduladas que perm"
-  },
-  {
-    "j": 18,
-    "accion": "REUSAR",
-    "origen": "parte_019.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un ejemplo es la sutura escamosa entre los huesos temporal y"
-  },
-  {
-    "j": 19,
-    "accion": "REUSAR",
-    "origen": "parte_020.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Gonfosis Aunque los dientes no son huesos, a la unión de un "
-  },
-  {
-    "j": 20,
-    "accion": "REUSAR",
-    "origen": "parte_021.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Comparación entre las suturas dentadas, escamosas y planas y"
-  },
-  {
-    "j": 21,
-    "accion": "REUSAR",
-    "origen": "parte_022.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento de la matriz ósea de la mandí"
-  },
-  {
-    "j": 22,
-    "accion": "REUSAR",
-    "origen": "parte_023.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La separación entre los huesos y la longitud de las fi bras "
-  },
-  {
-    "j": 23,
-    "accion": "REUSAR",
-    "origen": "parte_024.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Articulaciones cartilaginosas En una articulación cartilagin"
-  },
-  {
-    "j": 24,
-    "accion": "REUSAR",
-    "origen": "parte_025.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sínfisis púbica Disco intervertebral , fibrocartílago, Cuerp"
-  },
-  {
-    "j": 25,
-    "accion": "REUSAR",
-    "origen": "parte_026.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones articulación temporal entre la"
-  },
-  {
-    "j": 26,
-    "accion": "REUSAR",
-    "origen": "parte_027.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otro ejemplo es la unión entre los cuerpos de dos vértebras,"
-  },
-  {
-    "j": 27,
-    "accion": "REUSAR",
-    "origen": "parte_028.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "¿Cómo se clasificarían las articulaciones intervertebrales d"
-  },
-  {
-    "j": 28,
-    "accion": "REUSAR",
-    "origen": "parte_029.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Proporcione ejemplos de articulaciones que se vuelven sinost"
-  },
-  {
-    "j": 29,
-    "accion": "REUSAR",
-    "origen": "parte_030.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
-  },
-  {
-    "j": 30,
-    "accion": "REUSAR",
-    "origen": "parte_031.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "g Usar la terminología estándar correcta para varios movimie"
-  },
-  {
-    "j": 31,
-    "accion": "REUSAR",
-    "origen": "parte_032.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las diartrosis son las articulaciones con una estructura más"
-  },
-  {
-    "j": 32,
-    "accion": "REUSAR",
-    "origen": "parte_033.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A continuación se estudian las diartrosis. Anatomía general "
-  },
-  {
-    "j": 33,
-    "accion": "REUSAR",
-    "origen": "parte_034.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este líquido, que da nombre a la articulación, tiene abundan"
-  },
-  {
-    "j": 34,
-    "accion": "REUSAR",
-    "origen": "parte_035.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La membrana sinovial está compuesta sobre todo por células p"
-  },
-  {
-    "j": 35,
-    "accion": "REUSAR",
-    "origen": "parte_036.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento En algunas diartrosis, en el "
-  },
-  {
-    "j": 36,
-    "accion": "REUSAR",
-    "origen": "parte_037.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la rodilla, dos cartílagos se extienden hacia el interior"
-  },
-  {
-    "j": 37,
-    "accion": "REUSAR",
-    "origen": "parte_038.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un tendón es una tira u hoja de tejido conjuntivo cartilagin"
-  },
-  {
-    "j": 38,
-    "accion": "REUSAR",
-    "origen": "parte_039.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Una bolsa es un saco fi broso con líquido sinovial localizad"
-  },
-  {
-    "j": 39,
-    "accion": "REUSAR",
-    "origen": "parte_040.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las vainas tendinosas , sinoviales, son bolsas cilíndricas y"
-  },
-  {
-    "j": 40,
-    "accion": "REUSAR",
-    "origen": "parte_041.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Una palanca es cualquier objeto elongado y rígido que gira a"
-  },
-  {
-    "j": 41,
-    "accion": "REUSAR",
-    "origen": "parte_042.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la anatomía ósea, el fulcro es una articulación, un múscu"
-  },
-  {
-    "j": 42,
-    "accion": "REUSAR",
-    "origen": "parte_043.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CONOCIMIENTO MÁS A FONDO nueve coma un Aplicación clínica Ej"
-  },
-  {
-    "j": 43,
-    "accion": "REUSAR",
-    "origen": "parte_044.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cada vez que se comprime un cartílago, se expulsan de él líq"
-  },
-  {
-    "j": 44,
-    "accion": "REUSAR",
-    "origen": "parte_045.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, la tensión excesiva en la articulación puede ac"
-  },
-  {
-    "j": 45,
-    "accion": "REUSAR",
-    "origen": "parte_046.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones Ventaja mecánica La función de"
-  },
-  {
-    "j": 46,
-    "accion": "REUSAR",
-    "origen": "parte_047.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Una palanca simple no puede conferir ambas ventajas, sino qu"
-  },
-  {
-    "j": 47,
-    "accion": "REUSAR",
-    "origen": "parte_048.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si la VM es mayor de un coma cero, la palanca produce más fu"
-  },
-  {
-    "j": 48,
-    "accion": "REUSAR",
-    "origen": "parte_049.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la fi gura se muestran algunos valores representativos pa"
-  },
-  {
-    "j": 49,
-    "accion": "REUSAR",
-    "origen": "parte_050.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En el capítulo diez se encuentra a menudo que dos o más músc"
-  },
-  {
-    "j": 50,
-    "accion": "REUSAR",
-    "origen": "parte_051.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, un velocista que parte de la línea de meta usa "
-  },
-  {
-    "j": 51,
-    "accion": "REUSAR",
-    "origen": "parte_052.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Brazo de resistencia F R E Brazo de esfuerzo Fulcro Esfuerzo"
-  },
-  {
-    "j": 52,
-    "accion": "REUSAR",
-    "origen": "parte_053.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento que no generan velocidad máxi"
-  },
-  {
-    "j": 53,
-    "accion": "REUSAR",
-    "origen": "parte_054.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tipos de palancas Hay tres clases de palancas que difi eren "
-  },
-  {
-    "j": 54,
-    "accion": "REUSAR",
-    "origen": "parte_055.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aquí la pérdida del tono muscular puede ser embarazosa si su"
-  },
-  {
-    "j": 55,
-    "accion": "REUSAR",
-    "origen": "parte_056.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, si se levantan las agarraderas de una carretill"
-  },
-  {
-    "j": 56,
-    "accion": "REUSAR",
-    "origen": "parte_057.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En una palanca de tercera clase, el esfuerzo se aplica entre"
-  },
-  {
-    "j": 57,
-    "accion": "REUSAR",
-    "origen": "parte_058.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El antebrazo actúa como una palanca de tercera clase cuando "
-  },
-  {
-    "j": 58,
-    "accion": "REUSAR",
-    "origen": "parte_059.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La mandíbula es una palanca de segunda clase cuando se abre "
-  },
-  {
-    "j": 59,
-    "accion": "REUSAR",
-    "origen": "parte_060.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Bíceps braquial LE LR cincuenta mm cero coma un cinco VM igu"
-  },
-  {
-    "j": 60,
-    "accion": "REUSAR",
-    "origen": "parte_061.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La VM se calcula al dividir la longitud del brazo de esfuerz"
-  },
-  {
-    "j": 61,
-    "accion": "REUSAR",
-    "origen": "parte_062.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones Rango de movimiento Un aspecto"
-  },
-  {
-    "j": 62,
-    "accion": "REUSAR",
-    "origen": "parte_063.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El rango de movimiento afecta la independencia funcional y l"
-  },
-  {
-    "j": 63,
-    "accion": "REUSAR",
-    "origen": "parte_064.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por ejemplo, no se puede estirar el codo más allá de ciento "
-  },
-  {
-    "j": 64,
-    "accion": "REUSAR",
-    "origen": "parte_065.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "F E Fulcro Resistencia Esfuerzo Esfuerzo Esfuerzo Esfuerzo a"
-  },
-  {
-    "j": 65,
-    "accion": "REUSAR",
-    "origen": "parte_066.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Los músculos de la nuca tiran del hueso occipital para opo"
-  },
-  {
-    "j": 66,
-    "accion": "REUSAR",
-    "origen": "parte_067.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento • Fuerza y tensión de ligamen"
-  },
-  {
-    "j": 67,
-    "accion": "REUSAR",
-    "origen": "parte_068.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que se fl exionan los nudillos, los ligamentos en e"
-  },
-  {
-    "j": 68,
-    "accion": "REUSAR",
-    "origen": "parte_069.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los gimnastas, bailarines y acróbatas aumentan el rango de m"
-  },
-  {
-    "j": 69,
-    "accion": "REUSAR",
-    "origen": "parte_070.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "También en muchas otras articulaciones hay pares de músculos"
-  },
-  {
-    "j": 70,
-    "accion": "REUSAR",
-    "origen": "parte_071.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El sistema nervioso vigila de manera continua y ajusta los á"
-  },
-  {
-    "j": 71,
-    "accion": "REUSAR",
-    "origen": "parte_072.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un hueso en movimiento tiene un eje de rotación casi estacio"
-  },
-  {
-    "j": 72,
-    "accion": "REUSAR",
-    "origen": "parte_073.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se eleva el brazo a un lado del cuerpo, la cabeza del húm"
-  },
-  {
-    "j": 73,
-    "accion": "REUSAR",
-    "origen": "parte_074.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Debido a que el brazo puede moverse por los tres planos anat"
-  },
-  {
-    "j": 74,
-    "accion": "REUSAR",
-    "origen": "parte_075.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A continuación se revisan estos seis tipos en términos simpl"
-  },
-  {
-    "j": 75,
-    "accion": "REUSAR",
-    "origen": "parte_076.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En ambos casos, un hueso , el húmero o el fémur, tiene una c"
-  },
-  {
-    "j": 76,
-    "accion": "REUSAR",
-    "origen": "parte_077.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se sostiene la mano con la palma al frente y se cierra el"
-  },
-  {
-    "j": 77,
-    "accion": "REUSAR",
-    "origen": "parte_078.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ejemplo más claro de estas articulaciones es la trapeciom"
-  },
-  {
-    "j": 78,
-    "accion": "REUSAR",
-    "origen": "parte_079.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Otra articulación en silla de montar es la esternoclavicular"
-  },
-  {
-    "j": 79,
-    "accion": "REUSAR",
-    "origen": "parte_080.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un hueso adyacente se desliza sobre otro y tiea Abducción de"
-  },
-  {
-    "j": 80,
-    "accion": "REUSAR",
-    "origen": "parte_081.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento nen movimiento limitado. Las "
-  },
-  {
-    "j": 81,
-    "accion": "REUSAR",
-    "origen": "parte_082.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aunque una articulación sólo se mueve un poco, la acción com"
-  },
-  {
-    "j": 82,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "error audible (miles como decimal; antes parte_083.wav)",
-    "texto_inicio": "Algunos ejemplos Trocoide , radiocubital, Gínglimo , humeroc"
-  },
-  {
-    "j": 83,
-    "accion": "REUSAR",
-    "origen": "parte_084.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones son el codo, la rodilla y las "
-  },
-  {
-    "j": 84,
-    "accion": "REUSAR",
-    "origen": "parte_085.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En la primera, los dientes del eje se proyectan hacia el agu"
-  },
-  {
-    "j": 85,
-    "accion": "REUSAR",
-    "origen": "parte_086.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La orilla se mueve contra la hendidura radial del cúbito com"
-  },
-  {
-    "j": 86,
-    "accion": "REUSAR",
-    "origen": "parte_087.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "De manera evidente, cuenta con un cóndilo elongado donde se "
-  },
-  {
-    "j": 87,
-    "accion": "REUSAR",
-    "origen": "parte_088.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La articulación humerorradial actúa como gínglimo cuando se "
-  },
-  {
-    "j": 88,
-    "accion": "REUSAR",
-    "origen": "parte_089.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En esta sección se introducen los términos para el movimient"
-  },
-  {
-    "j": 89,
-    "accion": "REUSAR",
-    "origen": "parte_090.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los movimientos articulares pueden describirse a medida que "
-  },
-  {
-    "j": 90,
-    "accion": "REUSAR",
-    "origen": "parte_091.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Tal vez el signifi cado de fl exión sea menos obvio en las e"
-  },
-  {
-    "j": 91,
-    "accion": "REUSAR",
-    "origen": "parte_092.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La extensión , fi gura nueve coma un dos, es un movimiento q"
-  },
-  {
-    "j": 92,
-    "accion": "REUSAR",
-    "origen": "parte_093.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La extensión adicional de una articulación más allá de la po"
-  },
-  {
-    "j": 93,
-    "accion": "REUSAR",
-    "origen": "parte_094.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fl exión y la extensión ocurren en casi todas las diartro"
-  },
-  {
-    "j": 94,
-    "accion": "REUSAR",
-    "origen": "parte_095.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Aducción15 , fi gura nueve.13b, es el movimiento en el plano"
-  },
-  {
-    "j": 95,
-    "accion": "REUSAR",
-    "origen": "parte_096.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "catorce ab igual a lejos; duc igual a conducir o llevar; tio"
-  },
-  {
-    "j": 96,
-    "accion": "REUSAR",
-    "origen": "parte_097.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento Elevación y depresión La elev"
-  },
-  {
-    "j": 97,
-    "accion": "REUSAR",
-    "origen": "parte_098.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Protracción y retracción La protracción16 , fi gura nueve.15"
-  },
-  {
-    "j": 98,
-    "accion": "REUSAR",
-    "origen": "parte_099.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Circunducción En la circunducción18 , fi gura nueve coma un "
-  },
-  {
-    "j": 99,
-    "accion": "REUSAR",
-    "origen": "parte_100.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Se pueden circunducir un dedo, la mano, el muslo, el pie, el"
-  },
-  {
-    "j": 100,
-    "accion": "REUSAR",
-    "origen": "parte_101.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Flexión y extensión del codo. b Flexión, extensión e hiper"
-  },
-  {
-    "j": 101,
-    "accion": "REUSAR",
-    "origen": "parte_102.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "No obstante, en la terminología de los movimientos específi "
-  },
-  {
-    "j": 102,
-    "accion": "REUSAR",
-    "origen": "parte_103.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones , véase fi gura nueve.18a, del"
-  },
-  {
-    "j": 103,
-    "accion": "REUSAR",
-    "origen": "parte_104.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En estos movimientos, el extremo cóncavo de la cabeza en for"
-  },
-  {
-    "j": 104,
-    "accion": "REUSAR",
-    "origen": "parte_105.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La supinación19 a Abducción b Aducción a Elevación b Depresi"
-  },
-  {
-    "j": 105,
-    "accion": "REUSAR",
-    "origen": "parte_106.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento de disco del radio gira sobre"
-  },
-  {
-    "j": 106,
-    "accion": "REUSAR",
-    "origen": "parte_107.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La supinación es el tipo de movimiento que se realiza con la"
-  },
-  {
-    "j": 107,
-    "accion": "REUSAR",
-    "origen": "parte_108.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Movimientos especiales de la cabeza y el tronco La fl exión "
-  },
-  {
-    "j": 108,
-    "accion": "REUSAR",
-    "origen": "parte_109.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fl exión lateral es la inclinación de la cabeza o el tron"
-  },
-  {
-    "j": 109,
-    "accion": "REUSAR",
-    "origen": "parte_110.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Movimientos especiales de la mandíbula Los movimientos de la"
-  },
-  {
-    "j": 110,
-    "accion": "REUSAR",
-    "origen": "parte_111.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para morder se debe deprimir la mandíbula b Rotación lateral"
-  },
-  {
-    "j": 111,
-    "accion": "REUSAR",
-    "origen": "parte_112.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones para abrir la boca y luego ele"
-  },
-  {
-    "j": 112,
-    "accion": "REUSAR",
-    "origen": "parte_113.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Esto requiere unos movimientos de lado a lado de la mandíbul"
-  },
-  {
-    "j": 113,
-    "accion": "REUSAR",
-    "origen": "parte_114.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fl exión cubital inclina la mano hacia el dedo meñique, y"
-  },
-  {
-    "j": 114,
-    "accion": "REUSAR",
-    "origen": "parte_115.wav",
-    "motivo": "texto identico",
-    "texto_inicio": ", Casi nadie puede hiperextender los dedos., La separación d"
-  },
-  {
-    "j": 115,
-    "accion": "REUSAR",
-    "origen": "parte_116.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por tanto, mucha de la terminología el movimiena Flexión e R"
-  },
-  {
-    "j": 116,
-    "accion": "REUSAR",
-    "origen": "parte_117.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento to del pulgar difi ere de la "
-  },
-  {
-    "j": 117,
-    "accion": "REUSAR",
-    "origen": "parte_118.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se mantiene la mano allí, al apartar el pulgar del índice"
-  },
-  {
-    "j": 118,
-    "accion": "REUSAR",
-    "origen": "parte_119.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A partir de cualquier posición , abducción radial o palmar, "
-  },
-  {
-    "j": 119,
-    "accion": "REUSAR",
-    "origen": "parte_120.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "a Protracción b Retracción c Excursión lateral d Excursión m"
-  },
-  {
-    "j": 120,
-    "accion": "REUSAR",
-    "origen": "parte_121.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "e Oposición del pulgar; la reubicación se muestra en las par"
-  },
-  {
-    "j": 121,
-    "accion": "REUSAR",
-    "origen": "parte_122.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones Movimientos especiales del pie"
-  },
-  {
-    "j": 122,
-    "accion": "REUSAR",
-    "origen": "parte_123.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La fl exión plantar es un movimiento del pie en que los dedo"
-  },
-  {
-    "j": 123,
-    "accion": "REUSAR",
-    "origen": "parte_124.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La inversión23 es un movimiento del pie que desplaza las pla"
-  },
-  {
-    "j": 124,
-    "accion": "REUSAR",
-    "origen": "parte_125.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La pronación y la supinación, que aluden sobre todo a los mo"
-  },
-  {
-    "j": 125,
-    "accion": "REUSAR",
-    "origen": "parte_126.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos movimientos parecen un poco difíciles de visualizar y "
-  },
-  {
-    "j": 126,
-    "accion": "REUSAR",
-    "origen": "parte_127.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Al descansar las palmas de las manos sobre una mesa, los ant"
-  },
-  {
-    "j": 127,
-    "accion": "REUSAR",
-    "origen": "parte_128.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "nueve. Mencione un ejemplo de cada una de las seis clases de"
-  },
-  {
-    "j": 128,
-    "accion": "REUSAR",
-    "origen": "parte_129.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintitrés in igual a hacia dentro; version igual a dar vuel"
-  },
-  {
-    "j": 129,
-    "accion": "REUSAR",
-    "origen": "parte_130.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
-  },
-  {
-    "j": 130,
-    "accion": "REUSAR",
-    "origen": "parte_131.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A continuación se examina la anatomía macroscópica de cierta"
-  },
-  {
-    "j": 131,
-    "accion": "REUSAR",
-    "origen": "parte_132.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Su acción puede percibirse al presionar la punta de los dedo"
-  },
-  {
-    "j": 132,
-    "accion": "REUSAR",
-    "origen": "parte_133.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para observar la importancia del deslizamiento hacia el fren"
-  },
-  {
-    "j": 133,
-    "accion": "REUSAR",
-    "origen": "parte_134.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Puede causar dolor facial intermitente y moderado, sonidos d"
-  },
-  {
-    "j": 134,
-    "accion": "REUSAR",
-    "origen": "parte_135.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ligamento lateral Cápsula articular Conducto auditivo extern"
-  },
-  {
-    "j": 135,
-    "accion": "REUSAR",
-    "origen": "parte_136.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones La cavidad sinovial de la TMJ "
-  },
-  {
-    "j": 136,
-    "accion": "REUSAR",
-    "origen": "parte_137.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Un ligamento estilomandibular se extiende de la apófi sis es"
-  },
-  {
-    "j": 137,
-    "accion": "REUSAR",
-    "origen": "parte_138.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La articulación del hombro La articulación glenohumeral , hu"
-  },
-  {
-    "j": 138,
-    "accion": "REUSAR",
-    "origen": "parte_139.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En conjunto, las articulaciones del hombro y el codo sirven "
-  },
-  {
-    "j": 139,
-    "accion": "REUSAR",
-    "origen": "parte_140.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento mano de modo tal que pueda re"
-  },
-  {
-    "j": 140,
-    "accion": "REUSAR",
-    "origen": "parte_141.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El bíceps braquial, en el lado anterior del brazo, ayuda a l"
-  },
-  {
-    "j": 141,
-    "accion": "REUSAR",
-    "origen": "parte_142.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Cuatro músculos adicionales ayudan a estabilizar esta articu"
-  },
-  {
-    "j": 142,
-    "accion": "REUSAR",
-    "origen": "parte_143.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los otros dos son el ligamento coracohumeral, que se extiend"
-  },
-  {
-    "j": 143,
-    "accion": "REUSAR",
-    "origen": "parte_144.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El deltoides es el músculo largo que se encuenCONOCIMIENTO M"
-  },
-  {
-    "j": 144,
-    "accion": "REUSAR",
-    "origen": "parte_145.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las dislocaciones ocurren con más frecuencia cuando se abduc"
-  },
-  {
-    "j": 145,
-    "accion": "REUSAR",
-    "origen": "parte_146.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los niños son muy propensos a este tipo de lesión no sólo po"
-  },
-  {
-    "j": 146,
-    "accion": "REUSAR",
-    "origen": "parte_147.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La articulación del codo El codo es un gínglimo compuesto po"
-  },
-  {
-    "j": 147,
-    "accion": "REUSAR",
-    "origen": "parte_148.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los movimientos laterales de la articulación del codo están "
-  },
-  {
-    "j": 148,
-    "accion": "REUSAR",
-    "origen": "parte_149.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La cabeza radial gira como una rueda contra el cúbito mientr"
-  },
-  {
-    "j": 149,
-    "accion": "REUSAR",
-    "origen": "parte_150.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La profundidad de estas cavidades receptoras es un poco mayo"
-  },
-  {
-    "j": 150,
-    "accion": "REUSAR",
-    "origen": "parte_151.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Si se detecta en una etapa temprana, este trastorno puede tr"
-  },
-  {
-    "j": 151,
-    "accion": "REUSAR",
-    "origen": "parte_152.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los nombres aluden a los huesos a los que están adjuntos: el"
-  },
-  {
-    "j": 152,
-    "accion": "REUSAR",
-    "origen": "parte_153.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Sin embargo, sí contiene una arteria que proporciona sangre "
-  },
-  {
-    "j": 153,
-    "accion": "REUSAR",
-    "origen": "parte_154.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La rótula y el ligamento rotuliano también se articulan con "
-  },
-  {
-    "j": 154,
-    "accion": "REUSAR",
-    "origen": "parte_155.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Por tanto, el desarrollo de fuerza en estos músculos reduce "
-  },
-  {
-    "j": 155,
-    "accion": "REUSAR",
-    "origen": "parte_156.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los d Vista lateral Epicóndilo lateral Ligamento radial cola"
-  },
-  {
-    "j": 156,
-    "accion": "REUSAR",
-    "origen": "parte_157.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La región incluye dos articulaciones que forman el gínglimo "
-  },
-  {
-    "j": 157,
-    "accion": "REUSAR",
-    "origen": "parte_158.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento ligamentos extracapsulares in"
-  },
-  {
-    "j": 158,
-    "accion": "REUSAR",
-    "origen": "parte_159.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Estos ligamentos se cruzan entre sí en forma de una X, y se "
-  },
-  {
-    "j": 159,
-    "accion": "REUSAR",
-    "origen": "parte_160.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ACL es uno de los sitios más comunes de lesión de la rodi"
-  },
-  {
-    "j": 160,
-    "accion": "REUSAR",
-    "origen": "parte_161.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Fémur Tuberosidad isquiática Ligamento iliofemoral Ligamento"
-  },
-  {
-    "j": 161,
-    "accion": "REUSAR",
-    "origen": "parte_162.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones Aplicación de lo aprendido ¿Qu"
-  },
-  {
-    "j": 162,
-    "accion": "REUSAR",
-    "origen": "parte_163.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Para soltar la rodilla, el músculo poplíteo rota el fémur en"
-  },
-  {
-    "j": 163,
-    "accion": "REUSAR",
-    "origen": "parte_164.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A partir de la fi gura nueve.29c, el conocimiento de los pre"
-  },
-  {
-    "j": 164,
-    "accion": "REUSAR",
-    "origen": "parte_165.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El maleolo de la tibia y el peroné sobrepasa el astrágalo a "
-  },
-  {
-    "j": 165,
-    "accion": "REUSAR",
-    "origen": "parte_166.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Fémur: Diáfisis Superficie rotuliana Cóndilo medial Cóndilo "
-  },
-  {
-    "j": 166,
-    "accion": "REUSAR",
-    "origen": "parte_167.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento Fémur Superficie rotuliana Có"
-  },
-  {
-    "j": 167,
-    "accion": "REUSAR",
-    "origen": "parte_168.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones CONOCIMIENTO MÁS A FONDO nueve"
-  },
-  {
-    "j": 168,
-    "accion": "REUSAR",
-    "origen": "parte_169.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las lesiones de rodilla sanan con lentitud debido a la escas"
-  },
-  {
-    "j": 169,
-    "accion": "REUSAR",
-    "origen": "parte_170.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Este instrumento tiene una luz, una lente y fibra óptica que"
-  },
-  {
-    "j": 170,
-    "accion": "REUSAR",
-    "origen": "parte_171.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Ahora, los cirujanos ortopédicos ofrecen el reemplazo de un "
-  },
-  {
-    "j": 171,
-    "accion": "REUSAR",
-    "origen": "parte_172.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El ligamento injertado es más rígido y competente que el ACL"
-  },
-  {
-    "j": 172,
-    "accion": "REUSAR",
-    "origen": "parte_173.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "dos un ligamento medial , deltoideo26, de varias partes, que"
-  },
-  {
-    "j": 173,
-    "accion": "REUSAR",
-    "origen": "parte_174.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Los esguinces , desgarros de ligamentos y tendones, son comu"
-  },
-  {
-    "j": 174,
-    "accion": "REUSAR",
-    "origen": "parte_175.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Explique la manera en que el tendón del bíceps sujeta la art"
-  },
-  {
-    "j": 175,
-    "accion": "REUSAR",
-    "origen": "parte_176.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintiséis delt igual a triangular, letra griega delta , ∆,;"
-  },
-  {
-    "j": 176,
-    "accion": "REUSAR",
-    "origen": "parte_177.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento Maleolo medial Ligamento pero"
-  },
-  {
-    "j": 177,
-    "accion": "REUSAR",
-    "origen": "parte_178.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CUADRO nueve coma un Algunos trastornos articulares comunes "
-  },
-  {
-    "j": 178,
-    "accion": "REUSAR",
-    "origen": "parte_179.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Causa artritis gotosa, con inflamación, dolor, degeneración "
-  },
-  {
-    "j": 179,
-    "accion": "REUSAR",
-    "origen": "parte_180.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A menudo es resultado de un calentamiento inadecuado antes d"
-  },
-  {
-    "j": 180,
-    "accion": "REUSAR",
-    "origen": "parte_181.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "CAPÍTULO nueve Articulaciones CONOCIMIENTO MÁS A FONDO nueve"
-  },
-  {
-    "j": 181,
-    "accion": "REUSAR",
-    "origen": "parte_182.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La forma más común de artritis es la osteoartritis, también "
-  },
-  {
-    "j": 182,
-    "accion": "REUSAR",
-    "origen": "parte_183.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que el cartílago articular se pierde por el desgast"
-  },
-  {
-    "j": 183,
-    "accion": "REUSAR",
-    "origen": "parte_184.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Empieza cuando el cuerpo produce anticuerpos para luchar con"
-  },
-  {
-    "j": 184,
-    "accion": "REUSAR",
-    "origen": "parte_185.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "A medida que el cartílago articular se degenera, la articula"
-  },
-  {
-    "j": 185,
-    "accion": "REUSAR",
-    "origen": "parte_186.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "La artritis reumatoide recibe su nombre del hecho de que los"
-  },
-  {
-    "j": 186,
-    "accion": "REUSAR",
-    "origen": "parte_187.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "También se usa tratamiento físico para preservar el rango de"
-  },
-  {
-    "j": 187,
-    "accion": "REUSAR",
-    "origen": "parte_188.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "El reemplazo total de la cadera , THR, realizado por primera"
-  },
-  {
-    "j": 188,
-    "accion": "REUSAR",
-    "origen": "parte_189.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "En Estados Unidos se realizan artroplastias en más de doscie"
-  },
-  {
-    "j": 189,
-    "accion": "REUSAR",
-    "origen": "parte_190.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Las cavidades receptoras de las articulaciones se fabrican d"
-  },
-  {
-    "j": 190,
-    "accion": "REUSAR",
-    "origen": "parte_191.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "veintiocho ankylo igual a curvado, que se adhiere; osis igua"
-  },
-  {
-    "j": 191,
-    "accion": "REUSAR",
-    "origen": "parte_192.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "PARTE DOS Soporte y movimiento reducido por el uso de prótes"
-  },
-  {
-    "j": 192,
-    "accion": "REUSAR",
-    "origen": "parte_193.wav",
-    "motivo": "texto identico",
-    "texto_inicio": "Una vez que se ha seleccionado uno, la computadora genera un"
-  },
-  {
-    "j": 193,
-    "accion": "SINTETIZAR",
-    "origen": null,
-    "motivo": "nuevo",
-    "texto_inicio": "La parte en forma de gorro reemplaza al acetábulo del hueso "
-  }
+ {
+  "j": 1,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ARTICULACIONES PARTE DOS: SOPORTE Y MOVIMIENTO C A P Í T U L"
+ },
+ {
+  "j": 2,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El nombre de una articulación suele derivarse de los nombres"
+ },
+ {
+  "j": 3,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Articulaciones como las de hombros, codos y rodillas son mue"
+ },
+ {
+  "j": 4,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los huesos del cráneo deben proteger el encéfalo y los órgan"
+ },
+ {
+  "j": 5,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En este capítulo se revisan todos los tipos de articulacione"
+ },
+ {
+  "j": 6,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 7,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta gimnasta demuestra la flexibilidad, precisión y capacid"
+ },
+ {
+  "j": 8,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• La descripción de los movimientos de las articulaciones se"
+ },
+ {
+  "j": 9,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las articulaciones se clasifican de acuerdo con la manera en"
+ },
+ {
+  "j": 10,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Articulaciones óseas Una articulación ósea, o sinostosis, ca"
+ },
+ {
+  "j": 11,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las epífisis y diáfisis de los huesos largos están unidas po"
+ },
+ {
+  "j": 12,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hay tres tipos de articulaciones fibrosas: suturas, gonfosis"
+ },
+ {
+  "j": 13,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones y sindesmosis. En las suturas "
+ },
+ {
+  "j": 14,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las suturas pueden clasificarse en dentadas, escamosas y pla"
+ },
+ {
+  "j": 15,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las suturas escamosas se presentan cuando dos huesos tienen "
+ },
+ {
+  "j": 16,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Gonfosis Aunque los dientes no son huesos, a la unión de un "
+ },
+ {
+  "j": 17,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "de la matriz ósea de la mandíbula en el tejido dental. El li"
+ },
+ {
+  "j": 18,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Existe una sindesmosis con movimiento especial entre las diá"
+ },
+ {
+  "j": 19,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un ejemplo de sincondrosis es la Sínfisis púbica Disco inter"
+ },
+ {
+  "j": 20,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones articulación temporal entre la"
+ },
+ {
+  "j": 21,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La superfi - cie de cada cuerpo vertebral está cubierta con "
+ },
+ {
+  "j": 22,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 23,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "g Usar la terminología estándar correcta para varios movimie"
+ },
+ {
+  "j": 24,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las diartrosis son las articulaciones con una estructura más"
+ },
+ {
+  "j": 25,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Anatomía general En las diartrosis, las superficies que se e"
+ },
+ {
+  "j": 26,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esta sustancia nutre los cartílagos articulares, elimina los"
+ },
+ {
+  "j": 27,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En algunas diartrosis, en el interior de la cápsula articula"
+ },
+ {
+  "j": 28,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos cartílagos absorben el choque y la presión, guían los "
+ },
+ {
+  "j": 29,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el análisis posterior de las articulaciones individuales,"
+ },
+ {
+  "j": 30,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las vainas tendinosas, sinoviales, son bolsas cilíndricas y "
+ },
+ {
+  "j": 31,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La rotación ocurre cuando un esfuerzo aplicado en un punto d"
+ },
+ {
+  "j": 32,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la anatomía ósea, el fulcro es una articulación, un múscu"
+ },
+ {
+  "j": 33,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo nueve punto uno. Aplicación clínica"
+ },
+ {
+  "j": 34,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Cada vez que se comprime un cartílago, se expulsan de él líq"
+ },
+ {
+  "j": 35,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, la tensión excesiva en la articulación puede ac"
+ },
+ {
+  "j": 36,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones Ventaja mecánica La función de"
+ },
+ {
+  "j": 37,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una palanca simple no puede conferir ambas ventajas, sino qu"
+ },
+ {
+  "j": 38,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si la V M es mayor de uno coma cero, la palanca produce más "
+ },
+ {
+  "j": 39,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la figura se muestran algunos valores representativos par"
+ },
+ {
+  "j": 40,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el capítulo diez se encuentra a menudo que dos o más músc"
+ },
+ {
+  "j": 41,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, un velocista que parte de la línea de meta usa "
+ },
+ {
+  "j": 42,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Brazo de resistencia F R E Brazo de esfuerzo Fulcro Esfuerzo"
+ },
+ {
+  "j": 43,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "que no generan velocidad máxima, pero tienen el poder de sob"
+ },
+ {
+  "j": 44,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una palanca de primera clase es la que tiene el fulcro en el"
+ },
+ {
+  "j": 45,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El balanceo del pie sobre la tibia mientras se elevan y se b"
+ },
+ {
+  "j": 46,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, si se levantan las agarraderas de una carretill"
+ },
+ {
+  "j": 47,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En una palanca de tercera clase, el esfuerzo se aplica entre"
+ },
+ {
+  "j": 48,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El antebrazo actúa como una palanca de tercera clase cuando "
+ },
+ {
+  "j": 49,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mandíbula es una palanca de segunda clase cuando se abre "
+ },
+ {
+  "j": 50,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Bíceps braquial L E L R cincuenta milímetros cero coma un ci"
+ },
+ {
+  "j": 51,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La V M se calcula al dividir la longitud del brazo de esfuer"
+ },
+ {
+  "j": 52,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones Rango de movimiento Un aspecto"
+ },
+ {
+  "j": 53,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El rango de movimiento afecta la independencia funcional y l"
+ },
+ {
+  "j": 54,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, no se puede estirar el codo más allá de ciento "
+ },
+ {
+  "j": 55,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "F E Fulcro Resistencia Esfuerzo Esfuerzo Esfuerzo Esfuerzo a"
+ },
+ {
+  "j": 56,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Los músculos de la nuca tiran del hueso occipital para opo"
+ },
+ {
+  "j": 57,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "• Fuerza y tensión de ligamentos y cápsulas articulares. Alg"
+ },
+ {
+  "j": 58,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La rodilla es otro caso similar: al patear un balón de futbo"
+ },
+ {
+  "j": 59,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las personas con doble articulación suelen tener rangos de m"
+ },
+ {
+  "j": 60,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Hasta un músculo en reposo mantiene un estado de tensión, de"
+ },
+ {
+  "j": 61,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Ejes de rotación En la geometría de los sólidos, se reconoce"
+ },
+ {
+  "j": 62,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Una puerta se mueve de manera horizontal mientras se abre y "
+ },
+ {
+  "j": 63,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se eleva el brazo a un lado del cuerpo, la cabeza del húm"
+ },
+ {
+  "j": 64,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que el brazo puede moverse por los tres planos anat"
+ },
+ {
+  "j": 65,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A continuación se revisan estos seis tipos en términos simpl"
+ },
+ {
+  "j": 66,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En ambos casos, un hueso, el húmero o el fémur, tiene una ca"
+ },
+ {
+  "j": 67,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se sostiene la mano con la palma al frente y se cierra el"
+ },
+ {
+  "j": 68,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El ejemplo más claro de estas articulaciones es la trapeciom"
+ },
+ {
+  "j": 69,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otra articulación en silla de montar es la esternoclavicular"
+ },
+ {
+  "j": 70,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un hueso adyacente se desliza sobre otro y tiea Abducción de"
+ },
+ {
+  "j": 71,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "nen movimiento limitado. Las articulaciones planas se encuen"
+ },
+ {
+  "j": 72,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Aunque una articulación sólo se mueve un poco, la acción com"
+ },
+ {
+  "j": 73,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Algunos ejemplos Trocoide, radiocubital, Gínglimo, humerocub"
+ },
+ {
+  "j": 74,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones son el codo, la rodilla y las "
+ },
+ {
+  "j": 75,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En la primera, los dientes del eje se proyectan hacia el agu"
+ },
+ {
+  "j": 76,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La orilla se mueve contra la hendidura radial del cúbito com"
+ },
+ {
+  "j": 77,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "De manera evidente, cuenta con un cóndilo elongado donde se "
+ },
+ {
+  "j": 78,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La articulación humerorradial actúa como gínglimo cuando se "
+ },
+ {
+  "j": 79,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En esta sección se introducen los términos para el movimient"
+ },
+ {
+  "j": 80,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los movimientos articulares pueden describirse a medida que "
+ },
+ {
+  "j": 81,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Tal vez el significado de flexión sea menos obvio en las ena"
+ },
+ {
+  "j": 82,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ej., al enderezar el codo, la muñeca o la rodilla, o al regr"
+ },
+ {
+  "j": 83,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La hiperextensión de las extremidades superiores e inferiore"
+ },
+ {
+  "j": 84,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Abducción y aducción Abducción es el alejamiento de la línea"
+ },
+ {
+  "j": 85,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se hiperabduce el brazo si se le eleva lo suficiente para cr"
+ },
+ {
+  "j": 86,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Elevación y depresión La elevación es un movimiento que sube"
+ },
+ {
+  "j": 87,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por ejemplo, los hombros se protraen cuando se impulsan haci"
+ },
+ {
+  "j": 88,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si un artista de pie ante un caballete se inclina hacia dela"
+ },
+ {
+  "j": 89,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Extensión Flexión b Extensión Flexión Hiperextensión c d H"
+ },
+ {
+  "j": 90,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "No obstante, en la terminología de los movimientos específic"
+ },
+ {
+  "j": 91,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones del antebrazo es el movimiento"
+ },
+ {
+  "j": 92,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se gira el pie derecho de modo que los dedos se alejen de"
+ },
+ {
+  "j": 93,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA nueve coma un seis Circunducción. de disco del radio "
+ },
+ {
+  "j": 94,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La supinación es el tipo de movimiento que se realiza con la"
+ },
+ {
+  "j": 95,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Movimientos especiales de la cabeza y el tronco La flexión d"
+ },
+ {
+  "j": 96,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La flexión lateral es la inclinación de la cabeza o el tronc"
+ },
+ {
+  "j": 97,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En una mordida a una zanahoria cruda, la mayoría tiene que r"
+ },
+ {
+  "j": 98,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Se muestra la rotación del húmero y el fémur. FIGURA nueve c"
+ },
+ {
+  "j": 99,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Esto requiere unos movimientos de lado a lado de la mandíbul"
+ },
+ {
+  "j": 100,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A menudo estos movimientos se usan cuando se saluda a alguie"
+ },
+ {
+  "j": 101,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, el pulga es diferente porque en el desarrollo e"
+ },
+ {
+  "j": 102,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "●En la rotación de la cabeza, e, ¿qué hueso gira sobre su ej"
+ },
+ {
+  "j": 103,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "to del pulgar difiere de la de los otros cuatro dedos. La fl"
+ },
+ {
+  "j": 104,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Otro movimiento, la abducción palmar, aleja el pulgar del pl"
+ },
+ {
+  "j": 105,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "a Protracción b Retracción c Excursión lateral d Excursión m"
+ },
+ {
+  "j": 106,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "e Oposición del pulgar; la reubicación se muestra en las par"
+ },
+ {
+  "j": 107,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones Movimientos especiales del pie"
+ },
+ {
+  "j": 108,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La flexión plantar es un movimiento del pie en que los dedos"
+ },
+ {
+  "j": 109,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La inversión es un movimiento del pie que desplaza las plant"
+ },
+ {
+  "j": 110,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La pronación del pie es una combinación de dorsiflexión, eve"
+ },
+ {
+  "j": 111,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para comprender la manera en que estos términos se aplican a"
+ },
+ {
+  "j": 112,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al descansar las palmas de las manos sobre una mesa, los ant"
+ },
+ {
+  "j": 113,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Resultados esperados del aprendizaje Cuando haya completado "
+ },
+ {
+  "j": 114,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A continuación se examina la anatomía macroscópica de cierta"
+ },
+ {
+  "j": 115,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Su acción puede percibirse al presionar la punta de los dedo"
+ },
+ {
+  "j": 116,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para observar la importancia del deslizamiento hacia el fren"
+ },
+ {
+  "j": 117,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo nueve punto dos. Aplicación clínica"
+ },
+ {
+  "j": 118,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Al parecer lo causa una combinación de tensión fisiológica y"
+ },
+ {
+  "j": 119,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "FIGURA nueve coma dos tres Articulación temporomandibular, T"
+ },
+ {
+  "j": 120,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones La cavidad sinovial de la T M "
+ },
+ {
+  "j": 121,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Un ligamento estilomandibular se extiende de la apófisis est"
+ },
+ {
+  "j": 122,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En conjunto, las articulaciones del hombro y el codo sirven "
+ },
+ {
+  "j": 123,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "mano de modo tal que pueda realizar una tarea: sin una mano,"
+ },
+ {
+  "j": 124,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Uno de sus tendones surge de la cabeza larga del músculo, vé"
+ },
+ {
+  "j": 125,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el capítulo diez se describen de manera más extensa el ma"
+ },
+ {
+  "j": 126,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los otros dos son el ligamento coracohumeral, que se extiend"
+ },
+ {
+  "j": 127,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo nueve punto tres. Aplicación clínic"
+ },
+ {
+  "j": 128,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ej., cuando el brazo extendido en exceso recibe un golpe por"
+ },
+ {
+  "j": 129,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Debido a que esta articulación se disloca con mucha facilida"
+ },
+ {
+  "j": 130,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En el lado posterior del codo se encuentra una prominente bo"
+ },
+ {
+  "j": 131,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La mantiene en su lugar el ligamento anular, que circula la "
+ },
+ {
+  "j": 132,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La profundidad de estas cavidades receptoras es un poco mayo"
+ },
+ {
+  "j": 133,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se detecta en una etapa temprana, este trastorno puede tr"
+ },
+ {
+  "j": 134,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los nombres aluden a los huesos a los que están adjuntos: el"
+ },
+ {
+  "j": 135,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, sí contiene una arteria que proporciona sangre "
+ },
+ {
+  "j": 136,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La cápsula articular encierra sólo los aspectos lateral y po"
+ },
+ {
+  "j": 137,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La cavidad articular contiene dos cartílagos en forma de C d"
+ },
+ {
+  "j": 138,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Los d Vista lateral Epicóndilo lateral Ligamento radial cola"
+ },
+ {
+  "j": 139,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La región incluye dos articulaciones que forman el gínglimo "
+ },
+ {
+  "j": 140,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "ligamentos extracapsulares incluyen dos ligamentos colateral"
+ },
+ {
+  "j": 141,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Estos nombres indican si están unidos al lado anterior o pos"
+ },
+ {
+  "j": 142,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fémur Tuberosidad isquiática Ligamento iliofemoral Ligamento"
+ },
+ {
+  "j": 143,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones Aplicación de lo aprendido ¿Qu"
+ },
+ {
+  "j": 144,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Para soltar la rodilla, el músculo poplíteo rota el fémur en"
+ },
+ {
+  "j": 145,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El conocimiento de los prefijos, infra-, supra-, pre-, y de "
+ },
+ {
+  "j": 146,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Por tanto, el tobillo tiene un rango de movimiento más restr"
+ },
+ {
+  "j": 147,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fémur: Diáfisis Superficie rotuliana Cóndilo medial Cóndilo "
+ },
+ {
+  "j": 148,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Fémur Superficie rotuliana Cóndilo lateral Cóndilo medial Li"
+ },
+ {
+  "j": 149,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones Maleolo medial Ligamento peron"
+ },
+ {
+  "j": 150,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo nueve punto cuatro. Aplicación clín"
+ },
+ {
+  "j": 151,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El diagnóstico y el tratamiento quirúrgico de las lesiones d"
+ },
+ {
+  "j": 152,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Si se requiere cirugía, pueden practicarse pequeñas incision"
+ },
+ {
+  "j": 153,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El cirujano cultiva una tira de la parte media del ligamento"
+ },
+ {
+  "j": 154,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En general, después de la reconstrucción artroscópica del A "
+ },
+ {
+  "j": 155,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El tendón calcáneo, de Aquiles, se extiende desde los múscul"
+ },
+ {
+  "j": 156,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El mejor tratamiento consiste en inmovilizar la articulación"
+ },
+ {
+  "j": 157,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CUADRO nueve coma un Algunos trastornos articulares comunes "
+ },
+ {
+  "j": 158,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Causa artritis gotosa, con inflamación, dolor, degeneración "
+ },
+ {
+  "j": 159,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A menudo es resultado de un calentamiento inadecuado antes d"
+ },
+ {
+  "j": 160,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "CAPÍTULO nueve Articulaciones reducido por el uso de prótesi"
+ },
+ {
+  "j": 161,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Conocimiento más a fondo nueve punto cinco. Aplicación clíni"
+ },
+ {
+  "j": 162,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La forma más común de artritis es la osteoartritis, también "
+ },
+ {
+  "j": 163,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que el cartílago articular se pierde por el desgast"
+ },
+ {
+  "j": 164,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Empieza cuando el cuerpo produce anticuerpos para luchar con"
+ },
+ {
+  "j": 165,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "A medida que el cartílago articular se degenera, la articula"
+ },
+ {
+  "j": 166,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La artritis reumatoide recibe su nombre del hecho de que los"
+ },
+ {
+  "j": 167,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "También se usa tratamiento físico para preservar el rango de"
+ },
+ {
+  "j": 168,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El reemplazo total de la cadera, T H R, realizado por primer"
+ },
+ {
+  "j": 169,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "En Estados Unidos se realizan artroplastias en más de doscie"
+ },
+ {
+  "j": 170,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Las cavidades receptoras de las articulaciones se fabrican d"
+ },
+ {
+  "j": 171,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "veintiocho ankylo igual a curvado, que se adhiere; osis igua"
+ },
+ {
+  "j": 172,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "Sin embargo, una prótesis no es tan fuerte como una articula"
+ },
+ {
+  "j": 173,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "El C A D o C A M ha reducido el periodo de espera de una pró"
+ },
+ {
+  "j": 174,
+  "accion": "SINTETIZAR",
+  "origen": null,
+  "motivo": "nuevo",
+  "texto_inicio": "La parte en forma de gorro reemplaza al acetábulo del hueso "
+ }
 ]

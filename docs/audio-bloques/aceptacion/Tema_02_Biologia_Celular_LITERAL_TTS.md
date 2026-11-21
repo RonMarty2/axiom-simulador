@@ -1,15 +1,15 @@
 # Aceptación: Tema_02_Biologia_Celular_LITERAL_TTS
 
-- **Texto:** "C:\SynologyDrive\SynologyDrive\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_02_Biologia_Celular_LITERAL_TTS.md"
+- **Texto:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\examenes pasados\MEDICINA\LIBROS DE MEDICINA\_TEXTO_LITERAL_VERIFICADO\Tema_02_Biologia_Celular_LITERAL_TTS.md"
 - **Audio:** sin revisar (no se pasó audio)
-- **Referencia PDF:** "C:\SynologyDrive\SynologyDrive\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
-- **Fecha:** 2026-11-19 11:16:11
+- **Referencia PDF:** "C:\Users\lmigu\SynologyDrive\10.TRABAJO_LOCAL\axiom-simulador\docs\audio-bloques\..\..\examenes pasados\MEDICINA\LIBROS DE MEDICINA\libros_extraidos\Calvo_texto_paginas.txt"
+- **Fecha:** 2026-11-21 12:06:06
 - **Veredicto final:** **APRUEBA** (solo texto (revisiones 9-12 de audio sin revisar))
 
 | # | Revisión | Sobre | Estado | Fallas / Revisado | Ejemplos (máx. 10) |
 |---|---|---|---|---|---|
 | 1 | Literalidad (texto vs PDF crudo) | texto | APRUEBA | 0 / 43 párrafos | — |
-| 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 20 párrafos PDF | — |
+| 2 | Omisiones (PDF -> texto) | texto | APRUEBA | 0 / 36 párrafos PDF (1 excepción(es) revisada(s): «FIGURA E2-4 Ejemplo de amplificación por»: el pie está en el texto («FIGURA E2-cuatro … V I H-uno»); la similitud baja por la verbalización de siglas y del número (Claude 21-11)) | — |
 | 3 | Relleno leído (biblio, autoeval, créditos, portada) | texto | APRUEBA | 0 / 9328 palabras | — |
 | 4 | Notas al pie (llamadas y glosas) | texto | APRUEBA | 0 / 9328 palabras | — |
 | 5 | Figuras y tablas (sin 'ver figura', descripción) | texto + imagen | APRUEBA | 0 / 9328 palabras (Solo texto; verificación con imagen requiere auditor-figuras) | — |

@@ -1,0 +1,245 @@
+[
+  {
+    "j": 48,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 930,
+    "texto_viejo": "Arteriola aferente Arteriola eferente Podocitos de la capa visceral Flujo sanguíneo Flujo sanguíneo Glomérulo Túbulo contorneado proximal Capilares glomerulares , podocitos y pared capilar eliminados, a Capa parietal Cápsula glomerular: Capa visceral Espacio capsular Capa parietal Mácula densa Capilar peritubular Túbulo contorneado proximal Asa de Henle b cien μm Flujo del filtrado Flujo de la sangre Clave Capilares glomerulares Arteriola aferente Cápsula glomerular: Espacio capsular FIGURA veintitrés coma siete El corpúsculo renal. a Anatomía del corpúsculo. b Micrografía de luz del corpúsculo renal y secciones del túbulo renal circundante.",
+    "texto_nuevo": "Arteriola aferente Arteriola eferente Podocitos de la capa visceral Flujo sanguíneo Flujo sanguíneo Glomérulo Túbulo contorneado proximal Capilares glomerulares, podocitos y pared capilar eliminados, a Capa parietal Cápsula glomerular: Capa visceral Espacio capsular Capa parietal Mácula densa Capilar peritubular Túbulo contorneado proximal Asa de Henle b cien micrómetros Flujo del filtrado Flujo de la sangre Clave Capilares glomerulares Arteriola aferente Cápsula glomerular: Espacio capsular FIGURA veintitrés punto siete El corpúsculo renal. a Anatomía del corpúsculo. b Micrografía de luz del corpúsculo renal y secciones del túbulo renal circundante."
+  },
+  {
+    "j": 75,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9365,
+    "pagina": 934,
+    "texto_viejo": "En varones, GFR igual a NFP × Kf igual a diez × doce coma cinco igual a ciento veinticinco ml o min. En mujeres jóvenes adultas, la GFR es de casi ciento cinco ml o min. Arteria cortical radial Arteriola aferente a c b Glomérulo Arteriola eferente cien μm cinco μm Cuerpo celular de podocito Plasma sanguíneo Eritrocito Célula endotelial Poro de filtración Podocito Pedículos , separados por estrechas ranuras de filtración, Pedículos Ranuras de filtración cero coma cinco μm Espacio capsular Membrana basal FIGURA veintitrés coma un cero Estructura del glomérulo.",
+    "texto_nuevo": "En varones, GFR igual a NFP por Kf igual a diez por doce punto cinco igual a ciento veinticinco mililitros por minuto. En mujeres jóvenes adultas, la GFR es de casi ciento cinco mililitros por minuto. Arteria cortical radial Arteriola aferente a c b Glomérulo Arteriola eferente cien micrómetros cinco micrómetros Cuerpo celular de podocito Plasma sanguíneo Eritrocito Célula endotelial Poro de filtración Podocito Pedículos, separados por estrechas ranuras de filtración, Pedículos Ranuras de filtración cero coma cinco micrómetros Espacio capsular Membrana basal FIGURA veintitrés punto diez Estructura del glomérulo."
+  },
+  {
+    "j": 110,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9625,
+    "pagina": 938,
+    "texto_viejo": "Dos tipos de proteínas de transporte en la superfi cie celular apical son responsables de la recaptura del sodio: un varios cotransportes unidireccionales que fi jan al mismo tiempo Na+ y otros solutos como glucosa, aminoácidos o lactato, y dos un cotransporte bidireccional Na+-H+ que empuja el Na+ al interior de la célula mientras bombea H+ fuera de ella, hacia el líquido tubular. Este cotransporte bidireccional es un medio no sólo de reabsorción de sodio, sino también de eliminación de ácido de los líquidos corporales.",
+    "texto_nuevo": "Dos tipos de proteínas de transporte en la superficie celular apical son responsables de la recaptura del sodio: uno varios cotransportes unidireccionales que fijan al mismo tiempo Na más y otros solutos como glucosa, aminoácidos o lactato, y dos un cotransporte bidireccional Na más H más que empuja el Na más al interior de la célula mientras bombea H más fuera de ella, hacia el líquido tubular. Este cotransporte bidireccional es un medio no sólo de reabsorción de sodio, sino también de eliminación de ácido de los líquidos corporales."
+  },
+  {
+    "j": 111,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('p' vs 'los')",
+    "similitud": 0.9708,
+    "pagina": 938,
+    "texto_viejo": "La angiotensina II activa el cotransporte bidireccional Na+-H+ y, por tanto, ejerce fuerte infl uencia en la reabsorción de sodio. Se evita la acumulación de sodio en las células epiteliales mediante bombas de sodio y potasio en el dominio basal de la membrana plasmática, que bombea Na+ para sacarlo al líquido extracelular. Allí, los capilares peritubulares lo recogen y lo regresan a la circulación sanguínea. Estas bombas Na+-K+, como las de cualquier otro lugar, son bombas de transporte activo que consumen A T P.",
+    "texto_nuevo": "La angiotensina II activa el cotransporte bidireccional Na más H más y, por tanto, ejerce fuerte influencia en la reabsorción de sodio. Se evita la acumulación de sodio en las células epiteliales mediante bombas de sodio y potasio en el dominio basal de la membrana plasmática, que bombea Na más para sacarlo al líquido extracelular. Allí, los capilares peritubulares lo recogen y lo regresan a la circulación sanguínea. Estas bombas Na más K más, como las de cualquier otro lugar, son bombas de transporte activo que consumen A T P. Aunque los"
+  },
+  {
+    "j": 112,
+    "estado": "REVISAR",
+    "motivo": "primera palabra distinta ('aunque' vs 'cotransportes')",
+    "similitud": 0.987,
+    "pagina": 938,
+    "texto_viejo": "Aunque los cotransportes bidireccionales de sodio en la membrana apical no consumen A T P, se les considera un ejemplo de transporte activo secundario por su dependencia de las bombas de Na+-K+ en la base de la célula. Los iones cloruro, que han adquirido carga negativa, siguen al Na+ porque éste los atrae por fuerzas eléctricas. También hay varios cotransportes bidireccionales en la membrana celular apical que absorben Cl– a cambio de otros aniones que eyectan en el líquido tubular.",
+    "texto_nuevo": "cotransportes bidireccionales de sodio en la membrana apical no consumen A T P, se les considera un ejemplo de transporte activo secundario por su dependencia de las bombas de Na más K más en la base de la célula. Los iones cloruro, que han adquirido carga negativa, siguen al Na más porque éste los atrae por fuerzas eléctricas. También hay varios cotransportes bidireccionales en la membrana celular apical que absorben Cl menos a cambio de otros aniones que eyectan en el líquido tubular."
+  },
+  {
+    "j": 113,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9647,
+    "pagina": 938,
+    "texto_viejo": "Los iones cloruro y potasio son expulsados a través de la superfi cie de la célula basal por un cotransporte bidireccional K+-Cl–. El Na+ y el Cl– atraviesan el epitelio del túbulo por la ruta paracelular. catorce trans igual a a través de. quince para igual a junto a.",
+    "texto_nuevo": "Los iones cloruro y potasio son expulsados a través de la superficie de la célula basal por un cotransporte bidireccional K más Cl menos. El Na más y el Cl menos atraviesan el epitelio del túbulo por la ruta paracelular. catorce trans igual a a través de. quince para igual a junto a."
+  },
+  {
+    "j": 114,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9455,
+    "pagina": 939,
+    "texto_viejo": "CAPÍTULO veintitrés El aparato urinario Otros electrólitos Los iones potasio, magnesio y fosfato pasan por la ruta paracelular con el agua. El fosfato también es cotransportado en las células epiteliales con el Na+. La ruta paracelular reabsorbe casi cincuenta y dos por ciento del calcio fi ltrado y la transcelular casi catorce por ciento en el PCT. Aquí, la absorción de calcio es independiente de la infl uencia hormonal, pero otro treinta y tres por ciento del calcio se reabsorbe más adelante en la nefrona, bajo la infl uencia de la hormona paratiroidea , paratirina, como se expone más adelante.",
+    "texto_nuevo": "CAPÍTULO veintitrés El aparato urinario Otros electrólitos Los iones potasio, magnesio y fosfato pasan por la ruta paracelular con el agua. El fosfato también es cotransportado en las células epiteliales con el Na más. La ruta paracelular reabsorbe casi cincuenta y dos por ciento del calcio filtrado y la transcelular casi catorce por ciento en el PCT. Aquí, la absorción de calcio es independiente de la influencia hormonal, pero otro treinta y tres por ciento del calcio se reabsorbe más adelante en la nefrona, bajo la influencia de la hormona paratiroidea, paratirina, como se expone más adelante."
+  },
+  {
+    "j": 115,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9756,
+    "pagina": 939,
+    "texto_viejo": "Por lo general, el un por ciento restante se excreta en la orina. Glucosa Es cotransportada con Na+ por cotransportes unidireccionales denominados transportadores de sodio-glucosa , SGLT,. Luego se retira de la superfi cie basolateral de la célula mediante difusión facilitada. Por lo general, se reabsorbe toda la glucosa del líquido tubular y no queda nada en la orina. Desechos nitrogenados La urea atraviesa el epitelio con agua.",
+    "texto_nuevo": "Por lo general, el uno por ciento restante se excreta en la orina. Glucosa Es cotransportada con Na más por cotransportes unidireccionales denominados transportadores de sodio-glucosa, SGLT. Luego se retira de la superficie basolateral de la célula mediante difusión facilitada. Por lo general, se reabsorbe toda la glucosa del líquido tubular y no queda nada en la orina. Desechos nitrogenados La urea atraviesa el epitelio con agua."
+  },
+  {
+    "j": 122,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 1.0,
+    "pagina": 939,
+    "texto_viejo": "dos La estrechez de la arteriola eferente reduce la presión hidrostática de la sangre , BHP, de sesenta mmHg en el gloméAcuaporina Arrastre por solvente Transportador de sodio-glucosa , SGLT, cotransporte unidireccional, Cotransporte bidireccional Na+-H+ Bomba Na+-K+ Cotransporte unidireccional K+-Cl– Cotransporte bidireccional Cl–-anión A T P ADP + Pi Glucosa H2O, urea, ácido úrico, Na+, K+, Cl–, Mg2+, Ca2+, Pi Unión intercelular hermética Ruta transcelular Ruta paracelular Borde en cepillo Cl– H+ Na+ K+ Na+ Na+ Glucosa K+ Cl– H2O Aniones Capilar peritubular Líquido tisular Células epiteliales tubulares Líquido tubular FIGURA veintitrés coma un seis Reabsorción en el túbulo contorneado proximal.",
+    "texto_nuevo": "dos La estrechez de la arteriola eferente reduce la presión hidrostática de la sangre, BHP, de sesenta mmHg en el gloméAcuaporina Arrastre por solvente Transportador de sodio-glucosa, SGLT, cotransporte unidireccional, Cotransporte bidireccional Na más H más Bomba Na más K más Cotransporte unidireccional K más Cl menos Cotransporte bidireccional Cl–-anión A T P ADP + Pi Glucosa H dos O, urea, ácido úrico, Na más, K más, Cl menos, Mg dos más, Ca dos más, Pi Unión intercelular hermética Ruta transcelular Ruta paracelular Borde en cepillo Cl menos H más Na más K más Na más Na más Glucosa K más Cl menos H dos O Aniones Capilar peritubular Líquido tisular Células epiteliales tubulares Líquido tubular FIGURA veintitrés punto dieciséis Reabsorción en el túbulo contorneado proximal."
+  },
+  {
+    "j": 123,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 939,
+    "texto_viejo": "El agua y los solutos en el líquido tubular , derecha, son transportados por el epitelio tubular por diversos medios, como cotransportes unidireccionales, cotransportes bidireccionales, acuaporinas y la ruta paracelular entre las células. Entran en el líquido tisular en la base del epitelio y son tomados por los capilares peritubulares , izquierda,. Medios similares sirven para reabsorber muchos otros solutos, que no se muestran aquí. ●¿De qué manera la mayor reabsorción de Na+ afecta el pH de la orina? ¿Por qué?",
+    "texto_nuevo": "El agua y los solutos en el líquido tubular, derecha, son transportados por el epitelio tubular por diversos medios, como cotransportes unidireccionales, cotransportes bidireccionales, acuaporinas y la ruta paracelular entre las células. Entran en el líquido tisular en la base del epitelio y son tomados por los capilares peritubulares, izquierda. Medios similares sirven para reabsorber muchos otros solutos, que no se muestran aquí. ●¿De qué manera la mayor reabsorción de Na más afecta el pH de la orina? ¿Por qué?"
+  },
+  {
+    "j": 134,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9739,
+    "pagina": 941,
+    "texto_viejo": "Los detalles se analizan en el capítulo veinticuatro. El asa de Henle La función primaria del asa de Henle consiste en generar un gradiente osmótico que permita al túbulo colector concentrar la orina y conservar agua, como se analiza más adelante. Pero además, el asa reabsorbe casi veinticinco por ciento de Na+, K+ y Cl–, además de quince por ciento del agua en el fi ltrado glomerular.",
+    "texto_nuevo": "Los detalles se analizan en el capítulo veinticuatro. El asa de Henle La función primaria del asa de Henle consiste en generar un gradiente osmótico que permita al túbulo colector concentrar la orina y conservar agua, como se analiza más adelante. Pero además, el asa reabsorbe casi veinticinco por ciento de Na más, K más y Cl menos, además de quince por ciento del agua en el filtrado glomerular."
+  },
+  {
+    "j": 135,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9674,
+    "pagina": 941,
+    "texto_viejo": "Las células del segmento grueso de la extremidad ascendente del asa tienen proteínas en la membrana apical que, al mismo tiempo, fi jan un Na+, un K+ y dos Cl– del líquido tubular y los cotransporta en el citoplasma. Estos iones dejan las superfi cies de la célula basolateral por transporte activo de Na+ y difusión de K+ y Cl–. El potasio vuelve a entrar en la célula por medio de la bomba de sodio y potasio y luego lo hace también en el líquido tubular, pero el NaCl permanece en el líquido tisular de la médula renal.",
+    "texto_nuevo": "Las células del segmento grueso de la extremidad ascendente del asa tienen proteínas en la membrana apical que, al mismo tiempo, fijan uno Na más, uno K más y dos Cl menos del líquido tubular y los cotransporta en el citoplasma. Estos iones dejan las superficies de la célula basolateral por transporte activo de Na más y difusión de K más y Cl menos. El potasio vuelve a entrar en la célula por medio de la bomba de sodio y potasio y luego lo hace también en el líquido tubular, pero el NaCl permanece en el líquido tisular de la médula renal."
+  },
+  {
+    "j": 138,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9771,
+    "pagina": 941,
+    "texto_viejo": "Reabsorben K+ y secretan H+ en la luz del túbulo, y participan sobre todo en el equilibrio acidobásico, como se analizó en el capítulo veinticuatro. Las principales infl uencias hormonales del DCT y el túbulo colector son las siguientes. Aldosterona La hormona que retiene sal es un esteroide secretado por la corteza suprarrenal cuando la concentración de Na+ en la sangre cae o cuando se eleva la de K+.",
+    "texto_nuevo": "Reabsorben K más y secretan H más en la luz del túbulo, y participan sobre todo en el equilibrio acidobásico, como se analizó en el capítulo veinticuatro. Las principales influencias hormonales del DCT y el túbulo colector son las siguientes. Aldosterona La hormona que retiene sal es un esteroide secretado por la corteza suprarrenal cuando la concentración de Na más en la sangre cae o cuando se eleva la de K más."
+  },
+  {
+    "j": 139,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9756,
+    "pagina": 941,
+    "texto_viejo": "Una caída en la presión arterial también induce la secreción de aldosterona, pero de manera indirecta: estimula al riñón para que secrete renina, lo cual lleva a la producción de angiotensina II; ésta, a su vez, estimula la secreción de aldosterona , véase la fi gura veintitrés coma un cinco,. La aldosterona actúa sobre el segmento grueso de la extremidad ascendente del asa de Henle, en el DCT, y en la parte cortical del túbulo colector. Estimula a estos segmentos de la nefrona para que reabsorban Na+ y secreten K+.",
+    "texto_nuevo": "Una caída en la presión arterial también induce la secreción de aldosterona, pero de manera indirecta: estimula al riñón para que secrete renina, lo cual lleva a la producción de angiotensina II; ésta, a su vez, estimula la secreción de aldosterona. La aldosterona actúa sobre el segmento grueso de la extremidad ascendente del asa de Henle, en el DCT, y en la parte cortical del túbulo colector. Estimula a estos segmentos de la nefrona para que reabsorban Na más y secreten K más."
+  },
+  {
+    "j": 140,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9881,
+    "pagina": 941,
+    "texto_viejo": "El agua y el Cl– siguen al Na+, de modo que su efecto neto es que el cuerpo retiene NaCl y agua, se reduce el volumen de orina y ésta tiene concentración elevada de K+. La retención de agua ayuda a mantener el volumen sanguíneo y la presión arterial. En el capítulo veinticuatro se explica aún más la acción de la aldosterona. Péptidos natriuréticos El corazón secreta los péptidos natriuréticos auriculares y encefálicos , ANP y BNP, consúltese la p. seiscientos cincuenta y dos, como respuesta a una presión arterial elevada.",
+    "texto_nuevo": "El agua y el Cl menos siguen al Na más, de modo que su efecto neto es que el cuerpo retiene NaCl y agua, se reduce el volumen de orina y ésta tiene concentración elevada de K más. La retención de agua ayuda a mantener el volumen sanguíneo y la presión arterial. En el capítulo veinticuatro se explica aún más la acción de la aldosterona. Péptidos natriuréticos El corazón secreta los péptidos natriuréticos auriculares y encefálicos, ANP y BNP, consúltese la página seiscientos cincuenta y dos, como respuesta a una presión arterial elevada."
+  },
+  {
+    "j": 147,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 942,
+    "texto_viejo": "En esencia, el DCT completa el proceso al determinar la composición química de la orina. La función principal que se deja al túbulo colector es la de conservar el agua. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: once. La reabsorción de agua, Cl– y glucosa por parte del PCT está vinculada con la de Na+, pero de tres maneras muy diferentes. Explique los contrastes entre esos tres mecanismos. doce. Explique por qué una sustancia aparece en la orina si su filtración glomerular excede el Tm del túbulo renal. trece.",
+    "texto_nuevo": "En esencia, el DCT completa el proceso al determinar la composición química de la orina. La función principal que se deja al túbulo colector es la de conservar el agua. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: once. La reabsorción de agua, Cl menos y glucosa por parte del PCT está vinculada con la de Na más, pero de tres maneras muy diferentes. Explique los contrastes entre esos tres mecanismos. doce. Explique por qué una sustancia aparece en la orina si su filtración glomerular excede el Tm del túbulo renal."
+  },
+  {
+    "j": 159,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9718,
+    "pagina": 943,
+    "texto_viejo": "La mayor parte de la extremidad es muy permeable al agua, pero no al NaCl; por tanto, el agua pasa por ósmosis del túbulo hacia el líquido extracelular, dejando NaCl atrás. El contenido del túbulo aumenta su osmolaridad, alcanzando casi un doscientos mosm o L para el momento en que el líquido toma la curva en el extremo inferior del asa. En contraste, la mayor parte de la extremidad ascendente , su segmento grueso, es impermeable al agua, pero tiene bombas de transporte activo que cotransportan Na+, K+ y Cl– hacia el líquido extracelular.",
+    "texto_nuevo": "La mayor parte de la extremidad es muy permeable al agua, pero no al NaCl; por tanto, el agua pasa por ósmosis del túbulo hacia el líquido extracelular, dejando NaCl atrás. El contenido del túbulo aumenta su osmolaridad, alcanzando casi mil doscientos miliosmoles por litro para el momento en que el líquido toma la curva en el extremo inferior del asa. En contraste, la mayor parte de la extremidad ascendente, su segmento grueso, es impermeable al agua, pero tiene bombas de transporte activo que cotransportan Na más, K más y Cl menos hacia el líquido extracelular."
+  },
+  {
+    "j": 173,
+    "estado": "REVISAR",
+    "motivo": "ultima palabra distinta ('l' vs 'litro')",
+    "similitud": 0.9711,
+    "pagina": 944,
+    "texto_viejo": "Cuanta más sal tiene el líquido en la extremidad ascendente, más sal bombea el túbulo hacia el líquido extracelular. Cuanto mayor es la cantidad de sal bombeada hacia afuera de la extremidad ascendente, más sal tiene el líquido extracelular en la médula renal. H2O Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– H2O H2O H2O H2O FIGURA veintitrés coma dos cero El multiplicador en contracorriente del asa de Henle. Los números en el túbulo corresponden a mosm o L.",
+    "texto_nuevo": "Cuanta más sal tiene el líquido en la extremidad ascendente, más sal bombea el túbulo hacia el líquido extracelular. Cuanto mayor es la cantidad de sal bombeada hacia afuera de la extremidad ascendente, más sal tiene el líquido extracelular en la médula renal. H dos O Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos H dos O H dos O H dos O H dos O FIGURA veintitrés punto veinte El multiplicador en contracorriente del asa de Henle. Los números en el túbulo corresponden a miliosmoles por litro."
+  },
+  {
+    "j": 174,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9701,
+    "pagina": 945,
+    "texto_viejo": "CAPÍTULO veintitrés El aparato urinario Médula Corteza Asa de Henle Túbulo colector Vaso recto Osmolaridad de líquido extracelular , mosm o L, un doscientos Urea Urea Urea Urea Urea Urea Urea H2O NaCl NaCl NaCl NaCl Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Na+ K+ Cl– Transporte activo Difusión a través de un canal de membrana H2O H2O H2O H2O H2O H2O Clave FIGURA veintitrés coma dos un Relación funcional del asa de Henle, los vasos rectos y el túbulo colector.",
+    "texto_nuevo": "CAPÍTULO veintitrés El aparato urinario Médula Corteza Asa de Henle Túbulo colector Vaso recto Osmolaridad de líquido extracelular, miliosmoles por litro, mil doscientos Urea Urea Urea Urea Urea Urea Urea H dos O NaCl NaCl NaCl NaCl Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Na más K más Cl menos Transporte activo Difusión a través de un canal de membrana H dos O H dos O H dos O H dos O H dos O H dos O Clave FIGURA veintitrés punto veintiuno Relación funcional del asa de Henle, los vasos rectos y el túbulo colector."
+  },
+  {
+    "j": 175,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9618,
+    "pagina": 945,
+    "texto_viejo": "Estas tres estructuras funcionan juntas para mantener un gradiente de osmolaridad en la médula renal. Las cantidades en el túbulo y el vaso recto están en mosm o L. CUADRO veintitrés coma un Hormonas que afectan la función renal Hormona Destinos renales Efectos Aldosterona Asa de Henle, DCT, túbulo colector Promueve la reabsorción de Na+ y la secreción de K+. Promueve de manera indirecta la reabsorción de Cl – y H2O.",
+    "texto_nuevo": "Estas tres estructuras funcionan juntas para mantener un gradiente de osmolaridad en la médula renal. Las cantidades en el túbulo y el vaso recto están en miliosmoles por litro. CUADRO veintitrés punto uno Hormonas que afectan la función renal Hormona Destinos renales Efectos Aldosterona Asa de Henle, DCT, túbulo colector Promueve la reabsorción de Na más y la secreción de K más. Promueve de manera indirecta la reabsorción de Cl – y H dos O."
+  },
+  {
+    "j": 177,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 945,
+    "texto_viejo": "Inhibe la secreción de renina, vasopresina y aldosterona. Inhibe la reabsorción de NaCl en el túbulo colector. Aumenta el volumen de orina y reduce la presión arterial Calcitonina DCT Efectos débiles similares a los de la paratirina Calcitriol DCT Efectos débiles similares a los de la paratirina Epinefrina y norepinefrina Aparato yuxtaglomerular, arteriola aferente Induce la secreción de renina. Constriñe la arteriola aferente. Reduce la GFR y el volumen de orina Paratirina PCT, DCT, asa de Henle Promueve la reabsorción de Ca2+ en el asa de Henle y el DCT. Aumenta la secreción de fosfatos en el PCT.",
+    "texto_nuevo": "Inhibe la secreción de renina, vasopresina y aldosterona. Inhibe la reabsorción de NaCl en el túbulo colector. Aumenta el volumen de orina y reduce la presión arterial Calcitonina DCT Efectos débiles similares a los de la paratirina Calcitriol DCT Efectos débiles similares a los de la paratirina Epinefrina y norepinefrina Aparato yuxtaglomerular, arteriola aferente Induce la secreción de renina. Constriñe la arteriola aferente. Reduce la GFR y el volumen de orina Paratirina PCT, DCT, asa de Henle Promueve la reabsorción de Ca dos más en el asa de Henle y el DCT. Aumenta la secreción de fosfatos en el PCT."
+  },
+  {
+    "j": 182,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9008 < 0.92",
+    "similitud": 0.9008,
+    "pagina": 946,
+    "texto_viejo": "• Gravedad específi ca. Es la relación entre la densidad , g o ml, de una sustancia y la del agua destilada. Esta última tiene gravedad específi ca de un coma cero cero cero, y la de la orina va de un coma cero cero un cuando está muy diluida a un coma cero dos ocho cuando está muy concentrada. La multiplicación de los últimos dos dígitos de la gravedad específi ca por la constante de proporcionalidad dos coma seis da un estimado de los gramos de materia sólida por litro de orina.",
+    "texto_nuevo": "• Gravedad específica. Es la relación entre la densidad, gramos por mililitro, de una sustancia y la del agua destilada. Esta última tiene gravedad específica de mil, y la de la orina va de mil un cuando está muy diluida a mil veintiocho cuando está muy concentrada. La multiplicación de los últimos dos dígitos de la gravedad específica por la constante de proporcionalidad dos punto seis da un estimado de los gramos de materia sólida por litro de orina."
+  },
+  {
+    "j": 183,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.8000 < 0.92",
+    "similitud": 0.8,
+    "pagina": 946,
+    "texto_viejo": "Por ejemplo, la gravedad específi ca de un coma cero dos cinco indica concentración de solutos de veinticinco × dos coma seis igual a sesenta y cinco g o L. • Osmolaridad. La de la orina puede ir de cincuenta mosm o L en una persona muy hidratada a un doscientos mosm o L en una que está deshidratada. Si se le compara con la osmolaridad de la sangre , trescientos mosm o L, la orina puede ser hipotónica o hipertónica. • pH.",
+    "texto_nuevo": "Por ejemplo, la gravedad específica de mil veinticinco indica concentración de solutos de veinticinco por dos punto seis igual a sesenta y cinco gramos por litro. • Osmolaridad. La de la orina puede ir de cincuenta miliosmoles por litro en una persona muy hidratada a mil doscientos miliosmoles por litro en una que está deshidratada. Si se le compara con la osmolaridad de la sangre, trescientos miliosmoles por litro, la orina puede ser hipotónica o hipertónica. • pH."
+  },
+  {
+    "j": 186,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9091 < 0.92",
+    "similitud": 0.9091,
+    "pagina": 946,
+    "texto_viejo": "diecinueve py igual a pus; ouria igual a micción. H2O Urea Reabsorción tubular Secreción tubular Urea H+ K+ NH4+ Na+ Cl– HCO3– H2O Urea H+ Ácido úrico NH4+ Creatinina Algunos fármacos Glucosa Na+ Aminoácidos K+ Proteínas Ca2+ Vitaminas Mg2+ Lactato Cl– Urea HCO3– Ácido úrico H2O Na+ K+ Cl– H2O Túbulo colector Asa de Henle: Extremidad descendente Extremidad ascendente PCT DCT Clave FIGURA veintitrés coma dos dos Solutos reabsorbidos y secretados en cada parte del túbulo renal.",
+    "texto_nuevo": "diecinueve py igual a pus; ouria igual a micción. H dos O Urea Reabsorción tubular Secreción tubular Urea H más K más N H cuatro más Na más Cl menos H C O tres menos H dos O Urea H más Ácido úrico N H cuatro más Creatinina Algunos fármacos Glucosa Na más Aminoácidos K más Proteínas Ca dos más Vitaminas Mg dos más Lactato Cl menos Urea H C O tres menos Ácido úrico H dos O Na más K más Cl menos H dos O Túbulo colector Asa de Henle: Extremidad descendente Extremidad ascendente PCT DCT Clave FIGURA veintitrés punto veintidós Solutos reabsorbidos y secretados en cada parte del túbulo renal."
+  },
+  {
+    "j": 192,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9811,
+    "pagina": 947,
+    "texto_viejo": "Diuréticos Un diurético es cualquier sustancia química que incrementa el volumen de orina. Algunos diuréticos actúan mediante el incremento de la fi ltración glomerular, como la cafeína, la cual dilata la arteriola aferente. Otros actúan al reducir la reabsorción tubular del agua. Por ejemplo, el alcohol inhibe la secreción de vasopresina y, por tanto, reduce la reabsorción en el túbulo colector. Los diuréticos de asa, como la furosemida, actúan sobre el asa de Henle para inhibir el cotransporte unidireccional de Na+-K+-Cl–.",
+    "texto_nuevo": "Diuréticos Un diurético es cualquier sustancia química que incrementa el volumen de orina. Algunos diuréticos actúan mediante el incremento de la filtración glomerular, como la cafeína, la cual dilata la arteriola aferente. Otros actúan al reducir la reabsorción tubular del agua. Por ejemplo, el alcohol inhibe la secreción de vasopresina y, por tanto, reduce la reabsorción en el túbulo colector. Los diuréticos de asa, como la furosemida, actúan sobre el asa de Henle para inhibir el cotransporte unidireccional de Na más K más Cl menos."
+  },
+  {
+    "j": 195,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.5668 < 0.92",
+    "similitud": 0.5668,
+    "pagina": 947,
+    "texto_viejo": "CUADRO veintitrés coma dos Propiedades y composición de la orina Propiedades físicas Gravedad específica un coma cero cero un a un coma cero dos ocho Osmolaridad cincuenta a un doscientos mosm o L pH seis coma cero , rango: cuatro coma cinco a ocho coma dos, Soluto Concentración Producción Iones inorgánicos Cloruro quinientos treinta y tres mg o dL seis coma cuatro g o día Sodio trescientos treinta y tres mg o dL cuatro coma cero g o día Potasio ciento sesenta y seis mg o dL dos coma cero g o día Fosfato ochenta y tres mg o dL un g o día Amoniaco sesenta mg o dL cero coma seis ocho g o día Calcio diecisiete mg o dL cero coma dos g o día Magnesio trece mg o dL cero coma un seis g o día Desechos nitrogenados Urea un coma ocho g o dL veintiuno g o día Creatinina ciento cincuenta mg o dL un coma ocho g o día Ácido úrico cuarenta mg o dL cero coma cinco g o día Urobilina ciento veinticinco μg o dL un coma cinco dos mg o día Bilirrubina veinte μg o dL cero coma dos cuatro mg o día Otros solutos orgánicos Aminoácidos doscientos ochenta y ocho μg o dL tres coma cinco mg o día Cetonas diecisiete μg o dL cero coma dos un mg o día Carbohidratos nueve μg o dL cero coma un un mg o día Lípidos un coma seis μg o dL cero coma cero dos mg o día Valores típicos para un adulto joven.",
+    "texto_nuevo": "CUADRO veintitrés punto dos Propiedades y composición de la orina Propiedades físicas Gravedad específica mil uno a mil veintiocho Osmolaridad cincuenta a mil doscientos miliosmoles por litro pH seis punto cero, rango: cuatro punto cinco a ocho punto dos, Soluto Concentración Producción Iones inorgánicos Cloruro quinientos treinta y tres miligramos por decilitro seis punto cuatro gramos por día Sodio trescientos treinta y tres miligramos por decilitro cuatro punto cero gramos por día Potasio ciento sesenta y seis miligramos por decilitro dos punto cero gramos por día Fosfato ochenta y tres miligramos por decilitro un gramo por día Amoniaco sesenta miligramos por decilitro cero coma seis ocho gramos por día Calcio diecisiete miligramos por decilitro cero coma dos gramos por día Magnesio trece miligramos por decilitro cero coma uno seis gramos por día Desechos nitrogenados Urea uno punto ocho gramos por decilitro veintiún gramos por día Creatinina ciento cincuenta miligramos por decilitro uno punto ocho gramos por día Ácido úrico cuarenta miligramos por decilitro cero coma cinco gramos por día Urobilina ciento veinticinco microgramos por decilitro uno punto cincuenta y dos miligramos por día Bilirrubina veinte microgramos por decilitro cero coma dos cuatro miligramos por día Otros solutos orgánicos Aminoácidos doscientos ochenta y ocho microgramos por decilitro tres punto cinco miligramos por día Cetonas diecisiete microgramos por decilitro cero coma dos uno miligramos por día Carbohidratos nueve microgramos por decilitro cero coma uno uno miligramos por día Lípidos uno punto seis microgramos por decilitro cero coma cero dos miligramos por día Valores típicos para un adulto joven."
+  },
+  {
+    "j": 254,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 954,
+    "texto_viejo": "SISTEMA MUSCULAR El control renal del equilibrio entre Na+, K+ y Ca2+ es importante para la excitabilidad y contractilidad musculares. SISTEMA NERVIOSO El control renal del equilibrio entre Na+, K+ y Ca2+ es importante para la generación, conducción y transmisión sináptica de señales neuronales. APARATO CIRCULATORIO Los riñones influyen en la presión arterial más que cualquier otro órgano, excepto el corazón, y regulan la composición de la sangre. La disfunción renal puede causar desequilibrios hidroelectrolíticos que afectan el ritmo cardiaco.",
+    "texto_nuevo": "SISTEMA MUSCULAR El control renal del equilibrio entre Na más, K más y Ca dos más es importante para la excitabilidad y contractilidad musculares. SISTEMA NERVIOSO El control renal del equilibrio entre Na más, K más y Ca dos más es importante para la generación, conducción y transmisión sináptica de señales neuronales. APARATO CIRCULATORIO Los riñones influyen en la presión arterial más que cualquier otro órgano, excepto el corazón, y regulan la composición de la sangre. La disfunción renal puede causar desequilibrios hidroelectrolíticos que afectan el ritmo cardiaco."
+  }
+]

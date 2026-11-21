@@ -1,0 +1,839 @@
+[
+  {
+    "capitulo": "Tema_19_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Ion mal leído: CO2 más",
+    "veredicto": "falso_positivo",
+    "buscar": "Más aún, el CO2 genera iones hidrógeno al reaccionar con el agua: CO2 más H2O produce ion bicarbonato más hidrógeno.",
+    "reemplazar": null,
+    "motivo": "Falso positivo: 'CO2 más H2O' representa la suma química CO2 + H2O, no un ion CO2+."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/7)",
+    "veredicto": "real",
+    "buscar": "Estas membranas contienen las arterias y venas mesentéricas.\n\nPARTE CUATRO Regulación y mantenimiento Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuál es el término para la membrana serosa que suspende los intestinos desde la pared abdominal? dos. ¿Cuál proceso fisiológico del aparato digestivo en verdad mueve un nutrimento del exterior al interior del cuerpo. tres. ¿Qué tipo de reacción es la base de toda la digestión química? cuatro. Mencione algunos nutrimentos que son absorbidos sin digerirse.\n\nveinticinco punto dos De la boca al esófago",
+    "reemplazar": "Estas membranas contienen las arterias y venas mesentéricas.\n\nveinticinco punto dos De la boca al esófago",
+    "motivo": "Elimina encabezado de página incrustado y bloque de autoevaluación (preguntas 1-4)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/7)",
+    "veredicto": "real",
+    "buscar": "se relaja para dejarlo pasar al estómago. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cinco. Elabore una lista de todas las funciones de la lengua que pueda recordar. seis. Trace una línea imaginaria del hueso mandibular al conducto radicular de una pieza dental. Mencione en orden los tejidos por los que pasaría la línea. siete. ¿Cuál es la diferencia, en función y ubicación, entre las glándulas salivales extrínsecas y las intrínsecas? Enumere las glándulas salivales extrínsecas y describa su ubicación. ocho. Identifique por lo menos dos características histológicas del esófago que están unidas de manera especial a su función en la deglución. nueve. Describa los mecanismos que impiden que la comida entre en la cavidad nasal y la laringe durante la deglución.\n\nveinticinco punto tres",
+    "reemplazar": "se relaja para dejarlo pasar al estómago.\n\nveinticinco punto tres",
+    "motivo": "Elimina bloque de autoevaluación (preguntas 5-9)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/7)",
+    "veredicto": "real",
+    "buscar": "nutrimentos que están por absorberse en el intestino delgado. Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: diez. Mencione cuatro tipos de células epiteliales de las glándulas gástricas y pilóricas y enuncie lo que secreta cada una. once. Explique cómo las glándulas gástricas producen ácido hidroclorhídrico y por qué esto lleva a una ola alcalina. doce. ¿Qué ciclo de retroalimentación positiva puede identificarse en la formación de pepsina y en su acción? trece. ¿De qué manera la comida en el duodeno inhibe la motilidad y secreción en el estómago?\n\nveinticinco punto cuatro El hígado",
+    "reemplazar": "nutrimentos que están por absorberse en el intestino delgado.\n\nveinticinco punto cuatro El hígado",
+    "motivo": "Elimina bloque de autoevaluación (preguntas 10-13); usa 'para probar la comprensión' exacto del archivo _TEXTO_LITERAL_VERIFICADO (y Saladin p. 974)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/7)",
+    "veredicto": "real",
+    "buscar": "que muestre la manera como la secretina influye en el pe hache duodenal. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: catorce. ¿Qué hace que el hígado contribuya a la digestión? quince. Siga la ruta tomada por los ácidos biliares del hígado y de regreso a éste. ¿Cómo se denomina esta ruta? dieciséis. Mencione dos hormonas, cuatro enzimas y un amortiguador secretado por el páncreas, y establezca la función de cada uno. diecisiete. ¿Qué estimula la secreción de colecistocinina, C C K, y la manera como la C C K afecta a otras partes del aparato digestivo?\n\nveinticinco punto cinco El intestino delgado",
+    "reemplazar": "que muestre la manera como la secretina influye en el pe hache duodenal.\n\nveinticinco punto cinco El intestino delgado",
+    "motivo": "Elimina bloque de autoevaluación (preguntas 14-17)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/7)",
+    "veredicto": "real",
+    "buscar": "evita el reflujo de contenido cecal en el íleon. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: dieciocho. ¿Cuáles son las tres estructuras que aumentan la superficie de absorción del intestino delgado? diecinueve. Dibuje una vellosidad e indique epitelio, borde en cepillo, lámina propia, capilares y vasos quilíferos. a Segmentación b Peristalsis FIGURA veinticinco coma dos seis",
+    "reemplazar": "evita el reflujo de contenido cecal en el íleon.\n\nFIGURA veinticinco coma dos seis",
+    "motivo": "Elimina preguntas 18-19 de autoevaluación y etiquetas previas al pie de la figura 25.26."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (6/7)",
+    "veredicto": "real",
+    "buscar": "por qué tiene un efecto laxante. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintiuno. ¿Cuáles son las tres clases de nutrimentos más abundantes? ¿Cuáles son los productos finales de la digestión enzimática de cada uno? veintidós. Mencione las dos enzimas digestivas presentes en la saliva. ¿Por qué una de ellas es más activa en el estómago que en la boca? veintitrés. Enumere la mayor cantidad posible de enzimas del borde en cepillo intestinal, e identifique el sustrato o la función de cada una. veinticuatro. Explique la diferencia entre una gotita de emulsión, una micela y un quilomicrón. veinticinco. ¿Qué le sucede a las enzimas digestivas después de que han hecho su trabajo? ¿Qué le sucede a las células epiteliales muertas que se desprenden de la mucosa gastrointestinal? Explique.",
+    "reemplazar": "por qué tiene un efecto laxante.",
+    "motivo": "Elimina bloque de autoevaluación (preguntas 21-25)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (7/7)",
+    "veredicto": "real",
+    "buscar": "se añade su descripción. treinta y dos flor igual a flor, planta, las bacterias se clasificaron alguna vez en el reino vegetal,.\n\nCAPÍTULO veinticinco El aparato digestivo Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintiséis. ¿En qué se diferencian las mucosas de los intestinos delgado y grueso? ¿Cómo se diferencian las capas musculares externas? veintisiete. Mencione y describa, de manera breve, dos tipos de contracciones que sólo ocurren en el colon y en ningún otro lugar del conducto alimentario. veintiocho. Describa los reflejos que causan la defecación en un lactante. Describa los controles neurales adicionales que funcionan después del entrenamiento para usar el baño. Impulsos de la corteza cerebral",
+    "reemplazar": "se añade su descripción.\n\nImpulsos de la corteza cerebral",
+    "motivo": "Elimina nota al pie 32, encabezado de capítulo y bloque de autoevaluación (preguntas 26-28)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (1/7)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿Cuál es el término para la membrana serosa",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque Antes de proseguir (1/7)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (2/7)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cinco. Elabore una lista de todas las funciones",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque Antes de proseguir (2/7)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (3/7)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar la comprensión de la sección anterior: diez. Mencione cuatro tipos de células",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque Antes de proseguir (3/7)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (4/7)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: catorce. ¿Qué hace que el hígado contribuya",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque Antes de proseguir (4/7)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (5/7)",
+    "veredicto": "real",
+    "buscar": "lleva su contenido hacia el colon.\n\nPARTE CUATRO Regulación y mantenimiento veinte. Distinga entre segmentación y el complejo motor de migración del intestino delgado. ¿Qué diferencias presentan sus funciones?\n\nveinticinco punto seis",
+    "reemplazar": "lleva su contenido hacia el colon.\n\nveinticinco punto seis",
+    "motivo": "Elimina el encabezado incrustado y la pregunta 20 restante del bloque Antes de proseguir (5/7) tras la figura 25.26."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (6/7)",
+    "veredicto": "real",
+    "buscar": "PARTE CUATRO Regulación y mantenimiento veinticinco coma siete El intestino grueso Resultados esperados del aprendizaje",
+    "reemplazar": "veinticinco punto siete El intestino grueso Resultados esperados del aprendizaje",
+    "motivo": "Elimina encabezado incrustado tras Antes de proseguir (6/7) y normaliza 'veinticinco punto siete'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (7/7)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintiséis. ¿En qué se diferencian las mucosas",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque Antes de proseguir (7/7)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: caries7",
+    "veredicto": "real",
+    "buscar": "A las cavidades erosionadas de los dientes se les conoce como caries7 dental. Si no se reparan",
+    "reemplazar": "A las cavidades erosionadas de los dientes se les conoce como caries dental. Si no se reparan",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'caries'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: antros10",
+    "veredicto": "real",
+    "buscar": "está subdividida en antros10 parecidos a embudos y un más estrecho conducto pilórico.",
+    "reemplazar": "está subdividida en antros parecidos a embudos y un más estrecho conducto pilórico.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'antros'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: emético12",
+    "veredicto": "real",
+    "buscar": "Requiere varias acciones musculares integradas por el centro emético12 del bulbo raquídeo.",
+    "reemplazar": "Requiere varias acciones musculares integradas por el centro emético del bulbo raquídeo.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'emético'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: caudado14",
+    "veredicto": "real",
+    "buscar": "un lóbulo cuadrado cercano a la vesícula biliar y un lóbulo caudado14 posterior a éste. Una apertura irregular entre éstos, el hilio portal, hepatis porta15, es un punto de entrada",
+    "reemplazar": "un lóbulo cuadrado cercano a la vesícula biliar y un lóbulo caudado posterior a éste. Una apertura irregular entre éstos, el hilio portal, hepatis porta, es un punto de entrada",
+    "motivo": "Quita llamadas numéricas de nota al pie pegadas a 'caudado' y 'porta'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: íleon22",
+    "veredicto": "real",
+    "buscar": "Aquí se realiza la mayor parte de la digestión y la absorción de nutrimentos. El íleon22 forma el último sesenta por ciento",
+    "reemplazar": "Aquí se realiza la mayor parte de la digestión y la absorción de nutrimentos. El íleon forma el último sesenta por ciento",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'íleon'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: troenterología.un veinticin",
+    "veredicto": "real",
+    "buscar": "al diagnóstico y tratamiento de sus trastornos se le denomina gastroenterología.un veinticinco coma un Anatomía general y procesos digestivos Resultados esperados del aprendizaje",
+    "reemplazar": "al diagnóstico y tratamiento de sus trastornos se le denomina gastroenterología.\n\nveinticinco punto uno Anatomía general y procesos digestivos Resultados esperados del aprendizaje",
+    "motivo": "Quita llamada 'un' tras punto y separa el título de sección 25.1 en su propia línea."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: vioso entérico,dos que regul",
+    "veredicto": "real",
+    "buscar": "tienen una red nerviosa a la que se denomina sistema nervioso entérico,dos que regula la movilidad, la secreción y el flujo sanguíneo",
+    "reemplazar": "tienen una red nerviosa a la que se denomina sistema nervioso entérico, que regula la movilidad, la secreción y el flujo sanguíneo",
+    "motivo": "Quita llamada de nota al pie 'dos' tras coma."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: las figuras A.nueve y A.diez,",
+    "veredicto": "real",
+    "buscar": "o unirse a la pared abdominal anterior u otros órganos. La relación entre los mesenterios y la serosa se muestra en las figuras A.nueve y A.diez, pp. treinta y seis a treinta y siete,. Submucosa: Glándula esofágica",
+    "reemplazar": "o unirse a la pared abdominal anterior u otros órganos. Submucosa: Glándula esofágica",
+    "motivo": "Elimina oración de referencia visual a las figuras A.9 y A.10 (incluye A.nueve y A.diez)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: as A.nueve y A.diez, pp. trei",
+    "veredicto": "real",
+    "buscar": "en las figuras A.nueve y A.diez, pp. treinta y seis a treinta y siete,.",
+    "reemplazar": null,
+    "motivo": "Ya resuelto al eliminar la referencia visual a las figuras A.nueve y A.diez en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: enomina fauces.cinco La boca e",
+    "veredicto": "real",
+    "buscar": "y su apertura posterior en la garganta se denomina fauces.cinco La boca está recubierta con epitelio pavimentoso estratificado.",
+    "reemplazar": "y su apertura posterior en la garganta se denomina fauces. La boca está recubierta con epitelio pavimentoso estratificado.",
+    "motivo": "Quita llamada de nota al pie 'cinco' tras punto."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: se la figura B.dos, p. tresc (1/2)",
+    "veredicto": "real",
+    "buscar": "FIGURA veinticinco coma cuatro La cavidad bucal. Para conocer una vista medial, véase la figura B.dos, p. trescientos ochenta y dos,.\n\nCAPÍTULO veinticinco El aparato digestivo Las dos terceras partes anteriores",
+    "reemplazar": "FIGURA veinticinco coma cuatro La cavidad bucal.\n\nLas dos terceras partes anteriores",
+    "motivo": "Elimina referencia visual 'véase la figura B.dos...' y encabezado de capítulo incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: se la figura B.dos, p. tresc (2/2)",
+    "veredicto": "real",
+    "buscar": "FIGURA veinticinco coma cinco La lengua. Para conocer un corte sagital, véase la figura B.dos, p. trescientos ochenta y dos,.\n\nPARTE CUATRO Regulación y mantenimiento gonfosis, entre el diente y el hueso.",
+    "reemplazar": "FIGURA veinticinco coma cinco La lengua.\n\ngonfosis, entre el diente y el hueso.",
+    "motivo": "Elimina referencia visual 'véase la figura B.dos...' y encabezado de parte incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ueso. La úvula,seis visible e",
+    "veredicto": "real",
+    "buscar": "por músculo estriado y tejido glandular, pero no hueso. La úvula,seis visible en la parte posterior de la boca, tiene una extensión medial cónica",
+    "reemplazar": "por músculo estriado y tejido glandular, pero no hueso. La úvula, visible en la parte posterior de la boca, tiene una extensión medial cónica",
+    "motivo": "Quita llamada de nota al pie 'seis' tras coma."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ulas parótidas,ocho localizad",
+    "veredicto": "real",
+    "buscar": "Las tres glándulas salivales extrínsecas son: un. Las glándulas parótidas,ocho localizadas justo debajo de la piel anterior a las orejas.",
+    "reemplazar": "Las tres glándulas salivales extrínsecas son: un. Las glándulas parótidas, localizadas justo debajo de la piel anterior a las orejas.",
+    "motivo": "Quita llamada de nota al pie 'ocho' tras coma."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ida como quimo.nueve La mayor",
+    "veredicto": "real",
+    "buscar": "una mezcla de alimentos no digeridos conocida como quimo.nueve La mayor parte de la digestión ocurre después de que el quimo pasa al intestino delgado.",
+    "reemplazar": "una mezcla de alimentos no digeridos conocida como quimo. La mayor parte de la digestión ocurre después de que el quimo pasa al intestino delgado.",
+    "motivo": "Quita llamada de nota al pie 'nueve' tras punto."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: a en el piloro,once un pasaje",
+    "veredicto": "real",
+    "buscar": "Este último termina en el piloro,once un pasaje estrecho en el duodeno. El píloro está rodeado",
+    "reemplazar": "Este último termina en el piloro, un pasaje estrecho en el duodeno. El píloro está rodeado",
+    "motivo": "Quita llamada de nota al pie 'once' tras coma."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: nto falciforme,trece una hoja",
+    "veredicto": "real",
+    "buscar": "Están separados entre sí por un ligamento falciforme,trece una hoja de mesenterio que suspende el hígado del diafragma",
+    "reemplazar": "Están separados entre sí por un ligamento falciforme, una hoja de mesenterio que suspende el hígado del diafragma",
+    "motivo": "Quita llamada de nota al pie 'trece' tras coma."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: de doce dedos.veinte Empieza e",
+    "veredicto": "real",
+    "buscar": "Su nombre alude a su longitud, que es igual al ancho de doce dedos.veinte Empieza en la válvula pilórica, forma un arco",
+    "reemplazar": "Su nombre alude a su longitud, que es igual al ancho de doce dedos. Empieza en la válvula pilórica, forma un arco",
+    "motivo": "Quita llamada de nota al pie 'veinte' tras punto."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: se la figura A.seis, p. trein",
+    "veredicto": "real",
+    "buscar": "al hecho de que los primeros anatomistas solían encontrarlo vacío.veintiuno El yeyuno empieza en el cuadrante superior izquierdo del abdomen pero yace básicamente dentro de la región umbilical, véase la figura A.seis, p. treinta y tres,. Tiene pliegues grandes",
+    "reemplazar": "al hecho de que los primeros anatomistas solían encontrarlo vacío. El yeyuno empieza en el cuadrante superior izquierdo del abdomen pero yace básicamente dentro de la región umbilical. Tiene pliegues grandes",
+    "motivo": "Quita llamada 'veintiuno' tras punto y elimina la referencia visual 'véase la figura A.seis, p. treinta y tres,'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un gastro igual a estómago; enter igual a intestino; logi igual a estu...",
+    "veredicto": "real",
+    "buscar": "y mencionar los principales sustratos y productos de este proceso. un gastro igual a estómago; enter igual a intestino; logi igual a estudio.\n\nCAPÍTULO veinticinco El aparato digestivo que es absorbido por las células epiteliales del tubo digestivo.",
+    "reemplazar": "y mencionar los principales sustratos y productos de este proceso.\n\nque es absorbido por las células epiteliales del tubo digestivo.",
+    "motivo": "Elimina glosa etimológica de nota al pie 1 y encabezado de capítulo incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . nueve khym igual a líquido.",
+    "veredicto": "real",
+    "buscar": "se filtra a través del hígado antes de regresar al corazón. nueve khym igual a líquido. diez antro igual a cavidad. once pyl igual a puerta; or igual a que vigila.\n\nPARTE CUATRO Regulación y mantenimiento FIGURA veinticinco coma un dos El estómago.",
+    "reemplazar": "se filtra a través del hígado antes de regresar al corazón.\n\nFIGURA veinticinco coma un dos El estómago.",
+    "motivo": "Elimina glosas etimológicas de notas al pie 9-11 y encabezado de parte incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . once pyl igual a puerta; or igual a que vigila.",
+    "veredicto": "real",
+    "buscar": "diez antro igual a cavidad. once pyl igual a puerta; or igual a que vigila.",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque de notas al pie 9-11 en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . doce eme igual a vomitar.",
+    "veredicto": "real",
+    "buscar": "puede inducirse por imágenes, olores o ideas que repugnan,. doce eme igual a vomitar.\nCUADRO veinticinco coma un Principales secreciones",
+    "reemplazar": "puede inducirse por imágenes, olores o ideas que repugnan.\nCUADRO veinticinco coma un Principales secreciones",
+    "motivo": "Elimina glosa etimológica de nota al pie 12."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece falci igual a hoz; forme igual a que tiene forma de.",
+    "veredicto": "real",
+    "buscar": "También eliminan y degradan hormonas, toxinas, pigmentos biliares y fármacos. trece falci igual a hoz; forme igual a que tiene forma de. catorce caud igual a cola. quince hepat igual a hígado; porta igual a puerta.\n\nCAPÍTULO veinticinco El aparato digestivo Al mismo tiempo, secretan albúmina",
+    "reemplazar": "También eliminan y degradan hormonas, toxinas, pigmentos biliares y fármacos.\n\nAl mismo tiempo, secretan albúmina",
+    "motivo": "Elimina glosas etimológicas de notas al pie 13-15 y encabezado de capítulo incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . quince hepat igual a hígado; porta igual a puerta.",
+    "veredicto": "real",
+    "buscar": "catorce caud igual a cola. quince hepat igual a hígado; porta igual a puerta.",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar el bloque de notas al pie 13-15 en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . veinte duodeni igual a doce dedos de longitud.",
+    "veredicto": "real",
+    "buscar": "se hizo a un lado para exponer el mesenterio y la unión ileocecal. veinte duodeni igual a doce dedos de longitud. veintiuno ieium igual a que ayuna. veintidós ilium igual a entrañas.\n\nCAPÍTULO veinticinco El aparato digestivo yeyuno, su pared es más delgada",
+    "reemplazar": "se hizo a un lado para exponer el mesenterio y la unión ileocecal.\n\nyeyuno, su pared es más delgada",
+    "motivo": "Elimina glosas etimológicas de notas al pie 20-22 y encabezado de capítulo incrustado."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura (1/3)",
+    "veredicto": "real",
+    "buscar": "FIGURA veinticinco coma cuatro La cavidad bucal. Para conocer una vista medial, véase la figura B.dos, p. trescientos ochenta y dos,.",
+    "reemplazar": null,
+    "motivo": "Ya cubierto en Rev 4 (se la figura B.dos, 1/2)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura (2/3)",
+    "veredicto": "real",
+    "buscar": "FIGURA veinticinco coma cinco La lengua. Para conocer un corte sagital, véase la figura B.dos, p. trescientos ochenta y dos,.",
+    "reemplazar": null,
+    "motivo": "Ya cubierto en Rev 4 (se la figura B.dos, 2/2)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura (3/3)",
+    "veredicto": "real",
+    "buscar": "yace básicamente dentro de la región umbilical, véase la figura A.seis, p. treinta y tres,.",
+    "reemplazar": null,
+    "motivo": "Ya cubierto en Rev 4 (se la figura A.seis, p. trein)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase también la figura",
+    "veredicto": "real",
+    "buscar": "Los músculos extrínsecos son el geniogloso, el hiogloso, el palatogloso y el estilogloso, figura veinticinco.5b; véase también la figura diez coma nueve, p. trescientos veintisiete,. Entre los músculos hay glándulas linguales",
+    "reemplazar": "Los músculos extrínsecos son el geniogloso, el hiogloso, el palatogloso y el estilogloso. Entre los músculos hay glándulas linguales",
+    "motivo": "Elimina referencia visual doble ('figura veinticinco.5b; véase también la figura diez coma nueve...')."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en el cuadro veinte a ocho",
+    "veredicto": "real",
+    "buscar": "c Sinusoide hepático. ●En el capítulo veinte, identifique dos vasos sanguíneos que irriguen sangre a los sinusoides hepáticos.\n\nCAPÍTULO veinticinco El aparato digestivo bazo, y la lleva al hígado en el hilio hepático; consúltese la entrada sistema hepático portal en el cuadro veinte a ocho, p. setecientos noventa,. Todos los nutrimentos absorbidos",
+    "reemplazar": "c Sinusoide hepático.\n\nbazo, y la lleva al hígado en el hilio hepático. Todos los nutrimentos absorbidos",
+    "motivo": "Elimina pregunta visual de pie de figura, encabezado incrustado y remisión al cuadro 20-8."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: en la figura veinte coma tres cero",
+    "veredicto": "real",
+    "buscar": "La sangre arterial unida por el hígado sale de la aorta por el tronco celiaco y sigue la ruta mostrada en la figura veinte coma tres cero: tronco celiaco menos → arteria hepática común menos → arteria hepática propia menos → arterias hepáticas derecha e izquierda, que entran en el hígado por la porta.",
+    "reemplazar": "La sangre arterial unida por el hígado sale de la aorta por el tronco celiaco y sigue esta ruta: tronco celiaco, arteria hepática común, arteria hepática propia y arterias hepáticas derecha e izquierda, que entran en el hígado por la porta.",
+    "motivo": "Quita referencia visual a la figura 20.30 y convierte flechas rotas ('menos →') a enumeración legible."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: inticinco.5b; véase t",
+    "veredicto": "real",
+    "buscar": "el estilogloso, figura veinticinco.5b; véase también la figura diez coma nueve",
+    "reemplazar": null,
+    "motivo": "Ya cubierto en Rev 5 (véase también la figura)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: inticinco.31b, que pas",
+    "veredicto": "real",
+    "buscar": "Los tres centímetros finales del intestino grueso corresponden al conducto anal, figura veinticinco.31b, que pasa por el músculo elevador del ano",
+    "reemplazar": "Los tres centímetros finales del intestino grueso corresponden al conducto anal, que pasa por el músculo elevador del ano",
+    "motivo": "Elimina referencia visual con dígito sin convertir ('figura veinticinco.31b')."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': A H CO2 + H2O men",
+    "veredicto": "real",
+    "buscar": "que cataliza el primer paso de la siguiente reacción: C A H CO2 + H2O menos menos menos → H2CO3 menos menos menos → HCO3 menos + hidrógeno Las células parietales bombean",
+    "reemplazar": "que cataliza el primer paso de la siguiente reacción, catalizada por C A H: dióxido de carbono más agua produce ácido carbónico, H2CO3, que produce ion bicarbonato más hidrógeno. Las células parietales bombean",
+    "motivo": "Convierte reacción química con símbolos '+', flechas rotas y 'HCO3 menos' a texto hablado limpio."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': 3 menos + hidróge",
+    "veredicto": "real",
+    "buscar": "H2CO3 menos menos menos → HCO3 menos + hidrógeno Las células parietales",
+    "reemplazar": null,
+    "motivo": "Ya resuelto al convertir la reacción completa en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': H2O CO2+ Ácido e",
+    "veredicto": "real",
+    "buscar": "cloruro CO2 HCO3 – Ola alcalina H2O CO2+ Ácido estomacal ATPasa hidrógeno-potasio FIGURA veinticinco coma un cuatro",
+    "reemplazar": "cloruro CO2 ion bicarbonato Ola alcalina H2O y CO2 Ácido estomacal ATPasa hidrógeno-potasio\nFIGURA veinticinco coma un cuatro",
+    "motivo": "Corrige el símbolo '+' pegado en 'CO2+' de las etiquetas de la figura 25.14."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': mpático + + + + +",
+    "veredicto": "real",
+    "buscar": "Secretina y C C K Gastrina intestinal Nervio simpático + + + + + – – – Fase cefálica El nervio vago",
+    "reemplazar": "Secretina y C C K Gastrina intestinal Nervio simpático. Fase cefálica: El nervio vago",
+    "motivo": "Elimina cadena de signos visuales '+' y '–' del diagrama de la figura 25.17."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': ático + + + + + –",
+    "veredicto": "real",
+    "buscar": "Gastrina intestinal Nervio simpático + + + + + – – – Fase cefálica",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar la cadena '+ + + + + – – –' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': ico + + + + + – –",
+    "veredicto": "real",
+    "buscar": "Nervio simpático + + + + + – – – Fase cefálica El nervio vago",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar la cadena '+ + + + + – – –' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': o + + + + + – – –",
+    "veredicto": "real",
+    "buscar": "Nervio simpático + + + + + – – – Fase cefálica El nervio vago estimula",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar la cadena '+ + + + + – – –' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + – – – F",
+    "veredicto": "real",
+    "buscar": "simpático + + + + + – – – Fase cefálica El nervio vago estimula la secreción",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar la cadena '+ + + + + – – –' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': tómago. + – Estim",
+    "veredicto": "real",
+    "buscar": "inhibe la estimulación vaga, parasimpática, del estómago. + – Estimulación Inhibición Reducida o sin efecto Clave – – – + + + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido estomacal",
+    "reemplazar": "inhibe la estimulación vaga, parasimpática, del estómago. La comida ingerida amortigua el ácido estomacal",
+    "motivo": "Elimina clave visual de signos '+' y '–' del diagrama de la figura 25.17-25.18."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': e – – – + + + + +",
+    "veredicto": "real",
+    "buscar": "Reducida o sin efecto Clave – – – + + + + + – + + + + + + + + + + +",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': – – – + + + + + –",
+    "veredicto": "real",
+    "buscar": "Clave – – – + + + + + – + + + + + + + + + + + La comida ingerida",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': – – + + + + + – +",
+    "veredicto": "real",
+    "buscar": "Clave – – – + + + + + – + + + + + + + + + + + La comida ingerida amortigua",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': – + + + + + – + +",
+    "veredicto": "real",
+    "buscar": "– – – + + + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + – + + +",
+    "veredicto": "real",
+    "buscar": "– – + + + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + – + + + + +",
+    "veredicto": "real",
+    "buscar": "– + + + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + – + + + + + +",
+    "veredicto": "real",
+    "buscar": "+ + + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + – + + + + + + +",
+    "veredicto": "real",
+    "buscar": "+ + + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': – + + + + + + + +",
+    "veredicto": "real",
+    "buscar": "+ + + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + + + +",
+    "veredicto": "real",
+    "buscar": "+ + – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + + + L",
+    "veredicto": "real",
+    "buscar": "+ – + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + + La",
+    "veredicto": "real",
+    "buscar": "– + + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + + La co",
+    "veredicto": "real",
+    "buscar": "+ + + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': + + + + + La comi",
+    "veredicto": "real",
+    "buscar": "+ + + + + + + + + + La comida ingerida amortigua el ácido",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al eliminar la clave visual de signos '+' y '–' en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': ión HCl + NaHCO3",
+    "veredicto": "real",
+    "buscar": "El bicarbonato de sodio amortigua el ácido hidroclorhídrico que llega del estómago, con la reacción HCl + NaHCO3 → NaCl + H2CO3, ácido carbónico, El ácido carbónico lo desdobla entonces",
+    "reemplazar": "El bicarbonato de sodio amortigua el ácido hidroclorhídrico que llega del estómago, con la reacción ácido clorhídrico más bicarbonato de sodio produce cloruro de sodio más ácido carbónico. El ácido carbónico lo desdobla entonces",
+    "motivo": "Convierte la ecuación química con '+' y '→' a texto hablado limpio."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': → NaCl + H2CO3,",
+    "veredicto": "real",
+    "buscar": "con la reacción HCl + NaHCO3 → NaCl + H2CO3, ácido carbónico,",
+    "reemplazar": null,
+    "motivo": "Ya resuelto al convertir la reacción química completa en el hallazgo anterior."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Ion sin convertir: CO2+",
+    "veredicto": "real",
+    "buscar": "Ola alcalina H2O CO2+ Ácido estomacal ATPasa hidrógeno-potasio",
+    "reemplazar": null,
+    "motivo": "Ya resuelto en el hallazgo del símbolo '+' (H2O CO2+ Ácido e)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Ion mal leído: HCO3 menos",
+    "veredicto": "real",
+    "buscar": "C A H CO2 + H2O menos menos menos → H2CO3 menos menos menos → HCO3 menos + hidrógeno",
+    "reemplazar": null,
+    "motivo": "Ya resuelto en el hallazgo del símbolo '+' (A H CO2 + H2O men)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO (1/2)",
+    "veredicto": "real",
+    "buscar": "y la sangre fresca es visible alrededor del margen de la úlcera.\n\nPARTE CUATRO Regulación y mantenimiento cientes o semiinconscientes. Por esta razón, la anestesia quirúrgica",
+    "reemplazar": "y la sangre fresca es visible alrededor del margen de la úlcera.\n\nPor esta razón, la anestesia quirúrgica",
+    "motivo": "Elimina el encabezado incrustado y la mitad desplazada 'cientes o semiinconscientes.' al cierre del recuadro 25.2 (reubicada antes del recuadro en el hallazgo Recuadro pegado al párrafo)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO (2/2)",
+    "veredicto": "real",
+    "buscar": "Enfermedad periodontal, p. novecientos sesenta y un Gingivitis, p. novecientos sesenta y un\n\nCAPÍTULO veinticinco El aparato digestivo CONOCIMIENTO MÁS A FONDO veinticinco coma cinco Historia médica El hombre con un agujero en el estómago Tal vez el episodio más famoso",
+    "reemplazar": "Enfermedad periodontal, p. novecientos sesenta y un. Gingivitis, p. novecientos sesenta y un.\n\nConocimiento más a fondo veinticinco punto cinco. Historia médica: El hombre con un agujero en el estómago\nTal vez el episodio más famoso",
+    "motivo": "Elimina encabezado incrustado y separa/normaliza el título del recuadro 25.5 en su propia línea."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HCI",
+    "veredicto": "real",
+    "buscar": "Célula mucosa Célula parietal Célula principal HCI Pepsinógeno, zimógeno, La pepsina digiere proteína dietética",
+    "reemplazar": "Célula mucosa Célula parietal Célula principal HCl Pepsinógeno, zimógeno, La pepsina digiere proteína dietética",
+    "motivo": "Corrige errata tipográfica 'HCI' (con i mayúscula) a 'HCl'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (1/7)",
+    "veredicto": "real",
+    "buscar": "con la ayuda de gotas o tabletas de lactasa.\n\nPARTE CUATRO Regulación y mantenimiento H N H O C HO H N H O C HO No ocurre digestión química La pepsina, hidroliza ciertos enlaces peptídicos",
+    "reemplazar": "con la ayuda de gotas o tabletas de lactasa.\n\nNo ocurre digestión química. La pepsina hidroliza ciertos enlaces peptídicos",
+    "motivo": "Elimina encabezado incrustado y fragmentos de fórmula estructural del diagrama de la figura 25.29."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (2/7)",
+    "veredicto": "real",
+    "buscar": "desdoblando proteínas en polipéptidos más pequeños O C HO H N H O C HO H N H O C o hache H H N H H N O C o hache O C HO H N H O C HO H N H O C o hache H H N H H N O C o hache La tripsina, y la quimotripsina,",
+    "reemplazar": "desdoblando proteínas en polipéptidos más pequeños. La tripsina y la quimotripsina",
+    "motivo": "Elimina fragmentos de fórmula estructural ('O C HO H N H...') del diagrama de la figura 25.29."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (3/7)",
+    "veredicto": "real",
+    "buscar": "desdoblando polipéptidos en oligopéptidos más pequeños. O C HO H H N H N H C O o hache H H N O C o hache H H N O C o hache O C o hache H H N H N H C O o hache O C o hache H H N O C o hache H H N O C o hache H H N O C o hache H H N O C o hache H H N O C o hache H H N La carboxipeptidasa, retira un aminoácido a la vez de extremo carboxilo, –ce o o hache, de un oligopéptido. O C o hache H H N O C o hache H H N O C o hache H H N La carboxipeptidasa, del borde en cepillo",
+    "reemplazar": "desdoblando polipéptidos en oligopéptidos más pequeños. La carboxipeptidasa retira un aminoácido a la vez del extremo carboxilo de un oligopéptido. La carboxipeptidasa del borde en cepillo",
+    "motivo": "Elimina fragmentos de fórmula estructural ('O C HO...' y 'O C o hache...') del diagrama de la figura 25.29."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (4/7)",
+    "veredicto": "real",
+    "buscar": "H N H O C HO H N H O C o hache H H N H H N O C o hache O C HO H N H O C HO",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar los fragmentos de fórmula estructural de la figura 25.29 (HO 1-3)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (5/7)",
+    "veredicto": "real",
+    "buscar": "O C HO H N H O C HO H N H O C o hache H H N H H N O C o hache La tripsina,",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar los fragmentos de fórmula estructural de la figura 25.29 (HO 1-3)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (6/7)",
+    "veredicto": "real",
+    "buscar": "H N H O C HO H N H O C o hache H H N H H N O C o hache La tripsina, y la quimotripsina,",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar los fragmentos de fórmula estructural de la figura 25.29 (HO 1-3)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: HO (7/7)",
+    "veredicto": "real",
+    "buscar": "en oligopéptidos más pequeños. O C HO H H N H N H C O o hache H H N O C o hache",
+    "reemplazar": null,
+    "motivo": "Ya cubierto al limpiar los fragmentos de fórmula estructural de la figura 25.29 (HO 1-3)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (1/3)",
+    "veredicto": "real",
+    "buscar": "FIGURA veinticinco coma tres tres Doctor y paciente en un estudio pionero sobre la digestión.\n\nEfectos del APARATO DIGESTIVO en otros sistemas de órganos TEMAS DE CONEXIÓN TODOS LOS SISTEMAS La digestión proporciona nutrimentos a todos los sistemas en formas útiles para el metabolismo celular y el crecimiento y mantenimiento de los tejidos. APARATO REPRODUCTOR La digestión proporciona nutrimentos para el crecimiento fetal; ciertos aspectos de la fertilización del óvulo dependen del calcio absorbido por el intestino delgado. APARATO URINARIO El hígado sintetiza la urea excretada por los riñones; esta urea también contribuye al gradiente osmótico que habilita a los riñones para que concentren la orina; los intestinos complementan a los riñones en la reabsorción de agua y electrólitos.",
+    "reemplazar": "FIGURA veinticinco coma tres tres Doctor y paciente en un estudio pionero sobre la digestión.",
+    "motivo": "Elimina parte 1/4 del recuadro Temas de conexión (decisión Ronald 16-11: no se lee)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (2/3)",
+    "veredicto": "real",
+    "buscar": " APARATO RESPIRATORIO La contracción de los músculos abdominales empuja el estómago contra el diafragma y ayuda a la espiración forzada. SISTEMAS LINFÁTICO E INMUNITARIO El intestino delgado es la fuente de los lípidos transportados por los vasos linfáticos; la mucosa intestinal es una fuente importante de linfocitos; ácido, enzimas y lisozima proporcionan defensa no específica contra patógenos ingeridos; los lactantes adquieren inmunidad pasiva mediante la absorción intestinal de IgA de la leche materna. SISTEMA TEGUMENTARIO Una hepatopatía puede causar la decoloración de la piel característica de la ictericia; el exceso de grasa dietética se deposita en el tejido adiposo dérmico y subcutáneo. SISTEMA ÓSEO El depósito y el mantenimiento de hueso dependen de la absorción de calcio y fosfato en el intestino delgado.",
+    "reemplazar": "",
+    "motivo": "Elimina parte 2/4 del recuadro Temas de conexión."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (3/3)",
+    "veredicto": "real",
+    "buscar": " SISTEMA MUSCULAR El hígado promueve la recuperación de la fatiga muscular al metabolizar el ácido láctico generado por los músculos; el hígado y el epitelio intestinal almacenan hierro y lo liberan a medida que se necesita para la síntesis de mioglobina. SISTEMA NERVIOSO Los péptidos enteroencefálicos producidos en el estómago y el intestino delgado estimulan a los centros de control del apetito en el encéfalo; el vómito crónico o la diarrea pueden causar desequilibrios hidroelectrolíticos y acidobásicos que llevan a la disfunción del sistema nervioso.",
+    "reemplazar": "",
+    "motivo": "Elimina parte 3/4 del recuadro Temas de conexión."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TODOS",
+    "veredicto": "real",
+    "buscar": " APARATO CIRCULATORIO La absorción del líquido intestinal da soporte al volumen sanguíneo; el hígado degrada el hemo de los eritrocitos muertos y sintetiza la albúmina, la mayor parte de los factores de coagulación sanguínea y otras proteínas plasmáticas; asimismo, estabiliza la concentración de glucosa en sangre; el hígado y el epitelio intestinal almacenan hierro y lo liberan según sea necesario para la síntesis de hemoglobina; el hígado secreta eritropoyetina, que estimula la producción de eritrocitos. SISTEMA ENDOCRINO El hígado degrada hormonas y limita su acción; muchas hormonas son producidas por células endocrinas del estómago, intestino, páncreas e hígado.",
+    "reemplazar": "",
+    "motivo": "Elimina parte 4/4 (cierre) del recuadro Temas de conexión; la sigla TODOS ya quedó eliminada en parte 1/4."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: do están inconsCONOCIMIENTO MÁS A FONDO veinticinco coma dos Aplica...",
+    "veredicto": "real",
+    "buscar": "Muchos han muerto debido a la aspiración de vómito cuando están inconsCONOCIMIENTO MÁS A FONDO veinticinco coma dos Aplicación clínica Úlcera gastroduodenal La inflamación del estómago, a la que se denomina gastritis",
+    "reemplazar": "Muchos han muerto debido a la aspiración de vómito cuando están inconscientes o semiinconscientes.\n\nConocimiento más a fondo veinticinco punto dos. Aplicación clínica: Úlcera gastroduodenal\nLa inflamación del estómago, a la que se denomina gastritis",
+    "motivo": "Completa la oración cortada ('inconscientes o semiinconscientes.') y separa/normaliza el título del recuadro 25.2."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: rato digestivo CONOCIMIENTO MÁS A FONDO veinticinco coma cinco Hist...",
+    "veredicto": "real",
+    "buscar": "CAPÍTULO veinticinco El aparato digestivo CONOCIMIENTO MÁS A FONDO veinticinco coma cinco Historia médica El hombre con un agujero en el estómago",
+    "reemplazar": null,
+    "motivo": "Ya cubierto en Sigla en mayúsculas: FONDO (2/2)."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: pregan- dos",
+    "veredicto": "real",
+    "buscar": "las fibras nerviosas entre las capas musculares externas. Las fibras pregan- dos entero igual a intestino. tres Georg Meissner, mil ochocientos veintinueve a mil novecientos cinco, histólogo alemán. cuatro Leopold Auerbach, mil ochocientos veintiocho a mil ochocientos ochenta y siete, anatomista alemán. Intestino delgado Colon ascendente Ciego Apéndice Colon descendente Colon transverso Hígado Vesícula biliar Diafragma Colon sigmoide Recto Conducto anal Páncreas Vía biliar Ano Estómago Esófago Glándula submandibular Faringe Glándula parótida Glándula sublingual Lengua Dientes Cavidad bucal FIGURA veinticinco coma un El aparato digestivo.\n\nPARTE CUATRO Regulación y mantenimiento glionares simpáticas terminan en los ganglios nerviosos del plexo mientérico.",
+    "reemplazar": "las fibras nerviosas entre las capas musculares externas. Las fibras preganglionares simpáticas terminan en los ganglios nerviosos del plexo mientérico.\n\nFIGURA veinticinco coma uno El aparato digestivo.",
+    "motivo": "Une 'preganglionares', elimina notas al pie 2-4, encabezado incrustado y etiquetas sueltas, conservando el pie de la figura 25.1."
+  }
+]

@@ -1,0 +1,275 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "B punto uno, Anatomía regional Como un todo, en este libro s"
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Lo importante es que no se piensa en todo un sistema de órga"
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el estudio de la anatomía humana es fácil preocuparse en "
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un conocimiento adecuado de las marcas principales en la sup"
+  },
+  {
+    "j": 5,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un intento que carece de la guía correcta para realizar algu"
+  },
+  {
+    "j": 6,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el atlas A se proporcionó una amplia revisión fotográfica"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Para hacer más redituable el uso de este atlas, puede volver"
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Búsquese relacionar los tendones visibles de la mano con los"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Además de huesos y músculos, se pueden palpar diversas arter"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Y cuanto más se estudie con otras personas, más se pueden ap"
+  },
+  {
+    "j": 11,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En las dos fotografías de la figura B punto veinticinco se h"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "b Vista anterior Borde superciliar Surco palpebral superior "
+  },
+  {
+    "j": 13,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "●¿Qué músculo se encuentra debajo de la región del filtrum? "
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Platisma M. trapecio Clavícula M. deltoides V. cefálica M. p"
+  },
+  {
+    "j": 15,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE DOS Soporte y movimiento Escroto Epiplón mayor Hígado "
+  },
+  {
+    "j": 16,
+    "accion": "REUSAR",
+    "origen": "parte_017.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se ha eliminado la pared anterior del cuerpo, y de la izquie"
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "M. recto femoral M. pectíneo M. tensor de la fascia lata Int"
+  },
+  {
+    "j": 18,
+    "accion": "REUSAR",
+    "origen": "parte_019.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se han eliminado el esternón, las costillas y el epiplón may"
+  },
+  {
+    "j": 19,
+    "accion": "REUSAR",
+    "origen": "parte_020.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "PARTE DOS Soporte y movimiento M. vasto lateral M. aductor l"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "vasto medial Trompa de Falopio Ovario Útero FIGURA B punto s"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "M. aductor corto M. aductor mayor Uretra Vagina Recto Sacro "
+  },
+  {
+    "j": 22,
+    "accion": "REUSAR",
+    "origen": "parte_023.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "PARTE DOS Soporte y movimiento b Mujer Fosa supraclavicular "
+  },
+  {
+    "j": 23,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "oblicuo abdominal externo M. deltoides Ángulo FIGURA B punto"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Infraespinoso Trapecio Olécranon Cresta iliaca Glúteo medio "
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Todas las características rotuladas son comunes a ambos sexo"
+  },
+  {
+    "j": 26,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE DOS Soporte y movimiento Nervios V. subclavia V. yugul"
+  },
+  {
+    "j": 27,
+    "accion": "REUSAR",
+    "origen": "parte_027.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "●En esta sección, ¿cuál término describe mejor la posición d"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Colon transverso Arterias y venas mesentéricas Colon sigmoid"
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "●¿Qué tejido de esta fotografía es superficial de manera inm"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "a Vista anterior b Vista posterior Olécranon Bíceps braquial"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE DOS Soporte y movimiento Articulaciones interfalángica"
+  },
+  {
+    "j": 32,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Vista lateral. FIGURA B punto dieciocho El antebrazo. ●Sólo "
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Eminencia hipotenar Eminencia tenar Pulgar Tendón palmar lar"
+  },
+  {
+    "j": 34,
+    "accion": "REUSAR",
+    "origen": "parte_034.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "●Marque en una o en ambas fotografías el lugar donde puede e"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE DOS Soporte y movimiento Lateral Medial Tensor de la f"
+  },
+  {
+    "j": 36,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Semimembranoso y tendón Vasto medial Epicóndilo medial del f"
+  },
+  {
+    "j": 37,
+    "accion": "REUSAR",
+    "origen": "parte_037.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "a Vista lateral de la extremidad izquierda. b Vista medial d"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "PARTE DOS Soporte y movimiento Tendón del semitendinoso Tend"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Vista posterior. FIGURA B punto veintitrés El pie, vistas pl"
+  }
+]

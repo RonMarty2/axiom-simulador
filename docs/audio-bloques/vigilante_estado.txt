@@ -297,3 +297,5 @@
 20-16:31 Resumen (Atlas_B_Morfo_Saladin_LITERAL_TTS): total=39, reusados=0, sintetizados=0, copiados_viejos=0, retomados=39, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 20-16:31 Resumen (Tema_01_Biologia_Celular_LITERAL_TTS): total=75, reusados=0, sintetizados=0, copiados_viejos=0, retomados=75, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 20-16:32 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+20-17:35 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=373, rondas_agotadas=32).
+21-18:09 sin cuota, espero 30 min

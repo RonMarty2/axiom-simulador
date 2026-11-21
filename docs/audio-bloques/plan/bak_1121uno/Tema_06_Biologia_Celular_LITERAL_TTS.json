@@ -1,0 +1,961 @@
+[
+  {
+    "j": 1,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "CAPÍTULO seis Especializaciones de la membrana plasmática e "
+  },
+  {
+    "j": 2,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "matriz extracelular, así como la biogénesis del colágeno. • "
+  },
+  {
+    "j": 3,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La interacción de las células con su entorno es de vital imp"
+  },
+  {
+    "j": 4,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La membrana plasmática desempeña un papel esencial en estos "
+  },
+  {
+    "j": 5,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Especializaciones de la membrana plasmática La membrana plas"
+  },
+  {
+    "j": 6,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Uniones comunicantes. FIGURA seis a un Representación de u"
+  },
+  {
+    "j": 7,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Microvellosidades Las microvellosidades son proyecciones dig"
+  },
+  {
+    "j": 8,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las microvellosidades tienen un glucocáliz muy desarrollado,"
+  },
+  {
+    "j": 9,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las microvellosidades se pueden presentar como estructuras i"
+  },
+  {
+    "j": 10,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la membrana de las microvellosidades hay además numerosas"
+  },
+  {
+    "j": 11,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En pacientes con esta enfermedad se observa, entre otras alt"
+  },
+  {
+    "j": 12,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "es desdoblar la lactosa ingerida en las comidas en sus dos c"
+  },
+  {
+    "j": 13,
+    "accion": "REUSAR",
+    "origen": "parte_013.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por lo tanto, cuando existe un aumento de esta proteína en l"
+  },
+  {
+    "j": 14,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Micropliegues: interdigitaciones y pliegues basales Los micr"
+  },
+  {
+    "j": 15,
+    "accion": "REUSAR",
+    "origen": "parte_015.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En el citoplasma que queda comprendido entre los pliegues ba"
+  },
+  {
+    "j": 16,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pliegues basales de células epiteliales del túbulo contornea"
+  },
+  {
+    "j": 17,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las células se adhieren entre sí y con la M E C a través de "
+  },
+  {
+    "j": 18,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas proteínas transmembrana establecen uniones con proteín"
+  },
+  {
+    "j": 19,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Asociadas a estas proteínas transmembrana se encuentran gran"
+  },
+  {
+    "j": 20,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Tabla seis a un Tipos de moléculas de adhesión celular que p"
+  },
+  {
+    "j": 21,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Al grupo de las cadherinas pertenecen más de cuarenta proteí"
+  },
+  {
+    "j": 22,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a cuatro Cadherinas. A. Representación de la est"
+  },
+  {
+    "j": 23,
+    "accion": "REUSAR",
+    "origen": "parte_024.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Existen dos clases fundamentales de estructuras complejas de"
+  },
+  {
+    "j": 24,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La zonula adherens consiste en un cinturón celular con funci"
+  },
+  {
+    "j": 25,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Un complejo de cateninas alfa y beta unen la placa de adhesi"
+  },
+  {
+    "j": 26,
+    "accion": "REUSAR",
+    "origen": "parte_027.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA seis a cinco Cinturones de adhesión y desmosomas. A. "
+  },
+  {
+    "j": 27,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La macula adherens, también denominada desmosoma, es una uni"
+  },
+  {
+    "j": 28,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En este sentido, los desmosomas resultan comparables, desde "
+  },
+  {
+    "j": 29,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existen diferentes tipos de desmogleínas, que se expresan de"
+  },
+  {
+    "j": 30,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ampollas que se rompen con mucha facilidad. Las lesiones pue"
+  },
+  {
+    "j": 31,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El análisis de las biopsias por inmunofluorescencia revela u"
+  },
+  {
+    "j": 32,
+    "accion": "REUSAR",
+    "origen": "parte_034.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Los autoanticuerpos son los responsables de la desestructura"
+  },
+  {
+    "j": 33,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se observa una rotura, acantólisis, de la epidermis por enci"
+  },
+  {
+    "j": 34,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las integrinas son una familia de proteínas que participan e"
+  },
+  {
+    "j": 35,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El dominio extracelular de la subunidad beta tiene capacidad"
+  },
+  {
+    "j": 36,
+    "accion": "REUSAR",
+    "origen": "parte_038.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "FIGURA seis a siete Integrinas. A. Estructura molecular de l"
+  },
+  {
+    "j": 37,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los hemidesmosomas son estructuras que, atendiendo a su morf"
+  },
+  {
+    "j": 38,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La integrina que forma parte de los hemidesmosomas es la int"
+  },
+  {
+    "j": 39,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las células migratorias se unen a la M E C mediante adhesion"
+  },
+  {
+    "j": 40,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las adhesiones focales no solo cumplen una función en la adh"
+  },
+  {
+    "j": 41,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La hiperactivación de F A K se ha asociado con una mayor cap"
+  },
+  {
+    "j": 42,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "También hay integrinas que median los contactos célula-célul"
+  },
+  {
+    "j": 43,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Selectinas, a continuación, en el proceso de extravasación d"
+  },
+  {
+    "j": 44,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Por otro lado, se ha observado que la unión de L F A-un con "
+  },
+  {
+    "j": 45,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las selectinas son moléculas de adhesión dependientes de cal"
+  },
+  {
+    "j": 46,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "ej., neutrófilos, al endotelio vascular para facilitar la mi"
+  },
+  {
+    "j": 47,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los receptores para las selectinas son oligosacáridos que fo"
+  },
+  {
+    "j": 48,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "tipos de selectinas: selectina P, cuyo nombre deriva de plaq"
+  },
+  {
+    "j": 49,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esto conduce después a una unión más firme, mediada por inte"
+  },
+  {
+    "j": 50,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las moléculas de adhesión de la superfamilia de las inmunogl"
+  },
+  {
+    "j": 51,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Entre las IgSF-C A M, podemos destacar las siguientes: • Mol"
+  },
+  {
+    "j": 52,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a nueve Estructura molecular de la icam-un, molé"
+  },
+  {
+    "j": 53,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La unión ocluyente, también llamada unión estrecha, es una z"
+  },
+  {
+    "j": 54,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a once Uniones ocluyentes. A. Las uniones ocluye"
+  },
+  {
+    "j": 55,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las uniones estrechas desempeñan dos funciones esenciales: u"
+  },
+  {
+    "j": 56,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Así ocurre en el intestino con el exceso de aminoácidos y az"
+  },
+  {
+    "j": 57,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En el lado intracelular, las ocludinas y las claudinas se en"
+  },
+  {
+    "j": 58,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Uniones comunicantes, o uniones de tipo gap, nexo o hendidur"
+  },
+  {
+    "j": 59,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Con contraste negativo se aprecia que cada conexón está cons"
+  },
+  {
+    "j": 60,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El espacio intercelular está estrechado, alcanzando alrededo"
+  },
+  {
+    "j": 61,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las imágenes de criofractura muestran que las uniones de tip"
+  },
+  {
+    "j": 62,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando se produce un daño celular, el calcio invade la célul"
+  },
+  {
+    "j": 63,
+    "accion": "REUSAR",
+    "origen": "parte_068.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "la excitación con rapidez y sincronía. Como se explicó en el"
+  },
+  {
+    "j": 64,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La familia de los genes que codifican para las conexinas pos"
+  },
+  {
+    "j": 65,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las dos mutaciones más frecuentes son la treinta del G y cie"
+  },
+  {
+    "j": 66,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las mutaciones en la conexina cuarenta y tres son responsabl"
+  },
+  {
+    "j": 67,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Clínicamente, los pacientes con C M T presentan debilidad mu"
+  },
+  {
+    "j": 68,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Membrana basal En el límite entre el epitelio y el tejido co"
+  },
+  {
+    "j": 69,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Pero, por lo general, su escaso espesor y su coloración con "
+  },
+  {
+    "j": 70,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La membrana de Descemet del epitelio posterior de la córnea "
+  },
+  {
+    "j": 71,
+    "accion": "REUSAR",
+    "origen": "parte_076.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Se distingue una capa continua de matriz electrodensa, cincu"
+  },
+  {
+    "j": 72,
+    "accion": "REUSAR",
+    "origen": "parte_077.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La lámina fibrorreticular queda situada por debajo de la lám"
+  },
+  {
+    "j": 73,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La lámina basal se compone, fundamentalmente, de un fino ret"
+  },
+  {
+    "j": 74,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta proteína fija la lámina densa a la membrana plasmática "
+  },
+  {
+    "j": 75,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El perlecano es un proteoglucano de gran tamaño con un eje p"
+  },
+  {
+    "j": 76,
+    "accion": "REUSAR",
+    "origen": "parte_081.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "• Constituye un filtro molecular pasivo, al retener molécula"
+  },
+  {
+    "j": 77,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cuando se destruyen epitelios, músculo o nervios, si la memb"
+  },
+  {
+    "j": 78,
+    "accion": "REUSAR",
+    "origen": "parte_083.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Bajo ciertas condiciones patológicas, la membrana basal sufr"
+  },
+  {
+    "j": 79,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La progresión del daño renal comienza con el engrosamiento d"
+  },
+  {
+    "j": 80,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Existe una patología hereditaria, denominada síndrome de Alp"
+  },
+  {
+    "j": 81,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El síndrome de Alport se da en uno de cada diez mil individu"
+  },
+  {
+    "j": 82,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El pronóstico de esta enfermedad lo marca el daño renal, ya "
+  },
+  {
+    "j": 83,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Esta enfermedad aparece con mayor frecuencia en varones y a "
+  },
+  {
+    "j": 84,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Matriz extracelular, M E C, Como se ha venido indicando a lo"
+  },
+  {
+    "j": 85,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Se compone de una sustancia fundamental hidratada similar a "
+  },
+  {
+    "j": 86,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las fibras que contiene la M E C están presentes en cantidad"
+  },
+  {
+    "j": 87,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las fibras de colágeno, o colágenas son fibras flexibles con"
+  },
+  {
+    "j": 88,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "El colágeno es acidófilo debido a la carga positiva de los g"
+  },
+  {
+    "j": 89,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En ellas, se distingue un rayado transversal característico "
+  },
+  {
+    "j": 90,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a catorce Fibras de colágeno. A. Fibras de colág"
+  },
+  {
+    "j": 91,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las cadenas alfa poseen alrededor de mil residuos de aminoác"
+  },
+  {
+    "j": 92,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La resistencia de la fibrilla es consecuencia de los enlaces"
+  },
+  {
+    "j": 93,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las diferentes hileras no están al mismo nivel, sino desfasa"
+  },
+  {
+    "j": 94,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Sin la hidroxilación postraduccional de la prolina y la lisi"
+  },
+  {
+    "j": 95,
+    "accion": "REUSAR",
+    "origen": "parte_102.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "En niños, otro síntoma esencial son los defectos en la osteo"
+  },
+  {
+    "j": 96,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los individuos afectados por esta anomalía poseen fibras de "
+  },
+  {
+    "j": 97,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Síntesis en el R E R, a partir de su correspondiente A R N m"
+  },
+  {
+    "j": 98,
+    "accion": "REUSAR",
+    "origen": "parte_105.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Glucosilación, de tipo O-ligada, de algunos residuos de hidr"
+  },
+  {
+    "j": 99,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las moléculas de procolágeno salen del R E R mediante vesícu"
+  },
+  {
+    "j": 100,
+    "accion": "REUSAR",
+    "origen": "parte_107.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La molécula recién formada es más corta, doscientos ochenta "
+  },
+  {
+    "j": 101,
+    "accion": "REUSAR",
+    "origen": "parte_108.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "seis. Las moléculas de tropocolágeno se autoensamblan espont"
+  },
+  {
+    "j": 102,
+    "accion": "REUSAR",
+    "origen": "parte_109.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La célula controla la disposición ordenada de las fibrillas "
+  },
+  {
+    "j": 103,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En realidad, las fibras de colágeno están constituidas por u"
+  },
+  {
+    "j": 104,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Después, se identificaron cuatro subtipos de cadenas dentro "
+  },
+  {
+    "j": 105,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Estas configuraciones originan, al menos, veinte variedades "
+  },
+  {
+    "j": 106,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "• Colágenos que forman fibrillas largas: tipos I, II, III, V"
+  },
+  {
+    "j": 107,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Aunque hoy en día sabemos que las fibras reticulares son, de"
+  },
+  {
+    "j": 108,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las fibras reticulares también se conocen como fibras argiró"
+  },
+  {
+    "j": 109,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las fibras elásticas son, típicamente, más delgadas, cero co"
+  },
+  {
+    "j": 110,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Son particularmente abundantes en los órganos sometidos a fu"
+  },
+  {
+    "j": 111,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a dieciséis Fibras elásticas. Estas fibras se ca"
+  },
+  {
+    "j": 112,
+    "accion": "REUSAR",
+    "origen": "parte_119.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Las microfibrillas poseen un diámetro de diez a doce nanómet"
+  },
+  {
+    "j": 113,
+    "accion": "REUSAR",
+    "origen": "parte_120.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Por lo general, las fibras elásticas se forman en las célula"
+  },
+  {
+    "j": 114,
+    "accion": "REUSAR",
+    "origen": "parte_121.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La elastina es una proteína no glucosilada de setecientos ci"
+  },
+  {
+    "j": 115,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los pacientes con síndrome de Marfan, que poseen mutaciones "
+  },
+  {
+    "j": 116,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "También es usual que la base de la aorta se dilate, formando"
+  },
+  {
+    "j": 117,
+    "accion": "REUSAR",
+    "origen": "parte_124.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "La alteración de las moléculas de elastina puede provocar un"
+  },
+  {
+    "j": 118,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La clínica de esta patología cursa con una piel que no es ca"
+  },
+  {
+    "j": 119,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los G A G son polisacáridos de cadenas largas, inflexibles, "
+  },
+  {
+    "j": 120,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "En la mayoría de los casos, los G A G están sulfatados, sulf"
+  },
+  {
+    "j": 121,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A medida que estas moléculas están más próximas entre sí, su"
+  },
+  {
+    "j": 122,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "A la vez que en el tejido conjuntivo laxo, se encuentra en e"
+  },
+  {
+    "j": 123,
+    "accion": "REUSAR",
+    "origen": "parte_129.wav",
+    "motivo": "texto identico",
+    "texto_inicio": "Una de sus propiedades más importantes es su elevada viscosi"
+  },
+  {
+    "j": 124,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Otros G A G son el condroitín sulfato, abundante en el cartí"
+  },
+  {
+    "j": 125,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los proteoglucanos, P G, son complejos macromoleculares de G"
+  },
+  {
+    "j": 126,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los centros proteicos de los P G se sintetizan en el R E R, "
+  },
+  {
+    "j": 127,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a diecisiete Agregado de proteoglucanos asociado"
+  },
+  {
+    "j": 128,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los P G se caracterizan por su diversidad molecular y se pue"
+  },
+  {
+    "j": 129,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Debido a su elevada viscosidad y a su localización estratégi"
+  },
+  {
+    "j": 130,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Las proteínas centrales de los sindecanos son de tipo transm"
+  },
+  {
+    "j": 131,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La capacidad de las células para adherirse a componentes de "
+  },
+  {
+    "j": 132,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Cada brazo de esta macromolécula en forma de U tiene sitios "
+  },
+  {
+    "j": 133,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "FIGURA seis a dieciocho Estructura molecular de la fibronect"
+  },
+  {
+    "j": 134,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La laminina es una proteína producida por la mayoría de las "
+  },
+  {
+    "j": 135,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La laminina tiene sitios de unión para el heparán sulfato, e"
+  },
+  {
+    "j": 136,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "Los niños que nacen con esta enfermedad no pueden caminar so"
+  },
+  {
+    "j": 137,
+    "accion": "SINTETIZAR",
+    "origen": null,
+    "motivo": "nuevo",
+    "texto_inicio": "La entactina es una glucoproteína que se une a la laminina y"
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "j": 62,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 989,
+    "texto_viejo": "Se trata de una solución hipotónica con noventa y siete a noventa y nueve coma cinco por ciento de agua, pH de seis coma ocho a siete coma cero y los siguientes solutos: • Moco, que une y lubrica el bolo alimenticio. • Electrólitos, sales de Na+, K+, Cl–, fosfato y bicarbonato. • Lisozima, una enzima que mata bacterias. • Inmunoglobulina A , IgA, un anticuerpo antibacteriano. • Amilasa salival, un enzima que empieza la digestión del almidón en la boca.",
+    "texto_nuevo": "Se trata de una solución hipotónica con noventa y siete a noventa y nueve punto cinco por ciento de agua, pH de seis punto ocho a siete punto cero y los siguientes solutos: • Moco, que une y lubrica el bolo alimenticio. • Electrólitos, sales de Na más, K más, Cl menos, fosfato y bicarbonato. • Lisozima, una enzima que mata bacterias. • Inmunoglobulina A, IgA, un anticuerpo antibacteriano. • Amilasa salival, un enzima que empieza la digestión del almidón en la boca."
+  },
+  {
+    "j": 107,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9677,
+    "pagina": 995,
+    "texto_viejo": "Las reacciones que producen HCl , fi gura veinticinco coma un cuatro, pueden parecer familiares ahora porque se han analizado en capítulos anteriores , de manera más reciente, en conexión con la excreción renal de H+ en el capítulo veinticuatro,.",
+    "texto_nuevo": "Las reacciones que producen HCl pueden parecer familiares ahora porque se han analizado en capítulos anteriores, de manera más reciente, en conexión con la excreción renal de H más en el capítulo veinticuatro."
+  },
+  {
+    "j": 108,
+    "estado": "REVISAR",
+    "motivo": "caracter residual en texto nuevo ('+')",
+    "similitud": 0.988,
+    "pagina": 995,
+    "texto_viejo": "Las células parietales contienen anhidrasa carbónica , CAH, que cataliza el primer paso de la siguiente reacción: CAH CO2 + H2O menos menos menos → H2CO3 menos menos menos → HCO3 menos + H+ Las células parietales bombean el H+ de esta reacción en la luz de una glándula gástrica mediante una proteína de transporte activo parecida a la bomba Na+-K+, a la que se le denomina ATPasa H+-K+. Se trata de un cotransporte bidireccional que usa la energía del A T P para bombear H+ fuera y K+ dentro de la célula.",
+    "texto_nuevo": "Las células parietales contienen anhidrasa carbónica, CAH, que cataliza el primer paso de la siguiente reacción: CAH CO dos + H dos O menos menos menos da H dos CO tres menos menos menos da HCO tres menos + H más Las células parietales bombean el H más de esta reacción en la luz de una glándula gástrica mediante una proteína de transporte activo parecida a la bomba Na más K más, a la que se le denomina ATPasa H más K más. Se trata de un cotransporte bidireccional que usa la energía del A T P para bombear H más fuera y K más dentro de la célula."
+  },
+  {
+    "j": 109,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 995,
+    "texto_viejo": "La secreción de HCl no afecta al pH dentro de la célula parietal, porque el H+ es bombeado hacia fuera con la misma rapidez con que se genera. Los iones bicarbonato , HCO3 –, se intercambian por iones cloruro , Cl menos , del plasma sanguíneo , el mismo proceso de desplazamiento de cloruro que ocurre en los túbulos renales y los eritrocitos, y el Cl– se bombea en la luz de la glándula gástrica para unirse al H+. Así, el HCl se acumula en el estómago mientras los iones bicarbonato se acumulan en la sangre.",
+    "texto_nuevo": "La secreción de HCl no afecta al pH dentro de la célula parietal, porque el H más es bombeado hacia fuera con la misma rapidez con que se genera. Los iones bicarbonato, HCO tres –, se intercambian por iones cloruro, Cl menos, del plasma sanguíneo, el mismo proceso de desplazamiento de cloruro que ocurre en los túbulos renales y los eritrocitos, y el Cl menos se bombea en la luz de la glándula gástrica para unirse al H más. Así, el HCl se acumula en el estómago mientras los iones bicarbonato se acumulan en la sangre."
+  },
+  {
+    "j": 111,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.962,
+    "pagina": 995,
+    "texto_viejo": "tres Convierte los iones férricos ingeridos , Fe3+, en iones ferrosos , Fe2+, una forma de hierro que puede absorberse y usarse para síntesis de hemoglobina. cuatro Contribuye a la resistencia a enfermedades no específi cas, al destruir la mayor parte de los patógenos ingeridos.",
+    "texto_nuevo": "tres Convierte los iones férricos ingeridos, Fe tres más, en iones ferrosos, Fe dos más, una forma de hierro que puede absorberse y usarse para síntesis de hemoglobina. cuatro Contribuye a la resistencia a enfermedades no específicas, al destruir la mayor parte de los patógenos ingeridos."
+  },
+  {
+    "j": 117,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9834,
+    "pagina": 997,
+    "texto_viejo": "La digestión puede continuar después de la eliminación del estómago , gastrectomía, pero debe administrarse vitamina B12 mediante inyecciones, o ingerirse esta vitamina y factor Sangre Célula parietal Luz de glándula gástrica HCO3 – Cl– H2CO3 H+ K+ Cl– CO2 HCO3 – Ola alcalina H2O CO2+ Ácido estomacal ATPasa H+-K+ FIGURA veinticinco coma un cuatro El modo de secreción del ácido hidroclorhídrico. La célula parietal combina agua con CO2 de la sangre para formar ácido carbónico , línea inferior de la figura,. El ácido carbónico se desdobla en ion bicarbonato , HCO3 –, y iones hidrógeno , H+,.",
+    "texto_nuevo": "La digestión puede continuar después de la eliminación del estómago, gastrectomía, pero debe administrarse vitamina B doce mediante inyecciones, o ingerirse esta vitamina y factor Sangre Célula parietal Luz de glándula gástrica HCO tres – Cl menos H dos CO tres H más K más Cl menos CO dos HCO tres – Ola alcalina H dos O C O dos más Ácido estomacal ATPasa H más K más FIGURA veinticinco punto catorce El modo de secreción del ácido hidroclorhídrico. La célula parietal combina agua con CO dos de la sangre para formar ácido carbónico, línea inferior de la figura. El ácido carbónico se desdobla en ion bicarbonato, HCO tres –, y iones hidrógeno, H más."
+  },
+  {
+    "j": 118,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 997,
+    "texto_viejo": "El HCO3 – regresa a la sangre. A cambio, el Cl– entra en la luz con H+ y los dos forman ácido hidroclorhídrico. ●¿Qué papel juega el transporte activo en este proceso? FIGURA veinticinco coma un cinco La producción y acción de la pepsina. Las células principales secretan pepsinógeno y las células parietales secretan HCl, que elimina algunos de los aminoácidos del pepsinógeno y lo convierte en pepsina. Ésta cataliza la producción de más pepsina , efecto autocatalizador, además de digerir de manera parcial la proteína dietética.",
+    "texto_nuevo": "El HCO tres – regresa a la sangre. A cambio, el Cl menos entra en la luz con H más y los dos forman ácido hidroclorhídrico. ●¿Qué papel juega el transporte activo en este proceso? FIGURA veinticinco punto quince La producción y acción de la pepsina. Las células principales secretan pepsinógeno y las células parietales secretan HCl, que elimina algunos de los aminoácidos del pepsinógeno y lo convierte en pepsina. Ésta cataliza la producción de más pepsina, efecto autocatalizador, además de digerir de manera parcial la proteína dietética."
+  },
+  {
+    "j": 126,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 998,
+    "texto_viejo": "CUADRO veinticinco coma un Principales secreciones de las glándulas gástricas Células secretoras Secreción Función Células del cuello de la mucosa Moco Protegen a la mucosa del HCl y las enzimas Células parietales Ácido hidroclorhídrico Activa la pepsina y la lipasa lingual; ayuda a licuar la comida; reduce el hierro dietético a una forma útil , Fe2+,; destruye los patógenos ingeridos Factor intrínseco Permite que el intestino delgado absorba vitamina B12 Células principales Pepsinógeno Se convierte en pepsina, que digiere proteínas Lipasa gástrica Grasa dietética Células enteroendocrinas Gastrina Estimula las glándulas gástricas para que secreten HCl y enzimas; estimula la motilidad intestinal; relaja la válvula ileocecal Serotonina Estimula la motilidad gástrica Histamina Estimula la secreción de HCl Somatostatina Inhibe la secreción y la motilidad gástricas; demora el vaciado del estómago; inhibe la secreción pancreática; inhibe la contracción de la vesícula biliar y la secreción de bilis; reduce la circulación sanguínea y la absorción de nutrimentos en el intestino delgado Péptidos enteroencefálicos Varios papeles en la regulación del apetito a corto y largo plazos, y el equilibrio energético",
+    "texto_nuevo": "CUADRO veinticinco punto uno Principales secreciones de las glándulas gástricas Células secretoras Secreción Función Células del cuello de la mucosa Moco Protegen a la mucosa del HCl y las enzimas Células parietales Ácido hidroclorhídrico Activa la pepsina y la lipasa lingual; ayuda a licuar la comida; reduce el hierro dietético a una forma útil, Fe dos más; destruye los patógenos ingeridos Factor intrínseco Permite que el intestino delgado absorba vitamina B doce Células principales Pepsinógeno Se convierte en pepsina, que digiere proteínas Lipasa gástrica Grasa dietética Células enteroendocrinas Gastrina Estimula las glándulas gástricas para que secreten HCl y enzimas; estimula la motilidad intestinal; relaja la válvula ileocecal Serotonina Estimula la motilidad gástrica Histamina Estimula la secreción de HCl Somatostatina Inhibe la secreción y la motilidad gástricas; demora el vaciado del estómago; inhibe la secreción pancreática; inhibe la contracción de la vesícula biliar y la secreción de bilis; reduce la circulación sanguínea y la absorción de nutrimentos en el intestino delgado Péptidos enteroencefálicos Varios papeles en la regulación del apetito a corto y largo plazos, y el equilibrio energético"
+  },
+  {
+    "j": 176,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1006,
+    "texto_viejo": "Este conducto corre a lo largo de la parte media de la glándula y se une al conducto colédoco en la ampolla de Vater. Por lo tanto, el esfínter hepatopancreático controla la liberación de la bilis y el Células acinares a Gránulos zimógenos Estroma Conductos Células acinares exocrinas Vena b cincuenta μm FIGURA veinticinco coma dos dos Anatomía microscópica del páncreas. a Un ácino. b Corte histológico del tejido exocrino y algunos de los estromas de tejido conjuntivo.",
+    "texto_nuevo": "Este conducto corre a lo largo de la parte media de la glándula y se une al conducto colédoco en la ampolla de Vater. Por lo tanto, el esfínter hepatopancreático controla la liberación de la bilis y el Células acinares a Gránulos zimógenos Estroma Conductos Células acinares exocrinas Vena b cincuenta micrómetros FIGURA veinticinco punto veintidós Anatomía microscópica del páncreas. a Un ácino. b Corte histológico del tejido exocrino y algunos de los estromas de tejido conjuntivo."
+  },
+  {
+    "j": 205,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9571,
+    "pagina": 1009,
+    "texto_viejo": "Los enterocitos tienen un borde en cepillo afelpado con microvellosidades de casi un μm de alto. Éstas aumentan la superfi cie de absorción del intestino delgado y contienen enzimas de borde en cepillo en la membrana plasmática. Estas enzimas realizan algunas de las etapas fi nales de la digestión química. No son secretadas en la luz; en cambio, el quimo debe ponerse en contacto con el borde en cepillo para que ocurra la digestión.",
+    "texto_nuevo": "Los enterocitos tienen un borde en cepillo afelpado con microvellosidades de casi un micrómetro de alto. Éstas aumentan la superficie de absorción del intestino delgado y contienen enzimas de borde en cepillo en la membrana plasmática. Estas enzimas realizan algunas de las etapas finales de la digestión química. No son secretadas en la luz; en cambio, el quimo debe ponerse en contacto con el borde en cepillo para que ocurra la digestión."
+  },
+  {
+    "j": 227,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1012,
+    "texto_viejo": "El agua transporta más glucosa y otros nutrimentos con ella debido al arrastre por solvente, de manera muy parecida a como lo hace en los riñones. Después de una comida con elevada cantidad de carbohidratos, el arrastre por solvente absorbe dos a tres veces más glucosa que el SGLT. El SGLT también absorbe galactosa, mientras que la fructuosa es absorbida por difusión facilitada empleando un portador separado que no depende de Na+.",
+    "texto_nuevo": "El agua transporta más glucosa y otros nutrimentos con ella debido al arrastre por solvente, de manera muy parecida a como lo hace en los riñones. Después de una comida con elevada cantidad de carbohidratos, el arrastre por solvente absorbe dos a tres veces más glucosa que el SGLT. El SGLT también absorbe galactosa, mientras que la fructuosa es absorbida por difusión facilitada empleando un portador separado que no depende de Na más."
+  },
+  {
+    "j": 235,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1013,
+    "texto_viejo": "A medida Cotransporte bidireccional Cotransporte unidireccional , SGLT, Difusión facilitada Arrastre por solvente Filtro a través de unión intercelular hermética Clave Centro de la vellosidad Célula epitelial del intestino delgado Luz del intestino delgado Na+ K+ Glucosa Na+ Galactosa Fructuosa Glucosa Fructuosa Galactosa Na+ Unión intercelular hermética H2O, glucosa Fructuosa FIGURA veinticinco coma dos ocho Absorción de monosacáridos en el intestino delgado. La glucosa y la galactosa son absorbidas por el cotransporte unidireccional SGLT en la membrana apical de la célula de absorción , derecha,.",
+    "texto_nuevo": "A medida Cotransporte bidireccional Cotransporte unidireccional, SGLT, Difusión facilitada Arrastre por solvente Filtro a través de unión intercelular hermética Clave Centro de la vellosidad Célula epitelial del intestino delgado Luz del intestino delgado Na más K más Glucosa Na más Galactosa Fructuosa Glucosa Fructuosa Galactosa Na más Unión intercelular hermética H dos O, glucosa Fructuosa FIGURA veinticinco punto veintiocho Absorción de monosacáridos en el intestino delgado. La glucosa y la galactosa son absorbidas por el cotransporte unidireccional SGLT en la membrana apical de la célula de absorción, derecha."
+  },
+  {
+    "j": 248,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9816,
+    "pagina": 1015,
+    "texto_viejo": "La agitación producida por la segmentación intestinal divide la grasa en gotitas hasta de un μm, y una cubierta de lecitina y ácidos biliares evitan que se rompa exponiendo aún más superfi cie a la acción enzimática. Después de una comida, en el intestino delgado hay sufi - ciente lipasa pancreática como para digerir la ingesta diaria promedio de grasa en un lapso de un a dos minutos. Cuando la lipasa actúa sobre un triglicérido, elimina el primer y el tercer ácido graso de la estructura de glicerol y suele dejar el intermedio.",
+    "texto_nuevo": "La agitación producida por la segmentación intestinal divide la grasa en gotitas hasta de un micrómetro, y una cubierta de lecitina y ácidos biliares evitan que se rompa exponiendo aún más superficie a la acción enzimática. Después de una comida, en el intestino delgado hay sufi - ciente lipasa pancreática como para digerir la ingesta diaria promedio de grasa en un lapso de uno a dos minutos. Cuando la lipasa actúa sobre un triglicérido, elimina el primer y el tercer ácido graso de la estructura de glicerol y suele dejar el intermedio."
+  },
+  {
+    "j": 260,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 1.0,
+    "pagina": 1017,
+    "texto_viejo": "CAPÍTULO veinticinco El aparato digestivo activa en el íleon distal por una bomba que los intercambia por iones bicarbonato, revirtiendo el intercambio cloruro-bicarbonato que ocurre en el estómago. Los iones potasio se absorben por difusión simple. La concentración de K+ del quimo se eleva a medida que el agua se absorbe de él, creando un gradiente favorable a la absorción de K+. En la diarrea, cuando la absorción de agua es difícil, los iones potasio permanecen en el intestino y se desechan con las heces; por lo tanto, la diarrea crónica puede llevar a hipopotasemia.",
+    "texto_nuevo": "CAPÍTULO veinticinco El aparato digestivo activa en el íleon distal por una bomba que los intercambia por iones bicarbonato, revirtiendo el intercambio cloruro-bicarbonato que ocurre en el estómago. Los iones potasio se absorben por difusión simple. La concentración de K más del quimo se eleva a medida que el agua se absorbe de él, creando un gradiente favorable a la absorción de K más. En la diarrea, cuando la absorción de agua es difícil, los iones potasio permanecen en el intestino y se desechan con las heces; por lo tanto, la diarrea crónica puede llevar a hipopotasemia."
+  },
+  {
+    "j": 261,
+    "estado": "OK",
+    "motivo": "",
+    "similitud": 0.9721,
+    "pagina": 1017,
+    "texto_viejo": "El hierro y el calcio son inusuales en el sentido de que se absorben en proporción a las necesidades del cuerpo. Mientras que otros oligoelementos se absorben de manera constante, sin importar las necesidades, dejando a los riñones la excreción de cualquier exceso. La absorción de hierro es estimulada por la hormona hepática hepcidina , consúltese la p. seiscientos cincuenta y dos,. Los enterocitos fi jan iones ferrosos , Fe2+, y los internalizan mediante transporte activo; no pueden absorber iones férricos , Fe3+, pero el ácido estomacal , HCl, reduce la mayor parte del Fe3+ a Fe2+ absorbible.",
+    "texto_nuevo": "El hierro y el calcio son inusuales en el sentido de que se absorben en proporción a las necesidades del cuerpo. Mientras que otros oligoelementos se absorben de manera constante, sin importar las necesidades, dejando a los riñones la excreción de cualquier exceso. La absorción de hierro es estimulada por la hormona hepática hepcidina, consúltese la página seiscientos cincuenta y dos. Los enterocitos fijan iones ferrosos, Fe dos más, y los internalizan mediante transporte activo; no pueden absorber iones férricos, Fe tres más, pero el ácido estomacal, HCl, reduce la mayor parte del Fe tres más a Fe dos más absorbible."
+  },
+  {
+    "j": 262,
+    "estado": "REVISAR",
+    "motivo": "similitud 0.9153 < 0.92; ultima palabra distinta ('y' vs 'el')",
+    "similitud": 0.9153,
+    "pagina": 1017,
+    "texto_viejo": "El Fe2+ se transporta a la superfi cie basal de la célula y allí lo toma la proteína extracelular transferrina. El complejo transferrina-hierro se difunde en la sangre y llega a lugares como la médula ósea para la síntesis de hemoglobina, al tejido muscular para la síntesis de mioglobina y al hígado para su almacenamiento , véase la fi gura dieciocho coma siete, p. seiscientos ochenta y siete,.",
+    "texto_nuevo": "El Fe dos más se transporta a la superficie basal de la célula y allí lo toma la proteína extracelular transferrina. El complejo transferrina-hierro se difunde en la sangre y llega a lugares como la médula ósea para la síntesis de hemoglobina, al tejido muscular para la síntesis de mioglobina y al hígado para su almacenamiento. El"
+  }
+]
