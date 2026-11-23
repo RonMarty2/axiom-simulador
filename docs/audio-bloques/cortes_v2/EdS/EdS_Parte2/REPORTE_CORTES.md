@@ -2,21 +2,21 @@
 
 - **Libro:** EdS
 - **Título:** Consideraciones generales del proceso salud-enfermedad
-- **Veredicto global:** **FALLA** (6/8 pistas aprobadas)
+- **Veredicto global:** **APRUEBA** (8/8 pistas aprobadas)
 - **Estándar aplicado:** EBU R128 (-16 LUFS, -1.5 dBTP), sin desvanecido, +1 s silencio final.
 
 ## Verificación pista por pista (100 % revisadas)
 
 | Pista | Archivo | Tramo | Duración | Max dB | Mean dB | Sil. ini/fin | Caída fin | Sim. título | Estado | Observaciones |
 |---|---|---|---:|---:|---:|---|---:|---:|---|---|
-| Completo | `EdS_Parte2_Completo.mp3` | 00:00 → 1:16:00 | 1:16:01 | -1.3 | -17.1 | 0.30s / 1.28s | 0.0 dB | 1.00 | **APRUEBA** | OK |
+| Completo | `EdS_Parte2_Completo.mp3` | 00:00 → 1:16:00 | 1:16:01 | -2.4 | -17.6 | 0.30s / 1.20s | 0.0 dB | 1.00 | **APRUEBA** | OK |
 | P01 | `EdS_Parte2_P01_cual_es_el_objeto_de_estudio_en.mp3` | 00:00 → 15:24 | 15:25 | -1.8 | -17.3 | 0.30s / 1.13s | 0.0 dB | 1.00 | **APRUEBA** | OK |
 | P02 | `EdS_Parte2_P02_capitulo_cuatro_momentos_del.mp3` | 15:24 → 26:13 | 10:50 | -2.1 | -17.5 | 0.42s / 0.99s | 0.0 dB | 0.88 | **APRUEBA** | OK |
 | P03 | `EdS_Parte2_P03_criterios_para_la_seleccion_de.mp3` | 26:13 → 34:26 | 08:14 | -1.9 | -17.2 | 0.25s / 0.92s | 0.0 dB | 1.00 | **APRUEBA** | OK |
 | P04 | `EdS_Parte2_P04_elementos_del_planteamiento_del.mp3` | 34:26 → 42:23 | 07:59 | -1.9 | -17.3 | 0.00s / 1.18s | 0.0 dB | 1.00 | **APRUEBA** | OK |
-| P05 | `EdS_Parte2_P05_introduccion.mp3` | 42:23 → 53:25 | 11:03 | -2.2 | -17.3 | 0.35s / 1.10s | 0.0 dB | 1.00 | **APRUEBA** | OK |
-| P06 | `EdS_Parte2_P06_el_marco_teorico_en_la.mp3` | 53:25 → 1:06:06 | 12:42 | -1.6 | -17.0 | 0.34s / 1.32s | 0.0 dB | 0.29 | **FALLA** | Inicio no coincide con título 'El marco teórico en la investigación cualitativa' (sim=0.29 < 0.6) |
-| P07 | `EdS_Parte2_P07_elementos_estructurales_de_las.mp3` | 1:06:06 → 1:16:00 | 09:55 | -1.5 | -16.8 | 0.43s / 1.21s | 0.0 dB | 0.40 | **FALLA** | Inicio no coincide con título 'Elementos estructurales de las hipótesis' (sim=0.40 < 0.6) |
+| P05 | `EdS_Parte2_P05_introduccion.mp3` | 42:23 → 50:06 | 07:43 | -2.2 | -17.2 | 0.35s / 1.22s | 0.0 dB | 1.00 | **APRUEBA** | OK |
+| P06 | `EdS_Parte2_P06_pasos_para_la_construccion_de.mp3` | 50:06 → 1:02:42 | 12:38 | -1.6 | -17.0 | 0.37s / 0.97s | 0.0 dB | 1.00 | **APRUEBA** | OK |
+| P07 | `EdS_Parte2_P07_tipos_de_hipotesis.mp3` | 1:02:42 → 1:16:00 | 13:19 | -1.7 | -16.9 | 0.25s / 1.26s | 0.0 dB | 1.00 | **APRUEBA** | OK |
 
 ## Bordes oídos (primeros y últimos 15 s)
 
@@ -41,13 +41,13 @@
 - **Cierre oído:**  Identificar los constructos, conceptos correspondientes al marco conceptual del objeto de estudio. Estar capacitados para la construcción de marcos de referencia contextualizados.
 
 ### P05 — `EdS_Parte2_P05_introduccion.mp3` (APRUEBA)
-- **Inicio oído:** Introducción Una investigación es considerada de calidad cuando cumple con los requisitos que se exigen para ejecutarla. Es básica la consulta de literatura actualizada que contrib
-- **Cierre oído:** ficar las relaciones entre las variables y enunciar las hipótesis. Paso 4. Construir un esquema de las relaciones entre variables. Paso 5. Elaborar el marco modelo correspondiente.
+- **Inicio oído:** Introducción. Una investigación es considerada de calidad cuando cumple con los requisitos que se exigen para ejecutarla. Es básica la consulta de literatura actualizada que contri
+- **Cierre oído:** or son, por definición, abstracciones de fenómenos observables. Y nuestra visión del mundo moldea el modo en que estos conceptos se definen y operacionalizan. Polit y Jungler 2000.
 
-### P06 — `EdS_Parte2_P06_el_marco_teorico_en_la.mp3` (FALLA)
-- **Inicio oído:** En las investigaciones cualitativas, se trata de resumir la relación de unidad entre la teoría y la práctica, para construir una teoría que sea efectivamente una guía para la acció
-- **Cierre oído:** ulares. Mediante el razonamiento deductivo, el investigador puede desarrollar expectativas científicas o hipótesis fundadas en principios teóricos generales, Polit y Hangler, 2000.
+### P06 — `EdS_Parte2_P06_pasos_para_la_construccion_de.mp3` (APRUEBA)
+- **Inicio oído:** Pasos para la construcción de los marcos de referencia, conceptual y teórico. Estos marcos son necesarios para cualquier investigación. Ya sea que se trate de una investigación con
+- **Cierre oído:** eada entre ellos deben ser observables y medibles, o sea, tener referentes de la realidad. Cinco, las hipótesis deben estar relacionadas con técnicas disponibles para ser probadas.
 
-### P07 — `EdS_Parte2_P07_elementos_estructurales_de_las.mp3` (FALLA)
-- **Inicio oído:** 1. Las unidades de análisis que pueden ser individuos, familias, grupos, casas, instituciones y otros. 2. Las variables que pueden ser características, propiedad
+### P07 — `EdS_Parte2_P07_tipos_de_hipotesis.mp3` (APRUEBA)
+- **Inicio oído:** Tipos de hipótesis. Las hipótesis están íntimamente relacionadas con el problema, el marco teórico y el tipo de investigación que estos generan. En esta afirmación, nos referimos a
 - **Cierre oído:**  no pueden fraccionarse. En el marco teórico, las variables principales se trabajan en un nivel de globalidad, con el propósito de explicar en forma general el problema en estudio.
