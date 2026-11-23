@@ -310,3 +310,9 @@
 23-10:07 cuota OK, grabando
 23-10:37 vigilante arranca en RonMarty-9fb9
 23-10:38 sin cuota, espero 30 min
+23-11:08 sin cuota, espero 30 min
+23-11:21   [Aviso 429/error] Rotando clave (1/9) en modelo gemini-3.1-flash-tts-preview: [WinError 10053] Se ha anulado una conexión establecida por el software en su equipo host
+23-11:21 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=415, rondas_agotadas=39).
+23-11:21 3 capitulos esperan aceptacion de texto; reviso en 30 min
+23-11:38 sin cuota, espero 30 min
+23-11:51 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-9fb9 74564

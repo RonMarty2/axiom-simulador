@@ -5,9 +5,9 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 ## Resumen ejecutivo
 
 - **Capítulos PSA 2027:** 39 (mapas completos: 39; faltantes: 0).
-- **Total de partes propuestas:** 319.
-- **Dentro del rango aceptable (3–20 min):** 303 / 319 (95.0%).
-- **Dentro del objetivo ideal (5–15 min):** 250 / 319 (78.4%).
+- **Total de partes propuestas:** 328.
+- **Dentro del rango aceptable (3–20 min):** 312 / 328 (95.1%).
+- **Dentro del objetivo ideal (5–15 min):** 271 / 328 (82.6%).
 - **Excepciones >20 min (sin sub-subtítulos):** 16.
 - **Excepciones <3 min:** 0.
 
@@ -45,7 +45,7 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Capítulo | Libro | Título | Palabras narr. | Min. est. | Partes | En 3–20 min | Excepciones |
 |---|---|---|---:|---:|---:|---:|---|
 | EdS_Parte1 | EdS | EDUCACIÓN EN SALUD | 7488 | 49.9 | 4 | 4/4 | — |
-| EdS_Parte2 | EdS | Consideraciones generales del proceso salud-enfermedad | 11199 | 74.7 | 6 | 6/6 | — |
+| EdS_Parte2 | EdS | Consideraciones generales del proceso salud-enfermedad | 10572 | 70.5 | 6 | 6/6 | — |
 | EdS_Parte3_1 | EdS | CONCEPTOS GENERALES SOBRE ESTADÍSTICA | 9091 | 60.6 | 6 | 6/6 | — |
 | EdS_Parte3_2 | EdS | TABULACIÓN DE DATOS BINARIOS O CRUZADOS | 9745 | 65.0 | 5 | 5/5 | — |
 | EdS_Parte3_3 | EdS | Coeficiente de asimetría de Fisher | 1187 | 7.9 | 1 | 1/1 | — |
@@ -59,29 +59,29 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Tema_11_Biologia_Celular | Calvo | Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo | 10907 | 72.7 | 6 | 5/6 | >20 min (sin sub-subtítulos) |
 | Tema_12_Biologia_Celular | Calvo | El citoesqueleto | 14098 | 94.0 | 8 | 8/8 | — |
 | Tema_13_Biologia_Celular | Calvo | Mecanismos de señalización celular | 12267 | 81.8 | 6 | 6/6 | — |
-| Tema_14_Biologia_Celular | Calvo | Ciclo celular y destinos vitales de la célula | 13036 | 86.9 | 6 | 6/6 | — |
+| Tema_14_Biologia_Celular | Calvo | Ciclo celular y destinos vitales de la célula | 13036 | 86.9 | 8 | 8/8 | — |
 | Tema_15_Biologia_Celular | Calvo | División celular y muerte programada | 10785 | 71.9 | 6 | 6/6 | — |
 | Tema_17_Biologia_Celular | Calvo | Bases celulares de la respuesta inmunitaria | 14301 | 95.3 | 5 | 4/5 | >20 min (sin sub-subtítulos) |
 | Tema_18_Biologia_Celular | Calvo | Las células madre y sus aplicaciones terapéuticas | 8485 | 56.6 | 5 | 5/5 | — |
 | Tema_01_Morfo_Saladin | Saladin | Temas principales de anatomía y fisiología | 18033 | 120.2 | 9 | 9/9 | — |
-| Tema_05_Morfo_Saladin | Saladin | Histología | 17316 | 115.4 | 10 | 10/10 | — |
+| Tema_05_Morfo_Saladin | Saladin | Histología | 17316 | 115.4 | 11 | 11/11 | — |
 | Tema_06_Morfo_Saladin | Saladin | El sistema tegumentario | 14235 | 94.9 | 8 | 8/8 | — |
-| Tema_08_Morfo_Saladin | Saladin | El sistema óseo | 19712 | 131.4 | 9 | 7/9 | >20 min (sin sub-subtítulos) |
+| Tema_08_Morfo_Saladin | Saladin | El sistema óseo | 19712 | 131.4 | 10 | 8/10 | >20 min (sin sub-subtítulos) |
 | Tema_09_Morfo_Saladin | Saladin | Articulaciones | 14112 | 94.1 | 7 | 6/7 | >20 min (sin sub-subtítulos) |
 | Tema_10_Morfo_Saladin | Saladin | El sistema muscular | 26048 | 173.7 | 15 | 14/15 | >20 min (sin sub-subtítulos) |
 | Tema_13_Morfo_Saladin | Saladin | Médula espinal, nervios raquídeos y reflejos somáticos | 15178 | 101.2 | 9 | 9/9 | — |
 | Tema_14_Morfo_Saladin | Saladin | El encéfalo y los pares craneales | 24703 | 164.7 | 14 | 13/14 | >20 min (sin sub-subtítulos) |
-| Tema_15_Morfo_Saladin | Saladin | El sistema nervioso autónomo y los reflejos viscerales | 9306 | 62.0 | 4 | 4/4 | — |
+| Tema_15_Morfo_Saladin | Saladin | El sistema nervioso autónomo y los reflejos viscerales | 9306 | 62.0 | 6 | 6/6 | — |
 | Tema_16_Morfo_Saladin | Saladin | Órganos de los sentidos | 28185 | 187.9 | 15 | 14/15 | >20 min (sin sub-subtítulos) |
 | Tema_17_Morfo_Saladin | Saladin | Sistema endocrino | 24313 | 162.1 | 12 | 11/12 | >20 min (sin sub-subtítulos) |
 | Tema_18_Morfo_Saladin | Saladin | El aparato circulatorio: sangre | 20774 | 138.5 | 12 | 12/12 | — |
 | Tema_19_Morfo_Saladin | Saladin | El aparato circulatorio: el corazón | 18481 | 123.2 | 11 | 11/11 | — |
-| Tema_20_Morfo_Saladin | Saladin | El aparato circulatorio: vasos sanguíneos y circulación | 29140 | 194.3 | 12 | 10/12 | >20 min (sin sub-subtítulos) |
+| Tema_20_Morfo_Saladin | Saladin | El aparato circulatorio: vasos sanguíneos y circulación | 29140 | 194.3 | 13 | 11/13 | >20 min (sin sub-subtítulos) |
 | Tema_21_Morfo_Saladin | Saladin | Los sistemas linfático e inmunitario | 24370 | 162.5 | 11 | 10/11 | >20 min (sin sub-subtítulos) |
 | Tema_22_Morfo_Saladin | Saladin | El aparato respiratorio | 24738 | 164.9 | 14 | 14/14 | — |
 | Tema_23_Morfo_Saladin | Saladin | El aparato urinario | 19157 | 127.7 | 10 | 10/10 | — |
-| Tema_25_Morfo_Saladin | Saladin | El aparato digestivo | 24143 | 161.0 | 12 | 12/12 | — |
-| Tema_27_Morfo_Saladin | Saladin | Aparato reproductor masculino | 15404 | 102.7 | 8 | 8/8 | — |
+| Tema_25_Morfo_Saladin | Saladin | El aparato digestivo | 24143 | 161.0 | 13 | 13/13 | — |
+| Tema_27_Morfo_Saladin | Saladin | Aparato reproductor masculino | 15404 | 102.7 | 9 | 9/9 | — |
 | Tema_28_Morfo_Saladin | Saladin | Aparato reproductor femenino | 20709 | 138.1 | 11 | 9/11 | >20 min (sin sub-subtítulos) |
 
 ## Desglose detallado por capítulo
@@ -95,16 +95,16 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P03 | MEDICINA SOCIAL, Concepto ... PROGRAMAS DE SALUD EN BOLIVIA (8 subtítulos) | 1662 | 11.1 | OK |
 | P04 | PROBLEMAS DE SALUD EN VIGILANCIA PRIORITARIA EN BOLIVIA | 1553 | 10.4 | OK |
 
-### EdS_Parte2 — Consideraciones generales del proceso salud-enfermedad (EdS, 11199 pal., ~74.7 min)
+### EdS_Parte2 — Consideraciones generales del proceso salud-enfermedad (EdS, 10572 pal., ~70.5 min)
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | Introducción | 2287 | 15.2 | OK |
+| P01 | ¿Cuál es el objeto de estudio en la epidemiología social? | 2287 | 15.2 | OK |
 | P02 | Capítulo cuatro: Momentos del proceso de la investigación; Introducción; Introducción; Planteamiento del problema | 1608 | 10.7 | OK |
-| P03 | Criterios para la selección de un problema; Delimitación y definición del problema; Elementos del planteamiento del problema | 1646 | 11.0 | OK |
-| P04 | Características de los objetivos; FUNDAMENTACIÓN TEÓRICA, HIPÓTESIS; Introducción; Búsqueda de información calificada | 1846 | 12.3 | OK |
-| P05 | Pasos para la construcción de los marcos de referencia, conceptual y teórico; El marco teórico en la investigación cualitativa; Elementos para la operacionalización de un marco conceptual y teórico; Hipótesis; Estructura, condiciones y características de las hipótesis | 1900 | 12.7 | OK |
-| P06 | Tipos de hipótesis; Derivación de hipótesis; Elementos estructurales de las hipótesis; Variables | 1912 | 12.7 | OK |
+| P03 | Criterios para la selección de un problema; Delimitación y definición del problema; Elementos del planteamiento del problema; FUNDAMENTACIÓN TEÓRICA, HIPÓTESIS | 1733 | 11.6 | OK |
+| P04 | Introducción; Búsqueda de información calificada; Pasos para la construcción de los marcos de referencia, conceptual y teórico | 1597 | 10.6 | OK |
+| P05 | El marco teórico en la investigación cualitativa; Elementos para la operacionalización de un marco conceptual y teórico; Hipótesis; Estructura, condiciones y características de las hipótesis; Tipos de hipótesis; Derivación de hipótesis | 1896 | 12.6 | OK |
+| P06 | Elementos estructurales de las hipótesis; Variables | 1451 | 9.7 | OK |
 
 ### EdS_Parte3_1 — CONCEPTOS GENERALES SOBRE ESTADÍSTICA (EdS, 9091 pal., ~60.6 min)
 
@@ -121,11 +121,11 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | 6 TABULACIÓN DE DATOS BINARIOS O CRUZADOS | 1161 | 7.7 | OK |
-| P02 | 7 MEDIDAS DE TENDENCIA CENTRAL | 2941 | 19.6 | OK |
+| P01 | 6 TABULACIÓN DE DATOS BINARIOS O CRUZADOS; 7 MEDIDAS DE TENDENCIA CENTRAL; 7.1 Media aritmética | 2050 | 13.7 | OK |
+| P02 | 7.2 Mediana; 7.3 Moda | 2052 | 13.7 | OK |
 | P03 | 8 MEDIDAS DE POSICIÓN | 2265 | 15.1 | OK |
-| P04 | 9 MEDIDAS DE DISPERSIÓN | 2843 | 19.0 | OK |
-| P05 | 10 MEDIDAS DE FORMA | 535 | 3.6 | OK |
+| P04 | 9 MEDIDAS DE DISPERSIÓN; 9.1 Rango; 9.2 Rango intercuartil; 9.3 Varianza | 1831 | 12.2 | OK |
+| P05 | 9.4 Desviación estándar; 9.5 Coeficiente de variación; 10 MEDIDAS DE FORMA | 1547 | 10.3 | OK |
 
 ### EdS_Parte3_3 — Coeficiente de asimetría de Fisher (EdS, 1187 pal., ~7.9 min)
 
@@ -206,8 +206,8 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | Retículo endoplasmático liso (introducción) | 3774 | 25.2 | >20 min (sin sub-subtítulos) |
-| P02 | Funciones; Síntesis de lípidos y derivados lipídicos; Detoxificación de sustancias liposolubles; Participación en el metabolismo del glucógeno | 984 | 6.6 | OK |
-| P03 | Aparato de Golgi | 2707 | 18.0 | OK |
+| P02 | Funciones ... Glucosilación (8 subtítulos) | 2090 | 13.9 | OK |
+| P03 | Marcaje de enzimas lisosómicas; Reciclaje de membranas; Distribución adecuada de las distintas macromoléculas; Fragmentación y condensación; Tráfico vesicular y formación de vesículas de secreción | 1601 | 10.7 | OK |
 | P04 | Lisosomas | 2559 | 17.1 | OK |
 
 ### Tema_11_Biologia_Celular — Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo (Calvo, 10907 pal., ~72.7 min)
@@ -250,11 +250,13 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | Introducción ... Fase G2 (gap 2) (9 subtítulos) | 2223 | 14.8 | OK |
-| P02 | División celular (fase M); Cariocinesis; Citocinesis; Fases del ciclo en células de diferentes tejidos | 1033 | 6.9 | OK |
-| P03 | Regulación del ciclo celular: puntos de control | 2849 | 19.0 | OK |
-| P04 | Regulación en cada punto de control y consecuencias del avance a la siguiente fase | 2552 | 17.0 | OK |
-| P05 | Elementos de retrocontrol del ciclo celular | 2877 | 19.2 | OK |
-| P06 | Elementos extrínsecos que influyen en el control del ciclo celular; Destinos vitales de la célula y respuestas celulares al estrés | 1502 | 10.0 | OK |
+| P02 | División celular (fase M); Cariocinesis; Citocinesis; Fases del ciclo en células de diferentes tejidos; Regulación del ciclo celular: puntos de control (introducción) | 1519 | 10.1 | OK |
+| P03 | Sistema de proteínas quinasas de activación cíclica; Mecanismos de regulación de las Cdk; Mecanismos de regulación adicionales; Fosforilación de las Cdk | 1860 | 12.4 | OK |
+| P04 | Proteínas inhibidoras de las Cdk | 503 | 3.4 | OK |
+| P05 | Regulación en cada punto de control y consecuencias del avance a la siguiente fase | 2552 | 17.0 | OK |
+| P06 | Elementos de retrocontrol del ciclo celular; Retrocontrol por incorrecto ensamblaje del huso mitótico; Retrocontrol por lesión del ADN; Papel central de p53 en el retrocontrol del ciclo celular | 1972 | 13.1 | OK |
+| P07 | Senescencia celular y apoptosis dependientes de p53; Elementos extrínsecos que influyen en el control del ciclo celular | 1654 | 11.0 | OK |
+| P08 | Destinos vitales de la célula y respuestas celulares al estrés | 753 | 5.0 | OK |
 
 ### Tema_15_Biologia_Celular — División celular y muerte programada (Calvo, 10785 pal., ~71.9 min)
 
@@ -312,9 +314,10 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P05 | Tejido adiposo | 1483 | 9.9 | OK |
 | P06 | Hueso; Sangre | 1278 | 8.5 | OK |
 | P07 | 5.4 Tejidos nervioso y muscular: tejidos excitables | 1345 | 9.0 | OK |
-| P08 | 5.5 Unión celular, glándulas y membranas | 2944 | 19.6 | OK |
-| P09 | 5.6 Crecimiento, desarrollo, reparación y degeneración de los tejidos; Crecimiento de tejidos; Desarrollo de tejidos; Citoblastos; Reparación tisular | 1547 | 10.3 | OK |
-| P10 | Degeneración y muerte de tejidos | 2078 | 13.9 | OK |
+| P08 | 5.5 Unión celular, glándulas y membranas; Uniones celulares | 1099 | 7.3 | OK |
+| P09 | Glándulas; Membranas; 5.6 Crecimiento, desarrollo, reparación y degeneración de los tejidos; Crecimiento de tejidos | 2118 | 14.1 | OK |
+| P10 | Desarrollo de tejidos; Citoblastos; Reparación tisular | 1274 | 8.5 | OK |
+| P11 | Degeneración y muerte de tejidos | 2078 | 13.9 | OK |
 
 ### Tema_06_Morfo_Saladin — El sistema tegumentario (Saladin, 14235 pal., ~94.9 min)
 
@@ -339,9 +342,10 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P04 | 8.3 La columna vertebral y la caja torácica; Características generales de la columna vertebral; Estructura general de una vértebra; Discos intervertebrales | 1532 | 10.2 | OK |
 | P05 | Características regionales de las vértebras | 2019 | 13.5 | OK |
 | P06 | La caja torácica | 1349 | 9.0 | OK |
-| P07 | 8.4 La cintura escapular y las extremidades superiores | 2658 | 17.7 | OK |
-| P08 | 8.5 La cintura pélvica y las extremidades inferiores; La cintura pélvica | 1209 | 8.1 | OK |
-| P09 | Las extremidades inferiores | 3517 | 23.4 | >20 min (sin sub-subtítulos) |
+| P07 | 8.4 La cintura escapular y las extremidades superiores; La cintura escapular | 962 | 6.4 | OK |
+| P08 | Las extremidades superiores | 1696 | 11.3 | OK |
+| P09 | 8.5 La cintura pélvica y las extremidades inferiores; La cintura pélvica | 1209 | 8.1 | OK |
+| P10 | Las extremidades inferiores | 3517 | 23.4 | >20 min (sin sub-subtítulos) |
 
 ### Tema_09_Morfo_Saladin — Articulaciones (Saladin, 14112 pal., ~94.1 min)
 
@@ -394,9 +398,9 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | 14.1 Revisión general del encéfalo | 2088 | 13.9 | OK |
-| P02 | 14.2 Meninges, ventrículos, líquido cefalorraquídeo e irrigación sanguínea | 2696 | 18.0 | OK |
-| P03 | 14.3 El rombencéfalo y el mesencéfalo; El bulbo raquídeo; La protuberancia; El mesencéfalo | 1839 | 12.3 | OK |
-| P04 | La formación reticular; El cerebelo | 1544 | 10.3 | OK |
+| P02 | 14.2 Meninges, ventrículos, líquido cefalorraquídeo e irrigación sanguínea; Meninges; Ventrículos y líquido cefalorraquídeo | 2114 | 14.1 | OK |
+| P03 | Irrigación sanguínea y el sistema de barrera encefálica; 14.3 El rombencéfalo y el mesencéfalo; El bulbo raquídeo; La protuberancia | 2002 | 13.3 | OK |
+| P04 | El mesencéfalo; La formación reticular; El cerebelo | 1963 | 13.1 | OK |
 | P05 | 14.4 El prosencéfalo; El diencéfalo | 1292 | 8.6 | OK |
 | P06 | El cerebro | 2056 | 13.7 | OK |
 | P07 | 14.5 Funciones integradoras del encéfalo; El electroencefalograma | 697 | 4.6 | OK |
@@ -413,9 +417,11 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | 15.1 Propiedades generales del sistema nervioso autónomo | 2042 | 13.6 | OK |
-| P02 | 15.2 Anatomía del sistema nervioso autónomo | 2933 | 19.6 | OK |
-| P03 | 15.3 Efectos autónomos en los órganos de destino | 2708 | 18.1 | OK |
-| P04 | 15.4 Control central de las funciones autónomas | 1623 | 10.8 | OK |
+| P02 | 15.2 Anatomía del sistema nervioso autónomo; División simpática | 1625 | 10.8 | OK |
+| P03 | División parasimpática | 1308 | 8.7 | OK |
+| P04 | 15.3 Efectos autónomos en los órganos de destino; Neurotransmisores y sus receptores | 1954 | 13.0 | OK |
+| P05 | Inervación dual; Control sin inervación dual | 754 | 5.0 | OK |
+| P06 | 15.4 Control central de las funciones autónomas | 1623 | 10.8 | OK |
 
 ### Tema_16_Morfo_Saladin — Órganos de los sentidos (Saladin, 28185 pal., ~187.9 min)
 
@@ -498,11 +504,12 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P05 | Presión arterial | 1333 | 8.9 | OK |
 | P06 | Resistencia periférica | 1568 | 10.5 | OK |
 | P07 | Regulación de la presión arterial y la circulación sanguínea; Dos objetivos de la vasomotilidad | 2227 | 14.8 | OK |
-| P08 | 20.3 Intercambio capilar | 2757 | 18.4 | OK |
-| P09 | 20.4 Retorno venoso y choque circulatorio | 1972 | 13.1 | OK |
-| P10 | 20.5 Rutas circulatorias especiales; 20.6 Anatomía del circuito pulmonar | 1434 | 9.6 | OK |
-| P11 | 20.7 Vasos sistémicos de la región de la cabeza y el tronco | 7222 | 48.1 | >20 min (sin sub-subtítulos) |
-| P12 | 20.8 Vasos sistémicos de las extremidades | 5057 | 33.7 | >20 min (sin sub-subtítulos) |
+| P08 | 20.3 Intercambio capilar (introducción); Difusión; Transcitosis; Filtración y reabsorción | 2203 | 14.7 | OK |
+| P09 | Edema | 554 | 3.7 | OK |
+| P10 | 20.4 Retorno venoso y choque circulatorio | 1972 | 13.1 | OK |
+| P11 | 20.5 Rutas circulatorias especiales; 20.6 Anatomía del circuito pulmonar | 1434 | 9.6 | OK |
+| P12 | 20.7 Vasos sistémicos de la región de la cabeza y el tronco | 7222 | 48.1 | >20 min (sin sub-subtítulos) |
+| P13 | 20.8 Vasos sistémicos de las extremidades | 5057 | 33.7 | >20 min (sin sub-subtítulos) |
 
 ### Tema_21_Morfo_Saladin — Los sistemas linfático e inmunitario (Saladin, 24370 pal., ~162.5 min)
 
@@ -543,8 +550,8 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | 23.1 Funciones del aparato urinario | 1171 | 7.8 | OK |
-| P02 | 23.2 Anatomía de los riñones | 2828 | 18.9 | OK |
+| P01 | 23.1 Funciones del aparato urinario; 23.2 Anatomía de los riñones; Posición y estructuras relacionadas; Anatomía macroscópica | 1812 | 12.1 | OK |
+| P02 | Circulación renal; La nefrona; Inervación renal | 2187 | 14.6 | OK |
 | P03 | 23.3 Formación de la orina I: filtración glomerular; Membrana de filtración; Presión de filtración; Tasa de filtración glomerular | 1666 | 11.1 | OK |
 | P04 | Regulación de la filtración glomerular | 1775 | 11.8 | OK |
 | P05 | 23.4 Formación de la orina II: reabsorción tubular y secreción; El túbulo contorneado proximal | 2299 | 15.3 | OK |
@@ -564,25 +571,27 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P04 | Deglución; 25.3 El estómago; Anatomía macroscópica; Inervación y circulación; Anatomía microscópica | 1867 | 12.4 | OK |
 | P05 | Secreciones gástricas; Motilidad gástrica | 1504 | 10.0 | OK |
 | P06 | Vómito; Digestión y absorción; Protección del estómago; Regulación de la función gástrica | 2240 | 14.9 | OK |
-| P07 | 25.4 El hígado, la vesícula biliar y el páncreas | 2957 | 19.7 | OK |
-| P08 | 25.5 El intestino delgado | 2152 | 14.3 | OK |
-| P09 | 25.6 Digestión química y absorción; Carbohidratos; Proteínas | 1893 | 12.6 | OK |
-| P10 | Lípidos; Ácidos nucleicos; Vitaminas; Minerales; Agua | 2031 | 13.5 | OK |
-| P11 | 25.7 El intestino grueso; Anatomía macroscópica; Anatomía microscópica; Flora bacteriana y gas intestinal; Absorción y motilidad | 1516 | 10.1 | OK |
-| P12 | Defecación | 1909 | 12.7 | OK |
+| P07 | 25.4 El hígado, la vesícula biliar y el páncreas; El hígado; La vesícula biliar y la bilis | 1787 | 11.9 | OK |
+| P08 | El páncreas; Regulación de la secreción | 1170 | 7.8 | OK |
+| P09 | 25.5 El intestino delgado | 2152 | 14.3 | OK |
+| P10 | 25.6 Digestión química y absorción; Carbohidratos; Proteínas | 1893 | 12.6 | OK |
+| P11 | Lípidos; Ácidos nucleicos; Vitaminas; Minerales; Agua | 2031 | 13.5 | OK |
+| P12 | 25.7 El intestino grueso; Anatomía macroscópica; Anatomía microscópica; Flora bacteriana y gas intestinal; Absorción y motilidad | 1516 | 10.1 | OK |
+| P13 | Defecación | 1909 | 12.7 | OK |
 
 ### Tema_27_Morfo_Saladin — Aparato reproductor masculino (Saladin, 15404 pal., ~102.7 min)
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
-| P01 | 27.1 Reproducción y desarrollo sexuales | 2977 | 19.8 | OK |
-| P02 | 27.2 Anatomía del aparato reproductor masculino; El escroto; Los testículos | 1920 | 12.8 | OK |
-| P03 | Los conductos espermáticos; Las glándulas accesorias; El pene | 1506 | 10.0 | OK |
-| P04 | 27.3 Pubertad y climaterio | 1908 | 12.7 | OK |
-| P05 | 27.4 Espermatozoides y semen; Meiosis; Espermatogénesis | 1995 | 13.3 | OK |
-| P06 | El espermatozoide; El semen; 27.5 Respuesta sexual masculina; Bases anatómicas | 1828 | 12.2 | OK |
-| P07 | Excitación y meseta; Orgasmo y eyaculación | 1457 | 9.7 | OK |
-| P08 | Resolución | 1813 | 12.1 | OK |
+| P01 | 27.1 Reproducción y desarrollo sexuales (introducción); Los dos sexos; Determinación cromosómica del sexo; Hormonas prenatales y diferenciación sexual; Desarrollo de los genitales externos | 2232 | 14.9 | OK |
+| P02 | Descenso de las gónadas; 27.2 Anatomía del aparato reproductor masculino; El escroto | 1666 | 11.1 | OK |
+| P03 | Los testículos; Los conductos espermáticos; Las glándulas accesorias | 1896 | 12.6 | OK |
+| P04 | El pene | 609 | 4.1 | OK |
+| P05 | 27.3 Pubertad y climaterio | 1908 | 12.7 | OK |
+| P06 | 27.4 Espermatozoides y semen; Meiosis; Espermatogénesis | 1995 | 13.3 | OK |
+| P07 | El espermatozoide; El semen; 27.5 Respuesta sexual masculina; Bases anatómicas | 1828 | 12.2 | OK |
+| P08 | Excitación y meseta; Orgasmo y eyaculación | 1457 | 9.7 | OK |
+| P09 | Resolución | 1813 | 12.1 | OK |
 
 ### Tema_28_Morfo_Saladin — Aparato reproductor femenino (Saladin, 20709 pal., ~138.1 min)
 

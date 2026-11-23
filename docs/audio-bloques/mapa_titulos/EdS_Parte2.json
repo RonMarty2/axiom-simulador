@@ -7,6 +7,13 @@
   {
    "nivel": 1,
    "numero": "",
+   "titulo": "¿Cuál es el objeto de estudio en la epidemiología social?",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
    "titulo": "Introducción",
    "palabra": 62,
    "narrable": true
@@ -86,13 +93,6 @@
    "numero": "",
    "titulo": "Elementos del planteamiento del problema",
    "palabra": 5127,
-   "narrable": true
-  },
-  {
-   "nivel": 2,
-   "numero": "",
-   "titulo": "Características de los objetivos",
-   "palabra": 5541,
    "narrable": true
   },
   {

@@ -29,6 +29,9 @@ OBJ_MIN_PALABRAS = int(OBJ_MIN_MIN * PALABRAS_POR_MIN)  # 750
 OBJ_MAX_PALABRAS = int(OBJ_MAX_MIN * PALABRAS_POR_MIN)  # 2250
 ACEPTABLE_MIN_PALABRAS = int(ACEPTABLE_MIN_MIN * PALABRAS_POR_MIN)  # 450
 ACEPTABLE_MAX_PALABRAS = int(ACEPTABLE_MAX_MIN * PALABRAS_POR_MIN)  # 3000
+# 23-11: cuando un nodo SI tiene sub-subtitulos, expandirlo sobre 2650 pal (~17.7 min a 150 pal/min,
+# ~19 min en tablas/formulas a ~140 pal/min) para no pasar de 20:00 en audio real (ej. EdS_Parte3_2 cap 7).
+MARGEN_EXPANDIR_HIJOS = 2650
 
 EDS_PSA_PARTES: tuple[str, ...] = (
     "EdS_Parte1",
@@ -232,7 +235,8 @@ def _expandir_nodo(
     forzar_hijos: bool = False,
 ) -> list[UnidadCorte]:
     """Si un nodo supera 20 min (o se fuerza por vecino corto) y tiene hijos ubicados, baja al nivel inferior."""
-    if not forzar_hijos and nodo.palabras <= ACEPTABLE_MAX_PALABRAS:
+    umbral_expandir = MARGEN_EXPANDIR_HIJOS if nodo.hijos else ACEPTABLE_MAX_PALABRAS
+    if not forzar_hijos and nodo.palabras <= umbral_expandir:
         return [
             UnidadCorte(
                 etiquetas=[nodo.etiqueta()],

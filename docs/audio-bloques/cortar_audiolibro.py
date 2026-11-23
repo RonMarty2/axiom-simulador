@@ -36,9 +36,11 @@ except Exception:
 DIR_MAPAS_DEFECTO = DIR_SCRIPT / "mapa_titulos"
 DIR_CORTES_DEFECTO = DIR_SCRIPT / "cortes_v2"
 DIR_CACHE_WHISPER_DEFECTO = DIR_SCRIPT / "transcripciones_whisper"
-RUTA_LOUDNESS_SKILL = Path(
-    r"C:\Users\lmigu\SynologyDrive\12.NUBES\_AGENTES_CENTRAL\skills\ffmpeg-skill\scripts\loudness.py"
+_LOUDNESS_CANDIDATOS = (
+    Path.home() / "SynologyDrive" / "12.NUBES" / "_AGENTES_CENTRAL" / "skills" / "ffmpeg-skill" / "scripts" / "loudness.py",
+    Path.home() / "SynologyDrive" / "_AGENTES_CENTRAL" / "skills" / "ffmpeg-skill" / "scripts" / "loudness.py",
 )
+RUTA_LOUDNESS_SKILL = next((p for p in _LOUDNESS_CANDIDATOS if p.is_file()), _LOUDNESS_CANDIDATOS[0])
 
 LUFS_OBJETIVO = -16.0
 TP_OBJETIVO = -1.5
