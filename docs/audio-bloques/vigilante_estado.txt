@@ -316,3 +316,7 @@
 23-11:21 3 capitulos esperan aceptacion de texto; reviso en 30 min
 23-11:38 sin cuota, espero 30 min
 23-11:51 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-9fb9 74564
+23-12:09 sin cuota, espero 30 min
+23-16:07 cuota OK, grabando
+23-16:08 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+23-16:08 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True

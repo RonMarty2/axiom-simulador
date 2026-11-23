@@ -5,9 +5,9 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 ## Resumen ejecutivo
 
 - **Capítulos PSA 2027:** 39 (mapas completos: 39; faltantes: 0).
-- **Total de partes propuestas:** 328.
-- **Dentro del rango aceptable (3–20 min):** 312 / 328 (95.1%).
-- **Dentro del objetivo ideal (5–15 min):** 271 / 328 (82.6%).
+- **Total de partes propuestas:** 329.
+- **Dentro del rango aceptable (3–20 min):** 313 / 329 (95.1%).
+- **Dentro del objetivo ideal (5–15 min):** 272 / 329 (82.7%).
 - **Excepciones >20 min (sin sub-subtítulos):** 16.
 - **Excepciones <3 min:** 0.
 
@@ -45,7 +45,7 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | Capítulo | Libro | Título | Palabras narr. | Min. est. | Partes | En 3–20 min | Excepciones |
 |---|---|---|---:|---:|---:|---:|---|
 | EdS_Parte1 | EdS | EDUCACIÓN EN SALUD | 7488 | 49.9 | 4 | 4/4 | — |
-| EdS_Parte2 | EdS | Consideraciones generales del proceso salud-enfermedad | 10572 | 70.5 | 6 | 6/6 | — |
+| EdS_Parte2 | EdS | Consideraciones generales del proceso salud-enfermedad | 11199 | 74.7 | 7 | 7/7 | — |
 | EdS_Parte3_1 | EdS | CONCEPTOS GENERALES SOBRE ESTADÍSTICA | 9091 | 60.6 | 6 | 6/6 | — |
 | EdS_Parte3_2 | EdS | TABULACIÓN DE DATOS BINARIOS O CRUZADOS | 9745 | 65.0 | 5 | 5/5 | — |
 | EdS_Parte3_3 | EdS | Coeficiente de asimetría de Fisher | 1187 | 7.9 | 1 | 1/1 | — |
@@ -95,16 +95,17 @@ Ritmo de referencia: **150 palabras/min**. Objetivo: **5 a 15 min** (750–2250 
 | P03 | MEDICINA SOCIAL, Concepto ... PROGRAMAS DE SALUD EN BOLIVIA (8 subtítulos) | 1662 | 11.1 | OK |
 | P04 | PROBLEMAS DE SALUD EN VIGILANCIA PRIORITARIA EN BOLIVIA | 1553 | 10.4 | OK |
 
-### EdS_Parte2 — Consideraciones generales del proceso salud-enfermedad (EdS, 10572 pal., ~70.5 min)
+### EdS_Parte2 — Consideraciones generales del proceso salud-enfermedad (EdS, 11199 pal., ~74.7 min)
 
 | Parte | Títulos incluidos | Palabras | Min. est. | Nota |
 |---|---|---:|---:|---|
 | P01 | ¿Cuál es el objeto de estudio en la epidemiología social? | 2287 | 15.2 | OK |
 | P02 | Capítulo cuatro: Momentos del proceso de la investigación; Introducción; Introducción; Planteamiento del problema | 1608 | 10.7 | OK |
-| P03 | Criterios para la selección de un problema; Delimitación y definición del problema; Elementos del planteamiento del problema; FUNDAMENTACIÓN TEÓRICA, HIPÓTESIS | 1733 | 11.6 | OK |
-| P04 | Introducción; Búsqueda de información calificada; Pasos para la construcción de los marcos de referencia, conceptual y teórico | 1597 | 10.6 | OK |
-| P05 | El marco teórico en la investigación cualitativa; Elementos para la operacionalización de un marco conceptual y teórico; Hipótesis; Estructura, condiciones y características de las hipótesis; Tipos de hipótesis; Derivación de hipótesis | 1896 | 12.6 | OK |
-| P06 | Elementos estructurales de las hipótesis; Variables | 1451 | 9.7 | OK |
+| P03 | Criterios para la selección de un problema; Delimitación y definición del problema | 1232 | 8.2 | OK |
+| P04 | Elementos del planteamiento del problema; FUNDAMENTACIÓN TEÓRICA, HIPÓTESIS | 1128 | 7.5 | OK |
+| P05 | Introducción; Búsqueda de información calificada | 1132 | 7.5 | OK |
+| P06 | Pasos para la construcción de los marcos de referencia, conceptual y teórico; Elementos para la operacionalización de un marco conceptual y teórico; Hipótesis; Estructura, condiciones y características de las hipótesis | 1900 | 12.7 | OK |
+| P07 | Tipos de hipótesis; Derivación de hipótesis; Variables | 1912 | 12.7 | OK |
 
 ### EdS_Parte3_1 — CONCEPTOS GENERALES SOBRE ESTADÍSTICA (EdS, 9091 pal., ~60.6 min)
 
