@@ -297,10 +297,10 @@ describe("contenido de lecciones y láminas", () => {
       const vocal = term === "ar" ? "a" : term === "er" ? "e" : "i";
       for (const pron of ["lo", "la", "los", "las", "le", "les", "me", "nos", "te"]) {
         const enclitico = raiz + vocal + pron;
-        // Las dos colisiones reales con palabras que existen: "tomar"+"te" da
-        // el tomate, y "terminar"+"les" da las terminales nerviosas del
-        // diagrama de sistema-nervioso.
-        if (enclitico === "tomate" || enclitico === "terminales") continue;
+        // Colisiones reales con sustantivos existentes: "tomar"+"te" (tomate),
+        // "terminar"+"les" (terminales nerviosas en sistema-nervioso) y
+        // "decir"+"les" (deciles de estadística en estadistica-probabilidad).
+        if (enclitico === "tomate" || enclitico === "terminales" || enclitico === "deciles") continue;
         formas.add(enclitico);
       }
     }
