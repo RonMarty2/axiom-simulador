@@ -357,7 +357,31 @@
     "minutos": 60,
     "estimado": true,
     "vigente": false,
-    "fuente": "Transcripción parcial de admisión FCE 2023 (1 examen, 10 preguntas de matemáticas, 60 min); sin confirmar: no hay exámenes 2025-26 en el banco."
+    "fuente": "Transcripción parcial de admisión FCE 2023 (1 examen, 10 preguntas de matemáticas, 60 min)."
+  },
+  {
+    "id": "fce-admision-2025-2026",
+    "facultad": "economicas",
+    "nombre": "Admisión FCE 2025-2026",
+    "areas": [
+      {
+        "id": "matematicas",
+        "peso": 0.34
+      },
+      {
+        "id": "economicas",
+        "peso": 0.33
+      },
+      {
+        "id": "razonamiento",
+        "peso": 0.33
+      }
+    ],
+    "preguntas": 30,
+    "minutos": 90,
+    "estimado": false,
+    "vigente": true,
+    "fuente": "Exámenes de ingreso FCE-UMSS I-2025 (3ra), II-2025 (1ra y 2da) e I-2026 (1ra y 2da): 30 preguntas (10 Matemáticas, 10 Fundamentos Económicas, 10 Razonamiento Verbal y Lógico), 90 min."
   },
   {
     "id": "derecho-provisoria",

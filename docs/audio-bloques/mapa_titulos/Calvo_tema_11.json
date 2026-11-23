@@ -1,48 +1,56 @@
 {
- "capitulo": 11,
+ "capitulo": "Calvo_tema_11",
+ "libro": "Calvo",
  "titulo_capitulo": "Mitocondrias y peroxisomas. Bioenergética y metabolismo oxidativo",
- "palabras_texto": 10835,
+ "palabras_texto": 10907,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Estructura y composición de las mitocondrias",
    "palabra": 100,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Genoma mitocondrial",
-   "palabra": 846,
+   "palabra": 824,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Incorporación de proteínas a la mitocondria",
-   "palabra": 1807,
+   "palabra": 1767,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Metabolismo oxidativo mitocondrial",
-   "palabra": 3089,
+   "palabra": 3057,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Especies reactivas de oxígeno y defensa antioxidante mitocondrial",
-   "palabra": 6740,
+   "palabra": 6806,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Patologías relacionadas con la mitocondria",
-   "palabra": 7559,
+   "palabra": 7638,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Peroxisomas. Estructura y participación en el metabolismo oxidativo",
-   "palabra": 9158,
+   "palabra": 9205,
    "narrable": true
   }
  ]

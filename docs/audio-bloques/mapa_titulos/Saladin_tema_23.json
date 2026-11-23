@@ -1,0 +1,253 @@
+{
+ "capitulo": "Saladin_tema_23",
+ "libro": "Saladin",
+ "titulo_capitulo": "El aparato urinario",
+ "palabras_texto": 19157,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "23.1",
+   "titulo": "Funciones del aparato urinario",
+   "palabra": 797,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones de los riñones",
+   "palabra": 828,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desechos nitrogenados",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Excreción",
+   "palabra": 1006,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.2",
+   "titulo": "Anatomía de los riñones",
+   "palabra": 1171,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Posición y estructuras relacionadas",
+   "palabra": 1237,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía macroscópica",
+   "palabra": 1305,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Circulación renal",
+   "palabra": 1812,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La nefrona",
+   "palabra": 2488,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación renal",
+   "palabra": 3825,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.3",
+   "titulo": "Formación de la orina I: filtración glomerular",
+   "palabra": 3999,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Membrana de filtración",
+   "palabra": 4231,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Presión de filtración",
+   "palabra": 4790,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tasa de filtración glomerular",
+   "palabra": 5313,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación de la filtración glomerular",
+   "palabra": 5665,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.4",
+   "titulo": "Formación de la orina II: reabsorción tubular y secreción",
+   "palabra": 7440,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El túbulo contorneado proximal",
+   "palabra": 7586,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El asa de Henle",
+   "palabra": 9739,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El túbulo contorneado distal y el túbulo colector",
+   "palabra": 9933,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.5",
+   "titulo": "Formación de la orina III: conservación del agua",
+   "palabra": 10826,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Túbulo colector",
+   "palabra": 10980,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Control de la pérdida de agua",
+   "palabra": 11187,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El multiplicador en contracorriente",
+   "palabra": 11542,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El sistema de intercambio en contracorriente",
+   "palabra": 12374,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.6",
+   "titulo": "Análisis de orina y pruebas de la función renal",
+   "palabra": 13276,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Composición y propiedades de la orina",
+   "palabra": 13399,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Volumen de orina",
+   "palabra": 14030,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pruebas de la función renal",
+   "palabra": 14564,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "23.7",
+   "titulo": "Almacenamiento y eliminación de la orina",
+   "palabra": 15605,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los uréteres",
+   "palabra": 15711,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La vejiga urinaria",
+   "palabra": 15973,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La uretra",
+   "palabra": 16166,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vaciado de la orina",
+   "palabra": 17048,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Temas de conexión",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

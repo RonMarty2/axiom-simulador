@@ -1,0 +1,155 @@
+{
+ "capitulo": "Saladin_tema_08",
+ "libro": "Saladin",
+ "titulo_capitulo": "El sistema óseo",
+ "palabras_texto": 19712,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "8.1",
+   "titulo": "Revisión general del esqueleto",
+   "palabra": 390,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Huesos del sistema óseo",
+   "palabra": 544,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características anatómicas de los huesos",
+   "palabra": 846,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "8.2",
+   "titulo": "El cráneo",
+   "palabra": 1045,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Huesos craneales",
+   "palabra": 2067,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Huesos faciales",
+   "palabra": 5333,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Huesos relacionados con el cráneo",
+   "palabra": 6765,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El cráneo en la lactancia y la infancia",
+   "palabra": 6931,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "8.3",
+   "titulo": "La columna vertebral y la caja torácica",
+   "palabra": 7428,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características generales de la columna vertebral",
+   "palabra": 7523,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura general de una vértebra",
+   "palabra": 8121,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Discos intervertebrales",
+   "palabra": 8824,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características regionales de las vértebras",
+   "palabra": 8960,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La caja torácica",
+   "palabra": 10979,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "8.4",
+   "titulo": "La cintura escapular y las extremidades superiores",
+   "palabra": 12328,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La cintura escapular",
+   "palabra": 12376,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las extremidades superiores",
+   "palabra": 13290,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "8.5",
+   "titulo": "La cintura pélvica y las extremidades inferiores",
+   "palabra": 14986,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La cintura pélvica",
+   "palabra": 15050,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las extremidades inferiores",
+   "palabra": 16195,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+ "capitulo": "EdS_Parte3_2",
+ "libro": "EdS",
+ "titulo_capitulo": "TABULACIÓN DE DATOS BINARIOS O CRUZADOS",
+ "palabras_texto": 9745,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "6",
+   "titulo": "TABULACIÓN DE DATOS BINARIOS O CRUZADOS",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "6.1",
+   "titulo": "Tabla de contingencia de porcentaje de fila",
+   "palabra": 614,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "6.2",
+   "titulo": "Tabla de contingencia de porcentaje de columna",
+   "palabra": 833,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "7",
+   "titulo": "MEDIDAS DE TENDENCIA CENTRAL",
+   "palabra": 1161,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "7.1",
+   "titulo": "Media aritmética",
+   "palabra": 1340,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "7.2",
+   "titulo": "Mediana",
+   "palabra": 2050,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "7.3",
+   "titulo": "Moda",
+   "palabra": 3386,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "8",
+   "titulo": "MEDIDAS DE POSICIÓN",
+   "palabra": 4102,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "8.1",
+   "titulo": "Cuartiles",
+   "palabra": 4219,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "8.2",
+   "titulo": "Deciles",
+   "palabra": 5715,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "8.3",
+   "titulo": "Percentiles",
+   "palabra": 6052,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "9",
+   "titulo": "MEDIDAS DE DISPERSIÓN",
+   "palabra": 6367,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "9.1",
+   "titulo": "Rango",
+   "palabra": 6493,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "9.2",
+   "titulo": "Rango intercuartil",
+   "palabra": 6693,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "9.3",
+   "titulo": "Varianza",
+   "palabra": 6911,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "9.4",
+   "titulo": "Desviación estándar",
+   "palabra": 8198,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "9.5",
+   "titulo": "Coeficiente de variación",
+   "palabra": 8632,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "10",
+   "titulo": "MEDIDAS DE FORMA",
+   "palabra": 9210,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "10.1",
+   "titulo": "Coeficiente de asimetría o sesgo",
+   "palabra": 9292,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "10.1.1",
+   "titulo": "Coeficiente de asimetría de Pearson",
+   "palabra": 9534,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "10.1.2",
+   "titulo": "Coeficiente de asimetría de Bowley",
+   "palabra": 9636,
+   "narrable": true
+  }
+ ]
+}

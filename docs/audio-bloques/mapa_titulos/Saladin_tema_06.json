@@ -1,0 +1,148 @@
+{
+ "capitulo": "Saladin_tema_06",
+ "libro": "Saladin",
+ "titulo_capitulo": "El sistema tegumentario",
+ "palabras_texto": 14235,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "6.1",
+   "titulo": "Piel y tejido subcutáneo",
+   "palabra": 886,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones de la piel",
+   "palabra": 911,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Epidermis",
+   "palabra": 1220,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Dermis",
+   "palabra": 3089,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hipodermis",
+   "palabra": 3747,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Color de la piel",
+   "palabra": 3974,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Marcas en la piel",
+   "palabra": 5789,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "6.2",
+   "titulo": "Pelo y uñas",
+   "palabra": 6211,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pelo",
+   "palabra": 6344,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Uñas",
+   "palabra": 9209,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "6.3",
+   "titulo": "Glándulas cutáneas",
+   "palabra": 9701,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas sudoríparas",
+   "palabra": 9781,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas sebáceas",
+   "palabra": 10689,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas ceruminosas",
+   "palabra": 10820,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas mamarias",
+   "palabra": 10905,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "6.4",
+   "titulo": "Trastornos de la piel",
+   "palabra": 11093,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cáncer de piel",
+   "palabra": 11248,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Quemaduras",
+   "palabra": 12891,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Temas de conexión",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

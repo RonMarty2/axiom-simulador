@@ -1320,3 +1320,35 @@ Esta PC (RonMarty) tenía el historial local 37 commits detrás de GitHub, aunqu
 - `aceptacion.py`: fin narrable acepta «Para probar los conocimientos» (Saladin) y rev 6 de miles ya no cruza saltos de línea (respaldo `.bak_1121t7`; 22 pruebas OK).
 - «un» → «uno» aplicado: 135 cambios en 32 capítulos (`corregir_textos_v2.py`, R6_un_numero).
 - Nuevo `docs/audio-bloques/regrabar_bloques.py`: re-graba solo bloques cambiados de lo grabado (Tema_01: 10/75, Tema_02: 4/116). 23 planes viejos regenerados (5 BC con plan_sintesis, 18 con plan_todo_nuevo); seco sobre todos: 0 «no coincide». Respaldo de planes en `plan/bak_1121uno/`.
+
+## 22-11-2026 ~10:26 · Matemáticas PSA 2027 Medicina (cierre del Hueco 7: MAT-23 a MAT-28)
+- Completadas las 6 lecciones faltantes de Matemáticas del temario oficial PSA 2027 (`4096.pdf` pág. 40–45) con `agy` (nivel `criterio`, Gemini 4 Neon High) y conectadas como unidades 23 a 28 en `BLOQUES_MEDICINA` (`src/lib/axiom/catalogo-aprende.ts`, sin tocar Económicas ni Ingeniería ni `docs/audio-bloques/`):
+  - `MAT-23`: `src/app/aprende/numeros-complejos/page.tsx` (703 líneas, `20261122-081917_contenido`).
+  - `MAT-24`: `src/app/aprende/combinatoria-binomio/page.tsx` (628 líneas, `20261122-082042_contenido`).
+  - `MAT-25`: `src/app/aprende/estadistica-probabilidad/page.tsx` (695 líneas, `20261122-083245_contenido`).
+  - `MAT-26`: `src/app/aprende/cuerpos-geometricos/page.tsx` (717 líneas, `20261122-083418_contenido`).
+  - `MAT-27`: `src/app/aprende/elipse-hiperbola/page.tsx` (735 líneas, `20261122-101020_contenido-mat27`).
+  - `MAT-28`: `src/app/aprende/analisis-limites-derivadas/page.tsx` (685 líneas, `20261122-101024_contenido-mat28`).
+- `src/lib/contenido-lecciones.test.ts`: agregada la colisión real `"deciles"` (`decir`+`les` vs sustantivo estadístico *deciles*) junto a `"tomate"` y `"terminales"`.
+- Verificación completa: `npx tsc --noEmit` (0), `eslint` en los 8 archivos tocados (0), `medir-letra-dibujos.mjs` (0 dibujos < 11 px en las 6 nuevas), `npm test` 659/660 (único rojo ajeno: `agentes.test.ts` en agentes de audio que edita la otra ventana), y Chrome headless vía Playwright en 360×740 (las 6 escenas de cada lección = 36 escenas), 800×1340 y 1280×800 con `dev-login?rol=tester` Premium: 0 desborde horizontal, 0 errores KaTeX, 0 errores JS. Tablet no conectada (`adb` ausente).
+- **Próximo paso (plan aprobado por Ronald):** Paso 2 — Conectar reproductor de audiolibros en Medicina (Fase D de `docs/plan-medicina-psa.md`).
+
+## 22-11-2026 ~13:10 · Fase D Audiolibros Medicina (prototipo punta a punta Unidad 01)
+- Aprobada Opción A por Ronald (Cloudflare R2 + Unidad 01 gratis y resto Premium). Mapeo en `20261122-125519_mapa-audio` + verificación de disco (179 MP3 en `1_BIOLOGIA_CELULAR`, 317 MP3 en `2_MORFOFISIOLOGIA`, cada capítulo con `Completo` + partes `P01..Pn`).
+- Implementado con `agy` (`20261122-125842_audio-reproductor`, `criterio`, Gemini 4 Neon High, revisado DIFF completo, aplicado con `git apply --ignore-whitespace` por CRLF de Windows):
+  - `src/lib/audio-medicina.ts` + `src/lib/audio-medicina.test.ts` (17/17 tests): mapa inicial de Unidad 01 gratis (`morfofuncion-introduccion` Saladin Cap. 1 ×10 partes; `bcm-membrana-transporte` Calvo Cap. 3 ×8 partes), URL por `NEXT_PUBLIC_AUDIO_BASE_URL` (R2) con fallback local `/api/dev-audio` en dev y `null` en producción sin configurar.
+  - `src/app/api/dev-audio/[...ruta]/route.ts`: streaming solo desarrollo (bloqueado con 404 en producción), protección contra path-traversal y soporte HTTP `Range` (`206 Partial Content`).
+  - `src/app/aprende/_components/ReproductorAudiolibro.tsx`: panel crema `LIENZO`, botones ≥ 44 px, `-15 s` / `+15 s`, barra de progreso, velocidades `0.75x`–`2x`, lista de partes con avance automático y persistencia en `localStorage` (`useSyncExternalStore`).
+  - `src/app/aprende/_components/LeccionShell.tsx`: detecta el slug vía `usePathname()` y monta el reproductor fuera de `AnimatePresence` (no corta el audio al cambiar de escena).
+  - `src/app/aprende/page.tsx`: insignia discreta `Audiolibro` en las lecciones con audio mapeado.
+- Verificado: `npx tsc --noEmit` (0), `eslint` (0), tests 17/17 en verde, Chrome real (`360×740`, `800×1340`, `1280×800`) con MP3 reales (`Range 206`, `readyState=4`, `644 s` y `788 s`, `traversal=404`, `0` desbordes colapsado y abierto, persiste en `localStorage` y sobrevive cambio de escena).
+- **Próximo paso:** ampliar `AUDIOLIBROS_MEDICINA` al resto de capítulos PSA 2027 de Saladin y Calvo, y subir los MP3 a Cloudflare R2 configurando `NEXT_PUBLIC_AUDIO_BASE_URL` en Vercel.
+- **22-11 ~13:18 (ampliación completa local, sin subir a la nube todavía por pedido de Ronald):** creado `scripts/generar-catalogo-audio.py` y generado `src/lib/audio-medicina-catalogo.ts` con las **22 unidades completas** de Morfofunción (Saladin: 14 unidades, 20 capítulos PSA, 195 partes) y Biología Celular (Calvo: 8 unidades, 14 capítulos PSA, 123 partes) = **318 partes reales**, verificadas 1 a 1 contra disco en `src/lib/audio-medicina.test.ts` (0 faltantes, 0 voseo/em-dash/emojis). Cuando Educación en Salud termine de grabarse en la otra ventana, se suma al generador; la subida a Cloudflare R2 y el push quedan en pausa hasta que Ronald indique. **Próximo paso (plan aprobado):** Paso 3 — cerrar los 6 exámenes recientes de Económicas.
+
+## 22-11-2026 ~13:36 · Paso 3 Económicas: 5 exámenes recientes 2025–2026 (150 preguntas) + ficha vigente
+- Auditoría con `agy` (`20261122-133212_audit-eco`, lectura solo-texto) sobre los 6 borradores de 30 preguntas en `examenes pasados/borradores_economicas/`:
+  - **5 LISTOS e integrados** a `data/examenes/umss/economicas/` con `formato: fce-admision-2025-2026`: `2025-3op-1-2025.md`, `2025-1op-2-2025.md`, `2025-2op-2-2025.md`, `2026-1op-1-2026.md`, `2026-2op-1-2026.md` (**150 preguntas nuevas**, 10 Matemáticas + 10 Fundamentos Económicas + 10 Razonamiento Verbal y Lógico, 90 min).
+  - **1 BLOQUEADO POR FOTO:** `2024-II-2op.banco.md` tiene P11–P40 (falta foto de pág. 1 de Matemáticas P1–P10). Quedaron aparte en `borradores_economicas/`: `2025-I-1op` (19 pregs) y las transcripciones crudas de `2026-II-1op` y `2026-II-2op`.
+- `data/formatos-examen.json` + `data/facultades.json` + `src/lib/axiom/areas.ts`: sumada la ficha vigente `fce-admision-2025-2026` (30 preguntas, 90 min, `matematicas` 0.34 / `economicas` 0.33 / `razonamiento` 0.33), conservando `lenguaje` e `historia` (2011–2014) como áreas históricas sin perder preguntas.
+- Verificado en local (`npx tsc --noEmit`, `eslint`, `banco.test.ts` 16/16 con KaTeX/tuteo/coherencia, `formatos-examen.test.ts`, `areas.test.ts`, `etiqueta-examen.test.ts`, `preguntas-compartidas.test.ts`). Sin push ni subidas todavía por pedido de Ronald.
+- **Próximo paso:** convertir `2026-II-1op` y `2026-II-2op` si están completos, o pasar al **Paso 4: prueba final de cobro/pago**.

@@ -1,42 +1,56 @@
 {
- "capitulo": 17,
+ "capitulo": "Calvo_tema_17",
+ "libro": "Calvo",
  "titulo_capitulo": "Bases celulares de la respuesta inmunitaria",
- "palabras_texto": 13779,
+ "palabras_texto": 14301,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Propiedades generales del sistema inmunitario. Inmunidad innata y adaptativa",
    "palabra": 102,
    "narrable": true
   },
   {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Concepto de inmunidad",
+   "palabra": 111,
+   "narrable": true
+  },
+  {
    "nivel": 1,
+   "numero": "",
    "titulo": "Reconocimiento del antígeno",
-   "palabra": 1231,
+   "palabra": 1936,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Activación linfocitaria",
-   "palabra": 7192,
+   "palabra": 9195,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Mecanismos efectores",
-   "palabra": 10420,
+   "palabra": 10911,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Regulación de la respuesta inmunitaria",
-   "palabra": 11972,
+   "palabra": 12507,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Disfunciones del sistema inmunitario y sus consecuencias",
-   "palabra": 12767,
+   "palabra": 13308,
    "narrable": true
   }
  ]

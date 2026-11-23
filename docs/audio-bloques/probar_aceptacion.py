@@ -489,5 +489,382 @@ class TestRev7TituloEnLineaAparte(unittest.TestCase):
         self.assertIsNotNone(ac._REV7_TITULO_PEGADO_RE.search("en los tejidos adultos. FIGURA E18-un Jerarquía"))
 
 
+class TestRefuerzoSaladinYRev2(unittest.TestCase):
+    """21-nov: detectores de Saladin en rev. 3/4 y mejoras de rev. 2 (guion doble salto + corte Excel)."""
+
+    def test_rev3_parte_incrustado_en_medio_de_linea_y_palabra(self):
+        txt1 = "recubre al útero.  PARTE UNO Organización corporal Después de la fijación.\n"
+        r1 = ac._revision_3_relleno(txt1)
+        self.assertEqual(r1.estado, "FALLA")
+        self.assertTrue(any("PARTE" in ej for ej in r1.ejemplos))
+
+        txt2 = "en las glánduPARTE CINCO Reproducción y desarrollo las mamarias.\n"
+        r2 = ac._revision_3_relleno(txt2)
+        self.assertEqual(r2.estado, "FALLA")
+        self.assertTrue(any("PARTE CINCO" in ej for ej in r2.ejemplos))
+
+    def test_rev3_capitulo_inicial_aprueba_y_repetido_falla(self):
+        inicio = "CAPÍTULO uno Temas principales de anatomía y fisiología\n\n"
+        cuerpo = "La anatomía estudia las estructuras del cuerpo humano y su organización tisular. " * 4
+        r_ok = ac._revision_3_relleno(inicio + cuerpo)
+        self.assertEqual(r_ok.estado, "APRUEBA")
+
+        con_rep = inicio + cuerpo + "  CAPÍTULO uno Temas principales de anatomía y fisiología cadáveres.\n"
+        r_mal = ac._revision_3_relleno(con_rep)
+        self.assertEqual(r_mal.estado, "FALLA")
+        self.assertTrue(any("CAPÍTULO repetido" in ej for ej in r_mal.ejemplos))
+
+    def test_rev3_vinyeta_autoevaluacion_falla(self):
+        txt = "con tres cadáveres. ● ¿Por qué los estudiantes de medicina deben estudiar más de un cadáver? Por supuesto.\n"
+        r = ac._revision_3_relleno(txt)
+        self.assertEqual(r.estado, "FALLA")
+        self.assertTrue(any("●" in ej for ej in r.ejemplos))
+
+    def test_rev4_glosas_hasta_cincuenta_y_biograficas_positivos_y_negativos(self):
+        positivos = [
+            "Texto. veintiuno osteo igual a hueso; cito igual a célula.",
+            "Texto. veinticuatro esfint igual a aplastar, unir de manera apretada. veintiséis inter igual a entre; calado igual a insertado.",
+            "Texto. treinta y un ácino igual a baya. treinta y tres cito igual a célula;",
+            "Texto. cincuenta dermo igual a piel.",
+            "Texto. catorce Caspar Bartholin, mil seiscientos cincuenta y cinco a mil setecientos treinta y ocho, anatomista danés.",
+            "Texto. quince Alexander J. C. Skene, mil ochocientos treinta y ocho a mil novecientos, ginecólogo estadounidense.",
+        ]
+        for muestra in positivos:
+            with self.subTest(muestra=muestra):
+                r = ac._revision_4_notas_pie(muestra)
+                self.assertEqual(r.estado, "FALLA")
+                self.assertGreater(r.fallas, 0)
+
+        negativos = (
+            "gastro igual a una forma combinada que significa estómago. "
+            "entero igual a una forma combinada que significa intestino delgado.\n\n"
+            "La sangre mantiene un pH igual a siete coma cuatro y R igual a región.\n\n"
+            "La presión igual a fuerza entre área y el producto es igual a la energía total.\n"
+        )
+        r_neg = ac._revision_4_notas_pie(negativos)
+        self.assertEqual(r_neg.estado, "APRUEBA")
+        self.assertEqual(r_neg.fallas, 0)
+
+    def test_rev2_guion_con_doble_salto_no_genera_falsa_omision(self):
+        pdf_eds = (
+            "=== PÁGINA 180 ===\n"
+            "180\n"
+            "La distribución de Ber-\n\n"
+            "noulli describe un experimento aleatorio con dos resultados posibles, éxito o fracaso, "
+            "y constituye la base de la distribución binomial en bioestadística clínica.\n"
+        )
+        parrafos = ac._limpiar_paginas_pdf_crudo(pdf_eds)
+        self.assertTrue(any("Bernoulli" in p for p in parrafos))
+        self.assertFalse(any("Ber-" in p for p in parrafos))
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            ruta_md = tmp / "EdS_Parte3_3.md"
+            ruta_pdf = tmp / "EdS_texto_paginas.txt"
+            ruta_md.write_text(
+                "La distribución de Bernoulli describe un experimento aleatorio con dos resultados "
+                "posibles, éxito o fracaso, y constituye la base de la distribución binomial en "
+                "bioestadística clínica.\n",
+                encoding="utf-8",
+            )
+            ruta_pdf.write_text(pdf_eds, encoding="utf-8")
+            res = ac.evaluar_capitulo(ruta_texto=ruta_md, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res, 2).estado, "APRUEBA")
+
+    def test_rev2_corte_ejercicios_10_3_y_capitulo_11_excel(self):
+        self.assertTrue(ac._PDF_FIN_NARRABLE_RE.search("10.3 Ejercicios de aplicación sobre probabilidades"))
+        self.assertTrue(ac._PDF_FIN_NARRABLE_RE.search("11 ESTADÍSTICA DESCRIPTIVA MEDIANTE MICROSOFT EXCEL"))
+        self.assertFalse(ac._PDF_FIN_NARRABLE_RE.search("10.2 Distribución normal estándar en medicina."))
+
+        pdf_con_excel = (
+            "=== PÁGINA 189 ===\n"
+            "189\n"
+            "La distribución normal estándar tiene media cero y desviación típica uno en toda "
+            "población estadística continua empleada en ciencias de la salud.\n\n"
+            "=== PÁGINA 191 ===\n"
+            "191\n"
+            "11 ESTADÍSTICA DESCRIPTIVA MEDIANTE MICROSOFT EXCEL\n\n"
+            "Para calcular medidas de tendencia central en la hoja de cálculo abra el menú de "
+            "herramientas de análisis de datos y seleccione estadística descriptiva.\n"
+        )
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            ruta_md = tmp / "EdS_Parte3_3.md"
+            ruta_pdf = tmp / "EdS_texto_paginas.txt"
+            ruta_md.write_text(
+                "La distribución normal estándar tiene media cero y desviación típica uno en toda "
+                "población estadística continua empleada en ciencias de la salud.\n",
+                encoding="utf-8",
+            )
+            ruta_pdf.write_text(pdf_con_excel, encoding="utf-8")
+            res = ac.evaluar_capitulo(ruta_texto=ruta_md, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res, 2).estado, "APRUEBA")
+
+
+class TestCalibracionSaladinYEdS(unittest.TestCase):
+    """22-nov: calibración de Rev 2 en Saladin, Rev 1/2 en EdS Parte 3 y negativos en Rev 6."""
+
+    def test_rev2_saladin_ruido_pdf_crudo_no_dispara_falsa_omision(self):
+        p1_ini = "El tejido epitelial recubre las superficies externas del cuerpo humano,"
+        p1_fin = "reviste cavidades internas y forma glándulas secretoras especializadas."
+        p2 = (
+            "El tejido conjuntivo brinda soporte estructural, une órganos adyacentes y "
+            "transporta nutrientes esenciales a través de la matriz extracelular."
+        )
+        pdf_saladin = (
+            "=== PÁGINA 140 ===\n"
+            "140\n"
+            "CAPÍTULO 5 Histología\n"
+            f"{p1_ini} PARTE UNO Organización corporal {p1_fin}\n\n"
+            "● ¿Por qué los estudiantes de medicina deben estudiar más de un cadáver "
+            "durante el curso inicial de anatomía humana práctica?\n\n"
+            "●¿Cuál es la diferencia fundamental entre la epidermis queratinizada y la "
+            "dermis reticular en la piel humana?\n\n"
+            "1 palp = tocar; ación = acción. 9 pap = pezón; ila = pequeño. "
+            "10 reti = red; cul = pequeño. "
+            "12 Caspar Bartholin, 1655-1738, anatomista danés.\n\n"
+            f"{p2}\n"
+        )
+        tts_limpio = f"{p1_ini} {p1_fin}\n\n{p2}\n"
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            ruta_pdf = tmp / "Saladin_texto_paginas.txt"
+            ruta_pdf.write_text(pdf_saladin, encoding="utf-8")
+
+            ruta_md = tmp / "Tema_05_Morfo_Saladin.md"
+            ruta_md.write_text(tts_limpio, encoding="utf-8")
+            res = ac.evaluar_capitulo(ruta_texto=ruta_md, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res, 2).estado, "APRUEBA")
+            self.assertEqual(_rev(res, 2).fallas, 0)
+            self.assertEqual(_rev(res, 2).revisado, 2)
+
+            # Verificar que no se borran párrafos narrables normales: omitir p2 debe fallar Rev 2
+            ruta_md_om = tmp / "Tema_05_Morfo_Saladin_Om.md"
+            ruta_md_om.write_text(f"{p1_ini} {p1_fin}\n", encoding="utf-8")
+            res_om = ac.evaluar_capitulo(ruta_texto=ruta_md_om, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res_om, 2).estado, "FALLA")
+            self.assertEqual(_rev(res_om, 2).fallas, 1)
+
+    def test_rev2_eds_intro_autoevaluacion_no_corta_y_seccion_real_si_corta(self):
+        self.assertIsNone(
+            ac._PDF_FIN_NARRABLE_RE.search(
+                "Cada unidad incluye objetivos y Autoevaluación: ejercicios de aplicación para repasar."
+            )
+        )
+        self.assertIsNone(
+            ac._PDF_FIN_NARRABLE_RE.search(
+                "Autoevaluación: ejercicios de aplicación al cierre de cada capítulo."
+            )
+        )
+        self.assertIsNotNone(ac._PDF_FIN_NARRABLE_RE.search("Autoevaluación"))
+        self.assertIsNotNone(ac._PDF_FIN_NARRABLE_RE.search("Preguntas de autoevaluación"))
+        self.assertIsNotNone(
+            ac._PDF_NO_NARRABLE_RE.search("5.3 Ejercicios de aplicación sobre frecuencias.")
+        )
+        self.assertIsNotNone(
+            ac._PDF_NO_NARRABLE_RE.search("Realice las tablas de frecuencias correspondientes.")
+        )
+        self.assertIsNone(
+            ac._PDF_NO_NARRABLE_RE.search("La mediana divide un conjunto ordenado en dos partes iguales.")
+        )
+
+        intro = (
+            "Cada capítulo del manual incluye objetivos generales, desarrollo teórico detallado "
+            "y una sección final llamada Autoevaluación: ejercicios de aplicación para consolidar "
+            "el aprendizaje."
+        )
+        teoria_1_pdf = (
+            "Como se observa en la tabla 22, la frecuencia relativa expresa la proporción de "
+            "observaciones en cada categoría respecto al total de la muestra clínica estudiada."
+        )
+        teoria_1_tts = (
+            "La frecuencia relativa expresa la proporción de observaciones en cada categoría "
+            "respecto al total de la muestra clínica estudiada."
+        )
+        teoria_2_pdf = (
+            "En la tabla 30 se observa que la distribución de frecuencias acumuladas permite "
+            "identificar rápidamente los percentiles y cuartiles de cualquier conjunto ordenado "
+            "de mediciones médicas."
+        )
+        teoria_2_tts = (
+            "La distribución de frecuencias acumuladas permite identificar rápidamente los "
+            "percentiles y cuartiles de cualquier conjunto ordenado de mediciones médicas."
+        )
+        pdf_eds = (
+            "=== PÁGINA 1 ===\n"
+            "1\n"
+            f"{intro}\n\n"
+            f"{teoria_1_pdf}\n\n"
+            "5.3 Ejercicios de aplicación sobre organización tabular de variables cualitativas y "
+            "cuantitativas continuas en encuestas de salud pública.\n\n"
+            "Realice las tablas de distribución de frecuencias absolutas, relativas y acumuladas "
+            "para los siguientes datos clínicos registrados.\n\n"
+            f"{teoria_2_pdf}\n\n"
+            "Autoevaluación\n\n"
+            "Calcule la media aritmética, la mediana y la desviación estándar de las edades "
+            "registradas en la encuesta hospitalaria del municipio.\n"
+        )
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            ruta_pdf = tmp / "EdS_texto_paginas.txt"
+            ruta_pdf.write_text(pdf_eds, encoding="utf-8")
+
+            ruta_md = tmp / "EdS_Parte3_1.md"
+            ruta_md.write_text(f"{intro}\n\n{teoria_1_tts}\n\n{teoria_2_tts}\n", encoding="utf-8")
+            res = ac.evaluar_capitulo(ruta_texto=ruta_md, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res, 2).estado, "APRUEBA")
+            self.assertEqual(_rev(res, 2).fallas, 0)
+            self.assertEqual(_rev(res, 2).revisado, 3)
+
+            # Si el TTS omite teoria_2, Rev 2 debe fallar (la mención en intro NO cortó el PDF)
+            ruta_md_om = tmp / "EdS_Parte3_1_Om.md"
+            ruta_md_om.write_text(f"{intro}\n\n{teoria_1_tts}\n", encoding="utf-8")
+            res_om = ac.evaluar_capitulo(ruta_texto=ruta_md_om, ruta_pdf_texto=ruta_pdf, dir_salida=tmp / "out")
+            self.assertEqual(_rev(res_om, 2).estado, "FALLA")
+            self.assertEqual(_rev(res_om, 2).fallas, 1)
+
+    def test_rev1_tablas_narradas_y_formulas_verbalizadas_aprueban_y_prosa_inventada_falla(self):
+        pdf_eds = (
+            "=== PÁGINA 1 ===\n"
+            "1\n"
+            "Institución Calidad académica Antigüedad en años\n"
+            "Universidad Mayor excelente 40 años\n"
+            "Colegios públicos 7000 10000 0,70\n"
+            "Sesgo para la puntuación en distribución asimétrica a la derecha.\n\n"
+            "La media aritmética es la medida de tendencia central más utilizada en bioestadística "
+            "para resumir variables cuantitativas continuas.\n"
+        )
+        tts_valido = (
+            "La media aritmética es la medida de tendencia central más utilizada en bioestadística "
+            "para resumir variables cuantitativas continuas.\n\n"
+            "Tabla. Para cada Institución, se dan: Calidad académica, Antigüedad en años. "
+            "uno: Universidad Mayor, excelente, cuarenta años.\n\n"
+            "Tabla treinta y seis. Sesgo para la puntuación de colegios públicos.\n\n"
+            "equis barra igual a sigma, i igual a uno hasta n, x i dividido entre n\n\n"
+            "g uno igual a sigma, x i menos equis barra, al cubo sobre, n s al cubo\n\n"
+            "Colegios públicos: siete mil dividido entre diez mil igual a cero coma siete cero\n\n"
+            "Sesgo mayor que cero: sesgo positivo o a la derecha.\n"
+        )
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            ruta_pdf = tmp / "EdS_texto_paginas.txt"
+            ruta_pdf.write_text(pdf_eds, encoding="utf-8")
+
+            r_ok = ac._revision_1_literalidad(tts_valido, ruta_pdf)
+            self.assertEqual(r_ok.estado, "APRUEBA")
+            self.assertEqual(r_ok.fallas, 0)
+
+            tts_prosa_inv = (
+                tts_valido
+                + "\nLos investigadores del laboratorio moderno diseñaron un microscopio digital "
+                "para evaluar muestras biológicas complejas.\n"
+            )
+            r_prosa = ac._revision_1_literalidad(tts_prosa_inv, ruta_pdf)
+            self.assertEqual(r_prosa.estado, "FALLA")
+            self.assertEqual(r_prosa.fallas, 1)
+
+            tts_tabla_inv = (
+                tts_valido
+                + "\nTabla. Para cada planeta lejano, se dan: galaxia dorada, cometa azul.\n"
+            )
+            r_tabla = ac._revision_1_literalidad(tts_tabla_inv, ruta_pdf)
+            self.assertEqual(r_tabla.estado, "FALLA")
+            self.assertEqual(r_tabla.fallas, 1)
+
+    def test_rev6_decimales_negativos_aprueban_y_positivos_miles_fallan(self):
+        self.assertIsNone(ac._REV6_MILES_PALABRAS_RE.search("menos uno coma siete nueve dos"))
+        r_neg = ac._revision_6_simbolos_iones_miles(
+            "La curtosis calculada es menos uno coma siete nueve dos en la muestra.\n"
+            "Otro coeficiente resultó menos treinta y uno coma siete nueve dos.\n"
+        )
+        self.assertEqual(r_neg.estado, "APRUEBA")
+        self.assertEqual(r_neg.fallas, 0)
+
+        for positivo in (
+            "uno coma cinco cero cero",
+            "dos coma tres cuatro cinco",
+            "uno coma dos cero ocho",
+        ):
+            with self.subTest(positivo=positivo):
+                self.assertIsNotNone(ac._REV6_MILES_PALABRAS_RE.search(positivo))
+                r_pos = ac._revision_6_simbolos_iones_miles(f"La población alcanza {positivo} habitantes.\n")
+                self.assertEqual(r_pos.estado, "FALLA")
+                self.assertGreater(r_pos.fallas, 0)
+
+
+class TestCalibracionRev9Whisper(unittest.TestCase):
+    """22-nov: calibración de _normalizar_para_whisper (miles con coma/punto y subtítulos numerados)."""
+
+    def test_rev9_miles_con_coma_y_punto_no_generan_falsos_positivos(self):
+        esperado = (
+            "En la encuesta participaron mil personas, dos mil docentes, diez mil niños, "
+            "cincuenta mil familias y un millón de habitantes en el país."
+        )
+        oido = (
+            "En la encuesta participaron 1,000 personas, 2,000 docentes, 10,000 niños, "
+            "50.000 familias y 1,000,000 de habitantes en el país."
+        )
+        r = ac._revision_9_whisper_vs_texto(esperado, (oido, [], 60.0))
+        self.assertEqual(r.estado, "APRUEBA")
+        self.assertEqual(r.fallas, 0)
+
+        r_punto = ac._revision_9_whisper_vs_texto(
+            "La muestra reúne mil observaciones clínicas válidas.",
+            ("La muestra reúne 1.000 observaciones clínicas válidas.", [], 30.0),
+        )
+        self.assertEqual(r_punto.estado, "APRUEBA")
+        self.assertEqual(r_punto.fallas, 0)
+
+    def test_rev9_decimal_real_sigue_normalizando_como_decimal(self):
+        self.assertEqual(
+            ac._normalizar_para_whisper("1,208"),
+            ["uno", "coma", "dos", "cero", "ocho"],
+        )
+        self.assertEqual(
+            ac._normalizar_para_whisper("1,028"),
+            ["uno", "coma", "cero", "dos", "ocho"],
+        )
+        self.assertEqual(
+            ac._normalizar_para_whisper("3,14"),
+            ["tres", "coma", "uno", "cuatro"],
+        )
+        r = ac._revision_9_whisper_vs_texto(
+            "El resultado intermedio es uno coma dos cero ocho en la fórmula.",
+            ("El resultado intermedio es 1,208 en la fórmula.", [], 20.0),
+        )
+        self.assertEqual(r.estado, "APRUEBA")
+        self.assertEqual(r.fallas, 0)
+
+    def test_rev9_subtitulos_numerados_dos_y_tres_niveles_aprueban(self):
+        esperado = (
+            "En este bloque veremos uno punto siete Parámetros y estadígrafos, "
+            "uno punto ocho Variables y uno punto ocho punto uno Variables cualitativas "
+            "desde un punto de vista aplicado."
+        )
+        oido = (
+            "En este bloque veremos 1.7 Parámetros y estadígrafos, "
+            "1.8 Variables y 1.8.1 Variables cualitativas "
+            "desde un punto de vista aplicado."
+        )
+        r = ac._revision_9_whisper_vs_texto(esperado, (oido, [], 45.0))
+        self.assertEqual(r.estado, "APRUEBA")
+        self.assertEqual(r.fallas, 0)
+        # «punto» en prosa normal no se altera
+        self.assertIn("punto", ac._normalizar_para_whisper("desde un punto de vista aplicado"))
+
+    def test_rev9_omision_real_de_numeracion_si_reporta_falla(self):
+        esperado = (
+            "A continuación estudiamos dos punto uno punto cuatro Muestreo aleatorio "
+            "por conglomerados en estudios poblacionales."
+        )
+        oido = (
+            "A continuación estudiamos Muestreo aleatorio "
+            "por conglomerados en estudios poblacionales."
+        )
+        r = ac._revision_9_whisper_vs_texto(esperado, (oido, [], 30.0))
+        self.assertEqual(r.estado, "FALLA")
+        self.assertGreater(r.fallas, 0)
+
+
 if __name__ == "__main__":
     raise SystemExit(main())

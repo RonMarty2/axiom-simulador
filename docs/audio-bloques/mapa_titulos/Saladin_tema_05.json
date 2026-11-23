@@ -1,0 +1,204 @@
+{
+ "capitulo": "Saladin_tema_05",
+ "libro": "Saladin",
+ "titulo_capitulo": "Histología",
+ "palabras_texto": 17316,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "5.1",
+   "titulo": "El estudio de los tejidos",
+   "palabra": 327,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las principales clases de tejidos",
+   "palabra": 396,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejidos embrionarios",
+   "palabra": 842,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Interpretación de cortes de tejidos",
+   "palabra": 1076,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5.2",
+   "titulo": "Tejido epitelial",
+   "palabra": 1785,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Epitelio simple",
+   "palabra": 2535,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Epitelio estratificado",
+   "palabra": 2753,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5.3",
+   "titulo": "Tejido conjuntivo",
+   "palabra": 4150,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Revisión general",
+   "palabra": 4241,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejido conjuntivo fibroso",
+   "palabra": 4681,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejido adiposo",
+   "palabra": 6641,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cartílago",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hueso",
+   "palabra": 8124,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sangre",
+   "palabra": 9034,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5.4",
+   "titulo": "Tejidos nervioso y muscular: tejidos excitables",
+   "palabra": 9402,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejido nervioso",
+   "palabra": 9738,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejido muscular",
+   "palabra": 10103,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5.5",
+   "titulo": "Unión celular, glándulas y membranas",
+   "palabra": 10747,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Uniones celulares",
+   "palabra": 10834,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas",
+   "palabra": 11846,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Membranas",
+   "palabra": 13160,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5.6",
+   "titulo": "Crecimiento, desarrollo, reparación y degeneración de los tejidos",
+   "palabra": 13691,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Crecimiento de tejidos",
+   "palabra": 13862,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desarrollo de tejidos",
+   "palabra": 13964,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Citoblastos",
+   "palabra": 14225,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reparación tisular",
+   "palabra": 14744,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Degeneración y muerte de tejidos",
+   "palabra": 15238,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

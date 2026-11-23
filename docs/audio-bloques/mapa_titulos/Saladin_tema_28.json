@@ -1,0 +1,204 @@
+{
+ "capitulo": "Saladin_tema_28",
+ "libro": "Saladin",
+ "titulo_capitulo": "Aparato reproductor femenino",
+ "palabras_texto": 20709,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "28.1",
+   "titulo": "Anatomía del aparato reproductor",
+   "palabra": 782,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diferenciación sexual",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los órganos genitales",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las mamas y las glándulas mamarias",
+   "palabra": 3692,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "28.2",
+   "titulo": "Pubertad y menopausia",
+   "palabra": 4922,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pubertad",
+   "palabra": 5004,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Climaterio y menopausia",
+   "palabra": 5894,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "28.3",
+   "titulo": "La ovogénesis y el ciclo sexual",
+   "palabra": 6557,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ovogénesis",
+   "palabra": 6781,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Foliculogénesis",
+   "palabra": 7336,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El ciclo sexual",
+   "palabra": 8014,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "28.4",
+   "titulo": "Respuesta sexual femenina",
+   "palabra": 11333,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Excitación y meseta",
+   "palabra": 11455,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Orgasmo",
+   "palabra": 11916,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Resolución",
+   "palabra": 12096,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "28.5",
+   "titulo": "Embarazo y parto",
+   "palabra": 12191,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desarrollo prenatal",
+   "palabra": 12605,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hormonas del embarazo",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ajustes ante el embarazo",
+   "palabra": 13679,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Parto",
+   "palabra": 15059,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Puerperio",
+   "palabra": 16664,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "28.6",
+   "titulo": "Lactancia",
+   "palabra": 16868,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desarrollo de las glándulas mamarias durante el embarazo",
+   "palabra": 17025,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Calostro y síntesis de leche",
+   "palabra": 17089,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Eyección de leche",
+   "palabra": 17638,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Leche materna",
+   "palabra": 17813,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Temas de conexión",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

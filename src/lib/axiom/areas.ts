@@ -65,6 +65,11 @@ export const MAPA_AREAS_VIEJAS_A_TEMAS: Record<string, Record<string, string>> =
     quimica: "quimica",
     biologia: "biologia",
   },
+  economicas: {
+    matematicas: "matematicas",
+    economicas: "economicas",
+    razonamiento: "razonamiento",
+  },
   derecho: {
     civica: "civica",
     historia: "historia",

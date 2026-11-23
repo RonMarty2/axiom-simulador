@@ -1,0 +1,358 @@
+{
+ "capitulo": "EdS_Parte3_1",
+ "libro": "EdS",
+ "titulo_capitulo": "CONCEPTOS GENERALES SOBRE ESTADÍSTICA",
+ "palabras_texto": 9091,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Introducción",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1",
+   "titulo": "CONCEPTOS GENERALES SOBRE ESTADÍSTICA",
+   "palabra": 220,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.1",
+   "titulo": "Historia",
+   "palabra": 291,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.2",
+   "titulo": "Definición",
+   "palabra": 976,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.3",
+   "titulo": "Categorías",
+   "palabra": 1136,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.4",
+   "titulo": "Unidad de análisis o de investigación",
+   "palabra": 1277,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.5",
+   "titulo": "Población",
+   "palabra": 1357,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.6",
+   "titulo": "Muestra",
+   "palabra": 1514,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.7",
+   "titulo": "Parámetros y estadígrafos",
+   "palabra": 1676,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.8",
+   "titulo": "Variables",
+   "palabra": 1738,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.8.1",
+   "titulo": "Variables cualitativas",
+   "palabra": 1897,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.8.2",
+   "titulo": "Variables cuantitativas",
+   "palabra": 1961,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1.9",
+   "titulo": "Escalas de medición",
+   "palabra": 2335,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.9.1",
+   "titulo": "Escala nominal",
+   "palabra": 2374,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.9.2",
+   "titulo": "Escala ordinal",
+   "palabra": 2468,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.9.3",
+   "titulo": "Escala de intervalo",
+   "palabra": 2618,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "1.9.4",
+   "titulo": "Escala de razones",
+   "palabra": 2787,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "2",
+   "titulo": "INTRODUCCIÓN A LOS TIPOS DE MUESTREO",
+   "palabra": 3006,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2.1",
+   "titulo": "Métodos de muestreo probabilístico",
+   "palabra": 3118,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.1.1",
+   "titulo": "Muestreo aleatorio simple",
+   "palabra": 3239,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.1.2",
+   "titulo": "Muestreo aleatorio sistemático",
+   "palabra": 3322,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.1.3",
+   "titulo": "Muestreo aleatorio estratificado",
+   "palabra": 3513,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.1.4",
+   "titulo": "Muestreo aleatorio por conglomerados",
+   "palabra": 3996,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2.2",
+   "titulo": "Aspectos importantes del muestreo probabilístico",
+   "palabra": 4340,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.2.1",
+   "titulo": "Error de cobertura o sesgo en la selección",
+   "palabra": 4376,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.2.2",
+   "titulo": "Error o sesgo de no respuesta",
+   "palabra": 4489,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.2.3",
+   "titulo": "Error de muestreo",
+   "palabra": 4544,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.2.4",
+   "titulo": "Error de medición",
+   "palabra": 4626,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2.3",
+   "titulo": "Métodos de muestreo no probabilístico",
+   "palabra": 4680,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.3.1",
+   "titulo": "Muestreo por cuotas",
+   "palabra": 4760,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.3.2",
+   "titulo": "Muestreo intencional u opinático",
+   "palabra": 4885,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "2.3.3",
+   "titulo": "Muestreo bola de nieve",
+   "palabra": 4938,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "3",
+   "titulo": "TABULACIÓN DE DATOS ESTADÍSTICOS",
+   "palabra": 5017,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.1",
+   "titulo": "Rango o recorrido",
+   "palabra": 5397,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.2",
+   "titulo": "Número de intervalos o clases",
+   "palabra": 5573,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.3",
+   "titulo": "Amplitud del intervalo de clase",
+   "palabra": 5744,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.4",
+   "titulo": "Límites de los intervalos",
+   "palabra": 5951,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.5",
+   "titulo": "Tabulación",
+   "palabra": 6266,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3.6",
+   "titulo": "Marca de clase",
+   "palabra": 6368,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "4",
+   "titulo": "DISTRIBUCIÓN DE FRECUENCIAS",
+   "palabra": 6549,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4.1",
+   "titulo": "Frecuencia absoluta",
+   "palabra": 6598,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4.2",
+   "titulo": "Frecuencia relativa",
+   "palabra": 6729,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4.3",
+   "titulo": "Frecuencia absoluta acumulada",
+   "palabra": 6962,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4.4",
+   "titulo": "Frecuencia relativa acumulada",
+   "palabra": 7156,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "5",
+   "titulo": "GRÁFICAS O DIAGRAMAS",
+   "palabra": 7818,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5.1",
+   "titulo": "Histogramas",
+   "palabra": 7984,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5.2",
+   "titulo": "Polígono de frecuencias",
+   "palabra": 8156,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5.3",
+   "titulo": "Ojivas o polígonos de frecuencias acumuladas",
+   "palabra": 8329,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5.4",
+   "titulo": "Diagrama de barras",
+   "palabra": 8425,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5.5",
+   "titulo": "Diagrama circular",
+   "palabra": 8831,
+   "narrable": true
+  }
+ ]
+}

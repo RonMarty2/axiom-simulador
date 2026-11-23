@@ -1,24 +1,84 @@
 {
- "capitulo": 6,
+ "capitulo": "Calvo_tema_06",
+ "libro": "Calvo",
  "titulo_capitulo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
- "palabras_texto": 10871,
+ "palabras_texto": 10784,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Especializaciones de la membrana plasmática",
-   "palabra": 2,
+   "palabra": null,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Membrana basal",
-   "palabra": 56,
+   "palabra": 5224,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Matriz extracelular (MEC)",
-   "palabra": 111,
+   "palabra": 6541,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fibras de la MEC",
+   "palabra": 6684,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fibras de colágeno",
+   "palabra": 6741,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fibras reticulares",
+   "palabra": 8341,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fibras elásticas",
+   "palabra": 8472,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sustancia fundamental",
+   "palabra": 9178,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glucosaminoglucanos",
+   "palabra": 9224,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteoglucanos",
+   "palabra": 9667,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Calvo.)",
+   "palabra": 10339,
    "narrable": true
   }
  ]

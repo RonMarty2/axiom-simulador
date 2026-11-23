@@ -1,30 +1,189 @@
 {
- "capitulo": 12,
+ "capitulo": "Calvo_tema_12",
+ "libro": "Calvo",
  "titulo_capitulo": "El citoesqueleto",
- "palabras_texto": 14358,
+ "palabras_texto": 14098,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
-   "palabra": 69,
+   "palabra": 62,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Microtúbulos",
-   "palabra": 146,
+   "palabra": 247,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Agentes y fármacos que modifican la formación de microtúbulos",
+   "palabra": 1784,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas asociadas a los microtúbulos",
+   "palabra": 2287,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Agrupaciones complejas de microtúbulos",
+   "palabra": 2916,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Papel de los centríolos en la organización del huso mitótico",
+   "palabra": 3293,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cilios",
+   "palabra": 3930,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura y función motora de los cilios móviles",
+   "palabra": 4351,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cuerpo basal",
+   "palabra": 4543,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Raíces ciliares",
+   "palabra": 4576,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Función",
+   "palabra": 4608,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura y función sensora de los cilios primarios (inmóviles)",
+   "palabra": 4820,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Flagelos",
+   "palabra": 5532,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ciliogénesis",
+   "palabra": 5714,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Algunas patologías relacionadas con disfunciones en los cilios",
+   "palabra": 5966,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Microfilamentos de actina y filamentos gruesos de miosina",
-   "palabra": 6489,
+   "palabra": 6414,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura de los microfilamentos e inestabilidad dinámica",
+   "palabra": 6422,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas unidoras de actina",
+   "palabra": 7289,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Utilización de la actina de la célula huésped por microorganismos",
+   "palabra": 8261,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura del sarcómero en el músculo esquelético y contracción muscular",
+   "palabra": 9437,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Interacción entre actina y miosina en células no esqueléticas",
+   "palabra": 10818,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Algunas patologías relacionadas con anomalías estructurales de los microfilamentos",
+   "palabra": 12336,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Filamentos intermedios",
-   "palabra": 11381,
+   "palabra": 12720,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura y ensamblaje",
+   "palabra": 12722,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Papel de los filamentos intermedios en el diagnóstico diferencial",
+   "palabra": 13451,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Algunas enfermedades originadas por alteraciones en filamentos intermedios",
+   "palabra": 13818,
    "narrable": true
   }
  ]

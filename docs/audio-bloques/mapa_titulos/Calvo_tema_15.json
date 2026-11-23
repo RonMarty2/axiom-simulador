@@ -1,18 +1,224 @@
 {
- "capitulo": 15,
+ "capitulo": "Calvo_tema_15",
+ "libro": "Calvo",
  "titulo_capitulo": "División celular y muerte programada",
- "palabras_texto": 10961,
+ "palabras_texto": 10785,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "División celular",
-   "palabra": 2,
+   "palabra": 473,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mitosis",
+   "palabra": 518,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Profase",
+   "palabra": 734,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Prometafase",
+   "palabra": 1414,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Metafase",
+   "palabra": 1748,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anafase",
+   "palabra": 1934,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Telofase",
+   "palabra": 2182,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Citocinesis posmitótica",
+   "palabra": 2406,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Meiosis",
+   "palabra": 2780,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Primera división meiótica",
+   "palabra": 3102,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Profase I",
+   "palabra": 3165,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Leptoteno",
+   "palabra": 3219,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cigoteno",
+   "palabra": 3349,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Paquiteno",
+   "palabra": 3606,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diploteno",
+   "palabra": 4434,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diacinesis",
+   "palabra": 4699,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Resto de fases de la primera división meiótica",
+   "palabra": 4790,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Segunda división meiótica",
+   "palabra": 5617,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Muerte celular programada (apoptosis)",
-   "palabra": 84,
+   "palabra": 6740,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Concepto e importancia fisiológica de la apoptosis",
+   "palabra": 6744,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características de la apoptosis",
+   "palabra": 7144,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Jackeline Agorreta, CIMA de la Universidad de Navarra.)",
+   "palabra": 7473,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismos moleculares de la apoptosis",
+   "palabra": 7687,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vía extrínseca",
+   "palabra": 7763,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vía intrínseca o mitocondrial",
+   "palabra": 8200,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características de algunas moléculas reguladoras de la apoptosis",
+   "palabra": 8768,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Familia de Bcl-2",
+   "palabra": 8776,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Familia de proteínas inhibidoras de la apoptosis",
+   "palabra": 9345,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Caspasas: moléculas clave para la iniciación y ejecución de la apoptosis",
+   "palabra": 9660,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Miembros, estructura y función",
+   "palabra": 9786,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Algunas enfermedades relacionadas con alteraciones en la apoptosis",
+   "palabra": 10498,
    "narrable": true
   }
  ]

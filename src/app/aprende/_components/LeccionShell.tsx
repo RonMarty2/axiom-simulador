@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { extraerSlugAprende, obtenerAudiolibro } from "@/lib/audio-medicina";
 import { LIENZO } from "./lienzo";
+import ReproductorAudiolibro from "./ReproductorAudiolibro";
 
 export type Escena = {
   titulo: string;
@@ -20,6 +23,9 @@ export type LeccionShellProps = {
 // header/footer sticky con blur, barra de progreso violeta.
 export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionShellProps) {
   const [i, setI] = useState(0);
+  const pathname = usePathname();
+  const slug = extraerSlugAprende(pathname);
+  const audiolibro = slug ? obtenerAudiolibro(slug) : null;
   const EscenaComp = escenas[i].componente;
   const progreso = ((i + 1) / escenas.length) * 100;
 
@@ -60,9 +66,14 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
       </div>
 
       <main style={{
-        flex: 1, display: "flex", alignItems: "flex-start", justifyContent: "center",
+        flex: 1, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "flex-start",
         padding: "40px 20px 120px",
       }}>
+        {audiolibro && (
+          <div style={{ width: "100%", maxWidth: 720, marginBottom: 24 }}>
+            <ReproductorAudiolibro key={audiolibro.slug} audiolibro={audiolibro} />
+          </div>
+        )}
         <AnimatePresence mode="wait">
           <motion.div
             key={i}

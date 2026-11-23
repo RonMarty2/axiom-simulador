@@ -31,6 +31,7 @@ from typing import Any, Callable
 # Revisión 1 y 2 (literalidad y omisiones contra *_texto_paginas.txt):
 NGRAM_LITERALIDAD = 4  # Tamaño de n-grama en palabras normalizadas para alinear texto y PDF.
 UMBRAL_LITERALIDAD_PARRAFO = 0.90  # Cobertura mínima (90 %) de n-gramas del párrafo presentes en el PDF.
+UMBRAL_VOCABULARIO_TABLA_FORMULA = 0.80  # Cobertura mínima (80 %) de vocabulario sustantivo en tablas narradas y fórmulas verbalizadas.
 UMBRAL_OMISION_PARRAFO = 0.85  # Cobertura mínima (85 %) de un párrafo del PDF en el texto TTS para no considerarlo omitido.
 MIN_TOKENS_PARRAFO_LITERALIDAD = 4  # Mínimo de tokens normalizados para evaluar por n-gramas; por debajo se exige coincidencia exacta de secuencia.
 MIN_TOKENS_PARRAFO_OMISION = 12  # Párrafos del PDF más cortos (etiquetas sueltas, títulos de columna) no disparan omisión por sí solos.
@@ -179,11 +180,31 @@ _REV3_CREDITO_RE = re.compile(
     r"|(?:^|[.\n])\s*(?i:fuente|cr[eé]ditos)\s*:"
     r"|©|(?i:\bcopyright\b|\bderechos\s+reservados\b)",
 )
+_NUM_NOTA_2_50_PAT = (
+    r"(?i:cincuenta"
+    r"|(?:treinta|cuarenta)\s+y\s+(?:uno|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)"
+    r"|treinta|cuarenta"
+    r"|veinti(?:uno|[uú]n|d[oó]s|tr[eé]s|cuatro|cinco|s[eé]is|siete|ocho|nueve)|veinte"
+    r"|diecis[eé]is|diecisiete|dieciocho|diecinueve|quince|catorce|trece|doce|once|diez"
+    r"|nueve|ocho|siete|seis|cinco|cuatro|tres|dos)"
+)
 _REV3_ENCABEZADO_RE = re.compile(
     r"(?m)^\s*PARTE\s+(?:UNO|DOS|TRES|CUATRO|CINCO|I|II|III|IV|V|\d+)\s+[A-ZÁÉÍÓÚÑ][^\n]{2,60}$"
     r"|\b(?:Alfonso\s+Calvo|Kenneth\s+Saladin|Posada\s+Hern[aá]ndez)\b"
     r"|\b(?:Table\s+of\s+Contents|P[aá]gina\s+de\s+cr[eé]ditos|Regulaci[oó]n\s+y\s+mantenimiento\s+lun[aá]tico)\b",
 )
+_REV3_PARTE_INCRUSTADA_RE = re.compile(
+    r"(?<![A-ZÁÉÍÓÚÜÑ])PARTE\s+(?:UNO|DOS|TRES|CUATRO|CINCO)\s+"
+    r"(?:Organizaci[oó]n\s+(?:corporal|del\s+cuerpo)"
+    r"|Soporte\s+y\s+movimiento"
+    r"|Integraci[oó]n\s+y\s+control\s+interno"
+    r"|Regulaci[oó]n\s+y\s+mantenimiento"
+    r"|Reproducci[oó]n\s+y\s+desarrollo)"
+)
+_REV3_CAPITULO_REPETIDO_RE = re.compile(
+    rf"(?<![A-ZÁÉÍÓÚÜÑ])CAP[ÍI]TULO\s+(?:{_NUM_NOTA_2_50_PAT}|(?i:uno|un))\s+[A-ZÁÉÍÓÚÜÑ][^\n]{{2,90}}"
+)
+_REV3_VINYETA_AUTOEVAL_RE = re.compile(r"●[ \t]*[^\n]{0,120}")
 
 # Revisión 4: Notas al pie
 _REV4_LLAMADA_DIGITO_RE = re.compile(
@@ -197,11 +218,42 @@ _REV4_LLAMADA_PUNT_RE = re.compile(
 _REV4_LLAMADA_SUP_RE = re.compile(
     r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ.,;:)][¹²³⁴⁵⁶⁷⁸⁹\*†‡]+(?=\s|$|[.,;:])"
 )
+_REV4_ANCLA_INICIO_UNO = r"(?:^|(?<=\n)|(?<=[.!?;:])|(?<=[.!?;:] )|(?<=  ))"
+_REV4_NUM_NOTA_PAT = (
+    rf"(?:{_REV4_ANCLA_INICIO_UNO}(?:\d{{1,2}}|[Uu]no|un)|(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ]){_NUM_NOTA_2_50_PAT})"
+)
+_REV4_CLAUSULA_ETIM_PAT = (
+    r"(?!(?:es|son|era|eran|sea|sean|ser|fue|fueron|est[aá]n?|coma|punto|por|m[aá]s|menos|entre|sobre|veces)\b)"
+    r"[a-záéíóúüñ]{2,20}(?:-[a-záéíóúüñ]{1,15})?"
+    r"(?:\s*(?:,|o|y)\s*[a-záéíóúüñ]{2,18})?"
+    r"\s+(?i:igual\s+a|=)\s+"
+    r"[A-Za-zÁÉÍÓÚÜÑáéíóúüñ][^.;\n]{0,110}"
+)
+_REV4_NOMBRE_BIO_TOKEN = (
+    r"(?:[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñA-ZÁÉÍÓÚÜÑ'\-]*\.?|(?:de|del|la|las|los|van|von|da|di|du|le|y))"
+)
+_REV4_NOMBRE_BIO_PAT = (
+    rf"[A-ZÁÉÍÓÚÜÑ][a-záéíóúüñA-ZÁÉÍÓÚÜÑ'\-]*\.?(?:\s+{_REV4_NOMBRE_BIO_TOKEN}){{1,6}}"
+)
+_REV4_PAL_ANIO_PAT = (
+    r"(?:mil|cien|ciento|doscientos|trescientos|cuatrocientos|quinientos|"
+    r"seiscientos|setecientos|ochocientos|novecientos|"
+    r"diez|once|doce|trece|catorce|quince|diecis[eé]is|diecisiete|dieciocho|diecinueve|"
+    r"veinte|veinti(?:uno|una|[uú]n|d[oó]s|tr[eé]s|cuatro|cinco|s[eé]is|siete|ocho|nueve)|"
+    r"treinta|cuarenta|cincuenta|sesenta|setenta|ochenta|noventa|"
+    r"uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|"
+    r"y|al|de|del|en|antes|despu[eé]s|Cristo|presente|hacia|circa|aproximadamente|\d{3,4})"
+)
+_REV4_ANIOS_BIO_PAT = (
+    rf"(?:(?:hacia|circa|aproximadamente)\s+)?"
+    rf"(?:mil\s+(?:[a-záéíóúüñ]+\s+){{0,6}}(?:a|al)\s+(?:mil|dos\s+mil|el\s+presente|presente)(?:\s+{_REV4_PAL_ANIO_PAT}){{0,8}}"
+    rf"|mil(?:\s+{_REV4_PAL_ANIO_PAT}){{1,8}}"
+    rf"|(?:{_REV4_PAL_ANIO_PAT}\s+){{1,6}}a\s+(?:{_REV4_PAL_ANIO_PAT}\s+){{1,6}}(?:antes|despu[eé]s)\s+de\s+Cristo"
+    rf"|\d{{3,4}}\s*[-–a]\s*\d{{3,4}})"
+)
 _REV4_GLOSA_PIE_RE = re.compile(
-    r"(?:^|[.\n]\s*)"
-    r"(?:\d{1,2}|un|uno|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez|once|doce|trece|catorce|quince|diecis[eé]is|diecisiete|dieciocho|diecinueve|veinte)"
-    r"\s+[a-záéíóúüñ]{2,15}\s+(?:igual\s+a|=)\s+[a-záéíóúüñ][^.\n]{1,100}\.",
-    re.IGNORECASE,
+    rf"{_REV4_NUM_NOTA_PAT}\s+{_REV4_CLAUSULA_ETIM_PAT}(?:;\s*{_REV4_CLAUSULA_ETIM_PAT})*[.;]"
+    rf"|{_REV4_NUM_NOTA_PAT}\s+{_REV4_NOMBRE_BIO_PAT},\s*{_REV4_ANIOS_BIO_PAT},\s*[A-Za-zÁÉÍÓÚÜÑáéíóúüñ][^.\n]{{2,120}}\."
 )
 
 # Revisión 5: Figuras y tablas
@@ -250,8 +302,8 @@ _REV6_COMA_CERO_CERO_RE = re.compile(
     r"\bcoma\s+(?:cero\s+cero\s+cero|\w+\s+cero\s+cero)\b",
     re.IGNORECASE,
 )
-_REV6_MILES_PALABRAS_RE = re.compile(  # 21-11: [ \t] no cruza líneas; excluye "cero coma..." (<1) y decimales de 4+ cifras
-    rf"\b(?!cero[ \t]+coma\b){_NUM_PAL_PAT}(?:[ \t]+{_NUM_PAL_PAT})*[ \t]+coma[ \t]+"
+_REV6_MILES_PALABRAS_RE = re.compile(  # 22-11: [ \t] no cruza líneas; excluye "cero coma...", decimales de 4+ cifras y negativos ("menos ...")
+    rf"(?<!\bmenos[ \t])\b(?!cero[ \t]+coma\b){_NUM_PAL_PAT}(?:[ \t]+{_NUM_PAL_PAT})*[ \t]+coma[ \t]+"
     r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)[ \t]+"
     r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)[ \t]+"
     r"(?:cero|uno|una|un|dos|tres|cuatro|cinco|seis|siete|ocho|nueve)\b"
@@ -260,7 +312,7 @@ _REV6_MILES_PALABRAS_RE = re.compile(  # 21-11: [ \t] no cruza líneas; excluye 
 )
 _REV6_UN_COMA_RE = re.compile(r"\b(?:un|veinti[uú]n)\s+coma\b", re.IGNORECASE)
 _REV6_CONCORDANCIA_UN_RE = re.compile(
-    r"\bun\s+(?:micr[oó]metros|mil[ií]metros|cent[ií]metros|nan[oó]metros|gramos|litros|kilogramos|miligramos|mililitros|grados)\b",
+    r"(?<!\by\s)\bun\s+(?:micr[oó]metros|mil[ií]metros|cent[ií]metros|nan[oó]metros|gramos|litros|kilogramos|miligramos|mililitros|grados)\b",
     re.IGNORECASE,
 )
 _REV6_UNIDADES_SUELTAS_RE = re.compile(
@@ -669,6 +721,8 @@ def _normalizar_para_ngramas(texto: str) -> list[str]:
     t = _RE_SIGLAS_MIX_NGRAM.sub(lambda m: _EXPANSIONES_SIGLAS_MIX_NGRAM[m.group(0)], t)
 
     plano = _quitar_tildes_bajar(t)
+    # 22-nov (EdS Estadística): el PDF pega subíndices (ni, xi, hi, Qk, Dk) y el TTS los separa (n i, x i, h i, Q k, D k).
+    plano = re.sub(r"\b([nxhqd])\s+([ik])\b", r"\1\2", plano)
     for patron_u, clave_u in _MAPA_UNIDADES_PALABRA_NGRAM:
         plano = patron_u.sub(clave_u, plano)
     for patron_s, sigla_s in _cargar_lecturas_siglas_ngram():
@@ -864,8 +918,72 @@ def resolver_manifiesto(
 # ============================================================================
 
 
+_PDF_CLAUSULA_ETIM_CRUDA_PAT = (
+    r"(?!(?:es|son|era|eran|sea|sean|ser|fue|fueron|est[aá]n?|coma|punto|por|m[aá]s|menos|entre|sobre|veces)\b)"
+    r"-?[a-záéíóúüñ]{2,20}(?:-[a-záéíóúüñ]{0,15})?"
+    r"(?:\s*(?:,|o|y|/)\s*-?[a-záéíóúüñ]{2,18}-?)?"
+    r"\s*=\s*"
+    r"[\"«'“(]?[A-Za-zÁÉÍÓÚÜÑáéíóúüñ][^.;\n]{0,110}"
+)
+_PDF_CLAUSULA_ETIM_CONT_PAT = (
+    r"(?!(?:es|son|era|eran|sea|sean|ser|fue|fueron|est[aá]n?|coma|punto|por|m[aá]s|menos|entre|sobre|veces)\b)"
+    r"-?[a-záéíóúüñ]{1,20}(?:-[a-záéíóúüñ]{0,15})?"
+    r"(?:\s*(?:,|o|y|/)\s*-?[a-záéíóúüñ]{1,18}-?)?"
+    r"\s*=\s*"
+    r"[\"«'“(]?[A-Za-zÁÉÍÓÚÜÑáéíóúüñ][^.;\n]{0,110}"
+)
+_PDF_ANIOS_BIO_CRUDO_PAT = (
+    r"(?:(?:hacia|circa|c\.|aprox\.|aproximadamente)\s+)?"
+    r"\d{3,4}\s*[-–—a]\s*(?:\d{3,4}|presente|actualidad)"
+    r"(?:\s*(?:a\.?\s*C\.?|d\.?\s*C\.?|a\.?\s*e\.?\s*c\.?))?"
+)
+_PDF_GLOSA_PIE_CRUDO_RE = re.compile(
+    rf"(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\d.,-])\d{{1,2}}\s*{_PDF_CLAUSULA_ETIM_CRUDA_PAT}"
+    rf"(?:;\s*{_PDF_CLAUSULA_ETIM_CONT_PAT})*(?:[.;]|(?=\s*$))"
+    rf"|(?<![A-Za-zÁÉÍÓÚÜÑáéíóúüñ\d.,-])\d{{1,2}}\s+{_REV4_NOMBRE_BIO_PAT},\s*{_PDF_ANIOS_BIO_CRUDO_PAT},\s*[A-Za-zÁÉÍÓÚÜÑáéíóúüñ][^.\n]{{2,120}}(?:\.|(?=\s*$))"
+)
+_PDF_CAPITULO_LINEA_RE = re.compile(
+    rf"^\s*CAP[ÍI]TULO\s+(?:\d+|{_NUM_NOTA_2_50_PAT}|(?i:uno|un)):?\s+[A-ZÁÉÍÓÚÜÑ][^.\n]{{2,90}}\s*$"
+)
+_PDF_CAPITULO_INCRUSTADO_RE = re.compile(
+    rf"(?<![A-ZÁÉÍÓÚÜÑ])CAP[ÍI]TULO\s+(?:\d+|{_NUM_NOTA_2_50_PAT}|(?i:uno|un)):?\s+"
+    r"[A-ZÁÉÍÓÚÜÑ](?:[A-ZÁÉÍÓÚÜÑ\s,:-]{2,90}(?=\s*$)|[a-záéíóúüñ]+(?:\s+[a-záéíóúüñ,:-]+){0,14})"
+)
+_PDF_VINYETA_PREGUNTA_RE = re.compile(r"●\s*¿[^?]{1,350}\?")
+_PDF_VINYETA_LINEA_RE = re.compile(r"●[ \t]*[^\n]{0,200}")
+_PDF_NUM_REF_PAT = r"\d+(?:[.\-–]\d+)*[a-z]?(?:\s*(?:y|a|,)\s*\d+(?:[.\-–]\d+)*[a-z]?)*"
+_PDF_OBJ_VISUAL_PAT = (
+    rf"(?:las?\s+|los?\s+|el\s+)?(?:fi\s*guras?|figs?\.|tablas?|cuadros?|gr[aá]fic[oa]s?|im[aá]gen(?:es)?)\s+{_PDF_NUM_REF_PAT}"
+)
+_PDF_REF_VISUAL_CUERPO_RE = re.compile(
+    rf"\b(?:tal\s+)?como\s+(?:se\s+)?(?:ve|ven|observan?|muestran?|indican?|ilustran?|aprecian?|representan?|resumen?|detallan?|presentan?)\s+en\s+{_PDF_OBJ_VISUAL_PAT}\b"
+    rf"|\ben\s+{_PDF_OBJ_VISUAL_PAT}(?:\s+se\s+(?:ve|ven|observan?|muestran?|indican?|ilustran?|aprecian?|representan?|resumen?|detallan?|presentan?)(?:\s+que)?)?\b"
+    rf"|\b(?:ver|v[eé]ase|v[eé]anse|obs[eé]rvese|cons[uú]ltese|v\.|cf\.)\s+(?:tamb[ií][eé]n\s+)?{_PDF_OBJ_VISUAL_PAT}\b"
+    rf"|\b(?:la|el)\s+(?:fi\s*gura|tabla|cuadro|gr[aá]fic[oa])\s+{_PDF_NUM_REF_PAT}\s+(?:muestra|ilustra|presenta|indica|resume|detalla|representa)(?:\s+que)?\b",
+    re.IGNORECASE,
+)
+
+
+def _quitar_parte_incrustada(texto: str) -> str:
+    """Quita encabezados PARTE UNO..CINCO incrustados sin romper palabras contiguas."""
+    def _rep(m: re.Match[str]) -> str:
+        antes = texto[m.start() - 1] if m.start() > 0 else " "
+        despues = texto[m.end()] if m.end() < len(texto) else " "
+        if antes.islower() and despues.islower():
+            return ""
+        return " "
+
+    return _REV3_PARTE_INCRUSTADA_RE.sub(_rep, texto)
+
+
 def _limpiar_paginas_pdf_crudo(texto_pdf: str) -> list[str]:
     """Limpia encabezados de página y reconstruye párrafos del PDF crudo sin lo excluido por regla 10."""
+    # Unir palabras partidas por guion al final de línea ANTES de separar párrafos (incl. doble salto en EdS).
+    texto_pdf = re.sub(
+        r"([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]{2,})-\s*\n+(?:\s*\n+)*\s*([a-záéíóúüñ]{2,})",
+        r"\1\2",
+        texto_pdf,
+    )
     lineas_limpias: list[str] = []
     en_seccion_excluida = False
 
@@ -879,7 +997,7 @@ def _limpiar_paginas_pdf_crudo(texto_pdf: str) -> list[str]:
         # Detectar entrada a sección excluida por regla 10 (bibliografía, autoevaluación, glosario)
         if re.match(
             r"^(?:lecturas\s+recomendadas|bibliograf[ií]a|preguntas?\s+de\s+autoevaluaci[oó]n|"
-            r"autoevaluaci[oó]n|antes\s+de\s+proseguir|para\s+la\s+reflexi[oó]n|"
+            r"autoevaluaci[oó]n\b(?!\s*:\s*ejercicios\s+de\s+aplicaci[oó]n)|antes\s+de\s+proseguir|para\s+la\s+reflexi[oó]n|"
             r"ejercicios?\s+de\s+aplicaci[oó]n|glosario|referencias\s+bibliogr[aá]ficas)\b",
             s,
             re.IGNORECASE,
@@ -899,12 +1017,27 @@ def _limpiar_paginas_pdf_crudo(texto_pdf: str) -> list[str]:
             else:
                 continue
 
+        # Quitar encabezados incrustados PARTE UNO..CINCO y CAPÍTULO N / en palabras (Saladin, regla 10)
+        if s and not _PDF_FIN_NARRABLE_RE.search(s):
+            if _PDF_CAPITULO_LINEA_RE.match(s):
+                continue
+            s = _quitar_parte_incrustada(s)
+            s = _PDF_CAPITULO_INCRUSTADO_RE.sub(" ", s)
+            s = re.sub(r"[ \t]{2,}", " ", s).strip()
+            if not s:
+                continue
+
         if not s:
             lineas_limpias.append("")
         else:
             lineas_limpias.append(s)
 
     unido = "\n".join(lineas_limpias)
+    unido = re.sub(
+        r"([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]{2,})-\s*\n+(?:\s*\n+)*\s*([a-záéíóúüñ]{2,})",
+        r"\1\2",
+        unido,
+    )
     # Quitar referencias parentéticas a figuras/páginas que el TTS omite intencionalmente
     unido = re.sub(
         r"\(\s*(?:(?:v\.|cf\.|véase|véanse|ver)\s+)?(?:figs?\.|figuras?|tablas?|cuadros?|pp?\.)[^()]{0,40}\)",
@@ -916,14 +1049,104 @@ def _limpiar_paginas_pdf_crudo(texto_pdf: str) -> list[str]:
     bloques_crudos = [b.strip() for b in re.split(r"\n\s*\n", unido) if b.strip()]
     parrafos: list[str] = []
     for b in bloques_crudos:
-        b_linea = re.sub(r"\s+", " ", b).strip()
+        # Quitar preguntas de autoevaluación con viñeta ● (pueden cruzar líneas dentro del bloque)
+        b_limpio = _PDF_VINYETA_PREGUNTA_RE.sub(" ", b)
+        b_limpio = _PDF_VINYETA_LINEA_RE.sub(" ", b_limpio)
+        b_linea = re.sub(r"\s+", " ", b_limpio).strip()
+        if not b_linea:
+            continue
         # Omitir pies de figura/cuadro o restos de índice muy cortos
         if re.match(r"^(?:FIGURA|CUADRO|TABLA)\s+\d", b_linea, re.IGNORECASE):
             continue
         if _REV3_BIBLIO_CITA_RE.search(b_linea) and len(b_linea.split()) < 45:
             continue
+        # Quitar glosas etimológicas/biográficas de notas al pie (formato crudo PDF y verbalizado)
+        b_linea = _PDF_GLOSA_PIE_CRUDO_RE.sub(" ", b_linea)
+        b_linea = _REV4_GLOSA_PIE_RE.sub(" ", b_linea)
+        b_linea = _quitar_parte_incrustada(b_linea)
+        # Quitar referencias visuales de tabla/figura en cuerpo (regla 2/5 de libro-audio-tts)
+        b_linea = _PDF_REF_VISUAL_CUERPO_RE.sub(" ", b_linea)
+        b_linea = re.sub(r"\s+", " ", b_linea).strip()
+        if not b_linea:
+            continue
         parrafos.append(b_linea)
     return parrafos
+
+
+_PAL_NUM_TABLA_PAT = (
+    r"(?:cero|un[oa]?|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|"
+    r"diez|once|doce|trece|catorce|quince|diecis[eé]is|diecisiete|dieciocho|diecinueve|"
+    r"veinte|veinti(?:uno|una|[uú]n|d[oó]s|tr[eé]s|cuatro|cinco|s[eé]is|siete|ocho|nueve)|"
+    r"treinta|cuarenta|cincuenta|sesenta|setenta|ochenta|noventa|"
+    r"cien|ciento|doscient[oa]s|trescient[oa]s|cuatrocient[oa]s|quinient[oa]s|"
+    r"seiscient[oa]s|setecient[oa]s|ochocient[oa]s|novecient[oa]s|mil)"
+)
+_REV1_TABLA_NARRADA_RE = re.compile(
+    rf"^\s*Tabla(?:\s+(?:\d+(?:\.\d+)*|{_PAL_NUM_TABLA_PAT}(?:\s+(?:y|punto|{_PAL_NUM_TABLA_PAT}))*))?\s*\.",
+    re.IGNORECASE,
+)
+_REV1_FORMULA_OP_FUERTE_RE = re.compile(
+    r"\b(?:igual\s+a|distinto\s+de|diferente\s+de|dividido\s+(?:entre|por)|"
+    r"(?:equis|x|ye|y|efe|f)\s+barra|ra[ií]z\s+(?:cuadrada|c[uú]bica)|"
+    r"al\s+(?:cuadrado|cubo)|elevado\s+a|sumatoria|sigma|"
+    r"(?:mayor|menor)(?:\s+o\s+igual)?\s+que)\b",
+    re.IGNORECASE,
+)
+_REV1_FORMULA_OP_SOLO_RE = re.compile(
+    r"\b(?:dividido\s+(?:entre|por)|(?:equis|x|ye|y|efe|f)\s+barra|"
+    r"ra[ií]z\s+(?:cuadrada|c[uú]bica)|al\s+(?:cuadrado|cubo)|elevado\s+a|sumatoria|sigma)\b",
+    re.IGNORECASE,
+)
+_REV1_FORMULA_OP_SEC_RE = re.compile(
+    r"\b(?:sobre|m[aá]s|menos|por|entre|hasta)\b",
+    re.IGNORECASE,
+)
+_PALABRAS_NUMERO_SIN_ARTICULO = PALABRAS_NUMERO - {"un", "una", "unos", "unas"}
+_PALABRAS_ESTRUCTURA_TABLA_FORMULA = frozenset({
+    "tabla", "para", "cada", "se", "dan", "donde", "dividido", "entre", "sobre",
+    "hasta", "igual", "equis", "ye", "barra", "sigma", "sumatoria",
+    "alfa", "beta", "gamma", "delta", "epsilon", "zeta", "eta", "theta",
+    "kappa", "lambda", "mu", "mi", "xi", "pi", "rho", "tau", "fi", "ji", "psi", "omega",
+    "elevado", "cubica", "distinto", "diferente",
+    "al", "del", "mayor", "menor", "que", "de", "la", "el", "las", "los", "en", "y", "o", "a",
+})
+
+
+def _es_parrafo_tabla_narrada(parrafo: str) -> bool:
+    """Detecta párrafos de tablas narradas fila por fila (regla 7 de libro-audio-tts)."""
+    return bool(_REV1_TABLA_NARRADA_RE.match(parrafo))
+
+
+def _es_parrafo_formula_estadistica(parrafo: str) -> bool:
+    """Detecta párrafos de fórmulas y cálculos estadísticos verbalizados (regla 4 de libro-audio-tts)."""
+    fuertes = len(_REV1_FORMULA_OP_FUERTE_RE.findall(parrafo))
+    if fuertes == 0:
+        return False
+    palabras_norm = _RE_TOKEN_ALFA.findall(_quitar_tildes_bajar(parrafo))
+    n_pal = len(palabras_norm)
+    if n_pal == 0:
+        return False
+    sec = len(_REV1_FORMULA_OP_SEC_RE.findall(parrafo))
+    nums_y_vars = sum(
+        1
+        for w in palabras_norm
+        if w in _PALABRAS_NUMERO_SIN_ARTICULO or (len(w) == 1 and w not in {"a", "y", "o", "e", "u"})
+    )
+    if fuertes >= 2:
+        return (fuertes * 2 + sec + nums_y_vars) / n_pal >= 0.25
+    return n_pal <= 22 and (nums_y_vars >= 1 or bool(_REV1_FORMULA_OP_SOLO_RE.search(parrafo)))
+
+
+def _cobertura_vocabulario_tabla_formula(tokens: list[str], pdf_vocab: set[str]) -> float:
+    """Fracción de tokens sustantivos presentes en el vocabulario del PDF para tablas/fórmulas."""
+    sustantivos = [
+        t for t in tokens
+        if len(t) > 1 and t not in _PALABRAS_ESTRUCTURA_TABLA_FORMULA
+    ]
+    if not sustantivos:
+        return 1.0
+    cubiertos = sum(1 for t in sustantivos if t in pdf_vocab)
+    return cubiertos / len(sustantivos)
 
 
 def _revision_1_literalidad(texto: str, ruta_pdf_texto: Path | None) -> ResultadoRevision:
@@ -950,6 +1173,7 @@ def _revision_1_literalidad(texto: str, ruta_pdf_texto: Path | None) -> Resultad
     pdf_raw = re.sub(r"([A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)-\s*\n+\s*([a-záéíóúüñ]+)", r"\1\2", pdf_raw)
     pdf_tokens = _normalizar_para_ngramas(pdf_raw)
     pdf_ngrams = _construir_indice_ngramas(pdf_tokens, NGRAM_LITERALIDAD)
+    pdf_vocab = set(pdf_tokens)
 
     fallas_ej: list[str] = []
     fallas = 0
@@ -959,8 +1183,13 @@ def _revision_1_literalidad(texto: str, ruta_pdf_texto: Path | None) -> Resultad
         if not toks:
             continue
         evaluados += 1
-        cob = _cobertura_ngramas(toks, pdf_ngrams, tokens_referencia=pdf_tokens, n=NGRAM_LITERALIDAD)
-        if cob < UMBRAL_LITERALIDAD_PARRAFO:
+        if _es_parrafo_tabla_narrada(parrafo) or _es_parrafo_formula_estadistica(parrafo):
+            cob = _cobertura_vocabulario_tabla_formula(toks, pdf_vocab)
+            umbral = UMBRAL_VOCABULARIO_TABLA_FORMULA
+        else:
+            cob = _cobertura_ngramas(toks, pdf_ngrams, tokens_referencia=pdf_tokens, n=NGRAM_LITERALIDAD)
+            umbral = UMBRAL_LITERALIDAD_PARRAFO
+        if cob < umbral:
             fallas += 1
             fallas_ej.append(f"P{idx} ({cob * 100:.1f}%): {_recortar(parrafo, 85)}")
 
@@ -973,16 +1202,28 @@ def _revision_1_literalidad(texto: str, ruta_pdf_texto: Path | None) -> Resultad
         fallas=fallas,
         revisado=evaluados,
         unidad="párrafos",
-        ejemplos=_dedup_limitar(fallas_ej),
+        ejemplos=_dedup_limitar(fallas_ej, limite=30),
     )
 
 
 # Revisión 2: material que el audio omite a propósito (regla 10 de libro-audio-tts)
 GAP_MAX_CLUSTER_ANCLAS = 25  # párrafos de PDF sin ancla que cortan un cluster
-_PDF_FIN_NARRABLE_RE = re.compile(r"Para probar (?:sus|los) conocimientos|^\s*Cuestiones\b|^\s*Respuestas\b|Autoevaluaci[oó]n|^\s*Bibliograf[ií]a|^\s*Referencias(\s+bibliogr[aá]ficas)?\s*$|^\s*Temas de conexi[oó]n\b", re.I)
+_PDF_FIN_NARRABLE_RE = re.compile(
+    r"Para (?:com)?probar (?:sus|los) conocimientos|^\s*Cuestiones\b|^\s*Respuestas\b"
+    r"|^\s*(?:Preguntas?\s+de\s+)?Autoevaluaci[oó]n\b(?!\s*:\s*ejercicios\s+de\s+aplicaci[oó]n)"
+    r"|^\s*Bibliograf[ií]a|^\s*Referencias(\s+bibliogr[aá]ficas)?\s*$|^\s*Temas de conexi[oó]n\b"
+    r"|10\.3\s+Ejercicios\s+de\s+aplicaci[oó]n"
+    r"|^\s*11\s+ESTAD[ÍI]STICA\s+DESCRIPTIVA\s+MEDIANTE\s+MICROSOFT\s+EXCEL",
+    re.I | re.M,
+)
 # 16-nov (calibración EdS): fuentes de figura, URLs y citas sueltas del PDF no se narran (regla 10): no son omisión.
-_PDF_NO_NARRABLE_RE = re.compile(r"^\s*Antes de proseguir|Responda las siguientes preguntas|Glosario|ESQUEMA DEL CAP[ÍI]TULO"
-                                 r"|^\s*Fuente\s*:|https?://|www\.|Disponible en\s*:|Recuperado de|\bet al\b", re.I)
+_PDF_NO_NARRABLE_RE = re.compile(
+    r"^\s*Antes de proseguir|Responda las siguientes preguntas|Glosario|ESQUEMA DEL CAP[ÍI]TULO"
+    r"|^\s*Fuente\s*:|https?://|www\.|Disponible en\s*:|Recuperado de|\bet al\b"
+    r"|^\s*(?:\d+(?:\.\d+)*\s+)?Ejercicios\s+de\s+aplicaci[oó]n\b"
+    r"|^\s*Realice\s+las\s+tablas\b",
+    re.I,
+)
 
 
 def _es_indice_o_portada(p: str) -> bool:
@@ -1019,7 +1260,8 @@ def _revision_2_omisiones(texto: str, ruta_pdf_texto: Path | None) -> ResultadoR
     parrafos_pdf = _limpiar_paginas_pdf_crudo(pdf_raw)
     parrafos_eval = [
         p for p in parrafos_pdf
-        if len(_normalizar_para_ngramas(p)) >= MIN_TOKENS_PARRAFO_OMISION and not _es_indice_o_portada(p)
+        if (len(_normalizar_para_ngramas(p)) >= MIN_TOKENS_PARRAFO_OMISION and not _es_indice_o_portada(p))
+        or _PDF_FIN_NARRABLE_RE.search(p)
     ]
     if not parrafos_eval:
         return ResultadoRevision(2, "Omisiones (PDF -> texto)", "texto", "sin revisar", 0, 0, "párrafos PDF", [], "PDF sin párrafos evaluables")
@@ -1049,7 +1291,9 @@ def _revision_2_omisiones(texto: str, ruta_pdf_texto: Path | None) -> ResultadoR
         # (16-nov: Saladin daba ~1700 «párrafos omitidos» porque el rango abarcaba todo el libro).
         clusters: list[list[int]] = [[indices_anclados[0]]]
         for a in indices_anclados[1:]:
-            if a - clusters[-1][-1] > GAP_MAX_CLUSTER_ANCLAS:
+            prev = clusters[-1][-1]
+            cruce_fin = any(_PDF_FIN_NARRABLE_RE.search(parrafos_eval[k]) for k in range(prev, a))
+            if a - prev > GAP_MAX_CLUSTER_ANCLAS or cruce_fin:
                 clusters.append([a])
             else:
                 clusters[-1].append(a)
@@ -1086,7 +1330,7 @@ def _revision_2_omisiones(texto: str, ruta_pdf_texto: Path | None) -> ResultadoR
         fallas=fallas,
         revisado=len(tramo),
         unidad="párrafos PDF",
-        ejemplos=_dedup_limitar(fallas_ej),
+        ejemplos=_dedup_limitar(fallas_ej, limite=30),
     )
 
 
@@ -1108,8 +1352,20 @@ def _revision_3_relleno(texto: str, *, modo_whisper: bool = False) -> ResultadoR
     for m in _REV3_CREDITO_RE.finditer(texto):
         ctx = texto[max(0, m.start() - 10) : min(len(texto), m.end() + 30)]
         hallazgos.append(f"Crédito: {_recortar(ctx, 70)}")
+    spans_encabezado: list[tuple[int, int]] = []
     for m in _REV3_ENCABEZADO_RE.finditer(texto):
+        spans_encabezado.append((m.start(), m.end()))
         hallazgos.append(f"Encabezado/autor/portada: {m.group(0).strip()}")
+    for m in _REV3_PARTE_INCRUSTADA_RE.finditer(texto):
+        if any(ini <= m.start() and m.end() <= fin for ini, fin in spans_encabezado):
+            continue
+        hallazgos.append(f"Encabezado PARTE incrustado: {m.group(0).strip()}")
+    for m in _REV3_CAPITULO_REPETIDO_RE.finditer(texto):
+        if m.start() < 200:
+            continue
+        hallazgos.append(f"Encabezado CAPÍTULO repetido: {_recortar(m.group(0).strip(), 70)}")
+    for m in _REV3_VINYETA_AUTOEVAL_RE.finditer(texto):
+        hallazgos.append(f"Pregunta con viñeta ●: {_recortar(m.group(0).strip(), 70)}")
 
     if not modo_whisper:
         for linea in texto.splitlines():
@@ -1232,6 +1488,9 @@ def _revision_6_simbolos_iones_miles(texto: str, *, modo_whisper: bool = False) 
     for m in _REV6_COMA_CERO_CERO_RE.finditer(sin_etq):
         hallazgos.append(f"Posible mil como decimal: {m.group(0)}")
     for m in _REV6_MILES_PALABRAS_RE.finditer(sin_etq):
+        prefijo = sin_etq[max(0, m.start() - 40) : m.start()]
+        if re.search(rf"\bmenos(?:[ \t]+(?:y|{_NUM_PAL_PAT})){{0,3}}[ \t]+$", prefijo, re.IGNORECASE):
+            continue
         hallazgos.append(f"Miles como decimal: {m.group(0)}")
     for m in _REV6_UN_COMA_RE.finditer(sin_etq):
         hallazgos.append(f"Uso de 'un coma': {m.group(0)}")
@@ -1408,17 +1667,51 @@ def _numero_a_palabras_es(n: int) -> str:
     return " ".join(partes)
 
 
+_PALABRAS_NUMERO_EXACTAS = PALABRAS_NUMERO - {"coma", "punto"}
+
+
 def _normalizar_para_whisper(texto: str) -> list[str]:
     """Normaliza texto esperado o salida de Whisper para comparar sin falsos positivos por cifras."""
     t = unicodedata.normalize("NFC", texto)
     t = _ETIQUETA_VOZ_RE.sub(" ", t)
     t = t.replace("%", " por ciento ")
-    t = re.sub(r"(\d+)[.,](\d+)", lambda m: f"{_numero_a_palabras_es(int(m.group(1)))} coma {' '.join(_numero_a_palabras_es(int(ch)) for ch in m.group(2))}", t)
+    # 22-nov (calibración Rev 9): separadores de miles inequívocos antes de decimales
+    t = re.sub(
+        r"\b\d{1,3}(?:,\d{3}){2,}\b|\b\d{1,3}(?:\.000){2,}\b",
+        lambda m: _numero_a_palabras_es(int(m.group(0).replace(",", "").replace(".", ""))),
+        t,
+    )
+    t = re.sub(
+        r"\b([1-9]\d{0,2})[.,]000\b(?![.,]\d)",
+        lambda m: _numero_a_palabras_es(int(m.group(1)) * 1000),
+        t,
+    )
+    # 22-nov (calibración Rev 9): numeraciones de 3+ niveles (1.8.1, 2.1.4) antes de la regla decimal
+    t = re.sub(
+        r"\b(\d+(?:\.\d+){2,})\b",
+        lambda m: " punto ".join(_numero_a_palabras_es(int(p)) for p in m.group(1).split(".")),
+        t,
+    )
+    t = re.sub(
+        r"(\d+)[.,](\d+)",
+        lambda m: f"{_numero_a_palabras_es(int(m.group(1)))} coma {' '.join(_numero_a_palabras_es(int(ch)) for ch in m.group(2))}",
+        t,
+    )
     t = re.sub(r"\d+", lambda m: _numero_a_palabras_es(int(m.group(0))), t)
     t = _RE_COLAPSAR_SIGLA_ESPACIADA.sub(lambda m: m.group(0).replace(" ", ""), t)
     descompuesto = unicodedata.normalize("NFD", t.lower())
     plano = "".join(ch for ch in descompuesto if unicodedata.category(ch) != "Mn")
-    return re.findall(r"[a-zñ0-9]+", plano)
+    tokens = re.findall(r"[a-zñ0-9]+", plano)
+    # 22-nov (calibración Rev 9): normalizar «punto» -> «coma» solo entre palabras numéricas
+    n = len(tokens)
+    for i in range(1, n - 1):
+        if (
+            tokens[i] == "punto"
+            and tokens[i - 1] in _PALABRAS_NUMERO_EXACTAS
+            and tokens[i + 1] in _PALABRAS_NUMERO_EXACTAS
+        ):
+            tokens[i] = "coma"
+    return tokens
 
 
 def _transcribir_audio_whisper(
@@ -1986,7 +2279,7 @@ def aplicar_excepciones(capitulo: str, revs: list[ResultadoRevision], ruta: Path
         return
     for r in revs:
         exc = [e for e in datos if e.get("rev") == r.numero and e.get("contiene")]
-        if not exc or r.fallas == 0 or r.fallas != len(r.ejemplos):
+        if not exc or r.fallas == 0 or (r.fallas != len(r.ejemplos) and r.fallas > MAX_EJEMPLOS):
             continue
         quedan, usadas = [], []
         for ej in r.ejemplos:
@@ -2066,6 +2359,8 @@ def evaluar_capitulo(
         rev8 = ResultadoRevision(8, "Palabras partidas y ligaduras", "texto", "sin revisar", 0, 0, "palabras", [], "Sin texto ni transcripción")
 
     aplicar_excepciones(capitulo, [rev1, rev2, rev3, rev4, rev5, rev6, rev7, rev8])
+    for _rv in (rev1, rev2):
+        _rv.ejemplos = _rv.ejemplos[:MAX_EJEMPLOS]
 
     if ruta_audio is None:
         rev9 = ResultadoRevision(9, "Audio = texto (Whisper pista entera)", "audio", "sin revisar", 0, 0, "palabras", [], "No se pasó audio")

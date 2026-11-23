@@ -1,48 +1,238 @@
 {
- "capitulo": 14,
+ "capitulo": "Calvo_tema_14",
+ "libro": "Calvo",
  "titulo_capitulo": "Ciclo celular y destinos vitales de la célula",
- "palabras_texto": 13084,
+ "palabras_texto": 13036,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
-   "palabra": 78,
+   "palabra": 72,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Fases del ciclo celular",
-   "palabra": 436,
+   "palabra": 430,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Interfase",
+   "palabra": 502,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fase G1 (gap 1)",
+   "palabra": 648,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fase S (synthesis)",
+   "palabra": 844,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proceso de la replicación",
+   "palabra": 957,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Varios orígenes de la replicación para cada molécula de ADN",
+   "palabra": 1008,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Acortamiento de los telómeros en cada ronda de replicación",
+   "palabra": 1435,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fase G2 (gap 2)",
+   "palabra": 2082,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "División celular (fase M)",
+   "palabra": 2223,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cariocinesis",
+   "palabra": 2320,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Citocinesis",
+   "palabra": 2604,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fases del ciclo en células de diferentes tejidos",
+   "palabra": 2693,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Regulación del ciclo celular: puntos de control",
-   "palabra": 3269,
+   "palabra": 3256,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sistema de proteínas quinasas de activación cíclica",
+   "palabra": 3742,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismos de regulación de las Cdk",
+   "palabra": 4656,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismos de regulación adicionales",
+   "palabra": 5237,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fosforilación de las Cdk",
+   "palabra": 5269,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas inhibidoras de las Cdk",
+   "palabra": 5602,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Regulación en cada punto de control y consecuencias del avance a la siguiente fase",
-   "palabra": 6136,
+   "palabra": 6105,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismo de control del punto G1",
+   "palabra": 6154,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Familia E2F y familia Rb",
+   "palabra": 6258,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismo de control del punto G2",
+   "palabra": 7589,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismo de control del punto M",
+   "palabra": 8196,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Elementos de retrocontrol del ciclo celular",
-   "palabra": 8717,
+   "palabra": 8657,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Retrocontrol por incorrecto ensamblaje del huso mitótico",
+   "palabra": 8745,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Retrocontrol por lesión del ADN",
+   "palabra": 9028,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Papel central de p53 en el retrocontrol del ciclo celular",
+   "palabra": 9265,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Senescencia celular y apoptosis dependientes de p53",
+   "palabra": 10629,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Elementos extrínsecos que influyen en el control del ciclo celular",
-   "palabra": 11609,
+   "palabra": 11534,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Moléculas extracelulares de señalización",
+   "palabra": 11630,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Interacción de las células con la matriz extracelular",
+   "palabra": 12026,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Destinos vitales de la célula y respuestas celulares al estrés",
-   "palabra": 12328,
+   "palabra": 12283,
    "narrable": true
   }
  ]

@@ -1,0 +1,925 @@
+{
+ "capitulo": "EdS_Parte1",
+ "libro": "EdS",
+ "titulo_capitulo": "EDUCACIÓN EN SALUD",
+ "palabras_texto": 7488,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Parte uno",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "EDUCACIÓN EN SALUD",
+   "palabra": 2,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "EVOLUCIÓN DEL CONCEPTO DE SALUD",
+   "palabra": 188,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Visión biomédica, siglo diecinueve a mediados del siglo veinte",
+   "palabra": 209,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Enfoque biopsicosocial, mediados del siglo veinte en adelante",
+   "palabra": 250,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reconoce que el bienestar humano depende de la interacción entre factores biológicos",
+   "palabra": 259,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La prevención y la promoción de la salud cobran relevancia junto con la atención",
+   "palabra": 289,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Salud como derecho humano y determinantes sociales, desde mil novecientos cuarenta y seis",
+   "palabra": 304,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Se incorpora la noción de la salud como derecho humano fundamental, lo que obliga a",
+   "palabra": 352,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Surgen los Determinantes Sociales de la salud, vivienda, educación, empleo, medio",
+   "palabra": 375,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transición epidemiológica y demográfica",
+   "palabra": 397,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La teoría de la transición epidemiológica describe cómo, a medida que las sociedades se",
+   "palabra": 401,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Cambios en el perfil de morbilidad y mortalidad",
+   "palabra": 441,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Necesidad de acciones preventivas y participativas",
+   "palabra": 499,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La atención de salud debe ser integral, con enfoque intersectorial que incluya educación",
+   "palabra": 529,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "DETERMINANTES DE LA SALUD",
+   "palabra": 547,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Modelo de determinantes sociales",
+   "palabra": 580,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Plantea que la salud se forma en el entorno en el que nacemos, crecemos, trabajamos",
+   "palabra": 585,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Incluye factores estructurales, políticas, distribución de riqueza, educación, y",
+   "palabra": 602,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Factores principales",
+   "palabra": 620,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Promover la equidad en salud implica actuar sobre las causas sociales de la",
+   "palabra": 694,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "SALUD PÚBLICA",
+   "palabra": 717,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Su objetivo principal es prevenir enfermedades, prolongar la vida y promover el bienestar",
+   "palabra": 749,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones esenciales",
+   "palabra": 763,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Vigilancia y monitoreo",
+   "palabra": 784,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Protección de la salud",
+   "palabra": 798,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Prevención de enfermedades",
+   "palabra": 813,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4",
+   "titulo": "Promoción de la salud",
+   "palabra": 827,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Creación de entornos y políticas que faciliten estilos de vida saludables y empoderen a la",
+   "palabra": 832,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5",
+   "titulo": "Participación comunitaria y gobernanza",
+   "palabra": 848,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "ENFOQUES Y PARADIGMAS DE INTERVENCIÓN EN SALUD",
+   "palabra": 868,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Modelo biomédico vs. modelo de atención integral",
+   "palabra": 899,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Prevención primaria, secundaria, terciaria y cuaternaria",
+   "palabra": 961,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Surge como respuesta crítica a la medicalización excesiva, la sobreutilización de tecnología",
+   "palabra": 1020,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Educación para la salud",
+   "palabra": 1042,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "BASES NORMATIVAS Y POLÍTICAS INTERNACIONALES",
+   "palabra": 1098,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Carta de Ottawa, mil novecientos ochenta y seis",
+   "palabra": 1128,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Conferencias posteriores",
+   "palabra": 1184,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Promover políticas intersectoriales que articulen salud, educación, vivienda, trabajo y",
+   "palabra": 1499,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fortalecer la Atención Primaria en Salud, A P S, como estrategia central para alcanzar la",
+   "palabra": 1521,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Monitorear y evaluar avances en salud pública, mediante indicadores globales",
+   "palabra": 1538,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La creatividad, el conocimiento, la tecnología y los recursos financieros de toda la sociedad son",
+   "palabra": 1706,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "MARCO NACIONAL, BOLIVIA",
+   "palabra": 1732,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La política sanitaria boliviana se sustenta en normas constitucionales y en modelos de atención que",
+   "palabra": 1735,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Constitución Política del Estado, dos mil nueve",
+   "palabra": 1757,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reconoce la salud como un derecho humano fundamental y responsabilidad indelegable",
+   "palabra": 1765,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Establece el principio de gratuidad y universalidad de los servicios de salud, con enfoque",
+   "palabra": 1778,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Obliga a los diferentes niveles de gobierno a garantizar condiciones que favorezcan el",
+   "palabra": 1796,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Políticas de Salud vigentes",
+   "palabra": 1811,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Promueve la articulación entre saberes ancestrales y biomedicina, con enfoque de",
+   "palabra": 1869,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Estrategias comunitarias y participación social",
+   "palabra": 1884,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fortalecimiento de comités de salud, redes vecinales y organizaciones sociales para",
+   "palabra": 1890,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Impulso de agentes comunitarios de salud y del trabajo en territorio para prevenir",
+   "palabra": 1908,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "POLITICAS PÚBLICAS DE SALUD",
+   "palabra": 1931,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La palabra política contiene una inherente dificultad semántica en nuestro idioma, Tomassini",
+   "palabra": 1935,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "SALUD PÚBLICA",
+   "palabra": 2105,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Para ello hay que proceder a la Recolección, Recopilación, Análisis y Diseminación de",
+   "palabra": 2493,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Información sobre la Salud de las Poblaciones. Los servicios que la salud pública debe",
+   "palabra": 2506,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diferencias entre Salud Pública y Política Pública de Salud",
+   "palabra": 2788,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Salud Pública",
+   "palabra": 2797,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Política Pública de Salud",
+   "palabra": 2865,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Relación entre ambas",
+   "palabra": 2946,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La Política Pública de Salud es la guía y decisión política que establece cómo, dónde",
+   "palabra": 2961,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "PROMOCIÓN DE LA SALUD",
+   "palabra": 3004,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Principios básicos para la promoción de la salud según la O M S",
+   "palabra": 3148,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Combina métodos o planteamientos diversos pero complementarios, incluyendo comunicación",
+   "palabra": 3221,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Aspira a la participación efectiva de la población, favoreciendo la autoayuda y animando a las",
+   "palabra": 3239,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Áreas de acción establecidas en la Carta de Ottawa",
+   "palabra": 3311,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Crear ambientes que favorezcan la salud. Los medios ambientes físicos y sociales influyen",
+   "palabra": 3365,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4",
+   "titulo": "Desarrollar habilidades personales. Mediante el aprendizaje, el desarrollo de aptitudes y",
+   "palabra": 3463,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "EDUCACIÓN PARA LA SALUD",
+   "palabra": 3570,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "ATENCIÓN PRIMARIA DE SALUD",
+   "palabra": 3727,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características de la Atención Primaria",
+   "palabra": 3898,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las características básicas de la atención primaria son la accesibilidad, la coordinación, la",
+   "palabra": 3903,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "A estas se suman otros atributos esenciales descritos en la literatura contemporánea, como la",
+   "palabra": 4051,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Organización de la Atención Primaria de Salud",
+   "palabra": 4089,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "MEDICINA SOCIAL, Concepto",
+   "palabra": 4273,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Durante los últimos años, el sistema de salud ha tenido modificaciones importantes orientadas al",
+   "palabra": 4354,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "PREVENCIÓN DE LA ENFERMEDAD, Concepto",
+   "palabra": 4457,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Se entiende como el conjunto de acciones orientadas a evitar la aparición de enfermedades, limitar",
+   "palabra": 4516,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Niveles de Prevención",
+   "palabra": 4568,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diferencia con Promoción de la Salud",
+   "palabra": 4671,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Aunque complementarias, prevención se centra en enfermedad y riesgo, mientras que la",
+   "palabra": 4677,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Entonces la prevención de la enfermedad es un proceso continuo que integra intervenciones",
+   "palabra": 4706,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Puntos Clave",
+   "palabra": 4943,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Promoción busca capacitar y empoderar a individuos y comunidades para actuar sobre las",
+   "palabra": 4945,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Son complementarias, pero la promoción trasciende la lógica biomédica y enfatiza la acción",
+   "palabra": 4993,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "FACTOR DE RIESGO",
+   "palabra": 5052,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Un factor de riesgo es cualquier característica biológica, condición ambiental, comportamiento o",
+   "palabra": 5055,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "SERVICIOS DE SALUD",
+   "palabra": 5164,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Son estructuras organizadas que garantizan el acceso universal y equitativo a la atención",
+   "palabra": 5167,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Están constituidos por organismos descentralizados con personalidad jurídica y patrimonio propio",
+   "palabra": 5192,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "SALUD COMUNITARIA",
+   "palabra": 5242,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "FOMENTO DE LA SALUD",
+   "palabra": 5297,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Conjunto de esfuerzos integrados y sostenidos de los servicios de salud, comunidad, instituciones",
+   "palabra": 5301,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "RESTAURACIÓN DE LA SALUD",
+   "palabra": 5353,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Conjunto de actividades dirigidas a recuperar la salud perdida, incluyendo curación, rehabilitación",
+   "palabra": 5357,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Niveles de intervención",
+   "palabra": 5372,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "PROGRAMAS DE SALUD EN BOLIVIA",
+   "palabra": 5398,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los programas de salud son instrumentos de planificación, ejecución y evaluación que permiten",
+   "palabra": 5403,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Además del Programa Mi Salud, Bolivia ha desarrollado e implementado programas nacionales",
+   "palabra": 5594,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Puesta en marcha de las políticas sanitarias",
+   "palabra": 5720,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La implementación de programas de salud en Bolivia constituye un mecanismo de articulación",
+   "palabra": 5727,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Metas e indicadores de evaluación, que permiten medir su impacto en la reducción de",
+   "palabra": 5776,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "En este sentido, los programas de salud no solo constituyen acciones técnicas, sino también",
+   "palabra": 5815,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Conclusión",
+   "palabra": 5837,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los programas de salud en Bolivia son herramientas fundamentales para garantizar el derecho a la",
+   "palabra": 5838,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El Programa Mi Salud, junto con otros programas nacionales prioritarios, le suman para consolidar",
+   "palabra": 5891,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "PROBLEMAS DE SALUD EN VIGILANCIA PRIORITARIA EN BOLIVIA",
+   "palabra": 5935,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "La expansión geográfica de vectores y enfermedades transmitidas por vectores",
+   "palabra": 6128,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Las recaídas en cobertura de vacunación y brotes de enfermedades controladas",
+   "palabra": 6185,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hay brotes de sarampión que alertan porque en algún grado la cobertura vacunal ha",
+   "palabra": 6197,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4",
+   "titulo": "La transmisión materno-infantil. Se identifican esfuerzos para controlar la transmisión",
+   "palabra": 6240,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Patologías de preocupación actual para el Sistema de Salud en Bolivia",
+   "palabra": 6377,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "1",
+   "titulo": "Dengue",
+   "palabra": 6388,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "2",
+   "titulo": "Fiebre hemorrágica por virus Chapare y otras enfermedades virales emergentes",
+   "palabra": 6487,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "3",
+   "titulo": "Enfermedad de Chagas",
+   "palabra": 6582,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Bolivia presenta una de las tasas de prevalencia más altas de Chagas en el mundo",
+   "palabra": 6586,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "4",
+   "titulo": "Sarampión",
+   "palabra": 6875,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "En Bolivia, el sarampión fue declarado eliminado en dos mil dieciséis gracias a campañas de",
+   "palabra": 6877,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estos brotes han obligado al Ministerio de Salud a declarar al sarampión como enfermedad",
+   "palabra": 6942,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las medidas adoptadas por el Ministerio de Salud incluyen la intensificación de campañas",
+   "palabra": 7061,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "En conclusión, aunque Bolivia mantiene la meta de ser un país libre de sarampión, la",
+   "palabra": 7146,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "5",
+   "titulo": "V I H y sida",
+   "palabra": 7188,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "6",
+   "titulo": "Tuberculosis",
+   "palabra": 7299,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Implicaciones para salud pública y retos",
+   "palabra": 7385,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Es necesario fortalecer la vigilancia epidemiológica en todos los niveles, incluyendo zonas",
+   "palabra": 7391,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mantener y aumentar la cobertura de vacunación, asegurando que las vacunas lleguen a",
+   "palabra": 7412,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Integrar acciones interprogramáticas, por ejemplo en atención prenatal para detectar y tratar",
+   "palabra": 7439,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mejorar los recursos humanos y materiales, laboratorios, capacitación continua",
+   "palabra": 7457,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Promover investigación local que permita comprender mejor los determinantes sociales",
+   "palabra": 7468,
+   "narrable": true
+  }
+ ]
+}

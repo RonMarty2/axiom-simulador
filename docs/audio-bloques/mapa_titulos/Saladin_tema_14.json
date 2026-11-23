@@ -1,0 +1,232 @@
+{
+ "capitulo": "Saladin_tema_14",
+ "libro": "Saladin",
+ "titulo_capitulo": "El encéfalo y los pares craneales",
+ "palabras_texto": 24703,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "14.1",
+   "titulo": "Revisión general del encéfalo",
+   "palabra": 358,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Principales marcas distintivas",
+   "palabra": 612,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Materias gris y blanca",
+   "palabra": 1394,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desarrollo embrionario",
+   "palabra": 1523,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "14.2",
+   "titulo": "Meninges, ventrículos, líquido cefalorraquídeo e irrigación sanguínea",
+   "palabra": 2088,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Meninges",
+   "palabra": 2150,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ventrículos y líquido cefalorraquídeo",
+   "palabra": 2691,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Irrigación sanguínea y el sistema de barrera encefálica",
+   "palabra": 4202,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "14.3",
+   "titulo": "El rombencéfalo y el mesencéfalo",
+   "palabra": 4784,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El bulbo raquídeo",
+   "palabra": 4882,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La protuberancia",
+   "palabra": 5596,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El mesencéfalo",
+   "palabra": 6204,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La formación reticular",
+   "palabra": 6623,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El cerebelo",
+   "palabra": 7088,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "14.4",
+   "titulo": "El prosencéfalo",
+   "palabra": 8167,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El diencéfalo",
+   "palabra": 8284,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El cerebro",
+   "palabra": 9459,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "14.5",
+   "titulo": "Funciones integradoras del encéfalo",
+   "palabra": 11515,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El electroencefalograma",
+   "palabra": 11853,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sueño",
+   "palabra": 12212,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cognición",
+   "palabra": 13974,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Memoria",
+   "palabra": 14505,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Emoción",
+   "palabra": 15064,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sensación",
+   "palabra": 16377,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Control motor",
+   "palabra": 17325,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Lenguaje",
+   "palabra": 18676,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Lateralización cerebral",
+   "palabra": 19377,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "14.6",
+   "titulo": "Los pares craneales",
+   "palabra": 19783,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Rutas de los pares craneales",
+   "palabra": 19927,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Clasificación de los pares craneales",
+   "palabra": 20356,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cuadro de los pares craneales",
+   "palabra": 20550,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ayuda mnemotécnica",
+   "palabra": 21245,
+   "narrable": true
+  }
+ ]
+}

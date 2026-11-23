@@ -1,0 +1,113 @@
+{
+ "capitulo": "Saladin_tema_15",
+ "libro": "Saladin",
+ "titulo_capitulo": "El sistema nervioso autónomo y los reflejos viscerales",
+ "palabras_texto": 9306,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "15.1",
+   "titulo": "Propiedades generales del sistema nervioso autónomo",
+   "palabra": 323,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reflejos viscerales",
+   "palabra": 634,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Divisiones del sistema nervioso autónomo",
+   "palabra": 1032,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Rutas autónomas de información de respuesta",
+   "palabra": 1569,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "15.2",
+   "titulo": "Anatomía del sistema nervioso autónomo",
+   "palabra": 2042,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "División simpática",
+   "palabra": 2103,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glándulas suprarrenales",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "División parasimpática",
+   "palabra": 3667,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Sistema nervioso entérico",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "15.3",
+   "titulo": "Efectos autónomos en los órganos de destino",
+   "palabra": 4975,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Neurotransmisores y sus receptores",
+   "palabra": 5057,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación dual",
+   "palabra": 6929,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Control sin inervación dual",
+   "palabra": 7282,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "15.4",
+   "titulo": "Control central de las funciones autónomas",
+   "palabra": 7683,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

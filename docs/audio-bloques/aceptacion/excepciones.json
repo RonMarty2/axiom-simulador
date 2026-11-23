@@ -226,6 +226,24 @@
       "contiene": "Miles como decimal: cero coma siete ocho seis",
       "motivo": "decimal real de fórmula de presión parcial (78,6 % = 0,786; 0,786 × 760 mmHg = 597 mmHg), no es separador de miles",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Las cantidades relativas de CO2 intercambiado entre la sangre y el aire alveolar",
+      "motivo": "pie/diagrama de intercambio gaseoso de CO2 presente en TTS con fórmulas verbalizadas",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "HbO2 + H+ H2CO3 HCO3– + H+ HCO3–",
+      "motivo": "diagrama químico visual de transporte de CO2 y cloruro en eritrocito (regla 10)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Cl– Cl– Cotransporte bidireccional HCO3–",
+      "motivo": "diagrama químico visual de desplazamiento de cloruro en eritrocito (regla 10)",
+      "reviso": "Antigravity 22-11"
     }
   ],
   "EdS_Parte3_1_LITERAL_TTS": [
@@ -258,6 +276,48 @@
       "contiene": "Miles como decimal: cuatro coma dos ocho cinco",
       "motivo": "decimal real en cálculo de amplitud de intervalo (30 / 7 = 4,2857, pág. 112), no es separador de miles",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Tomando específicamente por ejemplo la talla en metros",
+      "motivo": "texto literal de EdS; baja a 86.8% por cifras/unidades verbalizadas (metros, intervalos)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "La tabla recoge el tiempo, en minutos, de cada una de las cincuenta personas",
+      "motivo": "introducción de tabla narrada de EdS (regla 7); texto verificado contra EdS_texto_paginas.txt",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "m igual a uno más tres coma tres por logaritmo de cincuenta",
+      "motivo": "fórmula de Sturges (m = 1 + 3,3 log(50)) verbalizada según regla 4 de libro-audio-tts",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Se denomina frecuencia absoluta, n i, a la cantidad de veces",
+      "motivo": "texto literal de EdS; baja a 89.3% porque el PDF une el subíndice ni y el TTS lo separa en n i",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "La frecuencia relativa, h i, se define como el porcentaje",
+      "motivo": "texto literal de EdS; baja a 87.8% por subíndice separado h i vs hi en PDF",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "La frecuencia absoluta acumulada, N i, para un valor x i",
+      "motivo": "texto literal de EdS; baja a 88.6% por subíndices separados N i / x i vs Ni / xi en PDF",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "La frecuencia relativa acumulada H i para un valor x i",
+      "motivo": "texto literal de EdS; baja a 80.0% por subíndices separados H i / x i vs Hi / xi en PDF",
+      "reviso": "Antigravity 22-11"
     }
   ],
   "EdS_Parte3_3_LITERAL_TTS": [
@@ -344,6 +404,12 @@
       "contiene": "Miles como decimal: menos dos coma nueve cero",
       "motivo": "decimal real de tablas 36 y 37 de asimetría/curtosis de Fisher (EdS págs. 187-189), no es separador de miles",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "uno coma dos cero ocho",
+      "motivo": "decimal real de curtosis (1,208) en pág. 185 de EdS, verificado contra EdS_texto_paginas.txt, no es millar",
+      "reviso": "Antigravity 22-11"
     }
   ],
   "Tema_21_Morfo_Saladin_LITERAL_TTS": [
@@ -412,6 +478,12 @@
       "contiene": "Las mejoras en la tecnología han llevado a prótesis de larga duración",
       "motivo": "párrafo presente íntegro en el TTS (pág. 308); baja de 90 % por verbalización de cifras (75 % -> setenta y cinco por ciento, 20 -> veinte) y retiro de referencia visual a figura 9.31 (reglas 2 y 3)",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "¿Dónde pondría el fulcro para aumentar la ventaja mecánica",
+      "motivo": "pregunta de autoevaluación de figura excluida por regla 10",
+      "reviso": "Antigravity 22-11"
     }
   ],
   "Tema_13_Morfo_Saladin_LITERAL_TTS": [
@@ -574,6 +646,18 @@
       "contiene": "Localice los componentes de la formación reticular en las tres partes",
       "motivo": "ejercicio de autoevaluación con viñeta al pie de la figura 14.9 (pág. 521), eliminado según regla 10",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "de las tres figuras por las fibras de los fascículos grácil",
+      "motivo": "referencia visual a tres figuras omitida según regla 2/5; prosa presente en TTS",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "llevan hacia arriba desde el cuerpo de cada célula piramidal, ¿son dendritas",
+      "motivo": "pregunta de autoevaluación de figura excluida por regla 10",
+      "reviso": "Antigravity 22-11"
     }
   ],
   "Tema_23_Morfo_Saladin_LITERAL_TTS": [
@@ -638,6 +722,340 @@
       "contiene": "Ion mal leído: CO2 más",
       "motivo": "reacción química 'CO2 + H2O' leída 'CO2 más H2O' (pág. 984), no es un ion CO2+",
       "reviso": "Antigravity 21-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "H N H O C HO H N H O C HO No ocurre digestión química",
+      "motivo": "diagrama químico estructural visual de digestión (regla 10)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Efectos del APARATO DIGESTIVO en otros sistemas de órganos TEMAS DE CONEXIÓN",
+      "motivo": "recuadro Temas de conexión excluido por decisión de Ronald (16-11)",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_16_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "un nanómetros",
+      "motivo": "quinientos treinta y un nanómetros (531 nm): apócope correcta en español",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 6,
+      "contiene": "Concordancia: un nanómetros",
+      "motivo": "quinientos treinta y un nanómetros (531 nm): apócope correcta en español",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_17_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Síntesis hormonal Todas las hormonas están hechas por colesterol",
+      "motivo": "diagrama/ruta visual de síntesis hormonal (regla 2/10); prosa narrable presente en TTS",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "vía de la síntesis de varias hormonas esteroideas. Obsérvese que",
+      "motivo": "referencia visual a diagrama de síntesis esteroidea omitida según regla 2/5",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Tirosina Tiroglobulina MIT DIT CH2 OH",
+      "motivo": "diagrama químico visual de hormonas tiroideas no narrable (regla 10)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "4 El DAG activa la proteína cinasa, una enzima que fosforiliza",
+      "motivo": "etiqueta de diagrama con símbolos/paréntesis visuales; explicación presente en TTS",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_19_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "Fase del ciclo cardiaco Tonos cardiacos ECG Presión",
+      "motivo": "tabla/gráfico visual del ciclo cardiaco no narrable (regla 10)",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_28_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 2,
+      "contiene": "CIN I: displasia media con cambios celulares que suelen relacionarse con HPV",
+      "motivo": "presente en TTS; baja a 83.3% por siglas deletreadas C I N y H P V",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "14 Caspar Bartholin (1655 a 1738), anatomista danés",
+      "motivo": "glosas biográficas al pie excluidas por regla 10",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_08_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "un centímetros",
+      "motivo": "setenta y un centímetros (71 cm): apócope correcta en español",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Agujeros sacros anteriores Apófisis articular superior",
+      "motivo": "etiquetas de figura de vértebras/sacro presentes en PDF; baja a 88% por conversión de ordinales",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Cabeza Pedículo Pedículo Tuberosidad Diáfisis Cabeza Superior",
+      "motivo": "etiquetas anatómicas de figura de costilla presentes en PDF",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Más allá de la tuberosidad, cada costilla se curvea",
+      "motivo": "texto literal de Saladin; baja a 88.6% por quitar referencia visual y verbalizar ordinales",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "CUADRO ocho coma cuatro Articulaciones de las costillas",
+      "motivo": "cuadro oficial del capítulo verbalizado (ordinales primera a duodécima)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "FIGURA ocho coma dos ocho. Anatomía de las costillas",
+      "motivo": "pie oficial de figura 8.28 verbalizado con ordinales primera/segunda",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_18_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 6,
+      "contiene": "un miligramos",
+      "motivo": "cincuenta y un miligramos: apócope correcta en español",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Figura dieciocho punto diecisiete. Estructura de un leucocito",
+      "motivo": "pie oficial de figura con sigla T E M deletreada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 4,
+      "contiene": "un microlitro es igual a un milímetro cúbico",
+      "motivo": "equivalencia métrica del cuerpo del texto, no es nota al pie",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "Tema_20_Morfo_Saladin_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "Treinta y tres de salida, Presión de filtración neta: trece de salida",
+      "motivo": "diagrama oficial de presiones capilares (filtración y reabsorción) verbalizado sin dígitos",
+      "reviso": "Antigravity 22-11"
+    }
+  ],
+  "EdS_Parte3_2_LITERAL_TTS": [
+    {
+      "rev": 1,
+      "contiene": "De las tablas anteriores se deduce que en la categoría de buena calidad académica",
+      "motivo": "texto literal de EdS; baja a 86.5% por verbalizar cifras/porcentajes",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Donde n i es frecuencia absoluta para cada valor de la variable",
+      "motivo": "definición literal de símbolo ni separado como n i para la voz",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Retomando la información donde se analiza el tiempo que tarda un grupo de personas",
+      "motivo": "texto literal de EdS sin referencia visual a tabla (regla 2/5)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Datos ordenados: tres, cuatro, cinco, seis y ocho, en las posiciones i uno a i cinco",
+      "motivo": "tabla/lista de posiciones i1..i5 verbalizada (regla 4/7)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Los valores que corresponden a las posiciones i cuatro y i cinco en el conjunto",
+      "motivo": "texto literal de EdS con posiciones i4 e i5 verbalizadas",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Datos ordenados: cinco, cinco, siete, nueve, once, trece, trece y quince",
+      "motivo": "tabla/lista de posiciones i1..i8 verbalizada (regla 4/7)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "uno. Ubicar el intervalo, o los intervalos, con mayor frecuencia absoluta n i",
+      "motivo": "pasos literales de moda con subíndice ni separado en n i",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Los cuartiles, Q k, son valores que fraccionan la distribución de los datos",
+      "motivo": "texto literal de EdS con símbolo Qk separado en Q k",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "tres. Si i no es un número entero, se debe redondear al entero siguiente",
+      "motivo": "paso literal de cuartiles con variable i",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "En este caso, para el cuartil Q tres la posición i sería",
+      "motivo": "texto literal de EdS con símbolo Q3 verbalizado Q tres",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Los deciles, D k, son valores que fraccionan la distribución de los datos",
+      "motivo": "texto literal de EdS con símbolo Dk separado en D k",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "tres. Si la posición i no es un número entero, se debe redondear al entero",
+      "motivo": "paso literal de deciles con variable i",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Rango igual a valor máximo menos valor mínimo",
+      "motivo": "fórmula literal de rango verbalizada (regla 4)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "La varianza es una medida de dispersión basada en la diferencia de cada dato",
+      "motivo": "texto literal de EdS; baja a 83.5% por símbolos xi, equis barra y mu verbalizados",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Donde: equis barra: media aritmética de la muestra",
+      "motivo": "leyenda literal de variables de fórmula de varianza muestral verbalizada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "En relación al denominador, n menos uno, Posada y Buitrago",
+      "motivo": "texto literal de EdS con expresión n - 1 y año verbalizados",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Donde: equis barra: media aritmética n: total de datos",
+      "motivo": "leyenda literal de variables de fórmula de desviación verbalizada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 1,
+      "contiene": "Retomando la información sobre la estatura en centímetros de un grupo de mujeres",
+      "motivo": "texto literal de EdS sin referencia visual a tabla (regla 2/5)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Al convertir las frecuencias de la tabla 22 a porcentajes de fila",
+      "motivo": "presente en TTS sin referencia visual 'de la tabla 22' (regla 2/5)",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "i i Los valores que corresponden a las posiciones 4 y 5 en el conjunto",
+      "motivo": "presente íntegro en TTS como 'posiciones i cuatro y i cinco'",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "2. Se ubica el intervalo que contiene a k(n /4) en la frecuencia",
+      "motivo": "presente íntegro en TTS con fórmula k(n/4) verbalizada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Los deciles (Dk) son valores que fraccionan la distribución de los datos",
+      "motivo": "presente íntegro en TTS como 'Los deciles, D k, son valores...'",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "3. Si la posición no es un número entero, se debe redondear al entero",
+      "motivo": "presente íntegro en TTS como paso tres de deciles/percentiles",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Si la posición es un número entero, el decil es el promedio de los",
+      "motivo": "presente íntegro en TTS con notación verbalizada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "2. Calcular la posición con la ecuación: . Donde K es el número del percentil",
+      "motivo": "presente íntegro en TTS con ecuación verbalizada",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "oscila entre 150 y 175 cm. Si no se hace claridad que el rango está",
+      "motivo": "presente íntegro en TTS con 'ciento cincuenta y ciento setenta y cinco centímetros'",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "que “la diferencia entre cada xi y el promedio",
+      "motivo": "presente íntegro en TTS con xi y equis barra verbalizados",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Para una población con total de datos N y promedio µ , el parámetro",
+      "motivo": "presente íntegro en TTS con 'promedio mu' verbalizado",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "central fue la educación sexual, con preguntas orientadas a la formación",
+      "motivo": "sección 7.4 Ejercicios de aplicación (pág. 158), excluida por regla 10",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "Basada en la encuesta a estudiantes de grado once de un colegio femenino",
+      "motivo": "pie de tabla 32 dentro de 7.4 Ejercicios de aplicación (pág. 160), excluido por regla 10",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "que aspiraban a los programas de Odontología y Trabajo social",
+      "motivo": "sección 8.4 Ejercicios de aplicación (pág. 170), excluida por regla 10",
+      "reviso": "Antigravity 22-11"
+    },
+    {
+      "rev": 2,
+      "contiene": "mediante el cálculo de las siguientes medidas: rango, rango intercuartil",
+      "motivo": "sección 9.5 Ejercicios de aplicación (pág. 182), excluida por regla 10",
+      "reviso": "Antigravity 22-11"
     }
   ]
 }

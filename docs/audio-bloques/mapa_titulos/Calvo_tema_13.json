@@ -1,30 +1,245 @@
 {
- "capitulo": 13,
+ "capitulo": "Calvo_tema_13",
+ "libro": "Calvo",
  "titulo_capitulo": "Mecanismos de señalización celular",
- "palabras_texto": 12049,
+ "palabras_texto": 12267,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Mecanismos generales de señalización intracelular",
-   "palabra": 65,
+   "palabra": null,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Tipos de señalización celular mediados por la secreción de moléculas",
-   "palabra": 1580,
+   "palabra": 1551,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización a través de mediadores locales",
+   "palabra": 1600,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización mediante factores de crecimiento",
+   "palabra": 1663,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "TGF-α",
+   "palabra": 1964,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Factor de crecimiento transformante α",
+   "palabra": 1968,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización por medio de gases: el óxido nítrico",
+   "palabra": 2236,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización por medio de citoquinas",
+   "palabra": 3121,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ejemplos de citocinas y algunos de sus efectos",
+   "palabra": 3292,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Citoquina Nombre completo Algunos efectos",
+   "palabra": 3300,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "INF-1α",
+   "palabra": 3344,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "INF-γ",
+   "palabra": 3361,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización mediante eicosanoides",
+   "palabra": 3403,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tipos de eicosanoides",
+   "palabra": 3604,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tromboxanos (TX)",
+   "palabra": 3834,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Leucotrienos (LT)",
+   "palabra": 3908,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización por neurotransmisores",
+   "palabra": 4135,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización hormonal",
+   "palabra": 4343,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Receptores de señales y señalización intracelular",
-   "palabra": 4597,
+   "palabra": 4557,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización por medio de receptores intracelulares",
+   "palabra": 4630,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Señalización por medio de receptores de membrana",
+   "palabra": 5204,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Receptores asociados a proteínas de canal",
+   "palabra": 5375,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Receptores asociados a proteínas G: transducción de la señal",
+   "palabra": 5517,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura y activación de los receptores",
+   "palabra": 5526,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Activación de la enzima adenilato ciclasa",
+   "palabra": 6130,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Activación de la enzima fosfolipasa C-β",
+   "palabra": 7004,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Actividad del inositol trifosfato (IP3)",
+   "palabra": 7203,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Actividad del diacilglicerol (DAG)",
+   "palabra": 7386,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Activación de la enzima guanilato ciclasa",
+   "palabra": 8238,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación de canales iónicos por proteínas G",
+   "palabra": 8586,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transducción de la señal mediante la vía de Ras-MAPK",
+   "palabra": 9303,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vías alternativas activadas por los receptores tirosina-quinasa",
+   "palabra": 10117,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Otro tipo de receptores relacionados con vías de diferenciación, estrés y muerte celular",
+   "palabra": 11320,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Señalización a través de contactos célula-célula y célula-sustrato",
-   "palabra": 11228,
+   "palabra": 11423,
    "narrable": true
   }
  ]

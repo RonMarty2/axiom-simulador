@@ -1,0 +1,211 @@
+{
+ "capitulo": "Saladin_tema_18",
+ "libro": "Saladin",
+ "titulo_capitulo": "El aparato circulatorio: sangre",
+ "palabras_texto": 20774,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "18.1",
+   "titulo": "Introducción",
+   "palabra": 670,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones del aparato circulatorio",
+   "palabra": 736,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Componentes y propiedades generales de la sangre",
+   "palabra": 757,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Plasma sanguíneo",
+   "palabra": 1145,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Viscosidad y osmolaridad de la sangre",
+   "palabra": 2001,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cómo se produce la sangre",
+   "palabra": 3017,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "18.2",
+   "titulo": "Eritrocitos",
+   "palabra": 3801,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Forma y función",
+   "palabra": 3994,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hemoglobina",
+   "palabra": 4601,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cantidades de eritrocitos y hemoglobina",
+   "palabra": 4968,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ciclo de vida del eritrocito",
+   "palabra": 5289,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Trastornos eritrocíticos",
+   "palabra": 6910,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "18.3",
+   "titulo": "Tipos sanguíneos",
+   "palabra": 8318,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El grupo ABO",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El grupo Rh",
+   "palabra": 10125,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Otros grupos sanguíneos",
+   "palabra": 11062,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "18.4",
+   "titulo": "Leucocitos",
+   "palabra": 11968,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Forma y función",
+   "palabra": 12042,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tipos de leucocitos",
+   "palabra": 12286,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ciclo de vida del leucocito",
+   "palabra": 13869,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Trastornos leucocíticos",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "18.5",
+   "titulo": "Trombocitos y hemostasia: el control de la hemorragia",
+   "palabra": 15495,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Forma y función de los trombocitos",
+   "palabra": 15715,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Producción de trombocitos",
+   "palabra": 16009,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Hemostasia",
+   "palabra": 16324,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Destino de los coágulos sanguíneos",
+   "palabra": 17791,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Prevención de la coagulación inapropiada",
+   "palabra": 18518,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Trastornos de la coagulación",
+   "palabra": 18721,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

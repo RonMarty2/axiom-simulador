@@ -1,54 +1,203 @@
 {
- "capitulo": 9,
+ "capitulo": "Calvo_tema_09",
+ "libro": "Calvo",
  "titulo_capitulo": "Síntesis y modificación de proteínas",
- "palabras_texto": 9874,
+ "palabras_texto": 9827,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
-   "palabra": 84,
+   "palabra": 80,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Maquinaria para la síntesis proteica",
-   "palabra": 474,
+   "palabra": 454,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "ARN mensajero",
+   "palabra": 781,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ribosomas",
+   "palabra": 907,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "ARN de transferencia",
+   "palabra": 1360,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Código genético",
-   "palabra": 1778,
+   "palabra": 1725,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Proceso de síntesis proteica en los ribosomas",
-   "palabra": 2429,
+   "palabra": 2374,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Iniciación",
+   "palabra": 3021,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Elongación",
+   "palabra": 3423,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Terminación",
+   "palabra": 3917,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Estructura tridimensional, plegamiento y localización de las proteínas",
-   "palabra": 4545,
+   "palabra": 4468,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Niveles estructurales de las proteínas",
+   "palabra": 4476,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructuras primaria y secundaria",
+   "palabra": 4645,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura terciaria",
+   "palabra": 4750,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura cuaternaria",
+   "palabra": 4972,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Plegamiento",
+   "palabra": 5043,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transporte y localización de las proteínas",
+   "palabra": 6279,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Modificaciones postraduccionales y regulación de la función proteica",
-   "palabra": 6808,
+   "palabra": 6748,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adición de grupos funcionales",
+   "palabra": 6882,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Acilaciones",
+   "palabra": 7181,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glucosilación",
+   "palabra": 7237,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adición de péptidos",
+   "palabra": 7351,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Cambio en la naturaleza química de los aminoácidos",
+   "palabra": 7542,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteólisis",
+   "palabra": 7614,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Degradación de proteínas",
-   "palabra": 8543,
+   "palabra": 8501,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Degradación no selectiva",
+   "palabra": 8572,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Degradación selectiva",
+   "palabra": 8619,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Uso biomédico de proteínas recombinantes",
-   "palabra": 9215,
+   "palabra": 9166,
    "narrable": true
   }
  ]

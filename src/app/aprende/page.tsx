@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { esPago } from "@/lib/plan";
 import { PRECIOS_BOB } from "@/lib/precios";
+import { tieneAudiolibro } from "@/lib/audio-medicina";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import Icono from "../components/Icono";
@@ -319,12 +320,14 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
               display: "flex", flexDirection: "column", gap: 6,
             }}>
               {unidad.lecciones.map((l, i) => {
+                const conAudiolibro = tieneAudiolibro(l.slug);
                 if (accesible && l.slug) {
                   return (
                     <li key={i}>
                       <Link href={`/aprende/${l.slug}`} style={leccionEstilo("activa")}>
                         <span>{l.titulo}</span>
-                        <span style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                        <span style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
+                          {conAudiolibro && (<span style={tagAudiolibroEstilo}>Audiolibro</span>)}
                           {l.tags?.map((t) => (<span key={t} style={tagEstilo}>{t}</span>))}
                           <span style={{ color: "var(--accent)", fontWeight: 700 }}>→</span>
                         </span>
@@ -340,8 +343,11 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
                           <span style={{ opacity: 0.6 }}>🔒</span>
                           {l.titulo}
                         </span>
-                        <span style={{ fontSize: 11, fontWeight: 700, color: "var(--dib-amber-800)", letterSpacing: 0.5 }}>
-                          DESBLOQUEAR →
+                        <span style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", justifyContent: "flex-end" }}>
+                          {conAudiolibro && (<span style={tagAudiolibroEstilo}>Audiolibro</span>)}
+                          <span style={{ fontSize: 11, fontWeight: 700, color: "var(--dib-amber-800)", letterSpacing: 0.5 }}>
+                            DESBLOQUEAR →
+                          </span>
                         </span>
                       </Link>
                     </li>
@@ -365,7 +371,7 @@ function UnidadCard({ unidad, esPremium }: { unidad: Unidad; esPremium: boolean 
 }
 
 const leccionEstilo = (variante: "activa" | "bloqueada" | "proximamente"): React.CSSProperties => ({
-  display: "flex", justifyContent: "space-between", alignItems: "center",
+  display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10,
   padding: "12px 14px", borderRadius: 10,
   background: variante === "activa" ? "var(--bg-base)" :
               variante === "bloqueada" ? "var(--dib-amber-50)" :
@@ -385,4 +391,12 @@ const tagEstilo: React.CSSProperties = {
   fontSize: 11, fontWeight: 700, color: "var(--accent)",
   background: "rgba(99, 102, 241, 0.1)",
   padding: "3px 8px", borderRadius: 6, letterSpacing: 0.5,
+};
+
+const tagAudiolibroEstilo: React.CSSProperties = {
+  fontSize: 11, fontWeight: 700, color: "var(--accent)",
+  background: "var(--accent-soft)",
+  border: "1px solid var(--border)",
+  padding: "3px 8px", borderRadius: 6, letterSpacing: 0.4,
+  whiteSpace: "nowrap",
 };

@@ -13,7 +13,7 @@ describe("formatos de examen", () => {
 
   test("vigente por facultad en ingenieria, economicas y derecho", () => {
     assert.equal(vigenteDe(fichas, "ingenieria")?.id, "fcyt-admision-2025-2");
-    assert.equal(vigenteDe(fichas, "economicas"), null);
+    assert.equal(vigenteDe(fichas, "economicas")?.id, "fce-admision-2025-2026");
     assert.equal(vigenteDe(fichas, "derecho")?.id, "derecho-provisoria");
   });
 

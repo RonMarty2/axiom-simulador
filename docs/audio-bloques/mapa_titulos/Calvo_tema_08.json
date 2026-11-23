@@ -1,36 +1,189 @@
 {
- "capitulo": 8,
+ "capitulo": "Calvo_tema_08",
+ "libro": "Calvo",
  "titulo_capitulo": "El núcleo. Parte II: transcripción y maduración del ARN y estructura del nucléolo",
- "palabras_texto": 10815,
+ "palabras_texto": 10500,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
    "palabra": 88,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Síntesis del ARN: transcripción",
-   "palabra": null,
+   "palabra": 429,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La ARN polimerasa",
+   "palabra": 1207,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fases de la transcripción",
+   "palabra": 1459,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Iniciación",
+   "palabra": 1483,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Elongación",
+   "palabra": 1960,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Terminación",
+   "palabra": 2092,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación de la transcripción",
+   "palabra": 2170,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inhibidores de la transcripción",
+   "palabra": 3927,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "El nucléolo: expresión morfológica del proceso de transcripción",
-   "palabra": 4277,
+   "palabra": 4209,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura y función",
+   "palabra": 4217,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regiones organizadoras de los nucléolos y transcripción del ARNr",
+   "palabra": 4980,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Otros cuerpos nucleares",
+   "palabra": 5577,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Maduración del ARN",
-   "palabra": null,
+   "palabra": 5770,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Maduración del ARN mensajero",
+   "palabra": 5897,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Splicing del ARN mensajero",
+   "palabra": 6102,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Importancia clínica del correcto reconocimiento de las secuencias de splicing",
+   "palabra": 7010,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Splicing alternativo del ARN mensajero",
+   "palabra": 7527,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adición de la caperuza 5’",
+   "palabra": 8289,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adición de la cola poli(A)",
+   "palabra": 8432,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Maduración del ARN ribosómico y síntesis de los ribosomas",
+   "palabra": 8648,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Maduración del ARN de transferencia",
+   "palabra": 9510,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Metabolismo del ARN maduro",
-   "palabra": null,
+   "palabra": 9713,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transporte del ARN del núcleo al citoplasma",
+   "palabra": 9719,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estabilidad y degradación del ARN",
+   "palabra": 9889,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los micro-ARN y su importancia en la fisiología humana",
+   "palabra": 10142,
    "narrable": true
   }
  ]

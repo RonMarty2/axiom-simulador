@@ -1,42 +1,126 @@
 {
- "capitulo": 5,
+ "capitulo": "Calvo_tema_05",
+ "libro": "Calvo",
  "titulo_capitulo": "Macrotransporte a través de la membrana plasmática: endocitosis y exocitosis",
- "palabras_texto": 12699,
+ "palabras_texto": 12425,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
-   "palabra": 93,
+   "palabra": 87,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Endocitosis",
-   "palabra": 159,
+   "palabra": 315,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pinocitosis",
+   "palabra": 512,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Endocitosis en vesículas recubiertas por clatrina",
+   "palabra": 684,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Endocitosis mediada por cavéolas",
+   "palabra": 3458,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Macropinocitosis",
+   "palabra": 4576,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fagocitosis",
+   "palabra": 4899,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transcitosis",
+   "palabra": 5608,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Exocitosis",
-   "palabra": 198,
+   "palabra": 6071,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Exocitosis constitutiva",
+   "palabra": 6264,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Exocitosis regulada",
+   "palabra": 6459,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Gemación y fusión de vesículas en los procesos de endocitosis y exocitosis",
-   "palabra": 6798,
+   "palabra": 6501,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Exocitosis y endocitosis en la sinapsis neuronal",
-   "palabra": 8070,
+   "palabra": 7842,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Mecanismos de infección que dependen del macrotransporte a través de la membrana plasmática",
-   "palabra": 10901,
+   "palabra": 10637,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Endocitosis de virus por la célula huésped",
+   "palabra": 10810,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Mecanismos de infección de las bacterias intracelulares",
+   "palabra": 11228,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Invasión de parásitos intracelulares",
+   "palabra": 12132,
    "narrable": true
   }
  ]

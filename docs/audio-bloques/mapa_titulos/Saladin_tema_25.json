@@ -1,0 +1,344 @@
+{
+ "capitulo": "Saladin_tema_25",
+ "libro": "Saladin",
+ "titulo_capitulo": "El aparato digestivo",
+ "palabras_texto": 24143,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "25.1",
+   "titulo": "Anatomía general y procesos digestivos",
+   "palabra": 747,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Función digestiva",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía general",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Relación con el peritoneo",
+   "palabra": 1471,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación del tubo digestivo",
+   "palabra": 2102,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.2",
+   "titulo": "De la boca al esófago",
+   "palabra": 2355,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La boca",
+   "palabra": 2409,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Masticación",
+   "palabra": 4371,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Saliva y glándulas salivales",
+   "palabra": 4476,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La faringe",
+   "palabra": 5567,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El esófago",
+   "palabra": 5755,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Deglución",
+   "palabra": 6074,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.3",
+   "titulo": "El estómago",
+   "palabra": 6844,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía macroscópica",
+   "palabra": 7105,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación y circulación",
+   "palabra": 7294,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía microscópica",
+   "palabra": 7437,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Secreciones gástricas",
+   "palabra": 7941,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Motilidad gástrica",
+   "palabra": 9143,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vómito",
+   "palabra": 9445,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Digestión y absorción",
+   "palabra": 10382,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Protección del estómago",
+   "palabra": 10477,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación de la función gástrica",
+   "palabra": 10666,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.4",
+   "titulo": "El hígado, la vesícula biliar y el páncreas",
+   "palabra": 11685,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El hígado",
+   "palabra": 11814,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La vesícula biliar y la bilis",
+   "palabra": 12955,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El páncreas",
+   "palabra": 13472,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Regulación de la secreción",
+   "palabra": 14169,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.5",
+   "titulo": "El intestino delgado",
+   "palabra": 14642,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía macroscópica",
+   "palabra": 14798,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía microscópica",
+   "palabra": 15268,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Secreción intestinal",
+   "palabra": 16302,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Motilidad intestinal",
+   "palabra": 16372,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.6",
+   "titulo": "Digestión química y absorción",
+   "palabra": 16794,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Carbohidratos",
+   "palabra": 16924,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas",
+   "palabra": 17700,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Lípidos",
+   "palabra": 18687,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ácidos nucleicos",
+   "palabra": 19400,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vitaminas",
+   "palabra": 19489,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Minerales",
+   "palabra": 19606,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Agua",
+   "palabra": 20486,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "25.7",
+   "titulo": "El intestino grueso",
+   "palabra": 20718,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía macroscópica",
+   "palabra": 20817,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía microscópica",
+   "palabra": 21484,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Flora bacteriana y gas intestinal",
+   "palabra": 21664,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Absorción y motilidad",
+   "palabra": 21992,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Defecación",
+   "palabra": 22234,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Temas de conexión",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

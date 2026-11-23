@@ -1,64 +1,208 @@
 {
- "capitulo": 3,
+ "capitulo": "Calvo_tema_03",
+ "libro": "Calvo",
  "titulo_capitulo": "Estructura de la membrana plasmática",
- "palabras_texto": 11712,
+ "palabras_texto": 11445,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Introducción",
-   "palabra": 54,
+   "palabra": 50,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Modelos estructurales de la membrana: perspectiva histórica",
-   "palabra": 472,
+   "palabra": 468,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Singer y Nicolson: estructura en mosaico fluido",
-   "palabra": 1049,
+   "palabra": 982,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Lípidos de membrana",
-   "palabra": 1856,
+   "palabra": 1720,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Bicapa lipídica",
+   "palabra": 1723,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ácidos grasos",
+   "palabra": 2470,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Glicerofosfolípidos",
+   "palabra": 2720,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Esfingolípidos",
+   "palabra": 2935,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Esteroles",
+   "palabra": 3546,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fluidez de la bicapa lipídica",
+   "palabra": 3727,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Agentes que influyen en la fluidez de la membrana",
+   "palabra": 4013,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Alteración de la fluidez de la membrana y mecanismos de compensación",
+   "palabra": 4684,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Asimetría de la bicapa lipídica",
+   "palabra": 5364,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Balsas lipídicas",
-   "palabra": 6278,
+   "palabra": 6069,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "El mosaico proteico",
-   "palabra": 6829,
+   "palabra": 6614,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas de membrana",
+   "palabra": 6724,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas integrales o intrínsecas de membrana",
+   "palabra": 6950,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas periféricas o extrínsecas de membrana",
+   "palabra": 7542,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas de membrana ancladas a lípidos",
+   "palabra": 7660,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estudio de la membrana del eritrocito",
+   "palabra": 8444,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas integrales de la membrana del eritrocito",
+   "palabra": 8705,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Proteínas periféricas de la membrana del eritrocito",
+   "palabra": 9047,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fluidez y asimetría del mosaico proteico",
+   "palabra": 10039,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "La cubierta de glúcidos: estructura y función del glucocáliz",
-   "palabra": 10782,
+   "palabra": 10521,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reconocimiento y fijación de moléculas libres en el medio extracelular",
+   "palabra": 10783,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adhesión específica entre dos células y de una célula con la matriz",
+   "palabra": 11019,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Determinación de la temperatura de fusión de las membranas biológicas",
    "palabra": null,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Cuestiones",
    "palabra": null,
    "narrable": false
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Respuestas",
    "palabra": null,
    "narrable": false

@@ -1,0 +1,141 @@
+{
+ "capitulo": "Saladin_tema_13",
+ "libro": "Saladin",
+ "titulo_capitulo": "Médula espinal, nervios raquídeos y reflejos somáticos",
+ "palabras_texto": 15178,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "13.1",
+   "titulo": "La médula espinal",
+   "palabra": 855,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones",
+   "palabra": 905,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía de superficie",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Meninges de la médula espinal",
+   "palabra": 1080,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía de corte transversal",
+   "palabra": 1638,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Vías medulares",
+   "palabra": 2485,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "13.2",
+   "titulo": "Los nervios raquídeos",
+   "palabra": 4705,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía general de los nervios y los ganglios nerviosos",
+   "palabra": 4892,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Nervios raquídeos",
+   "palabra": 6025,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Plexos nerviosos",
+   "palabra": 7104,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación cutánea y dermatomas",
+   "palabra": 9767,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "13.3",
+   "titulo": "Reflejos somáticos",
+   "palabra": 9895,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Naturaleza de los reflejos",
+   "palabra": 10023,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Huso muscular",
+   "palabra": 10607,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reflejo miotático",
+   "palabra": 11522,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reflejo flexor (de retirada)",
+   "palabra": 12405,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reflejo de extensión cruzada",
+   "palabra": 12806,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Reflejo osteotendinoso",
+   "palabra": 13169,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

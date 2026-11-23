@@ -1,0 +1,43 @@
+{
+ "capitulo": "EdS_Parte3_3",
+ "libro": "EdS",
+ "titulo_capitulo": "Coeficiente de asimetría de Fisher",
+ "palabras_texto": 1187,
+ "titulos": [
+  {
+   "nivel": 3,
+   "numero": "10.1.3",
+   "titulo": "Coeficiente de asimetría de Fisher",
+   "palabra": 0,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "10.2",
+   "titulo": "Coeficiente de apuntamiento o curtosis",
+   "palabra": 569,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "10.2.1",
+   "titulo": "Distribución mesocúrtica",
+   "palabra": 704,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "10.2.2",
+   "titulo": "Distribución leptocúrtica",
+   "palabra": 747,
+   "narrable": true
+  },
+  {
+   "nivel": 3,
+   "numero": "10.2.3",
+   "titulo": "Distribución platicúrtica",
+   "palabra": 798,
+   "narrable": true
+  }
+ ]
+}

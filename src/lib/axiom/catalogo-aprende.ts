@@ -351,6 +351,36 @@ const BLOQUES_MEDICINA: Bloque[] = [
         titulo: "Lógica y conjuntos",
         lecciones: [{ slug: "logica-conjuntos", titulo: "Proposiciones, De Morgan, Venn y cardinalidad" }],
       },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 2).padStart(2, "0"),
+        titulo: "Números imaginarios y complejos",
+        lecciones: [{ slug: "numeros-complejos", titulo: "Unidad imaginaria, potencias de i, Argand y operaciones" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 3).padStart(2, "0"),
+        titulo: "Análisis combinatorio y Binomio de Newton",
+        lecciones: [{ slug: "combinatoria-binomio", titulo: "Conteo, permutaciones, variaciones, combinaciones y Newton" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 4).padStart(2, "0"),
+        titulo: "Estadística, dispersión y probabilidad",
+        lecciones: [{ slug: "estadistica-probabilidad", titulo: "Tendencia central, posición, dispersión y probabilidad clásica" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 5).padStart(2, "0"),
+        titulo: "Geometría del espacio y cuerpos 3D",
+        lecciones: [{ slug: "cuerpos-geometricos", titulo: "Prismas, pirámides, cilindro, cono, esfera y semejanza 3D" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 6).padStart(2, "0"),
+        titulo: "Cónicas: elipse e hipérbola",
+        lecciones: [{ slug: "elipse-hiperbola", titulo: "Elementos, ecuaciones, asíntotas, excentricidad y ecuación general" }],
+      },
+      {
+        numero: String(MATEMATICAS_UNIDADES.length + GEOMETRIA_TRIGONOMETRIA_UNIDADES.length + 7).padStart(2, "0"),
+        titulo: "Análisis matemático: límites, derivadas e integrales",
+        lecciones: [{ slug: "analisis-limites-derivadas", titulo: "Límites, indeterminaciones, reglas de derivación, extremos y Barrow" }],
+      },
     ],
   },
   {

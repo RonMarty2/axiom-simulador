@@ -9,16 +9,16 @@
     "descripcion": "Carreras: Economía, Administración de Empresas, Contaduría Pública, Ingeniería Comercial.",
     "areas": [
       "matematicas",
-      "lenguaje",
-      "historia"
+      "economicas",
+      "razonamiento"
     ],
     "ponderacion": {
       "matematicas": 0.34,
-      "lenguaje": 0.33,
-      "historia": 0.33
+      "economicas": 0.33,
+      "razonamiento": 0.33
     },
-    "duracion_minutos": 180,
-    "preguntas_examen": 100,
+    "duracion_minutos": 90,
+    "preguntas_examen": 30,
     "ano_inicio_banco": 2020
   },
   {

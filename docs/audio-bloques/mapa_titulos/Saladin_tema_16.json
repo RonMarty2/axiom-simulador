@@ -1,0 +1,204 @@
+{
+ "capitulo": "Saladin_tema_16",
+ "libro": "Saladin",
+ "titulo_capitulo": "Órganos de los sentidos",
+ "palabras_texto": 28185,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "16.1",
+   "titulo": "Tipos de receptores sensitivos y sus propiedades",
+   "palabra": 972,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Propiedades generales de los receptores",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Clasificación de los receptores",
+   "palabra": 1904,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "16.2",
+   "titulo": "Los sentidos generales",
+   "palabra": 2242,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Terminaciones nerviosas no encapsuladas",
+   "palabra": 2332,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Terminaciones nerviosas encapsuladas",
+   "palabra": 2567,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Rutas de proyección somatosensitivas",
+   "palabra": 3063,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Dolor",
+   "palabra": 3519,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "16.3",
+   "titulo": "Los sentidos químicos",
+   "palabra": 5786,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Gusto",
+   "palabra": 5850,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Olfato",
+   "palabra": 7322,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "16.4",
+   "titulo": "Audición y equilibrio",
+   "palabra": 9020,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La naturaleza del sonido",
+   "palabra": 9194,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía del oído",
+   "palabra": 9888,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fisiología de la audición",
+   "palabra": 11931,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Equilibrio",
+   "palabra": 15157,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "16.5",
+   "titulo": "Visión",
+   "palabra": 17047,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Luz y visión",
+   "palabra": 17153,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructuras accesorias de la órbita",
+   "palabra": 17353,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía del ojo",
+   "palabra": 18335,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Formación de una imagen",
+   "palabra": 20125,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transducción sensitiva en la retina",
+   "palabra": 21664,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Adaptación a la luz y la oscuridad",
+   "palabra": 24230,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El sistema de visión dual",
+   "palabra": 24585,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Visión del color",
+   "palabra": 25235,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Visión estereoscópica",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La ruta de proyección visual",
+   "palabra": 26065,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

@@ -1,0 +1,204 @@
+{
+ "capitulo": "Saladin_tema_22",
+ "libro": "Saladin",
+ "titulo_capitulo": "El aparato respiratorio",
+ "palabras_texto": 24738,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "22.1",
+   "titulo": "Anatomía del aparato respiratorio",
+   "palabra": 954,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Nariz",
+   "palabra": 1055,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Faringe",
+   "palabra": 1943,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Laringe",
+   "palabra": 2148,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tráquea",
+   "palabra": 3236,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pulmones y árbol bronquial",
+   "palabra": 3942,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pleuras",
+   "palabra": 6023,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "22.2",
+   "titulo": "Ventilación pulmonar",
+   "palabra": 6410,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los músculos respiratorios",
+   "palabra": 7079,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Control neural de la respiración",
+   "palabra": 7892,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Presión, resistencia y flujo de aire",
+   "palabra": 9728,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ventilación alveolar",
+   "palabra": 12276,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Espirometría: medición de la ventilación pulmonar",
+   "palabra": 12676,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Variaciones en el ritmo respiratorio",
+   "palabra": 13603,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "22.3",
+   "titulo": "Intercambio y transporte gaseoso",
+   "palabra": 13996,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Composición del aire",
+   "palabra": 14214,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Intercambio gaseoso alveolar",
+   "palabra": 14948,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Transporte de gases",
+   "palabra": 17021,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Intercambio gaseoso sistémico",
+   "palabra": 18370,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Nueva revisión del intercambio gaseoso alveolar",
+   "palabra": 18983,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ajuste a las necesidades metabólicas de los tejidos individuales",
+   "palabra": 19169,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Gases sanguíneos y ritmo respiratorio",
+   "palabra": 19840,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "22.4",
+   "titulo": "Trastornos respiratorios",
+   "palabra": 21502,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Desequilibrios del oxígeno",
+   "palabra": 21611,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Enfermedad pulmonar obstructiva crónica",
+   "palabra": 21971,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tabaquismo y cáncer pulmonar",
+   "palabra": 22966,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Temas de conexión",
+   "palabra": null,
+   "narrable": false
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

@@ -157,25 +157,28 @@ describe("mapa de áreas viejas a temas actuales por carrera", () => {
     assert.equal(filtradasMat.length, esperadasMat.length);
   });
 
-  test("Económicas (sin ficha vigente) no cambia", () => {
+  test("Económicas con ficha vigente fce-admision-2025-2026 agrupa sus 3 temas y conserva lenguaje e historia", () => {
     const fichaEco = vigenteDe(fichas, "economicas");
-    assert.equal(fichaEco, null);
+    assert.ok(fichaEco);
+    assert.equal(fichaEco.id, "fce-admision-2025-2026");
 
     const preguntas: ItemPregunta[] = cargarPreguntasFacultad("economicas");
-    const areasOriginales = new Map<string, number>();
-    for (const p of preguntas) {
-      areasOriginales.set(p.area, (areasOriginales.get(p.area) ?? 0) + 1);
-      assert.equal(temaActualDeArea("economicas", p.area, fichaEco), p.area);
-    }
-
     const temas = temasPorCarrera("economicas", preguntas, fichaEco);
-    assert.equal(temas.length, areasOriginales.size);
-    for (const t of temas) {
-      assert.equal(t.cantidad, areasOriginales.get(t.id));
+    const vigentes = temas.filter((t) => t.vigente).map((t) => t.id);
+    assert.deepEqual(vigentes, ["matematicas", "economicas", "razonamiento"]);
+
+    const totalTemas = temas.reduce((s, t) => s + t.cantidad, 0);
+    assert.equal(totalTemas, preguntas.length);
+
+    // Las áreas históricas (2011-2014) se conservan con vigente: false sin perder preguntas
+    for (const hist of ["lenguaje", "historia"]) {
+      const t = temas.find((x) => x.id === hist);
+      assert.ok(t, `${hist} debe conservarse como área histórica`);
       assert.equal(t.vigente, false);
     }
 
-    const agrupado = agruparPorTemaActual("economicas", preguntas, fichaEco);
-    assert.deepEqual(agrupado, Object.fromEntries(areasOriginales));
+    // Sin ficha vigente (null) no transforma áreas
+    const sinFicha = temasPorCarrera("economicas", preguntas, null);
+    assert.equal(sinFicha.every((t) => t.vigente === false), true);
   });
 });

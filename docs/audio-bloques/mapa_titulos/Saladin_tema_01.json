@@ -1,0 +1,239 @@
+{
+ "capitulo": "Saladin_tema_01",
+ "libro": "Saladin",
+ "titulo_capitulo": "Temas principales de anatomía y fisiología",
+ "palabras_texto": 18033,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "1.1",
+   "titulo": "El ámbito de la anatomía y la fisiología",
+   "palabra": 558,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía: el estudio de la forma",
+   "palabra": 717,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fisiología: el estudio de la función",
+   "palabra": 990,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.2",
+   "titulo": "Los orígenes de la ciencia biomédica",
+   "palabra": 1137,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El legado de griegos y romanos",
+   "palabra": 1340,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El nacimiento de la medicina moderna",
+   "palabra": 1861,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La vida en revolución",
+   "palabra": 3826,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.3",
+   "titulo": "El método científico",
+   "palabra": 4138,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El método inductivo",
+   "palabra": 4621,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El método hipotético-deductivo",
+   "palabra": 4785,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diseño de experimentos",
+   "palabra": 5063,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La revisión científica externa",
+   "palabra": 5947,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Datos, leyes y teorías",
+   "palabra": 6072,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.4",
+   "titulo": "Orígenes y adaptaciones del ser humano",
+   "palabra": 6554,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Evolución, selección y adaptación",
+   "palabra": 6864,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las adaptaciones básicas del ser humano como primate",
+   "palabra": 7441,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Bipedestación",
+   "palabra": 8171,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.5",
+   "titulo": "Estructura humana",
+   "palabra": 8914,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La jerarquía de la complejidad",
+   "palabra": 9019,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Variación anatómica",
+   "palabra": 9943,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.6",
+   "titulo": "Función humana",
+   "palabra": 10229,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Características de la vida",
+   "palabra": 10574,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Variación fisiológica",
+   "palabra": 11517,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Homeostasis y retroalimentación negativa",
+   "palabra": 11719,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Retroalimentación positiva y cambio rápido",
+   "palabra": 13072,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.7",
+   "titulo": "El lenguaje de la medicina",
+   "palabra": 13691,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La historia de la terminología anatómica",
+   "palabra": 13928,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Análisis de los términos médicos",
+   "palabra": 14293,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Formas plural, adjetiva y posesiva",
+   "palabra": 15053,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Pronunciación",
+   "palabra": 15996,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La importancia de la precisión",
+   "palabra": 16057,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "1.8",
+   "titulo": "Repaso de los temas principales",
+   "palabra": 16233,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

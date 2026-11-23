@@ -1,0 +1,120 @@
+{
+ "capitulo": "Saladin_tema_09",
+ "libro": "Saladin",
+ "titulo_capitulo": "Articulaciones",
+ "palabras_texto": 14112,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "9.1",
+   "titulo": "Articulaciones y su clasificación",
+   "palabra": 431,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Articulaciones óseas",
+   "palabra": 716,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Articulaciones fibrosas",
+   "palabra": 846,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Articulaciones cartilaginosas",
+   "palabra": 1476,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "9.2",
+   "titulo": "Articulaciones sinoviales",
+   "palabra": 1772,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anatomía general",
+   "palabra": 2061,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Articulaciones y sistemas de palancas",
+   "palabra": 2560,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Movimiento de las articulaciones sinoviales",
+   "palabra": 6270,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "9.3",
+   "titulo": "Anatomía de diartrosis seleccionadas",
+   "palabra": 9088,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación de la mandíbula",
+   "palabra": 9200,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación del hombro",
+   "palabra": 9729,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación del codo",
+   "palabra": 10466,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación de la cadera",
+   "palabra": 10643,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación de la rodilla",
+   "palabra": 10980,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La articulación del tobillo",
+   "palabra": 11817,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

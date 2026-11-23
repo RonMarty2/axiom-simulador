@@ -1,0 +1,239 @@
+{
+ "capitulo": "Saladin_tema_10",
+ "libro": "Saladin",
+ "titulo_capitulo": "El sistema muscular",
+ "palabras_texto": 26048,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "10.1",
+   "titulo": "Organización estructural y funcional de los músculos",
+   "palabra": 695,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Funciones de los músculos",
+   "palabra": 721,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tejidos conjuntivos y fascículos",
+   "palabra": 990,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fascículos y formas de los músculos",
+   "palabra": 1410,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Compartimientos musculares",
+   "palabra": 1931,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Anejos musculares",
+   "palabra": 2029,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Grupos funcionales de músculos",
+   "palabra": 3140,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos intrínsecos y extrínsecos",
+   "palabra": 3803,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación muscular",
+   "palabra": 3911,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Irrigación sanguínea",
+   "palabra": 4193,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Nomenclatura de los músculos",
+   "palabra": 4363,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estrategia de aprendizaje",
+   "palabra": 4522,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "10.2",
+   "titulo": "Músculos de la cabeza y el cuello",
+   "palabra": 5042,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos de la expresión facial",
+   "palabra": 5134,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos de la masticación y la deglución",
+   "palabra": 5139,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre la cabeza",
+   "palabra": 8595,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "10.3",
+   "titulo": "Músculos del tronco",
+   "palabra": 9588,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos de la respiración",
+   "palabra": 9611,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos de la pared abdominal anterior",
+   "palabra": 10576,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos de la espalda",
+   "palabra": 11460,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos del piso pélvico",
+   "palabra": 13328,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "10.4",
+   "titulo": "Músculos que actúan sobre el hombro y las extremidades superiores",
+   "palabra": 13796,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre el hombro",
+   "palabra": 14213,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre el brazo",
+   "palabra": 14925,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre el antebrazo",
+   "palabra": 16026,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre la muñeca y la mano",
+   "palabra": 16888,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos intrínsecos de la mano",
+   "palabra": 19087,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "10.5",
+   "titulo": "Músculos que actúan en la cadera y las extremidades inferiores",
+   "palabra": 19950,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre la cadera y el fémur",
+   "palabra": 20220,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre la rodilla y la pierna",
+   "palabra": 21558,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos que actúan sobre el pie",
+   "palabra": 22791,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Músculos intrínsecos del pie",
+   "palabra": 24260,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}

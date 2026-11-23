@@ -1,138 +1,140 @@
 {
- "capitulo": 18,
+ "capitulo": "Calvo_tema_18",
+ "libro": "Calvo",
  "titulo_capitulo": "Las células madre y sus aplicaciones terapéuticas",
- "palabras_texto": 8418,
+ "palabras_texto": 8485,
  "titulos": [
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Células madre: definición y clasificación",
    "palabra": 79,
    "narrable": true
   },
   {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Definición",
+   "palabra": 84,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Clasificación",
+   "palabra": 180,
+   "narrable": true
+  },
+  {
    "nivel": 1,
+   "numero": "",
    "titulo": "Plasticidad de las células madre",
-   "palabra": 906,
+   "palabra": 910,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Fuentes tisulares de células madre",
-   "palabra": 1377,
+   "palabra": 1381,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Células madre pluripotentes",
+   "palabra": 1566,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Células madre adultas",
+   "palabra": 2144,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Potencial y limitaciones de las células madre",
-   "palabra": 2908,
+   "palabra": 2913,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Resultados de los estudios experimentales realizados con células madre",
+   "palabra": 3154,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Aplicación de la terapia celular en combinación con otras estrategias",
+   "palabra": 4006,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Terapia génica",
+   "palabra": 4072,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Bioingeniería",
+   "palabra": 4654,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Aplicación clínica de las células madre: presente y futuro",
-   "palabra": 5935,
+   "palabra": 5975,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Lesiones de la piel",
+   "palabra": 6181,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Enfermedades y lesiones oculares",
+   "palabra": 6467,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Enfermedades cardiovasculares",
+   "palabra": 6792,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Diabetes mellitus tipo 1",
+   "palabra": 7327,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Enfermedades del sistema nervioso central y de la médula espinal",
+   "palabra": 7605,
    "narrable": true
   },
   {
    "nivel": 1,
+   "numero": "",
    "titulo": "Conclusiones",
-   "palabra": 8048,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Índice alfabético",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Biología celular biomédica",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Dr. Alfonso Calvo",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Departamento de Histología y Anatomía Patológica",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Facultad de Medicina y Programa de Tumores Sólidos, CIMA",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Universidad de Navarra",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Pamplona, España",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Índice de capítulos",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Instrucciones para el acceso en línea",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Cubierta",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Portada",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Página de créditos",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Dedicatoria",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Colaboradores",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Prefacio",
-   "palabra": null,
-   "narrable": true
-  },
-  {
-   "nivel": 1,
-   "titulo": "Agradecimientos",
-   "palabra": null,
+   "palabra": 8115,
    "narrable": true
   }
  ]

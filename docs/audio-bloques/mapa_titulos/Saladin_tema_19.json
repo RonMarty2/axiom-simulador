@@ -1,0 +1,225 @@
+{
+ "capitulo": "Saladin_tema_19",
+ "libro": "Saladin",
+ "titulo_capitulo": "El aparato circulatorio: el corazón",
+ "palabras_texto": 18481,
+ "titulos": [
+  {
+   "nivel": 1,
+   "numero": "19.1",
+   "titulo": "Revisión general del sistema cardiovascular",
+   "palabra": 145,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Los circuitos pulmonar y sistémico",
+   "palabra": 268,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Posición, tamaño y forma del corazón",
+   "palabra": 923,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El pericardio",
+   "palabra": 1062,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "19.2",
+   "titulo": "Anatomía macroscópica del corazón",
+   "palabra": 1466,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La pared cardiaca",
+   "palabra": 1561,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las cámaras",
+   "palabra": 1890,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Las válvulas",
+   "palabra": 2343,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El flujo de sangre por las cámaras",
+   "palabra": 3030,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "La circulación coronaria",
+   "palabra": 3226,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "19.3",
+   "titulo": "El músculo cardiaco y sistema de conducción del corazón",
+   "palabra": 4626,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Estructura del músculo cardiaco",
+   "palabra": 5194,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Metabolismo del músculo cardiaco",
+   "palabra": 5882,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El sistema de conducción",
+   "palabra": 6105,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Inervación del corazón",
+   "palabra": 6480,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "19.4",
+   "titulo": "Actividad eléctrica y contráctil del corazón",
+   "palabra": 6861,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El ritmo cardiaco",
+   "palabra": 7020,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fisiología del marcapasos",
+   "palabra": 7336,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Conducción de impulsos al miocardio",
+   "palabra": 7592,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Comportamiento eléctrico del miocardio",
+   "palabra": 8274,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "El electrocardiograma",
+   "palabra": null,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "19.5",
+   "titulo": "Flujo sanguíneo, tonos cardiacos y ciclo cardiaco",
+   "palabra": 10049,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Principios de presión y flujo",
+   "palabra": 10220,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Tonos cardiacos",
+   "palabra": 11685,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Fases del ciclo cardiaco",
+   "palabra": 12024,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Revisión general de los cambios en el volumen",
+   "palabra": 13153,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "19.6",
+   "titulo": "Gasto cardiaco",
+   "palabra": 13678,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ritmo cardiaco",
+   "palabra": 14048,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Volumen sistólico",
+   "palabra": 15851,
+   "narrable": true
+  },
+  {
+   "nivel": 2,
+   "numero": "",
+   "titulo": "Ejercicio y gasto cardiaco",
+   "palabra": 16878,
+   "narrable": true
+  },
+  {
+   "nivel": 1,
+   "numero": "",
+   "titulo": "Guía de estudio",
+   "palabra": null,
+   "narrable": false
+  }
+ ]
+}
