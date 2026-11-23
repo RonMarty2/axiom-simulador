@@ -1,0 +1,1289 @@
+[
+  {
+    "capitulo": "Tema_19_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Ion mal leído: CO2 más",
+    "veredicto": "falso_positivo",
+    "buscar": "Más aún, el CO2 genera iones hidrógeno al reaccionar con el agua: CO2 más H2O produce ion bicarbonato más hidrógeno.",
+    "reemplazar": null,
+    "motivo": "Falso positivo: 'más' es el signo de adición en la reacción química (CO2 + H2O), no la carga de un ion CO2+."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: ni- siete",
+    "veredicto": "real",
+    "buscar": "Las glándulas salivales intrínsecas son una cantidad indefi ni- siete caries igual a podredumbre.\nFIGURA veinticinco coma ocho Dientes permanentes y temporales en el cráneo de un niño. En esta disección se muestran los dientes de leche erupcionados y, en sentido profundo en relación con ellos, y marcados con asteriscos, los dientes permanentes que esperan para salir.\n\nPARTE CUATRO Regulación y mantenimiento da de pequeñas glándulas dispersas entre los demás tejidos bucales: glándulas linguales, en la lengua, glándulas labiales en el interior de los labios, y glándulas bucales en el interior de las mejillas.",
+    "reemplazar": "Las glándulas salivales intrínsecas son una cantidad indefinida de pequeñas glándulas dispersas entre los demás tejidos bucales: glándulas linguales, en la lengua, glándulas labiales en el interior de los labios, y glándulas bucales en el interior de las mejillas.\n\nFIGURA veinticinco coma ocho Dientes permanentes y temporales en el cráneo de un niño. En esta disección se muestran los dientes de leche erupcionados y, en sentido profundo en relación con ellos, y marcados con asteriscos, los dientes permanentes que esperan para salir.",
+    "motivo": "Une 'indefinida', quita la nota al pie 7 y el encabezado de página, y reubica el pie de la figura 25.8 tras la oración completa."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: indefi ni",
+    "veredicto": "real",
+    "buscar": "Las glándulas salivales intrínsecas son una cantidad indefi ni- siete caries igual a podredumbre.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Corte por guion: ni- siete' (misma palabra partida 'indefinida')."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: afi la",
+    "veredicto": "real",
+    "buscar": "una porción media a la que se denomina cuerpo y una punta, como cola, que se afi la a la izquierda.",
+    "reemplazar": "una porción media a la que se denomina cuerpo y una punta, como cola, que se afila a la izquierda.",
+    "motivo": "Une ligadura partida 'afila'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl uyan",
+    "veredicto": "real",
+    "buscar": "En el páncreas, esto hace que las enzimas fl uyan hacia el duodeno.",
+    "reemplazar": "En el páncreas, esto hace que las enzimas fluyan hacia el duodeno.",
+    "motivo": "Une ligadura partida 'fluyan'."
+  },
+  {
+    "capitulo": "Tema_25_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fl ora",
+    "veredicto": "real",
+    "buscar": "PARTE CUATRO Regulación y mantenimiento Flora bacteriana y gas intestinal El intestino grueso alberga casi ochocientos especies de bacterias a las que se les denomina, de manera colectiva, fl ora32 bacteriana.",
+    "reemplazar": "Flora bacteriana y gas intestinal El intestino grueso alberga casi ochocientos especies de bacterias a las que se les denomina, de manera colectiva, flora bacteriana.",
+    "motivo": "Une ligadura partida 'flora', quita llamada de nota al pie 32 y elimina el encabezado de página incrustado."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/5)",
+    "veredicto": "real",
+    "buscar": "Las megadosis de vitaminas solubles en grasa pueden ser muy dañinas. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione dos hormonas que regulan el hambre y la saciedad a corto plazo. ¿Cómo difieren los efectos de la leptina de los de esas hormonas? dos. Explique la siguiente frase: la celulosa es una parte importante de la dieta saludable, pero no es un nutrimento. tres. ¿Qué clase de nutrimentos proporcionan casi todas las calorías de las dietas? ¿Qué clase de nutrimentos proporcionan las mayores reservas de energía almacenada del cuerpo? cuatro. Compare las funciones de V L D L, L D L y H D L. Explique cómo se relaciona esto con el hecho de que una concentración elevada de H D L es deseable, pero una de V L D L-L D L no lo es. cinco. ¿Por qué algunas proteínas tienen más valor nutritivo que otras?\n\nveintiséis punto dos Metabolismo de los carbohidratos",
+    "reemplazar": "Las megadosis de vitaminas solubles en grasa pueden ser muy dañinas.\n\nveintiséis punto dos Metabolismo de los carbohidratos",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 5)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/5)",
+    "veredicto": "real",
+    "buscar": "cuadro veintiséis coma cinco. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. Diga en cuáles pasos de las reacciones de las figuras veintiséis coma tres y veintiséis coma cuatro se necesitan vitaminas para el catabolismo de la glucosa. siete. En el laboratorio, la glucosa puede oxidarse en un solo paso en CO2 y H2O. ¿Por qué se hace en tantos pasos en las células? ocho. Explique el origen de la palabra glucólisis, y por qué es un nombre adecuado para la función de esa ruta de reacciones. nueve. ¿Cuáles son dos ventajas de la respiración aeróbica sobre la fermentación anaeróbica? diez. ¿Qué enzima importante se encuentra en la membrana mitocondrial interna, aparte de las de la cadena de transporte de electrones? Explique cómo depende su función de la cadena de transporte de electrones.",
+    "reemplazar": "cuadro veintiséis coma cinco.",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 6 a 10; pregunta 11 se retira junto con la nota al pie 8 en rev. 4)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/5)",
+    "veredicto": "real",
+    "buscar": "Los macrófagos limpian la sangre de bacterias y otros materiales externos.\n\nCAPÍTULO veintiséis Nutrición y metabolismo Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: doce. ¿Cuál de los procesos del cuadro veintiséis coma cinco es más comparable con la lipogénesis? ¿Cuál es el más comparable con la lipólisis? Justifique sus respuestas. trece. Cuando las grasas se convierten en glucosa, sólo el componente de glicerol se usa de esta manera, no el ácido graso. Explique por qué y determine lo que sucede con los ácidos grasos. catorce. ¿Qué proceso metabólico produce amoniaco? ¿Cómo lo desecha el cuerpo?\n\nveintiséis punto cuatro Estados metabólicos y metabolismo",
+    "reemplazar": "Los macrófagos limpian la sangre de bacterias y otros materiales externos.\n\nveintiséis punto cuatro Estados metabólicos y metabolismo",
+    "motivo": "Elimina encabezado de página incrustado y bloque de autoevaluación 'Antes de proseguir' (preguntas 12 a 14)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/5)",
+    "veredicto": "real",
+    "buscar": "lo que hace que la pérdida de peso se dificulte mucho. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: quince. Defina los estados de absorción y el posterior a la absorción. ¿En cuál de ellos está el cuerpo almacenando un exceso de combustible? ¿En qué estado está recurriendo a sus reservas de combustible? dieciséis. ¿Qué hormona regula sobre todo el estado de absorción, y cuáles son los efectos de esta hormona? diecisiete. Explique por qué los triglicéridos tienen efecto de ahorro de glucosa. dieciocho. Enliste varios factores y condiciones que elevan el metabolismo total de una persona por arriba del metabolismo basal.\n\nveintiséis punto cinco Calor corporal y termorregulación",
+    "reemplazar": "lo que hace que la pérdida de peso se dificulte mucho.\n\nveintiséis punto cinco Calor corporal y termorregulación",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 15 a 18)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/5)",
+    "veredicto": "real",
+    "buscar": "el alcohol en realidad acelera la pérdida de calor al dilatar los vasos sanguíneos cutáneos. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecinueve. ¿Cuál es la fuente principal de calor corporal? ¿Cuáles son algunas fuentes menores? veinte. ¿Qué mecanismos de pérdida de calor se relacionan con la convección? veintiuno. Describa los principales mecanismos del cuerpo para la promoción y la pérdida de calor. veintidós. Describa los ciclos de retroalimentación positiva que pueden causar la muerte por hipertermia e hipotermia. diez ask igual a odre; tes igual a dedicado a. hemorragia.\n\nConocimiento más a fondo veintiséis punto cuatro.",
+    "reemplazar": "el alcohol en realidad acelera la pérdida de calor al dilatar los vasos sanguíneos cutáneos.\n\nConocimiento más a fondo veintiséis punto cuatro.",
+    "motivo": "Elimina bloque de autoevaluación (preguntas 19 a 22), nota al pie 10 y la palabra desplazada 'hemorragia.' (que se restituye en su oración dentro del recuadro 26.4 en rev. 4)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (1/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. Mencione dos hormonas",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (1/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (2/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: seis. Diga en cuáles pasos",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (2/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (3/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: doce. ¿Cuál de los procesos",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (3/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (4/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: quince. Defina los estados",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (4/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (5/5)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecinueve. ¿Cuál es la fuente",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (5/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: gluconeogénesis8",
+    "veredicto": "real",
+    "buscar": "La gluconeogénesis8 es la síntesis de glucosa a partir de nutrimentos que no son carbohidratos, como glicerol y aminoácidos.",
+    "reemplazar": "La gluconeogénesis es la síntesis de glucosa a partir de nutrimentos que no son carbohidratos, como glicerol y aminoácidos.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'gluconeogénesis'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ida: • Grelina.un Es secret",
+    "veredicto": "real",
+    "buscar": "y que luego sienta saciedad y concluya la comida: • Grelina.un Es secretada por células parietales en el fondo gástrico,",
+    "reemplazar": "y que luego sienta saciedad y concluya la comida: • Grelina. Es secretada por células parietales en el fondo gástrico,",
+    "motivo": "Quita llamada de nota al pie 'un' tras punto conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: asa. • Leptina.dos Los adipo",
+    "veredicto": "real",
+    "buscar": "y activando mecanismos para agregar o reducir grasa. • Leptina.dos Los adipocitos secretan esta sustancia por todo el cuerpo.",
+    "reemplazar": "y activando mecanismos para agregar o reducir grasa. • Leptina. Los adipocitos secretan esta sustancia por todo el cuerpo.",
+    "motivo": "Quita llamada de nota al pie 'dos' tras punto conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: itocromos, Cyt,seis cinco enz",
+    "veredicto": "real",
+    "buscar": "• Citocromos, Cyt,seis cinco enzimas con cofactores de hierro, llamados así porque tienen colores brillantes en forma pura.",
+    "reemplazar": "• Citocromos, Cyt, cinco enzimas con cofactores de hierro, llamados así porque tienen colores brillantes en forma pura.",
+    "motivo": "Quita llamada de nota al pie 'seis' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: quimioosmótico,siete lo que su",
+    "veredicto": "real",
+    "buscar": "Este proceso recibe el nombre de mecanismo quimioosmótico,siete lo que sugiere que el empuje es creado por el gradiente electroquímico del hidrógeno.",
+    "reemplazar": "Este proceso recibe el nombre de mecanismo quimioosmótico, lo que sugiere que el empuje es creado por el gradiente electroquímico del hidrógeno.",
+    "motivo": "Quita llamada de nota al pie 'siete' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: stran caquexia,nueve una consu",
+    "veredicto": "real",
+    "buscar": "Las personas con cáncer y otras enfermedades crónicas en ocasiones muestran caquexia,nueve una consunción extrema causada por alteración del metabolismo y pérdida del apetito, anorexia,.",
+    "reemplazar": "Las personas con cáncer y otras enfermedades crónicas en ocasiones muestran caquexia, una consunción extrema causada por alteración del metabolismo y pérdida del apetito, anorexia,.",
+    "motivo": "Quita llamada de nota al pie 'nueve' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: se hematemesis,once vómito de",
+    "veredicto": "real",
+    "buscar": "La combinación de hipertensión y alteración de la coagulación a menudo lleva a\n\nCAPÍTULO veintiséis Nutrición y metabolismo Puede presentarse hematemesis,once vómito de sangre, en casos de hemorragia en las venas agrandadas del esófago.",
+    "reemplazar": "La combinación de hipertensión y alteración de la coagulación a menudo lleva a hemorragia. Puede presentarse hematemesis, vómito de sangre, en casos de hemorragia en las venas agrandadas del esófago.",
+    "motivo": "Quita llamada 'once' y encabezado de página, y restituye 'hemorragia.' en su posición original según Saladin p. 1028-1029."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho gleuk igual a azúcar; neo igual a nuevo; genesis igual a generación.",
+    "veredicto": "real",
+    "buscar": " once. Describa la manera como el hígado responde a: a un exceso, y b una deficiencia de glucosa en sangre. ocho gleuk igual a azúcar; neo igual a nuevo; genesis igual a generación. Glucosa en sangre",
+    "reemplazar": "\nGlucosa en sangre",
+    "motivo": "Elimina la pregunta 11 restante de 'Antes de proseguir' y la glosa etimológica de la nota al pie 8."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diez ask igual a odre; tes igual a dedicado a.",
+    "veredicto": "real",
+    "buscar": "diez ask igual a odre; tes igual a dedicado a. hemorragia.\n\nConocimiento más a fondo veintiséis punto cuatro.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (5/5)'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . once haimia igual a sangre; eme igual a vomitar; sis igual a acción.",
+    "veredicto": "real",
+    "buscar": "pero el tratamiento con fármacos ha mostrado efectos secundarios que pueden ser peligrosos y poca evidencia de eficacia. once haimia igual a sangre; eme igual a vomitar; sis igual a acción.",
+    "reemplazar": "pero el tratamiento con fármacos ha mostrado efectos secundarios que pueden ser peligrosos y poca evidencia de eficacia.",
+    "motivo": "Elimina glosa etimológica de la nota al pie 11 al final del capítulo."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura",
+    "veredicto": "real",
+    "buscar": "La energía extraída suele usarse para elaborar A T P, que luego transfiere la energía a otros procesos fisiológicos, véase la figura dos coma tres cero p. setenta y dos,.",
+    "reemplazar": "La energía extraída suele usarse para elaborar A T P, que luego transfiere la energía a otros procesos fisiológicos.",
+    "motivo": "Quita referencia visual y número de página al final de la oración sin romperla."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: la figura dos coma tres un",
+    "veredicto": "real",
+    "buscar": "y oxida el ácido pirúvico en dióxido de carbono y agua. Sería útil revisar la figura dos coma tres un, consúltese la p. setenta y dos, para conocer una amplia revisión general de este proceso y su relación con la producción de A T P. En las figuras veintiséis coma tres",
+    "reemplazar": "y oxida el ácido pirúvico en dióxido de carbono y agua. En las figuras veintiséis coma tres",
+    "motivo": "Elimina oración puramente visual de remisión a la figura 2.31 (p. 72)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: eintiséis.6b, se mues",
+    "veredicto": "real",
+    "buscar": "Sin embargo, sus diferencias más importantes están en la composición y la función. En la figura veintiséis.6b, se muestran las tres rutas primarias en que están hechas y procesadas. Los quilomicrones se forman en las células de absorción",
+    "reemplazar": "Sin embargo, sus diferencias más importantes están en la composición y la función. Los quilomicrones se forman en las células de absorción",
+    "motivo": "Elimina oración de referencia visual con dígito sin convertir ('En la figura veintiséis.6b...')."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: hidrógeno 2e– 2e– 2e–",
+    "veredicto": "real",
+    "buscar": "CAPÍTULO veintiséis Nutrición y metabolismo Matriz Membrana interna Espacio intermembrana Membrana externa Membrana interna Espacio intermembrana N A D H + hidrógeno N A D más dos hidrógeno un o dos O2 + dos hidrógeno H2O tres A D P + tres Pi tres A T P seis hidrógeno 2e– 2e– 2e– Matriz Cresta Membrana externa",
+    "reemplazar": "Matriz Membrana interna Espacio intermembrana Membrana externa Membrana interna Espacio intermembrana N A D H más hidrógeno N A D más dos hidrógeno medio O dos más dos hidrógeno H2O tres A D P más tres Pi tres A T P seis hidrógeno dos e menos dos e menos dos e menos Matriz Cresta Membrana externa",
+    "motivo": "Elimina encabezado de página, convierte '2e–' a 'dos e menos', 'un o dos O2' a 'medio O dos' y '+' a 'más' en el rótulo de la figura 26.6."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ógeno 2e– 2e– 2e– Mat",
+    "veredicto": "real",
+    "buscar": "seis hidrógeno 2e– 2e– 2e– Matriz Cresta Membrana externa dos hidrógeno dos hidrógeno CoQ Cyt c",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: hidrógeno 2e– 2e– 2e–'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: o 2e– 2e– 2e– Matriz",
+    "veredicto": "real",
+    "buscar": "tres A T P seis hidrógeno 2e– 2e– 2e– Matriz Cresta Membrana externa dos hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: hidrógeno 2e– 2e– 2e–'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': hibidor + – + + –",
+    "veredicto": "real",
+    "buscar": "Intestino delgado Intestino grueso Tejido adiposo Efecto estimulante Efecto inhibidor + – + + – – – – FIGURA veintiséis coma un Péptidos enteroencefálicos",
+    "reemplazar": "Intestino delgado Intestino grueso Tejido adiposo Efecto estimulante Efecto inhibidor FIGURA veintiséis coma un Péptidos enteroencefálicos",
+    "motivo": "Quita signos gráficos '+ – + + – – – –' de flechas del esquema de la figura 26.1."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': dor + – + + – – –",
+    "veredicto": "real",
+    "buscar": "Tejido adiposo Efecto estimulante Efecto inhibidor + – + + – – – – FIGURA veintiséis coma un",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': hibidor + – + + –\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': r + – + + – – – –",
+    "veredicto": "real",
+    "buscar": "Efecto estimulante Efecto inhibidor + – + + – – – – FIGURA veintiséis coma un Péptidos",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': hibidor + – + + –\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': C6H12O6 + seis O2 (1/2)",
+    "veredicto": "real",
+    "buscar": "La reacción general para esto es: C6H12O6 + seis O2 → seis CO2 + seis H2O La función de esta reacción no es producir dióxido de carbono y agua,",
+    "reemplazar": "La reacción general para esto es: C6H12O6 más seis O2 produce seis C O dos más seis H2O. La función de esta reacción no es producir dióxido de carbono y agua,",
+    "motivo": "Verbaliza '+' como 'más', '→' como 'produce' y 'CO2' como 'C O dos' (para evitar falso positivo de ion CO2+)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': C6H12O6 + seis O2 (2/2)",
+    "veredicto": "real",
+    "buscar": "Por lo general, la G6P no puede dejar las células que la producen. Sin embargo, las células hepáticas tienen una enziC6H12O6 + seis O2 seis CO2 + seis H2O A T P A T P A D P Pi Pi +\n\nCAPÍTULO veintiséis Nutrición y metabolismo ma denominada glucosa seis-fosfatasa, que elimina el grupo fosfato y produce glucosa libre.",
+    "reemplazar": "Por lo general, la G6P no puede dejar las células que la producen. Sin embargo, las células hepáticas tienen una enzima denominada glucosa seis-fosfatasa, que elimina el grupo fosfato y produce glucosa libre. C6H12O6 más seis O2, seis C O dos más seis H2O, A T P, A T P, A D P, Pi, Pi.",
+    "motivo": "Reúne la palabra partida 'enzima', quita el encabezado de página y verbaliza los '+' de la ecuación del esquema incrustado."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': eis CO2 + seis H2 (1/2)",
+    "veredicto": "real",
+    "buscar": "La reacción general para esto es: C6H12O6 + seis O2 → seis CO2 + seis H2O La función de esta reacción",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': C6H12O6 + seis O2 (1/2)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': eis CO2 + seis H2 (2/2)",
+    "veredicto": "real",
+    "buscar": "enziC6H12O6 + seis O2 seis CO2 + seis H2O A T P A T P A D P Pi Pi +",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': C6H12O6 + seis O2 (2/2)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': o F A D + dos H →",
+    "veredicto": "real",
+    "buscar": "Las reacciones para esto son:\n\nCAPÍTULO veintiséis Nutrición y metabolismo F A D + dos H → FADH2 y N A D más + dos H → N A D H + hidrógeno El F A D fija dos protones y dos electrones para volverse FADH2. Sin embargo, N A D más fija los dos electrones pero sólo uno de los protones para volverse N A D H. El otro protón sigue siendo un ion hidrógeno libre, hidrógeno, o H2O+, pero en este capítulo se representa como hidrógeno,.",
+    "reemplazar": "Las reacciones para esto son: F A D más dos H produce FADH2, y N A D más, más dos H produce N A D H más hidrógeno. El F A D fija dos protones y dos electrones para volverse FADH2. Sin embargo, N A D más fija los dos electrones pero sólo uno de los protones para volverse N A D H. El otro protón sigue siendo un ion hidrógeno libre, hidrógeno, o H2O positivo, pero en este capítulo se representa como hidrógeno,.",
+    "motivo": "Quita encabezado de página, verbaliza '+' y '→' en las dos reacciones y convierte 'H2O+' a 'H2O positivo' (Saladin p. 1013)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': A D más + dos H →",
+    "veredicto": "real",
+    "buscar": "F A D + dos H → FADH2 y N A D más + dos H → N A D H + hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': o F A D + dos H →\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (1/8)",
+    "veredicto": "real",
+    "buscar": "y N A D más + dos H → N A D H + hidrógeno El F A D fija dos protones",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': o F A D + dos H →\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (2/8)",
+    "veredicto": "real",
+    "buscar": "El N A D más recoge los electrones y un protón y el otro protón se libera en el citosol, dando N A D H + hidrógeno. En este paso,",
+    "reemplazar": "El N A D más recoge los electrones y un protón y el otro protón se libera en el citosol, dando N A D H más hidrógeno. En este paso,",
+    "motivo": "Verbaliza '+' como 'más'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (3/8)",
+    "veredicto": "real",
+    "buscar": "Estos últimos deben oxidarse para extraer energía de ellos. Ácido pirúvico, C3, CO2 N A D más N A D H + hidrógeno Grupo acetil, C2, Acetil-CoA Coenzima A H2O Ácido cítrico, C6, Ácido oxaloacético, C4, H2O, C6, N A D más N A D H + hidrógeno H2O CO2, C5, N A D más N A D H + hidrógeno CO2, C4, C4, F A D FADH2, C4, H2O, C4, N A D H + hidrógeno N A D más G T P G D P Ocurre en la matriz mitocondrial",
+    "reemplazar": "Estos últimos deben oxidarse para extraer energía de ellos. Ácido pirúvico, C3, CO2 N A D más N A D H más hidrógeno Grupo acetil, C2, Acetil-CoA Coenzima A H2O Ácido cítrico, C6, Ácido oxaloacético, C4, H2O, C6, N A D más N A D H más hidrógeno H2O CO2, C5, N A D más N A D H más hidrógeno CO2, C4, C4, F A D FADH2, C4, H2O, C4, N A D H más hidrógeno N A D más G T P G D P Ocurre en la matriz mitocondrial",
+    "motivo": "Verbaliza los cuatro '+' como 'más' en los rótulos de la figura 26.4."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (4/8)",
+    "veredicto": "real",
+    "buscar": "Ácido oxaloacético, C4, H2O, C6, N A D más N A D H + hidrógeno H2O CO2, C5,",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + hidróge (3/8)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (5/8)",
+    "veredicto": "real",
+    "buscar": "H2O CO2, C5, N A D más N A D H + hidrógeno CO2, C4, C4, F A D FADH2,",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + hidróge (3/8)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (6/8)",
+    "veredicto": "real",
+    "buscar": "F A D FADH2, C4, H2O, C4, N A D H + hidrógeno N A D más G T P G D P",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + hidróge (3/8)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (7/8)",
+    "veredicto": "real",
+    "buscar": "La coenzima Q es un transbordador que transfiere electrones desde la primera N A D H + hidrógeno N A D más Complejo de enzimas un",
+    "reemplazar": "La coenzima Q es un transbordador que transfiere electrones desde la primera N A D H más hidrógeno N A D más Complejo de enzimas un",
+    "motivo": "Verbaliza '+' como 'más' en el rótulo de la figura 26.5."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + hidróge (8/8)",
+    "veredicto": "real",
+    "buscar": "Membrana interna Espacio intermembrana N A D H + hidrógeno N A D más dos hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: hidrógeno 2e– 2e– 2e–'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': o, o H2O+, pero e",
+    "veredicto": "real",
+    "buscar": "El otro protón sigue siendo un ion hidrógeno libre, hidrógeno, o H2O+, pero en este capítulo se representa como hidrógeno,.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': o F A D + dos H →\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + dos hid (1/5)",
+    "veredicto": "real",
+    "buscar": "dos P G A L dos N A D más dos N A D H + dos hidrógeno dos H2O dos ácido pirúvico dos N A D H + dos hidrógeno dos N A D más O2 faltante O2 presente",
+    "reemplazar": "dos P G A L dos N A D más dos N A D H más dos hidrógeno dos H2O dos ácido pirúvico dos N A D H más dos hidrógeno dos N A D más O2 faltante O2 presente",
+    "motivo": "Verbaliza ambos '+' como 'más' en los rótulos de la figura 26.3."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + dos hid (2/5)",
+    "veredicto": "real",
+    "buscar": "dos H2O dos ácido pirúvico dos N A D H + dos hidrógeno dos N A D más O2 faltante",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + dos hid (1/5)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + dos hid (3/5)",
+    "veredicto": "real",
+    "buscar": "Los productos finales de la glucólisis son, por tanto: dos ácido pirúvico + dos N A D H + dos hidrógeno + dos A T P Obsérvese que en realidad se producen cuatro A T P,",
+    "reemplazar": "Los productos finales de la glucólisis son, por tanto: dos ácido pirúvico más dos N A D H más dos hidrógeno más dos A T P. Obsérvese que en realidad se producen cuatro A T P,",
+    "motivo": "Verbaliza los tres '+' como 'más' en la ecuación de productos finales de la glucólisis."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + dos hid (4/5)",
+    "veredicto": "real",
+    "buscar": "La respiración aeróbica de la glucosa se puede representar en la siguiente ecuación de resumen: dos N A D H + dos hidrógeno dos piruvato Citosol Mitocondria dos N A D H + dos hidrógeno seis N A D H + seis hidrógeno Ciclo del ácido cítrico",
+    "reemplazar": "La respiración aeróbica de la glucosa se puede representar en la siguiente ecuación de resumen: dos N A D H más dos hidrógeno dos piruvato Citosol Mitocondria dos N A D H más dos hidrógeno seis N A D H más seis hidrógeno Ciclo del ácido cítrico",
+    "motivo": "Verbaliza los tres '+' como 'más' en los rótulos de la figura 26.7."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + dos hid (5/5)",
+    "veredicto": "real",
+    "buscar": "dos piruvato Citosol Mitocondria dos N A D H + dos hidrógeno seis N A D H + seis hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + dos hid (4/5)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': irúvico + dos N A",
+    "veredicto": "real",
+    "buscar": "son, por tanto: dos ácido pirúvico + dos N A D H + dos hidrógeno + dos A T P",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + dos hid (3/5)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': drógeno + dos A T",
+    "veredicto": "real",
+    "buscar": "dos ácido pirúvico + dos N A D H + dos hidrógeno + dos A T P Obsérvese que",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + dos hid (3/5)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': iruvato + seis H2",
+    "veredicto": "real",
+    "buscar": "Las reacciones de la matriz pueden resumirse de la siguiente manera: dos piruvato + seis H2O → seis O2 + dos A D P + dos Pi → dos A T P + ocho N A D más + ocho H2 → ocho N A D H + ocho hidrógeno + dos F A D + dos H2 → dos FADH2 No queda nada de la materia orgánica de la glucosa,",
+    "reemplazar": "Las reacciones de la matriz pueden resumirse de la siguiente manera: dos piruvato más seis H2O produce seis O dos más dos A D P más dos Pi produce dos A T P más ocho N A D más, más ocho H2 produce ocho N A D H más ocho hidrógeno más dos F A D más dos H2 produce dos FADH2. No queda nada de la materia orgánica de la glucosa,",
+    "motivo": "Verbaliza todos los '+' y '→' del resumen de reacciones de la matriz (Saladin p. 1015) y escribe 'O dos' para evitar falso positivo de ion."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': seis O2 + dos A D",
+    "veredicto": "real",
+    "buscar": "dos piruvato + seis H2O → seis O2 + dos A D P + dos Pi → dos A T P",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': s A D P + dos Pi",
+    "veredicto": "real",
+    "buscar": "seis O2 + dos A D P + dos Pi → dos A T P + ocho N A D más",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': s A T P + ocho N",
+    "veredicto": "real",
+    "buscar": "dos A D P + dos Pi → dos A T P + ocho N A D más + ocho H2",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': A D más + ocho H2",
+    "veredicto": "real",
+    "buscar": "dos A T P + ocho N A D más + ocho H2 → ocho N A D H + ocho hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + ocho hi",
+    "veredicto": "real",
+    "buscar": "ocho H2 → ocho N A D H + ocho hidrógeno + dos F A D + dos H2",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': drógeno + dos F A",
+    "veredicto": "real",
+    "buscar": "ocho N A D H + ocho hidrógeno + dos F A D + dos H2 → dos FADH2",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': s F A D + dos H2",
+    "veredicto": "real",
+    "buscar": "ocho hidrógeno + dos F A D + dos H2 → dos FADH2 No queda nada",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': iruvato + seis H2\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': dos O2 + dos e m",
+    "veredicto": "real",
+    "buscar": "El resultado es una molécula de agua. un o dos O2 + dos e menos + dos hidrógeno → H2O Ésta es la fuente primaria de agua metabólica del cuerpo,",
+    "reemplazar": "El resultado es una molécula de agua. Medio O dos más dos e menos más dos hidrógeno produce H2O. Ésta es la fuente primaria de agua metabólica del cuerpo,",
+    "motivo": "Convierte '1/2 O2 + 2 e− + 2 H+ → H2O' (Saladin p. 1016) a palabras sin símbolos ni 'un o dos'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': e menos + dos hid",
+    "veredicto": "real",
+    "buscar": "un o dos O2 + dos e menos + dos hidrógeno → H2O Ésta es la fuente primaria",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': dos O2 + dos e m\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': dos O2 + dos hid (1/2)",
+    "veredicto": "real",
+    "buscar": "Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres un o dos O2 + dos hidrógeno H2O Energía libre relativa, kcal o mol, FIGURA veintiséis coma cinco",
+    "reemplazar": "Complejo de enzimas dos Progreso de la reacción Complejo de enzimas tres medio O dos más dos hidrógeno H2O Energía libre relativa, kcal o mol, FIGURA veintiséis coma cinco",
+    "motivo": "Convierte 'un o dos O2 + dos hidrógeno' (1/2 O2 + 2 H+, Saladin p. 1016) a 'medio O dos más dos hidrógeno'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': dos O2 + dos hid (2/2)",
+    "veredicto": "real",
+    "buscar": "N A D más dos hidrógeno un o dos O2 + dos hidrógeno H2O tres A D P + tres Pi",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: hidrógeno 2e– 2e– 2e–'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': s A D P + tres Pi",
+    "veredicto": "real",
+    "buscar": "un o dos O2 + dos hidrógeno H2O tres A D P + tres Pi tres A T P seis hidrógeno",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: hidrógeno 2e– 2e– 2e–'."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '×': eciocho × tres A",
+    "veredicto": "real",
+    "buscar": "diez N A D H producidos en los pasos cuatro, siete, once, trece y dieciocho × tres A T P por N A D H producidos por la cadena de transporte de electrones",
+    "reemplazar": "diez N A D H producidos en los pasos cuatro, siete, once, trece y dieciocho por tres A T P por N A D H producidos por la cadena de transporte de electrones",
+    "motivo": "Convierte símbolo '×' a 'por' (regla 4)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '×': eciséis × dos A T",
+    "veredicto": "real",
+    "buscar": "Más: dos FADH2, producidos en el paso dieciséis × dos A T P por FADH2, producidos por la cadena de transporte de electrones",
+    "reemplazar": "Más: dos FADH2, producidos en el paso dieciséis por dos A T P por FADH2, producidos por la cadena de transporte de electrones",
+    "motivo": "Convierte símbolo '×' a 'por' (regla 4)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': N A D H + seis hi",
+    "veredicto": "real",
+    "buscar": "Mitocondria dos N A D H + dos hidrógeno seis N A D H + seis hidrógeno Ciclo del ácido cítrico",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': N A D H + dos hid (4/5)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Símbolo '+': P Pi Pi + CAPÍTU",
+    "veredicto": "real",
+    "buscar": "seis CO2 + seis H2O A T P A T P A D P Pi Pi +\n\nCAPÍTULO veintiséis Nutrición y metabolismo ma denominada",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': C6H12O6 + seis O2 (2/2)\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Ion sin convertir: H2O+",
+    "veredicto": "real",
+    "buscar": "sigue siendo un ion hidrógeno libre, hidrógeno, o H2O+, pero en este capítulo se representa como hidrógeno,.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de \"Símbolo '+': o F A D + dos H →\"."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Concordancia: un grados (1/2)",
+    "veredicto": "falso_positivo",
+    "buscar": "pero hasta treinta y ocho coma cinco grados Celsius, ciento un grados Fahrenheit, en niños activos y algunos adultos.",
+    "reemplazar": null,
+    "motivo": "Falso positivo: en español es correcto el apócope 'ciento un grados' (101°F) ante sustantivo masculino plural."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Concordancia: un grados (2/2)",
+    "veredicto": "falso_positivo",
+    "buscar": "Si la temperatura central cae debajo de treinta y tres grados Celsius, noventa y un grados Fahrenheit, el metabolismo cae",
+    "reemplazar": null,
+    "motivo": "Falso positivo: en español es correcto el apócope 'noventa y un grados' (91°F) ante sustantivo masculino plural."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: ace- cinco",
+    "veredicto": "real",
+    "buscar": "El resultado es ace- cinco Sir Hans Krebs, mil novecientos a mil novecientos ochenta y un, bioquímico alemán.\n\nCAPÍTULO veintiséis Nutrición y metabolismo til-coenzima A, acetil-CoA,. En esta etapa, el resto de C2",
+    "reemplazar": "El resultado es acetil-coenzima A, acetil-CoA,. En esta etapa, el resto de C2",
+    "motivo": "Une 'acetil-coenzima A' (confirmado en Saladin p. 1014-1015) y elimina la nota al pie 5 y el encabezado de página."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: insignifi cantes (1/2)",
+    "veredicto": "real",
+    "buscar": "Aunque el glucógeno es un polisacárido, sólo cantidades insignifi cantes de él están presentes en los alimentos cocinados.",
+    "reemplazar": "Aunque el glucógeno es un polisacárido, sólo cantidades insignificantes de él están presentes en los alimentos cocinados.",
+    "motivo": "Une ligadura partida 'insignificantes' (confirmado en Saladin)."
+  },
+  {
+    "capitulo": "Tema_26_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: insignifi cantes (2/2)",
+    "veredicto": "real",
+    "buscar": "Los alimentos de origen vegetal sólo contienen porciones insignifi cantes de colesterol.",
+    "reemplazar": "Los alimentos de origen vegetal sólo contienen porciones insignificantes de colesterol.",
+    "motivo": "Une ligadura partida 'insignificantes' (confirmado en Saladin p. 1007)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (1/6)",
+    "veredicto": "real",
+    "buscar": "Una mama de aspecto natural puede reconstruirse a menudo a partir de piel, grasa y músculo de otras partes del cuerpo. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿En qué se diferencian el sitio de producción de gametos y el modo de liberación de las gónadas femeninas con respecto al varón? dos. ¿De qué manera se relaciona la estructura de la trompa de Falopio con su función? tres. Compare la función del endometrio con la del miometrio. cuatro. Enliste los tejidos eréctiles y las glándulas subcutáneas del perineo femenino y describa la función de cada uno.\n\nveintiocho punto dos Pubertad y menopausia",
+    "reemplazar": "Una mama de aspecto natural puede reconstruirse a menudo a partir de piel, grasa y músculo de otras partes del cuerpo.\n\nveintiocho punto dos Pubertad y menopausia",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 1 a 4)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (2/6)",
+    "veredicto": "real",
+    "buscar": "que han hecho posible que se viva mucho más tiempo de lo que lograron vivir los ancestros.\n\nCAPÍTULO veintiocho Aparato reproductor femenino Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cinco. Describa las similitudes y diferencias entre la pubertad de hombres y mujeres. seis. Describa los principales cambios que ocurren en el climaterio femenino y la causa principal de estos cambios. siete. ¿Cuál es la diferencia entre climaterio y menopausia?\n\nveintiocho punto tres La ovogénesis y el ciclo sexual",
+    "reemplazar": "que han hecho posible que se viva mucho más tiempo de lo que lograron vivir los ancestros.\n\nveintiocho punto tres La ovogénesis y el ciclo sexual",
+    "motivo": "Elimina encabezado de página incrustado y bloque de autoevaluación 'Antes de proseguir' (preguntas 5 a 7)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (3/6)",
+    "veredicto": "real",
+    "buscar": "esta última secretada por los ovarios. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: ocho. Mencione la secuencia de tipos de células en la ovogénesis y describa las maneras como se diferencian la ovogénesis y la espermatogénesis. nueve. Refiera la diferencia entre folículos primordial, primario, secundario y terciario. Describa las principales estructuras del folículo maduro. Secreción Glándula endometrial",
+    "reemplazar": "esta última secretada por los ovarios.\n\nSecreción Glándula endometrial",
+    "motivo": "Elimina primera mitad del bloque de autoevaluación 'Antes de proseguir' (preguntas 8 y 9) preservando la figura 28.16."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (4/6)",
+    "veredicto": "real",
+    "buscar": "las mujeres no tienen periodo refractario y pueden experimentar con rapidez orgasmos adicionales.\n\nPARTE CINCO Reproducción y desarrollo Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: catorce. ¿Cuáles son las fuentes femeninas de lubricación en el coito? quince. ¿Qué tejidos y órganos femeninos se vasocongestionan? dieciséis. Describa las acciones del útero a través del ciclo de respuesta sexual.\n\nveintiocho punto cinco Embarazo y parto",
+    "reemplazar": "las mujeres no tienen periodo refractario y pueden experimentar con rapidez orgasmos adicionales.\n\nveintiocho punto cinco Embarazo y parto",
+    "motivo": "Elimina encabezado de página incrustado y bloque de autoevaluación 'Antes de proseguir' (preguntas 14 a 16)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (5/6)",
+    "veredicto": "real",
+    "buscar": "porque una alteración emocional puede inhibir la lactancia en algunas mujeres. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecisiete. Enliste las funciones de la H C G, el estrógeno, la progesterona y la H C S en el embarazo. dieciocho. ¿Cuál es la función del cuerpo lúteo en la gestación? ¿Qué es lo que, con el tiempo, realiza ese trabajo? diecinueve. Enliste y explique con brevedad los requisitos nutricionales especiales del embarazo. veinte. ¿Cuánto peso gana una mujer promedio durante la gestación? ¿Qué contribuye a esta ganancia de peso, aparte del feto? veintiuno. Describa la teoría de la retroalimentación positiva del parto. veintidós. ¿Qué acontecimientos importantes definen las tres etapas del parto?\n\nveintiocho punto seis Lactancia",
+    "reemplazar": "porque una alteración emocional puede inhibir la lactancia en algunas mujeres.\n\nveintiocho punto seis Lactancia",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 17 a 22)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Antes de proseguir (6/6)",
+    "veredicto": "real",
+    "buscar": "y las enfermedades de transmisión sexual al final del capítulo veintisiete. Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintitrés. ¿Por qué una mujer secreta poca o nada de leche mientras está embarazada? veinticuatro. ¿En qué se diferencian las estructuras de la mama de una mujer que alimenta al pecho de una que no lo hace? ¿Qué estimula estas diferencias para que se desarrollen durante el embarazo? veinticinco. ¿Qué es el calostro y por qué es importante? veintiséis. ¿De qué manera la succión estimula la eyección de leche? veintisiete. ¿Por qué la leche humana es superior a la leche de vaca para un lactante?\nCUADRO veintiocho coma cinco",
+    "reemplazar": "y las enfermedades de transmisión sexual al final del capítulo veintisiete.\n\nCUADRO veintiocho coma cinco",
+    "motivo": "Elimina bloque de autoevaluación 'Antes de proseguir' (preguntas 23 a 27)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (1/6)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: un. ¿En qué se diferencian",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (1/6)'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (2/6)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: cinco. Describa las similitudes",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (2/6)'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (3/6)",
+    "veredicto": "real",
+    "buscar": "y acumulación de sangre en el tejido y la luz uterina.\n\nCAPÍTULO veintiocho Aparato reproductor femenino diez. Refiera lo que sucede en el ovario durante las fases folicular y posovulatoria. once. Describa lo que sucede en el útero durante las fases menstrual, proliferativa, secretora y premenstrual. doce. Explique los efectos de la folitropina y la lutropina en el ovario. trece. Describa los efectos del estrógeno y la progesterona en el útero, el hipotálamo y la adenohipófisis.\n\nveintiocho punto cuatro Respuesta sexual femenina",
+    "reemplazar": "y acumulación de sangre en el tejido y la luz uterina.\n\nveintiocho punto cuatro Respuesta sexual femenina",
+    "motivo": "Elimina la segunda mitad del bloque 'Antes de proseguir' (preguntas 10 a 13) y el encabezado de página tras la figura 28.16."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (4/6)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: catorce. ¿Cuáles son las fuentes",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (4/6)'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (5/6)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: diecisiete. Enliste las funciones",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (5/6)'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 3,
+    "hallazgo": "Autoevaluación: Responda las siguientes preguntas (6/6)",
+    "veredicto": "real",
+    "buscar": "Antes de proseguir Responda las siguientes preguntas para probar su comprensión de la sección anterior: veintitrés. ¿Por qué una mujer",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Autoevaluación: Antes de proseguir (6/6)'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: infundíbulo4",
+    "veredicto": "real",
+    "buscar": "Las trompas de Falopio Las trompas de Falopio3 son conductos de casi diez centímetros de largo que llevan de cada ovario al útero. En su extremo distal, ovárico, las trompas terminan en un infundíbulo4 en forma de trom- dos meso igual a medio. tres Gabriele Fallopio, mil quinientos veintitrés a mil quinientos sesenta y dos, anatomista y médico italiano. cuatro ind igual a dentro; funde igual a verter; bulu igual a instrumento.\nFIGURA veintiocho coma un El aparato reproductor femenino.\n\nCAPÍTULO veintiocho Aparato reproductor femenino Folículos primarios Folículo secundario Ligamento suspensorio y vasos sanguíneos Folículo maduro Ovocito Ovocito ovulado Cuerpo lúteo Cuerpo albo Ligamento ovárico Folículos primordiales Túnica albugínea Franja de la trompa de Falopio Médula Corteza peta con extensiones parecidas a plumas, las franjas ováricas;",
+    "reemplazar": "FIGURA veintiocho coma un El aparato reproductor femenino.\n\nFolículos primarios Folículo secundario Ligamento suspensorio y vasos sanguíneos Folículo maduro Ovocito Ovocito ovulado Cuerpo lúteo Cuerpo albo Ligamento ovárico Folículos primordiales Túnica albugínea Franja de la trompa de Falopio Médula Corteza\n\nLas trompas de Falopio Las trompas de Falopio son conductos de casi diez centímetros de largo que llevan de cada ovario al útero. En su extremo distal, ovárico, las trompas terminan en un infundíbulo en forma de trompeta con extensiones parecidas a plumas, las franjas ováricas;",
+    "motivo": "Quita llamadas 3 y 4, notas al pie 2-4 y encabezado de página, une 'trompeta' (Saladin p. 1066-1067) y reubica el pie y rótulos antes del subtítulo."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: útero6",
+    "veredicto": "real",
+    "buscar": "El útero El útero6 es una cámara muscular gruesa que se abre en el techo de la vagina y suele inclinarse hacia adelante, sobre la vejiga urinaria.",
+    "reemplazar": "El útero El útero es una cámara muscular gruesa que se abre en el techo de la vagina y suele inclinarse hacia adelante, sobre la vejiga urinaria.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'útero'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: miometrio7",
+    "veredicto": "real",
+    "buscar": "El miometrio7 constituye la mayor parte de la pared; tiene casi uno coma dos cinco centímetros de grueso en el útero no embarazado.",
+    "reemplazar": "El miometrio constituye la mayor parte de la pared; tiene casi uno coma dos cinco centímetros de grueso en el útero no embarazado.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'miometrio'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: endometrio8",
+    "veredicto": "real",
+    "buscar": "La función del miometrio es producir las contracciones del parto que ayudan a expeler el feto. El endometrio8 tiene un epitelio cilíndrico simple,",
+    "reemplazar": "La función del miometrio es producir las contracciones del parto que ayudan a expeler el feto. El endometrio tiene un epitelio cilíndrico simple,",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'endometrio'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: vagina11",
+    "veredicto": "real",
+    "buscar": "Las células secretoras se muestran en rojo y verde, y los cilios de las células ciliadas en amarillo, S E M,. ●¿Qué propósitos tienen estos cilios? siete myo igual a músculo; metr igual a útero. ocho endo igual a dentro. nueve uesic igual a vejiga.\n\nPARTE CINCO Reproducción y desarrollo La vagina La vagina11 es el conducto de ocho a diez centímetros de largo",
+    "reemplazar": "Las células secretoras se muestran en rojo y verde, y los cilios de las células ciliadas en amarillo, S E M,.\n\nLa vagina La vagina es el conducto de ocho a diez centímetros de largo",
+    "motivo": "Quita pregunta de autoevaluación, notas al pie 7-9, encabezado de página y llamada numérica 11 pegada a 'vagina'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: estrógenos16",
+    "veredicto": "real",
+    "buscar": "Los estrógenos16 son hormonas feminizantes con efectos extendidos en el cuerpo. Incluyen estradiol, el más abundante, estriol y estrona.",
+    "reemplazar": "Los estrógenos son hormonas feminizantes con efectos extendidos en el cuerpo. Incluyen estradiol, el más abundante, estriol y estrona.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'estrógenos'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: teca20",
+    "veredicto": "real",
+    "buscar": "El tejido conjuntivo alrededor de las células granulosas se condensa para formar una cáscara fibrosa denominada teca20 folicular.",
+    "reemplazar": "El tejido conjuntivo alrededor de las células granulosas se condensa para formar una cáscara fibrosa denominada teca folicular.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'teca'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: oófero21",
+    "veredicto": "real",
+    "buscar": "A un lado del antro, un conjunto de células granulosas denominadas cúmulo oófero21 cubren el ovocito y lo aseguran a la pared folicular.",
+    "reemplazar": "A un lado del antro, un conjunto de células granulosas denominadas cúmulo oófero cubren el ovocito y lo aseguran a la pared folicular.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'oófero'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: ectópico31",
+    "veredicto": "real",
+    "buscar": "Embarazo ectópico31 Implantación de los productos de la concepción en cualquier lugar diferente del útero.",
+    "reemplazar": "Embarazo ectópico Implantación de los productos de la concepción en cualquier lugar diferente del útero.",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'ectópico'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada numérica: gravídica32",
+    "veredicto": "real",
+    "buscar": "Hiperemesis gravídica32 Vómito intenso, deshidratación, alcalosis y pérdida de peso en una etapa temprana del embarazo,",
+    "reemplazar": "Hiperemesis gravídica Vómito intenso, deshidratación, alcalosis y pérdida de peso en una etapa temprana del embarazo,",
+    "motivo": "Quita llamada numérica de nota al pie pegada a 'gravídica'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: on los ovarios,un que produ",
+    "veredicto": "real",
+    "buscar": "Los ovarios Las gónadas femeninas son los ovarios,un que producen óvulos y hormonas sexuales.",
+    "reemplazar": "Los ovarios Las gónadas femeninas son los ovarios, que producen óvulos y hormonas sexuales.",
+    "motivo": "Quita llamada de nota al pie 'un' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: ado mesoovario.dos Este liga",
+    "veredicto": "real",
+    "buscar": "El margen anterior del ovario está anclado por un pliegue peritoneal denominado mesoovario.dos Este ligamento se extiende hasta una vaina de peritoneo",
+    "reemplazar": "El margen anterior del ovario está anclado por un pliegue peritoneal denominado mesoovario. Este ligamento se extiende hasta una vaina de peritoneo",
+    "motivo": "Quita llamada de nota al pie 'dos' tras punto conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: l mesosalpinge,cinco que es el",
+    "veredicto": "real",
+    "buscar": "La trompa de Falopio está envuelta en el mesosalpinge,cinco que es el margen superior del ligamento ancho.",
+    "reemplazar": "La trompa de Falopio está envuelta en el mesosalpinge, que es el margen superior del ligamento ancho.",
+    "motivo": "Quita llamada de nota al pie 'cinco' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: vesicouterina,nueve la cual f",
+    "veredicto": "real",
+    "buscar": "Los dos principales son la bolsa vesicouterina,nueve la cual forma el espacio entre el útero y la vejiga urinaria,",
+    "reemplazar": "Los dos principales son la bolsa vesicouterina, la cual forma el espacio entre el útero y la vejiga urinaria,",
+    "motivo": "Quita llamada de nota al pie 'nueve' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: e Papanicolaou,diez un proced",
+    "veredicto": "real",
+    "buscar": "La mejor protección contra el cáncer cervical es la detección temprana mediante un estudio citológico vaginal o prueba de Papanicolaou,diez un procedimiento en que se retiran células sueltas",
+    "reemplazar": "La mejor protección contra el cáncer cervical es la detección temprana mediante un estudio citológico vaginal o prueba de Papanicolaou, un procedimiento en que se retiran células sueltas",
+    "motivo": "Quita llamada de nota al pie 'diez' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: s la telarquia,diecisiete el inicio",
+    "veredicto": "real",
+    "buscar": "El signo notable más temprano de la pubertad es la telarquia,diecisiete el inicio del desarrollo de las mamas.",
+    "reemplazar": "El signo notable más temprano de la pubertad es la telarquia, el inicio del desarrollo de las mamas.",
+    "motivo": "Quita llamada de nota al pie 'diecisiete' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: e la menarquia,dieciocho el primer",
+    "veredicto": "real",
+    "buscar": "comparados con seis a ocho miligramos o día en los varones. Luego viene la menarquia,dieciocho el primer periodo menstrual.",
+    "reemplazar": "comparados con seis a ocho miligramos o día en los varones. Luego viene la menarquia, el primer periodo menstrual.",
+    "motivo": "Quita llamada de nota al pie 'dieciocho' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Llamada tras puntuación: zona pelúcida,diecinueve alrededor",
+    "veredicto": "real",
+    "buscar": "Secretan una capa de gel de glucoproteínas, la zona pelúcida,diecinueve alrededor del ovocito.",
+    "reemplazar": "Secretan una capa de gel de glucoproteínas, la zona pelúcida, alrededor del ovocito.",
+    "motivo": "Quita llamada de nota al pie 'diecinueve' tras coma conservando la puntuación."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . un ou igual a huevo; arium igual a lugar para.",
+    "veredicto": "real",
+    "buscar": "e Identificar los órganos genitales externos de la mujer. f Describir la estructura de la mama no lactante. un ou igual a huevo; arium igual a lugar para.",
+    "reemplazar": "e Identificar los órganos genitales externos de la mujer. f Describir la estructura de la mama no lactante.",
+    "motivo": "Elimina glosa etimológica de la nota al pie 1."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . cuatro ind igual a dentro; funde igual a verter; bulu igual a instrume...",
+    "veredicto": "real",
+    "buscar": "cuatro ind igual a dentro; funde igual a verter; bulu igual a instrumento.\nFIGURA veintiocho coma un",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Llamada numérica: infundíbulo4'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . seis uteru igual a vientre.",
+    "veredicto": "real",
+    "buscar": "El canal contiene glándulas cervicales que secretan moco, que se considera que evita cinco meso igual a medio; salping igual a trompeta. seis uteru igual a vientre.\nFIGURA veintiocho coma dos",
+    "reemplazar": "El canal contiene glándulas cervicales que secretan moco, que se considera que evita\nFIGURA veintiocho coma dos",
+    "motivo": "Elimina glosas etimológicas de las notas al pie 5 y 6."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . ocho endo igual a dentro.",
+    "veredicto": "real",
+    "buscar": "siete myo igual a músculo; metr igual a útero. ocho endo igual a dentro. nueve uesic igual a vejiga.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Llamada numérica: vagina11'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . once uagin igual a vaina.",
+    "veredicto": "real",
+    "buscar": "En las células cancerosas, se observa la pérdida de volumen celular y el núcleo muy agrandado. diez George N. Papanicolaou, mil ochocientos ochenta y tres a mil novecientos sesenta y dos, médico y citólogo griego estadounidense. once uagin igual a vaina. doce hyster igual a matriz; ektomia igual a extirpación.\n\nCAPÍTULO veintiocho Aparato reproductor femenino lación masculina y femenina durante el coito. En el orificio vaginal,",
+    "reemplazar": "En las células cancerosas, se observa la pérdida de volumen celular y el núcleo muy agrandado.\n\nEn el orificio vaginal,",
+    "motivo": "Elimina notas al pie 10-12, encabezado de página y el resto de frase reubicado antes del recuadro 28.1 en 'Sigla en mayúsculas: FONDO'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . trece vulva igual a cobertura.",
+    "veredicto": "real",
+    "buscar": "y también se ha desplazado la aorta del útero para mayor claridad. trece vulva igual a cobertura.\n\nprepucio. El cuerpo pasa de manera interna,",
+    "reemplazar": "y también se ha desplazado la aorta del útero para mayor claridad.\n\nprepucio. El cuerpo pasa de manera interna,",
+    "motivo": "Elimina glosa etimológica de la nota al pie 13."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecisiete thel igual a pezón; arkh igual a comienzo.",
+    "veredicto": "real",
+    "buscar": "Además de su función en la regulación del dieciséis oistro igual a deseo irracional; gen igual a que genera. diecisiete thel igual a pezón; arkh igual a comienzo. dieciocho men igual a mes.\n\nPARTE CINCO Reproducción y desarrollo apetito, la leptina estimula la secreción de gonadotropina.",
+    "reemplazar": "Además de su función en la regulación del apetito, la leptina estimula la secreción de gonadotropina.",
+    "motivo": "Elimina notas al pie 16-18 y encabezado de página, reuniendo la oración 'regulación del apetito'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 4,
+    "hallazgo": "Nota al pie leída: . diecinueve pellucid igual a claro, transparente.",
+    "veredicto": "real",
+    "buscar": "Justo antes de la ovulación, el diámetro de este folículo crece hasta veinticinco milímetros. diecinueve pellucid igual a claro, transparente. veinte thek igual a caja, depósito. veintiuno cumulus igual a pequeño monte; oo igual a huevo; phor igual a que lleva. veintidós Reijnier de Graaf, mil seiscientos cuarenta y un a mil seiscientos setenta y tres,. Fisiólogo e histólogo holandés.",
+    "reemplazar": "Justo antes de la ovulación, el diámetro de este folículo crece hasta veinticinco milímetros.",
+    "motivo": "Elimina glosas de las notas al pie 19 a 22."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Ref. visual: véase la figura",
+    "veredicto": "real",
+    "buscar": "El monte de Venus consta sobre todo de un montículo de tejido adiposo sobre la sínfisis púbica, que contiene la mayor parte del vello púbico, véase la figura A.5a, p. treinta y dos,.",
+    "reemplazar": "El monte de Venus consta sobre todo de un montículo de tejido adiposo sobre la sínfisis púbica, que contiene la mayor parte del vello púbico.",
+    "motivo": "Elimina referencia visual 'véase la figura A.5a, p. treinta y dos' (también corrige dígito A.5a de rev. 6)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Detalle solo visual: flecha (1/2)",
+    "veredicto": "real",
+    "buscar": "FIGURA veintiocho coma dos Estructura del ovario. Las flechas indican las etapas de desarrollo del folículo ovárico. Los folículos no migran alrededor del ovario",
+    "reemplazar": "FIGURA veintiocho coma dos Estructura del ovario. Los folículos no migran alrededor del ovario",
+    "motivo": "Quita indicación puramente visual sobre las flechas del dibujo en el pie de la figura 28.2."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 5,
+    "hallazgo": "Detalle solo visual: flecha (2/2)",
+    "veredicto": "real",
+    "buscar": "b Mamograma de una mama con tumor visible en la zona señalada con la flecha, izquierda, comparado con el aspecto del tejido conjuntivo fibroso de la mama sana, derecha,.",
+    "reemplazar": "b Mamograma de una mama con tumor visible comparado con el aspecto del tejido conjuntivo fibroso de la mama sana.",
+    "motivo": "Quita indicación puramente visual ('en la zona señalada con la flecha, izquierda,' y ', derecha,')."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: figura A.5a, p. trei",
+    "veredicto": "real",
+    "buscar": "contiene la mayor parte del vello púbico, véase la figura A.5a, p. treinta y dos,.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Ref. visual: véase la figura'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ogénesis, 2n 2n n n n",
+    "veredicto": "real",
+    "buscar": "PARTE CINCO Reproducción y desarrollo Desarrollo del óvulo, ovogénesis, Desarrollo del folículo, foliculogénesis, 2n 2n n n n n n n n 2n Multiplicación de ovogonios Mitosis Ovocito primario",
+    "reemplazar": "Desarrollo del óvulo, ovogénesis, Desarrollo del folículo, foliculogénesis, Multiplicación de ovogonios Mitosis Ovocito primario",
+    "motivo": "Elimina encabezado de página y la tira de rótulos de ploidía '2n 2n n n n n n n n 2n' del diagrama de la figura 28.11."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: nesis, 2n 2n n n n n",
+    "veredicto": "real",
+    "buscar": "Desarrollo del folículo, foliculogénesis, 2n 2n n n n n n n n 2n Multiplicación de ovogonios",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: ogénesis, 2n 2n n n n'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: n n n n n 2n Multipli",
+    "veredicto": "real",
+    "buscar": "foliculogénesis, 2n 2n n n n n n n n 2n Multiplicación de ovogonios Mitosis",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: ogénesis, 2n 2n n n n'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: os a cero.3ºC, cero c",
+    "veredicto": "real",
+    "buscar": "Además, la temperatura del cuerpo en reposo, temperatura basal, se eleva cero coma dos a cero.3ºC, cero coma cuatro a cero.6ºF,. Esto se mide mejor",
+    "reemplazar": "Además, la temperatura del cuerpo en reposo, temperatura basal, se eleva cero coma dos a cero coma tres grados Celsius, cero coma cuatro a cero coma seis grados Fahrenheit. Esto se mide mejor",
+    "motivo": "Convierte 'cero.3ºC' y 'cero.6ºF' (0.3°C y 0.6°F, Saladin p. 1082) a palabras."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: ro a cero.6ºF,. Esto",
+    "veredicto": "real",
+    "buscar": "se eleva cero coma dos a cero.3ºC, cero coma cuatro a cero.6ºF,. Esto se mide mejor",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Dígito sin convertir: os a cero.3ºC, cero c'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Dígito sin convertir: eintiocho.20a y b,. El",
+    "veredicto": "real",
+    "buscar": "Se distingue por la dilatación, ensanchamiento, del conducto cervical y el borramiento, adelgazamiento, del cuello uterino, figura veintiocho.20a y b,. El cuello uterino alcanza un diámetro máximo",
+    "reemplazar": "Se distingue por la dilatación, ensanchamiento, del conducto cervical y el borramiento, adelgazamiento, del cuello uterino. El cuello uterino alcanza un diámetro máximo",
+    "motivo": "Quita referencia visual con dígito sin convertir (', figura veintiocho.20a y b,')."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Posible mil como decimal: coma un cero cero",
+    "veredicto": "real",
+    "buscar": "Dispositivo intrauterino cero coma dos a cero coma seis cero coma dos a cero coma ocho Vasectomía cero coma un cero cero coma un cinco Ligadura de trompas cero coma cinco cero coma cinco",
+    "reemplazar": "Dispositivo intrauterino cero coma dos a cero coma seis, cero coma dos a cero coma ocho. Vasectomía cero coma uno cero, cero coma uno cinco. Ligadura de trompas cero coma cinco, cero coma cinco.",
+    "motivo": "Confirmado en Saladin p. 1097 (0.10 y 0.15 en dos columnas): separa columnas pegadas y corrige 'un' a 'uno' para evitar lectura de mil."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Miles como decimal: cuatro cero coma cero nueve cero",
+    "veredicto": "real",
+    "buscar": "Inmunoglobulinas, g o L, diecinueve coma cuatro cero coma cero nueve cero coma ocho Grasa, g o L, veintinueve coma cinco",
+    "reemplazar": "Inmunoglobulinas, g o L, diecinueve coma cuatro, cero coma cero nueve, cero coma ocho. Grasa, g o L, veintinueve coma cinco",
+    "motivo": "Confirmado en Saladin p. 1094 (cuadro 28.4: 19.4, 0.09 y 0.8 en tres columnas): separa con comas los valores pegados."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Concordancia: un milímetros (1/2)",
+    "veredicto": "real",
+    "buscar": "Su cabeza, el glande, sobresale un poco del Epitelio superficial Glándula endometrial Lámina propia cero coma un milímetros Arteria ovárica",
+    "reemplazar": "Su cabeza, el glande, sobresale un poco del Epitelio superficial Glándula endometrial Lámina propia cero coma uno milímetros Arteria ovárica",
+    "motivo": "Corrige 'cero coma un milímetros' (0.1 mm) a 'cero coma uno milímetros'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 6,
+    "hallazgo": "Concordancia: un milímetros (2/2)",
+    "veredicto": "real",
+    "buscar": "Infundíbulo de la trompa de Falopio Ovocito Estigma Ovario Cúmulo oófero cero coma un milímetros FIGURA veintiocho coma un cinco",
+    "reemplazar": "Infundíbulo de la trompa de Falopio Ovocito Estigma Ovario Cúmulo oófero cero coma uno milímetros FIGURA veintiocho coma un cinco",
+    "motivo": "Corrige 'cero coma un milímetros' (0.1 mm, Saladin p. 1082) a 'cero coma uno milímetros'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: FONDO",
+    "veredicto": "real",
+    "buscar": "El extremo inferior de la vagina tiene bordes de fricción transversa, o pliegues vaginales, que contribuyen a la estimuCONOCIMIENTO MÁS A FONDO veintiocho coma un Aplicación clínica Papanicolaou y cáncer cervical El cáncer cervical ocurre con más frecuencia",
+    "reemplazar": "El extremo inferior de la vagina tiene bordes de fricción transversa, o pliegues vaginales, que contribuyen a la estimulación masculina y femenina durante el coito.\n\nConocimiento más a fondo veintiocho punto uno. Aplicación clínica: Papanicolaou y cáncer cervical\nEl cáncer cervical ocurre con más frecuencia",
+    "motivo": "Completa la oración 'estimulación masculina y femenina durante el coito.' antes del recuadro y separa y normaliza el título del recuadro 28.1."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (1/3)",
+    "veredicto": "real",
+    "buscar": "\n\nEfectos del APARATO REPRODUCTOR en otros sistemas de órganos TEMAS DE CONEXIÓN APARATO DIGESTIVO El feto en crecimiento presiona el estómago y los intestinos, lo que puede causar pirosis. La gestación suele relacionarse con estreñimiento y náusea. APARATO URINARIO La excitación sexual constriñe el esfínter urinario interno, lo que evita el reflujo de semen en la vejiga urinaria masculina. La hiperplasia prostática puede impedir el flujo de orina. El embarazo comprime la vejiga, reduce su capacidad y puede causar incontinencia; también promueve la reabsorción de sal y agua por los riñones y aumenta la filtración glomerular y la diuresis. APARATO RESPIRATORIO La excitación sexual aumenta la ventilación pulmonar. El embarazo aumenta la sensitividad de los quimiorreceptores respiratorios al CO2 e incrementa el volumen corriente y la ventilación por minuto.",
+    "reemplazar": "",
+    "motivo": "Elimina el recuadro 'Temas de conexión' (tramo 1 de 3) según decisión de Ronald (16-11, libro-audio-tts)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (2/3)",
+    "veredicto": "real",
+    "buscar": " SISTEMAS LINFÁTICO E INMUNITARIO Las barreras en los testículos y los ovarios protegen a las células de anticuerpos. De alguna manera, los andrógenos inhiben la inmunidad y aumentan la susceptibilidad a enfermedades infecciosas. SISTEMA TEGUMENTARIO En la pubertad, los andrógenos estimulan el desarrollo de vello corporal y las glándulas apocrinas, además del aumento de la secreción sebácea. El estrógeno estimula el depósito de grasa y el desarrollo de las mamas. El embarazo necesita crecimiento de la piel, sobre todo en las regiones abdominal y mamaria, y puede causar cambios de pigmentación y marcas de estiramiento. SISTEMA ÓSEO Los andrógenos y estrógenos estimulan el depósito de hueso y el crecimiento óseo de los adolescentes; además, mantienen la masa ósea del adulto.",
+    "reemplazar": "",
+    "motivo": "Elimina el recuadro 'Temas de conexión' (tramo 2 de 3) según decisión de Ronald (16-11, libro-audio-tts)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Sigla en mayúsculas: TEMAS (3/3)",
+    "veredicto": "real",
+    "buscar": " SISTEMA MUSCULAR Los andrógenos estimulan el crecimiento muscular. El clímax sexual y el parto incluyen contracciones de músculo estriado específico. SISTEMA NERVIOSO Los esteroides sexuales estimulan el encéfalo y la libido. Las hormonas gonadales y placentarias ejercen control de retroalimentación negativa en el hipotálamo. APARATO CIRCULATORIO Los andrógenos estimulan la eritropoyesis. Los estrógenos inhiben la ateroesclerosis en las mujeres. El embarazo aumenta el volumen sanguíneo y el gasto cardiaco y puede causar venas varicosas. SISTEMA ENDOCRINO Las gónadas y la placenta secretan andrógenos, estrógenos, progesterona y hormonas del embarazo.",
+    "reemplazar": "",
+    "motivo": "Elimina el recuadro 'Temas de conexión' (tramo 3 de 3) según decisión de Ronald (16-11, libro-audio-tts)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 7,
+    "hallazgo": "Recuadro pegado al párrafo: yen a la estimuCONOCIMIENTO MÁS A FONDO veintiocho coma un Aplicaci...",
+    "veredicto": "real",
+    "buscar": "que contribuyen a la estimuCONOCIMIENTO MÁS A FONDO veintiocho coma un Aplicación clínica Papanicolaou y cáncer cervical",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Sigla en mayúsculas: FONDO'."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: trom- dos",
+    "veredicto": "real",
+    "buscar": "las trompas terminan en un infundíbulo4 en forma de trom- dos meso igual a medio.",
+    "reemplazar": null,
+    "motivo": "Cubierto por el reemplazo de 'Llamada numérica: infundíbulo4' (une 'trompeta')."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: meioGonado- liberina",
+    "veredicto": "real",
+    "buscar": "La lutropina induce varios acontecimientos momentáneos. El ovocito primario completa la meioGonado- liberina Adenohipófisis Lutropina Folitropina Ovocito secundario ovulado Hipotálamo El ovocito completa la meiosis I. El folículo se agranda con rapidez y luego ovula El folículo en maduración secreta estradiol El estradiol estimula al hipotálamo y la adenohipófisis El hipotálamo secreta gonadoliberina La gonadoliberina y el estradiol estimulan a la hipófisis para que secrete lutropina y folitropina FIGURA veintiocho coma un tres Control de la ovulación por las hormonas hipofisarias y ováricas.\n\nCAPÍTULO veintiocho Aparato reproductor femenino sis I, produciendo un ovocito haploide secundario y el primer cuerpo polar.",
+    "reemplazar": "La lutropina induce varios acontecimientos momentáneos. El ovocito primario completa la meiosis I, produciendo un ovocito haploide secundario y el primer cuerpo polar.\n\nGonadoliberina Adenohipófisis Lutropina Folitropina Ovocito secundario ovulado Hipotálamo El ovocito completa la meiosis I. El folículo se agranda con rapidez y luego ovula El folículo en maduración secreta estradiol El estradiol estimula al hipotálamo y la adenohipófisis El hipotálamo secreta gonadoliberina La gonadoliberina y el estradiol estimulan a la hipófisis para que secrete lutropina y folitropina FIGURA veintiocho coma un tres Control de la ovulación por las hormonas hipofisarias y ováricas.",
+    "motivo": "Une 'meiosis I' y 'Gonadoliberina' (Saladin p. 1080-1081), quita encabezado de página y reubica la figura 28.13 tras la oración."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Corte por guion: progestero- veinticinco",
+    "veredicto": "real",
+    "buscar": "La progestero- veinticinco neo igual a nuevo; nat igual a nacido. Parto Ovulación Concentraciones hormonales relativas Semanas después del inicio del último periodo menstrual Gonadotropina coriónica humana Estradiol Progesterona FIGURA veintiocho coma un ocho Concentraciones de hormonas en el curso del embarazo. ●¿De qué manera la relación cambiante entre estradiol y progesterona se vincula con las contracciones del parto?\n\nPARTE CINCO Reproducción y desarrollo na también suprime las contracciones uterinas, para que no se expulsen de manera prematura los productos de la concepción.",
+    "reemplazar": "La progesterona también suprime las contracciones uterinas, para que no se expulsen de manera prematura los productos de la concepción.\n\nParto Ovulación Concentraciones hormonales relativas Semanas después del inicio del último periodo menstrual Gonadotropina coriónica humana Estradiol Progesterona FIGURA veintiocho coma un ocho Concentraciones de hormonas en el curso del embarazo.",
+    "motivo": "Une 'progesterona' (Saladin p. 1087-1088), quita nota al pie 25, pregunta ●¿...? y encabezado de página, y reubica la figura 28.18."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: prolífi co",
+    "veredicto": "real",
+    "buscar": "estimula la mitosis en el estrato basal y el recrecimiento prolífi co de los vasos sanguíneos, por lo que se regenera el estrato funcional.",
+    "reemplazar": "estimula la mitosis en el estrato basal y el recrecimiento prolífico de los vasos sanguíneos, por lo que se regenera el estrato funcional.",
+    "motivo": "Une ligadura partida 'prolífico' (confirmado en Saladin p. 1083)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: fi brinolisina",
+    "veredicto": "real",
+    "buscar": "El líquido menstrual contiene fi brinolisina, de modo que no se coagula.",
+    "reemplazar": "El líquido menstrual contiene fibrinolisina, de modo que no se coagula.",
+    "motivo": "Une ligadura partida 'fibrinolisina' (confirmado en Saladin p. 1084)."
+  },
+  {
+    "capitulo": "Tema_28_Morfo_Saladin",
+    "revision": 8,
+    "hallazgo": "Ligadura partida: atrofi aría",
+    "veredicto": "real",
+    "buscar": "Sin H C G, el cuerpo lúteo se atrofi aría y el útero expelería los productos de la concepción.",
+    "reemplazar": "Sin H C G, el cuerpo lúteo se atrofiaría y el útero expelería los productos de la concepción.",
+    "motivo": "Une ligadura partida 'atrofiaría' (confirmado en Saladin p. 1087)."
+  }
+]

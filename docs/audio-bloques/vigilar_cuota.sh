@@ -27,25 +27,48 @@ while true; do
   if python docs/audio-bloques/probar_cuota_tts.py "$M" > /dev/null 2>&1; then
     if [ -f docs/audio-bloques/cola_audio.lock ]; then echo "$(date +%d-%H:%M) graba la cola oculta (candado); espero" >> "$E"; sleep 1800; continue; fi
     echo "$(date +%d-%H:%M) cuota OK, grabando" >> "$E"; corte=0; saltados=0
-    for p in docs/audio-bloques/plan/*.json; do
+    # 21-11 (Ronald eligio A): PRIORIDAD ESTRICTA PSA 2027 (39 caps):
+    #   Fase 1: Educacion en Salud (5 partes, libro sin audio viejo)
+    #   Fase 2: Biologia Celular PSA 2027 (14 caps: 03,05-15,17,18)
+    #   Fase 3: Morfofuncion Saladin PSA 2027 (20 caps: 01,05,06,08-10,13-23,25,27,28)
+    #   Fase 4: Los 16 capitulos fuera del PSA 2027 SOLO si las fases 1-3 cerraron 100 %
+    for md in "examenes pasados/MEDICINA/PSA_2027_FUENTES/audio_eds"/EdS_*_LITERAL_TTS.md; do
       sigo_dueno
-      b=$(basename "$p"); t=docs/audio-bloques/reextraido/$b; [ -f "$t" ] || continue
-      # Filtro 16-nov: solo se graba lo que pasó las revisiones de texto 1 a 8 (informe en aceptacion/)
-      python docs/audio-bloques/capitulo_aceptado.py "${b%.json}" || { saltados=$((saltados+1)); continue; }
-      out=$(python docs/audio-bloques/sintetizar_desde_plan.py "$M" "$p" --textos "$t" 2>&1 | grep "Resumen\|Error\|ALTO")
-      echo "$out" | sed "s/^/$(date +%d-%H:%M) /" >> "$E"
-      # 20-11 (copiloto): plan viejo (el texto cambio despues del plan) -> se salta y se anota; no frena a los demas
-      if echo "$out" | grep -q "no coincide"; then echo "$(date +%d-%H:%M) PLAN VIEJO ${b%.json}: regenerar con plan_sintesis.py o plan_todo_nuevo.py --forzar" >> "$E"; continue; fi
-      if echo "$out" | grep -q "Error"; then corte=1; break; fi
+      [ -f "$md" ] || continue
+      n=$(basename "$md" .md); w="$M/_AUDIO_V2/$n.wav"; [ -f "$w" ] && continue
+      python docs/audio-bloques/capitulo_aceptado.py "$n" || { saltados=$((saltados+1)); continue; }
+      out=$(python "$M/sintetizar_libro.py" --md "$md" --salida "$w" 2>&1 | tail -3)
+      echo "$out" | sed "s/^/$(date +%d-%H:%M) EdS $n: /" >> "$E"
+      if [ ! -f "$w" ]; then corte=1; break; fi
     done
-    # Fase 2: Libro 3 (EdS), un capitulo por archivo; salta los que ya tienen .wav en _AUDIO_V2
     if [ $corte = 0 ]; then
-      for md in "examenes pasados/MEDICINA/PSA_2027_FUENTES/audio_eds"/EdS_*_LITERAL_TTS.md; do
-        n=$(basename "$md" .md); w="$M/_AUDIO_V2/$n.wav"; [ -f "$w" ] && continue
-        python docs/audio-bloques/capitulo_aceptado.py "$n" || { saltados=$((saltados+1)); continue; }
-        out=$(python "$M/sintetizar_libro.py" --md "$md" --salida "$w" 2>&1 | tail -3)
-        echo "$out" | sed "s/^/$(date +%d-%H:%M) EdS $n: /" >> "$E"
-        if [ ! -f "$w" ]; then corte=1; break; fi
+      PSA_CALVO="Tema_03 Tema_05 Tema_06 Tema_07 Tema_08 Tema_09 Tema_10 Tema_11 Tema_12 Tema_13 Tema_14 Tema_15 Tema_17 Tema_18"
+      PSA_SALADIN="Tema_01 Tema_05 Tema_06 Tema_08 Tema_09 Tema_10 Tema_13 Tema_14 Tema_15 Tema_16 Tema_17 Tema_18 Tema_19 Tema_20 Tema_21 Tema_22 Tema_23 Tema_25 Tema_27 Tema_28"
+      ORDEN_PSA=""
+      for k in $PSA_CALVO; do ORDEN_PSA="$ORDEN_PSA docs/audio-bloques/plan/${k}_Biologia_Celular_LITERAL_TTS.json"; done
+      for k in $PSA_SALADIN; do ORDEN_PSA="$ORDEN_PSA docs/audio-bloques/plan/${k}_Morfo_Saladin_LITERAL_TTS.json"; done
+      for p in $ORDEN_PSA; do
+        sigo_dueno
+        [ -f "$p" ] || continue
+        b=$(basename "$p"); t=docs/audio-bloques/reextraido/$b; [ -f "$t" ] || continue
+        python docs/audio-bloques/capitulo_aceptado.py "${b%.json}" || { saltados=$((saltados+1)); continue; }
+        out=$(python docs/audio-bloques/sintetizar_desde_plan.py "$M" "$p" --textos "$t" 2>&1 | grep "Resumen\|Error\|ALTO")
+        echo "$out" | sed "s/^/$(date +%d-%H:%M) /" >> "$E"
+        if echo "$out" | grep -q "no coincide"; then echo "$(date +%d-%H:%M) PLAN VIEJO ${b%.json}: regenerar con plan_sintesis.py o plan_todo_nuevo.py --forzar" >> "$E"; continue; fi
+        if echo "$out" | grep -q "Error"; then corte=1; break; fi
+      done
+    fi
+    # Fase 4: los 16 capitulos fuera del PSA 2027 SOLO cuando los 39 del PSA 2027 esten completos (corte=0 y saltados=0)
+    if [ $corte = 0 ] && [ $saltados = 0 ]; then
+      for p in docs/audio-bloques/plan/*.json; do
+        sigo_dueno
+        [ -f "$p" ] || continue
+        b=$(basename "$p"); t=docs/audio-bloques/reextraido/$b; [ -f "$t" ] || continue
+        python docs/audio-bloques/capitulo_aceptado.py "${b%.json}" || { saltados=$((saltados+1)); continue; }
+        out=$(python docs/audio-bloques/sintetizar_desde_plan.py "$M" "$p" --textos "$t" 2>&1 | grep "Resumen\|Error\|ALTO")
+        echo "$out" | sed "s/^/$(date +%d-%H:%M) /" >> "$E"
+        if echo "$out" | grep -q "no coincide"; then echo "$(date +%d-%H:%M) PLAN VIEJO ${b%.json}: regenerar con plan_sintesis.py o plan_todo_nuevo.py --forzar" >> "$E"; continue; fi
+        if echo "$out" | grep -q "Error"; then corte=1; break; fi
       done
     fi
     # 16-nov: los capítulos sin aceptación no cuentan como hechos; se vuelve a mirar en 30 min (entran en cadena)

@@ -299,3 +299,11 @@
 20-16:32 Resumen (Tema_02_Biologia_Celular_LITERAL_TTS): total=116, reusados=0, sintetizados=0, copiados_viejos=0, retomados=116, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 20-17:35 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=373, rondas_agotadas=32).
 21-18:09 sin cuota, espero 30 min
+21-18:35 vigilante arranca en RonMarty-9fb9
+21-18:37 vigilante arranca en RonMarty-9fb9
+21-18:37 cuota OK, grabando
+21-19:18 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=156, rondas_agotadas=12).
+21-19:20 vigilante arranca en RonMarty-9fb9
+21-19:33 vigilante arranca en RonMarty-9fb9
+21-19:37 vigilante arranca en RonMarty-9fb9
+21-19:38 sin cuota, espero 30 min

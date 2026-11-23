@@ -73,3 +73,12 @@ Usa el toolkit en `<FF>/` para evitar errores de sintaxis en terminal Windows:
 - Lo que NO pasa la aceptación NO se graba (grabar texto con errores obliga a regrabar = cuota gastada dos veces). El vigilante de grabación salta los capítulos sin informe de aceptación aprobado.
 - Orden: primero los capítulos más limpios (menos fallas reales), mientras en paralelo se corrigen los demás por script.
 - Lo ya grabado con texto viejo no se tira: al corregir el texto se regraban solo los bloques que cambiaron (regla 14 de libro-audio-tts).
+
+### Prioridad obligatoria PSA 2027 Medicina (21-11, Ronald eligió A)
+- El examen PSA 2027 Medicina pide **solo 39 capítulos** (`docs/psa-2027/CHECKLIST_PSA2027.md`), NO los 55 completos:
+  - **Educación en Salud (5 partes):** `EdS_Parte1`, `EdS_Parte2`, `EdS_Parte3_1`, `EdS_Parte3_2`, `EdS_Parte3_3` (prioridad #1: libro sin audio previo).
+  - **Biología Celular — Calvo (14 caps):** `Tema_03, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 17, 18`.
+  - **Morfofunción — Saladin (20 caps):** `Tema_01, 05, 06, 08, 09, 10, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 25, 27, 28`.
+- **Prohibido** gastar cuota de voz ni tandas de texto en los **16 capítulos fuera del PSA 2027** (`Atlas_A`, `Atlas_B`, Calvo `01, 02, 02_Parte_2, 04, 16`, Saladin `02, 03, 04, 07, 11, 12, 24, 26, 29`) mientras falte cualquiera de los 39.
+- Orden fijo en `vigilar_cuota.sh`: **Fase 1 EdS (5) → Fase 2 Biología Celular PSA (14) → Fase 3 Morfofunción PSA (20) → Fase 4 resto (16) solo al terminar los 39.**
+- Al reportar avance a Ronald, separar siempre **«PSA 2027 (X/39)»** de los 16 capítulos fuera del examen.
