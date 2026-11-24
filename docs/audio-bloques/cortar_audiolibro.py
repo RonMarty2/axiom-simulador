@@ -405,6 +405,15 @@ def _construir_ancla_frontera(
     return (tit_con_num if num_hablados else tit_toks_base), (tit_con_num if num_hablados else tit_toks_base)
 
 
+def _tok_parecido(a: str, b: str, umbral: float = 0.82) -> bool:
+    """True si dos tokens coinciden o son variantes Whisper de 1 letra en términos médicos (>=5 letras)."""
+    if a == b:
+        return True
+    if len(a) >= 5 and len(b) >= 5:
+        return difflib.SequenceMatcher(None, a, b).ratio() >= umbral
+    return False
+
+
 def _puntuar_candidato(
     tit_toks: list[str],
     ancla: list[str],
@@ -421,8 +430,15 @@ def _puntuar_candidato(
     slice_anc = flat_toks[idx : idx + l_anc + 2]
 
     sim_tit = difflib.SequenceMatcher(None, tit_toks, slice_tit[:l_tit]).ratio()
+    if tit_toks and slice_tit:
+        # Si Whisper transcribió con 1 letra de diferencia un término médico (ej. 'trascitosis'/'transcitosis')
+        sim_fuzzy = sum(
+            1.0 if any(_tok_parecido(t, w) for w in slice_tit[:l_tit]) else 0.0
+            for t in tit_toks
+        ) / len(tit_toks)
+        sim_tit = max(sim_tit, 0.95 * sim_fuzzy)
     sim_anc = difflib.SequenceMatcher(None, ancla, slice_anc).ratio()
-    bonus_arranque = 0.10 if (tit_toks and idx < len(flat_toks) and flat_toks[idx] == tit_toks[0]) else 0.0
+    bonus_arranque = 0.10 if (tit_toks and idx < len(flat_toks) and _tok_parecido(flat_toks[idx], tit_toks[0])) else 0.0
     score_directo = min(1.0, 0.35 * sim_tit + 0.55 * sim_anc + bonus_arranque)
 
     # Si Whisper omitió el título corto en la pasada larga, evaluar coincidencia directa con el cuerpo tras el título
@@ -465,7 +481,7 @@ def _buscar_mejor_indice_whisper(
         if st > t_max:
             break
         todos_en_rango.append(i)
-        if item["tok"] in claves:
+        if item["tok"] in claves or (tit_toks and _tok_parecido(item["tok"], tit_toks[0])):
             candidatos.append(i)
 
     a_evaluar = candidatos if candidatos else todos_en_rango
@@ -1013,7 +1029,7 @@ def similitud_titulo_inicio(titulo_esperado: str, texto_oido_inicio: str) -> flo
         return 0.0
 
     # Cobertura de tokens del título dentro de la ventana inicial + mejor secuencia contigua
-    coinciden = sum(1 for t in tit_toks if t in oido_toks)
+    coinciden = sum(1 for t in tit_toks if any(_tok_parecido(t, o) for o in oido_toks))
     cob = coinciden / len(tit_toks)
     m = len(tit_toks)
     mejor_seq = 0.0
