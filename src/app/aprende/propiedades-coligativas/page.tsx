@@ -500,7 +500,7 @@ function EscVantHoff() {
 function EscExamen() {
   return (
     <EscenaRica>
-      <Titulo>Problemas tipo examen FCyT UMSS</Titulo>
+      <Titulo>Problemas tipo examen UMSS</Titulo>
 
       <WorkedExample titulo="EXAMEN: 11.7 g de NaCl en 500 g de agua. ¿T ebullición? (NaCl=58.5, Kb=0.52)">
         n = 11.7/58.5 = 0.2 mol; m = 0.2/0.5 = 0.4 m<br />

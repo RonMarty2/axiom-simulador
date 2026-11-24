@@ -99,7 +99,7 @@ function EscOcteto() {
 
       <Hook>
         El enlace químico explica POR QUÉ los átomos se combinan. En el examen
-        FCyT aparece en Q4 PREU 2025 (Lewis e identificar tipos) y en
+        de admisión UMSS aparece en preguntas de admisión 2025 (Lewis e identificar tipos) y en
         problemas de estructura molecular.
       </Hook>
 
@@ -326,7 +326,7 @@ function EscTiposCov() {
       {/* Antes este ejemplo nunca respondía: hablaba del "más típico iónico
           puro" (que no es lo que pregunta) y terminaba señalando el doble
           enlace de OTRA opción. El alumno cerraba la escena sin la respuesta. */}
-      <WorkedExample titulo="Q4 PREU 2025 · el compuesto que tiene los cuatro enlaces">
+      <WorkedExample titulo="Pregunta de admisión 2025 · el compuesto que tiene los cuatro enlaces">
         <strong>La pregunta:</strong> ¿cuál de estos reúne enlace iónico, covalente
         simple, covalente doble y covalente coordinado, todos a la vez?<br />
         a) K₂SO₄ &nbsp; b) CsClO₃ &nbsp; c) Na₂CO₃ &nbsp; d) AgNO₃<br /><br />

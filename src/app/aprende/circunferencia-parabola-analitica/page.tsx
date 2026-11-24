@@ -84,7 +84,7 @@ function EscCircCanonica() {
       <Titulo>Ecuación canónica de la circunferencia</Titulo>
 
       <Hook>
-        En el examen FCyT, las preguntas de circunferencia analítica son
+        En el examen de admisión UMSS, las preguntas de circunferencia analítica son
         frecuentes (G10 1op-2-2025 directa). Hay que dominar el paso de
         "centro + radio" a la ecuación, y al revés.
       </Hook>

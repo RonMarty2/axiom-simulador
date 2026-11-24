@@ -302,6 +302,21 @@ const INVESTIGACION_MED_UNIDADES: Unidad[] = [
   { numero: "05", titulo: "Promoción, prevención y sistema de salud", lecciones: [{ slug: "eds-promocion-sistema-salud", titulo: "Carta de Ottawa, ODS, SAFCI-SUS y niveles de atención" }] },
 ];
 
+const SLUGS_COMPRENSION_MED = new Set([
+  "lectura-comprension",
+  "denotacion-connotacion",
+  "lexico-contextual",
+  "cohesion-textual",
+  "plan-redaccion",
+]);
+
+const COMPRENSION_LECTORA_MED_UNIDADES: Unidad[] = RAZONAMIENTO_VERBAL_UNIDADES
+  .filter((u) => u.lecciones.some((l) => l.slug !== undefined && SLUGS_COMPRENSION_MED.has(l.slug)))
+  .map((u, i) => ({
+    ...u,
+    numero: String(i + 1).padStart(2, "0"),
+  }));
+
 const BLOQUES_MEDICINA: Bloque[] = [
   {
     id: "morfofuncion",
@@ -335,7 +350,7 @@ const BLOQUES_MEDICINA: Bloque[] = [
   },
   {
     id: "matematicas",
-    titulo: "Matemáticas: aritmética y álgebra",
+    titulo: "Matemáticas",
     descripcion: "Operaciones fundamentales, razones y proporciones, ecuaciones, funciones, exponentes, geometría y trigonometría.",
     // Geometría plana, trigonometría y analítica figuran en 4096.pdf pág. 38-45 (temario PSA 2027).
     // Las lecciones ya existían para Ingeniería; van dentro de Matemáticas (unidades 12+) para que
@@ -385,9 +400,9 @@ const BLOQUES_MEDICINA: Bloque[] = [
   },
   {
     id: "comprension-lectora",
-    titulo: "Comprensión Lectora y Razonamiento Verbal",
-    descripcion: "Comprensión de lectura, vocabulario contextual, analogías, cohesión y silogismos.",
-    unidades: RAZONAMIENTO_VERBAL_UNIDADES,
+    titulo: "Comprensión Lectora",
+    descripcion: "Reconocimiento textual, paráfrasis, inferencia, vocabulario contextual, idea central y cohesión.",
+    unidades: COMPRENSION_LECTORA_MED_UNIDADES,
   },
 ];
 

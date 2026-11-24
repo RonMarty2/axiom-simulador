@@ -70,7 +70,7 @@ function EscConceptos() {
       <Titulo>Conceptos básicos · posición, desplazamiento, distancia</Titulo>
 
       <Hook>
-        Cinemática 1D es lo más preguntado en el examen FCyT (4-5 preguntas
+        Cinemática 1D es lo más preguntado en el examen de admisión UMSS (4-5 preguntas
         de física típicas). MRU, MRUA, caída libre, todas se resuelven con
         4 ecuaciones que vas a memorizar acá.
       </Hook>

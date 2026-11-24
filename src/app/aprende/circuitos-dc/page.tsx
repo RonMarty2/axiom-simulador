@@ -38,7 +38,7 @@ function EscCorriente() {
 
       <Hook>
         Circuitos DC es la última unidad del programa de Física (examen final
-        del PREU). En el examen FCyT aparecen problemas de resistores en serie
+        de admisión). En el examen de admisión UMSS aparecen problemas de resistores en serie
         y paralelo, ley de Ohm y potencia.
       </Hook>
 

@@ -423,7 +423,7 @@ function EscGases() {
 function EscExamen() {
   return (
     <EscenaRica>
-      <Titulo>Problemas tipo examen FCyT UMSS</Titulo>
+      <Titulo>Problemas tipo examen UMSS</Titulo>
 
       <WorkedExample titulo="EXAMEN: g de Al(OH)₃ si reaccionan 5.4 g de Al con exceso de H₂O (Al=27, O=16, H=1)">
         <strong>Reacción:</strong> 2Al + 6H₂O → 2Al(OH)₃ + 3H₂<br />

@@ -76,7 +76,7 @@ function EscTipos() {
 
       <Hook>
         Las reacciones químicas + balanceo son la base de la estequiometría
-        (próxima lección). En el examen FCyT aparece en preguntas de redox
+        (próxima lección). En el examen de admisión UMSS aparece en preguntas de redox
         (Q18 1op-2-2025, Q13 3op-2025) y combustión (Q15 3op-2025).
       </Hook>
 

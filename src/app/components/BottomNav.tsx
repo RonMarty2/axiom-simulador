@@ -22,7 +22,7 @@ const TABS_IZQ: Tab[] = [
 const ACCION: Tab = { href: "/practicar", label: "Simulacro", icono: "play" };
 const TABS_DER: Tab[] = [
   { href: "/laminas", label: "Láminas", icono: "laminas" },
-  { href: "/historial", label: "Exámenes", icono: "examenes" },
+  { href: "/historial", label: "Historial", icono: "examenes" },
 ];
 
 const RUTAS_APP = [

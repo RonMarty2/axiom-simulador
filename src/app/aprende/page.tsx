@@ -131,7 +131,7 @@ export default function AprendePage() {
             borderRadius: 14, border: "1px dashed var(--border)",
             textAlign: "center", color: "var(--fg-muted)",
           }}>
-            Todavía no hay lecciones para tu facultad. Arrancamos por Ingeniería y Economía, el resto viene después.
+            Todavía estamos preparando las lecciones para tu facultad.
           </div>
         )}
         {bloques?.map((b, bi) => (

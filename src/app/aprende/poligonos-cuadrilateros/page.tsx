@@ -78,7 +78,7 @@ function EscIntro() {
       <Hook>
         Los polígonos regulares aparecen en problemas de áreas, perímetros y
         ángulos. Hexágonos, pentágonos, octógonos son los más comunes en el
-        examen FCyT.
+        examen de admisión UMSS.
       </Hook>
 
       <Definicion termino="Polígono">

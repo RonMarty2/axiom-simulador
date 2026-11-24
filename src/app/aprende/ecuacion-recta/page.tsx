@@ -58,7 +58,7 @@ function EscCartesiano() {
 
       <Hook>
         Geometría analítica = álgebra aplicada a la geometría. Cada figura
-        geométrica se vuelve una ecuación. En el examen FCyT aparece la
+        geométrica se vuelve una ecuación. En el examen de admisión UMSS aparece la
         ecuación de la recta, distancia punto-recta, ecuación de la
         circunferencia tangente a una recta. Todas vienen de aquí.
       </Hook>
@@ -250,7 +250,7 @@ function EscDistancia() {
         coeficientes (sin C).
       </Resumen>
 
-      <WorkedExample titulo="Caso clásico examen FCyT (G10 1op-2-2025)">
+      <WorkedExample titulo="Caso clásico examen UMSS (G10 1op-2-2025)">
         Hallar la ecuación de la circunferencia con centro C(2, −1) y tangente
         a la recta 3x − 4y + 5 = 0.<br /><br />
 

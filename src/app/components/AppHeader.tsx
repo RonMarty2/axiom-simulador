@@ -144,7 +144,7 @@ export default function AppHeader() {
               <Link href="/aprende" style={navLink(pathname?.startsWith("/aprende"))}>Aprende</Link>
               <Link href="/laminas" style={navLink(pathname?.startsWith("/laminas"))}>Láminas</Link>
               <Link href="/practicar" style={navLink(pathname?.startsWith("/practicar"))}>Practicar</Link>
-              <Link href="/historial" style={navLink(pathname === "/historial")}>Exámenes</Link>
+              <Link href="/historial" style={navLink(pathname === "/historial")}>Historial</Link>
             </>
           )}
           {admin && (

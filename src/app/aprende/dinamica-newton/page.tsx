@@ -74,7 +74,7 @@ function EscFuerza() {
 
       <Hook>
         Las leyes de Newton son el "sistema operativo" de la mecánica clásica.
-        Casi toda la física del examen FCyT depende de ellas: fricción, planos
+        Casi toda la física del examen de admisión UMSS depende de ellas: fricción, planos
         inclinados, sistemas con poleas, choques.
       </Hook>
 

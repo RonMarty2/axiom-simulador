@@ -97,7 +97,7 @@ function EscIntro() {
       </Parrafo>
 
       <Hook>
-        En el examen UMSS FCyT, <strong>casi todas las preguntas de
+        En el examen de admisión UMSS, <strong>casi todas las preguntas de
         geometría usan triángulos</strong> directa o indirectamente.
         Polígonos regulares se subdividen en triángulos. La trigonometría se
         construye sobre triángulos rectángulos. Pitágoras aparece todo el tiempo.

@@ -67,7 +67,7 @@ function EscIntro() {
       <Titulo>Cinemática 2D · descompones en X e Y</Titulo>
 
       <Hook>
-        Cinemática 2D aparece MUCHO en el examen FCyT (5 preguntas observadas
+        Cinemática 2D aparece MUCHO en el examen de admisión UMSS (5 preguntas observadas
         en facsímiles). Tiro parabólico es el rey de las preguntas. Movimiento
         circular es el segundo.
       </Hook>

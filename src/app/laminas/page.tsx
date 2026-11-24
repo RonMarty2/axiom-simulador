@@ -48,7 +48,7 @@ export default function LaminasPage() {
 
         {!facultadLaminas && (
           <div style={{ padding: 24, border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 12, color: LIENZO.fgDim, fontSize: 14 }}>
-            Todavía no hay láminas para tu facultad — arrancamos por Ingeniería, el resto viene después.
+            Todavía estamos preparando las láminas de repaso para tu facultad.
           </div>
         )}
 

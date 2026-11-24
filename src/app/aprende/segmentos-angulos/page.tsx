@@ -45,7 +45,7 @@ function EscIntro() {
       </Parrafo>
 
       <Hook>
-        En el examen UMSS FCyT, <strong>5 de las 20 preguntas</strong> son de
+        En el examen de admisión UMSS, <strong>5 de las 20 preguntas</strong> son de
         Geometría-Trigonometría. Pero todas dependen de manejar bien los
         elementos básicos. Si confundes un ángulo agudo con uno obtuso, pierdes
         puntos en preguntas que tendrías ganadas.

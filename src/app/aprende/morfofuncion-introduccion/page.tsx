@@ -326,7 +326,7 @@ function EscSistemas() {
 
       <Cuidado>
         Algunos textos consideran 10 sistemas (uniendo linfático en
-        cardiovascular). Para FCyT/medicina UMSS, se cuenta como 11.
+        cardiovascular). Para el examen de admisión UMSS, se cuenta como 11.
       </Cuidado>
     </EscenaRica>
   );

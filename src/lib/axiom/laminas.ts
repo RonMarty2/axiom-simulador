@@ -29,12 +29,7 @@ export type FacultadLaminas = {
   modulos: Modulo[];
 };
 
-export const LAMINAS: FacultadLaminas[] = [
-  {
-    facultad: "ingenieria",
-    area: "aritmetica_algebra",
-    areaLabel: "Aritmética-Álgebra",
-    modulos: [
+const MODULOS_MATEMATICAS: Modulo[] = [
       {
         slug: "logaritmos-y-exponenciales",
         titulo: "Logaritmos y exponenciales",
@@ -237,7 +232,20 @@ export const LAMINAS: FacultadLaminas[] = [
           { slug: "planteo-de-problemas-de-edades", titulo: "Planteo de problemas de edades", publicada: true },
         ],
       },
-    ],
+];
+
+export const LAMINAS: FacultadLaminas[] = [
+  {
+    facultad: "ingenieria",
+    area: "aritmetica_algebra",
+    areaLabel: "Aritmética-Álgebra",
+    modulos: MODULOS_MATEMATICAS,
+  },
+  {
+    facultad: "medicina",
+    area: "matematicas",
+    areaLabel: "Matemáticas",
+    modulos: MODULOS_MATEMATICAS,
   },
 ];
 

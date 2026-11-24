@@ -77,7 +77,7 @@ function EscIntro() {
       <Titulo>Circunferencia · la figura más simétrica</Titulo>
 
       <Hook>
-        Circunferencia aparece en 1-2 preguntas del examen FCyT. Las preguntas
+        Circunferencia aparece en 1-2 preguntas del examen de admisión UMSS. Las preguntas
         típicas: tangentes desde un punto exterior, potencia, ángulos. Pitágoras
         se usa CONSTANTEMENTE para resolver.
       </Hook>
@@ -173,7 +173,7 @@ function EscDosCircs() {
         6. <strong>Concéntricas</strong>: d = 0.
       </Resumen>
 
-      <WorkedExample titulo="Caso de examen FCyT 2025 · tres circunferencias tangentes">
+      <WorkedExample titulo="Caso de examen UMSS 2025 · tres circunferencias tangentes">
         Tres circunferencias tangentes entre sí exteriormente. C₁ y C₂ tienen
         radio R = 5. C₃ tiene radio r = 3. Sea T el punto de tangencia entre C₁
         y C₂. Calcular la distancia del centro de C₃ a T.<br /><br />
@@ -324,7 +324,7 @@ function EscTangentes() {
       </WorkedExample>
 
       <Conexion>
-        Este patrón aparece literal en el examen FCyT 1op-2-2025 (Pregunta G7):
+        Este patrón aparece literal en el examen UMSS 1op-2-2025 (Pregunta G7):
         "Desde un punto exterior A se traza una recta tangente a la
         circunferencia de diámetro 8√3 u. Si la distancia del centro al punto
         A es 8 u, ¿cuál es la longitud de la tangente?". Respuesta: 4 u.

@@ -71,7 +71,7 @@ function EscIntro() {
 
       <Hook>
         Vectores aparecen en TODA la física. Cinemática, dinámica,
-        electrostática. Y en el examen FCyT también: F2 del PREU 2025 pidió
+        electrostática. Y en el examen de admisión UMSS también: un examen de admisión 2025 pidió
         calcular módulo de producto vectorial. Sin vectores, no entiendes ni
         velocidad ni fuerza.
       </Hook>
@@ -264,7 +264,7 @@ function EscVectorial() {
         • <strong>NO conmutativo</strong>: A⃗ × B⃗ = −(B⃗ × A⃗).
       </Resumen>
 
-      <WorkedExample titulo="Aplicación del facsímil F2 PREU 2025">
+      <WorkedExample titulo="Aplicación de examen de admisión 2025">
         Dados los vectores A⃗ = 5î + 3ĵ, B⃗ = −2î + 4ĵ, C⃗ = −2î − 3ĵ,
         D⃗ = 8î − 2ĵ.<br />
         Sean E⃗ = A⃗ + B⃗ = (3, 7), F⃗ = C⃗ − D⃗ = (−10, −1).<br />
@@ -281,7 +281,7 @@ function EscVectorial() {
 
       <Conexion>
         Producto vectorial se usa para: torque (τ⃗ = r⃗ × F⃗), momento angular,
-        fuerza magnética sobre carga (F⃗ = qv⃗ × B⃗). En el examen FCyT
+        fuerza magnética sobre carga (F⃗ = qv⃗ × B⃗). En el examen de admisión UMSS
         aparece en preguntas de electromagnetismo.
       </Conexion>
     </EscenaRica>

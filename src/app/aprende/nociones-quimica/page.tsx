@@ -44,7 +44,7 @@ function EscIntro() {
       <Titulo>Química · la ciencia de la materia</Titulo>
 
       <Hook>
-        La Química tiene 10 unidades en el programa oficial UMSS FCyT: es la
+        La Química tiene 10 unidades en el temario de admisión UMSS: es la
         materia MÁS EXTENSA del examen junto con Física. El texto guía oficial
         es Chang & Overby (13ª ed). Empezamos por las bases: qué es la materia
         y cómo medirla.
@@ -414,7 +414,7 @@ function EscDensidad() {
         (No la confundas con γ, que en Física representa el peso específico).
       </Definicion>
 
-      <WorkedExample titulo="Caso del facsímil Q5 PREU 2025">
+      <WorkedExample titulo="Caso de examen de admisión 2025">
         Probeta con 12.7 mL de agua. Sumerges un perdigón de 5.352 g, el
         volumen pasa a 13.3 mL. ¿Gravedad específica? (ρ_agua = 1 g/mL)<br /><br />
 

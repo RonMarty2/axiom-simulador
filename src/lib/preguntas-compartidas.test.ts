@@ -88,8 +88,8 @@ describe("preguntas compartidas (Ingeniería -> Medicina en predictivo)", () => 
       assert.ok(p.id.startsWith("prestada:"), `id sin prefijo prestada:: ${p.id}`);
       assert.deepEqual(p.prestada, {
         desde: "ingenieria",
-        etiqueta: "Pregunta de práctica de Ingeniería",
-        nota: "Viene de un examen de Ingeniería y es de un tema que pide la lista oficial de la PSA 2027.",
+        etiqueta: "Pregunta de práctica PSA 2027",
+        nota: "Pregunta de práctica alineada con el temario oficial de la PSA 2027.",
       });
     }
 

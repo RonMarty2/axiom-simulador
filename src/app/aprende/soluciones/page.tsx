@@ -488,7 +488,7 @@ function EscDiluciones() {
 function EscExamen() {
   return (
     <EscenaRica>
-      <Titulo>Problemas tipo examen FCyT UMSS</Titulo>
+      <Titulo>Problemas tipo examen UMSS</Titulo>
 
       <WorkedExample titulo="EXAMEN: solución 15% m/m de NaCl en 400 g de agua. ¿Masa de NaCl?">
         Sea x = masa de NaCl. masa_sol = x + 400.<br />

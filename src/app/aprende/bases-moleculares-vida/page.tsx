@@ -663,7 +663,7 @@ function EscPractica() {
       </Misconception>
 
       <Resumen>
-        4 biomoléculas. 4 grupos de funciones. Cada examen FCyT trae 1–2
+        4 biomoléculas. 4 grupos de funciones. El examen de admisión suele incluir 1–2
         preguntas: identificación por composición elemental, función o
         clasificación por número de subunidades.
       </Resumen>

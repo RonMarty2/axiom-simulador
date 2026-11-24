@@ -126,7 +126,7 @@ function EscVariables() {
 
       <Cuidado>
         <strong>TODO debe estar en Kelvin para los gases.</strong> Usar °C en
-        las ecuaciones es el error más frecuente del examen FCyT.
+        las ecuaciones es el error más frecuente del examen de admisión UMSS.
       </Cuidado>
 
       <Mnemotecnia>
@@ -402,7 +402,7 @@ function EscIdeal() {
       </Definicion>
 
       <Cuidado>
-        El valor de R depende de las unidades. Para FCyT UMSS, siempre usar:
+        El valor de R depende de las unidades. Para el examen UMSS, siempre usar:
         <strong> R = 0.082 atm·L/(mol·K)</strong>. Si te dan kPa o m³, convierte
         primero.
       </Cuidado>
@@ -574,7 +574,7 @@ function EscDalton() {
 function EscExamen() {
   return (
     <EscenaRica>
-      <Titulo>Problemas tipo examen FCyT UMSS</Titulo>
+      <Titulo>Problemas tipo examen UMSS</Titulo>
 
       <WorkedExample titulo="EXAMEN: 8 g de O₂ a 0.5 atm y 27 °C. ¿Volumen? (O=16)">
         n = 8/32 = 0.25 mol; T = 300 K<br />

@@ -145,7 +145,7 @@ function EscFundamentales() {
       <Titulo>Identidades fundamentales</Titulo>
 
       <Hook>
-        Las identidades trigonométricas aparecen en el examen FCyT para
+        Las identidades trigonométricas aparecen en el examen de admisión UMSS para
         "simplificar la siguiente expresión". El examen 1op-2-2025 tuvo una
         idéntica (G10). Memorizar las identidades clave es OBLIGATORIO.
       </Hook>
@@ -335,7 +335,7 @@ function EscSimplificacion() {
       <Titulo>Simplificación de expresiones trigonométricas</Titulo>
 
       <Parrafo>
-        Esta es el tipo de pregunta MÁS COMÚN en el examen FCyT sobre
+        Esta es el tipo de pregunta MÁS COMÚN en el examen de admisión UMSS sobre
         trigonometría. Te dan una expresión enredada y hay que reducirla a una
         de las 6 funciones.
       </Parrafo>
@@ -461,7 +461,7 @@ function EscEcuacionesAvanzadas() {
         con x = 150°, el lado izquierdo da 2(1/2)(3/4) = 3/4 y el derecho
         6(1/8) = 3/4. Coinciden.<br /><br />
 
-        Este tipo de ejercicio apareció en el facsímil 2do parcial PREU 2025 G2.
+        Este tipo de ejercicio apareció en un examen de admisión 2025 G2.
       </WorkedExample>
 
       <Cuidado>

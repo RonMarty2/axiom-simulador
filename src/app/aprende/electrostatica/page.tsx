@@ -72,7 +72,7 @@ function EscCarga() {
 
       <Hook>
         Electrostática aparece en preguntas sobre fuerzas entre cargas y
-        capacitores en serie/paralelo en el examen FCyT. Las ecuaciones son
+        capacitores en serie/paralelo en el examen de admisión UMSS. Las ecuaciones son
         análogas a las gravitatorias pero con signos.
       </Hook>
 
