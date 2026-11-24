@@ -23,3 +23,6 @@ Construye el video vertical 1080x1920 con timeline por escena en HTML/CSS/JS det
 - **Zonas seguras:** Deja libre el 12% superior y el 20% inferior para que los botones de TikTok/Instagram no tapen el contenido.
 - **Tipografía legible:** Ningún texto menor a 44px en pantalla.
 - **Ver antes de mostrar:** extraé fotogramas clave del render y miralos con Read antes de pasarle un video o una maqueta a Ronald.
+- **Continuidad, ritmo y movimiento (23-11, ideas de onetake, hyperframes y anything2explainer):**
+  - En transiciones entre escenas, mantén un elemento o vector en movimiento (*carry* / continuidad de dirección) en lugar de cortar en seco tipo diapositiva; evita pausas muertas de más de 3 s y asegura un *hold* final legible (>= 1 s).
+  - En desplazamientos rápidos de cámara o elementos (> 80 px/frame), aplica *motion blur* por subframes sin emborronar cortes secos.

@@ -39,3 +39,4 @@ Entrega `final/revision-<video>.md` con:
 - Veredicto (PUBLICAR / CORREGIR ANTES)
 - Hallazgos ordenados por gravedad con segundo exacto y agente responsable
 - Sección obligatoria "Lecciones nuevas" para anexar a `lecciones.md`.
+- **Chequeo cuantitativo anti-PPT (23-11, ideas de anything2explainer, onetake y hyperframes):** verifica que no haya tramos muertos (> 3 s sin cambio), cuadros vacíos ni cortes bruscos sin continuidad visual (*carry*), que el *hold* final sea legible (>= 1 s) y que todo dato/número mostrado en pantalla exista en el guion o fuente.
