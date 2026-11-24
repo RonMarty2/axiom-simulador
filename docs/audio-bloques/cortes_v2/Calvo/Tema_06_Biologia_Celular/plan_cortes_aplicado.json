@@ -1,0 +1,201 @@
+{
+  "capitulo": "Tema_06_Biologia_Celular",
+  "libro": "Calvo",
+  "titulo_capitulo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
+  "audio_origen": "C:\\Users\\lmigu\\SynologyDrive\\10.TRABAJO_LOCAL\\axiom-simulador\\examenes pasados\\MEDICINA\\LIBROS DE MEDICINA\\_MOTOR_AUDIO\\_AUDIO_V2\\Tema_06_Biologia_Celular_LITERAL_TTS.wav",
+  "duracion_total_s": 4636.533,
+  "veredicto": "FALLA",
+  "aprobadas": 3,
+  "total_verificadas": 4,
+  "archivos": [
+    "Tema_06_Biologia_Celular_Completo.mp3",
+    "Tema_06_Biologia_Celular_P01_membrana_basal.mp3",
+    "Tema_06_Biologia_Celular_P02_matriz_extracelular_mec.mp3",
+    "Tema_06_Biologia_Celular_P03_fibras_elasticas.mp3"
+  ],
+  "tramos": [
+    {
+      "indice": 1,
+      "etiqueta": "P01",
+      "archivo": "Tema_06_Biologia_Celular_P01_membrana_basal.mp3",
+      "titulos": [
+        "Membrana basal"
+      ],
+      "inicio_palabra": 0,
+      "fin_palabra": 6541,
+      "palabras": 6541,
+      "nota_propuesta": ">20 min (sin sub-subtítulos)",
+      "t_inicio": 0.0,
+      "t_fin": 2861.72,
+      "duracion_est_s": 2861.72,
+      "confianza": 1.0,
+      "hueco_inicio_s": 0.0,
+      "texto_borde_inicio": "Capítulo 6. Especializaciones de la membrana plasmática e interacción de la célula con su entorno. María Elena Bodegas, Alfonso Calvo. Objetivos de aprendizaje. Conocer las especializaciones de la membrana",
+      "texto_borde_fin": "da lugar a hemorragias pulmonares que comprometen la vida del paciente y a una glomerulone fritis rápidamente progresiva que finaliza en un fallo renal el tratamiento consiste en plasma féresis y en el uso de corticoides e inmunodepresores matriz"
+    },
+    {
+      "indice": 2,
+      "etiqueta": "P02",
+      "archivo": "Tema_06_Biologia_Celular_P02_matriz_extracelular_mec.mp3",
+      "titulos": [
+        "Matriz extracelular (MEC)",
+        "Fibras de la MEC",
+        "Fibras de colágeno",
+        "Fibras reticulares"
+      ],
+      "inicio_palabra": 6541,
+      "fin_palabra": 8472,
+      "palabras": 1931,
+      "nota_propuesta": "",
+      "t_inicio": 2861.72,
+      "t_fin": 3704.32,
+      "duracion_est_s": 842.6,
+      "confianza": 0.557,
+      "hueco_inicio_s": 0.0,
+      "texto_borde_inicio": "inmunodepresores matriz extraselular MEK como se ha venido indicando a lo largo del capítulo las células establecen relaciones muy estrechas con los componentes de la matriz extraselular MEK en algunos tejidos como algunos",
+      "texto_borde_fin": "1 % las fibras reticulares también se conocen como fibras argirófilas o fibras argentófilas este tipo de fibras no forma haces sino finas redes de fibras delgadas con un diámetro de 0 ,5 a 2 micrómetros fibras"
+    },
+    {
+      "indice": 3,
+      "etiqueta": "P03",
+      "archivo": "Tema_06_Biologia_Celular_P03_fibras_elasticas.mp3",
+      "titulos": [
+        "Fibras elásticas",
+        "Sustancia fundamental",
+        "Glucosaminoglucanos",
+        "Proteoglucanos",
+        "Calvo.)"
+      ],
+      "inicio_palabra": 8472,
+      "fin_palabra": 10784,
+      "palabras": 2312,
+      "nota_propuesta": "",
+      "t_inicio": 3704.32,
+      "t_fin": 4636.5326,
+      "duracion_est_s": 932.213,
+      "confianza": 0.8895,
+      "hueco_inicio_s": 0.0,
+      "texto_borde_inicio": "micrómetros fibras elásticas las fibras elásticas son típicamente más delgadas 0 .2 a 1 micrómetros que las fibras de colágeno y se organizan de acuerdo a un modelo ramificado para formar una red tridimensional a",
+      "texto_borde_fin": "tenacina suele limitarse al tejido embrionario mesenquimatoso y nervioso donde marca vías migratorias para células específicas y el crecimiento de los axones. También es producida por células metastásicas para favorecer la migración."
+    }
+  ],
+  "verificacion": [
+    {
+      "archivo": "Tema_06_Biologia_Celular_Completo.mp3",
+      "etiqueta": "Completo",
+      "titulos": [
+        "Especializaciones de la membrana plasmática e interacción de la célula con su entorno"
+      ],
+      "t_inicio": 0.0,
+      "t_fin": 4636.5326,
+      "duracion_s": 4637.465,
+      "max_volume_db": -1.7,
+      "mean_volume_db": -17.5,
+      "silencio_inicio_s": 0.237,
+      "silencio_fin_s": 1.256,
+      "max_silencio_interno_s": 1.308,
+      "caida_final_db": 0.0,
+      "titulo_inicio_esperado": "Membrana basal",
+      "titulo_inicio_alternativo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
+      "texto_oido_inicio": "Capítulo 6. Especializaciones de la membrana plasmática e interacción de la célula con su entorno. María Elena Bodegas, Alfonso Calvo. Objetivos de aprendizaje. Conocer las especializaciones de la membrana.",
+      "texto_oido_fin": "al tejido embrionario, mesenquimatoso y nervioso, donde marca avías migratorias para células específicas y el crecimiento de los axones. También es producida por células metastásicas para favorecer la migración.",
+      "nota_propuesta": "Completo",
+      "es_completo_acompanante": true,
+      "es_completo_unico": false,
+      "similitud_inicio": 1.0,
+      "fallos": [],
+      "ok": true,
+      "veredicto": "APRUEBA"
+    },
+    {
+      "archivo": "Tema_06_Biologia_Celular_P01_membrana_basal.mp3",
+      "etiqueta": "P01",
+      "titulos": [
+        "Membrana basal"
+      ],
+      "t_inicio": 0.0,
+      "t_fin": 2861.72,
+      "duracion_s": 2862.64,
+      "max_volume_db": -1.8,
+      "mean_volume_db": -17.5,
+      "silencio_inicio_s": 0.237,
+      "silencio_fin_s": 0.92,
+      "max_silencio_interno_s": 1.308,
+      "caida_final_db": 0.0,
+      "titulo_inicio_esperado": "Membrana basal",
+      "titulo_inicio_alternativo": "Especializaciones de la membrana plasmática e interacción de la célula con su entorno",
+      "texto_oido_inicio": "Capítulo 6. Especializaciones de la membrana plasmática e interacción de la célula con su entorno. María Elena Bodegas, Alfonso Calvo. Objetivos de aprendizaje. Conocer las especializaciones de la membrana.",
+      "texto_oido_fin": "pulmonares que comprometen la vida del paciente y a una glomerulone fritis rápidamente progresiva que finaliza en un fallo renal. El tratamiento consiste en plasma féresis y en el uso de corticoides e inmunodepresores.",
+      "nota_propuesta": ">20 min (sin sub-subtítulos)",
+      "es_completo_acompanante": false,
+      "es_completo_unico": false,
+      "similitud_inicio": 1.0,
+      "fallos": [],
+      "ok": true,
+      "veredicto": "APRUEBA"
+    },
+    {
+      "archivo": "Tema_06_Biologia_Celular_P02_matriz_extracelular_mec.mp3",
+      "etiqueta": "P02",
+      "titulos": [
+        "Matriz extracelular (MEC)",
+        "Fibras de la MEC",
+        "Fibras de colágeno",
+        "Fibras reticulares"
+      ],
+      "t_inicio": 2861.72,
+      "t_fin": 3704.32,
+      "duracion_s": 843.8,
+      "max_volume_db": -2.2,
+      "mean_volume_db": -17.4,
+      "silencio_inicio_s": 0.25,
+      "silencio_fin_s": 0.95,
+      "max_silencio_interno_s": 1.073,
+      "caida_final_db": 0.1,
+      "titulo_inicio_esperado": "Matriz extracelular (MEC)",
+      "titulo_inicio_alternativo": "",
+      "texto_oido_inicio": "Matrisa Extracellular, MEK. Como se ha venido indicando a lo largo del capítulo, las células establecen relaciones muy estrechas con los componentes de la matrisa extracellular, MEK.",
+      "texto_oido_fin": "Las fibras reticulares también se conocen como fibras argirófilas o fibras argentófilas. Este tipo de fibras no forma haces, sino finas redes de fibras delgadas con un diámetro de 0,5 a 2 micrómetros.",
+      "nota_propuesta": "",
+      "es_completo_acompanante": false,
+      "es_completo_unico": false,
+      "similitud_inicio": 0.3333,
+      "fallos": [
+        "Inicio no coincide con título 'Matriz extracelular (MEC)' (sim=0.33 < 0.6)"
+      ],
+      "ok": false,
+      "veredicto": "FALLA"
+    },
+    {
+      "archivo": "Tema_06_Biologia_Celular_P03_fibras_elasticas.mp3",
+      "etiqueta": "P03",
+      "titulos": [
+        "Fibras elásticas",
+        "Sustancia fundamental",
+        "Glucosaminoglucanos",
+        "Proteoglucanos",
+        "Calvo.)"
+      ],
+      "t_inicio": 3704.32,
+      "t_fin": 4636.5326,
+      "duracion_s": 933.425,
+      "max_volume_db": -1.6,
+      "mean_volume_db": -17.5,
+      "silencio_inicio_s": 0.25,
+      "silencio_fin_s": 1.286,
+      "max_silencio_interno_s": 1.199,
+      "caida_final_db": 0.0,
+      "titulo_inicio_esperado": "Fibras elásticas",
+      "titulo_inicio_alternativo": "",
+      "texto_oido_inicio": "Fibras Elásticas Las fibras elásticas son típicamente más delgadas, 0.2 a 1 micrómetros, que las fibras de colágeno y se organizan de acuerdo a un modelo ramificado para formar una red tridimensional.",
+      "texto_oido_fin": "limitarse al tejido embrionario, mesenquimatoso y nervioso, donde marca vías migratorias para células específicas y el crecimiento de los axones. También es producida por células metástásicas para favorecer la migración.",
+      "nota_propuesta": "",
+      "es_completo_acompanante": false,
+      "es_completo_unico": false,
+      "similitud_inicio": 1.0,
+      "fallos": [],
+      "ok": true,
+      "veredicto": "APRUEBA"
+    }
+  ]
+}

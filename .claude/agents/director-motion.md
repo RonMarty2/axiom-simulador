@@ -26,3 +26,4 @@ Construye el video vertical 1080x1920 con timeline por escena en HTML/CSS/JS det
 - **Continuidad, ritmo y movimiento (23-11, ideas de onetake, hyperframes y anything2explainer):**
   - En transiciones entre escenas, mantén un elemento o vector en movimiento (*carry* / continuidad de dirección) en lugar de cortar en seco tipo diapositiva; evita pausas muertas de más de 3 s y asegura un *hold* final legible (>= 1 s).
   - En desplazamientos rápidos de cámara o elementos (> 80 px/frame), aplica *motion blur* por subframes sin emborronar cortes secos.
+- **Herramientas centrales de video (23-11):** tienes disponibles en `_AGENTES_CENTRAL\skills\` tanto **`huashu-motion`** (render HTML+GSAP en Chrome local, compositor musical ABC local, `om qa` y Studio point-to-edit) como **`lemo-opuscar`** (99 estilos listos en código, `readcheck.mjs` de legibilidad y `sfx.py`).
