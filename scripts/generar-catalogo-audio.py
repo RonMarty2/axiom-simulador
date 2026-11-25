@@ -242,4 +242,5 @@ def main():
     print(f"Generado {SALIDA}: {len(catalogo)} unidades, {total_pistas} pistas.")
 
 
-if __name__ == "__main__"
+if __name__ == "__main__":
+    main()

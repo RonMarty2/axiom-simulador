@@ -2404,5 +2404,79 @@ export const AUDIOLIBROS_MEDICINA: Record<string, AudiolibroUnidad> = {
         "tamanoMb": 6.9
       }
     ]
+  },
+  "eds-investigacion-bioetica": {
+    "slug": "eds-investigacion-bioetica",
+    "libro": "Compendio UMSS · Educación en Salud e Investigación",
+    "capitulo": "Parte II · Metodología de la investigación",
+    "gratis": true,
+    "pistas": [
+      {
+        "id": "eds-investigacion-bioetica-01",
+        "numero": 1,
+        "titulo": "Metodología de la investigación",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte2_P01_Metodologia_de_la_Investigacion.mp3",
+        "tamanoMb": 69.6
+      }
+    ]
+  },
+  "eds-determinantes-salud": {
+    "slug": "eds-determinantes-salud",
+    "libro": "Compendio UMSS · Educación en Salud e Investigación",
+    "capitulo": "Parte I · Educación en salud y determinantes",
+    "gratis": false,
+    "pistas": [
+      {
+        "id": "eds-determinantes-salud-01",
+        "numero": 1,
+        "titulo": "Educación en salud y sistema de salud",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte1_P01_Educacion_en_Salud_y_Sistema_de_Salud.mp3",
+        "tamanoMb": 50.9
+      }
+    ]
+  },
+  "eds-estadistica-descriptiva": {
+    "slug": "eds-estadistica-descriptiva",
+    "libro": "Compendio UMSS · Educación en Salud e Investigación",
+    "capitulo": "Parte III · Estadística descriptiva",
+    "gratis": false,
+    "pistas": [
+      {
+        "id": "eds-estadistica-descriptiva-01",
+        "numero": 1,
+        "titulo": "Estadística descriptiva parte I",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte3_P01_Estadistica_Descriptiva_Parte_I.mp3",
+        "tamanoMb": 57.4
+      },
+      {
+        "id": "eds-estadistica-descriptiva-02",
+        "numero": 2,
+        "titulo": "Estadística descriptiva parte II",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte3_P02_Estadistica_Descriptiva_Parte_II.mp3",
+        "tamanoMb": 62.0
+      },
+      {
+        "id": "eds-estadistica-descriptiva-03",
+        "numero": 3,
+        "titulo": "Estadística descriptiva parte III",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte3_P03_Estadistica_Descriptiva_Parte_III.mp3",
+        "tamanoMb": 7.4
+      }
+    ]
+  },
+  "eds-promocion-sistema-salud": {
+    "slug": "eds-promocion-sistema-salud",
+    "libro": "Compendio UMSS · Educación en Salud e Investigación",
+    "capitulo": "Parte I · Promoción, prevención y sistema de salud",
+    "gratis": false,
+    "pistas": [
+      {
+        "id": "eds-promocion-sistema-salud-01",
+        "numero": 1,
+        "titulo": "Educación en salud y sistema de salud",
+        "rutaRelativa": "3_EDUCACION_SALUD/EdS_Parte1_P01_Educacion_en_Salud_y_Sistema_de_Salud.mp3",
+        "tamanoMb": 50.9
+      }
+    ]
   }
 };
