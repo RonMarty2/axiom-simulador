@@ -41,6 +41,11 @@ MAPA = [
     ("bcm-especializaciones-membrana", "Calvo · Biología Celular", "Capítulo 6 · Especializaciones de la membrana", False, "1_BIOLOGIA_CELULAR", [("Tema_06", "Cap. 6")]),
     ("bcm-celulas-madre", "Calvo · Biología Celular", "Capítulo 18 · Las células madre", False, "1_BIOLOGIA_CELULAR", [("Tema_18", "Cap. 18")]),
     ("bcm-respuesta-inmunitaria", "Calvo · Biología Celular", "Capítulo 17 · Respuesta inmunitaria", False, "1_BIOLOGIA_CELULAR", [("Tema_17", "Cap. 17")]),
+    # Educacion en Salud e Investigacion (Compendio oficial UMSS, Partes I, II y III)
+    ("eds-investigacion-bioetica", "Compendio UMSS · Educación en Salud e Investigación", "Parte II · Metodología de la investigación", True, "3_EDUCACION_SALUD", [("EdS_Parte2", "Parte II")]),
+    ("eds-determinantes-salud", "Compendio UMSS · Educación en Salud e Investigación", "Parte I · Educación en salud y determinantes", False, "3_EDUCACION_SALUD", [("EdS_Parte1", "Parte I")]),
+    ("eds-estadistica-descriptiva", "Compendio UMSS · Educación en Salud e Investigación", "Parte III · Estadística descriptiva", False, "3_EDUCACION_SALUD", [("EdS_Parte3", "Parte III")]),
+    ("eds-promocion-sistema-salud", "Compendio UMSS · Educación en Salud e Investigación", "Parte I · Promoción, prevención y sistema de salud", False, "3_EDUCACION_SALUD", [("EdS_Parte1", "Parte I")]),
 ]
 
 TILDES = {
@@ -165,6 +170,7 @@ TILDES = {
     "Timo": "Timo", "Bazo": "Bazo", "Ganglios": "Ganglios", "Medula": "Médula",
     "Autoinmunidad": "Autoinmunidad", "Hipersensibilidad": "Hipersensibilidad",
     "Inmunodeficiencia": "Inmunodeficiencia", "Vacunas": "Vacunas", "Vacunacion": "Vacunación",
+    "Educacion": "Educación", "Metodologia": "Metodología", "Investigacion": "Investigación", "Estadistica": "Estadística",
 }
 
 MINUSCULAS = {"y", "e", "o", "u", "de", "del", "la", "las", "el", "los", "en", "con", "por", "para", "a", "al", "sus", "su", "entre", "sobre", "hacia", "sin"}
@@ -172,7 +178,7 @@ MINUSCULAS = {"y", "e", "o", "u", "de", "del", "la", "las", "el", "los", "en", "
 
 def limpiar_titulo(nombre_archivo: str, prefijo_cap: str, multi_cap: bool) -> str:
     stem = os.path.splitext(nombre_archivo)[0]
-    m = re.match(r"^(?:Morfo_Cap_\d+|Tema_\d+)_P\d+_(.+)$", stem)
+    m = re.match(r"^(?:Morfo_Cap_\d+|Tema_\d+|EdS_Parte\d+)_P\d+_(.+)$", stem)
     crudo = m.group(1) if m else stem
     palabras = [p for p in crudo.split("_") if p]
     salida = []
@@ -236,5 +242,4 @@ def main():
     print(f"Generado {SALIDA}: {len(catalogo)} unidades, {total_pistas} pistas.")
 
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__"
