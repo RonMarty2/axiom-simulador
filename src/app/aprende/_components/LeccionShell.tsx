@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { extraerSlugAprende, obtenerAudiolibro } from "@/lib/audio-medicina";
+import { marcarLeccionCompletada } from "@/lib/axiom/progreso-lecciones";
 import { LIENZO } from "./lienzo";
 import ReproductorAudiolibro from "./ReproductorAudiolibro";
 
@@ -28,6 +29,13 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
   const audiolibro = slug ? obtenerAudiolibro(slug) : null;
   const EscenaComp = escenas[i].componente;
   const progreso = ((i + 1) / escenas.length) * 100;
+  const esUltima = i === escenas.length - 1;
+
+  useEffect(() => {
+    if (slug && esUltima) {
+      marcarLeccionCompletada(slug);
+    }
+  }, [slug, esUltima]);
 
   return (
     <div style={{ minHeight: "100vh", background: LIENZO.bg, display: "flex", flexDirection: "column", color: LIENZO.fg }}>
@@ -38,7 +46,7 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
         position: "sticky", top: 0, zIndex: 10,
         display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
       }}>
-        <Link href="/aprende" style={{ display: "inline-flex", alignItems: "center", gap: 5, color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
+        <Link href="/aprende" style={{ display: "inline-flex", alignItems: "center", gap: 5, minHeight: 44, color: LIENZO.accent, textDecoration: "none", fontSize: 14, fontWeight: 500 }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
           </svg>
@@ -90,17 +98,18 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
       </main>
 
       <footer style={{
-        padding: "14px 20px",
+        padding: "14px clamp(14px, 3vw, 20px)",
         borderTop: `1px solid ${LIENZO.fgFaint}55`,
         background: "rgba(250,250,247,0.92)", backdropFilter: "blur(12px)",
-        display: "flex", gap: 12, justifyContent: "space-between",
+        display: "flex", gap: 12, justifyContent: "space-between", alignItems: "center", flexWrap: "wrap",
         position: "sticky", bottom: 0,
       }}>
         <button
           onClick={() => setI((v) => Math.max(0, v - 1))}
           disabled={i === 0}
           style={{
-            padding: "10px 18px", background: "transparent",
+            display: "inline-flex", alignItems: "center", justifyContent: "center",
+            minHeight: 44, padding: "10px 18px", background: "transparent",
             border: `1px solid ${LIENZO.fgFaint}`, borderRadius: 999,
             color: i === 0 ? LIENZO.fgFaint : LIENZO.fg,
             fontSize: 14, fontWeight: 500,
@@ -109,11 +118,12 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
         >
           ← Anterior
         </button>
-        {i < escenas.length - 1 ? (
+        {!esUltima ? (
           <button
             onClick={() => setI((v) => v + 1)}
             style={{
-              padding: "10px 24px", background: LIENZO.accent,
+              display: "inline-flex", alignItems: "center", justifyContent: "center",
+              minHeight: 44, padding: "10px 24px", background: LIENZO.accent,
               border: "none", borderRadius: 999, color: "#fff",
               fontSize: 14, fontWeight: 700, cursor: "pointer",
             }}
@@ -121,12 +131,34 @@ export default function LeccionShell({ unidad, tituloUnidad, escenas }: LeccionS
             Siguiente →
           </button>
         ) : (
-          <Link href="/aprende" style={{
-            padding: "10px 24px", background: LIENZO.ok, borderRadius: 999,
-            color: "#fff", fontSize: 14, fontWeight: 700, textDecoration: "none",
-          }}>
-            ✓ Terminar
-          </Link>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8, alignItems: "center" }}>
+            <Link
+              href="/aprende"
+              onClick={() => { if (slug) marcarLeccionCompletada(slug); }}
+              style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                minHeight: 44, padding: "10px 18px", background: "transparent",
+                border: `1px solid ${LIENZO.ok}`, borderRadius: 999,
+                color: LIENZO.ok, fontSize: 14, fontWeight: 700, textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              ✓ Terminar
+            </Link>
+            <Link
+              href="/practicar"
+              onClick={() => { if (slug) marcarLeccionCompletada(slug); }}
+              style={{
+                display: "inline-flex", alignItems: "center", justifyContent: "center",
+                minHeight: 44, padding: "10px 20px", background: LIENZO.accent,
+                borderRadius: 999, color: "#fff",
+                fontSize: 14, fontWeight: 700, textDecoration: "none",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Practicar preguntas →
+            </Link>
+          </div>
         )}
       </footer>
     </div>
