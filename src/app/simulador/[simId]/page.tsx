@@ -442,7 +442,7 @@ export default function SimuladorActivoPage() {
                     }`}>
                       {ETIQUETAS_AREA[g.area] ?? g.area}
                     </div>
-                    <div className="text-[10px] text-neutral-500">
+                    <div className="w-full truncate whitespace-nowrap text-center text-[10px] text-neutral-500">
                       {pasada ? "✓ completada" : actual ? `${respondidasArea}/${g.preguntas.length}` : `${g.preguntas.length} preg.`}
                     </div>
                   </div>
@@ -512,7 +512,7 @@ export default function SimuladorActivoPage() {
                             })}
                           </div>
                         ) : (
-                        <div className="ml-10 grid gap-2 sm:grid-cols-2">
+                        <div className="ml-0 sm:ml-10 grid gap-2 sm:grid-cols-2">
                           {p.opciones.map((op) => {
                             const elegida = sel === op.letra;
                             return (

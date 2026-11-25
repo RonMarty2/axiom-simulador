@@ -8,6 +8,7 @@ import Icono from "../components/Icono";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
 import { etiquetaArea } from "@/lib/axiom/areas";
+import { bloqueDeArea } from "@/lib/axiom/progreso-lecciones";
 
 interface Seccion { seccion: string; promedio: number; intentos: number }
 interface Tema { tema: string; area: string; errores: number; ultima_vez: string }
@@ -95,9 +96,17 @@ export default function DebilidadesPage() {
                 <h2 style={{ fontSize: 16, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 10 }}><span style={{ display: "inline-flex", alignItems: "center", gap: 7 }}><Icono nombre="alerta" tamano={15} /> Tus secciones más débiles</span></h2>
                 <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
                   {debiles.map((s, i) => (
-                    <div key={s.seccion} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 12 }}>
-                      <div style={{ flex: 1 }}>
-                        <div style={{ fontSize: 15, fontWeight: 700, color: "var(--fg-primary)", marginBottom: 4 }}>{etiquetaArea(s.seccion)}</div>
+                    <div key={s.seccion} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                      <div style={{ flex: 1, minWidth: 160 }}>
+                        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8, flexWrap: "wrap", marginBottom: 4 }}>
+                          <div style={{ fontSize: 15, fontWeight: 700, color: "var(--fg-primary)" }}>{etiquetaArea(s.seccion)}</div>
+                          <Link
+                            href={`/aprende?bloque=${bloqueDeArea(s.seccion)}`}
+                            style={{ fontSize: 12, fontWeight: 700, color: "var(--accent)", textDecoration: "none", whiteSpace: "nowrap" }}
+                          >
+                            Estudiar teoría →
+                          </Link>
+                        </div>
                         <div style={{ background: "var(--bg-subtle)", height: 8, borderRadius: 999, overflow: "hidden" }}>
                           <div style={{ width: `${s.promedio}%`, height: "100%", background: colorPorNota(s.promedio) }} />
                         </div>
@@ -116,12 +125,18 @@ export default function DebilidadesPage() {
                 <p style={{ fontSize: 13, color: "var(--fg-muted)", marginBottom: 10 }}>Practica 10 preguntas enfocadas en cada tema.</p>
                 <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
                   {data.temas.slice(0, 8).map((t, i) => (
-                    <div key={`${t.area}-${t.tema}`} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 10 }}>
-                      <div style={{ flex: 1 }}>
+                    <div key={`${t.area}-${t.tema}`} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none", display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                      <div style={{ flex: 1, minWidth: 160 }}>
                         <div style={{ fontSize: 14, fontWeight: 700, color: "var(--fg-primary)" }}>{etiquetaArea(t.tema)}</div>
                         <div style={{ fontSize: 11, color: "var(--fg-muted)", marginTop: 2 }}>
                           {etiquetaArea(t.area)} · {t.errores} {t.errores === 1 ? "error" : "errores"}
                         </div>
+                        <Link
+                          href={`/aprende?bloque=${bloqueDeArea(t.area)}`}
+                          style={{ display: "inline-block", marginTop: 4, fontSize: 12, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}
+                        >
+                          Estudiar teoría →
+                        </Link>
                       </div>
                       <button
                         onClick={() => practicarTema(t.tema)}
@@ -153,7 +168,7 @@ export default function DebilidadesPage() {
             {/* CTA al plan IA Premium */}
             <section>
               <div style={{ background: "linear-gradient(135deg, var(--accent), var(--accent-hover))", borderRadius: 14, padding: 20, color: "white", display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-                <div style={{ display: "flex", color: "var(--fg-muted)" }}><Icono nombre="documento" tamano={32} /></div>
+                <div style={{ display: "flex", color: "var(--accent-fg)" }}><Icono nombre="documento" tamano={32} /></div>
                 <div style={{ flex: 1, minWidth: 220 }}>
                   <div style={{ fontSize: 16, fontWeight: 800 }}>Plan de estudio personalizado con IA</div>
                   <div style={{ fontSize: 13, opacity: 0.9 }}>Después de un simulacro, la IA te arma un plan de 3 días enfocado en lo que más te costó.</div>

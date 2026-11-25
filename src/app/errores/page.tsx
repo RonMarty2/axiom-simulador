@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Icono from "../components/Icono";
 import MathText from "../components/MathText";
 import { etiquetaArea } from "@/lib/axiom/areas";
+import { bloqueDeArea } from "@/lib/axiom/progreso-lecciones";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import AppHeader from "../components/AppHeader";
@@ -87,14 +88,20 @@ export default function ErroresPage() {
                 <div key={area} style={{ background: "var(--bg-card)", borderRadius: 12, padding: 14, border: "1px solid var(--border)" }}>
                   <div style={{ fontSize: 11, fontWeight: 700, color: "var(--fg-muted)", textTransform: "uppercase" }}>{etiquetaArea(area)}</div>
                   <div style={{ fontSize: 24, fontWeight: 800, color: "var(--fg-primary)" }}>{count}</div>
+                  <Link
+                    href={`/aprende?bloque=${bloqueDeArea(area)}`}
+                    style={{ display: "inline-block", marginTop: 6, fontSize: 12, fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}
+                  >
+                    Estudiar teoría
+                  </Link>
                 </div>
               ))}
             </div>
 
             {/* CTA: practicar mis errores */}
-            <div style={{ background: "var(--error)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", gap: 16 }}>
-              <div style={{ display: "flex", color: "white" }}><Icono nombre="errores" tamano={32} /></div>
-              <div style={{ flex: 1 }}>
+            <div style={{ background: "var(--error)", borderRadius: 14, padding: 20, marginBottom: 20, color: "white", display: "flex", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+              <div style={{ display: "flex", color: "white", flexShrink: 0 }}><Icono nombre="errores" tamano={32} /></div>
+              <div style={{ flex: 1, minWidth: "min(180px, 100%)" }}>
                 <div style={{ fontSize: 16, fontWeight: 800 }}>{paraHoy > 0 ? `Tienes ${paraHoy} ${paraHoy === 1 ? "pregunta" : "preguntas"} para repasar hoy` : "Hoy no te toca repasar"}</div>
                 <div style={{ fontSize: 13, opacity: 0.9 }}>
                   {paraHoy > 0 ? "Las mismas preguntas que fallaste, para que no se te olviden."
@@ -102,15 +109,21 @@ export default function ErroresPage() {
                   {dominadasHoy >= 1 && <div style={{ fontWeight: 700, marginTop: 4 }}>{textoDominadas(dominadasHoy)}</div>}
                 </div>
               </div>
-              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "var(--error)", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14 }}>Repasar ahora</Link>}
+              {paraHoy > 0 && <Link href="/practicar?modo=mis_errores" style={{ padding: "10px 20px", background: "white", color: "var(--error)", borderRadius: 8, fontWeight: 800, textDecoration: "none", fontSize: 14, flexShrink: 0, whiteSpace: "nowrap" }}>Repasar ahora</Link>}
             </div>
 
             {/* Lista */}
             <div style={{ background: "var(--bg-card)", borderRadius: 14, border: "1px solid var(--border)" }}>
               {errores.slice(0, 20).map((e, i) => (
                 <div key={e.pregunta_id} style={{ padding: 14, borderTop: i > 0 ? "1px solid var(--border)" : "none" }}>
-                  <div style={{ display: "flex", gap: 8, marginBottom: 6, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)" }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginBottom: 6, fontSize: 11, fontWeight: 700, textTransform: "uppercase", color: "var(--fg-muted)" }}>
                     <span>{etiquetaArea(e.area)}</span> · <span>{e.tema}</span> · <span>Fallada {e.veces_fallado}x</span>
+                    <Link
+                      href={`/aprende?bloque=${bloqueDeArea(e.area)}`}
+                      style={{ marginLeft: "auto", fontSize: 11, fontWeight: 700, color: "var(--accent)", textDecoration: "none", textTransform: "none", whiteSpace: "nowrap" }}
+                    >
+                      Estudiar teoría
+                    </Link>
                   </div>
                   <div style={{ fontSize: 14, color: "var(--fg-primary)" }}><MathText>{recortar(e.enunciado)}</MathText></div>
                 </div>

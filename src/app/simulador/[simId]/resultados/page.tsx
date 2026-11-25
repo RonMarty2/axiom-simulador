@@ -13,6 +13,7 @@ import { guardarSimulador } from "@/lib/sim-storage";
 import { esRespuestaCorrecta } from "@/lib/axiom/respuestas";
 import { esPago } from "@/lib/plan";
 import { etiquetaArea } from "@/lib/axiom/areas";
+import { bloqueDeArea } from "@/lib/axiom/progreso-lecciones";
 import Reconocimiento from "@/app/components/Reconocimiento";
 import ConstanciaSemana from "@/app/components/ConstanciaSemana";
 import { anteriorA } from "@/lib/historial-calculos";
@@ -82,6 +83,7 @@ export default function ResultadosPage() {
   const [meListo, setMeListo] = useState(false);
   const [ahoraISO] = useState(() => new Date().toISOString());
   const [practicandoArea, setPracticandoArea] = useState<string | null>(null);
+  const [errorAccion, setErrorAccion] = useState<string | null>(null);
   const [dominadasDesde, setDominadasDesde] = useState(0);
   const toggleSeccion = (s: string) => {
     setSeccionesAbiertas((prev) => {
@@ -183,6 +185,7 @@ export default function ResultadosPage() {
   const practicarArea = async (area: string) => {
     if (practicandoArea) return;
     setPracticandoArea(area);
+    setErrorAccion(null);
     try {
       const r = await fetch("/api/axiom/simulador", {
         method: "POST",
@@ -199,9 +202,10 @@ export default function ResultadosPage() {
       });
       const data = await r.json();
       if (!r.ok) throw new Error(data.error ?? "Error");
+      guardarSimulador(data.simulador);
       router.push(`/simulador/${data.simulador.id}`);
     } catch (e) {
-      alert(e instanceof Error ? e.message : String(e));
+      setErrorAccion(e instanceof Error ? e.message : String(e));
       setPracticandoArea(null);
     }
   };
@@ -232,6 +236,7 @@ export default function ResultadosPage() {
       });
       const data = await r.json();
       if (!r.ok) throw new Error(data.error ?? "Error");
+      guardarSimulador(data.simulador);
       router.push(`/simulador/${data.simulador.id}`);
     } catch (e) {
       setErrorReforzar(e instanceof Error ? e.message : String(e));
@@ -248,6 +253,19 @@ export default function ResultadosPage() {
     if (!simulador) return [];
     return preguntas.filter((p) => !esRespuestaCorrecta(p, simulador.respuestas_usuario[p.id]));
   }, [simulador, preguntas]);
+
+  const mostrar = useMemo(
+    () => (verSoloFalladas ? falladas : preguntas),
+    [verSoloFalladas, falladas, preguntas]
+  );
+
+  // Auto-abrir todas las secciones la primera vez (para ver errores al instante).
+  useEffect(() => {
+    if (seccionesAutoabiertas || mostrar.length === 0) return;
+    const todas = new Set(mostrar.map((p) => p.area || "general"));
+    setSeccionesAbiertas(todas);
+    setSeccionesAutoabiertas(true);
+  }, [seccionesAutoabiertas, mostrar]);
 
   const decision = useMemo<DecisionRefuerzo | null>(() => {
     if (!simulador || !historialFilas || !meListo) return null;
@@ -353,14 +371,6 @@ export default function ResultadosPage() {
   const incorrectas = preguntas.length - correctas - sinResponder;
 
   const nivel = nivelDeNota(nota);
-  const mostrar = verSoloFalladas ? falladas : preguntas;
-
-  // Auto-abrir todas las secciones la primera vez (para ver errores al instante).
-  if (!seccionesAutoabiertas && mostrar.length > 0) {
-    const todas = new Set(mostrar.map((p) => p.area || "general"));
-    setSeccionesAbiertas(todas);
-    setSeccionesAutoabiertas(true);
-  }
 
   // Feedback personalizado (sin IA): punto débil/fuerte y qué hacer ahora.
   const ordenadasFb = Object.entries(desglose).sort((a, b) => a[1] - b[1]);
@@ -459,6 +469,12 @@ export default function ResultadosPage() {
                   <div className="mt-0.5 text-sm font-semibold text-neutral-900">
                     {etiquetaArea(peor[0])} — {peor[1]}%
                   </div>
+                  <Link
+                    href={`/aprende?bloque=${bloqueDeArea(peor[0])}`}
+                    className="mt-1.5 inline-block text-xs font-semibold text-[var(--accent)] hover:underline"
+                  >
+                    Estudiar teoría →
+                  </Link>
                 </div>
                 <div className="rounded-xl border border-emerald-200 bg-white p-3">
                   <div className="text-xs font-bold uppercase tracking-wider text-emerald-600">{mejor[1] >= 50 ? "Tu fortaleza" : "Lo que mejor te fue"}</div>
@@ -475,6 +491,14 @@ export default function ResultadosPage() {
                 <div className="mt-0.5 text-sm font-semibold text-neutral-900">
                   {ordenadasFb.map(([area, pct]) => `${etiquetaArea(area)} — ${pct}%`).join(" · ")}
                 </div>
+                {ordenadasFb.length === 1 && (
+                  <Link
+                    href={`/aprende?bloque=${bloqueDeArea(peor[0])}`}
+                    className="mt-1.5 inline-block text-xs font-semibold text-[var(--accent)] hover:underline"
+                  >
+                    Estudiar teoría →
+                  </Link>
+                )}
               </div>
             ) : null}
 
@@ -710,6 +734,40 @@ export default function ResultadosPage() {
           </Link>
         </section>
       </div>
+
+      {errorAccion && (
+        <div
+          role="alertdialog"
+          aria-modal="true"
+          aria-labelledby="error-accion-titulo"
+          onClick={() => setErrorAccion(null)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4"
+        >
+          <div
+            onClick={(ev) => ev.stopPropagation()}
+            className="w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl"
+          >
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-red-100 text-red-700">
+                <Icono nombre="alerta" tamano={20} />
+              </div>
+              <h3 id="error-accion-titulo" className="text-lg font-bold text-neutral-900">
+                No se pudo iniciar la práctica
+              </h3>
+            </div>
+            <p className="text-sm text-neutral-700">{errorAccion}</p>
+            <div className="mt-5 flex justify-end">
+              <button
+                type="button"
+                onClick={() => setErrorAccion(null)}
+                className="min-h-[44px] rounded-xl bg-[var(--accent)] px-5 py-2.5 text-sm font-bold text-white"
+              >
+                Entendido
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -721,7 +779,7 @@ function nivelDeNota(nota: number): {
 } {
   if (nota >= 80) {
     return {
-      mensaje: "¡Excelente! Estas en el camino correcto. Sigue así.",
+      mensaje: "¡Excelente! Estás en el camino correcto. Sigue así.",
       fondoClase: "bg-emerald-50 border-emerald-100",
       textoClase: "text-emerald-600",
     };
@@ -790,14 +848,22 @@ function DesgloseArea({ area, porcentaje, onPracticar, cargando, disabled }: { a
         />
       </div>
       {onPracticar && (
-        <button
-          type="button"
-          onClick={onPracticar}
-          disabled={disabled}
-          className="mt-3 w-full rounded-lg border border-[var(--border-hover)] bg-[var(--accent-soft)] px-3 py-2 text-xs font-bold text-[var(--accent)] hover:bg-[var(--accent-soft)] disabled:cursor-wait disabled:opacity-60"
-        >
-          {cargando ? "Preparando..." : "Practicar 10 →"}
-        </button>
+        <div className="mt-3 flex flex-col gap-1.5">
+          <button
+            type="button"
+            onClick={onPracticar}
+            disabled={disabled}
+            className="w-full rounded-lg border border-[var(--border-hover)] bg-[var(--accent-soft)] px-3 py-2 text-xs font-bold text-[var(--accent)] hover:bg-[var(--accent-soft)] disabled:cursor-wait disabled:opacity-60"
+          >
+            {cargando ? "Preparando..." : "Practicar 10 →"}
+          </button>
+          <Link
+            href={`/aprende?bloque=${bloqueDeArea(area)}`}
+            className="py-1 text-center text-xs font-semibold text-[var(--accent)] hover:underline"
+          >
+            Estudiar teoría →
+          </Link>
+        </div>
       )}
     </div>
   );
@@ -946,9 +1012,8 @@ function ExplicacionExpandible({ texto }: { texto: string }) {
         </span>
       </button>
       {abierta && (
-        // line-height holgado: las fracciones \dfrac en línea miden ~35px
-        // contra los ~23px de un renglón normal y se montan entre sí.
-        <div className="px-3 pb-4 text-sm text-neutral-800 sm:px-4" style={{ lineHeight: 2.9 }}>
+        // line-height holgado para fracciones en línea sin estirar explicaciones de texto corrido.
+        <div className="px-3 pb-4 text-sm text-neutral-800 sm:px-4" style={{ lineHeight: 1.85 }}>
           <MathText block>{texto}</MathText>
         </div>
       )}

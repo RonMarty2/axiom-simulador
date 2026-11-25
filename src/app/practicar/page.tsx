@@ -8,7 +8,7 @@ import Icono, { iconoFacultad, type NombreIcono } from "../components/Icono";
 import BackLink from "../components/BackLink";
 import Cargando from "../components/Cargando";
 import { guardarSimulador } from "@/lib/sim-storage";
-import { esPago, LIMITE_SEMANAL_PASADAS } from "@/lib/plan";
+import { esPago, LIMITE_SEMANAL_PASADAS, LIMITE_SEMANAL_PRONOSTICADAS } from "@/lib/plan";
 import { etiquetarExamen } from "@/lib/axiom/etiqueta-examen";
 import { etiquetaArea, type TemaCarrera } from "@/lib/axiom/areas";
 import type { Facultad, Usuario, Materia } from "@/lib/data-store";
@@ -96,9 +96,15 @@ function PracticarInner() {
   const [creando, setCreando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [mostrarUpgrade, setMostrarUpgrade] = useState(false);
-  // Examen pasado elegido, a la espera de que el alumno toque «Empezar»: antes
-  // un toque arrancaba el cronómetro y contaba para el límite sin avisar.
-  const [porConfirmar, setPorConfirmar] = useState<{ examenId: string; titulo: string; detalle: string } | null>(null);
+  // Simulacro elegido (examen pasado, predictivo o mixto), a la espera de que el
+  // alumno toque «Empezar»: evita arrancar el cronómetro y gastar el cupo sin avisar.
+  const [porConfirmar, setPorConfirmar] = useState<{
+    etiqueta: string;
+    titulo: string;
+    detalle: string;
+    config: ConfiguracionSimulacion;
+    textoLimiteGratis: string;
+  } | null>(null);
 
   useEffect(() => {
     fetch("/api/axiom/errores").then((r) => r.json()).then((d) => {
@@ -321,12 +327,20 @@ function PracticarInner() {
                   // decir qué quería; es el mejor momento para ofrecerlo.
                   atenuado={bloqueado}
                   disabled={!bloqueado && sinErrores}
-                  // Mixto no necesita ningún dato más: pedirle un paso extra al
-                  // alumno para confirmar lo que ya eligió es el scroll que
-                  // estamos sacando.
+                  // Predictivo y mixto arrancan el cronómetro de una: pedimos
+                  // confirmación centrada igual que con los exámenes anteriores.
                   onClick={() => {
                     if (bloqueado) { router.push(`/precios?motivo=${m.motivo ?? "limite"}`); return; }
-                    if (m.siguiente) irA(`?modo=${m.v}`); else empezar(base({ modo: m.v }));
+                    if (m.siguiente) { irA(`?modo=${m.v}`); return; }
+                    setPorConfirmar({
+                      etiqueta: m.v === "predictivo" ? "Simulacro de ingreso" : "Mezcla de años",
+                      titulo: m.t,
+                      detalle,
+                      config: base({ modo: m.v }),
+                      textoLimiteGratis: m.v === "predictivo"
+                        ? `Con el plan gratis tienes ${LIMITE_SEMANAL_PRONOSTICADAS} simulacros de examen de ingreso por semana; este cuenta como uno.`
+                        : `Con el plan gratis tienes ${LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados por semana (incluye mezcla de años); este cuenta como uno.`,
+                    });
                   }}
                 />
               );
@@ -380,7 +394,13 @@ function PracticarInner() {
                           icono="documento"
                           titulo={titulo}
                           detalle={detalle}
-                          onClick={() => setPorConfirmar({ examenId: e.id, titulo, detalle })}
+                          onClick={() => setPorConfirmar({
+                            etiqueta: "Examen anterior",
+                            titulo,
+                            detalle,
+                            config: base({ modo: "examen_real", examen_id: e.id }),
+                            textoLimiteGratis: `Con el plan gratis tienes ${LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados por semana; este cuenta como uno.`,
+                          })}
                         />
                       );
                     })}
@@ -506,7 +526,7 @@ function PracticarInner() {
             style={{ background: "var(--bg-card)", borderRadius: 16, padding: 20, width: "100%", maxWidth: 480 }}
           >
             <div style={{ fontSize: 11, fontWeight: 800, color: "var(--accent)", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 6 }}>
-              Examen anterior
+              {porConfirmar.etiqueta}
             </div>
             <h2 id="confirmar-examen-titulo" style={{ fontSize: 19, fontWeight: 800, color: "var(--fg-primary)", marginBottom: 4 }}>
               {porConfirmar.titulo}
@@ -515,7 +535,7 @@ function PracticarInner() {
             <ul style={{ fontSize: 13.5, color: "var(--fg-secondary)", paddingLeft: 18, marginBottom: 18, display: "flex", flexDirection: "column", gap: 4 }}>
               <li>El cronómetro empieza apenas toques «Empezar».</li>
               {!esPagoUser && (
-                <li>Con el plan gratis tienes {LIMITE_SEMANAL_PASADAS} simulacros de exámenes pasados por semana; este cuenta como uno.</li>
+                <li>{porConfirmar.textoLimiteGratis}</li>
               )}
             </ul>
             <div style={{ display: "flex", gap: 10 }}>
@@ -528,7 +548,7 @@ function PracticarInner() {
               </button>
               <button
                 type="button"
-                onClick={() => { const id = porConfirmar.examenId; setPorConfirmar(null); empezar(base({ modo: "examen_real", examen_id: id })); }}
+                onClick={() => { const cfg = porConfirmar.config; setPorConfirmar(null); empezar(cfg); }}
                 style={{ flex: 2, minHeight: 46, borderRadius: 12, border: "none", background: "var(--accent)", color: "white", fontWeight: 800, fontSize: 15, cursor: "pointer" }}
               >
                 Empezar
