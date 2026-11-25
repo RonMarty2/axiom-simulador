@@ -302,20 +302,28 @@ const INVESTIGACION_MED_UNIDADES: Unidad[] = [
   { numero: "05", titulo: "Promoción, prevención y sistema de salud", lecciones: [{ slug: "eds-promocion-sistema-salud", titulo: "Carta de Ottawa, ODS, SAFCI-SUS y niveles de atención" }] },
 ];
 
-const SLUGS_COMPRENSION_MED = new Set([
-  "lectura-comprension",
+const SLUGS_COMPRENSION_MED_EXTRA = new Set([
   "denotacion-connotacion",
   "lexico-contextual",
   "cohesion-textual",
   "plan-redaccion",
 ]);
 
-const COMPRENSION_LECTORA_MED_UNIDADES: Unidad[] = RAZONAMIENTO_VERBAL_UNIDADES
-  .filter((u) => u.lecciones.some((l) => l.slug !== undefined && SLUGS_COMPRENSION_MED.has(l.slug)))
-  .map((u, i) => ({
-    ...u,
-    numero: String(i + 1).padStart(2, "0"),
-  }));
+const COMPRENSION_LECTORA_MED_UNIDADES: Unidad[] = [
+  {
+    numero: "01",
+    titulo: "Comprensión lectora en textos de salud",
+    lecciones: [
+      { slug: "comprension-lectora-salud", titulo: "Las 7 habilidades de lectura crítica aplicadas a salud" },
+    ],
+  },
+  ...RAZONAMIENTO_VERBAL_UNIDADES
+    .filter((u) => u.lecciones.some((l) => l.slug !== undefined && SLUGS_COMPRENSION_MED_EXTRA.has(l.slug)))
+    .map((u, i) => ({
+      ...u,
+      numero: String(i + 2).padStart(2, "0"),
+    })),
+];
 
 const BLOQUES_MEDICINA: Bloque[] = [
   {
