@@ -417,3 +417,7 @@
 25-20:31 sin cuota, espero 30 min
 25-21:01 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-f374 14880
 25-21:08 Error: Fallo al sintetizar bloque tras 100 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=294, rondas_agotadas=16).
+25-21:38 cuota OK, grabando
+25-21:39 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-21:39 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+25-21:39 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
