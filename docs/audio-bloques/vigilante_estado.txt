@@ -435,3 +435,4 @@
 26-08:37 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 26-08:38 Resumen (Tema_07_Biologia_Celular_LITERAL_TTS): total=244, reusados=0, sintetizados=0, copiados_viejos=0, retomados=244, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 26-10:18 Error: Fallo al sintetizar bloque tras 90 intentos con modelo 'gemini-3.1-flash-tts-preview' (rotaciones_429=90, rondas_agotadas=10).
+26-10:48 sin cuota, espero 30 min
