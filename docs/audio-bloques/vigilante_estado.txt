@@ -421,3 +421,10 @@
 25-21:39 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 25-21:39 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
 25-21:39 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+26-07:36 vigilante arranca en RonMarty-f374
+26-07:36 cuota OK, grabando
+26-07:36 Resumen (Tema_03_Biologia_Celular_LITERAL_TTS): total=146, reusados=0, sintetizados=0, copiados_viejos=0, retomados=146, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+26-07:36 Resumen (Tema_05_Biologia_Celular_LITERAL_TTS): total=156, reusados=0, sintetizados=0, copiados_viejos=0, retomados=156, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+26-07:36 Resumen (Tema_06_Biologia_Celular_LITERAL_TTS): total=137, reusados=0, sintetizados=0, copiados_viejos=0, retomados=137, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+26-07:40 Resumen (Tema_07_Biologia_Celular_LITERAL_TTS): total=244, reusados=0, sintetizados=36, copiados_viejos=0, retomados=208, pendientes=0, modelo=gemini-3.1-flash-tts-preview, rotaciones_429=0, rondas_agotadas=0, armado=True
+26-07:40 RonMarty-9fb9 deja de grabar: el candado ahora es de RonMarty-f374 16484
